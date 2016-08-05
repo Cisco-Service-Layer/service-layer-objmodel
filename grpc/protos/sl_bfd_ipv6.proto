@@ -1,0 +1,224 @@
+// @file 
+// @brief Client RPC proto file for BFD RPCs. 
+// Declares calls for adding, deleting, updating, and getting the BFD
+// sessions. 
+// 
+// ----------------------------------------------------------------
+//  Copyright (c) 2016 by Cisco Systems, Inc.
+//  All rights reserved.
+// -----------------------------------------------------------------
+//
+//
+
+syntax = "proto3";
+package service_layer;
+
+import "sl_common_types.proto";
+import "sl_bfd_common.proto";
+
+//@defgroup SLBfdIPv6Oper
+//@ingroup BFD
+//Used for IPv6 BFD registrations, and BFD session operations and notifications.
+//Defines the RPC for adding, deleting, updating, and retrieving BFD sessions.
+//@{
+service SLBfdv6Oper {
+    //@addtogroup SLBfdIPv6Oper
+    //@{
+    //;
+    // BFD Registration Operations.
+    //
+
+    // SLBfdRegMsg.Oper = SL_REGOP_REGISTER:
+    //     Global BFD registration.
+    //     A client Must Register BEFORE BFD sessions can be added/modified.
+    //
+    // SLBfdRegMsg.Oper = SL_REGOP_UNREGISTER:
+    //     Global BFD un-registration.
+    //     This call is used to end all BFD notifications and unregister any
+    //     interest in BFD session configuration.
+    //     This call cleans up all BFD sessions previously requested.
+    //
+    // SLBfdRegMsg.Oper = SL_REGOP_EOF:
+    //     BFD End Of File.
+    //     After Registration, the client is expected to send an EOF
+    //     message to convey the end of replay of the client's known objects.
+    //     This is especially useful under certain restart scenarios when the
+    //     client and the server are trying to synchronize their BFD sessions.
+    rpc SLBfdv6RegOp(SLBfdRegMsg) returns (SLBfdRegMsgRsp);
+
+    // Used to retrieve global BFD info from the server.
+    rpc SLBfdv6Get(SLBfdGetMsg) returns (SLBfdGetMsgRsp);
+
+    // Used to retrieve global BFD stats from the server.
+    rpc SLBfdv6GetStats(SLBfdGetMsg) returns (SLBfdGetStatsMsgRsp);
+
+    //
+    // BFD notifications
+    //
+
+    // This call is used to get a stream of session state notifications.
+    // The caller must maintain the GRPC channel as long as
+    // there is interest in BFD session notifications. Only sessions that were
+    // created through this API will be notified to caller.
+    // This call can be used to get "push" notifications for session states.
+    // It is advised that the caller register for notifications before any
+    // sessions are created to avoid any loss of notifications.
+    rpc SLBfdv6GetNotifStream(SLBfdGetNotifMsg) returns (stream SLBfdv6Notif);
+
+    //
+    // BFD session operations
+    //
+
+    // SLBfdv6Msg.Oper = SL_OBJOP_ADD:
+    //     Add one or multiple BFD sessions.
+    //
+    // SLBfdv6Msg.Oper = SL_OBJOP_UPDATE:
+    //     Update one or multiple BFD sessions.
+    //
+    // SLBfdv6Msg.Oper = SL_OBJOP_DELETE:
+    //     Delete one or multiple BFD sessions.
+    rpc SLBfdv6SessionOp(SLBfdv6Msg) returns (SLBfdv6MsgRsp);
+
+    // Retrieve BFD session attributes and state.
+    // This call can be used to "poll" the current state of a session.
+    rpc SLBfdv6SessionGet(SLBfdv6GetMsg) returns (SLBfdv6GetMsgRsp);
+    //@}
+}
+
+// BFD unique key identifier.
+message SLBfdv6Key {
+    // BFD Session Type
+    SLBfdType Type = 1;
+
+    // VRF name.
+    string VrfName = 2;
+
+    // Neighbor Ipv6 address.
+    bytes NbrAddr = 3;
+
+    // Interface name and handle, needed for single-hop BFD
+    SLInterface Interface = 4;
+
+    // Source Ipv6 address, needed for multi-hop BFD
+    bytes SourceAddr = 5;
+}
+
+// BFD session information.
+message SLBfdv6SessionCfg {
+    // BFD unique key identifier.
+    SLBfdv6Key Key = 1;
+
+    // BFD common features.
+    SLBfdConfigCommon Config = 2;
+}
+
+// Contains a List of BFD session objects.
+message SLBfdv6Msg {
+    // BFD Object Operations
+    SLObjectOp Oper = 1;
+
+    // List of BFD session objects
+    repeated SLBfdv6SessionCfg Sessions = 2;
+}
+
+// BFD result
+message SLBfdv6Res {
+    // Corresponding error code
+    SLErrorStatus ErrStatus = 1;
+
+    // BFD unique key.
+    SLBfdv6Key Key = 2;
+}
+
+// BFD bulk result
+message SLBfdv6MsgRsp {
+    // Summary result of the bulk operation (refer to enum SLErrorStatus)
+    // In general, the StatusSummary implies one of 3 things:
+    // 1. SL_SUCCESS: signifies that the entire bulk operation was successful.
+    //         In this case, the Results list is empty.
+    // 2. SL_SOME_ERR: signifies that the operation failed for one or more
+    //         entries. In this case, Results holds the result for
+    //         each individual entry in the bulk.
+    // 3. SL_RPC_XXX: signifies that the entire bulk operation failed.
+    //         In this case, the Results list is empty.
+    SLErrorStatus StatusSummary = 1;
+
+    // In case of errors, this field indicates which entry in the bulk was
+    // erroneous.
+    repeated SLBfdv6Res Results = 2;
+}
+
+// BFD Get Message
+message SLBfdv6GetMsg {
+    // BFD key.
+    // If the Key is not specified, then request up to the first 
+    // 'EntriesCount' entries.
+    SLBfdv6Key Key = 1;
+
+    // Global BFD event sequence number.
+    // Return all BFD sessions with sequence number >= SeqNum.
+    uint64 SeqNum = 2;
+
+    // Number of entries requested
+    uint32 EntriesCount = 3;
+
+    // if GetNext is FALSE:
+    //     request up to 'EntriesCount' entries starting from the key
+    // If GetNext is TRUE, or if the key exact match is not found:
+    //     request up to 'EntriesCount' entries starting from the key's next
+    bool GetNext = 4;
+}
+
+// BFD Session Config and State info
+message SLBfdv6SessionCfgState {
+    // BFD unique key identifier.
+    SLBfdv6Key Key = 1;
+
+    // BFD common features.
+    SLBfdConfigCommon Config = 2;
+
+    // BFD session State
+    SLBfdCommonState State = 3;
+}
+
+// BFD Get Message Response
+message SLBfdv6GetMsgRsp {
+    // End Of File.
+    // When set to True, it indicates that the server has returned M, where 
+    // M < N, of the original N requested Entries.
+    bool Eof = 1;
+
+    // Status of the Get operation
+    SLErrorStatus ErrStatus = 2;
+
+    // Returned entries as requested in the Get operation.
+    // if Error is SL_SUCCESS, Entries contains the info requested
+    repeated SLBfdv6SessionCfgState Entries = 3;
+}
+
+// BFD Session and State info
+message SLBfdv6SessionState {
+    // BFD unique key identifier.
+    SLBfdv6Key Key = 1;
+
+    // BFD session State
+    SLBfdCommonState State = 2;
+}
+
+// BFD Session and State info Message
+message SLBfdv6Notif {
+    // Event Type
+    SLBfdNotifType EventType = 1;
+
+    // Further info based on EventType
+    oneof Event {
+        // case EventType == SL_BFD_EVENT_TYPE_ERROR:
+        //    => This field carries error info, if any error occurs during 
+        //       notification subscription.
+        SLErrorStatus ErrStatus = 2;
+
+        // case EventType == SL_BFD_EVENT_TYPE_SESSION_STATE:
+        //     => this field carries the session state info
+        SLBfdv6SessionState Session = 3;
+    }
+}

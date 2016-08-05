@@ -1,0 +1,179 @@
+// @file
+// @brief Common definitions for BFD proto files. See RFC 5880 for BFD
+// details. 
+// This file defines basic BFD features, including Tx interval,
+// BFD multiplier, BFD state information, and the response status. 
+//
+// ----------------------------------------------------------------
+//  Copyright (c) 2016 by Cisco Systems, Inc.
+//  All rights reserved.
+// -----------------------------------------------------------------
+//
+//
+
+//@defgroup BFD
+//@brief BFD service definitions.
+
+syntax = "proto3";
+package service_layer;
+
+import "sl_common_types.proto";
+
+// @defgroup SLBFDCommon
+// @ingroup BFD
+// Common IPv4, IPv6 BFD messages.
+// The following messages are used in both IPv4 and IPv6 BFD operations.
+// @{
+//;
+
+// BFD Registration message.
+message SLBfdRegMsg {
+    // Registration Operation
+    SLRegOp Oper = 1;
+}
+
+// BFD Registration response message.
+message SLBfdRegMsgRsp {
+    // Error code
+    SLErrorStatus ErrStatus = 1;
+}
+
+// BFD Globals Get message.
+message SLBfdGetMsg {
+
+}
+
+// BFD Get Global info response message.
+message SLBfdGetMsgRsp {
+    // Error code
+    SLErrorStatus ErrStatus = 1;
+
+    // Max BFD objects within a single BfdMsg message.
+    uint32 MaxBfdSessionCfgPerSLBfdMsg = 2;
+
+    // Min BFD Transmit Interval for single hop sessions.
+    uint32 MinBfdTxIntervalSingleHop = 3;
+
+    // Min BFD session Transmit Interval for multi hop sessions.
+    uint32 MinBfdTxIntervalMultiHop = 4;
+
+    // Min BFD detection multiplier for single hop sessions.
+    uint32 MinBfdDetectMultiplierSingleHop = 5;
+
+    // Min BFD detection multiplier for multi hop sessions.
+    uint32 MinBfdDetectMultiplierMultiHop = 6;
+}
+
+// BFD Get Global Stats response message.
+message SLBfdGetStatsMsgRsp {
+    // Error code
+    SLErrorStatus ErrStatus = 1;
+
+    // Global BFD event sequence number. This is used to order various events
+    // The sequence number is equivalent to a timestamp
+    // This field contains the latest global BFD event sequence number
+    uint64 SeqNum = 2;
+}
+
+// BFD Get Notifications message.
+message SLBfdGetNotifMsg {
+
+}
+
+enum SLBfdType {
+    // Reserved. 0x0
+    SL_BFD_RESERVED = 0x0;
+
+    // Single Hop. 0x1
+    SL_BFD_SINGLE_HOP = 0x1;
+
+    // Multi Hop. 0x2
+    SL_BFD_MULTI_HOP = 0x2;
+}
+
+// Common bidirectional forwarding detection attributes.
+message SLBfdConfigCommon {
+    // Desired Tx interval in micro seconds.
+    // This is the minimum interval that the local system would like to
+    // use when transmitting BFD control packets.
+    // The value zero is reserved.
+    // This can be changed at anytime.
+    uint32 DesiredTxIntUsec = 1;
+
+    // Detection time = DesiredTxIntUsec *
+    //                  DetectMultiplier
+    // Detection time is the period of time without receiving BFD
+    // packets after which the session is determined to have failed.
+    // Note: there may be a different detection time in each direction.
+    uint32 DetectMultiplier = 2;
+}
+
+// BFD state information.
+message SLBfdCommonState {
+    // Global BFD event sequence number. This is used to order various events
+    // The sequence number is equivalent to a timestamp
+    uint64 SeqNum = 1;
+
+    // BFD state information.
+    enum SLBfdStateEnum {
+        // Session never established
+        SL_BFD_SESSION_STATE_UNKNOWN = 0;
+        
+        // Session state UP
+        SL_BFD_SESSION_UP = 1;
+
+        // Session state is down
+        SL_BFD_SESSION_DOWN = 2;
+
+        // Neighbor's config was removed
+        SL_BFD_NEIGHBOR_UNCONFIG = 3;
+    }
+    SLBfdStateEnum Status = 2;
+
+    // BFD diagnostic indicates the reason for the last transition of
+    // the local protocol from up to some other state.
+    enum SLBfdDiagStateEnum {
+        // Diag Value -- Value Meaning
+        // No diagnostic
+        SL_BFD_DIAG_NONE = 0;
+
+        // Control detection time expired
+        SL_BFD_DIAG_DETECT_EXPIRED = 1;
+
+        // Neighbor signaled session down
+        SL_BFD_DIAG_NBR_DOWN = 2;
+
+        // Path down
+        SL_BFD_DIAG_PATH_DOWN = 3;
+
+        // Forwarding plane reset
+        SL_BFD_DIAG_FWDING_PLANE_RESET = 4;
+
+        // Administratively down
+        SL_BFD_DIAG_ADMIN_DOWN = 5;
+
+        // Reverse Concatenated Path Down
+        SL_BFD_DIAG_REV_CONC_PATH_DOWN = 6;
+
+        // Echo Function Failed
+        SL_BFD_DIAG_ECHO_FUNCTION_FAILED = 7;
+
+        // Concatenated Path Down
+        SL_BFD_DIAG_CONC_PATH_DOWN = 8;
+    }
+    SLBfdDiagStateEnum Diag = 3;
+}
+
+// BFD Event Notification types
+enum SLBfdNotifType {
+    // Reserved. 0x0
+    SL_BFD_EVENT_TYPE_RESERVED = 0x0;
+
+    // Error - ErrStatus field elaborates on the error. 0x1
+    SL_BFD_EVENT_TYPE_ERROR = 0x1;
+
+    // BFD Session state event. 0x2
+    SL_BFD_EVENT_TYPE_SESSION_STATE = 0x2;
+}
+
+// @}

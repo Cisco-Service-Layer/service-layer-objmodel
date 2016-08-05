@@ -1,0 +1,379 @@
+{
+    "_copyright_": "All rights reserved. Copyright (c) 2016 by cisco Systems, Inc.", 
+    "batch_ilm": {
+        "correlator": 1, 
+        "ilms": [
+            {
+                "in_label": 16001, 
+                "path": "path_nhlfe_connected", 
+                "range": 10
+            }
+        ]
+    }, 
+    "batch_mpls_lbl_block": {
+        "blocks": [
+            {
+                "block_size": 1000, 
+                "start_label": 16000
+            }
+        ]
+    }, 
+    "batch_v4_bfd_multihop": {
+        "af": 4, 
+        "sessions": [
+            {
+                "cfg_detect_multi": 3, 
+                "cfg_tx_int_usec": 50000, 
+                "nexthop": "nh_r2_l3", 
+                "src_v4_addr": "10.10.10.1", 
+                "src_v6_addr": "10:10:10:10::1", 
+                "type": 2
+            }
+        ]
+    }, 
+    "batch_v4_bfd_singlehop": {
+        "af": 4, 
+        "sessions": [
+            {
+                "cfg_detect_multi": 3, 
+                "cfg_tx_int_usec": 50000, 
+                "nexthop": "nh_r2_l1", 
+                "type": 1
+            }
+        ]
+    }, 
+    "batch_v4_route": {
+        "af": 4, 
+        "batch_count": 5, 
+        "correlator": 1, 
+        "routes": [
+            {
+                "admin_dist": 2, 
+                "path": "path_route_connected", 
+                "prefix": "10.10.11.0", 
+                "prefix_len": 24, 
+                "range": 100, 
+                "tag": 16
+            }
+        ], 
+        "vrf_name": "default"
+    }, 
+    "batch_v4_route_label": {
+        "af": 4, 
+        "batch_count": 5, 
+        "correlator": 2, 
+        "routes": [
+            {
+                "admin_dist": 2, 
+                "local_label": 16100, 
+                "path": "path_nhlfe_connected", 
+                "prefix": "20.10.11.0", 
+                "prefix_len": 24, 
+                "range": 100, 
+                "tag": 16
+            }
+        ], 
+        "vrf_name": "default"
+    }, 
+    "batch_v4_vrf": {
+        "af": 4, 
+        "vrfs": [
+            {
+                "admin_dist": 2, 
+                "purge_time": 120, 
+                "vrf_name": "default"
+            }
+        ]
+    }, 
+    "batch_v6_route": {
+        "af": 6, 
+        "batch_count": 5, 
+        "correlator": 3, 
+        "routes": [
+            {
+                "admin_dist": 2, 
+                "path": "path_route_connected", 
+                "prefix": "10:10:10:11::0", 
+                "prefix_len": 64, 
+                "range": 100, 
+                "tag": 17
+            }
+        ], 
+        "vrf_name": "default"
+    }, 
+    "batch_v6_route_label": {
+        "af": 6, 
+        "batch_count": 5, 
+        "correlator": 4, 
+        "routes": [
+            {
+                "admin_dist": 2, 
+                "local_label": 16100, 
+                "path": "path_nhlfe_connected", 
+                "prefix": "20:10:10:11::0", 
+                "prefix_len": 64, 
+                "range": 100, 
+                "tag": 18
+            }
+        ], 
+        "vrf_name": "default"
+    }, 
+    "batch_v6_vrf": {
+        "af": 6, 
+        "vrfs": [
+            {
+                "admin_dist": 2, 
+                "purge_time": 120, 
+                "vrf_name": "default"
+            }
+        ]
+    }, 
+    "global_init": {
+        "major": 0, 
+        "minor": 0, 
+        "sub_ver": 0
+    }, 
+    "nexthops": {
+        "nh_r2_l1": {
+            "if_name": "GigabitEthernet0/0/0/0", 
+            "v4_addr": "10.10.10.1", 
+            "v6_addr": "10:10:10:10::1", 
+            "vrf_name": "default"
+        }, 
+        "nh_r2_l2": {
+            "if_name": "GigabitEthernet0/0/0/0", 
+            "v4_addr": "10.10.10.2", 
+            "v6_addr": "10:10:10:10::2", 
+            "vrf_name": "default"
+        }, 
+        "nh_r2_l3": {
+            "v4_addr": "10.11.10.2", 
+            "v6_addr": "10:11:10:10::2", 
+            "vrf_name": "default"
+        }, 
+        "nh_r2_l4": {
+            "vrf_name": "default"
+        }
+    }, 
+    "path_route_all_attrs": {
+        "paths": [
+            {
+                "label_action": 1, 
+                "labels": [
+                    1, 
+                    2, 
+                    3
+                ], 
+                "load_metric": 1, 
+                "metric": 1, 
+                "nexthop": "nh_r2_l2", 
+                "p_bitmap": [
+                    0
+                ], 
+                "path_id": 0, 
+                "v4_remote_addr": [
+                    "1.1.3.1", 
+                    "2.2.2.2"
+                ], 
+                "v6_remote_addr": [
+                    "1::1", 
+                    "2::2"
+                ]
+            }
+        ]
+    }, 
+    "paths": {
+        "path_nhlfe_connected": [
+            {
+                "label_action": 1, 
+                "labels": [
+                    3000
+                ], 
+                "load_metric": 1, 
+                "metric": 1, 
+                "nexthop": "nh_r2_l1"
+            }
+        ], 
+        "path_nhlfe_ecmp": [
+            {
+                "label_action": 1, 
+                "labels": [
+                    1000
+                ], 
+                "load_metric": 1, 
+                "metric": 1, 
+                "nexthop": "nh_r2_l1"
+            }, 
+            {
+                "label_action": 1, 
+                "labels": [
+                    2000
+                ], 
+                "load_metric": 1, 
+                "metric": 1, 
+                "nexthop": "nh_r2_l2"
+            }
+        ], 
+        "path_nhlfe_non_connected": [
+            {
+                "label_action": 1, 
+                "labels": [
+                    3000
+                ], 
+                "nexthop": "nh_r2_l3"
+            }
+        ], 
+        "path_route_connected": [
+            {
+                "label_action": 2, 
+                "load_metric": 1, 
+                "metric": 1, 
+                "nexthop": "nh_r2_l1"
+            }
+        ], 
+        "path_route_ecmp": [
+            {
+                "label_action": 2, 
+                "load_metric": 1, 
+                "metric": 1, 
+                "nexthop": "nh_r2_l1"
+            }, 
+            {
+                "label_action": 2, 
+                "load_metric": 1, 
+                "metric": 1, 
+                "nexthop": "nh_r2_l2"
+            }
+        ], 
+        "path_route_lookup": [
+            {
+                "label_action": 3, 
+                "nexthop": "nh_r2_l4"
+            }
+        ], 
+        "path_route_non_connected": [
+            {
+                "label_action": 2, 
+                "nexthop": "nh_r2_l3"
+            }
+        ], 
+        "path_route_primary_with_labels_remote_pq_lfa": [
+            {
+                "label_action": 1, 
+                "labels": [
+                    1000
+                ], 
+                "load_metric": 1, 
+                "metric": 1, 
+                "nexthop": "nh_r2_l1", 
+                "path_id": 1
+            }, 
+            {
+                "label_action": 1, 
+                "labels": [
+                    100, 
+                    200, 
+                    300
+                ], 
+                "load_metric": 1, 
+                "metric": 1, 
+                "nexthop": "nh_r2_l2", 
+                "p_bitmap": [
+                    1
+                ], 
+                "path_id": 66, 
+                "v4_remote_addr": [
+                    "5.1.1.1", 
+                    "2.2.3.2"
+                ], 
+                "v6_remote_addr": [
+                    "1::1", 
+                    "2::2"
+                ]
+            }
+        ], 
+        "path_route_primary_with_lfa": [
+            {
+                "label_action": 1, 
+                "load_metric": 1, 
+                "metric": 1, 
+                "nexthop": "nh_r2_l1", 
+                "path_id": 1
+            }, 
+            {
+                "label_action": 1, 
+                "load_metric": 1, 
+                "metric": 1, 
+                "nexthop": "nh_r2_l2", 
+                "p_bitmap": [
+                    1
+                ], 
+                "path_id": 66
+            }
+        ]
+    }, 
+    "route_get": {
+        "get_exact_route": {
+            "_description": "Get Exact Match", 
+            "correlator": 1, 
+            "count": 1, 
+            "get_next": 0, 
+            "prefix_len": 24, 
+            "v4_prefix": "10.10.11.0", 
+            "v6_prefix": "10:10:10:11::0", 
+            "vrf_name": "default"
+        }, 
+        "get_firstN_routes": {
+            "_description": "Get First N Routes", 
+            "correlator": 1, 
+            "count": 5, 
+            "get_next": 0, 
+            "vrf_name": "default"
+        }, 
+        "get_nextN_include_route": {
+            "_description": "Get Next N Routes starting from specified", 
+            "correlator": 1, 
+            "count": 3, 
+            "get_next": 0, 
+            "prefix_len": 24, 
+            "v4_prefix": "10.10.11.0", 
+            "v6_prefix": "10:10:10:11::0", 
+            "vrf_name": "default"
+        }, 
+        "get_nextN_route": {
+            "_description": "Get Next N Routes following specified", 
+            "correlator": 1, 
+            "count": 3, 
+            "get_next": 1, 
+            "prefix_len": 24, 
+            "v4_prefix": "10.10.11.0", 
+            "v6_prefix": "10:10:10:11::0", 
+            "vrf_name": "default"
+        }
+    }, 
+    "vrf_get": {
+        "get_exact_vrf": {
+            "_description": "Get Exact Match", 
+            "count": 1, 
+            "get_next": 0, 
+            "vrf_name": "default"
+        }, 
+        "get_firstN_vrf": {
+            "_description": "Get First N VRFs", 
+            "count": 5, 
+            "get_next": 0
+        }, 
+        "get_nextN_include_vrf": {
+            "_description": "Get Next N VRFs starting from specified", 
+            "count": 3, 
+            "get_next": 0, 
+            "vrf_name": "default"
+        }, 
+        "get_nextN_vrf": {
+            "_description": "Get Next N VRFs following specified", 
+            "count": 3, 
+            "get_next": 1, 
+            "vrf_name": "default"
+        }
+    }
+}

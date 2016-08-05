@@ -1,0 +1,958 @@
+/*
+ *------------------------------------------------------------------
+ * This file is AUTO-GENERATED. DO NOT EDIT.
+ *
+ * Copyright (c) 2016 by cisco Systems, Inc.
+ * All rights reserved.
+ *------------------------------------------------------------------
+ */
+
+#ifndef __SL_API_ERR_H__
+#define __SL_API_ERR_H__
+
+#define SL_GENERATED_ERR_CODES \
+    /* !!! Common error codes for all RPCs and objects */\
+    /* Success, no errors detected. 0x0. */\
+    SL_SUCCESS = 0x0,\
+    /* Client is not connected. */\
+    /* The client is expected to remain connected after init and version */\
+    /* validation, RPC calls can fail with this error code otherwise. */\
+    /* Refer to RPC SLGlobalInitNotif. 0x1 */\
+    SL_NOT_CONNECTED = 0x1,\
+    /* Operation must be retried. 0x2 */\
+    SL_EAGAIN = 0x2,\
+    /* One or more components does not have sufficient memory. 0x3 */\
+    SL_ENOMEM = 0x3,\
+    /* Too many outstanding requests. 0x4 */\
+    SL_EBUSY = 0x4,\
+    /* One or more arguments are invalid. 0x5 */\
+    SL_EINVAL = 0x5,\
+    /* Unsupported version. 0x6 */\
+    SL_UNSUPPORTED_VER = 0x6,\
+    /* Not Available. 0x7 */\
+    SL_NOT_AVAILABLE = 0x7,\
+    /* Stream mode not supported. 0x8 */\
+    SL_STREAM_NOT_SUPPORTED = 0x8,\
+    /* Operation not supported. 0x9 */\
+    SL_ENOTSUP = 0x9,\
+    /* One or more objects is errored: */\
+    /* Each object must be individually examined. 0xa */\
+    SL_SOME_ERR = 0xa,\
+    /* Operation Timed out. */\
+    /* The result of the operation is undeterministic (success or fail). 0xb */\
+    SL_TIMEOUT = 0xb,\
+    /* Due to some event, the client will no longer receive notification */\
+    /* events on this channel. 0xc */\
+    /* Such events include: */\
+    /* - Notification Session was hijacked by another client. */\
+    SL_NOTIF_TERM = 0xc,\
+    /* !!! Error codes for Client INIT operations. */\
+    /* Offset for INIT errors. 0x500 */\
+    SL_INIT_START_OFFSET = 0x500,\
+    /* Success, no errors detected - clear state. */\
+    /* This error is returned on the first-ever initialization, or, */\
+    /* when a fatal event has occured and all previous state was lost. 0x501 */\
+    SL_INIT_STATE_CLEAR = 0x501,\
+    /* Success, no errors detected - previous state fully recovered. */\
+    /* This error is returned on a client re-initialization with */\
+    /* successful recovery of state. 0x502 */\
+    SL_INIT_STATE_READY = 0x502,\
+    /* Server software incompatible with client software version. 0x503 */\
+    SL_INIT_UNSUPPORTED_VER = 0x503,\
+    /* Initialization request received while server is not ready. 0x504 */\
+    SL_INIT_SERVER_NOT_INITIALIZED = 0x504,\
+    /* Server operational mode change from stream to non-stream */\
+    /* or vice-versa failed. 0x505 */\
+    SL_INIT_SERVER_MODE_CHANGE_FAILED = 0x505,\
+    /* !!! Error codes for VRF operations. */\
+    /* Offset for VRF errors. 0x1000 */\
+    SL_RPC_VRF_START_OFFSET = 0x1000,\
+    /* Operation rejected for ALL VRFs due to too many VRF registration */\
+    /* messages in the request. 0x1001 */\
+    SL_RPC_VRF_TOO_MANY_VRF_REG_MSGS = 0x1001,\
+    /* Operation rejected for all VRFs as server is not initialized. 0x1002 */\
+    SL_RPC_VRF_SERVER_NOT_INITIALIZED = 0x1002,\
+    /* !!! Error codes for VRF objects. */\
+    /* Offset for VRF errors. 0x2000 */\
+    SL_VRF_START_OFFSET = 0x2000,\
+    /* VRF name in the VRF registration message is too long. 0x2001 */\
+    SL_VRF_NAME_TOOLONG = 0x2001,\
+    /* VRF not found during a unregister or EOF. 0x2002 */\
+    SL_VRF_NOT_FOUND = 0x2002,\
+    /* On a VRF registration, Table ID for the VRF is not found. 0x2003 */\
+    SL_VRF_NO_TABLE_ID = 0x2003,\
+    /* VRF add registration message with invalid administrative distance. 0x2004 */\
+    SL_VRF_REG_INVALID_ADMIN_DISTANCE = 0x2004,\
+    /* On a VRF registration, Table cannot be added to persistent memory. 0x2005 */\
+    SL_VRF_TABLE_ADD_ERR = 0x2005,\
+    /* VRF table cannot be registered with RIB. 0x2006 */\
+    SL_VRF_TABLE_REGISTRATION_ERR = 0x2006,\
+    /* VRF table cannot be unregistered with RIB. 0x2007 */\
+    SL_VRF_TABLE_UNREGISTRATION_ERR = 0x2007,\
+    /* VRF table RIB EOF operation error. 0x2008 */\
+    SL_VRF_TABLE_EOF_ERR = 0x2008,\
+    /* VRF registration message does not have a VRF name. 0x2009 */\
+    SL_VRF_REG_VRF_NAME_MISSING = 0x2009,\
+    /* !!! Error codes for Route operations. */\
+    /* Offset for Route operation errors. 0x3000 */\
+    SL_RPC_ROUTE_START_OFFSET = 0x3000,\
+    /* Operation rejected for ALL routes due to too many routes in the */\
+    /* request. 0x3001 */\
+    SL_RPC_ROUTE_TOO_MANY_ROUTES = 0x3001,\
+    /* Operation rejected for ALL routes as the request's VRF name */\
+    /* is too long. 0x3002 */\
+    SL_RPC_ROUTE_VRF_NAME_TOOLONG = 0x3002,\
+    /* Operation rejected for ALL routes as VRF for the given name */\
+    /* is not found. 0x3003 */\
+    SL_RPC_ROUTE_VRF_NOT_FOUND = 0x3003,\
+    /* Operation rejected for ALL routes as VRF's Table ID is not found. */\
+    /* 0x3004 */\
+    SL_RPC_ROUTE_VRF_NO_TABLE = 0x3004,\
+    /* Operation rejected for ALL routes as VRF is not registered with RIB. */\
+    /* 0x3005 */\
+    SL_RPC_ROUTE_VRF_TABLE_NOT_REGISTERED = 0x3005,\
+    /* Route Operation rejected for ALL objects as VRF name is missing. */\
+    /* 0x3006 */\
+    SL_RPC_ROUTE_VRF_NAME_MISSING = 0x3006,\
+    /* Operation rejected for all routes as the RPC request is */\
+    /* not supported for the library's initialization mode. 0x3007 */\
+    SL_RPC_ROUTE_INIT_MODE_INCOMPATIBLE = 0x3007,\
+    /* Operation rejected for all routes as server is not initialized. */\
+    /* 0x3008 */\
+    SL_RPC_ROUTE_SERVER_NOT_INITIALIZED = 0x3008,\
+    /* !!! Error codes for Route objects. */\
+    /* Offset for route errors. 0x4000 */\
+    SL_ROUTE_START_OFFSET = 0x4000,\
+    /* Route add operation requested but no paths were provided. 0x4001 */\
+    SL_ROUTE_ADD_NO_PATHS = 0x4001,\
+    /* Route update operation requested but no paths were provided. 0x4002 */\
+    SL_ROUTE_UPDATE_NO_PATHS = 0x4002,\
+    /* Route's prefix length is invalid. 0x4003 */\
+    SL_ROUTE_INVALID_PREFIX_LEN = 0x4003,\
+    /* Route's admininstrative distance is invalid. 0x4004 */\
+    SL_ROUTE_INVALID_ADMIN_DISTANCE = 0x4004,\
+    /* Route's number of paths exceeds system capabilities. 0x4005 */\
+    SL_ROUTE_INVALID_NUM_PATHS = 0x4005,\
+    /* Size of IPv6 prefix is invalid. 0x4006 */\
+    SL_ROUTE_INVALID_PREFIX_SZ = 0x4006,\
+    /* Route's prefix is invalid. 0x4007 */\
+    SL_ROUTE_INVALID_PREFIX = 0x4007,\
+    /* Route programming failed in RIB as VRF table limit reached. 0x4008 */\
+    SL_ROUTE_ERR_RIB_TABLE_LIMIT_REACHED = 0x4008,\
+    /* RIB route programming failed in RIB due to invalid arguments. 0x4009 */\
+    SL_ROUTE_ERR_RIB_INVALID_ARGS = 0x4009,\
+    /* One or more paths could not be programmed in RIB as VRF */\
+    /* table limit reached. 0x400a */\
+    SL_ROUTE_ERR_RIB_PATH_TABLE_LIMIT = 0x400a,\
+    /* One or more paths could not be programmed in RIB as number of paths */\
+    /* reached system limit. 0x400b */\
+    SL_ROUTE_ERR_RIB_TOOMANYPATHS = 0x400b,\
+    /* This route already exists in the database. 0x400c   */\
+    SL_ROUTE_EEXIST = 0x400c,\
+    /* Route prefix has host bits set. 0x400d */\
+    SL_ROUTE_HOST_BITS_SET = 0x400d,\
+    /* IPv4 Route prefix is a multicast address. 0x400e */\
+    SL_ROUTE_INVALID_PREFIX_MCAST = 0x400e,\
+    /* Route and Path AFI does not match. 0x400f */\
+    SL_ROUTE_PATH_AFI_MISMATCH = 0x400f,\
+    /* Number of primary paths exceeds system capabilities. 0x4010 */\
+    SL_ROUTE_TOOMANY_PRIMARY_PATHS = 0x4010,\
+    /* Number of backup paths exceeds system capabilities. 0x4011 */\
+    SL_ROUTE_TOOMANY_BACKUP_PATHS = 0x4011,\
+    /* The route database is out of memory. 0x4012 */\
+    SL_ROUTE_DB_NOMEM = 0x4012,\
+    /* The route has an invalid local label. 0x4013 */\
+    SL_ROUTE_INVALID_LOCAL_LABEL = 0x4013,\
+    /* !!! Error codes for route path objects. */\
+    /* Offset for route path errors. 0x5000 */\
+    SL_PATH_START_OFFSET = 0x5000,\
+    /* VRF table for the path could not be determined. 0x5001 */\
+    SL_PATH_NH_NO_TABLE = 0x5001,\
+    /* Path next hop interface not found. 0x5002 */\
+    SL_PATH_NH_INTF_NOT_FOUND = 0x5002,\
+    /* Number of labels in the path exceeds system capabilities. 0x5003 */\
+    SL_PATH_INVALID_LABEL_COUNT = 0x5003,\
+    /* Path ID assigned to the path falls outside the supported range. 0x5004 */\
+    SL_PATH_INVALID_ID = 0x5004,\
+    /* Path VRF name exceeds supported length. 0x5005 */\
+    SL_PATH_VRF_NAME_TOOLONG = 0x5005,\
+    /* Path next hop interface name exceeds supported length. 0x5006 */\
+    SL_PATH_NH_INTF_NAME_TOOLONG = 0x5006,\
+    /* Size of next hop IPv6 address is invalid. 0x5007 */\
+    SL_PATH_NH_INVALID_ADDR_SZ = 0x5007,\
+    /* Next hop interface name is missing from path. 0x5008 */\
+    SL_PATH_NH_INF_NAME_MISSING = 0x5008,\
+    /* Path has an invalid next hop address. 0x5009 */\
+    SL_PATH_INVALID_NEXT_HOP_ADDR = 0x5009,\
+    /* Number of remote backup addresses in the path exceeds */\
+    /* system capabilities. 0x500a */\
+    SL_PATH_INVALID_REMOTE_ADDR_COUNT = 0x500a,\
+    /* Size of IPv6 remote backup address is invalid. 0x500b */\
+    SL_PATH_REMOTE_ADDR_INVALID_SZ = 0x500b,\
+    /* Route and Path remote backup address AFI does not match. 0x500c */\
+    SL_PATH_REMOTE_ADDR_AFI_MISMATCH = 0x500c,\
+    /* Path has an invalid protection bitmap. 0x500d */\
+    SL_PATH_INVALID_PROTECTED_BITMAP = 0x500d,\
+    /* Protection bitmap of a backup path refers to a missing path. 0x500e */\
+    SL_PATH_BACKUP_MISSING_PRIMARY_PATH = 0x500e,\
+    /* Too many primary paths with same Path ID. 0x500f */\
+    SL_PATH_PRIMARY_ID_REPEATED = 0x500f,\
+    /* Too many pure backup paths with same Path ID. 0x5010 */\
+    SL_PATH_BACKUP_ID_REPEATED = 0x5010,\
+    /* A primary path has too many backup paths. 0x5011 */\
+    SL_PATH_PRIMARY_TOOMANY_BACKUP_PATHS = 0x5011,\
+    /* A primary path has too many labels. 0x5012 */\
+    SL_PATH_PRIMARY_TOOMANY_LABELS = 0x5012,\
+    /* A primary path has too many remote addresses. 0x5013 */\
+    SL_PATH_PRIMARY_TOOMANY_REMOTE_ADDR = 0x5013,\
+    /* A pure backup remote address is invalid. 0x5014 */\
+    SL_PATH_REMOTE_ADDR_INVALID = 0x5014,\
+    /* Path has an invalid label. 0x5015 */\
+    SL_PATH_INVALID_LABEL = 0x5015,\
+    /* !!! Error codes for BFD opertations. */\
+    /* Offset for BFD operation errors. 0x6000 */\
+    SL_RPC_BFD_START_OFFSET = 0x6000,\
+    /* BFD Operation rejected for ALL Sessions as the BFD Session count */\
+    /* is beyond supported limit. 0x6001 */\
+    SL_RPC_BFD_TOO_MANY_BFD_SESSIONS = 0x6001,\
+    /* BFD Operation rejected due to one or many invalid parameters. 0x6002 */\
+    SL_RPC_BFD_API_BAD_PARAMETER = 0x6002,\
+    /* BFD Operation failed as server is not registered with BFD. 0x6003 */\
+    SL_RPC_BFD_API_CLIENT_NOT_REGISTERED = 0x6003,\
+    /* BFD Operation failed with internal error. 0x6004 */\
+    SL_RPC_BFD_API_INTERNAL_ERROR = 0x6004,\
+    /* BFD Operation rejected as server is not initialized. 0x6005 */\
+    SL_RPC_BFD_SERVER_NOT_INITIALIZED = 0x6005,\
+    /* BFD IPv4 not registered. 0x6006 */\
+    SL_RPC_BFD_V4_NOT_REGISTERED = 0x6006,\
+    /* BFD IPv6 not registered. 0x6007 */\
+    SL_RPC_BFD_V6_NOT_REGISTERED = 0x6007,\
+    /* !!! Error codes for BFD Session objects. */\
+    /* Offset for BFD errors. 0x7000 */\
+    SL_BFD_START_OFFSET = 0x7000,\
+    /* BFD Session's interface name exceeds supported length. 0x7001 */\
+    SL_BFD_INTF_NAME_TOOLONG = 0x7001,\
+    /* BFD Session's interface not found. 0x7002 */\
+    SL_BFD_INTF_NOT_FOUND = 0x7002,\
+    /* BFD Session's tx interval is beyond the supported range. 0x7003 */\
+    SL_BFD_INTERVAL_INVALID = 0x7003,\
+    /* BFD Session's interface name is missing. 0x7004 */\
+    SL_BFD_INTF_NAME_MISSING = 0x7004,\
+    /* BFD Session's neighbor is mcast address. 0x7005 */\
+    SL_BFD_INVALID_NBR_MCAST = 0x7005,\
+    /* BFD Session's neighbor address is invalid. 0x7006 */\
+    SL_BFD_INVALID_NBR = 0x7006,\
+    /* BFD Session's VRF Name is too long. 0x7007 */\
+    SL_BFD_VRF_NAME_TOOLONG = 0x7007,\
+    /* BFD Session's one or more parameters are invalid. 0x7008 */\
+    SL_BFD_BAD_PARAMETER = 0x7008,\
+    /* BFD Session failed with internal error. 0x7009 */\
+    SL_BFD_API_INTERNAL_ERROR = 0x7009,\
+    /* BFD Session's VRF not found. 0x700a */\
+    SL_BFD_VRF_NOT_FOUND = 0x700a,\
+    /* BFD Session's neighbor IPv6 prefix size is invalid. 0x700b */\
+    SL_BFD_INVALID_PREFIX_SIZE = 0x700b,\
+    /* BFD Session type invalid. 0x700c */\
+    SL_BFD_INVALID_SESSION_TYPE = 0x700c,\
+    /* BFD Session's VRF is Invalid. 0x700d */\
+    SL_BFD_INVALID_VRF = 0x700d,\
+    /* BFD Session not found. 0x700e */\
+    SL_BFD_SESSION_NOT_FOUND = 0x700e,\
+    /* BFD Session exists. 0x700f */\
+    SL_BFD_SESSION_EXISTS = 0x700f,\
+    /* BFD Internal database error. 0x7010 */\
+    SL_BFD_INTERNAL_DB_ERROR = 0X7010,\
+    /* BFD Recovery error. 0x7011 */\
+    SL_BFD_RECOVERY_ERROR = 0X7011,\
+    /* !!! Error codes for MPLS opertations. */\
+    /* Offset for MPLS operation errors. 0x8000 */\
+    SL_RPC_MPLS_START_OFFSET = 0x8000,\
+    /* Operation rejected for ALL ILMS due to too many ILMS in the */\
+    /* request. 0x8001 */\
+    SL_RPC_MPLS_ILM_TOO_MANY_ILMS = 0x8001,\
+    /* Operation rejected for all ILMs as server is not initialized. */\
+    /* 0x0x8002 */\
+    SL_RPC_MPLS_SERVER_NOT_INITIALIZED = 0x8002,\
+    /* Operation rejected for all ILMs as the RPC request is */\
+    /* not supported for the library's initialization mode. 0x8003 */\
+    SL_RPC_MPLS_INIT_MODE_INCOMPATIBLE = 0x8003,\
+    /* Operation rejected for ALL label blocks due to too many */\
+    /* label blocks in the request. 0x8004 */\
+    SL_RPC_MPLS_LABEL_BLK_TOO_MANY_LABEL_BLKS = 0x8004,\
+    /* !!!  MPLS ILM Error codes */\
+    /* Offset for MPLS ILM errors. 0x9000 */\
+    SL_ILM_ERR_OFFSET = 0x9000,\
+    /* MPLS ILM add to service layer failed. 0x9001 */\
+    SL_ILM_ADD_FAILED = 0x9001,\
+    /* MPLS ILM add to Label Switching Database failed. 0x9002 */\
+    SL_ILM_LSD_ADD_FAILED = 0x9002,\
+    /* MPLS ILM NHLFE count exceeded max supported number. 0x9003 */\
+    SL_ILM_INVALID_NUM_NHLFE = 0x9003,\
+    /* MPLS ILM label value out of range. 0x9004 */\
+    SL_ILM_INVALID_LABEL = 0x9004,\
+    /* MPLS ILM delete from service layer failed. 0x9005 */\
+    SL_ILM_DELETE_FAILED = 0x9005,\
+    /* MPLS ILM delete from Label Switching Database failed. 0x9006 */\
+    SL_ILM_LSD_DELETE_FAILED = 0x9006,\
+    /* Number of primary NHLFEs exceeds system capabilities. 0x9007 */\
+    SL_ILM_TOOMANY_PRIMARY_NHLFES = 0x9007,\
+    /* Number of backup NHLFEs exceeds system capabilities. 0x9008 */\
+    SL_ILM_TOOMANY_BACKUP_NHLFES = 0x9008,\
+    /* MPLS ILM label alloc failed in Label switching database. 0x9009 */\
+    SL_ILM_LSD_ADD_LABEL_ALLOC_FAILED = 0x9009,\
+    /* MPLS ILM NHLFE attribute invalid. 0x900a */\
+    SL_ILM_LSD_NHLFE_INVALID_ATTRIB = 0x900a,\
+    /* !!!  MPLS NHLFE Error codes */\
+    /* Offset for MPLS NHLFE errors. 0xa000 */\
+    SL_NHLFE_ERR_OFFSET = 0xa000,\
+    /* MPLS NHLFE vrf table could not be determined. 0xa001 */\
+    SL_NHLFE_NH_NO_TABLE = 0xa001,\
+    /* Size of next hop IPv6 address is invalid. 0xa002 */\
+    SL_NHLFE_NH_INVALID_ADDR_SZ = 0xa002,\
+    /* NHLFE has an invalid next hop address. 0xa003 */\
+    SL_NHLFE_INVALID_NEXT_HOP_ADDR = 0xa003,\
+    /* Path VRF name exceeds supported length. 0xa004 */\
+    SL_NHLFE_VRF_NAME_TOOLONG = 0xa004,\
+    /* Next hop interface name is missing from path. 0xa005 */\
+    SL_NHLFE_NH_INF_NAME_MISSING = 0xa005,\
+    /* Interface name exceeds supported length. 0xa006 */\
+    SL_NHLFE_NH_INTF_NAME_TOOLONG = 0xa006,\
+    /* Number of labels in the path exceeds system capabilities. 0xa007 */\
+    SL_NHLFE_INVALID_LABEL_COUNT = 0xa007,\
+    /* Path id is invalid in NHLFE. 0xa008 */\
+    SL_NHLFE_INVALID_PATH_ID = 0xa008,\
+    /* MPLS NHLFE label value out of range. 0xa009 */\
+    SL_NHLFE_INVALID_LABEL = 0xa009,\
+    /* NHLFE has an invalid protection bitmap. 0xa00a */\
+    SL_NHLFE_INVALID_PROTECTED_BITMAP = 0xa00a,\
+    /* Number of remote backup addresses in the NHLFE exceeds */\
+    /* system capabilities. 0xa00b */\
+    SL_NHLFE_INVALID_REMOTE_ADDR_COUNT = 0xa00b,\
+    /* Size of IPv6 remote backup address is invalid. 0xa00c */\
+    SL_NHLFE_REMOTE_ADDR_INVALID_SZ = 0xa00c,\
+    /* A primary NHLFE has too many labels. 0xa00d */\
+    SL_NHLFE_PRIMARY_TOOMANY_LABELS = 0xa00d,\
+    /* A primary NHLFE has too many remote addresses. 0xa00e */\
+    SL_NHLFE_PRIMARY_TOOMANY_REMOTE_ADDR = 0xa00e,\
+    /* Too many pure backup NHLFE with same Path ID. 0xa00f */\
+    SL_NHLFE_BACKUP_ID_REPEATED = 0xa00f,\
+    /* Too many primary NHLFE with same Path ID. 0xa010 */\
+    SL_NHLFE_PRIMARY_ID_REPEATED = 0xa010,\
+    /* Pure backup NHLFE has a empty protected bitmap. 0xa011 */\
+    SL_NHLFE_BACKUP_PROTECTED_BITMAP_EMPTY = 0xa011,\
+    /* A primary NHLFE has too many backup paths. 0xa012 */\
+    SL_NHLFE_PRIMARY_TOOMANY_BACKUP_PATHS = 0xa012,\
+    /* A pure backup remote address is invalid. 0xa013 */\
+    SL_NHLFE_REMOTE_ADDR_INVALID = 0xa013,\
+    /* Protection bitmap of a backup NHLFE refers to a missing path. 0xa014 */\
+    SL_NHLFE_BACKUP_MISSING_PRIMARY_PATH = 0xa014,\
+    /* NHLFE next-hop missing. 0xa015 */\
+    SL_NHLFE_NEXT_HOP_MISSING = 0xa015,\
+    /* Label action specified is invalid. 0xa016 */\
+    SL_NHLFE_LABEL_ACTION_INVALID = 0xa016,\
+    /* NHLFE next hop interface not found. 0xa017 */\
+    SL_NHLFE_NH_INTF_NOT_FOUND = 0xa017,\
+    /* MPLS NHLFE operation failed. 0xa018 */\
+    SL_NHLFE_OPER_FAILED = 0xa018,\
+    /* MPLS NHLFE label action missing. 0xa019 */\
+    SL_NHLFE_LABEL_ACTION_MISSING = 0xa019,\
+    /* !!!  MPLS Label block Error codes */\
+    /* Offset for label block errors. 0xb000 */\
+    SL_LABEL_BLK_ERR_OFFSET = 0xb000,\
+    /* MPLS label block add from Label Switching Database failed. 0xb001 */\
+    SL_LABEL_BLK_LSD_ADD_FAILED = 0xb001,\
+    /* MPLS label block delete from Label Switching Database failed. 0xb002 */\
+    SL_LABEL_BLK_LSD_DELETE_FAILED = 0xb002,\
+    /* MPLS label block not found. 0xb003 */\
+    SL_LABEL_BLK_LSD_LABEL_BLK_NOT_FOUND = 0xb003,\
+    /* MPLS label block in use. 0xb004 */\
+    SL_LABEL_BLK_LSD_LABEL_BLK_IN_USE = 0xb004,\
+    /* MPLS label block attribute invalid. 0xb005 */\
+    SL_LABEL_BLK_LSD_INVALID_ATTRIB = 0xb005,\
+    /* MPLS label block size > max size per block. 0xb006 */\
+    SL_LABEL_BLK_INVALID_BLOCK_SIZE = 0xb006,\
+    /* MPLS label start_label < min label for platform . 0xb007 */\
+    SL_LABEL_BLK_INVALID_START_LABEL = 0xb007,\
+    /* !!!  MPLS Reg error codes */\
+    /* Offset for MPLS registration errors. 0xc000 */\
+    SL_MPLS_REG_ERR_OFFSET = 0xc000,\
+    /* MPLS registration error. 0xc001 */\
+    SL_MPLS_REG_ERR = 0xc001,\
+    /* MPLS unregistration error. 0xc002 */\
+    SL_MPLS_UNREG_ERR = 0xc002,\
+    /* MPLS EOF error. 0xc003 */\
+    SL_MPLS_EOF_ERR = 0xc003,\
+    /* !!! Error codes for Interface operations. */\
+    /* Offset for Interface operation errors. 0xd000 */\
+    SL_RPC_INTF_START_OFFSET = 0xd000,\
+    /* Interface Operation rejected for ALL Sessions as the Interface */\
+    /* Session count is beyond supported limit. 0xd001 */\
+    SL_RPC_INTF_TOO_MANY_INTERFACES = 0xd001,\
+    /* Interface Operation rejected as server is not initialized. 0xd002 */\
+    SL_RPC_INTF_SERVER_NOT_INITIALIZED = 0xd002,\
+    /* !!! Error codes for Interface objects. */\
+    /* Offset for Interface object errors. 0xe000 */\
+    SL_INTF_START_OFFSET = 0xe000,\
+    /* Interface object's interface name missing. 0xe001 */\
+    SL_INTF_INTERFACE_NAME_MISSING = 0xe001,\
+    /* Interface object's interface name exceeds supported length. 0xe002 */\
+    SL_INTF_INTERFACE_NAME_TOOLONG = 0xe002,\
+    /* Interface internal registration error. 0xe003  */\
+    SL_INTF_INTERFACE_REG_ERR = 0xe003,\
+    /* !!! Error codes Reserved for internal errors. */\
+    /* Offset for Internal errors. 0x100000 */\
+    SL_INTERNAL_START_OFFSET = 0x100000,\
+    /*End of Generated error codes*/
+
+
+
+#define SL_GENERATED_ERR_STRINGS \
+    {SL_SUCCESS ,        " Success, no errors detected.  "\
+        },\
+    {SL_NOT_CONNECTED ,\
+        " Client is not connected. "\
+        " The client is expected to remain connected after init and version "\
+        " validation, RPC calls can fail with this error code otherwise. "\
+        " Refer to RPC SLGlobalInitNotif.  "\
+        },\
+    {SL_EAGAIN ,\
+        " Operation must be retried.  "\
+        },\
+    {SL_ENOMEM ,\
+        " One or more components does not have sufficient memory.  "\
+        },\
+    {SL_EBUSY ,\
+        " Too many outstanding requests.  "\
+        },\
+    {SL_EINVAL ,\
+        " One or more arguments are invalid.  "\
+        },\
+    {SL_UNSUPPORTED_VER ,\
+        " Unsupported version.  "\
+        },\
+    {SL_NOT_AVAILABLE ,\
+        " Not Available.  "\
+        },\
+    {SL_STREAM_NOT_SUPPORTED ,\
+        " Stream mode not supported.  "\
+        },\
+    {SL_ENOTSUP ,\
+        " Operation not supported.  "\
+        },\
+    {SL_SOME_ERR ,\
+        " One or more objects is errored: "\
+        " Each object must be individually examined.  "\
+        },\
+    {SL_TIMEOUT ,\
+        " Operation Timed out. "\
+        " The result of the operation is undeterministic (success or fail).  "\
+        },\
+    {SL_NOTIF_TERM ,\
+        " Due to some event, the client will no longer receive notification "\
+        " events on this channel.  "\
+        " Such events include: "\
+        " - Notification Session was hijacked by another client. "\
+        },\
+    {SL_INIT_START_OFFSET ,\
+        " Offset for INIT errors.  "\
+        },\
+    {SL_INIT_STATE_CLEAR ,\
+        " Success, no errors detected - clear state. "\
+        " This error is returned on the first-ever initialization, or, "\
+        " when a fatal event has occured and all previous state was lost.  "\
+        },\
+    {SL_INIT_STATE_READY ,\
+        " Success, no errors detected - previous state fully recovered. "\
+        " This error is returned on a client re-initialization with "\
+        " successful recovery of state.  "\
+        },\
+    {SL_INIT_UNSUPPORTED_VER ,\
+        " Server software incompatible with client software version.  "\
+        },\
+    {SL_INIT_SERVER_NOT_INITIALIZED ,\
+        " Initialization request received while server is not ready.  "\
+        },\
+    {SL_INIT_SERVER_MODE_CHANGE_FAILED ,\
+        " Server operational mode change from stream to non-stream "\
+        " or vice-versa failed.  "\
+        },\
+    {SL_RPC_VRF_START_OFFSET ,\
+        " Offset for VRF errors.  "\
+        },\
+    {SL_RPC_VRF_TOO_MANY_VRF_REG_MSGS ,\
+        " Operation rejected for ALL VRFs due to too many VRF registration "\
+        " messages in the request.  "\
+        },\
+    {SL_RPC_VRF_SERVER_NOT_INITIALIZED ,\
+        " Operation rejected for all VRFs as server is not initialized.  "\
+        },\
+    {SL_VRF_START_OFFSET ,\
+        " Offset for VRF errors.  "\
+        },\
+    {SL_VRF_NAME_TOOLONG ,\
+        " VRF name in the VRF registration message is too long.  "\
+        },\
+    {SL_VRF_NOT_FOUND ,\
+        " VRF not found during a unregister or EOF.  "\
+        },\
+    {SL_VRF_NO_TABLE_ID ,\
+        " On a VRF registration, Table ID for the VRF is not found.  "\
+        },\
+    {SL_VRF_REG_INVALID_ADMIN_DISTANCE ,\
+        " VRF add registration message with invalid administrative distance.  "\
+        },\
+    {SL_VRF_TABLE_ADD_ERR ,\
+        " On a VRF registration, Table cannot be added to persistent memory.  "\
+        },\
+    {SL_VRF_TABLE_REGISTRATION_ERR ,\
+        " VRF table cannot be registered with RIB.  "\
+        },\
+    {SL_VRF_TABLE_UNREGISTRATION_ERR ,\
+        " VRF table cannot be unregistered with RIB.  "\
+        },\
+    {SL_VRF_TABLE_EOF_ERR ,\
+        " VRF table RIB EOF operation error.  "\
+        },\
+    {SL_VRF_REG_VRF_NAME_MISSING ,\
+        " VRF registration message does not have a VRF name.  "\
+        },\
+    {SL_RPC_ROUTE_START_OFFSET ,\
+        " Offset for Route operation errors.  "\
+        },\
+    {SL_RPC_ROUTE_TOO_MANY_ROUTES ,\
+        " Operation rejected for ALL routes due to too many routes in the "\
+        " request.  "\
+        },\
+    {SL_RPC_ROUTE_VRF_NAME_TOOLONG ,\
+        " Operation rejected for ALL routes as the request's VRF name "\
+        " is too long.  "\
+        },\
+    {SL_RPC_ROUTE_VRF_NOT_FOUND ,\
+        " Operation rejected for ALL routes as VRF for the given name "\
+        " is not found.  "\
+        },\
+    {SL_RPC_ROUTE_VRF_NO_TABLE ,\
+        " Operation rejected for ALL routes as VRF's Table ID is not found. "\
+        "  "\
+        },\
+    {SL_RPC_ROUTE_VRF_TABLE_NOT_REGISTERED ,\
+        " Operation rejected for ALL routes as VRF is not registered with RIB. "\
+        "  "\
+        },\
+    {SL_RPC_ROUTE_VRF_NAME_MISSING ,\
+        " Route Operation rejected for ALL objects as VRF name is missing. "\
+        "  "\
+        },\
+    {SL_RPC_ROUTE_INIT_MODE_INCOMPATIBLE ,\
+        " Operation rejected for all routes as the RPC request is "\
+        " not supported for the library's initialization mode.  "\
+        },\
+    {SL_RPC_ROUTE_SERVER_NOT_INITIALIZED ,\
+        " Operation rejected for all routes as server is not initialized. "\
+        "  "\
+        },\
+    {SL_ROUTE_START_OFFSET ,\
+        " Offset for route errors.  "\
+        },\
+    {SL_ROUTE_ADD_NO_PATHS ,\
+        " Route add operation requested but no paths were provided.  "\
+        },\
+    {SL_ROUTE_UPDATE_NO_PATHS ,\
+        " Route update operation requested but no paths were provided.  "\
+        },\
+    {SL_ROUTE_INVALID_PREFIX_LEN ,\
+        " Route's prefix length is invalid.  "\
+        },\
+    {SL_ROUTE_INVALID_ADMIN_DISTANCE ,\
+        " Route's admininstrative distance is invalid.  "\
+        },\
+    {SL_ROUTE_INVALID_NUM_PATHS ,\
+        " Route's number of paths exceeds system capabilities.  "\
+        },\
+    {SL_ROUTE_INVALID_PREFIX_SZ ,\
+        " Size of IPv6 prefix is invalid.  "\
+        },\
+    {SL_ROUTE_INVALID_PREFIX ,\
+        " Route's prefix is invalid.  "\
+        },\
+    {SL_ROUTE_ERR_RIB_TABLE_LIMIT_REACHED ,\
+        " Route programming failed in RIB as VRF table limit reached.  "\
+        },\
+    {SL_ROUTE_ERR_RIB_INVALID_ARGS ,\
+        " RIB route programming failed in RIB due to invalid arguments.  "\
+        },\
+    {SL_ROUTE_ERR_RIB_PATH_TABLE_LIMIT ,\
+        " One or more paths could not be programmed in RIB as VRF "\
+        " table limit reached.  "\
+        },\
+    {SL_ROUTE_ERR_RIB_TOOMANYPATHS ,\
+        " One or more paths could not be programmed in RIB as number of paths "\
+        " reached system limit.  "\
+        },\
+    {SL_ROUTE_EEXIST ,\
+        " This route already exists in the database.  "\
+        },\
+    {SL_ROUTE_HOST_BITS_SET ,\
+        " Route prefix has host bits set.  "\
+        },\
+    {SL_ROUTE_INVALID_PREFIX_MCAST ,\
+        " IPv4 Route prefix is a multicast address.  "\
+        },\
+    {SL_ROUTE_PATH_AFI_MISMATCH ,\
+        " Route and Path AFI does not match.  "\
+        },\
+    {SL_ROUTE_TOOMANY_PRIMARY_PATHS ,\
+        " Number of primary paths exceeds system capabilities.  "\
+        },\
+    {SL_ROUTE_TOOMANY_BACKUP_PATHS ,\
+        " Number of backup paths exceeds system capabilities.  "\
+        },\
+    {SL_ROUTE_DB_NOMEM ,\
+        " The route database is out of memory.  "\
+        },\
+    {SL_ROUTE_INVALID_LOCAL_LABEL ,\
+        " The route has an invalid local label.  "\
+        },\
+    {SL_PATH_START_OFFSET ,\
+        " Offset for route path errors.  "\
+        },\
+    {SL_PATH_NH_NO_TABLE ,\
+        " VRF table for the path could not be determined.  "\
+        },\
+    {SL_PATH_NH_INTF_NOT_FOUND ,\
+        " Path next hop interface not found.  "\
+        },\
+    {SL_PATH_INVALID_LABEL_COUNT ,\
+        " Number of labels in the path exceeds system capabilities.  "\
+        },\
+    {SL_PATH_INVALID_ID ,\
+        " Path ID assigned to the path falls outside the supported range.  "\
+        },\
+    {SL_PATH_VRF_NAME_TOOLONG ,\
+        " Path VRF name exceeds supported length.  "\
+        },\
+    {SL_PATH_NH_INTF_NAME_TOOLONG ,\
+        " Path next hop interface name exceeds supported length.  "\
+        },\
+    {SL_PATH_NH_INVALID_ADDR_SZ ,\
+        " Size of next hop IPv6 address is invalid.  "\
+        },\
+    {SL_PATH_NH_INF_NAME_MISSING ,\
+        " Next hop interface name is missing from path.  "\
+        },\
+    {SL_PATH_INVALID_NEXT_HOP_ADDR ,\
+        " Path has an invalid next hop address.  "\
+        },\
+    {SL_PATH_INVALID_REMOTE_ADDR_COUNT ,\
+        " Number of remote backup addresses in the path exceeds "\
+        " system capabilities.  "\
+        },\
+    {SL_PATH_REMOTE_ADDR_INVALID_SZ ,\
+        " Size of IPv6 remote backup address is invalid.  "\
+        },\
+    {SL_PATH_REMOTE_ADDR_AFI_MISMATCH ,\
+        " Route and Path remote backup address AFI does not match.  "\
+        },\
+    {SL_PATH_INVALID_PROTECTED_BITMAP ,\
+        " Path has an invalid protection bitmap.  "\
+        },\
+    {SL_PATH_BACKUP_MISSING_PRIMARY_PATH ,\
+        " Protection bitmap of a backup path refers to a missing path.  "\
+        },\
+    {SL_PATH_PRIMARY_ID_REPEATED ,\
+        " Too many primary paths with same Path ID.  "\
+        },\
+    {SL_PATH_BACKUP_ID_REPEATED ,\
+        " Too many pure backup paths with same Path ID.  "\
+        },\
+    {SL_PATH_PRIMARY_TOOMANY_BACKUP_PATHS ,\
+        " A primary path has too many backup paths.  "\
+        },\
+    {SL_PATH_PRIMARY_TOOMANY_LABELS ,\
+        " A primary path has too many labels.  "\
+        },\
+    {SL_PATH_PRIMARY_TOOMANY_REMOTE_ADDR ,\
+        " A primary path has too many remote addresses.  "\
+        },\
+    {SL_PATH_REMOTE_ADDR_INVALID ,\
+        " A pure backup remote address is invalid.  "\
+        },\
+    {SL_PATH_INVALID_LABEL ,\
+        " Path has an invalid label.  "\
+        },\
+    {SL_RPC_BFD_START_OFFSET ,\
+        " Offset for BFD operation errors.  "\
+        },\
+    {SL_RPC_BFD_TOO_MANY_BFD_SESSIONS ,\
+        " BFD Operation rejected for ALL Sessions as the BFD Session count "\
+        " is beyond supported limit.  "\
+        },\
+    {SL_RPC_BFD_API_BAD_PARAMETER ,\
+        " BFD Operation rejected due to one or many invalid parameters.  "\
+        },\
+    {SL_RPC_BFD_API_CLIENT_NOT_REGISTERED ,\
+        " BFD Operation failed as server is not registered with BFD.  "\
+        },\
+    {SL_RPC_BFD_API_INTERNAL_ERROR ,\
+        " BFD Operation failed with internal error.  "\
+        },\
+    {SL_RPC_BFD_SERVER_NOT_INITIALIZED ,\
+        " BFD Operation rejected as server is not initialized.  "\
+        },\
+    {SL_RPC_BFD_V4_NOT_REGISTERED ,\
+        " BFD IPv4 not registered.  "\
+        },\
+    {SL_RPC_BFD_V6_NOT_REGISTERED ,\
+        " BFD IPv6 not registered.  "\
+        },\
+    {SL_BFD_START_OFFSET ,\
+        " Offset for BFD errors.  "\
+        },\
+    {SL_BFD_INTF_NAME_TOOLONG ,\
+        " BFD Session's interface name exceeds supported length.  "\
+        },\
+    {SL_BFD_INTF_NOT_FOUND ,\
+        " BFD Session's interface not found.  "\
+        },\
+    {SL_BFD_INTERVAL_INVALID ,\
+        " BFD Session's tx interval is beyond the supported range.  "\
+        },\
+    {SL_BFD_INTF_NAME_MISSING ,\
+        " BFD Session's interface name is missing.  "\
+        },\
+    {SL_BFD_INVALID_NBR_MCAST ,\
+        " BFD Session's neighbor is mcast address.  "\
+        },\
+    {SL_BFD_INVALID_NBR ,\
+        " BFD Session's neighbor address is invalid.  "\
+        },\
+    {SL_BFD_VRF_NAME_TOOLONG ,\
+        " BFD Session's VRF Name is too long.  "\
+        },\
+    {SL_BFD_BAD_PARAMETER ,\
+        " BFD Session's one or more parameters are invalid.  "\
+        },\
+    {SL_BFD_API_INTERNAL_ERROR ,\
+        " BFD Session failed with internal error.  "\
+        },\
+    {SL_BFD_VRF_NOT_FOUND ,\
+        " BFD Session's VRF not found.  "\
+        },\
+    {SL_BFD_INVALID_PREFIX_SIZE ,\
+        " BFD Session's neighbor IPv6 prefix size is invalid.  "\
+        },\
+    {SL_BFD_INVALID_SESSION_TYPE ,\
+        " BFD Session type invalid.  "\
+        },\
+    {SL_BFD_INVALID_VRF ,\
+        " BFD Session's VRF is Invalid.  "\
+        },\
+    {SL_BFD_SESSION_NOT_FOUND ,\
+        " BFD Session not found.  "\
+        },\
+    {SL_BFD_SESSION_EXISTS ,\
+        " BFD Session exists.  "\
+        },\
+    {SL_BFD_INTERNAL_DB_ERROR ,\
+        " BFD Internal database error.  "\
+        },\
+    {SL_BFD_RECOVERY_ERROR ,\
+        " BFD Recovery error.  "\
+        },\
+    {SL_RPC_MPLS_START_OFFSET ,\
+        " Offset for MPLS operation errors.  "\
+        },\
+    {SL_RPC_MPLS_ILM_TOO_MANY_ILMS ,\
+        " Operation rejected for ALL ILMS due to too many ILMS in the "\
+        " request.  "\
+        },\
+    {SL_RPC_MPLS_SERVER_NOT_INITIALIZED ,\
+        " Operation rejected for all ILMs as server is not initialized. "\
+        "  "\
+        },\
+    {SL_RPC_MPLS_INIT_MODE_INCOMPATIBLE ,\
+        " Operation rejected for all ILMs as the RPC request is "\
+        " not supported for the library's initialization mode.  "\
+        },\
+    {SL_RPC_MPLS_LABEL_BLK_TOO_MANY_LABEL_BLKS ,\
+        " Operation rejected for ALL label blocks due to too many "\
+        " label blocks in the request.  "\
+        },\
+    {SL_ILM_ERR_OFFSET ,\
+        " Offset for MPLS ILM errors.  "\
+        },\
+    {SL_ILM_ADD_FAILED ,\
+        " MPLS ILM add to service layer failed.  "\
+        },\
+    {SL_ILM_LSD_ADD_FAILED ,\
+        " MPLS ILM add to Label Switching Database failed.  "\
+        },\
+    {SL_ILM_INVALID_NUM_NHLFE ,\
+        " MPLS ILM NHLFE count exceeded max supported number.  "\
+        },\
+    {SL_ILM_INVALID_LABEL ,\
+        " MPLS ILM label value out of range.  "\
+        },\
+    {SL_ILM_DELETE_FAILED ,\
+        " MPLS ILM delete from service layer failed.  "\
+        },\
+    {SL_ILM_LSD_DELETE_FAILED ,\
+        " MPLS ILM delete from Label Switching Database failed.  "\
+        },\
+    {SL_ILM_TOOMANY_PRIMARY_NHLFES ,\
+        " Number of primary NHLFEs exceeds system capabilities.  "\
+        },\
+    {SL_ILM_TOOMANY_BACKUP_NHLFES ,\
+        " Number of backup NHLFEs exceeds system capabilities.  "\
+        },\
+    {SL_ILM_LSD_ADD_LABEL_ALLOC_FAILED ,\
+        " MPLS ILM label alloc failed in Label switching database.  "\
+        },\
+    {SL_ILM_LSD_NHLFE_INVALID_ATTRIB ,\
+        " MPLS ILM NHLFE attribute invalid.  "\
+        },\
+    {SL_NHLFE_ERR_OFFSET ,\
+        " Offset for MPLS NHLFE errors.  "\
+        },\
+    {SL_NHLFE_NH_NO_TABLE ,\
+        " MPLS NHLFE vrf table could not be determined.  "\
+        },\
+    {SL_NHLFE_NH_INVALID_ADDR_SZ ,\
+        " Size of next hop IPv6 address is invalid.  "\
+        },\
+    {SL_NHLFE_INVALID_NEXT_HOP_ADDR ,\
+        " NHLFE has an invalid next hop address.  "\
+        },\
+    {SL_NHLFE_VRF_NAME_TOOLONG ,\
+        " Path VRF name exceeds supported length.  "\
+        },\
+    {SL_NHLFE_NH_INF_NAME_MISSING ,\
+        " Next hop interface name is missing from path.  "\
+        },\
+    {SL_NHLFE_NH_INTF_NAME_TOOLONG ,\
+        " Interface name exceeds supported length.  "\
+        },\
+    {SL_NHLFE_INVALID_LABEL_COUNT ,\
+        " Number of labels in the path exceeds system capabilities.  "\
+        },\
+    {SL_NHLFE_INVALID_PATH_ID ,\
+        " Path id is invalid in NHLFE.  "\
+        },\
+    {SL_NHLFE_INVALID_LABEL ,\
+        " MPLS NHLFE label value out of range.  "\
+        },\
+    {SL_NHLFE_INVALID_PROTECTED_BITMAP ,\
+        " NHLFE has an invalid protection bitmap.  "\
+        },\
+    {SL_NHLFE_INVALID_REMOTE_ADDR_COUNT ,\
+        " Number of remote backup addresses in the NHLFE exceeds "\
+        " system capabilities.  "\
+        },\
+    {SL_NHLFE_REMOTE_ADDR_INVALID_SZ ,\
+        " Size of IPv6 remote backup address is invalid.  "\
+        },\
+    {SL_NHLFE_PRIMARY_TOOMANY_LABELS ,\
+        " A primary NHLFE has too many labels.  "\
+        },\
+    {SL_NHLFE_PRIMARY_TOOMANY_REMOTE_ADDR ,\
+        " A primary NHLFE has too many remote addresses.  "\
+        },\
+    {SL_NHLFE_BACKUP_ID_REPEATED ,\
+        " Too many pure backup NHLFE with same Path ID.  "\
+        },\
+    {SL_NHLFE_PRIMARY_ID_REPEATED ,\
+        " Too many primary NHLFE with same Path ID.  "\
+        },\
+    {SL_NHLFE_BACKUP_PROTECTED_BITMAP_EMPTY ,\
+        " Pure backup NHLFE has a empty protected bitmap.  "\
+        },\
+    {SL_NHLFE_PRIMARY_TOOMANY_BACKUP_PATHS ,\
+        " A primary NHLFE has too many backup paths.  "\
+        },\
+    {SL_NHLFE_REMOTE_ADDR_INVALID ,\
+        " A pure backup remote address is invalid.  "\
+        },\
+    {SL_NHLFE_BACKUP_MISSING_PRIMARY_PATH ,\
+        " Protection bitmap of a backup NHLFE refers to a missing path.  "\
+        },\
+    {SL_NHLFE_NEXT_HOP_MISSING ,\
+        " NHLFE next-hop missing.  "\
+        },\
+    {SL_NHLFE_LABEL_ACTION_INVALID ,\
+        " Label action specified is invalid.  "\
+        },\
+    {SL_NHLFE_NH_INTF_NOT_FOUND ,\
+        " NHLFE next hop interface not found.  "\
+        },\
+    {SL_NHLFE_OPER_FAILED ,\
+        " MPLS NHLFE operation failed.  "\
+        },\
+    {SL_NHLFE_LABEL_ACTION_MISSING ,\
+        " MPLS NHLFE label action missing.  "\
+        },\
+    {SL_LABEL_BLK_ERR_OFFSET ,\
+        " Offset for label block errors.  "\
+        },\
+    {SL_LABEL_BLK_LSD_ADD_FAILED ,\
+        " MPLS label block add from Label Switching Database failed.  "\
+        },\
+    {SL_LABEL_BLK_LSD_DELETE_FAILED ,\
+        " MPLS label block delete from Label Switching Database failed.  "\
+        },\
+    {SL_LABEL_BLK_LSD_LABEL_BLK_NOT_FOUND ,\
+        " MPLS label block not found.  "\
+        },\
+    {SL_LABEL_BLK_LSD_LABEL_BLK_IN_USE ,\
+        " MPLS label block in use.  "\
+        },\
+    {SL_LABEL_BLK_LSD_INVALID_ATTRIB ,\
+        " MPLS label block attribute invalid.  "\
+        },\
+    {SL_LABEL_BLK_INVALID_BLOCK_SIZE ,\
+        " MPLS label block size > max size per block.  "\
+        },\
+    {SL_LABEL_BLK_INVALID_START_LABEL ,\
+        " MPLS label start_label < min label for platform .  "\
+        },\
+    {SL_MPLS_REG_ERR_OFFSET ,\
+        " Offset for MPLS registration errors.  "\
+        },\
+    {SL_MPLS_REG_ERR ,\
+        " MPLS registration error.  "\
+        },\
+    {SL_MPLS_UNREG_ERR ,\
+        " MPLS unregistration error.  "\
+        },\
+    {SL_MPLS_EOF_ERR ,\
+        " MPLS EOF error.  "\
+        },\
+    {SL_RPC_INTF_START_OFFSET ,\
+        " Offset for Interface operation errors.  "\
+        },\
+    {SL_RPC_INTF_TOO_MANY_INTERFACES ,\
+        " Interface Operation rejected for ALL Sessions as the Interface "\
+        " Session count is beyond supported limit.  "\
+        },\
+    {SL_RPC_INTF_SERVER_NOT_INITIALIZED ,\
+        " Interface Operation rejected as server is not initialized.  "\
+        },\
+    {SL_INTF_START_OFFSET ,\
+        " Offset for Interface object errors.  "\
+        },\
+    {SL_INTF_INTERFACE_NAME_MISSING ,\
+        " Interface object's interface name missing.  "\
+        },\
+    {SL_INTF_INTERFACE_NAME_TOOLONG ,\
+        " Interface object's interface name exceeds supported length.  "\
+        },\
+    {SL_INTF_INTERFACE_REG_ERR ,\
+        " Interface internal registration error.  "\
+        },\
+    {SL_INTERNAL_START_OFFSET ,\
+        " Offset for Internal errors.  "\
+        },\
+ \
+    /*End of Generated Error strings*/
+
+#endif
+

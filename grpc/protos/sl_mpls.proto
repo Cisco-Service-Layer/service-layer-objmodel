@@ -1,0 +1,490 @@
+// @file
+// @brief RPC proto file for MPLS types.
+//
+// ----------------------------------------------------------------
+//  Copyright (c) 2016 by Cisco Systems, Inc.
+//  All rights reserved.
+// -----------------------------------------------------------------
+//
+//
+
+//@defgroup MPLS
+//@brief MPLS service definitions.
+
+syntax = "proto3";
+package service_layer;
+
+import "sl_common_types.proto";
+
+// @defgroup SLMpls
+// @ingroup MPLS
+// Defines RPCs for MPLS Registrations, label block reservations, and ILM entries
+// manipulations.
+// Clients Must register for MPLS operations e.g. Incoming Label Map operations.
+// Once registered, a client Must reserve an MPLS label (dynamic allocation) 
+// before using it as an incoming label map. 
+// Labels are reserved in blocks through the block reservation operations.
+//
+// This file also defines RPC calls for adding, deleting, updating, and querying
+// incoming label map entries (see RFC 3031)
+//
+// Incoming Label Map (ILM): A mapping from incoming labels to 
+// corresponding NHLFEs. It is used when forwarding packets that
+// arrive as labeled packets. 
+//
+// Next Hop Forwarding Entry (NHLE): An entry containing next-hop
+// information and label manipulation instructions. This is also referred to
+// as the ILM Path.
+//
+// @{
+service SLMplsOper {
+    //@addtogroup SLMpls
+    //@{
+    ///;
+
+    //
+    // MPLS Registration operations.
+    //
+
+    // SLMplsRegMsg.Oper = SL_REGOP_REGISTER.
+    //     Global MPLS registration.
+    //     A client Must Register BEFORE MPLS objects can be added/modified.
+    //
+    // SLMplsRegMsg.Oper = SL_REGOP_UNREGISTER.
+    //     Global MPLS un-registration.
+    //     This call is used to end all MPLS notifications and unregister any
+    //     interest in MPLS object configuration.
+    //     This call cleans up all MPLS objects previously requested.
+    //
+    // SLMplsRegMsg.Oper = SL_REGOP_EOF.
+    //     MPLS End Of File.
+    //     After Registration, the client is expected to send an EOF
+    //     message to convey the end of replay of the client's known objects.
+    //     This is especially useful under certain restart scenarios when the
+    //     client and the server are trying to synchronize their MPLS objects.
+    rpc SLMplsRegOp(SLMplsRegMsg) returns (SLMplsRegMsgRsp);
+
+    // Retrieve global MPLS info from the server.
+    rpc SLMplsGet(SLMplsGetMsg) returns (SLMplsGetMsgRsp);
+
+    // Retrieve global MPLS Stats from the server.
+    rpc SLMplsGetStats(SLMplsGetMsg) returns (SLMplsGetStatsMsgRsp);
+
+    //
+    // MPLS Label Block operations
+    //
+
+    // SLMplsLabelBlockMsg.Oper = SL_OBJOP_ADD.
+    //     Add a contiguous label block.
+    //     Add request may fail if the full block cannot be allocated.
+    //
+    // SLMplsLabelBlockMsg.Oper = SL_OBJOP_DELETE.
+    //     Delete a contiguous label block.
+    //     Delete request may fail if the block is in use or the keys don't
+    //     match the keys used on add.
+    rpc SLMplsLabelBlockOp(SLMplsLabelBlockMsg) returns (SLMplsLabelBlockMsgRsp);
+
+    // Retrieve Label Block attributes.
+    rpc SLMplsLabelBlockGet(SLMplsLabelBlockGetMsg) returns (SLMplsLabelBlockGetMsgRsp);
+
+    //
+    // MPLS ILM operations
+    //
+
+    // SLMplsIlmMsg.Oper = SL_OBJOP_ADD:
+    //     Add incoming label map entry.
+    //
+    // SLMplsIlmMsg.Oper = SL_OBJOP_UPDATE:
+    //     Update incoming label map entry.
+    //
+    // SLMplsIlmMsg.Oper = SL_OBJOP_DELETE:
+    //     Delete incoming label map entry.
+    rpc SLMplsIlmOp(SLMplsIlmMsg) returns (SLMplsIlmMsgRsp);
+
+    // Retrieve MPLS ILM entry attributes.
+    rpc SLMplsIlmGet(SLMplsIlmGetMsg) returns (SLMplsIlmGetMsgRsp);
+
+    //
+    // MPLS ILM stream operations
+    //
+
+    // SLMplsIlmMsg.Oper = SL_OBJOP_ADD:
+    //     Add incoming label map entry.
+    //
+    // SLMplsIlmMsg.Oper = SL_OBJOP_UPDATE:
+    //     Update incoming label map entry.
+    //
+    // SLMplsIlmMsg.Oper = SL_OBJOP_DELETE:
+    //     Delete incoming label map entry.
+    rpc SLMplsIlmOpStream(stream SLMplsIlmMsg) returns (stream SLMplsIlmMsgRsp);
+
+    // Stream-Get of incoming label map
+    rpc SLMplsIlmGetStream(stream SLMplsIlmGetMsg) returns (stream SLMplsIlmGetMsgRsp);
+    //@}
+}
+
+// MPLS Label block key.
+// This message is used to relay the label block key attributes.
+message SLMplsLabelBlockKey {
+    // Starting label value of the block.
+    uint32 StartLabel = 1;
+
+    // Label block size.
+    // Block size should be <= SLServerResponse.MaxLabelsPerBlock
+    uint32 LabelBlockSize = 2;
+}
+
+// MPLS Label block batch reservation message.
+// This message is used to send a batch of label block requests.
+// The Oper attributes indicates add or delete operations.
+message SLMplsLabelBlockMsg {
+    // MPLS Label Block Operations.
+    SLObjectOp Oper = 1;
+
+    // List of label blocks requests.
+    // List size should be <= SLServerResponse.MaxLabelBlocksPerRequest
+    repeated SLMplsLabelBlockKey MplsBlocks = 2;
+}
+
+// MPLS Label block reservation result.
+// This message is used to convey the result status corresponding to
+// the label block operation.
+message SLMplsLabelBlockMsgRes {
+    // Corresponding error code.
+    SLErrorStatus ErrStatus = 1;
+
+    // Key for which the error code is reported.
+    SLMplsLabelBlockKey Key = 2;
+}
+
+// MPLS Label block batch reservation response.
+// This message is used to convey a summary status for the batch operation.
+// If there are errors encountered, the Results field would indicate which
+// label block reservation failed.
+message SLMplsLabelBlockMsgRsp {
+    // Summary result of the bulk operation (refer to enum SLErrorStatus)
+    // In general, the StatusSummary implies one of 3 things:
+    // 1. SL_SUCCESS: signifies that the entire bulk operation was successful.
+    //         In this case, the Results list is empty.
+    // 2. SL_SOME_ERR: signifies that the operation failed for one or more
+    //         entries. In this case, Results holds the result for
+    //         each individual entry in the bulk.
+    // 3. SL_RPC_XXX: signifies that the entire bulk operation failed.
+    //         In this case, the Results list is empty.
+    SLErrorStatus StatusSummary = 1;
+
+    // In case of errors, this field indicates which entry in the bulk was
+    // erroneous.
+    repeated SLMplsLabelBlockMsgRes Results = 2;
+}
+
+// MPLS Label Block Get Message
+// This message is used to query previous label block reservations.
+message SLMplsLabelBlockGetMsg {
+    // MPLS Label Block key.
+    // If the Key is not specified, then request up to the first 
+    // 'EntriesCount' entries.
+    SLMplsLabelBlockKey Key = 1;
+
+    // Number of entries requested
+    uint32 EntriesCount = 2;
+
+    // if GetNext is FALSE:
+    //     request up to 'EntriesCount' entries starting from the key
+    // If GetNext is TRUE, or if the key exact match is not found:
+    //     request up to 'EntriesCount' entries starting from the key's next
+    bool GetNext = 3;
+}
+
+// MPLS Label Block get message response
+// This message is the response to the label block query.
+message SLMplsLabelBlockGetMsgRsp {
+    // End Of File.
+    // When set to True, it indicates that the server has returned M, where 
+    // M < N, of the original N requested Entries.
+    bool Eof = 1;
+
+    // Status of the Get operation
+    SLErrorStatus ErrStatus = 2;
+
+    // Returned entries as requested in the Get operation.
+    // if ErrStatus is SL_SUCCESS, Entries contains the info requested
+    repeated SLMplsLabelBlockKey Entries = 3;
+}
+
+// MPLS Registration message.
+// This message is used for MPLS global registration. Clients must register
+// before using any MPLS service.
+message SLMplsRegMsg {
+    // Registration Operation
+    SLRegOp Oper = 1;
+}
+
+// MPLS Registration response message.
+// This message is used to convey the result of the MPLS registration.
+message SLMplsRegMsgRsp {
+    // Error code
+    SLErrorStatus ErrStatus = 1;
+}
+
+// MPLS Get Global Info message.
+// This message is used to query MPLS global capabilities.
+message SLMplsGetMsg {
+
+}
+
+// MPLS Get Global Info response message.
+// This message is used to convey the response to the global capabilities query.
+message SLMplsGetMsgRsp {
+    // Error code
+    SLErrorStatus ErrStatus = 1;
+
+    // Maximum labels that can be allocated/freed per label block.
+    uint32 MaxLabelsPerBlock = 2;
+
+    // Maximum label blocks that can be allocated/freed per MplsLabelBlockMsg
+    uint32 MaxLabelblocksPerLabelblockmsg = 3;
+
+    // Minimum label value that can be reserved on the platform.
+    // MplsLabelBlockKey.StartLabel >= MinStartLabel
+    uint32 MinStartLabel = 4;
+
+    // Label table size for the platform.
+    // MplsLabelBlockKey.StartLabel <= LabelTableSize
+    uint32 LabelTableSize = 5;
+
+    // Max ILM objects within a single IlmMsg message.
+    uint32 MaxIlmPerIlmmsg = 6;
+
+    // Maximum paths per ILM.
+    uint32 MaxPathsPerIlm = 7;
+}
+
+// MPLS Get Global Stats response message.
+// This message is used to convey the response to the MPLS statistics query.
+message SLMplsGetStatsMsgRsp {
+    // Error code
+    SLErrorStatus ErrStatus = 1;
+}
+
+// MPLS label actions.
+enum SlLabelAction {
+    // Reserved. 0x0
+    SL_LABEL_ACTION_RESERVED = 0x0;
+
+    // Swap. 0x1
+    // Swap outer label and forward.
+    // Used at tunnel midpoint for swapping labels.
+    SL_LABEL_ACTION_SWAP = 0x1;
+
+    // Pop and forward. 0x2
+    // Pop outer label and forward.
+    // Used for per CE and per prefix label disposition at egress PE.
+    SL_LABEL_ACTION_POP_AND_FORWARD = 0x2;
+
+    // Pop and lookup IPv4. 0x3
+    // Pop and lookup the IPv4 next header in the specified Vrf.
+    // Used for per vrf labels at egress PE.
+    SL_LABEL_ACTION_POP_AND_LOOKUP_IPV4 = 0x3;
+
+    // Pop and lookup IPv6. 0x4
+    // Pop and lookup the IPv6 next header in the specified Vrf.
+    // Used for per vrf labels at egress PE.
+    SL_LABEL_ACTION_POP_AND_LOOKUP_IPV6 = 0x4;
+}
+
+// MPLS Path (or NHLFE) information.
+// This message holds the ILM path attributes.
+message SLMplsPath {
+    // One of IPv4 or IPv6 address
+    SLIpAddress NexthopAddress = 1;
+
+    // Next hop interface.
+    SLInterface NexthopInterface = 2;
+
+    // ECMP load weight metric
+    uint32 LoadMetric = 3;
+
+    // VRF name
+    string VrfName = 4;
+
+    // Associated MPLS incoming label's action.
+    // The label action dictates what to do with the incoming label.
+    // Possible actions are:
+    //  - SL_LABEL_ACTION_SWAP: SWAP the incoming label with the
+    //      specified LabelStack (see below), and forward the packet.
+    //      Path attributes: NexthopInterface, VrfName, NexthopAddress.
+    //  - SL_LABEL_ACTION_POP_AND_FORWARD: Pop the label, and forward the
+    //      packet to the specified nexthop.
+    //      Path attributes: NexthopInterface, VrfName, NexthopAddress.
+    //  - SL_LABEL_ACTION_POP_AND_LOOKUP: Pop the label, and lookup the
+    //      packet's next header's address in the specified VrfName.
+    //      Path attributes: VrfName.
+    SlLabelAction Action = 5;
+
+    // Path identifier.
+    // Path-id is used to uniquely identify a path when it comes to
+    // protection (Fast Re-Route - FRR). It is not used otherwise.
+    //
+    // In general, for FRR, There are 3 main path attributes:
+    //    1. Primary. The path is the main path to carry traffic.
+    //    2. Protected. A primary path with a configured backup path.
+    //    3. Backup. The path is protecting a primary path.
+    //
+    // NOTE1: a primary path (A) can be simultaneously protected (by B), and
+    // acting as a backup for another path (C).
+    // In this example, the primary path C is protected by A (which happens to
+    // be primary). So the primary path (A) is Primary, Protected, and Backup.
+    //
+    // The following are various path types based on combinations of attributes:
+    //    1. Pure Primary i.e. Not Protected and is not a Backup.
+    //       => PathId is optional. ProtectedPathBitmap = 0x0
+    //    2. Primary and Protected. Path is not a Backup.
+    //       => PathId is mandatory. ProtectedPathBitmap = 0x0
+    //    3. Primary and Not Protected. Path is also a Backup.
+    //       => PathId is mandatory. ProtectedPathBitmap = 0xYYYY
+    //    4. Primary and Protected. Path is also a Backup.
+    //       => PathId is mandatory. ProtectedPathBitmap = 0xYYYY
+    //    5. Pure Backup. Protection is not allowed for backup paths.
+    //       => PathId is mandatory. ProtectedPathBitmap = 0xYYYY
+    //
+    // NOTE2: Pure backup path-id uses a different range than primary path-ids.
+    // The valid range of primary path IDs, and pure backup path IDS are
+    // platform dependent and can be retrieved through the client init message.
+    uint32 PathId = 6;
+
+    // Path protection bitmap.
+    // The bitmap of paths this Backup path is protecting.
+    // Example: If this path is protecting paths with IDs 4, 5 and 6, then
+    // set bitmap to:
+    // 0x38 ==> 0011 1000
+    //            || |-- path 4
+    //            ||-- path 5
+    //            |-- path 6
+    // (1 << (pathId_1 - 1))  | (1 << (pathId_2 - 1)) | (1 << (pathId_3 - 1))
+    repeated uint64 ProtectedPathBitmap = 7;
+
+    // MPLS label stack.
+    // Stack of labels that is pushed when the packet is switched out.
+    // Label size is LSB 20 bits. Forwarding will set EXP, TTL and BOS.
+    // For primary path, typically only 1 label is used.
+    // For backup paths, more than 1 label can be used. If more than one label
+    // is used, remote backup addresses must be specified.
+    // The maximum number of labels pushed for primary and backup are
+    // platform dependent.
+    repeated uint32 LabelStack = 8;
+
+    // MPLS Remote router backup address.
+    // This field is used for backup MPLS path with more than one label,
+    // Typically associated with the PQ routers and remote Loop Free
+    // Alternatives.
+    // For N+1 backup labels, N remote backup addresses must be specified.
+    repeated SLIpAddress RemoteAddress = 9;
+}
+
+// MPLS ILM entry's key.
+// This message defines the Incoming Label Map key attributes.
+message SLMplsIlmKey {
+    // Incoming local label.
+    uint32 LocalLabel = 1;
+}
+
+// MPLS ILM entry.
+// This messages defines an ILM entry.
+message SLMplsIlmEntry {
+    // ILM Key.
+    SLMplsIlmKey Key = 1;
+
+    // List of path (NHLFE) information.
+    repeated SLMplsPath Paths = 2;
+}
+
+// A batch of MPLS ILM entries.
+// This message is used to send a batch of ILM entries.
+message SLMplsIlmMsg {
+    // MPLS Object Operations
+    SLObjectOp Oper = 1;
+
+    // Correlator. This can be used to correlate replies with requests.
+    // The Server simply reflects this field back in the reply.
+    uint64 Correlator = 2;
+
+    // List of ILM entries
+    repeated SLMplsIlmEntry MplsIlms = 3;
+}
+
+// MPLS ILM result.
+// This message is used to convey the result of the ILM entry operation.
+message SLMplsIlmRes {
+    // Corresponding error code
+    SLErrorStatus ErrStatus = 1;
+
+    // ILM Key.
+    SLMplsIlmKey Key = 2;
+}
+
+// MPLS ILM batch response.
+// This message is used to convey the result of the ILM batch operation.
+message SLMplsIlmMsgRsp {
+    // Correlator. This can be used to correlate replies with requests.
+    // The Server simply reflects this field back in the reply.
+    uint64 Correlator = 1;
+
+    // Summary result of the bulk operation (refer to enum SLErrorStatus)
+    // In general, the StatusSummary implies one of 3 things:
+    // 1. SL_SUCCESS: signifies that the entire bulk operation was successful.
+    //         In this case, the Results list is empty.
+    // 2. SL_SOME_ERR: signifies that the operation failed for one or more
+    //         entries. In this case, Results holds the result for
+    //         each individual entry in the bulk.
+    // 3. SL_RPC_XXX: signifies that the entire bulk operation failed.
+    //         In this case, the Results list is empty.
+    SLErrorStatus StatusSummary = 2;
+
+    // In case of errors, this field indicates which entry in the bulk was
+    // erroneous.
+    repeated SLMplsIlmRes Results = 3;
+}
+
+// MPLS ILM Get Message
+// This message is used to query the attributes of an ILM entry.
+message SLMplsIlmGetMsg {
+    // Correlator. This can be used to correlate replies with requests.
+    // The Server simply reflects this field back in the reply.
+    uint64 Correlator = 1;
+
+    // MPLS ILM key.
+    // If the Key is not specified, then request up to the first 
+    // 'EntriesCount' entries.
+    SLMplsIlmKey Key = 2;
+
+    // Number of entries requested
+    uint32 EntriesCount = 3;
+
+    // if GetNext is FALSE:
+    //     request up to 'EntriesCount' entries starting from the key
+    // If GetNext is TRUE, or if the key exact match is not found:
+    //     request up to 'EntriesCount' entries starting from the key's next
+    bool GetNext = 4;
+}
+
+// MPLS ILM Get Message Response.
+message SLMplsIlmGetMsgRsp {
+    // Correlator. This can be used to correlate replies with requests.
+    // The Server simply reflects this field back in the reply.
+    uint64 Correlator = 1;
+
+    // End Of File.
+    // When set to True, it indicates that the server has returned M, where
+    // M < N, of the original N requested Entries.
+    bool Eof = 2;
+
+    // Status of the Get operation.
+    SLErrorStatus ErrStatus = 3;
+
+    // Returned entries as requested in the Get operation.
+    // if ErrStatus is SL_SUCCESS, Entries contains the info requested
+    repeated SLMplsIlmEntry Entries = 4;
+}
+
+//@}
