@@ -16,8 +16,8 @@ In the initial release, the focus is to provide the following verticals:
 
 Each function vertical, e.g. RIB vertical, declares a "template" set of RPCs that is more or less consistently followed throughout other verticals. Some of these template RPCs are explained here:
 
-* (Vertical)Get(): This is mainly used to query certain capabilities for that vertical.
-* (Vertical)GetStats(): This is mainly used to query vertical specific statistics.
+* **(Vertical)Get()**: This is mainly used to query certain capabilities for that vertical.
+* **(Vertical)GetStats()**: This is mainly used to query vertical specific statistics.
 * (Vertical)RegOp(): This is mainly used to Register/Unregister/EoF, which basically notifies the service layer server about interest in the vertical, no interest, and end of file (EoF), respectively. The EoF marker is especially useful on replay of objects in certain restart scenarios.
 * (Vertical)(Object)Op(): This is mainly used to add, delete, update objects. The convention used for add and update, is that, object 'adds' may fail if the object already exists, whereas update can create or simply override the object if it exists.
 * (Vertical)(Object)Get(): This is mainly used to retrieve an object or a set of objects.
