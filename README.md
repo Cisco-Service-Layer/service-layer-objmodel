@@ -20,9 +20,9 @@ Each function vertical, e.g. RIB vertical, declares a "template" set of RPCs tha
 * **(Vertical)GetStats()**: This is mainly used to query vertical specific statistics.
 * **(Vertical)RegOp()**: This is mainly used to Register/Unregister/EoF, which basically notifies the service layer server about interest in the vertical, no interest, and end of file (EoF), respectively. The EoF marker is especially useful on replay of objects in certain restart scenarios.
 * **(Vertical)(Object)Op()**: This is mainly used to add, delete, update objects. The convention used for add and update, is that, object 'adds' may fail if the object already exists, whereas update can create or simply override the object if it exists.
-* (Vertical)(Object)Get(): This is mainly used to retrieve an object or a set of objects.
-* Stream(): This is mainly a GRPC "streaming" version of the non-streaming version of the function.
-* Notif(): This is mainly a streaming notification function, e.g. asynchronous BFD session state events' streaming.
+* **(Vertical)(Object)Get()**: This is mainly used to retrieve an object or a set of objects.
+* **Stream()**: This is mainly a GRPC "streaming" version of the non-streaming version of the function.
+* **Notif()**: This is mainly a streaming notification function, e.g. asynchronous BFD session state events' streaming.
 
 The Service Layer API allows for GRPC unary functions in most cases, and GRPC streaming in other cases. The former can be rendered in both synchronous and asynchronous modes (depends on the language). The latter is used for continuous transmitting and/or receiving of objects in an asynchronous fashion. This is especially useful to boost performance in certain cases. Please refer to the GRPC website for more information: <http://grpc.io>
 In addition, certain RPCs may also allow for batching e.g. creating a number of routes in a single RPC call (in a batch).
