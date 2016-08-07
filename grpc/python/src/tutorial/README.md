@@ -1,5 +1,3 @@
-#
-
 # Python Quick Tutorial
 
 ## Table of Contents
