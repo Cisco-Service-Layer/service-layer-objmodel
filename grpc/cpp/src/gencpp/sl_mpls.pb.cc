@@ -253,8 +253,10 @@ void protobuf_AssignDesc_sl_5fmpls_2eproto() {
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SLMplsGetMsgRsp, _internal_metadata_),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SLMplsGetMsgRsp, _is_default_instance_));
   SLMplsGetStatsMsgRsp_descriptor_ = file->message_type(10);
-  static const int SLMplsGetStatsMsgRsp_offsets_[1] = {
+  static const int SLMplsGetStatsMsgRsp_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SLMplsGetStatsMsgRsp, errstatus_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SLMplsGetStatsMsgRsp, labelblockcount_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SLMplsGetStatsMsgRsp, ilmcount_),
   };
   SLMplsGetStatsMsgRsp_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
@@ -539,61 +541,62 @@ void protobuf_AddDesc_sl_5fmpls_2eproto() {
     "LabelblocksPerLabelblockmsg\030\003 \001(\r\022\025\n\rMin"
     "StartLabel\030\004 \001(\r\022\026\n\016LabelTableSize\030\005 \001(\r"
     "\022\027\n\017MaxIlmPerIlmmsg\030\006 \001(\r\022\026\n\016MaxPathsPer"
-    "Ilm\030\007 \001(\r\"G\n\024SLMplsGetStatsMsgRsp\022/\n\tErr"
+    "Ilm\030\007 \001(\r\"r\n\024SLMplsGetStatsMsgRsp\022/\n\tErr"
     "Status\030\001 \001(\0132\034.service_layer.SLErrorStat"
-    "us\"\275\002\n\nSLMplsPath\0222\n\016NexthopAddress\030\001 \001("
-    "\0132\032.service_layer.SLIpAddress\0224\n\020Nexthop"
-    "Interface\030\002 \001(\0132\032.service_layer.SLInterf"
-    "ace\022\022\n\nLoadMetric\030\003 \001(\r\022\017\n\007VrfName\030\004 \001(\t"
-    "\022,\n\006Action\030\005 \001(\0162\034.service_layer.SlLabel"
-    "Action\022\016\n\006PathId\030\006 \001(\r\022\033\n\023ProtectedPathB"
-    "itmap\030\007 \003(\004\022\022\n\nLabelStack\030\010 \003(\r\0221\n\rRemot"
-    "eAddress\030\t \003(\0132\032.service_layer.SLIpAddre"
-    "ss\"\"\n\014SLMplsIlmKey\022\022\n\nLocalLabel\030\001 \001(\r\"d"
-    "\n\016SLMplsIlmEntry\022(\n\003Key\030\001 \001(\0132\033.service_"
-    "layer.SLMplsIlmKey\022(\n\005Paths\030\002 \003(\0132\031.serv"
-    "ice_layer.SLMplsPath\"|\n\014SLMplsIlmMsg\022\'\n\004"
-    "Oper\030\001 \001(\0162\031.service_layer.SLObjectOp\022\022\n"
-    "\nCorrelator\030\002 \001(\004\022/\n\010MplsIlms\030\003 \003(\0132\035.se"
-    "rvice_layer.SLMplsIlmEntry\"i\n\014SLMplsIlmR"
-    "es\022/\n\tErrStatus\030\001 \001(\0132\034.service_layer.SL"
-    "ErrorStatus\022(\n\003Key\030\002 \001(\0132\033.service_layer"
-    ".SLMplsIlmKey\"\210\001\n\017SLMplsIlmMsgRsp\022\022\n\nCor"
-    "relator\030\001 \001(\004\0223\n\rStatusSummary\030\002 \001(\0132\034.s"
-    "ervice_layer.SLErrorStatus\022,\n\007Results\030\003 "
-    "\003(\0132\033.service_layer.SLMplsIlmRes\"v\n\017SLMp"
-    "lsIlmGetMsg\022\022\n\nCorrelator\030\001 \001(\004\022(\n\003Key\030\002"
-    " \001(\0132\033.service_layer.SLMplsIlmKey\022\024\n\014Ent"
-    "riesCount\030\003 \001(\r\022\017\n\007GetNext\030\004 \001(\010\"\226\001\n\022SLM"
-    "plsIlmGetMsgRsp\022\022\n\nCorrelator\030\001 \001(\004\022\013\n\003E"
-    "of\030\002 \001(\010\022/\n\tErrStatus\030\003 \001(\0132\034.service_la"
-    "yer.SLErrorStatus\022.\n\007Entries\030\004 \003(\0132\035.ser"
-    "vice_layer.SLMplsIlmEntry*\276\001\n\rSlLabelAct"
-    "ion\022\034\n\030SL_LABEL_ACTION_RESERVED\020\000\022\030\n\024SL_"
-    "LABEL_ACTION_SWAP\020\001\022#\n\037SL_LABEL_ACTION_P"
-    "OP_AND_FORWARD\020\002\022\'\n#SL_LABEL_ACTION_POP_"
-    "AND_LOOKUP_IPV4\020\003\022\'\n#SL_LABEL_ACTION_POP"
-    "_AND_LOOKUP_IPV6\020\0042\221\006\n\nSLMplsOper\022J\n\013SLM"
-    "plsRegOp\022\033.service_layer.SLMplsRegMsg\032\036."
-    "service_layer.SLMplsRegMsgRsp\022H\n\tSLMplsG"
-    "et\022\033.service_layer.SLMplsGetMsg\032\036.servic"
-    "e_layer.SLMplsGetMsgRsp\022R\n\016SLMplsGetStat"
-    "s\022\033.service_layer.SLMplsGetMsg\032#.service"
-    "_layer.SLMplsGetStatsMsgRsp\022_\n\022SLMplsLab"
-    "elBlockOp\022\".service_layer.SLMplsLabelBlo"
-    "ckMsg\032%.service_layer.SLMplsLabelBlockMs"
-    "gRsp\022f\n\023SLMplsLabelBlockGet\022%.service_la"
-    "yer.SLMplsLabelBlockGetMsg\032(.service_lay"
-    "er.SLMplsLabelBlockGetMsgRsp\022J\n\013SLMplsIl"
-    "mOp\022\033.service_layer.SLMplsIlmMsg\032\036.servi"
-    "ce_layer.SLMplsIlmMsgRsp\022Q\n\014SLMplsIlmGet"
-    "\022\036.service_layer.SLMplsIlmGetMsg\032!.servi"
-    "ce_layer.SLMplsIlmGetMsgRsp\022T\n\021SLMplsIlm"
-    "OpStream\022\033.service_layer.SLMplsIlmMsg\032\036."
-    "service_layer.SLMplsIlmMsgRsp(\0010\001\022[\n\022SLM"
-    "plsIlmGetStream\022\036.service_layer.SLMplsIl"
-    "mGetMsg\032!.service_layer.SLMplsIlmGetMsgR"
-    "sp(\0010\001b\006proto3", 3294);
+    "us\022\027\n\017LabelBlockCount\030\002 \001(\r\022\020\n\010IlmCount\030"
+    "\003 \001(\r\"\275\002\n\nSLMplsPath\0222\n\016NexthopAddress\030\001"
+    " \001(\0132\032.service_layer.SLIpAddress\0224\n\020Next"
+    "hopInterface\030\002 \001(\0132\032.service_layer.SLInt"
+    "erface\022\022\n\nLoadMetric\030\003 \001(\r\022\017\n\007VrfName\030\004 "
+    "\001(\t\022,\n\006Action\030\005 \001(\0162\034.service_layer.SlLa"
+    "belAction\022\016\n\006PathId\030\006 \001(\r\022\033\n\023ProtectedPa"
+    "thBitmap\030\007 \003(\004\022\022\n\nLabelStack\030\010 \003(\r\0221\n\rRe"
+    "moteAddress\030\t \003(\0132\032.service_layer.SLIpAd"
+    "dress\"\"\n\014SLMplsIlmKey\022\022\n\nLocalLabel\030\001 \001("
+    "\r\"d\n\016SLMplsIlmEntry\022(\n\003Key\030\001 \001(\0132\033.servi"
+    "ce_layer.SLMplsIlmKey\022(\n\005Paths\030\002 \003(\0132\031.s"
+    "ervice_layer.SLMplsPath\"|\n\014SLMplsIlmMsg\022"
+    "\'\n\004Oper\030\001 \001(\0162\031.service_layer.SLObjectOp"
+    "\022\022\n\nCorrelator\030\002 \001(\004\022/\n\010MplsIlms\030\003 \003(\0132\035"
+    ".service_layer.SLMplsIlmEntry\"i\n\014SLMplsI"
+    "lmRes\022/\n\tErrStatus\030\001 \001(\0132\034.service_layer"
+    ".SLErrorStatus\022(\n\003Key\030\002 \001(\0132\033.service_la"
+    "yer.SLMplsIlmKey\"\210\001\n\017SLMplsIlmMsgRsp\022\022\n\n"
+    "Correlator\030\001 \001(\004\0223\n\rStatusSummary\030\002 \001(\0132"
+    "\034.service_layer.SLErrorStatus\022,\n\007Results"
+    "\030\003 \003(\0132\033.service_layer.SLMplsIlmRes\"v\n\017S"
+    "LMplsIlmGetMsg\022\022\n\nCorrelator\030\001 \001(\004\022(\n\003Ke"
+    "y\030\002 \001(\0132\033.service_layer.SLMplsIlmKey\022\024\n\014"
+    "EntriesCount\030\003 \001(\r\022\017\n\007GetNext\030\004 \001(\010\"\226\001\n\022"
+    "SLMplsIlmGetMsgRsp\022\022\n\nCorrelator\030\001 \001(\004\022\013"
+    "\n\003Eof\030\002 \001(\010\022/\n\tErrStatus\030\003 \001(\0132\034.service"
+    "_layer.SLErrorStatus\022.\n\007Entries\030\004 \003(\0132\035."
+    "service_layer.SLMplsIlmEntry*\276\001\n\rSlLabel"
+    "Action\022\034\n\030SL_LABEL_ACTION_RESERVED\020\000\022\030\n\024"
+    "SL_LABEL_ACTION_SWAP\020\001\022#\n\037SL_LABEL_ACTIO"
+    "N_POP_AND_FORWARD\020\002\022\'\n#SL_LABEL_ACTION_P"
+    "OP_AND_LOOKUP_IPV4\020\003\022\'\n#SL_LABEL_ACTION_"
+    "POP_AND_LOOKUP_IPV6\020\0042\221\006\n\nSLMplsOper\022J\n\013"
+    "SLMplsRegOp\022\033.service_layer.SLMplsRegMsg"
+    "\032\036.service_layer.SLMplsRegMsgRsp\022H\n\tSLMp"
+    "lsGet\022\033.service_layer.SLMplsGetMsg\032\036.ser"
+    "vice_layer.SLMplsGetMsgRsp\022R\n\016SLMplsGetS"
+    "tats\022\033.service_layer.SLMplsGetMsg\032#.serv"
+    "ice_layer.SLMplsGetStatsMsgRsp\022_\n\022SLMpls"
+    "LabelBlockOp\022\".service_layer.SLMplsLabel"
+    "BlockMsg\032%.service_layer.SLMplsLabelBloc"
+    "kMsgRsp\022f\n\023SLMplsLabelBlockGet\022%.service"
+    "_layer.SLMplsLabelBlockGetMsg\032(.service_"
+    "layer.SLMplsLabelBlockGetMsgRsp\022J\n\013SLMpl"
+    "sIlmOp\022\033.service_layer.SLMplsIlmMsg\032\036.se"
+    "rvice_layer.SLMplsIlmMsgRsp\022Q\n\014SLMplsIlm"
+    "Get\022\036.service_layer.SLMplsIlmGetMsg\032!.se"
+    "rvice_layer.SLMplsIlmGetMsgRsp\022T\n\021SLMpls"
+    "IlmOpStream\022\033.service_layer.SLMplsIlmMsg"
+    "\032\036.service_layer.SLMplsIlmMsgRsp(\0010\001\022[\n\022"
+    "SLMplsIlmGetStream\022\036.service_layer.SLMpl"
+    "sIlmGetMsg\032!.service_layer.SLMplsIlmGetM"
+    "sgRsp(\0010\001b\006proto3", 3337);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "sl_mpls.proto", &protobuf_RegisterTypes);
   SLMplsLabelBlockKey::default_instance_ = new SLMplsLabelBlockKey();
@@ -3895,6 +3898,8 @@ void SLMplsGetMsgRsp::clear_maxpathsperilm() {
 
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
 const int SLMplsGetStatsMsgRsp::kErrStatusFieldNumber;
+const int SLMplsGetStatsMsgRsp::kLabelBlockCountFieldNumber;
+const int SLMplsGetStatsMsgRsp::kIlmCountFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 SLMplsGetStatsMsgRsp::SLMplsGetStatsMsgRsp()
@@ -3920,6 +3925,8 @@ void SLMplsGetStatsMsgRsp::SharedCtor() {
     _is_default_instance_ = false;
   _cached_size_ = 0;
   errstatus_ = NULL;
+  labelblockcount_ = 0u;
+  ilmcount_ = 0u;
 }
 
 SLMplsGetStatsMsgRsp::~SLMplsGetStatsMsgRsp() {
@@ -3959,8 +3966,21 @@ SLMplsGetStatsMsgRsp* SLMplsGetStatsMsgRsp::New(::google::protobuf::Arena* arena
 }
 
 void SLMplsGetStatsMsgRsp::Clear() {
+#define ZR_HELPER_(f) reinterpret_cast<char*>(\
+  &reinterpret_cast<SLMplsGetStatsMsgRsp*>(16)->f)
+
+#define ZR_(first, last) do {\
+  ::memset(&first, 0,\
+           ZR_HELPER_(last) - ZR_HELPER_(first) + sizeof(last));\
+} while (0)
+
+  ZR_(labelblockcount_, ilmcount_);
   if (GetArenaNoVirtual() == NULL && errstatus_ != NULL) delete errstatus_;
   errstatus_ = NULL;
+
+#undef ZR_HELPER_
+#undef ZR_
+
 }
 
 bool SLMplsGetStatsMsgRsp::MergePartialFromCodedStream(
@@ -3978,6 +3998,36 @@ bool SLMplsGetStatsMsgRsp::MergePartialFromCodedStream(
         if (tag == 10) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
                input, mutable_errstatus()));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(16)) goto parse_LabelBlockCount;
+        break;
+      }
+
+      // optional uint32 LabelBlockCount = 2;
+      case 2: {
+        if (tag == 16) {
+         parse_LabelBlockCount:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &labelblockcount_)));
+
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(24)) goto parse_IlmCount;
+        break;
+      }
+
+      // optional uint32 IlmCount = 3;
+      case 3: {
+        if (tag == 24) {
+         parse_IlmCount:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &ilmcount_)));
+
         } else {
           goto handle_unusual;
         }
@@ -4015,6 +4065,16 @@ void SLMplsGetStatsMsgRsp::SerializeWithCachedSizes(
       1, *this->errstatus_, output);
   }
 
+  // optional uint32 LabelBlockCount = 2;
+  if (this->labelblockcount() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(2, this->labelblockcount(), output);
+  }
+
+  // optional uint32 IlmCount = 3;
+  if (this->ilmcount() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(3, this->ilmcount(), output);
+  }
+
   // @@protoc_insertion_point(serialize_end:service_layer.SLMplsGetStatsMsgRsp)
 }
 
@@ -4026,6 +4086,16 @@ void SLMplsGetStatsMsgRsp::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
         1, *this->errstatus_, target);
+  }
+
+  // optional uint32 LabelBlockCount = 2;
+  if (this->labelblockcount() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(2, this->labelblockcount(), target);
+  }
+
+  // optional uint32 IlmCount = 3;
+  if (this->ilmcount() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(3, this->ilmcount(), target);
   }
 
   // @@protoc_insertion_point(serialize_to_array_end:service_layer.SLMplsGetStatsMsgRsp)
@@ -4040,6 +4110,20 @@ int SLMplsGetStatsMsgRsp::ByteSize() const {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
         *this->errstatus_);
+  }
+
+  // optional uint32 LabelBlockCount = 2;
+  if (this->labelblockcount() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->labelblockcount());
+  }
+
+  // optional uint32 IlmCount = 3;
+  if (this->ilmcount() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->ilmcount());
   }
 
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
@@ -4064,6 +4148,12 @@ void SLMplsGetStatsMsgRsp::MergeFrom(const SLMplsGetStatsMsgRsp& from) {
   if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
   if (from.has_errstatus()) {
     mutable_errstatus()->::service_layer::SLErrorStatus::MergeFrom(from.errstatus());
+  }
+  if (from.labelblockcount() != 0) {
+    set_labelblockcount(from.labelblockcount());
+  }
+  if (from.ilmcount() != 0) {
+    set_ilmcount(from.ilmcount());
   }
 }
 
@@ -4090,6 +4180,8 @@ void SLMplsGetStatsMsgRsp::Swap(SLMplsGetStatsMsgRsp* other) {
 }
 void SLMplsGetStatsMsgRsp::InternalSwap(SLMplsGetStatsMsgRsp* other) {
   std::swap(errstatus_, other->errstatus_);
+  std::swap(labelblockcount_, other->labelblockcount_);
+  std::swap(ilmcount_, other->ilmcount_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
 }
@@ -4140,6 +4232,34 @@ void SLMplsGetStatsMsgRsp::set_allocated_errstatus(::service_layer::SLErrorStatu
     
   }
   // @@protoc_insertion_point(field_set_allocated:service_layer.SLMplsGetStatsMsgRsp.ErrStatus)
+}
+
+// optional uint32 LabelBlockCount = 2;
+void SLMplsGetStatsMsgRsp::clear_labelblockcount() {
+  labelblockcount_ = 0u;
+}
+ ::google::protobuf::uint32 SLMplsGetStatsMsgRsp::labelblockcount() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLMplsGetStatsMsgRsp.LabelBlockCount)
+  return labelblockcount_;
+}
+ void SLMplsGetStatsMsgRsp::set_labelblockcount(::google::protobuf::uint32 value) {
+  
+  labelblockcount_ = value;
+  // @@protoc_insertion_point(field_set:service_layer.SLMplsGetStatsMsgRsp.LabelBlockCount)
+}
+
+// optional uint32 IlmCount = 3;
+void SLMplsGetStatsMsgRsp::clear_ilmcount() {
+  ilmcount_ = 0u;
+}
+ ::google::protobuf::uint32 SLMplsGetStatsMsgRsp::ilmcount() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLMplsGetStatsMsgRsp.IlmCount)
+  return ilmcount_;
+}
+ void SLMplsGetStatsMsgRsp::set_ilmcount(::google::protobuf::uint32 value) {
+  
+  ilmcount_ = value;
+  // @@protoc_insertion_point(field_set:service_layer.SLMplsGetStatsMsgRsp.IlmCount)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS

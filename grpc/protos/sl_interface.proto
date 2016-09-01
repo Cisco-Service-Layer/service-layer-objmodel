@@ -104,6 +104,13 @@ message SLInterfaceGlobalsGetMsgRsp {
 message SLInterfaceGlobalsGetStatsMsgRsp {
     // Error code
     SLErrorStatus ErrStatus = 1;
+
+    // Global Interface event sequence number.
+    // The sequence number is equivalent to a timestamp
+    uint64 SeqNum = 2;
+
+    // Num Interface notification requests added through the service layer.
+    uint32 InterfaceNotifCount = 3;
 }
 
 // Interface Get message
@@ -123,23 +130,29 @@ message SLInterfaceGetMsg {
     bool GetNext = 3;
 }
 
+// The current state of the interface.
+enum SLInterfaceState {
+    // State unknown.
+    SL_IF_STATE_UNKNOWN = 0;
+
+    // State Operationally down.
+    SL_IF_STATE_DOWN = 1;
+
+    // State Operationally up.
+    SL_IF_STATE_UP = 2;
+}
+
 // Interface Get Message result.
 message SLInterfaceInfoMsg {
     // Interface info
     SLInterface SLIfInfo = 1;
 
-    // The current state of the interface.
-    enum SLInterfaceState {
-        // State unknown.
-        SL_IF_STATE_UNKNOWN = 0;
-
-        // State Operationally down.
-        SL_IF_STATE_DOWN = 1;
-
-        // State Operationally up.
-        SL_IF_STATE_UP = 2;
-    }
+    // Interface state
     SLInterfaceState IfState = 2;
+
+    // Global Interface event sequence number.
+    // The sequence number is equivalent to a timestamp
+    uint64 SeqNum = 3;
 }
 
 // Interface Get Message Response.
@@ -162,19 +175,21 @@ message SLInterfaceGetNotifMsg {
 
 }
 
+// Interface Event Notification types
+enum SLInterfaceNotifType {
+    // Reserved. 0x0
+    SL_INTERFACE_EVENT_TYPE_RESERVED = 0x0;
+
+    // Error - ErrStatus field elaborates on the error. 0x1
+    SL_INTERFACE_EVENT_TYPE_ERROR = 0x1;
+
+    // Interface attributes and state event. 0x2
+    SL_INTERFACE_EVENT_TYPE_INTERFACE_INFO = 0x2;
+}
+
 // Interface Notification Event.
 message SLInterfaceNotif {
-    // Interface Event Notification types
-    enum SLInterfaceNotifType {
-        // Reserved. 0x0
-        SL_INTERFACE_EVENT_TYPE_RESERVED = 0x0;
-
-        // Error - ErrStatus field elaborates on the error. 0x1
-        SL_INTERFACE_EVENT_TYPE_ERROR = 0x1;
-
-        // Interface attributes and state event. 0x2
-        SL_INTERFACE_EVENT_TYPE_INTERFACE_INFO = 0x2;
-    }
+    // Interface Event Notification type
     SLInterfaceNotifType EventType = 1;
 
     // Further info based on EventType

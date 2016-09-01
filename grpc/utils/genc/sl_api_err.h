@@ -234,8 +234,9 @@
     SL_BFD_INTF_NAME_TOOLONG = 0x7001,\
     /* BFD Session's interface not found. 0x7002 */\
     SL_BFD_INTF_NOT_FOUND = 0x7002,\
-    /* BFD Session's tx interval is beyond the supported range. 0x7003 */\
-    SL_BFD_INTERVAL_INVALID = 0x7003,\
+    /* BFD Session's tx interval or multiplier are beyond the  */\
+    /* supported range. 0x7003 */\
+    SL_BFD_INVALID_ATTRIBUTE = 0x7003,\
     /* BFD Session's interface name is missing. 0x7004 */\
     SL_BFD_INTF_NAME_MISSING = 0x7004,\
     /* BFD Session's neighbor is mcast address. 0x7005 */\
@@ -244,7 +245,8 @@
     SL_BFD_INVALID_NBR = 0x7006,\
     /* BFD Session's VRF Name is too long. 0x7007 */\
     SL_BFD_VRF_NAME_TOOLONG = 0x7007,\
-    /* BFD Session's one or more parameters are invalid. 0x7008 */\
+    /* BFD Session's one or more parameters are invalid.  */\
+    /* For example, Multihop BFD can not have the interface name set. 0x7008 */\
     SL_BFD_BAD_PARAMETER = 0x7008,\
     /* BFD Session failed with internal error. 0x7009 */\
     SL_BFD_API_INTERNAL_ERROR = 0x7009,\
@@ -261,9 +263,9 @@
     /* BFD Session exists. 0x700f */\
     SL_BFD_SESSION_EXISTS = 0x700f,\
     /* BFD Internal database error. 0x7010 */\
-    SL_BFD_INTERNAL_DB_ERROR = 0X7010,\
+    SL_BFD_INTERNAL_DB_ERROR = 0x7010,\
     /* BFD Recovery error. 0x7011 */\
-    SL_BFD_RECOVERY_ERROR = 0X7011,\
+    SL_BFD_RECOVERY_ERROR = 0x7011,\
     /* !!! Error codes for MPLS opertations. */\
     /* Offset for MPLS operation errors. 0x8000 */\
     SL_RPC_MPLS_START_OFFSET = 0x8000,\
@@ -279,6 +281,9 @@
     /* Operation rejected for ALL label blocks due to too many */\
     /* label blocks in the request. 0x8004 */\
     SL_RPC_MPLS_LABEL_BLK_TOO_MANY_LABEL_BLKS = 0x8004,\
+    /* Operation rejected for ALL ILMs as MPLS layer is not registered. */\
+    /* 0x8005 */\
+    SL_RPC_MPLS_NOT_REGISTERED = 0x8005,\
     /* !!!  MPLS ILM Error codes */\
     /* Offset for MPLS ILM errors. 0x9000 */\
     SL_ILM_ERR_OFFSET = 0x9000,\
@@ -302,6 +307,10 @@
     SL_ILM_LSD_ADD_LABEL_ALLOC_FAILED = 0x9009,\
     /* MPLS ILM NHLFE attribute invalid. 0x900a */\
     SL_ILM_LSD_NHLFE_INVALID_ATTRIB = 0x900a,\
+    /* MPLS ILM already exists in the database. 0x900b */\
+    SL_ILM_EEXIST = 0x900b,\
+    /* The ILM database is out of memory. 0x900c */\
+    SL_ILM_DB_NOMEM = 0x900c,\
     /* !!!  MPLS NHLFE Error codes */\
     /* Offset for MPLS NHLFE errors. 0xa000 */\
     SL_NHLFE_ERR_OFFSET = 0xa000,\
@@ -373,6 +382,10 @@
     SL_LABEL_BLK_INVALID_BLOCK_SIZE = 0xb006,\
     /* MPLS label start_label < min label for platform . 0xb007 */\
     SL_LABEL_BLK_INVALID_START_LABEL = 0xb007,\
+    /* MPLS label block already exists in the database. 0xb008 */\
+    SL_LABEL_BLK_EEXIST = 0xb008,\
+    /* MPLS label database is out of memory. 0xb009 */\
+    SL_LABEL_BLK_DB_NOMEM = 0xb009,\
     /* !!!  MPLS Reg error codes */\
     /* Offset for MPLS registration errors. 0xc000 */\
     SL_MPLS_REG_ERR_OFFSET = 0xc000,\
@@ -390,6 +403,9 @@
     SL_RPC_INTF_TOO_MANY_INTERFACES = 0xd001,\
     /* Interface Operation rejected as server is not initialized. 0xd002 */\
     SL_RPC_INTF_SERVER_NOT_INITIALIZED = 0xd002,\
+    /* Interface Operation failed as server is not registered with  */\
+    /* interface manager. 0xd003 */\
+    SL_RPC_INTF_API_CLIENT_NOT_REGISTERED = 0xd003,\
     /* !!! Error codes for Interface objects. */\
     /* Offset for Interface object errors. 0xe000 */\
     SL_INTF_START_OFFSET = 0xe000,\
@@ -399,6 +415,14 @@
     SL_INTF_INTERFACE_NAME_TOOLONG = 0xe002,\
     /* Interface internal registration error. 0xe003  */\
     SL_INTF_INTERFACE_REG_ERR = 0xe003,\
+    /* Internal database error. 0xe004 */\
+    SL_INTF_INTERNAL_DB_ERROR = 0xe004,\
+    /* Interface Recovery error. 0xe005 */\
+    SL_INTF_RECOVERY_ERROR = 0xe005,\
+    /* Interface exists. 0xe006 */\
+    SL_INTF_INTERFACE_EXISTS = 0xe006,\
+    /* Interface not found. 0xe007 */\
+    SL_INTF_INTERFACE_NOT_FOUND = 0xe007,\
     /* !!! Error codes Reserved for internal errors. */\
     /* Offset for Internal errors. 0x100000 */\
     SL_INTERNAL_START_OFFSET = 0x100000,\
@@ -714,8 +738,9 @@
     {SL_BFD_INTF_NOT_FOUND ,\
         " BFD Session's interface not found.  "\
         },\
-    {SL_BFD_INTERVAL_INVALID ,\
-        " BFD Session's tx interval is beyond the supported range.  "\
+    {SL_BFD_INVALID_ATTRIBUTE ,\
+        " BFD Session's tx interval or multiplier are beyond the  "\
+        " supported range.  "\
         },\
     {SL_BFD_INTF_NAME_MISSING ,\
         " BFD Session's interface name is missing.  "\
@@ -731,6 +756,7 @@
         },\
     {SL_BFD_BAD_PARAMETER ,\
         " BFD Session's one or more parameters are invalid.  "\
+        " For example, Multihop BFD can not have the interface name set.  "\
         },\
     {SL_BFD_API_INTERNAL_ERROR ,\
         " BFD Session failed with internal error.  "\
@@ -778,6 +804,10 @@
         " Operation rejected for ALL label blocks due to too many "\
         " label blocks in the request.  "\
         },\
+    {SL_RPC_MPLS_NOT_REGISTERED ,\
+        " Operation rejected for ALL ILMs as MPLS layer is not registered. "\
+        "  "\
+        },\
     {SL_ILM_ERR_OFFSET ,\
         " Offset for MPLS ILM errors.  "\
         },\
@@ -810,6 +840,12 @@
         },\
     {SL_ILM_LSD_NHLFE_INVALID_ATTRIB ,\
         " MPLS ILM NHLFE attribute invalid.  "\
+        },\
+    {SL_ILM_EEXIST ,\
+        " MPLS ILM already exists in the database.  "\
+        },\
+    {SL_ILM_DB_NOMEM ,\
+        " The ILM database is out of memory.  "\
         },\
     {SL_NHLFE_ERR_OFFSET ,\
         " Offset for MPLS NHLFE errors.  "\
@@ -914,6 +950,12 @@
     {SL_LABEL_BLK_INVALID_START_LABEL ,\
         " MPLS label start_label < min label for platform .  "\
         },\
+    {SL_LABEL_BLK_EEXIST ,\
+        " MPLS label block already exists in the database.  "\
+        },\
+    {SL_LABEL_BLK_DB_NOMEM ,\
+        " MPLS label database is out of memory.  "\
+        },\
     {SL_MPLS_REG_ERR_OFFSET ,\
         " Offset for MPLS registration errors.  "\
         },\
@@ -936,6 +978,10 @@
     {SL_RPC_INTF_SERVER_NOT_INITIALIZED ,\
         " Interface Operation rejected as server is not initialized.  "\
         },\
+    {SL_RPC_INTF_API_CLIENT_NOT_REGISTERED ,\
+        " Interface Operation failed as server is not registered with  "\
+        " interface manager.  "\
+        },\
     {SL_INTF_START_OFFSET ,\
         " Offset for Interface object errors.  "\
         },\
@@ -947,6 +993,18 @@
         },\
     {SL_INTF_INTERFACE_REG_ERR ,\
         " Interface internal registration error.  "\
+        },\
+    {SL_INTF_INTERNAL_DB_ERROR ,\
+        " Internal database error.  "\
+        },\
+    {SL_INTF_RECOVERY_ERROR ,\
+        " Interface Recovery error.  "\
+        },\
+    {SL_INTF_INTERFACE_EXISTS ,\
+        " Interface exists.  "\
+        },\
+    {SL_INTF_INTERFACE_NOT_FOUND ,\
+        " Interface not found.  "\
         },\
     {SL_INTERNAL_START_OFFSET ,\
         " Offset for Internal errors.  "\

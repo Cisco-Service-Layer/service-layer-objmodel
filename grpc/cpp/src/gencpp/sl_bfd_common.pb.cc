@@ -124,9 +124,10 @@ void protobuf_AssignDesc_sl_5fbfd_5fcommon_2eproto() {
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SLBfdGetMsgRsp, _internal_metadata_),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SLBfdGetMsgRsp, _is_default_instance_));
   SLBfdGetStatsMsgRsp_descriptor_ = file->message_type(4);
-  static const int SLBfdGetStatsMsgRsp_offsets_[2] = {
+  static const int SLBfdGetStatsMsgRsp_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SLBfdGetStatsMsgRsp, errstatus_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SLBfdGetStatsMsgRsp, seqnum_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SLBfdGetStatsMsgRsp, bfdcount_),
   };
   SLBfdGetStatsMsgRsp_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
@@ -260,31 +261,32 @@ void protobuf_AddDesc_sl_5fbfd_5fcommon_2eproto() {
     "ingleHop\030\003 \001(\r\022 \n\030MinBfdTxIntervalMultiH"
     "op\030\004 \001(\r\022\'\n\037MinBfdDetectMultiplierSingle"
     "Hop\030\005 \001(\r\022&\n\036MinBfdDetectMultiplierMulti"
-    "Hop\030\006 \001(\r\"V\n\023SLBfdGetStatsMsgRsp\022/\n\tErrS"
+    "Hop\030\006 \001(\r\"h\n\023SLBfdGetStatsMsgRsp\022/\n\tErrS"
     "tatus\030\001 \001(\0132\034.service_layer.SLErrorStatu"
-    "s\022\016\n\006SeqNum\030\002 \001(\004\"\022\n\020SLBfdGetNotifMsg\"G\n"
-    "\021SLBfdConfigCommon\022\030\n\020DesiredTxIntUsec\030\001"
-    " \001(\r\022\030\n\020DetectMultiplier\030\002 \001(\r\"\323\004\n\020SLBfd"
-    "CommonState\022\016\n\006SeqNum\030\001 \001(\004\022>\n\006Status\030\002 "
-    "\001(\0162..service_layer.SLBfdCommonState.SLB"
-    "fdStateEnum\022@\n\004Diag\030\003 \001(\01622.service_laye"
-    "r.SLBfdCommonState.SLBfdDiagStateEnum\"\200\001"
-    "\n\016SLBfdStateEnum\022 \n\034SL_BFD_SESSION_STATE"
-    "_UNKNOWN\020\000\022\025\n\021SL_BFD_SESSION_UP\020\001\022\027\n\023SL_"
-    "BFD_SESSION_DOWN\020\002\022\034\n\030SL_BFD_NEIGHBOR_UN"
-    "CONFIG\020\003\"\251\002\n\022SLBfdDiagStateEnum\022\024\n\020SL_BF"
-    "D_DIAG_NONE\020\000\022\036\n\032SL_BFD_DIAG_DETECT_EXPI"
-    "RED\020\001\022\030\n\024SL_BFD_DIAG_NBR_DOWN\020\002\022\031\n\025SL_BF"
-    "D_DIAG_PATH_DOWN\020\003\022\"\n\036SL_BFD_DIAG_FWDING"
-    "_PLANE_RESET\020\004\022\032\n\026SL_BFD_DIAG_ADMIN_DOWN"
-    "\020\005\022\"\n\036SL_BFD_DIAG_REV_CONC_PATH_DOWN\020\006\022$"
-    "\n SL_BFD_DIAG_ECHO_FUNCTION_FAILED\020\007\022\036\n\032"
-    "SL_BFD_DIAG_CONC_PATH_DOWN\020\010*M\n\tSLBfdTyp"
-    "e\022\023\n\017SL_BFD_RESERVED\020\000\022\025\n\021SL_BFD_SINGLE_"
-    "HOP\020\001\022\024\n\020SL_BFD_MULTI_HOP\020\002*r\n\016SLBfdNoti"
-    "fType\022\036\n\032SL_BFD_EVENT_TYPE_RESERVED\020\000\022\033\n"
-    "\027SL_BFD_EVENT_TYPE_ERROR\020\001\022#\n\037SL_BFD_EVE"
-    "NT_TYPE_SESSION_STATE\020\002b\006proto3", 1431);
+    "s\022\016\n\006SeqNum\030\002 \001(\004\022\020\n\010BfdCount\030\003 \001(\r\"\022\n\020S"
+    "LBfdGetNotifMsg\"G\n\021SLBfdConfigCommon\022\030\n\020"
+    "DesiredTxIntUsec\030\001 \001(\r\022\030\n\020DetectMultipli"
+    "er\030\002 \001(\r\"\323\004\n\020SLBfdCommonState\022\016\n\006SeqNum\030"
+    "\001 \001(\004\022>\n\006Status\030\002 \001(\0162..service_layer.SL"
+    "BfdCommonState.SLBfdStateEnum\022@\n\004Diag\030\003 "
+    "\001(\01622.service_layer.SLBfdCommonState.SLB"
+    "fdDiagStateEnum\"\200\001\n\016SLBfdStateEnum\022 \n\034SL"
+    "_BFD_SESSION_STATE_UNKNOWN\020\000\022\025\n\021SL_BFD_S"
+    "ESSION_UP\020\001\022\027\n\023SL_BFD_SESSION_DOWN\020\002\022\034\n\030"
+    "SL_BFD_NEIGHBOR_UNCONFIG\020\003\"\251\002\n\022SLBfdDiag"
+    "StateEnum\022\024\n\020SL_BFD_DIAG_NONE\020\000\022\036\n\032SL_BF"
+    "D_DIAG_DETECT_EXPIRED\020\001\022\030\n\024SL_BFD_DIAG_N"
+    "BR_DOWN\020\002\022\031\n\025SL_BFD_DIAG_PATH_DOWN\020\003\022\"\n\036"
+    "SL_BFD_DIAG_FWDING_PLANE_RESET\020\004\022\032\n\026SL_B"
+    "FD_DIAG_ADMIN_DOWN\020\005\022\"\n\036SL_BFD_DIAG_REV_"
+    "CONC_PATH_DOWN\020\006\022$\n SL_BFD_DIAG_ECHO_FUN"
+    "CTION_FAILED\020\007\022\036\n\032SL_BFD_DIAG_CONC_PATH_"
+    "DOWN\020\010*M\n\tSLBfdType\022\023\n\017SL_BFD_RESERVED\020\000"
+    "\022\025\n\021SL_BFD_SINGLE_HOP\020\001\022\024\n\020SL_BFD_MULTI_"
+    "HOP\020\002*r\n\016SLBfdNotifType\022\036\n\032SL_BFD_EVENT_"
+    "TYPE_RESERVED\020\000\022\033\n\027SL_BFD_EVENT_TYPE_ERR"
+    "OR\020\001\022#\n\037SL_BFD_EVENT_TYPE_SESSION_STATE\020"
+    "\002b\006proto3", 1449);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "sl_bfd_common.proto", &protobuf_RegisterTypes);
   SLBfdRegMsg::default_instance_ = new SLBfdRegMsg();
@@ -1534,6 +1536,7 @@ void SLBfdGetMsgRsp::clear_minbfddetectmultipliermultihop() {
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
 const int SLBfdGetStatsMsgRsp::kErrStatusFieldNumber;
 const int SLBfdGetStatsMsgRsp::kSeqNumFieldNumber;
+const int SLBfdGetStatsMsgRsp::kBfdCountFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 SLBfdGetStatsMsgRsp::SLBfdGetStatsMsgRsp()
@@ -1560,6 +1563,7 @@ void SLBfdGetStatsMsgRsp::SharedCtor() {
   _cached_size_ = 0;
   errstatus_ = NULL;
   seqnum_ = GOOGLE_ULONGLONG(0);
+  bfdcount_ = 0u;
 }
 
 SLBfdGetStatsMsgRsp::~SLBfdGetStatsMsgRsp() {
@@ -1599,9 +1603,21 @@ SLBfdGetStatsMsgRsp* SLBfdGetStatsMsgRsp::New(::google::protobuf::Arena* arena) 
 }
 
 void SLBfdGetStatsMsgRsp::Clear() {
+#define ZR_HELPER_(f) reinterpret_cast<char*>(\
+  &reinterpret_cast<SLBfdGetStatsMsgRsp*>(16)->f)
+
+#define ZR_(first, last) do {\
+  ::memset(&first, 0,\
+           ZR_HELPER_(last) - ZR_HELPER_(first) + sizeof(last));\
+} while (0)
+
+  ZR_(seqnum_, bfdcount_);
   if (GetArenaNoVirtual() == NULL && errstatus_ != NULL) delete errstatus_;
   errstatus_ = NULL;
-  seqnum_ = GOOGLE_ULONGLONG(0);
+
+#undef ZR_HELPER_
+#undef ZR_
+
 }
 
 bool SLBfdGetStatsMsgRsp::MergePartialFromCodedStream(
@@ -1633,6 +1649,21 @@ bool SLBfdGetStatsMsgRsp::MergePartialFromCodedStream(
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
                  input, &seqnum_)));
+
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(24)) goto parse_BfdCount;
+        break;
+      }
+
+      // optional uint32 BfdCount = 3;
+      case 3: {
+        if (tag == 24) {
+         parse_BfdCount:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &bfdcount_)));
 
         } else {
           goto handle_unusual;
@@ -1676,6 +1707,11 @@ void SLBfdGetStatsMsgRsp::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteUInt64(2, this->seqnum(), output);
   }
 
+  // optional uint32 BfdCount = 3;
+  if (this->bfdcount() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(3, this->bfdcount(), output);
+  }
+
   // @@protoc_insertion_point(serialize_end:service_layer.SLBfdGetStatsMsgRsp)
 }
 
@@ -1692,6 +1728,11 @@ void SLBfdGetStatsMsgRsp::SerializeWithCachedSizes(
   // optional uint64 SeqNum = 2;
   if (this->seqnum() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(2, this->seqnum(), target);
+  }
+
+  // optional uint32 BfdCount = 3;
+  if (this->bfdcount() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(3, this->bfdcount(), target);
   }
 
   // @@protoc_insertion_point(serialize_to_array_end:service_layer.SLBfdGetStatsMsgRsp)
@@ -1713,6 +1754,13 @@ int SLBfdGetStatsMsgRsp::ByteSize() const {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::UInt64Size(
         this->seqnum());
+  }
+
+  // optional uint32 BfdCount = 3;
+  if (this->bfdcount() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->bfdcount());
   }
 
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
@@ -1741,6 +1789,9 @@ void SLBfdGetStatsMsgRsp::MergeFrom(const SLBfdGetStatsMsgRsp& from) {
   if (from.seqnum() != 0) {
     set_seqnum(from.seqnum());
   }
+  if (from.bfdcount() != 0) {
+    set_bfdcount(from.bfdcount());
+  }
 }
 
 void SLBfdGetStatsMsgRsp::CopyFrom(const ::google::protobuf::Message& from) {
@@ -1767,6 +1818,7 @@ void SLBfdGetStatsMsgRsp::Swap(SLBfdGetStatsMsgRsp* other) {
 void SLBfdGetStatsMsgRsp::InternalSwap(SLBfdGetStatsMsgRsp* other) {
   std::swap(errstatus_, other->errstatus_);
   std::swap(seqnum_, other->seqnum_);
+  std::swap(bfdcount_, other->bfdcount_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
 }
@@ -1831,6 +1883,20 @@ void SLBfdGetStatsMsgRsp::clear_seqnum() {
   
   seqnum_ = value;
   // @@protoc_insertion_point(field_set:service_layer.SLBfdGetStatsMsgRsp.SeqNum)
+}
+
+// optional uint32 BfdCount = 3;
+void SLBfdGetStatsMsgRsp::clear_bfdcount() {
+  bfdcount_ = 0u;
+}
+ ::google::protobuf::uint32 SLBfdGetStatsMsgRsp::bfdcount() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLBfdGetStatsMsgRsp.BfdCount)
+  return bfdcount_;
+}
+ void SLBfdGetStatsMsgRsp::set_bfdcount(::google::protobuf::uint32 value) {
+  
+  bfdcount_ = value;
+  // @@protoc_insertion_point(field_set:service_layer.SLBfdGetStatsMsgRsp.BfdCount)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS

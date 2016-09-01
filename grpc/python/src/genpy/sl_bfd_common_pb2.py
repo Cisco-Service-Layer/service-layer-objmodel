@@ -21,7 +21,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='sl_bfd_common.proto',
   package='service_layer',
   syntax='proto3',
-  serialized_pb=_b('\n\x13sl_bfd_common.proto\x12\rservice_layer\x1a\x15sl_common_types.proto\"3\n\x0bSLBfdRegMsg\x12$\n\x04Oper\x18\x01 \x01(\x0e\x32\x16.service_layer.SLRegOp\"A\n\x0eSLBfdRegMsgRsp\x12/\n\tErrStatus\x18\x01 \x01(\x0b\x32\x1c.service_layer.SLErrorStatus\"\r\n\x0bSLBfdGetMsg\"\xfc\x01\n\x0eSLBfdGetMsgRsp\x12/\n\tErrStatus\x18\x01 \x01(\x0b\x32\x1c.service_layer.SLErrorStatus\x12#\n\x1bMaxBfdSessionCfgPerSLBfdMsg\x18\x02 \x01(\r\x12!\n\x19MinBfdTxIntervalSingleHop\x18\x03 \x01(\r\x12 \n\x18MinBfdTxIntervalMultiHop\x18\x04 \x01(\r\x12\'\n\x1fMinBfdDetectMultiplierSingleHop\x18\x05 \x01(\r\x12&\n\x1eMinBfdDetectMultiplierMultiHop\x18\x06 \x01(\r\"V\n\x13SLBfdGetStatsMsgRsp\x12/\n\tErrStatus\x18\x01 \x01(\x0b\x32\x1c.service_layer.SLErrorStatus\x12\x0e\n\x06SeqNum\x18\x02 \x01(\x04\"\x12\n\x10SLBfdGetNotifMsg\"G\n\x11SLBfdConfigCommon\x12\x18\n\x10\x44\x65siredTxIntUsec\x18\x01 \x01(\r\x12\x18\n\x10\x44\x65tectMultiplier\x18\x02 \x01(\r\"\xd3\x04\n\x10SLBfdCommonState\x12\x0e\n\x06SeqNum\x18\x01 \x01(\x04\x12>\n\x06Status\x18\x02 \x01(\x0e\x32..service_layer.SLBfdCommonState.SLBfdStateEnum\x12@\n\x04\x44iag\x18\x03 \x01(\x0e\x32\x32.service_layer.SLBfdCommonState.SLBfdDiagStateEnum\"\x80\x01\n\x0eSLBfdStateEnum\x12 \n\x1cSL_BFD_SESSION_STATE_UNKNOWN\x10\x00\x12\x15\n\x11SL_BFD_SESSION_UP\x10\x01\x12\x17\n\x13SL_BFD_SESSION_DOWN\x10\x02\x12\x1c\n\x18SL_BFD_NEIGHBOR_UNCONFIG\x10\x03\"\xa9\x02\n\x12SLBfdDiagStateEnum\x12\x14\n\x10SL_BFD_DIAG_NONE\x10\x00\x12\x1e\n\x1aSL_BFD_DIAG_DETECT_EXPIRED\x10\x01\x12\x18\n\x14SL_BFD_DIAG_NBR_DOWN\x10\x02\x12\x19\n\x15SL_BFD_DIAG_PATH_DOWN\x10\x03\x12\"\n\x1eSL_BFD_DIAG_FWDING_PLANE_RESET\x10\x04\x12\x1a\n\x16SL_BFD_DIAG_ADMIN_DOWN\x10\x05\x12\"\n\x1eSL_BFD_DIAG_REV_CONC_PATH_DOWN\x10\x06\x12$\n SL_BFD_DIAG_ECHO_FUNCTION_FAILED\x10\x07\x12\x1e\n\x1aSL_BFD_DIAG_CONC_PATH_DOWN\x10\x08*M\n\tSLBfdType\x12\x13\n\x0fSL_BFD_RESERVED\x10\x00\x12\x15\n\x11SL_BFD_SINGLE_HOP\x10\x01\x12\x14\n\x10SL_BFD_MULTI_HOP\x10\x02*r\n\x0eSLBfdNotifType\x12\x1e\n\x1aSL_BFD_EVENT_TYPE_RESERVED\x10\x00\x12\x1b\n\x17SL_BFD_EVENT_TYPE_ERROR\x10\x01\x12#\n\x1fSL_BFD_EVENT_TYPE_SESSION_STATE\x10\x02\x62\x06proto3')
+  serialized_pb=_b('\n\x13sl_bfd_common.proto\x12\rservice_layer\x1a\x15sl_common_types.proto\"3\n\x0bSLBfdRegMsg\x12$\n\x04Oper\x18\x01 \x01(\x0e\x32\x16.service_layer.SLRegOp\"A\n\x0eSLBfdRegMsgRsp\x12/\n\tErrStatus\x18\x01 \x01(\x0b\x32\x1c.service_layer.SLErrorStatus\"\r\n\x0bSLBfdGetMsg\"\xfc\x01\n\x0eSLBfdGetMsgRsp\x12/\n\tErrStatus\x18\x01 \x01(\x0b\x32\x1c.service_layer.SLErrorStatus\x12#\n\x1bMaxBfdSessionCfgPerSLBfdMsg\x18\x02 \x01(\r\x12!\n\x19MinBfdTxIntervalSingleHop\x18\x03 \x01(\r\x12 \n\x18MinBfdTxIntervalMultiHop\x18\x04 \x01(\r\x12\'\n\x1fMinBfdDetectMultiplierSingleHop\x18\x05 \x01(\r\x12&\n\x1eMinBfdDetectMultiplierMultiHop\x18\x06 \x01(\r\"h\n\x13SLBfdGetStatsMsgRsp\x12/\n\tErrStatus\x18\x01 \x01(\x0b\x32\x1c.service_layer.SLErrorStatus\x12\x0e\n\x06SeqNum\x18\x02 \x01(\x04\x12\x10\n\x08\x42\x66\x64\x43ount\x18\x03 \x01(\r\"\x12\n\x10SLBfdGetNotifMsg\"G\n\x11SLBfdConfigCommon\x12\x18\n\x10\x44\x65siredTxIntUsec\x18\x01 \x01(\r\x12\x18\n\x10\x44\x65tectMultiplier\x18\x02 \x01(\r\"\xd3\x04\n\x10SLBfdCommonState\x12\x0e\n\x06SeqNum\x18\x01 \x01(\x04\x12>\n\x06Status\x18\x02 \x01(\x0e\x32..service_layer.SLBfdCommonState.SLBfdStateEnum\x12@\n\x04\x44iag\x18\x03 \x01(\x0e\x32\x32.service_layer.SLBfdCommonState.SLBfdDiagStateEnum\"\x80\x01\n\x0eSLBfdStateEnum\x12 \n\x1cSL_BFD_SESSION_STATE_UNKNOWN\x10\x00\x12\x15\n\x11SL_BFD_SESSION_UP\x10\x01\x12\x17\n\x13SL_BFD_SESSION_DOWN\x10\x02\x12\x1c\n\x18SL_BFD_NEIGHBOR_UNCONFIG\x10\x03\"\xa9\x02\n\x12SLBfdDiagStateEnum\x12\x14\n\x10SL_BFD_DIAG_NONE\x10\x00\x12\x1e\n\x1aSL_BFD_DIAG_DETECT_EXPIRED\x10\x01\x12\x18\n\x14SL_BFD_DIAG_NBR_DOWN\x10\x02\x12\x19\n\x15SL_BFD_DIAG_PATH_DOWN\x10\x03\x12\"\n\x1eSL_BFD_DIAG_FWDING_PLANE_RESET\x10\x04\x12\x1a\n\x16SL_BFD_DIAG_ADMIN_DOWN\x10\x05\x12\"\n\x1eSL_BFD_DIAG_REV_CONC_PATH_DOWN\x10\x06\x12$\n SL_BFD_DIAG_ECHO_FUNCTION_FAILED\x10\x07\x12\x1e\n\x1aSL_BFD_DIAG_CONC_PATH_DOWN\x10\x08*M\n\tSLBfdType\x12\x13\n\x0fSL_BFD_RESERVED\x10\x00\x12\x15\n\x11SL_BFD_SINGLE_HOP\x10\x01\x12\x14\n\x10SL_BFD_MULTI_HOP\x10\x02*r\n\x0eSLBfdNotifType\x12\x1e\n\x1aSL_BFD_EVENT_TYPE_RESERVED\x10\x00\x12\x1b\n\x17SL_BFD_EVENT_TYPE_ERROR\x10\x01\x12#\n\x1fSL_BFD_EVENT_TYPE_SESSION_STATE\x10\x02\x62\x06proto3')
   ,
   dependencies=[sl__common__types__pb2.DESCRIPTOR,])
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
@@ -47,8 +47,8 @@ _SLBFDTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=1230,
-  serialized_end=1307,
+  serialized_start=1248,
+  serialized_end=1325,
 )
 _sym_db.RegisterEnumDescriptor(_SLBFDTYPE)
 
@@ -74,8 +74,8 @@ _SLBFDNOTIFTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=1309,
-  serialized_end=1423,
+  serialized_start=1327,
+  serialized_end=1441,
 )
 _sym_db.RegisterEnumDescriptor(_SLBFDNOTIFTYPE)
 
@@ -113,8 +113,8 @@ _SLBFDCOMMONSTATE_SLBFDSTATEENUM = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=800,
-  serialized_end=928,
+  serialized_start=818,
+  serialized_end=946,
 )
 _sym_db.RegisterEnumDescriptor(_SLBFDCOMMONSTATE_SLBFDSTATEENUM)
 
@@ -163,8 +163,8 @@ _SLBFDCOMMONSTATE_SLBFDDIAGSTATEENUM = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=931,
-  serialized_end=1228,
+  serialized_start=949,
+  serialized_end=1246,
 )
 _sym_db.RegisterEnumDescriptor(_SLBFDCOMMONSTATE_SLBFDDIAGSTATEENUM)
 
@@ -342,6 +342,13 @@ _SLBFDGETSTATSMSGRSP = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
+    _descriptor.FieldDescriptor(
+      name='BfdCount', full_name='service_layer.SLBfdGetStatsMsgRsp.BfdCount', index=2,
+      number=3, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
   ],
   extensions=[
   ],
@@ -355,7 +362,7 @@ _SLBFDGETSTATSMSGRSP = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=451,
-  serialized_end=537,
+  serialized_end=555,
 )
 
 
@@ -378,8 +385,8 @@ _SLBFDGETNOTIFMSG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=539,
-  serialized_end=557,
+  serialized_start=557,
+  serialized_end=575,
 )
 
 
@@ -416,8 +423,8 @@ _SLBFDCONFIGCOMMON = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=559,
-  serialized_end=630,
+  serialized_start=577,
+  serialized_end=648,
 )
 
 
@@ -463,8 +470,8 @@ _SLBFDCOMMONSTATE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=633,
-  serialized_end=1228,
+  serialized_start=651,
+  serialized_end=1246,
 )
 
 _SLBFDREGMSG.fields_by_name['Oper'].enum_type = sl__common__types__pb2._SLREGOP

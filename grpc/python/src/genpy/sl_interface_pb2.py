@@ -3,6 +3,7 @@
 
 import sys
 _b=sys.version_info[0]<3 and (lambda x:x) or (lambda x:x.encode('latin1'))
+from google.protobuf.internal import enum_type_wrapper
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
 from google.protobuf import reflection as _reflection
@@ -20,16 +21,14 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='sl_interface.proto',
   package='service_layer',
   syntax='proto3',
-  serialized_pb=_b('\n\x12sl_interface.proto\x12\rservice_layer\x1a\x15sl_common_types.proto\"@\n\x18SLInterfaceGlobalsRegMsg\x12$\n\x04Oper\x18\x01 \x01(\x0e\x32\x16.service_layer.SLRegOp\"N\n\x1bSLInterfaceGlobalsRegMsgRsp\x12/\n\tErrStatus\x18\x01 \x01(\x0b\x32\x1c.service_layer.SLErrorStatus\"\x1a\n\x18SLInterfaceGlobalsGetMsg\"m\n\x1bSLInterfaceGlobalsGetMsgRsp\x12/\n\tErrStatus\x18\x01 \x01(\x0b\x32\x1c.service_layer.SLErrorStatus\x12\x1d\n\x15MaxInterfacesPerBatch\x18\x02 \x01(\r\"S\n SLInterfaceGlobalsGetStatsMsgRsp\x12/\n\tErrStatus\x18\x01 \x01(\x0b\x32\x1c.service_layer.SLErrorStatus\"c\n\x11SLInterfaceGetMsg\x12\'\n\x03Key\x18\x01 \x01(\x0b\x32\x1a.service_layer.SLInterface\x12\x14\n\x0c\x45ntriesCount\x18\x02 \x01(\r\x12\x0f\n\x07GetNext\x18\x03 \x01(\x08\"\xde\x01\n\x12SLInterfaceInfoMsg\x12,\n\x08SLIfInfo\x18\x01 \x01(\x0b\x32\x1a.service_layer.SLInterface\x12\x43\n\x07IfState\x18\x02 \x01(\x0e\x32\x32.service_layer.SLInterfaceInfoMsg.SLInterfaceState\"U\n\x10SLInterfaceState\x12\x17\n\x13SL_IF_STATE_UNKNOWN\x10\x00\x12\x14\n\x10SL_IF_STATE_DOWN\x10\x01\x12\x12\n\x0eSL_IF_STATE_UP\x10\x02\"\x88\x01\n\x14SLInterfaceGetMsgRsp\x12\x0b\n\x03\x45of\x18\x01 \x01(\x08\x12/\n\tErrStatus\x18\x02 \x01(\x0b\x32\x1c.service_layer.SLErrorStatus\x12\x32\n\x07\x45ntries\x18\x03 \x03(\x0b\x32!.service_layer.SLInterfaceInfoMsg\"\x18\n\x16SLInterfaceGetNotifMsg\"\xd8\x02\n\x10SLInterfaceNotif\x12G\n\tEventType\x18\x01 \x01(\x0e\x32\x34.service_layer.SLInterfaceNotif.SLInterfaceNotifType\x12\x31\n\tErrStatus\x18\x02 \x01(\x0b\x32\x1c.service_layer.SLErrorStatusH\x00\x12\x31\n\x04Info\x18\x03 \x01(\x0b\x32!.service_layer.SLInterfaceInfoMsgH\x00\"\x8b\x01\n\x14SLInterfaceNotifType\x12$\n SL_INTERFACE_EVENT_TYPE_RESERVED\x10\x00\x12!\n\x1dSL_INTERFACE_EVENT_TYPE_ERROR\x10\x01\x12*\n&SL_INTERFACE_EVENT_TYPE_INTERFACE_INFO\x10\x02\x42\x07\n\x05\x45vent\"j\n\x13SLInterfaceNotifMsg\x12&\n\x04Oper\x18\x01 \x01(\x0e\x32\x18.service_layer.SLNotifOp\x12+\n\x07\x45ntries\x18\x02 \x03(\x0b\x32\x1a.service_layer.SLInterface\"r\n\x16SLInterfaceNotifMsgRes\x12/\n\tErrStatus\x18\x01 \x01(\x0b\x32\x1c.service_layer.SLErrorStatus\x12\'\n\x03Key\x18\x02 \x01(\x0b\x32\x1a.service_layer.SLInterface\"\x85\x01\n\x16SLInterfaceNotifMsgRsp\x12\x33\n\rStatusSummary\x18\x01 \x01(\x0b\x32\x1c.service_layer.SLErrorStatus\x12\x36\n\x07Results\x18\x02 \x03(\x0b\x32%.service_layer.SLInterfaceNotifMsgRes2\x88\x05\n\x0fSLInterfaceOper\x12n\n\x17SLInterfaceGlobalsRegOp\x12\'.service_layer.SLInterfaceGlobalsRegMsg\x1a*.service_layer.SLInterfaceGlobalsRegMsgRsp\x12l\n\x15SLInterfaceGlobalsGet\x12\'.service_layer.SLInterfaceGlobalsGetMsg\x1a*.service_layer.SLInterfaceGlobalsGetMsgRsp\x12v\n\x1aSLInterfaceGlobalsGetStats\x12\'.service_layer.SLInterfaceGlobalsGetMsg\x1a/.service_layer.SLInterfaceGlobalsGetStatsMsgRsp\x12W\n\x0eSLInterfaceGet\x12 .service_layer.SLInterfaceGetMsg\x1a#.service_layer.SLInterfaceGetMsgRsp\x12\x65\n\x19SLInterfaceGetNotifStream\x12%.service_layer.SLInterfaceGetNotifMsg\x1a\x1f.service_layer.SLInterfaceNotif0\x01\x12_\n\x12SLInterfaceNotifOp\x12\".service_layer.SLInterfaceNotifMsg\x1a%.service_layer.SLInterfaceNotifMsgRspb\x06proto3')
+  serialized_pb=_b('\n\x12sl_interface.proto\x12\rservice_layer\x1a\x15sl_common_types.proto\"@\n\x18SLInterfaceGlobalsRegMsg\x12$\n\x04Oper\x18\x01 \x01(\x0e\x32\x16.service_layer.SLRegOp\"N\n\x1bSLInterfaceGlobalsRegMsgRsp\x12/\n\tErrStatus\x18\x01 \x01(\x0b\x32\x1c.service_layer.SLErrorStatus\"\x1a\n\x18SLInterfaceGlobalsGetMsg\"m\n\x1bSLInterfaceGlobalsGetMsgRsp\x12/\n\tErrStatus\x18\x01 \x01(\x0b\x32\x1c.service_layer.SLErrorStatus\x12\x1d\n\x15MaxInterfacesPerBatch\x18\x02 \x01(\r\"\x80\x01\n SLInterfaceGlobalsGetStatsMsgRsp\x12/\n\tErrStatus\x18\x01 \x01(\x0b\x32\x1c.service_layer.SLErrorStatus\x12\x0e\n\x06SeqNum\x18\x02 \x01(\x04\x12\x1b\n\x13InterfaceNotifCount\x18\x03 \x01(\r\"c\n\x11SLInterfaceGetMsg\x12\'\n\x03Key\x18\x01 \x01(\x0b\x32\x1a.service_layer.SLInterface\x12\x14\n\x0c\x45ntriesCount\x18\x02 \x01(\r\x12\x0f\n\x07GetNext\x18\x03 \x01(\x08\"\x84\x01\n\x12SLInterfaceInfoMsg\x12,\n\x08SLIfInfo\x18\x01 \x01(\x0b\x32\x1a.service_layer.SLInterface\x12\x30\n\x07IfState\x18\x02 \x01(\x0e\x32\x1f.service_layer.SLInterfaceState\x12\x0e\n\x06SeqNum\x18\x03 \x01(\x04\"\x88\x01\n\x14SLInterfaceGetMsgRsp\x12\x0b\n\x03\x45of\x18\x01 \x01(\x08\x12/\n\tErrStatus\x18\x02 \x01(\x0b\x32\x1c.service_layer.SLErrorStatus\x12\x32\n\x07\x45ntries\x18\x03 \x03(\x0b\x32!.service_layer.SLInterfaceInfoMsg\"\x18\n\x16SLInterfaceGetNotifMsg\"\xb9\x01\n\x10SLInterfaceNotif\x12\x36\n\tEventType\x18\x01 \x01(\x0e\x32#.service_layer.SLInterfaceNotifType\x12\x31\n\tErrStatus\x18\x02 \x01(\x0b\x32\x1c.service_layer.SLErrorStatusH\x00\x12\x31\n\x04Info\x18\x03 \x01(\x0b\x32!.service_layer.SLInterfaceInfoMsgH\x00\x42\x07\n\x05\x45vent\"j\n\x13SLInterfaceNotifMsg\x12&\n\x04Oper\x18\x01 \x01(\x0e\x32\x18.service_layer.SLNotifOp\x12+\n\x07\x45ntries\x18\x02 \x03(\x0b\x32\x1a.service_layer.SLInterface\"r\n\x16SLInterfaceNotifMsgRes\x12/\n\tErrStatus\x18\x01 \x01(\x0b\x32\x1c.service_layer.SLErrorStatus\x12\'\n\x03Key\x18\x02 \x01(\x0b\x32\x1a.service_layer.SLInterface\"\x85\x01\n\x16SLInterfaceNotifMsgRsp\x12\x33\n\rStatusSummary\x18\x01 \x01(\x0b\x32\x1c.service_layer.SLErrorStatus\x12\x36\n\x07Results\x18\x02 \x03(\x0b\x32%.service_layer.SLInterfaceNotifMsgRes*U\n\x10SLInterfaceState\x12\x17\n\x13SL_IF_STATE_UNKNOWN\x10\x00\x12\x14\n\x10SL_IF_STATE_DOWN\x10\x01\x12\x12\n\x0eSL_IF_STATE_UP\x10\x02*\x8b\x01\n\x14SLInterfaceNotifType\x12$\n SL_INTERFACE_EVENT_TYPE_RESERVED\x10\x00\x12!\n\x1dSL_INTERFACE_EVENT_TYPE_ERROR\x10\x01\x12*\n&SL_INTERFACE_EVENT_TYPE_INTERFACE_INFO\x10\x02\x32\x88\x05\n\x0fSLInterfaceOper\x12n\n\x17SLInterfaceGlobalsRegOp\x12\'.service_layer.SLInterfaceGlobalsRegMsg\x1a*.service_layer.SLInterfaceGlobalsRegMsgRsp\x12l\n\x15SLInterfaceGlobalsGet\x12\'.service_layer.SLInterfaceGlobalsGetMsg\x1a*.service_layer.SLInterfaceGlobalsGetMsgRsp\x12v\n\x1aSLInterfaceGlobalsGetStats\x12\'.service_layer.SLInterfaceGlobalsGetMsg\x1a/.service_layer.SLInterfaceGlobalsGetStatsMsgRsp\x12W\n\x0eSLInterfaceGet\x12 .service_layer.SLInterfaceGetMsg\x1a#.service_layer.SLInterfaceGetMsgRsp\x12\x65\n\x19SLInterfaceGetNotifStream\x12%.service_layer.SLInterfaceGetNotifMsg\x1a\x1f.service_layer.SLInterfaceNotif0\x01\x12_\n\x12SLInterfaceNotifOp\x12\".service_layer.SLInterfaceNotifMsg\x1a%.service_layer.SLInterfaceNotifMsgRspb\x06proto3')
   ,
   dependencies=[sl__common__types__pb2.DESCRIPTOR,])
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
-
-
-_SLINTERFACEINFOMSG_SLINTERFACESTATE = _descriptor.EnumDescriptor(
+_SLINTERFACESTATE = _descriptor.EnumDescriptor(
   name='SLInterfaceState',
-  full_name='service_layer.SLInterfaceInfoMsg.SLInterfaceState',
+  full_name='service_layer.SLInterfaceState',
   filename=None,
   file=DESCRIPTOR,
   values=[
@@ -48,14 +47,15 @@ _SLINTERFACEINFOMSG_SLINTERFACESTATE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=669,
-  serialized_end=754,
+  serialized_start=1425,
+  serialized_end=1510,
 )
-_sym_db.RegisterEnumDescriptor(_SLINTERFACEINFOMSG_SLINTERFACESTATE)
+_sym_db.RegisterEnumDescriptor(_SLINTERFACESTATE)
 
-_SLINTERFACENOTIF_SLINTERFACENOTIFTYPE = _descriptor.EnumDescriptor(
+SLInterfaceState = enum_type_wrapper.EnumTypeWrapper(_SLINTERFACESTATE)
+_SLINTERFACENOTIFTYPE = _descriptor.EnumDescriptor(
   name='SLInterfaceNotifType',
-  full_name='service_layer.SLInterfaceNotif.SLInterfaceNotifType',
+  full_name='service_layer.SLInterfaceNotifType',
   filename=None,
   file=DESCRIPTOR,
   values=[
@@ -74,10 +74,19 @@ _SLINTERFACENOTIF_SLINTERFACENOTIFTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=1118,
-  serialized_end=1257,
+  serialized_start=1513,
+  serialized_end=1652,
 )
-_sym_db.RegisterEnumDescriptor(_SLINTERFACENOTIF_SLINTERFACENOTIFTYPE)
+_sym_db.RegisterEnumDescriptor(_SLINTERFACENOTIFTYPE)
+
+SLInterfaceNotifType = enum_type_wrapper.EnumTypeWrapper(_SLINTERFACENOTIFTYPE)
+SL_IF_STATE_UNKNOWN = 0
+SL_IF_STATE_DOWN = 1
+SL_IF_STATE_UP = 2
+SL_INTERFACE_EVENT_TYPE_RESERVED = 0
+SL_INTERFACE_EVENT_TYPE_ERROR = 1
+SL_INTERFACE_EVENT_TYPE_INTERFACE_INFO = 2
+
 
 
 _SLINTERFACEGLOBALSREGMSG = _descriptor.Descriptor(
@@ -218,6 +227,20 @@ _SLINTERFACEGLOBALSGETSTATSMSGRSP = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
+    _descriptor.FieldDescriptor(
+      name='SeqNum', full_name='service_layer.SLInterfaceGlobalsGetStatsMsgRsp.SeqNum', index=1,
+      number=2, type=4, cpp_type=4, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='InterfaceNotifCount', full_name='service_layer.SLInterfaceGlobalsGetStatsMsgRsp.InterfaceNotifCount', index=2,
+      number=3, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
   ],
   extensions=[
   ],
@@ -230,8 +253,8 @@ _SLINTERFACEGLOBALSGETSTATSMSGRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=345,
-  serialized_end=428,
+  serialized_start=346,
+  serialized_end=474,
 )
 
 
@@ -275,8 +298,8 @@ _SLINTERFACEGETMSG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=430,
-  serialized_end=529,
+  serialized_start=476,
+  serialized_end=575,
 )
 
 
@@ -301,12 +324,18 @@ _SLINTERFACEINFOMSG = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
+    _descriptor.FieldDescriptor(
+      name='SeqNum', full_name='service_layer.SLInterfaceInfoMsg.SeqNum', index=2,
+      number=3, type=4, cpp_type=4, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
   ],
   extensions=[
   ],
   nested_types=[],
   enum_types=[
-    _SLINTERFACEINFOMSG_SLINTERFACESTATE,
   ],
   options=None,
   is_extendable=False,
@@ -314,8 +343,8 @@ _SLINTERFACEINFOMSG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=532,
-  serialized_end=754,
+  serialized_start=578,
+  serialized_end=710,
 )
 
 
@@ -359,8 +388,8 @@ _SLINTERFACEGETMSGRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=757,
-  serialized_end=893,
+  serialized_start=713,
+  serialized_end=849,
 )
 
 
@@ -383,8 +412,8 @@ _SLINTERFACEGETNOTIFMSG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=895,
-  serialized_end=919,
+  serialized_start=851,
+  serialized_end=875,
 )
 
 
@@ -421,7 +450,6 @@ _SLINTERFACENOTIF = _descriptor.Descriptor(
   ],
   nested_types=[],
   enum_types=[
-    _SLINTERFACENOTIF_SLINTERFACENOTIFTYPE,
   ],
   options=None,
   is_extendable=False,
@@ -432,8 +460,8 @@ _SLINTERFACENOTIF = _descriptor.Descriptor(
       name='Event', full_name='service_layer.SLInterfaceNotif.Event',
       index=0, containing_type=None, fields=[]),
   ],
-  serialized_start=922,
-  serialized_end=1266,
+  serialized_start=878,
+  serialized_end=1063,
 )
 
 
@@ -470,8 +498,8 @@ _SLINTERFACENOTIFMSG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1268,
-  serialized_end=1374,
+  serialized_start=1065,
+  serialized_end=1171,
 )
 
 
@@ -508,8 +536,8 @@ _SLINTERFACENOTIFMSGRES = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1376,
-  serialized_end=1490,
+  serialized_start=1173,
+  serialized_end=1287,
 )
 
 
@@ -546,8 +574,8 @@ _SLINTERFACENOTIFMSGRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1493,
-  serialized_end=1626,
+  serialized_start=1290,
+  serialized_end=1423,
 )
 
 _SLINTERFACEGLOBALSREGMSG.fields_by_name['Oper'].enum_type = sl__common__types__pb2._SLREGOP
@@ -556,14 +584,12 @@ _SLINTERFACEGLOBALSGETMSGRSP.fields_by_name['ErrStatus'].message_type = sl__comm
 _SLINTERFACEGLOBALSGETSTATSMSGRSP.fields_by_name['ErrStatus'].message_type = sl__common__types__pb2._SLERRORSTATUS
 _SLINTERFACEGETMSG.fields_by_name['Key'].message_type = sl__common__types__pb2._SLINTERFACE
 _SLINTERFACEINFOMSG.fields_by_name['SLIfInfo'].message_type = sl__common__types__pb2._SLINTERFACE
-_SLINTERFACEINFOMSG.fields_by_name['IfState'].enum_type = _SLINTERFACEINFOMSG_SLINTERFACESTATE
-_SLINTERFACEINFOMSG_SLINTERFACESTATE.containing_type = _SLINTERFACEINFOMSG
+_SLINTERFACEINFOMSG.fields_by_name['IfState'].enum_type = _SLINTERFACESTATE
 _SLINTERFACEGETMSGRSP.fields_by_name['ErrStatus'].message_type = sl__common__types__pb2._SLERRORSTATUS
 _SLINTERFACEGETMSGRSP.fields_by_name['Entries'].message_type = _SLINTERFACEINFOMSG
-_SLINTERFACENOTIF.fields_by_name['EventType'].enum_type = _SLINTERFACENOTIF_SLINTERFACENOTIFTYPE
+_SLINTERFACENOTIF.fields_by_name['EventType'].enum_type = _SLINTERFACENOTIFTYPE
 _SLINTERFACENOTIF.fields_by_name['ErrStatus'].message_type = sl__common__types__pb2._SLERRORSTATUS
 _SLINTERFACENOTIF.fields_by_name['Info'].message_type = _SLINTERFACEINFOMSG
-_SLINTERFACENOTIF_SLINTERFACENOTIFTYPE.containing_type = _SLINTERFACENOTIF
 _SLINTERFACENOTIF.oneofs_by_name['Event'].fields.append(
   _SLINTERFACENOTIF.fields_by_name['ErrStatus'])
 _SLINTERFACENOTIF.fields_by_name['ErrStatus'].containing_oneof = _SLINTERFACENOTIF.oneofs_by_name['Event']
@@ -589,6 +615,8 @@ DESCRIPTOR.message_types_by_name['SLInterfaceNotif'] = _SLINTERFACENOTIF
 DESCRIPTOR.message_types_by_name['SLInterfaceNotifMsg'] = _SLINTERFACENOTIFMSG
 DESCRIPTOR.message_types_by_name['SLInterfaceNotifMsgRes'] = _SLINTERFACENOTIFMSGRES
 DESCRIPTOR.message_types_by_name['SLInterfaceNotifMsgRsp'] = _SLINTERFACENOTIFMSGRSP
+DESCRIPTOR.enum_types_by_name['SLInterfaceState'] = _SLINTERFACESTATE
+DESCRIPTOR.enum_types_by_name['SLInterfaceNotifType'] = _SLINTERFACENOTIFTYPE
 
 SLInterfaceGlobalsRegMsg = _reflection.GeneratedProtocolMessageType('SLInterfaceGlobalsRegMsg', (_message.Message,), dict(
   DESCRIPTOR = _SLINTERFACEGLOBALSREGMSG,

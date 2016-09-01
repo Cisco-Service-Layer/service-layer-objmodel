@@ -15,7 +15,8 @@ from genpy import sl_route_common_pb2
 from genpy import sl_mpls_pb2
 from genpy import sl_bfd_common_pb2
 from genpy import sl_bfd_ipv4_pb2
-
+from genpy import sl_bfd_ipv6_pb2
+from genpy import sl_interface_pb2
 
 def global_route_get_serializer():
     """Global Get Message serializer."""
@@ -33,7 +34,6 @@ def route_get_serializer(get_info, af):
         serializer = sl_route_ipv4_pb2.SLRoutev4GetMsg()
     elif af == 6:
         serializer = sl_route_ipv6_pb2.SLRoutev6GetMsg()
-    
     if "correlator" in get_info:
         serializer.Correlator = get_info["correlator"]
     if "vrf_name" in get_info:
@@ -48,7 +48,6 @@ def route_get_serializer(get_info, af):
         serializer.EntriesCount = get_info["count"] 
     if "get_next" in get_info:
         serializer.GetNext = (get_info["get_next"] != 0)
-        
     return serializer
     
 def route_serializer(batch, paths, next_hops):
@@ -104,6 +103,11 @@ def route_serializer(batch, paths, next_hops):
                     # `packed` returns a `bytearray` object, therefore,
                     # the result must be cast to type `str`.
                     value = int(ipaddress.ip_address(route['prefix']))
+            #
+            local_label = 0
+            if 'local_label' in route:
+                local_label = route['local_label']
+            #
             for i in xrange(route['range']):
 
                 r = ipv4_or_ipv6.route()
@@ -128,7 +132,8 @@ def route_serializer(batch, paths, next_hops):
                 if 'admin_dist' in route:
                     r.RouteCommon.AdminDistance = route['admin_dist']
                 if 'local_label' in route:
-                    r.RouteCommon.LocalLabel = route['local_label']
+                    r.RouteCommon.LocalLabel = local_label
+                    local_label = local_label + 1
                 if 'tag' in route:
                     r.RouteCommon.Tag = route['tag']
                 ps = []
@@ -211,7 +216,7 @@ def route_serializer(batch, paths, next_hops):
         value_str = str(ipaddress.IPv4Address(value))
     else:
         value_str = str(ipaddress.IPv6Address(value))
-    return (serializer, value_str)
+    return (serializer, value_str, local_label)
 
 
 def vrf_registration_serializer(batch):
@@ -259,6 +264,11 @@ def global_get_serializer():
     serializer = sl_global_pb2.SLGlobalsGetMsg()
     return serializer
 
+def mpls_regop_serializer():
+    """MPLS Reg Op Message serializer."""
+    serializer = sl_mpls_pb2.SLMplsRegMsg()
+    return serializer
+
 def mpls_get_serializer():
     """MPLS Get Message serializer."""
     serializer = sl_mpls_pb2.SLMplsGetMsg()
@@ -277,6 +287,19 @@ def label_block_serializer(batch):
                 b.StartLabel = block['start_label']
             blk_list.append(b)
     serializer.MplsBlocks.extend(blk_list)
+    return serializer
+
+def label_block_get_serializer(get_info):
+    """MPLS label block Get serializer."""
+    serializer = sl_mpls_pb2.SLMplsLabelBlockGetMsg()
+    if "start_label" in get_info:
+        serializer.Key.StartLabel = get_info["start_label"]
+    if "block_size" in get_info:
+        serializer.Key.LabelBlockSize = get_info["block_size"]
+    if "count" in get_info:
+        serializer.EntriesCount = get_info["count"]
+    if "get_next" in get_info:
+        serializer.GetNext = (get_info["get_next"] != 0)
     return serializer
 
 def ilm_serializer(batch, af, paths, next_hops):
@@ -384,6 +407,19 @@ def ilm_serializer(batch, af, paths, next_hops):
                 # Increment label
                 value = value + 1
             serializer.MplsIlms.extend(ilms)
+    return (serializer, value)
+
+def ilm_get_serializer(get_info):
+    """ILM Get Message serializer."""
+    serializer = sl_mpls_pb2.SLMplsIlmGetMsg()
+    if "correlator" in get_info:
+        serializer.Correlator = get_info["correlator"]
+    if "in_label" in get_info:
+        serializer.Key.LocalLabel = get_info["in_label"]
+    if "count" in get_info:
+        serializer.EntriesCount = get_info["count"]
+    if "get_next" in get_info:
+        serializer.GetNext = (get_info["get_next"] != 0)
     return serializer
 
 def bfd_get_serializer():
@@ -396,36 +432,43 @@ def bfd_regop_serializer():
     serializer = sl_bfd_common_pb2.SLBfdRegMsg()
     return serializer
 
-def bfd_serializer(batch, next_hops):
-    """Agnostic function that returns a BFD IPv4 serializer instance.
+def bfd_serializer(batch, next_hops, af):
+    """Agnostic function that returns a BFD serializer instance.
 
-    Not all fields are required to instantiate `SLBfdv4Msg`
+    Not all fields are required to instantiate `SLBfdv4Msg` or `SLBfdv6Msg`
     class. Therefore, conditions are specified to
     determine if certain keys exist within the dictionary parameters. If
     said keys do exist, then that attribute for the serializer class is
     assigned. Otherwise, fields are omitted, but the class is still
     instantiated.
 
-    Returns: sl_bfd_ipv4_pb2.SLBfdv4Msg
+    Returns: SLBfdv4Msg or SLBfdv6Msg
     """
     Message = collections.namedtuple('Message', [
         'af',
         'serializer',
         'bfd',
     ])
-    if batch['af'] == 4:
+    if af == 4:
         # IPv4 message types.
         ipv4_or_ipv6 = Message(
-            batch['af'],
+            af,
             sl_bfd_ipv4_pb2.SLBfdv4Msg,
             sl_bfd_ipv4_pb2.SLBfdv4SessionCfg
         )
-    # Create a `SLBfdv4Msg` message 
+    elif af == 6:
+        # IPv4 message types.
+        ipv4_or_ipv6 = Message(
+            af,
+            sl_bfd_ipv6_pb2.SLBfdv6Msg,
+            sl_bfd_ipv6_pb2.SLBfdv6SessionCfg
+        )
+    # Create a `SLBfdv4Msg` or `SLBfdv6Msg` message 
     serializer = ipv4_or_ipv6.serializer()
     if 'sessions' in batch:
         sessions = []
         for sess in batch['sessions']:
-            # Create SLBfdv4SessionCfg
+            # Create SessionCfg
             entry = ipv4_or_ipv6.bfd()
             if ipv4_or_ipv6.af == 4:
                 if (sess['nexthop'] and
@@ -437,6 +480,17 @@ def bfd_serializer(batch, next_hops):
                 if 'src_v4_addr' in sess:
                     entry.Key.SourceAddr = (
                         int(ipaddress.ip_address(sess['src_v4_addr']))
+                    )
+            elif ipv4_or_ipv6.af == 6:
+                if (sess['nexthop'] and
+                        'v6_addr' in next_hops[sess['nexthop']]):
+                    entry.Key.NbrAddr = (
+                        str(ipaddress.ip_address(
+                            next_hops[sess['nexthop']]['v6_addr']).packed)
+                    )
+                if 'src_v6_addr' in sess:
+                    entry.Key.SourceAddr = (
+                        str(ipaddress.ip_address(sess['src_v6_addr']).packed)
                     )
             if 'if_name' in next_hops[sess['nexthop']]:
                 entry.Key.Interface.Name = (
@@ -454,7 +508,110 @@ def bfd_serializer(batch, next_hops):
             serializer.Sessions.extend(sessions)
     return serializer
 
+def bfd_session_get_serializer(get_info, af):
+    """Agnostic function that returns a BFD IPv4/IPv6 serializer instance.
+
+    Not all fields are required to instantiate `SLBfdv4GetMsg` or 
+    SLBfdv6GetMsg class. Therefore, conditions are specified to
+    determine if certain keys exist within the dictionary parameters. If
+    said keys do exist, then that attribute for the serializer class is
+    assigned. Otherwise, fields are omitted, but the class is still
+    instantiated.
+
+    Returns: SLBfdv4GetMsg or SLBfdv6GetMsg
+    """
+    Message = collections.namedtuple('Message', [
+        'af',
+        'serializer',
+    ])
+    if af == 4:
+        # IPv4 message types.
+        ipv4_or_ipv6 = Message(
+            af,
+            sl_bfd_ipv4_pb2.SLBfdv4GetMsg
+        )
+    elif af == 6:
+        # IPv6 message types.
+        ipv4_or_ipv6 = Message(
+            af,
+            sl_bfd_ipv6_pb2.SLBfdv6GetMsg
+        )
+    # Create a SLBfdv4GetMsg or SLBfdv6GetMsg message 
+    serializer = ipv4_or_ipv6.serializer()
+    if ipv4_or_ipv6.af == 4:
+        if 'v4_nbr' in get_info:
+            serializer.Key.NbrAddr = (
+                int(ipaddress.ip_address(get_info['v4_nbr']))
+            )
+        if 'v4_src' in get_info:
+            serializer.Key.SourceAddr = (
+                int(ipaddress.ip_address(get_info['v4_src']))
+            )
+    elif ipv4_or_ipv6.af == 6:
+        if 'v6_nbr' in get_info:
+            serializer.Key.NbrAddr = (
+                str(ipaddress.ip_address(get_info['v6_nbr']).packed)
+            )
+        if 'v6_src' in get_info:
+            serializer.Key.SourceAddr = (
+                str(ipaddress.ip_address(get_info['v6_src']).packed)
+            )
+    if 'if_name' in get_info:
+        serializer.Key.Interface.Name = get_info['if_name']
+    if 'vrf_name' in get_info:
+        serializer.Key.VrfName = get_info['vrf_name']
+    if 'type' in get_info:
+        serializer.Key.Type = get_info['type']
+    if 'type' in get_info:
+        serializer.Key.Type = get_info['type']
+    if 'count' in get_info:
+        serializer.EntriesCount = get_info['count']
+    if 'seq_num' in get_info:
+        serializer.SeqNum = get_info['seq_num']
+    if 'get_next' in get_info:
+        serializer.GetNext = get_info['get_next']
+    return serializer
+
 def bfd_get_notif_serializer():
     """BFD Get Notif Message serializer."""
     serializer = sl_bfd_common_pb2.SLBfdGetNotifMsg()
+    return serializer
+
+def intf_regop_serializer():
+    """Interface Registration serializer."""
+    serializer = sl_interface_pb2.SLInterfaceGlobalsRegMsg()
+    return serializer
+
+def intf_globals_get_serializer():
+    """Interface Globals get serializer."""
+    serializer = sl_interface_pb2.SLInterfaceGlobalsGetMsg()
+    return serializer
+
+def intf_get_serializer(get_info):
+    """Interface get serializer."""
+    serializer = sl_interface_pb2.SLInterfaceGetMsg()
+    if 'if_name' in get_info:
+        serializer.Key.Name = get_info['if_name']
+    if 'count' in get_info:
+        serializer.EntriesCount = get_info['count']
+    if 'get_next' in get_info:
+        serializer.GetNext = get_info['get_next']
+    return serializer
+
+def intf_get_notif_serializer():
+    """Interface get notification serializer."""
+    serializer = sl_interface_pb2.SLInterfaceGetNotifMsg()
+    return serializer
+
+def intf_notif_op_serializer(batch):
+    """Interface notification operation serializer."""
+    serializer = sl_interface_pb2.SLInterfaceNotifMsg()
+    if 'interfaces' in batch:
+        interfaces = []
+        for interface in batch['interfaces']:
+            entry = sl_common_types_pb2.SLInterface()
+            if 'if_name' in interface:
+                entry.Name = interface['if_name']
+            interfaces.append(entry)
+        serializer.Entries.extend(interfaces)
     return serializer

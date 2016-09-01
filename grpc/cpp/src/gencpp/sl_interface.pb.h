@@ -52,49 +52,49 @@ class SLInterfaceNotifMsg;
 class SLInterfaceNotifMsgRes;
 class SLInterfaceNotifMsgRsp;
 
-enum SLInterfaceInfoMsg_SLInterfaceState {
-  SLInterfaceInfoMsg_SLInterfaceState_SL_IF_STATE_UNKNOWN = 0,
-  SLInterfaceInfoMsg_SLInterfaceState_SL_IF_STATE_DOWN = 1,
-  SLInterfaceInfoMsg_SLInterfaceState_SL_IF_STATE_UP = 2,
-  SLInterfaceInfoMsg_SLInterfaceState_SLInterfaceInfoMsg_SLInterfaceState_INT_MIN_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32min,
-  SLInterfaceInfoMsg_SLInterfaceState_SLInterfaceInfoMsg_SLInterfaceState_INT_MAX_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32max
+enum SLInterfaceState {
+  SL_IF_STATE_UNKNOWN = 0,
+  SL_IF_STATE_DOWN = 1,
+  SL_IF_STATE_UP = 2,
+  SLInterfaceState_INT_MIN_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32min,
+  SLInterfaceState_INT_MAX_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32max
 };
-bool SLInterfaceInfoMsg_SLInterfaceState_IsValid(int value);
-const SLInterfaceInfoMsg_SLInterfaceState SLInterfaceInfoMsg_SLInterfaceState_SLInterfaceState_MIN = SLInterfaceInfoMsg_SLInterfaceState_SL_IF_STATE_UNKNOWN;
-const SLInterfaceInfoMsg_SLInterfaceState SLInterfaceInfoMsg_SLInterfaceState_SLInterfaceState_MAX = SLInterfaceInfoMsg_SLInterfaceState_SL_IF_STATE_UP;
-const int SLInterfaceInfoMsg_SLInterfaceState_SLInterfaceState_ARRAYSIZE = SLInterfaceInfoMsg_SLInterfaceState_SLInterfaceState_MAX + 1;
+bool SLInterfaceState_IsValid(int value);
+const SLInterfaceState SLInterfaceState_MIN = SL_IF_STATE_UNKNOWN;
+const SLInterfaceState SLInterfaceState_MAX = SL_IF_STATE_UP;
+const int SLInterfaceState_ARRAYSIZE = SLInterfaceState_MAX + 1;
 
-const ::google::protobuf::EnumDescriptor* SLInterfaceInfoMsg_SLInterfaceState_descriptor();
-inline const ::std::string& SLInterfaceInfoMsg_SLInterfaceState_Name(SLInterfaceInfoMsg_SLInterfaceState value) {
+const ::google::protobuf::EnumDescriptor* SLInterfaceState_descriptor();
+inline const ::std::string& SLInterfaceState_Name(SLInterfaceState value) {
   return ::google::protobuf::internal::NameOfEnum(
-    SLInterfaceInfoMsg_SLInterfaceState_descriptor(), value);
+    SLInterfaceState_descriptor(), value);
 }
-inline bool SLInterfaceInfoMsg_SLInterfaceState_Parse(
-    const ::std::string& name, SLInterfaceInfoMsg_SLInterfaceState* value) {
-  return ::google::protobuf::internal::ParseNamedEnum<SLInterfaceInfoMsg_SLInterfaceState>(
-    SLInterfaceInfoMsg_SLInterfaceState_descriptor(), name, value);
+inline bool SLInterfaceState_Parse(
+    const ::std::string& name, SLInterfaceState* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<SLInterfaceState>(
+    SLInterfaceState_descriptor(), name, value);
 }
-enum SLInterfaceNotif_SLInterfaceNotifType {
-  SLInterfaceNotif_SLInterfaceNotifType_SL_INTERFACE_EVENT_TYPE_RESERVED = 0,
-  SLInterfaceNotif_SLInterfaceNotifType_SL_INTERFACE_EVENT_TYPE_ERROR = 1,
-  SLInterfaceNotif_SLInterfaceNotifType_SL_INTERFACE_EVENT_TYPE_INTERFACE_INFO = 2,
-  SLInterfaceNotif_SLInterfaceNotifType_SLInterfaceNotif_SLInterfaceNotifType_INT_MIN_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32min,
-  SLInterfaceNotif_SLInterfaceNotifType_SLInterfaceNotif_SLInterfaceNotifType_INT_MAX_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32max
+enum SLInterfaceNotifType {
+  SL_INTERFACE_EVENT_TYPE_RESERVED = 0,
+  SL_INTERFACE_EVENT_TYPE_ERROR = 1,
+  SL_INTERFACE_EVENT_TYPE_INTERFACE_INFO = 2,
+  SLInterfaceNotifType_INT_MIN_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32min,
+  SLInterfaceNotifType_INT_MAX_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32max
 };
-bool SLInterfaceNotif_SLInterfaceNotifType_IsValid(int value);
-const SLInterfaceNotif_SLInterfaceNotifType SLInterfaceNotif_SLInterfaceNotifType_SLInterfaceNotifType_MIN = SLInterfaceNotif_SLInterfaceNotifType_SL_INTERFACE_EVENT_TYPE_RESERVED;
-const SLInterfaceNotif_SLInterfaceNotifType SLInterfaceNotif_SLInterfaceNotifType_SLInterfaceNotifType_MAX = SLInterfaceNotif_SLInterfaceNotifType_SL_INTERFACE_EVENT_TYPE_INTERFACE_INFO;
-const int SLInterfaceNotif_SLInterfaceNotifType_SLInterfaceNotifType_ARRAYSIZE = SLInterfaceNotif_SLInterfaceNotifType_SLInterfaceNotifType_MAX + 1;
+bool SLInterfaceNotifType_IsValid(int value);
+const SLInterfaceNotifType SLInterfaceNotifType_MIN = SL_INTERFACE_EVENT_TYPE_RESERVED;
+const SLInterfaceNotifType SLInterfaceNotifType_MAX = SL_INTERFACE_EVENT_TYPE_INTERFACE_INFO;
+const int SLInterfaceNotifType_ARRAYSIZE = SLInterfaceNotifType_MAX + 1;
 
-const ::google::protobuf::EnumDescriptor* SLInterfaceNotif_SLInterfaceNotifType_descriptor();
-inline const ::std::string& SLInterfaceNotif_SLInterfaceNotifType_Name(SLInterfaceNotif_SLInterfaceNotifType value) {
+const ::google::protobuf::EnumDescriptor* SLInterfaceNotifType_descriptor();
+inline const ::std::string& SLInterfaceNotifType_Name(SLInterfaceNotifType value) {
   return ::google::protobuf::internal::NameOfEnum(
-    SLInterfaceNotif_SLInterfaceNotifType_descriptor(), value);
+    SLInterfaceNotifType_descriptor(), value);
 }
-inline bool SLInterfaceNotif_SLInterfaceNotifType_Parse(
-    const ::std::string& name, SLInterfaceNotif_SLInterfaceNotifType* value) {
-  return ::google::protobuf::internal::ParseNamedEnum<SLInterfaceNotif_SLInterfaceNotifType>(
-    SLInterfaceNotif_SLInterfaceNotifType_descriptor(), name, value);
+inline bool SLInterfaceNotifType_Parse(
+    const ::std::string& name, SLInterfaceNotifType* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<SLInterfaceNotifType>(
+    SLInterfaceNotifType_descriptor(), name, value);
 }
 // ===================================================================
 
@@ -481,12 +481,26 @@ class SLInterfaceGlobalsGetStatsMsgRsp : public ::google::protobuf::Message {
   ::service_layer::SLErrorStatus* release_errstatus();
   void set_allocated_errstatus(::service_layer::SLErrorStatus* errstatus);
 
+  // optional uint64 SeqNum = 2;
+  void clear_seqnum();
+  static const int kSeqNumFieldNumber = 2;
+  ::google::protobuf::uint64 seqnum() const;
+  void set_seqnum(::google::protobuf::uint64 value);
+
+  // optional uint32 InterfaceNotifCount = 3;
+  void clear_interfacenotifcount();
+  static const int kInterfaceNotifCountFieldNumber = 3;
+  ::google::protobuf::uint32 interfacenotifcount() const;
+  void set_interfacenotifcount(::google::protobuf::uint32 value);
+
   // @@protoc_insertion_point(class_scope:service_layer.SLInterfaceGlobalsGetStatsMsgRsp)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   bool _is_default_instance_;
   ::service_layer::SLErrorStatus* errstatus_;
+  ::google::protobuf::uint64 seqnum_;
+  ::google::protobuf::uint32 interfacenotifcount_;
   mutable int _cached_size_;
   friend void  protobuf_AddDesc_sl_5finterface_2eproto();
   friend void protobuf_AssignDesc_sl_5finterface_2eproto();
@@ -646,31 +660,6 @@ class SLInterfaceInfoMsg : public ::google::protobuf::Message {
 
   // nested types ----------------------------------------------------
 
-  typedef SLInterfaceInfoMsg_SLInterfaceState SLInterfaceState;
-  static const SLInterfaceState SL_IF_STATE_UNKNOWN = SLInterfaceInfoMsg_SLInterfaceState_SL_IF_STATE_UNKNOWN;
-  static const SLInterfaceState SL_IF_STATE_DOWN = SLInterfaceInfoMsg_SLInterfaceState_SL_IF_STATE_DOWN;
-  static const SLInterfaceState SL_IF_STATE_UP = SLInterfaceInfoMsg_SLInterfaceState_SL_IF_STATE_UP;
-  static inline bool SLInterfaceState_IsValid(int value) {
-    return SLInterfaceInfoMsg_SLInterfaceState_IsValid(value);
-  }
-  static const SLInterfaceState SLInterfaceState_MIN =
-    SLInterfaceInfoMsg_SLInterfaceState_SLInterfaceState_MIN;
-  static const SLInterfaceState SLInterfaceState_MAX =
-    SLInterfaceInfoMsg_SLInterfaceState_SLInterfaceState_MAX;
-  static const int SLInterfaceState_ARRAYSIZE =
-    SLInterfaceInfoMsg_SLInterfaceState_SLInterfaceState_ARRAYSIZE;
-  static inline const ::google::protobuf::EnumDescriptor*
-  SLInterfaceState_descriptor() {
-    return SLInterfaceInfoMsg_SLInterfaceState_descriptor();
-  }
-  static inline const ::std::string& SLInterfaceState_Name(SLInterfaceState value) {
-    return SLInterfaceInfoMsg_SLInterfaceState_Name(value);
-  }
-  static inline bool SLInterfaceState_Parse(const ::std::string& name,
-      SLInterfaceState* value) {
-    return SLInterfaceInfoMsg_SLInterfaceState_Parse(name, value);
-  }
-
   // accessors -------------------------------------------------------
 
   // optional .service_layer.SLInterface SLIfInfo = 1;
@@ -682,11 +671,17 @@ class SLInterfaceInfoMsg : public ::google::protobuf::Message {
   ::service_layer::SLInterface* release_slifinfo();
   void set_allocated_slifinfo(::service_layer::SLInterface* slifinfo);
 
-  // optional .service_layer.SLInterfaceInfoMsg.SLInterfaceState IfState = 2;
+  // optional .service_layer.SLInterfaceState IfState = 2;
   void clear_ifstate();
   static const int kIfStateFieldNumber = 2;
-  ::service_layer::SLInterfaceInfoMsg_SLInterfaceState ifstate() const;
-  void set_ifstate(::service_layer::SLInterfaceInfoMsg_SLInterfaceState value);
+  ::service_layer::SLInterfaceState ifstate() const;
+  void set_ifstate(::service_layer::SLInterfaceState value);
+
+  // optional uint64 SeqNum = 3;
+  void clear_seqnum();
+  static const int kSeqNumFieldNumber = 3;
+  ::google::protobuf::uint64 seqnum() const;
+  void set_seqnum(::google::protobuf::uint64 value);
 
   // @@protoc_insertion_point(class_scope:service_layer.SLInterfaceInfoMsg)
  private:
@@ -694,6 +689,7 @@ class SLInterfaceInfoMsg : public ::google::protobuf::Message {
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   bool _is_default_instance_;
   ::service_layer::SLInterface* slifinfo_;
+  ::google::protobuf::uint64 seqnum_;
   int ifstate_;
   mutable int _cached_size_;
   friend void  protobuf_AddDesc_sl_5finterface_2eproto();
@@ -937,38 +933,13 @@ class SLInterfaceNotif : public ::google::protobuf::Message {
 
   // nested types ----------------------------------------------------
 
-  typedef SLInterfaceNotif_SLInterfaceNotifType SLInterfaceNotifType;
-  static const SLInterfaceNotifType SL_INTERFACE_EVENT_TYPE_RESERVED = SLInterfaceNotif_SLInterfaceNotifType_SL_INTERFACE_EVENT_TYPE_RESERVED;
-  static const SLInterfaceNotifType SL_INTERFACE_EVENT_TYPE_ERROR = SLInterfaceNotif_SLInterfaceNotifType_SL_INTERFACE_EVENT_TYPE_ERROR;
-  static const SLInterfaceNotifType SL_INTERFACE_EVENT_TYPE_INTERFACE_INFO = SLInterfaceNotif_SLInterfaceNotifType_SL_INTERFACE_EVENT_TYPE_INTERFACE_INFO;
-  static inline bool SLInterfaceNotifType_IsValid(int value) {
-    return SLInterfaceNotif_SLInterfaceNotifType_IsValid(value);
-  }
-  static const SLInterfaceNotifType SLInterfaceNotifType_MIN =
-    SLInterfaceNotif_SLInterfaceNotifType_SLInterfaceNotifType_MIN;
-  static const SLInterfaceNotifType SLInterfaceNotifType_MAX =
-    SLInterfaceNotif_SLInterfaceNotifType_SLInterfaceNotifType_MAX;
-  static const int SLInterfaceNotifType_ARRAYSIZE =
-    SLInterfaceNotif_SLInterfaceNotifType_SLInterfaceNotifType_ARRAYSIZE;
-  static inline const ::google::protobuf::EnumDescriptor*
-  SLInterfaceNotifType_descriptor() {
-    return SLInterfaceNotif_SLInterfaceNotifType_descriptor();
-  }
-  static inline const ::std::string& SLInterfaceNotifType_Name(SLInterfaceNotifType value) {
-    return SLInterfaceNotif_SLInterfaceNotifType_Name(value);
-  }
-  static inline bool SLInterfaceNotifType_Parse(const ::std::string& name,
-      SLInterfaceNotifType* value) {
-    return SLInterfaceNotif_SLInterfaceNotifType_Parse(name, value);
-  }
-
   // accessors -------------------------------------------------------
 
-  // optional .service_layer.SLInterfaceNotif.SLInterfaceNotifType EventType = 1;
+  // optional .service_layer.SLInterfaceNotifType EventType = 1;
   void clear_eventtype();
   static const int kEventTypeFieldNumber = 1;
-  ::service_layer::SLInterfaceNotif_SLInterfaceNotifType eventtype() const;
-  void set_eventtype(::service_layer::SLInterfaceNotif_SLInterfaceNotifType value);
+  ::service_layer::SLInterfaceNotifType eventtype() const;
+  void set_eventtype(::service_layer::SLInterfaceNotifType value);
 
   // optional .service_layer.SLErrorStatus ErrStatus = 2;
   bool has_errstatus() const;
@@ -1455,6 +1426,34 @@ inline void SLInterfaceGlobalsGetStatsMsgRsp::set_allocated_errstatus(::service_
   // @@protoc_insertion_point(field_set_allocated:service_layer.SLInterfaceGlobalsGetStatsMsgRsp.ErrStatus)
 }
 
+// optional uint64 SeqNum = 2;
+inline void SLInterfaceGlobalsGetStatsMsgRsp::clear_seqnum() {
+  seqnum_ = GOOGLE_ULONGLONG(0);
+}
+inline ::google::protobuf::uint64 SLInterfaceGlobalsGetStatsMsgRsp::seqnum() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLInterfaceGlobalsGetStatsMsgRsp.SeqNum)
+  return seqnum_;
+}
+inline void SLInterfaceGlobalsGetStatsMsgRsp::set_seqnum(::google::protobuf::uint64 value) {
+  
+  seqnum_ = value;
+  // @@protoc_insertion_point(field_set:service_layer.SLInterfaceGlobalsGetStatsMsgRsp.SeqNum)
+}
+
+// optional uint32 InterfaceNotifCount = 3;
+inline void SLInterfaceGlobalsGetStatsMsgRsp::clear_interfacenotifcount() {
+  interfacenotifcount_ = 0u;
+}
+inline ::google::protobuf::uint32 SLInterfaceGlobalsGetStatsMsgRsp::interfacenotifcount() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLInterfaceGlobalsGetStatsMsgRsp.InterfaceNotifCount)
+  return interfacenotifcount_;
+}
+inline void SLInterfaceGlobalsGetStatsMsgRsp::set_interfacenotifcount(::google::protobuf::uint32 value) {
+  
+  interfacenotifcount_ = value;
+  // @@protoc_insertion_point(field_set:service_layer.SLInterfaceGlobalsGetStatsMsgRsp.InterfaceNotifCount)
+}
+
 // -------------------------------------------------------------------
 
 // SLInterfaceGetMsg
@@ -1565,18 +1564,32 @@ inline void SLInterfaceInfoMsg::set_allocated_slifinfo(::service_layer::SLInterf
   // @@protoc_insertion_point(field_set_allocated:service_layer.SLInterfaceInfoMsg.SLIfInfo)
 }
 
-// optional .service_layer.SLInterfaceInfoMsg.SLInterfaceState IfState = 2;
+// optional .service_layer.SLInterfaceState IfState = 2;
 inline void SLInterfaceInfoMsg::clear_ifstate() {
   ifstate_ = 0;
 }
-inline ::service_layer::SLInterfaceInfoMsg_SLInterfaceState SLInterfaceInfoMsg::ifstate() const {
+inline ::service_layer::SLInterfaceState SLInterfaceInfoMsg::ifstate() const {
   // @@protoc_insertion_point(field_get:service_layer.SLInterfaceInfoMsg.IfState)
-  return static_cast< ::service_layer::SLInterfaceInfoMsg_SLInterfaceState >(ifstate_);
+  return static_cast< ::service_layer::SLInterfaceState >(ifstate_);
 }
-inline void SLInterfaceInfoMsg::set_ifstate(::service_layer::SLInterfaceInfoMsg_SLInterfaceState value) {
+inline void SLInterfaceInfoMsg::set_ifstate(::service_layer::SLInterfaceState value) {
   
   ifstate_ = value;
   // @@protoc_insertion_point(field_set:service_layer.SLInterfaceInfoMsg.IfState)
+}
+
+// optional uint64 SeqNum = 3;
+inline void SLInterfaceInfoMsg::clear_seqnum() {
+  seqnum_ = GOOGLE_ULONGLONG(0);
+}
+inline ::google::protobuf::uint64 SLInterfaceInfoMsg::seqnum() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLInterfaceInfoMsg.SeqNum)
+  return seqnum_;
+}
+inline void SLInterfaceInfoMsg::set_seqnum(::google::protobuf::uint64 value) {
+  
+  seqnum_ = value;
+  // @@protoc_insertion_point(field_set:service_layer.SLInterfaceInfoMsg.SeqNum)
 }
 
 // -------------------------------------------------------------------
@@ -1672,15 +1685,15 @@ SLInterfaceGetMsgRsp::entries() const {
 
 // SLInterfaceNotif
 
-// optional .service_layer.SLInterfaceNotif.SLInterfaceNotifType EventType = 1;
+// optional .service_layer.SLInterfaceNotifType EventType = 1;
 inline void SLInterfaceNotif::clear_eventtype() {
   eventtype_ = 0;
 }
-inline ::service_layer::SLInterfaceNotif_SLInterfaceNotifType SLInterfaceNotif::eventtype() const {
+inline ::service_layer::SLInterfaceNotifType SLInterfaceNotif::eventtype() const {
   // @@protoc_insertion_point(field_get:service_layer.SLInterfaceNotif.EventType)
-  return static_cast< ::service_layer::SLInterfaceNotif_SLInterfaceNotifType >(eventtype_);
+  return static_cast< ::service_layer::SLInterfaceNotifType >(eventtype_);
 }
-inline void SLInterfaceNotif::set_eventtype(::service_layer::SLInterfaceNotif_SLInterfaceNotifType value) {
+inline void SLInterfaceNotif::set_eventtype(::service_layer::SLInterfaceNotifType value) {
   
   eventtype_ = value;
   // @@protoc_insertion_point(field_set:service_layer.SLInterfaceNotif.EventType)
@@ -2020,15 +2033,15 @@ SLInterfaceNotifMsgRsp::results() const {
 namespace google {
 namespace protobuf {
 
-template <> struct is_proto_enum< ::service_layer::SLInterfaceInfoMsg_SLInterfaceState> : ::google::protobuf::internal::true_type {};
+template <> struct is_proto_enum< ::service_layer::SLInterfaceState> : ::google::protobuf::internal::true_type {};
 template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::service_layer::SLInterfaceInfoMsg_SLInterfaceState>() {
-  return ::service_layer::SLInterfaceInfoMsg_SLInterfaceState_descriptor();
+inline const EnumDescriptor* GetEnumDescriptor< ::service_layer::SLInterfaceState>() {
+  return ::service_layer::SLInterfaceState_descriptor();
 }
-template <> struct is_proto_enum< ::service_layer::SLInterfaceNotif_SLInterfaceNotifType> : ::google::protobuf::internal::true_type {};
+template <> struct is_proto_enum< ::service_layer::SLInterfaceNotifType> : ::google::protobuf::internal::true_type {};
 template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::service_layer::SLInterfaceNotif_SLInterfaceNotifType>() {
-  return ::service_layer::SLInterfaceNotif_SLInterfaceNotifType_descriptor();
+inline const EnumDescriptor* GetEnumDescriptor< ::service_layer::SLInterfaceNotifType>() {
+  return ::service_layer::SLInterfaceNotifType_descriptor();
 }
 
 }  // namespace protobuf

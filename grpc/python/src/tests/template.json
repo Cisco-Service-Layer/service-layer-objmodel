@@ -1,6 +1,29 @@
 {
     "_copyright_": "All rights reserved. Copyright (c) 2016 by cisco Systems, Inc.", 
+    "batch_bfd_multihop": {
+        "sessions": [
+            {
+                "cfg_detect_multi": 3, 
+                "cfg_tx_int_usec": 50000, 
+                "nexthop": "nh_r2_l3", 
+                "src_v4_addr": "10.10.10.3", 
+                "src_v6_addr": "10:10:10:10::3", 
+                "type": 2
+            }
+        ]
+    }, 
+    "batch_bfd_singlehop": {
+        "sessions": [
+            {
+                "cfg_detect_multi": 3, 
+                "cfg_tx_int_usec": 50000, 
+                "nexthop": "nh_r2_l1", 
+                "type": 1
+            }
+        ]
+    }, 
     "batch_ilm": {
+        "batch_count": 5, 
         "correlator": 1, 
         "ilms": [
             {
@@ -10,35 +33,21 @@
             }
         ]
     }, 
+    "batch_interfaces": {
+        "interfaces": [
+            {
+                "if_name": "GigabitEthernet0/0/0/0"
+            }, 
+            {
+                "if_name": "GigabitEthernet0/0/0/1"
+            }
+        ]
+    }, 
     "batch_mpls_lbl_block": {
         "blocks": [
             {
                 "block_size": 1000, 
                 "start_label": 16000
-            }
-        ]
-    }, 
-    "batch_v4_bfd_multihop": {
-        "af": 4, 
-        "sessions": [
-            {
-                "cfg_detect_multi": 3, 
-                "cfg_tx_int_usec": 50000, 
-                "nexthop": "nh_r2_l3", 
-                "src_v4_addr": "10.10.10.1", 
-                "src_v6_addr": "10:10:10:10::1", 
-                "type": 2
-            }
-        ]
-    }, 
-    "batch_v4_bfd_singlehop": {
-        "af": 4, 
-        "sessions": [
-            {
-                "cfg_detect_multi": 3, 
-                "cfg_tx_int_usec": 50000, 
-                "nexthop": "nh_r2_l1", 
-                "type": 1
             }
         ]
     }, 
@@ -128,10 +137,138 @@
             }
         ]
     }, 
+    "bfd_get": {
+        "get_exact_bfd": {
+            "_description": "Get Exact Match", 
+            "count": 1, 
+            "get_next": 0, 
+            "if_name": "GigabitEthernet0/0/0/0", 
+            "seq_num": 0, 
+            "type": 1, 
+            "v4_nbr": "10.10.10.1", 
+            "v4_src": "10.10.10.3", 
+            "v6_nbr": "10:10:10:10::1", 
+            "v6_src": "10:10:10:10::3", 
+            "vrf_name": "default"
+        }, 
+        "get_firstN_bfd": {
+            "_description": "Get First N bfds", 
+            "count": 5, 
+            "get_next": 0
+        }, 
+        "get_nextN_bfd": {
+            "_description": "Get Next N bfds following specified", 
+            "count": 3, 
+            "get_next": 1, 
+            "if_name": "GigabitEthernet0/0/0/0", 
+            "seq_num": 0, 
+            "type": 1, 
+            "v4_nbr": "10.10.10.1", 
+            "v4_src": "10.10.10.3", 
+            "v6_nbr": "10:10:10:10::1", 
+            "v6_src": "10:10:10:10::3", 
+            "vrf_name": "default"
+        }, 
+        "get_nextN_include_bfd": {
+            "_description": "Get Next N bfds starting from specified", 
+            "count": 3, 
+            "get_next": 0, 
+            "if_name": "GigabitEthernet0/0/0/0", 
+            "seq_num": 0, 
+            "type": 1, 
+            "v4_nbr": "10.10.10.1", 
+            "v4_src": "10.10.10.3", 
+            "v6_nbr": "10:10:10:10::1", 
+            "v6_src": "10:10:10:10::3", 
+            "vrf_name": "default"
+        }
+    }, 
     "global_init": {
         "major": 0, 
         "minor": 0, 
         "sub_ver": 0
+    }, 
+    "ilm_get": {
+        "get_exact_ilm": {
+            "_description": "Get Exact Match", 
+            "correlator": 1, 
+            "count": 1, 
+            "get_next": 0, 
+            "in_label": 16001
+        }, 
+        "get_firstN_ilm": {
+            "_description": "Get First N ilms", 
+            "correlator": 2, 
+            "count": 5, 
+            "get_next": 0
+        }, 
+        "get_nextN_ilm": {
+            "_description": "Get Next N ilms following specified", 
+            "correlator": 4, 
+            "count": 3, 
+            "get_next": 1, 
+            "in_label": 16001
+        }, 
+        "get_nextN_include_ilm": {
+            "_description": "Get Next N ilms starting from specified", 
+            "correlator": 3, 
+            "count": 3, 
+            "get_next": 0, 
+            "in_label": 16001
+        }
+    }, 
+    "intf_get": {
+        "get_exact_intf": {
+            "_description": "Get Exact Match", 
+            "count": 1, 
+            "get_next": 0, 
+            "if_name": "GigabitEthernet0/0/0/0"
+        }, 
+        "get_firstN_intf": {
+            "_description": "Get First N Interfaces", 
+            "count": 5, 
+            "get_next": 0
+        }, 
+        "get_nextN_include_intf": {
+            "_description": "Get Next N Interfaces starting from specified", 
+            "count": 3, 
+            "get_next": 0, 
+            "if_name": "GigabitEthernet0/0/0/0"
+        }, 
+        "get_nextN_intf": {
+            "_description": "Get Next N Interfaces following specified", 
+            "count": 3, 
+            "get_next": 1, 
+            "if_name": "GigabitEthernet0/0/0/0"
+        }
+    }, 
+    "lbl_blk_get": {
+        "get_exact_lbl_blk": {
+            "_description": "Get Exact Match", 
+            "block_size": 1000, 
+            "count": 1, 
+            "get_next": 0, 
+            "start_label": 16000
+        }, 
+        "get_firstN_lbl_blk": {
+            "_description": "Get First N lbl_blks", 
+            "count": 5, 
+            "get_next": 0
+        }, 
+        "get_nextN_include_lbl_blk": {
+            "_description": "Get Next N lbl_blks starting from specified", 
+            "block_size": 1000, 
+            "count": 3, 
+            "get_next": 0, 
+            "start_label": 16000
+        }, 
+        "get_nextN_lbl_blk": {
+            "_description": "Get Next N lbl_blks following specified", 
+            "block_size": 1000, 
+            "count": 3, 
+            "get_next": 1, 
+            "start_label": 16000
+        }
     }, 
     "nexthops": {
         "nh_r2_l1": {

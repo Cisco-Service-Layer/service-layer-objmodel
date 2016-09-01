@@ -14,6 +14,7 @@ from genpy import sl_common_types_pb2
 from genpy import sl_global_pb2
 from genpy import sl_mpls_pb2
 from genpy import sl_bfd_common_pb2
+from genpy import sl_interface_pb2
 from util import util
 from lindt import serializers
 
@@ -102,14 +103,29 @@ def print_bfd_globals(af, response):
         return False
     return True
 
+# Print Received BFD Stats
+def print_bfd_stats(af, response):
+    if (response.ErrStatus.Status ==
+        sl_common_types_pb2.SLErrorStatus.SL_SUCCESS):
+        print response
+    else:
+        print "BFD Stats response Error 0x%x" %(response.ErrStatus.Status)
+        return False
+    return True
+
 # Global notification Callback
 # This function is called from the global_init thread context
 # To break the stream recv(), return False
 def global_init_cback(response, event):
     if response.EventType == sl_global_pb2.SL_GLOBAL_EVENT_TYPE_VERSION:
         if (sl_common_types_pb2.SLErrorStatus.SL_SUCCESS ==
+                response.ErrStatus.Status) or \
+            (sl_common_types_pb2.SLErrorStatus.SL_INIT_STATE_CLEAR ==
+                response.ErrStatus.Status) or \
+            (sl_common_types_pb2.SLErrorStatus.SL_INIT_STATE_READY ==
                 response.ErrStatus.Status):
-            print "Server Version %d.%d.%d" %(
+            print "Server Returned 0x%x, Server's Version %d.%d.%d" %(
+                response.ErrStatus.Status,
                 response.InitRspMsg.MajorVer,
                 response.InitRspMsg.MinorVer,
                 response.InitRspMsg.SubVer)
@@ -154,7 +170,7 @@ def global_init(event):
 # BFD notification Callback
 # This function is called from the BFD thread context
 # To break the stream recv(), return False
-def bfd_notif_cback(response):
+def bfd_notif_cback(response, af):
     if response.EventType == sl_bfd_common_pb2.SL_BFD_EVENT_TYPE_ERROR:
         if (response.ErrStatus.Status ==
                 sl_common_types_pb2.SLErrorStatus.SL_NOTIF_TERM):
@@ -164,14 +180,14 @@ def bfd_notif_cback(response):
         return False
     elif response.EventType == sl_bfd_common_pb2.SL_BFD_EVENT_TYPE_SESSION_STATE:
         print "Received BFD Event:"
-        print "    VrfName  : %s" %(response.Session.Key.VrfName)
-        print "    Nbr      : %s" %(
-            str(ipaddress.ip_address(response.Session.Key.Nbr.Addr)))
-        print "    Interface: %s" %(
-            response.Session.Key.Interface.InterfaceName)
-        print "    Type     : %d" %(response.Session.Key.Type)
-        # This would not print attributes with 0 value.
-        print response.Session.State
+        if af == 4:
+            print "Nbr : %s" %(
+                str(ipaddress.ip_address(response.Session.Key.NbrAddr)))
+        elif af == 6:
+            print "Nbr : %s" %(
+                str(ipaddress.IPv6Address(
+                    int((response.Session.Key.NbrAddr).encode('hex'), 16))))
+        print response
     else:
         print "Received an unexpected event type %d" %(
             response.EventType)
@@ -180,11 +196,11 @@ def bfd_notif_cback(response):
     return True
 
 # Wait on BFD notification events
-def bfd_get_notif(event, thread_count):
+def bfd_get_notif(event, af, thread_count):
     # This would notify the main thread to proceed
-    event.set()
+    event[af].set()
     # RPC to get Notifications
-    response = TestSuite_005_BFD_IPv4.bfd_notif.bfd_get_notif(bfd_notif_cback)
+    response = TestSuite_005_BFD_IPv4.bfd_notif[af].bfd_get_notif(bfd_notif_cback, af)
     # Above, Should return on errors
     print "bfd_get_notif: thread %d exiting. response: %s" %(thread_count, 
         response)
@@ -253,7 +269,7 @@ def validate_route_get_response(response, af):
     #
     if (sl_common_types_pb2.SLErrorStatus.SL_SUCCESS == 
             response.ErrStatus.Status):
-        print ""
+        print "Route Get Msg Resp:"
         print "Corr:%d, Eof:%r, VRF:%s ErrStatus: 0x%x" %(
             response.Correlator, response.Eof,
             response.VrfName, response.ErrStatus.Status)
@@ -266,25 +282,16 @@ def validate_route_get_response(response, af):
             else:
                 print "Unknown AF %d" %(af)
                 return False
-            print "  %s/%d admin:%d LocalLabel:%d" %(
-                str(addr), elem.PrefixLen,
-                elem.RouteCommon.AdminDistance, elem.RouteCommon.LocalLabel)
+            print "  %s/%d" %(str(addr), elem.PrefixLen)
             for path in elem.PathList:
                 if af == 4:
-                    print "    via %s %s" %(
-                      str(ipaddress.ip_address(path.NexthopAddress.V4Address)),
-                      path.NexthopInterface.Name)
+                    print "    via %s" %(
+                      str(ipaddress.ip_address(path.NexthopAddress.V4Address)))
                 elif af == 6:
-                    print "    via %s %s" %(
+                    print "    via %s" %(
                       str(ipaddress.IPv6Address(
                           int((path.NexthopAddress.V6Address).encode('hex'), 
-                          16))),
-                      path.NexthopInterface.Name)
-                print "      Load:%d, Vrf:%s, PathId:%d, Bitmap:0x%x" %(
-                    path.LoadMetric, path.VrfName,
-                    path.PathId, path.ProtectedPathBitmap[0]) 
-                for label in path.LabelStack:
-                    print "      Label:%d" %(label)
+                          16))))
                 if af == 4:
                     for addr in path.RemoteAddress:
                         print "      Remote:%s" %(
@@ -297,6 +304,8 @@ def validate_route_get_response(response, af):
                 else:
                     print "Unknown AF %d" %(af)
                     return False
+            print "Details:"
+            print elem
         return True
     print "Route Get Error code 0x%x" %(response.ErrStatus.Status)
     return False
@@ -326,6 +335,77 @@ def validate_vrf_stats_get_response(response, af):
 #
 #
 #
+def route_op_iterator(params, oper):
+    count = 0
+    time_limit = 0
+    batch_count = 1
+    if 'batch_count' in params[0]:
+        batch_count = params[0]['batch_count']
+    first_prefix = params[0]['routes'][0]['prefix']
+    if 'local_label' in params[0]['routes'][0]:
+        first_label = params[0]['routes'][0]['local_label']
+    # Build the route (serializer)
+    for b in range(batch_count):
+        serializer, next, label = serializers.route_serializer(*params)
+        serializer.Oper = oper
+        yield serializer
+        count = count + 1
+        params[0]['routes'][0]['prefix'] = next
+        if 'local_label' in params[0]['routes'][0]:
+            params[0]['routes'][0]['local_label'] = label
+    params[0]['routes'][0]['prefix'] = first_prefix
+    if 'local_label' in params[0]['routes'][0]:
+        params[0]['routes'][0]['local_label'] = first_label
+    while (TestSuite_001_Route_IPv4.validated_count < count):
+        time.sleep(0.1)
+        time_limit = time_limit + 1
+        if time_limit > 100:
+            return
+    # A return would raise a stopIterator
+
+#
+#
+#
+def route_get_iterator(get_list):
+    count = 0
+    time_limit = 0
+    for item in get_list:
+        yield item
+        count = count + 1
+    while (TestSuite_001_Route_IPv4.validated_count < count):
+        time.sleep(0.1)
+        time_limit = time_limit + 1
+        if time_limit > 100:
+            return
+    # A return would raise a stopIterator
+
+#
+#
+#
+def validate_mpls_regop_response(response):
+    if (sl_common_types_pb2.SLErrorStatus.SL_SUCCESS ==
+            response.ErrStatus.Status):
+        return True
+    # Error cases
+    print "Response Error code 0x%x" %(response.ErrStatus.Status)
+    return False
+
+#
+#
+# Print Received MPLS Stats
+def print_mpls_stats(response):
+    if (response.ErrStatus.Status ==
+        sl_common_types_pb2.SLErrorStatus.SL_SUCCESS):
+        print "LabelBlockCount : %d" %(response.LabelBlockCount)
+        print "IlmCount : %d" %(response.IlmCount)
+    else:
+        print "MPLS Stats response Error 0x%x" %(response.ErrStatus.Status)
+        return False
+    return True
+
+#
+#
+#
 def validate_lbl_blk_response(response):
     if (sl_common_types_pb2.SLErrorStatus.SL_SUCCESS == 
             response.StatusSummary.Status):
@@ -345,7 +425,25 @@ def validate_lbl_blk_response(response):
 #
 #
 #
-def validate_ilmv4_response(response):
+def validate_lbl_blk_get_response(response):
+    # Increment the validated_count
+    TestSuite_003_ILM_IPv4.validated_count =\
+        TestSuite_001_Route_IPv4.validated_count + 1
+    #
+    if (sl_common_types_pb2.SLErrorStatus.SL_SUCCESS == 
+            response.ErrStatus.Status):
+        print response
+        return True
+    print "Label Block Get Error code 0x%x" %(response.ErrStatus.Status)
+    return False
+
+#
+#
+#
+def validate_ilm_response(response):
+    # Increment the validated_count
+    TestSuite_003_ILM_IPv4.validated_count =\
+        TestSuite_003_ILM_IPv4.validated_count + 1
     if (sl_common_types_pb2.SLErrorStatus.SL_SUCCESS == 
             response.StatusSummary.Status):
         return True
@@ -364,26 +462,64 @@ def validate_ilmv4_response(response):
 #
 #
 #
-def validate_ilmv6_response(response):
-    if (sl_common_types_pb2.SLErrorStatus.SL_SUCCESS == 
-            response.StatusSummary.Status):
-        return True
-    # Error cases
-    print "Batch Error code 0x%x" %(response.StatusSummary.Status)
-    # SOME ERROR
-    if (sl_common_types_pb2.SLErrorStatus.SL_SOME_ERR == 
-            response.StatusSummary.Status):
-        for result in response.Results:
-            print "Error code for %d is 0x%x" %(
-                result.Key.LocalLabel,
-                result.ErrStatus.Status
-            )
-    return False
+def ilm_op_iterator(params, oper):
+    count = 0
+    time_limit = 0
+    batch_count = 1
+    if 'batch_count' in params[0]:
+        batch_count = params[0]['batch_count']
+    first_label = params[0]['ilms'][0]['in_label']
+    # Build the ilm (serializer)
+    for b in range(batch_count):
+        serializer, next = serializers.ilm_serializer(*params)
+        serializer.Oper = oper
+        yield serializer
+        count = count + 1
+        params[0]['ilms'][0]['in_label'] = next
+    params[0]['ilms'][0]['in_label'] = first_label
+    while (TestSuite_003_ILM_IPv4.validated_count < count):
+        time.sleep(0.1)
+        time_limit = time_limit + 1
+        if time_limit > 100:
+            return
+    # A return would raise a stopIterator
 
 #
 #
 #
-def validate_bfdv4_response(response):
+def ilm_get_iterator(get_list):
+    count = 0
+    time_limit = 0
+    for item in get_list:
+        yield item
+        count = count + 1
+    while (TestSuite_003_ILM_IPv4.validated_count < count):
+        time.sleep(0.1)
+        time_limit = time_limit + 1
+        if time_limit > 100:
+            return
+    # A return would raise a stopIterator
+
+#
+#
+#
+def validate_ilm_get_response(response):
+    # Increment the validated_count
+    TestSuite_003_ILM_IPv4.validated_count =\
+        TestSuite_003_ILM_IPv4.validated_count + 1
+    #
+    if (sl_common_types_pb2.SLErrorStatus.SL_SUCCESS == 
+            response.ErrStatus.Status):
+        print response
+        return True
+    print "ILM Get Error code 0x%x" %(response.ErrStatus.Status)
+    return False
+
+
+#
+#
+#
+def validate_bfd_response(response):
     if (sl_common_types_pb2.SLErrorStatus.SL_SUCCESS == 
             response.StatusSummary.Status):
         return True
@@ -409,6 +545,112 @@ def validate_bfd_regop_response(response):
     # Error cases
     print "Response Error code 0x%x" %(response.ErrStatus.Status)
     return False
+
+#
+#
+#
+def validate_bfd_get_response(response, af):
+    print "BFD Get Attributes:"
+    print response
+    if (sl_common_types_pb2.SLErrorStatus.SL_SUCCESS !=
+            response.ErrStatus.Status):
+        return False
+    return True
+
+#
+#
+# Print Received Interface Globals
+def print_intf_globals(response):
+    if (response.ErrStatus.Status ==
+        sl_common_types_pb2.SLErrorStatus.SL_SUCCESS):
+        print "Max Intf Per Msg : %d" %(response.MaxInterfacesPerBatch)
+    else:
+        print "Intf Globals response Error 0x%x" %(response.ErrStatus.Status)
+        return False
+    return True
+
+# Interface notification Callback
+# This function is called from the Interface thread context
+# To break the stream recv(), return False
+def intf_notif_cback(response):
+    if response.EventType == sl_interface_pb2.SL_INTERFACE_EVENT_TYPE_ERROR:
+        if (response.ErrStatus.Status ==
+                sl_common_types_pb2.SLErrorStatus.SL_NOTIF_TERM):
+            print "Received notification to Terminate, Stream taken over?"
+        else:
+            print "Received error 0x%x" %(response.ErrStatus.Status)
+        return False
+    elif response.EventType == sl_interface_pb2.SL_INTERFACE_EVENT_TYPE_INTERFACE_INFO:
+        print "Received Interface Event:", response
+    else:
+        print "Received an unexpected event type %d" %(
+            response.EventType)
+        return False
+    # Continue looping on events
+    return True
+
+#
+#
+# Wait on Intf notification events
+def intf_get_notif(event, thread_count):
+    # This would notify the main thread to proceed
+    event.set()
+    # RPC to get Notifications
+    response = TestSuite_009_INTERFACE.intf_notif.intf_get_notif(intf_notif_cback)
+    # Above, Should return on errors
+    print "intf_get_notif: thread %d exiting. response: %s" %(thread_count, 
+        response)
+    # Do not exit the process, as other tests could be still going
+
+#
+#
+#
+def validate_intf_regop_response(response):
+    if (sl_common_types_pb2.SLErrorStatus.SL_SUCCESS ==
+            response.ErrStatus.Status):
+        return True
+    # Error cases
+    print "Response Error code 0x%x" %(response.ErrStatus.Status)
+    return False
+
+#
+#
+# Print Received BFD Stats
+def print_intf_stats(response):
+    if (response.ErrStatus.Status ==
+        sl_common_types_pb2.SLErrorStatus.SL_SUCCESS):
+        print response
+    else:
+        print "Intf Stats response Error 0x%x" %(response.ErrStatus.Status)
+        return False
+    return True
+
+
+#
+#
+#
+def validate_intf_response(response):
+    if (sl_common_types_pb2.SLErrorStatus.SL_SUCCESS == 
+            response.StatusSummary.Status):
+        return True
+    # Error cases
+    print "Batch Error code 0x%x" %(response.StatusSummary.Status)
+    # SOME ERROR
+    if (sl_common_types_pb2.SLErrorStatus.SL_SOME_ERR == 
+            response.StatusSummary.Status):
+        print response
+    return False
+
+#
+#
+#
+def validate_intf_get_response(response):
+    print "Intf Get Attributes:"
+    print response
+    if (sl_common_types_pb2.SLErrorStatus.SL_SUCCESS !=
+            response.ErrStatus.Status):
+        return False
+    return True
 
 #
 #
@@ -470,46 +712,6 @@ class TestSuite_000_Global(ClientTestCase):
 #
 #
 #
-def route_op_iterator(params, oper):
-    count = 0
-    time_limit = 0
-    batch_count = 1
-    if 'batch_count' in params[0]:
-        batch_count = params[0]['batch_count']
-    first_prefix = params[0]['routes'][0]['prefix']
-    # Build the route (serializer)
-    for b in range(batch_count):
-        serializer, next = serializers.route_serializer(*params)
-        serializer.Oper = oper
-        yield serializer
-        count = count + 1
-        params[0]['routes'][0]['prefix'] = next
-    params[0]['routes'][0]['prefix'] = first_prefix
-    while (TestSuite_001_Route_IPv4.validated_count < count):
-        time.sleep(0.1)
-        time_limit = time_limit + 1
-        if time_limit > 30:
-            return
-    # A return would raise a stopIterator
-
-#
-#
-#
-def route_get_iterator(get_list):
-    count = 0
-    time_limit = 0
-    for item in get_list:
-        yield item
-        count = count + 1
-    while (TestSuite_001_Route_IPv4.validated_count < count):
-        time.sleep(0.1)
-        time_limit = time_limit + 1
-        if time_limit > 30:
-            return
-    # A return would raise a stopIterator
-#
-#
-#
 class TestSuite_001_Route_IPv4(ClientTestCase):
     AF = 4
     STREAM = False
@@ -547,13 +749,20 @@ class TestSuite_001_Route_IPv4(ClientTestCase):
         batch_count = 1
         if 'batch_count' in params[0]:
             batch_count = params[0]['batch_count']
+        # We only use params[0]['routes'][0] in case of batch>0 and range>0
         first_prefix = params[0]['routes'][0]['prefix']
+        if 'local_label' in params[0]['routes'][0]:
+            first_label = params[0]['routes'][0]['local_label']
         for b in range(batch_count):
-            response, next = func(*params)
+            response, next, label = func(*params)
             err = validate_route_response(response, self.AF)
             self.assertTrue(err)
             params[0]['routes'][0]['prefix'] = next
+            if 'local_label' in params[0]['routes'][0]:
+                params[0]['routes'][0]['local_label'] = label
         params[0]['routes'][0]['prefix'] = first_prefix
+        if 'local_label' in params[0]['routes'][0]:
+            params[0]['routes'][0]['local_label'] = first_label
 
     # This is not a test
     def route_op_stream(self, params, oper):
@@ -575,45 +784,44 @@ class TestSuite_001_Route_IPv4(ClientTestCase):
             else:
                 self.route_op_stream(p, sl_common_types_pb2.SL_OBJOP_ADD)
 
-    def test_003_00_route_update(self):
+    def test_003_00_route_update(self, name = None):
+        temp = None
+        if name != None:
+            temp = ClientTestCase.json_params['batch_v%d_route' % self.AF]['routes'][0]['path']
+            ClientTestCase.json_params['batch_v%d_route' % self.AF]['routes'][0]['path'] = name
         params = [self.route_params, self.route_label_params]
         for p in params:
             if self.STREAM == False:
                 self.route_op(ClientTestCase.client.route_update, p)
             else:
                 self.route_op_stream(p, sl_common_types_pb2.SL_OBJOP_UPDATE)
+        # NOTE: If the above fails, the following wont be restored
+        if name != None:
+            ClientTestCase.json_params['batch_v%d_route' % self.AF]['routes'][0]['path'] = temp
 
     def test_003_01_route_update_nhlfe_connected(self):
-        ClientTestCase.json_params['batch_v%d_route' % self.AF]['routes'][0]['path'] = "path_nhlfe_connected"
-        self.test_003_00_route_update()
+        self.test_003_00_route_update("path_nhlfe_connected")
 
     def test_003_02_route_update_nhlfe_ecmp(self):
-        ClientTestCase.json_params['batch_v%d_route' % self.AF]['routes'][0]['path'] = "path_nhlfe_ecmp"
-        self.test_003_00_route_update()
+        self.test_003_00_route_update("path_nhlfe_ecmp")
     
     def test_003_03_route_update_nhlfe_non_connected(self):
-        ClientTestCase.json_params['batch_v%d_route' % self.AF]['routes'][0]['path'] = "path_nhlfe_non_connected"
-        self.test_003_00_route_update()
+        self.test_003_00_route_update("path_nhlfe_non_connected")
     
     def test_003_04_route_update_route_connected(self):
-        ClientTestCase.json_params['batch_v%d_route' % self.AF]['routes'][0]['path'] = "path_route_connected"
-        self.test_003_00_route_update()
+        self.test_003_00_route_update("path_route_connected")
     
     def test_003_05_route_update_route_ecmp(self):
-        ClientTestCase.json_params['batch_v%d_route' % self.AF]['routes'][0]['path'] = "path_route_ecmp"
-        self.test_003_00_route_update()
+        self.test_003_00_route_update("path_route_ecmp")
     
     def test_003_06_route_update_route_non_connected(self):
-        ClientTestCase.json_params['batch_v%d_route' % self.AF]['routes'][0]['path'] = "path_route_non_connected"
-        self.test_003_00_route_update()
+        self.test_003_00_route_update("path_route_non_connected")
     
     def test_003_07_route_update_route_primary_with_labels_remote_pq_lfa(self):
-        ClientTestCase.json_params['batch_v%d_route' % self.AF]['routes'][0]['path'] = "path_route_primary_with_labels_remote_pq_lfa"
-        self.test_003_00_route_update()
+        self.test_003_00_route_update("path_route_primary_with_labels_remote_pq_lfa")
     
     def test_003_08_route_update_route_primary_with_lfa(self):
-        ClientTestCase.json_params['batch_v%d_route' % self.AF]['routes'][0]['path'] = "path_route_primary_with_lfa"
-        self.test_003_00_route_update()
+        self.test_003_00_route_update("path_route_primary_with_lfa")
     
     # Not a test case
     def route_get_info(self, get_info):
@@ -646,18 +854,24 @@ class TestSuite_001_Route_IPv4(ClientTestCase):
         self.assertTrue(err)
         total_routes = total_routes + len(response.Entries)
         get_info = self.route_get["get_nextN_route"]
+        prefix_temp = get_info["v%d_prefix"  % self.AF]
+        prefix_len_temp = get_info["prefix_len"]
         while (len(response.Entries)>0) and not response.Eof:
             if self.AF == 4:
-                get_info["v%d_prefix"  % self.AF] = str(
-                    ipaddress.ip_address(response.Entries[len(response.Entries)-1].Prefix))
+                last_prefix = ipaddress.ip_address(response.Entries[len(response.Entries)-1].Prefix)
+                get_info["v%d_prefix"  % self.AF] = str(last_prefix)
             elif self.AF == 6:
-                get_info["v%d_prefix"  % self.AF] = str(ipaddress.IPv6Address(
-                    int((response.Entries[len(response.Entries)-1].Prefix).encode('hex'), 16)))
+                last_prefix = ipaddress.IPv6Address(
+                    int((response.Entries[len(response.Entries)-1].Prefix).encode('hex'), 16)
+                )
+                get_info["v%d_prefix"  % self.AF] = str(last_prefix)
             get_info["prefix_len"] = response.Entries[len(response.Entries)-1].PrefixLen
             response = ClientTestCase.client.route_get(get_info, self.AF)
             err = validate_route_get_response(response, self.AF)
             total_routes = total_routes + len(response.Entries)
             self.assertTrue(err)
+        get_info["v%d_prefix"  % self.AF] = prefix_temp
+        get_info["prefix_len"] = prefix_len_temp
         print "Total Routes read: %d" %(total_routes)
 
     def test_004_05_route_get_stream(self):
@@ -730,8 +944,10 @@ class TestSuite_001_Route_IPv4(ClientTestCase):
             self.assertTrue(err)
             total_vrfs = total_vrfs + len(response.Entries)
             get_info = self.vrf_get["get_nextN_vrf"]
+            vrf_name_temp = get_info["vrf_name"]
             while (len(response.Entries)>0) and not response.Eof:
-                get_info["vrf_name"] = response.Entries[len(response.Entries)-1].VrfName
+                last_vrfName = response.Entries[len(response.Entries)-1].VrfName
+                get_info["vrf_name"] = last_vrfName
                 response = ClientTestCase.client.vrf_get(get_info, self.AF, stats)
                 if not stats:
                     err = validate_vrf_get_response(response, self.AF)
@@ -739,6 +955,7 @@ class TestSuite_001_Route_IPv4(ClientTestCase):
                     err = validate_vrf_stats_get_response(response, self.AF)
                 total_vrfs = total_vrfs + len(response.Entries)
                 self.assertTrue(err)
+            get_info["vrf_name"] = vrf_name_temp
             print "Total VRFs read: %d" %(total_vrfs)
 
     def test_007_route_delete(self):
@@ -751,6 +968,11 @@ class TestSuite_001_Route_IPv4(ClientTestCase):
 
     def test_008_vrf_registration_eof(self):
         response = ClientTestCase.client.vrf_registration_eof(self.vrf_batch)
+        err = validate_vrf_response(response)
+        self.assertTrue(err)
+        
+    def test_009_vrf_unregistration(self):
+        response = ClientTestCase.client.vrf_registration_delete(self.vrf_batch)
         err = validate_vrf_response(response)
         self.assertTrue(err)
 
@@ -782,6 +1004,8 @@ class TestSuite_002_Route_IPv6_Stream(TestSuite_001_Route_IPv4):
 #
 class TestSuite_003_ILM_IPv4(ClientTestCase):
     AF = 4
+    STREAM = False
+    validated_count = 0
 
     def setUp(self):
         super(TestSuite_003_ILM_IPv4, self).setUp()
@@ -792,78 +1016,260 @@ class TestSuite_003_ILM_IPv4(ClientTestCase):
             ClientTestCase.json_params['nexthops'],
         )
         self.lbl_blk_params = ClientTestCase.json_params['batch_mpls_lbl_block']
+        self.ilm_get = ClientTestCase.json_params['ilm_get']
+        self.lbl_blk_get = ClientTestCase.json_params['lbl_blk_get']
 
     def test_000_get_globals(self):
         # Get Global MPLS info
-        response = ClientTestCase.client.global_mpls_get()
+        response = ClientTestCase.client.mpls_global_get()
         err = print_mpls_globals(response)
         self.assertTrue(err)
-    
-    def test_001_blk_add(self):
-        response = ClientTestCase.client.block_label_add(self.lbl_blk_params)
+
+    def test_001_mpls_register(self):
+        response = ClientTestCase.client.mpls_register_oper()
+        err = validate_mpls_regop_response(response)
+        self.assertTrue(err)
+
+    def test_002_blk_add(self):
+        response = ClientTestCase.client.label_block_add(self.lbl_blk_params)
         err = validate_lbl_blk_response(response)
         self.assertTrue(err)
     
-    def test_002_ilm_add(self):
-        ClientTestCase.json_params['batch_ilm']['ilms'][0]['path'] = "path_nhlfe_connected"
-        response = ClientTestCase.client.ilm_add(*self.ilm_params)
-        err = validate_ilmv4_response(response)
-        self.assertTrue(err)
+    # This is not a test
+    def ilm_op(self, func, params):
+        batch_count = 1
+        if 'batch_count' in params[0]:
+            batch_count = params[0]['batch_count']
+        first_label = params[0]['ilms'][0]['in_label']
+        for b in range(batch_count):
+            response, next = func(*params)
+            err = validate_ilm_response(response)
+            self.assertTrue(err)
+            params[0]['ilms'][0]['in_label'] = next
+        params[0]['ilms'][0]['in_label'] = first_label
 
-    def test_003_00_ilm_update(self):
-        response = ClientTestCase.client.ilm_update(*self.ilm_params)
-        err = validate_ilmv4_response(response)
-        self.assertTrue(err)
+    # This is not a test
+    def ilm_op_stream(self, params, oper):
+        iterator = ilm_op_iterator(params, oper)
+        # Must reset this to sync the iterator with the responses
+        TestSuite_003_ILM_IPv4.validated_count = 0
+        count, error = ClientTestCase.client.ilm_op_stream(iterator,
+                validate_ilm_response)
+        self.assertTrue(error)
+        # This may fail if the server sends EOF prematurely
+        # (or we did not wait for the last reply)
+        self.assertTrue(count == TestSuite_003_ILM_IPv4.validated_count)
 
-    def test_003_01_ilm_update_nhlfe_connected(self):
-        ClientTestCase.json_params['batch_ilm']['ilms'][0]['path'] = "path_nhlfe_connected"
-        self.test_003_00_ilm_update()
+    def test_003_ilm_add(self):
+        if self.STREAM == False:
+            self.ilm_op(ClientTestCase.client.ilm_add,
+                self.ilm_params)
+        else:
+            self.ilm_op_stream(self.ilm_params,
+                sl_common_types_pb2.SL_OBJOP_ADD)
 
-    def test_003_02_ilm_update_nhlfe_ecmp(self):
-        ClientTestCase.json_params['batch_ilm']['ilms'][0]['path'] = "path_nhlfe_ecmp"
-        self.test_003_00_ilm_update()
-    
-    # Turn off for now
-    #def test_003_03_ilm_update_nhlfe_non_connected(self):
-    #    ClientTestCase.json_params['batch_ilm']['ilms'][0]['path'] = "path_nhlfe_non_connected"
-    #    self.test_003_00_ilm_update()
-    
-    def test_003_04_ilm_update_route_connected(self):
-        ClientTestCase.json_params['batch_ilm']['ilms'][0]['path'] = "path_route_connected"
-        self.test_003_00_ilm_update()
-    
-    def test_003_05_ilm_update_route_ecmp(self):
-        ClientTestCase.json_params['batch_ilm']['ilms'][0]['path'] = "path_route_ecmp"
-        self.test_003_00_ilm_update()
-    
-    # Turn off for now
-    #def test_003_06_ilm_update_route_non_connected(self):
-    #    ClientTestCase.json_params['batch_ilm']['ilms'][0]['path'] = "path_route_non_connected"
-    #    self.test_003_00_ilm_update()
-    
-    def test_003_07_ilm_update_route_primary_with_labels_remote_pq_lfa(self):
-        ClientTestCase.json_params['batch_ilm']['ilms'][0]['path'] = "path_route_primary_with_labels_remote_pq_lfa"
-        self.test_003_00_ilm_update()
-    
-    def test_003_08_ilm_update_route_primary_with_lfa(self):
-        ClientTestCase.json_params['batch_ilm']['ilms'][0]['path'] = "path_route_primary_with_lfa"
-        self.test_003_00_ilm_update()
+    def test_004_00_ilm_update(self, name = None):
+        temp = None
+        if name != None:
+            temp = ClientTestCase.json_params['batch_ilm']['ilms'][0]['path']
+            ClientTestCase.json_params['batch_ilm']['ilms'][0]['path'] = name
+        if self.STREAM == False:
+            self.ilm_op(ClientTestCase.client.ilm_update,
+                self.ilm_params)
+        else:
+            self.ilm_op_stream(self.ilm_params,
+                sl_common_types_pb2.SL_OBJOP_UPDATE)
+        # NOTE: If the above fails, the following wont be restored
+        if name != None:
+            ClientTestCase.json_params['batch_ilm']['ilms'][0]['path'] = temp
 
-    def test_003_09_ilm_update_route_lookup(self):
+    def test_004_01_ilm_update_nhlfe_connected(self):
+        self.test_004_00_ilm_update("path_nhlfe_connected")
+
+    def test_004_02_ilm_update_nhlfe_ecmp(self):
+        self.test_004_00_ilm_update("path_nhlfe_ecmp")
+    
+    # Turn off for now - Not supported
+    #def test_004_03_ilm_update_nhlfe_non_connected(self):
+    #    self.test_004_00_ilm_update("path_nhlfe_non_connected")
+    
+    def test_004_04_ilm_update_route_connected(self):
+        self.test_004_00_ilm_update("path_route_connected")
+    
+    def test_004_05_ilm_update_route_ecmp(self):
+        self.test_004_00_ilm_update("path_route_ecmp")
+    
+    # Turn off for now - Not supported
+    #def test_004_06_ilm_update_route_non_connected(self):
+    #    self.test_004_00_ilm_update("path_route_non_connected")
+    
+    def test_004_07_ilm_update_route_primary_with_labels_remote_pq_lfa(self):
+        self.test_004_00_ilm_update("path_route_primary_with_labels_remote_pq_lfa")
+    
+    def test_004_08_ilm_update_route_primary_with_lfa(self):
+        self.test_004_00_ilm_update("path_route_primary_with_lfa")
+
+    def test_004_09_ilm_update_route_lookup(self):
+        temp = ClientTestCase.json_params['paths']["path_route_lookup"][0]["label_action"]
         if self.AF == 6:
             ClientTestCase.json_params['paths']["path_route_lookup"][0]["label_action"] = sl_mpls_pb2.SL_LABEL_ACTION_POP_AND_LOOKUP_IPV6
-        ClientTestCase.json_params['batch_ilm']['ilms'][0]['path'] = "path_route_lookup"
-        self.test_003_00_ilm_update()
+        self.test_004_00_ilm_update("path_route_lookup")
+        # Restore
+        if self.AF == 6:
+            ClientTestCase.json_params['paths']["path_route_lookup"][0]["label_action"] = temp
 
-    def test_004_ilm_delete(self):
-        response = ClientTestCase.client.ilm_delete(*self.ilm_params)
-        err = validate_ilmv4_response(response)
+    def test_005_get_stats(self):
+        # Get Global MPLS stats
+        response = ClientTestCase.client.mpls_global_get_stats()
+        err = print_mpls_stats(response)
         self.assertTrue(err)
 
-    def test_005_blk_delete(self):
-        response = ClientTestCase.client.block_label_delete(self.lbl_blk_params)
+    # Not a test case
+    def ilm_get_info(self, get_info):
+        print get_info["_description"]
+        response = ClientTestCase.client.ilm_get(get_info)
+        err = validate_ilm_get_response(response)
+        self.assertTrue(err)
+
+    def test_006_01_ilm_get_exact_match(self):
+        get_info = self.ilm_get["get_exact_ilm"]
+        self.ilm_get_info(get_info)
+
+    def test_006_02_ilm_get_firstN(self):
+        get_info = self.ilm_get["get_firstN_ilm"]
+        self.ilm_get_info(get_info)
+
+    def test_006_03_ilm_get_nextN_with_specified(self):
+        get_info = self.ilm_get["get_nextN_include_ilm"]
+        self.ilm_get_info(get_info)
+
+    def test_006_04_ilm_get_nextN_after_specified(self):
+        get_info = self.ilm_get["get_nextN_ilm"]
+        self.ilm_get_info(get_info)
+
+    def test_006_05_ilm_get_all(self):
+        total_ilms = 0
+        get_info = self.ilm_get["get_firstN_ilm"]
+        response = ClientTestCase.client.ilm_get(get_info)
+        err = validate_ilm_get_response(response)
+        self.assertTrue(err)
+        total_ilms = total_ilms + len(response.Entries)
+        get_info = self.ilm_get["get_nextN_ilm"]
+        label_temp = get_info["in_label"]
+        while (len(response.Entries)>0) and not response.Eof:
+            last_label = response.Entries[len(response.Entries)-1].Key.LocalLabel
+            get_info["in_label"] = last_label
+            response = ClientTestCase.client.ilm_get(get_info)
+            err = validate_ilm_get_response(response)
+            total_ilms = total_ilms + len(response.Entries)
+            self.assertTrue(err)
+        get_info["in_label"] = label_temp
+        print "Total ilms read: %d" %(total_ilms)
+
+    def test_006_06_ilm_get_stream(self):
+        serialized_list = []
+        # Pack 3 requests
+        get_info = self.ilm_get["get_firstN_ilm"]
+        get_info["correlator"] = 1
+        serializer = serializers.ilm_get_serializer(get_info)
+        serialized_list.append(serializer)
+        get_info = self.ilm_get["get_exact_ilm"]
+        get_info["correlator"] = 2
+        serializer = serializers.ilm_get_serializer(get_info)
+        serialized_list.append(serializer)
+        get_info = self.ilm_get["get_nextN_include_ilm"]
+        get_info["correlator"] = 3
+        serializer = serializers.ilm_get_serializer(get_info)
+        serialized_list.append(serializer)
+        # Call RPC
+        iterator = ilm_get_iterator(serialized_list)
+        # Must reset this to sync the iterator with the responses
+        TestSuite_003_ILM_IPv4.validated_count = 0
+        count, error = ClientTestCase.client.ilm_get_stream(iterator,
+            validate_ilm_get_response)
+        self.assertTrue(error)
+        # This may fail if the server sends EOF prematurely
+        if count != len(serialized_list):
+            print "Count %d, Expecting:%d" %(count, len(serialized_list))
+        self.assertTrue(count == len(serialized_list))
+
+    def test_007_ilm_delete(self):
+        if self.STREAM == False:
+            self.ilm_op(ClientTestCase.client.ilm_delete,
+                self.ilm_params)
+        else:
+            self.ilm_op_stream(self.ilm_params,
+                sl_common_types_pb2.SL_OBJOP_DELETE)
+
+    # Not a test case
+    def lbl_blk_get_info(self, get_info):
+        print get_info["_description"]
+        response = ClientTestCase.client.label_block_get(get_info)
+        err = validate_lbl_blk_get_response(response)
+        self.assertTrue(err)
+
+    def test_008_01_lbl_blk_get_exact_match(self):
+        get_info = self.lbl_blk_get["get_exact_lbl_blk"]
+        self.lbl_blk_get_info(get_info)
+
+    def test_008_02_lbl_blk_get_firstN(self):
+        get_info = self.lbl_blk_get["get_firstN_lbl_blk"]
+        self.lbl_blk_get_info(get_info)
+
+    def test_008_03_lbl_blk_get_nextN_with_specified(self):
+        get_info = self.lbl_blk_get["get_nextN_include_lbl_blk"]
+        self.lbl_blk_get_info(get_info)
+
+    def test_008_04_lbl_blk_get_nextN_after_specified(self):
+        get_info = self.lbl_blk_get["get_nextN_lbl_blk"]
+        self.lbl_blk_get_info(get_info)
+
+    def test_008_05_lbl_blk_get_all(self):
+        total_lbl_blks = 0
+        get_info = self.lbl_blk_get["get_firstN_lbl_blk"]
+        response = ClientTestCase.client.label_block_get(get_info)
+        err = validate_lbl_blk_get_response(response)
+        self.assertTrue(err)
+        total_lbl_blks = total_lbl_blks + len(response.Entries)
+        get_info = self.lbl_blk_get["get_nextN_lbl_blk"]
+        label_temp = get_info["start_label"]
+        size_temp = get_info["block_size"]
+        while (len(response.Entries)>0) and not response.Eof:
+            last_label = response.Entries[len(response.Entries)-1].Key.StartLabel
+            last_size = response.Entries[len(response.Entries)-1].Key.LabelBlockSize
+            get_info["start_label"] = last_label
+            get_info["block_size"] = last_size
+            response = ClientTestCase.client.label_block_get(get_info)
+            err = validate_lbl_blk_get_response(response)
+            total_lbl_blks = total_lbl_blks + len(response.Entries)
+            self.assertTrue(err)
+        get_info["start_label"] = label_temp
+        get_info["block_size"] = size_temp
+        print "Total lbl_blks read: %d" %(total_lbl_blks)
+
+    def test_009_blk_delete(self):
+        response = ClientTestCase.client.label_block_delete(self.lbl_blk_params)
         err = validate_lbl_blk_response(response)
         self.assertTrue(err)
+
+    def test_010_mpls_eof(self):
+        response = ClientTestCase.client.mpls_eof_oper()
+        err = validate_mpls_regop_response(response)
+        self.assertTrue(err)
+
+    def test_011_mpls_unregister(self):
+        response = ClientTestCase.client.mpls_unregister_oper()
+        err = validate_mpls_regop_response(response)
+        self.assertTrue(err)
+
+
+#
+# This class simply inherits the entire v4 class
+#
+class TestSuite_003_ILM_IPv4_Stream(TestSuite_003_ILM_IPv4):
+    AF = 4
+    STREAM = True
+    # Inherit all v4 test cases
 
 #
 # This class simply inherits the entire v4 class
@@ -873,14 +1279,23 @@ class TestSuite_004_ILM_IPv6(TestSuite_003_ILM_IPv4):
     # Inherit all v4 test cases
 
 #
+# This class simply inherits the entire v4 class
+#
+class TestSuite_004_ILM_IPv6_Stream(TestSuite_003_ILM_IPv4):
+    AF = 6
+    STREAM = True
+    # Inherit all v4 test cases
+
+#
 #
 #
 class TestSuite_005_BFD_IPv4(ClientTestCase):
     AF = 4
+    JSON_TEST = 'batch_bfd_singlehop'
     # GRPC channel used for BFD notifications
-    bfd_notif = None
+    bfd_notif = {}
     # threading.Event() used to sync threads
-    bfd_event = None
+    bfd_event = {}
     # thread count; increments every time we spawn a new BFD reg thread
     # Note: only one BFD Notif session is allowed at any time. Last one
     # takes over the previous session.
@@ -889,35 +1304,37 @@ class TestSuite_005_BFD_IPv4(ClientTestCase):
     def setUp(self):
         super(TestSuite_005_BFD_IPv4, self).setUp()
         self.bfd_params = (
-            ClientTestCase.json_params['batch_v%d_bfd_singlehop' % self.AF],
+            ClientTestCase.json_params[self.JSON_TEST],
             ClientTestCase.json_params['nexthops'],
+            self.AF,
         )
+        self.bfd_get = ClientTestCase.json_params['bfd_get']
         
     def test_000_get_globals(self):
-        # Get Global BFDv4 info
+        # Get Global BFD info
         response = ClientTestCase.client.global_bfd_get(self.AF)
         err = print_bfd_globals(self.AF, response)
         self.assertTrue(err)
     
-    def test_001_bfd_reg_notif(self):      
+    def test_001_bfd_reg_notif(self):
         #
         # Setup a BFD notification channel
         #
         host, port = util.get_server_ip_port()
         # Setup a channel for the BFD notification thread
-        TestSuite_005_BFD_IPv4.bfd_notif = GrpcClient(host, port)
+        TestSuite_005_BFD_IPv4.bfd_notif[self.AF] = GrpcClient(host, port)
         # Create a synchronization event
-        TestSuite_005_BFD_IPv4.bfd_event = threading.Event()
+        TestSuite_005_BFD_IPv4.bfd_event[self.AF] = threading.Event()
         # Spawn a thread to wait on notifications
         TestSuite_005_BFD_IPv4.thread_count = TestSuite_005_BFD_IPv4.thread_count + 1
         t = threading.Thread(target = bfd_get_notif,
-                args=(TestSuite_005_BFD_IPv4.bfd_event,
+                args=(TestSuite_005_BFD_IPv4.bfd_event, self.AF,
                 TestSuite_005_BFD_IPv4.thread_count))
         t.start()
         #
         # Wait to hear from the server - Thread is blocked
         print "Waiting to hear from BFD thread..."
-        TestSuite_005_BFD_IPv4.bfd_event.wait()
+        TestSuite_005_BFD_IPv4.bfd_event[self.AF].wait()
         print "BFD thread ok, proceeding"
         self.assertTrue(True)
 
@@ -928,36 +1345,233 @@ class TestSuite_005_BFD_IPv4(ClientTestCase):
         
     def test_003_bfd_add(self):
         response = ClientTestCase.client.bfd_add(*self.bfd_params)
-        err = validate_bfdv4_response(response)
+        err = validate_bfd_response(response)
         self.assertTrue(err)
 
     def test_004_bfd_update(self):
-        ClientTestCase.json_params['batch_v%d_bfd_singlehop' % self.AF]['sessions'][0]['nexthop'] = 'nh_r2_l2'
+        # Can not change the key in updates. Change a non-key attribute:
+        ClientTestCase.json_params[self.JSON_TEST]['sessions'][0]['cfg_detect_multi'] = 10
         response = ClientTestCase.client.bfd_update(*self.bfd_params)
-        err = validate_bfdv4_response(response)
+        err = validate_bfd_response(response)
         self.assertTrue(err)
 
-    def test_005_bfd_delete(self):
+    def test_005_get_stats(self):
+        # Get Global BFD stats
+        response = ClientTestCase.client.bfd_global_get_stats(self.AF)
+        err = print_bfd_stats(self.AF, response)
+        self.assertTrue(err)
+
+        # Not a test case
+    def bfd_get_info(self, get_info):
+        print get_info["_description"]
+        response = ClientTestCase.client.bfd_session_get(get_info, self.AF)
+        err = validate_bfd_get_response(response, self.AF)
+        self.assertTrue(err)
+
+    def test_006_01_bfd_get_exact_match(self):
+        get_info = self.bfd_get["get_exact_bfd"]
+        self.bfd_get_info(get_info)
+
+    def test_006_02_bfd_get_firstN(self):
+        get_info = self.bfd_get["get_firstN_bfd"]
+        self.bfd_get_info(get_info)
+
+    def test_006_03_bfd_get_nextN_with_specified(self):
+        get_info = self.bfd_get["get_nextN_include_bfd"]
+        self.bfd_get_info(get_info)
+
+    def test_006_04_bfd_get_nextN_after_specified(self):
+        get_info = self.bfd_get["get_nextN_bfd"]
+        self.bfd_get_info(get_info)
+
+    def test_006_05_bfd_get_all(self):
+        total_bfds = 0
+        get_info = self.bfd_get["get_firstN_bfd"]
+        response = ClientTestCase.client.bfd_session_get(get_info, self.AF)
+        err = validate_bfd_get_response(response, self.AF)
+        self.assertTrue(err)
+        total_bfds = total_bfds + len(response.Entries)
+        get_info = self.bfd_get["get_nextN_bfd"]
+        if_name_temp = get_info["if_name"]
+        type_temp = get_info["type"]
+        nbr_temp = get_info["v%d_nbr" % self.AF]
+        src_temp = get_info["v%d_src" % self.AF]
+        vrf_name_temp = get_info["vrf_name"]
+        while (len(response.Entries)>0) and not response.Eof:
+            # Get key from last entry
+            get_info["if_name"] = response.Entries[len(response.Entries)-1].Key.Interface.Name
+            get_info["type"] = response.Entries[len(response.Entries)-1].Key.Type
+            get_info["v%d_nbr" % self.AF] = response.Entries[len(response.Entries)-1].Key.NbrAddr
+            get_info["v%d_src" % self.AF] = response.Entries[len(response.Entries)-1].Key.SourceAddr
+            get_info["vrf_name"] = response.Entries[len(response.Entries)-1].Key.VrfName
+            # Resend the request
+            response = ClientTestCase.client.bfd_session_get(get_info, self.AF)
+            err = validate_bfd_get_response(response, self.AF)
+            total_bfds = total_bfds + len(response.Entries)
+            self.assertTrue(err)
+        get_info["if_name"] = if_name_temp
+        get_info["type"] = type_temp
+        get_info["v%d_nbr" % self.AF] = nbr_temp
+        get_info["v%d_src" % self.AF] = src_temp
+        get_info["vrf_name"] = vrf_name_temp
+        print "Total VRFs read: %d" %(total_bfds)
+
+    def test_007_bfd_delete(self):
         response = ClientTestCase.client.bfd_delete(*self.bfd_params)
-        err = validate_bfdv4_response(response)
+        err = validate_bfd_response(response)
         self.assertTrue(err)
 
-    def test_006_bfd_eof(self):
+    def test_008_bfd_eof(self):
         response = ClientTestCase.client.bfd_eof_oper(self.AF)
+        err = validate_bfd_regop_response(response)
+        self.assertTrue(err)
+
+    def test_009_bfd_unregister(self):
+        response = ClientTestCase.client.bfd_unregister_oper(self.AF)
         err = validate_bfd_regop_response(response)
         self.assertTrue(err)
 
 #
 #
-# Turn off for now
-#class TestSuite_006_BFD_IPv4_Multi_Hop(TestSuite_005_BFD_IPv4):
-#    def setUp(self):
-#        super(TestSuite_005_BFD_IPv4, self).setUp()
-#        self.bfd_params = (
-#            ClientTestCase.json_params['batch_v%d_bfd_multihop' % self.AF],
-#            ClientTestCase.json_params['nexthops'],
-#        )
-#    # Inherit all TestSuite_005_BFD_IPv4 test cases
+#
+class TestSuite_006_BFD_IPv6(TestSuite_005_BFD_IPv4):
+    AF = 6
+    # Inherit all test cases
+
+#
+# Not Supported, turning off for now
+#
+#class TestSuite_007_BFD_IPv4_Multi_Hop(TestSuite_005_BFD_IPv4):
+#    JSON_TEST = 'batch_bfd_multihop'
+#    # Inherit all test cases
+
+#
+# Not Supported, turning off for now
+#
+#class TestSuite_008_BFD_IPv6(TestSuite_007_BFD_IPv4_Multi_Hop):
+#    AF = 6
+#    # Inherit all test cases
+
+#
+#
+#
+class TestSuite_009_INTERFACE(ClientTestCase):
+    # GRPC channel used for Interface notifications
+    intf_notif = None
+    # threading.Event() used to sync threads
+    intf_event = None
+    # thread count; increments every time we spawn a new Interface reg thread
+    # Note: only one Interface Notif session is allowed at any time. Last one
+    # takes over the previous session.
+    thread_count = 0
+
+    def setUp(self):
+        super(TestSuite_009_INTERFACE, self).setUp()
+        self.intf_params = ClientTestCase.json_params['batch_interfaces']
+        self.intf_get = ClientTestCase.json_params['intf_get']
+        
+    def test_000_get_globals(self):
+        # Get Global Interface info
+        response = ClientTestCase.client.intf_global_get()
+        err = print_intf_globals(response)
+        self.assertTrue(err)
+    
+    def test_001_intf_reg_notif(self):      
+        #
+        # Setup an Interface notification channel
+        #
+        host, port = util.get_server_ip_port()
+        # Setup a channel for the Interface notification thread
+        TestSuite_009_INTERFACE.intf_notif = GrpcClient(host, port)
+        # Create a synchronization event
+        TestSuite_009_INTERFACE.intf_event = threading.Event()
+        # Spawn a thread to wait on notifications
+        TestSuite_009_INTERFACE.thread_count = TestSuite_009_INTERFACE.thread_count + 1
+        t = threading.Thread(target = intf_get_notif,
+                args=(TestSuite_009_INTERFACE.intf_event,
+                TestSuite_009_INTERFACE.thread_count))
+        t.start()
+        #
+        # Wait to hear from the server - Thread is blocked
+        print "Waiting to hear from Intf thread..."
+        TestSuite_009_INTERFACE.intf_event.wait()
+        print "Intf thread ok, proceeding"
+        self.assertTrue(True)
+
+    def test_002_intf_register(self):
+        response = ClientTestCase.client.intf_register_op()
+        err = validate_intf_regop_response(response)
+        self.assertTrue(err)
+        
+    def test_003_intf_subscribe(self):
+        response = ClientTestCase.client.intf_subscribe(self.intf_params)
+        err = validate_intf_response(response)
+        self.assertTrue(err)
+
+    def test_005_get_stats(self):
+        # Get Global Intf stats
+        response = ClientTestCase.client.intf_global_get_stats()
+        err = print_intf_stats(response)
+        self.assertTrue(err)
+
+        # Not a test case
+    def intf_get_info(self, get_info):
+        print get_info["_description"]
+        response = ClientTestCase.client.intf_get(get_info)
+        err = validate_intf_get_response(response)
+        self.assertTrue(err)
+
+    def test_006_01_intf_get_exact_match(self):
+        get_info = self.intf_get["get_exact_intf"]
+        self.intf_get_info(get_info)
+
+    def test_006_02_intf_get_firstN(self):
+        get_info = self.intf_get["get_firstN_intf"]
+        self.intf_get_info(get_info)
+
+    def test_006_03_intf_get_nextN_with_specified(self):
+        get_info = self.intf_get["get_nextN_include_intf"]
+        self.intf_get_info(get_info)
+
+    def test_006_04_intf_get_nextN_after_specified(self):
+        get_info = self.intf_get["get_nextN_intf"]
+        self.intf_get_info(get_info)
+
+    def test_006_05_intf_get_all(self):
+        total_intfs = 0
+        get_info = self.intf_get["get_firstN_intf"]
+        response = ClientTestCase.client.intf_get(get_info)
+        err = validate_intf_get_response(response)
+        self.assertTrue(err)
+        total_intfs = total_intfs + len(response.Entries)
+        get_info = self.intf_get["get_nextN_intf"]
+        if_name_temp = get_info["if_name"]
+        while (len(response.Entries)>0) and not response.Eof:
+            # Get key from last entry
+            get_info["if_name"] = response.Entries[len(response.Entries)-1].Key.Interface.Name
+            # Resend the request
+            response = ClientTestCase.client.intf_get(get_info)
+            err = validate_intf_get_response(response)
+            total_intfs = total_intfs + len(response.Entries)
+            self.assertTrue(err)
+        get_info["if_name"] = if_name_temp
+        print "Total VRFs read: %d" %(total_intfs)
+
+    def test_007_intf_unsubscribe(self):
+        response = ClientTestCase.client.intf_unsubscribe(self.intf_params)
+        err = validate_intf_response(response)
+        self.assertTrue(err)
+
+    def test_008_intf_eof(self):
+        response = ClientTestCase.client.intf_eof_oper()
+        err = validate_intf_regop_response(response)
+        self.assertTrue(err)
+
+    def test_009_intf_unregister(self):
+        response = ClientTestCase.client.intf_unregister_op()
+        err = validate_intf_regop_response(response)
+        self.assertTrue(err)
+
 
 if __name__ == '__main__':
     unittest.main()

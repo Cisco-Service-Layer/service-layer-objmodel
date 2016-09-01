@@ -136,7 +136,7 @@ enum SLErrorStatus_SLErrno {
   SLErrorStatus_SLErrno_SL_BFD_START_OFFSET = 28672,
   SLErrorStatus_SLErrno_SL_BFD_INTF_NAME_TOOLONG = 28673,
   SLErrorStatus_SLErrno_SL_BFD_INTF_NOT_FOUND = 28674,
-  SLErrorStatus_SLErrno_SL_BFD_INTERVAL_INVALID = 28675,
+  SLErrorStatus_SLErrno_SL_BFD_INVALID_ATTRIBUTE = 28675,
   SLErrorStatus_SLErrno_SL_BFD_INTF_NAME_MISSING = 28676,
   SLErrorStatus_SLErrno_SL_BFD_INVALID_NBR_MCAST = 28677,
   SLErrorStatus_SLErrno_SL_BFD_INVALID_NBR = 28678,
@@ -156,6 +156,7 @@ enum SLErrorStatus_SLErrno {
   SLErrorStatus_SLErrno_SL_RPC_MPLS_SERVER_NOT_INITIALIZED = 32770,
   SLErrorStatus_SLErrno_SL_RPC_MPLS_INIT_MODE_INCOMPATIBLE = 32771,
   SLErrorStatus_SLErrno_SL_RPC_MPLS_LABEL_BLK_TOO_MANY_LABEL_BLKS = 32772,
+  SLErrorStatus_SLErrno_SL_RPC_MPLS_NOT_REGISTERED = 32773,
   SLErrorStatus_SLErrno_SL_ILM_ERR_OFFSET = 36864,
   SLErrorStatus_SLErrno_SL_ILM_ADD_FAILED = 36865,
   SLErrorStatus_SLErrno_SL_ILM_LSD_ADD_FAILED = 36866,
@@ -167,6 +168,8 @@ enum SLErrorStatus_SLErrno {
   SLErrorStatus_SLErrno_SL_ILM_TOOMANY_BACKUP_NHLFES = 36872,
   SLErrorStatus_SLErrno_SL_ILM_LSD_ADD_LABEL_ALLOC_FAILED = 36873,
   SLErrorStatus_SLErrno_SL_ILM_LSD_NHLFE_INVALID_ATTRIB = 36874,
+  SLErrorStatus_SLErrno_SL_ILM_EEXIST = 36875,
+  SLErrorStatus_SLErrno_SL_ILM_DB_NOMEM = 36876,
   SLErrorStatus_SLErrno_SL_NHLFE_ERR_OFFSET = 40960,
   SLErrorStatus_SLErrno_SL_NHLFE_NH_NO_TABLE = 40961,
   SLErrorStatus_SLErrno_SL_NHLFE_NH_INVALID_ADDR_SZ = 40962,
@@ -201,6 +204,8 @@ enum SLErrorStatus_SLErrno {
   SLErrorStatus_SLErrno_SL_LABEL_BLK_LSD_INVALID_ATTRIB = 45061,
   SLErrorStatus_SLErrno_SL_LABEL_BLK_INVALID_BLOCK_SIZE = 45062,
   SLErrorStatus_SLErrno_SL_LABEL_BLK_INVALID_START_LABEL = 45063,
+  SLErrorStatus_SLErrno_SL_LABEL_BLK_EEXIST = 45064,
+  SLErrorStatus_SLErrno_SL_LABEL_BLK_DB_NOMEM = 45065,
   SLErrorStatus_SLErrno_SL_MPLS_REG_ERR_OFFSET = 49152,
   SLErrorStatus_SLErrno_SL_MPLS_REG_ERR = 49153,
   SLErrorStatus_SLErrno_SL_MPLS_UNREG_ERR = 49154,
@@ -208,10 +213,15 @@ enum SLErrorStatus_SLErrno {
   SLErrorStatus_SLErrno_SL_RPC_INTF_START_OFFSET = 53248,
   SLErrorStatus_SLErrno_SL_RPC_INTF_TOO_MANY_INTERFACES = 53249,
   SLErrorStatus_SLErrno_SL_RPC_INTF_SERVER_NOT_INITIALIZED = 53250,
+  SLErrorStatus_SLErrno_SL_RPC_INTF_API_CLIENT_NOT_REGISTERED = 53251,
   SLErrorStatus_SLErrno_SL_INTF_START_OFFSET = 57344,
   SLErrorStatus_SLErrno_SL_INTF_INTERFACE_NAME_MISSING = 57345,
   SLErrorStatus_SLErrno_SL_INTF_INTERFACE_NAME_TOOLONG = 57346,
   SLErrorStatus_SLErrno_SL_INTF_INTERFACE_REG_ERR = 57347,
+  SLErrorStatus_SLErrno_SL_INTF_INTERNAL_DB_ERROR = 57348,
+  SLErrorStatus_SLErrno_SL_INTF_RECOVERY_ERROR = 57349,
+  SLErrorStatus_SLErrno_SL_INTF_INTERFACE_EXISTS = 57350,
+  SLErrorStatus_SLErrno_SL_INTF_INTERFACE_NOT_FOUND = 57351,
   SLErrorStatus_SLErrno_SL_INTERNAL_START_OFFSET = 1048576,
   SLErrorStatus_SLErrno_SLErrorStatus_SLErrno_INT_MIN_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32min,
   SLErrorStatus_SLErrno_SLErrorStatus_SLErrno_INT_MAX_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32max
@@ -450,7 +460,7 @@ class SLErrorStatus : public ::google::protobuf::Message {
   static const SLErrno SL_BFD_START_OFFSET = SLErrorStatus_SLErrno_SL_BFD_START_OFFSET;
   static const SLErrno SL_BFD_INTF_NAME_TOOLONG = SLErrorStatus_SLErrno_SL_BFD_INTF_NAME_TOOLONG;
   static const SLErrno SL_BFD_INTF_NOT_FOUND = SLErrorStatus_SLErrno_SL_BFD_INTF_NOT_FOUND;
-  static const SLErrno SL_BFD_INTERVAL_INVALID = SLErrorStatus_SLErrno_SL_BFD_INTERVAL_INVALID;
+  static const SLErrno SL_BFD_INVALID_ATTRIBUTE = SLErrorStatus_SLErrno_SL_BFD_INVALID_ATTRIBUTE;
   static const SLErrno SL_BFD_INTF_NAME_MISSING = SLErrorStatus_SLErrno_SL_BFD_INTF_NAME_MISSING;
   static const SLErrno SL_BFD_INVALID_NBR_MCAST = SLErrorStatus_SLErrno_SL_BFD_INVALID_NBR_MCAST;
   static const SLErrno SL_BFD_INVALID_NBR = SLErrorStatus_SLErrno_SL_BFD_INVALID_NBR;
@@ -470,6 +480,7 @@ class SLErrorStatus : public ::google::protobuf::Message {
   static const SLErrno SL_RPC_MPLS_SERVER_NOT_INITIALIZED = SLErrorStatus_SLErrno_SL_RPC_MPLS_SERVER_NOT_INITIALIZED;
   static const SLErrno SL_RPC_MPLS_INIT_MODE_INCOMPATIBLE = SLErrorStatus_SLErrno_SL_RPC_MPLS_INIT_MODE_INCOMPATIBLE;
   static const SLErrno SL_RPC_MPLS_LABEL_BLK_TOO_MANY_LABEL_BLKS = SLErrorStatus_SLErrno_SL_RPC_MPLS_LABEL_BLK_TOO_MANY_LABEL_BLKS;
+  static const SLErrno SL_RPC_MPLS_NOT_REGISTERED = SLErrorStatus_SLErrno_SL_RPC_MPLS_NOT_REGISTERED;
   static const SLErrno SL_ILM_ERR_OFFSET = SLErrorStatus_SLErrno_SL_ILM_ERR_OFFSET;
   static const SLErrno SL_ILM_ADD_FAILED = SLErrorStatus_SLErrno_SL_ILM_ADD_FAILED;
   static const SLErrno SL_ILM_LSD_ADD_FAILED = SLErrorStatus_SLErrno_SL_ILM_LSD_ADD_FAILED;
@@ -481,6 +492,8 @@ class SLErrorStatus : public ::google::protobuf::Message {
   static const SLErrno SL_ILM_TOOMANY_BACKUP_NHLFES = SLErrorStatus_SLErrno_SL_ILM_TOOMANY_BACKUP_NHLFES;
   static const SLErrno SL_ILM_LSD_ADD_LABEL_ALLOC_FAILED = SLErrorStatus_SLErrno_SL_ILM_LSD_ADD_LABEL_ALLOC_FAILED;
   static const SLErrno SL_ILM_LSD_NHLFE_INVALID_ATTRIB = SLErrorStatus_SLErrno_SL_ILM_LSD_NHLFE_INVALID_ATTRIB;
+  static const SLErrno SL_ILM_EEXIST = SLErrorStatus_SLErrno_SL_ILM_EEXIST;
+  static const SLErrno SL_ILM_DB_NOMEM = SLErrorStatus_SLErrno_SL_ILM_DB_NOMEM;
   static const SLErrno SL_NHLFE_ERR_OFFSET = SLErrorStatus_SLErrno_SL_NHLFE_ERR_OFFSET;
   static const SLErrno SL_NHLFE_NH_NO_TABLE = SLErrorStatus_SLErrno_SL_NHLFE_NH_NO_TABLE;
   static const SLErrno SL_NHLFE_NH_INVALID_ADDR_SZ = SLErrorStatus_SLErrno_SL_NHLFE_NH_INVALID_ADDR_SZ;
@@ -515,6 +528,8 @@ class SLErrorStatus : public ::google::protobuf::Message {
   static const SLErrno SL_LABEL_BLK_LSD_INVALID_ATTRIB = SLErrorStatus_SLErrno_SL_LABEL_BLK_LSD_INVALID_ATTRIB;
   static const SLErrno SL_LABEL_BLK_INVALID_BLOCK_SIZE = SLErrorStatus_SLErrno_SL_LABEL_BLK_INVALID_BLOCK_SIZE;
   static const SLErrno SL_LABEL_BLK_INVALID_START_LABEL = SLErrorStatus_SLErrno_SL_LABEL_BLK_INVALID_START_LABEL;
+  static const SLErrno SL_LABEL_BLK_EEXIST = SLErrorStatus_SLErrno_SL_LABEL_BLK_EEXIST;
+  static const SLErrno SL_LABEL_BLK_DB_NOMEM = SLErrorStatus_SLErrno_SL_LABEL_BLK_DB_NOMEM;
   static const SLErrno SL_MPLS_REG_ERR_OFFSET = SLErrorStatus_SLErrno_SL_MPLS_REG_ERR_OFFSET;
   static const SLErrno SL_MPLS_REG_ERR = SLErrorStatus_SLErrno_SL_MPLS_REG_ERR;
   static const SLErrno SL_MPLS_UNREG_ERR = SLErrorStatus_SLErrno_SL_MPLS_UNREG_ERR;
@@ -522,10 +537,15 @@ class SLErrorStatus : public ::google::protobuf::Message {
   static const SLErrno SL_RPC_INTF_START_OFFSET = SLErrorStatus_SLErrno_SL_RPC_INTF_START_OFFSET;
   static const SLErrno SL_RPC_INTF_TOO_MANY_INTERFACES = SLErrorStatus_SLErrno_SL_RPC_INTF_TOO_MANY_INTERFACES;
   static const SLErrno SL_RPC_INTF_SERVER_NOT_INITIALIZED = SLErrorStatus_SLErrno_SL_RPC_INTF_SERVER_NOT_INITIALIZED;
+  static const SLErrno SL_RPC_INTF_API_CLIENT_NOT_REGISTERED = SLErrorStatus_SLErrno_SL_RPC_INTF_API_CLIENT_NOT_REGISTERED;
   static const SLErrno SL_INTF_START_OFFSET = SLErrorStatus_SLErrno_SL_INTF_START_OFFSET;
   static const SLErrno SL_INTF_INTERFACE_NAME_MISSING = SLErrorStatus_SLErrno_SL_INTF_INTERFACE_NAME_MISSING;
   static const SLErrno SL_INTF_INTERFACE_NAME_TOOLONG = SLErrorStatus_SLErrno_SL_INTF_INTERFACE_NAME_TOOLONG;
   static const SLErrno SL_INTF_INTERFACE_REG_ERR = SLErrorStatus_SLErrno_SL_INTF_INTERFACE_REG_ERR;
+  static const SLErrno SL_INTF_INTERNAL_DB_ERROR = SLErrorStatus_SLErrno_SL_INTF_INTERNAL_DB_ERROR;
+  static const SLErrno SL_INTF_RECOVERY_ERROR = SLErrorStatus_SLErrno_SL_INTF_RECOVERY_ERROR;
+  static const SLErrno SL_INTF_INTERFACE_EXISTS = SLErrorStatus_SLErrno_SL_INTF_INTERFACE_EXISTS;
+  static const SLErrno SL_INTF_INTERFACE_NOT_FOUND = SLErrorStatus_SLErrno_SL_INTF_INTERFACE_NOT_FOUND;
   static const SLErrno SL_INTERNAL_START_OFFSET = SLErrorStatus_SLErrno_SL_INTERNAL_START_OFFSET;
   static inline bool SLErrno_IsValid(int value) {
     return SLErrorStatus_SLErrno_IsValid(value);

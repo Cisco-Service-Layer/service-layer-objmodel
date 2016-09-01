@@ -265,6 +265,12 @@ message SLMplsGetMsgRsp {
 message SLMplsGetStatsMsgRsp {
     // Error code
     SLErrorStatus ErrStatus = 1;
+
+    // Num of label blocks created.
+    uint32 LabelBlockCount = 2;
+
+    // Num ILMs added through the service layer.
+    uint32 IlmCount = 3;
 }
 
 // MPLS label actions.

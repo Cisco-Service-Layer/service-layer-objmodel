@@ -1059,12 +1059,26 @@ class SLMplsGetStatsMsgRsp : public ::google::protobuf::Message {
   ::service_layer::SLErrorStatus* release_errstatus();
   void set_allocated_errstatus(::service_layer::SLErrorStatus* errstatus);
 
+  // optional uint32 LabelBlockCount = 2;
+  void clear_labelblockcount();
+  static const int kLabelBlockCountFieldNumber = 2;
+  ::google::protobuf::uint32 labelblockcount() const;
+  void set_labelblockcount(::google::protobuf::uint32 value);
+
+  // optional uint32 IlmCount = 3;
+  void clear_ilmcount();
+  static const int kIlmCountFieldNumber = 3;
+  ::google::protobuf::uint32 ilmcount() const;
+  void set_ilmcount(::google::protobuf::uint32 value);
+
   // @@protoc_insertion_point(class_scope:service_layer.SLMplsGetStatsMsgRsp)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   bool _is_default_instance_;
   ::service_layer::SLErrorStatus* errstatus_;
+  ::google::protobuf::uint32 labelblockcount_;
+  ::google::protobuf::uint32 ilmcount_;
   mutable int _cached_size_;
   friend void  protobuf_AddDesc_sl_5fmpls_2eproto();
   friend void protobuf_AssignDesc_sl_5fmpls_2eproto();
@@ -2524,6 +2538,34 @@ inline void SLMplsGetStatsMsgRsp::set_allocated_errstatus(::service_layer::SLErr
     
   }
   // @@protoc_insertion_point(field_set_allocated:service_layer.SLMplsGetStatsMsgRsp.ErrStatus)
+}
+
+// optional uint32 LabelBlockCount = 2;
+inline void SLMplsGetStatsMsgRsp::clear_labelblockcount() {
+  labelblockcount_ = 0u;
+}
+inline ::google::protobuf::uint32 SLMplsGetStatsMsgRsp::labelblockcount() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLMplsGetStatsMsgRsp.LabelBlockCount)
+  return labelblockcount_;
+}
+inline void SLMplsGetStatsMsgRsp::set_labelblockcount(::google::protobuf::uint32 value) {
+  
+  labelblockcount_ = value;
+  // @@protoc_insertion_point(field_set:service_layer.SLMplsGetStatsMsgRsp.LabelBlockCount)
+}
+
+// optional uint32 IlmCount = 3;
+inline void SLMplsGetStatsMsgRsp::clear_ilmcount() {
+  ilmcount_ = 0u;
+}
+inline ::google::protobuf::uint32 SLMplsGetStatsMsgRsp::ilmcount() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLMplsGetStatsMsgRsp.IlmCount)
+  return ilmcount_;
+}
+inline void SLMplsGetStatsMsgRsp::set_ilmcount(::google::protobuf::uint32 value) {
+  
+  ilmcount_ = value;
+  // @@protoc_insertion_point(field_set:service_layer.SLMplsGetStatsMsgRsp.IlmCount)
 }
 
 // -------------------------------------------------------------------

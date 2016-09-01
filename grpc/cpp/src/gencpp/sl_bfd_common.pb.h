@@ -561,6 +561,12 @@ class SLBfdGetStatsMsgRsp : public ::google::protobuf::Message {
   ::google::protobuf::uint64 seqnum() const;
   void set_seqnum(::google::protobuf::uint64 value);
 
+  // optional uint32 BfdCount = 3;
+  void clear_bfdcount();
+  static const int kBfdCountFieldNumber = 3;
+  ::google::protobuf::uint32 bfdcount() const;
+  void set_bfdcount(::google::protobuf::uint32 value);
+
   // @@protoc_insertion_point(class_scope:service_layer.SLBfdGetStatsMsgRsp)
  private:
 
@@ -568,6 +574,7 @@ class SLBfdGetStatsMsgRsp : public ::google::protobuf::Message {
   bool _is_default_instance_;
   ::service_layer::SLErrorStatus* errstatus_;
   ::google::protobuf::uint64 seqnum_;
+  ::google::protobuf::uint32 bfdcount_;
   mutable int _cached_size_;
   friend void  protobuf_AddDesc_sl_5fbfd_5fcommon_2eproto();
   friend void protobuf_AssignDesc_sl_5fbfd_5fcommon_2eproto();
@@ -1112,6 +1119,20 @@ inline void SLBfdGetStatsMsgRsp::set_seqnum(::google::protobuf::uint64 value) {
   
   seqnum_ = value;
   // @@protoc_insertion_point(field_set:service_layer.SLBfdGetStatsMsgRsp.SeqNum)
+}
+
+// optional uint32 BfdCount = 3;
+inline void SLBfdGetStatsMsgRsp::clear_bfdcount() {
+  bfdcount_ = 0u;
+}
+inline ::google::protobuf::uint32 SLBfdGetStatsMsgRsp::bfdcount() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLBfdGetStatsMsgRsp.BfdCount)
+  return bfdcount_;
+}
+inline void SLBfdGetStatsMsgRsp::set_bfdcount(::google::protobuf::uint32 value) {
+  
+  bfdcount_ = value;
+  // @@protoc_insertion_point(field_set:service_layer.SLBfdGetStatsMsgRsp.BfdCount)
 }
 
 // -------------------------------------------------------------------

@@ -42,7 +42,6 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 const ::google::protobuf::Descriptor* SLInterfaceInfoMsg_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   SLInterfaceInfoMsg_reflection_ = NULL;
-const ::google::protobuf::EnumDescriptor* SLInterfaceInfoMsg_SLInterfaceState_descriptor_ = NULL;
 const ::google::protobuf::Descriptor* SLInterfaceGetMsgRsp_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   SLInterfaceGetMsgRsp_reflection_ = NULL;
@@ -56,7 +55,6 @@ struct SLInterfaceNotifOneofInstance {
   const ::service_layer::SLErrorStatus* errstatus_;
   const ::service_layer::SLInterfaceInfoMsg* info_;
 }* SLInterfaceNotif_default_oneof_instance_ = NULL;
-const ::google::protobuf::EnumDescriptor* SLInterfaceNotif_SLInterfaceNotifType_descriptor_ = NULL;
 const ::google::protobuf::Descriptor* SLInterfaceNotifMsg_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   SLInterfaceNotifMsg_reflection_ = NULL;
@@ -66,6 +64,8 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 const ::google::protobuf::Descriptor* SLInterfaceNotifMsgRsp_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   SLInterfaceNotifMsgRsp_reflection_ = NULL;
+const ::google::protobuf::EnumDescriptor* SLInterfaceState_descriptor_ = NULL;
+const ::google::protobuf::EnumDescriptor* SLInterfaceNotifType_descriptor_ = NULL;
 
 }  // namespace
 
@@ -137,8 +137,10 @@ void protobuf_AssignDesc_sl_5finterface_2eproto() {
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SLInterfaceGlobalsGetMsgRsp, _internal_metadata_),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SLInterfaceGlobalsGetMsgRsp, _is_default_instance_));
   SLInterfaceGlobalsGetStatsMsgRsp_descriptor_ = file->message_type(4);
-  static const int SLInterfaceGlobalsGetStatsMsgRsp_offsets_[1] = {
+  static const int SLInterfaceGlobalsGetStatsMsgRsp_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SLInterfaceGlobalsGetStatsMsgRsp, errstatus_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SLInterfaceGlobalsGetStatsMsgRsp, seqnum_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SLInterfaceGlobalsGetStatsMsgRsp, interfacenotifcount_),
   };
   SLInterfaceGlobalsGetStatsMsgRsp_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
@@ -169,9 +171,10 @@ void protobuf_AssignDesc_sl_5finterface_2eproto() {
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SLInterfaceGetMsg, _internal_metadata_),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SLInterfaceGetMsg, _is_default_instance_));
   SLInterfaceInfoMsg_descriptor_ = file->message_type(6);
-  static const int SLInterfaceInfoMsg_offsets_[2] = {
+  static const int SLInterfaceInfoMsg_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SLInterfaceInfoMsg, slifinfo_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SLInterfaceInfoMsg, ifstate_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SLInterfaceInfoMsg, seqnum_),
   };
   SLInterfaceInfoMsg_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
@@ -184,7 +187,6 @@ void protobuf_AssignDesc_sl_5finterface_2eproto() {
       sizeof(SLInterfaceInfoMsg),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SLInterfaceInfoMsg, _internal_metadata_),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SLInterfaceInfoMsg, _is_default_instance_));
-  SLInterfaceInfoMsg_SLInterfaceState_descriptor_ = SLInterfaceInfoMsg_descriptor_->enum_type(0);
   SLInterfaceGetMsgRsp_descriptor_ = file->message_type(7);
   static const int SLInterfaceGetMsgRsp_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SLInterfaceGetMsgRsp, eof_),
@@ -236,7 +238,6 @@ void protobuf_AssignDesc_sl_5finterface_2eproto() {
       sizeof(SLInterfaceNotif),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SLInterfaceNotif, _internal_metadata_),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SLInterfaceNotif, _is_default_instance_));
-  SLInterfaceNotif_SLInterfaceNotifType_descriptor_ = SLInterfaceNotif_descriptor_->enum_type(0);
   SLInterfaceNotifMsg_descriptor_ = file->message_type(10);
   static const int SLInterfaceNotifMsg_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SLInterfaceNotifMsg, oper_),
@@ -285,6 +286,8 @@ void protobuf_AssignDesc_sl_5finterface_2eproto() {
       sizeof(SLInterfaceNotifMsgRsp),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SLInterfaceNotifMsgRsp, _internal_metadata_),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SLInterfaceNotifMsgRsp, _is_default_instance_));
+  SLInterfaceState_descriptor_ = file->enum_type(0);
+  SLInterfaceNotifType_descriptor_ = file->enum_type(1);
 }
 
 namespace {
@@ -373,56 +376,56 @@ void protobuf_AddDesc_sl_5finterface_2eproto() {
     "atus\"\032\n\030SLInterfaceGlobalsGetMsg\"m\n\033SLIn"
     "terfaceGlobalsGetMsgRsp\022/\n\tErrStatus\030\001 \001"
     "(\0132\034.service_layer.SLErrorStatus\022\035\n\025MaxI"
-    "nterfacesPerBatch\030\002 \001(\r\"S\n SLInterfaceGl"
-    "obalsGetStatsMsgRsp\022/\n\tErrStatus\030\001 \001(\0132\034"
-    ".service_layer.SLErrorStatus\"c\n\021SLInterf"
-    "aceGetMsg\022\'\n\003Key\030\001 \001(\0132\032.service_layer.S"
-    "LInterface\022\024\n\014EntriesCount\030\002 \001(\r\022\017\n\007GetN"
-    "ext\030\003 \001(\010\"\336\001\n\022SLInterfaceInfoMsg\022,\n\010SLIf"
-    "Info\030\001 \001(\0132\032.service_layer.SLInterface\022C"
-    "\n\007IfState\030\002 \001(\01622.service_layer.SLInterf"
-    "aceInfoMsg.SLInterfaceState\"U\n\020SLInterfa"
-    "ceState\022\027\n\023SL_IF_STATE_UNKNOWN\020\000\022\024\n\020SL_I"
-    "F_STATE_DOWN\020\001\022\022\n\016SL_IF_STATE_UP\020\002\"\210\001\n\024S"
-    "LInterfaceGetMsgRsp\022\013\n\003Eof\030\001 \001(\010\022/\n\tErrS"
+    "nterfacesPerBatch\030\002 \001(\r\"\200\001\n SLInterfaceG"
+    "lobalsGetStatsMsgRsp\022/\n\tErrStatus\030\001 \001(\0132"
+    "\034.service_layer.SLErrorStatus\022\016\n\006SeqNum\030"
+    "\002 \001(\004\022\033\n\023InterfaceNotifCount\030\003 \001(\r\"c\n\021SL"
+    "InterfaceGetMsg\022\'\n\003Key\030\001 \001(\0132\032.service_l"
+    "ayer.SLInterface\022\024\n\014EntriesCount\030\002 \001(\r\022\017"
+    "\n\007GetNext\030\003 \001(\010\"\204\001\n\022SLInterfaceInfoMsg\022,"
+    "\n\010SLIfInfo\030\001 \001(\0132\032.service_layer.SLInter"
+    "face\0220\n\007IfState\030\002 \001(\0162\037.service_layer.SL"
+    "InterfaceState\022\016\n\006SeqNum\030\003 \001(\004\"\210\001\n\024SLInt"
+    "erfaceGetMsgRsp\022\013\n\003Eof\030\001 \001(\010\022/\n\tErrStatu"
+    "s\030\002 \001(\0132\034.service_layer.SLErrorStatus\0222\n"
+    "\007Entries\030\003 \003(\0132!.service_layer.SLInterfa"
+    "ceInfoMsg\"\030\n\026SLInterfaceGetNotifMsg\"\271\001\n\020"
+    "SLInterfaceNotif\0226\n\tEventType\030\001 \001(\0162#.se"
+    "rvice_layer.SLInterfaceNotifType\0221\n\tErrS"
     "tatus\030\002 \001(\0132\034.service_layer.SLErrorStatu"
-    "s\0222\n\007Entries\030\003 \003(\0132!.service_layer.SLInt"
-    "erfaceInfoMsg\"\030\n\026SLInterfaceGetNotifMsg\""
-    "\330\002\n\020SLInterfaceNotif\022G\n\tEventType\030\001 \001(\0162"
-    "4.service_layer.SLInterfaceNotif.SLInter"
-    "faceNotifType\0221\n\tErrStatus\030\002 \001(\0132\034.servi"
-    "ce_layer.SLErrorStatusH\000\0221\n\004Info\030\003 \001(\0132!"
-    ".service_layer.SLInterfaceInfoMsgH\000\"\213\001\n\024"
-    "SLInterfaceNotifType\022$\n SL_INTERFACE_EVE"
-    "NT_TYPE_RESERVED\020\000\022!\n\035SL_INTERFACE_EVENT"
-    "_TYPE_ERROR\020\001\022*\n&SL_INTERFACE_EVENT_TYPE"
-    "_INTERFACE_INFO\020\002B\007\n\005Event\"j\n\023SLInterfac"
-    "eNotifMsg\022&\n\004Oper\030\001 \001(\0162\030.service_layer."
-    "SLNotifOp\022+\n\007Entries\030\002 \003(\0132\032.service_lay"
-    "er.SLInterface\"r\n\026SLInterfaceNotifMsgRes"
-    "\022/\n\tErrStatus\030\001 \001(\0132\034.service_layer.SLEr"
-    "rorStatus\022\'\n\003Key\030\002 \001(\0132\032.service_layer.S"
-    "LInterface\"\205\001\n\026SLInterfaceNotifMsgRsp\0223\n"
-    "\rStatusSummary\030\001 \001(\0132\034.service_layer.SLE"
-    "rrorStatus\0226\n\007Results\030\002 \003(\0132%.service_la"
-    "yer.SLInterfaceNotifMsgRes2\210\005\n\017SLInterfa"
-    "ceOper\022n\n\027SLInterfaceGlobalsRegOp\022\'.serv"
-    "ice_layer.SLInterfaceGlobalsRegMsg\032*.ser"
-    "vice_layer.SLInterfaceGlobalsRegMsgRsp\022l"
-    "\n\025SLInterfaceGlobalsGet\022\'.service_layer."
-    "SLInterfaceGlobalsGetMsg\032*.service_layer"
-    ".SLInterfaceGlobalsGetMsgRsp\022v\n\032SLInterf"
-    "aceGlobalsGetStats\022\'.service_layer.SLInt"
-    "erfaceGlobalsGetMsg\032/.service_layer.SLIn"
-    "terfaceGlobalsGetStatsMsgRsp\022W\n\016SLInterf"
-    "aceGet\022 .service_layer.SLInterfaceGetMsg"
-    "\032#.service_layer.SLInterfaceGetMsgRsp\022e\n"
-    "\031SLInterfaceGetNotifStream\022%.service_lay"
-    "er.SLInterfaceGetNotifMsg\032\037.service_laye"
-    "r.SLInterfaceNotif0\001\022_\n\022SLInterfaceNotif"
-    "Op\022\".service_layer.SLInterfaceNotifMsg\032%"
-    ".service_layer.SLInterfaceNotifMsgRspb\006p"
-    "roto3", 2285);
+    "sH\000\0221\n\004Info\030\003 \001(\0132!.service_layer.SLInte"
+    "rfaceInfoMsgH\000B\007\n\005Event\"j\n\023SLInterfaceNo"
+    "tifMsg\022&\n\004Oper\030\001 \001(\0162\030.service_layer.SLN"
+    "otifOp\022+\n\007Entries\030\002 \003(\0132\032.service_layer."
+    "SLInterface\"r\n\026SLInterfaceNotifMsgRes\022/\n"
+    "\tErrStatus\030\001 \001(\0132\034.service_layer.SLError"
+    "Status\022\'\n\003Key\030\002 \001(\0132\032.service_layer.SLIn"
+    "terface\"\205\001\n\026SLInterfaceNotifMsgRsp\0223\n\rSt"
+    "atusSummary\030\001 \001(\0132\034.service_layer.SLErro"
+    "rStatus\0226\n\007Results\030\002 \003(\0132%.service_layer"
+    ".SLInterfaceNotifMsgRes*U\n\020SLInterfaceSt"
+    "ate\022\027\n\023SL_IF_STATE_UNKNOWN\020\000\022\024\n\020SL_IF_ST"
+    "ATE_DOWN\020\001\022\022\n\016SL_IF_STATE_UP\020\002*\213\001\n\024SLInt"
+    "erfaceNotifType\022$\n SL_INTERFACE_EVENT_TY"
+    "PE_RESERVED\020\000\022!\n\035SL_INTERFACE_EVENT_TYPE"
+    "_ERROR\020\001\022*\n&SL_INTERFACE_EVENT_TYPE_INTE"
+    "RFACE_INFO\020\0022\210\005\n\017SLInterfaceOper\022n\n\027SLIn"
+    "terfaceGlobalsRegOp\022\'.service_layer.SLIn"
+    "terfaceGlobalsRegMsg\032*.service_layer.SLI"
+    "nterfaceGlobalsRegMsgRsp\022l\n\025SLInterfaceG"
+    "lobalsGet\022\'.service_layer.SLInterfaceGlo"
+    "balsGetMsg\032*.service_layer.SLInterfaceGl"
+    "obalsGetMsgRsp\022v\n\032SLInterfaceGlobalsGetS"
+    "tats\022\'.service_layer.SLInterfaceGlobalsG"
+    "etMsg\032/.service_layer.SLInterfaceGlobals"
+    "GetStatsMsgRsp\022W\n\016SLInterfaceGet\022 .servi"
+    "ce_layer.SLInterfaceGetMsg\032#.service_lay"
+    "er.SLInterfaceGetMsgRsp\022e\n\031SLInterfaceGe"
+    "tNotifStream\022%.service_layer.SLInterface"
+    "GetNotifMsg\032\037.service_layer.SLInterfaceN"
+    "otif0\001\022_\n\022SLInterfaceNotifOp\022\".service_l"
+    "ayer.SLInterfaceNotifMsg\032%.service_layer"
+    ".SLInterfaceNotifMsgRspb\006proto3", 2311);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "sl_interface.proto", &protobuf_RegisterTypes);
   SLInterfaceGlobalsRegMsg::default_instance_ = new SLInterfaceGlobalsRegMsg();
@@ -461,6 +464,36 @@ struct StaticDescriptorInitializer_sl_5finterface_2eproto {
     protobuf_AddDesc_sl_5finterface_2eproto();
   }
 } static_descriptor_initializer_sl_5finterface_2eproto_;
+const ::google::protobuf::EnumDescriptor* SLInterfaceState_descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return SLInterfaceState_descriptor_;
+}
+bool SLInterfaceState_IsValid(int value) {
+  switch(value) {
+    case 0:
+    case 1:
+    case 2:
+      return true;
+    default:
+      return false;
+  }
+}
+
+const ::google::protobuf::EnumDescriptor* SLInterfaceNotifType_descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return SLInterfaceNotifType_descriptor_;
+}
+bool SLInterfaceNotifType_IsValid(int value) {
+  switch(value) {
+    case 0:
+    case 1:
+    case 2:
+      return true;
+    default:
+      return false;
+  }
+}
+
 
 namespace {
 
@@ -1432,6 +1465,8 @@ void SLInterfaceGlobalsGetMsgRsp::clear_maxinterfacesperbatch() {
 
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
 const int SLInterfaceGlobalsGetStatsMsgRsp::kErrStatusFieldNumber;
+const int SLInterfaceGlobalsGetStatsMsgRsp::kSeqNumFieldNumber;
+const int SLInterfaceGlobalsGetStatsMsgRsp::kInterfaceNotifCountFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 SLInterfaceGlobalsGetStatsMsgRsp::SLInterfaceGlobalsGetStatsMsgRsp()
@@ -1457,6 +1492,8 @@ void SLInterfaceGlobalsGetStatsMsgRsp::SharedCtor() {
     _is_default_instance_ = false;
   _cached_size_ = 0;
   errstatus_ = NULL;
+  seqnum_ = GOOGLE_ULONGLONG(0);
+  interfacenotifcount_ = 0u;
 }
 
 SLInterfaceGlobalsGetStatsMsgRsp::~SLInterfaceGlobalsGetStatsMsgRsp() {
@@ -1496,8 +1533,21 @@ SLInterfaceGlobalsGetStatsMsgRsp* SLInterfaceGlobalsGetStatsMsgRsp::New(::google
 }
 
 void SLInterfaceGlobalsGetStatsMsgRsp::Clear() {
+#define ZR_HELPER_(f) reinterpret_cast<char*>(\
+  &reinterpret_cast<SLInterfaceGlobalsGetStatsMsgRsp*>(16)->f)
+
+#define ZR_(first, last) do {\
+  ::memset(&first, 0,\
+           ZR_HELPER_(last) - ZR_HELPER_(first) + sizeof(last));\
+} while (0)
+
+  ZR_(seqnum_, interfacenotifcount_);
   if (GetArenaNoVirtual() == NULL && errstatus_ != NULL) delete errstatus_;
   errstatus_ = NULL;
+
+#undef ZR_HELPER_
+#undef ZR_
+
 }
 
 bool SLInterfaceGlobalsGetStatsMsgRsp::MergePartialFromCodedStream(
@@ -1515,6 +1565,36 @@ bool SLInterfaceGlobalsGetStatsMsgRsp::MergePartialFromCodedStream(
         if (tag == 10) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
                input, mutable_errstatus()));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(16)) goto parse_SeqNum;
+        break;
+      }
+
+      // optional uint64 SeqNum = 2;
+      case 2: {
+        if (tag == 16) {
+         parse_SeqNum:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
+                 input, &seqnum_)));
+
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(24)) goto parse_InterfaceNotifCount;
+        break;
+      }
+
+      // optional uint32 InterfaceNotifCount = 3;
+      case 3: {
+        if (tag == 24) {
+         parse_InterfaceNotifCount:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &interfacenotifcount_)));
+
         } else {
           goto handle_unusual;
         }
@@ -1552,6 +1632,16 @@ void SLInterfaceGlobalsGetStatsMsgRsp::SerializeWithCachedSizes(
       1, *this->errstatus_, output);
   }
 
+  // optional uint64 SeqNum = 2;
+  if (this->seqnum() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt64(2, this->seqnum(), output);
+  }
+
+  // optional uint32 InterfaceNotifCount = 3;
+  if (this->interfacenotifcount() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(3, this->interfacenotifcount(), output);
+  }
+
   // @@protoc_insertion_point(serialize_end:service_layer.SLInterfaceGlobalsGetStatsMsgRsp)
 }
 
@@ -1563,6 +1653,16 @@ void SLInterfaceGlobalsGetStatsMsgRsp::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
         1, *this->errstatus_, target);
+  }
+
+  // optional uint64 SeqNum = 2;
+  if (this->seqnum() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(2, this->seqnum(), target);
+  }
+
+  // optional uint32 InterfaceNotifCount = 3;
+  if (this->interfacenotifcount() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(3, this->interfacenotifcount(), target);
   }
 
   // @@protoc_insertion_point(serialize_to_array_end:service_layer.SLInterfaceGlobalsGetStatsMsgRsp)
@@ -1577,6 +1677,20 @@ int SLInterfaceGlobalsGetStatsMsgRsp::ByteSize() const {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
         *this->errstatus_);
+  }
+
+  // optional uint64 SeqNum = 2;
+  if (this->seqnum() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt64Size(
+        this->seqnum());
+  }
+
+  // optional uint32 InterfaceNotifCount = 3;
+  if (this->interfacenotifcount() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->interfacenotifcount());
   }
 
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
@@ -1601,6 +1715,12 @@ void SLInterfaceGlobalsGetStatsMsgRsp::MergeFrom(const SLInterfaceGlobalsGetStat
   if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
   if (from.has_errstatus()) {
     mutable_errstatus()->::service_layer::SLErrorStatus::MergeFrom(from.errstatus());
+  }
+  if (from.seqnum() != 0) {
+    set_seqnum(from.seqnum());
+  }
+  if (from.interfacenotifcount() != 0) {
+    set_interfacenotifcount(from.interfacenotifcount());
   }
 }
 
@@ -1627,6 +1747,8 @@ void SLInterfaceGlobalsGetStatsMsgRsp::Swap(SLInterfaceGlobalsGetStatsMsgRsp* ot
 }
 void SLInterfaceGlobalsGetStatsMsgRsp::InternalSwap(SLInterfaceGlobalsGetStatsMsgRsp* other) {
   std::swap(errstatus_, other->errstatus_);
+  std::swap(seqnum_, other->seqnum_);
+  std::swap(interfacenotifcount_, other->interfacenotifcount_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
 }
@@ -1677,6 +1799,34 @@ void SLInterfaceGlobalsGetStatsMsgRsp::set_allocated_errstatus(::service_layer::
     
   }
   // @@protoc_insertion_point(field_set_allocated:service_layer.SLInterfaceGlobalsGetStatsMsgRsp.ErrStatus)
+}
+
+// optional uint64 SeqNum = 2;
+void SLInterfaceGlobalsGetStatsMsgRsp::clear_seqnum() {
+  seqnum_ = GOOGLE_ULONGLONG(0);
+}
+ ::google::protobuf::uint64 SLInterfaceGlobalsGetStatsMsgRsp::seqnum() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLInterfaceGlobalsGetStatsMsgRsp.SeqNum)
+  return seqnum_;
+}
+ void SLInterfaceGlobalsGetStatsMsgRsp::set_seqnum(::google::protobuf::uint64 value) {
+  
+  seqnum_ = value;
+  // @@protoc_insertion_point(field_set:service_layer.SLInterfaceGlobalsGetStatsMsgRsp.SeqNum)
+}
+
+// optional uint32 InterfaceNotifCount = 3;
+void SLInterfaceGlobalsGetStatsMsgRsp::clear_interfacenotifcount() {
+  interfacenotifcount_ = 0u;
+}
+ ::google::protobuf::uint32 SLInterfaceGlobalsGetStatsMsgRsp::interfacenotifcount() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLInterfaceGlobalsGetStatsMsgRsp.InterfaceNotifCount)
+  return interfacenotifcount_;
+}
+ void SLInterfaceGlobalsGetStatsMsgRsp::set_interfacenotifcount(::google::protobuf::uint32 value) {
+  
+  interfacenotifcount_ = value;
+  // @@protoc_insertion_point(field_set:service_layer.SLInterfaceGlobalsGetStatsMsgRsp.InterfaceNotifCount)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
@@ -2051,32 +2201,10 @@ void SLInterfaceGetMsg::clear_getnext() {
 
 // ===================================================================
 
-const ::google::protobuf::EnumDescriptor* SLInterfaceInfoMsg_SLInterfaceState_descriptor() {
-  protobuf_AssignDescriptorsOnce();
-  return SLInterfaceInfoMsg_SLInterfaceState_descriptor_;
-}
-bool SLInterfaceInfoMsg_SLInterfaceState_IsValid(int value) {
-  switch(value) {
-    case 0:
-    case 1:
-    case 2:
-      return true;
-    default:
-      return false;
-  }
-}
-
-#if !defined(_MSC_VER) || _MSC_VER >= 1900
-const SLInterfaceInfoMsg_SLInterfaceState SLInterfaceInfoMsg::SL_IF_STATE_UNKNOWN;
-const SLInterfaceInfoMsg_SLInterfaceState SLInterfaceInfoMsg::SL_IF_STATE_DOWN;
-const SLInterfaceInfoMsg_SLInterfaceState SLInterfaceInfoMsg::SL_IF_STATE_UP;
-const SLInterfaceInfoMsg_SLInterfaceState SLInterfaceInfoMsg::SLInterfaceState_MIN;
-const SLInterfaceInfoMsg_SLInterfaceState SLInterfaceInfoMsg::SLInterfaceState_MAX;
-const int SLInterfaceInfoMsg::SLInterfaceState_ARRAYSIZE;
-#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
 const int SLInterfaceInfoMsg::kSLIfInfoFieldNumber;
 const int SLInterfaceInfoMsg::kIfStateFieldNumber;
+const int SLInterfaceInfoMsg::kSeqNumFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 SLInterfaceInfoMsg::SLInterfaceInfoMsg()
@@ -2103,6 +2231,7 @@ void SLInterfaceInfoMsg::SharedCtor() {
   _cached_size_ = 0;
   slifinfo_ = NULL;
   ifstate_ = 0;
+  seqnum_ = GOOGLE_ULONGLONG(0);
 }
 
 SLInterfaceInfoMsg::~SLInterfaceInfoMsg() {
@@ -2142,9 +2271,21 @@ SLInterfaceInfoMsg* SLInterfaceInfoMsg::New(::google::protobuf::Arena* arena) co
 }
 
 void SLInterfaceInfoMsg::Clear() {
+#define ZR_HELPER_(f) reinterpret_cast<char*>(\
+  &reinterpret_cast<SLInterfaceInfoMsg*>(16)->f)
+
+#define ZR_(first, last) do {\
+  ::memset(&first, 0,\
+           ZR_HELPER_(last) - ZR_HELPER_(first) + sizeof(last));\
+} while (0)
+
+  ZR_(seqnum_, ifstate_);
   if (GetArenaNoVirtual() == NULL && slifinfo_ != NULL) delete slifinfo_;
   slifinfo_ = NULL;
-  ifstate_ = 0;
+
+#undef ZR_HELPER_
+#undef ZR_
+
 }
 
 bool SLInterfaceInfoMsg::MergePartialFromCodedStream(
@@ -2169,7 +2310,7 @@ bool SLInterfaceInfoMsg::MergePartialFromCodedStream(
         break;
       }
 
-      // optional .service_layer.SLInterfaceInfoMsg.SLInterfaceState IfState = 2;
+      // optional .service_layer.SLInterfaceState IfState = 2;
       case 2: {
         if (tag == 16) {
          parse_IfState:
@@ -2177,7 +2318,22 @@ bool SLInterfaceInfoMsg::MergePartialFromCodedStream(
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
                  input, &value)));
-          set_ifstate(static_cast< ::service_layer::SLInterfaceInfoMsg_SLInterfaceState >(value));
+          set_ifstate(static_cast< ::service_layer::SLInterfaceState >(value));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(24)) goto parse_SeqNum;
+        break;
+      }
+
+      // optional uint64 SeqNum = 3;
+      case 3: {
+        if (tag == 24) {
+         parse_SeqNum:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
+                 input, &seqnum_)));
+
         } else {
           goto handle_unusual;
         }
@@ -2215,10 +2371,15 @@ void SLInterfaceInfoMsg::SerializeWithCachedSizes(
       1, *this->slifinfo_, output);
   }
 
-  // optional .service_layer.SLInterfaceInfoMsg.SLInterfaceState IfState = 2;
+  // optional .service_layer.SLInterfaceState IfState = 2;
   if (this->ifstate() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteEnum(
       2, this->ifstate(), output);
+  }
+
+  // optional uint64 SeqNum = 3;
+  if (this->seqnum() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt64(3, this->seqnum(), output);
   }
 
   // @@protoc_insertion_point(serialize_end:service_layer.SLInterfaceInfoMsg)
@@ -2234,10 +2395,15 @@ void SLInterfaceInfoMsg::SerializeWithCachedSizes(
         1, *this->slifinfo_, target);
   }
 
-  // optional .service_layer.SLInterfaceInfoMsg.SLInterfaceState IfState = 2;
+  // optional .service_layer.SLInterfaceState IfState = 2;
   if (this->ifstate() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
       2, this->ifstate(), target);
+  }
+
+  // optional uint64 SeqNum = 3;
+  if (this->seqnum() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(3, this->seqnum(), target);
   }
 
   // @@protoc_insertion_point(serialize_to_array_end:service_layer.SLInterfaceInfoMsg)
@@ -2254,10 +2420,17 @@ int SLInterfaceInfoMsg::ByteSize() const {
         *this->slifinfo_);
   }
 
-  // optional .service_layer.SLInterfaceInfoMsg.SLInterfaceState IfState = 2;
+  // optional .service_layer.SLInterfaceState IfState = 2;
   if (this->ifstate() != 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::EnumSize(this->ifstate());
+  }
+
+  // optional uint64 SeqNum = 3;
+  if (this->seqnum() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt64Size(
+        this->seqnum());
   }
 
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
@@ -2286,6 +2459,9 @@ void SLInterfaceInfoMsg::MergeFrom(const SLInterfaceInfoMsg& from) {
   if (from.ifstate() != 0) {
     set_ifstate(from.ifstate());
   }
+  if (from.seqnum() != 0) {
+    set_seqnum(from.seqnum());
+  }
 }
 
 void SLInterfaceInfoMsg::CopyFrom(const ::google::protobuf::Message& from) {
@@ -2312,6 +2488,7 @@ void SLInterfaceInfoMsg::Swap(SLInterfaceInfoMsg* other) {
 void SLInterfaceInfoMsg::InternalSwap(SLInterfaceInfoMsg* other) {
   std::swap(slifinfo_, other->slifinfo_);
   std::swap(ifstate_, other->ifstate_);
+  std::swap(seqnum_, other->seqnum_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
 }
@@ -2364,18 +2541,32 @@ void SLInterfaceInfoMsg::set_allocated_slifinfo(::service_layer::SLInterface* sl
   // @@protoc_insertion_point(field_set_allocated:service_layer.SLInterfaceInfoMsg.SLIfInfo)
 }
 
-// optional .service_layer.SLInterfaceInfoMsg.SLInterfaceState IfState = 2;
+// optional .service_layer.SLInterfaceState IfState = 2;
 void SLInterfaceInfoMsg::clear_ifstate() {
   ifstate_ = 0;
 }
- ::service_layer::SLInterfaceInfoMsg_SLInterfaceState SLInterfaceInfoMsg::ifstate() const {
+ ::service_layer::SLInterfaceState SLInterfaceInfoMsg::ifstate() const {
   // @@protoc_insertion_point(field_get:service_layer.SLInterfaceInfoMsg.IfState)
-  return static_cast< ::service_layer::SLInterfaceInfoMsg_SLInterfaceState >(ifstate_);
+  return static_cast< ::service_layer::SLInterfaceState >(ifstate_);
 }
- void SLInterfaceInfoMsg::set_ifstate(::service_layer::SLInterfaceInfoMsg_SLInterfaceState value) {
+ void SLInterfaceInfoMsg::set_ifstate(::service_layer::SLInterfaceState value) {
   
   ifstate_ = value;
   // @@protoc_insertion_point(field_set:service_layer.SLInterfaceInfoMsg.IfState)
+}
+
+// optional uint64 SeqNum = 3;
+void SLInterfaceInfoMsg::clear_seqnum() {
+  seqnum_ = GOOGLE_ULONGLONG(0);
+}
+ ::google::protobuf::uint64 SLInterfaceInfoMsg::seqnum() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLInterfaceInfoMsg.SeqNum)
+  return seqnum_;
+}
+ void SLInterfaceInfoMsg::set_seqnum(::google::protobuf::uint64 value) {
+  
+  seqnum_ = value;
+  // @@protoc_insertion_point(field_set:service_layer.SLInterfaceInfoMsg.SeqNum)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
@@ -2927,29 +3118,6 @@ void SLInterfaceGetNotifMsg::InternalSwap(SLInterfaceGetNotifMsg* other) {
 
 // ===================================================================
 
-const ::google::protobuf::EnumDescriptor* SLInterfaceNotif_SLInterfaceNotifType_descriptor() {
-  protobuf_AssignDescriptorsOnce();
-  return SLInterfaceNotif_SLInterfaceNotifType_descriptor_;
-}
-bool SLInterfaceNotif_SLInterfaceNotifType_IsValid(int value) {
-  switch(value) {
-    case 0:
-    case 1:
-    case 2:
-      return true;
-    default:
-      return false;
-  }
-}
-
-#if !defined(_MSC_VER) || _MSC_VER >= 1900
-const SLInterfaceNotif_SLInterfaceNotifType SLInterfaceNotif::SL_INTERFACE_EVENT_TYPE_RESERVED;
-const SLInterfaceNotif_SLInterfaceNotifType SLInterfaceNotif::SL_INTERFACE_EVENT_TYPE_ERROR;
-const SLInterfaceNotif_SLInterfaceNotifType SLInterfaceNotif::SL_INTERFACE_EVENT_TYPE_INTERFACE_INFO;
-const SLInterfaceNotif_SLInterfaceNotifType SLInterfaceNotif::SLInterfaceNotifType_MIN;
-const SLInterfaceNotif_SLInterfaceNotifType SLInterfaceNotif::SLInterfaceNotifType_MAX;
-const int SLInterfaceNotif::SLInterfaceNotifType_ARRAYSIZE;
-#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
 const int SLInterfaceNotif::kEventTypeFieldNumber;
 const int SLInterfaceNotif::kErrStatusFieldNumber;
@@ -3054,14 +3222,14 @@ bool SLInterfaceNotif::MergePartialFromCodedStream(
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional .service_layer.SLInterfaceNotif.SLInterfaceNotifType EventType = 1;
+      // optional .service_layer.SLInterfaceNotifType EventType = 1;
       case 1: {
         if (tag == 8) {
           int value;
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
                  input, &value)));
-          set_eventtype(static_cast< ::service_layer::SLInterfaceNotif_SLInterfaceNotifType >(value));
+          set_eventtype(static_cast< ::service_layer::SLInterfaceNotifType >(value));
         } else {
           goto handle_unusual;
         }
@@ -3119,7 +3287,7 @@ failure:
 void SLInterfaceNotif::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
   // @@protoc_insertion_point(serialize_start:service_layer.SLInterfaceNotif)
-  // optional .service_layer.SLInterfaceNotif.SLInterfaceNotifType EventType = 1;
+  // optional .service_layer.SLInterfaceNotifType EventType = 1;
   if (this->eventtype() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteEnum(
       1, this->eventtype(), output);
@@ -3143,7 +3311,7 @@ void SLInterfaceNotif::SerializeWithCachedSizes(
 ::google::protobuf::uint8* SLInterfaceNotif::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
   // @@protoc_insertion_point(serialize_to_array_start:service_layer.SLInterfaceNotif)
-  // optional .service_layer.SLInterfaceNotif.SLInterfaceNotifType EventType = 1;
+  // optional .service_layer.SLInterfaceNotifType EventType = 1;
   if (this->eventtype() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
       1, this->eventtype(), target);
@@ -3170,7 +3338,7 @@ void SLInterfaceNotif::SerializeWithCachedSizes(
 int SLInterfaceNotif::ByteSize() const {
   int total_size = 0;
 
-  // optional .service_layer.SLInterfaceNotif.SLInterfaceNotifType EventType = 1;
+  // optional .service_layer.SLInterfaceNotifType EventType = 1;
   if (this->eventtype() != 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::EnumSize(this->eventtype());
@@ -3273,15 +3441,15 @@ void SLInterfaceNotif::InternalSwap(SLInterfaceNotif* other) {
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
 // SLInterfaceNotif
 
-// optional .service_layer.SLInterfaceNotif.SLInterfaceNotifType EventType = 1;
+// optional .service_layer.SLInterfaceNotifType EventType = 1;
 void SLInterfaceNotif::clear_eventtype() {
   eventtype_ = 0;
 }
- ::service_layer::SLInterfaceNotif_SLInterfaceNotifType SLInterfaceNotif::eventtype() const {
+ ::service_layer::SLInterfaceNotifType SLInterfaceNotif::eventtype() const {
   // @@protoc_insertion_point(field_get:service_layer.SLInterfaceNotif.EventType)
-  return static_cast< ::service_layer::SLInterfaceNotif_SLInterfaceNotifType >(eventtype_);
+  return static_cast< ::service_layer::SLInterfaceNotifType >(eventtype_);
 }
- void SLInterfaceNotif::set_eventtype(::service_layer::SLInterfaceNotif_SLInterfaceNotifType value) {
+ void SLInterfaceNotif::set_eventtype(::service_layer::SLInterfaceNotifType value) {
   
   eventtype_ = value;
   // @@protoc_insertion_point(field_set:service_layer.SLInterfaceNotif.EventType)

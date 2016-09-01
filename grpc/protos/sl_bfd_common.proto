@@ -73,6 +73,9 @@ message SLBfdGetStatsMsgRsp {
     // The sequence number is equivalent to a timestamp
     // This field contains the latest global BFD event sequence number
     uint64 SeqNum = 2;
+
+    // Num BFD sessions added through the service layer.
+    uint32 BfdCount = 3;
 }
 
 // BFD Get Notifications message.

@@ -44,8 +44,13 @@ def client_init(stub, event):
     for response in stub.SLGlobalInitNotif(init_msg, Timeout):
         if response.EventType == sl_global_pb2.SL_GLOBAL_EVENT_TYPE_VERSION:
             if (sl_common_types_pb2.SLErrorStatus.SL_SUCCESS ==
+                    response.ErrStatus.Status) or \
+                (sl_common_types_pb2.SLErrorStatus.SL_INIT_STATE_CLEAR ==
+                    response.ErrStatus.Status) or \
+                (sl_common_types_pb2.SLErrorStatus.SL_INIT_STATE_READY ==
                     response.ErrStatus.Status):
-                print "Server Version %d.%d.%d" %(
+                print "Server Returned 0x%x, Version %d.%d.%d" %(
+                    response.ErrStatus.Status,
                     response.InitRspMsg.MajorVer,
                     response.InitRspMsg.MinorVer,
                     response.InitRspMsg.SubVer)
