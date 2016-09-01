@@ -4,6 +4,7 @@
   <navindex>
     <tab type="mainpage" visible="yes" title="Quick Start"/>
     <tab type="pages" visible="yes" title="" intro="Here is a list of all related documentation pages [More coming soon!]:"/>
+    <tab type="user" url="/" visible="yes" title="Home"/>
     <tab type="modules" visible="yes" title="Services" intro="Here is a list of all services:"/>
     <tab type="classes" visible="yes" title="Messages">
       <tab type="classlist" visible="yes" title="Message List" intro="Here are the messages with brief descriptions:"/>
