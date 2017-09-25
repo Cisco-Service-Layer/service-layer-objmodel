@@ -1,4 +1,4 @@
-/* The standard CSS for doxygen 1.8.11 */
+/*  Custom xrdocs CSS for doxygen 1.8.11 */
 
 /* @group Heading Levels */
 
@@ -279,6 +279,7 @@ div.contents {
 	margin-top: 10px;
 	margin-left: 12px;
 	margin-right: 8px;
+        overflow-x: scroll;
 }
 
 td.indexkey {
@@ -539,7 +540,9 @@ table.memberdecls {
 
 .memname {
         font-weight: bold;
-        margin-left: 6px;
+        word-wrap: break-word;
+        display: block;
+        border: 0;
 }
 
 .memname td {
@@ -674,7 +677,7 @@ span.mlabel {
 	margin-right: 4px;
 	padding: 2px 3px;
 	border-radius: 3px;
-	font-size: 7pt;
+	font-size: 0.7em;
 	white-space: nowrap;
 	vertical-align: middle;
 }
@@ -704,7 +707,7 @@ div.directory {
 
 .directory td.entry {
         white-space: nowrap;
-        padding-right: 6px;
+        padding-right: 3px;
 	padding-top: 3px;
 }
 
@@ -738,6 +741,7 @@ div.directory {
         width: 100%;
         text-align: right;
         font-size: 0.9em;
+        padding-right: 2em;
 }
 
 .directory .levels span {
@@ -813,6 +817,10 @@ div.directory {
     background-repeat: repeat-y;
     vertical-align:top;
     display: inline-block;
+}
+
+table {
+    font: 0.85em CiscoSans,Arial,Helvetica,"Helvetica Neue","HelveticaNeue","Lucida Grande",sans-serif !important;
 }
 
 table.directory {
@@ -991,14 +999,14 @@ table.fieldtable {
         background-repeat:no-repeat;
         background-position:right;
         color:#364D7C;
-        font-size: 8pt;
+        font-size: 0.75em;
 }
 
 
 div.summary
 {
 	float: right;
-	font-size: 8pt;
+	font-size: 0.75em;
 	padding-right: 5px;
 	width: 50%;
 	text-align: right;
@@ -1023,7 +1031,7 @@ table.classindex
 
 div.ingroups
 {
-	font-size: 8pt;
+	font-size: 0.7em;
 	width: 50%;
 	text-align: left;
 }
@@ -1473,5 +1481,123 @@ tr.heading h2 {
     width:auto !important;
     overflow:inherit;
     display:inline;
+  }
+}
+
+#top {
+  padding-left: 5em;
+  padding-right: 5em;
+  font-size:0.75em;
+  margin-top:2em;
+}
+
+#content_tabs {
+  font-size: 0.85em;
+  border-bottom:5px solid #eee; 
+}
+
+#apititle_div {
+  text-align:center;
+  margin-bottom: 40px;
+}
+
+.apititle span {
+  font-weight: 400;
+  font-size: 150%;
+  border-bottom:5px solid #eee;
+  padding-bottom: 10px;
+}
+
+@media only screen and (max-width : 480px) {
+  .fieldname {
+    width: 120px;
+    display: block;
+    border-left: 0 !important;
+    border-bottom: 0 !important;
+    border-right: 0 !important;
+    word-wrap: break-word;
+  }
+
+
+  .directory td.entry {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    width: 150px;
+    display: block;
+    padding-right: 3px;
+    padding-top: 3px;
+    border-left: 0;
+    border-right: 0;
+    border-bottom: 0;
+  }
+
+  .memname {
+    width: 240px;
+  }
+
+ .apititle span {
+  font-size: 80%;
+ }
+
+}
+
+@media only screen and (min-width : 320px) {
+  #top {
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    font-size:0.75em;
+    margin-top:0.5em;
+ }
+
+
+}
+
+/* Extra Small Devices, Phones */ 
+@media only screen and (min-width : 480px) {
+  #top {
+    padding-left: 1em;
+    padding-right: 1em;
+    font-size:0.75em;
+    margin-top:0.5em;
+  }
+
+ .apititle span {
+  font-size: 100%;
+ }
+
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px) {
+#top {
+    padding-left: 2em;
+    padding-right: 2em;
+    font-size:0.75em;
+    margin-top:1em;
+  }
+
+ .apititle span {
+  font-size: 120%;
+ }
+}
+
+/* Medium Devices, Desktops */
+
+@media only screen and (min-width : 992px) {
+  #top {
+    padding-left: 3em;
+    padding-right: 3em;
+    font-size:0.75em;
+    margin-top:2em;
+  }
+}
+
+/* Large Devices, Wide Screens */
+@media only screen and (min-width : 1200px) {
+#top {
+    padding-left: 5em;
+    padding-right: 5em;
+    font-size:0.75em;
+    margin-top:2em;
   }
 }
