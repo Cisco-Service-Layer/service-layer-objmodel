@@ -173,6 +173,7 @@ if __name__ == '__main__':
     #    for delete: sl_common_types_pb2.SL_OBJOP_DELETE
     route_operation(channel, sl_common_types_pb2.SL_OBJOP_ADD)
 
+    #route_operation(channel, sl_common_types_pb2.SL_OBJOP_DELETE)
     # while ... add/update/delete routes
 
     # When done with the VRFs, RPC Delete Registration
