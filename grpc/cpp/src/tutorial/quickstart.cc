@@ -760,12 +760,7 @@ int main(int argc, char** argv) {
  
     // Set up the paths for each v4 route object    
     rshuttle.routev4PathAdd(routev4_ptr, rshuttle.IPv4ToLong("14.1.1.10"), "GigabitEthernet0/0/0/0"); 
-    rshuttle.routev4Op(service_layer::SL_OBJOP_ADD);
-    rshuttle.routev4Op(service_layer::SL_OBJOP_ADD);
-
-
     rshuttle.routev4PathAdd(routev4_ptr2, rshuttle.IPv4ToLong("14.1.1.10"), "GigabitEthernet0/0/0/0");
-    rshuttle.routev4Op(service_layer::SL_OBJOP_ADD);
     rshuttle.routev4Op(service_layer::SL_OBJOP_ADD);
 
 
