@@ -5,5 +5,5 @@
 #
 cd ../protos
 printf "Generating GO bindings..."
-protoc -I ./ *.proto --plugin=protoc-gen-go --go_out=plugins=grpc:../go/src/gengo/
+protoc -I ./ *.proto --plugin=$GOPATH/bin/protoc-gen-go --go_out=plugins=grpc:../go/src/gengo/
 echo "Done"
