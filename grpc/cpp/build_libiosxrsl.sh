@@ -6,6 +6,9 @@
 
 set -x
 
+# Install pkg-config first
+apt-get update && apt-get install -y pkg-config
+
 PROTOBUF_INSTALLED_VERSION=`pkg-config --exists protobuf && pkg-config --modversion protobuf`
 GRPC_INSTALLED_VERSION=`pkg-config --exists grpc && pkg-config --modversion grpc`
 
@@ -20,8 +23,6 @@ GRPC_HASH=80893242c1ee929d19e6bec5dc19a1515cd8dd81
 SCRIPT_DIR="$(cd "$(dirname "${0}")"; echo "$(pwd)")"
 
 
-# Install pkg-config first
-apt-get update && apt-get install -y pkg-config
 
 if [[ $GRPC_INSTALLED_VERSION != $GRPC_VERSION  || \
           $PROTOBUF_INSTALLED_VERSION != $PROTOBUF_VERSION ]]; then 
