@@ -1,7 +1,9 @@
 #
-# Copyright (c) 2016 by cisco Systems, Inc.
+# Copyright (c) 2016 by cisco Systems, Inc. 
 # All rights reserved.
 #
+
+# Standard python libs
 import ipaddress
 import os
 import sys
@@ -11,17 +13,24 @@ import threading
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.realpath(__file__))))
 
 # gRPC generated python bindings
-# gRPC generated python bindings
-from genpy import sl_version_pb2
 from genpy import sl_global_pb2_grpc
 from genpy import sl_global_pb2
 from genpy import sl_common_types_pb2
-from genpy import sl_mpls_pb2
-from genpy import sl_mpls_pb2_grpc
+from genpy import sl_version_pb2
+from genpy import sl_route_ipv4_pb2_grpc
+from genpy import sl_route_ipv4_pb2
+from genpy import sl_route_common_pb2
+
+# Utilities
 
 # gRPC libs
 import grpc
 
+
+#
+# Client Init: Initialize client session
+#    stub: GRPC stub
+#
 def client_init(stub, event):
     #
     # Create SLInitMsg to handshake the version number with the server.
@@ -72,6 +81,8 @@ def client_init(stub, event):
             print("client init unrecognized response %d", response.EventType)
             os._exit(0)
 
+
+
 #
 # Thread starting point
 #
@@ -85,8 +96,6 @@ def global_thread(stub, event):
     # If this session is lost, then most likely the server restarted
     # Typically this is handled by reconnecting to the server. For now, exit()
     os._exit(0)
-
-#
 
 #
 # Spawn a thread for global events
@@ -136,152 +145,222 @@ def global_init(channel):
 
 
 
-def mpls_register(stub, oper):
+def vrf_operation(channel, oper):
+    # Create the gRPC stub.
+    stub = sl_route_ipv4_pb2_grpc.SLRoutev4OperStub(channel)
 
-    if oper == sl_common_types_pb2.SL_REGOP_REGISTER:
-        # Register the MPLS Client
-        mplsReg = sl_mpls_pb2.SLMplsRegMsg()
-        mplsReg.Oper = oper
-        Timeout = 10
-        response = stub.SLMplsRegOp(mplsReg, Timeout)
+    # Create the SLVrfRegMsg message used for VRF registrations
+    vrfMsg = sl_route_common_pb2.SLVrfRegMsg()
 
-def mpls_operation(stub, oper):
+    # Create a list to maintain the SLVrfReg objects (in case of batch VRF
+    # registrations)
+    # In this example, we fill in only a single SLVrfReg object
+    vrfList = []
 
-    # MPLS Message
-    mplsMsg = sl_mpls_pb2.SLMplsLabelBlockMsg()
+    # Create an SLVrfReg object and set its attributes
+    vrfObj = sl_route_common_pb2.SLVrfReg()
+    # Set VRF name.
+    vrfObj.VrfName = 'default'
+    # Set Administrative distance
+    vrfObj.AdminDistance = 2
+    # Set VRF purge interval
+    vrfObj.VrfPurgeIntervalSeconds = 500
 
-    block = []
+    #
+    # Add the registration message to the list
+    # In case of bulk, we can append other VRF objects to the list
+    vrfList.append(vrfObj)
 
-    for label in range(10):
-        #Reserve the MPLS Space
-        mplsBlock = sl_mpls_pb2.SLMplsLabelBlockKey()
-        mplsBlock.StartLabel = 30000+1000*label
-        mplsBlock.LabelBlockSize = 100
-        block.append(mplsBlock)
+    # Now that the list is completed, assign it to the SLVrfRegMsg
+    vrfMsg.VrfRegMsgs.extend(vrfList)
 
-    mplsMsg.MplsBlocks.extend(block)
+    # Set the Operation
+    vrfMsg.Oper = oper
 
-
-    #Make an RPC Call
-    Timeout = 10
-    mplsMsg.Oper = oper
-    response = stub.SLMplsLabelBlockOp(mplsMsg, Timeout)
+    #
+    # Make an RPC call
+    #
+    Timeout = 10 # Seconds
+    response = stub.SLRoutev4VrfRegOp(vrfMsg, Timeout)
 
     #
     # Check the received result from the Server
-    #
-    if (sl_common_types_pb2.SLErrorStatus.SL_SUCCESS ==
-            response.StatusSummary.Status):
-        print("MPLS %s Success!" %(
-            list(sl_common_types_pb2.SLObjectOp.keys())[oper]))
+    # 
+    if (response.StatusSummary.Status ==
+            sl_common_types_pb2.SLErrorStatus.SL_SUCCESS):
+        print("VRF %s Success!" %(
+            list(sl_common_types_pb2.SLRegOp.keys())[oper]))
     else:
-        print("Error code for mpls %s is 0x%x" % (
-            list(sl_common_types_pb2.SLObjectOp.keys())[oper],
-            response.StatusSummary.Status))
+        print("Error code for VRF %s is 0x%x! Response:" % (
+            list(sl_common_types_pb2.SLRegOp.keys())[oper],
+            response.StatusSummary.Status
+        ))
+        print(response)
+        # If we have partial failures within the batch, let's print them
+        if (response.StatusSummary.Status ==
+            sl_common_types_pb2.SLErrorStatus.SL_SOME_ERR):
+            for result in response.Results:
+                print("Error code for %s is 0x%x" %(result.VrfName,
+                    result.ErrStatus.Status
+                ))
+        os._exit(0)
 
-def ilm_operation(stub, oper):
 
-    # ilm Message
-    ilmMsg = sl_mpls_pb2.SLMplsIlmMsg()
+#
+# Route operations
+#    channel: GRPC channel
+#    oper: sl_common_types_pb2.SL_OBJOP_XXX
+#
+# A SLRoutev4Msg contains a list of SLRoutev4 (routes)
+# Each SLRoutev4 (route) contains a list of SLRoutePath (paths)
+#
+def route_operation(channel, oper):
+    # Create the gRPC stub.
+    stub = sl_route_ipv4_pb2_grpc.SLRoutev4OperStub(channel)
 
-    # Create an empty ilm list
-    ilm = []
+    # Create an empty list of routes.
+    routeList = []
 
-    # Reserve ilm entry
-    in_label_00 = sl_mpls_pb2.SLMplsIlmEntry()
-    in_label_00.Key.LocalLabel = 34000
+    # Create the SLRoutev4Msg message holding the SLRoutev4 object list
+    rtMsg = sl_route_ipv4_pb2.SLRoutev4Msg()
 
-    # Create an empty Paths list
-    paths = []
+    # Fill in the message attributes attributes.
+    # VRF Name
+    rtMsg.VrfName = 'default'
 
-    if in_label_00:
-    
-        path = sl_mpls_pb2.SLMplsPath()
-        path.NexthopAddress.V4Address = (
-            int(ipaddress.ip_address('12.1.1.20'))
+    # Fill in the routes
+    for i in range(10):
+        #
+        # Create an SLRoutev4 object and set its attributes
+        #
+        route = sl_route_ipv4_pb2.SLRoutev4()
+        # IP Prefix
+        route.Prefix = (
+            int(ipaddress.ip_address('20.0.'+ str(i) + '.0'))
         )
-        path.NexthopInterface.Name = 'GigabitEthernet0/0/0/1'
-        path.Action = 1
-        path.LoadMetric = 1
-        path.VrfName = 'default'
-        path.LabelStack.extend([10065])
-        paths.append(path)
-    in_label_00.Paths.extend(paths)
-    ilm.append(in_label_00)
-    
-    ilmMsg.MplsIlms.extend(ilm)
-    #else print "no ilm provided"
+        # Prefix Length
+        route.PrefixLen = 24
 
-    #Make an RPC Call
-    Timeout = 10
-    ilmMsg.Oper = oper
-    response = stub.SLMplsIlmOp(ilmMsg, Timeout)
+        # Administrative distance
+        route.RouteCommon.AdminDistance = 2
+
+        #
+        # Set the route's paths.
+        # A Route might have one or many paths
+        #
+        # Create an empty list of paths as a placeholder for these paths
+        paths = []
+
+        # Create an SLRoutePath path object.
+        path = sl_route_common_pb2.SLRoutePath()
+        # Fill in the path attributes.
+        # Path next hop address
+        path.NexthopAddress.V4Address = (
+            int(ipaddress.ip_address('10.10.10.1'))
+        )
+        # Next hop interface name
+        path.NexthopInterface.Name = 'GigabitEthernet0/0/0/0'
+
+        #
+        # Add the path to the list
+        #
+        paths.append(path)
+
+        # Let's create another path as equal cost multi-path (ECMP)
+        path = sl_route_common_pb2.SLRoutePath()
+        path.NexthopAddress.V4Address = (
+            int(ipaddress.ip_address('10.10.10.2'))
+        )
+        path.NexthopInterface.Name = 'GigabitEthernet0/0/0/0'
+
+        #
+        # Add the path to the list
+        #
+        paths.append(path)
+
+        #
+        # Assign the paths to the route object
+        # Note: Route Delete operations do not require the paths
+        #
+        if oper != sl_common_types_pb2.SL_OBJOP_DELETE:
+            route.PathList.extend(paths)
+
+        #
+        # Append the route to the route list (bulk routes)
+        #
+        routeList.append(route)
+
+    #
+    # Done building the routeList, assign it to the route message.
+    #
+    rtMsg.Routes.extend(routeList)
+
+    #
+    # Make an RPC call
+    #
+    Timeout = 10 # Seconds
+    rtMsg.Oper = oper # Desired ADD, UPDATE, DELETE operation
+    response = stub.SLRoutev4Op(rtMsg, Timeout)
 
     #
     # Check the received result from the Server
-    #
-    if (sl_common_types_pb2.SLErrorStatus.SL_SUCCESS ==
+    # 
+    if (sl_common_types_pb2.SLErrorStatus.SL_SUCCESS == 
             response.StatusSummary.Status):
-        print("MPLS %s Success!" %(
+        print("Route %s Success!" %(
             list(sl_common_types_pb2.SLObjectOp.keys())[oper]))
     else:
-        print("Error code for mpls %s is 0x%x" % (
+        print("Error code for route %s is 0x%x" % (
             list(sl_common_types_pb2.SLObjectOp.keys())[oper],
-            response.StatusSummary.Status))
+            response.StatusSummary.Status
+        ))
+        # If we have partial failures within the batch, let's print them
+        if (response.StatusSummary.Status == 
+            sl_common_types_pb2.SLErrorStatus.SL_SOME_ERR):
+            for result in response.Results:
+                print("Error code for %s/%d is 0x%x" %(
+                    str(ipaddress.ip_address(result.Prefix)),
+                    result.PrefixLen,
+                    result.ErrStatus.Status
+                ))
+        os._exit(0)
+
 #
 # Setup the GRPC channel with the server, and issue RPCs
 #
 if __name__ == '__main__':
-
-
     from util import util
     server_ip, server_port = util.get_server_ip_port()
 
     print("Using GRPC Server IP(%s) Port(%s)" %(server_ip, server_port))
 
-
     # Create the channel for gRPC.
-    channel = grpc.insecure_channel(str(server_ip) +":"+ str(server_port))
+    channel = grpc.insecure_channel(str(server_ip) + ":" + str(server_port))
 
     # Spawn a thread to Initialize the client and listen on notifications
     # The thread will run in the background
     global_init(channel)
 
-    # Create the gRPC stub.
-    stub = sl_mpls_pb2_grpc.SLMplsOperStub(channel)
+    # Create another channel for gRPC requests.
+    #channel = grpc.insecure_channel(str(server_ip) + ":" + str(server_port))
 
-    # Send an RPC for LSD registration
-    mpls_register(stub, sl_common_types_pb2.SL_REGOP_REGISTER)
+    # Send an RPC for VRF registrations
+    vrf_operation(channel, sl_common_types_pb2.SL_REGOP_REGISTER)
 
-    # RPC EOF to cleanup any previous stale entries
-    mpls_register(stub, sl_common_types_pb2.SL_REGOP_EOF)
+    # RPC EOF to cleanup any previous stale routes
+    vrf_operation(channel, sl_common_types_pb2.SL_REGOP_EOF)
 
-
-    # RPC MPLS block operations
+    # RPC route operations
     #    for add: sl_common_types_pb2.SL_OBJOP_ADD
     #    for update: sl_common_types_pb2.SL_OBJOP_UPDATE
     #    for delete: sl_common_types_pb2.SL_OBJOP_DELETE
-    mpls_operation(stub, sl_common_types_pb2.SL_OBJOP_ADD)
+    route_operation(channel, sl_common_types_pb2.SL_OBJOP_ADD)
 
-
-    # RPC ILM operations
-    #    for add: sl_common_types_pb2.SL_OBJOP_ADD
-    #    for update: sl_common_types_pb2.SL_OBJOP_UPDATE
-    #    for delete: sl_common_types_pb2.SL_OBJOP_DELETE
-    ilm_operation(stub, sl_common_types_pb2.SL_OBJOP_UPDATE)
+    #route_operation(channel, sl_common_types_pb2.SL_OBJOP_DELETE)
     # while ... add/update/delete routes
 
-
-
-    # RPC ILM operations
-    #    for add: sl_common_types_pb2.SL_OBJOP_ADD
-    #    for update: sl_common_types_pb2.SL_OBJOP_UPDATE
-    #    for delete: sl_common_types_pb2.SL_OBJOP_DELETE
-    #ilm_operation(stub, sl_common_types_pb2.SL_OBJOP_DELETE)
-    #mpls_operation(stub, sl_common_types_pb2.SL_OBJOP_DELETE)
-
-    # Send an RPC to unregistration from LSD
-    mpls_register(stub, sl_common_types_pb2.SL_REGOP_UNREGISTER)
+    # When done with the VRFs, RPC Delete Registration
+    #vrf_operation(channel, sl_common_types_pb2.SL_REGOP_UNREGISTER)
 
     # Exit and Kill any running GRPC threads.
     os._exit(0)

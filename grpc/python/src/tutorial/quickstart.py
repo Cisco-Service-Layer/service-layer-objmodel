@@ -125,22 +125,22 @@ def route_operation(channel, oper):
     # 
     if (sl_common_types_pb2.SLErrorStatus.SL_SUCCESS == 
             response.StatusSummary.Status):
-        print "Route %s Success!" %(
-            sl_common_types_pb2.SLObjectOp.keys()[oper])
+        print("Route %s Success!" %(
+            list(sl_common_types_pb2.SLObjectOp.keys())[oper]))
     else:
-        print "Error code for route %s is 0x%x" % (
-            sl_common_types_pb2.SLObjectOp.keys()[oper],
+        print("Error code for route %s is 0x%x" % (
+            list(sl_common_types_pb2.SLObjectOp.keys())[oper],
             response.StatusSummary.Status
-        )
+        ))
         # If we have partial failures within the batch, let's print them
         if (response.StatusSummary.Status == 
             sl_common_types_pb2.SLErrorStatus.SL_SOME_ERR):
             for result in response.Results:
-                print "Error code for %s/%d is 0x%x" %(
+                print("Error code for %s/%d is 0x%x" %(
                     str(ipaddress.ip_address(result.Prefix)),
                     result.PrefixLen,
                     result.ErrStatus.Status
-                )
+                ))
         os._exit(0)
 
 #
@@ -150,7 +150,7 @@ if __name__ == '__main__':
     from util import util
     server_ip, server_port = util.get_server_ip_port()
 
-    print "Using GRPC Server IP(%s) Port(%s)" %(server_ip, server_port)
+    print("Using GRPC Server IP(%s) Port(%s)" %(server_ip, server_port))
 
     # Create the channel for gRPC.
     channel = grpc.insecure_channel(str(server_ip) + ":" + str(server_port))

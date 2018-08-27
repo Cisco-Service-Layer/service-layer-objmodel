@@ -50,40 +50,40 @@ def client_init(stub, event):
                     response.ErrStatus.Status) or \
                 (sl_common_types_pb2.SLErrorStatus.SL_INIT_STATE_READY ==
                     response.ErrStatus.Status):
-                print "Server Returned 0x%x, Version %d.%d.%d" %(
+                print("Server Returned 0x%x, Version %d.%d.%d" %(
                     response.ErrStatus.Status,
                     response.InitRspMsg.MajorVer,
                     response.InitRspMsg.MinorVer,
-                    response.InitRspMsg.SubVer)
-                print "Successfully Initialized, connection established!"
+                    response.InitRspMsg.SubVer))
+                print("Successfully Initialized, connection established!")
                 # Any thread waiting on this event can proceed
                 event.set()
             else:
-                print "client init error code 0x%x", response.ErrStatus.Status
+                print("client init error code 0x%x", response.ErrStatus.Status)
                 os._exit(0)
         elif response.EventType == sl_global_pb2.SL_GLOBAL_EVENT_TYPE_HEARTBEAT:
-            print "Received HeartBeat"
+            print("Received HeartBeat")
         elif response.EventType == sl_global_pb2.SL_GLOBAL_EVENT_TYPE_ERROR:
             if (sl_common_types_pb2.SLErrorStatus.SL_NOTIF_TERM ==
                     response.ErrStatus.Status):
-                print "Received notice to terminate. Client Takeover?"
+                print("Received notice to terminate. Client Takeover?")
                 os._exit(0)
             else:
-                print "Error not handled:", response
+                print("Error not handled:", response)
         else:
-            print "client init unrecognized response %d", response.EventType
+            print("client init unrecognized response %d", response.EventType)
             os._exit(0)
 
 #
 # Thread starting point
 #
 def global_thread(stub, event):
-    print "Global thread spawned"
+    print("Global thread spawned")
 
     # Initialize the GRPC session. This function should never return
     client_init(stub, event)
 
-    print "global_thread: exiting unexpectedly"
+    print("global_thread: exiting unexpectedly")
     # If this session is lost, then most likely the server restarted
     # Typically this is handled by reconnecting to the server. For now, exit()
     os._exit(0)
@@ -119,19 +119,19 @@ def global_init(channel):
     # Check the received result from the Server
     if (response.ErrStatus.Status ==
         sl_common_types_pb2.SLErrorStatus.SL_SUCCESS):
-        print "Max VRF Name Len     : %d" %(response.MaxVrfNameLength)
-        print "Max Iface Name Len   : %d" %(response.MaxInterfaceNameLength)
-        print "Max Paths per Entry  : %d" %(response.MaxPathsPerEntry)
-        print "Max Prim per Entry   : %d" %(response.MaxPrimaryPathPerEntry)
-        print "Max Bckup per Entry  : %d" %(response.MaxBackupPathPerEntry)
-        print "Max Labels per Entry : %d" %(response.MaxMplsLabelsPerPath)
-        print "Min Prim Path-id     : %d" %(response.MinPrimaryPathIdNum)
-        print "Max Prim Path-id     : %d" %(response.MaxPrimaryPathIdNum)
-        print "Min Bckup Path-id    : %d" %(response.MinBackupPathIdNum)
-        print "Max Bckup Path-id    : %d" %(response.MaxBackupPathIdNum)
-        print "Max Remote Bckup Addr: %d" %(response.MaxRemoteAddressNum)
+        print("Max VRF Name Len     : %d" %(response.MaxVrfNameLength))
+        print("Max Iface Name Len   : %d" %(response.MaxInterfaceNameLength))
+        print("Max Paths per Entry  : %d" %(response.MaxPathsPerEntry))
+        print("Max Prim per Entry   : %d" %(response.MaxPrimaryPathPerEntry))
+        print("Max Bckup per Entry  : %d" %(response.MaxBackupPathPerEntry))
+        print("Max Labels per Entry : %d" %(response.MaxMplsLabelsPerPath))
+        print("Min Prim Path-id     : %d" %(response.MinPrimaryPathIdNum))
+        print("Max Prim Path-id     : %d" %(response.MaxPrimaryPathIdNum))
+        print("Min Bckup Path-id    : %d" %(response.MinBackupPathIdNum))
+        print("Max Bckup Path-id    : %d" %(response.MaxBackupPathIdNum))
+        print("Max Remote Bckup Addr: %d" %(response.MaxRemoteAddressNum))
     else:
-        print "Globals response Error 0x%x" %(response.ErrStatus.Status)
+        print("Globals response Error 0x%x" %(response.ErrStatus.Status))
         os._exit(0)
 
 #
@@ -141,7 +141,7 @@ if __name__ == '__main__':
     from util import util
     server_ip, server_port = util.get_server_ip_port()
 
-    print "Using GRPC Server IP(%s) Port(%s)" %(server_ip, server_port)
+    print("Using GRPC Server IP(%s) Port(%s)" %(server_ip, server_port))
 
     # Create the channel for gRPC.
     channel = grpc.insecure_channel(str(server_ip)+":"+str(server_port))

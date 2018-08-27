@@ -69,21 +69,21 @@ def vrf_operation(channel, oper):
     # 
     if (response.StatusSummary.Status ==
             sl_common_types_pb2.SLErrorStatus.SL_SUCCESS):
-        print "VRF %s Success!" %(
-            sl_common_types_pb2.SLRegOp.keys()[oper])
+        print("VRF %s Success!" %(
+            list(sl_common_types_pb2.SLRegOp.keys())[oper]))
     else:
-        print "Error code for VRF %s is 0x%x! Response:" % (
-            sl_common_types_pb2.SLRegOp.keys()[oper],
+        print("Error code for VRF %s is 0x%x! Response:" % (
+            list(sl_common_types_pb2.SLRegOp.keys())[oper],
             response.StatusSummary.Status
-        )
-        print response
+        ))
+        print(response)
         # If we have partial failures within the batch, let's print them
         if (response.StatusSummary.Status == 
             sl_common_types_pb2.SLErrorStatus.SL_SOME_ERR):
             for result in response.Results:
-                print "Error code for %s is 0x%x" %(result.VrfName,
+                print("Error code for %s is 0x%x" %(result.VrfName,
                     result.ErrStatus.Status
-                )
+                ))
         os._exit(0)
 
 
@@ -94,7 +94,7 @@ if __name__ == '__main__':
     from util import util
     server_ip, server_port = util.get_server_ip_port()
 
-    print "Using GRPC Server IP(%s) Port(%s)" %(server_ip, server_port)
+    print("Using GRPC Server IP(%s) Port(%s)" %(server_ip, server_port))
 
     # Create the channel for Server notifications.
     channel = grpc.insecure_channel(str(server_ip)+":"+str(server_port))

@@ -24,7 +24,6 @@ import threading
 from functools import partial
 import signal
 from argparse import ArgumentParser
-from urlparse import urlparse
 from google.protobuf import json_format
 
 
@@ -51,7 +50,7 @@ class SLInterface(object):
 
         grpc_server_ip, grpc_server_port = self.get_server_ip_port()
 
-        print "Using GRPC Server IP(%s) Port(%s)" %(grpc_server_ip, grpc_server_port)
+        print("Using GRPC Server IP(%s) Port(%s)" %(grpc_server_ip, grpc_server_port))
        
  
         # Create the channel for gRPC.
@@ -85,7 +84,7 @@ class SLInterface(object):
             intfReg.Oper = oper
             Timeout = 10
             response = self.stub.SLInterfaceGlobalsRegOp(intfReg, Timeout)
-            print response
+            print(response)
 
 
     def process_message(self, message_dict):
@@ -98,18 +97,18 @@ class SLInterface(object):
 
             if interface == "GigabitEthernet0/0/0/0":
                 if state == "SL_IF_STATE_DOWN":
-                    print "Switching to backup path"
+                    print("Switching to backup path")
                     self.path_event["status"] = True
                     self.path_event["path"] = "backup"
-                    print self.path_event
+                    print(self.path_event)
                 elif state == "SL_IF_STATE_UP":
-                    print "Switching to Active path"
+                    print("Switching to Active path")
                     self.path_event["status"] = True
                     self.path_event["path"] = "active"
-                    print self.path_event
+                    print(self.path_event)
 
                 elif statw == "SL_IF_STATE_UNKNOWN":
-                    print "State Unknown, not taking any action"
+                    print("State Unknown, not taking any action")
                   
 
         
@@ -121,21 +120,21 @@ class SLInterface(object):
 
         try:
             while True:
-                print "Starting listener for interface events"
+                print("Starting listener for interface events")
                 for response in self.stub.SLInterfaceGetNotifStream(intf_getnotif_msg, Timeout):
-                    print response
+                    print(response)
                     response_dict = json_format.MessageToDict(response)
                     self.process_message(response_dict)                   
         except Exception as e:
-            print "Exception occured while listening to Interface notifications"
-            print e
+            print("Exception occured while listening to Interface notifications")
+            print(e)
 
     def intf_get_globals(self):
         intf_globalget = sl_interface_pb2.SLInterfaceGlobalsGetMsg()
    
         Timeout = 10 
         response = self.stub.SLInterfaceGlobalsGet(intf_globalget, Timeout)
-        print response
+        print(response)
 
 
     def intf_get_stats(self):
@@ -143,7 +142,7 @@ class SLInterface(object):
 
         Timeout = 10
         response = self.stub.SLInterfaceGlobalsGetStats(intf_globalget, Timeout)
-        print response
+        print(response)
 
     def intf_enable_notif(self):
 
@@ -161,7 +160,7 @@ class SLInterface(object):
           
         Timeout = 10
         response = self.stub.SLInterfaceNotifOp(intf_notif_op, Timeout)
-        print response
+        print(response)
     
     def intf_get_msg(self):
         intf_get = sl_interface_pb2.SLInterfaceGetMsg()
@@ -170,7 +169,7 @@ class SLInterface(object):
         intf_get.GetNext = 0
         Timeout = 10
         response = self.stub.SLInterfaceGet(intf_get, Timeout)
-        print response
+        print(response)
 
 
 
@@ -202,39 +201,39 @@ class SLInterface(object):
                             response.ErrStatus.Status) or \
                         (sl_common_types_pb2.SLErrorStatus.SL_INIT_STATE_READY ==
                             response.ErrStatus.Status):
-                        print "Server Returned 0x%x, Version %d.%d.%d" %(
+                        print("Server Returned 0x%x, Version %d.%d.%d" %(
                             response.ErrStatus.Status,
                             response.InitRspMsg.MajorVer,
                             response.InitRspMsg.MinorVer,
-                            response.InitRspMsg.SubVer)
-                        print "Successfully Initialized, connection established!"
+                            response.InitRspMsg.SubVer))
+                        print("Successfully Initialized, connection established!")
                         # Any thread waiting on this event can proceed
                         event.set()
                     else:
-                        print "client init error code 0x%x", response.ErrStatus.Status
+                        print("client init error code 0x%x", response.ErrStatus.Status)
                         sys.exit(0)
                 elif response.EventType == sl_global_pb2.SL_GLOBAL_EVENT_TYPE_HEARTBEAT:
-                    print "Received HeartBeat"
+                    print("Received HeartBeat")
                 elif response.EventType == sl_global_pb2.SL_GLOBAL_EVENT_TYPE_ERROR:
                     if (sl_common_types_pb2.SLErrorStatus.SL_NOTIF_TERM ==
                             response.ErrStatus.Status):
-                        print "Received notice to terminate. Client Takeover?"
+                        print("Received notice to terminate. Client Takeover?")
                         sys.exit(0)
                     else:
-                        print "Error not handled:", response
+                        print("Error not handled:", response)
                 else:
-                    print "client init unrecognized response %d", response.EventType
+                    print("client init unrecognized response %d", response.EventType)
                     sys.exit(0)
 
 
 
     def global_thread(self, stub, event):
-        print "Global thread spawned"
+        print("Global thread spawned")
 
         # Initialize the GRPC session. This function should never return
         self.client_init(stub, event)
 
-        print "global_thread: exiting unexpectedly"
+        print("global_thread: exiting unexpectedly")
         # If this session is lost, then most likely the server restarted
         # Typically this is handled by reconnecting to the server. For now, exit()
         sys.exit(0)
@@ -271,19 +270,19 @@ class SLInterface(object):
         # Check the received result from the Server
         if (response.ErrStatus.Status ==
             sl_common_types_pb2.SLErrorStatus.SL_SUCCESS):
-            print "Max VRF Name Len     : %d" %(response.MaxVrfNameLength)
-            print "Max Iface Name Len   : %d" %(response.MaxInterfaceNameLength)
-            print "Max Paths per Entry  : %d" %(response.MaxPathsPerEntry)
-            print "Max Prim per Entry   : %d" %(response.MaxPrimaryPathPerEntry)
-            print "Max Bckup per Entry  : %d" %(response.MaxBackupPathPerEntry)
-            print "Max Labels per Entry : %d" %(response.MaxMplsLabelsPerPath)
-            print "Min Prim Path-id     : %d" %(response.MinPrimaryPathIdNum)
-            print "Max Prim Path-id     : %d" %(response.MaxPrimaryPathIdNum)
-            print "Min Bckup Path-id    : %d" %(response.MinBackupPathIdNum)
-            print "Max Bckup Path-id    : %d" %(response.MaxBackupPathIdNum)
-            print "Max Remote Bckup Addr: %d" %(response.MaxRemoteAddressNum)
+            print("Max VRF Name Len     : %d" %(response.MaxVrfNameLength))
+            print("Max Iface Name Len   : %d" %(response.MaxInterfaceNameLength))
+            print("Max Paths per Entry  : %d" %(response.MaxPathsPerEntry))
+            print("Max Prim per Entry   : %d" %(response.MaxPrimaryPathPerEntry))
+            print("Max Bckup per Entry  : %d" %(response.MaxBackupPathPerEntry))
+            print("Max Labels per Entry : %d" %(response.MaxMplsLabelsPerPath))
+            print("Min Prim Path-id     : %d" %(response.MinPrimaryPathIdNum))
+            print("Max Prim Path-id     : %d" %(response.MaxPrimaryPathIdNum))
+            print("Min Bckup Path-id    : %d" %(response.MinBackupPathIdNum))
+            print("Max Bckup Path-id    : %d" %(response.MaxBackupPathIdNum))
+            print("Max Remote Bckup Addr: %d" %(response.MaxRemoteAddressNum))
         else:
-            print "Globals response Error 0x%x" %(response.ErrStatus.Status)
+            print("Globals response Error 0x%x" %(response.ErrStatus.Status))
             sys.exit(0)
 
 
@@ -292,15 +291,15 @@ class SLInterface(object):
     #
     def get_server_ip_port(self):
         # Get GRPC Server's IP from the environment
-        if 'SERVER_IP' not in os.environ.keys():
-            print "Need to set the SERVER_IP env variable e.g."
-            print "export SERVER_IP='10.30.110.214'"
+        if 'SERVER_IP' not in list(os.environ.keys()):
+            print("Need to set the SERVER_IP env variable e.g.")
+            print("export SERVER_IP='10.30.110.214'")
             sys.exit(0)
 
         # Get GRPC Server's Port from the environment
-        if 'SERVER_PORT' not in os.environ.keys():
-            print "Need to set the SERVER_PORT env variable e.g."
-            print "export SERVER_PORT='57777'"
+        if 'SERVER_PORT' not in list(os.environ.keys()):
+            print("Need to set the SERVER_PORT env variable e.g.")
+            print("export SERVER_PORT='57777'")
             sys.exit(0)
 
         return (os.environ['SERVER_IP'], int(os.environ['SERVER_PORT']))
@@ -312,7 +311,7 @@ def handler(sl_interface, signum, frame):
 
     if not EXIT_FLAG:
         EXIT_FLAG = True
-        print "Unregistering..."
+        print("Unregistering...")
         sl_interface.intf_register(sl_common_types_pb2.SL_REGOP_UNREGISTER)
        # Exit and Kill any running GRPC threads.
         os._exit(0)
