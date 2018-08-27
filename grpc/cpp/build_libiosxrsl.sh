@@ -1,43 +1,58 @@
 #!/bin/bash
 
-# install grpc and protobuf
-# grpc version = 0.13.1
-# protobuf version = 3.5.0
+usage="
+$(basename "$0") [-h] [-g/--grpc-version -p/--protobuf-version -v/--verbose] -- script to install desired versions of grpc, protobuf and build the libiosxrsl.a library 
+where:
+    -h  show this help text
+    -g/--grpc-version  bring up the libvirt topology, wait for ssh access and then set up ssh tunnels
+    -p/--protobuf-version  bring down the libvirt topology
+    -v  get more verbose information during script execution
+"
 
-set -x
+while true; do
+  case "$1" in
+    -v | --verbose )     VERBOSE=true; shift ;;
+    -h | --help )        echo "$usage"; exit 0 ;;
+    -g | --grpc-version )   GRPC_VERSION=$2; shift; shift;;
+    -p | --protobuf-version ) PROTOBUF_VERSION=$2; shift; shift;; 
+    -- ) shift; break ;;
+    * ) break ;;
+  esac
+done
+
+if ! [[ $GRPC_VERSION ]] || ! [[ $PROTOBUF_VERSION ]]; then
+   echo "Must specify both  -g/--grpc--version and -p/--protobuf-version, see usage below"
+   echo "$usage"
+   exit 0
+fi
+
+if [[ $VERBOSE ]];then
+    set -x
+fi
 
 # Install pkg-config first
 apt-get update && apt-get install -y \
          autoconf automake libtool curl make g++ unzip git pkg-config
 
 PROTOBUF_INSTALLED_VERSION=`pkg-config --exists protobuf && pkg-config --modversion protobuf`
-GRPC_INSTALLED_VERSION=`pkg-config --exists grpc && pkg-config --modversion grpc`
-
-# protobuf 3.5.0 
-PROTOBUF_VERSION="3.5.0"
-PROTOBUF_HASH=2761122b810fe8861004ae785cc3ab39f384d342
-# grpc 0.13.1
-GRPC_VERSION="5.0.0"
-GRPC_HASH=80893242c1ee929d19e6bec5dc19a1515cd8dd81
+GRPC_INSTALLED_VERSION=`pkg-config --exists grpc && pkg-config --modversion grpc++`
 
 
 SCRIPT_DIR="$(cd "$(dirname "${0}")"; echo "$(pwd)")"
 
 
 
-if [[ $GRPC_INSTALLED_VERSION != $GRPC_VERSION  || \
-          $PROTOBUF_INSTALLED_VERSION != $PROTOBUF_VERSION ]]; then 
+if [[ $GRPC_INSTALLED_VERSION != $GRPC_VERSION ]] ||
+        [[ $PROTOBUF_INSTALLED_VERSION != $PROTOBUF_VERSION ]]; then 
 
     rm -rf ~/tempdir
-    mkdir -p ~/tempdir/
+    mkdir -p ~/tempdir/protobuf
 
     if [[ $PROTOBUF_INSTALLED_VERSION != $PROTOBUF_VERSION ]]; then
         #install protobuf
-        git clone https://github.com/google/protobuf.git ~/tempdir/protobuf && \
-
-        cd ~/tempdir/protobuf && \
-        git checkout $PROTOBUF_HASH && \
-        ./autogen.sh && \
+        cd ~/tempdir/protobuf
+        curl -OL https://github.com/protocolbuffers/protobuf/releases/download/v${PROTOBUF_VERSION}/protobuf-all-${PROTOBUF_VERSION}.tar.gz && \
+        tar -zxvf protobuf-all-${PROTOBUF_VERSION}.tar.gz && \
         ./configure && \
         make && \
         make install &&\
@@ -47,14 +62,12 @@ if [[ $GRPC_INSTALLED_VERSION != $GRPC_VERSION  || \
 
     if [[ $GRPC_INSTALLED_VERSION != $GRPC_VERSION ]]; then
         #install grpc
-        git clone https://github.com/grpc/grpc.git ~/tempdir/grpc && \
+        git clone https://github.com/grpc/grpc.git -b v${GRPC_VERSION} ~/tempdir/grpc && \
         cd ~/tempdir/grpc && \
-        git checkout $GRPC_HASH && \
         git submodule update --init && \
         make && \
         make install 
     fi
- 
 fi
 
 cd ~/ && rm -rf ~/tempdir

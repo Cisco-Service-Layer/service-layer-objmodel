@@ -5,5 +5,9 @@
 #
 cd ../protos
 printf "Generating Python bindings..."
-protoc -I ./ --python_out=../python/src/genpy/ --grpc_out=../python/src/genpy/ --plugin=protoc-gen-grpc=`which grpc_python_plugin` *.proto
+
+for proto_file in *.proto
+do
+  python -m grpc_tools.protoc -I ./ --python_out=../python/src/genpy/ --grpc_python_out=../python/src/genpy/ $proto_file
+done
 echo "Done"
