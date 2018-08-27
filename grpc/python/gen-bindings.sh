@@ -13,7 +13,7 @@ printf "Generating Python bindings..."
 
 for proto_file in *.proto
 do
-  python3 -m grpc_tools.protoc -I ./ --python_out=../python/src/genpy/ --grpc_python_out=../python/src/genpy/ $proto_file
+  python -m grpc_tools.protoc -I ./ --python_out=../python/src/genpy/ --grpc_python_out=../python/src/genpy/ $proto_file
 done
-#cd ../python/src/genpy; 2to3 -w *
+cd ../python/src/genpy; 2to3 -w *
 echo "Done"
