@@ -11,12 +11,12 @@ import sys
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.realpath(__file__))))
 
 # gRPC generated python bindings
-from genpy import sl_route_ipv4_pb2_grpc
+from genpy import sl_route_ipv4_pb2
 from genpy import sl_route_common_pb2
 from genpy import sl_common_types_pb2
 
 # gRPC libs
-import grpc
+from grpc.beta import implementations
 
 # Utilities
 from tutorial import client_init
@@ -28,7 +28,7 @@ from tutorial import client_init
 #
 def vrf_operation(channel, oper):
     # Create the gRPC stub.
-    stub = sl_route_ipv4_pb2_grpc.SLRoutev4OperStub(channel)
+    stub = sl_route_ipv4_pb2.beta_create_SLRoutev4Oper_stub(channel)
 
     # Create the SLVrfRegMsg message used for VRF registrations
     vrfMsg = sl_route_common_pb2.SLVrfRegMsg()
@@ -97,14 +97,14 @@ if __name__ == '__main__':
     print "Using GRPC Server IP(%s) Port(%s)" %(server_ip, server_port)
 
     # Create the channel for Server notifications.
-    channel = grpc.insecure_channel(str(server_ip)+":"+str(server_port))
+    channel = implementations.insecure_channel(server_ip, server_port)
 
     # Spawn a thread to Initialize the client and listen on notifications
     # The thread will run in the background
     client_init.global_init(channel)
 
     # Create another channel for gRPC requests.
-    #channel = grpc.insecure_channel(str(server_ip)+":"+str(server_port))
+    channel = implementations.insecure_channel(server_ip, server_port)
 
     # Send an RPC for VRF registrations
     vrf_operation(channel, sl_common_types_pb2.SL_REGOP_REGISTER)

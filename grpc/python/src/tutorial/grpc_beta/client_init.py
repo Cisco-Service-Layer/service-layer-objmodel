@@ -9,16 +9,15 @@ import sys
 import threading
 
 # Add the generated python bindings to the path
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.realpath(__file__))))
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(os.path.realpath(__file__)))))
 
 # gRPC generated python bindings
-from genpy import sl_global_pb2_grpc
 from genpy import sl_global_pb2
 from genpy import sl_common_types_pb2
 from genpy import sl_version_pb2
 
 # gRPC libs
-import grpc
+from grpc.beta import implementations
 
 #
 # Client Init: Initialize client session
@@ -93,7 +92,7 @@ def global_thread(stub, event):
 #
 def global_init(channel):
     # Create the gRPC stub.
-    stub = sl_global_pb2_grpc.SLGlobalStub(channel)
+    stub = sl_global_pb2.beta_create_SLGlobal_stub(channel)
 
     # Create a thread sync event. This will be used to order thread execution
     event = threading.Event()
@@ -144,7 +143,7 @@ if __name__ == '__main__':
     print "Using GRPC Server IP(%s) Port(%s)" %(server_ip, server_port)
 
     # Create the channel for gRPC.
-    channel = grpc.insecure_channel(str(server_ip)+":"+str(server_port))
+    channel = implementations.insecure_channel(server_ip, server_port)
 
     # Initialize client (check major/minor versions and globals)
     global_init(channel)

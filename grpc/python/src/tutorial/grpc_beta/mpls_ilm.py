@@ -8,20 +8,19 @@ import json
 import sys
 
 # Add the generated python bindings directory to the path
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.realpath(__file__))))
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(os.path.realpath(__file__)))))
 
 # gRPC generated python bindings
-from genpy import sl_global_pb2_grpc
 from genpy import sl_global_pb2
 from genpy import sl_common_types_pb2
 from genpy import sl_mpls_pb2
-from genpy import sl_mpls_pb2_grpc
 
 # Utilities
 import client_init
 
 # gRPC libs
-import grpc
+from grpc.beta import implementations
+
 
 def mpls_register(stub, oper):
 
@@ -128,14 +127,17 @@ if __name__ == '__main__':
 
 
     # Create the channel for gRPC.
-    channel = grpc.insecure_channel(str(server_ip) +":"+ str(server_port))
+    channel = implementations.insecure_channel(server_ip, server_port)
 
     # Spawn a thread to Initialize the client and listen on notifications
     # The thread will run in the background
     client_init.global_init(channel)
 
+    # Create another channel for gRPC requests.
+    channel = implementations.insecure_channel(server_ip, server_port)
+
     # Create the gRPC stub.
-    stub = sl_mpls_pb2_grpc.SLMplsOperStub(channel)
+    stub = sl_mpls_pb2.beta_create_SLMplsOper_stub(channel)
 
     # Send an RPC for LSD registration
     mpls_register(stub, sl_common_types_pb2.SL_REGOP_REGISTER)

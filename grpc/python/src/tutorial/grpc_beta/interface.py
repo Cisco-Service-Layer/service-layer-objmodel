@@ -27,21 +27,26 @@ from argparse import ArgumentParser
 from urlparse import urlparse
 from google.protobuf import json_format
 
+sys.path.insert(0, '../../')
 
 # Add the generated python bindings directory to the path
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.realpath(__file__))))
 
 # gRPC generated python bindings
-
-from genpy import sl_global_pb2_grpc
+# gRPC generated python bindings
 from genpy import sl_global_pb2
 from genpy import sl_common_types_pb2
 from genpy import sl_version_pb2
 from genpy import sl_interface_pb2
-from genpy import sl_interface_pb2_grpc
+
+# Utilities
+#import client_init
+
+
 
 # gRPC libs
-import grpc
+from grpc.beta import implementations
+
 
 class SLInterface(object):
 
@@ -55,14 +60,17 @@ class SLInterface(object):
        
  
         # Create the channel for gRPC.
-        channel = grpc.insecure_channel(str(grpc_server_ip)+":"+
-                                                   str(grpc_server_port))
+        channel = implementations.insecure_channel(grpc_server_ip,
+                                                   grpc_server_port)
 
         # Spawn a thread to Initialize the client and listen on notifications
         # The thread will run in the background
         self.global_init(channel)
 
-        self.stub = sl_interface_pb2_grpc.SLInterfaceOperStub(channel)
+        # Create another channel for interface gRPC requests.
+        channel = implementations.insecure_channel(grpc_server_ip, grpc_server_port)
+
+        self.stub = sl_interface_pb2.beta_create_SLInterfaceOper_stub(channel)
 
 
         # Send an RPC for VRF registrations
@@ -244,7 +252,7 @@ class SLInterface(object):
     #
     def global_init(self,channel):
         # Create the gRPC stub.
-        stub = sl_global_pb2_grpc.SLGlobalStub(channel)
+        stub = sl_global_pb2.beta_create_SLGlobal_stub(channel)
 
         # Create a thread sync event. This will be used to order thread execution
         event = threading.Event()
