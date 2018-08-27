@@ -25,7 +25,7 @@ from functools import partial
 import signal
 from argparse import ArgumentParser
 from google.protobuf import json_format
-
+import time
 
 # Add the generated python bindings directory to the path
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.realpath(__file__))))
@@ -328,11 +328,15 @@ if __name__ == '__main__':
     sl_interface = SLInterface()
 
 
-    sl_interface.intf_listen_notifications()
+    # This thread will be handling Interface event notifications.
+    sl_interface.interface_listener = threading.Thread(target = sl_interface.intf_listen_notifications)
+    sl_interface.interface_listener.daemon = True
+    sl_interface.interface_listener.start()
+
     # Register our handler for keyboard interrupt and termination signals
     signal.signal(signal.SIGINT, partial(handler, sl_interface))
     signal.signal(signal.SIGTERM, partial(handler, sl_interface))
 
     # The process main thread does nothing but wait for signals
-    signal.pause()
+    signal.pause() 
 
