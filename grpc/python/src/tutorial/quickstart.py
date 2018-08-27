@@ -159,9 +159,6 @@ if __name__ == '__main__':
     # The thread will run in the background
     client_init.global_init(channel)
 
-    # Create another channel for gRPC requests.
-    #channel = grpc.insecure_channel(str(server_ip) + ":" + str(server_port))
-
     # Send an RPC for VRF registrations
     vrf.vrf_operation(channel, sl_common_types_pb2.SL_REGOP_REGISTER)
 
