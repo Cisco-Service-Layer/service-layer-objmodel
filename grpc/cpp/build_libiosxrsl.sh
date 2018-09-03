@@ -4,8 +4,8 @@ usage="
 $(basename "$0") [-h] [-g/--grpc-version -p/--protobuf-version -v/--verbose] -- script to install desired versions of grpc, protobuf and build the libiosxrsl.a library 
 where:
     -h  show this help text
-    -g/--grpc-version  bring up the libvirt topology, wait for ssh access and then set up ssh tunnels
-    -p/--protobuf-version  bring down the libvirt topology
+    -g/--grpc-version specify the grpc version to be installed (mandatory argument) 
+    -p/--protobuf-version specify the protobuf version to be installed (mandatory argument)
     -v  get more verbose information during script execution
 "
 
