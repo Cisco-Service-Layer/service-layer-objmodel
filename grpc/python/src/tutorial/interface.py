@@ -94,22 +94,8 @@ class SLInterface(object):
         if event_type == "SL_INTERFACE_EVENT_TYPE_INTERFACE_INFO":
             interface = message_dict["Info"]["SLIfInfo"]["Name"]
             state = message_dict["Info"]["IfState"]
+            # Do Something  
 
-            if interface == "GigabitEthernet0/0/0/0":
-                if state == "SL_IF_STATE_DOWN":
-                    print("Switching to backup path")
-                    self.path_event["status"] = True
-                    self.path_event["path"] = "backup"
-                    print(self.path_event)
-                elif state == "SL_IF_STATE_UP":
-                    print("Switching to Active path")
-                    self.path_event["status"] = True
-                    self.path_event["path"] = "active"
-                    print(self.path_event)
-
-                elif statw == "SL_IF_STATE_UNKNOWN":
-                    print("State Unknown, not taking any action")
-                  
 
         
     def intf_listen_notifications(self):

@@ -15,5 +15,6 @@ for proto_file in *.proto
 do
   python -m grpc_tools.protoc -I ./ --python_out=../python/src/genpy/ --grpc_python_out=../python/src/genpy/ $proto_file
 done
-cd ../python/src/genpy; 2to3 -w *
+cd ../python/src/genpy
+2to3 -w * >/dev/null 2>&1
 echo "Done"
