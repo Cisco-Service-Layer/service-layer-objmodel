@@ -138,8 +138,13 @@ int main(int argc, char** argv) {
 
     LOG(INFO) << "Connecting IOS-XR to gRPC server at " << grpc_server;
 
-    AsyncNotifChannel asynchandler(grpc::CreateChannel(
-                              grpc_server, grpc::InsecureChannelCredentials()));
+
+    // Create a gRPC channel
+    auto channel = grpc::CreateChannel(
+                              grpc_server, grpc::InsecureChannelCredentials());
+
+    
+    AsyncNotifChannel asynchandler(channel);
 
     // Acquire the lock
     std::unique_lock<std::mutex> initlock(init_mutex);
@@ -161,10 +166,7 @@ int main(int argc, char** argv) {
         init_condVar.wait(initlock);
     }
 
-    // Set up a new channel for vrf/route messages
-
-    auto vrfhandler = SLVrf(grpc::CreateChannel(
-                       grpc_server, grpc::InsecureChannelCredentials()));
+    auto vrfhandler = SLVrf(channel);
 
     // Create a new SLVrfRegMsg batch
     vrfhandler.vrfRegMsgAdd("default", 10, 500);

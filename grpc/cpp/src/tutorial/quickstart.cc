@@ -706,8 +706,12 @@ int main(int argc, char** argv) {
 
     std::cout << "\n\nConnecting to grpc server at " << grpc_server << std::endl;
 
-    AsyncNotifChannel asynchandler(grpc::CreateChannel(
-                              grpc_server, grpc::InsecureChannelCredentials()));
+
+    // Create a gRPC channel
+    auto channel = grpc::CreateChannel(
+                              grpc_server, grpc::InsecureChannelCredentials());
+
+    AsyncNotifChannel asynchandler(channel);
 
     // Acquire the lock
     std::unique_lock<std::mutex> initlock(init_mutex);
@@ -729,10 +733,8 @@ int main(int argc, char** argv) {
         init_condVar.wait(initlock);
     }
 
-    // Set up a new channel for vrf/route messages
 
-    SLVrf vrfhandler(grpc::CreateChannel(
-                              grpc_server, grpc::InsecureChannelCredentials()));
+    SLVrf vrfhandler(channel);
 
     // Create a new SLVrfRegMsg batch
     vrfhandler.vrfRegMsgAdd("default", 10, 500);
