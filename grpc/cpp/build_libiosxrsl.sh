@@ -53,6 +53,7 @@ if [[ $GRPC_INSTALLED_VERSION != $GRPC_VERSION ]] ||
         cd ~/tempdir/protobuf
         curl -OL https://github.com/protocolbuffers/protobuf/releases/download/v${PROTOBUF_VERSION}/protobuf-all-${PROTOBUF_VERSION}.tar.gz && \
         tar -zxvf protobuf-all-${PROTOBUF_VERSION}.tar.gz && \
+        cd protobuf-${PROTOBUF_VERSION}/ && \
         ./configure && \
         make && \
         make install &&\
