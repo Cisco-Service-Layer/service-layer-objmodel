@@ -3,6 +3,7 @@
 
 import sys
 _b=sys.version_info[0]<3 and (lambda x:x) or (lambda x:x.encode('latin1'))
+from google.protobuf.internal import enum_type_wrapper
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
 from google.protobuf import reflection as _reflection
@@ -13,18 +14,67 @@ from google.protobuf import descriptor_pb2
 _sym_db = _symbol_database.Default()
 
 
-import sl_common_types_pb2 as sl__common__types__pb2
+from . import sl_common_types_pb2 as sl__common__types__pb2
 
 
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='sl_route_common.proto',
   package='service_layer',
   syntax='proto3',
-  serialized_pb=_b('\n\x15sl_route_common.proto\x12\rservice_layer\x1a\x15sl_common_types.proto\"\x16\n\x14SLRouteGlobalsGetMsg\"\x86\x01\n\x17SLRouteGlobalsGetMsgRsp\x12/\n\tErrStatus\x18\x01 \x01(\x0b\x32\x1c.service_layer.SLErrorStatus\x12\x1d\n\x15MaxVrfregPerVrfregmsg\x18\x02 \x01(\r\x12\x1b\n\x13MaxRoutePerRoutemsg\x18\x03 \x01(\r\"\x1a\n\x18SLRouteGlobalStatsGetMsg\"t\n\x1bSLRouteGlobalStatsGetMsgRsp\x12/\n\tErrStatus\x18\x01 \x01(\x0b\x32\x1c.service_layer.SLErrorStatus\x12\x10\n\x08VrfCount\x18\x02 \x01(\r\x12\x12\n\nRouteCount\x18\x03 \x01(\r\"S\n\x08SLVrfReg\x12\x0f\n\x07VrfName\x18\x01 \x01(\t\x12\x15\n\rAdminDistance\x18\x02 \x01(\r\x12\x1f\n\x17VrfPurgeIntervalSeconds\x18\x03 \x01(\r\"`\n\x0bSLVrfRegMsg\x12$\n\x04Oper\x18\x01 \x01(\x0e\x32\x16.service_layer.SLRegOp\x12+\n\nVrfRegMsgs\x18\x02 \x03(\x0b\x32\x17.service_layer.SLVrfReg\"R\n\x0eSLVrfRegMsgRes\x12/\n\tErrStatus\x18\x01 \x01(\x0b\x32\x1c.service_layer.SLErrorStatus\x12\x0f\n\x07VrfName\x18\x02 \x01(\t\"u\n\x0eSLVrfRegMsgRsp\x12\x33\n\rStatusSummary\x18\x01 \x01(\x0b\x32\x1c.service_layer.SLErrorStatus\x12.\n\x07Results\x18\x02 \x03(\x0b\x32\x1d.service_layer.SLVrfRegMsgRes\"H\n\x0eSLVrfRegGetMsg\x12\x0f\n\x07VrfName\x18\x01 \x01(\t\x12\x14\n\x0c\x45ntriesCount\x18\x02 \x01(\r\x12\x0f\n\x07GetNext\x18\x03 \x01(\x08\"{\n\x11SLVrfRegGetMsgRsp\x12\x0b\n\x03\x45of\x18\x01 \x01(\x08\x12/\n\tErrStatus\x18\x02 \x01(\x0b\x32\x1c.service_layer.SLErrorStatus\x12(\n\x07\x45ntries\x18\x03 \x03(\x0b\x32\x17.service_layer.SLVrfReg\":\n\x13SLVRFGetStatsMsgRes\x12\x0f\n\x07VrfName\x18\x01 \x01(\t\x12\x12\n\nRouteCount\x18\x02 \x01(\r\"\x88\x01\n\x13SLVRFGetStatsMsgRsp\x12\x0b\n\x03\x45of\x18\x01 \x01(\x08\x12/\n\tErrStatus\x18\x02 \x01(\x0b\x32\x1c.service_layer.SLErrorStatus\x12\x33\n\x07\x45ntries\x18\x03 \x03(\x0b\x32\".service_layer.SLVRFGetStatsMsgRes\"G\n\rSLRouteCommon\x12\x15\n\rAdminDistance\x18\x01 \x01(\r\x12\x12\n\nLocalLabel\x18\x02 \x01(\r\x12\x0b\n\x03Tag\x18\x03 \x01(\r\"\xa0\x02\n\x0bSLRoutePath\x12\x32\n\x0eNexthopAddress\x18\x01 \x01(\x0b\x32\x1a.service_layer.SLIpAddress\x12\x34\n\x10NexthopInterface\x18\x02 \x01(\x0b\x32\x1a.service_layer.SLInterface\x12\x12\n\nLoadMetric\x18\x03 \x01(\r\x12\x0f\n\x07VrfName\x18\x04 \x01(\t\x12\x0e\n\x06Metric\x18\x05 \x01(\r\x12\x0e\n\x06PathId\x18\x06 \x01(\r\x12\x1b\n\x13ProtectedPathBitmap\x18\x07 \x03(\x04\x12\x12\n\nLabelStack\x18\x08 \x03(\r\x12\x31\n\rRemoteAddress\x18\t \x03(\x0b\x32\x1a.service_layer.SLIpAddressb\x06proto3')
+  serialized_pb=_b('\n\x15sl_route_common.proto\x12\rservice_layer\x1a\x15sl_common_types.proto\"\x16\n\x14SLRouteGlobalsGetMsg\"\x86\x01\n\x17SLRouteGlobalsGetMsgRsp\x12/\n\tErrStatus\x18\x01 \x01(\x0b\x32\x1c.service_layer.SLErrorStatus\x12\x1d\n\x15MaxVrfregPerVrfregmsg\x18\x02 \x01(\r\x12\x1b\n\x13MaxRoutePerRoutemsg\x18\x03 \x01(\r\"\x1a\n\x18SLRouteGlobalStatsGetMsg\"t\n\x1bSLRouteGlobalStatsGetMsgRsp\x12/\n\tErrStatus\x18\x01 \x01(\x0b\x32\x1c.service_layer.SLErrorStatus\x12\x10\n\x08VrfCount\x18\x02 \x01(\r\x12\x12\n\nRouteCount\x18\x03 \x01(\r\"S\n\x08SLVrfReg\x12\x0f\n\x07VrfName\x18\x01 \x01(\t\x12\x15\n\rAdminDistance\x18\x02 \x01(\r\x12\x1f\n\x17VrfPurgeIntervalSeconds\x18\x03 \x01(\r\"`\n\x0bSLVrfRegMsg\x12$\n\x04Oper\x18\x01 \x01(\x0e\x32\x16.service_layer.SLRegOp\x12+\n\nVrfRegMsgs\x18\x02 \x03(\x0b\x32\x17.service_layer.SLVrfReg\"R\n\x0eSLVrfRegMsgRes\x12/\n\tErrStatus\x18\x01 \x01(\x0b\x32\x1c.service_layer.SLErrorStatus\x12\x0f\n\x07VrfName\x18\x02 \x01(\t\"u\n\x0eSLVrfRegMsgRsp\x12\x33\n\rStatusSummary\x18\x01 \x01(\x0b\x32\x1c.service_layer.SLErrorStatus\x12.\n\x07Results\x18\x02 \x03(\x0b\x32\x1d.service_layer.SLVrfRegMsgRes\"H\n\x0eSLVrfRegGetMsg\x12\x0f\n\x07VrfName\x18\x01 \x01(\t\x12\x14\n\x0c\x45ntriesCount\x18\x02 \x01(\r\x12\x0f\n\x07GetNext\x18\x03 \x01(\x08\"{\n\x11SLVrfRegGetMsgRsp\x12\x0b\n\x03\x45of\x18\x01 \x01(\x08\x12/\n\tErrStatus\x18\x02 \x01(\x0b\x32\x1c.service_layer.SLErrorStatus\x12(\n\x07\x45ntries\x18\x03 \x03(\x0b\x32\x17.service_layer.SLVrfReg\":\n\x13SLVRFGetStatsMsgRes\x12\x0f\n\x07VrfName\x18\x01 \x01(\t\x12\x12\n\nRouteCount\x18\x02 \x01(\r\"\x88\x01\n\x13SLVRFGetStatsMsgRsp\x12\x0b\n\x03\x45of\x18\x01 \x01(\x08\x12/\n\tErrStatus\x18\x02 \x01(\x0b\x32\x1c.service_layer.SLErrorStatus\x12\x33\n\x07\x45ntries\x18\x03 \x03(\x0b\x32\".service_layer.SLVRFGetStatsMsgRes\"\x88\x01\n\x12SLRouteGetNotifMsg\x12&\n\x04Oper\x18\x01 \x01(\x0e\x32\x18.service_layer.SLNotifOp\x12\x12\n\nCorrelator\x18\x02 \x01(\x04\x12\x0f\n\x07VrfName\x18\x03 \x01(\t\x12\x10\n\x08SrcProto\x18\x04 \x01(\t\x12\x13\n\x0bSrcProtoTag\x18\x05 \x01(\t\"l\n\x12SLRouteNotifStatus\x12\x12\n\nCorrelator\x18\x01 \x01(\x04\x12\x0f\n\x07VrfName\x18\x02 \x01(\t\x12\x31\n\x0bNotifStatus\x18\x03 \x01(\x0b\x32\x1c.service_layer.SLErrorStatus\"%\n\x12SLRouteNotifMarker\x12\x0f\n\x07VrfName\x18\x01 \x01(\t\"H\n\nSLVrfNotif\x12\x0f\n\x07VrfName\x18\x01 \x01(\t\x12)\n\x06Status\x18\x02 \x01(\x0e\x32\x19.service_layer.SLObjectOp\"n\n\rSLRouteCommon\x12\x15\n\rAdminDistance\x18\x01 \x01(\r\x12\x12\n\nLocalLabel\x18\x02 \x01(\r\x12\x0b\n\x03Tag\x18\x03 \x01(\r\x12\x10\n\x08SrcProto\x18\x04 \x01(\t\x12\x13\n\x0bSrcProtoTag\x18\x05 \x01(\t\"\xed\x02\n\x0bSLRoutePath\x12\x32\n\x0eNexthopAddress\x18\x01 \x01(\x0b\x32\x1a.service_layer.SLIpAddress\x12\x34\n\x10NexthopInterface\x18\x02 \x01(\x0b\x32\x1a.service_layer.SLInterface\x12\x12\n\nLoadMetric\x18\x03 \x01(\r\x12\x0f\n\x07VrfName\x18\x04 \x01(\t\x12\x0e\n\x06Metric\x18\x05 \x01(\r\x12\x0e\n\x06PathId\x18\x06 \x01(\r\x12\x1b\n\x13ProtectedPathBitmap\x18\x07 \x03(\x04\x12\x12\n\nLabelStack\x18\x08 \x03(\r\x12\x31\n\rRemoteAddress\x18\t \x03(\x0b\x32\x1a.service_layer.SLIpAddress\x12-\n\tEncapType\x18\n \x01(\x0e\x32\x1a.service_layer.SLEncapType\x12\x1c\n\x14VtepRouterMacAddress\x18\x0b \x01(\x0c*\xca\x01\n\x0bSLNotifType\x12\x1a\n\x16SL_EVENT_TYPE_RESERVED\x10\x00\x12\x17\n\x13SL_EVENT_TYPE_ERROR\x10\x01\x12\x18\n\x14SL_EVENT_TYPE_STATUS\x10\x02\x12\x17\n\x13SL_EVENT_TYPE_ROUTE\x10\x03\x12\x1e\n\x1aSL_EVENT_TYPE_START_MARKER\x10\x04\x12\x1c\n\x18SL_EVENT_TYPE_END_MARKER\x10\x05\x12\x15\n\x11SL_EVENT_TYPE_VRF\x10\x06\x62\x06proto3')
   ,
   dependencies=[sl__common__types__pb2.DESCRIPTOR,])
-_sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
+_SLNOTIFTYPE = _descriptor.EnumDescriptor(
+  name='SLNotifType',
+  full_name='service_layer.SLNotifType',
+  filename=None,
+  file=DESCRIPTOR,
+  values=[
+    _descriptor.EnumValueDescriptor(
+      name='SL_EVENT_TYPE_RESERVED', index=0, number=0,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='SL_EVENT_TYPE_ERROR', index=1, number=1,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='SL_EVENT_TYPE_STATUS', index=2, number=2,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='SL_EVENT_TYPE_ROUTE', index=3, number=3,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='SL_EVENT_TYPE_START_MARKER', index=4, number=4,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='SL_EVENT_TYPE_END_MARKER', index=5, number=5,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='SL_EVENT_TYPE_VRF', index=6, number=6,
+      options=None,
+      type=None),
+  ],
+  containing_type=None,
+  options=None,
+  serialized_start=1997,
+  serialized_end=2199,
+)
+_sym_db.RegisterEnumDescriptor(_SLNOTIFTYPE)
+
+SLNotifType = enum_type_wrapper.EnumTypeWrapper(_SLNOTIFTYPE)
+SL_EVENT_TYPE_RESERVED = 0
+SL_EVENT_TYPE_ERROR = 1
+SL_EVENT_TYPE_STATUS = 2
+SL_EVENT_TYPE_ROUTE = 3
+SL_EVENT_TYPE_START_MARKER = 4
+SL_EVENT_TYPE_END_MARKER = 5
+SL_EVENT_TYPE_VRF = 6
 
 
 
@@ -65,21 +115,21 @@ _SLROUTEGLOBALSGETMSGRSP = _descriptor.Descriptor(
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='MaxVrfregPerVrfregmsg', full_name='service_layer.SLRouteGlobalsGetMsgRsp.MaxVrfregPerVrfregmsg', index=1,
       number=2, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='MaxRoutePerRoutemsg', full_name='service_layer.SLRouteGlobalsGetMsgRsp.MaxRoutePerRoutemsg', index=2,
       number=3, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -134,21 +184,21 @@ _SLROUTEGLOBALSTATSGETMSGRSP = _descriptor.Descriptor(
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='VrfCount', full_name='service_layer.SLRouteGlobalStatsGetMsgRsp.VrfCount', index=1,
       number=2, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='RouteCount', full_name='service_layer.SLRouteGlobalStatsGetMsgRsp.RouteCount', index=2,
       number=3, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -179,21 +229,21 @@ _SLVRFREG = _descriptor.Descriptor(
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='AdminDistance', full_name='service_layer.SLVrfReg.AdminDistance', index=1,
       number=2, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='VrfPurgeIntervalSeconds', full_name='service_layer.SLVrfReg.VrfPurgeIntervalSeconds', index=2,
       number=3, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -224,14 +274,14 @@ _SLVRFREGMSG = _descriptor.Descriptor(
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='VrfRegMsgs', full_name='service_layer.SLVrfRegMsg.VrfRegMsgs', index=1,
       number=2, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -262,14 +312,14 @@ _SLVRFREGMSGRES = _descriptor.Descriptor(
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='VrfName', full_name='service_layer.SLVrfRegMsgRes.VrfName', index=1,
       number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -300,14 +350,14 @@ _SLVRFREGMSGRSP = _descriptor.Descriptor(
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='Results', full_name='service_layer.SLVrfRegMsgRsp.Results', index=1,
       number=2, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -338,21 +388,21 @@ _SLVRFREGGETMSG = _descriptor.Descriptor(
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='EntriesCount', full_name='service_layer.SLVrfRegGetMsg.EntriesCount', index=1,
       number=2, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='GetNext', full_name='service_layer.SLVrfRegGetMsg.GetNext', index=2,
       number=3, type=8, cpp_type=7, label=1,
       has_default_value=False, default_value=False,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -383,21 +433,21 @@ _SLVRFREGGETMSGRSP = _descriptor.Descriptor(
       has_default_value=False, default_value=False,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='ErrStatus', full_name='service_layer.SLVrfRegGetMsgRsp.ErrStatus', index=1,
       number=2, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='Entries', full_name='service_layer.SLVrfRegGetMsgRsp.Entries', index=2,
       number=3, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -428,14 +478,14 @@ _SLVRFGETSTATSMSGRES = _descriptor.Descriptor(
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='RouteCount', full_name='service_layer.SLVRFGetStatsMsgRes.RouteCount', index=1,
       number=2, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -466,21 +516,21 @@ _SLVRFGETSTATSMSGRSP = _descriptor.Descriptor(
       has_default_value=False, default_value=False,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='ErrStatus', full_name='service_layer.SLVRFGetStatsMsgRsp.ErrStatus', index=1,
       number=2, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='Entries', full_name='service_layer.SLVRFGetStatsMsgRsp.Entries', index=2,
       number=3, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -498,6 +548,179 @@ _SLVRFGETSTATSMSGRSP = _descriptor.Descriptor(
 )
 
 
+_SLROUTEGETNOTIFMSG = _descriptor.Descriptor(
+  name='SLRouteGetNotifMsg',
+  full_name='service_layer.SLRouteGetNotifMsg',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='Oper', full_name='service_layer.SLRouteGetNotifMsg.Oper', index=0,
+      number=1, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='Correlator', full_name='service_layer.SLRouteGetNotifMsg.Correlator', index=1,
+      number=2, type=4, cpp_type=4, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='VrfName', full_name='service_layer.SLRouteGetNotifMsg.VrfName', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='SrcProto', full_name='service_layer.SLRouteGetNotifMsg.SrcProto', index=3,
+      number=4, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='SrcProtoTag', full_name='service_layer.SLRouteGetNotifMsg.SrcProtoTag', index=4,
+      number=5, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1155,
+  serialized_end=1291,
+)
+
+
+_SLROUTENOTIFSTATUS = _descriptor.Descriptor(
+  name='SLRouteNotifStatus',
+  full_name='service_layer.SLRouteNotifStatus',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='Correlator', full_name='service_layer.SLRouteNotifStatus.Correlator', index=0,
+      number=1, type=4, cpp_type=4, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='VrfName', full_name='service_layer.SLRouteNotifStatus.VrfName', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='NotifStatus', full_name='service_layer.SLRouteNotifStatus.NotifStatus', index=2,
+      number=3, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1293,
+  serialized_end=1401,
+)
+
+
+_SLROUTENOTIFMARKER = _descriptor.Descriptor(
+  name='SLRouteNotifMarker',
+  full_name='service_layer.SLRouteNotifMarker',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='VrfName', full_name='service_layer.SLRouteNotifMarker.VrfName', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1403,
+  serialized_end=1440,
+)
+
+
+_SLVRFNOTIF = _descriptor.Descriptor(
+  name='SLVrfNotif',
+  full_name='service_layer.SLVrfNotif',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='VrfName', full_name='service_layer.SLVrfNotif.VrfName', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='Status', full_name='service_layer.SLVrfNotif.Status', index=1,
+      number=2, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1442,
+  serialized_end=1514,
+)
+
+
 _SLROUTECOMMON = _descriptor.Descriptor(
   name='SLRouteCommon',
   full_name='service_layer.SLRouteCommon',
@@ -511,21 +734,35 @@ _SLROUTECOMMON = _descriptor.Descriptor(
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='LocalLabel', full_name='service_layer.SLRouteCommon.LocalLabel', index=1,
       number=2, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='Tag', full_name='service_layer.SLRouteCommon.Tag', index=2,
       number=3, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='SrcProto', full_name='service_layer.SLRouteCommon.SrcProto', index=3,
+      number=4, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='SrcProtoTag', full_name='service_layer.SLRouteCommon.SrcProtoTag', index=4,
+      number=5, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -538,8 +775,8 @@ _SLROUTECOMMON = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1154,
-  serialized_end=1225,
+  serialized_start=1516,
+  serialized_end=1626,
 )
 
 
@@ -556,63 +793,77 @@ _SLROUTEPATH = _descriptor.Descriptor(
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='NexthopInterface', full_name='service_layer.SLRoutePath.NexthopInterface', index=1,
       number=2, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='LoadMetric', full_name='service_layer.SLRoutePath.LoadMetric', index=2,
       number=3, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='VrfName', full_name='service_layer.SLRoutePath.VrfName', index=3,
       number=4, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='Metric', full_name='service_layer.SLRoutePath.Metric', index=4,
       number=5, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='PathId', full_name='service_layer.SLRoutePath.PathId', index=5,
       number=6, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='ProtectedPathBitmap', full_name='service_layer.SLRoutePath.ProtectedPathBitmap', index=6,
       number=7, type=4, cpp_type=4, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='LabelStack', full_name='service_layer.SLRoutePath.LabelStack', index=7,
       number=8, type=13, cpp_type=3, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='RemoteAddress', full_name='service_layer.SLRoutePath.RemoteAddress', index=8,
       number=9, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='EncapType', full_name='service_layer.SLRoutePath.EncapType', index=9,
+      number=10, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='VtepRouterMacAddress', full_name='service_layer.SLRoutePath.VtepRouterMacAddress', index=10,
+      number=11, type=12, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b(""),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -625,8 +876,8 @@ _SLROUTEPATH = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1228,
-  serialized_end=1516,
+  serialized_start=1629,
+  serialized_end=1994,
 )
 
 _SLROUTEGLOBALSGETMSGRSP.fields_by_name['ErrStatus'].message_type = sl__common__types__pb2._SLERRORSTATUS
@@ -640,9 +891,13 @@ _SLVRFREGGETMSGRSP.fields_by_name['ErrStatus'].message_type = sl__common__types_
 _SLVRFREGGETMSGRSP.fields_by_name['Entries'].message_type = _SLVRFREG
 _SLVRFGETSTATSMSGRSP.fields_by_name['ErrStatus'].message_type = sl__common__types__pb2._SLERRORSTATUS
 _SLVRFGETSTATSMSGRSP.fields_by_name['Entries'].message_type = _SLVRFGETSTATSMSGRES
+_SLROUTEGETNOTIFMSG.fields_by_name['Oper'].enum_type = sl__common__types__pb2._SLNOTIFOP
+_SLROUTENOTIFSTATUS.fields_by_name['NotifStatus'].message_type = sl__common__types__pb2._SLERRORSTATUS
+_SLVRFNOTIF.fields_by_name['Status'].enum_type = sl__common__types__pb2._SLOBJECTOP
 _SLROUTEPATH.fields_by_name['NexthopAddress'].message_type = sl__common__types__pb2._SLIPADDRESS
 _SLROUTEPATH.fields_by_name['NexthopInterface'].message_type = sl__common__types__pb2._SLINTERFACE
 _SLROUTEPATH.fields_by_name['RemoteAddress'].message_type = sl__common__types__pb2._SLIPADDRESS
+_SLROUTEPATH.fields_by_name['EncapType'].enum_type = sl__common__types__pb2._SLENCAPTYPE
 DESCRIPTOR.message_types_by_name['SLRouteGlobalsGetMsg'] = _SLROUTEGLOBALSGETMSG
 DESCRIPTOR.message_types_by_name['SLRouteGlobalsGetMsgRsp'] = _SLROUTEGLOBALSGETMSGRSP
 DESCRIPTOR.message_types_by_name['SLRouteGlobalStatsGetMsg'] = _SLROUTEGLOBALSTATSGETMSG
@@ -655,8 +910,14 @@ DESCRIPTOR.message_types_by_name['SLVrfRegGetMsg'] = _SLVRFREGGETMSG
 DESCRIPTOR.message_types_by_name['SLVrfRegGetMsgRsp'] = _SLVRFREGGETMSGRSP
 DESCRIPTOR.message_types_by_name['SLVRFGetStatsMsgRes'] = _SLVRFGETSTATSMSGRES
 DESCRIPTOR.message_types_by_name['SLVRFGetStatsMsgRsp'] = _SLVRFGETSTATSMSGRSP
+DESCRIPTOR.message_types_by_name['SLRouteGetNotifMsg'] = _SLROUTEGETNOTIFMSG
+DESCRIPTOR.message_types_by_name['SLRouteNotifStatus'] = _SLROUTENOTIFSTATUS
+DESCRIPTOR.message_types_by_name['SLRouteNotifMarker'] = _SLROUTENOTIFMARKER
+DESCRIPTOR.message_types_by_name['SLVrfNotif'] = _SLVRFNOTIF
 DESCRIPTOR.message_types_by_name['SLRouteCommon'] = _SLROUTECOMMON
 DESCRIPTOR.message_types_by_name['SLRoutePath'] = _SLROUTEPATH
+DESCRIPTOR.enum_types_by_name['SLNotifType'] = _SLNOTIFTYPE
+_sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 SLRouteGlobalsGetMsg = _reflection.GeneratedProtocolMessageType('SLRouteGlobalsGetMsg', (_message.Message,), dict(
   DESCRIPTOR = _SLROUTEGLOBALSGETMSG,
@@ -742,6 +1003,34 @@ SLVRFGetStatsMsgRsp = _reflection.GeneratedProtocolMessageType('SLVRFGetStatsMsg
   ))
 _sym_db.RegisterMessage(SLVRFGetStatsMsgRsp)
 
+SLRouteGetNotifMsg = _reflection.GeneratedProtocolMessageType('SLRouteGetNotifMsg', (_message.Message,), dict(
+  DESCRIPTOR = _SLROUTEGETNOTIFMSG,
+  __module__ = 'sl_route_common_pb2'
+  # @@protoc_insertion_point(class_scope:service_layer.SLRouteGetNotifMsg)
+  ))
+_sym_db.RegisterMessage(SLRouteGetNotifMsg)
+
+SLRouteNotifStatus = _reflection.GeneratedProtocolMessageType('SLRouteNotifStatus', (_message.Message,), dict(
+  DESCRIPTOR = _SLROUTENOTIFSTATUS,
+  __module__ = 'sl_route_common_pb2'
+  # @@protoc_insertion_point(class_scope:service_layer.SLRouteNotifStatus)
+  ))
+_sym_db.RegisterMessage(SLRouteNotifStatus)
+
+SLRouteNotifMarker = _reflection.GeneratedProtocolMessageType('SLRouteNotifMarker', (_message.Message,), dict(
+  DESCRIPTOR = _SLROUTENOTIFMARKER,
+  __module__ = 'sl_route_common_pb2'
+  # @@protoc_insertion_point(class_scope:service_layer.SLRouteNotifMarker)
+  ))
+_sym_db.RegisterMessage(SLRouteNotifMarker)
+
+SLVrfNotif = _reflection.GeneratedProtocolMessageType('SLVrfNotif', (_message.Message,), dict(
+  DESCRIPTOR = _SLVRFNOTIF,
+  __module__ = 'sl_route_common_pb2'
+  # @@protoc_insertion_point(class_scope:service_layer.SLVrfNotif)
+  ))
+_sym_db.RegisterMessage(SLVrfNotif)
+
 SLRouteCommon = _reflection.GeneratedProtocolMessageType('SLRouteCommon', (_message.Message,), dict(
   DESCRIPTOR = _SLROUTECOMMON,
   __module__ = 'sl_route_common_pb2'
@@ -757,8 +1046,4 @@ SLRoutePath = _reflection.GeneratedProtocolMessageType('SLRoutePath', (_message.
 _sym_db.RegisterMessage(SLRoutePath)
 
 
-import abc
-from grpc.beta import implementations as beta_implementations
-from grpc.framework.common import cardinality
-from grpc.framework.interfaces.face import utilities as face_utilities
 # @@protoc_insertion_point(module_scope)

@@ -184,6 +184,7 @@ message SLGlobalsGetMsgRsp {
 
     // Maximum number of remote addresses
     uint32 MaxRemoteAddressNum = 12;
+
 }
 
 // @}

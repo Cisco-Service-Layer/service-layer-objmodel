@@ -98,6 +98,24 @@ service SLRoutev4Oper {
 
     // Retrieves route attributes.
     rpc SLRoutev4GetStream(stream SLRoutev4GetMsg) returns (stream SLRoutev4GetMsgRsp);
+
+    //
+    // Route Redistribution Operations
+    //
+
+    // This call is used to get a stream of route notifications.
+    // It can be used to get "push" notifications for route
+    // adds/updates/deletes.
+    // The caller must maintain the GRPC channel as long as there is
+    // interest in route notifications.
+    //
+    // The call takes a stream of per-VRF notification requests.
+    // The success/failure of the notification request is relayed in the
+    // SLRouteNotifStatus followed by a Start marker, any routes if present,
+    // and an End Marker.
+    //
+    rpc SLRoutev4GetNotifStream(stream SLRouteGetNotifMsg) returns (stream SLRoutev4Notif);
+    //
     //@}
 }
 
@@ -220,6 +238,45 @@ message SLRoutev4GetMsgRsp {
     // Returned entries as requested in the Get operation.
     // if ErrStatus is SL_SUCCESS, Entries contains the info requested
     repeated SLRoutev4 Entries = 5;
+}
+
+// IPv4 Route notification
+message SLRoutev4NotifRoute {
+    // VRF name.
+    string VrfName = 1;
+
+    // IPv4 routes
+    repeated SLRoutev4 Entries = 2;
+}
+
+// IPv4 notification message
+message SLRoutev4Notif {
+    // Event Type
+    SLNotifType EventType = 1;
+
+    // Further info based on EventType
+    oneof Event {
+        // case EventType == SL_EVENT_TYPE_ERROR:
+        //    => This field carries error info, if any error occurs during
+        //       notification stream setup.
+        SLErrorStatus ErrStatus = 2;
+
+        // case EventType == SL_EVENT_TYPE_STATUS:
+        //    => This field carries the status of the GetNotifMsg request.
+        SLRouteNotifStatus NotifStatus = 3;
+
+        // case EventType == SL_EVENT_TYPE_ROUTE:
+        //    => This field carries the v4 route
+        SLRoutev4NotifRoute Route = 4;
+
+        // case EventType == SL_EVENT_TYPE_START_MARKER:
+        // case EventType == SL_EVENT_TYPE_END_MARKER:
+        //    => This field carries the start marker and end marker per-VRF.
+        SLRouteNotifMarker Marker = 5;
+
+        // case EventType == SL_EVENT_TYPE_VRF:
+        SLVrfNotif Vrf = 6;
+    }
 }
 
 //@}

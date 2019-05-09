@@ -41,15 +41,15 @@ def route_get_serializer(get_info, af):
     if af == 4 and "v4_prefix" in get_info:
         serializer.Prefix = int(ipaddress.ip_address(get_info['v4_prefix']))
     if af == 6 and "v6_prefix" in get_info:
-        serializer.Prefix = str(ipaddress.IPv6Address(get_info['v6_prefix']).packed)
+        serializer.Prefix = ipaddress.IPv6Address(get_info['v6_prefix']).packed
     if "prefix_len" in get_info:
         serializer.PrefixLen = get_info["prefix_len"]
     if "count" in get_info:
-        serializer.EntriesCount = get_info["count"] 
+        serializer.EntriesCount = get_info["count"]
     if "get_next" in get_info:
         serializer.GetNext = (get_info["get_next"] != 0)
     return serializer
-    
+
 def route_serializer(batch, paths, next_hops):
     """Agnostic function that returns either an IPv4 or IPv6 serializer
     instance.
@@ -100,25 +100,21 @@ def route_serializer(batch, paths, next_hops):
                 if ipv4_or_ipv6.af == 4:
                     value = int(ipaddress.ip_address(route['prefix']))
                 elif ipv4_or_ipv6.af == 6:
-                    # `packed` returns a `bytearray` object, therefore,
-                    # the result must be cast to type `str`.
                     value = int(ipaddress.ip_address(route['prefix']))
             #
             local_label = 0
             if 'local_label' in route:
                 local_label = route['local_label']
             #
-            for i in xrange(route['range']):
+            for i in range(route['range']):
 
                 r = ipv4_or_ipv6.route()
                 if 'prefix' in route:
                     if ipv4_or_ipv6.af == 4:
                         r.Prefix = value
                     elif ipv4_or_ipv6.af == 6:
-                        # `packed` return a `bytearray` object, therefore,
-                        # the result must be cast to type `str`.
                         r.Prefix = (
-                            str(ipaddress.IPv6Address(value).packed)
+                            ipaddress.IPv6Address(value).packed
                         )
                 if 'prefix_len' in route:
                     if ipv4_or_ipv6.af == 4:
@@ -150,9 +146,9 @@ def route_serializer(batch, paths, next_hops):
                         if (path['nexthop'] and
                                 'v6_addr' in next_hops[path['nexthop']]):
                             p.NexthopAddress.V6Address = (
-                                str(ipaddress.ip_address(
+                                ipaddress.ip_address(
                                     (next_hops[path['nexthop']]['v6_addr']))
-                                    .packed)
+                                    .packed
                             )
                     if 'if_name' in next_hops[path['nexthop']]:
                         p.NexthopInterface.Name = (
@@ -194,7 +190,7 @@ def route_serializer(batch, paths, next_hops):
                             for r_addr in path['v6_remote_addr']:
                                 sl_r_addr = sl_common_types_pb2.SLIpAddress()
                                 sl_r_addr.V6Address = (
-                                    str(ipaddress.ip_address(r_addr).packed)
+                                    ipaddress.ip_address(r_addr).packed
                                 )
                                 remote_addr.append(sl_r_addr)
                             p.RemoteAddress.extend(remote_addr)
@@ -332,7 +328,7 @@ def ilm_serializer(batch, af, paths, next_hops):
         for ilm in batch['ilms']:
             if 'in_label' in ilm:
                 value = ilm["in_label"]
-            for i in xrange(ilm['range']):
+            for i in range(ilm['range']):
                 # Create SLMplsIlmEntry
                 entry = ipv4_or_ipv6.ilm()
                 if 'in_label' in ilm:
@@ -351,9 +347,9 @@ def ilm_serializer(batch, af, paths, next_hops):
                         if (path['nexthop'] and
                                 'v6_addr' in next_hops[path['nexthop']]):
                             p.NexthopAddress.V6Address = (
-                                str(ipaddress.ip_address(
+                                ipaddress.ip_address(
                                     (next_hops[path['nexthop']]['v6_addr']))
-                                    .packed)
+                                    .packed
                             )
                     if 'if_name' in next_hops[path['nexthop']]:
                         p.NexthopInterface.Name = (
@@ -395,7 +391,7 @@ def ilm_serializer(batch, af, paths, next_hops):
                             for r_addr in path['v6_remote_addr']:
                                 sl_r_addr = sl_common_types_pb2.SLIpAddress()
                                 sl_r_addr.V6Address = (
-                                    str(ipaddress.ip_address(r_addr).packed)
+                                    ipaddress.ip_address(r_addr).packed
                                 )
                                 remote_addr.append(sl_r_addr)
                             p.RemoteAddress.extend(remote_addr)
@@ -485,12 +481,12 @@ def bfd_serializer(batch, next_hops, af):
                 if (sess['nexthop'] and
                         'v6_addr' in next_hops[sess['nexthop']]):
                     entry.Key.NbrAddr = (
-                        str(ipaddress.ip_address(
-                            next_hops[sess['nexthop']]['v6_addr']).packed)
+                        ipaddress.ip_address(
+                            next_hops[sess['nexthop']]['v6_addr']).packed
                     )
                 if 'src_v6_addr' in sess:
                     entry.Key.SourceAddr = (
-                        str(ipaddress.ip_address(sess['src_v6_addr']).packed)
+                        ipaddress.ip_address(sess['src_v6_addr']).packed
                     )
             if 'if_name' in next_hops[sess['nexthop']]:
                 entry.Key.Interface.Name = (
@@ -550,11 +546,11 @@ def bfd_session_get_serializer(get_info, af):
     elif ipv4_or_ipv6.af == 6:
         if 'v6_nbr' in get_info:
             serializer.Key.NbrAddr = (
-                str(ipaddress.ip_address(get_info['v6_nbr']).packed)
+                ipaddress.ip_address(get_info['v6_nbr']).packed
             )
         if 'v6_src' in get_info:
             serializer.Key.SourceAddr = (
-                str(ipaddress.ip_address(get_info['v6_src']).packed)
+                ipaddress.ip_address(get_info['v6_src']).packed
             )
     if 'if_name' in get_info:
         serializer.Key.Interface.Name = get_info['if_name']

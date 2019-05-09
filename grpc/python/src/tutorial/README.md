@@ -62,7 +62,7 @@ The following basic tutorial will walk you through getting started with the Serv
 This may require some initial python and GRPC setup, which will be explained below. For now, if you already have passed this setup step, run the example:
 
     cd grpc/python/src
-    python tutorial/quickstart.py
+    python3 tutorial/quickstart.py
 
 The following sections explain the details of the above example tutorial.
 
@@ -93,7 +93,7 @@ In order to follow this quick tutorial, it is best to open the files in `grpc/py
 As shown in quickstart.py, the first thing to do is to setup the GRPC channel:
 
     server_ip, server_port = util.get_server_ip_port()
-    channel = implementations.insecure_channel(server_ip, server_port)
+    channel = grpc.insecure_channel(server_ip, server_port)
 
 Once connected, we need to handshake the API version number with the server.
 The same RPC call also sets up an asynchronous stream of notifications from the server. The first notification would be the response to our version number message i.e. SLInitMsg, as a SLGlobalNotif event with type SL_GLOBAL_EVENT_TYPE_VERSION. This can be done by calling:
@@ -141,7 +141,7 @@ Since the above client_init function would never return, it is best to spawn it 
     #
     def global_init(channel):
         # Create the gRPC stub.
-        stub = sl_global_pb2.beta_create_SLGlobal_stub(channel)
+        stub = sl_global_pb2_grpc.SLGlobalStub(channel)
 
         # Create a thread sync event. This will be used to order thread execution
         event = threading.Event()
@@ -163,10 +163,10 @@ Next up, create the stub instance using the channel. This stub will
 have the exact same methods that are available on the server. To do this,
 we need to import the stub code generated from our ProtoBuf files. Depending on
 what calls you want to make, different stubs will be used. We are going to be
-making changes to our IPv4 routes, so we use the SLRoutev4Oper_stub.
+making changes to our IPv4 routes, so we use the SLRoutev4OperStub.
 
-    from genpy import sl_route_ipv4_pb2
-    stub = sl_route_ipv4_pb2.beta_create_SLRoutev4Oper_stub(channel)
+    from genpy import sl_route_ipv4_pb2_grpc
+    stub = sl_route_ipv4_pb2_grpc.SLRoutev4OperStub(channel)
 
 Time to fill in some variables!
 

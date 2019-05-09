@@ -35,7 +35,7 @@ apt-get update && apt-get install -y \
          autoconf automake libtool curl make g++ unzip git pkg-config
 
 PROTOBUF_INSTALLED_VERSION=`pkg-config --exists protobuf && pkg-config --modversion protobuf`
-GRPC_INSTALLED_VERSION=`pkg-config --exists grpc && pkg-config --modversion grpc++`
+GRPC_INSTALLED_VERSION=`pkg-config --exists grpc++ && pkg-config --modversion grpc++`
 
 
 SCRIPT_DIR="$(cd "$(dirname "${0}")"; echo "$(pwd)")"

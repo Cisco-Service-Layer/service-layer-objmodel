@@ -70,9 +70,10 @@ message SLErrorStatus {
         // This error is returned on the first-ever initialization, or,
         // when a fatal event has occured and all previous state was lost. 0x501
         SL_INIT_STATE_CLEAR = 0x501;
-        // Success, no errors detected - previous state fully recovered.
+        // Success, no errors detected - previous state is recovered.
         // This error is returned on a client re-initialization with
-        // successful recovery of state. 0x502
+        // successful recovery of state. Note that any unacknowledged
+        // data previously sent should be considered lost. 0x502
         SL_INIT_STATE_READY = 0x502;
         // Server software incompatible with client software version. 0x503
         SL_INIT_UNSUPPORTED_VER = 0x503;
@@ -143,6 +144,10 @@ message SLErrorStatus {
         // Operation rejected for all routes as server is not initialized.
         // 0x3008
         SL_RPC_ROUTE_SERVER_NOT_INITIALIZED = 0x3008;
+        // Operation rejected as the request's SrcProto is too long. 0x3009
+        SL_RPC_ROUTE_NOTIF_SRC_PROTO_TOOLONG = 0x3009;
+        // Operation rejected as the request's SrcProtoTag is too long. 0x300a
+        SL_RPC_ROUTE_NOTIF_SRC_PROTO_TAG_TOOLONG = 0x300a;
 
         // !!! Error codes for Route objects.
 
@@ -530,6 +535,19 @@ message SLIpAddress {
         uint32  V4Address = 1;
         bytes  V6Address = 2;
     }
+}
+
+// Encapsulation Types.
+// Specify tunnel encapsulation types: VXLAN or MPLS.
+// This will determine the interpretation of some fields VrfName and
+// LabelStack in SLRoutePath. It will mandate the presence of certain fields.
+enum SLEncapType {
+    // Reserved. 0x0
+    SL_ENCAP_RESERVED = 0x0;
+    // Vxlan encap. 0x1
+    SL_ENCAP_VXLAN =    0x1;
+    // Mpls encap. 0x2
+    SL_ENCAP_MPLS =     0x2;
 }
 
 // @}

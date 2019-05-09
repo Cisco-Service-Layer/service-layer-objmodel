@@ -1,13 +1,19 @@
 #
-# Copyright (c) 2016 by cisco Systems, Inc. 
+# Copyright (c) 2016 by cisco Systems, Inc.
 # All rights reserved.
 #
 import abc
+import os
 import ipaddress
 
-import serializers
+from . import serializers
+from binascii import hexlify, unhexlify
+import time
+import struct
+
 from genpy import sl_common_types_pb2
 from genpy import sl_global_pb2
+from genpy import sl_route_common_pb2
 from genpy import sl_route_ipv4_pb2
 from genpy import sl_route_ipv6_pb2
 from genpy import sl_mpls_pb2
@@ -15,19 +21,33 @@ from genpy import sl_bfd_common_pb2
 from genpy import sl_bfd_ipv4_pb2
 from genpy import sl_bfd_ipv6_pb2
 from genpy import sl_interface_pb2
+from genpy import sl_common_types_pb2_grpc
+from genpy import sl_global_pb2_grpc
+from genpy import sl_route_ipv4_pb2_grpc
+from genpy import sl_route_ipv6_pb2_grpc
+from genpy import sl_mpls_pb2_grpc
+from genpy import sl_bfd_common_pb2_grpc
+from genpy import sl_bfd_ipv4_pb2_grpc
+from genpy import sl_bfd_ipv6_pb2_grpc
+from genpy import sl_interface_pb2_grpc
 
+import grpc
+from grpc.framework.interfaces.face.face import NetworkError
 
-from grpc.beta import implementations
+def byte_to_mac_str(mac):
+    num = 2
+    mac_split = [ str[start:start+num] for start in range(0, len(str), num) ]
+    result = ''
+    for substr in mac_split:
+        result = result + elem + ':'
+    return result[:-1]
 
 class Operation(object):
     ADD = 1
     UPDATE = 2
     DELETE = 3
 
-
-class AbstractClient(object):
-    __metaclass__ = abc.ABCMeta
-
+class AbstractClient(object, metaclass=abc.ABCMeta):
     @abc.abstractmethod
     def global_route_get(self, *args, **kwargs):
         pass
@@ -216,32 +236,47 @@ class AbstractClient(object):
     def intf_unsubscribe(self, *args, **kwargs):
         pass
 
+    @abc.abstractmethod
+    def l3route_get_notif(self, *args, **kwargs):
+        pass
+
+class Route_Util:
+    def construct_SLRouteGetNotifMsg(self, seqno, vrf_name, src_proto, src_proto_tag):
+        parent_message = sl_route_common_pb2.SLRouteGetNotifMsg()
+
+        parent_message.Oper = sl_common_types_pb2.SL_NOTIFOP_ENABLE
+        parent_message.Correlator = seqno
+        parent_message.VrfName = vrf_name
+        parent_message.SrcProto = src_proto
+        parent_message.SrcProtoTag = src_proto_tag
+        return parent_message
+
 class GrpcClient(AbstractClient):
     TIMEOUT_SECONDS = 20
 
     def __init__(self, host, port, channel_credentials=None):
         if channel_credentials is None:
             # Instantiate insecure channel object.
-            channel = implementations.insecure_channel(host, port)
+            channel = grpc.insecure_channel(str(host) + ":" + str(port))
         else:
             # Instantiate secure channel object.
-            channel = implementations.secure_channel(host, port,
+            channel = grpc.secure_channel(str(host) + ":" + str(port),
                                                      channel_credentials)
         self._stubs = (
             # 0
-            sl_route_ipv4_pb2.beta_create_SLRoutev4Oper_stub(channel),
+            sl_route_ipv4_pb2_grpc.SLRoutev4OperStub(channel),
             # 1
-            sl_route_ipv6_pb2.beta_create_SLRoutev6Oper_stub(channel),
+            sl_route_ipv6_pb2_grpc.SLRoutev6OperStub(channel),
             # 2
-            sl_global_pb2.beta_create_SLGlobal_stub(channel),
+            sl_global_pb2_grpc.SLGlobalStub(channel),
             # 3
-            sl_mpls_pb2.beta_create_SLMplsOper_stub(channel),
+            sl_mpls_pb2_grpc.SLMplsOperStub(channel),
             # 4
-            sl_bfd_ipv4_pb2.beta_create_SLBfdv4Oper_stub(channel),
+            sl_bfd_ipv4_pb2_grpc.SLBfdv4OperStub(channel),
             # 5
-            sl_bfd_ipv6_pb2.beta_create_SLBfdv6Oper_stub(channel),
+            sl_bfd_ipv6_pb2_grpc.SLBfdv6OperStub(channel),
             # 6
-            sl_interface_pb2.beta_create_SLInterfaceOper_stub(channel),
+            sl_interface_pb2_grpc.SLInterfaceOperStub(channel),
         )
 
     def global_route_get(self, af):
@@ -252,7 +287,7 @@ class GrpcClient(AbstractClient):
             6: self._stubs[1].SLRoutev6GlobalsGet,
         }[af](serializer, self.TIMEOUT_SECONDS)
         return response
-    
+
     def global_route_stats_get(self, af):
         """Global Get"""
         serializer = serializers.global_route_stats_get_serializer()
@@ -320,16 +355,22 @@ class GrpcClient(AbstractClient):
             for response in responses:
                 error = cback_func(response, af)
                 if not error:
-                    print "Validation error"
+                    print("Validation error")
                     return count, error
                 count = count + 1
-        except implementations.face.NetworkError as netErr:
+        except NetworkError as netErr:
             if netErr.details == "EOF":
                 # Success case, we send EOF, Server reflects the EOF back
                 return count, True
         except Exception as err:
-            # Other side exited prematurely?
-            print "Exception Received:", err
+            # Other side exited (Python3 GRPC returns a different exception)
+            if "details" in dir(err) and err.details == "EOF":
+                return count, True
+            # Other side exited (Python GRPC 1.7.0, Protoc 3.5.1 returns different exception)
+            if ("_state" in dir(err) and "details" in dir(err._state) and 
+                    err._state.details == "EOF".encode()):
+                return count, True
+            print(("Exception Received:", str(err)))
         return count, False
 
     def route_op_stream(self, serialized_list, af, cback_func):
@@ -345,16 +386,22 @@ class GrpcClient(AbstractClient):
             for response in responses:
                 error = cback_func(response, af)
                 if not error:
-                    print "Validation error"
+                    print("Validation error")
                     return count, error
                 count = count + 1
-        except implementations.face.NetworkError as netErr:
+        except NetworkError as netErr:
             if netErr.details == "EOF":
                 # Success case, we send EOF, Server reflects the EOF back
                 return count, True
         except Exception as err:
-            # Other side exited prematurely?
-            print "Exception Received:", err
+            # Other side exited (GRPCIO 1.7.x returns a different exception)
+            if "details" in dir(err) and err.details == "EOF":
+                return count, True
+            # Other side exited (Python GRPC 1.7.0, Protoc 3.5.1 returns different exception)
+            if ("_state" in dir(err) and "details" in dir(err._state) and 
+                    err._state.details == "EOF".encode()):
+                return count, True
+            print(("Exception Received:", str(err)))
         return count, False
 
     def vrf_registration_add(self, batch):
@@ -504,16 +551,22 @@ class GrpcClient(AbstractClient):
             for response in responses:
                 error = cback_func(response)
                 if not error:
-                    print "Validation error"
+                    print("Validation error")
                     return count, error
                 count = count + 1
-        except implementations.face.NetworkError as netErr:
+        except NetworkError as netErr:
             if netErr.details == "EOF":
                 # Success case, we send EOF, Server reflects the EOF back
                 return count, True
         except Exception as err:
-            # Other side exited prematurely?
-            print "Exception Received:", err
+            # Other side exited (Python3 GRPC returns a different exception)
+            if "details" in dir(err) and err.details == "EOF":
+                return count, True
+            # Other side exited (Python GRPC 1.7.0, Protoc 3.5.1 returns different exception)
+            if ("_state" in dir(err) and "details" in dir(err._state) and 
+                    err._state.details == "EOF".encode()):
+                return count, True
+            print(("Exception Received:", str(err)))
         return count, False
 
     def ilm_op_stream(self, serialized_list, cback_func):
@@ -526,16 +579,22 @@ class GrpcClient(AbstractClient):
             for response in responses:
                 error = cback_func(response)
                 if not error:
-                    print "Validation error"
+                    print("Validation error")
                     return count, error
                 count = count + 1
-        except implementations.face.NetworkError as netErr:
+        except NetworkError as netErr:
             if netErr.details == "EOF":
                 # Success case, we send EOF, Server reflects the EOF back
                 return count, True
         except Exception as err:
-            # Other side exited prematurely?
-            print "Exception Received:", err
+            # Other side exited (Python3 GRPC returns a different exception)
+            if "details" in dir(err) and err.details == "EOF":
+                return count, True
+            # Other side exited (Python GRPC 1.7.0, Protoc 3.5.1 returns different exception)
+            if ("_state" in dir(err) and "details" in dir(err._state) and 
+                    err._state.details == "EOF".encode()):
+                return count, True
+            print(("Exception Received:", str(err)))
         return count, False
 
     def global_bfd_get(self, af):
@@ -615,7 +674,7 @@ class GrpcClient(AbstractClient):
             6: self._stubs[5].SLBfdv6SessionOp,
         }[af](serializer, self.TIMEOUT_SECONDS)
         return response
-    
+ 
     def bfd_get_notif(self, cback_func, af):
         """BFD Get Notif"""
         serializer = serializers.bfd_get_notif_serializer()
@@ -648,7 +707,7 @@ class GrpcClient(AbstractClient):
                 break
         # Returns on exit
         return response
-    
+
     def global_get(self):
         """Global Get"""
         serializer = serializers.global_get_serializer()
@@ -676,7 +735,7 @@ class GrpcClient(AbstractClient):
         serializer.Oper = sl_common_types_pb2.SL_REGOP_EOF
         response = self._stubs[6].SLInterfaceGlobalsRegOp(serializer, self.TIMEOUT_SECONDS)
         return response
-    
+
     def intf_global_get(self):
         """Interface Global Get operation."""
         serializer = serializers.intf_globals_get_serializer()
@@ -694,7 +753,7 @@ class GrpcClient(AbstractClient):
         serializer = serializers.intf_get_serializer(get_info)
         response = self._stubs[6].SLInterfaceGet(serializer, self.TIMEOUT_SECONDS)
         return response
-    
+
     def intf_get_notif(self, cback_func):
         """Interface Get Notif"""
         serializer = serializers.intf_get_notif_serializer()
@@ -705,17 +764,50 @@ class GrpcClient(AbstractClient):
                 break
         # Returns on exit
         return response
-    
+
     def intf_subscribe(self, batch):
         """Subscribe on Interface."""
         serializer = serializers.intf_notif_op_serializer(batch)
         serializer.Oper = sl_common_types_pb2.SL_NOTIFOP_ENABLE
         response = self._stubs[6].SLInterfaceNotifOp(serializer, self.TIMEOUT_SECONDS)
         return response
-    
+
     def intf_unsubscribe(self, batch):
         """Un-Subscribe on Interface."""
         serializer = serializers.intf_notif_op_serializer(batch)
         serializer.Oper = sl_common_types_pb2.SL_NOTIFOP_DISABLE
         response = self._stubs[6].SLInterfaceNotifOp(serializer, self.TIMEOUT_SECONDS)
         return response
+
+
+    def l3route_get_notif(self, af):
+        """L3 Route Get Notif"""
+
+        # Expect a stream of SLRoutev4Notif / SLRoutev6Notif [Use large timeout]
+        req1 = gen_l3route_get_notif_msg()
+        for response in {
+            4: self._stubs[0].SLRoutev4GetNotifStream,
+            6: self._stubs[1].SLRoutev6GetNotifStream,
+        }[af](req1, 3600*24*365):
+
+            print (response)
+        return
+
+#
+# Iterator to construct input (currently sending interest for default vrf)
+#
+def gen_l3route_get_notif_msg():
+    route_util = Route_Util()
+    # construct SLRouteGetNotifMsg for both v4 and v6
+    msgs = [
+        route_util.construct_SLRouteGetNotifMsg(1, "default", "local", ""),
+        route_util.construct_SLRouteGetNotifMsg(2, "default", "connected", ""),
+        route_util.construct_SLRouteGetNotifMsg(3, "default", "static", ""),
+    ]
+    count = 0
+    for msg in msgs:
+        if count == 0:
+            time.sleep(3)
+        yield msg
+        time.sleep(2)
+        count = count + 1

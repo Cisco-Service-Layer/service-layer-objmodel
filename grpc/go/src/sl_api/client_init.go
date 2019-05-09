@@ -2,7 +2,7 @@
  * Copyright (c) 2016 by cisco Systems, Inc.
  * All rights reserved.
  */
-package lindt
+package sl_api
 
 /* Standard packages */
 import (
@@ -12,7 +12,7 @@ import (
     "golang.org/x/net/context"
 )
 
-/* Lindt packages */
+/* sl api packages */
 import (
     pb "gengo"
 )

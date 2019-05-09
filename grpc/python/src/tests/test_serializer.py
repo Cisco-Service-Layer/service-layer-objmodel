@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2016 by cisco Systems, Inc. 
+# Copyright (c) 2016 by cisco Systems, Inc.
 # All rights reserved.
 #
 import json
@@ -7,7 +7,7 @@ import ipaddress
 import os
 import unittest
 
-from lindt import serializers
+from sl_api import serializers
 from genpy import (
     sl_common_types_pb2,
     sl_route_common_pb2,

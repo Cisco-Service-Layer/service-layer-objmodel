@@ -14,7 +14,7 @@ import (
 
 /* Lindt packages */
 import (
-    "lindt"
+    "sl_api"
     "util"
     pb "gengo"
 )
@@ -49,19 +49,19 @@ func main() {
     defer conn.Close()
 
     /* Initialize and handshake with server */
-    if lindt.ClientInit(conn) == 0 {
+    if sl_api.ClientInit(conn) == 0 {
         log.Fatalf("ClientInit error")
         return
     }
 
     /* Register VRF */
-    lindt.VrfOperation(conn, pb.SLRegOp_SL_REGOP_REGISTER)
+    sl_api.VrfOperation(conn, pb.SLRegOp_SL_REGOP_REGISTER)
 
     /* Send EOF for VRF */
-    lindt.VrfOperation(conn, pb.SLRegOp_SL_REGOP_EOF)
+    sl_api.VrfOperation(conn, pb.SLRegOp_SL_REGOP_EOF)
 
     /* Batch Route Operation */
-    lindt.RouteOperation(conn, pb.SLObjectOp(*routeOper), *FirstPrefix,
+    sl_api.RouteOperation(conn, pb.SLObjectOp(*routeOper), *FirstPrefix,
         uint32(*PrefixLen), *BatchNum, *BatchSize)
 
     /*The process will exit here*/

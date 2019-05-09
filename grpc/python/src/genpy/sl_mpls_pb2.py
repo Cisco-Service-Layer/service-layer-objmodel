@@ -14,7 +14,7 @@ from google.protobuf import descriptor_pb2
 _sym_db = _symbol_database.Default()
 
 
-import sl_common_types_pb2 as sl__common__types__pb2
+from . import sl_common_types_pb2 as sl__common__types__pb2
 
 
 DESCRIPTOR = _descriptor.FileDescriptor(
@@ -24,7 +24,6 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   serialized_pb=_b('\n\rsl_mpls.proto\x12\rservice_layer\x1a\x15sl_common_types.proto\"A\n\x13SLMplsLabelBlockKey\x12\x12\n\nStartLabel\x18\x01 \x01(\r\x12\x16\n\x0eLabelBlockSize\x18\x02 \x01(\r\"v\n\x13SLMplsLabelBlockMsg\x12\'\n\x04Oper\x18\x01 \x01(\x0e\x32\x19.service_layer.SLObjectOp\x12\x36\n\nMplsBlocks\x18\x02 \x03(\x0b\x32\".service_layer.SLMplsLabelBlockKey\"z\n\x16SLMplsLabelBlockMsgRes\x12/\n\tErrStatus\x18\x01 \x01(\x0b\x32\x1c.service_layer.SLErrorStatus\x12/\n\x03Key\x18\x02 \x01(\x0b\x32\".service_layer.SLMplsLabelBlockKey\"\x85\x01\n\x16SLMplsLabelBlockMsgRsp\x12\x33\n\rStatusSummary\x18\x01 \x01(\x0b\x32\x1c.service_layer.SLErrorStatus\x12\x36\n\x07Results\x18\x02 \x03(\x0b\x32%.service_layer.SLMplsLabelBlockMsgRes\"p\n\x16SLMplsLabelBlockGetMsg\x12/\n\x03Key\x18\x01 \x01(\x0b\x32\".service_layer.SLMplsLabelBlockKey\x12\x14\n\x0c\x45ntriesCount\x18\x02 \x01(\r\x12\x0f\n\x07GetNext\x18\x03 \x01(\x08\"\x8e\x01\n\x19SLMplsLabelBlockGetMsgRsp\x12\x0b\n\x03\x45of\x18\x01 \x01(\x08\x12/\n\tErrStatus\x18\x02 \x01(\x0b\x32\x1c.service_layer.SLErrorStatus\x12\x33\n\x07\x45ntries\x18\x03 \x03(\x0b\x32\".service_layer.SLMplsLabelBlockKey\"4\n\x0cSLMplsRegMsg\x12$\n\x04Oper\x18\x01 \x01(\x0e\x32\x16.service_layer.SLRegOp\"B\n\x0fSLMplsRegMsgRsp\x12/\n\tErrStatus\x18\x01 \x01(\x0b\x32\x1c.service_layer.SLErrorStatus\"\x0e\n\x0cSLMplsGetMsg\"\xe5\x01\n\x0fSLMplsGetMsgRsp\x12/\n\tErrStatus\x18\x01 \x01(\x0b\x32\x1c.service_layer.SLErrorStatus\x12\x19\n\x11MaxLabelsPerBlock\x18\x02 \x01(\r\x12&\n\x1eMaxLabelblocksPerLabelblockmsg\x18\x03 \x01(\r\x12\x15\n\rMinStartLabel\x18\x04 \x01(\r\x12\x16\n\x0eLabelTableSize\x18\x05 \x01(\r\x12\x17\n\x0fMaxIlmPerIlmmsg\x18\x06 \x01(\r\x12\x16\n\x0eMaxPathsPerIlm\x18\x07 \x01(\r\"r\n\x14SLMplsGetStatsMsgRsp\x12/\n\tErrStatus\x18\x01 \x01(\x0b\x32\x1c.service_layer.SLErrorStatus\x12\x17\n\x0fLabelBlockCount\x18\x02 \x01(\r\x12\x10\n\x08IlmCount\x18\x03 \x01(\r\"\xbd\x02\n\nSLMplsPath\x12\x32\n\x0eNexthopAddress\x18\x01 \x01(\x0b\x32\x1a.service_layer.SLIpAddress\x12\x34\n\x10NexthopInterface\x18\x02 \x01(\x0b\x32\x1a.service_layer.SLInterface\x12\x12\n\nLoadMetric\x18\x03 \x01(\r\x12\x0f\n\x07VrfName\x18\x04 \x01(\t\x12,\n\x06\x41\x63tion\x18\x05 \x01(\x0e\x32\x1c.service_layer.SlLabelAction\x12\x0e\n\x06PathId\x18\x06 \x01(\r\x12\x1b\n\x13ProtectedPathBitmap\x18\x07 \x03(\x04\x12\x12\n\nLabelStack\x18\x08 \x03(\r\x12\x31\n\rRemoteAddress\x18\t \x03(\x0b\x32\x1a.service_layer.SLIpAddress\"\"\n\x0cSLMplsIlmKey\x12\x12\n\nLocalLabel\x18\x01 \x01(\r\"d\n\x0eSLMplsIlmEntry\x12(\n\x03Key\x18\x01 \x01(\x0b\x32\x1b.service_layer.SLMplsIlmKey\x12(\n\x05Paths\x18\x02 \x03(\x0b\x32\x19.service_layer.SLMplsPath\"|\n\x0cSLMplsIlmMsg\x12\'\n\x04Oper\x18\x01 \x01(\x0e\x32\x19.service_layer.SLObjectOp\x12\x12\n\nCorrelator\x18\x02 \x01(\x04\x12/\n\x08MplsIlms\x18\x03 \x03(\x0b\x32\x1d.service_layer.SLMplsIlmEntry\"i\n\x0cSLMplsIlmRes\x12/\n\tErrStatus\x18\x01 \x01(\x0b\x32\x1c.service_layer.SLErrorStatus\x12(\n\x03Key\x18\x02 \x01(\x0b\x32\x1b.service_layer.SLMplsIlmKey\"\x88\x01\n\x0fSLMplsIlmMsgRsp\x12\x12\n\nCorrelator\x18\x01 \x01(\x04\x12\x33\n\rStatusSummary\x18\x02 \x01(\x0b\x32\x1c.service_layer.SLErrorStatus\x12,\n\x07Results\x18\x03 \x03(\x0b\x32\x1b.service_layer.SLMplsIlmRes\"v\n\x0fSLMplsIlmGetMsg\x12\x12\n\nCorrelator\x18\x01 \x01(\x04\x12(\n\x03Key\x18\x02 \x01(\x0b\x32\x1b.service_layer.SLMplsIlmKey\x12\x14\n\x0c\x45ntriesCount\x18\x03 \x01(\r\x12\x0f\n\x07GetNext\x18\x04 \x01(\x08\"\x96\x01\n\x12SLMplsIlmGetMsgRsp\x12\x12\n\nCorrelator\x18\x01 \x01(\x04\x12\x0b\n\x03\x45of\x18\x02 \x01(\x08\x12/\n\tErrStatus\x18\x03 \x01(\x0b\x32\x1c.service_layer.SLErrorStatus\x12.\n\x07\x45ntries\x18\x04 \x03(\x0b\x32\x1d.service_layer.SLMplsIlmEntry*\xbe\x01\n\rSlLabelAction\x12\x1c\n\x18SL_LABEL_ACTION_RESERVED\x10\x00\x12\x18\n\x14SL_LABEL_ACTION_SWAP\x10\x01\x12#\n\x1fSL_LABEL_ACTION_POP_AND_FORWARD\x10\x02\x12\'\n#SL_LABEL_ACTION_POP_AND_LOOKUP_IPV4\x10\x03\x12\'\n#SL_LABEL_ACTION_POP_AND_LOOKUP_IPV6\x10\x04\x32\x91\x06\n\nSLMplsOper\x12J\n\x0bSLMplsRegOp\x12\x1b.service_layer.SLMplsRegMsg\x1a\x1e.service_layer.SLMplsRegMsgRsp\x12H\n\tSLMplsGet\x12\x1b.service_layer.SLMplsGetMsg\x1a\x1e.service_layer.SLMplsGetMsgRsp\x12R\n\x0eSLMplsGetStats\x12\x1b.service_layer.SLMplsGetMsg\x1a#.service_layer.SLMplsGetStatsMsgRsp\x12_\n\x12SLMplsLabelBlockOp\x12\".service_layer.SLMplsLabelBlockMsg\x1a%.service_layer.SLMplsLabelBlockMsgRsp\x12\x66\n\x13SLMplsLabelBlockGet\x12%.service_layer.SLMplsLabelBlockGetMsg\x1a(.service_layer.SLMplsLabelBlockGetMsgRsp\x12J\n\x0bSLMplsIlmOp\x12\x1b.service_layer.SLMplsIlmMsg\x1a\x1e.service_layer.SLMplsIlmMsgRsp\x12Q\n\x0cSLMplsIlmGet\x12\x1e.service_layer.SLMplsIlmGetMsg\x1a!.service_layer.SLMplsIlmGetMsgRsp\x12T\n\x11SLMplsIlmOpStream\x12\x1b.service_layer.SLMplsIlmMsg\x1a\x1e.service_layer.SLMplsIlmMsgRsp(\x01\x30\x01\x12[\n\x12SLMplsIlmGetStream\x12\x1e.service_layer.SLMplsIlmGetMsg\x1a!.service_layer.SLMplsIlmGetMsgRsp(\x01\x30\x01\x62\x06proto3')
   ,
   dependencies=[sl__common__types__pb2.DESCRIPTOR,])
-_sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 _SLLABELACTION = _descriptor.EnumDescriptor(
   name='SlLabelAction',
@@ -82,14 +81,14 @@ _SLMPLSLABELBLOCKKEY = _descriptor.Descriptor(
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='LabelBlockSize', full_name='service_layer.SLMplsLabelBlockKey.LabelBlockSize', index=1,
       number=2, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -120,14 +119,14 @@ _SLMPLSLABELBLOCKMSG = _descriptor.Descriptor(
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='MplsBlocks', full_name='service_layer.SLMplsLabelBlockMsg.MplsBlocks', index=1,
       number=2, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -158,14 +157,14 @@ _SLMPLSLABELBLOCKMSGRES = _descriptor.Descriptor(
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='Key', full_name='service_layer.SLMplsLabelBlockMsgRes.Key', index=1,
       number=2, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -196,14 +195,14 @@ _SLMPLSLABELBLOCKMSGRSP = _descriptor.Descriptor(
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='Results', full_name='service_layer.SLMplsLabelBlockMsgRsp.Results', index=1,
       number=2, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -234,21 +233,21 @@ _SLMPLSLABELBLOCKGETMSG = _descriptor.Descriptor(
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='EntriesCount', full_name='service_layer.SLMplsLabelBlockGetMsg.EntriesCount', index=1,
       number=2, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='GetNext', full_name='service_layer.SLMplsLabelBlockGetMsg.GetNext', index=2,
       number=3, type=8, cpp_type=7, label=1,
       has_default_value=False, default_value=False,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -279,21 +278,21 @@ _SLMPLSLABELBLOCKGETMSGRSP = _descriptor.Descriptor(
       has_default_value=False, default_value=False,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='ErrStatus', full_name='service_layer.SLMplsLabelBlockGetMsgRsp.ErrStatus', index=1,
       number=2, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='Entries', full_name='service_layer.SLMplsLabelBlockGetMsgRsp.Entries', index=2,
       number=3, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -324,7 +323,7 @@ _SLMPLSREGMSG = _descriptor.Descriptor(
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -355,7 +354,7 @@ _SLMPLSREGMSGRSP = _descriptor.Descriptor(
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -410,49 +409,49 @@ _SLMPLSGETMSGRSP = _descriptor.Descriptor(
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='MaxLabelsPerBlock', full_name='service_layer.SLMplsGetMsgRsp.MaxLabelsPerBlock', index=1,
       number=2, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='MaxLabelblocksPerLabelblockmsg', full_name='service_layer.SLMplsGetMsgRsp.MaxLabelblocksPerLabelblockmsg', index=2,
       number=3, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='MinStartLabel', full_name='service_layer.SLMplsGetMsgRsp.MinStartLabel', index=3,
       number=4, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='LabelTableSize', full_name='service_layer.SLMplsGetMsgRsp.LabelTableSize', index=4,
       number=5, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='MaxIlmPerIlmmsg', full_name='service_layer.SLMplsGetMsgRsp.MaxIlmPerIlmmsg', index=5,
       number=6, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='MaxPathsPerIlm', full_name='service_layer.SLMplsGetMsgRsp.MaxPathsPerIlm', index=6,
       number=7, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -483,21 +482,21 @@ _SLMPLSGETSTATSMSGRSP = _descriptor.Descriptor(
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='LabelBlockCount', full_name='service_layer.SLMplsGetStatsMsgRsp.LabelBlockCount', index=1,
       number=2, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='IlmCount', full_name='service_layer.SLMplsGetStatsMsgRsp.IlmCount', index=2,
       number=3, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -528,63 +527,63 @@ _SLMPLSPATH = _descriptor.Descriptor(
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='NexthopInterface', full_name='service_layer.SLMplsPath.NexthopInterface', index=1,
       number=2, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='LoadMetric', full_name='service_layer.SLMplsPath.LoadMetric', index=2,
       number=3, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='VrfName', full_name='service_layer.SLMplsPath.VrfName', index=3,
       number=4, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='Action', full_name='service_layer.SLMplsPath.Action', index=4,
       number=5, type=14, cpp_type=8, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='PathId', full_name='service_layer.SLMplsPath.PathId', index=5,
       number=6, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='ProtectedPathBitmap', full_name='service_layer.SLMplsPath.ProtectedPathBitmap', index=6,
       number=7, type=4, cpp_type=4, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='LabelStack', full_name='service_layer.SLMplsPath.LabelStack', index=7,
       number=8, type=13, cpp_type=3, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='RemoteAddress', full_name='service_layer.SLMplsPath.RemoteAddress', index=8,
       number=9, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -615,7 +614,7 @@ _SLMPLSILMKEY = _descriptor.Descriptor(
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -646,14 +645,14 @@ _SLMPLSILMENTRY = _descriptor.Descriptor(
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='Paths', full_name='service_layer.SLMplsIlmEntry.Paths', index=1,
       number=2, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -684,21 +683,21 @@ _SLMPLSILMMSG = _descriptor.Descriptor(
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='Correlator', full_name='service_layer.SLMplsIlmMsg.Correlator', index=1,
       number=2, type=4, cpp_type=4, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='MplsIlms', full_name='service_layer.SLMplsIlmMsg.MplsIlms', index=2,
       number=3, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -729,14 +728,14 @@ _SLMPLSILMRES = _descriptor.Descriptor(
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='Key', full_name='service_layer.SLMplsIlmRes.Key', index=1,
       number=2, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -767,21 +766,21 @@ _SLMPLSILMMSGRSP = _descriptor.Descriptor(
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='StatusSummary', full_name='service_layer.SLMplsIlmMsgRsp.StatusSummary', index=1,
       number=2, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='Results', full_name='service_layer.SLMplsIlmMsgRsp.Results', index=2,
       number=3, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -812,28 +811,28 @@ _SLMPLSILMGETMSG = _descriptor.Descriptor(
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='Key', full_name='service_layer.SLMplsIlmGetMsg.Key', index=1,
       number=2, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='EntriesCount', full_name='service_layer.SLMplsIlmGetMsg.EntriesCount', index=2,
       number=3, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='GetNext', full_name='service_layer.SLMplsIlmGetMsg.GetNext', index=3,
       number=4, type=8, cpp_type=7, label=1,
       has_default_value=False, default_value=False,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -864,28 +863,28 @@ _SLMPLSILMGETMSGRSP = _descriptor.Descriptor(
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='Eof', full_name='service_layer.SLMplsIlmGetMsgRsp.Eof', index=1,
       number=2, type=8, cpp_type=7, label=1,
       has_default_value=False, default_value=False,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='ErrStatus', full_name='service_layer.SLMplsIlmGetMsgRsp.ErrStatus', index=2,
       number=3, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='Entries', full_name='service_layer.SLMplsIlmGetMsgRsp.Entries', index=3,
       number=4, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -950,6 +949,7 @@ DESCRIPTOR.message_types_by_name['SLMplsIlmMsgRsp'] = _SLMPLSILMMSGRSP
 DESCRIPTOR.message_types_by_name['SLMplsIlmGetMsg'] = _SLMPLSILMGETMSG
 DESCRIPTOR.message_types_by_name['SLMplsIlmGetMsgRsp'] = _SLMPLSILMGETMSGRSP
 DESCRIPTOR.enum_types_by_name['SlLabelAction'] = _SLLABELACTION
+_sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 SLMplsLabelBlockKey = _reflection.GeneratedProtocolMessageType('SLMplsLabelBlockKey', (_message.Message,), dict(
   DESCRIPTOR = _SLMPLSLABELBLOCKKEY,
@@ -1085,187 +1085,100 @@ SLMplsIlmGetMsgRsp = _reflection.GeneratedProtocolMessageType('SLMplsIlmGetMsgRs
 _sym_db.RegisterMessage(SLMplsIlmGetMsgRsp)
 
 
-import abc
-from grpc.beta import implementations as beta_implementations
-from grpc.framework.common import cardinality
-from grpc.framework.interfaces.face import utilities as face_utilities
 
-class BetaSLMplsOperServicer(object):
-  """<fill me in later!>"""
-  __metaclass__ = abc.ABCMeta
-  @abc.abstractmethod
-  def SLMplsRegOp(self, request, context):
-    raise NotImplementedError()
-  @abc.abstractmethod
-  def SLMplsGet(self, request, context):
-    raise NotImplementedError()
-  @abc.abstractmethod
-  def SLMplsGetStats(self, request, context):
-    raise NotImplementedError()
-  @abc.abstractmethod
-  def SLMplsLabelBlockOp(self, request, context):
-    raise NotImplementedError()
-  @abc.abstractmethod
-  def SLMplsLabelBlockGet(self, request, context):
-    raise NotImplementedError()
-  @abc.abstractmethod
-  def SLMplsIlmOp(self, request, context):
-    raise NotImplementedError()
-  @abc.abstractmethod
-  def SLMplsIlmGet(self, request, context):
-    raise NotImplementedError()
-  @abc.abstractmethod
-  def SLMplsIlmOpStream(self, request_iterator, context):
-    raise NotImplementedError()
-  @abc.abstractmethod
-  def SLMplsIlmGetStream(self, request_iterator, context):
-    raise NotImplementedError()
+_SLMPLSOPER = _descriptor.ServiceDescriptor(
+  name='SLMplsOper',
+  full_name='service_layer.SLMplsOper',
+  file=DESCRIPTOR,
+  index=0,
+  options=None,
+  serialized_start=2544,
+  serialized_end=3329,
+  methods=[
+  _descriptor.MethodDescriptor(
+    name='SLMplsRegOp',
+    full_name='service_layer.SLMplsOper.SLMplsRegOp',
+    index=0,
+    containing_service=None,
+    input_type=_SLMPLSREGMSG,
+    output_type=_SLMPLSREGMSGRSP,
+    options=None,
+  ),
+  _descriptor.MethodDescriptor(
+    name='SLMplsGet',
+    full_name='service_layer.SLMplsOper.SLMplsGet',
+    index=1,
+    containing_service=None,
+    input_type=_SLMPLSGETMSG,
+    output_type=_SLMPLSGETMSGRSP,
+    options=None,
+  ),
+  _descriptor.MethodDescriptor(
+    name='SLMplsGetStats',
+    full_name='service_layer.SLMplsOper.SLMplsGetStats',
+    index=2,
+    containing_service=None,
+    input_type=_SLMPLSGETMSG,
+    output_type=_SLMPLSGETSTATSMSGRSP,
+    options=None,
+  ),
+  _descriptor.MethodDescriptor(
+    name='SLMplsLabelBlockOp',
+    full_name='service_layer.SLMplsOper.SLMplsLabelBlockOp',
+    index=3,
+    containing_service=None,
+    input_type=_SLMPLSLABELBLOCKMSG,
+    output_type=_SLMPLSLABELBLOCKMSGRSP,
+    options=None,
+  ),
+  _descriptor.MethodDescriptor(
+    name='SLMplsLabelBlockGet',
+    full_name='service_layer.SLMplsOper.SLMplsLabelBlockGet',
+    index=4,
+    containing_service=None,
+    input_type=_SLMPLSLABELBLOCKGETMSG,
+    output_type=_SLMPLSLABELBLOCKGETMSGRSP,
+    options=None,
+  ),
+  _descriptor.MethodDescriptor(
+    name='SLMplsIlmOp',
+    full_name='service_layer.SLMplsOper.SLMplsIlmOp',
+    index=5,
+    containing_service=None,
+    input_type=_SLMPLSILMMSG,
+    output_type=_SLMPLSILMMSGRSP,
+    options=None,
+  ),
+  _descriptor.MethodDescriptor(
+    name='SLMplsIlmGet',
+    full_name='service_layer.SLMplsOper.SLMplsIlmGet',
+    index=6,
+    containing_service=None,
+    input_type=_SLMPLSILMGETMSG,
+    output_type=_SLMPLSILMGETMSGRSP,
+    options=None,
+  ),
+  _descriptor.MethodDescriptor(
+    name='SLMplsIlmOpStream',
+    full_name='service_layer.SLMplsOper.SLMplsIlmOpStream',
+    index=7,
+    containing_service=None,
+    input_type=_SLMPLSILMMSG,
+    output_type=_SLMPLSILMMSGRSP,
+    options=None,
+  ),
+  _descriptor.MethodDescriptor(
+    name='SLMplsIlmGetStream',
+    full_name='service_layer.SLMplsOper.SLMplsIlmGetStream',
+    index=8,
+    containing_service=None,
+    input_type=_SLMPLSILMGETMSG,
+    output_type=_SLMPLSILMGETMSGRSP,
+    options=None,
+  ),
+])
+_sym_db.RegisterServiceDescriptor(_SLMPLSOPER)
 
-class BetaSLMplsOperStub(object):
-  """The interface to which stubs will conform."""
-  __metaclass__ = abc.ABCMeta
-  @abc.abstractmethod
-  def SLMplsRegOp(self, request, timeout):
-    raise NotImplementedError()
-  SLMplsRegOp.future = None
-  @abc.abstractmethod
-  def SLMplsGet(self, request, timeout):
-    raise NotImplementedError()
-  SLMplsGet.future = None
-  @abc.abstractmethod
-  def SLMplsGetStats(self, request, timeout):
-    raise NotImplementedError()
-  SLMplsGetStats.future = None
-  @abc.abstractmethod
-  def SLMplsLabelBlockOp(self, request, timeout):
-    raise NotImplementedError()
-  SLMplsLabelBlockOp.future = None
-  @abc.abstractmethod
-  def SLMplsLabelBlockGet(self, request, timeout):
-    raise NotImplementedError()
-  SLMplsLabelBlockGet.future = None
-  @abc.abstractmethod
-  def SLMplsIlmOp(self, request, timeout):
-    raise NotImplementedError()
-  SLMplsIlmOp.future = None
-  @abc.abstractmethod
-  def SLMplsIlmGet(self, request, timeout):
-    raise NotImplementedError()
-  SLMplsIlmGet.future = None
-  @abc.abstractmethod
-  def SLMplsIlmOpStream(self, request_iterator, timeout):
-    raise NotImplementedError()
-  @abc.abstractmethod
-  def SLMplsIlmGetStream(self, request_iterator, timeout):
-    raise NotImplementedError()
+DESCRIPTOR.services_by_name['SLMplsOper'] = _SLMPLSOPER
 
-def beta_create_SLMplsOper_server(servicer, pool=None, pool_size=None, default_timeout=None, maximum_timeout=None):
-  import sl_mpls_pb2
-  import sl_mpls_pb2
-  import sl_mpls_pb2
-  import sl_mpls_pb2
-  import sl_mpls_pb2
-  import sl_mpls_pb2
-  import sl_mpls_pb2
-  import sl_mpls_pb2
-  import sl_mpls_pb2
-  import sl_mpls_pb2
-  import sl_mpls_pb2
-  import sl_mpls_pb2
-  import sl_mpls_pb2
-  import sl_mpls_pb2
-  import sl_mpls_pb2
-  import sl_mpls_pb2
-  import sl_mpls_pb2
-  import sl_mpls_pb2
-  request_deserializers = {
-    ('service_layer.SLMplsOper', 'SLMplsGet'): sl_mpls_pb2.SLMplsGetMsg.FromString,
-    ('service_layer.SLMplsOper', 'SLMplsGetStats'): sl_mpls_pb2.SLMplsGetMsg.FromString,
-    ('service_layer.SLMplsOper', 'SLMplsIlmGet'): sl_mpls_pb2.SLMplsIlmGetMsg.FromString,
-    ('service_layer.SLMplsOper', 'SLMplsIlmGetStream'): sl_mpls_pb2.SLMplsIlmGetMsg.FromString,
-    ('service_layer.SLMplsOper', 'SLMplsIlmOp'): sl_mpls_pb2.SLMplsIlmMsg.FromString,
-    ('service_layer.SLMplsOper', 'SLMplsIlmOpStream'): sl_mpls_pb2.SLMplsIlmMsg.FromString,
-    ('service_layer.SLMplsOper', 'SLMplsLabelBlockGet'): sl_mpls_pb2.SLMplsLabelBlockGetMsg.FromString,
-    ('service_layer.SLMplsOper', 'SLMplsLabelBlockOp'): sl_mpls_pb2.SLMplsLabelBlockMsg.FromString,
-    ('service_layer.SLMplsOper', 'SLMplsRegOp'): sl_mpls_pb2.SLMplsRegMsg.FromString,
-  }
-  response_serializers = {
-    ('service_layer.SLMplsOper', 'SLMplsGet'): sl_mpls_pb2.SLMplsGetMsgRsp.SerializeToString,
-    ('service_layer.SLMplsOper', 'SLMplsGetStats'): sl_mpls_pb2.SLMplsGetStatsMsgRsp.SerializeToString,
-    ('service_layer.SLMplsOper', 'SLMplsIlmGet'): sl_mpls_pb2.SLMplsIlmGetMsgRsp.SerializeToString,
-    ('service_layer.SLMplsOper', 'SLMplsIlmGetStream'): sl_mpls_pb2.SLMplsIlmGetMsgRsp.SerializeToString,
-    ('service_layer.SLMplsOper', 'SLMplsIlmOp'): sl_mpls_pb2.SLMplsIlmMsgRsp.SerializeToString,
-    ('service_layer.SLMplsOper', 'SLMplsIlmOpStream'): sl_mpls_pb2.SLMplsIlmMsgRsp.SerializeToString,
-    ('service_layer.SLMplsOper', 'SLMplsLabelBlockGet'): sl_mpls_pb2.SLMplsLabelBlockGetMsgRsp.SerializeToString,
-    ('service_layer.SLMplsOper', 'SLMplsLabelBlockOp'): sl_mpls_pb2.SLMplsLabelBlockMsgRsp.SerializeToString,
-    ('service_layer.SLMplsOper', 'SLMplsRegOp'): sl_mpls_pb2.SLMplsRegMsgRsp.SerializeToString,
-  }
-  method_implementations = {
-    ('service_layer.SLMplsOper', 'SLMplsGet'): face_utilities.unary_unary_inline(servicer.SLMplsGet),
-    ('service_layer.SLMplsOper', 'SLMplsGetStats'): face_utilities.unary_unary_inline(servicer.SLMplsGetStats),
-    ('service_layer.SLMplsOper', 'SLMplsIlmGet'): face_utilities.unary_unary_inline(servicer.SLMplsIlmGet),
-    ('service_layer.SLMplsOper', 'SLMplsIlmGetStream'): face_utilities.stream_stream_inline(servicer.SLMplsIlmGetStream),
-    ('service_layer.SLMplsOper', 'SLMplsIlmOp'): face_utilities.unary_unary_inline(servicer.SLMplsIlmOp),
-    ('service_layer.SLMplsOper', 'SLMplsIlmOpStream'): face_utilities.stream_stream_inline(servicer.SLMplsIlmOpStream),
-    ('service_layer.SLMplsOper', 'SLMplsLabelBlockGet'): face_utilities.unary_unary_inline(servicer.SLMplsLabelBlockGet),
-    ('service_layer.SLMplsOper', 'SLMplsLabelBlockOp'): face_utilities.unary_unary_inline(servicer.SLMplsLabelBlockOp),
-    ('service_layer.SLMplsOper', 'SLMplsRegOp'): face_utilities.unary_unary_inline(servicer.SLMplsRegOp),
-  }
-  server_options = beta_implementations.server_options(request_deserializers=request_deserializers, response_serializers=response_serializers, thread_pool=pool, thread_pool_size=pool_size, default_timeout=default_timeout, maximum_timeout=maximum_timeout)
-  return beta_implementations.server(method_implementations, options=server_options)
-
-def beta_create_SLMplsOper_stub(channel, host=None, metadata_transformer=None, pool=None, pool_size=None):
-  import sl_mpls_pb2
-  import sl_mpls_pb2
-  import sl_mpls_pb2
-  import sl_mpls_pb2
-  import sl_mpls_pb2
-  import sl_mpls_pb2
-  import sl_mpls_pb2
-  import sl_mpls_pb2
-  import sl_mpls_pb2
-  import sl_mpls_pb2
-  import sl_mpls_pb2
-  import sl_mpls_pb2
-  import sl_mpls_pb2
-  import sl_mpls_pb2
-  import sl_mpls_pb2
-  import sl_mpls_pb2
-  import sl_mpls_pb2
-  import sl_mpls_pb2
-  request_serializers = {
-    ('service_layer.SLMplsOper', 'SLMplsGet'): sl_mpls_pb2.SLMplsGetMsg.SerializeToString,
-    ('service_layer.SLMplsOper', 'SLMplsGetStats'): sl_mpls_pb2.SLMplsGetMsg.SerializeToString,
-    ('service_layer.SLMplsOper', 'SLMplsIlmGet'): sl_mpls_pb2.SLMplsIlmGetMsg.SerializeToString,
-    ('service_layer.SLMplsOper', 'SLMplsIlmGetStream'): sl_mpls_pb2.SLMplsIlmGetMsg.SerializeToString,
-    ('service_layer.SLMplsOper', 'SLMplsIlmOp'): sl_mpls_pb2.SLMplsIlmMsg.SerializeToString,
-    ('service_layer.SLMplsOper', 'SLMplsIlmOpStream'): sl_mpls_pb2.SLMplsIlmMsg.SerializeToString,
-    ('service_layer.SLMplsOper', 'SLMplsLabelBlockGet'): sl_mpls_pb2.SLMplsLabelBlockGetMsg.SerializeToString,
-    ('service_layer.SLMplsOper', 'SLMplsLabelBlockOp'): sl_mpls_pb2.SLMplsLabelBlockMsg.SerializeToString,
-    ('service_layer.SLMplsOper', 'SLMplsRegOp'): sl_mpls_pb2.SLMplsRegMsg.SerializeToString,
-  }
-  response_deserializers = {
-    ('service_layer.SLMplsOper', 'SLMplsGet'): sl_mpls_pb2.SLMplsGetMsgRsp.FromString,
-    ('service_layer.SLMplsOper', 'SLMplsGetStats'): sl_mpls_pb2.SLMplsGetStatsMsgRsp.FromString,
-    ('service_layer.SLMplsOper', 'SLMplsIlmGet'): sl_mpls_pb2.SLMplsIlmGetMsgRsp.FromString,
-    ('service_layer.SLMplsOper', 'SLMplsIlmGetStream'): sl_mpls_pb2.SLMplsIlmGetMsgRsp.FromString,
-    ('service_layer.SLMplsOper', 'SLMplsIlmOp'): sl_mpls_pb2.SLMplsIlmMsgRsp.FromString,
-    ('service_layer.SLMplsOper', 'SLMplsIlmOpStream'): sl_mpls_pb2.SLMplsIlmMsgRsp.FromString,
-    ('service_layer.SLMplsOper', 'SLMplsLabelBlockGet'): sl_mpls_pb2.SLMplsLabelBlockGetMsgRsp.FromString,
-    ('service_layer.SLMplsOper', 'SLMplsLabelBlockOp'): sl_mpls_pb2.SLMplsLabelBlockMsgRsp.FromString,
-    ('service_layer.SLMplsOper', 'SLMplsRegOp'): sl_mpls_pb2.SLMplsRegMsgRsp.FromString,
-  }
-  cardinalities = {
-    'SLMplsGet': cardinality.Cardinality.UNARY_UNARY,
-    'SLMplsGetStats': cardinality.Cardinality.UNARY_UNARY,
-    'SLMplsIlmGet': cardinality.Cardinality.UNARY_UNARY,
-    'SLMplsIlmGetStream': cardinality.Cardinality.STREAM_STREAM,
-    'SLMplsIlmOp': cardinality.Cardinality.UNARY_UNARY,
-    'SLMplsIlmOpStream': cardinality.Cardinality.STREAM_STREAM,
-    'SLMplsLabelBlockGet': cardinality.Cardinality.UNARY_UNARY,
-    'SLMplsLabelBlockOp': cardinality.Cardinality.UNARY_UNARY,
-    'SLMplsRegOp': cardinality.Cardinality.UNARY_UNARY,
-  }
-  stub_options = beta_implementations.stub_options(host=host, metadata_transformer=metadata_transformer, request_serializers=request_serializers, response_deserializers=response_deserializers, thread_pool=pool, thread_pool_size=pool_size)
-  return beta_implementations.dynamic_stub(channel, 'service_layer.SLMplsOper', cardinalities, options=stub_options)
 # @@protoc_insertion_point(module_scope)

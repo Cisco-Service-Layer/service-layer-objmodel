@@ -13,18 +13,17 @@ from google.protobuf import descriptor_pb2
 _sym_db = _symbol_database.Default()
 
 
-import sl_common_types_pb2 as sl__common__types__pb2
-import sl_route_common_pb2 as sl__route__common__pb2
+from . import sl_common_types_pb2 as sl__common__types__pb2
+from . import sl_route_common_pb2 as sl__route__common__pb2
 
 
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='sl_route_ipv4.proto',
   package='service_layer',
   syntax='proto3',
-  serialized_pb=_b('\n\x13sl_route_ipv4.proto\x12\rservice_layer\x1a\x15sl_common_types.proto\x1a\x15sl_route_common.proto\"\x8f\x01\n\tSLRoutev4\x12\x0e\n\x06Prefix\x18\x01 \x01(\r\x12\x11\n\tPrefixLen\x18\x02 \x01(\r\x12\x31\n\x0bRouteCommon\x18\x03 \x01(\x0b\x32\x1c.service_layer.SLRouteCommon\x12,\n\x08PathList\x18\x04 \x03(\x0b\x32\x1a.service_layer.SLRoutePath\"\x86\x01\n\x0cSLRoutev4Msg\x12\'\n\x04Oper\x18\x01 \x01(\x0e\x32\x19.service_layer.SLObjectOp\x12\x12\n\nCorrelator\x18\x02 \x01(\x04\x12\x0f\n\x07VrfName\x18\x03 \x01(\t\x12(\n\x06Routes\x18\x04 \x03(\x0b\x32\x18.service_layer.SLRoutev4\"b\n\x0cSLRoutev4Res\x12/\n\tErrStatus\x18\x01 \x01(\x0b\x32\x1c.service_layer.SLErrorStatus\x12\x0e\n\x06Prefix\x18\x02 \x01(\r\x12\x11\n\tPrefixLen\x18\x03 \x01(\r\"\x99\x01\n\x0fSLRoutev4MsgRsp\x12\x12\n\nCorrelator\x18\x01 \x01(\x04\x12\x0f\n\x07VrfName\x18\x02 \x01(\t\x12\x33\n\rStatusSummary\x18\x03 \x01(\x0b\x32\x1c.service_layer.SLErrorStatus\x12,\n\x07Results\x18\x04 \x03(\x0b\x32\x1b.service_layer.SLRoutev4Res\"\x80\x01\n\x0fSLRoutev4GetMsg\x12\x12\n\nCorrelator\x18\x01 \x01(\x04\x12\x0f\n\x07VrfName\x18\x02 \x01(\t\x12\x0e\n\x06Prefix\x18\x03 \x01(\r\x12\x11\n\tPrefixLen\x18\x04 \x01(\r\x12\x14\n\x0c\x45ntriesCount\x18\x05 \x01(\r\x12\x0f\n\x07GetNext\x18\x06 \x01(\x08\"\xa2\x01\n\x12SLRoutev4GetMsgRsp\x12\x12\n\nCorrelator\x18\x01 \x01(\x04\x12\x0b\n\x03\x45of\x18\x02 \x01(\x08\x12\x0f\n\x07VrfName\x18\x03 \x01(\t\x12/\n\tErrStatus\x18\x04 \x01(\x0b\x32\x1c.service_layer.SLErrorStatus\x12)\n\x07\x45ntries\x18\x05 \x03(\x0b\x32\x18.service_layer.SLRoutev42\xb7\x06\n\rSLRoutev4Oper\x12\x62\n\x13SLRoutev4GlobalsGet\x12#.service_layer.SLRouteGlobalsGetMsg\x1a&.service_layer.SLRouteGlobalsGetMsgRsp\x12n\n\x17SLRoutev4GlobalStatsGet\x12\'.service_layer.SLRouteGlobalStatsGetMsg\x1a*.service_layer.SLRouteGlobalStatsGetMsgRsp\x12N\n\x11SLRoutev4VrfRegOp\x12\x1a.service_layer.SLVrfRegMsg\x1a\x1d.service_layer.SLVrfRegMsgRsp\x12U\n\x12SLRoutev4VrfRegGet\x12\x1d.service_layer.SLVrfRegGetMsg\x1a .service_layer.SLVrfRegGetMsgRsp\x12Y\n\x14SLRoutev4VrfGetStats\x12\x1d.service_layer.SLVrfRegGetMsg\x1a\".service_layer.SLVRFGetStatsMsgRsp\x12J\n\x0bSLRoutev4Op\x12\x1b.service_layer.SLRoutev4Msg\x1a\x1e.service_layer.SLRoutev4MsgRsp\x12Q\n\x0cSLRoutev4Get\x12\x1e.service_layer.SLRoutev4GetMsg\x1a!.service_layer.SLRoutev4GetMsgRsp\x12T\n\x11SLRoutev4OpStream\x12\x1b.service_layer.SLRoutev4Msg\x1a\x1e.service_layer.SLRoutev4MsgRsp(\x01\x30\x01\x12[\n\x12SLRoutev4GetStream\x12\x1e.service_layer.SLRoutev4GetMsg\x1a!.service_layer.SLRoutev4GetMsgRsp(\x01\x30\x01\x62\x06proto3')
+  serialized_pb=_b('\n\x13sl_route_ipv4.proto\x12\rservice_layer\x1a\x15sl_common_types.proto\x1a\x15sl_route_common.proto\"\x8f\x01\n\tSLRoutev4\x12\x0e\n\x06Prefix\x18\x01 \x01(\r\x12\x11\n\tPrefixLen\x18\x02 \x01(\r\x12\x31\n\x0bRouteCommon\x18\x03 \x01(\x0b\x32\x1c.service_layer.SLRouteCommon\x12,\n\x08PathList\x18\x04 \x03(\x0b\x32\x1a.service_layer.SLRoutePath\"\x86\x01\n\x0cSLRoutev4Msg\x12\'\n\x04Oper\x18\x01 \x01(\x0e\x32\x19.service_layer.SLObjectOp\x12\x12\n\nCorrelator\x18\x02 \x01(\x04\x12\x0f\n\x07VrfName\x18\x03 \x01(\t\x12(\n\x06Routes\x18\x04 \x03(\x0b\x32\x18.service_layer.SLRoutev4\"b\n\x0cSLRoutev4Res\x12/\n\tErrStatus\x18\x01 \x01(\x0b\x32\x1c.service_layer.SLErrorStatus\x12\x0e\n\x06Prefix\x18\x02 \x01(\r\x12\x11\n\tPrefixLen\x18\x03 \x01(\r\"\x99\x01\n\x0fSLRoutev4MsgRsp\x12\x12\n\nCorrelator\x18\x01 \x01(\x04\x12\x0f\n\x07VrfName\x18\x02 \x01(\t\x12\x33\n\rStatusSummary\x18\x03 \x01(\x0b\x32\x1c.service_layer.SLErrorStatus\x12,\n\x07Results\x18\x04 \x03(\x0b\x32\x1b.service_layer.SLRoutev4Res\"\x80\x01\n\x0fSLRoutev4GetMsg\x12\x12\n\nCorrelator\x18\x01 \x01(\x04\x12\x0f\n\x07VrfName\x18\x02 \x01(\t\x12\x0e\n\x06Prefix\x18\x03 \x01(\r\x12\x11\n\tPrefixLen\x18\x04 \x01(\r\x12\x14\n\x0c\x45ntriesCount\x18\x05 \x01(\r\x12\x0f\n\x07GetNext\x18\x06 \x01(\x08\"\xa2\x01\n\x12SLRoutev4GetMsgRsp\x12\x12\n\nCorrelator\x18\x01 \x01(\x04\x12\x0b\n\x03\x45of\x18\x02 \x01(\x08\x12\x0f\n\x07VrfName\x18\x03 \x01(\t\x12/\n\tErrStatus\x18\x04 \x01(\x0b\x32\x1c.service_layer.SLErrorStatus\x12)\n\x07\x45ntries\x18\x05 \x03(\x0b\x32\x18.service_layer.SLRoutev4\"Q\n\x13SLRoutev4NotifRoute\x12\x0f\n\x07VrfName\x18\x01 \x01(\t\x12)\n\x07\x45ntries\x18\x02 \x03(\x0b\x32\x18.service_layer.SLRoutev4\"\xc9\x02\n\x0eSLRoutev4Notif\x12-\n\tEventType\x18\x01 \x01(\x0e\x32\x1a.service_layer.SLNotifType\x12\x31\n\tErrStatus\x18\x02 \x01(\x0b\x32\x1c.service_layer.SLErrorStatusH\x00\x12\x38\n\x0bNotifStatus\x18\x03 \x01(\x0b\x32!.service_layer.SLRouteNotifStatusH\x00\x12\x33\n\x05Route\x18\x04 \x01(\x0b\x32\".service_layer.SLRoutev4NotifRouteH\x00\x12\x33\n\x06Marker\x18\x05 \x01(\x0b\x32!.service_layer.SLRouteNotifMarkerH\x00\x12(\n\x03Vrf\x18\x06 \x01(\x0b\x32\x19.service_layer.SLVrfNotifH\x00\x42\x07\n\x05\x45vent2\x98\x07\n\rSLRoutev4Oper\x12\x62\n\x13SLRoutev4GlobalsGet\x12#.service_layer.SLRouteGlobalsGetMsg\x1a&.service_layer.SLRouteGlobalsGetMsgRsp\x12n\n\x17SLRoutev4GlobalStatsGet\x12\'.service_layer.SLRouteGlobalStatsGetMsg\x1a*.service_layer.SLRouteGlobalStatsGetMsgRsp\x12N\n\x11SLRoutev4VrfRegOp\x12\x1a.service_layer.SLVrfRegMsg\x1a\x1d.service_layer.SLVrfRegMsgRsp\x12U\n\x12SLRoutev4VrfRegGet\x12\x1d.service_layer.SLVrfRegGetMsg\x1a .service_layer.SLVrfRegGetMsgRsp\x12Y\n\x14SLRoutev4VrfGetStats\x12\x1d.service_layer.SLVrfRegGetMsg\x1a\".service_layer.SLVRFGetStatsMsgRsp\x12J\n\x0bSLRoutev4Op\x12\x1b.service_layer.SLRoutev4Msg\x1a\x1e.service_layer.SLRoutev4MsgRsp\x12Q\n\x0cSLRoutev4Get\x12\x1e.service_layer.SLRoutev4GetMsg\x1a!.service_layer.SLRoutev4GetMsgRsp\x12T\n\x11SLRoutev4OpStream\x12\x1b.service_layer.SLRoutev4Msg\x1a\x1e.service_layer.SLRoutev4MsgRsp(\x01\x30\x01\x12[\n\x12SLRoutev4GetStream\x12\x1e.service_layer.SLRoutev4GetMsg\x1a!.service_layer.SLRoutev4GetMsgRsp(\x01\x30\x01\x12_\n\x17SLRoutev4GetNotifStream\x12!.service_layer.SLRouteGetNotifMsg\x1a\x1d.service_layer.SLRoutev4Notif(\x01\x30\x01\x62\x06proto3')
   ,
   dependencies=[sl__common__types__pb2.DESCRIPTOR,sl__route__common__pb2.DESCRIPTOR,])
-_sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 
 
@@ -42,28 +41,28 @@ _SLROUTEV4 = _descriptor.Descriptor(
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='PrefixLen', full_name='service_layer.SLRoutev4.PrefixLen', index=1,
       number=2, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='RouteCommon', full_name='service_layer.SLRoutev4.RouteCommon', index=2,
       number=3, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='PathList', full_name='service_layer.SLRoutev4.PathList', index=3,
       number=4, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -94,28 +93,28 @@ _SLROUTEV4MSG = _descriptor.Descriptor(
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='Correlator', full_name='service_layer.SLRoutev4Msg.Correlator', index=1,
       number=2, type=4, cpp_type=4, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='VrfName', full_name='service_layer.SLRoutev4Msg.VrfName', index=2,
       number=3, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='Routes', full_name='service_layer.SLRoutev4Msg.Routes', index=3,
       number=4, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -146,21 +145,21 @@ _SLROUTEV4RES = _descriptor.Descriptor(
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='Prefix', full_name='service_layer.SLRoutev4Res.Prefix', index=1,
       number=2, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='PrefixLen', full_name='service_layer.SLRoutev4Res.PrefixLen', index=2,
       number=3, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -191,28 +190,28 @@ _SLROUTEV4MSGRSP = _descriptor.Descriptor(
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='VrfName', full_name='service_layer.SLRoutev4MsgRsp.VrfName', index=1,
       number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='StatusSummary', full_name='service_layer.SLRoutev4MsgRsp.StatusSummary', index=2,
       number=3, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='Results', full_name='service_layer.SLRoutev4MsgRsp.Results', index=3,
       number=4, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -243,42 +242,42 @@ _SLROUTEV4GETMSG = _descriptor.Descriptor(
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='VrfName', full_name='service_layer.SLRoutev4GetMsg.VrfName', index=1,
       number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='Prefix', full_name='service_layer.SLRoutev4GetMsg.Prefix', index=2,
       number=3, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='PrefixLen', full_name='service_layer.SLRoutev4GetMsg.PrefixLen', index=3,
       number=4, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='EntriesCount', full_name='service_layer.SLRoutev4GetMsg.EntriesCount', index=4,
       number=5, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='GetNext', full_name='service_layer.SLRoutev4GetMsg.GetNext', index=5,
       number=6, type=8, cpp_type=7, label=1,
       has_default_value=False, default_value=False,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -309,35 +308,35 @@ _SLROUTEV4GETMSGRSP = _descriptor.Descriptor(
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='Eof', full_name='service_layer.SLRoutev4GetMsgRsp.Eof', index=1,
       number=2, type=8, cpp_type=7, label=1,
       has_default_value=False, default_value=False,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='VrfName', full_name='service_layer.SLRoutev4GetMsgRsp.VrfName', index=2,
       number=3, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='ErrStatus', full_name='service_layer.SLRoutev4GetMsgRsp.ErrStatus', index=3,
       number=4, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='Entries', full_name='service_layer.SLRoutev4GetMsgRsp.Entries', index=4,
       number=5, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -354,6 +353,113 @@ _SLROUTEV4GETMSGRSP = _descriptor.Descriptor(
   serialized_end=917,
 )
 
+
+_SLROUTEV4NOTIFROUTE = _descriptor.Descriptor(
+  name='SLRoutev4NotifRoute',
+  full_name='service_layer.SLRoutev4NotifRoute',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='VrfName', full_name='service_layer.SLRoutev4NotifRoute.VrfName', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='Entries', full_name='service_layer.SLRoutev4NotifRoute.Entries', index=1,
+      number=2, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=919,
+  serialized_end=1000,
+)
+
+
+_SLROUTEV4NOTIF = _descriptor.Descriptor(
+  name='SLRoutev4Notif',
+  full_name='service_layer.SLRoutev4Notif',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='EventType', full_name='service_layer.SLRoutev4Notif.EventType', index=0,
+      number=1, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='ErrStatus', full_name='service_layer.SLRoutev4Notif.ErrStatus', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='NotifStatus', full_name='service_layer.SLRoutev4Notif.NotifStatus', index=2,
+      number=3, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='Route', full_name='service_layer.SLRoutev4Notif.Route', index=3,
+      number=4, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='Marker', full_name='service_layer.SLRoutev4Notif.Marker', index=4,
+      number=5, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='Vrf', full_name='service_layer.SLRoutev4Notif.Vrf', index=5,
+      number=6, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+    _descriptor.OneofDescriptor(
+      name='Event', full_name='service_layer.SLRoutev4Notif.Event',
+      index=0, containing_type=None, fields=[]),
+  ],
+  serialized_start=1003,
+  serialized_end=1332,
+)
+
 _SLROUTEV4.fields_by_name['RouteCommon'].message_type = sl__route__common__pb2._SLROUTECOMMON
 _SLROUTEV4.fields_by_name['PathList'].message_type = sl__route__common__pb2._SLROUTEPATH
 _SLROUTEV4MSG.fields_by_name['Oper'].enum_type = sl__common__types__pb2._SLOBJECTOP
@@ -363,12 +469,37 @@ _SLROUTEV4MSGRSP.fields_by_name['StatusSummary'].message_type = sl__common__type
 _SLROUTEV4MSGRSP.fields_by_name['Results'].message_type = _SLROUTEV4RES
 _SLROUTEV4GETMSGRSP.fields_by_name['ErrStatus'].message_type = sl__common__types__pb2._SLERRORSTATUS
 _SLROUTEV4GETMSGRSP.fields_by_name['Entries'].message_type = _SLROUTEV4
+_SLROUTEV4NOTIFROUTE.fields_by_name['Entries'].message_type = _SLROUTEV4
+_SLROUTEV4NOTIF.fields_by_name['EventType'].enum_type = sl__route__common__pb2._SLNOTIFTYPE
+_SLROUTEV4NOTIF.fields_by_name['ErrStatus'].message_type = sl__common__types__pb2._SLERRORSTATUS
+_SLROUTEV4NOTIF.fields_by_name['NotifStatus'].message_type = sl__route__common__pb2._SLROUTENOTIFSTATUS
+_SLROUTEV4NOTIF.fields_by_name['Route'].message_type = _SLROUTEV4NOTIFROUTE
+_SLROUTEV4NOTIF.fields_by_name['Marker'].message_type = sl__route__common__pb2._SLROUTENOTIFMARKER
+_SLROUTEV4NOTIF.fields_by_name['Vrf'].message_type = sl__route__common__pb2._SLVRFNOTIF
+_SLROUTEV4NOTIF.oneofs_by_name['Event'].fields.append(
+  _SLROUTEV4NOTIF.fields_by_name['ErrStatus'])
+_SLROUTEV4NOTIF.fields_by_name['ErrStatus'].containing_oneof = _SLROUTEV4NOTIF.oneofs_by_name['Event']
+_SLROUTEV4NOTIF.oneofs_by_name['Event'].fields.append(
+  _SLROUTEV4NOTIF.fields_by_name['NotifStatus'])
+_SLROUTEV4NOTIF.fields_by_name['NotifStatus'].containing_oneof = _SLROUTEV4NOTIF.oneofs_by_name['Event']
+_SLROUTEV4NOTIF.oneofs_by_name['Event'].fields.append(
+  _SLROUTEV4NOTIF.fields_by_name['Route'])
+_SLROUTEV4NOTIF.fields_by_name['Route'].containing_oneof = _SLROUTEV4NOTIF.oneofs_by_name['Event']
+_SLROUTEV4NOTIF.oneofs_by_name['Event'].fields.append(
+  _SLROUTEV4NOTIF.fields_by_name['Marker'])
+_SLROUTEV4NOTIF.fields_by_name['Marker'].containing_oneof = _SLROUTEV4NOTIF.oneofs_by_name['Event']
+_SLROUTEV4NOTIF.oneofs_by_name['Event'].fields.append(
+  _SLROUTEV4NOTIF.fields_by_name['Vrf'])
+_SLROUTEV4NOTIF.fields_by_name['Vrf'].containing_oneof = _SLROUTEV4NOTIF.oneofs_by_name['Event']
 DESCRIPTOR.message_types_by_name['SLRoutev4'] = _SLROUTEV4
 DESCRIPTOR.message_types_by_name['SLRoutev4Msg'] = _SLROUTEV4MSG
 DESCRIPTOR.message_types_by_name['SLRoutev4Res'] = _SLROUTEV4RES
 DESCRIPTOR.message_types_by_name['SLRoutev4MsgRsp'] = _SLROUTEV4MSGRSP
 DESCRIPTOR.message_types_by_name['SLRoutev4GetMsg'] = _SLROUTEV4GETMSG
 DESCRIPTOR.message_types_by_name['SLRoutev4GetMsgRsp'] = _SLROUTEV4GETMSGRSP
+DESCRIPTOR.message_types_by_name['SLRoutev4NotifRoute'] = _SLROUTEV4NOTIFROUTE
+DESCRIPTOR.message_types_by_name['SLRoutev4Notif'] = _SLROUTEV4NOTIF
+_sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 SLRoutev4 = _reflection.GeneratedProtocolMessageType('SLRoutev4', (_message.Message,), dict(
   DESCRIPTOR = _SLROUTEV4,
@@ -412,188 +543,124 @@ SLRoutev4GetMsgRsp = _reflection.GeneratedProtocolMessageType('SLRoutev4GetMsgRs
   ))
 _sym_db.RegisterMessage(SLRoutev4GetMsgRsp)
 
+SLRoutev4NotifRoute = _reflection.GeneratedProtocolMessageType('SLRoutev4NotifRoute', (_message.Message,), dict(
+  DESCRIPTOR = _SLROUTEV4NOTIFROUTE,
+  __module__ = 'sl_route_ipv4_pb2'
+  # @@protoc_insertion_point(class_scope:service_layer.SLRoutev4NotifRoute)
+  ))
+_sym_db.RegisterMessage(SLRoutev4NotifRoute)
 
-import abc
-from grpc.beta import implementations as beta_implementations
-from grpc.framework.common import cardinality
-from grpc.framework.interfaces.face import utilities as face_utilities
+SLRoutev4Notif = _reflection.GeneratedProtocolMessageType('SLRoutev4Notif', (_message.Message,), dict(
+  DESCRIPTOR = _SLROUTEV4NOTIF,
+  __module__ = 'sl_route_ipv4_pb2'
+  # @@protoc_insertion_point(class_scope:service_layer.SLRoutev4Notif)
+  ))
+_sym_db.RegisterMessage(SLRoutev4Notif)
 
-class BetaSLRoutev4OperServicer(object):
-  """<fill me in later!>"""
-  __metaclass__ = abc.ABCMeta
-  @abc.abstractmethod
-  def SLRoutev4GlobalsGet(self, request, context):
-    raise NotImplementedError()
-  @abc.abstractmethod
-  def SLRoutev4GlobalStatsGet(self, request, context):
-    raise NotImplementedError()
-  @abc.abstractmethod
-  def SLRoutev4VrfRegOp(self, request, context):
-    raise NotImplementedError()
-  @abc.abstractmethod
-  def SLRoutev4VrfRegGet(self, request, context):
-    raise NotImplementedError()
-  @abc.abstractmethod
-  def SLRoutev4VrfGetStats(self, request, context):
-    raise NotImplementedError()
-  @abc.abstractmethod
-  def SLRoutev4Op(self, request, context):
-    raise NotImplementedError()
-  @abc.abstractmethod
-  def SLRoutev4Get(self, request, context):
-    raise NotImplementedError()
-  @abc.abstractmethod
-  def SLRoutev4OpStream(self, request_iterator, context):
-    raise NotImplementedError()
-  @abc.abstractmethod
-  def SLRoutev4GetStream(self, request_iterator, context):
-    raise NotImplementedError()
 
-class BetaSLRoutev4OperStub(object):
-  """The interface to which stubs will conform."""
-  __metaclass__ = abc.ABCMeta
-  @abc.abstractmethod
-  def SLRoutev4GlobalsGet(self, request, timeout):
-    raise NotImplementedError()
-  SLRoutev4GlobalsGet.future = None
-  @abc.abstractmethod
-  def SLRoutev4GlobalStatsGet(self, request, timeout):
-    raise NotImplementedError()
-  SLRoutev4GlobalStatsGet.future = None
-  @abc.abstractmethod
-  def SLRoutev4VrfRegOp(self, request, timeout):
-    raise NotImplementedError()
-  SLRoutev4VrfRegOp.future = None
-  @abc.abstractmethod
-  def SLRoutev4VrfRegGet(self, request, timeout):
-    raise NotImplementedError()
-  SLRoutev4VrfRegGet.future = None
-  @abc.abstractmethod
-  def SLRoutev4VrfGetStats(self, request, timeout):
-    raise NotImplementedError()
-  SLRoutev4VrfGetStats.future = None
-  @abc.abstractmethod
-  def SLRoutev4Op(self, request, timeout):
-    raise NotImplementedError()
-  SLRoutev4Op.future = None
-  @abc.abstractmethod
-  def SLRoutev4Get(self, request, timeout):
-    raise NotImplementedError()
-  SLRoutev4Get.future = None
-  @abc.abstractmethod
-  def SLRoutev4OpStream(self, request_iterator, timeout):
-    raise NotImplementedError()
-  @abc.abstractmethod
-  def SLRoutev4GetStream(self, request_iterator, timeout):
-    raise NotImplementedError()
 
-def beta_create_SLRoutev4Oper_server(servicer, pool=None, pool_size=None, default_timeout=None, maximum_timeout=None):
-  import sl_route_common_pb2
-  import sl_route_common_pb2
-  import sl_route_common_pb2
-  import sl_route_common_pb2
-  import sl_route_common_pb2
-  import sl_route_common_pb2
-  import sl_route_common_pb2
-  import sl_route_common_pb2
-  import sl_route_common_pb2
-  import sl_route_common_pb2
-  import sl_route_ipv4_pb2
-  import sl_route_ipv4_pb2
-  import sl_route_ipv4_pb2
-  import sl_route_ipv4_pb2
-  import sl_route_ipv4_pb2
-  import sl_route_ipv4_pb2
-  import sl_route_ipv4_pb2
-  import sl_route_ipv4_pb2
-  request_deserializers = {
-    ('service_layer.SLRoutev4Oper', 'SLRoutev4Get'): sl_route_ipv4_pb2.SLRoutev4GetMsg.FromString,
-    ('service_layer.SLRoutev4Oper', 'SLRoutev4GetStream'): sl_route_ipv4_pb2.SLRoutev4GetMsg.FromString,
-    ('service_layer.SLRoutev4Oper', 'SLRoutev4GlobalStatsGet'): sl_route_common_pb2.SLRouteGlobalStatsGetMsg.FromString,
-    ('service_layer.SLRoutev4Oper', 'SLRoutev4GlobalsGet'): sl_route_common_pb2.SLRouteGlobalsGetMsg.FromString,
-    ('service_layer.SLRoutev4Oper', 'SLRoutev4Op'): sl_route_ipv4_pb2.SLRoutev4Msg.FromString,
-    ('service_layer.SLRoutev4Oper', 'SLRoutev4OpStream'): sl_route_ipv4_pb2.SLRoutev4Msg.FromString,
-    ('service_layer.SLRoutev4Oper', 'SLRoutev4VrfGetStats'): sl_route_common_pb2.SLVrfRegGetMsg.FromString,
-    ('service_layer.SLRoutev4Oper', 'SLRoutev4VrfRegGet'): sl_route_common_pb2.SLVrfRegGetMsg.FromString,
-    ('service_layer.SLRoutev4Oper', 'SLRoutev4VrfRegOp'): sl_route_common_pb2.SLVrfRegMsg.FromString,
-  }
-  response_serializers = {
-    ('service_layer.SLRoutev4Oper', 'SLRoutev4Get'): sl_route_ipv4_pb2.SLRoutev4GetMsgRsp.SerializeToString,
-    ('service_layer.SLRoutev4Oper', 'SLRoutev4GetStream'): sl_route_ipv4_pb2.SLRoutev4GetMsgRsp.SerializeToString,
-    ('service_layer.SLRoutev4Oper', 'SLRoutev4GlobalStatsGet'): sl_route_common_pb2.SLRouteGlobalStatsGetMsgRsp.SerializeToString,
-    ('service_layer.SLRoutev4Oper', 'SLRoutev4GlobalsGet'): sl_route_common_pb2.SLRouteGlobalsGetMsgRsp.SerializeToString,
-    ('service_layer.SLRoutev4Oper', 'SLRoutev4Op'): sl_route_ipv4_pb2.SLRoutev4MsgRsp.SerializeToString,
-    ('service_layer.SLRoutev4Oper', 'SLRoutev4OpStream'): sl_route_ipv4_pb2.SLRoutev4MsgRsp.SerializeToString,
-    ('service_layer.SLRoutev4Oper', 'SLRoutev4VrfGetStats'): sl_route_common_pb2.SLVRFGetStatsMsgRsp.SerializeToString,
-    ('service_layer.SLRoutev4Oper', 'SLRoutev4VrfRegGet'): sl_route_common_pb2.SLVrfRegGetMsgRsp.SerializeToString,
-    ('service_layer.SLRoutev4Oper', 'SLRoutev4VrfRegOp'): sl_route_common_pb2.SLVrfRegMsgRsp.SerializeToString,
-  }
-  method_implementations = {
-    ('service_layer.SLRoutev4Oper', 'SLRoutev4Get'): face_utilities.unary_unary_inline(servicer.SLRoutev4Get),
-    ('service_layer.SLRoutev4Oper', 'SLRoutev4GetStream'): face_utilities.stream_stream_inline(servicer.SLRoutev4GetStream),
-    ('service_layer.SLRoutev4Oper', 'SLRoutev4GlobalStatsGet'): face_utilities.unary_unary_inline(servicer.SLRoutev4GlobalStatsGet),
-    ('service_layer.SLRoutev4Oper', 'SLRoutev4GlobalsGet'): face_utilities.unary_unary_inline(servicer.SLRoutev4GlobalsGet),
-    ('service_layer.SLRoutev4Oper', 'SLRoutev4Op'): face_utilities.unary_unary_inline(servicer.SLRoutev4Op),
-    ('service_layer.SLRoutev4Oper', 'SLRoutev4OpStream'): face_utilities.stream_stream_inline(servicer.SLRoutev4OpStream),
-    ('service_layer.SLRoutev4Oper', 'SLRoutev4VrfGetStats'): face_utilities.unary_unary_inline(servicer.SLRoutev4VrfGetStats),
-    ('service_layer.SLRoutev4Oper', 'SLRoutev4VrfRegGet'): face_utilities.unary_unary_inline(servicer.SLRoutev4VrfRegGet),
-    ('service_layer.SLRoutev4Oper', 'SLRoutev4VrfRegOp'): face_utilities.unary_unary_inline(servicer.SLRoutev4VrfRegOp),
-  }
-  server_options = beta_implementations.server_options(request_deserializers=request_deserializers, response_serializers=response_serializers, thread_pool=pool, thread_pool_size=pool_size, default_timeout=default_timeout, maximum_timeout=maximum_timeout)
-  return beta_implementations.server(method_implementations, options=server_options)
+_SLROUTEV4OPER = _descriptor.ServiceDescriptor(
+  name='SLRoutev4Oper',
+  full_name='service_layer.SLRoutev4Oper',
+  file=DESCRIPTOR,
+  index=0,
+  options=None,
+  serialized_start=1335,
+  serialized_end=2255,
+  methods=[
+  _descriptor.MethodDescriptor(
+    name='SLRoutev4GlobalsGet',
+    full_name='service_layer.SLRoutev4Oper.SLRoutev4GlobalsGet',
+    index=0,
+    containing_service=None,
+    input_type=sl__route__common__pb2._SLROUTEGLOBALSGETMSG,
+    output_type=sl__route__common__pb2._SLROUTEGLOBALSGETMSGRSP,
+    options=None,
+  ),
+  _descriptor.MethodDescriptor(
+    name='SLRoutev4GlobalStatsGet',
+    full_name='service_layer.SLRoutev4Oper.SLRoutev4GlobalStatsGet',
+    index=1,
+    containing_service=None,
+    input_type=sl__route__common__pb2._SLROUTEGLOBALSTATSGETMSG,
+    output_type=sl__route__common__pb2._SLROUTEGLOBALSTATSGETMSGRSP,
+    options=None,
+  ),
+  _descriptor.MethodDescriptor(
+    name='SLRoutev4VrfRegOp',
+    full_name='service_layer.SLRoutev4Oper.SLRoutev4VrfRegOp',
+    index=2,
+    containing_service=None,
+    input_type=sl__route__common__pb2._SLVRFREGMSG,
+    output_type=sl__route__common__pb2._SLVRFREGMSGRSP,
+    options=None,
+  ),
+  _descriptor.MethodDescriptor(
+    name='SLRoutev4VrfRegGet',
+    full_name='service_layer.SLRoutev4Oper.SLRoutev4VrfRegGet',
+    index=3,
+    containing_service=None,
+    input_type=sl__route__common__pb2._SLVRFREGGETMSG,
+    output_type=sl__route__common__pb2._SLVRFREGGETMSGRSP,
+    options=None,
+  ),
+  _descriptor.MethodDescriptor(
+    name='SLRoutev4VrfGetStats',
+    full_name='service_layer.SLRoutev4Oper.SLRoutev4VrfGetStats',
+    index=4,
+    containing_service=None,
+    input_type=sl__route__common__pb2._SLVRFREGGETMSG,
+    output_type=sl__route__common__pb2._SLVRFGETSTATSMSGRSP,
+    options=None,
+  ),
+  _descriptor.MethodDescriptor(
+    name='SLRoutev4Op',
+    full_name='service_layer.SLRoutev4Oper.SLRoutev4Op',
+    index=5,
+    containing_service=None,
+    input_type=_SLROUTEV4MSG,
+    output_type=_SLROUTEV4MSGRSP,
+    options=None,
+  ),
+  _descriptor.MethodDescriptor(
+    name='SLRoutev4Get',
+    full_name='service_layer.SLRoutev4Oper.SLRoutev4Get',
+    index=6,
+    containing_service=None,
+    input_type=_SLROUTEV4GETMSG,
+    output_type=_SLROUTEV4GETMSGRSP,
+    options=None,
+  ),
+  _descriptor.MethodDescriptor(
+    name='SLRoutev4OpStream',
+    full_name='service_layer.SLRoutev4Oper.SLRoutev4OpStream',
+    index=7,
+    containing_service=None,
+    input_type=_SLROUTEV4MSG,
+    output_type=_SLROUTEV4MSGRSP,
+    options=None,
+  ),
+  _descriptor.MethodDescriptor(
+    name='SLRoutev4GetStream',
+    full_name='service_layer.SLRoutev4Oper.SLRoutev4GetStream',
+    index=8,
+    containing_service=None,
+    input_type=_SLROUTEV4GETMSG,
+    output_type=_SLROUTEV4GETMSGRSP,
+    options=None,
+  ),
+  _descriptor.MethodDescriptor(
+    name='SLRoutev4GetNotifStream',
+    full_name='service_layer.SLRoutev4Oper.SLRoutev4GetNotifStream',
+    index=9,
+    containing_service=None,
+    input_type=sl__route__common__pb2._SLROUTEGETNOTIFMSG,
+    output_type=_SLROUTEV4NOTIF,
+    options=None,
+  ),
+])
+_sym_db.RegisterServiceDescriptor(_SLROUTEV4OPER)
 
-def beta_create_SLRoutev4Oper_stub(channel, host=None, metadata_transformer=None, pool=None, pool_size=None):
-  import sl_route_common_pb2
-  import sl_route_common_pb2
-  import sl_route_common_pb2
-  import sl_route_common_pb2
-  import sl_route_common_pb2
-  import sl_route_common_pb2
-  import sl_route_common_pb2
-  import sl_route_common_pb2
-  import sl_route_common_pb2
-  import sl_route_common_pb2
-  import sl_route_ipv4_pb2
-  import sl_route_ipv4_pb2
-  import sl_route_ipv4_pb2
-  import sl_route_ipv4_pb2
-  import sl_route_ipv4_pb2
-  import sl_route_ipv4_pb2
-  import sl_route_ipv4_pb2
-  import sl_route_ipv4_pb2
-  request_serializers = {
-    ('service_layer.SLRoutev4Oper', 'SLRoutev4Get'): sl_route_ipv4_pb2.SLRoutev4GetMsg.SerializeToString,
-    ('service_layer.SLRoutev4Oper', 'SLRoutev4GetStream'): sl_route_ipv4_pb2.SLRoutev4GetMsg.SerializeToString,
-    ('service_layer.SLRoutev4Oper', 'SLRoutev4GlobalStatsGet'): sl_route_common_pb2.SLRouteGlobalStatsGetMsg.SerializeToString,
-    ('service_layer.SLRoutev4Oper', 'SLRoutev4GlobalsGet'): sl_route_common_pb2.SLRouteGlobalsGetMsg.SerializeToString,
-    ('service_layer.SLRoutev4Oper', 'SLRoutev4Op'): sl_route_ipv4_pb2.SLRoutev4Msg.SerializeToString,
-    ('service_layer.SLRoutev4Oper', 'SLRoutev4OpStream'): sl_route_ipv4_pb2.SLRoutev4Msg.SerializeToString,
-    ('service_layer.SLRoutev4Oper', 'SLRoutev4VrfGetStats'): sl_route_common_pb2.SLVrfRegGetMsg.SerializeToString,
-    ('service_layer.SLRoutev4Oper', 'SLRoutev4VrfRegGet'): sl_route_common_pb2.SLVrfRegGetMsg.SerializeToString,
-    ('service_layer.SLRoutev4Oper', 'SLRoutev4VrfRegOp'): sl_route_common_pb2.SLVrfRegMsg.SerializeToString,
-  }
-  response_deserializers = {
-    ('service_layer.SLRoutev4Oper', 'SLRoutev4Get'): sl_route_ipv4_pb2.SLRoutev4GetMsgRsp.FromString,
-    ('service_layer.SLRoutev4Oper', 'SLRoutev4GetStream'): sl_route_ipv4_pb2.SLRoutev4GetMsgRsp.FromString,
-    ('service_layer.SLRoutev4Oper', 'SLRoutev4GlobalStatsGet'): sl_route_common_pb2.SLRouteGlobalStatsGetMsgRsp.FromString,
-    ('service_layer.SLRoutev4Oper', 'SLRoutev4GlobalsGet'): sl_route_common_pb2.SLRouteGlobalsGetMsgRsp.FromString,
-    ('service_layer.SLRoutev4Oper', 'SLRoutev4Op'): sl_route_ipv4_pb2.SLRoutev4MsgRsp.FromString,
-    ('service_layer.SLRoutev4Oper', 'SLRoutev4OpStream'): sl_route_ipv4_pb2.SLRoutev4MsgRsp.FromString,
-    ('service_layer.SLRoutev4Oper', 'SLRoutev4VrfGetStats'): sl_route_common_pb2.SLVRFGetStatsMsgRsp.FromString,
-    ('service_layer.SLRoutev4Oper', 'SLRoutev4VrfRegGet'): sl_route_common_pb2.SLVrfRegGetMsgRsp.FromString,
-    ('service_layer.SLRoutev4Oper', 'SLRoutev4VrfRegOp'): sl_route_common_pb2.SLVrfRegMsgRsp.FromString,
-  }
-  cardinalities = {
-    'SLRoutev4Get': cardinality.Cardinality.UNARY_UNARY,
-    'SLRoutev4GetStream': cardinality.Cardinality.STREAM_STREAM,
-    'SLRoutev4GlobalStatsGet': cardinality.Cardinality.UNARY_UNARY,
-    'SLRoutev4GlobalsGet': cardinality.Cardinality.UNARY_UNARY,
-    'SLRoutev4Op': cardinality.Cardinality.UNARY_UNARY,
-    'SLRoutev4OpStream': cardinality.Cardinality.STREAM_STREAM,
-    'SLRoutev4VrfGetStats': cardinality.Cardinality.UNARY_UNARY,
-    'SLRoutev4VrfRegGet': cardinality.Cardinality.UNARY_UNARY,
-    'SLRoutev4VrfRegOp': cardinality.Cardinality.UNARY_UNARY,
-  }
-  stub_options = beta_implementations.stub_options(host=host, metadata_transformer=metadata_transformer, request_serializers=request_serializers, response_deserializers=response_deserializers, thread_pool=pool, thread_pool_size=pool_size)
-  return beta_implementations.dynamic_stub(channel, 'service_layer.SLRoutev4Oper', cardinalities, options=stub_options)
+DESCRIPTOR.services_by_name['SLRoutev4Oper'] = _SLROUTEV4OPER
+
 # @@protoc_insertion_point(module_scope)

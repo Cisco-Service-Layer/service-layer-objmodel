@@ -22,7 +22,6 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_pb=_b('\n\x10sl_version.proto\x12\rservice_layer*f\n\tSLVersion\x12\x15\n\x11SL_VERSION_UNUSED\x10\x00\x12\x14\n\x10SL_MAJOR_VERSION\x10\x00\x12\x14\n\x10SL_MINOR_VERSION\x10\x00\x12\x12\n\x0eSL_SUB_VERSION\x10\x01\x1a\x02\x10\x01\x62\x06proto3')
 )
-_sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 _SLVERSION = _descriptor.EnumDescriptor(
   name='SLVersion',
@@ -62,12 +61,9 @@ SL_SUB_VERSION = 1
 
 
 DESCRIPTOR.enum_types_by_name['SLVersion'] = _SLVERSION
+_sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 
 _SLVERSION.has_options = True
 _SLVERSION._options = _descriptor._ParseOptions(descriptor_pb2.EnumOptions(), _b('\020\001'))
-import abc
-from grpc.beta import implementations as beta_implementations
-from grpc.framework.common import cardinality
-from grpc.framework.interfaces.face import utilities as face_utilities
 # @@protoc_insertion_point(module_scope)

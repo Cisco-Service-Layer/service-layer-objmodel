@@ -13,8 +13,8 @@ from google.protobuf import descriptor_pb2
 _sym_db = _symbol_database.Default()
 
 
-import sl_common_types_pb2 as sl__common__types__pb2
-import sl_bfd_common_pb2 as sl__bfd__common__pb2
+from . import sl_common_types_pb2 as sl__common__types__pb2
+from . import sl_bfd_common_pb2 as sl__bfd__common__pb2
 
 
 DESCRIPTOR = _descriptor.FileDescriptor(
@@ -24,7 +24,6 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   serialized_pb=_b('\n\x11sl_bfd_ipv6.proto\x12\rservice_layer\x1a\x15sl_common_types.proto\x1a\x13sl_bfd_common.proto\"\x99\x01\n\nSLBfdv6Key\x12&\n\x04Type\x18\x01 \x01(\x0e\x32\x18.service_layer.SLBfdType\x12\x0f\n\x07VrfName\x18\x02 \x01(\t\x12\x0f\n\x07NbrAddr\x18\x03 \x01(\x0c\x12-\n\tInterface\x18\x04 \x01(\x0b\x32\x1a.service_layer.SLInterface\x12\x12\n\nSourceAddr\x18\x05 \x01(\x0c\"m\n\x11SLBfdv6SessionCfg\x12&\n\x03Key\x18\x01 \x01(\x0b\x32\x19.service_layer.SLBfdv6Key\x12\x30\n\x06\x43onfig\x18\x02 \x01(\x0b\x32 .service_layer.SLBfdConfigCommon\"i\n\nSLBfdv6Msg\x12\'\n\x04Oper\x18\x01 \x01(\x0e\x32\x19.service_layer.SLObjectOp\x12\x32\n\x08Sessions\x18\x02 \x03(\x0b\x32 .service_layer.SLBfdv6SessionCfg\"e\n\nSLBfdv6Res\x12/\n\tErrStatus\x18\x01 \x01(\x0b\x32\x1c.service_layer.SLErrorStatus\x12&\n\x03Key\x18\x02 \x01(\x0b\x32\x19.service_layer.SLBfdv6Key\"p\n\rSLBfdv6MsgRsp\x12\x33\n\rStatusSummary\x18\x01 \x01(\x0b\x32\x1c.service_layer.SLErrorStatus\x12*\n\x07Results\x18\x02 \x03(\x0b\x32\x19.service_layer.SLBfdv6Res\"n\n\rSLBfdv6GetMsg\x12&\n\x03Key\x18\x01 \x01(\x0b\x32\x19.service_layer.SLBfdv6Key\x12\x0e\n\x06SeqNum\x18\x02 \x01(\x04\x12\x14\n\x0c\x45ntriesCount\x18\x03 \x01(\r\x12\x0f\n\x07GetNext\x18\x04 \x01(\x08\"\xa2\x01\n\x16SLBfdv6SessionCfgState\x12&\n\x03Key\x18\x01 \x01(\x0b\x32\x19.service_layer.SLBfdv6Key\x12\x30\n\x06\x43onfig\x18\x02 \x01(\x0b\x32 .service_layer.SLBfdConfigCommon\x12.\n\x05State\x18\x03 \x01(\x0b\x32\x1f.service_layer.SLBfdCommonState\"\x88\x01\n\x10SLBfdv6GetMsgRsp\x12\x0b\n\x03\x45of\x18\x01 \x01(\x08\x12/\n\tErrStatus\x18\x02 \x01(\x0b\x32\x1c.service_layer.SLErrorStatus\x12\x36\n\x07\x45ntries\x18\x03 \x03(\x0b\x32%.service_layer.SLBfdv6SessionCfgState\"m\n\x13SLBfdv6SessionState\x12&\n\x03Key\x18\x01 \x01(\x0b\x32\x19.service_layer.SLBfdv6Key\x12.\n\x05State\x18\x02 \x01(\x0b\x32\x1f.service_layer.SLBfdCommonState\"\xb3\x01\n\x0cSLBfdv6Notif\x12\x30\n\tEventType\x18\x01 \x01(\x0e\x32\x1d.service_layer.SLBfdNotifType\x12\x31\n\tErrStatus\x18\x02 \x01(\x0b\x32\x1c.service_layer.SLErrorStatusH\x00\x12\x35\n\x07Session\x18\x03 \x01(\x0b\x32\".service_layer.SLBfdv6SessionStateH\x00\x42\x07\n\x05\x45vent2\xee\x03\n\x0bSLBfdv6Oper\x12I\n\x0cSLBfdv6RegOp\x12\x1a.service_layer.SLBfdRegMsg\x1a\x1d.service_layer.SLBfdRegMsgRsp\x12G\n\nSLBfdv6Get\x12\x1a.service_layer.SLBfdGetMsg\x1a\x1d.service_layer.SLBfdGetMsgRsp\x12Q\n\x0fSLBfdv6GetStats\x12\x1a.service_layer.SLBfdGetMsg\x1a\".service_layer.SLBfdGetStatsMsgRsp\x12W\n\x15SLBfdv6GetNotifStream\x12\x1f.service_layer.SLBfdGetNotifMsg\x1a\x1b.service_layer.SLBfdv6Notif0\x01\x12K\n\x10SLBfdv6SessionOp\x12\x19.service_layer.SLBfdv6Msg\x1a\x1c.service_layer.SLBfdv6MsgRsp\x12R\n\x11SLBfdv6SessionGet\x12\x1c.service_layer.SLBfdv6GetMsg\x1a\x1f.service_layer.SLBfdv6GetMsgRspb\x06proto3')
   ,
   dependencies=[sl__common__types__pb2.DESCRIPTOR,sl__bfd__common__pb2.DESCRIPTOR,])
-_sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 
 
@@ -42,35 +41,35 @@ _SLBFDV6KEY = _descriptor.Descriptor(
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='VrfName', full_name='service_layer.SLBfdv6Key.VrfName', index=1,
       number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='NbrAddr', full_name='service_layer.SLBfdv6Key.NbrAddr', index=2,
       number=3, type=12, cpp_type=9, label=1,
       has_default_value=False, default_value=_b(""),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='Interface', full_name='service_layer.SLBfdv6Key.Interface', index=3,
       number=4, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='SourceAddr', full_name='service_layer.SLBfdv6Key.SourceAddr', index=4,
       number=5, type=12, cpp_type=9, label=1,
       has_default_value=False, default_value=_b(""),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -101,14 +100,14 @@ _SLBFDV6SESSIONCFG = _descriptor.Descriptor(
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='Config', full_name='service_layer.SLBfdv6SessionCfg.Config', index=1,
       number=2, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -139,14 +138,14 @@ _SLBFDV6MSG = _descriptor.Descriptor(
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='Sessions', full_name='service_layer.SLBfdv6Msg.Sessions', index=1,
       number=2, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -177,14 +176,14 @@ _SLBFDV6RES = _descriptor.Descriptor(
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='Key', full_name='service_layer.SLBfdv6Res.Key', index=1,
       number=2, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -215,14 +214,14 @@ _SLBFDV6MSGRSP = _descriptor.Descriptor(
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='Results', full_name='service_layer.SLBfdv6MsgRsp.Results', index=1,
       number=2, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -253,28 +252,28 @@ _SLBFDV6GETMSG = _descriptor.Descriptor(
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='SeqNum', full_name='service_layer.SLBfdv6GetMsg.SeqNum', index=1,
       number=2, type=4, cpp_type=4, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='EntriesCount', full_name='service_layer.SLBfdv6GetMsg.EntriesCount', index=2,
       number=3, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='GetNext', full_name='service_layer.SLBfdv6GetMsg.GetNext', index=3,
       number=4, type=8, cpp_type=7, label=1,
       has_default_value=False, default_value=False,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -305,21 +304,21 @@ _SLBFDV6SESSIONCFGSTATE = _descriptor.Descriptor(
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='Config', full_name='service_layer.SLBfdv6SessionCfgState.Config', index=1,
       number=2, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='State', full_name='service_layer.SLBfdv6SessionCfgState.State', index=2,
       number=3, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -350,21 +349,21 @@ _SLBFDV6GETMSGRSP = _descriptor.Descriptor(
       has_default_value=False, default_value=False,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='ErrStatus', full_name='service_layer.SLBfdv6GetMsgRsp.ErrStatus', index=1,
       number=2, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='Entries', full_name='service_layer.SLBfdv6GetMsgRsp.Entries', index=2,
       number=3, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -395,14 +394,14 @@ _SLBFDV6SESSIONSTATE = _descriptor.Descriptor(
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='State', full_name='service_layer.SLBfdv6SessionState.State', index=1,
       number=2, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -433,21 +432,21 @@ _SLBFDV6NOTIF = _descriptor.Descriptor(
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='ErrStatus', full_name='service_layer.SLBfdv6Notif.ErrStatus', index=1,
       number=2, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='Session', full_name='service_layer.SLBfdv6Notif.Session', index=2,
       number=3, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -504,6 +503,7 @@ DESCRIPTOR.message_types_by_name['SLBfdv6SessionCfgState'] = _SLBFDV6SESSIONCFGS
 DESCRIPTOR.message_types_by_name['SLBfdv6GetMsgRsp'] = _SLBFDV6GETMSGRSP
 DESCRIPTOR.message_types_by_name['SLBfdv6SessionState'] = _SLBFDV6SESSIONSTATE
 DESCRIPTOR.message_types_by_name['SLBfdv6Notif'] = _SLBFDV6NOTIF
+_sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 SLBfdv6Key = _reflection.GeneratedProtocolMessageType('SLBfdv6Key', (_message.Message,), dict(
   DESCRIPTOR = _SLBFDV6KEY,
@@ -576,137 +576,73 @@ SLBfdv6Notif = _reflection.GeneratedProtocolMessageType('SLBfdv6Notif', (_messag
 _sym_db.RegisterMessage(SLBfdv6Notif)
 
 
-import abc
-from grpc.beta import implementations as beta_implementations
-from grpc.framework.common import cardinality
-from grpc.framework.interfaces.face import utilities as face_utilities
 
-class BetaSLBfdv6OperServicer(object):
-  """<fill me in later!>"""
-  __metaclass__ = abc.ABCMeta
-  @abc.abstractmethod
-  def SLBfdv6RegOp(self, request, context):
-    raise NotImplementedError()
-  @abc.abstractmethod
-  def SLBfdv6Get(self, request, context):
-    raise NotImplementedError()
-  @abc.abstractmethod
-  def SLBfdv6GetStats(self, request, context):
-    raise NotImplementedError()
-  @abc.abstractmethod
-  def SLBfdv6GetNotifStream(self, request, context):
-    raise NotImplementedError()
-  @abc.abstractmethod
-  def SLBfdv6SessionOp(self, request, context):
-    raise NotImplementedError()
-  @abc.abstractmethod
-  def SLBfdv6SessionGet(self, request, context):
-    raise NotImplementedError()
+_SLBFDV6OPER = _descriptor.ServiceDescriptor(
+  name='SLBfdv6Oper',
+  full_name='service_layer.SLBfdv6Oper',
+  file=DESCRIPTOR,
+  index=0,
+  options=None,
+  serialized_start=1381,
+  serialized_end=1875,
+  methods=[
+  _descriptor.MethodDescriptor(
+    name='SLBfdv6RegOp',
+    full_name='service_layer.SLBfdv6Oper.SLBfdv6RegOp',
+    index=0,
+    containing_service=None,
+    input_type=sl__bfd__common__pb2._SLBFDREGMSG,
+    output_type=sl__bfd__common__pb2._SLBFDREGMSGRSP,
+    options=None,
+  ),
+  _descriptor.MethodDescriptor(
+    name='SLBfdv6Get',
+    full_name='service_layer.SLBfdv6Oper.SLBfdv6Get',
+    index=1,
+    containing_service=None,
+    input_type=sl__bfd__common__pb2._SLBFDGETMSG,
+    output_type=sl__bfd__common__pb2._SLBFDGETMSGRSP,
+    options=None,
+  ),
+  _descriptor.MethodDescriptor(
+    name='SLBfdv6GetStats',
+    full_name='service_layer.SLBfdv6Oper.SLBfdv6GetStats',
+    index=2,
+    containing_service=None,
+    input_type=sl__bfd__common__pb2._SLBFDGETMSG,
+    output_type=sl__bfd__common__pb2._SLBFDGETSTATSMSGRSP,
+    options=None,
+  ),
+  _descriptor.MethodDescriptor(
+    name='SLBfdv6GetNotifStream',
+    full_name='service_layer.SLBfdv6Oper.SLBfdv6GetNotifStream',
+    index=3,
+    containing_service=None,
+    input_type=sl__bfd__common__pb2._SLBFDGETNOTIFMSG,
+    output_type=_SLBFDV6NOTIF,
+    options=None,
+  ),
+  _descriptor.MethodDescriptor(
+    name='SLBfdv6SessionOp',
+    full_name='service_layer.SLBfdv6Oper.SLBfdv6SessionOp',
+    index=4,
+    containing_service=None,
+    input_type=_SLBFDV6MSG,
+    output_type=_SLBFDV6MSGRSP,
+    options=None,
+  ),
+  _descriptor.MethodDescriptor(
+    name='SLBfdv6SessionGet',
+    full_name='service_layer.SLBfdv6Oper.SLBfdv6SessionGet',
+    index=5,
+    containing_service=None,
+    input_type=_SLBFDV6GETMSG,
+    output_type=_SLBFDV6GETMSGRSP,
+    options=None,
+  ),
+])
+_sym_db.RegisterServiceDescriptor(_SLBFDV6OPER)
 
-class BetaSLBfdv6OperStub(object):
-  """The interface to which stubs will conform."""
-  __metaclass__ = abc.ABCMeta
-  @abc.abstractmethod
-  def SLBfdv6RegOp(self, request, timeout):
-    raise NotImplementedError()
-  SLBfdv6RegOp.future = None
-  @abc.abstractmethod
-  def SLBfdv6Get(self, request, timeout):
-    raise NotImplementedError()
-  SLBfdv6Get.future = None
-  @abc.abstractmethod
-  def SLBfdv6GetStats(self, request, timeout):
-    raise NotImplementedError()
-  SLBfdv6GetStats.future = None
-  @abc.abstractmethod
-  def SLBfdv6GetNotifStream(self, request, timeout):
-    raise NotImplementedError()
-  @abc.abstractmethod
-  def SLBfdv6SessionOp(self, request, timeout):
-    raise NotImplementedError()
-  SLBfdv6SessionOp.future = None
-  @abc.abstractmethod
-  def SLBfdv6SessionGet(self, request, timeout):
-    raise NotImplementedError()
-  SLBfdv6SessionGet.future = None
+DESCRIPTOR.services_by_name['SLBfdv6Oper'] = _SLBFDV6OPER
 
-def beta_create_SLBfdv6Oper_server(servicer, pool=None, pool_size=None, default_timeout=None, maximum_timeout=None):
-  import sl_bfd_common_pb2
-  import sl_bfd_common_pb2
-  import sl_bfd_common_pb2
-  import sl_bfd_common_pb2
-  import sl_bfd_common_pb2
-  import sl_bfd_common_pb2
-  import sl_bfd_common_pb2
-  import sl_bfd_ipv6_pb2
-  import sl_bfd_ipv6_pb2
-  import sl_bfd_ipv6_pb2
-  import sl_bfd_ipv6_pb2
-  import sl_bfd_ipv6_pb2
-  request_deserializers = {
-    ('service_layer.SLBfdv6Oper', 'SLBfdv6Get'): sl_bfd_common_pb2.SLBfdGetMsg.FromString,
-    ('service_layer.SLBfdv6Oper', 'SLBfdv6GetNotifStream'): sl_bfd_common_pb2.SLBfdGetNotifMsg.FromString,
-    ('service_layer.SLBfdv6Oper', 'SLBfdv6GetStats'): sl_bfd_common_pb2.SLBfdGetMsg.FromString,
-    ('service_layer.SLBfdv6Oper', 'SLBfdv6RegOp'): sl_bfd_common_pb2.SLBfdRegMsg.FromString,
-    ('service_layer.SLBfdv6Oper', 'SLBfdv6SessionGet'): sl_bfd_ipv6_pb2.SLBfdv6GetMsg.FromString,
-    ('service_layer.SLBfdv6Oper', 'SLBfdv6SessionOp'): sl_bfd_ipv6_pb2.SLBfdv6Msg.FromString,
-  }
-  response_serializers = {
-    ('service_layer.SLBfdv6Oper', 'SLBfdv6Get'): sl_bfd_common_pb2.SLBfdGetMsgRsp.SerializeToString,
-    ('service_layer.SLBfdv6Oper', 'SLBfdv6GetNotifStream'): sl_bfd_ipv6_pb2.SLBfdv6Notif.SerializeToString,
-    ('service_layer.SLBfdv6Oper', 'SLBfdv6GetStats'): sl_bfd_common_pb2.SLBfdGetStatsMsgRsp.SerializeToString,
-    ('service_layer.SLBfdv6Oper', 'SLBfdv6RegOp'): sl_bfd_common_pb2.SLBfdRegMsgRsp.SerializeToString,
-    ('service_layer.SLBfdv6Oper', 'SLBfdv6SessionGet'): sl_bfd_ipv6_pb2.SLBfdv6GetMsgRsp.SerializeToString,
-    ('service_layer.SLBfdv6Oper', 'SLBfdv6SessionOp'): sl_bfd_ipv6_pb2.SLBfdv6MsgRsp.SerializeToString,
-  }
-  method_implementations = {
-    ('service_layer.SLBfdv6Oper', 'SLBfdv6Get'): face_utilities.unary_unary_inline(servicer.SLBfdv6Get),
-    ('service_layer.SLBfdv6Oper', 'SLBfdv6GetNotifStream'): face_utilities.unary_stream_inline(servicer.SLBfdv6GetNotifStream),
-    ('service_layer.SLBfdv6Oper', 'SLBfdv6GetStats'): face_utilities.unary_unary_inline(servicer.SLBfdv6GetStats),
-    ('service_layer.SLBfdv6Oper', 'SLBfdv6RegOp'): face_utilities.unary_unary_inline(servicer.SLBfdv6RegOp),
-    ('service_layer.SLBfdv6Oper', 'SLBfdv6SessionGet'): face_utilities.unary_unary_inline(servicer.SLBfdv6SessionGet),
-    ('service_layer.SLBfdv6Oper', 'SLBfdv6SessionOp'): face_utilities.unary_unary_inline(servicer.SLBfdv6SessionOp),
-  }
-  server_options = beta_implementations.server_options(request_deserializers=request_deserializers, response_serializers=response_serializers, thread_pool=pool, thread_pool_size=pool_size, default_timeout=default_timeout, maximum_timeout=maximum_timeout)
-  return beta_implementations.server(method_implementations, options=server_options)
-
-def beta_create_SLBfdv6Oper_stub(channel, host=None, metadata_transformer=None, pool=None, pool_size=None):
-  import sl_bfd_common_pb2
-  import sl_bfd_common_pb2
-  import sl_bfd_common_pb2
-  import sl_bfd_common_pb2
-  import sl_bfd_common_pb2
-  import sl_bfd_common_pb2
-  import sl_bfd_common_pb2
-  import sl_bfd_ipv6_pb2
-  import sl_bfd_ipv6_pb2
-  import sl_bfd_ipv6_pb2
-  import sl_bfd_ipv6_pb2
-  import sl_bfd_ipv6_pb2
-  request_serializers = {
-    ('service_layer.SLBfdv6Oper', 'SLBfdv6Get'): sl_bfd_common_pb2.SLBfdGetMsg.SerializeToString,
-    ('service_layer.SLBfdv6Oper', 'SLBfdv6GetNotifStream'): sl_bfd_common_pb2.SLBfdGetNotifMsg.SerializeToString,
-    ('service_layer.SLBfdv6Oper', 'SLBfdv6GetStats'): sl_bfd_common_pb2.SLBfdGetMsg.SerializeToString,
-    ('service_layer.SLBfdv6Oper', 'SLBfdv6RegOp'): sl_bfd_common_pb2.SLBfdRegMsg.SerializeToString,
-    ('service_layer.SLBfdv6Oper', 'SLBfdv6SessionGet'): sl_bfd_ipv6_pb2.SLBfdv6GetMsg.SerializeToString,
-    ('service_layer.SLBfdv6Oper', 'SLBfdv6SessionOp'): sl_bfd_ipv6_pb2.SLBfdv6Msg.SerializeToString,
-  }
-  response_deserializers = {
-    ('service_layer.SLBfdv6Oper', 'SLBfdv6Get'): sl_bfd_common_pb2.SLBfdGetMsgRsp.FromString,
-    ('service_layer.SLBfdv6Oper', 'SLBfdv6GetNotifStream'): sl_bfd_ipv6_pb2.SLBfdv6Notif.FromString,
-    ('service_layer.SLBfdv6Oper', 'SLBfdv6GetStats'): sl_bfd_common_pb2.SLBfdGetStatsMsgRsp.FromString,
-    ('service_layer.SLBfdv6Oper', 'SLBfdv6RegOp'): sl_bfd_common_pb2.SLBfdRegMsgRsp.FromString,
-    ('service_layer.SLBfdv6Oper', 'SLBfdv6SessionGet'): sl_bfd_ipv6_pb2.SLBfdv6GetMsgRsp.FromString,
-    ('service_layer.SLBfdv6Oper', 'SLBfdv6SessionOp'): sl_bfd_ipv6_pb2.SLBfdv6MsgRsp.FromString,
-  }
-  cardinalities = {
-    'SLBfdv6Get': cardinality.Cardinality.UNARY_UNARY,
-    'SLBfdv6GetNotifStream': cardinality.Cardinality.UNARY_STREAM,
-    'SLBfdv6GetStats': cardinality.Cardinality.UNARY_UNARY,
-    'SLBfdv6RegOp': cardinality.Cardinality.UNARY_UNARY,
-    'SLBfdv6SessionGet': cardinality.Cardinality.UNARY_UNARY,
-    'SLBfdv6SessionOp': cardinality.Cardinality.UNARY_UNARY,
-  }
-  stub_options = beta_implementations.stub_options(host=host, metadata_transformer=metadata_transformer, request_serializers=request_serializers, response_deserializers=response_deserializers, thread_pool=pool, thread_pool_size=pool_size)
-  return beta_implementations.dynamic_stub(channel, 'service_layer.SLBfdv6Oper', cardinalities, options=stub_options)
 # @@protoc_insertion_point(module_scope)

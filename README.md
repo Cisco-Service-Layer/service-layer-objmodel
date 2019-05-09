@@ -63,7 +63,7 @@ export SERVER_PORT=57344
 Run All tests:
 
 ```
-python -m unittest -v tests.test_lindt
+python3 -m unittest -v tests.test_sl_api
 ```
 
 We hope that the above was useful quick overview about the service layer API. We recommend that the reader goes over the python quick tutorial first and then go over the .proto files under grpc/protos (or look at the generated .html pages, these are not kept in this repo, but can be auto-generated from this repo).

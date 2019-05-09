@@ -242,6 +242,20 @@
             "if_name": "GigabitEthernet0/0/0/0"
         }
     }, 
+    "intf_neg_get": {
+        "get_exact_intf_neg1": {
+            "_description": "Get Exact Match (Neg): Non-existent interface name",
+            "count": 1,
+            "get_next": 0,
+            "if_name": "Interphase/0/0/0"
+        },
+        "get_exact_intf_neg2": {
+            "_description": "Get Exact Match (Neg): Non-subscribed interface name",
+            "count": 1,
+            "get_next": 0,
+            "if_name": "MgmtEth0/RP0/CPU0/0"
+        }
+    },
     "lbl_blk_get": {
         "get_exact_lbl_blk": {
             "_description": "Get Exact Match", 
@@ -494,22 +508,22 @@
             "count": 1, 
             "get_next": 0, 
             "vrf_name": "default"
-        }, 
+        },
         "get_firstN_vrf": {
             "_description": "Get First N VRFs", 
-            "count": 5, 
+            "count": 5,
             "get_next": 0
         }, 
         "get_nextN_include_vrf": {
             "_description": "Get Next N VRFs starting from specified", 
-            "count": 3, 
-            "get_next": 0, 
+            "count": 3,
+            "get_next": 0,
             "vrf_name": "default"
-        }, 
+        },
         "get_nextN_vrf": {
-            "_description": "Get Next N VRFs following specified", 
-            "count": 3, 
-            "get_next": 1, 
+            "_description": "Get Next N VRFs following specified",
+            "count": 3,
+            "get_next": 1,
             "vrf_name": "default"
         }
     }

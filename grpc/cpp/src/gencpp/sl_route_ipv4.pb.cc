@@ -50,6 +50,21 @@ class SLRoutev4GetMsgRspDefaultTypeInternal {
   ::google::protobuf::internal::ExplicitlyConstructed<SLRoutev4GetMsgRsp>
       _instance;
 } _SLRoutev4GetMsgRsp_default_instance_;
+class SLRoutev4NotifRouteDefaultTypeInternal {
+ public:
+  ::google::protobuf::internal::ExplicitlyConstructed<SLRoutev4NotifRoute>
+      _instance;
+} _SLRoutev4NotifRoute_default_instance_;
+class SLRoutev4NotifDefaultTypeInternal {
+ public:
+  ::google::protobuf::internal::ExplicitlyConstructed<SLRoutev4Notif>
+      _instance;
+  const ::service_layer::SLErrorStatus* errstatus_;
+  const ::service_layer::SLRouteNotifStatus* notifstatus_;
+  const ::service_layer::SLRoutev4NotifRoute* route_;
+  const ::service_layer::SLRouteNotifMarker* marker_;
+  const ::service_layer::SLVrfNotif* vrf_;
+} _SLRoutev4Notif_default_instance_;
 }  // namespace service_layer
 namespace protobuf_sl_5froute_5fipv4_2eproto {
 void InitDefaultsSLRoutev4Impl() {
@@ -186,7 +201,55 @@ void InitDefaultsSLRoutev4GetMsgRsp() {
   ::google::protobuf::GoogleOnceInit(&once, &InitDefaultsSLRoutev4GetMsgRspImpl);
 }
 
-::google::protobuf::Metadata file_level_metadata[6];
+void InitDefaultsSLRoutev4NotifRouteImpl() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+#ifdef GOOGLE_PROTOBUF_ENFORCE_UNIQUENESS
+  ::google::protobuf::internal::InitProtobufDefaultsForceUnique();
+#else
+  ::google::protobuf::internal::InitProtobufDefaults();
+#endif  // GOOGLE_PROTOBUF_ENFORCE_UNIQUENESS
+  protobuf_sl_5froute_5fipv4_2eproto::InitDefaultsSLRoutev4();
+  {
+    void* ptr = &::service_layer::_SLRoutev4NotifRoute_default_instance_;
+    new (ptr) ::service_layer::SLRoutev4NotifRoute();
+    ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::service_layer::SLRoutev4NotifRoute::InitAsDefaultInstance();
+}
+
+void InitDefaultsSLRoutev4NotifRoute() {
+  static GOOGLE_PROTOBUF_DECLARE_ONCE(once);
+  ::google::protobuf::GoogleOnceInit(&once, &InitDefaultsSLRoutev4NotifRouteImpl);
+}
+
+void InitDefaultsSLRoutev4NotifImpl() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+#ifdef GOOGLE_PROTOBUF_ENFORCE_UNIQUENESS
+  ::google::protobuf::internal::InitProtobufDefaultsForceUnique();
+#else
+  ::google::protobuf::internal::InitProtobufDefaults();
+#endif  // GOOGLE_PROTOBUF_ENFORCE_UNIQUENESS
+  protobuf_sl_5fcommon_5ftypes_2eproto::InitDefaultsSLErrorStatus();
+  protobuf_sl_5froute_5fcommon_2eproto::InitDefaultsSLRouteNotifStatus();
+  protobuf_sl_5froute_5fipv4_2eproto::InitDefaultsSLRoutev4NotifRoute();
+  protobuf_sl_5froute_5fcommon_2eproto::InitDefaultsSLRouteNotifMarker();
+  protobuf_sl_5froute_5fcommon_2eproto::InitDefaultsSLVrfNotif();
+  {
+    void* ptr = &::service_layer::_SLRoutev4Notif_default_instance_;
+    new (ptr) ::service_layer::SLRoutev4Notif();
+    ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::service_layer::SLRoutev4Notif::InitAsDefaultInstance();
+}
+
+void InitDefaultsSLRoutev4Notif() {
+  static GOOGLE_PROTOBUF_DECLARE_ONCE(once);
+  ::google::protobuf::GoogleOnceInit(&once, &InitDefaultsSLRoutev4NotifImpl);
+}
+
+::google::protobuf::Metadata file_level_metadata[8];
 
 const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
   ~0u,  // no _has_bits_
@@ -245,6 +308,25 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::service_layer::SLRoutev4GetMsgRsp, vrfname_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::service_layer::SLRoutev4GetMsgRsp, errstatus_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::service_layer::SLRoutev4GetMsgRsp, entries_),
+  ~0u,  // no _has_bits_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::service_layer::SLRoutev4NotifRoute, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::service_layer::SLRoutev4NotifRoute, vrfname_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::service_layer::SLRoutev4NotifRoute, entries_),
+  ~0u,  // no _has_bits_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::service_layer::SLRoutev4Notif, _internal_metadata_),
+  ~0u,  // no _extensions_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::service_layer::SLRoutev4Notif, _oneof_case_[0]),
+  ~0u,  // no _weak_field_map_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::service_layer::SLRoutev4Notif, eventtype_),
+  offsetof(::service_layer::SLRoutev4NotifDefaultTypeInternal, errstatus_),
+  offsetof(::service_layer::SLRoutev4NotifDefaultTypeInternal, notifstatus_),
+  offsetof(::service_layer::SLRoutev4NotifDefaultTypeInternal, route_),
+  offsetof(::service_layer::SLRoutev4NotifDefaultTypeInternal, marker_),
+  offsetof(::service_layer::SLRoutev4NotifDefaultTypeInternal, vrf_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::service_layer::SLRoutev4Notif, Event_),
 };
 static const ::google::protobuf::internal::MigrationSchema schemas[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, sizeof(::service_layer::SLRoutev4)},
@@ -253,6 +335,8 @@ static const ::google::protobuf::internal::MigrationSchema schemas[] GOOGLE_PROT
   { 26, -1, sizeof(::service_layer::SLRoutev4MsgRsp)},
   { 35, -1, sizeof(::service_layer::SLRoutev4GetMsg)},
   { 46, -1, sizeof(::service_layer::SLRoutev4GetMsgRsp)},
+  { 56, -1, sizeof(::service_layer::SLRoutev4NotifRoute)},
+  { 63, -1, sizeof(::service_layer::SLRoutev4Notif)},
 };
 
 static ::google::protobuf::Message const * const file_default_instances[] = {
@@ -262,6 +346,8 @@ static ::google::protobuf::Message const * const file_default_instances[] = {
   reinterpret_cast<const ::google::protobuf::Message*>(&::service_layer::_SLRoutev4MsgRsp_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::service_layer::_SLRoutev4GetMsg_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::service_layer::_SLRoutev4GetMsgRsp_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::service_layer::_SLRoutev4NotifRoute_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::service_layer::_SLRoutev4Notif_default_instance_),
 };
 
 void protobuf_AssignDescriptors() {
@@ -280,7 +366,7 @@ void protobuf_AssignDescriptorsOnce() {
 void protobuf_RegisterTypes(const ::std::string&) GOOGLE_PROTOBUF_ATTRIBUTE_COLD;
 void protobuf_RegisterTypes(const ::std::string&) {
   protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::internal::RegisterAllTypes(file_level_metadata, 6);
+  ::google::protobuf::internal::RegisterAllTypes(file_level_metadata, 8);
 }
 
 void AddDescriptorsImpl() {
@@ -308,31 +394,44 @@ void AddDescriptorsImpl() {
       "outev4GetMsgRsp\022\022\n\nCorrelator\030\001 \001(\004\022\013\n\003E"
       "of\030\002 \001(\010\022\017\n\007VrfName\030\003 \001(\t\022/\n\tErrStatus\030\004"
       " \001(\0132\034.service_layer.SLErrorStatus\022)\n\007En"
-      "tries\030\005 \003(\0132\030.service_layer.SLRoutev42\267\006"
-      "\n\rSLRoutev4Oper\022b\n\023SLRoutev4GlobalsGet\022#"
-      ".service_layer.SLRouteGlobalsGetMsg\032&.se"
-      "rvice_layer.SLRouteGlobalsGetMsgRsp\022n\n\027S"
-      "LRoutev4GlobalStatsGet\022\'.service_layer.S"
-      "LRouteGlobalStatsGetMsg\032*.service_layer."
-      "SLRouteGlobalStatsGetMsgRsp\022N\n\021SLRoutev4"
-      "VrfRegOp\022\032.service_layer.SLVrfRegMsg\032\035.s"
-      "ervice_layer.SLVrfRegMsgRsp\022U\n\022SLRoutev4"
-      "VrfRegGet\022\035.service_layer.SLVrfRegGetMsg"
-      "\032 .service_layer.SLVrfRegGetMsgRsp\022Y\n\024SL"
-      "Routev4VrfGetStats\022\035.service_layer.SLVrf"
-      "RegGetMsg\032\".service_layer.SLVRFGetStatsM"
-      "sgRsp\022J\n\013SLRoutev4Op\022\033.service_layer.SLR"
-      "outev4Msg\032\036.service_layer.SLRoutev4MsgRs"
-      "p\022Q\n\014SLRoutev4Get\022\036.service_layer.SLRout"
-      "ev4GetMsg\032!.service_layer.SLRoutev4GetMs"
-      "gRsp\022T\n\021SLRoutev4OpStream\022\033.service_laye"
-      "r.SLRoutev4Msg\032\036.service_layer.SLRoutev4"
-      "MsgRsp(\0010\001\022[\n\022SLRoutev4GetStream\022\036.servi"
+      "tries\030\005 \003(\0132\030.service_layer.SLRoutev4\"Q\n"
+      "\023SLRoutev4NotifRoute\022\017\n\007VrfName\030\001 \001(\t\022)\n"
+      "\007Entries\030\002 \003(\0132\030.service_layer.SLRoutev4"
+      "\"\311\002\n\016SLRoutev4Notif\022-\n\tEventType\030\001 \001(\0162\032"
+      ".service_layer.SLNotifType\0221\n\tErrStatus\030"
+      "\002 \001(\0132\034.service_layer.SLErrorStatusH\000\0228\n"
+      "\013NotifStatus\030\003 \001(\0132!.service_layer.SLRou"
+      "teNotifStatusH\000\0223\n\005Route\030\004 \001(\0132\".service"
+      "_layer.SLRoutev4NotifRouteH\000\0223\n\006Marker\030\005"
+      " \001(\0132!.service_layer.SLRouteNotifMarkerH"
+      "\000\022(\n\003Vrf\030\006 \001(\0132\031.service_layer.SLVrfNoti"
+      "fH\000B\007\n\005Event2\230\007\n\rSLRoutev4Oper\022b\n\023SLRout"
+      "ev4GlobalsGet\022#.service_layer.SLRouteGlo"
+      "balsGetMsg\032&.service_layer.SLRouteGlobal"
+      "sGetMsgRsp\022n\n\027SLRoutev4GlobalStatsGet\022\'."
+      "service_layer.SLRouteGlobalStatsGetMsg\032*"
+      ".service_layer.SLRouteGlobalStatsGetMsgR"
+      "sp\022N\n\021SLRoutev4VrfRegOp\022\032.service_layer."
+      "SLVrfRegMsg\032\035.service_layer.SLVrfRegMsgR"
+      "sp\022U\n\022SLRoutev4VrfRegGet\022\035.service_layer"
+      ".SLVrfRegGetMsg\032 .service_layer.SLVrfReg"
+      "GetMsgRsp\022Y\n\024SLRoutev4VrfGetStats\022\035.serv"
+      "ice_layer.SLVrfRegGetMsg\032\".service_layer"
+      ".SLVRFGetStatsMsgRsp\022J\n\013SLRoutev4Op\022\033.se"
+      "rvice_layer.SLRoutev4Msg\032\036.service_layer"
+      ".SLRoutev4MsgRsp\022Q\n\014SLRoutev4Get\022\036.servi"
       "ce_layer.SLRoutev4GetMsg\032!.service_layer"
-      ".SLRoutev4GetMsgRsp(\0010\001b\006proto3"
+      ".SLRoutev4GetMsgRsp\022T\n\021SLRoutev4OpStream"
+      "\022\033.service_layer.SLRoutev4Msg\032\036.service_"
+      "layer.SLRoutev4MsgRsp(\0010\001\022[\n\022SLRoutev4Ge"
+      "tStream\022\036.service_layer.SLRoutev4GetMsg\032"
+      "!.service_layer.SLRoutev4GetMsgRsp(\0010\001\022_"
+      "\n\027SLRoutev4GetNotifStream\022!.service_laye"
+      "r.SLRouteGetNotifMsg\032\035.service_layer.SLR"
+      "outev4Notif(\0010\001b\006proto3"
   };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 1751);
+      descriptor, 2263);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "sl_route_ipv4.proto", &protobuf_RegisterTypes);
   ::protobuf_sl_5fcommon_5ftypes_2eproto::AddDescriptors();
@@ -2712,6 +2811,907 @@ void SLRoutev4GetMsgRsp::InternalSwap(SLRoutev4GetMsgRsp* other) {
 }
 
 ::google::protobuf::Metadata SLRoutev4GetMsgRsp::GetMetadata() const {
+  protobuf_sl_5froute_5fipv4_2eproto::protobuf_AssignDescriptorsOnce();
+  return ::protobuf_sl_5froute_5fipv4_2eproto::file_level_metadata[kIndexInFileMessages];
+}
+
+
+// ===================================================================
+
+void SLRoutev4NotifRoute::InitAsDefaultInstance() {
+}
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int SLRoutev4NotifRoute::kVrfNameFieldNumber;
+const int SLRoutev4NotifRoute::kEntriesFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+SLRoutev4NotifRoute::SLRoutev4NotifRoute()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
+    ::protobuf_sl_5froute_5fipv4_2eproto::InitDefaultsSLRoutev4NotifRoute();
+  }
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:service_layer.SLRoutev4NotifRoute)
+}
+SLRoutev4NotifRoute::SLRoutev4NotifRoute(const SLRoutev4NotifRoute& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(NULL),
+      entries_(from.entries_),
+      _cached_size_(0) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  vrfname_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.vrfname().size() > 0) {
+    vrfname_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.vrfname_);
+  }
+  // @@protoc_insertion_point(copy_constructor:service_layer.SLRoutev4NotifRoute)
+}
+
+void SLRoutev4NotifRoute::SharedCtor() {
+  vrfname_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  _cached_size_ = 0;
+}
+
+SLRoutev4NotifRoute::~SLRoutev4NotifRoute() {
+  // @@protoc_insertion_point(destructor:service_layer.SLRoutev4NotifRoute)
+  SharedDtor();
+}
+
+void SLRoutev4NotifRoute::SharedDtor() {
+  vrfname_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+
+void SLRoutev4NotifRoute::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* SLRoutev4NotifRoute::descriptor() {
+  ::protobuf_sl_5froute_5fipv4_2eproto::protobuf_AssignDescriptorsOnce();
+  return ::protobuf_sl_5froute_5fipv4_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
+}
+
+const SLRoutev4NotifRoute& SLRoutev4NotifRoute::default_instance() {
+  ::protobuf_sl_5froute_5fipv4_2eproto::InitDefaultsSLRoutev4NotifRoute();
+  return *internal_default_instance();
+}
+
+SLRoutev4NotifRoute* SLRoutev4NotifRoute::New(::google::protobuf::Arena* arena) const {
+  SLRoutev4NotifRoute* n = new SLRoutev4NotifRoute;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void SLRoutev4NotifRoute::Clear() {
+// @@protoc_insertion_point(message_clear_start:service_layer.SLRoutev4NotifRoute)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  entries_.Clear();
+  vrfname_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  _internal_metadata_.Clear();
+}
+
+bool SLRoutev4NotifRoute::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:service_layer.SLRoutev4NotifRoute)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // string VrfName = 1;
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(10u /* 10 & 0xFF */)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_vrfname()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->vrfname().data(), static_cast<int>(this->vrfname().length()),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "service_layer.SLRoutev4NotifRoute.VrfName"));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // repeated .service_layer.SLRoutev4 Entries = 2;
+      case 2: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(18u /* 18 & 0xFF */)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(input, add_entries()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, _internal_metadata_.mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:service_layer.SLRoutev4NotifRoute)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:service_layer.SLRoutev4NotifRoute)
+  return false;
+#undef DO_
+}
+
+void SLRoutev4NotifRoute::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:service_layer.SLRoutev4NotifRoute)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // string VrfName = 1;
+  if (this->vrfname().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->vrfname().data(), static_cast<int>(this->vrfname().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "service_layer.SLRoutev4NotifRoute.VrfName");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      1, this->vrfname(), output);
+  }
+
+  // repeated .service_layer.SLRoutev4 Entries = 2;
+  for (unsigned int i = 0,
+      n = static_cast<unsigned int>(this->entries_size()); i < n; i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      2, this->entries(static_cast<int>(i)), output);
+  }
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
+  }
+  // @@protoc_insertion_point(serialize_end:service_layer.SLRoutev4NotifRoute)
+}
+
+::google::protobuf::uint8* SLRoutev4NotifRoute::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  (void)deterministic; // Unused
+  // @@protoc_insertion_point(serialize_to_array_start:service_layer.SLRoutev4NotifRoute)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // string VrfName = 1;
+  if (this->vrfname().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->vrfname().data(), static_cast<int>(this->vrfname().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "service_layer.SLRoutev4NotifRoute.VrfName");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        1, this->vrfname(), target);
+  }
+
+  // repeated .service_layer.SLRoutev4 Entries = 2;
+  for (unsigned int i = 0,
+      n = static_cast<unsigned int>(this->entries_size()); i < n; i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageToArray(
+        2, this->entries(static_cast<int>(i)), deterministic, target);
+  }
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:service_layer.SLRoutev4NotifRoute)
+  return target;
+}
+
+size_t SLRoutev4NotifRoute::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:service_layer.SLRoutev4NotifRoute)
+  size_t total_size = 0;
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
+  }
+  // repeated .service_layer.SLRoutev4 Entries = 2;
+  {
+    unsigned int count = static_cast<unsigned int>(this->entries_size());
+    total_size += 1UL * count;
+    for (unsigned int i = 0; i < count; i++) {
+      total_size +=
+        ::google::protobuf::internal::WireFormatLite::MessageSize(
+          this->entries(static_cast<int>(i)));
+    }
+  }
+
+  // string VrfName = 1;
+  if (this->vrfname().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->vrfname());
+  }
+
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = cached_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void SLRoutev4NotifRoute::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:service_layer.SLRoutev4NotifRoute)
+  GOOGLE_DCHECK_NE(&from, this);
+  const SLRoutev4NotifRoute* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const SLRoutev4NotifRoute>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:service_layer.SLRoutev4NotifRoute)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:service_layer.SLRoutev4NotifRoute)
+    MergeFrom(*source);
+  }
+}
+
+void SLRoutev4NotifRoute::MergeFrom(const SLRoutev4NotifRoute& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:service_layer.SLRoutev4NotifRoute)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  entries_.MergeFrom(from.entries_);
+  if (from.vrfname().size() > 0) {
+
+    vrfname_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.vrfname_);
+  }
+}
+
+void SLRoutev4NotifRoute::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:service_layer.SLRoutev4NotifRoute)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void SLRoutev4NotifRoute::CopyFrom(const SLRoutev4NotifRoute& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:service_layer.SLRoutev4NotifRoute)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool SLRoutev4NotifRoute::IsInitialized() const {
+  return true;
+}
+
+void SLRoutev4NotifRoute::Swap(SLRoutev4NotifRoute* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void SLRoutev4NotifRoute::InternalSwap(SLRoutev4NotifRoute* other) {
+  using std::swap;
+  entries_.InternalSwap(&other->entries_);
+  vrfname_.Swap(&other->vrfname_);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata SLRoutev4NotifRoute::GetMetadata() const {
+  protobuf_sl_5froute_5fipv4_2eproto::protobuf_AssignDescriptorsOnce();
+  return ::protobuf_sl_5froute_5fipv4_2eproto::file_level_metadata[kIndexInFileMessages];
+}
+
+
+// ===================================================================
+
+void SLRoutev4Notif::InitAsDefaultInstance() {
+  ::service_layer::_SLRoutev4Notif_default_instance_.errstatus_ = const_cast< ::service_layer::SLErrorStatus*>(
+      ::service_layer::SLErrorStatus::internal_default_instance());
+  ::service_layer::_SLRoutev4Notif_default_instance_.notifstatus_ = const_cast< ::service_layer::SLRouteNotifStatus*>(
+      ::service_layer::SLRouteNotifStatus::internal_default_instance());
+  ::service_layer::_SLRoutev4Notif_default_instance_.route_ = const_cast< ::service_layer::SLRoutev4NotifRoute*>(
+      ::service_layer::SLRoutev4NotifRoute::internal_default_instance());
+  ::service_layer::_SLRoutev4Notif_default_instance_.marker_ = const_cast< ::service_layer::SLRouteNotifMarker*>(
+      ::service_layer::SLRouteNotifMarker::internal_default_instance());
+  ::service_layer::_SLRoutev4Notif_default_instance_.vrf_ = const_cast< ::service_layer::SLVrfNotif*>(
+      ::service_layer::SLVrfNotif::internal_default_instance());
+}
+void SLRoutev4Notif::set_allocated_errstatus(::service_layer::SLErrorStatus* errstatus) {
+  ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
+  clear_Event();
+  if (errstatus) {
+    ::google::protobuf::Arena* submessage_arena = NULL;
+    if (message_arena != submessage_arena) {
+      errstatus = ::google::protobuf::internal::GetOwnedMessage(
+          message_arena, errstatus, submessage_arena);
+    }
+    set_has_errstatus();
+    Event_.errstatus_ = errstatus;
+  }
+  // @@protoc_insertion_point(field_set_allocated:service_layer.SLRoutev4Notif.ErrStatus)
+}
+void SLRoutev4Notif::clear_errstatus() {
+  if (has_errstatus()) {
+    delete Event_.errstatus_;
+    clear_has_Event();
+  }
+}
+void SLRoutev4Notif::set_allocated_notifstatus(::service_layer::SLRouteNotifStatus* notifstatus) {
+  ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
+  clear_Event();
+  if (notifstatus) {
+    ::google::protobuf::Arena* submessage_arena = NULL;
+    if (message_arena != submessage_arena) {
+      notifstatus = ::google::protobuf::internal::GetOwnedMessage(
+          message_arena, notifstatus, submessage_arena);
+    }
+    set_has_notifstatus();
+    Event_.notifstatus_ = notifstatus;
+  }
+  // @@protoc_insertion_point(field_set_allocated:service_layer.SLRoutev4Notif.NotifStatus)
+}
+void SLRoutev4Notif::clear_notifstatus() {
+  if (has_notifstatus()) {
+    delete Event_.notifstatus_;
+    clear_has_Event();
+  }
+}
+void SLRoutev4Notif::set_allocated_route(::service_layer::SLRoutev4NotifRoute* route) {
+  ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
+  clear_Event();
+  if (route) {
+    ::google::protobuf::Arena* submessage_arena = NULL;
+    if (message_arena != submessage_arena) {
+      route = ::google::protobuf::internal::GetOwnedMessage(
+          message_arena, route, submessage_arena);
+    }
+    set_has_route();
+    Event_.route_ = route;
+  }
+  // @@protoc_insertion_point(field_set_allocated:service_layer.SLRoutev4Notif.Route)
+}
+void SLRoutev4Notif::set_allocated_marker(::service_layer::SLRouteNotifMarker* marker) {
+  ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
+  clear_Event();
+  if (marker) {
+    ::google::protobuf::Arena* submessage_arena = NULL;
+    if (message_arena != submessage_arena) {
+      marker = ::google::protobuf::internal::GetOwnedMessage(
+          message_arena, marker, submessage_arena);
+    }
+    set_has_marker();
+    Event_.marker_ = marker;
+  }
+  // @@protoc_insertion_point(field_set_allocated:service_layer.SLRoutev4Notif.Marker)
+}
+void SLRoutev4Notif::clear_marker() {
+  if (has_marker()) {
+    delete Event_.marker_;
+    clear_has_Event();
+  }
+}
+void SLRoutev4Notif::set_allocated_vrf(::service_layer::SLVrfNotif* vrf) {
+  ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
+  clear_Event();
+  if (vrf) {
+    ::google::protobuf::Arena* submessage_arena = NULL;
+    if (message_arena != submessage_arena) {
+      vrf = ::google::protobuf::internal::GetOwnedMessage(
+          message_arena, vrf, submessage_arena);
+    }
+    set_has_vrf();
+    Event_.vrf_ = vrf;
+  }
+  // @@protoc_insertion_point(field_set_allocated:service_layer.SLRoutev4Notif.Vrf)
+}
+void SLRoutev4Notif::clear_vrf() {
+  if (has_vrf()) {
+    delete Event_.vrf_;
+    clear_has_Event();
+  }
+}
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int SLRoutev4Notif::kEventTypeFieldNumber;
+const int SLRoutev4Notif::kErrStatusFieldNumber;
+const int SLRoutev4Notif::kNotifStatusFieldNumber;
+const int SLRoutev4Notif::kRouteFieldNumber;
+const int SLRoutev4Notif::kMarkerFieldNumber;
+const int SLRoutev4Notif::kVrfFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+SLRoutev4Notif::SLRoutev4Notif()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
+    ::protobuf_sl_5froute_5fipv4_2eproto::InitDefaultsSLRoutev4Notif();
+  }
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:service_layer.SLRoutev4Notif)
+}
+SLRoutev4Notif::SLRoutev4Notif(const SLRoutev4Notif& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(NULL),
+      _cached_size_(0) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  eventtype_ = from.eventtype_;
+  clear_has_Event();
+  switch (from.Event_case()) {
+    case kErrStatus: {
+      mutable_errstatus()->::service_layer::SLErrorStatus::MergeFrom(from.errstatus());
+      break;
+    }
+    case kNotifStatus: {
+      mutable_notifstatus()->::service_layer::SLRouteNotifStatus::MergeFrom(from.notifstatus());
+      break;
+    }
+    case kRoute: {
+      mutable_route()->::service_layer::SLRoutev4NotifRoute::MergeFrom(from.route());
+      break;
+    }
+    case kMarker: {
+      mutable_marker()->::service_layer::SLRouteNotifMarker::MergeFrom(from.marker());
+      break;
+    }
+    case kVrf: {
+      mutable_vrf()->::service_layer::SLVrfNotif::MergeFrom(from.vrf());
+      break;
+    }
+    case EVENT_NOT_SET: {
+      break;
+    }
+  }
+  // @@protoc_insertion_point(copy_constructor:service_layer.SLRoutev4Notif)
+}
+
+void SLRoutev4Notif::SharedCtor() {
+  eventtype_ = 0;
+  clear_has_Event();
+  _cached_size_ = 0;
+}
+
+SLRoutev4Notif::~SLRoutev4Notif() {
+  // @@protoc_insertion_point(destructor:service_layer.SLRoutev4Notif)
+  SharedDtor();
+}
+
+void SLRoutev4Notif::SharedDtor() {
+  if (has_Event()) {
+    clear_Event();
+  }
+}
+
+void SLRoutev4Notif::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* SLRoutev4Notif::descriptor() {
+  ::protobuf_sl_5froute_5fipv4_2eproto::protobuf_AssignDescriptorsOnce();
+  return ::protobuf_sl_5froute_5fipv4_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
+}
+
+const SLRoutev4Notif& SLRoutev4Notif::default_instance() {
+  ::protobuf_sl_5froute_5fipv4_2eproto::InitDefaultsSLRoutev4Notif();
+  return *internal_default_instance();
+}
+
+SLRoutev4Notif* SLRoutev4Notif::New(::google::protobuf::Arena* arena) const {
+  SLRoutev4Notif* n = new SLRoutev4Notif;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void SLRoutev4Notif::clear_Event() {
+// @@protoc_insertion_point(one_of_clear_start:service_layer.SLRoutev4Notif)
+  switch (Event_case()) {
+    case kErrStatus: {
+      delete Event_.errstatus_;
+      break;
+    }
+    case kNotifStatus: {
+      delete Event_.notifstatus_;
+      break;
+    }
+    case kRoute: {
+      delete Event_.route_;
+      break;
+    }
+    case kMarker: {
+      delete Event_.marker_;
+      break;
+    }
+    case kVrf: {
+      delete Event_.vrf_;
+      break;
+    }
+    case EVENT_NOT_SET: {
+      break;
+    }
+  }
+  _oneof_case_[0] = EVENT_NOT_SET;
+}
+
+
+void SLRoutev4Notif::Clear() {
+// @@protoc_insertion_point(message_clear_start:service_layer.SLRoutev4Notif)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  eventtype_ = 0;
+  clear_Event();
+  _internal_metadata_.Clear();
+}
+
+bool SLRoutev4Notif::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:service_layer.SLRoutev4Notif)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // .service_layer.SLNotifType EventType = 1;
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(8u /* 8 & 0xFF */)) {
+          int value;
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
+                 input, &value)));
+          set_eventtype(static_cast< ::service_layer::SLNotifType >(value));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // .service_layer.SLErrorStatus ErrStatus = 2;
+      case 2: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(18u /* 18 & 0xFF */)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
+               input, mutable_errstatus()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // .service_layer.SLRouteNotifStatus NotifStatus = 3;
+      case 3: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(26u /* 26 & 0xFF */)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
+               input, mutable_notifstatus()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // .service_layer.SLRoutev4NotifRoute Route = 4;
+      case 4: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(34u /* 34 & 0xFF */)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
+               input, mutable_route()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // .service_layer.SLRouteNotifMarker Marker = 5;
+      case 5: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(42u /* 42 & 0xFF */)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
+               input, mutable_marker()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // .service_layer.SLVrfNotif Vrf = 6;
+      case 6: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(50u /* 50 & 0xFF */)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
+               input, mutable_vrf()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, _internal_metadata_.mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:service_layer.SLRoutev4Notif)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:service_layer.SLRoutev4Notif)
+  return false;
+#undef DO_
+}
+
+void SLRoutev4Notif::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:service_layer.SLRoutev4Notif)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // .service_layer.SLNotifType EventType = 1;
+  if (this->eventtype() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteEnum(
+      1, this->eventtype(), output);
+  }
+
+  // .service_layer.SLErrorStatus ErrStatus = 2;
+  if (has_errstatus()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      2, *Event_.errstatus_, output);
+  }
+
+  // .service_layer.SLRouteNotifStatus NotifStatus = 3;
+  if (has_notifstatus()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      3, *Event_.notifstatus_, output);
+  }
+
+  // .service_layer.SLRoutev4NotifRoute Route = 4;
+  if (has_route()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      4, *Event_.route_, output);
+  }
+
+  // .service_layer.SLRouteNotifMarker Marker = 5;
+  if (has_marker()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      5, *Event_.marker_, output);
+  }
+
+  // .service_layer.SLVrfNotif Vrf = 6;
+  if (has_vrf()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      6, *Event_.vrf_, output);
+  }
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
+  }
+  // @@protoc_insertion_point(serialize_end:service_layer.SLRoutev4Notif)
+}
+
+::google::protobuf::uint8* SLRoutev4Notif::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  (void)deterministic; // Unused
+  // @@protoc_insertion_point(serialize_to_array_start:service_layer.SLRoutev4Notif)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // .service_layer.SLNotifType EventType = 1;
+  if (this->eventtype() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
+      1, this->eventtype(), target);
+  }
+
+  // .service_layer.SLErrorStatus ErrStatus = 2;
+  if (has_errstatus()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageToArray(
+        2, *Event_.errstatus_, deterministic, target);
+  }
+
+  // .service_layer.SLRouteNotifStatus NotifStatus = 3;
+  if (has_notifstatus()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageToArray(
+        3, *Event_.notifstatus_, deterministic, target);
+  }
+
+  // .service_layer.SLRoutev4NotifRoute Route = 4;
+  if (has_route()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageToArray(
+        4, *Event_.route_, deterministic, target);
+  }
+
+  // .service_layer.SLRouteNotifMarker Marker = 5;
+  if (has_marker()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageToArray(
+        5, *Event_.marker_, deterministic, target);
+  }
+
+  // .service_layer.SLVrfNotif Vrf = 6;
+  if (has_vrf()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageToArray(
+        6, *Event_.vrf_, deterministic, target);
+  }
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:service_layer.SLRoutev4Notif)
+  return target;
+}
+
+size_t SLRoutev4Notif::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:service_layer.SLRoutev4Notif)
+  size_t total_size = 0;
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
+  }
+  // .service_layer.SLNotifType EventType = 1;
+  if (this->eventtype() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::EnumSize(this->eventtype());
+  }
+
+  switch (Event_case()) {
+    // .service_layer.SLErrorStatus ErrStatus = 2;
+    case kErrStatus: {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::MessageSize(
+          *Event_.errstatus_);
+      break;
+    }
+    // .service_layer.SLRouteNotifStatus NotifStatus = 3;
+    case kNotifStatus: {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::MessageSize(
+          *Event_.notifstatus_);
+      break;
+    }
+    // .service_layer.SLRoutev4NotifRoute Route = 4;
+    case kRoute: {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::MessageSize(
+          *Event_.route_);
+      break;
+    }
+    // .service_layer.SLRouteNotifMarker Marker = 5;
+    case kMarker: {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::MessageSize(
+          *Event_.marker_);
+      break;
+    }
+    // .service_layer.SLVrfNotif Vrf = 6;
+    case kVrf: {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::MessageSize(
+          *Event_.vrf_);
+      break;
+    }
+    case EVENT_NOT_SET: {
+      break;
+    }
+  }
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = cached_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void SLRoutev4Notif::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:service_layer.SLRoutev4Notif)
+  GOOGLE_DCHECK_NE(&from, this);
+  const SLRoutev4Notif* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const SLRoutev4Notif>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:service_layer.SLRoutev4Notif)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:service_layer.SLRoutev4Notif)
+    MergeFrom(*source);
+  }
+}
+
+void SLRoutev4Notif::MergeFrom(const SLRoutev4Notif& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:service_layer.SLRoutev4Notif)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.eventtype() != 0) {
+    set_eventtype(from.eventtype());
+  }
+  switch (from.Event_case()) {
+    case kErrStatus: {
+      mutable_errstatus()->::service_layer::SLErrorStatus::MergeFrom(from.errstatus());
+      break;
+    }
+    case kNotifStatus: {
+      mutable_notifstatus()->::service_layer::SLRouteNotifStatus::MergeFrom(from.notifstatus());
+      break;
+    }
+    case kRoute: {
+      mutable_route()->::service_layer::SLRoutev4NotifRoute::MergeFrom(from.route());
+      break;
+    }
+    case kMarker: {
+      mutable_marker()->::service_layer::SLRouteNotifMarker::MergeFrom(from.marker());
+      break;
+    }
+    case kVrf: {
+      mutable_vrf()->::service_layer::SLVrfNotif::MergeFrom(from.vrf());
+      break;
+    }
+    case EVENT_NOT_SET: {
+      break;
+    }
+  }
+}
+
+void SLRoutev4Notif::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:service_layer.SLRoutev4Notif)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void SLRoutev4Notif::CopyFrom(const SLRoutev4Notif& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:service_layer.SLRoutev4Notif)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool SLRoutev4Notif::IsInitialized() const {
+  return true;
+}
+
+void SLRoutev4Notif::Swap(SLRoutev4Notif* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void SLRoutev4Notif::InternalSwap(SLRoutev4Notif* other) {
+  using std::swap;
+  swap(eventtype_, other->eventtype_);
+  swap(Event_, other->Event_);
+  swap(_oneof_case_[0], other->_oneof_case_[0]);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata SLRoutev4Notif::GetMetadata() const {
   protobuf_sl_5froute_5fipv4_2eproto::protobuf_AssignDescriptorsOnce();
   return ::protobuf_sl_5froute_5fipv4_2eproto::file_level_metadata[kIndexInFileMessages];
 }

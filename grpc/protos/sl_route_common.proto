@@ -173,6 +173,97 @@ message SLVRFGetStatsMsgRsp {
     repeated SLVRFGetStatsMsgRes Entries = 3;
 }
 
+// L3 Event Notification types
+enum SLNotifType {
+    // Reserved. 0x0
+    SL_EVENT_TYPE_RESERVED = 0x0;
+
+    // Error - ErrStatus field elaborates on the error.
+    // The client can decide to close the stream based on the error. 0x1
+    SL_EVENT_TYPE_ERROR = 0x1;
+
+    // Status of GetNotifMsg per VRF.
+    // NotifStatus field elaborates on the result.
+    // If there is an error, only the notification for the VRF in the
+    // status message is not setup. 0x2
+    SL_EVENT_TYPE_STATUS = 0x2;
+
+    // Route Notification. 0x3
+    SL_EVENT_TYPE_ROUTE = 0x3;
+
+    // Start marker per VRF - sent before any ROUTE notification is sent.
+    // This is an indication to stale any objects received until now. 0x4
+    SL_EVENT_TYPE_START_MARKER = 0x4;
+
+    // End marker per VRF - sent after all ROUTE notifications are sent.
+    // This is an indication to sweep any stale objects, if present. 0x5
+    SL_EVENT_TYPE_END_MARKER = 0x5;
+
+    // VRF Add/Update/Delete Notification. 0x6
+    SL_EVENT_TYPE_VRF = 0x6;
+}
+
+// Common Get Notifications message
+message SLRouteGetNotifMsg {
+    // Oper = SL_NOTIFOP_ENABLE
+    //   This is to enable route notifications in a VRF
+    // Oper = SL_NOTIFOP_DISABLE
+    //   This is to disable route notifications in a VRF
+    SLNotifOp Oper = 1;
+
+    // Correlator. This is used to correlate SLRouteGetNotifMsg with
+    // SLRouteNotifStatus. The server reflects this field in the reply.
+    // A client can send a SLRouteGetNotifMsg with the Correlator only.
+    // Once accepted and reply is sent, VRF notifications are sent.
+    // This is useful if a client wants to receive VRF notifications
+    // (SLVrfNotif) only and is not interested in receiving route
+    // notifications (SLRoutev4NotifRoute/SLRoutev6NotifRoute) from any VRF.
+    uint64 Correlator = 2;
+
+    // Vrf that the client is interested in.
+    string VrfName = 3;
+
+    // Source Protocol.
+    // Only routes with specified source protocol and protocol tag will be
+    // notified.
+    // Contact Cisco for supported protocol string names.
+    string SrcProto = 4;
+
+    // Source Protocol Tag. This can be empty if N/A.
+    // Contact Cisco for supported protocol tags.
+    string SrcProtoTag = 5;
+}
+
+// Common Route Notification Status message
+message SLRouteNotifStatus {
+    // Correlator in the request.
+    uint64 Correlator = 1;
+
+    // Vrf in the request.
+    string VrfName = 2;
+
+    // The NotifStatus implies one of 2 things:
+    // SL_SUCCESS: signifies that the notification request was successful
+    // SL_XXX: signifies an error in setting up a notification for the Vrf.
+    //  Implies that notifications for this VRF will not be sent.
+    SLErrorStatus NotifStatus = 3;
+}
+
+// Common Marker Notification message
+message SLRouteNotifMarker {
+    // Vrf that this notification message applies to.
+    string VrfName = 1;
+}
+
+// Common Vrf Notification message
+message SLVrfNotif {
+    // Vrf that this notification message applies to.
+    string VrfName = 1;
+
+    // Status of this Vrf: add/update/delete.
+    SLObjectOp Status = 2;
+}
+
 // Common IPv4/IPv6 route attributes.
 message SLRouteCommon {
     // Adminstrative distance of the route. [0-255].
@@ -198,6 +289,18 @@ message SLRouteCommon {
     // Routes are usually tagged to prevent loops during redistribution between
     // protocols.
     uint32 Tag = 3;
+
+    // Source Protocol.
+    // For redistributed messages via notification stream only,
+    // ignored otherwise.
+    // Contact Cisco for supported protocol string names.
+    string SrcProto = 4;
+
+    // Source Protocol Tag. This can be empty if N/A.
+    // For redistributed messages via notification stream only,
+    // ignored otherwise.
+    // Contact Cisco for supported protocol tags.
+    string SrcProtoTag = 5;
 }
 
 // Route Path attributes.
@@ -208,6 +311,8 @@ message SLRouteCommon {
 // value is platform specific and is not configurable.
 message SLRoutePath {
     // One of IPv4 or IPv6 address
+    // For ENCAP_VXLAN, this will specify the tunnel end point IP
+    // address.
     SLIpAddress NexthopAddress = 1;
 
     // Outgoing interface name for the path.
@@ -219,6 +324,9 @@ message SLRoutePath {
 
     // Path VRF name. This field is used ONLY if the path is in a different
     // VRF than the route (e.g. VPN cases)
+    // For ENCAP_VXLAN, this field can be used to specify the VRF where
+    // the tunnel end point IP address resides ("default" will be assumed
+    // if not specified).
     string VrfName = 4;
 
     // Route Metric.
@@ -268,7 +376,7 @@ message SLRoutePath {
     // (1 << (pathId_1 - 1))  | (1 << (pathId_2 - 1)) | (1 << (pathId_3 - 1))
     repeated uint64 ProtectedPathBitmap = 7;
 
-    // MPLS label stack.
+    // MPLS label stack or VxLAN Virtual Network Identifier.
     // Stack of labels that is pushed when the packet is switched out.
     // Label size is LSB 20 bits. Forwarding will set EXP, TTL and BOS.
     // For primary path, typically only 1 label is used.
@@ -276,12 +384,24 @@ message SLRoutePath {
     // is used, remote backup addresses must be specified.
     // The maximum number of labels pushed for primary and backup are
     // platform dependent.
+    // For ENCAP_VXLAN, this field will specify the Virtual Network
+    // Identifier (VNI)
     repeated uint32 LabelStack = 8;
 
     // MPLS Remote router backup address.
     // This field is used only for backup MPLS path with more than one label
     // For N+1 backup labels, N remote backup addresses must be specified.
     repeated SLIpAddress RemoteAddress = 9;
+
+    // Encapsulation type (VXLAN or MPLS)
+    SLEncapType EncapType = 10;
+
+    // VTEP (VxLAN tunnel end point) router MAC address.
+    // A unique system MAC address that other VTEPs can use for inter-VNI
+    // routing. The router MAC address is used as the inner destination MAC
+    // address for routed VXLAN packet.
+    // Used for ENCAP_VXLAN (mandatory) only.
+    bytes VtepRouterMacAddress = 11;
 }
 
 // @}
