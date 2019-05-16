@@ -1,0 +1,591 @@
+// @file
+// @brief Server RPC proto file for L2 routes.
+//
+// ----------------------------------------------------------------
+//  Copyright (c) 2016 by cisco Systems, Inc.
+//  All rights reserved.
+// -----------------------------------------------------------------
+//
+//
+
+syntax = "proto3";
+package service_layer;
+
+import "sl_common_types.proto";
+
+// @defgroup SLRouteL2Oper
+// @ingroup L2Route
+// Defines RPC calls for L2 route changes and Bridge-Domain (BD) registration.
+// This service declares calls for adding, deleting, updating and getting
+// L2 routes.
+// @{
+service SLL2Oper {
+    //@addtogroup SLRouteL2Oper
+    //@{
+    //;
+
+    //
+    // Global L2 route operations
+    //
+
+    // Used to retrieve global L2 info from the server.
+    rpc SLL2GlobalsGet(SLL2GlobalsGetMsg) returns (SLL2GlobalsGetMsgRsp);
+
+    //
+    // L2 Registration Operations
+    //
+
+    // SLL2RegMsg.Oper = SL_REGOP_REGISTER:
+    //     Global L2 registration.
+    //     A client Must Register BEFORE sending BD registration messages
+    //     (to add/update/delete routes) or BEFORE requesting for L2 route
+    //     notifications.
+    //
+    // SLL2RegMsg.Oper = SL_REGOP_UNREGISTER:
+    //     Global L2 un-registration.
+    //     This call is used to convey that the client is no longer
+    //     interested in programming L2 routes and in receiving L2 route
+    //     notifications. All programmed L2 routes will be deleted on the
+    //     server and the server will stop sending L2 route notifications.
+    //
+    // SLL2RegMsg.Oper = SL_REGOP_EOF:
+    //     Global L2 End Of File message.
+    //     After Registration, the client is expected to send an EOF
+    //     message to convey the end of replay of the client's known
+    //     objects and to convey the end of requests for L2 route
+    //     notifications.
+    //     This is especially useful under certain restart scenarios when the
+    //     client and the server are trying to synchronize their routes.
+    //
+    rpc SLL2RegOp(SLL2RegMsg) returns (SLL2RegMsgRsp);
+
+    //
+    // L2 Bridge-Domain (BD) Registration Operations
+    //
+
+    // SLL2BdRegMsg.Oper = SL_REGOP_REGISTER:
+    //     BD registration: Sends a list of BD registration messages and
+    //     expects a list of registration responses.
+    //     A client Must Register a BD BEFORE L2 Routes can be added/modified
+    //     in that BD.
+    //
+    // SLL2BdRegMsg.Oper = SL_REGOP_UNREGISTER:
+    //     BD un-registration: Sends a list of BD un-registration messages
+    //     and expects a list of un-registration responses.
+    //     This can be used to convey that the client is no longer
+    //     interested in programming routes in this BD. All installed L2
+    //     routes will be lost.
+    //
+    // SLL2BdRegMsg.Oper = SL_REGOP_EOF:
+    //     BD End Of File message.
+    //     After Registration, the client is expected to send an EOF
+    //     message to convey the end of replay of the client's known objects
+    //     in that BD.
+    //     This is especially useful under certain restart scenarios when the
+    //     client and the server are trying to synchronize their routes.
+    //
+    rpc SLL2BdRegOp(SLL2BdRegMsg) returns (SLL2BdRegMsgRsp);
+
+    //
+    // L2 Route Operations
+    //
+
+    // SLL2RouteMsg.Oper = SL_OBJOP_ADD:
+    // Route add. Fails if the route already exists.
+    //
+    // SLL2RouteMsg.Oper = SL_OBJOP_UPDATE:
+    // Route update. Creates or updates the route.
+    //
+    // SLL2RouteMsg.Oper = SL_OBJOP_DELETE:
+    // Route delete. The route path is not necessary to delete the route.
+    //
+    rpc SLL2RouteOp(SLL2RouteMsg) returns (SLL2RouteMsgRsp);
+
+    //
+    // L2 Stream Route Operations
+    //
+
+    // Stream adds/updates/deletes of L2 Routes.
+    rpc SLL2RouteOpStream(stream SLL2RouteMsg) returns (stream SLL2RouteMsgRsp);
+
+    //
+    // L2 Route Redistribution Operations
+    //
+
+    // This call is used to get a stream of BD state and route notifications.
+    // It can be used to get "push" notifications for route
+    // adds/updates/deletes.
+    // The caller must maintain the GRPC channel as long as there is
+    // interest in route notifications.
+    //
+    // The call takes 3 types of notification requests:
+    // 1. Request for BD state notifications only (pass only Oper and
+    //    Correlator).
+    // 2. Request for BD state and Route notifications in all BDs.
+    // 3. Request for Route notifications per-BD.
+    //    This should be sent after requesting for BD state notifications
+    //    and after receiving BD-ready notification.
+    //
+    // The success/failure of the notification request is relayed in the
+    // SLL2NotifStatusMsg followed by a Start marker, any routes if present,
+    // and an End Marker.
+    //
+    // After all requests are sent, client should send GetNotifEof = TRUE.
+    //
+    rpc SLL2GetNotifStream(stream SLL2GetNotifMsg) returns (stream SLL2Notif);
+    //@}
+}
+
+// L2 Route Globals Get Message
+message SLL2GlobalsGetMsg {
+
+}
+
+// L2 Route Globals Get Message Response
+message SLL2GlobalsGetMsgRsp {
+    // Corresponding error code.
+    SLErrorStatus ErrStatus = 1;
+
+    // Max BD registration objects within a single BdRegMsg.
+    uint32 MaxBdRegPerBdRegmsg = 2;
+
+    // Max Route objects within a single RouteMsg.
+    uint32 MaxRoutePerRoutemsg = 3;
+}
+
+
+// Global L2 Registration Message
+message SLL2RegMsg {
+    // Registration Operation.
+    SLRegOp Oper = 1;
+
+    // Default Admin distance for routes programmed by this application.
+    // Range [0-255].
+    // If the client does not need to program routes, set this value to 0.
+    uint32 AdminDistance = 2;
+
+    // In case Service Layer -> L2RIB connection is lost, this specifies the
+    // timeout period after which L2RIB will automatically purge the installed
+    // routes, unless the service layer:
+    //    1. Re-registers.
+    //    2. Replay all routes.
+    //    3. And send EOF, before the purge timeout.
+    // If the client does not need to program routes, set this value to 0.
+    uint32 PurgeIntervalSeconds = 3;
+}
+
+// Global L2 Registration message Response
+message SLL2RegMsgRsp {
+    // Error code.
+    SLErrorStatus RegStatus = 1;
+}
+
+// L2 Bridge-Domain (BD) Registration Messages
+message SLL2BdRegMsg {
+    // Registration Operation.
+    SLRegOp Oper = 1;
+
+    // List of BD names that client wants to register for.
+    repeated string BdRegName = 2;
+}
+
+// BD Registration message Result
+message SLL2BdRegRes {
+    // Corresponding error code.
+    SLErrorStatus ErrStatus = 1;
+
+    // BD Name.
+    string BdName = 2;
+}
+
+// BD Registration message Response.
+message SLL2BdRegMsgRsp {
+    // Summary result of the bulk operation (refer to enum SLErrorStatus)
+    // In general, the StatusSummary implies one of 3 things:
+    // 1. SL_SUCCESS: signifies that the entire bulk operation was successful.
+    //         In this case, the Results list is empty.
+    // 2. SL_SOME_ERR: signifies that the operation failed for one or more
+    //         entries. In this case, Results holds the result for
+    //         each individual entry in the bulk.
+    // 3. SL_RPC_XXX: signifies that the entire bulk operation failed.
+    //         In this case, the Results list is empty.
+    SLErrorStatus StatusSummary = 1;
+
+    // In case of errors, this field indicates which entry in the bulk was
+    // erroneous.
+    repeated SLL2BdRegRes Results = 2;
+}
+
+// L2 Route Types that can be programmed by client.
+enum SLL2RouteType {
+    // Reserved. 0x0
+    SL_L2_ROUTE_RESERVED = 0x0;
+
+    // Mac-IP route. 0x1
+    SL_L2_ROUTE_MAC = 0x1;
+
+    // Inclusive Multicast Ethernet Tag (IMET) route. 0x2
+    SL_L2_ROUTE_IMET = 0x2;
+}
+
+// Ethernet Segment Identifier (ESI)
+message SLL2RouteEsi {
+    // 10-bytes long ESI value
+    bytes Esi = 1;
+}
+
+// Nexthop info
+message SLL2RouteNh {
+    // Next Hop types
+    enum SLL2RouteNhType {
+        // Reserved. 0x0
+        SL_L2_NH_RESERVED = 0x0;
+        // Interface nexthop. 0x1
+        SL_L2_NH_INTERFACE = 0x1;
+        // Overlay nexthop. 0x2
+        SL_L2_NH_OVERLAY = 0x2;
+    }
+    SLL2RouteNhType NhType = 1;
+
+    // Next Hop data based on type
+    oneof NhData {
+        // case NhType == SL_L2_NH_INTERFACE
+        //   => This field carries the interface nexthop.
+        SLInterface NhInterface = 2;
+
+        // case NhType == SL_L2_NH_OVERLAY
+        //   => This field carries the overlay nexthop.
+        SLL2OverlayNh NhOverlay = 3;
+    }
+}
+
+// Overlay nexthop info
+message SLL2OverlayNh {
+    // IPv4 or IPv6 address
+    SLIpAddress OverlayNhIp = 1;
+
+    // Encap type
+    SLEncapType OverlayNhEncap = 2;
+
+    // L2 label
+    // for encap type MPLS, this will be remote MPLS label
+    // for encap type VXLAN, this will be L2 VNI.
+    uint32 OverlayNhLabel = 3;
+
+    // L3 label
+    // for encap type MPLS, this will be a stack of MPLS labels.
+    // for encap type VXLAN, this will be L3 VNI.
+    repeated uint32 OverlayNhL3Label = 4;
+
+    // Router MAC
+    bytes OverlayNhRouterMac = 5;
+}
+
+// MAC route key
+message SLL2MacRouteKey {
+    // Mac address
+    bytes MacAddress = 1;
+
+    // IP address
+    SLIpAddress IpAddress = 2;
+}
+
+// Type 2 EVPN MAC route
+message SLL2MacRoute {
+    // Mac route key
+    SLL2MacRouteKey RouteKey = 1;
+
+    // Sequence number
+    uint32 SequenceNum = 2;
+
+    // ESI
+    SLL2RouteEsi MacEsi = 3;
+
+    // List of NHs for this host
+    repeated SLL2RouteNh NextHopList = 4;
+}
+
+// IMET route key
+message SLL2ImetRouteKey {
+    // Ethernet Tag ID.
+    uint32 EthTagId = 1;
+
+    // Ipv4 or Ipv6 address
+    SLIpAddress IpAddress = 2;
+}
+
+// Type-3 EVPN IMET Route
+message SLL2ImetRoute {
+    // IMET Route Key
+    SLL2ImetRouteKey RouteKey = 1;
+
+    // Encapsulation type (VXLAN or MPLS)
+    SLEncapType EncapType = 2;
+
+    // For ENCAP_VXLAN, this field will specify the L2 Virtual Network
+    // Identifier (VNI)
+    uint32 Label = 3;
+
+    // Provider Multicast Service Interface (PMSI) tunnel type.
+    enum PMSITunnelType {
+        // No tunnel information present. 0x0
+        PMSI_NO_TUNNEL = 0;
+        // RSVP-TE P2MP LSP. 0x1
+        PMSI_RSVPP2MP_TUNNEL = 1;
+        // mLDP P2MP LSP. 0x2
+        PMSI_MLDPP2MP_TUNNEL = 2;
+        // PIM-SSM Tree. 0x3
+        PMSI_PIMSSM_TUNNEL = 3;
+        // PIM-SM Tree. 0x4
+        PMSI_PIMSM_TUNNEL = 4;
+        // BIDIR-PIM Tree. 0x5
+        PMSI_PIMBIDIR_TUNNEL = 5;
+        // Ingress Replication. 0x6
+        PMSI_INGREP_TUNNEL = 6;
+        // mLDP MP2MP LSP. 0x7
+        PMSI_MLDPMP2MP_TUNNEL = 7;
+    }
+    PMSITunnelType TunnelType = 4;
+
+    uint32 TunnelIdLength = 5;
+
+    // When the type is set to Ingress Replication the Tunnel
+    // Identifier carries the unicast tunnel endpoint IP
+    // address of the local PE that is to be this PE's receiving
+    // endpoint address for the tunnel.
+    bytes TunnelIdValue = 6;
+}
+
+// L2 route key
+message SLL2RouteKey {
+    // BD name
+    string BdName = 1;
+
+    // L2 Route Type
+    SLL2RouteType Type = 2;
+
+    // Further info based on Route Type
+    oneof Event {
+        // case Type == SL_L2_ROUTE_MAC:
+        //   => Carries the Mac Route Key
+        SLL2MacRouteKey MacKey = 3;
+
+        // case Type == SL_L2_ROUTE_IMET:
+        //   => Carries the IMET Route Key
+        SLL2ImetRouteKey ImetKey = 4;
+    }
+}
+
+// L2 route
+message SLL2Route {
+    // BD name
+    string BdName = 1;
+
+    // L2 Route Type to be programmed
+    SLL2RouteType Type = 2;
+
+    // Further info based on Route Type
+    oneof Event {
+        // case Type == SL_L2_ROUTE_MAC:
+        //   => Carries the Mac Route details
+        SLL2MacRoute MacRoute = 3;
+
+        // case Type == SL_L2_ROUTE_IMET:
+        //   => Carries the IMET route details
+        SLL2ImetRoute ImetRoute = 4;
+    }
+}
+
+// Batch of L2 Routes for bulk download
+message SLL2RouteMsg {
+    // Correlator. This can be used to correlate replies with requests.
+    // The Server simply reflects this field back in the reply.
+    uint64 Correlator = 1;
+
+    // Route Object Operations
+    SLObjectOp Oper = 2;
+
+    // List of L2 Routes
+    // The list may contain routes from different BDs.
+    repeated SLL2Route Routes = 3;
+}
+
+// L2 route result, uniquely identified by BD + L2 route key
+message SLL2RouteRes {
+    // Corresponding error code
+    SLErrorStatus ErrStatus = 1;
+
+    // L2 Route Key
+    SLL2RouteKey RouteKey = 2;
+}
+
+// L2 bulk download response
+message SLL2RouteMsgRsp {
+    // Correlator. This can be used to correlate replies with requests.
+    // The Server simply reflects this field back in the reply.
+    uint64 Correlator = 1;
+
+    // Summary result of the bulk operation (refer to enum SLErrorStatus)
+    // In general, the StatusSummary implies one of 3 things:
+    // 1. SL_SUCCESS: signifies that the entire bulk operation was successful.
+    //         In this case, the Results list is empty.
+    // 2. SL_SOME_ERR: signifies that the operation failed for one or more
+    //         entries. In this case, Results holds the result for
+    //         each individual entry in the bulk.
+    // 3. SL_RPC_XXX: signifies that the entire bulk operation failed.
+    //         In this case, the Results list is empty.
+    SLErrorStatus StatusSummary = 2;
+
+    // In case of errors, this field indicates which entry in the bulk was
+    // erroneous.
+    repeated SLL2RouteRes Results = 3;
+}
+
+// L2 Get Notifications message.
+message SLL2GetNotifMsg {
+    // Oper = SL_NOTIFOP_ENABLE
+    //   This is to enable route notifications
+    // Oper = SL_NOTIFOP_DISABLE
+    //   This is to disable route notifications
+    SLNotifOp Oper = 1;
+
+    // Correlator. This is used to correlate GetNotifMsg with
+    // NotifMsgStatus. The server reflects this field in the reply.
+    uint64 Correlator = 2;
+
+    // End of file.
+    // When set to True, it indicates that the client is done with sending
+    // requests for notifications.
+    //
+    // It is useful when client is sending per-BD notification requests.
+    // The client can send this after receiving
+    // SL_L2_EVENT_TYPE_BD_STATE_END_MARKER.
+    bool GetNotifEof = 3;
+
+    oneof Request {
+        // If the notification request is for routes in all BDs - set to TRUE.
+        bool BdAll = 4;
+
+        // If the notification request is for routes in a specific BD,
+        // pass the name.
+        string BdName = 5;
+    }
+}
+
+// L2 Route notification
+message SLL2RouteNotif {
+    // Route Object Operations
+    SLObjectOp Oper = 1;
+
+    // L2 route
+    SLL2Route Routes = 2;
+}
+
+// Bridge-Domain (BD) state info
+message SLL2BdStateInfo {
+    // BD name
+    string BdName = 1;
+
+    // BD states
+    enum SLL2BdState {
+        // Reserved. 0x0
+        SL_L2_BD_STATE_RESERVED = 0x0;
+
+        // BD Added State.
+        // Implies BD is ready for programming and notification request. 0x1
+        SL_L2_BD_STATE_ADDED = 0x1;
+
+        // BD Deleted State.
+        // Implies BD has been deleted, all installed routes will be
+        // deleted and no further notifications will be sent. 0x2
+        SL_L2_BD_STATE_DELETED = 0x2;
+
+        // BD Replay Needed.
+        // Implies the routes in this BD could not be recovered and the
+        // client has to replay the routes. 0x3
+        SL_L2_BD_STATE_REPLAY_NEEDED = 0x3;
+    }
+    SLL2BdState BdState = 2;
+}
+
+// L2 Notification Status message
+message SLL2NotifStatusMsg {
+    // Notification Operation in the request
+    SLNotifOp Oper = 1;
+
+    // Correlator in the request.
+    uint64 Correlator = 2;
+
+    // BD in the request.
+    // This is not set if the request was for all BDs
+    string BdName = 3;
+
+    // The NotifStatus implies one of 2 things:
+    // SL_SUCCESS: signifies that the notification request was successful
+    // SL_XXX: signifies an error in setting up a notification.
+    //  If BdName is passed, it implies that notifications for the BD
+    //  will not be sent.
+    SLErrorStatus NotifStatus = 4;
+}
+
+// L2 Notification types
+enum SLL2NotifType {
+    // Reserved.
+    SL_L2_EVENT_TYPE_RESERVED = 0x0;
+
+    // Error - ErrStatus field elaborates on the error.
+    // The client can decide to close the stream based on the error.
+    SL_L2_EVENT_TYPE_ERROR = 0x1;
+
+    // Status of GetNotifMsg.
+    // NotifStatus field elaborates on the result
+    // If the GetNotifMsg is per-BD and there was an error, only the
+    // notification for the BD in the status message is not setup.
+    SL_L2_EVENT_TYPE_STATUS = 0x2;
+
+    // Start marker - sent before any notification is sent.
+    // This is an indication to stale any objects received until now.
+    SL_L2_EVENT_TYPE_START_MARKER = 0x3;
+
+    // BD configuration notification
+    SL_L2_EVENT_TYPE_BD_STATE = 0x4;
+
+    // End marker for BD configuration notifications.
+    // This is an indication to sweep any staled BD states if present.
+    SL_L2_EVENT_TYPE_BD_STATE_END_MARKER = 0x5;
+
+    // L2 route
+    SL_L2_EVENT_TYPE_ROUTE = 0x6;
+
+    // End marker for Route notifications.
+    // This is an indication to sweep any staled routes if present.
+    SL_L2_EVENT_TYPE_ROUTE_END_MARKER = 0x7;
+}
+
+// L2 Notification.
+message SLL2Notif {
+    // L2 Notification type
+    SLL2NotifType EventType = 1;
+
+    // Further info based on EventType
+    oneof Event {
+        // case EventType == SL_L2_EVENT_TYPE_ERROR:
+        //    => This field carries error info, if any error occurs during
+        //       notification subscription.
+        SLErrorStatus ErrStatus = 2;
+
+        // case EventType == SL_L2_EVENT_TYPE_STATUS:
+        //    => This field carries the status of the GetNotifMsg request.
+        SLL2NotifStatusMsg NotifStatus = 3;
+
+        // case EventType == SL_L2_EVENT_TYPE_BD_STATE:
+        //    => This field carries the BD state notification
+        SLL2BdStateInfo BdStateInfo = 4;
+
+        // case EventType == SL_L2_EVENT_TYPE_ROUTE:
+        //    => This field carries the L2 route
+        SLL2RouteNotif Route = 5;
+    }
+}
+
+//@}

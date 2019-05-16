@@ -34,7 +34,7 @@ type SLRoutev6 struct {
 func (m *SLRoutev6) Reset()                    { *m = SLRoutev6{} }
 func (m *SLRoutev6) String() string            { return proto.CompactTextString(m) }
 func (*SLRoutev6) ProtoMessage()               {}
-func (*SLRoutev6) Descriptor() ([]byte, []int) { return fileDescriptor9, []int{0} }
+func (*SLRoutev6) Descriptor() ([]byte, []int) { return fileDescriptor10, []int{0} }
 
 func (m *SLRoutev6) GetPrefix() []byte {
 	if m != nil {
@@ -80,7 +80,7 @@ type SLRoutev6Msg struct {
 func (m *SLRoutev6Msg) Reset()                    { *m = SLRoutev6Msg{} }
 func (m *SLRoutev6Msg) String() string            { return proto.CompactTextString(m) }
 func (*SLRoutev6Msg) ProtoMessage()               {}
-func (*SLRoutev6Msg) Descriptor() ([]byte, []int) { return fileDescriptor9, []int{1} }
+func (*SLRoutev6Msg) Descriptor() ([]byte, []int) { return fileDescriptor10, []int{1} }
 
 func (m *SLRoutev6Msg) GetOper() SLObjectOp {
 	if m != nil {
@@ -123,7 +123,7 @@ type SLRoutev6Res struct {
 func (m *SLRoutev6Res) Reset()                    { *m = SLRoutev6Res{} }
 func (m *SLRoutev6Res) String() string            { return proto.CompactTextString(m) }
 func (*SLRoutev6Res) ProtoMessage()               {}
-func (*SLRoutev6Res) Descriptor() ([]byte, []int) { return fileDescriptor9, []int{2} }
+func (*SLRoutev6Res) Descriptor() ([]byte, []int) { return fileDescriptor10, []int{2} }
 
 func (m *SLRoutev6Res) GetErrStatus() *SLErrorStatus {
 	if m != nil {
@@ -171,7 +171,7 @@ type SLRoutev6MsgRsp struct {
 func (m *SLRoutev6MsgRsp) Reset()                    { *m = SLRoutev6MsgRsp{} }
 func (m *SLRoutev6MsgRsp) String() string            { return proto.CompactTextString(m) }
 func (*SLRoutev6MsgRsp) ProtoMessage()               {}
-func (*SLRoutev6MsgRsp) Descriptor() ([]byte, []int) { return fileDescriptor9, []int{3} }
+func (*SLRoutev6MsgRsp) Descriptor() ([]byte, []int) { return fileDescriptor10, []int{3} }
 
 func (m *SLRoutev6MsgRsp) GetCorrelator() uint64 {
 	if m != nil {
@@ -226,7 +226,7 @@ type SLRoutev6GetMsg struct {
 func (m *SLRoutev6GetMsg) Reset()                    { *m = SLRoutev6GetMsg{} }
 func (m *SLRoutev6GetMsg) String() string            { return proto.CompactTextString(m) }
 func (*SLRoutev6GetMsg) ProtoMessage()               {}
-func (*SLRoutev6GetMsg) Descriptor() ([]byte, []int) { return fileDescriptor9, []int{4} }
+func (*SLRoutev6GetMsg) Descriptor() ([]byte, []int) { return fileDescriptor10, []int{4} }
 
 func (m *SLRoutev6GetMsg) GetCorrelator() uint64 {
 	if m != nil {
@@ -291,7 +291,7 @@ type SLRoutev6GetMsgRsp struct {
 func (m *SLRoutev6GetMsgRsp) Reset()                    { *m = SLRoutev6GetMsgRsp{} }
 func (m *SLRoutev6GetMsgRsp) String() string            { return proto.CompactTextString(m) }
 func (*SLRoutev6GetMsgRsp) ProtoMessage()               {}
-func (*SLRoutev6GetMsgRsp) Descriptor() ([]byte, []int) { return fileDescriptor9, []int{5} }
+func (*SLRoutev6GetMsgRsp) Descriptor() ([]byte, []int) { return fileDescriptor10, []int{5} }
 
 func (m *SLRoutev6GetMsgRsp) GetCorrelator() uint64 {
 	if m != nil {
@@ -339,7 +339,7 @@ type SLRoutev6NotifRoute struct {
 func (m *SLRoutev6NotifRoute) Reset()                    { *m = SLRoutev6NotifRoute{} }
 func (m *SLRoutev6NotifRoute) String() string            { return proto.CompactTextString(m) }
 func (*SLRoutev6NotifRoute) ProtoMessage()               {}
-func (*SLRoutev6NotifRoute) Descriptor() ([]byte, []int) { return fileDescriptor9, []int{6} }
+func (*SLRoutev6NotifRoute) Descriptor() ([]byte, []int) { return fileDescriptor10, []int{6} }
 
 func (m *SLRoutev6NotifRoute) GetVrfName() string {
 	if m != nil {
@@ -373,7 +373,7 @@ type SLRoutev6Notif struct {
 func (m *SLRoutev6Notif) Reset()                    { *m = SLRoutev6Notif{} }
 func (m *SLRoutev6Notif) String() string            { return proto.CompactTextString(m) }
 func (*SLRoutev6Notif) ProtoMessage()               {}
-func (*SLRoutev6Notif) Descriptor() ([]byte, []int) { return fileDescriptor9, []int{7} }
+func (*SLRoutev6Notif) Descriptor() ([]byte, []int) { return fileDescriptor10, []int{7} }
 
 type isSLRoutev6Notif_Event interface {
 	isSLRoutev6Notif_Event()
@@ -1160,9 +1160,9 @@ var _SLRoutev6Oper_serviceDesc = grpc.ServiceDesc{
 	Metadata: "sl_route_ipv6.proto",
 }
 
-func init() { proto.RegisterFile("sl_route_ipv6.proto", fileDescriptor9) }
+func init() { proto.RegisterFile("sl_route_ipv6.proto", fileDescriptor10) }
 
-var fileDescriptor9 = []byte{
+var fileDescriptor10 = []byte{
 	// 797 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x09, 0x6e, 0x88, 0x02, 0xff, 0xa4, 0x56, 0xcd, 0x6e, 0xd3, 0x40,
 	0x10, 0xc6, 0x71, 0x7e, 0x9a, 0x49, 0x5b, 0x60, 0xcb, 0x8f, 0x09, 0xa5, 0x6a, 0x8d, 0x04, 0x15,

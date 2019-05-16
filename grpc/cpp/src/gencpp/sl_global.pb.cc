@@ -207,6 +207,8 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::service_layer::SLGlobalsGetMsgRsp, minbackuppathidnum_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::service_layer::SLGlobalsGetMsgRsp, maxbackuppathidnum_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::service_layer::SLGlobalsGetMsgRsp, maxremoteaddressnum_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::service_layer::SLGlobalsGetMsgRsp, maxl2bdnamelength_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::service_layer::SLGlobalsGetMsgRsp, maxl2pmsitunnelidlength_),
 };
 static const ::google::protobuf::internal::MigrationSchema schemas[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, sizeof(::service_layer::SLInitMsg)},
@@ -255,7 +257,7 @@ void AddDescriptorsImpl() {
       "r.SLGlobalNotifType\022/\n\tErrStatus\030\002 \001(\0132\034"
       ".service_layer.SLErrorStatus\0221\n\nInitRspM"
       "sg\030\003 \001(\0132\033.service_layer.SLInitMsgRspH\000B"
-      "\007\n\005Event\"\021\n\017SLGlobalsGetMsg\"\205\003\n\022SLGlobal"
+      "\007\n\005Event\"\021\n\017SLGlobalsGetMsg\"\301\003\n\022SLGlobal"
       "sGetMsgRsp\022/\n\tErrStatus\030\001 \001(\0132\034.service_"
       "layer.SLErrorStatus\022\030\n\020MaxVrfNameLength\030"
       "\002 \001(\r\022\036\n\026MaxInterfaceNameLength\030\003 \001(\r\022\030\n"
@@ -265,19 +267,20 @@ void AddDescriptorsImpl() {
       "MinPrimaryPathIdNum\030\010 \001(\r\022\033\n\023MaxPrimaryP"
       "athIdNum\030\t \001(\r\022\032\n\022MinBackupPathIdNum\030\n \001"
       "(\r\022\032\n\022MaxBackupPathIdNum\030\013 \001(\r\022\033\n\023MaxRem"
-      "oteAddressNum\030\014 \001(\r*\234\001\n\021SLGlobalNotifTyp"
-      "e\022!\n\035SL_GLOBAL_EVENT_TYPE_RESERVED\020\000\022\036\n\032"
-      "SL_GLOBAL_EVENT_TYPE_ERROR\020\001\022\"\n\036SL_GLOBA"
-      "L_EVENT_TYPE_HEARTBEAT\020\002\022 \n\034SL_GLOBAL_EV"
-      "ENT_TYPE_VERSION\020\0032\254\001\n\010SLGlobal\022M\n\021SLGlo"
-      "balInitNotif\022\030.service_layer.SLInitMsg\032\034"
-      ".service_layer.SLGlobalNotif0\001\022Q\n\014SLGlob"
-      "alsGet\022\036.service_layer.SLGlobalsGetMsg\032!"
-      ".service_layer.SLGlobalsGetMsgRspb\006proto"
-      "3"
+      "oteAddressNum\030\014 \001(\r\022\031\n\021MaxL2BdNameLength"
+      "\030\r \001(\r\022\037\n\027MaxL2PmsiTunnelIdLength\030\016 \001(\r*"
+      "\234\001\n\021SLGlobalNotifType\022!\n\035SL_GLOBAL_EVENT"
+      "_TYPE_RESERVED\020\000\022\036\n\032SL_GLOBAL_EVENT_TYPE"
+      "_ERROR\020\001\022\"\n\036SL_GLOBAL_EVENT_TYPE_HEARTBE"
+      "AT\020\002\022 \n\034SL_GLOBAL_EVENT_TYPE_VERSION\020\0032\254"
+      "\001\n\010SLGlobal\022M\n\021SLGlobalInitNotif\022\030.servi"
+      "ce_layer.SLInitMsg\032\034.service_layer.SLGlo"
+      "balNotif0\001\022Q\n\014SLGlobalsGet\022\036.service_lay"
+      "er.SLGlobalsGetMsg\032!.service_layer.SLGlo"
+      "balsGetMsgRspb\006proto3"
   };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 1121);
+      descriptor, 1181);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "sl_global.proto", &protobuf_RegisterTypes);
   ::protobuf_sl_5fcommon_5ftypes_2eproto::AddDescriptors();
@@ -1555,6 +1558,8 @@ const int SLGlobalsGetMsgRsp::kMaxPrimaryPathIdNumFieldNumber;
 const int SLGlobalsGetMsgRsp::kMinBackupPathIdNumFieldNumber;
 const int SLGlobalsGetMsgRsp::kMaxBackupPathIdNumFieldNumber;
 const int SLGlobalsGetMsgRsp::kMaxRemoteAddressNumFieldNumber;
+const int SLGlobalsGetMsgRsp::kMaxL2BdNameLengthFieldNumber;
+const int SLGlobalsGetMsgRsp::kMaxL2PmsiTunnelIdLengthFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 SLGlobalsGetMsgRsp::SLGlobalsGetMsgRsp()
@@ -1576,15 +1581,15 @@ SLGlobalsGetMsgRsp::SLGlobalsGetMsgRsp(const SLGlobalsGetMsgRsp& from)
     errstatus_ = NULL;
   }
   ::memcpy(&maxvrfnamelength_, &from.maxvrfnamelength_,
-    static_cast<size_t>(reinterpret_cast<char*>(&maxremoteaddressnum_) -
-    reinterpret_cast<char*>(&maxvrfnamelength_)) + sizeof(maxremoteaddressnum_));
+    static_cast<size_t>(reinterpret_cast<char*>(&maxl2pmsitunnelidlength_) -
+    reinterpret_cast<char*>(&maxvrfnamelength_)) + sizeof(maxl2pmsitunnelidlength_));
   // @@protoc_insertion_point(copy_constructor:service_layer.SLGlobalsGetMsgRsp)
 }
 
 void SLGlobalsGetMsgRsp::SharedCtor() {
   ::memset(&errstatus_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&maxremoteaddressnum_) -
-      reinterpret_cast<char*>(&errstatus_)) + sizeof(maxremoteaddressnum_));
+      reinterpret_cast<char*>(&maxl2pmsitunnelidlength_) -
+      reinterpret_cast<char*>(&errstatus_)) + sizeof(maxl2pmsitunnelidlength_));
   _cached_size_ = 0;
 }
 
@@ -1631,8 +1636,8 @@ void SLGlobalsGetMsgRsp::Clear() {
   }
   errstatus_ = NULL;
   ::memset(&maxvrfnamelength_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&maxremoteaddressnum_) -
-      reinterpret_cast<char*>(&maxvrfnamelength_)) + sizeof(maxremoteaddressnum_));
+      reinterpret_cast<char*>(&maxl2pmsitunnelidlength_) -
+      reinterpret_cast<char*>(&maxvrfnamelength_)) + sizeof(maxl2pmsitunnelidlength_));
   _internal_metadata_.Clear();
 }
 
@@ -1812,6 +1817,34 @@ bool SLGlobalsGetMsgRsp::MergePartialFromCodedStream(
         break;
       }
 
+      // uint32 MaxL2BdNameLength = 13;
+      case 13: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(104u /* 104 & 0xFF */)) {
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &maxl2bdnamelength_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // uint32 MaxL2PmsiTunnelIdLength = 14;
+      case 14: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(112u /* 112 & 0xFF */)) {
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &maxl2pmsitunnelidlength_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
       default: {
       handle_unusual:
         if (tag == 0) {
@@ -1899,6 +1932,16 @@ void SLGlobalsGetMsgRsp::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteUInt32(12, this->maxremoteaddressnum(), output);
   }
 
+  // uint32 MaxL2BdNameLength = 13;
+  if (this->maxl2bdnamelength() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(13, this->maxl2bdnamelength(), output);
+  }
+
+  // uint32 MaxL2PmsiTunnelIdLength = 14;
+  if (this->maxl2pmsitunnelidlength() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(14, this->maxl2pmsitunnelidlength(), output);
+  }
+
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
@@ -1973,6 +2016,16 @@ void SLGlobalsGetMsgRsp::SerializeWithCachedSizes(
   // uint32 MaxRemoteAddressNum = 12;
   if (this->maxremoteaddressnum() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(12, this->maxremoteaddressnum(), target);
+  }
+
+  // uint32 MaxL2BdNameLength = 13;
+  if (this->maxl2bdnamelength() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(13, this->maxl2bdnamelength(), target);
+  }
+
+  // uint32 MaxL2PmsiTunnelIdLength = 14;
+  if (this->maxl2pmsitunnelidlength() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(14, this->maxl2pmsitunnelidlength(), target);
   }
 
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
@@ -2076,6 +2129,20 @@ size_t SLGlobalsGetMsgRsp::ByteSizeLong() const {
         this->maxremoteaddressnum());
   }
 
+  // uint32 MaxL2BdNameLength = 13;
+  if (this->maxl2bdnamelength() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->maxl2bdnamelength());
+  }
+
+  // uint32 MaxL2PmsiTunnelIdLength = 14;
+  if (this->maxl2pmsitunnelidlength() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->maxl2pmsitunnelidlength());
+  }
+
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = cached_size;
@@ -2141,6 +2208,12 @@ void SLGlobalsGetMsgRsp::MergeFrom(const SLGlobalsGetMsgRsp& from) {
   if (from.maxremoteaddressnum() != 0) {
     set_maxremoteaddressnum(from.maxremoteaddressnum());
   }
+  if (from.maxl2bdnamelength() != 0) {
+    set_maxl2bdnamelength(from.maxl2bdnamelength());
+  }
+  if (from.maxl2pmsitunnelidlength() != 0) {
+    set_maxl2pmsitunnelidlength(from.maxl2pmsitunnelidlength());
+  }
 }
 
 void SLGlobalsGetMsgRsp::CopyFrom(const ::google::protobuf::Message& from) {
@@ -2179,6 +2252,8 @@ void SLGlobalsGetMsgRsp::InternalSwap(SLGlobalsGetMsgRsp* other) {
   swap(minbackuppathidnum_, other->minbackuppathidnum_);
   swap(maxbackuppathidnum_, other->maxbackuppathidnum_);
   swap(maxremoteaddressnum_, other->maxremoteaddressnum_);
+  swap(maxl2bdnamelength_, other->maxl2bdnamelength_);
+  swap(maxl2pmsitunnelidlength_, other->maxl2pmsitunnelidlength_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   swap(_cached_size_, other->_cached_size_);
 }

@@ -51,14 +51,14 @@ namespace service_layer {
 enum SLVersion {
   SL_VERSION_UNUSED = 0,
   SL_MAJOR_VERSION = 0,
-  SL_MINOR_VERSION = 0,
-  SL_SUB_VERSION = 1,
+  SL_MINOR_VERSION = 1,
+  SL_SUB_VERSION = 0,
   SLVersion_INT_MIN_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32min,
   SLVersion_INT_MAX_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32max
 };
 bool SLVersion_IsValid(int value);
 const SLVersion SLVersion_MIN = SL_VERSION_UNUSED;
-const SLVersion SLVersion_MAX = SL_SUB_VERSION;
+const SLVersion SLVersion_MAX = SL_MINOR_VERSION;
 const int SLVersion_ARRAYSIZE = SLVersion_MAX + 1;
 
 const ::google::protobuf::EnumDescriptor* SLVersion_descriptor();
