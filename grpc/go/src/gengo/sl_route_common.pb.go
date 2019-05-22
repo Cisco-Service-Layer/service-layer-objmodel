@@ -60,7 +60,7 @@ var SLNotifType_value = map[string]int32{
 func (x SLNotifType) String() string {
 	return proto.EnumName(SLNotifType_name, int32(x))
 }
-func (SLNotifType) EnumDescriptor() ([]byte, []int) { return fileDescriptor7, []int{0} }
+func (SLNotifType) EnumDescriptor() ([]byte, []int) { return fileDescriptor8, []int{0} }
 
 // Route Globals Get Message
 type SLRouteGlobalsGetMsg struct {
@@ -69,7 +69,7 @@ type SLRouteGlobalsGetMsg struct {
 func (m *SLRouteGlobalsGetMsg) Reset()                    { *m = SLRouteGlobalsGetMsg{} }
 func (m *SLRouteGlobalsGetMsg) String() string            { return proto.CompactTextString(m) }
 func (*SLRouteGlobalsGetMsg) ProtoMessage()               {}
-func (*SLRouteGlobalsGetMsg) Descriptor() ([]byte, []int) { return fileDescriptor7, []int{0} }
+func (*SLRouteGlobalsGetMsg) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{0} }
 
 // Route Globals Get Message Response
 type SLRouteGlobalsGetMsgRsp struct {
@@ -84,7 +84,7 @@ type SLRouteGlobalsGetMsgRsp struct {
 func (m *SLRouteGlobalsGetMsgRsp) Reset()                    { *m = SLRouteGlobalsGetMsgRsp{} }
 func (m *SLRouteGlobalsGetMsgRsp) String() string            { return proto.CompactTextString(m) }
 func (*SLRouteGlobalsGetMsgRsp) ProtoMessage()               {}
-func (*SLRouteGlobalsGetMsgRsp) Descriptor() ([]byte, []int) { return fileDescriptor7, []int{1} }
+func (*SLRouteGlobalsGetMsgRsp) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{1} }
 
 func (m *SLRouteGlobalsGetMsgRsp) GetErrStatus() *SLErrorStatus {
 	if m != nil {
@@ -114,7 +114,7 @@ type SLRouteGlobalStatsGetMsg struct {
 func (m *SLRouteGlobalStatsGetMsg) Reset()                    { *m = SLRouteGlobalStatsGetMsg{} }
 func (m *SLRouteGlobalStatsGetMsg) String() string            { return proto.CompactTextString(m) }
 func (*SLRouteGlobalStatsGetMsg) ProtoMessage()               {}
-func (*SLRouteGlobalStatsGetMsg) Descriptor() ([]byte, []int) { return fileDescriptor7, []int{2} }
+func (*SLRouteGlobalStatsGetMsg) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{2} }
 
 // Route Global Stats Get Message Response
 type SLRouteGlobalStatsGetMsgRsp struct {
@@ -129,7 +129,7 @@ type SLRouteGlobalStatsGetMsgRsp struct {
 func (m *SLRouteGlobalStatsGetMsgRsp) Reset()                    { *m = SLRouteGlobalStatsGetMsgRsp{} }
 func (m *SLRouteGlobalStatsGetMsgRsp) String() string            { return proto.CompactTextString(m) }
 func (*SLRouteGlobalStatsGetMsgRsp) ProtoMessage()               {}
-func (*SLRouteGlobalStatsGetMsgRsp) Descriptor() ([]byte, []int) { return fileDescriptor7, []int{3} }
+func (*SLRouteGlobalStatsGetMsgRsp) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{3} }
 
 func (m *SLRouteGlobalStatsGetMsgRsp) GetErrStatus() *SLErrorStatus {
 	if m != nil {
@@ -173,7 +173,7 @@ type SLVrfReg struct {
 func (m *SLVrfReg) Reset()                    { *m = SLVrfReg{} }
 func (m *SLVrfReg) String() string            { return proto.CompactTextString(m) }
 func (*SLVrfReg) ProtoMessage()               {}
-func (*SLVrfReg) Descriptor() ([]byte, []int) { return fileDescriptor7, []int{4} }
+func (*SLVrfReg) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{4} }
 
 func (m *SLVrfReg) GetVrfName() string {
 	if m != nil {
@@ -207,7 +207,7 @@ type SLVrfRegMsg struct {
 func (m *SLVrfRegMsg) Reset()                    { *m = SLVrfRegMsg{} }
 func (m *SLVrfRegMsg) String() string            { return proto.CompactTextString(m) }
 func (*SLVrfRegMsg) ProtoMessage()               {}
-func (*SLVrfRegMsg) Descriptor() ([]byte, []int) { return fileDescriptor7, []int{5} }
+func (*SLVrfRegMsg) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{5} }
 
 func (m *SLVrfRegMsg) GetOper() SLRegOp {
 	if m != nil {
@@ -234,7 +234,7 @@ type SLVrfRegMsgRes struct {
 func (m *SLVrfRegMsgRes) Reset()                    { *m = SLVrfRegMsgRes{} }
 func (m *SLVrfRegMsgRes) String() string            { return proto.CompactTextString(m) }
 func (*SLVrfRegMsgRes) ProtoMessage()               {}
-func (*SLVrfRegMsgRes) Descriptor() ([]byte, []int) { return fileDescriptor7, []int{6} }
+func (*SLVrfRegMsgRes) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{6} }
 
 func (m *SLVrfRegMsgRes) GetErrStatus() *SLErrorStatus {
 	if m != nil {
@@ -270,7 +270,7 @@ type SLVrfRegMsgRsp struct {
 func (m *SLVrfRegMsgRsp) Reset()                    { *m = SLVrfRegMsgRsp{} }
 func (m *SLVrfRegMsgRsp) String() string            { return proto.CompactTextString(m) }
 func (*SLVrfRegMsgRsp) ProtoMessage()               {}
-func (*SLVrfRegMsgRsp) Descriptor() ([]byte, []int) { return fileDescriptor7, []int{7} }
+func (*SLVrfRegMsgRsp) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{7} }
 
 func (m *SLVrfRegMsgRsp) GetStatusSummary() *SLErrorStatus {
 	if m != nil {
@@ -304,7 +304,7 @@ type SLVrfRegGetMsg struct {
 func (m *SLVrfRegGetMsg) Reset()                    { *m = SLVrfRegGetMsg{} }
 func (m *SLVrfRegGetMsg) String() string            { return proto.CompactTextString(m) }
 func (*SLVrfRegGetMsg) ProtoMessage()               {}
-func (*SLVrfRegGetMsg) Descriptor() ([]byte, []int) { return fileDescriptor7, []int{8} }
+func (*SLVrfRegGetMsg) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{8} }
 
 func (m *SLVrfRegGetMsg) GetVrfName() string {
 	if m != nil {
@@ -343,7 +343,7 @@ type SLVrfRegGetMsgRsp struct {
 func (m *SLVrfRegGetMsgRsp) Reset()                    { *m = SLVrfRegGetMsgRsp{} }
 func (m *SLVrfRegGetMsgRsp) String() string            { return proto.CompactTextString(m) }
 func (*SLVrfRegGetMsgRsp) ProtoMessage()               {}
-func (*SLVrfRegGetMsgRsp) Descriptor() ([]byte, []int) { return fileDescriptor7, []int{9} }
+func (*SLVrfRegGetMsgRsp) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{9} }
 
 func (m *SLVrfRegGetMsgRsp) GetEof() bool {
 	if m != nil {
@@ -377,7 +377,7 @@ type SLVRFGetStatsMsgRes struct {
 func (m *SLVRFGetStatsMsgRes) Reset()                    { *m = SLVRFGetStatsMsgRes{} }
 func (m *SLVRFGetStatsMsgRes) String() string            { return proto.CompactTextString(m) }
 func (*SLVRFGetStatsMsgRes) ProtoMessage()               {}
-func (*SLVRFGetStatsMsgRes) Descriptor() ([]byte, []int) { return fileDescriptor7, []int{10} }
+func (*SLVRFGetStatsMsgRes) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{10} }
 
 func (m *SLVRFGetStatsMsgRes) GetVrfName() string {
 	if m != nil {
@@ -409,7 +409,7 @@ type SLVRFGetStatsMsgRsp struct {
 func (m *SLVRFGetStatsMsgRsp) Reset()                    { *m = SLVRFGetStatsMsgRsp{} }
 func (m *SLVRFGetStatsMsgRsp) String() string            { return proto.CompactTextString(m) }
 func (*SLVRFGetStatsMsgRsp) ProtoMessage()               {}
-func (*SLVRFGetStatsMsgRsp) Descriptor() ([]byte, []int) { return fileDescriptor7, []int{11} }
+func (*SLVRFGetStatsMsgRsp) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{11} }
 
 func (m *SLVRFGetStatsMsgRsp) GetEof() bool {
 	if m != nil {
@@ -462,7 +462,7 @@ type SLRouteGetNotifMsg struct {
 func (m *SLRouteGetNotifMsg) Reset()                    { *m = SLRouteGetNotifMsg{} }
 func (m *SLRouteGetNotifMsg) String() string            { return proto.CompactTextString(m) }
 func (*SLRouteGetNotifMsg) ProtoMessage()               {}
-func (*SLRouteGetNotifMsg) Descriptor() ([]byte, []int) { return fileDescriptor7, []int{12} }
+func (*SLRouteGetNotifMsg) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{12} }
 
 func (m *SLRouteGetNotifMsg) GetOper() SLNotifOp {
 	if m != nil {
@@ -515,7 +515,7 @@ type SLRouteNotifStatus struct {
 func (m *SLRouteNotifStatus) Reset()                    { *m = SLRouteNotifStatus{} }
 func (m *SLRouteNotifStatus) String() string            { return proto.CompactTextString(m) }
 func (*SLRouteNotifStatus) ProtoMessage()               {}
-func (*SLRouteNotifStatus) Descriptor() ([]byte, []int) { return fileDescriptor7, []int{13} }
+func (*SLRouteNotifStatus) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{13} }
 
 func (m *SLRouteNotifStatus) GetCorrelator() uint64 {
 	if m != nil {
@@ -547,7 +547,7 @@ type SLRouteNotifMarker struct {
 func (m *SLRouteNotifMarker) Reset()                    { *m = SLRouteNotifMarker{} }
 func (m *SLRouteNotifMarker) String() string            { return proto.CompactTextString(m) }
 func (*SLRouteNotifMarker) ProtoMessage()               {}
-func (*SLRouteNotifMarker) Descriptor() ([]byte, []int) { return fileDescriptor7, []int{14} }
+func (*SLRouteNotifMarker) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{14} }
 
 func (m *SLRouteNotifMarker) GetVrfName() string {
 	if m != nil {
@@ -567,7 +567,7 @@ type SLVrfNotif struct {
 func (m *SLVrfNotif) Reset()                    { *m = SLVrfNotif{} }
 func (m *SLVrfNotif) String() string            { return proto.CompactTextString(m) }
 func (*SLVrfNotif) ProtoMessage()               {}
-func (*SLVrfNotif) Descriptor() ([]byte, []int) { return fileDescriptor7, []int{15} }
+func (*SLVrfNotif) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{15} }
 
 func (m *SLVrfNotif) GetVrfName() string {
 	if m != nil {
@@ -621,7 +621,7 @@ type SLRouteCommon struct {
 func (m *SLRouteCommon) Reset()                    { *m = SLRouteCommon{} }
 func (m *SLRouteCommon) String() string            { return proto.CompactTextString(m) }
 func (*SLRouteCommon) ProtoMessage()               {}
-func (*SLRouteCommon) Descriptor() ([]byte, []int) { return fileDescriptor7, []int{16} }
+func (*SLRouteCommon) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{16} }
 
 func (m *SLRouteCommon) GetAdminDistance() uint32 {
 	if m != nil {
@@ -752,7 +752,7 @@ type SLRoutePath struct {
 func (m *SLRoutePath) Reset()                    { *m = SLRoutePath{} }
 func (m *SLRoutePath) String() string            { return proto.CompactTextString(m) }
 func (*SLRoutePath) ProtoMessage()               {}
-func (*SLRoutePath) Descriptor() ([]byte, []int) { return fileDescriptor7, []int{17} }
+func (*SLRoutePath) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{17} }
 
 func (m *SLRoutePath) GetNexthopAddress() *SLIpAddress {
 	if m != nil {
@@ -853,9 +853,9 @@ func init() {
 	proto.RegisterEnum("service_layer.SLNotifType", SLNotifType_name, SLNotifType_value)
 }
 
-func init() { proto.RegisterFile("sl_route_common.proto", fileDescriptor7) }
+func init() { proto.RegisterFile("sl_route_common.proto", fileDescriptor8) }
 
-var fileDescriptor7 = []byte{
+var fileDescriptor8 = []byte{
 	// 993 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x09, 0x6e, 0x88, 0x02, 0xff, 0xac, 0x56, 0xdd, 0x6e, 0xe3, 0x44,
 	0x14, 0xc6, 0x49, 0x9a, 0xa6, 0xa7, 0x9b, 0x2a, 0xcc, 0xf6, 0xc7, 0x84, 0x05, 0xad, 0x2c, 0x2e,

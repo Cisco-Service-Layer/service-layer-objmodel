@@ -2,7 +2,7 @@
 
 In IOS-XR, routing protocols make use of services provided by the Routing Information Base (RIB), the MPLS label manager, BFD, and other modules, in order to program the forwarding plane. Such programming is exposed through the service layer API, which is very rich in nature.
 
-Exposing the service layer API as a Google RPC (or GRPC), over Google protocol buffers (protobuf or GPB), enables customers to write their own applications, routing protocols, controllers, etc., whether on box or off box, in a rich set of languages including cplusplus, python, GO, etc.
+Exposing the Service Layer API as a Google RPC (or GRPC), over Google protocol buffers (Protobuf or GPB), enables customers to write their own applications, routing protocols, controllers, etc., whether on box or off box, in a rich set of languages including C++, Python, GO, etc.
 
 The Service Layer API is currently organized in a set of files that expose certain verticals e.g. IPv4 RIB functionality, or MPLS functionality, etc.
 In the initial release, the focus is to provide the following verticals:
@@ -30,11 +30,11 @@ In addition, certain RPCs may also allow for batching e.g. creating a number of 
 Each RPC usually takes a GRPC "message" or request, typically labeled (Something)Msg, example SLRoutev4Msg, which defines the parameters of the request, and return another "message", typically labeled (Something)MsgRsp as a response to the RPC request, example SLRoutev4MsgRsp.
 
 Note that all files are annotated with detailed documentation.
-The user of the API can use doxygen to render his/her own local documentation, refer to instructions under docs directory. The html generated documentation is broken up into sections that describe the messages, verticals, files, etc, and are very useful for quick reference.
+The user of the API can use Doxygen to render his/her own local documentation, refer to instructions under docs directory. The html generated documentation is broken up into sections that describe the messages, verticals, files, etc, and are very useful for quick reference.
 
 Finally, please note that the API comes with:
 
-* A quick start tutorial written in pyhton. The intent here is to get the user a jump-start on hooking up with the API. The reader is advized to try this next.
+* A quick start tutorial written in Python. The intent here is to get the user a jump-start on hooking up with the API. The reader is advised to try this next.
 
 ```
 This can be found here: grpc/python/src/tutorial/
@@ -66,4 +66,4 @@ Run All tests:
 python3 -m unittest -v tests.test_sl_api
 ```
 
-We hope that the above was useful quick overview about the service layer API. We recommend that the reader goes over the python quick tutorial first and then go over the .proto files under grpc/protos (or look at the generated .html pages, these are not kept in this repo, but can be auto-generated from this repo).
+We hope that the above was useful quick overview about the Service Layer API. We recommend that the reader go over the Python quick tutorial first and then go over the .proto files under grpc/protos (or look at the generated .html pages - these are not kept in this repo, but can be auto-generated from this repo).

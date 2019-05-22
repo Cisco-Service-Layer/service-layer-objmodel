@@ -17,8 +17,11 @@ from genpy import sl_global_pb2
 from genpy import sl_mpls_pb2
 from genpy import sl_bfd_common_pb2
 from genpy import sl_interface_pb2
+from genpy import sl_l2_route_pb2
 from util import util
 from sl_api import serializers
+from sl_api import BD_Util
+from sl_api import Route_Util
 
 #
 #
@@ -103,6 +106,8 @@ def print_globals(response):
         print("Min Bckup Path-id    : %d" %(response.MinBackupPathIdNum))
         print("Max Bckup Path-id    : %d" %(response.MaxBackupPathIdNum))
         print("Max Remote Bckup Addr: %d" %(response.MaxRemoteAddressNum))
+        print("Max L2 Bd Name Length: %d" %(response.MaxL2BdNameLength))
+        print("Max L2 PMSI Tunnel Id Length %d" %(response.MaxL2PmsiTunnelIdLength))
 
     else:
         print("Globals response Error 0x%x" %(response.ErrStatus.Status))
@@ -731,7 +736,6 @@ def validate_intf_get_response(response):
 # Alphabetical order makes this test runs first
 #
 class TestSuite_000_Global(unittest.TestCase):
-
     def test_001_get_globals(self):
         # Get Global info
         response = clientClass.client.global_get()
@@ -1627,6 +1631,218 @@ class TestSuite_009_INTERFACE(unittest.TestCase):
     def test_009_intf_unregister(self):
         response = clientClass.client.intf_unregister_op()
         err = validate_intf_regop_response(response)
+        self.assertTrue(err)
+
+class TestSuite_010_BD_reg(unittest.TestCase):
+    bdutil = BD_Util()
+    route_util = Route_Util()
+    bdAry = ["bd0", "bd1", "bd2"]
+
+    def test_002_multiple_bd_reg(self):
+        oper = 'SL_REGOP_REGISTER'
+        count = 2
+        bdRegOper = clientClass.json_params["bdRegOper"]
+        response = clientClass.client.bd_reg_unreg_handle(oper, count, bdRegOper)
+
+        err =  TestSuite_010_BD_reg.bdutil.validate_bdreg_response(response)
+        self.assertTrue(err)
+
+    def test_003_stream_mac_add(self):
+        oper = sl_common_types_pb2.SL_OBJOP_ADD
+        count = 5
+        rtype = sl_l2_route_pb2.SL_L2_ROUTE_MAC
+        is_macip = False
+        g_route_attrs = clientClass.json_params["g_route_attrs"]
+
+        count, err = clientClass.client.l2_route_op_stream(oper, count, rtype, is_macip,
+                                                              self.bdAry, g_route_attrs)
+        self.assertTrue(err)
+
+    def test_004_stream_mac_del(self):
+        oper = sl_common_types_pb2.SL_OBJOP_DELETE
+        count = 5
+        rtype = sl_l2_route_pb2.SL_L2_ROUTE_MAC
+        is_macip = False
+        g_route_attrs = clientClass.json_params["g_route_attrs"]
+
+        count, err = clientClass.client.l2_route_op_stream(oper, count, rtype, is_macip,
+                                                              self.bdAry, g_route_attrs)
+        self.assertTrue(err)
+
+def l2route_notif_cback(response):
+    if response.EventType == sl_l2_route_pb2.SL_L2_EVENT_TYPE_ERROR:
+        if (response.ErrStatus.Status ==
+                sl_common_types_pb2.SLErrorStatus.SL_NOTIF_TERM):
+            print("Received notification to Terminate, Stream taken over?")
+        else:
+            print("Received error 0x%x" % (response.ErrStatus.Status))
+            return False
+    else:
+        print("Received L2route/Bd Notif Event Type: %d" %(response.EventType))
+
+def l2route_get_notif(event, thread_count, BdAll, BdName):
+    g_oper = clientClass.json_params["g_route_attrs"]["g_oper"]
+    # This would notify the main thread to proceed
+    event.set()
+    # RPC to get Notifications
+    response = TestSuite_011_L2Route_operation.l2route_notif.l2route_get_notif(l2route_notif_cback, g_oper, BdAll, BdName)
+    # Above, should return on errors
+    print("l2route_get_notif: thread %d exiting. response: %s" %(thread_count, response))
+
+
+class TestSuite_011_L2Route_operation(unittest.TestCase):
+    bdutil = BD_Util()
+    route_util = Route_Util()
+    bdAry = ["bd0", "bd1", "bd2"]
+
+    # GRPC channel used for L2 Route notifications
+    l2route_notif = None
+    # threading.Event() used to sync threads
+    l2route_event = None
+    # thread count
+    thread_count = 0
+
+    def test_000_global_reg(self):
+
+        oper = 'SL_REGOP_REGISTER'
+        g_route_attrs = clientClass.json_params["g_route_attrs"]
+        response = clientClass.client.l2_global_reg_unreg_handler(oper, g_route_attrs)
+
+    def test_001_global_unreg(self):
+        oper = 'SL_REGOP_UNREGISTER'
+        g_route_attrs = clientClass.json_params["g_route_attrs"]
+        response = clientClass.client.l2_global_reg_unreg_handler(oper, g_route_attrs)
+
+    def test_002_multiple_bd_reg(self):
+        oper = 'SL_REGOP_REGISTER'
+        count = 2
+
+        bdRegOper = clientClass.json_params["bdRegOper"]
+        response = clientClass.client.bd_reg_unreg_handle(oper, count, bdRegOper)
+
+        err =  TestSuite_011_L2Route_operation.bdutil.validate_bdreg_response(response)
+        self.assertTrue(err)
+
+    def test_003_l2route_notif_channel_setup(self):
+        # Setup a grpc channel
+        host, port = util.get_server_ip_port()
+        # Setup a channel and store info
+        TestSuite_011_L2Route_operation.l2route_notif = GrpcClient(host, port)
+        # Create a synchronization event, update thread count
+        TestSuite_011_L2Route_operation.l2route_event = threading.Event()
+        TestSuite_011_L2Route_operation.thread_count = TestSuite_011_L2Route_operation.thread_count + 1
+
+        # If BdAll set to True, BdName is not assigned (oneof)
+        BdAll = True
+        BdName = "bd0"
+        t = threading.Thread(target = l2route_get_notif,
+                        args =(TestSuite_011_L2Route_operation.l2route_event,
+                            TestSuite_011_L2Route_operation.thread_count, BdAll, BdName))
+        t.start()
+        # Wait to hear from server - thread is blocked
+        print ("Waiting to hear from l2 notif thread...")
+        TestSuite_011_L2Route_operation.l2route_event.wait()
+        print ("L2 notif thread ok, proceeding")
+        self.assertTrue(True)
+
+    def test_004_global_eof(self):
+        oper = 'SL_REGOP_EOF'
+        g_route_attrs = clientClass.json_params["g_route_attrs"]
+        response = clientClass.client.l2_global_reg_unreg_handler(oper, g_route_attrs)
+
+    def test_005_multiple_mac_macip_route_add(self):
+        oper = sl_common_types_pb2.SL_OBJOP_ADD
+        count = 5
+        rtype = sl_l2_route_pb2.SL_L2_ROUTE_MAC
+        is_macip = False
+        g_route_attrs = clientClass.json_params["g_route_attrs"]
+
+        for bd in self.bdAry:
+            response = clientClass.client.l2_route_handle(oper, count, rtype, is_macip,
+                                                                bd, g_route_attrs)
+            err =  TestSuite_011_L2Route_operation.route_util.validate_l2route_response(response)
+            self.assertTrue(err)
+
+        is_macip = True
+        for bd in self.bdAry:
+            response = clientClass.client.l2_route_handle(oper, count, rtype, is_macip,
+                                                                bd, g_route_attrs)
+            err =  TestSuite_011_L2Route_operation.route_util.validate_l2route_response(response)
+            self.assertTrue(err)
+
+        rtype = sl_l2_route_pb2.SL_L2_ROUTE_IMET
+        is_macip = False
+        for bd in self.bdAry:
+            response = clientClass.client.l2_route_handle(oper, count, rtype, is_macip,
+                                                                bd, g_route_attrs)
+            err =  TestSuite_011_L2Route_operation.route_util.validate_l2route_response(response)
+            self.assertTrue(err)
+        time.sleep(30)
+
+    def test_006_multiple_mac_macip_route_del(self):
+        oper = sl_common_types_pb2.SL_OBJOP_DELETE
+        count = 2
+        rtype = sl_l2_route_pb2.SL_L2_ROUTE_MAC
+        is_macip = False
+        g_route_attrs = clientClass.json_params["g_route_attrs"]
+
+        for bd in self.bdAry:
+            response = clientClass.client.l2_route_handle(oper, count, rtype, is_macip,
+                                                                bd, g_route_attrs)
+            err =  TestSuite_011_L2Route_operation.route_util.validate_l2route_response(response)
+            self.assertTrue(err)
+
+        is_macip = True
+        for bd in self.bdAry:
+            response = clientClass.client.l2_route_handle(oper, count, rtype, is_macip,
+                                                                bd, g_route_attrs)
+            err =  TestSuite_011_L2Route_operation.route_util.validate_l2route_response(response)
+            self.assertTrue(err)
+
+        rtype = sl_l2_route_pb2.SL_L2_ROUTE_IMET
+        is_macip = False
+        for bd in self.bdAry:
+            response = clientClass.client.l2_route_handle(oper, count, rtype, is_macip,
+                                                                bd, g_route_attrs)
+            err =  TestSuite_011_L2Route_operation.route_util.validate_l2route_response(response)
+            self.assertTrue(err)
+
+    def test_007_multiple_bd_unreg(self):
+        oper = 'SL_REGOP_UNREGISTER'
+        count = 2
+        bdRegOper = clientClass.json_params["bdRegOper"]
+        response = clientClass.client.bd_reg_unreg_handle(oper, count, bdRegOper)
+
+        err =  TestSuite_011_L2Route_operation.bdutil.validate_bdreg_response(response)
+        self.assertTrue(err)
+
+    def test_008_globals_get(self):
+        response = clientClass.client.l2_globals_get()
+        err = response.ErrStatus
+        self.assertTrue(err)
+
+class TestSuite_012_BD_unreg(unittest.TestCase):
+    bdutil = BD_Util()
+
+    def test_001_single_bd_unreg(self):
+        oper = 'SL_REGOP_UNREGISTER'
+        count = 0
+        bdRegOper = clientClass.json_params["bdRegOper"]
+        response = clientClass.client.bd_reg_unreg_handle(oper, count, bdRegOper)
+
+        err =  TestSuite_012_BD_unreg.bdutil.validate_bdreg_response(response)
+        self.assertTrue(err)
+
+class TestSuite_013_BD_eof(unittest.TestCase):
+    bdutil = BD_Util()
+
+    def test_000_bd_eof(self):
+        oper = 'SL_REGOP_EOF'
+        count = 1
+        bdRegOper = clientClass.json_params["bdRegOper"]
+        response = clientClass.client.bd_reg_unreg_handle(oper, count, bdRegOper)
+
+        err =  TestSuite_013_BD_eof.bdutil.validate_bdreg_response(response)
         self.assertTrue(err)
 
 if __name__ == '__main__':

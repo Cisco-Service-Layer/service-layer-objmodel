@@ -185,6 +185,12 @@ message SLGlobalsGetMsgRsp {
     // Maximum number of remote addresses
     uint32 MaxRemoteAddressNum = 12;
 
+    // Maximum Bridge Domain name length - used for L2 routes.
+    uint32 MaxL2BdNameLength = 13;
+
+    // Maximum Provider Multicast Service Interface (PMSI) tunnel ID length.
+    // Used for L2 Inclusive Multicast Ethernet Tag (IMET) routes.
+    uint32 MaxL2PmsiTunnelIdLength = 14;
 }
 
 // @}

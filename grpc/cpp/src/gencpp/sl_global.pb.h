@@ -716,6 +716,18 @@ class SLGlobalsGetMsgRsp : public ::google::protobuf::Message /* @@protoc_insert
   ::google::protobuf::uint32 maxremoteaddressnum() const;
   void set_maxremoteaddressnum(::google::protobuf::uint32 value);
 
+  // uint32 MaxL2BdNameLength = 13;
+  void clear_maxl2bdnamelength();
+  static const int kMaxL2BdNameLengthFieldNumber = 13;
+  ::google::protobuf::uint32 maxl2bdnamelength() const;
+  void set_maxl2bdnamelength(::google::protobuf::uint32 value);
+
+  // uint32 MaxL2PmsiTunnelIdLength = 14;
+  void clear_maxl2pmsitunnelidlength();
+  static const int kMaxL2PmsiTunnelIdLengthFieldNumber = 14;
+  ::google::protobuf::uint32 maxl2pmsitunnelidlength() const;
+  void set_maxl2pmsitunnelidlength(::google::protobuf::uint32 value);
+
   // @@protoc_insertion_point(class_scope:service_layer.SLGlobalsGetMsgRsp)
  private:
 
@@ -732,6 +744,8 @@ class SLGlobalsGetMsgRsp : public ::google::protobuf::Message /* @@protoc_insert
   ::google::protobuf::uint32 minbackuppathidnum_;
   ::google::protobuf::uint32 maxbackuppathidnum_;
   ::google::protobuf::uint32 maxremoteaddressnum_;
+  ::google::protobuf::uint32 maxl2bdnamelength_;
+  ::google::protobuf::uint32 maxl2pmsitunnelidlength_;
   mutable int _cached_size_;
   friend struct ::protobuf_sl_5fglobal_2eproto::TableStruct;
   friend void ::protobuf_sl_5fglobal_2eproto::InitDefaultsSLGlobalsGetMsgRspImpl();
@@ -1150,6 +1164,34 @@ inline void SLGlobalsGetMsgRsp::set_maxremoteaddressnum(::google::protobuf::uint
   
   maxremoteaddressnum_ = value;
   // @@protoc_insertion_point(field_set:service_layer.SLGlobalsGetMsgRsp.MaxRemoteAddressNum)
+}
+
+// uint32 MaxL2BdNameLength = 13;
+inline void SLGlobalsGetMsgRsp::clear_maxl2bdnamelength() {
+  maxl2bdnamelength_ = 0u;
+}
+inline ::google::protobuf::uint32 SLGlobalsGetMsgRsp::maxl2bdnamelength() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLGlobalsGetMsgRsp.MaxL2BdNameLength)
+  return maxl2bdnamelength_;
+}
+inline void SLGlobalsGetMsgRsp::set_maxl2bdnamelength(::google::protobuf::uint32 value) {
+  
+  maxl2bdnamelength_ = value;
+  // @@protoc_insertion_point(field_set:service_layer.SLGlobalsGetMsgRsp.MaxL2BdNameLength)
+}
+
+// uint32 MaxL2PmsiTunnelIdLength = 14;
+inline void SLGlobalsGetMsgRsp::clear_maxl2pmsitunnelidlength() {
+  maxl2pmsitunnelidlength_ = 0u;
+}
+inline ::google::protobuf::uint32 SLGlobalsGetMsgRsp::maxl2pmsitunnelidlength() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLGlobalsGetMsgRsp.MaxL2PmsiTunnelIdLength)
+  return maxl2pmsitunnelidlength_;
+}
+inline void SLGlobalsGetMsgRsp::set_maxl2pmsitunnelidlength(::google::protobuf::uint32 value) {
+  
+  maxl2pmsitunnelidlength_ = value;
+  // @@protoc_insertion_point(field_set:service_layer.SLGlobalsGetMsgRsp.MaxL2PmsiTunnelIdLength)
 }
 
 #ifdef __GNUC__

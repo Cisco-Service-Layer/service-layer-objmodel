@@ -59,7 +59,7 @@ var SlLabelAction_value = map[string]int32{
 func (x SlLabelAction) String() string {
 	return proto.EnumName(SlLabelAction_name, int32(x))
 }
-func (SlLabelAction) EnumDescriptor() ([]byte, []int) { return fileDescriptor6, []int{0} }
+func (SlLabelAction) EnumDescriptor() ([]byte, []int) { return fileDescriptor7, []int{0} }
 
 // MPLS Label block key.
 // This message is used to relay the label block key attributes.
@@ -74,7 +74,7 @@ type SLMplsLabelBlockKey struct {
 func (m *SLMplsLabelBlockKey) Reset()                    { *m = SLMplsLabelBlockKey{} }
 func (m *SLMplsLabelBlockKey) String() string            { return proto.CompactTextString(m) }
 func (*SLMplsLabelBlockKey) ProtoMessage()               {}
-func (*SLMplsLabelBlockKey) Descriptor() ([]byte, []int) { return fileDescriptor6, []int{0} }
+func (*SLMplsLabelBlockKey) Descriptor() ([]byte, []int) { return fileDescriptor7, []int{0} }
 
 func (m *SLMplsLabelBlockKey) GetStartLabel() uint32 {
 	if m != nil {
@@ -104,7 +104,7 @@ type SLMplsLabelBlockMsg struct {
 func (m *SLMplsLabelBlockMsg) Reset()                    { *m = SLMplsLabelBlockMsg{} }
 func (m *SLMplsLabelBlockMsg) String() string            { return proto.CompactTextString(m) }
 func (*SLMplsLabelBlockMsg) ProtoMessage()               {}
-func (*SLMplsLabelBlockMsg) Descriptor() ([]byte, []int) { return fileDescriptor6, []int{1} }
+func (*SLMplsLabelBlockMsg) Descriptor() ([]byte, []int) { return fileDescriptor7, []int{1} }
 
 func (m *SLMplsLabelBlockMsg) GetOper() SLObjectOp {
 	if m != nil {
@@ -133,7 +133,7 @@ type SLMplsLabelBlockMsgRes struct {
 func (m *SLMplsLabelBlockMsgRes) Reset()                    { *m = SLMplsLabelBlockMsgRes{} }
 func (m *SLMplsLabelBlockMsgRes) String() string            { return proto.CompactTextString(m) }
 func (*SLMplsLabelBlockMsgRes) ProtoMessage()               {}
-func (*SLMplsLabelBlockMsgRes) Descriptor() ([]byte, []int) { return fileDescriptor6, []int{2} }
+func (*SLMplsLabelBlockMsgRes) Descriptor() ([]byte, []int) { return fileDescriptor7, []int{2} }
 
 func (m *SLMplsLabelBlockMsgRes) GetErrStatus() *SLErrorStatus {
 	if m != nil {
@@ -172,7 +172,7 @@ type SLMplsLabelBlockMsgRsp struct {
 func (m *SLMplsLabelBlockMsgRsp) Reset()                    { *m = SLMplsLabelBlockMsgRsp{} }
 func (m *SLMplsLabelBlockMsgRsp) String() string            { return proto.CompactTextString(m) }
 func (*SLMplsLabelBlockMsgRsp) ProtoMessage()               {}
-func (*SLMplsLabelBlockMsgRsp) Descriptor() ([]byte, []int) { return fileDescriptor6, []int{3} }
+func (*SLMplsLabelBlockMsgRsp) Descriptor() ([]byte, []int) { return fileDescriptor7, []int{3} }
 
 func (m *SLMplsLabelBlockMsgRsp) GetStatusSummary() *SLErrorStatus {
 	if m != nil {
@@ -207,7 +207,7 @@ type SLMplsLabelBlockGetMsg struct {
 func (m *SLMplsLabelBlockGetMsg) Reset()                    { *m = SLMplsLabelBlockGetMsg{} }
 func (m *SLMplsLabelBlockGetMsg) String() string            { return proto.CompactTextString(m) }
 func (*SLMplsLabelBlockGetMsg) ProtoMessage()               {}
-func (*SLMplsLabelBlockGetMsg) Descriptor() ([]byte, []int) { return fileDescriptor6, []int{4} }
+func (*SLMplsLabelBlockGetMsg) Descriptor() ([]byte, []int) { return fileDescriptor7, []int{4} }
 
 func (m *SLMplsLabelBlockGetMsg) GetKey() *SLMplsLabelBlockKey {
 	if m != nil {
@@ -247,7 +247,7 @@ type SLMplsLabelBlockGetMsgRsp struct {
 func (m *SLMplsLabelBlockGetMsgRsp) Reset()                    { *m = SLMplsLabelBlockGetMsgRsp{} }
 func (m *SLMplsLabelBlockGetMsgRsp) String() string            { return proto.CompactTextString(m) }
 func (*SLMplsLabelBlockGetMsgRsp) ProtoMessage()               {}
-func (*SLMplsLabelBlockGetMsgRsp) Descriptor() ([]byte, []int) { return fileDescriptor6, []int{5} }
+func (*SLMplsLabelBlockGetMsgRsp) Descriptor() ([]byte, []int) { return fileDescriptor7, []int{5} }
 
 func (m *SLMplsLabelBlockGetMsgRsp) GetEof() bool {
 	if m != nil {
@@ -281,7 +281,7 @@ type SLMplsRegMsg struct {
 func (m *SLMplsRegMsg) Reset()                    { *m = SLMplsRegMsg{} }
 func (m *SLMplsRegMsg) String() string            { return proto.CompactTextString(m) }
 func (*SLMplsRegMsg) ProtoMessage()               {}
-func (*SLMplsRegMsg) Descriptor() ([]byte, []int) { return fileDescriptor6, []int{6} }
+func (*SLMplsRegMsg) Descriptor() ([]byte, []int) { return fileDescriptor7, []int{6} }
 
 func (m *SLMplsRegMsg) GetOper() SLRegOp {
 	if m != nil {
@@ -300,7 +300,7 @@ type SLMplsRegMsgRsp struct {
 func (m *SLMplsRegMsgRsp) Reset()                    { *m = SLMplsRegMsgRsp{} }
 func (m *SLMplsRegMsgRsp) String() string            { return proto.CompactTextString(m) }
 func (*SLMplsRegMsgRsp) ProtoMessage()               {}
-func (*SLMplsRegMsgRsp) Descriptor() ([]byte, []int) { return fileDescriptor6, []int{7} }
+func (*SLMplsRegMsgRsp) Descriptor() ([]byte, []int) { return fileDescriptor7, []int{7} }
 
 func (m *SLMplsRegMsgRsp) GetErrStatus() *SLErrorStatus {
 	if m != nil {
@@ -317,7 +317,7 @@ type SLMplsGetMsg struct {
 func (m *SLMplsGetMsg) Reset()                    { *m = SLMplsGetMsg{} }
 func (m *SLMplsGetMsg) String() string            { return proto.CompactTextString(m) }
 func (*SLMplsGetMsg) ProtoMessage()               {}
-func (*SLMplsGetMsg) Descriptor() ([]byte, []int) { return fileDescriptor6, []int{8} }
+func (*SLMplsGetMsg) Descriptor() ([]byte, []int) { return fileDescriptor7, []int{8} }
 
 // MPLS Get Global Info response message.
 // This message is used to convey the response to the global capabilities query.
@@ -343,7 +343,7 @@ type SLMplsGetMsgRsp struct {
 func (m *SLMplsGetMsgRsp) Reset()                    { *m = SLMplsGetMsgRsp{} }
 func (m *SLMplsGetMsgRsp) String() string            { return proto.CompactTextString(m) }
 func (*SLMplsGetMsgRsp) ProtoMessage()               {}
-func (*SLMplsGetMsgRsp) Descriptor() ([]byte, []int) { return fileDescriptor6, []int{9} }
+func (*SLMplsGetMsgRsp) Descriptor() ([]byte, []int) { return fileDescriptor7, []int{9} }
 
 func (m *SLMplsGetMsgRsp) GetErrStatus() *SLErrorStatus {
 	if m != nil {
@@ -408,7 +408,7 @@ type SLMplsGetStatsMsgRsp struct {
 func (m *SLMplsGetStatsMsgRsp) Reset()                    { *m = SLMplsGetStatsMsgRsp{} }
 func (m *SLMplsGetStatsMsgRsp) String() string            { return proto.CompactTextString(m) }
 func (*SLMplsGetStatsMsgRsp) ProtoMessage()               {}
-func (*SLMplsGetStatsMsgRsp) Descriptor() ([]byte, []int) { return fileDescriptor6, []int{10} }
+func (*SLMplsGetStatsMsgRsp) Descriptor() ([]byte, []int) { return fileDescriptor7, []int{10} }
 
 func (m *SLMplsGetStatsMsgRsp) GetErrStatus() *SLErrorStatus {
 	if m != nil {
@@ -515,7 +515,7 @@ type SLMplsPath struct {
 func (m *SLMplsPath) Reset()                    { *m = SLMplsPath{} }
 func (m *SLMplsPath) String() string            { return proto.CompactTextString(m) }
 func (*SLMplsPath) ProtoMessage()               {}
-func (*SLMplsPath) Descriptor() ([]byte, []int) { return fileDescriptor6, []int{11} }
+func (*SLMplsPath) Descriptor() ([]byte, []int) { return fileDescriptor7, []int{11} }
 
 func (m *SLMplsPath) GetNexthopAddress() *SLIpAddress {
 	if m != nil {
@@ -590,7 +590,7 @@ type SLMplsIlmKey struct {
 func (m *SLMplsIlmKey) Reset()                    { *m = SLMplsIlmKey{} }
 func (m *SLMplsIlmKey) String() string            { return proto.CompactTextString(m) }
 func (*SLMplsIlmKey) ProtoMessage()               {}
-func (*SLMplsIlmKey) Descriptor() ([]byte, []int) { return fileDescriptor6, []int{12} }
+func (*SLMplsIlmKey) Descriptor() ([]byte, []int) { return fileDescriptor7, []int{12} }
 
 func (m *SLMplsIlmKey) GetLocalLabel() uint32 {
 	if m != nil {
@@ -611,7 +611,7 @@ type SLMplsIlmEntry struct {
 func (m *SLMplsIlmEntry) Reset()                    { *m = SLMplsIlmEntry{} }
 func (m *SLMplsIlmEntry) String() string            { return proto.CompactTextString(m) }
 func (*SLMplsIlmEntry) ProtoMessage()               {}
-func (*SLMplsIlmEntry) Descriptor() ([]byte, []int) { return fileDescriptor6, []int{13} }
+func (*SLMplsIlmEntry) Descriptor() ([]byte, []int) { return fileDescriptor7, []int{13} }
 
 func (m *SLMplsIlmEntry) GetKey() *SLMplsIlmKey {
 	if m != nil {
@@ -642,7 +642,7 @@ type SLMplsIlmMsg struct {
 func (m *SLMplsIlmMsg) Reset()                    { *m = SLMplsIlmMsg{} }
 func (m *SLMplsIlmMsg) String() string            { return proto.CompactTextString(m) }
 func (*SLMplsIlmMsg) ProtoMessage()               {}
-func (*SLMplsIlmMsg) Descriptor() ([]byte, []int) { return fileDescriptor6, []int{14} }
+func (*SLMplsIlmMsg) Descriptor() ([]byte, []int) { return fileDescriptor7, []int{14} }
 
 func (m *SLMplsIlmMsg) GetOper() SLObjectOp {
 	if m != nil {
@@ -677,7 +677,7 @@ type SLMplsIlmRes struct {
 func (m *SLMplsIlmRes) Reset()                    { *m = SLMplsIlmRes{} }
 func (m *SLMplsIlmRes) String() string            { return proto.CompactTextString(m) }
 func (*SLMplsIlmRes) ProtoMessage()               {}
-func (*SLMplsIlmRes) Descriptor() ([]byte, []int) { return fileDescriptor6, []int{15} }
+func (*SLMplsIlmRes) Descriptor() ([]byte, []int) { return fileDescriptor7, []int{15} }
 
 func (m *SLMplsIlmRes) GetErrStatus() *SLErrorStatus {
 	if m != nil {
@@ -717,7 +717,7 @@ type SLMplsIlmMsgRsp struct {
 func (m *SLMplsIlmMsgRsp) Reset()                    { *m = SLMplsIlmMsgRsp{} }
 func (m *SLMplsIlmMsgRsp) String() string            { return proto.CompactTextString(m) }
 func (*SLMplsIlmMsgRsp) ProtoMessage()               {}
-func (*SLMplsIlmMsgRsp) Descriptor() ([]byte, []int) { return fileDescriptor6, []int{16} }
+func (*SLMplsIlmMsgRsp) Descriptor() ([]byte, []int) { return fileDescriptor7, []int{16} }
 
 func (m *SLMplsIlmMsgRsp) GetCorrelator() uint64 {
 	if m != nil {
@@ -762,7 +762,7 @@ type SLMplsIlmGetMsg struct {
 func (m *SLMplsIlmGetMsg) Reset()                    { *m = SLMplsIlmGetMsg{} }
 func (m *SLMplsIlmGetMsg) String() string            { return proto.CompactTextString(m) }
 func (*SLMplsIlmGetMsg) ProtoMessage()               {}
-func (*SLMplsIlmGetMsg) Descriptor() ([]byte, []int) { return fileDescriptor6, []int{17} }
+func (*SLMplsIlmGetMsg) Descriptor() ([]byte, []int) { return fileDescriptor7, []int{17} }
 
 func (m *SLMplsIlmGetMsg) GetCorrelator() uint64 {
 	if m != nil {
@@ -811,7 +811,7 @@ type SLMplsIlmGetMsgRsp struct {
 func (m *SLMplsIlmGetMsgRsp) Reset()                    { *m = SLMplsIlmGetMsgRsp{} }
 func (m *SLMplsIlmGetMsgRsp) String() string            { return proto.CompactTextString(m) }
 func (*SLMplsIlmGetMsgRsp) ProtoMessage()               {}
-func (*SLMplsIlmGetMsgRsp) Descriptor() ([]byte, []int) { return fileDescriptor6, []int{18} }
+func (*SLMplsIlmGetMsgRsp) Descriptor() ([]byte, []int) { return fileDescriptor7, []int{18} }
 
 func (m *SLMplsIlmGetMsgRsp) GetCorrelator() uint64 {
 	if m != nil {
@@ -1355,9 +1355,9 @@ var _SLMplsOper_serviceDesc = grpc.ServiceDesc{
 	Metadata: "sl_mpls.proto",
 }
 
-func init() { proto.RegisterFile("sl_mpls.proto", fileDescriptor6) }
+func init() { proto.RegisterFile("sl_mpls.proto", fileDescriptor7) }
 
-var fileDescriptor6 = []byte{
+var fileDescriptor7 = []byte{
 	// 1148 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x09, 0x6e, 0x88, 0x02, 0xff, 0xac, 0x57, 0x5b, 0x6f, 0x1b, 0x45,
 	0x14, 0x66, 0x6d, 0x37, 0x97, 0x69, 0xed, 0xba, 0xd3, 0x12, 0x39, 0xa6, 0x04, 0x98, 0x70, 0xb1,

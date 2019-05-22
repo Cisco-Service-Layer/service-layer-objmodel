@@ -11,6 +11,7 @@ It is generated from these files:
 	sl_common_types.proto
 	sl_global.proto
 	sl_interface.proto
+	sl_l2_route.proto
 	sl_mpls.proto
 	sl_route_common.proto
 	sl_route_ipv4.proto
@@ -67,6 +68,30 @@ It has these top-level messages:
 	SLInterfaceNotifMsg
 	SLInterfaceNotifMsgRes
 	SLInterfaceNotifMsgRsp
+	SLL2GlobalsGetMsg
+	SLL2GlobalsGetMsgRsp
+	SLL2RegMsg
+	SLL2RegMsgRsp
+	SLL2BdRegMsg
+	SLL2BdRegRes
+	SLL2BdRegMsgRsp
+	SLL2RouteEsi
+	SLL2RouteNh
+	SLL2OverlayNh
+	SLL2MacRouteKey
+	SLL2MacRoute
+	SLL2ImetRouteKey
+	SLL2ImetRoute
+	SLL2RouteKey
+	SLL2Route
+	SLL2RouteMsg
+	SLL2RouteRes
+	SLL2RouteMsgRsp
+	SLL2GetNotifMsg
+	SLL2RouteNotif
+	SLL2BdStateInfo
+	SLL2NotifStatusMsg
+	SLL2Notif
 	SLMplsLabelBlockKey
 	SLMplsLabelBlockMsg
 	SLMplsLabelBlockMsgRes

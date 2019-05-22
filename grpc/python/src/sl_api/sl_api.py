@@ -21,6 +21,7 @@ from genpy import sl_bfd_common_pb2
 from genpy import sl_bfd_ipv4_pb2
 from genpy import sl_bfd_ipv6_pb2
 from genpy import sl_interface_pb2
+from genpy import sl_l2_route_pb2
 from genpy import sl_common_types_pb2_grpc
 from genpy import sl_global_pb2_grpc
 from genpy import sl_route_ipv4_pb2_grpc
@@ -30,6 +31,7 @@ from genpy import sl_bfd_common_pb2_grpc
 from genpy import sl_bfd_ipv4_pb2_grpc
 from genpy import sl_bfd_ipv6_pb2_grpc
 from genpy import sl_interface_pb2_grpc
+from genpy import sl_l2_route_pb2_grpc
 
 import grpc
 from grpc.framework.interfaces.face.face import NetworkError
@@ -237,10 +239,33 @@ class AbstractClient(object, metaclass=abc.ABCMeta):
         pass
 
     @abc.abstractmethod
+    def bd_reg_unreg_handle(self, *args, **kwargs):
+        pass
+
+    @abc.abstractmethod
+    def l2route_get_notif(self, *args, **kwargs):
+        pass
+
+    @abc.abstractmethod
+    def l2_route_handle(self, *args, **kwargs):
+        pass
+
+    @abc.abstractmethod
     def l3route_get_notif(self, *args, **kwargs):
         pass
 
+    @abc.abstractmethod
+    def l2_global_reg_unreg_handler(self, *args, **kwargs):
+        pass
+
 class Route_Util:
+
+    def print_SLL2RegMsg(self, global_msg):
+        print((str(global_msg) + "\n"))
+
+    def print_SLL2RouteMsg(self, route_msg):
+        print((str(route_msg) + "\n"))
+
     def construct_SLRouteGetNotifMsg(self, seqno, vrf_name, src_proto, src_proto_tag):
         parent_message = sl_route_common_pb2.SLRouteGetNotifMsg()
 
@@ -250,6 +275,214 @@ class Route_Util:
         parent_message.SrcProto = src_proto
         parent_message.SrcProtoTag = src_proto_tag
         return parent_message
+
+    def construct_SLL2GetNotifMsg(self, g_oper, BdAll, BdName):
+        g_oper = getattr(sl_common_types_pb2, g_oper)
+
+        parent_message = sl_l2_route_pb2.SLL2GetNotifMsg()
+        parent_message.Oper = g_oper
+
+        parent_message.Correlator = 1
+        parent_message.BdAll = True
+        parent_message.GetNotifEof = False
+
+        if (BdAll):
+            parent_message.BdAll = True
+        else:
+            parent_message.BdName = BdName
+
+        return parent_message
+
+    def construct_SLL2RouteNh(self, g_route_attrs):
+        g_encap = getattr(sl_common_types_pb2, g_route_attrs["g_encap"])
+
+        parent_message = sl_l2_route_pb2.SLL2RouteNh()
+        parent_message.NhType = g_route_attrs["g_nh_type"]
+
+        if parent_message.NhType == 1:
+            # Either interface name or handle (not both) must be present if
+            # interface nexthop type selected
+            if "g_nh_intf_name" in g_route_attrs:
+                parent_message.NhInterface.Name = g_route_attrs["g_nh_intf_name"]
+            else:
+                parent_message.NhInterface.Handle = g_route_attrs["g_nh_intf_handle"]
+        elif parent_message.NhType == 2:
+            # IP manipulation
+            ip_list = []*1
+            for ip in ipaddress.ip_network(g_route_attrs["g_nexthop"][0], strict = False):
+                ip_list.append(int(ipaddress.IPv4Address(ip)))
+
+            parent_message.NhOverlay.OverlayNhIp.V4Address = ip_list[0]
+            parent_message.NhOverlay.OverlayNhEncap = g_encap
+            parent_message.NhOverlay.OverlayNhLabel = g_route_attrs["g_label"]
+            # Using a single L3VNI for now
+            l3_list = []
+            l3_list.append(g_route_attrs["g_l3vni"]) # Single L3VNI for vxlan
+            parent_message.NhOverlay.OverlayNhL3Label.extend(l3_list)
+            parent_message.NhOverlay.OverlayNhRouterMac = unhexlify(g_route_attrs["g_rmac"].replace(':', ''))
+
+        return parent_message
+
+    def construct_SLL2MacRoute(self, is_macip, ip, mac, g_route_attrs):
+        parent_message = sl_l2_route_pb2.SLL2MacRoute()
+
+        if is_macip == True:
+            parent_message.RouteKey.IpAddress.V4Address = ip
+
+        parent_message.RouteKey.MacAddress = unhexlify((mac.replace(':', '')))
+        parent_message.SequenceNum = 1
+
+        # Construct NH (single next hop for now)
+        nh = self.construct_SLL2RouteNh(g_route_attrs)
+        message = []
+        message.append(nh)
+        parent_message.NextHopList.extend(message)
+        parent_message.MacEsi.Esi = unhexlify(g_route_attrs["g_esi"])
+        return parent_message
+
+    def construct_SLL2ImetRoute(self, ip, g_route_attrs):
+        parent_message = sl_l2_route_pb2.SLL2ImetRoute()
+
+        parent_message.RouteKey.EthTagId = 0
+        parent_message.RouteKey.IpAddress.V4Address = int(ipaddress.ip_address('1.2.3.4'))
+        parent_message.EncapType = sl_common_types_pb2.SL_ENCAP_VXLAN
+        parent_message.Label = g_route_attrs["g_label"]
+        # For now only ipV4 tunnelId, modify hardcoded PMSI tun type
+        parent_message.TunnelType = 6
+        parent_message.TunnelIdLength = 4
+
+        ipstr = '2.3.4.5'
+        parent_message.TunnelIdValue = unhexlify(ipstr.replace('.',''))
+        return parent_message
+
+    def construct_SLL2Route(self, rtype, is_macip, ip, mac, g_bd, g_route_attrs):
+        parent_message = sl_l2_route_pb2.SLL2Route()
+
+        parent_message.BdName = g_bd
+        parent_message.Type = rtype
+
+        if rtype == sl_l2_route_pb2.SL_L2_ROUTE_MAC:
+            # Invoke mac/mac-ip msg construct API
+            mac_route = self.construct_SLL2MacRoute(is_macip, ip, mac, g_route_attrs)
+            # Above is not iterable
+            parent_message.MacRoute.CopyFrom(mac_route)
+        else:
+            # Invoke imet msg construct API
+            imet_route = self.construct_SLL2ImetRoute(ip, g_route_attrs)
+            parent_message.ImetRoute.CopyFrom(imet_route)
+        return parent_message
+
+    # SLL2RouteMsg
+    def construct_SLL2RouteMsg(self, oper, count, rtype, is_macip, g_bd, g_route_attrs):
+        parent_message = sl_l2_route_pb2.SLL2RouteMsg()
+        parent_message.Correlator = 1
+        parent_message.Oper = oper
+
+        # IP manipulation
+        ip_list = []*count
+        i = 0
+        for ip in ipaddress.ip_network(g_route_attrs["g_ip"][0], strict = False):
+            ip_list.append(int(ipaddress.IPv4Address(ip)))
+
+        message = []
+        g_mac = g_route_attrs["g_mac"]
+        # Multiple MAC/MAC-IP/IMET case
+        if count > 1:
+            index = 0
+            while count > 0:
+                route = self.construct_SLL2Route(rtype, is_macip,
+                                                 ip_list[index], g_mac[index],
+                                                 g_bd, g_route_attrs)
+                message.append(route)
+                parent_message.Routes.extend(message)
+                index = index + 1
+                count = count - 1
+
+        elif count == 1:
+            # Single MAC/MAC-IP/IMET case (won't use g_mac for IMET)
+            route = self.construct_SLL2Route(rtype, is_macip, ip_list[0],
+                                                g_mac[0], g_bd, g_route_attrs)
+            message.append(route)
+            parent_message.Routes.extend(message)
+        return parent_message
+
+    def validate_l2route_response(self, response):
+        if response.Correlator != 1:
+            return False
+
+        if (sl_common_types_pb2.SLErrorStatus.SL_SUCCESS ==
+            response.StatusSummary.Status):
+            return True
+        elif (sl_common_types_pb2.SLErrorStatus.SL_SOME_ERR ==
+            response.StatusSummary.Status):
+            print("Batch Error code 0x%x" %(response.StatusSummary.Status))
+            for result in response.Results:
+                print("Error code for oper [%d] is 0x%x" % (result.Oper,
+                        result.ErrStatus.Status))
+                print("Failed route key: bd[%s], type[%d], mac[%s], ip[%s]" % (result.RouteKey.BdName, result.RouteKey.Type, 
+                        byte_to_mac_str(result.RouteKey.Event.MacKey.MacAddress),
+                        ipaddress.IPv4Address(result.RouteKey.Event.MacKey.IpAddress.V4Address)))
+        else:
+            print("Batch Error code 0x%x" %(response.StatusSummary.Status))
+        return False
+
+    def construct_SLL2RegMsg(self, oper, g_route_attrs):
+
+        parent_message = sl_l2_route_pb2.SLL2RegMsg()
+
+        if oper == 'SL_REGOP_REGISTER':
+            parent_message.Oper = sl_common_types_pb2.SL_REGOP_REGISTER
+        elif oper == 'SL_REGOP_UNREGISTER':
+            parent_message.Oper = sl_common_types_pb2.SL_REGOP_UNREGISTER
+        else:
+            parent_message.Oper = sl_common_types_pb2.SL_REGOP_EOF
+
+        parent_message.AdminDistance = g_route_attrs["adminDistance"]
+        parent_message.PurgeIntervalSeconds = g_route_attrs["purgeTime"]
+        return parent_message
+
+class BD_Util:
+    def print_SLL2BdRegMsg(self, bdreg_msg):
+        print((str(bdreg_msg) + "\n"))
+
+    def construct_SLL2BdRegMsg(self, oper, bdprefix, count, bdRegOper):
+        messages = []
+
+        parent_message = sl_l2_route_pb2.SLL2BdRegMsg()
+
+        if oper in bdRegOper:
+            if oper == 'SL_REGOP_REGISTER':
+                parent_message.Oper = sl_common_types_pb2.SL_REGOP_REGISTER
+            elif oper == 'SL_REGOP_UNREGISTER':
+                parent_message.Oper = sl_common_types_pb2.SL_REGOP_UNREGISTER
+            else:
+                parent_message.Oper = sl_common_types_pb2.SL_REGOP_EOF
+            # Repeated SLL2BdReg will be empty
+            if oper == 'SL_REGOP_EOF':
+                return parent_message
+        while count >= 0:
+            messages.append(bdprefix + str(count))
+            count  = count - 1
+        parent_message.BdRegName.extend(messages)
+
+        return parent_message
+
+    def validate_bdreg_response(self, response):
+        if (sl_common_types_pb2.SLErrorStatus.SL_SUCCESS ==
+            response.StatusSummary.Status):
+            return True
+        # Error cases
+        # SOME ERROR
+        elif (sl_common_types_pb2.SLErrorStatus.SL_SOME_ERR ==
+            response.StatusSummary.Status):
+            print("Batch Error code 0x%x" %(response.StatusSummary.Status))
+            for result in response.Results:
+                print("Error code for %s is 0x%x" % (result.BdName, result.ErrStatus.Status))
+            return False
+        else:
+            # Grpc ERROR
+            print("Batch Error code 0x%x" %(response.StatusSummary.Status))
+            return False
 
 class GrpcClient(AbstractClient):
     TIMEOUT_SECONDS = 20
@@ -277,6 +510,8 @@ class GrpcClient(AbstractClient):
             sl_bfd_ipv6_pb2_grpc.SLBfdv6OperStub(channel),
             # 6
             sl_interface_pb2_grpc.SLInterfaceOperStub(channel),
+            # 7
+            sl_l2_route_pb2_grpc.SLL2OperStub(channel),
         )
 
     def global_route_get(self, af):
@@ -779,6 +1014,40 @@ class GrpcClient(AbstractClient):
         response = self._stubs[6].SLInterfaceNotifOp(serializer, self.TIMEOUT_SECONDS)
         return response
 
+    def bd_reg_unreg_handle(self, oper, count, bdRegOper):
+        """BD Reg/Unreg."""
+        bdprefix = 'bd'
+        bdutil = BD_Util()
+        bdreg_msg = bdutil.construct_SLL2BdRegMsg(oper, bdprefix, count, bdRegOper)
+        bdutil.print_SLL2BdRegMsg(bdreg_msg)
+        # Invoke RPC
+        response = self._stubs[7].SLL2BdRegOp(bdreg_msg, self.TIMEOUT_SECONDS)
+        return response
+
+    def l2_route_handle(self, oper, count, rtype, is_macip, g_bd, g_route_attrs):
+        """L2 Route Oper."""
+        route_util = Route_Util()
+        route_msg = route_util.construct_SLL2RouteMsg(oper, count, rtype, is_macip, g_bd,
+                                                          g_route_attrs)
+        route_util.print_SLL2RouteMsg(route_msg)
+
+        # Invoke RPC
+        response = self._stubs[7].SLL2RouteOp(route_msg, self.TIMEOUT_SECONDS)
+        return response
+
+    def l2route_get_notif(self, cback_func, g_oper, BdAll, BdName):
+        """L2 Route Get Notif"""
+        route_util = Route_Util()
+        # Construct input (currently sending interest for all Bds)
+        request = gen_l2route_get_notif_msg(g_oper, BdAll, BdName)
+
+        # Expect a stream of SLL2RouteGetMsgRsp [Use large timeout]
+        responses = self._stubs[7].SLL2GetNotifStream(request, 3600*24*365)
+        for response in responses:
+            if not cback_func(response):
+                break
+        # Returns on exit
+        return response
 
     def l3route_get_notif(self, af):
         """L3 Route Get Notif"""
@@ -792,6 +1061,61 @@ class GrpcClient(AbstractClient):
 
             print (response)
         return
+
+    def l2_global_reg_unreg_handler(self, oper, g_route_attrs):
+        """L2 Global reg/unreg"""
+        route_util = Route_Util()
+        global_reg = route_util.construct_SLL2RegMsg(oper, g_route_attrs)
+        route_util.print_SLL2RegMsg(global_reg)
+        # Invoke RPC
+        response = self._stubs[7].SLL2RegOp(global_reg, self.TIMEOUT_SECONDS)
+        return response
+
+    def l2_globals_get(self):
+        parent_message = sl_l2_route_pb2.SLL2GlobalsGetMsg()
+        response = self._stubs[7].SLL2GlobalsGet(parent_message, self.TIMEOUT_SECONDS)
+        return response
+
+    def l2_route_op_stream(self, oper, count, rtype, is_macip, bdAry, g_route_attrs):
+        route_util = Route_Util()
+        count = 0
+        l2_route_op_msgs = gen_l2_route_msgs(oper, count, rtype, is_macip, bdAry, g_route_attrs)
+
+        responses = self._stubs[7].SLL2RouteOpStream(l2_route_op_msgs, 100*self.TIMEOUT_SECONDS)
+        try:
+            for response in responses:
+                count = count + 1
+                error = route_util.validate_l2route_response(response)
+                if not error:
+                    return count, error
+        except NetworkError as netErr:
+            if netErr.details == "EOF":
+                # Success case, we send EOF, Server reflects the EOF back
+                return count, True
+        except Exception as err:
+            # Other side exited (GRPCIO 1.7.x returns a different exception)
+            if "details" in dir(err) and err.details == "EOF":
+                return count, True
+            # Other side exited (Python GRPC 1.7.0, Protoc 3.5.1 returns different exception)
+            if ("_state" in dir(err) and "details" in dir(err._state) and 
+                    err._state.details == "EOF".encode()):
+                return count, True
+            print(("Exception Received:", str(err)))
+        return count, False
+
+def gen_l2_route_msgs(oper, count, rtype, is_macip, bdAry, g_route_attrs):
+    route_util = Route_Util()
+    for bd in bdAry:
+        route_msg = route_util.construct_SLL2RouteMsg(oper, count, rtype,
+                                                           is_macip, bd, g_route_attrs)
+        yield route_msg
+
+def gen_l2route_get_notif_msg(g_oper, BdAll, BdName):
+    """L2 Route Get Notif"""
+    route_util = Route_Util()
+    # Construct input (currently sending interest for all Bds)
+    request = route_util.construct_SLL2GetNotifMsg(g_oper, BdAll, BdName)
+    yield request
 
 #
 # Iterator to construct input (currently sending interest for default vrf)

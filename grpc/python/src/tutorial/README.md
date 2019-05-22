@@ -26,7 +26,7 @@ On the server side, we need to configure GRPC and enable the service layer throu
     end
 
 
-We also need to configure a server IP address. To configure an IP address on the managment interface, one can use dhcp as follows:
+We also need to configure a server IP address. To configure an IP address on the management interface, one can use dhcp as follows:
 
     ! Configure the Mgmt Interface
     configure
@@ -71,7 +71,7 @@ The following sections explain the details of the above example tutorial.
 If you are not familiar with gRPC, we recommend you refer to gRPC's
 documentation before beginning with our tutorial: [gRPC Docs](http://www.grpc.io/docs/)
 
-You should have received all of the protobuf files required to run the Cisco
+You should have received all of the Protobuf files required to run the Cisco
 Service Laye API. In order to generate the gRPC client side code stubs in python, run the following command (you may have to adjust the path to the proto files and the output according to your requirements):  
 
 **For convenience, these files are also committed in this repo under grpc/python/src/genpy/ (so you can skip this step).**
@@ -79,7 +79,7 @@ Service Laye API. In order to generate the gRPC client side code stubs in python
     $ protoc -I ../../protos --python_out=. --grpc_out=./genpy/ --plugin=protoc-gen-grpc=`which grpc_python_plugin` ../../protos/*.proto
 
 This generates the code stubs that we will now utilize to create a client.
-The files are recognizable from the "_pb2" that is appended to the name of the
+The files are recognizable from the "_pb2" and  "_pb2_grpc" that is appended to the name of the
 proto files they were generated from (example: sl_route_ipv4_pb2.py).
 
 #### <a name='init'></a>Initialize the client server connection
@@ -132,7 +132,7 @@ Notice that the client_init definition above takes a GRPC stub as an argument.
 This is typically created through:
 
     # Create the gRPC stub.
-    stub = sl_global_pb2.beta_create_SLGlobal_stub(channel)
+    stub = sl_global_pb2_grpc.SLGlobalStub(channel)
 
 Since the above client_init function would never return, it is best to spawn it as a thread, and run it in the background. In python, we do so by calling a threading event:
 

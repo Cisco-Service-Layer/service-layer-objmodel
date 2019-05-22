@@ -21,7 +21,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='sl_global.proto',
   package='service_layer',
   syntax='proto3',
-  serialized_pb=_b('\n\x0fsl_global.proto\x12\rservice_layer\x1a\x15sl_common_types.proto\"?\n\tSLInitMsg\x12\x10\n\x08MajorVer\x18\x01 \x01(\r\x12\x10\n\x08MinorVer\x18\x02 \x01(\r\x12\x0e\n\x06SubVer\x18\x03 \x01(\r\"B\n\x0cSLInitMsgRsp\x12\x10\n\x08MajorVer\x18\x01 \x01(\r\x12\x10\n\x08MinorVer\x18\x02 \x01(\r\x12\x0e\n\x06SubVer\x18\x03 \x01(\r\"\xb1\x01\n\rSLGlobalNotif\x12\x33\n\tEventType\x18\x01 \x01(\x0e\x32 .service_layer.SLGlobalNotifType\x12/\n\tErrStatus\x18\x02 \x01(\x0b\x32\x1c.service_layer.SLErrorStatus\x12\x31\n\nInitRspMsg\x18\x03 \x01(\x0b\x32\x1b.service_layer.SLInitMsgRspH\x00\x42\x07\n\x05\x45vent\"\x11\n\x0fSLGlobalsGetMsg\"\x85\x03\n\x12SLGlobalsGetMsgRsp\x12/\n\tErrStatus\x18\x01 \x01(\x0b\x32\x1c.service_layer.SLErrorStatus\x12\x18\n\x10MaxVrfNameLength\x18\x02 \x01(\r\x12\x1e\n\x16MaxInterfaceNameLength\x18\x03 \x01(\r\x12\x18\n\x10MaxPathsPerEntry\x18\x04 \x01(\r\x12\x1e\n\x16MaxPrimaryPathPerEntry\x18\x05 \x01(\r\x12\x1d\n\x15MaxBackupPathPerEntry\x18\x06 \x01(\r\x12\x1c\n\x14MaxMplsLabelsPerPath\x18\x07 \x01(\r\x12\x1b\n\x13MinPrimaryPathIdNum\x18\x08 \x01(\r\x12\x1b\n\x13MaxPrimaryPathIdNum\x18\t \x01(\r\x12\x1a\n\x12MinBackupPathIdNum\x18\n \x01(\r\x12\x1a\n\x12MaxBackupPathIdNum\x18\x0b \x01(\r\x12\x1b\n\x13MaxRemoteAddressNum\x18\x0c \x01(\r*\x9c\x01\n\x11SLGlobalNotifType\x12!\n\x1dSL_GLOBAL_EVENT_TYPE_RESERVED\x10\x00\x12\x1e\n\x1aSL_GLOBAL_EVENT_TYPE_ERROR\x10\x01\x12\"\n\x1eSL_GLOBAL_EVENT_TYPE_HEARTBEAT\x10\x02\x12 \n\x1cSL_GLOBAL_EVENT_TYPE_VERSION\x10\x03\x32\xac\x01\n\x08SLGlobal\x12M\n\x11SLGlobalInitNotif\x12\x18.service_layer.SLInitMsg\x1a\x1c.service_layer.SLGlobalNotif0\x01\x12Q\n\x0cSLGlobalsGet\x12\x1e.service_layer.SLGlobalsGetMsg\x1a!.service_layer.SLGlobalsGetMsgRspb\x06proto3')
+  serialized_pb=_b('\n\x0fsl_global.proto\x12\rservice_layer\x1a\x15sl_common_types.proto\"?\n\tSLInitMsg\x12\x10\n\x08MajorVer\x18\x01 \x01(\r\x12\x10\n\x08MinorVer\x18\x02 \x01(\r\x12\x0e\n\x06SubVer\x18\x03 \x01(\r\"B\n\x0cSLInitMsgRsp\x12\x10\n\x08MajorVer\x18\x01 \x01(\r\x12\x10\n\x08MinorVer\x18\x02 \x01(\r\x12\x0e\n\x06SubVer\x18\x03 \x01(\r\"\xb1\x01\n\rSLGlobalNotif\x12\x33\n\tEventType\x18\x01 \x01(\x0e\x32 .service_layer.SLGlobalNotifType\x12/\n\tErrStatus\x18\x02 \x01(\x0b\x32\x1c.service_layer.SLErrorStatus\x12\x31\n\nInitRspMsg\x18\x03 \x01(\x0b\x32\x1b.service_layer.SLInitMsgRspH\x00\x42\x07\n\x05\x45vent\"\x11\n\x0fSLGlobalsGetMsg\"\xc1\x03\n\x12SLGlobalsGetMsgRsp\x12/\n\tErrStatus\x18\x01 \x01(\x0b\x32\x1c.service_layer.SLErrorStatus\x12\x18\n\x10MaxVrfNameLength\x18\x02 \x01(\r\x12\x1e\n\x16MaxInterfaceNameLength\x18\x03 \x01(\r\x12\x18\n\x10MaxPathsPerEntry\x18\x04 \x01(\r\x12\x1e\n\x16MaxPrimaryPathPerEntry\x18\x05 \x01(\r\x12\x1d\n\x15MaxBackupPathPerEntry\x18\x06 \x01(\r\x12\x1c\n\x14MaxMplsLabelsPerPath\x18\x07 \x01(\r\x12\x1b\n\x13MinPrimaryPathIdNum\x18\x08 \x01(\r\x12\x1b\n\x13MaxPrimaryPathIdNum\x18\t \x01(\r\x12\x1a\n\x12MinBackupPathIdNum\x18\n \x01(\r\x12\x1a\n\x12MaxBackupPathIdNum\x18\x0b \x01(\r\x12\x1b\n\x13MaxRemoteAddressNum\x18\x0c \x01(\r\x12\x19\n\x11MaxL2BdNameLength\x18\r \x01(\r\x12\x1f\n\x17MaxL2PmsiTunnelIdLength\x18\x0e \x01(\r*\x9c\x01\n\x11SLGlobalNotifType\x12!\n\x1dSL_GLOBAL_EVENT_TYPE_RESERVED\x10\x00\x12\x1e\n\x1aSL_GLOBAL_EVENT_TYPE_ERROR\x10\x01\x12\"\n\x1eSL_GLOBAL_EVENT_TYPE_HEARTBEAT\x10\x02\x12 \n\x1cSL_GLOBAL_EVENT_TYPE_VERSION\x10\x03\x32\xac\x01\n\x08SLGlobal\x12M\n\x11SLGlobalInitNotif\x12\x18.service_layer.SLInitMsg\x1a\x1c.service_layer.SLGlobalNotif0\x01\x12Q\n\x0cSLGlobalsGet\x12\x1e.service_layer.SLGlobalsGetMsg\x1a!.service_layer.SLGlobalsGetMsgRspb\x06proto3')
   ,
   dependencies=[sl__common__types__pb2.DESCRIPTOR,])
 
@@ -50,8 +50,8 @@ _SLGLOBALNOTIFTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=782,
-  serialized_end=938,
+  serialized_start=842,
+  serialized_end=998,
 )
 _sym_db.RegisterEnumDescriptor(_SLGLOBALNOTIFTYPE)
 
@@ -316,6 +316,20 @@ _SLGLOBALSGETMSGRSP = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='MaxL2BdNameLength', full_name='service_layer.SLGlobalsGetMsgRsp.MaxL2BdNameLength', index=12,
+      number=13, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='MaxL2PmsiTunnelIdLength', full_name='service_layer.SLGlobalsGetMsgRsp.MaxL2PmsiTunnelIdLength', index=13,
+      number=14, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -329,7 +343,7 @@ _SLGLOBALSGETMSGRSP = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=390,
-  serialized_end=779,
+  serialized_end=839,
 )
 
 _SLGLOBALNOTIF.fields_by_name['EventType'].enum_type = _SLGLOBALNOTIFTYPE
@@ -390,8 +404,8 @@ _SLGLOBAL = _descriptor.ServiceDescriptor(
   file=DESCRIPTOR,
   index=0,
   options=None,
-  serialized_start=941,
-  serialized_end=1113,
+  serialized_start=1001,
+  serialized_end=1173,
   methods=[
   _descriptor.MethodDescriptor(
     name='SLGlobalInitNotif',

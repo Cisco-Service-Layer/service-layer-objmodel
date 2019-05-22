@@ -526,5 +526,40 @@
             "get_next": 1,
             "vrf_name": "default"
         }
+    },
+    "bdRegOper" : [
+        "SL_REGOP_REGISTER",
+        "SL_REGOP_UNREGISTER",
+        "SL_REGOP_EOF"
+    ],
+    "g_route_attrs" : {
+        "purgeTime" : 120,
+        "adminDistance" : 2,
+        "g_label" : 1000,
+        "g_l3vni" : 10000,
+        "g_ip" : [
+            "2.2.3.2/23"
+        ],
+        "g_nexthop" : [
+            "100.100.0.1"
+        ],
+        "g_rmac" : "01:23:45:67:89:0B",
+        "g_mac" : [
+            "00:1B:77:49:54:FD",
+            "00:1B:77:49:54:AA",
+            "00:1B:77:49:54:FC",
+            "00:1B:77:49:40:FD",
+            "00:1B:77:41:54:FD",
+            "00:1B:77:59:54:FD",
+            "00:1B:78:49:54:FD",
+            "00:1A:77:49:54:FD",
+            "00:1B:77:49:53:FD",
+            "00:1B:27:49:54:FD"
+        ],
+        "g_nh_type" : 2,
+        "g_nh_intf_name" : "GigabitEthernet0/0/0/0",
+        "g_encap" : "SL_ENCAP_VXLAN",
+        "g_oper" : "SL_NOTIFOP_ENABLE",
+        "g_esi" : "00112233445566778899"
     }
 }
