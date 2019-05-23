@@ -5,13 +5,14 @@ In IOS-XR, routing protocols make use of services provided by the Routing Inform
 Exposing the Service Layer API as a Google RPC (or GRPC), over Google protocol buffers (Protobuf or GPB), enables customers to write their own applications, routing protocols, controllers, etc., whether on box or off box, in a rich set of languages including C++, Python, GO, etc.
 
 The Service Layer API is currently organized in a set of files that expose certain verticals e.g. IPv4 RIB functionality, or MPLS functionality, etc.
-In the initial release, the focus is to provide the following verticals:
+In the initial releases, the focus is to provide the following verticals:
 
 * Initialization: This mainly handles global initialization, and sets up an event notification channel based on GRPC streaming mechanism.
 * IPv4, IPv6 Route: This mainly handles any IPv4 or IPv6 route additions into the node based on a certain VRF.
 * MPLS Incoming Label Maps (ILMs): This mainly handles any incoming MPLS label mapping to a forwarding function.
 * IPv4, IPv6 BFD: This mainly handles managing BFD sessions, and getting corresponding BFD session state notifications.
 * Interfaces: This mainly allows registered clients to get interface state event notifications.
+* L2: This mainly handles L2 route changes and Bridge-Domain (BD) registrations. 
 * More functions may be added in the future.
 
 Each function vertical, e.g. RIB vertical, declares a "template" set of RPCs that is more or less consistently followed throughout other verticals. Some of these template RPCs are explained here:
