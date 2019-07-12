@@ -105,6 +105,7 @@ It has these top-level messages:
 	SLMplsGetStatsMsgRsp
 	SLMplsPath
 	SLMplsIlmKey
+	SLMplsCos
 	SLMplsIlmEntry
 	SLMplsIlmMsg
 	SLMplsIlmRes

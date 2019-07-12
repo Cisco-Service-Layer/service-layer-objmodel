@@ -20,7 +20,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='sl_common_types.proto',
   package='service_layer',
   syntax='proto3',
-  serialized_pb=_b('\n\x15sl_common_types.proto\x12\rservice_layer\"\xe4:\n\rSLErrorStatus\x12\x34\n\x06Status\x18\x01 \x01(\x0e\x32$.service_layer.SLErrorStatus.SLErrno\"\x9c:\n\x07SLErrno\x12\x0e\n\nSL_SUCCESS\x10\x00\x12\x14\n\x10SL_NOT_CONNECTED\x10\x01\x12\r\n\tSL_EAGAIN\x10\x02\x12\r\n\tSL_ENOMEM\x10\x03\x12\x0c\n\x08SL_EBUSY\x10\x04\x12\r\n\tSL_EINVAL\x10\x05\x12\x16\n\x12SL_UNSUPPORTED_VER\x10\x06\x12\x14\n\x10SL_NOT_AVAILABLE\x10\x07\x12\x1b\n\x17SL_STREAM_NOT_SUPPORTED\x10\x08\x12\x0e\n\nSL_ENOTSUP\x10\t\x12\x0f\n\x0bSL_SOME_ERR\x10\n\x12\x0e\n\nSL_TIMEOUT\x10\x0b\x12\x11\n\rSL_NOTIF_TERM\x10\x0c\x12\x19\n\x14SL_INIT_START_OFFSET\x10\x80\n\x12\x18\n\x13SL_INIT_STATE_CLEAR\x10\x81\n\x12\x18\n\x13SL_INIT_STATE_READY\x10\x82\n\x12\x1c\n\x17SL_INIT_UNSUPPORTED_VER\x10\x83\n\x12#\n\x1eSL_INIT_SERVER_NOT_INITIALIZED\x10\x84\n\x12&\n!SL_INIT_SERVER_MODE_CHANGE_FAILED\x10\x85\n\x12\x1c\n\x17SL_RPC_VRF_START_OFFSET\x10\x80 \x12%\n SL_RPC_VRF_TOO_MANY_VRF_REG_MSGS\x10\x81 \x12&\n!SL_RPC_VRF_SERVER_NOT_INITIALIZED\x10\x82 \x12\x18\n\x13SL_VRF_START_OFFSET\x10\x80@\x12\x18\n\x13SL_VRF_NAME_TOOLONG\x10\x81@\x12\x15\n\x10SL_VRF_NOT_FOUND\x10\x82@\x12\x17\n\x12SL_VRF_NO_TABLE_ID\x10\x83@\x12&\n!SL_VRF_REG_INVALID_ADMIN_DISTANCE\x10\x84@\x12\x19\n\x14SL_VRF_TABLE_ADD_ERR\x10\x85@\x12\"\n\x1dSL_VRF_TABLE_REGISTRATION_ERR\x10\x86@\x12$\n\x1fSL_VRF_TABLE_UNREGISTRATION_ERR\x10\x87@\x12\x19\n\x14SL_VRF_TABLE_EOF_ERR\x10\x88@\x12 \n\x1bSL_VRF_REG_VRF_NAME_MISSING\x10\x89@\x12\x1e\n\x19SL_RPC_ROUTE_START_OFFSET\x10\x80`\x12!\n\x1cSL_RPC_ROUTE_TOO_MANY_ROUTES\x10\x81`\x12\"\n\x1dSL_RPC_ROUTE_VRF_NAME_TOOLONG\x10\x82`\x12\x1f\n\x1aSL_RPC_ROUTE_VRF_NOT_FOUND\x10\x83`\x12\x1e\n\x19SL_RPC_ROUTE_VRF_NO_TABLE\x10\x84`\x12*\n%SL_RPC_ROUTE_VRF_TABLE_NOT_REGISTERED\x10\x85`\x12\"\n\x1dSL_RPC_ROUTE_VRF_NAME_MISSING\x10\x86`\x12(\n#SL_RPC_ROUTE_INIT_MODE_INCOMPATIBLE\x10\x87`\x12(\n#SL_RPC_ROUTE_SERVER_NOT_INITIALIZED\x10\x88`\x12)\n$SL_RPC_ROUTE_NOTIF_SRC_PROTO_TOOLONG\x10\x89`\x12-\n(SL_RPC_ROUTE_NOTIF_SRC_PROTO_TAG_TOOLONG\x10\x8a`\x12\x1b\n\x15SL_ROUTE_START_OFFSET\x10\x80\x80\x01\x12\x1b\n\x15SL_ROUTE_ADD_NO_PATHS\x10\x81\x80\x01\x12\x1e\n\x18SL_ROUTE_UPDATE_NO_PATHS\x10\x82\x80\x01\x12!\n\x1bSL_ROUTE_INVALID_PREFIX_LEN\x10\x83\x80\x01\x12%\n\x1fSL_ROUTE_INVALID_ADMIN_DISTANCE\x10\x84\x80\x01\x12 \n\x1aSL_ROUTE_INVALID_NUM_PATHS\x10\x85\x80\x01\x12 \n\x1aSL_ROUTE_INVALID_PREFIX_SZ\x10\x86\x80\x01\x12\x1d\n\x17SL_ROUTE_INVALID_PREFIX\x10\x87\x80\x01\x12*\n$SL_ROUTE_ERR_RIB_TABLE_LIMIT_REACHED\x10\x88\x80\x01\x12#\n\x1dSL_ROUTE_ERR_RIB_INVALID_ARGS\x10\x89\x80\x01\x12\'\n!SL_ROUTE_ERR_RIB_PATH_TABLE_LIMIT\x10\x8a\x80\x01\x12#\n\x1dSL_ROUTE_ERR_RIB_TOOMANYPATHS\x10\x8b\x80\x01\x12\x15\n\x0fSL_ROUTE_EEXIST\x10\x8c\x80\x01\x12\x1c\n\x16SL_ROUTE_HOST_BITS_SET\x10\x8d\x80\x01\x12#\n\x1dSL_ROUTE_INVALID_PREFIX_MCAST\x10\x8e\x80\x01\x12 \n\x1aSL_ROUTE_PATH_AFI_MISMATCH\x10\x8f\x80\x01\x12$\n\x1eSL_ROUTE_TOOMANY_PRIMARY_PATHS\x10\x90\x80\x01\x12#\n\x1dSL_ROUTE_TOOMANY_BACKUP_PATHS\x10\x91\x80\x01\x12\x17\n\x11SL_ROUTE_DB_NOMEM\x10\x92\x80\x01\x12\"\n\x1cSL_ROUTE_INVALID_LOCAL_LABEL\x10\x93\x80\x01\x12\x1a\n\x14SL_PATH_START_OFFSET\x10\x80\xa0\x01\x12\x19\n\x13SL_PATH_NH_NO_TABLE\x10\x81\xa0\x01\x12\x1f\n\x19SL_PATH_NH_INTF_NOT_FOUND\x10\x82\xa0\x01\x12!\n\x1bSL_PATH_INVALID_LABEL_COUNT\x10\x83\xa0\x01\x12\x18\n\x12SL_PATH_INVALID_ID\x10\x84\xa0\x01\x12\x1e\n\x18SL_PATH_VRF_NAME_TOOLONG\x10\x85\xa0\x01\x12\"\n\x1cSL_PATH_NH_INTF_NAME_TOOLONG\x10\x86\xa0\x01\x12 \n\x1aSL_PATH_NH_INVALID_ADDR_SZ\x10\x87\xa0\x01\x12!\n\x1bSL_PATH_NH_INF_NAME_MISSING\x10\x88\xa0\x01\x12#\n\x1dSL_PATH_INVALID_NEXT_HOP_ADDR\x10\x89\xa0\x01\x12\'\n!SL_PATH_INVALID_REMOTE_ADDR_COUNT\x10\x8a\xa0\x01\x12$\n\x1eSL_PATH_REMOTE_ADDR_INVALID_SZ\x10\x8b\xa0\x01\x12&\n SL_PATH_REMOTE_ADDR_AFI_MISMATCH\x10\x8c\xa0\x01\x12&\n SL_PATH_INVALID_PROTECTED_BITMAP\x10\x8d\xa0\x01\x12)\n#SL_PATH_BACKUP_MISSING_PRIMARY_PATH\x10\x8e\xa0\x01\x12!\n\x1bSL_PATH_PRIMARY_ID_REPEATED\x10\x8f\xa0\x01\x12 \n\x1aSL_PATH_BACKUP_ID_REPEATED\x10\x90\xa0\x01\x12*\n$SL_PATH_PRIMARY_TOOMANY_BACKUP_PATHS\x10\x91\xa0\x01\x12$\n\x1eSL_PATH_PRIMARY_TOOMANY_LABELS\x10\x92\xa0\x01\x12)\n#SL_PATH_PRIMARY_TOOMANY_REMOTE_ADDR\x10\x93\xa0\x01\x12!\n\x1bSL_PATH_REMOTE_ADDR_INVALID\x10\x94\xa0\x01\x12\x1b\n\x15SL_PATH_INVALID_LABEL\x10\x95\xa0\x01\x12(\n\"SL_PATH_ROUTER_MAC_ADDR_INVALID_SZ\x10\x96\xa0\x01\x12\x1d\n\x17SL_RPC_BFD_START_OFFSET\x10\x80\xc0\x01\x12&\n SL_RPC_BFD_TOO_MANY_BFD_SESSIONS\x10\x81\xc0\x01\x12\"\n\x1cSL_RPC_BFD_API_BAD_PARAMETER\x10\x82\xc0\x01\x12*\n$SL_RPC_BFD_API_CLIENT_NOT_REGISTERED\x10\x83\xc0\x01\x12#\n\x1dSL_RPC_BFD_API_INTERNAL_ERROR\x10\x84\xc0\x01\x12\'\n!SL_RPC_BFD_SERVER_NOT_INITIALIZED\x10\x85\xc0\x01\x12\"\n\x1cSL_RPC_BFD_V4_NOT_REGISTERED\x10\x86\xc0\x01\x12\"\n\x1cSL_RPC_BFD_V6_NOT_REGISTERED\x10\x87\xc0\x01\x12\x19\n\x13SL_BFD_START_OFFSET\x10\x80\xe0\x01\x12\x1e\n\x18SL_BFD_INTF_NAME_TOOLONG\x10\x81\xe0\x01\x12\x1b\n\x15SL_BFD_INTF_NOT_FOUND\x10\x82\xe0\x01\x12\x1e\n\x18SL_BFD_INVALID_ATTRIBUTE\x10\x83\xe0\x01\x12\x1e\n\x18SL_BFD_INTF_NAME_MISSING\x10\x84\xe0\x01\x12\x1e\n\x18SL_BFD_INVALID_NBR_MCAST\x10\x85\xe0\x01\x12\x18\n\x12SL_BFD_INVALID_NBR\x10\x86\xe0\x01\x12\x1d\n\x17SL_BFD_VRF_NAME_TOOLONG\x10\x87\xe0\x01\x12\x1a\n\x14SL_BFD_BAD_PARAMETER\x10\x88\xe0\x01\x12\x1f\n\x19SL_BFD_API_INTERNAL_ERROR\x10\x89\xe0\x01\x12\x1a\n\x14SL_BFD_VRF_NOT_FOUND\x10\x8a\xe0\x01\x12 \n\x1aSL_BFD_INVALID_PREFIX_SIZE\x10\x8b\xe0\x01\x12!\n\x1bSL_BFD_INVALID_SESSION_TYPE\x10\x8c\xe0\x01\x12\x18\n\x12SL_BFD_INVALID_VRF\x10\x8d\xe0\x01\x12\x1e\n\x18SL_BFD_SESSION_NOT_FOUND\x10\x8e\xe0\x01\x12\x1b\n\x15SL_BFD_SESSION_EXISTS\x10\x8f\xe0\x01\x12\x1e\n\x18SL_BFD_INTERNAL_DB_ERROR\x10\x90\xe0\x01\x12\x1b\n\x15SL_BFD_RECOVERY_ERROR\x10\x91\xe0\x01\x12\x1e\n\x18SL_RPC_MPLS_START_OFFSET\x10\x80\x80\x02\x12#\n\x1dSL_RPC_MPLS_ILM_TOO_MANY_ILMS\x10\x81\x80\x02\x12(\n\"SL_RPC_MPLS_SERVER_NOT_INITIALIZED\x10\x82\x80\x02\x12(\n\"SL_RPC_MPLS_INIT_MODE_INCOMPATIBLE\x10\x83\x80\x02\x12/\n)SL_RPC_MPLS_LABEL_BLK_TOO_MANY_LABEL_BLKS\x10\x84\x80\x02\x12 \n\x1aSL_RPC_MPLS_NOT_REGISTERED\x10\x85\x80\x02\x12\x17\n\x11SL_ILM_ERR_OFFSET\x10\x80\xa0\x02\x12\x17\n\x11SL_ILM_ADD_FAILED\x10\x81\xa0\x02\x12\x1b\n\x15SL_ILM_LSD_ADD_FAILED\x10\x82\xa0\x02\x12\x1e\n\x18SL_ILM_INVALID_NUM_NHLFE\x10\x83\xa0\x02\x12\x1a\n\x14SL_ILM_INVALID_LABEL\x10\x84\xa0\x02\x12\x1a\n\x14SL_ILM_DELETE_FAILED\x10\x85\xa0\x02\x12\x1e\n\x18SL_ILM_LSD_DELETE_FAILED\x10\x86\xa0\x02\x12#\n\x1dSL_ILM_TOOMANY_PRIMARY_NHLFES\x10\x87\xa0\x02\x12\"\n\x1cSL_ILM_TOOMANY_BACKUP_NHLFES\x10\x88\xa0\x02\x12\'\n!SL_ILM_LSD_ADD_LABEL_ALLOC_FAILED\x10\x89\xa0\x02\x12%\n\x1fSL_ILM_LSD_NHLFE_INVALID_ATTRIB\x10\x8a\xa0\x02\x12\x13\n\rSL_ILM_EEXIST\x10\x8b\xa0\x02\x12\x15\n\x0fSL_ILM_DB_NOMEM\x10\x8c\xa0\x02\x12\x19\n\x13SL_NHLFE_ERR_OFFSET\x10\x80\xc0\x02\x12\x1a\n\x14SL_NHLFE_NH_NO_TABLE\x10\x81\xc0\x02\x12!\n\x1bSL_NHLFE_NH_INVALID_ADDR_SZ\x10\x82\xc0\x02\x12$\n\x1eSL_NHLFE_INVALID_NEXT_HOP_ADDR\x10\x83\xc0\x02\x12\x1f\n\x19SL_NHLFE_VRF_NAME_TOOLONG\x10\x84\xc0\x02\x12\"\n\x1cSL_NHLFE_NH_INF_NAME_MISSING\x10\x85\xc0\x02\x12#\n\x1dSL_NHLFE_NH_INTF_NAME_TOOLONG\x10\x86\xc0\x02\x12\"\n\x1cSL_NHLFE_INVALID_LABEL_COUNT\x10\x87\xc0\x02\x12\x1e\n\x18SL_NHLFE_INVALID_PATH_ID\x10\x88\xc0\x02\x12\x1c\n\x16SL_NHLFE_INVALID_LABEL\x10\x89\xc0\x02\x12\'\n!SL_NHLFE_INVALID_PROTECTED_BITMAP\x10\x8a\xc0\x02\x12(\n\"SL_NHLFE_INVALID_REMOTE_ADDR_COUNT\x10\x8b\xc0\x02\x12%\n\x1fSL_NHLFE_REMOTE_ADDR_INVALID_SZ\x10\x8c\xc0\x02\x12%\n\x1fSL_NHLFE_PRIMARY_TOOMANY_LABELS\x10\x8d\xc0\x02\x12*\n$SL_NHLFE_PRIMARY_TOOMANY_REMOTE_ADDR\x10\x8e\xc0\x02\x12!\n\x1bSL_NHLFE_BACKUP_ID_REPEATED\x10\x8f\xc0\x02\x12\"\n\x1cSL_NHLFE_PRIMARY_ID_REPEATED\x10\x90\xc0\x02\x12,\n&SL_NHLFE_BACKUP_PROTECTED_BITMAP_EMPTY\x10\x91\xc0\x02\x12+\n%SL_NHLFE_PRIMARY_TOOMANY_BACKUP_PATHS\x10\x92\xc0\x02\x12\"\n\x1cSL_NHLFE_REMOTE_ADDR_INVALID\x10\x93\xc0\x02\x12*\n$SL_NHLFE_BACKUP_MISSING_PRIMARY_PATH\x10\x94\xc0\x02\x12\x1f\n\x19SL_NHLFE_NEXT_HOP_MISSING\x10\x95\xc0\x02\x12#\n\x1dSL_NHLFE_LABEL_ACTION_INVALID\x10\x96\xc0\x02\x12 \n\x1aSL_NHLFE_NH_INTF_NOT_FOUND\x10\x97\xc0\x02\x12\x1a\n\x14SL_NHLFE_OPER_FAILED\x10\x98\xc0\x02\x12#\n\x1dSL_NHLFE_LABEL_ACTION_MISSING\x10\x99\xc0\x02\x12\x1d\n\x17SL_LABEL_BLK_ERR_OFFSET\x10\x80\xe0\x02\x12!\n\x1bSL_LABEL_BLK_LSD_ADD_FAILED\x10\x81\xe0\x02\x12$\n\x1eSL_LABEL_BLK_LSD_DELETE_FAILED\x10\x82\xe0\x02\x12*\n$SL_LABEL_BLK_LSD_LABEL_BLK_NOT_FOUND\x10\x83\xe0\x02\x12\'\n!SL_LABEL_BLK_LSD_LABEL_BLK_IN_USE\x10\x84\xe0\x02\x12%\n\x1fSL_LABEL_BLK_LSD_INVALID_ATTRIB\x10\x85\xe0\x02\x12%\n\x1fSL_LABEL_BLK_INVALID_BLOCK_SIZE\x10\x86\xe0\x02\x12&\n SL_LABEL_BLK_INVALID_START_LABEL\x10\x87\xe0\x02\x12\x19\n\x13SL_LABEL_BLK_EEXIST\x10\x88\xe0\x02\x12\x1b\n\x15SL_LABEL_BLK_DB_NOMEM\x10\x89\xe0\x02\x12\x1c\n\x16SL_MPLS_REG_ERR_OFFSET\x10\x80\x80\x03\x12\x15\n\x0fSL_MPLS_REG_ERR\x10\x81\x80\x03\x12\x17\n\x11SL_MPLS_UNREG_ERR\x10\x82\x80\x03\x12\x15\n\x0fSL_MPLS_EOF_ERR\x10\x83\x80\x03\x12\x1e\n\x18SL_RPC_INTF_START_OFFSET\x10\x80\xa0\x03\x12%\n\x1fSL_RPC_INTF_TOO_MANY_INTERFACES\x10\x81\xa0\x03\x12(\n\"SL_RPC_INTF_SERVER_NOT_INITIALIZED\x10\x82\xa0\x03\x12+\n%SL_RPC_INTF_API_CLIENT_NOT_REGISTERED\x10\x83\xa0\x03\x12\x1a\n\x14SL_INTF_START_OFFSET\x10\x80\xc0\x03\x12$\n\x1eSL_INTF_INTERFACE_NAME_MISSING\x10\x81\xc0\x03\x12$\n\x1eSL_INTF_INTERFACE_NAME_TOOLONG\x10\x82\xc0\x03\x12\x1f\n\x19SL_INTF_INTERFACE_REG_ERR\x10\x83\xc0\x03\x12\x1f\n\x19SL_INTF_INTERNAL_DB_ERROR\x10\x84\xc0\x03\x12\x1c\n\x16SL_INTF_RECOVERY_ERROR\x10\x85\xc0\x03\x12\x1e\n\x18SL_INTF_INTERFACE_EXISTS\x10\x86\xc0\x03\x12!\n\x1bSL_INTF_INTERFACE_NOT_FOUND\x10\x87\xc0\x03\x12\x1c\n\x16SL_L2_REG_START_OFFSET\x10\x80\xe0\x03\x12\x1c\n\x16SL_L2_REGISTRATION_ERR\x10\x81\xe0\x03\x12\x1e\n\x18SL_L2_UNREGISTRATION_ERR\x10\x82\xe0\x03\x12\x13\n\rSL_L2_EOF_ERR\x10\x83\xe0\x03\x12&\n SL_L2_REG_INVALID_ADMIN_DISTANCE\x10\x84\xe0\x03\x12\x1c\n\x16SL_L2_REG_IS_DUPLICATE\x10\x85\xe0\x03\x12&\n SL_L2_REG_SERVER_NOT_INITIALIZED\x10\x86\xe0\x03\x12#\n\x1dSL_RPC_L2_BD_REG_START_OFFSET\x10\x80\x80\x04\x12#\n\x1dSL_RPC_L2_BD_REG_NAME_MISSING\x10\x81\x80\x04\x12$\n\x1eSL_RPC_L2_BD_REG_TOO_MANY_MSGS\x10\x82\x80\x04\x12-\n\'SL_RPC_L2_BD_REG_SERVER_NOT_INITIALIZED\x10\x83\x80\x04\x12,\n&SL_RPC_L2_BD_REG_CLIENT_NOT_REGISTERED\x10\x84\x80\x04\x12\x1f\n\x19SL_L2_BD_REG_START_OFFSET\x10\x80\xa0\x04\x12\x1f\n\x19SL_L2_BD_REGISTRATION_ERR\x10\x81\xa0\x04\x12!\n\x1bSL_L2_BD_UNREGISTRATION_ERR\x10\x82\xa0\x04\x12\x16\n\x10SL_L2_BD_EOF_ERR\x10\x83\xa0\x04\x12 \n\x1aSL_L2_BD_REG_NAME_TOO_LONG\x10\x84\xa0\x04\x12\x1f\n\x19SL_L2_BD_REG_BD_NOT_FOUND\x10\x85\xa0\x04\x12\"\n\x1cSL_RPC_L2_ROUTE_START_OFFSET\x10\x80\xc0\x04\x12#\n\x1dSL_RPC_L2_ROUTE_TOO_MANY_MSGS\x10\x81\xc0\x04\x12,\n&SL_RPC_L2_ROUTE_SERVER_NOT_INITIALIZED\x10\x82\xc0\x04\x12+\n%SL_RPC_L2_ROUTE_CLIENT_NOT_REGISTERED\x10\x83\xc0\x04\x12\x1e\n\x18SL_L2_ROUTE_START_OFFSET\x10\x80\xe0\x04\x12!\n\x1bSL_L2_ROUTE_BD_NAME_MISSING\x10\x81\xe0\x04\x12!\n\x1bSL_L2_ROUTE_BD_NAME_TOOLONG\x10\x82\xe0\x04\x12\x1e\n\x18SL_L2_ROUTE_BD_NOT_FOUND\x10\x83\xe0\x04\x12#\n\x1dSL_L2_ROUTE_BD_NOT_REGISTERED\x10\x84\xe0\x04\x12\x1e\n\x18SL_L2_ROUTE_INVALID_ARGS\x10\x85\xe0\x04\x12\"\n\x1cSL_RPC_L2_NOTIF_START_OFFSET\x10\x81\x80\x05\x12,\n&SL_RPC_L2_NOTIF_SERVER_NOT_INITIALIZED\x10\x82\x80\x05\x12+\n%SL_RPC_L2_NOTIF_CLIENT_NOT_REGISTERED\x10\x83\x80\x05\x12 \n\x1aSL_RPC_L2_NOTIF_ENABLE_ERR\x10\x84\x80\x05\x12!\n\x1bSL_RPC_L2_NOTIF_DISABLE_ERR\x10\x85\x80\x05\x12\x1d\n\x17SL_RPC_L2_NOTIF_EOF_ERR\x10\x86\x80\x05\x12%\n\x1fSL_RPC_L2_NOTIF_BD_NAME_MISSING\x10\x87\x80\x05\x12%\n\x1fSL_RPC_L2_NOTIF_BD_NAME_TOOLONG\x10\x88\x80\x05\x12\"\n\x1cSL_RPC_L2_NOTIF_BD_NOT_FOUND\x10\x89\x80\x05\x12\x1e\n\x18SL_INTERNAL_START_OFFSET\x10\x80\x80@\"<\n\x0bSLInterface\x12\x0e\n\x04Name\x18\x01 \x01(\tH\x00\x12\x10\n\x06Handle\x18\x02 \x01(\rH\x00\x42\x0b\n\tInterface\"B\n\x0bSLIpAddress\x12\x13\n\tV4Address\x18\x01 \x01(\rH\x00\x12\x13\n\tV6Address\x18\x02 \x01(\x0cH\x00\x42\t\n\x07\x41\x64\x64ress*b\n\x07SLRegOp\x12\x15\n\x11SL_REGOP_RESERVED\x10\x00\x12\x15\n\x11SL_REGOP_REGISTER\x10\x01\x12\x17\n\x13SL_REGOP_UNREGISTER\x10\x02\x12\x10\n\x0cSL_REGOP_EOF\x10\x03*_\n\nSLObjectOp\x12\x15\n\x11SL_OBJOP_RESERVED\x10\x00\x12\x10\n\x0cSL_OBJOP_ADD\x10\x01\x12\x13\n\x0fSL_OBJOP_UPDATE\x10\x02\x12\x13\n\x0fSL_OBJOP_DELETE\x10\x03*S\n\tSLNotifOp\x12\x17\n\x13SL_NOTIFOP_RESERVED\x10\x00\x12\x15\n\x11SL_NOTIFOP_ENABLE\x10\x01\x12\x16\n\x12SL_NOTIFOP_DISABLE\x10\x02*K\n\x0bSLEncapType\x12\x15\n\x11SL_ENCAP_RESERVED\x10\x00\x12\x12\n\x0eSL_ENCAP_VXLAN\x10\x01\x12\x11\n\rSL_ENCAP_MPLS\x10\x02\x62\x06proto3')
+  serialized_pb=_b('\n\x15sl_common_types.proto\x12\rservice_layer\"\x95;\n\rSLErrorStatus\x12\x34\n\x06Status\x18\x01 \x01(\x0e\x32$.service_layer.SLErrorStatus.SLErrno\"\xcd:\n\x07SLErrno\x12\x0e\n\nSL_SUCCESS\x10\x00\x12\x14\n\x10SL_NOT_CONNECTED\x10\x01\x12\r\n\tSL_EAGAIN\x10\x02\x12\r\n\tSL_ENOMEM\x10\x03\x12\x0c\n\x08SL_EBUSY\x10\x04\x12\r\n\tSL_EINVAL\x10\x05\x12\x16\n\x12SL_UNSUPPORTED_VER\x10\x06\x12\x14\n\x10SL_NOT_AVAILABLE\x10\x07\x12\x1b\n\x17SL_STREAM_NOT_SUPPORTED\x10\x08\x12\x0e\n\nSL_ENOTSUP\x10\t\x12\x0f\n\x0bSL_SOME_ERR\x10\n\x12\x0e\n\nSL_TIMEOUT\x10\x0b\x12\x11\n\rSL_NOTIF_TERM\x10\x0c\x12\x10\n\x0cSL_AUTH_FAIL\x10\r\x12\x19\n\x14SL_INIT_START_OFFSET\x10\x80\n\x12\x18\n\x13SL_INIT_STATE_CLEAR\x10\x81\n\x12\x18\n\x13SL_INIT_STATE_READY\x10\x82\n\x12\x1c\n\x17SL_INIT_UNSUPPORTED_VER\x10\x83\n\x12#\n\x1eSL_INIT_SERVER_NOT_INITIALIZED\x10\x84\n\x12&\n!SL_INIT_SERVER_MODE_CHANGE_FAILED\x10\x85\n\x12\x1c\n\x17SL_RPC_VRF_START_OFFSET\x10\x80 \x12%\n SL_RPC_VRF_TOO_MANY_VRF_REG_MSGS\x10\x81 \x12&\n!SL_RPC_VRF_SERVER_NOT_INITIALIZED\x10\x82 \x12\x18\n\x13SL_VRF_START_OFFSET\x10\x80@\x12\x18\n\x13SL_VRF_NAME_TOOLONG\x10\x81@\x12\x15\n\x10SL_VRF_NOT_FOUND\x10\x82@\x12\x17\n\x12SL_VRF_NO_TABLE_ID\x10\x83@\x12&\n!SL_VRF_REG_INVALID_ADMIN_DISTANCE\x10\x84@\x12\x19\n\x14SL_VRF_TABLE_ADD_ERR\x10\x85@\x12\"\n\x1dSL_VRF_TABLE_REGISTRATION_ERR\x10\x86@\x12$\n\x1fSL_VRF_TABLE_UNREGISTRATION_ERR\x10\x87@\x12\x19\n\x14SL_VRF_TABLE_EOF_ERR\x10\x88@\x12 \n\x1bSL_VRF_REG_VRF_NAME_MISSING\x10\x89@\x12\x1e\n\x19SL_RPC_ROUTE_START_OFFSET\x10\x80`\x12!\n\x1cSL_RPC_ROUTE_TOO_MANY_ROUTES\x10\x81`\x12\"\n\x1dSL_RPC_ROUTE_VRF_NAME_TOOLONG\x10\x82`\x12\x1f\n\x1aSL_RPC_ROUTE_VRF_NOT_FOUND\x10\x83`\x12\x1e\n\x19SL_RPC_ROUTE_VRF_NO_TABLE\x10\x84`\x12*\n%SL_RPC_ROUTE_VRF_TABLE_NOT_REGISTERED\x10\x85`\x12\"\n\x1dSL_RPC_ROUTE_VRF_NAME_MISSING\x10\x86`\x12(\n#SL_RPC_ROUTE_INIT_MODE_INCOMPATIBLE\x10\x87`\x12(\n#SL_RPC_ROUTE_SERVER_NOT_INITIALIZED\x10\x88`\x12)\n$SL_RPC_ROUTE_NOTIF_SRC_PROTO_TOOLONG\x10\x89`\x12-\n(SL_RPC_ROUTE_NOTIF_SRC_PROTO_TAG_TOOLONG\x10\x8a`\x12\x1b\n\x15SL_ROUTE_START_OFFSET\x10\x80\x80\x01\x12\x1b\n\x15SL_ROUTE_ADD_NO_PATHS\x10\x81\x80\x01\x12\x1e\n\x18SL_ROUTE_UPDATE_NO_PATHS\x10\x82\x80\x01\x12!\n\x1bSL_ROUTE_INVALID_PREFIX_LEN\x10\x83\x80\x01\x12%\n\x1fSL_ROUTE_INVALID_ADMIN_DISTANCE\x10\x84\x80\x01\x12 \n\x1aSL_ROUTE_INVALID_NUM_PATHS\x10\x85\x80\x01\x12 \n\x1aSL_ROUTE_INVALID_PREFIX_SZ\x10\x86\x80\x01\x12\x1d\n\x17SL_ROUTE_INVALID_PREFIX\x10\x87\x80\x01\x12*\n$SL_ROUTE_ERR_RIB_TABLE_LIMIT_REACHED\x10\x88\x80\x01\x12#\n\x1dSL_ROUTE_ERR_RIB_INVALID_ARGS\x10\x89\x80\x01\x12\'\n!SL_ROUTE_ERR_RIB_PATH_TABLE_LIMIT\x10\x8a\x80\x01\x12#\n\x1dSL_ROUTE_ERR_RIB_TOOMANYPATHS\x10\x8b\x80\x01\x12\x15\n\x0fSL_ROUTE_EEXIST\x10\x8c\x80\x01\x12\x1c\n\x16SL_ROUTE_HOST_BITS_SET\x10\x8d\x80\x01\x12#\n\x1dSL_ROUTE_INVALID_PREFIX_MCAST\x10\x8e\x80\x01\x12 \n\x1aSL_ROUTE_PATH_AFI_MISMATCH\x10\x8f\x80\x01\x12$\n\x1eSL_ROUTE_TOOMANY_PRIMARY_PATHS\x10\x90\x80\x01\x12#\n\x1dSL_ROUTE_TOOMANY_BACKUP_PATHS\x10\x91\x80\x01\x12\x17\n\x11SL_ROUTE_DB_NOMEM\x10\x92\x80\x01\x12\"\n\x1cSL_ROUTE_INVALID_LOCAL_LABEL\x10\x93\x80\x01\x12\x1a\n\x14SL_PATH_START_OFFSET\x10\x80\xa0\x01\x12\x19\n\x13SL_PATH_NH_NO_TABLE\x10\x81\xa0\x01\x12\x1f\n\x19SL_PATH_NH_INTF_NOT_FOUND\x10\x82\xa0\x01\x12!\n\x1bSL_PATH_INVALID_LABEL_COUNT\x10\x83\xa0\x01\x12\x18\n\x12SL_PATH_INVALID_ID\x10\x84\xa0\x01\x12\x1e\n\x18SL_PATH_VRF_NAME_TOOLONG\x10\x85\xa0\x01\x12\"\n\x1cSL_PATH_NH_INTF_NAME_TOOLONG\x10\x86\xa0\x01\x12 \n\x1aSL_PATH_NH_INVALID_ADDR_SZ\x10\x87\xa0\x01\x12!\n\x1bSL_PATH_NH_INF_NAME_MISSING\x10\x88\xa0\x01\x12#\n\x1dSL_PATH_INVALID_NEXT_HOP_ADDR\x10\x89\xa0\x01\x12\'\n!SL_PATH_INVALID_REMOTE_ADDR_COUNT\x10\x8a\xa0\x01\x12$\n\x1eSL_PATH_REMOTE_ADDR_INVALID_SZ\x10\x8b\xa0\x01\x12&\n SL_PATH_REMOTE_ADDR_AFI_MISMATCH\x10\x8c\xa0\x01\x12&\n SL_PATH_INVALID_PROTECTED_BITMAP\x10\x8d\xa0\x01\x12)\n#SL_PATH_BACKUP_MISSING_PRIMARY_PATH\x10\x8e\xa0\x01\x12!\n\x1bSL_PATH_PRIMARY_ID_REPEATED\x10\x8f\xa0\x01\x12 \n\x1aSL_PATH_BACKUP_ID_REPEATED\x10\x90\xa0\x01\x12*\n$SL_PATH_PRIMARY_TOOMANY_BACKUP_PATHS\x10\x91\xa0\x01\x12$\n\x1eSL_PATH_PRIMARY_TOOMANY_LABELS\x10\x92\xa0\x01\x12)\n#SL_PATH_PRIMARY_TOOMANY_REMOTE_ADDR\x10\x93\xa0\x01\x12!\n\x1bSL_PATH_REMOTE_ADDR_INVALID\x10\x94\xa0\x01\x12\x1b\n\x15SL_PATH_INVALID_LABEL\x10\x95\xa0\x01\x12(\n\"SL_PATH_ROUTER_MAC_ADDR_INVALID_SZ\x10\x96\xa0\x01\x12\x1d\n\x17SL_RPC_BFD_START_OFFSET\x10\x80\xc0\x01\x12&\n SL_RPC_BFD_TOO_MANY_BFD_SESSIONS\x10\x81\xc0\x01\x12\"\n\x1cSL_RPC_BFD_API_BAD_PARAMETER\x10\x82\xc0\x01\x12*\n$SL_RPC_BFD_API_CLIENT_NOT_REGISTERED\x10\x83\xc0\x01\x12#\n\x1dSL_RPC_BFD_API_INTERNAL_ERROR\x10\x84\xc0\x01\x12\'\n!SL_RPC_BFD_SERVER_NOT_INITIALIZED\x10\x85\xc0\x01\x12\"\n\x1cSL_RPC_BFD_V4_NOT_REGISTERED\x10\x86\xc0\x01\x12\"\n\x1cSL_RPC_BFD_V6_NOT_REGISTERED\x10\x87\xc0\x01\x12\x19\n\x13SL_BFD_START_OFFSET\x10\x80\xe0\x01\x12\x1e\n\x18SL_BFD_INTF_NAME_TOOLONG\x10\x81\xe0\x01\x12\x1b\n\x15SL_BFD_INTF_NOT_FOUND\x10\x82\xe0\x01\x12\x1e\n\x18SL_BFD_INVALID_ATTRIBUTE\x10\x83\xe0\x01\x12\x1e\n\x18SL_BFD_INTF_NAME_MISSING\x10\x84\xe0\x01\x12\x1e\n\x18SL_BFD_INVALID_NBR_MCAST\x10\x85\xe0\x01\x12\x18\n\x12SL_BFD_INVALID_NBR\x10\x86\xe0\x01\x12\x1d\n\x17SL_BFD_VRF_NAME_TOOLONG\x10\x87\xe0\x01\x12\x1a\n\x14SL_BFD_BAD_PARAMETER\x10\x88\xe0\x01\x12\x1f\n\x19SL_BFD_API_INTERNAL_ERROR\x10\x89\xe0\x01\x12\x1a\n\x14SL_BFD_VRF_NOT_FOUND\x10\x8a\xe0\x01\x12 \n\x1aSL_BFD_INVALID_PREFIX_SIZE\x10\x8b\xe0\x01\x12!\n\x1bSL_BFD_INVALID_SESSION_TYPE\x10\x8c\xe0\x01\x12\x18\n\x12SL_BFD_INVALID_VRF\x10\x8d\xe0\x01\x12\x1e\n\x18SL_BFD_SESSION_NOT_FOUND\x10\x8e\xe0\x01\x12\x1b\n\x15SL_BFD_SESSION_EXISTS\x10\x8f\xe0\x01\x12\x1e\n\x18SL_BFD_INTERNAL_DB_ERROR\x10\x90\xe0\x01\x12\x1b\n\x15SL_BFD_RECOVERY_ERROR\x10\x91\xe0\x01\x12\x1e\n\x18SL_RPC_MPLS_START_OFFSET\x10\x80\x80\x02\x12#\n\x1dSL_RPC_MPLS_ILM_TOO_MANY_ILMS\x10\x81\x80\x02\x12(\n\"SL_RPC_MPLS_SERVER_NOT_INITIALIZED\x10\x82\x80\x02\x12(\n\"SL_RPC_MPLS_INIT_MODE_INCOMPATIBLE\x10\x83\x80\x02\x12/\n)SL_RPC_MPLS_LABEL_BLK_TOO_MANY_LABEL_BLKS\x10\x84\x80\x02\x12 \n\x1aSL_RPC_MPLS_NOT_REGISTERED\x10\x85\x80\x02\x12\x17\n\x11SL_ILM_ERR_OFFSET\x10\x80\xa0\x02\x12\x17\n\x11SL_ILM_ADD_FAILED\x10\x81\xa0\x02\x12\x1b\n\x15SL_ILM_LSD_ADD_FAILED\x10\x82\xa0\x02\x12\x1e\n\x18SL_ILM_INVALID_NUM_NHLFE\x10\x83\xa0\x02\x12\x1a\n\x14SL_ILM_INVALID_LABEL\x10\x84\xa0\x02\x12\x1a\n\x14SL_ILM_DELETE_FAILED\x10\x85\xa0\x02\x12\x1e\n\x18SL_ILM_LSD_DELETE_FAILED\x10\x86\xa0\x02\x12#\n\x1dSL_ILM_TOOMANY_PRIMARY_NHLFES\x10\x87\xa0\x02\x12\"\n\x1cSL_ILM_TOOMANY_BACKUP_NHLFES\x10\x88\xa0\x02\x12\'\n!SL_ILM_LSD_ADD_LABEL_ALLOC_FAILED\x10\x89\xa0\x02\x12%\n\x1fSL_ILM_LSD_NHLFE_INVALID_ATTRIB\x10\x8a\xa0\x02\x12\x13\n\rSL_ILM_EEXIST\x10\x8b\xa0\x02\x12\x15\n\x0fSL_ILM_DB_NOMEM\x10\x8c\xa0\x02\x12\x1d\n\x17SL_ILM_INVALID_ELSP_EXP\x10\x8d\xa0\x02\x12\x19\n\x13SL_NHLFE_ERR_OFFSET\x10\x80\xc0\x02\x12\x1a\n\x14SL_NHLFE_NH_NO_TABLE\x10\x81\xc0\x02\x12!\n\x1bSL_NHLFE_NH_INVALID_ADDR_SZ\x10\x82\xc0\x02\x12$\n\x1eSL_NHLFE_INVALID_NEXT_HOP_ADDR\x10\x83\xc0\x02\x12\x1f\n\x19SL_NHLFE_VRF_NAME_TOOLONG\x10\x84\xc0\x02\x12\"\n\x1cSL_NHLFE_NH_INF_NAME_MISSING\x10\x85\xc0\x02\x12#\n\x1dSL_NHLFE_NH_INTF_NAME_TOOLONG\x10\x86\xc0\x02\x12\"\n\x1cSL_NHLFE_INVALID_LABEL_COUNT\x10\x87\xc0\x02\x12\x1e\n\x18SL_NHLFE_INVALID_PATH_ID\x10\x88\xc0\x02\x12\x1c\n\x16SL_NHLFE_INVALID_LABEL\x10\x89\xc0\x02\x12\'\n!SL_NHLFE_INVALID_PROTECTED_BITMAP\x10\x8a\xc0\x02\x12(\n\"SL_NHLFE_INVALID_REMOTE_ADDR_COUNT\x10\x8b\xc0\x02\x12%\n\x1fSL_NHLFE_REMOTE_ADDR_INVALID_SZ\x10\x8c\xc0\x02\x12%\n\x1fSL_NHLFE_PRIMARY_TOOMANY_LABELS\x10\x8d\xc0\x02\x12*\n$SL_NHLFE_PRIMARY_TOOMANY_REMOTE_ADDR\x10\x8e\xc0\x02\x12!\n\x1bSL_NHLFE_BACKUP_ID_REPEATED\x10\x8f\xc0\x02\x12\"\n\x1cSL_NHLFE_PRIMARY_ID_REPEATED\x10\x90\xc0\x02\x12,\n&SL_NHLFE_BACKUP_PROTECTED_BITMAP_EMPTY\x10\x91\xc0\x02\x12+\n%SL_NHLFE_PRIMARY_TOOMANY_BACKUP_PATHS\x10\x92\xc0\x02\x12\"\n\x1cSL_NHLFE_REMOTE_ADDR_INVALID\x10\x93\xc0\x02\x12*\n$SL_NHLFE_BACKUP_MISSING_PRIMARY_PATH\x10\x94\xc0\x02\x12\x1f\n\x19SL_NHLFE_NEXT_HOP_MISSING\x10\x95\xc0\x02\x12#\n\x1dSL_NHLFE_LABEL_ACTION_INVALID\x10\x96\xc0\x02\x12 \n\x1aSL_NHLFE_NH_INTF_NOT_FOUND\x10\x97\xc0\x02\x12\x1a\n\x14SL_NHLFE_OPER_FAILED\x10\x98\xc0\x02\x12#\n\x1dSL_NHLFE_LABEL_ACTION_MISSING\x10\x99\xc0\x02\x12\x1d\n\x17SL_LABEL_BLK_ERR_OFFSET\x10\x80\xe0\x02\x12!\n\x1bSL_LABEL_BLK_LSD_ADD_FAILED\x10\x81\xe0\x02\x12$\n\x1eSL_LABEL_BLK_LSD_DELETE_FAILED\x10\x82\xe0\x02\x12*\n$SL_LABEL_BLK_LSD_LABEL_BLK_NOT_FOUND\x10\x83\xe0\x02\x12\'\n!SL_LABEL_BLK_LSD_LABEL_BLK_IN_USE\x10\x84\xe0\x02\x12%\n\x1fSL_LABEL_BLK_LSD_INVALID_ATTRIB\x10\x85\xe0\x02\x12%\n\x1fSL_LABEL_BLK_INVALID_BLOCK_SIZE\x10\x86\xe0\x02\x12&\n SL_LABEL_BLK_INVALID_START_LABEL\x10\x87\xe0\x02\x12\x19\n\x13SL_LABEL_BLK_EEXIST\x10\x88\xe0\x02\x12\x1b\n\x15SL_LABEL_BLK_DB_NOMEM\x10\x89\xe0\x02\x12\x1c\n\x16SL_MPLS_REG_ERR_OFFSET\x10\x80\x80\x03\x12\x15\n\x0fSL_MPLS_REG_ERR\x10\x81\x80\x03\x12\x17\n\x11SL_MPLS_UNREG_ERR\x10\x82\x80\x03\x12\x15\n\x0fSL_MPLS_EOF_ERR\x10\x83\x80\x03\x12\x1e\n\x18SL_RPC_INTF_START_OFFSET\x10\x80\xa0\x03\x12%\n\x1fSL_RPC_INTF_TOO_MANY_INTERFACES\x10\x81\xa0\x03\x12(\n\"SL_RPC_INTF_SERVER_NOT_INITIALIZED\x10\x82\xa0\x03\x12+\n%SL_RPC_INTF_API_CLIENT_NOT_REGISTERED\x10\x83\xa0\x03\x12\x1a\n\x14SL_INTF_START_OFFSET\x10\x80\xc0\x03\x12$\n\x1eSL_INTF_INTERFACE_NAME_MISSING\x10\x81\xc0\x03\x12$\n\x1eSL_INTF_INTERFACE_NAME_TOOLONG\x10\x82\xc0\x03\x12\x1f\n\x19SL_INTF_INTERFACE_REG_ERR\x10\x83\xc0\x03\x12\x1f\n\x19SL_INTF_INTERNAL_DB_ERROR\x10\x84\xc0\x03\x12\x1c\n\x16SL_INTF_RECOVERY_ERROR\x10\x85\xc0\x03\x12\x1e\n\x18SL_INTF_INTERFACE_EXISTS\x10\x86\xc0\x03\x12!\n\x1bSL_INTF_INTERFACE_NOT_FOUND\x10\x87\xc0\x03\x12\x1c\n\x16SL_L2_REG_START_OFFSET\x10\x80\xe0\x03\x12\x1c\n\x16SL_L2_REGISTRATION_ERR\x10\x81\xe0\x03\x12\x1e\n\x18SL_L2_UNREGISTRATION_ERR\x10\x82\xe0\x03\x12\x13\n\rSL_L2_EOF_ERR\x10\x83\xe0\x03\x12&\n SL_L2_REG_INVALID_ADMIN_DISTANCE\x10\x84\xe0\x03\x12\x1c\n\x16SL_L2_REG_IS_DUPLICATE\x10\x85\xe0\x03\x12&\n SL_L2_REG_SERVER_NOT_INITIALIZED\x10\x86\xe0\x03\x12#\n\x1dSL_RPC_L2_BD_REG_START_OFFSET\x10\x80\x80\x04\x12#\n\x1dSL_RPC_L2_BD_REG_NAME_MISSING\x10\x81\x80\x04\x12$\n\x1eSL_RPC_L2_BD_REG_TOO_MANY_MSGS\x10\x82\x80\x04\x12-\n\'SL_RPC_L2_BD_REG_SERVER_NOT_INITIALIZED\x10\x83\x80\x04\x12,\n&SL_RPC_L2_BD_REG_CLIENT_NOT_REGISTERED\x10\x84\x80\x04\x12\x1f\n\x19SL_L2_BD_REG_START_OFFSET\x10\x80\xa0\x04\x12\x1f\n\x19SL_L2_BD_REGISTRATION_ERR\x10\x81\xa0\x04\x12!\n\x1bSL_L2_BD_UNREGISTRATION_ERR\x10\x82\xa0\x04\x12\x16\n\x10SL_L2_BD_EOF_ERR\x10\x83\xa0\x04\x12 \n\x1aSL_L2_BD_REG_NAME_TOO_LONG\x10\x84\xa0\x04\x12\x1f\n\x19SL_L2_BD_REG_BD_NOT_FOUND\x10\x85\xa0\x04\x12\"\n\x1cSL_RPC_L2_ROUTE_START_OFFSET\x10\x80\xc0\x04\x12#\n\x1dSL_RPC_L2_ROUTE_TOO_MANY_MSGS\x10\x81\xc0\x04\x12,\n&SL_RPC_L2_ROUTE_SERVER_NOT_INITIALIZED\x10\x82\xc0\x04\x12+\n%SL_RPC_L2_ROUTE_CLIENT_NOT_REGISTERED\x10\x83\xc0\x04\x12\x1e\n\x18SL_L2_ROUTE_START_OFFSET\x10\x80\xe0\x04\x12!\n\x1bSL_L2_ROUTE_BD_NAME_MISSING\x10\x81\xe0\x04\x12!\n\x1bSL_L2_ROUTE_BD_NAME_TOOLONG\x10\x82\xe0\x04\x12\x1e\n\x18SL_L2_ROUTE_BD_NOT_FOUND\x10\x83\xe0\x04\x12#\n\x1dSL_L2_ROUTE_BD_NOT_REGISTERED\x10\x84\xe0\x04\x12\x1e\n\x18SL_L2_ROUTE_INVALID_ARGS\x10\x85\xe0\x04\x12\"\n\x1cSL_RPC_L2_NOTIF_START_OFFSET\x10\x81\x80\x05\x12,\n&SL_RPC_L2_NOTIF_SERVER_NOT_INITIALIZED\x10\x82\x80\x05\x12+\n%SL_RPC_L2_NOTIF_CLIENT_NOT_REGISTERED\x10\x83\x80\x05\x12 \n\x1aSL_RPC_L2_NOTIF_ENABLE_ERR\x10\x84\x80\x05\x12!\n\x1bSL_RPC_L2_NOTIF_DISABLE_ERR\x10\x85\x80\x05\x12\x1d\n\x17SL_RPC_L2_NOTIF_EOF_ERR\x10\x86\x80\x05\x12%\n\x1fSL_RPC_L2_NOTIF_BD_NAME_MISSING\x10\x87\x80\x05\x12%\n\x1fSL_RPC_L2_NOTIF_BD_NAME_TOOLONG\x10\x88\x80\x05\x12\"\n\x1cSL_RPC_L2_NOTIF_BD_NOT_FOUND\x10\x89\x80\x05\x12\x1e\n\x18SL_INTERNAL_START_OFFSET\x10\x80\x80@\"<\n\x0bSLInterface\x12\x0e\n\x04Name\x18\x01 \x01(\tH\x00\x12\x10\n\x06Handle\x18\x02 \x01(\rH\x00\x42\x0b\n\tInterface\"B\n\x0bSLIpAddress\x12\x13\n\tV4Address\x18\x01 \x01(\rH\x00\x12\x13\n\tV6Address\x18\x02 \x01(\x0cH\x00\x42\t\n\x07\x41\x64\x64ress*b\n\x07SLRegOp\x12\x15\n\x11SL_REGOP_RESERVED\x10\x00\x12\x15\n\x11SL_REGOP_REGISTER\x10\x01\x12\x17\n\x13SL_REGOP_UNREGISTER\x10\x02\x12\x10\n\x0cSL_REGOP_EOF\x10\x03*_\n\nSLObjectOp\x12\x15\n\x11SL_OBJOP_RESERVED\x10\x00\x12\x10\n\x0cSL_OBJOP_ADD\x10\x01\x12\x13\n\x0fSL_OBJOP_UPDATE\x10\x02\x12\x13\n\x0fSL_OBJOP_DELETE\x10\x03*S\n\tSLNotifOp\x12\x17\n\x13SL_NOTIFOP_RESERVED\x10\x00\x12\x15\n\x11SL_NOTIFOP_ENABLE\x10\x01\x12\x16\n\x12SL_NOTIFOP_DISABLE\x10\x02*K\n\x0bSLEncapType\x12\x15\n\x11SL_ENCAP_RESERVED\x10\x00\x12\x12\n\x0eSL_ENCAP_VXLAN\x10\x01\x12\x11\n\rSL_ENCAP_MPLS\x10\x02\x62\x06proto3')
 )
 
 _SLREGOP = _descriptor.EnumDescriptor(
@@ -48,8 +48,8 @@ _SLREGOP = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=7697,
-  serialized_end=7795,
+  serialized_start=7746,
+  serialized_end=7844,
 )
 _sym_db.RegisterEnumDescriptor(_SLREGOP)
 
@@ -79,8 +79,8 @@ _SLOBJECTOP = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=7797,
-  serialized_end=7892,
+  serialized_start=7846,
+  serialized_end=7941,
 )
 _sym_db.RegisterEnumDescriptor(_SLOBJECTOP)
 
@@ -106,8 +106,8 @@ _SLNOTIFOP = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=7894,
-  serialized_end=7977,
+  serialized_start=7943,
+  serialized_end=8026,
 )
 _sym_db.RegisterEnumDescriptor(_SLNOTIFOP)
 
@@ -133,8 +133,8 @@ _SLENCAPTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=7979,
-  serialized_end=8054,
+  serialized_start=8028,
+  serialized_end=8103,
 )
 _sym_db.RegisterEnumDescriptor(_SLENCAPTYPE)
 
@@ -214,842 +214,850 @@ _SLERRORSTATUS_SLERRNO = _descriptor.EnumDescriptor(
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_INIT_START_OFFSET', index=13, number=1280,
+      name='SL_AUTH_FAIL', index=13, number=13,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_INIT_STATE_CLEAR', index=14, number=1281,
+      name='SL_INIT_START_OFFSET', index=14, number=1280,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_INIT_STATE_READY', index=15, number=1282,
+      name='SL_INIT_STATE_CLEAR', index=15, number=1281,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_INIT_UNSUPPORTED_VER', index=16, number=1283,
+      name='SL_INIT_STATE_READY', index=16, number=1282,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_INIT_SERVER_NOT_INITIALIZED', index=17, number=1284,
+      name='SL_INIT_UNSUPPORTED_VER', index=17, number=1283,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_INIT_SERVER_MODE_CHANGE_FAILED', index=18, number=1285,
+      name='SL_INIT_SERVER_NOT_INITIALIZED', index=18, number=1284,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_RPC_VRF_START_OFFSET', index=19, number=4096,
+      name='SL_INIT_SERVER_MODE_CHANGE_FAILED', index=19, number=1285,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_RPC_VRF_TOO_MANY_VRF_REG_MSGS', index=20, number=4097,
+      name='SL_RPC_VRF_START_OFFSET', index=20, number=4096,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_RPC_VRF_SERVER_NOT_INITIALIZED', index=21, number=4098,
+      name='SL_RPC_VRF_TOO_MANY_VRF_REG_MSGS', index=21, number=4097,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_VRF_START_OFFSET', index=22, number=8192,
+      name='SL_RPC_VRF_SERVER_NOT_INITIALIZED', index=22, number=4098,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_VRF_NAME_TOOLONG', index=23, number=8193,
+      name='SL_VRF_START_OFFSET', index=23, number=8192,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_VRF_NOT_FOUND', index=24, number=8194,
+      name='SL_VRF_NAME_TOOLONG', index=24, number=8193,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_VRF_NO_TABLE_ID', index=25, number=8195,
+      name='SL_VRF_NOT_FOUND', index=25, number=8194,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_VRF_REG_INVALID_ADMIN_DISTANCE', index=26, number=8196,
+      name='SL_VRF_NO_TABLE_ID', index=26, number=8195,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_VRF_TABLE_ADD_ERR', index=27, number=8197,
+      name='SL_VRF_REG_INVALID_ADMIN_DISTANCE', index=27, number=8196,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_VRF_TABLE_REGISTRATION_ERR', index=28, number=8198,
+      name='SL_VRF_TABLE_ADD_ERR', index=28, number=8197,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_VRF_TABLE_UNREGISTRATION_ERR', index=29, number=8199,
+      name='SL_VRF_TABLE_REGISTRATION_ERR', index=29, number=8198,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_VRF_TABLE_EOF_ERR', index=30, number=8200,
+      name='SL_VRF_TABLE_UNREGISTRATION_ERR', index=30, number=8199,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_VRF_REG_VRF_NAME_MISSING', index=31, number=8201,
+      name='SL_VRF_TABLE_EOF_ERR', index=31, number=8200,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_RPC_ROUTE_START_OFFSET', index=32, number=12288,
+      name='SL_VRF_REG_VRF_NAME_MISSING', index=32, number=8201,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_RPC_ROUTE_TOO_MANY_ROUTES', index=33, number=12289,
+      name='SL_RPC_ROUTE_START_OFFSET', index=33, number=12288,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_RPC_ROUTE_VRF_NAME_TOOLONG', index=34, number=12290,
+      name='SL_RPC_ROUTE_TOO_MANY_ROUTES', index=34, number=12289,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_RPC_ROUTE_VRF_NOT_FOUND', index=35, number=12291,
+      name='SL_RPC_ROUTE_VRF_NAME_TOOLONG', index=35, number=12290,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_RPC_ROUTE_VRF_NO_TABLE', index=36, number=12292,
+      name='SL_RPC_ROUTE_VRF_NOT_FOUND', index=36, number=12291,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_RPC_ROUTE_VRF_TABLE_NOT_REGISTERED', index=37, number=12293,
+      name='SL_RPC_ROUTE_VRF_NO_TABLE', index=37, number=12292,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_RPC_ROUTE_VRF_NAME_MISSING', index=38, number=12294,
+      name='SL_RPC_ROUTE_VRF_TABLE_NOT_REGISTERED', index=38, number=12293,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_RPC_ROUTE_INIT_MODE_INCOMPATIBLE', index=39, number=12295,
+      name='SL_RPC_ROUTE_VRF_NAME_MISSING', index=39, number=12294,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_RPC_ROUTE_SERVER_NOT_INITIALIZED', index=40, number=12296,
+      name='SL_RPC_ROUTE_INIT_MODE_INCOMPATIBLE', index=40, number=12295,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_RPC_ROUTE_NOTIF_SRC_PROTO_TOOLONG', index=41, number=12297,
+      name='SL_RPC_ROUTE_SERVER_NOT_INITIALIZED', index=41, number=12296,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_RPC_ROUTE_NOTIF_SRC_PROTO_TAG_TOOLONG', index=42, number=12298,
+      name='SL_RPC_ROUTE_NOTIF_SRC_PROTO_TOOLONG', index=42, number=12297,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_ROUTE_START_OFFSET', index=43, number=16384,
+      name='SL_RPC_ROUTE_NOTIF_SRC_PROTO_TAG_TOOLONG', index=43, number=12298,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_ROUTE_ADD_NO_PATHS', index=44, number=16385,
+      name='SL_ROUTE_START_OFFSET', index=44, number=16384,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_ROUTE_UPDATE_NO_PATHS', index=45, number=16386,
+      name='SL_ROUTE_ADD_NO_PATHS', index=45, number=16385,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_ROUTE_INVALID_PREFIX_LEN', index=46, number=16387,
+      name='SL_ROUTE_UPDATE_NO_PATHS', index=46, number=16386,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_ROUTE_INVALID_ADMIN_DISTANCE', index=47, number=16388,
+      name='SL_ROUTE_INVALID_PREFIX_LEN', index=47, number=16387,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_ROUTE_INVALID_NUM_PATHS', index=48, number=16389,
+      name='SL_ROUTE_INVALID_ADMIN_DISTANCE', index=48, number=16388,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_ROUTE_INVALID_PREFIX_SZ', index=49, number=16390,
+      name='SL_ROUTE_INVALID_NUM_PATHS', index=49, number=16389,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_ROUTE_INVALID_PREFIX', index=50, number=16391,
+      name='SL_ROUTE_INVALID_PREFIX_SZ', index=50, number=16390,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_ROUTE_ERR_RIB_TABLE_LIMIT_REACHED', index=51, number=16392,
+      name='SL_ROUTE_INVALID_PREFIX', index=51, number=16391,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_ROUTE_ERR_RIB_INVALID_ARGS', index=52, number=16393,
+      name='SL_ROUTE_ERR_RIB_TABLE_LIMIT_REACHED', index=52, number=16392,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_ROUTE_ERR_RIB_PATH_TABLE_LIMIT', index=53, number=16394,
+      name='SL_ROUTE_ERR_RIB_INVALID_ARGS', index=53, number=16393,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_ROUTE_ERR_RIB_TOOMANYPATHS', index=54, number=16395,
+      name='SL_ROUTE_ERR_RIB_PATH_TABLE_LIMIT', index=54, number=16394,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_ROUTE_EEXIST', index=55, number=16396,
+      name='SL_ROUTE_ERR_RIB_TOOMANYPATHS', index=55, number=16395,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_ROUTE_HOST_BITS_SET', index=56, number=16397,
+      name='SL_ROUTE_EEXIST', index=56, number=16396,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_ROUTE_INVALID_PREFIX_MCAST', index=57, number=16398,
+      name='SL_ROUTE_HOST_BITS_SET', index=57, number=16397,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_ROUTE_PATH_AFI_MISMATCH', index=58, number=16399,
+      name='SL_ROUTE_INVALID_PREFIX_MCAST', index=58, number=16398,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_ROUTE_TOOMANY_PRIMARY_PATHS', index=59, number=16400,
+      name='SL_ROUTE_PATH_AFI_MISMATCH', index=59, number=16399,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_ROUTE_TOOMANY_BACKUP_PATHS', index=60, number=16401,
+      name='SL_ROUTE_TOOMANY_PRIMARY_PATHS', index=60, number=16400,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_ROUTE_DB_NOMEM', index=61, number=16402,
+      name='SL_ROUTE_TOOMANY_BACKUP_PATHS', index=61, number=16401,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_ROUTE_INVALID_LOCAL_LABEL', index=62, number=16403,
+      name='SL_ROUTE_DB_NOMEM', index=62, number=16402,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_PATH_START_OFFSET', index=63, number=20480,
+      name='SL_ROUTE_INVALID_LOCAL_LABEL', index=63, number=16403,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_PATH_NH_NO_TABLE', index=64, number=20481,
+      name='SL_PATH_START_OFFSET', index=64, number=20480,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_PATH_NH_INTF_NOT_FOUND', index=65, number=20482,
+      name='SL_PATH_NH_NO_TABLE', index=65, number=20481,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_PATH_INVALID_LABEL_COUNT', index=66, number=20483,
+      name='SL_PATH_NH_INTF_NOT_FOUND', index=66, number=20482,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_PATH_INVALID_ID', index=67, number=20484,
+      name='SL_PATH_INVALID_LABEL_COUNT', index=67, number=20483,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_PATH_VRF_NAME_TOOLONG', index=68, number=20485,
+      name='SL_PATH_INVALID_ID', index=68, number=20484,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_PATH_NH_INTF_NAME_TOOLONG', index=69, number=20486,
+      name='SL_PATH_VRF_NAME_TOOLONG', index=69, number=20485,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_PATH_NH_INVALID_ADDR_SZ', index=70, number=20487,
+      name='SL_PATH_NH_INTF_NAME_TOOLONG', index=70, number=20486,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_PATH_NH_INF_NAME_MISSING', index=71, number=20488,
+      name='SL_PATH_NH_INVALID_ADDR_SZ', index=71, number=20487,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_PATH_INVALID_NEXT_HOP_ADDR', index=72, number=20489,
+      name='SL_PATH_NH_INF_NAME_MISSING', index=72, number=20488,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_PATH_INVALID_REMOTE_ADDR_COUNT', index=73, number=20490,
+      name='SL_PATH_INVALID_NEXT_HOP_ADDR', index=73, number=20489,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_PATH_REMOTE_ADDR_INVALID_SZ', index=74, number=20491,
+      name='SL_PATH_INVALID_REMOTE_ADDR_COUNT', index=74, number=20490,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_PATH_REMOTE_ADDR_AFI_MISMATCH', index=75, number=20492,
+      name='SL_PATH_REMOTE_ADDR_INVALID_SZ', index=75, number=20491,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_PATH_INVALID_PROTECTED_BITMAP', index=76, number=20493,
+      name='SL_PATH_REMOTE_ADDR_AFI_MISMATCH', index=76, number=20492,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_PATH_BACKUP_MISSING_PRIMARY_PATH', index=77, number=20494,
+      name='SL_PATH_INVALID_PROTECTED_BITMAP', index=77, number=20493,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_PATH_PRIMARY_ID_REPEATED', index=78, number=20495,
+      name='SL_PATH_BACKUP_MISSING_PRIMARY_PATH', index=78, number=20494,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_PATH_BACKUP_ID_REPEATED', index=79, number=20496,
+      name='SL_PATH_PRIMARY_ID_REPEATED', index=79, number=20495,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_PATH_PRIMARY_TOOMANY_BACKUP_PATHS', index=80, number=20497,
+      name='SL_PATH_BACKUP_ID_REPEATED', index=80, number=20496,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_PATH_PRIMARY_TOOMANY_LABELS', index=81, number=20498,
+      name='SL_PATH_PRIMARY_TOOMANY_BACKUP_PATHS', index=81, number=20497,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_PATH_PRIMARY_TOOMANY_REMOTE_ADDR', index=82, number=20499,
+      name='SL_PATH_PRIMARY_TOOMANY_LABELS', index=82, number=20498,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_PATH_REMOTE_ADDR_INVALID', index=83, number=20500,
+      name='SL_PATH_PRIMARY_TOOMANY_REMOTE_ADDR', index=83, number=20499,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_PATH_INVALID_LABEL', index=84, number=20501,
+      name='SL_PATH_REMOTE_ADDR_INVALID', index=84, number=20500,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_PATH_ROUTER_MAC_ADDR_INVALID_SZ', index=85, number=20502,
+      name='SL_PATH_INVALID_LABEL', index=85, number=20501,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_RPC_BFD_START_OFFSET', index=86, number=24576,
+      name='SL_PATH_ROUTER_MAC_ADDR_INVALID_SZ', index=86, number=20502,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_RPC_BFD_TOO_MANY_BFD_SESSIONS', index=87, number=24577,
+      name='SL_RPC_BFD_START_OFFSET', index=87, number=24576,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_RPC_BFD_API_BAD_PARAMETER', index=88, number=24578,
+      name='SL_RPC_BFD_TOO_MANY_BFD_SESSIONS', index=88, number=24577,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_RPC_BFD_API_CLIENT_NOT_REGISTERED', index=89, number=24579,
+      name='SL_RPC_BFD_API_BAD_PARAMETER', index=89, number=24578,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_RPC_BFD_API_INTERNAL_ERROR', index=90, number=24580,
+      name='SL_RPC_BFD_API_CLIENT_NOT_REGISTERED', index=90, number=24579,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_RPC_BFD_SERVER_NOT_INITIALIZED', index=91, number=24581,
+      name='SL_RPC_BFD_API_INTERNAL_ERROR', index=91, number=24580,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_RPC_BFD_V4_NOT_REGISTERED', index=92, number=24582,
+      name='SL_RPC_BFD_SERVER_NOT_INITIALIZED', index=92, number=24581,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_RPC_BFD_V6_NOT_REGISTERED', index=93, number=24583,
+      name='SL_RPC_BFD_V4_NOT_REGISTERED', index=93, number=24582,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_BFD_START_OFFSET', index=94, number=28672,
+      name='SL_RPC_BFD_V6_NOT_REGISTERED', index=94, number=24583,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_BFD_INTF_NAME_TOOLONG', index=95, number=28673,
+      name='SL_BFD_START_OFFSET', index=95, number=28672,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_BFD_INTF_NOT_FOUND', index=96, number=28674,
+      name='SL_BFD_INTF_NAME_TOOLONG', index=96, number=28673,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_BFD_INVALID_ATTRIBUTE', index=97, number=28675,
+      name='SL_BFD_INTF_NOT_FOUND', index=97, number=28674,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_BFD_INTF_NAME_MISSING', index=98, number=28676,
+      name='SL_BFD_INVALID_ATTRIBUTE', index=98, number=28675,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_BFD_INVALID_NBR_MCAST', index=99, number=28677,
+      name='SL_BFD_INTF_NAME_MISSING', index=99, number=28676,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_BFD_INVALID_NBR', index=100, number=28678,
+      name='SL_BFD_INVALID_NBR_MCAST', index=100, number=28677,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_BFD_VRF_NAME_TOOLONG', index=101, number=28679,
+      name='SL_BFD_INVALID_NBR', index=101, number=28678,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_BFD_BAD_PARAMETER', index=102, number=28680,
+      name='SL_BFD_VRF_NAME_TOOLONG', index=102, number=28679,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_BFD_API_INTERNAL_ERROR', index=103, number=28681,
+      name='SL_BFD_BAD_PARAMETER', index=103, number=28680,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_BFD_VRF_NOT_FOUND', index=104, number=28682,
+      name='SL_BFD_API_INTERNAL_ERROR', index=104, number=28681,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_BFD_INVALID_PREFIX_SIZE', index=105, number=28683,
+      name='SL_BFD_VRF_NOT_FOUND', index=105, number=28682,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_BFD_INVALID_SESSION_TYPE', index=106, number=28684,
+      name='SL_BFD_INVALID_PREFIX_SIZE', index=106, number=28683,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_BFD_INVALID_VRF', index=107, number=28685,
+      name='SL_BFD_INVALID_SESSION_TYPE', index=107, number=28684,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_BFD_SESSION_NOT_FOUND', index=108, number=28686,
+      name='SL_BFD_INVALID_VRF', index=108, number=28685,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_BFD_SESSION_EXISTS', index=109, number=28687,
+      name='SL_BFD_SESSION_NOT_FOUND', index=109, number=28686,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_BFD_INTERNAL_DB_ERROR', index=110, number=28688,
+      name='SL_BFD_SESSION_EXISTS', index=110, number=28687,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_BFD_RECOVERY_ERROR', index=111, number=28689,
+      name='SL_BFD_INTERNAL_DB_ERROR', index=111, number=28688,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_RPC_MPLS_START_OFFSET', index=112, number=32768,
+      name='SL_BFD_RECOVERY_ERROR', index=112, number=28689,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_RPC_MPLS_ILM_TOO_MANY_ILMS', index=113, number=32769,
+      name='SL_RPC_MPLS_START_OFFSET', index=113, number=32768,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_RPC_MPLS_SERVER_NOT_INITIALIZED', index=114, number=32770,
+      name='SL_RPC_MPLS_ILM_TOO_MANY_ILMS', index=114, number=32769,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_RPC_MPLS_INIT_MODE_INCOMPATIBLE', index=115, number=32771,
+      name='SL_RPC_MPLS_SERVER_NOT_INITIALIZED', index=115, number=32770,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_RPC_MPLS_LABEL_BLK_TOO_MANY_LABEL_BLKS', index=116, number=32772,
+      name='SL_RPC_MPLS_INIT_MODE_INCOMPATIBLE', index=116, number=32771,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_RPC_MPLS_NOT_REGISTERED', index=117, number=32773,
+      name='SL_RPC_MPLS_LABEL_BLK_TOO_MANY_LABEL_BLKS', index=117, number=32772,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_ILM_ERR_OFFSET', index=118, number=36864,
+      name='SL_RPC_MPLS_NOT_REGISTERED', index=118, number=32773,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_ILM_ADD_FAILED', index=119, number=36865,
+      name='SL_ILM_ERR_OFFSET', index=119, number=36864,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_ILM_LSD_ADD_FAILED', index=120, number=36866,
+      name='SL_ILM_ADD_FAILED', index=120, number=36865,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_ILM_INVALID_NUM_NHLFE', index=121, number=36867,
+      name='SL_ILM_LSD_ADD_FAILED', index=121, number=36866,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_ILM_INVALID_LABEL', index=122, number=36868,
+      name='SL_ILM_INVALID_NUM_NHLFE', index=122, number=36867,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_ILM_DELETE_FAILED', index=123, number=36869,
+      name='SL_ILM_INVALID_LABEL', index=123, number=36868,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_ILM_LSD_DELETE_FAILED', index=124, number=36870,
+      name='SL_ILM_DELETE_FAILED', index=124, number=36869,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_ILM_TOOMANY_PRIMARY_NHLFES', index=125, number=36871,
+      name='SL_ILM_LSD_DELETE_FAILED', index=125, number=36870,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_ILM_TOOMANY_BACKUP_NHLFES', index=126, number=36872,
+      name='SL_ILM_TOOMANY_PRIMARY_NHLFES', index=126, number=36871,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_ILM_LSD_ADD_LABEL_ALLOC_FAILED', index=127, number=36873,
+      name='SL_ILM_TOOMANY_BACKUP_NHLFES', index=127, number=36872,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_ILM_LSD_NHLFE_INVALID_ATTRIB', index=128, number=36874,
+      name='SL_ILM_LSD_ADD_LABEL_ALLOC_FAILED', index=128, number=36873,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_ILM_EEXIST', index=129, number=36875,
+      name='SL_ILM_LSD_NHLFE_INVALID_ATTRIB', index=129, number=36874,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_ILM_DB_NOMEM', index=130, number=36876,
+      name='SL_ILM_EEXIST', index=130, number=36875,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_NHLFE_ERR_OFFSET', index=131, number=40960,
+      name='SL_ILM_DB_NOMEM', index=131, number=36876,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_NHLFE_NH_NO_TABLE', index=132, number=40961,
+      name='SL_ILM_INVALID_ELSP_EXP', index=132, number=36877,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_NHLFE_NH_INVALID_ADDR_SZ', index=133, number=40962,
+      name='SL_NHLFE_ERR_OFFSET', index=133, number=40960,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_NHLFE_INVALID_NEXT_HOP_ADDR', index=134, number=40963,
+      name='SL_NHLFE_NH_NO_TABLE', index=134, number=40961,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_NHLFE_VRF_NAME_TOOLONG', index=135, number=40964,
+      name='SL_NHLFE_NH_INVALID_ADDR_SZ', index=135, number=40962,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_NHLFE_NH_INF_NAME_MISSING', index=136, number=40965,
+      name='SL_NHLFE_INVALID_NEXT_HOP_ADDR', index=136, number=40963,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_NHLFE_NH_INTF_NAME_TOOLONG', index=137, number=40966,
+      name='SL_NHLFE_VRF_NAME_TOOLONG', index=137, number=40964,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_NHLFE_INVALID_LABEL_COUNT', index=138, number=40967,
+      name='SL_NHLFE_NH_INF_NAME_MISSING', index=138, number=40965,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_NHLFE_INVALID_PATH_ID', index=139, number=40968,
+      name='SL_NHLFE_NH_INTF_NAME_TOOLONG', index=139, number=40966,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_NHLFE_INVALID_LABEL', index=140, number=40969,
+      name='SL_NHLFE_INVALID_LABEL_COUNT', index=140, number=40967,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_NHLFE_INVALID_PROTECTED_BITMAP', index=141, number=40970,
+      name='SL_NHLFE_INVALID_PATH_ID', index=141, number=40968,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_NHLFE_INVALID_REMOTE_ADDR_COUNT', index=142, number=40971,
+      name='SL_NHLFE_INVALID_LABEL', index=142, number=40969,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_NHLFE_REMOTE_ADDR_INVALID_SZ', index=143, number=40972,
+      name='SL_NHLFE_INVALID_PROTECTED_BITMAP', index=143, number=40970,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_NHLFE_PRIMARY_TOOMANY_LABELS', index=144, number=40973,
+      name='SL_NHLFE_INVALID_REMOTE_ADDR_COUNT', index=144, number=40971,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_NHLFE_PRIMARY_TOOMANY_REMOTE_ADDR', index=145, number=40974,
+      name='SL_NHLFE_REMOTE_ADDR_INVALID_SZ', index=145, number=40972,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_NHLFE_BACKUP_ID_REPEATED', index=146, number=40975,
+      name='SL_NHLFE_PRIMARY_TOOMANY_LABELS', index=146, number=40973,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_NHLFE_PRIMARY_ID_REPEATED', index=147, number=40976,
+      name='SL_NHLFE_PRIMARY_TOOMANY_REMOTE_ADDR', index=147, number=40974,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_NHLFE_BACKUP_PROTECTED_BITMAP_EMPTY', index=148, number=40977,
+      name='SL_NHLFE_BACKUP_ID_REPEATED', index=148, number=40975,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_NHLFE_PRIMARY_TOOMANY_BACKUP_PATHS', index=149, number=40978,
+      name='SL_NHLFE_PRIMARY_ID_REPEATED', index=149, number=40976,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_NHLFE_REMOTE_ADDR_INVALID', index=150, number=40979,
+      name='SL_NHLFE_BACKUP_PROTECTED_BITMAP_EMPTY', index=150, number=40977,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_NHLFE_BACKUP_MISSING_PRIMARY_PATH', index=151, number=40980,
+      name='SL_NHLFE_PRIMARY_TOOMANY_BACKUP_PATHS', index=151, number=40978,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_NHLFE_NEXT_HOP_MISSING', index=152, number=40981,
+      name='SL_NHLFE_REMOTE_ADDR_INVALID', index=152, number=40979,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_NHLFE_LABEL_ACTION_INVALID', index=153, number=40982,
+      name='SL_NHLFE_BACKUP_MISSING_PRIMARY_PATH', index=153, number=40980,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_NHLFE_NH_INTF_NOT_FOUND', index=154, number=40983,
+      name='SL_NHLFE_NEXT_HOP_MISSING', index=154, number=40981,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_NHLFE_OPER_FAILED', index=155, number=40984,
+      name='SL_NHLFE_LABEL_ACTION_INVALID', index=155, number=40982,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_NHLFE_LABEL_ACTION_MISSING', index=156, number=40985,
+      name='SL_NHLFE_NH_INTF_NOT_FOUND', index=156, number=40983,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_LABEL_BLK_ERR_OFFSET', index=157, number=45056,
+      name='SL_NHLFE_OPER_FAILED', index=157, number=40984,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_LABEL_BLK_LSD_ADD_FAILED', index=158, number=45057,
+      name='SL_NHLFE_LABEL_ACTION_MISSING', index=158, number=40985,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_LABEL_BLK_LSD_DELETE_FAILED', index=159, number=45058,
+      name='SL_LABEL_BLK_ERR_OFFSET', index=159, number=45056,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_LABEL_BLK_LSD_LABEL_BLK_NOT_FOUND', index=160, number=45059,
+      name='SL_LABEL_BLK_LSD_ADD_FAILED', index=160, number=45057,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_LABEL_BLK_LSD_LABEL_BLK_IN_USE', index=161, number=45060,
+      name='SL_LABEL_BLK_LSD_DELETE_FAILED', index=161, number=45058,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_LABEL_BLK_LSD_INVALID_ATTRIB', index=162, number=45061,
+      name='SL_LABEL_BLK_LSD_LABEL_BLK_NOT_FOUND', index=162, number=45059,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_LABEL_BLK_INVALID_BLOCK_SIZE', index=163, number=45062,
+      name='SL_LABEL_BLK_LSD_LABEL_BLK_IN_USE', index=163, number=45060,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_LABEL_BLK_INVALID_START_LABEL', index=164, number=45063,
+      name='SL_LABEL_BLK_LSD_INVALID_ATTRIB', index=164, number=45061,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_LABEL_BLK_EEXIST', index=165, number=45064,
+      name='SL_LABEL_BLK_INVALID_BLOCK_SIZE', index=165, number=45062,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_LABEL_BLK_DB_NOMEM', index=166, number=45065,
+      name='SL_LABEL_BLK_INVALID_START_LABEL', index=166, number=45063,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_MPLS_REG_ERR_OFFSET', index=167, number=49152,
+      name='SL_LABEL_BLK_EEXIST', index=167, number=45064,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_MPLS_REG_ERR', index=168, number=49153,
+      name='SL_LABEL_BLK_DB_NOMEM', index=168, number=45065,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_MPLS_UNREG_ERR', index=169, number=49154,
+      name='SL_MPLS_REG_ERR_OFFSET', index=169, number=49152,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_MPLS_EOF_ERR', index=170, number=49155,
+      name='SL_MPLS_REG_ERR', index=170, number=49153,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_RPC_INTF_START_OFFSET', index=171, number=53248,
+      name='SL_MPLS_UNREG_ERR', index=171, number=49154,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_RPC_INTF_TOO_MANY_INTERFACES', index=172, number=53249,
+      name='SL_MPLS_EOF_ERR', index=172, number=49155,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_RPC_INTF_SERVER_NOT_INITIALIZED', index=173, number=53250,
+      name='SL_RPC_INTF_START_OFFSET', index=173, number=53248,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_RPC_INTF_API_CLIENT_NOT_REGISTERED', index=174, number=53251,
+      name='SL_RPC_INTF_TOO_MANY_INTERFACES', index=174, number=53249,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_INTF_START_OFFSET', index=175, number=57344,
+      name='SL_RPC_INTF_SERVER_NOT_INITIALIZED', index=175, number=53250,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_INTF_INTERFACE_NAME_MISSING', index=176, number=57345,
+      name='SL_RPC_INTF_API_CLIENT_NOT_REGISTERED', index=176, number=53251,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_INTF_INTERFACE_NAME_TOOLONG', index=177, number=57346,
+      name='SL_INTF_START_OFFSET', index=177, number=57344,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_INTF_INTERFACE_REG_ERR', index=178, number=57347,
+      name='SL_INTF_INTERFACE_NAME_MISSING', index=178, number=57345,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_INTF_INTERNAL_DB_ERROR', index=179, number=57348,
+      name='SL_INTF_INTERFACE_NAME_TOOLONG', index=179, number=57346,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_INTF_RECOVERY_ERROR', index=180, number=57349,
+      name='SL_INTF_INTERFACE_REG_ERR', index=180, number=57347,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_INTF_INTERFACE_EXISTS', index=181, number=57350,
+      name='SL_INTF_INTERNAL_DB_ERROR', index=181, number=57348,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_INTF_INTERFACE_NOT_FOUND', index=182, number=57351,
+      name='SL_INTF_RECOVERY_ERROR', index=182, number=57349,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_L2_REG_START_OFFSET', index=183, number=61440,
+      name='SL_INTF_INTERFACE_EXISTS', index=183, number=57350,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_L2_REGISTRATION_ERR', index=184, number=61441,
+      name='SL_INTF_INTERFACE_NOT_FOUND', index=184, number=57351,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_L2_UNREGISTRATION_ERR', index=185, number=61442,
+      name='SL_L2_REG_START_OFFSET', index=185, number=61440,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_L2_EOF_ERR', index=186, number=61443,
+      name='SL_L2_REGISTRATION_ERR', index=186, number=61441,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_L2_REG_INVALID_ADMIN_DISTANCE', index=187, number=61444,
+      name='SL_L2_UNREGISTRATION_ERR', index=187, number=61442,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_L2_REG_IS_DUPLICATE', index=188, number=61445,
+      name='SL_L2_EOF_ERR', index=188, number=61443,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_L2_REG_SERVER_NOT_INITIALIZED', index=189, number=61446,
+      name='SL_L2_REG_INVALID_ADMIN_DISTANCE', index=189, number=61444,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_RPC_L2_BD_REG_START_OFFSET', index=190, number=65536,
+      name='SL_L2_REG_IS_DUPLICATE', index=190, number=61445,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_RPC_L2_BD_REG_NAME_MISSING', index=191, number=65537,
+      name='SL_L2_REG_SERVER_NOT_INITIALIZED', index=191, number=61446,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_RPC_L2_BD_REG_TOO_MANY_MSGS', index=192, number=65538,
+      name='SL_RPC_L2_BD_REG_START_OFFSET', index=192, number=65536,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_RPC_L2_BD_REG_SERVER_NOT_INITIALIZED', index=193, number=65539,
+      name='SL_RPC_L2_BD_REG_NAME_MISSING', index=193, number=65537,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_RPC_L2_BD_REG_CLIENT_NOT_REGISTERED', index=194, number=65540,
+      name='SL_RPC_L2_BD_REG_TOO_MANY_MSGS', index=194, number=65538,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_L2_BD_REG_START_OFFSET', index=195, number=69632,
+      name='SL_RPC_L2_BD_REG_SERVER_NOT_INITIALIZED', index=195, number=65539,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_L2_BD_REGISTRATION_ERR', index=196, number=69633,
+      name='SL_RPC_L2_BD_REG_CLIENT_NOT_REGISTERED', index=196, number=65540,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_L2_BD_UNREGISTRATION_ERR', index=197, number=69634,
+      name='SL_L2_BD_REG_START_OFFSET', index=197, number=69632,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_L2_BD_EOF_ERR', index=198, number=69635,
+      name='SL_L2_BD_REGISTRATION_ERR', index=198, number=69633,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_L2_BD_REG_NAME_TOO_LONG', index=199, number=69636,
+      name='SL_L2_BD_UNREGISTRATION_ERR', index=199, number=69634,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_L2_BD_REG_BD_NOT_FOUND', index=200, number=69637,
+      name='SL_L2_BD_EOF_ERR', index=200, number=69635,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_RPC_L2_ROUTE_START_OFFSET', index=201, number=73728,
+      name='SL_L2_BD_REG_NAME_TOO_LONG', index=201, number=69636,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_RPC_L2_ROUTE_TOO_MANY_MSGS', index=202, number=73729,
+      name='SL_L2_BD_REG_BD_NOT_FOUND', index=202, number=69637,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_RPC_L2_ROUTE_SERVER_NOT_INITIALIZED', index=203, number=73730,
+      name='SL_RPC_L2_ROUTE_START_OFFSET', index=203, number=73728,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_RPC_L2_ROUTE_CLIENT_NOT_REGISTERED', index=204, number=73731,
+      name='SL_RPC_L2_ROUTE_TOO_MANY_MSGS', index=204, number=73729,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_L2_ROUTE_START_OFFSET', index=205, number=77824,
+      name='SL_RPC_L2_ROUTE_SERVER_NOT_INITIALIZED', index=205, number=73730,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_L2_ROUTE_BD_NAME_MISSING', index=206, number=77825,
+      name='SL_RPC_L2_ROUTE_CLIENT_NOT_REGISTERED', index=206, number=73731,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_L2_ROUTE_BD_NAME_TOOLONG', index=207, number=77826,
+      name='SL_L2_ROUTE_START_OFFSET', index=207, number=77824,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_L2_ROUTE_BD_NOT_FOUND', index=208, number=77827,
+      name='SL_L2_ROUTE_BD_NAME_MISSING', index=208, number=77825,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_L2_ROUTE_BD_NOT_REGISTERED', index=209, number=77828,
+      name='SL_L2_ROUTE_BD_NAME_TOOLONG', index=209, number=77826,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_L2_ROUTE_INVALID_ARGS', index=210, number=77829,
+      name='SL_L2_ROUTE_BD_NOT_FOUND', index=210, number=77827,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_RPC_L2_NOTIF_START_OFFSET', index=211, number=81921,
+      name='SL_L2_ROUTE_BD_NOT_REGISTERED', index=211, number=77828,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_RPC_L2_NOTIF_SERVER_NOT_INITIALIZED', index=212, number=81922,
+      name='SL_L2_ROUTE_INVALID_ARGS', index=212, number=77829,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_RPC_L2_NOTIF_CLIENT_NOT_REGISTERED', index=213, number=81923,
+      name='SL_RPC_L2_NOTIF_START_OFFSET', index=213, number=81921,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_RPC_L2_NOTIF_ENABLE_ERR', index=214, number=81924,
+      name='SL_RPC_L2_NOTIF_SERVER_NOT_INITIALIZED', index=214, number=81922,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_RPC_L2_NOTIF_DISABLE_ERR', index=215, number=81925,
+      name='SL_RPC_L2_NOTIF_CLIENT_NOT_REGISTERED', index=215, number=81923,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_RPC_L2_NOTIF_EOF_ERR', index=216, number=81926,
+      name='SL_RPC_L2_NOTIF_ENABLE_ERR', index=216, number=81924,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_RPC_L2_NOTIF_BD_NAME_MISSING', index=217, number=81927,
+      name='SL_RPC_L2_NOTIF_DISABLE_ERR', index=217, number=81925,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_RPC_L2_NOTIF_BD_NAME_TOOLONG', index=218, number=81928,
+      name='SL_RPC_L2_NOTIF_EOF_ERR', index=218, number=81926,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_RPC_L2_NOTIF_BD_NOT_FOUND', index=219, number=81929,
+      name='SL_RPC_L2_NOTIF_BD_NAME_MISSING', index=219, number=81927,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='SL_INTERNAL_START_OFFSET', index=220, number=1048576,
+      name='SL_RPC_L2_NOTIF_BD_NAME_TOOLONG', index=220, number=81928,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='SL_RPC_L2_NOTIF_BD_NOT_FOUND', index=221, number=81929,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='SL_INTERNAL_START_OFFSET', index=222, number=1048576,
       options=None,
       type=None),
   ],
   containing_type=None,
   options=None,
   serialized_start=113,
-  serialized_end=7565,
+  serialized_end=7614,
 )
 _sym_db.RegisterEnumDescriptor(_SLERRORSTATUS_SLERRNO)
 
@@ -1082,7 +1090,7 @@ _SLERRORSTATUS = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=41,
-  serialized_end=7565,
+  serialized_end=7614,
 )
 
 
@@ -1122,8 +1130,8 @@ _SLINTERFACE = _descriptor.Descriptor(
       name='Interface', full_name='service_layer.SLInterface.Interface',
       index=0, containing_type=None, fields=[]),
   ],
-  serialized_start=7567,
-  serialized_end=7627,
+  serialized_start=7616,
+  serialized_end=7676,
 )
 
 
@@ -1163,8 +1171,8 @@ _SLIPADDRESS = _descriptor.Descriptor(
       name='Address', full_name='service_layer.SLIpAddress.Address',
       index=0, containing_type=None, fields=[]),
   ],
-  serialized_start=7629,
-  serialized_end=7695,
+  serialized_start=7678,
+  serialized_end=7744,
 )
 
 _SLERRORSTATUS.fields_by_name['Status'].enum_type = _SLERRORSTATUS_SLERRNO

@@ -62,6 +62,10 @@ message SLErrorStatus {
         // - Notification Session was hijacked by another client.
         SL_NOTIF_TERM = 0xc;
 
+        // Authentication failure.
+        // Incorrect credentials passed in by RPC. 0xd
+        SL_AUTH_FAIL = 0xd;
+
         // !!! Error codes for Client INIT operations.
 
         // Offset for INIT errors. 0x500
@@ -353,6 +357,8 @@ message SLErrorStatus {
         SL_ILM_EEXIST = 0x900b;
         // The ILM database is out of memory. 0x900c
         SL_ILM_DB_NOMEM = 0x900c;
+        // EXP value is outside of the valid range of <0-7>. 0x900d
+        SL_ILM_INVALID_ELSP_EXP = 0x900d;
 
         // !!!  MPLS NHLFE Error codes
 

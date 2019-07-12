@@ -46,6 +46,9 @@
     /* Such events include: */\
     /* - Notification Session was hijacked by another client. */\
     SL_NOTIF_TERM = 0xc,\
+    /* Authentication failure. */\
+    /* Incorrect credentials passed in by RPC. 0xd */\
+    SL_AUTH_FAIL = 0xd,\
     /* !!! Error codes for Client INIT operations. */\
     /* Offset for INIT errors. 0x500 */\
     SL_INIT_START_OFFSET = 0x500,\
@@ -53,9 +56,10 @@
     /* This error is returned on the first-ever initialization, or, */\
     /* when a fatal event has occured and all previous state was lost. 0x501 */\
     SL_INIT_STATE_CLEAR = 0x501,\
-    /* Success, no errors detected - previous state fully recovered. */\
+    /* Success, no errors detected - previous state is recovered. */\
     /* This error is returned on a client re-initialization with */\
-    /* successful recovery of state. 0x502 */\
+    /* successful recovery of state. Note that any unacknowledged */\
+    /* data previously sent should be considered lost. 0x502 */\
     SL_INIT_STATE_READY = 0x502,\
     /* Server software incompatible with client software version. 0x503 */\
     SL_INIT_UNSUPPORTED_VER = 0x503,\
@@ -120,6 +124,10 @@
     /* Operation rejected for all routes as server is not initialized. */\
     /* 0x3008 */\
     SL_RPC_ROUTE_SERVER_NOT_INITIALIZED = 0x3008,\
+    /* Operation rejected as the request's SrcProto is too long. 0x3009 */\
+    SL_RPC_ROUTE_NOTIF_SRC_PROTO_TOOLONG = 0x3009,\
+    /* Operation rejected as the request's SrcProtoTag is too long. 0x300a */\
+    SL_RPC_ROUTE_NOTIF_SRC_PROTO_TAG_TOOLONG = 0x300a,\
     /* !!! Error codes for Route objects. */\
     /* Offset for route errors. 0x4000 */\
     SL_ROUTE_START_OFFSET = 0x4000,\
@@ -209,6 +217,8 @@
     SL_PATH_REMOTE_ADDR_INVALID = 0x5014,\
     /* Path has an invalid label. 0x5015 */\
     SL_PATH_INVALID_LABEL = 0x5015,\
+    /* Size of router max address is invalid. 0x5016 */\
+    SL_PATH_ROUTER_MAC_ADDR_INVALID_SZ = 0x5016,\
     /* !!! Error codes for BFD opertations. */\
     /* Offset for BFD operation errors. 0x6000 */\
     SL_RPC_BFD_START_OFFSET = 0x6000,\
@@ -311,6 +321,8 @@
     SL_ILM_EEXIST = 0x900b,\
     /* The ILM database is out of memory. 0x900c */\
     SL_ILM_DB_NOMEM = 0x900c,\
+    /* EXP value is outside of the valid range of <0-7>. 0x900d */\
+    SL_ILM_INVALID_ELSP_EXP = 0x900d,\
     /* !!!  MPLS NHLFE Error codes */\
     /* Offset for MPLS NHLFE errors. 0xa000 */\
     SL_NHLFE_ERR_OFFSET = 0xa000,\
@@ -423,6 +435,96 @@
     SL_INTF_INTERFACE_EXISTS = 0xe006,\
     /* Interface not found. 0xe007 */\
     SL_INTF_INTERFACE_NOT_FOUND = 0xe007,\
+    /* !!! Error codes for Global L2 operations. */\
+    /* Offset for Global L2 operation errors. 0xf000 */\
+    SL_L2_REG_START_OFFSET = 0xf000,\
+    /* Client cannot be registered with Layer-2 RIB. 0xf001 */\
+    SL_L2_REGISTRATION_ERR = 0xf001,\
+    /* Client cannot be unregistered with Layer-2 RIB. 0xf002 */\
+    SL_L2_UNREGISTRATION_ERR = 0xf002,\
+    /* EOF Operation error. 0xf003 */\
+    SL_L2_EOF_ERR = 0xf003,\
+    /* L2 registration message with invalid admin distance. 0xf004 */\
+    SL_L2_REG_INVALID_ADMIN_DISTANCE = 0xf004,\
+    /* Duplicate L2 registration message. 0xf005 */\
+    SL_L2_REG_IS_DUPLICATE = 0xf005,\
+    /* L2 registration rejected as server is not initialized. 0xf006 */\
+    SL_L2_REG_SERVER_NOT_INITIALIZED = 0xf006,\
+    /* !!! Error codes for L2 Bridge-Domain (BD) Operations. */\
+    /* Offset for L2 BD operation errors. 0x10000 */\
+    SL_RPC_L2_BD_REG_START_OFFSET = 0x10000,\
+    /* Operation is rejected for all BDs as name is missing. 0x10001 */\
+    SL_RPC_L2_BD_REG_NAME_MISSING = 0x10001,\
+    /* Operation rejected for all BDs due to too many BD registration */\
+    /* messages in the request. 0x10002 */\
+    SL_RPC_L2_BD_REG_TOO_MANY_MSGS = 0x10002,\
+    /* Operation rejected for all BDs as server is not initialized. */\
+    /* 0x10003 */\
+    SL_RPC_L2_BD_REG_SERVER_NOT_INITIALIZED = 0x10003,\
+    /* Operation rejected for all BDs as client is not registered. */\
+    /* 0x10004 */\
+    SL_RPC_L2_BD_REG_CLIENT_NOT_REGISTERED = 0x10004,\
+    /* !!! Error codes for L2 Bridge-Domain (BD) Objects. */\
+    /* Offset for L2 BD object errors. 0x11000 */\
+    SL_L2_BD_REG_START_OFFSET = 0x11000,\
+    /* BD cannot be registered with Layer-2 RIB. 0x11001 */\
+    SL_L2_BD_REGISTRATION_ERR = 0x11001,\
+    /* BD cannot be unregistered with Layer-2 RIB. 0x11002 */\
+    SL_L2_BD_UNREGISTRATION_ERR = 0x11002,\
+    /* BD EOF Operation error. 0x11003, */\
+    SL_L2_BD_EOF_ERR = 0x11003,\
+    /* Name is too long in BD registration message. 0x11004 */\
+    SL_L2_BD_REG_NAME_TOO_LONG = 0x11004,\
+    /* BD not found in BD registration message. 0x11005 */\
+    SL_L2_BD_REG_BD_NOT_FOUND = 0x11005,\
+    /* !!! Error codes for L2 Route operations. */\
+    /* Offset for L2 Route Operation errors. 0x12000 */\
+    SL_RPC_L2_ROUTE_START_OFFSET = 0x12000,\
+    /* Operation rejected for all L2 routes due to too many messages */\
+    /* in the request. 0x12001 */\
+    SL_RPC_L2_ROUTE_TOO_MANY_MSGS = 0x12001,\
+    /* Operation rejected for all L2 routes as server is not */\
+    /* initialized. 0x12002 */\
+    SL_RPC_L2_ROUTE_SERVER_NOT_INITIALIZED = 0x12002,\
+    /* Operation rejected for all L2 routes as client is not */\
+    /* registered. 0x12003 */\
+    SL_RPC_L2_ROUTE_CLIENT_NOT_REGISTERED = 0x12003,\
+    /* !!! Error codes for L2 Objects. */\
+    /* Offset for L2 object errors. 0x13000 */\
+    SL_L2_ROUTE_START_OFFSET = 0x13000,\
+    /* L2 route operation rejected as BD name is missing. 0x13001 */\
+    SL_L2_ROUTE_BD_NAME_MISSING = 0x13001,\
+    /* L2 route operation rejected as BD name is too long. 0x13002 */\
+    SL_L2_ROUTE_BD_NAME_TOOLONG = 0x13002,\
+    /* L2 route operation rejected as BD not found. 0x13003 */\
+    SL_L2_ROUTE_BD_NOT_FOUND = 0x13003,\
+    /* L2 route operation rejected as BD is not registered. 0x13004 */\
+    SL_L2_ROUTE_BD_NOT_REGISTERED = 0x13004,\
+    /* L2 route operation rejected due to one or more invalid */\
+    /* arguments. 0x13005 */\
+    SL_L2_ROUTE_INVALID_ARGS = 0x13005,\
+    /* !!! Error codes for L2 Get Notification operations. */\
+    /* Offset for L2 Get Notification Operation errors. 0x14000 */\
+    SL_RPC_L2_NOTIF_START_OFFSET = 0x14001,\
+    /* L2 notification request rejected as server is not initialized. */\
+    /* 0x14002 */\
+    SL_RPC_L2_NOTIF_SERVER_NOT_INITIALIZED = 0x14002,\
+    /* L2 notification request rejected as client is not registered. */\
+    /* 0x14003 */\
+    SL_RPC_L2_NOTIF_CLIENT_NOT_REGISTERED = 0x14003,\
+    /* L2 notification enable error. 0x14004 */\
+    SL_RPC_L2_NOTIF_ENABLE_ERR = 0x14004,\
+    /* L2 notification disable error. 0x14005 */\
+    SL_RPC_L2_NOTIF_DISABLE_ERR = 0x14005,\
+    /* L2 notification EOF error. 0x14006 */\
+    SL_RPC_L2_NOTIF_EOF_ERR = 0x14006,\
+    /* L2 notification request rejected as BD name is missing. 0x14007 */\
+    SL_RPC_L2_NOTIF_BD_NAME_MISSING = 0x14007,\
+    /* L2 notification request rejected as BD name is too long. */\
+    /* 0x14008 */\
+    SL_RPC_L2_NOTIF_BD_NAME_TOOLONG = 0x14008,\
+    /* L2 notification request rejected as BD not found. 0x14009 */\
+    SL_RPC_L2_NOTIF_BD_NOT_FOUND = 0x14009,\
     /* !!! Error codes Reserved for internal errors. */\
     /* Offset for Internal errors. 0x100000 */\
     SL_INTERNAL_START_OFFSET = 0x100000,\
@@ -477,6 +579,10 @@
         " Such events include: "\
         " - Notification Session was hijacked by another client. "\
         },\
+    {SL_AUTH_FAIL ,\
+        " Authentication failure. "\
+        " Incorrect credentials passed in by RPC.  "\
+        },\
     {SL_INIT_START_OFFSET ,\
         " Offset for INIT errors.  "\
         },\
@@ -486,9 +592,10 @@
         " when a fatal event has occured and all previous state was lost.  "\
         },\
     {SL_INIT_STATE_READY ,\
-        " Success, no errors detected - previous state fully recovered. "\
+        " Success, no errors detected - previous state is recovered. "\
         " This error is returned on a client re-initialization with "\
-        " successful recovery of state.  "\
+        " successful recovery of state. Note that any unacknowledged "\
+        " data previously sent should be considered lost.  "\
         },\
     {SL_INIT_UNSUPPORTED_VER ,\
         " Server software incompatible with client software version.  "\
@@ -574,6 +681,12 @@
     {SL_RPC_ROUTE_SERVER_NOT_INITIALIZED ,\
         " Operation rejected for all routes as server is not initialized. "\
         "  "\
+        },\
+    {SL_RPC_ROUTE_NOTIF_SRC_PROTO_TOOLONG ,\
+        " Operation rejected as the request's SrcProto is too long.  "\
+        },\
+    {SL_RPC_ROUTE_NOTIF_SRC_PROTO_TAG_TOOLONG ,\
+        " Operation rejected as the request's SrcProtoTag is too long.  "\
         },\
     {SL_ROUTE_START_OFFSET ,\
         " Offset for route errors.  "\
@@ -703,6 +816,9 @@
         },\
     {SL_PATH_INVALID_LABEL ,\
         " Path has an invalid label.  "\
+        },\
+    {SL_PATH_ROUTER_MAC_ADDR_INVALID_SZ ,\
+        " Size of router max address is invalid.  "\
         },\
     {SL_RPC_BFD_START_OFFSET ,\
         " Offset for BFD operation errors.  "\
@@ -846,6 +962,9 @@
         },\
     {SL_ILM_DB_NOMEM ,\
         " The ILM database is out of memory.  "\
+        },\
+    {SL_ILM_INVALID_ELSP_EXP ,\
+        " EXP value is outside of the valid range of <0-7>.  "\
         },\
     {SL_NHLFE_ERR_OFFSET ,\
         " Offset for MPLS NHLFE errors.  "\
@@ -1005,6 +1124,125 @@
         },\
     {SL_INTF_INTERFACE_NOT_FOUND ,\
         " Interface not found.  "\
+        },\
+    {SL_L2_REG_START_OFFSET ,\
+        " Offset for Global L2 operation errors.  "\
+        },\
+    {SL_L2_REGISTRATION_ERR ,\
+        " Client cannot be registered with Layer-2 RIB.  "\
+        },\
+    {SL_L2_UNREGISTRATION_ERR ,\
+        " Client cannot be unregistered with Layer-2 RIB.  "\
+        },\
+    {SL_L2_EOF_ERR ,\
+        " EOF Operation error.  "\
+        },\
+    {SL_L2_REG_INVALID_ADMIN_DISTANCE ,\
+        " L2 registration message with invalid admin distance.  "\
+        },\
+    {SL_L2_REG_IS_DUPLICATE ,\
+        " Duplicate L2 registration message.  "\
+        },\
+    {SL_L2_REG_SERVER_NOT_INITIALIZED ,\
+        " L2 registration rejected as server is not initialized.  "\
+        },\
+    {SL_RPC_L2_BD_REG_START_OFFSET ,\
+        " Offset for L2 BD operation errors.  "\
+        },\
+    {SL_RPC_L2_BD_REG_NAME_MISSING ,\
+        " Operation is rejected for all BDs as name is missing.  "\
+        },\
+    {SL_RPC_L2_BD_REG_TOO_MANY_MSGS ,\
+        " Operation rejected for all BDs due to too many BD registration "\
+        " messages in the request.  "\
+        },\
+    {SL_RPC_L2_BD_REG_SERVER_NOT_INITIALIZED ,\
+        " Operation rejected for all BDs as server is not initialized. "\
+        "  "\
+        },\
+    {SL_RPC_L2_BD_REG_CLIENT_NOT_REGISTERED ,\
+        " Operation rejected for all BDs as client is not registered. "\
+        "  "\
+        },\
+    {SL_L2_BD_REG_START_OFFSET ,\
+        " Offset for L2 BD object errors.  "\
+        },\
+    {SL_L2_BD_REGISTRATION_ERR ,\
+        " BD cannot be registered with Layer-2 RIB.  "\
+        },\
+    {SL_L2_BD_UNREGISTRATION_ERR ,\
+        " BD cannot be unregistered with Layer-2 RIB.  "\
+        },\
+ \
+    {SL_L2_BD_REG_NAME_TOO_LONG ,\
+        " Name is too long in BD registration message.  "\
+        },\
+    {SL_L2_BD_REG_BD_NOT_FOUND ,\
+        " BD not found in BD registration message.  "\
+        },\
+    {SL_RPC_L2_ROUTE_START_OFFSET ,\
+        " Offset for L2 Route Operation errors.  "\
+        },\
+    {SL_RPC_L2_ROUTE_TOO_MANY_MSGS ,\
+        " Operation rejected for all L2 routes due to too many messages "\
+        " in the request.  "\
+        },\
+    {SL_RPC_L2_ROUTE_SERVER_NOT_INITIALIZED ,\
+        " Operation rejected for all L2 routes as server is not "\
+        " initialized.  "\
+        },\
+    {SL_RPC_L2_ROUTE_CLIENT_NOT_REGISTERED ,\
+        " Operation rejected for all L2 routes as client is not "\
+        " registered.  "\
+        },\
+    {SL_L2_ROUTE_START_OFFSET ,\
+        " Offset for L2 object errors.  "\
+        },\
+    {SL_L2_ROUTE_BD_NAME_MISSING ,\
+        " L2 route operation rejected as BD name is missing.  "\
+        },\
+    {SL_L2_ROUTE_BD_NAME_TOOLONG ,\
+        " L2 route operation rejected as BD name is too long.  "\
+        },\
+    {SL_L2_ROUTE_BD_NOT_FOUND ,\
+        " L2 route operation rejected as BD not found.  "\
+        },\
+    {SL_L2_ROUTE_BD_NOT_REGISTERED ,\
+        " L2 route operation rejected as BD is not registered.  "\
+        },\
+    {SL_L2_ROUTE_INVALID_ARGS ,\
+        " L2 route operation rejected due to one or more invalid "\
+        " arguments.  "\
+        },\
+    {SL_RPC_L2_NOTIF_START_OFFSET ,\
+        " Offset for L2 Get Notification Operation errors.  "\
+        },\
+    {SL_RPC_L2_NOTIF_SERVER_NOT_INITIALIZED ,\
+        " L2 notification request rejected as server is not initialized. "\
+        "  "\
+        },\
+    {SL_RPC_L2_NOTIF_CLIENT_NOT_REGISTERED ,\
+        " L2 notification request rejected as client is not registered. "\
+        "  "\
+        },\
+    {SL_RPC_L2_NOTIF_ENABLE_ERR ,\
+        " L2 notification enable error.  "\
+        },\
+    {SL_RPC_L2_NOTIF_DISABLE_ERR ,\
+        " L2 notification disable error.  "\
+        },\
+    {SL_RPC_L2_NOTIF_EOF_ERR ,\
+        " L2 notification EOF error.  "\
+        },\
+    {SL_RPC_L2_NOTIF_BD_NAME_MISSING ,\
+        " L2 notification request rejected as BD name is missing.  "\
+        },\
+    {SL_RPC_L2_NOTIF_BD_NAME_TOOLONG ,\
+        " L2 notification request rejected as BD name is too long. "\
+        "  "\
+        },\
+    {SL_RPC_L2_NOTIF_BD_NOT_FOUND ,\
+        " L2 notification request rejected as BD not found.  "\
         },\
     {SL_INTERNAL_START_OFFSET ,\
         " Offset for Internal errors.  "\

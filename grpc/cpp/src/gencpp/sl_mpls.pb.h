@@ -38,7 +38,7 @@ namespace protobuf_sl_5fmpls_2eproto {
 struct TableStruct {
   static const ::google::protobuf::internal::ParseTableField entries[];
   static const ::google::protobuf::internal::AuxillaryParseTableField aux[];
-  static const ::google::protobuf::internal::ParseTable schema[19];
+  static const ::google::protobuf::internal::ParseTable schema[20];
   static const ::google::protobuf::internal::FieldMetadata field_metadata[];
   static const ::google::protobuf::internal::SerializationTable serialization_table[];
   static const ::google::protobuf::uint32 offsets[];
@@ -70,6 +70,8 @@ void InitDefaultsSLMplsPathImpl();
 void InitDefaultsSLMplsPath();
 void InitDefaultsSLMplsIlmKeyImpl();
 void InitDefaultsSLMplsIlmKey();
+void InitDefaultsSLMplsCosImpl();
+void InitDefaultsSLMplsCos();
 void InitDefaultsSLMplsIlmEntryImpl();
 void InitDefaultsSLMplsIlmEntry();
 void InitDefaultsSLMplsIlmMsgImpl();
@@ -96,6 +98,7 @@ inline void InitDefaults() {
   InitDefaultsSLMplsGetStatsMsgRsp();
   InitDefaultsSLMplsPath();
   InitDefaultsSLMplsIlmKey();
+  InitDefaultsSLMplsCos();
   InitDefaultsSLMplsIlmEntry();
   InitDefaultsSLMplsIlmMsg();
   InitDefaultsSLMplsIlmRes();
@@ -105,6 +108,9 @@ inline void InitDefaults() {
 }
 }  // namespace protobuf_sl_5fmpls_2eproto
 namespace service_layer {
+class SLMplsCos;
+class SLMplsCosDefaultTypeInternal;
+extern SLMplsCosDefaultTypeInternal _SLMplsCos_default_instance_;
 class SLMplsGetMsg;
 class SLMplsGetMsgDefaultTypeInternal;
 extern SLMplsGetMsgDefaultTypeInternal _SLMplsGetMsg_default_instance_;
@@ -1698,6 +1704,15 @@ class SLMplsIlmKey : public ::google::protobuf::Message /* @@protoc_insertion_po
 
   // accessors -------------------------------------------------------
 
+  // .service_layer.SLMplsCos SlMplsCosVal = 2;
+  bool has_slmplscosval() const;
+  void clear_slmplscosval();
+  static const int kSlMplsCosValFieldNumber = 2;
+  const ::service_layer::SLMplsCos& slmplscosval() const;
+  ::service_layer::SLMplsCos* release_slmplscosval();
+  ::service_layer::SLMplsCos* mutable_slmplscosval();
+  void set_allocated_slmplscosval(::service_layer::SLMplsCos* slmplscosval);
+
   // uint32 LocalLabel = 1;
   void clear_locallabel();
   static const int kLocalLabelFieldNumber = 1;
@@ -1708,10 +1723,141 @@ class SLMplsIlmKey : public ::google::protobuf::Message /* @@protoc_insertion_po
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::service_layer::SLMplsCos* slmplscosval_;
   ::google::protobuf::uint32 locallabel_;
   mutable int _cached_size_;
   friend struct ::protobuf_sl_5fmpls_2eproto::TableStruct;
   friend void ::protobuf_sl_5fmpls_2eproto::InitDefaultsSLMplsIlmKeyImpl();
+};
+// -------------------------------------------------------------------
+
+class SLMplsCos : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:service_layer.SLMplsCos) */ {
+ public:
+  SLMplsCos();
+  virtual ~SLMplsCos();
+
+  SLMplsCos(const SLMplsCos& from);
+
+  inline SLMplsCos& operator=(const SLMplsCos& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  SLMplsCos(SLMplsCos&& from) noexcept
+    : SLMplsCos() {
+    *this = ::std::move(from);
+  }
+
+  inline SLMplsCos& operator=(SLMplsCos&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const SLMplsCos& default_instance();
+
+  enum ValueCase {
+    kExp = 1,
+    kForwardingClass = 2,
+    VALUE_NOT_SET = 0,
+  };
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const SLMplsCos* internal_default_instance() {
+    return reinterpret_cast<const SLMplsCos*>(
+               &_SLMplsCos_default_instance_);
+  }
+  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
+    13;
+
+  void Swap(SLMplsCos* other);
+  friend void swap(SLMplsCos& a, SLMplsCos& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline SLMplsCos* New() const PROTOBUF_FINAL { return New(NULL); }
+
+  SLMplsCos* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
+  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void CopyFrom(const SLMplsCos& from);
+  void MergeFrom(const SLMplsCos& from);
+  void Clear() PROTOBUF_FINAL;
+  bool IsInitialized() const PROTOBUF_FINAL;
+
+  size_t ByteSizeLong() const PROTOBUF_FINAL;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
+  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const PROTOBUF_FINAL;
+  void InternalSwap(SLMplsCos* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // uint32 Exp = 1;
+  private:
+  bool has_exp() const;
+  public:
+  void clear_exp();
+  static const int kExpFieldNumber = 1;
+  ::google::protobuf::uint32 exp() const;
+  void set_exp(::google::protobuf::uint32 value);
+
+  // uint32 ForwardingClass = 2;
+  private:
+  bool has_forwardingclass() const;
+  public:
+  void clear_forwardingclass();
+  static const int kForwardingClassFieldNumber = 2;
+  ::google::protobuf::uint32 forwardingclass() const;
+  void set_forwardingclass(::google::protobuf::uint32 value);
+
+  ValueCase value_case() const;
+  // @@protoc_insertion_point(class_scope:service_layer.SLMplsCos)
+ private:
+  void set_has_exp();
+  void set_has_forwardingclass();
+
+  inline bool has_value() const;
+  void clear_value();
+  inline void clear_has_value();
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  union ValueUnion {
+    ValueUnion() {}
+    ::google::protobuf::uint32 exp_;
+    ::google::protobuf::uint32 forwardingclass_;
+  } value_;
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _oneof_case_[1];
+
+  friend struct ::protobuf_sl_5fmpls_2eproto::TableStruct;
+  friend void ::protobuf_sl_5fmpls_2eproto::InitDefaultsSLMplsCosImpl();
 };
 // -------------------------------------------------------------------
 
@@ -1750,7 +1896,7 @@ class SLMplsIlmEntry : public ::google::protobuf::Message /* @@protoc_insertion_
                &_SLMplsIlmEntry_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    13;
+    14;
 
   void Swap(SLMplsIlmEntry* other);
   friend void swap(SLMplsIlmEntry& a, SLMplsIlmEntry& b) {
@@ -1818,12 +1964,19 @@ class SLMplsIlmEntry : public ::google::protobuf::Message /* @@protoc_insertion_
   ::service_layer::SLMplsIlmKey* mutable_key();
   void set_allocated_key(::service_layer::SLMplsIlmKey* key);
 
+  // bool DefaultElspPath = 3;
+  void clear_defaultelsppath();
+  static const int kDefaultElspPathFieldNumber = 3;
+  bool defaultelsppath() const;
+  void set_defaultelsppath(bool value);
+
   // @@protoc_insertion_point(class_scope:service_layer.SLMplsIlmEntry)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::RepeatedPtrField< ::service_layer::SLMplsPath > paths_;
   ::service_layer::SLMplsIlmKey* key_;
+  bool defaultelsppath_;
   mutable int _cached_size_;
   friend struct ::protobuf_sl_5fmpls_2eproto::TableStruct;
   friend void ::protobuf_sl_5fmpls_2eproto::InitDefaultsSLMplsIlmEntryImpl();
@@ -1865,7 +2018,7 @@ class SLMplsIlmMsg : public ::google::protobuf::Message /* @@protoc_insertion_po
                &_SLMplsIlmMsg_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    14;
+    15;
 
   void Swap(SLMplsIlmMsg* other);
   friend void swap(SLMplsIlmMsg& a, SLMplsIlmMsg& b) {
@@ -1984,7 +2137,7 @@ class SLMplsIlmRes : public ::google::protobuf::Message /* @@protoc_insertion_po
                &_SLMplsIlmRes_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    15;
+    16;
 
   void Swap(SLMplsIlmRes* other);
   friend void swap(SLMplsIlmRes& a, SLMplsIlmRes& b) {
@@ -2096,7 +2249,7 @@ class SLMplsIlmMsgRsp : public ::google::protobuf::Message /* @@protoc_insertion
                &_SLMplsIlmMsgRsp_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    16;
+    17;
 
   void Swap(SLMplsIlmMsgRsp* other);
   friend void swap(SLMplsIlmMsgRsp& a, SLMplsIlmMsgRsp& b) {
@@ -2218,7 +2371,7 @@ class SLMplsIlmGetMsg : public ::google::protobuf::Message /* @@protoc_insertion
                &_SLMplsIlmGetMsg_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    17;
+    18;
 
   void Swap(SLMplsIlmGetMsg* other);
   friend void swap(SLMplsIlmGetMsg& a, SLMplsIlmGetMsg& b) {
@@ -2341,7 +2494,7 @@ class SLMplsIlmGetMsgRsp : public ::google::protobuf::Message /* @@protoc_insert
                &_SLMplsIlmGetMsgRsp_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    18;
+    19;
 
   void Swap(SLMplsIlmGetMsgRsp* other);
   friend void swap(SLMplsIlmGetMsgRsp& a, SLMplsIlmGetMsgRsp& b) {
@@ -3440,6 +3593,127 @@ inline void SLMplsIlmKey::set_locallabel(::google::protobuf::uint32 value) {
   // @@protoc_insertion_point(field_set:service_layer.SLMplsIlmKey.LocalLabel)
 }
 
+// .service_layer.SLMplsCos SlMplsCosVal = 2;
+inline bool SLMplsIlmKey::has_slmplscosval() const {
+  return this != internal_default_instance() && slmplscosval_ != NULL;
+}
+inline void SLMplsIlmKey::clear_slmplscosval() {
+  if (GetArenaNoVirtual() == NULL && slmplscosval_ != NULL) {
+    delete slmplscosval_;
+  }
+  slmplscosval_ = NULL;
+}
+inline const ::service_layer::SLMplsCos& SLMplsIlmKey::slmplscosval() const {
+  const ::service_layer::SLMplsCos* p = slmplscosval_;
+  // @@protoc_insertion_point(field_get:service_layer.SLMplsIlmKey.SlMplsCosVal)
+  return p != NULL ? *p : *reinterpret_cast<const ::service_layer::SLMplsCos*>(
+      &::service_layer::_SLMplsCos_default_instance_);
+}
+inline ::service_layer::SLMplsCos* SLMplsIlmKey::release_slmplscosval() {
+  // @@protoc_insertion_point(field_release:service_layer.SLMplsIlmKey.SlMplsCosVal)
+  
+  ::service_layer::SLMplsCos* temp = slmplscosval_;
+  slmplscosval_ = NULL;
+  return temp;
+}
+inline ::service_layer::SLMplsCos* SLMplsIlmKey::mutable_slmplscosval() {
+  
+  if (slmplscosval_ == NULL) {
+    slmplscosval_ = new ::service_layer::SLMplsCos;
+  }
+  // @@protoc_insertion_point(field_mutable:service_layer.SLMplsIlmKey.SlMplsCosVal)
+  return slmplscosval_;
+}
+inline void SLMplsIlmKey::set_allocated_slmplscosval(::service_layer::SLMplsCos* slmplscosval) {
+  ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
+  if (message_arena == NULL) {
+    delete slmplscosval_;
+  }
+  if (slmplscosval) {
+    ::google::protobuf::Arena* submessage_arena = NULL;
+    if (message_arena != submessage_arena) {
+      slmplscosval = ::google::protobuf::internal::GetOwnedMessage(
+          message_arena, slmplscosval, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  slmplscosval_ = slmplscosval;
+  // @@protoc_insertion_point(field_set_allocated:service_layer.SLMplsIlmKey.SlMplsCosVal)
+}
+
+// -------------------------------------------------------------------
+
+// SLMplsCos
+
+// uint32 Exp = 1;
+inline bool SLMplsCos::has_exp() const {
+  return value_case() == kExp;
+}
+inline void SLMplsCos::set_has_exp() {
+  _oneof_case_[0] = kExp;
+}
+inline void SLMplsCos::clear_exp() {
+  if (has_exp()) {
+    value_.exp_ = 0u;
+    clear_has_value();
+  }
+}
+inline ::google::protobuf::uint32 SLMplsCos::exp() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLMplsCos.Exp)
+  if (has_exp()) {
+    return value_.exp_;
+  }
+  return 0u;
+}
+inline void SLMplsCos::set_exp(::google::protobuf::uint32 value) {
+  if (!has_exp()) {
+    clear_value();
+    set_has_exp();
+  }
+  value_.exp_ = value;
+  // @@protoc_insertion_point(field_set:service_layer.SLMplsCos.Exp)
+}
+
+// uint32 ForwardingClass = 2;
+inline bool SLMplsCos::has_forwardingclass() const {
+  return value_case() == kForwardingClass;
+}
+inline void SLMplsCos::set_has_forwardingclass() {
+  _oneof_case_[0] = kForwardingClass;
+}
+inline void SLMplsCos::clear_forwardingclass() {
+  if (has_forwardingclass()) {
+    value_.forwardingclass_ = 0u;
+    clear_has_value();
+  }
+}
+inline ::google::protobuf::uint32 SLMplsCos::forwardingclass() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLMplsCos.ForwardingClass)
+  if (has_forwardingclass()) {
+    return value_.forwardingclass_;
+  }
+  return 0u;
+}
+inline void SLMplsCos::set_forwardingclass(::google::protobuf::uint32 value) {
+  if (!has_forwardingclass()) {
+    clear_value();
+    set_has_forwardingclass();
+  }
+  value_.forwardingclass_ = value;
+  // @@protoc_insertion_point(field_set:service_layer.SLMplsCos.ForwardingClass)
+}
+
+inline bool SLMplsCos::has_value() const {
+  return value_case() != VALUE_NOT_SET;
+}
+inline void SLMplsCos::clear_has_value() {
+  _oneof_case_[0] = VALUE_NOT_SET;
+}
+inline SLMplsCos::ValueCase SLMplsCos::value_case() const {
+  return SLMplsCos::ValueCase(_oneof_case_[0]);
+}
 // -------------------------------------------------------------------
 
 // SLMplsIlmEntry
@@ -3522,6 +3796,20 @@ inline const ::google::protobuf::RepeatedPtrField< ::service_layer::SLMplsPath >
 SLMplsIlmEntry::paths() const {
   // @@protoc_insertion_point(field_list:service_layer.SLMplsIlmEntry.Paths)
   return paths_;
+}
+
+// bool DefaultElspPath = 3;
+inline void SLMplsIlmEntry::clear_defaultelsppath() {
+  defaultelsppath_ = false;
+}
+inline bool SLMplsIlmEntry::defaultelsppath() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLMplsIlmEntry.DefaultElspPath)
+  return defaultelsppath_;
+}
+inline void SLMplsIlmEntry::set_defaultelsppath(bool value) {
+  
+  defaultelsppath_ = value;
+  // @@protoc_insertion_point(field_set:service_layer.SLMplsIlmEntry.DefaultElspPath)
 }
 
 // -------------------------------------------------------------------
@@ -3981,6 +4269,8 @@ SLMplsIlmGetMsgRsp::entries() const {
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

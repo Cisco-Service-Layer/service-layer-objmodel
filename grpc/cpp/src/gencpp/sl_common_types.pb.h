@@ -82,6 +82,7 @@ enum SLErrorStatus_SLErrno {
   SLErrorStatus_SLErrno_SL_SOME_ERR = 10,
   SLErrorStatus_SLErrno_SL_TIMEOUT = 11,
   SLErrorStatus_SLErrno_SL_NOTIF_TERM = 12,
+  SLErrorStatus_SLErrno_SL_AUTH_FAIL = 13,
   SLErrorStatus_SLErrno_SL_INIT_START_OFFSET = 1280,
   SLErrorStatus_SLErrno_SL_INIT_STATE_CLEAR = 1281,
   SLErrorStatus_SLErrno_SL_INIT_STATE_READY = 1282,
@@ -200,6 +201,7 @@ enum SLErrorStatus_SLErrno {
   SLErrorStatus_SLErrno_SL_ILM_LSD_NHLFE_INVALID_ATTRIB = 36874,
   SLErrorStatus_SLErrno_SL_ILM_EEXIST = 36875,
   SLErrorStatus_SLErrno_SL_ILM_DB_NOMEM = 36876,
+  SLErrorStatus_SLErrno_SL_ILM_INVALID_ELSP_EXP = 36877,
   SLErrorStatus_SLErrno_SL_NHLFE_ERR_OFFSET = 40960,
   SLErrorStatus_SLErrno_SL_NHLFE_NH_NO_TABLE = 40961,
   SLErrorStatus_SLErrno_SL_NHLFE_NH_INVALID_ADDR_SZ = 40962,
@@ -507,6 +509,8 @@ class SLErrorStatus : public ::google::protobuf::Message /* @@protoc_insertion_p
     SLErrorStatus_SLErrno_SL_TIMEOUT;
   static const SLErrno SL_NOTIF_TERM =
     SLErrorStatus_SLErrno_SL_NOTIF_TERM;
+  static const SLErrno SL_AUTH_FAIL =
+    SLErrorStatus_SLErrno_SL_AUTH_FAIL;
   static const SLErrno SL_INIT_START_OFFSET =
     SLErrorStatus_SLErrno_SL_INIT_START_OFFSET;
   static const SLErrno SL_INIT_STATE_CLEAR =
@@ -743,6 +747,8 @@ class SLErrorStatus : public ::google::protobuf::Message /* @@protoc_insertion_p
     SLErrorStatus_SLErrno_SL_ILM_EEXIST;
   static const SLErrno SL_ILM_DB_NOMEM =
     SLErrorStatus_SLErrno_SL_ILM_DB_NOMEM;
+  static const SLErrno SL_ILM_INVALID_ELSP_EXP =
+    SLErrorStatus_SLErrno_SL_ILM_INVALID_ELSP_EXP;
   static const SLErrno SL_NHLFE_ERR_OFFSET =
     SLErrorStatus_SLErrno_SL_NHLFE_ERR_OFFSET;
   static const SLErrno SL_NHLFE_NH_NO_TABLE =

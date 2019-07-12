@@ -393,6 +393,22 @@ message SLMplsPath {
 message SLMplsIlmKey {
     // Incoming local label.
     uint32 LocalLabel = 1;
+
+    // Either Exp bits or CoS forwarding class.
+    SLMplsCos SlMplsCosVal = 2;
+}
+
+// MPLS ILM entry's CoS value
+// This message contains either EXP bits or a forwarding class
+message SLMplsCos {
+    oneof value {
+        // LSB 3 bits with valid range <0-7>
+        // this is used to configure E-LSPs (see RFC 3270)
+        uint32 Exp = 1;
+
+        // forwarding class with valid range <0-7>
+        uint32 ForwardingClass = 2;
+    }
 }
 
 // MPLS ILM entry.
@@ -403,6 +419,10 @@ message SLMplsIlmEntry {
 
     // List of path (NHLFE) information.
     repeated SLMplsPath Paths = 2;
+
+    // Flag to indicate an E-LSP entry.
+    // If set, associated SLMplsCos.Exp will be ignored.
+    bool DefaultElspPath = 3;
 }
 
 // A batch of MPLS ILM entries.

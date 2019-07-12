@@ -85,6 +85,13 @@ class SLMplsIlmKeyDefaultTypeInternal {
   ::google::protobuf::internal::ExplicitlyConstructed<SLMplsIlmKey>
       _instance;
 } _SLMplsIlmKey_default_instance_;
+class SLMplsCosDefaultTypeInternal {
+ public:
+  ::google::protobuf::internal::ExplicitlyConstructed<SLMplsCos>
+      _instance;
+  ::google::protobuf::uint32 exp_;
+  ::google::protobuf::uint32 forwardingclass_;
+} _SLMplsCos_default_instance_;
 class SLMplsIlmEntryDefaultTypeInternal {
  public:
   ::google::protobuf::internal::ExplicitlyConstructed<SLMplsIlmEntry>
@@ -390,6 +397,7 @@ void InitDefaultsSLMplsIlmKeyImpl() {
 #else
   ::google::protobuf::internal::InitProtobufDefaults();
 #endif  // GOOGLE_PROTOBUF_ENFORCE_UNIQUENESS
+  protobuf_sl_5fmpls_2eproto::InitDefaultsSLMplsCos();
   {
     void* ptr = &::service_layer::_SLMplsIlmKey_default_instance_;
     new (ptr) ::service_layer::SLMplsIlmKey();
@@ -401,6 +409,27 @@ void InitDefaultsSLMplsIlmKeyImpl() {
 void InitDefaultsSLMplsIlmKey() {
   static GOOGLE_PROTOBUF_DECLARE_ONCE(once);
   ::google::protobuf::GoogleOnceInit(&once, &InitDefaultsSLMplsIlmKeyImpl);
+}
+
+void InitDefaultsSLMplsCosImpl() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+#ifdef GOOGLE_PROTOBUF_ENFORCE_UNIQUENESS
+  ::google::protobuf::internal::InitProtobufDefaultsForceUnique();
+#else
+  ::google::protobuf::internal::InitProtobufDefaults();
+#endif  // GOOGLE_PROTOBUF_ENFORCE_UNIQUENESS
+  {
+    void* ptr = &::service_layer::_SLMplsCos_default_instance_;
+    new (ptr) ::service_layer::SLMplsCos();
+    ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::service_layer::SLMplsCos::InitAsDefaultInstance();
+}
+
+void InitDefaultsSLMplsCos() {
+  static GOOGLE_PROTOBUF_DECLARE_ONCE(once);
+  ::google::protobuf::GoogleOnceInit(&once, &InitDefaultsSLMplsCosImpl);
 }
 
 void InitDefaultsSLMplsIlmEntryImpl() {
@@ -539,7 +568,7 @@ void InitDefaultsSLMplsIlmGetMsgRsp() {
   ::google::protobuf::GoogleOnceInit(&once, &InitDefaultsSLMplsIlmGetMsgRspImpl);
 }
 
-::google::protobuf::Metadata file_level_metadata[19];
+::google::protobuf::Metadata file_level_metadata[20];
 const ::google::protobuf::EnumDescriptor* file_level_enum_descriptors[1];
 
 const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
@@ -644,6 +673,15 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::service_layer::SLMplsIlmKey, locallabel_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::service_layer::SLMplsIlmKey, slmplscosval_),
+  ~0u,  // no _has_bits_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::service_layer::SLMplsCos, _internal_metadata_),
+  ~0u,  // no _extensions_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::service_layer::SLMplsCos, _oneof_case_[0]),
+  ~0u,  // no _weak_field_map_
+  offsetof(::service_layer::SLMplsCosDefaultTypeInternal, exp_),
+  offsetof(::service_layer::SLMplsCosDefaultTypeInternal, forwardingclass_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::service_layer::SLMplsCos, value_),
   ~0u,  // no _has_bits_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::service_layer::SLMplsIlmEntry, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -651,6 +689,7 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
   ~0u,  // no _weak_field_map_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::service_layer::SLMplsIlmEntry, key_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::service_layer::SLMplsIlmEntry, paths_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::service_layer::SLMplsIlmEntry, defaultelsppath_),
   ~0u,  // no _has_bits_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::service_layer::SLMplsIlmMsg, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -707,12 +746,13 @@ static const ::google::protobuf::internal::MigrationSchema schemas[] GOOGLE_PROT
   { 73, -1, sizeof(::service_layer::SLMplsGetStatsMsgRsp)},
   { 81, -1, sizeof(::service_layer::SLMplsPath)},
   { 95, -1, sizeof(::service_layer::SLMplsIlmKey)},
-  { 101, -1, sizeof(::service_layer::SLMplsIlmEntry)},
-  { 108, -1, sizeof(::service_layer::SLMplsIlmMsg)},
-  { 116, -1, sizeof(::service_layer::SLMplsIlmRes)},
-  { 123, -1, sizeof(::service_layer::SLMplsIlmMsgRsp)},
-  { 131, -1, sizeof(::service_layer::SLMplsIlmGetMsg)},
-  { 140, -1, sizeof(::service_layer::SLMplsIlmGetMsgRsp)},
+  { 102, -1, sizeof(::service_layer::SLMplsCos)},
+  { 110, -1, sizeof(::service_layer::SLMplsIlmEntry)},
+  { 118, -1, sizeof(::service_layer::SLMplsIlmMsg)},
+  { 126, -1, sizeof(::service_layer::SLMplsIlmRes)},
+  { 133, -1, sizeof(::service_layer::SLMplsIlmMsgRsp)},
+  { 141, -1, sizeof(::service_layer::SLMplsIlmGetMsg)},
+  { 150, -1, sizeof(::service_layer::SLMplsIlmGetMsgRsp)},
 };
 
 static ::google::protobuf::Message const * const file_default_instances[] = {
@@ -729,6 +769,7 @@ static ::google::protobuf::Message const * const file_default_instances[] = {
   reinterpret_cast<const ::google::protobuf::Message*>(&::service_layer::_SLMplsGetStatsMsgRsp_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::service_layer::_SLMplsPath_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::service_layer::_SLMplsIlmKey_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::service_layer::_SLMplsCos_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::service_layer::_SLMplsIlmEntry_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::service_layer::_SLMplsIlmMsg_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::service_layer::_SLMplsIlmRes_default_instance_),
@@ -753,7 +794,7 @@ void protobuf_AssignDescriptorsOnce() {
 void protobuf_RegisterTypes(const ::std::string&) GOOGLE_PROTOBUF_ATTRIBUTE_COLD;
 void protobuf_RegisterTypes(const ::std::string&) {
   protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::internal::RegisterAllTypes(file_level_metadata, 19);
+  ::google::protobuf::internal::RegisterAllTypes(file_level_metadata, 20);
 }
 
 void AddDescriptorsImpl() {
@@ -798,54 +839,57 @@ void AddDescriptorsImpl() {
       "belAction\022\016\n\006PathId\030\006 \001(\r\022\033\n\023ProtectedPa"
       "thBitmap\030\007 \003(\004\022\022\n\nLabelStack\030\010 \003(\r\0221\n\rRe"
       "moteAddress\030\t \003(\0132\032.service_layer.SLIpAd"
-      "dress\"\"\n\014SLMplsIlmKey\022\022\n\nLocalLabel\030\001 \001("
-      "\r\"d\n\016SLMplsIlmEntry\022(\n\003Key\030\001 \001(\0132\033.servi"
-      "ce_layer.SLMplsIlmKey\022(\n\005Paths\030\002 \003(\0132\031.s"
-      "ervice_layer.SLMplsPath\"|\n\014SLMplsIlmMsg\022"
-      "\'\n\004Oper\030\001 \001(\0162\031.service_layer.SLObjectOp"
-      "\022\022\n\nCorrelator\030\002 \001(\004\022/\n\010MplsIlms\030\003 \003(\0132\035"
-      ".service_layer.SLMplsIlmEntry\"i\n\014SLMplsI"
-      "lmRes\022/\n\tErrStatus\030\001 \001(\0132\034.service_layer"
-      ".SLErrorStatus\022(\n\003Key\030\002 \001(\0132\033.service_la"
-      "yer.SLMplsIlmKey\"\210\001\n\017SLMplsIlmMsgRsp\022\022\n\n"
-      "Correlator\030\001 \001(\004\0223\n\rStatusSummary\030\002 \001(\0132"
-      "\034.service_layer.SLErrorStatus\022,\n\007Results"
-      "\030\003 \003(\0132\033.service_layer.SLMplsIlmRes\"v\n\017S"
-      "LMplsIlmGetMsg\022\022\n\nCorrelator\030\001 \001(\004\022(\n\003Ke"
-      "y\030\002 \001(\0132\033.service_layer.SLMplsIlmKey\022\024\n\014"
-      "EntriesCount\030\003 \001(\r\022\017\n\007GetNext\030\004 \001(\010\"\226\001\n\022"
-      "SLMplsIlmGetMsgRsp\022\022\n\nCorrelator\030\001 \001(\004\022\013"
-      "\n\003Eof\030\002 \001(\010\022/\n\tErrStatus\030\003 \001(\0132\034.service"
-      "_layer.SLErrorStatus\022.\n\007Entries\030\004 \003(\0132\035."
-      "service_layer.SLMplsIlmEntry*\276\001\n\rSlLabel"
-      "Action\022\034\n\030SL_LABEL_ACTION_RESERVED\020\000\022\030\n\024"
-      "SL_LABEL_ACTION_SWAP\020\001\022#\n\037SL_LABEL_ACTIO"
-      "N_POP_AND_FORWARD\020\002\022\'\n#SL_LABEL_ACTION_P"
-      "OP_AND_LOOKUP_IPV4\020\003\022\'\n#SL_LABEL_ACTION_"
-      "POP_AND_LOOKUP_IPV6\020\0042\221\006\n\nSLMplsOper\022J\n\013"
-      "SLMplsRegOp\022\033.service_layer.SLMplsRegMsg"
-      "\032\036.service_layer.SLMplsRegMsgRsp\022H\n\tSLMp"
-      "lsGet\022\033.service_layer.SLMplsGetMsg\032\036.ser"
-      "vice_layer.SLMplsGetMsgRsp\022R\n\016SLMplsGetS"
-      "tats\022\033.service_layer.SLMplsGetMsg\032#.serv"
-      "ice_layer.SLMplsGetStatsMsgRsp\022_\n\022SLMpls"
-      "LabelBlockOp\022\".service_layer.SLMplsLabel"
-      "BlockMsg\032%.service_layer.SLMplsLabelBloc"
-      "kMsgRsp\022f\n\023SLMplsLabelBlockGet\022%.service"
-      "_layer.SLMplsLabelBlockGetMsg\032(.service_"
-      "layer.SLMplsLabelBlockGetMsgRsp\022J\n\013SLMpl"
-      "sIlmOp\022\033.service_layer.SLMplsIlmMsg\032\036.se"
-      "rvice_layer.SLMplsIlmMsgRsp\022Q\n\014SLMplsIlm"
-      "Get\022\036.service_layer.SLMplsIlmGetMsg\032!.se"
-      "rvice_layer.SLMplsIlmGetMsgRsp\022T\n\021SLMpls"
-      "IlmOpStream\022\033.service_layer.SLMplsIlmMsg"
-      "\032\036.service_layer.SLMplsIlmMsgRsp(\0010\001\022[\n\022"
-      "SLMplsIlmGetStream\022\036.service_layer.SLMpl"
-      "sIlmGetMsg\032!.service_layer.SLMplsIlmGetM"
-      "sgRsp(\0010\001b\006proto3"
+      "dress\"R\n\014SLMplsIlmKey\022\022\n\nLocalLabel\030\001 \001("
+      "\r\022.\n\014SlMplsCosVal\030\002 \001(\0132\030.service_layer."
+      "SLMplsCos\">\n\tSLMplsCos\022\r\n\003Exp\030\001 \001(\rH\000\022\031\n"
+      "\017ForwardingClass\030\002 \001(\rH\000B\007\n\005value\"}\n\016SLM"
+      "plsIlmEntry\022(\n\003Key\030\001 \001(\0132\033.service_layer"
+      ".SLMplsIlmKey\022(\n\005Paths\030\002 \003(\0132\031.service_l"
+      "ayer.SLMplsPath\022\027\n\017DefaultElspPath\030\003 \001(\010"
+      "\"|\n\014SLMplsIlmMsg\022\'\n\004Oper\030\001 \001(\0162\031.service"
+      "_layer.SLObjectOp\022\022\n\nCorrelator\030\002 \001(\004\022/\n"
+      "\010MplsIlms\030\003 \003(\0132\035.service_layer.SLMplsIl"
+      "mEntry\"i\n\014SLMplsIlmRes\022/\n\tErrStatus\030\001 \001("
+      "\0132\034.service_layer.SLErrorStatus\022(\n\003Key\030\002"
+      " \001(\0132\033.service_layer.SLMplsIlmKey\"\210\001\n\017SL"
+      "MplsIlmMsgRsp\022\022\n\nCorrelator\030\001 \001(\004\0223\n\rSta"
+      "tusSummary\030\002 \001(\0132\034.service_layer.SLError"
+      "Status\022,\n\007Results\030\003 \003(\0132\033.service_layer."
+      "SLMplsIlmRes\"v\n\017SLMplsIlmGetMsg\022\022\n\nCorre"
+      "lator\030\001 \001(\004\022(\n\003Key\030\002 \001(\0132\033.service_layer"
+      ".SLMplsIlmKey\022\024\n\014EntriesCount\030\003 \001(\r\022\017\n\007G"
+      "etNext\030\004 \001(\010\"\226\001\n\022SLMplsIlmGetMsgRsp\022\022\n\nC"
+      "orrelator\030\001 \001(\004\022\013\n\003Eof\030\002 \001(\010\022/\n\tErrStatu"
+      "s\030\003 \001(\0132\034.service_layer.SLErrorStatus\022.\n"
+      "\007Entries\030\004 \003(\0132\035.service_layer.SLMplsIlm"
+      "Entry*\276\001\n\rSlLabelAction\022\034\n\030SL_LABEL_ACTI"
+      "ON_RESERVED\020\000\022\030\n\024SL_LABEL_ACTION_SWAP\020\001\022"
+      "#\n\037SL_LABEL_ACTION_POP_AND_FORWARD\020\002\022\'\n#"
+      "SL_LABEL_ACTION_POP_AND_LOOKUP_IPV4\020\003\022\'\n"
+      "#SL_LABEL_ACTION_POP_AND_LOOKUP_IPV6\020\0042\221"
+      "\006\n\nSLMplsOper\022J\n\013SLMplsRegOp\022\033.service_l"
+      "ayer.SLMplsRegMsg\032\036.service_layer.SLMpls"
+      "RegMsgRsp\022H\n\tSLMplsGet\022\033.service_layer.S"
+      "LMplsGetMsg\032\036.service_layer.SLMplsGetMsg"
+      "Rsp\022R\n\016SLMplsGetStats\022\033.service_layer.SL"
+      "MplsGetMsg\032#.service_layer.SLMplsGetStat"
+      "sMsgRsp\022_\n\022SLMplsLabelBlockOp\022\".service_"
+      "layer.SLMplsLabelBlockMsg\032%.service_laye"
+      "r.SLMplsLabelBlockMsgRsp\022f\n\023SLMplsLabelB"
+      "lockGet\022%.service_layer.SLMplsLabelBlock"
+      "GetMsg\032(.service_layer.SLMplsLabelBlockG"
+      "etMsgRsp\022J\n\013SLMplsIlmOp\022\033.service_layer."
+      "SLMplsIlmMsg\032\036.service_layer.SLMplsIlmMs"
+      "gRsp\022Q\n\014SLMplsIlmGet\022\036.service_layer.SLM"
+      "plsIlmGetMsg\032!.service_layer.SLMplsIlmGe"
+      "tMsgRsp\022T\n\021SLMplsIlmOpStream\022\033.service_l"
+      "ayer.SLMplsIlmMsg\032\036.service_layer.SLMpls"
+      "IlmMsgRsp(\0010\001\022[\n\022SLMplsIlmGetStream\022\036.se"
+      "rvice_layer.SLMplsIlmGetMsg\032!.service_la"
+      "yer.SLMplsIlmGetMsgRsp(\0010\001b\006proto3"
   };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 3337);
+      descriptor, 3474);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "sl_mpls.proto", &protobuf_RegisterTypes);
   ::protobuf_sl_5fcommon_5ftypes_2eproto::AddDescriptors();
@@ -4872,9 +4916,12 @@ void SLMplsPath::InternalSwap(SLMplsPath* other) {
 // ===================================================================
 
 void SLMplsIlmKey::InitAsDefaultInstance() {
+  ::service_layer::_SLMplsIlmKey_default_instance_._instance.get_mutable()->slmplscosval_ = const_cast< ::service_layer::SLMplsCos*>(
+      ::service_layer::SLMplsCos::internal_default_instance());
 }
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
 const int SLMplsIlmKey::kLocalLabelFieldNumber;
+const int SLMplsIlmKey::kSlMplsCosValFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 SLMplsIlmKey::SLMplsIlmKey()
@@ -4890,12 +4937,19 @@ SLMplsIlmKey::SLMplsIlmKey(const SLMplsIlmKey& from)
       _internal_metadata_(NULL),
       _cached_size_(0) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
+  if (from.has_slmplscosval()) {
+    slmplscosval_ = new ::service_layer::SLMplsCos(*from.slmplscosval_);
+  } else {
+    slmplscosval_ = NULL;
+  }
   locallabel_ = from.locallabel_;
   // @@protoc_insertion_point(copy_constructor:service_layer.SLMplsIlmKey)
 }
 
 void SLMplsIlmKey::SharedCtor() {
-  locallabel_ = 0u;
+  ::memset(&slmplscosval_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&locallabel_) -
+      reinterpret_cast<char*>(&slmplscosval_)) + sizeof(locallabel_));
   _cached_size_ = 0;
 }
 
@@ -4905,6 +4959,7 @@ SLMplsIlmKey::~SLMplsIlmKey() {
 }
 
 void SLMplsIlmKey::SharedDtor() {
+  if (this != internal_default_instance()) delete slmplscosval_;
 }
 
 void SLMplsIlmKey::SetCachedSize(int size) const {
@@ -4936,6 +4991,10 @@ void SLMplsIlmKey::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
+  if (GetArenaNoVirtual() == NULL && slmplscosval_ != NULL) {
+    delete slmplscosval_;
+  }
+  slmplscosval_ = NULL;
   locallabel_ = 0u;
   _internal_metadata_.Clear();
 }
@@ -4958,6 +5017,18 @@ bool SLMplsIlmKey::MergePartialFromCodedStream(
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
                  input, &locallabel_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // .service_layer.SLMplsCos SlMplsCosVal = 2;
+      case 2: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(18u /* 18 & 0xFF */)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
+               input, mutable_slmplscosval()));
         } else {
           goto handle_unusual;
         }
@@ -4995,6 +5066,12 @@ void SLMplsIlmKey::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->locallabel(), output);
   }
 
+  // .service_layer.SLMplsCos SlMplsCosVal = 2;
+  if (this->has_slmplscosval()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      2, *this->slmplscosval_, output);
+  }
+
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
@@ -5014,6 +5091,13 @@ void SLMplsIlmKey::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->locallabel(), target);
   }
 
+  // .service_layer.SLMplsCos SlMplsCosVal = 2;
+  if (this->has_slmplscosval()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageToArray(
+        2, *this->slmplscosval_, deterministic, target);
+  }
+
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), target);
@@ -5031,6 +5115,13 @@ size_t SLMplsIlmKey::ByteSizeLong() const {
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
   }
+  // .service_layer.SLMplsCos SlMplsCosVal = 2;
+  if (this->has_slmplscosval()) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::MessageSize(
+        *this->slmplscosval_);
+  }
+
   // uint32 LocalLabel = 1;
   if (this->locallabel() != 0) {
     total_size += 1 +
@@ -5067,6 +5158,9 @@ void SLMplsIlmKey::MergeFrom(const SLMplsIlmKey& from) {
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
+  if (from.has_slmplscosval()) {
+    mutable_slmplscosval()->::service_layer::SLMplsCos::MergeFrom(from.slmplscosval());
+  }
   if (from.locallabel() != 0) {
     set_locallabel(from.locallabel());
   }
@@ -5096,12 +5190,338 @@ void SLMplsIlmKey::Swap(SLMplsIlmKey* other) {
 }
 void SLMplsIlmKey::InternalSwap(SLMplsIlmKey* other) {
   using std::swap;
+  swap(slmplscosval_, other->slmplscosval_);
   swap(locallabel_, other->locallabel_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   swap(_cached_size_, other->_cached_size_);
 }
 
 ::google::protobuf::Metadata SLMplsIlmKey::GetMetadata() const {
+  protobuf_sl_5fmpls_2eproto::protobuf_AssignDescriptorsOnce();
+  return ::protobuf_sl_5fmpls_2eproto::file_level_metadata[kIndexInFileMessages];
+}
+
+
+// ===================================================================
+
+void SLMplsCos::InitAsDefaultInstance() {
+  ::service_layer::_SLMplsCos_default_instance_.exp_ = 0u;
+  ::service_layer::_SLMplsCos_default_instance_.forwardingclass_ = 0u;
+}
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int SLMplsCos::kExpFieldNumber;
+const int SLMplsCos::kForwardingClassFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+SLMplsCos::SLMplsCos()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
+    ::protobuf_sl_5fmpls_2eproto::InitDefaultsSLMplsCos();
+  }
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:service_layer.SLMplsCos)
+}
+SLMplsCos::SLMplsCos(const SLMplsCos& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(NULL),
+      _cached_size_(0) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  clear_has_value();
+  switch (from.value_case()) {
+    case kExp: {
+      set_exp(from.exp());
+      break;
+    }
+    case kForwardingClass: {
+      set_forwardingclass(from.forwardingclass());
+      break;
+    }
+    case VALUE_NOT_SET: {
+      break;
+    }
+  }
+  // @@protoc_insertion_point(copy_constructor:service_layer.SLMplsCos)
+}
+
+void SLMplsCos::SharedCtor() {
+  clear_has_value();
+  _cached_size_ = 0;
+}
+
+SLMplsCos::~SLMplsCos() {
+  // @@protoc_insertion_point(destructor:service_layer.SLMplsCos)
+  SharedDtor();
+}
+
+void SLMplsCos::SharedDtor() {
+  if (has_value()) {
+    clear_value();
+  }
+}
+
+void SLMplsCos::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* SLMplsCos::descriptor() {
+  ::protobuf_sl_5fmpls_2eproto::protobuf_AssignDescriptorsOnce();
+  return ::protobuf_sl_5fmpls_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
+}
+
+const SLMplsCos& SLMplsCos::default_instance() {
+  ::protobuf_sl_5fmpls_2eproto::InitDefaultsSLMplsCos();
+  return *internal_default_instance();
+}
+
+SLMplsCos* SLMplsCos::New(::google::protobuf::Arena* arena) const {
+  SLMplsCos* n = new SLMplsCos;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void SLMplsCos::clear_value() {
+// @@protoc_insertion_point(one_of_clear_start:service_layer.SLMplsCos)
+  switch (value_case()) {
+    case kExp: {
+      // No need to clear
+      break;
+    }
+    case kForwardingClass: {
+      // No need to clear
+      break;
+    }
+    case VALUE_NOT_SET: {
+      break;
+    }
+  }
+  _oneof_case_[0] = VALUE_NOT_SET;
+}
+
+
+void SLMplsCos::Clear() {
+// @@protoc_insertion_point(message_clear_start:service_layer.SLMplsCos)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  clear_value();
+  _internal_metadata_.Clear();
+}
+
+bool SLMplsCos::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:service_layer.SLMplsCos)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // uint32 Exp = 1;
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(8u /* 8 & 0xFF */)) {
+          clear_value();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &value_.exp_)));
+          set_has_exp();
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // uint32 ForwardingClass = 2;
+      case 2: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(16u /* 16 & 0xFF */)) {
+          clear_value();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &value_.forwardingclass_)));
+          set_has_forwardingclass();
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, _internal_metadata_.mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:service_layer.SLMplsCos)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:service_layer.SLMplsCos)
+  return false;
+#undef DO_
+}
+
+void SLMplsCos::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:service_layer.SLMplsCos)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // uint32 Exp = 1;
+  if (has_exp()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->exp(), output);
+  }
+
+  // uint32 ForwardingClass = 2;
+  if (has_forwardingclass()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(2, this->forwardingclass(), output);
+  }
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
+  }
+  // @@protoc_insertion_point(serialize_end:service_layer.SLMplsCos)
+}
+
+::google::protobuf::uint8* SLMplsCos::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  (void)deterministic; // Unused
+  // @@protoc_insertion_point(serialize_to_array_start:service_layer.SLMplsCos)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // uint32 Exp = 1;
+  if (has_exp()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->exp(), target);
+  }
+
+  // uint32 ForwardingClass = 2;
+  if (has_forwardingclass()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(2, this->forwardingclass(), target);
+  }
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:service_layer.SLMplsCos)
+  return target;
+}
+
+size_t SLMplsCos::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:service_layer.SLMplsCos)
+  size_t total_size = 0;
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
+  }
+  switch (value_case()) {
+    // uint32 Exp = 1;
+    case kExp: {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->exp());
+      break;
+    }
+    // uint32 ForwardingClass = 2;
+    case kForwardingClass: {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->forwardingclass());
+      break;
+    }
+    case VALUE_NOT_SET: {
+      break;
+    }
+  }
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = cached_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void SLMplsCos::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:service_layer.SLMplsCos)
+  GOOGLE_DCHECK_NE(&from, this);
+  const SLMplsCos* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const SLMplsCos>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:service_layer.SLMplsCos)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:service_layer.SLMplsCos)
+    MergeFrom(*source);
+  }
+}
+
+void SLMplsCos::MergeFrom(const SLMplsCos& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:service_layer.SLMplsCos)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  switch (from.value_case()) {
+    case kExp: {
+      set_exp(from.exp());
+      break;
+    }
+    case kForwardingClass: {
+      set_forwardingclass(from.forwardingclass());
+      break;
+    }
+    case VALUE_NOT_SET: {
+      break;
+    }
+  }
+}
+
+void SLMplsCos::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:service_layer.SLMplsCos)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void SLMplsCos::CopyFrom(const SLMplsCos& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:service_layer.SLMplsCos)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool SLMplsCos::IsInitialized() const {
+  return true;
+}
+
+void SLMplsCos::Swap(SLMplsCos* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void SLMplsCos::InternalSwap(SLMplsCos* other) {
+  using std::swap;
+  swap(value_, other->value_);
+  swap(_oneof_case_[0], other->_oneof_case_[0]);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata SLMplsCos::GetMetadata() const {
   protobuf_sl_5fmpls_2eproto::protobuf_AssignDescriptorsOnce();
   return ::protobuf_sl_5fmpls_2eproto::file_level_metadata[kIndexInFileMessages];
 }
@@ -5116,6 +5536,7 @@ void SLMplsIlmEntry::InitAsDefaultInstance() {
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
 const int SLMplsIlmEntry::kKeyFieldNumber;
 const int SLMplsIlmEntry::kPathsFieldNumber;
+const int SLMplsIlmEntry::kDefaultElspPathFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 SLMplsIlmEntry::SLMplsIlmEntry()
@@ -5137,11 +5558,14 @@ SLMplsIlmEntry::SLMplsIlmEntry(const SLMplsIlmEntry& from)
   } else {
     key_ = NULL;
   }
+  defaultelsppath_ = from.defaultelsppath_;
   // @@protoc_insertion_point(copy_constructor:service_layer.SLMplsIlmEntry)
 }
 
 void SLMplsIlmEntry::SharedCtor() {
-  key_ = NULL;
+  ::memset(&key_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&defaultelsppath_) -
+      reinterpret_cast<char*>(&key_)) + sizeof(defaultelsppath_));
   _cached_size_ = 0;
 }
 
@@ -5188,6 +5612,7 @@ void SLMplsIlmEntry::Clear() {
     delete key_;
   }
   key_ = NULL;
+  defaultelsppath_ = false;
   _internal_metadata_.Clear();
 }
 
@@ -5218,6 +5643,20 @@ bool SLMplsIlmEntry::MergePartialFromCodedStream(
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(18u /* 18 & 0xFF */)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(input, add_paths()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // bool DefaultElspPath = 3;
+      case 3: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(24u /* 24 & 0xFF */)) {
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
+                 input, &defaultelsppath_)));
         } else {
           goto handle_unusual;
         }
@@ -5263,6 +5702,11 @@ void SLMplsIlmEntry::SerializeWithCachedSizes(
       2, this->paths(static_cast<int>(i)), output);
   }
 
+  // bool DefaultElspPath = 3;
+  if (this->defaultelsppath() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteBool(3, this->defaultelsppath(), output);
+  }
+
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
@@ -5290,6 +5734,11 @@ void SLMplsIlmEntry::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageToArray(
         2, this->paths(static_cast<int>(i)), deterministic, target);
+  }
+
+  // bool DefaultElspPath = 3;
+  if (this->defaultelsppath() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(3, this->defaultelsppath(), target);
   }
 
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
@@ -5327,6 +5776,11 @@ size_t SLMplsIlmEntry::ByteSizeLong() const {
         *this->key_);
   }
 
+  // bool DefaultElspPath = 3;
+  if (this->defaultelsppath() != 0) {
+    total_size += 1 + 1;
+  }
+
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = cached_size;
@@ -5360,6 +5814,9 @@ void SLMplsIlmEntry::MergeFrom(const SLMplsIlmEntry& from) {
   if (from.has_key()) {
     mutable_key()->::service_layer::SLMplsIlmKey::MergeFrom(from.key());
   }
+  if (from.defaultelsppath() != 0) {
+    set_defaultelsppath(from.defaultelsppath());
+  }
 }
 
 void SLMplsIlmEntry::CopyFrom(const ::google::protobuf::Message& from) {
@@ -5388,6 +5845,7 @@ void SLMplsIlmEntry::InternalSwap(SLMplsIlmEntry* other) {
   using std::swap;
   paths_.InternalSwap(&other->paths_);
   swap(key_, other->key_);
+  swap(defaultelsppath_, other->defaultelsppath_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   swap(_cached_size_, other->_cached_size_);
 }
