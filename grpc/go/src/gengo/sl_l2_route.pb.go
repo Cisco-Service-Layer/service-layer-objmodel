@@ -17,12 +17,6 @@ var _ = proto.Marshal
 var _ = fmt.Errorf
 var _ = math.Inf
 
-// This is a compile-time assertion to ensure that this generated file
-// is compatible with the proto package it is being compiled against.
-// A compilation error at this line likely means your copy of the
-// proto package needs to be updated.
-const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
-
 // L2 Route Types that can be programmed by client.
 type SLL2RouteType int32
 
@@ -49,9 +43,7 @@ var SLL2RouteType_value = map[string]int32{
 func (x SLL2RouteType) String() string {
 	return proto.EnumName(SLL2RouteType_name, int32(x))
 }
-func (SLL2RouteType) EnumDescriptor() ([]byte, []int) {
-	return fileDescriptor_sl_l2_route_4a32fd6a6409c309, []int{0}
-}
+func (SLL2RouteType) EnumDescriptor() ([]byte, []int) { return fileDescriptor6, []int{0} }
 
 // L2 Notification types
 type SLL2NotifType int32
@@ -106,9 +98,7 @@ var SLL2NotifType_value = map[string]int32{
 func (x SLL2NotifType) String() string {
 	return proto.EnumName(SLL2NotifType_name, int32(x))
 }
-func (SLL2NotifType) EnumDescriptor() ([]byte, []int) {
-	return fileDescriptor_sl_l2_route_4a32fd6a6409c309, []int{1}
-}
+func (SLL2NotifType) EnumDescriptor() ([]byte, []int) { return fileDescriptor6, []int{1} }
 
 // Next Hop types
 type SLL2RouteNh_SLL2RouteNhType int32
@@ -137,7 +127,7 @@ func (x SLL2RouteNh_SLL2RouteNhType) String() string {
 	return proto.EnumName(SLL2RouteNh_SLL2RouteNhType_name, int32(x))
 }
 func (SLL2RouteNh_SLL2RouteNhType) EnumDescriptor() ([]byte, []int) {
-	return fileDescriptor_sl_l2_route_4a32fd6a6409c309, []int{8, 0}
+	return fileDescriptor6, []int{8, 0}
 }
 
 // Provider Multicast Service Interface (PMSI) tunnel type.
@@ -187,7 +177,7 @@ func (x SLL2ImetRoute_PMSITunnelType) String() string {
 	return proto.EnumName(SLL2ImetRoute_PMSITunnelType_name, int32(x))
 }
 func (SLL2ImetRoute_PMSITunnelType) EnumDescriptor() ([]byte, []int) {
-	return fileDescriptor_sl_l2_route_4a32fd6a6409c309, []int{13, 0}
+	return fileDescriptor6, []int{13, 0}
 }
 
 // BD states
@@ -226,76 +216,32 @@ func (x SLL2BdStateInfo_SLL2BdState) String() string {
 	return proto.EnumName(SLL2BdStateInfo_SLL2BdState_name, int32(x))
 }
 func (SLL2BdStateInfo_SLL2BdState) EnumDescriptor() ([]byte, []int) {
-	return fileDescriptor_sl_l2_route_4a32fd6a6409c309, []int{21, 0}
+	return fileDescriptor6, []int{21, 0}
 }
 
 // L2 Route Globals Get Message
 type SLL2GlobalsGetMsg struct {
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *SLL2GlobalsGetMsg) Reset()         { *m = SLL2GlobalsGetMsg{} }
-func (m *SLL2GlobalsGetMsg) String() string { return proto.CompactTextString(m) }
-func (*SLL2GlobalsGetMsg) ProtoMessage()    {}
-func (*SLL2GlobalsGetMsg) Descriptor() ([]byte, []int) {
-	return fileDescriptor_sl_l2_route_4a32fd6a6409c309, []int{0}
-}
-func (m *SLL2GlobalsGetMsg) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_SLL2GlobalsGetMsg.Unmarshal(m, b)
-}
-func (m *SLL2GlobalsGetMsg) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_SLL2GlobalsGetMsg.Marshal(b, m, deterministic)
-}
-func (dst *SLL2GlobalsGetMsg) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_SLL2GlobalsGetMsg.Merge(dst, src)
-}
-func (m *SLL2GlobalsGetMsg) XXX_Size() int {
-	return xxx_messageInfo_SLL2GlobalsGetMsg.Size(m)
-}
-func (m *SLL2GlobalsGetMsg) XXX_DiscardUnknown() {
-	xxx_messageInfo_SLL2GlobalsGetMsg.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_SLL2GlobalsGetMsg proto.InternalMessageInfo
+func (m *SLL2GlobalsGetMsg) Reset()                    { *m = SLL2GlobalsGetMsg{} }
+func (m *SLL2GlobalsGetMsg) String() string            { return proto.CompactTextString(m) }
+func (*SLL2GlobalsGetMsg) ProtoMessage()               {}
+func (*SLL2GlobalsGetMsg) Descriptor() ([]byte, []int) { return fileDescriptor6, []int{0} }
 
 // L2 Route Globals Get Message Response
 type SLL2GlobalsGetMsgRsp struct {
 	// Corresponding error code.
-	ErrStatus *SLErrorStatus `protobuf:"bytes,1,opt,name=ErrStatus,proto3" json:"ErrStatus,omitempty"`
+	ErrStatus *SLErrorStatus `protobuf:"bytes,1,opt,name=ErrStatus" json:"ErrStatus,omitempty"`
 	// Max BD registration objects within a single BdRegMsg.
-	MaxBdRegPerBdRegmsg uint32 `protobuf:"varint,2,opt,name=MaxBdRegPerBdRegmsg,proto3" json:"MaxBdRegPerBdRegmsg,omitempty"`
+	MaxBdRegPerBdRegmsg uint32 `protobuf:"varint,2,opt,name=MaxBdRegPerBdRegmsg" json:"MaxBdRegPerBdRegmsg,omitempty"`
 	// Max Route objects within a single RouteMsg.
-	MaxRoutePerRoutemsg  uint32   `protobuf:"varint,3,opt,name=MaxRoutePerRoutemsg,proto3" json:"MaxRoutePerRoutemsg,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	MaxRoutePerRoutemsg uint32 `protobuf:"varint,3,opt,name=MaxRoutePerRoutemsg" json:"MaxRoutePerRoutemsg,omitempty"`
 }
 
-func (m *SLL2GlobalsGetMsgRsp) Reset()         { *m = SLL2GlobalsGetMsgRsp{} }
-func (m *SLL2GlobalsGetMsgRsp) String() string { return proto.CompactTextString(m) }
-func (*SLL2GlobalsGetMsgRsp) ProtoMessage()    {}
-func (*SLL2GlobalsGetMsgRsp) Descriptor() ([]byte, []int) {
-	return fileDescriptor_sl_l2_route_4a32fd6a6409c309, []int{1}
-}
-func (m *SLL2GlobalsGetMsgRsp) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_SLL2GlobalsGetMsgRsp.Unmarshal(m, b)
-}
-func (m *SLL2GlobalsGetMsgRsp) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_SLL2GlobalsGetMsgRsp.Marshal(b, m, deterministic)
-}
-func (dst *SLL2GlobalsGetMsgRsp) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_SLL2GlobalsGetMsgRsp.Merge(dst, src)
-}
-func (m *SLL2GlobalsGetMsgRsp) XXX_Size() int {
-	return xxx_messageInfo_SLL2GlobalsGetMsgRsp.Size(m)
-}
-func (m *SLL2GlobalsGetMsgRsp) XXX_DiscardUnknown() {
-	xxx_messageInfo_SLL2GlobalsGetMsgRsp.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_SLL2GlobalsGetMsgRsp proto.InternalMessageInfo
+func (m *SLL2GlobalsGetMsgRsp) Reset()                    { *m = SLL2GlobalsGetMsgRsp{} }
+func (m *SLL2GlobalsGetMsgRsp) String() string            { return proto.CompactTextString(m) }
+func (*SLL2GlobalsGetMsgRsp) ProtoMessage()               {}
+func (*SLL2GlobalsGetMsgRsp) Descriptor() ([]byte, []int) { return fileDescriptor6, []int{1} }
 
 func (m *SLL2GlobalsGetMsgRsp) GetErrStatus() *SLErrorStatus {
 	if m != nil {
@@ -321,11 +267,11 @@ func (m *SLL2GlobalsGetMsgRsp) GetMaxRoutePerRoutemsg() uint32 {
 // Global L2 Registration Message
 type SLL2RegMsg struct {
 	// Registration Operation.
-	Oper SLRegOp `protobuf:"varint,1,opt,name=Oper,proto3,enum=service_layer.SLRegOp" json:"Oper,omitempty"`
+	Oper SLRegOp `protobuf:"varint,1,opt,name=Oper,enum=service_layer.SLRegOp" json:"Oper,omitempty"`
 	// Default Admin distance for routes programmed by this application.
 	// Range [0-255].
 	// If the client does not need to program routes, set this value to 0.
-	AdminDistance uint32 `protobuf:"varint,2,opt,name=AdminDistance,proto3" json:"AdminDistance,omitempty"`
+	AdminDistance uint32 `protobuf:"varint,2,opt,name=AdminDistance" json:"AdminDistance,omitempty"`
 	// In case Service Layer -> L2RIB connection is lost, this specifies the
 	// timeout period after which L2RIB will automatically purge the installed
 	// routes, unless the service layer:
@@ -333,35 +279,13 @@ type SLL2RegMsg struct {
 	//    2. Replay all routes.
 	//    3. And send EOF, before the purge timeout.
 	// If the client does not need to program routes, set this value to 0.
-	PurgeIntervalSeconds uint32   `protobuf:"varint,3,opt,name=PurgeIntervalSeconds,proto3" json:"PurgeIntervalSeconds,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	PurgeIntervalSeconds uint32 `protobuf:"varint,3,opt,name=PurgeIntervalSeconds" json:"PurgeIntervalSeconds,omitempty"`
 }
 
-func (m *SLL2RegMsg) Reset()         { *m = SLL2RegMsg{} }
-func (m *SLL2RegMsg) String() string { return proto.CompactTextString(m) }
-func (*SLL2RegMsg) ProtoMessage()    {}
-func (*SLL2RegMsg) Descriptor() ([]byte, []int) {
-	return fileDescriptor_sl_l2_route_4a32fd6a6409c309, []int{2}
-}
-func (m *SLL2RegMsg) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_SLL2RegMsg.Unmarshal(m, b)
-}
-func (m *SLL2RegMsg) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_SLL2RegMsg.Marshal(b, m, deterministic)
-}
-func (dst *SLL2RegMsg) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_SLL2RegMsg.Merge(dst, src)
-}
-func (m *SLL2RegMsg) XXX_Size() int {
-	return xxx_messageInfo_SLL2RegMsg.Size(m)
-}
-func (m *SLL2RegMsg) XXX_DiscardUnknown() {
-	xxx_messageInfo_SLL2RegMsg.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_SLL2RegMsg proto.InternalMessageInfo
+func (m *SLL2RegMsg) Reset()                    { *m = SLL2RegMsg{} }
+func (m *SLL2RegMsg) String() string            { return proto.CompactTextString(m) }
+func (*SLL2RegMsg) ProtoMessage()               {}
+func (*SLL2RegMsg) Descriptor() ([]byte, []int) { return fileDescriptor6, []int{2} }
 
 func (m *SLL2RegMsg) GetOper() SLRegOp {
 	if m != nil {
@@ -387,35 +311,13 @@ func (m *SLL2RegMsg) GetPurgeIntervalSeconds() uint32 {
 // Global L2 Registration message Response
 type SLL2RegMsgRsp struct {
 	// Error code.
-	RegStatus            *SLErrorStatus `protobuf:"bytes,1,opt,name=RegStatus,proto3" json:"RegStatus,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}       `json:"-"`
-	XXX_unrecognized     []byte         `json:"-"`
-	XXX_sizecache        int32          `json:"-"`
+	RegStatus *SLErrorStatus `protobuf:"bytes,1,opt,name=RegStatus" json:"RegStatus,omitempty"`
 }
 
-func (m *SLL2RegMsgRsp) Reset()         { *m = SLL2RegMsgRsp{} }
-func (m *SLL2RegMsgRsp) String() string { return proto.CompactTextString(m) }
-func (*SLL2RegMsgRsp) ProtoMessage()    {}
-func (*SLL2RegMsgRsp) Descriptor() ([]byte, []int) {
-	return fileDescriptor_sl_l2_route_4a32fd6a6409c309, []int{3}
-}
-func (m *SLL2RegMsgRsp) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_SLL2RegMsgRsp.Unmarshal(m, b)
-}
-func (m *SLL2RegMsgRsp) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_SLL2RegMsgRsp.Marshal(b, m, deterministic)
-}
-func (dst *SLL2RegMsgRsp) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_SLL2RegMsgRsp.Merge(dst, src)
-}
-func (m *SLL2RegMsgRsp) XXX_Size() int {
-	return xxx_messageInfo_SLL2RegMsgRsp.Size(m)
-}
-func (m *SLL2RegMsgRsp) XXX_DiscardUnknown() {
-	xxx_messageInfo_SLL2RegMsgRsp.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_SLL2RegMsgRsp proto.InternalMessageInfo
+func (m *SLL2RegMsgRsp) Reset()                    { *m = SLL2RegMsgRsp{} }
+func (m *SLL2RegMsgRsp) String() string            { return proto.CompactTextString(m) }
+func (*SLL2RegMsgRsp) ProtoMessage()               {}
+func (*SLL2RegMsgRsp) Descriptor() ([]byte, []int) { return fileDescriptor6, []int{3} }
 
 func (m *SLL2RegMsgRsp) GetRegStatus() *SLErrorStatus {
 	if m != nil {
@@ -427,37 +329,15 @@ func (m *SLL2RegMsgRsp) GetRegStatus() *SLErrorStatus {
 // L2 Bridge-Domain (BD) Registration Messages
 type SLL2BdRegMsg struct {
 	// Registration Operation.
-	Oper SLRegOp `protobuf:"varint,1,opt,name=Oper,proto3,enum=service_layer.SLRegOp" json:"Oper,omitempty"`
+	Oper SLRegOp `protobuf:"varint,1,opt,name=Oper,enum=service_layer.SLRegOp" json:"Oper,omitempty"`
 	// List of BD names that client wants to register for.
-	BdRegName            []string `protobuf:"bytes,2,rep,name=BdRegName,proto3" json:"BdRegName,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	BdRegName []string `protobuf:"bytes,2,rep,name=BdRegName" json:"BdRegName,omitempty"`
 }
 
-func (m *SLL2BdRegMsg) Reset()         { *m = SLL2BdRegMsg{} }
-func (m *SLL2BdRegMsg) String() string { return proto.CompactTextString(m) }
-func (*SLL2BdRegMsg) ProtoMessage()    {}
-func (*SLL2BdRegMsg) Descriptor() ([]byte, []int) {
-	return fileDescriptor_sl_l2_route_4a32fd6a6409c309, []int{4}
-}
-func (m *SLL2BdRegMsg) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_SLL2BdRegMsg.Unmarshal(m, b)
-}
-func (m *SLL2BdRegMsg) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_SLL2BdRegMsg.Marshal(b, m, deterministic)
-}
-func (dst *SLL2BdRegMsg) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_SLL2BdRegMsg.Merge(dst, src)
-}
-func (m *SLL2BdRegMsg) XXX_Size() int {
-	return xxx_messageInfo_SLL2BdRegMsg.Size(m)
-}
-func (m *SLL2BdRegMsg) XXX_DiscardUnknown() {
-	xxx_messageInfo_SLL2BdRegMsg.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_SLL2BdRegMsg proto.InternalMessageInfo
+func (m *SLL2BdRegMsg) Reset()                    { *m = SLL2BdRegMsg{} }
+func (m *SLL2BdRegMsg) String() string            { return proto.CompactTextString(m) }
+func (*SLL2BdRegMsg) ProtoMessage()               {}
+func (*SLL2BdRegMsg) Descriptor() ([]byte, []int) { return fileDescriptor6, []int{4} }
 
 func (m *SLL2BdRegMsg) GetOper() SLRegOp {
 	if m != nil {
@@ -476,37 +356,15 @@ func (m *SLL2BdRegMsg) GetBdRegName() []string {
 // BD Registration message Result
 type SLL2BdRegRes struct {
 	// Corresponding error code.
-	ErrStatus *SLErrorStatus `protobuf:"bytes,1,opt,name=ErrStatus,proto3" json:"ErrStatus,omitempty"`
+	ErrStatus *SLErrorStatus `protobuf:"bytes,1,opt,name=ErrStatus" json:"ErrStatus,omitempty"`
 	// BD Name.
-	BdName               string   `protobuf:"bytes,2,opt,name=BdName,proto3" json:"BdName,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	BdName string `protobuf:"bytes,2,opt,name=BdName" json:"BdName,omitempty"`
 }
 
-func (m *SLL2BdRegRes) Reset()         { *m = SLL2BdRegRes{} }
-func (m *SLL2BdRegRes) String() string { return proto.CompactTextString(m) }
-func (*SLL2BdRegRes) ProtoMessage()    {}
-func (*SLL2BdRegRes) Descriptor() ([]byte, []int) {
-	return fileDescriptor_sl_l2_route_4a32fd6a6409c309, []int{5}
-}
-func (m *SLL2BdRegRes) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_SLL2BdRegRes.Unmarshal(m, b)
-}
-func (m *SLL2BdRegRes) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_SLL2BdRegRes.Marshal(b, m, deterministic)
-}
-func (dst *SLL2BdRegRes) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_SLL2BdRegRes.Merge(dst, src)
-}
-func (m *SLL2BdRegRes) XXX_Size() int {
-	return xxx_messageInfo_SLL2BdRegRes.Size(m)
-}
-func (m *SLL2BdRegRes) XXX_DiscardUnknown() {
-	xxx_messageInfo_SLL2BdRegRes.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_SLL2BdRegRes proto.InternalMessageInfo
+func (m *SLL2BdRegRes) Reset()                    { *m = SLL2BdRegRes{} }
+func (m *SLL2BdRegRes) String() string            { return proto.CompactTextString(m) }
+func (*SLL2BdRegRes) ProtoMessage()               {}
+func (*SLL2BdRegRes) Descriptor() ([]byte, []int) { return fileDescriptor6, []int{5} }
 
 func (m *SLL2BdRegRes) GetErrStatus() *SLErrorStatus {
 	if m != nil {
@@ -533,38 +391,16 @@ type SLL2BdRegMsgRsp struct {
 	//         each individual entry in the bulk.
 	// 3. SL_RPC_XXX: signifies that the entire bulk operation failed.
 	//         In this case, the Results list is empty.
-	StatusSummary *SLErrorStatus `protobuf:"bytes,1,opt,name=StatusSummary,proto3" json:"StatusSummary,omitempty"`
+	StatusSummary *SLErrorStatus `protobuf:"bytes,1,opt,name=StatusSummary" json:"StatusSummary,omitempty"`
 	// In case of errors, this field indicates which entry in the bulk was
 	// erroneous.
-	Results              []*SLL2BdRegRes `protobuf:"bytes,2,rep,name=Results,proto3" json:"Results,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}        `json:"-"`
-	XXX_unrecognized     []byte          `json:"-"`
-	XXX_sizecache        int32           `json:"-"`
+	Results []*SLL2BdRegRes `protobuf:"bytes,2,rep,name=Results" json:"Results,omitempty"`
 }
 
-func (m *SLL2BdRegMsgRsp) Reset()         { *m = SLL2BdRegMsgRsp{} }
-func (m *SLL2BdRegMsgRsp) String() string { return proto.CompactTextString(m) }
-func (*SLL2BdRegMsgRsp) ProtoMessage()    {}
-func (*SLL2BdRegMsgRsp) Descriptor() ([]byte, []int) {
-	return fileDescriptor_sl_l2_route_4a32fd6a6409c309, []int{6}
-}
-func (m *SLL2BdRegMsgRsp) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_SLL2BdRegMsgRsp.Unmarshal(m, b)
-}
-func (m *SLL2BdRegMsgRsp) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_SLL2BdRegMsgRsp.Marshal(b, m, deterministic)
-}
-func (dst *SLL2BdRegMsgRsp) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_SLL2BdRegMsgRsp.Merge(dst, src)
-}
-func (m *SLL2BdRegMsgRsp) XXX_Size() int {
-	return xxx_messageInfo_SLL2BdRegMsgRsp.Size(m)
-}
-func (m *SLL2BdRegMsgRsp) XXX_DiscardUnknown() {
-	xxx_messageInfo_SLL2BdRegMsgRsp.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_SLL2BdRegMsgRsp proto.InternalMessageInfo
+func (m *SLL2BdRegMsgRsp) Reset()                    { *m = SLL2BdRegMsgRsp{} }
+func (m *SLL2BdRegMsgRsp) String() string            { return proto.CompactTextString(m) }
+func (*SLL2BdRegMsgRsp) ProtoMessage()               {}
+func (*SLL2BdRegMsgRsp) Descriptor() ([]byte, []int) { return fileDescriptor6, []int{6} }
 
 func (m *SLL2BdRegMsgRsp) GetStatusSummary() *SLErrorStatus {
 	if m != nil {
@@ -583,35 +419,13 @@ func (m *SLL2BdRegMsgRsp) GetResults() []*SLL2BdRegRes {
 // Ethernet Segment Identifier (ESI)
 type SLL2RouteEsi struct {
 	// 10-bytes long ESI value
-	Esi                  []byte   `protobuf:"bytes,1,opt,name=Esi,proto3" json:"Esi,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	Esi []byte `protobuf:"bytes,1,opt,name=Esi,proto3" json:"Esi,omitempty"`
 }
 
-func (m *SLL2RouteEsi) Reset()         { *m = SLL2RouteEsi{} }
-func (m *SLL2RouteEsi) String() string { return proto.CompactTextString(m) }
-func (*SLL2RouteEsi) ProtoMessage()    {}
-func (*SLL2RouteEsi) Descriptor() ([]byte, []int) {
-	return fileDescriptor_sl_l2_route_4a32fd6a6409c309, []int{7}
-}
-func (m *SLL2RouteEsi) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_SLL2RouteEsi.Unmarshal(m, b)
-}
-func (m *SLL2RouteEsi) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_SLL2RouteEsi.Marshal(b, m, deterministic)
-}
-func (dst *SLL2RouteEsi) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_SLL2RouteEsi.Merge(dst, src)
-}
-func (m *SLL2RouteEsi) XXX_Size() int {
-	return xxx_messageInfo_SLL2RouteEsi.Size(m)
-}
-func (m *SLL2RouteEsi) XXX_DiscardUnknown() {
-	xxx_messageInfo_SLL2RouteEsi.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_SLL2RouteEsi proto.InternalMessageInfo
+func (m *SLL2RouteEsi) Reset()                    { *m = SLL2RouteEsi{} }
+func (m *SLL2RouteEsi) String() string            { return proto.CompactTextString(m) }
+func (*SLL2RouteEsi) ProtoMessage()               {}
+func (*SLL2RouteEsi) Descriptor() ([]byte, []int) { return fileDescriptor6, []int{7} }
 
 func (m *SLL2RouteEsi) GetEsi() []byte {
 	if m != nil {
@@ -622,70 +436,46 @@ func (m *SLL2RouteEsi) GetEsi() []byte {
 
 // Nexthop info
 type SLL2RouteNh struct {
-	NhType SLL2RouteNh_SLL2RouteNhType `protobuf:"varint,1,opt,name=NhType,proto3,enum=service_layer.SLL2RouteNh_SLL2RouteNhType" json:"NhType,omitempty"`
+	NhType SLL2RouteNh_SLL2RouteNhType `protobuf:"varint,1,opt,name=NhType,enum=service_layer.SLL2RouteNh_SLL2RouteNhType" json:"NhType,omitempty"`
 	// Next Hop data based on type
 	//
 	// Types that are valid to be assigned to NhData:
 	//	*SLL2RouteNh_NhInterface
 	//	*SLL2RouteNh_NhOverlay
-	NhData               isSLL2RouteNh_NhData `protobuf_oneof:"NhData"`
-	XXX_NoUnkeyedLiteral struct{}             `json:"-"`
-	XXX_unrecognized     []byte               `json:"-"`
-	XXX_sizecache        int32                `json:"-"`
+	NhData isSLL2RouteNh_NhData `protobuf_oneof:"NhData"`
 }
 
-func (m *SLL2RouteNh) Reset()         { *m = SLL2RouteNh{} }
-func (m *SLL2RouteNh) String() string { return proto.CompactTextString(m) }
-func (*SLL2RouteNh) ProtoMessage()    {}
-func (*SLL2RouteNh) Descriptor() ([]byte, []int) {
-	return fileDescriptor_sl_l2_route_4a32fd6a6409c309, []int{8}
-}
-func (m *SLL2RouteNh) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_SLL2RouteNh.Unmarshal(m, b)
-}
-func (m *SLL2RouteNh) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_SLL2RouteNh.Marshal(b, m, deterministic)
-}
-func (dst *SLL2RouteNh) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_SLL2RouteNh.Merge(dst, src)
-}
-func (m *SLL2RouteNh) XXX_Size() int {
-	return xxx_messageInfo_SLL2RouteNh.Size(m)
-}
-func (m *SLL2RouteNh) XXX_DiscardUnknown() {
-	xxx_messageInfo_SLL2RouteNh.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_SLL2RouteNh proto.InternalMessageInfo
-
-func (m *SLL2RouteNh) GetNhType() SLL2RouteNh_SLL2RouteNhType {
-	if m != nil {
-		return m.NhType
-	}
-	return SLL2RouteNh_SL_L2_NH_RESERVED
-}
+func (m *SLL2RouteNh) Reset()                    { *m = SLL2RouteNh{} }
+func (m *SLL2RouteNh) String() string            { return proto.CompactTextString(m) }
+func (*SLL2RouteNh) ProtoMessage()               {}
+func (*SLL2RouteNh) Descriptor() ([]byte, []int) { return fileDescriptor6, []int{8} }
 
 type isSLL2RouteNh_NhData interface {
 	isSLL2RouteNh_NhData()
 }
 
 type SLL2RouteNh_NhInterface struct {
-	NhInterface *SLInterface `protobuf:"bytes,2,opt,name=NhInterface,proto3,oneof"`
+	NhInterface *SLInterface `protobuf:"bytes,2,opt,name=NhInterface,oneof"`
 }
-
 type SLL2RouteNh_NhOverlay struct {
-	NhOverlay *SLL2OverlayNh `protobuf:"bytes,3,opt,name=NhOverlay,proto3,oneof"`
+	NhOverlay *SLL2OverlayNh `protobuf:"bytes,3,opt,name=NhOverlay,oneof"`
 }
 
 func (*SLL2RouteNh_NhInterface) isSLL2RouteNh_NhData() {}
-
-func (*SLL2RouteNh_NhOverlay) isSLL2RouteNh_NhData() {}
+func (*SLL2RouteNh_NhOverlay) isSLL2RouteNh_NhData()   {}
 
 func (m *SLL2RouteNh) GetNhData() isSLL2RouteNh_NhData {
 	if m != nil {
 		return m.NhData
 	}
 	return nil
+}
+
+func (m *SLL2RouteNh) GetNhType() SLL2RouteNh_SLL2RouteNhType {
+	if m != nil {
+		return m.NhType
+	}
+	return SLL2RouteNh_SL_L2_NH_RESERVED
 }
 
 func (m *SLL2RouteNh) GetNhInterface() *SLInterface {
@@ -761,12 +551,12 @@ func _SLL2RouteNh_OneofSizer(msg proto.Message) (n int) {
 	switch x := m.NhData.(type) {
 	case *SLL2RouteNh_NhInterface:
 		s := proto.Size(x.NhInterface)
-		n += 1 // tag and wire
+		n += proto.SizeVarint(2<<3 | proto.WireBytes)
 		n += proto.SizeVarint(uint64(s))
 		n += s
 	case *SLL2RouteNh_NhOverlay:
 		s := proto.Size(x.NhOverlay)
-		n += 1 // tag and wire
+		n += proto.SizeVarint(3<<3 | proto.WireBytes)
 		n += proto.SizeVarint(uint64(s))
 		n += s
 	case nil:
@@ -779,47 +569,25 @@ func _SLL2RouteNh_OneofSizer(msg proto.Message) (n int) {
 // Overlay nexthop info
 type SLL2OverlayNh struct {
 	// IPv4 or IPv6 address
-	OverlayNhIp *SLIpAddress `protobuf:"bytes,1,opt,name=OverlayNhIp,proto3" json:"OverlayNhIp,omitempty"`
+	OverlayNhIp *SLIpAddress `protobuf:"bytes,1,opt,name=OverlayNhIp" json:"OverlayNhIp,omitempty"`
 	// Encap type
-	OverlayNhEncap SLEncapType `protobuf:"varint,2,opt,name=OverlayNhEncap,proto3,enum=service_layer.SLEncapType" json:"OverlayNhEncap,omitempty"`
+	OverlayNhEncap SLEncapType `protobuf:"varint,2,opt,name=OverlayNhEncap,enum=service_layer.SLEncapType" json:"OverlayNhEncap,omitempty"`
 	// L2 label
 	// for encap type MPLS, this will be remote MPLS label
 	// for encap type VXLAN, this will be L2 VNI.
-	OverlayNhLabel uint32 `protobuf:"varint,3,opt,name=OverlayNhLabel,proto3" json:"OverlayNhLabel,omitempty"`
+	OverlayNhLabel uint32 `protobuf:"varint,3,opt,name=OverlayNhLabel" json:"OverlayNhLabel,omitempty"`
 	// L3 label
 	// for encap type MPLS, this will be a stack of MPLS labels.
 	// for encap type VXLAN, this will be L3 VNI.
-	OverlayNhL3Label []uint32 `protobuf:"varint,4,rep,packed,name=OverlayNhL3Label,proto3" json:"OverlayNhL3Label,omitempty"`
+	OverlayNhL3Label []uint32 `protobuf:"varint,4,rep,packed,name=OverlayNhL3Label" json:"OverlayNhL3Label,omitempty"`
 	// Router MAC
-	OverlayNhRouterMac   []byte   `protobuf:"bytes,5,opt,name=OverlayNhRouterMac,proto3" json:"OverlayNhRouterMac,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	OverlayNhRouterMac []byte `protobuf:"bytes,5,opt,name=OverlayNhRouterMac,proto3" json:"OverlayNhRouterMac,omitempty"`
 }
 
-func (m *SLL2OverlayNh) Reset()         { *m = SLL2OverlayNh{} }
-func (m *SLL2OverlayNh) String() string { return proto.CompactTextString(m) }
-func (*SLL2OverlayNh) ProtoMessage()    {}
-func (*SLL2OverlayNh) Descriptor() ([]byte, []int) {
-	return fileDescriptor_sl_l2_route_4a32fd6a6409c309, []int{9}
-}
-func (m *SLL2OverlayNh) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_SLL2OverlayNh.Unmarshal(m, b)
-}
-func (m *SLL2OverlayNh) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_SLL2OverlayNh.Marshal(b, m, deterministic)
-}
-func (dst *SLL2OverlayNh) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_SLL2OverlayNh.Merge(dst, src)
-}
-func (m *SLL2OverlayNh) XXX_Size() int {
-	return xxx_messageInfo_SLL2OverlayNh.Size(m)
-}
-func (m *SLL2OverlayNh) XXX_DiscardUnknown() {
-	xxx_messageInfo_SLL2OverlayNh.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_SLL2OverlayNh proto.InternalMessageInfo
+func (m *SLL2OverlayNh) Reset()                    { *m = SLL2OverlayNh{} }
+func (m *SLL2OverlayNh) String() string            { return proto.CompactTextString(m) }
+func (*SLL2OverlayNh) ProtoMessage()               {}
+func (*SLL2OverlayNh) Descriptor() ([]byte, []int) { return fileDescriptor6, []int{9} }
 
 func (m *SLL2OverlayNh) GetOverlayNhIp() *SLIpAddress {
 	if m != nil {
@@ -861,35 +629,13 @@ type SLL2MacRouteKey struct {
 	// Mac address
 	MacAddress []byte `protobuf:"bytes,1,opt,name=MacAddress,proto3" json:"MacAddress,omitempty"`
 	// IP address
-	IpAddress            *SLIpAddress `protobuf:"bytes,2,opt,name=IpAddress,proto3" json:"IpAddress,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}     `json:"-"`
-	XXX_unrecognized     []byte       `json:"-"`
-	XXX_sizecache        int32        `json:"-"`
+	IpAddress *SLIpAddress `protobuf:"bytes,2,opt,name=IpAddress" json:"IpAddress,omitempty"`
 }
 
-func (m *SLL2MacRouteKey) Reset()         { *m = SLL2MacRouteKey{} }
-func (m *SLL2MacRouteKey) String() string { return proto.CompactTextString(m) }
-func (*SLL2MacRouteKey) ProtoMessage()    {}
-func (*SLL2MacRouteKey) Descriptor() ([]byte, []int) {
-	return fileDescriptor_sl_l2_route_4a32fd6a6409c309, []int{10}
-}
-func (m *SLL2MacRouteKey) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_SLL2MacRouteKey.Unmarshal(m, b)
-}
-func (m *SLL2MacRouteKey) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_SLL2MacRouteKey.Marshal(b, m, deterministic)
-}
-func (dst *SLL2MacRouteKey) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_SLL2MacRouteKey.Merge(dst, src)
-}
-func (m *SLL2MacRouteKey) XXX_Size() int {
-	return xxx_messageInfo_SLL2MacRouteKey.Size(m)
-}
-func (m *SLL2MacRouteKey) XXX_DiscardUnknown() {
-	xxx_messageInfo_SLL2MacRouteKey.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_SLL2MacRouteKey proto.InternalMessageInfo
+func (m *SLL2MacRouteKey) Reset()                    { *m = SLL2MacRouteKey{} }
+func (m *SLL2MacRouteKey) String() string            { return proto.CompactTextString(m) }
+func (*SLL2MacRouteKey) ProtoMessage()               {}
+func (*SLL2MacRouteKey) Descriptor() ([]byte, []int) { return fileDescriptor6, []int{10} }
 
 func (m *SLL2MacRouteKey) GetMacAddress() []byte {
 	if m != nil {
@@ -908,41 +654,19 @@ func (m *SLL2MacRouteKey) GetIpAddress() *SLIpAddress {
 // Type 2 EVPN MAC route
 type SLL2MacRoute struct {
 	// Mac route key
-	RouteKey *SLL2MacRouteKey `protobuf:"bytes,1,opt,name=RouteKey,proto3" json:"RouteKey,omitempty"`
+	RouteKey *SLL2MacRouteKey `protobuf:"bytes,1,opt,name=RouteKey" json:"RouteKey,omitempty"`
 	// Sequence number
-	SequenceNum uint32 `protobuf:"varint,2,opt,name=SequenceNum,proto3" json:"SequenceNum,omitempty"`
+	SequenceNum uint32 `protobuf:"varint,2,opt,name=SequenceNum" json:"SequenceNum,omitempty"`
 	// ESI
-	MacEsi *SLL2RouteEsi `protobuf:"bytes,3,opt,name=MacEsi,proto3" json:"MacEsi,omitempty"`
+	MacEsi *SLL2RouteEsi `protobuf:"bytes,3,opt,name=MacEsi" json:"MacEsi,omitempty"`
 	// List of NHs for this host
-	NextHopList          []*SLL2RouteNh `protobuf:"bytes,4,rep,name=NextHopList,proto3" json:"NextHopList,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}       `json:"-"`
-	XXX_unrecognized     []byte         `json:"-"`
-	XXX_sizecache        int32          `json:"-"`
+	NextHopList []*SLL2RouteNh `protobuf:"bytes,4,rep,name=NextHopList" json:"NextHopList,omitempty"`
 }
 
-func (m *SLL2MacRoute) Reset()         { *m = SLL2MacRoute{} }
-func (m *SLL2MacRoute) String() string { return proto.CompactTextString(m) }
-func (*SLL2MacRoute) ProtoMessage()    {}
-func (*SLL2MacRoute) Descriptor() ([]byte, []int) {
-	return fileDescriptor_sl_l2_route_4a32fd6a6409c309, []int{11}
-}
-func (m *SLL2MacRoute) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_SLL2MacRoute.Unmarshal(m, b)
-}
-func (m *SLL2MacRoute) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_SLL2MacRoute.Marshal(b, m, deterministic)
-}
-func (dst *SLL2MacRoute) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_SLL2MacRoute.Merge(dst, src)
-}
-func (m *SLL2MacRoute) XXX_Size() int {
-	return xxx_messageInfo_SLL2MacRoute.Size(m)
-}
-func (m *SLL2MacRoute) XXX_DiscardUnknown() {
-	xxx_messageInfo_SLL2MacRoute.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_SLL2MacRoute proto.InternalMessageInfo
+func (m *SLL2MacRoute) Reset()                    { *m = SLL2MacRoute{} }
+func (m *SLL2MacRoute) String() string            { return proto.CompactTextString(m) }
+func (*SLL2MacRoute) ProtoMessage()               {}
+func (*SLL2MacRoute) Descriptor() ([]byte, []int) { return fileDescriptor6, []int{11} }
 
 func (m *SLL2MacRoute) GetRouteKey() *SLL2MacRouteKey {
 	if m != nil {
@@ -975,37 +699,15 @@ func (m *SLL2MacRoute) GetNextHopList() []*SLL2RouteNh {
 // IMET route key
 type SLL2ImetRouteKey struct {
 	// Ethernet Tag ID.
-	EthTagId uint32 `protobuf:"varint,1,opt,name=EthTagId,proto3" json:"EthTagId,omitempty"`
+	EthTagId uint32 `protobuf:"varint,1,opt,name=EthTagId" json:"EthTagId,omitempty"`
 	// Ipv4 or Ipv6 address
-	IpAddress            *SLIpAddress `protobuf:"bytes,2,opt,name=IpAddress,proto3" json:"IpAddress,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}     `json:"-"`
-	XXX_unrecognized     []byte       `json:"-"`
-	XXX_sizecache        int32        `json:"-"`
+	IpAddress *SLIpAddress `protobuf:"bytes,2,opt,name=IpAddress" json:"IpAddress,omitempty"`
 }
 
-func (m *SLL2ImetRouteKey) Reset()         { *m = SLL2ImetRouteKey{} }
-func (m *SLL2ImetRouteKey) String() string { return proto.CompactTextString(m) }
-func (*SLL2ImetRouteKey) ProtoMessage()    {}
-func (*SLL2ImetRouteKey) Descriptor() ([]byte, []int) {
-	return fileDescriptor_sl_l2_route_4a32fd6a6409c309, []int{12}
-}
-func (m *SLL2ImetRouteKey) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_SLL2ImetRouteKey.Unmarshal(m, b)
-}
-func (m *SLL2ImetRouteKey) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_SLL2ImetRouteKey.Marshal(b, m, deterministic)
-}
-func (dst *SLL2ImetRouteKey) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_SLL2ImetRouteKey.Merge(dst, src)
-}
-func (m *SLL2ImetRouteKey) XXX_Size() int {
-	return xxx_messageInfo_SLL2ImetRouteKey.Size(m)
-}
-func (m *SLL2ImetRouteKey) XXX_DiscardUnknown() {
-	xxx_messageInfo_SLL2ImetRouteKey.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_SLL2ImetRouteKey proto.InternalMessageInfo
+func (m *SLL2ImetRouteKey) Reset()                    { *m = SLL2ImetRouteKey{} }
+func (m *SLL2ImetRouteKey) String() string            { return proto.CompactTextString(m) }
+func (*SLL2ImetRouteKey) ProtoMessage()               {}
+func (*SLL2ImetRouteKey) Descriptor() ([]byte, []int) { return fileDescriptor6, []int{12} }
 
 func (m *SLL2ImetRouteKey) GetEthTagId() uint32 {
 	if m != nil {
@@ -1024,47 +726,25 @@ func (m *SLL2ImetRouteKey) GetIpAddress() *SLIpAddress {
 // Type-3 EVPN IMET Route
 type SLL2ImetRoute struct {
 	// IMET Route Key
-	RouteKey *SLL2ImetRouteKey `protobuf:"bytes,1,opt,name=RouteKey,proto3" json:"RouteKey,omitempty"`
+	RouteKey *SLL2ImetRouteKey `protobuf:"bytes,1,opt,name=RouteKey" json:"RouteKey,omitempty"`
 	// Encapsulation type (VXLAN or MPLS)
-	EncapType SLEncapType `protobuf:"varint,2,opt,name=EncapType,proto3,enum=service_layer.SLEncapType" json:"EncapType,omitempty"`
+	EncapType SLEncapType `protobuf:"varint,2,opt,name=EncapType,enum=service_layer.SLEncapType" json:"EncapType,omitempty"`
 	// For ENCAP_VXLAN, this field will specify the L2 Virtual Network
 	// Identifier (VNI)
-	Label          uint32                       `protobuf:"varint,3,opt,name=Label,proto3" json:"Label,omitempty"`
-	TunnelType     SLL2ImetRoute_PMSITunnelType `protobuf:"varint,4,opt,name=TunnelType,proto3,enum=service_layer.SLL2ImetRoute_PMSITunnelType" json:"TunnelType,omitempty"`
-	TunnelIdLength uint32                       `protobuf:"varint,5,opt,name=TunnelIdLength,proto3" json:"TunnelIdLength,omitempty"`
+	Label          uint32                       `protobuf:"varint,3,opt,name=Label" json:"Label,omitempty"`
+	TunnelType     SLL2ImetRoute_PMSITunnelType `protobuf:"varint,4,opt,name=TunnelType,enum=service_layer.SLL2ImetRoute_PMSITunnelType" json:"TunnelType,omitempty"`
+	TunnelIdLength uint32                       `protobuf:"varint,5,opt,name=TunnelIdLength" json:"TunnelIdLength,omitempty"`
 	// When the type is set to Ingress Replication the Tunnel
 	// Identifier carries the unicast tunnel endpoint IP
 	// address of the local PE that is to be this PE's receiving
 	// endpoint address for the tunnel.
-	TunnelIdValue        []byte   `protobuf:"bytes,6,opt,name=TunnelIdValue,proto3" json:"TunnelIdValue,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	TunnelIdValue []byte `protobuf:"bytes,6,opt,name=TunnelIdValue,proto3" json:"TunnelIdValue,omitempty"`
 }
 
-func (m *SLL2ImetRoute) Reset()         { *m = SLL2ImetRoute{} }
-func (m *SLL2ImetRoute) String() string { return proto.CompactTextString(m) }
-func (*SLL2ImetRoute) ProtoMessage()    {}
-func (*SLL2ImetRoute) Descriptor() ([]byte, []int) {
-	return fileDescriptor_sl_l2_route_4a32fd6a6409c309, []int{13}
-}
-func (m *SLL2ImetRoute) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_SLL2ImetRoute.Unmarshal(m, b)
-}
-func (m *SLL2ImetRoute) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_SLL2ImetRoute.Marshal(b, m, deterministic)
-}
-func (dst *SLL2ImetRoute) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_SLL2ImetRoute.Merge(dst, src)
-}
-func (m *SLL2ImetRoute) XXX_Size() int {
-	return xxx_messageInfo_SLL2ImetRoute.Size(m)
-}
-func (m *SLL2ImetRoute) XXX_DiscardUnknown() {
-	xxx_messageInfo_SLL2ImetRoute.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_SLL2ImetRoute proto.InternalMessageInfo
+func (m *SLL2ImetRoute) Reset()                    { *m = SLL2ImetRoute{} }
+func (m *SLL2ImetRoute) String() string            { return proto.CompactTextString(m) }
+func (*SLL2ImetRoute) ProtoMessage()               {}
+func (*SLL2ImetRoute) Descriptor() ([]byte, []int) { return fileDescriptor6, []int{13} }
 
 func (m *SLL2ImetRoute) GetRouteKey() *SLL2ImetRouteKey {
 	if m != nil {
@@ -1111,43 +791,42 @@ func (m *SLL2ImetRoute) GetTunnelIdValue() []byte {
 // L2 route key
 type SLL2RouteKey struct {
 	// BD name
-	BdName string `protobuf:"bytes,1,opt,name=BdName,proto3" json:"BdName,omitempty"`
+	BdName string `protobuf:"bytes,1,opt,name=BdName" json:"BdName,omitempty"`
 	// L2 Route Type
-	Type SLL2RouteType `protobuf:"varint,2,opt,name=Type,proto3,enum=service_layer.SLL2RouteType" json:"Type,omitempty"`
+	Type SLL2RouteType `protobuf:"varint,2,opt,name=Type,enum=service_layer.SLL2RouteType" json:"Type,omitempty"`
 	// Further info based on Route Type
 	//
 	// Types that are valid to be assigned to Event:
 	//	*SLL2RouteKey_MacKey
 	//	*SLL2RouteKey_ImetKey
-	Event                isSLL2RouteKey_Event `protobuf_oneof:"Event"`
-	XXX_NoUnkeyedLiteral struct{}             `json:"-"`
-	XXX_unrecognized     []byte               `json:"-"`
-	XXX_sizecache        int32                `json:"-"`
+	Event isSLL2RouteKey_Event `protobuf_oneof:"Event"`
 }
 
-func (m *SLL2RouteKey) Reset()         { *m = SLL2RouteKey{} }
-func (m *SLL2RouteKey) String() string { return proto.CompactTextString(m) }
-func (*SLL2RouteKey) ProtoMessage()    {}
-func (*SLL2RouteKey) Descriptor() ([]byte, []int) {
-	return fileDescriptor_sl_l2_route_4a32fd6a6409c309, []int{14}
-}
-func (m *SLL2RouteKey) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_SLL2RouteKey.Unmarshal(m, b)
-}
-func (m *SLL2RouteKey) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_SLL2RouteKey.Marshal(b, m, deterministic)
-}
-func (dst *SLL2RouteKey) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_SLL2RouteKey.Merge(dst, src)
-}
-func (m *SLL2RouteKey) XXX_Size() int {
-	return xxx_messageInfo_SLL2RouteKey.Size(m)
-}
-func (m *SLL2RouteKey) XXX_DiscardUnknown() {
-	xxx_messageInfo_SLL2RouteKey.DiscardUnknown(m)
+func (m *SLL2RouteKey) Reset()                    { *m = SLL2RouteKey{} }
+func (m *SLL2RouteKey) String() string            { return proto.CompactTextString(m) }
+func (*SLL2RouteKey) ProtoMessage()               {}
+func (*SLL2RouteKey) Descriptor() ([]byte, []int) { return fileDescriptor6, []int{14} }
+
+type isSLL2RouteKey_Event interface {
+	isSLL2RouteKey_Event()
 }
 
-var xxx_messageInfo_SLL2RouteKey proto.InternalMessageInfo
+type SLL2RouteKey_MacKey struct {
+	MacKey *SLL2MacRouteKey `protobuf:"bytes,3,opt,name=MacKey,oneof"`
+}
+type SLL2RouteKey_ImetKey struct {
+	ImetKey *SLL2ImetRouteKey `protobuf:"bytes,4,opt,name=ImetKey,oneof"`
+}
+
+func (*SLL2RouteKey_MacKey) isSLL2RouteKey_Event()  {}
+func (*SLL2RouteKey_ImetKey) isSLL2RouteKey_Event() {}
+
+func (m *SLL2RouteKey) GetEvent() isSLL2RouteKey_Event {
+	if m != nil {
+		return m.Event
+	}
+	return nil
+}
 
 func (m *SLL2RouteKey) GetBdName() string {
 	if m != nil {
@@ -1161,29 +840,6 @@ func (m *SLL2RouteKey) GetType() SLL2RouteType {
 		return m.Type
 	}
 	return SLL2RouteType_SL_L2_ROUTE_RESERVED
-}
-
-type isSLL2RouteKey_Event interface {
-	isSLL2RouteKey_Event()
-}
-
-type SLL2RouteKey_MacKey struct {
-	MacKey *SLL2MacRouteKey `protobuf:"bytes,3,opt,name=MacKey,proto3,oneof"`
-}
-
-type SLL2RouteKey_ImetKey struct {
-	ImetKey *SLL2ImetRouteKey `protobuf:"bytes,4,opt,name=ImetKey,proto3,oneof"`
-}
-
-func (*SLL2RouteKey_MacKey) isSLL2RouteKey_Event() {}
-
-func (*SLL2RouteKey_ImetKey) isSLL2RouteKey_Event() {}
-
-func (m *SLL2RouteKey) GetEvent() isSLL2RouteKey_Event {
-	if m != nil {
-		return m.Event
-	}
-	return nil
 }
 
 func (m *SLL2RouteKey) GetMacKey() *SLL2MacRouteKey {
@@ -1259,12 +915,12 @@ func _SLL2RouteKey_OneofSizer(msg proto.Message) (n int) {
 	switch x := m.Event.(type) {
 	case *SLL2RouteKey_MacKey:
 		s := proto.Size(x.MacKey)
-		n += 1 // tag and wire
+		n += proto.SizeVarint(3<<3 | proto.WireBytes)
 		n += proto.SizeVarint(uint64(s))
 		n += s
 	case *SLL2RouteKey_ImetKey:
 		s := proto.Size(x.ImetKey)
-		n += 1 // tag and wire
+		n += proto.SizeVarint(4<<3 | proto.WireBytes)
 		n += proto.SizeVarint(uint64(s))
 		n += s
 	case nil:
@@ -1277,43 +933,42 @@ func _SLL2RouteKey_OneofSizer(msg proto.Message) (n int) {
 // L2 route
 type SLL2Route struct {
 	// BD name
-	BdName string `protobuf:"bytes,1,opt,name=BdName,proto3" json:"BdName,omitempty"`
+	BdName string `protobuf:"bytes,1,opt,name=BdName" json:"BdName,omitempty"`
 	// L2 Route Type to be programmed
-	Type SLL2RouteType `protobuf:"varint,2,opt,name=Type,proto3,enum=service_layer.SLL2RouteType" json:"Type,omitempty"`
+	Type SLL2RouteType `protobuf:"varint,2,opt,name=Type,enum=service_layer.SLL2RouteType" json:"Type,omitempty"`
 	// Further info based on Route Type
 	//
 	// Types that are valid to be assigned to Event:
 	//	*SLL2Route_MacRoute
 	//	*SLL2Route_ImetRoute
-	Event                isSLL2Route_Event `protobuf_oneof:"Event"`
-	XXX_NoUnkeyedLiteral struct{}          `json:"-"`
-	XXX_unrecognized     []byte            `json:"-"`
-	XXX_sizecache        int32             `json:"-"`
+	Event isSLL2Route_Event `protobuf_oneof:"Event"`
 }
 
-func (m *SLL2Route) Reset()         { *m = SLL2Route{} }
-func (m *SLL2Route) String() string { return proto.CompactTextString(m) }
-func (*SLL2Route) ProtoMessage()    {}
-func (*SLL2Route) Descriptor() ([]byte, []int) {
-	return fileDescriptor_sl_l2_route_4a32fd6a6409c309, []int{15}
-}
-func (m *SLL2Route) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_SLL2Route.Unmarshal(m, b)
-}
-func (m *SLL2Route) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_SLL2Route.Marshal(b, m, deterministic)
-}
-func (dst *SLL2Route) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_SLL2Route.Merge(dst, src)
-}
-func (m *SLL2Route) XXX_Size() int {
-	return xxx_messageInfo_SLL2Route.Size(m)
-}
-func (m *SLL2Route) XXX_DiscardUnknown() {
-	xxx_messageInfo_SLL2Route.DiscardUnknown(m)
+func (m *SLL2Route) Reset()                    { *m = SLL2Route{} }
+func (m *SLL2Route) String() string            { return proto.CompactTextString(m) }
+func (*SLL2Route) ProtoMessage()               {}
+func (*SLL2Route) Descriptor() ([]byte, []int) { return fileDescriptor6, []int{15} }
+
+type isSLL2Route_Event interface {
+	isSLL2Route_Event()
 }
 
-var xxx_messageInfo_SLL2Route proto.InternalMessageInfo
+type SLL2Route_MacRoute struct {
+	MacRoute *SLL2MacRoute `protobuf:"bytes,3,opt,name=MacRoute,oneof"`
+}
+type SLL2Route_ImetRoute struct {
+	ImetRoute *SLL2ImetRoute `protobuf:"bytes,4,opt,name=ImetRoute,oneof"`
+}
+
+func (*SLL2Route_MacRoute) isSLL2Route_Event()  {}
+func (*SLL2Route_ImetRoute) isSLL2Route_Event() {}
+
+func (m *SLL2Route) GetEvent() isSLL2Route_Event {
+	if m != nil {
+		return m.Event
+	}
+	return nil
+}
 
 func (m *SLL2Route) GetBdName() string {
 	if m != nil {
@@ -1327,29 +982,6 @@ func (m *SLL2Route) GetType() SLL2RouteType {
 		return m.Type
 	}
 	return SLL2RouteType_SL_L2_ROUTE_RESERVED
-}
-
-type isSLL2Route_Event interface {
-	isSLL2Route_Event()
-}
-
-type SLL2Route_MacRoute struct {
-	MacRoute *SLL2MacRoute `protobuf:"bytes,3,opt,name=MacRoute,proto3,oneof"`
-}
-
-type SLL2Route_ImetRoute struct {
-	ImetRoute *SLL2ImetRoute `protobuf:"bytes,4,opt,name=ImetRoute,proto3,oneof"`
-}
-
-func (*SLL2Route_MacRoute) isSLL2Route_Event() {}
-
-func (*SLL2Route_ImetRoute) isSLL2Route_Event() {}
-
-func (m *SLL2Route) GetEvent() isSLL2Route_Event {
-	if m != nil {
-		return m.Event
-	}
-	return nil
 }
 
 func (m *SLL2Route) GetMacRoute() *SLL2MacRoute {
@@ -1425,12 +1057,12 @@ func _SLL2Route_OneofSizer(msg proto.Message) (n int) {
 	switch x := m.Event.(type) {
 	case *SLL2Route_MacRoute:
 		s := proto.Size(x.MacRoute)
-		n += 1 // tag and wire
+		n += proto.SizeVarint(3<<3 | proto.WireBytes)
 		n += proto.SizeVarint(uint64(s))
 		n += s
 	case *SLL2Route_ImetRoute:
 		s := proto.Size(x.ImetRoute)
-		n += 1 // tag and wire
+		n += proto.SizeVarint(4<<3 | proto.WireBytes)
 		n += proto.SizeVarint(uint64(s))
 		n += s
 	case nil:
@@ -1444,40 +1076,18 @@ func _SLL2Route_OneofSizer(msg proto.Message) (n int) {
 type SLL2RouteMsg struct {
 	// Correlator. This can be used to correlate replies with requests.
 	// The Server simply reflects this field back in the reply.
-	Correlator uint64 `protobuf:"varint,1,opt,name=Correlator,proto3" json:"Correlator,omitempty"`
+	Correlator uint64 `protobuf:"varint,1,opt,name=Correlator" json:"Correlator,omitempty"`
 	// Route Object Operations
-	Oper SLObjectOp `protobuf:"varint,2,opt,name=Oper,proto3,enum=service_layer.SLObjectOp" json:"Oper,omitempty"`
+	Oper SLObjectOp `protobuf:"varint,2,opt,name=Oper,enum=service_layer.SLObjectOp" json:"Oper,omitempty"`
 	// List of L2 Routes
 	// The list may contain routes from different BDs.
-	Routes               []*SLL2Route `protobuf:"bytes,3,rep,name=Routes,proto3" json:"Routes,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}     `json:"-"`
-	XXX_unrecognized     []byte       `json:"-"`
-	XXX_sizecache        int32        `json:"-"`
+	Routes []*SLL2Route `protobuf:"bytes,3,rep,name=Routes" json:"Routes,omitempty"`
 }
 
-func (m *SLL2RouteMsg) Reset()         { *m = SLL2RouteMsg{} }
-func (m *SLL2RouteMsg) String() string { return proto.CompactTextString(m) }
-func (*SLL2RouteMsg) ProtoMessage()    {}
-func (*SLL2RouteMsg) Descriptor() ([]byte, []int) {
-	return fileDescriptor_sl_l2_route_4a32fd6a6409c309, []int{16}
-}
-func (m *SLL2RouteMsg) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_SLL2RouteMsg.Unmarshal(m, b)
-}
-func (m *SLL2RouteMsg) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_SLL2RouteMsg.Marshal(b, m, deterministic)
-}
-func (dst *SLL2RouteMsg) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_SLL2RouteMsg.Merge(dst, src)
-}
-func (m *SLL2RouteMsg) XXX_Size() int {
-	return xxx_messageInfo_SLL2RouteMsg.Size(m)
-}
-func (m *SLL2RouteMsg) XXX_DiscardUnknown() {
-	xxx_messageInfo_SLL2RouteMsg.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_SLL2RouteMsg proto.InternalMessageInfo
+func (m *SLL2RouteMsg) Reset()                    { *m = SLL2RouteMsg{} }
+func (m *SLL2RouteMsg) String() string            { return proto.CompactTextString(m) }
+func (*SLL2RouteMsg) ProtoMessage()               {}
+func (*SLL2RouteMsg) Descriptor() ([]byte, []int) { return fileDescriptor6, []int{16} }
 
 func (m *SLL2RouteMsg) GetCorrelator() uint64 {
 	if m != nil {
@@ -1503,37 +1113,15 @@ func (m *SLL2RouteMsg) GetRoutes() []*SLL2Route {
 // L2 route result, uniquely identified by BD + L2 route key
 type SLL2RouteRes struct {
 	// Corresponding error code
-	ErrStatus *SLErrorStatus `protobuf:"bytes,1,opt,name=ErrStatus,proto3" json:"ErrStatus,omitempty"`
+	ErrStatus *SLErrorStatus `protobuf:"bytes,1,opt,name=ErrStatus" json:"ErrStatus,omitempty"`
 	// L2 Route Key
-	RouteKey             *SLL2RouteKey `protobuf:"bytes,2,opt,name=RouteKey,proto3" json:"RouteKey,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}      `json:"-"`
-	XXX_unrecognized     []byte        `json:"-"`
-	XXX_sizecache        int32         `json:"-"`
+	RouteKey *SLL2RouteKey `protobuf:"bytes,2,opt,name=RouteKey" json:"RouteKey,omitempty"`
 }
 
-func (m *SLL2RouteRes) Reset()         { *m = SLL2RouteRes{} }
-func (m *SLL2RouteRes) String() string { return proto.CompactTextString(m) }
-func (*SLL2RouteRes) ProtoMessage()    {}
-func (*SLL2RouteRes) Descriptor() ([]byte, []int) {
-	return fileDescriptor_sl_l2_route_4a32fd6a6409c309, []int{17}
-}
-func (m *SLL2RouteRes) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_SLL2RouteRes.Unmarshal(m, b)
-}
-func (m *SLL2RouteRes) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_SLL2RouteRes.Marshal(b, m, deterministic)
-}
-func (dst *SLL2RouteRes) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_SLL2RouteRes.Merge(dst, src)
-}
-func (m *SLL2RouteRes) XXX_Size() int {
-	return xxx_messageInfo_SLL2RouteRes.Size(m)
-}
-func (m *SLL2RouteRes) XXX_DiscardUnknown() {
-	xxx_messageInfo_SLL2RouteRes.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_SLL2RouteRes proto.InternalMessageInfo
+func (m *SLL2RouteRes) Reset()                    { *m = SLL2RouteRes{} }
+func (m *SLL2RouteRes) String() string            { return proto.CompactTextString(m) }
+func (*SLL2RouteRes) ProtoMessage()               {}
+func (*SLL2RouteRes) Descriptor() ([]byte, []int) { return fileDescriptor6, []int{17} }
 
 func (m *SLL2RouteRes) GetErrStatus() *SLErrorStatus {
 	if m != nil {
@@ -1553,7 +1141,7 @@ func (m *SLL2RouteRes) GetRouteKey() *SLL2RouteKey {
 type SLL2RouteMsgRsp struct {
 	// Correlator. This can be used to correlate replies with requests.
 	// The Server simply reflects this field back in the reply.
-	Correlator uint64 `protobuf:"varint,1,opt,name=Correlator,proto3" json:"Correlator,omitempty"`
+	Correlator uint64 `protobuf:"varint,1,opt,name=Correlator" json:"Correlator,omitempty"`
 	// Summary result of the bulk operation (refer to enum SLErrorStatus)
 	// In general, the StatusSummary implies one of 3 things:
 	// 1. SL_SUCCESS: signifies that the entire bulk operation was successful.
@@ -1563,38 +1151,16 @@ type SLL2RouteMsgRsp struct {
 	//         each individual entry in the bulk.
 	// 3. SL_RPC_XXX: signifies that the entire bulk operation failed.
 	//         In this case, the Results list is empty.
-	StatusSummary *SLErrorStatus `protobuf:"bytes,2,opt,name=StatusSummary,proto3" json:"StatusSummary,omitempty"`
+	StatusSummary *SLErrorStatus `protobuf:"bytes,2,opt,name=StatusSummary" json:"StatusSummary,omitempty"`
 	// In case of errors, this field indicates which entry in the bulk was
 	// erroneous.
-	Results              []*SLL2RouteRes `protobuf:"bytes,3,rep,name=Results,proto3" json:"Results,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}        `json:"-"`
-	XXX_unrecognized     []byte          `json:"-"`
-	XXX_sizecache        int32           `json:"-"`
+	Results []*SLL2RouteRes `protobuf:"bytes,3,rep,name=Results" json:"Results,omitempty"`
 }
 
-func (m *SLL2RouteMsgRsp) Reset()         { *m = SLL2RouteMsgRsp{} }
-func (m *SLL2RouteMsgRsp) String() string { return proto.CompactTextString(m) }
-func (*SLL2RouteMsgRsp) ProtoMessage()    {}
-func (*SLL2RouteMsgRsp) Descriptor() ([]byte, []int) {
-	return fileDescriptor_sl_l2_route_4a32fd6a6409c309, []int{18}
-}
-func (m *SLL2RouteMsgRsp) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_SLL2RouteMsgRsp.Unmarshal(m, b)
-}
-func (m *SLL2RouteMsgRsp) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_SLL2RouteMsgRsp.Marshal(b, m, deterministic)
-}
-func (dst *SLL2RouteMsgRsp) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_SLL2RouteMsgRsp.Merge(dst, src)
-}
-func (m *SLL2RouteMsgRsp) XXX_Size() int {
-	return xxx_messageInfo_SLL2RouteMsgRsp.Size(m)
-}
-func (m *SLL2RouteMsgRsp) XXX_DiscardUnknown() {
-	xxx_messageInfo_SLL2RouteMsgRsp.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_SLL2RouteMsgRsp proto.InternalMessageInfo
+func (m *SLL2RouteMsgRsp) Reset()                    { *m = SLL2RouteMsgRsp{} }
+func (m *SLL2RouteMsgRsp) String() string            { return proto.CompactTextString(m) }
+func (*SLL2RouteMsgRsp) ProtoMessage()               {}
+func (*SLL2RouteMsgRsp) Descriptor() ([]byte, []int) { return fileDescriptor6, []int{18} }
 
 func (m *SLL2RouteMsgRsp) GetCorrelator() uint64 {
 	if m != nil {
@@ -1623,10 +1189,10 @@ type SLL2GetNotifMsg struct {
 	//   This is to enable route notifications
 	// Oper = SL_NOTIFOP_DISABLE
 	//   This is to disable route notifications
-	Oper SLNotifOp `protobuf:"varint,1,opt,name=Oper,proto3,enum=service_layer.SLNotifOp" json:"Oper,omitempty"`
+	Oper SLNotifOp `protobuf:"varint,1,opt,name=Oper,enum=service_layer.SLNotifOp" json:"Oper,omitempty"`
 	// Correlator. This is used to correlate GetNotifMsg with
 	// NotifMsgStatus. The server reflects this field in the reply.
-	Correlator uint64 `protobuf:"varint,2,opt,name=Correlator,proto3" json:"Correlator,omitempty"`
+	Correlator uint64 `protobuf:"varint,2,opt,name=Correlator" json:"Correlator,omitempty"`
 	// End of file.
 	// When set to True, it indicates that the client is done with sending
 	// requests for notifications.
@@ -1634,39 +1200,38 @@ type SLL2GetNotifMsg struct {
 	// It is useful when client is sending per-BD notification requests.
 	// The client can send this after receiving
 	// SL_L2_EVENT_TYPE_BD_STATE_END_MARKER.
-	GetNotifEof bool `protobuf:"varint,3,opt,name=GetNotifEof,proto3" json:"GetNotifEof,omitempty"`
+	GetNotifEof bool `protobuf:"varint,3,opt,name=GetNotifEof" json:"GetNotifEof,omitempty"`
 	// Types that are valid to be assigned to Request:
 	//	*SLL2GetNotifMsg_BdAll
 	//	*SLL2GetNotifMsg_BdName
-	Request              isSLL2GetNotifMsg_Request `protobuf_oneof:"Request"`
-	XXX_NoUnkeyedLiteral struct{}                  `json:"-"`
-	XXX_unrecognized     []byte                    `json:"-"`
-	XXX_sizecache        int32                     `json:"-"`
+	Request isSLL2GetNotifMsg_Request `protobuf_oneof:"Request"`
 }
 
-func (m *SLL2GetNotifMsg) Reset()         { *m = SLL2GetNotifMsg{} }
-func (m *SLL2GetNotifMsg) String() string { return proto.CompactTextString(m) }
-func (*SLL2GetNotifMsg) ProtoMessage()    {}
-func (*SLL2GetNotifMsg) Descriptor() ([]byte, []int) {
-	return fileDescriptor_sl_l2_route_4a32fd6a6409c309, []int{19}
-}
-func (m *SLL2GetNotifMsg) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_SLL2GetNotifMsg.Unmarshal(m, b)
-}
-func (m *SLL2GetNotifMsg) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_SLL2GetNotifMsg.Marshal(b, m, deterministic)
-}
-func (dst *SLL2GetNotifMsg) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_SLL2GetNotifMsg.Merge(dst, src)
-}
-func (m *SLL2GetNotifMsg) XXX_Size() int {
-	return xxx_messageInfo_SLL2GetNotifMsg.Size(m)
-}
-func (m *SLL2GetNotifMsg) XXX_DiscardUnknown() {
-	xxx_messageInfo_SLL2GetNotifMsg.DiscardUnknown(m)
+func (m *SLL2GetNotifMsg) Reset()                    { *m = SLL2GetNotifMsg{} }
+func (m *SLL2GetNotifMsg) String() string            { return proto.CompactTextString(m) }
+func (*SLL2GetNotifMsg) ProtoMessage()               {}
+func (*SLL2GetNotifMsg) Descriptor() ([]byte, []int) { return fileDescriptor6, []int{19} }
+
+type isSLL2GetNotifMsg_Request interface {
+	isSLL2GetNotifMsg_Request()
 }
 
-var xxx_messageInfo_SLL2GetNotifMsg proto.InternalMessageInfo
+type SLL2GetNotifMsg_BdAll struct {
+	BdAll bool `protobuf:"varint,4,opt,name=BdAll,oneof"`
+}
+type SLL2GetNotifMsg_BdName struct {
+	BdName string `protobuf:"bytes,5,opt,name=BdName,oneof"`
+}
+
+func (*SLL2GetNotifMsg_BdAll) isSLL2GetNotifMsg_Request()  {}
+func (*SLL2GetNotifMsg_BdName) isSLL2GetNotifMsg_Request() {}
+
+func (m *SLL2GetNotifMsg) GetRequest() isSLL2GetNotifMsg_Request {
+	if m != nil {
+		return m.Request
+	}
+	return nil
+}
 
 func (m *SLL2GetNotifMsg) GetOper() SLNotifOp {
 	if m != nil {
@@ -1687,29 +1252,6 @@ func (m *SLL2GetNotifMsg) GetGetNotifEof() bool {
 		return m.GetNotifEof
 	}
 	return false
-}
-
-type isSLL2GetNotifMsg_Request interface {
-	isSLL2GetNotifMsg_Request()
-}
-
-type SLL2GetNotifMsg_BdAll struct {
-	BdAll bool `protobuf:"varint,4,opt,name=BdAll,proto3,oneof"`
-}
-
-type SLL2GetNotifMsg_BdName struct {
-	BdName string `protobuf:"bytes,5,opt,name=BdName,proto3,oneof"`
-}
-
-func (*SLL2GetNotifMsg_BdAll) isSLL2GetNotifMsg_Request() {}
-
-func (*SLL2GetNotifMsg_BdName) isSLL2GetNotifMsg_Request() {}
-
-func (m *SLL2GetNotifMsg) GetRequest() isSLL2GetNotifMsg_Request {
-	if m != nil {
-		return m.Request
-	}
-	return nil
 }
 
 func (m *SLL2GetNotifMsg) GetBdAll() bool {
@@ -1782,10 +1324,10 @@ func _SLL2GetNotifMsg_OneofSizer(msg proto.Message) (n int) {
 	// Request
 	switch x := m.Request.(type) {
 	case *SLL2GetNotifMsg_BdAll:
-		n += 1 // tag and wire
+		n += proto.SizeVarint(4<<3 | proto.WireVarint)
 		n += 1
 	case *SLL2GetNotifMsg_BdName:
-		n += 1 // tag and wire
+		n += proto.SizeVarint(5<<3 | proto.WireBytes)
 		n += proto.SizeVarint(uint64(len(x.BdName)))
 		n += len(x.BdName)
 	case nil:
@@ -1798,37 +1340,15 @@ func _SLL2GetNotifMsg_OneofSizer(msg proto.Message) (n int) {
 // L2 Route notification
 type SLL2RouteNotif struct {
 	// Route Object Operations
-	Oper SLObjectOp `protobuf:"varint,1,opt,name=Oper,proto3,enum=service_layer.SLObjectOp" json:"Oper,omitempty"`
+	Oper SLObjectOp `protobuf:"varint,1,opt,name=Oper,enum=service_layer.SLObjectOp" json:"Oper,omitempty"`
 	// L2 route
-	Routes               *SLL2Route `protobuf:"bytes,2,opt,name=Routes,proto3" json:"Routes,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}   `json:"-"`
-	XXX_unrecognized     []byte     `json:"-"`
-	XXX_sizecache        int32      `json:"-"`
+	Routes *SLL2Route `protobuf:"bytes,2,opt,name=Routes" json:"Routes,omitempty"`
 }
 
-func (m *SLL2RouteNotif) Reset()         { *m = SLL2RouteNotif{} }
-func (m *SLL2RouteNotif) String() string { return proto.CompactTextString(m) }
-func (*SLL2RouteNotif) ProtoMessage()    {}
-func (*SLL2RouteNotif) Descriptor() ([]byte, []int) {
-	return fileDescriptor_sl_l2_route_4a32fd6a6409c309, []int{20}
-}
-func (m *SLL2RouteNotif) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_SLL2RouteNotif.Unmarshal(m, b)
-}
-func (m *SLL2RouteNotif) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_SLL2RouteNotif.Marshal(b, m, deterministic)
-}
-func (dst *SLL2RouteNotif) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_SLL2RouteNotif.Merge(dst, src)
-}
-func (m *SLL2RouteNotif) XXX_Size() int {
-	return xxx_messageInfo_SLL2RouteNotif.Size(m)
-}
-func (m *SLL2RouteNotif) XXX_DiscardUnknown() {
-	xxx_messageInfo_SLL2RouteNotif.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_SLL2RouteNotif proto.InternalMessageInfo
+func (m *SLL2RouteNotif) Reset()                    { *m = SLL2RouteNotif{} }
+func (m *SLL2RouteNotif) String() string            { return proto.CompactTextString(m) }
+func (*SLL2RouteNotif) ProtoMessage()               {}
+func (*SLL2RouteNotif) Descriptor() ([]byte, []int) { return fileDescriptor6, []int{20} }
 
 func (m *SLL2RouteNotif) GetOper() SLObjectOp {
 	if m != nil {
@@ -1847,36 +1367,14 @@ func (m *SLL2RouteNotif) GetRoutes() *SLL2Route {
 // Bridge-Domain (BD) state info
 type SLL2BdStateInfo struct {
 	// BD name
-	BdName               string                      `protobuf:"bytes,1,opt,name=BdName,proto3" json:"BdName,omitempty"`
-	BdState              SLL2BdStateInfo_SLL2BdState `protobuf:"varint,2,opt,name=BdState,proto3,enum=service_layer.SLL2BdStateInfo_SLL2BdState" json:"BdState,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}                    `json:"-"`
-	XXX_unrecognized     []byte                      `json:"-"`
-	XXX_sizecache        int32                       `json:"-"`
+	BdName  string                      `protobuf:"bytes,1,opt,name=BdName" json:"BdName,omitempty"`
+	BdState SLL2BdStateInfo_SLL2BdState `protobuf:"varint,2,opt,name=BdState,enum=service_layer.SLL2BdStateInfo_SLL2BdState" json:"BdState,omitempty"`
 }
 
-func (m *SLL2BdStateInfo) Reset()         { *m = SLL2BdStateInfo{} }
-func (m *SLL2BdStateInfo) String() string { return proto.CompactTextString(m) }
-func (*SLL2BdStateInfo) ProtoMessage()    {}
-func (*SLL2BdStateInfo) Descriptor() ([]byte, []int) {
-	return fileDescriptor_sl_l2_route_4a32fd6a6409c309, []int{21}
-}
-func (m *SLL2BdStateInfo) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_SLL2BdStateInfo.Unmarshal(m, b)
-}
-func (m *SLL2BdStateInfo) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_SLL2BdStateInfo.Marshal(b, m, deterministic)
-}
-func (dst *SLL2BdStateInfo) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_SLL2BdStateInfo.Merge(dst, src)
-}
-func (m *SLL2BdStateInfo) XXX_Size() int {
-	return xxx_messageInfo_SLL2BdStateInfo.Size(m)
-}
-func (m *SLL2BdStateInfo) XXX_DiscardUnknown() {
-	xxx_messageInfo_SLL2BdStateInfo.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_SLL2BdStateInfo proto.InternalMessageInfo
+func (m *SLL2BdStateInfo) Reset()                    { *m = SLL2BdStateInfo{} }
+func (m *SLL2BdStateInfo) String() string            { return proto.CompactTextString(m) }
+func (*SLL2BdStateInfo) ProtoMessage()               {}
+func (*SLL2BdStateInfo) Descriptor() ([]byte, []int) { return fileDescriptor6, []int{21} }
 
 func (m *SLL2BdStateInfo) GetBdName() string {
 	if m != nil {
@@ -1895,46 +1393,24 @@ func (m *SLL2BdStateInfo) GetBdState() SLL2BdStateInfo_SLL2BdState {
 // L2 Notification Status message
 type SLL2NotifStatusMsg struct {
 	// Notification Operation in the request
-	Oper SLNotifOp `protobuf:"varint,1,opt,name=Oper,proto3,enum=service_layer.SLNotifOp" json:"Oper,omitempty"`
+	Oper SLNotifOp `protobuf:"varint,1,opt,name=Oper,enum=service_layer.SLNotifOp" json:"Oper,omitempty"`
 	// Correlator in the request.
-	Correlator uint64 `protobuf:"varint,2,opt,name=Correlator,proto3" json:"Correlator,omitempty"`
+	Correlator uint64 `protobuf:"varint,2,opt,name=Correlator" json:"Correlator,omitempty"`
 	// BD in the request.
 	// This is not set if the request was for all BDs
-	BdName string `protobuf:"bytes,3,opt,name=BdName,proto3" json:"BdName,omitempty"`
+	BdName string `protobuf:"bytes,3,opt,name=BdName" json:"BdName,omitempty"`
 	// The NotifStatus implies one of 2 things:
 	// SL_SUCCESS: signifies that the notification request was successful
 	// SL_XXX: signifies an error in setting up a notification.
 	//  If BdName is passed, it implies that notifications for the BD
 	//  will not be sent.
-	NotifStatus          *SLErrorStatus `protobuf:"bytes,4,opt,name=NotifStatus,proto3" json:"NotifStatus,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}       `json:"-"`
-	XXX_unrecognized     []byte         `json:"-"`
-	XXX_sizecache        int32          `json:"-"`
+	NotifStatus *SLErrorStatus `protobuf:"bytes,4,opt,name=NotifStatus" json:"NotifStatus,omitempty"`
 }
 
-func (m *SLL2NotifStatusMsg) Reset()         { *m = SLL2NotifStatusMsg{} }
-func (m *SLL2NotifStatusMsg) String() string { return proto.CompactTextString(m) }
-func (*SLL2NotifStatusMsg) ProtoMessage()    {}
-func (*SLL2NotifStatusMsg) Descriptor() ([]byte, []int) {
-	return fileDescriptor_sl_l2_route_4a32fd6a6409c309, []int{22}
-}
-func (m *SLL2NotifStatusMsg) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_SLL2NotifStatusMsg.Unmarshal(m, b)
-}
-func (m *SLL2NotifStatusMsg) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_SLL2NotifStatusMsg.Marshal(b, m, deterministic)
-}
-func (dst *SLL2NotifStatusMsg) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_SLL2NotifStatusMsg.Merge(dst, src)
-}
-func (m *SLL2NotifStatusMsg) XXX_Size() int {
-	return xxx_messageInfo_SLL2NotifStatusMsg.Size(m)
-}
-func (m *SLL2NotifStatusMsg) XXX_DiscardUnknown() {
-	xxx_messageInfo_SLL2NotifStatusMsg.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_SLL2NotifStatusMsg proto.InternalMessageInfo
+func (m *SLL2NotifStatusMsg) Reset()                    { *m = SLL2NotifStatusMsg{} }
+func (m *SLL2NotifStatusMsg) String() string            { return proto.CompactTextString(m) }
+func (*SLL2NotifStatusMsg) ProtoMessage()               {}
+func (*SLL2NotifStatusMsg) Descriptor() ([]byte, []int) { return fileDescriptor6, []int{22} }
 
 func (m *SLL2NotifStatusMsg) GetOper() SLNotifOp {
 	if m != nil {
@@ -1967,7 +1443,7 @@ func (m *SLL2NotifStatusMsg) GetNotifStatus() *SLErrorStatus {
 // L2 Notification.
 type SLL2Notif struct {
 	// L2 Notification type
-	EventType SLL2NotifType `protobuf:"varint,1,opt,name=EventType,proto3,enum=service_layer.SLL2NotifType" json:"EventType,omitempty"`
+	EventType SLL2NotifType `protobuf:"varint,1,opt,name=EventType,enum=service_layer.SLL2NotifType" json:"EventType,omitempty"`
 	// Further info based on EventType
 	//
 	// Types that are valid to be assigned to Event:
@@ -1975,76 +1451,48 @@ type SLL2Notif struct {
 	//	*SLL2Notif_NotifStatus
 	//	*SLL2Notif_BdStateInfo
 	//	*SLL2Notif_Route
-	Event                isSLL2Notif_Event `protobuf_oneof:"Event"`
-	XXX_NoUnkeyedLiteral struct{}          `json:"-"`
-	XXX_unrecognized     []byte            `json:"-"`
-	XXX_sizecache        int32             `json:"-"`
+	Event isSLL2Notif_Event `protobuf_oneof:"Event"`
 }
 
-func (m *SLL2Notif) Reset()         { *m = SLL2Notif{} }
-func (m *SLL2Notif) String() string { return proto.CompactTextString(m) }
-func (*SLL2Notif) ProtoMessage()    {}
-func (*SLL2Notif) Descriptor() ([]byte, []int) {
-	return fileDescriptor_sl_l2_route_4a32fd6a6409c309, []int{23}
-}
-func (m *SLL2Notif) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_SLL2Notif.Unmarshal(m, b)
-}
-func (m *SLL2Notif) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_SLL2Notif.Marshal(b, m, deterministic)
-}
-func (dst *SLL2Notif) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_SLL2Notif.Merge(dst, src)
-}
-func (m *SLL2Notif) XXX_Size() int {
-	return xxx_messageInfo_SLL2Notif.Size(m)
-}
-func (m *SLL2Notif) XXX_DiscardUnknown() {
-	xxx_messageInfo_SLL2Notif.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_SLL2Notif proto.InternalMessageInfo
-
-func (m *SLL2Notif) GetEventType() SLL2NotifType {
-	if m != nil {
-		return m.EventType
-	}
-	return SLL2NotifType_SL_L2_EVENT_TYPE_RESERVED
-}
+func (m *SLL2Notif) Reset()                    { *m = SLL2Notif{} }
+func (m *SLL2Notif) String() string            { return proto.CompactTextString(m) }
+func (*SLL2Notif) ProtoMessage()               {}
+func (*SLL2Notif) Descriptor() ([]byte, []int) { return fileDescriptor6, []int{23} }
 
 type isSLL2Notif_Event interface {
 	isSLL2Notif_Event()
 }
 
 type SLL2Notif_ErrStatus struct {
-	ErrStatus *SLErrorStatus `protobuf:"bytes,2,opt,name=ErrStatus,proto3,oneof"`
+	ErrStatus *SLErrorStatus `protobuf:"bytes,2,opt,name=ErrStatus,oneof"`
 }
-
 type SLL2Notif_NotifStatus struct {
-	NotifStatus *SLL2NotifStatusMsg `protobuf:"bytes,3,opt,name=NotifStatus,proto3,oneof"`
+	NotifStatus *SLL2NotifStatusMsg `protobuf:"bytes,3,opt,name=NotifStatus,oneof"`
 }
-
 type SLL2Notif_BdStateInfo struct {
-	BdStateInfo *SLL2BdStateInfo `protobuf:"bytes,4,opt,name=BdStateInfo,proto3,oneof"`
+	BdStateInfo *SLL2BdStateInfo `protobuf:"bytes,4,opt,name=BdStateInfo,oneof"`
 }
-
 type SLL2Notif_Route struct {
-	Route *SLL2RouteNotif `protobuf:"bytes,5,opt,name=Route,proto3,oneof"`
+	Route *SLL2RouteNotif `protobuf:"bytes,5,opt,name=Route,oneof"`
 }
 
-func (*SLL2Notif_ErrStatus) isSLL2Notif_Event() {}
-
+func (*SLL2Notif_ErrStatus) isSLL2Notif_Event()   {}
 func (*SLL2Notif_NotifStatus) isSLL2Notif_Event() {}
-
 func (*SLL2Notif_BdStateInfo) isSLL2Notif_Event() {}
-
-func (*SLL2Notif_Route) isSLL2Notif_Event() {}
+func (*SLL2Notif_Route) isSLL2Notif_Event()       {}
 
 func (m *SLL2Notif) GetEvent() isSLL2Notif_Event {
 	if m != nil {
 		return m.Event
 	}
 	return nil
+}
+
+func (m *SLL2Notif) GetEventType() SLL2NotifType {
+	if m != nil {
+		return m.EventType
+	}
+	return SLL2NotifType_SL_L2_EVENT_TYPE_RESERVED
 }
 
 func (m *SLL2Notif) GetErrStatus() *SLErrorStatus {
@@ -2162,22 +1610,22 @@ func _SLL2Notif_OneofSizer(msg proto.Message) (n int) {
 	switch x := m.Event.(type) {
 	case *SLL2Notif_ErrStatus:
 		s := proto.Size(x.ErrStatus)
-		n += 1 // tag and wire
+		n += proto.SizeVarint(2<<3 | proto.WireBytes)
 		n += proto.SizeVarint(uint64(s))
 		n += s
 	case *SLL2Notif_NotifStatus:
 		s := proto.Size(x.NotifStatus)
-		n += 1 // tag and wire
+		n += proto.SizeVarint(3<<3 | proto.WireBytes)
 		n += proto.SizeVarint(uint64(s))
 		n += s
 	case *SLL2Notif_BdStateInfo:
 		s := proto.Size(x.BdStateInfo)
-		n += 1 // tag and wire
+		n += proto.SizeVarint(4<<3 | proto.WireBytes)
 		n += proto.SizeVarint(uint64(s))
 		n += s
 	case *SLL2Notif_Route:
 		s := proto.Size(x.Route)
-		n += 1 // tag and wire
+		n += proto.SizeVarint(5<<3 | proto.WireBytes)
 		n += proto.SizeVarint(uint64(s))
 		n += s
 	case nil:
@@ -2227,9 +1675,8 @@ var _ grpc.ClientConn
 // is compatible with the grpc package it is being compiled against.
 const _ = grpc.SupportPackageIsVersion4
 
-// SLL2OperClient is the client API for SLL2Oper service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
+// Client API for SLL2Oper service
+
 type SLL2OperClient interface {
 	// Used to retrieve global L2 info from the server.
 	SLL2GlobalsGet(ctx context.Context, in *SLL2GlobalsGetMsg, opts ...grpc.CallOption) (*SLL2GlobalsGetMsgRsp, error)
@@ -2323,7 +1770,7 @@ func NewSLL2OperClient(cc *grpc.ClientConn) SLL2OperClient {
 
 func (c *sLL2OperClient) SLL2GlobalsGet(ctx context.Context, in *SLL2GlobalsGetMsg, opts ...grpc.CallOption) (*SLL2GlobalsGetMsgRsp, error) {
 	out := new(SLL2GlobalsGetMsgRsp)
-	err := c.cc.Invoke(ctx, "/service_layer.SLL2Oper/SLL2GlobalsGet", in, out, opts...)
+	err := grpc.Invoke(ctx, "/service_layer.SLL2Oper/SLL2GlobalsGet", in, out, c.cc, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -2332,7 +1779,7 @@ func (c *sLL2OperClient) SLL2GlobalsGet(ctx context.Context, in *SLL2GlobalsGetM
 
 func (c *sLL2OperClient) SLL2RegOp(ctx context.Context, in *SLL2RegMsg, opts ...grpc.CallOption) (*SLL2RegMsgRsp, error) {
 	out := new(SLL2RegMsgRsp)
-	err := c.cc.Invoke(ctx, "/service_layer.SLL2Oper/SLL2RegOp", in, out, opts...)
+	err := grpc.Invoke(ctx, "/service_layer.SLL2Oper/SLL2RegOp", in, out, c.cc, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -2341,7 +1788,7 @@ func (c *sLL2OperClient) SLL2RegOp(ctx context.Context, in *SLL2RegMsg, opts ...
 
 func (c *sLL2OperClient) SLL2BdRegOp(ctx context.Context, in *SLL2BdRegMsg, opts ...grpc.CallOption) (*SLL2BdRegMsgRsp, error) {
 	out := new(SLL2BdRegMsgRsp)
-	err := c.cc.Invoke(ctx, "/service_layer.SLL2Oper/SLL2BdRegOp", in, out, opts...)
+	err := grpc.Invoke(ctx, "/service_layer.SLL2Oper/SLL2BdRegOp", in, out, c.cc, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -2350,7 +1797,7 @@ func (c *sLL2OperClient) SLL2BdRegOp(ctx context.Context, in *SLL2BdRegMsg, opts
 
 func (c *sLL2OperClient) SLL2RouteOp(ctx context.Context, in *SLL2RouteMsg, opts ...grpc.CallOption) (*SLL2RouteMsgRsp, error) {
 	out := new(SLL2RouteMsgRsp)
-	err := c.cc.Invoke(ctx, "/service_layer.SLL2Oper/SLL2RouteOp", in, out, opts...)
+	err := grpc.Invoke(ctx, "/service_layer.SLL2Oper/SLL2RouteOp", in, out, c.cc, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -2358,7 +1805,7 @@ func (c *sLL2OperClient) SLL2RouteOp(ctx context.Context, in *SLL2RouteMsg, opts
 }
 
 func (c *sLL2OperClient) SLL2RouteOpStream(ctx context.Context, opts ...grpc.CallOption) (SLL2Oper_SLL2RouteOpStreamClient, error) {
-	stream, err := c.cc.NewStream(ctx, &_SLL2Oper_serviceDesc.Streams[0], "/service_layer.SLL2Oper/SLL2RouteOpStream", opts...)
+	stream, err := grpc.NewClientStream(ctx, &_SLL2Oper_serviceDesc.Streams[0], c.cc, "/service_layer.SLL2Oper/SLL2RouteOpStream", opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -2389,7 +1836,7 @@ func (x *sLL2OperSLL2RouteOpStreamClient) Recv() (*SLL2RouteMsgRsp, error) {
 }
 
 func (c *sLL2OperClient) SLL2GetNotifStream(ctx context.Context, opts ...grpc.CallOption) (SLL2Oper_SLL2GetNotifStreamClient, error) {
-	stream, err := c.cc.NewStream(ctx, &_SLL2Oper_serviceDesc.Streams[1], "/service_layer.SLL2Oper/SLL2GetNotifStream", opts...)
+	stream, err := grpc.NewClientStream(ctx, &_SLL2Oper_serviceDesc.Streams[1], c.cc, "/service_layer.SLL2Oper/SLL2GetNotifStream", opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -2419,7 +1866,8 @@ func (x *sLL2OperSLL2GetNotifStreamClient) Recv() (*SLL2Notif, error) {
 	return m, nil
 }
 
-// SLL2OperServer is the server API for SLL2Oper service.
+// Server API for SLL2Oper service
+
 type SLL2OperServer interface {
 	// Used to retrieve global L2 info from the server.
 	SLL2GlobalsGet(context.Context, *SLL2GlobalsGetMsg) (*SLL2GlobalsGetMsgRsp, error)
@@ -2669,9 +2117,9 @@ var _SLL2Oper_serviceDesc = grpc.ServiceDesc{
 	Metadata: "sl_l2_route.proto",
 }
 
-func init() { proto.RegisterFile("sl_l2_route.proto", fileDescriptor_sl_l2_route_4a32fd6a6409c309) }
+func init() { proto.RegisterFile("sl_l2_route.proto", fileDescriptor6) }
 
-var fileDescriptor_sl_l2_route_4a32fd6a6409c309 = []byte{
+var fileDescriptor6 = []byte{
 	// 1690 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xac, 0x58, 0x4f, 0x6f, 0x1b, 0xc7,
 	0x15, 0xe7, 0xf2, 0x9f, 0xc4, 0x47, 0x53, 0xa5, 0xc7, 0xb2, 0x4a, 0xc9, 0xb2, 0x4a, 0x6f, 0xdd,

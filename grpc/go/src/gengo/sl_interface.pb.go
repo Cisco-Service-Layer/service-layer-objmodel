@@ -17,12 +17,6 @@ var _ = proto.Marshal
 var _ = fmt.Errorf
 var _ = math.Inf
 
-// This is a compile-time assertion to ensure that this generated file
-// is compatible with the proto package it is being compiled against.
-// A compilation error at this line likely means your copy of the
-// proto package needs to be updated.
-const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
-
 // The current state of the interface.
 type SLInterfaceState int32
 
@@ -49,9 +43,7 @@ var SLInterfaceState_value = map[string]int32{
 func (x SLInterfaceState) String() string {
 	return proto.EnumName(SLInterfaceState_name, int32(x))
 }
-func (SLInterfaceState) EnumDescriptor() ([]byte, []int) {
-	return fileDescriptor_sl_interface_ec55142a375747d8, []int{0}
-}
+func (SLInterfaceState) EnumDescriptor() ([]byte, []int) { return fileDescriptor5, []int{0} }
 
 // Interface Event Notification types
 type SLInterfaceNotifType int32
@@ -79,44 +71,20 @@ var SLInterfaceNotifType_value = map[string]int32{
 func (x SLInterfaceNotifType) String() string {
 	return proto.EnumName(SLInterfaceNotifType_name, int32(x))
 }
-func (SLInterfaceNotifType) EnumDescriptor() ([]byte, []int) {
-	return fileDescriptor_sl_interface_ec55142a375747d8, []int{1}
-}
+func (SLInterfaceNotifType) EnumDescriptor() ([]byte, []int) { return fileDescriptor5, []int{1} }
 
 // Global Interface Registration Message.
 // This message is used for interface global registration.
 // Clients must register before using any interface service.
 type SLInterfaceGlobalsRegMsg struct {
 	// Registration Operation.
-	Oper                 SLRegOp  `protobuf:"varint,1,opt,name=Oper,proto3,enum=service_layer.SLRegOp" json:"Oper,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	Oper SLRegOp `protobuf:"varint,1,opt,name=Oper,enum=service_layer.SLRegOp" json:"Oper,omitempty"`
 }
 
-func (m *SLInterfaceGlobalsRegMsg) Reset()         { *m = SLInterfaceGlobalsRegMsg{} }
-func (m *SLInterfaceGlobalsRegMsg) String() string { return proto.CompactTextString(m) }
-func (*SLInterfaceGlobalsRegMsg) ProtoMessage()    {}
-func (*SLInterfaceGlobalsRegMsg) Descriptor() ([]byte, []int) {
-	return fileDescriptor_sl_interface_ec55142a375747d8, []int{0}
-}
-func (m *SLInterfaceGlobalsRegMsg) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_SLInterfaceGlobalsRegMsg.Unmarshal(m, b)
-}
-func (m *SLInterfaceGlobalsRegMsg) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_SLInterfaceGlobalsRegMsg.Marshal(b, m, deterministic)
-}
-func (dst *SLInterfaceGlobalsRegMsg) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_SLInterfaceGlobalsRegMsg.Merge(dst, src)
-}
-func (m *SLInterfaceGlobalsRegMsg) XXX_Size() int {
-	return xxx_messageInfo_SLInterfaceGlobalsRegMsg.Size(m)
-}
-func (m *SLInterfaceGlobalsRegMsg) XXX_DiscardUnknown() {
-	xxx_messageInfo_SLInterfaceGlobalsRegMsg.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_SLInterfaceGlobalsRegMsg proto.InternalMessageInfo
+func (m *SLInterfaceGlobalsRegMsg) Reset()                    { *m = SLInterfaceGlobalsRegMsg{} }
+func (m *SLInterfaceGlobalsRegMsg) String() string            { return proto.CompactTextString(m) }
+func (*SLInterfaceGlobalsRegMsg) ProtoMessage()               {}
+func (*SLInterfaceGlobalsRegMsg) Descriptor() ([]byte, []int) { return fileDescriptor5, []int{0} }
 
 func (m *SLInterfaceGlobalsRegMsg) GetOper() SLRegOp {
 	if m != nil {
@@ -129,35 +97,13 @@ func (m *SLInterfaceGlobalsRegMsg) GetOper() SLRegOp {
 // This message is used to convey the result of the interface registration.
 type SLInterfaceGlobalsRegMsgRsp struct {
 	// Error code.
-	ErrStatus            *SLErrorStatus `protobuf:"bytes,1,opt,name=ErrStatus,proto3" json:"ErrStatus,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}       `json:"-"`
-	XXX_unrecognized     []byte         `json:"-"`
-	XXX_sizecache        int32          `json:"-"`
+	ErrStatus *SLErrorStatus `protobuf:"bytes,1,opt,name=ErrStatus" json:"ErrStatus,omitempty"`
 }
 
-func (m *SLInterfaceGlobalsRegMsgRsp) Reset()         { *m = SLInterfaceGlobalsRegMsgRsp{} }
-func (m *SLInterfaceGlobalsRegMsgRsp) String() string { return proto.CompactTextString(m) }
-func (*SLInterfaceGlobalsRegMsgRsp) ProtoMessage()    {}
-func (*SLInterfaceGlobalsRegMsgRsp) Descriptor() ([]byte, []int) {
-	return fileDescriptor_sl_interface_ec55142a375747d8, []int{1}
-}
-func (m *SLInterfaceGlobalsRegMsgRsp) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_SLInterfaceGlobalsRegMsgRsp.Unmarshal(m, b)
-}
-func (m *SLInterfaceGlobalsRegMsgRsp) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_SLInterfaceGlobalsRegMsgRsp.Marshal(b, m, deterministic)
-}
-func (dst *SLInterfaceGlobalsRegMsgRsp) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_SLInterfaceGlobalsRegMsgRsp.Merge(dst, src)
-}
-func (m *SLInterfaceGlobalsRegMsgRsp) XXX_Size() int {
-	return xxx_messageInfo_SLInterfaceGlobalsRegMsgRsp.Size(m)
-}
-func (m *SLInterfaceGlobalsRegMsgRsp) XXX_DiscardUnknown() {
-	xxx_messageInfo_SLInterfaceGlobalsRegMsgRsp.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_SLInterfaceGlobalsRegMsgRsp proto.InternalMessageInfo
+func (m *SLInterfaceGlobalsRegMsgRsp) Reset()                    { *m = SLInterfaceGlobalsRegMsgRsp{} }
+func (m *SLInterfaceGlobalsRegMsgRsp) String() string            { return proto.CompactTextString(m) }
+func (*SLInterfaceGlobalsRegMsgRsp) ProtoMessage()               {}
+func (*SLInterfaceGlobalsRegMsgRsp) Descriptor() ([]byte, []int) { return fileDescriptor5, []int{1} }
 
 func (m *SLInterfaceGlobalsRegMsgRsp) GetErrStatus() *SLErrorStatus {
 	if m != nil {
@@ -169,70 +115,26 @@ func (m *SLInterfaceGlobalsRegMsgRsp) GetErrStatus() *SLErrorStatus {
 // Global Interface Get message.
 // This message is used to query interface global capabilities.
 type SLInterfaceGlobalsGetMsg struct {
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *SLInterfaceGlobalsGetMsg) Reset()         { *m = SLInterfaceGlobalsGetMsg{} }
-func (m *SLInterfaceGlobalsGetMsg) String() string { return proto.CompactTextString(m) }
-func (*SLInterfaceGlobalsGetMsg) ProtoMessage()    {}
-func (*SLInterfaceGlobalsGetMsg) Descriptor() ([]byte, []int) {
-	return fileDescriptor_sl_interface_ec55142a375747d8, []int{2}
-}
-func (m *SLInterfaceGlobalsGetMsg) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_SLInterfaceGlobalsGetMsg.Unmarshal(m, b)
-}
-func (m *SLInterfaceGlobalsGetMsg) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_SLInterfaceGlobalsGetMsg.Marshal(b, m, deterministic)
-}
-func (dst *SLInterfaceGlobalsGetMsg) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_SLInterfaceGlobalsGetMsg.Merge(dst, src)
-}
-func (m *SLInterfaceGlobalsGetMsg) XXX_Size() int {
-	return xxx_messageInfo_SLInterfaceGlobalsGetMsg.Size(m)
-}
-func (m *SLInterfaceGlobalsGetMsg) XXX_DiscardUnknown() {
-	xxx_messageInfo_SLInterfaceGlobalsGetMsg.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_SLInterfaceGlobalsGetMsg proto.InternalMessageInfo
+func (m *SLInterfaceGlobalsGetMsg) Reset()                    { *m = SLInterfaceGlobalsGetMsg{} }
+func (m *SLInterfaceGlobalsGetMsg) String() string            { return proto.CompactTextString(m) }
+func (*SLInterfaceGlobalsGetMsg) ProtoMessage()               {}
+func (*SLInterfaceGlobalsGetMsg) Descriptor() ([]byte, []int) { return fileDescriptor5, []int{2} }
 
 // Global interface Get response message.
 // This message is used to convey the response to the global capabilities query.
 type SLInterfaceGlobalsGetMsgRsp struct {
 	// Error code
-	ErrStatus *SLErrorStatus `protobuf:"bytes,1,opt,name=ErrStatus,proto3" json:"ErrStatus,omitempty"`
+	ErrStatus *SLErrorStatus `protobuf:"bytes,1,opt,name=ErrStatus" json:"ErrStatus,omitempty"`
 	// Max interface objects within a single batch.
-	MaxInterfacesPerBatch uint32   `protobuf:"varint,2,opt,name=MaxInterfacesPerBatch,proto3" json:"MaxInterfacesPerBatch,omitempty"`
-	XXX_NoUnkeyedLiteral  struct{} `json:"-"`
-	XXX_unrecognized      []byte   `json:"-"`
-	XXX_sizecache         int32    `json:"-"`
+	MaxInterfacesPerBatch uint32 `protobuf:"varint,2,opt,name=MaxInterfacesPerBatch" json:"MaxInterfacesPerBatch,omitempty"`
 }
 
-func (m *SLInterfaceGlobalsGetMsgRsp) Reset()         { *m = SLInterfaceGlobalsGetMsgRsp{} }
-func (m *SLInterfaceGlobalsGetMsgRsp) String() string { return proto.CompactTextString(m) }
-func (*SLInterfaceGlobalsGetMsgRsp) ProtoMessage()    {}
-func (*SLInterfaceGlobalsGetMsgRsp) Descriptor() ([]byte, []int) {
-	return fileDescriptor_sl_interface_ec55142a375747d8, []int{3}
-}
-func (m *SLInterfaceGlobalsGetMsgRsp) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_SLInterfaceGlobalsGetMsgRsp.Unmarshal(m, b)
-}
-func (m *SLInterfaceGlobalsGetMsgRsp) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_SLInterfaceGlobalsGetMsgRsp.Marshal(b, m, deterministic)
-}
-func (dst *SLInterfaceGlobalsGetMsgRsp) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_SLInterfaceGlobalsGetMsgRsp.Merge(dst, src)
-}
-func (m *SLInterfaceGlobalsGetMsgRsp) XXX_Size() int {
-	return xxx_messageInfo_SLInterfaceGlobalsGetMsgRsp.Size(m)
-}
-func (m *SLInterfaceGlobalsGetMsgRsp) XXX_DiscardUnknown() {
-	xxx_messageInfo_SLInterfaceGlobalsGetMsgRsp.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_SLInterfaceGlobalsGetMsgRsp proto.InternalMessageInfo
+func (m *SLInterfaceGlobalsGetMsgRsp) Reset()                    { *m = SLInterfaceGlobalsGetMsgRsp{} }
+func (m *SLInterfaceGlobalsGetMsgRsp) String() string            { return proto.CompactTextString(m) }
+func (*SLInterfaceGlobalsGetMsgRsp) ProtoMessage()               {}
+func (*SLInterfaceGlobalsGetMsgRsp) Descriptor() ([]byte, []int) { return fileDescriptor5, []int{3} }
 
 func (m *SLInterfaceGlobalsGetMsgRsp) GetErrStatus() *SLErrorStatus {
 	if m != nil {
@@ -253,40 +155,20 @@ func (m *SLInterfaceGlobalsGetMsgRsp) GetMaxInterfacesPerBatch() uint32 {
 // query.
 type SLInterfaceGlobalsGetStatsMsgRsp struct {
 	// Error code
-	ErrStatus *SLErrorStatus `protobuf:"bytes,1,opt,name=ErrStatus,proto3" json:"ErrStatus,omitempty"`
+	ErrStatus *SLErrorStatus `protobuf:"bytes,1,opt,name=ErrStatus" json:"ErrStatus,omitempty"`
 	// Global Interface event sequence number.
 	// The sequence number is equivalent to a timestamp
-	SeqNum uint64 `protobuf:"varint,2,opt,name=SeqNum,proto3" json:"SeqNum,omitempty"`
+	SeqNum uint64 `protobuf:"varint,2,opt,name=SeqNum" json:"SeqNum,omitempty"`
 	// Num Interface notification requests added through the service layer.
-	InterfaceNotifCount  uint32   `protobuf:"varint,3,opt,name=InterfaceNotifCount,proto3" json:"InterfaceNotifCount,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	InterfaceNotifCount uint32 `protobuf:"varint,3,opt,name=InterfaceNotifCount" json:"InterfaceNotifCount,omitempty"`
 }
 
 func (m *SLInterfaceGlobalsGetStatsMsgRsp) Reset()         { *m = SLInterfaceGlobalsGetStatsMsgRsp{} }
 func (m *SLInterfaceGlobalsGetStatsMsgRsp) String() string { return proto.CompactTextString(m) }
 func (*SLInterfaceGlobalsGetStatsMsgRsp) ProtoMessage()    {}
 func (*SLInterfaceGlobalsGetStatsMsgRsp) Descriptor() ([]byte, []int) {
-	return fileDescriptor_sl_interface_ec55142a375747d8, []int{4}
+	return fileDescriptor5, []int{4}
 }
-func (m *SLInterfaceGlobalsGetStatsMsgRsp) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_SLInterfaceGlobalsGetStatsMsgRsp.Unmarshal(m, b)
-}
-func (m *SLInterfaceGlobalsGetStatsMsgRsp) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_SLInterfaceGlobalsGetStatsMsgRsp.Marshal(b, m, deterministic)
-}
-func (dst *SLInterfaceGlobalsGetStatsMsgRsp) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_SLInterfaceGlobalsGetStatsMsgRsp.Merge(dst, src)
-}
-func (m *SLInterfaceGlobalsGetStatsMsgRsp) XXX_Size() int {
-	return xxx_messageInfo_SLInterfaceGlobalsGetStatsMsgRsp.Size(m)
-}
-func (m *SLInterfaceGlobalsGetStatsMsgRsp) XXX_DiscardUnknown() {
-	xxx_messageInfo_SLInterfaceGlobalsGetStatsMsgRsp.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_SLInterfaceGlobalsGetStatsMsgRsp proto.InternalMessageInfo
 
 func (m *SLInterfaceGlobalsGetStatsMsgRsp) GetErrStatus() *SLErrorStatus {
 	if m != nil {
@@ -314,42 +196,20 @@ type SLInterfaceGetMsg struct {
 	// Interface key attributes.
 	// If the Key is not specified, then request up to the first
 	// 'EntriesCount' entries.
-	Key *SLInterface `protobuf:"bytes,1,opt,name=Key,proto3" json:"Key,omitempty"`
+	Key *SLInterface `protobuf:"bytes,1,opt,name=Key" json:"Key,omitempty"`
 	// Number of entries requested
-	EntriesCount uint32 `protobuf:"varint,2,opt,name=EntriesCount,proto3" json:"EntriesCount,omitempty"`
+	EntriesCount uint32 `protobuf:"varint,2,opt,name=EntriesCount" json:"EntriesCount,omitempty"`
 	// if GetNext is FALSE:
 	//     request up to 'EntriesCount' entries starting from the key
 	// If GetNext is TRUE, or if the key exact match is not found:
 	//     request up to 'EntriesCount' entries starting from the key's next
-	GetNext              bool     `protobuf:"varint,3,opt,name=GetNext,proto3" json:"GetNext,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	GetNext bool `protobuf:"varint,3,opt,name=GetNext" json:"GetNext,omitempty"`
 }
 
-func (m *SLInterfaceGetMsg) Reset()         { *m = SLInterfaceGetMsg{} }
-func (m *SLInterfaceGetMsg) String() string { return proto.CompactTextString(m) }
-func (*SLInterfaceGetMsg) ProtoMessage()    {}
-func (*SLInterfaceGetMsg) Descriptor() ([]byte, []int) {
-	return fileDescriptor_sl_interface_ec55142a375747d8, []int{5}
-}
-func (m *SLInterfaceGetMsg) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_SLInterfaceGetMsg.Unmarshal(m, b)
-}
-func (m *SLInterfaceGetMsg) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_SLInterfaceGetMsg.Marshal(b, m, deterministic)
-}
-func (dst *SLInterfaceGetMsg) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_SLInterfaceGetMsg.Merge(dst, src)
-}
-func (m *SLInterfaceGetMsg) XXX_Size() int {
-	return xxx_messageInfo_SLInterfaceGetMsg.Size(m)
-}
-func (m *SLInterfaceGetMsg) XXX_DiscardUnknown() {
-	xxx_messageInfo_SLInterfaceGetMsg.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_SLInterfaceGetMsg proto.InternalMessageInfo
+func (m *SLInterfaceGetMsg) Reset()                    { *m = SLInterfaceGetMsg{} }
+func (m *SLInterfaceGetMsg) String() string            { return proto.CompactTextString(m) }
+func (*SLInterfaceGetMsg) ProtoMessage()               {}
+func (*SLInterfaceGetMsg) Descriptor() ([]byte, []int) { return fileDescriptor5, []int{5} }
 
 func (m *SLInterfaceGetMsg) GetKey() *SLInterface {
 	if m != nil {
@@ -375,40 +235,18 @@ func (m *SLInterfaceGetMsg) GetGetNext() bool {
 // Interface Get Message result.
 type SLInterfaceInfoMsg struct {
 	// Interface info
-	SLIfInfo *SLInterface `protobuf:"bytes,1,opt,name=SLIfInfo,proto3" json:"SLIfInfo,omitempty"`
+	SLIfInfo *SLInterface `protobuf:"bytes,1,opt,name=SLIfInfo" json:"SLIfInfo,omitempty"`
 	// Interface state
-	IfState SLInterfaceState `protobuf:"varint,2,opt,name=IfState,proto3,enum=service_layer.SLInterfaceState" json:"IfState,omitempty"`
+	IfState SLInterfaceState `protobuf:"varint,2,opt,name=IfState,enum=service_layer.SLInterfaceState" json:"IfState,omitempty"`
 	// Global Interface event sequence number.
 	// The sequence number is equivalent to a timestamp
-	SeqNum               uint64   `protobuf:"varint,3,opt,name=SeqNum,proto3" json:"SeqNum,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	SeqNum uint64 `protobuf:"varint,3,opt,name=SeqNum" json:"SeqNum,omitempty"`
 }
 
-func (m *SLInterfaceInfoMsg) Reset()         { *m = SLInterfaceInfoMsg{} }
-func (m *SLInterfaceInfoMsg) String() string { return proto.CompactTextString(m) }
-func (*SLInterfaceInfoMsg) ProtoMessage()    {}
-func (*SLInterfaceInfoMsg) Descriptor() ([]byte, []int) {
-	return fileDescriptor_sl_interface_ec55142a375747d8, []int{6}
-}
-func (m *SLInterfaceInfoMsg) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_SLInterfaceInfoMsg.Unmarshal(m, b)
-}
-func (m *SLInterfaceInfoMsg) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_SLInterfaceInfoMsg.Marshal(b, m, deterministic)
-}
-func (dst *SLInterfaceInfoMsg) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_SLInterfaceInfoMsg.Merge(dst, src)
-}
-func (m *SLInterfaceInfoMsg) XXX_Size() int {
-	return xxx_messageInfo_SLInterfaceInfoMsg.Size(m)
-}
-func (m *SLInterfaceInfoMsg) XXX_DiscardUnknown() {
-	xxx_messageInfo_SLInterfaceInfoMsg.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_SLInterfaceInfoMsg proto.InternalMessageInfo
+func (m *SLInterfaceInfoMsg) Reset()                    { *m = SLInterfaceInfoMsg{} }
+func (m *SLInterfaceInfoMsg) String() string            { return proto.CompactTextString(m) }
+func (*SLInterfaceInfoMsg) ProtoMessage()               {}
+func (*SLInterfaceInfoMsg) Descriptor() ([]byte, []int) { return fileDescriptor5, []int{6} }
 
 func (m *SLInterfaceInfoMsg) GetSLIfInfo() *SLInterface {
 	if m != nil {
@@ -436,40 +274,18 @@ type SLInterfaceGetMsgRsp struct {
 	// End Of File.
 	// When set to True, it indicates that the server has returned M, where
 	// M < N, of the original N requested Entries.
-	Eof bool `protobuf:"varint,1,opt,name=Eof,proto3" json:"Eof,omitempty"`
+	Eof bool `protobuf:"varint,1,opt,name=Eof" json:"Eof,omitempty"`
 	// Status of the Get operation
-	ErrStatus *SLErrorStatus `protobuf:"bytes,2,opt,name=ErrStatus,proto3" json:"ErrStatus,omitempty"`
+	ErrStatus *SLErrorStatus `protobuf:"bytes,2,opt,name=ErrStatus" json:"ErrStatus,omitempty"`
 	// Returned entries as requested in the Get operation.
 	// if ErrStatus is SL_SUCCESS, Entries contains the info requested
-	Entries              []*SLInterfaceInfoMsg `protobuf:"bytes,3,rep,name=Entries,proto3" json:"Entries,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}              `json:"-"`
-	XXX_unrecognized     []byte                `json:"-"`
-	XXX_sizecache        int32                 `json:"-"`
+	Entries []*SLInterfaceInfoMsg `protobuf:"bytes,3,rep,name=Entries" json:"Entries,omitempty"`
 }
 
-func (m *SLInterfaceGetMsgRsp) Reset()         { *m = SLInterfaceGetMsgRsp{} }
-func (m *SLInterfaceGetMsgRsp) String() string { return proto.CompactTextString(m) }
-func (*SLInterfaceGetMsgRsp) ProtoMessage()    {}
-func (*SLInterfaceGetMsgRsp) Descriptor() ([]byte, []int) {
-	return fileDescriptor_sl_interface_ec55142a375747d8, []int{7}
-}
-func (m *SLInterfaceGetMsgRsp) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_SLInterfaceGetMsgRsp.Unmarshal(m, b)
-}
-func (m *SLInterfaceGetMsgRsp) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_SLInterfaceGetMsgRsp.Marshal(b, m, deterministic)
-}
-func (dst *SLInterfaceGetMsgRsp) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_SLInterfaceGetMsgRsp.Merge(dst, src)
-}
-func (m *SLInterfaceGetMsgRsp) XXX_Size() int {
-	return xxx_messageInfo_SLInterfaceGetMsgRsp.Size(m)
-}
-func (m *SLInterfaceGetMsgRsp) XXX_DiscardUnknown() {
-	xxx_messageInfo_SLInterfaceGetMsgRsp.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_SLInterfaceGetMsgRsp proto.InternalMessageInfo
+func (m *SLInterfaceGetMsgRsp) Reset()                    { *m = SLInterfaceGetMsgRsp{} }
+func (m *SLInterfaceGetMsgRsp) String() string            { return proto.CompactTextString(m) }
+func (*SLInterfaceGetMsgRsp) ProtoMessage()               {}
+func (*SLInterfaceGetMsgRsp) Descriptor() ([]byte, []int) { return fileDescriptor5, []int{7} }
 
 func (m *SLInterfaceGetMsgRsp) GetEof() bool {
 	if m != nil {
@@ -494,102 +310,56 @@ func (m *SLInterfaceGetMsgRsp) GetEntries() []*SLInterfaceInfoMsg {
 
 // Interface Get Notification message.
 type SLInterfaceGetNotifMsg struct {
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *SLInterfaceGetNotifMsg) Reset()         { *m = SLInterfaceGetNotifMsg{} }
-func (m *SLInterfaceGetNotifMsg) String() string { return proto.CompactTextString(m) }
-func (*SLInterfaceGetNotifMsg) ProtoMessage()    {}
-func (*SLInterfaceGetNotifMsg) Descriptor() ([]byte, []int) {
-	return fileDescriptor_sl_interface_ec55142a375747d8, []int{8}
-}
-func (m *SLInterfaceGetNotifMsg) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_SLInterfaceGetNotifMsg.Unmarshal(m, b)
-}
-func (m *SLInterfaceGetNotifMsg) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_SLInterfaceGetNotifMsg.Marshal(b, m, deterministic)
-}
-func (dst *SLInterfaceGetNotifMsg) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_SLInterfaceGetNotifMsg.Merge(dst, src)
-}
-func (m *SLInterfaceGetNotifMsg) XXX_Size() int {
-	return xxx_messageInfo_SLInterfaceGetNotifMsg.Size(m)
-}
-func (m *SLInterfaceGetNotifMsg) XXX_DiscardUnknown() {
-	xxx_messageInfo_SLInterfaceGetNotifMsg.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_SLInterfaceGetNotifMsg proto.InternalMessageInfo
+func (m *SLInterfaceGetNotifMsg) Reset()                    { *m = SLInterfaceGetNotifMsg{} }
+func (m *SLInterfaceGetNotifMsg) String() string            { return proto.CompactTextString(m) }
+func (*SLInterfaceGetNotifMsg) ProtoMessage()               {}
+func (*SLInterfaceGetNotifMsg) Descriptor() ([]byte, []int) { return fileDescriptor5, []int{8} }
 
 // Interface Notification Event.
 type SLInterfaceNotif struct {
 	// Interface Event Notification type
-	EventType SLInterfaceNotifType `protobuf:"varint,1,opt,name=EventType,proto3,enum=service_layer.SLInterfaceNotifType" json:"EventType,omitempty"`
+	EventType SLInterfaceNotifType `protobuf:"varint,1,opt,name=EventType,enum=service_layer.SLInterfaceNotifType" json:"EventType,omitempty"`
 	// Further info based on EventType
 	//
 	// Types that are valid to be assigned to Event:
 	//	*SLInterfaceNotif_ErrStatus
 	//	*SLInterfaceNotif_Info
-	Event                isSLInterfaceNotif_Event `protobuf_oneof:"Event"`
-	XXX_NoUnkeyedLiteral struct{}                 `json:"-"`
-	XXX_unrecognized     []byte                   `json:"-"`
-	XXX_sizecache        int32                    `json:"-"`
+	Event isSLInterfaceNotif_Event `protobuf_oneof:"Event"`
 }
 
-func (m *SLInterfaceNotif) Reset()         { *m = SLInterfaceNotif{} }
-func (m *SLInterfaceNotif) String() string { return proto.CompactTextString(m) }
-func (*SLInterfaceNotif) ProtoMessage()    {}
-func (*SLInterfaceNotif) Descriptor() ([]byte, []int) {
-	return fileDescriptor_sl_interface_ec55142a375747d8, []int{9}
-}
-func (m *SLInterfaceNotif) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_SLInterfaceNotif.Unmarshal(m, b)
-}
-func (m *SLInterfaceNotif) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_SLInterfaceNotif.Marshal(b, m, deterministic)
-}
-func (dst *SLInterfaceNotif) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_SLInterfaceNotif.Merge(dst, src)
-}
-func (m *SLInterfaceNotif) XXX_Size() int {
-	return xxx_messageInfo_SLInterfaceNotif.Size(m)
-}
-func (m *SLInterfaceNotif) XXX_DiscardUnknown() {
-	xxx_messageInfo_SLInterfaceNotif.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_SLInterfaceNotif proto.InternalMessageInfo
-
-func (m *SLInterfaceNotif) GetEventType() SLInterfaceNotifType {
-	if m != nil {
-		return m.EventType
-	}
-	return SLInterfaceNotifType_SL_INTERFACE_EVENT_TYPE_RESERVED
-}
+func (m *SLInterfaceNotif) Reset()                    { *m = SLInterfaceNotif{} }
+func (m *SLInterfaceNotif) String() string            { return proto.CompactTextString(m) }
+func (*SLInterfaceNotif) ProtoMessage()               {}
+func (*SLInterfaceNotif) Descriptor() ([]byte, []int) { return fileDescriptor5, []int{9} }
 
 type isSLInterfaceNotif_Event interface {
 	isSLInterfaceNotif_Event()
 }
 
 type SLInterfaceNotif_ErrStatus struct {
-	ErrStatus *SLErrorStatus `protobuf:"bytes,2,opt,name=ErrStatus,proto3,oneof"`
+	ErrStatus *SLErrorStatus `protobuf:"bytes,2,opt,name=ErrStatus,oneof"`
 }
-
 type SLInterfaceNotif_Info struct {
-	Info *SLInterfaceInfoMsg `protobuf:"bytes,3,opt,name=Info,proto3,oneof"`
+	Info *SLInterfaceInfoMsg `protobuf:"bytes,3,opt,name=Info,oneof"`
 }
 
 func (*SLInterfaceNotif_ErrStatus) isSLInterfaceNotif_Event() {}
-
-func (*SLInterfaceNotif_Info) isSLInterfaceNotif_Event() {}
+func (*SLInterfaceNotif_Info) isSLInterfaceNotif_Event()      {}
 
 func (m *SLInterfaceNotif) GetEvent() isSLInterfaceNotif_Event {
 	if m != nil {
 		return m.Event
 	}
 	return nil
+}
+
+func (m *SLInterfaceNotif) GetEventType() SLInterfaceNotifType {
+	if m != nil {
+		return m.EventType
+	}
+	return SLInterfaceNotifType_SL_INTERFACE_EVENT_TYPE_RESERVED
 }
 
 func (m *SLInterfaceNotif) GetErrStatus() *SLErrorStatus {
@@ -665,12 +435,12 @@ func _SLInterfaceNotif_OneofSizer(msg proto.Message) (n int) {
 	switch x := m.Event.(type) {
 	case *SLInterfaceNotif_ErrStatus:
 		s := proto.Size(x.ErrStatus)
-		n += 1 // tag and wire
+		n += proto.SizeVarint(2<<3 | proto.WireBytes)
 		n += proto.SizeVarint(uint64(s))
 		n += s
 	case *SLInterfaceNotif_Info:
 		s := proto.Size(x.Info)
-		n += 1 // tag and wire
+		n += proto.SizeVarint(3<<3 | proto.WireBytes)
 		n += proto.SizeVarint(uint64(s))
 		n += s
 	case nil:
@@ -683,37 +453,15 @@ func _SLInterfaceNotif_OneofSizer(msg proto.Message) (n int) {
 // Interface Notification message.
 type SLInterfaceNotifMsg struct {
 	// Notification Operation.
-	Oper SLNotifOp `protobuf:"varint,1,opt,name=Oper,proto3,enum=service_layer.SLNotifOp" json:"Oper,omitempty"`
+	Oper SLNotifOp `protobuf:"varint,1,opt,name=Oper,enum=service_layer.SLNotifOp" json:"Oper,omitempty"`
 	// Interface key attributes.
-	Entries              []*SLInterface `protobuf:"bytes,2,rep,name=Entries,proto3" json:"Entries,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}       `json:"-"`
-	XXX_unrecognized     []byte         `json:"-"`
-	XXX_sizecache        int32          `json:"-"`
+	Entries []*SLInterface `protobuf:"bytes,2,rep,name=Entries" json:"Entries,omitempty"`
 }
 
-func (m *SLInterfaceNotifMsg) Reset()         { *m = SLInterfaceNotifMsg{} }
-func (m *SLInterfaceNotifMsg) String() string { return proto.CompactTextString(m) }
-func (*SLInterfaceNotifMsg) ProtoMessage()    {}
-func (*SLInterfaceNotifMsg) Descriptor() ([]byte, []int) {
-	return fileDescriptor_sl_interface_ec55142a375747d8, []int{10}
-}
-func (m *SLInterfaceNotifMsg) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_SLInterfaceNotifMsg.Unmarshal(m, b)
-}
-func (m *SLInterfaceNotifMsg) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_SLInterfaceNotifMsg.Marshal(b, m, deterministic)
-}
-func (dst *SLInterfaceNotifMsg) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_SLInterfaceNotifMsg.Merge(dst, src)
-}
-func (m *SLInterfaceNotifMsg) XXX_Size() int {
-	return xxx_messageInfo_SLInterfaceNotifMsg.Size(m)
-}
-func (m *SLInterfaceNotifMsg) XXX_DiscardUnknown() {
-	xxx_messageInfo_SLInterfaceNotifMsg.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_SLInterfaceNotifMsg proto.InternalMessageInfo
+func (m *SLInterfaceNotifMsg) Reset()                    { *m = SLInterfaceNotifMsg{} }
+func (m *SLInterfaceNotifMsg) String() string            { return proto.CompactTextString(m) }
+func (*SLInterfaceNotifMsg) ProtoMessage()               {}
+func (*SLInterfaceNotifMsg) Descriptor() ([]byte, []int) { return fileDescriptor5, []int{10} }
 
 func (m *SLInterfaceNotifMsg) GetOper() SLNotifOp {
 	if m != nil {
@@ -732,37 +480,15 @@ func (m *SLInterfaceNotifMsg) GetEntries() []*SLInterface {
 // Interface Notification message result.
 type SLInterfaceNotifMsgRes struct {
 	// Corresponding error code
-	ErrStatus *SLErrorStatus `protobuf:"bytes,1,opt,name=ErrStatus,proto3" json:"ErrStatus,omitempty"`
+	ErrStatus *SLErrorStatus `protobuf:"bytes,1,opt,name=ErrStatus" json:"ErrStatus,omitempty"`
 	// Interface key attributes.
-	Key                  *SLInterface `protobuf:"bytes,2,opt,name=Key,proto3" json:"Key,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}     `json:"-"`
-	XXX_unrecognized     []byte       `json:"-"`
-	XXX_sizecache        int32        `json:"-"`
+	Key *SLInterface `protobuf:"bytes,2,opt,name=Key" json:"Key,omitempty"`
 }
 
-func (m *SLInterfaceNotifMsgRes) Reset()         { *m = SLInterfaceNotifMsgRes{} }
-func (m *SLInterfaceNotifMsgRes) String() string { return proto.CompactTextString(m) }
-func (*SLInterfaceNotifMsgRes) ProtoMessage()    {}
-func (*SLInterfaceNotifMsgRes) Descriptor() ([]byte, []int) {
-	return fileDescriptor_sl_interface_ec55142a375747d8, []int{11}
-}
-func (m *SLInterfaceNotifMsgRes) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_SLInterfaceNotifMsgRes.Unmarshal(m, b)
-}
-func (m *SLInterfaceNotifMsgRes) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_SLInterfaceNotifMsgRes.Marshal(b, m, deterministic)
-}
-func (dst *SLInterfaceNotifMsgRes) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_SLInterfaceNotifMsgRes.Merge(dst, src)
-}
-func (m *SLInterfaceNotifMsgRes) XXX_Size() int {
-	return xxx_messageInfo_SLInterfaceNotifMsgRes.Size(m)
-}
-func (m *SLInterfaceNotifMsgRes) XXX_DiscardUnknown() {
-	xxx_messageInfo_SLInterfaceNotifMsgRes.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_SLInterfaceNotifMsgRes proto.InternalMessageInfo
+func (m *SLInterfaceNotifMsgRes) Reset()                    { *m = SLInterfaceNotifMsgRes{} }
+func (m *SLInterfaceNotifMsgRes) String() string            { return proto.CompactTextString(m) }
+func (*SLInterfaceNotifMsgRes) ProtoMessage()               {}
+func (*SLInterfaceNotifMsgRes) Descriptor() ([]byte, []int) { return fileDescriptor5, []int{11} }
 
 func (m *SLInterfaceNotifMsgRes) GetErrStatus() *SLErrorStatus {
 	if m != nil {
@@ -789,38 +515,16 @@ type SLInterfaceNotifMsgRsp struct {
 	//         each individual entry in the bulk.
 	// 3. SL_RPC_XXX: signifies that the entire bulk operation failed.
 	//         In this case, the Results list is empty.
-	StatusSummary *SLErrorStatus `protobuf:"bytes,1,opt,name=StatusSummary,proto3" json:"StatusSummary,omitempty"`
+	StatusSummary *SLErrorStatus `protobuf:"bytes,1,opt,name=StatusSummary" json:"StatusSummary,omitempty"`
 	// In case of errors, this field indicates which entry in the bulk was
 	// erroneous.
-	Results              []*SLInterfaceNotifMsgRes `protobuf:"bytes,2,rep,name=Results,proto3" json:"Results,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}                  `json:"-"`
-	XXX_unrecognized     []byte                    `json:"-"`
-	XXX_sizecache        int32                     `json:"-"`
+	Results []*SLInterfaceNotifMsgRes `protobuf:"bytes,2,rep,name=Results" json:"Results,omitempty"`
 }
 
-func (m *SLInterfaceNotifMsgRsp) Reset()         { *m = SLInterfaceNotifMsgRsp{} }
-func (m *SLInterfaceNotifMsgRsp) String() string { return proto.CompactTextString(m) }
-func (*SLInterfaceNotifMsgRsp) ProtoMessage()    {}
-func (*SLInterfaceNotifMsgRsp) Descriptor() ([]byte, []int) {
-	return fileDescriptor_sl_interface_ec55142a375747d8, []int{12}
-}
-func (m *SLInterfaceNotifMsgRsp) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_SLInterfaceNotifMsgRsp.Unmarshal(m, b)
-}
-func (m *SLInterfaceNotifMsgRsp) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_SLInterfaceNotifMsgRsp.Marshal(b, m, deterministic)
-}
-func (dst *SLInterfaceNotifMsgRsp) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_SLInterfaceNotifMsgRsp.Merge(dst, src)
-}
-func (m *SLInterfaceNotifMsgRsp) XXX_Size() int {
-	return xxx_messageInfo_SLInterfaceNotifMsgRsp.Size(m)
-}
-func (m *SLInterfaceNotifMsgRsp) XXX_DiscardUnknown() {
-	xxx_messageInfo_SLInterfaceNotifMsgRsp.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_SLInterfaceNotifMsgRsp proto.InternalMessageInfo
+func (m *SLInterfaceNotifMsgRsp) Reset()                    { *m = SLInterfaceNotifMsgRsp{} }
+func (m *SLInterfaceNotifMsgRsp) String() string            { return proto.CompactTextString(m) }
+func (*SLInterfaceNotifMsgRsp) ProtoMessage()               {}
+func (*SLInterfaceNotifMsgRsp) Descriptor() ([]byte, []int) { return fileDescriptor5, []int{12} }
 
 func (m *SLInterfaceNotifMsgRsp) GetStatusSummary() *SLErrorStatus {
 	if m != nil {
@@ -862,9 +566,8 @@ var _ grpc.ClientConn
 // is compatible with the grpc package it is being compiled against.
 const _ = grpc.SupportPackageIsVersion4
 
-// SLInterfaceOperClient is the client API for SLInterfaceOper service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
+// Client API for SLInterfaceOper service
+
 type SLInterfaceOperClient interface {
 	// SLInterfaceGlobalsRegMsg.Oper = SL_REGOP_REGISTER:
 	//     Global Interface registration.
@@ -912,7 +615,7 @@ func NewSLInterfaceOperClient(cc *grpc.ClientConn) SLInterfaceOperClient {
 
 func (c *sLInterfaceOperClient) SLInterfaceGlobalsRegOp(ctx context.Context, in *SLInterfaceGlobalsRegMsg, opts ...grpc.CallOption) (*SLInterfaceGlobalsRegMsgRsp, error) {
 	out := new(SLInterfaceGlobalsRegMsgRsp)
-	err := c.cc.Invoke(ctx, "/service_layer.SLInterfaceOper/SLInterfaceGlobalsRegOp", in, out, opts...)
+	err := grpc.Invoke(ctx, "/service_layer.SLInterfaceOper/SLInterfaceGlobalsRegOp", in, out, c.cc, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -921,7 +624,7 @@ func (c *sLInterfaceOperClient) SLInterfaceGlobalsRegOp(ctx context.Context, in 
 
 func (c *sLInterfaceOperClient) SLInterfaceGlobalsGet(ctx context.Context, in *SLInterfaceGlobalsGetMsg, opts ...grpc.CallOption) (*SLInterfaceGlobalsGetMsgRsp, error) {
 	out := new(SLInterfaceGlobalsGetMsgRsp)
-	err := c.cc.Invoke(ctx, "/service_layer.SLInterfaceOper/SLInterfaceGlobalsGet", in, out, opts...)
+	err := grpc.Invoke(ctx, "/service_layer.SLInterfaceOper/SLInterfaceGlobalsGet", in, out, c.cc, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -930,7 +633,7 @@ func (c *sLInterfaceOperClient) SLInterfaceGlobalsGet(ctx context.Context, in *S
 
 func (c *sLInterfaceOperClient) SLInterfaceGlobalsGetStats(ctx context.Context, in *SLInterfaceGlobalsGetMsg, opts ...grpc.CallOption) (*SLInterfaceGlobalsGetStatsMsgRsp, error) {
 	out := new(SLInterfaceGlobalsGetStatsMsgRsp)
-	err := c.cc.Invoke(ctx, "/service_layer.SLInterfaceOper/SLInterfaceGlobalsGetStats", in, out, opts...)
+	err := grpc.Invoke(ctx, "/service_layer.SLInterfaceOper/SLInterfaceGlobalsGetStats", in, out, c.cc, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -939,7 +642,7 @@ func (c *sLInterfaceOperClient) SLInterfaceGlobalsGetStats(ctx context.Context, 
 
 func (c *sLInterfaceOperClient) SLInterfaceGet(ctx context.Context, in *SLInterfaceGetMsg, opts ...grpc.CallOption) (*SLInterfaceGetMsgRsp, error) {
 	out := new(SLInterfaceGetMsgRsp)
-	err := c.cc.Invoke(ctx, "/service_layer.SLInterfaceOper/SLInterfaceGet", in, out, opts...)
+	err := grpc.Invoke(ctx, "/service_layer.SLInterfaceOper/SLInterfaceGet", in, out, c.cc, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -947,7 +650,7 @@ func (c *sLInterfaceOperClient) SLInterfaceGet(ctx context.Context, in *SLInterf
 }
 
 func (c *sLInterfaceOperClient) SLInterfaceGetNotifStream(ctx context.Context, in *SLInterfaceGetNotifMsg, opts ...grpc.CallOption) (SLInterfaceOper_SLInterfaceGetNotifStreamClient, error) {
-	stream, err := c.cc.NewStream(ctx, &_SLInterfaceOper_serviceDesc.Streams[0], "/service_layer.SLInterfaceOper/SLInterfaceGetNotifStream", opts...)
+	stream, err := grpc.NewClientStream(ctx, &_SLInterfaceOper_serviceDesc.Streams[0], c.cc, "/service_layer.SLInterfaceOper/SLInterfaceGetNotifStream", opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -980,14 +683,15 @@ func (x *sLInterfaceOperSLInterfaceGetNotifStreamClient) Recv() (*SLInterfaceNot
 
 func (c *sLInterfaceOperClient) SLInterfaceNotifOp(ctx context.Context, in *SLInterfaceNotifMsg, opts ...grpc.CallOption) (*SLInterfaceNotifMsgRsp, error) {
 	out := new(SLInterfaceNotifMsgRsp)
-	err := c.cc.Invoke(ctx, "/service_layer.SLInterfaceOper/SLInterfaceNotifOp", in, out, opts...)
+	err := grpc.Invoke(ctx, "/service_layer.SLInterfaceOper/SLInterfaceNotifOp", in, out, c.cc, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// SLInterfaceOperServer is the server API for SLInterfaceOper service.
+// Server API for SLInterfaceOper service
+
 type SLInterfaceOperServer interface {
 	// SLInterfaceGlobalsRegMsg.Oper = SL_REGOP_REGISTER:
 	//     Global Interface registration.
@@ -1175,9 +879,9 @@ var _SLInterfaceOper_serviceDesc = grpc.ServiceDesc{
 	Metadata: "sl_interface.proto",
 }
 
-func init() { proto.RegisterFile("sl_interface.proto", fileDescriptor_sl_interface_ec55142a375747d8) }
+func init() { proto.RegisterFile("sl_interface.proto", fileDescriptor5) }
 
-var fileDescriptor_sl_interface_ec55142a375747d8 = []byte{
+var fileDescriptor5 = []byte{
 	// 802 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xac, 0x56, 0x5b, 0x4f, 0xdb, 0x48,
 	0x14, 0x8e, 0x13, 0x20, 0x70, 0x58, 0xd8, 0xec, 0x70, 0xf3, 0x66, 0x77, 0x45, 0x30, 0xcb, 0x2e,

@@ -5,8 +5,8 @@ ARG WS=/
 ARG GO_VER=1.9.1
 ARG GRPC_VER=v1.9.1
 ARG PROTOBUF_VER=v3.2.0
-ARG GENPROTO_VER=bd9b4fb
-ARG GO_PROTOBUF_VER=v1.2.0
+ARG GENPROTO_VER=4eb30f4
+ARG GO_PROTOBUF_VER=v1.0.0
 
 RUN apt-get update && \
     apt-get install -y git vim doxygen autoconf automake libtool \

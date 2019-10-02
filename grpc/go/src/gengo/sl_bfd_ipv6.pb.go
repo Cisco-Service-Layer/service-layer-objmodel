@@ -17,52 +17,24 @@ var _ = proto.Marshal
 var _ = fmt.Errorf
 var _ = math.Inf
 
-// This is a compile-time assertion to ensure that this generated file
-// is compatible with the proto package it is being compiled against.
-// A compilation error at this line likely means your copy of the
-// proto package needs to be updated.
-const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
-
 // BFD unique key identifier.
 type SLBfdv6Key struct {
 	// BFD Session Type
-	Type SLBfdType `protobuf:"varint,1,opt,name=Type,proto3,enum=service_layer.SLBfdType" json:"Type,omitempty"`
+	Type SLBfdType `protobuf:"varint,1,opt,name=Type,enum=service_layer.SLBfdType" json:"Type,omitempty"`
 	// VRF name.
-	VrfName string `protobuf:"bytes,2,opt,name=VrfName,proto3" json:"VrfName,omitempty"`
+	VrfName string `protobuf:"bytes,2,opt,name=VrfName" json:"VrfName,omitempty"`
 	// Neighbor Ipv6 address.
 	NbrAddr []byte `protobuf:"bytes,3,opt,name=NbrAddr,proto3" json:"NbrAddr,omitempty"`
 	// Interface name and handle, needed for single-hop BFD
-	Interface *SLInterface `protobuf:"bytes,4,opt,name=Interface,proto3" json:"Interface,omitempty"`
+	Interface *SLInterface `protobuf:"bytes,4,opt,name=Interface" json:"Interface,omitempty"`
 	// Source Ipv6 address, needed for multi-hop BFD
-	SourceAddr           []byte   `protobuf:"bytes,5,opt,name=SourceAddr,proto3" json:"SourceAddr,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	SourceAddr []byte `protobuf:"bytes,5,opt,name=SourceAddr,proto3" json:"SourceAddr,omitempty"`
 }
 
-func (m *SLBfdv6Key) Reset()         { *m = SLBfdv6Key{} }
-func (m *SLBfdv6Key) String() string { return proto.CompactTextString(m) }
-func (*SLBfdv6Key) ProtoMessage()    {}
-func (*SLBfdv6Key) Descriptor() ([]byte, []int) {
-	return fileDescriptor_sl_bfd_ipv6_47e0f9825e989eba, []int{0}
-}
-func (m *SLBfdv6Key) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_SLBfdv6Key.Unmarshal(m, b)
-}
-func (m *SLBfdv6Key) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_SLBfdv6Key.Marshal(b, m, deterministic)
-}
-func (dst *SLBfdv6Key) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_SLBfdv6Key.Merge(dst, src)
-}
-func (m *SLBfdv6Key) XXX_Size() int {
-	return xxx_messageInfo_SLBfdv6Key.Size(m)
-}
-func (m *SLBfdv6Key) XXX_DiscardUnknown() {
-	xxx_messageInfo_SLBfdv6Key.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_SLBfdv6Key proto.InternalMessageInfo
+func (m *SLBfdv6Key) Reset()                    { *m = SLBfdv6Key{} }
+func (m *SLBfdv6Key) String() string            { return proto.CompactTextString(m) }
+func (*SLBfdv6Key) ProtoMessage()               {}
+func (*SLBfdv6Key) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{0} }
 
 func (m *SLBfdv6Key) GetType() SLBfdType {
 	if m != nil {
@@ -102,37 +74,15 @@ func (m *SLBfdv6Key) GetSourceAddr() []byte {
 // BFD session information.
 type SLBfdv6SessionCfg struct {
 	// BFD unique key identifier.
-	Key *SLBfdv6Key `protobuf:"bytes,1,opt,name=Key,proto3" json:"Key,omitempty"`
+	Key *SLBfdv6Key `protobuf:"bytes,1,opt,name=Key" json:"Key,omitempty"`
 	// BFD common features.
-	Config               *SLBfdConfigCommon `protobuf:"bytes,2,opt,name=Config,proto3" json:"Config,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}           `json:"-"`
-	XXX_unrecognized     []byte             `json:"-"`
-	XXX_sizecache        int32              `json:"-"`
+	Config *SLBfdConfigCommon `protobuf:"bytes,2,opt,name=Config" json:"Config,omitempty"`
 }
 
-func (m *SLBfdv6SessionCfg) Reset()         { *m = SLBfdv6SessionCfg{} }
-func (m *SLBfdv6SessionCfg) String() string { return proto.CompactTextString(m) }
-func (*SLBfdv6SessionCfg) ProtoMessage()    {}
-func (*SLBfdv6SessionCfg) Descriptor() ([]byte, []int) {
-	return fileDescriptor_sl_bfd_ipv6_47e0f9825e989eba, []int{1}
-}
-func (m *SLBfdv6SessionCfg) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_SLBfdv6SessionCfg.Unmarshal(m, b)
-}
-func (m *SLBfdv6SessionCfg) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_SLBfdv6SessionCfg.Marshal(b, m, deterministic)
-}
-func (dst *SLBfdv6SessionCfg) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_SLBfdv6SessionCfg.Merge(dst, src)
-}
-func (m *SLBfdv6SessionCfg) XXX_Size() int {
-	return xxx_messageInfo_SLBfdv6SessionCfg.Size(m)
-}
-func (m *SLBfdv6SessionCfg) XXX_DiscardUnknown() {
-	xxx_messageInfo_SLBfdv6SessionCfg.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_SLBfdv6SessionCfg proto.InternalMessageInfo
+func (m *SLBfdv6SessionCfg) Reset()                    { *m = SLBfdv6SessionCfg{} }
+func (m *SLBfdv6SessionCfg) String() string            { return proto.CompactTextString(m) }
+func (*SLBfdv6SessionCfg) ProtoMessage()               {}
+func (*SLBfdv6SessionCfg) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{1} }
 
 func (m *SLBfdv6SessionCfg) GetKey() *SLBfdv6Key {
 	if m != nil {
@@ -151,37 +101,15 @@ func (m *SLBfdv6SessionCfg) GetConfig() *SLBfdConfigCommon {
 // Contains a List of BFD session objects.
 type SLBfdv6Msg struct {
 	// BFD Object Operations
-	Oper SLObjectOp `protobuf:"varint,1,opt,name=Oper,proto3,enum=service_layer.SLObjectOp" json:"Oper,omitempty"`
+	Oper SLObjectOp `protobuf:"varint,1,opt,name=Oper,enum=service_layer.SLObjectOp" json:"Oper,omitempty"`
 	// List of BFD session objects
-	Sessions             []*SLBfdv6SessionCfg `protobuf:"bytes,2,rep,name=Sessions,proto3" json:"Sessions,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}             `json:"-"`
-	XXX_unrecognized     []byte               `json:"-"`
-	XXX_sizecache        int32                `json:"-"`
+	Sessions []*SLBfdv6SessionCfg `protobuf:"bytes,2,rep,name=Sessions" json:"Sessions,omitempty"`
 }
 
-func (m *SLBfdv6Msg) Reset()         { *m = SLBfdv6Msg{} }
-func (m *SLBfdv6Msg) String() string { return proto.CompactTextString(m) }
-func (*SLBfdv6Msg) ProtoMessage()    {}
-func (*SLBfdv6Msg) Descriptor() ([]byte, []int) {
-	return fileDescriptor_sl_bfd_ipv6_47e0f9825e989eba, []int{2}
-}
-func (m *SLBfdv6Msg) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_SLBfdv6Msg.Unmarshal(m, b)
-}
-func (m *SLBfdv6Msg) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_SLBfdv6Msg.Marshal(b, m, deterministic)
-}
-func (dst *SLBfdv6Msg) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_SLBfdv6Msg.Merge(dst, src)
-}
-func (m *SLBfdv6Msg) XXX_Size() int {
-	return xxx_messageInfo_SLBfdv6Msg.Size(m)
-}
-func (m *SLBfdv6Msg) XXX_DiscardUnknown() {
-	xxx_messageInfo_SLBfdv6Msg.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_SLBfdv6Msg proto.InternalMessageInfo
+func (m *SLBfdv6Msg) Reset()                    { *m = SLBfdv6Msg{} }
+func (m *SLBfdv6Msg) String() string            { return proto.CompactTextString(m) }
+func (*SLBfdv6Msg) ProtoMessage()               {}
+func (*SLBfdv6Msg) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{2} }
 
 func (m *SLBfdv6Msg) GetOper() SLObjectOp {
 	if m != nil {
@@ -200,37 +128,15 @@ func (m *SLBfdv6Msg) GetSessions() []*SLBfdv6SessionCfg {
 // BFD result
 type SLBfdv6Res struct {
 	// Corresponding error code
-	ErrStatus *SLErrorStatus `protobuf:"bytes,1,opt,name=ErrStatus,proto3" json:"ErrStatus,omitempty"`
+	ErrStatus *SLErrorStatus `protobuf:"bytes,1,opt,name=ErrStatus" json:"ErrStatus,omitempty"`
 	// BFD unique key.
-	Key                  *SLBfdv6Key `protobuf:"bytes,2,opt,name=Key,proto3" json:"Key,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}    `json:"-"`
-	XXX_unrecognized     []byte      `json:"-"`
-	XXX_sizecache        int32       `json:"-"`
+	Key *SLBfdv6Key `protobuf:"bytes,2,opt,name=Key" json:"Key,omitempty"`
 }
 
-func (m *SLBfdv6Res) Reset()         { *m = SLBfdv6Res{} }
-func (m *SLBfdv6Res) String() string { return proto.CompactTextString(m) }
-func (*SLBfdv6Res) ProtoMessage()    {}
-func (*SLBfdv6Res) Descriptor() ([]byte, []int) {
-	return fileDescriptor_sl_bfd_ipv6_47e0f9825e989eba, []int{3}
-}
-func (m *SLBfdv6Res) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_SLBfdv6Res.Unmarshal(m, b)
-}
-func (m *SLBfdv6Res) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_SLBfdv6Res.Marshal(b, m, deterministic)
-}
-func (dst *SLBfdv6Res) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_SLBfdv6Res.Merge(dst, src)
-}
-func (m *SLBfdv6Res) XXX_Size() int {
-	return xxx_messageInfo_SLBfdv6Res.Size(m)
-}
-func (m *SLBfdv6Res) XXX_DiscardUnknown() {
-	xxx_messageInfo_SLBfdv6Res.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_SLBfdv6Res proto.InternalMessageInfo
+func (m *SLBfdv6Res) Reset()                    { *m = SLBfdv6Res{} }
+func (m *SLBfdv6Res) String() string            { return proto.CompactTextString(m) }
+func (*SLBfdv6Res) ProtoMessage()               {}
+func (*SLBfdv6Res) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{3} }
 
 func (m *SLBfdv6Res) GetErrStatus() *SLErrorStatus {
 	if m != nil {
@@ -257,38 +163,16 @@ type SLBfdv6MsgRsp struct {
 	//         each individual entry in the bulk.
 	// 3. SL_RPC_XXX: signifies that the entire bulk operation failed.
 	//         In this case, the Results list is empty.
-	StatusSummary *SLErrorStatus `protobuf:"bytes,1,opt,name=StatusSummary,proto3" json:"StatusSummary,omitempty"`
+	StatusSummary *SLErrorStatus `protobuf:"bytes,1,opt,name=StatusSummary" json:"StatusSummary,omitempty"`
 	// In case of errors, this field indicates which entry in the bulk was
 	// erroneous.
-	Results              []*SLBfdv6Res `protobuf:"bytes,2,rep,name=Results,proto3" json:"Results,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}      `json:"-"`
-	XXX_unrecognized     []byte        `json:"-"`
-	XXX_sizecache        int32         `json:"-"`
+	Results []*SLBfdv6Res `protobuf:"bytes,2,rep,name=Results" json:"Results,omitempty"`
 }
 
-func (m *SLBfdv6MsgRsp) Reset()         { *m = SLBfdv6MsgRsp{} }
-func (m *SLBfdv6MsgRsp) String() string { return proto.CompactTextString(m) }
-func (*SLBfdv6MsgRsp) ProtoMessage()    {}
-func (*SLBfdv6MsgRsp) Descriptor() ([]byte, []int) {
-	return fileDescriptor_sl_bfd_ipv6_47e0f9825e989eba, []int{4}
-}
-func (m *SLBfdv6MsgRsp) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_SLBfdv6MsgRsp.Unmarshal(m, b)
-}
-func (m *SLBfdv6MsgRsp) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_SLBfdv6MsgRsp.Marshal(b, m, deterministic)
-}
-func (dst *SLBfdv6MsgRsp) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_SLBfdv6MsgRsp.Merge(dst, src)
-}
-func (m *SLBfdv6MsgRsp) XXX_Size() int {
-	return xxx_messageInfo_SLBfdv6MsgRsp.Size(m)
-}
-func (m *SLBfdv6MsgRsp) XXX_DiscardUnknown() {
-	xxx_messageInfo_SLBfdv6MsgRsp.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_SLBfdv6MsgRsp proto.InternalMessageInfo
+func (m *SLBfdv6MsgRsp) Reset()                    { *m = SLBfdv6MsgRsp{} }
+func (m *SLBfdv6MsgRsp) String() string            { return proto.CompactTextString(m) }
+func (*SLBfdv6MsgRsp) ProtoMessage()               {}
+func (*SLBfdv6MsgRsp) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{4} }
 
 func (m *SLBfdv6MsgRsp) GetStatusSummary() *SLErrorStatus {
 	if m != nil {
@@ -309,45 +193,23 @@ type SLBfdv6GetMsg struct {
 	// BFD key.
 	// If the Key is not specified, then request up to the first
 	// 'EntriesCount' entries.
-	Key *SLBfdv6Key `protobuf:"bytes,1,opt,name=Key,proto3" json:"Key,omitempty"`
+	Key *SLBfdv6Key `protobuf:"bytes,1,opt,name=Key" json:"Key,omitempty"`
 	// Global BFD event sequence number.
 	// Return all BFD sessions with sequence number >= SeqNum.
-	SeqNum uint64 `protobuf:"varint,2,opt,name=SeqNum,proto3" json:"SeqNum,omitempty"`
+	SeqNum uint64 `protobuf:"varint,2,opt,name=SeqNum" json:"SeqNum,omitempty"`
 	// Number of entries requested
-	EntriesCount uint32 `protobuf:"varint,3,opt,name=EntriesCount,proto3" json:"EntriesCount,omitempty"`
+	EntriesCount uint32 `protobuf:"varint,3,opt,name=EntriesCount" json:"EntriesCount,omitempty"`
 	// if GetNext is FALSE:
 	//     request up to 'EntriesCount' entries starting from the key
 	// If GetNext is TRUE, or if the key exact match is not found:
 	//     request up to 'EntriesCount' entries starting from the key's next
-	GetNext              bool     `protobuf:"varint,4,opt,name=GetNext,proto3" json:"GetNext,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	GetNext bool `protobuf:"varint,4,opt,name=GetNext" json:"GetNext,omitempty"`
 }
 
-func (m *SLBfdv6GetMsg) Reset()         { *m = SLBfdv6GetMsg{} }
-func (m *SLBfdv6GetMsg) String() string { return proto.CompactTextString(m) }
-func (*SLBfdv6GetMsg) ProtoMessage()    {}
-func (*SLBfdv6GetMsg) Descriptor() ([]byte, []int) {
-	return fileDescriptor_sl_bfd_ipv6_47e0f9825e989eba, []int{5}
-}
-func (m *SLBfdv6GetMsg) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_SLBfdv6GetMsg.Unmarshal(m, b)
-}
-func (m *SLBfdv6GetMsg) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_SLBfdv6GetMsg.Marshal(b, m, deterministic)
-}
-func (dst *SLBfdv6GetMsg) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_SLBfdv6GetMsg.Merge(dst, src)
-}
-func (m *SLBfdv6GetMsg) XXX_Size() int {
-	return xxx_messageInfo_SLBfdv6GetMsg.Size(m)
-}
-func (m *SLBfdv6GetMsg) XXX_DiscardUnknown() {
-	xxx_messageInfo_SLBfdv6GetMsg.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_SLBfdv6GetMsg proto.InternalMessageInfo
+func (m *SLBfdv6GetMsg) Reset()                    { *m = SLBfdv6GetMsg{} }
+func (m *SLBfdv6GetMsg) String() string            { return proto.CompactTextString(m) }
+func (*SLBfdv6GetMsg) ProtoMessage()               {}
+func (*SLBfdv6GetMsg) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{5} }
 
 func (m *SLBfdv6GetMsg) GetKey() *SLBfdv6Key {
 	if m != nil {
@@ -380,39 +242,17 @@ func (m *SLBfdv6GetMsg) GetGetNext() bool {
 // BFD Session Config and State info
 type SLBfdv6SessionCfgState struct {
 	// BFD unique key identifier.
-	Key *SLBfdv6Key `protobuf:"bytes,1,opt,name=Key,proto3" json:"Key,omitempty"`
+	Key *SLBfdv6Key `protobuf:"bytes,1,opt,name=Key" json:"Key,omitempty"`
 	// BFD common features.
-	Config *SLBfdConfigCommon `protobuf:"bytes,2,opt,name=Config,proto3" json:"Config,omitempty"`
+	Config *SLBfdConfigCommon `protobuf:"bytes,2,opt,name=Config" json:"Config,omitempty"`
 	// BFD session State
-	State                *SLBfdCommonState `protobuf:"bytes,3,opt,name=State,proto3" json:"State,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}          `json:"-"`
-	XXX_unrecognized     []byte            `json:"-"`
-	XXX_sizecache        int32             `json:"-"`
+	State *SLBfdCommonState `protobuf:"bytes,3,opt,name=State" json:"State,omitempty"`
 }
 
-func (m *SLBfdv6SessionCfgState) Reset()         { *m = SLBfdv6SessionCfgState{} }
-func (m *SLBfdv6SessionCfgState) String() string { return proto.CompactTextString(m) }
-func (*SLBfdv6SessionCfgState) ProtoMessage()    {}
-func (*SLBfdv6SessionCfgState) Descriptor() ([]byte, []int) {
-	return fileDescriptor_sl_bfd_ipv6_47e0f9825e989eba, []int{6}
-}
-func (m *SLBfdv6SessionCfgState) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_SLBfdv6SessionCfgState.Unmarshal(m, b)
-}
-func (m *SLBfdv6SessionCfgState) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_SLBfdv6SessionCfgState.Marshal(b, m, deterministic)
-}
-func (dst *SLBfdv6SessionCfgState) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_SLBfdv6SessionCfgState.Merge(dst, src)
-}
-func (m *SLBfdv6SessionCfgState) XXX_Size() int {
-	return xxx_messageInfo_SLBfdv6SessionCfgState.Size(m)
-}
-func (m *SLBfdv6SessionCfgState) XXX_DiscardUnknown() {
-	xxx_messageInfo_SLBfdv6SessionCfgState.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_SLBfdv6SessionCfgState proto.InternalMessageInfo
+func (m *SLBfdv6SessionCfgState) Reset()                    { *m = SLBfdv6SessionCfgState{} }
+func (m *SLBfdv6SessionCfgState) String() string            { return proto.CompactTextString(m) }
+func (*SLBfdv6SessionCfgState) ProtoMessage()               {}
+func (*SLBfdv6SessionCfgState) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{6} }
 
 func (m *SLBfdv6SessionCfgState) GetKey() *SLBfdv6Key {
 	if m != nil {
@@ -440,40 +280,18 @@ type SLBfdv6GetMsgRsp struct {
 	// End Of File.
 	// When set to True, it indicates that the server has returned M, where
 	// M < N, of the original N requested Entries.
-	Eof bool `protobuf:"varint,1,opt,name=Eof,proto3" json:"Eof,omitempty"`
+	Eof bool `protobuf:"varint,1,opt,name=Eof" json:"Eof,omitempty"`
 	// Status of the Get operation
-	ErrStatus *SLErrorStatus `protobuf:"bytes,2,opt,name=ErrStatus,proto3" json:"ErrStatus,omitempty"`
+	ErrStatus *SLErrorStatus `protobuf:"bytes,2,opt,name=ErrStatus" json:"ErrStatus,omitempty"`
 	// Returned entries as requested in the Get operation.
 	// if Error is SL_SUCCESS, Entries contains the info requested
-	Entries              []*SLBfdv6SessionCfgState `protobuf:"bytes,3,rep,name=Entries,proto3" json:"Entries,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}                  `json:"-"`
-	XXX_unrecognized     []byte                    `json:"-"`
-	XXX_sizecache        int32                     `json:"-"`
+	Entries []*SLBfdv6SessionCfgState `protobuf:"bytes,3,rep,name=Entries" json:"Entries,omitempty"`
 }
 
-func (m *SLBfdv6GetMsgRsp) Reset()         { *m = SLBfdv6GetMsgRsp{} }
-func (m *SLBfdv6GetMsgRsp) String() string { return proto.CompactTextString(m) }
-func (*SLBfdv6GetMsgRsp) ProtoMessage()    {}
-func (*SLBfdv6GetMsgRsp) Descriptor() ([]byte, []int) {
-	return fileDescriptor_sl_bfd_ipv6_47e0f9825e989eba, []int{7}
-}
-func (m *SLBfdv6GetMsgRsp) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_SLBfdv6GetMsgRsp.Unmarshal(m, b)
-}
-func (m *SLBfdv6GetMsgRsp) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_SLBfdv6GetMsgRsp.Marshal(b, m, deterministic)
-}
-func (dst *SLBfdv6GetMsgRsp) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_SLBfdv6GetMsgRsp.Merge(dst, src)
-}
-func (m *SLBfdv6GetMsgRsp) XXX_Size() int {
-	return xxx_messageInfo_SLBfdv6GetMsgRsp.Size(m)
-}
-func (m *SLBfdv6GetMsgRsp) XXX_DiscardUnknown() {
-	xxx_messageInfo_SLBfdv6GetMsgRsp.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_SLBfdv6GetMsgRsp proto.InternalMessageInfo
+func (m *SLBfdv6GetMsgRsp) Reset()                    { *m = SLBfdv6GetMsgRsp{} }
+func (m *SLBfdv6GetMsgRsp) String() string            { return proto.CompactTextString(m) }
+func (*SLBfdv6GetMsgRsp) ProtoMessage()               {}
+func (*SLBfdv6GetMsgRsp) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{7} }
 
 func (m *SLBfdv6GetMsgRsp) GetEof() bool {
 	if m != nil {
@@ -499,37 +317,15 @@ func (m *SLBfdv6GetMsgRsp) GetEntries() []*SLBfdv6SessionCfgState {
 // BFD Session and State info
 type SLBfdv6SessionState struct {
 	// BFD unique key identifier.
-	Key *SLBfdv6Key `protobuf:"bytes,1,opt,name=Key,proto3" json:"Key,omitempty"`
+	Key *SLBfdv6Key `protobuf:"bytes,1,opt,name=Key" json:"Key,omitempty"`
 	// BFD session State
-	State                *SLBfdCommonState `protobuf:"bytes,2,opt,name=State,proto3" json:"State,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}          `json:"-"`
-	XXX_unrecognized     []byte            `json:"-"`
-	XXX_sizecache        int32             `json:"-"`
+	State *SLBfdCommonState `protobuf:"bytes,2,opt,name=State" json:"State,omitempty"`
 }
 
-func (m *SLBfdv6SessionState) Reset()         { *m = SLBfdv6SessionState{} }
-func (m *SLBfdv6SessionState) String() string { return proto.CompactTextString(m) }
-func (*SLBfdv6SessionState) ProtoMessage()    {}
-func (*SLBfdv6SessionState) Descriptor() ([]byte, []int) {
-	return fileDescriptor_sl_bfd_ipv6_47e0f9825e989eba, []int{8}
-}
-func (m *SLBfdv6SessionState) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_SLBfdv6SessionState.Unmarshal(m, b)
-}
-func (m *SLBfdv6SessionState) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_SLBfdv6SessionState.Marshal(b, m, deterministic)
-}
-func (dst *SLBfdv6SessionState) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_SLBfdv6SessionState.Merge(dst, src)
-}
-func (m *SLBfdv6SessionState) XXX_Size() int {
-	return xxx_messageInfo_SLBfdv6SessionState.Size(m)
-}
-func (m *SLBfdv6SessionState) XXX_DiscardUnknown() {
-	xxx_messageInfo_SLBfdv6SessionState.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_SLBfdv6SessionState proto.InternalMessageInfo
+func (m *SLBfdv6SessionState) Reset()                    { *m = SLBfdv6SessionState{} }
+func (m *SLBfdv6SessionState) String() string            { return proto.CompactTextString(m) }
+func (*SLBfdv6SessionState) ProtoMessage()               {}
+func (*SLBfdv6SessionState) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{8} }
 
 func (m *SLBfdv6SessionState) GetKey() *SLBfdv6Key {
 	if m != nil {
@@ -548,70 +344,46 @@ func (m *SLBfdv6SessionState) GetState() *SLBfdCommonState {
 // BFD Session and State info Message
 type SLBfdv6Notif struct {
 	// Event Type
-	EventType SLBfdNotifType `protobuf:"varint,1,opt,name=EventType,proto3,enum=service_layer.SLBfdNotifType" json:"EventType,omitempty"`
+	EventType SLBfdNotifType `protobuf:"varint,1,opt,name=EventType,enum=service_layer.SLBfdNotifType" json:"EventType,omitempty"`
 	// Further info based on EventType
 	//
 	// Types that are valid to be assigned to Event:
 	//	*SLBfdv6Notif_ErrStatus
 	//	*SLBfdv6Notif_Session
-	Event                isSLBfdv6Notif_Event `protobuf_oneof:"Event"`
-	XXX_NoUnkeyedLiteral struct{}             `json:"-"`
-	XXX_unrecognized     []byte               `json:"-"`
-	XXX_sizecache        int32                `json:"-"`
+	Event isSLBfdv6Notif_Event `protobuf_oneof:"Event"`
 }
 
-func (m *SLBfdv6Notif) Reset()         { *m = SLBfdv6Notif{} }
-func (m *SLBfdv6Notif) String() string { return proto.CompactTextString(m) }
-func (*SLBfdv6Notif) ProtoMessage()    {}
-func (*SLBfdv6Notif) Descriptor() ([]byte, []int) {
-	return fileDescriptor_sl_bfd_ipv6_47e0f9825e989eba, []int{9}
-}
-func (m *SLBfdv6Notif) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_SLBfdv6Notif.Unmarshal(m, b)
-}
-func (m *SLBfdv6Notif) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_SLBfdv6Notif.Marshal(b, m, deterministic)
-}
-func (dst *SLBfdv6Notif) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_SLBfdv6Notif.Merge(dst, src)
-}
-func (m *SLBfdv6Notif) XXX_Size() int {
-	return xxx_messageInfo_SLBfdv6Notif.Size(m)
-}
-func (m *SLBfdv6Notif) XXX_DiscardUnknown() {
-	xxx_messageInfo_SLBfdv6Notif.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_SLBfdv6Notif proto.InternalMessageInfo
-
-func (m *SLBfdv6Notif) GetEventType() SLBfdNotifType {
-	if m != nil {
-		return m.EventType
-	}
-	return SLBfdNotifType_SL_BFD_EVENT_TYPE_RESERVED
-}
+func (m *SLBfdv6Notif) Reset()                    { *m = SLBfdv6Notif{} }
+func (m *SLBfdv6Notif) String() string            { return proto.CompactTextString(m) }
+func (*SLBfdv6Notif) ProtoMessage()               {}
+func (*SLBfdv6Notif) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{9} }
 
 type isSLBfdv6Notif_Event interface {
 	isSLBfdv6Notif_Event()
 }
 
 type SLBfdv6Notif_ErrStatus struct {
-	ErrStatus *SLErrorStatus `protobuf:"bytes,2,opt,name=ErrStatus,proto3,oneof"`
+	ErrStatus *SLErrorStatus `protobuf:"bytes,2,opt,name=ErrStatus,oneof"`
 }
-
 type SLBfdv6Notif_Session struct {
-	Session *SLBfdv6SessionState `protobuf:"bytes,3,opt,name=Session,proto3,oneof"`
+	Session *SLBfdv6SessionState `protobuf:"bytes,3,opt,name=Session,oneof"`
 }
 
 func (*SLBfdv6Notif_ErrStatus) isSLBfdv6Notif_Event() {}
-
-func (*SLBfdv6Notif_Session) isSLBfdv6Notif_Event() {}
+func (*SLBfdv6Notif_Session) isSLBfdv6Notif_Event()   {}
 
 func (m *SLBfdv6Notif) GetEvent() isSLBfdv6Notif_Event {
 	if m != nil {
 		return m.Event
 	}
 	return nil
+}
+
+func (m *SLBfdv6Notif) GetEventType() SLBfdNotifType {
+	if m != nil {
+		return m.EventType
+	}
+	return SLBfdNotifType_SL_BFD_EVENT_TYPE_RESERVED
 }
 
 func (m *SLBfdv6Notif) GetErrStatus() *SLErrorStatus {
@@ -687,12 +459,12 @@ func _SLBfdv6Notif_OneofSizer(msg proto.Message) (n int) {
 	switch x := m.Event.(type) {
 	case *SLBfdv6Notif_ErrStatus:
 		s := proto.Size(x.ErrStatus)
-		n += 1 // tag and wire
+		n += proto.SizeVarint(2<<3 | proto.WireBytes)
 		n += proto.SizeVarint(uint64(s))
 		n += s
 	case *SLBfdv6Notif_Session:
 		s := proto.Size(x.Session)
-		n += 1 // tag and wire
+		n += proto.SizeVarint(3<<3 | proto.WireBytes)
 		n += proto.SizeVarint(uint64(s))
 		n += s
 	case nil:
@@ -723,9 +495,8 @@ var _ grpc.ClientConn
 // is compatible with the grpc package it is being compiled against.
 const _ = grpc.SupportPackageIsVersion4
 
-// SLBfdv6OperClient is the client API for SLBfdv6Oper service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
+// Client API for SLBfdv6Oper service
+
 type SLBfdv6OperClient interface {
 	// SLBfdRegMsg.Oper = SL_REGOP_REGISTER:
 	//     Global BFD registration.
@@ -780,7 +551,7 @@ func NewSLBfdv6OperClient(cc *grpc.ClientConn) SLBfdv6OperClient {
 
 func (c *sLBfdv6OperClient) SLBfdv6RegOp(ctx context.Context, in *SLBfdRegMsg, opts ...grpc.CallOption) (*SLBfdRegMsgRsp, error) {
 	out := new(SLBfdRegMsgRsp)
-	err := c.cc.Invoke(ctx, "/service_layer.SLBfdv6Oper/SLBfdv6RegOp", in, out, opts...)
+	err := grpc.Invoke(ctx, "/service_layer.SLBfdv6Oper/SLBfdv6RegOp", in, out, c.cc, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -789,7 +560,7 @@ func (c *sLBfdv6OperClient) SLBfdv6RegOp(ctx context.Context, in *SLBfdRegMsg, o
 
 func (c *sLBfdv6OperClient) SLBfdv6Get(ctx context.Context, in *SLBfdGetMsg, opts ...grpc.CallOption) (*SLBfdGetMsgRsp, error) {
 	out := new(SLBfdGetMsgRsp)
-	err := c.cc.Invoke(ctx, "/service_layer.SLBfdv6Oper/SLBfdv6Get", in, out, opts...)
+	err := grpc.Invoke(ctx, "/service_layer.SLBfdv6Oper/SLBfdv6Get", in, out, c.cc, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -798,7 +569,7 @@ func (c *sLBfdv6OperClient) SLBfdv6Get(ctx context.Context, in *SLBfdGetMsg, opt
 
 func (c *sLBfdv6OperClient) SLBfdv6GetStats(ctx context.Context, in *SLBfdGetMsg, opts ...grpc.CallOption) (*SLBfdGetStatsMsgRsp, error) {
 	out := new(SLBfdGetStatsMsgRsp)
-	err := c.cc.Invoke(ctx, "/service_layer.SLBfdv6Oper/SLBfdv6GetStats", in, out, opts...)
+	err := grpc.Invoke(ctx, "/service_layer.SLBfdv6Oper/SLBfdv6GetStats", in, out, c.cc, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -806,7 +577,7 @@ func (c *sLBfdv6OperClient) SLBfdv6GetStats(ctx context.Context, in *SLBfdGetMsg
 }
 
 func (c *sLBfdv6OperClient) SLBfdv6GetNotifStream(ctx context.Context, in *SLBfdGetNotifMsg, opts ...grpc.CallOption) (SLBfdv6Oper_SLBfdv6GetNotifStreamClient, error) {
-	stream, err := c.cc.NewStream(ctx, &_SLBfdv6Oper_serviceDesc.Streams[0], "/service_layer.SLBfdv6Oper/SLBfdv6GetNotifStream", opts...)
+	stream, err := grpc.NewClientStream(ctx, &_SLBfdv6Oper_serviceDesc.Streams[0], c.cc, "/service_layer.SLBfdv6Oper/SLBfdv6GetNotifStream", opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -839,7 +610,7 @@ func (x *sLBfdv6OperSLBfdv6GetNotifStreamClient) Recv() (*SLBfdv6Notif, error) {
 
 func (c *sLBfdv6OperClient) SLBfdv6SessionOp(ctx context.Context, in *SLBfdv6Msg, opts ...grpc.CallOption) (*SLBfdv6MsgRsp, error) {
 	out := new(SLBfdv6MsgRsp)
-	err := c.cc.Invoke(ctx, "/service_layer.SLBfdv6Oper/SLBfdv6SessionOp", in, out, opts...)
+	err := grpc.Invoke(ctx, "/service_layer.SLBfdv6Oper/SLBfdv6SessionOp", in, out, c.cc, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -848,14 +619,15 @@ func (c *sLBfdv6OperClient) SLBfdv6SessionOp(ctx context.Context, in *SLBfdv6Msg
 
 func (c *sLBfdv6OperClient) SLBfdv6SessionGet(ctx context.Context, in *SLBfdv6GetMsg, opts ...grpc.CallOption) (*SLBfdv6GetMsgRsp, error) {
 	out := new(SLBfdv6GetMsgRsp)
-	err := c.cc.Invoke(ctx, "/service_layer.SLBfdv6Oper/SLBfdv6SessionGet", in, out, opts...)
+	err := grpc.Invoke(ctx, "/service_layer.SLBfdv6Oper/SLBfdv6SessionGet", in, out, c.cc, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// SLBfdv6OperServer is the server API for SLBfdv6Oper service.
+// Server API for SLBfdv6Oper service
+
 type SLBfdv6OperServer interface {
 	// SLBfdRegMsg.Oper = SL_REGOP_REGISTER:
 	//     Global BFD registration.
@@ -1050,9 +822,9 @@ var _SLBfdv6Oper_serviceDesc = grpc.ServiceDesc{
 	Metadata: "sl_bfd_ipv6.proto",
 }
 
-func init() { proto.RegisterFile("sl_bfd_ipv6.proto", fileDescriptor_sl_bfd_ipv6_47e0f9825e989eba) }
+func init() { proto.RegisterFile("sl_bfd_ipv6.proto", fileDescriptor2) }
 
-var fileDescriptor_sl_bfd_ipv6_47e0f9825e989eba = []byte{
+var fileDescriptor2 = []byte{
 	// 726 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xbc, 0x55, 0xdd, 0x6e, 0xda, 0x4a,
 	0x10, 0x8e, 0x81, 0x84, 0x30, 0x84, 0x73, 0x92, 0x8d, 0x12, 0xf9, 0x70, 0x92, 0x13, 0x64, 0xe9,

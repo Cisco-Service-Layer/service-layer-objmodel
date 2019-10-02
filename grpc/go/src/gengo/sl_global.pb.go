@@ -17,12 +17,6 @@ var _ = proto.Marshal
 var _ = fmt.Errorf
 var _ = math.Inf
 
-// This is a compile-time assertion to ensure that this generated file
-// is compatible with the proto package it is being compiled against.
-// A compilation error at this line likely means your copy of the
-// proto package needs to be updated.
-const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
-
 // Global Event Notification types.
 type SLGlobalNotifType int32
 
@@ -53,9 +47,7 @@ var SLGlobalNotifType_value = map[string]int32{
 func (x SLGlobalNotifType) String() string {
 	return proto.EnumName(SLGlobalNotifType_name, int32(x))
 }
-func (SLGlobalNotifType) EnumDescriptor() ([]byte, []int) {
-	return fileDescriptor_sl_global_e60e2c7a6665587f, []int{0}
-}
+func (SLGlobalNotifType) EnumDescriptor() ([]byte, []int) { return fileDescriptor4, []int{0} }
 
 // Initialization message sent to the server.
 // If the client and server are running compatible version numbers, a
@@ -63,39 +55,17 @@ func (SLGlobalNotifType) EnumDescriptor() ([]byte, []int) {
 // with a successful status code.
 type SLInitMsg struct {
 	// Client's Major version of service-layer API (refer to sl_version.proto)
-	MajorVer uint32 `protobuf:"varint,1,opt,name=MajorVer,proto3" json:"MajorVer,omitempty"`
+	MajorVer uint32 `protobuf:"varint,1,opt,name=MajorVer" json:"MajorVer,omitempty"`
 	// Minor Version
-	MinorVer uint32 `protobuf:"varint,2,opt,name=MinorVer,proto3" json:"MinorVer,omitempty"`
+	MinorVer uint32 `protobuf:"varint,2,opt,name=MinorVer" json:"MinorVer,omitempty"`
 	// Sub-Version
-	SubVer               uint32   `protobuf:"varint,3,opt,name=SubVer,proto3" json:"SubVer,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	SubVer uint32 `protobuf:"varint,3,opt,name=SubVer" json:"SubVer,omitempty"`
 }
 
-func (m *SLInitMsg) Reset()         { *m = SLInitMsg{} }
-func (m *SLInitMsg) String() string { return proto.CompactTextString(m) }
-func (*SLInitMsg) ProtoMessage()    {}
-func (*SLInitMsg) Descriptor() ([]byte, []int) {
-	return fileDescriptor_sl_global_e60e2c7a6665587f, []int{0}
-}
-func (m *SLInitMsg) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_SLInitMsg.Unmarshal(m, b)
-}
-func (m *SLInitMsg) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_SLInitMsg.Marshal(b, m, deterministic)
-}
-func (dst *SLInitMsg) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_SLInitMsg.Merge(dst, src)
-}
-func (m *SLInitMsg) XXX_Size() int {
-	return xxx_messageInfo_SLInitMsg.Size(m)
-}
-func (m *SLInitMsg) XXX_DiscardUnknown() {
-	xxx_messageInfo_SLInitMsg.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_SLInitMsg proto.InternalMessageInfo
+func (m *SLInitMsg) Reset()                    { *m = SLInitMsg{} }
+func (m *SLInitMsg) String() string            { return proto.CompactTextString(m) }
+func (*SLInitMsg) ProtoMessage()               {}
+func (*SLInitMsg) Descriptor() ([]byte, []int) { return fileDescriptor4, []int{0} }
 
 func (m *SLInitMsg) GetMajorVer() uint32 {
 	if m != nil {
@@ -126,39 +96,17 @@ type SLInitMsgRsp struct {
 	// Major-number revisions are NOT backwards compatible,
 	// unless otherwise specified. The Server may reject a session if there
 	// is a version number mismatch or non-backwards compatibility.
-	MajorVer uint32 `protobuf:"varint,1,opt,name=MajorVer,proto3" json:"MajorVer,omitempty"`
+	MajorVer uint32 `protobuf:"varint,1,opt,name=MajorVer" json:"MajorVer,omitempty"`
 	// Minor Version
-	MinorVer uint32 `protobuf:"varint,2,opt,name=MinorVer,proto3" json:"MinorVer,omitempty"`
+	MinorVer uint32 `protobuf:"varint,2,opt,name=MinorVer" json:"MinorVer,omitempty"`
 	// Sub-Version
-	SubVer               uint32   `protobuf:"varint,3,opt,name=SubVer,proto3" json:"SubVer,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	SubVer uint32 `protobuf:"varint,3,opt,name=SubVer" json:"SubVer,omitempty"`
 }
 
-func (m *SLInitMsgRsp) Reset()         { *m = SLInitMsgRsp{} }
-func (m *SLInitMsgRsp) String() string { return proto.CompactTextString(m) }
-func (*SLInitMsgRsp) ProtoMessage()    {}
-func (*SLInitMsgRsp) Descriptor() ([]byte, []int) {
-	return fileDescriptor_sl_global_e60e2c7a6665587f, []int{1}
-}
-func (m *SLInitMsgRsp) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_SLInitMsgRsp.Unmarshal(m, b)
-}
-func (m *SLInitMsgRsp) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_SLInitMsgRsp.Marshal(b, m, deterministic)
-}
-func (dst *SLInitMsgRsp) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_SLInitMsgRsp.Merge(dst, src)
-}
-func (m *SLInitMsgRsp) XXX_Size() int {
-	return xxx_messageInfo_SLInitMsgRsp.Size(m)
-}
-func (m *SLInitMsgRsp) XXX_DiscardUnknown() {
-	xxx_messageInfo_SLInitMsgRsp.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_SLInitMsgRsp proto.InternalMessageInfo
+func (m *SLInitMsgRsp) Reset()                    { *m = SLInitMsgRsp{} }
+func (m *SLInitMsgRsp) String() string            { return proto.CompactTextString(m) }
+func (*SLInitMsgRsp) ProtoMessage()               {}
+func (*SLInitMsgRsp) Descriptor() ([]byte, []int) { return fileDescriptor4, []int{1} }
 
 func (m *SLInitMsgRsp) GetMajorVer() uint32 {
 	if m != nil {
@@ -184,7 +132,7 @@ func (m *SLInitMsgRsp) GetSubVer() uint32 {
 // Globals query message.
 type SLGlobalNotif struct {
 	// Event Type.
-	EventType SLGlobalNotifType `protobuf:"varint,1,opt,name=EventType,proto3,enum=service_layer.SLGlobalNotifType" json:"EventType,omitempty"`
+	EventType SLGlobalNotifType `protobuf:"varint,1,opt,name=EventType,enum=service_layer.SLGlobalNotifType" json:"EventType,omitempty"`
 	// Status code, interpreted based on the Event Type.
 	//
 	//   case EventType == SL_GLOBAL_EVENT_TYPE_ERROR:
@@ -213,40 +161,35 @@ type SLGlobalNotif struct {
 	//       case ErrStatus == (some error from SLErrorStatus)
 	//          => Client must either try again, or look into the specific
 	//             error message returned.
-	ErrStatus *SLErrorStatus `protobuf:"bytes,2,opt,name=ErrStatus,proto3" json:"ErrStatus,omitempty"`
+	ErrStatus *SLErrorStatus `protobuf:"bytes,2,opt,name=ErrStatus" json:"ErrStatus,omitempty"`
 	// Further info based on EventType.
 	//
 	// Types that are valid to be assigned to Event:
 	//	*SLGlobalNotif_InitRspMsg
-	Event                isSLGlobalNotif_Event `protobuf_oneof:"Event"`
-	XXX_NoUnkeyedLiteral struct{}              `json:"-"`
-	XXX_unrecognized     []byte                `json:"-"`
-	XXX_sizecache        int32                 `json:"-"`
+	Event isSLGlobalNotif_Event `protobuf_oneof:"Event"`
 }
 
-func (m *SLGlobalNotif) Reset()         { *m = SLGlobalNotif{} }
-func (m *SLGlobalNotif) String() string { return proto.CompactTextString(m) }
-func (*SLGlobalNotif) ProtoMessage()    {}
-func (*SLGlobalNotif) Descriptor() ([]byte, []int) {
-	return fileDescriptor_sl_global_e60e2c7a6665587f, []int{2}
-}
-func (m *SLGlobalNotif) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_SLGlobalNotif.Unmarshal(m, b)
-}
-func (m *SLGlobalNotif) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_SLGlobalNotif.Marshal(b, m, deterministic)
-}
-func (dst *SLGlobalNotif) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_SLGlobalNotif.Merge(dst, src)
-}
-func (m *SLGlobalNotif) XXX_Size() int {
-	return xxx_messageInfo_SLGlobalNotif.Size(m)
-}
-func (m *SLGlobalNotif) XXX_DiscardUnknown() {
-	xxx_messageInfo_SLGlobalNotif.DiscardUnknown(m)
+func (m *SLGlobalNotif) Reset()                    { *m = SLGlobalNotif{} }
+func (m *SLGlobalNotif) String() string            { return proto.CompactTextString(m) }
+func (*SLGlobalNotif) ProtoMessage()               {}
+func (*SLGlobalNotif) Descriptor() ([]byte, []int) { return fileDescriptor4, []int{2} }
+
+type isSLGlobalNotif_Event interface {
+	isSLGlobalNotif_Event()
 }
 
-var xxx_messageInfo_SLGlobalNotif proto.InternalMessageInfo
+type SLGlobalNotif_InitRspMsg struct {
+	InitRspMsg *SLInitMsgRsp `protobuf:"bytes,3,opt,name=InitRspMsg,oneof"`
+}
+
+func (*SLGlobalNotif_InitRspMsg) isSLGlobalNotif_Event() {}
+
+func (m *SLGlobalNotif) GetEvent() isSLGlobalNotif_Event {
+	if m != nil {
+		return m.Event
+	}
+	return nil
+}
 
 func (m *SLGlobalNotif) GetEventType() SLGlobalNotifType {
 	if m != nil {
@@ -258,23 +201,6 @@ func (m *SLGlobalNotif) GetEventType() SLGlobalNotifType {
 func (m *SLGlobalNotif) GetErrStatus() *SLErrorStatus {
 	if m != nil {
 		return m.ErrStatus
-	}
-	return nil
-}
-
-type isSLGlobalNotif_Event interface {
-	isSLGlobalNotif_Event()
-}
-
-type SLGlobalNotif_InitRspMsg struct {
-	InitRspMsg *SLInitMsgRsp `protobuf:"bytes,3,opt,name=InitRspMsg,proto3,oneof"`
-}
-
-func (*SLGlobalNotif_InitRspMsg) isSLGlobalNotif_Event() {}
-
-func (m *SLGlobalNotif) GetEvent() isSLGlobalNotif_Event {
-	if m != nil {
-		return m.Event
 	}
 	return nil
 }
@@ -331,7 +257,7 @@ func _SLGlobalNotif_OneofSizer(msg proto.Message) (n int) {
 	switch x := m.Event.(type) {
 	case *SLGlobalNotif_InitRspMsg:
 		s := proto.Size(x.InitRspMsg)
-		n += 1 // tag and wire
+		n += proto.SizeVarint(3<<3 | proto.WireBytes)
 		n += proto.SizeVarint(uint64(s))
 		n += s
 	case nil:
@@ -343,96 +269,52 @@ func _SLGlobalNotif_OneofSizer(msg proto.Message) (n int) {
 
 // Globals query message.
 type SLGlobalsGetMsg struct {
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *SLGlobalsGetMsg) Reset()         { *m = SLGlobalsGetMsg{} }
-func (m *SLGlobalsGetMsg) String() string { return proto.CompactTextString(m) }
-func (*SLGlobalsGetMsg) ProtoMessage()    {}
-func (*SLGlobalsGetMsg) Descriptor() ([]byte, []int) {
-	return fileDescriptor_sl_global_e60e2c7a6665587f, []int{3}
-}
-func (m *SLGlobalsGetMsg) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_SLGlobalsGetMsg.Unmarshal(m, b)
-}
-func (m *SLGlobalsGetMsg) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_SLGlobalsGetMsg.Marshal(b, m, deterministic)
-}
-func (dst *SLGlobalsGetMsg) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_SLGlobalsGetMsg.Merge(dst, src)
-}
-func (m *SLGlobalsGetMsg) XXX_Size() int {
-	return xxx_messageInfo_SLGlobalsGetMsg.Size(m)
-}
-func (m *SLGlobalsGetMsg) XXX_DiscardUnknown() {
-	xxx_messageInfo_SLGlobalsGetMsg.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_SLGlobalsGetMsg proto.InternalMessageInfo
+func (m *SLGlobalsGetMsg) Reset()                    { *m = SLGlobalsGetMsg{} }
+func (m *SLGlobalsGetMsg) String() string            { return proto.CompactTextString(m) }
+func (*SLGlobalsGetMsg) ProtoMessage()               {}
+func (*SLGlobalsGetMsg) Descriptor() ([]byte, []int) { return fileDescriptor4, []int{3} }
 
 // Platform specific globals Response.
 type SLGlobalsGetMsgRsp struct {
 	// Corresponding error code
-	ErrStatus *SLErrorStatus `protobuf:"bytes,1,opt,name=ErrStatus,proto3" json:"ErrStatus,omitempty"`
+	ErrStatus *SLErrorStatus `protobuf:"bytes,1,opt,name=ErrStatus" json:"ErrStatus,omitempty"`
 	// Maximum vrf name length.
-	MaxVrfNameLength uint32 `protobuf:"varint,2,opt,name=MaxVrfNameLength,proto3" json:"MaxVrfNameLength,omitempty"`
+	MaxVrfNameLength uint32 `protobuf:"varint,2,opt,name=MaxVrfNameLength" json:"MaxVrfNameLength,omitempty"`
 	// Maximum interface name length.
-	MaxInterfaceNameLength uint32 `protobuf:"varint,3,opt,name=MaxInterfaceNameLength,proto3" json:"MaxInterfaceNameLength,omitempty"`
+	MaxInterfaceNameLength uint32 `protobuf:"varint,3,opt,name=MaxInterfaceNameLength" json:"MaxInterfaceNameLength,omitempty"`
 	// Maximum paths per Route/ILM Entry.
-	MaxPathsPerEntry uint32 `protobuf:"varint,4,opt,name=MaxPathsPerEntry,proto3" json:"MaxPathsPerEntry,omitempty"`
+	MaxPathsPerEntry uint32 `protobuf:"varint,4,opt,name=MaxPathsPerEntry" json:"MaxPathsPerEntry,omitempty"`
 	// Maximum primary paths per Route/ILM Entry.
-	MaxPrimaryPathPerEntry uint32 `protobuf:"varint,5,opt,name=MaxPrimaryPathPerEntry,proto3" json:"MaxPrimaryPathPerEntry,omitempty"`
+	MaxPrimaryPathPerEntry uint32 `protobuf:"varint,5,opt,name=MaxPrimaryPathPerEntry" json:"MaxPrimaryPathPerEntry,omitempty"`
 	// Maximum backup paths per Route/ILM Entry.
-	MaxBackupPathPerEntry uint32 `protobuf:"varint,6,opt,name=MaxBackupPathPerEntry,proto3" json:"MaxBackupPathPerEntry,omitempty"`
+	MaxBackupPathPerEntry uint32 `protobuf:"varint,6,opt,name=MaxBackupPathPerEntry" json:"MaxBackupPathPerEntry,omitempty"`
 	// Maximum MPLS labels per Route/ILM Entry.
-	MaxMplsLabelsPerPath uint32 `protobuf:"varint,7,opt,name=MaxMplsLabelsPerPath,proto3" json:"MaxMplsLabelsPerPath,omitempty"`
+	MaxMplsLabelsPerPath uint32 `protobuf:"varint,7,opt,name=MaxMplsLabelsPerPath" json:"MaxMplsLabelsPerPath,omitempty"`
 	// Minimum Primary path id number.
-	MinPrimaryPathIdNum uint32 `protobuf:"varint,8,opt,name=MinPrimaryPathIdNum,proto3" json:"MinPrimaryPathIdNum,omitempty"`
+	MinPrimaryPathIdNum uint32 `protobuf:"varint,8,opt,name=MinPrimaryPathIdNum" json:"MinPrimaryPathIdNum,omitempty"`
 	// Maximum Primary path id number.
-	MaxPrimaryPathIdNum uint32 `protobuf:"varint,9,opt,name=MaxPrimaryPathIdNum,proto3" json:"MaxPrimaryPathIdNum,omitempty"`
+	MaxPrimaryPathIdNum uint32 `protobuf:"varint,9,opt,name=MaxPrimaryPathIdNum" json:"MaxPrimaryPathIdNum,omitempty"`
 	// Minimum Pure Backup path id number.
-	MinBackupPathIdNum uint32 `protobuf:"varint,10,opt,name=MinBackupPathIdNum,proto3" json:"MinBackupPathIdNum,omitempty"`
+	MinBackupPathIdNum uint32 `protobuf:"varint,10,opt,name=MinBackupPathIdNum" json:"MinBackupPathIdNum,omitempty"`
 	// Maximum Pure Backup path id number.
-	MaxBackupPathIdNum uint32 `protobuf:"varint,11,opt,name=MaxBackupPathIdNum,proto3" json:"MaxBackupPathIdNum,omitempty"`
+	MaxBackupPathIdNum uint32 `protobuf:"varint,11,opt,name=MaxBackupPathIdNum" json:"MaxBackupPathIdNum,omitempty"`
 	// Maximum number of remote addresses
-	MaxRemoteAddressNum uint32 `protobuf:"varint,12,opt,name=MaxRemoteAddressNum,proto3" json:"MaxRemoteAddressNum,omitempty"`
+	MaxRemoteAddressNum uint32 `protobuf:"varint,12,opt,name=MaxRemoteAddressNum" json:"MaxRemoteAddressNum,omitempty"`
 	// Maximum Bridge Domain name length - used for L2 routes.
-	MaxL2BdNameLength uint32 `protobuf:"varint,13,opt,name=MaxL2BdNameLength,proto3" json:"MaxL2BdNameLength,omitempty"`
+	MaxL2BdNameLength uint32 `protobuf:"varint,13,opt,name=MaxL2BdNameLength" json:"MaxL2BdNameLength,omitempty"`
 	// Maximum Provider Multicast Service Interface (PMSI) tunnel ID length.
 	// Used for L2 Inclusive Multicast Ethernet Tag (IMET) routes.
-	MaxL2PmsiTunnelIdLength uint32 `protobuf:"varint,14,opt,name=MaxL2PmsiTunnelIdLength,proto3" json:"MaxL2PmsiTunnelIdLength,omitempty"`
+	MaxL2PmsiTunnelIdLength uint32 `protobuf:"varint,14,opt,name=MaxL2PmsiTunnelIdLength" json:"MaxL2PmsiTunnelIdLength,omitempty"`
 	// Maximum label block client name length.
-	MaxLabelBlockClientNameLength uint32   `protobuf:"varint,15,opt,name=MaxLabelBlockClientNameLength,proto3" json:"MaxLabelBlockClientNameLength,omitempty"`
-	XXX_NoUnkeyedLiteral          struct{} `json:"-"`
-	XXX_unrecognized              []byte   `json:"-"`
-	XXX_sizecache                 int32    `json:"-"`
+	MaxLabelBlockClientNameLength uint32 `protobuf:"varint,15,opt,name=MaxLabelBlockClientNameLength" json:"MaxLabelBlockClientNameLength,omitempty"`
 }
 
-func (m *SLGlobalsGetMsgRsp) Reset()         { *m = SLGlobalsGetMsgRsp{} }
-func (m *SLGlobalsGetMsgRsp) String() string { return proto.CompactTextString(m) }
-func (*SLGlobalsGetMsgRsp) ProtoMessage()    {}
-func (*SLGlobalsGetMsgRsp) Descriptor() ([]byte, []int) {
-	return fileDescriptor_sl_global_e60e2c7a6665587f, []int{4}
-}
-func (m *SLGlobalsGetMsgRsp) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_SLGlobalsGetMsgRsp.Unmarshal(m, b)
-}
-func (m *SLGlobalsGetMsgRsp) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_SLGlobalsGetMsgRsp.Marshal(b, m, deterministic)
-}
-func (dst *SLGlobalsGetMsgRsp) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_SLGlobalsGetMsgRsp.Merge(dst, src)
-}
-func (m *SLGlobalsGetMsgRsp) XXX_Size() int {
-	return xxx_messageInfo_SLGlobalsGetMsgRsp.Size(m)
-}
-func (m *SLGlobalsGetMsgRsp) XXX_DiscardUnknown() {
-	xxx_messageInfo_SLGlobalsGetMsgRsp.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_SLGlobalsGetMsgRsp proto.InternalMessageInfo
+func (m *SLGlobalsGetMsgRsp) Reset()                    { *m = SLGlobalsGetMsgRsp{} }
+func (m *SLGlobalsGetMsgRsp) String() string            { return proto.CompactTextString(m) }
+func (*SLGlobalsGetMsgRsp) ProtoMessage()               {}
+func (*SLGlobalsGetMsgRsp) Descriptor() ([]byte, []int) { return fileDescriptor4, []int{4} }
 
 func (m *SLGlobalsGetMsgRsp) GetErrStatus() *SLErrorStatus {
 	if m != nil {
@@ -556,9 +438,8 @@ var _ grpc.ClientConn
 // is compatible with the grpc package it is being compiled against.
 const _ = grpc.SupportPackageIsVersion4
 
-// SLGlobalClient is the client API for SLGlobal service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
+// Client API for SLGlobal service
+
 type SLGlobalClient interface {
 	// Initialize the connection, and setup a notification channel.
 	// This MUST be the first call to setup the Service Layer connection.
@@ -593,7 +474,7 @@ func NewSLGlobalClient(cc *grpc.ClientConn) SLGlobalClient {
 }
 
 func (c *sLGlobalClient) SLGlobalInitNotif(ctx context.Context, in *SLInitMsg, opts ...grpc.CallOption) (SLGlobal_SLGlobalInitNotifClient, error) {
-	stream, err := c.cc.NewStream(ctx, &_SLGlobal_serviceDesc.Streams[0], "/service_layer.SLGlobal/SLGlobalInitNotif", opts...)
+	stream, err := grpc.NewClientStream(ctx, &_SLGlobal_serviceDesc.Streams[0], c.cc, "/service_layer.SLGlobal/SLGlobalInitNotif", opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -626,14 +507,15 @@ func (x *sLGlobalSLGlobalInitNotifClient) Recv() (*SLGlobalNotif, error) {
 
 func (c *sLGlobalClient) SLGlobalsGet(ctx context.Context, in *SLGlobalsGetMsg, opts ...grpc.CallOption) (*SLGlobalsGetMsgRsp, error) {
 	out := new(SLGlobalsGetMsgRsp)
-	err := c.cc.Invoke(ctx, "/service_layer.SLGlobal/SLGlobalsGet", in, out, opts...)
+	err := grpc.Invoke(ctx, "/service_layer.SLGlobal/SLGlobalsGet", in, out, c.cc, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// SLGlobalServer is the server API for SLGlobal service.
+// Server API for SLGlobal service
+
 type SLGlobalServer interface {
 	// Initialize the connection, and setup a notification channel.
 	// This MUST be the first call to setup the Service Layer connection.
@@ -721,9 +603,9 @@ var _SLGlobal_serviceDesc = grpc.ServiceDesc{
 	Metadata: "sl_global.proto",
 }
 
-func init() { proto.RegisterFile("sl_global.proto", fileDescriptor_sl_global_e60e2c7a6665587f) }
+func init() { proto.RegisterFile("sl_global.proto", fileDescriptor4) }
 
-var fileDescriptor_sl_global_e60e2c7a6665587f = []byte{
+var fileDescriptor4 = []byte{
 	// 648 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xac, 0x95, 0x5d, 0x4b, 0x1b, 0x4d,
 	0x18, 0x86, 0x5d, 0x7d, 0x8d, 0xe6, 0xd1, 0x68, 0x9c, 0xb7, 0xda, 0x90, 0xaa, 0x68, 0x8e, 0x8a,

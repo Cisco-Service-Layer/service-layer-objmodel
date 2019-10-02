@@ -12,12 +12,6 @@ var _ = proto.Marshal
 var _ = fmt.Errorf
 var _ = math.Inf
 
-// This is a compile-time assertion to ensure that this generated file
-// is compatible with the proto package it is being compiled against.
-// A compilation error at this line likely means your copy of the
-// proto package needs to be updated.
-const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
-
 // Registration Operations.
 type SLRegOp int32
 
@@ -48,9 +42,7 @@ var SLRegOp_value = map[string]int32{
 func (x SLRegOp) String() string {
 	return proto.EnumName(SLRegOp_name, int32(x))
 }
-func (SLRegOp) EnumDescriptor() ([]byte, []int) {
-	return fileDescriptor_sl_common_types_c54fc76bdcbcb4e0, []int{0}
-}
+func (SLRegOp) EnumDescriptor() ([]byte, []int) { return fileDescriptor3, []int{0} }
 
 // Object Operations.
 type SLObjectOp int32
@@ -82,9 +74,7 @@ var SLObjectOp_value = map[string]int32{
 func (x SLObjectOp) String() string {
 	return proto.EnumName(SLObjectOp_name, int32(x))
 }
-func (SLObjectOp) EnumDescriptor() ([]byte, []int) {
-	return fileDescriptor_sl_common_types_c54fc76bdcbcb4e0, []int{1}
-}
+func (SLObjectOp) EnumDescriptor() ([]byte, []int) { return fileDescriptor3, []int{1} }
 
 // Notification Operations.
 type SLNotifOp int32
@@ -112,9 +102,7 @@ var SLNotifOp_value = map[string]int32{
 func (x SLNotifOp) String() string {
 	return proto.EnumName(SLNotifOp_name, int32(x))
 }
-func (SLNotifOp) EnumDescriptor() ([]byte, []int) {
-	return fileDescriptor_sl_common_types_c54fc76bdcbcb4e0, []int{2}
-}
+func (SLNotifOp) EnumDescriptor() ([]byte, []int) { return fileDescriptor3, []int{2} }
 
 // Encapsulation Types.
 // Specify tunnel encapsulation types: VXLAN or MPLS.
@@ -145,9 +133,7 @@ var SLEncapType_value = map[string]int32{
 func (x SLEncapType) String() string {
 	return proto.EnumName(SLEncapType_name, int32(x))
 }
-func (SLEncapType) EnumDescriptor() ([]byte, []int) {
-	return fileDescriptor_sl_common_types_c54fc76bdcbcb4e0, []int{3}
-}
+func (SLEncapType) EnumDescriptor() ([]byte, []int) { return fileDescriptor3, []int{3} }
 
 type SLErrorStatus_SLErrno int32
 
@@ -1134,42 +1120,18 @@ var SLErrorStatus_SLErrno_value = map[string]int32{
 func (x SLErrorStatus_SLErrno) String() string {
 	return proto.EnumName(SLErrorStatus_SLErrno_name, int32(x))
 }
-func (SLErrorStatus_SLErrno) EnumDescriptor() ([]byte, []int) {
-	return fileDescriptor_sl_common_types_c54fc76bdcbcb4e0, []int{0, 0}
-}
+func (SLErrorStatus_SLErrno) EnumDescriptor() ([]byte, []int) { return fileDescriptor3, []int{0, 0} }
 
 // Status codes, including errors and success codes.
 // All service layer errors are defined below.
 type SLErrorStatus struct {
-	Status               SLErrorStatus_SLErrno `protobuf:"varint,1,opt,name=Status,proto3,enum=service_layer.SLErrorStatus_SLErrno" json:"Status,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}              `json:"-"`
-	XXX_unrecognized     []byte                `json:"-"`
-	XXX_sizecache        int32                 `json:"-"`
+	Status SLErrorStatus_SLErrno `protobuf:"varint,1,opt,name=Status,enum=service_layer.SLErrorStatus_SLErrno" json:"Status,omitempty"`
 }
 
-func (m *SLErrorStatus) Reset()         { *m = SLErrorStatus{} }
-func (m *SLErrorStatus) String() string { return proto.CompactTextString(m) }
-func (*SLErrorStatus) ProtoMessage()    {}
-func (*SLErrorStatus) Descriptor() ([]byte, []int) {
-	return fileDescriptor_sl_common_types_c54fc76bdcbcb4e0, []int{0}
-}
-func (m *SLErrorStatus) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_SLErrorStatus.Unmarshal(m, b)
-}
-func (m *SLErrorStatus) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_SLErrorStatus.Marshal(b, m, deterministic)
-}
-func (dst *SLErrorStatus) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_SLErrorStatus.Merge(dst, src)
-}
-func (m *SLErrorStatus) XXX_Size() int {
-	return xxx_messageInfo_SLErrorStatus.Size(m)
-}
-func (m *SLErrorStatus) XXX_DiscardUnknown() {
-	xxx_messageInfo_SLErrorStatus.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_SLErrorStatus proto.InternalMessageInfo
+func (m *SLErrorStatus) Reset()                    { *m = SLErrorStatus{} }
+func (m *SLErrorStatus) String() string            { return proto.CompactTextString(m) }
+func (*SLErrorStatus) ProtoMessage()               {}
+func (*SLErrorStatus) Descriptor() ([]byte, []int) { return fileDescriptor3, []int{0} }
 
 func (m *SLErrorStatus) GetStatus() SLErrorStatus_SLErrno {
 	if m != nil {
@@ -1185,50 +1147,26 @@ type SLInterface struct {
 	// Types that are valid to be assigned to Interface:
 	//	*SLInterface_Name
 	//	*SLInterface_Handle
-	Interface            isSLInterface_Interface `protobuf_oneof:"Interface"`
-	XXX_NoUnkeyedLiteral struct{}                `json:"-"`
-	XXX_unrecognized     []byte                  `json:"-"`
-	XXX_sizecache        int32                   `json:"-"`
+	Interface isSLInterface_Interface `protobuf_oneof:"Interface"`
 }
 
-func (m *SLInterface) Reset()         { *m = SLInterface{} }
-func (m *SLInterface) String() string { return proto.CompactTextString(m) }
-func (*SLInterface) ProtoMessage()    {}
-func (*SLInterface) Descriptor() ([]byte, []int) {
-	return fileDescriptor_sl_common_types_c54fc76bdcbcb4e0, []int{1}
-}
-func (m *SLInterface) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_SLInterface.Unmarshal(m, b)
-}
-func (m *SLInterface) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_SLInterface.Marshal(b, m, deterministic)
-}
-func (dst *SLInterface) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_SLInterface.Merge(dst, src)
-}
-func (m *SLInterface) XXX_Size() int {
-	return xxx_messageInfo_SLInterface.Size(m)
-}
-func (m *SLInterface) XXX_DiscardUnknown() {
-	xxx_messageInfo_SLInterface.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_SLInterface proto.InternalMessageInfo
+func (m *SLInterface) Reset()                    { *m = SLInterface{} }
+func (m *SLInterface) String() string            { return proto.CompactTextString(m) }
+func (*SLInterface) ProtoMessage()               {}
+func (*SLInterface) Descriptor() ([]byte, []int) { return fileDescriptor3, []int{1} }
 
 type isSLInterface_Interface interface {
 	isSLInterface_Interface()
 }
 
 type SLInterface_Name struct {
-	Name string `protobuf:"bytes,1,opt,name=Name,proto3,oneof"`
+	Name string `protobuf:"bytes,1,opt,name=Name,oneof"`
 }
-
 type SLInterface_Handle struct {
-	Handle uint32 `protobuf:"varint,2,opt,name=Handle,proto3,oneof"`
+	Handle uint32 `protobuf:"varint,2,opt,name=Handle,oneof"`
 }
 
-func (*SLInterface_Name) isSLInterface_Interface() {}
-
+func (*SLInterface_Name) isSLInterface_Interface()   {}
 func (*SLInterface_Handle) isSLInterface_Interface() {}
 
 func (m *SLInterface) GetInterface() isSLInterface_Interface {
@@ -1304,11 +1242,11 @@ func _SLInterface_OneofSizer(msg proto.Message) (n int) {
 	// Interface
 	switch x := m.Interface.(type) {
 	case *SLInterface_Name:
-		n += 1 // tag and wire
+		n += proto.SizeVarint(1<<3 | proto.WireBytes)
 		n += proto.SizeVarint(uint64(len(x.Name)))
 		n += len(x.Name)
 	case *SLInterface_Handle:
-		n += 1 // tag and wire
+		n += proto.SizeVarint(2<<3 | proto.WireVarint)
 		n += proto.SizeVarint(uint64(x.Handle))
 	case nil:
 	default:
@@ -1324,50 +1262,26 @@ type SLIpAddress struct {
 	// Types that are valid to be assigned to Address:
 	//	*SLIpAddress_V4Address
 	//	*SLIpAddress_V6Address
-	Address              isSLIpAddress_Address `protobuf_oneof:"Address"`
-	XXX_NoUnkeyedLiteral struct{}              `json:"-"`
-	XXX_unrecognized     []byte                `json:"-"`
-	XXX_sizecache        int32                 `json:"-"`
+	Address isSLIpAddress_Address `protobuf_oneof:"Address"`
 }
 
-func (m *SLIpAddress) Reset()         { *m = SLIpAddress{} }
-func (m *SLIpAddress) String() string { return proto.CompactTextString(m) }
-func (*SLIpAddress) ProtoMessage()    {}
-func (*SLIpAddress) Descriptor() ([]byte, []int) {
-	return fileDescriptor_sl_common_types_c54fc76bdcbcb4e0, []int{2}
-}
-func (m *SLIpAddress) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_SLIpAddress.Unmarshal(m, b)
-}
-func (m *SLIpAddress) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_SLIpAddress.Marshal(b, m, deterministic)
-}
-func (dst *SLIpAddress) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_SLIpAddress.Merge(dst, src)
-}
-func (m *SLIpAddress) XXX_Size() int {
-	return xxx_messageInfo_SLIpAddress.Size(m)
-}
-func (m *SLIpAddress) XXX_DiscardUnknown() {
-	xxx_messageInfo_SLIpAddress.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_SLIpAddress proto.InternalMessageInfo
+func (m *SLIpAddress) Reset()                    { *m = SLIpAddress{} }
+func (m *SLIpAddress) String() string            { return proto.CompactTextString(m) }
+func (*SLIpAddress) ProtoMessage()               {}
+func (*SLIpAddress) Descriptor() ([]byte, []int) { return fileDescriptor3, []int{2} }
 
 type isSLIpAddress_Address interface {
 	isSLIpAddress_Address()
 }
 
 type SLIpAddress_V4Address struct {
-	V4Address uint32 `protobuf:"varint,1,opt,name=V4Address,proto3,oneof"`
+	V4Address uint32 `protobuf:"varint,1,opt,name=V4Address,oneof"`
 }
-
 type SLIpAddress_V6Address struct {
 	V6Address []byte `protobuf:"bytes,2,opt,name=V6Address,proto3,oneof"`
 }
 
 func (*SLIpAddress_V4Address) isSLIpAddress_Address() {}
-
 func (*SLIpAddress_V6Address) isSLIpAddress_Address() {}
 
 func (m *SLIpAddress) GetAddress() isSLIpAddress_Address {
@@ -1443,10 +1357,10 @@ func _SLIpAddress_OneofSizer(msg proto.Message) (n int) {
 	// Address
 	switch x := m.Address.(type) {
 	case *SLIpAddress_V4Address:
-		n += 1 // tag and wire
+		n += proto.SizeVarint(1<<3 | proto.WireVarint)
 		n += proto.SizeVarint(uint64(x.V4Address))
 	case *SLIpAddress_V6Address:
-		n += 1 // tag and wire
+		n += proto.SizeVarint(2<<3 | proto.WireBytes)
 		n += proto.SizeVarint(uint64(len(x.V6Address)))
 		n += len(x.V6Address)
 	case nil:
@@ -1467,11 +1381,9 @@ func init() {
 	proto.RegisterEnum("service_layer.SLErrorStatus_SLErrno", SLErrorStatus_SLErrno_name, SLErrorStatus_SLErrno_value)
 }
 
-func init() {
-	proto.RegisterFile("sl_common_types.proto", fileDescriptor_sl_common_types_c54fc76bdcbcb4e0)
-}
+func init() { proto.RegisterFile("sl_common_types.proto", fileDescriptor3) }
 
-var fileDescriptor_sl_common_types_c54fc76bdcbcb4e0 = []byte{
+var fileDescriptor3 = []byte{
 	// 2789 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x7c, 0x5a, 0xdb, 0x72, 0xdc, 0x44,
 	0xde, 0x8f, 0x34, 0xe3, 0x04, 0x77, 0x12, 0x68, 0x1a, 0x42, 0xc2, 0x29, 0x18, 0x13, 0x20, 0xe4,

@@ -12,12 +12,6 @@ var _ = proto.Marshal
 var _ = fmt.Errorf
 var _ = math.Inf
 
-// This is a compile-time assertion to ensure that this generated file
-// is compatible with the proto package it is being compiled against.
-// A compilation error at this line likely means your copy of the
-// proto package needs to be updated.
-const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
-
 // Service Layer API version.
 // This is used in the Global init message exchange to handshake client/server
 // Version numbers.
@@ -46,17 +40,15 @@ var SLVersion_value = map[string]int32{
 func (x SLVersion) String() string {
 	return proto.EnumName(SLVersion_name, int32(x))
 }
-func (SLVersion) EnumDescriptor() ([]byte, []int) {
-	return fileDescriptor_sl_version_0d01d78a8a1be805, []int{0}
-}
+func (SLVersion) EnumDescriptor() ([]byte, []int) { return fileDescriptor11, []int{0} }
 
 func init() {
 	proto.RegisterEnum("service_layer.SLVersion", SLVersion_name, SLVersion_value)
 }
 
-func init() { proto.RegisterFile("sl_version.proto", fileDescriptor_sl_version_0d01d78a8a1be805) }
+func init() { proto.RegisterFile("sl_version.proto", fileDescriptor11) }
 
-var fileDescriptor_sl_version_0d01d78a8a1be805 = []byte{
+var fileDescriptor11 = []byte{
 	// 131 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xe2, 0x12, 0x28, 0xce, 0x89, 0x2f,
 	0x4b, 0x2d, 0x2a, 0xce, 0xcc, 0xcf, 0xd3, 0x2b, 0x28, 0xca, 0x2f, 0xc9, 0x17, 0xe2, 0x2d, 0x4e,

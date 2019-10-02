@@ -17,12 +17,6 @@ var _ = proto.Marshal
 var _ = fmt.Errorf
 var _ = math.Inf
 
-// This is a compile-time assertion to ensure that this generated file
-// is compatible with the proto package it is being compiled against.
-// A compilation error at this line likely means your copy of the
-// proto package needs to be updated.
-const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
-
 // MPLS label actions.
 type SlLabelAction int32
 
@@ -71,9 +65,7 @@ var SlLabelAction_value = map[string]int32{
 func (x SlLabelAction) String() string {
 	return proto.EnumName(SlLabelAction_name, int32(x))
 }
-func (SlLabelAction) EnumDescriptor() ([]byte, []int) {
-	return fileDescriptor_sl_mpls_5d8dbbc3536cf4f5, []int{0}
-}
+func (SlLabelAction) EnumDescriptor() ([]byte, []int) { return fileDescriptor7, []int{0} }
 
 // Label Block Types
 type SLMplsLabelBlockType int32
@@ -101,52 +93,28 @@ var SLMplsLabelBlockType_value = map[string]int32{
 func (x SLMplsLabelBlockType) String() string {
 	return proto.EnumName(SLMplsLabelBlockType_name, int32(x))
 }
-func (SLMplsLabelBlockType) EnumDescriptor() ([]byte, []int) {
-	return fileDescriptor_sl_mpls_5d8dbbc3536cf4f5, []int{1}
-}
+func (SLMplsLabelBlockType) EnumDescriptor() ([]byte, []int) { return fileDescriptor7, []int{1} }
 
 // MPLS Label block key.
 // This message is used to relay the label block key attributes.
 type SLMplsLabelBlockKey struct {
 	// Starting label value of the block.
-	StartLabel uint32 `protobuf:"varint,1,opt,name=StartLabel,proto3" json:"StartLabel,omitempty"`
+	StartLabel uint32 `protobuf:"varint,1,opt,name=StartLabel" json:"StartLabel,omitempty"`
 	// Label block size.
 	// Block size should be <= SLServerResponse.MaxLabelsPerBlock
-	LabelBlockSize uint32 `protobuf:"varint,2,opt,name=LabelBlockSize,proto3" json:"LabelBlockSize,omitempty"`
+	LabelBlockSize uint32 `protobuf:"varint,2,opt,name=LabelBlockSize" json:"LabelBlockSize,omitempty"`
 	// Label block type. See definition of SlMplsLabelBlockType for valid values.
 	// If none specified, defaults to SL_MPLS_LABEL_BLOCK_TYPE_SRGB.
-	BlockType SLMplsLabelBlockType `protobuf:"varint,3,opt,name=BlockType,proto3,enum=service_layer.SLMplsLabelBlockType" json:"BlockType,omitempty"`
+	BlockType SLMplsLabelBlockType `protobuf:"varint,3,opt,name=BlockType,enum=service_layer.SLMplsLabelBlockType" json:"BlockType,omitempty"`
 	// Label block client name as configured e.g. through CLI.
 	// Client name is ignored if BlockType is not SL_MPLS_LABEL_BLOCK_TYPE_CBF.
-	ClientName           string   `protobuf:"bytes,4,opt,name=ClientName,proto3" json:"ClientName,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	ClientName string `protobuf:"bytes,4,opt,name=ClientName" json:"ClientName,omitempty"`
 }
 
-func (m *SLMplsLabelBlockKey) Reset()         { *m = SLMplsLabelBlockKey{} }
-func (m *SLMplsLabelBlockKey) String() string { return proto.CompactTextString(m) }
-func (*SLMplsLabelBlockKey) ProtoMessage()    {}
-func (*SLMplsLabelBlockKey) Descriptor() ([]byte, []int) {
-	return fileDescriptor_sl_mpls_5d8dbbc3536cf4f5, []int{0}
-}
-func (m *SLMplsLabelBlockKey) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_SLMplsLabelBlockKey.Unmarshal(m, b)
-}
-func (m *SLMplsLabelBlockKey) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_SLMplsLabelBlockKey.Marshal(b, m, deterministic)
-}
-func (dst *SLMplsLabelBlockKey) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_SLMplsLabelBlockKey.Merge(dst, src)
-}
-func (m *SLMplsLabelBlockKey) XXX_Size() int {
-	return xxx_messageInfo_SLMplsLabelBlockKey.Size(m)
-}
-func (m *SLMplsLabelBlockKey) XXX_DiscardUnknown() {
-	xxx_messageInfo_SLMplsLabelBlockKey.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_SLMplsLabelBlockKey proto.InternalMessageInfo
+func (m *SLMplsLabelBlockKey) Reset()                    { *m = SLMplsLabelBlockKey{} }
+func (m *SLMplsLabelBlockKey) String() string            { return proto.CompactTextString(m) }
+func (*SLMplsLabelBlockKey) ProtoMessage()               {}
+func (*SLMplsLabelBlockKey) Descriptor() ([]byte, []int) { return fileDescriptor7, []int{0} }
 
 func (m *SLMplsLabelBlockKey) GetStartLabel() uint32 {
 	if m != nil {
@@ -181,38 +149,16 @@ func (m *SLMplsLabelBlockKey) GetClientName() string {
 // The Oper attributes indicates add or delete operations.
 type SLMplsLabelBlockMsg struct {
 	// MPLS Label Block Operations.
-	Oper SLObjectOp `protobuf:"varint,1,opt,name=Oper,proto3,enum=service_layer.SLObjectOp" json:"Oper,omitempty"`
+	Oper SLObjectOp `protobuf:"varint,1,opt,name=Oper,enum=service_layer.SLObjectOp" json:"Oper,omitempty"`
 	// List of label blocks requests.
 	// List size should be <= SLServerResponse.MaxLabelBlocksPerRequest
-	MplsBlocks           []*SLMplsLabelBlockKey `protobuf:"bytes,2,rep,name=MplsBlocks,proto3" json:"MplsBlocks,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}               `json:"-"`
-	XXX_unrecognized     []byte                 `json:"-"`
-	XXX_sizecache        int32                  `json:"-"`
+	MplsBlocks []*SLMplsLabelBlockKey `protobuf:"bytes,2,rep,name=MplsBlocks" json:"MplsBlocks,omitempty"`
 }
 
-func (m *SLMplsLabelBlockMsg) Reset()         { *m = SLMplsLabelBlockMsg{} }
-func (m *SLMplsLabelBlockMsg) String() string { return proto.CompactTextString(m) }
-func (*SLMplsLabelBlockMsg) ProtoMessage()    {}
-func (*SLMplsLabelBlockMsg) Descriptor() ([]byte, []int) {
-	return fileDescriptor_sl_mpls_5d8dbbc3536cf4f5, []int{1}
-}
-func (m *SLMplsLabelBlockMsg) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_SLMplsLabelBlockMsg.Unmarshal(m, b)
-}
-func (m *SLMplsLabelBlockMsg) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_SLMplsLabelBlockMsg.Marshal(b, m, deterministic)
-}
-func (dst *SLMplsLabelBlockMsg) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_SLMplsLabelBlockMsg.Merge(dst, src)
-}
-func (m *SLMplsLabelBlockMsg) XXX_Size() int {
-	return xxx_messageInfo_SLMplsLabelBlockMsg.Size(m)
-}
-func (m *SLMplsLabelBlockMsg) XXX_DiscardUnknown() {
-	xxx_messageInfo_SLMplsLabelBlockMsg.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_SLMplsLabelBlockMsg proto.InternalMessageInfo
+func (m *SLMplsLabelBlockMsg) Reset()                    { *m = SLMplsLabelBlockMsg{} }
+func (m *SLMplsLabelBlockMsg) String() string            { return proto.CompactTextString(m) }
+func (*SLMplsLabelBlockMsg) ProtoMessage()               {}
+func (*SLMplsLabelBlockMsg) Descriptor() ([]byte, []int) { return fileDescriptor7, []int{1} }
 
 func (m *SLMplsLabelBlockMsg) GetOper() SLObjectOp {
 	if m != nil {
@@ -233,37 +179,15 @@ func (m *SLMplsLabelBlockMsg) GetMplsBlocks() []*SLMplsLabelBlockKey {
 // the label block operation.
 type SLMplsLabelBlockMsgRes struct {
 	// Corresponding error code.
-	ErrStatus *SLErrorStatus `protobuf:"bytes,1,opt,name=ErrStatus,proto3" json:"ErrStatus,omitempty"`
+	ErrStatus *SLErrorStatus `protobuf:"bytes,1,opt,name=ErrStatus" json:"ErrStatus,omitempty"`
 	// Key for which the error code is reported.
-	Key                  *SLMplsLabelBlockKey `protobuf:"bytes,2,opt,name=Key,proto3" json:"Key,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}             `json:"-"`
-	XXX_unrecognized     []byte               `json:"-"`
-	XXX_sizecache        int32                `json:"-"`
+	Key *SLMplsLabelBlockKey `protobuf:"bytes,2,opt,name=Key" json:"Key,omitempty"`
 }
 
-func (m *SLMplsLabelBlockMsgRes) Reset()         { *m = SLMplsLabelBlockMsgRes{} }
-func (m *SLMplsLabelBlockMsgRes) String() string { return proto.CompactTextString(m) }
-func (*SLMplsLabelBlockMsgRes) ProtoMessage()    {}
-func (*SLMplsLabelBlockMsgRes) Descriptor() ([]byte, []int) {
-	return fileDescriptor_sl_mpls_5d8dbbc3536cf4f5, []int{2}
-}
-func (m *SLMplsLabelBlockMsgRes) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_SLMplsLabelBlockMsgRes.Unmarshal(m, b)
-}
-func (m *SLMplsLabelBlockMsgRes) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_SLMplsLabelBlockMsgRes.Marshal(b, m, deterministic)
-}
-func (dst *SLMplsLabelBlockMsgRes) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_SLMplsLabelBlockMsgRes.Merge(dst, src)
-}
-func (m *SLMplsLabelBlockMsgRes) XXX_Size() int {
-	return xxx_messageInfo_SLMplsLabelBlockMsgRes.Size(m)
-}
-func (m *SLMplsLabelBlockMsgRes) XXX_DiscardUnknown() {
-	xxx_messageInfo_SLMplsLabelBlockMsgRes.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_SLMplsLabelBlockMsgRes proto.InternalMessageInfo
+func (m *SLMplsLabelBlockMsgRes) Reset()                    { *m = SLMplsLabelBlockMsgRes{} }
+func (m *SLMplsLabelBlockMsgRes) String() string            { return proto.CompactTextString(m) }
+func (*SLMplsLabelBlockMsgRes) ProtoMessage()               {}
+func (*SLMplsLabelBlockMsgRes) Descriptor() ([]byte, []int) { return fileDescriptor7, []int{2} }
 
 func (m *SLMplsLabelBlockMsgRes) GetErrStatus() *SLErrorStatus {
 	if m != nil {
@@ -293,38 +217,16 @@ type SLMplsLabelBlockMsgRsp struct {
 	//         each individual entry in the bulk.
 	// 3. SL_RPC_XXX: signifies that the entire bulk operation failed.
 	//         In this case, the Results list is empty.
-	StatusSummary *SLErrorStatus `protobuf:"bytes,1,opt,name=StatusSummary,proto3" json:"StatusSummary,omitempty"`
+	StatusSummary *SLErrorStatus `protobuf:"bytes,1,opt,name=StatusSummary" json:"StatusSummary,omitempty"`
 	// In case of errors, this field indicates which entry in the bulk was
 	// erroneous.
-	Results              []*SLMplsLabelBlockMsgRes `protobuf:"bytes,2,rep,name=Results,proto3" json:"Results,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}                  `json:"-"`
-	XXX_unrecognized     []byte                    `json:"-"`
-	XXX_sizecache        int32                     `json:"-"`
+	Results []*SLMplsLabelBlockMsgRes `protobuf:"bytes,2,rep,name=Results" json:"Results,omitempty"`
 }
 
-func (m *SLMplsLabelBlockMsgRsp) Reset()         { *m = SLMplsLabelBlockMsgRsp{} }
-func (m *SLMplsLabelBlockMsgRsp) String() string { return proto.CompactTextString(m) }
-func (*SLMplsLabelBlockMsgRsp) ProtoMessage()    {}
-func (*SLMplsLabelBlockMsgRsp) Descriptor() ([]byte, []int) {
-	return fileDescriptor_sl_mpls_5d8dbbc3536cf4f5, []int{3}
-}
-func (m *SLMplsLabelBlockMsgRsp) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_SLMplsLabelBlockMsgRsp.Unmarshal(m, b)
-}
-func (m *SLMplsLabelBlockMsgRsp) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_SLMplsLabelBlockMsgRsp.Marshal(b, m, deterministic)
-}
-func (dst *SLMplsLabelBlockMsgRsp) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_SLMplsLabelBlockMsgRsp.Merge(dst, src)
-}
-func (m *SLMplsLabelBlockMsgRsp) XXX_Size() int {
-	return xxx_messageInfo_SLMplsLabelBlockMsgRsp.Size(m)
-}
-func (m *SLMplsLabelBlockMsgRsp) XXX_DiscardUnknown() {
-	xxx_messageInfo_SLMplsLabelBlockMsgRsp.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_SLMplsLabelBlockMsgRsp proto.InternalMessageInfo
+func (m *SLMplsLabelBlockMsgRsp) Reset()                    { *m = SLMplsLabelBlockMsgRsp{} }
+func (m *SLMplsLabelBlockMsgRsp) String() string            { return proto.CompactTextString(m) }
+func (*SLMplsLabelBlockMsgRsp) ProtoMessage()               {}
+func (*SLMplsLabelBlockMsgRsp) Descriptor() ([]byte, []int) { return fileDescriptor7, []int{3} }
 
 func (m *SLMplsLabelBlockMsgRsp) GetStatusSummary() *SLErrorStatus {
 	if m != nil {
@@ -346,42 +248,20 @@ type SLMplsLabelBlockGetMsg struct {
 	// MPLS Label Block key.
 	// If the Key is not specified, then request up to the first
 	// 'EntriesCount' entries.
-	Key *SLMplsLabelBlockKey `protobuf:"bytes,1,opt,name=Key,proto3" json:"Key,omitempty"`
+	Key *SLMplsLabelBlockKey `protobuf:"bytes,1,opt,name=Key" json:"Key,omitempty"`
 	// Number of entries requested
-	EntriesCount uint32 `protobuf:"varint,2,opt,name=EntriesCount,proto3" json:"EntriesCount,omitempty"`
+	EntriesCount uint32 `protobuf:"varint,2,opt,name=EntriesCount" json:"EntriesCount,omitempty"`
 	// if GetNext is FALSE:
 	//     request up to 'EntriesCount' entries starting from the key
 	// If GetNext is TRUE, or if the key exact match is not found:
 	//     request up to 'EntriesCount' entries starting from the key's next
-	GetNext              bool     `protobuf:"varint,3,opt,name=GetNext,proto3" json:"GetNext,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	GetNext bool `protobuf:"varint,3,opt,name=GetNext" json:"GetNext,omitempty"`
 }
 
-func (m *SLMplsLabelBlockGetMsg) Reset()         { *m = SLMplsLabelBlockGetMsg{} }
-func (m *SLMplsLabelBlockGetMsg) String() string { return proto.CompactTextString(m) }
-func (*SLMplsLabelBlockGetMsg) ProtoMessage()    {}
-func (*SLMplsLabelBlockGetMsg) Descriptor() ([]byte, []int) {
-	return fileDescriptor_sl_mpls_5d8dbbc3536cf4f5, []int{4}
-}
-func (m *SLMplsLabelBlockGetMsg) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_SLMplsLabelBlockGetMsg.Unmarshal(m, b)
-}
-func (m *SLMplsLabelBlockGetMsg) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_SLMplsLabelBlockGetMsg.Marshal(b, m, deterministic)
-}
-func (dst *SLMplsLabelBlockGetMsg) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_SLMplsLabelBlockGetMsg.Merge(dst, src)
-}
-func (m *SLMplsLabelBlockGetMsg) XXX_Size() int {
-	return xxx_messageInfo_SLMplsLabelBlockGetMsg.Size(m)
-}
-func (m *SLMplsLabelBlockGetMsg) XXX_DiscardUnknown() {
-	xxx_messageInfo_SLMplsLabelBlockGetMsg.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_SLMplsLabelBlockGetMsg proto.InternalMessageInfo
+func (m *SLMplsLabelBlockGetMsg) Reset()                    { *m = SLMplsLabelBlockGetMsg{} }
+func (m *SLMplsLabelBlockGetMsg) String() string            { return proto.CompactTextString(m) }
+func (*SLMplsLabelBlockGetMsg) ProtoMessage()               {}
+func (*SLMplsLabelBlockGetMsg) Descriptor() ([]byte, []int) { return fileDescriptor7, []int{4} }
 
 func (m *SLMplsLabelBlockGetMsg) GetKey() *SLMplsLabelBlockKey {
 	if m != nil {
@@ -410,40 +290,18 @@ type SLMplsLabelBlockGetMsgRsp struct {
 	// End Of File.
 	// When set to True, it indicates that the server has returned M, where
 	// M < N, of the original N requested Entries.
-	Eof bool `protobuf:"varint,1,opt,name=Eof,proto3" json:"Eof,omitempty"`
+	Eof bool `protobuf:"varint,1,opt,name=Eof" json:"Eof,omitempty"`
 	// Status of the Get operation
-	ErrStatus *SLErrorStatus `protobuf:"bytes,2,opt,name=ErrStatus,proto3" json:"ErrStatus,omitempty"`
+	ErrStatus *SLErrorStatus `protobuf:"bytes,2,opt,name=ErrStatus" json:"ErrStatus,omitempty"`
 	// Returned entries as requested in the Get operation.
 	// if ErrStatus is SL_SUCCESS, Entries contains the info requested
-	Entries              []*SLMplsLabelBlockKey `protobuf:"bytes,3,rep,name=Entries,proto3" json:"Entries,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}               `json:"-"`
-	XXX_unrecognized     []byte                 `json:"-"`
-	XXX_sizecache        int32                  `json:"-"`
+	Entries []*SLMplsLabelBlockKey `protobuf:"bytes,3,rep,name=Entries" json:"Entries,omitempty"`
 }
 
-func (m *SLMplsLabelBlockGetMsgRsp) Reset()         { *m = SLMplsLabelBlockGetMsgRsp{} }
-func (m *SLMplsLabelBlockGetMsgRsp) String() string { return proto.CompactTextString(m) }
-func (*SLMplsLabelBlockGetMsgRsp) ProtoMessage()    {}
-func (*SLMplsLabelBlockGetMsgRsp) Descriptor() ([]byte, []int) {
-	return fileDescriptor_sl_mpls_5d8dbbc3536cf4f5, []int{5}
-}
-func (m *SLMplsLabelBlockGetMsgRsp) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_SLMplsLabelBlockGetMsgRsp.Unmarshal(m, b)
-}
-func (m *SLMplsLabelBlockGetMsgRsp) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_SLMplsLabelBlockGetMsgRsp.Marshal(b, m, deterministic)
-}
-func (dst *SLMplsLabelBlockGetMsgRsp) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_SLMplsLabelBlockGetMsgRsp.Merge(dst, src)
-}
-func (m *SLMplsLabelBlockGetMsgRsp) XXX_Size() int {
-	return xxx_messageInfo_SLMplsLabelBlockGetMsgRsp.Size(m)
-}
-func (m *SLMplsLabelBlockGetMsgRsp) XXX_DiscardUnknown() {
-	xxx_messageInfo_SLMplsLabelBlockGetMsgRsp.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_SLMplsLabelBlockGetMsgRsp proto.InternalMessageInfo
+func (m *SLMplsLabelBlockGetMsgRsp) Reset()                    { *m = SLMplsLabelBlockGetMsgRsp{} }
+func (m *SLMplsLabelBlockGetMsgRsp) String() string            { return proto.CompactTextString(m) }
+func (*SLMplsLabelBlockGetMsgRsp) ProtoMessage()               {}
+func (*SLMplsLabelBlockGetMsgRsp) Descriptor() ([]byte, []int) { return fileDescriptor7, []int{5} }
 
 func (m *SLMplsLabelBlockGetMsgRsp) GetEof() bool {
 	if m != nil {
@@ -478,35 +336,13 @@ type SlMplsReg struct {
 	// within the purge interval.
 	// Purge timer is ignored for all registration messages except for
 	// SL_REGOP_REGISTER
-	PurgeIntervalSeconds uint32   `protobuf:"varint,1,opt,name=PurgeIntervalSeconds,proto3" json:"PurgeIntervalSeconds,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	PurgeIntervalSeconds uint32 `protobuf:"varint,1,opt,name=PurgeIntervalSeconds" json:"PurgeIntervalSeconds,omitempty"`
 }
 
-func (m *SlMplsReg) Reset()         { *m = SlMplsReg{} }
-func (m *SlMplsReg) String() string { return proto.CompactTextString(m) }
-func (*SlMplsReg) ProtoMessage()    {}
-func (*SlMplsReg) Descriptor() ([]byte, []int) {
-	return fileDescriptor_sl_mpls_5d8dbbc3536cf4f5, []int{6}
-}
-func (m *SlMplsReg) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_SlMplsReg.Unmarshal(m, b)
-}
-func (m *SlMplsReg) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_SlMplsReg.Marshal(b, m, deterministic)
-}
-func (dst *SlMplsReg) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_SlMplsReg.Merge(dst, src)
-}
-func (m *SlMplsReg) XXX_Size() int {
-	return xxx_messageInfo_SlMplsReg.Size(m)
-}
-func (m *SlMplsReg) XXX_DiscardUnknown() {
-	xxx_messageInfo_SlMplsReg.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_SlMplsReg proto.InternalMessageInfo
+func (m *SlMplsReg) Reset()                    { *m = SlMplsReg{} }
+func (m *SlMplsReg) String() string            { return proto.CompactTextString(m) }
+func (*SlMplsReg) ProtoMessage()               {}
+func (*SlMplsReg) Descriptor() ([]byte, []int) { return fileDescriptor7, []int{6} }
 
 func (m *SlMplsReg) GetPurgeIntervalSeconds() uint32 {
 	if m != nil {
@@ -520,37 +356,15 @@ func (m *SlMplsReg) GetPurgeIntervalSeconds() uint32 {
 // before using any MPLS service.
 type SLMplsRegMsg struct {
 	// Registration Operation
-	Oper SLRegOp `protobuf:"varint,1,opt,name=Oper,proto3,enum=service_layer.SLRegOp" json:"Oper,omitempty"`
+	Oper SLRegOp `protobuf:"varint,1,opt,name=Oper,enum=service_layer.SLRegOp" json:"Oper,omitempty"`
 	// Registration Message
-	RegMsg               *SlMplsReg `protobuf:"bytes,2,opt,name=RegMsg,proto3" json:"RegMsg,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}   `json:"-"`
-	XXX_unrecognized     []byte     `json:"-"`
-	XXX_sizecache        int32      `json:"-"`
+	RegMsg *SlMplsReg `protobuf:"bytes,2,opt,name=RegMsg" json:"RegMsg,omitempty"`
 }
 
-func (m *SLMplsRegMsg) Reset()         { *m = SLMplsRegMsg{} }
-func (m *SLMplsRegMsg) String() string { return proto.CompactTextString(m) }
-func (*SLMplsRegMsg) ProtoMessage()    {}
-func (*SLMplsRegMsg) Descriptor() ([]byte, []int) {
-	return fileDescriptor_sl_mpls_5d8dbbc3536cf4f5, []int{7}
-}
-func (m *SLMplsRegMsg) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_SLMplsRegMsg.Unmarshal(m, b)
-}
-func (m *SLMplsRegMsg) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_SLMplsRegMsg.Marshal(b, m, deterministic)
-}
-func (dst *SLMplsRegMsg) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_SLMplsRegMsg.Merge(dst, src)
-}
-func (m *SLMplsRegMsg) XXX_Size() int {
-	return xxx_messageInfo_SLMplsRegMsg.Size(m)
-}
-func (m *SLMplsRegMsg) XXX_DiscardUnknown() {
-	xxx_messageInfo_SLMplsRegMsg.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_SLMplsRegMsg proto.InternalMessageInfo
+func (m *SLMplsRegMsg) Reset()                    { *m = SLMplsRegMsg{} }
+func (m *SLMplsRegMsg) String() string            { return proto.CompactTextString(m) }
+func (*SLMplsRegMsg) ProtoMessage()               {}
+func (*SLMplsRegMsg) Descriptor() ([]byte, []int) { return fileDescriptor7, []int{7} }
 
 func (m *SLMplsRegMsg) GetOper() SLRegOp {
 	if m != nil {
@@ -570,35 +384,13 @@ func (m *SLMplsRegMsg) GetRegMsg() *SlMplsReg {
 // This message is used to convey the result of the MPLS registration.
 type SLMplsRegMsgRsp struct {
 	// Error code
-	ErrStatus            *SLErrorStatus `protobuf:"bytes,1,opt,name=ErrStatus,proto3" json:"ErrStatus,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}       `json:"-"`
-	XXX_unrecognized     []byte         `json:"-"`
-	XXX_sizecache        int32          `json:"-"`
+	ErrStatus *SLErrorStatus `protobuf:"bytes,1,opt,name=ErrStatus" json:"ErrStatus,omitempty"`
 }
 
-func (m *SLMplsRegMsgRsp) Reset()         { *m = SLMplsRegMsgRsp{} }
-func (m *SLMplsRegMsgRsp) String() string { return proto.CompactTextString(m) }
-func (*SLMplsRegMsgRsp) ProtoMessage()    {}
-func (*SLMplsRegMsgRsp) Descriptor() ([]byte, []int) {
-	return fileDescriptor_sl_mpls_5d8dbbc3536cf4f5, []int{8}
-}
-func (m *SLMplsRegMsgRsp) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_SLMplsRegMsgRsp.Unmarshal(m, b)
-}
-func (m *SLMplsRegMsgRsp) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_SLMplsRegMsgRsp.Marshal(b, m, deterministic)
-}
-func (dst *SLMplsRegMsgRsp) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_SLMplsRegMsgRsp.Merge(dst, src)
-}
-func (m *SLMplsRegMsgRsp) XXX_Size() int {
-	return xxx_messageInfo_SLMplsRegMsgRsp.Size(m)
-}
-func (m *SLMplsRegMsgRsp) XXX_DiscardUnknown() {
-	xxx_messageInfo_SLMplsRegMsgRsp.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_SLMplsRegMsgRsp proto.InternalMessageInfo
+func (m *SLMplsRegMsgRsp) Reset()                    { *m = SLMplsRegMsgRsp{} }
+func (m *SLMplsRegMsgRsp) String() string            { return proto.CompactTextString(m) }
+func (*SLMplsRegMsgRsp) ProtoMessage()               {}
+func (*SLMplsRegMsgRsp) Descriptor() ([]byte, []int) { return fileDescriptor7, []int{8} }
 
 func (m *SLMplsRegMsgRsp) GetErrStatus() *SLErrorStatus {
 	if m != nil {
@@ -610,82 +402,38 @@ func (m *SLMplsRegMsgRsp) GetErrStatus() *SLErrorStatus {
 // MPLS Get Global Info message.
 // This message is used to query MPLS global capabilities.
 type SLMplsGetMsg struct {
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *SLMplsGetMsg) Reset()         { *m = SLMplsGetMsg{} }
-func (m *SLMplsGetMsg) String() string { return proto.CompactTextString(m) }
-func (*SLMplsGetMsg) ProtoMessage()    {}
-func (*SLMplsGetMsg) Descriptor() ([]byte, []int) {
-	return fileDescriptor_sl_mpls_5d8dbbc3536cf4f5, []int{9}
-}
-func (m *SLMplsGetMsg) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_SLMplsGetMsg.Unmarshal(m, b)
-}
-func (m *SLMplsGetMsg) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_SLMplsGetMsg.Marshal(b, m, deterministic)
-}
-func (dst *SLMplsGetMsg) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_SLMplsGetMsg.Merge(dst, src)
-}
-func (m *SLMplsGetMsg) XXX_Size() int {
-	return xxx_messageInfo_SLMplsGetMsg.Size(m)
-}
-func (m *SLMplsGetMsg) XXX_DiscardUnknown() {
-	xxx_messageInfo_SLMplsGetMsg.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_SLMplsGetMsg proto.InternalMessageInfo
+func (m *SLMplsGetMsg) Reset()                    { *m = SLMplsGetMsg{} }
+func (m *SLMplsGetMsg) String() string            { return proto.CompactTextString(m) }
+func (*SLMplsGetMsg) ProtoMessage()               {}
+func (*SLMplsGetMsg) Descriptor() ([]byte, []int) { return fileDescriptor7, []int{9} }
 
 // MPLS Get Global Info response message.
 // This message is used to convey the response to the global capabilities query.
 type SLMplsGetMsgRsp struct {
 	// Error code
-	ErrStatus *SLErrorStatus `protobuf:"bytes,1,opt,name=ErrStatus,proto3" json:"ErrStatus,omitempty"`
+	ErrStatus *SLErrorStatus `protobuf:"bytes,1,opt,name=ErrStatus" json:"ErrStatus,omitempty"`
 	// Maximum labels that can be allocated/freed per label block.
-	MaxLabelsPerBlock uint32 `protobuf:"varint,2,opt,name=MaxLabelsPerBlock,proto3" json:"MaxLabelsPerBlock,omitempty"`
+	MaxLabelsPerBlock uint32 `protobuf:"varint,2,opt,name=MaxLabelsPerBlock" json:"MaxLabelsPerBlock,omitempty"`
 	// Maximum label blocks that can be allocated/freed per MplsLabelBlockMsg
-	MaxLabelblocksPerLabelblockmsg uint32 `protobuf:"varint,3,opt,name=MaxLabelblocksPerLabelblockmsg,proto3" json:"MaxLabelblocksPerLabelblockmsg,omitempty"`
+	MaxLabelblocksPerLabelblockmsg uint32 `protobuf:"varint,3,opt,name=MaxLabelblocksPerLabelblockmsg" json:"MaxLabelblocksPerLabelblockmsg,omitempty"`
 	// Minimum label value that can be reserved on the platform.
 	// MplsLabelBlockKey.StartLabel >= MinStartLabel
-	MinStartLabel uint32 `protobuf:"varint,4,opt,name=MinStartLabel,proto3" json:"MinStartLabel,omitempty"`
+	MinStartLabel uint32 `protobuf:"varint,4,opt,name=MinStartLabel" json:"MinStartLabel,omitempty"`
 	// Label table size for the platform.
 	// MplsLabelBlockKey.StartLabel <= LabelTableSize
-	LabelTableSize uint32 `protobuf:"varint,5,opt,name=LabelTableSize,proto3" json:"LabelTableSize,omitempty"`
+	LabelTableSize uint32 `protobuf:"varint,5,opt,name=LabelTableSize" json:"LabelTableSize,omitempty"`
 	// Max ILM objects within a single IlmMsg message.
-	MaxIlmPerIlmmsg uint32 `protobuf:"varint,6,opt,name=MaxIlmPerIlmmsg,proto3" json:"MaxIlmPerIlmmsg,omitempty"`
+	MaxIlmPerIlmmsg uint32 `protobuf:"varint,6,opt,name=MaxIlmPerIlmmsg" json:"MaxIlmPerIlmmsg,omitempty"`
 	// Maximum paths per ILM.
-	MaxPathsPerIlm       uint32   `protobuf:"varint,7,opt,name=MaxPathsPerIlm,proto3" json:"MaxPathsPerIlm,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	MaxPathsPerIlm uint32 `protobuf:"varint,7,opt,name=MaxPathsPerIlm" json:"MaxPathsPerIlm,omitempty"`
 }
 
-func (m *SLMplsGetMsgRsp) Reset()         { *m = SLMplsGetMsgRsp{} }
-func (m *SLMplsGetMsgRsp) String() string { return proto.CompactTextString(m) }
-func (*SLMplsGetMsgRsp) ProtoMessage()    {}
-func (*SLMplsGetMsgRsp) Descriptor() ([]byte, []int) {
-	return fileDescriptor_sl_mpls_5d8dbbc3536cf4f5, []int{10}
-}
-func (m *SLMplsGetMsgRsp) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_SLMplsGetMsgRsp.Unmarshal(m, b)
-}
-func (m *SLMplsGetMsgRsp) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_SLMplsGetMsgRsp.Marshal(b, m, deterministic)
-}
-func (dst *SLMplsGetMsgRsp) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_SLMplsGetMsgRsp.Merge(dst, src)
-}
-func (m *SLMplsGetMsgRsp) XXX_Size() int {
-	return xxx_messageInfo_SLMplsGetMsgRsp.Size(m)
-}
-func (m *SLMplsGetMsgRsp) XXX_DiscardUnknown() {
-	xxx_messageInfo_SLMplsGetMsgRsp.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_SLMplsGetMsgRsp proto.InternalMessageInfo
+func (m *SLMplsGetMsgRsp) Reset()                    { *m = SLMplsGetMsgRsp{} }
+func (m *SLMplsGetMsgRsp) String() string            { return proto.CompactTextString(m) }
+func (*SLMplsGetMsgRsp) ProtoMessage()               {}
+func (*SLMplsGetMsgRsp) Descriptor() ([]byte, []int) { return fileDescriptor7, []int{10} }
 
 func (m *SLMplsGetMsgRsp) GetErrStatus() *SLErrorStatus {
 	if m != nil {
@@ -740,39 +488,17 @@ func (m *SLMplsGetMsgRsp) GetMaxPathsPerIlm() uint32 {
 // This message is used to convey the response to the MPLS statistics query.
 type SLMplsGetStatsMsgRsp struct {
 	// Error code
-	ErrStatus *SLErrorStatus `protobuf:"bytes,1,opt,name=ErrStatus,proto3" json:"ErrStatus,omitempty"`
+	ErrStatus *SLErrorStatus `protobuf:"bytes,1,opt,name=ErrStatus" json:"ErrStatus,omitempty"`
 	// Num of label blocks created.
-	LabelBlockCount uint32 `protobuf:"varint,2,opt,name=LabelBlockCount,proto3" json:"LabelBlockCount,omitempty"`
+	LabelBlockCount uint32 `protobuf:"varint,2,opt,name=LabelBlockCount" json:"LabelBlockCount,omitempty"`
 	// Num ILMs added through the service layer.
-	IlmCount             uint32   `protobuf:"varint,3,opt,name=IlmCount,proto3" json:"IlmCount,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	IlmCount uint32 `protobuf:"varint,3,opt,name=IlmCount" json:"IlmCount,omitempty"`
 }
 
-func (m *SLMplsGetStatsMsgRsp) Reset()         { *m = SLMplsGetStatsMsgRsp{} }
-func (m *SLMplsGetStatsMsgRsp) String() string { return proto.CompactTextString(m) }
-func (*SLMplsGetStatsMsgRsp) ProtoMessage()    {}
-func (*SLMplsGetStatsMsgRsp) Descriptor() ([]byte, []int) {
-	return fileDescriptor_sl_mpls_5d8dbbc3536cf4f5, []int{11}
-}
-func (m *SLMplsGetStatsMsgRsp) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_SLMplsGetStatsMsgRsp.Unmarshal(m, b)
-}
-func (m *SLMplsGetStatsMsgRsp) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_SLMplsGetStatsMsgRsp.Marshal(b, m, deterministic)
-}
-func (dst *SLMplsGetStatsMsgRsp) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_SLMplsGetStatsMsgRsp.Merge(dst, src)
-}
-func (m *SLMplsGetStatsMsgRsp) XXX_Size() int {
-	return xxx_messageInfo_SLMplsGetStatsMsgRsp.Size(m)
-}
-func (m *SLMplsGetStatsMsgRsp) XXX_DiscardUnknown() {
-	xxx_messageInfo_SLMplsGetStatsMsgRsp.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_SLMplsGetStatsMsgRsp proto.InternalMessageInfo
+func (m *SLMplsGetStatsMsgRsp) Reset()                    { *m = SLMplsGetStatsMsgRsp{} }
+func (m *SLMplsGetStatsMsgRsp) String() string            { return proto.CompactTextString(m) }
+func (*SLMplsGetStatsMsgRsp) ProtoMessage()               {}
+func (*SLMplsGetStatsMsgRsp) Descriptor() ([]byte, []int) { return fileDescriptor7, []int{11} }
 
 func (m *SLMplsGetStatsMsgRsp) GetErrStatus() *SLErrorStatus {
 	if m != nil {
@@ -799,13 +525,13 @@ func (m *SLMplsGetStatsMsgRsp) GetIlmCount() uint32 {
 // This message holds the ILM path attributes.
 type SLMplsPath struct {
 	// One of IPv4 or IPv6 address
-	NexthopAddress *SLIpAddress `protobuf:"bytes,1,opt,name=NexthopAddress,proto3" json:"NexthopAddress,omitempty"`
+	NexthopAddress *SLIpAddress `protobuf:"bytes,1,opt,name=NexthopAddress" json:"NexthopAddress,omitempty"`
 	// Next hop interface.
-	NexthopInterface *SLInterface `protobuf:"bytes,2,opt,name=NexthopInterface,proto3" json:"NexthopInterface,omitempty"`
+	NexthopInterface *SLInterface `protobuf:"bytes,2,opt,name=NexthopInterface" json:"NexthopInterface,omitempty"`
 	// ECMP load weight metric
-	LoadMetric uint32 `protobuf:"varint,3,opt,name=LoadMetric,proto3" json:"LoadMetric,omitempty"`
+	LoadMetric uint32 `protobuf:"varint,3,opt,name=LoadMetric" json:"LoadMetric,omitempty"`
 	// VRF name
-	VrfName string `protobuf:"bytes,4,opt,name=VrfName,proto3" json:"VrfName,omitempty"`
+	VrfName string `protobuf:"bytes,4,opt,name=VrfName" json:"VrfName,omitempty"`
 	// Associated MPLS incoming label's action.
 	// The label action dictates what to do with the incoming label.
 	// Possible actions are:
@@ -818,7 +544,7 @@ type SLMplsPath struct {
 	//  - SL_LABEL_ACTION_POP_AND_LOOKUP: Pop the label, and lookup the
 	//      packet's next header's address in the specified VrfName.
 	//      Path attributes: VrfName.
-	Action SlLabelAction `protobuf:"varint,5,opt,name=Action,proto3,enum=service_layer.SlLabelAction" json:"Action,omitempty"`
+	Action SlLabelAction `protobuf:"varint,5,opt,name=Action,enum=service_layer.SlLabelAction" json:"Action,omitempty"`
 	// Path identifier.
 	// Path-id is used to uniquely identify a path when it comes to
 	// protection (Fast Re-Route - FRR). It is not used otherwise.
@@ -848,7 +574,7 @@ type SLMplsPath struct {
 	// NOTE2: Pure backup path-id uses a different range than primary path-ids.
 	// The valid range of primary path IDs, and pure backup path IDS are
 	// platform dependent and can be retrieved through the client init message.
-	PathId uint32 `protobuf:"varint,6,opt,name=PathId,proto3" json:"PathId,omitempty"`
+	PathId uint32 `protobuf:"varint,6,opt,name=PathId" json:"PathId,omitempty"`
 	// Path protection bitmap.
 	// The bitmap of paths this Backup path is protecting.
 	// Example: If this path is protecting paths with IDs 4, 5 and 6, then
@@ -858,7 +584,7 @@ type SLMplsPath struct {
 	//            ||-- path 5
 	//            |-- path 6
 	// (1 << (pathId_1 - 1))  | (1 << (pathId_2 - 1)) | (1 << (pathId_3 - 1))
-	ProtectedPathBitmap []uint64 `protobuf:"varint,7,rep,packed,name=ProtectedPathBitmap,proto3" json:"ProtectedPathBitmap,omitempty"`
+	ProtectedPathBitmap []uint64 `protobuf:"varint,7,rep,packed,name=ProtectedPathBitmap" json:"ProtectedPathBitmap,omitempty"`
 	// MPLS label stack.
 	// Stack of labels that is pushed when the packet is switched out.
 	// Label size is LSB 20 bits. Forwarding will set EXP, TTL and BOS.
@@ -867,41 +593,19 @@ type SLMplsPath struct {
 	// is used, remote backup addresses must be specified.
 	// The maximum number of labels pushed for primary and backup are
 	// platform dependent.
-	LabelStack []uint32 `protobuf:"varint,8,rep,packed,name=LabelStack,proto3" json:"LabelStack,omitempty"`
+	LabelStack []uint32 `protobuf:"varint,8,rep,packed,name=LabelStack" json:"LabelStack,omitempty"`
 	// MPLS Remote router backup address.
 	// This field is used for backup MPLS path with more than one label,
 	// Typically associated with the PQ routers and remote Loop Free
 	// Alternatives.
 	// For N+1 backup labels, N remote backup addresses must be specified.
-	RemoteAddress        []*SLIpAddress `protobuf:"bytes,9,rep,name=RemoteAddress,proto3" json:"RemoteAddress,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}       `json:"-"`
-	XXX_unrecognized     []byte         `json:"-"`
-	XXX_sizecache        int32          `json:"-"`
+	RemoteAddress []*SLIpAddress `protobuf:"bytes,9,rep,name=RemoteAddress" json:"RemoteAddress,omitempty"`
 }
 
-func (m *SLMplsPath) Reset()         { *m = SLMplsPath{} }
-func (m *SLMplsPath) String() string { return proto.CompactTextString(m) }
-func (*SLMplsPath) ProtoMessage()    {}
-func (*SLMplsPath) Descriptor() ([]byte, []int) {
-	return fileDescriptor_sl_mpls_5d8dbbc3536cf4f5, []int{12}
-}
-func (m *SLMplsPath) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_SLMplsPath.Unmarshal(m, b)
-}
-func (m *SLMplsPath) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_SLMplsPath.Marshal(b, m, deterministic)
-}
-func (dst *SLMplsPath) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_SLMplsPath.Merge(dst, src)
-}
-func (m *SLMplsPath) XXX_Size() int {
-	return xxx_messageInfo_SLMplsPath.Size(m)
-}
-func (m *SLMplsPath) XXX_DiscardUnknown() {
-	xxx_messageInfo_SLMplsPath.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_SLMplsPath proto.InternalMessageInfo
+func (m *SLMplsPath) Reset()                    { *m = SLMplsPath{} }
+func (m *SLMplsPath) String() string            { return proto.CompactTextString(m) }
+func (*SLMplsPath) ProtoMessage()               {}
+func (*SLMplsPath) Descriptor() ([]byte, []int) { return fileDescriptor7, []int{12} }
 
 func (m *SLMplsPath) GetNexthopAddress() *SLIpAddress {
 	if m != nil {
@@ -970,37 +674,15 @@ func (m *SLMplsPath) GetRemoteAddress() []*SLIpAddress {
 // This message defines the Incoming Label Map key attributes.
 type SLMplsIlmKey struct {
 	// Incoming local label.
-	LocalLabel uint32 `protobuf:"varint,1,opt,name=LocalLabel,proto3" json:"LocalLabel,omitempty"`
+	LocalLabel uint32 `protobuf:"varint,1,opt,name=LocalLabel" json:"LocalLabel,omitempty"`
 	// Either Exp bits or CoS forwarding class.
-	SlMplsCosVal         *SLMplsCos `protobuf:"bytes,2,opt,name=SlMplsCosVal,proto3" json:"SlMplsCosVal,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}   `json:"-"`
-	XXX_unrecognized     []byte     `json:"-"`
-	XXX_sizecache        int32      `json:"-"`
+	SlMplsCosVal *SLMplsCos `protobuf:"bytes,2,opt,name=SlMplsCosVal" json:"SlMplsCosVal,omitempty"`
 }
 
-func (m *SLMplsIlmKey) Reset()         { *m = SLMplsIlmKey{} }
-func (m *SLMplsIlmKey) String() string { return proto.CompactTextString(m) }
-func (*SLMplsIlmKey) ProtoMessage()    {}
-func (*SLMplsIlmKey) Descriptor() ([]byte, []int) {
-	return fileDescriptor_sl_mpls_5d8dbbc3536cf4f5, []int{13}
-}
-func (m *SLMplsIlmKey) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_SLMplsIlmKey.Unmarshal(m, b)
-}
-func (m *SLMplsIlmKey) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_SLMplsIlmKey.Marshal(b, m, deterministic)
-}
-func (dst *SLMplsIlmKey) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_SLMplsIlmKey.Merge(dst, src)
-}
-func (m *SLMplsIlmKey) XXX_Size() int {
-	return xxx_messageInfo_SLMplsIlmKey.Size(m)
-}
-func (m *SLMplsIlmKey) XXX_DiscardUnknown() {
-	xxx_messageInfo_SLMplsIlmKey.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_SLMplsIlmKey proto.InternalMessageInfo
+func (m *SLMplsIlmKey) Reset()                    { *m = SLMplsIlmKey{} }
+func (m *SLMplsIlmKey) String() string            { return proto.CompactTextString(m) }
+func (*SLMplsIlmKey) ProtoMessage()               {}
+func (*SLMplsIlmKey) Descriptor() ([]byte, []int) { return fileDescriptor7, []int{13} }
 
 func (m *SLMplsIlmKey) GetLocalLabel() uint32 {
 	if m != nil {
@@ -1023,56 +705,30 @@ type SLMplsCos struct {
 	//	*SLMplsCos_Exp
 	//	*SLMplsCos_DefaultElspPath
 	//	*SLMplsCos_ForwardingClass
-	Value                isSLMplsCos_Value `protobuf_oneof:"value"`
-	XXX_NoUnkeyedLiteral struct{}          `json:"-"`
-	XXX_unrecognized     []byte            `json:"-"`
-	XXX_sizecache        int32             `json:"-"`
+	Value isSLMplsCos_Value `protobuf_oneof:"value"`
 }
 
-func (m *SLMplsCos) Reset()         { *m = SLMplsCos{} }
-func (m *SLMplsCos) String() string { return proto.CompactTextString(m) }
-func (*SLMplsCos) ProtoMessage()    {}
-func (*SLMplsCos) Descriptor() ([]byte, []int) {
-	return fileDescriptor_sl_mpls_5d8dbbc3536cf4f5, []int{14}
-}
-func (m *SLMplsCos) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_SLMplsCos.Unmarshal(m, b)
-}
-func (m *SLMplsCos) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_SLMplsCos.Marshal(b, m, deterministic)
-}
-func (dst *SLMplsCos) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_SLMplsCos.Merge(dst, src)
-}
-func (m *SLMplsCos) XXX_Size() int {
-	return xxx_messageInfo_SLMplsCos.Size(m)
-}
-func (m *SLMplsCos) XXX_DiscardUnknown() {
-	xxx_messageInfo_SLMplsCos.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_SLMplsCos proto.InternalMessageInfo
+func (m *SLMplsCos) Reset()                    { *m = SLMplsCos{} }
+func (m *SLMplsCos) String() string            { return proto.CompactTextString(m) }
+func (*SLMplsCos) ProtoMessage()               {}
+func (*SLMplsCos) Descriptor() ([]byte, []int) { return fileDescriptor7, []int{14} }
 
 type isSLMplsCos_Value interface {
 	isSLMplsCos_Value()
 }
 
 type SLMplsCos_Exp struct {
-	Exp uint32 `protobuf:"varint,1,opt,name=Exp,proto3,oneof"`
+	Exp uint32 `protobuf:"varint,1,opt,name=Exp,oneof"`
 }
-
 type SLMplsCos_DefaultElspPath struct {
-	DefaultElspPath bool `protobuf:"varint,2,opt,name=DefaultElspPath,proto3,oneof"`
+	DefaultElspPath bool `protobuf:"varint,2,opt,name=DefaultElspPath,oneof"`
 }
-
 type SLMplsCos_ForwardingClass struct {
-	ForwardingClass uint32 `protobuf:"varint,3,opt,name=ForwardingClass,proto3,oneof"`
+	ForwardingClass uint32 `protobuf:"varint,3,opt,name=ForwardingClass,oneof"`
 }
 
-func (*SLMplsCos_Exp) isSLMplsCos_Value() {}
-
+func (*SLMplsCos_Exp) isSLMplsCos_Value()             {}
 func (*SLMplsCos_DefaultElspPath) isSLMplsCos_Value() {}
-
 func (*SLMplsCos_ForwardingClass) isSLMplsCos_Value() {}
 
 func (m *SLMplsCos) GetValue() isSLMplsCos_Value {
@@ -1170,13 +826,13 @@ func _SLMplsCos_OneofSizer(msg proto.Message) (n int) {
 	// value
 	switch x := m.Value.(type) {
 	case *SLMplsCos_Exp:
-		n += 1 // tag and wire
+		n += proto.SizeVarint(1<<3 | proto.WireVarint)
 		n += proto.SizeVarint(uint64(x.Exp))
 	case *SLMplsCos_DefaultElspPath:
-		n += 1 // tag and wire
+		n += proto.SizeVarint(2<<3 | proto.WireVarint)
 		n += 1
 	case *SLMplsCos_ForwardingClass:
-		n += 1 // tag and wire
+		n += proto.SizeVarint(3<<3 | proto.WireVarint)
 		n += proto.SizeVarint(uint64(x.ForwardingClass))
 	case nil:
 	default:
@@ -1189,37 +845,15 @@ func _SLMplsCos_OneofSizer(msg proto.Message) (n int) {
 // This messages defines an ILM entry.
 type SLMplsIlmEntry struct {
 	// ILM Key.
-	Key *SLMplsIlmKey `protobuf:"bytes,1,opt,name=Key,proto3" json:"Key,omitempty"`
+	Key *SLMplsIlmKey `protobuf:"bytes,1,opt,name=Key" json:"Key,omitempty"`
 	// List of path (NHLFE) information.
-	Paths                []*SLMplsPath `protobuf:"bytes,2,rep,name=Paths,proto3" json:"Paths,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}      `json:"-"`
-	XXX_unrecognized     []byte        `json:"-"`
-	XXX_sizecache        int32         `json:"-"`
+	Paths []*SLMplsPath `protobuf:"bytes,2,rep,name=Paths" json:"Paths,omitempty"`
 }
 
-func (m *SLMplsIlmEntry) Reset()         { *m = SLMplsIlmEntry{} }
-func (m *SLMplsIlmEntry) String() string { return proto.CompactTextString(m) }
-func (*SLMplsIlmEntry) ProtoMessage()    {}
-func (*SLMplsIlmEntry) Descriptor() ([]byte, []int) {
-	return fileDescriptor_sl_mpls_5d8dbbc3536cf4f5, []int{15}
-}
-func (m *SLMplsIlmEntry) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_SLMplsIlmEntry.Unmarshal(m, b)
-}
-func (m *SLMplsIlmEntry) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_SLMplsIlmEntry.Marshal(b, m, deterministic)
-}
-func (dst *SLMplsIlmEntry) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_SLMplsIlmEntry.Merge(dst, src)
-}
-func (m *SLMplsIlmEntry) XXX_Size() int {
-	return xxx_messageInfo_SLMplsIlmEntry.Size(m)
-}
-func (m *SLMplsIlmEntry) XXX_DiscardUnknown() {
-	xxx_messageInfo_SLMplsIlmEntry.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_SLMplsIlmEntry proto.InternalMessageInfo
+func (m *SLMplsIlmEntry) Reset()                    { *m = SLMplsIlmEntry{} }
+func (m *SLMplsIlmEntry) String() string            { return proto.CompactTextString(m) }
+func (*SLMplsIlmEntry) ProtoMessage()               {}
+func (*SLMplsIlmEntry) Descriptor() ([]byte, []int) { return fileDescriptor7, []int{15} }
 
 func (m *SLMplsIlmEntry) GetKey() *SLMplsIlmKey {
 	if m != nil {
@@ -1239,40 +873,18 @@ func (m *SLMplsIlmEntry) GetPaths() []*SLMplsPath {
 // This message is used to send a batch of ILM entries.
 type SLMplsIlmMsg struct {
 	// MPLS Object Operations
-	Oper SLObjectOp `protobuf:"varint,1,opt,name=Oper,proto3,enum=service_layer.SLObjectOp" json:"Oper,omitempty"`
+	Oper SLObjectOp `protobuf:"varint,1,opt,name=Oper,enum=service_layer.SLObjectOp" json:"Oper,omitempty"`
 	// Correlator. This can be used to correlate replies with requests.
 	// The Server simply reflects this field back in the reply.
-	Correlator uint64 `protobuf:"varint,2,opt,name=Correlator,proto3" json:"Correlator,omitempty"`
+	Correlator uint64 `protobuf:"varint,2,opt,name=Correlator" json:"Correlator,omitempty"`
 	// List of ILM entries
-	MplsIlms             []*SLMplsIlmEntry `protobuf:"bytes,3,rep,name=MplsIlms,proto3" json:"MplsIlms,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}          `json:"-"`
-	XXX_unrecognized     []byte            `json:"-"`
-	XXX_sizecache        int32             `json:"-"`
+	MplsIlms []*SLMplsIlmEntry `protobuf:"bytes,3,rep,name=MplsIlms" json:"MplsIlms,omitempty"`
 }
 
-func (m *SLMplsIlmMsg) Reset()         { *m = SLMplsIlmMsg{} }
-func (m *SLMplsIlmMsg) String() string { return proto.CompactTextString(m) }
-func (*SLMplsIlmMsg) ProtoMessage()    {}
-func (*SLMplsIlmMsg) Descriptor() ([]byte, []int) {
-	return fileDescriptor_sl_mpls_5d8dbbc3536cf4f5, []int{16}
-}
-func (m *SLMplsIlmMsg) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_SLMplsIlmMsg.Unmarshal(m, b)
-}
-func (m *SLMplsIlmMsg) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_SLMplsIlmMsg.Marshal(b, m, deterministic)
-}
-func (dst *SLMplsIlmMsg) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_SLMplsIlmMsg.Merge(dst, src)
-}
-func (m *SLMplsIlmMsg) XXX_Size() int {
-	return xxx_messageInfo_SLMplsIlmMsg.Size(m)
-}
-func (m *SLMplsIlmMsg) XXX_DiscardUnknown() {
-	xxx_messageInfo_SLMplsIlmMsg.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_SLMplsIlmMsg proto.InternalMessageInfo
+func (m *SLMplsIlmMsg) Reset()                    { *m = SLMplsIlmMsg{} }
+func (m *SLMplsIlmMsg) String() string            { return proto.CompactTextString(m) }
+func (*SLMplsIlmMsg) ProtoMessage()               {}
+func (*SLMplsIlmMsg) Descriptor() ([]byte, []int) { return fileDescriptor7, []int{16} }
 
 func (m *SLMplsIlmMsg) GetOper() SLObjectOp {
 	if m != nil {
@@ -1299,37 +911,15 @@ func (m *SLMplsIlmMsg) GetMplsIlms() []*SLMplsIlmEntry {
 // This message is used to convey the result of the ILM entry operation.
 type SLMplsIlmRes struct {
 	// Corresponding error code
-	ErrStatus *SLErrorStatus `protobuf:"bytes,1,opt,name=ErrStatus,proto3" json:"ErrStatus,omitempty"`
+	ErrStatus *SLErrorStatus `protobuf:"bytes,1,opt,name=ErrStatus" json:"ErrStatus,omitempty"`
 	// ILM Key.
-	Key                  *SLMplsIlmKey `protobuf:"bytes,2,opt,name=Key,proto3" json:"Key,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}      `json:"-"`
-	XXX_unrecognized     []byte        `json:"-"`
-	XXX_sizecache        int32         `json:"-"`
+	Key *SLMplsIlmKey `protobuf:"bytes,2,opt,name=Key" json:"Key,omitempty"`
 }
 
-func (m *SLMplsIlmRes) Reset()         { *m = SLMplsIlmRes{} }
-func (m *SLMplsIlmRes) String() string { return proto.CompactTextString(m) }
-func (*SLMplsIlmRes) ProtoMessage()    {}
-func (*SLMplsIlmRes) Descriptor() ([]byte, []int) {
-	return fileDescriptor_sl_mpls_5d8dbbc3536cf4f5, []int{17}
-}
-func (m *SLMplsIlmRes) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_SLMplsIlmRes.Unmarshal(m, b)
-}
-func (m *SLMplsIlmRes) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_SLMplsIlmRes.Marshal(b, m, deterministic)
-}
-func (dst *SLMplsIlmRes) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_SLMplsIlmRes.Merge(dst, src)
-}
-func (m *SLMplsIlmRes) XXX_Size() int {
-	return xxx_messageInfo_SLMplsIlmRes.Size(m)
-}
-func (m *SLMplsIlmRes) XXX_DiscardUnknown() {
-	xxx_messageInfo_SLMplsIlmRes.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_SLMplsIlmRes proto.InternalMessageInfo
+func (m *SLMplsIlmRes) Reset()                    { *m = SLMplsIlmRes{} }
+func (m *SLMplsIlmRes) String() string            { return proto.CompactTextString(m) }
+func (*SLMplsIlmRes) ProtoMessage()               {}
+func (*SLMplsIlmRes) Descriptor() ([]byte, []int) { return fileDescriptor7, []int{17} }
 
 func (m *SLMplsIlmRes) GetErrStatus() *SLErrorStatus {
 	if m != nil {
@@ -1350,7 +940,7 @@ func (m *SLMplsIlmRes) GetKey() *SLMplsIlmKey {
 type SLMplsIlmMsgRsp struct {
 	// Correlator. This can be used to correlate replies with requests.
 	// The Server simply reflects this field back in the reply.
-	Correlator uint64 `protobuf:"varint,1,opt,name=Correlator,proto3" json:"Correlator,omitempty"`
+	Correlator uint64 `protobuf:"varint,1,opt,name=Correlator" json:"Correlator,omitempty"`
 	// Summary result of the bulk operation (refer to enum SLErrorStatus)
 	// In general, the StatusSummary implies one of 3 things:
 	// 1. SL_SUCCESS: signifies that the entire bulk operation was successful.
@@ -1360,38 +950,16 @@ type SLMplsIlmMsgRsp struct {
 	//         each individual entry in the bulk.
 	// 3. SL_RPC_XXX: signifies that the entire bulk operation failed.
 	//         In this case, the Results list is empty.
-	StatusSummary *SLErrorStatus `protobuf:"bytes,2,opt,name=StatusSummary,proto3" json:"StatusSummary,omitempty"`
+	StatusSummary *SLErrorStatus `protobuf:"bytes,2,opt,name=StatusSummary" json:"StatusSummary,omitempty"`
 	// In case of errors, this field indicates which entry in the bulk was
 	// erroneous.
-	Results              []*SLMplsIlmRes `protobuf:"bytes,3,rep,name=Results,proto3" json:"Results,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}        `json:"-"`
-	XXX_unrecognized     []byte          `json:"-"`
-	XXX_sizecache        int32           `json:"-"`
+	Results []*SLMplsIlmRes `protobuf:"bytes,3,rep,name=Results" json:"Results,omitempty"`
 }
 
-func (m *SLMplsIlmMsgRsp) Reset()         { *m = SLMplsIlmMsgRsp{} }
-func (m *SLMplsIlmMsgRsp) String() string { return proto.CompactTextString(m) }
-func (*SLMplsIlmMsgRsp) ProtoMessage()    {}
-func (*SLMplsIlmMsgRsp) Descriptor() ([]byte, []int) {
-	return fileDescriptor_sl_mpls_5d8dbbc3536cf4f5, []int{18}
-}
-func (m *SLMplsIlmMsgRsp) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_SLMplsIlmMsgRsp.Unmarshal(m, b)
-}
-func (m *SLMplsIlmMsgRsp) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_SLMplsIlmMsgRsp.Marshal(b, m, deterministic)
-}
-func (dst *SLMplsIlmMsgRsp) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_SLMplsIlmMsgRsp.Merge(dst, src)
-}
-func (m *SLMplsIlmMsgRsp) XXX_Size() int {
-	return xxx_messageInfo_SLMplsIlmMsgRsp.Size(m)
-}
-func (m *SLMplsIlmMsgRsp) XXX_DiscardUnknown() {
-	xxx_messageInfo_SLMplsIlmMsgRsp.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_SLMplsIlmMsgRsp proto.InternalMessageInfo
+func (m *SLMplsIlmMsgRsp) Reset()                    { *m = SLMplsIlmMsgRsp{} }
+func (m *SLMplsIlmMsgRsp) String() string            { return proto.CompactTextString(m) }
+func (*SLMplsIlmMsgRsp) ProtoMessage()               {}
+func (*SLMplsIlmMsgRsp) Descriptor() ([]byte, []int) { return fileDescriptor7, []int{18} }
 
 func (m *SLMplsIlmMsgRsp) GetCorrelator() uint64 {
 	if m != nil {
@@ -1419,46 +987,24 @@ func (m *SLMplsIlmMsgRsp) GetResults() []*SLMplsIlmRes {
 type SLMplsIlmGetMsg struct {
 	// Correlator. This can be used to correlate replies with requests.
 	// The Server simply reflects this field back in the reply.
-	Correlator uint64 `protobuf:"varint,1,opt,name=Correlator,proto3" json:"Correlator,omitempty"`
+	Correlator uint64 `protobuf:"varint,1,opt,name=Correlator" json:"Correlator,omitempty"`
 	// MPLS ILM key.
 	// If the Key is not specified, then request up to the first
 	// 'EntriesCount' entries.
-	Key *SLMplsIlmKey `protobuf:"bytes,2,opt,name=Key,proto3" json:"Key,omitempty"`
+	Key *SLMplsIlmKey `protobuf:"bytes,2,opt,name=Key" json:"Key,omitempty"`
 	// Number of entries requested
-	EntriesCount uint32 `protobuf:"varint,3,opt,name=EntriesCount,proto3" json:"EntriesCount,omitempty"`
+	EntriesCount uint32 `protobuf:"varint,3,opt,name=EntriesCount" json:"EntriesCount,omitempty"`
 	// if GetNext is FALSE:
 	//     request up to 'EntriesCount' entries starting from the key
 	// If GetNext is TRUE, or if the key exact match is not found:
 	//     request up to 'EntriesCount' entries starting from the key's next
-	GetNext              bool     `protobuf:"varint,4,opt,name=GetNext,proto3" json:"GetNext,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	GetNext bool `protobuf:"varint,4,opt,name=GetNext" json:"GetNext,omitempty"`
 }
 
-func (m *SLMplsIlmGetMsg) Reset()         { *m = SLMplsIlmGetMsg{} }
-func (m *SLMplsIlmGetMsg) String() string { return proto.CompactTextString(m) }
-func (*SLMplsIlmGetMsg) ProtoMessage()    {}
-func (*SLMplsIlmGetMsg) Descriptor() ([]byte, []int) {
-	return fileDescriptor_sl_mpls_5d8dbbc3536cf4f5, []int{19}
-}
-func (m *SLMplsIlmGetMsg) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_SLMplsIlmGetMsg.Unmarshal(m, b)
-}
-func (m *SLMplsIlmGetMsg) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_SLMplsIlmGetMsg.Marshal(b, m, deterministic)
-}
-func (dst *SLMplsIlmGetMsg) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_SLMplsIlmGetMsg.Merge(dst, src)
-}
-func (m *SLMplsIlmGetMsg) XXX_Size() int {
-	return xxx_messageInfo_SLMplsIlmGetMsg.Size(m)
-}
-func (m *SLMplsIlmGetMsg) XXX_DiscardUnknown() {
-	xxx_messageInfo_SLMplsIlmGetMsg.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_SLMplsIlmGetMsg proto.InternalMessageInfo
+func (m *SLMplsIlmGetMsg) Reset()                    { *m = SLMplsIlmGetMsg{} }
+func (m *SLMplsIlmGetMsg) String() string            { return proto.CompactTextString(m) }
+func (*SLMplsIlmGetMsg) ProtoMessage()               {}
+func (*SLMplsIlmGetMsg) Descriptor() ([]byte, []int) { return fileDescriptor7, []int{19} }
 
 func (m *SLMplsIlmGetMsg) GetCorrelator() uint64 {
 	if m != nil {
@@ -1492,44 +1038,22 @@ func (m *SLMplsIlmGetMsg) GetGetNext() bool {
 type SLMplsIlmGetMsgRsp struct {
 	// Correlator. This can be used to correlate replies with requests.
 	// The Server simply reflects this field back in the reply.
-	Correlator uint64 `protobuf:"varint,1,opt,name=Correlator,proto3" json:"Correlator,omitempty"`
+	Correlator uint64 `protobuf:"varint,1,opt,name=Correlator" json:"Correlator,omitempty"`
 	// End Of File.
 	// When set to True, it indicates that the server has returned M, where
 	// M < N, of the original N requested Entries.
-	Eof bool `protobuf:"varint,2,opt,name=Eof,proto3" json:"Eof,omitempty"`
+	Eof bool `protobuf:"varint,2,opt,name=Eof" json:"Eof,omitempty"`
 	// Status of the Get operation.
-	ErrStatus *SLErrorStatus `protobuf:"bytes,3,opt,name=ErrStatus,proto3" json:"ErrStatus,omitempty"`
+	ErrStatus *SLErrorStatus `protobuf:"bytes,3,opt,name=ErrStatus" json:"ErrStatus,omitempty"`
 	// Returned entries as requested in the Get operation.
 	// if ErrStatus is SL_SUCCESS, Entries contains the info requested
-	Entries              []*SLMplsIlmEntry `protobuf:"bytes,4,rep,name=Entries,proto3" json:"Entries,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}          `json:"-"`
-	XXX_unrecognized     []byte            `json:"-"`
-	XXX_sizecache        int32             `json:"-"`
+	Entries []*SLMplsIlmEntry `protobuf:"bytes,4,rep,name=Entries" json:"Entries,omitempty"`
 }
 
-func (m *SLMplsIlmGetMsgRsp) Reset()         { *m = SLMplsIlmGetMsgRsp{} }
-func (m *SLMplsIlmGetMsgRsp) String() string { return proto.CompactTextString(m) }
-func (*SLMplsIlmGetMsgRsp) ProtoMessage()    {}
-func (*SLMplsIlmGetMsgRsp) Descriptor() ([]byte, []int) {
-	return fileDescriptor_sl_mpls_5d8dbbc3536cf4f5, []int{20}
-}
-func (m *SLMplsIlmGetMsgRsp) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_SLMplsIlmGetMsgRsp.Unmarshal(m, b)
-}
-func (m *SLMplsIlmGetMsgRsp) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_SLMplsIlmGetMsgRsp.Marshal(b, m, deterministic)
-}
-func (dst *SLMplsIlmGetMsgRsp) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_SLMplsIlmGetMsgRsp.Merge(dst, src)
-}
-func (m *SLMplsIlmGetMsgRsp) XXX_Size() int {
-	return xxx_messageInfo_SLMplsIlmGetMsgRsp.Size(m)
-}
-func (m *SLMplsIlmGetMsgRsp) XXX_DiscardUnknown() {
-	xxx_messageInfo_SLMplsIlmGetMsgRsp.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_SLMplsIlmGetMsgRsp proto.InternalMessageInfo
+func (m *SLMplsIlmGetMsgRsp) Reset()                    { *m = SLMplsIlmGetMsgRsp{} }
+func (m *SLMplsIlmGetMsgRsp) String() string            { return proto.CompactTextString(m) }
+func (*SLMplsIlmGetMsgRsp) ProtoMessage()               {}
+func (*SLMplsIlmGetMsgRsp) Descriptor() ([]byte, []int) { return fileDescriptor7, []int{20} }
 
 func (m *SLMplsIlmGetMsgRsp) GetCorrelator() uint64 {
 	if m != nil {
@@ -1593,9 +1117,8 @@ var _ grpc.ClientConn
 // is compatible with the grpc package it is being compiled against.
 const _ = grpc.SupportPackageIsVersion4
 
-// SLMplsOperClient is the client API for SLMplsOper service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
+// Client API for SLMplsOper service
+
 type SLMplsOperClient interface {
 	// SLMplsRegMsg.Oper = SL_REGOP_REGISTER.
 	//     Global MPLS registration.
@@ -1663,7 +1186,7 @@ func NewSLMplsOperClient(cc *grpc.ClientConn) SLMplsOperClient {
 
 func (c *sLMplsOperClient) SLMplsRegOp(ctx context.Context, in *SLMplsRegMsg, opts ...grpc.CallOption) (*SLMplsRegMsgRsp, error) {
 	out := new(SLMplsRegMsgRsp)
-	err := c.cc.Invoke(ctx, "/service_layer.SLMplsOper/SLMplsRegOp", in, out, opts...)
+	err := grpc.Invoke(ctx, "/service_layer.SLMplsOper/SLMplsRegOp", in, out, c.cc, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -1672,7 +1195,7 @@ func (c *sLMplsOperClient) SLMplsRegOp(ctx context.Context, in *SLMplsRegMsg, op
 
 func (c *sLMplsOperClient) SLMplsGet(ctx context.Context, in *SLMplsGetMsg, opts ...grpc.CallOption) (*SLMplsGetMsgRsp, error) {
 	out := new(SLMplsGetMsgRsp)
-	err := c.cc.Invoke(ctx, "/service_layer.SLMplsOper/SLMplsGet", in, out, opts...)
+	err := grpc.Invoke(ctx, "/service_layer.SLMplsOper/SLMplsGet", in, out, c.cc, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -1681,7 +1204,7 @@ func (c *sLMplsOperClient) SLMplsGet(ctx context.Context, in *SLMplsGetMsg, opts
 
 func (c *sLMplsOperClient) SLMplsGetStats(ctx context.Context, in *SLMplsGetMsg, opts ...grpc.CallOption) (*SLMplsGetStatsMsgRsp, error) {
 	out := new(SLMplsGetStatsMsgRsp)
-	err := c.cc.Invoke(ctx, "/service_layer.SLMplsOper/SLMplsGetStats", in, out, opts...)
+	err := grpc.Invoke(ctx, "/service_layer.SLMplsOper/SLMplsGetStats", in, out, c.cc, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -1690,7 +1213,7 @@ func (c *sLMplsOperClient) SLMplsGetStats(ctx context.Context, in *SLMplsGetMsg,
 
 func (c *sLMplsOperClient) SLMplsLabelBlockOp(ctx context.Context, in *SLMplsLabelBlockMsg, opts ...grpc.CallOption) (*SLMplsLabelBlockMsgRsp, error) {
 	out := new(SLMplsLabelBlockMsgRsp)
-	err := c.cc.Invoke(ctx, "/service_layer.SLMplsOper/SLMplsLabelBlockOp", in, out, opts...)
+	err := grpc.Invoke(ctx, "/service_layer.SLMplsOper/SLMplsLabelBlockOp", in, out, c.cc, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -1699,7 +1222,7 @@ func (c *sLMplsOperClient) SLMplsLabelBlockOp(ctx context.Context, in *SLMplsLab
 
 func (c *sLMplsOperClient) SLMplsLabelBlockGet(ctx context.Context, in *SLMplsLabelBlockGetMsg, opts ...grpc.CallOption) (*SLMplsLabelBlockGetMsgRsp, error) {
 	out := new(SLMplsLabelBlockGetMsgRsp)
-	err := c.cc.Invoke(ctx, "/service_layer.SLMplsOper/SLMplsLabelBlockGet", in, out, opts...)
+	err := grpc.Invoke(ctx, "/service_layer.SLMplsOper/SLMplsLabelBlockGet", in, out, c.cc, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -1708,7 +1231,7 @@ func (c *sLMplsOperClient) SLMplsLabelBlockGet(ctx context.Context, in *SLMplsLa
 
 func (c *sLMplsOperClient) SLMplsIlmOp(ctx context.Context, in *SLMplsIlmMsg, opts ...grpc.CallOption) (*SLMplsIlmMsgRsp, error) {
 	out := new(SLMplsIlmMsgRsp)
-	err := c.cc.Invoke(ctx, "/service_layer.SLMplsOper/SLMplsIlmOp", in, out, opts...)
+	err := grpc.Invoke(ctx, "/service_layer.SLMplsOper/SLMplsIlmOp", in, out, c.cc, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -1717,7 +1240,7 @@ func (c *sLMplsOperClient) SLMplsIlmOp(ctx context.Context, in *SLMplsIlmMsg, op
 
 func (c *sLMplsOperClient) SLMplsIlmGet(ctx context.Context, in *SLMplsIlmGetMsg, opts ...grpc.CallOption) (*SLMplsIlmGetMsgRsp, error) {
 	out := new(SLMplsIlmGetMsgRsp)
-	err := c.cc.Invoke(ctx, "/service_layer.SLMplsOper/SLMplsIlmGet", in, out, opts...)
+	err := grpc.Invoke(ctx, "/service_layer.SLMplsOper/SLMplsIlmGet", in, out, c.cc, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -1725,7 +1248,7 @@ func (c *sLMplsOperClient) SLMplsIlmGet(ctx context.Context, in *SLMplsIlmGetMsg
 }
 
 func (c *sLMplsOperClient) SLMplsIlmOpStream(ctx context.Context, opts ...grpc.CallOption) (SLMplsOper_SLMplsIlmOpStreamClient, error) {
-	stream, err := c.cc.NewStream(ctx, &_SLMplsOper_serviceDesc.Streams[0], "/service_layer.SLMplsOper/SLMplsIlmOpStream", opts...)
+	stream, err := grpc.NewClientStream(ctx, &_SLMplsOper_serviceDesc.Streams[0], c.cc, "/service_layer.SLMplsOper/SLMplsIlmOpStream", opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -1756,7 +1279,7 @@ func (x *sLMplsOperSLMplsIlmOpStreamClient) Recv() (*SLMplsIlmMsgRsp, error) {
 }
 
 func (c *sLMplsOperClient) SLMplsIlmGetStream(ctx context.Context, opts ...grpc.CallOption) (SLMplsOper_SLMplsIlmGetStreamClient, error) {
-	stream, err := c.cc.NewStream(ctx, &_SLMplsOper_serviceDesc.Streams[1], "/service_layer.SLMplsOper/SLMplsIlmGetStream", opts...)
+	stream, err := grpc.NewClientStream(ctx, &_SLMplsOper_serviceDesc.Streams[1], c.cc, "/service_layer.SLMplsOper/SLMplsIlmGetStream", opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -1786,7 +1309,8 @@ func (x *sLMplsOperSLMplsIlmGetStreamClient) Recv() (*SLMplsIlmGetMsgRsp, error)
 	return m, nil
 }
 
-// SLMplsOperServer is the server API for SLMplsOper service.
+// Server API for SLMplsOper service
+
 type SLMplsOperServer interface {
 	// SLMplsRegMsg.Oper = SL_REGOP_REGISTER.
 	//     Global MPLS registration.
@@ -2076,9 +1600,9 @@ var _SLMplsOper_serviceDesc = grpc.ServiceDesc{
 	Metadata: "sl_mpls.proto",
 }
 
-func init() { proto.RegisterFile("sl_mpls.proto", fileDescriptor_sl_mpls_5d8dbbc3536cf4f5) }
+func init() { proto.RegisterFile("sl_mpls.proto", fileDescriptor7) }
 
-var fileDescriptor_sl_mpls_5d8dbbc3536cf4f5 = []byte{
+var fileDescriptor7 = []byte{
 	// 1380 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xac, 0x58, 0xcf, 0x73, 0xdb, 0x44,
 	0x14, 0xae, 0x6c, 0xe7, 0xd7, 0x6b, 0xed, 0xb8, 0xdb, 0xd2, 0x51, 0x43, 0x1b, 0x5c, 0x85, 0x82,

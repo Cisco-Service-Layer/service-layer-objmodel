@@ -17,52 +17,24 @@ var _ = proto.Marshal
 var _ = fmt.Errorf
 var _ = math.Inf
 
-// This is a compile-time assertion to ensure that this generated file
-// is compatible with the proto package it is being compiled against.
-// A compilation error at this line likely means your copy of the
-// proto package needs to be updated.
-const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
-
 // IPv6 route
 type SLRoutev6 struct {
 	// IPv6 Prefix
 	// 0:: - ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff
 	Prefix []byte `protobuf:"bytes,1,opt,name=Prefix,proto3" json:"Prefix,omitempty"`
 	// IPv6 prefix length [0-128]
-	PrefixLen uint32 `protobuf:"varint,2,opt,name=PrefixLen,proto3" json:"PrefixLen,omitempty"`
+	PrefixLen uint32 `protobuf:"varint,2,opt,name=PrefixLen" json:"PrefixLen,omitempty"`
 	// Common route attributes
-	RouteCommon *SLRouteCommon `protobuf:"bytes,3,opt,name=RouteCommon,proto3" json:"RouteCommon,omitempty"`
+	RouteCommon *SLRouteCommon `protobuf:"bytes,3,opt,name=RouteCommon" json:"RouteCommon,omitempty"`
 	// List of route paths for a particular route.
 	// Specifying more than one path is allowed for ECMP/UCMP cases
-	PathList             []*SLRoutePath `protobuf:"bytes,4,rep,name=PathList,proto3" json:"PathList,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}       `json:"-"`
-	XXX_unrecognized     []byte         `json:"-"`
-	XXX_sizecache        int32          `json:"-"`
+	PathList []*SLRoutePath `protobuf:"bytes,4,rep,name=PathList" json:"PathList,omitempty"`
 }
 
-func (m *SLRoutev6) Reset()         { *m = SLRoutev6{} }
-func (m *SLRoutev6) String() string { return proto.CompactTextString(m) }
-func (*SLRoutev6) ProtoMessage()    {}
-func (*SLRoutev6) Descriptor() ([]byte, []int) {
-	return fileDescriptor_sl_route_ipv6_fc3ede814b195373, []int{0}
-}
-func (m *SLRoutev6) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_SLRoutev6.Unmarshal(m, b)
-}
-func (m *SLRoutev6) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_SLRoutev6.Marshal(b, m, deterministic)
-}
-func (dst *SLRoutev6) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_SLRoutev6.Merge(dst, src)
-}
-func (m *SLRoutev6) XXX_Size() int {
-	return xxx_messageInfo_SLRoutev6.Size(m)
-}
-func (m *SLRoutev6) XXX_DiscardUnknown() {
-	xxx_messageInfo_SLRoutev6.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_SLRoutev6 proto.InternalMessageInfo
+func (m *SLRoutev6) Reset()                    { *m = SLRoutev6{} }
+func (m *SLRoutev6) String() string            { return proto.CompactTextString(m) }
+func (*SLRoutev6) ProtoMessage()               {}
+func (*SLRoutev6) Descriptor() ([]byte, []int) { return fileDescriptor10, []int{0} }
 
 func (m *SLRoutev6) GetPrefix() []byte {
 	if m != nil {
@@ -95,42 +67,20 @@ func (m *SLRoutev6) GetPathList() []*SLRoutePath {
 // List of routes for bulk download
 type SLRoutev6Msg struct {
 	// Route Object Operations
-	Oper SLObjectOp `protobuf:"varint,1,opt,name=Oper,proto3,enum=service_layer.SLObjectOp" json:"Oper,omitempty"`
+	Oper SLObjectOp `protobuf:"varint,1,opt,name=Oper,enum=service_layer.SLObjectOp" json:"Oper,omitempty"`
 	// Correlator. This can be used to correlate replies with requests.
 	// The Server simply reflects this field back in the reply.
-	Correlator uint64 `protobuf:"varint,2,opt,name=Correlator,proto3" json:"Correlator,omitempty"`
+	Correlator uint64 `protobuf:"varint,2,opt,name=Correlator" json:"Correlator,omitempty"`
 	// VRF name.
-	VrfName string `protobuf:"bytes,3,opt,name=VrfName,proto3" json:"VrfName,omitempty"`
+	VrfName string `protobuf:"bytes,3,opt,name=VrfName" json:"VrfName,omitempty"`
 	// List of routes for the VRF specified above
-	Routes               []*SLRoutev6 `protobuf:"bytes,4,rep,name=Routes,proto3" json:"Routes,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}     `json:"-"`
-	XXX_unrecognized     []byte       `json:"-"`
-	XXX_sizecache        int32        `json:"-"`
+	Routes []*SLRoutev6 `protobuf:"bytes,4,rep,name=Routes" json:"Routes,omitempty"`
 }
 
-func (m *SLRoutev6Msg) Reset()         { *m = SLRoutev6Msg{} }
-func (m *SLRoutev6Msg) String() string { return proto.CompactTextString(m) }
-func (*SLRoutev6Msg) ProtoMessage()    {}
-func (*SLRoutev6Msg) Descriptor() ([]byte, []int) {
-	return fileDescriptor_sl_route_ipv6_fc3ede814b195373, []int{1}
-}
-func (m *SLRoutev6Msg) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_SLRoutev6Msg.Unmarshal(m, b)
-}
-func (m *SLRoutev6Msg) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_SLRoutev6Msg.Marshal(b, m, deterministic)
-}
-func (dst *SLRoutev6Msg) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_SLRoutev6Msg.Merge(dst, src)
-}
-func (m *SLRoutev6Msg) XXX_Size() int {
-	return xxx_messageInfo_SLRoutev6Msg.Size(m)
-}
-func (m *SLRoutev6Msg) XXX_DiscardUnknown() {
-	xxx_messageInfo_SLRoutev6Msg.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_SLRoutev6Msg proto.InternalMessageInfo
+func (m *SLRoutev6Msg) Reset()                    { *m = SLRoutev6Msg{} }
+func (m *SLRoutev6Msg) String() string            { return proto.CompactTextString(m) }
+func (*SLRoutev6Msg) ProtoMessage()               {}
+func (*SLRoutev6Msg) Descriptor() ([]byte, []int) { return fileDescriptor10, []int{1} }
 
 func (m *SLRoutev6Msg) GetOper() SLObjectOp {
 	if m != nil {
@@ -163,39 +113,17 @@ func (m *SLRoutev6Msg) GetRoutes() []*SLRoutev6 {
 // IPv6 route result, uniquely identified by the Prefix/PrefixLen pair
 type SLRoutev6Res struct {
 	// Corresponding error code
-	ErrStatus *SLErrorStatus `protobuf:"bytes,1,opt,name=ErrStatus,proto3" json:"ErrStatus,omitempty"`
+	ErrStatus *SLErrorStatus `protobuf:"bytes,1,opt,name=ErrStatus" json:"ErrStatus,omitempty"`
 	// IPv6 Prefix
 	Prefix []byte `protobuf:"bytes,2,opt,name=Prefix,proto3" json:"Prefix,omitempty"`
 	// IPv6 prefix length, [0-32]
-	PrefixLen            uint32   `protobuf:"varint,3,opt,name=PrefixLen,proto3" json:"PrefixLen,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	PrefixLen uint32 `protobuf:"varint,3,opt,name=PrefixLen" json:"PrefixLen,omitempty"`
 }
 
-func (m *SLRoutev6Res) Reset()         { *m = SLRoutev6Res{} }
-func (m *SLRoutev6Res) String() string { return proto.CompactTextString(m) }
-func (*SLRoutev6Res) ProtoMessage()    {}
-func (*SLRoutev6Res) Descriptor() ([]byte, []int) {
-	return fileDescriptor_sl_route_ipv6_fc3ede814b195373, []int{2}
-}
-func (m *SLRoutev6Res) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_SLRoutev6Res.Unmarshal(m, b)
-}
-func (m *SLRoutev6Res) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_SLRoutev6Res.Marshal(b, m, deterministic)
-}
-func (dst *SLRoutev6Res) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_SLRoutev6Res.Merge(dst, src)
-}
-func (m *SLRoutev6Res) XXX_Size() int {
-	return xxx_messageInfo_SLRoutev6Res.Size(m)
-}
-func (m *SLRoutev6Res) XXX_DiscardUnknown() {
-	xxx_messageInfo_SLRoutev6Res.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_SLRoutev6Res proto.InternalMessageInfo
+func (m *SLRoutev6Res) Reset()                    { *m = SLRoutev6Res{} }
+func (m *SLRoutev6Res) String() string            { return proto.CompactTextString(m) }
+func (*SLRoutev6Res) ProtoMessage()               {}
+func (*SLRoutev6Res) Descriptor() ([]byte, []int) { return fileDescriptor10, []int{2} }
 
 func (m *SLRoutev6Res) GetErrStatus() *SLErrorStatus {
 	if m != nil {
@@ -222,9 +150,9 @@ func (m *SLRoutev6Res) GetPrefixLen() uint32 {
 type SLRoutev6MsgRsp struct {
 	// Correlator. This can be used to correlate replies with requests.
 	// The Server simply reflects this field back in the reply.
-	Correlator uint64 `protobuf:"varint,1,opt,name=Correlator,proto3" json:"Correlator,omitempty"`
+	Correlator uint64 `protobuf:"varint,1,opt,name=Correlator" json:"Correlator,omitempty"`
 	// VRF name (matches the VRF name of the original operation)
-	VrfName string `protobuf:"bytes,2,opt,name=VrfName,proto3" json:"VrfName,omitempty"`
+	VrfName string `protobuf:"bytes,2,opt,name=VrfName" json:"VrfName,omitempty"`
 	// Summary result of the bulk operation (refer to enum SLErrorStatus)
 	// In general, the StatusSummary implies one of 3 things:
 	// 1. SL_SUCCESS: signifies that the entire bulk operation was successful.
@@ -234,38 +162,16 @@ type SLRoutev6MsgRsp struct {
 	//         each individual entry in the bulk.
 	// 3. SL_RPC_XXX: signifies that the entire bulk operation failed.
 	//         In this case, the Results list is empty.
-	StatusSummary *SLErrorStatus `protobuf:"bytes,3,opt,name=StatusSummary,proto3" json:"StatusSummary,omitempty"`
+	StatusSummary *SLErrorStatus `protobuf:"bytes,3,opt,name=StatusSummary" json:"StatusSummary,omitempty"`
 	// In case of errors, this field indicates which entry in the bulk was
 	// erroneous.
-	Results              []*SLRoutev6Res `protobuf:"bytes,4,rep,name=Results,proto3" json:"Results,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}        `json:"-"`
-	XXX_unrecognized     []byte          `json:"-"`
-	XXX_sizecache        int32           `json:"-"`
+	Results []*SLRoutev6Res `protobuf:"bytes,4,rep,name=Results" json:"Results,omitempty"`
 }
 
-func (m *SLRoutev6MsgRsp) Reset()         { *m = SLRoutev6MsgRsp{} }
-func (m *SLRoutev6MsgRsp) String() string { return proto.CompactTextString(m) }
-func (*SLRoutev6MsgRsp) ProtoMessage()    {}
-func (*SLRoutev6MsgRsp) Descriptor() ([]byte, []int) {
-	return fileDescriptor_sl_route_ipv6_fc3ede814b195373, []int{3}
-}
-func (m *SLRoutev6MsgRsp) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_SLRoutev6MsgRsp.Unmarshal(m, b)
-}
-func (m *SLRoutev6MsgRsp) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_SLRoutev6MsgRsp.Marshal(b, m, deterministic)
-}
-func (dst *SLRoutev6MsgRsp) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_SLRoutev6MsgRsp.Merge(dst, src)
-}
-func (m *SLRoutev6MsgRsp) XXX_Size() int {
-	return xxx_messageInfo_SLRoutev6MsgRsp.Size(m)
-}
-func (m *SLRoutev6MsgRsp) XXX_DiscardUnknown() {
-	xxx_messageInfo_SLRoutev6MsgRsp.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_SLRoutev6MsgRsp proto.InternalMessageInfo
+func (m *SLRoutev6MsgRsp) Reset()                    { *m = SLRoutev6MsgRsp{} }
+func (m *SLRoutev6MsgRsp) String() string            { return proto.CompactTextString(m) }
+func (*SLRoutev6MsgRsp) ProtoMessage()               {}
+func (*SLRoutev6MsgRsp) Descriptor() ([]byte, []int) { return fileDescriptor10, []int{3} }
 
 func (m *SLRoutev6MsgRsp) GetCorrelator() uint64 {
 	if m != nil {
@@ -299,50 +205,28 @@ func (m *SLRoutev6MsgRsp) GetResults() []*SLRoutev6Res {
 type SLRoutev6GetMsg struct {
 	// Correlator. This can be used to correlate replies with requests.
 	// The Server simply reflects this field back in the reply.
-	Correlator uint64 `protobuf:"varint,1,opt,name=Correlator,proto3" json:"Correlator,omitempty"`
+	Correlator uint64 `protobuf:"varint,1,opt,name=Correlator" json:"Correlator,omitempty"`
 	// VRF name.
 	// If the Key is not specified, then request up to the first
 	// 'EntriesCount' entries.
-	VrfName string `protobuf:"bytes,2,opt,name=VrfName,proto3" json:"VrfName,omitempty"`
+	VrfName string `protobuf:"bytes,2,opt,name=VrfName" json:"VrfName,omitempty"`
 	// IPv6 Prefix
 	Prefix []byte `protobuf:"bytes,3,opt,name=Prefix,proto3" json:"Prefix,omitempty"`
 	// IPv6 prefix length, [0-32]
-	PrefixLen uint32 `protobuf:"varint,4,opt,name=PrefixLen,proto3" json:"PrefixLen,omitempty"`
+	PrefixLen uint32 `protobuf:"varint,4,opt,name=PrefixLen" json:"PrefixLen,omitempty"`
 	// Number of entries requested
-	EntriesCount uint32 `protobuf:"varint,5,opt,name=EntriesCount,proto3" json:"EntriesCount,omitempty"`
+	EntriesCount uint32 `protobuf:"varint,5,opt,name=EntriesCount" json:"EntriesCount,omitempty"`
 	// if GetNext is FALSE:
 	//     request up to 'EntriesCount' entries starting from the key
 	// If GetNext is TRUE, or if the key exact match is not found:
 	//     request up to 'EntriesCount' entries starting from the key's next
-	GetNext              bool     `protobuf:"varint,6,opt,name=GetNext,proto3" json:"GetNext,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	GetNext bool `protobuf:"varint,6,opt,name=GetNext" json:"GetNext,omitempty"`
 }
 
-func (m *SLRoutev6GetMsg) Reset()         { *m = SLRoutev6GetMsg{} }
-func (m *SLRoutev6GetMsg) String() string { return proto.CompactTextString(m) }
-func (*SLRoutev6GetMsg) ProtoMessage()    {}
-func (*SLRoutev6GetMsg) Descriptor() ([]byte, []int) {
-	return fileDescriptor_sl_route_ipv6_fc3ede814b195373, []int{4}
-}
-func (m *SLRoutev6GetMsg) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_SLRoutev6GetMsg.Unmarshal(m, b)
-}
-func (m *SLRoutev6GetMsg) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_SLRoutev6GetMsg.Marshal(b, m, deterministic)
-}
-func (dst *SLRoutev6GetMsg) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_SLRoutev6GetMsg.Merge(dst, src)
-}
-func (m *SLRoutev6GetMsg) XXX_Size() int {
-	return xxx_messageInfo_SLRoutev6GetMsg.Size(m)
-}
-func (m *SLRoutev6GetMsg) XXX_DiscardUnknown() {
-	xxx_messageInfo_SLRoutev6GetMsg.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_SLRoutev6GetMsg proto.InternalMessageInfo
+func (m *SLRoutev6GetMsg) Reset()                    { *m = SLRoutev6GetMsg{} }
+func (m *SLRoutev6GetMsg) String() string            { return proto.CompactTextString(m) }
+func (*SLRoutev6GetMsg) ProtoMessage()               {}
+func (*SLRoutev6GetMsg) Descriptor() ([]byte, []int) { return fileDescriptor10, []int{4} }
 
 func (m *SLRoutev6GetMsg) GetCorrelator() uint64 {
 	if m != nil {
@@ -390,46 +274,24 @@ func (m *SLRoutev6GetMsg) GetGetNext() bool {
 type SLRoutev6GetMsgRsp struct {
 	// Correlator. This can be used to correlate replies with requests.
 	// The Server simply reflects this field back in the reply.
-	Correlator uint64 `protobuf:"varint,1,opt,name=Correlator,proto3" json:"Correlator,omitempty"`
+	Correlator uint64 `protobuf:"varint,1,opt,name=Correlator" json:"Correlator,omitempty"`
 	// End Of File.
 	// When set to True, it indicates that the server has returned M, where
 	// M < N, of the original N requested Entries.
-	Eof bool `protobuf:"varint,2,opt,name=Eof,proto3" json:"Eof,omitempty"`
+	Eof bool `protobuf:"varint,2,opt,name=Eof" json:"Eof,omitempty"`
 	// VRF name.
-	VrfName string `protobuf:"bytes,3,opt,name=VrfName,proto3" json:"VrfName,omitempty"`
+	VrfName string `protobuf:"bytes,3,opt,name=VrfName" json:"VrfName,omitempty"`
 	// Status of the Get operation
-	ErrStatus *SLErrorStatus `protobuf:"bytes,4,opt,name=ErrStatus,proto3" json:"ErrStatus,omitempty"`
+	ErrStatus *SLErrorStatus `protobuf:"bytes,4,opt,name=ErrStatus" json:"ErrStatus,omitempty"`
 	// Returned entries as requested in the Get operation.
 	// if ErrStatus is SL_SUCCESS, Entries contains the info requested
-	Entries              []*SLRoutev6 `protobuf:"bytes,5,rep,name=Entries,proto3" json:"Entries,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}     `json:"-"`
-	XXX_unrecognized     []byte       `json:"-"`
-	XXX_sizecache        int32        `json:"-"`
+	Entries []*SLRoutev6 `protobuf:"bytes,5,rep,name=Entries" json:"Entries,omitempty"`
 }
 
-func (m *SLRoutev6GetMsgRsp) Reset()         { *m = SLRoutev6GetMsgRsp{} }
-func (m *SLRoutev6GetMsgRsp) String() string { return proto.CompactTextString(m) }
-func (*SLRoutev6GetMsgRsp) ProtoMessage()    {}
-func (*SLRoutev6GetMsgRsp) Descriptor() ([]byte, []int) {
-	return fileDescriptor_sl_route_ipv6_fc3ede814b195373, []int{5}
-}
-func (m *SLRoutev6GetMsgRsp) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_SLRoutev6GetMsgRsp.Unmarshal(m, b)
-}
-func (m *SLRoutev6GetMsgRsp) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_SLRoutev6GetMsgRsp.Marshal(b, m, deterministic)
-}
-func (dst *SLRoutev6GetMsgRsp) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_SLRoutev6GetMsgRsp.Merge(dst, src)
-}
-func (m *SLRoutev6GetMsgRsp) XXX_Size() int {
-	return xxx_messageInfo_SLRoutev6GetMsgRsp.Size(m)
-}
-func (m *SLRoutev6GetMsgRsp) XXX_DiscardUnknown() {
-	xxx_messageInfo_SLRoutev6GetMsgRsp.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_SLRoutev6GetMsgRsp proto.InternalMessageInfo
+func (m *SLRoutev6GetMsgRsp) Reset()                    { *m = SLRoutev6GetMsgRsp{} }
+func (m *SLRoutev6GetMsgRsp) String() string            { return proto.CompactTextString(m) }
+func (*SLRoutev6GetMsgRsp) ProtoMessage()               {}
+func (*SLRoutev6GetMsgRsp) Descriptor() ([]byte, []int) { return fileDescriptor10, []int{5} }
 
 func (m *SLRoutev6GetMsgRsp) GetCorrelator() uint64 {
 	if m != nil {
@@ -469,37 +331,15 @@ func (m *SLRoutev6GetMsgRsp) GetEntries() []*SLRoutev6 {
 // IPv6 Route notification
 type SLRoutev6NotifRoute struct {
 	// VRF name.
-	VrfName string `protobuf:"bytes,1,opt,name=VrfName,proto3" json:"VrfName,omitempty"`
+	VrfName string `protobuf:"bytes,1,opt,name=VrfName" json:"VrfName,omitempty"`
 	// IPv6 routes
-	Entries              []*SLRoutev6 `protobuf:"bytes,2,rep,name=Entries,proto3" json:"Entries,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}     `json:"-"`
-	XXX_unrecognized     []byte       `json:"-"`
-	XXX_sizecache        int32        `json:"-"`
+	Entries []*SLRoutev6 `protobuf:"bytes,2,rep,name=Entries" json:"Entries,omitempty"`
 }
 
-func (m *SLRoutev6NotifRoute) Reset()         { *m = SLRoutev6NotifRoute{} }
-func (m *SLRoutev6NotifRoute) String() string { return proto.CompactTextString(m) }
-func (*SLRoutev6NotifRoute) ProtoMessage()    {}
-func (*SLRoutev6NotifRoute) Descriptor() ([]byte, []int) {
-	return fileDescriptor_sl_route_ipv6_fc3ede814b195373, []int{6}
-}
-func (m *SLRoutev6NotifRoute) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_SLRoutev6NotifRoute.Unmarshal(m, b)
-}
-func (m *SLRoutev6NotifRoute) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_SLRoutev6NotifRoute.Marshal(b, m, deterministic)
-}
-func (dst *SLRoutev6NotifRoute) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_SLRoutev6NotifRoute.Merge(dst, src)
-}
-func (m *SLRoutev6NotifRoute) XXX_Size() int {
-	return xxx_messageInfo_SLRoutev6NotifRoute.Size(m)
-}
-func (m *SLRoutev6NotifRoute) XXX_DiscardUnknown() {
-	xxx_messageInfo_SLRoutev6NotifRoute.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_SLRoutev6NotifRoute proto.InternalMessageInfo
+func (m *SLRoutev6NotifRoute) Reset()                    { *m = SLRoutev6NotifRoute{} }
+func (m *SLRoutev6NotifRoute) String() string            { return proto.CompactTextString(m) }
+func (*SLRoutev6NotifRoute) ProtoMessage()               {}
+func (*SLRoutev6NotifRoute) Descriptor() ([]byte, []int) { return fileDescriptor10, []int{6} }
 
 func (m *SLRoutev6NotifRoute) GetVrfName() string {
 	if m != nil {
@@ -518,7 +358,7 @@ func (m *SLRoutev6NotifRoute) GetEntries() []*SLRoutev6 {
 // IPv6 notification message
 type SLRoutev6Notif struct {
 	// Event Type
-	EventType SLNotifType `protobuf:"varint,1,opt,name=EventType,proto3,enum=service_layer.SLNotifType" json:"EventType,omitempty"`
+	EventType SLNotifType `protobuf:"varint,1,opt,name=EventType,enum=service_layer.SLNotifType" json:"EventType,omitempty"`
 	// Further info based on EventType
 	//
 	// Types that are valid to be assigned to Event:
@@ -527,82 +367,52 @@ type SLRoutev6Notif struct {
 	//	*SLRoutev6Notif_Route
 	//	*SLRoutev6Notif_Marker
 	//	*SLRoutev6Notif_Vrf
-	Event                isSLRoutev6Notif_Event `protobuf_oneof:"Event"`
-	XXX_NoUnkeyedLiteral struct{}               `json:"-"`
-	XXX_unrecognized     []byte                 `json:"-"`
-	XXX_sizecache        int32                  `json:"-"`
+	Event isSLRoutev6Notif_Event `protobuf_oneof:"Event"`
 }
 
-func (m *SLRoutev6Notif) Reset()         { *m = SLRoutev6Notif{} }
-func (m *SLRoutev6Notif) String() string { return proto.CompactTextString(m) }
-func (*SLRoutev6Notif) ProtoMessage()    {}
-func (*SLRoutev6Notif) Descriptor() ([]byte, []int) {
-	return fileDescriptor_sl_route_ipv6_fc3ede814b195373, []int{7}
-}
-func (m *SLRoutev6Notif) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_SLRoutev6Notif.Unmarshal(m, b)
-}
-func (m *SLRoutev6Notif) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_SLRoutev6Notif.Marshal(b, m, deterministic)
-}
-func (dst *SLRoutev6Notif) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_SLRoutev6Notif.Merge(dst, src)
-}
-func (m *SLRoutev6Notif) XXX_Size() int {
-	return xxx_messageInfo_SLRoutev6Notif.Size(m)
-}
-func (m *SLRoutev6Notif) XXX_DiscardUnknown() {
-	xxx_messageInfo_SLRoutev6Notif.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_SLRoutev6Notif proto.InternalMessageInfo
-
-func (m *SLRoutev6Notif) GetEventType() SLNotifType {
-	if m != nil {
-		return m.EventType
-	}
-	return SLNotifType_SL_EVENT_TYPE_RESERVED
-}
+func (m *SLRoutev6Notif) Reset()                    { *m = SLRoutev6Notif{} }
+func (m *SLRoutev6Notif) String() string            { return proto.CompactTextString(m) }
+func (*SLRoutev6Notif) ProtoMessage()               {}
+func (*SLRoutev6Notif) Descriptor() ([]byte, []int) { return fileDescriptor10, []int{7} }
 
 type isSLRoutev6Notif_Event interface {
 	isSLRoutev6Notif_Event()
 }
 
 type SLRoutev6Notif_ErrStatus struct {
-	ErrStatus *SLErrorStatus `protobuf:"bytes,2,opt,name=ErrStatus,proto3,oneof"`
+	ErrStatus *SLErrorStatus `protobuf:"bytes,2,opt,name=ErrStatus,oneof"`
 }
-
 type SLRoutev6Notif_NotifStatus struct {
-	NotifStatus *SLRouteNotifStatus `protobuf:"bytes,3,opt,name=NotifStatus,proto3,oneof"`
+	NotifStatus *SLRouteNotifStatus `protobuf:"bytes,3,opt,name=NotifStatus,oneof"`
 }
-
 type SLRoutev6Notif_Route struct {
-	Route *SLRoutev6NotifRoute `protobuf:"bytes,4,opt,name=Route,proto3,oneof"`
+	Route *SLRoutev6NotifRoute `protobuf:"bytes,4,opt,name=Route,oneof"`
 }
-
 type SLRoutev6Notif_Marker struct {
-	Marker *SLRouteNotifMarker `protobuf:"bytes,5,opt,name=Marker,proto3,oneof"`
+	Marker *SLRouteNotifMarker `protobuf:"bytes,5,opt,name=Marker,oneof"`
 }
-
 type SLRoutev6Notif_Vrf struct {
-	Vrf *SLVrfNotif `protobuf:"bytes,6,opt,name=Vrf,proto3,oneof"`
+	Vrf *SLVrfNotif `protobuf:"bytes,6,opt,name=Vrf,oneof"`
 }
 
-func (*SLRoutev6Notif_ErrStatus) isSLRoutev6Notif_Event() {}
-
+func (*SLRoutev6Notif_ErrStatus) isSLRoutev6Notif_Event()   {}
 func (*SLRoutev6Notif_NotifStatus) isSLRoutev6Notif_Event() {}
-
-func (*SLRoutev6Notif_Route) isSLRoutev6Notif_Event() {}
-
-func (*SLRoutev6Notif_Marker) isSLRoutev6Notif_Event() {}
-
-func (*SLRoutev6Notif_Vrf) isSLRoutev6Notif_Event() {}
+func (*SLRoutev6Notif_Route) isSLRoutev6Notif_Event()       {}
+func (*SLRoutev6Notif_Marker) isSLRoutev6Notif_Event()      {}
+func (*SLRoutev6Notif_Vrf) isSLRoutev6Notif_Event()         {}
 
 func (m *SLRoutev6Notif) GetEvent() isSLRoutev6Notif_Event {
 	if m != nil {
 		return m.Event
 	}
 	return nil
+}
+
+func (m *SLRoutev6Notif) GetEventType() SLNotifType {
+	if m != nil {
+		return m.EventType
+	}
+	return SLNotifType_SL_EVENT_TYPE_RESERVED
 }
 
 func (m *SLRoutev6Notif) GetErrStatus() *SLErrorStatus {
@@ -741,27 +551,27 @@ func _SLRoutev6Notif_OneofSizer(msg proto.Message) (n int) {
 	switch x := m.Event.(type) {
 	case *SLRoutev6Notif_ErrStatus:
 		s := proto.Size(x.ErrStatus)
-		n += 1 // tag and wire
+		n += proto.SizeVarint(2<<3 | proto.WireBytes)
 		n += proto.SizeVarint(uint64(s))
 		n += s
 	case *SLRoutev6Notif_NotifStatus:
 		s := proto.Size(x.NotifStatus)
-		n += 1 // tag and wire
+		n += proto.SizeVarint(3<<3 | proto.WireBytes)
 		n += proto.SizeVarint(uint64(s))
 		n += s
 	case *SLRoutev6Notif_Route:
 		s := proto.Size(x.Route)
-		n += 1 // tag and wire
+		n += proto.SizeVarint(4<<3 | proto.WireBytes)
 		n += proto.SizeVarint(uint64(s))
 		n += s
 	case *SLRoutev6Notif_Marker:
 		s := proto.Size(x.Marker)
-		n += 1 // tag and wire
+		n += proto.SizeVarint(5<<3 | proto.WireBytes)
 		n += proto.SizeVarint(uint64(s))
 		n += s
 	case *SLRoutev6Notif_Vrf:
 		s := proto.Size(x.Vrf)
-		n += 1 // tag and wire
+		n += proto.SizeVarint(6<<3 | proto.WireBytes)
 		n += proto.SizeVarint(uint64(s))
 		n += s
 	case nil:
@@ -790,9 +600,8 @@ var _ grpc.ClientConn
 // is compatible with the grpc package it is being compiled against.
 const _ = grpc.SupportPackageIsVersion4
 
-// SLRoutev6OperClient is the client API for SLRoutev6Oper service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
+// Client API for SLRoutev6Oper service
+
 type SLRoutev6OperClient interface {
 	// Used to retrieve Global Route information
 	SLRoutev6GlobalsGet(ctx context.Context, in *SLRouteGlobalsGetMsg, opts ...grpc.CallOption) (*SLRouteGlobalsGetMsgRsp, error)
@@ -867,7 +676,7 @@ func NewSLRoutev6OperClient(cc *grpc.ClientConn) SLRoutev6OperClient {
 
 func (c *sLRoutev6OperClient) SLRoutev6GlobalsGet(ctx context.Context, in *SLRouteGlobalsGetMsg, opts ...grpc.CallOption) (*SLRouteGlobalsGetMsgRsp, error) {
 	out := new(SLRouteGlobalsGetMsgRsp)
-	err := c.cc.Invoke(ctx, "/service_layer.SLRoutev6Oper/SLRoutev6GlobalsGet", in, out, opts...)
+	err := grpc.Invoke(ctx, "/service_layer.SLRoutev6Oper/SLRoutev6GlobalsGet", in, out, c.cc, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -876,7 +685,7 @@ func (c *sLRoutev6OperClient) SLRoutev6GlobalsGet(ctx context.Context, in *SLRou
 
 func (c *sLRoutev6OperClient) SLRoutev6GlobalStatsGet(ctx context.Context, in *SLRouteGlobalStatsGetMsg, opts ...grpc.CallOption) (*SLRouteGlobalStatsGetMsgRsp, error) {
 	out := new(SLRouteGlobalStatsGetMsgRsp)
-	err := c.cc.Invoke(ctx, "/service_layer.SLRoutev6Oper/SLRoutev6GlobalStatsGet", in, out, opts...)
+	err := grpc.Invoke(ctx, "/service_layer.SLRoutev6Oper/SLRoutev6GlobalStatsGet", in, out, c.cc, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -885,7 +694,7 @@ func (c *sLRoutev6OperClient) SLRoutev6GlobalStatsGet(ctx context.Context, in *S
 
 func (c *sLRoutev6OperClient) SLRoutev6VrfRegOp(ctx context.Context, in *SLVrfRegMsg, opts ...grpc.CallOption) (*SLVrfRegMsgRsp, error) {
 	out := new(SLVrfRegMsgRsp)
-	err := c.cc.Invoke(ctx, "/service_layer.SLRoutev6Oper/SLRoutev6VrfRegOp", in, out, opts...)
+	err := grpc.Invoke(ctx, "/service_layer.SLRoutev6Oper/SLRoutev6VrfRegOp", in, out, c.cc, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -894,7 +703,7 @@ func (c *sLRoutev6OperClient) SLRoutev6VrfRegOp(ctx context.Context, in *SLVrfRe
 
 func (c *sLRoutev6OperClient) SLRoutev6VrfRegGet(ctx context.Context, in *SLVrfRegGetMsg, opts ...grpc.CallOption) (*SLVrfRegGetMsgRsp, error) {
 	out := new(SLVrfRegGetMsgRsp)
-	err := c.cc.Invoke(ctx, "/service_layer.SLRoutev6Oper/SLRoutev6VrfRegGet", in, out, opts...)
+	err := grpc.Invoke(ctx, "/service_layer.SLRoutev6Oper/SLRoutev6VrfRegGet", in, out, c.cc, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -903,7 +712,7 @@ func (c *sLRoutev6OperClient) SLRoutev6VrfRegGet(ctx context.Context, in *SLVrfR
 
 func (c *sLRoutev6OperClient) SLRoutev6VrfGetStats(ctx context.Context, in *SLVrfRegGetMsg, opts ...grpc.CallOption) (*SLVRFGetStatsMsgRsp, error) {
 	out := new(SLVRFGetStatsMsgRsp)
-	err := c.cc.Invoke(ctx, "/service_layer.SLRoutev6Oper/SLRoutev6VrfGetStats", in, out, opts...)
+	err := grpc.Invoke(ctx, "/service_layer.SLRoutev6Oper/SLRoutev6VrfGetStats", in, out, c.cc, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -912,7 +721,7 @@ func (c *sLRoutev6OperClient) SLRoutev6VrfGetStats(ctx context.Context, in *SLVr
 
 func (c *sLRoutev6OperClient) SLRoutev6Op(ctx context.Context, in *SLRoutev6Msg, opts ...grpc.CallOption) (*SLRoutev6MsgRsp, error) {
 	out := new(SLRoutev6MsgRsp)
-	err := c.cc.Invoke(ctx, "/service_layer.SLRoutev6Oper/SLRoutev6Op", in, out, opts...)
+	err := grpc.Invoke(ctx, "/service_layer.SLRoutev6Oper/SLRoutev6Op", in, out, c.cc, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -921,7 +730,7 @@ func (c *sLRoutev6OperClient) SLRoutev6Op(ctx context.Context, in *SLRoutev6Msg,
 
 func (c *sLRoutev6OperClient) SLRoutev6Get(ctx context.Context, in *SLRoutev6GetMsg, opts ...grpc.CallOption) (*SLRoutev6GetMsgRsp, error) {
 	out := new(SLRoutev6GetMsgRsp)
-	err := c.cc.Invoke(ctx, "/service_layer.SLRoutev6Oper/SLRoutev6Get", in, out, opts...)
+	err := grpc.Invoke(ctx, "/service_layer.SLRoutev6Oper/SLRoutev6Get", in, out, c.cc, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -929,7 +738,7 @@ func (c *sLRoutev6OperClient) SLRoutev6Get(ctx context.Context, in *SLRoutev6Get
 }
 
 func (c *sLRoutev6OperClient) SLRoutev6OpStream(ctx context.Context, opts ...grpc.CallOption) (SLRoutev6Oper_SLRoutev6OpStreamClient, error) {
-	stream, err := c.cc.NewStream(ctx, &_SLRoutev6Oper_serviceDesc.Streams[0], "/service_layer.SLRoutev6Oper/SLRoutev6OpStream", opts...)
+	stream, err := grpc.NewClientStream(ctx, &_SLRoutev6Oper_serviceDesc.Streams[0], c.cc, "/service_layer.SLRoutev6Oper/SLRoutev6OpStream", opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -960,7 +769,7 @@ func (x *sLRoutev6OperSLRoutev6OpStreamClient) Recv() (*SLRoutev6MsgRsp, error) 
 }
 
 func (c *sLRoutev6OperClient) SLRoutev6GetStream(ctx context.Context, opts ...grpc.CallOption) (SLRoutev6Oper_SLRoutev6GetStreamClient, error) {
-	stream, err := c.cc.NewStream(ctx, &_SLRoutev6Oper_serviceDesc.Streams[1], "/service_layer.SLRoutev6Oper/SLRoutev6GetStream", opts...)
+	stream, err := grpc.NewClientStream(ctx, &_SLRoutev6Oper_serviceDesc.Streams[1], c.cc, "/service_layer.SLRoutev6Oper/SLRoutev6GetStream", opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -991,7 +800,7 @@ func (x *sLRoutev6OperSLRoutev6GetStreamClient) Recv() (*SLRoutev6GetMsgRsp, err
 }
 
 func (c *sLRoutev6OperClient) SLRoutev6GetNotifStream(ctx context.Context, opts ...grpc.CallOption) (SLRoutev6Oper_SLRoutev6GetNotifStreamClient, error) {
-	stream, err := c.cc.NewStream(ctx, &_SLRoutev6Oper_serviceDesc.Streams[2], "/service_layer.SLRoutev6Oper/SLRoutev6GetNotifStream", opts...)
+	stream, err := grpc.NewClientStream(ctx, &_SLRoutev6Oper_serviceDesc.Streams[2], c.cc, "/service_layer.SLRoutev6Oper/SLRoutev6GetNotifStream", opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -1021,7 +830,8 @@ func (x *sLRoutev6OperSLRoutev6GetNotifStreamClient) Recv() (*SLRoutev6Notif, er
 	return m, nil
 }
 
-// SLRoutev6OperServer is the server API for SLRoutev6Oper service.
+// Server API for SLRoutev6Oper service
+
 type SLRoutev6OperServer interface {
 	// Used to retrieve Global Route information
 	SLRoutev6GlobalsGet(context.Context, *SLRouteGlobalsGetMsg) (*SLRouteGlobalsGetMsgRsp, error)
@@ -1350,9 +1160,9 @@ var _SLRoutev6Oper_serviceDesc = grpc.ServiceDesc{
 	Metadata: "sl_route_ipv6.proto",
 }
 
-func init() { proto.RegisterFile("sl_route_ipv6.proto", fileDescriptor_sl_route_ipv6_fc3ede814b195373) }
+func init() { proto.RegisterFile("sl_route_ipv6.proto", fileDescriptor10) }
 
-var fileDescriptor_sl_route_ipv6_fc3ede814b195373 = []byte{
+var fileDescriptor10 = []byte{
 	// 807 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xa4, 0x56, 0xdd, 0x6e, 0xda, 0x48,
 	0x14, 0xc6, 0xfc, 0x86, 0x43, 0xc8, 0xee, 0x4e, 0xf6, 0xc7, 0xcb, 0x66, 0x23, 0xe2, 0x95, 0xb6,
