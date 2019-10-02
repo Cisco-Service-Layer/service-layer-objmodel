@@ -24,6 +24,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   serialized_pb=_b('\n\x11sl_bfd_ipv4.proto\x12\rservice_layer\x1a\x15sl_common_types.proto\x1a\x13sl_bfd_common.proto\"\x99\x01\n\nSLBfdv4Key\x12&\n\x04Type\x18\x01 \x01(\x0e\x32\x18.service_layer.SLBfdType\x12\x0f\n\x07VrfName\x18\x02 \x01(\t\x12\x0f\n\x07NbrAddr\x18\x03 \x01(\r\x12-\n\tInterface\x18\x04 \x01(\x0b\x32\x1a.service_layer.SLInterface\x12\x12\n\nSourceAddr\x18\x05 \x01(\r\"m\n\x11SLBfdv4SessionCfg\x12&\n\x03Key\x18\x01 \x01(\x0b\x32\x19.service_layer.SLBfdv4Key\x12\x30\n\x06\x43onfig\x18\x02 \x01(\x0b\x32 .service_layer.SLBfdConfigCommon\"i\n\nSLBfdv4Msg\x12\'\n\x04Oper\x18\x01 \x01(\x0e\x32\x19.service_layer.SLObjectOp\x12\x32\n\x08Sessions\x18\x02 \x03(\x0b\x32 .service_layer.SLBfdv4SessionCfg\"e\n\nSLBfdv4Res\x12/\n\tErrStatus\x18\x01 \x01(\x0b\x32\x1c.service_layer.SLErrorStatus\x12&\n\x03Key\x18\x02 \x01(\x0b\x32\x19.service_layer.SLBfdv4Key\"p\n\rSLBfdv4MsgRsp\x12\x33\n\rStatusSummary\x18\x01 \x01(\x0b\x32\x1c.service_layer.SLErrorStatus\x12*\n\x07Results\x18\x02 \x03(\x0b\x32\x19.service_layer.SLBfdv4Res\"n\n\rSLBfdv4GetMsg\x12&\n\x03Key\x18\x01 \x01(\x0b\x32\x19.service_layer.SLBfdv4Key\x12\x0e\n\x06SeqNum\x18\x02 \x01(\x04\x12\x14\n\x0c\x45ntriesCount\x18\x03 \x01(\r\x12\x0f\n\x07GetNext\x18\x04 \x01(\x08\"\xa2\x01\n\x16SLBfdv4SessionCfgState\x12&\n\x03Key\x18\x01 \x01(\x0b\x32\x19.service_layer.SLBfdv4Key\x12\x30\n\x06\x43onfig\x18\x02 \x01(\x0b\x32 .service_layer.SLBfdConfigCommon\x12.\n\x05State\x18\x03 \x01(\x0b\x32\x1f.service_layer.SLBfdCommonState\"\x88\x01\n\x10SLBfdv4GetMsgRsp\x12\x0b\n\x03\x45of\x18\x01 \x01(\x08\x12/\n\tErrStatus\x18\x02 \x01(\x0b\x32\x1c.service_layer.SLErrorStatus\x12\x36\n\x07\x45ntries\x18\x03 \x03(\x0b\x32%.service_layer.SLBfdv4SessionCfgState\"m\n\x13SLBfdv4SessionState\x12&\n\x03Key\x18\x01 \x01(\x0b\x32\x19.service_layer.SLBfdv4Key\x12.\n\x05State\x18\x02 \x01(\x0b\x32\x1f.service_layer.SLBfdCommonState\"\xb3\x01\n\x0cSLBfdv4Notif\x12\x30\n\tEventType\x18\x01 \x01(\x0e\x32\x1d.service_layer.SLBfdNotifType\x12\x31\n\tErrStatus\x18\x02 \x01(\x0b\x32\x1c.service_layer.SLErrorStatusH\x00\x12\x35\n\x07Session\x18\x03 \x01(\x0b\x32\".service_layer.SLBfdv4SessionStateH\x00\x42\x07\n\x05\x45vent2\xee\x03\n\x0bSLBfdv4Oper\x12I\n\x0cSLBfdv4RegOp\x12\x1a.service_layer.SLBfdRegMsg\x1a\x1d.service_layer.SLBfdRegMsgRsp\x12G\n\nSLBfdv4Get\x12\x1a.service_layer.SLBfdGetMsg\x1a\x1d.service_layer.SLBfdGetMsgRsp\x12Q\n\x0fSLBfdv4GetStats\x12\x1a.service_layer.SLBfdGetMsg\x1a\".service_layer.SLBfdGetStatsMsgRsp\x12W\n\x15SLBfdv4GetNotifStream\x12\x1f.service_layer.SLBfdGetNotifMsg\x1a\x1b.service_layer.SLBfdv4Notif0\x01\x12K\n\x10SLBfdv4SessionOp\x12\x19.service_layer.SLBfdv4Msg\x1a\x1c.service_layer.SLBfdv4MsgRsp\x12R\n\x11SLBfdv4SessionGet\x12\x1c.service_layer.SLBfdv4GetMsg\x1a\x1f.service_layer.SLBfdv4GetMsgRspb\x06proto3')
   ,
   dependencies=[sl__common__types__pb2.DESCRIPTOR,sl__bfd__common__pb2.DESCRIPTOR,])
+_sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 
 
@@ -41,35 +42,35 @@ _SLBFDV4KEY = _descriptor.Descriptor(
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      options=None),
     _descriptor.FieldDescriptor(
       name='VrfName', full_name='service_layer.SLBfdv4Key.VrfName', index=1,
       number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      options=None),
     _descriptor.FieldDescriptor(
       name='NbrAddr', full_name='service_layer.SLBfdv4Key.NbrAddr', index=2,
       number=3, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      options=None),
     _descriptor.FieldDescriptor(
       name='Interface', full_name='service_layer.SLBfdv4Key.Interface', index=3,
       number=4, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      options=None),
     _descriptor.FieldDescriptor(
       name='SourceAddr', full_name='service_layer.SLBfdv4Key.SourceAddr', index=4,
       number=5, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      options=None),
   ],
   extensions=[
   ],
@@ -100,14 +101,14 @@ _SLBFDV4SESSIONCFG = _descriptor.Descriptor(
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      options=None),
     _descriptor.FieldDescriptor(
       name='Config', full_name='service_layer.SLBfdv4SessionCfg.Config', index=1,
       number=2, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      options=None),
   ],
   extensions=[
   ],
@@ -138,14 +139,14 @@ _SLBFDV4MSG = _descriptor.Descriptor(
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      options=None),
     _descriptor.FieldDescriptor(
       name='Sessions', full_name='service_layer.SLBfdv4Msg.Sessions', index=1,
       number=2, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      options=None),
   ],
   extensions=[
   ],
@@ -176,14 +177,14 @@ _SLBFDV4RES = _descriptor.Descriptor(
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      options=None),
     _descriptor.FieldDescriptor(
       name='Key', full_name='service_layer.SLBfdv4Res.Key', index=1,
       number=2, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      options=None),
   ],
   extensions=[
   ],
@@ -214,14 +215,14 @@ _SLBFDV4MSGRSP = _descriptor.Descriptor(
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      options=None),
     _descriptor.FieldDescriptor(
       name='Results', full_name='service_layer.SLBfdv4MsgRsp.Results', index=1,
       number=2, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      options=None),
   ],
   extensions=[
   ],
@@ -252,28 +253,28 @@ _SLBFDV4GETMSG = _descriptor.Descriptor(
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      options=None),
     _descriptor.FieldDescriptor(
       name='SeqNum', full_name='service_layer.SLBfdv4GetMsg.SeqNum', index=1,
       number=2, type=4, cpp_type=4, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      options=None),
     _descriptor.FieldDescriptor(
       name='EntriesCount', full_name='service_layer.SLBfdv4GetMsg.EntriesCount', index=2,
       number=3, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      options=None),
     _descriptor.FieldDescriptor(
       name='GetNext', full_name='service_layer.SLBfdv4GetMsg.GetNext', index=3,
       number=4, type=8, cpp_type=7, label=1,
       has_default_value=False, default_value=False,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      options=None),
   ],
   extensions=[
   ],
@@ -304,21 +305,21 @@ _SLBFDV4SESSIONCFGSTATE = _descriptor.Descriptor(
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      options=None),
     _descriptor.FieldDescriptor(
       name='Config', full_name='service_layer.SLBfdv4SessionCfgState.Config', index=1,
       number=2, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      options=None),
     _descriptor.FieldDescriptor(
       name='State', full_name='service_layer.SLBfdv4SessionCfgState.State', index=2,
       number=3, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      options=None),
   ],
   extensions=[
   ],
@@ -349,21 +350,21 @@ _SLBFDV4GETMSGRSP = _descriptor.Descriptor(
       has_default_value=False, default_value=False,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      options=None),
     _descriptor.FieldDescriptor(
       name='ErrStatus', full_name='service_layer.SLBfdv4GetMsgRsp.ErrStatus', index=1,
       number=2, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      options=None),
     _descriptor.FieldDescriptor(
       name='Entries', full_name='service_layer.SLBfdv4GetMsgRsp.Entries', index=2,
       number=3, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      options=None),
   ],
   extensions=[
   ],
@@ -394,14 +395,14 @@ _SLBFDV4SESSIONSTATE = _descriptor.Descriptor(
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      options=None),
     _descriptor.FieldDescriptor(
       name='State', full_name='service_layer.SLBfdv4SessionState.State', index=1,
       number=2, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      options=None),
   ],
   extensions=[
   ],
@@ -432,21 +433,21 @@ _SLBFDV4NOTIF = _descriptor.Descriptor(
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      options=None),
     _descriptor.FieldDescriptor(
       name='ErrStatus', full_name='service_layer.SLBfdv4Notif.ErrStatus', index=1,
       number=2, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      options=None),
     _descriptor.FieldDescriptor(
       name='Session', full_name='service_layer.SLBfdv4Notif.Session', index=2,
       number=3, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      options=None),
   ],
   extensions=[
   ],
@@ -503,7 +504,6 @@ DESCRIPTOR.message_types_by_name['SLBfdv4SessionCfgState'] = _SLBFDV4SESSIONCFGS
 DESCRIPTOR.message_types_by_name['SLBfdv4GetMsgRsp'] = _SLBFDV4GETMSGRSP
 DESCRIPTOR.message_types_by_name['SLBfdv4SessionState'] = _SLBFDV4SESSIONSTATE
 DESCRIPTOR.message_types_by_name['SLBfdv4Notif'] = _SLBFDV4NOTIF
-_sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 SLBfdv4Key = _reflection.GeneratedProtocolMessageType('SLBfdv4Key', (_message.Message,), dict(
   DESCRIPTOR = _SLBFDV4KEY,
@@ -575,74 +575,5 @@ SLBfdv4Notif = _reflection.GeneratedProtocolMessageType('SLBfdv4Notif', (_messag
   ))
 _sym_db.RegisterMessage(SLBfdv4Notif)
 
-
-
-_SLBFDV4OPER = _descriptor.ServiceDescriptor(
-  name='SLBfdv4Oper',
-  full_name='service_layer.SLBfdv4Oper',
-  file=DESCRIPTOR,
-  index=0,
-  options=None,
-  serialized_start=1381,
-  serialized_end=1875,
-  methods=[
-  _descriptor.MethodDescriptor(
-    name='SLBfdv4RegOp',
-    full_name='service_layer.SLBfdv4Oper.SLBfdv4RegOp',
-    index=0,
-    containing_service=None,
-    input_type=sl__bfd__common__pb2._SLBFDREGMSG,
-    output_type=sl__bfd__common__pb2._SLBFDREGMSGRSP,
-    options=None,
-  ),
-  _descriptor.MethodDescriptor(
-    name='SLBfdv4Get',
-    full_name='service_layer.SLBfdv4Oper.SLBfdv4Get',
-    index=1,
-    containing_service=None,
-    input_type=sl__bfd__common__pb2._SLBFDGETMSG,
-    output_type=sl__bfd__common__pb2._SLBFDGETMSGRSP,
-    options=None,
-  ),
-  _descriptor.MethodDescriptor(
-    name='SLBfdv4GetStats',
-    full_name='service_layer.SLBfdv4Oper.SLBfdv4GetStats',
-    index=2,
-    containing_service=None,
-    input_type=sl__bfd__common__pb2._SLBFDGETMSG,
-    output_type=sl__bfd__common__pb2._SLBFDGETSTATSMSGRSP,
-    options=None,
-  ),
-  _descriptor.MethodDescriptor(
-    name='SLBfdv4GetNotifStream',
-    full_name='service_layer.SLBfdv4Oper.SLBfdv4GetNotifStream',
-    index=3,
-    containing_service=None,
-    input_type=sl__bfd__common__pb2._SLBFDGETNOTIFMSG,
-    output_type=_SLBFDV4NOTIF,
-    options=None,
-  ),
-  _descriptor.MethodDescriptor(
-    name='SLBfdv4SessionOp',
-    full_name='service_layer.SLBfdv4Oper.SLBfdv4SessionOp',
-    index=4,
-    containing_service=None,
-    input_type=_SLBFDV4MSG,
-    output_type=_SLBFDV4MSGRSP,
-    options=None,
-  ),
-  _descriptor.MethodDescriptor(
-    name='SLBfdv4SessionGet',
-    full_name='service_layer.SLBfdv4Oper.SLBfdv4SessionGet',
-    index=5,
-    containing_service=None,
-    input_type=_SLBFDV4GETMSG,
-    output_type=_SLBFDV4GETMSGRSP,
-    options=None,
-  ),
-])
-_sym_db.RegisterServiceDescriptor(_SLBFDV4OPER)
-
-DESCRIPTOR.services_by_name['SLBfdv4Oper'] = _SLBFDV4OPER
 
 # @@protoc_insertion_point(module_scope)

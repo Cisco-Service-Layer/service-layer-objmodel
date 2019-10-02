@@ -21,9 +21,10 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='sl_global.proto',
   package='service_layer',
   syntax='proto3',
-  serialized_pb=_b('\n\x0fsl_global.proto\x12\rservice_layer\x1a\x15sl_common_types.proto\"?\n\tSLInitMsg\x12\x10\n\x08MajorVer\x18\x01 \x01(\r\x12\x10\n\x08MinorVer\x18\x02 \x01(\r\x12\x0e\n\x06SubVer\x18\x03 \x01(\r\"B\n\x0cSLInitMsgRsp\x12\x10\n\x08MajorVer\x18\x01 \x01(\r\x12\x10\n\x08MinorVer\x18\x02 \x01(\r\x12\x0e\n\x06SubVer\x18\x03 \x01(\r\"\xb1\x01\n\rSLGlobalNotif\x12\x33\n\tEventType\x18\x01 \x01(\x0e\x32 .service_layer.SLGlobalNotifType\x12/\n\tErrStatus\x18\x02 \x01(\x0b\x32\x1c.service_layer.SLErrorStatus\x12\x31\n\nInitRspMsg\x18\x03 \x01(\x0b\x32\x1b.service_layer.SLInitMsgRspH\x00\x42\x07\n\x05\x45vent\"\x11\n\x0fSLGlobalsGetMsg\"\xc1\x03\n\x12SLGlobalsGetMsgRsp\x12/\n\tErrStatus\x18\x01 \x01(\x0b\x32\x1c.service_layer.SLErrorStatus\x12\x18\n\x10MaxVrfNameLength\x18\x02 \x01(\r\x12\x1e\n\x16MaxInterfaceNameLength\x18\x03 \x01(\r\x12\x18\n\x10MaxPathsPerEntry\x18\x04 \x01(\r\x12\x1e\n\x16MaxPrimaryPathPerEntry\x18\x05 \x01(\r\x12\x1d\n\x15MaxBackupPathPerEntry\x18\x06 \x01(\r\x12\x1c\n\x14MaxMplsLabelsPerPath\x18\x07 \x01(\r\x12\x1b\n\x13MinPrimaryPathIdNum\x18\x08 \x01(\r\x12\x1b\n\x13MaxPrimaryPathIdNum\x18\t \x01(\r\x12\x1a\n\x12MinBackupPathIdNum\x18\n \x01(\r\x12\x1a\n\x12MaxBackupPathIdNum\x18\x0b \x01(\r\x12\x1b\n\x13MaxRemoteAddressNum\x18\x0c \x01(\r\x12\x19\n\x11MaxL2BdNameLength\x18\r \x01(\r\x12\x1f\n\x17MaxL2PmsiTunnelIdLength\x18\x0e \x01(\r*\x9c\x01\n\x11SLGlobalNotifType\x12!\n\x1dSL_GLOBAL_EVENT_TYPE_RESERVED\x10\x00\x12\x1e\n\x1aSL_GLOBAL_EVENT_TYPE_ERROR\x10\x01\x12\"\n\x1eSL_GLOBAL_EVENT_TYPE_HEARTBEAT\x10\x02\x12 \n\x1cSL_GLOBAL_EVENT_TYPE_VERSION\x10\x03\x32\xac\x01\n\x08SLGlobal\x12M\n\x11SLGlobalInitNotif\x12\x18.service_layer.SLInitMsg\x1a\x1c.service_layer.SLGlobalNotif0\x01\x12Q\n\x0cSLGlobalsGet\x12\x1e.service_layer.SLGlobalsGetMsg\x1a!.service_layer.SLGlobalsGetMsgRspb\x06proto3')
+  serialized_pb=_b('\n\x0fsl_global.proto\x12\rservice_layer\x1a\x15sl_common_types.proto\"?\n\tSLInitMsg\x12\x10\n\x08MajorVer\x18\x01 \x01(\r\x12\x10\n\x08MinorVer\x18\x02 \x01(\r\x12\x0e\n\x06SubVer\x18\x03 \x01(\r\"B\n\x0cSLInitMsgRsp\x12\x10\n\x08MajorVer\x18\x01 \x01(\r\x12\x10\n\x08MinorVer\x18\x02 \x01(\r\x12\x0e\n\x06SubVer\x18\x03 \x01(\r\"\xb1\x01\n\rSLGlobalNotif\x12\x33\n\tEventType\x18\x01 \x01(\x0e\x32 .service_layer.SLGlobalNotifType\x12/\n\tErrStatus\x18\x02 \x01(\x0b\x32\x1c.service_layer.SLErrorStatus\x12\x31\n\nInitRspMsg\x18\x03 \x01(\x0b\x32\x1b.service_layer.SLInitMsgRspH\x00\x42\x07\n\x05\x45vent\"\x11\n\x0fSLGlobalsGetMsg\"\xe8\x03\n\x12SLGlobalsGetMsgRsp\x12/\n\tErrStatus\x18\x01 \x01(\x0b\x32\x1c.service_layer.SLErrorStatus\x12\x18\n\x10MaxVrfNameLength\x18\x02 \x01(\r\x12\x1e\n\x16MaxInterfaceNameLength\x18\x03 \x01(\r\x12\x18\n\x10MaxPathsPerEntry\x18\x04 \x01(\r\x12\x1e\n\x16MaxPrimaryPathPerEntry\x18\x05 \x01(\r\x12\x1d\n\x15MaxBackupPathPerEntry\x18\x06 \x01(\r\x12\x1c\n\x14MaxMplsLabelsPerPath\x18\x07 \x01(\r\x12\x1b\n\x13MinPrimaryPathIdNum\x18\x08 \x01(\r\x12\x1b\n\x13MaxPrimaryPathIdNum\x18\t \x01(\r\x12\x1a\n\x12MinBackupPathIdNum\x18\n \x01(\r\x12\x1a\n\x12MaxBackupPathIdNum\x18\x0b \x01(\r\x12\x1b\n\x13MaxRemoteAddressNum\x18\x0c \x01(\r\x12\x19\n\x11MaxL2BdNameLength\x18\r \x01(\r\x12\x1f\n\x17MaxL2PmsiTunnelIdLength\x18\x0e \x01(\r\x12%\n\x1dMaxLabelBlockClientNameLength\x18\x0f \x01(\r*\x9c\x01\n\x11SLGlobalNotifType\x12!\n\x1dSL_GLOBAL_EVENT_TYPE_RESERVED\x10\x00\x12\x1e\n\x1aSL_GLOBAL_EVENT_TYPE_ERROR\x10\x01\x12\"\n\x1eSL_GLOBAL_EVENT_TYPE_HEARTBEAT\x10\x02\x12 \n\x1cSL_GLOBAL_EVENT_TYPE_VERSION\x10\x03\x32\xac\x01\n\x08SLGlobal\x12M\n\x11SLGlobalInitNotif\x12\x18.service_layer.SLInitMsg\x1a\x1c.service_layer.SLGlobalNotif0\x01\x12Q\n\x0cSLGlobalsGet\x12\x1e.service_layer.SLGlobalsGetMsg\x1a!.service_layer.SLGlobalsGetMsgRspb\x06proto3')
   ,
   dependencies=[sl__common__types__pb2.DESCRIPTOR,])
+_sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 _SLGLOBALNOTIFTYPE = _descriptor.EnumDescriptor(
   name='SLGlobalNotifType',
@@ -50,8 +51,8 @@ _SLGLOBALNOTIFTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=842,
-  serialized_end=998,
+  serialized_start=881,
+  serialized_end=1037,
 )
 _sym_db.RegisterEnumDescriptor(_SLGLOBALNOTIFTYPE)
 
@@ -76,21 +77,21 @@ _SLINITMSG = _descriptor.Descriptor(
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      options=None),
     _descriptor.FieldDescriptor(
       name='MinorVer', full_name='service_layer.SLInitMsg.MinorVer', index=1,
       number=2, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      options=None),
     _descriptor.FieldDescriptor(
       name='SubVer', full_name='service_layer.SLInitMsg.SubVer', index=2,
       number=3, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      options=None),
   ],
   extensions=[
   ],
@@ -121,21 +122,21 @@ _SLINITMSGRSP = _descriptor.Descriptor(
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      options=None),
     _descriptor.FieldDescriptor(
       name='MinorVer', full_name='service_layer.SLInitMsgRsp.MinorVer', index=1,
       number=2, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      options=None),
     _descriptor.FieldDescriptor(
       name='SubVer', full_name='service_layer.SLInitMsgRsp.SubVer', index=2,
       number=3, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      options=None),
   ],
   extensions=[
   ],
@@ -166,21 +167,21 @@ _SLGLOBALNOTIF = _descriptor.Descriptor(
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      options=None),
     _descriptor.FieldDescriptor(
       name='ErrStatus', full_name='service_layer.SLGlobalNotif.ErrStatus', index=1,
       number=2, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      options=None),
     _descriptor.FieldDescriptor(
       name='InitRspMsg', full_name='service_layer.SLGlobalNotif.InitRspMsg', index=2,
       number=3, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      options=None),
   ],
   extensions=[
   ],
@@ -238,98 +239,105 @@ _SLGLOBALSGETMSGRSP = _descriptor.Descriptor(
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      options=None),
     _descriptor.FieldDescriptor(
       name='MaxVrfNameLength', full_name='service_layer.SLGlobalsGetMsgRsp.MaxVrfNameLength', index=1,
       number=2, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      options=None),
     _descriptor.FieldDescriptor(
       name='MaxInterfaceNameLength', full_name='service_layer.SLGlobalsGetMsgRsp.MaxInterfaceNameLength', index=2,
       number=3, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      options=None),
     _descriptor.FieldDescriptor(
       name='MaxPathsPerEntry', full_name='service_layer.SLGlobalsGetMsgRsp.MaxPathsPerEntry', index=3,
       number=4, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      options=None),
     _descriptor.FieldDescriptor(
       name='MaxPrimaryPathPerEntry', full_name='service_layer.SLGlobalsGetMsgRsp.MaxPrimaryPathPerEntry', index=4,
       number=5, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      options=None),
     _descriptor.FieldDescriptor(
       name='MaxBackupPathPerEntry', full_name='service_layer.SLGlobalsGetMsgRsp.MaxBackupPathPerEntry', index=5,
       number=6, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      options=None),
     _descriptor.FieldDescriptor(
       name='MaxMplsLabelsPerPath', full_name='service_layer.SLGlobalsGetMsgRsp.MaxMplsLabelsPerPath', index=6,
       number=7, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      options=None),
     _descriptor.FieldDescriptor(
       name='MinPrimaryPathIdNum', full_name='service_layer.SLGlobalsGetMsgRsp.MinPrimaryPathIdNum', index=7,
       number=8, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      options=None),
     _descriptor.FieldDescriptor(
       name='MaxPrimaryPathIdNum', full_name='service_layer.SLGlobalsGetMsgRsp.MaxPrimaryPathIdNum', index=8,
       number=9, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      options=None),
     _descriptor.FieldDescriptor(
       name='MinBackupPathIdNum', full_name='service_layer.SLGlobalsGetMsgRsp.MinBackupPathIdNum', index=9,
       number=10, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      options=None),
     _descriptor.FieldDescriptor(
       name='MaxBackupPathIdNum', full_name='service_layer.SLGlobalsGetMsgRsp.MaxBackupPathIdNum', index=10,
       number=11, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      options=None),
     _descriptor.FieldDescriptor(
       name='MaxRemoteAddressNum', full_name='service_layer.SLGlobalsGetMsgRsp.MaxRemoteAddressNum', index=11,
       number=12, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      options=None),
     _descriptor.FieldDescriptor(
       name='MaxL2BdNameLength', full_name='service_layer.SLGlobalsGetMsgRsp.MaxL2BdNameLength', index=12,
       number=13, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      options=None),
     _descriptor.FieldDescriptor(
       name='MaxL2PmsiTunnelIdLength', full_name='service_layer.SLGlobalsGetMsgRsp.MaxL2PmsiTunnelIdLength', index=13,
       number=14, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='MaxLabelBlockClientNameLength', full_name='service_layer.SLGlobalsGetMsgRsp.MaxLabelBlockClientNameLength', index=14,
+      number=15, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
   ],
   extensions=[
   ],
@@ -343,7 +351,7 @@ _SLGLOBALSGETMSGRSP = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=390,
-  serialized_end=839,
+  serialized_end=878,
 )
 
 _SLGLOBALNOTIF.fields_by_name['EventType'].enum_type = _SLGLOBALNOTIFTYPE
@@ -359,7 +367,6 @@ DESCRIPTOR.message_types_by_name['SLGlobalNotif'] = _SLGLOBALNOTIF
 DESCRIPTOR.message_types_by_name['SLGlobalsGetMsg'] = _SLGLOBALSGETMSG
 DESCRIPTOR.message_types_by_name['SLGlobalsGetMsgRsp'] = _SLGLOBALSGETMSGRSP
 DESCRIPTOR.enum_types_by_name['SLGlobalNotifType'] = _SLGLOBALNOTIFTYPE
-_sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 SLInitMsg = _reflection.GeneratedProtocolMessageType('SLInitMsg', (_message.Message,), dict(
   DESCRIPTOR = _SLINITMSG,
@@ -396,38 +403,5 @@ SLGlobalsGetMsgRsp = _reflection.GeneratedProtocolMessageType('SLGlobalsGetMsgRs
   ))
 _sym_db.RegisterMessage(SLGlobalsGetMsgRsp)
 
-
-
-_SLGLOBAL = _descriptor.ServiceDescriptor(
-  name='SLGlobal',
-  full_name='service_layer.SLGlobal',
-  file=DESCRIPTOR,
-  index=0,
-  options=None,
-  serialized_start=1001,
-  serialized_end=1173,
-  methods=[
-  _descriptor.MethodDescriptor(
-    name='SLGlobalInitNotif',
-    full_name='service_layer.SLGlobal.SLGlobalInitNotif',
-    index=0,
-    containing_service=None,
-    input_type=_SLINITMSG,
-    output_type=_SLGLOBALNOTIF,
-    options=None,
-  ),
-  _descriptor.MethodDescriptor(
-    name='SLGlobalsGet',
-    full_name='service_layer.SLGlobal.SLGlobalsGet',
-    index=1,
-    containing_service=None,
-    input_type=_SLGLOBALSGETMSG,
-    output_type=_SLGLOBALSGETMSGRSP,
-    options=None,
-  ),
-])
-_sym_db.RegisterServiceDescriptor(_SLGLOBAL)
-
-DESCRIPTOR.services_by_name['SLGlobal'] = _SLGLOBAL
 
 # @@protoc_insertion_point(module_scope)

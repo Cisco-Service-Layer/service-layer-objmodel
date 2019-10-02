@@ -1,0 +1,85 @@
+{
+    "name": "sl_topology",
+    "nodes": [
+        {
+            "name": "xrv9k",
+            "alias": "R1",
+            "id": 3,
+            "type": "router",
+            "platform": "XRV9K",
+            "os": "cisco_xr",
+            "handles": [
+                {
+                    "name": "vty",
+                    "via": "virtual.ai",
+                    "credential": "basic",
+                    "connection": "ssh",
+                    "default": true
+                },
+                {
+                    "name": "console",
+                    "via": "console.ai",
+                    "credential": "default",
+                    "connection": "ha"
+                }
+            ],
+            "access_info": [
+                {
+                    "name": "RP0",
+                    "interface": "RP0",
+                    "address_info": [
+                        {
+                            "name": "ai",
+                            "address": "192.168.122.98",
+                            "gateway": "192.168.122.1",
+                            "mask": "255.255.0.0",
+                            "port": 24710
+                        }
+                    ]
+                },
+                {
+                    "name": "virtual",
+                    "interface": "virtual",
+                    "address_info": [
+                        {
+                            "name": "ai",
+                            "address": "192.168.122.98",
+                            "gateway": "192.168.122.1",
+                            "mask": "255.255.0.0",
+                            "port": 22
+                        }
+                    ]
+                },
+                {
+                    "name": "console",
+                    "interface": "console",
+                    "address_info": [
+                        {
+                            "name": "ai",
+                            "address": "localhost",
+                            "port": 34229
+                        }
+                    ]
+                }
+            ],
+            "interfaces": [
+                {
+                    "interface": "MgmtEth0/RP0/CPU0/0",
+                    "link": "R1_PXE_1"
+                }
+            ]
+        }
+    ],
+    "credentials": [
+        {
+            "name": "default",
+            "username": "root",
+            "password": "lablab"
+        },
+        {
+            "name":"basic",
+            "username":"root",
+            "password":"lablab"
+        }
+    ]
+}

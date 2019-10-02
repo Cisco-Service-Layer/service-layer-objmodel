@@ -3,7 +3,7 @@
 // on server.
 //
 // ----------------------------------------------------------------
-//  Copyright (c) 2016 by Cisco Systems, Inc.
+//  Copyright (c) 2019 by Cisco Systems, Inc.
 //  All rights reserved.
 // -----------------------------------------------------------------
 //
@@ -191,6 +191,9 @@ message SLGlobalsGetMsgRsp {
     // Maximum Provider Multicast Service Interface (PMSI) tunnel ID length.
     // Used for L2 Inclusive Multicast Ethernet Tag (IMET) routes.
     uint32 MaxL2PmsiTunnelIdLength = 14;
+
+    // Maximum label block client name length.
+    uint32 MaxLabelBlockClientNameLength = 15;
 }
 
 // @}

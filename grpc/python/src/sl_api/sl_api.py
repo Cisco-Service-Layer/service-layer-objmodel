@@ -485,7 +485,8 @@ class BD_Util:
             return False
 
 class GrpcClient(AbstractClient):
-    TIMEOUT_SECONDS = 20
+    TIMEOUT_SECONDS = 20 
+    REGISTER_TIMEOUT_SECONDS = 120
 
     def __init__(self, host, port, channel_credentials=None):
         if channel_credentials is None:
@@ -603,7 +604,8 @@ class GrpcClient(AbstractClient):
                 return count, True
             # Other side exited (Python GRPC 1.7.0, Protoc 3.5.1 returns different exception)
             if ("_state" in dir(err) and "details" in dir(err._state) and 
-                    err._state.details == "EOF".encode()):
+                    ((err._state.details == "EOF") or
+                     (err._state.details == "EOF".encode()))):
                 return count, True
             print(("Exception Received:", str(err)))
         return count, False
@@ -634,7 +636,8 @@ class GrpcClient(AbstractClient):
                 return count, True
             # Other side exited (Python GRPC 1.7.0, Protoc 3.5.1 returns different exception)
             if ("_state" in dir(err) and "details" in dir(err._state) and 
-                    err._state.details == "EOF".encode()):
+                    ((err._state.details == "EOF") or
+                     (err._state.details == "EOF".encode()))):
                 return count, True
             print(("Exception Received:", str(err)))
         return count, False
@@ -684,11 +687,11 @@ class GrpcClient(AbstractClient):
         }[batch['af']](serializer, self.TIMEOUT_SECONDS)
         return response
 
-    def mpls_register_oper(self):
+    def mpls_register_oper(self, batch):
         """MPLS Register operation."""
-        serializer = serializers.mpls_regop_serializer()
+        serializer = serializers.mpls_regop_serializer(batch)
         serializer.Oper = sl_common_types_pb2.SL_REGOP_REGISTER
-        response = self._stubs[3].SLMplsRegOp(serializer, self.TIMEOUT_SECONDS)
+        response = self._stubs[3].SLMplsRegOp(serializer, self.REGISTER_TIMEOUT_SECONDS)
         return response
 
     def mpls_unregister_oper(self):
@@ -799,7 +802,8 @@ class GrpcClient(AbstractClient):
                 return count, True
             # Other side exited (Python GRPC 1.7.0, Protoc 3.5.1 returns different exception)
             if ("_state" in dir(err) and "details" in dir(err._state) and 
-                    err._state.details == "EOF".encode()):
+                    ((err._state.details == "EOF") or
+                     (err._state.details == "EOF".encode()))):
                 return count, True
             print(("Exception Received:", str(err)))
         return count, False
@@ -827,7 +831,8 @@ class GrpcClient(AbstractClient):
                 return count, True
             # Other side exited (Python GRPC 1.7.0, Protoc 3.5.1 returns different exception)
             if ("_state" in dir(err) and "details" in dir(err._state) and 
-                    err._state.details == "EOF".encode()):
+                    ((err._state.details == "EOF") or
+                     (err._state.details == "EOF".encode()))):
                 return count, True
             print(("Exception Received:", str(err)))
         return count, False
@@ -1098,7 +1103,8 @@ class GrpcClient(AbstractClient):
                 return count, True
             # Other side exited (Python GRPC 1.7.0, Protoc 3.5.1 returns different exception)
             if ("_state" in dir(err) and "details" in dir(err._state) and 
-                    err._state.details == "EOF".encode()):
+                    ((err._state.details == "EOF") or
+                     (err._state.details == "EOF".encode()))):
                 return count, True
             print(("Exception Received:", str(err)))
         return count, False

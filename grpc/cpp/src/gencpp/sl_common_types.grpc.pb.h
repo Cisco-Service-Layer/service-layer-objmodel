@@ -6,7 +6,7 @@
 // @brief Common definitions for all of the service layer proto files. 
 //
 // ---------------------------------------------------------------------
-// Copyright (c) 2016 by Cisco Systems, Inc.
+// Copyright (c) 2019 by Cisco Systems, Inc.
 // All rights reserved.
 // ---------------------------------------------------------------------
 //
@@ -33,7 +33,6 @@
 namespace grpc {
 class CompletionQueue;
 class Channel;
-class RpcService;
 class ServerCompletionQueue;
 class ServerContext;
 }  // namespace grpc

@@ -17,24 +17,52 @@ var _ = proto.Marshal
 var _ = fmt.Errorf
 var _ = math.Inf
 
+// This is a compile-time assertion to ensure that this generated file
+// is compatible with the proto package it is being compiled against.
+// A compilation error at this line likely means your copy of the
+// proto package needs to be updated.
+const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
+
 // BFD unique key identifier.
 type SLBfdv4Key struct {
 	// BFD Session Type
-	Type SLBfdType `protobuf:"varint,1,opt,name=Type,enum=service_layer.SLBfdType" json:"Type,omitempty"`
+	Type SLBfdType `protobuf:"varint,1,opt,name=Type,proto3,enum=service_layer.SLBfdType" json:"Type,omitempty"`
 	// VRF name.
-	VrfName string `protobuf:"bytes,2,opt,name=VrfName" json:"VrfName,omitempty"`
+	VrfName string `protobuf:"bytes,2,opt,name=VrfName,proto3" json:"VrfName,omitempty"`
 	// Neighbor Ipv4 address.
-	NbrAddr uint32 `protobuf:"varint,3,opt,name=NbrAddr" json:"NbrAddr,omitempty"`
+	NbrAddr uint32 `protobuf:"varint,3,opt,name=NbrAddr,proto3" json:"NbrAddr,omitempty"`
 	// Interface name and handle, needed for single-hop BFD
-	Interface *SLInterface `protobuf:"bytes,4,opt,name=Interface" json:"Interface,omitempty"`
+	Interface *SLInterface `protobuf:"bytes,4,opt,name=Interface,proto3" json:"Interface,omitempty"`
 	// Source Ipv4 address, needed for multi-hop BFD
-	SourceAddr uint32 `protobuf:"varint,5,opt,name=SourceAddr" json:"SourceAddr,omitempty"`
+	SourceAddr           uint32   `protobuf:"varint,5,opt,name=SourceAddr,proto3" json:"SourceAddr,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *SLBfdv4Key) Reset()                    { *m = SLBfdv4Key{} }
-func (m *SLBfdv4Key) String() string            { return proto.CompactTextString(m) }
-func (*SLBfdv4Key) ProtoMessage()               {}
-func (*SLBfdv4Key) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{0} }
+func (m *SLBfdv4Key) Reset()         { *m = SLBfdv4Key{} }
+func (m *SLBfdv4Key) String() string { return proto.CompactTextString(m) }
+func (*SLBfdv4Key) ProtoMessage()    {}
+func (*SLBfdv4Key) Descriptor() ([]byte, []int) {
+	return fileDescriptor_sl_bfd_ipv4_a41a59161856faa6, []int{0}
+}
+func (m *SLBfdv4Key) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_SLBfdv4Key.Unmarshal(m, b)
+}
+func (m *SLBfdv4Key) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_SLBfdv4Key.Marshal(b, m, deterministic)
+}
+func (dst *SLBfdv4Key) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_SLBfdv4Key.Merge(dst, src)
+}
+func (m *SLBfdv4Key) XXX_Size() int {
+	return xxx_messageInfo_SLBfdv4Key.Size(m)
+}
+func (m *SLBfdv4Key) XXX_DiscardUnknown() {
+	xxx_messageInfo_SLBfdv4Key.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_SLBfdv4Key proto.InternalMessageInfo
 
 func (m *SLBfdv4Key) GetType() SLBfdType {
 	if m != nil {
@@ -74,15 +102,37 @@ func (m *SLBfdv4Key) GetSourceAddr() uint32 {
 // BFD session information.
 type SLBfdv4SessionCfg struct {
 	// BFD unique key identifier.
-	Key *SLBfdv4Key `protobuf:"bytes,1,opt,name=Key" json:"Key,omitempty"`
+	Key *SLBfdv4Key `protobuf:"bytes,1,opt,name=Key,proto3" json:"Key,omitempty"`
 	// BFD common features.
-	Config *SLBfdConfigCommon `protobuf:"bytes,2,opt,name=Config" json:"Config,omitempty"`
+	Config               *SLBfdConfigCommon `protobuf:"bytes,2,opt,name=Config,proto3" json:"Config,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}           `json:"-"`
+	XXX_unrecognized     []byte             `json:"-"`
+	XXX_sizecache        int32              `json:"-"`
 }
 
-func (m *SLBfdv4SessionCfg) Reset()                    { *m = SLBfdv4SessionCfg{} }
-func (m *SLBfdv4SessionCfg) String() string            { return proto.CompactTextString(m) }
-func (*SLBfdv4SessionCfg) ProtoMessage()               {}
-func (*SLBfdv4SessionCfg) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{1} }
+func (m *SLBfdv4SessionCfg) Reset()         { *m = SLBfdv4SessionCfg{} }
+func (m *SLBfdv4SessionCfg) String() string { return proto.CompactTextString(m) }
+func (*SLBfdv4SessionCfg) ProtoMessage()    {}
+func (*SLBfdv4SessionCfg) Descriptor() ([]byte, []int) {
+	return fileDescriptor_sl_bfd_ipv4_a41a59161856faa6, []int{1}
+}
+func (m *SLBfdv4SessionCfg) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_SLBfdv4SessionCfg.Unmarshal(m, b)
+}
+func (m *SLBfdv4SessionCfg) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_SLBfdv4SessionCfg.Marshal(b, m, deterministic)
+}
+func (dst *SLBfdv4SessionCfg) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_SLBfdv4SessionCfg.Merge(dst, src)
+}
+func (m *SLBfdv4SessionCfg) XXX_Size() int {
+	return xxx_messageInfo_SLBfdv4SessionCfg.Size(m)
+}
+func (m *SLBfdv4SessionCfg) XXX_DiscardUnknown() {
+	xxx_messageInfo_SLBfdv4SessionCfg.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_SLBfdv4SessionCfg proto.InternalMessageInfo
 
 func (m *SLBfdv4SessionCfg) GetKey() *SLBfdv4Key {
 	if m != nil {
@@ -101,15 +151,37 @@ func (m *SLBfdv4SessionCfg) GetConfig() *SLBfdConfigCommon {
 // Contains a List of BFD session objects.
 type SLBfdv4Msg struct {
 	// BFD Object Operations
-	Oper SLObjectOp `protobuf:"varint,1,opt,name=Oper,enum=service_layer.SLObjectOp" json:"Oper,omitempty"`
+	Oper SLObjectOp `protobuf:"varint,1,opt,name=Oper,proto3,enum=service_layer.SLObjectOp" json:"Oper,omitempty"`
 	// List of BFD session objects
-	Sessions []*SLBfdv4SessionCfg `protobuf:"bytes,2,rep,name=Sessions" json:"Sessions,omitempty"`
+	Sessions             []*SLBfdv4SessionCfg `protobuf:"bytes,2,rep,name=Sessions,proto3" json:"Sessions,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}             `json:"-"`
+	XXX_unrecognized     []byte               `json:"-"`
+	XXX_sizecache        int32                `json:"-"`
 }
 
-func (m *SLBfdv4Msg) Reset()                    { *m = SLBfdv4Msg{} }
-func (m *SLBfdv4Msg) String() string            { return proto.CompactTextString(m) }
-func (*SLBfdv4Msg) ProtoMessage()               {}
-func (*SLBfdv4Msg) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{2} }
+func (m *SLBfdv4Msg) Reset()         { *m = SLBfdv4Msg{} }
+func (m *SLBfdv4Msg) String() string { return proto.CompactTextString(m) }
+func (*SLBfdv4Msg) ProtoMessage()    {}
+func (*SLBfdv4Msg) Descriptor() ([]byte, []int) {
+	return fileDescriptor_sl_bfd_ipv4_a41a59161856faa6, []int{2}
+}
+func (m *SLBfdv4Msg) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_SLBfdv4Msg.Unmarshal(m, b)
+}
+func (m *SLBfdv4Msg) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_SLBfdv4Msg.Marshal(b, m, deterministic)
+}
+func (dst *SLBfdv4Msg) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_SLBfdv4Msg.Merge(dst, src)
+}
+func (m *SLBfdv4Msg) XXX_Size() int {
+	return xxx_messageInfo_SLBfdv4Msg.Size(m)
+}
+func (m *SLBfdv4Msg) XXX_DiscardUnknown() {
+	xxx_messageInfo_SLBfdv4Msg.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_SLBfdv4Msg proto.InternalMessageInfo
 
 func (m *SLBfdv4Msg) GetOper() SLObjectOp {
 	if m != nil {
@@ -128,15 +200,37 @@ func (m *SLBfdv4Msg) GetSessions() []*SLBfdv4SessionCfg {
 // BFD result
 type SLBfdv4Res struct {
 	// Corresponding error code
-	ErrStatus *SLErrorStatus `protobuf:"bytes,1,opt,name=ErrStatus" json:"ErrStatus,omitempty"`
+	ErrStatus *SLErrorStatus `protobuf:"bytes,1,opt,name=ErrStatus,proto3" json:"ErrStatus,omitempty"`
 	// BFD unique key.
-	Key *SLBfdv4Key `protobuf:"bytes,2,opt,name=Key" json:"Key,omitempty"`
+	Key                  *SLBfdv4Key `protobuf:"bytes,2,opt,name=Key,proto3" json:"Key,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}    `json:"-"`
+	XXX_unrecognized     []byte      `json:"-"`
+	XXX_sizecache        int32       `json:"-"`
 }
 
-func (m *SLBfdv4Res) Reset()                    { *m = SLBfdv4Res{} }
-func (m *SLBfdv4Res) String() string            { return proto.CompactTextString(m) }
-func (*SLBfdv4Res) ProtoMessage()               {}
-func (*SLBfdv4Res) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{3} }
+func (m *SLBfdv4Res) Reset()         { *m = SLBfdv4Res{} }
+func (m *SLBfdv4Res) String() string { return proto.CompactTextString(m) }
+func (*SLBfdv4Res) ProtoMessage()    {}
+func (*SLBfdv4Res) Descriptor() ([]byte, []int) {
+	return fileDescriptor_sl_bfd_ipv4_a41a59161856faa6, []int{3}
+}
+func (m *SLBfdv4Res) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_SLBfdv4Res.Unmarshal(m, b)
+}
+func (m *SLBfdv4Res) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_SLBfdv4Res.Marshal(b, m, deterministic)
+}
+func (dst *SLBfdv4Res) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_SLBfdv4Res.Merge(dst, src)
+}
+func (m *SLBfdv4Res) XXX_Size() int {
+	return xxx_messageInfo_SLBfdv4Res.Size(m)
+}
+func (m *SLBfdv4Res) XXX_DiscardUnknown() {
+	xxx_messageInfo_SLBfdv4Res.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_SLBfdv4Res proto.InternalMessageInfo
 
 func (m *SLBfdv4Res) GetErrStatus() *SLErrorStatus {
 	if m != nil {
@@ -163,16 +257,38 @@ type SLBfdv4MsgRsp struct {
 	//         each individual entry in the bulk.
 	// 3. SL_RPC_XXX: signifies that the entire bulk operation failed.
 	//         In this case, the Results list is empty.
-	StatusSummary *SLErrorStatus `protobuf:"bytes,1,opt,name=StatusSummary" json:"StatusSummary,omitempty"`
+	StatusSummary *SLErrorStatus `protobuf:"bytes,1,opt,name=StatusSummary,proto3" json:"StatusSummary,omitempty"`
 	// In case of errors, this field indicates which entry in the bulk was
 	// erroneous.
-	Results []*SLBfdv4Res `protobuf:"bytes,2,rep,name=Results" json:"Results,omitempty"`
+	Results              []*SLBfdv4Res `protobuf:"bytes,2,rep,name=Results,proto3" json:"Results,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}      `json:"-"`
+	XXX_unrecognized     []byte        `json:"-"`
+	XXX_sizecache        int32         `json:"-"`
 }
 
-func (m *SLBfdv4MsgRsp) Reset()                    { *m = SLBfdv4MsgRsp{} }
-func (m *SLBfdv4MsgRsp) String() string            { return proto.CompactTextString(m) }
-func (*SLBfdv4MsgRsp) ProtoMessage()               {}
-func (*SLBfdv4MsgRsp) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{4} }
+func (m *SLBfdv4MsgRsp) Reset()         { *m = SLBfdv4MsgRsp{} }
+func (m *SLBfdv4MsgRsp) String() string { return proto.CompactTextString(m) }
+func (*SLBfdv4MsgRsp) ProtoMessage()    {}
+func (*SLBfdv4MsgRsp) Descriptor() ([]byte, []int) {
+	return fileDescriptor_sl_bfd_ipv4_a41a59161856faa6, []int{4}
+}
+func (m *SLBfdv4MsgRsp) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_SLBfdv4MsgRsp.Unmarshal(m, b)
+}
+func (m *SLBfdv4MsgRsp) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_SLBfdv4MsgRsp.Marshal(b, m, deterministic)
+}
+func (dst *SLBfdv4MsgRsp) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_SLBfdv4MsgRsp.Merge(dst, src)
+}
+func (m *SLBfdv4MsgRsp) XXX_Size() int {
+	return xxx_messageInfo_SLBfdv4MsgRsp.Size(m)
+}
+func (m *SLBfdv4MsgRsp) XXX_DiscardUnknown() {
+	xxx_messageInfo_SLBfdv4MsgRsp.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_SLBfdv4MsgRsp proto.InternalMessageInfo
 
 func (m *SLBfdv4MsgRsp) GetStatusSummary() *SLErrorStatus {
 	if m != nil {
@@ -193,23 +309,45 @@ type SLBfdv4GetMsg struct {
 	// BFD key.
 	// If the Key is not specified, then request up to the first
 	// 'EntriesCount' entries.
-	Key *SLBfdv4Key `protobuf:"bytes,1,opt,name=Key" json:"Key,omitempty"`
+	Key *SLBfdv4Key `protobuf:"bytes,1,opt,name=Key,proto3" json:"Key,omitempty"`
 	// Global BFD event sequence number.
 	// Return all BFD sessions with sequence number >= SeqNum.
-	SeqNum uint64 `protobuf:"varint,2,opt,name=SeqNum" json:"SeqNum,omitempty"`
+	SeqNum uint64 `protobuf:"varint,2,opt,name=SeqNum,proto3" json:"SeqNum,omitempty"`
 	// Number of entries requested
-	EntriesCount uint32 `protobuf:"varint,3,opt,name=EntriesCount" json:"EntriesCount,omitempty"`
+	EntriesCount uint32 `protobuf:"varint,3,opt,name=EntriesCount,proto3" json:"EntriesCount,omitempty"`
 	// if GetNext is FALSE:
 	//     request up to 'EntriesCount' entries starting from the key
 	// If GetNext is TRUE, or if the key exact match is not found:
 	//     request up to 'EntriesCount' entries starting from the key's next
-	GetNext bool `protobuf:"varint,4,opt,name=GetNext" json:"GetNext,omitempty"`
+	GetNext              bool     `protobuf:"varint,4,opt,name=GetNext,proto3" json:"GetNext,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *SLBfdv4GetMsg) Reset()                    { *m = SLBfdv4GetMsg{} }
-func (m *SLBfdv4GetMsg) String() string            { return proto.CompactTextString(m) }
-func (*SLBfdv4GetMsg) ProtoMessage()               {}
-func (*SLBfdv4GetMsg) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{5} }
+func (m *SLBfdv4GetMsg) Reset()         { *m = SLBfdv4GetMsg{} }
+func (m *SLBfdv4GetMsg) String() string { return proto.CompactTextString(m) }
+func (*SLBfdv4GetMsg) ProtoMessage()    {}
+func (*SLBfdv4GetMsg) Descriptor() ([]byte, []int) {
+	return fileDescriptor_sl_bfd_ipv4_a41a59161856faa6, []int{5}
+}
+func (m *SLBfdv4GetMsg) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_SLBfdv4GetMsg.Unmarshal(m, b)
+}
+func (m *SLBfdv4GetMsg) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_SLBfdv4GetMsg.Marshal(b, m, deterministic)
+}
+func (dst *SLBfdv4GetMsg) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_SLBfdv4GetMsg.Merge(dst, src)
+}
+func (m *SLBfdv4GetMsg) XXX_Size() int {
+	return xxx_messageInfo_SLBfdv4GetMsg.Size(m)
+}
+func (m *SLBfdv4GetMsg) XXX_DiscardUnknown() {
+	xxx_messageInfo_SLBfdv4GetMsg.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_SLBfdv4GetMsg proto.InternalMessageInfo
 
 func (m *SLBfdv4GetMsg) GetKey() *SLBfdv4Key {
 	if m != nil {
@@ -242,17 +380,39 @@ func (m *SLBfdv4GetMsg) GetGetNext() bool {
 // BFD Session Config and State info
 type SLBfdv4SessionCfgState struct {
 	// BFD unique key identifier.
-	Key *SLBfdv4Key `protobuf:"bytes,1,opt,name=Key" json:"Key,omitempty"`
+	Key *SLBfdv4Key `protobuf:"bytes,1,opt,name=Key,proto3" json:"Key,omitempty"`
 	// BFD common features.
-	Config *SLBfdConfigCommon `protobuf:"bytes,2,opt,name=Config" json:"Config,omitempty"`
+	Config *SLBfdConfigCommon `protobuf:"bytes,2,opt,name=Config,proto3" json:"Config,omitempty"`
 	// BFD session State
-	State *SLBfdCommonState `protobuf:"bytes,3,opt,name=State" json:"State,omitempty"`
+	State                *SLBfdCommonState `protobuf:"bytes,3,opt,name=State,proto3" json:"State,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}          `json:"-"`
+	XXX_unrecognized     []byte            `json:"-"`
+	XXX_sizecache        int32             `json:"-"`
 }
 
-func (m *SLBfdv4SessionCfgState) Reset()                    { *m = SLBfdv4SessionCfgState{} }
-func (m *SLBfdv4SessionCfgState) String() string            { return proto.CompactTextString(m) }
-func (*SLBfdv4SessionCfgState) ProtoMessage()               {}
-func (*SLBfdv4SessionCfgState) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{6} }
+func (m *SLBfdv4SessionCfgState) Reset()         { *m = SLBfdv4SessionCfgState{} }
+func (m *SLBfdv4SessionCfgState) String() string { return proto.CompactTextString(m) }
+func (*SLBfdv4SessionCfgState) ProtoMessage()    {}
+func (*SLBfdv4SessionCfgState) Descriptor() ([]byte, []int) {
+	return fileDescriptor_sl_bfd_ipv4_a41a59161856faa6, []int{6}
+}
+func (m *SLBfdv4SessionCfgState) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_SLBfdv4SessionCfgState.Unmarshal(m, b)
+}
+func (m *SLBfdv4SessionCfgState) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_SLBfdv4SessionCfgState.Marshal(b, m, deterministic)
+}
+func (dst *SLBfdv4SessionCfgState) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_SLBfdv4SessionCfgState.Merge(dst, src)
+}
+func (m *SLBfdv4SessionCfgState) XXX_Size() int {
+	return xxx_messageInfo_SLBfdv4SessionCfgState.Size(m)
+}
+func (m *SLBfdv4SessionCfgState) XXX_DiscardUnknown() {
+	xxx_messageInfo_SLBfdv4SessionCfgState.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_SLBfdv4SessionCfgState proto.InternalMessageInfo
 
 func (m *SLBfdv4SessionCfgState) GetKey() *SLBfdv4Key {
 	if m != nil {
@@ -280,18 +440,40 @@ type SLBfdv4GetMsgRsp struct {
 	// End Of File.
 	// When set to True, it indicates that the server has returned M, where
 	// M < N, of the original N requested Entries.
-	Eof bool `protobuf:"varint,1,opt,name=Eof" json:"Eof,omitempty"`
+	Eof bool `protobuf:"varint,1,opt,name=Eof,proto3" json:"Eof,omitempty"`
 	// Status of the Get operation
-	ErrStatus *SLErrorStatus `protobuf:"bytes,2,opt,name=ErrStatus" json:"ErrStatus,omitempty"`
+	ErrStatus *SLErrorStatus `protobuf:"bytes,2,opt,name=ErrStatus,proto3" json:"ErrStatus,omitempty"`
 	// Returned entries as requested in the Get operation.
 	// if Error is SL_SUCCESS, Entries contains the info requested
-	Entries []*SLBfdv4SessionCfgState `protobuf:"bytes,3,rep,name=Entries" json:"Entries,omitempty"`
+	Entries              []*SLBfdv4SessionCfgState `protobuf:"bytes,3,rep,name=Entries,proto3" json:"Entries,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}                  `json:"-"`
+	XXX_unrecognized     []byte                    `json:"-"`
+	XXX_sizecache        int32                     `json:"-"`
 }
 
-func (m *SLBfdv4GetMsgRsp) Reset()                    { *m = SLBfdv4GetMsgRsp{} }
-func (m *SLBfdv4GetMsgRsp) String() string            { return proto.CompactTextString(m) }
-func (*SLBfdv4GetMsgRsp) ProtoMessage()               {}
-func (*SLBfdv4GetMsgRsp) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{7} }
+func (m *SLBfdv4GetMsgRsp) Reset()         { *m = SLBfdv4GetMsgRsp{} }
+func (m *SLBfdv4GetMsgRsp) String() string { return proto.CompactTextString(m) }
+func (*SLBfdv4GetMsgRsp) ProtoMessage()    {}
+func (*SLBfdv4GetMsgRsp) Descriptor() ([]byte, []int) {
+	return fileDescriptor_sl_bfd_ipv4_a41a59161856faa6, []int{7}
+}
+func (m *SLBfdv4GetMsgRsp) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_SLBfdv4GetMsgRsp.Unmarshal(m, b)
+}
+func (m *SLBfdv4GetMsgRsp) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_SLBfdv4GetMsgRsp.Marshal(b, m, deterministic)
+}
+func (dst *SLBfdv4GetMsgRsp) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_SLBfdv4GetMsgRsp.Merge(dst, src)
+}
+func (m *SLBfdv4GetMsgRsp) XXX_Size() int {
+	return xxx_messageInfo_SLBfdv4GetMsgRsp.Size(m)
+}
+func (m *SLBfdv4GetMsgRsp) XXX_DiscardUnknown() {
+	xxx_messageInfo_SLBfdv4GetMsgRsp.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_SLBfdv4GetMsgRsp proto.InternalMessageInfo
 
 func (m *SLBfdv4GetMsgRsp) GetEof() bool {
 	if m != nil {
@@ -317,15 +499,37 @@ func (m *SLBfdv4GetMsgRsp) GetEntries() []*SLBfdv4SessionCfgState {
 // BFD Session and State info
 type SLBfdv4SessionState struct {
 	// BFD unique key identifier.
-	Key *SLBfdv4Key `protobuf:"bytes,1,opt,name=Key" json:"Key,omitempty"`
+	Key *SLBfdv4Key `protobuf:"bytes,1,opt,name=Key,proto3" json:"Key,omitempty"`
 	// BFD session State
-	State *SLBfdCommonState `protobuf:"bytes,2,opt,name=State" json:"State,omitempty"`
+	State                *SLBfdCommonState `protobuf:"bytes,2,opt,name=State,proto3" json:"State,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}          `json:"-"`
+	XXX_unrecognized     []byte            `json:"-"`
+	XXX_sizecache        int32             `json:"-"`
 }
 
-func (m *SLBfdv4SessionState) Reset()                    { *m = SLBfdv4SessionState{} }
-func (m *SLBfdv4SessionState) String() string            { return proto.CompactTextString(m) }
-func (*SLBfdv4SessionState) ProtoMessage()               {}
-func (*SLBfdv4SessionState) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{8} }
+func (m *SLBfdv4SessionState) Reset()         { *m = SLBfdv4SessionState{} }
+func (m *SLBfdv4SessionState) String() string { return proto.CompactTextString(m) }
+func (*SLBfdv4SessionState) ProtoMessage()    {}
+func (*SLBfdv4SessionState) Descriptor() ([]byte, []int) {
+	return fileDescriptor_sl_bfd_ipv4_a41a59161856faa6, []int{8}
+}
+func (m *SLBfdv4SessionState) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_SLBfdv4SessionState.Unmarshal(m, b)
+}
+func (m *SLBfdv4SessionState) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_SLBfdv4SessionState.Marshal(b, m, deterministic)
+}
+func (dst *SLBfdv4SessionState) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_SLBfdv4SessionState.Merge(dst, src)
+}
+func (m *SLBfdv4SessionState) XXX_Size() int {
+	return xxx_messageInfo_SLBfdv4SessionState.Size(m)
+}
+func (m *SLBfdv4SessionState) XXX_DiscardUnknown() {
+	xxx_messageInfo_SLBfdv4SessionState.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_SLBfdv4SessionState proto.InternalMessageInfo
 
 func (m *SLBfdv4SessionState) GetKey() *SLBfdv4Key {
 	if m != nil {
@@ -344,46 +548,70 @@ func (m *SLBfdv4SessionState) GetState() *SLBfdCommonState {
 // BFD Session and State info Message
 type SLBfdv4Notif struct {
 	// Event Type
-	EventType SLBfdNotifType `protobuf:"varint,1,opt,name=EventType,enum=service_layer.SLBfdNotifType" json:"EventType,omitempty"`
+	EventType SLBfdNotifType `protobuf:"varint,1,opt,name=EventType,proto3,enum=service_layer.SLBfdNotifType" json:"EventType,omitempty"`
 	// Further info based on EventType
 	//
 	// Types that are valid to be assigned to Event:
 	//	*SLBfdv4Notif_ErrStatus
 	//	*SLBfdv4Notif_Session
-	Event isSLBfdv4Notif_Event `protobuf_oneof:"Event"`
+	Event                isSLBfdv4Notif_Event `protobuf_oneof:"Event"`
+	XXX_NoUnkeyedLiteral struct{}             `json:"-"`
+	XXX_unrecognized     []byte               `json:"-"`
+	XXX_sizecache        int32                `json:"-"`
 }
 
-func (m *SLBfdv4Notif) Reset()                    { *m = SLBfdv4Notif{} }
-func (m *SLBfdv4Notif) String() string            { return proto.CompactTextString(m) }
-func (*SLBfdv4Notif) ProtoMessage()               {}
-func (*SLBfdv4Notif) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{9} }
-
-type isSLBfdv4Notif_Event interface {
-	isSLBfdv4Notif_Event()
+func (m *SLBfdv4Notif) Reset()         { *m = SLBfdv4Notif{} }
+func (m *SLBfdv4Notif) String() string { return proto.CompactTextString(m) }
+func (*SLBfdv4Notif) ProtoMessage()    {}
+func (*SLBfdv4Notif) Descriptor() ([]byte, []int) {
+	return fileDescriptor_sl_bfd_ipv4_a41a59161856faa6, []int{9}
+}
+func (m *SLBfdv4Notif) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_SLBfdv4Notif.Unmarshal(m, b)
+}
+func (m *SLBfdv4Notif) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_SLBfdv4Notif.Marshal(b, m, deterministic)
+}
+func (dst *SLBfdv4Notif) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_SLBfdv4Notif.Merge(dst, src)
+}
+func (m *SLBfdv4Notif) XXX_Size() int {
+	return xxx_messageInfo_SLBfdv4Notif.Size(m)
+}
+func (m *SLBfdv4Notif) XXX_DiscardUnknown() {
+	xxx_messageInfo_SLBfdv4Notif.DiscardUnknown(m)
 }
 
-type SLBfdv4Notif_ErrStatus struct {
-	ErrStatus *SLErrorStatus `protobuf:"bytes,2,opt,name=ErrStatus,oneof"`
-}
-type SLBfdv4Notif_Session struct {
-	Session *SLBfdv4SessionState `protobuf:"bytes,3,opt,name=Session,oneof"`
-}
-
-func (*SLBfdv4Notif_ErrStatus) isSLBfdv4Notif_Event() {}
-func (*SLBfdv4Notif_Session) isSLBfdv4Notif_Event()   {}
-
-func (m *SLBfdv4Notif) GetEvent() isSLBfdv4Notif_Event {
-	if m != nil {
-		return m.Event
-	}
-	return nil
-}
+var xxx_messageInfo_SLBfdv4Notif proto.InternalMessageInfo
 
 func (m *SLBfdv4Notif) GetEventType() SLBfdNotifType {
 	if m != nil {
 		return m.EventType
 	}
 	return SLBfdNotifType_SL_BFD_EVENT_TYPE_RESERVED
+}
+
+type isSLBfdv4Notif_Event interface {
+	isSLBfdv4Notif_Event()
+}
+
+type SLBfdv4Notif_ErrStatus struct {
+	ErrStatus *SLErrorStatus `protobuf:"bytes,2,opt,name=ErrStatus,proto3,oneof"`
+}
+
+type SLBfdv4Notif_Session struct {
+	Session *SLBfdv4SessionState `protobuf:"bytes,3,opt,name=Session,proto3,oneof"`
+}
+
+func (*SLBfdv4Notif_ErrStatus) isSLBfdv4Notif_Event() {}
+
+func (*SLBfdv4Notif_Session) isSLBfdv4Notif_Event() {}
+
+func (m *SLBfdv4Notif) GetEvent() isSLBfdv4Notif_Event {
+	if m != nil {
+		return m.Event
+	}
+	return nil
 }
 
 func (m *SLBfdv4Notif) GetErrStatus() *SLErrorStatus {
@@ -459,12 +687,12 @@ func _SLBfdv4Notif_OneofSizer(msg proto.Message) (n int) {
 	switch x := m.Event.(type) {
 	case *SLBfdv4Notif_ErrStatus:
 		s := proto.Size(x.ErrStatus)
-		n += proto.SizeVarint(2<<3 | proto.WireBytes)
+		n += 1 // tag and wire
 		n += proto.SizeVarint(uint64(s))
 		n += s
 	case *SLBfdv4Notif_Session:
 		s := proto.Size(x.Session)
-		n += proto.SizeVarint(3<<3 | proto.WireBytes)
+		n += 1 // tag and wire
 		n += proto.SizeVarint(uint64(s))
 		n += s
 	case nil:
@@ -495,8 +723,9 @@ var _ grpc.ClientConn
 // is compatible with the grpc package it is being compiled against.
 const _ = grpc.SupportPackageIsVersion4
 
-// Client API for SLBfdv4Oper service
-
+// SLBfdv4OperClient is the client API for SLBfdv4Oper service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
 type SLBfdv4OperClient interface {
 	// SLBfdRegMsg.Oper = SL_REGOP_REGISTER:
 	//     Global BFD registration.
@@ -551,7 +780,7 @@ func NewSLBfdv4OperClient(cc *grpc.ClientConn) SLBfdv4OperClient {
 
 func (c *sLBfdv4OperClient) SLBfdv4RegOp(ctx context.Context, in *SLBfdRegMsg, opts ...grpc.CallOption) (*SLBfdRegMsgRsp, error) {
 	out := new(SLBfdRegMsgRsp)
-	err := grpc.Invoke(ctx, "/service_layer.SLBfdv4Oper/SLBfdv4RegOp", in, out, c.cc, opts...)
+	err := c.cc.Invoke(ctx, "/service_layer.SLBfdv4Oper/SLBfdv4RegOp", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -560,7 +789,7 @@ func (c *sLBfdv4OperClient) SLBfdv4RegOp(ctx context.Context, in *SLBfdRegMsg, o
 
 func (c *sLBfdv4OperClient) SLBfdv4Get(ctx context.Context, in *SLBfdGetMsg, opts ...grpc.CallOption) (*SLBfdGetMsgRsp, error) {
 	out := new(SLBfdGetMsgRsp)
-	err := grpc.Invoke(ctx, "/service_layer.SLBfdv4Oper/SLBfdv4Get", in, out, c.cc, opts...)
+	err := c.cc.Invoke(ctx, "/service_layer.SLBfdv4Oper/SLBfdv4Get", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -569,7 +798,7 @@ func (c *sLBfdv4OperClient) SLBfdv4Get(ctx context.Context, in *SLBfdGetMsg, opt
 
 func (c *sLBfdv4OperClient) SLBfdv4GetStats(ctx context.Context, in *SLBfdGetMsg, opts ...grpc.CallOption) (*SLBfdGetStatsMsgRsp, error) {
 	out := new(SLBfdGetStatsMsgRsp)
-	err := grpc.Invoke(ctx, "/service_layer.SLBfdv4Oper/SLBfdv4GetStats", in, out, c.cc, opts...)
+	err := c.cc.Invoke(ctx, "/service_layer.SLBfdv4Oper/SLBfdv4GetStats", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -577,7 +806,7 @@ func (c *sLBfdv4OperClient) SLBfdv4GetStats(ctx context.Context, in *SLBfdGetMsg
 }
 
 func (c *sLBfdv4OperClient) SLBfdv4GetNotifStream(ctx context.Context, in *SLBfdGetNotifMsg, opts ...grpc.CallOption) (SLBfdv4Oper_SLBfdv4GetNotifStreamClient, error) {
-	stream, err := grpc.NewClientStream(ctx, &_SLBfdv4Oper_serviceDesc.Streams[0], c.cc, "/service_layer.SLBfdv4Oper/SLBfdv4GetNotifStream", opts...)
+	stream, err := c.cc.NewStream(ctx, &_SLBfdv4Oper_serviceDesc.Streams[0], "/service_layer.SLBfdv4Oper/SLBfdv4GetNotifStream", opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -610,7 +839,7 @@ func (x *sLBfdv4OperSLBfdv4GetNotifStreamClient) Recv() (*SLBfdv4Notif, error) {
 
 func (c *sLBfdv4OperClient) SLBfdv4SessionOp(ctx context.Context, in *SLBfdv4Msg, opts ...grpc.CallOption) (*SLBfdv4MsgRsp, error) {
 	out := new(SLBfdv4MsgRsp)
-	err := grpc.Invoke(ctx, "/service_layer.SLBfdv4Oper/SLBfdv4SessionOp", in, out, c.cc, opts...)
+	err := c.cc.Invoke(ctx, "/service_layer.SLBfdv4Oper/SLBfdv4SessionOp", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -619,15 +848,14 @@ func (c *sLBfdv4OperClient) SLBfdv4SessionOp(ctx context.Context, in *SLBfdv4Msg
 
 func (c *sLBfdv4OperClient) SLBfdv4SessionGet(ctx context.Context, in *SLBfdv4GetMsg, opts ...grpc.CallOption) (*SLBfdv4GetMsgRsp, error) {
 	out := new(SLBfdv4GetMsgRsp)
-	err := grpc.Invoke(ctx, "/service_layer.SLBfdv4Oper/SLBfdv4SessionGet", in, out, c.cc, opts...)
+	err := c.cc.Invoke(ctx, "/service_layer.SLBfdv4Oper/SLBfdv4SessionGet", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// Server API for SLBfdv4Oper service
-
+// SLBfdv4OperServer is the server API for SLBfdv4Oper service.
 type SLBfdv4OperServer interface {
 	// SLBfdRegMsg.Oper = SL_REGOP_REGISTER:
 	//     Global BFD registration.
@@ -822,53 +1050,54 @@ var _SLBfdv4Oper_serviceDesc = grpc.ServiceDesc{
 	Metadata: "sl_bfd_ipv4.proto",
 }
 
-func init() { proto.RegisterFile("sl_bfd_ipv4.proto", fileDescriptor1) }
+func init() { proto.RegisterFile("sl_bfd_ipv4.proto", fileDescriptor_sl_bfd_ipv4_a41a59161856faa6) }
 
-var fileDescriptor1 = []byte{
-	// 715 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x09, 0x6e, 0x88, 0x02, 0xff, 0xbc, 0x55, 0xdd, 0x6e, 0xd3, 0x4c,
-	0x10, 0xfd, 0x9c, 0xa4, 0x4d, 0x3b, 0x69, 0x3f, 0xda, 0xad, 0x5a, 0x85, 0xd0, 0xd2, 0xca, 0x12,
-	0x12, 0x12, 0x50, 0xa1, 0xb4, 0x48, 0x08, 0x10, 0x88, 0x46, 0x55, 0xa9, 0x0a, 0x89, 0xd8, 0x20,
-	0xb8, 0x8c, 0xf2, 0xb3, 0x8e, 0x82, 0xea, 0x1f, 0xd6, 0xeb, 0x88, 0xf0, 0x04, 0x5c, 0xf3, 0x06,
-	0xbc, 0x04, 0xcf, 0xc0, 0x35, 0x0f, 0xc2, 0x33, 0xb0, 0x3b, 0x5e, 0xdb, 0x31, 0xb1, 0x43, 0xc3,
-	0x05, 0x77, 0xd9, 0x9d, 0x33, 0x67, 0xe6, 0x9c, 0x19, 0x6f, 0x60, 0xd3, 0xbf, 0xec, 0xf4, 0xac,
-	0x41, 0x67, 0xe4, 0x8d, 0x8f, 0x0f, 0x3d, 0xee, 0x0a, 0x97, 0xac, 0xfb, 0x8c, 0x8f, 0x47, 0x7d,
-	0xd6, 0xb9, 0xec, 0x4e, 0x18, 0xaf, 0x6d, 0x4b, 0x44, 0xdf, 0xb5, 0x6d, 0xd7, 0xe9, 0x88, 0x89,
-	0xc7, 0xfc, 0x10, 0x55, 0xdb, 0xd2, 0x89, 0x61, 0x28, 0xbc, 0x34, 0xbf, 0x1b, 0x00, 0xed, 0x97,
-	0x27, 0xd6, 0x60, 0x7c, 0x7c, 0xc1, 0x26, 0xe4, 0x2e, 0x94, 0xde, 0xc8, 0x94, 0xaa, 0x71, 0x60,
-	0xdc, 0xfe, 0xbf, 0x5e, 0x3d, 0x4c, 0x11, 0x1f, 0x22, 0x50, 0xc5, 0x29, 0xa2, 0x48, 0x15, 0xca,
-	0x6f, 0xb9, 0xd5, 0xec, 0xda, 0xac, 0x5a, 0x90, 0x09, 0xab, 0x34, 0x3a, 0xaa, 0x48, 0xb3, 0xc7,
-	0x9f, 0x0f, 0x06, 0xbc, 0x5a, 0x94, 0x91, 0x75, 0x1a, 0x1d, 0xc9, 0x43, 0x58, 0x3d, 0x77, 0x04,
-	0xe3, 0x56, 0xb7, 0xcf, 0xaa, 0x25, 0x19, 0xab, 0xd4, 0x6b, 0x33, 0x65, 0x62, 0x04, 0x4d, 0xc0,
-	0xe4, 0xa6, 0xec, 0xd4, 0x0d, 0x78, 0x9f, 0x21, 0xed, 0x12, 0xd2, 0x4e, 0xdd, 0x98, 0x9f, 0x60,
-	0x53, 0x2b, 0x69, 0x33, 0xdf, 0x1f, 0xb9, 0x4e, 0xc3, 0x1a, 0x92, 0x3b, 0x50, 0x94, 0xba, 0x50,
-	0x4f, 0xa5, 0x7e, 0x3d, 0x4b, 0x0f, 0x0a, 0xa7, 0x0a, 0x25, 0x7b, 0x5b, 0x6e, 0xb8, 0x8e, 0x35,
-	0x1a, 0xa2, 0x9c, 0x4a, 0xfd, 0x20, 0x0b, 0x1f, 0x22, 0x1a, 0x68, 0x22, 0xd5, 0x78, 0x73, 0x12,
-	0xbb, 0xf8, 0xca, 0x1f, 0x92, 0x7b, 0x50, 0x6a, 0x79, 0x8c, 0x6b, 0x17, 0x67, 0xab, 0xb6, 0x7a,
-	0xef, 0x59, 0x5f, 0xb4, 0x3c, 0x8a, 0x30, 0xf2, 0x04, 0x56, 0x74, 0xc7, 0xbe, 0x2c, 0x5c, 0xcc,
-	0x2b, 0x3c, 0xad, 0x8b, 0xc6, 0x19, 0x66, 0x10, 0x97, 0xa6, 0xcc, 0x27, 0x8f, 0x60, 0xf5, 0x94,
-	0xf3, 0xb6, 0xe8, 0x8a, 0xc0, 0xd7, 0xaa, 0x77, 0x67, 0xc8, 0x24, 0xc2, 0xd5, 0x18, 0x9a, 0xc0,
-	0x23, 0xaf, 0x0a, 0x57, 0xf1, 0xca, 0xfc, 0x6c, 0xc0, 0x7a, 0x22, 0x99, 0xfa, 0x1e, 0x39, 0x91,
-	0x17, 0x48, 0xd4, 0x0e, 0x6c, 0xbb, 0xcb, 0x27, 0x57, 0x2a, 0x9f, 0x4e, 0x21, 0x47, 0x50, 0x96,
-	0x2a, 0x82, 0x4b, 0x11, 0x39, 0x91, 0xd3, 0x86, 0x04, 0xd1, 0x08, 0x69, 0x7e, 0x49, 0x5a, 0x39,
-	0x63, 0x42, 0x0d, 0x60, 0xa1, 0xa9, 0xef, 0xc0, 0x72, 0x9b, 0x7d, 0x68, 0x06, 0x36, 0x2a, 0x2f,
-	0x51, 0x7d, 0x22, 0x26, 0xac, 0x9d, 0x3a, 0x82, 0x8f, 0x98, 0xdf, 0x70, 0x03, 0x47, 0xe8, 0x45,
-	0x4e, 0xdd, 0xa9, 0x3d, 0x97, 0x25, 0x9b, 0xec, 0xa3, 0xc0, 0x5d, 0x5e, 0xa1, 0xd1, 0xd1, 0xfc,
-	0x66, 0xc0, 0xce, 0xcc, 0xd8, 0x94, 0x58, 0xf6, 0x8f, 0x76, 0x92, 0x3c, 0x80, 0x25, 0xac, 0x87,
-	0x8d, 0x57, 0xea, 0xfb, 0xd9, 0x89, 0x2a, 0x05, 0x61, 0x34, 0x44, 0x9b, 0x5f, 0x0d, 0xd8, 0x48,
-	0xb9, 0xa9, 0x66, 0xbb, 0x01, 0xc5, 0x53, 0xd7, 0xc2, 0x96, 0x57, 0xa8, 0xfa, 0x99, 0x5e, 0xb4,
-	0xc2, 0x62, 0x8b, 0xf6, 0x0c, 0xca, 0xda, 0x45, 0xd9, 0x9b, 0x9a, 0xf2, 0xad, 0x3f, 0xed, 0x7b,
-	0xd8, 0x61, 0x94, 0x25, 0x3f, 0xb7, 0xad, 0x34, 0xe4, 0x2f, 0x8c, 0x8d, 0xed, 0x29, 0x2c, 0x64,
-	0xcf, 0x0f, 0x03, 0xd6, 0x34, 0x55, 0xd3, 0x15, 0x23, 0x8b, 0x3c, 0x96, 0x46, 0x8c, 0x99, 0x23,
-	0xa6, 0xde, 0xcd, 0xbd, 0x2c, 0x2e, 0x44, 0xe3, 0xe3, 0x99, 0xe0, 0xe5, 0xa7, 0xbf, 0x98, 0x8b,
-	0x2f, 0xfe, 0x9b, 0xf6, 0xf1, 0x29, 0x94, 0xb5, 0x7e, 0x3d, 0x63, 0x73, 0xae, 0x8f, 0x28, 0x40,
-	0x32, 0x44, 0x49, 0x27, 0x65, 0x58, 0xc2, 0x56, 0xea, 0x3f, 0x8b, 0x50, 0xd1, 0x58, 0x7c, 0x91,
-	0xce, 0x63, 0x8d, 0x94, 0x0d, 0x5b, 0x1e, 0xa9, 0x65, 0xf1, 0xca, 0x90, 0xdc, 0x8e, 0xda, 0x5e,
-	0x7e, 0x4c, 0x6d, 0xce, 0x59, 0xfc, 0x3c, 0xc9, 0x6d, 0xca, 0x26, 0x0a, 0xd7, 0x2c, 0x9b, 0x28,
-	0x59, 0xc1, 0xd7, 0x70, 0x2d, 0x21, 0x52, 0x52, 0xfc, 0xb9, 0x6c, 0x66, 0x4e, 0x0c, 0x33, 0x35,
-	0xe5, 0x3b, 0xd8, 0x4e, 0x28, 0x71, 0x3e, 0x6d, 0xc1, 0x59, 0xd7, 0x26, 0xfb, 0x39, 0xc9, 0x88,
-	0x51, 0xec, 0x37, 0xb2, 0x8d, 0xc6, 0xf8, 0x7d, 0x83, 0x5c, 0xc4, 0x9f, 0x90, 0xb6, 0x5a, 0x7a,
-	0x98, 0xb3, 0x8f, 0x8a, 0x6d, 0x37, 0x37, 0xa4, 0xba, 0xa4, 0xbf, 0xff, 0xaf, 0x29, 0x23, 0x73,
-	0x52, 0xb4, 0xf8, 0xfd, 0x79, 0x51, 0xc9, 0xd9, 0x5b, 0xc6, 0x7f, 0xff, 0xa3, 0x5f, 0x01, 0x00,
-	0x00, 0xff, 0xff, 0xd3, 0xb6, 0x59, 0x09, 0x4d, 0x08, 0x00, 0x00,
+var fileDescriptor_sl_bfd_ipv4_a41a59161856faa6 = []byte{
+	// 724 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xbc, 0x55, 0xdd, 0x6e, 0xda, 0x4a,
+	0x10, 0x8e, 0x81, 0x84, 0x30, 0x84, 0x73, 0x92, 0x8d, 0x12, 0xf9, 0x70, 0x92, 0x13, 0x64, 0xe9,
+	0x48, 0x48, 0x6d, 0xa3, 0x8a, 0xa4, 0x52, 0xd4, 0x46, 0xad, 0x1a, 0x84, 0x48, 0x94, 0x06, 0xd4,
+	0xa5, 0x6a, 0x2f, 0x11, 0x3f, 0x63, 0x44, 0x05, 0xd8, 0xdd, 0x5d, 0x50, 0xdd, 0x27, 0xe8, 0x75,
+	0xdf, 0xa0, 0x2f, 0xd1, 0x67, 0xe8, 0x75, 0x1f, 0xa4, 0xcf, 0x50, 0xed, 0x7a, 0x6d, 0x43, 0xb1,
+	0xd3, 0xd0, 0x8b, 0xde, 0xb1, 0x3b, 0xdf, 0x7c, 0x33, 0xdf, 0x37, 0xc3, 0x1a, 0x76, 0xf8, 0xa8,
+	0xdd, 0xb5, 0xfb, 0xed, 0xa1, 0x3b, 0x3b, 0x3d, 0x76, 0x99, 0x23, 0x1c, 0x52, 0xe0, 0xc8, 0x66,
+	0xc3, 0x1e, 0xb6, 0x47, 0x1d, 0x0f, 0x59, 0x71, 0x8f, 0x8f, 0xda, 0x3d, 0x67, 0x3c, 0x76, 0x26,
+	0x6d, 0xe1, 0xb9, 0xc8, 0x7d, 0x54, 0x71, 0x57, 0x27, 0xfa, 0x21, 0xff, 0xd2, 0xfa, 0x6a, 0x00,
+	0xb4, 0x5e, 0x5c, 0xd8, 0xfd, 0xd9, 0xe9, 0x35, 0x7a, 0xe4, 0x3e, 0x64, 0x5e, 0x79, 0x2e, 0x9a,
+	0x46, 0xc9, 0x28, 0xff, 0x55, 0x31, 0x8f, 0x17, 0x88, 0x8f, 0x15, 0x50, 0xc6, 0xa9, 0x42, 0x11,
+	0x13, 0xb2, 0xaf, 0x99, 0xdd, 0xe8, 0x8c, 0xd1, 0x4c, 0x95, 0x8c, 0x72, 0x8e, 0x06, 0x47, 0x19,
+	0x69, 0x74, 0xd9, 0xf3, 0x7e, 0x9f, 0x99, 0xe9, 0x92, 0x51, 0x2e, 0xd0, 0xe0, 0x48, 0xce, 0x20,
+	0x77, 0x35, 0x11, 0xc8, 0xec, 0x4e, 0x0f, 0xcd, 0x4c, 0xc9, 0x28, 0xe7, 0x2b, 0xc5, 0xa5, 0x32,
+	0x21, 0x82, 0x46, 0x60, 0xf2, 0x1f, 0x40, 0xcb, 0x99, 0xb2, 0x1e, 0x2a, 0xda, 0x75, 0x45, 0x3b,
+	0x77, 0x63, 0x7d, 0x80, 0x1d, 0xad, 0xa4, 0x85, 0x9c, 0x0f, 0x9d, 0x49, 0xd5, 0x1e, 0x90, 0x7b,
+	0x90, 0xbe, 0x46, 0x4f, 0xe9, 0xc9, 0x57, 0xfe, 0x89, 0xd3, 0xa3, 0x84, 0x53, 0x89, 0x22, 0x67,
+	0xb0, 0x51, 0x75, 0x26, 0xf6, 0x70, 0xa0, 0xe4, 0xe4, 0x2b, 0xa5, 0x38, 0xbc, 0x8f, 0xa8, 0x2a,
+	0x13, 0xa9, 0xc6, 0x5b, 0x5e, 0xe8, 0xe2, 0x0d, 0x1f, 0x90, 0x07, 0x90, 0x69, 0xba, 0xc8, 0xb4,
+	0x8b, 0xcb, 0x55, 0x9b, 0xdd, 0xb7, 0xd8, 0x13, 0x4d, 0x97, 0x2a, 0x18, 0x39, 0x87, 0x4d, 0xdd,
+	0x31, 0x37, 0x53, 0xa5, 0x74, 0x52, 0xe1, 0x79, 0x5d, 0x34, 0xcc, 0xb0, 0xa6, 0x61, 0x69, 0x8a,
+	0x9c, 0x3c, 0x86, 0x5c, 0x8d, 0xb1, 0x96, 0xe8, 0x88, 0x29, 0xd7, 0xaa, 0x0f, 0x96, 0xc8, 0x6a,
+	0x8c, 0x39, 0x1a, 0x43, 0x23, 0x78, 0xe0, 0x55, 0xea, 0x2e, 0x5e, 0x59, 0x1f, 0x0d, 0x28, 0x44,
+	0x92, 0x29, 0x77, 0xc9, 0x05, 0x14, 0x7c, 0xa2, 0xd6, 0x74, 0x3c, 0xee, 0x30, 0xef, 0x4e, 0xe5,
+	0x17, 0x53, 0xc8, 0x09, 0x64, 0x29, 0xf2, 0xe9, 0x48, 0x04, 0x4e, 0x24, 0xb4, 0x41, 0x91, 0xd3,
+	0x00, 0x69, 0x7d, 0x8a, 0x5a, 0xa9, 0xa3, 0x90, 0x03, 0x58, 0x69, 0xea, 0xfb, 0xb0, 0xd1, 0xc2,
+	0x77, 0x8d, 0xe9, 0x58, 0x29, 0xcf, 0x50, 0x7d, 0x22, 0x16, 0x6c, 0xd5, 0x26, 0x82, 0x0d, 0x91,
+	0x57, 0x9d, 0xe9, 0x44, 0xe8, 0x45, 0x5e, 0xb8, 0x93, 0x7b, 0x5e, 0x47, 0xd1, 0xc0, 0xf7, 0x42,
+	0xed, 0xf2, 0x26, 0x0d, 0x8e, 0xd6, 0x17, 0x03, 0xf6, 0x97, 0xc6, 0x26, 0xc5, 0xe2, 0x1f, 0xda,
+	0x49, 0xf2, 0x08, 0xd6, 0x55, 0x3d, 0xd5, 0x78, 0xbe, 0x72, 0x14, 0x9f, 0x28, 0x53, 0x14, 0x8c,
+	0xfa, 0x68, 0xeb, 0xb3, 0x01, 0xdb, 0x0b, 0x6e, 0xca, 0xd9, 0x6e, 0x43, 0xba, 0xe6, 0xd8, 0xaa,
+	0xe5, 0x4d, 0x2a, 0x7f, 0x2e, 0x2e, 0x5a, 0x6a, 0xb5, 0x45, 0x7b, 0x06, 0x59, 0xed, 0xa2, 0x99,
+	0x56, 0x53, 0xfe, 0xff, 0x57, 0xfb, 0xee, 0x77, 0x18, 0x64, 0x59, 0x1e, 0xec, 0x2e, 0x42, 0x7e,
+	0xc3, 0xd8, 0xd0, 0x9e, 0xd4, 0x4a, 0xf6, 0x7c, 0x33, 0x60, 0x4b, 0x53, 0x35, 0x1c, 0x31, 0xb4,
+	0xc9, 0x13, 0xc8, 0xd5, 0x66, 0x38, 0x11, 0x73, 0xef, 0xe6, 0x61, 0x1c, 0x97, 0x42, 0xab, 0xc7,
+	0x33, 0xc2, 0x93, 0xf3, 0x15, 0x5d, 0xbc, 0x5c, 0x9b, 0xf7, 0xf1, 0x29, 0x64, 0xb5, 0x7e, 0x3d,
+	0x63, 0xeb, 0x56, 0x1f, 0x95, 0x80, 0xcb, 0x35, 0x1a, 0x24, 0x5d, 0x64, 0x61, 0x5d, 0xb5, 0x52,
+	0xf9, 0x9e, 0x86, 0xbc, 0xc6, 0xaa, 0x17, 0xe9, 0x2a, 0xd4, 0x48, 0x71, 0xd0, 0x74, 0x49, 0x31,
+	0x8e, 0x97, 0xe2, 0xe0, 0x86, 0x0f, 0x8a, 0x87, 0xc9, 0x31, 0xb9, 0x39, 0xf5, 0xf0, 0x79, 0xaa,
+	0xa3, 0x88, 0x27, 0xf2, 0xd7, 0x2c, 0x9e, 0x28, 0x5a, 0xc1, 0x97, 0xf0, 0x77, 0x44, 0x24, 0xa5,
+	0xf0, 0x5b, 0xd9, 0xac, 0x84, 0x98, 0xca, 0xd4, 0x94, 0x6f, 0x60, 0x2f, 0xa2, 0x54, 0xf3, 0x69,
+	0x09, 0x86, 0x9d, 0x31, 0x39, 0x4a, 0x48, 0x56, 0x18, 0xc9, 0xfe, 0x6f, 0xbc, 0xd1, 0x2a, 0xfe,
+	0xd0, 0x20, 0xd7, 0xe1, 0x5f, 0x48, 0x5b, 0xdd, 0x74, 0x49, 0xc2, 0x3e, 0x4a, 0xb6, 0x83, 0xc4,
+	0x90, 0xec, 0x92, 0xfe, 0xfc, 0x5d, 0x93, 0x46, 0x26, 0xa4, 0x68, 0xf1, 0x47, 0xb7, 0x45, 0x29,
+	0x77, 0xbb, 0x1b, 0xea, 0xeb, 0x7f, 0xf2, 0x23, 0x00, 0x00, 0xff, 0xff, 0xd3, 0xb6, 0x59, 0x09,
+	0x4d, 0x08, 0x00, 0x00,
 }

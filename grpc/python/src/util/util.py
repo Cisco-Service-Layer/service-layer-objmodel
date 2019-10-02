@@ -22,7 +22,7 @@ def get_server_ip_port():
         print("Need to set the SERVER_PORT env variable e.g.")
         print("export SERVER_PORT='57777'")
         os._exit(0)
-    
+
     return (os.environ['SERVER_IP'], int(os.environ['SERVER_PORT']))
 
 #

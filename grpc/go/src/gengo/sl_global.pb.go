@@ -17,6 +17,12 @@ var _ = proto.Marshal
 var _ = fmt.Errorf
 var _ = math.Inf
 
+// This is a compile-time assertion to ensure that this generated file
+// is compatible with the proto package it is being compiled against.
+// A compilation error at this line likely means your copy of the
+// proto package needs to be updated.
+const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
+
 // Global Event Notification types.
 type SLGlobalNotifType int32
 
@@ -47,7 +53,9 @@ var SLGlobalNotifType_value = map[string]int32{
 func (x SLGlobalNotifType) String() string {
 	return proto.EnumName(SLGlobalNotifType_name, int32(x))
 }
-func (SLGlobalNotifType) EnumDescriptor() ([]byte, []int) { return fileDescriptor4, []int{0} }
+func (SLGlobalNotifType) EnumDescriptor() ([]byte, []int) {
+	return fileDescriptor_sl_global_e60e2c7a6665587f, []int{0}
+}
 
 // Initialization message sent to the server.
 // If the client and server are running compatible version numbers, a
@@ -55,17 +63,39 @@ func (SLGlobalNotifType) EnumDescriptor() ([]byte, []int) { return fileDescripto
 // with a successful status code.
 type SLInitMsg struct {
 	// Client's Major version of service-layer API (refer to sl_version.proto)
-	MajorVer uint32 `protobuf:"varint,1,opt,name=MajorVer" json:"MajorVer,omitempty"`
+	MajorVer uint32 `protobuf:"varint,1,opt,name=MajorVer,proto3" json:"MajorVer,omitempty"`
 	// Minor Version
-	MinorVer uint32 `protobuf:"varint,2,opt,name=MinorVer" json:"MinorVer,omitempty"`
+	MinorVer uint32 `protobuf:"varint,2,opt,name=MinorVer,proto3" json:"MinorVer,omitempty"`
 	// Sub-Version
-	SubVer uint32 `protobuf:"varint,3,opt,name=SubVer" json:"SubVer,omitempty"`
+	SubVer               uint32   `protobuf:"varint,3,opt,name=SubVer,proto3" json:"SubVer,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *SLInitMsg) Reset()                    { *m = SLInitMsg{} }
-func (m *SLInitMsg) String() string            { return proto.CompactTextString(m) }
-func (*SLInitMsg) ProtoMessage()               {}
-func (*SLInitMsg) Descriptor() ([]byte, []int) { return fileDescriptor4, []int{0} }
+func (m *SLInitMsg) Reset()         { *m = SLInitMsg{} }
+func (m *SLInitMsg) String() string { return proto.CompactTextString(m) }
+func (*SLInitMsg) ProtoMessage()    {}
+func (*SLInitMsg) Descriptor() ([]byte, []int) {
+	return fileDescriptor_sl_global_e60e2c7a6665587f, []int{0}
+}
+func (m *SLInitMsg) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_SLInitMsg.Unmarshal(m, b)
+}
+func (m *SLInitMsg) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_SLInitMsg.Marshal(b, m, deterministic)
+}
+func (dst *SLInitMsg) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_SLInitMsg.Merge(dst, src)
+}
+func (m *SLInitMsg) XXX_Size() int {
+	return xxx_messageInfo_SLInitMsg.Size(m)
+}
+func (m *SLInitMsg) XXX_DiscardUnknown() {
+	xxx_messageInfo_SLInitMsg.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_SLInitMsg proto.InternalMessageInfo
 
 func (m *SLInitMsg) GetMajorVer() uint32 {
 	if m != nil {
@@ -96,17 +126,39 @@ type SLInitMsgRsp struct {
 	// Major-number revisions are NOT backwards compatible,
 	// unless otherwise specified. The Server may reject a session if there
 	// is a version number mismatch or non-backwards compatibility.
-	MajorVer uint32 `protobuf:"varint,1,opt,name=MajorVer" json:"MajorVer,omitempty"`
+	MajorVer uint32 `protobuf:"varint,1,opt,name=MajorVer,proto3" json:"MajorVer,omitempty"`
 	// Minor Version
-	MinorVer uint32 `protobuf:"varint,2,opt,name=MinorVer" json:"MinorVer,omitempty"`
+	MinorVer uint32 `protobuf:"varint,2,opt,name=MinorVer,proto3" json:"MinorVer,omitempty"`
 	// Sub-Version
-	SubVer uint32 `protobuf:"varint,3,opt,name=SubVer" json:"SubVer,omitempty"`
+	SubVer               uint32   `protobuf:"varint,3,opt,name=SubVer,proto3" json:"SubVer,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *SLInitMsgRsp) Reset()                    { *m = SLInitMsgRsp{} }
-func (m *SLInitMsgRsp) String() string            { return proto.CompactTextString(m) }
-func (*SLInitMsgRsp) ProtoMessage()               {}
-func (*SLInitMsgRsp) Descriptor() ([]byte, []int) { return fileDescriptor4, []int{1} }
+func (m *SLInitMsgRsp) Reset()         { *m = SLInitMsgRsp{} }
+func (m *SLInitMsgRsp) String() string { return proto.CompactTextString(m) }
+func (*SLInitMsgRsp) ProtoMessage()    {}
+func (*SLInitMsgRsp) Descriptor() ([]byte, []int) {
+	return fileDescriptor_sl_global_e60e2c7a6665587f, []int{1}
+}
+func (m *SLInitMsgRsp) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_SLInitMsgRsp.Unmarshal(m, b)
+}
+func (m *SLInitMsgRsp) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_SLInitMsgRsp.Marshal(b, m, deterministic)
+}
+func (dst *SLInitMsgRsp) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_SLInitMsgRsp.Merge(dst, src)
+}
+func (m *SLInitMsgRsp) XXX_Size() int {
+	return xxx_messageInfo_SLInitMsgRsp.Size(m)
+}
+func (m *SLInitMsgRsp) XXX_DiscardUnknown() {
+	xxx_messageInfo_SLInitMsgRsp.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_SLInitMsgRsp proto.InternalMessageInfo
 
 func (m *SLInitMsgRsp) GetMajorVer() uint32 {
 	if m != nil {
@@ -132,7 +184,7 @@ func (m *SLInitMsgRsp) GetSubVer() uint32 {
 // Globals query message.
 type SLGlobalNotif struct {
 	// Event Type.
-	EventType SLGlobalNotifType `protobuf:"varint,1,opt,name=EventType,enum=service_layer.SLGlobalNotifType" json:"EventType,omitempty"`
+	EventType SLGlobalNotifType `protobuf:"varint,1,opt,name=EventType,proto3,enum=service_layer.SLGlobalNotifType" json:"EventType,omitempty"`
 	// Status code, interpreted based on the Event Type.
 	//
 	//   case EventType == SL_GLOBAL_EVENT_TYPE_ERROR:
@@ -161,35 +213,40 @@ type SLGlobalNotif struct {
 	//       case ErrStatus == (some error from SLErrorStatus)
 	//          => Client must either try again, or look into the specific
 	//             error message returned.
-	ErrStatus *SLErrorStatus `protobuf:"bytes,2,opt,name=ErrStatus" json:"ErrStatus,omitempty"`
+	ErrStatus *SLErrorStatus `protobuf:"bytes,2,opt,name=ErrStatus,proto3" json:"ErrStatus,omitempty"`
 	// Further info based on EventType.
 	//
 	// Types that are valid to be assigned to Event:
 	//	*SLGlobalNotif_InitRspMsg
-	Event isSLGlobalNotif_Event `protobuf_oneof:"Event"`
+	Event                isSLGlobalNotif_Event `protobuf_oneof:"Event"`
+	XXX_NoUnkeyedLiteral struct{}              `json:"-"`
+	XXX_unrecognized     []byte                `json:"-"`
+	XXX_sizecache        int32                 `json:"-"`
 }
 
-func (m *SLGlobalNotif) Reset()                    { *m = SLGlobalNotif{} }
-func (m *SLGlobalNotif) String() string            { return proto.CompactTextString(m) }
-func (*SLGlobalNotif) ProtoMessage()               {}
-func (*SLGlobalNotif) Descriptor() ([]byte, []int) { return fileDescriptor4, []int{2} }
-
-type isSLGlobalNotif_Event interface {
-	isSLGlobalNotif_Event()
+func (m *SLGlobalNotif) Reset()         { *m = SLGlobalNotif{} }
+func (m *SLGlobalNotif) String() string { return proto.CompactTextString(m) }
+func (*SLGlobalNotif) ProtoMessage()    {}
+func (*SLGlobalNotif) Descriptor() ([]byte, []int) {
+	return fileDescriptor_sl_global_e60e2c7a6665587f, []int{2}
+}
+func (m *SLGlobalNotif) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_SLGlobalNotif.Unmarshal(m, b)
+}
+func (m *SLGlobalNotif) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_SLGlobalNotif.Marshal(b, m, deterministic)
+}
+func (dst *SLGlobalNotif) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_SLGlobalNotif.Merge(dst, src)
+}
+func (m *SLGlobalNotif) XXX_Size() int {
+	return xxx_messageInfo_SLGlobalNotif.Size(m)
+}
+func (m *SLGlobalNotif) XXX_DiscardUnknown() {
+	xxx_messageInfo_SLGlobalNotif.DiscardUnknown(m)
 }
 
-type SLGlobalNotif_InitRspMsg struct {
-	InitRspMsg *SLInitMsgRsp `protobuf:"bytes,3,opt,name=InitRspMsg,oneof"`
-}
-
-func (*SLGlobalNotif_InitRspMsg) isSLGlobalNotif_Event() {}
-
-func (m *SLGlobalNotif) GetEvent() isSLGlobalNotif_Event {
-	if m != nil {
-		return m.Event
-	}
-	return nil
-}
+var xxx_messageInfo_SLGlobalNotif proto.InternalMessageInfo
 
 func (m *SLGlobalNotif) GetEventType() SLGlobalNotifType {
 	if m != nil {
@@ -201,6 +258,23 @@ func (m *SLGlobalNotif) GetEventType() SLGlobalNotifType {
 func (m *SLGlobalNotif) GetErrStatus() *SLErrorStatus {
 	if m != nil {
 		return m.ErrStatus
+	}
+	return nil
+}
+
+type isSLGlobalNotif_Event interface {
+	isSLGlobalNotif_Event()
+}
+
+type SLGlobalNotif_InitRspMsg struct {
+	InitRspMsg *SLInitMsgRsp `protobuf:"bytes,3,opt,name=InitRspMsg,proto3,oneof"`
+}
+
+func (*SLGlobalNotif_InitRspMsg) isSLGlobalNotif_Event() {}
+
+func (m *SLGlobalNotif) GetEvent() isSLGlobalNotif_Event {
+	if m != nil {
+		return m.Event
 	}
 	return nil
 }
@@ -257,7 +331,7 @@ func _SLGlobalNotif_OneofSizer(msg proto.Message) (n int) {
 	switch x := m.Event.(type) {
 	case *SLGlobalNotif_InitRspMsg:
 		s := proto.Size(x.InitRspMsg)
-		n += proto.SizeVarint(3<<3 | proto.WireBytes)
+		n += 1 // tag and wire
 		n += proto.SizeVarint(uint64(s))
 		n += s
 	case nil:
@@ -269,50 +343,96 @@ func _SLGlobalNotif_OneofSizer(msg proto.Message) (n int) {
 
 // Globals query message.
 type SLGlobalsGetMsg struct {
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *SLGlobalsGetMsg) Reset()                    { *m = SLGlobalsGetMsg{} }
-func (m *SLGlobalsGetMsg) String() string            { return proto.CompactTextString(m) }
-func (*SLGlobalsGetMsg) ProtoMessage()               {}
-func (*SLGlobalsGetMsg) Descriptor() ([]byte, []int) { return fileDescriptor4, []int{3} }
+func (m *SLGlobalsGetMsg) Reset()         { *m = SLGlobalsGetMsg{} }
+func (m *SLGlobalsGetMsg) String() string { return proto.CompactTextString(m) }
+func (*SLGlobalsGetMsg) ProtoMessage()    {}
+func (*SLGlobalsGetMsg) Descriptor() ([]byte, []int) {
+	return fileDescriptor_sl_global_e60e2c7a6665587f, []int{3}
+}
+func (m *SLGlobalsGetMsg) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_SLGlobalsGetMsg.Unmarshal(m, b)
+}
+func (m *SLGlobalsGetMsg) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_SLGlobalsGetMsg.Marshal(b, m, deterministic)
+}
+func (dst *SLGlobalsGetMsg) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_SLGlobalsGetMsg.Merge(dst, src)
+}
+func (m *SLGlobalsGetMsg) XXX_Size() int {
+	return xxx_messageInfo_SLGlobalsGetMsg.Size(m)
+}
+func (m *SLGlobalsGetMsg) XXX_DiscardUnknown() {
+	xxx_messageInfo_SLGlobalsGetMsg.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_SLGlobalsGetMsg proto.InternalMessageInfo
 
 // Platform specific globals Response.
 type SLGlobalsGetMsgRsp struct {
 	// Corresponding error code
-	ErrStatus *SLErrorStatus `protobuf:"bytes,1,opt,name=ErrStatus" json:"ErrStatus,omitempty"`
+	ErrStatus *SLErrorStatus `protobuf:"bytes,1,opt,name=ErrStatus,proto3" json:"ErrStatus,omitempty"`
 	// Maximum vrf name length.
-	MaxVrfNameLength uint32 `protobuf:"varint,2,opt,name=MaxVrfNameLength" json:"MaxVrfNameLength,omitempty"`
+	MaxVrfNameLength uint32 `protobuf:"varint,2,opt,name=MaxVrfNameLength,proto3" json:"MaxVrfNameLength,omitempty"`
 	// Maximum interface name length.
-	MaxInterfaceNameLength uint32 `protobuf:"varint,3,opt,name=MaxInterfaceNameLength" json:"MaxInterfaceNameLength,omitempty"`
+	MaxInterfaceNameLength uint32 `protobuf:"varint,3,opt,name=MaxInterfaceNameLength,proto3" json:"MaxInterfaceNameLength,omitempty"`
 	// Maximum paths per Route/ILM Entry.
-	MaxPathsPerEntry uint32 `protobuf:"varint,4,opt,name=MaxPathsPerEntry" json:"MaxPathsPerEntry,omitempty"`
+	MaxPathsPerEntry uint32 `protobuf:"varint,4,opt,name=MaxPathsPerEntry,proto3" json:"MaxPathsPerEntry,omitempty"`
 	// Maximum primary paths per Route/ILM Entry.
-	MaxPrimaryPathPerEntry uint32 `protobuf:"varint,5,opt,name=MaxPrimaryPathPerEntry" json:"MaxPrimaryPathPerEntry,omitempty"`
+	MaxPrimaryPathPerEntry uint32 `protobuf:"varint,5,opt,name=MaxPrimaryPathPerEntry,proto3" json:"MaxPrimaryPathPerEntry,omitempty"`
 	// Maximum backup paths per Route/ILM Entry.
-	MaxBackupPathPerEntry uint32 `protobuf:"varint,6,opt,name=MaxBackupPathPerEntry" json:"MaxBackupPathPerEntry,omitempty"`
+	MaxBackupPathPerEntry uint32 `protobuf:"varint,6,opt,name=MaxBackupPathPerEntry,proto3" json:"MaxBackupPathPerEntry,omitempty"`
 	// Maximum MPLS labels per Route/ILM Entry.
-	MaxMplsLabelsPerPath uint32 `protobuf:"varint,7,opt,name=MaxMplsLabelsPerPath" json:"MaxMplsLabelsPerPath,omitempty"`
+	MaxMplsLabelsPerPath uint32 `protobuf:"varint,7,opt,name=MaxMplsLabelsPerPath,proto3" json:"MaxMplsLabelsPerPath,omitempty"`
 	// Minimum Primary path id number.
-	MinPrimaryPathIdNum uint32 `protobuf:"varint,8,opt,name=MinPrimaryPathIdNum" json:"MinPrimaryPathIdNum,omitempty"`
+	MinPrimaryPathIdNum uint32 `protobuf:"varint,8,opt,name=MinPrimaryPathIdNum,proto3" json:"MinPrimaryPathIdNum,omitempty"`
 	// Maximum Primary path id number.
-	MaxPrimaryPathIdNum uint32 `protobuf:"varint,9,opt,name=MaxPrimaryPathIdNum" json:"MaxPrimaryPathIdNum,omitempty"`
+	MaxPrimaryPathIdNum uint32 `protobuf:"varint,9,opt,name=MaxPrimaryPathIdNum,proto3" json:"MaxPrimaryPathIdNum,omitempty"`
 	// Minimum Pure Backup path id number.
-	MinBackupPathIdNum uint32 `protobuf:"varint,10,opt,name=MinBackupPathIdNum" json:"MinBackupPathIdNum,omitempty"`
+	MinBackupPathIdNum uint32 `protobuf:"varint,10,opt,name=MinBackupPathIdNum,proto3" json:"MinBackupPathIdNum,omitempty"`
 	// Maximum Pure Backup path id number.
-	MaxBackupPathIdNum uint32 `protobuf:"varint,11,opt,name=MaxBackupPathIdNum" json:"MaxBackupPathIdNum,omitempty"`
+	MaxBackupPathIdNum uint32 `protobuf:"varint,11,opt,name=MaxBackupPathIdNum,proto3" json:"MaxBackupPathIdNum,omitempty"`
 	// Maximum number of remote addresses
-	MaxRemoteAddressNum uint32 `protobuf:"varint,12,opt,name=MaxRemoteAddressNum" json:"MaxRemoteAddressNum,omitempty"`
+	MaxRemoteAddressNum uint32 `protobuf:"varint,12,opt,name=MaxRemoteAddressNum,proto3" json:"MaxRemoteAddressNum,omitempty"`
 	// Maximum Bridge Domain name length - used for L2 routes.
-	MaxL2BdNameLength uint32 `protobuf:"varint,13,opt,name=MaxL2BdNameLength" json:"MaxL2BdNameLength,omitempty"`
+	MaxL2BdNameLength uint32 `protobuf:"varint,13,opt,name=MaxL2BdNameLength,proto3" json:"MaxL2BdNameLength,omitempty"`
 	// Maximum Provider Multicast Service Interface (PMSI) tunnel ID length.
 	// Used for L2 Inclusive Multicast Ethernet Tag (IMET) routes.
-	MaxL2PmsiTunnelIdLength uint32 `protobuf:"varint,14,opt,name=MaxL2PmsiTunnelIdLength" json:"MaxL2PmsiTunnelIdLength,omitempty"`
+	MaxL2PmsiTunnelIdLength uint32 `protobuf:"varint,14,opt,name=MaxL2PmsiTunnelIdLength,proto3" json:"MaxL2PmsiTunnelIdLength,omitempty"`
+	// Maximum label block client name length.
+	MaxLabelBlockClientNameLength uint32   `protobuf:"varint,15,opt,name=MaxLabelBlockClientNameLength,proto3" json:"MaxLabelBlockClientNameLength,omitempty"`
+	XXX_NoUnkeyedLiteral          struct{} `json:"-"`
+	XXX_unrecognized              []byte   `json:"-"`
+	XXX_sizecache                 int32    `json:"-"`
 }
 
-func (m *SLGlobalsGetMsgRsp) Reset()                    { *m = SLGlobalsGetMsgRsp{} }
-func (m *SLGlobalsGetMsgRsp) String() string            { return proto.CompactTextString(m) }
-func (*SLGlobalsGetMsgRsp) ProtoMessage()               {}
-func (*SLGlobalsGetMsgRsp) Descriptor() ([]byte, []int) { return fileDescriptor4, []int{4} }
+func (m *SLGlobalsGetMsgRsp) Reset()         { *m = SLGlobalsGetMsgRsp{} }
+func (m *SLGlobalsGetMsgRsp) String() string { return proto.CompactTextString(m) }
+func (*SLGlobalsGetMsgRsp) ProtoMessage()    {}
+func (*SLGlobalsGetMsgRsp) Descriptor() ([]byte, []int) {
+	return fileDescriptor_sl_global_e60e2c7a6665587f, []int{4}
+}
+func (m *SLGlobalsGetMsgRsp) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_SLGlobalsGetMsgRsp.Unmarshal(m, b)
+}
+func (m *SLGlobalsGetMsgRsp) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_SLGlobalsGetMsgRsp.Marshal(b, m, deterministic)
+}
+func (dst *SLGlobalsGetMsgRsp) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_SLGlobalsGetMsgRsp.Merge(dst, src)
+}
+func (m *SLGlobalsGetMsgRsp) XXX_Size() int {
+	return xxx_messageInfo_SLGlobalsGetMsgRsp.Size(m)
+}
+func (m *SLGlobalsGetMsgRsp) XXX_DiscardUnknown() {
+	xxx_messageInfo_SLGlobalsGetMsgRsp.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_SLGlobalsGetMsgRsp proto.InternalMessageInfo
 
 func (m *SLGlobalsGetMsgRsp) GetErrStatus() *SLErrorStatus {
 	if m != nil {
@@ -412,6 +532,13 @@ func (m *SLGlobalsGetMsgRsp) GetMaxL2PmsiTunnelIdLength() uint32 {
 	return 0
 }
 
+func (m *SLGlobalsGetMsgRsp) GetMaxLabelBlockClientNameLength() uint32 {
+	if m != nil {
+		return m.MaxLabelBlockClientNameLength
+	}
+	return 0
+}
+
 func init() {
 	proto.RegisterType((*SLInitMsg)(nil), "service_layer.SLInitMsg")
 	proto.RegisterType((*SLInitMsgRsp)(nil), "service_layer.SLInitMsgRsp")
@@ -429,8 +556,9 @@ var _ grpc.ClientConn
 // is compatible with the grpc package it is being compiled against.
 const _ = grpc.SupportPackageIsVersion4
 
-// Client API for SLGlobal service
-
+// SLGlobalClient is the client API for SLGlobal service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
 type SLGlobalClient interface {
 	// Initialize the connection, and setup a notification channel.
 	// This MUST be the first call to setup the Service Layer connection.
@@ -465,7 +593,7 @@ func NewSLGlobalClient(cc *grpc.ClientConn) SLGlobalClient {
 }
 
 func (c *sLGlobalClient) SLGlobalInitNotif(ctx context.Context, in *SLInitMsg, opts ...grpc.CallOption) (SLGlobal_SLGlobalInitNotifClient, error) {
-	stream, err := grpc.NewClientStream(ctx, &_SLGlobal_serviceDesc.Streams[0], c.cc, "/service_layer.SLGlobal/SLGlobalInitNotif", opts...)
+	stream, err := c.cc.NewStream(ctx, &_SLGlobal_serviceDesc.Streams[0], "/service_layer.SLGlobal/SLGlobalInitNotif", opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -498,15 +626,14 @@ func (x *sLGlobalSLGlobalInitNotifClient) Recv() (*SLGlobalNotif, error) {
 
 func (c *sLGlobalClient) SLGlobalsGet(ctx context.Context, in *SLGlobalsGetMsg, opts ...grpc.CallOption) (*SLGlobalsGetMsgRsp, error) {
 	out := new(SLGlobalsGetMsgRsp)
-	err := grpc.Invoke(ctx, "/service_layer.SLGlobal/SLGlobalsGet", in, out, c.cc, opts...)
+	err := c.cc.Invoke(ctx, "/service_layer.SLGlobal/SLGlobalsGet", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// Server API for SLGlobal service
-
+// SLGlobalServer is the server API for SLGlobal service.
 type SLGlobalServer interface {
 	// Initialize the connection, and setup a notification channel.
 	// This MUST be the first call to setup the Service Layer connection.
@@ -594,47 +721,49 @@ var _SLGlobal_serviceDesc = grpc.ServiceDesc{
 	Metadata: "sl_global.proto",
 }
 
-func init() { proto.RegisterFile("sl_global.proto", fileDescriptor4) }
+func init() { proto.RegisterFile("sl_global.proto", fileDescriptor_sl_global_e60e2c7a6665587f) }
 
-var fileDescriptor4 = []byte{
-	// 622 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x09, 0x6e, 0x88, 0x02, 0xff, 0xac, 0x94, 0xef, 0x6a, 0xdb, 0x30,
-	0x14, 0xc5, 0xeb, 0x76, 0xfd, 0x77, 0xdb, 0xb4, 0xa9, 0xb6, 0x76, 0x21, 0xeb, 0x4a, 0x9b, 0x4f,
-	0xa3, 0x8c, 0x50, 0xb2, 0x31, 0xc6, 0x60, 0x83, 0x84, 0x89, 0x36, 0xe0, 0xa4, 0x99, 0x1c, 0x02,
-	0x63, 0x30, 0xe3, 0x24, 0x6a, 0xeb, 0xcd, 0x7f, 0x82, 0xa4, 0x94, 0xe5, 0x5d, 0xf6, 0x08, 0x7b,
-	0x9b, 0xbd, 0xc0, 0x1e, 0x65, 0xb2, 0xac, 0xda, 0x71, 0xed, 0x14, 0x06, 0xfb, 0xa8, 0xfb, 0x3b,
-	0x47, 0x3a, 0x57, 0xb6, 0x2e, 0xec, 0x72, 0xcf, 0xbe, 0xf6, 0xc2, 0xa1, 0xe3, 0xd5, 0x27, 0x2c,
-	0x14, 0x21, 0x2a, 0x71, 0xca, 0x6e, 0xdd, 0x11, 0xb5, 0x3d, 0x67, 0x46, 0x59, 0x75, 0x5f, 0xf2,
-	0x51, 0xe8, 0xfb, 0x61, 0x60, 0x8b, 0xd9, 0x84, 0xf2, 0x58, 0x55, 0xfb, 0x02, 0x9b, 0x96, 0xd9,
-	0x0e, 0x5c, 0xd1, 0xe1, 0xd7, 0xa8, 0x0a, 0x1b, 0x1d, 0xe7, 0x5b, 0xc8, 0x06, 0x94, 0x55, 0x8c,
-	0x63, 0xe3, 0x45, 0x89, 0x24, 0x6b, 0xc5, 0xdc, 0x20, 0x66, 0xcb, 0x9a, 0xe9, 0x35, 0x3a, 0x80,
-	0x35, 0x6b, 0x3a, 0x8c, 0xc8, 0x8a, 0x22, 0x7a, 0x55, 0xfb, 0x0a, 0xdb, 0xc9, 0xe6, 0x84, 0x4f,
-	0xfe, 0xfb, 0xfe, 0xbf, 0x0d, 0x28, 0x59, 0xe6, 0xb9, 0xea, 0xba, 0x1b, 0x0a, 0xf7, 0x0a, 0x7d,
-	0x80, 0x4d, 0x7c, 0x4b, 0x03, 0xd1, 0x97, 0x2d, 0xaa, 0x23, 0x76, 0x1a, 0xc7, 0xf5, 0xcc, 0x45,
-	0xd4, 0x33, 0x86, 0x48, 0x47, 0x52, 0x0b, 0x7a, 0x27, 0xfd, 0x8c, 0x59, 0xc2, 0x11, 0x53, 0xae,
-	0x62, 0x6c, 0x35, 0x0e, 0x73, 0x7e, 0xa9, 0x08, 0xb5, 0x86, 0xa4, 0x72, 0xf4, 0x1e, 0x20, 0xea,
-	0x55, 0x36, 0x2a, 0xdb, 0x55, 0x49, 0xb7, 0x1a, 0xcf, 0x72, 0xe6, 0xf4, 0x3a, 0x2e, 0x96, 0xc8,
-	0x9c, 0xa1, 0xb5, 0x0e, 0xab, 0x2a, 0x47, 0x6d, 0x0f, 0x76, 0xef, 0x32, 0xf2, 0x73, 0x1a, 0x89,
-	0x6b, 0x7f, 0x56, 0x01, 0xdd, 0xab, 0x45, 0xf7, 0x99, 0x49, 0x6b, 0xfc, 0x5b, 0xda, 0x53, 0x28,
-	0x77, 0x9c, 0x1f, 0x03, 0x76, 0xd5, 0x75, 0x7c, 0x6a, 0xd2, 0xe0, 0x5a, 0xdc, 0xe8, 0x7b, 0xcf,
-	0xd5, 0xd1, 0x1b, 0x38, 0x90, 0xb5, 0x76, 0x20, 0x28, 0xbb, 0x72, 0x46, 0x74, 0xce, 0x11, 0x7f,
-	0x8f, 0x05, 0x54, 0x9f, 0xd1, 0x73, 0xc4, 0x0d, 0xef, 0x51, 0x86, 0x03, 0xc1, 0x66, 0x95, 0x47,
-	0xc9, 0x19, 0x99, 0xba, 0x3e, 0xa3, 0xc7, 0x5c, 0xdf, 0x61, 0xb3, 0x08, 0x25, 0x8e, 0xd5, 0xe4,
-	0x8c, 0x02, 0x8a, 0x5e, 0xc3, 0xbe, 0x24, 0x2d, 0x67, 0xf4, 0x7d, 0x3a, 0xc9, 0xd8, 0xd6, 0x94,
-	0xad, 0x18, 0xa2, 0x06, 0x3c, 0x91, 0xa0, 0x33, 0xf1, 0xb8, 0xe9, 0x0c, 0xa9, 0x17, 0xc5, 0x88,
-	0x78, 0x65, 0x5d, 0x99, 0x0a, 0x19, 0x3a, 0x83, 0xc7, 0xf2, 0x8f, 0x9c, 0xcb, 0xd0, 0x1e, 0x77,
-	0xa7, 0x7e, 0x65, 0x43, 0x59, 0x8a, 0x90, 0x72, 0x64, 0x52, 0xc7, 0x8e, 0x4d, 0xed, 0xc8, 0x23,
-	0x54, 0x07, 0x24, 0x37, 0x4a, 0x03, 0xc7, 0x06, 0x50, 0x86, 0x02, 0xa2, 0xf4, 0xf3, 0x0d, 0xc6,
-	0xfa, 0x2d, 0xad, 0xcf, 0x11, 0x9d, 0x88, 0x50, 0x3f, 0x14, 0xb4, 0x39, 0x1e, 0x33, 0xca, 0x79,
-	0x64, 0xd8, 0x4e, 0x12, 0xdd, 0x47, 0xe8, 0x25, 0xec, 0xc9, 0xb2, 0xd9, 0x68, 0x8d, 0xe7, 0x3e,
-	0x7b, 0x49, 0xe9, 0xf3, 0x00, 0xbd, 0x85, 0xa7, 0xaa, 0xd8, 0xf3, 0xb9, 0xdb, 0x9f, 0x06, 0x01,
-	0xf5, 0xda, 0x63, 0xed, 0xd9, 0x51, 0x9e, 0x45, 0xf8, 0xf4, 0xa7, 0x01, 0x7b, 0xb9, 0xa7, 0x89,
-	0x4e, 0xe0, 0xb9, 0x65, 0xda, 0xe7, 0xe6, 0x65, 0xab, 0x69, 0xda, 0x78, 0x80, 0xbb, 0x7d, 0xbb,
-	0xff, 0xb9, 0x87, 0x6d, 0x82, 0x2d, 0x4c, 0x06, 0xf8, 0x63, 0x79, 0x09, 0x1d, 0x41, 0xb5, 0x50,
-	0x82, 0x09, 0xb9, 0x24, 0x65, 0x03, 0xd5, 0xe0, 0xa8, 0x90, 0x5f, 0xe0, 0x26, 0xe9, 0xb7, 0x70,
-	0xb3, 0x5f, 0x5e, 0x46, 0xc7, 0x70, 0x58, 0xa8, 0x19, 0x60, 0x62, 0xb5, 0x2f, 0xbb, 0xe5, 0x95,
-	0xc6, 0x2f, 0x03, 0x36, 0xee, 0xe2, 0xa1, 0x4e, 0x1a, 0x35, 0x7a, 0xc0, 0xf1, 0xe8, 0xa9, 0x2c,
-	0x7a, 0xea, 0xd5, 0xc3, 0x87, 0x26, 0xd0, 0x99, 0x81, 0x3e, 0x45, 0x63, 0x32, 0x7d, 0xdc, 0xe8,
-	0x68, 0x81, 0x5e, 0xbf, 0xfc, 0xea, 0xc9, 0xc3, 0x5c, 0x4e, 0x86, 0xe1, 0x9a, 0x9a, 0xee, 0xaf,
-	0xfe, 0x06, 0x00, 0x00, 0xff, 0xff, 0x37, 0x2c, 0x76, 0x7e, 0x16, 0x06, 0x00, 0x00,
+var fileDescriptor_sl_global_e60e2c7a6665587f = []byte{
+	// 648 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xac, 0x95, 0x5d, 0x4b, 0x1b, 0x4d,
+	0x18, 0x86, 0x5d, 0x7d, 0x8d, 0xe6, 0xd1, 0x68, 0x9c, 0xb7, 0xda, 0x90, 0xaa, 0x68, 0x8e, 0x8a,
+	0x94, 0x20, 0x69, 0x29, 0xa5, 0xd0, 0x42, 0x52, 0x07, 0x0d, 0xec, 0xc6, 0x74, 0x36, 0x04, 0x4a,
+	0xa1, 0xcb, 0x24, 0x19, 0xe3, 0xd6, 0xfd, 0x62, 0x66, 0x22, 0xc9, 0x7f, 0xe9, 0x71, 0x8f, 0xfa,
+	0x6f, 0xfa, 0x87, 0xca, 0xcc, 0xae, 0xf9, 0x70, 0x37, 0x42, 0xa1, 0x87, 0x3b, 0xd7, 0x7d, 0xed,
+	0xdc, 0x33, 0x4b, 0x9e, 0xc0, 0xae, 0xf0, 0x9c, 0xa1, 0x17, 0xf6, 0xa8, 0x57, 0x8d, 0x78, 0x28,
+	0x43, 0x54, 0x10, 0x8c, 0xdf, 0xbb, 0x7d, 0xe6, 0x78, 0x74, 0xc2, 0x78, 0x79, 0x5f, 0x78, 0x4e,
+	0x3f, 0xf4, 0xfd, 0x30, 0x70, 0xe4, 0x24, 0x62, 0x22, 0x4e, 0x55, 0xbe, 0x42, 0xde, 0x36, 0x9b,
+	0x81, 0x2b, 0x2d, 0x31, 0x44, 0x65, 0xd8, 0xb4, 0xe8, 0xf7, 0x90, 0x77, 0x19, 0x2f, 0x19, 0x27,
+	0xc6, 0xcb, 0x02, 0x99, 0x3e, 0x6b, 0xe6, 0x06, 0x31, 0x5b, 0x4d, 0x58, 0xf2, 0x8c, 0x0e, 0x20,
+	0x67, 0x8f, 0x7a, 0x8a, 0xac, 0x69, 0x92, 0x3c, 0x55, 0xbe, 0xc1, 0xf6, 0xf4, 0xe5, 0x44, 0x44,
+	0xff, 0xfc, 0xfd, 0xbf, 0x0d, 0x28, 0xd8, 0xe6, 0xa5, 0x3e, 0x75, 0x2b, 0x94, 0xee, 0x0d, 0xfa,
+	0x08, 0x79, 0x7c, 0xcf, 0x02, 0xd9, 0x99, 0x44, 0x4c, 0x6f, 0xb1, 0x53, 0x3b, 0xa9, 0x2e, 0x5c,
+	0x44, 0x75, 0x41, 0x50, 0x39, 0x32, 0x53, 0xd0, 0x7b, 0xc8, 0x63, 0xce, 0x6d, 0x49, 0xe5, 0x48,
+	0xe8, 0x1a, 0x5b, 0xb5, 0xc3, 0x94, 0x8f, 0x39, 0x0f, 0x93, 0x0c, 0x99, 0xc5, 0xd1, 0x07, 0x00,
+	0x75, 0x56, 0x22, 0x22, 0x4b, 0x0c, 0x75, 0xd3, 0xad, 0xda, 0x8b, 0x94, 0x3c, 0xbb, 0x8e, 0xab,
+	0x15, 0x32, 0x27, 0x34, 0x36, 0x60, 0x5d, 0xf7, 0xa8, 0xec, 0xc1, 0xee, 0x43, 0x47, 0x71, 0xc9,
+	0x54, 0xb8, 0xf2, 0x33, 0x07, 0xe8, 0xd1, 0x9a, 0xba, 0xcf, 0x85, 0xb6, 0xc6, 0xdf, 0xb5, 0x3d,
+	0x83, 0xa2, 0x45, 0xc7, 0x5d, 0x7e, 0xd3, 0xa2, 0x3e, 0x33, 0x59, 0x30, 0x94, 0xb7, 0xc9, 0xbd,
+	0xa7, 0xd6, 0xd1, 0x5b, 0x38, 0xb0, 0xe8, 0xb8, 0x19, 0x48, 0xc6, 0x6f, 0x68, 0x9f, 0xcd, 0x19,
+	0xf1, 0xf7, 0x58, 0x42, 0x93, 0x3d, 0xda, 0x54, 0xde, 0x8a, 0x36, 0xe3, 0x38, 0x90, 0x7c, 0x52,
+	0xfa, 0x6f, 0xba, 0xc7, 0xc2, 0x7a, 0xb2, 0x47, 0x9b, 0xbb, 0x3e, 0xe5, 0x13, 0x85, 0xa6, 0xc6,
+	0xfa, 0x74, 0x8f, 0x0c, 0x8a, 0xde, 0xc0, 0xbe, 0x45, 0xc7, 0x0d, 0xda, 0xbf, 0x1b, 0x45, 0x0b,
+	0x5a, 0x4e, 0x6b, 0xd9, 0x10, 0xd5, 0xe0, 0x99, 0x45, 0xc7, 0x56, 0xe4, 0x09, 0x93, 0xf6, 0x98,
+	0xa7, 0x6a, 0x28, 0x5e, 0xda, 0xd0, 0x52, 0x26, 0x43, 0xe7, 0xf0, 0xbf, 0xe5, 0x06, 0x73, 0x1d,
+	0x9a, 0x83, 0xd6, 0xc8, 0x2f, 0x6d, 0x6a, 0x25, 0x0b, 0x69, 0x63, 0xa1, 0x75, 0x6c, 0xe4, 0x13,
+	0x23, 0x8d, 0x50, 0x15, 0x90, 0xe5, 0x06, 0xb3, 0xc2, 0xb1, 0x00, 0x5a, 0xc8, 0x20, 0x3a, 0x3f,
+	0x7f, 0xc0, 0x38, 0xbf, 0x95, 0xe4, 0x53, 0x24, 0x69, 0x44, 0x98, 0x1f, 0x4a, 0x56, 0x1f, 0x0c,
+	0x38, 0x13, 0x42, 0x09, 0xdb, 0xd3, 0x46, 0x8f, 0x11, 0x7a, 0x05, 0x7b, 0x16, 0x1d, 0x9b, 0xb5,
+	0xc6, 0x60, 0xee, 0xb3, 0x17, 0x74, 0x3e, 0x0d, 0xd0, 0x3b, 0x78, 0xae, 0x17, 0xdb, 0xbe, 0x70,
+	0x3b, 0xa3, 0x20, 0x60, 0x5e, 0x73, 0x90, 0x38, 0x3b, 0xda, 0x59, 0x86, 0xd1, 0x05, 0x1c, 0x29,
+	0xa4, 0x6e, 0xbc, 0xe1, 0x85, 0xfd, 0xbb, 0x4f, 0x9e, 0xcb, 0x02, 0x39, 0xb7, 0xe7, 0xae, 0xf6,
+	0x9f, 0x0e, 0x9d, 0xfd, 0x30, 0x60, 0x2f, 0xf5, 0x03, 0x47, 0xa7, 0x70, 0x64, 0x9b, 0xce, 0xa5,
+	0x79, 0xdd, 0xa8, 0x9b, 0x0e, 0xee, 0xe2, 0x56, 0xc7, 0xe9, 0x7c, 0x69, 0x63, 0x87, 0x60, 0x1b,
+	0x93, 0x2e, 0xbe, 0x28, 0xae, 0xa0, 0x63, 0x28, 0x67, 0x46, 0x30, 0x21, 0xd7, 0xa4, 0x68, 0xa0,
+	0x0a, 0x1c, 0x67, 0xf2, 0x2b, 0x5c, 0x27, 0x9d, 0x06, 0xae, 0x77, 0x8a, 0xab, 0xe8, 0x04, 0x0e,
+	0x33, 0x33, 0x5d, 0x4c, 0xec, 0xe6, 0x75, 0xab, 0xb8, 0x56, 0xfb, 0x65, 0xc0, 0xe6, 0x43, 0x3d,
+	0x64, 0xcd, 0xaa, 0xaa, 0x31, 0x10, 0x0f, 0xb0, 0xd2, 0xb2, 0x81, 0x51, 0x3e, 0x7c, 0x6a, 0x8e,
+	0x9d, 0x1b, 0xe8, 0xb3, 0x1a, 0xb6, 0xb3, 0x11, 0x81, 0x8e, 0x97, 0xe4, 0x93, 0xf9, 0x51, 0x3e,
+	0x7d, 0x9a, 0x13, 0x11, 0xf5, 0x72, 0xfa, 0x3f, 0xe2, 0xf5, 0x9f, 0x00, 0x00, 0x00, 0xff, 0xff,
+	0xef, 0xea, 0x6d, 0xb5, 0x5c, 0x06, 0x00, 0x00,
 }

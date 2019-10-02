@@ -1,8 +1,12 @@
-### Service Layer API
+# Service Layer API
+
+## Introduction
 
 In IOS-XR, routing protocols make use of services provided by the Routing Information Base (RIB), the MPLS label manager, BFD, and other modules, in order to program the forwarding plane. Such programming is exposed through the service layer API, which is very rich in nature.
 
 Exposing the Service Layer API as a Google RPC (or GRPC), over Google protocol buffers (Protobuf or GPB), enables customers to write their own applications, routing protocols, controllers, etc., whether on box or off box, in a rich set of languages including C++, Python, GO, etc.
+
+## Service Layer Verticals
 
 The Service Layer API is currently organized in a set of files that expose certain verticals e.g. IPv4 RIB functionality, or MPLS functionality, etc.
 In the initial releases, the focus is to provide the following verticals:
@@ -14,6 +18,8 @@ In the initial releases, the focus is to provide the following verticals:
 * Interfaces: This mainly allows registered clients to get interface state event notifications.
 * L2: This mainly handles L2 route changes and Bridge-Domain (BD) registrations. 
 * More functions may be added in the future.
+
+### Vertical RPC functions
 
 Each function vertical, e.g. RIB vertical, declares a "template" set of RPCs that is more or less consistently followed throughout other verticals. Some of these template RPCs are explained here:
 
@@ -30,23 +36,49 @@ In addition, certain RPCs may also allow for batching e.g. creating a number of 
 
 Each RPC usually takes a GRPC "message" or request, typically labeled (Something)Msg, example SLRoutev4Msg, which defines the parameters of the request, and return another "message", typically labeled (Something)MsgRsp as a response to the RPC request, example SLRoutev4MsgRsp.
 
+## Documentation
+
 Note that all files are annotated with detailed documentation.
 The user of the API can use Doxygen to render his/her own local documentation, refer to instructions under docs directory. The html generated documentation is broken up into sections that describe the messages, verticals, files, etc, and are very useful for quick reference.
 
-Finally, please note that the API comes with:
 
-* A quick start tutorial written in Python. The intent here is to get the user a jump-start on hooking up with the API. The reader is advised to try this next.
+## Tutorials
+
+Finally, please note that the API comes with the following tutorials:
+
+### Python
+
+A quick start tutorial written in Python. The intent here is to get the user a jump-start on hooking up with the API. The reader is advised to try this next.
+
+It can be found here:
+```
+ grpc/python/src/tutorial/quickstart.py
+```
+
+### Golang (Go)
+
+Another similar tutorial written in GO (golang). This tutorial's code is pre-compiled and committed in the code repo for a quick start on some of the API key features showing batching, etc.
+
+It can be found here:
 
 ```
-This can be found here: grpc/python/src/tutorial/
+grpc/go/src/tutorial/quickstart.go
+```
+The executable can be found here:
+```
+grpc/go/src/tutorial/tutorial
 ```
 
-* Another similar tutorial written in GO (golang). This tutorial's code is pre-compiled and committed in the code repo for a quick start on some of the API key features showing batching, etc.
+A makefile exists in the tutorial directory and could be invoked to re-build the tutorial if invoked within the docker container created by the service layer top makefile. To build:
 
 ```
-This can be found here: grpc/go/src/tutorial/quickstart.go
-The executable can be found here: grpc/go/src/tutorial/tutorial
+# cd (top level)
+# make (creates/launches container)
+root@b08eb2f2cd15:/slapi# cd grpc/go/src/tutorial
+root@b08eb2f2cd15:/slapi# make
 ```
+
+## Python UT regresion suite
 
 * A Python unittest regression suite that covers basic API sanities. It is also very useful and handy if someone wants to get some reference implementation for a certain use case.
 
@@ -64,7 +96,21 @@ export SERVER_PORT=57344
 Run All tests:
 
 ```
+cd grpc/python/src
 python3 -m unittest -v tests.test_sl_api
 ```
+
+## Versions
+
+The service layer repository comes with generated bindings for python, c++ and golang. These bindings have been generated using the same versions of the grpc and protobuf packages as those of the gRPC server running on IOS-XR for the release this branch is named after.
+
+
+| Package | Version |
+|---------|---------|
+| gRPC | v1.9.1 |
+| Protobuf | v3.2.0 |
+
+
+## Summary
 
 We hope that the above was useful quick overview about the Service Layer API. We recommend that the reader go over the Python quick tutorial first and then go over the .proto files under grpc/protos (or look at the generated .html pages - these are not kept in this repo, but can be auto-generated from this repo).

@@ -25,121 +25,122 @@ static const char* SLBfdv6Oper_method_names[] = {
 };
 
 std::unique_ptr< SLBfdv6Oper::Stub> SLBfdv6Oper::NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options) {
+  (void)options;
   std::unique_ptr< SLBfdv6Oper::Stub> stub(new SLBfdv6Oper::Stub(channel));
   return stub;
 }
 
 SLBfdv6Oper::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel)
-  : channel_(channel), rpcmethod_SLBfdv6RegOp_(SLBfdv6Oper_method_names[0], ::grpc::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_SLBfdv6Get_(SLBfdv6Oper_method_names[1], ::grpc::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_SLBfdv6GetStats_(SLBfdv6Oper_method_names[2], ::grpc::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_SLBfdv6GetNotifStream_(SLBfdv6Oper_method_names[3], ::grpc::RpcMethod::SERVER_STREAMING, channel)
-  , rpcmethod_SLBfdv6SessionOp_(SLBfdv6Oper_method_names[4], ::grpc::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_SLBfdv6SessionGet_(SLBfdv6Oper_method_names[5], ::grpc::RpcMethod::NORMAL_RPC, channel)
+  : channel_(channel), rpcmethod_SLBfdv6RegOp_(SLBfdv6Oper_method_names[0], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_SLBfdv6Get_(SLBfdv6Oper_method_names[1], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_SLBfdv6GetStats_(SLBfdv6Oper_method_names[2], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_SLBfdv6GetNotifStream_(SLBfdv6Oper_method_names[3], ::grpc::internal::RpcMethod::SERVER_STREAMING, channel)
+  , rpcmethod_SLBfdv6SessionOp_(SLBfdv6Oper_method_names[4], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_SLBfdv6SessionGet_(SLBfdv6Oper_method_names[5], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   {}
 
 ::grpc::Status SLBfdv6Oper::Stub::SLBfdv6RegOp(::grpc::ClientContext* context, const ::service_layer::SLBfdRegMsg& request, ::service_layer::SLBfdRegMsgRsp* response) {
-  return ::grpc::BlockingUnaryCall(channel_.get(), rpcmethod_SLBfdv6RegOp_, context, request, response);
+  return ::grpc::internal::BlockingUnaryCall(channel_.get(), rpcmethod_SLBfdv6RegOp_, context, request, response);
 }
 
 ::grpc::ClientAsyncResponseReader< ::service_layer::SLBfdRegMsgRsp>* SLBfdv6Oper::Stub::AsyncSLBfdv6RegOpRaw(::grpc::ClientContext* context, const ::service_layer::SLBfdRegMsg& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::ClientAsyncResponseReader< ::service_layer::SLBfdRegMsgRsp>::Create(channel_.get(), cq, rpcmethod_SLBfdv6RegOp_, context, request, true);
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::service_layer::SLBfdRegMsgRsp>::Create(channel_.get(), cq, rpcmethod_SLBfdv6RegOp_, context, request, true);
 }
 
 ::grpc::ClientAsyncResponseReader< ::service_layer::SLBfdRegMsgRsp>* SLBfdv6Oper::Stub::PrepareAsyncSLBfdv6RegOpRaw(::grpc::ClientContext* context, const ::service_layer::SLBfdRegMsg& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::ClientAsyncResponseReader< ::service_layer::SLBfdRegMsgRsp>::Create(channel_.get(), cq, rpcmethod_SLBfdv6RegOp_, context, request, false);
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::service_layer::SLBfdRegMsgRsp>::Create(channel_.get(), cq, rpcmethod_SLBfdv6RegOp_, context, request, false);
 }
 
 ::grpc::Status SLBfdv6Oper::Stub::SLBfdv6Get(::grpc::ClientContext* context, const ::service_layer::SLBfdGetMsg& request, ::service_layer::SLBfdGetMsgRsp* response) {
-  return ::grpc::BlockingUnaryCall(channel_.get(), rpcmethod_SLBfdv6Get_, context, request, response);
+  return ::grpc::internal::BlockingUnaryCall(channel_.get(), rpcmethod_SLBfdv6Get_, context, request, response);
 }
 
 ::grpc::ClientAsyncResponseReader< ::service_layer::SLBfdGetMsgRsp>* SLBfdv6Oper::Stub::AsyncSLBfdv6GetRaw(::grpc::ClientContext* context, const ::service_layer::SLBfdGetMsg& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::ClientAsyncResponseReader< ::service_layer::SLBfdGetMsgRsp>::Create(channel_.get(), cq, rpcmethod_SLBfdv6Get_, context, request, true);
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::service_layer::SLBfdGetMsgRsp>::Create(channel_.get(), cq, rpcmethod_SLBfdv6Get_, context, request, true);
 }
 
 ::grpc::ClientAsyncResponseReader< ::service_layer::SLBfdGetMsgRsp>* SLBfdv6Oper::Stub::PrepareAsyncSLBfdv6GetRaw(::grpc::ClientContext* context, const ::service_layer::SLBfdGetMsg& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::ClientAsyncResponseReader< ::service_layer::SLBfdGetMsgRsp>::Create(channel_.get(), cq, rpcmethod_SLBfdv6Get_, context, request, false);
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::service_layer::SLBfdGetMsgRsp>::Create(channel_.get(), cq, rpcmethod_SLBfdv6Get_, context, request, false);
 }
 
 ::grpc::Status SLBfdv6Oper::Stub::SLBfdv6GetStats(::grpc::ClientContext* context, const ::service_layer::SLBfdGetMsg& request, ::service_layer::SLBfdGetStatsMsgRsp* response) {
-  return ::grpc::BlockingUnaryCall(channel_.get(), rpcmethod_SLBfdv6GetStats_, context, request, response);
+  return ::grpc::internal::BlockingUnaryCall(channel_.get(), rpcmethod_SLBfdv6GetStats_, context, request, response);
 }
 
 ::grpc::ClientAsyncResponseReader< ::service_layer::SLBfdGetStatsMsgRsp>* SLBfdv6Oper::Stub::AsyncSLBfdv6GetStatsRaw(::grpc::ClientContext* context, const ::service_layer::SLBfdGetMsg& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::ClientAsyncResponseReader< ::service_layer::SLBfdGetStatsMsgRsp>::Create(channel_.get(), cq, rpcmethod_SLBfdv6GetStats_, context, request, true);
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::service_layer::SLBfdGetStatsMsgRsp>::Create(channel_.get(), cq, rpcmethod_SLBfdv6GetStats_, context, request, true);
 }
 
 ::grpc::ClientAsyncResponseReader< ::service_layer::SLBfdGetStatsMsgRsp>* SLBfdv6Oper::Stub::PrepareAsyncSLBfdv6GetStatsRaw(::grpc::ClientContext* context, const ::service_layer::SLBfdGetMsg& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::ClientAsyncResponseReader< ::service_layer::SLBfdGetStatsMsgRsp>::Create(channel_.get(), cq, rpcmethod_SLBfdv6GetStats_, context, request, false);
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::service_layer::SLBfdGetStatsMsgRsp>::Create(channel_.get(), cq, rpcmethod_SLBfdv6GetStats_, context, request, false);
 }
 
 ::grpc::ClientReader< ::service_layer::SLBfdv6Notif>* SLBfdv6Oper::Stub::SLBfdv6GetNotifStreamRaw(::grpc::ClientContext* context, const ::service_layer::SLBfdGetNotifMsg& request) {
-  return new ::grpc::ClientReader< ::service_layer::SLBfdv6Notif>(channel_.get(), rpcmethod_SLBfdv6GetNotifStream_, context, request);
+  return ::grpc::internal::ClientReaderFactory< ::service_layer::SLBfdv6Notif>::Create(channel_.get(), rpcmethod_SLBfdv6GetNotifStream_, context, request);
 }
 
 ::grpc::ClientAsyncReader< ::service_layer::SLBfdv6Notif>* SLBfdv6Oper::Stub::AsyncSLBfdv6GetNotifStreamRaw(::grpc::ClientContext* context, const ::service_layer::SLBfdGetNotifMsg& request, ::grpc::CompletionQueue* cq, void* tag) {
-  return ::grpc::ClientAsyncReader< ::service_layer::SLBfdv6Notif>::Create(channel_.get(), cq, rpcmethod_SLBfdv6GetNotifStream_, context, request, true, tag);
+  return ::grpc::internal::ClientAsyncReaderFactory< ::service_layer::SLBfdv6Notif>::Create(channel_.get(), cq, rpcmethod_SLBfdv6GetNotifStream_, context, request, true, tag);
 }
 
 ::grpc::ClientAsyncReader< ::service_layer::SLBfdv6Notif>* SLBfdv6Oper::Stub::PrepareAsyncSLBfdv6GetNotifStreamRaw(::grpc::ClientContext* context, const ::service_layer::SLBfdGetNotifMsg& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::ClientAsyncReader< ::service_layer::SLBfdv6Notif>::Create(channel_.get(), cq, rpcmethod_SLBfdv6GetNotifStream_, context, request, false, nullptr);
+  return ::grpc::internal::ClientAsyncReaderFactory< ::service_layer::SLBfdv6Notif>::Create(channel_.get(), cq, rpcmethod_SLBfdv6GetNotifStream_, context, request, false, nullptr);
 }
 
 ::grpc::Status SLBfdv6Oper::Stub::SLBfdv6SessionOp(::grpc::ClientContext* context, const ::service_layer::SLBfdv6Msg& request, ::service_layer::SLBfdv6MsgRsp* response) {
-  return ::grpc::BlockingUnaryCall(channel_.get(), rpcmethod_SLBfdv6SessionOp_, context, request, response);
+  return ::grpc::internal::BlockingUnaryCall(channel_.get(), rpcmethod_SLBfdv6SessionOp_, context, request, response);
 }
 
 ::grpc::ClientAsyncResponseReader< ::service_layer::SLBfdv6MsgRsp>* SLBfdv6Oper::Stub::AsyncSLBfdv6SessionOpRaw(::grpc::ClientContext* context, const ::service_layer::SLBfdv6Msg& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::ClientAsyncResponseReader< ::service_layer::SLBfdv6MsgRsp>::Create(channel_.get(), cq, rpcmethod_SLBfdv6SessionOp_, context, request, true);
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::service_layer::SLBfdv6MsgRsp>::Create(channel_.get(), cq, rpcmethod_SLBfdv6SessionOp_, context, request, true);
 }
 
 ::grpc::ClientAsyncResponseReader< ::service_layer::SLBfdv6MsgRsp>* SLBfdv6Oper::Stub::PrepareAsyncSLBfdv6SessionOpRaw(::grpc::ClientContext* context, const ::service_layer::SLBfdv6Msg& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::ClientAsyncResponseReader< ::service_layer::SLBfdv6MsgRsp>::Create(channel_.get(), cq, rpcmethod_SLBfdv6SessionOp_, context, request, false);
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::service_layer::SLBfdv6MsgRsp>::Create(channel_.get(), cq, rpcmethod_SLBfdv6SessionOp_, context, request, false);
 }
 
 ::grpc::Status SLBfdv6Oper::Stub::SLBfdv6SessionGet(::grpc::ClientContext* context, const ::service_layer::SLBfdv6GetMsg& request, ::service_layer::SLBfdv6GetMsgRsp* response) {
-  return ::grpc::BlockingUnaryCall(channel_.get(), rpcmethod_SLBfdv6SessionGet_, context, request, response);
+  return ::grpc::internal::BlockingUnaryCall(channel_.get(), rpcmethod_SLBfdv6SessionGet_, context, request, response);
 }
 
 ::grpc::ClientAsyncResponseReader< ::service_layer::SLBfdv6GetMsgRsp>* SLBfdv6Oper::Stub::AsyncSLBfdv6SessionGetRaw(::grpc::ClientContext* context, const ::service_layer::SLBfdv6GetMsg& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::ClientAsyncResponseReader< ::service_layer::SLBfdv6GetMsgRsp>::Create(channel_.get(), cq, rpcmethod_SLBfdv6SessionGet_, context, request, true);
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::service_layer::SLBfdv6GetMsgRsp>::Create(channel_.get(), cq, rpcmethod_SLBfdv6SessionGet_, context, request, true);
 }
 
 ::grpc::ClientAsyncResponseReader< ::service_layer::SLBfdv6GetMsgRsp>* SLBfdv6Oper::Stub::PrepareAsyncSLBfdv6SessionGetRaw(::grpc::ClientContext* context, const ::service_layer::SLBfdv6GetMsg& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::ClientAsyncResponseReader< ::service_layer::SLBfdv6GetMsgRsp>::Create(channel_.get(), cq, rpcmethod_SLBfdv6SessionGet_, context, request, false);
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::service_layer::SLBfdv6GetMsgRsp>::Create(channel_.get(), cq, rpcmethod_SLBfdv6SessionGet_, context, request, false);
 }
 
 SLBfdv6Oper::Service::Service() {
-  AddMethod(new ::grpc::RpcServiceMethod(
+  AddMethod(new ::grpc::internal::RpcServiceMethod(
       SLBfdv6Oper_method_names[0],
-      ::grpc::RpcMethod::NORMAL_RPC,
-      new ::grpc::RpcMethodHandler< SLBfdv6Oper::Service, ::service_layer::SLBfdRegMsg, ::service_layer::SLBfdRegMsgRsp>(
+      ::grpc::internal::RpcMethod::NORMAL_RPC,
+      new ::grpc::internal::RpcMethodHandler< SLBfdv6Oper::Service, ::service_layer::SLBfdRegMsg, ::service_layer::SLBfdRegMsgRsp>(
           std::mem_fn(&SLBfdv6Oper::Service::SLBfdv6RegOp), this)));
-  AddMethod(new ::grpc::RpcServiceMethod(
+  AddMethod(new ::grpc::internal::RpcServiceMethod(
       SLBfdv6Oper_method_names[1],
-      ::grpc::RpcMethod::NORMAL_RPC,
-      new ::grpc::RpcMethodHandler< SLBfdv6Oper::Service, ::service_layer::SLBfdGetMsg, ::service_layer::SLBfdGetMsgRsp>(
+      ::grpc::internal::RpcMethod::NORMAL_RPC,
+      new ::grpc::internal::RpcMethodHandler< SLBfdv6Oper::Service, ::service_layer::SLBfdGetMsg, ::service_layer::SLBfdGetMsgRsp>(
           std::mem_fn(&SLBfdv6Oper::Service::SLBfdv6Get), this)));
-  AddMethod(new ::grpc::RpcServiceMethod(
+  AddMethod(new ::grpc::internal::RpcServiceMethod(
       SLBfdv6Oper_method_names[2],
-      ::grpc::RpcMethod::NORMAL_RPC,
-      new ::grpc::RpcMethodHandler< SLBfdv6Oper::Service, ::service_layer::SLBfdGetMsg, ::service_layer::SLBfdGetStatsMsgRsp>(
+      ::grpc::internal::RpcMethod::NORMAL_RPC,
+      new ::grpc::internal::RpcMethodHandler< SLBfdv6Oper::Service, ::service_layer::SLBfdGetMsg, ::service_layer::SLBfdGetStatsMsgRsp>(
           std::mem_fn(&SLBfdv6Oper::Service::SLBfdv6GetStats), this)));
-  AddMethod(new ::grpc::RpcServiceMethod(
+  AddMethod(new ::grpc::internal::RpcServiceMethod(
       SLBfdv6Oper_method_names[3],
-      ::grpc::RpcMethod::SERVER_STREAMING,
-      new ::grpc::ServerStreamingHandler< SLBfdv6Oper::Service, ::service_layer::SLBfdGetNotifMsg, ::service_layer::SLBfdv6Notif>(
+      ::grpc::internal::RpcMethod::SERVER_STREAMING,
+      new ::grpc::internal::ServerStreamingHandler< SLBfdv6Oper::Service, ::service_layer::SLBfdGetNotifMsg, ::service_layer::SLBfdv6Notif>(
           std::mem_fn(&SLBfdv6Oper::Service::SLBfdv6GetNotifStream), this)));
-  AddMethod(new ::grpc::RpcServiceMethod(
+  AddMethod(new ::grpc::internal::RpcServiceMethod(
       SLBfdv6Oper_method_names[4],
-      ::grpc::RpcMethod::NORMAL_RPC,
-      new ::grpc::RpcMethodHandler< SLBfdv6Oper::Service, ::service_layer::SLBfdv6Msg, ::service_layer::SLBfdv6MsgRsp>(
+      ::grpc::internal::RpcMethod::NORMAL_RPC,
+      new ::grpc::internal::RpcMethodHandler< SLBfdv6Oper::Service, ::service_layer::SLBfdv6Msg, ::service_layer::SLBfdv6MsgRsp>(
           std::mem_fn(&SLBfdv6Oper::Service::SLBfdv6SessionOp), this)));
-  AddMethod(new ::grpc::RpcServiceMethod(
+  AddMethod(new ::grpc::internal::RpcServiceMethod(
       SLBfdv6Oper_method_names[5],
-      ::grpc::RpcMethod::NORMAL_RPC,
-      new ::grpc::RpcMethodHandler< SLBfdv6Oper::Service, ::service_layer::SLBfdv6GetMsg, ::service_layer::SLBfdv6GetMsgRsp>(
+      ::grpc::internal::RpcMethod::NORMAL_RPC,
+      new ::grpc::internal::RpcMethodHandler< SLBfdv6Oper::Service, ::service_layer::SLBfdv6GetMsg, ::service_layer::SLBfdv6GetMsgRsp>(
           std::mem_fn(&SLBfdv6Oper::Service::SLBfdv6SessionGet), this)));
 }
 

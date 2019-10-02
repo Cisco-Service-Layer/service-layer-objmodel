@@ -32,7 +32,6 @@
 namespace grpc {
 class CompletionQueue;
 class Channel;
-class RpcService;
 class ServerCompletionQueue;
 class ServerContext;
 }  // namespace grpc
@@ -218,12 +217,12 @@ class SLBfdv6Oper final {
     ::grpc::ClientAsyncResponseReader< ::service_layer::SLBfdv6MsgRsp>* PrepareAsyncSLBfdv6SessionOpRaw(::grpc::ClientContext* context, const ::service_layer::SLBfdv6Msg& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::service_layer::SLBfdv6GetMsgRsp>* AsyncSLBfdv6SessionGetRaw(::grpc::ClientContext* context, const ::service_layer::SLBfdv6GetMsg& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::service_layer::SLBfdv6GetMsgRsp>* PrepareAsyncSLBfdv6SessionGetRaw(::grpc::ClientContext* context, const ::service_layer::SLBfdv6GetMsg& request, ::grpc::CompletionQueue* cq) override;
-    const ::grpc::RpcMethod rpcmethod_SLBfdv6RegOp_;
-    const ::grpc::RpcMethod rpcmethod_SLBfdv6Get_;
-    const ::grpc::RpcMethod rpcmethod_SLBfdv6GetStats_;
-    const ::grpc::RpcMethod rpcmethod_SLBfdv6GetNotifStream_;
-    const ::grpc::RpcMethod rpcmethod_SLBfdv6SessionOp_;
-    const ::grpc::RpcMethod rpcmethod_SLBfdv6SessionGet_;
+    const ::grpc::internal::RpcMethod rpcmethod_SLBfdv6RegOp_;
+    const ::grpc::internal::RpcMethod rpcmethod_SLBfdv6Get_;
+    const ::grpc::internal::RpcMethod rpcmethod_SLBfdv6GetStats_;
+    const ::grpc::internal::RpcMethod rpcmethod_SLBfdv6GetNotifStream_;
+    const ::grpc::internal::RpcMethod rpcmethod_SLBfdv6SessionOp_;
+    const ::grpc::internal::RpcMethod rpcmethod_SLBfdv6SessionGet_;
   };
   static std::unique_ptr<Stub> NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options = ::grpc::StubOptions());
 
@@ -512,7 +511,7 @@ class SLBfdv6Oper final {
    public:
     WithStreamedUnaryMethod_SLBfdv6RegOp() {
       ::grpc::Service::MarkMethodStreamed(0,
-        new ::grpc::StreamedUnaryHandler< ::service_layer::SLBfdRegMsg, ::service_layer::SLBfdRegMsgRsp>(std::bind(&WithStreamedUnaryMethod_SLBfdv6RegOp<BaseClass>::StreamedSLBfdv6RegOp, this, std::placeholders::_1, std::placeholders::_2)));
+        new ::grpc::internal::StreamedUnaryHandler< ::service_layer::SLBfdRegMsg, ::service_layer::SLBfdRegMsgRsp>(std::bind(&WithStreamedUnaryMethod_SLBfdv6RegOp<BaseClass>::StreamedSLBfdv6RegOp, this, std::placeholders::_1, std::placeholders::_2)));
     }
     ~WithStreamedUnaryMethod_SLBfdv6RegOp() override {
       BaseClassMustBeDerivedFromService(this);
@@ -532,7 +531,7 @@ class SLBfdv6Oper final {
    public:
     WithStreamedUnaryMethod_SLBfdv6Get() {
       ::grpc::Service::MarkMethodStreamed(1,
-        new ::grpc::StreamedUnaryHandler< ::service_layer::SLBfdGetMsg, ::service_layer::SLBfdGetMsgRsp>(std::bind(&WithStreamedUnaryMethod_SLBfdv6Get<BaseClass>::StreamedSLBfdv6Get, this, std::placeholders::_1, std::placeholders::_2)));
+        new ::grpc::internal::StreamedUnaryHandler< ::service_layer::SLBfdGetMsg, ::service_layer::SLBfdGetMsgRsp>(std::bind(&WithStreamedUnaryMethod_SLBfdv6Get<BaseClass>::StreamedSLBfdv6Get, this, std::placeholders::_1, std::placeholders::_2)));
     }
     ~WithStreamedUnaryMethod_SLBfdv6Get() override {
       BaseClassMustBeDerivedFromService(this);
@@ -552,7 +551,7 @@ class SLBfdv6Oper final {
    public:
     WithStreamedUnaryMethod_SLBfdv6GetStats() {
       ::grpc::Service::MarkMethodStreamed(2,
-        new ::grpc::StreamedUnaryHandler< ::service_layer::SLBfdGetMsg, ::service_layer::SLBfdGetStatsMsgRsp>(std::bind(&WithStreamedUnaryMethod_SLBfdv6GetStats<BaseClass>::StreamedSLBfdv6GetStats, this, std::placeholders::_1, std::placeholders::_2)));
+        new ::grpc::internal::StreamedUnaryHandler< ::service_layer::SLBfdGetMsg, ::service_layer::SLBfdGetStatsMsgRsp>(std::bind(&WithStreamedUnaryMethod_SLBfdv6GetStats<BaseClass>::StreamedSLBfdv6GetStats, this, std::placeholders::_1, std::placeholders::_2)));
     }
     ~WithStreamedUnaryMethod_SLBfdv6GetStats() override {
       BaseClassMustBeDerivedFromService(this);
@@ -572,7 +571,7 @@ class SLBfdv6Oper final {
    public:
     WithStreamedUnaryMethod_SLBfdv6SessionOp() {
       ::grpc::Service::MarkMethodStreamed(4,
-        new ::grpc::StreamedUnaryHandler< ::service_layer::SLBfdv6Msg, ::service_layer::SLBfdv6MsgRsp>(std::bind(&WithStreamedUnaryMethod_SLBfdv6SessionOp<BaseClass>::StreamedSLBfdv6SessionOp, this, std::placeholders::_1, std::placeholders::_2)));
+        new ::grpc::internal::StreamedUnaryHandler< ::service_layer::SLBfdv6Msg, ::service_layer::SLBfdv6MsgRsp>(std::bind(&WithStreamedUnaryMethod_SLBfdv6SessionOp<BaseClass>::StreamedSLBfdv6SessionOp, this, std::placeholders::_1, std::placeholders::_2)));
     }
     ~WithStreamedUnaryMethod_SLBfdv6SessionOp() override {
       BaseClassMustBeDerivedFromService(this);
@@ -592,7 +591,7 @@ class SLBfdv6Oper final {
    public:
     WithStreamedUnaryMethod_SLBfdv6SessionGet() {
       ::grpc::Service::MarkMethodStreamed(5,
-        new ::grpc::StreamedUnaryHandler< ::service_layer::SLBfdv6GetMsg, ::service_layer::SLBfdv6GetMsgRsp>(std::bind(&WithStreamedUnaryMethod_SLBfdv6SessionGet<BaseClass>::StreamedSLBfdv6SessionGet, this, std::placeholders::_1, std::placeholders::_2)));
+        new ::grpc::internal::StreamedUnaryHandler< ::service_layer::SLBfdv6GetMsg, ::service_layer::SLBfdv6GetMsgRsp>(std::bind(&WithStreamedUnaryMethod_SLBfdv6SessionGet<BaseClass>::StreamedSLBfdv6SessionGet, this, std::placeholders::_1, std::placeholders::_2)));
     }
     ~WithStreamedUnaryMethod_SLBfdv6SessionGet() override {
       BaseClassMustBeDerivedFromService(this);
@@ -613,7 +612,7 @@ class SLBfdv6Oper final {
    public:
     WithSplitStreamingMethod_SLBfdv6GetNotifStream() {
       ::grpc::Service::MarkMethodStreamed(3,
-        new ::grpc::SplitServerStreamingHandler< ::service_layer::SLBfdGetNotifMsg, ::service_layer::SLBfdv6Notif>(std::bind(&WithSplitStreamingMethod_SLBfdv6GetNotifStream<BaseClass>::StreamedSLBfdv6GetNotifStream, this, std::placeholders::_1, std::placeholders::_2)));
+        new ::grpc::internal::SplitServerStreamingHandler< ::service_layer::SLBfdGetNotifMsg, ::service_layer::SLBfdv6Notif>(std::bind(&WithSplitStreamingMethod_SLBfdv6GetNotifStream<BaseClass>::StreamedSLBfdv6GetNotifStream, this, std::placeholders::_1, std::placeholders::_2)));
     }
     ~WithSplitStreamingMethod_SLBfdv6GetNotifStream() override {
       BaseClassMustBeDerivedFromService(this);

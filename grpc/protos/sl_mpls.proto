@@ -2,7 +2,7 @@
 // @brief RPC proto file for MPLS types.
 //
 // ----------------------------------------------------------------
-//  Copyright (c) 2016 by Cisco Systems, Inc.
+//  Copyright (c) 2019 by Cisco Systems, Inc.
 //  All rights reserved.
 // -----------------------------------------------------------------
 //
@@ -132,6 +132,14 @@ message SLMplsLabelBlockKey {
     // Label block size.
     // Block size should be <= SLServerResponse.MaxLabelsPerBlock
     uint32 LabelBlockSize = 2;
+
+    // Label block type. See definition of SlMplsLabelBlockType for valid values.
+    // If none specified, defaults to SL_MPLS_LABEL_BLOCK_TYPE_SRGB.
+    SLMplsLabelBlockType BlockType = 3;
+
+    // Label block client name as configured e.g. through CLI.
+    // Client name is ignored if BlockType is not SL_MPLS_LABEL_BLOCK_TYPE_CBF.
+    string ClientName = 4;
 }
 
 // MPLS Label block batch reservation message.
@@ -213,11 +221,29 @@ message SLMplsLabelBlockGetMsgRsp {
 }
 
 // MPLS Registration message.
+message SlMplsReg {
+    // In case the Service Layer -> LSD connection is lost, this specifies the
+    // timeout period after which LSD will automatically purge the installed
+    // ILMs, unless the service layer:
+    //    1. Sends MPLS Registration message
+    //    2. Replays all label blocks and ILMs
+    //    3. and sends MPLS EOF message
+    // Similarly, in the event of an RP Switchover the ILMs must be replayed
+    // within the purge interval.
+    // Purge timer is ignored for all registration messages except for
+    // SL_REGOP_REGISTER
+    uint32 PurgeIntervalSeconds = 1;
+}
+
+// MPLS Registration message.
 // This message is used for MPLS global registration. Clients must register
 // before using any MPLS service.
 message SLMplsRegMsg {
     // Registration Operation
     SLRegOp Oper = 1;
+
+    // Registration Message
+    SlMplsReg RegMsg = 2;
 }
 
 // MPLS Registration response message.
@@ -297,6 +323,21 @@ enum SlLabelAction {
     // Pop and lookup the IPv6 next header in the specified Vrf.
     // Used for per vrf labels at egress PE.
     SL_LABEL_ACTION_POP_AND_LOOKUP_IPV6 = 0x4;
+
+    // Pop and lookup. 0x5
+    // Pop and lookup the next header in the packet (MPLS, IPv4, IPv6) in the specified Vrf.
+    // Used for per vrf labels at egress PE.
+    SL_LABEL_ACTION_POP_AND_LOOKUP = 0x5;
+}
+
+// Label Block Types
+enum SLMplsLabelBlockType {
+    // Reserved. 0x0
+    SL_MPLS_LABEL_BLOCK_TYPE_RESERVED = 0x0;
+    // Segment Routing Global Block (SRGB) Block Type. 0x1
+    SL_MPLS_LABEL_BLOCK_TYPE_SRGB= 0x1;
+    // Class Based Forwarding (CBF) Block Type. 0x2
+    SL_MPLS_LABEL_BLOCK_TYPE_CBF = 0x2;
 }
 
 // MPLS Path (or NHLFE) information.
@@ -406,8 +447,12 @@ message SLMplsCos {
         // this is used to configure E-LSPs (see RFC 3270)
         uint32 Exp = 1;
 
+        // Flag to indicate that this is also an E-LSP entry and all paths
+        // will be using this default path
+        bool DefaultElspPath = 2;
+
         // forwarding class with valid range <0-7>
-        uint32 ForwardingClass = 2;
+        uint32 ForwardingClass = 3;
     }
 }
 
@@ -419,10 +464,6 @@ message SLMplsIlmEntry {
 
     // List of path (NHLFE) information.
     repeated SLMplsPath Paths = 2;
-
-    // Flag to indicate an E-LSP entry.
-    // If set, associated SLMplsCos.Exp will be ignored.
-    bool DefaultElspPath = 3;
 }
 
 // A batch of MPLS ILM entries.

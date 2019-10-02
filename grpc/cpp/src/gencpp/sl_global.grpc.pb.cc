@@ -21,49 +21,50 @@ static const char* SLGlobal_method_names[] = {
 };
 
 std::unique_ptr< SLGlobal::Stub> SLGlobal::NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options) {
+  (void)options;
   std::unique_ptr< SLGlobal::Stub> stub(new SLGlobal::Stub(channel));
   return stub;
 }
 
 SLGlobal::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel)
-  : channel_(channel), rpcmethod_SLGlobalInitNotif_(SLGlobal_method_names[0], ::grpc::RpcMethod::SERVER_STREAMING, channel)
-  , rpcmethod_SLGlobalsGet_(SLGlobal_method_names[1], ::grpc::RpcMethod::NORMAL_RPC, channel)
+  : channel_(channel), rpcmethod_SLGlobalInitNotif_(SLGlobal_method_names[0], ::grpc::internal::RpcMethod::SERVER_STREAMING, channel)
+  , rpcmethod_SLGlobalsGet_(SLGlobal_method_names[1], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   {}
 
 ::grpc::ClientReader< ::service_layer::SLGlobalNotif>* SLGlobal::Stub::SLGlobalInitNotifRaw(::grpc::ClientContext* context, const ::service_layer::SLInitMsg& request) {
-  return new ::grpc::ClientReader< ::service_layer::SLGlobalNotif>(channel_.get(), rpcmethod_SLGlobalInitNotif_, context, request);
+  return ::grpc::internal::ClientReaderFactory< ::service_layer::SLGlobalNotif>::Create(channel_.get(), rpcmethod_SLGlobalInitNotif_, context, request);
 }
 
 ::grpc::ClientAsyncReader< ::service_layer::SLGlobalNotif>* SLGlobal::Stub::AsyncSLGlobalInitNotifRaw(::grpc::ClientContext* context, const ::service_layer::SLInitMsg& request, ::grpc::CompletionQueue* cq, void* tag) {
-  return ::grpc::ClientAsyncReader< ::service_layer::SLGlobalNotif>::Create(channel_.get(), cq, rpcmethod_SLGlobalInitNotif_, context, request, true, tag);
+  return ::grpc::internal::ClientAsyncReaderFactory< ::service_layer::SLGlobalNotif>::Create(channel_.get(), cq, rpcmethod_SLGlobalInitNotif_, context, request, true, tag);
 }
 
 ::grpc::ClientAsyncReader< ::service_layer::SLGlobalNotif>* SLGlobal::Stub::PrepareAsyncSLGlobalInitNotifRaw(::grpc::ClientContext* context, const ::service_layer::SLInitMsg& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::ClientAsyncReader< ::service_layer::SLGlobalNotif>::Create(channel_.get(), cq, rpcmethod_SLGlobalInitNotif_, context, request, false, nullptr);
+  return ::grpc::internal::ClientAsyncReaderFactory< ::service_layer::SLGlobalNotif>::Create(channel_.get(), cq, rpcmethod_SLGlobalInitNotif_, context, request, false, nullptr);
 }
 
 ::grpc::Status SLGlobal::Stub::SLGlobalsGet(::grpc::ClientContext* context, const ::service_layer::SLGlobalsGetMsg& request, ::service_layer::SLGlobalsGetMsgRsp* response) {
-  return ::grpc::BlockingUnaryCall(channel_.get(), rpcmethod_SLGlobalsGet_, context, request, response);
+  return ::grpc::internal::BlockingUnaryCall(channel_.get(), rpcmethod_SLGlobalsGet_, context, request, response);
 }
 
 ::grpc::ClientAsyncResponseReader< ::service_layer::SLGlobalsGetMsgRsp>* SLGlobal::Stub::AsyncSLGlobalsGetRaw(::grpc::ClientContext* context, const ::service_layer::SLGlobalsGetMsg& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::ClientAsyncResponseReader< ::service_layer::SLGlobalsGetMsgRsp>::Create(channel_.get(), cq, rpcmethod_SLGlobalsGet_, context, request, true);
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::service_layer::SLGlobalsGetMsgRsp>::Create(channel_.get(), cq, rpcmethod_SLGlobalsGet_, context, request, true);
 }
 
 ::grpc::ClientAsyncResponseReader< ::service_layer::SLGlobalsGetMsgRsp>* SLGlobal::Stub::PrepareAsyncSLGlobalsGetRaw(::grpc::ClientContext* context, const ::service_layer::SLGlobalsGetMsg& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::ClientAsyncResponseReader< ::service_layer::SLGlobalsGetMsgRsp>::Create(channel_.get(), cq, rpcmethod_SLGlobalsGet_, context, request, false);
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::service_layer::SLGlobalsGetMsgRsp>::Create(channel_.get(), cq, rpcmethod_SLGlobalsGet_, context, request, false);
 }
 
 SLGlobal::Service::Service() {
-  AddMethod(new ::grpc::RpcServiceMethod(
+  AddMethod(new ::grpc::internal::RpcServiceMethod(
       SLGlobal_method_names[0],
-      ::grpc::RpcMethod::SERVER_STREAMING,
-      new ::grpc::ServerStreamingHandler< SLGlobal::Service, ::service_layer::SLInitMsg, ::service_layer::SLGlobalNotif>(
+      ::grpc::internal::RpcMethod::SERVER_STREAMING,
+      new ::grpc::internal::ServerStreamingHandler< SLGlobal::Service, ::service_layer::SLInitMsg, ::service_layer::SLGlobalNotif>(
           std::mem_fn(&SLGlobal::Service::SLGlobalInitNotif), this)));
-  AddMethod(new ::grpc::RpcServiceMethod(
+  AddMethod(new ::grpc::internal::RpcServiceMethod(
       SLGlobal_method_names[1],
-      ::grpc::RpcMethod::NORMAL_RPC,
-      new ::grpc::RpcMethodHandler< SLGlobal::Service, ::service_layer::SLGlobalsGetMsg, ::service_layer::SLGlobalsGetMsgRsp>(
+      ::grpc::internal::RpcMethod::NORMAL_RPC,
+      new ::grpc::internal::RpcMethodHandler< SLGlobal::Service, ::service_layer::SLGlobalsGetMsg, ::service_layer::SLGlobalsGetMsgRsp>(
           std::mem_fn(&SLGlobal::Service::SLGlobalsGet), this)));
 }
 

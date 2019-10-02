@@ -17,24 +17,52 @@ var _ = proto.Marshal
 var _ = fmt.Errorf
 var _ = math.Inf
 
+// This is a compile-time assertion to ensure that this generated file
+// is compatible with the proto package it is being compiled against.
+// A compilation error at this line likely means your copy of the
+// proto package needs to be updated.
+const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
+
 // IPv6 route
 type SLRoutev6 struct {
 	// IPv6 Prefix
 	// 0:: - ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff
 	Prefix []byte `protobuf:"bytes,1,opt,name=Prefix,proto3" json:"Prefix,omitempty"`
 	// IPv6 prefix length [0-128]
-	PrefixLen uint32 `protobuf:"varint,2,opt,name=PrefixLen" json:"PrefixLen,omitempty"`
+	PrefixLen uint32 `protobuf:"varint,2,opt,name=PrefixLen,proto3" json:"PrefixLen,omitempty"`
 	// Common route attributes
-	RouteCommon *SLRouteCommon `protobuf:"bytes,3,opt,name=RouteCommon" json:"RouteCommon,omitempty"`
+	RouteCommon *SLRouteCommon `protobuf:"bytes,3,opt,name=RouteCommon,proto3" json:"RouteCommon,omitempty"`
 	// List of route paths for a particular route.
 	// Specifying more than one path is allowed for ECMP/UCMP cases
-	PathList []*SLRoutePath `protobuf:"bytes,4,rep,name=PathList" json:"PathList,omitempty"`
+	PathList             []*SLRoutePath `protobuf:"bytes,4,rep,name=PathList,proto3" json:"PathList,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}       `json:"-"`
+	XXX_unrecognized     []byte         `json:"-"`
+	XXX_sizecache        int32          `json:"-"`
 }
 
-func (m *SLRoutev6) Reset()                    { *m = SLRoutev6{} }
-func (m *SLRoutev6) String() string            { return proto.CompactTextString(m) }
-func (*SLRoutev6) ProtoMessage()               {}
-func (*SLRoutev6) Descriptor() ([]byte, []int) { return fileDescriptor10, []int{0} }
+func (m *SLRoutev6) Reset()         { *m = SLRoutev6{} }
+func (m *SLRoutev6) String() string { return proto.CompactTextString(m) }
+func (*SLRoutev6) ProtoMessage()    {}
+func (*SLRoutev6) Descriptor() ([]byte, []int) {
+	return fileDescriptor_sl_route_ipv6_fc3ede814b195373, []int{0}
+}
+func (m *SLRoutev6) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_SLRoutev6.Unmarshal(m, b)
+}
+func (m *SLRoutev6) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_SLRoutev6.Marshal(b, m, deterministic)
+}
+func (dst *SLRoutev6) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_SLRoutev6.Merge(dst, src)
+}
+func (m *SLRoutev6) XXX_Size() int {
+	return xxx_messageInfo_SLRoutev6.Size(m)
+}
+func (m *SLRoutev6) XXX_DiscardUnknown() {
+	xxx_messageInfo_SLRoutev6.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_SLRoutev6 proto.InternalMessageInfo
 
 func (m *SLRoutev6) GetPrefix() []byte {
 	if m != nil {
@@ -67,20 +95,42 @@ func (m *SLRoutev6) GetPathList() []*SLRoutePath {
 // List of routes for bulk download
 type SLRoutev6Msg struct {
 	// Route Object Operations
-	Oper SLObjectOp `protobuf:"varint,1,opt,name=Oper,enum=service_layer.SLObjectOp" json:"Oper,omitempty"`
+	Oper SLObjectOp `protobuf:"varint,1,opt,name=Oper,proto3,enum=service_layer.SLObjectOp" json:"Oper,omitempty"`
 	// Correlator. This can be used to correlate replies with requests.
 	// The Server simply reflects this field back in the reply.
-	Correlator uint64 `protobuf:"varint,2,opt,name=Correlator" json:"Correlator,omitempty"`
+	Correlator uint64 `protobuf:"varint,2,opt,name=Correlator,proto3" json:"Correlator,omitempty"`
 	// VRF name.
-	VrfName string `protobuf:"bytes,3,opt,name=VrfName" json:"VrfName,omitempty"`
+	VrfName string `protobuf:"bytes,3,opt,name=VrfName,proto3" json:"VrfName,omitempty"`
 	// List of routes for the VRF specified above
-	Routes []*SLRoutev6 `protobuf:"bytes,4,rep,name=Routes" json:"Routes,omitempty"`
+	Routes               []*SLRoutev6 `protobuf:"bytes,4,rep,name=Routes,proto3" json:"Routes,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}     `json:"-"`
+	XXX_unrecognized     []byte       `json:"-"`
+	XXX_sizecache        int32        `json:"-"`
 }
 
-func (m *SLRoutev6Msg) Reset()                    { *m = SLRoutev6Msg{} }
-func (m *SLRoutev6Msg) String() string            { return proto.CompactTextString(m) }
-func (*SLRoutev6Msg) ProtoMessage()               {}
-func (*SLRoutev6Msg) Descriptor() ([]byte, []int) { return fileDescriptor10, []int{1} }
+func (m *SLRoutev6Msg) Reset()         { *m = SLRoutev6Msg{} }
+func (m *SLRoutev6Msg) String() string { return proto.CompactTextString(m) }
+func (*SLRoutev6Msg) ProtoMessage()    {}
+func (*SLRoutev6Msg) Descriptor() ([]byte, []int) {
+	return fileDescriptor_sl_route_ipv6_fc3ede814b195373, []int{1}
+}
+func (m *SLRoutev6Msg) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_SLRoutev6Msg.Unmarshal(m, b)
+}
+func (m *SLRoutev6Msg) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_SLRoutev6Msg.Marshal(b, m, deterministic)
+}
+func (dst *SLRoutev6Msg) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_SLRoutev6Msg.Merge(dst, src)
+}
+func (m *SLRoutev6Msg) XXX_Size() int {
+	return xxx_messageInfo_SLRoutev6Msg.Size(m)
+}
+func (m *SLRoutev6Msg) XXX_DiscardUnknown() {
+	xxx_messageInfo_SLRoutev6Msg.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_SLRoutev6Msg proto.InternalMessageInfo
 
 func (m *SLRoutev6Msg) GetOper() SLObjectOp {
 	if m != nil {
@@ -113,17 +163,39 @@ func (m *SLRoutev6Msg) GetRoutes() []*SLRoutev6 {
 // IPv6 route result, uniquely identified by the Prefix/PrefixLen pair
 type SLRoutev6Res struct {
 	// Corresponding error code
-	ErrStatus *SLErrorStatus `protobuf:"bytes,1,opt,name=ErrStatus" json:"ErrStatus,omitempty"`
+	ErrStatus *SLErrorStatus `protobuf:"bytes,1,opt,name=ErrStatus,proto3" json:"ErrStatus,omitempty"`
 	// IPv6 Prefix
 	Prefix []byte `protobuf:"bytes,2,opt,name=Prefix,proto3" json:"Prefix,omitempty"`
 	// IPv6 prefix length, [0-32]
-	PrefixLen uint32 `protobuf:"varint,3,opt,name=PrefixLen" json:"PrefixLen,omitempty"`
+	PrefixLen            uint32   `protobuf:"varint,3,opt,name=PrefixLen,proto3" json:"PrefixLen,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *SLRoutev6Res) Reset()                    { *m = SLRoutev6Res{} }
-func (m *SLRoutev6Res) String() string            { return proto.CompactTextString(m) }
-func (*SLRoutev6Res) ProtoMessage()               {}
-func (*SLRoutev6Res) Descriptor() ([]byte, []int) { return fileDescriptor10, []int{2} }
+func (m *SLRoutev6Res) Reset()         { *m = SLRoutev6Res{} }
+func (m *SLRoutev6Res) String() string { return proto.CompactTextString(m) }
+func (*SLRoutev6Res) ProtoMessage()    {}
+func (*SLRoutev6Res) Descriptor() ([]byte, []int) {
+	return fileDescriptor_sl_route_ipv6_fc3ede814b195373, []int{2}
+}
+func (m *SLRoutev6Res) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_SLRoutev6Res.Unmarshal(m, b)
+}
+func (m *SLRoutev6Res) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_SLRoutev6Res.Marshal(b, m, deterministic)
+}
+func (dst *SLRoutev6Res) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_SLRoutev6Res.Merge(dst, src)
+}
+func (m *SLRoutev6Res) XXX_Size() int {
+	return xxx_messageInfo_SLRoutev6Res.Size(m)
+}
+func (m *SLRoutev6Res) XXX_DiscardUnknown() {
+	xxx_messageInfo_SLRoutev6Res.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_SLRoutev6Res proto.InternalMessageInfo
 
 func (m *SLRoutev6Res) GetErrStatus() *SLErrorStatus {
 	if m != nil {
@@ -150,9 +222,9 @@ func (m *SLRoutev6Res) GetPrefixLen() uint32 {
 type SLRoutev6MsgRsp struct {
 	// Correlator. This can be used to correlate replies with requests.
 	// The Server simply reflects this field back in the reply.
-	Correlator uint64 `protobuf:"varint,1,opt,name=Correlator" json:"Correlator,omitempty"`
+	Correlator uint64 `protobuf:"varint,1,opt,name=Correlator,proto3" json:"Correlator,omitempty"`
 	// VRF name (matches the VRF name of the original operation)
-	VrfName string `protobuf:"bytes,2,opt,name=VrfName" json:"VrfName,omitempty"`
+	VrfName string `protobuf:"bytes,2,opt,name=VrfName,proto3" json:"VrfName,omitempty"`
 	// Summary result of the bulk operation (refer to enum SLErrorStatus)
 	// In general, the StatusSummary implies one of 3 things:
 	// 1. SL_SUCCESS: signifies that the entire bulk operation was successful.
@@ -162,16 +234,38 @@ type SLRoutev6MsgRsp struct {
 	//         each individual entry in the bulk.
 	// 3. SL_RPC_XXX: signifies that the entire bulk operation failed.
 	//         In this case, the Results list is empty.
-	StatusSummary *SLErrorStatus `protobuf:"bytes,3,opt,name=StatusSummary" json:"StatusSummary,omitempty"`
+	StatusSummary *SLErrorStatus `protobuf:"bytes,3,opt,name=StatusSummary,proto3" json:"StatusSummary,omitempty"`
 	// In case of errors, this field indicates which entry in the bulk was
 	// erroneous.
-	Results []*SLRoutev6Res `protobuf:"bytes,4,rep,name=Results" json:"Results,omitempty"`
+	Results              []*SLRoutev6Res `protobuf:"bytes,4,rep,name=Results,proto3" json:"Results,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}        `json:"-"`
+	XXX_unrecognized     []byte          `json:"-"`
+	XXX_sizecache        int32           `json:"-"`
 }
 
-func (m *SLRoutev6MsgRsp) Reset()                    { *m = SLRoutev6MsgRsp{} }
-func (m *SLRoutev6MsgRsp) String() string            { return proto.CompactTextString(m) }
-func (*SLRoutev6MsgRsp) ProtoMessage()               {}
-func (*SLRoutev6MsgRsp) Descriptor() ([]byte, []int) { return fileDescriptor10, []int{3} }
+func (m *SLRoutev6MsgRsp) Reset()         { *m = SLRoutev6MsgRsp{} }
+func (m *SLRoutev6MsgRsp) String() string { return proto.CompactTextString(m) }
+func (*SLRoutev6MsgRsp) ProtoMessage()    {}
+func (*SLRoutev6MsgRsp) Descriptor() ([]byte, []int) {
+	return fileDescriptor_sl_route_ipv6_fc3ede814b195373, []int{3}
+}
+func (m *SLRoutev6MsgRsp) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_SLRoutev6MsgRsp.Unmarshal(m, b)
+}
+func (m *SLRoutev6MsgRsp) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_SLRoutev6MsgRsp.Marshal(b, m, deterministic)
+}
+func (dst *SLRoutev6MsgRsp) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_SLRoutev6MsgRsp.Merge(dst, src)
+}
+func (m *SLRoutev6MsgRsp) XXX_Size() int {
+	return xxx_messageInfo_SLRoutev6MsgRsp.Size(m)
+}
+func (m *SLRoutev6MsgRsp) XXX_DiscardUnknown() {
+	xxx_messageInfo_SLRoutev6MsgRsp.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_SLRoutev6MsgRsp proto.InternalMessageInfo
 
 func (m *SLRoutev6MsgRsp) GetCorrelator() uint64 {
 	if m != nil {
@@ -205,28 +299,50 @@ func (m *SLRoutev6MsgRsp) GetResults() []*SLRoutev6Res {
 type SLRoutev6GetMsg struct {
 	// Correlator. This can be used to correlate replies with requests.
 	// The Server simply reflects this field back in the reply.
-	Correlator uint64 `protobuf:"varint,1,opt,name=Correlator" json:"Correlator,omitempty"`
+	Correlator uint64 `protobuf:"varint,1,opt,name=Correlator,proto3" json:"Correlator,omitempty"`
 	// VRF name.
 	// If the Key is not specified, then request up to the first
 	// 'EntriesCount' entries.
-	VrfName string `protobuf:"bytes,2,opt,name=VrfName" json:"VrfName,omitempty"`
+	VrfName string `protobuf:"bytes,2,opt,name=VrfName,proto3" json:"VrfName,omitempty"`
 	// IPv6 Prefix
 	Prefix []byte `protobuf:"bytes,3,opt,name=Prefix,proto3" json:"Prefix,omitempty"`
 	// IPv6 prefix length, [0-32]
-	PrefixLen uint32 `protobuf:"varint,4,opt,name=PrefixLen" json:"PrefixLen,omitempty"`
+	PrefixLen uint32 `protobuf:"varint,4,opt,name=PrefixLen,proto3" json:"PrefixLen,omitempty"`
 	// Number of entries requested
-	EntriesCount uint32 `protobuf:"varint,5,opt,name=EntriesCount" json:"EntriesCount,omitempty"`
+	EntriesCount uint32 `protobuf:"varint,5,opt,name=EntriesCount,proto3" json:"EntriesCount,omitempty"`
 	// if GetNext is FALSE:
 	//     request up to 'EntriesCount' entries starting from the key
 	// If GetNext is TRUE, or if the key exact match is not found:
 	//     request up to 'EntriesCount' entries starting from the key's next
-	GetNext bool `protobuf:"varint,6,opt,name=GetNext" json:"GetNext,omitempty"`
+	GetNext              bool     `protobuf:"varint,6,opt,name=GetNext,proto3" json:"GetNext,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *SLRoutev6GetMsg) Reset()                    { *m = SLRoutev6GetMsg{} }
-func (m *SLRoutev6GetMsg) String() string            { return proto.CompactTextString(m) }
-func (*SLRoutev6GetMsg) ProtoMessage()               {}
-func (*SLRoutev6GetMsg) Descriptor() ([]byte, []int) { return fileDescriptor10, []int{4} }
+func (m *SLRoutev6GetMsg) Reset()         { *m = SLRoutev6GetMsg{} }
+func (m *SLRoutev6GetMsg) String() string { return proto.CompactTextString(m) }
+func (*SLRoutev6GetMsg) ProtoMessage()    {}
+func (*SLRoutev6GetMsg) Descriptor() ([]byte, []int) {
+	return fileDescriptor_sl_route_ipv6_fc3ede814b195373, []int{4}
+}
+func (m *SLRoutev6GetMsg) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_SLRoutev6GetMsg.Unmarshal(m, b)
+}
+func (m *SLRoutev6GetMsg) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_SLRoutev6GetMsg.Marshal(b, m, deterministic)
+}
+func (dst *SLRoutev6GetMsg) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_SLRoutev6GetMsg.Merge(dst, src)
+}
+func (m *SLRoutev6GetMsg) XXX_Size() int {
+	return xxx_messageInfo_SLRoutev6GetMsg.Size(m)
+}
+func (m *SLRoutev6GetMsg) XXX_DiscardUnknown() {
+	xxx_messageInfo_SLRoutev6GetMsg.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_SLRoutev6GetMsg proto.InternalMessageInfo
 
 func (m *SLRoutev6GetMsg) GetCorrelator() uint64 {
 	if m != nil {
@@ -274,24 +390,46 @@ func (m *SLRoutev6GetMsg) GetGetNext() bool {
 type SLRoutev6GetMsgRsp struct {
 	// Correlator. This can be used to correlate replies with requests.
 	// The Server simply reflects this field back in the reply.
-	Correlator uint64 `protobuf:"varint,1,opt,name=Correlator" json:"Correlator,omitempty"`
+	Correlator uint64 `protobuf:"varint,1,opt,name=Correlator,proto3" json:"Correlator,omitempty"`
 	// End Of File.
 	// When set to True, it indicates that the server has returned M, where
 	// M < N, of the original N requested Entries.
-	Eof bool `protobuf:"varint,2,opt,name=Eof" json:"Eof,omitempty"`
+	Eof bool `protobuf:"varint,2,opt,name=Eof,proto3" json:"Eof,omitempty"`
 	// VRF name.
-	VrfName string `protobuf:"bytes,3,opt,name=VrfName" json:"VrfName,omitempty"`
+	VrfName string `protobuf:"bytes,3,opt,name=VrfName,proto3" json:"VrfName,omitempty"`
 	// Status of the Get operation
-	ErrStatus *SLErrorStatus `protobuf:"bytes,4,opt,name=ErrStatus" json:"ErrStatus,omitempty"`
+	ErrStatus *SLErrorStatus `protobuf:"bytes,4,opt,name=ErrStatus,proto3" json:"ErrStatus,omitempty"`
 	// Returned entries as requested in the Get operation.
 	// if ErrStatus is SL_SUCCESS, Entries contains the info requested
-	Entries []*SLRoutev6 `protobuf:"bytes,5,rep,name=Entries" json:"Entries,omitempty"`
+	Entries              []*SLRoutev6 `protobuf:"bytes,5,rep,name=Entries,proto3" json:"Entries,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}     `json:"-"`
+	XXX_unrecognized     []byte       `json:"-"`
+	XXX_sizecache        int32        `json:"-"`
 }
 
-func (m *SLRoutev6GetMsgRsp) Reset()                    { *m = SLRoutev6GetMsgRsp{} }
-func (m *SLRoutev6GetMsgRsp) String() string            { return proto.CompactTextString(m) }
-func (*SLRoutev6GetMsgRsp) ProtoMessage()               {}
-func (*SLRoutev6GetMsgRsp) Descriptor() ([]byte, []int) { return fileDescriptor10, []int{5} }
+func (m *SLRoutev6GetMsgRsp) Reset()         { *m = SLRoutev6GetMsgRsp{} }
+func (m *SLRoutev6GetMsgRsp) String() string { return proto.CompactTextString(m) }
+func (*SLRoutev6GetMsgRsp) ProtoMessage()    {}
+func (*SLRoutev6GetMsgRsp) Descriptor() ([]byte, []int) {
+	return fileDescriptor_sl_route_ipv6_fc3ede814b195373, []int{5}
+}
+func (m *SLRoutev6GetMsgRsp) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_SLRoutev6GetMsgRsp.Unmarshal(m, b)
+}
+func (m *SLRoutev6GetMsgRsp) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_SLRoutev6GetMsgRsp.Marshal(b, m, deterministic)
+}
+func (dst *SLRoutev6GetMsgRsp) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_SLRoutev6GetMsgRsp.Merge(dst, src)
+}
+func (m *SLRoutev6GetMsgRsp) XXX_Size() int {
+	return xxx_messageInfo_SLRoutev6GetMsgRsp.Size(m)
+}
+func (m *SLRoutev6GetMsgRsp) XXX_DiscardUnknown() {
+	xxx_messageInfo_SLRoutev6GetMsgRsp.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_SLRoutev6GetMsgRsp proto.InternalMessageInfo
 
 func (m *SLRoutev6GetMsgRsp) GetCorrelator() uint64 {
 	if m != nil {
@@ -331,15 +469,37 @@ func (m *SLRoutev6GetMsgRsp) GetEntries() []*SLRoutev6 {
 // IPv6 Route notification
 type SLRoutev6NotifRoute struct {
 	// VRF name.
-	VrfName string `protobuf:"bytes,1,opt,name=VrfName" json:"VrfName,omitempty"`
+	VrfName string `protobuf:"bytes,1,opt,name=VrfName,proto3" json:"VrfName,omitempty"`
 	// IPv6 routes
-	Entries []*SLRoutev6 `protobuf:"bytes,2,rep,name=Entries" json:"Entries,omitempty"`
+	Entries              []*SLRoutev6 `protobuf:"bytes,2,rep,name=Entries,proto3" json:"Entries,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}     `json:"-"`
+	XXX_unrecognized     []byte       `json:"-"`
+	XXX_sizecache        int32        `json:"-"`
 }
 
-func (m *SLRoutev6NotifRoute) Reset()                    { *m = SLRoutev6NotifRoute{} }
-func (m *SLRoutev6NotifRoute) String() string            { return proto.CompactTextString(m) }
-func (*SLRoutev6NotifRoute) ProtoMessage()               {}
-func (*SLRoutev6NotifRoute) Descriptor() ([]byte, []int) { return fileDescriptor10, []int{6} }
+func (m *SLRoutev6NotifRoute) Reset()         { *m = SLRoutev6NotifRoute{} }
+func (m *SLRoutev6NotifRoute) String() string { return proto.CompactTextString(m) }
+func (*SLRoutev6NotifRoute) ProtoMessage()    {}
+func (*SLRoutev6NotifRoute) Descriptor() ([]byte, []int) {
+	return fileDescriptor_sl_route_ipv6_fc3ede814b195373, []int{6}
+}
+func (m *SLRoutev6NotifRoute) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_SLRoutev6NotifRoute.Unmarshal(m, b)
+}
+func (m *SLRoutev6NotifRoute) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_SLRoutev6NotifRoute.Marshal(b, m, deterministic)
+}
+func (dst *SLRoutev6NotifRoute) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_SLRoutev6NotifRoute.Merge(dst, src)
+}
+func (m *SLRoutev6NotifRoute) XXX_Size() int {
+	return xxx_messageInfo_SLRoutev6NotifRoute.Size(m)
+}
+func (m *SLRoutev6NotifRoute) XXX_DiscardUnknown() {
+	xxx_messageInfo_SLRoutev6NotifRoute.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_SLRoutev6NotifRoute proto.InternalMessageInfo
 
 func (m *SLRoutev6NotifRoute) GetVrfName() string {
 	if m != nil {
@@ -358,7 +518,7 @@ func (m *SLRoutev6NotifRoute) GetEntries() []*SLRoutev6 {
 // IPv6 notification message
 type SLRoutev6Notif struct {
 	// Event Type
-	EventType SLNotifType `protobuf:"varint,1,opt,name=EventType,enum=service_layer.SLNotifType" json:"EventType,omitempty"`
+	EventType SLNotifType `protobuf:"varint,1,opt,name=EventType,proto3,enum=service_layer.SLNotifType" json:"EventType,omitempty"`
 	// Further info based on EventType
 	//
 	// Types that are valid to be assigned to Event:
@@ -367,52 +527,82 @@ type SLRoutev6Notif struct {
 	//	*SLRoutev6Notif_Route
 	//	*SLRoutev6Notif_Marker
 	//	*SLRoutev6Notif_Vrf
-	Event isSLRoutev6Notif_Event `protobuf_oneof:"Event"`
+	Event                isSLRoutev6Notif_Event `protobuf_oneof:"Event"`
+	XXX_NoUnkeyedLiteral struct{}               `json:"-"`
+	XXX_unrecognized     []byte                 `json:"-"`
+	XXX_sizecache        int32                  `json:"-"`
 }
 
-func (m *SLRoutev6Notif) Reset()                    { *m = SLRoutev6Notif{} }
-func (m *SLRoutev6Notif) String() string            { return proto.CompactTextString(m) }
-func (*SLRoutev6Notif) ProtoMessage()               {}
-func (*SLRoutev6Notif) Descriptor() ([]byte, []int) { return fileDescriptor10, []int{7} }
-
-type isSLRoutev6Notif_Event interface {
-	isSLRoutev6Notif_Event()
+func (m *SLRoutev6Notif) Reset()         { *m = SLRoutev6Notif{} }
+func (m *SLRoutev6Notif) String() string { return proto.CompactTextString(m) }
+func (*SLRoutev6Notif) ProtoMessage()    {}
+func (*SLRoutev6Notif) Descriptor() ([]byte, []int) {
+	return fileDescriptor_sl_route_ipv6_fc3ede814b195373, []int{7}
+}
+func (m *SLRoutev6Notif) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_SLRoutev6Notif.Unmarshal(m, b)
+}
+func (m *SLRoutev6Notif) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_SLRoutev6Notif.Marshal(b, m, deterministic)
+}
+func (dst *SLRoutev6Notif) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_SLRoutev6Notif.Merge(dst, src)
+}
+func (m *SLRoutev6Notif) XXX_Size() int {
+	return xxx_messageInfo_SLRoutev6Notif.Size(m)
+}
+func (m *SLRoutev6Notif) XXX_DiscardUnknown() {
+	xxx_messageInfo_SLRoutev6Notif.DiscardUnknown(m)
 }
 
-type SLRoutev6Notif_ErrStatus struct {
-	ErrStatus *SLErrorStatus `protobuf:"bytes,2,opt,name=ErrStatus,oneof"`
-}
-type SLRoutev6Notif_NotifStatus struct {
-	NotifStatus *SLRouteNotifStatus `protobuf:"bytes,3,opt,name=NotifStatus,oneof"`
-}
-type SLRoutev6Notif_Route struct {
-	Route *SLRoutev6NotifRoute `protobuf:"bytes,4,opt,name=Route,oneof"`
-}
-type SLRoutev6Notif_Marker struct {
-	Marker *SLRouteNotifMarker `protobuf:"bytes,5,opt,name=Marker,oneof"`
-}
-type SLRoutev6Notif_Vrf struct {
-	Vrf *SLVrfNotif `protobuf:"bytes,6,opt,name=Vrf,oneof"`
-}
-
-func (*SLRoutev6Notif_ErrStatus) isSLRoutev6Notif_Event()   {}
-func (*SLRoutev6Notif_NotifStatus) isSLRoutev6Notif_Event() {}
-func (*SLRoutev6Notif_Route) isSLRoutev6Notif_Event()       {}
-func (*SLRoutev6Notif_Marker) isSLRoutev6Notif_Event()      {}
-func (*SLRoutev6Notif_Vrf) isSLRoutev6Notif_Event()         {}
-
-func (m *SLRoutev6Notif) GetEvent() isSLRoutev6Notif_Event {
-	if m != nil {
-		return m.Event
-	}
-	return nil
-}
+var xxx_messageInfo_SLRoutev6Notif proto.InternalMessageInfo
 
 func (m *SLRoutev6Notif) GetEventType() SLNotifType {
 	if m != nil {
 		return m.EventType
 	}
 	return SLNotifType_SL_EVENT_TYPE_RESERVED
+}
+
+type isSLRoutev6Notif_Event interface {
+	isSLRoutev6Notif_Event()
+}
+
+type SLRoutev6Notif_ErrStatus struct {
+	ErrStatus *SLErrorStatus `protobuf:"bytes,2,opt,name=ErrStatus,proto3,oneof"`
+}
+
+type SLRoutev6Notif_NotifStatus struct {
+	NotifStatus *SLRouteNotifStatus `protobuf:"bytes,3,opt,name=NotifStatus,proto3,oneof"`
+}
+
+type SLRoutev6Notif_Route struct {
+	Route *SLRoutev6NotifRoute `protobuf:"bytes,4,opt,name=Route,proto3,oneof"`
+}
+
+type SLRoutev6Notif_Marker struct {
+	Marker *SLRouteNotifMarker `protobuf:"bytes,5,opt,name=Marker,proto3,oneof"`
+}
+
+type SLRoutev6Notif_Vrf struct {
+	Vrf *SLVrfNotif `protobuf:"bytes,6,opt,name=Vrf,proto3,oneof"`
+}
+
+func (*SLRoutev6Notif_ErrStatus) isSLRoutev6Notif_Event() {}
+
+func (*SLRoutev6Notif_NotifStatus) isSLRoutev6Notif_Event() {}
+
+func (*SLRoutev6Notif_Route) isSLRoutev6Notif_Event() {}
+
+func (*SLRoutev6Notif_Marker) isSLRoutev6Notif_Event() {}
+
+func (*SLRoutev6Notif_Vrf) isSLRoutev6Notif_Event() {}
+
+func (m *SLRoutev6Notif) GetEvent() isSLRoutev6Notif_Event {
+	if m != nil {
+		return m.Event
+	}
+	return nil
 }
 
 func (m *SLRoutev6Notif) GetErrStatus() *SLErrorStatus {
@@ -551,27 +741,27 @@ func _SLRoutev6Notif_OneofSizer(msg proto.Message) (n int) {
 	switch x := m.Event.(type) {
 	case *SLRoutev6Notif_ErrStatus:
 		s := proto.Size(x.ErrStatus)
-		n += proto.SizeVarint(2<<3 | proto.WireBytes)
+		n += 1 // tag and wire
 		n += proto.SizeVarint(uint64(s))
 		n += s
 	case *SLRoutev6Notif_NotifStatus:
 		s := proto.Size(x.NotifStatus)
-		n += proto.SizeVarint(3<<3 | proto.WireBytes)
+		n += 1 // tag and wire
 		n += proto.SizeVarint(uint64(s))
 		n += s
 	case *SLRoutev6Notif_Route:
 		s := proto.Size(x.Route)
-		n += proto.SizeVarint(4<<3 | proto.WireBytes)
+		n += 1 // tag and wire
 		n += proto.SizeVarint(uint64(s))
 		n += s
 	case *SLRoutev6Notif_Marker:
 		s := proto.Size(x.Marker)
-		n += proto.SizeVarint(5<<3 | proto.WireBytes)
+		n += 1 // tag and wire
 		n += proto.SizeVarint(uint64(s))
 		n += s
 	case *SLRoutev6Notif_Vrf:
 		s := proto.Size(x.Vrf)
-		n += proto.SizeVarint(6<<3 | proto.WireBytes)
+		n += 1 // tag and wire
 		n += proto.SizeVarint(uint64(s))
 		n += s
 	case nil:
@@ -600,8 +790,9 @@ var _ grpc.ClientConn
 // is compatible with the grpc package it is being compiled against.
 const _ = grpc.SupportPackageIsVersion4
 
-// Client API for SLRoutev6Oper service
-
+// SLRoutev6OperClient is the client API for SLRoutev6Oper service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
 type SLRoutev6OperClient interface {
 	// Used to retrieve Global Route information
 	SLRoutev6GlobalsGet(ctx context.Context, in *SLRouteGlobalsGetMsg, opts ...grpc.CallOption) (*SLRouteGlobalsGetMsgRsp, error)
@@ -676,7 +867,7 @@ func NewSLRoutev6OperClient(cc *grpc.ClientConn) SLRoutev6OperClient {
 
 func (c *sLRoutev6OperClient) SLRoutev6GlobalsGet(ctx context.Context, in *SLRouteGlobalsGetMsg, opts ...grpc.CallOption) (*SLRouteGlobalsGetMsgRsp, error) {
 	out := new(SLRouteGlobalsGetMsgRsp)
-	err := grpc.Invoke(ctx, "/service_layer.SLRoutev6Oper/SLRoutev6GlobalsGet", in, out, c.cc, opts...)
+	err := c.cc.Invoke(ctx, "/service_layer.SLRoutev6Oper/SLRoutev6GlobalsGet", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -685,7 +876,7 @@ func (c *sLRoutev6OperClient) SLRoutev6GlobalsGet(ctx context.Context, in *SLRou
 
 func (c *sLRoutev6OperClient) SLRoutev6GlobalStatsGet(ctx context.Context, in *SLRouteGlobalStatsGetMsg, opts ...grpc.CallOption) (*SLRouteGlobalStatsGetMsgRsp, error) {
 	out := new(SLRouteGlobalStatsGetMsgRsp)
-	err := grpc.Invoke(ctx, "/service_layer.SLRoutev6Oper/SLRoutev6GlobalStatsGet", in, out, c.cc, opts...)
+	err := c.cc.Invoke(ctx, "/service_layer.SLRoutev6Oper/SLRoutev6GlobalStatsGet", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -694,7 +885,7 @@ func (c *sLRoutev6OperClient) SLRoutev6GlobalStatsGet(ctx context.Context, in *S
 
 func (c *sLRoutev6OperClient) SLRoutev6VrfRegOp(ctx context.Context, in *SLVrfRegMsg, opts ...grpc.CallOption) (*SLVrfRegMsgRsp, error) {
 	out := new(SLVrfRegMsgRsp)
-	err := grpc.Invoke(ctx, "/service_layer.SLRoutev6Oper/SLRoutev6VrfRegOp", in, out, c.cc, opts...)
+	err := c.cc.Invoke(ctx, "/service_layer.SLRoutev6Oper/SLRoutev6VrfRegOp", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -703,7 +894,7 @@ func (c *sLRoutev6OperClient) SLRoutev6VrfRegOp(ctx context.Context, in *SLVrfRe
 
 func (c *sLRoutev6OperClient) SLRoutev6VrfRegGet(ctx context.Context, in *SLVrfRegGetMsg, opts ...grpc.CallOption) (*SLVrfRegGetMsgRsp, error) {
 	out := new(SLVrfRegGetMsgRsp)
-	err := grpc.Invoke(ctx, "/service_layer.SLRoutev6Oper/SLRoutev6VrfRegGet", in, out, c.cc, opts...)
+	err := c.cc.Invoke(ctx, "/service_layer.SLRoutev6Oper/SLRoutev6VrfRegGet", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -712,7 +903,7 @@ func (c *sLRoutev6OperClient) SLRoutev6VrfRegGet(ctx context.Context, in *SLVrfR
 
 func (c *sLRoutev6OperClient) SLRoutev6VrfGetStats(ctx context.Context, in *SLVrfRegGetMsg, opts ...grpc.CallOption) (*SLVRFGetStatsMsgRsp, error) {
 	out := new(SLVRFGetStatsMsgRsp)
-	err := grpc.Invoke(ctx, "/service_layer.SLRoutev6Oper/SLRoutev6VrfGetStats", in, out, c.cc, opts...)
+	err := c.cc.Invoke(ctx, "/service_layer.SLRoutev6Oper/SLRoutev6VrfGetStats", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -721,7 +912,7 @@ func (c *sLRoutev6OperClient) SLRoutev6VrfGetStats(ctx context.Context, in *SLVr
 
 func (c *sLRoutev6OperClient) SLRoutev6Op(ctx context.Context, in *SLRoutev6Msg, opts ...grpc.CallOption) (*SLRoutev6MsgRsp, error) {
 	out := new(SLRoutev6MsgRsp)
-	err := grpc.Invoke(ctx, "/service_layer.SLRoutev6Oper/SLRoutev6Op", in, out, c.cc, opts...)
+	err := c.cc.Invoke(ctx, "/service_layer.SLRoutev6Oper/SLRoutev6Op", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -730,7 +921,7 @@ func (c *sLRoutev6OperClient) SLRoutev6Op(ctx context.Context, in *SLRoutev6Msg,
 
 func (c *sLRoutev6OperClient) SLRoutev6Get(ctx context.Context, in *SLRoutev6GetMsg, opts ...grpc.CallOption) (*SLRoutev6GetMsgRsp, error) {
 	out := new(SLRoutev6GetMsgRsp)
-	err := grpc.Invoke(ctx, "/service_layer.SLRoutev6Oper/SLRoutev6Get", in, out, c.cc, opts...)
+	err := c.cc.Invoke(ctx, "/service_layer.SLRoutev6Oper/SLRoutev6Get", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -738,7 +929,7 @@ func (c *sLRoutev6OperClient) SLRoutev6Get(ctx context.Context, in *SLRoutev6Get
 }
 
 func (c *sLRoutev6OperClient) SLRoutev6OpStream(ctx context.Context, opts ...grpc.CallOption) (SLRoutev6Oper_SLRoutev6OpStreamClient, error) {
-	stream, err := grpc.NewClientStream(ctx, &_SLRoutev6Oper_serviceDesc.Streams[0], c.cc, "/service_layer.SLRoutev6Oper/SLRoutev6OpStream", opts...)
+	stream, err := c.cc.NewStream(ctx, &_SLRoutev6Oper_serviceDesc.Streams[0], "/service_layer.SLRoutev6Oper/SLRoutev6OpStream", opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -769,7 +960,7 @@ func (x *sLRoutev6OperSLRoutev6OpStreamClient) Recv() (*SLRoutev6MsgRsp, error) 
 }
 
 func (c *sLRoutev6OperClient) SLRoutev6GetStream(ctx context.Context, opts ...grpc.CallOption) (SLRoutev6Oper_SLRoutev6GetStreamClient, error) {
-	stream, err := grpc.NewClientStream(ctx, &_SLRoutev6Oper_serviceDesc.Streams[1], c.cc, "/service_layer.SLRoutev6Oper/SLRoutev6GetStream", opts...)
+	stream, err := c.cc.NewStream(ctx, &_SLRoutev6Oper_serviceDesc.Streams[1], "/service_layer.SLRoutev6Oper/SLRoutev6GetStream", opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -800,7 +991,7 @@ func (x *sLRoutev6OperSLRoutev6GetStreamClient) Recv() (*SLRoutev6GetMsgRsp, err
 }
 
 func (c *sLRoutev6OperClient) SLRoutev6GetNotifStream(ctx context.Context, opts ...grpc.CallOption) (SLRoutev6Oper_SLRoutev6GetNotifStreamClient, error) {
-	stream, err := grpc.NewClientStream(ctx, &_SLRoutev6Oper_serviceDesc.Streams[2], c.cc, "/service_layer.SLRoutev6Oper/SLRoutev6GetNotifStream", opts...)
+	stream, err := c.cc.NewStream(ctx, &_SLRoutev6Oper_serviceDesc.Streams[2], "/service_layer.SLRoutev6Oper/SLRoutev6GetNotifStream", opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -830,8 +1021,7 @@ func (x *sLRoutev6OperSLRoutev6GetNotifStreamClient) Recv() (*SLRoutev6Notif, er
 	return m, nil
 }
 
-// Server API for SLRoutev6Oper service
-
+// SLRoutev6OperServer is the server API for SLRoutev6Oper service.
 type SLRoutev6OperServer interface {
 	// Used to retrieve Global Route information
 	SLRoutev6GlobalsGet(context.Context, *SLRouteGlobalsGetMsg) (*SLRouteGlobalsGetMsgRsp, error)
@@ -1160,58 +1350,59 @@ var _SLRoutev6Oper_serviceDesc = grpc.ServiceDesc{
 	Metadata: "sl_route_ipv6.proto",
 }
 
-func init() { proto.RegisterFile("sl_route_ipv6.proto", fileDescriptor10) }
+func init() { proto.RegisterFile("sl_route_ipv6.proto", fileDescriptor_sl_route_ipv6_fc3ede814b195373) }
 
-var fileDescriptor10 = []byte{
-	// 797 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x09, 0x6e, 0x88, 0x02, 0xff, 0xa4, 0x56, 0xcd, 0x6e, 0xd3, 0x40,
-	0x10, 0xc6, 0x71, 0x7e, 0x9a, 0x49, 0x5b, 0x60, 0xcb, 0x8f, 0x09, 0xa5, 0x6a, 0x8d, 0x04, 0x15,
-	0x12, 0x55, 0x15, 0x44, 0x84, 0x00, 0x71, 0x68, 0x15, 0x8a, 0x50, 0x9b, 0x94, 0x4d, 0xa9, 0x84,
-	0x38, 0x44, 0x4e, 0xb4, 0x29, 0x81, 0x24, 0xb6, 0xd6, 0x9b, 0xa8, 0xbd, 0xf5, 0x31, 0x78, 0x05,
-	0x1e, 0x81, 0x13, 0x37, 0xce, 0x3c, 0x12, 0xbb, 0xeb, 0x75, 0xb2, 0x4e, 0x6d, 0x37, 0xd0, 0x9b,
-	0xbd, 0xf3, 0xcd, 0x37, 0xdf, 0x7c, 0x33, 0xde, 0x04, 0x56, 0xfc, 0x7e, 0x8b, 0xba, 0x23, 0x46,
-	0x5a, 0x3d, 0x6f, 0x5c, 0xdd, 0xf2, 0xa8, 0xcb, 0x5c, 0xb4, 0xe4, 0x13, 0x3a, 0xee, 0x75, 0x48,
-	0xab, 0xef, 0x9c, 0x11, 0x5a, 0xbe, 0xcd, 0x31, 0x1d, 0x77, 0x30, 0x70, 0x87, 0x2d, 0x76, 0xe6,
-	0x11, 0x3f, 0x40, 0xc9, 0xe3, 0x20, 0x35, 0x08, 0x06, 0xc7, 0xf6, 0x4f, 0x03, 0x8a, 0xcd, 0x7d,
-	0x2c, 0x02, 0xe3, 0x2a, 0xba, 0x03, 0xf9, 0x43, 0x4a, 0xba, 0xbd, 0x53, 0xcb, 0x58, 0x37, 0x36,
-	0x17, 0xb1, 0x7a, 0x43, 0xab, 0x50, 0x0c, 0x9e, 0xf6, 0xc9, 0xd0, 0xca, 0xf0, 0xd0, 0x12, 0x9e,
-	0x1e, 0xa0, 0x37, 0x50, 0x92, 0x04, 0xbb, 0x92, 0xd8, 0x32, 0x79, 0xbc, 0x54, 0x59, 0xdd, 0x8a,
-	0xc8, 0xda, 0x52, 0x45, 0x02, 0x0c, 0xd6, 0x13, 0x50, 0x15, 0x16, 0x0e, 0x1d, 0xf6, 0x65, 0xbf,
-	0xe7, 0x33, 0x2b, 0xbb, 0x6e, 0xf2, 0xe4, 0x72, 0x7c, 0xb2, 0x40, 0xe1, 0x09, 0xd6, 0xfe, 0x61,
-	0xc0, 0xe2, 0x44, 0xfb, 0x81, 0x7f, 0x82, 0x9e, 0x42, 0xb6, 0xe1, 0x11, 0x2a, 0xc5, 0x2f, 0x57,
-	0xee, 0x5d, 0x20, 0x69, 0xb4, 0xbf, 0x92, 0x0e, 0x6b, 0x78, 0x58, 0xc2, 0xd0, 0x1a, 0xc0, 0xae,
-	0x4b, 0x29, 0xe9, 0x3b, 0xcc, 0xa5, 0xb2, 0xad, 0x2c, 0xd6, 0x4e, 0x90, 0x05, 0x85, 0x63, 0xda,
-	0xad, 0x3b, 0x03, 0x22, 0x7b, 0x2a, 0xe2, 0xf0, 0x15, 0x6d, 0x43, 0x5e, 0x96, 0xf5, 0x95, 0x5e,
-	0x2b, 0x5e, 0xef, 0xb8, 0x8a, 0x15, 0xce, 0x3e, 0xd7, 0xb5, 0x62, 0xe2, 0xa3, 0x97, 0x50, 0xac,
-	0x51, 0xda, 0x64, 0x0e, 0x1b, 0xf9, 0x52, 0x70, 0x9c, 0x65, 0x1c, 0xe1, 0x2a, 0x0c, 0x9e, 0xc2,
-	0xb5, 0x31, 0x65, 0x92, 0xc7, 0x64, 0xce, 0x8c, 0xc9, 0xfe, 0x6d, 0xc0, 0x75, 0xdd, 0x2e, 0xec,
-	0x7b, 0x33, 0x16, 0x18, 0x69, 0x16, 0x64, 0xa2, 0x16, 0xec, 0xc0, 0x52, 0xa0, 0xa6, 0x39, 0x1a,
-	0x0c, 0x1c, 0x7a, 0x96, 0x38, 0x76, 0xbd, 0x87, 0x68, 0x0a, 0x7a, 0x0e, 0x05, 0x6e, 0xc5, 0xa8,
-	0xcf, 0x42, 0x1f, 0xef, 0x27, 0xfa, 0x48, 0x7c, 0x1c, 0x62, 0xed, 0x5f, 0x7a, 0x23, 0x7b, 0x84,
-	0x89, 0xd1, 0xff, 0x7f, 0x23, 0x53, 0x33, 0xcd, 0x64, 0x33, 0xb3, 0xb3, 0x3b, 0x6f, 0xc3, 0x62,
-	0x6d, 0xc8, 0x68, 0x8f, 0xf8, 0xbb, 0xee, 0x68, 0xc8, 0xac, 0x9c, 0x04, 0x44, 0xce, 0x44, 0x4d,
-	0xae, 0xae, 0x4e, 0x4e, 0x99, 0x95, 0xe7, 0xe1, 0x05, 0x1c, 0xbe, 0xda, 0x7f, 0x0c, 0x40, 0x33,
-	0x1d, 0xcc, 0x33, 0x8d, 0x1b, 0x60, 0xd6, 0xdc, 0xae, 0x6c, 0x60, 0x01, 0x8b, 0xc7, 0x94, 0x15,
-	0x8d, 0xec, 0x57, 0xf6, 0xdf, 0xf6, 0xab, 0x02, 0x05, 0xd5, 0x08, 0xef, 0x2b, 0x7d, 0xbf, 0x43,
-	0xa0, 0xdd, 0x81, 0x95, 0xc9, 0x69, 0xdd, 0x65, 0xbd, 0xae, 0x7c, 0xd6, 0x05, 0x1a, 0x51, 0x81,
-	0x5a, 0x91, 0xcc, 0xbc, 0x45, 0xce, 0x4d, 0x58, 0x8e, 0x56, 0x41, 0x2f, 0x78, 0x9f, 0x63, 0x32,
-	0x64, 0x47, 0xfc, 0xae, 0x53, 0x1f, 0xfe, 0xc5, 0xdb, 0x43, 0x42, 0x05, 0x02, 0x4f, 0xc1, 0xe8,
-	0xb5, 0xee, 0x50, 0xe6, 0x72, 0x87, 0xde, 0x5d, 0xd3, 0x3d, 0xaa, 0x41, 0x49, 0xb2, 0xaa, 0xfc,
-	0x60, 0xfb, 0x37, 0xe2, 0x5b, 0xd0, 0x80, 0x9c, 0x44, 0xcf, 0xe3, 0x63, 0xca, 0x49, 0x88, 0x1a,
-	0x91, 0x9d, 0xe4, 0xc1, 0xd4, 0x52, 0xce, 0x10, 0xa4, 0xa0, 0x57, 0x90, 0x3f, 0x70, 0xe8, 0x37,
-	0x7e, 0xe1, 0xe5, 0x2e, 0xad, 0x1e, 0x00, 0x79, 0xae, 0x4a, 0xe1, 0x77, 0xa5, 0xc9, 0x27, 0x21,
-	0x17, 0xb3, 0x14, 0x73, 0x55, 0x8a, 0x29, 0x89, 0x3c, 0x9e, 0x21, 0x70, 0x3b, 0x05, 0xc8, 0x49,
-	0xe7, 0x2a, 0xdf, 0x0b, 0xfc, 0xc3, 0x0f, 0x55, 0xc9, 0x6b, 0xb4, 0xad, 0x4d, 0x7e, 0xaf, 0xef,
-	0xb6, 0x9d, 0xbe, 0xcf, 0x57, 0x1a, 0x3d, 0x8c, 0x57, 0x33, 0x45, 0xf0, 0xa5, 0x2f, 0x3f, 0x9a,
-	0x03, 0x24, 0xbe, 0x8c, 0x21, 0xdc, 0x9d, 0xa9, 0x21, 0xfc, 0x93, 0x75, 0x1e, 0xa7, 0x51, 0x84,
-	0x28, 0x51, 0xeb, 0xc9, 0x9c, 0x40, 0x51, 0xaf, 0x0e, 0x37, 0x27, 0xf5, 0x78, 0xfb, 0x98, 0x9c,
-	0x34, 0x3c, 0x54, 0x8e, 0x73, 0x89, 0x87, 0x04, 0xf9, 0x83, 0xe4, 0x98, 0xe0, 0xfb, 0xa8, 0x7d,
-	0xef, 0x41, 0x40, 0x48, 0x4f, 0x4a, 0x52, 0x82, 0xd7, 0x53, 0xc3, 0x82, 0xf6, 0x13, 0xdc, 0xd2,
-	0x69, 0x79, 0x40, 0xf6, 0x71, 0x19, 0xf1, 0xc5, 0x2d, 0x3b, 0xc6, 0x6f, 0xc3, 0x64, 0x45, 0xfd,
-	0x1e, 0x4a, 0xda, 0x98, 0x51, 0xe2, 0xcd, 0x2c, 0xf8, 0xd6, 0x52, 0x82, 0x82, 0xeb, 0x83, 0xf6,
-	0xdb, 0x27, 0xfa, 0x4e, 0xc4, 0x2b, 0x7d, 0x1b, 0xe9, 0x71, 0x41, 0x79, 0xa4, 0x0d, 0xa8, 0xe1,
-	0x35, 0x19, 0x25, 0xce, 0xe0, 0x4a, 0x22, 0x37, 0x8d, 0x6d, 0x03, 0x7d, 0x8e, 0x5e, 0xcb, 0x8a,
-	0xf6, 0xea, 0x72, 0x25, 0x79, 0x4b, 0xdf, 0x61, 0xfe, 0x43, 0x10, 0xdc, 0x02, 0xb2, 0x42, 0x02,
-	0x43, 0x88, 0x8a, 0x5f, 0x30, 0xfd, 0x66, 0x10, 0x05, 0xda, 0x79, 0xf9, 0x97, 0xee, 0xd9, 0xdf,
-	0x00, 0x00, 0x00, 0xff, 0xff, 0x0d, 0x80, 0x49, 0xd2, 0x26, 0x0a, 0x00, 0x00,
+var fileDescriptor_sl_route_ipv6_fc3ede814b195373 = []byte{
+	// 807 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xa4, 0x56, 0xdd, 0x6e, 0xda, 0x48,
+	0x14, 0xc6, 0xfc, 0x86, 0x43, 0xc8, 0xee, 0x4e, 0xf6, 0xc7, 0xcb, 0x66, 0x23, 0xe2, 0x95, 0xb6,
+	0xa8, 0x52, 0xa2, 0x88, 0xaa, 0xa8, 0x4a, 0xab, 0x5e, 0x24, 0xa2, 0xa0, 0x2a, 0x81, 0x74, 0x48,
+	0x91, 0xaa, 0x5e, 0x20, 0x83, 0x06, 0x4a, 0x0b, 0xd8, 0x9a, 0x19, 0x50, 0xb8, 0xcb, 0x63, 0xf4,
+	0x15, 0xfa, 0x08, 0xbd, 0xea, 0x5d, 0xaf, 0xfb, 0x48, 0xd5, 0x8c, 0xc7, 0x30, 0x26, 0x36, 0xa1,
+	0xcd, 0x9d, 0x3d, 0xf3, 0x9d, 0xef, 0x7c, 0xe7, 0x3b, 0xc7, 0x07, 0x60, 0x97, 0x8d, 0x3a, 0xd4,
+	0x99, 0x72, 0xd2, 0x19, 0xba, 0xb3, 0xca, 0x91, 0x4b, 0x1d, 0xee, 0xa0, 0x3c, 0x23, 0x74, 0x36,
+	0xec, 0x91, 0xce, 0xc8, 0x9e, 0x13, 0x5a, 0xf8, 0x83, 0x8d, 0x3a, 0x3d, 0x67, 0x3c, 0x76, 0x26,
+	0x1d, 0x3e, 0x77, 0x09, 0xf3, 0x50, 0xf2, 0xd8, 0x0b, 0xf5, 0x2e, 0xbd, 0x63, 0xeb, 0xb3, 0x01,
+	0xd9, 0xd6, 0x39, 0x16, 0x17, 0xb3, 0x0a, 0xfa, 0x13, 0xd2, 0x97, 0x94, 0xf4, 0x87, 0xd7, 0xa6,
+	0x51, 0x34, 0x4a, 0xdb, 0x58, 0xbd, 0xa1, 0x3d, 0xc8, 0x7a, 0x4f, 0xe7, 0x64, 0x62, 0xc6, 0x8b,
+	0x46, 0x29, 0x8f, 0x97, 0x07, 0xe8, 0x39, 0xe4, 0x24, 0xc1, 0x99, 0x24, 0x36, 0x13, 0x45, 0xa3,
+	0x94, 0x2b, 0xef, 0x1d, 0x05, 0x64, 0x1d, 0xa9, 0x24, 0x1e, 0x06, 0xeb, 0x01, 0xa8, 0x02, 0x5b,
+	0x97, 0x36, 0x7f, 0x77, 0x3e, 0x64, 0xdc, 0x4c, 0x16, 0x13, 0xa5, 0x5c, 0xb9, 0x10, 0x1e, 0x2c,
+	0x50, 0x78, 0x81, 0xb5, 0x3e, 0x19, 0xb0, 0xbd, 0xd0, 0x7e, 0xc1, 0x06, 0xe8, 0x10, 0x92, 0x4d,
+	0x97, 0x50, 0x29, 0x7e, 0xa7, 0xfc, 0xf7, 0x2d, 0x92, 0x66, 0xf7, 0x3d, 0xe9, 0xf1, 0xa6, 0x8b,
+	0x25, 0x0c, 0xed, 0x03, 0x9c, 0x39, 0x94, 0x92, 0x91, 0xcd, 0x1d, 0x2a, 0xcb, 0x4a, 0x62, 0xed,
+	0x04, 0x99, 0x90, 0x69, 0xd3, 0x7e, 0xc3, 0x1e, 0x13, 0x59, 0x53, 0x16, 0xfb, 0xaf, 0xe8, 0x18,
+	0xd2, 0x32, 0x2d, 0x53, 0x7a, 0xcd, 0x70, 0xbd, 0xb3, 0x0a, 0x56, 0x38, 0xeb, 0x46, 0xd7, 0x8a,
+	0x09, 0x43, 0x27, 0x90, 0xad, 0x52, 0xda, 0xe2, 0x36, 0x9f, 0x32, 0x29, 0x38, 0xcc, 0xb2, 0x2a,
+	0xa5, 0x8e, 0xc2, 0xe0, 0x25, 0x5c, 0x6b, 0x53, 0x3c, 0xba, 0x4d, 0x89, 0x95, 0x36, 0x59, 0x5f,
+	0x0d, 0xf8, 0x45, 0xb7, 0x0b, 0x33, 0x77, 0xc5, 0x02, 0x63, 0x9d, 0x05, 0xf1, 0xa0, 0x05, 0xa7,
+	0x90, 0xf7, 0xd4, 0xb4, 0xa6, 0xe3, 0xb1, 0x4d, 0xe7, 0x91, 0x6d, 0xd7, 0x6b, 0x08, 0x86, 0xa0,
+	0xc7, 0x90, 0xc1, 0x84, 0x4d, 0x47, 0xdc, 0xf7, 0xf1, 0x9f, 0x48, 0x1f, 0x09, 0xc3, 0x3e, 0xd6,
+	0xfa, 0xa2, 0x17, 0x52, 0x23, 0x5c, 0xb4, 0xfe, 0xe7, 0x0b, 0x59, 0x9a, 0x99, 0x88, 0x36, 0x33,
+	0xb9, 0x3a, 0xf3, 0x16, 0x6c, 0x57, 0x27, 0x9c, 0x0e, 0x09, 0x3b, 0x73, 0xa6, 0x13, 0x6e, 0xa6,
+	0x24, 0x20, 0x70, 0x26, 0x72, 0xd6, 0x08, 0x6f, 0x90, 0x6b, 0x6e, 0xa6, 0x8b, 0x46, 0x69, 0x0b,
+	0xfb, 0xaf, 0xd6, 0x37, 0x03, 0xd0, 0x4a, 0x05, 0x9b, 0x74, 0xe3, 0x57, 0x48, 0x54, 0x9d, 0xbe,
+	0x2c, 0x60, 0x0b, 0x8b, 0xc7, 0x35, 0x23, 0x1a, 0x98, 0xaf, 0xe4, 0x8f, 0xcd, 0x57, 0x19, 0x32,
+	0xaa, 0x10, 0x33, 0x75, 0xc7, 0x7c, 0xfb, 0x40, 0xab, 0x07, 0xbb, 0x8b, 0xd3, 0x86, 0xc3, 0x87,
+	0x7d, 0xf9, 0xac, 0x0b, 0x34, 0x82, 0x02, 0xb5, 0x24, 0xf1, 0x4d, 0x93, 0xdc, 0x24, 0x60, 0x27,
+	0x98, 0x05, 0x3d, 0x81, 0x6c, 0x75, 0x46, 0x26, 0xfc, 0x6a, 0xee, 0x12, 0xf5, 0xe1, 0xdf, 0xde,
+	0x1e, 0x12, 0x2a, 0x10, 0x78, 0x09, 0x46, 0xcf, 0x74, 0x87, 0xe2, 0x77, 0x3b, 0x54, 0x8f, 0xe9,
+	0x1e, 0x55, 0x21, 0x27, 0x59, 0x55, 0xbc, 0x37, 0xfd, 0x07, 0xe1, 0x25, 0x68, 0xc0, 0x7a, 0x0c,
+	0xeb, 0x71, 0xe8, 0x04, 0x52, 0x12, 0xa2, 0x5a, 0x64, 0x45, 0x79, 0xb0, 0xb4, 0xb4, 0x1e, 0xc3,
+	0x5e, 0x08, 0x7a, 0x0a, 0xe9, 0x0b, 0x9b, 0x7e, 0x20, 0x54, 0x4e, 0xdf, 0xfa, 0xec, 0x1e, 0xb0,
+	0x1e, 0xc3, 0x2a, 0x04, 0x1d, 0x42, 0xa2, 0x4d, 0xfb, 0x72, 0x30, 0x73, 0x21, 0xab, 0x52, 0x74,
+	0x49, 0xc4, 0xd5, 0x63, 0x58, 0xe0, 0x4e, 0x33, 0x90, 0x92, 0xce, 0x95, 0x3f, 0x66, 0x20, 0xbf,
+	0x50, 0x25, 0xd7, 0x68, 0x57, 0xeb, 0x7c, 0x6d, 0xe4, 0x74, 0xed, 0x11, 0xab, 0x11, 0x8e, 0xfe,
+	0x0b, 0x57, 0xb3, 0x44, 0x5c, 0xb0, 0x41, 0xe1, 0xff, 0x0d, 0x40, 0xe2, 0xcb, 0x98, 0xc0, 0x5f,
+	0x2b, 0x39, 0x84, 0x7f, 0x32, 0xcf, 0x83, 0x75, 0x14, 0x3e, 0x4a, 0xe4, 0x7a, 0xb8, 0x21, 0x50,
+	0xe4, 0x6b, 0xc0, 0x6f, 0x8b, 0x7c, 0x6d, 0xda, 0xc7, 0x64, 0xd0, 0x74, 0x51, 0x21, 0xcc, 0x25,
+	0x4c, 0x06, 0x82, 0xfc, 0xdf, 0xe8, 0x3b, 0xc1, 0xf7, 0x5a, 0xfb, 0xde, 0xbd, 0x0b, 0x21, 0x3d,
+	0x2a, 0x48, 0x09, 0x2e, 0xae, 0xbd, 0x16, 0xb4, 0x6f, 0xe0, 0x77, 0x9d, 0xb6, 0x46, 0xb8, 0xac,
+	0xe3, 0x2e, 0xe2, 0xdb, 0x53, 0xd6, 0xc6, 0x2f, 0xfc, 0x60, 0x45, 0xfd, 0x12, 0x72, 0x5a, 0x9b,
+	0x51, 0xe4, 0x66, 0x16, 0x7c, 0xfb, 0x6b, 0x2e, 0x05, 0xd7, 0x2b, 0xed, 0xb7, 0x4f, 0xd4, 0x1d,
+	0x89, 0x57, 0xfa, 0x0e, 0xd6, 0xdf, 0x0b, 0xca, 0x2b, 0xad, 0x41, 0x4d, 0xb7, 0xc5, 0x29, 0xb1,
+	0xc7, 0xf7, 0x12, 0x59, 0x32, 0x8e, 0x0d, 0xf4, 0x36, 0xb8, 0x96, 0x15, 0xed, 0xfd, 0xe5, 0x4a,
+	0xf2, 0x8e, 0x3e, 0xc3, 0x84, 0xab, 0x2d, 0x20, 0x33, 0x44, 0x30, 0xf8, 0xa8, 0xf0, 0x01, 0xd3,
+	0x37, 0x83, 0x48, 0xd0, 0x4d, 0xcb, 0xbf, 0x74, 0x8f, 0xbe, 0x07, 0x00, 0x00, 0xff, 0xff, 0x0d,
+	0x80, 0x49, 0xd2, 0x26, 0x0a, 0x00, 0x00,
 }

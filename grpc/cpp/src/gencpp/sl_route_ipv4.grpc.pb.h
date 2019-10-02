@@ -30,7 +30,6 @@
 namespace grpc {
 class CompletionQueue;
 class Channel;
-class RpcService;
 class ServerCompletionQueue;
 class ServerContext;
 }  // namespace grpc
@@ -330,16 +329,16 @@ class SLRoutev4Oper final {
     ::grpc::ClientReaderWriter< ::service_layer::SLRouteGetNotifMsg, ::service_layer::SLRoutev4Notif>* SLRoutev4GetNotifStreamRaw(::grpc::ClientContext* context) override;
     ::grpc::ClientAsyncReaderWriter< ::service_layer::SLRouteGetNotifMsg, ::service_layer::SLRoutev4Notif>* AsyncSLRoutev4GetNotifStreamRaw(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq, void* tag) override;
     ::grpc::ClientAsyncReaderWriter< ::service_layer::SLRouteGetNotifMsg, ::service_layer::SLRoutev4Notif>* PrepareAsyncSLRoutev4GetNotifStreamRaw(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq) override;
-    const ::grpc::RpcMethod rpcmethod_SLRoutev4GlobalsGet_;
-    const ::grpc::RpcMethod rpcmethod_SLRoutev4GlobalStatsGet_;
-    const ::grpc::RpcMethod rpcmethod_SLRoutev4VrfRegOp_;
-    const ::grpc::RpcMethod rpcmethod_SLRoutev4VrfRegGet_;
-    const ::grpc::RpcMethod rpcmethod_SLRoutev4VrfGetStats_;
-    const ::grpc::RpcMethod rpcmethod_SLRoutev4Op_;
-    const ::grpc::RpcMethod rpcmethod_SLRoutev4Get_;
-    const ::grpc::RpcMethod rpcmethod_SLRoutev4OpStream_;
-    const ::grpc::RpcMethod rpcmethod_SLRoutev4GetStream_;
-    const ::grpc::RpcMethod rpcmethod_SLRoutev4GetNotifStream_;
+    const ::grpc::internal::RpcMethod rpcmethod_SLRoutev4GlobalsGet_;
+    const ::grpc::internal::RpcMethod rpcmethod_SLRoutev4GlobalStatsGet_;
+    const ::grpc::internal::RpcMethod rpcmethod_SLRoutev4VrfRegOp_;
+    const ::grpc::internal::RpcMethod rpcmethod_SLRoutev4VrfRegGet_;
+    const ::grpc::internal::RpcMethod rpcmethod_SLRoutev4VrfGetStats_;
+    const ::grpc::internal::RpcMethod rpcmethod_SLRoutev4Op_;
+    const ::grpc::internal::RpcMethod rpcmethod_SLRoutev4Get_;
+    const ::grpc::internal::RpcMethod rpcmethod_SLRoutev4OpStream_;
+    const ::grpc::internal::RpcMethod rpcmethod_SLRoutev4GetStream_;
+    const ::grpc::internal::RpcMethod rpcmethod_SLRoutev4GetNotifStream_;
   };
   static std::unique_ptr<Stub> NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options = ::grpc::StubOptions());
 
@@ -809,7 +808,7 @@ class SLRoutev4Oper final {
    public:
     WithStreamedUnaryMethod_SLRoutev4GlobalsGet() {
       ::grpc::Service::MarkMethodStreamed(0,
-        new ::grpc::StreamedUnaryHandler< ::service_layer::SLRouteGlobalsGetMsg, ::service_layer::SLRouteGlobalsGetMsgRsp>(std::bind(&WithStreamedUnaryMethod_SLRoutev4GlobalsGet<BaseClass>::StreamedSLRoutev4GlobalsGet, this, std::placeholders::_1, std::placeholders::_2)));
+        new ::grpc::internal::StreamedUnaryHandler< ::service_layer::SLRouteGlobalsGetMsg, ::service_layer::SLRouteGlobalsGetMsgRsp>(std::bind(&WithStreamedUnaryMethod_SLRoutev4GlobalsGet<BaseClass>::StreamedSLRoutev4GlobalsGet, this, std::placeholders::_1, std::placeholders::_2)));
     }
     ~WithStreamedUnaryMethod_SLRoutev4GlobalsGet() override {
       BaseClassMustBeDerivedFromService(this);
@@ -829,7 +828,7 @@ class SLRoutev4Oper final {
    public:
     WithStreamedUnaryMethod_SLRoutev4GlobalStatsGet() {
       ::grpc::Service::MarkMethodStreamed(1,
-        new ::grpc::StreamedUnaryHandler< ::service_layer::SLRouteGlobalStatsGetMsg, ::service_layer::SLRouteGlobalStatsGetMsgRsp>(std::bind(&WithStreamedUnaryMethod_SLRoutev4GlobalStatsGet<BaseClass>::StreamedSLRoutev4GlobalStatsGet, this, std::placeholders::_1, std::placeholders::_2)));
+        new ::grpc::internal::StreamedUnaryHandler< ::service_layer::SLRouteGlobalStatsGetMsg, ::service_layer::SLRouteGlobalStatsGetMsgRsp>(std::bind(&WithStreamedUnaryMethod_SLRoutev4GlobalStatsGet<BaseClass>::StreamedSLRoutev4GlobalStatsGet, this, std::placeholders::_1, std::placeholders::_2)));
     }
     ~WithStreamedUnaryMethod_SLRoutev4GlobalStatsGet() override {
       BaseClassMustBeDerivedFromService(this);
@@ -849,7 +848,7 @@ class SLRoutev4Oper final {
    public:
     WithStreamedUnaryMethod_SLRoutev4VrfRegOp() {
       ::grpc::Service::MarkMethodStreamed(2,
-        new ::grpc::StreamedUnaryHandler< ::service_layer::SLVrfRegMsg, ::service_layer::SLVrfRegMsgRsp>(std::bind(&WithStreamedUnaryMethod_SLRoutev4VrfRegOp<BaseClass>::StreamedSLRoutev4VrfRegOp, this, std::placeholders::_1, std::placeholders::_2)));
+        new ::grpc::internal::StreamedUnaryHandler< ::service_layer::SLVrfRegMsg, ::service_layer::SLVrfRegMsgRsp>(std::bind(&WithStreamedUnaryMethod_SLRoutev4VrfRegOp<BaseClass>::StreamedSLRoutev4VrfRegOp, this, std::placeholders::_1, std::placeholders::_2)));
     }
     ~WithStreamedUnaryMethod_SLRoutev4VrfRegOp() override {
       BaseClassMustBeDerivedFromService(this);
@@ -869,7 +868,7 @@ class SLRoutev4Oper final {
    public:
     WithStreamedUnaryMethod_SLRoutev4VrfRegGet() {
       ::grpc::Service::MarkMethodStreamed(3,
-        new ::grpc::StreamedUnaryHandler< ::service_layer::SLVrfRegGetMsg, ::service_layer::SLVrfRegGetMsgRsp>(std::bind(&WithStreamedUnaryMethod_SLRoutev4VrfRegGet<BaseClass>::StreamedSLRoutev4VrfRegGet, this, std::placeholders::_1, std::placeholders::_2)));
+        new ::grpc::internal::StreamedUnaryHandler< ::service_layer::SLVrfRegGetMsg, ::service_layer::SLVrfRegGetMsgRsp>(std::bind(&WithStreamedUnaryMethod_SLRoutev4VrfRegGet<BaseClass>::StreamedSLRoutev4VrfRegGet, this, std::placeholders::_1, std::placeholders::_2)));
     }
     ~WithStreamedUnaryMethod_SLRoutev4VrfRegGet() override {
       BaseClassMustBeDerivedFromService(this);
@@ -889,7 +888,7 @@ class SLRoutev4Oper final {
    public:
     WithStreamedUnaryMethod_SLRoutev4VrfGetStats() {
       ::grpc::Service::MarkMethodStreamed(4,
-        new ::grpc::StreamedUnaryHandler< ::service_layer::SLVrfRegGetMsg, ::service_layer::SLVRFGetStatsMsgRsp>(std::bind(&WithStreamedUnaryMethod_SLRoutev4VrfGetStats<BaseClass>::StreamedSLRoutev4VrfGetStats, this, std::placeholders::_1, std::placeholders::_2)));
+        new ::grpc::internal::StreamedUnaryHandler< ::service_layer::SLVrfRegGetMsg, ::service_layer::SLVRFGetStatsMsgRsp>(std::bind(&WithStreamedUnaryMethod_SLRoutev4VrfGetStats<BaseClass>::StreamedSLRoutev4VrfGetStats, this, std::placeholders::_1, std::placeholders::_2)));
     }
     ~WithStreamedUnaryMethod_SLRoutev4VrfGetStats() override {
       BaseClassMustBeDerivedFromService(this);
@@ -909,7 +908,7 @@ class SLRoutev4Oper final {
    public:
     WithStreamedUnaryMethod_SLRoutev4Op() {
       ::grpc::Service::MarkMethodStreamed(5,
-        new ::grpc::StreamedUnaryHandler< ::service_layer::SLRoutev4Msg, ::service_layer::SLRoutev4MsgRsp>(std::bind(&WithStreamedUnaryMethod_SLRoutev4Op<BaseClass>::StreamedSLRoutev4Op, this, std::placeholders::_1, std::placeholders::_2)));
+        new ::grpc::internal::StreamedUnaryHandler< ::service_layer::SLRoutev4Msg, ::service_layer::SLRoutev4MsgRsp>(std::bind(&WithStreamedUnaryMethod_SLRoutev4Op<BaseClass>::StreamedSLRoutev4Op, this, std::placeholders::_1, std::placeholders::_2)));
     }
     ~WithStreamedUnaryMethod_SLRoutev4Op() override {
       BaseClassMustBeDerivedFromService(this);
@@ -929,7 +928,7 @@ class SLRoutev4Oper final {
    public:
     WithStreamedUnaryMethod_SLRoutev4Get() {
       ::grpc::Service::MarkMethodStreamed(6,
-        new ::grpc::StreamedUnaryHandler< ::service_layer::SLRoutev4GetMsg, ::service_layer::SLRoutev4GetMsgRsp>(std::bind(&WithStreamedUnaryMethod_SLRoutev4Get<BaseClass>::StreamedSLRoutev4Get, this, std::placeholders::_1, std::placeholders::_2)));
+        new ::grpc::internal::StreamedUnaryHandler< ::service_layer::SLRoutev4GetMsg, ::service_layer::SLRoutev4GetMsgRsp>(std::bind(&WithStreamedUnaryMethod_SLRoutev4Get<BaseClass>::StreamedSLRoutev4Get, this, std::placeholders::_1, std::placeholders::_2)));
     }
     ~WithStreamedUnaryMethod_SLRoutev4Get() override {
       BaseClassMustBeDerivedFromService(this);

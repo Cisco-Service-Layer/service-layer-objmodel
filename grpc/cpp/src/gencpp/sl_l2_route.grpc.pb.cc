@@ -25,121 +25,122 @@ static const char* SLL2Oper_method_names[] = {
 };
 
 std::unique_ptr< SLL2Oper::Stub> SLL2Oper::NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options) {
+  (void)options;
   std::unique_ptr< SLL2Oper::Stub> stub(new SLL2Oper::Stub(channel));
   return stub;
 }
 
 SLL2Oper::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel)
-  : channel_(channel), rpcmethod_SLL2GlobalsGet_(SLL2Oper_method_names[0], ::grpc::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_SLL2RegOp_(SLL2Oper_method_names[1], ::grpc::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_SLL2BdRegOp_(SLL2Oper_method_names[2], ::grpc::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_SLL2RouteOp_(SLL2Oper_method_names[3], ::grpc::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_SLL2RouteOpStream_(SLL2Oper_method_names[4], ::grpc::RpcMethod::BIDI_STREAMING, channel)
-  , rpcmethod_SLL2GetNotifStream_(SLL2Oper_method_names[5], ::grpc::RpcMethod::BIDI_STREAMING, channel)
+  : channel_(channel), rpcmethod_SLL2GlobalsGet_(SLL2Oper_method_names[0], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_SLL2RegOp_(SLL2Oper_method_names[1], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_SLL2BdRegOp_(SLL2Oper_method_names[2], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_SLL2RouteOp_(SLL2Oper_method_names[3], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_SLL2RouteOpStream_(SLL2Oper_method_names[4], ::grpc::internal::RpcMethod::BIDI_STREAMING, channel)
+  , rpcmethod_SLL2GetNotifStream_(SLL2Oper_method_names[5], ::grpc::internal::RpcMethod::BIDI_STREAMING, channel)
   {}
 
 ::grpc::Status SLL2Oper::Stub::SLL2GlobalsGet(::grpc::ClientContext* context, const ::service_layer::SLL2GlobalsGetMsg& request, ::service_layer::SLL2GlobalsGetMsgRsp* response) {
-  return ::grpc::BlockingUnaryCall(channel_.get(), rpcmethod_SLL2GlobalsGet_, context, request, response);
+  return ::grpc::internal::BlockingUnaryCall(channel_.get(), rpcmethod_SLL2GlobalsGet_, context, request, response);
 }
 
 ::grpc::ClientAsyncResponseReader< ::service_layer::SLL2GlobalsGetMsgRsp>* SLL2Oper::Stub::AsyncSLL2GlobalsGetRaw(::grpc::ClientContext* context, const ::service_layer::SLL2GlobalsGetMsg& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::ClientAsyncResponseReader< ::service_layer::SLL2GlobalsGetMsgRsp>::Create(channel_.get(), cq, rpcmethod_SLL2GlobalsGet_, context, request, true);
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::service_layer::SLL2GlobalsGetMsgRsp>::Create(channel_.get(), cq, rpcmethod_SLL2GlobalsGet_, context, request, true);
 }
 
 ::grpc::ClientAsyncResponseReader< ::service_layer::SLL2GlobalsGetMsgRsp>* SLL2Oper::Stub::PrepareAsyncSLL2GlobalsGetRaw(::grpc::ClientContext* context, const ::service_layer::SLL2GlobalsGetMsg& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::ClientAsyncResponseReader< ::service_layer::SLL2GlobalsGetMsgRsp>::Create(channel_.get(), cq, rpcmethod_SLL2GlobalsGet_, context, request, false);
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::service_layer::SLL2GlobalsGetMsgRsp>::Create(channel_.get(), cq, rpcmethod_SLL2GlobalsGet_, context, request, false);
 }
 
 ::grpc::Status SLL2Oper::Stub::SLL2RegOp(::grpc::ClientContext* context, const ::service_layer::SLL2RegMsg& request, ::service_layer::SLL2RegMsgRsp* response) {
-  return ::grpc::BlockingUnaryCall(channel_.get(), rpcmethod_SLL2RegOp_, context, request, response);
+  return ::grpc::internal::BlockingUnaryCall(channel_.get(), rpcmethod_SLL2RegOp_, context, request, response);
 }
 
 ::grpc::ClientAsyncResponseReader< ::service_layer::SLL2RegMsgRsp>* SLL2Oper::Stub::AsyncSLL2RegOpRaw(::grpc::ClientContext* context, const ::service_layer::SLL2RegMsg& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::ClientAsyncResponseReader< ::service_layer::SLL2RegMsgRsp>::Create(channel_.get(), cq, rpcmethod_SLL2RegOp_, context, request, true);
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::service_layer::SLL2RegMsgRsp>::Create(channel_.get(), cq, rpcmethod_SLL2RegOp_, context, request, true);
 }
 
 ::grpc::ClientAsyncResponseReader< ::service_layer::SLL2RegMsgRsp>* SLL2Oper::Stub::PrepareAsyncSLL2RegOpRaw(::grpc::ClientContext* context, const ::service_layer::SLL2RegMsg& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::ClientAsyncResponseReader< ::service_layer::SLL2RegMsgRsp>::Create(channel_.get(), cq, rpcmethod_SLL2RegOp_, context, request, false);
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::service_layer::SLL2RegMsgRsp>::Create(channel_.get(), cq, rpcmethod_SLL2RegOp_, context, request, false);
 }
 
 ::grpc::Status SLL2Oper::Stub::SLL2BdRegOp(::grpc::ClientContext* context, const ::service_layer::SLL2BdRegMsg& request, ::service_layer::SLL2BdRegMsgRsp* response) {
-  return ::grpc::BlockingUnaryCall(channel_.get(), rpcmethod_SLL2BdRegOp_, context, request, response);
+  return ::grpc::internal::BlockingUnaryCall(channel_.get(), rpcmethod_SLL2BdRegOp_, context, request, response);
 }
 
 ::grpc::ClientAsyncResponseReader< ::service_layer::SLL2BdRegMsgRsp>* SLL2Oper::Stub::AsyncSLL2BdRegOpRaw(::grpc::ClientContext* context, const ::service_layer::SLL2BdRegMsg& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::ClientAsyncResponseReader< ::service_layer::SLL2BdRegMsgRsp>::Create(channel_.get(), cq, rpcmethod_SLL2BdRegOp_, context, request, true);
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::service_layer::SLL2BdRegMsgRsp>::Create(channel_.get(), cq, rpcmethod_SLL2BdRegOp_, context, request, true);
 }
 
 ::grpc::ClientAsyncResponseReader< ::service_layer::SLL2BdRegMsgRsp>* SLL2Oper::Stub::PrepareAsyncSLL2BdRegOpRaw(::grpc::ClientContext* context, const ::service_layer::SLL2BdRegMsg& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::ClientAsyncResponseReader< ::service_layer::SLL2BdRegMsgRsp>::Create(channel_.get(), cq, rpcmethod_SLL2BdRegOp_, context, request, false);
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::service_layer::SLL2BdRegMsgRsp>::Create(channel_.get(), cq, rpcmethod_SLL2BdRegOp_, context, request, false);
 }
 
 ::grpc::Status SLL2Oper::Stub::SLL2RouteOp(::grpc::ClientContext* context, const ::service_layer::SLL2RouteMsg& request, ::service_layer::SLL2RouteMsgRsp* response) {
-  return ::grpc::BlockingUnaryCall(channel_.get(), rpcmethod_SLL2RouteOp_, context, request, response);
+  return ::grpc::internal::BlockingUnaryCall(channel_.get(), rpcmethod_SLL2RouteOp_, context, request, response);
 }
 
 ::grpc::ClientAsyncResponseReader< ::service_layer::SLL2RouteMsgRsp>* SLL2Oper::Stub::AsyncSLL2RouteOpRaw(::grpc::ClientContext* context, const ::service_layer::SLL2RouteMsg& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::ClientAsyncResponseReader< ::service_layer::SLL2RouteMsgRsp>::Create(channel_.get(), cq, rpcmethod_SLL2RouteOp_, context, request, true);
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::service_layer::SLL2RouteMsgRsp>::Create(channel_.get(), cq, rpcmethod_SLL2RouteOp_, context, request, true);
 }
 
 ::grpc::ClientAsyncResponseReader< ::service_layer::SLL2RouteMsgRsp>* SLL2Oper::Stub::PrepareAsyncSLL2RouteOpRaw(::grpc::ClientContext* context, const ::service_layer::SLL2RouteMsg& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::ClientAsyncResponseReader< ::service_layer::SLL2RouteMsgRsp>::Create(channel_.get(), cq, rpcmethod_SLL2RouteOp_, context, request, false);
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::service_layer::SLL2RouteMsgRsp>::Create(channel_.get(), cq, rpcmethod_SLL2RouteOp_, context, request, false);
 }
 
 ::grpc::ClientReaderWriter< ::service_layer::SLL2RouteMsg, ::service_layer::SLL2RouteMsgRsp>* SLL2Oper::Stub::SLL2RouteOpStreamRaw(::grpc::ClientContext* context) {
-  return new ::grpc::ClientReaderWriter< ::service_layer::SLL2RouteMsg, ::service_layer::SLL2RouteMsgRsp>(channel_.get(), rpcmethod_SLL2RouteOpStream_, context);
+  return ::grpc::internal::ClientReaderWriterFactory< ::service_layer::SLL2RouteMsg, ::service_layer::SLL2RouteMsgRsp>::Create(channel_.get(), rpcmethod_SLL2RouteOpStream_, context);
 }
 
 ::grpc::ClientAsyncReaderWriter< ::service_layer::SLL2RouteMsg, ::service_layer::SLL2RouteMsgRsp>* SLL2Oper::Stub::AsyncSLL2RouteOpStreamRaw(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq, void* tag) {
-  return ::grpc::ClientAsyncReaderWriter< ::service_layer::SLL2RouteMsg, ::service_layer::SLL2RouteMsgRsp>::Create(channel_.get(), cq, rpcmethod_SLL2RouteOpStream_, context, true, tag);
+  return ::grpc::internal::ClientAsyncReaderWriterFactory< ::service_layer::SLL2RouteMsg, ::service_layer::SLL2RouteMsgRsp>::Create(channel_.get(), cq, rpcmethod_SLL2RouteOpStream_, context, true, tag);
 }
 
 ::grpc::ClientAsyncReaderWriter< ::service_layer::SLL2RouteMsg, ::service_layer::SLL2RouteMsgRsp>* SLL2Oper::Stub::PrepareAsyncSLL2RouteOpStreamRaw(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq) {
-  return ::grpc::ClientAsyncReaderWriter< ::service_layer::SLL2RouteMsg, ::service_layer::SLL2RouteMsgRsp>::Create(channel_.get(), cq, rpcmethod_SLL2RouteOpStream_, context, false, nullptr);
+  return ::grpc::internal::ClientAsyncReaderWriterFactory< ::service_layer::SLL2RouteMsg, ::service_layer::SLL2RouteMsgRsp>::Create(channel_.get(), cq, rpcmethod_SLL2RouteOpStream_, context, false, nullptr);
 }
 
 ::grpc::ClientReaderWriter< ::service_layer::SLL2GetNotifMsg, ::service_layer::SLL2Notif>* SLL2Oper::Stub::SLL2GetNotifStreamRaw(::grpc::ClientContext* context) {
-  return new ::grpc::ClientReaderWriter< ::service_layer::SLL2GetNotifMsg, ::service_layer::SLL2Notif>(channel_.get(), rpcmethod_SLL2GetNotifStream_, context);
+  return ::grpc::internal::ClientReaderWriterFactory< ::service_layer::SLL2GetNotifMsg, ::service_layer::SLL2Notif>::Create(channel_.get(), rpcmethod_SLL2GetNotifStream_, context);
 }
 
 ::grpc::ClientAsyncReaderWriter< ::service_layer::SLL2GetNotifMsg, ::service_layer::SLL2Notif>* SLL2Oper::Stub::AsyncSLL2GetNotifStreamRaw(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq, void* tag) {
-  return ::grpc::ClientAsyncReaderWriter< ::service_layer::SLL2GetNotifMsg, ::service_layer::SLL2Notif>::Create(channel_.get(), cq, rpcmethod_SLL2GetNotifStream_, context, true, tag);
+  return ::grpc::internal::ClientAsyncReaderWriterFactory< ::service_layer::SLL2GetNotifMsg, ::service_layer::SLL2Notif>::Create(channel_.get(), cq, rpcmethod_SLL2GetNotifStream_, context, true, tag);
 }
 
 ::grpc::ClientAsyncReaderWriter< ::service_layer::SLL2GetNotifMsg, ::service_layer::SLL2Notif>* SLL2Oper::Stub::PrepareAsyncSLL2GetNotifStreamRaw(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq) {
-  return ::grpc::ClientAsyncReaderWriter< ::service_layer::SLL2GetNotifMsg, ::service_layer::SLL2Notif>::Create(channel_.get(), cq, rpcmethod_SLL2GetNotifStream_, context, false, nullptr);
+  return ::grpc::internal::ClientAsyncReaderWriterFactory< ::service_layer::SLL2GetNotifMsg, ::service_layer::SLL2Notif>::Create(channel_.get(), cq, rpcmethod_SLL2GetNotifStream_, context, false, nullptr);
 }
 
 SLL2Oper::Service::Service() {
-  AddMethod(new ::grpc::RpcServiceMethod(
+  AddMethod(new ::grpc::internal::RpcServiceMethod(
       SLL2Oper_method_names[0],
-      ::grpc::RpcMethod::NORMAL_RPC,
-      new ::grpc::RpcMethodHandler< SLL2Oper::Service, ::service_layer::SLL2GlobalsGetMsg, ::service_layer::SLL2GlobalsGetMsgRsp>(
+      ::grpc::internal::RpcMethod::NORMAL_RPC,
+      new ::grpc::internal::RpcMethodHandler< SLL2Oper::Service, ::service_layer::SLL2GlobalsGetMsg, ::service_layer::SLL2GlobalsGetMsgRsp>(
           std::mem_fn(&SLL2Oper::Service::SLL2GlobalsGet), this)));
-  AddMethod(new ::grpc::RpcServiceMethod(
+  AddMethod(new ::grpc::internal::RpcServiceMethod(
       SLL2Oper_method_names[1],
-      ::grpc::RpcMethod::NORMAL_RPC,
-      new ::grpc::RpcMethodHandler< SLL2Oper::Service, ::service_layer::SLL2RegMsg, ::service_layer::SLL2RegMsgRsp>(
+      ::grpc::internal::RpcMethod::NORMAL_RPC,
+      new ::grpc::internal::RpcMethodHandler< SLL2Oper::Service, ::service_layer::SLL2RegMsg, ::service_layer::SLL2RegMsgRsp>(
           std::mem_fn(&SLL2Oper::Service::SLL2RegOp), this)));
-  AddMethod(new ::grpc::RpcServiceMethod(
+  AddMethod(new ::grpc::internal::RpcServiceMethod(
       SLL2Oper_method_names[2],
-      ::grpc::RpcMethod::NORMAL_RPC,
-      new ::grpc::RpcMethodHandler< SLL2Oper::Service, ::service_layer::SLL2BdRegMsg, ::service_layer::SLL2BdRegMsgRsp>(
+      ::grpc::internal::RpcMethod::NORMAL_RPC,
+      new ::grpc::internal::RpcMethodHandler< SLL2Oper::Service, ::service_layer::SLL2BdRegMsg, ::service_layer::SLL2BdRegMsgRsp>(
           std::mem_fn(&SLL2Oper::Service::SLL2BdRegOp), this)));
-  AddMethod(new ::grpc::RpcServiceMethod(
+  AddMethod(new ::grpc::internal::RpcServiceMethod(
       SLL2Oper_method_names[3],
-      ::grpc::RpcMethod::NORMAL_RPC,
-      new ::grpc::RpcMethodHandler< SLL2Oper::Service, ::service_layer::SLL2RouteMsg, ::service_layer::SLL2RouteMsgRsp>(
+      ::grpc::internal::RpcMethod::NORMAL_RPC,
+      new ::grpc::internal::RpcMethodHandler< SLL2Oper::Service, ::service_layer::SLL2RouteMsg, ::service_layer::SLL2RouteMsgRsp>(
           std::mem_fn(&SLL2Oper::Service::SLL2RouteOp), this)));
-  AddMethod(new ::grpc::RpcServiceMethod(
+  AddMethod(new ::grpc::internal::RpcServiceMethod(
       SLL2Oper_method_names[4],
-      ::grpc::RpcMethod::BIDI_STREAMING,
-      new ::grpc::BidiStreamingHandler< SLL2Oper::Service, ::service_layer::SLL2RouteMsg, ::service_layer::SLL2RouteMsgRsp>(
+      ::grpc::internal::RpcMethod::BIDI_STREAMING,
+      new ::grpc::internal::BidiStreamingHandler< SLL2Oper::Service, ::service_layer::SLL2RouteMsg, ::service_layer::SLL2RouteMsgRsp>(
           std::mem_fn(&SLL2Oper::Service::SLL2RouteOpStream), this)));
-  AddMethod(new ::grpc::RpcServiceMethod(
+  AddMethod(new ::grpc::internal::RpcServiceMethod(
       SLL2Oper_method_names[5],
-      ::grpc::RpcMethod::BIDI_STREAMING,
-      new ::grpc::BidiStreamingHandler< SLL2Oper::Service, ::service_layer::SLL2GetNotifMsg, ::service_layer::SLL2Notif>(
+      ::grpc::internal::RpcMethod::BIDI_STREAMING,
+      new ::grpc::internal::BidiStreamingHandler< SLL2Oper::Service, ::service_layer::SLL2GetNotifMsg, ::service_layer::SLL2Notif>(
           std::mem_fn(&SLL2Oper::Service::SLL2GetNotifStream), this)));
 }
 

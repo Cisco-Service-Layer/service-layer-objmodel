@@ -12,6 +12,12 @@ var _ = proto.Marshal
 var _ = fmt.Errorf
 var _ = math.Inf
 
+// This is a compile-time assertion to ensure that this generated file
+// is compatible with the proto package it is being compiled against.
+// A compilation error at this line likely means your copy of the
+// proto package needs to be updated.
+const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
+
 // L3 Event Notification types
 type SLNotifType int32
 
@@ -60,31 +66,77 @@ var SLNotifType_value = map[string]int32{
 func (x SLNotifType) String() string {
 	return proto.EnumName(SLNotifType_name, int32(x))
 }
-func (SLNotifType) EnumDescriptor() ([]byte, []int) { return fileDescriptor8, []int{0} }
+func (SLNotifType) EnumDescriptor() ([]byte, []int) {
+	return fileDescriptor_sl_route_common_36b8304f30921dd0, []int{0}
+}
 
 // Route Globals Get Message
 type SLRouteGlobalsGetMsg struct {
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *SLRouteGlobalsGetMsg) Reset()                    { *m = SLRouteGlobalsGetMsg{} }
-func (m *SLRouteGlobalsGetMsg) String() string            { return proto.CompactTextString(m) }
-func (*SLRouteGlobalsGetMsg) ProtoMessage()               {}
-func (*SLRouteGlobalsGetMsg) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{0} }
+func (m *SLRouteGlobalsGetMsg) Reset()         { *m = SLRouteGlobalsGetMsg{} }
+func (m *SLRouteGlobalsGetMsg) String() string { return proto.CompactTextString(m) }
+func (*SLRouteGlobalsGetMsg) ProtoMessage()    {}
+func (*SLRouteGlobalsGetMsg) Descriptor() ([]byte, []int) {
+	return fileDescriptor_sl_route_common_36b8304f30921dd0, []int{0}
+}
+func (m *SLRouteGlobalsGetMsg) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_SLRouteGlobalsGetMsg.Unmarshal(m, b)
+}
+func (m *SLRouteGlobalsGetMsg) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_SLRouteGlobalsGetMsg.Marshal(b, m, deterministic)
+}
+func (dst *SLRouteGlobalsGetMsg) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_SLRouteGlobalsGetMsg.Merge(dst, src)
+}
+func (m *SLRouteGlobalsGetMsg) XXX_Size() int {
+	return xxx_messageInfo_SLRouteGlobalsGetMsg.Size(m)
+}
+func (m *SLRouteGlobalsGetMsg) XXX_DiscardUnknown() {
+	xxx_messageInfo_SLRouteGlobalsGetMsg.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_SLRouteGlobalsGetMsg proto.InternalMessageInfo
 
 // Route Globals Get Message Response
 type SLRouteGlobalsGetMsgRsp struct {
 	// Corresponding error code
-	ErrStatus *SLErrorStatus `protobuf:"bytes,1,opt,name=ErrStatus" json:"ErrStatus,omitempty"`
+	ErrStatus *SLErrorStatus `protobuf:"bytes,1,opt,name=ErrStatus,proto3" json:"ErrStatus,omitempty"`
 	// Max VrfReg objects within a single VrfRegMsg message.
-	MaxVrfregPerVrfregmsg uint32 `protobuf:"varint,2,opt,name=MaxVrfregPerVrfregmsg" json:"MaxVrfregPerVrfregmsg,omitempty"`
+	MaxVrfregPerVrfregmsg uint32 `protobuf:"varint,2,opt,name=MaxVrfregPerVrfregmsg,proto3" json:"MaxVrfregPerVrfregmsg,omitempty"`
 	// Max Route objects within a single RouteMsg message.
-	MaxRoutePerRoutemsg uint32 `protobuf:"varint,3,opt,name=MaxRoutePerRoutemsg" json:"MaxRoutePerRoutemsg,omitempty"`
+	MaxRoutePerRoutemsg  uint32   `protobuf:"varint,3,opt,name=MaxRoutePerRoutemsg,proto3" json:"MaxRoutePerRoutemsg,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *SLRouteGlobalsGetMsgRsp) Reset()                    { *m = SLRouteGlobalsGetMsgRsp{} }
-func (m *SLRouteGlobalsGetMsgRsp) String() string            { return proto.CompactTextString(m) }
-func (*SLRouteGlobalsGetMsgRsp) ProtoMessage()               {}
-func (*SLRouteGlobalsGetMsgRsp) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{1} }
+func (m *SLRouteGlobalsGetMsgRsp) Reset()         { *m = SLRouteGlobalsGetMsgRsp{} }
+func (m *SLRouteGlobalsGetMsgRsp) String() string { return proto.CompactTextString(m) }
+func (*SLRouteGlobalsGetMsgRsp) ProtoMessage()    {}
+func (*SLRouteGlobalsGetMsgRsp) Descriptor() ([]byte, []int) {
+	return fileDescriptor_sl_route_common_36b8304f30921dd0, []int{1}
+}
+func (m *SLRouteGlobalsGetMsgRsp) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_SLRouteGlobalsGetMsgRsp.Unmarshal(m, b)
+}
+func (m *SLRouteGlobalsGetMsgRsp) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_SLRouteGlobalsGetMsgRsp.Marshal(b, m, deterministic)
+}
+func (dst *SLRouteGlobalsGetMsgRsp) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_SLRouteGlobalsGetMsgRsp.Merge(dst, src)
+}
+func (m *SLRouteGlobalsGetMsgRsp) XXX_Size() int {
+	return xxx_messageInfo_SLRouteGlobalsGetMsgRsp.Size(m)
+}
+func (m *SLRouteGlobalsGetMsgRsp) XXX_DiscardUnknown() {
+	xxx_messageInfo_SLRouteGlobalsGetMsgRsp.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_SLRouteGlobalsGetMsgRsp proto.InternalMessageInfo
 
 func (m *SLRouteGlobalsGetMsgRsp) GetErrStatus() *SLErrorStatus {
 	if m != nil {
@@ -109,27 +161,71 @@ func (m *SLRouteGlobalsGetMsgRsp) GetMaxRoutePerRoutemsg() uint32 {
 
 // Route Global Stats Get Message
 type SLRouteGlobalStatsGetMsg struct {
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *SLRouteGlobalStatsGetMsg) Reset()                    { *m = SLRouteGlobalStatsGetMsg{} }
-func (m *SLRouteGlobalStatsGetMsg) String() string            { return proto.CompactTextString(m) }
-func (*SLRouteGlobalStatsGetMsg) ProtoMessage()               {}
-func (*SLRouteGlobalStatsGetMsg) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{2} }
+func (m *SLRouteGlobalStatsGetMsg) Reset()         { *m = SLRouteGlobalStatsGetMsg{} }
+func (m *SLRouteGlobalStatsGetMsg) String() string { return proto.CompactTextString(m) }
+func (*SLRouteGlobalStatsGetMsg) ProtoMessage()    {}
+func (*SLRouteGlobalStatsGetMsg) Descriptor() ([]byte, []int) {
+	return fileDescriptor_sl_route_common_36b8304f30921dd0, []int{2}
+}
+func (m *SLRouteGlobalStatsGetMsg) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_SLRouteGlobalStatsGetMsg.Unmarshal(m, b)
+}
+func (m *SLRouteGlobalStatsGetMsg) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_SLRouteGlobalStatsGetMsg.Marshal(b, m, deterministic)
+}
+func (dst *SLRouteGlobalStatsGetMsg) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_SLRouteGlobalStatsGetMsg.Merge(dst, src)
+}
+func (m *SLRouteGlobalStatsGetMsg) XXX_Size() int {
+	return xxx_messageInfo_SLRouteGlobalStatsGetMsg.Size(m)
+}
+func (m *SLRouteGlobalStatsGetMsg) XXX_DiscardUnknown() {
+	xxx_messageInfo_SLRouteGlobalStatsGetMsg.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_SLRouteGlobalStatsGetMsg proto.InternalMessageInfo
 
 // Route Global Stats Get Message Response
 type SLRouteGlobalStatsGetMsgRsp struct {
 	// Corresponding error code
-	ErrStatus *SLErrorStatus `protobuf:"bytes,1,opt,name=ErrStatus" json:"ErrStatus,omitempty"`
+	ErrStatus *SLErrorStatus `protobuf:"bytes,1,opt,name=ErrStatus,proto3" json:"ErrStatus,omitempty"`
 	// Num VRFs registered through the service layer.
-	VrfCount uint32 `protobuf:"varint,2,opt,name=VrfCount" json:"VrfCount,omitempty"`
+	VrfCount uint32 `protobuf:"varint,2,opt,name=VrfCount,proto3" json:"VrfCount,omitempty"`
 	// Num Routes added through the service layer.
-	RouteCount uint32 `protobuf:"varint,3,opt,name=RouteCount" json:"RouteCount,omitempty"`
+	RouteCount           uint32   `protobuf:"varint,3,opt,name=RouteCount,proto3" json:"RouteCount,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *SLRouteGlobalStatsGetMsgRsp) Reset()                    { *m = SLRouteGlobalStatsGetMsgRsp{} }
-func (m *SLRouteGlobalStatsGetMsgRsp) String() string            { return proto.CompactTextString(m) }
-func (*SLRouteGlobalStatsGetMsgRsp) ProtoMessage()               {}
-func (*SLRouteGlobalStatsGetMsgRsp) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{3} }
+func (m *SLRouteGlobalStatsGetMsgRsp) Reset()         { *m = SLRouteGlobalStatsGetMsgRsp{} }
+func (m *SLRouteGlobalStatsGetMsgRsp) String() string { return proto.CompactTextString(m) }
+func (*SLRouteGlobalStatsGetMsgRsp) ProtoMessage()    {}
+func (*SLRouteGlobalStatsGetMsgRsp) Descriptor() ([]byte, []int) {
+	return fileDescriptor_sl_route_common_36b8304f30921dd0, []int{3}
+}
+func (m *SLRouteGlobalStatsGetMsgRsp) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_SLRouteGlobalStatsGetMsgRsp.Unmarshal(m, b)
+}
+func (m *SLRouteGlobalStatsGetMsgRsp) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_SLRouteGlobalStatsGetMsgRsp.Marshal(b, m, deterministic)
+}
+func (dst *SLRouteGlobalStatsGetMsgRsp) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_SLRouteGlobalStatsGetMsgRsp.Merge(dst, src)
+}
+func (m *SLRouteGlobalStatsGetMsgRsp) XXX_Size() int {
+	return xxx_messageInfo_SLRouteGlobalStatsGetMsgRsp.Size(m)
+}
+func (m *SLRouteGlobalStatsGetMsgRsp) XXX_DiscardUnknown() {
+	xxx_messageInfo_SLRouteGlobalStatsGetMsgRsp.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_SLRouteGlobalStatsGetMsgRsp proto.InternalMessageInfo
 
 func (m *SLRouteGlobalStatsGetMsgRsp) GetErrStatus() *SLErrorStatus {
 	if m != nil {
@@ -155,25 +251,47 @@ func (m *SLRouteGlobalStatsGetMsgRsp) GetRouteCount() uint32 {
 // VRF Registration message
 type SLVrfReg struct {
 	// VRF Name.
-	VrfName string `protobuf:"bytes,1,opt,name=VrfName" json:"VrfName,omitempty"`
+	VrfName string `protobuf:"bytes,1,opt,name=VrfName,proto3" json:"VrfName,omitempty"`
 	// Default Admin distance for routes programmed by this application
 	// Range [0-255]
 	// This default value is used if route objects' AdminDistance is 0.
 	// Refer to SLRouteCommon
-	AdminDistance uint32 `protobuf:"varint,2,opt,name=AdminDistance" json:"AdminDistance,omitempty"`
+	AdminDistance uint32 `protobuf:"varint,2,opt,name=AdminDistance,proto3" json:"AdminDistance,omitempty"`
 	// In case the Service Layer -> RIB connection is lost, this specifies the
 	// timeout period after which RIB will automatically purge the installed
 	// routes, unless the service layer:
 	//    1. Re-registers (VRF)
 	//    2. Replay all routes
 	//    3. And send EOF, before the purge timeout
-	VrfPurgeIntervalSeconds uint32 `protobuf:"varint,3,opt,name=VrfPurgeIntervalSeconds" json:"VrfPurgeIntervalSeconds,omitempty"`
+	VrfPurgeIntervalSeconds uint32   `protobuf:"varint,3,opt,name=VrfPurgeIntervalSeconds,proto3" json:"VrfPurgeIntervalSeconds,omitempty"`
+	XXX_NoUnkeyedLiteral    struct{} `json:"-"`
+	XXX_unrecognized        []byte   `json:"-"`
+	XXX_sizecache           int32    `json:"-"`
 }
 
-func (m *SLVrfReg) Reset()                    { *m = SLVrfReg{} }
-func (m *SLVrfReg) String() string            { return proto.CompactTextString(m) }
-func (*SLVrfReg) ProtoMessage()               {}
-func (*SLVrfReg) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{4} }
+func (m *SLVrfReg) Reset()         { *m = SLVrfReg{} }
+func (m *SLVrfReg) String() string { return proto.CompactTextString(m) }
+func (*SLVrfReg) ProtoMessage()    {}
+func (*SLVrfReg) Descriptor() ([]byte, []int) {
+	return fileDescriptor_sl_route_common_36b8304f30921dd0, []int{4}
+}
+func (m *SLVrfReg) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_SLVrfReg.Unmarshal(m, b)
+}
+func (m *SLVrfReg) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_SLVrfReg.Marshal(b, m, deterministic)
+}
+func (dst *SLVrfReg) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_SLVrfReg.Merge(dst, src)
+}
+func (m *SLVrfReg) XXX_Size() int {
+	return xxx_messageInfo_SLVrfReg.Size(m)
+}
+func (m *SLVrfReg) XXX_DiscardUnknown() {
+	xxx_messageInfo_SLVrfReg.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_SLVrfReg proto.InternalMessageInfo
 
 func (m *SLVrfReg) GetVrfName() string {
 	if m != nil {
@@ -199,15 +317,37 @@ func (m *SLVrfReg) GetVrfPurgeIntervalSeconds() uint32 {
 // VRF Registration messages.
 type SLVrfRegMsg struct {
 	// Registration Operation
-	Oper SLRegOp `protobuf:"varint,1,opt,name=Oper,enum=service_layer.SLRegOp" json:"Oper,omitempty"`
+	Oper SLRegOp `protobuf:"varint,1,opt,name=Oper,proto3,enum=service_layer.SLRegOp" json:"Oper,omitempty"`
 	// List of VRF registrations
-	VrfRegMsgs []*SLVrfReg `protobuf:"bytes,2,rep,name=VrfRegMsgs" json:"VrfRegMsgs,omitempty"`
+	VrfRegMsgs           []*SLVrfReg `protobuf:"bytes,2,rep,name=VrfRegMsgs,proto3" json:"VrfRegMsgs,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}    `json:"-"`
+	XXX_unrecognized     []byte      `json:"-"`
+	XXX_sizecache        int32       `json:"-"`
 }
 
-func (m *SLVrfRegMsg) Reset()                    { *m = SLVrfRegMsg{} }
-func (m *SLVrfRegMsg) String() string            { return proto.CompactTextString(m) }
-func (*SLVrfRegMsg) ProtoMessage()               {}
-func (*SLVrfRegMsg) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{5} }
+func (m *SLVrfRegMsg) Reset()         { *m = SLVrfRegMsg{} }
+func (m *SLVrfRegMsg) String() string { return proto.CompactTextString(m) }
+func (*SLVrfRegMsg) ProtoMessage()    {}
+func (*SLVrfRegMsg) Descriptor() ([]byte, []int) {
+	return fileDescriptor_sl_route_common_36b8304f30921dd0, []int{5}
+}
+func (m *SLVrfRegMsg) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_SLVrfRegMsg.Unmarshal(m, b)
+}
+func (m *SLVrfRegMsg) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_SLVrfRegMsg.Marshal(b, m, deterministic)
+}
+func (dst *SLVrfRegMsg) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_SLVrfRegMsg.Merge(dst, src)
+}
+func (m *SLVrfRegMsg) XXX_Size() int {
+	return xxx_messageInfo_SLVrfRegMsg.Size(m)
+}
+func (m *SLVrfRegMsg) XXX_DiscardUnknown() {
+	xxx_messageInfo_SLVrfRegMsg.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_SLVrfRegMsg proto.InternalMessageInfo
 
 func (m *SLVrfRegMsg) GetOper() SLRegOp {
 	if m != nil {
@@ -226,15 +366,37 @@ func (m *SLVrfRegMsg) GetVrfRegMsgs() []*SLVrfReg {
 // VRF Registration message Result
 type SLVrfRegMsgRes struct {
 	// Corresponding error code
-	ErrStatus *SLErrorStatus `protobuf:"bytes,1,opt,name=ErrStatus" json:"ErrStatus,omitempty"`
+	ErrStatus *SLErrorStatus `protobuf:"bytes,1,opt,name=ErrStatus,proto3" json:"ErrStatus,omitempty"`
 	// VRF Name
-	VrfName string `protobuf:"bytes,2,opt,name=VrfName" json:"VrfName,omitempty"`
+	VrfName              string   `protobuf:"bytes,2,opt,name=VrfName,proto3" json:"VrfName,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *SLVrfRegMsgRes) Reset()                    { *m = SLVrfRegMsgRes{} }
-func (m *SLVrfRegMsgRes) String() string            { return proto.CompactTextString(m) }
-func (*SLVrfRegMsgRes) ProtoMessage()               {}
-func (*SLVrfRegMsgRes) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{6} }
+func (m *SLVrfRegMsgRes) Reset()         { *m = SLVrfRegMsgRes{} }
+func (m *SLVrfRegMsgRes) String() string { return proto.CompactTextString(m) }
+func (*SLVrfRegMsgRes) ProtoMessage()    {}
+func (*SLVrfRegMsgRes) Descriptor() ([]byte, []int) {
+	return fileDescriptor_sl_route_common_36b8304f30921dd0, []int{6}
+}
+func (m *SLVrfRegMsgRes) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_SLVrfRegMsgRes.Unmarshal(m, b)
+}
+func (m *SLVrfRegMsgRes) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_SLVrfRegMsgRes.Marshal(b, m, deterministic)
+}
+func (dst *SLVrfRegMsgRes) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_SLVrfRegMsgRes.Merge(dst, src)
+}
+func (m *SLVrfRegMsgRes) XXX_Size() int {
+	return xxx_messageInfo_SLVrfRegMsgRes.Size(m)
+}
+func (m *SLVrfRegMsgRes) XXX_DiscardUnknown() {
+	xxx_messageInfo_SLVrfRegMsgRes.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_SLVrfRegMsgRes proto.InternalMessageInfo
 
 func (m *SLVrfRegMsgRes) GetErrStatus() *SLErrorStatus {
 	if m != nil {
@@ -261,16 +423,38 @@ type SLVrfRegMsgRsp struct {
 	//         each individual entry in the bulk.
 	// 3. SL_RPC_XXX: signifies that the entire bulk operation failed.
 	//         In this case, the Results list is empty.
-	StatusSummary *SLErrorStatus `protobuf:"bytes,1,opt,name=StatusSummary" json:"StatusSummary,omitempty"`
+	StatusSummary *SLErrorStatus `protobuf:"bytes,1,opt,name=StatusSummary,proto3" json:"StatusSummary,omitempty"`
 	// In case of errors, this field indicates which entry in the bulk was
 	// erroneous.
-	Results []*SLVrfRegMsgRes `protobuf:"bytes,2,rep,name=Results" json:"Results,omitempty"`
+	Results              []*SLVrfRegMsgRes `protobuf:"bytes,2,rep,name=Results,proto3" json:"Results,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}          `json:"-"`
+	XXX_unrecognized     []byte            `json:"-"`
+	XXX_sizecache        int32             `json:"-"`
 }
 
-func (m *SLVrfRegMsgRsp) Reset()                    { *m = SLVrfRegMsgRsp{} }
-func (m *SLVrfRegMsgRsp) String() string            { return proto.CompactTextString(m) }
-func (*SLVrfRegMsgRsp) ProtoMessage()               {}
-func (*SLVrfRegMsgRsp) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{7} }
+func (m *SLVrfRegMsgRsp) Reset()         { *m = SLVrfRegMsgRsp{} }
+func (m *SLVrfRegMsgRsp) String() string { return proto.CompactTextString(m) }
+func (*SLVrfRegMsgRsp) ProtoMessage()    {}
+func (*SLVrfRegMsgRsp) Descriptor() ([]byte, []int) {
+	return fileDescriptor_sl_route_common_36b8304f30921dd0, []int{7}
+}
+func (m *SLVrfRegMsgRsp) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_SLVrfRegMsgRsp.Unmarshal(m, b)
+}
+func (m *SLVrfRegMsgRsp) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_SLVrfRegMsgRsp.Marshal(b, m, deterministic)
+}
+func (dst *SLVrfRegMsgRsp) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_SLVrfRegMsgRsp.Merge(dst, src)
+}
+func (m *SLVrfRegMsgRsp) XXX_Size() int {
+	return xxx_messageInfo_SLVrfRegMsgRsp.Size(m)
+}
+func (m *SLVrfRegMsgRsp) XXX_DiscardUnknown() {
+	xxx_messageInfo_SLVrfRegMsgRsp.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_SLVrfRegMsgRsp proto.InternalMessageInfo
 
 func (m *SLVrfRegMsgRsp) GetStatusSummary() *SLErrorStatus {
 	if m != nil {
@@ -291,20 +475,42 @@ type SLVrfRegGetMsg struct {
 	// VRF name (key).
 	// If the Key is not specified, then request up to the first
 	// 'EntriesCount' entries.
-	VrfName string `protobuf:"bytes,1,opt,name=VrfName" json:"VrfName,omitempty"`
+	VrfName string `protobuf:"bytes,1,opt,name=VrfName,proto3" json:"VrfName,omitempty"`
 	// Number of entries requested
-	EntriesCount uint32 `protobuf:"varint,2,opt,name=EntriesCount" json:"EntriesCount,omitempty"`
+	EntriesCount uint32 `protobuf:"varint,2,opt,name=EntriesCount,proto3" json:"EntriesCount,omitempty"`
 	// if GetNext is FALSE:
 	//     request up to 'EntriesCount' entries starting from the key
 	// If GetNext is TRUE, or if the key exact match is not found:
 	//     request up to 'EntriesCount' entries starting from the key's next
-	GetNext bool `protobuf:"varint,3,opt,name=GetNext" json:"GetNext,omitempty"`
+	GetNext              bool     `protobuf:"varint,3,opt,name=GetNext,proto3" json:"GetNext,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *SLVrfRegGetMsg) Reset()                    { *m = SLVrfRegGetMsg{} }
-func (m *SLVrfRegGetMsg) String() string            { return proto.CompactTextString(m) }
-func (*SLVrfRegGetMsg) ProtoMessage()               {}
-func (*SLVrfRegGetMsg) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{8} }
+func (m *SLVrfRegGetMsg) Reset()         { *m = SLVrfRegGetMsg{} }
+func (m *SLVrfRegGetMsg) String() string { return proto.CompactTextString(m) }
+func (*SLVrfRegGetMsg) ProtoMessage()    {}
+func (*SLVrfRegGetMsg) Descriptor() ([]byte, []int) {
+	return fileDescriptor_sl_route_common_36b8304f30921dd0, []int{8}
+}
+func (m *SLVrfRegGetMsg) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_SLVrfRegGetMsg.Unmarshal(m, b)
+}
+func (m *SLVrfRegGetMsg) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_SLVrfRegGetMsg.Marshal(b, m, deterministic)
+}
+func (dst *SLVrfRegGetMsg) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_SLVrfRegGetMsg.Merge(dst, src)
+}
+func (m *SLVrfRegGetMsg) XXX_Size() int {
+	return xxx_messageInfo_SLVrfRegGetMsg.Size(m)
+}
+func (m *SLVrfRegGetMsg) XXX_DiscardUnknown() {
+	xxx_messageInfo_SLVrfRegGetMsg.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_SLVrfRegGetMsg proto.InternalMessageInfo
 
 func (m *SLVrfRegGetMsg) GetVrfName() string {
 	if m != nil {
@@ -332,18 +538,40 @@ type SLVrfRegGetMsgRsp struct {
 	// End Of File.
 	// When set to True, it indicates that the server has returned M, where
 	// M < N, of the original N requested Entries.
-	Eof bool `protobuf:"varint,1,opt,name=Eof" json:"Eof,omitempty"`
+	Eof bool `protobuf:"varint,1,opt,name=Eof,proto3" json:"Eof,omitempty"`
 	// Status of the Get operation
-	ErrStatus *SLErrorStatus `protobuf:"bytes,2,opt,name=ErrStatus" json:"ErrStatus,omitempty"`
+	ErrStatus *SLErrorStatus `protobuf:"bytes,2,opt,name=ErrStatus,proto3" json:"ErrStatus,omitempty"`
 	// Returned entries as requested in the Get operation.
 	// if ErrStatus is SL_SUCCESS, Entries contains the info requested
-	Entries []*SLVrfReg `protobuf:"bytes,3,rep,name=Entries" json:"Entries,omitempty"`
+	Entries              []*SLVrfReg `protobuf:"bytes,3,rep,name=Entries,proto3" json:"Entries,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}    `json:"-"`
+	XXX_unrecognized     []byte      `json:"-"`
+	XXX_sizecache        int32       `json:"-"`
 }
 
-func (m *SLVrfRegGetMsgRsp) Reset()                    { *m = SLVrfRegGetMsgRsp{} }
-func (m *SLVrfRegGetMsgRsp) String() string            { return proto.CompactTextString(m) }
-func (*SLVrfRegGetMsgRsp) ProtoMessage()               {}
-func (*SLVrfRegGetMsgRsp) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{9} }
+func (m *SLVrfRegGetMsgRsp) Reset()         { *m = SLVrfRegGetMsgRsp{} }
+func (m *SLVrfRegGetMsgRsp) String() string { return proto.CompactTextString(m) }
+func (*SLVrfRegGetMsgRsp) ProtoMessage()    {}
+func (*SLVrfRegGetMsgRsp) Descriptor() ([]byte, []int) {
+	return fileDescriptor_sl_route_common_36b8304f30921dd0, []int{9}
+}
+func (m *SLVrfRegGetMsgRsp) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_SLVrfRegGetMsgRsp.Unmarshal(m, b)
+}
+func (m *SLVrfRegGetMsgRsp) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_SLVrfRegGetMsgRsp.Marshal(b, m, deterministic)
+}
+func (dst *SLVrfRegGetMsgRsp) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_SLVrfRegGetMsgRsp.Merge(dst, src)
+}
+func (m *SLVrfRegGetMsgRsp) XXX_Size() int {
+	return xxx_messageInfo_SLVrfRegGetMsgRsp.Size(m)
+}
+func (m *SLVrfRegGetMsgRsp) XXX_DiscardUnknown() {
+	xxx_messageInfo_SLVrfRegGetMsgRsp.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_SLVrfRegGetMsgRsp proto.InternalMessageInfo
 
 func (m *SLVrfRegGetMsgRsp) GetEof() bool {
 	if m != nil {
@@ -369,15 +597,37 @@ func (m *SLVrfRegGetMsgRsp) GetEntries() []*SLVrfReg {
 // VRF Get Stats Message Response
 type SLVRFGetStatsMsgRes struct {
 	// VRF name as key
-	VrfName string `protobuf:"bytes,1,opt,name=VrfName" json:"VrfName,omitempty"`
+	VrfName string `protobuf:"bytes,1,opt,name=VrfName,proto3" json:"VrfName,omitempty"`
 	// Num VRF Routes added through the service layer.
-	RouteCount uint32 `protobuf:"varint,2,opt,name=RouteCount" json:"RouteCount,omitempty"`
+	RouteCount           uint32   `protobuf:"varint,2,opt,name=RouteCount,proto3" json:"RouteCount,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *SLVRFGetStatsMsgRes) Reset()                    { *m = SLVRFGetStatsMsgRes{} }
-func (m *SLVRFGetStatsMsgRes) String() string            { return proto.CompactTextString(m) }
-func (*SLVRFGetStatsMsgRes) ProtoMessage()               {}
-func (*SLVRFGetStatsMsgRes) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{10} }
+func (m *SLVRFGetStatsMsgRes) Reset()         { *m = SLVRFGetStatsMsgRes{} }
+func (m *SLVRFGetStatsMsgRes) String() string { return proto.CompactTextString(m) }
+func (*SLVRFGetStatsMsgRes) ProtoMessage()    {}
+func (*SLVRFGetStatsMsgRes) Descriptor() ([]byte, []int) {
+	return fileDescriptor_sl_route_common_36b8304f30921dd0, []int{10}
+}
+func (m *SLVRFGetStatsMsgRes) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_SLVRFGetStatsMsgRes.Unmarshal(m, b)
+}
+func (m *SLVRFGetStatsMsgRes) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_SLVRFGetStatsMsgRes.Marshal(b, m, deterministic)
+}
+func (dst *SLVRFGetStatsMsgRes) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_SLVRFGetStatsMsgRes.Merge(dst, src)
+}
+func (m *SLVRFGetStatsMsgRes) XXX_Size() int {
+	return xxx_messageInfo_SLVRFGetStatsMsgRes.Size(m)
+}
+func (m *SLVRFGetStatsMsgRes) XXX_DiscardUnknown() {
+	xxx_messageInfo_SLVRFGetStatsMsgRes.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_SLVRFGetStatsMsgRes proto.InternalMessageInfo
 
 func (m *SLVRFGetStatsMsgRes) GetVrfName() string {
 	if m != nil {
@@ -398,18 +648,40 @@ type SLVRFGetStatsMsgRsp struct {
 	// End Of File.
 	// When set to True, it indicates that the server has returned M, where
 	// M < N, of the original N requested Entries.
-	Eof bool `protobuf:"varint,1,opt,name=Eof" json:"Eof,omitempty"`
+	Eof bool `protobuf:"varint,1,opt,name=Eof,proto3" json:"Eof,omitempty"`
 	// Status of the Get Stats operation
-	ErrStatus *SLErrorStatus `protobuf:"bytes,2,opt,name=ErrStatus" json:"ErrStatus,omitempty"`
+	ErrStatus *SLErrorStatus `protobuf:"bytes,2,opt,name=ErrStatus,proto3" json:"ErrStatus,omitempty"`
 	// Returned entries as requested in the Get Stats operation.
 	// if ErrStatus is SL_SUCCESS, Entries contains the info requested
-	Entries []*SLVRFGetStatsMsgRes `protobuf:"bytes,3,rep,name=Entries" json:"Entries,omitempty"`
+	Entries              []*SLVRFGetStatsMsgRes `protobuf:"bytes,3,rep,name=Entries,proto3" json:"Entries,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}               `json:"-"`
+	XXX_unrecognized     []byte                 `json:"-"`
+	XXX_sizecache        int32                  `json:"-"`
 }
 
-func (m *SLVRFGetStatsMsgRsp) Reset()                    { *m = SLVRFGetStatsMsgRsp{} }
-func (m *SLVRFGetStatsMsgRsp) String() string            { return proto.CompactTextString(m) }
-func (*SLVRFGetStatsMsgRsp) ProtoMessage()               {}
-func (*SLVRFGetStatsMsgRsp) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{11} }
+func (m *SLVRFGetStatsMsgRsp) Reset()         { *m = SLVRFGetStatsMsgRsp{} }
+func (m *SLVRFGetStatsMsgRsp) String() string { return proto.CompactTextString(m) }
+func (*SLVRFGetStatsMsgRsp) ProtoMessage()    {}
+func (*SLVRFGetStatsMsgRsp) Descriptor() ([]byte, []int) {
+	return fileDescriptor_sl_route_common_36b8304f30921dd0, []int{11}
+}
+func (m *SLVRFGetStatsMsgRsp) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_SLVRFGetStatsMsgRsp.Unmarshal(m, b)
+}
+func (m *SLVRFGetStatsMsgRsp) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_SLVRFGetStatsMsgRsp.Marshal(b, m, deterministic)
+}
+func (dst *SLVRFGetStatsMsgRsp) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_SLVRFGetStatsMsgRsp.Merge(dst, src)
+}
+func (m *SLVRFGetStatsMsgRsp) XXX_Size() int {
+	return xxx_messageInfo_SLVRFGetStatsMsgRsp.Size(m)
+}
+func (m *SLVRFGetStatsMsgRsp) XXX_DiscardUnknown() {
+	xxx_messageInfo_SLVRFGetStatsMsgRsp.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_SLVRFGetStatsMsgRsp proto.InternalMessageInfo
 
 func (m *SLVRFGetStatsMsgRsp) GetEof() bool {
 	if m != nil {
@@ -438,7 +710,7 @@ type SLRouteGetNotifMsg struct {
 	//   This is to enable route notifications in a VRF
 	// Oper = SL_NOTIFOP_DISABLE
 	//   This is to disable route notifications in a VRF
-	Oper SLNotifOp `protobuf:"varint,1,opt,name=Oper,enum=service_layer.SLNotifOp" json:"Oper,omitempty"`
+	Oper SLNotifOp `protobuf:"varint,1,opt,name=Oper,proto3,enum=service_layer.SLNotifOp" json:"Oper,omitempty"`
 	// Correlator. This is used to correlate SLRouteGetNotifMsg with
 	// SLRouteNotifStatus. The server reflects this field in the reply.
 	// A client can send a SLRouteGetNotifMsg with the Correlator only.
@@ -446,23 +718,45 @@ type SLRouteGetNotifMsg struct {
 	// This is useful if a client wants to receive VRF notifications
 	// (SLVrfNotif) only and is not interested in receiving route
 	// notifications (SLRoutev4NotifRoute/SLRoutev6NotifRoute) from any VRF.
-	Correlator uint64 `protobuf:"varint,2,opt,name=Correlator" json:"Correlator,omitempty"`
+	Correlator uint64 `protobuf:"varint,2,opt,name=Correlator,proto3" json:"Correlator,omitempty"`
 	// Vrf that the client is interested in.
-	VrfName string `protobuf:"bytes,3,opt,name=VrfName" json:"VrfName,omitempty"`
+	VrfName string `protobuf:"bytes,3,opt,name=VrfName,proto3" json:"VrfName,omitempty"`
 	// Source Protocol.
 	// Only routes with specified source protocol and protocol tag will be
 	// notified.
 	// Contact Cisco for supported protocol string names.
-	SrcProto string `protobuf:"bytes,4,opt,name=SrcProto" json:"SrcProto,omitempty"`
+	SrcProto string `protobuf:"bytes,4,opt,name=SrcProto,proto3" json:"SrcProto,omitempty"`
 	// Source Protocol Tag. This can be empty if N/A.
 	// Contact Cisco for supported protocol tags.
-	SrcProtoTag string `protobuf:"bytes,5,opt,name=SrcProtoTag" json:"SrcProtoTag,omitempty"`
+	SrcProtoTag          string   `protobuf:"bytes,5,opt,name=SrcProtoTag,proto3" json:"SrcProtoTag,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *SLRouteGetNotifMsg) Reset()                    { *m = SLRouteGetNotifMsg{} }
-func (m *SLRouteGetNotifMsg) String() string            { return proto.CompactTextString(m) }
-func (*SLRouteGetNotifMsg) ProtoMessage()               {}
-func (*SLRouteGetNotifMsg) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{12} }
+func (m *SLRouteGetNotifMsg) Reset()         { *m = SLRouteGetNotifMsg{} }
+func (m *SLRouteGetNotifMsg) String() string { return proto.CompactTextString(m) }
+func (*SLRouteGetNotifMsg) ProtoMessage()    {}
+func (*SLRouteGetNotifMsg) Descriptor() ([]byte, []int) {
+	return fileDescriptor_sl_route_common_36b8304f30921dd0, []int{12}
+}
+func (m *SLRouteGetNotifMsg) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_SLRouteGetNotifMsg.Unmarshal(m, b)
+}
+func (m *SLRouteGetNotifMsg) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_SLRouteGetNotifMsg.Marshal(b, m, deterministic)
+}
+func (dst *SLRouteGetNotifMsg) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_SLRouteGetNotifMsg.Merge(dst, src)
+}
+func (m *SLRouteGetNotifMsg) XXX_Size() int {
+	return xxx_messageInfo_SLRouteGetNotifMsg.Size(m)
+}
+func (m *SLRouteGetNotifMsg) XXX_DiscardUnknown() {
+	xxx_messageInfo_SLRouteGetNotifMsg.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_SLRouteGetNotifMsg proto.InternalMessageInfo
 
 func (m *SLRouteGetNotifMsg) GetOper() SLNotifOp {
 	if m != nil {
@@ -502,20 +796,42 @@ func (m *SLRouteGetNotifMsg) GetSrcProtoTag() string {
 // Common Route Notification Status message
 type SLRouteNotifStatus struct {
 	// Correlator in the request.
-	Correlator uint64 `protobuf:"varint,1,opt,name=Correlator" json:"Correlator,omitempty"`
+	Correlator uint64 `protobuf:"varint,1,opt,name=Correlator,proto3" json:"Correlator,omitempty"`
 	// Vrf in the request.
-	VrfName string `protobuf:"bytes,2,opt,name=VrfName" json:"VrfName,omitempty"`
+	VrfName string `protobuf:"bytes,2,opt,name=VrfName,proto3" json:"VrfName,omitempty"`
 	// The NotifStatus implies one of 2 things:
 	// SL_SUCCESS: signifies that the notification request was successful
 	// SL_XXX: signifies an error in setting up a notification for the Vrf.
 	//  Implies that notifications for this VRF will not be sent.
-	NotifStatus *SLErrorStatus `protobuf:"bytes,3,opt,name=NotifStatus" json:"NotifStatus,omitempty"`
+	NotifStatus          *SLErrorStatus `protobuf:"bytes,3,opt,name=NotifStatus,proto3" json:"NotifStatus,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}       `json:"-"`
+	XXX_unrecognized     []byte         `json:"-"`
+	XXX_sizecache        int32          `json:"-"`
 }
 
-func (m *SLRouteNotifStatus) Reset()                    { *m = SLRouteNotifStatus{} }
-func (m *SLRouteNotifStatus) String() string            { return proto.CompactTextString(m) }
-func (*SLRouteNotifStatus) ProtoMessage()               {}
-func (*SLRouteNotifStatus) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{13} }
+func (m *SLRouteNotifStatus) Reset()         { *m = SLRouteNotifStatus{} }
+func (m *SLRouteNotifStatus) String() string { return proto.CompactTextString(m) }
+func (*SLRouteNotifStatus) ProtoMessage()    {}
+func (*SLRouteNotifStatus) Descriptor() ([]byte, []int) {
+	return fileDescriptor_sl_route_common_36b8304f30921dd0, []int{13}
+}
+func (m *SLRouteNotifStatus) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_SLRouteNotifStatus.Unmarshal(m, b)
+}
+func (m *SLRouteNotifStatus) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_SLRouteNotifStatus.Marshal(b, m, deterministic)
+}
+func (dst *SLRouteNotifStatus) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_SLRouteNotifStatus.Merge(dst, src)
+}
+func (m *SLRouteNotifStatus) XXX_Size() int {
+	return xxx_messageInfo_SLRouteNotifStatus.Size(m)
+}
+func (m *SLRouteNotifStatus) XXX_DiscardUnknown() {
+	xxx_messageInfo_SLRouteNotifStatus.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_SLRouteNotifStatus proto.InternalMessageInfo
 
 func (m *SLRouteNotifStatus) GetCorrelator() uint64 {
 	if m != nil {
@@ -541,13 +857,35 @@ func (m *SLRouteNotifStatus) GetNotifStatus() *SLErrorStatus {
 // Common Marker Notification message
 type SLRouteNotifMarker struct {
 	// Vrf that this notification message applies to.
-	VrfName string `protobuf:"bytes,1,opt,name=VrfName" json:"VrfName,omitempty"`
+	VrfName              string   `protobuf:"bytes,1,opt,name=VrfName,proto3" json:"VrfName,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *SLRouteNotifMarker) Reset()                    { *m = SLRouteNotifMarker{} }
-func (m *SLRouteNotifMarker) String() string            { return proto.CompactTextString(m) }
-func (*SLRouteNotifMarker) ProtoMessage()               {}
-func (*SLRouteNotifMarker) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{14} }
+func (m *SLRouteNotifMarker) Reset()         { *m = SLRouteNotifMarker{} }
+func (m *SLRouteNotifMarker) String() string { return proto.CompactTextString(m) }
+func (*SLRouteNotifMarker) ProtoMessage()    {}
+func (*SLRouteNotifMarker) Descriptor() ([]byte, []int) {
+	return fileDescriptor_sl_route_common_36b8304f30921dd0, []int{14}
+}
+func (m *SLRouteNotifMarker) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_SLRouteNotifMarker.Unmarshal(m, b)
+}
+func (m *SLRouteNotifMarker) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_SLRouteNotifMarker.Marshal(b, m, deterministic)
+}
+func (dst *SLRouteNotifMarker) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_SLRouteNotifMarker.Merge(dst, src)
+}
+func (m *SLRouteNotifMarker) XXX_Size() int {
+	return xxx_messageInfo_SLRouteNotifMarker.Size(m)
+}
+func (m *SLRouteNotifMarker) XXX_DiscardUnknown() {
+	xxx_messageInfo_SLRouteNotifMarker.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_SLRouteNotifMarker proto.InternalMessageInfo
 
 func (m *SLRouteNotifMarker) GetVrfName() string {
 	if m != nil {
@@ -559,15 +897,37 @@ func (m *SLRouteNotifMarker) GetVrfName() string {
 // Common Vrf Notification message
 type SLVrfNotif struct {
 	// Vrf that this notification message applies to.
-	VrfName string `protobuf:"bytes,1,opt,name=VrfName" json:"VrfName,omitempty"`
+	VrfName string `protobuf:"bytes,1,opt,name=VrfName,proto3" json:"VrfName,omitempty"`
 	// Status of this Vrf: add/update/delete.
-	Status SLObjectOp `protobuf:"varint,2,opt,name=Status,enum=service_layer.SLObjectOp" json:"Status,omitempty"`
+	Status               SLObjectOp `protobuf:"varint,2,opt,name=Status,proto3,enum=service_layer.SLObjectOp" json:"Status,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}   `json:"-"`
+	XXX_unrecognized     []byte     `json:"-"`
+	XXX_sizecache        int32      `json:"-"`
 }
 
-func (m *SLVrfNotif) Reset()                    { *m = SLVrfNotif{} }
-func (m *SLVrfNotif) String() string            { return proto.CompactTextString(m) }
-func (*SLVrfNotif) ProtoMessage()               {}
-func (*SLVrfNotif) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{15} }
+func (m *SLVrfNotif) Reset()         { *m = SLVrfNotif{} }
+func (m *SLVrfNotif) String() string { return proto.CompactTextString(m) }
+func (*SLVrfNotif) ProtoMessage()    {}
+func (*SLVrfNotif) Descriptor() ([]byte, []int) {
+	return fileDescriptor_sl_route_common_36b8304f30921dd0, []int{15}
+}
+func (m *SLVrfNotif) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_SLVrfNotif.Unmarshal(m, b)
+}
+func (m *SLVrfNotif) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_SLVrfNotif.Marshal(b, m, deterministic)
+}
+func (dst *SLVrfNotif) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_SLVrfNotif.Merge(dst, src)
+}
+func (m *SLVrfNotif) XXX_Size() int {
+	return xxx_messageInfo_SLVrfNotif.Size(m)
+}
+func (m *SLVrfNotif) XXX_DiscardUnknown() {
+	xxx_messageInfo_SLVrfNotif.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_SLVrfNotif proto.InternalMessageInfo
 
 func (m *SLVrfNotif) GetVrfName() string {
 	if m != nil {
@@ -591,7 +951,7 @@ type SLRouteCommon struct {
 	// Lower distance is preferred over higher distance.
 	// The per route object admin distance overrides the default's admin
 	// distance set at VRF registration. see SLVrfReg
-	AdminDistance uint32 `protobuf:"varint,1,opt,name=AdminDistance" json:"AdminDistance,omitempty"`
+	AdminDistance uint32 `protobuf:"varint,1,opt,name=AdminDistance,proto3" json:"AdminDistance,omitempty"`
 	// Local label associated with this route.
 	// This is an optional field that can be used to simulatenously setup an
 	// ILM entry (e.g. head end of an MPLS LSP) for the same route.
@@ -601,27 +961,49 @@ type SLRouteCommon struct {
 	//
 	// Note: MPLS VPN labeled routes can resolve only on:
 	//    - /32-routes with valid LocalLabel and a valid egress MPLS path label
-	LocalLabel uint32 `protobuf:"varint,2,opt,name=LocalLabel" json:"LocalLabel,omitempty"`
+	LocalLabel uint32 `protobuf:"varint,2,opt,name=LocalLabel,proto3" json:"LocalLabel,omitempty"`
 	// Route Tag.
 	// Routes are usually tagged to prevent loops during redistribution between
 	// protocols.
-	Tag uint32 `protobuf:"varint,3,opt,name=Tag" json:"Tag,omitempty"`
+	Tag uint32 `protobuf:"varint,3,opt,name=Tag,proto3" json:"Tag,omitempty"`
 	// Source Protocol.
 	// For redistributed messages via notification stream only,
 	// ignored otherwise.
 	// Contact Cisco for supported protocol string names.
-	SrcProto string `protobuf:"bytes,4,opt,name=SrcProto" json:"SrcProto,omitempty"`
+	SrcProto string `protobuf:"bytes,4,opt,name=SrcProto,proto3" json:"SrcProto,omitempty"`
 	// Source Protocol Tag. This can be empty if N/A.
 	// For redistributed messages via notification stream only,
 	// ignored otherwise.
 	// Contact Cisco for supported protocol tags.
-	SrcProtoTag string `protobuf:"bytes,5,opt,name=SrcProtoTag" json:"SrcProtoTag,omitempty"`
+	SrcProtoTag          string   `protobuf:"bytes,5,opt,name=SrcProtoTag,proto3" json:"SrcProtoTag,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *SLRouteCommon) Reset()                    { *m = SLRouteCommon{} }
-func (m *SLRouteCommon) String() string            { return proto.CompactTextString(m) }
-func (*SLRouteCommon) ProtoMessage()               {}
-func (*SLRouteCommon) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{16} }
+func (m *SLRouteCommon) Reset()         { *m = SLRouteCommon{} }
+func (m *SLRouteCommon) String() string { return proto.CompactTextString(m) }
+func (*SLRouteCommon) ProtoMessage()    {}
+func (*SLRouteCommon) Descriptor() ([]byte, []int) {
+	return fileDescriptor_sl_route_common_36b8304f30921dd0, []int{16}
+}
+func (m *SLRouteCommon) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_SLRouteCommon.Unmarshal(m, b)
+}
+func (m *SLRouteCommon) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_SLRouteCommon.Marshal(b, m, deterministic)
+}
+func (dst *SLRouteCommon) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_SLRouteCommon.Merge(dst, src)
+}
+func (m *SLRouteCommon) XXX_Size() int {
+	return xxx_messageInfo_SLRouteCommon.Size(m)
+}
+func (m *SLRouteCommon) XXX_DiscardUnknown() {
+	xxx_messageInfo_SLRouteCommon.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_SLRouteCommon proto.InternalMessageInfo
 
 func (m *SLRouteCommon) GetAdminDistance() uint32 {
 	if m != nil {
@@ -668,22 +1050,22 @@ type SLRoutePath struct {
 	// One of IPv4 or IPv6 address
 	// For ENCAP_VXLAN, this will specify the tunnel end point IP
 	// address.
-	NexthopAddress *SLIpAddress `protobuf:"bytes,1,opt,name=NexthopAddress" json:"NexthopAddress,omitempty"`
+	NexthopAddress *SLIpAddress `protobuf:"bytes,1,opt,name=NexthopAddress,proto3" json:"NexthopAddress,omitempty"`
 	// Outgoing interface name for the path.
-	NexthopInterface *SLInterface `protobuf:"bytes,2,opt,name=NexthopInterface" json:"NexthopInterface,omitempty"`
+	NexthopInterface *SLInterface `protobuf:"bytes,2,opt,name=NexthopInterface,proto3" json:"NexthopInterface,omitempty"`
 	// Load metric for this path.
 	// Used for equal/unequal cost load balancing of traffic distribution.
-	LoadMetric uint32 `protobuf:"varint,3,opt,name=LoadMetric" json:"LoadMetric,omitempty"`
+	LoadMetric uint32 `protobuf:"varint,3,opt,name=LoadMetric,proto3" json:"LoadMetric,omitempty"`
 	// Path VRF name. This field is used ONLY if the path is in a different
 	// VRF than the route (e.g. VPN cases)
 	// For ENCAP_VXLAN, this field can be used to specify the VRF where
 	// the tunnel end point IP address resides ("default" will be assumed
 	// if not specified).
-	VrfName string `protobuf:"bytes,4,opt,name=VrfName" json:"VrfName,omitempty"`
+	VrfName string `protobuf:"bytes,4,opt,name=VrfName,proto3" json:"VrfName,omitempty"`
 	// Route Metric.
 	// The metric is typically based on information like load, hop count,
 	// MTU, reliability of the path, etc.
-	Metric uint32 `protobuf:"varint,5,opt,name=Metric" json:"Metric,omitempty"`
+	Metric uint32 `protobuf:"varint,5,opt,name=Metric,proto3" json:"Metric,omitempty"`
 	// Path identifier.
 	// Path-id is used to uniquely identify a path when it comes to
 	// protection (Fast Re-Route - FRR). It is not used otherwise.
@@ -713,7 +1095,7 @@ type SLRoutePath struct {
 	// NOTE2: Pure backup path-id uses a different range than primary path-ids.
 	// The valid range of primary path IDs, and pure backup path IDS are
 	// platform dependent and can be retrieved through the client init message.
-	PathId uint32 `protobuf:"varint,6,opt,name=PathId" json:"PathId,omitempty"`
+	PathId uint32 `protobuf:"varint,6,opt,name=PathId,proto3" json:"PathId,omitempty"`
 	// Path protection bitmap.
 	// The bitmap of paths this Backup path is protecting.
 	// Example: If this path is protecting paths with IDs 4, 5 and 6, then
@@ -723,7 +1105,7 @@ type SLRoutePath struct {
 	//            ||-- path 5
 	//            |-- path 6
 	// (1 << (pathId_1 - 1))  | (1 << (pathId_2 - 1)) | (1 << (pathId_3 - 1))
-	ProtectedPathBitmap []uint64 `protobuf:"varint,7,rep,packed,name=ProtectedPathBitmap" json:"ProtectedPathBitmap,omitempty"`
+	ProtectedPathBitmap []uint64 `protobuf:"varint,7,rep,packed,name=ProtectedPathBitmap,proto3" json:"ProtectedPathBitmap,omitempty"`
 	// MPLS label stack or VxLAN Virtual Network Identifier.
 	// Stack of labels that is pushed when the packet is switched out.
 	// Label size is LSB 20 bits. Forwarding will set EXP, TTL and BOS.
@@ -734,25 +1116,47 @@ type SLRoutePath struct {
 	// platform dependent.
 	// For ENCAP_VXLAN, this field will specify the Virtual Network
 	// Identifier (VNI)
-	LabelStack []uint32 `protobuf:"varint,8,rep,packed,name=LabelStack" json:"LabelStack,omitempty"`
+	LabelStack []uint32 `protobuf:"varint,8,rep,packed,name=LabelStack,proto3" json:"LabelStack,omitempty"`
 	// MPLS Remote router backup address.
 	// This field is used only for backup MPLS path with more than one label
 	// For N+1 backup labels, N remote backup addresses must be specified.
-	RemoteAddress []*SLIpAddress `protobuf:"bytes,9,rep,name=RemoteAddress" json:"RemoteAddress,omitempty"`
+	RemoteAddress []*SLIpAddress `protobuf:"bytes,9,rep,name=RemoteAddress,proto3" json:"RemoteAddress,omitempty"`
 	// Encapsulation type (VXLAN or MPLS)
-	EncapType SLEncapType `protobuf:"varint,10,opt,name=EncapType,enum=service_layer.SLEncapType" json:"EncapType,omitempty"`
+	EncapType SLEncapType `protobuf:"varint,10,opt,name=EncapType,proto3,enum=service_layer.SLEncapType" json:"EncapType,omitempty"`
 	// VTEP (VxLAN tunnel end point) router MAC address.
 	// A unique system MAC address that other VTEPs can use for inter-VNI
 	// routing. The router MAC address is used as the inner destination MAC
 	// address for routed VXLAN packet.
 	// Used for ENCAP_VXLAN (mandatory) only.
-	VtepRouterMacAddress []byte `protobuf:"bytes,11,opt,name=VtepRouterMacAddress,proto3" json:"VtepRouterMacAddress,omitempty"`
+	VtepRouterMacAddress []byte   `protobuf:"bytes,11,opt,name=VtepRouterMacAddress,proto3" json:"VtepRouterMacAddress,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *SLRoutePath) Reset()                    { *m = SLRoutePath{} }
-func (m *SLRoutePath) String() string            { return proto.CompactTextString(m) }
-func (*SLRoutePath) ProtoMessage()               {}
-func (*SLRoutePath) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{17} }
+func (m *SLRoutePath) Reset()         { *m = SLRoutePath{} }
+func (m *SLRoutePath) String() string { return proto.CompactTextString(m) }
+func (*SLRoutePath) ProtoMessage()    {}
+func (*SLRoutePath) Descriptor() ([]byte, []int) {
+	return fileDescriptor_sl_route_common_36b8304f30921dd0, []int{17}
+}
+func (m *SLRoutePath) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_SLRoutePath.Unmarshal(m, b)
+}
+func (m *SLRoutePath) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_SLRoutePath.Marshal(b, m, deterministic)
+}
+func (dst *SLRoutePath) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_SLRoutePath.Merge(dst, src)
+}
+func (m *SLRoutePath) XXX_Size() int {
+	return xxx_messageInfo_SLRoutePath.Size(m)
+}
+func (m *SLRoutePath) XXX_DiscardUnknown() {
+	xxx_messageInfo_SLRoutePath.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_SLRoutePath proto.InternalMessageInfo
 
 func (m *SLRoutePath) GetNexthopAddress() *SLIpAddress {
 	if m != nil {
@@ -853,71 +1257,73 @@ func init() {
 	proto.RegisterEnum("service_layer.SLNotifType", SLNotifType_name, SLNotifType_value)
 }
 
-func init() { proto.RegisterFile("sl_route_common.proto", fileDescriptor8) }
+func init() {
+	proto.RegisterFile("sl_route_common.proto", fileDescriptor_sl_route_common_36b8304f30921dd0)
+}
 
-var fileDescriptor8 = []byte{
-	// 993 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x09, 0x6e, 0x88, 0x02, 0xff, 0xac, 0x56, 0xdd, 0x6e, 0xe3, 0x44,
-	0x14, 0xc6, 0x49, 0x9a, 0xa6, 0xa7, 0x9b, 0x2a, 0xcc, 0xf6, 0xc7, 0x84, 0x05, 0xad, 0x2c, 0x2e,
-	0xd0, 0x0a, 0x55, 0x6c, 0x41, 0x02, 0x21, 0x84, 0xe8, 0x6e, 0xbd, 0xab, 0x8a, 0xa4, 0xa9, 0xc6,
-	0xd9, 0x4a, 0x7b, 0x15, 0x4d, 0x9c, 0x49, 0x1a, 0x36, 0x8e, 0xad, 0xf1, 0x04, 0xb5, 0xf7, 0x70,
-	0x09, 0x57, 0xf0, 0x00, 0x5c, 0xf0, 0x12, 0x48, 0xbc, 0x00, 0x4f, 0xc5, 0x99, 0xb1, 0x9d, 0x78,
-	0x6a, 0x27, 0x80, 0xba, 0x57, 0xf1, 0x9c, 0xf3, 0x9d, 0x39, 0xdf, 0xf9, 0x9d, 0xc0, 0x41, 0x3c,
-	0x1b, 0x88, 0x70, 0x21, 0xf9, 0xc0, 0x0f, 0x83, 0x20, 0x9c, 0x1f, 0x47, 0x22, 0x94, 0x21, 0x69,
-	0xc6, 0x5c, 0xfc, 0x30, 0xf5, 0xf9, 0x60, 0xc6, 0x6e, 0xb9, 0x68, 0x2b, 0x54, 0xa2, 0x1f, 0xc8,
-	0xdb, 0x88, 0xc7, 0x09, 0xca, 0x39, 0x84, 0x7d, 0xaf, 0x43, 0x95, 0xf5, 0xcb, 0x59, 0x38, 0x64,
-	0xb3, 0xf8, 0x25, 0x97, 0xdd, 0x78, 0xe2, 0xfc, 0x65, 0xc1, 0x51, 0x99, 0x82, 0xc6, 0x11, 0xf9,
-	0x0a, 0x76, 0x5c, 0x21, 0x3c, 0xc9, 0xe4, 0x22, 0xb6, 0xad, 0xc7, 0xd6, 0xc7, 0xbb, 0x27, 0x8f,
-	0x8e, 0x0d, 0x6f, 0xc7, 0x5e, 0x07, 0x11, 0x61, 0x8a, 0xa1, 0x2b, 0x38, 0xf9, 0x1c, 0x0e, 0xba,
-	0xec, 0xe6, 0x4a, 0x8c, 0x05, 0x9f, 0x5c, 0x72, 0x91, 0x7c, 0x04, 0xf1, 0xc4, 0xae, 0xe0, 0x3d,
-	0x4d, 0x5a, 0xae, 0x24, 0x9f, 0xc2, 0x43, 0x54, 0x68, 0x36, 0x28, 0xd7, 0xbf, 0xca, 0xa6, 0xaa,
-	0x6d, 0xca, 0x54, 0x4e, 0x1b, 0x6c, 0x83, 0xbe, 0x72, 0x9f, 0xc5, 0xf6, 0x9b, 0x05, 0xef, 0xaf,
-	0x53, 0xde, 0x37, 0xbe, 0x36, 0x34, 0x90, 0xf6, 0xf3, 0x70, 0x31, 0x97, 0x69, 0x48, 0xcb, 0x33,
-	0xf9, 0x10, 0x40, 0x3b, 0x4d, 0xb4, 0x09, 0xf9, 0x9c, 0xc4, 0xf9, 0xd1, 0x82, 0x86, 0xd7, 0x41,
-	0x38, 0xe5, 0x13, 0x62, 0xc3, 0x36, 0x7e, 0x5d, 0xb0, 0x80, 0x6b, 0x0a, 0x3b, 0x34, 0x3b, 0x92,
-	0x8f, 0xa0, 0x79, 0x3a, 0x0a, 0xa6, 0xf3, 0xb3, 0x69, 0x2c, 0xd9, 0xdc, 0xe7, 0xa9, 0x1f, 0x53,
-	0x48, 0xbe, 0x84, 0x23, 0x34, 0xb8, 0x5c, 0x88, 0x09, 0x3f, 0x9f, 0x4b, 0x24, 0x8f, 0x61, 0x72,
-	0x3f, 0x9c, 0x8f, 0xe2, 0xd4, 0xf3, 0x3a, 0xb5, 0x23, 0x60, 0x37, 0x63, 0x81, 0x09, 0x21, 0x4f,
-	0xa0, 0xd6, 0x8b, 0xb8, 0xd0, 0x2c, 0xf6, 0x4e, 0x0e, 0x0b, 0x89, 0x40, 0x58, 0x2f, 0xa2, 0x1a,
-	0x43, 0xbe, 0x00, 0x58, 0x1a, 0xc6, 0xc8, 0xab, 0x8a, 0xa9, 0x3b, 0x2a, 0x58, 0x24, 0x10, 0x9a,
-	0x83, 0x3a, 0x63, 0xd8, 0xcb, 0xf9, 0xa4, 0x3c, 0xbe, 0x57, 0x11, 0x72, 0xb9, 0xab, 0x18, 0xb9,
-	0x73, 0x7e, 0xb6, 0x4c, 0x47, 0x58, 0xed, 0x67, 0xd0, 0x4c, 0xcc, 0xbc, 0x45, 0x10, 0x30, 0x71,
-	0xfb, 0x9f, 0x9c, 0x99, 0x26, 0x18, 0xf7, 0x36, 0x72, 0x5e, 0xcc, 0x64, 0x16, 0xf4, 0x07, 0x6b,
-	0x82, 0x4e, 0x82, 0xa3, 0x19, 0xda, 0xb9, 0x5e, 0xd1, 0x49, 0xfa, 0x6f, 0x43, 0xdd, 0x1d, 0x78,
-	0xe0, 0xce, 0xa5, 0x98, 0xf2, 0x38, 0xdf, 0x5e, 0x86, 0x4c, 0x59, 0xe3, 0x3d, 0x17, 0xfc, 0x26,
-	0xe9, 0xaf, 0x06, 0xcd, 0x8e, 0xce, 0xaf, 0x16, 0xbc, 0x6b, 0xba, 0x52, 0xc1, 0xb7, 0xa0, 0xea,
-	0x86, 0x63, 0xed, 0xa9, 0x41, 0xd5, 0xa7, 0x99, 0xf7, 0xca, 0xff, 0xcb, 0xfb, 0x53, 0xd8, 0x4e,
-	0xd9, 0xa0, 0xf7, 0x8d, 0xb5, 0xcf, 0x70, 0x4e, 0x0f, 0x1e, 0xa2, 0x90, 0xbe, 0x40, 0x4a, 0x7a,
-	0x0a, 0xd3, 0xea, 0xaf, 0xcf, 0x82, 0x39, 0x44, 0x95, 0xc2, 0x10, 0xfd, 0x6e, 0x95, 0xdc, 0xf8,
-	0xd6, 0x23, 0xfd, 0xfa, 0x6e, 0xa4, 0x4e, 0x31, 0xd2, 0xbb, 0x41, 0xad, 0x82, 0xfe, 0xd3, 0x02,
-	0x92, 0x2d, 0x20, 0x2c, 0x4f, 0x28, 0xa7, 0x63, 0x55, 0xfa, 0x4f, 0x8c, 0x49, 0xb3, 0x0b, 0x37,
-	0x6a, 0xe0, 0x72, 0xd6, 0x30, 0x11, 0xcf, 0x43, 0x21, 0xf8, 0x8c, 0xc9, 0x50, 0x68, 0xfe, 0x35,
-	0x9a, 0x93, 0xe4, 0x53, 0x58, 0x35, 0x53, 0x88, 0x3b, 0xca, 0x13, 0xfe, 0xa5, 0xda, 0xff, 0x76,
-	0x4d, 0xab, 0x96, 0x67, 0xf2, 0x18, 0x87, 0x3f, 0xfd, 0xee, 0xb3, 0x89, 0xbd, 0xa5, 0xd5, 0x79,
-	0x91, 0xf3, 0xcb, 0x8a, 0xbc, 0x26, 0x94, 0x66, 0xc4, 0xa4, 0x63, 0x6d, 0xa2, 0x63, 0xce, 0x24,
-	0xf9, 0x06, 0x76, 0x73, 0x17, 0x69, 0xb2, 0xff, 0x56, 0x89, 0xbc, 0x81, 0x73, 0x6c, 0xf2, 0xe9,
-	0x32, 0xf1, 0x86, 0x8b, 0xf5, 0x1d, 0xe4, 0xbc, 0x06, 0xd0, 0x7d, 0xa8, 0xd1, 0x1b, 0x3a, 0xed,
-	0x29, 0xd4, 0x73, 0xcd, 0xb1, 0x77, 0xf2, 0x5e, 0x81, 0x52, 0x6f, 0xf8, 0x3d, 0xf7, 0x25, 0x56,
-	0x24, 0x05, 0x3a, 0x7f, 0x58, 0xb8, 0x4c, 0x3a, 0x69, 0x37, 0xaa, 0xb7, 0xb6, 0xb8, 0xac, 0xad,
-	0xb2, 0x65, 0x8d, 0xc9, 0xeb, 0x84, 0x3e, 0x9b, 0x75, 0xd8, 0x90, 0xcf, 0xb2, 0xa6, 0x5e, 0x49,
-	0x54, 0xf3, 0xaa, 0x6a, 0x24, 0x8b, 0x5b, 0x7d, 0xde, 0xb3, 0x86, 0x3f, 0xd5, 0xd4, 0x8e, 0x4f,
-	0x1e, 0x4d, 0x26, 0xaf, 0x71, 0x07, 0xee, 0xa9, 0x25, 0x71, 0x1d, 0x46, 0xa7, 0xa3, 0x91, 0xe0,
-	0x71, 0xb6, 0x71, 0xdb, 0x85, 0x90, 0xcf, 0x33, 0x04, 0xbd, 0x63, 0x41, 0x5e, 0x40, 0x2b, 0x95,
-	0xe8, 0x07, 0x65, 0xcc, 0xd2, 0x97, 0xa9, 0xf4, 0x96, 0x0c, 0x41, 0x0b, 0x36, 0x49, 0x2e, 0xd8,
-	0xa8, 0xcb, 0x71, 0x56, 0xfc, 0xec, 0x95, 0x5c, 0x49, 0xf2, 0x05, 0xab, 0x99, 0x05, 0x3b, 0x84,
-	0x7a, 0x6a, 0xb5, 0xa5, 0xad, 0xd2, 0x93, 0x92, 0xab, 0x28, 0xcf, 0x47, 0x76, 0x3d, 0x91, 0x27,
-	0x27, 0xf5, 0xaf, 0x42, 0x65, 0x04, 0x4b, 0xc8, 0x47, 0x4a, 0xf4, 0x6c, 0x2a, 0x03, 0x16, 0xd9,
-	0xdb, 0x38, 0xd0, 0x35, 0x5a, 0xa6, 0xd2, 0xdc, 0x54, 0x41, 0xb0, 0xdc, 0xfe, 0x1b, 0xbb, 0x81,
-	0x40, 0xc5, 0x6d, 0x29, 0x21, 0xdf, 0x42, 0x93, 0xf2, 0x00, 0xed, 0xb2, 0x34, 0xee, 0xe8, 0xe5,
-	0xb0, 0x29, 0x8d, 0xa6, 0x01, 0x3e, 0xdb, 0x3b, 0xee, 0xdc, 0x67, 0x51, 0x1f, 0xff, 0xa3, 0xd9,
-	0xa0, 0xfb, 0xae, 0x68, 0xbd, 0x44, 0xd0, 0x15, 0x98, 0x9c, 0xc0, 0xfe, 0x95, 0xe4, 0x91, 0x2e,
-	0xaa, 0xe8, 0x32, 0x3f, 0xa3, 0xb0, 0x8b, 0x97, 0x3c, 0xa0, 0xa5, 0xba, 0x27, 0x7f, 0x5b, 0xaa,
-	0x0f, 0xf4, 0x20, 0xe8, 0x3b, 0xda, 0x70, 0xe8, 0x75, 0x06, 0xee, 0x95, 0x7b, 0xd1, 0x1f, 0xf4,
-	0x5f, 0x5f, 0xba, 0x03, 0xea, 0x7a, 0x2e, 0xbd, 0x72, 0xcf, 0x5a, 0xef, 0x90, 0x23, 0xb5, 0x57,
-	0xf3, 0x3a, 0x97, 0xd2, 0x1e, 0x6d, 0x59, 0x58, 0x90, 0x7d, 0x53, 0xe1, 0xf5, 0x4f, 0xfb, 0xaf,
-	0xbc, 0x56, 0xa5, 0x68, 0x42, 0x7b, 0xaf, 0xfa, 0x6e, 0xab, 0x8a, 0x79, 0x6c, 0x17, 0x4c, 0x68,
-	0x7f, 0xd0, 0x3d, 0xa5, 0xdf, 0xb9, 0xb4, 0x55, 0x23, 0x8f, 0xd4, 0xbf, 0x37, 0xc3, 0xd7, 0xc5,
-	0x59, 0xa6, 0xdd, 0x22, 0x07, 0xea, 0x25, 0xcb, 0x6b, 0x71, 0xd5, 0xb6, 0xea, 0xc3, 0xba, 0xfe,
-	0x47, 0xfb, 0xd9, 0x3f, 0x01, 0x00, 0x00, 0xff, 0xff, 0x63, 0xba, 0xe9, 0x5a, 0x10, 0x0b, 0x00,
-	0x00,
+var fileDescriptor_sl_route_common_36b8304f30921dd0 = []byte{
+	// 1004 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xac, 0x56, 0xdd, 0x6e, 0xe3, 0x44,
+	0x14, 0xc6, 0x49, 0x9a, 0xa6, 0x27, 0x9b, 0x2a, 0xcc, 0x6e, 0x5b, 0x13, 0x96, 0x2a, 0xb2, 0xb8,
+	0x88, 0x56, 0xa8, 0x62, 0x03, 0xd2, 0xae, 0x10, 0x42, 0xf4, 0xc7, 0xad, 0x2a, 0xf2, 0xa7, 0x71,
+	0xd6, 0xd2, 0x5e, 0x45, 0x53, 0xe7, 0x24, 0x0d, 0x9b, 0xc4, 0xd6, 0x78, 0xb2, 0x6a, 0xef, 0xe1,
+	0x12, 0xae, 0xe0, 0x01, 0xb8, 0xe0, 0x25, 0x90, 0x78, 0x01, 0x9e, 0x0a, 0xcd, 0xd8, 0x4e, 0x3c,
+	0x75, 0x12, 0x40, 0xe5, 0xca, 0x9e, 0x73, 0xce, 0x37, 0xe7, 0x3b, 0x3f, 0x73, 0x66, 0xe0, 0x20,
+	0x9c, 0x0e, 0xb8, 0xbf, 0x10, 0x38, 0xf0, 0xfc, 0xd9, 0xcc, 0x9f, 0x9f, 0x04, 0xdc, 0x17, 0x3e,
+	0xa9, 0x84, 0xc8, 0xdf, 0x4f, 0x3c, 0x1c, 0x4c, 0xd9, 0x3d, 0xf2, 0x9a, 0xb4, 0x8a, 0xf4, 0x03,
+	0x71, 0x1f, 0x60, 0x18, 0x59, 0x59, 0x87, 0xf0, 0xcc, 0x69, 0x51, 0x89, 0xbe, 0x9a, 0xfa, 0x37,
+	0x6c, 0x1a, 0x5e, 0xa1, 0x68, 0x87, 0x63, 0xeb, 0x4f, 0x03, 0x8e, 0xd6, 0x29, 0x68, 0x18, 0x90,
+	0xaf, 0x60, 0xcf, 0xe6, 0xdc, 0x11, 0x4c, 0x2c, 0x42, 0xd3, 0xa8, 0x1b, 0x8d, 0x72, 0xf3, 0xf9,
+	0x89, 0xe6, 0xed, 0xc4, 0x69, 0xd9, 0x9c, 0xfb, 0xb1, 0x0d, 0x5d, 0x99, 0x93, 0x2f, 0xe1, 0xa0,
+	0xcd, 0xee, 0x5c, 0x3e, 0xe2, 0x38, 0xee, 0x21, 0x8f, 0x7e, 0x66, 0xe1, 0xd8, 0xcc, 0xd5, 0x8d,
+	0x46, 0x85, 0xae, 0x57, 0x92, 0xcf, 0xe1, 0x69, 0x9b, 0xdd, 0x29, 0x36, 0x3d, 0xe4, 0xea, 0x2b,
+	0x31, 0x79, 0x85, 0x59, 0xa7, 0xb2, 0x6a, 0x60, 0x6a, 0xf4, 0xa5, 0xfb, 0x24, 0xb6, 0x5f, 0x0d,
+	0xf8, 0x78, 0x93, 0xf2, 0xb1, 0xf1, 0xd5, 0xa0, 0xe4, 0xf2, 0xd1, 0xb9, 0xbf, 0x98, 0x8b, 0x38,
+	0xa4, 0xe5, 0x9a, 0x1c, 0x03, 0x28, 0xa7, 0x91, 0x36, 0x22, 0x9f, 0x92, 0x58, 0x3f, 0x18, 0x50,
+	0x72, 0x5a, 0x2e, 0x1f, 0x51, 0x1c, 0x13, 0x13, 0x76, 0x5d, 0x3e, 0xea, 0xb0, 0x19, 0x2a, 0x0a,
+	0x7b, 0x34, 0x59, 0x92, 0x4f, 0xa1, 0x72, 0x3a, 0x9c, 0x4d, 0xe6, 0x17, 0x93, 0x50, 0xb0, 0xb9,
+	0x87, 0xb1, 0x1f, 0x5d, 0x48, 0x5e, 0xc3, 0x91, 0xcb, 0x47, 0xbd, 0x05, 0x1f, 0xe3, 0xf5, 0x5c,
+	0x20, 0x7f, 0xcf, 0xa6, 0x0e, 0x7a, 0xfe, 0x7c, 0x18, 0xc6, 0x9e, 0x37, 0xa9, 0x2d, 0x0e, 0xe5,
+	0x84, 0x45, 0x3b, 0x1c, 0x93, 0x17, 0x50, 0xe8, 0x06, 0xc8, 0x15, 0x8b, 0xfd, 0xe6, 0x61, 0x26,
+	0x11, 0x14, 0xc7, 0xdd, 0x80, 0x2a, 0x1b, 0xf2, 0x0a, 0x60, 0x09, 0x0c, 0xcd, 0x5c, 0x3d, 0xdf,
+	0x28, 0x37, 0x8f, 0x32, 0x88, 0xc8, 0x84, 0xa6, 0x4c, 0xad, 0x11, 0xec, 0xa7, 0x7c, 0x52, 0x0c,
+	0x1f, 0x55, 0x84, 0x54, 0xee, 0x72, 0x5a, 0xee, 0xac, 0x9f, 0x0c, 0xdd, 0x51, 0x18, 0x90, 0x33,
+	0xa8, 0x44, 0x30, 0x67, 0x31, 0x9b, 0x31, 0x7e, 0xff, 0xaf, 0x9c, 0xe9, 0x10, 0xf2, 0x0a, 0x76,
+	0x29, 0x86, 0x8b, 0xa9, 0x48, 0x82, 0xfe, 0x64, 0x43, 0xd0, 0x51, 0x70, 0x34, 0xb1, 0xb6, 0x6e,
+	0x57, 0x74, 0xa2, 0xfe, 0xdb, 0x52, 0x77, 0x0b, 0x9e, 0xd8, 0x73, 0xc1, 0x27, 0x18, 0xa6, 0xdb,
+	0x4b, 0x93, 0x49, 0xf4, 0x15, 0x8a, 0x0e, 0xde, 0x45, 0xfd, 0x55, 0xa2, 0xc9, 0xd2, 0xfa, 0xc5,
+	0x80, 0x0f, 0x75, 0x57, 0x32, 0xf8, 0x2a, 0xe4, 0x6d, 0x7f, 0xa4, 0x3c, 0x95, 0xa8, 0xfc, 0xd5,
+	0xf3, 0x9e, 0xfb, 0x6f, 0x79, 0x7f, 0x09, 0xbb, 0x31, 0x1b, 0x33, 0xbf, 0xbd, 0xf6, 0x89, 0x9d,
+	0xd5, 0x85, 0xa7, 0x4e, 0xcb, 0xa5, 0x97, 0x57, 0x28, 0xd4, 0x29, 0x8c, 0xab, 0xbf, 0x39, 0x0b,
+	0xfa, 0x21, 0xca, 0x65, 0x0e, 0xd1, 0x6f, 0xc6, 0x9a, 0x1d, 0xff, 0xf7, 0x48, 0xbf, 0x7e, 0x18,
+	0xa9, 0x95, 0x8d, 0xf4, 0x61, 0x50, 0xab, 0xa0, 0xff, 0x30, 0x80, 0x24, 0x03, 0x08, 0x45, 0xc7,
+	0x17, 0x93, 0x91, 0x2c, 0xfd, 0x67, 0xda, 0x49, 0x33, 0x33, 0x3b, 0x2a, 0xc3, 0xe5, 0x59, 0x3b,
+	0x06, 0x38, 0xf7, 0x39, 0xc7, 0x29, 0x13, 0x3e, 0x57, 0xfc, 0x0b, 0x34, 0x25, 0x49, 0xa7, 0x30,
+	0xaf, 0xa7, 0xb0, 0x06, 0x25, 0x87, 0x7b, 0x3d, 0x39, 0xff, 0xcd, 0x82, 0x52, 0x2d, 0xd7, 0xa4,
+	0x0e, 0xe5, 0xe4, 0xbf, 0xcf, 0xc6, 0xe6, 0x8e, 0x52, 0xa7, 0x45, 0xd6, 0xcf, 0x2b, 0xf2, 0x8a,
+	0x50, 0x9c, 0x11, 0x9d, 0x8e, 0xb1, 0x8d, 0x8e, 0x7e, 0x26, 0xc9, 0x37, 0x50, 0x4e, 0x6d, 0xa4,
+	0xc8, 0xfe, 0x53, 0x25, 0xd2, 0x00, 0xeb, 0x44, 0xe7, 0xd3, 0x66, 0xfc, 0x1d, 0xf2, 0xcd, 0x1d,
+	0x64, 0xbd, 0x05, 0x50, 0x7d, 0xa8, 0xac, 0xb7, 0x74, 0xda, 0x4b, 0x28, 0xa6, 0x9a, 0x63, 0xbf,
+	0xf9, 0x51, 0x86, 0x52, 0xf7, 0xe6, 0x7b, 0xf4, 0x44, 0x37, 0xa0, 0xb1, 0xa1, 0xf5, 0xbb, 0x01,
+	0x95, 0x98, 0xcb, 0xb9, 0xba, 0x6b, 0xb3, 0xc3, 0xda, 0x58, 0x37, 0xac, 0x8f, 0x01, 0x5a, 0xbe,
+	0xc7, 0xa6, 0x2d, 0x76, 0x83, 0xd3, 0xa4, 0xa9, 0x57, 0x12, 0xd9, 0xbc, 0xb2, 0x1a, 0xd1, 0xe0,
+	0x96, 0xbf, 0x8f, 0xac, 0xe1, 0x8f, 0x05, 0x39, 0xe3, 0xa3, 0x4b, 0x93, 0x89, 0x5b, 0x72, 0x06,
+	0xfb, 0x72, 0x48, 0xdc, 0xfa, 0xc1, 0xe9, 0x70, 0xc8, 0x31, 0x4c, 0x26, 0x6e, 0x2d, 0x13, 0xf2,
+	0x75, 0x62, 0x41, 0x1f, 0x20, 0xc8, 0x25, 0x54, 0x63, 0x89, 0xba, 0x50, 0x46, 0x2c, 0xbe, 0x99,
+	0xd6, 0xee, 0x92, 0x58, 0xd0, 0x0c, 0x26, 0xca, 0x05, 0x1b, 0xb6, 0x51, 0xf0, 0x89, 0x97, 0xdc,
+	0x92, 0x2b, 0x49, 0xba, 0x60, 0x05, 0xbd, 0x60, 0x87, 0x50, 0x8c, 0x51, 0x3b, 0x0a, 0x15, 0xaf,
+	0xa4, 0x5c, 0x46, 0x79, 0x3d, 0x34, 0x8b, 0x91, 0x3c, 0x5a, 0xc9, 0x57, 0x85, 0xcc, 0x08, 0x7a,
+	0x02, 0x87, 0x52, 0x74, 0x36, 0x11, 0x33, 0x16, 0x98, 0xbb, 0xf5, 0x7c, 0xa3, 0x40, 0xd7, 0xa9,
+	0x14, 0x37, 0x59, 0x10, 0x47, 0x30, 0xef, 0x9d, 0x59, 0xaa, 0xe7, 0x15, 0xb7, 0xa5, 0x84, 0x7c,
+	0x0b, 0x15, 0x8a, 0x33, 0x5f, 0x60, 0x92, 0xc6, 0x3d, 0x35, 0x1c, 0xb6, 0xa5, 0x51, 0x07, 0x90,
+	0xd7, 0xb0, 0x67, 0xcf, 0x3d, 0x16, 0xf4, 0xef, 0x03, 0x34, 0x41, 0xf5, 0x5d, 0x16, 0xbd, 0xb4,
+	0xa0, 0x2b, 0x63, 0xd2, 0x84, 0x67, 0xae, 0xc0, 0x40, 0x15, 0x95, 0xb7, 0x99, 0x97, 0x50, 0x28,
+	0xd7, 0x8d, 0xc6, 0x13, 0xba, 0x56, 0xf7, 0xe2, 0x2f, 0x43, 0xf6, 0x81, 0x3a, 0x08, 0x6a, 0x8f,
+	0x1a, 0x1c, 0x3a, 0xad, 0x81, 0xed, 0xda, 0x9d, 0xfe, 0xa0, 0xff, 0xb6, 0x67, 0x0f, 0xa8, 0xed,
+	0xd8, 0xd4, 0xb5, 0x2f, 0xaa, 0x1f, 0x90, 0x23, 0x39, 0x57, 0xd3, 0x3a, 0x9b, 0xd2, 0x2e, 0xad,
+	0x1a, 0xc4, 0x94, 0x4f, 0xc8, 0xb4, 0xc2, 0xe9, 0x9f, 0xf6, 0xdf, 0x38, 0xd5, 0x5c, 0x16, 0x42,
+	0xbb, 0x6f, 0xfa, 0x76, 0x35, 0x4f, 0x8e, 0xa1, 0x96, 0x81, 0xd0, 0xfe, 0xa0, 0x7d, 0x4a, 0xbf,
+	0xb3, 0x69, 0xb5, 0x40, 0x9e, 0xcb, 0xd7, 0x9b, 0xe6, 0xab, 0x73, 0x91, 0x68, 0x77, 0xc8, 0x81,
+	0xbc, 0xc9, 0xd2, 0x5a, 0x97, 0x5e, 0x56, 0x8b, 0x37, 0x45, 0xf5, 0xa2, 0xfd, 0xe2, 0xef, 0x00,
+	0x00, 0x00, 0xff, 0xff, 0x63, 0xba, 0xe9, 0x5a, 0x10, 0x0b, 0x00, 0x00,
 }

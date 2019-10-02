@@ -30,7 +30,6 @@
 namespace grpc {
 class CompletionQueue;
 class Channel;
-class RpcService;
 class ServerCompletionQueue;
 class ServerContext;
 }  // namespace grpc
@@ -199,12 +198,12 @@ class SLInterfaceOper final {
     ::grpc::ClientAsyncReader< ::service_layer::SLInterfaceNotif>* PrepareAsyncSLInterfaceGetNotifStreamRaw(::grpc::ClientContext* context, const ::service_layer::SLInterfaceGetNotifMsg& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::service_layer::SLInterfaceNotifMsgRsp>* AsyncSLInterfaceNotifOpRaw(::grpc::ClientContext* context, const ::service_layer::SLInterfaceNotifMsg& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::service_layer::SLInterfaceNotifMsgRsp>* PrepareAsyncSLInterfaceNotifOpRaw(::grpc::ClientContext* context, const ::service_layer::SLInterfaceNotifMsg& request, ::grpc::CompletionQueue* cq) override;
-    const ::grpc::RpcMethod rpcmethod_SLInterfaceGlobalsRegOp_;
-    const ::grpc::RpcMethod rpcmethod_SLInterfaceGlobalsGet_;
-    const ::grpc::RpcMethod rpcmethod_SLInterfaceGlobalsGetStats_;
-    const ::grpc::RpcMethod rpcmethod_SLInterfaceGet_;
-    const ::grpc::RpcMethod rpcmethod_SLInterfaceGetNotifStream_;
-    const ::grpc::RpcMethod rpcmethod_SLInterfaceNotifOp_;
+    const ::grpc::internal::RpcMethod rpcmethod_SLInterfaceGlobalsRegOp_;
+    const ::grpc::internal::RpcMethod rpcmethod_SLInterfaceGlobalsGet_;
+    const ::grpc::internal::RpcMethod rpcmethod_SLInterfaceGlobalsGetStats_;
+    const ::grpc::internal::RpcMethod rpcmethod_SLInterfaceGet_;
+    const ::grpc::internal::RpcMethod rpcmethod_SLInterfaceGetNotifStream_;
+    const ::grpc::internal::RpcMethod rpcmethod_SLInterfaceNotifOp_;
   };
   static std::unique_ptr<Stub> NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options = ::grpc::StubOptions());
 
@@ -477,7 +476,7 @@ class SLInterfaceOper final {
    public:
     WithStreamedUnaryMethod_SLInterfaceGlobalsRegOp() {
       ::grpc::Service::MarkMethodStreamed(0,
-        new ::grpc::StreamedUnaryHandler< ::service_layer::SLInterfaceGlobalsRegMsg, ::service_layer::SLInterfaceGlobalsRegMsgRsp>(std::bind(&WithStreamedUnaryMethod_SLInterfaceGlobalsRegOp<BaseClass>::StreamedSLInterfaceGlobalsRegOp, this, std::placeholders::_1, std::placeholders::_2)));
+        new ::grpc::internal::StreamedUnaryHandler< ::service_layer::SLInterfaceGlobalsRegMsg, ::service_layer::SLInterfaceGlobalsRegMsgRsp>(std::bind(&WithStreamedUnaryMethod_SLInterfaceGlobalsRegOp<BaseClass>::StreamedSLInterfaceGlobalsRegOp, this, std::placeholders::_1, std::placeholders::_2)));
     }
     ~WithStreamedUnaryMethod_SLInterfaceGlobalsRegOp() override {
       BaseClassMustBeDerivedFromService(this);
@@ -497,7 +496,7 @@ class SLInterfaceOper final {
    public:
     WithStreamedUnaryMethod_SLInterfaceGlobalsGet() {
       ::grpc::Service::MarkMethodStreamed(1,
-        new ::grpc::StreamedUnaryHandler< ::service_layer::SLInterfaceGlobalsGetMsg, ::service_layer::SLInterfaceGlobalsGetMsgRsp>(std::bind(&WithStreamedUnaryMethod_SLInterfaceGlobalsGet<BaseClass>::StreamedSLInterfaceGlobalsGet, this, std::placeholders::_1, std::placeholders::_2)));
+        new ::grpc::internal::StreamedUnaryHandler< ::service_layer::SLInterfaceGlobalsGetMsg, ::service_layer::SLInterfaceGlobalsGetMsgRsp>(std::bind(&WithStreamedUnaryMethod_SLInterfaceGlobalsGet<BaseClass>::StreamedSLInterfaceGlobalsGet, this, std::placeholders::_1, std::placeholders::_2)));
     }
     ~WithStreamedUnaryMethod_SLInterfaceGlobalsGet() override {
       BaseClassMustBeDerivedFromService(this);
@@ -517,7 +516,7 @@ class SLInterfaceOper final {
    public:
     WithStreamedUnaryMethod_SLInterfaceGlobalsGetStats() {
       ::grpc::Service::MarkMethodStreamed(2,
-        new ::grpc::StreamedUnaryHandler< ::service_layer::SLInterfaceGlobalsGetMsg, ::service_layer::SLInterfaceGlobalsGetStatsMsgRsp>(std::bind(&WithStreamedUnaryMethod_SLInterfaceGlobalsGetStats<BaseClass>::StreamedSLInterfaceGlobalsGetStats, this, std::placeholders::_1, std::placeholders::_2)));
+        new ::grpc::internal::StreamedUnaryHandler< ::service_layer::SLInterfaceGlobalsGetMsg, ::service_layer::SLInterfaceGlobalsGetStatsMsgRsp>(std::bind(&WithStreamedUnaryMethod_SLInterfaceGlobalsGetStats<BaseClass>::StreamedSLInterfaceGlobalsGetStats, this, std::placeholders::_1, std::placeholders::_2)));
     }
     ~WithStreamedUnaryMethod_SLInterfaceGlobalsGetStats() override {
       BaseClassMustBeDerivedFromService(this);
@@ -537,7 +536,7 @@ class SLInterfaceOper final {
    public:
     WithStreamedUnaryMethod_SLInterfaceGet() {
       ::grpc::Service::MarkMethodStreamed(3,
-        new ::grpc::StreamedUnaryHandler< ::service_layer::SLInterfaceGetMsg, ::service_layer::SLInterfaceGetMsgRsp>(std::bind(&WithStreamedUnaryMethod_SLInterfaceGet<BaseClass>::StreamedSLInterfaceGet, this, std::placeholders::_1, std::placeholders::_2)));
+        new ::grpc::internal::StreamedUnaryHandler< ::service_layer::SLInterfaceGetMsg, ::service_layer::SLInterfaceGetMsgRsp>(std::bind(&WithStreamedUnaryMethod_SLInterfaceGet<BaseClass>::StreamedSLInterfaceGet, this, std::placeholders::_1, std::placeholders::_2)));
     }
     ~WithStreamedUnaryMethod_SLInterfaceGet() override {
       BaseClassMustBeDerivedFromService(this);
@@ -557,7 +556,7 @@ class SLInterfaceOper final {
    public:
     WithStreamedUnaryMethod_SLInterfaceNotifOp() {
       ::grpc::Service::MarkMethodStreamed(5,
-        new ::grpc::StreamedUnaryHandler< ::service_layer::SLInterfaceNotifMsg, ::service_layer::SLInterfaceNotifMsgRsp>(std::bind(&WithStreamedUnaryMethod_SLInterfaceNotifOp<BaseClass>::StreamedSLInterfaceNotifOp, this, std::placeholders::_1, std::placeholders::_2)));
+        new ::grpc::internal::StreamedUnaryHandler< ::service_layer::SLInterfaceNotifMsg, ::service_layer::SLInterfaceNotifMsgRsp>(std::bind(&WithStreamedUnaryMethod_SLInterfaceNotifOp<BaseClass>::StreamedSLInterfaceNotifOp, this, std::placeholders::_1, std::placeholders::_2)));
     }
     ~WithStreamedUnaryMethod_SLInterfaceNotifOp() override {
       BaseClassMustBeDerivedFromService(this);
@@ -578,7 +577,7 @@ class SLInterfaceOper final {
    public:
     WithSplitStreamingMethod_SLInterfaceGetNotifStream() {
       ::grpc::Service::MarkMethodStreamed(4,
-        new ::grpc::SplitServerStreamingHandler< ::service_layer::SLInterfaceGetNotifMsg, ::service_layer::SLInterfaceNotif>(std::bind(&WithSplitStreamingMethod_SLInterfaceGetNotifStream<BaseClass>::StreamedSLInterfaceGetNotifStream, this, std::placeholders::_1, std::placeholders::_2)));
+        new ::grpc::internal::SplitServerStreamingHandler< ::service_layer::SLInterfaceGetNotifMsg, ::service_layer::SLInterfaceNotif>(std::bind(&WithSplitStreamingMethod_SLInterfaceGetNotifStream<BaseClass>::StreamedSLInterfaceGetNotifStream, this, std::placeholders::_1, std::placeholders::_2)));
     }
     ~WithSplitStreamingMethod_SLInterfaceGetNotifStream() override {
       BaseClassMustBeDerivedFromService(this);

@@ -6,7 +6,7 @@
 // @brief RPC proto file for MPLS types.
 //
 // ----------------------------------------------------------------
-//  Copyright (c) 2016 by Cisco Systems, Inc.
+//  Copyright (c) 2019 by Cisco Systems, Inc.
 //  All rights reserved.
 // -----------------------------------------------------------------
 //
@@ -33,7 +33,6 @@
 namespace grpc {
 class CompletionQueue;
 class Channel;
-class RpcService;
 class ServerCompletionQueue;
 class ServerContext;
 }  // namespace grpc
@@ -313,15 +312,15 @@ class SLMplsOper final {
     ::grpc::ClientReaderWriter< ::service_layer::SLMplsIlmGetMsg, ::service_layer::SLMplsIlmGetMsgRsp>* SLMplsIlmGetStreamRaw(::grpc::ClientContext* context) override;
     ::grpc::ClientAsyncReaderWriter< ::service_layer::SLMplsIlmGetMsg, ::service_layer::SLMplsIlmGetMsgRsp>* AsyncSLMplsIlmGetStreamRaw(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq, void* tag) override;
     ::grpc::ClientAsyncReaderWriter< ::service_layer::SLMplsIlmGetMsg, ::service_layer::SLMplsIlmGetMsgRsp>* PrepareAsyncSLMplsIlmGetStreamRaw(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq) override;
-    const ::grpc::RpcMethod rpcmethod_SLMplsRegOp_;
-    const ::grpc::RpcMethod rpcmethod_SLMplsGet_;
-    const ::grpc::RpcMethod rpcmethod_SLMplsGetStats_;
-    const ::grpc::RpcMethod rpcmethod_SLMplsLabelBlockOp_;
-    const ::grpc::RpcMethod rpcmethod_SLMplsLabelBlockGet_;
-    const ::grpc::RpcMethod rpcmethod_SLMplsIlmOp_;
-    const ::grpc::RpcMethod rpcmethod_SLMplsIlmGet_;
-    const ::grpc::RpcMethod rpcmethod_SLMplsIlmOpStream_;
-    const ::grpc::RpcMethod rpcmethod_SLMplsIlmGetStream_;
+    const ::grpc::internal::RpcMethod rpcmethod_SLMplsRegOp_;
+    const ::grpc::internal::RpcMethod rpcmethod_SLMplsGet_;
+    const ::grpc::internal::RpcMethod rpcmethod_SLMplsGetStats_;
+    const ::grpc::internal::RpcMethod rpcmethod_SLMplsLabelBlockOp_;
+    const ::grpc::internal::RpcMethod rpcmethod_SLMplsLabelBlockGet_;
+    const ::grpc::internal::RpcMethod rpcmethod_SLMplsIlmOp_;
+    const ::grpc::internal::RpcMethod rpcmethod_SLMplsIlmGet_;
+    const ::grpc::internal::RpcMethod rpcmethod_SLMplsIlmOpStream_;
+    const ::grpc::internal::RpcMethod rpcmethod_SLMplsIlmGetStream_;
   };
   static std::unique_ptr<Stub> NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options = ::grpc::StubOptions());
 
@@ -742,7 +741,7 @@ class SLMplsOper final {
    public:
     WithStreamedUnaryMethod_SLMplsRegOp() {
       ::grpc::Service::MarkMethodStreamed(0,
-        new ::grpc::StreamedUnaryHandler< ::service_layer::SLMplsRegMsg, ::service_layer::SLMplsRegMsgRsp>(std::bind(&WithStreamedUnaryMethod_SLMplsRegOp<BaseClass>::StreamedSLMplsRegOp, this, std::placeholders::_1, std::placeholders::_2)));
+        new ::grpc::internal::StreamedUnaryHandler< ::service_layer::SLMplsRegMsg, ::service_layer::SLMplsRegMsgRsp>(std::bind(&WithStreamedUnaryMethod_SLMplsRegOp<BaseClass>::StreamedSLMplsRegOp, this, std::placeholders::_1, std::placeholders::_2)));
     }
     ~WithStreamedUnaryMethod_SLMplsRegOp() override {
       BaseClassMustBeDerivedFromService(this);
@@ -762,7 +761,7 @@ class SLMplsOper final {
    public:
     WithStreamedUnaryMethod_SLMplsGet() {
       ::grpc::Service::MarkMethodStreamed(1,
-        new ::grpc::StreamedUnaryHandler< ::service_layer::SLMplsGetMsg, ::service_layer::SLMplsGetMsgRsp>(std::bind(&WithStreamedUnaryMethod_SLMplsGet<BaseClass>::StreamedSLMplsGet, this, std::placeholders::_1, std::placeholders::_2)));
+        new ::grpc::internal::StreamedUnaryHandler< ::service_layer::SLMplsGetMsg, ::service_layer::SLMplsGetMsgRsp>(std::bind(&WithStreamedUnaryMethod_SLMplsGet<BaseClass>::StreamedSLMplsGet, this, std::placeholders::_1, std::placeholders::_2)));
     }
     ~WithStreamedUnaryMethod_SLMplsGet() override {
       BaseClassMustBeDerivedFromService(this);
@@ -782,7 +781,7 @@ class SLMplsOper final {
    public:
     WithStreamedUnaryMethod_SLMplsGetStats() {
       ::grpc::Service::MarkMethodStreamed(2,
-        new ::grpc::StreamedUnaryHandler< ::service_layer::SLMplsGetMsg, ::service_layer::SLMplsGetStatsMsgRsp>(std::bind(&WithStreamedUnaryMethod_SLMplsGetStats<BaseClass>::StreamedSLMplsGetStats, this, std::placeholders::_1, std::placeholders::_2)));
+        new ::grpc::internal::StreamedUnaryHandler< ::service_layer::SLMplsGetMsg, ::service_layer::SLMplsGetStatsMsgRsp>(std::bind(&WithStreamedUnaryMethod_SLMplsGetStats<BaseClass>::StreamedSLMplsGetStats, this, std::placeholders::_1, std::placeholders::_2)));
     }
     ~WithStreamedUnaryMethod_SLMplsGetStats() override {
       BaseClassMustBeDerivedFromService(this);
@@ -802,7 +801,7 @@ class SLMplsOper final {
    public:
     WithStreamedUnaryMethod_SLMplsLabelBlockOp() {
       ::grpc::Service::MarkMethodStreamed(3,
-        new ::grpc::StreamedUnaryHandler< ::service_layer::SLMplsLabelBlockMsg, ::service_layer::SLMplsLabelBlockMsgRsp>(std::bind(&WithStreamedUnaryMethod_SLMplsLabelBlockOp<BaseClass>::StreamedSLMplsLabelBlockOp, this, std::placeholders::_1, std::placeholders::_2)));
+        new ::grpc::internal::StreamedUnaryHandler< ::service_layer::SLMplsLabelBlockMsg, ::service_layer::SLMplsLabelBlockMsgRsp>(std::bind(&WithStreamedUnaryMethod_SLMplsLabelBlockOp<BaseClass>::StreamedSLMplsLabelBlockOp, this, std::placeholders::_1, std::placeholders::_2)));
     }
     ~WithStreamedUnaryMethod_SLMplsLabelBlockOp() override {
       BaseClassMustBeDerivedFromService(this);
@@ -822,7 +821,7 @@ class SLMplsOper final {
    public:
     WithStreamedUnaryMethod_SLMplsLabelBlockGet() {
       ::grpc::Service::MarkMethodStreamed(4,
-        new ::grpc::StreamedUnaryHandler< ::service_layer::SLMplsLabelBlockGetMsg, ::service_layer::SLMplsLabelBlockGetMsgRsp>(std::bind(&WithStreamedUnaryMethod_SLMplsLabelBlockGet<BaseClass>::StreamedSLMplsLabelBlockGet, this, std::placeholders::_1, std::placeholders::_2)));
+        new ::grpc::internal::StreamedUnaryHandler< ::service_layer::SLMplsLabelBlockGetMsg, ::service_layer::SLMplsLabelBlockGetMsgRsp>(std::bind(&WithStreamedUnaryMethod_SLMplsLabelBlockGet<BaseClass>::StreamedSLMplsLabelBlockGet, this, std::placeholders::_1, std::placeholders::_2)));
     }
     ~WithStreamedUnaryMethod_SLMplsLabelBlockGet() override {
       BaseClassMustBeDerivedFromService(this);
@@ -842,7 +841,7 @@ class SLMplsOper final {
    public:
     WithStreamedUnaryMethod_SLMplsIlmOp() {
       ::grpc::Service::MarkMethodStreamed(5,
-        new ::grpc::StreamedUnaryHandler< ::service_layer::SLMplsIlmMsg, ::service_layer::SLMplsIlmMsgRsp>(std::bind(&WithStreamedUnaryMethod_SLMplsIlmOp<BaseClass>::StreamedSLMplsIlmOp, this, std::placeholders::_1, std::placeholders::_2)));
+        new ::grpc::internal::StreamedUnaryHandler< ::service_layer::SLMplsIlmMsg, ::service_layer::SLMplsIlmMsgRsp>(std::bind(&WithStreamedUnaryMethod_SLMplsIlmOp<BaseClass>::StreamedSLMplsIlmOp, this, std::placeholders::_1, std::placeholders::_2)));
     }
     ~WithStreamedUnaryMethod_SLMplsIlmOp() override {
       BaseClassMustBeDerivedFromService(this);
@@ -862,7 +861,7 @@ class SLMplsOper final {
    public:
     WithStreamedUnaryMethod_SLMplsIlmGet() {
       ::grpc::Service::MarkMethodStreamed(6,
-        new ::grpc::StreamedUnaryHandler< ::service_layer::SLMplsIlmGetMsg, ::service_layer::SLMplsIlmGetMsgRsp>(std::bind(&WithStreamedUnaryMethod_SLMplsIlmGet<BaseClass>::StreamedSLMplsIlmGet, this, std::placeholders::_1, std::placeholders::_2)));
+        new ::grpc::internal::StreamedUnaryHandler< ::service_layer::SLMplsIlmGetMsg, ::service_layer::SLMplsIlmGetMsgRsp>(std::bind(&WithStreamedUnaryMethod_SLMplsIlmGet<BaseClass>::StreamedSLMplsIlmGet, this, std::placeholders::_1, std::placeholders::_2)));
     }
     ~WithStreamedUnaryMethod_SLMplsIlmGet() override {
       BaseClassMustBeDerivedFromService(this);

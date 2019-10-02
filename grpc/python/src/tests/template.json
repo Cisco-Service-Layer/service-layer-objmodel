@@ -1,247 +1,337 @@
 {
-    "_copyright_": "All rights reserved. Copyright (c) 2016 by cisco Systems, Inc.", 
+    "_copyright_": "All rights reserved. Copyright (c) 2016 by cisco Systems, Inc.",
     "batch_bfd_multihop": {
         "sessions": [
             {
-                "cfg_detect_multi": 3, 
-                "cfg_tx_int_usec": 50000, 
-                "nexthop": "nh_r2_l3", 
-                "src_v4_addr": "10.10.10.3", 
-                "src_v6_addr": "10:10:10:10::3", 
+                "cfg_detect_multi": 3,
+                "cfg_tx_int_usec": 50000,
+                "nexthop": "nh_r2_l3",
+                "src_v4_addr": "10.10.10.3",
+                "src_v6_addr": "10:10:10:10::3",
                 "type": 2
             }
         ]
-    }, 
+    },
     "batch_bfd_singlehop": {
         "sessions": [
             {
-                "cfg_detect_multi": 3, 
-                "cfg_tx_int_usec": 50000, 
-                "nexthop": "nh_r2_l1", 
+                "cfg_detect_multi": 3,
+                "cfg_tx_int_usec": 50000,
+                "nexthop": "nh_r2_l1",
                 "type": 1
             }
         ]
-    }, 
+    },
     "batch_ilm": {
-        "batch_count": 5, 
-        "correlator": 1, 
+        "batch_count": 5,
+        "correlator": 1,
         "ilms": [
             {
-                "in_label": 16001, 
-                "path": "path_nhlfe_connected", 
+                "in_label": 46001,
+                "path": "path_nhlfe_connected",
                 "range": 10
             }
         ]
-    }, 
+    },
+    "scale_cos_ilm_1": {
+        "batch_size": 256,
+        "correlator": 1,
+        "label_range": [32000, 32999],
+        "exps": {
+            "0": { "path": "cos_scale_path_1", "path_range": [0, 4] },
+            "1": { "path": "cos_scale_path_1", "path_range": [0, 4] },
+            "default": { "path": "cos_scale_path_1", "path_range": [0, 4] }
+        }
+    },
+    "scale_cos_ilm_2": {
+        "batch_size": 256,
+        "correlator": 1,
+        "label_range": [32000, 32999],
+        "exps": {
+            "0": { "path": "cos_scale_path_1", "path_range": [0, 1] },
+            "1": { "path": "cos_scale_path_1", "path_range": [2, 3] },
+            "2": { "path": "cos_scale_path_1", "path_range": [4, 5] },
+            "3": { "path": "cos_scale_path_1", "path_range": [6, 7] },
+            "5": { "path": "cos_scale_path_1", "path_range": [10, 11] },
+            "6": { "path": "cos_scale_path_1", "path_range": [12, 13] },
+            "7": { "path": "cos_scale_path_1", "path_range": [14, 15] },
+            "default": { "path": "cos_scale_path_1", "path_range": [16, 17]  }
+        }
+    },
+    "scale_cos_ilm_3": {
+        "batch_size": 256,
+        "correlator": 1,
+        "label_range": [32000, 32999],
+        "exps": {
+            "default": { "path": "cos_scale_path_1", "path_range": [0, 15] }
+        }
+    },
+    "scale_cos_ilm_4": {
+        "batch_size": 256,
+        "correlator": 1,
+        "label_range": [32000, 32999],
+        "exps": {
+            "0": { "path": "cos_scale_path_1", "path_range": [0, 7] },
+            "default": { "path": "cos_scale_path_1", "path_range": [8, 15] }
+        }
+    },
+    "scale_cos_ilm_update_1": {
+        "batch_size": 256,
+        "correlator": 1,
+        "label_range": [32000, 32999],
+        "exps": {
+            "0": { "path": "cos_scale_path_2", "path_range": [0, 3] },
+            "1": { "path": "cos_scale_path_2", "path_range": [0, 5] },
+            "default": { "path": "cos_scale_path_2", "path_range": [0, 4] }
+        }
+    },
+    "scale_cos_ilm_update_2": {
+        "batch_size": 256,
+        "correlator": 1,
+        "label_range": [32000, 32999],
+        "exps": {
+            "0": { "path": "cos_scale_path_2", "path_range": [0, 1] },
+            "1": { "path": "cos_scale_path_2", "path_range": [2, 3] },
+            "2": { "path": "cos_scale_path_2", "path_range": [4, 5] },
+            "3": { "path": "cos_scale_path_2", "path_range": [6, 7] },
+            "5": { "path": "cos_scale_path_2", "path_range": [10, 11] },
+            "6": { "path": "cos_scale_path_2", "path_range": [12, 13] },
+            "7": { "path": "cos_scale_path_2", "path_range": [14, 15] },
+            "default": { "path": "cos_scale_path_2", "path_range": [16, 17]  }
+        }
+    },
+    "scale_cos_ilm_update_3": {
+        "batch_size": 256,
+        "correlator": 1,
+        "label_range": [32000, 32999],
+        "exps": {
+            "default": { "path": "cos_scale_path_2", "path_range": [0, 15] }
+        }
+    },
+    "scale_cos_ilm_update_4": {
+        "batch_size": 256,
+        "correlator": 1,
+        "label_range": [32000, 32999],
+        "exps": {
+            "0": { "path": "cos_scale_path_2", "path_range": [0, 7] },
+            "default": { "path": "cos_scale_path_2", "path_range": [8, 15] }
+        }
+    },
     "batch_interfaces": {
         "interfaces": [
             {
                 "if_name": "GigabitEthernet0/0/0/0"
-            }, 
+            },
             {
                 "if_name": "GigabitEthernet0/0/0/1"
             }
         ]
-    }, 
+    },
+    "reg_params": {
+        "purge_interval": 1800
+    },
+    "reg_params_2": {
+        "purge_interval": 300
+    },
     "batch_mpls_lbl_block": {
         "blocks": [
             {
-                "block_size": 1000, 
-                "start_label": 16000
+                "block_size": 65000,
+                "start_label": 35000
             }
         ]
-    }, 
+    },
     "batch_v4_route": {
-        "af": 4, 
-        "batch_count": 5, 
-        "correlator": 1, 
+        "af": 4,
+        "batch_count": 5,
+        "correlator": 1,
         "routes": [
             {
-                "admin_dist": 2, 
-                "path": "path_route_connected", 
-                "prefix": "10.10.11.0", 
-                "prefix_len": 24, 
-                "range": 100, 
+                "admin_dist": 2,
+                "path": "path_route_connected",
+                "prefix": "10.10.11.0",
+                "prefix_len": 24,
+                "range": 100,
                 "tag": 16
             }
-        ], 
+        ],
         "vrf_name": "default"
-    }, 
+    },
     "batch_v4_route_label": {
-        "af": 4, 
-        "batch_count": 5, 
-        "correlator": 2, 
+        "af": 4,
+        "batch_count": 5,
+        "correlator": 2,
         "routes": [
             {
-                "admin_dist": 2, 
-                "local_label": 16100, 
-                "path": "path_nhlfe_connected", 
-                "prefix": "20.10.11.0", 
-                "prefix_len": 24, 
-                "range": 100, 
+                "admin_dist": 2,
+                "local_label": 16100,
+                "path": "path_nhlfe_connected",
+                "prefix": "20.10.11.0",
+                "prefix_len": 24,
+                "range": 100,
                 "tag": 16
             }
-        ], 
+        ],
         "vrf_name": "default"
-    }, 
+    },
     "batch_v4_vrf": {
-        "af": 4, 
+        "af": 4,
         "vrfs": [
             {
-                "admin_dist": 2, 
-                "purge_time": 120, 
+                "admin_dist": 2,
+                "purge_time": 120,
                 "vrf_name": "default"
             }
         ]
-    }, 
+    },
     "batch_v6_route": {
-        "af": 6, 
-        "batch_count": 5, 
-        "correlator": 3, 
+        "af": 6,
+        "batch_count": 5,
+        "correlator": 3,
         "routes": [
             {
-                "admin_dist": 2, 
-                "path": "path_route_connected", 
-                "prefix": "10:10:10:11::0", 
-                "prefix_len": 64, 
-                "range": 100, 
+                "admin_dist": 2,
+                "path": "path_route_connected",
+                "prefix": "10:10:10:11::0",
+                "prefix_len": 64,
+                "range": 100,
                 "tag": 17
             }
-        ], 
+        ],
         "vrf_name": "default"
-    }, 
+    },
     "batch_v6_route_label": {
-        "af": 6, 
-        "batch_count": 5, 
-        "correlator": 4, 
+        "af": 6,
+        "batch_count": 5,
+        "correlator": 4,
         "routes": [
             {
-                "admin_dist": 2, 
-                "local_label": 16100, 
-                "path": "path_nhlfe_connected", 
-                "prefix": "20:10:10:11::0", 
-                "prefix_len": 64, 
-                "range": 100, 
+                "admin_dist": 2,
+                "local_label": 16100,
+                "path": "path_nhlfe_connected",
+                "prefix": "20:10:10:11::0",
+                "prefix_len": 64,
+                "range": 100,
                 "tag": 18
             }
-        ], 
+        ],
         "vrf_name": "default"
-    }, 
+    },
     "batch_v6_vrf": {
-        "af": 6, 
+        "af": 6,
         "vrfs": [
             {
-                "admin_dist": 2, 
-                "purge_time": 120, 
+                "admin_dist": 2,
+                "purge_time": 120,
                 "vrf_name": "default"
             }
         ]
-    }, 
+    },
     "bfd_get": {
         "get_exact_bfd": {
-            "_description": "Get Exact Match", 
-            "count": 1, 
-            "get_next": 0, 
-            "if_name": "GigabitEthernet0/0/0/0", 
-            "seq_num": 0, 
-            "type": 1, 
-            "v4_nbr": "10.10.10.1", 
-            "v4_src": "10.10.10.3", 
-            "v6_nbr": "10:10:10:10::1", 
-            "v6_src": "10:10:10:10::3", 
+            "_description": "Get Exact Match",
+            "count": 1,
+            "get_next": 0,
+            "if_name": "GigabitEthernet0/0/0/0",
+            "seq_num": 0,
+            "type": 1,
+            "v4_nbr": "10.10.10.1",
+            "v4_src": "10.10.10.3",
+            "v6_nbr": "10:10:10:10::1",
+            "v6_src": "10:10:10:10::3",
             "vrf_name": "default"
-        }, 
+        },
         "get_firstN_bfd": {
-            "_description": "Get First N bfds", 
-            "count": 5, 
+            "_description": "Get First N bfds",
+            "count": 5,
             "get_next": 0
-        }, 
+        },
         "get_nextN_bfd": {
-            "_description": "Get Next N bfds following specified", 
-            "count": 3, 
-            "get_next": 1, 
-            "if_name": "GigabitEthernet0/0/0/0", 
-            "seq_num": 0, 
-            "type": 1, 
-            "v4_nbr": "10.10.10.1", 
-            "v4_src": "10.10.10.3", 
-            "v6_nbr": "10:10:10:10::1", 
-            "v6_src": "10:10:10:10::3", 
+            "_description": "Get Next N bfds following specified",
+            "count": 3,
+            "get_next": 1,
+            "if_name": "GigabitEthernet0/0/0/0",
+            "seq_num": 0,
+            "type": 1,
+            "v4_nbr": "10.10.10.1",
+            "v4_src": "10.10.10.3",
+            "v6_nbr": "10:10:10:10::1",
+            "v6_src": "10:10:10:10::3",
             "vrf_name": "default"
-        }, 
+        },
         "get_nextN_include_bfd": {
-            "_description": "Get Next N bfds starting from specified", 
-            "count": 3, 
-            "get_next": 0, 
-            "if_name": "GigabitEthernet0/0/0/0", 
-            "seq_num": 0, 
-            "type": 1, 
-            "v4_nbr": "10.10.10.1", 
-            "v4_src": "10.10.10.3", 
-            "v6_nbr": "10:10:10:10::1", 
-            "v6_src": "10:10:10:10::3", 
+            "_description": "Get Next N bfds starting from specified",
+            "count": 3,
+            "get_next": 0,
+            "if_name": "GigabitEthernet0/0/0/0",
+            "seq_num": 0,
+            "type": 1,
+            "v4_nbr": "10.10.10.1",
+            "v4_src": "10.10.10.3",
+            "v6_nbr": "10:10:10:10::1",
+            "v6_src": "10:10:10:10::3",
             "vrf_name": "default"
         }
-    }, 
+    },
     "global_init": {
-        "major": 0, 
-        "minor": 0, 
+        "major": 0,
+        "minor": 0,
         "sub_ver": 0
-    }, 
+    },
     "ilm_get": {
         "get_exact_ilm": {
-            "_description": "Get Exact Match", 
-            "correlator": 1, 
-            "count": 1, 
-            "get_next": 0, 
-            "in_label": 16001
-        }, 
+            "_description": "Get Exact Match",
+            "correlator": 1,
+            "count": 1,
+            "get_next": 0,
+            "in_label": 46001
+        },
         "get_firstN_ilm": {
-            "_description": "Get First N ilms", 
-            "correlator": 2, 
-            "count": 5, 
+            "_description": "Get First N ilms",
+            "correlator": 2,
+            "count": 5,
             "get_next": 0
-        }, 
+        },
         "get_nextN_ilm": {
-            "_description": "Get Next N ilms following specified", 
-            "correlator": 4, 
-            "count": 3, 
-            "get_next": 1, 
-            "in_label": 16001
-        }, 
+            "_description": "Get Next N ilms following specified",
+            "correlator": 4,
+            "count": 3,
+            "get_next": 1,
+            "in_label": 46001
+        },
         "get_nextN_include_ilm": {
-            "_description": "Get Next N ilms starting from specified", 
-            "correlator": 3, 
-            "count": 3, 
-            "get_next": 0, 
-            "in_label": 16001
+            "_description": "Get Next N ilms starting from specified",
+            "correlator": 3,
+            "count": 3,
+            "get_next": 0,
+            "in_label": 46001
         }
-    }, 
+    },
     "intf_get": {
         "get_exact_intf": {
-            "_description": "Get Exact Match", 
-            "count": 1, 
-            "get_next": 0, 
+            "_description": "Get Exact Match",
+            "count": 1,
+            "get_next": 0,
             "if_name": "GigabitEthernet0/0/0/0"
-        }, 
+        },
         "get_firstN_intf": {
-            "_description": "Get First N Interfaces", 
-            "count": 5, 
+            "_description": "Get First N Interfaces",
+            "count": 5,
             "get_next": 0
-        }, 
+        },
         "get_nextN_include_intf": {
-            "_description": "Get Next N Interfaces starting from specified", 
-            "count": 3, 
-            "get_next": 0, 
+            "_description": "Get Next N Interfaces starting from specified",
+            "count": 3,
+            "get_next": 0,
             "if_name": "GigabitEthernet0/0/0/0"
-        }, 
+        },
         "get_nextN_intf": {
-            "_description": "Get Next N Interfaces following specified", 
-            "count": 3, 
-            "get_next": 1, 
+            "_description": "Get Next N Interfaces following specified",
+            "count": 3,
+            "get_next": 1,
             "if_name": "GigabitEthernet0/0/0/0"
         }
-    }, 
+    },
     "intf_neg_get": {
         "get_exact_intf_neg1": {
             "_description": "Get Exact Match (Neg): Non-existent interface name",
@@ -258,264 +348,951 @@
     },
     "lbl_blk_get": {
         "get_exact_lbl_blk": {
-            "_description": "Get Exact Match", 
-            "block_size": 1000, 
-            "count": 1, 
-            "get_next": 0, 
-            "start_label": 16000
-        }, 
+            "_description": "Get Exact Match",
+            "block_size": 65000,
+            "count": 1,
+            "get_next": 0,
+            "start_label": 35000
+        },
         "get_firstN_lbl_blk": {
-            "_description": "Get First N lbl_blks", 
-            "count": 5, 
+            "_description": "Get First N lbl_blks",
+            "count": 5,
             "get_next": 0
-        }, 
+        },
         "get_nextN_include_lbl_blk": {
-            "_description": "Get Next N lbl_blks starting from specified", 
-            "block_size": 1000, 
-            "count": 3, 
-            "get_next": 0, 
-            "start_label": 16000
-        }, 
+            "_description": "Get Next N lbl_blks starting from specified",
+            "block_size": 65000,
+            "count": 3,
+            "get_next": 0,
+            "start_label": 35000
+        },
         "get_nextN_lbl_blk": {
-            "_description": "Get Next N lbl_blks following specified", 
-            "block_size": 1000, 
-            "count": 3, 
-            "get_next": 1, 
-            "start_label": 16000
+            "_description": "Get Next N lbl_blks following specified",
+            "block_size": 65000,
+            "count": 3,
+            "get_next": 1,
+            "start_label": 35000
         }
-    }, 
+    },
     "nexthops": {
         "nh_r2_l1": {
-            "if_name": "GigabitEthernet0/0/0/0", 
-            "v4_addr": "10.10.10.1", 
-            "v6_addr": "10:10:10:10::1", 
+            "if_name": "GigabitEthernet0/0/0/0",
+            "v4_addr": "10.10.10.1",
+            "v6_addr": "10:10:10:10::1",
             "vrf_name": "default"
-        }, 
+        },
         "nh_r2_l2": {
-            "if_name": "GigabitEthernet0/0/0/0", 
-            "v4_addr": "10.10.10.2", 
-            "v6_addr": "10:10:10:10::2", 
+            "if_name": "GigabitEthernet0/0/0/0",
+            "v4_addr": "10.10.10.2",
+            "v6_addr": "10:10:10:10::2",
             "vrf_name": "default"
-        }, 
+        },
         "nh_r2_l3": {
-            "v4_addr": "10.11.10.2", 
-            "v6_addr": "10:11:10:10::2", 
+            "v4_addr": "10.11.10.2",
+            "v6_addr": "10:11:10:10::2",
             "vrf_name": "default"
-        }, 
+        },
         "nh_r2_l4": {
             "vrf_name": "default"
+        },
+        "cos_nh_1" : {
+            "if_name": "GigabitEthernet0/0/0/0",
+            "v4_addr": "1.1.1.1",
+            "vrf_name": "default"
+        },
+        "cos_nh_2" : {
+            "if_name": "GigabitEthernet0/0/0/0",
+            "v4_addr": "1.1.1.2",
+            "vrf_name": "default"
+        },
+        "cos_nh_3" : {
+            "if_name": "GigabitEthernet0/0/0/0",
+            "v4_addr": "1.1.1.3",
+            "vrf_name": "default"
+        },
+        "cos_nh_4" : {
+            "if_name": "GigabitEthernet0/0/0/0",
+            "v4_addr": "1.1.1.4",
+            "vrf_name": "default"
+        },
+        "cos_nh_5" : {
+            "if_name": "GigabitEthernet0/0/0/0",
+            "v4_addr": "1.1.1.5",
+            "vrf_name": "default"
+        },
+        "cos_nh_6" : {
+            "if_name": "GigabitEthernet0/0/0/0",
+            "v4_addr": "1.1.1.6",
+            "vrf_name": "default"
+        },
+        "cos_nh_7" : {
+            "if_name": "GigabitEthernet0/0/0/0",
+            "v4_addr": "1.1.1.7",
+            "vrf_name": "default"
+        },
+        "cos_nh_8" : {
+            "if_name": "GigabitEthernet0/0/0/0",
+            "v4_addr": "1.1.1.8",
+            "vrf_name": "default"
+        },
+        "cos_nh_9" : {
+            "if_name": "GigabitEthernet0/0/0/0",
+            "v4_addr": "1.1.1.9",
+            "vrf_name": "default"
+        },
+        "cos_nh_10" : {
+            "if_name": "GigabitEthernet0/0/0/0",
+            "v4_addr": "1.1.1.10",
+            "vrf_name": "default"
+        },
+        "cos_nh_11" : {
+            "if_name": "GigabitEthernet0/0/0/0",
+            "v4_addr": "1.1.1.11",
+            "vrf_name": "default"
+        },
+        "cos_nh_12" : {
+            "if_name": "GigabitEthernet0/0/0/0",
+            "v4_addr": "1.1.1.12",
+            "vrf_name": "default"
+        },
+        "cos_nh_13" : {
+            "if_name": "GigabitEthernet0/0/0/0",
+            "v4_addr": "1.1.1.13",
+            "vrf_name": "default"
+        },
+        "cos_nh_14" : {
+            "if_name": "GigabitEthernet0/0/0/0",
+            "v4_addr": "1.1.1.14",
+            "vrf_name": "default"
+        },
+        "cos_nh_15" : {
+            "if_name": "GigabitEthernet0/0/0/0",
+            "v4_addr": "1.1.1.15",
+            "vrf_name": "default"
+        },
+        "cos_nh_16" : {
+            "if_name": "GigabitEthernet0/0/0/0",
+            "v4_addr": "1.1.1.16",
+            "vrf_name": "default"
+        },
+        "cos_nh_17" : {
+            "if_name": "GigabitEthernet0/0/0/0",
+            "v4_addr": "1.1.1.17",
+            "vrf_name": "default"
+        },
+        "cos_nh_18" : {
+            "if_name": "GigabitEthernet0/0/0/0",
+            "v4_addr": "1.1.1.18",
+            "vrf_name": "default"
         }
-    }, 
+    },
     "path_route_all_attrs": {
         "paths": [
             {
-                "label_action": 1, 
+                "label_action": 1,
                 "labels": [
-                    1, 
-                    2, 
-                    3
-                ], 
-                "load_metric": 1, 
-                "metric": 1, 
-                "nexthop": "nh_r2_l2", 
+                    81000,
+                    72000,
+                    63000
+                ],
+                "load_metric": 1,
+                "metric": 1,
+                "nexthop": "nh_r2_l2",
                 "p_bitmap": [
                     0
-                ], 
-                "path_id": 0, 
+                ],
+                "path_id": 0,
                 "v4_remote_addr": [
-                    "1.1.3.1", 
+                    "1.1.3.1",
                     "2.2.2.2"
-                ], 
+                ],
                 "v6_remote_addr": [
-                    "1::1", 
+                    "1::1",
                     "2::2"
                 ]
             }
         ]
-    }, 
+    },
     "paths": {
         "path_nhlfe_connected": [
             {
-                "label_action": 1, 
+                "label_action": 1,
                 "labels": [
-                    3000
-                ], 
-                "load_metric": 1, 
-                "metric": 1, 
+                    53000
+                ],
+                "load_metric": 1,
+                "metric": 1,
                 "nexthop": "nh_r2_l1"
             }
-        ], 
+        ],
         "path_nhlfe_ecmp": [
             {
-                "label_action": 1, 
+                "label_action": 1,
                 "labels": [
-                    1000
-                ], 
-                "load_metric": 1, 
-                "metric": 1, 
+                    41000
+                ],
+                "load_metric": 1,
+                "metric": 1,
                 "nexthop": "nh_r2_l1"
-            }, 
+            },
             {
-                "label_action": 1, 
+                "label_action": 1,
                 "labels": [
-                    2000
-                ], 
-                "load_metric": 1, 
-                "metric": 1, 
+                    42000
+                ],
+                "load_metric": 1,
+                "metric": 1,
                 "nexthop": "nh_r2_l2"
             }
-        ], 
+        ],
         "path_nhlfe_non_connected": [
             {
-                "label_action": 1, 
+                "label_action": 1,
                 "labels": [
-                    3000
-                ], 
+                    93000
+                ],
                 "nexthop": "nh_r2_l3"
             }
-        ], 
+        ],
         "path_route_connected": [
             {
-                "label_action": 2, 
-                "load_metric": 1, 
-                "metric": 1, 
+                "label_action": 2,
+                "load_metric": 1,
+                "metric": 1,
                 "nexthop": "nh_r2_l1"
             }
-        ], 
+        ],
         "path_route_ecmp": [
             {
-                "label_action": 2, 
-                "load_metric": 1, 
-                "metric": 1, 
+                "label_action": 2,
+                "load_metric": 1,
+                "metric": 1,
                 "nexthop": "nh_r2_l1"
-            }, 
+            },
             {
-                "label_action": 2, 
-                "load_metric": 1, 
-                "metric": 1, 
+                "label_action": 2,
+                "load_metric": 1,
+                "metric": 1,
                 "nexthop": "nh_r2_l2"
             }
-        ], 
+        ],
         "path_route_lookup": [
             {
-                "label_action": 3, 
+                "label_action": 3,
                 "nexthop": "nh_r2_l4"
             }
-        ], 
+        ],
         "path_route_non_connected": [
             {
-                "label_action": 2, 
+                "label_action": 2,
                 "nexthop": "nh_r2_l3"
             }
-        ], 
+        ],
         "path_route_primary_with_labels_remote_pq_lfa": [
             {
-                "label_action": 1, 
+                "label_action": 1,
                 "labels": [
-                    1000
-                ], 
-                "load_metric": 1, 
-                "metric": 1, 
-                "nexthop": "nh_r2_l1", 
+                    81000
+                ],
+                "load_metric": 1,
+                "metric": 1,
+                "nexthop": "nh_r2_l1",
                 "path_id": 1
-            }, 
+            },
             {
-                "label_action": 1, 
+                "label_action": 1,
                 "labels": [
-                    100, 
-                    200, 
-                    300
-                ], 
-                "load_metric": 1, 
-                "metric": 1, 
-                "nexthop": "nh_r2_l2", 
+                    40100,
+                    62000,
+                    50300
+                ],
+                "load_metric": 1,
+                "metric": 1,
+                "nexthop": "nh_r2_l2",
                 "p_bitmap": [
                     1
-                ], 
-                "path_id": 66, 
+                ],
+                "path_id": 66,
                 "v4_remote_addr": [
-                    "5.1.1.1", 
+                    "5.1.1.1",
                     "2.2.3.2"
-                ], 
+                ],
                 "v6_remote_addr": [
-                    "1::1", 
+                    "1::1",
                     "2::2"
                 ]
             }
-        ], 
+        ],
         "path_route_primary_with_lfa": [
             {
-                "label_action": 1, 
-                "load_metric": 1, 
-                "metric": 1, 
-                "nexthop": "nh_r2_l1", 
+                "label_action": 1,
+				"labels": [
+					71000
+				],
+                "load_metric": 1,
+                "metric": 1,
+                "nexthop": "nh_r2_l1",
                 "path_id": 1
-            }, 
+            },
             {
-                "label_action": 1, 
-                "load_metric": 1, 
-                "metric": 1, 
-                "nexthop": "nh_r2_l2", 
+                "label_action": 1,
+				"labels": [
+					91002
+				],
+                "load_metric": 1,
+                "metric": 1,
+                "nexthop": "nh_r2_l2",
                 "p_bitmap": [
                     1
-                ], 
+                ],
                 "path_id": 66
             }
-        ]
-    }, 
+        ],
+        "cos_path_1" : [
+            {
+                "label_action": 1,
+                "labels": [ 46000 ],
+                "nexthop": "cos_nh_1"
+            }
+        ],
+        "cos_path_2" : [
+            {
+                "label_action": 1,
+                "labels": [ 46000 ],
+                "nexthop": "cos_nh_2"
+            }
+        ],
+        "cos_path_3" : [
+            {
+                "label_action": 1,
+                "labels": [ 46000 ],
+                "nexthop": "cos_nh_3"
+            }
+        ],
+        "cos_path_4" : [
+            {
+                "label_action": 1,
+                "labels": [ 46000 ],
+                "nexthop": "cos_nh_4"
+            }
+        ],
+        "cos_path_5" : [
+            {
+                "label_action": 1,
+                "labels": [ 46000 ],
+                "load_metric": 2,
+                "nexthop": "cos_nh_1"
+            },
+            {
+                "label_action": 1,
+                "labels": [ 46000 ],
+                "load_metric": 2,
+                "nexthop": "cos_nh_2"
+            }
+        ],
+        "cos_path_6" : [
+            {
+                "label_action": 1,
+                "labels": [ 46000 ],
+                "load_metric": 4,
+                "nexthop": "cos_nh_1"
+            },
+            {
+                "label_action": 1,
+                "labels": [ 46000 ],
+                "load_metric": 4,
+                "nexthop": "cos_nh_3"
+            }
+        ],
+        "cos_path_7" : [
+            {
+                "label_action": 1,
+                "labels": [ 46000 ],
+                "load_metric": 3,
+                "nexthop": "cos_nh_1"
+            }
+        ],
+        "cos_path_8" : [
+            {
+                "label_action": 1,
+                "labels": [ 46000 ],
+                "load_metric": 3,
+                "nexthop": "cos_nh_3"
+            },
+            {
+                "label_action": 1,
+                "labels": [ 46000 ],
+                "load_metric": 1,
+                "nexthop": "cos_nh_4"
+            }
+        ],
+        "cos_path_9" : [
+            {
+                "label_action": 1,
+                "labels": [ 46000 ],
+                "nexthop": "cos_nh_1"
+            },
+            {
+                "label_action": 1,
+                "labels": [ 46000 ],
+                "nexthop": "cos_nh_2"
+            }
+        ],
+        "cos_path_10" : [
+            {
+                "label_action": 1,
+                "labels": [ 46000 ],
+                "nexthop": "cos_nh_2"
+            },
+            {
+                "label_action": 1,
+                "nexthop": "cos_nh_3",
+                "labels": [ 46000 ]
+            }
+        ],
+        "cos_path_11" : [
+            {
+                "label_action": 1,
+                "labels": [ 46000 ],
+                "nexthop": "cos_nh_3"
+            },
+            {
+                "label_action": 1,
+                "labels": [ 46000 ],
+                "nexthop": "cos_nh_4"
+            }
+        ],
+        "cos_path_12" : [
+            {
+                "label_action": 1,
+                "labels": [ 46000 ],
+                "nexthop": "cos_nh_4"
+            },
+            {
+                "label_action": 1,
+                "labels": [ 46000 ],
+                "nexthop": "cos_nh_5"
+            }
+        ],
+        "cos_path_13" : [
+            {
+                "label_action": 1,
+                "labels": [ 46000 ],
+                "nexthop": "cos_nh_2"
+            },
+            {
+                "label_action": 1,
+                "labels": [ 46000 ],
+                "nexthop": "cos_nh_4"
+            }
+        ],
+        "cos_path_14" : [
+            {
+                "label_action": 1,
+                "labels": [ 46000 ],
+                "nexthop": "cos_nh_1"
+            },
+            {
+                "label_action": 1,
+                "labels": [ 46000 ],
+                "nexthop": "cos_nh_4"
+            }
+        ],
+        "cos_path_15" : [
+            {
+                "label_action": 1,
+                "labels": [ 46000 ],
+                "nexthop": "cos_nh_1"
+            },
+            {
+                "label_action": 1,
+                "labels": [ 46000 ],
+                "nexthop": "cos_nh_3"
+            },
+            {
+                "label_action": 1,
+                "labels": [ 46000 ],
+                "nexthop": "cos_nh_5"
+            }
+        ],
+        "cos_path_16" : [
+            {
+                "label_action": 1,
+                "labels": [ 46000 ],
+                "nexthop": "cos_nh_6"
+            },
+            {
+                "label_action": 1,
+                "labels": [ 46000 ],
+                "nexthop": "cos_nh_7"
+            }
+        ],
+        "cos_path_17" : [
+            {
+                "label_action": 1,
+                "labels": [ 46000 ],
+                "nexthop": "cos_nh_5"
+            },
+            {
+                "label_action": 1,
+                "labels": [ 46000 ],
+                "nexthop": "cos_nh_8"
+            }
+        ],
+        "cos_path_18" : [
+            {
+                "label_action": 1,
+                "labels": [ 46000 ],
+                "nexthop": "cos_nh_8"
+            },
+            {
+                "label_action": 1,
+                "labels": [ 46000 ],
+                "nexthop": "cos_nh_9"
+            }
+        ],
+        "cos_path_19" : [
+            {
+                "label_action": 1,
+                "labels": [ 46000 ],
+                "nexthop": "cos_nh_7"
+            },
+            {
+                "label_action": 1,
+                "labels": [ 46000 ],
+                "nexthop": "cos_nh_9"
+            }
+        ],
+        "cos_path_20" : [
+            {
+                "label_action": 1,
+                "labels": [ 46000 ],
+                "load_metric": 32,
+                "nexthop": "cos_nh_1"
+            }
+        ],
+        "cos_path_21" : [
+            {
+                "label_action": 1,
+                "labels": [ 46000 ],
+                "load_metric": 32,
+                "nexthop": "cos_nh_2"
+            }
+        ],
+        "cos_path_22" : [
+            {
+                "label_action": 1,
+                "labels": [ 46000 ],
+                "load_metric": 32,
+                "nexthop": "cos_nh_3"
+            }
+        ],
+        "cos_path_23" : [
+            {
+                "label_action": 1,
+                "labels": [ 46000 ],
+                "load_metric": 32,
+                "nexthop": "cos_nh_4"
+            }
+        ],
+        "cos_path_24" : [
+            {
+                "label_action": 1,
+                "labels": [ 46000 ],
+                "load_metric": 32,
+                "nexthop": "cos_nh_5"
+            }
+        ],
+        "cos_path_25" : [
+            {
+                "label_action": 1,
+                "labels": [ 46000 ],
+                "load_metric": 32,
+                "nexthop": "cos_nh_3"
+            }
+        ],
+        "cos_path_26" : [
+            {
+                "label_action": 1,
+                "labels": [ 46000 ],
+                "load_metric": 32,
+                "nexthop": "cos_nh_3"
+            }
+        ],
+        "cos_path_27" : [
+            {
+                "label_action": 1,
+                "labels": [ 46000 ],
+                "load_metric": 1,
+                "nexthop": "cos_nh_1"
+            },
+            {
+                "label_action": 1,
+                "labels": [ 46000 ],
+                "load_metric": 2,
+                "nexthop": "cos_nh_2"
+            }
+        ],
+        "cos_path_28" : [
+            {
+                "label_action": 1,
+                "labels": [ 46000 ],
+                "load_metric": 3,
+                "nexthop": "cos_nh_2"
+            },
+            {
+                "label_action": 1,
+                "labels": [ 46000 ],
+                "load_metric": 4,
+                "nexthop": "cos_nh_3"
+            }
+        ],
+        "cos_path_29" : [
+            {
+                "label_action": 1,
+                "labels": [ 46000 ],
+                "load_metric": 5,
+                "nexthop": "cos_nh_5"
+            },
+            {
+                "label_action": 1,
+                "labels": [ 46000 ],
+                "load_metric": 6,
+                "nexthop": "cos_nh_6"
+            }
+        ],
+        "cos_path_30" : [
+            {
+                "label_action": 1,
+                "labels": [ 46000 ],
+                "load_metric": 3,
+                "nexthop": "cos_nh_3"
+            },
+            {
+                "label_action": 1,
+                "labels": [ 46000 ],
+                "load_metric": 4,
+                "nexthop": "cos_nh_4"
+            }
+        ],
+        "cos_path_31" : [
+            {
+                "label_action": 1,
+                "labels": [ 46000 ],
+                "load_metric": 4,
+                "nexthop": "cos_nh_4"
+            },
+            {
+                "label_action": 1,
+                "labels": [ 46000 ],
+                "load_metric": 5,
+                "nexthop": "cos_nh_5"
+            }
+        ],
+        "cos_path_32" : [
+            {
+                "label_action": 1,
+                "labels": [ 46000 ],
+                "load_metric": 7,
+                "nexthop": "cos_nh_7"
+            },
+            {
+                "label_action": 1,
+                "labels": [ 46000 ],
+                "load_metric": 8,
+                "nexthop": "cos_nh_8"
+            }
+        ], 
+        "cos_path_33" : [
+            {
+                "label_action": 1,
+                "labels" : [ 0 ],
+                "load_metric": 7,
+                "nexthop": "cos_nh_7"
+            }
+        ], 
+        "cos_path_34" : [
+            {
+                "label_action": 1,
+                "labels" : [ 3 ],
+                "load_metric": 8,
+                "nexthop": "cos_nh_8"
+            }
+        ], 
+        "cos_scale_path_1" : [
+            {
+                "label_action": 1,
+                "load_metric": 7,
+                "labels": [ 46000 ],
+                "nexthop": "cos_nh_1"
+            },
+            {
+                "label_action": 1,
+                "load_metric": 7,
+                "labels": [ 46001 ],
+                "nexthop": "cos_nh_2"
+            },
+            {
+                "label_action": 1,
+                "load_metric": 7,
+                "labels": [ 46002 ],
+                "nexthop": "cos_nh_3"
+            },
+            {
+                "label_action": 1,
+                "load_metric": 7,
+                "labels": [ 46003 ],
+                "nexthop": "cos_nh_4"
+            },
+            {
+                "label_action": 1,
+                "load_metric": 7,
+                "labels": [ 46004 ],
+                "nexthop": "cos_nh_5"
+            },
+            {
+                "label_action": 1,
+                "load_metric": 7,
+                "labels": [ 46005 ],
+                "nexthop": "cos_nh_6"
+            },
+            {
+                "label_action": 1,
+                "load_metric": 7,
+                "labels": [ 46006 ],
+                "nexthop": "cos_nh_7"
+            },
+            {
+                "label_action": 1,
+                "load_metric": 7,
+                "labels": [ 46007 ],
+                "nexthop": "cos_nh_8"
+            },
+            {
+                "label_action": 1,
+                "load_metric": 7,
+                "labels": [ 46008 ],
+                "nexthop": "cos_nh_9"
+            },
+            {
+                "label_action": 1,
+                "load_metric": 7,
+                "labels": [ 46009 ],
+                "nexthop": "cos_nh_10"
+            },
+            {
+                "label_action": 1,
+                "load_metric": 7,
+                "labels": [ 460010 ],
+                "nexthop": "cos_nh_11"
+            },
+            {
+                "label_action": 1,
+                "load_metric": 7,
+                "labels": [ 460011 ],
+                "nexthop": "cos_nh_12"
+            },
+            {
+                "label_action": 1,
+                "load_metric": 7,
+                "labels": [ 460012 ],
+                "nexthop": "cos_nh_13"
+            },
+            {
+                "label_action": 1,
+                "load_metric": 7,
+                "labels": [ 460013 ],
+                "nexthop": "cos_nh_14"
+            },
+            {
+                "label_action": 1,
+                "load_metric": 7,
+                "labels": [ 460014 ],
+                "nexthop": "cos_nh_15"
+            },
+            {
+                "label_action": 1,
+                "load_metric": 7,
+                "labels": [ 460015 ],
+                "nexthop": "cos_nh_16"
+            },
+            {
+                "label_action": 1,
+                "load_metric": 7,
+                "labels": [ 460016 ],
+                "nexthop": "cos_nh_17"
+            },
+            {
+                "label_action": 1,
+                "load_metric": 7,
+                "labels": [ 460017 ],
+                "nexthop": "cos_nh_18"
+            }
+        ],  
+        "cos_scale_path_2" : [
+            {
+                "label_action": 1,
+                "load_metric": 7,
+                "labels": [ 46000 ],
+                "nexthop": "cos_nh_18"
+            },
+            {
+                "label_action": 1,
+                "load_metric": 7,
+                "labels": [ 46001 ],
+                "nexthop": "cos_nh_17"
+            },
+            {
+                "label_action": 1,
+                "load_metric": 7,
+                "labels": [ 46002 ],
+                "nexthop": "cos_nh_16"
+            },
+            {
+                "label_action": 1,
+                "load_metric": 7,
+                "labels": [ 46003 ],
+                "nexthop": "cos_nh_15"
+            },
+            {
+                "label_action": 1,
+                "load_metric": 7,
+                "labels": [ 46004 ],
+                "nexthop": "cos_nh_14"
+            },
+            {
+                "label_action": 1,
+                "load_metric": 7,
+                "labels": [ 46005 ],
+                "nexthop": "cos_nh_13"
+            },
+            {
+                "label_action": 1,
+                "load_metric": 7,
+                "labels": [ 46006 ],
+                "nexthop": "cos_nh_12"
+            },
+            {
+                "label_action": 1,
+                "load_metric": 7,
+                "labels": [ 46007 ],
+                "nexthop": "cos_nh_11"
+            },
+            {
+                "label_action": 1,
+                "load_metric": 7,
+                "labels": [ 46008 ],
+                "nexthop": "cos_nh_10"
+            },
+            {
+                "label_action": 1,
+                "load_metric": 7,
+                "labels": [ 46009 ],
+                "nexthop": "cos_nh_9"
+            },
+            {
+                "label_action": 1,
+                "load_metric": 7,
+                "labels": [ 460010 ],
+                "nexthop": "cos_nh_8"
+            },
+            {
+                "label_action": 1,
+                "load_metric": 7,
+                "labels": [ 460011 ],
+                "nexthop": "cos_nh_7"
+            },
+            {
+                "label_action": 1,
+                "load_metric": 7,
+                "labels": [ 460012 ],
+                "nexthop": "cos_nh_6"
+            },
+            {
+                "label_action": 1,
+                "load_metric": 7,
+                "labels": [ 460013 ],
+                "nexthop": "cos_nh_5"
+            },
+            {
+                "label_action": 1,
+                "load_metric": 7,
+                "labels": [ 460014 ],
+                "nexthop": "cos_nh_4"
+            },
+            {
+                "label_action": 1,
+                "load_metric": 7,
+                "labels": [ 460015 ],
+                "nexthop": "cos_nh_3"
+            },
+            {
+                "label_action": 1,
+                "load_metric": 7,
+                "labels": [ 460016 ],
+                "nexthop": "cos_nh_2"
+            },
+            {
+                "label_action": 1,
+                "load_metric": 7,
+                "labels": [ 460017 ],
+                "nexthop": "cos_nh_1"
+            }
+        ] 
+    },
     "route_get": {
         "get_exact_route": {
-            "_description": "Get Exact Match", 
-            "correlator": 1, 
-            "count": 1, 
-            "get_next": 0, 
-            "prefix_len": 24, 
-            "v4_prefix": "10.10.11.0", 
-            "v6_prefix": "10:10:10:11::0", 
+            "_description": "Get Exact Match",
+            "correlator": 1,
+            "count": 1,
+            "get_next": 0,
+            "prefix_len": 24,
+            "v4_prefix": "10.10.11.0",
+            "v6_prefix": "10:10:10:11::0",
             "vrf_name": "default"
-        }, 
+        },
         "get_firstN_routes": {
-            "_description": "Get First N Routes", 
-            "correlator": 1, 
-            "count": 5, 
-            "get_next": 0, 
+            "_description": "Get First N Routes",
+            "correlator": 1,
+            "count": 5,
+            "get_next": 0,
             "vrf_name": "default"
-        }, 
+        },
         "get_nextN_include_route": {
-            "_description": "Get Next N Routes starting from specified", 
-            "correlator": 1, 
-            "count": 3, 
-            "get_next": 0, 
-            "prefix_len": 24, 
-            "v4_prefix": "10.10.11.0", 
-            "v6_prefix": "10:10:10:11::0", 
+            "_description": "Get Next N Routes starting from specified",
+            "correlator": 1,
+            "count": 3,
+            "get_next": 0,
+            "prefix_len": 24,
+            "v4_prefix": "10.10.11.0",
+            "v6_prefix": "10:10:10:11::0",
             "vrf_name": "default"
-        }, 
+        },
         "get_nextN_route": {
-            "_description": "Get Next N Routes following specified", 
-            "correlator": 1, 
-            "count": 3, 
-            "get_next": 1, 
-            "prefix_len": 24, 
-            "v4_prefix": "10.10.11.0", 
-            "v6_prefix": "10:10:10:11::0", 
+            "_description": "Get Next N Routes following specified",
+            "correlator": 1,
+            "count": 3,
+            "get_next": 1,
+            "prefix_len": 24,
+            "v4_prefix": "10.10.11.0",
+            "v6_prefix": "10:10:10:11::0",
             "vrf_name": "default"
         }
-    }, 
+    },
     "vrf_get": {
         "get_exact_vrf": {
-            "_description": "Get Exact Match", 
-            "count": 1, 
-            "get_next": 0, 
+            "_description": "Get Exact Match",
+            "count": 1,
+            "get_next": 0,
             "vrf_name": "default"
         },
         "get_firstN_vrf": {
-            "_description": "Get First N VRFs", 
+            "_description": "Get First N VRFs",
             "count": 5,
             "get_next": 0
-        }, 
+        },
         "get_nextN_include_vrf": {
-            "_description": "Get Next N VRFs starting from specified", 
+            "_description": "Get Next N VRFs starting from specified",
             "count": 3,
             "get_next": 0,
             "vrf_name": "default"
@@ -525,6 +1302,838 @@
             "count": 3,
             "get_next": 1,
             "vrf_name": "default"
+        }
+    },
+    "cos_mpls_lbl_block_1": {
+        "blocks": [
+            {
+                "block_size": 10000,
+                "start_label": 25000,
+                "client_name": "Service-layer",
+                "block_type": 2
+            }
+        ]
+    },
+    "cos_mpls_lbl_block_2": {
+        "blocks": [
+            {
+                "block_size": 10000,
+                "start_label": 25000,
+                "client_name": "Service-layer",
+                "block_type": 2
+            }
+        ]
+    },
+    "cos_mpls_lbl_block_wrong_client_name": {
+        "blocks": [
+            {
+                "block_size": 10000,
+                "start_label": 25000,
+                "client_name": "Not-Service-layer",
+                "block_type": 2
+            }
+        ]
+    },
+    "cos_mpls_lbl_block_duplicate_cbf": {
+        "blocks": [
+            {
+                "block_size": 5000,
+                "start_label": 35000,
+                "client_name": "Service-layer",
+                "block_type": 2
+            }
+        ]
+    },
+    "mpls_lbl_block_srgb_1": {
+        "blocks": [
+            {
+                "block_size": 65000,
+                "start_label": 35000,
+                "block_type": 1
+            }
+        ]
+    },
+    "mpls_lbl_block_srgb_2": {
+        "blocks": [
+            {
+                "block_size": 10000,
+                "start_label": 65000,
+                "block_type": 1
+            }
+        ]
+    },
+
+    "cos_ilm_del" : {
+        "cos_ilm_del_default_exp": {
+            "batch_count": 1,
+            "correlator": 1,
+            "ilms": [
+                {
+                    "default_elsp" : true,
+                    "exp" : 5,
+                    "in_label": 32220,
+                    "range": 1,
+                    "path": "cos_path_1"
+                }
+             ]
+        },
+        "cos_ilm_del_default": {
+            "batch_count": 1,
+            "correlator": 1,
+            "ilms": [
+                {
+                    "default_elsp" : true,
+                    "in_label": 32220,
+                    "range": 1,
+                    "path": "cos_path_1"
+                }
+             ]
+        },
+        "cos_ilm_del_0": {
+            "batch_count": 1,
+            "correlator": 1,
+            "ilms": [
+                {
+                    "exp" : 0,
+                    "in_label": 32220,
+                    "range": 1,
+                    "path": "cos_path_1"
+                }
+             ]
+        },
+        "cos_ilm_del_1": {
+            "batch_count": 1,
+            "correlator": 1,
+            "ilms": [
+                {
+                    "exp" : 1,
+                    "in_label": 32220,
+                    "range": 1,
+                    "path": "cos_path_1"
+                }
+             ]
+        },
+        "cos_ilm_del_2": {
+            "batch_count": 1,
+            "correlator": 1,
+            "ilms": [
+                {
+                    "exp" : 2,
+                    "in_label": 32220,
+                    "range": 1,
+                    "path": "cos_path_1"
+                }
+             ]
+        },
+        "cos_ilm_del_3": {
+            "batch_count": 1,
+            "correlator": 1,
+            "ilms": [
+                {
+                    "exp" : 3,
+                    "in_label": 32220,
+                    "range": 1,
+                    "path": "cos_path_1"
+                }
+             ]
+        },
+        "cos_ilm_del_4": {
+            "batch_count": 1,
+            "correlator": 1,
+            "ilms": [
+                {
+                    "exp" : 4,
+                    "in_label": 32220,
+                    "range": 1,
+                    "path": "cos_path_1"
+                }
+             ]
+        },
+        "cos_ilm_del_5": {
+            "batch_count": 1,
+            "correlator": 1,
+            "ilms": [
+                {  
+                    "exp" : 5,
+                    "in_label": 32220,
+                    "range": 1,
+                    "path": "cos_path_1"
+                }
+             ]
+        },
+        "cos_ilm_del_6": {
+            "batch_count": 1,
+            "correlator": 1,
+            "ilms": [
+                {
+                    "exp" : 6,
+                    "in_label": 32220,
+                    "range": 1,
+                    "path": "cos_path_1"
+                }
+             ]
+        },
+        "cos_ilm_del_7": {
+            "batch_count": 1,
+            "correlator": 1,
+            "ilms": [
+                {
+                    "exp" : 7,
+                    "in_label": 32220,
+                    "range": 1,
+                    "path": "cos_path_1"
+                }
+             ]
+        }
+       
+    },
+    "cos_ilm_tc1" : {
+        "cos_ilm_1": {
+            "batch_count": 1,
+            "correlator": 1,
+            "ilms": [
+                {
+                    "default_elsp" : true,
+                    "in_label": 32220,
+                    "path": "cos_path_1",
+                    "range": 1
+                }
+             ]
+        },
+        "cos_ilm_2": {
+            "batch_count": 1,
+            "correlator": 1,
+            "ilms": [
+                {
+                    "exp" : 4,
+                    "in_label": 32220,
+                    "path": "cos_path_2",
+                    "range": 1
+                }
+             ]
+        },
+        "cos_ilm_3": {
+            "batch_count": 1,
+            "correlator": 1,
+            "ilms": [
+                {
+                    "exp" : 4,
+                    "in_label": 32220,
+                    "path": "cos_path_3",
+                    "range": 1
+                }
+             ]
+        },
+        "cos_ilm_4": {
+            "batch_count": 1,
+            "correlator": 1,
+            "ilms": [
+                {
+                    "exp" : 5,
+                    "in_label": 32220,
+                    "path": "cos_path_3",
+                    "range": 1
+                }
+             ]
+        },
+        "cos_ilm_5": {
+            "batch_count": 1,
+            "correlator": 1,
+            "ilms": [
+                {
+                    "default_elsp" : true,
+                    "in_label": 32220,
+                    "path": "cos_path_4",
+                    "range": 1
+                }
+             ]
+        },
+        "cos_ilm_6": {
+            "batch_count": 1,
+            "correlator": 1,
+            "ilms": [
+                {
+                    "default_elsp" : true,
+                    "in_label": 22220,
+                    "path": "cos_path_4",
+                    "range": 1
+                }
+             ]
+        }
+    },
+    "cos_ilm_tc2" : {
+        "cos_ilm_1": {
+            "batch_count": 1,
+            "correlator": 1,
+            "ilms": [
+                {
+                    "exp" : 1,
+                    "in_label": 32220,
+                    "path": "cos_path_5",
+                    "range": 1
+                }
+             ]
+        },
+        "cos_ilm_2": {
+            "batch_count": 1,
+            "correlator": 1,
+            "ilms": [
+                {
+                    "exp" : 2,
+                    "in_label": 32220,
+                    "path": "cos_path_6",
+                    "range": 1
+                }
+             ]
+        },
+        "cos_ilm_3": {
+            "batch_count": 1,
+            "correlator": 1,
+            "ilms": [
+                {
+                    "default_elsp" : true,
+                    "in_label": 32220,
+                    "path": "cos_path_7",
+                    "range": 1
+                }
+             ]
+        },
+        "cos_ilm_4": {
+            "batch_count": 1,
+            "correlator": 1,
+            "ilms": [
+                {
+                    "exp" : 1,
+                    "in_label": 32220,
+                    "path": "cos_path_8",
+                    "range": 1
+                }
+             ]
+        }
+    },
+    "cos_ilm_tc3" : {
+        "cos_ilm_1": {
+            "batch_count": 1,
+            "correlator": 1,
+            "ilms": [
+                {
+                    "exp" : 0,
+                    "in_label": 32220,
+                    "path": "cos_path_9",
+                    "range": 1
+                }
+             ]
+        },
+        "cos_ilm_2": {
+            "batch_count": 1,
+            "correlator": 1,
+            "ilms": [
+                {
+                    "exp" : 1,
+                    "in_label": 32220,
+                    "path": "cos_path_10",
+                    "range": 1
+                }
+             ]
+        },
+        "cos_ilm_3": {
+            "batch_count": 1,
+            "correlator": 1,
+            "ilms": [
+                {
+                    "exp" : 2,
+                    "in_label": 32220,
+                    "path": "cos_path_11",
+                    "range": 1
+                }
+             ]
+        },
+        "cos_ilm_4": {
+            "batch_count": 1,
+            "correlator": 1,
+            "ilms": [
+                {
+                    "exp" : 3,
+                    "in_label": 32220,
+                    "path": "cos_path_12",
+                    "range": 1
+                }
+             ]
+        },
+        "cos_ilm_5": {
+            "batch_count": 1,
+            "correlator": 1,
+            "ilms": [
+                {
+                    "exp" : 3,
+                    "in_label": 32220,
+                    "path": "cos_path_13",
+                    "range": 1
+                }
+             ]
+        },
+        "cos_ilm_6": {
+            "batch_count": 1,
+            "correlator": 1,
+            "ilms": [
+                {
+                    "exp" : 4,
+                    "in_label": 32220,
+                    "path": "cos_path_14",
+                    "range": 1
+                }
+             ]
+        },
+        "cos_ilm_7": {
+            "batch_count": 1,
+            "correlator": 1,
+            "ilms": [
+                {
+                    "exp" : 5,
+                    "in_label": 32220,
+                    "path": "cos_path_15",
+                    "range": 1
+                }
+             ]
+        },
+        "cos_ilm_8": {
+            "batch_count": 1,
+            "correlator": 1,
+            "ilms": [
+                {
+                    "exp" : 5,
+                    "in_label": 32220,
+                    "path": "cos_path_13",
+                    "range": 1
+                }
+             ]
+        },
+        "cos_ilm_9": {
+            "batch_count": 1,
+            "correlator": 1,
+            "ilms": [
+                {
+                    "exp" : 6,
+                    "in_label": 32220,
+                    "path": "cos_path_16",
+                    "range": 1
+                }
+             ]
+        },
+        "cos_ilm_10": {
+            "batch_count": 1,
+            "correlator": 1,
+            "ilms": [
+                {
+                    "exp" : 7,
+                    "in_label": 32220,
+                    "path": "cos_path_17",
+                    "range": 1
+                }
+             ]
+        },
+        "cos_ilm_11": {
+            "batch_count": 1,
+            "correlator": 1,
+            "ilms": [
+                {
+                    "default_elsp" : true,
+                    "in_label": 32220,
+                    "path": "cos_path_18",
+                    "range": 1
+                }
+             ]
+        },
+        "cos_ilm_12": {
+            "batch_count": 1,
+            "correlator": 1,
+            "ilms": [
+                {
+                    "default_elsp" : true,
+                    "in_label": 32220,
+                    "path": "cos_path_19",
+                    "range": 1
+                }
+             ]
+        }
+    },
+    "cos_ilm_tc4" : {
+        "cos_ilm_1": {
+            "batch_count": 1,
+            "correlator": 1,
+            "ilms": [
+                {
+                    "exp" : 0,
+                    "in_label": 32220,
+                    "path": "cos_path_9",
+                    "range": 1
+                }
+             ]
+        },
+        "cos_ilm_2": {
+            "batch_count": 1,
+            "correlator": 1,
+            "ilms": [
+                {
+                    "exp" : 1,
+                    "in_label": 32220,
+                    "path": "cos_path_10",
+                    "range": 1
+                }
+             ]
+        },
+        "cos_ilm_3": {
+            "batch_count": 1,
+            "correlator": 1,
+            "ilms": [
+                {
+                    "exp" : 2,
+                    "in_label": 32220,
+                    "path": "cos_path_11",
+                    "range": 1
+                }
+             ]
+        },
+        "cos_ilm_4": {
+            "batch_count": 1,
+            "correlator": 1,
+            "ilms": [
+                {
+                    "exp" : 3,
+                    "in_label": 32220,
+                    "path": "cos_path_12",
+                    "range": 1
+                }
+             ]
+        },
+        "cos_ilm_5": {
+            "batch_count": 1,
+            "correlator": 1,
+            "ilms": [
+                {
+                    "exp" : 3,
+                    "in_label": 32220,
+                    "path": "cos_path_13",
+                    "range": 1
+                }
+             ]
+        },
+        "cos_ilm_6": {
+            "batch_count": 1,
+            "correlator": 1,
+            "ilms": [
+                {
+                    "exp" : 4,
+                    "in_label": 32220,
+                    "path": "cos_path_14",
+                    "range": 1
+                }
+             ]
+        },
+        "cos_ilm_7": {
+            "batch_count": 1,
+            "correlator": 1,
+            "ilms": [
+                {
+                    "exp" : 5,
+                    "in_label": 32220,
+                    "path": "cos_path_15",
+                    "range": 1
+                }
+             ]
+        },
+        "cos_ilm_8": {
+            "batch_count": 1,
+            "correlator": 1,
+            "ilms": [
+                {
+                    "exp" : 5,
+                    "in_label": 32220,
+                    "path": "cos_path_13",
+                    "range": 1
+                }
+             ]
+        },
+        "cos_ilm_9": {
+            "batch_count": 1,
+            "correlator": 1,
+            "ilms": [
+                {
+                    "exp" : 6,
+                    "in_label": 32220,
+                    "path": "cos_path_16",
+                    "range": 1
+                }
+             ]
+        },
+        "cos_ilm_10": {
+            "batch_count": 1,
+            "correlator": 1,
+            "ilms": [
+                {
+                    "exp" : 7,
+                    "in_label": 32220,
+                    "path": "cos_path_17",
+                    "range": 1
+                }
+             ]
+        },
+        "cos_ilm_11": {
+            "batch_count": 1,
+            "correlator": 1,
+            "ilms": [
+                {
+                    "default_elsp" : true,
+                    "in_label": 32220,
+                    "path": "cos_path_18",
+                    "range": 1
+                }
+             ]
+        },
+        "cos_ilm_12": {
+            "batch_count": 1,
+            "correlator": 1,
+            "ilms": [
+                {
+                    "default_elsp" : true,
+                    "in_label": 32220,
+                    "path": "cos_path_19",
+                    "range": 1
+                }
+             ]
+        }
+    },
+    "cos_ilm_tc5" : {
+        "cos_ilm_default": {
+            "batch_count": 1,
+            "correlator": 1,
+            "ilms": [
+                {
+                    "default_elsp" : true,
+                    "in_label": 32220,
+                    "path": "cos_path_20",
+                    "range": 1
+                }
+             ]
+        },
+        "cos_ilm_1": {
+            "batch_count": 1,
+            "correlator": 1,
+            "ilms": [
+                {
+                    "exp" : 0,
+                    "in_label": 32220,
+                    "path": "cos_path_20",
+                    "range": 1
+                }
+             ]
+        },
+        "cos_ilm_2": {
+            "batch_count": 1,
+            "correlator": 1,
+            "ilms": [
+                {
+                    "exp" : 1,
+                    "in_label": 32220,
+                    "path": "cos_path_21",
+                    "range": 1
+                }
+             ]
+        },
+        "cos_ilm_3": {
+            "batch_count": 1,
+            "correlator": 1,
+            "ilms": [
+                {
+                    "exp" : 2,
+                    "in_label": 32220,
+                    "path": "cos_path_22",
+                    "range": 1
+                }
+             ]
+        },
+        "cos_ilm_4": {
+            "batch_count": 1,
+            "correlator": 1,
+            "ilms": [
+                {
+                    "exp" : 3,
+                    "in_label": 32220,
+                    "path": "cos_path_23",
+                    "range": 1
+                }
+             ]
+        },
+        "cos_ilm_5": {
+            "batch_count": 1,
+            "correlator": 1,
+            "ilms": [
+                {
+                    "exp" : 4,
+                    "in_label": 32220,
+                    "path": "cos_path_24",
+                    "range": 1
+                }
+             ]
+        },
+        "cos_ilm_6": {
+            "batch_count": 1,
+            "correlator": 1,
+            "ilms": [
+                {
+                    "exp" : 2,
+                    "in_label": 32220,
+                    "path": "cos_path_25",
+                    "range": 1
+                }
+             ]
+        },
+        "cos_ilm_7": {
+            "batch_count": 1,
+            "correlator": 1,
+            "ilms": [
+                {
+                    "exp" : 5,
+                    "in_label": 32220,
+                    "path": "cos_path_26",
+                    "range": 1
+                }
+             ]
+        },
+        "cos_ilm_8": {
+            "batch_count": 1,
+            "correlator": 1,
+            "ilms": [
+                {
+                    "exp" : 6,
+                    "in_label": 32220,
+                    "path": "cos_path_22",
+                    "range": 1
+                }
+             ]
+        },
+        "cos_ilm_9": {
+            "batch_count": 1,
+            "correlator": 1,
+            "ilms": [
+                {
+                    "exp" : 7,
+                    "in_label": 32220,
+                    "path": "cos_path_21",
+                    "range": 1
+                }
+             ]
+        }
+    },
+    "cos_ilm_tc6" : {
+        "cos_ilm_1": {
+            "batch_count": 1,
+            "correlator": 1,
+            "ilms": [
+                {
+                    "exp" : 1,
+                    "in_label": 32220,
+                    "path": "cos_path_27",
+                    "range": 1
+                }
+             ]
+        },
+        "cos_ilm_2": {
+            "batch_count": 1,
+            "correlator": 1,
+            "ilms": [
+                {
+                    "exp" : 1,
+                    "in_label": 32220,
+                    "path": "cos_path_28",
+                    "range": 1
+                }
+             ]
+        },
+        "cos_ilm_3": {
+            "batch_count": 1,
+            "correlator": 1,
+            "ilms": [
+                {
+                    "exp" : 1,
+                    "in_label": 32220,
+                    "path": "cos_path_29",
+                    "range": 1
+                }
+             ]
+        },
+        "cos_ilm_4": {
+            "batch_count": 1,
+            "correlator": 1,
+            "ilms": [
+                {
+                    "default_elsp" : true,
+                    "in_label": 32220,
+                    "path": "cos_path_30",
+                    "range": 1
+                }
+             ]
+        },
+        "cos_ilm_5": {
+            "batch_count": 1,
+            "correlator": 1,
+            "ilms": [
+                {
+                    "default_elsp" : true,
+                    "in_label": 32220,
+                    "path": "cos_path_31",
+                    "range": 1
+                }
+             ]
+        },
+        "cos_ilm_6": {
+            "batch_count": 1,
+            "correlator": 1,
+            "ilms": [
+                {
+                    "default_elsp" : true,
+                    "in_label": 32220,
+                    "path": "cos_path_32",
+                    "range": 1
+                }
+             ]
+        }
+    },
+    "cos_ilm_tc9" : {
+        "cos_ilm_1": {
+            "batch_count": 1,
+            "correlator": 1,
+            "ilms": [
+                {
+                    "in_label": 32220,
+                    "path": "cos_path_1",
+                    "range": 1
+                }
+             ]
+        },
+        "cos_ilm_2": {
+            "batch_count": 1,
+            "correlator": 1,
+            "ilms": [
+                {
+                    "exp" : 4,
+                    "in_label": 32220,
+                    "path": "cos_path_33",
+                    "range": 1
+                }
+             ]
+        },
+        "cos_ilm_3": {
+            "batch_count": 1,
+            "correlator": 1,
+            "ilms": [
+                {
+                    "exp" : 5,
+                    "in_label": 32220,
+                    "path": "cos_path_34",
+                    "range": 1
+                }
+             ]
         }
     },
     "bdRegOper" : [

@@ -2,7 +2,7 @@
  *------------------------------------------------------------------
  * This file is AUTO-GENERATED. DO NOT EDIT.
  *
- * Copyright (c) 2016 by cisco Systems, Inc.
+ * Copyright (c) 2016-2019 by cisco Systems, Inc.
  * All rights reserved.
  *------------------------------------------------------------------
  */
@@ -217,7 +217,7 @@
     SL_PATH_REMOTE_ADDR_INVALID = 0x5014,\
     /* Path has an invalid label. 0x5015 */\
     SL_PATH_INVALID_LABEL = 0x5015,\
-    /* Size of router max address is invalid. 0x5016 */\
+    /* Size of router mac address is invalid. 0x5016 */\
     SL_PATH_ROUTER_MAC_ADDR_INVALID_SZ = 0x5016,\
     /* !!! Error codes for BFD opertations. */\
     /* Offset for BFD operation errors. 0x6000 */\
@@ -323,6 +323,14 @@
     SL_ILM_DB_NOMEM = 0x900c,\
     /* EXP value is outside of the valid range of <0-7>. 0x900d */\
     SL_ILM_INVALID_ELSP_EXP = 0x900d,\
+    /* EXP value or Default already set. 0x900e */\
+    SL_ILM_ELSP_EXP_OR_DFLT_ALREADY_SET = 0x900e,\
+    /* MPLS ILM add operation requested but no paths were provided. 0x900f */\
+    SL_ILM_ADD_NO_PATHS = 0x900f,\
+    /* MPLS ILM update operation requested but no paths were provided. 0x9010 */\
+    SL_ILM_UPDATE_NO_PATHS = 0x9010,\
+    /* LSP and ELSP on the same label not supported */\
+    SL_ILM_UNSUPPORTED_ELSP = 0x9011,\
     /* !!!  MPLS NHLFE Error codes */\
     /* Offset for MPLS NHLFE errors. 0xa000 */\
     SL_NHLFE_ERR_OFFSET = 0xa000,\
@@ -377,6 +385,10 @@
     SL_NHLFE_OPER_FAILED = 0xa018,\
     /* MPLS NHLFE label action missing. 0xa019 */\
     SL_NHLFE_LABEL_ACTION_MISSING = 0xa019,\
+    /* Setting EXP value failed. 0xa01a */\
+    SL_NHLFE_EXP_SET_FAILED = 0xa01a,\
+    /* ELSP protection is unsupported. 0xa01b */\
+    SL_NHLFE_ELSP_PROTECTION_UNSUPPORTED = 0xa01b,\
     /* !!!  MPLS Label block Error codes */\
     /* Offset for label block errors. 0xb000 */\
     SL_LABEL_BLK_ERR_OFFSET = 0xb000,\
@@ -398,6 +410,10 @@
     SL_LABEL_BLK_EEXIST = 0xb008,\
     /* MPLS label database is out of memory. 0xb009 */\
     SL_LABEL_BLK_DB_NOMEM = 0xb009,\
+    /* MPLS label block type invalid. 0xb00a */\
+    SL_LABEL_BLK_TYPE_INVALID = 0xb00a,\
+    /* MPLS label block client name exceeds max length. 0xb00b */\
+    SL_LABEL_BLK_CLIENT_NAME_TOOLONG = 0xb00b,\
     /* !!!  MPLS Reg error codes */\
     /* Offset for MPLS registration errors. 0xc000 */\
     SL_MPLS_REG_ERR_OFFSET = 0xc000,\
@@ -818,7 +834,7 @@
         " Path has an invalid label.  "\
         },\
     {SL_PATH_ROUTER_MAC_ADDR_INVALID_SZ ,\
-        " Size of router max address is invalid.  "\
+        " Size of router mac address is invalid.  "\
         },\
     {SL_RPC_BFD_START_OFFSET ,\
         " Offset for BFD operation errors.  "\
@@ -966,6 +982,18 @@
     {SL_ILM_INVALID_ELSP_EXP ,\
         " EXP value is outside of the valid range of <0-7>.  "\
         },\
+    {SL_ILM_ELSP_EXP_OR_DFLT_ALREADY_SET ,\
+        " EXP value or Default already set.  "\
+        },\
+    {SL_ILM_ADD_NO_PATHS ,\
+        " MPLS ILM add operation requested but no paths were provided.  "\
+        },\
+    {SL_ILM_UPDATE_NO_PATHS ,\
+        " MPLS ILM update operation requested but no paths were provided.  "\
+        },\
+    {SL_ILM_UNSUPPORTED_ELSP ,\
+        " LSP and ELSP on the same label not supported "\
+        },\
     {SL_NHLFE_ERR_OFFSET ,\
         " Offset for MPLS NHLFE errors.  "\
         },\
@@ -1045,6 +1073,12 @@
     {SL_NHLFE_LABEL_ACTION_MISSING ,\
         " MPLS NHLFE label action missing.  "\
         },\
+    {SL_NHLFE_EXP_SET_FAILED ,\
+        " Setting EXP value failed.  "\
+        },\
+    {SL_NHLFE_ELSP_PROTECTION_UNSUPPORTED ,\
+        " ELSP protection is unsupported.  "\
+        },\
     {SL_LABEL_BLK_ERR_OFFSET ,\
         " Offset for label block errors.  "\
         },\
@@ -1074,6 +1108,12 @@
         },\
     {SL_LABEL_BLK_DB_NOMEM ,\
         " MPLS label database is out of memory.  "\
+        },\
+    {SL_LABEL_BLK_TYPE_INVALID ,\
+        " MPLS label block type invalid.  "\
+        },\
+    {SL_LABEL_BLK_CLIENT_NAME_TOOLONG ,\
+        " MPLS label block client name exceeds max length.  "\
         },\
     {SL_MPLS_REG_ERR_OFFSET ,\
         " Offset for MPLS registration errors.  "\

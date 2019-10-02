@@ -17,6 +17,12 @@ var _ = proto.Marshal
 var _ = fmt.Errorf
 var _ = math.Inf
 
+// This is a compile-time assertion to ensure that this generated file
+// is compatible with the proto package it is being compiled against.
+// A compilation error at this line likely means your copy of the
+// proto package needs to be updated.
+const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
+
 // MPLS label actions.
 type SlLabelAction int32
 
@@ -39,6 +45,10 @@ const (
 	// Pop and lookup the IPv6 next header in the specified Vrf.
 	// Used for per vrf labels at egress PE.
 	SlLabelAction_SL_LABEL_ACTION_POP_AND_LOOKUP_IPV6 SlLabelAction = 4
+	// Pop and lookup. 0x5
+	// Pop and lookup the next header in the packet (MPLS, IPv4, IPv6) in the specified Vrf.
+	// Used for per vrf labels at egress PE.
+	SlLabelAction_SL_LABEL_ACTION_POP_AND_LOOKUP SlLabelAction = 5
 )
 
 var SlLabelAction_name = map[int32]string{
@@ -47,6 +57,7 @@ var SlLabelAction_name = map[int32]string{
 	2: "SL_LABEL_ACTION_POP_AND_FORWARD",
 	3: "SL_LABEL_ACTION_POP_AND_LOOKUP_IPV4",
 	4: "SL_LABEL_ACTION_POP_AND_LOOKUP_IPV6",
+	5: "SL_LABEL_ACTION_POP_AND_LOOKUP",
 }
 var SlLabelAction_value = map[string]int32{
 	"SL_LABEL_ACTION_RESERVED":            0,
@@ -54,27 +65,88 @@ var SlLabelAction_value = map[string]int32{
 	"SL_LABEL_ACTION_POP_AND_FORWARD":     2,
 	"SL_LABEL_ACTION_POP_AND_LOOKUP_IPV4": 3,
 	"SL_LABEL_ACTION_POP_AND_LOOKUP_IPV6": 4,
+	"SL_LABEL_ACTION_POP_AND_LOOKUP":      5,
 }
 
 func (x SlLabelAction) String() string {
 	return proto.EnumName(SlLabelAction_name, int32(x))
 }
-func (SlLabelAction) EnumDescriptor() ([]byte, []int) { return fileDescriptor7, []int{0} }
+func (SlLabelAction) EnumDescriptor() ([]byte, []int) {
+	return fileDescriptor_sl_mpls_5d8dbbc3536cf4f5, []int{0}
+}
+
+// Label Block Types
+type SLMplsLabelBlockType int32
+
+const (
+	// Reserved. 0x0
+	SLMplsLabelBlockType_SL_MPLS_LABEL_BLOCK_TYPE_RESERVED SLMplsLabelBlockType = 0
+	// Segment Routing Global Block (SRGB) Block Type. 0x1
+	SLMplsLabelBlockType_SL_MPLS_LABEL_BLOCK_TYPE_SRGB SLMplsLabelBlockType = 1
+	// Class Based Forwarding (CBF) Block Type. 0x2
+	SLMplsLabelBlockType_SL_MPLS_LABEL_BLOCK_TYPE_CBF SLMplsLabelBlockType = 2
+)
+
+var SLMplsLabelBlockType_name = map[int32]string{
+	0: "SL_MPLS_LABEL_BLOCK_TYPE_RESERVED",
+	1: "SL_MPLS_LABEL_BLOCK_TYPE_SRGB",
+	2: "SL_MPLS_LABEL_BLOCK_TYPE_CBF",
+}
+var SLMplsLabelBlockType_value = map[string]int32{
+	"SL_MPLS_LABEL_BLOCK_TYPE_RESERVED": 0,
+	"SL_MPLS_LABEL_BLOCK_TYPE_SRGB":     1,
+	"SL_MPLS_LABEL_BLOCK_TYPE_CBF":      2,
+}
+
+func (x SLMplsLabelBlockType) String() string {
+	return proto.EnumName(SLMplsLabelBlockType_name, int32(x))
+}
+func (SLMplsLabelBlockType) EnumDescriptor() ([]byte, []int) {
+	return fileDescriptor_sl_mpls_5d8dbbc3536cf4f5, []int{1}
+}
 
 // MPLS Label block key.
 // This message is used to relay the label block key attributes.
 type SLMplsLabelBlockKey struct {
 	// Starting label value of the block.
-	StartLabel uint32 `protobuf:"varint,1,opt,name=StartLabel" json:"StartLabel,omitempty"`
+	StartLabel uint32 `protobuf:"varint,1,opt,name=StartLabel,proto3" json:"StartLabel,omitempty"`
 	// Label block size.
 	// Block size should be <= SLServerResponse.MaxLabelsPerBlock
-	LabelBlockSize uint32 `protobuf:"varint,2,opt,name=LabelBlockSize" json:"LabelBlockSize,omitempty"`
+	LabelBlockSize uint32 `protobuf:"varint,2,opt,name=LabelBlockSize,proto3" json:"LabelBlockSize,omitempty"`
+	// Label block type. See definition of SlMplsLabelBlockType for valid values.
+	// If none specified, defaults to SL_MPLS_LABEL_BLOCK_TYPE_SRGB.
+	BlockType SLMplsLabelBlockType `protobuf:"varint,3,opt,name=BlockType,proto3,enum=service_layer.SLMplsLabelBlockType" json:"BlockType,omitempty"`
+	// Label block client name as configured e.g. through CLI.
+	// Client name is ignored if BlockType is not SL_MPLS_LABEL_BLOCK_TYPE_CBF.
+	ClientName           string   `protobuf:"bytes,4,opt,name=ClientName,proto3" json:"ClientName,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *SLMplsLabelBlockKey) Reset()                    { *m = SLMplsLabelBlockKey{} }
-func (m *SLMplsLabelBlockKey) String() string            { return proto.CompactTextString(m) }
-func (*SLMplsLabelBlockKey) ProtoMessage()               {}
-func (*SLMplsLabelBlockKey) Descriptor() ([]byte, []int) { return fileDescriptor7, []int{0} }
+func (m *SLMplsLabelBlockKey) Reset()         { *m = SLMplsLabelBlockKey{} }
+func (m *SLMplsLabelBlockKey) String() string { return proto.CompactTextString(m) }
+func (*SLMplsLabelBlockKey) ProtoMessage()    {}
+func (*SLMplsLabelBlockKey) Descriptor() ([]byte, []int) {
+	return fileDescriptor_sl_mpls_5d8dbbc3536cf4f5, []int{0}
+}
+func (m *SLMplsLabelBlockKey) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_SLMplsLabelBlockKey.Unmarshal(m, b)
+}
+func (m *SLMplsLabelBlockKey) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_SLMplsLabelBlockKey.Marshal(b, m, deterministic)
+}
+func (dst *SLMplsLabelBlockKey) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_SLMplsLabelBlockKey.Merge(dst, src)
+}
+func (m *SLMplsLabelBlockKey) XXX_Size() int {
+	return xxx_messageInfo_SLMplsLabelBlockKey.Size(m)
+}
+func (m *SLMplsLabelBlockKey) XXX_DiscardUnknown() {
+	xxx_messageInfo_SLMplsLabelBlockKey.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_SLMplsLabelBlockKey proto.InternalMessageInfo
 
 func (m *SLMplsLabelBlockKey) GetStartLabel() uint32 {
 	if m != nil {
@@ -90,21 +162,57 @@ func (m *SLMplsLabelBlockKey) GetLabelBlockSize() uint32 {
 	return 0
 }
 
+func (m *SLMplsLabelBlockKey) GetBlockType() SLMplsLabelBlockType {
+	if m != nil {
+		return m.BlockType
+	}
+	return SLMplsLabelBlockType_SL_MPLS_LABEL_BLOCK_TYPE_RESERVED
+}
+
+func (m *SLMplsLabelBlockKey) GetClientName() string {
+	if m != nil {
+		return m.ClientName
+	}
+	return ""
+}
+
 // MPLS Label block batch reservation message.
 // This message is used to send a batch of label block requests.
 // The Oper attributes indicates add or delete operations.
 type SLMplsLabelBlockMsg struct {
 	// MPLS Label Block Operations.
-	Oper SLObjectOp `protobuf:"varint,1,opt,name=Oper,enum=service_layer.SLObjectOp" json:"Oper,omitempty"`
+	Oper SLObjectOp `protobuf:"varint,1,opt,name=Oper,proto3,enum=service_layer.SLObjectOp" json:"Oper,omitempty"`
 	// List of label blocks requests.
 	// List size should be <= SLServerResponse.MaxLabelBlocksPerRequest
-	MplsBlocks []*SLMplsLabelBlockKey `protobuf:"bytes,2,rep,name=MplsBlocks" json:"MplsBlocks,omitempty"`
+	MplsBlocks           []*SLMplsLabelBlockKey `protobuf:"bytes,2,rep,name=MplsBlocks,proto3" json:"MplsBlocks,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}               `json:"-"`
+	XXX_unrecognized     []byte                 `json:"-"`
+	XXX_sizecache        int32                  `json:"-"`
 }
 
-func (m *SLMplsLabelBlockMsg) Reset()                    { *m = SLMplsLabelBlockMsg{} }
-func (m *SLMplsLabelBlockMsg) String() string            { return proto.CompactTextString(m) }
-func (*SLMplsLabelBlockMsg) ProtoMessage()               {}
-func (*SLMplsLabelBlockMsg) Descriptor() ([]byte, []int) { return fileDescriptor7, []int{1} }
+func (m *SLMplsLabelBlockMsg) Reset()         { *m = SLMplsLabelBlockMsg{} }
+func (m *SLMplsLabelBlockMsg) String() string { return proto.CompactTextString(m) }
+func (*SLMplsLabelBlockMsg) ProtoMessage()    {}
+func (*SLMplsLabelBlockMsg) Descriptor() ([]byte, []int) {
+	return fileDescriptor_sl_mpls_5d8dbbc3536cf4f5, []int{1}
+}
+func (m *SLMplsLabelBlockMsg) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_SLMplsLabelBlockMsg.Unmarshal(m, b)
+}
+func (m *SLMplsLabelBlockMsg) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_SLMplsLabelBlockMsg.Marshal(b, m, deterministic)
+}
+func (dst *SLMplsLabelBlockMsg) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_SLMplsLabelBlockMsg.Merge(dst, src)
+}
+func (m *SLMplsLabelBlockMsg) XXX_Size() int {
+	return xxx_messageInfo_SLMplsLabelBlockMsg.Size(m)
+}
+func (m *SLMplsLabelBlockMsg) XXX_DiscardUnknown() {
+	xxx_messageInfo_SLMplsLabelBlockMsg.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_SLMplsLabelBlockMsg proto.InternalMessageInfo
 
 func (m *SLMplsLabelBlockMsg) GetOper() SLObjectOp {
 	if m != nil {
@@ -125,15 +233,37 @@ func (m *SLMplsLabelBlockMsg) GetMplsBlocks() []*SLMplsLabelBlockKey {
 // the label block operation.
 type SLMplsLabelBlockMsgRes struct {
 	// Corresponding error code.
-	ErrStatus *SLErrorStatus `protobuf:"bytes,1,opt,name=ErrStatus" json:"ErrStatus,omitempty"`
+	ErrStatus *SLErrorStatus `protobuf:"bytes,1,opt,name=ErrStatus,proto3" json:"ErrStatus,omitempty"`
 	// Key for which the error code is reported.
-	Key *SLMplsLabelBlockKey `protobuf:"bytes,2,opt,name=Key" json:"Key,omitempty"`
+	Key                  *SLMplsLabelBlockKey `protobuf:"bytes,2,opt,name=Key,proto3" json:"Key,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}             `json:"-"`
+	XXX_unrecognized     []byte               `json:"-"`
+	XXX_sizecache        int32                `json:"-"`
 }
 
-func (m *SLMplsLabelBlockMsgRes) Reset()                    { *m = SLMplsLabelBlockMsgRes{} }
-func (m *SLMplsLabelBlockMsgRes) String() string            { return proto.CompactTextString(m) }
-func (*SLMplsLabelBlockMsgRes) ProtoMessage()               {}
-func (*SLMplsLabelBlockMsgRes) Descriptor() ([]byte, []int) { return fileDescriptor7, []int{2} }
+func (m *SLMplsLabelBlockMsgRes) Reset()         { *m = SLMplsLabelBlockMsgRes{} }
+func (m *SLMplsLabelBlockMsgRes) String() string { return proto.CompactTextString(m) }
+func (*SLMplsLabelBlockMsgRes) ProtoMessage()    {}
+func (*SLMplsLabelBlockMsgRes) Descriptor() ([]byte, []int) {
+	return fileDescriptor_sl_mpls_5d8dbbc3536cf4f5, []int{2}
+}
+func (m *SLMplsLabelBlockMsgRes) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_SLMplsLabelBlockMsgRes.Unmarshal(m, b)
+}
+func (m *SLMplsLabelBlockMsgRes) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_SLMplsLabelBlockMsgRes.Marshal(b, m, deterministic)
+}
+func (dst *SLMplsLabelBlockMsgRes) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_SLMplsLabelBlockMsgRes.Merge(dst, src)
+}
+func (m *SLMplsLabelBlockMsgRes) XXX_Size() int {
+	return xxx_messageInfo_SLMplsLabelBlockMsgRes.Size(m)
+}
+func (m *SLMplsLabelBlockMsgRes) XXX_DiscardUnknown() {
+	xxx_messageInfo_SLMplsLabelBlockMsgRes.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_SLMplsLabelBlockMsgRes proto.InternalMessageInfo
 
 func (m *SLMplsLabelBlockMsgRes) GetErrStatus() *SLErrorStatus {
 	if m != nil {
@@ -163,16 +293,38 @@ type SLMplsLabelBlockMsgRsp struct {
 	//         each individual entry in the bulk.
 	// 3. SL_RPC_XXX: signifies that the entire bulk operation failed.
 	//         In this case, the Results list is empty.
-	StatusSummary *SLErrorStatus `protobuf:"bytes,1,opt,name=StatusSummary" json:"StatusSummary,omitempty"`
+	StatusSummary *SLErrorStatus `protobuf:"bytes,1,opt,name=StatusSummary,proto3" json:"StatusSummary,omitempty"`
 	// In case of errors, this field indicates which entry in the bulk was
 	// erroneous.
-	Results []*SLMplsLabelBlockMsgRes `protobuf:"bytes,2,rep,name=Results" json:"Results,omitempty"`
+	Results              []*SLMplsLabelBlockMsgRes `protobuf:"bytes,2,rep,name=Results,proto3" json:"Results,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}                  `json:"-"`
+	XXX_unrecognized     []byte                    `json:"-"`
+	XXX_sizecache        int32                     `json:"-"`
 }
 
-func (m *SLMplsLabelBlockMsgRsp) Reset()                    { *m = SLMplsLabelBlockMsgRsp{} }
-func (m *SLMplsLabelBlockMsgRsp) String() string            { return proto.CompactTextString(m) }
-func (*SLMplsLabelBlockMsgRsp) ProtoMessage()               {}
-func (*SLMplsLabelBlockMsgRsp) Descriptor() ([]byte, []int) { return fileDescriptor7, []int{3} }
+func (m *SLMplsLabelBlockMsgRsp) Reset()         { *m = SLMplsLabelBlockMsgRsp{} }
+func (m *SLMplsLabelBlockMsgRsp) String() string { return proto.CompactTextString(m) }
+func (*SLMplsLabelBlockMsgRsp) ProtoMessage()    {}
+func (*SLMplsLabelBlockMsgRsp) Descriptor() ([]byte, []int) {
+	return fileDescriptor_sl_mpls_5d8dbbc3536cf4f5, []int{3}
+}
+func (m *SLMplsLabelBlockMsgRsp) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_SLMplsLabelBlockMsgRsp.Unmarshal(m, b)
+}
+func (m *SLMplsLabelBlockMsgRsp) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_SLMplsLabelBlockMsgRsp.Marshal(b, m, deterministic)
+}
+func (dst *SLMplsLabelBlockMsgRsp) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_SLMplsLabelBlockMsgRsp.Merge(dst, src)
+}
+func (m *SLMplsLabelBlockMsgRsp) XXX_Size() int {
+	return xxx_messageInfo_SLMplsLabelBlockMsgRsp.Size(m)
+}
+func (m *SLMplsLabelBlockMsgRsp) XXX_DiscardUnknown() {
+	xxx_messageInfo_SLMplsLabelBlockMsgRsp.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_SLMplsLabelBlockMsgRsp proto.InternalMessageInfo
 
 func (m *SLMplsLabelBlockMsgRsp) GetStatusSummary() *SLErrorStatus {
 	if m != nil {
@@ -194,20 +346,42 @@ type SLMplsLabelBlockGetMsg struct {
 	// MPLS Label Block key.
 	// If the Key is not specified, then request up to the first
 	// 'EntriesCount' entries.
-	Key *SLMplsLabelBlockKey `protobuf:"bytes,1,opt,name=Key" json:"Key,omitempty"`
+	Key *SLMplsLabelBlockKey `protobuf:"bytes,1,opt,name=Key,proto3" json:"Key,omitempty"`
 	// Number of entries requested
-	EntriesCount uint32 `protobuf:"varint,2,opt,name=EntriesCount" json:"EntriesCount,omitempty"`
+	EntriesCount uint32 `protobuf:"varint,2,opt,name=EntriesCount,proto3" json:"EntriesCount,omitempty"`
 	// if GetNext is FALSE:
 	//     request up to 'EntriesCount' entries starting from the key
 	// If GetNext is TRUE, or if the key exact match is not found:
 	//     request up to 'EntriesCount' entries starting from the key's next
-	GetNext bool `protobuf:"varint,3,opt,name=GetNext" json:"GetNext,omitempty"`
+	GetNext              bool     `protobuf:"varint,3,opt,name=GetNext,proto3" json:"GetNext,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *SLMplsLabelBlockGetMsg) Reset()                    { *m = SLMplsLabelBlockGetMsg{} }
-func (m *SLMplsLabelBlockGetMsg) String() string            { return proto.CompactTextString(m) }
-func (*SLMplsLabelBlockGetMsg) ProtoMessage()               {}
-func (*SLMplsLabelBlockGetMsg) Descriptor() ([]byte, []int) { return fileDescriptor7, []int{4} }
+func (m *SLMplsLabelBlockGetMsg) Reset()         { *m = SLMplsLabelBlockGetMsg{} }
+func (m *SLMplsLabelBlockGetMsg) String() string { return proto.CompactTextString(m) }
+func (*SLMplsLabelBlockGetMsg) ProtoMessage()    {}
+func (*SLMplsLabelBlockGetMsg) Descriptor() ([]byte, []int) {
+	return fileDescriptor_sl_mpls_5d8dbbc3536cf4f5, []int{4}
+}
+func (m *SLMplsLabelBlockGetMsg) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_SLMplsLabelBlockGetMsg.Unmarshal(m, b)
+}
+func (m *SLMplsLabelBlockGetMsg) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_SLMplsLabelBlockGetMsg.Marshal(b, m, deterministic)
+}
+func (dst *SLMplsLabelBlockGetMsg) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_SLMplsLabelBlockGetMsg.Merge(dst, src)
+}
+func (m *SLMplsLabelBlockGetMsg) XXX_Size() int {
+	return xxx_messageInfo_SLMplsLabelBlockGetMsg.Size(m)
+}
+func (m *SLMplsLabelBlockGetMsg) XXX_DiscardUnknown() {
+	xxx_messageInfo_SLMplsLabelBlockGetMsg.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_SLMplsLabelBlockGetMsg proto.InternalMessageInfo
 
 func (m *SLMplsLabelBlockGetMsg) GetKey() *SLMplsLabelBlockKey {
 	if m != nil {
@@ -236,18 +410,40 @@ type SLMplsLabelBlockGetMsgRsp struct {
 	// End Of File.
 	// When set to True, it indicates that the server has returned M, where
 	// M < N, of the original N requested Entries.
-	Eof bool `protobuf:"varint,1,opt,name=Eof" json:"Eof,omitempty"`
+	Eof bool `protobuf:"varint,1,opt,name=Eof,proto3" json:"Eof,omitempty"`
 	// Status of the Get operation
-	ErrStatus *SLErrorStatus `protobuf:"bytes,2,opt,name=ErrStatus" json:"ErrStatus,omitempty"`
+	ErrStatus *SLErrorStatus `protobuf:"bytes,2,opt,name=ErrStatus,proto3" json:"ErrStatus,omitempty"`
 	// Returned entries as requested in the Get operation.
 	// if ErrStatus is SL_SUCCESS, Entries contains the info requested
-	Entries []*SLMplsLabelBlockKey `protobuf:"bytes,3,rep,name=Entries" json:"Entries,omitempty"`
+	Entries              []*SLMplsLabelBlockKey `protobuf:"bytes,3,rep,name=Entries,proto3" json:"Entries,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}               `json:"-"`
+	XXX_unrecognized     []byte                 `json:"-"`
+	XXX_sizecache        int32                  `json:"-"`
 }
 
-func (m *SLMplsLabelBlockGetMsgRsp) Reset()                    { *m = SLMplsLabelBlockGetMsgRsp{} }
-func (m *SLMplsLabelBlockGetMsgRsp) String() string            { return proto.CompactTextString(m) }
-func (*SLMplsLabelBlockGetMsgRsp) ProtoMessage()               {}
-func (*SLMplsLabelBlockGetMsgRsp) Descriptor() ([]byte, []int) { return fileDescriptor7, []int{5} }
+func (m *SLMplsLabelBlockGetMsgRsp) Reset()         { *m = SLMplsLabelBlockGetMsgRsp{} }
+func (m *SLMplsLabelBlockGetMsgRsp) String() string { return proto.CompactTextString(m) }
+func (*SLMplsLabelBlockGetMsgRsp) ProtoMessage()    {}
+func (*SLMplsLabelBlockGetMsgRsp) Descriptor() ([]byte, []int) {
+	return fileDescriptor_sl_mpls_5d8dbbc3536cf4f5, []int{5}
+}
+func (m *SLMplsLabelBlockGetMsgRsp) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_SLMplsLabelBlockGetMsgRsp.Unmarshal(m, b)
+}
+func (m *SLMplsLabelBlockGetMsgRsp) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_SLMplsLabelBlockGetMsgRsp.Marshal(b, m, deterministic)
+}
+func (dst *SLMplsLabelBlockGetMsgRsp) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_SLMplsLabelBlockGetMsgRsp.Merge(dst, src)
+}
+func (m *SLMplsLabelBlockGetMsgRsp) XXX_Size() int {
+	return xxx_messageInfo_SLMplsLabelBlockGetMsgRsp.Size(m)
+}
+func (m *SLMplsLabelBlockGetMsgRsp) XXX_DiscardUnknown() {
+	xxx_messageInfo_SLMplsLabelBlockGetMsgRsp.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_SLMplsLabelBlockGetMsgRsp proto.InternalMessageInfo
 
 func (m *SLMplsLabelBlockGetMsgRsp) GetEof() bool {
 	if m != nil {
@@ -271,17 +467,90 @@ func (m *SLMplsLabelBlockGetMsgRsp) GetEntries() []*SLMplsLabelBlockKey {
 }
 
 // MPLS Registration message.
+type SlMplsReg struct {
+	// In case the Service Layer -> LSD connection is lost, this specifies the
+	// timeout period after which LSD will automatically purge the installed
+	// ILMs, unless the service layer:
+	//    1. Sends MPLS Registration message
+	//    2. Replays all label blocks and ILMs
+	//    3. and sends MPLS EOF message
+	// Similarly, in the event of an RP Switchover the ILMs must be replayed
+	// within the purge interval.
+	// Purge timer is ignored for all registration messages except for
+	// SL_REGOP_REGISTER
+	PurgeIntervalSeconds uint32   `protobuf:"varint,1,opt,name=PurgeIntervalSeconds,proto3" json:"PurgeIntervalSeconds,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *SlMplsReg) Reset()         { *m = SlMplsReg{} }
+func (m *SlMplsReg) String() string { return proto.CompactTextString(m) }
+func (*SlMplsReg) ProtoMessage()    {}
+func (*SlMplsReg) Descriptor() ([]byte, []int) {
+	return fileDescriptor_sl_mpls_5d8dbbc3536cf4f5, []int{6}
+}
+func (m *SlMplsReg) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_SlMplsReg.Unmarshal(m, b)
+}
+func (m *SlMplsReg) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_SlMplsReg.Marshal(b, m, deterministic)
+}
+func (dst *SlMplsReg) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_SlMplsReg.Merge(dst, src)
+}
+func (m *SlMplsReg) XXX_Size() int {
+	return xxx_messageInfo_SlMplsReg.Size(m)
+}
+func (m *SlMplsReg) XXX_DiscardUnknown() {
+	xxx_messageInfo_SlMplsReg.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_SlMplsReg proto.InternalMessageInfo
+
+func (m *SlMplsReg) GetPurgeIntervalSeconds() uint32 {
+	if m != nil {
+		return m.PurgeIntervalSeconds
+	}
+	return 0
+}
+
+// MPLS Registration message.
 // This message is used for MPLS global registration. Clients must register
 // before using any MPLS service.
 type SLMplsRegMsg struct {
 	// Registration Operation
-	Oper SLRegOp `protobuf:"varint,1,opt,name=Oper,enum=service_layer.SLRegOp" json:"Oper,omitempty"`
+	Oper SLRegOp `protobuf:"varint,1,opt,name=Oper,proto3,enum=service_layer.SLRegOp" json:"Oper,omitempty"`
+	// Registration Message
+	RegMsg               *SlMplsReg `protobuf:"bytes,2,opt,name=RegMsg,proto3" json:"RegMsg,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}   `json:"-"`
+	XXX_unrecognized     []byte     `json:"-"`
+	XXX_sizecache        int32      `json:"-"`
 }
 
-func (m *SLMplsRegMsg) Reset()                    { *m = SLMplsRegMsg{} }
-func (m *SLMplsRegMsg) String() string            { return proto.CompactTextString(m) }
-func (*SLMplsRegMsg) ProtoMessage()               {}
-func (*SLMplsRegMsg) Descriptor() ([]byte, []int) { return fileDescriptor7, []int{6} }
+func (m *SLMplsRegMsg) Reset()         { *m = SLMplsRegMsg{} }
+func (m *SLMplsRegMsg) String() string { return proto.CompactTextString(m) }
+func (*SLMplsRegMsg) ProtoMessage()    {}
+func (*SLMplsRegMsg) Descriptor() ([]byte, []int) {
+	return fileDescriptor_sl_mpls_5d8dbbc3536cf4f5, []int{7}
+}
+func (m *SLMplsRegMsg) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_SLMplsRegMsg.Unmarshal(m, b)
+}
+func (m *SLMplsRegMsg) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_SLMplsRegMsg.Marshal(b, m, deterministic)
+}
+func (dst *SLMplsRegMsg) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_SLMplsRegMsg.Merge(dst, src)
+}
+func (m *SLMplsRegMsg) XXX_Size() int {
+	return xxx_messageInfo_SLMplsRegMsg.Size(m)
+}
+func (m *SLMplsRegMsg) XXX_DiscardUnknown() {
+	xxx_messageInfo_SLMplsRegMsg.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_SLMplsRegMsg proto.InternalMessageInfo
 
 func (m *SLMplsRegMsg) GetOper() SLRegOp {
 	if m != nil {
@@ -290,17 +559,46 @@ func (m *SLMplsRegMsg) GetOper() SLRegOp {
 	return SLRegOp_SL_REGOP_RESERVED
 }
 
+func (m *SLMplsRegMsg) GetRegMsg() *SlMplsReg {
+	if m != nil {
+		return m.RegMsg
+	}
+	return nil
+}
+
 // MPLS Registration response message.
 // This message is used to convey the result of the MPLS registration.
 type SLMplsRegMsgRsp struct {
 	// Error code
-	ErrStatus *SLErrorStatus `protobuf:"bytes,1,opt,name=ErrStatus" json:"ErrStatus,omitempty"`
+	ErrStatus            *SLErrorStatus `protobuf:"bytes,1,opt,name=ErrStatus,proto3" json:"ErrStatus,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}       `json:"-"`
+	XXX_unrecognized     []byte         `json:"-"`
+	XXX_sizecache        int32          `json:"-"`
 }
 
-func (m *SLMplsRegMsgRsp) Reset()                    { *m = SLMplsRegMsgRsp{} }
-func (m *SLMplsRegMsgRsp) String() string            { return proto.CompactTextString(m) }
-func (*SLMplsRegMsgRsp) ProtoMessage()               {}
-func (*SLMplsRegMsgRsp) Descriptor() ([]byte, []int) { return fileDescriptor7, []int{7} }
+func (m *SLMplsRegMsgRsp) Reset()         { *m = SLMplsRegMsgRsp{} }
+func (m *SLMplsRegMsgRsp) String() string { return proto.CompactTextString(m) }
+func (*SLMplsRegMsgRsp) ProtoMessage()    {}
+func (*SLMplsRegMsgRsp) Descriptor() ([]byte, []int) {
+	return fileDescriptor_sl_mpls_5d8dbbc3536cf4f5, []int{8}
+}
+func (m *SLMplsRegMsgRsp) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_SLMplsRegMsgRsp.Unmarshal(m, b)
+}
+func (m *SLMplsRegMsgRsp) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_SLMplsRegMsgRsp.Marshal(b, m, deterministic)
+}
+func (dst *SLMplsRegMsgRsp) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_SLMplsRegMsgRsp.Merge(dst, src)
+}
+func (m *SLMplsRegMsgRsp) XXX_Size() int {
+	return xxx_messageInfo_SLMplsRegMsgRsp.Size(m)
+}
+func (m *SLMplsRegMsgRsp) XXX_DiscardUnknown() {
+	xxx_messageInfo_SLMplsRegMsgRsp.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_SLMplsRegMsgRsp proto.InternalMessageInfo
 
 func (m *SLMplsRegMsgRsp) GetErrStatus() *SLErrorStatus {
 	if m != nil {
@@ -312,38 +610,82 @@ func (m *SLMplsRegMsgRsp) GetErrStatus() *SLErrorStatus {
 // MPLS Get Global Info message.
 // This message is used to query MPLS global capabilities.
 type SLMplsGetMsg struct {
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *SLMplsGetMsg) Reset()                    { *m = SLMplsGetMsg{} }
-func (m *SLMplsGetMsg) String() string            { return proto.CompactTextString(m) }
-func (*SLMplsGetMsg) ProtoMessage()               {}
-func (*SLMplsGetMsg) Descriptor() ([]byte, []int) { return fileDescriptor7, []int{8} }
+func (m *SLMplsGetMsg) Reset()         { *m = SLMplsGetMsg{} }
+func (m *SLMplsGetMsg) String() string { return proto.CompactTextString(m) }
+func (*SLMplsGetMsg) ProtoMessage()    {}
+func (*SLMplsGetMsg) Descriptor() ([]byte, []int) {
+	return fileDescriptor_sl_mpls_5d8dbbc3536cf4f5, []int{9}
+}
+func (m *SLMplsGetMsg) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_SLMplsGetMsg.Unmarshal(m, b)
+}
+func (m *SLMplsGetMsg) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_SLMplsGetMsg.Marshal(b, m, deterministic)
+}
+func (dst *SLMplsGetMsg) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_SLMplsGetMsg.Merge(dst, src)
+}
+func (m *SLMplsGetMsg) XXX_Size() int {
+	return xxx_messageInfo_SLMplsGetMsg.Size(m)
+}
+func (m *SLMplsGetMsg) XXX_DiscardUnknown() {
+	xxx_messageInfo_SLMplsGetMsg.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_SLMplsGetMsg proto.InternalMessageInfo
 
 // MPLS Get Global Info response message.
 // This message is used to convey the response to the global capabilities query.
 type SLMplsGetMsgRsp struct {
 	// Error code
-	ErrStatus *SLErrorStatus `protobuf:"bytes,1,opt,name=ErrStatus" json:"ErrStatus,omitempty"`
+	ErrStatus *SLErrorStatus `protobuf:"bytes,1,opt,name=ErrStatus,proto3" json:"ErrStatus,omitempty"`
 	// Maximum labels that can be allocated/freed per label block.
-	MaxLabelsPerBlock uint32 `protobuf:"varint,2,opt,name=MaxLabelsPerBlock" json:"MaxLabelsPerBlock,omitempty"`
+	MaxLabelsPerBlock uint32 `protobuf:"varint,2,opt,name=MaxLabelsPerBlock,proto3" json:"MaxLabelsPerBlock,omitempty"`
 	// Maximum label blocks that can be allocated/freed per MplsLabelBlockMsg
-	MaxLabelblocksPerLabelblockmsg uint32 `protobuf:"varint,3,opt,name=MaxLabelblocksPerLabelblockmsg" json:"MaxLabelblocksPerLabelblockmsg,omitempty"`
+	MaxLabelblocksPerLabelblockmsg uint32 `protobuf:"varint,3,opt,name=MaxLabelblocksPerLabelblockmsg,proto3" json:"MaxLabelblocksPerLabelblockmsg,omitempty"`
 	// Minimum label value that can be reserved on the platform.
 	// MplsLabelBlockKey.StartLabel >= MinStartLabel
-	MinStartLabel uint32 `protobuf:"varint,4,opt,name=MinStartLabel" json:"MinStartLabel,omitempty"`
+	MinStartLabel uint32 `protobuf:"varint,4,opt,name=MinStartLabel,proto3" json:"MinStartLabel,omitempty"`
 	// Label table size for the platform.
 	// MplsLabelBlockKey.StartLabel <= LabelTableSize
-	LabelTableSize uint32 `protobuf:"varint,5,opt,name=LabelTableSize" json:"LabelTableSize,omitempty"`
+	LabelTableSize uint32 `protobuf:"varint,5,opt,name=LabelTableSize,proto3" json:"LabelTableSize,omitempty"`
 	// Max ILM objects within a single IlmMsg message.
-	MaxIlmPerIlmmsg uint32 `protobuf:"varint,6,opt,name=MaxIlmPerIlmmsg" json:"MaxIlmPerIlmmsg,omitempty"`
+	MaxIlmPerIlmmsg uint32 `protobuf:"varint,6,opt,name=MaxIlmPerIlmmsg,proto3" json:"MaxIlmPerIlmmsg,omitempty"`
 	// Maximum paths per ILM.
-	MaxPathsPerIlm uint32 `protobuf:"varint,7,opt,name=MaxPathsPerIlm" json:"MaxPathsPerIlm,omitempty"`
+	MaxPathsPerIlm       uint32   `protobuf:"varint,7,opt,name=MaxPathsPerIlm,proto3" json:"MaxPathsPerIlm,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *SLMplsGetMsgRsp) Reset()                    { *m = SLMplsGetMsgRsp{} }
-func (m *SLMplsGetMsgRsp) String() string            { return proto.CompactTextString(m) }
-func (*SLMplsGetMsgRsp) ProtoMessage()               {}
-func (*SLMplsGetMsgRsp) Descriptor() ([]byte, []int) { return fileDescriptor7, []int{9} }
+func (m *SLMplsGetMsgRsp) Reset()         { *m = SLMplsGetMsgRsp{} }
+func (m *SLMplsGetMsgRsp) String() string { return proto.CompactTextString(m) }
+func (*SLMplsGetMsgRsp) ProtoMessage()    {}
+func (*SLMplsGetMsgRsp) Descriptor() ([]byte, []int) {
+	return fileDescriptor_sl_mpls_5d8dbbc3536cf4f5, []int{10}
+}
+func (m *SLMplsGetMsgRsp) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_SLMplsGetMsgRsp.Unmarshal(m, b)
+}
+func (m *SLMplsGetMsgRsp) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_SLMplsGetMsgRsp.Marshal(b, m, deterministic)
+}
+func (dst *SLMplsGetMsgRsp) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_SLMplsGetMsgRsp.Merge(dst, src)
+}
+func (m *SLMplsGetMsgRsp) XXX_Size() int {
+	return xxx_messageInfo_SLMplsGetMsgRsp.Size(m)
+}
+func (m *SLMplsGetMsgRsp) XXX_DiscardUnknown() {
+	xxx_messageInfo_SLMplsGetMsgRsp.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_SLMplsGetMsgRsp proto.InternalMessageInfo
 
 func (m *SLMplsGetMsgRsp) GetErrStatus() *SLErrorStatus {
 	if m != nil {
@@ -398,17 +740,39 @@ func (m *SLMplsGetMsgRsp) GetMaxPathsPerIlm() uint32 {
 // This message is used to convey the response to the MPLS statistics query.
 type SLMplsGetStatsMsgRsp struct {
 	// Error code
-	ErrStatus *SLErrorStatus `protobuf:"bytes,1,opt,name=ErrStatus" json:"ErrStatus,omitempty"`
+	ErrStatus *SLErrorStatus `protobuf:"bytes,1,opt,name=ErrStatus,proto3" json:"ErrStatus,omitempty"`
 	// Num of label blocks created.
-	LabelBlockCount uint32 `protobuf:"varint,2,opt,name=LabelBlockCount" json:"LabelBlockCount,omitempty"`
+	LabelBlockCount uint32 `protobuf:"varint,2,opt,name=LabelBlockCount,proto3" json:"LabelBlockCount,omitempty"`
 	// Num ILMs added through the service layer.
-	IlmCount uint32 `protobuf:"varint,3,opt,name=IlmCount" json:"IlmCount,omitempty"`
+	IlmCount             uint32   `protobuf:"varint,3,opt,name=IlmCount,proto3" json:"IlmCount,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *SLMplsGetStatsMsgRsp) Reset()                    { *m = SLMplsGetStatsMsgRsp{} }
-func (m *SLMplsGetStatsMsgRsp) String() string            { return proto.CompactTextString(m) }
-func (*SLMplsGetStatsMsgRsp) ProtoMessage()               {}
-func (*SLMplsGetStatsMsgRsp) Descriptor() ([]byte, []int) { return fileDescriptor7, []int{10} }
+func (m *SLMplsGetStatsMsgRsp) Reset()         { *m = SLMplsGetStatsMsgRsp{} }
+func (m *SLMplsGetStatsMsgRsp) String() string { return proto.CompactTextString(m) }
+func (*SLMplsGetStatsMsgRsp) ProtoMessage()    {}
+func (*SLMplsGetStatsMsgRsp) Descriptor() ([]byte, []int) {
+	return fileDescriptor_sl_mpls_5d8dbbc3536cf4f5, []int{11}
+}
+func (m *SLMplsGetStatsMsgRsp) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_SLMplsGetStatsMsgRsp.Unmarshal(m, b)
+}
+func (m *SLMplsGetStatsMsgRsp) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_SLMplsGetStatsMsgRsp.Marshal(b, m, deterministic)
+}
+func (dst *SLMplsGetStatsMsgRsp) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_SLMplsGetStatsMsgRsp.Merge(dst, src)
+}
+func (m *SLMplsGetStatsMsgRsp) XXX_Size() int {
+	return xxx_messageInfo_SLMplsGetStatsMsgRsp.Size(m)
+}
+func (m *SLMplsGetStatsMsgRsp) XXX_DiscardUnknown() {
+	xxx_messageInfo_SLMplsGetStatsMsgRsp.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_SLMplsGetStatsMsgRsp proto.InternalMessageInfo
 
 func (m *SLMplsGetStatsMsgRsp) GetErrStatus() *SLErrorStatus {
 	if m != nil {
@@ -435,13 +799,13 @@ func (m *SLMplsGetStatsMsgRsp) GetIlmCount() uint32 {
 // This message holds the ILM path attributes.
 type SLMplsPath struct {
 	// One of IPv4 or IPv6 address
-	NexthopAddress *SLIpAddress `protobuf:"bytes,1,opt,name=NexthopAddress" json:"NexthopAddress,omitempty"`
+	NexthopAddress *SLIpAddress `protobuf:"bytes,1,opt,name=NexthopAddress,proto3" json:"NexthopAddress,omitempty"`
 	// Next hop interface.
-	NexthopInterface *SLInterface `protobuf:"bytes,2,opt,name=NexthopInterface" json:"NexthopInterface,omitempty"`
+	NexthopInterface *SLInterface `protobuf:"bytes,2,opt,name=NexthopInterface,proto3" json:"NexthopInterface,omitempty"`
 	// ECMP load weight metric
-	LoadMetric uint32 `protobuf:"varint,3,opt,name=LoadMetric" json:"LoadMetric,omitempty"`
+	LoadMetric uint32 `protobuf:"varint,3,opt,name=LoadMetric,proto3" json:"LoadMetric,omitempty"`
 	// VRF name
-	VrfName string `protobuf:"bytes,4,opt,name=VrfName" json:"VrfName,omitempty"`
+	VrfName string `protobuf:"bytes,4,opt,name=VrfName,proto3" json:"VrfName,omitempty"`
 	// Associated MPLS incoming label's action.
 	// The label action dictates what to do with the incoming label.
 	// Possible actions are:
@@ -454,7 +818,7 @@ type SLMplsPath struct {
 	//  - SL_LABEL_ACTION_POP_AND_LOOKUP: Pop the label, and lookup the
 	//      packet's next header's address in the specified VrfName.
 	//      Path attributes: VrfName.
-	Action SlLabelAction `protobuf:"varint,5,opt,name=Action,enum=service_layer.SlLabelAction" json:"Action,omitempty"`
+	Action SlLabelAction `protobuf:"varint,5,opt,name=Action,proto3,enum=service_layer.SlLabelAction" json:"Action,omitempty"`
 	// Path identifier.
 	// Path-id is used to uniquely identify a path when it comes to
 	// protection (Fast Re-Route - FRR). It is not used otherwise.
@@ -484,7 +848,7 @@ type SLMplsPath struct {
 	// NOTE2: Pure backup path-id uses a different range than primary path-ids.
 	// The valid range of primary path IDs, and pure backup path IDS are
 	// platform dependent and can be retrieved through the client init message.
-	PathId uint32 `protobuf:"varint,6,opt,name=PathId" json:"PathId,omitempty"`
+	PathId uint32 `protobuf:"varint,6,opt,name=PathId,proto3" json:"PathId,omitempty"`
 	// Path protection bitmap.
 	// The bitmap of paths this Backup path is protecting.
 	// Example: If this path is protecting paths with IDs 4, 5 and 6, then
@@ -494,7 +858,7 @@ type SLMplsPath struct {
 	//            ||-- path 5
 	//            |-- path 6
 	// (1 << (pathId_1 - 1))  | (1 << (pathId_2 - 1)) | (1 << (pathId_3 - 1))
-	ProtectedPathBitmap []uint64 `protobuf:"varint,7,rep,packed,name=ProtectedPathBitmap" json:"ProtectedPathBitmap,omitempty"`
+	ProtectedPathBitmap []uint64 `protobuf:"varint,7,rep,packed,name=ProtectedPathBitmap,proto3" json:"ProtectedPathBitmap,omitempty"`
 	// MPLS label stack.
 	// Stack of labels that is pushed when the packet is switched out.
 	// Label size is LSB 20 bits. Forwarding will set EXP, TTL and BOS.
@@ -503,19 +867,41 @@ type SLMplsPath struct {
 	// is used, remote backup addresses must be specified.
 	// The maximum number of labels pushed for primary and backup are
 	// platform dependent.
-	LabelStack []uint32 `protobuf:"varint,8,rep,packed,name=LabelStack" json:"LabelStack,omitempty"`
+	LabelStack []uint32 `protobuf:"varint,8,rep,packed,name=LabelStack,proto3" json:"LabelStack,omitempty"`
 	// MPLS Remote router backup address.
 	// This field is used for backup MPLS path with more than one label,
 	// Typically associated with the PQ routers and remote Loop Free
 	// Alternatives.
 	// For N+1 backup labels, N remote backup addresses must be specified.
-	RemoteAddress []*SLIpAddress `protobuf:"bytes,9,rep,name=RemoteAddress" json:"RemoteAddress,omitempty"`
+	RemoteAddress        []*SLIpAddress `protobuf:"bytes,9,rep,name=RemoteAddress,proto3" json:"RemoteAddress,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}       `json:"-"`
+	XXX_unrecognized     []byte         `json:"-"`
+	XXX_sizecache        int32          `json:"-"`
 }
 
-func (m *SLMplsPath) Reset()                    { *m = SLMplsPath{} }
-func (m *SLMplsPath) String() string            { return proto.CompactTextString(m) }
-func (*SLMplsPath) ProtoMessage()               {}
-func (*SLMplsPath) Descriptor() ([]byte, []int) { return fileDescriptor7, []int{11} }
+func (m *SLMplsPath) Reset()         { *m = SLMplsPath{} }
+func (m *SLMplsPath) String() string { return proto.CompactTextString(m) }
+func (*SLMplsPath) ProtoMessage()    {}
+func (*SLMplsPath) Descriptor() ([]byte, []int) {
+	return fileDescriptor_sl_mpls_5d8dbbc3536cf4f5, []int{12}
+}
+func (m *SLMplsPath) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_SLMplsPath.Unmarshal(m, b)
+}
+func (m *SLMplsPath) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_SLMplsPath.Marshal(b, m, deterministic)
+}
+func (dst *SLMplsPath) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_SLMplsPath.Merge(dst, src)
+}
+func (m *SLMplsPath) XXX_Size() int {
+	return xxx_messageInfo_SLMplsPath.Size(m)
+}
+func (m *SLMplsPath) XXX_DiscardUnknown() {
+	xxx_messageInfo_SLMplsPath.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_SLMplsPath proto.InternalMessageInfo
 
 func (m *SLMplsPath) GetNexthopAddress() *SLIpAddress {
 	if m != nil {
@@ -584,15 +970,37 @@ func (m *SLMplsPath) GetRemoteAddress() []*SLIpAddress {
 // This message defines the Incoming Label Map key attributes.
 type SLMplsIlmKey struct {
 	// Incoming local label.
-	LocalLabel uint32 `protobuf:"varint,1,opt,name=LocalLabel" json:"LocalLabel,omitempty"`
+	LocalLabel uint32 `protobuf:"varint,1,opt,name=LocalLabel,proto3" json:"LocalLabel,omitempty"`
 	// Either Exp bits or CoS forwarding class.
-	SlMplsCosVal *SLMplsCos `protobuf:"bytes,2,opt,name=SlMplsCosVal" json:"SlMplsCosVal,omitempty"`
+	SlMplsCosVal         *SLMplsCos `protobuf:"bytes,2,opt,name=SlMplsCosVal,proto3" json:"SlMplsCosVal,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}   `json:"-"`
+	XXX_unrecognized     []byte     `json:"-"`
+	XXX_sizecache        int32      `json:"-"`
 }
 
-func (m *SLMplsIlmKey) Reset()                    { *m = SLMplsIlmKey{} }
-func (m *SLMplsIlmKey) String() string            { return proto.CompactTextString(m) }
-func (*SLMplsIlmKey) ProtoMessage()               {}
-func (*SLMplsIlmKey) Descriptor() ([]byte, []int) { return fileDescriptor7, []int{12} }
+func (m *SLMplsIlmKey) Reset()         { *m = SLMplsIlmKey{} }
+func (m *SLMplsIlmKey) String() string { return proto.CompactTextString(m) }
+func (*SLMplsIlmKey) ProtoMessage()    {}
+func (*SLMplsIlmKey) Descriptor() ([]byte, []int) {
+	return fileDescriptor_sl_mpls_5d8dbbc3536cf4f5, []int{13}
+}
+func (m *SLMplsIlmKey) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_SLMplsIlmKey.Unmarshal(m, b)
+}
+func (m *SLMplsIlmKey) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_SLMplsIlmKey.Marshal(b, m, deterministic)
+}
+func (dst *SLMplsIlmKey) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_SLMplsIlmKey.Merge(dst, src)
+}
+func (m *SLMplsIlmKey) XXX_Size() int {
+	return xxx_messageInfo_SLMplsIlmKey.Size(m)
+}
+func (m *SLMplsIlmKey) XXX_DiscardUnknown() {
+	xxx_messageInfo_SLMplsIlmKey.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_SLMplsIlmKey proto.InternalMessageInfo
 
 func (m *SLMplsIlmKey) GetLocalLabel() uint32 {
 	if m != nil {
@@ -613,27 +1021,58 @@ func (m *SLMplsIlmKey) GetSlMplsCosVal() *SLMplsCos {
 type SLMplsCos struct {
 	// Types that are valid to be assigned to Value:
 	//	*SLMplsCos_Exp
+	//	*SLMplsCos_DefaultElspPath
 	//	*SLMplsCos_ForwardingClass
-	Value isSLMplsCos_Value `protobuf_oneof:"value"`
+	Value                isSLMplsCos_Value `protobuf_oneof:"value"`
+	XXX_NoUnkeyedLiteral struct{}          `json:"-"`
+	XXX_unrecognized     []byte            `json:"-"`
+	XXX_sizecache        int32             `json:"-"`
 }
 
-func (m *SLMplsCos) Reset()                    { *m = SLMplsCos{} }
-func (m *SLMplsCos) String() string            { return proto.CompactTextString(m) }
-func (*SLMplsCos) ProtoMessage()               {}
-func (*SLMplsCos) Descriptor() ([]byte, []int) { return fileDescriptor7, []int{13} }
+func (m *SLMplsCos) Reset()         { *m = SLMplsCos{} }
+func (m *SLMplsCos) String() string { return proto.CompactTextString(m) }
+func (*SLMplsCos) ProtoMessage()    {}
+func (*SLMplsCos) Descriptor() ([]byte, []int) {
+	return fileDescriptor_sl_mpls_5d8dbbc3536cf4f5, []int{14}
+}
+func (m *SLMplsCos) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_SLMplsCos.Unmarshal(m, b)
+}
+func (m *SLMplsCos) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_SLMplsCos.Marshal(b, m, deterministic)
+}
+func (dst *SLMplsCos) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_SLMplsCos.Merge(dst, src)
+}
+func (m *SLMplsCos) XXX_Size() int {
+	return xxx_messageInfo_SLMplsCos.Size(m)
+}
+func (m *SLMplsCos) XXX_DiscardUnknown() {
+	xxx_messageInfo_SLMplsCos.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_SLMplsCos proto.InternalMessageInfo
 
 type isSLMplsCos_Value interface {
 	isSLMplsCos_Value()
 }
 
 type SLMplsCos_Exp struct {
-	Exp uint32 `protobuf:"varint,1,opt,name=Exp,oneof"`
-}
-type SLMplsCos_ForwardingClass struct {
-	ForwardingClass uint32 `protobuf:"varint,2,opt,name=ForwardingClass,oneof"`
+	Exp uint32 `protobuf:"varint,1,opt,name=Exp,proto3,oneof"`
 }
 
-func (*SLMplsCos_Exp) isSLMplsCos_Value()             {}
+type SLMplsCos_DefaultElspPath struct {
+	DefaultElspPath bool `protobuf:"varint,2,opt,name=DefaultElspPath,proto3,oneof"`
+}
+
+type SLMplsCos_ForwardingClass struct {
+	ForwardingClass uint32 `protobuf:"varint,3,opt,name=ForwardingClass,proto3,oneof"`
+}
+
+func (*SLMplsCos_Exp) isSLMplsCos_Value() {}
+
+func (*SLMplsCos_DefaultElspPath) isSLMplsCos_Value() {}
+
 func (*SLMplsCos_ForwardingClass) isSLMplsCos_Value() {}
 
 func (m *SLMplsCos) GetValue() isSLMplsCos_Value {
@@ -650,6 +1089,13 @@ func (m *SLMplsCos) GetExp() uint32 {
 	return 0
 }
 
+func (m *SLMplsCos) GetDefaultElspPath() bool {
+	if x, ok := m.GetValue().(*SLMplsCos_DefaultElspPath); ok {
+		return x.DefaultElspPath
+	}
+	return false
+}
+
 func (m *SLMplsCos) GetForwardingClass() uint32 {
 	if x, ok := m.GetValue().(*SLMplsCos_ForwardingClass); ok {
 		return x.ForwardingClass
@@ -661,6 +1107,7 @@ func (m *SLMplsCos) GetForwardingClass() uint32 {
 func (*SLMplsCos) XXX_OneofFuncs() (func(msg proto.Message, b *proto.Buffer) error, func(msg proto.Message, tag, wire int, b *proto.Buffer) (bool, error), func(msg proto.Message) (n int), []interface{}) {
 	return _SLMplsCos_OneofMarshaler, _SLMplsCos_OneofUnmarshaler, _SLMplsCos_OneofSizer, []interface{}{
 		(*SLMplsCos_Exp)(nil),
+		(*SLMplsCos_DefaultElspPath)(nil),
 		(*SLMplsCos_ForwardingClass)(nil),
 	}
 }
@@ -672,8 +1119,15 @@ func _SLMplsCos_OneofMarshaler(msg proto.Message, b *proto.Buffer) error {
 	case *SLMplsCos_Exp:
 		b.EncodeVarint(1<<3 | proto.WireVarint)
 		b.EncodeVarint(uint64(x.Exp))
-	case *SLMplsCos_ForwardingClass:
+	case *SLMplsCos_DefaultElspPath:
+		t := uint64(0)
+		if x.DefaultElspPath {
+			t = 1
+		}
 		b.EncodeVarint(2<<3 | proto.WireVarint)
+		b.EncodeVarint(t)
+	case *SLMplsCos_ForwardingClass:
+		b.EncodeVarint(3<<3 | proto.WireVarint)
 		b.EncodeVarint(uint64(x.ForwardingClass))
 	case nil:
 	default:
@@ -692,7 +1146,14 @@ func _SLMplsCos_OneofUnmarshaler(msg proto.Message, tag, wire int, b *proto.Buff
 		x, err := b.DecodeVarint()
 		m.Value = &SLMplsCos_Exp{uint32(x)}
 		return true, err
-	case 2: // value.ForwardingClass
+	case 2: // value.DefaultElspPath
+		if wire != proto.WireVarint {
+			return true, proto.ErrInternalBadWireType
+		}
+		x, err := b.DecodeVarint()
+		m.Value = &SLMplsCos_DefaultElspPath{x != 0}
+		return true, err
+	case 3: // value.ForwardingClass
 		if wire != proto.WireVarint {
 			return true, proto.ErrInternalBadWireType
 		}
@@ -709,10 +1170,13 @@ func _SLMplsCos_OneofSizer(msg proto.Message) (n int) {
 	// value
 	switch x := m.Value.(type) {
 	case *SLMplsCos_Exp:
-		n += proto.SizeVarint(1<<3 | proto.WireVarint)
+		n += 1 // tag and wire
 		n += proto.SizeVarint(uint64(x.Exp))
+	case *SLMplsCos_DefaultElspPath:
+		n += 1 // tag and wire
+		n += 1
 	case *SLMplsCos_ForwardingClass:
-		n += proto.SizeVarint(2<<3 | proto.WireVarint)
+		n += 1 // tag and wire
 		n += proto.SizeVarint(uint64(x.ForwardingClass))
 	case nil:
 	default:
@@ -725,18 +1189,37 @@ func _SLMplsCos_OneofSizer(msg proto.Message) (n int) {
 // This messages defines an ILM entry.
 type SLMplsIlmEntry struct {
 	// ILM Key.
-	Key *SLMplsIlmKey `protobuf:"bytes,1,opt,name=Key" json:"Key,omitempty"`
+	Key *SLMplsIlmKey `protobuf:"bytes,1,opt,name=Key,proto3" json:"Key,omitempty"`
 	// List of path (NHLFE) information.
-	Paths []*SLMplsPath `protobuf:"bytes,2,rep,name=Paths" json:"Paths,omitempty"`
-	// Flag to indicate an E-LSP entry.
-	// If set, associated SLMplsCos.Exp will be ignored.
-	DefaultElspPath bool `protobuf:"varint,3,opt,name=DefaultElspPath" json:"DefaultElspPath,omitempty"`
+	Paths                []*SLMplsPath `protobuf:"bytes,2,rep,name=Paths,proto3" json:"Paths,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}      `json:"-"`
+	XXX_unrecognized     []byte        `json:"-"`
+	XXX_sizecache        int32         `json:"-"`
 }
 
-func (m *SLMplsIlmEntry) Reset()                    { *m = SLMplsIlmEntry{} }
-func (m *SLMplsIlmEntry) String() string            { return proto.CompactTextString(m) }
-func (*SLMplsIlmEntry) ProtoMessage()               {}
-func (*SLMplsIlmEntry) Descriptor() ([]byte, []int) { return fileDescriptor7, []int{14} }
+func (m *SLMplsIlmEntry) Reset()         { *m = SLMplsIlmEntry{} }
+func (m *SLMplsIlmEntry) String() string { return proto.CompactTextString(m) }
+func (*SLMplsIlmEntry) ProtoMessage()    {}
+func (*SLMplsIlmEntry) Descriptor() ([]byte, []int) {
+	return fileDescriptor_sl_mpls_5d8dbbc3536cf4f5, []int{15}
+}
+func (m *SLMplsIlmEntry) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_SLMplsIlmEntry.Unmarshal(m, b)
+}
+func (m *SLMplsIlmEntry) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_SLMplsIlmEntry.Marshal(b, m, deterministic)
+}
+func (dst *SLMplsIlmEntry) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_SLMplsIlmEntry.Merge(dst, src)
+}
+func (m *SLMplsIlmEntry) XXX_Size() int {
+	return xxx_messageInfo_SLMplsIlmEntry.Size(m)
+}
+func (m *SLMplsIlmEntry) XXX_DiscardUnknown() {
+	xxx_messageInfo_SLMplsIlmEntry.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_SLMplsIlmEntry proto.InternalMessageInfo
 
 func (m *SLMplsIlmEntry) GetKey() *SLMplsIlmKey {
 	if m != nil {
@@ -752,29 +1235,44 @@ func (m *SLMplsIlmEntry) GetPaths() []*SLMplsPath {
 	return nil
 }
 
-func (m *SLMplsIlmEntry) GetDefaultElspPath() bool {
-	if m != nil {
-		return m.DefaultElspPath
-	}
-	return false
-}
-
 // A batch of MPLS ILM entries.
 // This message is used to send a batch of ILM entries.
 type SLMplsIlmMsg struct {
 	// MPLS Object Operations
-	Oper SLObjectOp `protobuf:"varint,1,opt,name=Oper,enum=service_layer.SLObjectOp" json:"Oper,omitempty"`
+	Oper SLObjectOp `protobuf:"varint,1,opt,name=Oper,proto3,enum=service_layer.SLObjectOp" json:"Oper,omitempty"`
 	// Correlator. This can be used to correlate replies with requests.
 	// The Server simply reflects this field back in the reply.
-	Correlator uint64 `protobuf:"varint,2,opt,name=Correlator" json:"Correlator,omitempty"`
+	Correlator uint64 `protobuf:"varint,2,opt,name=Correlator,proto3" json:"Correlator,omitempty"`
 	// List of ILM entries
-	MplsIlms []*SLMplsIlmEntry `protobuf:"bytes,3,rep,name=MplsIlms" json:"MplsIlms,omitempty"`
+	MplsIlms             []*SLMplsIlmEntry `protobuf:"bytes,3,rep,name=MplsIlms,proto3" json:"MplsIlms,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}          `json:"-"`
+	XXX_unrecognized     []byte            `json:"-"`
+	XXX_sizecache        int32             `json:"-"`
 }
 
-func (m *SLMplsIlmMsg) Reset()                    { *m = SLMplsIlmMsg{} }
-func (m *SLMplsIlmMsg) String() string            { return proto.CompactTextString(m) }
-func (*SLMplsIlmMsg) ProtoMessage()               {}
-func (*SLMplsIlmMsg) Descriptor() ([]byte, []int) { return fileDescriptor7, []int{15} }
+func (m *SLMplsIlmMsg) Reset()         { *m = SLMplsIlmMsg{} }
+func (m *SLMplsIlmMsg) String() string { return proto.CompactTextString(m) }
+func (*SLMplsIlmMsg) ProtoMessage()    {}
+func (*SLMplsIlmMsg) Descriptor() ([]byte, []int) {
+	return fileDescriptor_sl_mpls_5d8dbbc3536cf4f5, []int{16}
+}
+func (m *SLMplsIlmMsg) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_SLMplsIlmMsg.Unmarshal(m, b)
+}
+func (m *SLMplsIlmMsg) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_SLMplsIlmMsg.Marshal(b, m, deterministic)
+}
+func (dst *SLMplsIlmMsg) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_SLMplsIlmMsg.Merge(dst, src)
+}
+func (m *SLMplsIlmMsg) XXX_Size() int {
+	return xxx_messageInfo_SLMplsIlmMsg.Size(m)
+}
+func (m *SLMplsIlmMsg) XXX_DiscardUnknown() {
+	xxx_messageInfo_SLMplsIlmMsg.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_SLMplsIlmMsg proto.InternalMessageInfo
 
 func (m *SLMplsIlmMsg) GetOper() SLObjectOp {
 	if m != nil {
@@ -801,15 +1299,37 @@ func (m *SLMplsIlmMsg) GetMplsIlms() []*SLMplsIlmEntry {
 // This message is used to convey the result of the ILM entry operation.
 type SLMplsIlmRes struct {
 	// Corresponding error code
-	ErrStatus *SLErrorStatus `protobuf:"bytes,1,opt,name=ErrStatus" json:"ErrStatus,omitempty"`
+	ErrStatus *SLErrorStatus `protobuf:"bytes,1,opt,name=ErrStatus,proto3" json:"ErrStatus,omitempty"`
 	// ILM Key.
-	Key *SLMplsIlmKey `protobuf:"bytes,2,opt,name=Key" json:"Key,omitempty"`
+	Key                  *SLMplsIlmKey `protobuf:"bytes,2,opt,name=Key,proto3" json:"Key,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}      `json:"-"`
+	XXX_unrecognized     []byte        `json:"-"`
+	XXX_sizecache        int32         `json:"-"`
 }
 
-func (m *SLMplsIlmRes) Reset()                    { *m = SLMplsIlmRes{} }
-func (m *SLMplsIlmRes) String() string            { return proto.CompactTextString(m) }
-func (*SLMplsIlmRes) ProtoMessage()               {}
-func (*SLMplsIlmRes) Descriptor() ([]byte, []int) { return fileDescriptor7, []int{16} }
+func (m *SLMplsIlmRes) Reset()         { *m = SLMplsIlmRes{} }
+func (m *SLMplsIlmRes) String() string { return proto.CompactTextString(m) }
+func (*SLMplsIlmRes) ProtoMessage()    {}
+func (*SLMplsIlmRes) Descriptor() ([]byte, []int) {
+	return fileDescriptor_sl_mpls_5d8dbbc3536cf4f5, []int{17}
+}
+func (m *SLMplsIlmRes) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_SLMplsIlmRes.Unmarshal(m, b)
+}
+func (m *SLMplsIlmRes) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_SLMplsIlmRes.Marshal(b, m, deterministic)
+}
+func (dst *SLMplsIlmRes) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_SLMplsIlmRes.Merge(dst, src)
+}
+func (m *SLMplsIlmRes) XXX_Size() int {
+	return xxx_messageInfo_SLMplsIlmRes.Size(m)
+}
+func (m *SLMplsIlmRes) XXX_DiscardUnknown() {
+	xxx_messageInfo_SLMplsIlmRes.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_SLMplsIlmRes proto.InternalMessageInfo
 
 func (m *SLMplsIlmRes) GetErrStatus() *SLErrorStatus {
 	if m != nil {
@@ -830,7 +1350,7 @@ func (m *SLMplsIlmRes) GetKey() *SLMplsIlmKey {
 type SLMplsIlmMsgRsp struct {
 	// Correlator. This can be used to correlate replies with requests.
 	// The Server simply reflects this field back in the reply.
-	Correlator uint64 `protobuf:"varint,1,opt,name=Correlator" json:"Correlator,omitempty"`
+	Correlator uint64 `protobuf:"varint,1,opt,name=Correlator,proto3" json:"Correlator,omitempty"`
 	// Summary result of the bulk operation (refer to enum SLErrorStatus)
 	// In general, the StatusSummary implies one of 3 things:
 	// 1. SL_SUCCESS: signifies that the entire bulk operation was successful.
@@ -840,16 +1360,38 @@ type SLMplsIlmMsgRsp struct {
 	//         each individual entry in the bulk.
 	// 3. SL_RPC_XXX: signifies that the entire bulk operation failed.
 	//         In this case, the Results list is empty.
-	StatusSummary *SLErrorStatus `protobuf:"bytes,2,opt,name=StatusSummary" json:"StatusSummary,omitempty"`
+	StatusSummary *SLErrorStatus `protobuf:"bytes,2,opt,name=StatusSummary,proto3" json:"StatusSummary,omitempty"`
 	// In case of errors, this field indicates which entry in the bulk was
 	// erroneous.
-	Results []*SLMplsIlmRes `protobuf:"bytes,3,rep,name=Results" json:"Results,omitempty"`
+	Results              []*SLMplsIlmRes `protobuf:"bytes,3,rep,name=Results,proto3" json:"Results,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}        `json:"-"`
+	XXX_unrecognized     []byte          `json:"-"`
+	XXX_sizecache        int32           `json:"-"`
 }
 
-func (m *SLMplsIlmMsgRsp) Reset()                    { *m = SLMplsIlmMsgRsp{} }
-func (m *SLMplsIlmMsgRsp) String() string            { return proto.CompactTextString(m) }
-func (*SLMplsIlmMsgRsp) ProtoMessage()               {}
-func (*SLMplsIlmMsgRsp) Descriptor() ([]byte, []int) { return fileDescriptor7, []int{17} }
+func (m *SLMplsIlmMsgRsp) Reset()         { *m = SLMplsIlmMsgRsp{} }
+func (m *SLMplsIlmMsgRsp) String() string { return proto.CompactTextString(m) }
+func (*SLMplsIlmMsgRsp) ProtoMessage()    {}
+func (*SLMplsIlmMsgRsp) Descriptor() ([]byte, []int) {
+	return fileDescriptor_sl_mpls_5d8dbbc3536cf4f5, []int{18}
+}
+func (m *SLMplsIlmMsgRsp) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_SLMplsIlmMsgRsp.Unmarshal(m, b)
+}
+func (m *SLMplsIlmMsgRsp) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_SLMplsIlmMsgRsp.Marshal(b, m, deterministic)
+}
+func (dst *SLMplsIlmMsgRsp) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_SLMplsIlmMsgRsp.Merge(dst, src)
+}
+func (m *SLMplsIlmMsgRsp) XXX_Size() int {
+	return xxx_messageInfo_SLMplsIlmMsgRsp.Size(m)
+}
+func (m *SLMplsIlmMsgRsp) XXX_DiscardUnknown() {
+	xxx_messageInfo_SLMplsIlmMsgRsp.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_SLMplsIlmMsgRsp proto.InternalMessageInfo
 
 func (m *SLMplsIlmMsgRsp) GetCorrelator() uint64 {
 	if m != nil {
@@ -877,24 +1419,46 @@ func (m *SLMplsIlmMsgRsp) GetResults() []*SLMplsIlmRes {
 type SLMplsIlmGetMsg struct {
 	// Correlator. This can be used to correlate replies with requests.
 	// The Server simply reflects this field back in the reply.
-	Correlator uint64 `protobuf:"varint,1,opt,name=Correlator" json:"Correlator,omitempty"`
+	Correlator uint64 `protobuf:"varint,1,opt,name=Correlator,proto3" json:"Correlator,omitempty"`
 	// MPLS ILM key.
 	// If the Key is not specified, then request up to the first
 	// 'EntriesCount' entries.
-	Key *SLMplsIlmKey `protobuf:"bytes,2,opt,name=Key" json:"Key,omitempty"`
+	Key *SLMplsIlmKey `protobuf:"bytes,2,opt,name=Key,proto3" json:"Key,omitempty"`
 	// Number of entries requested
-	EntriesCount uint32 `protobuf:"varint,3,opt,name=EntriesCount" json:"EntriesCount,omitempty"`
+	EntriesCount uint32 `protobuf:"varint,3,opt,name=EntriesCount,proto3" json:"EntriesCount,omitempty"`
 	// if GetNext is FALSE:
 	//     request up to 'EntriesCount' entries starting from the key
 	// If GetNext is TRUE, or if the key exact match is not found:
 	//     request up to 'EntriesCount' entries starting from the key's next
-	GetNext bool `protobuf:"varint,4,opt,name=GetNext" json:"GetNext,omitempty"`
+	GetNext              bool     `protobuf:"varint,4,opt,name=GetNext,proto3" json:"GetNext,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *SLMplsIlmGetMsg) Reset()                    { *m = SLMplsIlmGetMsg{} }
-func (m *SLMplsIlmGetMsg) String() string            { return proto.CompactTextString(m) }
-func (*SLMplsIlmGetMsg) ProtoMessage()               {}
-func (*SLMplsIlmGetMsg) Descriptor() ([]byte, []int) { return fileDescriptor7, []int{18} }
+func (m *SLMplsIlmGetMsg) Reset()         { *m = SLMplsIlmGetMsg{} }
+func (m *SLMplsIlmGetMsg) String() string { return proto.CompactTextString(m) }
+func (*SLMplsIlmGetMsg) ProtoMessage()    {}
+func (*SLMplsIlmGetMsg) Descriptor() ([]byte, []int) {
+	return fileDescriptor_sl_mpls_5d8dbbc3536cf4f5, []int{19}
+}
+func (m *SLMplsIlmGetMsg) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_SLMplsIlmGetMsg.Unmarshal(m, b)
+}
+func (m *SLMplsIlmGetMsg) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_SLMplsIlmGetMsg.Marshal(b, m, deterministic)
+}
+func (dst *SLMplsIlmGetMsg) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_SLMplsIlmGetMsg.Merge(dst, src)
+}
+func (m *SLMplsIlmGetMsg) XXX_Size() int {
+	return xxx_messageInfo_SLMplsIlmGetMsg.Size(m)
+}
+func (m *SLMplsIlmGetMsg) XXX_DiscardUnknown() {
+	xxx_messageInfo_SLMplsIlmGetMsg.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_SLMplsIlmGetMsg proto.InternalMessageInfo
 
 func (m *SLMplsIlmGetMsg) GetCorrelator() uint64 {
 	if m != nil {
@@ -928,22 +1492,44 @@ func (m *SLMplsIlmGetMsg) GetGetNext() bool {
 type SLMplsIlmGetMsgRsp struct {
 	// Correlator. This can be used to correlate replies with requests.
 	// The Server simply reflects this field back in the reply.
-	Correlator uint64 `protobuf:"varint,1,opt,name=Correlator" json:"Correlator,omitempty"`
+	Correlator uint64 `protobuf:"varint,1,opt,name=Correlator,proto3" json:"Correlator,omitempty"`
 	// End Of File.
 	// When set to True, it indicates that the server has returned M, where
 	// M < N, of the original N requested Entries.
-	Eof bool `protobuf:"varint,2,opt,name=Eof" json:"Eof,omitempty"`
+	Eof bool `protobuf:"varint,2,opt,name=Eof,proto3" json:"Eof,omitempty"`
 	// Status of the Get operation.
-	ErrStatus *SLErrorStatus `protobuf:"bytes,3,opt,name=ErrStatus" json:"ErrStatus,omitempty"`
+	ErrStatus *SLErrorStatus `protobuf:"bytes,3,opt,name=ErrStatus,proto3" json:"ErrStatus,omitempty"`
 	// Returned entries as requested in the Get operation.
 	// if ErrStatus is SL_SUCCESS, Entries contains the info requested
-	Entries []*SLMplsIlmEntry `protobuf:"bytes,4,rep,name=Entries" json:"Entries,omitempty"`
+	Entries              []*SLMplsIlmEntry `protobuf:"bytes,4,rep,name=Entries,proto3" json:"Entries,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}          `json:"-"`
+	XXX_unrecognized     []byte            `json:"-"`
+	XXX_sizecache        int32             `json:"-"`
 }
 
-func (m *SLMplsIlmGetMsgRsp) Reset()                    { *m = SLMplsIlmGetMsgRsp{} }
-func (m *SLMplsIlmGetMsgRsp) String() string            { return proto.CompactTextString(m) }
-func (*SLMplsIlmGetMsgRsp) ProtoMessage()               {}
-func (*SLMplsIlmGetMsgRsp) Descriptor() ([]byte, []int) { return fileDescriptor7, []int{19} }
+func (m *SLMplsIlmGetMsgRsp) Reset()         { *m = SLMplsIlmGetMsgRsp{} }
+func (m *SLMplsIlmGetMsgRsp) String() string { return proto.CompactTextString(m) }
+func (*SLMplsIlmGetMsgRsp) ProtoMessage()    {}
+func (*SLMplsIlmGetMsgRsp) Descriptor() ([]byte, []int) {
+	return fileDescriptor_sl_mpls_5d8dbbc3536cf4f5, []int{20}
+}
+func (m *SLMplsIlmGetMsgRsp) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_SLMplsIlmGetMsgRsp.Unmarshal(m, b)
+}
+func (m *SLMplsIlmGetMsgRsp) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_SLMplsIlmGetMsgRsp.Marshal(b, m, deterministic)
+}
+func (dst *SLMplsIlmGetMsgRsp) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_SLMplsIlmGetMsgRsp.Merge(dst, src)
+}
+func (m *SLMplsIlmGetMsgRsp) XXX_Size() int {
+	return xxx_messageInfo_SLMplsIlmGetMsgRsp.Size(m)
+}
+func (m *SLMplsIlmGetMsgRsp) XXX_DiscardUnknown() {
+	xxx_messageInfo_SLMplsIlmGetMsgRsp.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_SLMplsIlmGetMsgRsp proto.InternalMessageInfo
 
 func (m *SLMplsIlmGetMsgRsp) GetCorrelator() uint64 {
 	if m != nil {
@@ -980,6 +1566,7 @@ func init() {
 	proto.RegisterType((*SLMplsLabelBlockMsgRsp)(nil), "service_layer.SLMplsLabelBlockMsgRsp")
 	proto.RegisterType((*SLMplsLabelBlockGetMsg)(nil), "service_layer.SLMplsLabelBlockGetMsg")
 	proto.RegisterType((*SLMplsLabelBlockGetMsgRsp)(nil), "service_layer.SLMplsLabelBlockGetMsgRsp")
+	proto.RegisterType((*SlMplsReg)(nil), "service_layer.SlMplsReg")
 	proto.RegisterType((*SLMplsRegMsg)(nil), "service_layer.SLMplsRegMsg")
 	proto.RegisterType((*SLMplsRegMsgRsp)(nil), "service_layer.SLMplsRegMsgRsp")
 	proto.RegisterType((*SLMplsGetMsg)(nil), "service_layer.SLMplsGetMsg")
@@ -995,6 +1582,7 @@ func init() {
 	proto.RegisterType((*SLMplsIlmGetMsg)(nil), "service_layer.SLMplsIlmGetMsg")
 	proto.RegisterType((*SLMplsIlmGetMsgRsp)(nil), "service_layer.SLMplsIlmGetMsgRsp")
 	proto.RegisterEnum("service_layer.SlLabelAction", SlLabelAction_name, SlLabelAction_value)
+	proto.RegisterEnum("service_layer.SLMplsLabelBlockType", SLMplsLabelBlockType_name, SLMplsLabelBlockType_value)
 }
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -1005,8 +1593,9 @@ var _ grpc.ClientConn
 // is compatible with the grpc package it is being compiled against.
 const _ = grpc.SupportPackageIsVersion4
 
-// Client API for SLMplsOper service
-
+// SLMplsOperClient is the client API for SLMplsOper service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
 type SLMplsOperClient interface {
 	// SLMplsRegMsg.Oper = SL_REGOP_REGISTER.
 	//     Global MPLS registration.
@@ -1074,7 +1663,7 @@ func NewSLMplsOperClient(cc *grpc.ClientConn) SLMplsOperClient {
 
 func (c *sLMplsOperClient) SLMplsRegOp(ctx context.Context, in *SLMplsRegMsg, opts ...grpc.CallOption) (*SLMplsRegMsgRsp, error) {
 	out := new(SLMplsRegMsgRsp)
-	err := grpc.Invoke(ctx, "/service_layer.SLMplsOper/SLMplsRegOp", in, out, c.cc, opts...)
+	err := c.cc.Invoke(ctx, "/service_layer.SLMplsOper/SLMplsRegOp", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -1083,7 +1672,7 @@ func (c *sLMplsOperClient) SLMplsRegOp(ctx context.Context, in *SLMplsRegMsg, op
 
 func (c *sLMplsOperClient) SLMplsGet(ctx context.Context, in *SLMplsGetMsg, opts ...grpc.CallOption) (*SLMplsGetMsgRsp, error) {
 	out := new(SLMplsGetMsgRsp)
-	err := grpc.Invoke(ctx, "/service_layer.SLMplsOper/SLMplsGet", in, out, c.cc, opts...)
+	err := c.cc.Invoke(ctx, "/service_layer.SLMplsOper/SLMplsGet", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -1092,7 +1681,7 @@ func (c *sLMplsOperClient) SLMplsGet(ctx context.Context, in *SLMplsGetMsg, opts
 
 func (c *sLMplsOperClient) SLMplsGetStats(ctx context.Context, in *SLMplsGetMsg, opts ...grpc.CallOption) (*SLMplsGetStatsMsgRsp, error) {
 	out := new(SLMplsGetStatsMsgRsp)
-	err := grpc.Invoke(ctx, "/service_layer.SLMplsOper/SLMplsGetStats", in, out, c.cc, opts...)
+	err := c.cc.Invoke(ctx, "/service_layer.SLMplsOper/SLMplsGetStats", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -1101,7 +1690,7 @@ func (c *sLMplsOperClient) SLMplsGetStats(ctx context.Context, in *SLMplsGetMsg,
 
 func (c *sLMplsOperClient) SLMplsLabelBlockOp(ctx context.Context, in *SLMplsLabelBlockMsg, opts ...grpc.CallOption) (*SLMplsLabelBlockMsgRsp, error) {
 	out := new(SLMplsLabelBlockMsgRsp)
-	err := grpc.Invoke(ctx, "/service_layer.SLMplsOper/SLMplsLabelBlockOp", in, out, c.cc, opts...)
+	err := c.cc.Invoke(ctx, "/service_layer.SLMplsOper/SLMplsLabelBlockOp", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -1110,7 +1699,7 @@ func (c *sLMplsOperClient) SLMplsLabelBlockOp(ctx context.Context, in *SLMplsLab
 
 func (c *sLMplsOperClient) SLMplsLabelBlockGet(ctx context.Context, in *SLMplsLabelBlockGetMsg, opts ...grpc.CallOption) (*SLMplsLabelBlockGetMsgRsp, error) {
 	out := new(SLMplsLabelBlockGetMsgRsp)
-	err := grpc.Invoke(ctx, "/service_layer.SLMplsOper/SLMplsLabelBlockGet", in, out, c.cc, opts...)
+	err := c.cc.Invoke(ctx, "/service_layer.SLMplsOper/SLMplsLabelBlockGet", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -1119,7 +1708,7 @@ func (c *sLMplsOperClient) SLMplsLabelBlockGet(ctx context.Context, in *SLMplsLa
 
 func (c *sLMplsOperClient) SLMplsIlmOp(ctx context.Context, in *SLMplsIlmMsg, opts ...grpc.CallOption) (*SLMplsIlmMsgRsp, error) {
 	out := new(SLMplsIlmMsgRsp)
-	err := grpc.Invoke(ctx, "/service_layer.SLMplsOper/SLMplsIlmOp", in, out, c.cc, opts...)
+	err := c.cc.Invoke(ctx, "/service_layer.SLMplsOper/SLMplsIlmOp", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -1128,7 +1717,7 @@ func (c *sLMplsOperClient) SLMplsIlmOp(ctx context.Context, in *SLMplsIlmMsg, op
 
 func (c *sLMplsOperClient) SLMplsIlmGet(ctx context.Context, in *SLMplsIlmGetMsg, opts ...grpc.CallOption) (*SLMplsIlmGetMsgRsp, error) {
 	out := new(SLMplsIlmGetMsgRsp)
-	err := grpc.Invoke(ctx, "/service_layer.SLMplsOper/SLMplsIlmGet", in, out, c.cc, opts...)
+	err := c.cc.Invoke(ctx, "/service_layer.SLMplsOper/SLMplsIlmGet", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -1136,7 +1725,7 @@ func (c *sLMplsOperClient) SLMplsIlmGet(ctx context.Context, in *SLMplsIlmGetMsg
 }
 
 func (c *sLMplsOperClient) SLMplsIlmOpStream(ctx context.Context, opts ...grpc.CallOption) (SLMplsOper_SLMplsIlmOpStreamClient, error) {
-	stream, err := grpc.NewClientStream(ctx, &_SLMplsOper_serviceDesc.Streams[0], c.cc, "/service_layer.SLMplsOper/SLMplsIlmOpStream", opts...)
+	stream, err := c.cc.NewStream(ctx, &_SLMplsOper_serviceDesc.Streams[0], "/service_layer.SLMplsOper/SLMplsIlmOpStream", opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -1167,7 +1756,7 @@ func (x *sLMplsOperSLMplsIlmOpStreamClient) Recv() (*SLMplsIlmMsgRsp, error) {
 }
 
 func (c *sLMplsOperClient) SLMplsIlmGetStream(ctx context.Context, opts ...grpc.CallOption) (SLMplsOper_SLMplsIlmGetStreamClient, error) {
-	stream, err := grpc.NewClientStream(ctx, &_SLMplsOper_serviceDesc.Streams[1], c.cc, "/service_layer.SLMplsOper/SLMplsIlmGetStream", opts...)
+	stream, err := c.cc.NewStream(ctx, &_SLMplsOper_serviceDesc.Streams[1], "/service_layer.SLMplsOper/SLMplsIlmGetStream", opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -1197,8 +1786,7 @@ func (x *sLMplsOperSLMplsIlmGetStreamClient) Recv() (*SLMplsIlmGetMsgRsp, error)
 	return m, nil
 }
 
-// Server API for SLMplsOper service
-
+// SLMplsOperServer is the server API for SLMplsOper service.
 type SLMplsOperServer interface {
 	// SLMplsRegMsg.Oper = SL_REGOP_REGISTER.
 	//     Global MPLS registration.
@@ -1488,86 +2076,95 @@ var _SLMplsOper_serviceDesc = grpc.ServiceDesc{
 	Metadata: "sl_mpls.proto",
 }
 
-func init() { proto.RegisterFile("sl_mpls.proto", fileDescriptor7) }
+func init() { proto.RegisterFile("sl_mpls.proto", fileDescriptor_sl_mpls_5d8dbbc3536cf4f5) }
 
-var fileDescriptor7 = []byte{
-	// 1240 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x09, 0x6e, 0x88, 0x02, 0xff, 0xac, 0x58, 0x5d, 0x6f, 0x1b, 0x45,
-	0x17, 0xee, 0xda, 0xce, 0xd7, 0x24, 0x76, 0xdc, 0x69, 0xdf, 0xc8, 0xc9, 0x5b, 0x02, 0x4c, 0xf8,
-	0xb0, 0x2a, 0x1a, 0xaa, 0x50, 0x40, 0x54, 0x48, 0xe0, 0x24, 0x0e, 0x35, 0xb5, 0x63, 0x33, 0x0e,
-	0xe9, 0x05, 0x42, 0xab, 0x8d, 0x3d, 0x49, 0x0d, 0xbb, 0xde, 0xd5, 0xee, 0xa6, 0xc4, 0xfc, 0x02,
-	0x84, 0xb8, 0xe1, 0x0e, 0x21, 0xc1, 0x2d, 0x37, 0x5c, 0x72, 0x87, 0xc4, 0x9f, 0xe1, 0x8f, 0x70,
-	0x66, 0x76, 0x66, 0x3f, 0xbc, 0xde, 0xd8, 0xc1, 0xdc, 0x54, 0xdd, 0x33, 0xcf, 0x39, 0xf3, 0x9c,
-	0xe7, 0xcc, 0x9c, 0x39, 0x0e, 0x2a, 0x7a, 0xa6, 0x6e, 0x39, 0xa6, 0xb7, 0xeb, 0xb8, 0xb6, 0x6f,
-	0xe3, 0xa2, 0xc7, 0xdc, 0x17, 0x83, 0x1e, 0xd3, 0x4d, 0x63, 0xc4, 0xdc, 0xad, 0xff, 0xc1, 0x6a,
-	0xcf, 0xb6, 0x2c, 0x7b, 0xa8, 0xfb, 0x23, 0x87, 0x49, 0x14, 0xf9, 0x12, 0xdd, 0xe9, 0x36, 0x5b,
-	0xe0, 0xd5, 0x34, 0xce, 0x98, 0xb9, 0x6f, 0xda, 0xbd, 0xaf, 0x9f, 0xb2, 0x11, 0xde, 0x46, 0xa8,
-	0xeb, 0x1b, 0xae, 0x2f, 0xac, 0x15, 0xed, 0x15, 0xad, 0x5a, 0xa4, 0x31, 0x0b, 0x7e, 0x03, 0x95,
-	0x22, 0x87, 0xee, 0xe0, 0x5b, 0x56, 0xc9, 0x09, 0xcc, 0x98, 0x95, 0x7c, 0xa7, 0xa5, 0xe3, 0xb7,
-	0xbc, 0x0b, 0xfc, 0x00, 0x15, 0xda, 0x0e, 0x73, 0x45, 0xe4, 0xd2, 0xde, 0xe6, 0x6e, 0x82, 0xeb,
-	0x6e, 0xb7, 0xd9, 0x3e, 0xfb, 0x8a, 0xf5, 0xfc, 0xb6, 0x43, 0x05, 0x0c, 0xef, 0x23, 0xc4, 0x63,
-	0x08, 0x77, 0x0f, 0xb6, 0xca, 0x57, 0x57, 0xf7, 0x48, 0xca, 0x29, 0x95, 0x06, 0x8d, 0x79, 0x91,
-	0xef, 0x35, 0xb4, 0x31, 0x81, 0x0a, 0x65, 0x1e, 0x7e, 0x8c, 0x56, 0xea, 0xae, 0x0b, 0xe9, 0xf9,
-	0x97, 0x9e, 0xa0, 0xb4, 0xba, 0x77, 0x2f, 0x15, 0x1d, 0x10, 0xb6, 0xc4, 0xd0, 0x08, 0x8e, 0x1f,
-	0xa1, 0x3c, 0xec, 0x24, 0xd2, 0x9f, 0x8d, 0x13, 0x87, 0x93, 0x5f, 0x32, 0xc8, 0x78, 0x0e, 0xe4,
-	0x5a, 0x0c, 0x42, 0x77, 0x2f, 0x2d, 0xcb, 0x70, 0x47, 0x33, 0x11, 0x4a, 0xba, 0xe0, 0x8f, 0xd0,
-	0x12, 0xe4, 0x75, 0x69, 0xfa, 0x4a, 0xac, 0xd7, 0xa7, 0x10, 0x0b, 0x84, 0xa0, 0xca, 0x8b, 0xfc,
-	0x30, 0x81, 0xdf, 0x27, 0xcc, 0xe7, 0xa5, 0x93, 0x09, 0x6b, 0x37, 0x4a, 0x18, 0x13, 0xb4, 0x56,
-	0x1f, 0xfa, 0xee, 0x80, 0x79, 0x07, 0xf6, 0xe5, 0xd0, 0x97, 0xc7, 0x25, 0x61, 0xc3, 0x15, 0xb4,
-	0x04, 0x7b, 0x1c, 0xb3, 0x2b, 0xbf, 0x92, 0x87, 0xe5, 0x65, 0xaa, 0x3e, 0xc9, 0x6f, 0x1a, 0xda,
-	0x9c, 0x4c, 0x87, 0x2b, 0x56, 0x46, 0xf9, 0xba, 0x7d, 0x2e, 0x18, 0x2d, 0x53, 0xfe, 0xdf, 0x64,
-	0x41, 0x73, 0x37, 0x2b, 0xe8, 0x87, 0x68, 0x49, 0xb2, 0x02, 0x16, 0xb3, 0x1e, 0x34, 0xe5, 0x42,
-	0x1e, 0xa3, 0xb5, 0x60, 0x9d, 0xb2, 0x0b, 0xae, 0xd6, 0xfd, 0xc4, 0x41, 0xdf, 0x48, 0x85, 0x02,
-	0x98, 0x3a, 0xe5, 0xa4, 0x85, 0xd6, 0xe3, 0xbe, 0x3c, 0xb5, 0x39, 0x4e, 0x26, 0x29, 0x29, 0x2a,
-	0x81, 0x52, 0xe4, 0xef, 0x9c, 0x8a, 0x1f, 0x49, 0x37, 0xcf, 0xc9, 0x7f, 0x0b, 0xdd, 0x6e, 0x19,
-	0x57, 0x42, 0x07, 0xaf, 0xc3, 0x5c, 0xa1, 0x85, 0xac, 0x6b, 0x7a, 0x01, 0x1f, 0xa1, 0x6d, 0x65,
-	0x3c, 0x13, 0x17, 0x12, 0x56, 0xa2, 0x2f, 0xcb, 0xbb, 0x10, 0x35, 0x2f, 0xd2, 0x29, 0x28, 0xfc,
-	0x1a, 0x2a, 0xb6, 0x06, 0xc3, 0x58, 0x73, 0x2a, 0x08, 0xb7, 0xa4, 0x31, 0xec, 0x4f, 0x27, 0xc6,
-	0x99, 0xc9, 0x44, 0x7f, 0x5a, 0x88, 0xf5, 0xa7, 0xd0, 0x8a, 0xab, 0x68, 0x1d, 0xf6, 0x6b, 0x98,
-	0x16, 0xec, 0x03, 0xff, 0x72, 0x1a, 0x8b, 0x02, 0x38, 0x6e, 0xe6, 0x11, 0xc1, 0xd4, 0x31, 0xfc,
-	0xe7, 0x5e, 0x60, 0xac, 0x2c, 0x05, 0x11, 0x93, 0x56, 0xf2, 0x93, 0x86, 0xee, 0x86, 0x2a, 0x73,
-	0xa5, 0xbc, 0xff, 0x40, 0x6a, 0xa0, 0x19, 0x9d, 0xb7, 0xf8, 0x05, 0x1a, 0x37, 0xe3, 0x2d, 0xb4,
-	0x0c, 0x2c, 0x02, 0x48, 0x20, 0x68, 0xf8, 0x4d, 0xfe, 0xc8, 0x43, 0x57, 0x17, 0xd4, 0x38, 0x61,
-	0x68, 0x34, 0x25, 0x7e, 0xb9, 0x9e, 0xdb, 0x4e, 0xad, 0xdf, 0x77, 0x99, 0xa7, 0x58, 0x6d, 0xa5,
-	0x58, 0x35, 0x14, 0x82, 0x8e, 0x79, 0x40, 0x55, 0xcb, 0xd2, 0xd2, 0x18, 0xfa, 0xcc, 0x3d, 0x37,
-	0x7a, 0x4c, 0xde, 0xb7, 0x09, 0x51, 0x14, 0x82, 0xa6, 0x7c, 0xf8, 0x7b, 0xd3, 0xb4, 0x8d, 0x7e,
-	0x8b, 0xc1, 0x2d, 0xea, 0x49, 0xe2, 0x31, 0x0b, 0x6f, 0x0d, 0xa7, 0xee, 0xf9, 0xb1, 0x61, 0x31,
-	0x51, 0xef, 0x15, 0xaa, 0x3e, 0xa1, 0x1d, 0x2d, 0xd6, 0x7a, 0xfe, 0xc0, 0x1e, 0x8a, 0x0a, 0x97,
-	0xd2, 0x9a, 0x9a, 0x42, 0xa2, 0x00, 0x43, 0x25, 0x16, 0x6f, 0xa0, 0x45, 0xae, 0x41, 0xa3, 0x2f,
-	0xcb, 0x2d, 0xbf, 0xf0, 0x43, 0x74, 0xa7, 0x03, 0xef, 0x22, 0xbc, 0x3d, 0xac, 0xcf, 0x4d, 0xfb,
-	0x03, 0xdf, 0x32, 0x1c, 0x28, 0x75, 0xbe, 0x5a, 0xa0, 0x93, 0x96, 0x04, 0x73, 0xbe, 0x01, 0x54,
-	0x0a, 0x8e, 0xff, 0x32, 0x00, 0x39, 0xf3, 0xd0, 0x82, 0x3f, 0x46, 0x45, 0xca, 0x2c, 0xf0, 0x53,
-	0x22, 0xaf, 0x88, 0xa6, 0x72, 0x9d, 0xc8, 0x49, 0x07, 0x62, 0xaa, 0x7b, 0x0c, 0x85, 0x94, 0x6f,
-	0x73, 0xd3, 0xee, 0x19, 0x66, 0xe2, 0x6d, 0x8e, 0x2c, 0xd0, 0xc0, 0xd6, 0xba, 0x26, 0xc7, 0x1f,
-	0xd8, 0xde, 0xa9, 0x61, 0xca, 0x7a, 0x54, 0x26, 0x76, 0x31, 0x80, 0xd0, 0x04, 0x9a, 0x9c, 0xa0,
-	0x95, 0x70, 0x09, 0x63, 0xe8, 0xac, 0x57, 0x4e, 0xb0, 0xc7, 0x93, 0x5b, 0x94, 0x7f, 0x40, 0x47,
-	0x5b, 0x3f, 0xb2, 0xdd, 0x6f, 0x0c, 0xb7, 0x3f, 0x18, 0x5e, 0x1c, 0x98, 0x86, 0x17, 0x74, 0x58,
-	0xbe, 0x3e, 0xbe, 0xb0, 0xbf, 0x84, 0x16, 0x5e, 0x18, 0xe6, 0x25, 0x23, 0x3f, 0x6b, 0xa8, 0x14,
-	0x26, 0xc1, 0x7b, 0xe5, 0x08, 0x46, 0x80, 0xd8, 0x3b, 0xf2, 0xff, 0x89, 0xec, 0x82, 0x84, 0x83,
-	0x07, 0xe4, 0x6d, 0xb4, 0x20, 0xae, 0x99, 0x7c, 0xd0, 0x36, 0x27, 0x3a, 0x70, 0x04, 0x0d, 0x70,
-	0xfc, 0xce, 0x1c, 0xb2, 0x73, 0x03, 0x9e, 0xb3, 0xba, 0xe9, 0x39, 0xdc, 0x26, 0x5f, 0x95, 0x71,
-	0x33, 0xbf, 0xb2, 0x91, 0xc2, 0xff, 0x62, 0x3a, 0x81, 0x82, 0x1c, 0xd8, 0xae, 0xcb, 0x4c, 0xc3,
-	0xb7, 0x5d, 0x21, 0x46, 0x81, 0xc6, 0x2c, 0xf8, 0x03, 0xb4, 0x2c, 0x83, 0xab, 0x27, 0xe5, 0xa5,
-	0xac, 0x74, 0x85, 0x34, 0x34, 0x84, 0x93, 0x51, 0x8c, 0xd9, 0xbc, 0x93, 0xca, 0x83, 0xf8, 0xa4,
-	0x32, 0x55, 0x70, 0xf2, 0xbb, 0xa6, 0x9e, 0x8b, 0x40, 0x15, 0xde, 0xc3, 0x92, 0x99, 0x6a, 0xa9,
-	0x4c, 0x53, 0xb3, 0x4b, 0xee, 0xe6, 0xb3, 0xcb, 0xbb, 0xd1, 0xec, 0x12, 0x88, 0x95, 0x49, 0x35,
-	0x31, 0xb1, 0xfc, 0x1a, 0xa7, 0x2b, 0x47, 0x95, 0x69, 0x74, 0x6f, 0xa6, 0x48, 0x6a, 0x86, 0xc9,
-	0x5f, 0x3f, 0xc3, 0x14, 0x92, 0x33, 0xcc, 0x9f, 0x1a, 0xc2, 0x63, 0x04, 0x67, 0x91, 0x54, 0x0e,
-	0x37, 0xb9, 0x8c, 0xe1, 0x26, 0x7f, 0xb3, 0x33, 0xf0, 0x7e, 0x34, 0xdc, 0x14, 0x66, 0x39, 0x89,
-	0x0a, 0x7d, 0xff, 0x2f, 0x0d, 0x4a, 0x1b, 0x6f, 0xa5, 0xf8, 0x1e, 0xaa, 0x74, 0x9b, 0x7a, 0xb3,
-	0xb6, 0x5f, 0x6f, 0xea, 0xb5, 0x83, 0x93, 0x46, 0xfb, 0x58, 0xa7, 0xf5, 0x6e, 0x9d, 0x9e, 0xd6,
-	0x0f, 0xcb, 0xb7, 0x40, 0x87, 0xbb, 0xe3, 0xab, 0xdd, 0x67, 0xb5, 0x4e, 0x59, 0xc3, 0x3b, 0xe8,
-	0xe5, 0xf1, 0x95, 0x4e, 0xbb, 0xa3, 0xd7, 0x8e, 0x0f, 0xf5, 0xa3, 0x36, 0x7d, 0x56, 0xa3, 0x87,
-	0xe5, 0x1c, 0x7e, 0x13, 0xed, 0x64, 0x81, 0x9a, 0xed, 0xf6, 0xd3, 0xcf, 0x3b, 0x7a, 0xa3, 0x73,
-	0xfa, 0xa8, 0x9c, 0x9f, 0x0d, 0xf8, 0x5e, 0xb9, 0xb0, 0xf7, 0xe3, 0xa2, 0x7a, 0xfc, 0xc4, 0x9d,
-	0xfd, 0x14, 0xad, 0x86, 0xb3, 0x56, 0xdb, 0xc1, 0x93, 0x8b, 0x1f, 0xcc, 0x61, 0x5b, 0xdb, 0xd7,
-	0x2c, 0xf2, 0x12, 0x3e, 0x51, 0x2d, 0x13, 0xaa, 0x9a, 0x11, 0x29, 0xa8, 0x77, 0x46, 0xa4, 0xe8,
-	0x30, 0x50, 0xd5, 0x25, 0xd5, 0xec, 0x70, 0x7d, 0xb8, 0x9d, 0xac, 0xc5, 0xf8, 0xdc, 0xa1, 0xab,
-	0x63, 0x17, 0x8d, 0x0a, 0x90, 0x30, 0x99, 0xfe, 0x83, 0x60, 0x6b, 0x96, 0x1f, 0x0d, 0xb0, 0xc1,
-	0x79, 0xfa, 0x27, 0x1e, 0x17, 0x62, 0x9a, 0xb7, 0xcc, 0xa1, 0x3a, 0x13, 0x8c, 0xef, 0x13, 0x96,
-	0x0c, 0x4e, 0x67, 0x66, 0xc9, 0x82, 0x5e, 0x95, 0x21, 0x74, 0xd4, 0xc8, 0x3e, 0x8b, 0xf5, 0x55,
-	0x4e, 0x36, 0x13, 0x2f, 0x59, 0xbe, 0x7a, 0xfd, 0x3a, 0x0f, 0x79, 0x82, 0x6e, 0xc7, 0xe8, 0x75,
-	0x7d, 0x97, 0x19, 0xd6, 0x5c, 0x24, 0xab, 0xda, 0x43, 0x0d, 0x7f, 0x91, 0x6c, 0x1a, 0x32, 0xec,
-	0xfc, 0x74, 0x79, 0xf0, 0xb3, 0x45, 0xf1, 0x37, 0x80, 0x77, 0xfe, 0x09, 0x00, 0x00, 0xff, 0xff,
-	0x9f, 0xd9, 0x73, 0x37, 0x3a, 0x10, 0x00, 0x00,
+var fileDescriptor_sl_mpls_5d8dbbc3536cf4f5 = []byte{
+	// 1380 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xac, 0x58, 0xcf, 0x73, 0xdb, 0x44,
+	0x14, 0xae, 0x6c, 0xe7, 0xd7, 0x6b, 0xed, 0xb8, 0xdb, 0xd2, 0x51, 0x43, 0x1b, 0x5c, 0x85, 0x82,
+	0x27, 0x43, 0x4b, 0x27, 0x14, 0x18, 0x98, 0xce, 0x14, 0xdb, 0x71, 0x52, 0x13, 0x3b, 0x16, 0xab,
+	0x90, 0x0e, 0xc3, 0x41, 0xa3, 0xd8, 0x1b, 0xd7, 0x74, 0x65, 0x69, 0x56, 0xeb, 0x12, 0x73, 0x62,
+	0x38, 0x31, 0x0c, 0x17, 0x6e, 0x5c, 0xe0, 0xca, 0x85, 0x23, 0x37, 0x2e, 0xfc, 0x2d, 0xf0, 0x8f,
+	0x30, 0xbb, 0x92, 0x2c, 0xc9, 0xb6, 0x62, 0x87, 0x70, 0xf3, 0xbe, 0xfd, 0xde, 0xdb, 0x6f, 0xbf,
+	0x7d, 0xfb, 0xf6, 0xc9, 0x90, 0xf7, 0xa8, 0x69, 0xbb, 0xd4, 0x7b, 0xe8, 0x32, 0x87, 0x3b, 0x28,
+	0xef, 0x11, 0xf6, 0xaa, 0xdf, 0x21, 0x26, 0xb5, 0x46, 0x84, 0x6d, 0xbc, 0xe6, 0x51, 0xb3, 0xe3,
+	0xd8, 0xb6, 0x33, 0x30, 0xf9, 0xc8, 0x25, 0x01, 0x4a, 0xfb, 0x4b, 0x81, 0x1b, 0x46, 0xb3, 0xe5,
+	0x52, 0xaf, 0x69, 0x9d, 0x10, 0x5a, 0xa5, 0x4e, 0xe7, 0xe5, 0x01, 0x19, 0xa1, 0x4d, 0x00, 0x83,
+	0x5b, 0x8c, 0x4b, 0xab, 0xaa, 0x94, 0x94, 0x72, 0x1e, 0xc7, 0x2c, 0xe8, 0x2d, 0x28, 0x44, 0x0e,
+	0x46, 0xff, 0x1b, 0xa2, 0x66, 0x24, 0x66, 0xc2, 0x8a, 0x2a, 0xb0, 0x26, 0x07, 0x47, 0x23, 0x97,
+	0xa8, 0xd9, 0x92, 0x52, 0x2e, 0xec, 0x6c, 0x3d, 0x4c, 0x30, 0x7b, 0x38, 0xb9, 0xbc, 0x80, 0xe2,
+	0xc8, 0x4b, 0x50, 0xa9, 0xd1, 0x3e, 0x19, 0xf0, 0x43, 0xcb, 0x26, 0x6a, 0xae, 0xa4, 0x94, 0xd7,
+	0x70, 0xcc, 0xa2, 0x7d, 0x3f, 0x63, 0x0b, 0x2d, 0xaf, 0x87, 0x1e, 0x40, 0xae, 0xed, 0x12, 0x26,
+	0xc9, 0x17, 0x76, 0x6e, 0x4f, 0xad, 0xda, 0x3e, 0xf9, 0x8a, 0x74, 0x78, 0xdb, 0xc5, 0x12, 0x86,
+	0xaa, 0x00, 0x22, 0x86, 0x74, 0xf7, 0xd4, 0x4c, 0x29, 0x5b, 0xbe, 0xba, 0xa3, 0xcd, 0xa1, 0x7a,
+	0x40, 0x46, 0x38, 0xe6, 0xa5, 0xfd, 0xa0, 0xc0, 0xad, 0x19, 0x54, 0x30, 0xf1, 0xd0, 0xc7, 0xb0,
+	0x56, 0x67, 0xcc, 0xe0, 0x16, 0x1f, 0x7a, 0x92, 0xd2, 0xd5, 0x9d, 0x3b, 0x53, 0xd1, 0xeb, 0x8c,
+	0x39, 0x01, 0x06, 0x47, 0x70, 0xf4, 0x18, 0xb2, 0x07, 0x64, 0x24, 0x15, 0x5e, 0x8c, 0x93, 0x80,
+	0x6b, 0xbf, 0xa4, 0x90, 0xf1, 0x5c, 0x54, 0x85, 0xbc, 0x1f, 0xda, 0x18, 0xda, 0xb6, 0xc5, 0x46,
+	0x0b, 0x11, 0x4a, 0xba, 0xa0, 0xa7, 0xb0, 0x82, 0x89, 0x37, 0xa4, 0x3c, 0x14, 0xeb, 0xfe, 0x1c,
+	0x62, 0xbe, 0x10, 0x38, 0xf4, 0xd2, 0x7e, 0x9c, 0xc1, 0x6f, 0x9f, 0x70, 0x71, 0x74, 0xc1, 0x86,
+	0x95, 0x0b, 0x6d, 0x18, 0x69, 0x70, 0xad, 0x3e, 0xe0, 0xac, 0x4f, 0xbc, 0x9a, 0x33, 0x1c, 0xf0,
+	0x20, 0x23, 0x13, 0x36, 0xa4, 0xc2, 0xca, 0x3e, 0xe1, 0x87, 0xe4, 0x8c, 0xcb, 0x6c, 0x5c, 0xc5,
+	0xe1, 0x50, 0xfb, 0x4d, 0x81, 0xdb, 0xb3, 0xe9, 0x08, 0xc5, 0x8a, 0x90, 0xad, 0x3b, 0xa7, 0x92,
+	0xd1, 0x2a, 0x16, 0x3f, 0x93, 0x07, 0x9a, 0xb9, 0xd8, 0x81, 0x3e, 0x81, 0x95, 0x80, 0x95, 0x9a,
+	0x5d, 0x38, 0xd1, 0x42, 0x17, 0xed, 0x29, 0xac, 0x19, 0x54, 0xcc, 0x63, 0xd2, 0x43, 0x3b, 0x70,
+	0x53, 0x1f, 0xb2, 0x1e, 0x69, 0x0c, 0x38, 0x61, 0xaf, 0x2c, 0x6a, 0x90, 0x8e, 0x33, 0xe8, 0x7a,
+	0xc1, 0x95, 0x9d, 0x39, 0xa7, 0x51, 0xb8, 0xe6, 0x2f, 0x80, 0x49, 0x4f, 0xc8, 0xbd, 0x9d, 0xb8,
+	0x29, 0xb7, 0xa6, 0xb8, 0x60, 0xd2, 0x1b, 0x5f, 0x93, 0x47, 0xb0, 0xec, 0x7b, 0x05, 0x7b, 0x56,
+	0x27, 0xd1, 0x21, 0x33, 0x1c, 0xe0, 0xb4, 0x16, 0xac, 0xc7, 0x57, 0x13, 0x6a, 0x5e, 0xe2, 0x32,
+	0x68, 0x85, 0x90, 0xbc, 0x7f, 0x38, 0xda, 0x3f, 0x99, 0x30, 0x7e, 0x74, 0x5a, 0x97, 0xb9, 0x6c,
+	0xef, 0xc0, 0xf5, 0x96, 0x75, 0x26, 0xa5, 0xf7, 0x74, 0xc2, 0xa4, 0xfc, 0x41, 0x2a, 0x4d, 0x4f,
+	0xa0, 0x3d, 0xd8, 0x0c, 0x8d, 0x27, 0xb2, 0x06, 0xe8, 0x84, 0x45, 0x23, 0xdb, 0xeb, 0xc9, 0x34,
+	0xcb, 0xe3, 0x39, 0x28, 0xf4, 0x26, 0xe4, 0x5b, 0xfd, 0x41, 0xac, 0xe4, 0xe6, 0xa4, 0x5b, 0xd2,
+	0x38, 0xae, 0xba, 0x47, 0xd6, 0x09, 0x25, 0xb2, 0xea, 0x2e, 0xc5, 0xaa, 0xee, 0xd8, 0x8a, 0xca,
+	0xb0, 0xde, 0xb2, 0xce, 0x1a, 0xd4, 0xd6, 0x09, 0x6b, 0x50, 0x5b, 0xd0, 0x58, 0x96, 0xc0, 0x49,
+	0xb3, 0x88, 0xd8, 0xb2, 0xce, 0x74, 0x8b, 0xbf, 0xf0, 0x7c, 0xa3, 0xba, 0xe2, 0x47, 0x4c, 0x5a,
+	0xb5, 0x9f, 0x15, 0xb8, 0x39, 0x56, 0x59, 0x28, 0xe5, 0xfd, 0x0f, 0x52, 0x97, 0x61, 0x3d, 0x4a,
+	0xf1, 0xf8, 0x9d, 0x9d, 0x34, 0xa3, 0x0d, 0x58, 0x6d, 0x50, 0xdb, 0x87, 0xf8, 0x82, 0x8e, 0xc7,
+	0xda, 0x1f, 0x59, 0x00, 0x9f, 0x9a, 0x20, 0x8c, 0xaa, 0x50, 0x10, 0xf7, 0xf9, 0x85, 0xe3, 0x56,
+	0xba, 0x5d, 0x46, 0xbc, 0x90, 0xd5, 0xc6, 0x14, 0xab, 0x46, 0x88, 0xc0, 0x13, 0x1e, 0x68, 0x0f,
+	0x8a, 0x81, 0x45, 0x5e, 0x9d, 0x53, 0xab, 0x43, 0x82, 0x74, 0x9f, 0x11, 0x25, 0x44, 0xe0, 0x29,
+	0x1f, 0xf1, 0x74, 0x35, 0x1d, 0xab, 0xdb, 0x22, 0x9c, 0xf5, 0x3b, 0x01, 0xf1, 0x98, 0x45, 0x54,
+	0xa3, 0x63, 0x76, 0x1a, 0x7b, 0xd7, 0xc2, 0x21, 0x7a, 0x0c, 0xcb, 0x95, 0x0e, 0xef, 0x3b, 0x03,
+	0x79, 0xc2, 0x85, 0x69, 0x4d, 0xa9, 0x94, 0xc8, 0xc7, 0xe0, 0x00, 0x8b, 0x6e, 0xc1, 0xb2, 0xd0,
+	0xa0, 0xd1, 0x0d, 0x8e, 0x3b, 0x18, 0xa1, 0x47, 0x70, 0x43, 0x67, 0x0e, 0x27, 0x1d, 0x4e, 0xba,
+	0xc2, 0x54, 0xed, 0x73, 0xdb, 0x72, 0xd5, 0x95, 0x52, 0xb6, 0x9c, 0xc3, 0xb3, 0xa6, 0x24, 0x73,
+	0xb1, 0x80, 0xc1, 0xad, 0xce, 0x4b, 0x75, 0xb5, 0x94, 0x95, 0xcc, 0xc7, 0x16, 0xf4, 0x09, 0xe4,
+	0x31, 0xb1, 0x1d, 0x4e, 0x42, 0x91, 0xd7, 0x64, 0x1d, 0x3b, 0x4f, 0xe4, 0xa4, 0x43, 0x54, 0x84,
+	0x1a, 0xd4, 0x0e, 0x3a, 0x8e, 0xa6, 0xd3, 0xb1, 0x68, 0xa2, 0xe3, 0x88, 0x2c, 0xe8, 0x09, 0x5c,
+	0xf3, 0x6b, 0x4b, 0xcd, 0xf1, 0x8e, 0x2d, 0x9a, 0x56, 0x7e, 0x9a, 0x01, 0x04, 0x27, 0xd0, 0xda,
+	0xb7, 0x0a, 0xac, 0x8d, 0xe7, 0x10, 0x82, 0x6c, 0xfd, 0xcc, 0xf5, 0x17, 0x79, 0x76, 0x05, 0x8b,
+	0x01, 0xda, 0x86, 0xf5, 0x5d, 0x72, 0x6a, 0x0d, 0x29, 0xaf, 0x53, 0xcf, 0x15, 0x52, 0xc8, 0x25,
+	0x56, 0x9f, 0x5d, 0xc1, 0x93, 0x13, 0x02, 0xbb, 0xe7, 0xb0, 0xaf, 0x2d, 0xd6, 0xed, 0x0f, 0x7a,
+	0x35, 0x6a, 0x79, 0x9e, 0x7f, 0xb8, 0x02, 0x3b, 0x31, 0x51, 0x5d, 0x81, 0xa5, 0x57, 0x16, 0x1d,
+	0x12, 0xcd, 0x85, 0xc2, 0x78, 0xc3, 0xa2, 0x94, 0x8f, 0xd0, 0x83, 0xf8, 0x33, 0xf7, 0xfa, 0xcc,
+	0x9d, 0xf8, 0xe2, 0xf8, 0xef, 0xdb, 0xbb, 0xb0, 0x24, 0xaf, 0x64, 0xf0, 0xde, 0xde, 0x9e, 0xe9,
+	0x20, 0x10, 0xd8, 0xc7, 0x89, 0x4b, 0x1b, 0x69, 0xfc, 0x1f, 0x5a, 0x22, 0xd1, 0x79, 0x39, 0x8c,
+	0x11, 0x6a, 0x71, 0x87, 0x49, 0x35, 0x72, 0x38, 0x66, 0x41, 0x1f, 0xc1, 0x6a, 0x10, 0x3c, 0x7c,
+	0xc7, 0xee, 0xa6, 0x6d, 0x42, 0x6e, 0x18, 0x8f, 0xe1, 0xda, 0x28, 0xc6, 0xec, 0xb2, 0xed, 0xd1,
+	0x83, 0x78, 0x7b, 0x34, 0x57, 0x46, 0xed, 0x77, 0x25, 0x7c, 0x30, 0x7c, 0x55, 0x44, 0x15, 0x4b,
+	0xee, 0x54, 0x99, 0xda, 0xe9, 0x54, 0xc3, 0x94, 0xb9, 0x78, 0xc3, 0xf4, 0x7e, 0xd4, 0x30, 0xf9,
+	0x62, 0xa5, 0x52, 0x4d, 0xb4, 0x49, 0xbf, 0xc6, 0xe9, 0x06, 0xfd, 0xd1, 0x3c, 0xba, 0x17, 0x53,
+	0x64, 0xaa, 0x71, 0xca, 0x9e, 0xdf, 0x38, 0xe5, 0x92, 0x8d, 0xd3, 0x9f, 0x0a, 0xa0, 0x09, 0x82,
+	0x8b, 0x48, 0x1a, 0x74, 0x54, 0x99, 0x94, 0x8e, 0x2a, 0x7b, 0xb1, 0x1c, 0xf8, 0x30, 0xea, 0xa8,
+	0x72, 0x8b, 0x64, 0x62, 0x88, 0xde, 0xfe, 0x5b, 0x81, 0x7c, 0xa2, 0x98, 0xa2, 0x3b, 0xa0, 0x1a,
+	0x4d, 0xb3, 0x59, 0xa9, 0xd6, 0x9b, 0x66, 0xa5, 0x76, 0xd4, 0x68, 0x1f, 0x9a, 0xb8, 0x6e, 0xd4,
+	0xf1, 0x71, 0x7d, 0xb7, 0x78, 0x05, 0xa9, 0xe2, 0x1d, 0x4c, 0xce, 0x1a, 0xcf, 0x2b, 0x7a, 0x51,
+	0x41, 0x5b, 0xf0, 0xc6, 0xe4, 0x8c, 0xde, 0xd6, 0xcd, 0xca, 0xe1, 0xae, 0xb9, 0xd7, 0xc6, 0xcf,
+	0x2b, 0x78, 0xb7, 0x98, 0x41, 0x6f, 0xc3, 0x56, 0x1a, 0xa8, 0xd9, 0x6e, 0x1f, 0x7c, 0xae, 0x9b,
+	0x0d, 0xfd, 0xf8, 0x71, 0x31, 0xbb, 0x18, 0xf0, 0x83, 0x62, 0x0e, 0x69, 0xb0, 0x79, 0x3e, 0xb0,
+	0xb8, 0xb4, 0xfd, 0xdd, 0xf8, 0xf5, 0x4e, 0x7e, 0x66, 0xa1, 0xfb, 0x70, 0xcf, 0x68, 0x9a, 0x2d,
+	0xbd, 0x69, 0x04, 0x11, 0xaa, 0xcd, 0x76, 0xed, 0xc0, 0x3c, 0xfa, 0x42, 0xaf, 0xc7, 0x37, 0x7d,
+	0x0f, 0xee, 0xa6, 0xc2, 0x0c, 0xbc, 0x5f, 0x2d, 0x2a, 0xa8, 0x04, 0x77, 0x52, 0x21, 0xb5, 0xea,
+	0x5e, 0x31, 0xb3, 0xf3, 0xd3, 0x72, 0xf8, 0x4e, 0xcb, 0xe2, 0xf2, 0x29, 0x5c, 0x1d, 0xb7, 0x85,
+	0x6d, 0x17, 0xcd, 0xce, 0x52, 0xbf, 0x65, 0xdc, 0xd8, 0x3c, 0x67, 0x52, 0xe4, 0xda, 0xb3, 0xb0,
+	0xb8, 0xef, 0x13, 0x9e, 0x12, 0xc9, 0x4f, 0xcc, 0x94, 0x48, 0x51, 0xd6, 0xe2, 0xb0, 0x48, 0x87,
+	0x6d, 0xce, 0xf9, 0xe1, 0xb6, 0xd2, 0x26, 0xe3, 0x2d, 0x92, 0x19, 0xde, 0x8f, 0x48, 0xfc, 0xb6,
+	0x8b, 0xb4, 0xf9, 0x9f, 0x4b, 0x1b, 0x8b, 0x7c, 0x52, 0x79, 0x2e, 0x3a, 0x9d, 0xfe, 0x00, 0x16,
+	0x42, 0xcc, 0xf3, 0x0e, 0xf6, 0x50, 0x5e, 0x08, 0x26, 0xd6, 0x19, 0x1f, 0x59, 0x83, 0xda, 0xa9,
+	0x47, 0xe6, 0x17, 0xd5, 0x14, 0xa1, 0xa3, 0x8a, 0xfb, 0x59, 0xec, 0x01, 0x10, 0x64, 0x53, 0xf1,
+	0x01, 0xcb, 0x7b, 0xe7, 0xcf, 0x8b, 0x90, 0x47, 0x70, 0x3d, 0x46, 0xcf, 0xe0, 0x8c, 0x58, 0xf6,
+	0xa5, 0x48, 0x96, 0x95, 0x47, 0x0a, 0xfa, 0x32, 0x59, 0xdd, 0x82, 0xb0, 0x97, 0xa7, 0x2b, 0x82,
+	0x9f, 0x2c, 0xcb, 0x7f, 0x61, 0xde, 0xfb, 0x37, 0x00, 0x00, 0xff, 0xff, 0x4f, 0x6d, 0x11, 0x5b,
+	0xbc, 0x11, 0x00, 0x00,
 }

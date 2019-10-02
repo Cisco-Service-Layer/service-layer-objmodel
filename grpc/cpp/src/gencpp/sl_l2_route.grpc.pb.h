@@ -30,7 +30,6 @@
 namespace grpc {
 class CompletionQueue;
 class Channel;
-class RpcService;
 class ServerCompletionQueue;
 class ServerContext;
 }  // namespace grpc
@@ -278,12 +277,12 @@ class SLL2Oper final {
     ::grpc::ClientReaderWriter< ::service_layer::SLL2GetNotifMsg, ::service_layer::SLL2Notif>* SLL2GetNotifStreamRaw(::grpc::ClientContext* context) override;
     ::grpc::ClientAsyncReaderWriter< ::service_layer::SLL2GetNotifMsg, ::service_layer::SLL2Notif>* AsyncSLL2GetNotifStreamRaw(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq, void* tag) override;
     ::grpc::ClientAsyncReaderWriter< ::service_layer::SLL2GetNotifMsg, ::service_layer::SLL2Notif>* PrepareAsyncSLL2GetNotifStreamRaw(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq) override;
-    const ::grpc::RpcMethod rpcmethod_SLL2GlobalsGet_;
-    const ::grpc::RpcMethod rpcmethod_SLL2RegOp_;
-    const ::grpc::RpcMethod rpcmethod_SLL2BdRegOp_;
-    const ::grpc::RpcMethod rpcmethod_SLL2RouteOp_;
-    const ::grpc::RpcMethod rpcmethod_SLL2RouteOpStream_;
-    const ::grpc::RpcMethod rpcmethod_SLL2GetNotifStream_;
+    const ::grpc::internal::RpcMethod rpcmethod_SLL2GlobalsGet_;
+    const ::grpc::internal::RpcMethod rpcmethod_SLL2RegOp_;
+    const ::grpc::internal::RpcMethod rpcmethod_SLL2BdRegOp_;
+    const ::grpc::internal::RpcMethod rpcmethod_SLL2RouteOp_;
+    const ::grpc::internal::RpcMethod rpcmethod_SLL2RouteOpStream_;
+    const ::grpc::internal::RpcMethod rpcmethod_SLL2GetNotifStream_;
   };
   static std::unique_ptr<Stub> NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options = ::grpc::StubOptions());
 
@@ -627,7 +626,7 @@ class SLL2Oper final {
    public:
     WithStreamedUnaryMethod_SLL2GlobalsGet() {
       ::grpc::Service::MarkMethodStreamed(0,
-        new ::grpc::StreamedUnaryHandler< ::service_layer::SLL2GlobalsGetMsg, ::service_layer::SLL2GlobalsGetMsgRsp>(std::bind(&WithStreamedUnaryMethod_SLL2GlobalsGet<BaseClass>::StreamedSLL2GlobalsGet, this, std::placeholders::_1, std::placeholders::_2)));
+        new ::grpc::internal::StreamedUnaryHandler< ::service_layer::SLL2GlobalsGetMsg, ::service_layer::SLL2GlobalsGetMsgRsp>(std::bind(&WithStreamedUnaryMethod_SLL2GlobalsGet<BaseClass>::StreamedSLL2GlobalsGet, this, std::placeholders::_1, std::placeholders::_2)));
     }
     ~WithStreamedUnaryMethod_SLL2GlobalsGet() override {
       BaseClassMustBeDerivedFromService(this);
@@ -647,7 +646,7 @@ class SLL2Oper final {
    public:
     WithStreamedUnaryMethod_SLL2RegOp() {
       ::grpc::Service::MarkMethodStreamed(1,
-        new ::grpc::StreamedUnaryHandler< ::service_layer::SLL2RegMsg, ::service_layer::SLL2RegMsgRsp>(std::bind(&WithStreamedUnaryMethod_SLL2RegOp<BaseClass>::StreamedSLL2RegOp, this, std::placeholders::_1, std::placeholders::_2)));
+        new ::grpc::internal::StreamedUnaryHandler< ::service_layer::SLL2RegMsg, ::service_layer::SLL2RegMsgRsp>(std::bind(&WithStreamedUnaryMethod_SLL2RegOp<BaseClass>::StreamedSLL2RegOp, this, std::placeholders::_1, std::placeholders::_2)));
     }
     ~WithStreamedUnaryMethod_SLL2RegOp() override {
       BaseClassMustBeDerivedFromService(this);
@@ -667,7 +666,7 @@ class SLL2Oper final {
    public:
     WithStreamedUnaryMethod_SLL2BdRegOp() {
       ::grpc::Service::MarkMethodStreamed(2,
-        new ::grpc::StreamedUnaryHandler< ::service_layer::SLL2BdRegMsg, ::service_layer::SLL2BdRegMsgRsp>(std::bind(&WithStreamedUnaryMethod_SLL2BdRegOp<BaseClass>::StreamedSLL2BdRegOp, this, std::placeholders::_1, std::placeholders::_2)));
+        new ::grpc::internal::StreamedUnaryHandler< ::service_layer::SLL2BdRegMsg, ::service_layer::SLL2BdRegMsgRsp>(std::bind(&WithStreamedUnaryMethod_SLL2BdRegOp<BaseClass>::StreamedSLL2BdRegOp, this, std::placeholders::_1, std::placeholders::_2)));
     }
     ~WithStreamedUnaryMethod_SLL2BdRegOp() override {
       BaseClassMustBeDerivedFromService(this);
@@ -687,7 +686,7 @@ class SLL2Oper final {
    public:
     WithStreamedUnaryMethod_SLL2RouteOp() {
       ::grpc::Service::MarkMethodStreamed(3,
-        new ::grpc::StreamedUnaryHandler< ::service_layer::SLL2RouteMsg, ::service_layer::SLL2RouteMsgRsp>(std::bind(&WithStreamedUnaryMethod_SLL2RouteOp<BaseClass>::StreamedSLL2RouteOp, this, std::placeholders::_1, std::placeholders::_2)));
+        new ::grpc::internal::StreamedUnaryHandler< ::service_layer::SLL2RouteMsg, ::service_layer::SLL2RouteMsgRsp>(std::bind(&WithStreamedUnaryMethod_SLL2RouteOp<BaseClass>::StreamedSLL2RouteOp, this, std::placeholders::_1, std::placeholders::_2)));
     }
     ~WithStreamedUnaryMethod_SLL2RouteOp() override {
       BaseClassMustBeDerivedFromService(this);

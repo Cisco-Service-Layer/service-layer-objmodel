@@ -7,7 +7,7 @@
 // on server.
 //
 // ----------------------------------------------------------------
-//  Copyright (c) 2016 by Cisco Systems, Inc.
+//  Copyright (c) 2019 by Cisco Systems, Inc.
 //  All rights reserved.
 // -----------------------------------------------------------------
 //
@@ -31,7 +31,6 @@
 namespace grpc {
 class CompletionQueue;
 class Channel;
-class RpcService;
 class ServerCompletionQueue;
 class ServerContext;
 }  // namespace grpc
@@ -122,8 +121,8 @@ class SLGlobal final {
     ::grpc::ClientAsyncReader< ::service_layer::SLGlobalNotif>* PrepareAsyncSLGlobalInitNotifRaw(::grpc::ClientContext* context, const ::service_layer::SLInitMsg& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::service_layer::SLGlobalsGetMsgRsp>* AsyncSLGlobalsGetRaw(::grpc::ClientContext* context, const ::service_layer::SLGlobalsGetMsg& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::service_layer::SLGlobalsGetMsgRsp>* PrepareAsyncSLGlobalsGetRaw(::grpc::ClientContext* context, const ::service_layer::SLGlobalsGetMsg& request, ::grpc::CompletionQueue* cq) override;
-    const ::grpc::RpcMethod rpcmethod_SLGlobalInitNotif_;
-    const ::grpc::RpcMethod rpcmethod_SLGlobalsGet_;
+    const ::grpc::internal::RpcMethod rpcmethod_SLGlobalInitNotif_;
+    const ::grpc::internal::RpcMethod rpcmethod_SLGlobalsGet_;
   };
   static std::unique_ptr<Stub> NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options = ::grpc::StubOptions());
 
@@ -237,7 +236,7 @@ class SLGlobal final {
    public:
     WithStreamedUnaryMethod_SLGlobalsGet() {
       ::grpc::Service::MarkMethodStreamed(1,
-        new ::grpc::StreamedUnaryHandler< ::service_layer::SLGlobalsGetMsg, ::service_layer::SLGlobalsGetMsgRsp>(std::bind(&WithStreamedUnaryMethod_SLGlobalsGet<BaseClass>::StreamedSLGlobalsGet, this, std::placeholders::_1, std::placeholders::_2)));
+        new ::grpc::internal::StreamedUnaryHandler< ::service_layer::SLGlobalsGetMsg, ::service_layer::SLGlobalsGetMsgRsp>(std::bind(&WithStreamedUnaryMethod_SLGlobalsGet<BaseClass>::StreamedSLGlobalsGet, this, std::placeholders::_1, std::placeholders::_2)));
     }
     ~WithStreamedUnaryMethod_SLGlobalsGet() override {
       BaseClassMustBeDerivedFromService(this);
@@ -258,7 +257,7 @@ class SLGlobal final {
    public:
     WithSplitStreamingMethod_SLGlobalInitNotif() {
       ::grpc::Service::MarkMethodStreamed(0,
-        new ::grpc::SplitServerStreamingHandler< ::service_layer::SLInitMsg, ::service_layer::SLGlobalNotif>(std::bind(&WithSplitStreamingMethod_SLGlobalInitNotif<BaseClass>::StreamedSLGlobalInitNotif, this, std::placeholders::_1, std::placeholders::_2)));
+        new ::grpc::internal::SplitServerStreamingHandler< ::service_layer::SLInitMsg, ::service_layer::SLGlobalNotif>(std::bind(&WithSplitStreamingMethod_SLGlobalInitNotif<BaseClass>::StreamedSLGlobalInitNotif, this, std::placeholders::_1, std::placeholders::_2)));
     }
     ~WithSplitStreamingMethod_SLGlobalInitNotif() override {
       BaseClassMustBeDerivedFromService(this);

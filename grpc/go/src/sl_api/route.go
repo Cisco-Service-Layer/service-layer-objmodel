@@ -37,15 +37,16 @@ func incrementIpv4Pfx(pfx uint32, prefixLen uint32) (uint32){
  * Note: The batch size can not exceed the value of MaxRoutePerRoutemsg
  */
 func RouteOperation(conn *grpc.ClientConn, Oper pb.SLObjectOp,
-        FirstPrefix string, prefixLen uint32, batchNum uint, batchSize uint) {
+        FirstPrefix string, prefixLen uint32, batchNum uint, batchSize uint,
+        NextHopIP string, Interface string) {
 
     var batchIndex uint
     var totalRoutes int64 = 0
 
     /* Initialize some route params */
     prefix := ip4toInt(net.ParseIP(fmt.Sprintf(FirstPrefix)))
-    nexthop1 := ip4toInt(net.ParseIP("10.10.10.1"))
-    nexthop2 := ip4toInt(net.ParseIP("10.10.10.2"))
+    nexthop1 := ip4toInt(net.ParseIP(NextHopIP))
+    nexthop2 := nexthop1 + 1;
 
     /* Create a NewSLRoutev4OperClient instance */
     c := pb.NewSLRoutev4OperClient(conn)
@@ -94,7 +95,7 @@ func RouteOperation(conn *grpc.ClientConn, Oper pb.SLObjectOp,
                     },
                     NexthopInterface: &pb.SLInterface{
                         Interface: &pb.SLInterface_Name{
-                            Name: "GigabitEthernet0/0/0/0",
+                            Name: Interface,
                         },
                     },
                 }
@@ -110,7 +111,7 @@ func RouteOperation(conn *grpc.ClientConn, Oper pb.SLObjectOp,
                     },
                     NexthopInterface: &pb.SLInterface{
                         Interface: &pb.SLInterface_Name{
-                            Name: "GigabitEthernet0/0/0/0",
+                            Name: Interface,
                         },
                     },
                 }

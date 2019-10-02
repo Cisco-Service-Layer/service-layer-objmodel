@@ -24,6 +24,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   serialized_pb=_b('\n\x12sl_interface.proto\x12\rservice_layer\x1a\x15sl_common_types.proto\"@\n\x18SLInterfaceGlobalsRegMsg\x12$\n\x04Oper\x18\x01 \x01(\x0e\x32\x16.service_layer.SLRegOp\"N\n\x1bSLInterfaceGlobalsRegMsgRsp\x12/\n\tErrStatus\x18\x01 \x01(\x0b\x32\x1c.service_layer.SLErrorStatus\"\x1a\n\x18SLInterfaceGlobalsGetMsg\"m\n\x1bSLInterfaceGlobalsGetMsgRsp\x12/\n\tErrStatus\x18\x01 \x01(\x0b\x32\x1c.service_layer.SLErrorStatus\x12\x1d\n\x15MaxInterfacesPerBatch\x18\x02 \x01(\r\"\x80\x01\n SLInterfaceGlobalsGetStatsMsgRsp\x12/\n\tErrStatus\x18\x01 \x01(\x0b\x32\x1c.service_layer.SLErrorStatus\x12\x0e\n\x06SeqNum\x18\x02 \x01(\x04\x12\x1b\n\x13InterfaceNotifCount\x18\x03 \x01(\r\"c\n\x11SLInterfaceGetMsg\x12\'\n\x03Key\x18\x01 \x01(\x0b\x32\x1a.service_layer.SLInterface\x12\x14\n\x0c\x45ntriesCount\x18\x02 \x01(\r\x12\x0f\n\x07GetNext\x18\x03 \x01(\x08\"\x84\x01\n\x12SLInterfaceInfoMsg\x12,\n\x08SLIfInfo\x18\x01 \x01(\x0b\x32\x1a.service_layer.SLInterface\x12\x30\n\x07IfState\x18\x02 \x01(\x0e\x32\x1f.service_layer.SLInterfaceState\x12\x0e\n\x06SeqNum\x18\x03 \x01(\x04\"\x88\x01\n\x14SLInterfaceGetMsgRsp\x12\x0b\n\x03\x45of\x18\x01 \x01(\x08\x12/\n\tErrStatus\x18\x02 \x01(\x0b\x32\x1c.service_layer.SLErrorStatus\x12\x32\n\x07\x45ntries\x18\x03 \x03(\x0b\x32!.service_layer.SLInterfaceInfoMsg\"\x18\n\x16SLInterfaceGetNotifMsg\"\xb9\x01\n\x10SLInterfaceNotif\x12\x36\n\tEventType\x18\x01 \x01(\x0e\x32#.service_layer.SLInterfaceNotifType\x12\x31\n\tErrStatus\x18\x02 \x01(\x0b\x32\x1c.service_layer.SLErrorStatusH\x00\x12\x31\n\x04Info\x18\x03 \x01(\x0b\x32!.service_layer.SLInterfaceInfoMsgH\x00\x42\x07\n\x05\x45vent\"j\n\x13SLInterfaceNotifMsg\x12&\n\x04Oper\x18\x01 \x01(\x0e\x32\x18.service_layer.SLNotifOp\x12+\n\x07\x45ntries\x18\x02 \x03(\x0b\x32\x1a.service_layer.SLInterface\"r\n\x16SLInterfaceNotifMsgRes\x12/\n\tErrStatus\x18\x01 \x01(\x0b\x32\x1c.service_layer.SLErrorStatus\x12\'\n\x03Key\x18\x02 \x01(\x0b\x32\x1a.service_layer.SLInterface\"\x85\x01\n\x16SLInterfaceNotifMsgRsp\x12\x33\n\rStatusSummary\x18\x01 \x01(\x0b\x32\x1c.service_layer.SLErrorStatus\x12\x36\n\x07Results\x18\x02 \x03(\x0b\x32%.service_layer.SLInterfaceNotifMsgRes*U\n\x10SLInterfaceState\x12\x17\n\x13SL_IF_STATE_UNKNOWN\x10\x00\x12\x14\n\x10SL_IF_STATE_DOWN\x10\x01\x12\x12\n\x0eSL_IF_STATE_UP\x10\x02*\x8b\x01\n\x14SLInterfaceNotifType\x12$\n SL_INTERFACE_EVENT_TYPE_RESERVED\x10\x00\x12!\n\x1dSL_INTERFACE_EVENT_TYPE_ERROR\x10\x01\x12*\n&SL_INTERFACE_EVENT_TYPE_INTERFACE_INFO\x10\x02\x32\x88\x05\n\x0fSLInterfaceOper\x12n\n\x17SLInterfaceGlobalsRegOp\x12\'.service_layer.SLInterfaceGlobalsRegMsg\x1a*.service_layer.SLInterfaceGlobalsRegMsgRsp\x12l\n\x15SLInterfaceGlobalsGet\x12\'.service_layer.SLInterfaceGlobalsGetMsg\x1a*.service_layer.SLInterfaceGlobalsGetMsgRsp\x12v\n\x1aSLInterfaceGlobalsGetStats\x12\'.service_layer.SLInterfaceGlobalsGetMsg\x1a/.service_layer.SLInterfaceGlobalsGetStatsMsgRsp\x12W\n\x0eSLInterfaceGet\x12 .service_layer.SLInterfaceGetMsg\x1a#.service_layer.SLInterfaceGetMsgRsp\x12\x65\n\x19SLInterfaceGetNotifStream\x12%.service_layer.SLInterfaceGetNotifMsg\x1a\x1f.service_layer.SLInterfaceNotif0\x01\x12_\n\x12SLInterfaceNotifOp\x12\".service_layer.SLInterfaceNotifMsg\x1a%.service_layer.SLInterfaceNotifMsgRspb\x06proto3')
   ,
   dependencies=[sl__common__types__pb2.DESCRIPTOR,])
+_sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 _SLINTERFACESTATE = _descriptor.EnumDescriptor(
   name='SLInterfaceState',
@@ -101,7 +102,7 @@ _SLINTERFACEGLOBALSREGMSG = _descriptor.Descriptor(
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      options=None),
   ],
   extensions=[
   ],
@@ -132,7 +133,7 @@ _SLINTERFACEGLOBALSREGMSGRSP = _descriptor.Descriptor(
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      options=None),
   ],
   extensions=[
   ],
@@ -187,14 +188,14 @@ _SLINTERFACEGLOBALSGETMSGRSP = _descriptor.Descriptor(
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      options=None),
     _descriptor.FieldDescriptor(
       name='MaxInterfacesPerBatch', full_name='service_layer.SLInterfaceGlobalsGetMsgRsp.MaxInterfacesPerBatch', index=1,
       number=2, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      options=None),
   ],
   extensions=[
   ],
@@ -225,21 +226,21 @@ _SLINTERFACEGLOBALSGETSTATSMSGRSP = _descriptor.Descriptor(
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      options=None),
     _descriptor.FieldDescriptor(
       name='SeqNum', full_name='service_layer.SLInterfaceGlobalsGetStatsMsgRsp.SeqNum', index=1,
       number=2, type=4, cpp_type=4, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      options=None),
     _descriptor.FieldDescriptor(
       name='InterfaceNotifCount', full_name='service_layer.SLInterfaceGlobalsGetStatsMsgRsp.InterfaceNotifCount', index=2,
       number=3, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      options=None),
   ],
   extensions=[
   ],
@@ -270,21 +271,21 @@ _SLINTERFACEGETMSG = _descriptor.Descriptor(
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      options=None),
     _descriptor.FieldDescriptor(
       name='EntriesCount', full_name='service_layer.SLInterfaceGetMsg.EntriesCount', index=1,
       number=2, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      options=None),
     _descriptor.FieldDescriptor(
       name='GetNext', full_name='service_layer.SLInterfaceGetMsg.GetNext', index=2,
       number=3, type=8, cpp_type=7, label=1,
       has_default_value=False, default_value=False,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      options=None),
   ],
   extensions=[
   ],
@@ -315,21 +316,21 @@ _SLINTERFACEINFOMSG = _descriptor.Descriptor(
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      options=None),
     _descriptor.FieldDescriptor(
       name='IfState', full_name='service_layer.SLInterfaceInfoMsg.IfState', index=1,
       number=2, type=14, cpp_type=8, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      options=None),
     _descriptor.FieldDescriptor(
       name='SeqNum', full_name='service_layer.SLInterfaceInfoMsg.SeqNum', index=2,
       number=3, type=4, cpp_type=4, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      options=None),
   ],
   extensions=[
   ],
@@ -360,21 +361,21 @@ _SLINTERFACEGETMSGRSP = _descriptor.Descriptor(
       has_default_value=False, default_value=False,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      options=None),
     _descriptor.FieldDescriptor(
       name='ErrStatus', full_name='service_layer.SLInterfaceGetMsgRsp.ErrStatus', index=1,
       number=2, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      options=None),
     _descriptor.FieldDescriptor(
       name='Entries', full_name='service_layer.SLInterfaceGetMsgRsp.Entries', index=2,
       number=3, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      options=None),
   ],
   extensions=[
   ],
@@ -429,21 +430,21 @@ _SLINTERFACENOTIF = _descriptor.Descriptor(
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      options=None),
     _descriptor.FieldDescriptor(
       name='ErrStatus', full_name='service_layer.SLInterfaceNotif.ErrStatus', index=1,
       number=2, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      options=None),
     _descriptor.FieldDescriptor(
       name='Info', full_name='service_layer.SLInterfaceNotif.Info', index=2,
       number=3, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      options=None),
   ],
   extensions=[
   ],
@@ -477,14 +478,14 @@ _SLINTERFACENOTIFMSG = _descriptor.Descriptor(
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      options=None),
     _descriptor.FieldDescriptor(
       name='Entries', full_name='service_layer.SLInterfaceNotifMsg.Entries', index=1,
       number=2, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      options=None),
   ],
   extensions=[
   ],
@@ -515,14 +516,14 @@ _SLINTERFACENOTIFMSGRES = _descriptor.Descriptor(
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      options=None),
     _descriptor.FieldDescriptor(
       name='Key', full_name='service_layer.SLInterfaceNotifMsgRes.Key', index=1,
       number=2, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      options=None),
   ],
   extensions=[
   ],
@@ -553,14 +554,14 @@ _SLINTERFACENOTIFMSGRSP = _descriptor.Descriptor(
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      options=None),
     _descriptor.FieldDescriptor(
       name='Results', full_name='service_layer.SLInterfaceNotifMsgRsp.Results', index=1,
       number=2, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      options=None),
   ],
   extensions=[
   ],
@@ -616,7 +617,6 @@ DESCRIPTOR.message_types_by_name['SLInterfaceNotifMsgRes'] = _SLINTERFACENOTIFMS
 DESCRIPTOR.message_types_by_name['SLInterfaceNotifMsgRsp'] = _SLINTERFACENOTIFMSGRSP
 DESCRIPTOR.enum_types_by_name['SLInterfaceState'] = _SLINTERFACESTATE
 DESCRIPTOR.enum_types_by_name['SLInterfaceNotifType'] = _SLINTERFACENOTIFTYPE
-_sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 SLInterfaceGlobalsRegMsg = _reflection.GeneratedProtocolMessageType('SLInterfaceGlobalsRegMsg', (_message.Message,), dict(
   DESCRIPTOR = _SLINTERFACEGLOBALSREGMSG,
@@ -709,74 +709,5 @@ SLInterfaceNotifMsgRsp = _reflection.GeneratedProtocolMessageType('SLInterfaceNo
   ))
 _sym_db.RegisterMessage(SLInterfaceNotifMsgRsp)
 
-
-
-_SLINTERFACEOPER = _descriptor.ServiceDescriptor(
-  name='SLInterfaceOper',
-  full_name='service_layer.SLInterfaceOper',
-  file=DESCRIPTOR,
-  index=0,
-  options=None,
-  serialized_start=1655,
-  serialized_end=2303,
-  methods=[
-  _descriptor.MethodDescriptor(
-    name='SLInterfaceGlobalsRegOp',
-    full_name='service_layer.SLInterfaceOper.SLInterfaceGlobalsRegOp',
-    index=0,
-    containing_service=None,
-    input_type=_SLINTERFACEGLOBALSREGMSG,
-    output_type=_SLINTERFACEGLOBALSREGMSGRSP,
-    options=None,
-  ),
-  _descriptor.MethodDescriptor(
-    name='SLInterfaceGlobalsGet',
-    full_name='service_layer.SLInterfaceOper.SLInterfaceGlobalsGet',
-    index=1,
-    containing_service=None,
-    input_type=_SLINTERFACEGLOBALSGETMSG,
-    output_type=_SLINTERFACEGLOBALSGETMSGRSP,
-    options=None,
-  ),
-  _descriptor.MethodDescriptor(
-    name='SLInterfaceGlobalsGetStats',
-    full_name='service_layer.SLInterfaceOper.SLInterfaceGlobalsGetStats',
-    index=2,
-    containing_service=None,
-    input_type=_SLINTERFACEGLOBALSGETMSG,
-    output_type=_SLINTERFACEGLOBALSGETSTATSMSGRSP,
-    options=None,
-  ),
-  _descriptor.MethodDescriptor(
-    name='SLInterfaceGet',
-    full_name='service_layer.SLInterfaceOper.SLInterfaceGet',
-    index=3,
-    containing_service=None,
-    input_type=_SLINTERFACEGETMSG,
-    output_type=_SLINTERFACEGETMSGRSP,
-    options=None,
-  ),
-  _descriptor.MethodDescriptor(
-    name='SLInterfaceGetNotifStream',
-    full_name='service_layer.SLInterfaceOper.SLInterfaceGetNotifStream',
-    index=4,
-    containing_service=None,
-    input_type=_SLINTERFACEGETNOTIFMSG,
-    output_type=_SLINTERFACENOTIF,
-    options=None,
-  ),
-  _descriptor.MethodDescriptor(
-    name='SLInterfaceNotifOp',
-    full_name='service_layer.SLInterfaceOper.SLInterfaceNotifOp',
-    index=5,
-    containing_service=None,
-    input_type=_SLINTERFACENOTIFMSG,
-    output_type=_SLINTERFACENOTIFMSGRSP,
-    options=None,
-  ),
-])
-_sym_db.RegisterServiceDescriptor(_SLINTERFACEOPER)
-
-DESCRIPTOR.services_by_name['SLInterfaceOper'] = _SLINTERFACEOPER
 
 # @@protoc_insertion_point(module_scope)

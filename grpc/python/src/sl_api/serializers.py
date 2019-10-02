@@ -4,6 +4,7 @@
 #
 import collections
 import ipaddress
+import itertools
 
 from util import util
 
@@ -260,9 +261,13 @@ def global_get_serializer():
     serializer = sl_global_pb2.SLGlobalsGetMsg()
     return serializer
 
-def mpls_regop_serializer():
+def mpls_regop_serializer(batch=None):
     """MPLS Reg Op Message serializer."""
     serializer = sl_mpls_pb2.SLMplsRegMsg()
+
+    if batch and 'purge_interval' in batch:
+        serializer.RegMsg.PurgeIntervalSeconds = batch['purge_interval']
+
     return serializer
 
 def mpls_get_serializer():
@@ -281,9 +286,15 @@ def label_block_serializer(batch):
                 b.LabelBlockSize = block['block_size']
             if 'start_label' in block:
                 b.StartLabel = block['start_label']
+            if 'block_type' in block:
+                b.BlockType = block['block_type']
+            if 'client_name' in block:
+                b.ClientName = block['client_name']
+
             blk_list.append(b)
     serializer.MplsBlocks.extend(blk_list)
     return serializer
+
 
 def label_block_get_serializer(get_info):
     """MPLS label block Get serializer."""
@@ -297,6 +308,58 @@ def label_block_get_serializer(get_info):
     if "get_next" in get_info:
         serializer.GetNext = (get_info["get_next"] != 0)
     return serializer
+
+def _generateIlms(batch, af, paths, next_hops):
+    """
+    Generator of ILMs based on the parameters passed in
+    """
+    def generateLabels(labelRange):
+        lo, hi = labelRange
+        for label in range(lo, hi + 1):
+            yield label
+
+    def generatePaths(pathInfo):
+        # Generate slice of paths
+        allPaths = paths[pathInfo['path']]
+        lo, hi = pathInfo['path_range']
+        for path in itertools.islice(allPaths, lo, hi + 1):
+            yield path
+
+    def ilmFactory(label, pathInfo, exp=None, default_elsp=False):
+        pathKey = str(label) + '_' + str(default_elsp or exp)
+        # Maintain mapping in paths dictionary
+        paths[pathKey] = generatePaths(pathInfo)
+
+        ilm = {
+                "in_label": label,
+                "path": pathKey,
+                "range": 1  # NOTE: Range must be 1
+        }
+
+        if default_elsp:
+            ilm["default_elsp"] = default_elsp
+        elif exp is not None:
+            ilm["exp"] = exp
+
+        return ilm
+
+    def wrapper():
+        # Wrap so that generator can be limited to batch_size 
+        for label in generateLabels(batch['label_range']):
+            if 'exps' in batch:
+                for exp, pathInfo in sorted(batch['exps'].items(), key=lambda x: x[0]): 
+                    if exp == 'default':
+                        yield ilmFactory(label, pathInfo, default_elsp=True)
+                    else:
+                        yield ilmFactory(label, pathInfo, exp=int(exp))
+            elif 'label_path' in batch:
+                # Non-elsp (no exp or default elsp)
+                yield ilmFactory(label, batch['label_path'])
+
+
+    for ilm, _ in zip(wrapper(), range(batch.get('batch_size', 256))):
+        yield ilm
+
 
 def ilm_serializer(batch, af, paths, next_hops):
     """Agnostic function that returns either an MPLS IPv4 or IPv6 serializer
@@ -321,6 +384,11 @@ def ilm_serializer(batch, af, paths, next_hops):
     )
     # Create either an SLMplsIlmMsg
     serializer = ipv4_or_ipv6.serializer()
+
+    # Auto-generate ILMs
+    if 'label_range' in batch:
+        batch['ilms'] = _generateIlms(batch, af, paths, next_hops)
+
     if 'correlator' in batch:
         serializer.Correlator = batch['correlator']
     if 'ilms' in batch:
@@ -331,6 +399,13 @@ def ilm_serializer(batch, af, paths, next_hops):
             for i in range(ilm['range']):
                 # Create SLMplsIlmEntry
                 entry = ipv4_or_ipv6.ilm()
+
+                if 'default_elsp' in ilm:
+                    entry.Key.SlMplsCosVal.DefaultElspPath = ilm["default_elsp"]
+                elif 'exp' in ilm:
+                    entry.Key.SlMplsCosVal.Exp = ilm["exp"]
+                elif 'forwarding_class' in ilm:
+                    entry.Key.SlMplsCosVal.ForwardingClass = ilm["forwarding_class"]
                 if 'in_label' in ilm:
                     entry.Key.LocalLabel = value
                 ps = []
@@ -402,7 +477,7 @@ def ilm_serializer(batch, af, paths, next_hops):
                 ilms.append(entry)
                 # Increment label
                 value = value + 1
-            serializer.MplsIlms.extend(ilms)
+        serializer.MplsIlms.extend(ilms)
     return (serializer, value)
 
 def ilm_get_serializer(get_info):

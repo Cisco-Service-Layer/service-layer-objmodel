@@ -24,6 +24,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   serialized_pb=_b('\n\x13sl_bfd_common.proto\x12\rservice_layer\x1a\x15sl_common_types.proto\"3\n\x0bSLBfdRegMsg\x12$\n\x04Oper\x18\x01 \x01(\x0e\x32\x16.service_layer.SLRegOp\"A\n\x0eSLBfdRegMsgRsp\x12/\n\tErrStatus\x18\x01 \x01(\x0b\x32\x1c.service_layer.SLErrorStatus\"\r\n\x0bSLBfdGetMsg\"\xfc\x01\n\x0eSLBfdGetMsgRsp\x12/\n\tErrStatus\x18\x01 \x01(\x0b\x32\x1c.service_layer.SLErrorStatus\x12#\n\x1bMaxBfdSessionCfgPerSLBfdMsg\x18\x02 \x01(\r\x12!\n\x19MinBfdTxIntervalSingleHop\x18\x03 \x01(\r\x12 \n\x18MinBfdTxIntervalMultiHop\x18\x04 \x01(\r\x12\'\n\x1fMinBfdDetectMultiplierSingleHop\x18\x05 \x01(\r\x12&\n\x1eMinBfdDetectMultiplierMultiHop\x18\x06 \x01(\r\"h\n\x13SLBfdGetStatsMsgRsp\x12/\n\tErrStatus\x18\x01 \x01(\x0b\x32\x1c.service_layer.SLErrorStatus\x12\x0e\n\x06SeqNum\x18\x02 \x01(\x04\x12\x10\n\x08\x42\x66\x64\x43ount\x18\x03 \x01(\r\"\x12\n\x10SLBfdGetNotifMsg\"G\n\x11SLBfdConfigCommon\x12\x18\n\x10\x44\x65siredTxIntUsec\x18\x01 \x01(\r\x12\x18\n\x10\x44\x65tectMultiplier\x18\x02 \x01(\r\"\xd3\x04\n\x10SLBfdCommonState\x12\x0e\n\x06SeqNum\x18\x01 \x01(\x04\x12>\n\x06Status\x18\x02 \x01(\x0e\x32..service_layer.SLBfdCommonState.SLBfdStateEnum\x12@\n\x04\x44iag\x18\x03 \x01(\x0e\x32\x32.service_layer.SLBfdCommonState.SLBfdDiagStateEnum\"\x80\x01\n\x0eSLBfdStateEnum\x12 \n\x1cSL_BFD_SESSION_STATE_UNKNOWN\x10\x00\x12\x15\n\x11SL_BFD_SESSION_UP\x10\x01\x12\x17\n\x13SL_BFD_SESSION_DOWN\x10\x02\x12\x1c\n\x18SL_BFD_NEIGHBOR_UNCONFIG\x10\x03\"\xa9\x02\n\x12SLBfdDiagStateEnum\x12\x14\n\x10SL_BFD_DIAG_NONE\x10\x00\x12\x1e\n\x1aSL_BFD_DIAG_DETECT_EXPIRED\x10\x01\x12\x18\n\x14SL_BFD_DIAG_NBR_DOWN\x10\x02\x12\x19\n\x15SL_BFD_DIAG_PATH_DOWN\x10\x03\x12\"\n\x1eSL_BFD_DIAG_FWDING_PLANE_RESET\x10\x04\x12\x1a\n\x16SL_BFD_DIAG_ADMIN_DOWN\x10\x05\x12\"\n\x1eSL_BFD_DIAG_REV_CONC_PATH_DOWN\x10\x06\x12$\n SL_BFD_DIAG_ECHO_FUNCTION_FAILED\x10\x07\x12\x1e\n\x1aSL_BFD_DIAG_CONC_PATH_DOWN\x10\x08*M\n\tSLBfdType\x12\x13\n\x0fSL_BFD_RESERVED\x10\x00\x12\x15\n\x11SL_BFD_SINGLE_HOP\x10\x01\x12\x14\n\x10SL_BFD_MULTI_HOP\x10\x02*r\n\x0eSLBfdNotifType\x12\x1e\n\x1aSL_BFD_EVENT_TYPE_RESERVED\x10\x00\x12\x1b\n\x17SL_BFD_EVENT_TYPE_ERROR\x10\x01\x12#\n\x1fSL_BFD_EVENT_TYPE_SESSION_STATE\x10\x02\x62\x06proto3')
   ,
   dependencies=[sl__common__types__pb2.DESCRIPTOR,])
+_sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 _SLBFDTYPE = _descriptor.EnumDescriptor(
   name='SLBfdType',
@@ -181,7 +182,7 @@ _SLBFDREGMSG = _descriptor.Descriptor(
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      options=None),
   ],
   extensions=[
   ],
@@ -212,7 +213,7 @@ _SLBFDREGMSGRSP = _descriptor.Descriptor(
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      options=None),
   ],
   extensions=[
   ],
@@ -267,42 +268,42 @@ _SLBFDGETMSGRSP = _descriptor.Descriptor(
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      options=None),
     _descriptor.FieldDescriptor(
       name='MaxBfdSessionCfgPerSLBfdMsg', full_name='service_layer.SLBfdGetMsgRsp.MaxBfdSessionCfgPerSLBfdMsg', index=1,
       number=2, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      options=None),
     _descriptor.FieldDescriptor(
       name='MinBfdTxIntervalSingleHop', full_name='service_layer.SLBfdGetMsgRsp.MinBfdTxIntervalSingleHop', index=2,
       number=3, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      options=None),
     _descriptor.FieldDescriptor(
       name='MinBfdTxIntervalMultiHop', full_name='service_layer.SLBfdGetMsgRsp.MinBfdTxIntervalMultiHop', index=3,
       number=4, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      options=None),
     _descriptor.FieldDescriptor(
       name='MinBfdDetectMultiplierSingleHop', full_name='service_layer.SLBfdGetMsgRsp.MinBfdDetectMultiplierSingleHop', index=4,
       number=5, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      options=None),
     _descriptor.FieldDescriptor(
       name='MinBfdDetectMultiplierMultiHop', full_name='service_layer.SLBfdGetMsgRsp.MinBfdDetectMultiplierMultiHop', index=5,
       number=6, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      options=None),
   ],
   extensions=[
   ],
@@ -333,21 +334,21 @@ _SLBFDGETSTATSMSGRSP = _descriptor.Descriptor(
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      options=None),
     _descriptor.FieldDescriptor(
       name='SeqNum', full_name='service_layer.SLBfdGetStatsMsgRsp.SeqNum', index=1,
       number=2, type=4, cpp_type=4, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      options=None),
     _descriptor.FieldDescriptor(
       name='BfdCount', full_name='service_layer.SLBfdGetStatsMsgRsp.BfdCount', index=2,
       number=3, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      options=None),
   ],
   extensions=[
   ],
@@ -402,14 +403,14 @@ _SLBFDCONFIGCOMMON = _descriptor.Descriptor(
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      options=None),
     _descriptor.FieldDescriptor(
       name='DetectMultiplier', full_name='service_layer.SLBfdConfigCommon.DetectMultiplier', index=1,
       number=2, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      options=None),
   ],
   extensions=[
   ],
@@ -440,21 +441,21 @@ _SLBFDCOMMONSTATE = _descriptor.Descriptor(
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      options=None),
     _descriptor.FieldDescriptor(
       name='Status', full_name='service_layer.SLBfdCommonState.Status', index=1,
       number=2, type=14, cpp_type=8, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      options=None),
     _descriptor.FieldDescriptor(
       name='Diag', full_name='service_layer.SLBfdCommonState.Diag', index=2,
       number=3, type=14, cpp_type=8, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
+      options=None),
   ],
   extensions=[
   ],
@@ -491,7 +492,6 @@ DESCRIPTOR.message_types_by_name['SLBfdConfigCommon'] = _SLBFDCONFIGCOMMON
 DESCRIPTOR.message_types_by_name['SLBfdCommonState'] = _SLBFDCOMMONSTATE
 DESCRIPTOR.enum_types_by_name['SLBfdType'] = _SLBFDTYPE
 DESCRIPTOR.enum_types_by_name['SLBfdNotifType'] = _SLBFDNOTIFTYPE
-_sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 SLBfdRegMsg = _reflection.GeneratedProtocolMessageType('SLBfdRegMsg', (_message.Message,), dict(
   DESCRIPTOR = _SLBFDREGMSG,
