@@ -129,9 +129,9 @@ void InitDefaults() {
 void AddDescriptorsImpl() {
   InitDefaults();
   static const char descriptor[] = {
-      "\n\025sl_common_types.proto\022\rservice_layer\"\254"
+      "\n\025sl_common_types.proto\022\rservice_layer\"\324"
       "=\n\rSLErrorStatus\0224\n\006Status\030\001 \001(\0162$.servi"
-      "ce_layer.SLErrorStatus.SLErrno\"\344<\n\007SLErr"
+      "ce_layer.SLErrorStatus.SLErrno\"\214=\n\007SLErr"
       "no\022\016\n\nSL_SUCCESS\020\000\022\024\n\020SL_NOT_CONNECTED\020\001"
       "\022\r\n\tSL_EAGAIN\020\002\022\r\n\tSL_ENOMEM\020\003\022\014\n\010SL_EBU"
       "SY\020\004\022\r\n\tSL_EINVAL\020\005\022\026\n\022SL_UNSUPPORTED_VE"
@@ -242,7 +242,8 @@ void AddDescriptorsImpl() {
       "ALID_ELSP_EXP\020\215\240\002\022)\n#SL_ILM_ELSP_EXP_OR_"
       "DFLT_ALREADY_SET\020\216\240\002\022\031\n\023SL_ILM_ADD_NO_PA"
       "THS\020\217\240\002\022\034\n\026SL_ILM_UPDATE_NO_PATHS\020\220\240\002\022\035\n"
-      "\027SL_ILM_UNSUPPORTED_ELSP\020\221\240\002\022\031\n\023SL_NHLFE"
+      "\027SL_ILM_UNSUPPORTED_ELSP\020\221\240\002\022&\n SL_ILM_L"
+      "ABEL_TOOMANY_EXP_CLASSES\020\222\240\002\022\031\n\023SL_NHLFE"
       "_ERR_OFFSET\020\200\300\002\022\032\n\024SL_NHLFE_NH_NO_TABLE\020"
       "\201\300\002\022!\n\033SL_NHLFE_NH_INVALID_ADDR_SZ\020\202\300\002\022$"
       "\n\036SL_NHLFE_INVALID_NEXT_HOP_ADDR\020\203\300\002\022\037\n\031"
@@ -341,7 +342,7 @@ void AddDescriptorsImpl() {
       "N\020\001\022\021\n\rSL_ENCAP_MPLS\020\002b\006proto3"
   };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 8390);
+      descriptor, 8430);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "sl_common_types.proto", &protobuf_RegisterTypes);
   ::google::protobuf::internal::OnShutdown(&TableStruct::Shutdown);
@@ -503,6 +504,7 @@ bool SLErrorStatus_SLErrno_IsValid(int value) {
     case 36879:
     case 36880:
     case 36881:
+    case 36882:
     case 40960:
     case 40961:
     case 40962:
@@ -741,6 +743,7 @@ const SLErrorStatus_SLErrno SLErrorStatus::SL_ILM_ELSP_EXP_OR_DFLT_ALREADY_SET;
 const SLErrorStatus_SLErrno SLErrorStatus::SL_ILM_ADD_NO_PATHS;
 const SLErrorStatus_SLErrno SLErrorStatus::SL_ILM_UPDATE_NO_PATHS;
 const SLErrorStatus_SLErrno SLErrorStatus::SL_ILM_UNSUPPORTED_ELSP;
+const SLErrorStatus_SLErrno SLErrorStatus::SL_ILM_LABEL_TOOMANY_EXP_CLASSES;
 const SLErrorStatus_SLErrno SLErrorStatus::SL_NHLFE_ERR_OFFSET;
 const SLErrorStatus_SLErrno SLErrorStatus::SL_NHLFE_NH_NO_TABLE;
 const SLErrorStatus_SLErrno SLErrorStatus::SL_NHLFE_NH_INVALID_ADDR_SZ;
