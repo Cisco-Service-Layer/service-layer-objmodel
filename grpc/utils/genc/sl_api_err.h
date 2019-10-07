@@ -329,8 +329,10 @@
     SL_ILM_ADD_NO_PATHS = 0x900f,\
     /* MPLS ILM update operation requested but no paths were provided. 0x9010 */\
     SL_ILM_UPDATE_NO_PATHS = 0x9010,\
-    /* LSP and ELSP on the same label not supported */\
+    /* LSP and ELSP on the same label not supported. 0x9011 */\
     SL_ILM_UNSUPPORTED_ELSP = 0x9011,\
+    /* Number of EXP classes on the label exceed system capabilities. 0x9012 */\
+    SL_ILM_LABEL_TOOMANY_EXP_CLASSES = 0x9012,\
     /* !!!  MPLS NHLFE Error codes */\
     /* Offset for MPLS NHLFE errors. 0xa000 */\
     SL_NHLFE_ERR_OFFSET = 0xa000,\
@@ -346,7 +348,8 @@
     SL_NHLFE_NH_INF_NAME_MISSING = 0xa005,\
     /* Interface name exceeds supported length. 0xa006 */\
     SL_NHLFE_NH_INTF_NAME_TOOLONG = 0xa006,\
-    /* Number of labels in the path exceeds system capabilities. 0xa007 */\
+    /* Number of labels in the path incompatible with system capabilities  */\
+    /* for the given label action. 0xa007 */\
     SL_NHLFE_INVALID_LABEL_COUNT = 0xa007,\
     /* Path id is invalid in NHLFE. 0xa008 */\
     SL_NHLFE_INVALID_PATH_ID = 0xa008,\
@@ -992,7 +995,10 @@
         " MPLS ILM update operation requested but no paths were provided.  "\
         },\
     {SL_ILM_UNSUPPORTED_ELSP ,\
-        " LSP and ELSP on the same label not supported "\
+        " LSP and ELSP on the same label not supported.  "\
+        },\
+    {SL_ILM_LABEL_TOOMANY_EXP_CLASSES ,\
+        " Number of EXP classes on the label exceed system capabilities.  "\
         },\
     {SL_NHLFE_ERR_OFFSET ,\
         " Offset for MPLS NHLFE errors.  "\
@@ -1016,7 +1022,8 @@
         " Interface name exceeds supported length.  "\
         },\
     {SL_NHLFE_INVALID_LABEL_COUNT ,\
-        " Number of labels in the path exceeds system capabilities.  "\
+        " Number of labels in the path incompatible with system capabilities  "\
+        " for the given label action.  "\
         },\
     {SL_NHLFE_INVALID_PATH_ID ,\
         " Path id is invalid in NHLFE.  "\
