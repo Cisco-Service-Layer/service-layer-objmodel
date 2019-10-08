@@ -34,7 +34,7 @@
         ]
     },
     "scale_cos_ilm_1": {
-        "batch_size": 256,
+        "batch_size": 255,
         "correlator": 1,
         "label_range": [32000, 32999],
         "exps": {
@@ -84,7 +84,7 @@
         }
     },
     "scale_cos_ilm_update_1": {
-        "batch_size": 256,
+        "batch_size": 255,
         "correlator": 1,
         "label_range": [32000, 32999],
         "exps": {

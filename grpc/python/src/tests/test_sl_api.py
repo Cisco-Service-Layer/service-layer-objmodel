@@ -3417,12 +3417,14 @@ class TestSuite_020_COS_ILM_IPv4_TC7(unittest.TestCase):
         self.ilm_params[0] = clientClass.json_params[self.batch]
 
     def test_007_ilm_delete(self):
+        self.ilm_params[0] = clientClass.json_params[self.update_batch]
         if self.STREAM == False:
             self.ilm_op(clientClass.client.ilm_delete,
                 self.ilm_params)
         else:
             self.ilm_op_stream(self.ilm_params,
                 sl_common_types_pb2.SL_OBJOP_DELETE)
+        self.ilm_params[0] = clientClass.json_params[self.batch]
 
     def test_009_blk_delete(self):
         response = clientClass.client.label_block_delete(self.lbl_blk_params)
