@@ -2419,7 +2419,7 @@ class TestSuite_016_MPLS_CoS_TC3(unittest.TestCase):
             self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_ADD,
                 self.ilm_entry["cos_ilm_10"])
 
-    # add label 32220, default -> NH8, NH9
+    # add label 32220, default -> NH8, NH9 (Pop and lookup)
     def test_013_ilm_add(self):
         if self.STREAM == False:
             self.ilm_op_wrapper(clientClass.client.ilm_add,
@@ -2437,7 +2437,7 @@ class TestSuite_016_MPLS_CoS_TC3(unittest.TestCase):
             self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_ADD,
                 self.ilm_entry["cos_ilm_11"], False)    
                 
-    # update label 32220, default -> NH7 NH9
+    # update label 32220, default -> NH7 NH9 (pop and lookup -> swap)
     def test_015_ilm_update(self):
         if self.STREAM == False:
             self.ilm_op_wrapper(clientClass.client.ilm_update,
@@ -2735,7 +2735,7 @@ class TestSuite_017_MPLS_CoS_TC4(unittest.TestCase):
             self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_UPDATE,
                 self.ilm_entry["cos_ilm_10"])
 
-    # update label 32220, default -> NH8, NH9
+    # update label 32220, default -> NH8, NH9 (Pop and Lookup)
     def test_013_ilm_update(self):
         if self.STREAM == False:
             self.ilm_op_wrapper(clientClass.client.ilm_update,
@@ -2753,7 +2753,7 @@ class TestSuite_017_MPLS_CoS_TC4(unittest.TestCase):
             self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_UPDATE,
                 self.ilm_entry["cos_ilm_11"])    
                 
-    # update label 32220, default -> NH7 NH9
+    # update label 32220, default -> NH7 NH9 (pop and lookup -> swap)
     def test_015_ilm_update(self):
         if self.STREAM == False:
             self.ilm_op_wrapper(clientClass.client.ilm_update,
@@ -3247,7 +3247,7 @@ class TestSuite_019_MPLS_CoS_TC6(unittest.TestCase):
             self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_UPDATE,
                 self.ilm_entry["cos_ilm_3"])
     
-    # add label 32220, default -> NH3,w3 NH4,w4
+    # add label 32220, default -> NH3,w3 NH4,w4 (pop and lookup)
     def test_006_ilm_add(self):
         if self.STREAM == False:
             self.ilm_op_wrapper(clientClass.client.ilm_add,
@@ -3265,7 +3265,7 @@ class TestSuite_019_MPLS_CoS_TC6(unittest.TestCase):
             self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_ADD,
                 self.ilm_entry["cos_ilm_4"], False)
                 
-    # update label 32220, default -> NH4,w4 NH5,w5
+    # update label 32220, default -> NH4,w4 NH5,w5 (pop and lookup -> swap)
     def test_008_ilm_update(self):
         if self.STREAM == False:
             self.ilm_op_wrapper(clientClass.client.ilm_update,
@@ -3622,6 +3622,15 @@ class TestSuite_022_COS_ILM_IPv4_TC9(unittest.TestCase):
         err = validate_mpls_regop_response(response)
         self.assertTrue(err)
         
+
+#
+#
+# 
+class TestSuite_024_COS_ILM_IPv4_TC11(TestSuite_020_COS_ILM_IPv4_TC7):
+    batch = 'scale_cos_ilm_pop_and_lookup'
+    update_batch = 'scale_cos_ilm_update_1'
+    block = 'cos_mpls_lbl_block_2'
+
 
 if __name__ == '__main__':
 

@@ -75,6 +75,14 @@
             "default": { "path": "cos_scale_path_1", "path_range": [8, 15] }
         }
     },
+    "scale_cos_ilm_pop_and_lookup": {
+        "batch_size": 256,
+        "correlator": 1,
+        "label_range": [32000, 32999],
+        "exps": {
+            "default": { "path": "cos_scale_path_pop_and_lookup", "path_range": [0, 4] }
+        }
+    },
     "scale_cos_ilm_update_1": {
         "batch_size": 256,
         "correlator": 1,
@@ -657,8 +665,8 @@
         ],
         "cos_path_2" : [
             {
-                "label_action": 1,
-                "labels": [ 46000 ],
+                "label_action": 5,
+                "labels": [],
                 "nexthop": "cos_nh_2"
             }
         ],
@@ -841,13 +849,13 @@
         ],
         "cos_path_18" : [
             {
-                "label_action": 1,
-                "labels": [ 46000 ],
+                "label_action": 5,
+                "labels": [],
                 "nexthop": "cos_nh_8"
             },
             {
-                "label_action": 1,
-                "labels": [ 46000 ],
+                "label_action": 5,
+                "labels": [],
                 "nexthop": "cos_nh_9"
             }
         ],
@@ -963,14 +971,14 @@
         ],
         "cos_path_30" : [
             {
-                "label_action": 1,
-                "labels": [ 46000 ],
+                "label_action": 5,
+                "labels": [],
                 "load_metric": 3,
                 "nexthop": "cos_nh_3"
             },
             {
-                "label_action": 1,
-                "labels": [ 46000 ],
+                "label_action": 5,
+                "labels": [],
                 "load_metric": 4,
                 "nexthop": "cos_nh_4"
             }
@@ -1238,7 +1246,45 @@
                 "labels": [ 460017 ],
                 "nexthop": "cos_nh_1"
             }
-        ] 
+        ], 
+        "cos_scale_path_pop_and_lookup" : [
+            {
+                "label_action": 5,
+                "load_metric": 7,
+                "labels": [ ],
+                "nexthop": "cos_nh_1"
+            },
+            {
+                "label_action": 5,
+                "load_metric": 7,
+                "labels": [ ],
+                "nexthop": "cos_nh_2"
+            },
+            {
+                "label_action": 5,
+                "load_metric": 7,
+                "labels": [ ],
+                "nexthop": "cos_nh_3"
+            },
+            {
+                "label_action": 5,
+                "load_metric": 7,
+                "labels": [ ],
+                "nexthop": "cos_nh_4"
+            },
+            {
+                "label_action": 5,
+                "load_metric": 7,
+                "labels": [ ],
+                "nexthop": "cos_nh_5"
+            },
+            {
+                "label_action": 5,
+                "load_metric": 7,
+                "labels": [ ],
+                "nexthop": "cos_nh_6"
+            }
+        ]       
     },
     "route_get": {
         "get_exact_route": {
