@@ -2420,6 +2420,8 @@ class TestSuite_016_MPLS_CoS_TC3(unittest.TestCase):
                 self.ilm_entry["cos_ilm_10"])
 
     # add label 32220, default -> NH8, NH9 (Pop and lookup)
+    # NOTE: Next hops are not required for pop and lookup and are just used 
+    #       to keep tests cases reusable
     def test_013_ilm_add(self):
         if self.STREAM == False:
             self.ilm_op_wrapper(clientClass.client.ilm_add,
@@ -2736,6 +2738,8 @@ class TestSuite_017_MPLS_CoS_TC4(unittest.TestCase):
                 self.ilm_entry["cos_ilm_10"])
 
     # update label 32220, default -> NH8, NH9 (Pop and Lookup)
+    # NOTE: Next hops are not required for pop and lookup and are just used 
+    #       to keep tests cases reusable
     def test_013_ilm_update(self):
         if self.STREAM == False:
             self.ilm_op_wrapper(clientClass.client.ilm_update,
@@ -3248,6 +3252,8 @@ class TestSuite_019_MPLS_CoS_TC6(unittest.TestCase):
                 self.ilm_entry["cos_ilm_3"])
     
     # add label 32220, default -> NH3,w3 NH4,w4 (pop and lookup)
+    # NOTE: Next hops are not required for pop and lookup and are just used 
+    #       to keep tests cases reusable
     def test_006_ilm_add(self):
         if self.STREAM == False:
             self.ilm_op_wrapper(clientClass.client.ilm_add,
@@ -3630,9 +3636,30 @@ class TestSuite_022_COS_ILM_IPv4_TC9(unittest.TestCase):
 # 
 class TestSuite_024_COS_ILM_IPv4_TC11(TestSuite_020_COS_ILM_IPv4_TC7):
     batch = 'scale_cos_ilm_pop_and_lookup'
-    update_batch = 'scale_cos_ilm_update_1'
+    batch_add = 'scale_cos_ilm_5'
+    update_batch = 'scale_cos_ilm_update_pop_and_lookup'
     block = 'cos_mpls_lbl_block_2'
 
+    # NOTE: These test add to TestSuite_020_COS_ILM_IPv4_TC7
+    def test_005_ilm_add(self):
+        self.ilm_params[0] = clientClass.json_params[self.batch_add]
+        if self.STREAM == False:
+            self.ilm_op(clientClass.client.ilm_add,
+                self.ilm_params)
+        else:
+            self.ilm_op_stream(self.ilm_params,
+                sl_common_types_pb2.SL_OBJOP_ADD)
+        self.ilm_params[0] = clientClass.json_params[self.update_batch]
+
+    def test_006_ilm_delete(self):
+        self.ilm_params[0] = clientClass.json_params[self.batch_add]
+        if self.STREAM == False:
+            self.ilm_op(clientClass.client.ilm_delete,
+                self.ilm_params)
+        else:
+            self.ilm_op_stream(self.ilm_params,
+                sl_common_types_pb2.SL_OBJOP_DELETE)
+        self.ilm_params[0] = clientClass.json_params[self.batch]
 
 if __name__ == '__main__':
 
