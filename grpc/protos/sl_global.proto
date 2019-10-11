@@ -157,7 +157,7 @@ message SLGlobalNotif {
         //     case ErrStatus == SL_VRF_V4_ROUTE_REPLAY_FATAL_ERROR:
         //     case ErrStatus == SL_VRF_V6_ROUTE_REPLAY_FATAL_ERROR:
         //     => this field carries the failed VRF information.
-        SLVrfRouteReplayErrorNotif VrfReplayErrorNotif = 3;
+        SLVrfRouteReplayErrorNotif VrfReplayErrorNotif = 4;
     }
 }
 
