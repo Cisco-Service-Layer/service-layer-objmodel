@@ -91,6 +91,8 @@ enum SLErrorStatus_SLErrno {
   SLErrorStatus_SLErrno_SL_VRF_REG_VRF_NAME_MISSING = 8201,
   SLErrorStatus_SLErrno_SL_VRF_V4_ROUTE_REPLAY_FATAL_ERROR = 8208,
   SLErrorStatus_SLErrno_SL_VRF_V6_ROUTE_REPLAY_FATAL_ERROR = 8209,
+  SLErrorStatus_SLErrno_SL_VRF_V4_ROUTE_REPLAY_OK = 8210,
+  SLErrorStatus_SLErrno_SL_VRF_V6_ROUTE_REPLAY_OK = 8211,
   SLErrorStatus_SLErrno_SL_RPC_ROUTE_START_OFFSET = 12288,
   SLErrorStatus_SLErrno_SL_RPC_ROUTE_TOO_MANY_ROUTES = 12289,
   SLErrorStatus_SLErrno_SL_RPC_ROUTE_VRF_NAME_TOOLONG = 12290,
@@ -197,6 +199,7 @@ enum SLErrorStatus_SLErrno {
   SLErrorStatus_SLErrno_SL_ILM_UNSUPPORTED_ELSP = 36881,
   SLErrorStatus_SLErrno_SL_ILM_LABEL_TOOMANY_EXP_CLASSES = 36882,
   SLErrorStatus_SLErrno_SL_ILM_REPLAY_FATAL_ERROR = 36883,
+  SLErrorStatus_SLErrno_SL_ILM_REPLAY_OK = 36884,
   SLErrorStatus_SLErrno_SL_NHLFE_ERR_OFFSET = 40960,
   SLErrorStatus_SLErrno_SL_NHLFE_NH_NO_TABLE = 40961,
   SLErrorStatus_SLErrno_SL_NHLFE_NH_INVALID_ADDR_SZ = 40962,
@@ -537,6 +540,10 @@ class SLErrorStatus : public ::google::protobuf::Message /* @@protoc_insertion_p
     SLErrorStatus_SLErrno_SL_VRF_V4_ROUTE_REPLAY_FATAL_ERROR;
   static const SLErrno SL_VRF_V6_ROUTE_REPLAY_FATAL_ERROR =
     SLErrorStatus_SLErrno_SL_VRF_V6_ROUTE_REPLAY_FATAL_ERROR;
+  static const SLErrno SL_VRF_V4_ROUTE_REPLAY_OK =
+    SLErrorStatus_SLErrno_SL_VRF_V4_ROUTE_REPLAY_OK;
+  static const SLErrno SL_VRF_V6_ROUTE_REPLAY_OK =
+    SLErrorStatus_SLErrno_SL_VRF_V6_ROUTE_REPLAY_OK;
   static const SLErrno SL_RPC_ROUTE_START_OFFSET =
     SLErrorStatus_SLErrno_SL_RPC_ROUTE_START_OFFSET;
   static const SLErrno SL_RPC_ROUTE_TOO_MANY_ROUTES =
@@ -749,6 +756,8 @@ class SLErrorStatus : public ::google::protobuf::Message /* @@protoc_insertion_p
     SLErrorStatus_SLErrno_SL_ILM_LABEL_TOOMANY_EXP_CLASSES;
   static const SLErrno SL_ILM_REPLAY_FATAL_ERROR =
     SLErrorStatus_SLErrno_SL_ILM_REPLAY_FATAL_ERROR;
+  static const SLErrno SL_ILM_REPLAY_OK =
+    SLErrorStatus_SLErrno_SL_ILM_REPLAY_OK;
   static const SLErrno SL_NHLFE_ERR_OFFSET =
     SLErrorStatus_SLErrno_SL_NHLFE_ERR_OFFSET;
   static const SLErrno SL_NHLFE_NH_NO_TABLE =
