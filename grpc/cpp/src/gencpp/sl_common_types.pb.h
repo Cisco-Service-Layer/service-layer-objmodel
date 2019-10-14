@@ -193,6 +193,7 @@ enum SLErrorStatus_SLErrno {
   SLErrorStatus_SLErrno_SL_ILM_ADD_NO_PATHS = 36879,
   SLErrorStatus_SLErrno_SL_ILM_UPDATE_NO_PATHS = 36880,
   SLErrorStatus_SLErrno_SL_ILM_UNSUPPORTED_ELSP = 36881,
+  SLErrorStatus_SLErrno_SL_ILM_LABEL_TOOMANY_EXP_CLASSES = 36882,
   SLErrorStatus_SLErrno_SL_NHLFE_ERR_OFFSET = 40960,
   SLErrorStatus_SLErrno_SL_NHLFE_NH_NO_TABLE = 40961,
   SLErrorStatus_SLErrno_SL_NHLFE_NH_INVALID_ADDR_SZ = 40962,
@@ -737,6 +738,8 @@ class SLErrorStatus : public ::google::protobuf::Message /* @@protoc_insertion_p
     SLErrorStatus_SLErrno_SL_ILM_UPDATE_NO_PATHS;
   static const SLErrno SL_ILM_UNSUPPORTED_ELSP =
     SLErrorStatus_SLErrno_SL_ILM_UNSUPPORTED_ELSP;
+  static const SLErrno SL_ILM_LABEL_TOOMANY_EXP_CLASSES =
+    SLErrorStatus_SLErrno_SL_ILM_LABEL_TOOMANY_EXP_CLASSES;
   static const SLErrno SL_NHLFE_ERR_OFFSET =
     SLErrorStatus_SLErrno_SL_NHLFE_ERR_OFFSET;
   static const SLErrno SL_NHLFE_NH_NO_TABLE =
