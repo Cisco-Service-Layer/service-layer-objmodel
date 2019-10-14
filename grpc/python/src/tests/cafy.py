@@ -29,7 +29,6 @@ class Cafy(ApBase):
         self.lldp = Lldp(device=self.device, mode=self.execMode)
         self.grpc = Grpc(device=self.device, mode=self.execMode)
         self.verifyCli = self.zap.get_feature_configuration("verify_cli")
-
         self.configDevice = Config(device=self.device,
                                  mode=self.execMode,
                                  name='Config')

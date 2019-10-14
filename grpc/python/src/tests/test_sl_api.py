@@ -2066,6 +2066,14 @@ class TestSuite_014_MPLS_CoS_TC1(unittest.TestCase):
         response = clientClass.client.mpls_unregister_oper()
         err = validate_mpls_regop_response(response)
         self.assertTrue(err)
+        
+#
+#
+#
+class TestSuite_014_MPLS_CoS_TC1_v6(TestSuite_014_MPLS_CoS_TC1):
+    AF = 6
+    STREAM = False
+    validated_count = 0
 
 #
 #
@@ -2132,7 +2140,6 @@ class TestSuite_015_MPLS_CoS_TC2(unittest.TestCase):
         # This may fail if the server sends EOF prematurely
         # (or we did not wait for the last reply)
         self.assertTrue(count == TestSuite_003_ILM_IPv4.validated_count)
-
     # This is not a test
     def ilm_op_wrapper(self, func, ilm, assert_true = True):
         params = (ilm, self.AF,
@@ -2238,6 +2245,14 @@ class TestSuite_015_MPLS_CoS_TC2(unittest.TestCase):
         response = clientClass.client.mpls_unregister_oper()
         err = validate_mpls_regop_response(response)
         self.assertTrue(err)
+
+#
+#
+#
+class TestSuite_015_MPLS_CoS_TC2_v6(TestSuite_015_MPLS_CoS_TC2):
+    AF = 6
+    STREAM = False
+    validated_count = 0
 
 #
 #
@@ -2560,6 +2575,14 @@ class TestSuite_016_MPLS_CoS_TC3(unittest.TestCase):
 #
 #
 #
+class TestSuite_016_MPLS_CoS_TC3_v6(TestSuite_016_MPLS_CoS_TC3):
+    AF = 6
+    STREAM = False
+    validated_count = 0
+
+#
+#
+#
 class TestSuite_017_MPLS_CoS_TC4(unittest.TestCase):
     AF = 4
     STREAM = False
@@ -2875,6 +2898,17 @@ class TestSuite_017_MPLS_CoS_TC4(unittest.TestCase):
         err = validate_mpls_regop_response(response)
         self.assertTrue(err)
         
+#
+#
+#
+class TestSuite_017_MPLS_CoS_TC4_v6(TestSuite_017_MPLS_CoS_TC4):
+    AF = 6
+    STREAM = False
+    validated_count = 0
+
+#
+#
+#
 class TestSuite_018_MPLS_CoS_TC5(unittest.TestCase):
     AF = 4
     STREAM = False
@@ -3145,7 +3179,14 @@ class TestSuite_018_MPLS_CoS_TC5(unittest.TestCase):
 #
 #
 #
+class TestSuite_018_MPLS_CoS_TC5_v6(TestSuite_018_MPLS_CoS_TC5):
+    AF = 6
+    STREAM = False
+    validated_count = 0
 
+#
+#
+#
 class TestSuite_019_MPLS_CoS_TC6(unittest.TestCase):
     AF = 4
     STREAM = False
@@ -3338,6 +3379,14 @@ class TestSuite_019_MPLS_CoS_TC6(unittest.TestCase):
 
 #
 #
+#
+#
+class TestSuite_019_MPLS_CoS_TC6_v6(TestSuite_019_MPLS_CoS_TC6):
+    AF = 6
+    STREAM = False
+    validated_count = 0
+
+#
 # 
 class TestSuite_020_COS_ILM_IPv4_TC7(unittest.TestCase):
     AF = 4
@@ -3449,6 +3498,13 @@ class TestSuite_020_COS_ILM_IPv4_TC7(unittest.TestCase):
 
 
 #
+# 
+class TestSuite_020_COS_ILM_IPv6_TC7(TestSuite_020_COS_ILM_IPv4_TC7):
+    AF = 6
+    STREAM = False
+    validated_count = 0
+
+#
 #
 # 
 class TestSuite_021_COS_ILM_IPv4_TC8(TestSuite_020_COS_ILM_IPv4_TC7):
@@ -3456,9 +3512,13 @@ class TestSuite_021_COS_ILM_IPv4_TC8(TestSuite_020_COS_ILM_IPv4_TC7):
     update_batch = 'scale_cos_ilm_update_1'
     block = 'cos_mpls_lbl_block_2'
 
+#
+#
+class TestSuite_021_COS_ILM_IPv6_TC8(TestSuite_021_COS_ILM_IPv4_TC8):
+    AF = 6
+    STREAM = False
+    validated_count = 0
 
-#
-#
 #
 class TestSuite_022_COS_ILM_IPv4_TC9(unittest.TestCase):
     AF = 4

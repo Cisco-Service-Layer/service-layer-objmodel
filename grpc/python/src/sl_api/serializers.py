@@ -290,7 +290,6 @@ def label_block_serializer(batch):
                 b.BlockType = block['block_type']
             if 'client_name' in block:
                 b.ClientName = block['client_name']
-
             blk_list.append(b)
     serializer.MplsBlocks.extend(blk_list)
     return serializer

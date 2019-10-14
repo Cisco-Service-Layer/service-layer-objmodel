@@ -95,7 +95,6 @@ class IlmSerializerTestCase(unittest.TestCase):
         self.assertTrue(
             isinstance(serializer, sl_mpls_pb2.SLMplsIlmMsg)
         )
-
         batch = self.context['batch_ilm']
         expectedLabel = (ilm['in_label'] + i for ilm in batch['ilms'] for i in range(ilm['range']))
 
