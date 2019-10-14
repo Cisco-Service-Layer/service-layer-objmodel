@@ -36,6 +36,7 @@ from genpy import sl_l2_route_pb2_grpc
 import grpc
 from grpc.framework.interfaces.face.face import NetworkError
 
+
 def byte_to_mac_str(mac):
     num = 2
     mac_split = [ str[start:start+num] for start in range(0, len(str), num) ]

@@ -425,91 +425,109 @@
         "cos_nh_1" : {
             "if_name": "GigabitEthernet0/0/0/0",
             "v4_addr": "1.1.1.1",
+            "v6_addr": "10:10:10:10::1", 
             "vrf_name": "default"
         },
         "cos_nh_2" : {
             "if_name": "GigabitEthernet0/0/0/0",
             "v4_addr": "1.1.1.2",
+            "v6_addr": "10:10:10:10::2", 
             "vrf_name": "default"
         },
         "cos_nh_3" : {
             "if_name": "GigabitEthernet0/0/0/0",
             "v4_addr": "1.1.1.3",
+            "v6_addr": "10:10:10:10::3", 
             "vrf_name": "default"
         },
         "cos_nh_4" : {
             "if_name": "GigabitEthernet0/0/0/0",
             "v4_addr": "1.1.1.4",
+            "v6_addr": "10:10:10:10::4", 
             "vrf_name": "default"
         },
         "cos_nh_5" : {
             "if_name": "GigabitEthernet0/0/0/0",
             "v4_addr": "1.1.1.5",
+            "v6_addr": "10:10:10:10::5", 
             "vrf_name": "default"
         },
         "cos_nh_6" : {
             "if_name": "GigabitEthernet0/0/0/0",
             "v4_addr": "1.1.1.6",
+            "v6_addr": "10:10:10:10::6", 
             "vrf_name": "default"
         },
         "cos_nh_7" : {
             "if_name": "GigabitEthernet0/0/0/0",
             "v4_addr": "1.1.1.7",
+            "v6_addr": "10:10:10:10::7", 
             "vrf_name": "default"
         },
         "cos_nh_8" : {
             "if_name": "GigabitEthernet0/0/0/0",
             "v4_addr": "1.1.1.8",
+            "v6_addr": "10:10:10:10::8", 
             "vrf_name": "default"
         },
         "cos_nh_9" : {
             "if_name": "GigabitEthernet0/0/0/0",
             "v4_addr": "1.1.1.9",
+            "v6_addr": "10:10:10:10::9", 
             "vrf_name": "default"
         },
         "cos_nh_10" : {
             "if_name": "GigabitEthernet0/0/0/0",
             "v4_addr": "1.1.1.10",
+            "v6_addr": "10:10:10:10::10", 
             "vrf_name": "default"
         },
         "cos_nh_11" : {
             "if_name": "GigabitEthernet0/0/0/0",
             "v4_addr": "1.1.1.11",
+            "v6_addr": "10:10:10:10::11", 
             "vrf_name": "default"
         },
         "cos_nh_12" : {
             "if_name": "GigabitEthernet0/0/0/0",
             "v4_addr": "1.1.1.12",
+            "v6_addr": "10:10:10:10::12", 
             "vrf_name": "default"
         },
         "cos_nh_13" : {
             "if_name": "GigabitEthernet0/0/0/0",
             "v4_addr": "1.1.1.13",
+            "v6_addr": "10:10:10:10::13", 
             "vrf_name": "default"
         },
         "cos_nh_14" : {
             "if_name": "GigabitEthernet0/0/0/0",
             "v4_addr": "1.1.1.14",
+            "v6_addr": "10:10:10:10::14", 
             "vrf_name": "default"
         },
         "cos_nh_15" : {
             "if_name": "GigabitEthernet0/0/0/0",
             "v4_addr": "1.1.1.15",
+            "v6_addr": "10:10:10:10::15", 
             "vrf_name": "default"
         },
         "cos_nh_16" : {
             "if_name": "GigabitEthernet0/0/0/0",
             "v4_addr": "1.1.1.16",
+            "v6_addr": "10:10:10:10::16", 
             "vrf_name": "default"
         },
         "cos_nh_17" : {
             "if_name": "GigabitEthernet0/0/0/0",
             "v4_addr": "1.1.1.17",
+            "v6_addr": "10:10:10:10::17", 
             "vrf_name": "default"
         },
         "cos_nh_18" : {
             "if_name": "GigabitEthernet0/0/0/0",
             "v4_addr": "1.1.1.18",
+            "v6_addr": "10:10:10:10::18", 
             "vrf_name": "default"
         }
     },
