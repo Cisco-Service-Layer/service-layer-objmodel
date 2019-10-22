@@ -11,7 +11,6 @@ import time
 import pprint
 import itertools
 import grpc
-import pdb
 
 from binascii import hexlify
 
