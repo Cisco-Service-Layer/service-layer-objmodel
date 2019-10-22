@@ -228,21 +228,17 @@ def global_init_cback(response, event):
             os._exit(0)
         return True
     elif response.EventType == sl_global_pb2.SL_GLOBAL_EVENT_TYPE_ERROR:
-        if ((response.ErrStatus.Status == sl_common_types_pb2.
-             SLErrorStatus.SL_VRF_V4_ROUTE_REPLAY_FATAL_ERROR) or
-            (response.ErrStatus.Status == sl_common_types_pb2.
-             SLErrorStatus.SL_VRF_V6_ROUTE_REPLAY_FATAL_ERROR) or
-            (response.ErrStatus.Status == sl_common_types_pb2.
-             SLErrorStatus.SL_VRF_V4_ROUTE_REPLAY_OK) or
-            (response.ErrStatus.Status == sl_common_types_pb2.
-             SLErrorStatus.SL_VRF_V6_ROUTE_REPLAY_OK)):
+        if response.ErrStatus.Status in [
+            sl_common_types_pb2.SLErrorStatus.SL_VRF_V4_ROUTE_REPLAY_FATAL_ERROR,
+            sl_common_types_pb2.SLErrorStatus.SL_VRF_V6_ROUTE_REPLAY_FATAL_ERROR,
+            sl_common_types_pb2.SLErrorStatus.SL_VRF_V4_ROUTE_REPLAY_OK,
+            sl_common_types_pb2.SLErrorStatus.SL_VRF_V6_ROUTE_REPLAY_OK]:
 
             print("Received Route FATAL Global Error event:", response)
             return True
-        elif ((response.ErrStatus.Status == sl_common_types_pb2.
-               SLErrorStatus.SL_ILM_REPLAY_FATAL_ERROR) or
-              (response.ErrStatus.Status == sl_common_types_pb2.
-               SLErrorStatus.SL_ILM_REPLAY_OK)):
+        elif response.ErrStatus.Status in [
+              sl_common_types_pb2.SLErrorStatus.SL_ILM_REPLAY_FATAL_ERROR,
+              sl_common_types_pb2.SLErrorStatus.SL_ILM_REPLAY_OK]:
 
             print("Received MPLS FATAL Global Error event:", response)
             return True
