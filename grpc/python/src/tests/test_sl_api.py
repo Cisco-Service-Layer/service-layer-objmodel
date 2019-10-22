@@ -10,6 +10,8 @@ import threading
 import time
 import pprint
 import itertools
+import grpc
+import pdb
 
 from binascii import hexlify
 
@@ -239,23 +241,33 @@ def global_init_cback(response, event):
 # Wait on Global notification events
 def global_init(event):
     g_params = clientClass.json_params['global_init']
+    retry_count = 6
 
-    try:
-        response = clientClass.global_notif.global_init(g_params,
-            global_init_cback, event)
+    for i in range(1,retry_count):
+        try:
+            response = clientClass.global_notif.global_init(g_params,
+                global_init_cback, event)
 
-        # Should return on errors
-        if response.EventType == sl_global_pb2.SL_GLOBAL_EVENT_TYPE_ERROR:
-            if (response.ErrStatus.Status ==
-                sl_common_types_pb2.SLErrorStatus.SL_NOTIF_TERM):
-                print("Service Layer Session was taken over by another client")
-        else:
-            # If this session is lost, then most likely the server restarted
-            print("global_init: exiting unexpectedly, Server Restart?")
-            print("last response from server:", response)
-    except Exception as e:
-        print("Received exception:", e)
-        print("Server died?")
+            # Should return on errors
+            if response.EventType == sl_global_pb2.SL_GLOBAL_EVENT_TYPE_ERROR:
+                if (response.ErrStatus.Status ==
+                    sl_common_types_pb2.SLErrorStatus.SL_NOTIF_TERM):
+                    print("Service Layer Session was taken over by another client")
+            else:
+                # If this session is lost, then most likely the server restarted
+                print("global_init: exiting unexpectedly, Server Restart?")
+                print("last response from server:", response)
+        except Exception as e:
+            if e.code() == grpc.StatusCode.UNAVAILABLE:
+                # One less than retry count so that we can dump exception
+                # if grpc server cannot be reached
+                if i < retry_count - 1:
+                   print("Retry {} of global init as server not available"
+                         .format(i))
+                   time.sleep(30)
+                   continue
+            print("Received exception:", e)
+            print("Server died?")
     os._exit(0)
 
 # BFD notification Callback
