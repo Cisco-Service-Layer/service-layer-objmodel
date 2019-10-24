@@ -97,6 +97,24 @@
     SL_VRF_TABLE_EOF_ERR = 0x2008,\
     /* VRF registration message does not have a VRF name. 0x2009 */\
     SL_VRF_REG_VRF_NAME_MISSING = 0x2009,\
+    /* IPv4 routes in VRF cannot be played to Routing Information Base */\
+    /* on a process restart or connection re-establishment. */\
+    /* The Forwarding Information Base can */\
+    /* can be inconsistent. Agent/Controller should initiate a */\
+    /* recovery action by reloading the device. 0x2010 */\
+    SL_VRF_V4_ROUTE_REPLAY_FATAL_ERROR = 0x2010,\
+    /* IPv6 routes in VRF cannot be played to Routing Information Base */\
+    /* on a process restart or connection re-establishment. */\
+    /* The Forwarding Information Base can */\
+    /* can be inconsistent. Agent/Controller should initiate a */\
+    /* recovery action by reloading the device. 0x2011 */\
+    SL_VRF_V6_ROUTE_REPLAY_FATAL_ERROR = 0x2011,\
+    /* IPv4 routes in VRF were played to Routing Information Base */\
+    /* on a process restart or connection re-establishment. 0x2012 */\
+    SL_VRF_V4_ROUTE_REPLAY_OK = 0x2012,\
+    /* IPv6 routes in VRF were played to Routing Information Base */\
+    /* on a process restart or connection re-establishment. 0x2013 */\
+    SL_VRF_V6_ROUTE_REPLAY_OK = 0x2013,\
     /* !!! Error codes for Route operations. */\
     /* Offset for Route operation errors. 0x3000 */\
     SL_RPC_ROUTE_START_OFFSET = 0x3000,\
@@ -333,6 +351,15 @@
     SL_ILM_UNSUPPORTED_ELSP = 0x9011,\
     /* Number of EXP classes on the label exceed system capabilities. 0x9012 */\
     SL_ILM_LABEL_TOOMANY_EXP_CLASSES = 0x9012,\
+    /* MPLS ILMs cannot be played to Label Switching Database */\
+    /* on a process restart or connection re-establishment. */\
+    /* The Forwarding Information Base can */\
+    /* can be inconsistent. Agent/Controller should initiate a */\
+    /* recovery action by reloading the device. 0x9013 */\
+    SL_ILM_REPLAY_FATAL_ERROR = 0x9013,\
+    /* MPLS ILMs were played to Label Switching Database */\
+    /* on a process restart or connection re-establishment. 0x9014 */\
+    SL_ILM_REPLAY_OK = 0x9014,\
     /* !!!  MPLS NHLFE Error codes */\
     /* Offset for MPLS NHLFE errors. 0xa000 */\
     SL_NHLFE_ERR_OFFSET = 0xa000,\
@@ -665,6 +692,28 @@
         },\
     {SL_VRF_REG_VRF_NAME_MISSING ,\
         " VRF registration message does not have a VRF name.  "\
+        },\
+    {SL_VRF_V4_ROUTE_REPLAY_FATAL_ERROR ,\
+        " IPv4 routes in VRF cannot be played to Routing Information Base "\
+        " on a process restart or connection re-establishment. "\
+        " The Forwarding Information Base can "\
+        " can be inconsistent. Agent/Controller should initiate a "\
+        " recovery action by reloading the device.  "\
+        },\
+    {SL_VRF_V6_ROUTE_REPLAY_FATAL_ERROR ,\
+        " IPv6 routes in VRF cannot be played to Routing Information Base "\
+        " on a process restart or connection re-establishment. "\
+        " The Forwarding Information Base can "\
+        " can be inconsistent. Agent/Controller should initiate a "\
+        " recovery action by reloading the device.  "\
+        },\
+    {SL_VRF_V4_ROUTE_REPLAY_OK ,\
+        " IPv4 routes in VRF were played to Routing Information Base "\
+        " on a process restart or connection re-establishment.  "\
+        },\
+    {SL_VRF_V6_ROUTE_REPLAY_OK ,\
+        " IPv6 routes in VRF were played to Routing Information Base "\
+        " on a process restart or connection re-establishment.  "\
         },\
     {SL_RPC_ROUTE_START_OFFSET ,\
         " Offset for Route operation errors.  "\
@@ -999,6 +1048,17 @@
         },\
     {SL_ILM_LABEL_TOOMANY_EXP_CLASSES ,\
         " Number of EXP classes on the label exceed system capabilities.  "\
+        },\
+    {SL_ILM_REPLAY_FATAL_ERROR ,\
+        " MPLS ILMs cannot be played to Label Switching Database "\
+        " on a process restart or connection re-establishment. "\
+        " The Forwarding Information Base can "\
+        " can be inconsistent. Agent/Controller should initiate a "\
+        " recovery action by reloading the device.  "\
+        },\
+    {SL_ILM_REPLAY_OK ,\
+        " MPLS ILMs were played to Label Switching Database "\
+        " on a process restart or connection re-establishment.  "\
         },\
     {SL_NHLFE_ERR_OFFSET ,\
         " Offset for MPLS NHLFE errors.  "\

@@ -56,6 +56,9 @@ extern SLInterfaceDefaultTypeInternal _SLInterface_default_instance_;
 class SLIpAddress;
 class SLIpAddressDefaultTypeInternal;
 extern SLIpAddressDefaultTypeInternal _SLIpAddress_default_instance_;
+class SLVrfRouteReplayErrorNotif;
+class SLVrfRouteReplayErrorNotifDefaultTypeInternal;
+extern SLVrfRouteReplayErrorNotifDefaultTypeInternal _SLVrfRouteReplayErrorNotif_default_instance_;
 }  // namespace service_layer
 
 namespace service_layer {
@@ -290,6 +293,97 @@ class SLInitMsgRsp : public ::google::protobuf::Message /* @@protoc_insertion_po
 };
 // -------------------------------------------------------------------
 
+class SLVrfRouteReplayErrorNotif : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:service_layer.SLVrfRouteReplayErrorNotif) */ {
+ public:
+  SLVrfRouteReplayErrorNotif();
+  virtual ~SLVrfRouteReplayErrorNotif();
+
+  SLVrfRouteReplayErrorNotif(const SLVrfRouteReplayErrorNotif& from);
+
+  inline SLVrfRouteReplayErrorNotif& operator=(const SLVrfRouteReplayErrorNotif& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const SLVrfRouteReplayErrorNotif& default_instance();
+
+  static inline const SLVrfRouteReplayErrorNotif* internal_default_instance() {
+    return reinterpret_cast<const SLVrfRouteReplayErrorNotif*>(
+               &_SLVrfRouteReplayErrorNotif_default_instance_);
+  }
+
+  void Swap(SLVrfRouteReplayErrorNotif* other);
+
+  // implements Message ----------------------------------------------
+
+  inline SLVrfRouteReplayErrorNotif* New() const PROTOBUF_FINAL { return New(NULL); }
+
+  SLVrfRouteReplayErrorNotif* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
+  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void CopyFrom(const SLVrfRouteReplayErrorNotif& from);
+  void MergeFrom(const SLVrfRouteReplayErrorNotif& from);
+  void Clear() PROTOBUF_FINAL;
+  bool IsInitialized() const PROTOBUF_FINAL;
+
+  size_t ByteSizeLong() const PROTOBUF_FINAL;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output)
+      const PROTOBUF_FINAL {
+    return InternalSerializeWithCachedSizesToArray(
+        ::google::protobuf::io::CodedOutputStream::IsDefaultSerializationDeterministic(), output);
+  }
+  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const PROTOBUF_FINAL;
+  void InternalSwap(SLVrfRouteReplayErrorNotif* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // string VrfName = 1;
+  void clear_vrfname();
+  static const int kVrfNameFieldNumber = 1;
+  const ::std::string& vrfname() const;
+  void set_vrfname(const ::std::string& value);
+  #if LANG_CXX11
+  void set_vrfname(::std::string&& value);
+  #endif
+  void set_vrfname(const char* value);
+  void set_vrfname(const char* value, size_t size);
+  ::std::string* mutable_vrfname();
+  ::std::string* release_vrfname();
+  void set_allocated_vrfname(::std::string* vrfname);
+
+  // @@protoc_insertion_point(class_scope:service_layer.SLVrfRouteReplayErrorNotif)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::ArenaStringPtr vrfname_;
+  mutable int _cached_size_;
+  friend struct  protobuf_sl_5fglobal_2eproto::TableStruct;
+};
+// -------------------------------------------------------------------
+
 class SLGlobalNotif : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:service_layer.SLGlobalNotif) */ {
  public:
   SLGlobalNotif();
@@ -307,6 +401,7 @@ class SLGlobalNotif : public ::google::protobuf::Message /* @@protoc_insertion_p
 
   enum EventCase {
     kInitRspMsg = 3,
+    kVrfReplayErrorNotif = 4,
     EVENT_NOT_SET = 0,
   };
 
@@ -386,10 +481,20 @@ class SLGlobalNotif : public ::google::protobuf::Message /* @@protoc_insertion_p
   ::service_layer::SLInitMsgRsp* release_initrspmsg();
   void set_allocated_initrspmsg(::service_layer::SLInitMsgRsp* initrspmsg);
 
+  // .service_layer.SLVrfRouteReplayErrorNotif VrfReplayErrorNotif = 4;
+  bool has_vrfreplayerrornotif() const;
+  void clear_vrfreplayerrornotif();
+  static const int kVrfReplayErrorNotifFieldNumber = 4;
+  const ::service_layer::SLVrfRouteReplayErrorNotif& vrfreplayerrornotif() const;
+  ::service_layer::SLVrfRouteReplayErrorNotif* mutable_vrfreplayerrornotif();
+  ::service_layer::SLVrfRouteReplayErrorNotif* release_vrfreplayerrornotif();
+  void set_allocated_vrfreplayerrornotif(::service_layer::SLVrfRouteReplayErrorNotif* vrfreplayerrornotif);
+
   EventCase Event_case() const;
   // @@protoc_insertion_point(class_scope:service_layer.SLGlobalNotif)
  private:
   void set_has_initrspmsg();
+  void set_has_vrfreplayerrornotif();
 
   inline bool has_Event() const;
   void clear_Event();
@@ -401,6 +506,7 @@ class SLGlobalNotif : public ::google::protobuf::Message /* @@protoc_insertion_p
   union EventUnion {
     EventUnion() {}
     ::service_layer::SLInitMsgRsp* initrspmsg_;
+    ::service_layer::SLVrfRouteReplayErrorNotif* vrfreplayerrornotif_;
   } Event_;
   mutable int _cached_size_;
   ::google::protobuf::uint32 _oneof_case_[1];
@@ -765,6 +871,62 @@ inline void SLInitMsgRsp::set_subver(::google::protobuf::uint32 value) {
 
 // -------------------------------------------------------------------
 
+// SLVrfRouteReplayErrorNotif
+
+// string VrfName = 1;
+inline void SLVrfRouteReplayErrorNotif::clear_vrfname() {
+  vrfname_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& SLVrfRouteReplayErrorNotif::vrfname() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLVrfRouteReplayErrorNotif.VrfName)
+  return vrfname_.GetNoArena();
+}
+inline void SLVrfRouteReplayErrorNotif::set_vrfname(const ::std::string& value) {
+  
+  vrfname_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:service_layer.SLVrfRouteReplayErrorNotif.VrfName)
+}
+#if LANG_CXX11
+inline void SLVrfRouteReplayErrorNotif::set_vrfname(::std::string&& value) {
+  
+  vrfname_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:service_layer.SLVrfRouteReplayErrorNotif.VrfName)
+}
+#endif
+inline void SLVrfRouteReplayErrorNotif::set_vrfname(const char* value) {
+  
+  vrfname_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:service_layer.SLVrfRouteReplayErrorNotif.VrfName)
+}
+inline void SLVrfRouteReplayErrorNotif::set_vrfname(const char* value, size_t size) {
+  
+  vrfname_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:service_layer.SLVrfRouteReplayErrorNotif.VrfName)
+}
+inline ::std::string* SLVrfRouteReplayErrorNotif::mutable_vrfname() {
+  
+  // @@protoc_insertion_point(field_mutable:service_layer.SLVrfRouteReplayErrorNotif.VrfName)
+  return vrfname_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* SLVrfRouteReplayErrorNotif::release_vrfname() {
+  // @@protoc_insertion_point(field_release:service_layer.SLVrfRouteReplayErrorNotif.VrfName)
+  
+  return vrfname_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void SLVrfRouteReplayErrorNotif::set_allocated_vrfname(::std::string* vrfname) {
+  if (vrfname != NULL) {
+    
+  } else {
+    
+  }
+  vrfname_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), vrfname);
+  // @@protoc_insertion_point(field_set_allocated:service_layer.SLVrfRouteReplayErrorNotif.VrfName)
+}
+
+// -------------------------------------------------------------------
+
 // SLGlobalNotif
 
 // .service_layer.SLGlobalNotifType EventType = 1;
@@ -866,6 +1028,54 @@ inline void SLGlobalNotif::set_allocated_initrspmsg(::service_layer::SLInitMsgRs
     Event_.initrspmsg_ = initrspmsg;
   }
   // @@protoc_insertion_point(field_set_allocated:service_layer.SLGlobalNotif.InitRspMsg)
+}
+
+// .service_layer.SLVrfRouteReplayErrorNotif VrfReplayErrorNotif = 4;
+inline bool SLGlobalNotif::has_vrfreplayerrornotif() const {
+  return Event_case() == kVrfReplayErrorNotif;
+}
+inline void SLGlobalNotif::set_has_vrfreplayerrornotif() {
+  _oneof_case_[0] = kVrfReplayErrorNotif;
+}
+inline void SLGlobalNotif::clear_vrfreplayerrornotif() {
+  if (has_vrfreplayerrornotif()) {
+    delete Event_.vrfreplayerrornotif_;
+    clear_has_Event();
+  }
+}
+inline  const ::service_layer::SLVrfRouteReplayErrorNotif& SLGlobalNotif::vrfreplayerrornotif() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLGlobalNotif.VrfReplayErrorNotif)
+  return has_vrfreplayerrornotif()
+      ? *Event_.vrfreplayerrornotif_
+      : ::service_layer::SLVrfRouteReplayErrorNotif::default_instance();
+}
+inline ::service_layer::SLVrfRouteReplayErrorNotif* SLGlobalNotif::mutable_vrfreplayerrornotif() {
+  if (!has_vrfreplayerrornotif()) {
+    clear_Event();
+    set_has_vrfreplayerrornotif();
+    Event_.vrfreplayerrornotif_ = new ::service_layer::SLVrfRouteReplayErrorNotif;
+  }
+  // @@protoc_insertion_point(field_mutable:service_layer.SLGlobalNotif.VrfReplayErrorNotif)
+  return Event_.vrfreplayerrornotif_;
+}
+inline ::service_layer::SLVrfRouteReplayErrorNotif* SLGlobalNotif::release_vrfreplayerrornotif() {
+  // @@protoc_insertion_point(field_release:service_layer.SLGlobalNotif.VrfReplayErrorNotif)
+  if (has_vrfreplayerrornotif()) {
+    clear_has_Event();
+    ::service_layer::SLVrfRouteReplayErrorNotif* temp = Event_.vrfreplayerrornotif_;
+    Event_.vrfreplayerrornotif_ = NULL;
+    return temp;
+  } else {
+    return NULL;
+  }
+}
+inline void SLGlobalNotif::set_allocated_vrfreplayerrornotif(::service_layer::SLVrfRouteReplayErrorNotif* vrfreplayerrornotif) {
+  clear_Event();
+  if (vrfreplayerrornotif) {
+    set_has_vrfreplayerrornotif();
+    Event_.vrfreplayerrornotif_ = vrfreplayerrornotif;
+  }
+  // @@protoc_insertion_point(field_set_allocated:service_layer.SLGlobalNotif.VrfReplayErrorNotif)
 }
 
 inline bool SLGlobalNotif::has_Event() const {
@@ -1121,6 +1331,8 @@ inline void SLGlobalsGetMsgRsp::set_maxlabelblockclientnamelength(::google::prot
 }
 
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

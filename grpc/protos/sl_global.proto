@@ -82,6 +82,11 @@ message SLInitMsgRsp {
     uint32 SubVer = 3;
 }
 
+// Routes replay error notification.
+message SLVrfRouteReplayErrorNotif {
+    // VRF Name.
+    string VrfName = 1;
+}
 
 // Global Event Notification types.
 enum SLGlobalNotifType {
@@ -110,6 +115,30 @@ message SLGlobalNotif {
     //       case ErrStatus == SL_NOTIF_TERM:
     //          => Another client is attempting to take over the session.
     //             This session will be closed.
+    //       case ErrStatus == SL_VRF_V4_ROUTE_REPLAY_FATAL_ERROR:
+    //          => IPv4 Routes replay failed for a VRF.
+    //             See VrfReplayErrorNotif for details.
+    //       case ErrStatus == SL_VRF_V6_ROUTE_REPLAY_FATAL_ERROR:
+    //          => IPv6 Routes replay failed for a VRF.
+    //             See VrfReplayErrorNotif for details.
+    //       case ErrStatus == SL_ILM_REPLAY_FATAL_ERROR:
+    //          => ILM replay failed.
+    //       case ErrStatus == SL_VRF_V4_ROUTE_REPLAY_OK:
+    //          => IPv4 Routes replay succeeded for a VRF.
+    //             See VrfReplayErrorNotif for details.
+    //             This notification is sent only if a
+    //             SL_VRF_V4_ROUTE_REPLAY_FATAL_ERROR was sent earlier
+    //             on the identified VRF. 
+    //       case ErrStatus == SL_VRF_V6_ROUTE_REPLAY_OK:
+    //          => IPv6 Routes replay succeeded for a VRF.
+    //             See VrfReplayErrorNotif for details.
+    //             This notification is sent only if a
+    //             SL_VRF_V6_ROUTE_REPLAY_FATAL_ERROR was sent earlier
+    //             on the identified VRF. 
+    //       case ErrStatus == SL_ILM_REPLAY_OK:
+    //          => ILM replay succeeded.
+    //             This notification is sent only if a
+    //             SL_ILM_REPLAY_FATAL_ERROR was sent earlier.
     //       case ErrStatus == (some error from SLErrorStatus)
     //          => Client must look into the specific error message returned.
     //
@@ -139,6 +168,14 @@ message SLGlobalNotif {
         // case EventType == SL_GLOBAL_EVENT_TYPE_VERSION:
         //     => this field carries the Server version number.
         SLInitMsgRsp InitRspMsg = 3;
+
+        // case EventType == SL_GLOBAL_EVENT_TYPE_ERROR:
+        //     case ErrStatus == SL_VRF_V4_ROUTE_REPLAY_FATAL_ERROR:
+        //     case ErrStatus == SL_VRF_V6_ROUTE_REPLAY_FATAL_ERROR:
+        //     case ErrStatus == SL_VRF_V4_ROUTE_REPLAY_OK:
+        //     case ErrStatus == SL_VRF_V6_ROUTE_REPLAY_OK:
+        //     => this field carries the failed VRF information.
+        SLVrfRouteReplayErrorNotif VrfReplayErrorNotif = 4;
     }
 }
 

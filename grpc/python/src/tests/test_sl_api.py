@@ -228,6 +228,21 @@ def global_init_cback(response, event):
             os._exit(0)
         return True
     elif response.EventType == sl_global_pb2.SL_GLOBAL_EVENT_TYPE_ERROR:
+        if response.ErrStatus.Status in [
+            sl_common_types_pb2.SLErrorStatus.SL_VRF_V4_ROUTE_REPLAY_FATAL_ERROR,
+            sl_common_types_pb2.SLErrorStatus.SL_VRF_V6_ROUTE_REPLAY_FATAL_ERROR,
+            sl_common_types_pb2.SLErrorStatus.SL_VRF_V4_ROUTE_REPLAY_OK,
+            sl_common_types_pb2.SLErrorStatus.SL_VRF_V6_ROUTE_REPLAY_OK]:
+
+            print("Received Route FATAL Global Error event:", response)
+            return True
+        elif response.ErrStatus.Status in [
+              sl_common_types_pb2.SLErrorStatus.SL_ILM_REPLAY_FATAL_ERROR,
+              sl_common_types_pb2.SLErrorStatus.SL_ILM_REPLAY_OK]:
+
+            print("Received MPLS FATAL Global Error event:", response)
+            return True
+
         print("Received Global Error event:", response)
         return False
     else:
@@ -3482,7 +3497,12 @@ class TestSuite_020_COS_ILM_IPv4_TC7(unittest.TestCase):
         # NOTE: If the above fails, the following wont be restored
         self.ilm_params[0] = clientClass.json_params[self.batch]
 
-    def test_007_ilm_delete(self):
+    def test_007_mpls_eof(self):
+        response = clientClass.client.mpls_eof_oper()
+        err = validate_mpls_regop_response(response)
+        self.assertTrue(err)
+
+    def test_009_ilm_delete(self):
         self.ilm_params[0] = clientClass.json_params[self.update_batch]
         if self.STREAM == False:
             self.ilm_op(clientClass.client.ilm_delete,
@@ -3492,14 +3512,9 @@ class TestSuite_020_COS_ILM_IPv4_TC7(unittest.TestCase):
                 sl_common_types_pb2.SL_OBJOP_DELETE)
         self.ilm_params[0] = clientClass.json_params[self.batch]
 
-    def test_009_blk_delete(self):
+    def test_010_blk_delete(self):
         response = clientClass.client.label_block_delete(self.lbl_blk_params)
         err = validate_lbl_blk_response(response)
-        self.assertTrue(err)
-
-    def test_010_mpls_eof(self):
-        response = clientClass.client.mpls_eof_oper()
-        err = validate_mpls_regop_response(response)
         self.assertTrue(err)
 
     def test_011_mpls_unregister(self):
