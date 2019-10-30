@@ -410,32 +410,33 @@ def ilm_serializer(batch, af, paths, next_hops):
                 ps = []
                 for path in paths[ilm['path']]:
                     p = sl_mpls_pb2.SLMplsPath()
+                    if af == 4:
+                        if (path['nexthop'] and
+                                'v4_addr' in next_hops[path['nexthop']]):
+                            p.NexthopAddress.V4Address = (
+                                int(ipaddress.ip_address(
+                                    next_hops[path['nexthop']]['v4_addr']))
+                            )
+                    elif af == 6:
+                        if (path['nexthop'] and
+                                'v6_addr' in next_hops[path['nexthop']]):
+                            p.NexthopAddress.V6Address = (
+                                ipaddress.ip_address(
+                                    (next_hops[path['nexthop']]['v6_addr']))
+                                    .packed
+                            )
+                    if 'if_name' in next_hops[path['nexthop']]:
+                        p.NexthopInterface.Name = (
+                            next_hops[path['nexthop']]['if_name']
+                        )
                     if 'label_action' in path:
                         p.Action = path['label_action']
                     if 'load_metric' in path:
                         p.LoadMetric = path['load_metric']
+                    if 'vrf_name' in next_hops[path['nexthop']]:
+                        p.VrfName = next_hops[path['nexthop']]['vrf_name']
                     if 'path_id' in path:
                         p.PathId = path['path_id']
-                    if 'nexthop' in path:
-                        if af == 4:
-                            if ('v4_addr' in next_hops[path['nexthop']]):
-                                p.NexthopAddress.V4Address = (
-                                    int(ipaddress.ip_address(
-                                        next_hops[path['nexthop']]['v4_addr']))
-                                )
-                        elif af == 6:
-                            if ('v6_addr' in next_hops[path['nexthop']]):
-                                p.NexthopAddress.V6Address = (
-                                    ipaddress.ip_address(
-                                        (next_hops[path['nexthop']]['v6_addr']))
-                                        .packed
-                                )
-                        if 'if_name' in next_hops[path['nexthop']]:
-                            p.NexthopInterface.Name = (
-                                next_hops[path['nexthop']]['if_name']
-                            )
-                        if 'vrf_name' in next_hops[path['nexthop']]:
-                            p.VrfName = next_hops[path['nexthop']]['vrf_name']
                     # Bitmap
                     bitmap = []
                     if 'p_bitmap' in path:
