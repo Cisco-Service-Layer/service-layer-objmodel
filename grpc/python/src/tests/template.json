@@ -529,6 +529,9 @@
             "v4_addr": "1.1.1.18",
             "v6_addr": "10:10:10:10::18", 
             "vrf_name": "default"
+        },
+        "nh_pop_and_lookup": {
+            "vrf_name": "default"
         }
     },
     "path_route_all_attrs": {
@@ -1064,6 +1067,20 @@
                 "nexthop": "cos_nh_8"
             }
         ], 
+        "cos_path_35" : [
+            {
+                "label_action": 3,
+                "labels" : [], 
+                "nexthop": "nh_pop_and_lookup"
+            }
+        ], 
+        "cos_path_36" : [
+            {
+                "label_action": 4,
+                "labels" : [],
+                "nexthop": "nh_pop_and_lookup"
+            }
+        ], 
         "cos_scale_path_1" : [
             {
                 "label_action": 1,
@@ -1453,7 +1470,6 @@
             "ilms": [
                 {
                     "default_elsp" : true,
-                    "exp" : 5,
                     "in_label": 32220,
                     "range": 1,
                     "path": "cos_path_1"
@@ -2214,6 +2230,156 @@
                     "exp" : 5,
                     "in_label": 32220,
                     "path": "cos_path_34",
+                    "range": 1
+                }
+             ]
+        }
+    },
+    "cos_ilm_tc12" : {
+        "cos_ilm_1": {
+            "batch_count": 1,
+            "correlator": 1,
+            "ilms": [
+                {
+                    "default_elsp" : true,
+                    "in_label": 32220,
+                    "path": "cos_path_2",
+                    "range": 1
+                }
+             ]
+        },
+        "cos_ilm_2": {
+            "batch_count": 1,
+            "correlator": 1,
+            "ilms": [
+                {
+                    "exp" : 0,
+                    "in_label": 32220,
+                    "path": "cos_path_1",
+                    "range": 1
+                }
+             ]
+        },
+        "cos_ilm_3": {
+            "batch_count": 1,
+            "correlator": 1,
+            "ilms": [
+                {
+                    "exp" : 1,
+                    "in_label": 32220,
+                    "path": "cos_path_4",
+                    "range": 1
+                }
+             ]
+        },
+        "cos_ilm_4": {
+            "batch_count": 1,
+            "correlator": 1,
+            "ilms": [
+                {
+                    "default_elsp" : true,
+                    "in_label": 32220,
+                    "path": "cos_path_3",
+                    "range": 1
+                }
+             ]
+        }
+    },
+    "cos_ilm_tc13" : {
+        "cos_ilm_1": {
+            "batch_count": 1,
+            "correlator": 1,
+            "ilms": [
+                {
+                    "default_elsp" : true,
+                    "in_label": 32220,
+                    "path": "cos_path_35",
+                    "range": 1
+                }
+             ]
+        },
+        "cos_ilm_2": {
+            "batch_count": 1,
+            "correlator": 1,
+            "ilms": [
+                {
+                    "exp" : 0,
+                    "in_label": 32220,
+                    "path": "cos_path_1",
+                    "range": 1
+                }
+             ]
+        },
+        "cos_ilm_3": {
+            "batch_count": 1,
+            "correlator": 1,
+            "ilms": [
+                {
+                    "exp" : 1,
+                    "in_label": 32220,
+                    "path": "cos_path_4",
+                    "range": 1
+                }
+             ]
+        },
+        "cos_ilm_4": {
+            "batch_count": 1,
+            "correlator": 1,
+            "ilms": [
+                {
+                    "default_elsp" : true,
+                    "in_label": 32220,
+                    "path": "cos_path_3",
+                    "range": 1
+                }
+             ]
+        }
+    },
+    "cos_ilm_tc14" : {
+        "cos_ilm_1": {
+            "batch_count": 1,
+            "correlator": 1,
+            "ilms": [
+                {
+                    "default_elsp" : true,
+                    "in_label": 32220,
+                    "path": "cos_path_36",
+                    "range": 1
+                }
+             ]
+        },
+        "cos_ilm_2": {
+            "batch_count": 1,
+            "correlator": 1,
+            "ilms": [
+                {
+                    "exp" : 0,
+                    "in_label": 32220,
+                    "path": "cos_path_1",
+                    "range": 1
+                }
+             ]
+        },
+        "cos_ilm_3": {
+            "batch_count": 1,
+            "correlator": 1,
+            "ilms": [
+                {
+                    "exp" : 1,
+                    "in_label": 32220,
+                    "path": "cos_path_4",
+                    "range": 1
+                }
+             ]
+        },
+        "cos_ilm_4": {
+            "batch_count": 1,
+            "correlator": 1,
+            "ilms": [
+                {
+                    "default_elsp" : true,
+                    "in_label": 32220,
+                    "path": "cos_path_3",
                     "range": 1
                 }
              ]
