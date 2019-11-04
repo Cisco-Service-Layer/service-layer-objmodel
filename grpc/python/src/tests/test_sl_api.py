@@ -3544,6 +3544,15 @@ class TestSuite_025_MPLS_CoS_TC12(CoS_Base):
         err = validate_lbl_blk_response(response)
         self.assertTrue(err)
 
+    # add label 32220, default -> Pop and lookup
+    def test_002_ilm_add(self):
+        if self.STREAM == False:
+            self.ilm_op_wrapper(clientClass.client.ilm_add,
+                self.ilm_entry["cos_ilm_1"])
+        else:
+            self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_ADD,
+                self.ilm_entry["cos_ilm_1"])
+
     # update label 32220, default -> NH1 swap
     def test_003_ilm_update(self):
         if self.STREAM == False:
