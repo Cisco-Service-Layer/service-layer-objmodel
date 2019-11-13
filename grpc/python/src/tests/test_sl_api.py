@@ -3777,7 +3777,7 @@ class TestSuite_029_MPLS_CoS_TC16_scale(CoS_Base_Scale):
 
     @classmethod
     def setUpClass(self):
-        super(TestSuite_028_MPLS_CoS_TC15_scale, self).setUpClass()
+        super(TestSuite_029_MPLS_CoS_TC16_scale, self).setUpClass()
         self.ilm_params = [
             clientClass.json_params[self.pop_and_lookup_batch],
             self.AF,
