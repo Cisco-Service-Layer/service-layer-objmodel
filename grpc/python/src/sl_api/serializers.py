@@ -308,7 +308,7 @@ def label_block_get_serializer(get_info):
         serializer.GetNext = (get_info["get_next"] != 0)
     return serializer
 
-def _generateIlms(batch, af, paths, next_hops):
+def generateIlms(batch, af, paths, next_hops):
     """
     Generator of ILMs based on the parameters passed in
     """
@@ -324,7 +324,7 @@ def _generateIlms(batch, af, paths, next_hops):
         for path in itertools.islice(allPaths, lo, hi + 1):
             yield path
 
-    def ilmFactory(label, pathInfo, exp=None, default_elsp=False):
+    def ilmFactory(label, pathInfo, exp=None, default_elsp=False, af=None):
         pathKey = str(label) + '_' + str(default_elsp or exp)
         # Maintain mapping in paths dictionary
         paths[pathKey] = generatePaths(pathInfo)
@@ -340,25 +340,47 @@ def _generateIlms(batch, af, paths, next_hops):
         elif exp is not None:
             ilm["exp"] = exp
 
+        if af:
+            ilm['force_af'] = af
+
         return ilm
 
-    def wrapper():
-        # Wrap so that generator can be limited to batch_size 
-        for label in generateLabels(batch['label_range']):
+    ranges = batch.get('label_ranges', [{'range': batch.get('label_range', None), 'af': af}])
+    for range_info in ranges:
+        for label in generateLabels(range_info['range']):
             if 'exps' in batch:
                 for exp, pathInfo in sorted(batch['exps'].items(), key=lambda x: x[0]): 
                     if exp == 'default':
-                        yield ilmFactory(label, pathInfo, default_elsp=True)
+                        yield ilmFactory(label, pathInfo, default_elsp=True, af=range_info['af'])
                     else:
-                        yield ilmFactory(label, pathInfo, exp=int(exp))
+                        yield ilmFactory(label, pathInfo, exp=int(exp), af=range_info['af'])
             elif 'label_path' in batch:
                 # Non-elsp (no exp or default elsp)
                 yield ilmFactory(label, batch['label_path'])
 
+def makeBatch(ilms, n):
+    '''
+    This function returns an iterator that will return n ilms
+    Must check for empty iterator as it will lead to an empty ILM list 
+    which will throw an error
+    '''
+    def prepend(value, iterator):
+        "Prepend a single value in front of an iterator"
+        return itertools.chain([value], iterator)
+    
+    # Emulate a peek by getting next and the putting it back
+    try:
+        peek = next(ilms)
+    except StopIteration:
+        return None
+    
+    return itertools.islice(prepend(peek, ilms), n)
 
-    for ilm, _ in zip(wrapper(), range(batch.get('batch_size', 256))):
-        yield ilm
-
+def genBatches(ilms, size):
+    batch = makeBatch(ilms, size)
+    while batch:
+        yield batch
+        batch = makeBatch(ilms, size)
 
 def ilm_serializer(batch, af, paths, next_hops):
     """Agnostic function that returns either an MPLS IPv4 or IPv6 serializer
@@ -383,10 +405,6 @@ def ilm_serializer(batch, af, paths, next_hops):
     )
     # Create either an SLMplsIlmMsg
     serializer = ipv4_or_ipv6.serializer()
-
-    # Auto-generate ILMs
-    if 'label_range' in batch:
-        batch['ilms'] = _generateIlms(batch, af, paths, next_hops)
 
     if 'correlator' in batch:
         serializer.Correlator = batch['correlator']
@@ -417,13 +435,14 @@ def ilm_serializer(batch, af, paths, next_hops):
                     if 'path_id' in path:
                         p.PathId = path['path_id']
                     if 'nexthop' in path:
-                        if af == 4:
+                        # Give precedence to force-af if set else use regular af
+                        if ilm.get('force_af', af) ==  4:
                             if ('v4_addr' in next_hops[path['nexthop']]):
                                 p.NexthopAddress.V4Address = (
                                     int(ipaddress.ip_address(
                                         next_hops[path['nexthop']]['v4_addr']))
                                 )
-                        elif af == 6:
+                        elif ilm.get('force_af', af) == 6:
                             if ('v6_addr' in next_hops[path['nexthop']]):
                                 p.NexthopAddress.V6Address = (
                                     ipaddress.ip_address(

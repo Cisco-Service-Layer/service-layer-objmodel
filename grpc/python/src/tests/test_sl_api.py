@@ -1890,13 +1890,166 @@ class TestSuite_013_BD_eof(unittest.TestCase):
         err =  TestSuite_013_BD_eof.bdutil.validate_bdreg_response(response)
         self.assertTrue(err)
 
-#
-#
-#
-class TestSuite_014_MPLS_CoS_TC1(unittest.TestCase):
-    AF = 4
-    STREAM = False
+class CoS_Base(unittest.TestCase):
     validated_count = 0
+
+    @classmethod
+    def setUpClass(self):
+        super(CoS_Base, self).setUpClass()
+
+    # This is not a test
+    def ilm_op(self, func, params, assert_true = True):
+        batch_count = 1
+        if 'batch_count' in params[0]:
+            batch_count = params[0]['batch_count']
+        first_label = params[0]['ilms'][0]['in_label']
+        for b in range(batch_count):
+            print('\n%s' % pprint.pformat(params[0], indent=2))
+            response, next = func(*params)
+            err = self.validate_ilm_response(response)
+            if assert_true:
+                self.assertTrue(err)
+            else:
+                self.assertFalse(err)
+            params[0]['ilms'][0]['in_label'] = next
+        params[0]['ilms'][0]['in_label'] = first_label
+
+    def ilm_op_iterator(self, params, oper):
+        count = 0
+        time_limit = 0
+        batch_count = 1
+        if 'batch_count' in params[0]:
+            batch_count = params[0]['batch_count']
+        first_label = params[0]['ilms'][0]['in_label']
+        # Build the ilm (serializer)
+        for b in range(batch_count):
+            serializer, next = serializers.ilm_serializer(*params)
+            serializer.Oper = oper
+            yield serializer
+            count = count + 1
+            params[0]['ilms'][0]['in_label'] = next
+        params[0]['ilms'][0]['in_label'] = first_label
+        while (self.validated_count < count):
+            time.sleep(0.1)
+            time_limit = time_limit + 1
+            if time_limit > 100:
+                return
+        # A return would raise a stopIterator
+
+    # This is not a test
+    def ilm_op_stream(self, params, oper, assert_true=True):
+        iterator = self.ilm_op_iterator(params, oper)
+        # Must reset this to sync the iterator with the responses
+        self.validated_count = 0
+        count, error = clientClass.client.ilm_op_stream(iterator,
+                self.validate_ilm_response)
+        if assert_true:
+            self.assertTrue(error)
+        else:
+            self.assertFalse(error)
+
+        # This may fail if the server sends EOF prematurely
+        # (or we did not wait for the last reply)
+        self.assertTrue(count == self.validated_count)
+
+    # This is not a test
+    def ilm_op_wrapper(self, func, ilm, assert_true = True):
+        params = (ilm, self.AF,
+                clientClass.json_params['paths'],
+                clientClass.json_params['nexthops'],
+                )
+        self.ilm_op(func, params, assert_true)
+
+    # This is not a test
+    def ilm_op_stream_wrapper(self, oper, ilm, assert_true = True):
+        params = (ilm, self.AF,
+                clientClass.json_params['paths'],
+                clientClass.json_params['nexthops'],)
+        self.ilm_op_stream(params, oper, assert_true)
+
+    def validate_ilm_response(self, response):
+        # Increment the validated_count
+        if (sl_common_types_pb2.SLErrorStatus.SL_SUCCESS ==
+                response.StatusSummary.Status):
+            self.validated_count += 1
+            return True
+        # Error cases
+        print("Batch Error code 0x%x" %(response.StatusSummary.Status))
+        # SOME ERROR
+        if (sl_common_types_pb2.SLErrorStatus.SL_SOME_ERR ==
+                response.StatusSummary.Status):
+            for result in response.Results:
+                print("Error code for %d is 0x%x" %(
+                    result.Key.LocalLabel,
+                    result.ErrStatus.Status
+                ))
+        return False
+
+class CoS_Base_Scale(CoS_Base):
+    @classmethod
+    def setUpClass(self):
+        super(CoS_Base_Scale, self).setUpClass()
+
+    def getLabelRange(self, batch):
+        if 'label_ranges' in batch:
+            start = batch['label_ranges'][0]['range'][0]
+            end = batch['label_ranges'][-1]['range'][1]
+            return start, end
+
+        return batch.get('label_range')
+
+    def ilm_op(self, func, params):
+        # Create generator for all the ILMS
+        ilms = serializers.generateIlms(*params)
+
+        for batch in serializers.genBatches(ilms, params[0]['batch_size']):
+            params[0]['ilms'] = batch
+            response, _ = func(*params)
+            err = self.validate_ilm_response(response)
+            self.assertTrue(err)
+
+    def ilm_op_scale_iterator(self, params, oper):
+        # Create generator for all the ILMS
+        ilms = serializers.generateIlms(*params)
+
+        for batch in serializers.genBatches(ilms, params[0]['batch_size']):
+            params[0]['ilms'] = batch
+            serializer, next = serializers.ilm_serializer(*params)
+            serializer.Oper = oper
+            yield serializer
+
+        start, end = self.getLabelRange(params[0])
+        count = end - start -1
+        time_limit = 0
+        while (self.validated_count < count):
+            time.sleep(0.1)
+            time_limit = time_limit + 1
+            if time_limit > 100:
+                return
+        # A return would raise a stopIterator
+
+    # This is not a test
+    def ilm_op_stream(self, params, oper, assert_true = True):
+        iterator = self.ilm_op_scale_iterator(params, oper)
+        # Must reset this to sync the iterator with the responses
+        self.validated_count = 0
+        count, error = clientClass.client.ilm_op_stream(iterator,
+                self.validate_ilm_response)
+        if assert_true:
+            self.assertTrue(error)
+        else:
+            self.assertFalse(error)
+        # This may fail if the server sends EOF prematurely
+        # (or we did not wait for the last reply)
+        self.assertTrue(count == self.validated_count)
+
+
+#
+#
+#
+class TestSuite_014_MPLS_CoS_TC1(CoS_Base):
+    AF = 4
+    STREAM = True
 
     @classmethod
     def setUpClass(self):
@@ -1923,53 +2076,6 @@ class TestSuite_014_MPLS_CoS_TC1(unittest.TestCase):
         response = clientClass.client.label_block_add(self.lbl_blk_params)
         err = validate_lbl_blk_response(response)
         self.assertTrue(err)
-
-    # This is not a test
-    def ilm_op(self, func, params, assert_true = True):
-        batch_count = 1
-        if 'batch_count' in params[0]:
-            batch_count = params[0]['batch_count']
-        first_label = params[0]['ilms'][0]['in_label']
-        for b in range(batch_count):
-            print('\n%s' % pprint.pformat(params[0], indent=2))
-            response, next = func(*params)
-            err = validate_ilm_response(response)
-            if assert_true:
-                self.assertTrue(err)
-            else:
-                self.assertFalse(err)
-            params[0]['ilms'][0]['in_label'] = next
-        params[0]['ilms'][0]['in_label'] = first_label
-
-    # This is not a test
-    def ilm_op_stream(self, params, oper, assert_true = True):
-        iterator = ilm_op_iterator(params, oper)
-        # Must reset this to sync the iterator with the responses
-        TestSuite_003_ILM_IPv4.validated_count = 0
-        count, error = clientClass.client.ilm_op_stream(iterator,
-                validate_ilm_response)
-        if assert_true:
-            self.assertTrue(error)
-        else:
-            self.assertFalse(error)
-        # This may fail if the server sends EOF prematurely
-        # (or we did not wait for the last reply)
-        self.assertTrue(count == TestSuite_003_ILM_IPv4.validated_count)
-
-    # This is not a test
-    def ilm_op_wrapper(self, func, ilm, assert_true = True):
-        params = (ilm, self.AF,
-                clientClass.json_params['paths'],
-                clientClass.json_params['nexthops'],
-                )
-        self.ilm_op(func, params, assert_true)
-
-    # This is not a test
-    def ilm_op_stream_wrapper(self, oper, ilm, assert_true = True):
-        params = (ilm, self.AF,
-                clientClass.json_params['paths'],
-                clientClass.json_params['nexthops'],)
-        self.ilm_op_stream(params, oper, assert_true)
 
     # add label 32220, default -> NH1
     def test_002_ilm_add(self):
@@ -2027,7 +2133,7 @@ class TestSuite_014_MPLS_CoS_TC1(unittest.TestCase):
                 self.ilm_entry_del["cos_ilm_del_default"])
         else:
             self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_DELETE,
-                self.ilm_entry["cos_ilm_del_default"])
+                self.ilm_entry_del["cos_ilm_del_default"])
 
     # add label 32220, default -> NH4
     def test_008_ilm_add(self):
@@ -2054,7 +2160,7 @@ class TestSuite_014_MPLS_CoS_TC1(unittest.TestCase):
                 self.ilm_entry_del["cos_ilm_del_4"])
         else:
             self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_DELETE,
-                self.ilm_entry["cos_ilm_del_4"])
+                self.ilm_entry_del["cos_ilm_del_4"])
 
     # delete label 32220 exp 4 (del of non-existent label is success)
     def test_011_ilm_delete(self):
@@ -2063,7 +2169,7 @@ class TestSuite_014_MPLS_CoS_TC1(unittest.TestCase):
                 self.ilm_entry_del["cos_ilm_del_4"])
         else:
             self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_DELETE,
-                self.ilm_entry["cos_ilm_del_4"])
+                self.ilm_entry_del["cos_ilm_del_4"])
 
     # delete label 32220 exp 5
     def test_012_ilm_delete(self):
@@ -2072,7 +2178,7 @@ class TestSuite_014_MPLS_CoS_TC1(unittest.TestCase):
                 self.ilm_entry_del["cos_ilm_del_5"])
         else:
             self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_DELETE,
-                self.ilm_entry["cos_ilm_del_5"])
+                self.ilm_entry_del["cos_ilm_del_5"])
 
     # delete label 32220 default
     def test_013_ilm_delete(self):
@@ -2081,7 +2187,7 @@ class TestSuite_014_MPLS_CoS_TC1(unittest.TestCase):
                 self.ilm_entry_del["cos_ilm_del_default_exp"])
         else:
             self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_DELETE,
-                self.ilm_entry["cos_ilm_del_default_exp"])
+                self.ilm_entry_del["cos_ilm_del_default_exp"])
 
     def test_014_mpls_eof(self):
         response = clientClass.client.mpls_eof_oper()
@@ -2099,15 +2205,13 @@ class TestSuite_014_MPLS_CoS_TC1(unittest.TestCase):
 class TestSuite_014_MPLS_CoS_TC1_v6(TestSuite_014_MPLS_CoS_TC1):
     AF = 6
     STREAM = False
-    validated_count = 0
 
 #
 #
 #
-class TestSuite_015_MPLS_CoS_TC2(unittest.TestCase):
+class TestSuite_015_MPLS_CoS_TC2(CoS_Base):
     AF = 4
     STREAM = False
-    validated_count = 0
 
     @classmethod
     def setUpClass(self):
@@ -2135,52 +2239,6 @@ class TestSuite_015_MPLS_CoS_TC2(unittest.TestCase):
         err = validate_lbl_blk_response(response)
         self.assertTrue(err)
 
-    # This is not a test
-    def ilm_op(self, func, params, assert_true = True):
-        batch_count = 1
-        if 'batch_count' in params[0]:
-            batch_count = params[0]['batch_count']
-        first_label = params[0]['ilms'][0]['in_label']
-        for b in range(batch_count):
-            print('\n%s' % pprint.pformat(params[0], indent=2))
-            response, next = func(*params)
-            err = validate_ilm_response(response)
-            if assert_true:
-                self.assertTrue(err)
-            else:
-                self.assertFalse(err)
-            params[0]['ilms'][0]['in_label'] = next
-        params[0]['ilms'][0]['in_label'] = first_label
-
-    # This is not a test
-    def ilm_op_stream(self, params, oper, assert_true = True):
-        iterator = ilm_op_iterator(params, oper)
-        # Must reset this to sync the iterator with the responses
-        TestSuite_003_ILM_IPv4.validated_count = 0
-        count, error = clientClass.client.ilm_op_stream(iterator,
-                validate_ilm_response)
-        if assert_true:
-            self.assertTrue(error)
-        else:
-            self.assertFalse(error)
-        # This may fail if the server sends EOF prematurely
-        # (or we did not wait for the last reply)
-        self.assertTrue(count == TestSuite_003_ILM_IPv4.validated_count)
-    # This is not a test
-    def ilm_op_wrapper(self, func, ilm, assert_true = True):
-        params = (ilm, self.AF,
-                clientClass.json_params['paths'],
-                clientClass.json_params['nexthops'],
-                )
-        self.ilm_op(func, params, assert_true)
-    
-    # This is not a test
-    def ilm_op_stream_wrapper(self, oper, ilm, assert_true = True):
-        params = (ilm, self.AF,
-                clientClass.json_params['paths'],
-                clientClass.json_params['nexthops'],)
-        self.ilm_op_stream(params, oper, assert_true)
-
     # add label 32220, exp 1 -> NH1,w2 NH2,w2
     def test_002_ilm_add(self):
         if self.STREAM == False:
@@ -2206,7 +2264,7 @@ class TestSuite_015_MPLS_CoS_TC2(unittest.TestCase):
                 self.ilm_entry_del["cos_ilm_del_2"])
         else:
             self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_DELETE,
-                self.ilm_entry["cos_ilm_del_2"])        
+                self.ilm_entry_del["cos_ilm_del_2"])        
                 
     # add label 32220, default -> NH1,w3
     def test_005_ilm_add(self):
@@ -2242,7 +2300,7 @@ class TestSuite_015_MPLS_CoS_TC2(unittest.TestCase):
                 self.ilm_entry_del["cos_ilm_del_1"])
         else:
             self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_DELETE,
-                self.ilm_entry["cos_ilm_del_1"]) 
+                self.ilm_entry_del["cos_ilm_del_1"]) 
 
     # delete label 32220 default
     def test_009_ilm_delete(self):
@@ -2251,7 +2309,7 @@ class TestSuite_015_MPLS_CoS_TC2(unittest.TestCase):
                 self.ilm_entry_del["cos_ilm_del_default"])
         else:
             self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_DELETE,
-                self.ilm_entry["cos_ilm_del_default"]) 
+                self.ilm_entry_del["cos_ilm_del_default"]) 
                 
     # delete label 32220 default (del of non-existent label is success)
     def test_010_ilm_delete(self):
@@ -2260,7 +2318,7 @@ class TestSuite_015_MPLS_CoS_TC2(unittest.TestCase):
                 self.ilm_entry_del["cos_ilm_del_default"])
         else:
             self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_DELETE,
-                self.ilm_entry["cos_ilm_del_default"])
+                self.ilm_entry_del["cos_ilm_del_default"])
                 
     def test_011_mpls_eof(self):
         response = clientClass.client.mpls_eof_oper()
@@ -2278,15 +2336,13 @@ class TestSuite_015_MPLS_CoS_TC2(unittest.TestCase):
 class TestSuite_015_MPLS_CoS_TC2_v6(TestSuite_015_MPLS_CoS_TC2):
     AF = 6
     STREAM = False
-    validated_count = 0
 
 #
 #
 #
-class TestSuite_016_MPLS_CoS_TC3(unittest.TestCase):
+class TestSuite_016_MPLS_CoS_TC3(CoS_Base):
     AF = 4
     STREAM = False
-    validated_count = 0
 
     @classmethod
     def setUpClass(self):
@@ -2313,53 +2369,6 @@ class TestSuite_016_MPLS_CoS_TC3(unittest.TestCase):
         response = clientClass.client.label_block_add(self.lbl_blk_params)
         err = validate_lbl_blk_response(response)
         self.assertTrue(err)
-
-    # This is not a test
-    def ilm_op(self, func, params, assert_true = True):
-        batch_count = 1
-        if 'batch_count' in params[0]:
-            batch_count = params[0]['batch_count']
-        first_label = params[0]['ilms'][0]['in_label']
-        for b in range(batch_count):
-            print('\n%s' % pprint.pformat(params[0], indent=2))
-            response, next = func(*params)
-            err = validate_ilm_response(response)
-            if assert_true:
-                self.assertTrue(err)
-            else:
-                self.assertFalse(err)
-            params[0]['ilms'][0]['in_label'] = next
-        params[0]['ilms'][0]['in_label'] = first_label
-
-    # This is not a test
-    def ilm_op_stream(self, params, oper, assert_true = True):
-        iterator = ilm_op_iterator(params, oper)
-        # Must reset this to sync the iterator with the responses
-        TestSuite_003_ILM_IPv4.validated_count = 0
-        count, error = clientClass.client.ilm_op_stream(iterator,
-                validate_ilm_response)
-        if assert_true: 
-            self.assertTrue(error)
-        else: 
-            self.assertFalse(error)
-        # This may fail if the server sends EOF prematurely
-        # (or we did not wait for the last reply)
-        self.assertTrue(count == TestSuite_003_ILM_IPv4.validated_count)
-    
-    # This is not a test
-    def ilm_op_wrapper(self, func, ilm, assert_true = True):
-        params = (ilm, self.AF,
-                clientClass.json_params['paths'],
-                clientClass.json_params['nexthops'],
-                )
-        self.ilm_op(func, params, assert_true)
-    
-    # This is not a test
-    def ilm_op_stream_wrapper(self, oper, ilm, assert_true = True):
-        params = (ilm, self.AF,
-                clientClass.json_params['paths'],
-                clientClass.json_params['nexthops'],)
-        self.ilm_op_stream(params, oper, assert_true)
 
     # add label 32220, exp 0 -> NH1 NH2
     def test_002_ilm_add(self):
@@ -2496,7 +2505,7 @@ class TestSuite_016_MPLS_CoS_TC3(unittest.TestCase):
                 self.ilm_entry_del["cos_ilm_del_0"])
         else:
             self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_DELETE,
-                self.ilm_entry["cos_ilm_del_0"]) 
+                self.ilm_entry_del["cos_ilm_del_0"]) 
 
     # delete label 32220 exp 0 (del of non-existent label is success)
     def test_017_ilm_delete(self):
@@ -2505,7 +2514,7 @@ class TestSuite_016_MPLS_CoS_TC3(unittest.TestCase):
                 self.ilm_entry_del["cos_ilm_del_0"])
         else:
             self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_DELETE,
-                self.ilm_entry["cos_ilm_del_0"])
+                self.ilm_entry_del["cos_ilm_del_0"])
                 
     # delete label 32220 exp 1
     def test_018_ilm_delete(self):
@@ -2514,7 +2523,7 @@ class TestSuite_016_MPLS_CoS_TC3(unittest.TestCase):
                 self.ilm_entry_del["cos_ilm_del_1"])
         else:
             self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_DELETE,
-                self.ilm_entry["cos_ilm_del_1"])  
+                self.ilm_entry_del["cos_ilm_del_1"])  
                 
     # delete label 32220 exp 2
     def test_019_ilm_delete(self):
@@ -2523,7 +2532,7 @@ class TestSuite_016_MPLS_CoS_TC3(unittest.TestCase):
                 self.ilm_entry_del["cos_ilm_del_2"])
         else:
             self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_DELETE,
-                self.ilm_entry["cos_ilm_del_2"]) 
+                self.ilm_entry_del["cos_ilm_del_2"]) 
                 
     # delete label 32220 exp 3
     def test_020_ilm_delete(self):
@@ -2532,7 +2541,7 @@ class TestSuite_016_MPLS_CoS_TC3(unittest.TestCase):
                 self.ilm_entry_del["cos_ilm_del_3"])
         else:
             self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_DELETE,
-                self.ilm_entry["cos_ilm_del_3"]) 
+                self.ilm_entry_del["cos_ilm_del_3"]) 
 
     # delete label 32220 exp 4
     def test_021_ilm_delete(self):
@@ -2541,7 +2550,7 @@ class TestSuite_016_MPLS_CoS_TC3(unittest.TestCase):
                 self.ilm_entry_del["cos_ilm_del_4"])
         else:
             self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_DELETE,
-                self.ilm_entry["cos_ilm_del_4"]) 
+                self.ilm_entry_del["cos_ilm_del_4"]) 
                 
     # delete label 32220 exp 5
     def test_022_ilm_delete(self):
@@ -2550,7 +2559,7 @@ class TestSuite_016_MPLS_CoS_TC3(unittest.TestCase):
                 self.ilm_entry_del["cos_ilm_del_5"])
         else:
             self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_DELETE,
-                self.ilm_entry["cos_ilm_del_5"]) 
+                self.ilm_entry_del["cos_ilm_del_5"]) 
                 
     # delete label 32220 exp 6
     def test_023_ilm_delete(self):
@@ -2559,7 +2568,7 @@ class TestSuite_016_MPLS_CoS_TC3(unittest.TestCase):
                 self.ilm_entry_del["cos_ilm_del_6"])
         else:
             self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_DELETE,
-                self.ilm_entry["cos_ilm_del_6"])    
+                self.ilm_entry_del["cos_ilm_del_6"])    
 
     # delete label 32220 exp 7
     def test_024_ilm_delete(self):
@@ -2568,7 +2577,7 @@ class TestSuite_016_MPLS_CoS_TC3(unittest.TestCase):
                 self.ilm_entry_del["cos_ilm_del_7"])
         else:
             self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_DELETE,
-                self.ilm_entry["cos_ilm_del_7"])     
+                self.ilm_entry_del["cos_ilm_del_7"])     
 
     # delete label 32220 default
     def test_025_ilm_delete(self):
@@ -2577,7 +2586,7 @@ class TestSuite_016_MPLS_CoS_TC3(unittest.TestCase):
                 self.ilm_entry_del["cos_ilm_del_default"])
         else:
             self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_DELETE,
-                self.ilm_entry["cos_ilm_del_default"]) 
+                self.ilm_entry_del["cos_ilm_del_default"]) 
                 
     # delete label 32220 default (del of non-existent label is success)
     def test_026_ilm_delete(self):
@@ -2586,7 +2595,7 @@ class TestSuite_016_MPLS_CoS_TC3(unittest.TestCase):
                 self.ilm_entry_del["cos_ilm_del_default"])
         else:
             self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_DELETE,
-                self.ilm_entry["cos_ilm_del_default"])     
+                self.ilm_entry_del["cos_ilm_del_default"])     
 
     def test_027_mpls_eof(self):
         response = clientClass.client.mpls_eof_oper()
@@ -2604,15 +2613,13 @@ class TestSuite_016_MPLS_CoS_TC3(unittest.TestCase):
 class TestSuite_016_MPLS_CoS_TC3_v6(TestSuite_016_MPLS_CoS_TC3):
     AF = 6
     STREAM = False
-    validated_count = 0
 
 #
 #
 #
-class TestSuite_017_MPLS_CoS_TC4(unittest.TestCase):
+class TestSuite_017_MPLS_CoS_TC4(CoS_Base):
     AF = 4
     STREAM = False
-    validated_count = 0
 
     @classmethod
     def setUpClass(self):
@@ -2639,53 +2646,6 @@ class TestSuite_017_MPLS_CoS_TC4(unittest.TestCase):
         response = clientClass.client.label_block_add(self.lbl_blk_params)
         err = validate_lbl_blk_response(response)
         self.assertTrue(err)
-
-    # This is not a test
-    def ilm_op(self, func, params, assert_true = True):
-        batch_count = 1
-        if 'batch_count' in params[0]:
-            batch_count = params[0]['batch_count']
-        first_label = params[0]['ilms'][0]['in_label']
-        for b in range(batch_count):
-            print('\n%s' % pprint.pformat(params[0], indent=2))
-            response, next = func(*params)
-            err = validate_ilm_response(response)
-            if assert_true:
-                self.assertTrue(err)
-            else:
-                self.assertFalse(err)
-            params[0]['ilms'][0]['in_label'] = next
-        params[0]['ilms'][0]['in_label'] = first_label
-
-    # This is not a test
-    def ilm_op_stream(self, params, oper, assert_true = True):
-        iterator = ilm_op_iterator(params, oper)
-        # Must reset this to sync the iterator with the responses
-        TestSuite_003_ILM_IPv4.validated_count = 0
-        count, error = clientClass.client.ilm_op_stream(iterator,
-                validate_ilm_response)
-        if assert_true: 
-            self.assertTrue(error)
-        else: 
-            self.assertFalse(error)
-        # This may fail if the server sends EOF prematurely
-        # (or we did not wait for the last reply)
-        self.assertTrue(count == TestSuite_003_ILM_IPv4.validated_count)
-    
-    # This is not a test
-    def ilm_op_wrapper(self, func, ilm, assert_true = True):
-        params = (ilm, self.AF,
-                clientClass.json_params['paths'],
-                clientClass.json_params['nexthops'],
-                )
-        self.ilm_op(func, params, assert_true)
-    
-    # This is not a test
-    def ilm_op_stream_wrapper(self, oper, ilm, assert_true = True):
-        params = (ilm, self.AF,
-                clientClass.json_params['paths'],
-                clientClass.json_params['nexthops'],)
-        self.ilm_op_stream(params, oper, assert_true)
 
     # update label 32220, exp 0 -> NH1 NH2
     def test_002_ilm_update(self):
@@ -2822,7 +2782,7 @@ class TestSuite_017_MPLS_CoS_TC4(unittest.TestCase):
                 self.ilm_entry_del["cos_ilm_del_0"])
         else:
             self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_DELETE,
-                self.ilm_entry["cos_ilm_del_0"]) 
+                self.ilm_entry_del["cos_ilm_del_0"]) 
 
     # delete label 32220 exp 0 (del of non-existent label is success)
     def test_017_ilm_delete(self):
@@ -2831,7 +2791,7 @@ class TestSuite_017_MPLS_CoS_TC4(unittest.TestCase):
                 self.ilm_entry_del["cos_ilm_del_0"])
         else:
             self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_DELETE,
-                self.ilm_entry["cos_ilm_del_0"])
+                self.ilm_entry_del["cos_ilm_del_0"])
                 
     # delete label 32220 exp 1
     def test_018_ilm_delete(self):
@@ -2840,7 +2800,7 @@ class TestSuite_017_MPLS_CoS_TC4(unittest.TestCase):
                 self.ilm_entry_del["cos_ilm_del_1"])
         else:
             self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_DELETE,
-                self.ilm_entry["cos_ilm_del_1"])  
+                self.ilm_entry_del["cos_ilm_del_1"])  
                 
     # delete label 32220 exp 2
     def test_019_ilm_delete(self):
@@ -2849,7 +2809,7 @@ class TestSuite_017_MPLS_CoS_TC4(unittest.TestCase):
                 self.ilm_entry_del["cos_ilm_del_2"])
         else:
             self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_DELETE,
-                self.ilm_entry["cos_ilm_del_2"]) 
+                self.ilm_entry_del["cos_ilm_del_2"]) 
                 
     # delete label 32220 exp 3
     def test_020_ilm_delete(self):
@@ -2858,7 +2818,7 @@ class TestSuite_017_MPLS_CoS_TC4(unittest.TestCase):
                 self.ilm_entry_del["cos_ilm_del_3"])
         else:
             self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_DELETE,
-                self.ilm_entry["cos_ilm_del_3"]) 
+                self.ilm_entry_del["cos_ilm_del_3"]) 
 
     # delete label 32220 exp 4
     def test_021_ilm_delete(self):
@@ -2867,7 +2827,7 @@ class TestSuite_017_MPLS_CoS_TC4(unittest.TestCase):
                 self.ilm_entry_del["cos_ilm_del_4"])
         else:
             self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_DELETE,
-                self.ilm_entry["cos_ilm_del_4"]) 
+                self.ilm_entry_del["cos_ilm_del_4"]) 
                 
     # delete label 32220 exp 5
     def test_022_ilm_delete(self):
@@ -2876,7 +2836,7 @@ class TestSuite_017_MPLS_CoS_TC4(unittest.TestCase):
                 self.ilm_entry_del["cos_ilm_del_5"])
         else:
             self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_DELETE,
-                self.ilm_entry["cos_ilm_del_5"]) 
+                self.ilm_entry_del["cos_ilm_del_5"]) 
                 
     # delete label 32220 exp 6
     def test_023_ilm_delete(self):
@@ -2885,7 +2845,7 @@ class TestSuite_017_MPLS_CoS_TC4(unittest.TestCase):
                 self.ilm_entry_del["cos_ilm_del_6"])
         else:
             self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_DELETE,
-                self.ilm_entry["cos_ilm_del_6"])    
+                self.ilm_entry_del["cos_ilm_del_6"])    
 
     # delete label 32220 exp 7
     def test_024_ilm_delete(self):
@@ -2894,7 +2854,7 @@ class TestSuite_017_MPLS_CoS_TC4(unittest.TestCase):
                 self.ilm_entry_del["cos_ilm_del_7"])
         else:
             self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_DELETE,
-                self.ilm_entry["cos_ilm_del_7"])     
+                self.ilm_entry_del["cos_ilm_del_7"])     
 
     # delete label 32220 default
     def test_025_ilm_delete(self):
@@ -2903,7 +2863,7 @@ class TestSuite_017_MPLS_CoS_TC4(unittest.TestCase):
                 self.ilm_entry_del["cos_ilm_del_default"])
         else:
             self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_DELETE,
-                self.ilm_entry["cos_ilm_del_default"]) 
+                self.ilm_entry_del["cos_ilm_del_default"]) 
                 
     # delete label 32220 default (del of non-existent label is success)
     def test_026_ilm_delete(self):
@@ -2912,7 +2872,7 @@ class TestSuite_017_MPLS_CoS_TC4(unittest.TestCase):
                 self.ilm_entry_del["cos_ilm_del_default"])
         else:
             self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_DELETE,
-                self.ilm_entry["cos_ilm_del_default"])     
+                self.ilm_entry_del["cos_ilm_del_default"])     
 
     def test_027_mpls_eof(self):
         response = clientClass.client.mpls_eof_oper()
@@ -2930,15 +2890,13 @@ class TestSuite_017_MPLS_CoS_TC4(unittest.TestCase):
 class TestSuite_017_MPLS_CoS_TC4_v6(TestSuite_017_MPLS_CoS_TC4):
     AF = 6
     STREAM = False
-    validated_count = 0
 
 #
 #
 #
-class TestSuite_018_MPLS_CoS_TC5(unittest.TestCase):
+class TestSuite_018_MPLS_CoS_TC5(CoS_Base):
     AF = 4
     STREAM = False
-    validated_count = 0
 
     @classmethod
     def setUpClass(self):
@@ -2966,53 +2924,6 @@ class TestSuite_018_MPLS_CoS_TC5(unittest.TestCase):
         err = validate_lbl_blk_response(response)
         self.assertTrue(err)
 
-    # This is not a test
-    def ilm_op(self, func, params, assert_true = True):
-        batch_count = 1
-        if 'batch_count' in params[0]:
-            batch_count = params[0]['batch_count']
-        first_label = params[0]['ilms'][0]['in_label']
-        for b in range(batch_count):
-            print('\n%s' % pprint.pformat(params[0], indent=2))
-            response, next = func(*params)
-            err = validate_ilm_response(response)
-            if assert_true:
-                self.assertTrue(err)
-            else:
-                self.assertFalse(err)
-            params[0]['ilms'][0]['in_label'] = next
-        params[0]['ilms'][0]['in_label'] = first_label
-
-    # This is not a test
-    def ilm_op_stream(self, params, oper, assert_true = True):
-        iterator = ilm_op_iterator(params, oper)
-        # Must reset this to sync the iterator with the responses
-        TestSuite_003_ILM_IPv4.validated_count = 0
-        count, error = clientClass.client.ilm_op_stream(iterator,
-                validate_ilm_response)
-        if assert_true: 
-            self.assertTrue(error)
-        else: 
-            self.assertFalse(error)
-        # This may fail if the server sends EOF prematurely
-        # (or we did not wait for the last reply)
-        self.assertTrue(count == TestSuite_003_ILM_IPv4.validated_count)
-    
-    # This is not a test
-    def ilm_op_wrapper(self, func, ilm, assert_true = True):
-        params = (ilm, self.AF,
-                clientClass.json_params['paths'],
-                clientClass.json_params['nexthops'],
-                )
-        self.ilm_op(func, params, assert_true)
-    
-    # This is not a test
-    def ilm_op_stream_wrapper(self, oper, ilm, assert_true = True):
-        params = (ilm, self.AF,
-                clientClass.json_params['paths'],
-                clientClass.json_params['nexthops'],)
-        self.ilm_op_stream(params, oper, assert_true)
-        
     # add label 32220, exp 0 -> NH1,w32
     def test_002_ilm_add(self):
         if self.STREAM == False:
@@ -3100,7 +3011,7 @@ class TestSuite_018_MPLS_CoS_TC5(unittest.TestCase):
                 self.ilm_entry_del["cos_ilm_del_2"])
         else:
             self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_DELETE,
-                self.ilm_entry["cos_ilm_del_2"]) 
+                self.ilm_entry_del["cos_ilm_del_2"]) 
                 
     # add label 32220, exp 2 -> NH3,w32
     def test_012_ilm_add(self):
@@ -3118,7 +3029,7 @@ class TestSuite_018_MPLS_CoS_TC5(unittest.TestCase):
                 self.ilm_entry_del["cos_ilm_del_0"])
         else:
             self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_DELETE,
-                self.ilm_entry["cos_ilm_del_0"]) 
+                self.ilm_entry_del["cos_ilm_del_0"]) 
                 
     # delete label 32220 exp 1
     def test_014_ilm_delete(self):
@@ -3127,7 +3038,7 @@ class TestSuite_018_MPLS_CoS_TC5(unittest.TestCase):
                 self.ilm_entry_del["cos_ilm_del_1"])
         else:
             self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_DELETE,
-                self.ilm_entry["cos_ilm_del_1"]) 
+                self.ilm_entry_del["cos_ilm_del_1"]) 
                 
     # delete label 32220 exp 2
     def test_015_ilm_delete(self):
@@ -3136,7 +3047,7 @@ class TestSuite_018_MPLS_CoS_TC5(unittest.TestCase):
                 self.ilm_entry_del["cos_ilm_del_2"])
         else:
             self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_DELETE,
-                self.ilm_entry["cos_ilm_del_2"]) 
+                self.ilm_entry_del["cos_ilm_del_2"]) 
                        
     # delete label 32220 exp 3
     def test_016_ilm_delete(self):
@@ -3145,7 +3056,7 @@ class TestSuite_018_MPLS_CoS_TC5(unittest.TestCase):
                 self.ilm_entry_del["cos_ilm_del_3"])
         else:
             self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_DELETE,
-                self.ilm_entry["cos_ilm_del_3"]) 
+                self.ilm_entry_del["cos_ilm_del_3"]) 
                 
     # delete label 32220 exp 4
     def test_017_ilm_delete(self):
@@ -3154,7 +3065,7 @@ class TestSuite_018_MPLS_CoS_TC5(unittest.TestCase):
                 self.ilm_entry_del["cos_ilm_del_4"])
         else:
             self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_DELETE,
-                self.ilm_entry["cos_ilm_del_4"]) 
+                self.ilm_entry_del["cos_ilm_del_4"]) 
                 
     # delete label 32220 exp 5
     def test_018_ilm_delete(self):
@@ -3163,7 +3074,7 @@ class TestSuite_018_MPLS_CoS_TC5(unittest.TestCase):
                 self.ilm_entry_del["cos_ilm_del_5"])
         else:
             self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_DELETE,
-                self.ilm_entry["cos_ilm_del_5"]) 
+                self.ilm_entry_del["cos_ilm_del_5"]) 
                 
     # delete label 32220 exp 6
     def test_019_ilm_delete(self):
@@ -3172,7 +3083,7 @@ class TestSuite_018_MPLS_CoS_TC5(unittest.TestCase):
                 self.ilm_entry_del["cos_ilm_del_6"])
         else:
             self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_DELETE,
-                self.ilm_entry["cos_ilm_del_6"]) 
+                self.ilm_entry_del["cos_ilm_del_6"]) 
                 
     # delete label 32220 exp 7
     def test_020_ilm_delete(self):
@@ -3181,7 +3092,7 @@ class TestSuite_018_MPLS_CoS_TC5(unittest.TestCase):
                 self.ilm_entry_del["cos_ilm_del_7"])
         else:
             self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_DELETE,
-                self.ilm_entry["cos_ilm_del_7"]) 
+                self.ilm_entry_del["cos_ilm_del_7"]) 
                 
     # delete label 32220 exp default
     def test_021_ilm_delete(self):
@@ -3190,7 +3101,7 @@ class TestSuite_018_MPLS_CoS_TC5(unittest.TestCase):
                 self.ilm_entry_del["cos_ilm_del_default"])
         else:
             self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_DELETE,
-                self.ilm_entry["cos_ilm_del_default"]) 
+                self.ilm_entry_del["cos_ilm_del_default"]) 
                 
     def test_022_mpls_eof(self):
         response = clientClass.client.mpls_eof_oper()
@@ -3208,15 +3119,13 @@ class TestSuite_018_MPLS_CoS_TC5(unittest.TestCase):
 class TestSuite_018_MPLS_CoS_TC5_v6(TestSuite_018_MPLS_CoS_TC5):
     AF = 6
     STREAM = False
-    validated_count = 0
 
 #
 #
 #
-class TestSuite_019_MPLS_CoS_TC6(unittest.TestCase):
+class TestSuite_019_MPLS_CoS_TC6(CoS_Base):
     AF = 4
     STREAM = False
-    validated_count = 0
 
     @classmethod
     def setUpClass(self):
@@ -3244,53 +3153,6 @@ class TestSuite_019_MPLS_CoS_TC6(unittest.TestCase):
         err = validate_lbl_blk_response(response)
         self.assertTrue(err)
 
-    # This is not a test
-    def ilm_op(self, func, params, assert_true = True):
-        batch_count = 1
-        if 'batch_count' in params[0]:
-            batch_count = params[0]['batch_count']
-        first_label = params[0]['ilms'][0]['in_label']
-        for b in range(batch_count):
-            print('\n%s' % pprint.pformat(params[0], indent=2))
-            response, next = func(*params)
-            err = validate_ilm_response(response)
-            if assert_true:
-                self.assertTrue(err)
-            else:
-                self.assertFalse(err)
-            params[0]['ilms'][0]['in_label'] = next
-        params[0]['ilms'][0]['in_label'] = first_label
-
-    # This is not a test
-    def ilm_op_stream(self, params, oper, assert_true = True):
-        iterator = ilm_op_iterator(params, oper)
-        # Must reset this to sync the iterator with the responses
-        TestSuite_003_ILM_IPv4.validated_count = 0
-        count, error = clientClass.client.ilm_op_stream(iterator,
-                validate_ilm_response)
-        if assert_true: 
-            self.assertTrue(error)
-        else: 
-            self.assertFalse(error)
-        # This may fail if the server sends EOF prematurely
-        # (or we did not wait for the last reply)
-        self.assertTrue(count == TestSuite_003_ILM_IPv4.validated_count)
-    
-    # This is not a test
-    def ilm_op_wrapper(self, func, ilm, assert_true = True):
-        params = (ilm, self.AF,
-                clientClass.json_params['paths'],
-                clientClass.json_params['nexthops'],
-                )
-        self.ilm_op(func, params, assert_true)
-    
-    # This is not a test
-    def ilm_op_stream_wrapper(self, oper, ilm, assert_true = True):
-        params = (ilm, self.AF,
-                clientClass.json_params['paths'],
-                clientClass.json_params['nexthops'],)
-        self.ilm_op_stream(params, oper, assert_true)    
-                   
     # add label 32220, exp 1 -> NH1,w1 NH2,w2
     def test_003_ilm_add(self):
         if self.STREAM == False:
@@ -3363,7 +3225,7 @@ class TestSuite_019_MPLS_CoS_TC6(unittest.TestCase):
                 self.ilm_entry_del["cos_ilm_del_1"])
         else:
             self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_DELETE,
-                self.ilm_entry["cos_ilm_del_1"])  
+                self.ilm_entry_del["cos_ilm_del_1"])  
                 
     # delete label 32220 exp 1 (del of non-existent label is success)
     def test_011_ilm_delete(self):
@@ -3372,7 +3234,7 @@ class TestSuite_019_MPLS_CoS_TC6(unittest.TestCase):
                 self.ilm_entry_del["cos_ilm_del_1"])
         else:
             self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_DELETE,
-                self.ilm_entry["cos_ilm_del_1"])  
+                self.ilm_entry_del["cos_ilm_del_1"])  
                 
     # delete label 32220 default
     def test_012_ilm_delete(self):
@@ -3381,7 +3243,7 @@ class TestSuite_019_MPLS_CoS_TC6(unittest.TestCase):
                 self.ilm_entry_del["cos_ilm_del_default"])
         else:
             self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_DELETE,
-                self.ilm_entry["cos_ilm_del_default"])  
+                self.ilm_entry_del["cos_ilm_del_default"])  
                 
     # delete label 32220 default (del of non-existent label is success)
     def test_013_ilm_delete(self):
@@ -3390,7 +3252,7 @@ class TestSuite_019_MPLS_CoS_TC6(unittest.TestCase):
                 self.ilm_entry_del["cos_ilm_del_default"])
         else:
             self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_DELETE,
-                self.ilm_entry["cos_ilm_del_default"])
+                self.ilm_entry_del["cos_ilm_del_default"])
                 
     def test_014_mpls_eof(self):
         response = clientClass.client.mpls_eof_oper()
@@ -3410,14 +3272,12 @@ class TestSuite_019_MPLS_CoS_TC6(unittest.TestCase):
 class TestSuite_019_MPLS_CoS_TC6_v6(TestSuite_019_MPLS_CoS_TC6):
     AF = 6
     STREAM = False
-    validated_count = 0
 
 #
 # 
-class TestSuite_020_COS_ILM_IPv4_TC7(unittest.TestCase):
+class TestSuite_020_COS_ILM_IPv4_TC7(CoS_Base_Scale):
     AF = 4
     STREAM = False
-    validated_count = 0
     batch = 'scale_cos_ilm_4'
     update_batch = 'scale_cos_ilm_update_4'
     block = 'cos_mpls_lbl_block_2'
@@ -3451,32 +3311,6 @@ class TestSuite_020_COS_ILM_IPv4_TC7(unittest.TestCase):
         err = validate_lbl_blk_response(response)
         self.assertTrue(err)
 
-    # This is not a test
-    def ilm_op(self, func, params):
-        batch_count = 1
-        if 'batch_count' in params[0]:
-            batch_count = params[0]['batch_count']
-        start, end = params[0]['label_range']
-        next = start;
-        while next <= end: 
-            response, next = func(*params)
-            err = validate_ilm_response(response)
-            self.assertTrue(err)
-            params[0]['label_range'][0] = next 
-        params[0]['label_range'][0] = start 
-
-    # This is not a test
-    def ilm_op_stream(self, params, oper):
-        iterator = ilm_op_iterator(params, oper)
-        # Must reset this to sync the iterator with the responses
-        TestSuite_003_ILM_IPv4.validated_count = 0
-        count, error = clientClass.client.ilm_op_stream(iterator,
-                validate_ilm_response)
-        self.assertTrue(error)
-        # This may fail if the server sends EOF prematurely
-        # (or we did not wait for the last reply)
-        self.assertTrue(count == TestSuite_003_ILM_IPv4.validated_count)
-
     def test_003_ilm_add(self):
         if self.STREAM == False:
             self.ilm_op(clientClass.client.ilm_add,
@@ -3497,24 +3331,22 @@ class TestSuite_020_COS_ILM_IPv4_TC7(unittest.TestCase):
         # NOTE: If the above fails, the following wont be restored
         self.ilm_params[0] = clientClass.json_params[self.batch]
 
-    def test_007_mpls_eof(self):
-        response = clientClass.client.mpls_eof_oper()
-        err = validate_mpls_regop_response(response)
-        self.assertTrue(err)
-
-    def test_009_ilm_delete(self):
-        self.ilm_params[0] = clientClass.json_params[self.update_batch]
+    def test_007_ilm_delete(self):
         if self.STREAM == False:
             self.ilm_op(clientClass.client.ilm_delete,
                 self.ilm_params)
         else:
             self.ilm_op_stream(self.ilm_params,
                 sl_common_types_pb2.SL_OBJOP_DELETE)
-        self.ilm_params[0] = clientClass.json_params[self.batch]
 
-    def test_010_blk_delete(self):
+    def test_009_blk_delete(self):
         response = clientClass.client.label_block_delete(self.lbl_blk_params)
         err = validate_lbl_blk_response(response)
+        self.assertTrue(err)
+
+    def test_010_mpls_eof(self):
+        response = clientClass.client.mpls_eof_oper()
+        err = validate_mpls_regop_response(response)
         self.assertTrue(err)
 
     def test_011_mpls_unregister(self):
@@ -3528,7 +3360,6 @@ class TestSuite_020_COS_ILM_IPv4_TC7(unittest.TestCase):
 class TestSuite_020_COS_ILM_IPv6_TC7(TestSuite_020_COS_ILM_IPv4_TC7):
     AF = 6
     STREAM = False
-    validated_count = 0
 
 #
 #
@@ -3543,13 +3374,11 @@ class TestSuite_021_COS_ILM_IPv4_TC8(TestSuite_020_COS_ILM_IPv4_TC7):
 class TestSuite_021_COS_ILM_IPv6_TC8(TestSuite_021_COS_ILM_IPv4_TC8):
     AF = 6
     STREAM = False
-    validated_count = 0
 
 #
-class TestSuite_022_COS_ILM_IPv4_TC9(unittest.TestCase):
+class TestSuite_022_COS_ILM_IPv4_TC9(CoS_Base):
     AF = 4
     STREAM = False
-    validated_count = 0
 
     @classmethod
     def setUpClass(self):
@@ -3609,53 +3438,6 @@ class TestSuite_022_COS_ILM_IPv4_TC9(unittest.TestCase):
         err = validate_lbl_blk_response(response)
         self.assertFalse(err)
 
-    # This is not a test
-    def ilm_op(self, func, params, assert_true = True):
-        batch_count = 1
-        if 'batch_count' in params[0]:
-            batch_count = params[0]['batch_count']
-        first_label = params[0]['ilms'][0]['in_label']
-        for b in range(batch_count):
-            print('\n%s' % pprint.pformat(params[0], indent=2))
-            response, next = func(*params)
-            err = validate_ilm_response(response)
-            if assert_true:
-                self.assertTrue(err)
-            else:
-                self.assertFalse(err)
-            params[0]['ilms'][0]['in_label'] = next
-        params[0]['ilms'][0]['in_label'] = first_label
-
-    # This is not a test
-    def ilm_op_stream(self, params, oper, assert_true = True):
-        iterator = ilm_op_iterator(params, oper)
-        # Must reset this to sync the iterator with the responses
-        TestSuite_003_ILM_IPv4.validated_count = 0
-        count, error = clientClass.client.ilm_op_stream(iterator,
-                validate_ilm_response)
-        if assert_true: 
-            self.assertTrue(error)
-        else: 
-            self.assertFalse(error)
-        # This may fail if the server sends EOF prematurely
-        # (or we did not wait for the last reply)
-        self.assertTrue(count == TestSuite_003_ILM_IPv4.validated_count)
-    
-    # This is not a test
-    def ilm_op_wrapper(self, func, ilm, assert_true = True):
-        params = (ilm, self.AF,
-                clientClass.json_params['paths'],
-                clientClass.json_params['nexthops'],
-                )
-        self.ilm_op(func, params, assert_true)
-    
-    # This is not a test
-    def ilm_op_stream_wrapper(self, oper, ilm, assert_true = True):
-        params = (ilm, self.AF,
-                clientClass.json_params['paths'],
-                clientClass.json_params['nexthops'],)
-        self.ilm_op_stream(params, oper, assert_true)
-
     # add label 32220, non elsp to cbf block -> NH1 (fail)
     @unittest.skip('Not supported yet')
     def test_007_ilm_add(self):
@@ -3695,7 +3477,7 @@ class TestSuite_022_COS_ILM_IPv4_TC9(unittest.TestCase):
                 self.ilm_entry_del["cos_ilm_del_4"])
         else:
             self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_DELETE,
-                self.ilm_entry["cos_ilm_del_4"])
+                self.ilm_entry_del["cos_ilm_del_4"])
                 
     # delete label 32220 exp 5 
     def test_011_ilm_delete(self):
@@ -3704,7 +3486,7 @@ class TestSuite_022_COS_ILM_IPv4_TC9(unittest.TestCase):
                 self.ilm_entry_del["cos_ilm_del_5"])
         else:
             self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_DELETE,
-                self.ilm_entry["cos_ilm_del_5"])
+                self.ilm_entry_del["cos_ilm_del_5"])
                 
     def test_014_mpls_eof(self):
         response = clientClass.client.mpls_eof_oper()
@@ -3748,10 +3530,9 @@ class TestSuite_024_COS_ILM_IPv4_TC11(TestSuite_020_COS_ILM_IPv4_TC7):
         self.ilm_params[0] = clientClass.json_params[self.batch]
 
 
-class TestSuite_025_MPLS_CoS_TC12(unittest.TestCase):
+class TestSuite_025_MPLS_CoS_TC12(CoS_Base):
     AF = 4
     STREAM = False
-    validated_count = 0
     tc_info = 'cos_ilm_tc12'
 
     @classmethod
@@ -3778,54 +3559,7 @@ class TestSuite_025_MPLS_CoS_TC12(unittest.TestCase):
         err = validate_lbl_blk_response(response)
         self.assertTrue(err)
 
-    # This is not a test
-    def ilm_op(self, func, params, assert_true = True):
-        batch_count = 1
-        if 'batch_count' in params[0]:
-            batch_count = params[0]['batch_count']
-        first_label = params[0]['ilms'][0]['in_label']
-        for b in range(batch_count):
-            print('\n%s' % pprint.pformat(params[0], indent=2))
-            response, next = func(*params)
-            err = validate_ilm_response(response)
-            if assert_true:
-                self.assertTrue(err)
-            else:
-                self.assertFalse(err)
-            params[0]['ilms'][0]['in_label'] = next
-        params[0]['ilms'][0]['in_label'] = first_label
-
-    # This is not a test
-    def ilm_op_stream(self, params, oper, assert_true = True):
-        iterator = ilm_op_iterator(params, oper)
-        # Must reset this to sync the iterator with the responses
-        TestSuite_003_ILM_IPv4.validated_count = 0
-        count, error = clientClass.client.ilm_op_stream(iterator,
-                validate_ilm_response)
-        if assert_true:
-            self.assertTrue(error)
-        else:
-            self.assertFalse(error)
-        # This may fail if the server sends EOF prematurely
-        # (or we did not wait for the last reply)
-        self.assertTrue(count == TestSuite_003_ILM_IPv4.validated_count)
-
-    # This is not a test
-    def ilm_op_wrapper(self, func, ilm, assert_true=True):
-        params = (ilm, self.AF,
-                clientClass.json_params['paths'],
-                clientClass.json_params['nexthops'],
-                )
-        self.ilm_op(func, params, assert_true)
-
-    # This is not a test
-    def ilm_op_stream_wrapper(self, oper, ilm, assert_true=True):
-        params = (ilm, self.AF,
-                clientClass.json_params['paths'],
-                clientClass.json_params['nexthops'],)
-        self.ilm_op_stream(params, oper, assert_true)
-
-    # add label 32220, default -> Pop and lookup  
+    # add label 32220, default -> Pop and lookup
     def test_002_ilm_add(self):
         if self.STREAM == False:
             self.ilm_op_wrapper(clientClass.client.ilm_add,
@@ -3911,17 +3645,250 @@ class TestSuite_025_MPLS_CoS_TC12(unittest.TestCase):
 class TestSuite_025_MPLS_CoS_TC12_v6(TestSuite_025_MPLS_CoS_TC12):
     AF = 6
 
-class TestSuite_026_MPLS_CoS_TC13(TestSuite_025_MPLS_CoS_TC12):
-    tc_info = 'cos_ilm_tc13'
+# Skip as this is a duplicate TC as long as Pop and Lookup is mapped 
+# to Pop and Lookup v4 
+#
+# class TestSuite_026_MPLS_CoS_TC13(TestSuite_025_MPLS_CoS_TC12):
+#     tc_info = 'cos_ilm_tc13'
 
-class TestSuite_026_MPLS_CoS_TC13_v6(TestSuite_025_MPLS_CoS_TC12):
-    AF = 6
+# class TestSuite_026_MPLS_CoS_TC13_v6(TestSuite_025_MPLS_CoS_TC12):
+#     AF = 6
 
 class TestSuite_027_MPLS_CoS_TC14(TestSuite_025_MPLS_CoS_TC12):
     tc_info = 'cos_ilm_tc14'
 
 class TestSuite_027_MPLS_CoS_TC14_v6(TestSuite_027_MPLS_CoS_TC14):
     AF = 6
+
+class TestSuite_028_MPLS_CoS_TC15(CoS_Base):
+    AF = 4
+    STREAM = False
+    tc_info = 'cos_ilm_tc15'
+
+    @classmethod
+    def setUpClass(cls):
+        super(TestSuite_028_MPLS_CoS_TC15, cls).setUpClass()
+        cls.ilm_entry = clientClass.json_params[cls.tc_info]
+        cls.ilm_entry_del = clientClass.json_params['cos_ilm_del']
+        cls.lbl_blk_params = clientClass.json_params['cos_mpls_lbl_block_1']
+        cls.reg_params = clientClass.json_params['reg_params']
+
+    def test_000_get_globals(self):
+        # Get Global MPLS info
+        response = clientClass.client.mpls_global_get()
+        err = print_mpls_globals(response)
+        self.assertTrue(err)
+
+    def test_001_mpls_register(self):
+        response = clientClass.client.mpls_register_oper(self.reg_params)
+        err = validate_mpls_regop_response(response)
+        self.assertTrue(err)
+
+    def test_002_blk_add(self):
+        response = clientClass.client.label_block_add(self.lbl_blk_params)
+        err = validate_lbl_blk_response(response)
+        self.assertTrue(err)
+
+    # add label 32220, default -> Pop and lookup
+    def test_003_ilm_add(self):
+        if self.STREAM == False:
+            self.ilm_op_wrapper(clientClass.client.ilm_add,
+                self.ilm_entry["cos_ilm_1"])
+        else:
+            self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_ADD,
+                self.ilm_entry["cos_ilm_1"])
+
+    def test_004_mpls_eof(self):
+        response = clientClass.client.mpls_eof_oper()
+        err = validate_mpls_regop_response(response)
+        self.assertTrue(err)
+
+    def test_005_mpls_register(self):
+        response = clientClass.client.mpls_register_oper(self.reg_params)
+        err = validate_mpls_regop_response(response)
+        self.assertTrue(err)
+
+    def test_006_blk_add(self):
+        response = clientClass.client.label_block_add(self.lbl_blk_params)
+        err = validate_lbl_blk_response(response)
+        self.assertTrue(err)
+
+    # add label 32220, default, exp0, exp1 -> swap
+    def test_007_ilm_add(self):
+        if self.STREAM == False:
+            self.ilm_op_wrapper(clientClass.client.ilm_add,
+                self.ilm_entry["cos_ilm_2"])
+        else:
+            self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_ADD,
+                self.ilm_entry["cos_ilm_2"])
+
+    def test_008_mpls_eof(self):
+        response = clientClass.client.mpls_eof_oper()
+        err = validate_mpls_regop_response(response)
+        self.assertTrue(err)
+
+    def test_009_mpls_register(self):
+        response = clientClass.client.mpls_register_oper(self.reg_params)
+        err = validate_mpls_regop_response(response)
+        self.assertTrue(err)
+
+    def test_010_blk_add(self):
+        response = clientClass.client.label_block_add(self.lbl_blk_params)
+        err = validate_lbl_blk_response(response)
+        self.assertTrue(err)
+
+    # add label 32220, default, exp1 -> swap
+    def test_011_ilm_add(self):
+        if self.STREAM == False:
+            self.ilm_op_wrapper(clientClass.client.ilm_add,
+                self.ilm_entry["cos_ilm_3"])
+        else:
+            self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_ADD,
+                self.ilm_entry["cos_ilm_3"])
+
+    def test_012_mpls_eof(self):
+        response = clientClass.client.mpls_eof_oper()
+        err = validate_mpls_regop_response(response)
+        self.assertTrue(err)
+
+    def test_013_mpls_register(self):
+        response = clientClass.client.mpls_register_oper(self.reg_params)
+        err = validate_mpls_regop_response(response)
+        self.assertTrue(err)
+
+    def test_014_blk_add(self):
+        response = clientClass.client.label_block_add(self.lbl_blk_params)
+        err = validate_lbl_blk_response(response)
+        self.assertTrue(err)
+
+    # add label 32220, default -> Pop and lookup
+    def test_015_ilm_add(self):
+        if self.STREAM == False:
+            self.ilm_op_wrapper(clientClass.client.ilm_add,
+                self.ilm_entry["cos_ilm_1"])
+        else:
+            self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_ADD,
+                self.ilm_entry["cos_ilm_1"])
+
+    def test_016_mpls_eof(self):
+        response = clientClass.client.mpls_eof_oper()
+        err = validate_mpls_regop_response(response)
+        self.assertTrue(err)
+
+    def test_017_mpls_unregister(self):
+        response = clientClass.client.mpls_unregister_oper()
+        err = validate_mpls_regop_response(response)
+        self.assertTrue(err)
+
+class TestSuite_028_MPLS_CoS_TC15_v6(TestSuite_028_MPLS_CoS_TC15):
+    AF = 6
+
+class TestSuite_029_MPLS_CoS_TC16_scale(CoS_Base_Scale):
+    AF = 4 # AF is overwritten by scale tests
+    STREAM = False
+    pop_and_lookup_batch = 'scale_cos_ilm_pop_and_lookup'
+    swap_batch = 'scale_cos_ilm_v4_v6'
+    block = 'cos_mpls_lbl_block_2'
+
+    @classmethod
+    def setUpClass(self):
+        super(TestSuite_028_MPLS_CoS_TC15_scale, self).setUpClass()
+        self.ilm_params = [
+            clientClass.json_params[self.pop_and_lookup_batch],
+            self.AF,
+            clientClass.json_params['paths'],
+            clientClass.json_params['nexthops'],
+        ]
+        self.lbl_blk_params = clientClass.json_params[self.block]
+        self.reg_params = clientClass.json_params['reg_params']
+
+    def test_000_get_globals(self):
+        # Get Global MPLS info
+        response = clientClass.client.mpls_global_get()
+        err = print_mpls_globals(response)
+        self.assertTrue(err)
+
+    def test_001_mpls_register(self):
+        response = clientClass.client.mpls_register_oper(self.reg_params)
+        err = validate_mpls_regop_response(response)
+        self.assertTrue(err)
+
+    def test_002_blk_add(self):
+        response = clientClass.client.label_block_add(self.lbl_blk_params)
+        err = validate_lbl_blk_response(response)
+        self.assertTrue(err)
+
+    # add label 32000-32999, default -> Pop and lookup
+    def test_003_ilm_add(self):
+        if self.STREAM == False:
+            self.ilm_op(clientClass.client.ilm_add,
+                self.ilm_params)
+        else:
+            self.ilm_op_stream(self.ilm_params,
+                sl_common_types_pb2.SL_OBJOP_ADD)
+
+    def test_004_mpls_eof(self):
+        response = clientClass.client.mpls_eof_oper()
+        err = validate_mpls_regop_response(response)
+        self.assertTrue(err)
+
+    def test_005_mpls_register(self):
+        response = clientClass.client.mpls_register_oper(self.reg_params)
+        err = validate_mpls_regop_response(response)
+        self.assertTrue(err)
+
+    def test_006_blk_add(self):
+        response = clientClass.client.label_block_add(self.lbl_blk_params)
+        err = validate_lbl_blk_response(response)
+        self.assertTrue(err)
+
+    # add label 32000-32999, default, exp0, exp1 -> swap
+    def test_007_ilm_add(self):
+        self.ilm_params[0] = clientClass.json_params[self.swap_batch]
+        if self.STREAM == False:
+            self.ilm_op(clientClass.client.ilm_add,
+                self.ilm_params)
+        else:
+            self.ilm_op_stream(self.ilm_params,
+                sl_common_types_pb2.SL_OBJOP_ADD)
+        self.ilm_params[0] = clientClass.json_params[self.pop_and_lookup_batch]
+
+    def test_008_mpls_eof(self):
+        response = clientClass.client.mpls_eof_oper()
+        err = validate_mpls_regop_response(response)
+        self.assertTrue(err)
+
+    def test_009_mpls_register(self):
+        response = clientClass.client.mpls_register_oper(self.reg_params)
+        err = validate_mpls_regop_response(response)
+        self.assertTrue(err)
+
+    def test_010_blk_add(self):
+        response = clientClass.client.label_block_add(self.lbl_blk_params)
+        err = validate_lbl_blk_response(response)
+        self.assertTrue(err)
+
+    # add label 32000-32999, default -> pop and lookup
+    def test_011_ilm_add(self):
+        self.ilm_params[0] = clientClass.json_params[self.pop_and_lookup_batch]
+        if self.STREAM == False:
+            self.ilm_op(clientClass.client.ilm_add,
+                self.ilm_params)
+        else:
+            self.ilm_op_stream(self.ilm_params,
+                sl_common_types_pb2.SL_OBJOP_ADD)
+
+    def test_012_mpls_eof(self):
+        response = clientClass.client.mpls_eof_oper()
+        err = validate_mpls_regop_response(response)
+        self.assertTrue(err)
+
+    def test_013_mpls_unregister(self):
+        response = clientClass.client.mpls_unregister_oper()
+        err = validate_mpls_regop_response(response)
+        self.assertTrue(err)
+
+
 
 if __name__ == '__main__':
 
