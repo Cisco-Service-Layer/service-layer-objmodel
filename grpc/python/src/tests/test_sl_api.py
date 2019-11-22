@@ -3305,7 +3305,6 @@ class TestSuite_020_COS_ILM_IPv4_TC7(CoS_Base_Scale):
                 sl_common_types_pb2.SL_OBJOP_ADD)
 
     def test_004_00_ilm_update(self):
-        # add 1 to lower bound so all generated addresses change
         self.ilm_params[0] = clientClass.json_params[self.update_batch]
         if self.STREAM == False:
             self.ilm_op(clientClass.client.ilm_update,
@@ -3512,7 +3511,7 @@ class TestSuite_024_COS_ILM_IPv4_TC11(TestSuite_020_COS_ILM_IPv4_TC7):
         else:
             self.ilm_op_stream(self.ilm_params,
                 sl_common_types_pb2.SL_OBJOP_DELETE)
-        self.ilm_params[0] = clientClass.json_params[self.batch]
+        self.ilm_params[0] = clientClass.json_params[self.update_batch]
 
 
 class TestSuite_025_MPLS_CoS_TC12(CoS_Base):
