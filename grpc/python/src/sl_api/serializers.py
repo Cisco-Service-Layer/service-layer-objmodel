@@ -5,6 +5,7 @@
 import collections
 import ipaddress
 import itertools
+from inspect import isgenerator
 
 from util import util
 
@@ -325,13 +326,9 @@ def generateIlms(batch, af, paths, next_hops):
             yield path
 
     def ilmFactory(label, pathInfo, exp=None, default_elsp=False, af=None):
-        pathKey = str(label) + '_' + str(default_elsp or exp)
-        # Maintain mapping in paths dictionary
-        paths[pathKey] = generatePaths(pathInfo)
-
         ilm = {
                 "in_label": label,
-                "path": pathKey,
+                "path": generatePaths(pathInfo),
                 "range": 1  # NOTE: Range must be 1
         }
 
@@ -426,7 +423,9 @@ def ilm_serializer(batch, af, paths, next_hops):
                 if 'in_label' in ilm:
                     entry.Key.LocalLabel = value
                 ps = []
-                for path in paths[ilm['path']]:
+                # Scale tests will create generator otherwise get paths from path dictionary
+                ilm_paths = ilm['path'] if isgenerator(ilm['path']) else paths[ilm['path']]
+                for path in ilm_paths:
                     p = sl_mpls_pb2.SLMplsPath()
                     if 'label_action' in path:
                         p.Action = path['label_action']
@@ -502,8 +501,9 @@ def ilm_get_serializer(get_info):
     serializer = sl_mpls_pb2.SLMplsIlmGetMsg()
     if "correlator" in get_info:
         serializer.Correlator = get_info["correlator"]
-    if "in_label" in get_info:
-        serializer.Key.LocalLabel = get_info["in_label"]
+    if "ilm" in get_info:
+        if "in_label" in get_info["ilm"]:
+            serializer.Key.LocalLabel = get_info["ilm"]["in_label"]
     if "count" in get_info:
         serializer.EntriesCount = get_info["count"]
     if "get_next" in get_info:

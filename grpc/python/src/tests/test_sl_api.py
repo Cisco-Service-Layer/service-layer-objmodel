@@ -151,27 +151,6 @@ def print_route_stats_globals(af, response):
         return False
     return True
 
-# Print Received MPLS Globals
-def print_mpls_globals(response):
-    if (response.ErrStatus.Status ==
-        sl_common_types_pb2.SLErrorStatus.SL_SUCCESS):
-        print("Max labels per label block            : %d" %(
-            response.MaxLabelsPerBlock))
-        print("Max label blocks per MplsLabelBlockMsg: %d" %(
-            response.MaxLabelblocksPerLabelblockmsg))
-        print("Min Start Label                       : %d" %(
-            response.MinStartLabel))
-        print("Label Table Size                      : %d" %(
-            response.LabelTableSize))
-        print("Max ILMs per IlmMsg                   : %d" %(
-            response.MaxIlmPerIlmmsg))
-        print("Max Paths per Ilm                     : %d" %(
-            response.MaxPathsPerIlm))
-    else:
-        print("MPLS Globals response Error 0x%x" %(response.ErrStatus.Status))
-        return False
-    return True
-
 # Print Received BFD Globals
 def print_bfd_globals(af, response):
     if (response.ErrStatus.Status ==
@@ -496,148 +475,6 @@ def route_get_iterator(get_list):
             return
     # A return would raise a stopIterator
 
-#
-#
-#
-def validate_mpls_regop_response(response):
-    if (sl_common_types_pb2.SLErrorStatus.SL_SUCCESS ==
-            response.ErrStatus.Status):
-        return True
-    # Error cases
-    print("Response Error code 0x%x" %(response.ErrStatus.Status))
-    return False
-
-#
-#
-# Print Received MPLS Stats
-def print_mpls_stats(response):
-    if (response.ErrStatus.Status ==
-        sl_common_types_pb2.SLErrorStatus.SL_SUCCESS):
-        print("LabelBlockCount : %d" %(response.LabelBlockCount))
-        print("IlmCount : %d" %(response.IlmCount))
-    else:
-        print("MPLS Stats response Error 0x%x" %(response.ErrStatus.Status))
-        return False
-    return True
-
-#
-#
-#
-def validate_lbl_blk_response(response):
-    if (sl_common_types_pb2.SLErrorStatus.SL_SUCCESS ==
-            response.StatusSummary.Status):
-        return True
-    # Error cases
-    print("Batch Error code 0x%x" %(response.StatusSummary.Status))
-    # SOME ERROR
-    if (sl_common_types_pb2.SLErrorStatus.SL_SOME_ERR ==
-            response.StatusSummary.Status):
-        for result in response.Results:
-            print("Error code for %d is 0x%x" %(
-                result.Key.StartLabel,
-                result.ErrStatus.Status
-            ))
-    return False
-
-#
-#
-#
-def validate_lbl_blk_get_response(response):
-    # Increment the validated_count
-    TestSuite_003_ILM_IPv4.validated_count =\
-        TestSuite_001_Route_IPv4.validated_count + 1
-    #
-    if (sl_common_types_pb2.SLErrorStatus.SL_SUCCESS ==
-            response.ErrStatus.Status):
-        print(response)
-        return True
-    print("Label Block Get Error code 0x%x" %(response.ErrStatus.Status))
-    return False
-
-#
-#
-#
-def validate_ilm_response(response):
-
-    if cafy:
-        for cli in cafy.verifyCli:
-            # Prints to cafy log by default
-            out = cafy.device.transmit_receive(cli)
-
-    # Increment the validated_count
-    TestSuite_003_ILM_IPv4.validated_count =\
-        TestSuite_003_ILM_IPv4.validated_count + 1
-    if (sl_common_types_pb2.SLErrorStatus.SL_SUCCESS ==
-            response.StatusSummary.Status):
-        return True
-    # Error cases
-    print("Batch Error code 0x%x" %(response.StatusSummary.Status))
-    # SOME ERROR
-    if (sl_common_types_pb2.SLErrorStatus.SL_SOME_ERR ==
-            response.StatusSummary.Status):
-        for result in response.Results:
-            print("Error code for %d is 0x%x" %(
-                result.Key.LocalLabel,
-                result.ErrStatus.Status
-            ))
-    return False
-
-#
-#
-#
-def ilm_op_iterator(params, oper):
-    count = 0
-    time_limit = 0
-    batch_count = 1
-    if 'batch_count' in params[0]:
-        batch_count = params[0]['batch_count']
-    first_label = params[0]['ilms'][0]['in_label']
-    # Build the ilm (serializer)
-    for b in range(batch_count):
-        serializer, next = serializers.ilm_serializer(*params)
-        serializer.Oper = oper
-        yield serializer
-        count = count + 1
-        params[0]['ilms'][0]['in_label'] = next
-    params[0]['ilms'][0]['in_label'] = first_label
-    while (TestSuite_003_ILM_IPv4.validated_count < count):
-        time.sleep(0.1)
-        time_limit = time_limit + 1
-        if time_limit > 100:
-            return
-    # A return would raise a stopIterator
-
-#
-#
-#
-def ilm_get_iterator(get_list):
-    count = 0
-    time_limit = 0
-    for item in get_list:
-        yield item
-        count = count + 1
-    while (TestSuite_003_ILM_IPv4.validated_count < count):
-        time.sleep(0.1)
-        time_limit = time_limit + 1
-        if time_limit > 100:
-            return
-    # A return would raise a stopIterator
-
-#
-#
-#
-def validate_ilm_get_response(response):
-    # Increment the validated_count
-    TestSuite_003_ILM_IPv4.validated_count =\
-        TestSuite_003_ILM_IPv4.validated_count + 1
-    #
-    if (sl_common_types_pb2.SLErrorStatus.SL_SUCCESS ==
-            response.ErrStatus.Status):
-        print(response)
-        return True
-    print("ILM Get Error code 0x%x" %(response.ErrStatus.Status))
-    return False
-
 
 #
 #
@@ -774,6 +611,256 @@ def validate_intf_get_response(response):
             response.ErrStatus.Status):
         return False
     return True
+
+class MplsBase(unittest.TestCase):
+    validated_count = 0
+
+    @classmethod
+    def setUpClass(self):
+        super(MplsBase, self).setUpClass()
+
+    # Print Received MPLS Globals
+    def print_mpls_globals(self, response):
+        if (response.ErrStatus.Status ==
+            sl_common_types_pb2.SLErrorStatus.SL_SUCCESS):
+            print("Max labels per label block            : %d" %(
+                response.MaxLabelsPerBlock))
+            print("Max label blocks per MplsLabelBlockMsg: %d" %(
+                response.MaxLabelblocksPerLabelblockmsg))
+            print("Min Start Label                       : %d" %(
+                response.MinStartLabel))
+            print("Label Table Size                      : %d" %(
+                response.LabelTableSize))
+            print("Max ILMs per IlmMsg                   : %d" %(
+                response.MaxIlmPerIlmmsg))
+            print("Max Paths per Ilm                     : %d" %(
+                response.MaxPathsPerIlm))
+        else:
+            print("MPLS Globals response Error 0x%x" %(response.ErrStatus.Status))
+            return False
+        return True
+
+    def print_mpls_stats(self, response):
+        '''Print Received MPLS Stats'''
+        if (response.ErrStatus.Status ==
+            sl_common_types_pb2.SLErrorStatus.SL_SUCCESS):
+            print("LabelBlockCount : %d" %(response.LabelBlockCount))
+            print("IlmCount : %d" %(response.IlmCount))
+        else:
+            print("MPLS Stats response Error 0x%x" %(response.ErrStatus.Status))
+            return False
+        return True
+
+    def ilm_get_iterator(self, get_list):
+        count = 0
+        time_limit = 0
+        for item in get_list:
+            yield item
+            count = count + 1
+        while (self.validated_count < count):
+            time.sleep(0.1)
+            time_limit = time_limit + 1
+            if time_limit > 100:
+                return
+        # A return would raise a stopIterator
+
+    # This is not a test
+    def ilm_op(self, func, params, assert_true = True):
+        batch_count = 1
+        if 'batch_count' in params[0]:
+            batch_count = params[0]['batch_count']
+        first_label = params[0]['ilms'][0]['in_label']
+        for b in range(batch_count):
+            print('\n%s' % pprint.pformat(params[0], indent=2))
+            response, next = func(*params)
+            err = self.validate_ilm_response(response)
+            if assert_true:
+                self.assertTrue(err)
+            else:
+                self.assertFalse(err)
+            params[0]['ilms'][0]['in_label'] = next
+        params[0]['ilms'][0]['in_label'] = first_label
+
+    def ilm_op_iterator(self, params, oper):
+        count = 0
+        time_limit = 0
+        batch_count = 1
+        if 'batch_count' in params[0]:
+            batch_count = params[0]['batch_count']
+        first_label = params[0]['ilms'][0]['in_label']
+        # Build the ilm (serializer)
+        for b in range(batch_count):
+            serializer, next = serializers.ilm_serializer(*params)
+            serializer.Oper = oper
+            yield serializer
+            count = count + 1
+            params[0]['ilms'][0]['in_label'] = next
+        params[0]['ilms'][0]['in_label'] = first_label
+        while (self.validated_count < count):
+            time.sleep(0.1)
+            time_limit = time_limit + 1
+            if time_limit > 100:
+                return
+        # A return would raise a stopIterator
+
+    # This is not a test
+    def ilm_op_stream(self, params, oper, assert_true=True):
+        iterator = self.ilm_op_iterator(params, oper)
+        # Must reset this to sync the iterator with the responses
+        self.validated_count = 0
+        count, error = clientClass.client.ilm_op_stream(iterator,
+                self.validate_ilm_response)
+        if assert_true:
+            self.assertTrue(error)
+        else:
+            self.assertFalse(error)
+
+        # This may fail if the server sends EOF prematurely
+        # (or we did not wait for the last reply)
+        self.assertTrue(count == self.validated_count)
+
+    # This is not a test
+    def ilm_op_wrapper(self, func, ilm, assert_true = True):
+        params = (ilm, self.AF,
+                clientClass.json_params['paths'],
+                clientClass.json_params['nexthops'],
+                )
+        self.ilm_op(func, params, assert_true)
+
+    # This is not a test
+    def ilm_op_stream_wrapper(self, oper, ilm, assert_true = True):
+        params = (ilm, self.AF,
+                clientClass.json_params['paths'],
+                clientClass.json_params['nexthops'],)
+        self.ilm_op_stream(params, oper, assert_true)
+
+    def validate_mpls_regop_response(self, response):
+        if (sl_common_types_pb2.SLErrorStatus.SL_SUCCESS ==
+                response.ErrStatus.Status):
+            return True
+        # Error cases
+        print("Response Error code 0x%x" %(response.ErrStatus.Status))
+        return False
+
+    def validate_lbl_blk_response(self, response):
+        if (sl_common_types_pb2.SLErrorStatus.SL_SUCCESS ==
+                response.StatusSummary.Status):
+            return True
+        # Error cases
+        print("Batch Error code 0x%x" %(response.StatusSummary.Status))
+        # SOME ERROR
+        if (sl_common_types_pb2.SLErrorStatus.SL_SOME_ERR ==
+                response.StatusSummary.Status):
+            for result in response.Results:
+                print("Error code for %d is 0x%x" %(
+                    result.Key.StartLabel,
+                    result.ErrStatus.Status
+                ))
+        return False
+
+    def validate_lbl_blk_get_response(self, response):
+        self.validated_count += 1
+
+        if (sl_common_types_pb2.SLErrorStatus.SL_SUCCESS ==
+                response.ErrStatus.Status):
+            print(response)
+            return True
+        print("Label Block Get Error code 0x%x" %(response.ErrStatus.Status))
+        return False
+
+    def validate_ilm_response(self, response):
+        if cafy:
+            for cli in cafy.verifyCli:
+                # Prints to cafy log by default
+                out = cafy.device.transmit_receive(cli)
+
+        # Increment the validated_count
+        if (sl_common_types_pb2.SLErrorStatus.SL_SUCCESS ==
+                response.StatusSummary.Status):
+            self.validated_count += 1
+            return True
+        # Error cases
+        print("Batch Error code 0x%x" %(response.StatusSummary.Status))
+        # SOME ERROR
+        if (sl_common_types_pb2.SLErrorStatus.SL_SOME_ERR ==
+                response.StatusSummary.Status):
+            for result in response.Results:
+                print("Error code for %d is 0x%x" %(
+                    result.Key.LocalLabel,
+                    result.ErrStatus.Status
+                ))
+        return False
+
+    def validate_ilm_get_response(self, response):
+        # Increment the validated_count
+        self.validated_count =\
+            self.validated_count + 1
+        #
+        if (sl_common_types_pb2.SLErrorStatus.SL_SUCCESS ==
+                response.ErrStatus.Status):
+            print(response)
+            return True
+        print("ILM Get Error code 0x%x" %(response.ErrStatus.Status))
+        return False
+
+
+class MplsBaseScale(MplsBase):
+    @classmethod
+    def setUpClass(self):
+        super(MplsBaseScale, self).setUpClass()
+
+    def getLabelRange(self, batch):
+        if 'label_ranges' in batch:
+            start = batch['label_ranges'][0]['range'][0]
+            end = batch['label_ranges'][-1]['range'][1]
+            return start, end
+
+        return batch.get('label_range')
+
+    def ilm_op(self, func, params):
+        # Create generator for all the ILMS
+        ilms = serializers.generateIlms(*params)
+
+        for batch in serializers.genBatches(ilms, params[0]['batch_size']):
+            params[0]['ilms'] = batch
+            response, _ = func(*params)
+            err = self.validate_ilm_response(response)
+            self.assertTrue(err)
+
+    def ilm_op_scale_iterator(self, params, oper):
+        # Create generator for all the ILMS
+        ilms = serializers.generateIlms(*params)
+
+        for batch in serializers.genBatches(ilms, params[0]['batch_size']):
+            params[0]['ilms'] = batch
+            serializer, next = serializers.ilm_serializer(*params)
+            serializer.Oper = oper
+            yield serializer
+
+        start, end = self.getLabelRange(params[0])
+        count = end - start -1
+        time_limit = 0
+        while (self.validated_count < count):
+            time.sleep(0.1)
+            time_limit = time_limit + 1
+            if time_limit > 100:
+                return
+        # A return would raise a stopIterator
+
+    # This is not a test
+    def ilm_op_stream(self, params, oper, assert_true = True):
+        iterator = self.ilm_op_scale_iterator(params, oper)
+        # Must reset this to sync the iterator with the responses
+        self.validated_count = 0
+        count, error = clientClass.client.ilm_op_stream(iterator,
+                self.validate_ilm_response)
+        if assert_true:
+            self.assertTrue(error)
+        else:
+            self.assertFalse(error)
+        # This may fail if the server sends EOF prematurely
+        # (or we did not wait for the last reply)
+        self.assertTrue(count == self.validated_count)
 
 #
 # Alphabetical order makes this test runs first
@@ -1092,7 +1179,7 @@ class TestSuite_002_Route_IPv6_Stream(TestSuite_001_Route_IPv4):
 #
 #
 #
-class TestSuite_003_ILM_IPv4(unittest.TestCase):
+class TestSuite_003_ILM_IPv4(MplsBase):
     AF = 4
     STREAM = False
     validated_count = 0
@@ -1113,17 +1200,17 @@ class TestSuite_003_ILM_IPv4(unittest.TestCase):
     def test_000_get_globals(self):
         # Get Global MPLS info
         response = clientClass.client.mpls_global_get()
-        err = print_mpls_globals(response)
+        err = self.print_mpls_globals(response)
         self.assertTrue(err)
 
     def test_001_mpls_register(self):
         response = clientClass.client.mpls_register_oper(self.reg_params)
-        err = validate_mpls_regop_response(response)
+        err = self.validate_mpls_regop_response(response)
         self.assertTrue(err)
 
     def test_002_blk_add(self):
         response = clientClass.client.label_block_add(self.lbl_blk_params)
-        err = validate_lbl_blk_response(response)
+        err = self.validate_lbl_blk_response(response)
         self.assertTrue(err)
 
     # This is not a test
@@ -1135,22 +1222,22 @@ class TestSuite_003_ILM_IPv4(unittest.TestCase):
         for b in range(batch_count):
             print('\n%s' % pprint.pformat(params[0], indent=2))
             response, next = func(*params)
-            err = validate_ilm_response(response)
+            err = self.validate_ilm_response(response)
             self.assertTrue(err)
             params[0]['ilms'][0]['in_label'] = next
         params[0]['ilms'][0]['in_label'] = first_label
 
     # This is not a test
     def ilm_op_stream(self, params, oper):
-        iterator = ilm_op_iterator(params, oper)
+        iterator = self.ilm_op_iterator(params, oper)
         # Must reset this to sync the iterator with the responses
-        TestSuite_003_ILM_IPv4.validated_count = 0
+        self.validated_count = 0
         count, error = clientClass.client.ilm_op_stream(iterator,
-                validate_ilm_response)
+                self.validate_ilm_response)
         self.assertTrue(error)
         # This may fail if the server sends EOF prematurely
         # (or we did not wait for the last reply)
-        self.assertTrue(count == TestSuite_003_ILM_IPv4.validated_count)
+        self.assertTrue(count == self.validated_count)
 
     def test_003_ilm_add(self):
         if self.STREAM == False:
@@ -1213,14 +1300,14 @@ class TestSuite_003_ILM_IPv4(unittest.TestCase):
     def test_005_get_stats(self):
         # Get Global MPLS stats
         response = clientClass.client.mpls_global_get_stats()
-        err = print_mpls_stats(response)
+        err = self.print_mpls_stats(response)
         self.assertTrue(err)
 
     # Not a test case
     def ilm_get_info(self, get_info):
         print(get_info["_description"])
         response = clientClass.client.ilm_get(get_info)
-        err = validate_ilm_get_response(response)
+        err = self.validate_ilm_get_response(response)
         self.assertTrue(err)
 
     def test_006_01_ilm_get_exact_match(self):
@@ -1243,19 +1330,19 @@ class TestSuite_003_ILM_IPv4(unittest.TestCase):
         total_ilms = 0
         get_info = self.ilm_get["get_firstN_ilm"]
         response = clientClass.client.ilm_get(get_info)
-        err = validate_ilm_get_response(response)
+        err = self.validate_ilm_get_response(response)
         self.assertTrue(err)
         total_ilms = total_ilms + len(response.Entries)
         get_info = self.ilm_get["get_nextN_ilm"]
-        label_temp = get_info["in_label"]
+        label_temp = get_info["ilm"]["in_label"]
         while (len(response.Entries)>0) and not response.Eof:
-            last_label = response.Entries[len(response.Entries)-1].Key.LocalLabel
-            get_info["in_label"] = last_label
+            last_label = response.Entries[-1].Key.LocalLabel
+            get_info["ilm"]["in_label"] = last_label
             response = clientClass.client.ilm_get(get_info)
-            err = validate_ilm_get_response(response)
+            err = self.validate_ilm_get_response(response)
             total_ilms = total_ilms + len(response.Entries)
             self.assertTrue(err)
-        get_info["in_label"] = label_temp
+        get_info["ilm"]["in_label"] = label_temp
         print("Total ilms read: %d" %(total_ilms))
 
     def test_006_06_ilm_get_stream(self):
@@ -1274,11 +1361,11 @@ class TestSuite_003_ILM_IPv4(unittest.TestCase):
         serializer = serializers.ilm_get_serializer(get_info)
         serialized_list.append(serializer)
         # Call RPC
-        iterator = ilm_get_iterator(serialized_list)
+        iterator = self.ilm_get_iterator(serialized_list)
         # Must reset this to sync the iterator with the responses
-        TestSuite_003_ILM_IPv4.validated_count = 0
+        self.validated_count = 0
         count, error = clientClass.client.ilm_get_stream(iterator,
-            validate_ilm_get_response)
+            self.validate_ilm_get_response)
         self.assertTrue(error)
         # This may fail if the server sends EOF prematurely
         if count != len(serialized_list):
@@ -1297,7 +1384,7 @@ class TestSuite_003_ILM_IPv4(unittest.TestCase):
     def lbl_blk_get_info(self, get_info):
         print(get_info["_description"])
         response = clientClass.client.label_block_get(get_info)
-        err = validate_lbl_blk_get_response(response)
+        err = self.validate_lbl_blk_get_response(response)
         self.assertTrue(err)
 
     def test_008_01_lbl_blk_get_exact_match(self):
@@ -1320,7 +1407,7 @@ class TestSuite_003_ILM_IPv4(unittest.TestCase):
         total_lbl_blks = 0
         get_info = self.lbl_blk_get["get_firstN_lbl_blk"]
         response = clientClass.client.label_block_get(get_info)
-        err = validate_lbl_blk_get_response(response)
+        err = self.validate_lbl_blk_get_response(response)
         self.assertTrue(err)
         total_lbl_blks = total_lbl_blks + len(response.Entries)
         get_info = self.lbl_blk_get["get_nextN_lbl_blk"]
@@ -1332,7 +1419,7 @@ class TestSuite_003_ILM_IPv4(unittest.TestCase):
             get_info["start_label"] = last_label
             get_info["block_size"] = last_size
             response = clientClass.client.label_block_get(get_info)
-            err = validate_lbl_blk_get_response(response)
+            err = self.validate_lbl_blk_get_response(response)
             total_lbl_blks = total_lbl_blks + len(response.Entries)
             self.assertTrue(err)
         get_info["start_label"] = label_temp
@@ -1341,17 +1428,17 @@ class TestSuite_003_ILM_IPv4(unittest.TestCase):
 
     def test_009_blk_delete(self):
         response = clientClass.client.label_block_delete(self.lbl_blk_params)
-        err = validate_lbl_blk_response(response)
+        err = self.validate_lbl_blk_response(response)
         self.assertTrue(err)
 
     def test_010_mpls_eof(self):
         response = clientClass.client.mpls_eof_oper()
-        err = validate_mpls_regop_response(response)
+        err = self.validate_mpls_regop_response(response)
         self.assertTrue(err)
 
     def test_011_mpls_unregister(self):
         response = clientClass.client.mpls_unregister_oper()
-        err = validate_mpls_regop_response(response)
+        err = self.validate_mpls_regop_response(response)
         self.assertTrue(err)
 
 
@@ -1890,164 +1977,11 @@ class TestSuite_013_BD_eof(unittest.TestCase):
         err =  TestSuite_013_BD_eof.bdutil.validate_bdreg_response(response)
         self.assertTrue(err)
 
-class CoS_Base(unittest.TestCase):
-    validated_count = 0
-
-    @classmethod
-    def setUpClass(self):
-        super(CoS_Base, self).setUpClass()
-
-    # This is not a test
-    def ilm_op(self, func, params, assert_true = True):
-        batch_count = 1
-        if 'batch_count' in params[0]:
-            batch_count = params[0]['batch_count']
-        first_label = params[0]['ilms'][0]['in_label']
-        for b in range(batch_count):
-            print('\n%s' % pprint.pformat(params[0], indent=2))
-            response, next = func(*params)
-            err = self.validate_ilm_response(response)
-            if assert_true:
-                self.assertTrue(err)
-            else:
-                self.assertFalse(err)
-            params[0]['ilms'][0]['in_label'] = next
-        params[0]['ilms'][0]['in_label'] = first_label
-
-    def ilm_op_iterator(self, params, oper):
-        count = 0
-        time_limit = 0
-        batch_count = 1
-        if 'batch_count' in params[0]:
-            batch_count = params[0]['batch_count']
-        first_label = params[0]['ilms'][0]['in_label']
-        # Build the ilm (serializer)
-        for b in range(batch_count):
-            serializer, next = serializers.ilm_serializer(*params)
-            serializer.Oper = oper
-            yield serializer
-            count = count + 1
-            params[0]['ilms'][0]['in_label'] = next
-        params[0]['ilms'][0]['in_label'] = first_label
-        while (self.validated_count < count):
-            time.sleep(0.1)
-            time_limit = time_limit + 1
-            if time_limit > 100:
-                return
-        # A return would raise a stopIterator
-
-    # This is not a test
-    def ilm_op_stream(self, params, oper, assert_true=True):
-        iterator = self.ilm_op_iterator(params, oper)
-        # Must reset this to sync the iterator with the responses
-        self.validated_count = 0
-        count, error = clientClass.client.ilm_op_stream(iterator,
-                self.validate_ilm_response)
-        if assert_true:
-            self.assertTrue(error)
-        else:
-            self.assertFalse(error)
-
-        # This may fail if the server sends EOF prematurely
-        # (or we did not wait for the last reply)
-        self.assertTrue(count == self.validated_count)
-
-    # This is not a test
-    def ilm_op_wrapper(self, func, ilm, assert_true = True):
-        params = (ilm, self.AF,
-                clientClass.json_params['paths'],
-                clientClass.json_params['nexthops'],
-                )
-        self.ilm_op(func, params, assert_true)
-
-    # This is not a test
-    def ilm_op_stream_wrapper(self, oper, ilm, assert_true = True):
-        params = (ilm, self.AF,
-                clientClass.json_params['paths'],
-                clientClass.json_params['nexthops'],)
-        self.ilm_op_stream(params, oper, assert_true)
-
-    def validate_ilm_response(self, response):
-        # Increment the validated_count
-        if (sl_common_types_pb2.SLErrorStatus.SL_SUCCESS ==
-                response.StatusSummary.Status):
-            self.validated_count += 1
-            return True
-        # Error cases
-        print("Batch Error code 0x%x" %(response.StatusSummary.Status))
-        # SOME ERROR
-        if (sl_common_types_pb2.SLErrorStatus.SL_SOME_ERR ==
-                response.StatusSummary.Status):
-            for result in response.Results:
-                print("Error code for %d is 0x%x" %(
-                    result.Key.LocalLabel,
-                    result.ErrStatus.Status
-                ))
-        return False
-
-class CoS_Base_Scale(CoS_Base):
-    @classmethod
-    def setUpClass(self):
-        super(CoS_Base_Scale, self).setUpClass()
-
-    def getLabelRange(self, batch):
-        if 'label_ranges' in batch:
-            start = batch['label_ranges'][0]['range'][0]
-            end = batch['label_ranges'][-1]['range'][1]
-            return start, end
-
-        return batch.get('label_range')
-
-    def ilm_op(self, func, params):
-        # Create generator for all the ILMS
-        ilms = serializers.generateIlms(*params)
-
-        for batch in serializers.genBatches(ilms, params[0]['batch_size']):
-            params[0]['ilms'] = batch
-            response, _ = func(*params)
-            err = self.validate_ilm_response(response)
-            self.assertTrue(err)
-
-    def ilm_op_scale_iterator(self, params, oper):
-        # Create generator for all the ILMS
-        ilms = serializers.generateIlms(*params)
-
-        for batch in serializers.genBatches(ilms, params[0]['batch_size']):
-            params[0]['ilms'] = batch
-            serializer, next = serializers.ilm_serializer(*params)
-            serializer.Oper = oper
-            yield serializer
-
-        start, end = self.getLabelRange(params[0])
-        count = end - start -1
-        time_limit = 0
-        while (self.validated_count < count):
-            time.sleep(0.1)
-            time_limit = time_limit + 1
-            if time_limit > 100:
-                return
-        # A return would raise a stopIterator
-
-    # This is not a test
-    def ilm_op_stream(self, params, oper, assert_true = True):
-        iterator = self.ilm_op_scale_iterator(params, oper)
-        # Must reset this to sync the iterator with the responses
-        self.validated_count = 0
-        count, error = clientClass.client.ilm_op_stream(iterator,
-                self.validate_ilm_response)
-        if assert_true:
-            self.assertTrue(error)
-        else:
-            self.assertFalse(error)
-        # This may fail if the server sends EOF prematurely
-        # (or we did not wait for the last reply)
-        self.assertTrue(count == self.validated_count)
-
 
 #
 #
 #
-class TestSuite_014_MPLS_CoS_TC1(CoS_Base):
+class TestSuite_014_MPLS_CoS_TC1(MplsBase):
     AF = 4
     STREAM = True
 
@@ -2064,17 +1998,17 @@ class TestSuite_014_MPLS_CoS_TC1(CoS_Base):
     def test_000_get_globals(self):
         # Get Global MPLS info
         response = clientClass.client.mpls_global_get()
-        err = print_mpls_globals(response)
+        err = self.print_mpls_globals(response)
         self.assertTrue(err)
 
     def test_001_mpls_register(self):
         response = clientClass.client.mpls_register_oper(self.reg_params)
-        err = validate_mpls_regop_response(response)
+        err = self.validate_mpls_regop_response(response)
         self.assertTrue(err)
 
     def test_002_blk_add(self):
         response = clientClass.client.label_block_add(self.lbl_blk_params)
-        err = validate_lbl_blk_response(response)
+        err = self.validate_lbl_blk_response(response)
         self.assertTrue(err)
 
     # add label 32220, default -> NH1
@@ -2191,12 +2125,12 @@ class TestSuite_014_MPLS_CoS_TC1(CoS_Base):
 
     def test_014_mpls_eof(self):
         response = clientClass.client.mpls_eof_oper()
-        err = validate_mpls_regop_response(response)
+        err = self.validate_mpls_regop_response(response)
         self.assertTrue(err)
 
     def test_015_mpls_unregister(self):
         response = clientClass.client.mpls_unregister_oper()
-        err = validate_mpls_regop_response(response)
+        err = self.validate_mpls_regop_response(response)
         self.assertTrue(err)
         
 #
@@ -2209,7 +2143,7 @@ class TestSuite_014_MPLS_CoS_TC1_v6(TestSuite_014_MPLS_CoS_TC1):
 #
 #
 #
-class TestSuite_015_MPLS_CoS_TC2(CoS_Base):
+class TestSuite_015_MPLS_CoS_TC2(MplsBase):
     AF = 4
     STREAM = False
 
@@ -2226,17 +2160,17 @@ class TestSuite_015_MPLS_CoS_TC2(CoS_Base):
     def test_000_get_globals(self):
         # Get Global MPLS info
         response = clientClass.client.mpls_global_get()
-        err = print_mpls_globals(response)
+        err = self.print_mpls_globals(response)
         self.assertTrue(err)
 
     def test_001_mpls_register(self):
         response = clientClass.client.mpls_register_oper(self.reg_params)
-        err = validate_mpls_regop_response(response)
+        err = self.validate_mpls_regop_response(response)
         self.assertTrue(err)
 
     def test_002_blk_add(self):
         response = clientClass.client.label_block_add(self.lbl_blk_params)
-        err = validate_lbl_blk_response(response)
+        err = self.validate_lbl_blk_response(response)
         self.assertTrue(err)
 
     # add label 32220, exp 1 -> NH1,w2 NH2,w2
@@ -2322,12 +2256,12 @@ class TestSuite_015_MPLS_CoS_TC2(CoS_Base):
                 
     def test_011_mpls_eof(self):
         response = clientClass.client.mpls_eof_oper()
-        err = validate_mpls_regop_response(response)
+        err = self.validate_mpls_regop_response(response)
         self.assertTrue(err)
 
     def test_012_mpls_unregister(self):
         response = clientClass.client.mpls_unregister_oper()
-        err = validate_mpls_regop_response(response)
+        err = self.validate_mpls_regop_response(response)
         self.assertTrue(err)
 
 #
@@ -2340,7 +2274,7 @@ class TestSuite_015_MPLS_CoS_TC2_v6(TestSuite_015_MPLS_CoS_TC2):
 #
 #
 #
-class TestSuite_016_MPLS_CoS_TC3(CoS_Base):
+class TestSuite_016_MPLS_CoS_TC3(MplsBase):
     AF = 4
     STREAM = False
 
@@ -2357,17 +2291,17 @@ class TestSuite_016_MPLS_CoS_TC3(CoS_Base):
     def test_000_get_globals(self):
         # Get Global MPLS info
         response = clientClass.client.mpls_global_get()
-        err = print_mpls_globals(response)
+        err = self.print_mpls_globals(response)
         self.assertTrue(err)
 
     def test_001_mpls_register(self):
         response = clientClass.client.mpls_register_oper(self.reg_params)
-        err = validate_mpls_regop_response(response)
+        err = self.validate_mpls_regop_response(response)
         self.assertTrue(err)
 
     def test_002_blk_add(self):
         response = clientClass.client.label_block_add(self.lbl_blk_params)
-        err = validate_lbl_blk_response(response)
+        err = self.validate_lbl_blk_response(response)
         self.assertTrue(err)
 
     # add label 32220, exp 0 -> NH1 NH2
@@ -2599,12 +2533,12 @@ class TestSuite_016_MPLS_CoS_TC3(CoS_Base):
 
     def test_027_mpls_eof(self):
         response = clientClass.client.mpls_eof_oper()
-        err = validate_mpls_regop_response(response)
+        err = self.validate_mpls_regop_response(response)
         self.assertTrue(err)
 
     def test_028_mpls_unregister(self):
         response = clientClass.client.mpls_unregister_oper()
-        err = validate_mpls_regop_response(response)
+        err = self.validate_mpls_regop_response(response)
         self.assertTrue(err)
         
 #
@@ -2617,7 +2551,7 @@ class TestSuite_016_MPLS_CoS_TC3_v6(TestSuite_016_MPLS_CoS_TC3):
 #
 #
 #
-class TestSuite_017_MPLS_CoS_TC4(CoS_Base):
+class TestSuite_017_MPLS_CoS_TC4(MplsBase):
     AF = 4
     STREAM = False
 
@@ -2634,17 +2568,17 @@ class TestSuite_017_MPLS_CoS_TC4(CoS_Base):
     def test_000_get_globals(self):
         # Get Global MPLS info
         response = clientClass.client.mpls_global_get()
-        err = print_mpls_globals(response)
+        err = self.print_mpls_globals(response)
         self.assertTrue(err)
 
     def test_001_mpls_register(self):
         response = clientClass.client.mpls_register_oper(self.reg_params)
-        err = validate_mpls_regop_response(response)
+        err = self.validate_mpls_regop_response(response)
         self.assertTrue(err)
 
     def test_002_blk_add(self):
         response = clientClass.client.label_block_add(self.lbl_blk_params)
-        err = validate_lbl_blk_response(response)
+        err = self.validate_lbl_blk_response(response)
         self.assertTrue(err)
 
     # update label 32220, exp 0 -> NH1 NH2
@@ -2876,12 +2810,12 @@ class TestSuite_017_MPLS_CoS_TC4(CoS_Base):
 
     def test_027_mpls_eof(self):
         response = clientClass.client.mpls_eof_oper()
-        err = validate_mpls_regop_response(response)
+        err = self.validate_mpls_regop_response(response)
         self.assertTrue(err)
 
     def test_028_mpls_unregister(self):
         response = clientClass.client.mpls_unregister_oper()
-        err = validate_mpls_regop_response(response)
+        err = self.validate_mpls_regop_response(response)
         self.assertTrue(err)
         
 #
@@ -2894,7 +2828,7 @@ class TestSuite_017_MPLS_CoS_TC4_v6(TestSuite_017_MPLS_CoS_TC4):
 #
 #
 #
-class TestSuite_018_MPLS_CoS_TC5(CoS_Base):
+class TestSuite_018_MPLS_CoS_TC5(MplsBase):
     AF = 4
     STREAM = False
 
@@ -2911,17 +2845,17 @@ class TestSuite_018_MPLS_CoS_TC5(CoS_Base):
     def test_000_get_globals(self):
         # Get Global MPLS info
         response = clientClass.client.mpls_global_get()
-        err = print_mpls_globals(response)
+        err = self.print_mpls_globals(response)
         self.assertTrue(err)
 
     def test_001_mpls_register(self):
         response = clientClass.client.mpls_register_oper(self.reg_params)
-        err = validate_mpls_regop_response(response)
+        err = self.validate_mpls_regop_response(response)
         self.assertTrue(err)
 
     def test_002_blk_add(self):
         response = clientClass.client.label_block_add(self.lbl_blk_params)
-        err = validate_lbl_blk_response(response)
+        err = self.validate_lbl_blk_response(response)
         self.assertTrue(err)
 
     # add label 32220, exp 0 -> NH1,w32
@@ -3105,12 +3039,12 @@ class TestSuite_018_MPLS_CoS_TC5(CoS_Base):
                 
     def test_022_mpls_eof(self):
         response = clientClass.client.mpls_eof_oper()
-        err = validate_mpls_regop_response(response)
+        err = self.validate_mpls_regop_response(response)
         self.assertTrue(err)
 
     def test_023_mpls_unregister(self):
         response = clientClass.client.mpls_unregister_oper()
-        err = validate_mpls_regop_response(response)
+        err = self.validate_mpls_regop_response(response)
         self.assertTrue(err)
         
 #
@@ -3123,7 +3057,7 @@ class TestSuite_018_MPLS_CoS_TC5_v6(TestSuite_018_MPLS_CoS_TC5):
 #
 #
 #
-class TestSuite_019_MPLS_CoS_TC6(CoS_Base):
+class TestSuite_019_MPLS_CoS_TC6(MplsBase):
     AF = 4
     STREAM = False
 
@@ -3140,17 +3074,17 @@ class TestSuite_019_MPLS_CoS_TC6(CoS_Base):
     def test_000_get_globals(self):
         # Get Global MPLS info
         response = clientClass.client.mpls_global_get()
-        err = print_mpls_globals(response)
+        err = self.print_mpls_globals(response)
         self.assertTrue(err)
 
     def test_001_mpls_register(self):
         response = clientClass.client.mpls_register_oper(self.reg_params)
-        err = validate_mpls_regop_response(response)
+        err = self.validate_mpls_regop_response(response)
         self.assertTrue(err)
 
     def test_002_blk_add(self):
         response = clientClass.client.label_block_add(self.lbl_blk_params)
-        err = validate_lbl_blk_response(response)
+        err = self.validate_lbl_blk_response(response)
         self.assertTrue(err)
 
     # add label 32220, exp 1 -> NH1,w1 NH2,w2
@@ -3256,12 +3190,12 @@ class TestSuite_019_MPLS_CoS_TC6(CoS_Base):
                 
     def test_014_mpls_eof(self):
         response = clientClass.client.mpls_eof_oper()
-        err = validate_mpls_regop_response(response)
+        err = self.validate_mpls_regop_response(response)
         self.assertTrue(err)
 
     def test_015_mpls_unregister(self):
         response = clientClass.client.mpls_unregister_oper()
-        err = validate_mpls_regop_response(response)
+        err = self.validate_mpls_regop_response(response)
         self.assertTrue(err)
         
 
@@ -3275,7 +3209,7 @@ class TestSuite_019_MPLS_CoS_TC6_v6(TestSuite_019_MPLS_CoS_TC6):
 
 #
 # 
-class TestSuite_020_COS_ILM_IPv4_TC7(CoS_Base_Scale):
+class TestSuite_020_COS_ILM_IPv4_TC7(MplsBaseScale):
     AF = 4
     STREAM = False
     batch = 'scale_cos_ilm_4'
@@ -3298,17 +3232,17 @@ class TestSuite_020_COS_ILM_IPv4_TC7(CoS_Base_Scale):
     def test_000_get_globals(self):
         # Get Global MPLS info
         response = clientClass.client.mpls_global_get()
-        err = print_mpls_globals(response)
+        err = self.print_mpls_globals(response)
         self.assertTrue(err)
 
     def test_001_mpls_register(self):
         response = clientClass.client.mpls_register_oper(self.reg_params)
-        err = validate_mpls_regop_response(response)
+        err = self.validate_mpls_regop_response(response)
         self.assertTrue(err)
 
     def test_002_blk_add(self):
         response = clientClass.client.label_block_add(self.lbl_blk_params)
-        err = validate_lbl_blk_response(response)
+        err = self.validate_lbl_blk_response(response)
         self.assertTrue(err)
 
     def test_003_ilm_add(self):
@@ -3320,7 +3254,6 @@ class TestSuite_020_COS_ILM_IPv4_TC7(CoS_Base_Scale):
                 sl_common_types_pb2.SL_OBJOP_ADD)
 
     def test_004_00_ilm_update(self):
-        # add 1 to lower bound so all generated addresses change
         self.ilm_params[0] = clientClass.json_params[self.update_batch]
         if self.STREAM == False:
             self.ilm_op(clientClass.client.ilm_update,
@@ -3341,17 +3274,17 @@ class TestSuite_020_COS_ILM_IPv4_TC7(CoS_Base_Scale):
 
     def test_009_blk_delete(self):
         response = clientClass.client.label_block_delete(self.lbl_blk_params)
-        err = validate_lbl_blk_response(response)
+        err = self.validate_lbl_blk_response(response)
         self.assertTrue(err)
 
     def test_010_mpls_eof(self):
         response = clientClass.client.mpls_eof_oper()
-        err = validate_mpls_regop_response(response)
+        err = self.validate_mpls_regop_response(response)
         self.assertTrue(err)
 
     def test_011_mpls_unregister(self):
         response = clientClass.client.mpls_unregister_oper()
-        err = validate_mpls_regop_response(response)
+        err = self.validate_mpls_regop_response(response)
         self.assertTrue(err)
 
 
@@ -3376,7 +3309,7 @@ class TestSuite_021_COS_ILM_IPv6_TC8(TestSuite_021_COS_ILM_IPv4_TC8):
     STREAM = False
 
 #
-class TestSuite_022_COS_ILM_IPv4_TC9(CoS_Base):
+class TestSuite_022_COS_ILM_IPv4_TC9(MplsBase):
     AF = 4
     STREAM = False
 
@@ -3397,12 +3330,12 @@ class TestSuite_022_COS_ILM_IPv4_TC9(CoS_Base):
     def test_000_get_globals(self):
         # Get Global MPLS info
         response = clientClass.client.mpls_global_get()
-        err = print_mpls_globals(response)
+        err = self.print_mpls_globals(response)
         self.assertTrue(err)
 
     def test_001_mpls_register(self):
         response = clientClass.client.mpls_register_oper(self.reg_params)
-        err = validate_mpls_regop_response(response)
+        err = self.validate_mpls_regop_response(response)
         self.assertTrue(err)
 
     # Add blk with invalid client name (Negative)
@@ -3411,31 +3344,31 @@ class TestSuite_022_COS_ILM_IPv4_TC9(CoS_Base):
     def test_002_blk_add(self):
         # TODO: add something like: cafy.device.config(mplsLabelBlockConfig)
         response = clientClass.client.label_block_add(self.lbl_blk_invalid_client)
-        err = validate_lbl_blk_response(response)
+        err = self.validate_lbl_blk_response(response)
         self.assertFalse(err)
 
     # Add 25k-35k cbf block client name Service-layer (Positive)
     def test_003_blk_add(self):
         response = clientClass.client.label_block_add(self.lbl_blk_params)
-        err = validate_lbl_blk_response(response)
+        err = self.validate_lbl_blk_response(response)
         self.assertTrue(err)
 
     # Add 35k-40k duplicate cbf block client name Service-layer (Negative)
     def test_004_blk_add(self):
         response = clientClass.client.label_block_add(self.lbl_blk_duplicate_range)
-        err = validate_lbl_blk_response(response)
+        err = self.validate_lbl_blk_response(response)
         self.assertFalse(err)
 
     # Add 35k-100k SRGB block (Positive)
     def test_005_blk_add(self):
         response = clientClass.client.label_block_add(self.lbl_blk_srgb1)
-        err = validate_lbl_blk_response(response)
+        err = self.validate_lbl_blk_response(response)
         self.assertTrue(err)
 
     # Add 65k-75k SRGB block (Negative, context mismatch)
     def test_006_blk_add(self):
         response = clientClass.client.label_block_add(self.lbl_blk_srgb2)
-        err = validate_lbl_blk_response(response)
+        err = self.validate_lbl_blk_response(response)
         self.assertFalse(err)
 
     # add label 32220, non elsp to cbf block -> NH1 (fail)
@@ -3490,12 +3423,12 @@ class TestSuite_022_COS_ILM_IPv4_TC9(CoS_Base):
                 
     def test_014_mpls_eof(self):
         response = clientClass.client.mpls_eof_oper()
-        err = validate_mpls_regop_response(response)
+        err = self.validate_mpls_regop_response(response)
         self.assertTrue(err)
 
     def test_015_mpls_unregister(self):
         response = clientClass.client.mpls_unregister_oper()
-        err = validate_mpls_regop_response(response)
+        err = self.validate_mpls_regop_response(response)
         self.assertTrue(err)
         
 
@@ -3527,10 +3460,10 @@ class TestSuite_024_COS_ILM_IPv4_TC11(TestSuite_020_COS_ILM_IPv4_TC7):
         else:
             self.ilm_op_stream(self.ilm_params,
                 sl_common_types_pb2.SL_OBJOP_DELETE)
-        self.ilm_params[0] = clientClass.json_params[self.batch]
+        self.ilm_params[0] = clientClass.json_params[self.update_batch]
 
 
-class TestSuite_025_MPLS_CoS_TC12(CoS_Base):
+class TestSuite_025_MPLS_CoS_TC12(MplsBase):
     AF = 4
     STREAM = False
     tc_info = 'cos_ilm_tc12'
@@ -3546,17 +3479,17 @@ class TestSuite_025_MPLS_CoS_TC12(CoS_Base):
     def test_000_get_globals(self):
         # Get Global MPLS info
         response = clientClass.client.mpls_global_get()
-        err = print_mpls_globals(response)
+        err = self.print_mpls_globals(response)
         self.assertTrue(err)
 
     def test_001_mpls_register(self):
         response = clientClass.client.mpls_register_oper(self.reg_params)
-        err = validate_mpls_regop_response(response)
+        err = self.validate_mpls_regop_response(response)
         self.assertTrue(err)
 
     def test_002_blk_add(self):
         response = clientClass.client.label_block_add(self.lbl_blk_params)
-        err = validate_lbl_blk_response(response)
+        err = self.validate_lbl_blk_response(response)
         self.assertTrue(err)
 
     # add label 32220, default -> Pop and lookup
@@ -3633,12 +3566,12 @@ class TestSuite_025_MPLS_CoS_TC12(CoS_Base):
 
     def test_010_mpls_eof(self):
         response = clientClass.client.mpls_eof_oper()
-        err = validate_mpls_regop_response(response)
+        err = self.validate_mpls_regop_response(response)
         self.assertTrue(err)
 
     def test_011_mpls_unregister(self):
         response = clientClass.client.mpls_unregister_oper()
-        err = validate_mpls_regop_response(response)
+        err = self.validate_mpls_regop_response(response)
         self.assertTrue(err)
 
 
@@ -3660,7 +3593,7 @@ class TestSuite_027_MPLS_CoS_TC14(TestSuite_025_MPLS_CoS_TC12):
 class TestSuite_027_MPLS_CoS_TC14_v6(TestSuite_027_MPLS_CoS_TC14):
     AF = 6
 
-class TestSuite_028_MPLS_CoS_TC15(CoS_Base):
+class TestSuite_028_MPLS_CoS_TC15(MplsBase):
     AF = 4
     STREAM = False
     tc_info = 'cos_ilm_tc15'
@@ -3676,17 +3609,17 @@ class TestSuite_028_MPLS_CoS_TC15(CoS_Base):
     def test_000_get_globals(self):
         # Get Global MPLS info
         response = clientClass.client.mpls_global_get()
-        err = print_mpls_globals(response)
+        err = self.print_mpls_globals(response)
         self.assertTrue(err)
 
     def test_001_mpls_register(self):
         response = clientClass.client.mpls_register_oper(self.reg_params)
-        err = validate_mpls_regop_response(response)
+        err = self.validate_mpls_regop_response(response)
         self.assertTrue(err)
 
     def test_002_blk_add(self):
         response = clientClass.client.label_block_add(self.lbl_blk_params)
-        err = validate_lbl_blk_response(response)
+        err = self.validate_lbl_blk_response(response)
         self.assertTrue(err)
 
     # add label 32220, default -> Pop and lookup
@@ -3700,17 +3633,17 @@ class TestSuite_028_MPLS_CoS_TC15(CoS_Base):
 
     def test_004_mpls_eof(self):
         response = clientClass.client.mpls_eof_oper()
-        err = validate_mpls_regop_response(response)
+        err = self.validate_mpls_regop_response(response)
         self.assertTrue(err)
 
     def test_005_mpls_register(self):
         response = clientClass.client.mpls_register_oper(self.reg_params)
-        err = validate_mpls_regop_response(response)
+        err = self.validate_mpls_regop_response(response)
         self.assertTrue(err)
 
     def test_006_blk_add(self):
         response = clientClass.client.label_block_add(self.lbl_blk_params)
-        err = validate_lbl_blk_response(response)
+        err = self.validate_lbl_blk_response(response)
         self.assertTrue(err)
 
     # add label 32220, default, exp0, exp1 -> swap
@@ -3724,17 +3657,17 @@ class TestSuite_028_MPLS_CoS_TC15(CoS_Base):
 
     def test_008_mpls_eof(self):
         response = clientClass.client.mpls_eof_oper()
-        err = validate_mpls_regop_response(response)
+        err = self.validate_mpls_regop_response(response)
         self.assertTrue(err)
 
     def test_009_mpls_register(self):
         response = clientClass.client.mpls_register_oper(self.reg_params)
-        err = validate_mpls_regop_response(response)
+        err = self.validate_mpls_regop_response(response)
         self.assertTrue(err)
 
     def test_010_blk_add(self):
         response = clientClass.client.label_block_add(self.lbl_blk_params)
-        err = validate_lbl_blk_response(response)
+        err = self.validate_lbl_blk_response(response)
         self.assertTrue(err)
 
     # add label 32220, default, exp1 -> swap
@@ -3748,17 +3681,17 @@ class TestSuite_028_MPLS_CoS_TC15(CoS_Base):
 
     def test_012_mpls_eof(self):
         response = clientClass.client.mpls_eof_oper()
-        err = validate_mpls_regop_response(response)
+        err = self.validate_mpls_regop_response(response)
         self.assertTrue(err)
 
     def test_013_mpls_register(self):
         response = clientClass.client.mpls_register_oper(self.reg_params)
-        err = validate_mpls_regop_response(response)
+        err = self.validate_mpls_regop_response(response)
         self.assertTrue(err)
 
     def test_014_blk_add(self):
         response = clientClass.client.label_block_add(self.lbl_blk_params)
-        err = validate_lbl_blk_response(response)
+        err = self.validate_lbl_blk_response(response)
         self.assertTrue(err)
 
     # add label 32220, default -> Pop and lookup
@@ -3772,18 +3705,18 @@ class TestSuite_028_MPLS_CoS_TC15(CoS_Base):
 
     def test_016_mpls_eof(self):
         response = clientClass.client.mpls_eof_oper()
-        err = validate_mpls_regop_response(response)
+        err = self.validate_mpls_regop_response(response)
         self.assertTrue(err)
 
     def test_017_mpls_unregister(self):
         response = clientClass.client.mpls_unregister_oper()
-        err = validate_mpls_regop_response(response)
+        err = self.validate_mpls_regop_response(response)
         self.assertTrue(err)
 
 class TestSuite_028_MPLS_CoS_TC15_v6(TestSuite_028_MPLS_CoS_TC15):
     AF = 6
 
-class TestSuite_029_MPLS_CoS_TC16_scale(CoS_Base_Scale):
+class TestSuite_029_MPLS_CoS_TC16_scale(MplsBaseScale):
     AF = 4 # AF is overwritten by scale tests
     STREAM = False
     pop_and_lookup_batch = 'scale_cos_ilm_pop_and_lookup'
@@ -3792,7 +3725,7 @@ class TestSuite_029_MPLS_CoS_TC16_scale(CoS_Base_Scale):
 
     @classmethod
     def setUpClass(self):
-        super(TestSuite_028_MPLS_CoS_TC15_scale, self).setUpClass()
+        super(TestSuite_029_MPLS_CoS_TC16_scale, self).setUpClass()
         self.ilm_params = [
             clientClass.json_params[self.pop_and_lookup_batch],
             self.AF,
@@ -3805,17 +3738,17 @@ class TestSuite_029_MPLS_CoS_TC16_scale(CoS_Base_Scale):
     def test_000_get_globals(self):
         # Get Global MPLS info
         response = clientClass.client.mpls_global_get()
-        err = print_mpls_globals(response)
+        err = self.print_mpls_globals(response)
         self.assertTrue(err)
 
     def test_001_mpls_register(self):
         response = clientClass.client.mpls_register_oper(self.reg_params)
-        err = validate_mpls_regop_response(response)
+        err = self.validate_mpls_regop_response(response)
         self.assertTrue(err)
 
     def test_002_blk_add(self):
         response = clientClass.client.label_block_add(self.lbl_blk_params)
-        err = validate_lbl_blk_response(response)
+        err = self.validate_lbl_blk_response(response)
         self.assertTrue(err)
 
     # add label 32000-32999, default -> Pop and lookup
@@ -3829,17 +3762,17 @@ class TestSuite_029_MPLS_CoS_TC16_scale(CoS_Base_Scale):
 
     def test_004_mpls_eof(self):
         response = clientClass.client.mpls_eof_oper()
-        err = validate_mpls_regop_response(response)
+        err = self.validate_mpls_regop_response(response)
         self.assertTrue(err)
 
     def test_005_mpls_register(self):
         response = clientClass.client.mpls_register_oper(self.reg_params)
-        err = validate_mpls_regop_response(response)
+        err = self.validate_mpls_regop_response(response)
         self.assertTrue(err)
 
     def test_006_blk_add(self):
         response = clientClass.client.label_block_add(self.lbl_blk_params)
-        err = validate_lbl_blk_response(response)
+        err = self.validate_lbl_blk_response(response)
         self.assertTrue(err)
 
     # add label 32000-32999, default, exp0, exp1 -> swap
@@ -3855,17 +3788,17 @@ class TestSuite_029_MPLS_CoS_TC16_scale(CoS_Base_Scale):
 
     def test_008_mpls_eof(self):
         response = clientClass.client.mpls_eof_oper()
-        err = validate_mpls_regop_response(response)
+        err = self.validate_mpls_regop_response(response)
         self.assertTrue(err)
 
     def test_009_mpls_register(self):
         response = clientClass.client.mpls_register_oper(self.reg_params)
-        err = validate_mpls_regop_response(response)
+        err = self.validate_mpls_regop_response(response)
         self.assertTrue(err)
 
     def test_010_blk_add(self):
         response = clientClass.client.label_block_add(self.lbl_blk_params)
-        err = validate_lbl_blk_response(response)
+        err = self.validate_lbl_blk_response(response)
         self.assertTrue(err)
 
     # add label 32000-32999, default -> pop and lookup
@@ -3880,12 +3813,12 @@ class TestSuite_029_MPLS_CoS_TC16_scale(CoS_Base_Scale):
 
     def test_012_mpls_eof(self):
         response = clientClass.client.mpls_eof_oper()
-        err = validate_mpls_regop_response(response)
+        err = self.validate_mpls_regop_response(response)
         self.assertTrue(err)
 
     def test_013_mpls_unregister(self):
         response = clientClass.client.mpls_unregister_oper()
-        err = validate_mpls_regop_response(response)
+        err = self.validate_mpls_regop_response(response)
         self.assertTrue(err)
 
 

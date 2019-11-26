@@ -347,27 +347,36 @@
             "correlator": 1,
             "count": 1,
             "get_next": 0,
-            "in_label": 46001
+            "ilm": {
+                     "in_label": 46001
+            }
         },
         "get_firstN_ilm": {
             "_description": "Get First N ilms",
             "correlator": 2,
             "count": 5,
-            "get_next": 0
+            "get_next": 0,
+            "ilm": {
+                     "in_label": 46001
+            }
         },
         "get_nextN_ilm": {
             "_description": "Get Next N ilms following specified",
             "correlator": 4,
             "count": 3,
             "get_next": 1,
-            "in_label": 46001
+            "ilm": {
+                     "in_label": 46001
+            }
         },
         "get_nextN_include_ilm": {
             "_description": "Get Next N ilms starting from specified",
             "correlator": 3,
             "count": 3,
             "get_next": 0,
-            "in_label": 46001
+            "ilm": {
+                     "in_label": 46001
+            }
         }
     },
     "intf_get": {
@@ -710,9 +719,9 @@
         "path_route_primary_with_lfa": [
             {
                 "label_action": 1,
-				"labels": [
-					71000
-				],
+                "labels": [
+                    71000
+                ],
                 "load_metric": 1,
                 "metric": 1,
                 "nexthop": "nh_r2_l1",
@@ -720,9 +729,9 @@
             },
             {
                 "label_action": 1,
-				"labels": [
-					91002
-				],
+                "labels": [
+                    91002
+                ],
                 "load_metric": 1,
                 "metric": 1,
                 "nexthop": "nh_r2_l2",

@@ -153,6 +153,8 @@ class CosIlmSerializerTestCase1(unittest.TestCase):
             for ilm in serializer.MplsIlms:
                 label_counts[str(ilm.Key.LocalLabel)] += 1
                 exp_counts[str(ilm.Key.SlMplsCosVal)] += 1
+                lo, hi = params[0]['exps'][ilm.Key.SlMplsCosVal.DefaultElspPath * 'default' or str(ilm.Key.SlMplsCosVal.Exp)]['path_range']
+                assert len(ilm.Paths) == (hi - lo + 1) 
        
         # Check each label has the right number of exps
         assert all(v == len(params[0]['exps']) for v in label_counts.values()) 
