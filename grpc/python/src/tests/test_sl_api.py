@@ -719,7 +719,6 @@ class MplsBase(unittest.TestCase):
         # (or we did not wait for the last reply)
         self.assertTrue(count == self.validated_count)
 
-    # This is not a test
     def ilm_op_wrapper(self, func, ilm, assert_true = True):
         params = (ilm, self.AF,
                 clientClass.json_params['paths'],
@@ -727,12 +726,23 @@ class MplsBase(unittest.TestCase):
                 )
         self.ilm_op(func, params, assert_true)
 
-    # This is not a test
     def ilm_op_stream_wrapper(self, oper, ilm, assert_true = True):
         params = (ilm, self.AF,
                 clientClass.json_params['paths'],
                 clientClass.json_params['nexthops'],)
         self.ilm_op_stream(params, oper, assert_true)
+
+    def ilm_get_info(self, get_info):
+        print(get_info["_description"])
+        response = clientClass.client.ilm_get(get_info)
+        err = self.validate_ilm_get_response(response)
+        self.assertTrue(err)
+
+    def lbl_blk_get_info(self, get_info):
+        print(get_info["_description"])
+        response = clientClass.client.label_block_get(get_info)
+        err = self.validate_lbl_blk_get_response(response)
+        self.assertTrue(err)
 
     def validate_mpls_regop_response(self, response):
         if (sl_common_types_pb2.SLErrorStatus.SL_SUCCESS ==
@@ -1213,32 +1223,6 @@ class TestSuite_003_ILM_IPv4(MplsBase):
         err = self.validate_lbl_blk_response(response)
         self.assertTrue(err)
 
-    # This is not a test
-    def ilm_op(self, func, params):
-        batch_count = 1
-        if 'batch_count' in params[0]:
-            batch_count = params[0]['batch_count']
-        first_label = params[0]['ilms'][0]['in_label']
-        for b in range(batch_count):
-            print('\n%s' % pprint.pformat(params[0], indent=2))
-            response, next = func(*params)
-            err = self.validate_ilm_response(response)
-            self.assertTrue(err)
-            params[0]['ilms'][0]['in_label'] = next
-        params[0]['ilms'][0]['in_label'] = first_label
-
-    # This is not a test
-    def ilm_op_stream(self, params, oper):
-        iterator = self.ilm_op_iterator(params, oper)
-        # Must reset this to sync the iterator with the responses
-        self.validated_count = 0
-        count, error = clientClass.client.ilm_op_stream(iterator,
-                self.validate_ilm_response)
-        self.assertTrue(error)
-        # This may fail if the server sends EOF prematurely
-        # (or we did not wait for the last reply)
-        self.assertTrue(count == self.validated_count)
-
     def test_003_ilm_add(self):
         if self.STREAM == False:
             self.ilm_op(clientClass.client.ilm_add,
@@ -1301,13 +1285,6 @@ class TestSuite_003_ILM_IPv4(MplsBase):
         # Get Global MPLS stats
         response = clientClass.client.mpls_global_get_stats()
         err = self.print_mpls_stats(response)
-        self.assertTrue(err)
-
-    # Not a test case
-    def ilm_get_info(self, get_info):
-        print(get_info["_description"])
-        response = clientClass.client.ilm_get(get_info)
-        err = self.validate_ilm_get_response(response)
         self.assertTrue(err)
 
     def test_006_01_ilm_get_exact_match(self):
@@ -1379,13 +1356,6 @@ class TestSuite_003_ILM_IPv4(MplsBase):
         else:
             self.ilm_op_stream(self.ilm_params,
                 sl_common_types_pb2.SL_OBJOP_DELETE)
-
-    # Not a test case
-    def lbl_blk_get_info(self, get_info):
-        print(get_info["_description"])
-        response = clientClass.client.label_block_get(get_info)
-        err = self.validate_lbl_blk_get_response(response)
-        self.assertTrue(err)
 
     def test_008_01_lbl_blk_get_exact_match(self):
         get_info = self.lbl_blk_get["get_exact_lbl_blk"]
