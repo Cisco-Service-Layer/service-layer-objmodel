@@ -33,6 +33,17 @@
             }
         ]
     },
+    "scale_srgb_ilm_1": {
+        "batch_size": 256,
+        "correlator": 1,
+        "label_ranges": [
+            { "range": [42000, 42199], "af": 4 },
+            { "range": [42200, 42499], "af": 6 },
+            { "range": [42500, 42799], "af": 4 },
+            { "range": [42800, 42999], "af": 6 }
+        ],
+        "label_path": { "path": "cos_scale_path_1", "path_range": [0, 4] }
+    },
     "scale_cos_ilm_1": {
         "batch_size": 256,
         "correlator": 1,
@@ -199,7 +210,7 @@
     "batch_mpls_lbl_block": {
         "blocks": [
             {
-                "block_size": 65000,
+                "block_size": 15000,
                 "start_label": 35000
             }
         ]
@@ -379,6 +390,58 @@
             }
         }
     },
+    "cos_ilm_get": {
+        "get_exact_ilm_default": {
+            "_description": "Get Exact Match default ELSP",
+            "correlator": 1,
+            "count": 1,
+            "get_next": 0,
+            "ilm": {
+                     "in_label": 32000,
+                     "default_elsp": true
+            }
+        },
+        "get_exact_ilm_exp": {
+            "_description": "Get Exact Match ELSP EXP",
+            "correlator": 2,
+            "count": 1,
+            "get_next": 0,
+            "ilm": {
+                     "in_label": 32000,
+                     "exp": 0
+            }
+        },
+        "get_firstN_ilm": {
+            "_description": "Get First N ilms",
+            "correlator": 3,
+            "count": 50,
+            "get_next": 0,
+            "ilm": {
+                     "in_label": 32000,
+                     "exp": 0
+            }
+        },
+        "get_nextN_ilm": {
+            "_description": "Get Next N ilms following specified",
+            "correlator": 4,
+            "count": 50,
+            "get_next": 1,
+            "ilm": {
+                     "in_label": 32000,
+                     "exp": 0
+            }
+        },
+        "get_nextN_include_ilm": {
+            "_description": "Get Next N ilms starting from specified",
+            "correlator": 5,
+            "count": 30,
+            "get_next": 0,
+            "ilm": {
+                     "in_label": 32000,
+                     "exp": 0
+            }
+        }
+    },
     "intf_get": {
         "get_exact_intf": {
             "_description": "Get Exact Match",
@@ -421,7 +484,16 @@
     "lbl_blk_get": {
         "get_exact_lbl_blk": {
             "_description": "Get Exact Match",
-            "block_size": 65000,
+            "block_size": 15000,
+            "count": 1,
+            "get_next": 0,
+            "start_label": 35000
+        },
+        "get_exact_lbl_blk_client_name": {
+            "_description": "Get Exact Match with client name and block type (both ignored)",
+            "block_size": 15000,
+            "client_name": "Service-layer",
+            "block_type": 1,
             "count": 1,
             "get_next": 0,
             "start_label": 35000
@@ -433,14 +505,14 @@
         },
         "get_nextN_include_lbl_blk": {
             "_description": "Get Next N lbl_blks starting from specified",
-            "block_size": 65000,
+            "block_size": 15000,
             "count": 3,
             "get_next": 0,
             "start_label": 35000
         },
         "get_nextN_lbl_blk": {
             "_description": "Get Next N lbl_blks following specified",
-            "block_size": 65000,
+            "block_size": 15000,
             "count": 3,
             "get_next": 1,
             "start_label": 35000
@@ -1492,7 +1564,7 @@
     "mpls_lbl_block_srgb_1": {
         "blocks": [
             {
-                "block_size": 65000,
+                "block_size": 15000,
                 "start_label": 35000,
                 "block_type": 1
             }
@@ -1501,13 +1573,46 @@
     "mpls_lbl_block_srgb_2": {
         "blocks": [
             {
-                "block_size": 10000,
-                "start_label": 65000,
+                "block_size": 5000,
+                "start_label": 45000,
                 "block_type": 1
             }
         ]
     },
-
+    "mpls_lbl_block_srgb_3": {
+        "blocks": [
+            {
+                "block_size": 100,
+                "start_label": 50000,
+                "block_type": 1,
+                "client_name": "Service-layer"
+            },
+            {
+                "block_size": 100,
+                "start_label": 50100,
+                "block_type": 1,
+                "client_name": "Service-layer"
+            },
+            {
+                "block_size": 100,
+                "start_label": 50200,
+                "block_type": 1,
+                "client_name": "Service-layer"
+            },
+            {
+                "block_size": 100,
+                "start_label": 50300,
+                "block_type": 1,
+                "client_name": "Service-layer"
+            },
+            {
+                "block_size": 100,
+                "start_label": 50400,
+                "block_type": 1,
+                "client_name": "Service-layer"
+            }
+        ]
+    },
     "cos_ilm_del" : {
         "cos_ilm_del_default_exp": {
             "batch_count": 1,

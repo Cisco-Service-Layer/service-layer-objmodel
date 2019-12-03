@@ -303,6 +303,10 @@ def label_block_get_serializer(get_info):
         serializer.Key.StartLabel = get_info["start_label"]
     if "block_size" in get_info:
         serializer.Key.LabelBlockSize = get_info["block_size"]
+    if 'block_type' in get_info:
+        serializer.Key.BlockType = get_info['block_type']
+    if 'client_name' in get_info:
+        serializer.Key.ClientName = get_info['client_name']
     if "count" in get_info:
         serializer.EntriesCount = get_info["count"]
     if "get_next" in get_info:
@@ -315,6 +319,7 @@ def generateIlms(batch, af, paths, next_hops):
     """
     def generateLabels(labelRange):
         lo, hi = labelRange
+        assert hi - lo + 1 > 0, 'Invalid label range'
         for label in range(lo, hi + 1):
             yield label
 
@@ -322,6 +327,7 @@ def generateIlms(batch, af, paths, next_hops):
         # Generate slice of paths
         allPaths = paths[pathInfo['path']]
         lo, hi = pathInfo['path_range']
+        assert hi - lo + 1 > 0, 'Invalid path range'
         for path in itertools.islice(allPaths, lo, hi + 1):
             yield path
 
@@ -504,6 +510,10 @@ def ilm_get_serializer(get_info):
     if "ilm" in get_info:
         if "in_label" in get_info["ilm"]:
             serializer.Key.LocalLabel = get_info["ilm"]["in_label"]
+        if "default_elsp" in get_info["ilm"]:
+            serializer.Key.SlMplsCosVal.DefaultElspPath = get_info["ilm"]["default_elsp"]
+        elif "exp" in get_info["ilm"]:
+            serializer.Key.SlMplsCosVal.Exp = get_info["ilm"]["exp"]
     if "count" in get_info:
         serializer.EntriesCount = get_info["count"]
     if "get_next" in get_info:

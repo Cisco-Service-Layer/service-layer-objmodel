@@ -26,13 +26,6 @@ from sl_api import serializers
 from sl_api import BD_Util
 from sl_api import Route_Util
 
-if all(i in os.environ for i in ['CAFYAP_REPO', 'GIT_REPO']):
-    from tests.cafy import Cafy
-    cafy = Cafy()
-    print = cafy.log.info
-else:
-    cafy = None
-
 #
 #
 #
@@ -735,8 +728,29 @@ class MplsBase(unittest.TestCase):
     def ilm_get_info(self, get_info):
         print(get_info["_description"])
         response = clientClass.client.ilm_get(get_info)
-        err = self.validate_ilm_get_response(response)
+        err = self.validate_ilm_get_response(response, get_info['count'])
         self.assertTrue(err)
+
+    def ilm_get_all(self, firstN, nextN):
+        total_ilms = 0
+        get_info = firstN
+        response = clientClass.client.ilm_get(get_info)
+        err = self.validate_ilm_get_response(response, get_info['count'])
+        self.assertTrue(err)
+        total_ilms = total_ilms + len(response.Entries)
+        get_info = nextN
+        ilm_temp = get_info["ilm"]
+        while (len(response.Entries)>0) and not response.Eof:
+            last_ilm = self.getLastIlm(response)
+            get_info["ilm"] = last_ilm
+            response = clientClass.client.ilm_get(get_info)
+            err = self.validate_ilm_get_response(response, get_info['count'])
+            total_ilms = total_ilms + len(response.Entries)
+            self.assertTrue(err)
+        get_info["ilm"] = ilm_temp
+        print("Total ilms read: %d" %(total_ilms))
+        return total_ilms
+
 
     def lbl_blk_get_info(self, get_info):
         print(get_info["_description"])
@@ -779,11 +793,6 @@ class MplsBase(unittest.TestCase):
         return False
 
     def validate_ilm_response(self, response):
-        if cafy:
-            for cli in cafy.verifyCli:
-                # Prints to cafy log by default
-                out = cafy.device.transmit_receive(cli)
-
         # Increment the validated_count
         if (sl_common_types_pb2.SLErrorStatus.SL_SUCCESS ==
                 response.StatusSummary.Status):
@@ -801,7 +810,7 @@ class MplsBase(unittest.TestCase):
                 ))
         return False
 
-    def validate_ilm_get_response(self, response):
+    def validate_ilm_get_response(self, response, expectedCount=None):
         # Increment the validated_count
         self.validated_count =\
             self.validated_count + 1
@@ -809,9 +818,22 @@ class MplsBase(unittest.TestCase):
         if (sl_common_types_pb2.SLErrorStatus.SL_SUCCESS ==
                 response.ErrStatus.Status):
             print(response)
+            if expectedCount:
+                assert expectedCount == len(response.Entries) or response.Eof
             return True
         print("ILM Get Error code 0x%x" %(response.ErrStatus.Status))
         return False
+
+    def getLastIlm(self, response):
+        key = response.Entries[-1].Key
+        last_ilm = {}
+        last_ilm['in_label'] = key.LocalLabel
+        if key.SlMplsCosVal.WhichOneof('value') == 'Exp':
+            last_ilm['exp'] = key.SlMplsCosVal.Exp
+        elif key.SlMplsCosVal.WhichOneof('value') == 'DefaultElspPath':
+            last_ilm['default_elsp'] = key.SlMplsCosVal.DefaultElspPath
+
+        return last_ilm
 
 
 class MplsBaseScale(MplsBase):
@@ -871,6 +893,29 @@ class MplsBaseScale(MplsBase):
         # This may fail if the server sends EOF prematurely
         # (or we did not wait for the last reply)
         self.assertTrue(count == self.validated_count)
+
+    def getExpectedIlmCount(self, batch):
+        '''Used to determine how many ILMs a scale testcase wil return'''
+        if 'exps' in batch:
+            ilmsPerLabel = len(batch['exps'])
+        else:
+            ilmsPerLabel = 1
+
+        assert ilmsPerLabel > 0, 'Exp dictionary is empty'
+
+        if 'label_range' in batch:
+            lo, hi = batch['label_range']
+            assert hi - lo + 1 > 0, 'Invalid label range'
+            num_labels = hi - lo + 1 
+        elif 'label_ranges' in batch:
+            num_labels = 0
+            for label_range in batch['label_ranges']:
+                lo, hi = label_range['range']
+                assert hi - lo + 1 > 0, 'Invalid label range'
+                num_labels += hi - lo + 1 
+        
+        return num_labels * ilmsPerLabel 
+
 
 #
 # Alphabetical order makes this test runs first
@@ -1045,14 +1090,14 @@ class TestSuite_001_Route_IPv4(unittest.TestCase):
         prefix_len_temp = get_info["prefix_len"]
         while (len(response.Entries)>0) and not response.Eof:
             if self.AF == 4:
-                last_prefix = ipaddress.ip_address(response.Entries[len(response.Entries)-1].Prefix)
+                last_prefix = ipaddress.ip_address(response.Entries[-1].Prefix)
                 get_info["v%d_prefix"  % self.AF] = str(last_prefix)
             elif self.AF == 6:
                 last_prefix = ipaddress.IPv6Address(
-                    int(hexlify(response.Entries[len(response.Entries)-1].Prefix), 16)
+                    int(hexlify(response.Entries[-1].Prefix), 16)
                 )
                 get_info["v%d_prefix"  % self.AF] = str(last_prefix)
-            get_info["prefix_len"] = response.Entries[len(response.Entries)-1].PrefixLen
+            get_info["prefix_len"] = response.Entries[-1].PrefixLen
             response = clientClass.client.route_get(get_info, self.AF)
             err = validate_route_get_response(response, self.AF)
             total_routes = total_routes + len(response.Entries)
@@ -1133,7 +1178,7 @@ class TestSuite_001_Route_IPv4(unittest.TestCase):
             get_info = self.vrf_get["get_nextN_vrf"]
             vrf_name_temp = get_info["vrf_name"]
             while (len(response.Entries)>0) and not response.Eof:
-                last_vrfName = response.Entries[len(response.Entries)-1].VrfName
+                last_vrfName = response.Entries[-1].VrfName
                 get_info["vrf_name"] = last_vrfName
                 response = clientClass.client.vrf_get(get_info, self.AF, stats)
                 if not stats:
@@ -1202,7 +1247,8 @@ class TestSuite_003_ILM_IPv4(MplsBase):
             clientClass.json_params['paths'],
             clientClass.json_params['nexthops'],
         )
-        self.lbl_blk_params = clientClass.json_params['batch_mpls_lbl_block']
+        self.lbl_blk_params1 = clientClass.json_params['batch_mpls_lbl_block']
+        self.lbl_blk_params2 = clientClass.json_params['mpls_lbl_block_srgb_3']
         self.ilm_get = clientClass.json_params['ilm_get']
         self.lbl_blk_get = clientClass.json_params['lbl_blk_get']
         self.reg_params = clientClass.json_params['reg_params']
@@ -1218,8 +1264,13 @@ class TestSuite_003_ILM_IPv4(MplsBase):
         err = self.validate_mpls_regop_response(response)
         self.assertTrue(err)
 
-    def test_002_blk_add(self):
-        response = clientClass.client.label_block_add(self.lbl_blk_params)
+    def test_002_00_blk_add(self):
+        response = clientClass.client.label_block_add(self.lbl_blk_params1)
+        err = self.validate_lbl_blk_response(response)
+        self.assertTrue(err)
+
+    def test_002_01_blk_add(self):
+        response = clientClass.client.label_block_add(self.lbl_blk_params2)
         err = self.validate_lbl_blk_response(response)
         self.assertTrue(err)
 
@@ -1304,23 +1355,9 @@ class TestSuite_003_ILM_IPv4(MplsBase):
         self.ilm_get_info(get_info)
 
     def test_006_05_ilm_get_all(self):
-        total_ilms = 0
-        get_info = self.ilm_get["get_firstN_ilm"]
-        response = clientClass.client.ilm_get(get_info)
-        err = self.validate_ilm_get_response(response)
-        self.assertTrue(err)
-        total_ilms = total_ilms + len(response.Entries)
-        get_info = self.ilm_get["get_nextN_ilm"]
-        label_temp = get_info["ilm"]["in_label"]
-        while (len(response.Entries)>0) and not response.Eof:
-            last_label = response.Entries[-1].Key.LocalLabel
-            get_info["ilm"]["in_label"] = last_label
-            response = clientClass.client.ilm_get(get_info)
-            err = self.validate_ilm_get_response(response)
-            total_ilms = total_ilms + len(response.Entries)
-            self.assertTrue(err)
-        get_info["ilm"]["in_label"] = label_temp
-        print("Total ilms read: %d" %(total_ilms))
+        nextN = self.ilm_get["get_nextN_ilm"]
+        firstN = self.ilm_get["get_firstN_ilm"]
+        self.ilm_get_all(firstN, nextN)
 
     def test_006_06_ilm_get_stream(self):
         serialized_list = []
@@ -1361,19 +1398,23 @@ class TestSuite_003_ILM_IPv4(MplsBase):
         get_info = self.lbl_blk_get["get_exact_lbl_blk"]
         self.lbl_blk_get_info(get_info)
 
-    def test_008_02_lbl_blk_get_firstN(self):
+    def test_008_02_lbl_blk_get_exact_match(self):
+        get_info = self.lbl_blk_get["get_exact_lbl_blk_client_name"]
+        self.lbl_blk_get_info(get_info)
+
+    def test_008_03_lbl_blk_get_firstN(self):
         get_info = self.lbl_blk_get["get_firstN_lbl_blk"]
         self.lbl_blk_get_info(get_info)
 
-    def test_008_03_lbl_blk_get_nextN_with_specified(self):
+    def test_008_04_lbl_blk_get_nextN_with_specified(self):
         get_info = self.lbl_blk_get["get_nextN_include_lbl_blk"]
         self.lbl_blk_get_info(get_info)
 
-    def test_008_04_lbl_blk_get_nextN_after_specified(self):
+    def test_008_05_lbl_blk_get_nextN_after_specified(self):
         get_info = self.lbl_blk_get["get_nextN_lbl_blk"]
         self.lbl_blk_get_info(get_info)
 
-    def test_008_05_lbl_blk_get_all(self):
+    def test_008_06_lbl_blk_get_all(self):
         total_lbl_blks = 0
         get_info = self.lbl_blk_get["get_firstN_lbl_blk"]
         response = clientClass.client.label_block_get(get_info)
@@ -1384,8 +1425,8 @@ class TestSuite_003_ILM_IPv4(MplsBase):
         label_temp = get_info["start_label"]
         size_temp = get_info["block_size"]
         while (len(response.Entries)>0) and not response.Eof:
-            last_label = response.Entries[len(response.Entries)-1].Key.StartLabel
-            last_size = response.Entries[len(response.Entries)-1].Key.LabelBlockSize
+            last_label = response.Entries[-1].StartLabel
+            last_size = response.Entries[-1].LabelBlockSize
             get_info["start_label"] = last_label
             get_info["block_size"] = last_size
             response = clientClass.client.label_block_get(get_info)
@@ -1396,8 +1437,13 @@ class TestSuite_003_ILM_IPv4(MplsBase):
         get_info["block_size"] = size_temp
         print("Total lbl_blks read: %d" %(total_lbl_blks))
 
-    def test_009_blk_delete(self):
-        response = clientClass.client.label_block_delete(self.lbl_blk_params)
+    def test_009_00_blk_delete(self):
+        response = clientClass.client.label_block_delete(self.lbl_blk_params1)
+        err = self.validate_lbl_blk_response(response)
+        self.assertTrue(err)
+
+    def test_009_01_blk_delete(self):
+        response = clientClass.client.label_block_delete(self.lbl_blk_params2)
         err = self.validate_lbl_blk_response(response)
         self.assertTrue(err)
 
@@ -1548,11 +1594,11 @@ class TestSuite_005_BFD_IPv4(unittest.TestCase):
         vrf_name_temp = get_info["vrf_name"]
         while (len(response.Entries)>0) and not response.Eof:
             # Get key from last entry
-            get_info["if_name"] = response.Entries[len(response.Entries)-1].Key.Interface.Name
-            get_info["type"] = response.Entries[len(response.Entries)-1].Key.Type
-            get_info["v%d_nbr" % self.AF] = response.Entries[len(response.Entries)-1].Key.NbrAddr
-            get_info["v%d_src" % self.AF] = response.Entries[len(response.Entries)-1].Key.SourceAddr
-            get_info["vrf_name"] = response.Entries[len(response.Entries)-1].Key.VrfName
+            get_info["if_name"] = response.Entries[-1].Key.Interface.Name
+            get_info["type"] = response.Entries[-1].Key.Type
+            get_info["v%d_nbr" % self.AF] = response.Entries[-1].Key.NbrAddr
+            get_info["v%d_src" % self.AF] = response.Entries[-1].Key.SourceAddr
+            get_info["vrf_name"] = response.Entries[-1].Key.VrfName
             # Resend the request
             response = clientClass.client.bfd_session_get(get_info, self.AF)
             err = validate_bfd_get_response(response, self.AF)
@@ -1701,7 +1747,7 @@ class TestSuite_009_INTERFACE(unittest.TestCase):
         if_name_temp = get_info["if_name"]
         while (len(response.Entries)>0) and not response.Eof:
             # Get key from last entry
-            get_info["if_name"] = response.Entries[len(response.Entries)-1].Key.Interface.Name
+            get_info["if_name"] = response.Entries[-1].Key.Interface.Name
             # Resend the request
             response = clientClass.client.intf_get(get_info)
             err = validate_intf_get_response(response)
@@ -3184,7 +3230,11 @@ class TestSuite_020_COS_ILM_IPv4_TC7(MplsBaseScale):
     STREAM = False
     batch = 'scale_cos_ilm_4'
     update_batch = 'scale_cos_ilm_update_4'
-    block = 'cos_mpls_lbl_block_2'
+    cos_block = 'cos_mpls_lbl_block_2'
+    srgb_batch = 'scale_srgb_ilm_1'
+    srgb_block = 'mpls_lbl_block_srgb_1'
+
+    get_ilm = 'cos_ilm_get'
 
     @classmethod
     def setUpClass(self):
@@ -3196,8 +3246,10 @@ class TestSuite_020_COS_ILM_IPv4_TC7(MplsBaseScale):
             clientClass.json_params['paths'],
             clientClass.json_params['nexthops'],
         ]
-        self.lbl_blk_params = clientClass.json_params[self.block]
+        self.cos_lbl_blk_params = clientClass.json_params[self.cos_block]
+        self.srgb_lbl_blk_params = clientClass.json_params[self.srgb_block]
         self.reg_params = clientClass.json_params['reg_params']
+        self.ilm_get = clientClass.json_params[self.get_ilm]
 
     def test_000_get_globals(self):
         # Get Global MPLS info
@@ -3210,18 +3262,33 @@ class TestSuite_020_COS_ILM_IPv4_TC7(MplsBaseScale):
         err = self.validate_mpls_regop_response(response)
         self.assertTrue(err)
 
-    def test_002_blk_add(self):
-        response = clientClass.client.label_block_add(self.lbl_blk_params)
+    def test_002_00_blk_add(self):
+        response = clientClass.client.label_block_add(self.cos_lbl_blk_params)
         err = self.validate_lbl_blk_response(response)
         self.assertTrue(err)
 
-    def test_003_ilm_add(self):
+    def test_002_01_blk_add(self):
+        response = clientClass.client.label_block_add(self.srgb_lbl_blk_params)
+        err = self.validate_lbl_blk_response(response)
+        self.assertTrue(err)
+
+    def test_003_00_ilm_add(self):
         if self.STREAM == False:
             self.ilm_op(clientClass.client.ilm_add,
                 self.ilm_params)
         else:
             self.ilm_op_stream(self.ilm_params,
                 sl_common_types_pb2.SL_OBJOP_ADD)
+
+    def test_003_01_ilm_add(self):
+        self.ilm_params[0] = clientClass.json_params[self.srgb_batch]
+        if self.STREAM == False:
+            self.ilm_op(clientClass.client.ilm_add,
+                self.ilm_params)
+        else:
+            self.ilm_op_stream(self.ilm_params,
+                sl_common_types_pb2.SL_OBJOP_ADD)
+        self.ilm_params[0] = clientClass.json_params[self.batch]
 
     def test_004_00_ilm_update(self):
         self.ilm_params[0] = clientClass.json_params[self.update_batch]
@@ -3234,7 +3301,84 @@ class TestSuite_020_COS_ILM_IPv4_TC7(MplsBaseScale):
         # NOTE: If the above fails, the following wont be restored
         self.ilm_params[0] = clientClass.json_params[self.batch]
 
-    def test_007_ilm_delete(self):
+    def test_006_01_ilm_get_exact_match(self):
+        get_info = self.ilm_get["get_exact_ilm_default"]
+        self.ilm_get_info(get_info)
+
+    def test_006_02_ilm_get_exact_match(self):
+        get_info = self.ilm_get["get_exact_ilm_exp"]
+        self.ilm_get_info(get_info)
+
+    def test_006_02_ilm_get_firstN(self):
+        get_info = self.ilm_get["get_firstN_ilm"]
+        self.ilm_get_info(get_info)
+
+    def test_006_03_ilm_get_nextN_with_specified(self):
+        get_info = self.ilm_get["get_nextN_include_ilm"]
+        self.ilm_get_info(get_info)
+
+    def test_006_04_ilm_get_nextN_after_specified(self):
+        get_info = self.ilm_get["get_nextN_ilm"]
+        self.ilm_get_info(get_info)
+
+    def test_006_05_ilm_get_all(self):
+        nextN = self.ilm_get["get_nextN_ilm"]
+        firstN = self.ilm_get["get_firstN_ilm"]
+        count = self.ilm_get_all(firstN, nextN)
+        
+        expected_count = self.getExpectedIlmCount(
+                clientClass.json_params[self.update_batch])
+        expected_count += self.getExpectedIlmCount(
+                clientClass.json_params[self.srgb_batch])
+
+        assert expected_count == count
+
+    def test_006_06_ilm_get_stream(self):
+        serialized_list = []
+        
+        get_info = self.ilm_get["get_firstN_ilm"]
+        get_info["correlator"] = 1
+        serializer = serializers.ilm_get_serializer(get_info)
+        serialized_list.append(serializer)
+        
+        get_info = self.ilm_get["get_exact_ilm_default"]
+        get_info["correlator"] = 2
+        serializer = serializers.ilm_get_serializer(get_info)
+        serialized_list.append(serializer)
+
+        get_info = self.ilm_get["get_exact_ilm_exp"]
+        get_info["correlator"] = 3
+        serializer = serializers.ilm_get_serializer(get_info)
+        serialized_list.append(serializer)
+        
+        get_info = self.ilm_get["get_nextN_include_ilm"]
+        get_info["correlator"] = 4
+        serializer = serializers.ilm_get_serializer(get_info)
+        serialized_list.append(serializer)
+
+        # Call RPC
+        iterator = self.ilm_get_iterator(serialized_list)
+        # Must reset this to sync the iterator with the responses
+        self.validated_count = 0
+        count, error = clientClass.client.ilm_get_stream(iterator,
+            self.validate_ilm_get_response)
+        self.assertTrue(error)
+        # This may fail if the server sends EOF prematurely
+        if count != len(serialized_list):
+            print("Count %d, Expecting:%d" %(count, len(serialized_list)))
+        self.assertTrue(count == len(serialized_list))
+
+    def test_007_00_ilm_delete(self):
+        self.ilm_params[0] = clientClass.json_params[self.srgb_batch]
+        if self.STREAM == False:
+            self.ilm_op(clientClass.client.ilm_delete,
+                self.ilm_params)
+        else:
+            self.ilm_op_stream(self.ilm_params,
+                sl_common_types_pb2.SL_OBJOP_DELETE)
+        self.ilm_params[0] = clientClass.json_params[self.update_batch]
+
+    def test_007_01_ilm_delete(self):
         if self.STREAM == False:
             self.ilm_op(clientClass.client.ilm_delete,
                 self.ilm_params)
@@ -3242,8 +3386,13 @@ class TestSuite_020_COS_ILM_IPv4_TC7(MplsBaseScale):
             self.ilm_op_stream(self.ilm_params,
                 sl_common_types_pb2.SL_OBJOP_DELETE)
 
-    def test_009_blk_delete(self):
-        response = clientClass.client.label_block_delete(self.lbl_blk_params)
+    def test_009_00_blk_delete(self):
+        response = clientClass.client.label_block_delete(self.cos_lbl_blk_params)
+        err = self.validate_lbl_blk_response(response)
+        self.assertTrue(err)
+
+    def test_009_01_blk_delete(self):
+        response = clientClass.client.label_block_delete(self.srgb_lbl_blk_params)
         err = self.validate_lbl_blk_response(response)
         self.assertTrue(err)
 
@@ -3270,7 +3419,6 @@ class TestSuite_020_COS_ILM_IPv6_TC7(TestSuite_020_COS_ILM_IPv4_TC7):
 class TestSuite_021_COS_ILM_IPv4_TC8(TestSuite_020_COS_ILM_IPv4_TC7):
     batch = 'scale_cos_ilm_1'
     update_batch = 'scale_cos_ilm_update_1'
-    block = 'cos_mpls_lbl_block_2'
 
 #
 #
@@ -3309,8 +3457,7 @@ class TestSuite_022_COS_ILM_IPv4_TC9(MplsBase):
         self.assertTrue(err)
 
     # Add blk with invalid client name (Negative)
-    @unittest.skipIf(cafy is None, 
-            "Will only fail if CLI is configured manually or by Cafy")
+    @unittest.skip("This will only fail if LSD CLI is configured")
     def test_002_blk_add(self):
         # TODO: add something like: cafy.device.config(mplsLabelBlockConfig)
         response = clientClass.client.label_block_add(self.lbl_blk_invalid_client)
@@ -3341,9 +3488,26 @@ class TestSuite_022_COS_ILM_IPv4_TC9(MplsBase):
         err = self.validate_lbl_blk_response(response)
         self.assertFalse(err)
 
-    # add label 32220, non elsp to cbf block -> NH1 (fail)
-    @unittest.skip('Not supported yet')
+    # add label 32220, exp 4 -> NH1, remote label=Implicit Null
     def test_007_ilm_add(self):
+        if self.STREAM == False:
+            self.ilm_op_wrapper(clientClass.client.ilm_add,
+                self.ilm_entry["cos_ilm_2"])
+        else:
+            self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_ADD,
+                self.ilm_entry["cos_ilm_2"])
+
+    # add label 32220, exp 5 -> NH2, remote label=Explicit Null
+    def test_008_ilm_add(self):
+        if self.STREAM == False:
+            self.ilm_op_wrapper(clientClass.client.ilm_add,
+                self.ilm_entry["cos_ilm_3"])
+        else:
+            self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_ADD,
+                self.ilm_entry["cos_ilm_3"])
+
+    # add label 32220, non elsp to cbf block -> NH1 (fail)
+    def test_009_ilm_add(self):
         params = (self.ilm_entry["cos_ilm_1"],
              self.AF,
             clientClass.json_params['paths'],
@@ -3355,23 +3519,6 @@ class TestSuite_022_COS_ILM_IPv4_TC9(MplsBase):
             self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_ADD,
                 self.ilm_entry["cos_ilm_1"], False)
             
-    # add label 32220, exp 4 -> NH1, remote label=Implicit Null
-    def test_008_ilm_add(self):
-        if self.STREAM == False:
-            self.ilm_op_wrapper(clientClass.client.ilm_add,
-                self.ilm_entry["cos_ilm_2"])
-        else:
-            self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_ADD,
-                self.ilm_entry["cos_ilm_2"])
-
-    # add label 32220, exp 5 -> NH2, remote label=Explicit Null
-    def test_009_ilm_add(self):
-        if self.STREAM == False:
-            self.ilm_op_wrapper(clientClass.client.ilm_add,
-                self.ilm_entry["cos_ilm_3"])
-        else:
-            self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_ADD,
-                self.ilm_entry["cos_ilm_3"])
 
     # delete label 32220 exp 4
     def test_010_ilm_delete(self):
@@ -3409,10 +3556,11 @@ class TestSuite_024_COS_ILM_IPv4_TC11(TestSuite_020_COS_ILM_IPv4_TC7):
     batch = 'scale_cos_ilm_pop_and_lookup'
     batch_add = 'scale_cos_ilm_5'
     update_batch = 'scale_cos_ilm_update_pop_and_lookup'
-    block = 'cos_mpls_lbl_block_2'
+    cos_block = 'cos_mpls_lbl_block_2'
+    srgb_block = 'mpls_lbl_block_srgb_1'
 
     # NOTE: These test add to TestSuite_020_COS_ILM_IPv4_TC7
-    def test_005_ilm_add(self):
+    def test_005_00_ilm_add(self):
         self.ilm_params[0] = clientClass.json_params[self.batch_add]
         if self.STREAM == False:
             self.ilm_op(clientClass.client.ilm_add,
@@ -3422,7 +3570,7 @@ class TestSuite_024_COS_ILM_IPv4_TC11(TestSuite_020_COS_ILM_IPv4_TC7):
                 sl_common_types_pb2.SL_OBJOP_ADD)
         self.ilm_params[0] = clientClass.json_params[self.update_batch]
 
-    def test_006_ilm_delete(self):
+    def test_005_01_ilm_delete(self):
         self.ilm_params[0] = clientClass.json_params[self.batch_add]
         if self.STREAM == False:
             self.ilm_op(clientClass.client.ilm_delete,
