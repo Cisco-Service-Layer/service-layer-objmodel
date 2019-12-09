@@ -1262,49 +1262,49 @@
             {
                 "label_action": 1,
                 "load_metric": 7,
-                "labels": [ 460010 ],
+                "labels": [ 46010 ],
                 "nexthop": "cos_nh_11"
             },
             {
                 "label_action": 1,
                 "load_metric": 7,
-                "labels": [ 460011 ],
+                "labels": [ 46011 ],
                 "nexthop": "cos_nh_12"
             },
             {
                 "label_action": 1,
                 "load_metric": 7,
-                "labels": [ 460012 ],
+                "labels": [ 46012 ],
                 "nexthop": "cos_nh_13"
             },
             {
                 "label_action": 1,
                 "load_metric": 7,
-                "labels": [ 460013 ],
+                "labels": [ 46013 ],
                 "nexthop": "cos_nh_14"
             },
             {
                 "label_action": 1,
                 "load_metric": 7,
-                "labels": [ 460014 ],
+                "labels": [ 46014 ],
                 "nexthop": "cos_nh_15"
             },
             {
                 "label_action": 1,
                 "load_metric": 7,
-                "labels": [ 460015 ],
+                "labels": [ 46015 ],
                 "nexthop": "cos_nh_16"
             },
             {
                 "label_action": 1,
                 "load_metric": 7,
-                "labels": [ 460016 ],
+                "labels": [ 46016 ],
                 "nexthop": "cos_nh_17"
             },
             {
                 "label_action": 1,
                 "load_metric": 7,
-                "labels": [ 460017 ],
+                "labels": [ 46017 ],
                 "nexthop": "cos_nh_18"
             }
         ],  
@@ -1372,49 +1372,49 @@
             {
                 "label_action": 1,
                 "load_metric": 7,
-                "labels": [ 460010 ],
+                "labels": [ 46010 ],
                 "nexthop": "cos_nh_8"
             },
             {
                 "label_action": 1,
                 "load_metric": 7,
-                "labels": [ 460011 ],
+                "labels": [ 46011 ],
                 "nexthop": "cos_nh_7"
             },
             {
                 "label_action": 1,
                 "load_metric": 7,
-                "labels": [ 460012 ],
+                "labels": [ 46012 ],
                 "nexthop": "cos_nh_6"
             },
             {
                 "label_action": 1,
                 "load_metric": 7,
-                "labels": [ 460013 ],
+                "labels": [ 46013 ],
                 "nexthop": "cos_nh_5"
             },
             {
                 "label_action": 1,
                 "load_metric": 7,
-                "labels": [ 460014 ],
+                "labels": [ 46014 ],
                 "nexthop": "cos_nh_4"
             },
             {
                 "label_action": 1,
                 "load_metric": 7,
-                "labels": [ 460015 ],
+                "labels": [ 46015 ],
                 "nexthop": "cos_nh_3"
             },
             {
                 "label_action": 1,
                 "load_metric": 7,
-                "labels": [ 460016 ],
+                "labels": [ 46016 ],
                 "nexthop": "cos_nh_2"
             },
             {
                 "label_action": 1,
                 "load_metric": 7,
-                "labels": [ 460017 ],
+                "labels": [ 46017 ],
                 "nexthop": "cos_nh_1"
             }
         ], 
