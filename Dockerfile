@@ -48,11 +48,16 @@ RUN go get -d google.golang.org/grpc && \
 # The previous command also pulls protobuf and genpro so make sure
 # we use the proper versions
 
-# genproto
+# genproto: this repository contains the generated Go packages for common
+# protocol buffer types, and the generated gRPC code necessary for interacting
+# with Google's gRPC APIs.
 RUN git -C ${GOPATH}/src/google.golang.org/genproto checkout \
         -b ${GENPROTO_VER} ${GENPROTO_VER}
 
-# protobuf
+# protobuf: This package includes the Protoc compiler for generating Go
+# bindings for the protocol buffers, and a library that implements run-time 
+# support for encoding (marshaling), decoding (unmarshaling), and accessing
+# protocol buffers.
 RUN git -C ${GOPATH}/src/github.com/golang/protobuf checkout \
         -b ${GO_PROTOBUF_VER} ${GO_PROTOBUF_VER}
 

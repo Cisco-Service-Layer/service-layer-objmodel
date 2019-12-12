@@ -6,6 +6,17 @@ In IOS-XR, routing protocols make use of services provided by the Routing Inform
 
 Exposing the Service Layer API as a Google RPC (or GRPC), over Google protocol buffers (Protobuf or GPB), enables customers to write their own applications, routing protocols, controllers, etc., whether on box or off box, in a rich set of languages including C++, Python, GO, etc.
 
+## Getting Started
+
+Clone or checkout the branch corresponding to your IOS-XR release. For example:
+```
+git clone https://github.com/Cisco-Service-Layer/service-layer-objmodel.git -b 6.6.3
+```
+or if you have already cloned
+```
+git checkout 6.6.3
+```
+
 ## Service Layer Verticals
 
 The Service Layer API is currently organized in a set of files that expose certain verticals e.g. IPv4 RIB functionality, or MPLS functionality, etc.
@@ -41,6 +52,65 @@ Each RPC usually takes a GRPC "message" or request, typically labeled (Something
 Note that all files are annotated with detailed documentation.
 The user of the API can use Doxygen to render his/her own local documentation, refer to instructions under docs directory. The html generated documentation is broken up into sections that describe the messages, verticals, files, etc, and are very useful for quick reference.
 
+# SL API Version
+The SL API version is stored in the file grpc/protos/sl_version.proto. Comprised of a major version, minor version, and subversion.  Represents the current version of SL-API as defined by the proto files.
+
+The SL API version is meaningless across releases. It is only used to determine compatibility between a client and server running on the same IOS-XR release, such as 7.0.1.
+
+## Versions
+
+You must checkout the branch corresponding to your IOS-XR release. This branch will contain:
+- The proto files with the correct SL API Version for that IOS-XR release
+- A Dockerfile with the correct toolchain versions.
+- Generated bindings for python, golang, and C++.
+
+These bindings have been generated using the same toolchain versions as the gRPC server running on the corresponding IOS-XR release. You may directly use these bindings or generate them yourself.
+
+The bindings can be generated within a docker container created by the service layer top makefile. This may take some time the first time.
+```
+# cd (top level)
+# make bindings (creates/launches container and generates bindings)
+```
+
+The bindings will be generated in the following directories:
+```
+grpc/go/src/gengo
+grpc/python/src/genpy
+grpc/cpp/src/gencpp
+```
+The bindings can also be generated manually using protoc in an environment with the correct toolchain versions. The toolchain versions in the Dockerfile:
+* GO_VER: Go version
+* GRPC_VER: gRPC version
+* PROTOBUF_VER: libprotoc version
+* GO_PROTOBUF_VER: protoc-gen-go version
+* GENPROTO_VER: go-genproto version
+
+# Tags
+In most cases a branch can be checked out directly, but in some cases it may be requested that you checkout a tag instead.
+
+```
+git checkout <tag>
+```
+
+The tags are named
+```
+<xr-release>/<sl-api-version>_<revision>
+
+Eg. 6.6.3/v1.2.3_1
+```
+
+# Commit Hash
+If required the hash at which the gRPC server bindings were comitted to Github can be retrieved by running the following command on a router.
+```
+# On router
+RP/0/RP0/CPU0#show service-layer grpc-proto-hash
+Tue Dec 10 13:36:53.522 PST
+84c0190a3e09d2183ef3e56b60512f030a54b402
+```
+And then checkout that commit hash
+```
+git checkout 84c0190a3e09d2183ef3e56b60512f030a54b402
+```
 
 ## Tutorials
 
@@ -69,13 +139,11 @@ The executable can be found here:
 grpc/go/src/tutorial/tutorial
 ```
 
-A makefile exists in the tutorial directory and could be invoked to re-build the tutorial if invoked within the docker container created by the service layer top makefile. To build:
+A makefile exists in the tutorial directory and could be invoked to re-build the tutorial. To build:
 
 ```
 # cd (top level)
-# make (creates/launches container)
-root@b08eb2f2cd15:/slapi# cd grpc/go/src/tutorial
-root@b08eb2f2cd15:/slapi# make
+# make tutorial (creates/launches container)
 ```
 
 ## Python UT regresion suite
@@ -99,18 +167,12 @@ Run All tests:
 cd grpc/python/src
 python3 -m unittest -v tests.test_sl_api
 ```
-
-## Versions
-
-The service layer repository comes with generated bindings for python, c++ and golang. These bindings have been generated using the same versions of the grpc and protobuf packages as those of the gRPC server running on IOS-XR for the release this branch is named after.
-
-
-| Package | Version |
-|---------|---------|
-| gRPC | v1.9.1 |
-| Protobuf | v3.2.0 |
-
+or using pytest
+```
+pytest grpc/python/src/tests/test_sl_api.py
+```
 
 ## Summary
 
 We hope that the above was useful quick overview about the Service Layer API. We recommend that the reader go over the Python quick tutorial first and then go over the .proto files under grpc/protos (or look at the generated .html pages - these are not kept in this repo, but can be auto-generated from this repo).
+

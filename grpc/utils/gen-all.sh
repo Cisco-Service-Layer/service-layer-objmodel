@@ -4,3 +4,5 @@ cd ../python
 gen-bindings.sh
 cd ../cpp
 gen-bindings.sh
+cd ../go
+gen-bindings.sh
