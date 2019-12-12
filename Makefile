@@ -28,6 +28,20 @@ DOCKER_RUN := docker run --rm=true --privileged \
 .PHONY: slapi-bash
 .DEFAULT_GOAL := slapi-bash
 
+tutorial:
+	@docker inspect --type image $(IMAGE_NAME):$(IMAGE_TAG) &> /dev/null || \
+	{ echo Image $(IMAGE_NAME):$(IMAGE_TAG) not found. Building... ; \
+	$(DOCKER_BUILD) ; }
+	$(DOCKER_RUN) -t $(IMAGE_NAME):$(IMAGE_TAG) \
+	make -C grpc/go/src/tutorial
+
+bindings:
+	@docker inspect --type image $(IMAGE_NAME):$(IMAGE_TAG) &> /dev/null || \
+	{ echo Image $(IMAGE_NAME):$(IMAGE_TAG) not found. Building... ; \
+	$(DOCKER_BUILD) ; }
+	$(DOCKER_RUN) -t $(IMAGE_NAME):$(IMAGE_TAG) \
+	bash -c "cd grpc/utils && ./gen-all.sh"
+
 slapi-bash:
 	@docker inspect --type image $(IMAGE_NAME):$(IMAGE_TAG) &> /dev/null || \
 		{ echo Image $(IMAGE_NAME):$(IMAGE_TAG) not found. Building... ; \

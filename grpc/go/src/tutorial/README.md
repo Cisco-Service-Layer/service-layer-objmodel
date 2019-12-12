@@ -42,15 +42,12 @@ To get help on running the tutorial:
 | -client_name  | The client name to be used during MPLS CBF label block allocation |
 
 #### How to build
-If you have a docker environmemt, you can run "make" from the service-layer-objmodel
+If you have a docker environmemt, you can run "make tutorial" from the service-layer-objmodel
 top level directory where you see a Dockerfile and a Makefile. This will take some time
 the first time but once it completes it should drop you into bash, like so:
 
 ```
-Bash-Prompt:sl$ make
-```
-```
-docker run --rm=true --privileged -v "/Users/test-user/ws/sl:/slapi" -w "/slapi" -e "http_proxy=" -e "https_proxy=" -it -t slapi:047f0a235d1 bash
+Bash-Prompt:sl$ make tutorial
 ```
 
 Once in bash, navigate to the tutorial directory and type "make":
