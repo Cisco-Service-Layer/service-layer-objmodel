@@ -52,12 +52,12 @@ Each RPC usually takes a GRPC "message" or request, typically labeled (Something
 Note that all files are annotated with detailed documentation.
 The user of the API can use Doxygen to render his/her own local documentation, refer to instructions under docs directory. The html generated documentation is broken up into sections that describe the messages, verticals, files, etc, and are very useful for quick reference.
 
-# SL API Version
+## SL API Version
 The SL API version is stored in the file grpc/protos/sl_version.proto. Comprised of a major version, minor version, and subversion.  Represents the current version of SL-API as defined by the proto files.
 
 The SL API version is meaningless across releases. It is only used to determine compatibility between a client and server running on the same IOS-XR release, such as 7.0.1.
 
-## Versions
+## Release Branches
 
 You must checkout the branch corresponding to your IOS-XR release. This branch will contain:
 - The proto files with the correct SL API Version for that IOS-XR release
@@ -85,7 +85,7 @@ The bindings can also be generated manually using protoc in an environment with 
 * GO_PROTOBUF_VER: protoc-gen-go version
 * GENPROTO_VER: go-genproto version
 
-# Tags
+# Checking Out Tags
 In most cases a branch can be checked out directly, but in some cases it may be requested that you checkout a tag instead.
 
 ```
@@ -99,7 +99,7 @@ The tags are named
 Eg. 6.6.3/v1.2.3_1
 ```
 
-# Commit Hash
+# Checking Out Commit Hashes
 If required the hash at which the gRPC server bindings were comitted to Github can be retrieved by running the following command on a router.
 ```
 # On router
