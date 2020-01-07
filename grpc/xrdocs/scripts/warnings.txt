@@ -1,20 +1,21 @@
-/home/cisco/lindt-objmodel/grpc/protos/sl_bfd_common.proto:13: warning: missing title after \defgroup BFD
-/home/cisco/lindt-objmodel/grpc/protos/sl_bfd_common.proto:17: warning: missing title after \defgroup SLBFDCommon
-/home/cisco/lindt-objmodel/grpc/protos/sl_bfd_ipv4.proto:14: warning: missing title after \defgroup SLBfdIPv4Oper
-/home/cisco/lindt-objmodel/grpc/protos/sl_bfd_ipv4.proto:184: warning: end of file while inside a group
+/slapi/grpc/protos/sl_bfd_common.proto:13: warning: missing title after \defgroup BFD
+/slapi/grpc/protos/sl_bfd_common.proto:17: warning: missing title after \defgroup SLBFDCommon
+/slapi/grpc/protos/sl_bfd_ipv4.proto:14: warning: missing title after \defgroup SLBfdIPv4Oper
+/slapi/grpc/protos/sl_bfd_ipv4.proto:184: warning: end of file while inside a group
 
-/home/cisco/lindt-objmodel/grpc/protos/sl_bfd_ipv6.proto:14: warning: missing title after \defgroup SLBfdIPv6Oper
-/home/cisco/lindt-objmodel/grpc/protos/sl_bfd_ipv6.proto:184: warning: end of file while inside a group
+/slapi/grpc/protos/sl_bfd_ipv6.proto:14: warning: missing title after \defgroup SLBfdIPv6Oper
+/slapi/grpc/protos/sl_bfd_ipv6.proto:184: warning: end of file while inside a group
 
-/home/cisco/lindt-objmodel/grpc/protos/sl_common_types.proto:10: warning: missing title after \defgroup Common
-/home/cisco/lindt-objmodel/grpc/protos/sl_common_types.proto:14: warning: missing title after \defgroup SLCommonTypes
-/home/cisco/lindt-objmodel/grpc/protos/sl_global.proto:13: warning: missing title after \defgroup SLGlobal
-/home/cisco/lindt-objmodel/grpc/protos/sl_interface.proto:12: warning: missing title after \defgroup Interfaces
-/home/cisco/lindt-objmodel/grpc/protos/sl_mpls.proto:10: warning: missing title after \defgroup MPLS
-/home/cisco/lindt-objmodel/grpc/protos/sl_mpls.proto:14: warning: missing title after \defgroup SLMpls
-/home/cisco/lindt-objmodel/grpc/protos/sl_route_common.proto:13: warning: missing title after \defgroup Route
-/home/cisco/lindt-objmodel/grpc/protos/sl_route_common.proto:17: warning: missing title after \defgroup SLRouteCommon
-/home/cisco/lindt-objmodel/grpc/protos/sl_route_ipv4.proto:12: warning: missing title after \defgroup SLRouteIPv4Oper
-/home/cisco/lindt-objmodel/grpc/protos/sl_route_ipv6.proto:12: warning: missing title after \defgroup SLRouteIPv6Oper
-/home/cisco/lindt-objmodel/grpc/protos/sl_bfd_ipv4.proto:20: warning: Refusing to add group SLBfdIPv4Oper to itself
-/home/cisco/lindt-objmodel/grpc/protos/sl_bfd_ipv6.proto:20: warning: Refusing to add group SLBfdIPv6Oper to itself
+/slapi/grpc/protos/sl_common_types.proto:10: warning: missing title after \defgroup Common
+/slapi/grpc/protos/sl_common_types.proto:14: warning: missing title after \defgroup SLCommonTypes
+/slapi/grpc/protos/sl_global.proto:13: warning: missing title after \defgroup SLGlobal
+/slapi/grpc/protos/sl_interface.proto:12: warning: missing title after \defgroup Interfaces
+/slapi/grpc/protos/sl_l2_route.proto:12: warning: missing title after \defgroup SLRouteL2Oper
+/slapi/grpc/protos/sl_mpls.proto:10: warning: missing title after \defgroup MPLS
+/slapi/grpc/protos/sl_mpls.proto:14: warning: missing title after \defgroup SLMpls
+/slapi/grpc/protos/sl_route_common.proto:13: warning: missing title after \defgroup Route
+/slapi/grpc/protos/sl_route_common.proto:17: warning: missing title after \defgroup SLRouteCommon
+/slapi/grpc/protos/sl_route_ipv4.proto:12: warning: missing title after \defgroup SLRouteIPv4Oper
+/slapi/grpc/protos/sl_route_ipv6.proto:12: warning: missing title after \defgroup SLRouteIPv6Oper
+/slapi/grpc/protos/sl_bfd_ipv4.proto:20: warning: Refusing to add group SLBfdIPv4Oper to itself
+/slapi/grpc/protos/sl_bfd_ipv6.proto:20: warning: Refusing to add group SLBfdIPv6Oper to itself

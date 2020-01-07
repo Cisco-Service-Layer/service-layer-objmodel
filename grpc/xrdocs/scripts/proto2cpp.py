@@ -222,7 +222,7 @@ class proto2cpp:
     # @param string String to be written to error log file.
     #
     def logError(self, string):
-        if self.logLevel >= self.logError:
+        if self.logLevel >= self.logErrors:
             with open(self.errorLogFile, 'a') as theFile:
                 theFile.write(string)
 
