@@ -3553,7 +3553,7 @@ class TestSuite_022_COS_ILM_IPv4_TC9(MplsBase):
 #
 # 
 class TestSuite_024_COS_ILM_IPv4_TC11(TestSuite_020_COS_ILM_IPv4_TC7):
-    batch = 'scale_cos_ilm_pop_and_lookup'
+    batch = 'scale_cos_ilm_pop_and_lookup_1'
     batch_add = 'scale_cos_ilm_5'
     update_batch = 'scale_cos_ilm_update_pop_and_lookup'
     cos_block = 'cos_mpls_lbl_block_2'
@@ -3837,7 +3837,7 @@ class TestSuite_028_MPLS_CoS_TC15_v6(TestSuite_028_MPLS_CoS_TC15):
 class TestSuite_029_MPLS_CoS_TC16_scale(MplsBaseScale):
     AF = 4 # AF is overwritten by scale tests
     STREAM = False
-    pop_and_lookup_batch = 'scale_cos_ilm_pop_and_lookup'
+    pop_and_lookup_batch = 'scale_cos_ilm_pop_and_lookup_1'
     swap_batch = 'scale_cos_ilm_v4_v6'
     block = 'cos_mpls_lbl_block_2'
 
@@ -3940,6 +3940,124 @@ class TestSuite_029_MPLS_CoS_TC16_scale(MplsBaseScale):
         self.assertTrue(err)
 
 
+class TestSuite_030_MPLS_CoS_TC17_scale_v6tov4(CoS_Base_Scale):
+    AF = 4 # AF is overwritten by scale tests
+    STREAM = False
+    pop_and_lookup_batch = 'scale_cos_ilm_pop_and_lookup_2'
+    swap_batch = 'scale_cos_ilm_exp1_v6'
+    block = 'cos_mpls_lbl_block_2'
+
+    @classmethod
+    def setUpClass(self):
+        super(TestSuite_030_MPLS_CoS_TC17_scale, self).setUpClass()
+        self.ilm_params = [
+            clientClass.json_params[self.pop_and_lookup_batch],
+            self.AF,
+            clientClass.json_params['paths'],
+            clientClass.json_params['nexthops'],
+        ]
+        self.lbl_blk_params = clientClass.json_params[self.block]
+        self.reg_params = clientClass.json_params['reg_params']
+
+    def test_001_get_globals(self):
+        # Get Global MPLS info
+        response = clientClass.client.mpls_global_get()
+        err = print_mpls_globals(response)
+        self.assertTrue(err)
+
+    def test_002_mpls_register(self):
+        response = clientClass.client.mpls_register_oper(self.reg_params)
+        err = validate_mpls_regop_response(response)
+        self.assertTrue(err)
+
+    def test_003_blk_add(self):
+        response = clientClass.client.label_block_add(self.lbl_blk_params)
+        err = validate_lbl_blk_response(response)
+        self.assertTrue(err)
+
+    # add label 32000-32999, exp1 -> swap
+    def test_004_ilm_add(self):
+        self.ilm_params[0] = clientClass.json_params[self.swap_batch]
+        if self.STREAM == False:
+            self.ilm_op(clientClass.client.ilm_add,
+                self.ilm_params)
+        else:
+            self.ilm_op_stream(self.ilm_params,
+                sl_common_types_pb2.SL_OBJOP_ADD)
+        self.ilm_params[0] = clientClass.json_params[self.pop_and_lookup_batch]
+
+    def test_005_mpls_eof(self):
+        response = clientClass.client.mpls_eof_oper()
+        err = validate_mpls_regop_response(response)
+        self.assertTrue(err)
+
+    def test_006_mpls_register(self):
+        response = clientClass.client.mpls_register_oper(self.reg_params)
+        err = validate_mpls_regop_response(response)
+        self.assertTrue(err)
+
+    def test_007_blk_add(self):
+        response = clientClass.client.label_block_add(self.lbl_blk_params)
+        err = validate_lbl_blk_response(response)
+        self.assertTrue(err)
+
+    # add label 32000-32999, default -> pop and lookup
+    def test_008_ilm_add(self):
+        self.ilm_params[0] = clientClass.json_params[self.pop_and_lookup_batch]
+        if self.STREAM == False:
+            self.ilm_op(clientClass.client.ilm_add,
+                self.ilm_params)
+        else:
+            self.ilm_op_stream(self.ilm_params,
+                sl_common_types_pb2.SL_OBJOP_ADD)
+
+    def test_009_mpls_eof(self):
+        response = clientClass.client.mpls_eof_oper()
+        err = validate_mpls_regop_response(response)
+        self.assertTrue(err)
+
+    def test_010_mpls_register(self):
+        response = clientClass.client.mpls_register_oper(self.reg_params)
+        err = validate_mpls_regop_response(response)
+        self.assertTrue(err)
+
+    def test_011_blk_add(self):
+        response = clientClass.client.label_block_add(self.lbl_blk_params)
+        err = validate_lbl_blk_response(response)
+        self.assertTrue(err)
+
+    # add label 32000-32999, exp1 -> swap
+    def test_012_ilm_add(self):
+        self.ilm_params[0] = clientClass.json_params[self.swap_batch]
+        if self.STREAM == False:
+            self.ilm_op(clientClass.client.ilm_add,
+                self.ilm_params)
+        else:
+            self.ilm_op_stream(self.ilm_params,
+                sl_common_types_pb2.SL_OBJOP_ADD)
+        self.ilm_params[0] = clientClass.json_params[self.pop_and_lookup_batch]
+
+    def test_013_mpls_eof(self):
+        response = clientClass.client.mpls_eof_oper()
+        err = validate_mpls_regop_response(response)
+        self.assertTrue(err)
+
+    def test_014_mpls_unregister(self):
+        response = clientClass.client.mpls_unregister_oper()
+        err = validate_mpls_regop_response(response)
+        self.assertTrue(err)
+
+class TestSuite_030_MPLS_CoS_TC17_scale_v4tov6(TestSuite_030_MPLS_CoS_TC17_scale_v6tov4):
+    pop_and_lookup_batch = 'scale_cos_ilm_pop_and_lookup_3'
+    swap_batch = 'scale_cos_ilm_exp1_v4'
+
+class TestSuite_030_MPLS_CoS_TC17_scale_v4tov4(TestSuite_030_MPLS_CoS_TC17_scale_v6tov4):
+    pop_and_lookup_batch = 'scale_cos_ilm_pop_and_lookup_2'
+    swap_batch = 'scale_cos_ilm_exp1_v4'
+
+class TestSuite_030_MPLS_CoS_TC17_scale_v6tov6(TestSuite_030_MPLS_CoS_TC17_scale_v6tov4):
+    pop_and_lookup_batch = 'scale_cos_ilm_pop_and_lookup_3'
+    swap_batch = 'scale_cos_ilm_exp1_v6'
 
 if __name__ == '__main__':
 
