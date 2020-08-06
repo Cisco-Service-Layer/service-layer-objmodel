@@ -2,11 +2,11 @@ FROM ubuntu:16.04
 
 ARG WS=/
 
-ARG GO_VER=1.9.1
-ARG GRPC_VER=v1.9.1
-ARG PROTOBUF_VER=v3.2.0
-ARG GENPROTO_VER=bd9b4fb
-ARG GO_PROTOBUF_VER=v1.2.0
+ARG GO_VER=1.14.2
+ARG GRPC_VER=v1.30.0
+ARG PROTOBUF_VER=v3.12.1
+ARG GENPROTO_VER=053ba62
+ARG GO_PROTOBUF_VER=v1.4.2
 
 RUN apt-get update && \
     apt-get install -y git vim doxygen autoconf automake libtool \
@@ -61,7 +61,7 @@ RUN git -C ${GOPATH}/src/google.golang.org/genproto checkout \
 RUN git -C ${GOPATH}/src/github.com/golang/protobuf checkout \
         -b ${GO_PROTOBUF_VER} ${GO_PROTOBUF_VER}
 
-# make install
-RUN make -C ${GOPATH}/src/github.com/golang/protobuf install
+# Build protoc-gen-go plugin for protoc
+RUN go install github.com/golang/protobuf/protoc-gen-go
 
 ENV GOPATH="${GOPATH}:${SLAPI_ROOT}/grpc/go"

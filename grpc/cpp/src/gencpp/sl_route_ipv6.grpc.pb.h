@@ -17,22 +17,25 @@
 
 #include "sl_route_ipv6.pb.h"
 
-#include <grpc++/impl/codegen/async_stream.h>
-#include <grpc++/impl/codegen/async_unary_call.h>
-#include <grpc++/impl/codegen/method_handler_impl.h>
-#include <grpc++/impl/codegen/proto_utils.h>
-#include <grpc++/impl/codegen/rpc_method.h>
-#include <grpc++/impl/codegen/service_type.h>
-#include <grpc++/impl/codegen/status.h>
-#include <grpc++/impl/codegen/stub_options.h>
-#include <grpc++/impl/codegen/sync_stream.h>
-
-namespace grpc {
-class CompletionQueue;
-class Channel;
-class ServerCompletionQueue;
-class ServerContext;
-}  // namespace grpc
+#include <functional>
+#include <grpc/impl/codegen/port_platform.h>
+#include <grpcpp/impl/codegen/async_generic_service.h>
+#include <grpcpp/impl/codegen/async_stream.h>
+#include <grpcpp/impl/codegen/async_unary_call.h>
+#include <grpcpp/impl/codegen/client_callback.h>
+#include <grpcpp/impl/codegen/client_context.h>
+#include <grpcpp/impl/codegen/completion_queue.h>
+#include <grpcpp/impl/codegen/message_allocator.h>
+#include <grpcpp/impl/codegen/method_handler.h>
+#include <grpcpp/impl/codegen/proto_utils.h>
+#include <grpcpp/impl/codegen/rpc_method.h>
+#include <grpcpp/impl/codegen/server_callback.h>
+#include <grpcpp/impl/codegen/server_callback_handlers.h>
+#include <grpcpp/impl/codegen/server_context.h>
+#include <grpcpp/impl/codegen/service_type.h>
+#include <grpcpp/impl/codegen/status.h>
+#include <grpcpp/impl/codegen/stub_options.h>
+#include <grpcpp/impl/codegen/sync_stream.h>
 
 namespace service_layer {
 
@@ -199,6 +202,189 @@ class SLRoutev6Oper final {
     }
     //
     // @}
+    class experimental_async_interface {
+     public:
+      virtual ~experimental_async_interface() {}
+      //
+      // Global Route operations
+      //
+      //
+      // Used to retrieve Global Route information
+      virtual void SLRoutev6GlobalsGet(::grpc::ClientContext* context, const ::service_layer::SLRouteGlobalsGetMsg* request, ::service_layer::SLRouteGlobalsGetMsgRsp* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void SLRoutev6GlobalsGet(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::service_layer::SLRouteGlobalsGetMsgRsp* response, std::function<void(::grpc::Status)>) = 0;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      virtual void SLRoutev6GlobalsGet(::grpc::ClientContext* context, const ::service_layer::SLRouteGlobalsGetMsg* request, ::service_layer::SLRouteGlobalsGetMsgRsp* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      #else
+      virtual void SLRoutev6GlobalsGet(::grpc::ClientContext* context, const ::service_layer::SLRouteGlobalsGetMsg* request, ::service_layer::SLRouteGlobalsGetMsgRsp* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      #endif
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      virtual void SLRoutev6GlobalsGet(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::service_layer::SLRouteGlobalsGetMsgRsp* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      #else
+      virtual void SLRoutev6GlobalsGet(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::service_layer::SLRouteGlobalsGetMsgRsp* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      #endif
+      // Used to retrieve Global Route Stats
+      virtual void SLRoutev6GlobalStatsGet(::grpc::ClientContext* context, const ::service_layer::SLRouteGlobalStatsGetMsg* request, ::service_layer::SLRouteGlobalStatsGetMsgRsp* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void SLRoutev6GlobalStatsGet(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::service_layer::SLRouteGlobalStatsGetMsgRsp* response, std::function<void(::grpc::Status)>) = 0;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      virtual void SLRoutev6GlobalStatsGet(::grpc::ClientContext* context, const ::service_layer::SLRouteGlobalStatsGetMsg* request, ::service_layer::SLRouteGlobalStatsGetMsgRsp* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      #else
+      virtual void SLRoutev6GlobalStatsGet(::grpc::ClientContext* context, const ::service_layer::SLRouteGlobalStatsGetMsg* request, ::service_layer::SLRouteGlobalStatsGetMsgRsp* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      #endif
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      virtual void SLRoutev6GlobalStatsGet(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::service_layer::SLRouteGlobalStatsGetMsgRsp* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      #else
+      virtual void SLRoutev6GlobalStatsGet(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::service_layer::SLRouteGlobalStatsGetMsgRsp* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      #endif
+      //
+      // VRF registration operations
+      //
+      //
+      // SLVrfRegMsg.Oper = SL_REGOP_REGISTER:
+      //     VRF registration: Sends a list of VRF registration messages
+      //     and expects a list of registration responses.
+      //     A client Must Register a VRF BEFORE routes can be added/modified in
+      //    the associated VRF.
+      //
+      // SLVrfRegMsg.Oper = SL_REGOP_UNREGISTER:
+      //     VRF Un-registeration: Sends a list of VRF un-registration messages
+      //     and expects a list of un-registration responses.
+      //     This can be used to convey that the client is no longer interested
+      //     in this VRF. All previously installed routes would be lost.
+      //
+      // SLVrfRegMsg.Oper = SL_REGOP_EOF:
+      //     VRF End Of File message.
+      //     After Registration, the client is expected to send an EOF
+      //     message to convey the end of replay of the client's known objects.
+      //     This is especially useful under certain restart scenarios when the
+      //     client and the server are trying to synchronize their Routes.
+      virtual void SLRoutev6VrfRegOp(::grpc::ClientContext* context, const ::service_layer::SLVrfRegMsg* request, ::service_layer::SLVrfRegMsgRsp* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void SLRoutev6VrfRegOp(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::service_layer::SLVrfRegMsgRsp* response, std::function<void(::grpc::Status)>) = 0;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      virtual void SLRoutev6VrfRegOp(::grpc::ClientContext* context, const ::service_layer::SLVrfRegMsg* request, ::service_layer::SLVrfRegMsgRsp* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      #else
+      virtual void SLRoutev6VrfRegOp(::grpc::ClientContext* context, const ::service_layer::SLVrfRegMsg* request, ::service_layer::SLVrfRegMsgRsp* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      #endif
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      virtual void SLRoutev6VrfRegOp(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::service_layer::SLVrfRegMsgRsp* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      #else
+      virtual void SLRoutev6VrfRegOp(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::service_layer::SLVrfRegMsgRsp* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      #endif
+      // VRF get. Used to retrieve VRF attributes from the server.
+      virtual void SLRoutev6VrfRegGet(::grpc::ClientContext* context, const ::service_layer::SLVrfRegGetMsg* request, ::service_layer::SLVrfRegGetMsgRsp* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void SLRoutev6VrfRegGet(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::service_layer::SLVrfRegGetMsgRsp* response, std::function<void(::grpc::Status)>) = 0;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      virtual void SLRoutev6VrfRegGet(::grpc::ClientContext* context, const ::service_layer::SLVrfRegGetMsg* request, ::service_layer::SLVrfRegGetMsgRsp* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      #else
+      virtual void SLRoutev6VrfRegGet(::grpc::ClientContext* context, const ::service_layer::SLVrfRegGetMsg* request, ::service_layer::SLVrfRegGetMsgRsp* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      #endif
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      virtual void SLRoutev6VrfRegGet(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::service_layer::SLVrfRegGetMsgRsp* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      #else
+      virtual void SLRoutev6VrfRegGet(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::service_layer::SLVrfRegGetMsgRsp* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      #endif
+      // Used to retrieve VRF Stats from the server.
+      virtual void SLRoutev6VrfGetStats(::grpc::ClientContext* context, const ::service_layer::SLVrfRegGetMsg* request, ::service_layer::SLVRFGetStatsMsgRsp* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void SLRoutev6VrfGetStats(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::service_layer::SLVRFGetStatsMsgRsp* response, std::function<void(::grpc::Status)>) = 0;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      virtual void SLRoutev6VrfGetStats(::grpc::ClientContext* context, const ::service_layer::SLVrfRegGetMsg* request, ::service_layer::SLVRFGetStatsMsgRsp* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      #else
+      virtual void SLRoutev6VrfGetStats(::grpc::ClientContext* context, const ::service_layer::SLVrfRegGetMsg* request, ::service_layer::SLVRFGetStatsMsgRsp* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      #endif
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      virtual void SLRoutev6VrfGetStats(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::service_layer::SLVRFGetStatsMsgRsp* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      #else
+      virtual void SLRoutev6VrfGetStats(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::service_layer::SLVRFGetStatsMsgRsp* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      #endif
+      //
+      // Route operations
+      //
+      //
+      // SLRoutev6Msg.Oper = SL_OBJOP_ADD:
+      //     Route add. Fails if the route already exists.
+      //
+      // SLRoutev6Msg.Oper = SL_OBJOP_UPDATE:
+      //     Route update. Creates or updates the route.
+      //
+      // SLRoutev6Msg.Oper = SL_OBJOP_DELETE:
+      //     Route delete. The route path is not necessary to delete the route.
+      virtual void SLRoutev6Op(::grpc::ClientContext* context, const ::service_layer::SLRoutev6Msg* request, ::service_layer::SLRoutev6MsgRsp* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void SLRoutev6Op(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::service_layer::SLRoutev6MsgRsp* response, std::function<void(::grpc::Status)>) = 0;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      virtual void SLRoutev6Op(::grpc::ClientContext* context, const ::service_layer::SLRoutev6Msg* request, ::service_layer::SLRoutev6MsgRsp* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      #else
+      virtual void SLRoutev6Op(::grpc::ClientContext* context, const ::service_layer::SLRoutev6Msg* request, ::service_layer::SLRoutev6MsgRsp* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      #endif
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      virtual void SLRoutev6Op(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::service_layer::SLRoutev6MsgRsp* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      #else
+      virtual void SLRoutev6Op(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::service_layer::SLRoutev6MsgRsp* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      #endif
+      // Retrieves route attributes.
+      virtual void SLRoutev6Get(::grpc::ClientContext* context, const ::service_layer::SLRoutev6GetMsg* request, ::service_layer::SLRoutev6GetMsgRsp* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void SLRoutev6Get(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::service_layer::SLRoutev6GetMsgRsp* response, std::function<void(::grpc::Status)>) = 0;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      virtual void SLRoutev6Get(::grpc::ClientContext* context, const ::service_layer::SLRoutev6GetMsg* request, ::service_layer::SLRoutev6GetMsgRsp* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      #else
+      virtual void SLRoutev6Get(::grpc::ClientContext* context, const ::service_layer::SLRoutev6GetMsg* request, ::service_layer::SLRoutev6GetMsgRsp* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      #endif
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      virtual void SLRoutev6Get(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::service_layer::SLRoutev6GetMsgRsp* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      #else
+      virtual void SLRoutev6Get(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::service_layer::SLRoutev6GetMsgRsp* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      #endif
+      //
+      // Stream Route operations
+      //
+      //
+      // SLRoutev6Msg.Oper = SL_OBJOP_ADD:
+      //     Route add. Fails if the route already exists.
+      //
+      // SLRoutev6Msg.Oper = SL_OBJOP_UPDATE:
+      //     Route update. Creates or updates the route.
+      //
+      // SLRoutev6Msg.Oper = SL_OBJOP_DELETE:
+      //     Route delete. The route path is not necessary to delete the route.
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      virtual void SLRoutev6OpStream(::grpc::ClientContext* context, ::grpc::ClientBidiReactor< ::service_layer::SLRoutev6Msg,::service_layer::SLRoutev6MsgRsp>* reactor) = 0;
+      #else
+      virtual void SLRoutev6OpStream(::grpc::ClientContext* context, ::grpc::experimental::ClientBidiReactor< ::service_layer::SLRoutev6Msg,::service_layer::SLRoutev6MsgRsp>* reactor) = 0;
+      #endif
+      // Retrieves route attributes.
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      virtual void SLRoutev6GetStream(::grpc::ClientContext* context, ::grpc::ClientBidiReactor< ::service_layer::SLRoutev6GetMsg,::service_layer::SLRoutev6GetMsgRsp>* reactor) = 0;
+      #else
+      virtual void SLRoutev6GetStream(::grpc::ClientContext* context, ::grpc::experimental::ClientBidiReactor< ::service_layer::SLRoutev6GetMsg,::service_layer::SLRoutev6GetMsgRsp>* reactor) = 0;
+      #endif
+      //
+      // Route Redistribution Operations
+      //
+      //
+      // This call is used to get a stream of route notifications.
+      // It can be used to get "push" notifications for route
+      // adds/updates/deletes.
+      // The caller must maintain the GRPC channel as long as there is
+      // interest in route notifications.
+      //
+      // The call takes a stream of per-VRF notification requests.
+      // The success/failure of the notification request is relayed in the
+      // SLRouteNotifStatus followed by a Start marker, any routes if present,
+      // and an End Marker.
+      //
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      virtual void SLRoutev6GetNotifStream(::grpc::ClientContext* context, ::grpc::ClientBidiReactor< ::service_layer::SLRouteGetNotifMsg,::service_layer::SLRoutev6Notif>* reactor) = 0;
+      #else
+      virtual void SLRoutev6GetNotifStream(::grpc::ClientContext* context, ::grpc::experimental::ClientBidiReactor< ::service_layer::SLRouteGetNotifMsg,::service_layer::SLRoutev6Notif>* reactor) = 0;
+      #endif
+      //
+      // @}
+    };
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    typedef class experimental_async_interface async_interface;
+    #endif
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    async_interface* async() { return experimental_async(); }
+    #endif
+    virtual class experimental_async_interface* experimental_async() { return nullptr; }
   private:
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::service_layer::SLRouteGlobalsGetMsgRsp>* AsyncSLRoutev6GlobalsGetRaw(::grpc::ClientContext* context, const ::service_layer::SLRouteGlobalsGetMsg& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::service_layer::SLRouteGlobalsGetMsgRsp>* PrepareAsyncSLRoutev6GlobalsGetRaw(::grpc::ClientContext* context, const ::service_layer::SLRouteGlobalsGetMsg& request, ::grpc::CompletionQueue* cq) = 0;
@@ -303,9 +489,119 @@ class SLRoutev6Oper final {
     std::unique_ptr<  ::grpc::ClientAsyncReaderWriter< ::service_layer::SLRouteGetNotifMsg, ::service_layer::SLRoutev6Notif>> PrepareAsyncSLRoutev6GetNotifStream(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncReaderWriter< ::service_layer::SLRouteGetNotifMsg, ::service_layer::SLRoutev6Notif>>(PrepareAsyncSLRoutev6GetNotifStreamRaw(context, cq));
     }
+    class experimental_async final :
+      public StubInterface::experimental_async_interface {
+     public:
+      void SLRoutev6GlobalsGet(::grpc::ClientContext* context, const ::service_layer::SLRouteGlobalsGetMsg* request, ::service_layer::SLRouteGlobalsGetMsgRsp* response, std::function<void(::grpc::Status)>) override;
+      void SLRoutev6GlobalsGet(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::service_layer::SLRouteGlobalsGetMsgRsp* response, std::function<void(::grpc::Status)>) override;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      void SLRoutev6GlobalsGet(::grpc::ClientContext* context, const ::service_layer::SLRouteGlobalsGetMsg* request, ::service_layer::SLRouteGlobalsGetMsgRsp* response, ::grpc::ClientUnaryReactor* reactor) override;
+      #else
+      void SLRoutev6GlobalsGet(::grpc::ClientContext* context, const ::service_layer::SLRouteGlobalsGetMsg* request, ::service_layer::SLRouteGlobalsGetMsgRsp* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      #endif
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      void SLRoutev6GlobalsGet(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::service_layer::SLRouteGlobalsGetMsgRsp* response, ::grpc::ClientUnaryReactor* reactor) override;
+      #else
+      void SLRoutev6GlobalsGet(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::service_layer::SLRouteGlobalsGetMsgRsp* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      #endif
+      void SLRoutev6GlobalStatsGet(::grpc::ClientContext* context, const ::service_layer::SLRouteGlobalStatsGetMsg* request, ::service_layer::SLRouteGlobalStatsGetMsgRsp* response, std::function<void(::grpc::Status)>) override;
+      void SLRoutev6GlobalStatsGet(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::service_layer::SLRouteGlobalStatsGetMsgRsp* response, std::function<void(::grpc::Status)>) override;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      void SLRoutev6GlobalStatsGet(::grpc::ClientContext* context, const ::service_layer::SLRouteGlobalStatsGetMsg* request, ::service_layer::SLRouteGlobalStatsGetMsgRsp* response, ::grpc::ClientUnaryReactor* reactor) override;
+      #else
+      void SLRoutev6GlobalStatsGet(::grpc::ClientContext* context, const ::service_layer::SLRouteGlobalStatsGetMsg* request, ::service_layer::SLRouteGlobalStatsGetMsgRsp* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      #endif
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      void SLRoutev6GlobalStatsGet(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::service_layer::SLRouteGlobalStatsGetMsgRsp* response, ::grpc::ClientUnaryReactor* reactor) override;
+      #else
+      void SLRoutev6GlobalStatsGet(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::service_layer::SLRouteGlobalStatsGetMsgRsp* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      #endif
+      void SLRoutev6VrfRegOp(::grpc::ClientContext* context, const ::service_layer::SLVrfRegMsg* request, ::service_layer::SLVrfRegMsgRsp* response, std::function<void(::grpc::Status)>) override;
+      void SLRoutev6VrfRegOp(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::service_layer::SLVrfRegMsgRsp* response, std::function<void(::grpc::Status)>) override;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      void SLRoutev6VrfRegOp(::grpc::ClientContext* context, const ::service_layer::SLVrfRegMsg* request, ::service_layer::SLVrfRegMsgRsp* response, ::grpc::ClientUnaryReactor* reactor) override;
+      #else
+      void SLRoutev6VrfRegOp(::grpc::ClientContext* context, const ::service_layer::SLVrfRegMsg* request, ::service_layer::SLVrfRegMsgRsp* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      #endif
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      void SLRoutev6VrfRegOp(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::service_layer::SLVrfRegMsgRsp* response, ::grpc::ClientUnaryReactor* reactor) override;
+      #else
+      void SLRoutev6VrfRegOp(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::service_layer::SLVrfRegMsgRsp* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      #endif
+      void SLRoutev6VrfRegGet(::grpc::ClientContext* context, const ::service_layer::SLVrfRegGetMsg* request, ::service_layer::SLVrfRegGetMsgRsp* response, std::function<void(::grpc::Status)>) override;
+      void SLRoutev6VrfRegGet(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::service_layer::SLVrfRegGetMsgRsp* response, std::function<void(::grpc::Status)>) override;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      void SLRoutev6VrfRegGet(::grpc::ClientContext* context, const ::service_layer::SLVrfRegGetMsg* request, ::service_layer::SLVrfRegGetMsgRsp* response, ::grpc::ClientUnaryReactor* reactor) override;
+      #else
+      void SLRoutev6VrfRegGet(::grpc::ClientContext* context, const ::service_layer::SLVrfRegGetMsg* request, ::service_layer::SLVrfRegGetMsgRsp* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      #endif
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      void SLRoutev6VrfRegGet(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::service_layer::SLVrfRegGetMsgRsp* response, ::grpc::ClientUnaryReactor* reactor) override;
+      #else
+      void SLRoutev6VrfRegGet(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::service_layer::SLVrfRegGetMsgRsp* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      #endif
+      void SLRoutev6VrfGetStats(::grpc::ClientContext* context, const ::service_layer::SLVrfRegGetMsg* request, ::service_layer::SLVRFGetStatsMsgRsp* response, std::function<void(::grpc::Status)>) override;
+      void SLRoutev6VrfGetStats(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::service_layer::SLVRFGetStatsMsgRsp* response, std::function<void(::grpc::Status)>) override;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      void SLRoutev6VrfGetStats(::grpc::ClientContext* context, const ::service_layer::SLVrfRegGetMsg* request, ::service_layer::SLVRFGetStatsMsgRsp* response, ::grpc::ClientUnaryReactor* reactor) override;
+      #else
+      void SLRoutev6VrfGetStats(::grpc::ClientContext* context, const ::service_layer::SLVrfRegGetMsg* request, ::service_layer::SLVRFGetStatsMsgRsp* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      #endif
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      void SLRoutev6VrfGetStats(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::service_layer::SLVRFGetStatsMsgRsp* response, ::grpc::ClientUnaryReactor* reactor) override;
+      #else
+      void SLRoutev6VrfGetStats(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::service_layer::SLVRFGetStatsMsgRsp* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      #endif
+      void SLRoutev6Op(::grpc::ClientContext* context, const ::service_layer::SLRoutev6Msg* request, ::service_layer::SLRoutev6MsgRsp* response, std::function<void(::grpc::Status)>) override;
+      void SLRoutev6Op(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::service_layer::SLRoutev6MsgRsp* response, std::function<void(::grpc::Status)>) override;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      void SLRoutev6Op(::grpc::ClientContext* context, const ::service_layer::SLRoutev6Msg* request, ::service_layer::SLRoutev6MsgRsp* response, ::grpc::ClientUnaryReactor* reactor) override;
+      #else
+      void SLRoutev6Op(::grpc::ClientContext* context, const ::service_layer::SLRoutev6Msg* request, ::service_layer::SLRoutev6MsgRsp* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      #endif
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      void SLRoutev6Op(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::service_layer::SLRoutev6MsgRsp* response, ::grpc::ClientUnaryReactor* reactor) override;
+      #else
+      void SLRoutev6Op(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::service_layer::SLRoutev6MsgRsp* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      #endif
+      void SLRoutev6Get(::grpc::ClientContext* context, const ::service_layer::SLRoutev6GetMsg* request, ::service_layer::SLRoutev6GetMsgRsp* response, std::function<void(::grpc::Status)>) override;
+      void SLRoutev6Get(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::service_layer::SLRoutev6GetMsgRsp* response, std::function<void(::grpc::Status)>) override;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      void SLRoutev6Get(::grpc::ClientContext* context, const ::service_layer::SLRoutev6GetMsg* request, ::service_layer::SLRoutev6GetMsgRsp* response, ::grpc::ClientUnaryReactor* reactor) override;
+      #else
+      void SLRoutev6Get(::grpc::ClientContext* context, const ::service_layer::SLRoutev6GetMsg* request, ::service_layer::SLRoutev6GetMsgRsp* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      #endif
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      void SLRoutev6Get(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::service_layer::SLRoutev6GetMsgRsp* response, ::grpc::ClientUnaryReactor* reactor) override;
+      #else
+      void SLRoutev6Get(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::service_layer::SLRoutev6GetMsgRsp* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      #endif
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      void SLRoutev6OpStream(::grpc::ClientContext* context, ::grpc::ClientBidiReactor< ::service_layer::SLRoutev6Msg,::service_layer::SLRoutev6MsgRsp>* reactor) override;
+      #else
+      void SLRoutev6OpStream(::grpc::ClientContext* context, ::grpc::experimental::ClientBidiReactor< ::service_layer::SLRoutev6Msg,::service_layer::SLRoutev6MsgRsp>* reactor) override;
+      #endif
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      void SLRoutev6GetStream(::grpc::ClientContext* context, ::grpc::ClientBidiReactor< ::service_layer::SLRoutev6GetMsg,::service_layer::SLRoutev6GetMsgRsp>* reactor) override;
+      #else
+      void SLRoutev6GetStream(::grpc::ClientContext* context, ::grpc::experimental::ClientBidiReactor< ::service_layer::SLRoutev6GetMsg,::service_layer::SLRoutev6GetMsgRsp>* reactor) override;
+      #endif
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      void SLRoutev6GetNotifStream(::grpc::ClientContext* context, ::grpc::ClientBidiReactor< ::service_layer::SLRouteGetNotifMsg,::service_layer::SLRoutev6Notif>* reactor) override;
+      #else
+      void SLRoutev6GetNotifStream(::grpc::ClientContext* context, ::grpc::experimental::ClientBidiReactor< ::service_layer::SLRouteGetNotifMsg,::service_layer::SLRoutev6Notif>* reactor) override;
+      #endif
+     private:
+      friend class Stub;
+      explicit experimental_async(Stub* stub): stub_(stub) { }
+      Stub* stub() { return stub_; }
+      Stub* stub_;
+    };
+    class experimental_async_interface* experimental_async() override { return &async_stub_; }
 
    private:
     std::shared_ptr< ::grpc::ChannelInterface> channel_;
+    class experimental_async async_stub_{this};
     ::grpc::ClientAsyncResponseReader< ::service_layer::SLRouteGlobalsGetMsgRsp>* AsyncSLRoutev6GlobalsGetRaw(::grpc::ClientContext* context, const ::service_layer::SLRouteGlobalsGetMsg& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::service_layer::SLRouteGlobalsGetMsgRsp>* PrepareAsyncSLRoutev6GlobalsGetRaw(::grpc::ClientContext* context, const ::service_layer::SLRouteGlobalsGetMsg& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::service_layer::SLRouteGlobalStatsGetMsgRsp>* AsyncSLRoutev6GlobalStatsGetRaw(::grpc::ClientContext* context, const ::service_layer::SLRouteGlobalStatsGetMsg& request, ::grpc::CompletionQueue* cq) override;
@@ -433,7 +729,7 @@ class SLRoutev6Oper final {
   template <class BaseClass>
   class WithAsyncMethod_SLRoutev6GlobalsGet : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithAsyncMethod_SLRoutev6GlobalsGet() {
       ::grpc::Service::MarkMethodAsync(0);
@@ -442,7 +738,7 @@ class SLRoutev6Oper final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status SLRoutev6GlobalsGet(::grpc::ServerContext* context, const ::service_layer::SLRouteGlobalsGetMsg* request, ::service_layer::SLRouteGlobalsGetMsgRsp* response) final override {
+    ::grpc::Status SLRoutev6GlobalsGet(::grpc::ServerContext* /*context*/, const ::service_layer::SLRouteGlobalsGetMsg* /*request*/, ::service_layer::SLRouteGlobalsGetMsgRsp* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -453,7 +749,7 @@ class SLRoutev6Oper final {
   template <class BaseClass>
   class WithAsyncMethod_SLRoutev6GlobalStatsGet : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithAsyncMethod_SLRoutev6GlobalStatsGet() {
       ::grpc::Service::MarkMethodAsync(1);
@@ -462,7 +758,7 @@ class SLRoutev6Oper final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status SLRoutev6GlobalStatsGet(::grpc::ServerContext* context, const ::service_layer::SLRouteGlobalStatsGetMsg* request, ::service_layer::SLRouteGlobalStatsGetMsgRsp* response) final override {
+    ::grpc::Status SLRoutev6GlobalStatsGet(::grpc::ServerContext* /*context*/, const ::service_layer::SLRouteGlobalStatsGetMsg* /*request*/, ::service_layer::SLRouteGlobalStatsGetMsgRsp* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -473,7 +769,7 @@ class SLRoutev6Oper final {
   template <class BaseClass>
   class WithAsyncMethod_SLRoutev6VrfRegOp : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithAsyncMethod_SLRoutev6VrfRegOp() {
       ::grpc::Service::MarkMethodAsync(2);
@@ -482,7 +778,7 @@ class SLRoutev6Oper final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status SLRoutev6VrfRegOp(::grpc::ServerContext* context, const ::service_layer::SLVrfRegMsg* request, ::service_layer::SLVrfRegMsgRsp* response) final override {
+    ::grpc::Status SLRoutev6VrfRegOp(::grpc::ServerContext* /*context*/, const ::service_layer::SLVrfRegMsg* /*request*/, ::service_layer::SLVrfRegMsgRsp* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -493,7 +789,7 @@ class SLRoutev6Oper final {
   template <class BaseClass>
   class WithAsyncMethod_SLRoutev6VrfRegGet : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithAsyncMethod_SLRoutev6VrfRegGet() {
       ::grpc::Service::MarkMethodAsync(3);
@@ -502,7 +798,7 @@ class SLRoutev6Oper final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status SLRoutev6VrfRegGet(::grpc::ServerContext* context, const ::service_layer::SLVrfRegGetMsg* request, ::service_layer::SLVrfRegGetMsgRsp* response) final override {
+    ::grpc::Status SLRoutev6VrfRegGet(::grpc::ServerContext* /*context*/, const ::service_layer::SLVrfRegGetMsg* /*request*/, ::service_layer::SLVrfRegGetMsgRsp* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -513,7 +809,7 @@ class SLRoutev6Oper final {
   template <class BaseClass>
   class WithAsyncMethod_SLRoutev6VrfGetStats : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithAsyncMethod_SLRoutev6VrfGetStats() {
       ::grpc::Service::MarkMethodAsync(4);
@@ -522,7 +818,7 @@ class SLRoutev6Oper final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status SLRoutev6VrfGetStats(::grpc::ServerContext* context, const ::service_layer::SLVrfRegGetMsg* request, ::service_layer::SLVRFGetStatsMsgRsp* response) final override {
+    ::grpc::Status SLRoutev6VrfGetStats(::grpc::ServerContext* /*context*/, const ::service_layer::SLVrfRegGetMsg* /*request*/, ::service_layer::SLVRFGetStatsMsgRsp* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -533,7 +829,7 @@ class SLRoutev6Oper final {
   template <class BaseClass>
   class WithAsyncMethod_SLRoutev6Op : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithAsyncMethod_SLRoutev6Op() {
       ::grpc::Service::MarkMethodAsync(5);
@@ -542,7 +838,7 @@ class SLRoutev6Oper final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status SLRoutev6Op(::grpc::ServerContext* context, const ::service_layer::SLRoutev6Msg* request, ::service_layer::SLRoutev6MsgRsp* response) final override {
+    ::grpc::Status SLRoutev6Op(::grpc::ServerContext* /*context*/, const ::service_layer::SLRoutev6Msg* /*request*/, ::service_layer::SLRoutev6MsgRsp* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -553,7 +849,7 @@ class SLRoutev6Oper final {
   template <class BaseClass>
   class WithAsyncMethod_SLRoutev6Get : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithAsyncMethod_SLRoutev6Get() {
       ::grpc::Service::MarkMethodAsync(6);
@@ -562,7 +858,7 @@ class SLRoutev6Oper final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status SLRoutev6Get(::grpc::ServerContext* context, const ::service_layer::SLRoutev6GetMsg* request, ::service_layer::SLRoutev6GetMsgRsp* response) final override {
+    ::grpc::Status SLRoutev6Get(::grpc::ServerContext* /*context*/, const ::service_layer::SLRoutev6GetMsg* /*request*/, ::service_layer::SLRoutev6GetMsgRsp* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -573,7 +869,7 @@ class SLRoutev6Oper final {
   template <class BaseClass>
   class WithAsyncMethod_SLRoutev6OpStream : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithAsyncMethod_SLRoutev6OpStream() {
       ::grpc::Service::MarkMethodAsync(7);
@@ -582,7 +878,7 @@ class SLRoutev6Oper final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status SLRoutev6OpStream(::grpc::ServerContext* context, ::grpc::ServerReaderWriter< ::service_layer::SLRoutev6MsgRsp, ::service_layer::SLRoutev6Msg>* stream) final override {
+    ::grpc::Status SLRoutev6OpStream(::grpc::ServerContext* /*context*/, ::grpc::ServerReaderWriter< ::service_layer::SLRoutev6MsgRsp, ::service_layer::SLRoutev6Msg>* /*stream*/)  override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -593,7 +889,7 @@ class SLRoutev6Oper final {
   template <class BaseClass>
   class WithAsyncMethod_SLRoutev6GetStream : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithAsyncMethod_SLRoutev6GetStream() {
       ::grpc::Service::MarkMethodAsync(8);
@@ -602,7 +898,7 @@ class SLRoutev6Oper final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status SLRoutev6GetStream(::grpc::ServerContext* context, ::grpc::ServerReaderWriter< ::service_layer::SLRoutev6GetMsgRsp, ::service_layer::SLRoutev6GetMsg>* stream) final override {
+    ::grpc::Status SLRoutev6GetStream(::grpc::ServerContext* /*context*/, ::grpc::ServerReaderWriter< ::service_layer::SLRoutev6GetMsgRsp, ::service_layer::SLRoutev6GetMsg>* /*stream*/)  override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -613,7 +909,7 @@ class SLRoutev6Oper final {
   template <class BaseClass>
   class WithAsyncMethod_SLRoutev6GetNotifStream : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithAsyncMethod_SLRoutev6GetNotifStream() {
       ::grpc::Service::MarkMethodAsync(9);
@@ -622,7 +918,7 @@ class SLRoutev6Oper final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status SLRoutev6GetNotifStream(::grpc::ServerContext* context, ::grpc::ServerReaderWriter< ::service_layer::SLRoutev6Notif, ::service_layer::SLRouteGetNotifMsg>* stream) final override {
+    ::grpc::Status SLRoutev6GetNotifStream(::grpc::ServerContext* /*context*/, ::grpc::ServerReaderWriter< ::service_layer::SLRoutev6Notif, ::service_layer::SLRouteGetNotifMsg>* /*stream*/)  override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -632,9 +928,457 @@ class SLRoutev6Oper final {
   };
   typedef WithAsyncMethod_SLRoutev6GlobalsGet<WithAsyncMethod_SLRoutev6GlobalStatsGet<WithAsyncMethod_SLRoutev6VrfRegOp<WithAsyncMethod_SLRoutev6VrfRegGet<WithAsyncMethod_SLRoutev6VrfGetStats<WithAsyncMethod_SLRoutev6Op<WithAsyncMethod_SLRoutev6Get<WithAsyncMethod_SLRoutev6OpStream<WithAsyncMethod_SLRoutev6GetStream<WithAsyncMethod_SLRoutev6GetNotifStream<Service > > > > > > > > > > AsyncService;
   template <class BaseClass>
+  class ExperimentalWithCallbackMethod_SLRoutev6GlobalsGet : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    ExperimentalWithCallbackMethod_SLRoutev6GlobalsGet() {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodCallback(0,
+          new ::grpc_impl::internal::CallbackUnaryHandler< ::service_layer::SLRouteGlobalsGetMsg, ::service_layer::SLRouteGlobalsGetMsgRsp>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::service_layer::SLRouteGlobalsGetMsg* request, ::service_layer::SLRouteGlobalsGetMsgRsp* response) { return this->SLRoutev6GlobalsGet(context, request, response); }));}
+    void SetMessageAllocatorFor_SLRoutev6GlobalsGet(
+        ::grpc::experimental::MessageAllocator< ::service_layer::SLRouteGlobalsGetMsg, ::service_layer::SLRouteGlobalsGetMsgRsp>* allocator) {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(0);
+    #else
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(0);
+    #endif
+      static_cast<::grpc_impl::internal::CallbackUnaryHandler< ::service_layer::SLRouteGlobalsGetMsg, ::service_layer::SLRouteGlobalsGetMsgRsp>*>(handler)
+              ->SetMessageAllocator(allocator);
+    }
+    ~ExperimentalWithCallbackMethod_SLRoutev6GlobalsGet() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status SLRoutev6GlobalsGet(::grpc::ServerContext* /*context*/, const ::service_layer::SLRouteGlobalsGetMsg* /*request*/, ::service_layer::SLRouteGlobalsGetMsgRsp* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerUnaryReactor* SLRoutev6GlobalsGet(
+      ::grpc::CallbackServerContext* /*context*/, const ::service_layer::SLRouteGlobalsGetMsg* /*request*/, ::service_layer::SLRouteGlobalsGetMsgRsp* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* SLRoutev6GlobalsGet(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::service_layer::SLRouteGlobalsGetMsg* /*request*/, ::service_layer::SLRouteGlobalsGetMsgRsp* /*response*/)
+    #endif
+      { return nullptr; }
+  };
+  template <class BaseClass>
+  class ExperimentalWithCallbackMethod_SLRoutev6GlobalStatsGet : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    ExperimentalWithCallbackMethod_SLRoutev6GlobalStatsGet() {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodCallback(1,
+          new ::grpc_impl::internal::CallbackUnaryHandler< ::service_layer::SLRouteGlobalStatsGetMsg, ::service_layer::SLRouteGlobalStatsGetMsgRsp>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::service_layer::SLRouteGlobalStatsGetMsg* request, ::service_layer::SLRouteGlobalStatsGetMsgRsp* response) { return this->SLRoutev6GlobalStatsGet(context, request, response); }));}
+    void SetMessageAllocatorFor_SLRoutev6GlobalStatsGet(
+        ::grpc::experimental::MessageAllocator< ::service_layer::SLRouteGlobalStatsGetMsg, ::service_layer::SLRouteGlobalStatsGetMsgRsp>* allocator) {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(1);
+    #else
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(1);
+    #endif
+      static_cast<::grpc_impl::internal::CallbackUnaryHandler< ::service_layer::SLRouteGlobalStatsGetMsg, ::service_layer::SLRouteGlobalStatsGetMsgRsp>*>(handler)
+              ->SetMessageAllocator(allocator);
+    }
+    ~ExperimentalWithCallbackMethod_SLRoutev6GlobalStatsGet() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status SLRoutev6GlobalStatsGet(::grpc::ServerContext* /*context*/, const ::service_layer::SLRouteGlobalStatsGetMsg* /*request*/, ::service_layer::SLRouteGlobalStatsGetMsgRsp* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerUnaryReactor* SLRoutev6GlobalStatsGet(
+      ::grpc::CallbackServerContext* /*context*/, const ::service_layer::SLRouteGlobalStatsGetMsg* /*request*/, ::service_layer::SLRouteGlobalStatsGetMsgRsp* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* SLRoutev6GlobalStatsGet(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::service_layer::SLRouteGlobalStatsGetMsg* /*request*/, ::service_layer::SLRouteGlobalStatsGetMsgRsp* /*response*/)
+    #endif
+      { return nullptr; }
+  };
+  template <class BaseClass>
+  class ExperimentalWithCallbackMethod_SLRoutev6VrfRegOp : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    ExperimentalWithCallbackMethod_SLRoutev6VrfRegOp() {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodCallback(2,
+          new ::grpc_impl::internal::CallbackUnaryHandler< ::service_layer::SLVrfRegMsg, ::service_layer::SLVrfRegMsgRsp>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::service_layer::SLVrfRegMsg* request, ::service_layer::SLVrfRegMsgRsp* response) { return this->SLRoutev6VrfRegOp(context, request, response); }));}
+    void SetMessageAllocatorFor_SLRoutev6VrfRegOp(
+        ::grpc::experimental::MessageAllocator< ::service_layer::SLVrfRegMsg, ::service_layer::SLVrfRegMsgRsp>* allocator) {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(2);
+    #else
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(2);
+    #endif
+      static_cast<::grpc_impl::internal::CallbackUnaryHandler< ::service_layer::SLVrfRegMsg, ::service_layer::SLVrfRegMsgRsp>*>(handler)
+              ->SetMessageAllocator(allocator);
+    }
+    ~ExperimentalWithCallbackMethod_SLRoutev6VrfRegOp() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status SLRoutev6VrfRegOp(::grpc::ServerContext* /*context*/, const ::service_layer::SLVrfRegMsg* /*request*/, ::service_layer::SLVrfRegMsgRsp* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerUnaryReactor* SLRoutev6VrfRegOp(
+      ::grpc::CallbackServerContext* /*context*/, const ::service_layer::SLVrfRegMsg* /*request*/, ::service_layer::SLVrfRegMsgRsp* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* SLRoutev6VrfRegOp(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::service_layer::SLVrfRegMsg* /*request*/, ::service_layer::SLVrfRegMsgRsp* /*response*/)
+    #endif
+      { return nullptr; }
+  };
+  template <class BaseClass>
+  class ExperimentalWithCallbackMethod_SLRoutev6VrfRegGet : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    ExperimentalWithCallbackMethod_SLRoutev6VrfRegGet() {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodCallback(3,
+          new ::grpc_impl::internal::CallbackUnaryHandler< ::service_layer::SLVrfRegGetMsg, ::service_layer::SLVrfRegGetMsgRsp>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::service_layer::SLVrfRegGetMsg* request, ::service_layer::SLVrfRegGetMsgRsp* response) { return this->SLRoutev6VrfRegGet(context, request, response); }));}
+    void SetMessageAllocatorFor_SLRoutev6VrfRegGet(
+        ::grpc::experimental::MessageAllocator< ::service_layer::SLVrfRegGetMsg, ::service_layer::SLVrfRegGetMsgRsp>* allocator) {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(3);
+    #else
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(3);
+    #endif
+      static_cast<::grpc_impl::internal::CallbackUnaryHandler< ::service_layer::SLVrfRegGetMsg, ::service_layer::SLVrfRegGetMsgRsp>*>(handler)
+              ->SetMessageAllocator(allocator);
+    }
+    ~ExperimentalWithCallbackMethod_SLRoutev6VrfRegGet() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status SLRoutev6VrfRegGet(::grpc::ServerContext* /*context*/, const ::service_layer::SLVrfRegGetMsg* /*request*/, ::service_layer::SLVrfRegGetMsgRsp* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerUnaryReactor* SLRoutev6VrfRegGet(
+      ::grpc::CallbackServerContext* /*context*/, const ::service_layer::SLVrfRegGetMsg* /*request*/, ::service_layer::SLVrfRegGetMsgRsp* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* SLRoutev6VrfRegGet(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::service_layer::SLVrfRegGetMsg* /*request*/, ::service_layer::SLVrfRegGetMsgRsp* /*response*/)
+    #endif
+      { return nullptr; }
+  };
+  template <class BaseClass>
+  class ExperimentalWithCallbackMethod_SLRoutev6VrfGetStats : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    ExperimentalWithCallbackMethod_SLRoutev6VrfGetStats() {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodCallback(4,
+          new ::grpc_impl::internal::CallbackUnaryHandler< ::service_layer::SLVrfRegGetMsg, ::service_layer::SLVRFGetStatsMsgRsp>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::service_layer::SLVrfRegGetMsg* request, ::service_layer::SLVRFGetStatsMsgRsp* response) { return this->SLRoutev6VrfGetStats(context, request, response); }));}
+    void SetMessageAllocatorFor_SLRoutev6VrfGetStats(
+        ::grpc::experimental::MessageAllocator< ::service_layer::SLVrfRegGetMsg, ::service_layer::SLVRFGetStatsMsgRsp>* allocator) {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(4);
+    #else
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(4);
+    #endif
+      static_cast<::grpc_impl::internal::CallbackUnaryHandler< ::service_layer::SLVrfRegGetMsg, ::service_layer::SLVRFGetStatsMsgRsp>*>(handler)
+              ->SetMessageAllocator(allocator);
+    }
+    ~ExperimentalWithCallbackMethod_SLRoutev6VrfGetStats() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status SLRoutev6VrfGetStats(::grpc::ServerContext* /*context*/, const ::service_layer::SLVrfRegGetMsg* /*request*/, ::service_layer::SLVRFGetStatsMsgRsp* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerUnaryReactor* SLRoutev6VrfGetStats(
+      ::grpc::CallbackServerContext* /*context*/, const ::service_layer::SLVrfRegGetMsg* /*request*/, ::service_layer::SLVRFGetStatsMsgRsp* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* SLRoutev6VrfGetStats(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::service_layer::SLVrfRegGetMsg* /*request*/, ::service_layer::SLVRFGetStatsMsgRsp* /*response*/)
+    #endif
+      { return nullptr; }
+  };
+  template <class BaseClass>
+  class ExperimentalWithCallbackMethod_SLRoutev6Op : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    ExperimentalWithCallbackMethod_SLRoutev6Op() {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodCallback(5,
+          new ::grpc_impl::internal::CallbackUnaryHandler< ::service_layer::SLRoutev6Msg, ::service_layer::SLRoutev6MsgRsp>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::service_layer::SLRoutev6Msg* request, ::service_layer::SLRoutev6MsgRsp* response) { return this->SLRoutev6Op(context, request, response); }));}
+    void SetMessageAllocatorFor_SLRoutev6Op(
+        ::grpc::experimental::MessageAllocator< ::service_layer::SLRoutev6Msg, ::service_layer::SLRoutev6MsgRsp>* allocator) {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(5);
+    #else
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(5);
+    #endif
+      static_cast<::grpc_impl::internal::CallbackUnaryHandler< ::service_layer::SLRoutev6Msg, ::service_layer::SLRoutev6MsgRsp>*>(handler)
+              ->SetMessageAllocator(allocator);
+    }
+    ~ExperimentalWithCallbackMethod_SLRoutev6Op() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status SLRoutev6Op(::grpc::ServerContext* /*context*/, const ::service_layer::SLRoutev6Msg* /*request*/, ::service_layer::SLRoutev6MsgRsp* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerUnaryReactor* SLRoutev6Op(
+      ::grpc::CallbackServerContext* /*context*/, const ::service_layer::SLRoutev6Msg* /*request*/, ::service_layer::SLRoutev6MsgRsp* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* SLRoutev6Op(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::service_layer::SLRoutev6Msg* /*request*/, ::service_layer::SLRoutev6MsgRsp* /*response*/)
+    #endif
+      { return nullptr; }
+  };
+  template <class BaseClass>
+  class ExperimentalWithCallbackMethod_SLRoutev6Get : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    ExperimentalWithCallbackMethod_SLRoutev6Get() {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodCallback(6,
+          new ::grpc_impl::internal::CallbackUnaryHandler< ::service_layer::SLRoutev6GetMsg, ::service_layer::SLRoutev6GetMsgRsp>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::service_layer::SLRoutev6GetMsg* request, ::service_layer::SLRoutev6GetMsgRsp* response) { return this->SLRoutev6Get(context, request, response); }));}
+    void SetMessageAllocatorFor_SLRoutev6Get(
+        ::grpc::experimental::MessageAllocator< ::service_layer::SLRoutev6GetMsg, ::service_layer::SLRoutev6GetMsgRsp>* allocator) {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(6);
+    #else
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(6);
+    #endif
+      static_cast<::grpc_impl::internal::CallbackUnaryHandler< ::service_layer::SLRoutev6GetMsg, ::service_layer::SLRoutev6GetMsgRsp>*>(handler)
+              ->SetMessageAllocator(allocator);
+    }
+    ~ExperimentalWithCallbackMethod_SLRoutev6Get() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status SLRoutev6Get(::grpc::ServerContext* /*context*/, const ::service_layer::SLRoutev6GetMsg* /*request*/, ::service_layer::SLRoutev6GetMsgRsp* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerUnaryReactor* SLRoutev6Get(
+      ::grpc::CallbackServerContext* /*context*/, const ::service_layer::SLRoutev6GetMsg* /*request*/, ::service_layer::SLRoutev6GetMsgRsp* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* SLRoutev6Get(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::service_layer::SLRoutev6GetMsg* /*request*/, ::service_layer::SLRoutev6GetMsgRsp* /*response*/)
+    #endif
+      { return nullptr; }
+  };
+  template <class BaseClass>
+  class ExperimentalWithCallbackMethod_SLRoutev6OpStream : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    ExperimentalWithCallbackMethod_SLRoutev6OpStream() {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodCallback(7,
+          new ::grpc_impl::internal::CallbackBidiHandler< ::service_layer::SLRoutev6Msg, ::service_layer::SLRoutev6MsgRsp>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context) { return this->SLRoutev6OpStream(context); }));
+    }
+    ~ExperimentalWithCallbackMethod_SLRoutev6OpStream() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status SLRoutev6OpStream(::grpc::ServerContext* /*context*/, ::grpc::ServerReaderWriter< ::service_layer::SLRoutev6MsgRsp, ::service_layer::SLRoutev6Msg>* /*stream*/)  override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerBidiReactor< ::service_layer::SLRoutev6Msg, ::service_layer::SLRoutev6MsgRsp>* SLRoutev6OpStream(
+      ::grpc::CallbackServerContext* /*context*/)
+    #else
+    virtual ::grpc::experimental::ServerBidiReactor< ::service_layer::SLRoutev6Msg, ::service_layer::SLRoutev6MsgRsp>* SLRoutev6OpStream(
+      ::grpc::experimental::CallbackServerContext* /*context*/)
+    #endif
+      { return nullptr; }
+  };
+  template <class BaseClass>
+  class ExperimentalWithCallbackMethod_SLRoutev6GetStream : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    ExperimentalWithCallbackMethod_SLRoutev6GetStream() {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodCallback(8,
+          new ::grpc_impl::internal::CallbackBidiHandler< ::service_layer::SLRoutev6GetMsg, ::service_layer::SLRoutev6GetMsgRsp>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context) { return this->SLRoutev6GetStream(context); }));
+    }
+    ~ExperimentalWithCallbackMethod_SLRoutev6GetStream() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status SLRoutev6GetStream(::grpc::ServerContext* /*context*/, ::grpc::ServerReaderWriter< ::service_layer::SLRoutev6GetMsgRsp, ::service_layer::SLRoutev6GetMsg>* /*stream*/)  override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerBidiReactor< ::service_layer::SLRoutev6GetMsg, ::service_layer::SLRoutev6GetMsgRsp>* SLRoutev6GetStream(
+      ::grpc::CallbackServerContext* /*context*/)
+    #else
+    virtual ::grpc::experimental::ServerBidiReactor< ::service_layer::SLRoutev6GetMsg, ::service_layer::SLRoutev6GetMsgRsp>* SLRoutev6GetStream(
+      ::grpc::experimental::CallbackServerContext* /*context*/)
+    #endif
+      { return nullptr; }
+  };
+  template <class BaseClass>
+  class ExperimentalWithCallbackMethod_SLRoutev6GetNotifStream : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    ExperimentalWithCallbackMethod_SLRoutev6GetNotifStream() {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodCallback(9,
+          new ::grpc_impl::internal::CallbackBidiHandler< ::service_layer::SLRouteGetNotifMsg, ::service_layer::SLRoutev6Notif>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context) { return this->SLRoutev6GetNotifStream(context); }));
+    }
+    ~ExperimentalWithCallbackMethod_SLRoutev6GetNotifStream() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status SLRoutev6GetNotifStream(::grpc::ServerContext* /*context*/, ::grpc::ServerReaderWriter< ::service_layer::SLRoutev6Notif, ::service_layer::SLRouteGetNotifMsg>* /*stream*/)  override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerBidiReactor< ::service_layer::SLRouteGetNotifMsg, ::service_layer::SLRoutev6Notif>* SLRoutev6GetNotifStream(
+      ::grpc::CallbackServerContext* /*context*/)
+    #else
+    virtual ::grpc::experimental::ServerBidiReactor< ::service_layer::SLRouteGetNotifMsg, ::service_layer::SLRoutev6Notif>* SLRoutev6GetNotifStream(
+      ::grpc::experimental::CallbackServerContext* /*context*/)
+    #endif
+      { return nullptr; }
+  };
+  #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+  typedef ExperimentalWithCallbackMethod_SLRoutev6GlobalsGet<ExperimentalWithCallbackMethod_SLRoutev6GlobalStatsGet<ExperimentalWithCallbackMethod_SLRoutev6VrfRegOp<ExperimentalWithCallbackMethod_SLRoutev6VrfRegGet<ExperimentalWithCallbackMethod_SLRoutev6VrfGetStats<ExperimentalWithCallbackMethod_SLRoutev6Op<ExperimentalWithCallbackMethod_SLRoutev6Get<ExperimentalWithCallbackMethod_SLRoutev6OpStream<ExperimentalWithCallbackMethod_SLRoutev6GetStream<ExperimentalWithCallbackMethod_SLRoutev6GetNotifStream<Service > > > > > > > > > > CallbackService;
+  #endif
+
+  typedef ExperimentalWithCallbackMethod_SLRoutev6GlobalsGet<ExperimentalWithCallbackMethod_SLRoutev6GlobalStatsGet<ExperimentalWithCallbackMethod_SLRoutev6VrfRegOp<ExperimentalWithCallbackMethod_SLRoutev6VrfRegGet<ExperimentalWithCallbackMethod_SLRoutev6VrfGetStats<ExperimentalWithCallbackMethod_SLRoutev6Op<ExperimentalWithCallbackMethod_SLRoutev6Get<ExperimentalWithCallbackMethod_SLRoutev6OpStream<ExperimentalWithCallbackMethod_SLRoutev6GetStream<ExperimentalWithCallbackMethod_SLRoutev6GetNotifStream<Service > > > > > > > > > > ExperimentalCallbackService;
+  template <class BaseClass>
   class WithGenericMethod_SLRoutev6GlobalsGet : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithGenericMethod_SLRoutev6GlobalsGet() {
       ::grpc::Service::MarkMethodGeneric(0);
@@ -643,7 +1387,7 @@ class SLRoutev6Oper final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status SLRoutev6GlobalsGet(::grpc::ServerContext* context, const ::service_layer::SLRouteGlobalsGetMsg* request, ::service_layer::SLRouteGlobalsGetMsgRsp* response) final override {
+    ::grpc::Status SLRoutev6GlobalsGet(::grpc::ServerContext* /*context*/, const ::service_layer::SLRouteGlobalsGetMsg* /*request*/, ::service_layer::SLRouteGlobalsGetMsgRsp* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -651,7 +1395,7 @@ class SLRoutev6Oper final {
   template <class BaseClass>
   class WithGenericMethod_SLRoutev6GlobalStatsGet : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithGenericMethod_SLRoutev6GlobalStatsGet() {
       ::grpc::Service::MarkMethodGeneric(1);
@@ -660,7 +1404,7 @@ class SLRoutev6Oper final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status SLRoutev6GlobalStatsGet(::grpc::ServerContext* context, const ::service_layer::SLRouteGlobalStatsGetMsg* request, ::service_layer::SLRouteGlobalStatsGetMsgRsp* response) final override {
+    ::grpc::Status SLRoutev6GlobalStatsGet(::grpc::ServerContext* /*context*/, const ::service_layer::SLRouteGlobalStatsGetMsg* /*request*/, ::service_layer::SLRouteGlobalStatsGetMsgRsp* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -668,7 +1412,7 @@ class SLRoutev6Oper final {
   template <class BaseClass>
   class WithGenericMethod_SLRoutev6VrfRegOp : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithGenericMethod_SLRoutev6VrfRegOp() {
       ::grpc::Service::MarkMethodGeneric(2);
@@ -677,7 +1421,7 @@ class SLRoutev6Oper final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status SLRoutev6VrfRegOp(::grpc::ServerContext* context, const ::service_layer::SLVrfRegMsg* request, ::service_layer::SLVrfRegMsgRsp* response) final override {
+    ::grpc::Status SLRoutev6VrfRegOp(::grpc::ServerContext* /*context*/, const ::service_layer::SLVrfRegMsg* /*request*/, ::service_layer::SLVrfRegMsgRsp* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -685,7 +1429,7 @@ class SLRoutev6Oper final {
   template <class BaseClass>
   class WithGenericMethod_SLRoutev6VrfRegGet : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithGenericMethod_SLRoutev6VrfRegGet() {
       ::grpc::Service::MarkMethodGeneric(3);
@@ -694,7 +1438,7 @@ class SLRoutev6Oper final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status SLRoutev6VrfRegGet(::grpc::ServerContext* context, const ::service_layer::SLVrfRegGetMsg* request, ::service_layer::SLVrfRegGetMsgRsp* response) final override {
+    ::grpc::Status SLRoutev6VrfRegGet(::grpc::ServerContext* /*context*/, const ::service_layer::SLVrfRegGetMsg* /*request*/, ::service_layer::SLVrfRegGetMsgRsp* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -702,7 +1446,7 @@ class SLRoutev6Oper final {
   template <class BaseClass>
   class WithGenericMethod_SLRoutev6VrfGetStats : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithGenericMethod_SLRoutev6VrfGetStats() {
       ::grpc::Service::MarkMethodGeneric(4);
@@ -711,7 +1455,7 @@ class SLRoutev6Oper final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status SLRoutev6VrfGetStats(::grpc::ServerContext* context, const ::service_layer::SLVrfRegGetMsg* request, ::service_layer::SLVRFGetStatsMsgRsp* response) final override {
+    ::grpc::Status SLRoutev6VrfGetStats(::grpc::ServerContext* /*context*/, const ::service_layer::SLVrfRegGetMsg* /*request*/, ::service_layer::SLVRFGetStatsMsgRsp* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -719,7 +1463,7 @@ class SLRoutev6Oper final {
   template <class BaseClass>
   class WithGenericMethod_SLRoutev6Op : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithGenericMethod_SLRoutev6Op() {
       ::grpc::Service::MarkMethodGeneric(5);
@@ -728,7 +1472,7 @@ class SLRoutev6Oper final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status SLRoutev6Op(::grpc::ServerContext* context, const ::service_layer::SLRoutev6Msg* request, ::service_layer::SLRoutev6MsgRsp* response) final override {
+    ::grpc::Status SLRoutev6Op(::grpc::ServerContext* /*context*/, const ::service_layer::SLRoutev6Msg* /*request*/, ::service_layer::SLRoutev6MsgRsp* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -736,7 +1480,7 @@ class SLRoutev6Oper final {
   template <class BaseClass>
   class WithGenericMethod_SLRoutev6Get : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithGenericMethod_SLRoutev6Get() {
       ::grpc::Service::MarkMethodGeneric(6);
@@ -745,7 +1489,7 @@ class SLRoutev6Oper final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status SLRoutev6Get(::grpc::ServerContext* context, const ::service_layer::SLRoutev6GetMsg* request, ::service_layer::SLRoutev6GetMsgRsp* response) final override {
+    ::grpc::Status SLRoutev6Get(::grpc::ServerContext* /*context*/, const ::service_layer::SLRoutev6GetMsg* /*request*/, ::service_layer::SLRoutev6GetMsgRsp* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -753,7 +1497,7 @@ class SLRoutev6Oper final {
   template <class BaseClass>
   class WithGenericMethod_SLRoutev6OpStream : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithGenericMethod_SLRoutev6OpStream() {
       ::grpc::Service::MarkMethodGeneric(7);
@@ -762,7 +1506,7 @@ class SLRoutev6Oper final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status SLRoutev6OpStream(::grpc::ServerContext* context, ::grpc::ServerReaderWriter< ::service_layer::SLRoutev6MsgRsp, ::service_layer::SLRoutev6Msg>* stream) final override {
+    ::grpc::Status SLRoutev6OpStream(::grpc::ServerContext* /*context*/, ::grpc::ServerReaderWriter< ::service_layer::SLRoutev6MsgRsp, ::service_layer::SLRoutev6Msg>* /*stream*/)  override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -770,7 +1514,7 @@ class SLRoutev6Oper final {
   template <class BaseClass>
   class WithGenericMethod_SLRoutev6GetStream : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithGenericMethod_SLRoutev6GetStream() {
       ::grpc::Service::MarkMethodGeneric(8);
@@ -779,7 +1523,7 @@ class SLRoutev6Oper final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status SLRoutev6GetStream(::grpc::ServerContext* context, ::grpc::ServerReaderWriter< ::service_layer::SLRoutev6GetMsgRsp, ::service_layer::SLRoutev6GetMsg>* stream) final override {
+    ::grpc::Status SLRoutev6GetStream(::grpc::ServerContext* /*context*/, ::grpc::ServerReaderWriter< ::service_layer::SLRoutev6GetMsgRsp, ::service_layer::SLRoutev6GetMsg>* /*stream*/)  override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -787,7 +1531,7 @@ class SLRoutev6Oper final {
   template <class BaseClass>
   class WithGenericMethod_SLRoutev6GetNotifStream : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithGenericMethod_SLRoutev6GetNotifStream() {
       ::grpc::Service::MarkMethodGeneric(9);
@@ -796,25 +1540,612 @@ class SLRoutev6Oper final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status SLRoutev6GetNotifStream(::grpc::ServerContext* context, ::grpc::ServerReaderWriter< ::service_layer::SLRoutev6Notif, ::service_layer::SLRouteGetNotifMsg>* stream) final override {
+    ::grpc::Status SLRoutev6GetNotifStream(::grpc::ServerContext* /*context*/, ::grpc::ServerReaderWriter< ::service_layer::SLRoutev6Notif, ::service_layer::SLRouteGetNotifMsg>* /*stream*/)  override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
   };
   template <class BaseClass>
+  class WithRawMethod_SLRoutev6GlobalsGet : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithRawMethod_SLRoutev6GlobalsGet() {
+      ::grpc::Service::MarkMethodRaw(0);
+    }
+    ~WithRawMethod_SLRoutev6GlobalsGet() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status SLRoutev6GlobalsGet(::grpc::ServerContext* /*context*/, const ::service_layer::SLRouteGlobalsGetMsg* /*request*/, ::service_layer::SLRouteGlobalsGetMsgRsp* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestSLRoutev6GlobalsGet(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(0, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithRawMethod_SLRoutev6GlobalStatsGet : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithRawMethod_SLRoutev6GlobalStatsGet() {
+      ::grpc::Service::MarkMethodRaw(1);
+    }
+    ~WithRawMethod_SLRoutev6GlobalStatsGet() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status SLRoutev6GlobalStatsGet(::grpc::ServerContext* /*context*/, const ::service_layer::SLRouteGlobalStatsGetMsg* /*request*/, ::service_layer::SLRouteGlobalStatsGetMsgRsp* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestSLRoutev6GlobalStatsGet(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(1, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithRawMethod_SLRoutev6VrfRegOp : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithRawMethod_SLRoutev6VrfRegOp() {
+      ::grpc::Service::MarkMethodRaw(2);
+    }
+    ~WithRawMethod_SLRoutev6VrfRegOp() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status SLRoutev6VrfRegOp(::grpc::ServerContext* /*context*/, const ::service_layer::SLVrfRegMsg* /*request*/, ::service_layer::SLVrfRegMsgRsp* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestSLRoutev6VrfRegOp(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(2, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithRawMethod_SLRoutev6VrfRegGet : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithRawMethod_SLRoutev6VrfRegGet() {
+      ::grpc::Service::MarkMethodRaw(3);
+    }
+    ~WithRawMethod_SLRoutev6VrfRegGet() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status SLRoutev6VrfRegGet(::grpc::ServerContext* /*context*/, const ::service_layer::SLVrfRegGetMsg* /*request*/, ::service_layer::SLVrfRegGetMsgRsp* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestSLRoutev6VrfRegGet(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(3, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithRawMethod_SLRoutev6VrfGetStats : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithRawMethod_SLRoutev6VrfGetStats() {
+      ::grpc::Service::MarkMethodRaw(4);
+    }
+    ~WithRawMethod_SLRoutev6VrfGetStats() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status SLRoutev6VrfGetStats(::grpc::ServerContext* /*context*/, const ::service_layer::SLVrfRegGetMsg* /*request*/, ::service_layer::SLVRFGetStatsMsgRsp* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestSLRoutev6VrfGetStats(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(4, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithRawMethod_SLRoutev6Op : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithRawMethod_SLRoutev6Op() {
+      ::grpc::Service::MarkMethodRaw(5);
+    }
+    ~WithRawMethod_SLRoutev6Op() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status SLRoutev6Op(::grpc::ServerContext* /*context*/, const ::service_layer::SLRoutev6Msg* /*request*/, ::service_layer::SLRoutev6MsgRsp* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestSLRoutev6Op(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(5, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithRawMethod_SLRoutev6Get : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithRawMethod_SLRoutev6Get() {
+      ::grpc::Service::MarkMethodRaw(6);
+    }
+    ~WithRawMethod_SLRoutev6Get() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status SLRoutev6Get(::grpc::ServerContext* /*context*/, const ::service_layer::SLRoutev6GetMsg* /*request*/, ::service_layer::SLRoutev6GetMsgRsp* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestSLRoutev6Get(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(6, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithRawMethod_SLRoutev6OpStream : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithRawMethod_SLRoutev6OpStream() {
+      ::grpc::Service::MarkMethodRaw(7);
+    }
+    ~WithRawMethod_SLRoutev6OpStream() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status SLRoutev6OpStream(::grpc::ServerContext* /*context*/, ::grpc::ServerReaderWriter< ::service_layer::SLRoutev6MsgRsp, ::service_layer::SLRoutev6Msg>* /*stream*/)  override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestSLRoutev6OpStream(::grpc::ServerContext* context, ::grpc::ServerAsyncReaderWriter< ::grpc::ByteBuffer, ::grpc::ByteBuffer>* stream, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncBidiStreaming(7, context, stream, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithRawMethod_SLRoutev6GetStream : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithRawMethod_SLRoutev6GetStream() {
+      ::grpc::Service::MarkMethodRaw(8);
+    }
+    ~WithRawMethod_SLRoutev6GetStream() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status SLRoutev6GetStream(::grpc::ServerContext* /*context*/, ::grpc::ServerReaderWriter< ::service_layer::SLRoutev6GetMsgRsp, ::service_layer::SLRoutev6GetMsg>* /*stream*/)  override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestSLRoutev6GetStream(::grpc::ServerContext* context, ::grpc::ServerAsyncReaderWriter< ::grpc::ByteBuffer, ::grpc::ByteBuffer>* stream, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncBidiStreaming(8, context, stream, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithRawMethod_SLRoutev6GetNotifStream : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithRawMethod_SLRoutev6GetNotifStream() {
+      ::grpc::Service::MarkMethodRaw(9);
+    }
+    ~WithRawMethod_SLRoutev6GetNotifStream() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status SLRoutev6GetNotifStream(::grpc::ServerContext* /*context*/, ::grpc::ServerReaderWriter< ::service_layer::SLRoutev6Notif, ::service_layer::SLRouteGetNotifMsg>* /*stream*/)  override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestSLRoutev6GetNotifStream(::grpc::ServerContext* context, ::grpc::ServerAsyncReaderWriter< ::grpc::ByteBuffer, ::grpc::ByteBuffer>* stream, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncBidiStreaming(9, context, stream, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class ExperimentalWithRawCallbackMethod_SLRoutev6GlobalsGet : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    ExperimentalWithRawCallbackMethod_SLRoutev6GlobalsGet() {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodRawCallback(0,
+          new ::grpc_impl::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->SLRoutev6GlobalsGet(context, request, response); }));
+    }
+    ~ExperimentalWithRawCallbackMethod_SLRoutev6GlobalsGet() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status SLRoutev6GlobalsGet(::grpc::ServerContext* /*context*/, const ::service_layer::SLRouteGlobalsGetMsg* /*request*/, ::service_layer::SLRouteGlobalsGetMsgRsp* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerUnaryReactor* SLRoutev6GlobalsGet(
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* SLRoutev6GlobalsGet(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #endif
+      { return nullptr; }
+  };
+  template <class BaseClass>
+  class ExperimentalWithRawCallbackMethod_SLRoutev6GlobalStatsGet : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    ExperimentalWithRawCallbackMethod_SLRoutev6GlobalStatsGet() {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodRawCallback(1,
+          new ::grpc_impl::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->SLRoutev6GlobalStatsGet(context, request, response); }));
+    }
+    ~ExperimentalWithRawCallbackMethod_SLRoutev6GlobalStatsGet() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status SLRoutev6GlobalStatsGet(::grpc::ServerContext* /*context*/, const ::service_layer::SLRouteGlobalStatsGetMsg* /*request*/, ::service_layer::SLRouteGlobalStatsGetMsgRsp* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerUnaryReactor* SLRoutev6GlobalStatsGet(
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* SLRoutev6GlobalStatsGet(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #endif
+      { return nullptr; }
+  };
+  template <class BaseClass>
+  class ExperimentalWithRawCallbackMethod_SLRoutev6VrfRegOp : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    ExperimentalWithRawCallbackMethod_SLRoutev6VrfRegOp() {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodRawCallback(2,
+          new ::grpc_impl::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->SLRoutev6VrfRegOp(context, request, response); }));
+    }
+    ~ExperimentalWithRawCallbackMethod_SLRoutev6VrfRegOp() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status SLRoutev6VrfRegOp(::grpc::ServerContext* /*context*/, const ::service_layer::SLVrfRegMsg* /*request*/, ::service_layer::SLVrfRegMsgRsp* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerUnaryReactor* SLRoutev6VrfRegOp(
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* SLRoutev6VrfRegOp(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #endif
+      { return nullptr; }
+  };
+  template <class BaseClass>
+  class ExperimentalWithRawCallbackMethod_SLRoutev6VrfRegGet : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    ExperimentalWithRawCallbackMethod_SLRoutev6VrfRegGet() {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodRawCallback(3,
+          new ::grpc_impl::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->SLRoutev6VrfRegGet(context, request, response); }));
+    }
+    ~ExperimentalWithRawCallbackMethod_SLRoutev6VrfRegGet() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status SLRoutev6VrfRegGet(::grpc::ServerContext* /*context*/, const ::service_layer::SLVrfRegGetMsg* /*request*/, ::service_layer::SLVrfRegGetMsgRsp* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerUnaryReactor* SLRoutev6VrfRegGet(
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* SLRoutev6VrfRegGet(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #endif
+      { return nullptr; }
+  };
+  template <class BaseClass>
+  class ExperimentalWithRawCallbackMethod_SLRoutev6VrfGetStats : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    ExperimentalWithRawCallbackMethod_SLRoutev6VrfGetStats() {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodRawCallback(4,
+          new ::grpc_impl::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->SLRoutev6VrfGetStats(context, request, response); }));
+    }
+    ~ExperimentalWithRawCallbackMethod_SLRoutev6VrfGetStats() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status SLRoutev6VrfGetStats(::grpc::ServerContext* /*context*/, const ::service_layer::SLVrfRegGetMsg* /*request*/, ::service_layer::SLVRFGetStatsMsgRsp* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerUnaryReactor* SLRoutev6VrfGetStats(
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* SLRoutev6VrfGetStats(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #endif
+      { return nullptr; }
+  };
+  template <class BaseClass>
+  class ExperimentalWithRawCallbackMethod_SLRoutev6Op : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    ExperimentalWithRawCallbackMethod_SLRoutev6Op() {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodRawCallback(5,
+          new ::grpc_impl::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->SLRoutev6Op(context, request, response); }));
+    }
+    ~ExperimentalWithRawCallbackMethod_SLRoutev6Op() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status SLRoutev6Op(::grpc::ServerContext* /*context*/, const ::service_layer::SLRoutev6Msg* /*request*/, ::service_layer::SLRoutev6MsgRsp* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerUnaryReactor* SLRoutev6Op(
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* SLRoutev6Op(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #endif
+      { return nullptr; }
+  };
+  template <class BaseClass>
+  class ExperimentalWithRawCallbackMethod_SLRoutev6Get : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    ExperimentalWithRawCallbackMethod_SLRoutev6Get() {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodRawCallback(6,
+          new ::grpc_impl::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->SLRoutev6Get(context, request, response); }));
+    }
+    ~ExperimentalWithRawCallbackMethod_SLRoutev6Get() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status SLRoutev6Get(::grpc::ServerContext* /*context*/, const ::service_layer::SLRoutev6GetMsg* /*request*/, ::service_layer::SLRoutev6GetMsgRsp* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerUnaryReactor* SLRoutev6Get(
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* SLRoutev6Get(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #endif
+      { return nullptr; }
+  };
+  template <class BaseClass>
+  class ExperimentalWithRawCallbackMethod_SLRoutev6OpStream : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    ExperimentalWithRawCallbackMethod_SLRoutev6OpStream() {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodRawCallback(7,
+          new ::grpc_impl::internal::CallbackBidiHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context) { return this->SLRoutev6OpStream(context); }));
+    }
+    ~ExperimentalWithRawCallbackMethod_SLRoutev6OpStream() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status SLRoutev6OpStream(::grpc::ServerContext* /*context*/, ::grpc::ServerReaderWriter< ::service_layer::SLRoutev6MsgRsp, ::service_layer::SLRoutev6Msg>* /*stream*/)  override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerBidiReactor< ::grpc::ByteBuffer, ::grpc::ByteBuffer>* SLRoutev6OpStream(
+      ::grpc::CallbackServerContext* /*context*/)
+    #else
+    virtual ::grpc::experimental::ServerBidiReactor< ::grpc::ByteBuffer, ::grpc::ByteBuffer>* SLRoutev6OpStream(
+      ::grpc::experimental::CallbackServerContext* /*context*/)
+    #endif
+      { return nullptr; }
+  };
+  template <class BaseClass>
+  class ExperimentalWithRawCallbackMethod_SLRoutev6GetStream : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    ExperimentalWithRawCallbackMethod_SLRoutev6GetStream() {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodRawCallback(8,
+          new ::grpc_impl::internal::CallbackBidiHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context) { return this->SLRoutev6GetStream(context); }));
+    }
+    ~ExperimentalWithRawCallbackMethod_SLRoutev6GetStream() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status SLRoutev6GetStream(::grpc::ServerContext* /*context*/, ::grpc::ServerReaderWriter< ::service_layer::SLRoutev6GetMsgRsp, ::service_layer::SLRoutev6GetMsg>* /*stream*/)  override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerBidiReactor< ::grpc::ByteBuffer, ::grpc::ByteBuffer>* SLRoutev6GetStream(
+      ::grpc::CallbackServerContext* /*context*/)
+    #else
+    virtual ::grpc::experimental::ServerBidiReactor< ::grpc::ByteBuffer, ::grpc::ByteBuffer>* SLRoutev6GetStream(
+      ::grpc::experimental::CallbackServerContext* /*context*/)
+    #endif
+      { return nullptr; }
+  };
+  template <class BaseClass>
+  class ExperimentalWithRawCallbackMethod_SLRoutev6GetNotifStream : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    ExperimentalWithRawCallbackMethod_SLRoutev6GetNotifStream() {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodRawCallback(9,
+          new ::grpc_impl::internal::CallbackBidiHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context) { return this->SLRoutev6GetNotifStream(context); }));
+    }
+    ~ExperimentalWithRawCallbackMethod_SLRoutev6GetNotifStream() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status SLRoutev6GetNotifStream(::grpc::ServerContext* /*context*/, ::grpc::ServerReaderWriter< ::service_layer::SLRoutev6Notif, ::service_layer::SLRouteGetNotifMsg>* /*stream*/)  override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerBidiReactor< ::grpc::ByteBuffer, ::grpc::ByteBuffer>* SLRoutev6GetNotifStream(
+      ::grpc::CallbackServerContext* /*context*/)
+    #else
+    virtual ::grpc::experimental::ServerBidiReactor< ::grpc::ByteBuffer, ::grpc::ByteBuffer>* SLRoutev6GetNotifStream(
+      ::grpc::experimental::CallbackServerContext* /*context*/)
+    #endif
+      { return nullptr; }
+  };
+  template <class BaseClass>
   class WithStreamedUnaryMethod_SLRoutev6GlobalsGet : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithStreamedUnaryMethod_SLRoutev6GlobalsGet() {
       ::grpc::Service::MarkMethodStreamed(0,
-        new ::grpc::internal::StreamedUnaryHandler< ::service_layer::SLRouteGlobalsGetMsg, ::service_layer::SLRouteGlobalsGetMsgRsp>(std::bind(&WithStreamedUnaryMethod_SLRoutev6GlobalsGet<BaseClass>::StreamedSLRoutev6GlobalsGet, this, std::placeholders::_1, std::placeholders::_2)));
+        new ::grpc::internal::StreamedUnaryHandler<
+          ::service_layer::SLRouteGlobalsGetMsg, ::service_layer::SLRouteGlobalsGetMsgRsp>(
+            [this](::grpc_impl::ServerContext* context,
+                   ::grpc_impl::ServerUnaryStreamer<
+                     ::service_layer::SLRouteGlobalsGetMsg, ::service_layer::SLRouteGlobalsGetMsgRsp>* streamer) {
+                       return this->StreamedSLRoutev6GlobalsGet(context,
+                         streamer);
+                  }));
     }
     ~WithStreamedUnaryMethod_SLRoutev6GlobalsGet() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status SLRoutev6GlobalsGet(::grpc::ServerContext* context, const ::service_layer::SLRouteGlobalsGetMsg* request, ::service_layer::SLRouteGlobalsGetMsgRsp* response) final override {
+    ::grpc::Status SLRoutev6GlobalsGet(::grpc::ServerContext* /*context*/, const ::service_layer::SLRouteGlobalsGetMsg* /*request*/, ::service_layer::SLRouteGlobalsGetMsgRsp* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -824,17 +2155,24 @@ class SLRoutev6Oper final {
   template <class BaseClass>
   class WithStreamedUnaryMethod_SLRoutev6GlobalStatsGet : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithStreamedUnaryMethod_SLRoutev6GlobalStatsGet() {
       ::grpc::Service::MarkMethodStreamed(1,
-        new ::grpc::internal::StreamedUnaryHandler< ::service_layer::SLRouteGlobalStatsGetMsg, ::service_layer::SLRouteGlobalStatsGetMsgRsp>(std::bind(&WithStreamedUnaryMethod_SLRoutev6GlobalStatsGet<BaseClass>::StreamedSLRoutev6GlobalStatsGet, this, std::placeholders::_1, std::placeholders::_2)));
+        new ::grpc::internal::StreamedUnaryHandler<
+          ::service_layer::SLRouteGlobalStatsGetMsg, ::service_layer::SLRouteGlobalStatsGetMsgRsp>(
+            [this](::grpc_impl::ServerContext* context,
+                   ::grpc_impl::ServerUnaryStreamer<
+                     ::service_layer::SLRouteGlobalStatsGetMsg, ::service_layer::SLRouteGlobalStatsGetMsgRsp>* streamer) {
+                       return this->StreamedSLRoutev6GlobalStatsGet(context,
+                         streamer);
+                  }));
     }
     ~WithStreamedUnaryMethod_SLRoutev6GlobalStatsGet() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status SLRoutev6GlobalStatsGet(::grpc::ServerContext* context, const ::service_layer::SLRouteGlobalStatsGetMsg* request, ::service_layer::SLRouteGlobalStatsGetMsgRsp* response) final override {
+    ::grpc::Status SLRoutev6GlobalStatsGet(::grpc::ServerContext* /*context*/, const ::service_layer::SLRouteGlobalStatsGetMsg* /*request*/, ::service_layer::SLRouteGlobalStatsGetMsgRsp* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -844,17 +2182,24 @@ class SLRoutev6Oper final {
   template <class BaseClass>
   class WithStreamedUnaryMethod_SLRoutev6VrfRegOp : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithStreamedUnaryMethod_SLRoutev6VrfRegOp() {
       ::grpc::Service::MarkMethodStreamed(2,
-        new ::grpc::internal::StreamedUnaryHandler< ::service_layer::SLVrfRegMsg, ::service_layer::SLVrfRegMsgRsp>(std::bind(&WithStreamedUnaryMethod_SLRoutev6VrfRegOp<BaseClass>::StreamedSLRoutev6VrfRegOp, this, std::placeholders::_1, std::placeholders::_2)));
+        new ::grpc::internal::StreamedUnaryHandler<
+          ::service_layer::SLVrfRegMsg, ::service_layer::SLVrfRegMsgRsp>(
+            [this](::grpc_impl::ServerContext* context,
+                   ::grpc_impl::ServerUnaryStreamer<
+                     ::service_layer::SLVrfRegMsg, ::service_layer::SLVrfRegMsgRsp>* streamer) {
+                       return this->StreamedSLRoutev6VrfRegOp(context,
+                         streamer);
+                  }));
     }
     ~WithStreamedUnaryMethod_SLRoutev6VrfRegOp() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status SLRoutev6VrfRegOp(::grpc::ServerContext* context, const ::service_layer::SLVrfRegMsg* request, ::service_layer::SLVrfRegMsgRsp* response) final override {
+    ::grpc::Status SLRoutev6VrfRegOp(::grpc::ServerContext* /*context*/, const ::service_layer::SLVrfRegMsg* /*request*/, ::service_layer::SLVrfRegMsgRsp* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -864,17 +2209,24 @@ class SLRoutev6Oper final {
   template <class BaseClass>
   class WithStreamedUnaryMethod_SLRoutev6VrfRegGet : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithStreamedUnaryMethod_SLRoutev6VrfRegGet() {
       ::grpc::Service::MarkMethodStreamed(3,
-        new ::grpc::internal::StreamedUnaryHandler< ::service_layer::SLVrfRegGetMsg, ::service_layer::SLVrfRegGetMsgRsp>(std::bind(&WithStreamedUnaryMethod_SLRoutev6VrfRegGet<BaseClass>::StreamedSLRoutev6VrfRegGet, this, std::placeholders::_1, std::placeholders::_2)));
+        new ::grpc::internal::StreamedUnaryHandler<
+          ::service_layer::SLVrfRegGetMsg, ::service_layer::SLVrfRegGetMsgRsp>(
+            [this](::grpc_impl::ServerContext* context,
+                   ::grpc_impl::ServerUnaryStreamer<
+                     ::service_layer::SLVrfRegGetMsg, ::service_layer::SLVrfRegGetMsgRsp>* streamer) {
+                       return this->StreamedSLRoutev6VrfRegGet(context,
+                         streamer);
+                  }));
     }
     ~WithStreamedUnaryMethod_SLRoutev6VrfRegGet() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status SLRoutev6VrfRegGet(::grpc::ServerContext* context, const ::service_layer::SLVrfRegGetMsg* request, ::service_layer::SLVrfRegGetMsgRsp* response) final override {
+    ::grpc::Status SLRoutev6VrfRegGet(::grpc::ServerContext* /*context*/, const ::service_layer::SLVrfRegGetMsg* /*request*/, ::service_layer::SLVrfRegGetMsgRsp* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -884,17 +2236,24 @@ class SLRoutev6Oper final {
   template <class BaseClass>
   class WithStreamedUnaryMethod_SLRoutev6VrfGetStats : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithStreamedUnaryMethod_SLRoutev6VrfGetStats() {
       ::grpc::Service::MarkMethodStreamed(4,
-        new ::grpc::internal::StreamedUnaryHandler< ::service_layer::SLVrfRegGetMsg, ::service_layer::SLVRFGetStatsMsgRsp>(std::bind(&WithStreamedUnaryMethod_SLRoutev6VrfGetStats<BaseClass>::StreamedSLRoutev6VrfGetStats, this, std::placeholders::_1, std::placeholders::_2)));
+        new ::grpc::internal::StreamedUnaryHandler<
+          ::service_layer::SLVrfRegGetMsg, ::service_layer::SLVRFGetStatsMsgRsp>(
+            [this](::grpc_impl::ServerContext* context,
+                   ::grpc_impl::ServerUnaryStreamer<
+                     ::service_layer::SLVrfRegGetMsg, ::service_layer::SLVRFGetStatsMsgRsp>* streamer) {
+                       return this->StreamedSLRoutev6VrfGetStats(context,
+                         streamer);
+                  }));
     }
     ~WithStreamedUnaryMethod_SLRoutev6VrfGetStats() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status SLRoutev6VrfGetStats(::grpc::ServerContext* context, const ::service_layer::SLVrfRegGetMsg* request, ::service_layer::SLVRFGetStatsMsgRsp* response) final override {
+    ::grpc::Status SLRoutev6VrfGetStats(::grpc::ServerContext* /*context*/, const ::service_layer::SLVrfRegGetMsg* /*request*/, ::service_layer::SLVRFGetStatsMsgRsp* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -904,17 +2263,24 @@ class SLRoutev6Oper final {
   template <class BaseClass>
   class WithStreamedUnaryMethod_SLRoutev6Op : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithStreamedUnaryMethod_SLRoutev6Op() {
       ::grpc::Service::MarkMethodStreamed(5,
-        new ::grpc::internal::StreamedUnaryHandler< ::service_layer::SLRoutev6Msg, ::service_layer::SLRoutev6MsgRsp>(std::bind(&WithStreamedUnaryMethod_SLRoutev6Op<BaseClass>::StreamedSLRoutev6Op, this, std::placeholders::_1, std::placeholders::_2)));
+        new ::grpc::internal::StreamedUnaryHandler<
+          ::service_layer::SLRoutev6Msg, ::service_layer::SLRoutev6MsgRsp>(
+            [this](::grpc_impl::ServerContext* context,
+                   ::grpc_impl::ServerUnaryStreamer<
+                     ::service_layer::SLRoutev6Msg, ::service_layer::SLRoutev6MsgRsp>* streamer) {
+                       return this->StreamedSLRoutev6Op(context,
+                         streamer);
+                  }));
     }
     ~WithStreamedUnaryMethod_SLRoutev6Op() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status SLRoutev6Op(::grpc::ServerContext* context, const ::service_layer::SLRoutev6Msg* request, ::service_layer::SLRoutev6MsgRsp* response) final override {
+    ::grpc::Status SLRoutev6Op(::grpc::ServerContext* /*context*/, const ::service_layer::SLRoutev6Msg* /*request*/, ::service_layer::SLRoutev6MsgRsp* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -924,17 +2290,24 @@ class SLRoutev6Oper final {
   template <class BaseClass>
   class WithStreamedUnaryMethod_SLRoutev6Get : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithStreamedUnaryMethod_SLRoutev6Get() {
       ::grpc::Service::MarkMethodStreamed(6,
-        new ::grpc::internal::StreamedUnaryHandler< ::service_layer::SLRoutev6GetMsg, ::service_layer::SLRoutev6GetMsgRsp>(std::bind(&WithStreamedUnaryMethod_SLRoutev6Get<BaseClass>::StreamedSLRoutev6Get, this, std::placeholders::_1, std::placeholders::_2)));
+        new ::grpc::internal::StreamedUnaryHandler<
+          ::service_layer::SLRoutev6GetMsg, ::service_layer::SLRoutev6GetMsgRsp>(
+            [this](::grpc_impl::ServerContext* context,
+                   ::grpc_impl::ServerUnaryStreamer<
+                     ::service_layer::SLRoutev6GetMsg, ::service_layer::SLRoutev6GetMsgRsp>* streamer) {
+                       return this->StreamedSLRoutev6Get(context,
+                         streamer);
+                  }));
     }
     ~WithStreamedUnaryMethod_SLRoutev6Get() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status SLRoutev6Get(::grpc::ServerContext* context, const ::service_layer::SLRoutev6GetMsg* request, ::service_layer::SLRoutev6GetMsgRsp* response) final override {
+    ::grpc::Status SLRoutev6Get(::grpc::ServerContext* /*context*/, const ::service_layer::SLRoutev6GetMsg* /*request*/, ::service_layer::SLRoutev6GetMsgRsp* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }

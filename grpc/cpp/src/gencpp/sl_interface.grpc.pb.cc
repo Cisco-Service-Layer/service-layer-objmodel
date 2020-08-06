@@ -5,14 +5,20 @@
 #include "sl_interface.pb.h"
 #include "sl_interface.grpc.pb.h"
 
-#include <grpc++/impl/codegen/async_stream.h>
-#include <grpc++/impl/codegen/async_unary_call.h>
-#include <grpc++/impl/codegen/channel_interface.h>
-#include <grpc++/impl/codegen/client_unary_call.h>
-#include <grpc++/impl/codegen/method_handler_impl.h>
-#include <grpc++/impl/codegen/rpc_service_method.h>
-#include <grpc++/impl/codegen/service_type.h>
-#include <grpc++/impl/codegen/sync_stream.h>
+#include <functional>
+#include <grpcpp/impl/codegen/async_stream.h>
+#include <grpcpp/impl/codegen/async_unary_call.h>
+#include <grpcpp/impl/codegen/channel_interface.h>
+#include <grpcpp/impl/codegen/client_unary_call.h>
+#include <grpcpp/impl/codegen/client_callback.h>
+#include <grpcpp/impl/codegen/message_allocator.h>
+#include <grpcpp/impl/codegen/method_handler.h>
+#include <grpcpp/impl/codegen/rpc_service_method.h>
+#include <grpcpp/impl/codegen/server_callback.h>
+#include <grpcpp/impl/codegen/server_callback_handlers.h>
+#include <grpcpp/impl/codegen/server_context.h>
+#include <grpcpp/impl/codegen/service_type.h>
+#include <grpcpp/impl/codegen/sync_stream.h>
 namespace service_layer {
 
 static const char* SLInterfaceOper_method_names[] = {
@@ -43,72 +49,156 @@ SLInterfaceOper::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& ch
   return ::grpc::internal::BlockingUnaryCall(channel_.get(), rpcmethod_SLInterfaceGlobalsRegOp_, context, request, response);
 }
 
+void SLInterfaceOper::Stub::experimental_async::SLInterfaceGlobalsRegOp(::grpc::ClientContext* context, const ::service_layer::SLInterfaceGlobalsRegMsg* request, ::service_layer::SLInterfaceGlobalsRegMsgRsp* response, std::function<void(::grpc::Status)> f) {
+  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_SLInterfaceGlobalsRegOp_, context, request, response, std::move(f));
+}
+
+void SLInterfaceOper::Stub::experimental_async::SLInterfaceGlobalsRegOp(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::service_layer::SLInterfaceGlobalsRegMsgRsp* response, std::function<void(::grpc::Status)> f) {
+  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_SLInterfaceGlobalsRegOp_, context, request, response, std::move(f));
+}
+
+void SLInterfaceOper::Stub::experimental_async::SLInterfaceGlobalsRegOp(::grpc::ClientContext* context, const ::service_layer::SLInterfaceGlobalsRegMsg* request, ::service_layer::SLInterfaceGlobalsRegMsgRsp* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_SLInterfaceGlobalsRegOp_, context, request, response, reactor);
+}
+
+void SLInterfaceOper::Stub::experimental_async::SLInterfaceGlobalsRegOp(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::service_layer::SLInterfaceGlobalsRegMsgRsp* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_SLInterfaceGlobalsRegOp_, context, request, response, reactor);
+}
+
 ::grpc::ClientAsyncResponseReader< ::service_layer::SLInterfaceGlobalsRegMsgRsp>* SLInterfaceOper::Stub::AsyncSLInterfaceGlobalsRegOpRaw(::grpc::ClientContext* context, const ::service_layer::SLInterfaceGlobalsRegMsg& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::service_layer::SLInterfaceGlobalsRegMsgRsp>::Create(channel_.get(), cq, rpcmethod_SLInterfaceGlobalsRegOp_, context, request, true);
+  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::service_layer::SLInterfaceGlobalsRegMsgRsp>::Create(channel_.get(), cq, rpcmethod_SLInterfaceGlobalsRegOp_, context, request, true);
 }
 
 ::grpc::ClientAsyncResponseReader< ::service_layer::SLInterfaceGlobalsRegMsgRsp>* SLInterfaceOper::Stub::PrepareAsyncSLInterfaceGlobalsRegOpRaw(::grpc::ClientContext* context, const ::service_layer::SLInterfaceGlobalsRegMsg& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::service_layer::SLInterfaceGlobalsRegMsgRsp>::Create(channel_.get(), cq, rpcmethod_SLInterfaceGlobalsRegOp_, context, request, false);
+  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::service_layer::SLInterfaceGlobalsRegMsgRsp>::Create(channel_.get(), cq, rpcmethod_SLInterfaceGlobalsRegOp_, context, request, false);
 }
 
 ::grpc::Status SLInterfaceOper::Stub::SLInterfaceGlobalsGet(::grpc::ClientContext* context, const ::service_layer::SLInterfaceGlobalsGetMsg& request, ::service_layer::SLInterfaceGlobalsGetMsgRsp* response) {
   return ::grpc::internal::BlockingUnaryCall(channel_.get(), rpcmethod_SLInterfaceGlobalsGet_, context, request, response);
 }
 
+void SLInterfaceOper::Stub::experimental_async::SLInterfaceGlobalsGet(::grpc::ClientContext* context, const ::service_layer::SLInterfaceGlobalsGetMsg* request, ::service_layer::SLInterfaceGlobalsGetMsgRsp* response, std::function<void(::grpc::Status)> f) {
+  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_SLInterfaceGlobalsGet_, context, request, response, std::move(f));
+}
+
+void SLInterfaceOper::Stub::experimental_async::SLInterfaceGlobalsGet(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::service_layer::SLInterfaceGlobalsGetMsgRsp* response, std::function<void(::grpc::Status)> f) {
+  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_SLInterfaceGlobalsGet_, context, request, response, std::move(f));
+}
+
+void SLInterfaceOper::Stub::experimental_async::SLInterfaceGlobalsGet(::grpc::ClientContext* context, const ::service_layer::SLInterfaceGlobalsGetMsg* request, ::service_layer::SLInterfaceGlobalsGetMsgRsp* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_SLInterfaceGlobalsGet_, context, request, response, reactor);
+}
+
+void SLInterfaceOper::Stub::experimental_async::SLInterfaceGlobalsGet(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::service_layer::SLInterfaceGlobalsGetMsgRsp* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_SLInterfaceGlobalsGet_, context, request, response, reactor);
+}
+
 ::grpc::ClientAsyncResponseReader< ::service_layer::SLInterfaceGlobalsGetMsgRsp>* SLInterfaceOper::Stub::AsyncSLInterfaceGlobalsGetRaw(::grpc::ClientContext* context, const ::service_layer::SLInterfaceGlobalsGetMsg& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::service_layer::SLInterfaceGlobalsGetMsgRsp>::Create(channel_.get(), cq, rpcmethod_SLInterfaceGlobalsGet_, context, request, true);
+  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::service_layer::SLInterfaceGlobalsGetMsgRsp>::Create(channel_.get(), cq, rpcmethod_SLInterfaceGlobalsGet_, context, request, true);
 }
 
 ::grpc::ClientAsyncResponseReader< ::service_layer::SLInterfaceGlobalsGetMsgRsp>* SLInterfaceOper::Stub::PrepareAsyncSLInterfaceGlobalsGetRaw(::grpc::ClientContext* context, const ::service_layer::SLInterfaceGlobalsGetMsg& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::service_layer::SLInterfaceGlobalsGetMsgRsp>::Create(channel_.get(), cq, rpcmethod_SLInterfaceGlobalsGet_, context, request, false);
+  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::service_layer::SLInterfaceGlobalsGetMsgRsp>::Create(channel_.get(), cq, rpcmethod_SLInterfaceGlobalsGet_, context, request, false);
 }
 
 ::grpc::Status SLInterfaceOper::Stub::SLInterfaceGlobalsGetStats(::grpc::ClientContext* context, const ::service_layer::SLInterfaceGlobalsGetMsg& request, ::service_layer::SLInterfaceGlobalsGetStatsMsgRsp* response) {
   return ::grpc::internal::BlockingUnaryCall(channel_.get(), rpcmethod_SLInterfaceGlobalsGetStats_, context, request, response);
 }
 
+void SLInterfaceOper::Stub::experimental_async::SLInterfaceGlobalsGetStats(::grpc::ClientContext* context, const ::service_layer::SLInterfaceGlobalsGetMsg* request, ::service_layer::SLInterfaceGlobalsGetStatsMsgRsp* response, std::function<void(::grpc::Status)> f) {
+  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_SLInterfaceGlobalsGetStats_, context, request, response, std::move(f));
+}
+
+void SLInterfaceOper::Stub::experimental_async::SLInterfaceGlobalsGetStats(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::service_layer::SLInterfaceGlobalsGetStatsMsgRsp* response, std::function<void(::grpc::Status)> f) {
+  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_SLInterfaceGlobalsGetStats_, context, request, response, std::move(f));
+}
+
+void SLInterfaceOper::Stub::experimental_async::SLInterfaceGlobalsGetStats(::grpc::ClientContext* context, const ::service_layer::SLInterfaceGlobalsGetMsg* request, ::service_layer::SLInterfaceGlobalsGetStatsMsgRsp* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_SLInterfaceGlobalsGetStats_, context, request, response, reactor);
+}
+
+void SLInterfaceOper::Stub::experimental_async::SLInterfaceGlobalsGetStats(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::service_layer::SLInterfaceGlobalsGetStatsMsgRsp* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_SLInterfaceGlobalsGetStats_, context, request, response, reactor);
+}
+
 ::grpc::ClientAsyncResponseReader< ::service_layer::SLInterfaceGlobalsGetStatsMsgRsp>* SLInterfaceOper::Stub::AsyncSLInterfaceGlobalsGetStatsRaw(::grpc::ClientContext* context, const ::service_layer::SLInterfaceGlobalsGetMsg& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::service_layer::SLInterfaceGlobalsGetStatsMsgRsp>::Create(channel_.get(), cq, rpcmethod_SLInterfaceGlobalsGetStats_, context, request, true);
+  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::service_layer::SLInterfaceGlobalsGetStatsMsgRsp>::Create(channel_.get(), cq, rpcmethod_SLInterfaceGlobalsGetStats_, context, request, true);
 }
 
 ::grpc::ClientAsyncResponseReader< ::service_layer::SLInterfaceGlobalsGetStatsMsgRsp>* SLInterfaceOper::Stub::PrepareAsyncSLInterfaceGlobalsGetStatsRaw(::grpc::ClientContext* context, const ::service_layer::SLInterfaceGlobalsGetMsg& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::service_layer::SLInterfaceGlobalsGetStatsMsgRsp>::Create(channel_.get(), cq, rpcmethod_SLInterfaceGlobalsGetStats_, context, request, false);
+  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::service_layer::SLInterfaceGlobalsGetStatsMsgRsp>::Create(channel_.get(), cq, rpcmethod_SLInterfaceGlobalsGetStats_, context, request, false);
 }
 
 ::grpc::Status SLInterfaceOper::Stub::SLInterfaceGet(::grpc::ClientContext* context, const ::service_layer::SLInterfaceGetMsg& request, ::service_layer::SLInterfaceGetMsgRsp* response) {
   return ::grpc::internal::BlockingUnaryCall(channel_.get(), rpcmethod_SLInterfaceGet_, context, request, response);
 }
 
+void SLInterfaceOper::Stub::experimental_async::SLInterfaceGet(::grpc::ClientContext* context, const ::service_layer::SLInterfaceGetMsg* request, ::service_layer::SLInterfaceGetMsgRsp* response, std::function<void(::grpc::Status)> f) {
+  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_SLInterfaceGet_, context, request, response, std::move(f));
+}
+
+void SLInterfaceOper::Stub::experimental_async::SLInterfaceGet(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::service_layer::SLInterfaceGetMsgRsp* response, std::function<void(::grpc::Status)> f) {
+  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_SLInterfaceGet_, context, request, response, std::move(f));
+}
+
+void SLInterfaceOper::Stub::experimental_async::SLInterfaceGet(::grpc::ClientContext* context, const ::service_layer::SLInterfaceGetMsg* request, ::service_layer::SLInterfaceGetMsgRsp* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_SLInterfaceGet_, context, request, response, reactor);
+}
+
+void SLInterfaceOper::Stub::experimental_async::SLInterfaceGet(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::service_layer::SLInterfaceGetMsgRsp* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_SLInterfaceGet_, context, request, response, reactor);
+}
+
 ::grpc::ClientAsyncResponseReader< ::service_layer::SLInterfaceGetMsgRsp>* SLInterfaceOper::Stub::AsyncSLInterfaceGetRaw(::grpc::ClientContext* context, const ::service_layer::SLInterfaceGetMsg& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::service_layer::SLInterfaceGetMsgRsp>::Create(channel_.get(), cq, rpcmethod_SLInterfaceGet_, context, request, true);
+  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::service_layer::SLInterfaceGetMsgRsp>::Create(channel_.get(), cq, rpcmethod_SLInterfaceGet_, context, request, true);
 }
 
 ::grpc::ClientAsyncResponseReader< ::service_layer::SLInterfaceGetMsgRsp>* SLInterfaceOper::Stub::PrepareAsyncSLInterfaceGetRaw(::grpc::ClientContext* context, const ::service_layer::SLInterfaceGetMsg& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::service_layer::SLInterfaceGetMsgRsp>::Create(channel_.get(), cq, rpcmethod_SLInterfaceGet_, context, request, false);
+  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::service_layer::SLInterfaceGetMsgRsp>::Create(channel_.get(), cq, rpcmethod_SLInterfaceGet_, context, request, false);
 }
 
 ::grpc::ClientReader< ::service_layer::SLInterfaceNotif>* SLInterfaceOper::Stub::SLInterfaceGetNotifStreamRaw(::grpc::ClientContext* context, const ::service_layer::SLInterfaceGetNotifMsg& request) {
-  return ::grpc::internal::ClientReaderFactory< ::service_layer::SLInterfaceNotif>::Create(channel_.get(), rpcmethod_SLInterfaceGetNotifStream_, context, request);
+  return ::grpc_impl::internal::ClientReaderFactory< ::service_layer::SLInterfaceNotif>::Create(channel_.get(), rpcmethod_SLInterfaceGetNotifStream_, context, request);
+}
+
+void SLInterfaceOper::Stub::experimental_async::SLInterfaceGetNotifStream(::grpc::ClientContext* context, ::service_layer::SLInterfaceGetNotifMsg* request, ::grpc::experimental::ClientReadReactor< ::service_layer::SLInterfaceNotif>* reactor) {
+  ::grpc_impl::internal::ClientCallbackReaderFactory< ::service_layer::SLInterfaceNotif>::Create(stub_->channel_.get(), stub_->rpcmethod_SLInterfaceGetNotifStream_, context, request, reactor);
 }
 
 ::grpc::ClientAsyncReader< ::service_layer::SLInterfaceNotif>* SLInterfaceOper::Stub::AsyncSLInterfaceGetNotifStreamRaw(::grpc::ClientContext* context, const ::service_layer::SLInterfaceGetNotifMsg& request, ::grpc::CompletionQueue* cq, void* tag) {
-  return ::grpc::internal::ClientAsyncReaderFactory< ::service_layer::SLInterfaceNotif>::Create(channel_.get(), cq, rpcmethod_SLInterfaceGetNotifStream_, context, request, true, tag);
+  return ::grpc_impl::internal::ClientAsyncReaderFactory< ::service_layer::SLInterfaceNotif>::Create(channel_.get(), cq, rpcmethod_SLInterfaceGetNotifStream_, context, request, true, tag);
 }
 
 ::grpc::ClientAsyncReader< ::service_layer::SLInterfaceNotif>* SLInterfaceOper::Stub::PrepareAsyncSLInterfaceGetNotifStreamRaw(::grpc::ClientContext* context, const ::service_layer::SLInterfaceGetNotifMsg& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncReaderFactory< ::service_layer::SLInterfaceNotif>::Create(channel_.get(), cq, rpcmethod_SLInterfaceGetNotifStream_, context, request, false, nullptr);
+  return ::grpc_impl::internal::ClientAsyncReaderFactory< ::service_layer::SLInterfaceNotif>::Create(channel_.get(), cq, rpcmethod_SLInterfaceGetNotifStream_, context, request, false, nullptr);
 }
 
 ::grpc::Status SLInterfaceOper::Stub::SLInterfaceNotifOp(::grpc::ClientContext* context, const ::service_layer::SLInterfaceNotifMsg& request, ::service_layer::SLInterfaceNotifMsgRsp* response) {
   return ::grpc::internal::BlockingUnaryCall(channel_.get(), rpcmethod_SLInterfaceNotifOp_, context, request, response);
 }
 
+void SLInterfaceOper::Stub::experimental_async::SLInterfaceNotifOp(::grpc::ClientContext* context, const ::service_layer::SLInterfaceNotifMsg* request, ::service_layer::SLInterfaceNotifMsgRsp* response, std::function<void(::grpc::Status)> f) {
+  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_SLInterfaceNotifOp_, context, request, response, std::move(f));
+}
+
+void SLInterfaceOper::Stub::experimental_async::SLInterfaceNotifOp(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::service_layer::SLInterfaceNotifMsgRsp* response, std::function<void(::grpc::Status)> f) {
+  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_SLInterfaceNotifOp_, context, request, response, std::move(f));
+}
+
+void SLInterfaceOper::Stub::experimental_async::SLInterfaceNotifOp(::grpc::ClientContext* context, const ::service_layer::SLInterfaceNotifMsg* request, ::service_layer::SLInterfaceNotifMsgRsp* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_SLInterfaceNotifOp_, context, request, response, reactor);
+}
+
+void SLInterfaceOper::Stub::experimental_async::SLInterfaceNotifOp(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::service_layer::SLInterfaceNotifMsgRsp* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_SLInterfaceNotifOp_, context, request, response, reactor);
+}
+
 ::grpc::ClientAsyncResponseReader< ::service_layer::SLInterfaceNotifMsgRsp>* SLInterfaceOper::Stub::AsyncSLInterfaceNotifOpRaw(::grpc::ClientContext* context, const ::service_layer::SLInterfaceNotifMsg& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::service_layer::SLInterfaceNotifMsgRsp>::Create(channel_.get(), cq, rpcmethod_SLInterfaceNotifOp_, context, request, true);
+  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::service_layer::SLInterfaceNotifMsgRsp>::Create(channel_.get(), cq, rpcmethod_SLInterfaceNotifOp_, context, request, true);
 }
 
 ::grpc::ClientAsyncResponseReader< ::service_layer::SLInterfaceNotifMsgRsp>* SLInterfaceOper::Stub::PrepareAsyncSLInterfaceNotifOpRaw(::grpc::ClientContext* context, const ::service_layer::SLInterfaceNotifMsg& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::service_layer::SLInterfaceNotifMsgRsp>::Create(channel_.get(), cq, rpcmethod_SLInterfaceNotifOp_, context, request, false);
+  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::service_layer::SLInterfaceNotifMsgRsp>::Create(channel_.get(), cq, rpcmethod_SLInterfaceNotifOp_, context, request, false);
 }
 
 SLInterfaceOper::Service::Service() {
@@ -116,32 +206,62 @@ SLInterfaceOper::Service::Service() {
       SLInterfaceOper_method_names[0],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
       new ::grpc::internal::RpcMethodHandler< SLInterfaceOper::Service, ::service_layer::SLInterfaceGlobalsRegMsg, ::service_layer::SLInterfaceGlobalsRegMsgRsp>(
-          std::mem_fn(&SLInterfaceOper::Service::SLInterfaceGlobalsRegOp), this)));
+          [](SLInterfaceOper::Service* service,
+             ::grpc_impl::ServerContext* ctx,
+             const ::service_layer::SLInterfaceGlobalsRegMsg* req,
+             ::service_layer::SLInterfaceGlobalsRegMsgRsp* resp) {
+               return service->SLInterfaceGlobalsRegOp(ctx, req, resp);
+             }, this)));
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       SLInterfaceOper_method_names[1],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
       new ::grpc::internal::RpcMethodHandler< SLInterfaceOper::Service, ::service_layer::SLInterfaceGlobalsGetMsg, ::service_layer::SLInterfaceGlobalsGetMsgRsp>(
-          std::mem_fn(&SLInterfaceOper::Service::SLInterfaceGlobalsGet), this)));
+          [](SLInterfaceOper::Service* service,
+             ::grpc_impl::ServerContext* ctx,
+             const ::service_layer::SLInterfaceGlobalsGetMsg* req,
+             ::service_layer::SLInterfaceGlobalsGetMsgRsp* resp) {
+               return service->SLInterfaceGlobalsGet(ctx, req, resp);
+             }, this)));
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       SLInterfaceOper_method_names[2],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
       new ::grpc::internal::RpcMethodHandler< SLInterfaceOper::Service, ::service_layer::SLInterfaceGlobalsGetMsg, ::service_layer::SLInterfaceGlobalsGetStatsMsgRsp>(
-          std::mem_fn(&SLInterfaceOper::Service::SLInterfaceGlobalsGetStats), this)));
+          [](SLInterfaceOper::Service* service,
+             ::grpc_impl::ServerContext* ctx,
+             const ::service_layer::SLInterfaceGlobalsGetMsg* req,
+             ::service_layer::SLInterfaceGlobalsGetStatsMsgRsp* resp) {
+               return service->SLInterfaceGlobalsGetStats(ctx, req, resp);
+             }, this)));
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       SLInterfaceOper_method_names[3],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
       new ::grpc::internal::RpcMethodHandler< SLInterfaceOper::Service, ::service_layer::SLInterfaceGetMsg, ::service_layer::SLInterfaceGetMsgRsp>(
-          std::mem_fn(&SLInterfaceOper::Service::SLInterfaceGet), this)));
+          [](SLInterfaceOper::Service* service,
+             ::grpc_impl::ServerContext* ctx,
+             const ::service_layer::SLInterfaceGetMsg* req,
+             ::service_layer::SLInterfaceGetMsgRsp* resp) {
+               return service->SLInterfaceGet(ctx, req, resp);
+             }, this)));
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       SLInterfaceOper_method_names[4],
       ::grpc::internal::RpcMethod::SERVER_STREAMING,
       new ::grpc::internal::ServerStreamingHandler< SLInterfaceOper::Service, ::service_layer::SLInterfaceGetNotifMsg, ::service_layer::SLInterfaceNotif>(
-          std::mem_fn(&SLInterfaceOper::Service::SLInterfaceGetNotifStream), this)));
+          [](SLInterfaceOper::Service* service,
+             ::grpc_impl::ServerContext* ctx,
+             const ::service_layer::SLInterfaceGetNotifMsg* req,
+             ::grpc_impl::ServerWriter<::service_layer::SLInterfaceNotif>* writer) {
+               return service->SLInterfaceGetNotifStream(ctx, req, writer);
+             }, this)));
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       SLInterfaceOper_method_names[5],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
       new ::grpc::internal::RpcMethodHandler< SLInterfaceOper::Service, ::service_layer::SLInterfaceNotifMsg, ::service_layer::SLInterfaceNotifMsgRsp>(
-          std::mem_fn(&SLInterfaceOper::Service::SLInterfaceNotifOp), this)));
+          [](SLInterfaceOper::Service* service,
+             ::grpc_impl::ServerContext* ctx,
+             const ::service_layer::SLInterfaceNotifMsg* req,
+             ::service_layer::SLInterfaceNotifMsgRsp* resp) {
+               return service->SLInterfaceNotifOp(ctx, req, resp);
+             }, this)));
 }
 
 SLInterfaceOper::Service::~Service() {

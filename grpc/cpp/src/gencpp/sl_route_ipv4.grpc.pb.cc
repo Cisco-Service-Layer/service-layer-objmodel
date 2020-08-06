@@ -5,14 +5,20 @@
 #include "sl_route_ipv4.pb.h"
 #include "sl_route_ipv4.grpc.pb.h"
 
-#include <grpc++/impl/codegen/async_stream.h>
-#include <grpc++/impl/codegen/async_unary_call.h>
-#include <grpc++/impl/codegen/channel_interface.h>
-#include <grpc++/impl/codegen/client_unary_call.h>
-#include <grpc++/impl/codegen/method_handler_impl.h>
-#include <grpc++/impl/codegen/rpc_service_method.h>
-#include <grpc++/impl/codegen/service_type.h>
-#include <grpc++/impl/codegen/sync_stream.h>
+#include <functional>
+#include <grpcpp/impl/codegen/async_stream.h>
+#include <grpcpp/impl/codegen/async_unary_call.h>
+#include <grpcpp/impl/codegen/channel_interface.h>
+#include <grpcpp/impl/codegen/client_unary_call.h>
+#include <grpcpp/impl/codegen/client_callback.h>
+#include <grpcpp/impl/codegen/message_allocator.h>
+#include <grpcpp/impl/codegen/method_handler.h>
+#include <grpcpp/impl/codegen/rpc_service_method.h>
+#include <grpcpp/impl/codegen/server_callback.h>
+#include <grpcpp/impl/codegen/server_callback_handlers.h>
+#include <grpcpp/impl/codegen/server_context.h>
+#include <grpcpp/impl/codegen/service_type.h>
+#include <grpcpp/impl/codegen/sync_stream.h>
 namespace service_layer {
 
 static const char* SLRoutev4Oper_method_names[] = {
@@ -51,120 +57,244 @@ SLRoutev4Oper::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& chan
   return ::grpc::internal::BlockingUnaryCall(channel_.get(), rpcmethod_SLRoutev4GlobalsGet_, context, request, response);
 }
 
+void SLRoutev4Oper::Stub::experimental_async::SLRoutev4GlobalsGet(::grpc::ClientContext* context, const ::service_layer::SLRouteGlobalsGetMsg* request, ::service_layer::SLRouteGlobalsGetMsgRsp* response, std::function<void(::grpc::Status)> f) {
+  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_SLRoutev4GlobalsGet_, context, request, response, std::move(f));
+}
+
+void SLRoutev4Oper::Stub::experimental_async::SLRoutev4GlobalsGet(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::service_layer::SLRouteGlobalsGetMsgRsp* response, std::function<void(::grpc::Status)> f) {
+  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_SLRoutev4GlobalsGet_, context, request, response, std::move(f));
+}
+
+void SLRoutev4Oper::Stub::experimental_async::SLRoutev4GlobalsGet(::grpc::ClientContext* context, const ::service_layer::SLRouteGlobalsGetMsg* request, ::service_layer::SLRouteGlobalsGetMsgRsp* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_SLRoutev4GlobalsGet_, context, request, response, reactor);
+}
+
+void SLRoutev4Oper::Stub::experimental_async::SLRoutev4GlobalsGet(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::service_layer::SLRouteGlobalsGetMsgRsp* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_SLRoutev4GlobalsGet_, context, request, response, reactor);
+}
+
 ::grpc::ClientAsyncResponseReader< ::service_layer::SLRouteGlobalsGetMsgRsp>* SLRoutev4Oper::Stub::AsyncSLRoutev4GlobalsGetRaw(::grpc::ClientContext* context, const ::service_layer::SLRouteGlobalsGetMsg& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::service_layer::SLRouteGlobalsGetMsgRsp>::Create(channel_.get(), cq, rpcmethod_SLRoutev4GlobalsGet_, context, request, true);
+  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::service_layer::SLRouteGlobalsGetMsgRsp>::Create(channel_.get(), cq, rpcmethod_SLRoutev4GlobalsGet_, context, request, true);
 }
 
 ::grpc::ClientAsyncResponseReader< ::service_layer::SLRouteGlobalsGetMsgRsp>* SLRoutev4Oper::Stub::PrepareAsyncSLRoutev4GlobalsGetRaw(::grpc::ClientContext* context, const ::service_layer::SLRouteGlobalsGetMsg& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::service_layer::SLRouteGlobalsGetMsgRsp>::Create(channel_.get(), cq, rpcmethod_SLRoutev4GlobalsGet_, context, request, false);
+  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::service_layer::SLRouteGlobalsGetMsgRsp>::Create(channel_.get(), cq, rpcmethod_SLRoutev4GlobalsGet_, context, request, false);
 }
 
 ::grpc::Status SLRoutev4Oper::Stub::SLRoutev4GlobalStatsGet(::grpc::ClientContext* context, const ::service_layer::SLRouteGlobalStatsGetMsg& request, ::service_layer::SLRouteGlobalStatsGetMsgRsp* response) {
   return ::grpc::internal::BlockingUnaryCall(channel_.get(), rpcmethod_SLRoutev4GlobalStatsGet_, context, request, response);
 }
 
+void SLRoutev4Oper::Stub::experimental_async::SLRoutev4GlobalStatsGet(::grpc::ClientContext* context, const ::service_layer::SLRouteGlobalStatsGetMsg* request, ::service_layer::SLRouteGlobalStatsGetMsgRsp* response, std::function<void(::grpc::Status)> f) {
+  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_SLRoutev4GlobalStatsGet_, context, request, response, std::move(f));
+}
+
+void SLRoutev4Oper::Stub::experimental_async::SLRoutev4GlobalStatsGet(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::service_layer::SLRouteGlobalStatsGetMsgRsp* response, std::function<void(::grpc::Status)> f) {
+  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_SLRoutev4GlobalStatsGet_, context, request, response, std::move(f));
+}
+
+void SLRoutev4Oper::Stub::experimental_async::SLRoutev4GlobalStatsGet(::grpc::ClientContext* context, const ::service_layer::SLRouteGlobalStatsGetMsg* request, ::service_layer::SLRouteGlobalStatsGetMsgRsp* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_SLRoutev4GlobalStatsGet_, context, request, response, reactor);
+}
+
+void SLRoutev4Oper::Stub::experimental_async::SLRoutev4GlobalStatsGet(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::service_layer::SLRouteGlobalStatsGetMsgRsp* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_SLRoutev4GlobalStatsGet_, context, request, response, reactor);
+}
+
 ::grpc::ClientAsyncResponseReader< ::service_layer::SLRouteGlobalStatsGetMsgRsp>* SLRoutev4Oper::Stub::AsyncSLRoutev4GlobalStatsGetRaw(::grpc::ClientContext* context, const ::service_layer::SLRouteGlobalStatsGetMsg& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::service_layer::SLRouteGlobalStatsGetMsgRsp>::Create(channel_.get(), cq, rpcmethod_SLRoutev4GlobalStatsGet_, context, request, true);
+  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::service_layer::SLRouteGlobalStatsGetMsgRsp>::Create(channel_.get(), cq, rpcmethod_SLRoutev4GlobalStatsGet_, context, request, true);
 }
 
 ::grpc::ClientAsyncResponseReader< ::service_layer::SLRouteGlobalStatsGetMsgRsp>* SLRoutev4Oper::Stub::PrepareAsyncSLRoutev4GlobalStatsGetRaw(::grpc::ClientContext* context, const ::service_layer::SLRouteGlobalStatsGetMsg& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::service_layer::SLRouteGlobalStatsGetMsgRsp>::Create(channel_.get(), cq, rpcmethod_SLRoutev4GlobalStatsGet_, context, request, false);
+  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::service_layer::SLRouteGlobalStatsGetMsgRsp>::Create(channel_.get(), cq, rpcmethod_SLRoutev4GlobalStatsGet_, context, request, false);
 }
 
 ::grpc::Status SLRoutev4Oper::Stub::SLRoutev4VrfRegOp(::grpc::ClientContext* context, const ::service_layer::SLVrfRegMsg& request, ::service_layer::SLVrfRegMsgRsp* response) {
   return ::grpc::internal::BlockingUnaryCall(channel_.get(), rpcmethod_SLRoutev4VrfRegOp_, context, request, response);
 }
 
+void SLRoutev4Oper::Stub::experimental_async::SLRoutev4VrfRegOp(::grpc::ClientContext* context, const ::service_layer::SLVrfRegMsg* request, ::service_layer::SLVrfRegMsgRsp* response, std::function<void(::grpc::Status)> f) {
+  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_SLRoutev4VrfRegOp_, context, request, response, std::move(f));
+}
+
+void SLRoutev4Oper::Stub::experimental_async::SLRoutev4VrfRegOp(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::service_layer::SLVrfRegMsgRsp* response, std::function<void(::grpc::Status)> f) {
+  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_SLRoutev4VrfRegOp_, context, request, response, std::move(f));
+}
+
+void SLRoutev4Oper::Stub::experimental_async::SLRoutev4VrfRegOp(::grpc::ClientContext* context, const ::service_layer::SLVrfRegMsg* request, ::service_layer::SLVrfRegMsgRsp* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_SLRoutev4VrfRegOp_, context, request, response, reactor);
+}
+
+void SLRoutev4Oper::Stub::experimental_async::SLRoutev4VrfRegOp(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::service_layer::SLVrfRegMsgRsp* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_SLRoutev4VrfRegOp_, context, request, response, reactor);
+}
+
 ::grpc::ClientAsyncResponseReader< ::service_layer::SLVrfRegMsgRsp>* SLRoutev4Oper::Stub::AsyncSLRoutev4VrfRegOpRaw(::grpc::ClientContext* context, const ::service_layer::SLVrfRegMsg& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::service_layer::SLVrfRegMsgRsp>::Create(channel_.get(), cq, rpcmethod_SLRoutev4VrfRegOp_, context, request, true);
+  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::service_layer::SLVrfRegMsgRsp>::Create(channel_.get(), cq, rpcmethod_SLRoutev4VrfRegOp_, context, request, true);
 }
 
 ::grpc::ClientAsyncResponseReader< ::service_layer::SLVrfRegMsgRsp>* SLRoutev4Oper::Stub::PrepareAsyncSLRoutev4VrfRegOpRaw(::grpc::ClientContext* context, const ::service_layer::SLVrfRegMsg& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::service_layer::SLVrfRegMsgRsp>::Create(channel_.get(), cq, rpcmethod_SLRoutev4VrfRegOp_, context, request, false);
+  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::service_layer::SLVrfRegMsgRsp>::Create(channel_.get(), cq, rpcmethod_SLRoutev4VrfRegOp_, context, request, false);
 }
 
 ::grpc::Status SLRoutev4Oper::Stub::SLRoutev4VrfRegGet(::grpc::ClientContext* context, const ::service_layer::SLVrfRegGetMsg& request, ::service_layer::SLVrfRegGetMsgRsp* response) {
   return ::grpc::internal::BlockingUnaryCall(channel_.get(), rpcmethod_SLRoutev4VrfRegGet_, context, request, response);
 }
 
+void SLRoutev4Oper::Stub::experimental_async::SLRoutev4VrfRegGet(::grpc::ClientContext* context, const ::service_layer::SLVrfRegGetMsg* request, ::service_layer::SLVrfRegGetMsgRsp* response, std::function<void(::grpc::Status)> f) {
+  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_SLRoutev4VrfRegGet_, context, request, response, std::move(f));
+}
+
+void SLRoutev4Oper::Stub::experimental_async::SLRoutev4VrfRegGet(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::service_layer::SLVrfRegGetMsgRsp* response, std::function<void(::grpc::Status)> f) {
+  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_SLRoutev4VrfRegGet_, context, request, response, std::move(f));
+}
+
+void SLRoutev4Oper::Stub::experimental_async::SLRoutev4VrfRegGet(::grpc::ClientContext* context, const ::service_layer::SLVrfRegGetMsg* request, ::service_layer::SLVrfRegGetMsgRsp* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_SLRoutev4VrfRegGet_, context, request, response, reactor);
+}
+
+void SLRoutev4Oper::Stub::experimental_async::SLRoutev4VrfRegGet(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::service_layer::SLVrfRegGetMsgRsp* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_SLRoutev4VrfRegGet_, context, request, response, reactor);
+}
+
 ::grpc::ClientAsyncResponseReader< ::service_layer::SLVrfRegGetMsgRsp>* SLRoutev4Oper::Stub::AsyncSLRoutev4VrfRegGetRaw(::grpc::ClientContext* context, const ::service_layer::SLVrfRegGetMsg& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::service_layer::SLVrfRegGetMsgRsp>::Create(channel_.get(), cq, rpcmethod_SLRoutev4VrfRegGet_, context, request, true);
+  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::service_layer::SLVrfRegGetMsgRsp>::Create(channel_.get(), cq, rpcmethod_SLRoutev4VrfRegGet_, context, request, true);
 }
 
 ::grpc::ClientAsyncResponseReader< ::service_layer::SLVrfRegGetMsgRsp>* SLRoutev4Oper::Stub::PrepareAsyncSLRoutev4VrfRegGetRaw(::grpc::ClientContext* context, const ::service_layer::SLVrfRegGetMsg& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::service_layer::SLVrfRegGetMsgRsp>::Create(channel_.get(), cq, rpcmethod_SLRoutev4VrfRegGet_, context, request, false);
+  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::service_layer::SLVrfRegGetMsgRsp>::Create(channel_.get(), cq, rpcmethod_SLRoutev4VrfRegGet_, context, request, false);
 }
 
 ::grpc::Status SLRoutev4Oper::Stub::SLRoutev4VrfGetStats(::grpc::ClientContext* context, const ::service_layer::SLVrfRegGetMsg& request, ::service_layer::SLVRFGetStatsMsgRsp* response) {
   return ::grpc::internal::BlockingUnaryCall(channel_.get(), rpcmethod_SLRoutev4VrfGetStats_, context, request, response);
 }
 
+void SLRoutev4Oper::Stub::experimental_async::SLRoutev4VrfGetStats(::grpc::ClientContext* context, const ::service_layer::SLVrfRegGetMsg* request, ::service_layer::SLVRFGetStatsMsgRsp* response, std::function<void(::grpc::Status)> f) {
+  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_SLRoutev4VrfGetStats_, context, request, response, std::move(f));
+}
+
+void SLRoutev4Oper::Stub::experimental_async::SLRoutev4VrfGetStats(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::service_layer::SLVRFGetStatsMsgRsp* response, std::function<void(::grpc::Status)> f) {
+  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_SLRoutev4VrfGetStats_, context, request, response, std::move(f));
+}
+
+void SLRoutev4Oper::Stub::experimental_async::SLRoutev4VrfGetStats(::grpc::ClientContext* context, const ::service_layer::SLVrfRegGetMsg* request, ::service_layer::SLVRFGetStatsMsgRsp* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_SLRoutev4VrfGetStats_, context, request, response, reactor);
+}
+
+void SLRoutev4Oper::Stub::experimental_async::SLRoutev4VrfGetStats(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::service_layer::SLVRFGetStatsMsgRsp* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_SLRoutev4VrfGetStats_, context, request, response, reactor);
+}
+
 ::grpc::ClientAsyncResponseReader< ::service_layer::SLVRFGetStatsMsgRsp>* SLRoutev4Oper::Stub::AsyncSLRoutev4VrfGetStatsRaw(::grpc::ClientContext* context, const ::service_layer::SLVrfRegGetMsg& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::service_layer::SLVRFGetStatsMsgRsp>::Create(channel_.get(), cq, rpcmethod_SLRoutev4VrfGetStats_, context, request, true);
+  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::service_layer::SLVRFGetStatsMsgRsp>::Create(channel_.get(), cq, rpcmethod_SLRoutev4VrfGetStats_, context, request, true);
 }
 
 ::grpc::ClientAsyncResponseReader< ::service_layer::SLVRFGetStatsMsgRsp>* SLRoutev4Oper::Stub::PrepareAsyncSLRoutev4VrfGetStatsRaw(::grpc::ClientContext* context, const ::service_layer::SLVrfRegGetMsg& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::service_layer::SLVRFGetStatsMsgRsp>::Create(channel_.get(), cq, rpcmethod_SLRoutev4VrfGetStats_, context, request, false);
+  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::service_layer::SLVRFGetStatsMsgRsp>::Create(channel_.get(), cq, rpcmethod_SLRoutev4VrfGetStats_, context, request, false);
 }
 
 ::grpc::Status SLRoutev4Oper::Stub::SLRoutev4Op(::grpc::ClientContext* context, const ::service_layer::SLRoutev4Msg& request, ::service_layer::SLRoutev4MsgRsp* response) {
   return ::grpc::internal::BlockingUnaryCall(channel_.get(), rpcmethod_SLRoutev4Op_, context, request, response);
 }
 
+void SLRoutev4Oper::Stub::experimental_async::SLRoutev4Op(::grpc::ClientContext* context, const ::service_layer::SLRoutev4Msg* request, ::service_layer::SLRoutev4MsgRsp* response, std::function<void(::grpc::Status)> f) {
+  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_SLRoutev4Op_, context, request, response, std::move(f));
+}
+
+void SLRoutev4Oper::Stub::experimental_async::SLRoutev4Op(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::service_layer::SLRoutev4MsgRsp* response, std::function<void(::grpc::Status)> f) {
+  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_SLRoutev4Op_, context, request, response, std::move(f));
+}
+
+void SLRoutev4Oper::Stub::experimental_async::SLRoutev4Op(::grpc::ClientContext* context, const ::service_layer::SLRoutev4Msg* request, ::service_layer::SLRoutev4MsgRsp* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_SLRoutev4Op_, context, request, response, reactor);
+}
+
+void SLRoutev4Oper::Stub::experimental_async::SLRoutev4Op(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::service_layer::SLRoutev4MsgRsp* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_SLRoutev4Op_, context, request, response, reactor);
+}
+
 ::grpc::ClientAsyncResponseReader< ::service_layer::SLRoutev4MsgRsp>* SLRoutev4Oper::Stub::AsyncSLRoutev4OpRaw(::grpc::ClientContext* context, const ::service_layer::SLRoutev4Msg& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::service_layer::SLRoutev4MsgRsp>::Create(channel_.get(), cq, rpcmethod_SLRoutev4Op_, context, request, true);
+  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::service_layer::SLRoutev4MsgRsp>::Create(channel_.get(), cq, rpcmethod_SLRoutev4Op_, context, request, true);
 }
 
 ::grpc::ClientAsyncResponseReader< ::service_layer::SLRoutev4MsgRsp>* SLRoutev4Oper::Stub::PrepareAsyncSLRoutev4OpRaw(::grpc::ClientContext* context, const ::service_layer::SLRoutev4Msg& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::service_layer::SLRoutev4MsgRsp>::Create(channel_.get(), cq, rpcmethod_SLRoutev4Op_, context, request, false);
+  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::service_layer::SLRoutev4MsgRsp>::Create(channel_.get(), cq, rpcmethod_SLRoutev4Op_, context, request, false);
 }
 
 ::grpc::Status SLRoutev4Oper::Stub::SLRoutev4Get(::grpc::ClientContext* context, const ::service_layer::SLRoutev4GetMsg& request, ::service_layer::SLRoutev4GetMsgRsp* response) {
   return ::grpc::internal::BlockingUnaryCall(channel_.get(), rpcmethod_SLRoutev4Get_, context, request, response);
 }
 
+void SLRoutev4Oper::Stub::experimental_async::SLRoutev4Get(::grpc::ClientContext* context, const ::service_layer::SLRoutev4GetMsg* request, ::service_layer::SLRoutev4GetMsgRsp* response, std::function<void(::grpc::Status)> f) {
+  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_SLRoutev4Get_, context, request, response, std::move(f));
+}
+
+void SLRoutev4Oper::Stub::experimental_async::SLRoutev4Get(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::service_layer::SLRoutev4GetMsgRsp* response, std::function<void(::grpc::Status)> f) {
+  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_SLRoutev4Get_, context, request, response, std::move(f));
+}
+
+void SLRoutev4Oper::Stub::experimental_async::SLRoutev4Get(::grpc::ClientContext* context, const ::service_layer::SLRoutev4GetMsg* request, ::service_layer::SLRoutev4GetMsgRsp* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_SLRoutev4Get_, context, request, response, reactor);
+}
+
+void SLRoutev4Oper::Stub::experimental_async::SLRoutev4Get(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::service_layer::SLRoutev4GetMsgRsp* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_SLRoutev4Get_, context, request, response, reactor);
+}
+
 ::grpc::ClientAsyncResponseReader< ::service_layer::SLRoutev4GetMsgRsp>* SLRoutev4Oper::Stub::AsyncSLRoutev4GetRaw(::grpc::ClientContext* context, const ::service_layer::SLRoutev4GetMsg& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::service_layer::SLRoutev4GetMsgRsp>::Create(channel_.get(), cq, rpcmethod_SLRoutev4Get_, context, request, true);
+  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::service_layer::SLRoutev4GetMsgRsp>::Create(channel_.get(), cq, rpcmethod_SLRoutev4Get_, context, request, true);
 }
 
 ::grpc::ClientAsyncResponseReader< ::service_layer::SLRoutev4GetMsgRsp>* SLRoutev4Oper::Stub::PrepareAsyncSLRoutev4GetRaw(::grpc::ClientContext* context, const ::service_layer::SLRoutev4GetMsg& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::service_layer::SLRoutev4GetMsgRsp>::Create(channel_.get(), cq, rpcmethod_SLRoutev4Get_, context, request, false);
+  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::service_layer::SLRoutev4GetMsgRsp>::Create(channel_.get(), cq, rpcmethod_SLRoutev4Get_, context, request, false);
 }
 
 ::grpc::ClientReaderWriter< ::service_layer::SLRoutev4Msg, ::service_layer::SLRoutev4MsgRsp>* SLRoutev4Oper::Stub::SLRoutev4OpStreamRaw(::grpc::ClientContext* context) {
-  return ::grpc::internal::ClientReaderWriterFactory< ::service_layer::SLRoutev4Msg, ::service_layer::SLRoutev4MsgRsp>::Create(channel_.get(), rpcmethod_SLRoutev4OpStream_, context);
+  return ::grpc_impl::internal::ClientReaderWriterFactory< ::service_layer::SLRoutev4Msg, ::service_layer::SLRoutev4MsgRsp>::Create(channel_.get(), rpcmethod_SLRoutev4OpStream_, context);
+}
+
+void SLRoutev4Oper::Stub::experimental_async::SLRoutev4OpStream(::grpc::ClientContext* context, ::grpc::experimental::ClientBidiReactor< ::service_layer::SLRoutev4Msg,::service_layer::SLRoutev4MsgRsp>* reactor) {
+  ::grpc_impl::internal::ClientCallbackReaderWriterFactory< ::service_layer::SLRoutev4Msg,::service_layer::SLRoutev4MsgRsp>::Create(stub_->channel_.get(), stub_->rpcmethod_SLRoutev4OpStream_, context, reactor);
 }
 
 ::grpc::ClientAsyncReaderWriter< ::service_layer::SLRoutev4Msg, ::service_layer::SLRoutev4MsgRsp>* SLRoutev4Oper::Stub::AsyncSLRoutev4OpStreamRaw(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq, void* tag) {
-  return ::grpc::internal::ClientAsyncReaderWriterFactory< ::service_layer::SLRoutev4Msg, ::service_layer::SLRoutev4MsgRsp>::Create(channel_.get(), cq, rpcmethod_SLRoutev4OpStream_, context, true, tag);
+  return ::grpc_impl::internal::ClientAsyncReaderWriterFactory< ::service_layer::SLRoutev4Msg, ::service_layer::SLRoutev4MsgRsp>::Create(channel_.get(), cq, rpcmethod_SLRoutev4OpStream_, context, true, tag);
 }
 
 ::grpc::ClientAsyncReaderWriter< ::service_layer::SLRoutev4Msg, ::service_layer::SLRoutev4MsgRsp>* SLRoutev4Oper::Stub::PrepareAsyncSLRoutev4OpStreamRaw(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncReaderWriterFactory< ::service_layer::SLRoutev4Msg, ::service_layer::SLRoutev4MsgRsp>::Create(channel_.get(), cq, rpcmethod_SLRoutev4OpStream_, context, false, nullptr);
+  return ::grpc_impl::internal::ClientAsyncReaderWriterFactory< ::service_layer::SLRoutev4Msg, ::service_layer::SLRoutev4MsgRsp>::Create(channel_.get(), cq, rpcmethod_SLRoutev4OpStream_, context, false, nullptr);
 }
 
 ::grpc::ClientReaderWriter< ::service_layer::SLRoutev4GetMsg, ::service_layer::SLRoutev4GetMsgRsp>* SLRoutev4Oper::Stub::SLRoutev4GetStreamRaw(::grpc::ClientContext* context) {
-  return ::grpc::internal::ClientReaderWriterFactory< ::service_layer::SLRoutev4GetMsg, ::service_layer::SLRoutev4GetMsgRsp>::Create(channel_.get(), rpcmethod_SLRoutev4GetStream_, context);
+  return ::grpc_impl::internal::ClientReaderWriterFactory< ::service_layer::SLRoutev4GetMsg, ::service_layer::SLRoutev4GetMsgRsp>::Create(channel_.get(), rpcmethod_SLRoutev4GetStream_, context);
+}
+
+void SLRoutev4Oper::Stub::experimental_async::SLRoutev4GetStream(::grpc::ClientContext* context, ::grpc::experimental::ClientBidiReactor< ::service_layer::SLRoutev4GetMsg,::service_layer::SLRoutev4GetMsgRsp>* reactor) {
+  ::grpc_impl::internal::ClientCallbackReaderWriterFactory< ::service_layer::SLRoutev4GetMsg,::service_layer::SLRoutev4GetMsgRsp>::Create(stub_->channel_.get(), stub_->rpcmethod_SLRoutev4GetStream_, context, reactor);
 }
 
 ::grpc::ClientAsyncReaderWriter< ::service_layer::SLRoutev4GetMsg, ::service_layer::SLRoutev4GetMsgRsp>* SLRoutev4Oper::Stub::AsyncSLRoutev4GetStreamRaw(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq, void* tag) {
-  return ::grpc::internal::ClientAsyncReaderWriterFactory< ::service_layer::SLRoutev4GetMsg, ::service_layer::SLRoutev4GetMsgRsp>::Create(channel_.get(), cq, rpcmethod_SLRoutev4GetStream_, context, true, tag);
+  return ::grpc_impl::internal::ClientAsyncReaderWriterFactory< ::service_layer::SLRoutev4GetMsg, ::service_layer::SLRoutev4GetMsgRsp>::Create(channel_.get(), cq, rpcmethod_SLRoutev4GetStream_, context, true, tag);
 }
 
 ::grpc::ClientAsyncReaderWriter< ::service_layer::SLRoutev4GetMsg, ::service_layer::SLRoutev4GetMsgRsp>* SLRoutev4Oper::Stub::PrepareAsyncSLRoutev4GetStreamRaw(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncReaderWriterFactory< ::service_layer::SLRoutev4GetMsg, ::service_layer::SLRoutev4GetMsgRsp>::Create(channel_.get(), cq, rpcmethod_SLRoutev4GetStream_, context, false, nullptr);
+  return ::grpc_impl::internal::ClientAsyncReaderWriterFactory< ::service_layer::SLRoutev4GetMsg, ::service_layer::SLRoutev4GetMsgRsp>::Create(channel_.get(), cq, rpcmethod_SLRoutev4GetStream_, context, false, nullptr);
 }
 
 ::grpc::ClientReaderWriter< ::service_layer::SLRouteGetNotifMsg, ::service_layer::SLRoutev4Notif>* SLRoutev4Oper::Stub::SLRoutev4GetNotifStreamRaw(::grpc::ClientContext* context) {
-  return ::grpc::internal::ClientReaderWriterFactory< ::service_layer::SLRouteGetNotifMsg, ::service_layer::SLRoutev4Notif>::Create(channel_.get(), rpcmethod_SLRoutev4GetNotifStream_, context);
+  return ::grpc_impl::internal::ClientReaderWriterFactory< ::service_layer::SLRouteGetNotifMsg, ::service_layer::SLRoutev4Notif>::Create(channel_.get(), rpcmethod_SLRoutev4GetNotifStream_, context);
+}
+
+void SLRoutev4Oper::Stub::experimental_async::SLRoutev4GetNotifStream(::grpc::ClientContext* context, ::grpc::experimental::ClientBidiReactor< ::service_layer::SLRouteGetNotifMsg,::service_layer::SLRoutev4Notif>* reactor) {
+  ::grpc_impl::internal::ClientCallbackReaderWriterFactory< ::service_layer::SLRouteGetNotifMsg,::service_layer::SLRoutev4Notif>::Create(stub_->channel_.get(), stub_->rpcmethod_SLRoutev4GetNotifStream_, context, reactor);
 }
 
 ::grpc::ClientAsyncReaderWriter< ::service_layer::SLRouteGetNotifMsg, ::service_layer::SLRoutev4Notif>* SLRoutev4Oper::Stub::AsyncSLRoutev4GetNotifStreamRaw(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq, void* tag) {
-  return ::grpc::internal::ClientAsyncReaderWriterFactory< ::service_layer::SLRouteGetNotifMsg, ::service_layer::SLRoutev4Notif>::Create(channel_.get(), cq, rpcmethod_SLRoutev4GetNotifStream_, context, true, tag);
+  return ::grpc_impl::internal::ClientAsyncReaderWriterFactory< ::service_layer::SLRouteGetNotifMsg, ::service_layer::SLRoutev4Notif>::Create(channel_.get(), cq, rpcmethod_SLRoutev4GetNotifStream_, context, true, tag);
 }
 
 ::grpc::ClientAsyncReaderWriter< ::service_layer::SLRouteGetNotifMsg, ::service_layer::SLRoutev4Notif>* SLRoutev4Oper::Stub::PrepareAsyncSLRoutev4GetNotifStreamRaw(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncReaderWriterFactory< ::service_layer::SLRouteGetNotifMsg, ::service_layer::SLRoutev4Notif>::Create(channel_.get(), cq, rpcmethod_SLRoutev4GetNotifStream_, context, false, nullptr);
+  return ::grpc_impl::internal::ClientAsyncReaderWriterFactory< ::service_layer::SLRouteGetNotifMsg, ::service_layer::SLRoutev4Notif>::Create(channel_.get(), cq, rpcmethod_SLRoutev4GetNotifStream_, context, false, nullptr);
 }
 
 SLRoutev4Oper::Service::Service() {
@@ -172,52 +302,102 @@ SLRoutev4Oper::Service::Service() {
       SLRoutev4Oper_method_names[0],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
       new ::grpc::internal::RpcMethodHandler< SLRoutev4Oper::Service, ::service_layer::SLRouteGlobalsGetMsg, ::service_layer::SLRouteGlobalsGetMsgRsp>(
-          std::mem_fn(&SLRoutev4Oper::Service::SLRoutev4GlobalsGet), this)));
+          [](SLRoutev4Oper::Service* service,
+             ::grpc_impl::ServerContext* ctx,
+             const ::service_layer::SLRouteGlobalsGetMsg* req,
+             ::service_layer::SLRouteGlobalsGetMsgRsp* resp) {
+               return service->SLRoutev4GlobalsGet(ctx, req, resp);
+             }, this)));
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       SLRoutev4Oper_method_names[1],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
       new ::grpc::internal::RpcMethodHandler< SLRoutev4Oper::Service, ::service_layer::SLRouteGlobalStatsGetMsg, ::service_layer::SLRouteGlobalStatsGetMsgRsp>(
-          std::mem_fn(&SLRoutev4Oper::Service::SLRoutev4GlobalStatsGet), this)));
+          [](SLRoutev4Oper::Service* service,
+             ::grpc_impl::ServerContext* ctx,
+             const ::service_layer::SLRouteGlobalStatsGetMsg* req,
+             ::service_layer::SLRouteGlobalStatsGetMsgRsp* resp) {
+               return service->SLRoutev4GlobalStatsGet(ctx, req, resp);
+             }, this)));
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       SLRoutev4Oper_method_names[2],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
       new ::grpc::internal::RpcMethodHandler< SLRoutev4Oper::Service, ::service_layer::SLVrfRegMsg, ::service_layer::SLVrfRegMsgRsp>(
-          std::mem_fn(&SLRoutev4Oper::Service::SLRoutev4VrfRegOp), this)));
+          [](SLRoutev4Oper::Service* service,
+             ::grpc_impl::ServerContext* ctx,
+             const ::service_layer::SLVrfRegMsg* req,
+             ::service_layer::SLVrfRegMsgRsp* resp) {
+               return service->SLRoutev4VrfRegOp(ctx, req, resp);
+             }, this)));
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       SLRoutev4Oper_method_names[3],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
       new ::grpc::internal::RpcMethodHandler< SLRoutev4Oper::Service, ::service_layer::SLVrfRegGetMsg, ::service_layer::SLVrfRegGetMsgRsp>(
-          std::mem_fn(&SLRoutev4Oper::Service::SLRoutev4VrfRegGet), this)));
+          [](SLRoutev4Oper::Service* service,
+             ::grpc_impl::ServerContext* ctx,
+             const ::service_layer::SLVrfRegGetMsg* req,
+             ::service_layer::SLVrfRegGetMsgRsp* resp) {
+               return service->SLRoutev4VrfRegGet(ctx, req, resp);
+             }, this)));
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       SLRoutev4Oper_method_names[4],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
       new ::grpc::internal::RpcMethodHandler< SLRoutev4Oper::Service, ::service_layer::SLVrfRegGetMsg, ::service_layer::SLVRFGetStatsMsgRsp>(
-          std::mem_fn(&SLRoutev4Oper::Service::SLRoutev4VrfGetStats), this)));
+          [](SLRoutev4Oper::Service* service,
+             ::grpc_impl::ServerContext* ctx,
+             const ::service_layer::SLVrfRegGetMsg* req,
+             ::service_layer::SLVRFGetStatsMsgRsp* resp) {
+               return service->SLRoutev4VrfGetStats(ctx, req, resp);
+             }, this)));
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       SLRoutev4Oper_method_names[5],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
       new ::grpc::internal::RpcMethodHandler< SLRoutev4Oper::Service, ::service_layer::SLRoutev4Msg, ::service_layer::SLRoutev4MsgRsp>(
-          std::mem_fn(&SLRoutev4Oper::Service::SLRoutev4Op), this)));
+          [](SLRoutev4Oper::Service* service,
+             ::grpc_impl::ServerContext* ctx,
+             const ::service_layer::SLRoutev4Msg* req,
+             ::service_layer::SLRoutev4MsgRsp* resp) {
+               return service->SLRoutev4Op(ctx, req, resp);
+             }, this)));
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       SLRoutev4Oper_method_names[6],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
       new ::grpc::internal::RpcMethodHandler< SLRoutev4Oper::Service, ::service_layer::SLRoutev4GetMsg, ::service_layer::SLRoutev4GetMsgRsp>(
-          std::mem_fn(&SLRoutev4Oper::Service::SLRoutev4Get), this)));
+          [](SLRoutev4Oper::Service* service,
+             ::grpc_impl::ServerContext* ctx,
+             const ::service_layer::SLRoutev4GetMsg* req,
+             ::service_layer::SLRoutev4GetMsgRsp* resp) {
+               return service->SLRoutev4Get(ctx, req, resp);
+             }, this)));
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       SLRoutev4Oper_method_names[7],
       ::grpc::internal::RpcMethod::BIDI_STREAMING,
       new ::grpc::internal::BidiStreamingHandler< SLRoutev4Oper::Service, ::service_layer::SLRoutev4Msg, ::service_layer::SLRoutev4MsgRsp>(
-          std::mem_fn(&SLRoutev4Oper::Service::SLRoutev4OpStream), this)));
+          [](SLRoutev4Oper::Service* service,
+             ::grpc_impl::ServerContext* ctx,
+             ::grpc_impl::ServerReaderWriter<::service_layer::SLRoutev4MsgRsp,
+             ::service_layer::SLRoutev4Msg>* stream) {
+               return service->SLRoutev4OpStream(ctx, stream);
+             }, this)));
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       SLRoutev4Oper_method_names[8],
       ::grpc::internal::RpcMethod::BIDI_STREAMING,
       new ::grpc::internal::BidiStreamingHandler< SLRoutev4Oper::Service, ::service_layer::SLRoutev4GetMsg, ::service_layer::SLRoutev4GetMsgRsp>(
-          std::mem_fn(&SLRoutev4Oper::Service::SLRoutev4GetStream), this)));
+          [](SLRoutev4Oper::Service* service,
+             ::grpc_impl::ServerContext* ctx,
+             ::grpc_impl::ServerReaderWriter<::service_layer::SLRoutev4GetMsgRsp,
+             ::service_layer::SLRoutev4GetMsg>* stream) {
+               return service->SLRoutev4GetStream(ctx, stream);
+             }, this)));
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       SLRoutev4Oper_method_names[9],
       ::grpc::internal::RpcMethod::BIDI_STREAMING,
       new ::grpc::internal::BidiStreamingHandler< SLRoutev4Oper::Service, ::service_layer::SLRouteGetNotifMsg, ::service_layer::SLRoutev4Notif>(
-          std::mem_fn(&SLRoutev4Oper::Service::SLRoutev4GetNotifStream), this)));
+          [](SLRoutev4Oper::Service* service,
+             ::grpc_impl::ServerContext* ctx,
+             ::grpc_impl::ServerReaderWriter<::service_layer::SLRoutev4Notif,
+             ::service_layer::SLRouteGetNotifMsg>* stream) {
+               return service->SLRoutev4GetNotifStream(ctx, stream);
+             }, this)));
 }
 
 SLRoutev4Oper::Service::~Service() {
