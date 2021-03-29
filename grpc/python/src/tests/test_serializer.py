@@ -19,6 +19,7 @@ from genpy import (
 )
 
 
+@unittest.skip('This test case is not maintained and only included for reference')
 class SerializerTestCase(unittest.TestCase):
     def setUp(self):
         filepath = os.path.join(os.path.dirname(__file__), 'template.json')
@@ -31,7 +32,7 @@ class SerializerTestCase(unittest.TestCase):
         params = (
             self.context['batch_v4_route'],
             self.context['paths'],
-            self.context['nexthops'],
+            self.context['next_hops'],
         )
         serializer = serializers.route_serializer(*params)
         self.assertTrue(
@@ -77,6 +78,7 @@ class SerializerTestCase(unittest.TestCase):
                 )
 
 
+@unittest.skip('This test case is not maintained and only included for reference')
 class IlmSerializerTestCase(unittest.TestCase):
     def setUp(self):
         filepath = os.path.join(os.path.dirname(__file__), 'template.json')
@@ -89,7 +91,7 @@ class IlmSerializerTestCase(unittest.TestCase):
             self.context['batch_ilm'],
             4,
             self.context['paths'],
-            self.context['nexthops'],
+            self.context['next_hops'],
         )
         serializer, _ = serializers.ilm_serializer(*params)
         self.assertTrue(
@@ -121,6 +123,7 @@ class IlmSerializerTestCase(unittest.TestCase):
 
             print()
 
+@unittest.skip('This test case is not maintained and only included for reference')
 class CosIlmSerializerTestCase1(unittest.TestCase):
     testCase = 'scale_cos_ilm_1'
 
@@ -175,42 +178,53 @@ class CosIlmSerializerTestCase1(unittest.TestCase):
                 self.context[self.testCase],
                 4,
                 self.context['paths'],
-                self.context['nexthops'],
+                self.context['next_hops'],
                 )
             params[0]['batch_size'] = i
             self.ilm_op_stub(params)
 
 
+@unittest.skip('This test case is not maintained and only included for reference')
 class CosIlmSerializerTestCase2(CosIlmSerializerTestCase1):
     testCase = 'scale_cos_ilm_2'
 
+@unittest.skip('This test case is not maintained and only included for reference')
 class CosIlmSerializerTestCase3(CosIlmSerializerTestCase1):
     testCase = 'scale_cos_ilm_3'
 
+@unittest.skip('This test case is not maintained and only included for reference')
 class CosIlmSerializerTestCase4(CosIlmSerializerTestCase1):
     testCase = 'scale_cos_ilm_4'
 
+@unittest.skip('This test case is not maintained and only included for reference')
 class CosIlmSerializerTestCase5(CosIlmSerializerTestCase1):
     testCase = 'scale_cos_ilm_pop_and_lookup'
 
+@unittest.skip('This test case is not maintained and only included for reference')
 class CosIlmSerializerTestCase6(CosIlmSerializerTestCase1):
     testCase = 'scale_cos_ilm_v4_v6'
 
+@unittest.skip('This test case is not maintained and only included for reference')
 class CosIlmSerializerTestCase7(CosIlmSerializerTestCase1):
     testCase = 'scale_cos_ilm_update_1'
 
+@unittest.skip('This test case is not maintained and only included for reference')
 class CosIlmSerializerTestCase8(CosIlmSerializerTestCase1):
     testCase = 'scale_cos_ilm_update_2'
 
+@unittest.skip('This test case is not maintained and only included for reference')
 class CosIlmSerializerTestCase9(CosIlmSerializerTestCase1):
     testCase = 'scale_cos_ilm_update_3'
 
+@unittest.skip('This test case is not maintained and only included for reference')
 class CosIlmSerializerTestCase10(CosIlmSerializerTestCase1):
     testCase = 'scale_cos_ilm_update_4'
 
+@unittest.skip('This test case is not maintained and only included for reference')
 class CosIlmSerializerTestCase11(CosIlmSerializerTestCase1):
     testCase = 'scale_cos_ilm_update_pop_and_lookup'
 
+@unittest.skip('This test case is not maintained and only included for reference')
 class CosIlmSerializerTestCase12(CosIlmSerializerTestCase1):
     testCase = 'scale_cos_ilm_update_v4_v6'
 

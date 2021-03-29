@@ -5,7 +5,7 @@
             {
                 "cfg_detect_multi": 3,
                 "cfg_tx_int_usec": 50000,
-                "nexthop": "nh_r2_l3",
+                "next_hop": "nh_r2_l3",
                 "src_v4_addr": "10.10.10.3",
                 "src_v6_addr": "10:10:10:10::3",
                 "type": 2
@@ -17,21 +17,16 @@
             {
                 "cfg_detect_multi": 3,
                 "cfg_tx_int_usec": 50000,
-                "nexthop": "nh_r2_l1",
+                "next_hop": "nh_r2_l1",
                 "type": 1
             }
         ]
     },
     "batch_ilm": {
-        "batch_count": 5,
+        "batch_size": 5,
         "correlator": 1,
-        "ilms": [
-            {
-                "in_label": 46001,
-                "path": "path_nhlfe_connected",
-                "range": 10
-            }
-        ]
+        "label_range": [46000, 46049],
+        "label_path": { "path": "path_nhlfe_connected", "path_range": [0, 0] }
     },
     "scale_srgb_ilm_1": {
         "batch_size": 256,
@@ -253,35 +248,25 @@
     },
     "batch_v4_route": {
         "af": 4,
-        "batch_count": 5,
+        "batch_size": 100,
         "correlator": 1,
-        "routes": [
-            {
-                "admin_dist": 2,
-                "path": "path_route_connected",
-                "prefix": "10.10.11.0",
-                "prefix_len": 24,
-                "range": 100,
-                "tag": 16
-            }
-        ],
+        "admin_dist": 2,
+        "prefix_range": ["10.10.1.0", "10.10.255.0"],
+        "prefix_len": 24,
+        "path": "path_route_connected",
+        "tag": 16,
         "vrf_name": "default"
     },
     "batch_v4_route_label": {
         "af": 4,
-        "batch_count": 5,
+        "batch_size": 100,
         "correlator": 2,
-        "routes": [
-            {
-                "admin_dist": 2,
-                "local_label": 16100,
-                "path": "path_nhlfe_connected",
-                "prefix": "20.10.11.0",
-                "prefix_len": 24,
-                "range": 100,
-                "tag": 16
-            }
-        ],
+        "admin_dist": 2,
+        "local_label": 16100,
+        "path": "path_nhlfe_connected",
+        "prefix_range": ["20.10.0.0","20.10.255.0"],
+        "prefix_len": 24,
+        "tag": 16,
         "vrf_name": "default"
     },
     "batch_v4_vrf": {
@@ -296,35 +281,25 @@
     },
     "batch_v6_route": {
         "af": 6,
-        "batch_count": 5,
+        "batch_size": 100,
         "correlator": 3,
-        "routes": [
-            {
-                "admin_dist": 2,
-                "path": "path_route_connected",
-                "prefix": "10:10:10:11::0",
-                "prefix_len": 64,
-                "range": 100,
-                "tag": 17
-            }
-        ],
+        "admin_dist": 2,
+        "path": "path_route_connected",
+        "prefix_range": ["10:10:10:0::0", "10:10:10:FF::0"],
+        "prefix_len": 64,
+        "tag": 17,
         "vrf_name": "default"
     },
     "batch_v6_route_label": {
         "af": 6,
-        "batch_count": 5,
+        "batch_size": 100,
         "correlator": 4,
-        "routes": [
-            {
-                "admin_dist": 2,
-                "local_label": 16100,
-                "path": "path_nhlfe_connected",
-                "prefix": "20:10:10:11::0",
-                "prefix_len": 64,
-                "range": 100,
-                "tag": 18
-            }
-        ],
+        "admin_dist": 2,
+        "local_label": 16100,
+        "path": "path_nhlfe_connected",
+        "prefix_range": ["20:10:10:0::0", "20:10:10:FF::0"],
+        "prefix_len": 64,
+        "tag": 18,
         "vrf_name": "default"
     },
     "batch_v6_vrf": {
@@ -520,19 +495,23 @@
     "lbl_blk_get": {
         "get_exact_lbl_blk": {
             "_description": "Get Exact Match",
-            "block_size": 15000,
-            "count": 1,
+            "block_key": {
+                "block_size": 15000,
+                "start_label": 35000
+            }, 
             "get_next": 0,
-            "start_label": 35000
+            "count": 1
         },
         "get_exact_lbl_blk_client_name": {
             "_description": "Get Exact Match with client name and block type (both ignored)",
-            "block_size": 15000,
-            "client_name": "Service-layer",
-            "block_type": 1,
+            "block_key": {
+                "block_size": 15000,
+                "client_name": "Service-layer",
+                "block_type": 1,
+                "start_label": 35000
+            }, 
             "count": 1,
-            "get_next": 0,
-            "start_label": 35000
+            "get_next": 0
         },
         "get_firstN_lbl_blk": {
             "_description": "Get First N lbl_blks",
@@ -541,20 +520,24 @@
         },
         "get_nextN_include_lbl_blk": {
             "_description": "Get Next N lbl_blks starting from specified",
-            "block_size": 15000,
+            "block_key": {
+                "block_size": 15000,
+                "start_label": 35000
+            }, 
             "count": 3,
-            "get_next": 0,
-            "start_label": 35000
+            "get_next": 0
         },
         "get_nextN_lbl_blk": {
             "_description": "Get Next N lbl_blks following specified",
-            "block_size": 15000,
+            "block_key": {
+                "block_size": 15000,
+                "start_label": 35000
+            }, 
             "count": 3,
-            "get_next": 1,
-            "start_label": 35000
+            "get_next": 1
         }
     },
-    "nexthops": {
+    "next_hops": {
         "nh_r2_l1": {
             "if_name": "GigabitEthernet0/0/0/0",
             "v4_addr": "10.10.10.1",
@@ -698,7 +681,7 @@
                 ],
                 "load_metric": 1,
                 "metric": 1,
-                "nexthop": "nh_r2_l2",
+                "next_hop": "nh_r2_l2",
                 "p_bitmap": [
                     0
                 ],
@@ -723,7 +706,7 @@
                 ],
                 "load_metric": 1,
                 "metric": 1,
-                "nexthop": "nh_r2_l1"
+                "next_hop": "nh_r2_l1"
             }
         ],
         "path_nhlfe_ecmp": [
@@ -734,7 +717,7 @@
                 ],
                 "load_metric": 1,
                 "metric": 1,
-                "nexthop": "nh_r2_l1"
+                "next_hop": "nh_r2_l1"
             },
             {
                 "label_action": 1,
@@ -743,7 +726,7 @@
                 ],
                 "load_metric": 1,
                 "metric": 1,
-                "nexthop": "nh_r2_l2"
+                "next_hop": "nh_r2_l2"
             }
         ],
         "path_nhlfe_non_connected": [
@@ -752,7 +735,7 @@
                 "labels": [
                     93000
                 ],
-                "nexthop": "nh_r2_l3"
+                "next_hop": "nh_r2_l3"
             }
         ],
         "path_route_connected": [
@@ -760,7 +743,7 @@
                 "label_action": 2,
                 "load_metric": 1,
                 "metric": 1,
-                "nexthop": "nh_r2_l1"
+                "next_hop": "nh_r2_l1"
             }
         ],
         "path_route_ecmp": [
@@ -768,25 +751,25 @@
                 "label_action": 2,
                 "load_metric": 1,
                 "metric": 1,
-                "nexthop": "nh_r2_l1"
+                "next_hop": "nh_r2_l1"
             },
             {
                 "label_action": 2,
                 "load_metric": 1,
                 "metric": 1,
-                "nexthop": "nh_r2_l2"
+                "next_hop": "nh_r2_l2"
             }
         ],
         "path_route_lookup": [
             {
                 "label_action": 3,
-                "nexthop": "nh_r2_l4"
+                "next_hop": "nh_r2_l4"
             }
         ],
         "path_route_non_connected": [
             {
                 "label_action": 2,
-                "nexthop": "nh_r2_l3"
+                "next_hop": "nh_r2_l3"
             }
         ],
         "path_route_primary_with_labels_remote_pq_lfa": [
@@ -797,7 +780,7 @@
                 ],
                 "load_metric": 1,
                 "metric": 1,
-                "nexthop": "nh_r2_l1",
+                "next_hop": "nh_r2_l1",
                 "path_id": 1
             },
             {
@@ -809,7 +792,7 @@
                 ],
                 "load_metric": 1,
                 "metric": 1,
-                "nexthop": "nh_r2_l2",
+                "next_hop": "nh_r2_l2",
                 "p_bitmap": [
                     1
                 ],
@@ -832,7 +815,7 @@
                 ],
                 "load_metric": 1,
                 "metric": 1,
-                "nexthop": "nh_r2_l1",
+                "next_hop": "nh_r2_l1",
                 "path_id": 1
             },
             {
@@ -842,7 +825,7 @@
                 ],
                 "load_metric": 1,
                 "metric": 1,
-                "nexthop": "nh_r2_l2",
+                "next_hop": "nh_r2_l2",
                 "p_bitmap": [
                     1
                 ],
@@ -853,28 +836,28 @@
             {
                 "label_action": 1,
                 "labels": [ 46000 ],
-                "nexthop": "cos_nh_1"
+                "next_hop": "cos_nh_1"
             }
         ],
         "cos_path_2" : [
             {
                 "label_action": 5,
                 "labels": [],
-                "nexthop": "cos_nh_2"
+                "next_hop": "cos_nh_2"
             }
         ],
         "cos_path_3" : [
             {
                 "label_action": 1,
                 "labels": [ 46000 ],
-                "nexthop": "cos_nh_3"
+                "next_hop": "cos_nh_3"
             }
         ],
         "cos_path_4" : [
             {
                 "label_action": 1,
                 "labels": [ 46000 ],
-                "nexthop": "cos_nh_4"
+                "next_hop": "cos_nh_4"
             }
         ],
         "cos_path_5" : [
@@ -882,13 +865,13 @@
                 "label_action": 1,
                 "labels": [ 46000 ],
                 "load_metric": 2,
-                "nexthop": "cos_nh_1"
+                "next_hop": "cos_nh_1"
             },
             {
                 "label_action": 1,
                 "labels": [ 46000 ],
                 "load_metric": 2,
-                "nexthop": "cos_nh_2"
+                "next_hop": "cos_nh_2"
             }
         ],
         "cos_path_6" : [
@@ -896,13 +879,13 @@
                 "label_action": 1,
                 "labels": [ 46000 ],
                 "load_metric": 4,
-                "nexthop": "cos_nh_1"
+                "next_hop": "cos_nh_1"
             },
             {
                 "label_action": 1,
                 "labels": [ 46000 ],
                 "load_metric": 4,
-                "nexthop": "cos_nh_3"
+                "next_hop": "cos_nh_3"
             }
         ],
         "cos_path_7" : [
@@ -910,7 +893,7 @@
                 "label_action": 1,
                 "labels": [ 46000 ],
                 "load_metric": 3,
-                "nexthop": "cos_nh_1"
+                "next_hop": "cos_nh_1"
             }
         ],
         "cos_path_8" : [
@@ -918,36 +901,36 @@
                 "label_action": 1,
                 "labels": [ 46000 ],
                 "load_metric": 3,
-                "nexthop": "cos_nh_3"
+                "next_hop": "cos_nh_3"
             },
             {
                 "label_action": 1,
                 "labels": [ 46000 ],
                 "load_metric": 1,
-                "nexthop": "cos_nh_4"
+                "next_hop": "cos_nh_4"
             }
         ],
         "cos_path_9" : [
             {
                 "label_action": 1,
                 "labels": [ 46000 ],
-                "nexthop": "cos_nh_1"
+                "next_hop": "cos_nh_1"
             },
             {
                 "label_action": 1,
                 "labels": [ 46000 ],
-                "nexthop": "cos_nh_2"
+                "next_hop": "cos_nh_2"
             }
         ],
         "cos_path_10" : [
             {
                 "label_action": 1,
                 "labels": [ 46000 ],
-                "nexthop": "cos_nh_2"
+                "next_hop": "cos_nh_2"
             },
             {
                 "label_action": 1,
-                "nexthop": "cos_nh_3",
+                "next_hop": "cos_nh_3",
                 "labels": [ 46000 ]
             }
         ],
@@ -955,113 +938,113 @@
             {
                 "label_action": 1,
                 "labels": [ 46000 ],
-                "nexthop": "cos_nh_3"
+                "next_hop": "cos_nh_3"
             },
             {
                 "label_action": 1,
                 "labels": [ 46000 ],
-                "nexthop": "cos_nh_4"
+                "next_hop": "cos_nh_4"
             }
         ],
         "cos_path_12" : [
             {
                 "label_action": 1,
                 "labels": [ 46000 ],
-                "nexthop": "cos_nh_4"
+                "next_hop": "cos_nh_4"
             },
             {
                 "label_action": 1,
                 "labels": [ 46000 ],
-                "nexthop": "cos_nh_5"
+                "next_hop": "cos_nh_5"
             }
         ],
         "cos_path_13" : [
             {
                 "label_action": 1,
                 "labels": [ 46000 ],
-                "nexthop": "cos_nh_2"
+                "next_hop": "cos_nh_2"
             },
             {
                 "label_action": 1,
                 "labels": [ 46000 ],
-                "nexthop": "cos_nh_4"
+                "next_hop": "cos_nh_4"
             }
         ],
         "cos_path_14" : [
             {
                 "label_action": 1,
                 "labels": [ 46000 ],
-                "nexthop": "cos_nh_1"
+                "next_hop": "cos_nh_1"
             },
             {
                 "label_action": 1,
                 "labels": [ 46000 ],
-                "nexthop": "cos_nh_4"
+                "next_hop": "cos_nh_4"
             }
         ],
         "cos_path_15" : [
             {
                 "label_action": 1,
                 "labels": [ 46000 ],
-                "nexthop": "cos_nh_1"
+                "next_hop": "cos_nh_1"
             },
             {
                 "label_action": 1,
                 "labels": [ 46000 ],
-                "nexthop": "cos_nh_3"
+                "next_hop": "cos_nh_3"
             },
             {
                 "label_action": 1,
                 "labels": [ 46000 ],
-                "nexthop": "cos_nh_5"
+                "next_hop": "cos_nh_5"
             }
         ],
         "cos_path_16" : [
             {
                 "label_action": 1,
                 "labels": [ 46000 ],
-                "nexthop": "cos_nh_6"
+                "next_hop": "cos_nh_6"
             },
             {
                 "label_action": 1,
                 "labels": [ 46000 ],
-                "nexthop": "cos_nh_7"
+                "next_hop": "cos_nh_7"
             }
         ],
         "cos_path_17" : [
             {
                 "label_action": 1,
                 "labels": [ 46000 ],
-                "nexthop": "cos_nh_5"
+                "next_hop": "cos_nh_5"
             },
             {
                 "label_action": 1,
                 "labels": [ 46000 ],
-                "nexthop": "cos_nh_8"
+                "next_hop": "cos_nh_8"
             }
         ],
         "cos_path_18" : [
             {
                 "label_action": 5,
                 "labels": [],
-                "nexthop": "cos_nh_8"
+                "next_hop": "cos_nh_8"
             },
             {
                 "label_action": 5,
                 "labels": [],
-                "nexthop": "cos_nh_9"
+                "next_hop": "cos_nh_9"
             }
         ],
         "cos_path_19" : [
             {
                 "label_action": 1,
                 "labels": [ 46000 ],
-                "nexthop": "cos_nh_7"
+                "next_hop": "cos_nh_7"
             },
             {
                 "label_action": 1,
                 "labels": [ 46000 ],
-                "nexthop": "cos_nh_9"
+                "next_hop": "cos_nh_9"
             }
         ],
         "cos_path_20" : [
@@ -1069,7 +1052,7 @@
                 "label_action": 1,
                 "labels": [ 46000 ],
                 "load_metric": 32,
-                "nexthop": "cos_nh_1"
+                "next_hop": "cos_nh_1"
             }
         ],
         "cos_path_21" : [
@@ -1077,7 +1060,7 @@
                 "label_action": 1,
                 "labels": [ 46000 ],
                 "load_metric": 32,
-                "nexthop": "cos_nh_2"
+                "next_hop": "cos_nh_2"
             }
         ],
         "cos_path_22" : [
@@ -1085,7 +1068,7 @@
                 "label_action": 1,
                 "labels": [ 46000 ],
                 "load_metric": 32,
-                "nexthop": "cos_nh_3"
+                "next_hop": "cos_nh_3"
             }
         ],
         "cos_path_23" : [
@@ -1093,7 +1076,7 @@
                 "label_action": 1,
                 "labels": [ 46000 ],
                 "load_metric": 32,
-                "nexthop": "cos_nh_4"
+                "next_hop": "cos_nh_4"
             }
         ],
         "cos_path_24" : [
@@ -1101,7 +1084,7 @@
                 "label_action": 1,
                 "labels": [ 46000 ],
                 "load_metric": 32,
-                "nexthop": "cos_nh_5"
+                "next_hop": "cos_nh_5"
             }
         ],
         "cos_path_25" : [
@@ -1109,7 +1092,7 @@
                 "label_action": 1,
                 "labels": [ 46000 ],
                 "load_metric": 32,
-                "nexthop": "cos_nh_3"
+                "next_hop": "cos_nh_3"
             }
         ],
         "cos_path_26" : [
@@ -1117,7 +1100,7 @@
                 "label_action": 1,
                 "labels": [ 46000 ],
                 "load_metric": 32,
-                "nexthop": "cos_nh_3"
+                "next_hop": "cos_nh_3"
             }
         ],
         "cos_path_27" : [
@@ -1125,13 +1108,13 @@
                 "label_action": 1,
                 "labels": [ 46000 ],
                 "load_metric": 1,
-                "nexthop": "cos_nh_1"
+                "next_hop": "cos_nh_1"
             },
             {
                 "label_action": 1,
                 "labels": [ 46000 ],
                 "load_metric": 2,
-                "nexthop": "cos_nh_2"
+                "next_hop": "cos_nh_2"
             }
         ],
         "cos_path_28" : [
@@ -1139,13 +1122,13 @@
                 "label_action": 1,
                 "labels": [ 46000 ],
                 "load_metric": 3,
-                "nexthop": "cos_nh_2"
+                "next_hop": "cos_nh_2"
             },
             {
                 "label_action": 1,
                 "labels": [ 46000 ],
                 "load_metric": 4,
-                "nexthop": "cos_nh_3"
+                "next_hop": "cos_nh_3"
             }
         ],
         "cos_path_29" : [
@@ -1153,13 +1136,13 @@
                 "label_action": 1,
                 "labels": [ 46000 ],
                 "load_metric": 5,
-                "nexthop": "cos_nh_5"
+                "next_hop": "cos_nh_5"
             },
             {
                 "label_action": 1,
                 "labels": [ 46000 ],
                 "load_metric": 6,
-                "nexthop": "cos_nh_6"
+                "next_hop": "cos_nh_6"
             }
         ],
         "cos_path_30" : [
@@ -1167,13 +1150,13 @@
                 "label_action": 5,
                 "labels": [],
                 "load_metric": 3,
-                "nexthop": "cos_nh_3"
+                "next_hop": "cos_nh_3"
             },
             {
                 "label_action": 5,
                 "labels": [],
                 "load_metric": 4,
-                "nexthop": "cos_nh_4"
+                "next_hop": "cos_nh_4"
             }
         ],
         "cos_path_31" : [
@@ -1181,13 +1164,13 @@
                 "label_action": 1,
                 "labels": [ 46000 ],
                 "load_metric": 4,
-                "nexthop": "cos_nh_4"
+                "next_hop": "cos_nh_4"
             },
             {
                 "label_action": 1,
                 "labels": [ 46000 ],
                 "load_metric": 5,
-                "nexthop": "cos_nh_5"
+                "next_hop": "cos_nh_5"
             }
         ],
         "cos_path_32" : [
@@ -1195,13 +1178,13 @@
                 "label_action": 1,
                 "labels": [ 46000 ],
                 "load_metric": 7,
-                "nexthop": "cos_nh_7"
+                "next_hop": "cos_nh_7"
             },
             {
                 "label_action": 1,
                 "labels": [ 46000 ],
                 "load_metric": 8,
-                "nexthop": "cos_nh_8"
+                "next_hop": "cos_nh_8"
             }
         ], 
         "cos_path_33" : [
@@ -1209,7 +1192,7 @@
                 "label_action": 1,
                 "labels" : [ 0 ],
                 "load_metric": 7,
-                "nexthop": "cos_nh_7"
+                "next_hop": "cos_nh_7"
             }
         ], 
         "cos_path_34" : [
@@ -1217,21 +1200,21 @@
                 "label_action": 1,
                 "labels" : [ 3 ],
                 "load_metric": 8,
-                "nexthop": "cos_nh_8"
+                "next_hop": "cos_nh_8"
             }
         ], 
         "cos_path_35" : [
             {
                 "label_action": 3,
                 "labels" : [], 
-                "nexthop": "nh_pop_and_lookup"
+                "next_hop": "nh_pop_and_lookup"
             }
         ], 
         "cos_path_36" : [
             {
                 "label_action": 4,
                 "labels" : [],
-                "nexthop": "nh_pop_and_lookup"
+                "next_hop": "nh_pop_and_lookup"
             }
         ], 
         "cos_scale_path_1" : [
@@ -1239,109 +1222,109 @@
                 "label_action": 1,
                 "load_metric": 7,
                 "labels": [ 46000 ],
-                "nexthop": "cos_nh_1"
+                "next_hop": "cos_nh_1"
             },
             {
                 "label_action": 1,
                 "load_metric": 7,
                 "labels": [ 46001 ],
-                "nexthop": "cos_nh_2"
+                "next_hop": "cos_nh_2"
             },
             {
                 "label_action": 1,
                 "load_metric": 7,
                 "labels": [ 46002 ],
-                "nexthop": "cos_nh_3"
+                "next_hop": "cos_nh_3"
             },
             {
                 "label_action": 1,
                 "load_metric": 7,
                 "labels": [ 46003 ],
-                "nexthop": "cos_nh_4"
+                "next_hop": "cos_nh_4"
             },
             {
                 "label_action": 1,
                 "load_metric": 7,
                 "labels": [ 46004 ],
-                "nexthop": "cos_nh_5"
+                "next_hop": "cos_nh_5"
             },
             {
                 "label_action": 1,
                 "load_metric": 7,
                 "labels": [ 46005 ],
-                "nexthop": "cos_nh_6"
+                "next_hop": "cos_nh_6"
             },
             {
                 "label_action": 1,
                 "load_metric": 7,
                 "labels": [ 46006 ],
-                "nexthop": "cos_nh_7"
+                "next_hop": "cos_nh_7"
             },
             {
                 "label_action": 1,
                 "load_metric": 7,
                 "labels": [ 46007 ],
-                "nexthop": "cos_nh_8"
+                "next_hop": "cos_nh_8"
             },
             {
                 "label_action": 1,
                 "load_metric": 7,
                 "labels": [ 46008 ],
-                "nexthop": "cos_nh_9"
+                "next_hop": "cos_nh_9"
             },
             {
                 "label_action": 1,
                 "load_metric": 7,
                 "labels": [ 46009 ],
-                "nexthop": "cos_nh_10"
+                "next_hop": "cos_nh_10"
             },
             {
                 "label_action": 1,
                 "load_metric": 7,
                 "labels": [ 46010 ],
-                "nexthop": "cos_nh_11"
+                "next_hop": "cos_nh_11"
             },
             {
                 "label_action": 1,
                 "load_metric": 7,
                 "labels": [ 46011 ],
-                "nexthop": "cos_nh_12"
+                "next_hop": "cos_nh_12"
             },
             {
                 "label_action": 1,
                 "load_metric": 7,
                 "labels": [ 46012 ],
-                "nexthop": "cos_nh_13"
+                "next_hop": "cos_nh_13"
             },
             {
                 "label_action": 1,
                 "load_metric": 7,
                 "labels": [ 46013 ],
-                "nexthop": "cos_nh_14"
+                "next_hop": "cos_nh_14"
             },
             {
                 "label_action": 1,
                 "load_metric": 7,
                 "labels": [ 46014 ],
-                "nexthop": "cos_nh_15"
+                "next_hop": "cos_nh_15"
             },
             {
                 "label_action": 1,
                 "load_metric": 7,
                 "labels": [ 46015 ],
-                "nexthop": "cos_nh_16"
+                "next_hop": "cos_nh_16"
             },
             {
                 "label_action": 1,
                 "load_metric": 7,
                 "labels": [ 46016 ],
-                "nexthop": "cos_nh_17"
+                "next_hop": "cos_nh_17"
             },
             {
                 "label_action": 1,
                 "load_metric": 7,
                 "labels": [ 46017 ],
-                "nexthop": "cos_nh_18"
+                "next_hop": "cos_nh_18"
             }
         ],  
         "cos_scale_path_2" : [
@@ -1349,109 +1332,109 @@
                 "label_action": 1,
                 "load_metric": 7,
                 "labels": [ 46000 ],
-                "nexthop": "cos_nh_18"
+                "next_hop": "cos_nh_18"
             },
             {
                 "label_action": 1,
                 "load_metric": 7,
                 "labels": [ 46001 ],
-                "nexthop": "cos_nh_17"
+                "next_hop": "cos_nh_17"
             },
             {
                 "label_action": 1,
                 "load_metric": 7,
                 "labels": [ 46002 ],
-                "nexthop": "cos_nh_16"
+                "next_hop": "cos_nh_16"
             },
             {
                 "label_action": 1,
                 "load_metric": 7,
                 "labels": [ 46003 ],
-                "nexthop": "cos_nh_15"
+                "next_hop": "cos_nh_15"
             },
             {
                 "label_action": 1,
                 "load_metric": 7,
                 "labels": [ 46004 ],
-                "nexthop": "cos_nh_14"
+                "next_hop": "cos_nh_14"
             },
             {
                 "label_action": 1,
                 "load_metric": 7,
                 "labels": [ 46005 ],
-                "nexthop": "cos_nh_13"
+                "next_hop": "cos_nh_13"
             },
             {
                 "label_action": 1,
                 "load_metric": 7,
                 "labels": [ 46006 ],
-                "nexthop": "cos_nh_12"
+                "next_hop": "cos_nh_12"
             },
             {
                 "label_action": 1,
                 "load_metric": 7,
                 "labels": [ 46007 ],
-                "nexthop": "cos_nh_11"
+                "next_hop": "cos_nh_11"
             },
             {
                 "label_action": 1,
                 "load_metric": 7,
                 "labels": [ 46008 ],
-                "nexthop": "cos_nh_10"
+                "next_hop": "cos_nh_10"
             },
             {
                 "label_action": 1,
                 "load_metric": 7,
                 "labels": [ 46009 ],
-                "nexthop": "cos_nh_9"
+                "next_hop": "cos_nh_9"
             },
             {
                 "label_action": 1,
                 "load_metric": 7,
                 "labels": [ 46010 ],
-                "nexthop": "cos_nh_8"
+                "next_hop": "cos_nh_8"
             },
             {
                 "label_action": 1,
                 "load_metric": 7,
                 "labels": [ 46011 ],
-                "nexthop": "cos_nh_7"
+                "next_hop": "cos_nh_7"
             },
             {
                 "label_action": 1,
                 "load_metric": 7,
                 "labels": [ 46012 ],
-                "nexthop": "cos_nh_6"
+                "next_hop": "cos_nh_6"
             },
             {
                 "label_action": 1,
                 "load_metric": 7,
                 "labels": [ 46013 ],
-                "nexthop": "cos_nh_5"
+                "next_hop": "cos_nh_5"
             },
             {
                 "label_action": 1,
                 "load_metric": 7,
                 "labels": [ 46014 ],
-                "nexthop": "cos_nh_4"
+                "next_hop": "cos_nh_4"
             },
             {
                 "label_action": 1,
                 "load_metric": 7,
                 "labels": [ 46015 ],
-                "nexthop": "cos_nh_3"
+                "next_hop": "cos_nh_3"
             },
             {
                 "label_action": 1,
                 "load_metric": 7,
                 "labels": [ 46016 ],
-                "nexthop": "cos_nh_2"
+                "next_hop": "cos_nh_2"
             },
             {
                 "label_action": 1,
                 "load_metric": 7,
                 "labels": [ 46017 ],
-                "nexthop": "cos_nh_1"
+                "next_hop": "cos_nh_1"
             }
         ], 
         "cos_scale_path_pop_and_lookup" : [
@@ -1459,37 +1442,37 @@
                 "label_action": 5,
                 "load_metric": 7,
                 "labels": [ ],
-                "nexthop": "cos_nh_1"
+                "next_hop": "cos_nh_1"
             },
             {
                 "label_action": 5,
                 "load_metric": 7,
                 "labels": [ ],
-                "nexthop": "cos_nh_2"
+                "next_hop": "cos_nh_2"
             },
             {
                 "label_action": 5,
                 "load_metric": 7,
                 "labels": [ ],
-                "nexthop": "cos_nh_3"
+                "next_hop": "cos_nh_3"
             },
             {
                 "label_action": 5,
                 "load_metric": 7,
                 "labels": [ ],
-                "nexthop": "cos_nh_4"
+                "next_hop": "cos_nh_4"
             },
             {
                 "label_action": 5,
                 "load_metric": 7,
                 "labels": [ ],
-                "nexthop": "cos_nh_5"
+                "next_hop": "cos_nh_5"
             },
             {
                 "label_action": 5,
                 "load_metric": 7,
                 "labels": [ ],
-                "nexthop": "cos_nh_6"
+                "next_hop": "cos_nh_6"
             }
         ]       
     },
@@ -1651,7 +1634,7 @@
     },
     "cos_ilm_del" : {
         "cos_ilm_del_default_exp": {
-            "batch_count": 1,
+            "batch_size": 1,
             "correlator": 1,
             "ilms": [
                 {
@@ -1663,7 +1646,7 @@
              ]
         },
         "cos_ilm_del_default": {
-            "batch_count": 1,
+            "batch_size": 1,
             "correlator": 1,
             "ilms": [
                 {
@@ -1675,7 +1658,7 @@
              ]
         },
         "cos_ilm_del_0": {
-            "batch_count": 1,
+            "batch_size": 1,
             "correlator": 1,
             "ilms": [
                 {
@@ -1687,7 +1670,7 @@
              ]
         },
         "cos_ilm_del_1": {
-            "batch_count": 1,
+            "batch_size": 1,
             "correlator": 1,
             "ilms": [
                 {
@@ -1699,7 +1682,7 @@
              ]
         },
         "cos_ilm_del_2": {
-            "batch_count": 1,
+            "batch_size": 1,
             "correlator": 1,
             "ilms": [
                 {
@@ -1711,7 +1694,7 @@
              ]
         },
         "cos_ilm_del_3": {
-            "batch_count": 1,
+            "batch_size": 1,
             "correlator": 1,
             "ilms": [
                 {
@@ -1723,7 +1706,7 @@
              ]
         },
         "cos_ilm_del_4": {
-            "batch_count": 1,
+            "batch_size": 1,
             "correlator": 1,
             "ilms": [
                 {
@@ -1735,7 +1718,7 @@
              ]
         },
         "cos_ilm_del_5": {
-            "batch_count": 1,
+            "batch_size": 1,
             "correlator": 1,
             "ilms": [
                 {  
@@ -1747,7 +1730,7 @@
              ]
         },
         "cos_ilm_del_6": {
-            "batch_count": 1,
+            "batch_size": 1,
             "correlator": 1,
             "ilms": [
                 {
@@ -1759,7 +1742,7 @@
              ]
         },
         "cos_ilm_del_7": {
-            "batch_count": 1,
+            "batch_size": 1,
             "correlator": 1,
             "ilms": [
                 {
@@ -1774,7 +1757,7 @@
     },
     "cos_ilm_tc1" : {
         "cos_ilm_1": {
-            "batch_count": 1,
+            "batch_size": 1,
             "correlator": 1,
             "ilms": [
                 {
@@ -1786,7 +1769,7 @@
              ]
         },
         "cos_ilm_2": {
-            "batch_count": 1,
+            "batch_size": 1,
             "correlator": 1,
             "ilms": [
                 {
@@ -1798,7 +1781,7 @@
              ]
         },
         "cos_ilm_3": {
-            "batch_count": 1,
+            "batch_size": 1,
             "correlator": 1,
             "ilms": [
                 {
@@ -1810,7 +1793,7 @@
              ]
         },
         "cos_ilm_4": {
-            "batch_count": 1,
+            "batch_size": 1,
             "correlator": 1,
             "ilms": [
                 {
@@ -1822,7 +1805,7 @@
              ]
         },
         "cos_ilm_5": {
-            "batch_count": 1,
+            "batch_size": 1,
             "correlator": 1,
             "ilms": [
                 {
@@ -1834,7 +1817,7 @@
              ]
         },
         "cos_ilm_6": {
-            "batch_count": 1,
+            "batch_size": 1,
             "correlator": 1,
             "ilms": [
                 {
@@ -1848,7 +1831,7 @@
     },
     "cos_ilm_tc2" : {
         "cos_ilm_1": {
-            "batch_count": 1,
+            "batch_size": 1,
             "correlator": 1,
             "ilms": [
                 {
@@ -1860,7 +1843,7 @@
              ]
         },
         "cos_ilm_2": {
-            "batch_count": 1,
+            "batch_size": 1,
             "correlator": 1,
             "ilms": [
                 {
@@ -1872,7 +1855,7 @@
              ]
         },
         "cos_ilm_3": {
-            "batch_count": 1,
+            "batch_size": 1,
             "correlator": 1,
             "ilms": [
                 {
@@ -1884,7 +1867,7 @@
              ]
         },
         "cos_ilm_4": {
-            "batch_count": 1,
+            "batch_size": 1,
             "correlator": 1,
             "ilms": [
                 {
@@ -1898,7 +1881,7 @@
     },
     "cos_ilm_tc3" : {
         "cos_ilm_1": {
-            "batch_count": 1,
+            "batch_size": 1,
             "correlator": 1,
             "ilms": [
                 {
@@ -1910,7 +1893,7 @@
              ]
         },
         "cos_ilm_2": {
-            "batch_count": 1,
+            "batch_size": 1,
             "correlator": 1,
             "ilms": [
                 {
@@ -1922,7 +1905,7 @@
              ]
         },
         "cos_ilm_3": {
-            "batch_count": 1,
+            "batch_size": 1,
             "correlator": 1,
             "ilms": [
                 {
@@ -1934,7 +1917,7 @@
              ]
         },
         "cos_ilm_4": {
-            "batch_count": 1,
+            "batch_size": 1,
             "correlator": 1,
             "ilms": [
                 {
@@ -1946,7 +1929,7 @@
              ]
         },
         "cos_ilm_5": {
-            "batch_count": 1,
+            "batch_size": 1,
             "correlator": 1,
             "ilms": [
                 {
@@ -1958,7 +1941,7 @@
              ]
         },
         "cos_ilm_6": {
-            "batch_count": 1,
+            "batch_size": 1,
             "correlator": 1,
             "ilms": [
                 {
@@ -1970,7 +1953,7 @@
              ]
         },
         "cos_ilm_7": {
-            "batch_count": 1,
+            "batch_size": 1,
             "correlator": 1,
             "ilms": [
                 {
@@ -1982,7 +1965,7 @@
              ]
         },
         "cos_ilm_8": {
-            "batch_count": 1,
+            "batch_size": 1,
             "correlator": 1,
             "ilms": [
                 {
@@ -1994,7 +1977,7 @@
              ]
         },
         "cos_ilm_9": {
-            "batch_count": 1,
+            "batch_size": 1,
             "correlator": 1,
             "ilms": [
                 {
@@ -2006,7 +1989,7 @@
              ]
         },
         "cos_ilm_10": {
-            "batch_count": 1,
+            "batch_size": 1,
             "correlator": 1,
             "ilms": [
                 {
@@ -2018,7 +2001,7 @@
              ]
         },
         "cos_ilm_11": {
-            "batch_count": 1,
+            "batch_size": 1,
             "correlator": 1,
             "ilms": [
                 {
@@ -2030,7 +2013,7 @@
              ]
         },
         "cos_ilm_12": {
-            "batch_count": 1,
+            "batch_size": 1,
             "correlator": 1,
             "ilms": [
                 {
@@ -2044,7 +2027,7 @@
     },
     "cos_ilm_tc4" : {
         "cos_ilm_1": {
-            "batch_count": 1,
+            "batch_size": 1,
             "correlator": 1,
             "ilms": [
                 {
@@ -2056,7 +2039,7 @@
              ]
         },
         "cos_ilm_2": {
-            "batch_count": 1,
+            "batch_size": 1,
             "correlator": 1,
             "ilms": [
                 {
@@ -2068,7 +2051,7 @@
              ]
         },
         "cos_ilm_3": {
-            "batch_count": 1,
+            "batch_size": 1,
             "correlator": 1,
             "ilms": [
                 {
@@ -2080,7 +2063,7 @@
              ]
         },
         "cos_ilm_4": {
-            "batch_count": 1,
+            "batch_size": 1,
             "correlator": 1,
             "ilms": [
                 {
@@ -2092,7 +2075,7 @@
              ]
         },
         "cos_ilm_5": {
-            "batch_count": 1,
+            "batch_size": 1,
             "correlator": 1,
             "ilms": [
                 {
@@ -2104,7 +2087,7 @@
              ]
         },
         "cos_ilm_6": {
-            "batch_count": 1,
+            "batch_size": 1,
             "correlator": 1,
             "ilms": [
                 {
@@ -2116,7 +2099,7 @@
              ]
         },
         "cos_ilm_7": {
-            "batch_count": 1,
+            "batch_size": 1,
             "correlator": 1,
             "ilms": [
                 {
@@ -2128,7 +2111,7 @@
              ]
         },
         "cos_ilm_8": {
-            "batch_count": 1,
+            "batch_size": 1,
             "correlator": 1,
             "ilms": [
                 {
@@ -2140,7 +2123,7 @@
              ]
         },
         "cos_ilm_9": {
-            "batch_count": 1,
+            "batch_size": 1,
             "correlator": 1,
             "ilms": [
                 {
@@ -2152,7 +2135,7 @@
              ]
         },
         "cos_ilm_10": {
-            "batch_count": 1,
+            "batch_size": 1,
             "correlator": 1,
             "ilms": [
                 {
@@ -2164,7 +2147,7 @@
              ]
         },
         "cos_ilm_11": {
-            "batch_count": 1,
+            "batch_size": 1,
             "correlator": 1,
             "ilms": [
                 {
@@ -2176,7 +2159,7 @@
              ]
         },
         "cos_ilm_12": {
-            "batch_count": 1,
+            "batch_size": 1,
             "correlator": 1,
             "ilms": [
                 {
@@ -2190,7 +2173,7 @@
     },
     "cos_ilm_tc5" : {
         "cos_ilm_default": {
-            "batch_count": 1,
+            "batch_size": 1,
             "correlator": 1,
             "ilms": [
                 {
@@ -2202,7 +2185,7 @@
              ]
         },
         "cos_ilm_1": {
-            "batch_count": 1,
+            "batch_size": 1,
             "correlator": 1,
             "ilms": [
                 {
@@ -2214,7 +2197,7 @@
              ]
         },
         "cos_ilm_2": {
-            "batch_count": 1,
+            "batch_size": 1,
             "correlator": 1,
             "ilms": [
                 {
@@ -2226,7 +2209,7 @@
              ]
         },
         "cos_ilm_3": {
-            "batch_count": 1,
+            "batch_size": 1,
             "correlator": 1,
             "ilms": [
                 {
@@ -2238,7 +2221,7 @@
              ]
         },
         "cos_ilm_4": {
-            "batch_count": 1,
+            "batch_size": 1,
             "correlator": 1,
             "ilms": [
                 {
@@ -2250,7 +2233,7 @@
              ]
         },
         "cos_ilm_5": {
-            "batch_count": 1,
+            "batch_size": 1,
             "correlator": 1,
             "ilms": [
                 {
@@ -2262,7 +2245,7 @@
              ]
         },
         "cos_ilm_6": {
-            "batch_count": 1,
+            "batch_size": 1,
             "correlator": 1,
             "ilms": [
                 {
@@ -2274,7 +2257,7 @@
              ]
         },
         "cos_ilm_7": {
-            "batch_count": 1,
+            "batch_size": 1,
             "correlator": 1,
             "ilms": [
                 {
@@ -2286,7 +2269,7 @@
              ]
         },
         "cos_ilm_8": {
-            "batch_count": 1,
+            "batch_size": 1,
             "correlator": 1,
             "ilms": [
                 {
@@ -2298,7 +2281,7 @@
              ]
         },
         "cos_ilm_9": {
-            "batch_count": 1,
+            "batch_size": 1,
             "correlator": 1,
             "ilms": [
                 {
@@ -2312,7 +2295,7 @@
     },
     "cos_ilm_tc6" : {
         "cos_ilm_1": {
-            "batch_count": 1,
+            "batch_size": 1,
             "correlator": 1,
             "ilms": [
                 {
@@ -2324,7 +2307,7 @@
              ]
         },
         "cos_ilm_2": {
-            "batch_count": 1,
+            "batch_size": 1,
             "correlator": 1,
             "ilms": [
                 {
@@ -2336,7 +2319,7 @@
              ]
         },
         "cos_ilm_3": {
-            "batch_count": 1,
+            "batch_size": 1,
             "correlator": 1,
             "ilms": [
                 {
@@ -2348,7 +2331,7 @@
              ]
         },
         "cos_ilm_4": {
-            "batch_count": 1,
+            "batch_size": 1,
             "correlator": 1,
             "ilms": [
                 {
@@ -2360,7 +2343,7 @@
              ]
         },
         "cos_ilm_5": {
-            "batch_count": 1,
+            "batch_size": 1,
             "correlator": 1,
             "ilms": [
                 {
@@ -2372,7 +2355,7 @@
              ]
         },
         "cos_ilm_6": {
-            "batch_count": 1,
+            "batch_size": 1,
             "correlator": 1,
             "ilms": [
                 {
@@ -2386,7 +2369,7 @@
     },
     "cos_ilm_tc9" : {
         "cos_ilm_1": {
-            "batch_count": 1,
+            "batch_size": 1,
             "correlator": 1,
             "ilms": [
                 {
@@ -2397,7 +2380,7 @@
              ]
         },
         "cos_ilm_2": {
-            "batch_count": 1,
+            "batch_size": 1,
             "correlator": 1,
             "ilms": [
                 {
@@ -2409,7 +2392,7 @@
              ]
         },
         "cos_ilm_3": {
-            "batch_count": 1,
+            "batch_size": 1,
             "correlator": 1,
             "ilms": [
                 {
@@ -2423,7 +2406,7 @@
     },
     "cos_ilm_tc12" : {
         "cos_ilm_1": {
-            "batch_count": 1,
+            "batch_size": 1,
             "correlator": 1,
             "ilms": [
                 {
@@ -2435,7 +2418,7 @@
              ]
         },
         "cos_ilm_2": {
-            "batch_count": 1,
+            "batch_size": 1,
             "correlator": 1,
             "ilms": [
                 {
@@ -2447,7 +2430,7 @@
              ]
         },
         "cos_ilm_3": {
-            "batch_count": 1,
+            "batch_size": 1,
             "correlator": 1,
             "ilms": [
                 {
@@ -2459,7 +2442,7 @@
              ]
         },
         "cos_ilm_4": {
-            "batch_count": 1,
+            "batch_size": 1,
             "correlator": 1,
             "ilms": [
                 {
@@ -2473,7 +2456,7 @@
     },
     "cos_ilm_tc13" : {
         "cos_ilm_1": {
-            "batch_count": 1,
+            "batch_size": 1,
             "correlator": 1,
             "ilms": [
                 {
@@ -2485,7 +2468,7 @@
              ]
         },
         "cos_ilm_2": {
-            "batch_count": 1,
+            "batch_size": 1,
             "correlator": 1,
             "ilms": [
                 {
@@ -2497,7 +2480,7 @@
              ]
         },
         "cos_ilm_3": {
-            "batch_count": 1,
+            "batch_size": 1,
             "correlator": 1,
             "ilms": [
                 {
@@ -2509,7 +2492,7 @@
              ]
         },
         "cos_ilm_4": {
-            "batch_count": 1,
+            "batch_size": 1,
             "correlator": 1,
             "ilms": [
                 {
@@ -2523,7 +2506,7 @@
     },
     "cos_ilm_tc14" : {
         "cos_ilm_1": {
-            "batch_count": 1,
+            "batch_size": 1,
             "correlator": 1,
             "ilms": [
                 {
@@ -2535,7 +2518,7 @@
              ]
         },
         "cos_ilm_2": {
-            "batch_count": 1,
+            "batch_size": 1,
             "correlator": 1,
             "ilms": [
                 {
@@ -2547,7 +2530,7 @@
              ]
         },
         "cos_ilm_3": {
-            "batch_count": 1,
+            "batch_size": 1,
             "correlator": 1,
             "ilms": [
                 {
@@ -2559,7 +2542,7 @@
              ]
         },
         "cos_ilm_4": {
-            "batch_count": 1,
+            "batch_size": 1,
             "correlator": 1,
             "ilms": [
                 {
@@ -2573,7 +2556,7 @@
     },
     "cos_ilm_tc15" : {
         "cos_ilm_1": {
-            "batch_count": 1,
+            "batch_size": 1,
             "correlator": 1,
             "ilms": [
                 {
@@ -2585,7 +2568,7 @@
              ]
         },
         "cos_ilm_2": {
-            "batch_count": 1,
+            "batch_size": 1,
             "correlator": 1,
             "ilms": [
                 {
@@ -2609,7 +2592,7 @@
              ]
         },
         "cos_ilm_3": {
-            "batch_count": 1,
+            "batch_size": 1,
             "correlator": 1,
             "ilms": [
                 {
@@ -2640,7 +2623,7 @@
         "g_ip" : [
             "2.2.3.2/23"
         ],
-        "g_nexthop" : [
+        "g_next_hop" : [
             "100.100.0.1"
         ],
         "g_rmac" : "01:23:45:67:89:0B",

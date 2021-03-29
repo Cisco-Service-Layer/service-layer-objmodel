@@ -154,6 +154,15 @@ A makefile exists in the tutorial directory and could be invoked to re-build the
 This can be found here: grpc/python/src
 ```
 
+To install dependencies first create a virtual env:
+```
+cd grpc/python/
+pip install venv
+virtualenv sl-env --python=python3
+source sl-env/bin/activate
+pip install -r requirements.txt
+```
+
 To run the unit test regression, setup some Environment variables:
 
 ```
@@ -161,16 +170,18 @@ export SERVER_IP=192.168.122.192
 export SERVER_PORT=57344
 ```
 
-Run All tests:
+Run a test:
+```
+pytest grpc/python/src/tests/test_sl_route.py
+```
+
+Use pytest discovery to run all tests:
 
 ```
-cd grpc/python/src
-python3 -m unittest -v tests.test_sl_api
+pytest
 ```
-or using pytest
-```
-pytest grpc/python/src/tests/test_sl_api.py
-```
+
+
 
 ## Summary
 

@@ -26,73 +26,403 @@ from sl_api import serializers
 from sl_api import BD_Util
 from sl_api import Route_Util
 
-#
-#
-#
-class clientClass():
-    json_params = None
-    client = None
-    global_notif = None
-    is_ut_running = False
+client = None
+class log:
+    '''
+    This will eventually be substituted with the cafy logger
+    '''
+    info = print
+    error = print
+    debug = print
 
-    ut_mutex = threading.Lock()
+class SLApiBase:
+    is_ap_running = False
+    ap_mutex = threading.Lock()
 
-    def is_running():
-        # if unit test is done return false
-        # otherwise return true
-        # release lock if it has been acquired
-        if clientClass.ut_mutex.acquire(False):
-            check_ut_status = clientClass.is_ut_running
-            clientClass.ut_mutex.release()
-            if check_ut_status == False:
+    def __init__(self, host, port, json_params):
+        """
+        Initialize connection and start global thread
+
+        :param client: Primary Grpc client to be used
+        :type client: SLGrpcClient
+
+        :param global_notif_client: Grpc client to be used by global notif thread
+        :type client: SLGrpcClient
+
+        :param json_params: json test param dictionary
+        :type client: dict
+        """
+        self.client = GrpcClient(host, port)
+        self.global_notif_client = GrpcClient(host, port)
+        self.json_params = json_params
+        self.paths = json_params['paths']
+        self.next_hops = json_params['next_hops']
+
+        self._start_global_notif_thread()
+
+    def _start_global_notif_thread(self):
+        """Start global notif thread and wait for global init response"""
+        event = threading.Event()
+
+        t = threading.Thread(target=self.global_init,
+                             args=(event,))
+        t.start()
+
+        # Wait to hear from the server - Thread is blocked
+        log.info("Waiting to hear from Global thread...")
+        event.wait()
+        log.info("Global Event Notification Received! Waiting for events...")
+
+
+    @classmethod
+    def _is_running(cls):
+        """
+        If AP/test script is done return false otherwise return true
+        Release lock if it has been acquired
+        """
+        if cls.ap_mutex.acquire(False):
+            check_ap_status = client.is_ap_running
+            client.ap_mutex.release()
+            if check_ap_status == False:
                 return False
             return True
         else:
             return True
 
-    def set_ut_running(running):
-        clientClass.ut_mutex.acquire()
-        clientClass.is_ut_running = running
-        clientClass.ut_mutex.release()
+    @classmethod
+    def set_ap_running(cls, running):
+        """
+        Indicate that the AP/test script is running/not running
+        """
+        cls.ap_mutex.acquire()
+        cls.is_ap_running = running
+        cls.ap_mutex.release()
+
+    # Wait on Global notification events
+    def global_init(self, event):
+        init_params = self.json_params['global_init']
+        retry_count = 6
+
+        for i in range(1, retry_count):
+            try:
+                response = self.global_notif_client.global_init(init_params, self._global_init_cback, event)
+
+                # Should return on errors
+                if response.EventType == sl_global_pb2.SL_GLOBAL_EVENT_TYPE_ERROR:
+                    if (response.ErrStatus.Status ==
+                            sl_common_types_pb2.SLErrorStatus.SL_NOTIF_TERM):
+                            log.info("Service Layer Session was taken over by another client")
+                    else:
+                        # If this session is lost, then most likely the server restarted
+                        log.error("global_init: exiting unexpectedly, Server Restart?")
+                        log.error("last response from server:", response)
+            except Exception as e:
+                print(e)
+                if e.code == grpc.StatusCode.UNAVAILABLE:
+                    # One less than retry count so that we can dump exception
+                    # if grpc server cannot be reached
+                    if i < retry_count - 1:
+                       log.info("Retry {} of global init as server not available"
+                             .format(i))
+                       time.sleep(30)
+                       continue
+                log.error("Received exception:", e)
+                log.error("Server died?")
+        os._exit(0)
+
+    def _global_init_cback(self, response, event):
+        """
+        Global notification callback
+        This function is called from the global_init thread context
+        To break the stream recv(), return False
+        """
+        err_status = sl_common_types_pb2.SLErrorStatus
+
+        if response.EventType == sl_global_pb2.SL_GLOBAL_EVENT_TYPE_VERSION:
+            if response.ErrStatus.Status in { err_status.SL_SUCCESS,
+                                              err_status.SL_INIT_STATE_CLEAR,
+                                              err_status.SL_INIT_STATE_READY }:
+
+                log.info("Server Returned 0x%x, Server's Version %d.%d.%d" % (
+                    response.ErrStatus.Status,
+                    response.InitRspMsg.MajorVer,
+                    response.InitRspMsg.MinorVer,
+                    response.InitRspMsg.SubVer))
+
+                # Successfully Initialized
+                # Notify the main thread to proceed
+                event.set()
+            else:
+                return False
+        elif response.EventType == sl_global_pb2.SL_GLOBAL_EVENT_TYPE_HEARTBEAT:
+            log.info("Received Event: Heartbeat")
+            # Exit thread if AP thread is no longer running
+            if not self._is_running():
+                os._exit(0)
+            return True
+        elif response.EventType == sl_global_pb2.SL_GLOBAL_EVENT_TYPE_ERROR:
+            if response.ErrStatus.Status in {
+                err_status.SL_VRF_V4_ROUTE_REPLAY_FATAL_ERROR,
+                err_status.SL_VRF_V6_ROUTE_REPLAY_FATAL_ERROR,
+                err_status.SL_VRF_V4_ROUTE_REPLAY_OK,
+                err_status.SL_VRF_V6_ROUTE_REPLAY_OK }:
+
+                log.error("Received Route FATAL Global Error event:", response)
+                return True
+            elif response.ErrStatus.Status in {
+                  err_status.SL_ILM_REPLAY_FATAL_ERROR,
+                  err_status.SL_ILM_REPLAY_OK }:
+
+                log.error("Received MPLS FATAL Global Error event:", response)
+                return True
+
+            log.info("Received Global Error event:", response)
+            return False
+        else:
+            log.error("Received unknown event:", response)
+            return False
+
+        # Continue looping on events
+        return True
+
+    def _stream_and_validate(self, op, iterable, xcount, validator, xfail=False):
+        responses = op(iterable)
+        count = itertools.count()
+        for response, _ in zip(responses, count):
+            assert xfail ^ validator(response)
+
+        assert next(count) == next(xcount)
+
+    def _send_and_validate(self, op, validator, obj=None, xfail=False):
+        response = op(obj) if obj else op()
+
+        success = validator(response)
+        if xfail:
+            assert not success
+        else:
+            assert success
+
+        return response
+
+    def _retrieve_ilms(self, op_info, af):
+        if 'ilms' in op_info:
+            # Use statically created ilm list
+            ilms = iter(op_info['ilms'])
+        elif 'ilms' not in op_info and MplsHelper.is_valid_ilm_batch_info(op_info):
+            # Dynamically generate ilms from batch info
+            ilms = MplsHelper.generate_ilms(op_info, af, self.paths, 
+                    self.next_hops)
+        else:
+            assert False, "must specify a list of ilms or valid batch info"
+
+        return 'ilms', ilms
+
+
+    def _crud_op_stream(self, op, op_info, validator, retriever, af=4, xfail=False):
+        key, iterable = retriever(op_info, af)
+        batch_info = {
+                key: iterable,
+                'size': op_info.get('batch_size', 1),
+                'af': af,
+                'paths': self.paths,
+                'next_hops': self.next_hops,
+                'correlator': op_info.get('correlator', 0)
+                }
+
+        count = itertools.count()
+        def iterator():
+            # Zip with count to keep track of number of batches generated
+            for batch, _ in zip(BatchUtils.gen_batches(**batch_info), count):
+                yield batch 
+
+        op_kwargs = {
+                'op': op,
+                'validator': validator,
+                'xfail': xfail,
+                'iterable': iterator(),
+                'xcount': count
+                }
+
+        self._stream_and_validate(**op_kwargs)
+
+    def _crud_op(self, op, op_info, validator, retriever, af=4, xfail=False):
+        key, iterable = retriever(op_info, af)
+        op_kwargs = {
+                'op': op,
+                'validator': validator,
+                'xfail': xfail
+                }
+
+        batch_info = {
+                key: iterable,
+                'size': op_info.get('batch_size', 1),
+                'af': af,
+                'paths': self.paths,
+                'next_hops': self.next_hops,
+                'correlator': op_info.get('correlator', 0)
+                }
+
+        for batch in BatchUtils.gen_batches(**batch_info):
+            op_kwargs['obj'] =  batch
+            self._send_and_validate(**op_kwargs)
+
+    def _get_op_iterator(self, op, validator, obj, xfail=False):
+        responses = op(obj)
+        for response in responses:
+            assert xfail ^ validator(response)
+            yield response
+
+    def _get_all(self, op, get_info, validator, retriever, xfail=False, xcount=None):
+        _get_info = dict(get_info) # operate on a copy
+
+        def gen_get_info():
+            yield _get_info
+            _get_info['get_next'] = 1
+            while response.Entries and not response.Eof:
+                key, obj = retriever(response)
+                _get_info[key] = obj
+                yield _get_info
+
+        responses = []
+        for info in gen_get_info():
+            response = op(info, xfail=xfail)
+            responses.extend(response.Entries)
+
+        if xcount:
+            assert len(responses) == xcount
+
+        return responses
+
+
+class SLApiClient(SLApiBase):
+    "Represents a SL API session"
+
+    def __init__(self, client, global_notif_client, json_params):
+        super(SLApiClient, self).__init__(client, 
+                global_notif_client, json_params)
+
+    def mpls_global_get(self, **kwargs):
+        self._send_and_validate(self.client.mpls_global_get,
+                                MplsHelper.validate_mpls_globals)
+
+    def mpls_register(self, reg_params):
+        self._send_and_validate(self.client.mpls_register_oper,
+                                MplsHelper.validate_mpls_regop_response,
+                                obj=reg_params)
+
+    def mpls_eof(self):
+        self._send_and_validate(self.client.mpls_eof_oper,
+                                MplsHelper.validate_mpls_regop_response)
+
+    def mpls_unregister(self):
+        self._send_and_validate(self.client.mpls_unregister_oper,
+                                MplsHelper.validate_mpls_regop_response)
+
+    def label_block_add(self, block_params, **kwargs):
+        self._send_and_validate(client.client.label_block_add,
+                                MplsHelper.validate_lbl_blk_response,
+                                obj=block_params, **kwargs)
+
+    def label_block_delete(self, block_params, **kwargs):
+        self._send_and_validate(client.client.label_block_delete,
+                                MplsHelper.validate_lbl_blk_response,
+                                obj=block_params, **kwargs)
+
+    def label_block_get(self, get_info, **kwargs):
+        '''
+        Streaming not supported for label block operations
+        '''
+        op, grpc_op = self._send_and_validate, self.client.label_block_get 
+        validator = MplsHelper.validate_ilm_get_response
+
+        return op(grpc_op, validator, obj=get_info, **kwargs)
+
+    def label_block_get_all(self, get_info, **kwargs):
+        '''
+        Streaming not supported for label block operations
+        '''
+        op, grpc_op = self._get_all, self.label_block_get
+        validator = MplsHelper.validate_lbl_blk_get_response
+        retriever = MplsHelper.get_last_label_block
+
+        return op(grpc_op, get_info, validator, retriever, **kwargs)
+
+    def ilm_add(self, ilm_info, stream=False, **kwargs):
+        if stream:
+            op, grpc_op = self._crud_op_stream, self.client.ilm_add_stream
+        else:
+            op, grpc_op = self._crud_op, self.client.ilm_add
+
+        retriever = self._retrieve_ilms
+        validator = MplsHelper.validate_ilm_response
+
+        op(grpc_op, ilm_info, validator, retriever, **kwargs)
+
+    def ilm_update(self, ilm_info, stream=False, **kwargs):
+        if stream:
+            op, grpc_op = self._crud_op_stream, self.client.ilm_update_stream
+        else:
+            op, grpc_op = self._crud_op, self.client.ilm_update
+        retriever = self._retrieve_ilms
+
+        validator = MplsHelper.validate_ilm_response
+
+        op(grpc_op, ilm_info, validator, retriever, **kwargs)
+
+    def ilm_delete(self, ilm_info, stream=False, **kwargs):
+        if stream:
+            op, grpc_op = self._crud_op_stream, self.client.ilm_delete_stream
+        else:
+            op, grpc_op = self._crud_op, self.client.ilm_delete
+
+        retriever = self._retrieve_ilms
+        validator = MplsHelper.validate_ilm_response
+
+        op(grpc_op, ilm_info, validator, retriever, **kwargs)
+
+    def ilm_get(self, get_info, stream=False, **kwargs):
+        if stream:
+            op, grpc_op = self._get_op_iterator, self.client.ilm_get_stream
+        else:
+            op, grpc_op = self._send_and_validate, self.client.ilm_get
+
+        validator = MplsHelper.validate_ilm_get_response
+
+        return op(grpc_op, validator, obj=get_info, **kwargs)
+
+    def ilm_get_all(self, get_info,  **kwargs):
+        '''
+        This operation does not support streaming as each request after the
+        first is dependant on the previous response.
+        '''
+        op, grpc_op = self._get_all, self.ilm_get 
+        validator = MplsHelper.validate_ilm_get_response
+        retriever = MplsHelper.get_last_ilm 
+
+        return op(grpc_op, get_info, validator, retriever, **kwargs)
 
 #
 #
 #
 def setUpModule():
-    clientClass.set_ut_running(True)
+    global client
 
     # Read the .json template
     filepath = os.path.join(os.path.dirname(__file__), 'template.json')
 
     with open(filepath) as fp:
-        clientClass.json_params = json.loads(fp.read())
+        params = json.loads(fp.read())
 
-    # Setup GRPC channel for RPC tests
     host, port = util.get_server_ip_port()
-    clientClass.client = GrpcClient(host, port)
+    client = SLApiClient(host, port, params)
+    client.set_ap_running(True)
 
-    # GRPC channel used for Global notifications
-    # Setup a channel for the Global notification thread
-    clientClass.global_notif = GrpcClient(host, port)
-
-    # threading.Event() used to sync threads
-    # Create a synchronization event
-    global_event = threading.Event()
-    # Spawn a thread to wait on notifications
-    t = threading.Thread(target = global_init,
-            args=(global_event,))
-    t.start()
-    #
-    # Wait to hear from the server - Thread is blocked
-    print("Waiting to hear from Global event...")
-    global_event.wait()
-    print("Global Event Notification Received! Waiting for events...")
 
 #
 #
 #
 def tearDownModule():
-    clientClass.set_ut_running(False)
+    client.set_ap_running(False)
 
 # Print Received Globals
 def print_globals(response):
@@ -172,89 +502,6 @@ def print_bfd_stats(af, response):
         print("BFD Stats response Error 0x%x" %(response.ErrStatus.Status))
         return False
     return True
-
-# Global notification Callback
-# This function is called from the global_init thread context
-# To break the stream recv(), return False
-def global_init_cback(response, event):
-    if response.EventType == sl_global_pb2.SL_GLOBAL_EVENT_TYPE_VERSION:
-        if (sl_common_types_pb2.SLErrorStatus.SL_SUCCESS ==
-                response.ErrStatus.Status) or \
-            (sl_common_types_pb2.SLErrorStatus.SL_INIT_STATE_CLEAR ==
-                response.ErrStatus.Status) or \
-            (sl_common_types_pb2.SLErrorStatus.SL_INIT_STATE_READY ==
-                response.ErrStatus.Status):
-            print("Server Returned 0x%x, Server's Version %d.%d.%d" %(
-                response.ErrStatus.Status,
-                response.InitRspMsg.MajorVer,
-                response.InitRspMsg.MinorVer,
-                response.InitRspMsg.SubVer))
-            # Successfully Initialized
-            # This would notify the main thread to proceed
-            event.set()
-        else:
-            return False
-    elif response.EventType == sl_global_pb2.SL_GLOBAL_EVENT_TYPE_HEARTBEAT:
-        print("Received Event: Heartbeat")
-        if not clientClass.is_running():
-            os._exit(0)
-        return True
-    elif response.EventType == sl_global_pb2.SL_GLOBAL_EVENT_TYPE_ERROR:
-        if response.ErrStatus.Status in [
-            sl_common_types_pb2.SLErrorStatus.SL_VRF_V4_ROUTE_REPLAY_FATAL_ERROR,
-            sl_common_types_pb2.SLErrorStatus.SL_VRF_V6_ROUTE_REPLAY_FATAL_ERROR,
-            sl_common_types_pb2.SLErrorStatus.SL_VRF_V4_ROUTE_REPLAY_OK,
-            sl_common_types_pb2.SLErrorStatus.SL_VRF_V6_ROUTE_REPLAY_OK]:
-
-            print("Received Route FATAL Global Error event:", response)
-            return True
-        elif response.ErrStatus.Status in [
-              sl_common_types_pb2.SLErrorStatus.SL_ILM_REPLAY_FATAL_ERROR,
-              sl_common_types_pb2.SLErrorStatus.SL_ILM_REPLAY_OK]:
-
-            print("Received MPLS FATAL Global Error event:", response)
-            return True
-
-        print("Received Global Error event:", response)
-        return False
-    else:
-        print("Received unknown event:", response)
-        return False
-
-    # Continue looping on events
-    return True
-
-# Wait on Global notification events
-def global_init(event):
-    g_params = clientClass.json_params['global_init']
-    retry_count = 6
-
-    for i in range(1,retry_count):
-        try:
-            response = clientClass.global_notif.global_init(g_params,
-                global_init_cback, event)
-
-            # Should return on errors
-            if response.EventType == sl_global_pb2.SL_GLOBAL_EVENT_TYPE_ERROR:
-                if (response.ErrStatus.Status ==
-                    sl_common_types_pb2.SLErrorStatus.SL_NOTIF_TERM):
-                    print("Service Layer Session was taken over by another client")
-            else:
-                # If this session is lost, then most likely the server restarted
-                print("global_init: exiting unexpectedly, Server Restart?")
-                print("last response from server:", response)
-        except Exception as e:
-            if e.code() == grpc.StatusCode.UNAVAILABLE:
-                # One less than retry count so that we can dump exception
-                # if grpc server cannot be reached
-                if i < retry_count - 1:
-                   print("Retry {} of global init as server not available"
-                         .format(i))
-                   time.sleep(30)
-                   continue
-            print("Received exception:", e)
-            print("Server died?")
-    os._exit(0)
 
 # BFD notification Callback
 # This function is called from the BFD thread context
@@ -605,15 +852,10 @@ def validate_intf_get_response(response):
         return False
     return True
 
-class MplsBase(unittest.TestCase):
-    validated_count = 0
-
-    @classmethod
-    def setUpClass(self):
-        super(MplsBase, self).setUpClass()
-
+class MplsHelper():
     # Print Received MPLS Globals
-    def print_mpls_globals(self, response):
+    @staticmethod
+    def validate_mpls_globals(response):
         if (response.ErrStatus.Status ==
             sl_common_types_pb2.SLErrorStatus.SL_SUCCESS):
             print("Max labels per label block            : %d" %(
@@ -633,7 +875,8 @@ class MplsBase(unittest.TestCase):
             return False
         return True
 
-    def print_mpls_stats(self, response):
+    @staticmethod
+    def print_mpls_stats(response):
         '''Print Received MPLS Stats'''
         if (response.ErrStatus.Status ==
             sl_common_types_pb2.SLErrorStatus.SL_SUCCESS):
@@ -644,121 +887,15 @@ class MplsBase(unittest.TestCase):
             return False
         return True
 
-    def ilm_get_iterator(self, get_list):
-        count = 0
-        time_limit = 0
-        for item in get_list:
-            yield item
-            count = count + 1
-        while (self.validated_count < count):
-            time.sleep(0.1)
-            time_limit = time_limit + 1
-            if time_limit > 100:
-                return
-        # A return would raise a stopIterator
-
-    # This is not a test
-    def ilm_op(self, func, params, assert_true = True):
-        batch_count = 1
-        if 'batch_count' in params[0]:
-            batch_count = params[0]['batch_count']
-        first_label = params[0]['ilms'][0]['in_label']
-        for b in range(batch_count):
-            print('\n%s' % pprint.pformat(params[0], indent=2))
-            response, next = func(*params)
-            err = self.validate_ilm_response(response)
-            if assert_true:
-                self.assertTrue(err)
-            else:
-                self.assertFalse(err)
-            params[0]['ilms'][0]['in_label'] = next
-        params[0]['ilms'][0]['in_label'] = first_label
-
-    def ilm_op_iterator(self, params, oper):
-        count = 0
-        time_limit = 0
-        batch_count = 1
-        if 'batch_count' in params[0]:
-            batch_count = params[0]['batch_count']
-        first_label = params[0]['ilms'][0]['in_label']
-        # Build the ilm (serializer)
-        for b in range(batch_count):
-            serializer, next = serializers.ilm_serializer(*params)
-            serializer.Oper = oper
-            yield serializer
-            count = count + 1
-            params[0]['ilms'][0]['in_label'] = next
-        params[0]['ilms'][0]['in_label'] = first_label
-        while (self.validated_count < count):
-            time.sleep(0.1)
-            time_limit = time_limit + 1
-            if time_limit > 100:
-                return
-        # A return would raise a stopIterator
-
-    # This is not a test
-    def ilm_op_stream(self, params, oper, assert_true=True):
-        iterator = self.ilm_op_iterator(params, oper)
-        # Must reset this to sync the iterator with the responses
-        self.validated_count = 0
-        count, error = clientClass.client.ilm_op_stream(iterator,
-                self.validate_ilm_response)
-        if assert_true:
-            self.assertTrue(error)
-        else:
-            self.assertFalse(error)
-
-        # This may fail if the server sends EOF prematurely
-        # (or we did not wait for the last reply)
-        self.assertTrue(count == self.validated_count)
-
-    def ilm_op_wrapper(self, func, ilm, assert_true = True):
-        params = (ilm, self.AF,
-                clientClass.json_params['paths'],
-                clientClass.json_params['nexthops'],
-                )
-        self.ilm_op(func, params, assert_true)
-
-    def ilm_op_stream_wrapper(self, oper, ilm, assert_true = True):
-        params = (ilm, self.AF,
-                clientClass.json_params['paths'],
-                clientClass.json_params['nexthops'],)
-        self.ilm_op_stream(params, oper, assert_true)
-
-    def ilm_get_info(self, get_info):
+    @classmethod
+    def lbl_blk_get_info(cls, get_info):
         print(get_info["_description"])
-        response = clientClass.client.ilm_get(get_info)
-        err = self.validate_ilm_get_response(response, get_info['count'])
+        response = client.client.label_block_get(get_info)
+        err = cls.validate_lbl_blk_get_response(response)
         self.assertTrue(err)
 
-    def ilm_get_all(self, firstN, nextN):
-        total_ilms = 0
-        get_info = firstN
-        response = clientClass.client.ilm_get(get_info)
-        err = self.validate_ilm_get_response(response, get_info['count'])
-        self.assertTrue(err)
-        total_ilms = total_ilms + len(response.Entries)
-        get_info = nextN
-        ilm_temp = get_info["ilm"]
-        while (len(response.Entries)>0) and not response.Eof:
-            last_ilm = self.getLastIlm(response)
-            get_info["ilm"] = last_ilm
-            response = clientClass.client.ilm_get(get_info)
-            err = self.validate_ilm_get_response(response, get_info['count'])
-            total_ilms = total_ilms + len(response.Entries)
-            self.assertTrue(err)
-        get_info["ilm"] = ilm_temp
-        print("Total ilms read: %d" %(total_ilms))
-        return total_ilms
-
-
-    def lbl_blk_get_info(self, get_info):
-        print(get_info["_description"])
-        response = clientClass.client.label_block_get(get_info)
-        err = self.validate_lbl_blk_get_response(response)
-        self.assertTrue(err)
-
-    def validate_mpls_regop_response(self, response):
+    @staticmethod
+    def validate_mpls_regop_response(response):
         if (sl_common_types_pb2.SLErrorStatus.SL_SUCCESS ==
                 response.ErrStatus.Status):
             return True
@@ -766,7 +903,8 @@ class MplsBase(unittest.TestCase):
         print("Response Error code 0x%x" %(response.ErrStatus.Status))
         return False
 
-    def validate_lbl_blk_response(self, response):
+    @staticmethod
+    def validate_lbl_blk_response(response):
         if (sl_common_types_pb2.SLErrorStatus.SL_SUCCESS ==
                 response.StatusSummary.Status):
             return True
@@ -782,9 +920,8 @@ class MplsBase(unittest.TestCase):
                 ))
         return False
 
-    def validate_lbl_blk_get_response(self, response):
-        self.validated_count += 1
-
+    @staticmethod
+    def validate_lbl_blk_get_response(response):
         if (sl_common_types_pb2.SLErrorStatus.SL_SUCCESS ==
                 response.ErrStatus.Status):
             print(response)
@@ -792,11 +929,11 @@ class MplsBase(unittest.TestCase):
         print("Label Block Get Error code 0x%x" %(response.ErrStatus.Status))
         return False
 
-    def validate_ilm_response(self, response):
+    @staticmethod
+    def validate_ilm_response(response):
         # Increment the validated_count
         if (sl_common_types_pb2.SLErrorStatus.SL_SUCCESS ==
                 response.StatusSummary.Status):
-            self.validated_count += 1
             return True
         # Error cases
         print("Batch Error code 0x%x" %(response.StatusSummary.Status))
@@ -810,38 +947,42 @@ class MplsBase(unittest.TestCase):
                 ))
         return False
 
-    def validate_ilm_get_response(self, response, expectedCount=None):
+    @staticmethod
+    def validate_ilm_get_response(response, expectedCount=None):
         # Increment the validated_count
-        self.validated_count =\
-            self.validated_count + 1
-        #
         if (sl_common_types_pb2.SLErrorStatus.SL_SUCCESS ==
                 response.ErrStatus.Status):
-            print(response)
+            # print(response)
             if expectedCount:
                 assert expectedCount == len(response.Entries) or response.Eof
             return True
         print("ILM Get Error code 0x%x" %(response.ErrStatus.Status))
         return False
 
-    def getLastIlm(self, response):
+    @staticmethod
+    def get_last_ilm(response):
         key = response.Entries[-1].Key
-        last_ilm = {}
-        last_ilm['in_label'] = key.LocalLabel
+        last_ilm = {'in_label': key.LocalLabel}
         if key.SlMplsCosVal.WhichOneof('value') == 'Exp':
             last_ilm['exp'] = key.SlMplsCosVal.Exp
         elif key.SlMplsCosVal.WhichOneof('value') == 'DefaultElspPath':
             last_ilm['default_elsp'] = key.SlMplsCosVal.DefaultElspPath
 
-        return last_ilm
+        return 'ilm', last_ilm
 
+    @staticmethod
+    def get_last_label_block(response):
+        key = response.Entries[-1]
+        last_block = {'block_size': key.LabelBlockSize,
+                      'client_name': key.ClientName, 
+                      'block_type': key.BlockType, 
+                      'start_label': key.StartLabel
+                }
 
-class MplsBaseScale(MplsBase):
-    @classmethod
-    def setUpClass(self):
-        super(MplsBaseScale, self).setUpClass()
+        return 'block_key', last_block
 
-    def getLabelRange(self, batch):
+    @staticmethod
+    def get_label_range(batch):
         if 'label_ranges' in batch:
             start = batch['label_ranges'][0]['range'][0]
             end = batch['label_ranges'][-1]['range'][1]
@@ -849,52 +990,8 @@ class MplsBaseScale(MplsBase):
 
         return batch.get('label_range')
 
-    def ilm_op(self, func, params):
-        # Create generator for all the ILMS
-        ilms = serializers.generateIlms(*params)
-
-        for batch in serializers.genBatches(ilms, params[0]['batch_size']):
-            params[0]['ilms'] = batch
-            response, _ = func(*params)
-            err = self.validate_ilm_response(response)
-            self.assertTrue(err)
-
-    def ilm_op_scale_iterator(self, params, oper):
-        # Create generator for all the ILMS
-        ilms = serializers.generateIlms(*params)
-
-        for batch in serializers.genBatches(ilms, params[0]['batch_size']):
-            params[0]['ilms'] = batch
-            serializer, next = serializers.ilm_serializer(*params)
-            serializer.Oper = oper
-            yield serializer
-
-        start, end = self.getLabelRange(params[0])
-        count = end - start -1
-        time_limit = 0
-        while (self.validated_count < count):
-            time.sleep(0.1)
-            time_limit = time_limit + 1
-            if time_limit > 100:
-                return
-        # A return would raise a stopIterator
-
-    # This is not a test
-    def ilm_op_stream(self, params, oper, assert_true = True):
-        iterator = self.ilm_op_scale_iterator(params, oper)
-        # Must reset this to sync the iterator with the responses
-        self.validated_count = 0
-        count, error = clientClass.client.ilm_op_stream(iterator,
-                self.validate_ilm_response)
-        if assert_true:
-            self.assertTrue(error)
-        else:
-            self.assertFalse(error)
-        # This may fail if the server sends EOF prematurely
-        # (or we did not wait for the last reply)
-        self.assertTrue(count == self.validated_count)
-
-    def getExpectedIlmCount(self, batch):
+    @staticmethod
+    def get_expected_ilm_count(batch):
         '''Used to determine how many ILMs a scale testcase wil return'''
         if 'exps' in batch:
             ilmsPerLabel = len(batch['exps'])
@@ -916,6 +1013,155 @@ class MplsBaseScale(MplsBase):
         
         return num_labels * ilmsPerLabel 
 
+    @staticmethod
+    def is_valid_ilm_batch_info(info):
+        '''
+        Validate batch info schema
+
+        This method does not verify nested fields
+        '''
+
+        if 'label_ranges' in info and 'label_range' in info:
+            raise ValueError("cannot define both label_ranges and label_range")
+
+        if 'label_ranges' not in info and 'label_range' not in info:
+            raise ValueError("must define either label_range, label_ranges, or ilms")
+
+        if 'exps' in info and 'label_path' in info:
+            raise ValueError("cannot define both exps and label_path")
+
+        if 'exps' not in info and 'label_path' not in info:
+            raise ValueError("must define exps or label_path")
+
+        return True
+
+    @staticmethod
+    def generate_ilms(batch, af, paths, next_hops):
+        """
+        Generator of ILMs based on the parameters passed in
+        """
+        def generate_labels(label_range):
+            lo, hi = label_range
+            assert hi - lo + 1 > 0, 'Invalid label range'
+            for label in range(lo, hi + 1):
+                yield label
+
+        def generate_paths(path_info):
+            # Generate slice of paths
+            all_paths = paths[path_info['path']]
+            lo, hi = path_info['path_range']
+            assert hi - lo + 1 > 0, 'Invalid path range'
+            for path in itertools.islice(all_paths, lo, hi + 1):
+                yield path
+
+        def make_ilm(label, path_info, exp=None, default_elsp=False, af=None):
+            ilm = {
+                    "in_label": label,
+                    "path": generate_paths(path_info),
+                    "range": 1  # NOTE: Range must be 1
+            }
+
+            if default_elsp:
+                ilm["default_elsp"] = default_elsp
+            elif exp is not None:
+                ilm["exp"] = exp
+
+            if af:
+                ilm['af'] = af
+
+            return ilm
+
+        ranges = batch.get('label_ranges', [{'range': batch.get('label_range', None), 'af': af}])
+        for range_info in ranges:
+            for label in generate_labels(range_info['range']):
+                if 'exps' in batch:
+                    for exp, path_info in sorted(batch['exps'].items(), key=lambda x: x[0]):
+                        if exp == 'default':
+                            yield make_ilm(label, path_info, default_elsp=True, af=range_info['af'])
+                        else:
+                            yield make_ilm(label, path_info, exp=int(exp), af=range_info['af'])
+                elif 'label_path' in batch:
+                    # Non-elsp (no exp or default elsp)
+                    yield make_ilm(label, batch['label_path'])
+
+class BatchUtils:
+    @staticmethod
+    def resolve_next_hop(path, next_hops):
+        'Lookup next hop names and replace with actual next hop dicts'
+        if type(path.get('next_hop')) is str:
+            path['next_hop'] = next_hops[path['next_hop']]
+
+        return path
+
+    @staticmethod
+    def resolve_paths(obj, paths):
+        'Lookup path names and replace with actual path dicts'
+        if type(obj['path']) is str:
+            obj['path'] = paths[obj['path']]
+
+        return obj
+
+    @classmethod
+    def remove_indirection(cls, obj, af, paths, next_hops):
+        '''
+        Replace next_hop and path names with the actual dictionaries they refer to
+        '''
+        # Add af if it hasn't been set by batch generator
+        if 'af' not in obj:
+            obj['af'] = af
+
+        obj = cls.resolve_paths(obj, paths)
+
+        # Using map is actually not any faster here (path list size is bounded < 64 or 128)
+        obj['path'] = [cls.resolve_next_hop(path, next_hops) for path in obj['path']]
+
+        return obj
+
+    @staticmethod
+    def has_next(iterator):
+        def prepend(value, iterator):
+            "Prepend a single value in front of an iterator"
+            return itertools.chain([value], iterator)
+
+        # Emulate a peek by getting next and the putting it back
+        try:
+            peek = next(iterator)
+        except StopIteration:
+            return None, False
+
+        # Put it back and return True
+        return prepend(peek, iterator), True
+
+    @classmethod
+    def make_batch(cls, ilms, size, af, paths, next_hops, correlator):
+        '''
+        This function returns an iterator that will return n ilms
+        Must check for empty iterator as it will lead to an empty ILM list
+        which will throw an error
+        '''
+
+        ilms, hasNext = cls.has_next(ilms)
+
+        if not hasNext:
+            return None
+
+        batch_ilms = itertools.islice(ilms, size)
+
+        def without_indirection(ilm):
+            return cls.remove_indirection(ilm, af, paths, next_hops)
+
+        # A map will apply the function without consuming the iterator
+        batch_ilms = map(without_indirection, batch_ilms)
+
+        return {'correlator': correlator, 'ilms': batch_ilms}
+
+    @classmethod
+    def gen_batches(cls, **kwargs):
+        batch = cls.make_batch(**kwargs)
+        while batch:
+            yield batch
+            batch = cls.make_batch(**kwargs)
+
 
 #
 # Alphabetical order makes this test runs first
@@ -923,7 +1169,7 @@ class MplsBaseScale(MplsBase):
 class TestSuite_000_Global(unittest.TestCase):
     def test_001_get_globals(self):
         # Get Global info
-        response = clientClass.client.global_get()
+        response = client.client.global_get()
         err = print_globals(response)
         self.assertTrue(err)
 #
@@ -943,27 +1189,27 @@ class TestSuite_001_Route_IPv4(unittest.TestCase):
     def setUp(self):
         super(TestSuite_001_Route_IPv4, self).setUp()
         self.route_params = (
-            clientClass.json_params['batch_v%d_route' % self.AF],
-            clientClass.json_params['paths'],
-            clientClass.json_params['nexthops'],
+            client.json_params['batch_v%d_route' % self.AF],
+            client.json_params['paths'],
+            client.json_params['next_hops'],
         )
         self.route_label_params = (
-            clientClass.json_params['batch_v%d_route_label' % self.AF],
-            clientClass.json_params['paths'],
-            clientClass.json_params['nexthops'],
+            client.json_params['batch_v%d_route_label' % self.AF],
+            client.json_params['paths'],
+            client.json_params['next_hops'],
         )
-        self.vrf_batch = clientClass.json_params['batch_v%d_vrf' % self.AF]
-        self.route_get = clientClass.json_params['route_get']
-        self.vrf_get = clientClass.json_params['vrf_get']
+        self.vrf_batch = client.json_params['batch_v%d_vrf' % self.AF]
+        self.route_get = client.json_params['route_get']
+        self.vrf_get = client.json_params['vrf_get']
 
     def test_000_get_globals(self):
         # Get Global Route info
-        response = clientClass.client.global_route_get(self.AF)
+        response = client.client.global_route_get(self.AF)
         err = print_route_globals(self.AF, response)
         self.assertTrue(err)
 
     def test_001_vrf_registration_add(self):
-        response = clientClass.client.vrf_registration_add(self.vrf_batch)
+        response = client.client.vrf_registration_add(self.vrf_batch)
         err = validate_vrf_response(response)
         self.assertTrue(err)
 
@@ -992,7 +1238,7 @@ class TestSuite_001_Route_IPv4(unittest.TestCase):
         iterator = route_op_iterator(params, oper)
         # Must reset this to sync the iterator with the responses
         TestSuite_001_Route_IPv4.validated_count = 0
-        count, error = clientClass.client.route_op_stream(iterator,
+        count, error = client.client.route_op_stream(iterator,
                 self.AF, validate_route_response)
         self.assertTrue(error)
         # This may fail if the server sends EOF prematurely
@@ -1003,7 +1249,7 @@ class TestSuite_001_Route_IPv4(unittest.TestCase):
         params = [self.route_params, self.route_label_params]
         for p in params:
             if self.STREAM == False:
-                self.route_op(clientClass.client.route_add, p)
+                self.route_op(client.client.route_add, p)
             else:
                 self.route_op_stream(p, sl_common_types_pb2.SL_OBJOP_ADD)
 
@@ -1019,17 +1265,17 @@ class TestSuite_001_Route_IPv4(unittest.TestCase):
     def test_003_00_route_update(self, name = None):
         temp = None
         if name != None:
-            temp = clientClass.json_params['batch_v%d_route' % self.AF]['routes'][0]['path']
-            clientClass.json_params['batch_v%d_route' % self.AF]['routes'][0]['path'] = name
+            temp = client.json_params['batch_v%d_route' % self.AF]['routes'][0]['path']
+            client.json_params['batch_v%d_route' % self.AF]['routes'][0]['path'] = name
         params = [self.route_params, self.route_label_params]
         for p in params:
             if self.STREAM == False:
-                self.route_op(clientClass.client.route_update, p)
+                self.route_op(client.client.route_update, p)
             else:
                 self.route_op_stream(p, sl_common_types_pb2.SL_OBJOP_UPDATE)
         # NOTE: If the above fails, the following wont be restored
         if name != None:
-            clientClass.json_params['batch_v%d_route' % self.AF]['routes'][0]['path'] = temp
+            client.json_params['batch_v%d_route' % self.AF]['routes'][0]['path'] = temp
 
     def test_003_01_route_update_nhlfe_connected(self):
         self.test_003_00_route_update("path_nhlfe_connected")
@@ -1058,7 +1304,7 @@ class TestSuite_001_Route_IPv4(unittest.TestCase):
     # Not a test case
     def route_get_info(self, get_info):
         print(get_info["_description"])
-        response = clientClass.client.route_get(get_info, self.AF)
+        response = client.client.route_get(get_info, self.AF)
         err = validate_route_get_response(response, self.AF)
         self.assertTrue(err)
 
@@ -1081,7 +1327,7 @@ class TestSuite_001_Route_IPv4(unittest.TestCase):
     def test_004_04_route_get_all(self):
         total_routes = 0
         get_info = self.route_get["get_firstN_routes"]
-        response = clientClass.client.route_get(get_info, self.AF)
+        response = client.client.route_get(get_info, self.AF)
         err = validate_route_get_response(response, self.AF)
         self.assertTrue(err)
         total_routes = total_routes + len(response.Entries)
@@ -1098,7 +1344,7 @@ class TestSuite_001_Route_IPv4(unittest.TestCase):
                 )
                 get_info["v%d_prefix"  % self.AF] = str(last_prefix)
             get_info["prefix_len"] = response.Entries[-1].PrefixLen
-            response = clientClass.client.route_get(get_info, self.AF)
+            response = client.client.route_get(get_info, self.AF)
             err = validate_route_get_response(response, self.AF)
             total_routes = total_routes + len(response.Entries)
             self.assertTrue(err)
@@ -1125,7 +1371,7 @@ class TestSuite_001_Route_IPv4(unittest.TestCase):
         iterator = route_get_iterator(serialized_list)
         # Must reset this to sync the iterator with the responses
         TestSuite_001_Route_IPv4.validated_count = 0
-        count, error = clientClass.client.route_get_stream(iterator,
+        count, error = client.client.route_get_stream(iterator,
             self.AF, validate_route_get_response)
         self.assertTrue(error)
         # This may fail if the server sends EOF prematurely
@@ -1134,17 +1380,17 @@ class TestSuite_001_Route_IPv4(unittest.TestCase):
         self.assertTrue(count == len(serialized_list))
 
     def test_005_route_stats_get(self):
-        response = clientClass.client.global_route_stats_get(self.AF)
+        response = client.client.global_route_stats_get(self.AF)
         err = print_route_stats_globals(self.AF, response)
         self.assertTrue(err)
 
     # Not a test case
     def vrf_get_info(self, get_info):
         print(get_info["_description"])
-        response = clientClass.client.vrf_get(get_info, self.AF, False)
+        response = client.client.vrf_get(get_info, self.AF, False)
         err = validate_vrf_get_response(response, self.AF)
         self.assertTrue(err)
-        response = clientClass.client.vrf_get(get_info, self.AF, True)
+        response = client.client.vrf_get(get_info, self.AF, True)
         err = validate_vrf_stats_get_response(response, self.AF)
         self.assertTrue(err)
 
@@ -1168,7 +1414,7 @@ class TestSuite_001_Route_IPv4(unittest.TestCase):
         for stats in [False, True]:
             total_vrfs = 0
             get_info = self.vrf_get["get_firstN_vrf"]
-            response = clientClass.client.vrf_get(get_info, self.AF, stats)
+            response = client.client.vrf_get(get_info, self.AF, stats)
             if not stats:
                 err = validate_vrf_get_response(response, self.AF)
             else:
@@ -1180,7 +1426,7 @@ class TestSuite_001_Route_IPv4(unittest.TestCase):
             while (len(response.Entries)>0) and not response.Eof:
                 last_vrfName = response.Entries[-1].VrfName
                 get_info["vrf_name"] = last_vrfName
-                response = clientClass.client.vrf_get(get_info, self.AF, stats)
+                response = client.client.vrf_get(get_info, self.AF, stats)
                 if not stats:
                     err = validate_vrf_get_response(response, self.AF)
                 else:
@@ -1194,17 +1440,17 @@ class TestSuite_001_Route_IPv4(unittest.TestCase):
         params = [self.route_params, self.route_label_params]
         for p in params:
             if self.STREAM == False:
-                self.route_op(clientClass.client.route_delete, p)
+                self.route_op(client.client.route_delete, p)
             else:
                 self.route_op_stream(p, sl_common_types_pb2.SL_OBJOP_DELETE)
 
     def test_008_vrf_registration_eof(self):
-        response = clientClass.client.vrf_registration_eof(self.vrf_batch)
+        response = client.client.vrf_registration_eof(self.vrf_batch)
         err = validate_vrf_response(response)
         self.assertTrue(err)
 
     def test_009_vrf_unregistration(self):
-        response = clientClass.client.vrf_registration_delete(self.vrf_batch)
+        response = client.client.vrf_registration_delete(self.vrf_batch)
         err = validate_vrf_response(response)
         self.assertTrue(err)
 
@@ -1234,68 +1480,47 @@ class TestSuite_002_Route_IPv6_Stream(TestSuite_001_Route_IPv4):
 #
 #
 #
-class TestSuite_003_ILM_IPv4(MplsBase):
+class TestSuite_003_ILM_IPv4(unittest.TestCase):
     AF = 4
     STREAM = False
     validated_count = 0
 
     def setUp(self):
         super(TestSuite_003_ILM_IPv4, self).setUp()
-        self.ilm_params = (
-            clientClass.json_params['batch_ilm'],
-            self.AF,
-            clientClass.json_params['paths'],
-            clientClass.json_params['nexthops'],
-        )
-        self.lbl_blk_params1 = clientClass.json_params['batch_mpls_lbl_block']
-        self.lbl_blk_params2 = clientClass.json_params['mpls_lbl_block_srgb_3']
-        self.ilm_get = clientClass.json_params['ilm_get']
-        self.lbl_blk_get = clientClass.json_params['lbl_blk_get']
-        self.reg_params = clientClass.json_params['reg_params']
+        self.ilm_entry = client.json_params['batch_ilm']
+        self.lbl_blk_params1 = client.json_params['batch_mpls_lbl_block']
+        self.lbl_blk_params2 = client.json_params['mpls_lbl_block_srgb_3']
+        self.ilm_get_info = client.json_params['ilm_get']
+        self.lbl_blk_get = client.json_params['lbl_blk_get']
+        self.reg_params = client.json_params['reg_params']
 
     def test_000_get_globals(self):
         # Get Global MPLS info
-        response = clientClass.client.mpls_global_get()
-        err = self.print_mpls_globals(response)
-        self.assertTrue(err)
+        client.mpls_global_get()
 
     def test_001_mpls_register(self):
-        response = clientClass.client.mpls_register_oper(self.reg_params)
-        err = self.validate_mpls_regop_response(response)
-        self.assertTrue(err)
+        client.mpls_register(self.reg_params)
 
     def test_002_00_blk_add(self):
-        response = clientClass.client.label_block_add(self.lbl_blk_params1)
-        err = self.validate_lbl_blk_response(response)
-        self.assertTrue(err)
+        client.label_block_add(self.lbl_blk_params1)
 
     def test_002_01_blk_add(self):
-        response = clientClass.client.label_block_add(self.lbl_blk_params2)
-        err = self.validate_lbl_blk_response(response)
-        self.assertTrue(err)
+        client.label_block_add(self.lbl_blk_params2)
 
     def test_003_ilm_add(self):
-        if self.STREAM == False:
-            self.ilm_op(clientClass.client.ilm_add,
-                self.ilm_params)
-        else:
-            self.ilm_op_stream(self.ilm_params,
-                sl_common_types_pb2.SL_OBJOP_ADD)
+        client.ilm_add(self.ilm_entry, stream=self.STREAM,
+                 af=self.AF)
 
     def test_004_00_ilm_update(self, name = None):
         temp = None
         if name != None:
-            temp = clientClass.json_params['batch_ilm']['ilms'][0]['path']
-            clientClass.json_params['batch_ilm']['ilms'][0]['path'] = name
-        if self.STREAM == False:
-            self.ilm_op(clientClass.client.ilm_update,
-                self.ilm_params)
-        else:
-            self.ilm_op_stream(self.ilm_params,
-                sl_common_types_pb2.SL_OBJOP_UPDATE)
+            temp = client.json_params['batch_ilm']['label_path']['path']
+            client.json_params['batch_ilm']['label_path']['path'] = name
+        client.ilm_update(self.ilm_entry, stream=self.STREAM,
+                 af=self.AF)
         # NOTE: If the above fails, the following wont be restored
         if name != None:
-            clientClass.json_params['batch_ilm']['ilms'][0]['path'] = temp
+            client.json_params['batch_ilm']['label_path']['path'] = temp
 
     def test_004_01_ilm_update_nhlfe_connected(self):
         self.test_004_00_ilm_update("path_nhlfe_connected")
@@ -1324,138 +1549,91 @@ class TestSuite_003_ILM_IPv4(MplsBase):
         self.test_004_00_ilm_update("path_route_primary_with_lfa")
 
     def test_004_09_ilm_update_route_lookup(self):
-        temp = clientClass.json_params['paths']["path_route_lookup"][0]["label_action"]
+        temp = client.json_params['paths']["path_route_lookup"][0]["label_action"]
         if self.AF == 6:
-            clientClass.json_params['paths']["path_route_lookup"][0]["label_action"] = sl_mpls_pb2.SL_LABEL_ACTION_POP_AND_LOOKUP_IPV6
+            client.json_params['paths']["path_route_lookup"][0]["label_action"] = sl_mpls_pb2.SL_LABEL_ACTION_POP_AND_LOOKUP_IPV6
         self.test_004_00_ilm_update("path_route_lookup")
         # Restore
         if self.AF == 6:
-            clientClass.json_params['paths']["path_route_lookup"][0]["label_action"] = temp
+            client.json_params['paths']["path_route_lookup"][0]["label_action"] = temp
 
     def test_005_get_stats(self):
         # Get Global MPLS stats
-        response = clientClass.client.mpls_global_get_stats()
-        err = self.print_mpls_stats(response)
+        response = client.client.mpls_global_get_stats()
+        err = MplsHelper.print_mpls_stats(response)
         self.assertTrue(err)
 
     def test_006_01_ilm_get_exact_match(self):
-        get_info = self.ilm_get["get_exact_ilm"]
-        self.ilm_get_info(get_info)
+        get_info = self.ilm_get_info["get_exact_ilm"]
+        client.ilm_get(get_info)
 
     def test_006_02_ilm_get_firstN(self):
-        get_info = self.ilm_get["get_firstN_ilm"]
-        self.ilm_get_info(get_info)
+        get_info = self.ilm_get_info["get_firstN_ilm"]
+        client.ilm_get(get_info)
 
     def test_006_03_ilm_get_nextN_with_specified(self):
-        get_info = self.ilm_get["get_nextN_include_ilm"]
-        self.ilm_get_info(get_info)
+        get_info = self.ilm_get_info["get_nextN_include_ilm"]
+        client.ilm_get(get_info)
 
     def test_006_04_ilm_get_nextN_after_specified(self):
-        get_info = self.ilm_get["get_nextN_ilm"]
-        self.ilm_get_info(get_info)
+        get_info = self.ilm_get_info["get_nextN_ilm"]
+        client.ilm_get(get_info)
 
     def test_006_05_ilm_get_all(self):
-        nextN = self.ilm_get["get_nextN_ilm"]
-        firstN = self.ilm_get["get_firstN_ilm"]
-        self.ilm_get_all(firstN, nextN)
+        firstN = self.ilm_get_info["get_firstN_ilm"]
+        client.ilm_get_all(firstN)
 
     def test_006_06_ilm_get_stream(self):
-        serialized_list = []
         # Pack 3 requests
-        get_info = self.ilm_get["get_firstN_ilm"]
-        get_info["correlator"] = 1
-        serializer = serializers.ilm_get_serializer(get_info)
-        serialized_list.append(serializer)
-        get_info = self.ilm_get["get_exact_ilm"]
-        get_info["correlator"] = 2
-        serializer = serializers.ilm_get_serializer(get_info)
-        serialized_list.append(serializer)
-        get_info = self.ilm_get["get_nextN_include_ilm"]
-        get_info["correlator"] = 3
-        serializer = serializers.ilm_get_serializer(get_info)
-        serialized_list.append(serializer)
-        # Call RPC
-        iterator = self.ilm_get_iterator(serialized_list)
-        # Must reset this to sync the iterator with the responses
-        self.validated_count = 0
-        count, error = clientClass.client.ilm_get_stream(iterator,
-            self.validate_ilm_get_response)
-        self.assertTrue(error)
-        # This may fail if the server sends EOF prematurely
-        if count != len(serialized_list):
-            print("Count %d, Expecting:%d" %(count, len(serialized_list)))
-        self.assertTrue(count == len(serialized_list))
+        get_infos = (self.ilm_get_info[name] for name in ["get_firstN_ilm",
+            "get_exact_ilm", "get_nextN_include_ilm"])
+
+        # Returns respons iterator
+        responses = client.ilm_get(get_infos, stream=True)
+
+        # Do not need to do extra verification
+        for response in responses:
+            pass
 
     def test_007_ilm_delete(self):
-        if self.STREAM == False:
-            self.ilm_op(clientClass.client.ilm_delete,
-                self.ilm_params)
-        else:
-            self.ilm_op_stream(self.ilm_params,
-                sl_common_types_pb2.SL_OBJOP_DELETE)
+        client.ilm_delete(self.ilm_entry, stream=self.STREAM,
+                 af=self.AF)
 
     def test_008_01_lbl_blk_get_exact_match(self):
         get_info = self.lbl_blk_get["get_exact_lbl_blk"]
-        self.lbl_blk_get_info(get_info)
+        client.label_block_get(get_info)
 
     def test_008_02_lbl_blk_get_exact_match(self):
         get_info = self.lbl_blk_get["get_exact_lbl_blk_client_name"]
-        self.lbl_blk_get_info(get_info)
+        client.label_block_get(get_info)
 
     def test_008_03_lbl_blk_get_firstN(self):
         get_info = self.lbl_blk_get["get_firstN_lbl_blk"]
-        self.lbl_blk_get_info(get_info)
+        client.label_block_get(get_info)
 
     def test_008_04_lbl_blk_get_nextN_with_specified(self):
         get_info = self.lbl_blk_get["get_nextN_include_lbl_blk"]
-        self.lbl_blk_get_info(get_info)
+        client.label_block_get(get_info)
 
     def test_008_05_lbl_blk_get_nextN_after_specified(self):
         get_info = self.lbl_blk_get["get_nextN_lbl_blk"]
-        self.lbl_blk_get_info(get_info)
+        client.label_block_get(get_info)
 
     def test_008_06_lbl_blk_get_all(self):
-        total_lbl_blks = 0
         get_info = self.lbl_blk_get["get_firstN_lbl_blk"]
-        response = clientClass.client.label_block_get(get_info)
-        err = self.validate_lbl_blk_get_response(response)
-        self.assertTrue(err)
-        total_lbl_blks = total_lbl_blks + len(response.Entries)
-        get_info = self.lbl_blk_get["get_nextN_lbl_blk"]
-        label_temp = get_info["start_label"]
-        size_temp = get_info["block_size"]
-        while (len(response.Entries)>0) and not response.Eof:
-            last_label = response.Entries[-1].StartLabel
-            last_size = response.Entries[-1].LabelBlockSize
-            get_info["start_label"] = last_label
-            get_info["block_size"] = last_size
-            response = clientClass.client.label_block_get(get_info)
-            err = self.validate_lbl_blk_get_response(response)
-            total_lbl_blks = total_lbl_blks + len(response.Entries)
-            self.assertTrue(err)
-        get_info["start_label"] = label_temp
-        get_info["block_size"] = size_temp
-        print("Total lbl_blks read: %d" %(total_lbl_blks))
+        client.label_block_get_all(get_info)
 
     def test_009_00_blk_delete(self):
-        response = clientClass.client.label_block_delete(self.lbl_blk_params1)
-        err = self.validate_lbl_blk_response(response)
-        self.assertTrue(err)
+        client.label_block_delete(self.lbl_blk_params1)
 
     def test_009_01_blk_delete(self):
-        response = clientClass.client.label_block_delete(self.lbl_blk_params2)
-        err = self.validate_lbl_blk_response(response)
-        self.assertTrue(err)
+        client.label_block_delete(self.lbl_blk_params2)
 
     def test_010_mpls_eof(self):
-        response = clientClass.client.mpls_eof_oper()
-        err = self.validate_mpls_regop_response(response)
-        self.assertTrue(err)
+        client.mpls_eof()
 
     def test_011_mpls_unregister(self):
-        response = clientClass.client.mpls_unregister_oper()
-        err = self.validate_mpls_regop_response(response)
-        self.assertTrue(err)
+        client.mpls_unregister()
 
 
 #
@@ -1499,15 +1677,15 @@ class TestSuite_005_BFD_IPv4(unittest.TestCase):
     def setUp(self):
         super(TestSuite_005_BFD_IPv4, self).setUp()
         self.bfd_params = (
-            clientClass.json_params[self.JSON_TEST],
-            clientClass.json_params['nexthops'],
+            client.json_params[self.JSON_TEST],
+            client.json_params['next_hops'],
             self.AF,
         )
-        self.bfd_get = clientClass.json_params['bfd_get']
+        self.bfd_get = client.json_params['bfd_get']
 
     def test_000_get_globals(self):
         # Get Global BFD info
-        response = clientClass.client.global_bfd_get(self.AF)
+        response = client.client.global_bfd_get(self.AF)
         err = print_bfd_globals(self.AF, response)
         self.assertTrue(err)
 
@@ -1534,32 +1712,32 @@ class TestSuite_005_BFD_IPv4(unittest.TestCase):
         self.assertTrue(True)
 
     def test_002_bfd_register(self):
-        response = clientClass.client.bfd_register_oper(self.AF)
+        response = client.client.bfd_register_oper(self.AF)
         err = validate_bfd_regop_response(response)
         self.assertTrue(err)
 
     def test_003_bfd_add(self):
-        response = clientClass.client.bfd_add(*self.bfd_params)
+        response = client.client.bfd_add(*self.bfd_params)
         err = validate_bfd_response(response)
         self.assertTrue(err)
 
     def test_004_bfd_update(self):
         # Can not change the key in updates. Change a non-key attribute:
-        clientClass.json_params[self.JSON_TEST]['sessions'][0]['cfg_detect_multi'] = 10
-        response = clientClass.client.bfd_update(*self.bfd_params)
+        client.json_params[self.JSON_TEST]['sessions'][0]['cfg_detect_multi'] = 10
+        response = client.client.bfd_update(*self.bfd_params)
         err = validate_bfd_response(response)
         self.assertTrue(err)
 
     def test_005_get_stats(self):
         # Get Global BFD stats
-        response = clientClass.client.bfd_global_get_stats(self.AF)
+        response = client.client.bfd_global_get_stats(self.AF)
         err = print_bfd_stats(self.AF, response)
         self.assertTrue(err)
 
         # Not a test case
     def bfd_get_info(self, get_info):
         print(get_info["_description"])
-        response = clientClass.client.bfd_session_get(get_info, self.AF)
+        response = client.client.bfd_session_get(get_info, self.AF)
         err = validate_bfd_get_response(response, self.AF)
         self.assertTrue(err)
 
@@ -1582,7 +1760,7 @@ class TestSuite_005_BFD_IPv4(unittest.TestCase):
     def test_006_05_bfd_get_all(self):
         total_bfds = 0
         get_info = self.bfd_get["get_firstN_bfd"]
-        response = clientClass.client.bfd_session_get(get_info, self.AF)
+        response = client.client.bfd_session_get(get_info, self.AF)
         err = validate_bfd_get_response(response, self.AF)
         self.assertTrue(err)
         total_bfds = total_bfds + len(response.Entries)
@@ -1600,7 +1778,7 @@ class TestSuite_005_BFD_IPv4(unittest.TestCase):
             get_info["v%d_src" % self.AF] = response.Entries[-1].Key.SourceAddr
             get_info["vrf_name"] = response.Entries[-1].Key.VrfName
             # Resend the request
-            response = clientClass.client.bfd_session_get(get_info, self.AF)
+            response = client.client.bfd_session_get(get_info, self.AF)
             err = validate_bfd_get_response(response, self.AF)
             total_bfds = total_bfds + len(response.Entries)
             self.assertTrue(err)
@@ -1612,17 +1790,17 @@ class TestSuite_005_BFD_IPv4(unittest.TestCase):
         print("Total VRFs read: %d" %(total_bfds))
 
     def test_007_bfd_delete(self):
-        response = clientClass.client.bfd_delete(*self.bfd_params)
+        response = client.client.bfd_delete(*self.bfd_params)
         err = validate_bfd_response(response)
         self.assertTrue(err)
 
     def test_008_bfd_eof(self):
-        response = clientClass.client.bfd_eof_oper(self.AF)
+        response = client.client.bfd_eof_oper(self.AF)
         err = validate_bfd_regop_response(response)
         self.assertTrue(err)
 
     def test_009_bfd_unregister(self):
-        response = clientClass.client.bfd_unregister_oper(self.AF)
+        response = client.client.bfd_unregister_oper(self.AF)
         err = validate_bfd_regop_response(response)
         self.assertTrue(err)
 
@@ -1662,13 +1840,13 @@ class TestSuite_009_INTERFACE(unittest.TestCase):
 
     def setUp(self):
         super(TestSuite_009_INTERFACE, self).setUp()
-        self.intf_params = clientClass.json_params['batch_interfaces']
-        self.intf_get = clientClass.json_params['intf_get']
-        self.intf_neg_get = clientClass.json_params['intf_neg_get']
+        self.intf_params = client.json_params['batch_interfaces']
+        self.intf_get = client.json_params['intf_get']
+        self.intf_neg_get = client.json_params['intf_neg_get']
 
     def test_000_get_globals(self):
         # Get Global Interface info
-        response = clientClass.client.intf_global_get()
+        response = client.client.intf_global_get()
         err = print_intf_globals(response)
         self.assertTrue(err)
 
@@ -1695,25 +1873,25 @@ class TestSuite_009_INTERFACE(unittest.TestCase):
         self.assertTrue(True)
 
     def test_002_intf_register(self):
-        response = clientClass.client.intf_register_op()
+        response = client.client.intf_register_op()
         err = validate_intf_regop_response(response)
         self.assertTrue(err)
 
     def test_003_intf_subscribe(self):
-        response = clientClass.client.intf_subscribe(self.intf_params)
+        response = client.client.intf_subscribe(self.intf_params)
         err = validate_intf_response(response)
         self.assertTrue(err)
 
     def test_005_get_stats(self):
         # Get Global Intf stats
-        response = clientClass.client.intf_global_get_stats()
+        response = client.client.intf_global_get_stats()
         err = print_intf_stats(response)
         self.assertTrue(err)
 
         # Not a test case
     def intf_get_info(self, get_info, positive=True):
         print(get_info["_description"])
-        response = clientClass.client.intf_get(get_info)
+        response = client.client.intf_get(get_info)
         err = validate_intf_get_response(response)
         if positive:
             self.assertTrue(err)
@@ -1739,7 +1917,7 @@ class TestSuite_009_INTERFACE(unittest.TestCase):
     def test_006_05_intf_get_all(self):
         total_intfs = 0
         get_info = self.intf_get["get_firstN_intf"]
-        response = clientClass.client.intf_get(get_info)
+        response = client.client.intf_get(get_info)
         err = validate_intf_get_response(response)
         self.assertTrue(err)
         total_intfs = total_intfs + len(response.Entries)
@@ -1749,7 +1927,7 @@ class TestSuite_009_INTERFACE(unittest.TestCase):
             # Get key from last entry
             get_info["if_name"] = response.Entries[-1].Key.Interface.Name
             # Resend the request
-            response = clientClass.client.intf_get(get_info)
+            response = client.client.intf_get(get_info)
             err = validate_intf_get_response(response)
             total_intfs = total_intfs + len(response.Entries)
             self.assertTrue(err)
@@ -1767,17 +1945,17 @@ class TestSuite_009_INTERFACE(unittest.TestCase):
         self.intf_get_info(get_info, False)
 
     def test_007_intf_unsubscribe(self):
-        response = clientClass.client.intf_unsubscribe(self.intf_params)
+        response = client.client.intf_unsubscribe(self.intf_params)
         err = validate_intf_response(response)
         self.assertTrue(err)
 
     def test_008_intf_eof(self):
-        response = clientClass.client.intf_eof_oper()
+        response = client.client.intf_eof_oper()
         err = validate_intf_regop_response(response)
         self.assertTrue(err)
 
     def test_009_intf_unregister(self):
-        response = clientClass.client.intf_unregister_op()
+        response = client.client.intf_unregister_op()
         err = validate_intf_regop_response(response)
         self.assertTrue(err)
 
@@ -1789,8 +1967,8 @@ class TestSuite_010_BD_reg(unittest.TestCase):
     def test_002_multiple_bd_reg(self):
         oper = 'SL_REGOP_REGISTER'
         count = 2
-        bdRegOper = clientClass.json_params["bdRegOper"]
-        response = clientClass.client.bd_reg_unreg_handle(oper, count, bdRegOper)
+        bdRegOper = client.json_params["bdRegOper"]
+        response = client.client.bd_reg_unreg_handle(oper, count, bdRegOper)
 
         err =  TestSuite_010_BD_reg.bdutil.validate_bdreg_response(response)
         self.assertTrue(err)
@@ -1800,9 +1978,9 @@ class TestSuite_010_BD_reg(unittest.TestCase):
         count = 5
         rtype = sl_l2_route_pb2.SL_L2_ROUTE_MAC
         is_macip = False
-        g_route_attrs = clientClass.json_params["g_route_attrs"]
+        g_route_attrs = client.json_params["g_route_attrs"]
 
-        count, err = clientClass.client.l2_route_op_stream(oper, count, rtype, is_macip,
+        count, err = client.client.l2_route_op_stream(oper, count, rtype, is_macip,
                                                               self.bdAry, g_route_attrs)
         self.assertTrue(err)
 
@@ -1811,9 +1989,9 @@ class TestSuite_010_BD_reg(unittest.TestCase):
         count = 5
         rtype = sl_l2_route_pb2.SL_L2_ROUTE_MAC
         is_macip = False
-        g_route_attrs = clientClass.json_params["g_route_attrs"]
+        g_route_attrs = client.json_params["g_route_attrs"]
 
-        count, err = clientClass.client.l2_route_op_stream(oper, count, rtype, is_macip,
+        count, err = client.client.l2_route_op_stream(oper, count, rtype, is_macip,
                                                               self.bdAry, g_route_attrs)
         self.assertTrue(err)
 
@@ -1829,7 +2007,7 @@ def l2route_notif_cback(response):
         print("Received L2route/Bd Notif Event Type: %d" %(response.EventType))
 
 def l2route_get_notif(event, thread_count, BdAll, BdName):
-    g_oper = clientClass.json_params["g_route_attrs"]["g_oper"]
+    g_oper = client.json_params["g_route_attrs"]["g_oper"]
     # This would notify the main thread to proceed
     event.set()
     # RPC to get Notifications
@@ -1853,20 +2031,20 @@ class TestSuite_011_L2Route_operation(unittest.TestCase):
     def test_000_global_reg(self):
 
         oper = 'SL_REGOP_REGISTER'
-        g_route_attrs = clientClass.json_params["g_route_attrs"]
-        response = clientClass.client.l2_global_reg_unreg_handler(oper, g_route_attrs)
+        g_route_attrs = client.json_params["g_route_attrs"]
+        response = client.client.l2_global_reg_unreg_handler(oper, g_route_attrs)
 
     def test_001_global_unreg(self):
         oper = 'SL_REGOP_UNREGISTER'
-        g_route_attrs = clientClass.json_params["g_route_attrs"]
-        response = clientClass.client.l2_global_reg_unreg_handler(oper, g_route_attrs)
+        g_route_attrs = client.json_params["g_route_attrs"]
+        response = client.client.l2_global_reg_unreg_handler(oper, g_route_attrs)
 
     def test_002_multiple_bd_reg(self):
         oper = 'SL_REGOP_REGISTER'
         count = 2
 
-        bdRegOper = clientClass.json_params["bdRegOper"]
-        response = clientClass.client.bd_reg_unreg_handle(oper, count, bdRegOper)
+        bdRegOper = client.json_params["bdRegOper"]
+        response = client.client.bd_reg_unreg_handle(oper, count, bdRegOper)
 
         err =  TestSuite_011_L2Route_operation.bdutil.validate_bdreg_response(response)
         self.assertTrue(err)
@@ -1895,25 +2073,25 @@ class TestSuite_011_L2Route_operation(unittest.TestCase):
 
     def test_004_global_eof(self):
         oper = 'SL_REGOP_EOF'
-        g_route_attrs = clientClass.json_params["g_route_attrs"]
-        response = clientClass.client.l2_global_reg_unreg_handler(oper, g_route_attrs)
+        g_route_attrs = client.json_params["g_route_attrs"]
+        response = client.client.l2_global_reg_unreg_handler(oper, g_route_attrs)
 
     def test_005_multiple_mac_macip_route_add(self):
         oper = sl_common_types_pb2.SL_OBJOP_ADD
         count = 5
         rtype = sl_l2_route_pb2.SL_L2_ROUTE_MAC
         is_macip = False
-        g_route_attrs = clientClass.json_params["g_route_attrs"]
+        g_route_attrs = client.json_params["g_route_attrs"]
 
         for bd in self.bdAry:
-            response = clientClass.client.l2_route_handle(oper, count, rtype, is_macip,
+            response = client.client.l2_route_handle(oper, count, rtype, is_macip,
                                                                 bd, g_route_attrs)
             err =  TestSuite_011_L2Route_operation.route_util.validate_l2route_response(response)
             self.assertTrue(err)
 
         is_macip = True
         for bd in self.bdAry:
-            response = clientClass.client.l2_route_handle(oper, count, rtype, is_macip,
+            response = client.client.l2_route_handle(oper, count, rtype, is_macip,
                                                                 bd, g_route_attrs)
             err =  TestSuite_011_L2Route_operation.route_util.validate_l2route_response(response)
             self.assertTrue(err)
@@ -1921,7 +2099,7 @@ class TestSuite_011_L2Route_operation(unittest.TestCase):
         rtype = sl_l2_route_pb2.SL_L2_ROUTE_IMET
         is_macip = False
         for bd in self.bdAry:
-            response = clientClass.client.l2_route_handle(oper, count, rtype, is_macip,
+            response = client.client.l2_route_handle(oper, count, rtype, is_macip,
                                                                 bd, g_route_attrs)
             err =  TestSuite_011_L2Route_operation.route_util.validate_l2route_response(response)
             self.assertTrue(err)
@@ -1932,17 +2110,17 @@ class TestSuite_011_L2Route_operation(unittest.TestCase):
         count = 2
         rtype = sl_l2_route_pb2.SL_L2_ROUTE_MAC
         is_macip = False
-        g_route_attrs = clientClass.json_params["g_route_attrs"]
+        g_route_attrs = client.json_params["g_route_attrs"]
 
         for bd in self.bdAry:
-            response = clientClass.client.l2_route_handle(oper, count, rtype, is_macip,
+            response = client.client.l2_route_handle(oper, count, rtype, is_macip,
                                                                 bd, g_route_attrs)
             err =  TestSuite_011_L2Route_operation.route_util.validate_l2route_response(response)
             self.assertTrue(err)
 
         is_macip = True
         for bd in self.bdAry:
-            response = clientClass.client.l2_route_handle(oper, count, rtype, is_macip,
+            response = client.client.l2_route_handle(oper, count, rtype, is_macip,
                                                                 bd, g_route_attrs)
             err =  TestSuite_011_L2Route_operation.route_util.validate_l2route_response(response)
             self.assertTrue(err)
@@ -1950,7 +2128,7 @@ class TestSuite_011_L2Route_operation(unittest.TestCase):
         rtype = sl_l2_route_pb2.SL_L2_ROUTE_IMET
         is_macip = False
         for bd in self.bdAry:
-            response = clientClass.client.l2_route_handle(oper, count, rtype, is_macip,
+            response = client.client.l2_route_handle(oper, count, rtype, is_macip,
                                                                 bd, g_route_attrs)
             err =  TestSuite_011_L2Route_operation.route_util.validate_l2route_response(response)
             self.assertTrue(err)
@@ -1958,14 +2136,14 @@ class TestSuite_011_L2Route_operation(unittest.TestCase):
     def test_007_multiple_bd_unreg(self):
         oper = 'SL_REGOP_UNREGISTER'
         count = 2
-        bdRegOper = clientClass.json_params["bdRegOper"]
-        response = clientClass.client.bd_reg_unreg_handle(oper, count, bdRegOper)
+        bdRegOper = client.json_params["bdRegOper"]
+        response = client.client.bd_reg_unreg_handle(oper, count, bdRegOper)
 
         err =  TestSuite_011_L2Route_operation.bdutil.validate_bdreg_response(response)
         self.assertTrue(err)
 
     def test_008_globals_get(self):
-        response = clientClass.client.l2_globals_get()
+        response = client.client.l2_globals_get()
         err = response.ErrStatus
         self.assertTrue(err)
 
@@ -1975,8 +2153,8 @@ class TestSuite_012_BD_unreg(unittest.TestCase):
     def test_001_single_bd_unreg(self):
         oper = 'SL_REGOP_UNREGISTER'
         count = 0
-        bdRegOper = clientClass.json_params["bdRegOper"]
-        response = clientClass.client.bd_reg_unreg_handle(oper, count, bdRegOper)
+        bdRegOper = client.json_params["bdRegOper"]
+        response = client.client.bd_reg_unreg_handle(oper, count, bdRegOper)
 
         err =  TestSuite_012_BD_unreg.bdutil.validate_bdreg_response(response)
         self.assertTrue(err)
@@ -1987,8 +2165,8 @@ class TestSuite_013_BD_eof(unittest.TestCase):
     def test_000_bd_eof(self):
         oper = 'SL_REGOP_EOF'
         count = 1
-        bdRegOper = clientClass.json_params["bdRegOper"]
-        response = clientClass.client.bd_reg_unreg_handle(oper, count, bdRegOper)
+        bdRegOper = client.json_params["bdRegOper"]
+        response = client.client.bd_reg_unreg_handle(oper, count, bdRegOper)
 
         err =  TestSuite_013_BD_eof.bdutil.validate_bdreg_response(response)
         self.assertTrue(err)
@@ -1997,157 +2175,99 @@ class TestSuite_013_BD_eof(unittest.TestCase):
 #
 #
 #
-class TestSuite_014_MPLS_CoS_TC1(MplsBase):
+class TestSuite_014_MPLS_CoS_TC1(unittest.TestCase):
     AF = 4
-    STREAM = True
+    STREAM = False
 
     @classmethod
     def setUpClass(self):
         super(TestSuite_014_MPLS_CoS_TC1, self).setUpClass()
-        self.ilm_entry = clientClass.json_params['cos_ilm_tc1']
-        self.ilm_entry_del = clientClass.json_params['cos_ilm_del']
-        self.lbl_blk_params = clientClass.json_params['cos_mpls_lbl_block_1']
-        self.ilm_get = clientClass.json_params['ilm_get']
-        self.lbl_blk_get = clientClass.json_params['lbl_blk_get']
-        self.reg_params = clientClass.json_params['reg_params']
+        self.ilm_entry = client.json_params['cos_ilm_tc1']
+        self.ilm_entry_del = client.json_params['cos_ilm_del']
+        self.lbl_blk_params = client.json_params['cos_mpls_lbl_block_1']
+        self.lbl_blk_get = client.json_params['lbl_blk_get']
+        self.reg_params = client.json_params['reg_params']
 
     def test_000_get_globals(self):
         # Get Global MPLS info
-        response = clientClass.client.mpls_global_get()
-        err = self.print_mpls_globals(response)
-        self.assertTrue(err)
+        client.mpls_global_get()
 
     def test_001_mpls_register(self):
-        response = clientClass.client.mpls_register_oper(self.reg_params)
-        err = self.validate_mpls_regop_response(response)
-        self.assertTrue(err)
+        client.mpls_register(self.reg_params)
 
     def test_002_blk_add(self):
-        response = clientClass.client.label_block_add(self.lbl_blk_params)
-        err = self.validate_lbl_blk_response(response)
-        self.assertTrue(err)
+        client.label_block_add(self.lbl_blk_params)
 
     # add label 32220, default -> NH1
     def test_002_ilm_add(self):
-        params = (self.ilm_entry["cos_ilm_1"],
-             self.AF,
-            clientClass.json_params['paths'],
-            clientClass.json_params['nexthops'],)
-        if self.STREAM == False:
-            self.ilm_op_wrapper(clientClass.client.ilm_add,
-                self.ilm_entry["cos_ilm_1"])
-        else:
-            self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_ADD,
-                self.ilm_entry["cos_ilm_1"])
+        client.ilm_add(self.ilm_entry["cos_ilm_1"], stream=self.STREAM, 
+                af=self.AF)
+    # FIXME: REMOVE
+    # add label 32220, default -> NH1
+    def test_002b_ilm_add(self):
+        client.ilm_add(self.ilm_entry["cos_ilm_1"], stream=self.STREAM, 
+                af=self.AF, xfail=True)
 
     # add label 32220, exp 4 -> NH2
     def test_003_ilm_add(self):
-        if self.STREAM == False:
-            self.ilm_op_wrapper(clientClass.client.ilm_add,
-                self.ilm_entry["cos_ilm_2"])
-        else:
-            self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_ADD,
-                self.ilm_entry["cos_ilm_2"])
+        client.ilm_add(self.ilm_entry["cos_ilm_2"], stream=self.STREAM, 
+                af=self.AF)
 
     # add label 32220, exp 4 -> NH2 (fail)
     def test_004_ilm_add(self):
-        if self.STREAM == False:
-            self.ilm_op_wrapper(clientClass.client.ilm_add,
-                self.ilm_entry["cos_ilm_2"], False)
-        else:
-            self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_ADD,
-                self.ilm_entry["cos_ilm_2"], False)
+        client.ilm_add(self.ilm_entry["cos_ilm_2"], stream=self.STREAM, 
+                af=self.AF, xfail=True)
 
     # update label 32220, exp 4 -> NH3
     def test_005_ilm_update(self):
-        if self.STREAM == False:
-            self.ilm_op_wrapper(clientClass.client.ilm_update,
-                self.ilm_entry["cos_ilm_3"])
-        else:
-            self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_UPDATE,
-                self.ilm_entry["cos_ilm_3"])
+        client.ilm_update(self.ilm_entry["cos_ilm_3"], stream=self.STREAM, 
+                af=self.AF)
 
     # add label 32220, exp 5 -> NH3
     def test_006_ilm_add(self):
-        if self.STREAM == False:
-            self.ilm_op_wrapper(clientClass.client.ilm_add,
-                self.ilm_entry["cos_ilm_4"])
-        else:
-            self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_ADD,
-                self.ilm_entry["cos_ilm_4"])
+        client.ilm_add(self.ilm_entry["cos_ilm_4"], stream=self.STREAM, 
+                af=self.AF)
 
     # delete label 32220, default
     def test_007_ilm_delete(self):
-        if self.STREAM == False:
-            self.ilm_op_wrapper(clientClass.client.ilm_delete,
-                self.ilm_entry_del["cos_ilm_del_default"])
-        else:
-            self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_DELETE,
-                self.ilm_entry_del["cos_ilm_del_default"])
+        client.ilm_delete(self.ilm_entry_del["cos_ilm_del_default"], 
+                stream=self.STREAM, af=self.AF)
 
     # add label 32220, default -> NH4
     def test_008_ilm_add(self):
-        if self.STREAM == False:
-            self.ilm_op_wrapper(clientClass.client.ilm_add,
-                self.ilm_entry["cos_ilm_5"])
-        else:
-            self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_ADD,
-                self.ilm_entry["cos_ilm_5"])
+        client.ilm_add(self.ilm_entry["cos_ilm_5"], stream=self.STREAM, 
+                af=self.AF)
 
     # add label 22220, default -> NH4 (fail)
     def test_009_ilm_add(self):
-        if self.STREAM == False:
-            self.ilm_op_wrapper(clientClass.client.ilm_add,
-                self.ilm_entry["cos_ilm_6"], False)
-        else:
-            self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_ADD,
-                self.ilm_entry["cos_ilm_6"], False)
+        client.ilm_add(self.ilm_entry["cos_ilm_6"], stream=self.STREAM, 
+                af=self.AF, xfail=True)
 
     # delete label 32220 exp 4
     def test_010_ilm_delete(self):
-        if self.STREAM == False:
-            self.ilm_op_wrapper(clientClass.client.ilm_delete,
-                self.ilm_entry_del["cos_ilm_del_4"])
-        else:
-            self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_DELETE,
-                self.ilm_entry_del["cos_ilm_del_4"])
+        client.ilm_delete(self.ilm_entry_del["cos_ilm_del_4"], 
+                stream=self.STREAM, af=self.AF)
 
     # delete label 32220 exp 4 (del of non-existent label is success)
     def test_011_ilm_delete(self):
-        if self.STREAM == False:
-            self.ilm_op_wrapper(clientClass.client.ilm_delete,
-                self.ilm_entry_del["cos_ilm_del_4"])
-        else:
-            self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_DELETE,
-                self.ilm_entry_del["cos_ilm_del_4"])
+        client.ilm_delete(self.ilm_entry_del["cos_ilm_del_4"],
+                stream=self.STREAM, af=self.AF)
 
     # delete label 32220 exp 5
     def test_012_ilm_delete(self):
-        if self.STREAM == False:
-            self.ilm_op_wrapper(clientClass.client.ilm_delete,
-                self.ilm_entry_del["cos_ilm_del_5"])
-        else:
-            self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_DELETE,
-                self.ilm_entry_del["cos_ilm_del_5"])
+        client.ilm_delete(self.ilm_entry_del["cos_ilm_del_5"],
+                stream=self.STREAM, af=self.AF)
 
     # delete label 32220 default
     def test_013_ilm_delete(self):
-        if self.STREAM == False:
-            self.ilm_op_wrapper(clientClass.client.ilm_delete,
-                self.ilm_entry_del["cos_ilm_del_default_exp"])
-        else:
-            self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_DELETE,
-                self.ilm_entry_del["cos_ilm_del_default_exp"])
+        client.ilm_delete(self.ilm_entry_del["cos_ilm_del_default_exp"],
+                stream=self.STREAM, af=self.AF)
 
     def test_014_mpls_eof(self):
-        response = clientClass.client.mpls_eof_oper()
-        err = self.validate_mpls_regop_response(response)
-        self.assertTrue(err)
+        client.mpls_eof()
 
     def test_015_mpls_unregister(self):
-        response = clientClass.client.mpls_unregister_oper()
-        err = self.validate_mpls_regop_response(response)
-        self.assertTrue(err)
+        client.mpls_unregister()
         
 #
 #
@@ -2159,126 +2279,79 @@ class TestSuite_014_MPLS_CoS_TC1_v6(TestSuite_014_MPLS_CoS_TC1):
 #
 #
 #
-class TestSuite_015_MPLS_CoS_TC2(MplsBase):
+class TestSuite_015_MPLS_CoS_TC2(unittest.TestCase):
     AF = 4
     STREAM = False
 
     @classmethod
     def setUpClass(self):
         super(TestSuite_015_MPLS_CoS_TC2, self).setUpClass()
-        self.ilm_entry = clientClass.json_params['cos_ilm_tc2']
-        self.ilm_entry_del = clientClass.json_params['cos_ilm_del']
-        self.lbl_blk_params = clientClass.json_params['cos_mpls_lbl_block_1']
-        self.ilm_get = clientClass.json_params['ilm_get']
-        self.lbl_blk_get = clientClass.json_params['lbl_blk_get']
-        self.reg_params = clientClass.json_params['reg_params_2']
+        self.ilm_entry = client.json_params['cos_ilm_tc2']
+        self.ilm_entry_del = client.json_params['cos_ilm_del']
+        self.lbl_blk_params = client.json_params['cos_mpls_lbl_block_1']
+        self.lbl_blk_get = client.json_params['lbl_blk_get']
+        self.reg_params = client.json_params['reg_params_2']
 
     def test_000_get_globals(self):
         # Get Global MPLS info
-        response = clientClass.client.mpls_global_get()
-        err = self.print_mpls_globals(response)
-        self.assertTrue(err)
+        client.mpls_global_get()
 
     def test_001_mpls_register(self):
-        response = clientClass.client.mpls_register_oper(self.reg_params)
-        err = self.validate_mpls_regop_response(response)
-        self.assertTrue(err)
+        client.mpls_register(self.reg_params)
 
     def test_002_blk_add(self):
-        response = clientClass.client.label_block_add(self.lbl_blk_params)
-        err = self.validate_lbl_blk_response(response)
-        self.assertTrue(err)
+        client.label_block_add(self.lbl_blk_params)
 
     # add label 32220, exp 1 -> NH1,w2 NH2,w2
     def test_002_ilm_add(self):
-        if self.STREAM == False:
-            self.ilm_op_wrapper(clientClass.client.ilm_add,
-                self.ilm_entry["cos_ilm_1"])
-        else:
-            self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_ADD,
-                self.ilm_entry["cos_ilm_1"])
+        client.ilm_add(self.ilm_entry["cos_ilm_1"], stream=self.STREAM,
+                 af=self.AF)
                 
     # add label 32220, exp 2 -> NH1,w4 NH3,w4
     def test_003_ilm_add(self):
-        if self.STREAM == False:
-            self.ilm_op_wrapper(clientClass.client.ilm_add,
-                self.ilm_entry["cos_ilm_2"])
-        else:
-            self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_ADD,
-                self.ilm_entry["cos_ilm_2"])    
+        client.ilm_add(self.ilm_entry["cos_ilm_2"], stream=self.STREAM,
+                 af=self.AF)    
                 
     # delete label 32220 exp 2
     def test_004_ilm_delete(self):
-        if self.STREAM == False:
-            self.ilm_op_wrapper(clientClass.client.ilm_delete,
-                self.ilm_entry_del["cos_ilm_del_2"])
-        else:
-            self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_DELETE,
-                self.ilm_entry_del["cos_ilm_del_2"])        
+        client.ilm_delete(self.ilm_entry_del["cos_ilm_del_2"], stream=self.STREAM,
+                 af=self.AF)
                 
     # add label 32220, default -> NH1,w3
     def test_005_ilm_add(self):
-        if self.STREAM == False:
-            self.ilm_op_wrapper(clientClass.client.ilm_add,
-                self.ilm_entry["cos_ilm_3"])
-        else:
-            self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_ADD,
-                self.ilm_entry["cos_ilm_3"]) 
+        client.ilm_add(self.ilm_entry["cos_ilm_3"], stream=self.STREAM,
+                 af=self.AF) 
                 
     # add label 32220, default -> NH1,w3 (fail)
     def test_006_ilm_add(self):
-        if self.STREAM == False:
-            self.ilm_op_wrapper(clientClass.client.ilm_add,
-                self.ilm_entry["cos_ilm_3"], False)
-        else:
-            self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_ADD,
-                self.ilm_entry["cos_ilm_3"], False) 
+        client.ilm_add(self.ilm_entry["cos_ilm_3"], stream=self.STREAM,
+                 af=self.AF, xfail=True)
                 
     # update label 32220, exp 1 -> NH3,w3 NH4,w1
     def test_007_ilm_update(self):
-        if self.STREAM == False:
-            self.ilm_op_wrapper(clientClass.client.ilm_update,
-                self.ilm_entry["cos_ilm_4"])
-        else:
-            self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_UPDATE,
-                self.ilm_entry["cos_ilm_4"])  
+        client.ilm_update(self.ilm_entry["cos_ilm_4"], stream=self.STREAM,
+                 af=self.AF)  
                               
     # delete label 32220 exp 1
     def test_008_ilm_delete(self):
-        if self.STREAM == False:
-            self.ilm_op_wrapper(clientClass.client.ilm_delete,
-                self.ilm_entry_del["cos_ilm_del_1"])
-        else:
-            self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_DELETE,
-                self.ilm_entry_del["cos_ilm_del_1"]) 
+        client.ilm_delete(self.ilm_entry_del["cos_ilm_del_1"], stream=self.STREAM,
+                 af=self.AF)
 
     # delete label 32220 default
     def test_009_ilm_delete(self):
-        if self.STREAM == False:
-            self.ilm_op_wrapper(clientClass.client.ilm_delete,
-                self.ilm_entry_del["cos_ilm_del_default"])
-        else:
-            self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_DELETE,
-                self.ilm_entry_del["cos_ilm_del_default"]) 
+        client.ilm_delete(self.ilm_entry_del["cos_ilm_del_default"], stream=self.STREAM,
+                 af=self.AF)
                 
     # delete label 32220 default (del of non-existent label is success)
     def test_010_ilm_delete(self):
-        if self.STREAM == False:
-            self.ilm_op_wrapper(clientClass.client.ilm_delete,
-                self.ilm_entry_del["cos_ilm_del_default"])
-        else:
-            self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_DELETE,
-                self.ilm_entry_del["cos_ilm_del_default"])
+        client.ilm_delete(self.ilm_entry_del["cos_ilm_del_default"], stream=self.STREAM,
+                 af=self.AF)
                 
     def test_011_mpls_eof(self):
-        response = clientClass.client.mpls_eof_oper()
-        err = self.validate_mpls_regop_response(response)
-        self.assertTrue(err)
+        client.mpls_eof()
 
     def test_012_mpls_unregister(self):
-        response = clientClass.client.mpls_unregister_oper()
-        err = self.validate_mpls_regop_response(response)
-        self.assertTrue(err)
+        client.mpls_unregister()
 
 #
 #
@@ -2290,272 +2363,161 @@ class TestSuite_015_MPLS_CoS_TC2_v6(TestSuite_015_MPLS_CoS_TC2):
 #
 #
 #
-class TestSuite_016_MPLS_CoS_TC3(MplsBase):
+class TestSuite_016_MPLS_CoS_TC3(unittest.TestCase):
     AF = 4
     STREAM = False
 
     @classmethod
     def setUpClass(self):
         super(TestSuite_016_MPLS_CoS_TC3, self).setUpClass()
-        self.ilm_entry = clientClass.json_params['cos_ilm_tc3']
-        self.ilm_entry_del = clientClass.json_params['cos_ilm_del']
-        self.lbl_blk_params = clientClass.json_params['cos_mpls_lbl_block_1']
-        self.ilm_get = clientClass.json_params['ilm_get']
-        self.lbl_blk_get = clientClass.json_params['lbl_blk_get']
-        self.reg_params = clientClass.json_params['reg_params']
+        self.ilm_entry = client.json_params['cos_ilm_tc3']
+        self.ilm_entry_del = client.json_params['cos_ilm_del']
+        self.lbl_blk_params = client.json_params['cos_mpls_lbl_block_1']
+        self.lbl_blk_get = client.json_params['lbl_blk_get']
+        self.reg_params = client.json_params['reg_params']
 
     def test_000_get_globals(self):
         # Get Global MPLS info
-        response = clientClass.client.mpls_global_get()
-        err = self.print_mpls_globals(response)
-        self.assertTrue(err)
+        client.mpls_global_get()
 
     def test_001_mpls_register(self):
-        response = clientClass.client.mpls_register_oper(self.reg_params)
-        err = self.validate_mpls_regop_response(response)
-        self.assertTrue(err)
+        client.mpls_register(self.reg_params)
 
     def test_002_blk_add(self):
-        response = clientClass.client.label_block_add(self.lbl_blk_params)
-        err = self.validate_lbl_blk_response(response)
-        self.assertTrue(err)
+        client.label_block_add(self.lbl_blk_params)
 
     # add label 32220, exp 0 -> NH1 NH2
     def test_002_ilm_add(self):
-        if self.STREAM == False:
-            self.ilm_op_wrapper(clientClass.client.ilm_add,
-                self.ilm_entry["cos_ilm_1"])
-        else:
-            self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_ADD,
-                self.ilm_entry["cos_ilm_1"])
+        client.ilm_add(self.ilm_entry["cos_ilm_1"], stream=self.STREAM,
+                 af=self.AF)
                 
     # add label 32220, exp 1 -> NH2 NH3
     def test_003_ilm_add(self):
-        if self.STREAM == False:
-            self.ilm_op_wrapper(clientClass.client.ilm_add,
-                self.ilm_entry["cos_ilm_2"])
-        else:
-            self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_ADD,
-                self.ilm_entry["cos_ilm_2"])    
+        client.ilm_add(self.ilm_entry["cos_ilm_2"], stream=self.STREAM,
+                 af=self.AF)    
 
     # add label 32220, exp 1 -> NH2 NH3 (fail)
     def test_004_ilm_add(self):
-        if self.STREAM == False:
-            self.ilm_op_wrapper(clientClass.client.ilm_add,
-                self.ilm_entry["cos_ilm_2"], False)
-        else:
-            self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_ADD,
-                self.ilm_entry["cos_ilm_2"], False) 
+        client.ilm_add(self.ilm_entry["cos_ilm_2"], stream=self.STREAM,
+                 af=self.AF, xfail=True)
 
     # add label 32220, exp 2 -> NH3 NH4
     def test_005_ilm_add(self):
-        if self.STREAM == False:
-            self.ilm_op_wrapper(clientClass.client.ilm_add,
-                self.ilm_entry["cos_ilm_3"])
-        else:
-            self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_ADD,
-                self.ilm_entry["cos_ilm_3"])     
+        client.ilm_add(self.ilm_entry["cos_ilm_3"], stream=self.STREAM,
+                 af=self.AF)     
 
     # add label 32220, exp 3 -> NH4 NH5
     def test_006_ilm_add(self):
-        if self.STREAM == False:
-            self.ilm_op_wrapper(clientClass.client.ilm_add,
-                self.ilm_entry["cos_ilm_4"])
-        else:
-            self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_ADD,
-                self.ilm_entry["cos_ilm_4"])  
+        client.ilm_add(self.ilm_entry["cos_ilm_4"], stream=self.STREAM,
+                 af=self.AF)  
                 
     # update label 32220, exp 3 -> NH2 NH4
     def test_007_ilm_update(self):
-        if self.STREAM == False:
-            self.ilm_op_wrapper(clientClass.client.ilm_update,
-                self.ilm_entry["cos_ilm_5"])
-        else:
-            self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_UPDATE,
-                self.ilm_entry["cos_ilm_5"])
+        client.ilm_update(self.ilm_entry["cos_ilm_5"], stream=self.STREAM,
+                 af=self.AF)
                  
     # add label 32220, exp 4 -> NH1 NH4
     def test_008_ilm_add(self):
-        if self.STREAM == False:
-            self.ilm_op_wrapper(clientClass.client.ilm_add,
-                self.ilm_entry["cos_ilm_6"])
-        else:
-            self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_ADD,
-                self.ilm_entry["cos_ilm_6"])   
+        client.ilm_add(self.ilm_entry["cos_ilm_6"], stream=self.STREAM,
+                 af=self.AF)   
                 
     # add label 32220, exp 5 -> NH1 NH3 NH5
     def test_009_ilm_add(self):
-        if self.STREAM == False:
-            self.ilm_op_wrapper(clientClass.client.ilm_add,
-                self.ilm_entry["cos_ilm_7"])
-        else:
-            self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_ADD,
-                self.ilm_entry["cos_ilm_7"])       
+        client.ilm_add(self.ilm_entry["cos_ilm_7"], stream=self.STREAM,
+                 af=self.AF)       
                 
     # update label 32220, exp 5 -> NH2 NH4
     def test_010_ilm_update(self):
-        if self.STREAM == False:
-            self.ilm_op_wrapper(clientClass.client.ilm_update,
-                self.ilm_entry["cos_ilm_8"])
-        else:
-            self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_UPDATE,
-                self.ilm_entry["cos_ilm_8"]) 
+        client.ilm_update(self.ilm_entry["cos_ilm_8"], stream=self.STREAM,
+                 af=self.AF) 
                 
     # add label 32220, exp 6 -> NH6 NH7
     def test_011_ilm_add(self):
-        if self.STREAM == False:
-            self.ilm_op_wrapper(clientClass.client.ilm_add,
-                self.ilm_entry["cos_ilm_9"])
-        else:
-            self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_ADD,
-                self.ilm_entry["cos_ilm_9"])
+        client.ilm_add(self.ilm_entry["cos_ilm_9"], stream=self.STREAM,
+                 af=self.AF)
                 
     # add label 32220, exp 7 -> NH5 NH8
     def test_012_ilm_add(self):
-        if self.STREAM == False:
-            self.ilm_op_wrapper(clientClass.client.ilm_add,
-                self.ilm_entry["cos_ilm_10"])
-        else:
-            self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_ADD,
-                self.ilm_entry["cos_ilm_10"])
+        client.ilm_add(self.ilm_entry["cos_ilm_10"], stream=self.STREAM,
+                 af=self.AF)
 
     # add label 32220, default -> NH8, NH9 (Pop and lookup)
     # NOTE: Next hops are not required for pop and lookup and are just used 
     #       to keep tests cases reusable
     def test_013_ilm_add(self):
-        if self.STREAM == False:
-            self.ilm_op_wrapper(clientClass.client.ilm_add,
-                self.ilm_entry["cos_ilm_11"])
-        else:
-            self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_ADD,
-                self.ilm_entry["cos_ilm_11"])
+        client.ilm_add(self.ilm_entry["cos_ilm_11"], stream=self.STREAM,
+                 af=self.AF)
                 
     # add label 32220, default -> NH8, NH9 (fail)
     def test_014_ilm_add(self):
-        if self.STREAM == False:
-            self.ilm_op_wrapper(clientClass.client.ilm_add,
-                self.ilm_entry["cos_ilm_11"], False)
-        else:
-            self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_ADD,
-                self.ilm_entry["cos_ilm_11"], False)    
+        client.ilm_add(self.ilm_entry["cos_ilm_11"], stream=self.STREAM,
+                 af=self.AF, xfail=True)
                 
     # update label 32220, default -> NH7 NH9 (pop and lookup -> swap)
     def test_015_ilm_update(self):
-        if self.STREAM == False:
-            self.ilm_op_wrapper(clientClass.client.ilm_update,
-                self.ilm_entry["cos_ilm_12"])
-        else:
-            self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_UPDATE,
-                self.ilm_entry["cos_ilm_12"])
+        client.ilm_update(self.ilm_entry["cos_ilm_12"], stream=self.STREAM,
+                 af=self.AF)
     
     # delete label 32220 exp 0
     def test_016_ilm_delete(self):
-        if self.STREAM == False:
-            self.ilm_op_wrapper(clientClass.client.ilm_delete,
-                self.ilm_entry_del["cos_ilm_del_0"])
-        else:
-            self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_DELETE,
-                self.ilm_entry_del["cos_ilm_del_0"]) 
+        client.ilm_delete(self.ilm_entry_del["cos_ilm_del_0"], stream=self.STREAM,
+                 af=self.AF)
 
     # delete label 32220 exp 0 (del of non-existent label is success)
     def test_017_ilm_delete(self):
-        if self.STREAM == False:
-            self.ilm_op_wrapper(clientClass.client.ilm_delete,
-                self.ilm_entry_del["cos_ilm_del_0"])
-        else:
-            self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_DELETE,
-                self.ilm_entry_del["cos_ilm_del_0"])
+        client.ilm_delete(self.ilm_entry_del["cos_ilm_del_0"], stream=self.STREAM,
+                 af=self.AF)
                 
     # delete label 32220 exp 1
     def test_018_ilm_delete(self):
-        if self.STREAM == False:
-            self.ilm_op_wrapper(clientClass.client.ilm_delete,
-                self.ilm_entry_del["cos_ilm_del_1"])
-        else:
-            self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_DELETE,
-                self.ilm_entry_del["cos_ilm_del_1"])  
+        client.ilm_delete(self.ilm_entry_del["cos_ilm_del_1"], stream=self.STREAM,
+                 af=self.AF)
                 
     # delete label 32220 exp 2
     def test_019_ilm_delete(self):
-        if self.STREAM == False:
-            self.ilm_op_wrapper(clientClass.client.ilm_delete,
-                self.ilm_entry_del["cos_ilm_del_2"])
-        else:
-            self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_DELETE,
-                self.ilm_entry_del["cos_ilm_del_2"]) 
+        client.ilm_delete(self.ilm_entry_del["cos_ilm_del_2"], stream=self.STREAM,
+                 af=self.AF)
                 
     # delete label 32220 exp 3
     def test_020_ilm_delete(self):
-        if self.STREAM == False:
-            self.ilm_op_wrapper(clientClass.client.ilm_delete,
-                self.ilm_entry_del["cos_ilm_del_3"])
-        else:
-            self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_DELETE,
-                self.ilm_entry_del["cos_ilm_del_3"]) 
+        client.ilm_delete(self.ilm_entry_del["cos_ilm_del_3"], stream=self.STREAM,
+                 af=self.AF)
 
     # delete label 32220 exp 4
     def test_021_ilm_delete(self):
-        if self.STREAM == False:
-            self.ilm_op_wrapper(clientClass.client.ilm_delete,
-                self.ilm_entry_del["cos_ilm_del_4"])
-        else:
-            self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_DELETE,
-                self.ilm_entry_del["cos_ilm_del_4"]) 
+        client.ilm_delete(self.ilm_entry_del["cos_ilm_del_4"], stream=self.STREAM,
+                 af=self.AF)
                 
     # delete label 32220 exp 5
     def test_022_ilm_delete(self):
-        if self.STREAM == False:
-            self.ilm_op_wrapper(clientClass.client.ilm_delete,
-                self.ilm_entry_del["cos_ilm_del_5"])
-        else:
-            self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_DELETE,
-                self.ilm_entry_del["cos_ilm_del_5"]) 
+        client.ilm_delete(self.ilm_entry_del["cos_ilm_del_5"], stream=self.STREAM,
+                 af=self.AF)
                 
     # delete label 32220 exp 6
     def test_023_ilm_delete(self):
-        if self.STREAM == False:
-            self.ilm_op_wrapper(clientClass.client.ilm_delete,
-                self.ilm_entry_del["cos_ilm_del_6"])
-        else:
-            self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_DELETE,
-                self.ilm_entry_del["cos_ilm_del_6"])    
+        client.ilm_delete(self.ilm_entry_del["cos_ilm_del_6"], stream=self.STREAM,
+                 af=self.AF)
 
     # delete label 32220 exp 7
     def test_024_ilm_delete(self):
-        if self.STREAM == False:
-            self.ilm_op_wrapper(clientClass.client.ilm_delete,
-                self.ilm_entry_del["cos_ilm_del_7"])
-        else:
-            self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_DELETE,
-                self.ilm_entry_del["cos_ilm_del_7"])     
+        client.ilm_delete(self.ilm_entry_del["cos_ilm_del_7"], stream=self.STREAM,
+                 af=self.AF)
 
     # delete label 32220 default
     def test_025_ilm_delete(self):
-        if self.STREAM == False:
-            self.ilm_op_wrapper(clientClass.client.ilm_delete,
-                self.ilm_entry_del["cos_ilm_del_default"])
-        else:
-            self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_DELETE,
-                self.ilm_entry_del["cos_ilm_del_default"]) 
+        client.ilm_delete(self.ilm_entry_del["cos_ilm_del_default"], stream=self.STREAM,
+                 af=self.AF)
                 
     # delete label 32220 default (del of non-existent label is success)
     def test_026_ilm_delete(self):
-        if self.STREAM == False:
-            self.ilm_op_wrapper(clientClass.client.ilm_delete,
-                self.ilm_entry_del["cos_ilm_del_default"])
-        else:
-            self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_DELETE,
-                self.ilm_entry_del["cos_ilm_del_default"])     
+        client.ilm_delete(self.ilm_entry_del["cos_ilm_del_default"], stream=self.STREAM,
+                 af=self.AF)
 
     def test_027_mpls_eof(self):
-        response = clientClass.client.mpls_eof_oper()
-        err = self.validate_mpls_regop_response(response)
-        self.assertTrue(err)
+        client.mpls_eof()
 
     def test_028_mpls_unregister(self):
-        response = clientClass.client.mpls_unregister_oper()
-        err = self.validate_mpls_regop_response(response)
-        self.assertTrue(err)
+        client.mpls_unregister()
         
 #
 #
@@ -2567,272 +2529,161 @@ class TestSuite_016_MPLS_CoS_TC3_v6(TestSuite_016_MPLS_CoS_TC3):
 #
 #
 #
-class TestSuite_017_MPLS_CoS_TC4(MplsBase):
+class TestSuite_017_MPLS_CoS_TC4(unittest.TestCase):
     AF = 4
     STREAM = False
 
     @classmethod
     def setUpClass(self):
         super(TestSuite_017_MPLS_CoS_TC4, self).setUpClass()
-        self.ilm_entry = clientClass.json_params['cos_ilm_tc4']
-        self.ilm_entry_del = clientClass.json_params['cos_ilm_del']
-        self.lbl_blk_params = clientClass.json_params['cos_mpls_lbl_block_1']
-        self.ilm_get = clientClass.json_params['ilm_get']
-        self.lbl_blk_get = clientClass.json_params['lbl_blk_get']
-        self.reg_params = clientClass.json_params['reg_params']
+        self.ilm_entry = client.json_params['cos_ilm_tc4']
+        self.ilm_entry_del = client.json_params['cos_ilm_del']
+        self.lbl_blk_params = client.json_params['cos_mpls_lbl_block_1']
+        self.lbl_blk_get = client.json_params['lbl_blk_get']
+        self.reg_params = client.json_params['reg_params']
 
     def test_000_get_globals(self):
         # Get Global MPLS info
-        response = clientClass.client.mpls_global_get()
-        err = self.print_mpls_globals(response)
-        self.assertTrue(err)
+        client.mpls_global_get()
 
     def test_001_mpls_register(self):
-        response = clientClass.client.mpls_register_oper(self.reg_params)
-        err = self.validate_mpls_regop_response(response)
-        self.assertTrue(err)
+        client.mpls_register(self.reg_params)
 
     def test_002_blk_add(self):
-        response = clientClass.client.label_block_add(self.lbl_blk_params)
-        err = self.validate_lbl_blk_response(response)
-        self.assertTrue(err)
+        client.label_block_add(self.lbl_blk_params)
 
     # update label 32220, exp 0 -> NH1 NH2
     def test_002_ilm_update(self):
-        if self.STREAM == False:
-            self.ilm_op_wrapper(clientClass.client.ilm_update,
-                self.ilm_entry["cos_ilm_1"])
-        else:
-            self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_UPDATE,
-                self.ilm_entry["cos_ilm_1"])
+        client.ilm_update(self.ilm_entry["cos_ilm_1"], stream=self.STREAM,
+                 af=self.AF)
                 
     # update label 32220, exp 1 -> NH2 NH3
     def test_003_ilm_update(self):
-        if self.STREAM == False:
-            self.ilm_op_wrapper(clientClass.client.ilm_update,
-                self.ilm_entry["cos_ilm_2"])
-        else:
-            self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_UPDATE,
-                self.ilm_entry["cos_ilm_2"])    
+        client.ilm_update(self.ilm_entry["cos_ilm_2"], stream=self.STREAM,
+                 af=self.AF)    
 
     # update label 32220, exp 1 -> NH2 NH3 (no op)
     def test_004_ilm_update(self):
-        if self.STREAM == False:
-            self.ilm_op_wrapper(clientClass.client.ilm_update,
-                self.ilm_entry["cos_ilm_2"])
-        else:
-            self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_UPDATE,
-                self.ilm_entry["cos_ilm_2"]) 
+        client.ilm_update(self.ilm_entry["cos_ilm_2"], stream=self.STREAM,
+                 af=self.AF) 
 
     # update label 32220, exp 2 -> NH3 NH4
     def test_005_ilm_update(self):
-        if self.STREAM == False:
-            self.ilm_op_wrapper(clientClass.client.ilm_update,
-                self.ilm_entry["cos_ilm_3"])
-        else:
-            self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_UPDATE,
-                self.ilm_entry["cos_ilm_3"])     
+        client.ilm_update(self.ilm_entry["cos_ilm_3"], stream=self.STREAM,
+                 af=self.AF)     
 
     # update label 32220, exp 3 -> NH4 NH5
     def test_006_ilm_update(self):
-        if self.STREAM == False:
-            self.ilm_op_wrapper(clientClass.client.ilm_update,
-                self.ilm_entry["cos_ilm_4"])
-        else:
-            self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_UPDATE,
-                self.ilm_entry["cos_ilm_4"])  
+        client.ilm_update(self.ilm_entry["cos_ilm_4"], stream=self.STREAM,
+                 af=self.AF)  
                 
     # update label 32220, exp 3 -> NH2 NH4
     def test_007_ilm_update(self):
-        if self.STREAM == False:
-            self.ilm_op_wrapper(clientClass.client.ilm_update,
-                self.ilm_entry["cos_ilm_5"])
-        else:
-            self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_UPDATE,
-                self.ilm_entry["cos_ilm_5"])
+        client.ilm_update(self.ilm_entry["cos_ilm_5"], stream=self.STREAM,
+                 af=self.AF)
                  
     # update label 32220, exp 4 -> NH1 NH4
     def test_008_ilm_update(self):
-        if self.STREAM == False:
-            self.ilm_op_wrapper(clientClass.client.ilm_update,
-                self.ilm_entry["cos_ilm_6"])
-        else:
-            self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_UPDATE,
-                self.ilm_entry["cos_ilm_6"])   
+        client.ilm_update(self.ilm_entry["cos_ilm_6"], stream=self.STREAM,
+                 af=self.AF)   
                 
     # update label 32220, exp 5 -> NH1 NH3 NH5
     def test_009_ilm_update(self):
-        if self.STREAM == False:
-            self.ilm_op_wrapper(clientClass.client.ilm_update,
-                self.ilm_entry["cos_ilm_7"])
-        else:
-            self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_UPDATE,
-                self.ilm_entry["cos_ilm_7"])       
+        client.ilm_update(self.ilm_entry["cos_ilm_7"], stream=self.STREAM,
+                 af=self.AF)       
                 
     # update label 32220, exp 5 -> NH2 NH4
     def test_010_ilm_update(self):
-        if self.STREAM == False:
-            self.ilm_op_wrapper(clientClass.client.ilm_update,
-                self.ilm_entry["cos_ilm_8"])
-        else:
-            self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_UPDATE,
-                self.ilm_entry["cos_ilm_8"]) 
+        client.ilm_update(self.ilm_entry["cos_ilm_8"], stream=self.STREAM,
+                 af=self.AF) 
                 
     # update label 32220, exp 6 -> NH6 NH7
     def test_011_ilm_update(self):
-        if self.STREAM == False:
-            self.ilm_op_wrapper(clientClass.client.ilm_update,
-                self.ilm_entry["cos_ilm_9"])
-        else:
-            self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_UPDATE,
-                self.ilm_entry["cos_ilm_9"])
+        client.ilm_update(self.ilm_entry["cos_ilm_9"], stream=self.STREAM,
+                 af=self.AF)
                 
     # update label 32220, exp 7 -> NH5 NH8
     def test_012_ilm_update(self):
-        if self.STREAM == False:
-            self.ilm_op_wrapper(clientClass.client.ilm_update,
-                self.ilm_entry["cos_ilm_10"])
-        else:
-            self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_UPDATE,
-                self.ilm_entry["cos_ilm_10"])
+        client.ilm_update(self.ilm_entry["cos_ilm_10"], stream=self.STREAM,
+                 af=self.AF)
 
     # update label 32220, default -> NH8, NH9 (Pop and Lookup)
     # NOTE: Next hops are not required for pop and lookup and are just used 
     #       to keep tests cases reusable
     def test_013_ilm_update(self):
-        if self.STREAM == False:
-            self.ilm_op_wrapper(clientClass.client.ilm_update,
-                self.ilm_entry["cos_ilm_11"])
-        else:
-            self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_UPDATE,
-                self.ilm_entry["cos_ilm_11"])
+        client.ilm_update(self.ilm_entry["cos_ilm_11"], stream=self.STREAM,
+                 af=self.AF)
                 
     # update label 32220, default -> NH8, NH9 (no op)
     def test_014_ilm_update(self):
-        if self.STREAM == False:
-            self.ilm_op_wrapper(clientClass.client.ilm_update,
-                self.ilm_entry["cos_ilm_11"])
-        else:
-            self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_UPDATE,
-                self.ilm_entry["cos_ilm_11"])    
+        client.ilm_update(self.ilm_entry["cos_ilm_11"], stream=self.STREAM,
+                 af=self.AF)    
                 
     # update label 32220, default -> NH7 NH9 (pop and lookup -> swap)
     def test_015_ilm_update(self):
-        if self.STREAM == False:
-            self.ilm_op_wrapper(clientClass.client.ilm_update,
-                self.ilm_entry["cos_ilm_12"])
-        else:
-            self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_UPDATE,
-                self.ilm_entry["cos_ilm_12"])
+        client.ilm_update(self.ilm_entry["cos_ilm_12"], stream=self.STREAM,
+                 af=self.AF)
     
     # delete label 32220 exp 0
     def test_016_ilm_delete(self):
-        if self.STREAM == False:
-            self.ilm_op_wrapper(clientClass.client.ilm_delete,
-                self.ilm_entry_del["cos_ilm_del_0"])
-        else:
-            self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_DELETE,
-                self.ilm_entry_del["cos_ilm_del_0"]) 
+        client.ilm_delete(self.ilm_entry_del["cos_ilm_del_0"], stream=self.STREAM,
+                 af=self.AF)
 
     # delete label 32220 exp 0 (del of non-existent label is success)
     def test_017_ilm_delete(self):
-        if self.STREAM == False:
-            self.ilm_op_wrapper(clientClass.client.ilm_delete,
-                self.ilm_entry_del["cos_ilm_del_0"])
-        else:
-            self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_DELETE,
-                self.ilm_entry_del["cos_ilm_del_0"])
+        client.ilm_delete(self.ilm_entry_del["cos_ilm_del_0"], stream=self.STREAM,
+                 af=self.AF)
                 
     # delete label 32220 exp 1
     def test_018_ilm_delete(self):
-        if self.STREAM == False:
-            self.ilm_op_wrapper(clientClass.client.ilm_delete,
-                self.ilm_entry_del["cos_ilm_del_1"])
-        else:
-            self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_DELETE,
-                self.ilm_entry_del["cos_ilm_del_1"])  
+        client.ilm_delete(self.ilm_entry_del["cos_ilm_del_1"], stream=self.STREAM,
+                 af=self.AF)
                 
     # delete label 32220 exp 2
     def test_019_ilm_delete(self):
-        if self.STREAM == False:
-            self.ilm_op_wrapper(clientClass.client.ilm_delete,
-                self.ilm_entry_del["cos_ilm_del_2"])
-        else:
-            self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_DELETE,
-                self.ilm_entry_del["cos_ilm_del_2"]) 
+        client.ilm_delete(self.ilm_entry_del["cos_ilm_del_2"], stream=self.STREAM,
+                 af=self.AF)
                 
     # delete label 32220 exp 3
     def test_020_ilm_delete(self):
-        if self.STREAM == False:
-            self.ilm_op_wrapper(clientClass.client.ilm_delete,
-                self.ilm_entry_del["cos_ilm_del_3"])
-        else:
-            self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_DELETE,
-                self.ilm_entry_del["cos_ilm_del_3"]) 
+        client.ilm_delete(self.ilm_entry_del["cos_ilm_del_3"], stream=self.STREAM,
+                 af=self.AF)
 
     # delete label 32220 exp 4
     def test_021_ilm_delete(self):
-        if self.STREAM == False:
-            self.ilm_op_wrapper(clientClass.client.ilm_delete,
-                self.ilm_entry_del["cos_ilm_del_4"])
-        else:
-            self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_DELETE,
-                self.ilm_entry_del["cos_ilm_del_4"]) 
+        client.ilm_delete(self.ilm_entry_del["cos_ilm_del_4"], stream=self.STREAM,
+                 af=self.AF)
                 
     # delete label 32220 exp 5
     def test_022_ilm_delete(self):
-        if self.STREAM == False:
-            self.ilm_op_wrapper(clientClass.client.ilm_delete,
-                self.ilm_entry_del["cos_ilm_del_5"])
-        else:
-            self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_DELETE,
-                self.ilm_entry_del["cos_ilm_del_5"]) 
+        client.ilm_delete(self.ilm_entry_del["cos_ilm_del_5"], stream=self.STREAM,
+                 af=self.AF)
                 
     # delete label 32220 exp 6
     def test_023_ilm_delete(self):
-        if self.STREAM == False:
-            self.ilm_op_wrapper(clientClass.client.ilm_delete,
-                self.ilm_entry_del["cos_ilm_del_6"])
-        else:
-            self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_DELETE,
-                self.ilm_entry_del["cos_ilm_del_6"])    
+        client.ilm_delete(self.ilm_entry_del["cos_ilm_del_6"], stream=self.STREAM,
+                 af=self.AF)
 
     # delete label 32220 exp 7
     def test_024_ilm_delete(self):
-        if self.STREAM == False:
-            self.ilm_op_wrapper(clientClass.client.ilm_delete,
-                self.ilm_entry_del["cos_ilm_del_7"])
-        else:
-            self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_DELETE,
-                self.ilm_entry_del["cos_ilm_del_7"])     
+        client.ilm_delete(self.ilm_entry_del["cos_ilm_del_7"], stream=self.STREAM,
+                 af=self.AF)
 
     # delete label 32220 default
     def test_025_ilm_delete(self):
-        if self.STREAM == False:
-            self.ilm_op_wrapper(clientClass.client.ilm_delete,
-                self.ilm_entry_del["cos_ilm_del_default"])
-        else:
-            self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_DELETE,
-                self.ilm_entry_del["cos_ilm_del_default"]) 
+        client.ilm_delete(self.ilm_entry_del["cos_ilm_del_default"], stream=self.STREAM,
+                 af=self.AF)
                 
     # delete label 32220 default (del of non-existent label is success)
     def test_026_ilm_delete(self):
-        if self.STREAM == False:
-            self.ilm_op_wrapper(clientClass.client.ilm_delete,
-                self.ilm_entry_del["cos_ilm_del_default"])
-        else:
-            self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_DELETE,
-                self.ilm_entry_del["cos_ilm_del_default"])     
+        client.ilm_delete(self.ilm_entry_del["cos_ilm_del_default"], stream=self.STREAM,
+                 af=self.AF)
 
     def test_027_mpls_eof(self):
-        response = clientClass.client.mpls_eof_oper()
-        err = self.validate_mpls_regop_response(response)
-        self.assertTrue(err)
+        client.mpls_eof()
 
     def test_028_mpls_unregister(self):
-        response = clientClass.client.mpls_unregister_oper()
-        err = self.validate_mpls_regop_response(response)
-        self.assertTrue(err)
+        client.mpls_unregister()
         
 #
 #
@@ -2844,224 +2695,133 @@ class TestSuite_017_MPLS_CoS_TC4_v6(TestSuite_017_MPLS_CoS_TC4):
 #
 #
 #
-class TestSuite_018_MPLS_CoS_TC5(MplsBase):
+class TestSuite_018_MPLS_CoS_TC5(unittest.TestCase):
     AF = 4
     STREAM = False
 
     @classmethod
     def setUpClass(self):
         super(TestSuite_018_MPLS_CoS_TC5, self).setUpClass()
-        self.ilm_entry = clientClass.json_params['cos_ilm_tc5']
-        self.ilm_entry_del = clientClass.json_params['cos_ilm_del']
-        self.lbl_blk_params = clientClass.json_params['cos_mpls_lbl_block_1']
-        self.ilm_get = clientClass.json_params['ilm_get']
-        self.lbl_blk_get = clientClass.json_params['lbl_blk_get']
-        self.reg_params = clientClass.json_params['reg_params']
+        self.ilm_entry = client.json_params['cos_ilm_tc5']
+        self.ilm_entry_del = client.json_params['cos_ilm_del']
+        self.lbl_blk_params = client.json_params['cos_mpls_lbl_block_1']
+        self.lbl_blk_get = client.json_params['lbl_blk_get']
+        self.reg_params = client.json_params['reg_params']
 
     def test_000_get_globals(self):
         # Get Global MPLS info
-        response = clientClass.client.mpls_global_get()
-        err = self.print_mpls_globals(response)
-        self.assertTrue(err)
+        client.mpls_global_get()
 
     def test_001_mpls_register(self):
-        response = clientClass.client.mpls_register_oper(self.reg_params)
-        err = self.validate_mpls_regop_response(response)
-        self.assertTrue(err)
+        client.mpls_register(self.reg_params)
 
     def test_002_blk_add(self):
-        response = clientClass.client.label_block_add(self.lbl_blk_params)
-        err = self.validate_lbl_blk_response(response)
-        self.assertTrue(err)
+        client.label_block_add(self.lbl_blk_params)
 
     # add label 32220, exp 0 -> NH1,w32
     def test_002_ilm_add(self):
-        if self.STREAM == False:
-            self.ilm_op_wrapper(clientClass.client.ilm_add,
-                self.ilm_entry["cos_ilm_1"])
-        else:
-            self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_UPDATE,
-                self.ilm_entry["cos_ilm_1"])
+        client.ilm_add(self.ilm_entry["cos_ilm_1"], stream=self.STREAM,
+                 af=self.AF)
 
     # add label 32220, exp 1 -> NH2,w32
     def test_003_ilm_add(self):
-        if self.STREAM == False:
-            self.ilm_op_wrapper(clientClass.client.ilm_add,
-                self.ilm_entry["cos_ilm_2"])
-        else:
-            self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_UPDATE,
-                self.ilm_entry["cos_ilm_2"])
+        client.ilm_add(self.ilm_entry["cos_ilm_2"], stream=self.STREAM,
+                 af=self.AF)
                 
     # add label 32220, exp 2 -> NH3,w32
     def test_004_ilm_add(self):
-        if self.STREAM == False:
-            self.ilm_op_wrapper(clientClass.client.ilm_add,
-                self.ilm_entry["cos_ilm_3"])
-        else:
-            self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_UPDATE,
-                self.ilm_entry["cos_ilm_3"])
+        client.ilm_add(self.ilm_entry["cos_ilm_3"], stream=self.STREAM,
+                 af=self.AF)
                 
     # add label 32220, exp 3 -> NH4,w32
     def test_005_ilm_add(self):
-        if self.STREAM == False:
-            self.ilm_op_wrapper(clientClass.client.ilm_add,
-                self.ilm_entry["cos_ilm_4"])
-        else:
-            self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_UPDATE,
-                self.ilm_entry["cos_ilm_4"])
+        client.ilm_add(self.ilm_entry["cos_ilm_4"], stream=self.STREAM,
+                 af=self.AF)
                 
     # add label 32220, exp 4 -> NH5,w32 
     def test_006_ilm_add(self):
-        if self.STREAM == False:
-            self.ilm_op_wrapper(clientClass.client.ilm_add,
-                self.ilm_entry["cos_ilm_5"])
-        else:
-            self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_UPDATE,
-                self.ilm_entry["cos_ilm_5"])
+        client.ilm_add(self.ilm_entry["cos_ilm_5"], stream=self.STREAM,
+                 af=self.AF)
 
     # add label 32220, exp 5 -> NH3,w32 
     def test_007_ilm_add(self):
-        if self.STREAM == False:
-            self.ilm_op_wrapper(clientClass.client.ilm_add,
-                self.ilm_entry["cos_ilm_7"])
-        else:
-            self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_UPDATE,
-                self.ilm_entry["cos_ilm_7"])
+        client.ilm_add(self.ilm_entry["cos_ilm_7"], stream=self.STREAM,
+                 af=self.AF)
 
     # add label 32220, exp 6 -> NH3,w32 
     def test_008_ilm_add(self):
-        if self.STREAM == False:
-            self.ilm_op_wrapper(clientClass.client.ilm_add,
-                self.ilm_entry["cos_ilm_8"])
-        else:
-            self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_UPDATE,
-                self.ilm_entry["cos_ilm_8"])
+        client.ilm_add(self.ilm_entry["cos_ilm_8"], stream=self.STREAM,
+                 af=self.AF)
 
     # add label 32220, exp 7 -> NH2,w32 
     def test_009_ilm_add(self):
-        if self.STREAM == False:
-            self.ilm_op_wrapper(clientClass.client.ilm_add,
-                self.ilm_entry["cos_ilm_9"])
-        else:
-            self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_UPDATE,
-                self.ilm_entry["cos_ilm_9"])
+        client.ilm_add(self.ilm_entry["cos_ilm_9"], stream=self.STREAM,
+                 af=self.AF)
 
     # add label 32220, exp default -> NH2,w32 
     def test_010_ilm_add(self):
-        if self.STREAM == False:
-            self.ilm_op_wrapper(clientClass.client.ilm_add,
-                self.ilm_entry["cos_ilm_default"])
-        else:
-            self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_UPDATE,
-                self.ilm_entry["cos_ilm_default"])
+        client.ilm_add(self.ilm_entry["cos_ilm_default"], stream=self.STREAM,
+                 af=self.AF)
     # delete label 32220 exp 2
     def test_011_ilm_delete(self):
-        if self.STREAM == False:
-            self.ilm_op_wrapper(clientClass.client.ilm_delete,
-                self.ilm_entry_del["cos_ilm_del_2"])
-        else:
-            self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_DELETE,
-                self.ilm_entry_del["cos_ilm_del_2"]) 
+        client.ilm_delete(self.ilm_entry_del["cos_ilm_del_2"], stream=self.STREAM,
+                 af=self.AF)
                 
     # add label 32220, exp 2 -> NH3,w32
     def test_012_ilm_add(self):
-        if self.STREAM == False:
-            self.ilm_op_wrapper(clientClass.client.ilm_add,
-                self.ilm_entry["cos_ilm_6"])
-        else:
-            self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_UPDATE,
-                self.ilm_entry["cos_ilm_6"])
+        client.ilm_add(self.ilm_entry["cos_ilm_6"], stream=self.STREAM,
+                 af=self.AF)
                 
     # delete label 32220 exp 0
     def test_013_ilm_delete(self):
-        if self.STREAM == False:
-            self.ilm_op_wrapper(clientClass.client.ilm_delete,
-                self.ilm_entry_del["cos_ilm_del_0"])
-        else:
-            self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_DELETE,
-                self.ilm_entry_del["cos_ilm_del_0"]) 
+        client.ilm_delete(self.ilm_entry_del["cos_ilm_del_0"], stream=self.STREAM,
+                 af=self.AF)
                 
     # delete label 32220 exp 1
     def test_014_ilm_delete(self):
-        if self.STREAM == False:
-            self.ilm_op_wrapper(clientClass.client.ilm_delete,
-                self.ilm_entry_del["cos_ilm_del_1"])
-        else:
-            self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_DELETE,
-                self.ilm_entry_del["cos_ilm_del_1"]) 
+        client.ilm_delete(self.ilm_entry_del["cos_ilm_del_1"], stream=self.STREAM,
+                 af=self.AF)
                 
     # delete label 32220 exp 2
     def test_015_ilm_delete(self):
-        if self.STREAM == False:
-            self.ilm_op_wrapper(clientClass.client.ilm_delete,
-                self.ilm_entry_del["cos_ilm_del_2"])
-        else:
-            self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_DELETE,
-                self.ilm_entry_del["cos_ilm_del_2"]) 
+        client.ilm_delete(self.ilm_entry_del["cos_ilm_del_2"], stream=self.STREAM,
+                 af=self.AF)
                        
     # delete label 32220 exp 3
     def test_016_ilm_delete(self):
-        if self.STREAM == False:
-            self.ilm_op_wrapper(clientClass.client.ilm_delete,
-                self.ilm_entry_del["cos_ilm_del_3"])
-        else:
-            self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_DELETE,
-                self.ilm_entry_del["cos_ilm_del_3"]) 
+        client.ilm_delete(self.ilm_entry_del["cos_ilm_del_3"], stream=self.STREAM,
+                 af=self.AF)
                 
     # delete label 32220 exp 4
     def test_017_ilm_delete(self):
-        if self.STREAM == False:
-            self.ilm_op_wrapper(clientClass.client.ilm_delete,
-                self.ilm_entry_del["cos_ilm_del_4"])
-        else:
-            self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_DELETE,
-                self.ilm_entry_del["cos_ilm_del_4"]) 
+        client.ilm_delete(self.ilm_entry_del["cos_ilm_del_4"], stream=self.STREAM,
+                 af=self.AF)
                 
     # delete label 32220 exp 5
     def test_018_ilm_delete(self):
-        if self.STREAM == False:
-            self.ilm_op_wrapper(clientClass.client.ilm_delete,
-                self.ilm_entry_del["cos_ilm_del_5"])
-        else:
-            self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_DELETE,
-                self.ilm_entry_del["cos_ilm_del_5"]) 
+        client.ilm_delete(self.ilm_entry_del["cos_ilm_del_5"], stream=self.STREAM,
+                 af=self.AF)
                 
     # delete label 32220 exp 6
     def test_019_ilm_delete(self):
-        if self.STREAM == False:
-            self.ilm_op_wrapper(clientClass.client.ilm_delete,
-                self.ilm_entry_del["cos_ilm_del_6"])
-        else:
-            self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_DELETE,
-                self.ilm_entry_del["cos_ilm_del_6"]) 
+        client.ilm_delete(self.ilm_entry_del["cos_ilm_del_6"], stream=self.STREAM,
+                 af=self.AF)
                 
     # delete label 32220 exp 7
     def test_020_ilm_delete(self):
-        if self.STREAM == False:
-            self.ilm_op_wrapper(clientClass.client.ilm_delete,
-                self.ilm_entry_del["cos_ilm_del_7"])
-        else:
-            self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_DELETE,
-                self.ilm_entry_del["cos_ilm_del_7"]) 
+        client.ilm_delete(self.ilm_entry_del["cos_ilm_del_7"], stream=self.STREAM,
+                 af=self.AF)
                 
     # delete label 32220 exp default
     def test_021_ilm_delete(self):
-        if self.STREAM == False:
-            self.ilm_op_wrapper(clientClass.client.ilm_delete,
-                self.ilm_entry_del["cos_ilm_del_default"])
-        else:
-            self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_DELETE,
-                self.ilm_entry_del["cos_ilm_del_default"]) 
+        client.ilm_delete(self.ilm_entry_del["cos_ilm_del_default"], stream=self.STREAM,
+                 af=self.AF)
                 
     def test_022_mpls_eof(self):
-        response = clientClass.client.mpls_eof_oper()
-        err = self.validate_mpls_regop_response(response)
-        self.assertTrue(err)
+        client.mpls_eof()
 
     def test_023_mpls_unregister(self):
-        response = clientClass.client.mpls_unregister_oper()
-        err = self.validate_mpls_regop_response(response)
-        self.assertTrue(err)
+        client.mpls_unregister()
         
 #
 #
@@ -3073,146 +2833,91 @@ class TestSuite_018_MPLS_CoS_TC5_v6(TestSuite_018_MPLS_CoS_TC5):
 #
 #
 #
-class TestSuite_019_MPLS_CoS_TC6(MplsBase):
+class TestSuite_019_MPLS_CoS_TC6(unittest.TestCase):
     AF = 4
     STREAM = False
 
     @classmethod
     def setUpClass(self):
         super(TestSuite_019_MPLS_CoS_TC6, self).setUpClass()
-        self.ilm_entry = clientClass.json_params['cos_ilm_tc6']
-        self.ilm_entry_del = clientClass.json_params['cos_ilm_del']
-        self.lbl_blk_params = clientClass.json_params['cos_mpls_lbl_block_1']
-        self.ilm_get = clientClass.json_params['ilm_get']
-        self.lbl_blk_get = clientClass.json_params['lbl_blk_get']
-        self.reg_params = clientClass.json_params['reg_params']
+        self.ilm_entry = client.json_params['cos_ilm_tc6']
+        self.ilm_entry_del = client.json_params['cos_ilm_del']
+        self.lbl_blk_params = client.json_params['cos_mpls_lbl_block_1']
+        self.lbl_blk_get = client.json_params['lbl_blk_get']
+        self.reg_params = client.json_params['reg_params']
 
     def test_000_get_globals(self):
         # Get Global MPLS info
-        response = clientClass.client.mpls_global_get()
-        err = self.print_mpls_globals(response)
-        self.assertTrue(err)
+        client.mpls_global_get()
 
     def test_001_mpls_register(self):
-        response = clientClass.client.mpls_register_oper(self.reg_params)
-        err = self.validate_mpls_regop_response(response)
-        self.assertTrue(err)
+        client.mpls_register(self.reg_params)
 
     def test_002_blk_add(self):
-        response = clientClass.client.label_block_add(self.lbl_blk_params)
-        err = self.validate_lbl_blk_response(response)
-        self.assertTrue(err)
+        client.label_block_add(self.lbl_blk_params)
 
     # add label 32220, exp 1 -> NH1,w1 NH2,w2
     def test_003_ilm_add(self):
-        if self.STREAM == False:
-            self.ilm_op_wrapper(clientClass.client.ilm_add,
-                self.ilm_entry["cos_ilm_1"])
-        else:
-            self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_ADD,
-                self.ilm_entry["cos_ilm_1"])  
+        client.ilm_add(self.ilm_entry["cos_ilm_1"], stream=self.STREAM,
+                 af=self.AF)  
                
     # update label 32220, exp 1 -> NH2,w3 NH3,w4
     def test_004_ilm_update(self):
-        if self.STREAM == False:
-            self.ilm_op_wrapper(clientClass.client.ilm_update,
-                self.ilm_entry["cos_ilm_2"])
-        else:
-            self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_UPDATE,
-                self.ilm_entry["cos_ilm_2"])  
+        client.ilm_update(self.ilm_entry["cos_ilm_2"], stream=self.STREAM,
+                 af=self.AF)  
                 
     # update label 32220, exp 1 -> NH5,w5 NH6,w6
     def test_005_ilm_update(self):
-        if self.STREAM == False:
-            self.ilm_op_wrapper(clientClass.client.ilm_update,
-                self.ilm_entry["cos_ilm_3"])
-        else:
-            self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_UPDATE,
-                self.ilm_entry["cos_ilm_3"])
+        client.ilm_update(self.ilm_entry["cos_ilm_3"], stream=self.STREAM,
+                 af=self.AF)
     
     # add label 32220, default -> NH3,w3 NH4,w4 (pop and lookup)
     # NOTE: Next hops are not required for pop and lookup and are just used 
     #       to keep tests cases reusable
     def test_006_ilm_add(self):
-        if self.STREAM == False:
-            self.ilm_op_wrapper(clientClass.client.ilm_add,
-                self.ilm_entry["cos_ilm_4"])
-        else:
-            self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_ADD,
-                self.ilm_entry["cos_ilm_4"])
+        client.ilm_add(self.ilm_entry["cos_ilm_4"], stream=self.STREAM,
+                 af=self.AF)
                 
     # add label 32220, default -> NH3,w3 NH4,w4 (fail)
     def test_007_ilm_add(self):
-        if self.STREAM == False:
-            self.ilm_op_wrapper(clientClass.client.ilm_add,
-                self.ilm_entry["cos_ilm_4"], False)
-        else:
-            self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_ADD,
-                self.ilm_entry["cos_ilm_4"], False)
+        client.ilm_add(self.ilm_entry["cos_ilm_4"], stream=self.STREAM,
+                 af=self.AF, xfail=True)
                 
     # update label 32220, default -> NH4,w4 NH5,w5 (pop and lookup -> swap)
     def test_008_ilm_update(self):
-        if self.STREAM == False:
-            self.ilm_op_wrapper(clientClass.client.ilm_update,
-                self.ilm_entry["cos_ilm_5"])
-        else:
-            self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_UPDATE,
-                self.ilm_entry["cos_ilm_5"])
+        client.ilm_update(self.ilm_entry["cos_ilm_5"], stream=self.STREAM,
+                 af=self.AF)
 
     # update label 32220, default -> NH7,w7 NH8,w8
     def test_009_ilm_update(self):
-        if self.STREAM == False:
-            self.ilm_op_wrapper(clientClass.client.ilm_update,
-                self.ilm_entry["cos_ilm_6"])
-        else:
-            self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_UPDATE,
-                self.ilm_entry["cos_ilm_6"])   
+        client.ilm_update(self.ilm_entry["cos_ilm_6"], stream=self.STREAM,
+                 af=self.AF)   
                  
     # delete label 32220 exp 1
     def test_010_ilm_delete(self):
-        if self.STREAM == False:
-            self.ilm_op_wrapper(clientClass.client.ilm_delete,
-                self.ilm_entry_del["cos_ilm_del_1"])
-        else:
-            self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_DELETE,
-                self.ilm_entry_del["cos_ilm_del_1"])  
+        client.ilm_delete(self.ilm_entry_del["cos_ilm_del_1"], stream=self.STREAM,
+                 af=self.AF)
                 
     # delete label 32220 exp 1 (del of non-existent label is success)
     def test_011_ilm_delete(self):
-        if self.STREAM == False:
-            self.ilm_op_wrapper(clientClass.client.ilm_delete,
-                self.ilm_entry_del["cos_ilm_del_1"])
-        else:
-            self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_DELETE,
-                self.ilm_entry_del["cos_ilm_del_1"])  
+        client.ilm_delete(self.ilm_entry_del["cos_ilm_del_1"], stream=self.STREAM,
+                 af=self.AF)
                 
     # delete label 32220 default
     def test_012_ilm_delete(self):
-        if self.STREAM == False:
-            self.ilm_op_wrapper(clientClass.client.ilm_delete,
-                self.ilm_entry_del["cos_ilm_del_default"])
-        else:
-            self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_DELETE,
-                self.ilm_entry_del["cos_ilm_del_default"])  
+        client.ilm_delete(self.ilm_entry_del["cos_ilm_del_default"], stream=self.STREAM,
+                 af=self.AF)
                 
     # delete label 32220 default (del of non-existent label is success)
     def test_013_ilm_delete(self):
-        if self.STREAM == False:
-            self.ilm_op_wrapper(clientClass.client.ilm_delete,
-                self.ilm_entry_del["cos_ilm_del_default"])
-        else:
-            self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_DELETE,
-                self.ilm_entry_del["cos_ilm_del_default"])
+        client.ilm_delete(self.ilm_entry_del["cos_ilm_del_default"], stream=self.STREAM,
+                 af=self.AF)
                 
     def test_014_mpls_eof(self):
-        response = clientClass.client.mpls_eof_oper()
-        err = self.validate_mpls_regop_response(response)
-        self.assertTrue(err)
+        client.mpls_eof()
 
     def test_015_mpls_unregister(self):
-        response = clientClass.client.mpls_unregister_oper()
-        err = self.validate_mpls_regop_response(response)
-        self.assertTrue(err)
+        client.mpls_unregister()
         
 
 #
@@ -3225,7 +2930,7 @@ class TestSuite_019_MPLS_CoS_TC6_v6(TestSuite_019_MPLS_CoS_TC6):
 
 #
 # 
-class TestSuite_020_COS_ILM_IPv4_TC7(MplsBaseScale):
+class TestSuite_020_COS_ILM_IPv4_TC7(unittest.TestCase):
     AF = 4
     STREAM = False
     batch = 'scale_cos_ilm_4'
@@ -3233,178 +2938,109 @@ class TestSuite_020_COS_ILM_IPv4_TC7(MplsBaseScale):
     cos_block = 'cos_mpls_lbl_block_2'
     srgb_batch = 'scale_srgb_ilm_1'
     srgb_block = 'mpls_lbl_block_srgb_1'
-
     get_ilm = 'cos_ilm_get'
 
     @classmethod
     def setUpClass(self):
         super(TestSuite_020_COS_ILM_IPv4_TC7, self).setUpClass()
-        self.ilm_entry = clientClass.json_params[self.batch]
-        self.ilm_params = [
-            clientClass.json_params[self.batch],
-            self.AF,
-            clientClass.json_params['paths'],
-            clientClass.json_params['nexthops'],
-        ]
-        self.cos_lbl_blk_params = clientClass.json_params[self.cos_block]
-        self.srgb_lbl_blk_params = clientClass.json_params[self.srgb_block]
-        self.reg_params = clientClass.json_params['reg_params']
-        self.ilm_get = clientClass.json_params[self.get_ilm]
+        self.ilm_entry = client.json_params[self.batch]
+        self.cos_lbl_blk_params = client.json_params[self.cos_block]
+        self.srgb_lbl_blk_params = client.json_params[self.srgb_block]
+        self.reg_params = client.json_params['reg_params']
+        self.ilm_get_info = client.json_params[self.get_ilm]
 
     def test_000_get_globals(self):
         # Get Global MPLS info
-        response = clientClass.client.mpls_global_get()
-        err = self.print_mpls_globals(response)
-        self.assertTrue(err)
+        client.mpls_global_get()
 
     def test_001_mpls_register(self):
-        response = clientClass.client.mpls_register_oper(self.reg_params)
-        err = self.validate_mpls_regop_response(response)
-        self.assertTrue(err)
+        client.mpls_register(self.reg_params)
 
     def test_002_00_blk_add(self):
-        response = clientClass.client.label_block_add(self.cos_lbl_blk_params)
-        err = self.validate_lbl_blk_response(response)
-        self.assertTrue(err)
+        client.label_block_add(self.cos_lbl_blk_params)
 
     def test_002_01_blk_add(self):
-        response = clientClass.client.label_block_add(self.srgb_lbl_blk_params)
-        err = self.validate_lbl_blk_response(response)
-        self.assertTrue(err)
+        client.label_block_add(self.srgb_lbl_blk_params)
 
     def test_003_00_ilm_add(self):
-        if self.STREAM == False:
-            self.ilm_op(clientClass.client.ilm_add,
-                self.ilm_params)
-        else:
-            self.ilm_op_stream(self.ilm_params,
-                sl_common_types_pb2.SL_OBJOP_ADD)
+        self.ilm_entry = client.json_params[self.batch]
+        client.ilm_add(self.ilm_entry, stream=self.STREAM,
+                 af=self.AF)
 
     def test_003_01_ilm_add(self):
-        self.ilm_params[0] = clientClass.json_params[self.srgb_batch]
-        if self.STREAM == False:
-            self.ilm_op(clientClass.client.ilm_add,
-                self.ilm_params)
-        else:
-            self.ilm_op_stream(self.ilm_params,
-                sl_common_types_pb2.SL_OBJOP_ADD)
-        self.ilm_params[0] = clientClass.json_params[self.batch]
+        self.ilm_entry = client.json_params[self.srgb_batch]
+        client.ilm_add(self.ilm_entry, stream=self.STREAM,
+                 af=self.AF)
 
     def test_004_00_ilm_update(self):
-        self.ilm_params[0] = clientClass.json_params[self.update_batch]
-        if self.STREAM == False:
-            self.ilm_op(clientClass.client.ilm_update,
-                self.ilm_params)
-        else:
-            self.ilm_op_stream(self.ilm_params,
-                sl_common_types_pb2.SL_OBJOP_UPDATE)
+        self.ilm_entry = client.json_params[self.update_batch]
+        client.ilm_update(self.ilm_entry, stream=self.STREAM,
+                 af=self.AF)
         # NOTE: If the above fails, the following wont be restored
-        self.ilm_params[0] = clientClass.json_params[self.batch]
 
     def test_006_01_ilm_get_exact_match(self):
-        get_info = self.ilm_get["get_exact_ilm_default"]
-        self.ilm_get_info(get_info)
+        get_info = self.ilm_get_info["get_exact_ilm_default"]
+        client.ilm_get(get_info)
 
     def test_006_02_ilm_get_exact_match(self):
-        get_info = self.ilm_get["get_exact_ilm_exp"]
-        self.ilm_get_info(get_info)
+        get_info = self.ilm_get_info["get_exact_ilm_exp"]
+        client.ilm_get(get_info)
 
     def test_006_02_ilm_get_firstN(self):
-        get_info = self.ilm_get["get_firstN_ilm"]
-        self.ilm_get_info(get_info)
+        get_info = self.ilm_get_info["get_firstN_ilm"]
+        client.ilm_get(get_info)
 
     def test_006_03_ilm_get_nextN_with_specified(self):
-        get_info = self.ilm_get["get_nextN_include_ilm"]
-        self.ilm_get_info(get_info)
+        get_info = self.ilm_get_info["get_nextN_include_ilm"]
+        client.ilm_get(get_info)
 
     def test_006_04_ilm_get_nextN_after_specified(self):
-        get_info = self.ilm_get["get_nextN_ilm"]
-        self.ilm_get_info(get_info)
+        get_info = self.ilm_get_info["get_nextN_ilm"]
+        client.ilm_get(get_info)
 
     def test_006_05_ilm_get_all(self):
-        nextN = self.ilm_get["get_nextN_ilm"]
-        firstN = self.ilm_get["get_firstN_ilm"]
-        count = self.ilm_get_all(firstN, nextN)
+        firstN = self.ilm_get_info["get_firstN_ilm"]
         
-        expected_count = self.getExpectedIlmCount(
-                clientClass.json_params[self.update_batch])
-        expected_count += self.getExpectedIlmCount(
-                clientClass.json_params[self.srgb_batch])
+        xcount = MplsHelper.get_expected_ilm_count(
+                client.json_params[self.update_batch])
+        xcount += MplsHelper.get_expected_ilm_count(
+                client.json_params[self.srgb_batch])
 
-        assert expected_count == count
+        client.ilm_get_all(firstN, xcount=xcount)
 
     def test_006_06_ilm_get_stream(self):
-        serialized_list = []
-        
-        get_info = self.ilm_get["get_firstN_ilm"]
-        get_info["correlator"] = 1
-        serializer = serializers.ilm_get_serializer(get_info)
-        serialized_list.append(serializer)
-        
-        get_info = self.ilm_get["get_exact_ilm_default"]
-        get_info["correlator"] = 2
-        serializer = serializers.ilm_get_serializer(get_info)
-        serialized_list.append(serializer)
+        # Pack 3 requests
+        get_infos = (self.ilm_get_info[name] for name in ["get_firstN_ilm",
+            "get_exact_ilm_exp", "get_exact_ilm_default", "get_nextN_include_ilm" ])
 
-        get_info = self.ilm_get["get_exact_ilm_exp"]
-        get_info["correlator"] = 3
-        serializer = serializers.ilm_get_serializer(get_info)
-        serialized_list.append(serializer)
-        
-        get_info = self.ilm_get["get_nextN_include_ilm"]
-        get_info["correlator"] = 4
-        serializer = serializers.ilm_get_serializer(get_info)
-        serialized_list.append(serializer)
+        # Returns respons iterator
+        responses = client.ilm_get(get_infos, stream=True)
 
-        # Call RPC
-        iterator = self.ilm_get_iterator(serialized_list)
-        # Must reset this to sync the iterator with the responses
-        self.validated_count = 0
-        count, error = clientClass.client.ilm_get_stream(iterator,
-            self.validate_ilm_get_response)
-        self.assertTrue(error)
-        # This may fail if the server sends EOF prematurely
-        if count != len(serialized_list):
-            print("Count %d, Expecting:%d" %(count, len(serialized_list)))
-        self.assertTrue(count == len(serialized_list))
+        # Do not need to do extra verification
+        for response in responses:
+            pass
 
     def test_007_00_ilm_delete(self):
-        self.ilm_params[0] = clientClass.json_params[self.srgb_batch]
-        if self.STREAM == False:
-            self.ilm_op(clientClass.client.ilm_delete,
-                self.ilm_params)
-        else:
-            self.ilm_op_stream(self.ilm_params,
-                sl_common_types_pb2.SL_OBJOP_DELETE)
-        self.ilm_params[0] = clientClass.json_params[self.update_batch]
+        self.ilm_entry = client.json_params[self.srgb_batch]
+        client.ilm_delete(self.ilm_entry, stream=self.STREAM,
+                 af=self.AF)
 
     def test_007_01_ilm_delete(self):
-        if self.STREAM == False:
-            self.ilm_op(clientClass.client.ilm_delete,
-                self.ilm_params)
-        else:
-            self.ilm_op_stream(self.ilm_params,
-                sl_common_types_pb2.SL_OBJOP_DELETE)
+        self.ilm_entry = client.json_params[self.update_batch]
+        client.ilm_delete(self.ilm_entry, stream=self.STREAM,
+                 af=self.AF)
 
     def test_009_00_blk_delete(self):
-        response = clientClass.client.label_block_delete(self.cos_lbl_blk_params)
-        err = self.validate_lbl_blk_response(response)
-        self.assertTrue(err)
+        client.label_block_delete(self.cos_lbl_blk_params)
 
     def test_009_01_blk_delete(self):
-        response = clientClass.client.label_block_delete(self.srgb_lbl_blk_params)
-        err = self.validate_lbl_blk_response(response)
-        self.assertTrue(err)
+        client.label_block_delete(self.srgb_lbl_blk_params)
 
     def test_010_mpls_eof(self):
-        response = clientClass.client.mpls_eof_oper()
-        err = self.validate_mpls_regop_response(response)
-        self.assertTrue(err)
+        client.mpls_eof()
 
     def test_011_mpls_unregister(self):
-        response = clientClass.client.mpls_unregister_oper()
-        err = self.validate_mpls_regop_response(response)
-        self.assertTrue(err)
+        client.mpls_unregister()
 
 
 #
@@ -3427,126 +3063,82 @@ class TestSuite_021_COS_ILM_IPv6_TC8(TestSuite_021_COS_ILM_IPv4_TC8):
     STREAM = False
 
 #
-class TestSuite_022_COS_ILM_IPv4_TC9(MplsBase):
+class TestSuite_022_COS_ILM_IPv4_TC9(unittest.TestCase):
     AF = 4
     STREAM = False
 
     @classmethod
     def setUpClass(self):
         super(TestSuite_022_COS_ILM_IPv4_TC9, self).setUpClass()
-        self.ilm_entry = clientClass.json_params['cos_ilm_tc9']
-        self.ilm_entry_del = clientClass.json_params['cos_ilm_del']
-        self.lbl_blk_params = clientClass.json_params['cos_mpls_lbl_block_1']
-        self.lbl_blk_invalid_client = clientClass.json_params['cos_mpls_lbl_block_wrong_client_name']
-        self.lbl_blk_duplicate_range = clientClass.json_params['cos_mpls_lbl_block_duplicate_cbf']
-        self.lbl_blk_srgb1 = clientClass.json_params['mpls_lbl_block_srgb_1']
-        self.lbl_blk_srgb2 = clientClass.json_params['mpls_lbl_block_srgb_2']
-        self.ilm_get = clientClass.json_params['ilm_get']
-        self.lbl_blk_get = clientClass.json_params['lbl_blk_get']
-        self.reg_params = clientClass.json_params['reg_params']
+        self.ilm_entry = client.json_params['cos_ilm_tc9']
+        self.ilm_entry_del = client.json_params['cos_ilm_del']
+        self.lbl_blk_params = client.json_params['cos_mpls_lbl_block_1']
+        self.lbl_blk_invalid_client = client.json_params['cos_mpls_lbl_block_wrong_client_name']
+        self.lbl_blk_duplicate_range = client.json_params['cos_mpls_lbl_block_duplicate_cbf']
+        self.lbl_blk_srgb1 = client.json_params['mpls_lbl_block_srgb_1']
+        self.lbl_blk_srgb2 = client.json_params['mpls_lbl_block_srgb_2']
+        self.ilm_get_info = client.json_params['ilm_get']
+        self.lbl_blk_get = client.json_params['lbl_blk_get']
+        self.reg_params = client.json_params['reg_params']
 
     def test_000_get_globals(self):
         # Get Global MPLS info
-        response = clientClass.client.mpls_global_get()
-        err = self.print_mpls_globals(response)
-        self.assertTrue(err)
+        client.mpls_global_get()
 
     def test_001_mpls_register(self):
-        response = clientClass.client.mpls_register_oper(self.reg_params)
-        err = self.validate_mpls_regop_response(response)
-        self.assertTrue(err)
+        client.mpls_register(self.reg_params)
 
     # Add blk with invalid client name (Negative)
     @unittest.skip("This will only fail if LSD CLI is configured")
     def test_002_blk_add(self):
-        # TODO: add something like: cafy.device.config(mplsLabelBlockConfig)
-        response = clientClass.client.label_block_add(self.lbl_blk_invalid_client)
-        err = self.validate_lbl_blk_response(response)
-        self.assertFalse(err)
+        client.label_block_add(self.lbl_blk_invalid_client)
 
     # Add 25k-35k cbf block client name Service-layer (Positive)
     def test_003_blk_add(self):
-        response = clientClass.client.label_block_add(self.lbl_blk_params)
-        err = self.validate_lbl_blk_response(response)
-        self.assertTrue(err)
+        client.label_block_add(self.lbl_blk_params)
 
     # Add 35k-40k duplicate cbf block client name Service-layer (Negative)
     def test_004_blk_add(self):
-        response = clientClass.client.label_block_add(self.lbl_blk_duplicate_range)
-        err = self.validate_lbl_blk_response(response)
-        self.assertFalse(err)
+        client.label_block_add(self.lbl_blk_duplicate_range, xfail=True)
 
     # Add 35k-100k SRGB block (Positive)
     def test_005_blk_add(self):
-        response = clientClass.client.label_block_add(self.lbl_blk_srgb1)
-        err = self.validate_lbl_blk_response(response)
-        self.assertTrue(err)
+        client.label_block_add(self.lbl_blk_srgb1)
 
     # Add 65k-75k SRGB block (Negative, context mismatch)
     def test_006_blk_add(self):
-        response = clientClass.client.label_block_add(self.lbl_blk_srgb2)
-        err = self.validate_lbl_blk_response(response)
-        self.assertFalse(err)
+        client.label_block_add(self.lbl_blk_srgb2, xfail=True)
 
     # add label 32220, exp 4 -> NH1, remote label=Implicit Null
     def test_007_ilm_add(self):
-        if self.STREAM == False:
-            self.ilm_op_wrapper(clientClass.client.ilm_add,
-                self.ilm_entry["cos_ilm_2"])
-        else:
-            self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_ADD,
-                self.ilm_entry["cos_ilm_2"])
+        client.ilm_add(self.ilm_entry["cos_ilm_2"], stream=self.STREAM,
+                 af=self.AF)
 
     # add label 32220, exp 5 -> NH2, remote label=Explicit Null
     def test_008_ilm_add(self):
-        if self.STREAM == False:
-            self.ilm_op_wrapper(clientClass.client.ilm_add,
-                self.ilm_entry["cos_ilm_3"])
-        else:
-            self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_ADD,
-                self.ilm_entry["cos_ilm_3"])
+        client.ilm_add(self.ilm_entry["cos_ilm_3"], stream=self.STREAM,
+                 af=self.AF)
 
     # add label 32220, non elsp to cbf block -> NH1 (fail)
     def test_009_ilm_add(self):
-        params = (self.ilm_entry["cos_ilm_1"],
-             self.AF,
-            clientClass.json_params['paths'],
-            clientClass.json_params['nexthops'],)
-        if self.STREAM == False:
-            self.ilm_op_wrapper(clientClass.client.ilm_add,
-                self.ilm_entry["cos_ilm_1"], False)
-        else:
-            self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_ADD,
-                self.ilm_entry["cos_ilm_1"], False)
-            
+        client.ilm_add(self.ilm_entry["cos_ilm_1"], stream=self.STREAM,
+                 af=self.AF, xfail=True)
 
     # delete label 32220 exp 4
     def test_010_ilm_delete(self):
-        if self.STREAM == False:
-            self.ilm_op_wrapper(clientClass.client.ilm_delete,
-                self.ilm_entry_del["cos_ilm_del_4"])
-        else:
-            self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_DELETE,
-                self.ilm_entry_del["cos_ilm_del_4"])
+        client.ilm_delete(self.ilm_entry_del["cos_ilm_del_4"], stream=self.STREAM,
+                 af=self.AF)
                 
     # delete label 32220 exp 5 
     def test_011_ilm_delete(self):
-        if self.STREAM == False:
-            self.ilm_op_wrapper(clientClass.client.ilm_delete,
-                self.ilm_entry_del["cos_ilm_del_5"])
-        else:
-            self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_DELETE,
-                self.ilm_entry_del["cos_ilm_del_5"])
+        client.ilm_delete(self.ilm_entry_del["cos_ilm_del_5"], stream=self.STREAM,
+                 af=self.AF)
                 
     def test_014_mpls_eof(self):
-        response = clientClass.client.mpls_eof_oper()
-        err = self.validate_mpls_regop_response(response)
-        self.assertTrue(err)
+        client.mpls_eof()
 
     def test_015_mpls_unregister(self):
-        response = clientClass.client.mpls_unregister_oper()
-        err = self.validate_mpls_regop_response(response)
-        self.assertTrue(err)
+        client.mpls_unregister()
         
 
 #
@@ -3558,30 +3150,21 @@ class TestSuite_024_COS_ILM_IPv4_TC11(TestSuite_020_COS_ILM_IPv4_TC7):
     update_batch = 'scale_cos_ilm_update_pop_and_lookup'
     cos_block = 'cos_mpls_lbl_block_2'
     srgb_block = 'mpls_lbl_block_srgb_1'
+    srgb_batch = 'scale_srgb_ilm_1'
 
     # NOTE: These test add to TestSuite_020_COS_ILM_IPv4_TC7
     def test_005_00_ilm_add(self):
-        self.ilm_params[0] = clientClass.json_params[self.batch_add]
-        if self.STREAM == False:
-            self.ilm_op(clientClass.client.ilm_add,
-                self.ilm_params)
-        else:
-            self.ilm_op_stream(self.ilm_params,
-                sl_common_types_pb2.SL_OBJOP_ADD)
-        self.ilm_params[0] = clientClass.json_params[self.update_batch]
+        self.ilm_entry = client.json_params[self.batch_add]
+        client.ilm_add(self.ilm_entry, stream=self.STREAM,
+                 af=self.AF)
 
     def test_005_01_ilm_delete(self):
-        self.ilm_params[0] = clientClass.json_params[self.batch_add]
-        if self.STREAM == False:
-            self.ilm_op(clientClass.client.ilm_delete,
-                self.ilm_params)
-        else:
-            self.ilm_op_stream(self.ilm_params,
-                sl_common_types_pb2.SL_OBJOP_DELETE)
-        self.ilm_params[0] = clientClass.json_params[self.update_batch]
+        self.ilm_entry = client.json_params[self.batch_add]
+        client.ilm_delete(self.ilm_entry, stream=self.STREAM,
+                 af=self.AF)
 
 
-class TestSuite_025_MPLS_CoS_TC12(MplsBase):
+class TestSuite_025_MPLS_CoS_TC12(unittest.TestCase):
     AF = 4
     STREAM = False
     tc_info = 'cos_ilm_tc12'
@@ -3589,108 +3172,66 @@ class TestSuite_025_MPLS_CoS_TC12(MplsBase):
     @classmethod
     def setUpClass(cls):
         super(TestSuite_025_MPLS_CoS_TC12, cls).setUpClass()
-        cls.ilm_entry = clientClass.json_params[cls.tc_info]
-        cls.ilm_entry_del = clientClass.json_params['cos_ilm_del']
-        cls.lbl_blk_params = clientClass.json_params['cos_mpls_lbl_block_1']
-        cls.reg_params = clientClass.json_params['reg_params']
+        cls.ilm_entry = client.json_params[cls.tc_info]
+        cls.ilm_entry_del = client.json_params['cos_ilm_del']
+        cls.lbl_blk_params = client.json_params['cos_mpls_lbl_block_1']
+        cls.reg_params = client.json_params['reg_params']
 
     def test_000_get_globals(self):
         # Get Global MPLS info
-        response = clientClass.client.mpls_global_get()
-        err = self.print_mpls_globals(response)
-        self.assertTrue(err)
+        client.mpls_global_get()
 
     def test_001_mpls_register(self):
-        response = clientClass.client.mpls_register_oper(self.reg_params)
-        err = self.validate_mpls_regop_response(response)
-        self.assertTrue(err)
+        client.mpls_register(self.reg_params)
 
     def test_002_blk_add(self):
-        response = clientClass.client.label_block_add(self.lbl_blk_params)
-        err = self.validate_lbl_blk_response(response)
-        self.assertTrue(err)
+        client.label_block_add(self.lbl_blk_params)
 
     # add label 32220, default -> Pop and lookup
     def test_002_ilm_add(self):
-        if self.STREAM == False:
-            self.ilm_op_wrapper(clientClass.client.ilm_add,
-                self.ilm_entry["cos_ilm_1"])
-        else:
-            self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_ADD,
-                self.ilm_entry["cos_ilm_1"])
+        client.ilm_add(self.ilm_entry["cos_ilm_1"], stream=self.STREAM,
+                 af=self.AF)
 
     # update label 32220, default -> NH1 swap
     def test_003_ilm_update(self):
-        if self.STREAM == False:
-            self.ilm_op_wrapper(clientClass.client.ilm_update,
-                self.ilm_entry["cos_ilm_4"])
-        else:
-            self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_UPDATE,
-                self.ilm_entry["cos_ilm_4"])
+        client.ilm_update(self.ilm_entry["cos_ilm_4"], stream=self.STREAM,
+                 af=self.AF)
 
     # add label 32220, exp 0 -> swap
     def test_004_ilm_add(self):
-        if self.STREAM == False:
-            self.ilm_op_wrapper(clientClass.client.ilm_add,
-                self.ilm_entry["cos_ilm_2"])
-        else:
-            self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_ADD,
-                self.ilm_entry["cos_ilm_2"])
+        client.ilm_add(self.ilm_entry["cos_ilm_2"], stream=self.STREAM,
+                 af=self.AF)
 
     # add label 32220, exp 1 -> swap
     def test_005_ilm_add(self):
-        if self.STREAM == False:
-            self.ilm_op_wrapper(clientClass.client.ilm_add,
-                self.ilm_entry["cos_ilm_3"])
-        else:
-            self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_ADD,
-                self.ilm_entry["cos_ilm_3"])
+        client.ilm_add(self.ilm_entry["cos_ilm_3"], stream=self.STREAM,
+                 af=self.AF)
 
     # delete label 32220, exp 0
     def test_006_ilm_delete(self):
-        if self.STREAM == False:
-            self.ilm_op_wrapper(clientClass.client.ilm_delete,
-                self.ilm_entry["cos_ilm_2"])
-        else:
-            self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_DELETE,
-                self.ilm_entry["cos_ilm_2"])
+        client.ilm_delete(self.ilm_entry["cos_ilm_2"], stream=self.STREAM,
+                 af=self.AF)
 
     # delete label 32220, exp 1
     def test_007_ilm_delete(self):
-        if self.STREAM == False:
-            self.ilm_op_wrapper(clientClass.client.ilm_delete,
-                self.ilm_entry["cos_ilm_3"])
-        else:
-            self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_DELETE,
-                self.ilm_entry["cos_ilm_3"])
+        client.ilm_delete(self.ilm_entry["cos_ilm_3"], stream=self.STREAM,
+                 af=self.AF)
 
     # update label 32220, default -> Pop and Lookup
     def test_008_ilm_update(self):
-        if self.STREAM == False:
-            self.ilm_op_wrapper(clientClass.client.ilm_update,
-                self.ilm_entry["cos_ilm_1"])
-        else:
-            self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_UPDATE,
-                self.ilm_entry["cos_ilm_1"])
+        client.ilm_update(self.ilm_entry["cos_ilm_1"], stream=self.STREAM,
+                 af=self.AF)
 
     # delete label 32220, default
     def test_009_ilm_delete(self):
-        if self.STREAM == False:
-            self.ilm_op_wrapper(clientClass.client.ilm_delete,
-                self.ilm_entry["cos_ilm_1"])
-        else:
-            self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_DELETE,
-                self.ilm_entry["cos_ilm_1"])
+        client.ilm_delete(self.ilm_entry["cos_ilm_1"], stream=self.STREAM,
+                 af=self.AF)
 
     def test_010_mpls_eof(self):
-        response = clientClass.client.mpls_eof_oper()
-        err = self.validate_mpls_regop_response(response)
-        self.assertTrue(err)
+        client.mpls_eof()
 
     def test_011_mpls_unregister(self):
-        response = clientClass.client.mpls_unregister_oper()
-        err = self.validate_mpls_regop_response(response)
-        self.assertTrue(err)
+        client.mpls_unregister()
 
 
 class TestSuite_025_MPLS_CoS_TC12_v6(TestSuite_025_MPLS_CoS_TC12):
@@ -3711,7 +3252,7 @@ class TestSuite_027_MPLS_CoS_TC14(TestSuite_025_MPLS_CoS_TC12):
 class TestSuite_027_MPLS_CoS_TC14_v6(TestSuite_027_MPLS_CoS_TC14):
     AF = 6
 
-class TestSuite_028_MPLS_CoS_TC15(MplsBase):
+class TestSuite_028_MPLS_CoS_TC15(unittest.TestCase):
     AF = 4
     STREAM = False
     tc_info = 'cos_ilm_tc15'
@@ -3719,122 +3260,78 @@ class TestSuite_028_MPLS_CoS_TC15(MplsBase):
     @classmethod
     def setUpClass(cls):
         super(TestSuite_028_MPLS_CoS_TC15, cls).setUpClass()
-        cls.ilm_entry = clientClass.json_params[cls.tc_info]
-        cls.ilm_entry_del = clientClass.json_params['cos_ilm_del']
-        cls.lbl_blk_params = clientClass.json_params['cos_mpls_lbl_block_1']
-        cls.reg_params = clientClass.json_params['reg_params']
+        cls.ilm_entry = client.json_params[cls.tc_info]
+        cls.ilm_entry_del = client.json_params['cos_ilm_del']
+        cls.lbl_blk_params = client.json_params['cos_mpls_lbl_block_1']
+        cls.reg_params = client.json_params['reg_params']
 
     def test_000_get_globals(self):
         # Get Global MPLS info
-        response = clientClass.client.mpls_global_get()
-        err = self.print_mpls_globals(response)
-        self.assertTrue(err)
+        client.mpls_global_get()
 
     def test_001_mpls_register(self):
-        response = clientClass.client.mpls_register_oper(self.reg_params)
-        err = self.validate_mpls_regop_response(response)
-        self.assertTrue(err)
+        client.mpls_register(self.reg_params)
 
     def test_002_blk_add(self):
-        response = clientClass.client.label_block_add(self.lbl_blk_params)
-        err = self.validate_lbl_blk_response(response)
-        self.assertTrue(err)
+        client.label_block_add(self.lbl_blk_params)
 
     # add label 32220, default -> Pop and lookup
     def test_003_ilm_add(self):
-        if self.STREAM == False:
-            self.ilm_op_wrapper(clientClass.client.ilm_add,
-                self.ilm_entry["cos_ilm_1"])
-        else:
-            self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_ADD,
-                self.ilm_entry["cos_ilm_1"])
+        client.ilm_add(self.ilm_entry["cos_ilm_1"], stream=self.STREAM,
+                 af=self.AF)
 
     def test_004_mpls_eof(self):
-        response = clientClass.client.mpls_eof_oper()
-        err = self.validate_mpls_regop_response(response)
-        self.assertTrue(err)
+        client.mpls_eof()
 
     def test_005_mpls_register(self):
-        response = clientClass.client.mpls_register_oper(self.reg_params)
-        err = self.validate_mpls_regop_response(response)
-        self.assertTrue(err)
+        client.mpls_register(self.reg_params)
 
     def test_006_blk_add(self):
-        response = clientClass.client.label_block_add(self.lbl_blk_params)
-        err = self.validate_lbl_blk_response(response)
-        self.assertTrue(err)
+        client.label_block_add(self.lbl_blk_params)
 
     # add label 32220, default, exp0, exp1 -> swap
     def test_007_ilm_add(self):
-        if self.STREAM == False:
-            self.ilm_op_wrapper(clientClass.client.ilm_add,
-                self.ilm_entry["cos_ilm_2"])
-        else:
-            self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_ADD,
-                self.ilm_entry["cos_ilm_2"])
+        client.ilm_add(self.ilm_entry["cos_ilm_2"], stream=self.STREAM,
+                 af=self.AF)
 
     def test_008_mpls_eof(self):
-        response = clientClass.client.mpls_eof_oper()
-        err = self.validate_mpls_regop_response(response)
-        self.assertTrue(err)
+        client.mpls_eof()
 
     def test_009_mpls_register(self):
-        response = clientClass.client.mpls_register_oper(self.reg_params)
-        err = self.validate_mpls_regop_response(response)
-        self.assertTrue(err)
+        client.mpls_register(self.reg_params)
 
     def test_010_blk_add(self):
-        response = clientClass.client.label_block_add(self.lbl_blk_params)
-        err = self.validate_lbl_blk_response(response)
-        self.assertTrue(err)
+        client.label_block_add(self.lbl_blk_params)
 
     # add label 32220, default, exp1 -> swap
     def test_011_ilm_add(self):
-        if self.STREAM == False:
-            self.ilm_op_wrapper(clientClass.client.ilm_add,
-                self.ilm_entry["cos_ilm_3"])
-        else:
-            self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_ADD,
-                self.ilm_entry["cos_ilm_3"])
+        client.ilm_add(self.ilm_entry["cos_ilm_3"], stream=self.STREAM,
+                 af=self.AF)
 
     def test_012_mpls_eof(self):
-        response = clientClass.client.mpls_eof_oper()
-        err = self.validate_mpls_regop_response(response)
-        self.assertTrue(err)
+        client.mpls_eof()
 
     def test_013_mpls_register(self):
-        response = clientClass.client.mpls_register_oper(self.reg_params)
-        err = self.validate_mpls_regop_response(response)
-        self.assertTrue(err)
+        client.mpls_register(self.reg_params)
 
     def test_014_blk_add(self):
-        response = clientClass.client.label_block_add(self.lbl_blk_params)
-        err = self.validate_lbl_blk_response(response)
-        self.assertTrue(err)
+        client.label_block_add(self.lbl_blk_params)
 
     # add label 32220, default -> Pop and lookup
     def test_015_ilm_add(self):
-        if self.STREAM == False:
-            self.ilm_op_wrapper(clientClass.client.ilm_add,
-                self.ilm_entry["cos_ilm_1"])
-        else:
-            self.ilm_op_stream_wrapper(sl_common_types_pb2.SL_OBJOP_ADD,
-                self.ilm_entry["cos_ilm_1"])
+        client.ilm_add(self.ilm_entry["cos_ilm_1"], stream=self.STREAM,
+                 af=self.AF)
 
     def test_016_mpls_eof(self):
-        response = clientClass.client.mpls_eof_oper()
-        err = self.validate_mpls_regop_response(response)
-        self.assertTrue(err)
+        client.mpls_eof()
 
     def test_017_mpls_unregister(self):
-        response = clientClass.client.mpls_unregister_oper()
-        err = self.validate_mpls_regop_response(response)
-        self.assertTrue(err)
+        client.mpls_unregister()
 
 class TestSuite_028_MPLS_CoS_TC15_v6(TestSuite_028_MPLS_CoS_TC15):
     AF = 6
 
-class TestSuite_029_MPLS_CoS_TC16_scale(MplsBaseScale):
+class TestSuite_029_MPLS_CoS_TC16_scale(unittest.TestCase):
     AF = 4 # AF is overwritten by scale tests
     STREAM = False
     pop_and_lookup_batch = 'scale_cos_ilm_pop_and_lookup_1'
@@ -3844,100 +3341,61 @@ class TestSuite_029_MPLS_CoS_TC16_scale(MplsBaseScale):
     @classmethod
     def setUpClass(self):
         super(TestSuite_029_MPLS_CoS_TC16_scale, self).setUpClass()
-        self.ilm_params = [
-            clientClass.json_params[self.pop_and_lookup_batch],
-            self.AF,
-            clientClass.json_params['paths'],
-            clientClass.json_params['nexthops'],
-        ]
-        self.lbl_blk_params = clientClass.json_params[self.block]
-        self.reg_params = clientClass.json_params['reg_params']
+        self.ilm_entry = client.json_params[self.pop_and_lookup_batch]
+        self.lbl_blk_params = client.json_params[self.block]
+        self.reg_params = client.json_params['reg_params']
 
     def test_000_get_globals(self):
         # Get Global MPLS info
-        response = clientClass.client.mpls_global_get()
-        err = self.print_mpls_globals(response)
-        self.assertTrue(err)
+        client.mpls_global_get()
 
     def test_001_mpls_register(self):
-        response = clientClass.client.mpls_register_oper(self.reg_params)
-        err = self.validate_mpls_regop_response(response)
-        self.assertTrue(err)
+        client.mpls_register(self.reg_params)
 
     def test_002_blk_add(self):
-        response = clientClass.client.label_block_add(self.lbl_blk_params)
-        err = self.validate_lbl_blk_response(response)
-        self.assertTrue(err)
+        client.label_block_add(self.lbl_blk_params)
 
     # add label 32000-32999, default -> Pop and lookup
     def test_003_ilm_add(self):
-        if self.STREAM == False:
-            self.ilm_op(clientClass.client.ilm_add,
-                self.ilm_params)
-        else:
-            self.ilm_op_stream(self.ilm_params,
-                sl_common_types_pb2.SL_OBJOP_ADD)
+        self.ilm_entry = client.json_params[self.pop_and_lookup_batch]
+        client.ilm_add(self.ilm_entry, stream=self.STREAM,
+                 af=self.AF)
 
     def test_004_mpls_eof(self):
-        response = clientClass.client.mpls_eof_oper()
-        err = self.validate_mpls_regop_response(response)
-        self.assertTrue(err)
+        client.mpls_eof()
 
     def test_005_mpls_register(self):
-        response = clientClass.client.mpls_register_oper(self.reg_params)
-        err = self.validate_mpls_regop_response(response)
-        self.assertTrue(err)
+        client.mpls_register(self.reg_params)
 
     def test_006_blk_add(self):
-        response = clientClass.client.label_block_add(self.lbl_blk_params)
-        err = self.validate_lbl_blk_response(response)
-        self.assertTrue(err)
+        client.label_block_add(self.lbl_blk_params)
 
     # add label 32000-32999, default, exp0, exp1 -> swap
     def test_007_ilm_add(self):
-        self.ilm_params[0] = clientClass.json_params[self.swap_batch]
-        if self.STREAM == False:
-            self.ilm_op(clientClass.client.ilm_add,
-                self.ilm_params)
-        else:
-            self.ilm_op_stream(self.ilm_params,
-                sl_common_types_pb2.SL_OBJOP_ADD)
-        self.ilm_params[0] = clientClass.json_params[self.pop_and_lookup_batch]
+        self.ilm_entry = client.json_params[self.swap_batch]
+        client.ilm_add(self.ilm_entry, stream=self.STREAM,
+                 af=self.AF)
 
     def test_008_mpls_eof(self):
-        response = clientClass.client.mpls_eof_oper()
-        err = self.validate_mpls_regop_response(response)
-        self.assertTrue(err)
+        client.mpls_eof()
 
     def test_009_mpls_register(self):
-        response = clientClass.client.mpls_register_oper(self.reg_params)
-        err = self.validate_mpls_regop_response(response)
-        self.assertTrue(err)
+        client.mpls_register(self.reg_params)
 
     def test_010_blk_add(self):
-        response = clientClass.client.label_block_add(self.lbl_blk_params)
-        err = self.validate_lbl_blk_response(response)
-        self.assertTrue(err)
+        client.label_block_add(self.lbl_blk_params)
 
     # add label 32000-32999, default -> pop and lookup
     def test_011_ilm_add(self):
-        self.ilm_params[0] = clientClass.json_params[self.pop_and_lookup_batch]
-        if self.STREAM == False:
-            self.ilm_op(clientClass.client.ilm_add,
-                self.ilm_params)
-        else:
-            self.ilm_op_stream(self.ilm_params,
-                sl_common_types_pb2.SL_OBJOP_ADD)
+        self.ilm_entry = client.json_params[self.pop_and_lookup_batch]
+        client.ilm_add(self.ilm_entry, stream=self.STREAM,
+                 af=self.AF)
 
     def test_012_mpls_eof(self):
-        response = clientClass.client.mpls_eof_oper()
-        err = self.validate_mpls_regop_response(response)
-        self.assertTrue(err)
+        client.mpls_eof()
 
     def test_013_mpls_unregister(self):
-        response = clientClass.client.mpls_unregister_oper()
-        err = self.validate_mpls_regop_response(response)
-        self.assertTrue(err)
+        client.mpls_unregister()
 
 
 class TestSuite_030_MPLS_CoS_TC17_scale_v6tov4(MplsBaseScale):

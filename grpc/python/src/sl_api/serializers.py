@@ -20,29 +20,29 @@ from genpy import sl_bfd_ipv4_pb2
 from genpy import sl_bfd_ipv6_pb2
 from genpy import sl_interface_pb2
 
-def global_route_get_serializer():
+def route_global_get_serializer():
     """Global Get Message serializer."""
     serializer = sl_route_common_pb2.SLRouteGlobalsGetMsg()
     return serializer
 
-def global_route_stats_get_serializer():
+def route_global_stats_get_serializer():
     """Global Stats Get Message serializer."""
     serializer = sl_route_common_pb2.SLRouteGlobalStatsGetMsg()
     return serializer
 
-def route_get_serializer(get_info, af):
+def route_get_serializer(get_info):
     """Route Get Message serializer."""
-    if af == 4:
+    if get_info['af'] == 4:
         serializer = sl_route_ipv4_pb2.SLRoutev4GetMsg()
-    elif af == 6:
+    elif get_info['af'] == 6:
         serializer = sl_route_ipv6_pb2.SLRoutev6GetMsg()
     if "correlator" in get_info:
         serializer.Correlator = get_info["correlator"]
     if "vrf_name" in get_info:
         serializer.VrfName = get_info["vrf_name"]
-    if af == 4 and "v4_prefix" in get_info:
+    if get_info['af'] == 4 and "v4_prefix" in get_info:
         serializer.Prefix = int(ipaddress.ip_address(get_info['v4_prefix']))
-    if af == 6 and "v6_prefix" in get_info:
+    if get_info['af'] == 6 and "v6_prefix" in get_info:
         serializer.Prefix = ipaddress.IPv6Address(get_info['v6_prefix']).packed
     if "prefix_len" in get_info:
         serializer.PrefixLen = get_info["prefix_len"]
@@ -52,7 +52,7 @@ def route_get_serializer(get_info, af):
         serializer.GetNext = (get_info["get_next"] != 0)
     return serializer
 
-def route_serializer(batch, paths, next_hops):
+def route_serializer(batch_info):
     """Agnostic function that returns either an IPv4 or IPv6 serializer
     instance.
 
@@ -72,156 +72,119 @@ def route_serializer(batch, paths, next_hops):
         'serializer',
         'route',
     ])
-    if batch['af'] == 4:
+    if batch_info['af'] == 4:
         # IPv4 message types.
         ipv4_or_ipv6 = Message(
-            batch['af'],
+            batch_info['af'],
             sl_route_ipv4_pb2.SLRoutev4Msg,
             sl_route_ipv4_pb2.SLRoutev4
         )
-    elif batch['af'] == 6:
+    elif batch_info['af'] == 6:
         # IPv6 message types.
         ipv4_or_ipv6 = Message(
-            batch['af'],
+            batch_info['af'],
             sl_route_ipv6_pb2.SLRoutev6Msg,
             sl_route_ipv6_pb2.SLRoutev6
         )
     # Create either a `SLRoutev4Msg` message or a `SLRoutev6Msg`
     # message.
     serializer = ipv4_or_ipv6.serializer()
-    if 'vrf_name' in batch:
-        serializer.VrfName = batch['vrf_name']
-    if 'correlator' in batch:
-        serializer.Correlator = batch['correlator']
-    if 'routes' in batch:
+    if 'vrf_name' in batch_info:
+        serializer.VrfName = batch_info['vrf_name']
+    if 'correlator' in batch_info:
+        serializer.Correlator = batch_info['correlator']
+    if 'routes' in batch_info:
         routes = []
-        for route in batch['routes']:
+        for route in batch_info['routes']:
             # Create either a `SLRoutev4` message or a `SLRoutev6`
             # message.
-            if 'prefix' in route:
-                if ipv4_or_ipv6.af == 4:
-                    value = int(ipaddress.ip_address(route['prefix']))
-                elif ipv4_or_ipv6.af == 6:
-                    value = int(ipaddress.ip_address(route['prefix']))
-            #
-            local_label = 0
+
             if 'local_label' in route:
                 local_label = route['local_label']
-            #
-            for i in range(route['range']):
 
-                r = ipv4_or_ipv6.route()
-                if 'prefix' in route:
-                    if ipv4_or_ipv6.af == 4:
-                        r.Prefix = value
-                    elif ipv4_or_ipv6.af == 6:
-                        r.Prefix = (
-                            ipaddress.IPv6Address(value).packed
-                        )
-                if 'prefix_len' in route:
-                    if ipv4_or_ipv6.af == 4:
-                        r.PrefixLen = (
-                            route['prefix_len']
-                        )
-                    elif ipv4_or_ipv6.af == 6:
-                        r.PrefixLen = (
-                            route['prefix_len']
-                        )
-                if 'admin_dist' in route:
-                    r.RouteCommon.AdminDistance = route['admin_dist']
-                if 'local_label' in route:
-                    r.RouteCommon.LocalLabel = local_label
-                    local_label = local_label + 1
-                if 'tag' in route:
-                    r.RouteCommon.Tag = route['tag']
-                ps = []
-                for path in paths[route['path']]:
-                    p = sl_route_common_pb2.SLRoutePath()
-                    if ipv4_or_ipv6.af == 4:
-                        if (path['nexthop'] and
-                                'v4_addr' in next_hops[path['nexthop']]):
-                            p.NexthopAddress.V4Address = (
-                                int(ipaddress.ip_address(
-                                    next_hops[path['nexthop']]['v4_addr']))
-                            )
-                    elif ipv4_or_ipv6.af == 6:
-                        if (path['nexthop'] and
-                                'v6_addr' in next_hops[path['nexthop']]):
-                            p.NexthopAddress.V6Address = (
-                                ipaddress.ip_address(
-                                    (next_hops[path['nexthop']]['v6_addr']))
-                                    .packed
-                            )
-                    if 'if_name' in next_hops[path['nexthop']]:
-                        p.NexthopInterface.Name = (
-                            next_hops[path['nexthop']]['if_name']
-                        )
-                    if 'load_metric' in path:
-                        p.LoadMetric = path['load_metric']
-                    if 'metric' in path:
-                        p.Metric = path['metric']
-                    if 'vrf_name' in next_hops[path['nexthop']]:
-                        p.VrfName = next_hops[path['nexthop']]['vrf_name']
-                    if 'path_id' in path:
-                        p.PathId = path['path_id']
-                    # Bitmap
-                    bitmap = []
-                    if 'p_bitmap' in path:
-                         for bmap in path['p_bitmap']:
-                             bitmap.append(bmap)
-                         p.ProtectedPathBitmap.extend(bitmap)
-                    # Add labels
-                    labels = []
-                    if 'labels' in path:
-                        for label in path['labels']:
-                            labels.append(label)
-                        p.LabelStack.extend(labels)
-                    # Add remote addresses
-                    remote_addr = []
-                    if ipv4_or_ipv6.af == 4:
-                        if 'v4_remote_addr' in path:
-                            for r_addr in path['v4_remote_addr']:
-                                sl_r_addr = sl_common_types_pb2.SLIpAddress()
-                                sl_r_addr.V4Address = (
-                                    int(ipaddress.ip_address(r_addr))
-                                )
-                                remote_addr.append(sl_r_addr)
-                            p.RemoteAddress.extend(remote_addr)
-                    elif ipv4_or_ipv6.af == 6:
-                         if 'v6_remote_addr' in path:
-                            for r_addr in path['v6_remote_addr']:
-                                sl_r_addr = sl_common_types_pb2.SLIpAddress()
-                                sl_r_addr.V6Address = (
-                                    ipaddress.ip_address(r_addr).packed
-                                )
-                                remote_addr.append(sl_r_addr)
-                            p.RemoteAddress.extend(remote_addr)
-                    # Append the `SLRoutePath` object to the `ps` list
-                    # object and extend the `sl_path_list` object of the
-                    # route.
-                    ps.append(p)
-                r.PathList.extend(ps)
-                # Append the `SLRoutev4`|`SLRoutev6` object to the `routes`
-                # list object and extend the `sl_routes` object of the
-                # serializer.
-                routes.append(r)
-                # Increment prefix
-                value = util.sl_util_inc_prefix(
-                    value, route['prefix_len'], 1, ipv4_or_ipv6.af
-                )
-            serializer.Routes.extend(routes)
-    if ipv4_or_ipv6.af == 4:
-        value_str = str(ipaddress.IPv4Address(value))
-    else:
-        value_str = str(ipaddress.IPv6Address(value))
-    return (serializer, value_str, local_label)
+            r = ipv4_or_ipv6.route()
+            if 'prefix' in route:
+                addr = int(ipaddress.ip_address(route['prefix']))
+                if ipv4_or_ipv6.af == 4:
+                    r.Prefix = addr
+                elif ipv4_or_ipv6.af == 6:
+                    r.Prefix = ipaddress.IPv6Address(addr).packed
+            if 'prefix_len' in route:
+                r.PrefixLen = route['prefix_len']
+            if 'admin_dist' in route:
+                r.RouteCommon.AdminDistance = route['admin_dist']
+            if 'tag' in route:
+                r.RouteCommon.Tag = route['tag']
+            ps = []
+            for path in route['path']:
+                p = sl_route_common_pb2.SLRoutePath()
+                nh = path['next_hop']
+                if ipv4_or_ipv6.af == 4:
+                    if 'v4_addr' in nh:
+                        p.NexthopAddress.V4Address = int(
+                                ipaddress.ip_address(nh['v4_addr']))
+                elif ipv4_or_ipv6.af == 6:
+                    if (nh and 'v6_addr' in nh):
+                        p.NexthopAddress.V6Address = ipaddress.ip_address(
+                                nh['v6_addr']).packed
+                if 'if_name' in nh:
+                    p.NexthopInterface.Name = nh['if_name']
+                if 'load_metric' in path:
+                    p.LoadMetric = path['load_metric']
+                if 'metric' in path:
+                    p.Metric = path['metric']
+                if 'vrf_name' in nh:
+                    p.VrfName = nh['vrf_name']
+                if 'path_id' in path:
+                    p.PathId = path['path_id']
+                # Bitmap
+                bitmap = []
+                if 'p_bitmap' in path:
+                     for bmap in path['p_bitmap']:
+                         bitmap.append(bmap)
+                     p.ProtectedPathBitmap.extend(bitmap)
+                # Add labels
+                labels = []
+                if 'labels' in path:
+                    for label in path['labels']:
+                        labels.append(label)
+                    p.LabelStack.extend(labels)
+                # Add remote addresses
+                remote_addr = []
+                if ipv4_or_ipv6.af == 4:
+                    if 'v4_remote_addr' in path:
+                        for r_addr in path['v4_remote_addr']:
+                            sl_r_addr = sl_common_types_pb2.SLIpAddress()
+                            sl_r_addr.V4Address = int(
+                                    ipaddress.ip_address(r_addr))
+                            remote_addr.append(sl_r_addr)
+                        p.RemoteAddress.extend(remote_addr)
+                elif ipv4_or_ipv6.af == 6:
+                     if 'v6_remote_addr' in path:
+                        for r_addr in path['v6_remote_addr']:
+                            sl_r_addr = sl_common_types_pb2.SLIpAddress()
+                            sl_r_addr.V6Address = ipaddress.ip_address(
+                                    r_addr).packed
+                            remote_addr.append(sl_r_addr)
+                        p.RemoteAddress.extend(remote_addr)
+                # Append the `SLRoutePath` object to the `ps` list
+                # object and extend the `sl_path_list` object of the
+                # route.
+                ps.append(p)
+            r.PathList.extend(ps)
+            # Append the `SLRoutev4`|`SLRoutev6` object to the `routes`
+            # list object and extend the `sl_routes` object of the
+            # serializer.
+            routes.append(r)
+        serializer.Routes.extend(routes)
+    return serializer
 
 
-def vrf_registration_serializer(batch):
+def vrf_registration_serializer(batch_info):
     """Virtual routing and forwarding serializer."""
     serializer = sl_route_common_pb2.SLVrfRegMsg()
     messages = []
-    for message in batch['vrfs']:
+    for message in batch_info['vrfs']:
         registration_message = sl_route_common_pb2.SLVrfReg()
         if 'vrf_name' in message:
             registration_message.VrfName = message['vrf_name']
@@ -262,12 +225,12 @@ def global_get_serializer():
     serializer = sl_global_pb2.SLGlobalsGetMsg()
     return serializer
 
-def mpls_regop_serializer(batch=None):
+def mpls_regop_serializer(batch_info=None):
     """MPLS Reg Op Message serializer."""
     serializer = sl_mpls_pb2.SLMplsRegMsg()
 
-    if batch and 'purge_interval' in batch:
-        serializer.RegMsg.PurgeIntervalSeconds = batch['purge_interval']
+    if batch_info and 'purge_interval' in batch_info:
+        serializer.RegMsg.PurgeIntervalSeconds = batch_info['purge_interval']
 
     return serializer
 
@@ -276,12 +239,12 @@ def mpls_get_serializer():
     serializer = sl_mpls_pb2.SLMplsGetMsg()
     return serializer
 
-def label_block_serializer(batch):
+def label_block_serializer(batch_info):
     """MPLS label block serializer"""
     serializer = sl_mpls_pb2.SLMplsLabelBlockMsg()
-    if 'blocks' in batch:
+    if 'blocks' in batch_info:
         blk_list=[]
-        for block in batch['blocks']:
+        for block in batch_info['blocks']:
             b = sl_mpls_pb2.SLMplsLabelBlockKey()
             if 'block_size' in block:
                 b.LabelBlockSize = block['block_size']
@@ -299,93 +262,23 @@ def label_block_serializer(batch):
 def label_block_get_serializer(get_info):
     """MPLS label block Get serializer."""
     serializer = sl_mpls_pb2.SLMplsLabelBlockGetMsg()
-    if "start_label" in get_info:
-        serializer.Key.StartLabel = get_info["start_label"]
-    if "block_size" in get_info:
-        serializer.Key.LabelBlockSize = get_info["block_size"]
-    if 'block_type' in get_info:
-        serializer.Key.BlockType = get_info['block_type']
-    if 'client_name' in get_info:
-        serializer.Key.ClientName = get_info['client_name']
+    if "block_key" in get_info:
+        key = get_info['block_key']
+        if "start_label" in key:
+            serializer.Key.StartLabel = key["start_label"]
+        if "block_size" in key:
+            serializer.Key.LabelBlockSize = key["block_size"]
+        if 'block_type' in key:
+            serializer.Key.BlockType = key['block_type']
+        if 'client_name' in key:
+            serializer.Key.ClientName = key['client_name']
     if "count" in get_info:
         serializer.EntriesCount = get_info["count"]
     if "get_next" in get_info:
         serializer.GetNext = (get_info["get_next"] != 0)
     return serializer
 
-def generateIlms(batch, af, paths, next_hops):
-    """
-    Generator of ILMs based on the parameters passed in
-    """
-    def generateLabels(labelRange):
-        lo, hi = labelRange
-        assert hi - lo + 1 > 0, 'Invalid label range'
-        for label in range(lo, hi + 1):
-            yield label
-
-    def generatePaths(pathInfo):
-        # Generate slice of paths
-        allPaths = paths[pathInfo['path']]
-        lo, hi = pathInfo['path_range']
-        assert hi - lo + 1 > 0, 'Invalid path range'
-        for path in itertools.islice(allPaths, lo, hi + 1):
-            yield path
-
-    def ilmFactory(label, pathInfo, exp=None, default_elsp=False, af=None):
-        ilm = {
-                "in_label": label,
-                "path": generatePaths(pathInfo),
-                "range": 1  # NOTE: Range must be 1
-        }
-
-        if default_elsp:
-            ilm["default_elsp"] = default_elsp
-        elif exp is not None:
-            ilm["exp"] = exp
-
-        if af:
-            ilm['force_af'] = af
-
-        return ilm
-
-    ranges = batch.get('label_ranges', [{'range': batch.get('label_range', None), 'af': af}])
-    for range_info in ranges:
-        for label in generateLabels(range_info['range']):
-            if 'exps' in batch:
-                for exp, pathInfo in sorted(batch['exps'].items(), key=lambda x: x[0]): 
-                    if exp == 'default':
-                        yield ilmFactory(label, pathInfo, default_elsp=True, af=range_info['af'])
-                    else:
-                        yield ilmFactory(label, pathInfo, exp=int(exp), af=range_info['af'])
-            elif 'label_path' in batch:
-                # Non-elsp (no exp or default elsp)
-                yield ilmFactory(label, batch['label_path'])
-
-def makeBatch(ilms, n):
-    '''
-    This function returns an iterator that will return n ilms
-    Must check for empty iterator as it will lead to an empty ILM list 
-    which will throw an error
-    '''
-    def prepend(value, iterator):
-        "Prepend a single value in front of an iterator"
-        return itertools.chain([value], iterator)
-    
-    # Emulate a peek by getting next and the putting it back
-    try:
-        peek = next(ilms)
-    except StopIteration:
-        return None
-    
-    return itertools.islice(prepend(peek, ilms), n)
-
-def genBatches(ilms, size):
-    batch = makeBatch(ilms, size)
-    while batch:
-        yield batch
-        batch = makeBatch(ilms, size)
-
-def ilm_serializer(batch, af, paths, next_hops):
+def ilm_serializer(batch_info):
     """Agnostic function that returns either an MPLS IPv4 or IPv6 serializer
     instance.
 
@@ -409,98 +302,86 @@ def ilm_serializer(batch, af, paths, next_hops):
     # Create either an SLMplsIlmMsg
     serializer = ipv4_or_ipv6.serializer()
 
-    if 'correlator' in batch:
-        serializer.Correlator = batch['correlator']
-    if 'ilms' in batch:
+    if 'correlator' in batch_info:
+        serializer.Correlator = batch_info['correlator']
+    if 'ilms' in batch_info:
         ilms = []
-        for ilm in batch['ilms']:
-            if 'in_label' in ilm:
-                value = ilm["in_label"]
-            for i in range(ilm['range']):
-                # Create SLMplsIlmEntry
-                entry = ipv4_or_ipv6.ilm()
+        for ilm in batch_info['ilms']:
+            # Create SLMplsIlmEntry
+            entry = ipv4_or_ipv6.ilm()
 
-                if 'default_elsp' in ilm:
-                    entry.Key.SlMplsCosVal.DefaultElspPath = ilm["default_elsp"]
-                elif 'exp' in ilm:
-                    entry.Key.SlMplsCosVal.Exp = ilm["exp"]
-                elif 'forwarding_class' in ilm:
-                    entry.Key.SlMplsCosVal.ForwardingClass = ilm["forwarding_class"]
-                if 'in_label' in ilm:
-                    entry.Key.LocalLabel = value
-                ps = []
-                # Scale tests will create generator otherwise get paths from path dictionary
-                ilm_paths = ilm['path'] if isgenerator(ilm['path']) else paths[ilm['path']]
-                for path in ilm_paths:
-                    p = sl_mpls_pb2.SLMplsPath()
-                    if 'label_action' in path:
-                        p.Action = path['label_action']
-                    if 'load_metric' in path:
-                        p.LoadMetric = path['load_metric']
-                    if 'path_id' in path:
-                        p.PathId = path['path_id']
-                    if 'nexthop' in path:
-                        # Give precedence to force-af if set else use regular af
-                        if ilm.get('force_af', af) ==  4:
-                            if ('v4_addr' in next_hops[path['nexthop']]):
-                                p.NexthopAddress.V4Address = (
-                                    int(ipaddress.ip_address(
-                                        next_hops[path['nexthop']]['v4_addr']))
-                                )
-                        elif ilm.get('force_af', af) == 6:
-                            if ('v6_addr' in next_hops[path['nexthop']]):
-                                p.NexthopAddress.V6Address = (
-                                    ipaddress.ip_address(
-                                        (next_hops[path['nexthop']]['v6_addr']))
-                                        .packed
-                                )
-                        if 'if_name' in next_hops[path['nexthop']]:
-                            p.NexthopInterface.Name = (
-                                next_hops[path['nexthop']]['if_name']
+            if 'default_elsp' in ilm:
+                entry.Key.SlMplsCosVal.DefaultElspPath = ilm["default_elsp"]
+            elif 'exp' in ilm:
+                entry.Key.SlMplsCosVal.Exp = ilm["exp"]
+            elif 'forwarding_class' in ilm:
+                entry.Key.SlMplsCosVal.ForwardingClass = ilm["forwarding_class"]
+            if 'in_label' in ilm:
+                entry.Key.LocalLabel = ilm["in_label"]
+            ps = []
+            for path in ilm['path']:
+                p = sl_mpls_pb2.SLMplsPath()
+                if 'label_action' in path:
+                    p.Action = path['label_action']
+                if 'load_metric' in path:
+                    p.LoadMetric = path['load_metric']
+                if 'path_id' in path:
+                    p.PathId = path['path_id']
+                if 'next_hop' in path:
+                    nh = path['next_hop']
+                    if ilm['af'] == 4:
+                        if 'v4_addr' in path['next_hop']:
+                            p.NexthopAddress.V4Address = int(
+                                ipaddress.ip_address(nh['v4_addr']))
+                    elif ilm['af'] == 6:
+                        if 'v6_addr' in path['next_hop']:
+                            p.NexthopAddress.V6Address = ipaddress.ip_address(
+                                nh['v6_addr']).packed
+                    if 'if_name' in path['next_hop']:
+                        p.NexthopInterface.Name = path['next_hop']['if_name']
+                    if 'vrf_name' in path['next_hop']:
+                        p.VrfName = path['next_hop']['vrf_name']
+                # Bitmap
+                bitmap = []
+                if 'p_bitmap' in path:
+                     for bmap in path['p_bitmap']:
+                         bitmap.append(bmap)
+                     p.ProtectedPathBitmap.extend(bitmap)
+                # Add labels
+                labels = []
+                if 'labels' in path:
+                    for label in path['labels']:
+                        labels.append(label)
+                    p.LabelStack.extend(labels)
+                # Add remote addresses
+                remote_addr = []
+                if ilm['af'] == 4:
+                    if 'v4_remote_addr' in path:
+                        for r_addr in path['v4_remote_addr']:
+                            sl_r_addr = sl_common_types_pb2.SLIpAddress()
+                            sl_r_addr.V4Address = (
+                                int(ipaddress.ip_address(r_addr))
                             )
-                        if 'vrf_name' in next_hops[path['nexthop']]:
-                            p.VrfName = next_hops[path['nexthop']]['vrf_name']
-                    # Bitmap
-                    bitmap = []
-                    if 'p_bitmap' in path:
-                         for bmap in path['p_bitmap']:
-                             bitmap.append(bmap)
-                         p.ProtectedPathBitmap.extend(bitmap)
-                    # Add labels
-                    labels = []
-                    if 'labels' in path:
-                        for label in path['labels']:
-                            labels.append(label)
-                        p.LabelStack.extend(labels)
-                    # Add remote addresses
-                    remote_addr = []
-                    if af == 4:
-                        if 'v4_remote_addr' in path:
-                            for r_addr in path['v4_remote_addr']:
-                                sl_r_addr = sl_common_types_pb2.SLIpAddress()
-                                sl_r_addr.V4Address = (
-                                    int(ipaddress.ip_address(r_addr))
-                                )
-                                remote_addr.append(sl_r_addr)
-                            p.RemoteAddress.extend(remote_addr)
-                    elif af == 6:
-                         if 'v6_remote_addr' in path:
-                            for r_addr in path['v6_remote_addr']:
-                                sl_r_addr = sl_common_types_pb2.SLIpAddress()
-                                sl_r_addr.V6Address = (
-                                    ipaddress.ip_address(r_addr).packed
-                                )
-                                remote_addr.append(sl_r_addr)
-                            p.RemoteAddress.extend(remote_addr)
-                    # Append the `SLMplsPathv4` object to the `ps` list
-                    ps.append(p)
-                entry.Paths.extend(ps)
-                # Append the `SLMplsIlmv4Msg`|`SLMplsIlmv6Msg` object
-                ilms.append(entry)
-                # Increment label
-                value = value + 1
+                            remote_addr.append(sl_r_addr)
+                        p.RemoteAddress.extend(remote_addr)
+                elif ilm['af'] == 6:
+                     if 'v6_remote_addr' in path:
+                        for r_addr in path['v6_remote_addr']:
+                            sl_r_addr = sl_common_types_pb2.SLIpAddress()
+                            sl_r_addr.V6Address = (
+                                ipaddress.ip_address(r_addr).packed
+                            )
+                            remote_addr.append(sl_r_addr)
+                        p.RemoteAddress.extend(remote_addr)
+                # Append the `SLMplsPathv4` object to the `ps` list
+                ps.append(p)
+            assert len(ps), 'path list cannot be empty'
+            entry.Paths.extend(ps)
+            # Append the `SLMplsIlmv4Msg`|`SLMplsIlmv6Msg` object
+            ilms.append(entry)
+        assert len(ilms), 'ilm list cannot be empty'
         serializer.MplsIlms.extend(ilms)
-    return (serializer, value)
+    return serializer
 
 def ilm_get_serializer(get_info):
     """ILM Get Message serializer."""
@@ -530,7 +411,7 @@ def bfd_regop_serializer():
     serializer = sl_bfd_common_pb2.SLBfdRegMsg()
     return serializer
 
-def bfd_serializer(batch, next_hops, af):
+def bfd_serializer(batch_info, next_hops, af):
     """Agnostic function that returns a BFD serializer instance.
 
     Not all fields are required to instantiate `SLBfdv4Msg` or `SLBfdv6Msg`
@@ -563,39 +444,39 @@ def bfd_serializer(batch, next_hops, af):
         )
     # Create a `SLBfdv4Msg` or `SLBfdv6Msg` message 
     serializer = ipv4_or_ipv6.serializer()
-    if 'sessions' in batch:
+    if 'sessions' in batch_info:
         sessions = []
-        for sess in batch['sessions']:
+        for sess in batch_info['sessions']:
             # Create SessionCfg
             entry = ipv4_or_ipv6.bfd()
             if ipv4_or_ipv6.af == 4:
-                if (sess['nexthop'] and
-                        'v4_addr' in next_hops[sess['nexthop']]):
+                if (sess['next_hop'] and
+                        'v4_addr' in next_hops[sess['next_hop']]):
                     entry.Key.NbrAddr = (
                         int(ipaddress.ip_address(
-                            next_hops[sess['nexthop']]['v4_addr']))
+                            next_hops[sess['next_hop']]['v4_addr']))
                     )
                 if 'src_v4_addr' in sess:
                     entry.Key.SourceAddr = (
                         int(ipaddress.ip_address(sess['src_v4_addr']))
                     )
             elif ipv4_or_ipv6.af == 6:
-                if (sess['nexthop'] and
-                        'v6_addr' in next_hops[sess['nexthop']]):
+                if (sess['next_hop'] and
+                        'v6_addr' in next_hops[sess['next_hop']]):
                     entry.Key.NbrAddr = (
                         ipaddress.ip_address(
-                            next_hops[sess['nexthop']]['v6_addr']).packed
+                            next_hops[sess['next_hop']]['v6_addr']).packed
                     )
                 if 'src_v6_addr' in sess:
                     entry.Key.SourceAddr = (
                         ipaddress.ip_address(sess['src_v6_addr']).packed
                     )
-            if 'if_name' in next_hops[sess['nexthop']]:
+            if 'if_name' in next_hops[sess['next_hop']]:
                 entry.Key.Interface.Name = (
-                    next_hops[sess['nexthop']]['if_name']
+                    next_hops[sess['next_hop']]['if_name']
                 )
-            if 'vrf_name' in next_hops[sess['nexthop']]:
-                entry.Key.VrfName = next_hops[sess['nexthop']]['vrf_name']
+            if 'vrf_name' in next_hops[sess['next_hop']]:
+                entry.Key.VrfName = next_hops[sess['next_hop']]['vrf_name']
             if 'type' in sess:
                 entry.Key.Type = sess['type']
             if 'cfg_detect_multi' in sess:
@@ -701,12 +582,12 @@ def intf_get_notif_serializer():
     serializer = sl_interface_pb2.SLInterfaceGetNotifMsg()
     return serializer
 
-def intf_notif_op_serializer(batch):
+def intf_notif_op_serializer(batch_info):
     """Interface notification operation serializer."""
     serializer = sl_interface_pb2.SLInterfaceNotifMsg()
-    if 'interfaces' in batch:
+    if 'interfaces' in batch_info:
         interfaces = []
-        for interface in batch['interfaces']:
+        for interface in batch_info['interfaces']:
             entry = sl_common_types_pb2.SLInterface()
             if 'if_name' in interface:
                 entry.Name = interface['if_name']
