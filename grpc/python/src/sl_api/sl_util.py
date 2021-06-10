@@ -279,6 +279,8 @@ class RouteUtil:
 
             if 'local_label' in batch_info: 
                 route['local_label'] = batch_info['local_label']
+            if 'flags' in batch_info:
+                route['flags'] = batch_info['flags']
 
             return route
 

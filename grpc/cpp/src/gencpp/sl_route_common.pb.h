@@ -2962,6 +2962,7 @@ class SLRouteCommon PROTOBUF_FINAL :
     kAdminDistanceFieldNumber = 1,
     kLocalLabelFieldNumber = 2,
     kTagFieldNumber = 3,
+    kFlagsFieldNumber = 6,
   };
   // string SrcProto = 4;
   void clear_srcproto();
@@ -3040,6 +3041,15 @@ class SLRouteCommon PROTOBUF_FINAL :
   void _internal_set_tag(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
+  // uint32 Flags = 6;
+  void clear_flags();
+  ::PROTOBUF_NAMESPACE_ID::uint32 flags() const;
+  void set_flags(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_flags() const;
+  void _internal_set_flags(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  public:
+
   // @@protoc_insertion_point(class_scope:service_layer.SLRouteCommon)
  private:
   class _Internal;
@@ -3052,6 +3062,7 @@ class SLRouteCommon PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::uint32 admindistance_;
   ::PROTOBUF_NAMESPACE_ID::uint32 locallabel_;
   ::PROTOBUF_NAMESPACE_ID::uint32 tag_;
+  ::PROTOBUF_NAMESPACE_ID::uint32 flags_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_sl_5froute_5fcommon_2eproto;
 };
@@ -5495,6 +5506,26 @@ inline void SLRouteCommon::unsafe_arena_set_allocated_srcprototag(
   srcprototag_.UnsafeArenaSetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
       srcprototag, GetArena());
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:service_layer.SLRouteCommon.SrcProtoTag)
+}
+
+// uint32 Flags = 6;
+inline void SLRouteCommon::clear_flags() {
+  flags_ = 0u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 SLRouteCommon::_internal_flags() const {
+  return flags_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 SLRouteCommon::flags() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLRouteCommon.Flags)
+  return _internal_flags();
+}
+inline void SLRouteCommon::_internal_set_flags(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  
+  flags_ = value;
+}
+inline void SLRouteCommon::set_flags(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _internal_set_flags(value);
+  // @@protoc_insertion_point(field_set:service_layer.SLRouteCommon.Flags)
 }
 
 // -------------------------------------------------------------------

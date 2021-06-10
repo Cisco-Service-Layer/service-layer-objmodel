@@ -301,6 +301,12 @@ message SLRouteCommon {
     // ignored otherwise.
     // Contact Cisco for supported protocol tags.
     string SrcProtoTag = 5;
+
+    // Route Flags.
+    // Flags to control programming of the route to Routing Information Base.
+    // Each flag is indicated as a bit field. Supported values are:
+    // 0x1 - This route takes precdence over a route learnt by LDP.
+    uint32 Flags = 6;
 }
 
 // Route Path attributes.
