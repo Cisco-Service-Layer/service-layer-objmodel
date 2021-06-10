@@ -268,7 +268,7 @@
         "prefix_len": 24,
         "tag": 16,
         "vrf_name": "default",
-	"flags": 1
+        "flags": 1
     },
     "batch_v4_vrf": {
         "af": 4,
@@ -302,7 +302,7 @@
         "prefix_len": 64,
         "tag": 18,
         "vrf_name": "default",
-	"flags": 1
+        "flags": 1
     },
     "batch_v6_vrf": {
         "af": 6,

@@ -1166,7 +1166,7 @@ type SLRouteCommon struct {
 	// Route Flags.
 	// Flags to control programming of the route to Routing Information Base.
 	// Each flag is indicated as a bit field. Supported values are:
-	// 0x1 - This route takes precdence over a route learnt by LDP.
+	// 0x1 - This route takes precedence over a route learnt by LDP.
 	Flags uint32 `protobuf:"varint,6,opt,name=Flags,proto3" json:"Flags,omitempty"`
 }
 
