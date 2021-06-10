@@ -491,6 +491,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_sl_5froute_5fcommon_2eproto::o
   PROTOBUF_FIELD_OFFSET(::service_layer::SLRouteCommon, tag_),
   PROTOBUF_FIELD_OFFSET(::service_layer::SLRouteCommon, srcproto_),
   PROTOBUF_FIELD_OFFSET(::service_layer::SLRouteCommon, srcprototag_),
+  PROTOBUF_FIELD_OFFSET(::service_layer::SLRouteCommon, flags_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::service_layer::SLRoutePath, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -526,7 +527,7 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOB
   { 104, -1, sizeof(::service_layer::SLRouteNotifMarker)},
   { 110, -1, sizeof(::service_layer::SLVrfNotif)},
   { 117, -1, sizeof(::service_layer::SLRouteCommon)},
-  { 127, -1, sizeof(::service_layer::SLRoutePath)},
+  { 128, -1, sizeof(::service_layer::SLRoutePath)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -588,25 +589,25 @@ const char descriptor_table_protodef_sl_5froute_5fcommon_2eproto[] PROTOBUF_SECT
   "tatus\030\003 \001(\0132\034.service_layer.SLErrorStatu"
   "s\"%\n\022SLRouteNotifMarker\022\017\n\007VrfName\030\001 \001(\t"
   "\"H\n\nSLVrfNotif\022\017\n\007VrfName\030\001 \001(\t\022)\n\006Statu"
-  "s\030\002 \001(\0162\031.service_layer.SLObjectOp\"n\n\rSL"
+  "s\030\002 \001(\0162\031.service_layer.SLObjectOp\"}\n\rSL"
   "RouteCommon\022\025\n\rAdminDistance\030\001 \001(\r\022\022\n\nLo"
   "calLabel\030\002 \001(\r\022\013\n\003Tag\030\003 \001(\r\022\020\n\010SrcProto\030"
-  "\004 \001(\t\022\023\n\013SrcProtoTag\030\005 \001(\t\"\355\002\n\013SLRoutePa"
-  "th\0222\n\016NexthopAddress\030\001 \001(\0132\032.service_lay"
-  "er.SLIpAddress\0224\n\020NexthopInterface\030\002 \001(\013"
-  "2\032.service_layer.SLInterface\022\022\n\nLoadMetr"
-  "ic\030\003 \001(\r\022\017\n\007VrfName\030\004 \001(\t\022\016\n\006Metric\030\005 \001("
-  "\r\022\016\n\006PathId\030\006 \001(\r\022\033\n\023ProtectedPathBitmap"
-  "\030\007 \003(\004\022\022\n\nLabelStack\030\010 \003(\r\0221\n\rRemoteAddr"
-  "ess\030\t \003(\0132\032.service_layer.SLIpAddress\022-\n"
-  "\tEncapType\030\n \001(\0162\032.service_layer.SLEncap"
-  "Type\022\034\n\024VtepRouterMacAddress\030\013 \001(\014*\312\001\n\013S"
-  "LNotifType\022\032\n\026SL_EVENT_TYPE_RESERVED\020\000\022\027"
-  "\n\023SL_EVENT_TYPE_ERROR\020\001\022\030\n\024SL_EVENT_TYPE"
-  "_STATUS\020\002\022\027\n\023SL_EVENT_TYPE_ROUTE\020\003\022\036\n\032SL"
-  "_EVENT_TYPE_START_MARKER\020\004\022\034\n\030SL_EVENT_T"
-  "YPE_END_MARKER\020\005\022\025\n\021SL_EVENT_TYPE_VRF\020\006b"
-  "\006proto3"
+  "\004 \001(\t\022\023\n\013SrcProtoTag\030\005 \001(\t\022\r\n\005Flags\030\006 \001("
+  "\r\"\355\002\n\013SLRoutePath\0222\n\016NexthopAddress\030\001 \001("
+  "\0132\032.service_layer.SLIpAddress\0224\n\020Nexthop"
+  "Interface\030\002 \001(\0132\032.service_layer.SLInterf"
+  "ace\022\022\n\nLoadMetric\030\003 \001(\r\022\017\n\007VrfName\030\004 \001(\t"
+  "\022\016\n\006Metric\030\005 \001(\r\022\016\n\006PathId\030\006 \001(\r\022\033\n\023Prot"
+  "ectedPathBitmap\030\007 \003(\004\022\022\n\nLabelStack\030\010 \003("
+  "\r\0221\n\rRemoteAddress\030\t \003(\0132\032.service_layer"
+  ".SLIpAddress\022-\n\tEncapType\030\n \001(\0162\032.servic"
+  "e_layer.SLEncapType\022\034\n\024VtepRouterMacAddr"
+  "ess\030\013 \001(\014*\312\001\n\013SLNotifType\022\032\n\026SL_EVENT_TY"
+  "PE_RESERVED\020\000\022\027\n\023SL_EVENT_TYPE_ERROR\020\001\022\030"
+  "\n\024SL_EVENT_TYPE_STATUS\020\002\022\027\n\023SL_EVENT_TYP"
+  "E_ROUTE\020\003\022\036\n\032SL_EVENT_TYPE_START_MARKER\020"
+  "\004\022\034\n\030SL_EVENT_TYPE_END_MARKER\020\005\022\025\n\021SL_EV"
+  "ENT_TYPE_VRF\020\006b\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_sl_5froute_5fcommon_2eproto_deps[1] = {
   &::descriptor_table_sl_5fcommon_5ftypes_2eproto,
@@ -633,7 +634,7 @@ static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_sl_
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_sl_5froute_5fcommon_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_sl_5froute_5fcommon_2eproto = {
-  false, false, descriptor_table_protodef_sl_5froute_5fcommon_2eproto, "sl_route_common.proto", 2207,
+  false, false, descriptor_table_protodef_sl_5froute_5fcommon_2eproto, "sl_route_common.proto", 2222,
   &descriptor_table_sl_5froute_5fcommon_2eproto_once, descriptor_table_sl_5froute_5fcommon_2eproto_sccs, descriptor_table_sl_5froute_5fcommon_2eproto_deps, 18, 1,
   schemas, file_default_instances, TableStruct_sl_5froute_5fcommon_2eproto::offsets,
   file_level_metadata_sl_5froute_5fcommon_2eproto, 18, file_level_enum_descriptors_sl_5froute_5fcommon_2eproto, file_level_service_descriptors_sl_5froute_5fcommon_2eproto,
@@ -4747,8 +4748,8 @@ SLRouteCommon::SLRouteCommon(const SLRouteCommon& from)
       GetArena());
   }
   ::memcpy(&admindistance_, &from.admindistance_,
-    static_cast<size_t>(reinterpret_cast<char*>(&tag_) -
-    reinterpret_cast<char*>(&admindistance_)) + sizeof(tag_));
+    static_cast<size_t>(reinterpret_cast<char*>(&flags_) -
+    reinterpret_cast<char*>(&admindistance_)) + sizeof(flags_));
   // @@protoc_insertion_point(copy_constructor:service_layer.SLRouteCommon)
 }
 
@@ -4757,8 +4758,8 @@ void SLRouteCommon::SharedCtor() {
   srcproto_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   srcprototag_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   ::memset(&admindistance_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&tag_) -
-      reinterpret_cast<char*>(&admindistance_)) + sizeof(tag_));
+      reinterpret_cast<char*>(&flags_) -
+      reinterpret_cast<char*>(&admindistance_)) + sizeof(flags_));
 }
 
 SLRouteCommon::~SLRouteCommon() {
@@ -4797,8 +4798,8 @@ void SLRouteCommon::Clear() {
   srcproto_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   srcprototag_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   ::memset(&admindistance_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&tag_) -
-      reinterpret_cast<char*>(&admindistance_)) + sizeof(tag_));
+      reinterpret_cast<char*>(&flags_) -
+      reinterpret_cast<char*>(&admindistance_)) + sizeof(flags_));
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -4846,6 +4847,13 @@ const char* SLRouteCommon::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_
           auto str = _internal_mutable_srcprototag();
           ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "service_layer.SLRouteCommon.SrcProtoTag"));
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // uint32 Flags = 6;
+      case 6:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 48)) {
+          flags_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -4915,6 +4923,12 @@ failure:
         5, this->_internal_srcprototag(), target);
   }
 
+  // uint32 Flags = 6;
+  if (this->flags() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(6, this->_internal_flags(), target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -4966,6 +4980,13 @@ size_t SLRouteCommon::ByteSizeLong() const {
         this->_internal_tag());
   }
 
+  // uint32 Flags = 6;
+  if (this->flags() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
+        this->_internal_flags());
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
         _internal_metadata_, total_size, &_cached_size_);
@@ -5012,6 +5033,9 @@ void SLRouteCommon::MergeFrom(const SLRouteCommon& from) {
   if (from.tag() != 0) {
     _internal_set_tag(from._internal_tag());
   }
+  if (from.flags() != 0) {
+    _internal_set_flags(from._internal_flags());
+  }
 }
 
 void SLRouteCommon::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
@@ -5038,8 +5062,8 @@ void SLRouteCommon::InternalSwap(SLRouteCommon* other) {
   srcproto_.Swap(&other->srcproto_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   srcprototag_.Swap(&other->srcprototag_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(SLRouteCommon, tag_)
-      + sizeof(SLRouteCommon::tag_)
+      PROTOBUF_FIELD_OFFSET(SLRouteCommon, flags_)
+      + sizeof(SLRouteCommon::flags_)
       - PROTOBUF_FIELD_OFFSET(SLRouteCommon, admindistance_)>(
           reinterpret_cast<char*>(&admindistance_),
           reinterpret_cast<char*>(&other->admindistance_));

@@ -115,6 +115,8 @@ def route_serializer(batch_info):
                 r.RouteCommon.AdminDistance = route['admin_dist']
             if 'tag' in route:
                 r.RouteCommon.Tag = route['tag']
+            if 'flags' in route:
+                r.RouteCommon.Flags = route['flags']
             ps = []
             for path in route['path']:
                 p = sl_route_common_pb2.SLRoutePath()
