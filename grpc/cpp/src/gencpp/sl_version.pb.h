@@ -60,7 +60,7 @@ namespace service_layer {
 enum SLVersion : int {
   SL_VERSION_UNUSED = 0,
   SL_MAJOR_VERSION = 0,
-  SL_MINOR_VERSION = 3,
+  SL_MINOR_VERSION = 4,
   SL_SUB_VERSION = 0,
   SLVersion_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::min(),
   SLVersion_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::max()

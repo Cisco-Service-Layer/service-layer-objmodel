@@ -26,7 +26,7 @@ static constexpr ::PROTOBUF_NAMESPACE_ID::Message* const* file_default_instances
 const char descriptor_table_protodef_sl_5fversion_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
   "\n\020sl_version.proto\022\rservice_layer*f\n\tSLV"
   "ersion\022\025\n\021SL_VERSION_UNUSED\020\000\022\024\n\020SL_MAJO"
-  "R_VERSION\020\000\022\024\n\020SL_MINOR_VERSION\020\003\022\022\n\016SL_"
+  "R_VERSION\020\000\022\024\n\020SL_MINOR_VERSION\020\004\022\022\n\016SL_"
   "SUB_VERSION\020\000\032\002\020\001b\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_sl_5fversion_2eproto_deps[1] = {
@@ -51,7 +51,7 @@ const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* SLVersion_descriptor() {
 bool SLVersion_IsValid(int value) {
   switch (value) {
     case 0:
-    case 3:
+    case 4:
       return true;
     default:
       return false;
