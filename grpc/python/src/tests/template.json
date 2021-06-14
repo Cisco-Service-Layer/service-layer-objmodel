@@ -95,28 +95,12 @@
             "default": { "path": "cos_scale_path_1", "path_range": [8, 15] }
         }
     },
-    "scale_cos_ilm_pop_and_lookup_1": {
+    "scale_cos_ilm_pop_and_lookup": {
         "batch_size": 256,
         "correlator": 1,
         "label_range": [32000, 32299],
         "exps": {
             "default": { "path": "cos_scale_path_pop_and_lookup", "path_range": [0, 0] }
-        }
-    },
-    "scale_cos_ilm_pop_and_lookup_2": {
-        "batch_size": 256,
-        "correlator": 1,
-        "label_range": [32000, 32499],
-        "exps": {
-            "default": { "path": "cos_scale_path_pop_and_lookup", "path_range": [0, 0] }
-        }
-    },
-    "scale_cos_ilm_pop_and_lookup_3": {
-        "batch_size": 256,
-        "correlator": 1,
-        "label_range": [32000, 32499],
-        "exps": {
-            "default": { "path": "cos_path_36", "path_range": [0, 0] }
         }
     },
     "scale_cos_ilm_v4_v6": {
@@ -130,26 +114,6 @@
             "0": { "path": "cos_scale_path_1", "path_range": [0, 3] },
             "1": { "path": "cos_scale_path_1", "path_range": [0, 5] },
             "default": { "path": "cos_scale_path_1", "path_range": [0, 4] }
-        }
-    },
-    "scale_cos_ilm_exp1_v6": {
-        "batch_size": 256,
-        "correlator": 1,
-        "label_ranges": [
-            { "range": [32000, 32499], "af": 6 }
-        ],
-        "exps": {
-            "1": { "path": "cos_scale_path_1", "path_range": [0, 5] }
-        }
-    },
-    "scale_cos_ilm_exp1_v4": {
-        "batch_size": 256,
-        "correlator": 1,
-        "label_ranges": [
-            { "range": [32000, 32499], "af": 4 }
-        ],
-        "exps": {
-            "1": { "path": "cos_scale_path_1", "path_range": [0, 5] }
         }
     },
     "scale_cos_ilm_update_1": {
