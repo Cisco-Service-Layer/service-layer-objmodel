@@ -157,7 +157,7 @@ This can be found here: grpc/python/src
 To install dependencies first create a virtual env:
 ```
 cd grpc/python/
-pip install venv
+pip install virtualenv
 virtualenv sl-env --python=python3
 source sl-env/bin/activate
 pip install -r requirements.txt
