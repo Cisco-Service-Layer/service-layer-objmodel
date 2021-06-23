@@ -3,11 +3,9 @@ USER := $(shell id -un)
 PWD := $(shell pwd)
 
 IMAGE_NAME = slapi
-IMAGE_TAG = $(shell cat Dockerfile | shasum | awk '{print substr($$1,0,11);}')
+IMAGE_TAG = latest
 
-DOCKER_BUILD = docker build --no-cache \
-               -t $(IMAGE_NAME) . && \
-               docker tag $(IMAGE_NAME):latest $(IMAGE_NAME):$(IMAGE_TAG)
+DOCKER_BUILD = docker build -t $(IMAGE_NAME) .
 
 ifeq ($(DOCKER_VOLUME),)
 override DOCKER_VOLUME := "$(PWD):/slapi"
@@ -28,36 +26,24 @@ DOCKER_RUN := docker run --rm=true --privileged \
 .PHONY: slapi-bash
 .DEFAULT_GOAL := slapi-bash
 
-tutorial:
-	@docker inspect --type image $(IMAGE_NAME):$(IMAGE_TAG) &> /dev/null || \
-	{ echo Image $(IMAGE_NAME):$(IMAGE_TAG) not found. Building... ; \
-	$(DOCKER_BUILD) ; }
+build:
+	$(DOCKER_BUILD) ;
+
+tutorial: build
 	$(DOCKER_RUN) -t $(IMAGE_NAME):$(IMAGE_TAG) \
 	make -C grpc/go/src/tutorial
 
-bindings:
-	@docker inspect --type image $(IMAGE_NAME):$(IMAGE_TAG) &> /dev/null || \
-	{ echo Image $(IMAGE_NAME):$(IMAGE_TAG) not found. Building... ; \
-	$(DOCKER_BUILD) ; }
+bindings: build
 	$(DOCKER_RUN) -t $(IMAGE_NAME):$(IMAGE_TAG) \
 	bash -c "cd grpc/utils && ./gen-all.sh"
 
-xr-docs:
-	@docker inspect --type image $(IMAGE_NAME):$(IMAGE_TAG) &> /dev/null || \
-	{ echo Image $(IMAGE_NAME):$(IMAGE_TAG) not found. Building... ; \
-	$(DOCKER_BUILD) ; }
+xr-docs: build
 	$(DOCKER_RUN) -t $(IMAGE_NAME):$(IMAGE_TAG) \
 	bash -c "cd grpc/xrdocs/scripts && ./doc-gen.sh"
 
-docs:
-	@docker inspect --type image $(IMAGE_NAME):$(IMAGE_TAG) &> /dev/null || \
-	{ echo Image $(IMAGE_NAME):$(IMAGE_TAG) not found. Building... ; \
-	$(DOCKER_BUILD) ; }
+docs: build
 	$(DOCKER_RUN) -t $(IMAGE_NAME):$(IMAGE_TAG) \
 	bash -c "cd grpc/docs/scripts && ./doc-gen.sh"
 
-slapi-bash:
-	@docker inspect --type image $(IMAGE_NAME):$(IMAGE_TAG) &> /dev/null || \
-		{ echo Image $(IMAGE_NAME):$(IMAGE_TAG) not found. Building... ; \
-		$(DOCKER_BUILD) ; }
+slapi-bash: build
 	$(DOCKER_RUN) -t $(IMAGE_NAME):$(IMAGE_TAG) bash

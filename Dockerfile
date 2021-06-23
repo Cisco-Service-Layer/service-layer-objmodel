@@ -1,5 +1,12 @@
 FROM ubuntu:16.04
 
+RUN apt-get update && \
+    apt-get install -y git vim doxygen autoconf automake libtool \
+                       curl make g++ unzip python3 python3-pip wget
+
+# python
+RUN pip3 install 2to3
+
 ARG WS=/
 
 ARG GO_VER=1.14.2
@@ -8,9 +15,8 @@ ARG PROTOBUF_VER=v3.12.1
 ARG GENPROTO_VER=053ba62
 ARG GO_PROTOBUF_VER=v1.4.2
 
-RUN apt-get update && \
-    apt-get install -y git vim doxygen autoconf automake libtool \
-                       curl make g++ unzip python3 python3-pip wget
+# go
+RUN wget -qO- https://dl.google.com/go/go${GO_VER}.linux-amd64.tar.gz | tar xzvf - -C /usr/local
 
 # grpc
 RUN git clone -b ${GRPC_VER} https://github.com/grpc/grpc.git ${WS}/grpc && \
@@ -25,12 +31,6 @@ RUN cd ${WS}/grpc/third_party/protobuf && \
     make && \
     make install && \
     ldconfig
-
-# python
-RUN pip3 install 2to3
-
-# go
-RUN wget -qO- https://dl.google.com/go/go${GO_VER}.linux-amd64.tar.gz | tar xzvf - -C /usr/local
 
 # environment
 ENV SLAPI_ROOT="${WS}/slapi"
