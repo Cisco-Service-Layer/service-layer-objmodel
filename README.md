@@ -170,6 +170,45 @@ export SERVER_IP=192.168.122.192
 export SERVER_PORT=57344
 ```
 
+Required router configuration for test suite:
+```
+# Configure mgmt interface
+configure
+interface MgmtEth 0/RP0/CPU0/0
+ipv4 address dhcp
+no shut
+commit
+end
+ 
+! Configure GRPC
+configure
+grpc port 57344
+grpc address-family ipv4
+grpc service-layer
+commit
+end
+
+# Configure l2vpn (only needed if exercising the L2 UTs)
+configure
+l2vpn
+bridge group bg1
+bridge-domain bd0
+exit
+bridge-domain bd1
+exit
+bridge-domain bd2
+commit
+end
+```
+
+Note: The following test suite does not currently support TLS for authentication. Until the python client is extended to support this, TLS must be disabled to run the suite.
+```
+configure
+grpc no-tls
+commit
+end
+```
+
 Run a test:
 ```
 pytest grpc/python/src/tests/test_sl_route.py
