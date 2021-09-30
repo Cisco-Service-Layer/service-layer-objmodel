@@ -260,6 +260,7 @@ class SLL2Oper(object):
             options=(),
             channel_credentials=None,
             call_credentials=None,
+            insecure=False,
             compression=None,
             wait_for_ready=None,
             timeout=None,
@@ -268,7 +269,7 @@ class SLL2Oper(object):
             sl__l2__route__pb2.SLL2GlobalsGetMsg.SerializeToString,
             sl__l2__route__pb2.SLL2GlobalsGetMsgRsp.FromString,
             options, channel_credentials,
-            call_credentials, compression, wait_for_ready, timeout, metadata)
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
     def SLL2RegOp(request,
@@ -276,6 +277,7 @@ class SLL2Oper(object):
             options=(),
             channel_credentials=None,
             call_credentials=None,
+            insecure=False,
             compression=None,
             wait_for_ready=None,
             timeout=None,
@@ -284,7 +286,7 @@ class SLL2Oper(object):
             sl__l2__route__pb2.SLL2RegMsg.SerializeToString,
             sl__l2__route__pb2.SLL2RegMsgRsp.FromString,
             options, channel_credentials,
-            call_credentials, compression, wait_for_ready, timeout, metadata)
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
     def SLL2BdRegOp(request,
@@ -292,6 +294,7 @@ class SLL2Oper(object):
             options=(),
             channel_credentials=None,
             call_credentials=None,
+            insecure=False,
             compression=None,
             wait_for_ready=None,
             timeout=None,
@@ -300,7 +303,7 @@ class SLL2Oper(object):
             sl__l2__route__pb2.SLL2BdRegMsg.SerializeToString,
             sl__l2__route__pb2.SLL2BdRegMsgRsp.FromString,
             options, channel_credentials,
-            call_credentials, compression, wait_for_ready, timeout, metadata)
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
     def SLL2RouteOp(request,
@@ -308,6 +311,7 @@ class SLL2Oper(object):
             options=(),
             channel_credentials=None,
             call_credentials=None,
+            insecure=False,
             compression=None,
             wait_for_ready=None,
             timeout=None,
@@ -316,7 +320,7 @@ class SLL2Oper(object):
             sl__l2__route__pb2.SLL2RouteMsg.SerializeToString,
             sl__l2__route__pb2.SLL2RouteMsgRsp.FromString,
             options, channel_credentials,
-            call_credentials, compression, wait_for_ready, timeout, metadata)
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
     def SLL2RouteOpStream(request_iterator,
@@ -324,6 +328,7 @@ class SLL2Oper(object):
             options=(),
             channel_credentials=None,
             call_credentials=None,
+            insecure=False,
             compression=None,
             wait_for_ready=None,
             timeout=None,
@@ -332,7 +337,7 @@ class SLL2Oper(object):
             sl__l2__route__pb2.SLL2RouteMsg.SerializeToString,
             sl__l2__route__pb2.SLL2RouteMsgRsp.FromString,
             options, channel_credentials,
-            call_credentials, compression, wait_for_ready, timeout, metadata)
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
     def SLL2GetNotifStream(request_iterator,
@@ -340,6 +345,7 @@ class SLL2Oper(object):
             options=(),
             channel_credentials=None,
             call_credentials=None,
+            insecure=False,
             compression=None,
             wait_for_ready=None,
             timeout=None,
@@ -348,4 +354,4 @@ class SLL2Oper(object):
             sl__l2__route__pb2.SLL2GetNotifMsg.SerializeToString,
             sl__l2__route__pb2.SLL2Notif.FromString,
             options, channel_credentials,
-            call_credentials, compression, wait_for_ready, timeout, metadata)
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

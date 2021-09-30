@@ -316,6 +316,7 @@ class SLMplsOper(object):
             options=(),
             channel_credentials=None,
             call_credentials=None,
+            insecure=False,
             compression=None,
             wait_for_ready=None,
             timeout=None,
@@ -324,7 +325,7 @@ class SLMplsOper(object):
             sl__mpls__pb2.SLMplsRegMsg.SerializeToString,
             sl__mpls__pb2.SLMplsRegMsgRsp.FromString,
             options, channel_credentials,
-            call_credentials, compression, wait_for_ready, timeout, metadata)
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
     def SLMplsGet(request,
@@ -332,6 +333,7 @@ class SLMplsOper(object):
             options=(),
             channel_credentials=None,
             call_credentials=None,
+            insecure=False,
             compression=None,
             wait_for_ready=None,
             timeout=None,
@@ -340,7 +342,7 @@ class SLMplsOper(object):
             sl__mpls__pb2.SLMplsGetMsg.SerializeToString,
             sl__mpls__pb2.SLMplsGetMsgRsp.FromString,
             options, channel_credentials,
-            call_credentials, compression, wait_for_ready, timeout, metadata)
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
     def SLMplsGetStats(request,
@@ -348,6 +350,7 @@ class SLMplsOper(object):
             options=(),
             channel_credentials=None,
             call_credentials=None,
+            insecure=False,
             compression=None,
             wait_for_ready=None,
             timeout=None,
@@ -356,7 +359,7 @@ class SLMplsOper(object):
             sl__mpls__pb2.SLMplsGetMsg.SerializeToString,
             sl__mpls__pb2.SLMplsGetStatsMsgRsp.FromString,
             options, channel_credentials,
-            call_credentials, compression, wait_for_ready, timeout, metadata)
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
     def SLMplsLabelBlockOp(request,
@@ -364,6 +367,7 @@ class SLMplsOper(object):
             options=(),
             channel_credentials=None,
             call_credentials=None,
+            insecure=False,
             compression=None,
             wait_for_ready=None,
             timeout=None,
@@ -372,7 +376,7 @@ class SLMplsOper(object):
             sl__mpls__pb2.SLMplsLabelBlockMsg.SerializeToString,
             sl__mpls__pb2.SLMplsLabelBlockMsgRsp.FromString,
             options, channel_credentials,
-            call_credentials, compression, wait_for_ready, timeout, metadata)
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
     def SLMplsLabelBlockGet(request,
@@ -380,6 +384,7 @@ class SLMplsOper(object):
             options=(),
             channel_credentials=None,
             call_credentials=None,
+            insecure=False,
             compression=None,
             wait_for_ready=None,
             timeout=None,
@@ -388,7 +393,7 @@ class SLMplsOper(object):
             sl__mpls__pb2.SLMplsLabelBlockGetMsg.SerializeToString,
             sl__mpls__pb2.SLMplsLabelBlockGetMsgRsp.FromString,
             options, channel_credentials,
-            call_credentials, compression, wait_for_ready, timeout, metadata)
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
     def SLMplsIlmOp(request,
@@ -396,6 +401,7 @@ class SLMplsOper(object):
             options=(),
             channel_credentials=None,
             call_credentials=None,
+            insecure=False,
             compression=None,
             wait_for_ready=None,
             timeout=None,
@@ -404,7 +410,7 @@ class SLMplsOper(object):
             sl__mpls__pb2.SLMplsIlmMsg.SerializeToString,
             sl__mpls__pb2.SLMplsIlmMsgRsp.FromString,
             options, channel_credentials,
-            call_credentials, compression, wait_for_ready, timeout, metadata)
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
     def SLMplsIlmGet(request,
@@ -412,6 +418,7 @@ class SLMplsOper(object):
             options=(),
             channel_credentials=None,
             call_credentials=None,
+            insecure=False,
             compression=None,
             wait_for_ready=None,
             timeout=None,
@@ -420,7 +427,7 @@ class SLMplsOper(object):
             sl__mpls__pb2.SLMplsIlmGetMsg.SerializeToString,
             sl__mpls__pb2.SLMplsIlmGetMsgRsp.FromString,
             options, channel_credentials,
-            call_credentials, compression, wait_for_ready, timeout, metadata)
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
     def SLMplsIlmOpStream(request_iterator,
@@ -428,6 +435,7 @@ class SLMplsOper(object):
             options=(),
             channel_credentials=None,
             call_credentials=None,
+            insecure=False,
             compression=None,
             wait_for_ready=None,
             timeout=None,
@@ -436,7 +444,7 @@ class SLMplsOper(object):
             sl__mpls__pb2.SLMplsIlmMsg.SerializeToString,
             sl__mpls__pb2.SLMplsIlmMsgRsp.FromString,
             options, channel_credentials,
-            call_credentials, compression, wait_for_ready, timeout, metadata)
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
     def SLMplsIlmGetStream(request_iterator,
@@ -444,6 +452,7 @@ class SLMplsOper(object):
             options=(),
             channel_credentials=None,
             call_credentials=None,
+            insecure=False,
             compression=None,
             wait_for_ready=None,
             timeout=None,
@@ -452,4 +461,4 @@ class SLMplsOper(object):
             sl__mpls__pb2.SLMplsIlmGetMsg.SerializeToString,
             sl__mpls__pb2.SLMplsIlmGetMsgRsp.FromString,
             options, channel_credentials,
-            call_credentials, compression, wait_for_ready, timeout, metadata)
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

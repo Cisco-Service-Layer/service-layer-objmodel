@@ -299,6 +299,7 @@ class SLRoutev6Oper(object):
             options=(),
             channel_credentials=None,
             call_credentials=None,
+            insecure=False,
             compression=None,
             wait_for_ready=None,
             timeout=None,
@@ -307,7 +308,7 @@ class SLRoutev6Oper(object):
             sl__route__common__pb2.SLRouteGlobalsGetMsg.SerializeToString,
             sl__route__common__pb2.SLRouteGlobalsGetMsgRsp.FromString,
             options, channel_credentials,
-            call_credentials, compression, wait_for_ready, timeout, metadata)
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
     def SLRoutev6GlobalStatsGet(request,
@@ -315,6 +316,7 @@ class SLRoutev6Oper(object):
             options=(),
             channel_credentials=None,
             call_credentials=None,
+            insecure=False,
             compression=None,
             wait_for_ready=None,
             timeout=None,
@@ -323,7 +325,7 @@ class SLRoutev6Oper(object):
             sl__route__common__pb2.SLRouteGlobalStatsGetMsg.SerializeToString,
             sl__route__common__pb2.SLRouteGlobalStatsGetMsgRsp.FromString,
             options, channel_credentials,
-            call_credentials, compression, wait_for_ready, timeout, metadata)
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
     def SLRoutev6VrfRegOp(request,
@@ -331,6 +333,7 @@ class SLRoutev6Oper(object):
             options=(),
             channel_credentials=None,
             call_credentials=None,
+            insecure=False,
             compression=None,
             wait_for_ready=None,
             timeout=None,
@@ -339,7 +342,7 @@ class SLRoutev6Oper(object):
             sl__route__common__pb2.SLVrfRegMsg.SerializeToString,
             sl__route__common__pb2.SLVrfRegMsgRsp.FromString,
             options, channel_credentials,
-            call_credentials, compression, wait_for_ready, timeout, metadata)
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
     def SLRoutev6VrfRegGet(request,
@@ -347,6 +350,7 @@ class SLRoutev6Oper(object):
             options=(),
             channel_credentials=None,
             call_credentials=None,
+            insecure=False,
             compression=None,
             wait_for_ready=None,
             timeout=None,
@@ -355,7 +359,7 @@ class SLRoutev6Oper(object):
             sl__route__common__pb2.SLVrfRegGetMsg.SerializeToString,
             sl__route__common__pb2.SLVrfRegGetMsgRsp.FromString,
             options, channel_credentials,
-            call_credentials, compression, wait_for_ready, timeout, metadata)
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
     def SLRoutev6VrfGetStats(request,
@@ -363,6 +367,7 @@ class SLRoutev6Oper(object):
             options=(),
             channel_credentials=None,
             call_credentials=None,
+            insecure=False,
             compression=None,
             wait_for_ready=None,
             timeout=None,
@@ -371,7 +376,7 @@ class SLRoutev6Oper(object):
             sl__route__common__pb2.SLVrfRegGetMsg.SerializeToString,
             sl__route__common__pb2.SLVRFGetStatsMsgRsp.FromString,
             options, channel_credentials,
-            call_credentials, compression, wait_for_ready, timeout, metadata)
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
     def SLRoutev6Op(request,
@@ -379,6 +384,7 @@ class SLRoutev6Oper(object):
             options=(),
             channel_credentials=None,
             call_credentials=None,
+            insecure=False,
             compression=None,
             wait_for_ready=None,
             timeout=None,
@@ -387,7 +393,7 @@ class SLRoutev6Oper(object):
             sl__route__ipv6__pb2.SLRoutev6Msg.SerializeToString,
             sl__route__ipv6__pb2.SLRoutev6MsgRsp.FromString,
             options, channel_credentials,
-            call_credentials, compression, wait_for_ready, timeout, metadata)
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
     def SLRoutev6Get(request,
@@ -395,6 +401,7 @@ class SLRoutev6Oper(object):
             options=(),
             channel_credentials=None,
             call_credentials=None,
+            insecure=False,
             compression=None,
             wait_for_ready=None,
             timeout=None,
@@ -403,7 +410,7 @@ class SLRoutev6Oper(object):
             sl__route__ipv6__pb2.SLRoutev6GetMsg.SerializeToString,
             sl__route__ipv6__pb2.SLRoutev6GetMsgRsp.FromString,
             options, channel_credentials,
-            call_credentials, compression, wait_for_ready, timeout, metadata)
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
     def SLRoutev6OpStream(request_iterator,
@@ -411,6 +418,7 @@ class SLRoutev6Oper(object):
             options=(),
             channel_credentials=None,
             call_credentials=None,
+            insecure=False,
             compression=None,
             wait_for_ready=None,
             timeout=None,
@@ -419,7 +427,7 @@ class SLRoutev6Oper(object):
             sl__route__ipv6__pb2.SLRoutev6Msg.SerializeToString,
             sl__route__ipv6__pb2.SLRoutev6MsgRsp.FromString,
             options, channel_credentials,
-            call_credentials, compression, wait_for_ready, timeout, metadata)
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
     def SLRoutev6GetStream(request_iterator,
@@ -427,6 +435,7 @@ class SLRoutev6Oper(object):
             options=(),
             channel_credentials=None,
             call_credentials=None,
+            insecure=False,
             compression=None,
             wait_for_ready=None,
             timeout=None,
@@ -435,7 +444,7 @@ class SLRoutev6Oper(object):
             sl__route__ipv6__pb2.SLRoutev6GetMsg.SerializeToString,
             sl__route__ipv6__pb2.SLRoutev6GetMsgRsp.FromString,
             options, channel_credentials,
-            call_credentials, compression, wait_for_ready, timeout, metadata)
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
     def SLRoutev6GetNotifStream(request_iterator,
@@ -443,6 +452,7 @@ class SLRoutev6Oper(object):
             options=(),
             channel_credentials=None,
             call_credentials=None,
+            insecure=False,
             compression=None,
             wait_for_ready=None,
             timeout=None,
@@ -451,4 +461,4 @@ class SLRoutev6Oper(object):
             sl__route__common__pb2.SLRouteGetNotifMsg.SerializeToString,
             sl__route__ipv6__pb2.SLRoutev6Notif.FromString,
             options, channel_credentials,
-            call_credentials, compression, wait_for_ready, timeout, metadata)
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

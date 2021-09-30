@@ -189,6 +189,7 @@ class SLInterfaceOper(object):
             options=(),
             channel_credentials=None,
             call_credentials=None,
+            insecure=False,
             compression=None,
             wait_for_ready=None,
             timeout=None,
@@ -197,7 +198,7 @@ class SLInterfaceOper(object):
             sl__interface__pb2.SLInterfaceGlobalsRegMsg.SerializeToString,
             sl__interface__pb2.SLInterfaceGlobalsRegMsgRsp.FromString,
             options, channel_credentials,
-            call_credentials, compression, wait_for_ready, timeout, metadata)
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
     def SLInterfaceGlobalsGet(request,
@@ -205,6 +206,7 @@ class SLInterfaceOper(object):
             options=(),
             channel_credentials=None,
             call_credentials=None,
+            insecure=False,
             compression=None,
             wait_for_ready=None,
             timeout=None,
@@ -213,7 +215,7 @@ class SLInterfaceOper(object):
             sl__interface__pb2.SLInterfaceGlobalsGetMsg.SerializeToString,
             sl__interface__pb2.SLInterfaceGlobalsGetMsgRsp.FromString,
             options, channel_credentials,
-            call_credentials, compression, wait_for_ready, timeout, metadata)
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
     def SLInterfaceGlobalsGetStats(request,
@@ -221,6 +223,7 @@ class SLInterfaceOper(object):
             options=(),
             channel_credentials=None,
             call_credentials=None,
+            insecure=False,
             compression=None,
             wait_for_ready=None,
             timeout=None,
@@ -229,7 +232,7 @@ class SLInterfaceOper(object):
             sl__interface__pb2.SLInterfaceGlobalsGetMsg.SerializeToString,
             sl__interface__pb2.SLInterfaceGlobalsGetStatsMsgRsp.FromString,
             options, channel_credentials,
-            call_credentials, compression, wait_for_ready, timeout, metadata)
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
     def SLInterfaceGet(request,
@@ -237,6 +240,7 @@ class SLInterfaceOper(object):
             options=(),
             channel_credentials=None,
             call_credentials=None,
+            insecure=False,
             compression=None,
             wait_for_ready=None,
             timeout=None,
@@ -245,7 +249,7 @@ class SLInterfaceOper(object):
             sl__interface__pb2.SLInterfaceGetMsg.SerializeToString,
             sl__interface__pb2.SLInterfaceGetMsgRsp.FromString,
             options, channel_credentials,
-            call_credentials, compression, wait_for_ready, timeout, metadata)
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
     def SLInterfaceGetNotifStream(request,
@@ -253,6 +257,7 @@ class SLInterfaceOper(object):
             options=(),
             channel_credentials=None,
             call_credentials=None,
+            insecure=False,
             compression=None,
             wait_for_ready=None,
             timeout=None,
@@ -261,7 +266,7 @@ class SLInterfaceOper(object):
             sl__interface__pb2.SLInterfaceGetNotifMsg.SerializeToString,
             sl__interface__pb2.SLInterfaceNotif.FromString,
             options, channel_credentials,
-            call_credentials, compression, wait_for_ready, timeout, metadata)
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
     def SLInterfaceNotifOp(request,
@@ -269,6 +274,7 @@ class SLInterfaceOper(object):
             options=(),
             channel_credentials=None,
             call_credentials=None,
+            insecure=False,
             compression=None,
             wait_for_ready=None,
             timeout=None,
@@ -277,4 +283,4 @@ class SLInterfaceOper(object):
             sl__interface__pb2.SLInterfaceNotifMsg.SerializeToString,
             sl__interface__pb2.SLInterfaceNotifMsgRsp.FromString,
             options, channel_credentials,
-            call_credentials, compression, wait_for_ready, timeout, metadata)
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

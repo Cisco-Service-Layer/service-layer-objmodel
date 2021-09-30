@@ -1,33 +1,42 @@
-FROM ubuntu:16.04
+FROM ubuntu:bionic
 
 RUN apt-get update && \
     apt-get install -y git vim doxygen autoconf automake libtool \
-                       curl make g++ unzip python3 python3-pip wget
+                       build-essential pkg-config curl cmake make g++ unzip python3 python3-pip python3-venv wget
 
 # python
-RUN pip3 install 2to3
+RUN python3 -m venv /opt/venv
+RUN . /opt/venv/bin/activate
+COPY grpc/python/requirements.txt /tmp
+RUN pip3 install -r /tmp/requirements.txt
 
 ARG WS=/
 
+ARG C_GRPC_VER=v1.40.0
+ARG PROTOBUF_VER=v3.18.0
+
 ARG GO_VER=1.14.2
-ARG GRPC_VER=v1.30.0
-ARG PROTOBUF_VER=v3.12.1
-ARG GENPROTO_VER=053ba62
 ARG GO_PROTOBUF_VER=v1.4.2
+ARG GO_GRPC_VER=v1.34.0
+ARG GENPROTO_VER=798beca9d670ad2544685973f1b5eebab3c025cb
 
 # go
 RUN wget -qO- https://dl.google.com/go/go${GO_VER}.linux-amd64.tar.gz | tar xzvf - -C /usr/local
 
 # grpc
-RUN git clone -b ${GRPC_VER} https://github.com/grpc/grpc.git ${WS}/grpc && \
+RUN git clone -b ${C_GRPC_VER} https://github.com/grpc/grpc.git ${WS}/grpc && \
     cd ${WS}/grpc && \
     git submodule update --init && \
-    make && \
-    make install
+    mkdir -p cmake/build && \
+    cd cmake/build && \
+    cmake ../.. && \
+    make
 
 # protobuf
 RUN cd ${WS}/grpc/third_party/protobuf && \
     git checkout -b ${PROTOBUF_VER} ${PROTOBUF_VER} && \
+    ./autogen.sh && \
+    ./configure && \
     make && \
     make install && \
     ldconfig
@@ -43,7 +52,7 @@ RUN mkdir -p ${WS}/go
 # grpc
 RUN go get -d google.golang.org/grpc && \
     git -C ${GOPATH}/src/google.golang.org/grpc checkout \
-        -b ${GRPC_VER} ${GRPC_VER}
+        -b ${GO_GRPC_VER} ${GO_GRPC_VER}
 
 # The previous command also pulls protobuf and genpro so make sure
 # we use the proper versions

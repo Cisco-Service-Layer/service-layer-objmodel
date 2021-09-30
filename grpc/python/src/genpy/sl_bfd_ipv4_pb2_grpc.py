@@ -209,6 +209,7 @@ class SLBfdv4Oper(object):
             options=(),
             channel_credentials=None,
             call_credentials=None,
+            insecure=False,
             compression=None,
             wait_for_ready=None,
             timeout=None,
@@ -217,7 +218,7 @@ class SLBfdv4Oper(object):
             sl__bfd__common__pb2.SLBfdRegMsg.SerializeToString,
             sl__bfd__common__pb2.SLBfdRegMsgRsp.FromString,
             options, channel_credentials,
-            call_credentials, compression, wait_for_ready, timeout, metadata)
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
     def SLBfdv4Get(request,
@@ -225,6 +226,7 @@ class SLBfdv4Oper(object):
             options=(),
             channel_credentials=None,
             call_credentials=None,
+            insecure=False,
             compression=None,
             wait_for_ready=None,
             timeout=None,
@@ -233,7 +235,7 @@ class SLBfdv4Oper(object):
             sl__bfd__common__pb2.SLBfdGetMsg.SerializeToString,
             sl__bfd__common__pb2.SLBfdGetMsgRsp.FromString,
             options, channel_credentials,
-            call_credentials, compression, wait_for_ready, timeout, metadata)
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
     def SLBfdv4GetStats(request,
@@ -241,6 +243,7 @@ class SLBfdv4Oper(object):
             options=(),
             channel_credentials=None,
             call_credentials=None,
+            insecure=False,
             compression=None,
             wait_for_ready=None,
             timeout=None,
@@ -249,7 +252,7 @@ class SLBfdv4Oper(object):
             sl__bfd__common__pb2.SLBfdGetMsg.SerializeToString,
             sl__bfd__common__pb2.SLBfdGetStatsMsgRsp.FromString,
             options, channel_credentials,
-            call_credentials, compression, wait_for_ready, timeout, metadata)
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
     def SLBfdv4GetNotifStream(request,
@@ -257,6 +260,7 @@ class SLBfdv4Oper(object):
             options=(),
             channel_credentials=None,
             call_credentials=None,
+            insecure=False,
             compression=None,
             wait_for_ready=None,
             timeout=None,
@@ -265,7 +269,7 @@ class SLBfdv4Oper(object):
             sl__bfd__common__pb2.SLBfdGetNotifMsg.SerializeToString,
             sl__bfd__ipv4__pb2.SLBfdv4Notif.FromString,
             options, channel_credentials,
-            call_credentials, compression, wait_for_ready, timeout, metadata)
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
     def SLBfdv4SessionOp(request,
@@ -273,6 +277,7 @@ class SLBfdv4Oper(object):
             options=(),
             channel_credentials=None,
             call_credentials=None,
+            insecure=False,
             compression=None,
             wait_for_ready=None,
             timeout=None,
@@ -281,7 +286,7 @@ class SLBfdv4Oper(object):
             sl__bfd__ipv4__pb2.SLBfdv4Msg.SerializeToString,
             sl__bfd__ipv4__pb2.SLBfdv4MsgRsp.FromString,
             options, channel_credentials,
-            call_credentials, compression, wait_for_ready, timeout, metadata)
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
     def SLBfdv4SessionGet(request,
@@ -289,6 +294,7 @@ class SLBfdv4Oper(object):
             options=(),
             channel_credentials=None,
             call_credentials=None,
+            insecure=False,
             compression=None,
             wait_for_ready=None,
             timeout=None,
@@ -297,4 +303,4 @@ class SLBfdv4Oper(object):
             sl__bfd__ipv4__pb2.SLBfdv4GetMsg.SerializeToString,
             sl__bfd__ipv4__pb2.SLBfdv4GetMsgRsp.FromString,
             options, channel_credentials,
-            call_credentials, compression, wait_for_ready, timeout, metadata)
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

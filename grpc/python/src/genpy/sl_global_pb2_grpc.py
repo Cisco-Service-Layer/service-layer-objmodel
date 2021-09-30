@@ -115,6 +115,7 @@ class SLGlobal(object):
             options=(),
             channel_credentials=None,
             call_credentials=None,
+            insecure=False,
             compression=None,
             wait_for_ready=None,
             timeout=None,
@@ -123,7 +124,7 @@ class SLGlobal(object):
             sl__global__pb2.SLInitMsg.SerializeToString,
             sl__global__pb2.SLGlobalNotif.FromString,
             options, channel_credentials,
-            call_credentials, compression, wait_for_ready, timeout, metadata)
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
     def SLGlobalsGet(request,
@@ -131,6 +132,7 @@ class SLGlobal(object):
             options=(),
             channel_credentials=None,
             call_credentials=None,
+            insecure=False,
             compression=None,
             wait_for_ready=None,
             timeout=None,
@@ -139,4 +141,4 @@ class SLGlobal(object):
             sl__global__pb2.SLGlobalsGetMsg.SerializeToString,
             sl__global__pb2.SLGlobalsGetMsgRsp.FromString,
             options, channel_credentials,
-            call_credentials, compression, wait_for_ready, timeout, metadata)
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
