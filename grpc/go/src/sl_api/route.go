@@ -22,6 +22,44 @@ func ip4toInt(IPv4Address net.IP) uint32 {
     return uint32(IPv4Int.Int64())
 }
 
+// runSLAv4Request streams IPv4 SL-API object to router.
+func runSLAv4Request(conn *grpc.ClientConn, messages []*pb.SLRoutev4Msg) error {
+        client := pb.NewSLRoutev4OperClient(conn)
+        ctx, cancel := context.WithTimeout(context.Background(), 600*time.Second)
+        defer cancel() // make sure all paths cancel the context to avoid context leak
+
+        stream, err := client.SLRoutev4OpStream(ctx)
+        if err != nil {
+                return err
+        }
+        waitc := make(chan struct{})
+        go func() (err error) {
+                for {
+                        response, err := stream.Recv()
+                        if response == nil {
+                                // read done.
+                                close(waitc)
+                                return nil
+                        }
+                        if err != nil {
+                                return err
+                        }
+                        if response.StatusSummary.Status != pb.SLErrorStatus_SL_SUCCESS {
+                                return fmt.Errorf("route operation failed: %s", response)
+                        }
+                }
+        }()
+        for _, message := range messages {
+                if err = stream.Send(message); err != nil {
+                        return err
+                }
+        }
+        stream.CloseSend()
+        <-waitc
+        return nil
+}
+
+
 func incrementIpv4Pfx(pfx uint32, prefixLen uint32) (uint32){
     if prefixLen > 32 {
         log.Fatalf("PrefixLen > 32")
@@ -42,6 +80,8 @@ func RouteOperation(conn *grpc.ClientConn, Oper pb.SLObjectOp,
 
     var batchIndex uint
     var totalRoutes int64 = 0
+    var messageGroup []*pb.SLRoutev4Msg
+    var err error = nil
 
     /* Initialize some route params */
     prefix := ip4toInt(net.ParseIP(fmt.Sprintf(FirstPrefix)))
@@ -49,7 +89,7 @@ func RouteOperation(conn *grpc.ClientConn, Oper pb.SLObjectOp,
     nexthop2 := nexthop1 + 1;
 
     /* Create a NewSLRoutev4OperClient instance */
-    c := pb.NewSLRoutev4OperClient(conn)
+    // c := pb.NewSLRoutev4OperClient(conn)
 
     /* Let's compute the time it takes to RPC the routes */
     t0 := time.Now()
@@ -59,8 +99,6 @@ func RouteOperation(conn *grpc.ClientConn, Oper pb.SLObjectOp,
      * Repeat for batchNum batches
      */
     for batchIndex = 0; batchIndex < batchNum; batchIndex++ {
-        var response *pb.SLRoutev4MsgRsp = nil
-        var err error = nil
         var routeIndex uint
 
         /* Create a Route batch */
@@ -125,19 +163,28 @@ func RouteOperation(conn *grpc.ClientConn, Oper pb.SLObjectOp,
             totalRoutes++
         }
 
-        /* RPC the message */
-        response, err = c.SLRoutev4Op(context.Background(), message)
-        if err != nil {
-            log.Fatal(err)
-        }
-
-        /* Validate response*/
-        if response.StatusSummary.Status != pb.SLErrorStatus_SL_SUCCESS {
-            fmt.Printf("Route operation failed: %s\n", response)
-        }
+        messageGroup = append(messageGroup, message)
     }
 
     t1 := time.Now()
+
+    fmt.Printf("%s Total Batches: %d, Routes: %d, Preparation Time: %v\n",
+        Oper.String(), batchIndex, totalRoutes, t1.Sub(t0))
+
+    if (totalRoutes > 0) {
+        var rate float64
+        rate = float64(totalRoutes)/(t1.Sub(t0).Seconds())
+        fmt.Printf("Rate: %f\n", rate)
+    }
+
+    t0 = time.Now()
+
+    err = runSLAv4Request(conn, messageGroup)
+    if err != nil {
+        fmt.Printf("Route send failed %s", err)
+    }
+
+    t1 = time.Now()
 
     fmt.Printf("%s Total Batches: %d, Routes: %d, ElapsedTime: %v\n",
         Oper.String(), batchIndex, totalRoutes, t1.Sub(t0))
