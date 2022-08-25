@@ -15,7 +15,7 @@ ARG WS=/
 ARG C_GRPC_VER=v1.40.0
 ARG PROTOBUF_VER=v3.18.0
 
-ARG GO_VER=1.14.2
+ARG GO_VER=1.19
 ARG GO_PROTOBUF_VER=v1.4.2
 ARG GO_GRPC_VER=v1.34.0
 ARG GENPROTO_VER=798beca9d670ad2544685973f1b5eebab3c025cb
@@ -23,23 +23,23 @@ ARG GENPROTO_VER=798beca9d670ad2544685973f1b5eebab3c025cb
 # go
 RUN wget -qO- https://dl.google.com/go/go${GO_VER}.linux-amd64.tar.gz | tar xzvf - -C /usr/local
 
-# grpc
-RUN git clone -b ${C_GRPC_VER} https://github.com/grpc/grpc.git ${WS}/grpc && \
-    cd ${WS}/grpc && \
-    git submodule update --init && \
-    mkdir -p cmake/build && \
-    cd cmake/build && \
-    cmake ../.. && \
-    make
-
-# protobuf
-RUN cd ${WS}/grpc/third_party/protobuf && \
-    git checkout -b ${PROTOBUF_VER} ${PROTOBUF_VER} && \
-    ./autogen.sh && \
-    ./configure && \
-    make && \
-    make install && \
-    ldconfig
+## grpc
+#RUN git clone -b ${C_GRPC_VER} https://github.com/grpc/grpc.git ${WS}/grpc && \
+#    cd ${WS}/grpc && \
+#    git submodule update --init && \
+#    mkdir -p cmake/build && \
+#    cd cmake/build && \
+#    cmake ../.. && \
+#    make
+#
+## protobuf
+#RUN cd ${WS}/grpc/third_party/protobuf && \
+#    git checkout -b ${PROTOBUF_VER} ${PROTOBUF_VER} && \
+#    ./autogen.sh && \
+#    ./configure && \
+#    make && \
+#    make install && \
+#    ldconfig
 
 # environment
 ENV SLAPI_ROOT="${WS}/slapi"
@@ -49,28 +49,28 @@ ENV PATH="${WS}/bin:${GOPATH}/bin:${GOROOT}/bin:${PATH}:."
 
 RUN mkdir -p ${WS}/go
 
-# grpc
-RUN go get -d google.golang.org/grpc && \
-    git -C ${GOPATH}/src/google.golang.org/grpc checkout \
-        -b ${GO_GRPC_VER} ${GO_GRPC_VER}
-
-# The previous command also pulls protobuf and genpro so make sure
-# we use the proper versions
-
-# genproto: this repository contains the generated Go packages for common
-# protocol buffer types, and the generated gRPC code necessary for interacting
-# with Google's gRPC APIs.
-RUN git -C ${GOPATH}/src/google.golang.org/genproto checkout \
-        -b ${GENPROTO_VER} ${GENPROTO_VER}
-
-# protobuf: This package includes the Protoc compiler for generating Go
-# bindings for the protocol buffers, and a library that implements run-time 
-# support for encoding (marshaling), decoding (unmarshaling), and accessing
-# protocol buffers.
-RUN git -C ${GOPATH}/src/github.com/golang/protobuf checkout \
-        -b ${GO_PROTOBUF_VER} ${GO_PROTOBUF_VER}
-
-# Build protoc-gen-go plugin for protoc
-RUN go install github.com/golang/protobuf/protoc-gen-go
-
-ENV GOPATH="${GOPATH}:${SLAPI_ROOT}/grpc/go"
+## grpc
+#RUN go get -d google.golang.org/grpc && \
+#    git -C ${GOPATH}/src/google.golang.org/grpc checkout \
+#        -b ${GO_GRPC_VER} ${GO_GRPC_VER}
+#
+## The previous command also pulls protobuf and genpro so make sure
+## we use the proper versions
+#
+## genproto: this repository contains the generated Go packages for common
+## protocol buffer types, and the generated gRPC code necessary for interacting
+## with Google's gRPC APIs.
+#RUN git -C ${GOPATH}/src/google.golang.org/genproto checkout \
+#        -b ${GENPROTO_VER} ${GENPROTO_VER}
+#
+## protobuf: This package includes the Protoc compiler for generating Go
+## bindings for the protocol buffers, and a library that implements run-time 
+## support for encoding (marshaling), decoding (unmarshaling), and accessing
+## protocol buffers.
+#RUN git -C ${GOPATH}/src/github.com/golang/protobuf checkout \
+#        -b ${GO_PROTOBUF_VER} ${GO_PROTOBUF_VER}
+#
+## Build protoc-gen-go plugin for protoc
+#RUN go install github.com/golang/protobuf/protoc-gen-go
+#
+#ENV GOPATH="${GOPATH}:${SLAPI_ROOT}/grpc/go"

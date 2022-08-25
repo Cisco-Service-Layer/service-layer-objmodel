@@ -14,7 +14,7 @@ gen-bindings:
 	cd /slapi/grpc/go && ./gen-bindings.sh
 
 go-bin: go-pkgs gen-bindings
-	go build -o $(GO_BIN_NAME)
+	go build -o $(GO_BIN_NAME) -buildvcs=false
 
 clean:
 	rm -f $(GO_BIN_NAME)
