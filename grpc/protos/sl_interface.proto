@@ -12,6 +12,7 @@ syntax = "proto3";
 package service_layer;
 
 import "sl_common_types.proto";
+option go_package="github.com/Cisco-service-layer/service-layer-objmodel/grpc/protos";
 
 //@defgroup Interfaces
 //@brief Interface service definitions.

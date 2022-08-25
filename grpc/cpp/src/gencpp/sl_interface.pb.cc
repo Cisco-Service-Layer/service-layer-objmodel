@@ -69,7 +69,7 @@ PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT SLInterfaceGlobalsGetMsgRspDefa
 constexpr SLInterfaceGlobalsGetStatsMsgRsp::SLInterfaceGlobalsGetStatsMsgRsp(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
   : errstatus_(nullptr)
-  , seqnum_(uint64_t{0u})
+  , seqnum_(PROTOBUF_ULONGLONG(0))
   , interfacenotifcount_(0u){}
 struct SLInterfaceGlobalsGetStatsMsgRspDefaultTypeInternal {
   constexpr SLInterfaceGlobalsGetStatsMsgRspDefaultTypeInternal()
@@ -97,7 +97,7 @@ PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT SLInterfaceGetMsgDefaultTypeInt
 constexpr SLInterfaceInfoMsg::SLInterfaceInfoMsg(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
   : slifinfo_(nullptr)
-  , seqnum_(uint64_t{0u})
+  , seqnum_(PROTOBUF_ULONGLONG(0))
   , ifstate_(0)
 {}
 struct SLInterfaceInfoMsgDefaultTypeInternal {
@@ -199,27 +199,23 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_sl_5finterface_2eproto::offset
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::service_layer::SLInterfaceGlobalsRegMsg, oper_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::service_layer::SLInterfaceGlobalsRegMsgRsp, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::service_layer::SLInterfaceGlobalsRegMsgRsp, errstatus_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::service_layer::SLInterfaceGlobalsGetMsg, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  ~0u,  // no _inlined_string_donated_
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::service_layer::SLInterfaceGlobalsGetMsgRsp, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::service_layer::SLInterfaceGlobalsGetMsgRsp, errstatus_),
   PROTOBUF_FIELD_OFFSET(::service_layer::SLInterfaceGlobalsGetMsgRsp, maxinterfacesperbatch_),
   ~0u,  // no _has_bits_
@@ -227,7 +223,6 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_sl_5finterface_2eproto::offset
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::service_layer::SLInterfaceGlobalsGetStatsMsgRsp, errstatus_),
   PROTOBUF_FIELD_OFFSET(::service_layer::SLInterfaceGlobalsGetStatsMsgRsp, seqnum_),
   PROTOBUF_FIELD_OFFSET(::service_layer::SLInterfaceGlobalsGetStatsMsgRsp, interfacenotifcount_),
@@ -236,7 +231,6 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_sl_5finterface_2eproto::offset
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::service_layer::SLInterfaceGetMsg, key_),
   PROTOBUF_FIELD_OFFSET(::service_layer::SLInterfaceGetMsg, entriescount_),
   PROTOBUF_FIELD_OFFSET(::service_layer::SLInterfaceGetMsg, getnext_),
@@ -245,7 +239,6 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_sl_5finterface_2eproto::offset
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::service_layer::SLInterfaceInfoMsg, slifinfo_),
   PROTOBUF_FIELD_OFFSET(::service_layer::SLInterfaceInfoMsg, ifstate_),
   PROTOBUF_FIELD_OFFSET(::service_layer::SLInterfaceInfoMsg, seqnum_),
@@ -254,7 +247,6 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_sl_5finterface_2eproto::offset
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::service_layer::SLInterfaceGetMsgRsp, eof_),
   PROTOBUF_FIELD_OFFSET(::service_layer::SLInterfaceGetMsgRsp, errstatus_),
   PROTOBUF_FIELD_OFFSET(::service_layer::SLInterfaceGetMsgRsp, entries_),
@@ -263,13 +255,11 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_sl_5finterface_2eproto::offset
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  ~0u,  // no _inlined_string_donated_
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::service_layer::SLInterfaceNotif, _internal_metadata_),
   ~0u,  // no _extensions_
   PROTOBUF_FIELD_OFFSET(::service_layer::SLInterfaceNotif, _oneof_case_[0]),
   ~0u,  // no _weak_field_map_
-  ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::service_layer::SLInterfaceNotif, eventtype_),
   ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
   ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
@@ -279,7 +269,6 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_sl_5finterface_2eproto::offset
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::service_layer::SLInterfaceNotifMsg, oper_),
   PROTOBUF_FIELD_OFFSET(::service_layer::SLInterfaceNotifMsg, entries_),
   ~0u,  // no _has_bits_
@@ -287,7 +276,6 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_sl_5finterface_2eproto::offset
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::service_layer::SLInterfaceNotifMsgRes, errstatus_),
   PROTOBUF_FIELD_OFFSET(::service_layer::SLInterfaceNotifMsgRes, key_),
   ~0u,  // no _has_bits_
@@ -295,24 +283,23 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_sl_5finterface_2eproto::offset
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::service_layer::SLInterfaceNotifMsgRsp, statussummary_),
   PROTOBUF_FIELD_OFFSET(::service_layer::SLInterfaceNotifMsgRsp, results_),
 };
 static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
-  { 0, -1, -1, sizeof(::service_layer::SLInterfaceGlobalsRegMsg)},
-  { 7, -1, -1, sizeof(::service_layer::SLInterfaceGlobalsRegMsgRsp)},
-  { 14, -1, -1, sizeof(::service_layer::SLInterfaceGlobalsGetMsg)},
-  { 20, -1, -1, sizeof(::service_layer::SLInterfaceGlobalsGetMsgRsp)},
-  { 28, -1, -1, sizeof(::service_layer::SLInterfaceGlobalsGetStatsMsgRsp)},
-  { 37, -1, -1, sizeof(::service_layer::SLInterfaceGetMsg)},
-  { 46, -1, -1, sizeof(::service_layer::SLInterfaceInfoMsg)},
-  { 55, -1, -1, sizeof(::service_layer::SLInterfaceGetMsgRsp)},
-  { 64, -1, -1, sizeof(::service_layer::SLInterfaceGetNotifMsg)},
-  { 70, -1, -1, sizeof(::service_layer::SLInterfaceNotif)},
-  { 80, -1, -1, sizeof(::service_layer::SLInterfaceNotifMsg)},
-  { 88, -1, -1, sizeof(::service_layer::SLInterfaceNotifMsgRes)},
-  { 96, -1, -1, sizeof(::service_layer::SLInterfaceNotifMsgRsp)},
+  { 0, -1, sizeof(::service_layer::SLInterfaceGlobalsRegMsg)},
+  { 6, -1, sizeof(::service_layer::SLInterfaceGlobalsRegMsgRsp)},
+  { 12, -1, sizeof(::service_layer::SLInterfaceGlobalsGetMsg)},
+  { 17, -1, sizeof(::service_layer::SLInterfaceGlobalsGetMsgRsp)},
+  { 24, -1, sizeof(::service_layer::SLInterfaceGlobalsGetStatsMsgRsp)},
+  { 32, -1, sizeof(::service_layer::SLInterfaceGetMsg)},
+  { 40, -1, sizeof(::service_layer::SLInterfaceInfoMsg)},
+  { 48, -1, sizeof(::service_layer::SLInterfaceGetMsgRsp)},
+  { 56, -1, sizeof(::service_layer::SLInterfaceGetNotifMsg)},
+  { 61, -1, sizeof(::service_layer::SLInterfaceNotif)},
+  { 70, -1, sizeof(::service_layer::SLInterfaceNotifMsg)},
+  { 77, -1, sizeof(::service_layer::SLInterfaceNotifMsgRes)},
+  { 84, -1, sizeof(::service_layer::SLInterfaceNotifMsgRsp)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -389,20 +376,24 @@ const char descriptor_table_protodef_sl_5finterface_2eproto[] PROTOBUF_SECTION_V
   "GetNotifMsg\032\037.service_layer.SLInterfaceN"
   "otif0\001\022_\n\022SLInterfaceNotifOp\022\".service_l"
   "ayer.SLInterfaceNotifMsg\032%.service_layer"
-  ".SLInterfaceNotifMsgRspb\006proto3"
+  ".SLInterfaceNotifMsgRspBCZAgithub.com/Ci"
+  "sco-service-layer/service-layer-objmodel"
+  "/grpc/protosb\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_sl_5finterface_2eproto_deps[1] = {
   &::descriptor_table_sl_5fcommon_5ftypes_2eproto,
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_sl_5finterface_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_sl_5finterface_2eproto = {
-  false, false, 2311, descriptor_table_protodef_sl_5finterface_2eproto, "sl_interface.proto", 
+  false, false, 2380, descriptor_table_protodef_sl_5finterface_2eproto, "sl_interface.proto", 
   &descriptor_table_sl_5finterface_2eproto_once, descriptor_table_sl_5finterface_2eproto_deps, 1, 13,
   schemas, file_default_instances, TableStruct_sl_5finterface_2eproto::offsets,
   file_level_metadata_sl_5finterface_2eproto, file_level_enum_descriptors_sl_5finterface_2eproto, file_level_service_descriptors_sl_5finterface_2eproto,
 };
-PROTOBUF_ATTRIBUTE_WEAK const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable* descriptor_table_sl_5finterface_2eproto_getter() {
-  return &descriptor_table_sl_5finterface_2eproto;
+PROTOBUF_ATTRIBUTE_WEAK ::PROTOBUF_NAMESPACE_ID::Metadata
+descriptor_table_sl_5finterface_2eproto_metadata_getter(int index) {
+  ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_sl_5finterface_2eproto);
+  return descriptor_table_sl_5finterface_2eproto.file_level_metadata[index];
 }
 
 // Force running AddDescriptors() at dynamic initialization time.
@@ -445,13 +436,10 @@ class SLInterfaceGlobalsRegMsg::_Internal {
  public:
 };
 
-SLInterfaceGlobalsRegMsg::SLInterfaceGlobalsRegMsg(::PROTOBUF_NAMESPACE_ID::Arena* arena,
-                         bool is_message_owned)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+SLInterfaceGlobalsRegMsg::SLInterfaceGlobalsRegMsg(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
   SharedCtor();
-  if (!is_message_owned) {
-    RegisterArenaDtor(arena);
-  }
+  RegisterArenaDtor(arena);
   // @@protoc_insertion_point(arena_constructor:service_layer.SLInterfaceGlobalsRegMsg)
 }
 SLInterfaceGlobalsRegMsg::SLInterfaceGlobalsRegMsg(const SLInterfaceGlobalsRegMsg& from)
@@ -467,13 +455,12 @@ oper_ = 0;
 
 SLInterfaceGlobalsRegMsg::~SLInterfaceGlobalsRegMsg() {
   // @@protoc_insertion_point(destructor:service_layer.SLInterfaceGlobalsRegMsg)
-  if (GetArenaForAllocation() != nullptr) return;
   SharedDtor();
   _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-inline void SLInterfaceGlobalsRegMsg::SharedDtor() {
-  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+void SLInterfaceGlobalsRegMsg::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
 }
 
 void SLInterfaceGlobalsRegMsg::ArenaDtor(void* object) {
@@ -501,6 +488,7 @@ const char* SLInterfaceGlobalsRegMsg::_InternalParse(const char* ptr, ::PROTOBUF
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
     switch (tag >> 3) {
       // .service_layer.SLRegOp Oper = 1;
       case 1:
@@ -508,29 +496,27 @@ const char* SLInterfaceGlobalsRegMsg::_InternalParse(const char* ptr, ::PROTOBUF
           ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
           _internal_set_oper(static_cast<::service_layer::SLRegOp>(val));
-        } else
-          goto handle_unusual;
+        } else goto handle_unusual;
         continue;
-      default:
-        goto handle_unusual;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
     }  // switch
-  handle_unusual:
-    if ((tag == 0) || ((tag & 7) == 4)) {
-      CHK_(ptr);
-      ctx->SetLastTag(tag);
-      goto message_done;
-    }
-    ptr = UnknownFieldParse(
-        tag,
-        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-        ptr, ctx);
-    CHK_(ptr != nullptr);
   }  // while
-message_done:
+success:
   return ptr;
 failure:
   ptr = nullptr;
-  goto message_done;
+  goto success;
 #undef CHK_
 }
 
@@ -541,7 +527,7 @@ failure:
   (void) cached_has_bits;
 
   // .service_layer.SLRegOp Oper = 1;
-  if (this->_internal_oper() != 0) {
+  if (this->oper() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
       1, this->_internal_oper(), target);
@@ -564,37 +550,52 @@ size_t SLInterfaceGlobalsRegMsg::ByteSizeLong() const {
   (void) cached_has_bits;
 
   // .service_layer.SLRegOp Oper = 1;
-  if (this->_internal_oper() != 0) {
+  if (this->oper() != 0) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_oper());
   }
 
-  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
 }
 
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData SLInterfaceGlobalsRegMsg::_class_data_ = {
-    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
-    SLInterfaceGlobalsRegMsg::MergeImpl
-};
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*SLInterfaceGlobalsRegMsg::GetClassData() const { return &_class_data_; }
-
-void SLInterfaceGlobalsRegMsg::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
-                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-  static_cast<SLInterfaceGlobalsRegMsg *>(to)->MergeFrom(
-      static_cast<const SLInterfaceGlobalsRegMsg &>(from));
+void SLInterfaceGlobalsRegMsg::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:service_layer.SLInterfaceGlobalsRegMsg)
+  GOOGLE_DCHECK_NE(&from, this);
+  const SLInterfaceGlobalsRegMsg* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<SLInterfaceGlobalsRegMsg>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:service_layer.SLInterfaceGlobalsRegMsg)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:service_layer.SLInterfaceGlobalsRegMsg)
+    MergeFrom(*source);
+  }
 }
-
 
 void SLInterfaceGlobalsRegMsg::MergeFrom(const SLInterfaceGlobalsRegMsg& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:service_layer.SLInterfaceGlobalsRegMsg)
   GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from._internal_oper() != 0) {
+  if (from.oper() != 0) {
     _internal_set_oper(from._internal_oper());
   }
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void SLInterfaceGlobalsRegMsg::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:service_layer.SLInterfaceGlobalsRegMsg)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
 }
 
 void SLInterfaceGlobalsRegMsg::CopyFrom(const SLInterfaceGlobalsRegMsg& from) {
@@ -610,15 +611,14 @@ bool SLInterfaceGlobalsRegMsg::IsInitialized() const {
 
 void SLInterfaceGlobalsRegMsg::InternalSwap(SLInterfaceGlobalsRegMsg* other) {
   using std::swap;
-  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
   swap(oper_, other->oper_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata SLInterfaceGlobalsRegMsg::GetMetadata() const {
-  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
-      &descriptor_table_sl_5finterface_2eproto_getter, &descriptor_table_sl_5finterface_2eproto_once,
-      file_level_metadata_sl_5finterface_2eproto[0]);
+  return GetMetadataStatic();
 }
+
 
 // ===================================================================
 
@@ -632,18 +632,15 @@ SLInterfaceGlobalsRegMsgRsp::_Internal::errstatus(const SLInterfaceGlobalsRegMsg
   return *msg->errstatus_;
 }
 void SLInterfaceGlobalsRegMsgRsp::clear_errstatus() {
-  if (GetArenaForAllocation() == nullptr && errstatus_ != nullptr) {
+  if (GetArena() == nullptr && errstatus_ != nullptr) {
     delete errstatus_;
   }
   errstatus_ = nullptr;
 }
-SLInterfaceGlobalsRegMsgRsp::SLInterfaceGlobalsRegMsgRsp(::PROTOBUF_NAMESPACE_ID::Arena* arena,
-                         bool is_message_owned)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+SLInterfaceGlobalsRegMsgRsp::SLInterfaceGlobalsRegMsgRsp(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
   SharedCtor();
-  if (!is_message_owned) {
-    RegisterArenaDtor(arena);
-  }
+  RegisterArenaDtor(arena);
   // @@protoc_insertion_point(arena_constructor:service_layer.SLInterfaceGlobalsRegMsgRsp)
 }
 SLInterfaceGlobalsRegMsgRsp::SLInterfaceGlobalsRegMsgRsp(const SLInterfaceGlobalsRegMsgRsp& from)
@@ -663,13 +660,12 @@ errstatus_ = nullptr;
 
 SLInterfaceGlobalsRegMsgRsp::~SLInterfaceGlobalsRegMsgRsp() {
   // @@protoc_insertion_point(destructor:service_layer.SLInterfaceGlobalsRegMsgRsp)
-  if (GetArenaForAllocation() != nullptr) return;
   SharedDtor();
   _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-inline void SLInterfaceGlobalsRegMsgRsp::SharedDtor() {
-  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+void SLInterfaceGlobalsRegMsgRsp::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
   if (this != internal_default_instance()) delete errstatus_;
 }
 
@@ -689,7 +685,7 @@ void SLInterfaceGlobalsRegMsgRsp::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  if (GetArenaForAllocation() == nullptr && errstatus_ != nullptr) {
+  if (GetArena() == nullptr && errstatus_ != nullptr) {
     delete errstatus_;
   }
   errstatus_ = nullptr;
@@ -701,35 +697,34 @@ const char* SLInterfaceGlobalsRegMsgRsp::_InternalParse(const char* ptr, ::PROTO
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
     switch (tag >> 3) {
       // .service_layer.SLErrorStatus ErrStatus = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
           ptr = ctx->ParseMessage(_internal_mutable_errstatus(), ptr);
           CHK_(ptr);
-        } else
-          goto handle_unusual;
+        } else goto handle_unusual;
         continue;
-      default:
-        goto handle_unusual;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
     }  // switch
-  handle_unusual:
-    if ((tag == 0) || ((tag & 7) == 4)) {
-      CHK_(ptr);
-      ctx->SetLastTag(tag);
-      goto message_done;
-    }
-    ptr = UnknownFieldParse(
-        tag,
-        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-        ptr, ctx);
-    CHK_(ptr != nullptr);
   }  // while
-message_done:
+success:
   return ptr;
 failure:
   ptr = nullptr;
-  goto message_done;
+  goto success;
 #undef CHK_
 }
 
@@ -740,7 +735,7 @@ failure:
   (void) cached_has_bits;
 
   // .service_layer.SLErrorStatus ErrStatus = 1;
-  if (this->_internal_has_errstatus()) {
+  if (this->has_errstatus()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
       InternalWriteMessage(
@@ -764,38 +759,53 @@ size_t SLInterfaceGlobalsRegMsgRsp::ByteSizeLong() const {
   (void) cached_has_bits;
 
   // .service_layer.SLErrorStatus ErrStatus = 1;
-  if (this->_internal_has_errstatus()) {
+  if (this->has_errstatus()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
         *errstatus_);
   }
 
-  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
 }
 
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData SLInterfaceGlobalsRegMsgRsp::_class_data_ = {
-    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
-    SLInterfaceGlobalsRegMsgRsp::MergeImpl
-};
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*SLInterfaceGlobalsRegMsgRsp::GetClassData() const { return &_class_data_; }
-
-void SLInterfaceGlobalsRegMsgRsp::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
-                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-  static_cast<SLInterfaceGlobalsRegMsgRsp *>(to)->MergeFrom(
-      static_cast<const SLInterfaceGlobalsRegMsgRsp &>(from));
+void SLInterfaceGlobalsRegMsgRsp::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:service_layer.SLInterfaceGlobalsRegMsgRsp)
+  GOOGLE_DCHECK_NE(&from, this);
+  const SLInterfaceGlobalsRegMsgRsp* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<SLInterfaceGlobalsRegMsgRsp>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:service_layer.SLInterfaceGlobalsRegMsgRsp)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:service_layer.SLInterfaceGlobalsRegMsgRsp)
+    MergeFrom(*source);
+  }
 }
-
 
 void SLInterfaceGlobalsRegMsgRsp::MergeFrom(const SLInterfaceGlobalsRegMsgRsp& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:service_layer.SLInterfaceGlobalsRegMsgRsp)
   GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from._internal_has_errstatus()) {
+  if (from.has_errstatus()) {
     _internal_mutable_errstatus()->::service_layer::SLErrorStatus::MergeFrom(from._internal_errstatus());
   }
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void SLInterfaceGlobalsRegMsgRsp::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:service_layer.SLInterfaceGlobalsRegMsgRsp)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
 }
 
 void SLInterfaceGlobalsRegMsgRsp::CopyFrom(const SLInterfaceGlobalsRegMsgRsp& from) {
@@ -811,15 +821,14 @@ bool SLInterfaceGlobalsRegMsgRsp::IsInitialized() const {
 
 void SLInterfaceGlobalsRegMsgRsp::InternalSwap(SLInterfaceGlobalsRegMsgRsp* other) {
   using std::swap;
-  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
   swap(errstatus_, other->errstatus_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata SLInterfaceGlobalsRegMsgRsp::GetMetadata() const {
-  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
-      &descriptor_table_sl_5finterface_2eproto_getter, &descriptor_table_sl_5finterface_2eproto_once,
-      file_level_metadata_sl_5finterface_2eproto[1]);
+  return GetMetadataStatic();
 }
+
 
 // ===================================================================
 
@@ -827,38 +836,156 @@ class SLInterfaceGlobalsGetMsg::_Internal {
  public:
 };
 
-SLInterfaceGlobalsGetMsg::SLInterfaceGlobalsGetMsg(::PROTOBUF_NAMESPACE_ID::Arena* arena,
-                         bool is_message_owned)
-  : ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase(arena, is_message_owned) {
+SLInterfaceGlobalsGetMsg::SLInterfaceGlobalsGetMsg(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
   // @@protoc_insertion_point(arena_constructor:service_layer.SLInterfaceGlobalsGetMsg)
 }
 SLInterfaceGlobalsGetMsg::SLInterfaceGlobalsGetMsg(const SLInterfaceGlobalsGetMsg& from)
-  : ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase() {
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   // @@protoc_insertion_point(copy_constructor:service_layer.SLInterfaceGlobalsGetMsg)
 }
 
+void SLInterfaceGlobalsGetMsg::SharedCtor() {
+}
 
+SLInterfaceGlobalsGetMsg::~SLInterfaceGlobalsGetMsg() {
+  // @@protoc_insertion_point(destructor:service_layer.SLInterfaceGlobalsGetMsg)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
 
+void SLInterfaceGlobalsGetMsg::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+}
 
+void SLInterfaceGlobalsGetMsg::ArenaDtor(void* object) {
+  SLInterfaceGlobalsGetMsg* _this = reinterpret_cast< SLInterfaceGlobalsGetMsg* >(object);
+  (void)_this;
+}
+void SLInterfaceGlobalsGetMsg::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void SLInterfaceGlobalsGetMsg::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
 
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData SLInterfaceGlobalsGetMsg::_class_data_ = {
-    ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::CopyImpl,
-    ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::MergeImpl,
-};
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*SLInterfaceGlobalsGetMsg::GetClassData() const { return &_class_data_; }
+void SLInterfaceGlobalsGetMsg::Clear() {
+// @@protoc_insertion_point(message_clear_start:service_layer.SLInterfaceGlobalsGetMsg)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
 
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
 
+const char* SLInterfaceGlobalsGetMsg::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
 
+::PROTOBUF_NAMESPACE_ID::uint8* SLInterfaceGlobalsGetMsg::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:service_layer.SLInterfaceGlobalsGetMsg)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
 
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:service_layer.SLInterfaceGlobalsGetMsg)
+  return target;
+}
 
+size_t SLInterfaceGlobalsGetMsg::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:service_layer.SLInterfaceGlobalsGetMsg)
+  size_t total_size = 0;
 
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void SLInterfaceGlobalsGetMsg::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:service_layer.SLInterfaceGlobalsGetMsg)
+  GOOGLE_DCHECK_NE(&from, this);
+  const SLInterfaceGlobalsGetMsg* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<SLInterfaceGlobalsGetMsg>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:service_layer.SLInterfaceGlobalsGetMsg)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:service_layer.SLInterfaceGlobalsGetMsg)
+    MergeFrom(*source);
+  }
+}
+
+void SLInterfaceGlobalsGetMsg::MergeFrom(const SLInterfaceGlobalsGetMsg& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:service_layer.SLInterfaceGlobalsGetMsg)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+}
+
+void SLInterfaceGlobalsGetMsg::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:service_layer.SLInterfaceGlobalsGetMsg)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void SLInterfaceGlobalsGetMsg::CopyFrom(const SLInterfaceGlobalsGetMsg& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:service_layer.SLInterfaceGlobalsGetMsg)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool SLInterfaceGlobalsGetMsg::IsInitialized() const {
+  return true;
+}
+
+void SLInterfaceGlobalsGetMsg::InternalSwap(SLInterfaceGlobalsGetMsg* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+}
 
 ::PROTOBUF_NAMESPACE_ID::Metadata SLInterfaceGlobalsGetMsg::GetMetadata() const {
-  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
-      &descriptor_table_sl_5finterface_2eproto_getter, &descriptor_table_sl_5finterface_2eproto_once,
-      file_level_metadata_sl_5finterface_2eproto[2]);
+  return GetMetadataStatic();
 }
+
 
 // ===================================================================
 
@@ -872,18 +999,15 @@ SLInterfaceGlobalsGetMsgRsp::_Internal::errstatus(const SLInterfaceGlobalsGetMsg
   return *msg->errstatus_;
 }
 void SLInterfaceGlobalsGetMsgRsp::clear_errstatus() {
-  if (GetArenaForAllocation() == nullptr && errstatus_ != nullptr) {
+  if (GetArena() == nullptr && errstatus_ != nullptr) {
     delete errstatus_;
   }
   errstatus_ = nullptr;
 }
-SLInterfaceGlobalsGetMsgRsp::SLInterfaceGlobalsGetMsgRsp(::PROTOBUF_NAMESPACE_ID::Arena* arena,
-                         bool is_message_owned)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+SLInterfaceGlobalsGetMsgRsp::SLInterfaceGlobalsGetMsgRsp(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
   SharedCtor();
-  if (!is_message_owned) {
-    RegisterArenaDtor(arena);
-  }
+  RegisterArenaDtor(arena);
   // @@protoc_insertion_point(arena_constructor:service_layer.SLInterfaceGlobalsGetMsgRsp)
 }
 SLInterfaceGlobalsGetMsgRsp::SLInterfaceGlobalsGetMsgRsp(const SLInterfaceGlobalsGetMsgRsp& from)
@@ -907,13 +1031,12 @@ void SLInterfaceGlobalsGetMsgRsp::SharedCtor() {
 
 SLInterfaceGlobalsGetMsgRsp::~SLInterfaceGlobalsGetMsgRsp() {
   // @@protoc_insertion_point(destructor:service_layer.SLInterfaceGlobalsGetMsgRsp)
-  if (GetArenaForAllocation() != nullptr) return;
   SharedDtor();
   _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-inline void SLInterfaceGlobalsGetMsgRsp::SharedDtor() {
-  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+void SLInterfaceGlobalsGetMsgRsp::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
   if (this != internal_default_instance()) delete errstatus_;
 }
 
@@ -933,7 +1056,7 @@ void SLInterfaceGlobalsGetMsgRsp::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  if (GetArenaForAllocation() == nullptr && errstatus_ != nullptr) {
+  if (GetArena() == nullptr && errstatus_ != nullptr) {
     delete errstatus_;
   }
   errstatus_ = nullptr;
@@ -946,43 +1069,41 @@ const char* SLInterfaceGlobalsGetMsgRsp::_InternalParse(const char* ptr, ::PROTO
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
     switch (tag >> 3) {
       // .service_layer.SLErrorStatus ErrStatus = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
           ptr = ctx->ParseMessage(_internal_mutable_errstatus(), ptr);
           CHK_(ptr);
-        } else
-          goto handle_unusual;
+        } else goto handle_unusual;
         continue;
       // uint32 MaxInterfacesPerBatch = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
           maxinterfacesperbatch_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
-        } else
-          goto handle_unusual;
+        } else goto handle_unusual;
         continue;
-      default:
-        goto handle_unusual;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
     }  // switch
-  handle_unusual:
-    if ((tag == 0) || ((tag & 7) == 4)) {
-      CHK_(ptr);
-      ctx->SetLastTag(tag);
-      goto message_done;
-    }
-    ptr = UnknownFieldParse(
-        tag,
-        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-        ptr, ctx);
-    CHK_(ptr != nullptr);
   }  // while
-message_done:
+success:
   return ptr;
 failure:
   ptr = nullptr;
-  goto message_done;
+  goto success;
 #undef CHK_
 }
 
@@ -993,7 +1114,7 @@ failure:
   (void) cached_has_bits;
 
   // .service_layer.SLErrorStatus ErrStatus = 1;
-  if (this->_internal_has_errstatus()) {
+  if (this->has_errstatus()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
       InternalWriteMessage(
@@ -1001,7 +1122,7 @@ failure:
   }
 
   // uint32 MaxInterfacesPerBatch = 2;
-  if (this->_internal_maxinterfacesperbatch() != 0) {
+  if (this->maxinterfacesperbatch() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_maxinterfacesperbatch(), target);
   }
@@ -1023,46 +1144,63 @@ size_t SLInterfaceGlobalsGetMsgRsp::ByteSizeLong() const {
   (void) cached_has_bits;
 
   // .service_layer.SLErrorStatus ErrStatus = 1;
-  if (this->_internal_has_errstatus()) {
+  if (this->has_errstatus()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
         *errstatus_);
   }
 
   // uint32 MaxInterfacesPerBatch = 2;
-  if (this->_internal_maxinterfacesperbatch() != 0) {
-    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_maxinterfacesperbatch());
+  if (this->maxinterfacesperbatch() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
+        this->_internal_maxinterfacesperbatch());
   }
 
-  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
 }
 
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData SLInterfaceGlobalsGetMsgRsp::_class_data_ = {
-    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
-    SLInterfaceGlobalsGetMsgRsp::MergeImpl
-};
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*SLInterfaceGlobalsGetMsgRsp::GetClassData() const { return &_class_data_; }
-
-void SLInterfaceGlobalsGetMsgRsp::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
-                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-  static_cast<SLInterfaceGlobalsGetMsgRsp *>(to)->MergeFrom(
-      static_cast<const SLInterfaceGlobalsGetMsgRsp &>(from));
+void SLInterfaceGlobalsGetMsgRsp::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:service_layer.SLInterfaceGlobalsGetMsgRsp)
+  GOOGLE_DCHECK_NE(&from, this);
+  const SLInterfaceGlobalsGetMsgRsp* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<SLInterfaceGlobalsGetMsgRsp>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:service_layer.SLInterfaceGlobalsGetMsgRsp)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:service_layer.SLInterfaceGlobalsGetMsgRsp)
+    MergeFrom(*source);
+  }
 }
-
 
 void SLInterfaceGlobalsGetMsgRsp::MergeFrom(const SLInterfaceGlobalsGetMsgRsp& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:service_layer.SLInterfaceGlobalsGetMsgRsp)
   GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from._internal_has_errstatus()) {
+  if (from.has_errstatus()) {
     _internal_mutable_errstatus()->::service_layer::SLErrorStatus::MergeFrom(from._internal_errstatus());
   }
-  if (from._internal_maxinterfacesperbatch() != 0) {
+  if (from.maxinterfacesperbatch() != 0) {
     _internal_set_maxinterfacesperbatch(from._internal_maxinterfacesperbatch());
   }
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void SLInterfaceGlobalsGetMsgRsp::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:service_layer.SLInterfaceGlobalsGetMsgRsp)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
 }
 
 void SLInterfaceGlobalsGetMsgRsp::CopyFrom(const SLInterfaceGlobalsGetMsgRsp& from) {
@@ -1078,7 +1216,7 @@ bool SLInterfaceGlobalsGetMsgRsp::IsInitialized() const {
 
 void SLInterfaceGlobalsGetMsgRsp::InternalSwap(SLInterfaceGlobalsGetMsgRsp* other) {
   using std::swap;
-  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
       PROTOBUF_FIELD_OFFSET(SLInterfaceGlobalsGetMsgRsp, maxinterfacesperbatch_)
       + sizeof(SLInterfaceGlobalsGetMsgRsp::maxinterfacesperbatch_)
@@ -1088,10 +1226,9 @@ void SLInterfaceGlobalsGetMsgRsp::InternalSwap(SLInterfaceGlobalsGetMsgRsp* othe
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata SLInterfaceGlobalsGetMsgRsp::GetMetadata() const {
-  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
-      &descriptor_table_sl_5finterface_2eproto_getter, &descriptor_table_sl_5finterface_2eproto_once,
-      file_level_metadata_sl_5finterface_2eproto[3]);
+  return GetMetadataStatic();
 }
+
 
 // ===================================================================
 
@@ -1105,18 +1242,15 @@ SLInterfaceGlobalsGetStatsMsgRsp::_Internal::errstatus(const SLInterfaceGlobalsG
   return *msg->errstatus_;
 }
 void SLInterfaceGlobalsGetStatsMsgRsp::clear_errstatus() {
-  if (GetArenaForAllocation() == nullptr && errstatus_ != nullptr) {
+  if (GetArena() == nullptr && errstatus_ != nullptr) {
     delete errstatus_;
   }
   errstatus_ = nullptr;
 }
-SLInterfaceGlobalsGetStatsMsgRsp::SLInterfaceGlobalsGetStatsMsgRsp(::PROTOBUF_NAMESPACE_ID::Arena* arena,
-                         bool is_message_owned)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+SLInterfaceGlobalsGetStatsMsgRsp::SLInterfaceGlobalsGetStatsMsgRsp(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
   SharedCtor();
-  if (!is_message_owned) {
-    RegisterArenaDtor(arena);
-  }
+  RegisterArenaDtor(arena);
   // @@protoc_insertion_point(arena_constructor:service_layer.SLInterfaceGlobalsGetStatsMsgRsp)
 }
 SLInterfaceGlobalsGetStatsMsgRsp::SLInterfaceGlobalsGetStatsMsgRsp(const SLInterfaceGlobalsGetStatsMsgRsp& from)
@@ -1142,13 +1276,12 @@ void SLInterfaceGlobalsGetStatsMsgRsp::SharedCtor() {
 
 SLInterfaceGlobalsGetStatsMsgRsp::~SLInterfaceGlobalsGetStatsMsgRsp() {
   // @@protoc_insertion_point(destructor:service_layer.SLInterfaceGlobalsGetStatsMsgRsp)
-  if (GetArenaForAllocation() != nullptr) return;
   SharedDtor();
   _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-inline void SLInterfaceGlobalsGetStatsMsgRsp::SharedDtor() {
-  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+void SLInterfaceGlobalsGetStatsMsgRsp::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
   if (this != internal_default_instance()) delete errstatus_;
 }
 
@@ -1168,7 +1301,7 @@ void SLInterfaceGlobalsGetStatsMsgRsp::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  if (GetArenaForAllocation() == nullptr && errstatus_ != nullptr) {
+  if (GetArena() == nullptr && errstatus_ != nullptr) {
     delete errstatus_;
   }
   errstatus_ = nullptr;
@@ -1183,51 +1316,48 @@ const char* SLInterfaceGlobalsGetStatsMsgRsp::_InternalParse(const char* ptr, ::
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
     switch (tag >> 3) {
       // .service_layer.SLErrorStatus ErrStatus = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
           ptr = ctx->ParseMessage(_internal_mutable_errstatus(), ptr);
           CHK_(ptr);
-        } else
-          goto handle_unusual;
+        } else goto handle_unusual;
         continue;
       // uint64 SeqNum = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
           seqnum_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
-        } else
-          goto handle_unusual;
+        } else goto handle_unusual;
         continue;
       // uint32 InterfaceNotifCount = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
           interfacenotifcount_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
-        } else
-          goto handle_unusual;
+        } else goto handle_unusual;
         continue;
-      default:
-        goto handle_unusual;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
     }  // switch
-  handle_unusual:
-    if ((tag == 0) || ((tag & 7) == 4)) {
-      CHK_(ptr);
-      ctx->SetLastTag(tag);
-      goto message_done;
-    }
-    ptr = UnknownFieldParse(
-        tag,
-        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-        ptr, ctx);
-    CHK_(ptr != nullptr);
   }  // while
-message_done:
+success:
   return ptr;
 failure:
   ptr = nullptr;
-  goto message_done;
+  goto success;
 #undef CHK_
 }
 
@@ -1238,7 +1368,7 @@ failure:
   (void) cached_has_bits;
 
   // .service_layer.SLErrorStatus ErrStatus = 1;
-  if (this->_internal_has_errstatus()) {
+  if (this->has_errstatus()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
       InternalWriteMessage(
@@ -1246,13 +1376,13 @@ failure:
   }
 
   // uint64 SeqNum = 2;
-  if (this->_internal_seqnum() != 0) {
+  if (this->seqnum() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(2, this->_internal_seqnum(), target);
   }
 
   // uint32 InterfaceNotifCount = 3;
-  if (this->_internal_interfacenotifcount() != 0) {
+  if (this->interfacenotifcount() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(3, this->_internal_interfacenotifcount(), target);
   }
@@ -1274,54 +1404,73 @@ size_t SLInterfaceGlobalsGetStatsMsgRsp::ByteSizeLong() const {
   (void) cached_has_bits;
 
   // .service_layer.SLErrorStatus ErrStatus = 1;
-  if (this->_internal_has_errstatus()) {
+  if (this->has_errstatus()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
         *errstatus_);
   }
 
   // uint64 SeqNum = 2;
-  if (this->_internal_seqnum() != 0) {
-    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64SizePlusOne(this->_internal_seqnum());
+  if (this->seqnum() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
+        this->_internal_seqnum());
   }
 
   // uint32 InterfaceNotifCount = 3;
-  if (this->_internal_interfacenotifcount() != 0) {
-    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_interfacenotifcount());
+  if (this->interfacenotifcount() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
+        this->_internal_interfacenotifcount());
   }
 
-  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
 }
 
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData SLInterfaceGlobalsGetStatsMsgRsp::_class_data_ = {
-    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
-    SLInterfaceGlobalsGetStatsMsgRsp::MergeImpl
-};
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*SLInterfaceGlobalsGetStatsMsgRsp::GetClassData() const { return &_class_data_; }
-
-void SLInterfaceGlobalsGetStatsMsgRsp::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
-                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-  static_cast<SLInterfaceGlobalsGetStatsMsgRsp *>(to)->MergeFrom(
-      static_cast<const SLInterfaceGlobalsGetStatsMsgRsp &>(from));
+void SLInterfaceGlobalsGetStatsMsgRsp::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:service_layer.SLInterfaceGlobalsGetStatsMsgRsp)
+  GOOGLE_DCHECK_NE(&from, this);
+  const SLInterfaceGlobalsGetStatsMsgRsp* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<SLInterfaceGlobalsGetStatsMsgRsp>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:service_layer.SLInterfaceGlobalsGetStatsMsgRsp)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:service_layer.SLInterfaceGlobalsGetStatsMsgRsp)
+    MergeFrom(*source);
+  }
 }
-
 
 void SLInterfaceGlobalsGetStatsMsgRsp::MergeFrom(const SLInterfaceGlobalsGetStatsMsgRsp& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:service_layer.SLInterfaceGlobalsGetStatsMsgRsp)
   GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from._internal_has_errstatus()) {
+  if (from.has_errstatus()) {
     _internal_mutable_errstatus()->::service_layer::SLErrorStatus::MergeFrom(from._internal_errstatus());
   }
-  if (from._internal_seqnum() != 0) {
+  if (from.seqnum() != 0) {
     _internal_set_seqnum(from._internal_seqnum());
   }
-  if (from._internal_interfacenotifcount() != 0) {
+  if (from.interfacenotifcount() != 0) {
     _internal_set_interfacenotifcount(from._internal_interfacenotifcount());
   }
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void SLInterfaceGlobalsGetStatsMsgRsp::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:service_layer.SLInterfaceGlobalsGetStatsMsgRsp)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
 }
 
 void SLInterfaceGlobalsGetStatsMsgRsp::CopyFrom(const SLInterfaceGlobalsGetStatsMsgRsp& from) {
@@ -1337,7 +1486,7 @@ bool SLInterfaceGlobalsGetStatsMsgRsp::IsInitialized() const {
 
 void SLInterfaceGlobalsGetStatsMsgRsp::InternalSwap(SLInterfaceGlobalsGetStatsMsgRsp* other) {
   using std::swap;
-  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
       PROTOBUF_FIELD_OFFSET(SLInterfaceGlobalsGetStatsMsgRsp, interfacenotifcount_)
       + sizeof(SLInterfaceGlobalsGetStatsMsgRsp::interfacenotifcount_)
@@ -1347,10 +1496,9 @@ void SLInterfaceGlobalsGetStatsMsgRsp::InternalSwap(SLInterfaceGlobalsGetStatsMs
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata SLInterfaceGlobalsGetStatsMsgRsp::GetMetadata() const {
-  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
-      &descriptor_table_sl_5finterface_2eproto_getter, &descriptor_table_sl_5finterface_2eproto_once,
-      file_level_metadata_sl_5finterface_2eproto[4]);
+  return GetMetadataStatic();
 }
+
 
 // ===================================================================
 
@@ -1364,18 +1512,15 @@ SLInterfaceGetMsg::_Internal::key(const SLInterfaceGetMsg* msg) {
   return *msg->key_;
 }
 void SLInterfaceGetMsg::clear_key() {
-  if (GetArenaForAllocation() == nullptr && key_ != nullptr) {
+  if (GetArena() == nullptr && key_ != nullptr) {
     delete key_;
   }
   key_ = nullptr;
 }
-SLInterfaceGetMsg::SLInterfaceGetMsg(::PROTOBUF_NAMESPACE_ID::Arena* arena,
-                         bool is_message_owned)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+SLInterfaceGetMsg::SLInterfaceGetMsg(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
   SharedCtor();
-  if (!is_message_owned) {
-    RegisterArenaDtor(arena);
-  }
+  RegisterArenaDtor(arena);
   // @@protoc_insertion_point(arena_constructor:service_layer.SLInterfaceGetMsg)
 }
 SLInterfaceGetMsg::SLInterfaceGetMsg(const SLInterfaceGetMsg& from)
@@ -1401,13 +1546,12 @@ void SLInterfaceGetMsg::SharedCtor() {
 
 SLInterfaceGetMsg::~SLInterfaceGetMsg() {
   // @@protoc_insertion_point(destructor:service_layer.SLInterfaceGetMsg)
-  if (GetArenaForAllocation() != nullptr) return;
   SharedDtor();
   _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-inline void SLInterfaceGetMsg::SharedDtor() {
-  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+void SLInterfaceGetMsg::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
   if (this != internal_default_instance()) delete key_;
 }
 
@@ -1427,7 +1571,7 @@ void SLInterfaceGetMsg::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  if (GetArenaForAllocation() == nullptr && key_ != nullptr) {
+  if (GetArena() == nullptr && key_ != nullptr) {
     delete key_;
   }
   key_ = nullptr;
@@ -1442,51 +1586,48 @@ const char* SLInterfaceGetMsg::_InternalParse(const char* ptr, ::PROTOBUF_NAMESP
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
     switch (tag >> 3) {
       // .service_layer.SLInterface Key = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
           ptr = ctx->ParseMessage(_internal_mutable_key(), ptr);
           CHK_(ptr);
-        } else
-          goto handle_unusual;
+        } else goto handle_unusual;
         continue;
       // uint32 EntriesCount = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
           entriescount_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
-        } else
-          goto handle_unusual;
+        } else goto handle_unusual;
         continue;
       // bool GetNext = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
           getnext_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
-        } else
-          goto handle_unusual;
+        } else goto handle_unusual;
         continue;
-      default:
-        goto handle_unusual;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
     }  // switch
-  handle_unusual:
-    if ((tag == 0) || ((tag & 7) == 4)) {
-      CHK_(ptr);
-      ctx->SetLastTag(tag);
-      goto message_done;
-    }
-    ptr = UnknownFieldParse(
-        tag,
-        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-        ptr, ctx);
-    CHK_(ptr != nullptr);
   }  // while
-message_done:
+success:
   return ptr;
 failure:
   ptr = nullptr;
-  goto message_done;
+  goto success;
 #undef CHK_
 }
 
@@ -1497,7 +1638,7 @@ failure:
   (void) cached_has_bits;
 
   // .service_layer.SLInterface Key = 1;
-  if (this->_internal_has_key()) {
+  if (this->has_key()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
       InternalWriteMessage(
@@ -1505,13 +1646,13 @@ failure:
   }
 
   // uint32 EntriesCount = 2;
-  if (this->_internal_entriescount() != 0) {
+  if (this->entriescount() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_entriescount(), target);
   }
 
   // bool GetNext = 3;
-  if (this->_internal_getnext() != 0) {
+  if (this->getnext() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(3, this->_internal_getnext(), target);
   }
@@ -1533,54 +1674,71 @@ size_t SLInterfaceGetMsg::ByteSizeLong() const {
   (void) cached_has_bits;
 
   // .service_layer.SLInterface Key = 1;
-  if (this->_internal_has_key()) {
+  if (this->has_key()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
         *key_);
   }
 
   // uint32 EntriesCount = 2;
-  if (this->_internal_entriescount() != 0) {
-    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_entriescount());
+  if (this->entriescount() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
+        this->_internal_entriescount());
   }
 
   // bool GetNext = 3;
-  if (this->_internal_getnext() != 0) {
+  if (this->getnext() != 0) {
     total_size += 1 + 1;
   }
 
-  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
 }
 
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData SLInterfaceGetMsg::_class_data_ = {
-    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
-    SLInterfaceGetMsg::MergeImpl
-};
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*SLInterfaceGetMsg::GetClassData() const { return &_class_data_; }
-
-void SLInterfaceGetMsg::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
-                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-  static_cast<SLInterfaceGetMsg *>(to)->MergeFrom(
-      static_cast<const SLInterfaceGetMsg &>(from));
+void SLInterfaceGetMsg::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:service_layer.SLInterfaceGetMsg)
+  GOOGLE_DCHECK_NE(&from, this);
+  const SLInterfaceGetMsg* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<SLInterfaceGetMsg>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:service_layer.SLInterfaceGetMsg)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:service_layer.SLInterfaceGetMsg)
+    MergeFrom(*source);
+  }
 }
-
 
 void SLInterfaceGetMsg::MergeFrom(const SLInterfaceGetMsg& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:service_layer.SLInterfaceGetMsg)
   GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from._internal_has_key()) {
+  if (from.has_key()) {
     _internal_mutable_key()->::service_layer::SLInterface::MergeFrom(from._internal_key());
   }
-  if (from._internal_entriescount() != 0) {
+  if (from.entriescount() != 0) {
     _internal_set_entriescount(from._internal_entriescount());
   }
-  if (from._internal_getnext() != 0) {
+  if (from.getnext() != 0) {
     _internal_set_getnext(from._internal_getnext());
   }
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void SLInterfaceGetMsg::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:service_layer.SLInterfaceGetMsg)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
 }
 
 void SLInterfaceGetMsg::CopyFrom(const SLInterfaceGetMsg& from) {
@@ -1596,7 +1754,7 @@ bool SLInterfaceGetMsg::IsInitialized() const {
 
 void SLInterfaceGetMsg::InternalSwap(SLInterfaceGetMsg* other) {
   using std::swap;
-  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
       PROTOBUF_FIELD_OFFSET(SLInterfaceGetMsg, getnext_)
       + sizeof(SLInterfaceGetMsg::getnext_)
@@ -1606,10 +1764,9 @@ void SLInterfaceGetMsg::InternalSwap(SLInterfaceGetMsg* other) {
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata SLInterfaceGetMsg::GetMetadata() const {
-  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
-      &descriptor_table_sl_5finterface_2eproto_getter, &descriptor_table_sl_5finterface_2eproto_once,
-      file_level_metadata_sl_5finterface_2eproto[5]);
+  return GetMetadataStatic();
 }
+
 
 // ===================================================================
 
@@ -1623,18 +1780,15 @@ SLInterfaceInfoMsg::_Internal::slifinfo(const SLInterfaceInfoMsg* msg) {
   return *msg->slifinfo_;
 }
 void SLInterfaceInfoMsg::clear_slifinfo() {
-  if (GetArenaForAllocation() == nullptr && slifinfo_ != nullptr) {
+  if (GetArena() == nullptr && slifinfo_ != nullptr) {
     delete slifinfo_;
   }
   slifinfo_ = nullptr;
 }
-SLInterfaceInfoMsg::SLInterfaceInfoMsg(::PROTOBUF_NAMESPACE_ID::Arena* arena,
-                         bool is_message_owned)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+SLInterfaceInfoMsg::SLInterfaceInfoMsg(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
   SharedCtor();
-  if (!is_message_owned) {
-    RegisterArenaDtor(arena);
-  }
+  RegisterArenaDtor(arena);
   // @@protoc_insertion_point(arena_constructor:service_layer.SLInterfaceInfoMsg)
 }
 SLInterfaceInfoMsg::SLInterfaceInfoMsg(const SLInterfaceInfoMsg& from)
@@ -1660,13 +1814,12 @@ void SLInterfaceInfoMsg::SharedCtor() {
 
 SLInterfaceInfoMsg::~SLInterfaceInfoMsg() {
   // @@protoc_insertion_point(destructor:service_layer.SLInterfaceInfoMsg)
-  if (GetArenaForAllocation() != nullptr) return;
   SharedDtor();
   _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-inline void SLInterfaceInfoMsg::SharedDtor() {
-  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+void SLInterfaceInfoMsg::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
   if (this != internal_default_instance()) delete slifinfo_;
 }
 
@@ -1686,7 +1839,7 @@ void SLInterfaceInfoMsg::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  if (GetArenaForAllocation() == nullptr && slifinfo_ != nullptr) {
+  if (GetArena() == nullptr && slifinfo_ != nullptr) {
     delete slifinfo_;
   }
   slifinfo_ = nullptr;
@@ -1701,14 +1854,14 @@ const char* SLInterfaceInfoMsg::_InternalParse(const char* ptr, ::PROTOBUF_NAMES
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
     switch (tag >> 3) {
       // .service_layer.SLInterface SLIfInfo = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
           ptr = ctx->ParseMessage(_internal_mutable_slifinfo(), ptr);
           CHK_(ptr);
-        } else
-          goto handle_unusual;
+        } else goto handle_unusual;
         continue;
       // .service_layer.SLInterfaceState IfState = 2;
       case 2:
@@ -1716,37 +1869,34 @@ const char* SLInterfaceInfoMsg::_InternalParse(const char* ptr, ::PROTOBUF_NAMES
           ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
           _internal_set_ifstate(static_cast<::service_layer::SLInterfaceState>(val));
-        } else
-          goto handle_unusual;
+        } else goto handle_unusual;
         continue;
       // uint64 SeqNum = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
           seqnum_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
-        } else
-          goto handle_unusual;
+        } else goto handle_unusual;
         continue;
-      default:
-        goto handle_unusual;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
     }  // switch
-  handle_unusual:
-    if ((tag == 0) || ((tag & 7) == 4)) {
-      CHK_(ptr);
-      ctx->SetLastTag(tag);
-      goto message_done;
-    }
-    ptr = UnknownFieldParse(
-        tag,
-        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-        ptr, ctx);
-    CHK_(ptr != nullptr);
   }  // while
-message_done:
+success:
   return ptr;
 failure:
   ptr = nullptr;
-  goto message_done;
+  goto success;
 #undef CHK_
 }
 
@@ -1757,7 +1907,7 @@ failure:
   (void) cached_has_bits;
 
   // .service_layer.SLInterface SLIfInfo = 1;
-  if (this->_internal_has_slifinfo()) {
+  if (this->has_slifinfo()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
       InternalWriteMessage(
@@ -1765,14 +1915,14 @@ failure:
   }
 
   // .service_layer.SLInterfaceState IfState = 2;
-  if (this->_internal_ifstate() != 0) {
+  if (this->ifstate() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
       2, this->_internal_ifstate(), target);
   }
 
   // uint64 SeqNum = 3;
-  if (this->_internal_seqnum() != 0) {
+  if (this->seqnum() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(3, this->_internal_seqnum(), target);
   }
@@ -1794,55 +1944,72 @@ size_t SLInterfaceInfoMsg::ByteSizeLong() const {
   (void) cached_has_bits;
 
   // .service_layer.SLInterface SLIfInfo = 1;
-  if (this->_internal_has_slifinfo()) {
+  if (this->has_slifinfo()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
         *slifinfo_);
   }
 
   // uint64 SeqNum = 3;
-  if (this->_internal_seqnum() != 0) {
-    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64SizePlusOne(this->_internal_seqnum());
+  if (this->seqnum() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
+        this->_internal_seqnum());
   }
 
   // .service_layer.SLInterfaceState IfState = 2;
-  if (this->_internal_ifstate() != 0) {
+  if (this->ifstate() != 0) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_ifstate());
   }
 
-  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
 }
 
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData SLInterfaceInfoMsg::_class_data_ = {
-    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
-    SLInterfaceInfoMsg::MergeImpl
-};
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*SLInterfaceInfoMsg::GetClassData() const { return &_class_data_; }
-
-void SLInterfaceInfoMsg::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
-                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-  static_cast<SLInterfaceInfoMsg *>(to)->MergeFrom(
-      static_cast<const SLInterfaceInfoMsg &>(from));
+void SLInterfaceInfoMsg::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:service_layer.SLInterfaceInfoMsg)
+  GOOGLE_DCHECK_NE(&from, this);
+  const SLInterfaceInfoMsg* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<SLInterfaceInfoMsg>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:service_layer.SLInterfaceInfoMsg)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:service_layer.SLInterfaceInfoMsg)
+    MergeFrom(*source);
+  }
 }
-
 
 void SLInterfaceInfoMsg::MergeFrom(const SLInterfaceInfoMsg& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:service_layer.SLInterfaceInfoMsg)
   GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from._internal_has_slifinfo()) {
+  if (from.has_slifinfo()) {
     _internal_mutable_slifinfo()->::service_layer::SLInterface::MergeFrom(from._internal_slifinfo());
   }
-  if (from._internal_seqnum() != 0) {
+  if (from.seqnum() != 0) {
     _internal_set_seqnum(from._internal_seqnum());
   }
-  if (from._internal_ifstate() != 0) {
+  if (from.ifstate() != 0) {
     _internal_set_ifstate(from._internal_ifstate());
   }
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void SLInterfaceInfoMsg::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:service_layer.SLInterfaceInfoMsg)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
 }
 
 void SLInterfaceInfoMsg::CopyFrom(const SLInterfaceInfoMsg& from) {
@@ -1858,7 +2025,7 @@ bool SLInterfaceInfoMsg::IsInitialized() const {
 
 void SLInterfaceInfoMsg::InternalSwap(SLInterfaceInfoMsg* other) {
   using std::swap;
-  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
       PROTOBUF_FIELD_OFFSET(SLInterfaceInfoMsg, ifstate_)
       + sizeof(SLInterfaceInfoMsg::ifstate_)
@@ -1868,10 +2035,9 @@ void SLInterfaceInfoMsg::InternalSwap(SLInterfaceInfoMsg* other) {
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata SLInterfaceInfoMsg::GetMetadata() const {
-  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
-      &descriptor_table_sl_5finterface_2eproto_getter, &descriptor_table_sl_5finterface_2eproto_once,
-      file_level_metadata_sl_5finterface_2eproto[6]);
+  return GetMetadataStatic();
 }
+
 
 // ===================================================================
 
@@ -1885,19 +2051,16 @@ SLInterfaceGetMsgRsp::_Internal::errstatus(const SLInterfaceGetMsgRsp* msg) {
   return *msg->errstatus_;
 }
 void SLInterfaceGetMsgRsp::clear_errstatus() {
-  if (GetArenaForAllocation() == nullptr && errstatus_ != nullptr) {
+  if (GetArena() == nullptr && errstatus_ != nullptr) {
     delete errstatus_;
   }
   errstatus_ = nullptr;
 }
-SLInterfaceGetMsgRsp::SLInterfaceGetMsgRsp(::PROTOBUF_NAMESPACE_ID::Arena* arena,
-                         bool is_message_owned)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned),
+SLInterfaceGetMsgRsp::SLInterfaceGetMsgRsp(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena),
   entries_(arena) {
   SharedCtor();
-  if (!is_message_owned) {
-    RegisterArenaDtor(arena);
-  }
+  RegisterArenaDtor(arena);
   // @@protoc_insertion_point(arena_constructor:service_layer.SLInterfaceGetMsgRsp)
 }
 SLInterfaceGetMsgRsp::SLInterfaceGetMsgRsp(const SLInterfaceGetMsgRsp& from)
@@ -1922,13 +2085,12 @@ void SLInterfaceGetMsgRsp::SharedCtor() {
 
 SLInterfaceGetMsgRsp::~SLInterfaceGetMsgRsp() {
   // @@protoc_insertion_point(destructor:service_layer.SLInterfaceGetMsgRsp)
-  if (GetArenaForAllocation() != nullptr) return;
   SharedDtor();
   _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-inline void SLInterfaceGetMsgRsp::SharedDtor() {
-  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+void SLInterfaceGetMsgRsp::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
   if (this != internal_default_instance()) delete errstatus_;
 }
 
@@ -1949,7 +2111,7 @@ void SLInterfaceGetMsgRsp::Clear() {
   (void) cached_has_bits;
 
   entries_.Clear();
-  if (GetArenaForAllocation() == nullptr && errstatus_ != nullptr) {
+  if (GetArena() == nullptr && errstatus_ != nullptr) {
     delete errstatus_;
   }
   errstatus_ = nullptr;
@@ -1962,22 +2124,21 @@ const char* SLInterfaceGetMsgRsp::_InternalParse(const char* ptr, ::PROTOBUF_NAM
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
     switch (tag >> 3) {
       // bool Eof = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           eof_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
-        } else
-          goto handle_unusual;
+        } else goto handle_unusual;
         continue;
       // .service_layer.SLErrorStatus ErrStatus = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
           ptr = ctx->ParseMessage(_internal_mutable_errstatus(), ptr);
           CHK_(ptr);
-        } else
-          goto handle_unusual;
+        } else goto handle_unusual;
         continue;
       // repeated .service_layer.SLInterfaceInfoMsg Entries = 3;
       case 3:
@@ -1989,29 +2150,27 @@ const char* SLInterfaceGetMsgRsp::_InternalParse(const char* ptr, ::PROTOBUF_NAM
             CHK_(ptr);
             if (!ctx->DataAvailable(ptr)) break;
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<26>(ptr));
-        } else
-          goto handle_unusual;
+        } else goto handle_unusual;
         continue;
-      default:
-        goto handle_unusual;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
     }  // switch
-  handle_unusual:
-    if ((tag == 0) || ((tag & 7) == 4)) {
-      CHK_(ptr);
-      ctx->SetLastTag(tag);
-      goto message_done;
-    }
-    ptr = UnknownFieldParse(
-        tag,
-        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-        ptr, ctx);
-    CHK_(ptr != nullptr);
   }  // while
-message_done:
+success:
   return ptr;
 failure:
   ptr = nullptr;
-  goto message_done;
+  goto success;
 #undef CHK_
 }
 
@@ -2022,13 +2181,13 @@ failure:
   (void) cached_has_bits;
 
   // bool Eof = 1;
-  if (this->_internal_eof() != 0) {
+  if (this->eof() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(1, this->_internal_eof(), target);
   }
 
   // .service_layer.SLErrorStatus ErrStatus = 2;
-  if (this->_internal_has_errstatus()) {
+  if (this->has_errstatus()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
       InternalWriteMessage(
@@ -2067,47 +2226,62 @@ size_t SLInterfaceGetMsgRsp::ByteSizeLong() const {
   }
 
   // .service_layer.SLErrorStatus ErrStatus = 2;
-  if (this->_internal_has_errstatus()) {
+  if (this->has_errstatus()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
         *errstatus_);
   }
 
   // bool Eof = 1;
-  if (this->_internal_eof() != 0) {
+  if (this->eof() != 0) {
     total_size += 1 + 1;
   }
 
-  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
 }
 
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData SLInterfaceGetMsgRsp::_class_data_ = {
-    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
-    SLInterfaceGetMsgRsp::MergeImpl
-};
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*SLInterfaceGetMsgRsp::GetClassData() const { return &_class_data_; }
-
-void SLInterfaceGetMsgRsp::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
-                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-  static_cast<SLInterfaceGetMsgRsp *>(to)->MergeFrom(
-      static_cast<const SLInterfaceGetMsgRsp &>(from));
+void SLInterfaceGetMsgRsp::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:service_layer.SLInterfaceGetMsgRsp)
+  GOOGLE_DCHECK_NE(&from, this);
+  const SLInterfaceGetMsgRsp* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<SLInterfaceGetMsgRsp>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:service_layer.SLInterfaceGetMsgRsp)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:service_layer.SLInterfaceGetMsgRsp)
+    MergeFrom(*source);
+  }
 }
-
 
 void SLInterfaceGetMsgRsp::MergeFrom(const SLInterfaceGetMsgRsp& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:service_layer.SLInterfaceGetMsgRsp)
   GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
   entries_.MergeFrom(from.entries_);
-  if (from._internal_has_errstatus()) {
+  if (from.has_errstatus()) {
     _internal_mutable_errstatus()->::service_layer::SLErrorStatus::MergeFrom(from._internal_errstatus());
   }
-  if (from._internal_eof() != 0) {
+  if (from.eof() != 0) {
     _internal_set_eof(from._internal_eof());
   }
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void SLInterfaceGetMsgRsp::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:service_layer.SLInterfaceGetMsgRsp)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
 }
 
 void SLInterfaceGetMsgRsp::CopyFrom(const SLInterfaceGetMsgRsp& from) {
@@ -2123,7 +2297,7 @@ bool SLInterfaceGetMsgRsp::IsInitialized() const {
 
 void SLInterfaceGetMsgRsp::InternalSwap(SLInterfaceGetMsgRsp* other) {
   using std::swap;
-  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
   entries_.InternalSwap(&other->entries_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
       PROTOBUF_FIELD_OFFSET(SLInterfaceGetMsgRsp, eof_)
@@ -2134,10 +2308,9 @@ void SLInterfaceGetMsgRsp::InternalSwap(SLInterfaceGetMsgRsp* other) {
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata SLInterfaceGetMsgRsp::GetMetadata() const {
-  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
-      &descriptor_table_sl_5finterface_2eproto_getter, &descriptor_table_sl_5finterface_2eproto_once,
-      file_level_metadata_sl_5finterface_2eproto[7]);
+  return GetMetadataStatic();
 }
+
 
 // ===================================================================
 
@@ -2145,38 +2318,156 @@ class SLInterfaceGetNotifMsg::_Internal {
  public:
 };
 
-SLInterfaceGetNotifMsg::SLInterfaceGetNotifMsg(::PROTOBUF_NAMESPACE_ID::Arena* arena,
-                         bool is_message_owned)
-  : ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase(arena, is_message_owned) {
+SLInterfaceGetNotifMsg::SLInterfaceGetNotifMsg(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
   // @@protoc_insertion_point(arena_constructor:service_layer.SLInterfaceGetNotifMsg)
 }
 SLInterfaceGetNotifMsg::SLInterfaceGetNotifMsg(const SLInterfaceGetNotifMsg& from)
-  : ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase() {
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   // @@protoc_insertion_point(copy_constructor:service_layer.SLInterfaceGetNotifMsg)
 }
 
+void SLInterfaceGetNotifMsg::SharedCtor() {
+}
 
+SLInterfaceGetNotifMsg::~SLInterfaceGetNotifMsg() {
+  // @@protoc_insertion_point(destructor:service_layer.SLInterfaceGetNotifMsg)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
 
+void SLInterfaceGetNotifMsg::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+}
 
+void SLInterfaceGetNotifMsg::ArenaDtor(void* object) {
+  SLInterfaceGetNotifMsg* _this = reinterpret_cast< SLInterfaceGetNotifMsg* >(object);
+  (void)_this;
+}
+void SLInterfaceGetNotifMsg::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void SLInterfaceGetNotifMsg::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
 
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData SLInterfaceGetNotifMsg::_class_data_ = {
-    ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::CopyImpl,
-    ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::MergeImpl,
-};
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*SLInterfaceGetNotifMsg::GetClassData() const { return &_class_data_; }
+void SLInterfaceGetNotifMsg::Clear() {
+// @@protoc_insertion_point(message_clear_start:service_layer.SLInterfaceGetNotifMsg)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
 
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
 
+const char* SLInterfaceGetNotifMsg::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
 
+::PROTOBUF_NAMESPACE_ID::uint8* SLInterfaceGetNotifMsg::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:service_layer.SLInterfaceGetNotifMsg)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
 
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:service_layer.SLInterfaceGetNotifMsg)
+  return target;
+}
 
+size_t SLInterfaceGetNotifMsg::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:service_layer.SLInterfaceGetNotifMsg)
+  size_t total_size = 0;
 
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void SLInterfaceGetNotifMsg::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:service_layer.SLInterfaceGetNotifMsg)
+  GOOGLE_DCHECK_NE(&from, this);
+  const SLInterfaceGetNotifMsg* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<SLInterfaceGetNotifMsg>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:service_layer.SLInterfaceGetNotifMsg)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:service_layer.SLInterfaceGetNotifMsg)
+    MergeFrom(*source);
+  }
+}
+
+void SLInterfaceGetNotifMsg::MergeFrom(const SLInterfaceGetNotifMsg& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:service_layer.SLInterfaceGetNotifMsg)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+}
+
+void SLInterfaceGetNotifMsg::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:service_layer.SLInterfaceGetNotifMsg)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void SLInterfaceGetNotifMsg::CopyFrom(const SLInterfaceGetNotifMsg& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:service_layer.SLInterfaceGetNotifMsg)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool SLInterfaceGetNotifMsg::IsInitialized() const {
+  return true;
+}
+
+void SLInterfaceGetNotifMsg::InternalSwap(SLInterfaceGetNotifMsg* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+}
 
 ::PROTOBUF_NAMESPACE_ID::Metadata SLInterfaceGetNotifMsg::GetMetadata() const {
-  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
-      &descriptor_table_sl_5finterface_2eproto_getter, &descriptor_table_sl_5finterface_2eproto_once,
-      file_level_metadata_sl_5finterface_2eproto[8]);
+  return GetMetadataStatic();
 }
+
 
 // ===================================================================
 
@@ -2195,13 +2486,11 @@ SLInterfaceNotif::_Internal::info(const SLInterfaceNotif* msg) {
   return *msg->Event_.info_;
 }
 void SLInterfaceNotif::set_allocated_errstatus(::service_layer::SLErrorStatus* errstatus) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
   clear_Event();
   if (errstatus) {
     ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-        ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper<
-            ::PROTOBUF_NAMESPACE_ID::MessageLite>::GetOwningArena(
-                reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(errstatus));
+      reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(errstatus)->GetArena();
     if (message_arena != submessage_arena) {
       errstatus = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
           message_arena, errstatus, submessage_arena);
@@ -2213,18 +2502,18 @@ void SLInterfaceNotif::set_allocated_errstatus(::service_layer::SLErrorStatus* e
 }
 void SLInterfaceNotif::clear_errstatus() {
   if (_internal_has_errstatus()) {
-    if (GetArenaForAllocation() == nullptr) {
+    if (GetArena() == nullptr) {
       delete Event_.errstatus_;
     }
     clear_has_Event();
   }
 }
 void SLInterfaceNotif::set_allocated_info(::service_layer::SLInterfaceInfoMsg* info) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
   clear_Event();
   if (info) {
     ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-      ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper<::service_layer::SLInterfaceInfoMsg>::GetOwningArena(info);
+      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(info);
     if (message_arena != submessage_arena) {
       info = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
           message_arena, info, submessage_arena);
@@ -2234,13 +2523,10 @@ void SLInterfaceNotif::set_allocated_info(::service_layer::SLInterfaceInfoMsg* i
   }
   // @@protoc_insertion_point(field_set_allocated:service_layer.SLInterfaceNotif.Info)
 }
-SLInterfaceNotif::SLInterfaceNotif(::PROTOBUF_NAMESPACE_ID::Arena* arena,
-                         bool is_message_owned)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+SLInterfaceNotif::SLInterfaceNotif(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
   SharedCtor();
-  if (!is_message_owned) {
-    RegisterArenaDtor(arena);
-  }
+  RegisterArenaDtor(arena);
   // @@protoc_insertion_point(arena_constructor:service_layer.SLInterfaceNotif)
 }
 SLInterfaceNotif::SLInterfaceNotif(const SLInterfaceNotif& from)
@@ -2271,13 +2557,12 @@ clear_has_Event();
 
 SLInterfaceNotif::~SLInterfaceNotif() {
   // @@protoc_insertion_point(destructor:service_layer.SLInterfaceNotif)
-  if (GetArenaForAllocation() != nullptr) return;
   SharedDtor();
   _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-inline void SLInterfaceNotif::SharedDtor() {
-  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+void SLInterfaceNotif::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
   if (has_Event()) {
     clear_Event();
   }
@@ -2297,13 +2582,13 @@ void SLInterfaceNotif::clear_Event() {
 // @@protoc_insertion_point(one_of_clear_start:service_layer.SLInterfaceNotif)
   switch (Event_case()) {
     case kErrStatus: {
-      if (GetArenaForAllocation() == nullptr) {
+      if (GetArena() == nullptr) {
         delete Event_.errstatus_;
       }
       break;
     }
     case kInfo: {
-      if (GetArenaForAllocation() == nullptr) {
+      if (GetArena() == nullptr) {
         delete Event_.info_;
       }
       break;
@@ -2332,6 +2617,7 @@ const char* SLInterfaceNotif::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPA
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
     switch (tag >> 3) {
       // .service_layer.SLInterfaceNotifType EventType = 1;
       case 1:
@@ -2339,45 +2625,41 @@ const char* SLInterfaceNotif::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPA
           ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
           _internal_set_eventtype(static_cast<::service_layer::SLInterfaceNotifType>(val));
-        } else
-          goto handle_unusual;
+        } else goto handle_unusual;
         continue;
       // .service_layer.SLErrorStatus ErrStatus = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
           ptr = ctx->ParseMessage(_internal_mutable_errstatus(), ptr);
           CHK_(ptr);
-        } else
-          goto handle_unusual;
+        } else goto handle_unusual;
         continue;
       // .service_layer.SLInterfaceInfoMsg Info = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
           ptr = ctx->ParseMessage(_internal_mutable_info(), ptr);
           CHK_(ptr);
-        } else
-          goto handle_unusual;
+        } else goto handle_unusual;
         continue;
-      default:
-        goto handle_unusual;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
     }  // switch
-  handle_unusual:
-    if ((tag == 0) || ((tag & 7) == 4)) {
-      CHK_(ptr);
-      ctx->SetLastTag(tag);
-      goto message_done;
-    }
-    ptr = UnknownFieldParse(
-        tag,
-        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-        ptr, ctx);
-    CHK_(ptr != nullptr);
   }  // while
-message_done:
+success:
   return ptr;
 failure:
   ptr = nullptr;
-  goto message_done;
+  goto success;
 #undef CHK_
 }
 
@@ -2388,7 +2670,7 @@ failure:
   (void) cached_has_bits;
 
   // .service_layer.SLInterfaceNotifType EventType = 1;
-  if (this->_internal_eventtype() != 0) {
+  if (this->eventtype() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
       1, this->_internal_eventtype(), target);
@@ -2427,7 +2709,7 @@ size_t SLInterfaceNotif::ByteSizeLong() const {
   (void) cached_has_bits;
 
   // .service_layer.SLInterfaceNotifType EventType = 1;
-  if (this->_internal_eventtype() != 0) {
+  if (this->eventtype() != 0) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_eventtype());
   }
@@ -2451,29 +2733,38 @@ size_t SLInterfaceNotif::ByteSizeLong() const {
       break;
     }
   }
-  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
 }
 
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData SLInterfaceNotif::_class_data_ = {
-    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
-    SLInterfaceNotif::MergeImpl
-};
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*SLInterfaceNotif::GetClassData() const { return &_class_data_; }
-
-void SLInterfaceNotif::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
-                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-  static_cast<SLInterfaceNotif *>(to)->MergeFrom(
-      static_cast<const SLInterfaceNotif &>(from));
+void SLInterfaceNotif::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:service_layer.SLInterfaceNotif)
+  GOOGLE_DCHECK_NE(&from, this);
+  const SLInterfaceNotif* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<SLInterfaceNotif>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:service_layer.SLInterfaceNotif)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:service_layer.SLInterfaceNotif)
+    MergeFrom(*source);
+  }
 }
-
 
 void SLInterfaceNotif::MergeFrom(const SLInterfaceNotif& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:service_layer.SLInterfaceNotif)
   GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from._internal_eventtype() != 0) {
+  if (from.eventtype() != 0) {
     _internal_set_eventtype(from._internal_eventtype());
   }
   switch (from.Event_case()) {
@@ -2489,7 +2780,13 @@ void SLInterfaceNotif::MergeFrom(const SLInterfaceNotif& from) {
       break;
     }
   }
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void SLInterfaceNotif::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:service_layer.SLInterfaceNotif)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
 }
 
 void SLInterfaceNotif::CopyFrom(const SLInterfaceNotif& from) {
@@ -2505,17 +2802,16 @@ bool SLInterfaceNotif::IsInitialized() const {
 
 void SLInterfaceNotif::InternalSwap(SLInterfaceNotif* other) {
   using std::swap;
-  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
   swap(eventtype_, other->eventtype_);
   swap(Event_, other->Event_);
   swap(_oneof_case_[0], other->_oneof_case_[0]);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata SLInterfaceNotif::GetMetadata() const {
-  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
-      &descriptor_table_sl_5finterface_2eproto_getter, &descriptor_table_sl_5finterface_2eproto_once,
-      file_level_metadata_sl_5finterface_2eproto[9]);
+  return GetMetadataStatic();
 }
+
 
 // ===================================================================
 
@@ -2526,14 +2822,11 @@ class SLInterfaceNotifMsg::_Internal {
 void SLInterfaceNotifMsg::clear_entries() {
   entries_.Clear();
 }
-SLInterfaceNotifMsg::SLInterfaceNotifMsg(::PROTOBUF_NAMESPACE_ID::Arena* arena,
-                         bool is_message_owned)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned),
+SLInterfaceNotifMsg::SLInterfaceNotifMsg(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena),
   entries_(arena) {
   SharedCtor();
-  if (!is_message_owned) {
-    RegisterArenaDtor(arena);
-  }
+  RegisterArenaDtor(arena);
   // @@protoc_insertion_point(arena_constructor:service_layer.SLInterfaceNotifMsg)
 }
 SLInterfaceNotifMsg::SLInterfaceNotifMsg(const SLInterfaceNotifMsg& from)
@@ -2550,13 +2843,12 @@ oper_ = 0;
 
 SLInterfaceNotifMsg::~SLInterfaceNotifMsg() {
   // @@protoc_insertion_point(destructor:service_layer.SLInterfaceNotifMsg)
-  if (GetArenaForAllocation() != nullptr) return;
   SharedDtor();
   _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-inline void SLInterfaceNotifMsg::SharedDtor() {
-  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+void SLInterfaceNotifMsg::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
 }
 
 void SLInterfaceNotifMsg::ArenaDtor(void* object) {
@@ -2585,6 +2877,7 @@ const char* SLInterfaceNotifMsg::_InternalParse(const char* ptr, ::PROTOBUF_NAME
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
     switch (tag >> 3) {
       // .service_layer.SLNotifOp Oper = 1;
       case 1:
@@ -2592,8 +2885,7 @@ const char* SLInterfaceNotifMsg::_InternalParse(const char* ptr, ::PROTOBUF_NAME
           ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
           _internal_set_oper(static_cast<::service_layer::SLNotifOp>(val));
-        } else
-          goto handle_unusual;
+        } else goto handle_unusual;
         continue;
       // repeated .service_layer.SLInterface Entries = 2;
       case 2:
@@ -2605,29 +2897,27 @@ const char* SLInterfaceNotifMsg::_InternalParse(const char* ptr, ::PROTOBUF_NAME
             CHK_(ptr);
             if (!ctx->DataAvailable(ptr)) break;
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<18>(ptr));
-        } else
-          goto handle_unusual;
+        } else goto handle_unusual;
         continue;
-      default:
-        goto handle_unusual;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
     }  // switch
-  handle_unusual:
-    if ((tag == 0) || ((tag & 7) == 4)) {
-      CHK_(ptr);
-      ctx->SetLastTag(tag);
-      goto message_done;
-    }
-    ptr = UnknownFieldParse(
-        tag,
-        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-        ptr, ctx);
-    CHK_(ptr != nullptr);
   }  // while
-message_done:
+success:
   return ptr;
 failure:
   ptr = nullptr;
-  goto message_done;
+  goto success;
 #undef CHK_
 }
 
@@ -2638,7 +2928,7 @@ failure:
   (void) cached_has_bits;
 
   // .service_layer.SLNotifOp Oper = 1;
-  if (this->_internal_oper() != 0) {
+  if (this->oper() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
       1, this->_internal_oper(), target);
@@ -2676,38 +2966,53 @@ size_t SLInterfaceNotifMsg::ByteSizeLong() const {
   }
 
   // .service_layer.SLNotifOp Oper = 1;
-  if (this->_internal_oper() != 0) {
+  if (this->oper() != 0) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_oper());
   }
 
-  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
 }
 
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData SLInterfaceNotifMsg::_class_data_ = {
-    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
-    SLInterfaceNotifMsg::MergeImpl
-};
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*SLInterfaceNotifMsg::GetClassData() const { return &_class_data_; }
-
-void SLInterfaceNotifMsg::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
-                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-  static_cast<SLInterfaceNotifMsg *>(to)->MergeFrom(
-      static_cast<const SLInterfaceNotifMsg &>(from));
+void SLInterfaceNotifMsg::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:service_layer.SLInterfaceNotifMsg)
+  GOOGLE_DCHECK_NE(&from, this);
+  const SLInterfaceNotifMsg* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<SLInterfaceNotifMsg>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:service_layer.SLInterfaceNotifMsg)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:service_layer.SLInterfaceNotifMsg)
+    MergeFrom(*source);
+  }
 }
-
 
 void SLInterfaceNotifMsg::MergeFrom(const SLInterfaceNotifMsg& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:service_layer.SLInterfaceNotifMsg)
   GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
   entries_.MergeFrom(from.entries_);
-  if (from._internal_oper() != 0) {
+  if (from.oper() != 0) {
     _internal_set_oper(from._internal_oper());
   }
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void SLInterfaceNotifMsg::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:service_layer.SLInterfaceNotifMsg)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
 }
 
 void SLInterfaceNotifMsg::CopyFrom(const SLInterfaceNotifMsg& from) {
@@ -2723,16 +3028,15 @@ bool SLInterfaceNotifMsg::IsInitialized() const {
 
 void SLInterfaceNotifMsg::InternalSwap(SLInterfaceNotifMsg* other) {
   using std::swap;
-  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
   entries_.InternalSwap(&other->entries_);
   swap(oper_, other->oper_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata SLInterfaceNotifMsg::GetMetadata() const {
-  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
-      &descriptor_table_sl_5finterface_2eproto_getter, &descriptor_table_sl_5finterface_2eproto_once,
-      file_level_metadata_sl_5finterface_2eproto[10]);
+  return GetMetadataStatic();
 }
+
 
 // ===================================================================
 
@@ -2751,24 +3055,21 @@ SLInterfaceNotifMsgRes::_Internal::key(const SLInterfaceNotifMsgRes* msg) {
   return *msg->key_;
 }
 void SLInterfaceNotifMsgRes::clear_errstatus() {
-  if (GetArenaForAllocation() == nullptr && errstatus_ != nullptr) {
+  if (GetArena() == nullptr && errstatus_ != nullptr) {
     delete errstatus_;
   }
   errstatus_ = nullptr;
 }
 void SLInterfaceNotifMsgRes::clear_key() {
-  if (GetArenaForAllocation() == nullptr && key_ != nullptr) {
+  if (GetArena() == nullptr && key_ != nullptr) {
     delete key_;
   }
   key_ = nullptr;
 }
-SLInterfaceNotifMsgRes::SLInterfaceNotifMsgRes(::PROTOBUF_NAMESPACE_ID::Arena* arena,
-                         bool is_message_owned)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+SLInterfaceNotifMsgRes::SLInterfaceNotifMsgRes(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
   SharedCtor();
-  if (!is_message_owned) {
-    RegisterArenaDtor(arena);
-  }
+  RegisterArenaDtor(arena);
   // @@protoc_insertion_point(arena_constructor:service_layer.SLInterfaceNotifMsgRes)
 }
 SLInterfaceNotifMsgRes::SLInterfaceNotifMsgRes(const SLInterfaceNotifMsgRes& from)
@@ -2796,13 +3097,12 @@ void SLInterfaceNotifMsgRes::SharedCtor() {
 
 SLInterfaceNotifMsgRes::~SLInterfaceNotifMsgRes() {
   // @@protoc_insertion_point(destructor:service_layer.SLInterfaceNotifMsgRes)
-  if (GetArenaForAllocation() != nullptr) return;
   SharedDtor();
   _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-inline void SLInterfaceNotifMsgRes::SharedDtor() {
-  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+void SLInterfaceNotifMsgRes::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
   if (this != internal_default_instance()) delete errstatus_;
   if (this != internal_default_instance()) delete key_;
 }
@@ -2823,11 +3123,11 @@ void SLInterfaceNotifMsgRes::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  if (GetArenaForAllocation() == nullptr && errstatus_ != nullptr) {
+  if (GetArena() == nullptr && errstatus_ != nullptr) {
     delete errstatus_;
   }
   errstatus_ = nullptr;
-  if (GetArenaForAllocation() == nullptr && key_ != nullptr) {
+  if (GetArena() == nullptr && key_ != nullptr) {
     delete key_;
   }
   key_ = nullptr;
@@ -2839,43 +3139,41 @@ const char* SLInterfaceNotifMsgRes::_InternalParse(const char* ptr, ::PROTOBUF_N
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
     switch (tag >> 3) {
       // .service_layer.SLErrorStatus ErrStatus = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
           ptr = ctx->ParseMessage(_internal_mutable_errstatus(), ptr);
           CHK_(ptr);
-        } else
-          goto handle_unusual;
+        } else goto handle_unusual;
         continue;
       // .service_layer.SLInterface Key = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
           ptr = ctx->ParseMessage(_internal_mutable_key(), ptr);
           CHK_(ptr);
-        } else
-          goto handle_unusual;
+        } else goto handle_unusual;
         continue;
-      default:
-        goto handle_unusual;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
     }  // switch
-  handle_unusual:
-    if ((tag == 0) || ((tag & 7) == 4)) {
-      CHK_(ptr);
-      ctx->SetLastTag(tag);
-      goto message_done;
-    }
-    ptr = UnknownFieldParse(
-        tag,
-        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-        ptr, ctx);
-    CHK_(ptr != nullptr);
   }  // while
-message_done:
+success:
   return ptr;
 failure:
   ptr = nullptr;
-  goto message_done;
+  goto success;
 #undef CHK_
 }
 
@@ -2886,7 +3184,7 @@ failure:
   (void) cached_has_bits;
 
   // .service_layer.SLErrorStatus ErrStatus = 1;
-  if (this->_internal_has_errstatus()) {
+  if (this->has_errstatus()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
       InternalWriteMessage(
@@ -2894,7 +3192,7 @@ failure:
   }
 
   // .service_layer.SLInterface Key = 2;
-  if (this->_internal_has_key()) {
+  if (this->has_key()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
       InternalWriteMessage(
@@ -2918,48 +3216,63 @@ size_t SLInterfaceNotifMsgRes::ByteSizeLong() const {
   (void) cached_has_bits;
 
   // .service_layer.SLErrorStatus ErrStatus = 1;
-  if (this->_internal_has_errstatus()) {
+  if (this->has_errstatus()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
         *errstatus_);
   }
 
   // .service_layer.SLInterface Key = 2;
-  if (this->_internal_has_key()) {
+  if (this->has_key()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
         *key_);
   }
 
-  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
 }
 
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData SLInterfaceNotifMsgRes::_class_data_ = {
-    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
-    SLInterfaceNotifMsgRes::MergeImpl
-};
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*SLInterfaceNotifMsgRes::GetClassData() const { return &_class_data_; }
-
-void SLInterfaceNotifMsgRes::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
-                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-  static_cast<SLInterfaceNotifMsgRes *>(to)->MergeFrom(
-      static_cast<const SLInterfaceNotifMsgRes &>(from));
+void SLInterfaceNotifMsgRes::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:service_layer.SLInterfaceNotifMsgRes)
+  GOOGLE_DCHECK_NE(&from, this);
+  const SLInterfaceNotifMsgRes* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<SLInterfaceNotifMsgRes>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:service_layer.SLInterfaceNotifMsgRes)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:service_layer.SLInterfaceNotifMsgRes)
+    MergeFrom(*source);
+  }
 }
-
 
 void SLInterfaceNotifMsgRes::MergeFrom(const SLInterfaceNotifMsgRes& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:service_layer.SLInterfaceNotifMsgRes)
   GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from._internal_has_errstatus()) {
+  if (from.has_errstatus()) {
     _internal_mutable_errstatus()->::service_layer::SLErrorStatus::MergeFrom(from._internal_errstatus());
   }
-  if (from._internal_has_key()) {
+  if (from.has_key()) {
     _internal_mutable_key()->::service_layer::SLInterface::MergeFrom(from._internal_key());
   }
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void SLInterfaceNotifMsgRes::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:service_layer.SLInterfaceNotifMsgRes)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
 }
 
 void SLInterfaceNotifMsgRes::CopyFrom(const SLInterfaceNotifMsgRes& from) {
@@ -2975,7 +3288,7 @@ bool SLInterfaceNotifMsgRes::IsInitialized() const {
 
 void SLInterfaceNotifMsgRes::InternalSwap(SLInterfaceNotifMsgRes* other) {
   using std::swap;
-  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
       PROTOBUF_FIELD_OFFSET(SLInterfaceNotifMsgRes, key_)
       + sizeof(SLInterfaceNotifMsgRes::key_)
@@ -2985,10 +3298,9 @@ void SLInterfaceNotifMsgRes::InternalSwap(SLInterfaceNotifMsgRes* other) {
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata SLInterfaceNotifMsgRes::GetMetadata() const {
-  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
-      &descriptor_table_sl_5finterface_2eproto_getter, &descriptor_table_sl_5finterface_2eproto_once,
-      file_level_metadata_sl_5finterface_2eproto[11]);
+  return GetMetadataStatic();
 }
+
 
 // ===================================================================
 
@@ -3002,19 +3314,16 @@ SLInterfaceNotifMsgRsp::_Internal::statussummary(const SLInterfaceNotifMsgRsp* m
   return *msg->statussummary_;
 }
 void SLInterfaceNotifMsgRsp::clear_statussummary() {
-  if (GetArenaForAllocation() == nullptr && statussummary_ != nullptr) {
+  if (GetArena() == nullptr && statussummary_ != nullptr) {
     delete statussummary_;
   }
   statussummary_ = nullptr;
 }
-SLInterfaceNotifMsgRsp::SLInterfaceNotifMsgRsp(::PROTOBUF_NAMESPACE_ID::Arena* arena,
-                         bool is_message_owned)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned),
+SLInterfaceNotifMsgRsp::SLInterfaceNotifMsgRsp(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena),
   results_(arena) {
   SharedCtor();
-  if (!is_message_owned) {
-    RegisterArenaDtor(arena);
-  }
+  RegisterArenaDtor(arena);
   // @@protoc_insertion_point(arena_constructor:service_layer.SLInterfaceNotifMsgRsp)
 }
 SLInterfaceNotifMsgRsp::SLInterfaceNotifMsgRsp(const SLInterfaceNotifMsgRsp& from)
@@ -3035,13 +3344,12 @@ statussummary_ = nullptr;
 
 SLInterfaceNotifMsgRsp::~SLInterfaceNotifMsgRsp() {
   // @@protoc_insertion_point(destructor:service_layer.SLInterfaceNotifMsgRsp)
-  if (GetArenaForAllocation() != nullptr) return;
   SharedDtor();
   _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-inline void SLInterfaceNotifMsgRsp::SharedDtor() {
-  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+void SLInterfaceNotifMsgRsp::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
   if (this != internal_default_instance()) delete statussummary_;
 }
 
@@ -3062,7 +3370,7 @@ void SLInterfaceNotifMsgRsp::Clear() {
   (void) cached_has_bits;
 
   results_.Clear();
-  if (GetArenaForAllocation() == nullptr && statussummary_ != nullptr) {
+  if (GetArena() == nullptr && statussummary_ != nullptr) {
     delete statussummary_;
   }
   statussummary_ = nullptr;
@@ -3074,14 +3382,14 @@ const char* SLInterfaceNotifMsgRsp::_InternalParse(const char* ptr, ::PROTOBUF_N
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
     switch (tag >> 3) {
       // .service_layer.SLErrorStatus StatusSummary = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
           ptr = ctx->ParseMessage(_internal_mutable_statussummary(), ptr);
           CHK_(ptr);
-        } else
-          goto handle_unusual;
+        } else goto handle_unusual;
         continue;
       // repeated .service_layer.SLInterfaceNotifMsgRes Results = 2;
       case 2:
@@ -3093,29 +3401,27 @@ const char* SLInterfaceNotifMsgRsp::_InternalParse(const char* ptr, ::PROTOBUF_N
             CHK_(ptr);
             if (!ctx->DataAvailable(ptr)) break;
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<18>(ptr));
-        } else
-          goto handle_unusual;
+        } else goto handle_unusual;
         continue;
-      default:
-        goto handle_unusual;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
     }  // switch
-  handle_unusual:
-    if ((tag == 0) || ((tag & 7) == 4)) {
-      CHK_(ptr);
-      ctx->SetLastTag(tag);
-      goto message_done;
-    }
-    ptr = UnknownFieldParse(
-        tag,
-        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-        ptr, ctx);
-    CHK_(ptr != nullptr);
   }  // while
-message_done:
+success:
   return ptr;
 failure:
   ptr = nullptr;
-  goto message_done;
+  goto success;
 #undef CHK_
 }
 
@@ -3126,7 +3432,7 @@ failure:
   (void) cached_has_bits;
 
   // .service_layer.SLErrorStatus StatusSummary = 1;
-  if (this->_internal_has_statussummary()) {
+  if (this->has_statussummary()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
       InternalWriteMessage(
@@ -3165,39 +3471,54 @@ size_t SLInterfaceNotifMsgRsp::ByteSizeLong() const {
   }
 
   // .service_layer.SLErrorStatus StatusSummary = 1;
-  if (this->_internal_has_statussummary()) {
+  if (this->has_statussummary()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
         *statussummary_);
   }
 
-  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
 }
 
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData SLInterfaceNotifMsgRsp::_class_data_ = {
-    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
-    SLInterfaceNotifMsgRsp::MergeImpl
-};
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*SLInterfaceNotifMsgRsp::GetClassData() const { return &_class_data_; }
-
-void SLInterfaceNotifMsgRsp::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
-                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-  static_cast<SLInterfaceNotifMsgRsp *>(to)->MergeFrom(
-      static_cast<const SLInterfaceNotifMsgRsp &>(from));
+void SLInterfaceNotifMsgRsp::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:service_layer.SLInterfaceNotifMsgRsp)
+  GOOGLE_DCHECK_NE(&from, this);
+  const SLInterfaceNotifMsgRsp* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<SLInterfaceNotifMsgRsp>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:service_layer.SLInterfaceNotifMsgRsp)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:service_layer.SLInterfaceNotifMsgRsp)
+    MergeFrom(*source);
+  }
 }
-
 
 void SLInterfaceNotifMsgRsp::MergeFrom(const SLInterfaceNotifMsgRsp& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:service_layer.SLInterfaceNotifMsgRsp)
   GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
   results_.MergeFrom(from.results_);
-  if (from._internal_has_statussummary()) {
+  if (from.has_statussummary()) {
     _internal_mutable_statussummary()->::service_layer::SLErrorStatus::MergeFrom(from._internal_statussummary());
   }
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void SLInterfaceNotifMsgRsp::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:service_layer.SLInterfaceNotifMsgRsp)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
 }
 
 void SLInterfaceNotifMsgRsp::CopyFrom(const SLInterfaceNotifMsgRsp& from) {
@@ -3213,16 +3534,15 @@ bool SLInterfaceNotifMsgRsp::IsInitialized() const {
 
 void SLInterfaceNotifMsgRsp::InternalSwap(SLInterfaceNotifMsgRsp* other) {
   using std::swap;
-  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
   results_.InternalSwap(&other->results_);
   swap(statussummary_, other->statussummary_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata SLInterfaceNotifMsgRsp::GetMetadata() const {
-  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
-      &descriptor_table_sl_5finterface_2eproto_getter, &descriptor_table_sl_5finterface_2eproto_once,
-      file_level_metadata_sl_5finterface_2eproto[12]);
+  return GetMetadataStatic();
 }
+
 
 // @@protoc_insertion_point(namespace_scope)
 }  // namespace service_layer

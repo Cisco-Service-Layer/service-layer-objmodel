@@ -20,8 +20,23 @@ ARG GO_PROTOBUF_VER=v1.4.2
 ARG GO_GRPC_VER=v1.34.0
 ARG GENPROTO_VER=798beca9d670ad2544685973f1b5eebab3c025cb
 
-# go
-RUN wget -qO- https://dl.google.com/go/go${GO_VER}.linux-amd64.tar.gz | tar xzvf - -C /usr/local
+# Install GO binary https://go.dev/doc/install
+RUN wget -qO- https://golang.org/dl/go${GO_VER}.linux-amd64.tar.gz | tar xzvf - -C /usr/local
+
+#Ensure PATH has GO binary path
+ENV PATH="${PATH}:/usr/local/go/bin"
+
+# Install protocol buffer compiler https://grpc.io/docs/protoc-installation/
+ARG PB_REL=https://github.com/protocolbuffers/protobuf/releases
+RUN curl -LO ${PB_REL}/download/v3.15.8/protoc-3.15.8-linux-x86_64.zip
+RUN unzip protoc-3.15.8-linux-x86_64.zip -d /usr/local
+
+# Install protoc-gen-go and protoc-gen-go-grpc
+# Reference https://grpc.io/docs/languages/go/quickstart
+
+RUN go install google.golang.org/protobuf/cmd/protoc-gen-go@v1.28
+RUN go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@v1.2
+ENV PATH="${PATH}:/root/go/bin"
 
 ## grpc
 #RUN git clone -b ${C_GRPC_VER} https://github.com/grpc/grpc.git ${WS}/grpc && \
@@ -44,10 +59,7 @@ RUN wget -qO- https://dl.google.com/go/go${GO_VER}.linux-amd64.tar.gz | tar xzvf
 # environment
 ENV SLAPI_ROOT="${WS}/slapi"
 ENV GOROOT="/usr/local/go"
-ENV GOPATH="${WS}/go"
-ENV PATH="${WS}/bin:${GOPATH}/bin:${GOROOT}/bin:${PATH}:."
-
-RUN mkdir -p ${WS}/go
+ENV PATH="${PATH}:."
 
 ## grpc
 #RUN go get -d google.golang.org/grpc && \
