@@ -6,6 +6,7 @@ package sl_api
 
 import (
     "fmt"
+    "io"
     "net"
     "strings"
     "time"
@@ -19,6 +20,50 @@ import (
 var (
     MaxIlmInBatch uint32
 )
+
+// runMPLSILMRequestStream sends ILM (incoming label requests) request to router.
+func runMPLSILMRequest(conn *grpc.ClientConn, messages []*pb.SLMplsIlmMsg) (err error) {
+        client := pb.NewSLMplsOperClient(conn)
+        ctx, cancel := context.WithTimeout(context.Background(), 600*time.Second)
+        defer cancel() // make sure all paths cancel the context to avoid context leak
+
+        stream, err := client.SLMplsIlmOpStream(ctx)
+        if err != nil {
+                return err
+        }
+
+        errc := make(chan error, 1)
+        go func() {
+                for {
+                        response, err := stream.Recv()
+                        if response == nil || err == io.EOF {
+                                // read done.
+                                close(errc)
+                                return
+                        }
+                        if err != nil {
+                                log.Error(err)
+                                errc <- err
+                                close(errc)
+                                return
+                        }
+                        if response.StatusSummary.Status != pb.SLErrorStatus_SL_SUCCESS {
+                                errc <- fmt.Errorf("route operation failed: %s", response)
+                                close(errc)
+                                return
+                        }
+                }
+        }()
+
+        for _, message := range messages {
+                if err = stream.Send(message); err != nil {
+                        return err
+                }
+        }
+        stream.CloseSend()
+        err = <-errc
+        return err
+}
 
 func MplsRegOperation(conn *grpc.ClientConn, oper pb.SLRegOp) {
 
@@ -130,6 +175,7 @@ func LabelOperation(conn *grpc.ClientConn, Oper pb.SLObjectOp,
     var ilmsInBatch uint = 0
     var message *pb.SLMplsIlmMsg = nil
     var cfgElsp bool = false
+    var messages []*pb.SLMplsIlmMsg
 
     if batchSize == 0 {
         log.Fatalf("Invalid batch size: %d", batchSize)
@@ -141,9 +187,6 @@ func LabelOperation(conn *grpc.ClientConn, Oper pb.SLObjectOp,
 
     /* Initialize some path params */
     nexthop := ip4toInt(net.ParseIP(NextHopIP))
-
-    /* Create a NewSLMplsOperClient instance */
-    c := pb.NewSLMplsOperClient(conn)
 
     /* Let's compute the time it takes to RPC the labels */
     t0 := time.Now()
@@ -172,23 +215,11 @@ func LabelOperation(conn *grpc.ClientConn, Oper pb.SLObjectOp,
 
         log.Debug("sentIlms ", sentIlms, " batchIdx ", batchIndex, " ilmsInBatch ", ilmsInBatch)
 
-        var response *pb.SLMplsIlmMsgRsp = nil
-        var err error = nil
-
         if (ilmsInBatch + numIlms > batchSize) ||
            (sentIlms + numIlms >= totalIlms)  {
             batchIndex ++
 
-            /* RPC the message */
-            response, err = c.SLMplsIlmOp(context.Background(), message)
-            if err != nil {
-                log.Fatal(err)
-            }
-
-            /* Validate response */
-            if response.StatusSummary.Status != pb.SLErrorStatus_SL_SUCCESS {
-                log.Fatalf("ILM operation failed: ", response)
-            }
+            messages = append(messages, message)
 
             ilmsInBatch = 0
         }
@@ -264,6 +295,8 @@ func LabelOperation(conn *grpc.ClientConn, Oper pb.SLObjectOp,
         ilmsInBatch += numIlms
         label++
     }
+
+    runMPLSILMRequest(conn, messages)
 
     t1 := time.Now()
 
