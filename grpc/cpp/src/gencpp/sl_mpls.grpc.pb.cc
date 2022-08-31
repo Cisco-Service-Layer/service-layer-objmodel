@@ -35,257 +35,222 @@ static const char* SLMplsOper_method_names[] = {
 
 std::unique_ptr< SLMplsOper::Stub> SLMplsOper::NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options) {
   (void)options;
-  std::unique_ptr< SLMplsOper::Stub> stub(new SLMplsOper::Stub(channel));
+  std::unique_ptr< SLMplsOper::Stub> stub(new SLMplsOper::Stub(channel, options));
   return stub;
 }
 
-SLMplsOper::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel)
-  : channel_(channel), rpcmethod_SLMplsRegOp_(SLMplsOper_method_names[0], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_SLMplsGet_(SLMplsOper_method_names[1], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_SLMplsGetStats_(SLMplsOper_method_names[2], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_SLMplsLabelBlockOp_(SLMplsOper_method_names[3], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_SLMplsLabelBlockGet_(SLMplsOper_method_names[4], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_SLMplsIlmOp_(SLMplsOper_method_names[5], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_SLMplsIlmGet_(SLMplsOper_method_names[6], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_SLMplsIlmOpStream_(SLMplsOper_method_names[7], ::grpc::internal::RpcMethod::BIDI_STREAMING, channel)
-  , rpcmethod_SLMplsIlmGetStream_(SLMplsOper_method_names[8], ::grpc::internal::RpcMethod::BIDI_STREAMING, channel)
+SLMplsOper::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options)
+  : channel_(channel), rpcmethod_SLMplsRegOp_(SLMplsOper_method_names[0], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_SLMplsGet_(SLMplsOper_method_names[1], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_SLMplsGetStats_(SLMplsOper_method_names[2], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_SLMplsLabelBlockOp_(SLMplsOper_method_names[3], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_SLMplsLabelBlockGet_(SLMplsOper_method_names[4], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_SLMplsIlmOp_(SLMplsOper_method_names[5], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_SLMplsIlmGet_(SLMplsOper_method_names[6], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_SLMplsIlmOpStream_(SLMplsOper_method_names[7], options.suffix_for_stats(),::grpc::internal::RpcMethod::BIDI_STREAMING, channel)
+  , rpcmethod_SLMplsIlmGetStream_(SLMplsOper_method_names[8], options.suffix_for_stats(),::grpc::internal::RpcMethod::BIDI_STREAMING, channel)
   {}
 
 ::grpc::Status SLMplsOper::Stub::SLMplsRegOp(::grpc::ClientContext* context, const ::service_layer::SLMplsRegMsg& request, ::service_layer::SLMplsRegMsgRsp* response) {
-  return ::grpc::internal::BlockingUnaryCall(channel_.get(), rpcmethod_SLMplsRegOp_, context, request, response);
+  return ::grpc::internal::BlockingUnaryCall< ::service_layer::SLMplsRegMsg, ::service_layer::SLMplsRegMsgRsp, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_SLMplsRegOp_, context, request, response);
 }
 
-void SLMplsOper::Stub::experimental_async::SLMplsRegOp(::grpc::ClientContext* context, const ::service_layer::SLMplsRegMsg* request, ::service_layer::SLMplsRegMsgRsp* response, std::function<void(::grpc::Status)> f) {
-  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_SLMplsRegOp_, context, request, response, std::move(f));
+void SLMplsOper::Stub::async::SLMplsRegOp(::grpc::ClientContext* context, const ::service_layer::SLMplsRegMsg* request, ::service_layer::SLMplsRegMsgRsp* response, std::function<void(::grpc::Status)> f) {
+  ::grpc::internal::CallbackUnaryCall< ::service_layer::SLMplsRegMsg, ::service_layer::SLMplsRegMsgRsp, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_SLMplsRegOp_, context, request, response, std::move(f));
 }
 
-void SLMplsOper::Stub::experimental_async::SLMplsRegOp(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::service_layer::SLMplsRegMsgRsp* response, std::function<void(::grpc::Status)> f) {
-  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_SLMplsRegOp_, context, request, response, std::move(f));
-}
-
-void SLMplsOper::Stub::experimental_async::SLMplsRegOp(::grpc::ClientContext* context, const ::service_layer::SLMplsRegMsg* request, ::service_layer::SLMplsRegMsgRsp* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
-  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_SLMplsRegOp_, context, request, response, reactor);
-}
-
-void SLMplsOper::Stub::experimental_async::SLMplsRegOp(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::service_layer::SLMplsRegMsgRsp* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
-  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_SLMplsRegOp_, context, request, response, reactor);
-}
-
-::grpc::ClientAsyncResponseReader< ::service_layer::SLMplsRegMsgRsp>* SLMplsOper::Stub::AsyncSLMplsRegOpRaw(::grpc::ClientContext* context, const ::service_layer::SLMplsRegMsg& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::service_layer::SLMplsRegMsgRsp>::Create(channel_.get(), cq, rpcmethod_SLMplsRegOp_, context, request, true);
+void SLMplsOper::Stub::async::SLMplsRegOp(::grpc::ClientContext* context, const ::service_layer::SLMplsRegMsg* request, ::service_layer::SLMplsRegMsgRsp* response, ::grpc::ClientUnaryReactor* reactor) {
+  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_SLMplsRegOp_, context, request, response, reactor);
 }
 
 ::grpc::ClientAsyncResponseReader< ::service_layer::SLMplsRegMsgRsp>* SLMplsOper::Stub::PrepareAsyncSLMplsRegOpRaw(::grpc::ClientContext* context, const ::service_layer::SLMplsRegMsg& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::service_layer::SLMplsRegMsgRsp>::Create(channel_.get(), cq, rpcmethod_SLMplsRegOp_, context, request, false);
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::service_layer::SLMplsRegMsgRsp, ::service_layer::SLMplsRegMsg, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_SLMplsRegOp_, context, request);
+}
+
+::grpc::ClientAsyncResponseReader< ::service_layer::SLMplsRegMsgRsp>* SLMplsOper::Stub::AsyncSLMplsRegOpRaw(::grpc::ClientContext* context, const ::service_layer::SLMplsRegMsg& request, ::grpc::CompletionQueue* cq) {
+  auto* result =
+    this->PrepareAsyncSLMplsRegOpRaw(context, request, cq);
+  result->StartCall();
+  return result;
 }
 
 ::grpc::Status SLMplsOper::Stub::SLMplsGet(::grpc::ClientContext* context, const ::service_layer::SLMplsGetMsg& request, ::service_layer::SLMplsGetMsgRsp* response) {
-  return ::grpc::internal::BlockingUnaryCall(channel_.get(), rpcmethod_SLMplsGet_, context, request, response);
+  return ::grpc::internal::BlockingUnaryCall< ::service_layer::SLMplsGetMsg, ::service_layer::SLMplsGetMsgRsp, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_SLMplsGet_, context, request, response);
 }
 
-void SLMplsOper::Stub::experimental_async::SLMplsGet(::grpc::ClientContext* context, const ::service_layer::SLMplsGetMsg* request, ::service_layer::SLMplsGetMsgRsp* response, std::function<void(::grpc::Status)> f) {
-  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_SLMplsGet_, context, request, response, std::move(f));
+void SLMplsOper::Stub::async::SLMplsGet(::grpc::ClientContext* context, const ::service_layer::SLMplsGetMsg* request, ::service_layer::SLMplsGetMsgRsp* response, std::function<void(::grpc::Status)> f) {
+  ::grpc::internal::CallbackUnaryCall< ::service_layer::SLMplsGetMsg, ::service_layer::SLMplsGetMsgRsp, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_SLMplsGet_, context, request, response, std::move(f));
 }
 
-void SLMplsOper::Stub::experimental_async::SLMplsGet(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::service_layer::SLMplsGetMsgRsp* response, std::function<void(::grpc::Status)> f) {
-  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_SLMplsGet_, context, request, response, std::move(f));
-}
-
-void SLMplsOper::Stub::experimental_async::SLMplsGet(::grpc::ClientContext* context, const ::service_layer::SLMplsGetMsg* request, ::service_layer::SLMplsGetMsgRsp* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
-  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_SLMplsGet_, context, request, response, reactor);
-}
-
-void SLMplsOper::Stub::experimental_async::SLMplsGet(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::service_layer::SLMplsGetMsgRsp* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
-  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_SLMplsGet_, context, request, response, reactor);
-}
-
-::grpc::ClientAsyncResponseReader< ::service_layer::SLMplsGetMsgRsp>* SLMplsOper::Stub::AsyncSLMplsGetRaw(::grpc::ClientContext* context, const ::service_layer::SLMplsGetMsg& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::service_layer::SLMplsGetMsgRsp>::Create(channel_.get(), cq, rpcmethod_SLMplsGet_, context, request, true);
+void SLMplsOper::Stub::async::SLMplsGet(::grpc::ClientContext* context, const ::service_layer::SLMplsGetMsg* request, ::service_layer::SLMplsGetMsgRsp* response, ::grpc::ClientUnaryReactor* reactor) {
+  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_SLMplsGet_, context, request, response, reactor);
 }
 
 ::grpc::ClientAsyncResponseReader< ::service_layer::SLMplsGetMsgRsp>* SLMplsOper::Stub::PrepareAsyncSLMplsGetRaw(::grpc::ClientContext* context, const ::service_layer::SLMplsGetMsg& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::service_layer::SLMplsGetMsgRsp>::Create(channel_.get(), cq, rpcmethod_SLMplsGet_, context, request, false);
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::service_layer::SLMplsGetMsgRsp, ::service_layer::SLMplsGetMsg, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_SLMplsGet_, context, request);
+}
+
+::grpc::ClientAsyncResponseReader< ::service_layer::SLMplsGetMsgRsp>* SLMplsOper::Stub::AsyncSLMplsGetRaw(::grpc::ClientContext* context, const ::service_layer::SLMplsGetMsg& request, ::grpc::CompletionQueue* cq) {
+  auto* result =
+    this->PrepareAsyncSLMplsGetRaw(context, request, cq);
+  result->StartCall();
+  return result;
 }
 
 ::grpc::Status SLMplsOper::Stub::SLMplsGetStats(::grpc::ClientContext* context, const ::service_layer::SLMplsGetMsg& request, ::service_layer::SLMplsGetStatsMsgRsp* response) {
-  return ::grpc::internal::BlockingUnaryCall(channel_.get(), rpcmethod_SLMplsGetStats_, context, request, response);
+  return ::grpc::internal::BlockingUnaryCall< ::service_layer::SLMplsGetMsg, ::service_layer::SLMplsGetStatsMsgRsp, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_SLMplsGetStats_, context, request, response);
 }
 
-void SLMplsOper::Stub::experimental_async::SLMplsGetStats(::grpc::ClientContext* context, const ::service_layer::SLMplsGetMsg* request, ::service_layer::SLMplsGetStatsMsgRsp* response, std::function<void(::grpc::Status)> f) {
-  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_SLMplsGetStats_, context, request, response, std::move(f));
+void SLMplsOper::Stub::async::SLMplsGetStats(::grpc::ClientContext* context, const ::service_layer::SLMplsGetMsg* request, ::service_layer::SLMplsGetStatsMsgRsp* response, std::function<void(::grpc::Status)> f) {
+  ::grpc::internal::CallbackUnaryCall< ::service_layer::SLMplsGetMsg, ::service_layer::SLMplsGetStatsMsgRsp, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_SLMplsGetStats_, context, request, response, std::move(f));
 }
 
-void SLMplsOper::Stub::experimental_async::SLMplsGetStats(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::service_layer::SLMplsGetStatsMsgRsp* response, std::function<void(::grpc::Status)> f) {
-  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_SLMplsGetStats_, context, request, response, std::move(f));
-}
-
-void SLMplsOper::Stub::experimental_async::SLMplsGetStats(::grpc::ClientContext* context, const ::service_layer::SLMplsGetMsg* request, ::service_layer::SLMplsGetStatsMsgRsp* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
-  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_SLMplsGetStats_, context, request, response, reactor);
-}
-
-void SLMplsOper::Stub::experimental_async::SLMplsGetStats(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::service_layer::SLMplsGetStatsMsgRsp* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
-  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_SLMplsGetStats_, context, request, response, reactor);
-}
-
-::grpc::ClientAsyncResponseReader< ::service_layer::SLMplsGetStatsMsgRsp>* SLMplsOper::Stub::AsyncSLMplsGetStatsRaw(::grpc::ClientContext* context, const ::service_layer::SLMplsGetMsg& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::service_layer::SLMplsGetStatsMsgRsp>::Create(channel_.get(), cq, rpcmethod_SLMplsGetStats_, context, request, true);
+void SLMplsOper::Stub::async::SLMplsGetStats(::grpc::ClientContext* context, const ::service_layer::SLMplsGetMsg* request, ::service_layer::SLMplsGetStatsMsgRsp* response, ::grpc::ClientUnaryReactor* reactor) {
+  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_SLMplsGetStats_, context, request, response, reactor);
 }
 
 ::grpc::ClientAsyncResponseReader< ::service_layer::SLMplsGetStatsMsgRsp>* SLMplsOper::Stub::PrepareAsyncSLMplsGetStatsRaw(::grpc::ClientContext* context, const ::service_layer::SLMplsGetMsg& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::service_layer::SLMplsGetStatsMsgRsp>::Create(channel_.get(), cq, rpcmethod_SLMplsGetStats_, context, request, false);
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::service_layer::SLMplsGetStatsMsgRsp, ::service_layer::SLMplsGetMsg, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_SLMplsGetStats_, context, request);
+}
+
+::grpc::ClientAsyncResponseReader< ::service_layer::SLMplsGetStatsMsgRsp>* SLMplsOper::Stub::AsyncSLMplsGetStatsRaw(::grpc::ClientContext* context, const ::service_layer::SLMplsGetMsg& request, ::grpc::CompletionQueue* cq) {
+  auto* result =
+    this->PrepareAsyncSLMplsGetStatsRaw(context, request, cq);
+  result->StartCall();
+  return result;
 }
 
 ::grpc::Status SLMplsOper::Stub::SLMplsLabelBlockOp(::grpc::ClientContext* context, const ::service_layer::SLMplsLabelBlockMsg& request, ::service_layer::SLMplsLabelBlockMsgRsp* response) {
-  return ::grpc::internal::BlockingUnaryCall(channel_.get(), rpcmethod_SLMplsLabelBlockOp_, context, request, response);
+  return ::grpc::internal::BlockingUnaryCall< ::service_layer::SLMplsLabelBlockMsg, ::service_layer::SLMplsLabelBlockMsgRsp, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_SLMplsLabelBlockOp_, context, request, response);
 }
 
-void SLMplsOper::Stub::experimental_async::SLMplsLabelBlockOp(::grpc::ClientContext* context, const ::service_layer::SLMplsLabelBlockMsg* request, ::service_layer::SLMplsLabelBlockMsgRsp* response, std::function<void(::grpc::Status)> f) {
-  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_SLMplsLabelBlockOp_, context, request, response, std::move(f));
+void SLMplsOper::Stub::async::SLMplsLabelBlockOp(::grpc::ClientContext* context, const ::service_layer::SLMplsLabelBlockMsg* request, ::service_layer::SLMplsLabelBlockMsgRsp* response, std::function<void(::grpc::Status)> f) {
+  ::grpc::internal::CallbackUnaryCall< ::service_layer::SLMplsLabelBlockMsg, ::service_layer::SLMplsLabelBlockMsgRsp, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_SLMplsLabelBlockOp_, context, request, response, std::move(f));
 }
 
-void SLMplsOper::Stub::experimental_async::SLMplsLabelBlockOp(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::service_layer::SLMplsLabelBlockMsgRsp* response, std::function<void(::grpc::Status)> f) {
-  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_SLMplsLabelBlockOp_, context, request, response, std::move(f));
-}
-
-void SLMplsOper::Stub::experimental_async::SLMplsLabelBlockOp(::grpc::ClientContext* context, const ::service_layer::SLMplsLabelBlockMsg* request, ::service_layer::SLMplsLabelBlockMsgRsp* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
-  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_SLMplsLabelBlockOp_, context, request, response, reactor);
-}
-
-void SLMplsOper::Stub::experimental_async::SLMplsLabelBlockOp(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::service_layer::SLMplsLabelBlockMsgRsp* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
-  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_SLMplsLabelBlockOp_, context, request, response, reactor);
-}
-
-::grpc::ClientAsyncResponseReader< ::service_layer::SLMplsLabelBlockMsgRsp>* SLMplsOper::Stub::AsyncSLMplsLabelBlockOpRaw(::grpc::ClientContext* context, const ::service_layer::SLMplsLabelBlockMsg& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::service_layer::SLMplsLabelBlockMsgRsp>::Create(channel_.get(), cq, rpcmethod_SLMplsLabelBlockOp_, context, request, true);
+void SLMplsOper::Stub::async::SLMplsLabelBlockOp(::grpc::ClientContext* context, const ::service_layer::SLMplsLabelBlockMsg* request, ::service_layer::SLMplsLabelBlockMsgRsp* response, ::grpc::ClientUnaryReactor* reactor) {
+  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_SLMplsLabelBlockOp_, context, request, response, reactor);
 }
 
 ::grpc::ClientAsyncResponseReader< ::service_layer::SLMplsLabelBlockMsgRsp>* SLMplsOper::Stub::PrepareAsyncSLMplsLabelBlockOpRaw(::grpc::ClientContext* context, const ::service_layer::SLMplsLabelBlockMsg& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::service_layer::SLMplsLabelBlockMsgRsp>::Create(channel_.get(), cq, rpcmethod_SLMplsLabelBlockOp_, context, request, false);
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::service_layer::SLMplsLabelBlockMsgRsp, ::service_layer::SLMplsLabelBlockMsg, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_SLMplsLabelBlockOp_, context, request);
+}
+
+::grpc::ClientAsyncResponseReader< ::service_layer::SLMplsLabelBlockMsgRsp>* SLMplsOper::Stub::AsyncSLMplsLabelBlockOpRaw(::grpc::ClientContext* context, const ::service_layer::SLMplsLabelBlockMsg& request, ::grpc::CompletionQueue* cq) {
+  auto* result =
+    this->PrepareAsyncSLMplsLabelBlockOpRaw(context, request, cq);
+  result->StartCall();
+  return result;
 }
 
 ::grpc::Status SLMplsOper::Stub::SLMplsLabelBlockGet(::grpc::ClientContext* context, const ::service_layer::SLMplsLabelBlockGetMsg& request, ::service_layer::SLMplsLabelBlockGetMsgRsp* response) {
-  return ::grpc::internal::BlockingUnaryCall(channel_.get(), rpcmethod_SLMplsLabelBlockGet_, context, request, response);
+  return ::grpc::internal::BlockingUnaryCall< ::service_layer::SLMplsLabelBlockGetMsg, ::service_layer::SLMplsLabelBlockGetMsgRsp, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_SLMplsLabelBlockGet_, context, request, response);
 }
 
-void SLMplsOper::Stub::experimental_async::SLMplsLabelBlockGet(::grpc::ClientContext* context, const ::service_layer::SLMplsLabelBlockGetMsg* request, ::service_layer::SLMplsLabelBlockGetMsgRsp* response, std::function<void(::grpc::Status)> f) {
-  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_SLMplsLabelBlockGet_, context, request, response, std::move(f));
+void SLMplsOper::Stub::async::SLMplsLabelBlockGet(::grpc::ClientContext* context, const ::service_layer::SLMplsLabelBlockGetMsg* request, ::service_layer::SLMplsLabelBlockGetMsgRsp* response, std::function<void(::grpc::Status)> f) {
+  ::grpc::internal::CallbackUnaryCall< ::service_layer::SLMplsLabelBlockGetMsg, ::service_layer::SLMplsLabelBlockGetMsgRsp, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_SLMplsLabelBlockGet_, context, request, response, std::move(f));
 }
 
-void SLMplsOper::Stub::experimental_async::SLMplsLabelBlockGet(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::service_layer::SLMplsLabelBlockGetMsgRsp* response, std::function<void(::grpc::Status)> f) {
-  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_SLMplsLabelBlockGet_, context, request, response, std::move(f));
-}
-
-void SLMplsOper::Stub::experimental_async::SLMplsLabelBlockGet(::grpc::ClientContext* context, const ::service_layer::SLMplsLabelBlockGetMsg* request, ::service_layer::SLMplsLabelBlockGetMsgRsp* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
-  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_SLMplsLabelBlockGet_, context, request, response, reactor);
-}
-
-void SLMplsOper::Stub::experimental_async::SLMplsLabelBlockGet(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::service_layer::SLMplsLabelBlockGetMsgRsp* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
-  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_SLMplsLabelBlockGet_, context, request, response, reactor);
-}
-
-::grpc::ClientAsyncResponseReader< ::service_layer::SLMplsLabelBlockGetMsgRsp>* SLMplsOper::Stub::AsyncSLMplsLabelBlockGetRaw(::grpc::ClientContext* context, const ::service_layer::SLMplsLabelBlockGetMsg& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::service_layer::SLMplsLabelBlockGetMsgRsp>::Create(channel_.get(), cq, rpcmethod_SLMplsLabelBlockGet_, context, request, true);
+void SLMplsOper::Stub::async::SLMplsLabelBlockGet(::grpc::ClientContext* context, const ::service_layer::SLMplsLabelBlockGetMsg* request, ::service_layer::SLMplsLabelBlockGetMsgRsp* response, ::grpc::ClientUnaryReactor* reactor) {
+  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_SLMplsLabelBlockGet_, context, request, response, reactor);
 }
 
 ::grpc::ClientAsyncResponseReader< ::service_layer::SLMplsLabelBlockGetMsgRsp>* SLMplsOper::Stub::PrepareAsyncSLMplsLabelBlockGetRaw(::grpc::ClientContext* context, const ::service_layer::SLMplsLabelBlockGetMsg& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::service_layer::SLMplsLabelBlockGetMsgRsp>::Create(channel_.get(), cq, rpcmethod_SLMplsLabelBlockGet_, context, request, false);
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::service_layer::SLMplsLabelBlockGetMsgRsp, ::service_layer::SLMplsLabelBlockGetMsg, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_SLMplsLabelBlockGet_, context, request);
+}
+
+::grpc::ClientAsyncResponseReader< ::service_layer::SLMplsLabelBlockGetMsgRsp>* SLMplsOper::Stub::AsyncSLMplsLabelBlockGetRaw(::grpc::ClientContext* context, const ::service_layer::SLMplsLabelBlockGetMsg& request, ::grpc::CompletionQueue* cq) {
+  auto* result =
+    this->PrepareAsyncSLMplsLabelBlockGetRaw(context, request, cq);
+  result->StartCall();
+  return result;
 }
 
 ::grpc::Status SLMplsOper::Stub::SLMplsIlmOp(::grpc::ClientContext* context, const ::service_layer::SLMplsIlmMsg& request, ::service_layer::SLMplsIlmMsgRsp* response) {
-  return ::grpc::internal::BlockingUnaryCall(channel_.get(), rpcmethod_SLMplsIlmOp_, context, request, response);
+  return ::grpc::internal::BlockingUnaryCall< ::service_layer::SLMplsIlmMsg, ::service_layer::SLMplsIlmMsgRsp, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_SLMplsIlmOp_, context, request, response);
 }
 
-void SLMplsOper::Stub::experimental_async::SLMplsIlmOp(::grpc::ClientContext* context, const ::service_layer::SLMplsIlmMsg* request, ::service_layer::SLMplsIlmMsgRsp* response, std::function<void(::grpc::Status)> f) {
-  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_SLMplsIlmOp_, context, request, response, std::move(f));
+void SLMplsOper::Stub::async::SLMplsIlmOp(::grpc::ClientContext* context, const ::service_layer::SLMplsIlmMsg* request, ::service_layer::SLMplsIlmMsgRsp* response, std::function<void(::grpc::Status)> f) {
+  ::grpc::internal::CallbackUnaryCall< ::service_layer::SLMplsIlmMsg, ::service_layer::SLMplsIlmMsgRsp, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_SLMplsIlmOp_, context, request, response, std::move(f));
 }
 
-void SLMplsOper::Stub::experimental_async::SLMplsIlmOp(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::service_layer::SLMplsIlmMsgRsp* response, std::function<void(::grpc::Status)> f) {
-  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_SLMplsIlmOp_, context, request, response, std::move(f));
-}
-
-void SLMplsOper::Stub::experimental_async::SLMplsIlmOp(::grpc::ClientContext* context, const ::service_layer::SLMplsIlmMsg* request, ::service_layer::SLMplsIlmMsgRsp* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
-  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_SLMplsIlmOp_, context, request, response, reactor);
-}
-
-void SLMplsOper::Stub::experimental_async::SLMplsIlmOp(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::service_layer::SLMplsIlmMsgRsp* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
-  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_SLMplsIlmOp_, context, request, response, reactor);
-}
-
-::grpc::ClientAsyncResponseReader< ::service_layer::SLMplsIlmMsgRsp>* SLMplsOper::Stub::AsyncSLMplsIlmOpRaw(::grpc::ClientContext* context, const ::service_layer::SLMplsIlmMsg& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::service_layer::SLMplsIlmMsgRsp>::Create(channel_.get(), cq, rpcmethod_SLMplsIlmOp_, context, request, true);
+void SLMplsOper::Stub::async::SLMplsIlmOp(::grpc::ClientContext* context, const ::service_layer::SLMplsIlmMsg* request, ::service_layer::SLMplsIlmMsgRsp* response, ::grpc::ClientUnaryReactor* reactor) {
+  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_SLMplsIlmOp_, context, request, response, reactor);
 }
 
 ::grpc::ClientAsyncResponseReader< ::service_layer::SLMplsIlmMsgRsp>* SLMplsOper::Stub::PrepareAsyncSLMplsIlmOpRaw(::grpc::ClientContext* context, const ::service_layer::SLMplsIlmMsg& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::service_layer::SLMplsIlmMsgRsp>::Create(channel_.get(), cq, rpcmethod_SLMplsIlmOp_, context, request, false);
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::service_layer::SLMplsIlmMsgRsp, ::service_layer::SLMplsIlmMsg, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_SLMplsIlmOp_, context, request);
+}
+
+::grpc::ClientAsyncResponseReader< ::service_layer::SLMplsIlmMsgRsp>* SLMplsOper::Stub::AsyncSLMplsIlmOpRaw(::grpc::ClientContext* context, const ::service_layer::SLMplsIlmMsg& request, ::grpc::CompletionQueue* cq) {
+  auto* result =
+    this->PrepareAsyncSLMplsIlmOpRaw(context, request, cq);
+  result->StartCall();
+  return result;
 }
 
 ::grpc::Status SLMplsOper::Stub::SLMplsIlmGet(::grpc::ClientContext* context, const ::service_layer::SLMplsIlmGetMsg& request, ::service_layer::SLMplsIlmGetMsgRsp* response) {
-  return ::grpc::internal::BlockingUnaryCall(channel_.get(), rpcmethod_SLMplsIlmGet_, context, request, response);
+  return ::grpc::internal::BlockingUnaryCall< ::service_layer::SLMplsIlmGetMsg, ::service_layer::SLMplsIlmGetMsgRsp, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_SLMplsIlmGet_, context, request, response);
 }
 
-void SLMplsOper::Stub::experimental_async::SLMplsIlmGet(::grpc::ClientContext* context, const ::service_layer::SLMplsIlmGetMsg* request, ::service_layer::SLMplsIlmGetMsgRsp* response, std::function<void(::grpc::Status)> f) {
-  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_SLMplsIlmGet_, context, request, response, std::move(f));
+void SLMplsOper::Stub::async::SLMplsIlmGet(::grpc::ClientContext* context, const ::service_layer::SLMplsIlmGetMsg* request, ::service_layer::SLMplsIlmGetMsgRsp* response, std::function<void(::grpc::Status)> f) {
+  ::grpc::internal::CallbackUnaryCall< ::service_layer::SLMplsIlmGetMsg, ::service_layer::SLMplsIlmGetMsgRsp, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_SLMplsIlmGet_, context, request, response, std::move(f));
 }
 
-void SLMplsOper::Stub::experimental_async::SLMplsIlmGet(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::service_layer::SLMplsIlmGetMsgRsp* response, std::function<void(::grpc::Status)> f) {
-  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_SLMplsIlmGet_, context, request, response, std::move(f));
-}
-
-void SLMplsOper::Stub::experimental_async::SLMplsIlmGet(::grpc::ClientContext* context, const ::service_layer::SLMplsIlmGetMsg* request, ::service_layer::SLMplsIlmGetMsgRsp* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
-  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_SLMplsIlmGet_, context, request, response, reactor);
-}
-
-void SLMplsOper::Stub::experimental_async::SLMplsIlmGet(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::service_layer::SLMplsIlmGetMsgRsp* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
-  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_SLMplsIlmGet_, context, request, response, reactor);
-}
-
-::grpc::ClientAsyncResponseReader< ::service_layer::SLMplsIlmGetMsgRsp>* SLMplsOper::Stub::AsyncSLMplsIlmGetRaw(::grpc::ClientContext* context, const ::service_layer::SLMplsIlmGetMsg& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::service_layer::SLMplsIlmGetMsgRsp>::Create(channel_.get(), cq, rpcmethod_SLMplsIlmGet_, context, request, true);
+void SLMplsOper::Stub::async::SLMplsIlmGet(::grpc::ClientContext* context, const ::service_layer::SLMplsIlmGetMsg* request, ::service_layer::SLMplsIlmGetMsgRsp* response, ::grpc::ClientUnaryReactor* reactor) {
+  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_SLMplsIlmGet_, context, request, response, reactor);
 }
 
 ::grpc::ClientAsyncResponseReader< ::service_layer::SLMplsIlmGetMsgRsp>* SLMplsOper::Stub::PrepareAsyncSLMplsIlmGetRaw(::grpc::ClientContext* context, const ::service_layer::SLMplsIlmGetMsg& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::service_layer::SLMplsIlmGetMsgRsp>::Create(channel_.get(), cq, rpcmethod_SLMplsIlmGet_, context, request, false);
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::service_layer::SLMplsIlmGetMsgRsp, ::service_layer::SLMplsIlmGetMsg, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_SLMplsIlmGet_, context, request);
+}
+
+::grpc::ClientAsyncResponseReader< ::service_layer::SLMplsIlmGetMsgRsp>* SLMplsOper::Stub::AsyncSLMplsIlmGetRaw(::grpc::ClientContext* context, const ::service_layer::SLMplsIlmGetMsg& request, ::grpc::CompletionQueue* cq) {
+  auto* result =
+    this->PrepareAsyncSLMplsIlmGetRaw(context, request, cq);
+  result->StartCall();
+  return result;
 }
 
 ::grpc::ClientReaderWriter< ::service_layer::SLMplsIlmMsg, ::service_layer::SLMplsIlmMsgRsp>* SLMplsOper::Stub::SLMplsIlmOpStreamRaw(::grpc::ClientContext* context) {
-  return ::grpc_impl::internal::ClientReaderWriterFactory< ::service_layer::SLMplsIlmMsg, ::service_layer::SLMplsIlmMsgRsp>::Create(channel_.get(), rpcmethod_SLMplsIlmOpStream_, context);
+  return ::grpc::internal::ClientReaderWriterFactory< ::service_layer::SLMplsIlmMsg, ::service_layer::SLMplsIlmMsgRsp>::Create(channel_.get(), rpcmethod_SLMplsIlmOpStream_, context);
 }
 
-void SLMplsOper::Stub::experimental_async::SLMplsIlmOpStream(::grpc::ClientContext* context, ::grpc::experimental::ClientBidiReactor< ::service_layer::SLMplsIlmMsg,::service_layer::SLMplsIlmMsgRsp>* reactor) {
-  ::grpc_impl::internal::ClientCallbackReaderWriterFactory< ::service_layer::SLMplsIlmMsg,::service_layer::SLMplsIlmMsgRsp>::Create(stub_->channel_.get(), stub_->rpcmethod_SLMplsIlmOpStream_, context, reactor);
+void SLMplsOper::Stub::async::SLMplsIlmOpStream(::grpc::ClientContext* context, ::grpc::ClientBidiReactor< ::service_layer::SLMplsIlmMsg,::service_layer::SLMplsIlmMsgRsp>* reactor) {
+  ::grpc::internal::ClientCallbackReaderWriterFactory< ::service_layer::SLMplsIlmMsg,::service_layer::SLMplsIlmMsgRsp>::Create(stub_->channel_.get(), stub_->rpcmethod_SLMplsIlmOpStream_, context, reactor);
 }
 
 ::grpc::ClientAsyncReaderWriter< ::service_layer::SLMplsIlmMsg, ::service_layer::SLMplsIlmMsgRsp>* SLMplsOper::Stub::AsyncSLMplsIlmOpStreamRaw(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq, void* tag) {
-  return ::grpc_impl::internal::ClientAsyncReaderWriterFactory< ::service_layer::SLMplsIlmMsg, ::service_layer::SLMplsIlmMsgRsp>::Create(channel_.get(), cq, rpcmethod_SLMplsIlmOpStream_, context, true, tag);
+  return ::grpc::internal::ClientAsyncReaderWriterFactory< ::service_layer::SLMplsIlmMsg, ::service_layer::SLMplsIlmMsgRsp>::Create(channel_.get(), cq, rpcmethod_SLMplsIlmOpStream_, context, true, tag);
 }
 
 ::grpc::ClientAsyncReaderWriter< ::service_layer::SLMplsIlmMsg, ::service_layer::SLMplsIlmMsgRsp>* SLMplsOper::Stub::PrepareAsyncSLMplsIlmOpStreamRaw(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq) {
-  return ::grpc_impl::internal::ClientAsyncReaderWriterFactory< ::service_layer::SLMplsIlmMsg, ::service_layer::SLMplsIlmMsgRsp>::Create(channel_.get(), cq, rpcmethod_SLMplsIlmOpStream_, context, false, nullptr);
+  return ::grpc::internal::ClientAsyncReaderWriterFactory< ::service_layer::SLMplsIlmMsg, ::service_layer::SLMplsIlmMsgRsp>::Create(channel_.get(), cq, rpcmethod_SLMplsIlmOpStream_, context, false, nullptr);
 }
 
 ::grpc::ClientReaderWriter< ::service_layer::SLMplsIlmGetMsg, ::service_layer::SLMplsIlmGetMsgRsp>* SLMplsOper::Stub::SLMplsIlmGetStreamRaw(::grpc::ClientContext* context) {
-  return ::grpc_impl::internal::ClientReaderWriterFactory< ::service_layer::SLMplsIlmGetMsg, ::service_layer::SLMplsIlmGetMsgRsp>::Create(channel_.get(), rpcmethod_SLMplsIlmGetStream_, context);
+  return ::grpc::internal::ClientReaderWriterFactory< ::service_layer::SLMplsIlmGetMsg, ::service_layer::SLMplsIlmGetMsgRsp>::Create(channel_.get(), rpcmethod_SLMplsIlmGetStream_, context);
 }
 
-void SLMplsOper::Stub::experimental_async::SLMplsIlmGetStream(::grpc::ClientContext* context, ::grpc::experimental::ClientBidiReactor< ::service_layer::SLMplsIlmGetMsg,::service_layer::SLMplsIlmGetMsgRsp>* reactor) {
-  ::grpc_impl::internal::ClientCallbackReaderWriterFactory< ::service_layer::SLMplsIlmGetMsg,::service_layer::SLMplsIlmGetMsgRsp>::Create(stub_->channel_.get(), stub_->rpcmethod_SLMplsIlmGetStream_, context, reactor);
+void SLMplsOper::Stub::async::SLMplsIlmGetStream(::grpc::ClientContext* context, ::grpc::ClientBidiReactor< ::service_layer::SLMplsIlmGetMsg,::service_layer::SLMplsIlmGetMsgRsp>* reactor) {
+  ::grpc::internal::ClientCallbackReaderWriterFactory< ::service_layer::SLMplsIlmGetMsg,::service_layer::SLMplsIlmGetMsgRsp>::Create(stub_->channel_.get(), stub_->rpcmethod_SLMplsIlmGetStream_, context, reactor);
 }
 
 ::grpc::ClientAsyncReaderWriter< ::service_layer::SLMplsIlmGetMsg, ::service_layer::SLMplsIlmGetMsgRsp>* SLMplsOper::Stub::AsyncSLMplsIlmGetStreamRaw(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq, void* tag) {
-  return ::grpc_impl::internal::ClientAsyncReaderWriterFactory< ::service_layer::SLMplsIlmGetMsg, ::service_layer::SLMplsIlmGetMsgRsp>::Create(channel_.get(), cq, rpcmethod_SLMplsIlmGetStream_, context, true, tag);
+  return ::grpc::internal::ClientAsyncReaderWriterFactory< ::service_layer::SLMplsIlmGetMsg, ::service_layer::SLMplsIlmGetMsgRsp>::Create(channel_.get(), cq, rpcmethod_SLMplsIlmGetStream_, context, true, tag);
 }
 
 ::grpc::ClientAsyncReaderWriter< ::service_layer::SLMplsIlmGetMsg, ::service_layer::SLMplsIlmGetMsgRsp>* SLMplsOper::Stub::PrepareAsyncSLMplsIlmGetStreamRaw(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq) {
-  return ::grpc_impl::internal::ClientAsyncReaderWriterFactory< ::service_layer::SLMplsIlmGetMsg, ::service_layer::SLMplsIlmGetMsgRsp>::Create(channel_.get(), cq, rpcmethod_SLMplsIlmGetStream_, context, false, nullptr);
+  return ::grpc::internal::ClientAsyncReaderWriterFactory< ::service_layer::SLMplsIlmGetMsg, ::service_layer::SLMplsIlmGetMsgRsp>::Create(channel_.get(), cq, rpcmethod_SLMplsIlmGetStream_, context, false, nullptr);
 }
 
 SLMplsOper::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       SLMplsOper_method_names[0],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
-      new ::grpc::internal::RpcMethodHandler< SLMplsOper::Service, ::service_layer::SLMplsRegMsg, ::service_layer::SLMplsRegMsgRsp>(
+      new ::grpc::internal::RpcMethodHandler< SLMplsOper::Service, ::service_layer::SLMplsRegMsg, ::service_layer::SLMplsRegMsgRsp, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
           [](SLMplsOper::Service* service,
-             ::grpc_impl::ServerContext* ctx,
+             ::grpc::ServerContext* ctx,
              const ::service_layer::SLMplsRegMsg* req,
              ::service_layer::SLMplsRegMsgRsp* resp) {
                return service->SLMplsRegOp(ctx, req, resp);
@@ -293,9 +258,9 @@ SLMplsOper::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       SLMplsOper_method_names[1],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
-      new ::grpc::internal::RpcMethodHandler< SLMplsOper::Service, ::service_layer::SLMplsGetMsg, ::service_layer::SLMplsGetMsgRsp>(
+      new ::grpc::internal::RpcMethodHandler< SLMplsOper::Service, ::service_layer::SLMplsGetMsg, ::service_layer::SLMplsGetMsgRsp, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
           [](SLMplsOper::Service* service,
-             ::grpc_impl::ServerContext* ctx,
+             ::grpc::ServerContext* ctx,
              const ::service_layer::SLMplsGetMsg* req,
              ::service_layer::SLMplsGetMsgRsp* resp) {
                return service->SLMplsGet(ctx, req, resp);
@@ -303,9 +268,9 @@ SLMplsOper::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       SLMplsOper_method_names[2],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
-      new ::grpc::internal::RpcMethodHandler< SLMplsOper::Service, ::service_layer::SLMplsGetMsg, ::service_layer::SLMplsGetStatsMsgRsp>(
+      new ::grpc::internal::RpcMethodHandler< SLMplsOper::Service, ::service_layer::SLMplsGetMsg, ::service_layer::SLMplsGetStatsMsgRsp, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
           [](SLMplsOper::Service* service,
-             ::grpc_impl::ServerContext* ctx,
+             ::grpc::ServerContext* ctx,
              const ::service_layer::SLMplsGetMsg* req,
              ::service_layer::SLMplsGetStatsMsgRsp* resp) {
                return service->SLMplsGetStats(ctx, req, resp);
@@ -313,9 +278,9 @@ SLMplsOper::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       SLMplsOper_method_names[3],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
-      new ::grpc::internal::RpcMethodHandler< SLMplsOper::Service, ::service_layer::SLMplsLabelBlockMsg, ::service_layer::SLMplsLabelBlockMsgRsp>(
+      new ::grpc::internal::RpcMethodHandler< SLMplsOper::Service, ::service_layer::SLMplsLabelBlockMsg, ::service_layer::SLMplsLabelBlockMsgRsp, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
           [](SLMplsOper::Service* service,
-             ::grpc_impl::ServerContext* ctx,
+             ::grpc::ServerContext* ctx,
              const ::service_layer::SLMplsLabelBlockMsg* req,
              ::service_layer::SLMplsLabelBlockMsgRsp* resp) {
                return service->SLMplsLabelBlockOp(ctx, req, resp);
@@ -323,9 +288,9 @@ SLMplsOper::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       SLMplsOper_method_names[4],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
-      new ::grpc::internal::RpcMethodHandler< SLMplsOper::Service, ::service_layer::SLMplsLabelBlockGetMsg, ::service_layer::SLMplsLabelBlockGetMsgRsp>(
+      new ::grpc::internal::RpcMethodHandler< SLMplsOper::Service, ::service_layer::SLMplsLabelBlockGetMsg, ::service_layer::SLMplsLabelBlockGetMsgRsp, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
           [](SLMplsOper::Service* service,
-             ::grpc_impl::ServerContext* ctx,
+             ::grpc::ServerContext* ctx,
              const ::service_layer::SLMplsLabelBlockGetMsg* req,
              ::service_layer::SLMplsLabelBlockGetMsgRsp* resp) {
                return service->SLMplsLabelBlockGet(ctx, req, resp);
@@ -333,9 +298,9 @@ SLMplsOper::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       SLMplsOper_method_names[5],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
-      new ::grpc::internal::RpcMethodHandler< SLMplsOper::Service, ::service_layer::SLMplsIlmMsg, ::service_layer::SLMplsIlmMsgRsp>(
+      new ::grpc::internal::RpcMethodHandler< SLMplsOper::Service, ::service_layer::SLMplsIlmMsg, ::service_layer::SLMplsIlmMsgRsp, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
           [](SLMplsOper::Service* service,
-             ::grpc_impl::ServerContext* ctx,
+             ::grpc::ServerContext* ctx,
              const ::service_layer::SLMplsIlmMsg* req,
              ::service_layer::SLMplsIlmMsgRsp* resp) {
                return service->SLMplsIlmOp(ctx, req, resp);
@@ -343,9 +308,9 @@ SLMplsOper::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       SLMplsOper_method_names[6],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
-      new ::grpc::internal::RpcMethodHandler< SLMplsOper::Service, ::service_layer::SLMplsIlmGetMsg, ::service_layer::SLMplsIlmGetMsgRsp>(
+      new ::grpc::internal::RpcMethodHandler< SLMplsOper::Service, ::service_layer::SLMplsIlmGetMsg, ::service_layer::SLMplsIlmGetMsgRsp, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
           [](SLMplsOper::Service* service,
-             ::grpc_impl::ServerContext* ctx,
+             ::grpc::ServerContext* ctx,
              const ::service_layer::SLMplsIlmGetMsg* req,
              ::service_layer::SLMplsIlmGetMsgRsp* resp) {
                return service->SLMplsIlmGet(ctx, req, resp);
@@ -355,8 +320,8 @@ SLMplsOper::Service::Service() {
       ::grpc::internal::RpcMethod::BIDI_STREAMING,
       new ::grpc::internal::BidiStreamingHandler< SLMplsOper::Service, ::service_layer::SLMplsIlmMsg, ::service_layer::SLMplsIlmMsgRsp>(
           [](SLMplsOper::Service* service,
-             ::grpc_impl::ServerContext* ctx,
-             ::grpc_impl::ServerReaderWriter<::service_layer::SLMplsIlmMsgRsp,
+             ::grpc::ServerContext* ctx,
+             ::grpc::ServerReaderWriter<::service_layer::SLMplsIlmMsgRsp,
              ::service_layer::SLMplsIlmMsg>* stream) {
                return service->SLMplsIlmOpStream(ctx, stream);
              }, this)));
@@ -365,8 +330,8 @@ SLMplsOper::Service::Service() {
       ::grpc::internal::RpcMethod::BIDI_STREAMING,
       new ::grpc::internal::BidiStreamingHandler< SLMplsOper::Service, ::service_layer::SLMplsIlmGetMsg, ::service_layer::SLMplsIlmGetMsgRsp>(
           [](SLMplsOper::Service* service,
-             ::grpc_impl::ServerContext* ctx,
-             ::grpc_impl::ServerReaderWriter<::service_layer::SLMplsIlmGetMsgRsp,
+             ::grpc::ServerContext* ctx,
+             ::grpc::ServerReaderWriter<::service_layer::SLMplsIlmGetMsgRsp,
              ::service_layer::SLMplsIlmGetMsg>* stream) {
                return service->SLMplsIlmGetStream(ctx, stream);
              }, this)));

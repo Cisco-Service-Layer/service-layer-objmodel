@@ -18,7 +18,6 @@
 #include "sl_l2_route.pb.h"
 
 #include <functional>
-#include <grpc/impl/codegen/port_platform.h>
 #include <grpcpp/impl/codegen/async_generic_service.h>
 #include <grpcpp/impl/codegen/async_stream.h>
 #include <grpcpp/impl/codegen/async_unary_call.h>
@@ -198,26 +197,16 @@ class SLL2Oper final {
       return std::unique_ptr< ::grpc::ClientAsyncReaderWriterInterface< ::service_layer::SLL2GetNotifMsg, ::service_layer::SLL2Notif>>(PrepareAsyncSLL2GetNotifStreamRaw(context, cq));
     }
     // @}
-    class experimental_async_interface {
+    class async_interface {
      public:
-      virtual ~experimental_async_interface() {}
+      virtual ~async_interface() {}
       //
       // Global L2 route operations
       //
       //
       // Used to retrieve global L2 info from the server.
       virtual void SLL2GlobalsGet(::grpc::ClientContext* context, const ::service_layer::SLL2GlobalsGetMsg* request, ::service_layer::SLL2GlobalsGetMsgRsp* response, std::function<void(::grpc::Status)>) = 0;
-      virtual void SLL2GlobalsGet(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::service_layer::SLL2GlobalsGetMsgRsp* response, std::function<void(::grpc::Status)>) = 0;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       virtual void SLL2GlobalsGet(::grpc::ClientContext* context, const ::service_layer::SLL2GlobalsGetMsg* request, ::service_layer::SLL2GlobalsGetMsgRsp* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      #else
-      virtual void SLL2GlobalsGet(::grpc::ClientContext* context, const ::service_layer::SLL2GlobalsGetMsg* request, ::service_layer::SLL2GlobalsGetMsgRsp* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      #endif
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      virtual void SLL2GlobalsGet(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::service_layer::SLL2GlobalsGetMsgRsp* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      #else
-      virtual void SLL2GlobalsGet(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::service_layer::SLL2GlobalsGetMsgRsp* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      #endif
       //
       // L2 Registration Operations
       //
@@ -245,17 +234,7 @@ class SLL2Oper final {
       //     client and the server are trying to synchronize their routes.
       //
       virtual void SLL2RegOp(::grpc::ClientContext* context, const ::service_layer::SLL2RegMsg* request, ::service_layer::SLL2RegMsgRsp* response, std::function<void(::grpc::Status)>) = 0;
-      virtual void SLL2RegOp(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::service_layer::SLL2RegMsgRsp* response, std::function<void(::grpc::Status)>) = 0;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       virtual void SLL2RegOp(::grpc::ClientContext* context, const ::service_layer::SLL2RegMsg* request, ::service_layer::SLL2RegMsgRsp* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      #else
-      virtual void SLL2RegOp(::grpc::ClientContext* context, const ::service_layer::SLL2RegMsg* request, ::service_layer::SLL2RegMsgRsp* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      #endif
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      virtual void SLL2RegOp(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::service_layer::SLL2RegMsgRsp* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      #else
-      virtual void SLL2RegOp(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::service_layer::SLL2RegMsgRsp* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      #endif
       //
       // L2 Bridge-Domain (BD) Registration Operations
       //
@@ -282,17 +261,7 @@ class SLL2Oper final {
       //     client and the server are trying to synchronize their routes.
       //
       virtual void SLL2BdRegOp(::grpc::ClientContext* context, const ::service_layer::SLL2BdRegMsg* request, ::service_layer::SLL2BdRegMsgRsp* response, std::function<void(::grpc::Status)>) = 0;
-      virtual void SLL2BdRegOp(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::service_layer::SLL2BdRegMsgRsp* response, std::function<void(::grpc::Status)>) = 0;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       virtual void SLL2BdRegOp(::grpc::ClientContext* context, const ::service_layer::SLL2BdRegMsg* request, ::service_layer::SLL2BdRegMsgRsp* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      #else
-      virtual void SLL2BdRegOp(::grpc::ClientContext* context, const ::service_layer::SLL2BdRegMsg* request, ::service_layer::SLL2BdRegMsgRsp* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      #endif
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      virtual void SLL2BdRegOp(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::service_layer::SLL2BdRegMsgRsp* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      #else
-      virtual void SLL2BdRegOp(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::service_layer::SLL2BdRegMsgRsp* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      #endif
       //
       // L2 Route Operations
       //
@@ -307,27 +276,13 @@ class SLL2Oper final {
       // Route delete. The route path is not necessary to delete the route.
       //
       virtual void SLL2RouteOp(::grpc::ClientContext* context, const ::service_layer::SLL2RouteMsg* request, ::service_layer::SLL2RouteMsgRsp* response, std::function<void(::grpc::Status)>) = 0;
-      virtual void SLL2RouteOp(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::service_layer::SLL2RouteMsgRsp* response, std::function<void(::grpc::Status)>) = 0;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       virtual void SLL2RouteOp(::grpc::ClientContext* context, const ::service_layer::SLL2RouteMsg* request, ::service_layer::SLL2RouteMsgRsp* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      #else
-      virtual void SLL2RouteOp(::grpc::ClientContext* context, const ::service_layer::SLL2RouteMsg* request, ::service_layer::SLL2RouteMsgRsp* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      #endif
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      virtual void SLL2RouteOp(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::service_layer::SLL2RouteMsgRsp* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      #else
-      virtual void SLL2RouteOp(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::service_layer::SLL2RouteMsgRsp* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      #endif
       //
       // L2 Stream Route Operations
       //
       //
       // Stream adds/updates/deletes of L2 Routes.
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       virtual void SLL2RouteOpStream(::grpc::ClientContext* context, ::grpc::ClientBidiReactor< ::service_layer::SLL2RouteMsg,::service_layer::SLL2RouteMsgRsp>* reactor) = 0;
-      #else
-      virtual void SLL2RouteOpStream(::grpc::ClientContext* context, ::grpc::experimental::ClientBidiReactor< ::service_layer::SLL2RouteMsg,::service_layer::SLL2RouteMsgRsp>* reactor) = 0;
-      #endif
       //
       // L2 Route Redistribution Operations
       //
@@ -352,21 +307,13 @@ class SLL2Oper final {
       //
       // After all requests are sent, client should send GetNotifEof = TRUE.
       //
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       virtual void SLL2GetNotifStream(::grpc::ClientContext* context, ::grpc::ClientBidiReactor< ::service_layer::SLL2GetNotifMsg,::service_layer::SLL2Notif>* reactor) = 0;
-      #else
-      virtual void SLL2GetNotifStream(::grpc::ClientContext* context, ::grpc::experimental::ClientBidiReactor< ::service_layer::SLL2GetNotifMsg,::service_layer::SLL2Notif>* reactor) = 0;
-      #endif
       // @}
     };
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-    typedef class experimental_async_interface async_interface;
-    #endif
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-    async_interface* async() { return experimental_async(); }
-    #endif
-    virtual class experimental_async_interface* experimental_async() { return nullptr; }
-  private:
+    typedef class async_interface experimental_async_interface;
+    virtual class async_interface* async() { return nullptr; }
+    class async_interface* experimental_async() { return async(); }
+   private:
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::service_layer::SLL2GlobalsGetMsgRsp>* AsyncSLL2GlobalsGetRaw(::grpc::ClientContext* context, const ::service_layer::SLL2GlobalsGetMsg& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::service_layer::SLL2GlobalsGetMsgRsp>* PrepareAsyncSLL2GlobalsGetRaw(::grpc::ClientContext* context, const ::service_layer::SLL2GlobalsGetMsg& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::service_layer::SLL2RegMsgRsp>* AsyncSLL2RegOpRaw(::grpc::ClientContext* context, const ::service_layer::SLL2RegMsg& request, ::grpc::CompletionQueue* cq) = 0;
@@ -384,7 +331,7 @@ class SLL2Oper final {
   };
   class Stub final : public StubInterface {
    public:
-    Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel);
+    Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options = ::grpc::StubOptions());
     ::grpc::Status SLL2GlobalsGet(::grpc::ClientContext* context, const ::service_layer::SLL2GlobalsGetMsg& request, ::service_layer::SLL2GlobalsGetMsgRsp* response) override;
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::service_layer::SLL2GlobalsGetMsgRsp>> AsyncSLL2GlobalsGet(::grpc::ClientContext* context, const ::service_layer::SLL2GlobalsGetMsg& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::service_layer::SLL2GlobalsGetMsgRsp>>(AsyncSLL2GlobalsGetRaw(context, request, cq));
@@ -431,78 +378,30 @@ class SLL2Oper final {
     std::unique_ptr<  ::grpc::ClientAsyncReaderWriter< ::service_layer::SLL2GetNotifMsg, ::service_layer::SLL2Notif>> PrepareAsyncSLL2GetNotifStream(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncReaderWriter< ::service_layer::SLL2GetNotifMsg, ::service_layer::SLL2Notif>>(PrepareAsyncSLL2GetNotifStreamRaw(context, cq));
     }
-    class experimental_async final :
-      public StubInterface::experimental_async_interface {
+    class async final :
+      public StubInterface::async_interface {
      public:
       void SLL2GlobalsGet(::grpc::ClientContext* context, const ::service_layer::SLL2GlobalsGetMsg* request, ::service_layer::SLL2GlobalsGetMsgRsp* response, std::function<void(::grpc::Status)>) override;
-      void SLL2GlobalsGet(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::service_layer::SLL2GlobalsGetMsgRsp* response, std::function<void(::grpc::Status)>) override;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       void SLL2GlobalsGet(::grpc::ClientContext* context, const ::service_layer::SLL2GlobalsGetMsg* request, ::service_layer::SLL2GlobalsGetMsgRsp* response, ::grpc::ClientUnaryReactor* reactor) override;
-      #else
-      void SLL2GlobalsGet(::grpc::ClientContext* context, const ::service_layer::SLL2GlobalsGetMsg* request, ::service_layer::SLL2GlobalsGetMsgRsp* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
-      #endif
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      void SLL2GlobalsGet(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::service_layer::SLL2GlobalsGetMsgRsp* response, ::grpc::ClientUnaryReactor* reactor) override;
-      #else
-      void SLL2GlobalsGet(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::service_layer::SLL2GlobalsGetMsgRsp* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
-      #endif
       void SLL2RegOp(::grpc::ClientContext* context, const ::service_layer::SLL2RegMsg* request, ::service_layer::SLL2RegMsgRsp* response, std::function<void(::grpc::Status)>) override;
-      void SLL2RegOp(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::service_layer::SLL2RegMsgRsp* response, std::function<void(::grpc::Status)>) override;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       void SLL2RegOp(::grpc::ClientContext* context, const ::service_layer::SLL2RegMsg* request, ::service_layer::SLL2RegMsgRsp* response, ::grpc::ClientUnaryReactor* reactor) override;
-      #else
-      void SLL2RegOp(::grpc::ClientContext* context, const ::service_layer::SLL2RegMsg* request, ::service_layer::SLL2RegMsgRsp* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
-      #endif
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      void SLL2RegOp(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::service_layer::SLL2RegMsgRsp* response, ::grpc::ClientUnaryReactor* reactor) override;
-      #else
-      void SLL2RegOp(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::service_layer::SLL2RegMsgRsp* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
-      #endif
       void SLL2BdRegOp(::grpc::ClientContext* context, const ::service_layer::SLL2BdRegMsg* request, ::service_layer::SLL2BdRegMsgRsp* response, std::function<void(::grpc::Status)>) override;
-      void SLL2BdRegOp(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::service_layer::SLL2BdRegMsgRsp* response, std::function<void(::grpc::Status)>) override;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       void SLL2BdRegOp(::grpc::ClientContext* context, const ::service_layer::SLL2BdRegMsg* request, ::service_layer::SLL2BdRegMsgRsp* response, ::grpc::ClientUnaryReactor* reactor) override;
-      #else
-      void SLL2BdRegOp(::grpc::ClientContext* context, const ::service_layer::SLL2BdRegMsg* request, ::service_layer::SLL2BdRegMsgRsp* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
-      #endif
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      void SLL2BdRegOp(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::service_layer::SLL2BdRegMsgRsp* response, ::grpc::ClientUnaryReactor* reactor) override;
-      #else
-      void SLL2BdRegOp(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::service_layer::SLL2BdRegMsgRsp* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
-      #endif
       void SLL2RouteOp(::grpc::ClientContext* context, const ::service_layer::SLL2RouteMsg* request, ::service_layer::SLL2RouteMsgRsp* response, std::function<void(::grpc::Status)>) override;
-      void SLL2RouteOp(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::service_layer::SLL2RouteMsgRsp* response, std::function<void(::grpc::Status)>) override;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       void SLL2RouteOp(::grpc::ClientContext* context, const ::service_layer::SLL2RouteMsg* request, ::service_layer::SLL2RouteMsgRsp* response, ::grpc::ClientUnaryReactor* reactor) override;
-      #else
-      void SLL2RouteOp(::grpc::ClientContext* context, const ::service_layer::SLL2RouteMsg* request, ::service_layer::SLL2RouteMsgRsp* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
-      #endif
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      void SLL2RouteOp(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::service_layer::SLL2RouteMsgRsp* response, ::grpc::ClientUnaryReactor* reactor) override;
-      #else
-      void SLL2RouteOp(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::service_layer::SLL2RouteMsgRsp* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
-      #endif
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       void SLL2RouteOpStream(::grpc::ClientContext* context, ::grpc::ClientBidiReactor< ::service_layer::SLL2RouteMsg,::service_layer::SLL2RouteMsgRsp>* reactor) override;
-      #else
-      void SLL2RouteOpStream(::grpc::ClientContext* context, ::grpc::experimental::ClientBidiReactor< ::service_layer::SLL2RouteMsg,::service_layer::SLL2RouteMsgRsp>* reactor) override;
-      #endif
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       void SLL2GetNotifStream(::grpc::ClientContext* context, ::grpc::ClientBidiReactor< ::service_layer::SLL2GetNotifMsg,::service_layer::SLL2Notif>* reactor) override;
-      #else
-      void SLL2GetNotifStream(::grpc::ClientContext* context, ::grpc::experimental::ClientBidiReactor< ::service_layer::SLL2GetNotifMsg,::service_layer::SLL2Notif>* reactor) override;
-      #endif
      private:
       friend class Stub;
-      explicit experimental_async(Stub* stub): stub_(stub) { }
+      explicit async(Stub* stub): stub_(stub) { }
       Stub* stub() { return stub_; }
       Stub* stub_;
     };
-    class experimental_async_interface* experimental_async() override { return &async_stub_; }
+    class async* async() override { return &async_stub_; }
 
    private:
     std::shared_ptr< ::grpc::ChannelInterface> channel_;
-    class experimental_async async_stub_{this};
+    class async async_stub_{this};
     ::grpc::ClientAsyncResponseReader< ::service_layer::SLL2GlobalsGetMsgRsp>* AsyncSLL2GlobalsGetRaw(::grpc::ClientContext* context, const ::service_layer::SLL2GlobalsGetMsg& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::service_layer::SLL2GlobalsGetMsgRsp>* PrepareAsyncSLL2GlobalsGetRaw(::grpc::ClientContext* context, const ::service_layer::SLL2GlobalsGetMsg& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::service_layer::SLL2RegMsgRsp>* AsyncSLL2RegOpRaw(::grpc::ClientContext* context, const ::service_layer::SLL2RegMsg& request, ::grpc::CompletionQueue* cq) override;
@@ -758,36 +657,22 @@ class SLL2Oper final {
   };
   typedef WithAsyncMethod_SLL2GlobalsGet<WithAsyncMethod_SLL2RegOp<WithAsyncMethod_SLL2BdRegOp<WithAsyncMethod_SLL2RouteOp<WithAsyncMethod_SLL2RouteOpStream<WithAsyncMethod_SLL2GetNotifStream<Service > > > > > > AsyncService;
   template <class BaseClass>
-  class ExperimentalWithCallbackMethod_SLL2GlobalsGet : public BaseClass {
+  class WithCallbackMethod_SLL2GlobalsGet : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    ExperimentalWithCallbackMethod_SLL2GlobalsGet() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodCallback(0,
-          new ::grpc_impl::internal::CallbackUnaryHandler< ::service_layer::SLL2GlobalsGetMsg, ::service_layer::SLL2GlobalsGetMsgRsp>(
+    WithCallbackMethod_SLL2GlobalsGet() {
+      ::grpc::Service::MarkMethodCallback(0,
+          new ::grpc::internal::CallbackUnaryHandler< ::service_layer::SLL2GlobalsGetMsg, ::service_layer::SLL2GlobalsGetMsgRsp>(
             [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::service_layer::SLL2GlobalsGetMsg* request, ::service_layer::SLL2GlobalsGetMsgRsp* response) { return this->SLL2GlobalsGet(context, request, response); }));}
+                   ::grpc::CallbackServerContext* context, const ::service_layer::SLL2GlobalsGetMsg* request, ::service_layer::SLL2GlobalsGetMsgRsp* response) { return this->SLL2GlobalsGet(context, request, response); }));}
     void SetMessageAllocatorFor_SLL2GlobalsGet(
-        ::grpc::experimental::MessageAllocator< ::service_layer::SLL2GlobalsGetMsg, ::service_layer::SLL2GlobalsGetMsgRsp>* allocator) {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+        ::grpc::MessageAllocator< ::service_layer::SLL2GlobalsGetMsg, ::service_layer::SLL2GlobalsGetMsgRsp>* allocator) {
       ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(0);
-    #else
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(0);
-    #endif
-      static_cast<::grpc_impl::internal::CallbackUnaryHandler< ::service_layer::SLL2GlobalsGetMsg, ::service_layer::SLL2GlobalsGetMsgRsp>*>(handler)
+      static_cast<::grpc::internal::CallbackUnaryHandler< ::service_layer::SLL2GlobalsGetMsg, ::service_layer::SLL2GlobalsGetMsgRsp>*>(handler)
               ->SetMessageAllocator(allocator);
     }
-    ~ExperimentalWithCallbackMethod_SLL2GlobalsGet() override {
+    ~WithCallbackMethod_SLL2GlobalsGet() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
@@ -795,46 +680,26 @@ class SLL2Oper final {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerUnaryReactor* SLL2GlobalsGet(
-      ::grpc::CallbackServerContext* /*context*/, const ::service_layer::SLL2GlobalsGetMsg* /*request*/, ::service_layer::SLL2GlobalsGetMsgRsp* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* SLL2GlobalsGet(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::service_layer::SLL2GlobalsGetMsg* /*request*/, ::service_layer::SLL2GlobalsGetMsgRsp* /*response*/)
-    #endif
-      { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::service_layer::SLL2GlobalsGetMsg* /*request*/, ::service_layer::SLL2GlobalsGetMsgRsp* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
-  class ExperimentalWithCallbackMethod_SLL2RegOp : public BaseClass {
+  class WithCallbackMethod_SLL2RegOp : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    ExperimentalWithCallbackMethod_SLL2RegOp() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodCallback(1,
-          new ::grpc_impl::internal::CallbackUnaryHandler< ::service_layer::SLL2RegMsg, ::service_layer::SLL2RegMsgRsp>(
+    WithCallbackMethod_SLL2RegOp() {
+      ::grpc::Service::MarkMethodCallback(1,
+          new ::grpc::internal::CallbackUnaryHandler< ::service_layer::SLL2RegMsg, ::service_layer::SLL2RegMsgRsp>(
             [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::service_layer::SLL2RegMsg* request, ::service_layer::SLL2RegMsgRsp* response) { return this->SLL2RegOp(context, request, response); }));}
+                   ::grpc::CallbackServerContext* context, const ::service_layer::SLL2RegMsg* request, ::service_layer::SLL2RegMsgRsp* response) { return this->SLL2RegOp(context, request, response); }));}
     void SetMessageAllocatorFor_SLL2RegOp(
-        ::grpc::experimental::MessageAllocator< ::service_layer::SLL2RegMsg, ::service_layer::SLL2RegMsgRsp>* allocator) {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+        ::grpc::MessageAllocator< ::service_layer::SLL2RegMsg, ::service_layer::SLL2RegMsgRsp>* allocator) {
       ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(1);
-    #else
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(1);
-    #endif
-      static_cast<::grpc_impl::internal::CallbackUnaryHandler< ::service_layer::SLL2RegMsg, ::service_layer::SLL2RegMsgRsp>*>(handler)
+      static_cast<::grpc::internal::CallbackUnaryHandler< ::service_layer::SLL2RegMsg, ::service_layer::SLL2RegMsgRsp>*>(handler)
               ->SetMessageAllocator(allocator);
     }
-    ~ExperimentalWithCallbackMethod_SLL2RegOp() override {
+    ~WithCallbackMethod_SLL2RegOp() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
@@ -842,46 +707,26 @@ class SLL2Oper final {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerUnaryReactor* SLL2RegOp(
-      ::grpc::CallbackServerContext* /*context*/, const ::service_layer::SLL2RegMsg* /*request*/, ::service_layer::SLL2RegMsgRsp* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* SLL2RegOp(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::service_layer::SLL2RegMsg* /*request*/, ::service_layer::SLL2RegMsgRsp* /*response*/)
-    #endif
-      { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::service_layer::SLL2RegMsg* /*request*/, ::service_layer::SLL2RegMsgRsp* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
-  class ExperimentalWithCallbackMethod_SLL2BdRegOp : public BaseClass {
+  class WithCallbackMethod_SLL2BdRegOp : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    ExperimentalWithCallbackMethod_SLL2BdRegOp() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodCallback(2,
-          new ::grpc_impl::internal::CallbackUnaryHandler< ::service_layer::SLL2BdRegMsg, ::service_layer::SLL2BdRegMsgRsp>(
+    WithCallbackMethod_SLL2BdRegOp() {
+      ::grpc::Service::MarkMethodCallback(2,
+          new ::grpc::internal::CallbackUnaryHandler< ::service_layer::SLL2BdRegMsg, ::service_layer::SLL2BdRegMsgRsp>(
             [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::service_layer::SLL2BdRegMsg* request, ::service_layer::SLL2BdRegMsgRsp* response) { return this->SLL2BdRegOp(context, request, response); }));}
+                   ::grpc::CallbackServerContext* context, const ::service_layer::SLL2BdRegMsg* request, ::service_layer::SLL2BdRegMsgRsp* response) { return this->SLL2BdRegOp(context, request, response); }));}
     void SetMessageAllocatorFor_SLL2BdRegOp(
-        ::grpc::experimental::MessageAllocator< ::service_layer::SLL2BdRegMsg, ::service_layer::SLL2BdRegMsgRsp>* allocator) {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+        ::grpc::MessageAllocator< ::service_layer::SLL2BdRegMsg, ::service_layer::SLL2BdRegMsgRsp>* allocator) {
       ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(2);
-    #else
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(2);
-    #endif
-      static_cast<::grpc_impl::internal::CallbackUnaryHandler< ::service_layer::SLL2BdRegMsg, ::service_layer::SLL2BdRegMsgRsp>*>(handler)
+      static_cast<::grpc::internal::CallbackUnaryHandler< ::service_layer::SLL2BdRegMsg, ::service_layer::SLL2BdRegMsgRsp>*>(handler)
               ->SetMessageAllocator(allocator);
     }
-    ~ExperimentalWithCallbackMethod_SLL2BdRegOp() override {
+    ~WithCallbackMethod_SLL2BdRegOp() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
@@ -889,46 +734,26 @@ class SLL2Oper final {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerUnaryReactor* SLL2BdRegOp(
-      ::grpc::CallbackServerContext* /*context*/, const ::service_layer::SLL2BdRegMsg* /*request*/, ::service_layer::SLL2BdRegMsgRsp* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* SLL2BdRegOp(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::service_layer::SLL2BdRegMsg* /*request*/, ::service_layer::SLL2BdRegMsgRsp* /*response*/)
-    #endif
-      { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::service_layer::SLL2BdRegMsg* /*request*/, ::service_layer::SLL2BdRegMsgRsp* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
-  class ExperimentalWithCallbackMethod_SLL2RouteOp : public BaseClass {
+  class WithCallbackMethod_SLL2RouteOp : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    ExperimentalWithCallbackMethod_SLL2RouteOp() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodCallback(3,
-          new ::grpc_impl::internal::CallbackUnaryHandler< ::service_layer::SLL2RouteMsg, ::service_layer::SLL2RouteMsgRsp>(
+    WithCallbackMethod_SLL2RouteOp() {
+      ::grpc::Service::MarkMethodCallback(3,
+          new ::grpc::internal::CallbackUnaryHandler< ::service_layer::SLL2RouteMsg, ::service_layer::SLL2RouteMsgRsp>(
             [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::service_layer::SLL2RouteMsg* request, ::service_layer::SLL2RouteMsgRsp* response) { return this->SLL2RouteOp(context, request, response); }));}
+                   ::grpc::CallbackServerContext* context, const ::service_layer::SLL2RouteMsg* request, ::service_layer::SLL2RouteMsgRsp* response) { return this->SLL2RouteOp(context, request, response); }));}
     void SetMessageAllocatorFor_SLL2RouteOp(
-        ::grpc::experimental::MessageAllocator< ::service_layer::SLL2RouteMsg, ::service_layer::SLL2RouteMsgRsp>* allocator) {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+        ::grpc::MessageAllocator< ::service_layer::SLL2RouteMsg, ::service_layer::SLL2RouteMsgRsp>* allocator) {
       ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(3);
-    #else
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(3);
-    #endif
-      static_cast<::grpc_impl::internal::CallbackUnaryHandler< ::service_layer::SLL2RouteMsg, ::service_layer::SLL2RouteMsgRsp>*>(handler)
+      static_cast<::grpc::internal::CallbackUnaryHandler< ::service_layer::SLL2RouteMsg, ::service_layer::SLL2RouteMsgRsp>*>(handler)
               ->SetMessageAllocator(allocator);
     }
-    ~ExperimentalWithCallbackMethod_SLL2RouteOp() override {
+    ~WithCallbackMethod_SLL2RouteOp() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
@@ -936,37 +761,21 @@ class SLL2Oper final {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerUnaryReactor* SLL2RouteOp(
-      ::grpc::CallbackServerContext* /*context*/, const ::service_layer::SLL2RouteMsg* /*request*/, ::service_layer::SLL2RouteMsgRsp* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* SLL2RouteOp(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::service_layer::SLL2RouteMsg* /*request*/, ::service_layer::SLL2RouteMsgRsp* /*response*/)
-    #endif
-      { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::service_layer::SLL2RouteMsg* /*request*/, ::service_layer::SLL2RouteMsgRsp* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
-  class ExperimentalWithCallbackMethod_SLL2RouteOpStream : public BaseClass {
+  class WithCallbackMethod_SLL2RouteOpStream : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    ExperimentalWithCallbackMethod_SLL2RouteOpStream() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodCallback(4,
-          new ::grpc_impl::internal::CallbackBidiHandler< ::service_layer::SLL2RouteMsg, ::service_layer::SLL2RouteMsgRsp>(
+    WithCallbackMethod_SLL2RouteOpStream() {
+      ::grpc::Service::MarkMethodCallback(4,
+          new ::grpc::internal::CallbackBidiHandler< ::service_layer::SLL2RouteMsg, ::service_layer::SLL2RouteMsgRsp>(
             [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context) { return this->SLL2RouteOpStream(context); }));
+                   ::grpc::CallbackServerContext* context) { return this->SLL2RouteOpStream(context); }));
     }
-    ~ExperimentalWithCallbackMethod_SLL2RouteOpStream() override {
+    ~WithCallbackMethod_SLL2RouteOpStream() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
@@ -974,37 +783,22 @@ class SLL2Oper final {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerBidiReactor< ::service_layer::SLL2RouteMsg, ::service_layer::SLL2RouteMsgRsp>* SLL2RouteOpStream(
       ::grpc::CallbackServerContext* /*context*/)
-    #else
-    virtual ::grpc::experimental::ServerBidiReactor< ::service_layer::SLL2RouteMsg, ::service_layer::SLL2RouteMsgRsp>* SLL2RouteOpStream(
-      ::grpc::experimental::CallbackServerContext* /*context*/)
-    #endif
       { return nullptr; }
   };
   template <class BaseClass>
-  class ExperimentalWithCallbackMethod_SLL2GetNotifStream : public BaseClass {
+  class WithCallbackMethod_SLL2GetNotifStream : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    ExperimentalWithCallbackMethod_SLL2GetNotifStream() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodCallback(5,
-          new ::grpc_impl::internal::CallbackBidiHandler< ::service_layer::SLL2GetNotifMsg, ::service_layer::SLL2Notif>(
+    WithCallbackMethod_SLL2GetNotifStream() {
+      ::grpc::Service::MarkMethodCallback(5,
+          new ::grpc::internal::CallbackBidiHandler< ::service_layer::SLL2GetNotifMsg, ::service_layer::SLL2Notif>(
             [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context) { return this->SLL2GetNotifStream(context); }));
+                   ::grpc::CallbackServerContext* context) { return this->SLL2GetNotifStream(context); }));
     }
-    ~ExperimentalWithCallbackMethod_SLL2GetNotifStream() override {
+    ~WithCallbackMethod_SLL2GetNotifStream() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
@@ -1012,20 +806,12 @@ class SLL2Oper final {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerBidiReactor< ::service_layer::SLL2GetNotifMsg, ::service_layer::SLL2Notif>* SLL2GetNotifStream(
       ::grpc::CallbackServerContext* /*context*/)
-    #else
-    virtual ::grpc::experimental::ServerBidiReactor< ::service_layer::SLL2GetNotifMsg, ::service_layer::SLL2Notif>* SLL2GetNotifStream(
-      ::grpc::experimental::CallbackServerContext* /*context*/)
-    #endif
       { return nullptr; }
   };
-  #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-  typedef ExperimentalWithCallbackMethod_SLL2GlobalsGet<ExperimentalWithCallbackMethod_SLL2RegOp<ExperimentalWithCallbackMethod_SLL2BdRegOp<ExperimentalWithCallbackMethod_SLL2RouteOp<ExperimentalWithCallbackMethod_SLL2RouteOpStream<ExperimentalWithCallbackMethod_SLL2GetNotifStream<Service > > > > > > CallbackService;
-  #endif
-
-  typedef ExperimentalWithCallbackMethod_SLL2GlobalsGet<ExperimentalWithCallbackMethod_SLL2RegOp<ExperimentalWithCallbackMethod_SLL2BdRegOp<ExperimentalWithCallbackMethod_SLL2RouteOp<ExperimentalWithCallbackMethod_SLL2RouteOpStream<ExperimentalWithCallbackMethod_SLL2GetNotifStream<Service > > > > > > ExperimentalCallbackService;
+  typedef WithCallbackMethod_SLL2GlobalsGet<WithCallbackMethod_SLL2RegOp<WithCallbackMethod_SLL2BdRegOp<WithCallbackMethod_SLL2RouteOp<WithCallbackMethod_SLL2RouteOpStream<WithCallbackMethod_SLL2GetNotifStream<Service > > > > > > CallbackService;
+  typedef CallbackService ExperimentalCallbackService;
   template <class BaseClass>
   class WithGenericMethod_SLL2GlobalsGet : public BaseClass {
    private:
@@ -1249,27 +1035,17 @@ class SLL2Oper final {
     }
   };
   template <class BaseClass>
-  class ExperimentalWithRawCallbackMethod_SLL2GlobalsGet : public BaseClass {
+  class WithRawCallbackMethod_SLL2GlobalsGet : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    ExperimentalWithRawCallbackMethod_SLL2GlobalsGet() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodRawCallback(0,
-          new ::grpc_impl::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+    WithRawCallbackMethod_SLL2GlobalsGet() {
+      ::grpc::Service::MarkMethodRawCallback(0,
+          new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->SLL2GlobalsGet(context, request, response); }));
+                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->SLL2GlobalsGet(context, request, response); }));
     }
-    ~ExperimentalWithRawCallbackMethod_SLL2GlobalsGet() override {
+    ~WithRawCallbackMethod_SLL2GlobalsGet() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
@@ -1277,37 +1053,21 @@ class SLL2Oper final {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerUnaryReactor* SLL2GlobalsGet(
-      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* SLL2GlobalsGet(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #endif
-      { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
-  class ExperimentalWithRawCallbackMethod_SLL2RegOp : public BaseClass {
+  class WithRawCallbackMethod_SLL2RegOp : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    ExperimentalWithRawCallbackMethod_SLL2RegOp() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodRawCallback(1,
-          new ::grpc_impl::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+    WithRawCallbackMethod_SLL2RegOp() {
+      ::grpc::Service::MarkMethodRawCallback(1,
+          new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->SLL2RegOp(context, request, response); }));
+                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->SLL2RegOp(context, request, response); }));
     }
-    ~ExperimentalWithRawCallbackMethod_SLL2RegOp() override {
+    ~WithRawCallbackMethod_SLL2RegOp() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
@@ -1315,37 +1075,21 @@ class SLL2Oper final {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerUnaryReactor* SLL2RegOp(
-      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* SLL2RegOp(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #endif
-      { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
-  class ExperimentalWithRawCallbackMethod_SLL2BdRegOp : public BaseClass {
+  class WithRawCallbackMethod_SLL2BdRegOp : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    ExperimentalWithRawCallbackMethod_SLL2BdRegOp() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodRawCallback(2,
-          new ::grpc_impl::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+    WithRawCallbackMethod_SLL2BdRegOp() {
+      ::grpc::Service::MarkMethodRawCallback(2,
+          new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->SLL2BdRegOp(context, request, response); }));
+                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->SLL2BdRegOp(context, request, response); }));
     }
-    ~ExperimentalWithRawCallbackMethod_SLL2BdRegOp() override {
+    ~WithRawCallbackMethod_SLL2BdRegOp() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
@@ -1353,37 +1097,21 @@ class SLL2Oper final {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerUnaryReactor* SLL2BdRegOp(
-      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* SLL2BdRegOp(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #endif
-      { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
-  class ExperimentalWithRawCallbackMethod_SLL2RouteOp : public BaseClass {
+  class WithRawCallbackMethod_SLL2RouteOp : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    ExperimentalWithRawCallbackMethod_SLL2RouteOp() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodRawCallback(3,
-          new ::grpc_impl::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+    WithRawCallbackMethod_SLL2RouteOp() {
+      ::grpc::Service::MarkMethodRawCallback(3,
+          new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->SLL2RouteOp(context, request, response); }));
+                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->SLL2RouteOp(context, request, response); }));
     }
-    ~ExperimentalWithRawCallbackMethod_SLL2RouteOp() override {
+    ~WithRawCallbackMethod_SLL2RouteOp() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
@@ -1391,37 +1119,21 @@ class SLL2Oper final {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerUnaryReactor* SLL2RouteOp(
-      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* SLL2RouteOp(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #endif
-      { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
-  class ExperimentalWithRawCallbackMethod_SLL2RouteOpStream : public BaseClass {
+  class WithRawCallbackMethod_SLL2RouteOpStream : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    ExperimentalWithRawCallbackMethod_SLL2RouteOpStream() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodRawCallback(4,
-          new ::grpc_impl::internal::CallbackBidiHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+    WithRawCallbackMethod_SLL2RouteOpStream() {
+      ::grpc::Service::MarkMethodRawCallback(4,
+          new ::grpc::internal::CallbackBidiHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context) { return this->SLL2RouteOpStream(context); }));
+                   ::grpc::CallbackServerContext* context) { return this->SLL2RouteOpStream(context); }));
     }
-    ~ExperimentalWithRawCallbackMethod_SLL2RouteOpStream() override {
+    ~WithRawCallbackMethod_SLL2RouteOpStream() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
@@ -1429,37 +1141,22 @@ class SLL2Oper final {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerBidiReactor< ::grpc::ByteBuffer, ::grpc::ByteBuffer>* SLL2RouteOpStream(
       ::grpc::CallbackServerContext* /*context*/)
-    #else
-    virtual ::grpc::experimental::ServerBidiReactor< ::grpc::ByteBuffer, ::grpc::ByteBuffer>* SLL2RouteOpStream(
-      ::grpc::experimental::CallbackServerContext* /*context*/)
-    #endif
       { return nullptr; }
   };
   template <class BaseClass>
-  class ExperimentalWithRawCallbackMethod_SLL2GetNotifStream : public BaseClass {
+  class WithRawCallbackMethod_SLL2GetNotifStream : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    ExperimentalWithRawCallbackMethod_SLL2GetNotifStream() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodRawCallback(5,
-          new ::grpc_impl::internal::CallbackBidiHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+    WithRawCallbackMethod_SLL2GetNotifStream() {
+      ::grpc::Service::MarkMethodRawCallback(5,
+          new ::grpc::internal::CallbackBidiHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context) { return this->SLL2GetNotifStream(context); }));
+                   ::grpc::CallbackServerContext* context) { return this->SLL2GetNotifStream(context); }));
     }
-    ~ExperimentalWithRawCallbackMethod_SLL2GetNotifStream() override {
+    ~WithRawCallbackMethod_SLL2GetNotifStream() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
@@ -1467,13 +1164,8 @@ class SLL2Oper final {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerBidiReactor< ::grpc::ByteBuffer, ::grpc::ByteBuffer>* SLL2GetNotifStream(
       ::grpc::CallbackServerContext* /*context*/)
-    #else
-    virtual ::grpc::experimental::ServerBidiReactor< ::grpc::ByteBuffer, ::grpc::ByteBuffer>* SLL2GetNotifStream(
-      ::grpc::experimental::CallbackServerContext* /*context*/)
-    #endif
       { return nullptr; }
   };
   template <class BaseClass>
@@ -1485,8 +1177,8 @@ class SLL2Oper final {
       ::grpc::Service::MarkMethodStreamed(0,
         new ::grpc::internal::StreamedUnaryHandler<
           ::service_layer::SLL2GlobalsGetMsg, ::service_layer::SLL2GlobalsGetMsgRsp>(
-            [this](::grpc_impl::ServerContext* context,
-                   ::grpc_impl::ServerUnaryStreamer<
+            [this](::grpc::ServerContext* context,
+                   ::grpc::ServerUnaryStreamer<
                      ::service_layer::SLL2GlobalsGetMsg, ::service_layer::SLL2GlobalsGetMsgRsp>* streamer) {
                        return this->StreamedSLL2GlobalsGet(context,
                          streamer);
@@ -1512,8 +1204,8 @@ class SLL2Oper final {
       ::grpc::Service::MarkMethodStreamed(1,
         new ::grpc::internal::StreamedUnaryHandler<
           ::service_layer::SLL2RegMsg, ::service_layer::SLL2RegMsgRsp>(
-            [this](::grpc_impl::ServerContext* context,
-                   ::grpc_impl::ServerUnaryStreamer<
+            [this](::grpc::ServerContext* context,
+                   ::grpc::ServerUnaryStreamer<
                      ::service_layer::SLL2RegMsg, ::service_layer::SLL2RegMsgRsp>* streamer) {
                        return this->StreamedSLL2RegOp(context,
                          streamer);
@@ -1539,8 +1231,8 @@ class SLL2Oper final {
       ::grpc::Service::MarkMethodStreamed(2,
         new ::grpc::internal::StreamedUnaryHandler<
           ::service_layer::SLL2BdRegMsg, ::service_layer::SLL2BdRegMsgRsp>(
-            [this](::grpc_impl::ServerContext* context,
-                   ::grpc_impl::ServerUnaryStreamer<
+            [this](::grpc::ServerContext* context,
+                   ::grpc::ServerUnaryStreamer<
                      ::service_layer::SLL2BdRegMsg, ::service_layer::SLL2BdRegMsgRsp>* streamer) {
                        return this->StreamedSLL2BdRegOp(context,
                          streamer);
@@ -1566,8 +1258,8 @@ class SLL2Oper final {
       ::grpc::Service::MarkMethodStreamed(3,
         new ::grpc::internal::StreamedUnaryHandler<
           ::service_layer::SLL2RouteMsg, ::service_layer::SLL2RouteMsgRsp>(
-            [this](::grpc_impl::ServerContext* context,
-                   ::grpc_impl::ServerUnaryStreamer<
+            [this](::grpc::ServerContext* context,
+                   ::grpc::ServerUnaryStreamer<
                      ::service_layer::SLL2RouteMsg, ::service_layer::SLL2RouteMsgRsp>* streamer) {
                        return this->StreamedSLL2RouteOp(context,
                          streamer);
