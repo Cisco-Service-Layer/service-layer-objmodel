@@ -231,16 +231,16 @@ const char descriptor_table_protodef_sl_5fglobal_2eproto[] PROTOBUF_SECTION_VARI
   "ce_layer.SLInitMsg\032\034.service_layer.SLGlo"
   "balNotif0\001\022Q\n\014SLGlobalsGet\022\036.service_lay"
   "er.SLGlobalsGetMsg\032!.service_layer.SLGlo"
-  "balsGetMsgRspBCZAgithub.com/Cisco-servic"
+  "balsGetMsgRspBQZOgithub.com/Cisco-servic"
   "e-layer/service-layer-objmodel/grpc/prot"
-  "osb\006proto3"
+  "os;service_layerb\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_sl_5fglobal_2eproto_deps[1] = {
   &::descriptor_table_sl_5fcommon_5ftypes_2eproto,
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_sl_5fglobal_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_sl_5fglobal_2eproto = {
-  false, false, 1410, descriptor_table_protodef_sl_5fglobal_2eproto, "sl_global.proto", 
+  false, false, 1424, descriptor_table_protodef_sl_5fglobal_2eproto, "sl_global.proto", 
   &descriptor_table_sl_5fglobal_2eproto_once, descriptor_table_sl_5fglobal_2eproto_deps, 1, 6,
   schemas, file_default_instances, TableStruct_sl_5fglobal_2eproto::offsets,
   file_level_metadata_sl_5fglobal_2eproto, file_level_enum_descriptors_sl_5fglobal_2eproto, file_level_service_descriptors_sl_5fglobal_2eproto,

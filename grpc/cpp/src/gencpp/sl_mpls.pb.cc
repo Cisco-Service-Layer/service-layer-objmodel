@@ -655,15 +655,16 @@ const char descriptor_table_protodef_sl_5fmpls_2eproto[] PROTOBUF_SECTION_VARIAB
   "_layer.SLMplsIlmMsgRsp(\0010\001\022[\n\022SLMplsIlmG"
   "etStream\022\036.service_layer.SLMplsIlmGetMsg"
   "\032!.service_layer.SLMplsIlmGetMsgRsp(\0010\001B"
-  "CZAgithub.com/Cisco-service-layer/servic"
-  "e-layer-objmodel/grpc/protosb\006proto3"
+  "QZOgithub.com/Cisco-service-layer/servic"
+  "e-layer-objmodel/grpc/protos;service_lay"
+  "erb\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_sl_5fmpls_2eproto_deps[1] = {
   &::descriptor_table_sl_5fcommon_5ftypes_2eproto,
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_sl_5fmpls_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_sl_5fmpls_2eproto = {
-  false, false, 3876, descriptor_table_protodef_sl_5fmpls_2eproto, "sl_mpls.proto", 
+  false, false, 3890, descriptor_table_protodef_sl_5fmpls_2eproto, "sl_mpls.proto", 
   &descriptor_table_sl_5fmpls_2eproto_once, descriptor_table_sl_5fmpls_2eproto_deps, 1, 21,
   schemas, file_default_instances, TableStruct_sl_5fmpls_2eproto::offsets,
   file_level_metadata_sl_5fmpls_2eproto, file_level_enum_descriptors_sl_5fmpls_2eproto, file_level_service_descriptors_sl_5fmpls_2eproto,

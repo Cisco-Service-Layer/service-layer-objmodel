@@ -24,8 +24,8 @@ ENV PATH="${PATH}:/usr/local/go/bin"
 
 # Install protocol buffer compiler https://grpc.io/docs/protoc-installation/
 ARG PB_REL=https://github.com/protocolbuffers/protobuf/releases
-RUN curl -LO ${PB_REL}/download/v3.15.8/protoc-3.15.8-linux-x86_64.zip
-RUN unzip protoc-3.15.8-linux-x86_64.zip -d /usr/local
+RUN curl -LO ${PB_REL}/download/v3.18.1/protoc-3.18.1-linux-x86_64.zip
+RUN unzip protoc-3.18.1-linux-x86_64.zip -d /usr/local
 
 # Install protoc-gen-go and protoc-gen-go-grpc
 # Reference https://grpc.io/docs/languages/go/quickstart

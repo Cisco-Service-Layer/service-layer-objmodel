@@ -18,9 +18,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='sl_version.proto',
   package='service_layer',
   syntax='proto3',
-  serialized_options=b'ZAgithub.com/Cisco-service-layer/service-layer-objmodel/grpc/protos',
+  serialized_options=b'ZOgithub.com/Cisco-service-layer/service-layer-objmodel/grpc/protos;service_layer',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x10sl_version.proto\x12\rservice_layer*f\n\tSLVersion\x12\x15\n\x11SL_VERSION_UNUSED\x10\x00\x12\x14\n\x10SL_MAJOR_VERSION\x10\x00\x12\x14\n\x10SL_MINOR_VERSION\x10\x04\x12\x12\n\x0eSL_SUB_VERSION\x10\x00\x1a\x02\x10\x01\x42\x43ZAgithub.com/Cisco-service-layer/service-layer-objmodel/grpc/protosb\x06proto3'
+  serialized_pb=b'\n\x10sl_version.proto\x12\rservice_layer*f\n\tSLVersion\x12\x15\n\x11SL_VERSION_UNUSED\x10\x00\x12\x14\n\x10SL_MAJOR_VERSION\x10\x00\x12\x14\n\x10SL_MINOR_VERSION\x10\x04\x12\x12\n\x0eSL_SUB_VERSION\x10\x00\x1a\x02\x10\x01\x42QZOgithub.com/Cisco-service-layer/service-layer-objmodel/grpc/protos;service_layerb\x06proto3'
 )
 
 _SLVERSION = _descriptor.EnumDescriptor(

@@ -752,15 +752,16 @@ const char descriptor_table_protodef_sl_5fl2_5froute_2eproto[] PROTOBUF_SECTION_
   "\032\036.service_layer.SLL2RouteMsgRsp(\0010\001\022R\n\022"
   "SLL2GetNotifStream\022\036.service_layer.SLL2G"
   "etNotifMsg\032\030.service_layer.SLL2Notif(\0010\001"
-  "BCZAgithub.com/Cisco-service-layer/servi"
-  "ce-layer-objmodel/grpc/protosb\006proto3"
+  "BQZOgithub.com/Cisco-service-layer/servi"
+  "ce-layer-objmodel/grpc/protos;service_la"
+  "yerb\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_sl_5fl2_5froute_2eproto_deps[1] = {
   &::descriptor_table_sl_5fcommon_5ftypes_2eproto,
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_sl_5fl2_5froute_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_sl_5fl2_5froute_2eproto = {
-  false, false, 4557, descriptor_table_protodef_sl_5fl2_5froute_2eproto, "sl_l2_route.proto", 
+  false, false, 4571, descriptor_table_protodef_sl_5fl2_5froute_2eproto, "sl_l2_route.proto", 
   &descriptor_table_sl_5fl2_5froute_2eproto_once, descriptor_table_sl_5fl2_5froute_2eproto_deps, 1, 24,
   schemas, file_default_instances, TableStruct_sl_5fl2_5froute_2eproto::offsets,
   file_level_metadata_sl_5fl2_5froute_2eproto, file_level_enum_descriptors_sl_5fl2_5froute_2eproto, file_level_service_descriptors_sl_5fl2_5froute_2eproto,

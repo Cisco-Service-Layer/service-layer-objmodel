@@ -254,15 +254,16 @@ const char descriptor_table_protodef_sl_5fbfd_5fcommon_2eproto[] PROTOBUF_SECTIO
   "HOP\020\002*r\n\016SLBfdNotifType\022\036\n\032SL_BFD_EVENT_"
   "TYPE_RESERVED\020\000\022\033\n\027SL_BFD_EVENT_TYPE_ERR"
   "OR\020\001\022#\n\037SL_BFD_EVENT_TYPE_SESSION_STATE\020"
-  "\002BCZAgithub.com/Cisco-service-layer/serv"
-  "ice-layer-objmodel/grpc/protosb\006proto3"
+  "\002BQZOgithub.com/Cisco-service-layer/serv"
+  "ice-layer-objmodel/grpc/protos;service_l"
+  "ayerb\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_sl_5fbfd_5fcommon_2eproto_deps[1] = {
   &::descriptor_table_sl_5fcommon_5ftypes_2eproto,
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_sl_5fbfd_5fcommon_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_sl_5fbfd_5fcommon_2eproto = {
-  false, false, 1518, descriptor_table_protodef_sl_5fbfd_5fcommon_2eproto, "sl_bfd_common.proto", 
+  false, false, 1532, descriptor_table_protodef_sl_5fbfd_5fcommon_2eproto, "sl_bfd_common.proto", 
   &descriptor_table_sl_5fbfd_5fcommon_2eproto_once, descriptor_table_sl_5fbfd_5fcommon_2eproto_deps, 1, 8,
   schemas, file_default_instances, TableStruct_sl_5fbfd_5fcommon_2eproto::offsets,
   file_level_metadata_sl_5fbfd_5fcommon_2eproto, file_level_enum_descriptors_sl_5fbfd_5fcommon_2eproto, file_level_service_descriptors_sl_5fbfd_5fcommon_2eproto,

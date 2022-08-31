@@ -314,13 +314,13 @@ const char descriptor_table_protodef_sl_5fcommon_5ftypes_2eproto[] PROTOBUF_SECT
   "SL_NOTIFOP_RESERVED\020\000\022\025\n\021SL_NOTIFOP_ENAB"
   "LE\020\001\022\026\n\022SL_NOTIFOP_DISABLE\020\002*K\n\013SLEncapT"
   "ype\022\025\n\021SL_ENCAP_RESERVED\020\000\022\022\n\016SL_ENCAP_V"
-  "XLAN\020\001\022\021\n\rSL_ENCAP_MPLS\020\002BCZAgithub.com/"
+  "XLAN\020\001\022\021\n\rSL_ENCAP_MPLS\020\002BQZOgithub.com/"
   "Cisco-service-layer/service-layer-objmod"
-  "el/grpc/protosb\006proto3"
+  "el/grpc/protos;service_layerb\006proto3"
   ;
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_sl_5fcommon_5ftypes_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_sl_5fcommon_5ftypes_2eproto = {
-  false, false, 8702, descriptor_table_protodef_sl_5fcommon_5ftypes_2eproto, "sl_common_types.proto", 
+  false, false, 8716, descriptor_table_protodef_sl_5fcommon_5ftypes_2eproto, "sl_common_types.proto", 
   &descriptor_table_sl_5fcommon_5ftypes_2eproto_once, nullptr, 0, 3,
   schemas, file_default_instances, TableStruct_sl_5fcommon_5ftypes_2eproto::offsets,
   file_level_metadata_sl_5fcommon_5ftypes_2eproto, file_level_enum_descriptors_sl_5fcommon_5ftypes_2eproto, file_level_service_descriptors_sl_5fcommon_5ftypes_2eproto,

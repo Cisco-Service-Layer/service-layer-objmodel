@@ -13,7 +13,7 @@
 
 syntax = "proto3";
 package service_layer;
-option go_package="github.com/Cisco-service-layer/service-layer-objmodel/grpc/protos";
+option go_package="github.com/Cisco-service-layer/service-layer-objmodel/grpc/protos;service_layer";
 
 // @defgroup SLCommonTypes
 // @ingroup Common

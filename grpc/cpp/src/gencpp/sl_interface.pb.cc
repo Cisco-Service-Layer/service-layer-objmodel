@@ -389,16 +389,16 @@ const char descriptor_table_protodef_sl_5finterface_2eproto[] PROTOBUF_SECTION_V
   "GetNotifMsg\032\037.service_layer.SLInterfaceN"
   "otif0\001\022_\n\022SLInterfaceNotifOp\022\".service_l"
   "ayer.SLInterfaceNotifMsg\032%.service_layer"
-  ".SLInterfaceNotifMsgRspBCZAgithub.com/Ci"
+  ".SLInterfaceNotifMsgRspBQZOgithub.com/Ci"
   "sco-service-layer/service-layer-objmodel"
-  "/grpc/protosb\006proto3"
+  "/grpc/protos;service_layerb\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_sl_5finterface_2eproto_deps[1] = {
   &::descriptor_table_sl_5fcommon_5ftypes_2eproto,
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_sl_5finterface_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_sl_5finterface_2eproto = {
-  false, false, 2380, descriptor_table_protodef_sl_5finterface_2eproto, "sl_interface.proto", 
+  false, false, 2394, descriptor_table_protodef_sl_5finterface_2eproto, "sl_interface.proto", 
   &descriptor_table_sl_5finterface_2eproto_once, descriptor_table_sl_5finterface_2eproto_deps, 1, 13,
   schemas, file_default_instances, TableStruct_sl_5finterface_2eproto::offsets,
   file_level_metadata_sl_5finterface_2eproto, file_level_enum_descriptors_sl_5finterface_2eproto, file_level_service_descriptors_sl_5finterface_2eproto,

@@ -306,9 +306,9 @@ const char descriptor_table_protodef_sl_5froute_5fipv6_2eproto[] PROTOBUF_SECTIO
   "!.service_layer.SLRoutev6GetMsgRsp(\0010\001\022_"
   "\n\027SLRoutev6GetNotifStream\022!.service_laye"
   "r.SLRouteGetNotifMsg\032\035.service_layer.SLR"
-  "outev6Notif(\0010\001BCZAgithub.com/Cisco-serv"
+  "outev6Notif(\0010\001BQZOgithub.com/Cisco-serv"
   "ice-layer/service-layer-objmodel/grpc/pr"
-  "otosb\006proto3"
+  "otos;service_layerb\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_sl_5froute_5fipv6_2eproto_deps[2] = {
   &::descriptor_table_sl_5fcommon_5ftypes_2eproto,
@@ -316,7 +316,7 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_sl_5froute_5fipv6_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_sl_5froute_5fipv6_2eproto = {
-  false, false, 2332, descriptor_table_protodef_sl_5froute_5fipv6_2eproto, "sl_route_ipv6.proto", 
+  false, false, 2346, descriptor_table_protodef_sl_5froute_5fipv6_2eproto, "sl_route_ipv6.proto", 
   &descriptor_table_sl_5froute_5fipv6_2eproto_once, descriptor_table_sl_5froute_5fipv6_2eproto_deps, 2, 8,
   schemas, file_default_instances, TableStruct_sl_5froute_5fipv6_2eproto::offsets,
   file_level_metadata_sl_5froute_5fipv6_2eproto, file_level_enum_descriptors_sl_5froute_5fipv6_2eproto, file_level_service_descriptors_sl_5froute_5fipv6_2eproto,
