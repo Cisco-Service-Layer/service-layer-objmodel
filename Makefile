@@ -33,6 +33,13 @@ tutorial: build
 	$(DOCKER_RUN) -t $(IMAGE_NAME):$(IMAGE_TAG) \
 	make -C grpc/go/src/tutorial
 
+cpp-tutorial: build
+	$(DOCKER_RUN) -t $(IMAGE_NAME):$(IMAGE_TAG) \
+	bash -c "make -C grpc/cpp/src all && \
+		make -C grpc/cpp/src install && \
+		make -C grpc/cpp/src/tutorial && \
+		make -C grpc/cpp/src/tutorial/rshuttle"
+
 bindings: build
 	$(DOCKER_RUN) -t $(IMAGE_NAME):$(IMAGE_TAG) \
 	bash -c "cd grpc/utils && ./gen-all.sh"

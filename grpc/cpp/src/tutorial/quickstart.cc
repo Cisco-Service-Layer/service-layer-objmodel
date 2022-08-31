@@ -761,8 +761,8 @@ int main(int argc, char** argv) {
     rshuttle.routev4Set(routev4_ptr2, rshuttle.IPv4ToLong("23.0.1.0") , 24, 120);
  
     // Set up the paths for each v4 route object    
-    rshuttle.routev4PathAdd(routev4_ptr, rshuttle.IPv4ToLong("14.1.1.10"), "GigabitEthernet0/0/0/0"); 
-    rshuttle.routev4PathAdd(routev4_ptr2, rshuttle.IPv4ToLong("14.1.1.10"), "GigabitEthernet0/0/0/0");
+    rshuttle.routev4PathAdd(routev4_ptr, rshuttle.IPv4ToLong("14.1.1.10"), "FourHundredGigE0/0/0/0"); 
+    rshuttle.routev4PathAdd(routev4_ptr2, rshuttle.IPv4ToLong("14.1.1.10"), "FourHundredGigE0/0/0/0");
     rshuttle.routev4Op(service_layer::SL_OBJOP_ADD);
 
 
@@ -774,7 +774,7 @@ int main(int argc, char** argv) {
     rshuttle.routev6Set(routev6_ptr, rshuttle.IPv6ToByteArrayString("2002:aa::0"), 64, 120);
   
     // Set up the path for v6 route object
-    rshuttle.routev6PathAdd(routev6_ptr, rshuttle.IPv6ToByteArrayString("2002:ae::3"), "GigabitEthernet0/0/0/0");
+    rshuttle.routev6PathAdd(routev6_ptr, rshuttle.IPv6ToByteArrayString("2002:ae::3"), "FourHundredGigE0/0/0/0");
     rshuttle.routev6Op(service_layer::SL_OBJOP_ADD);
 
     vrfhandler_signum = &vrfhandler;

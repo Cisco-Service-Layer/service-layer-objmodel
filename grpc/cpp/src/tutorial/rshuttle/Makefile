@@ -1,8 +1,11 @@
 TARGET := servicelayermain 
 SRC_FILES := $(wildcard *.cpp)
 OBJ_FILES := $(patsubst %.cpp,%.o,$(SRC_FILES))
-LDFLAGS := -L/usr/local/lib -I/usr/local/include -lgrpc++_unsecure -lgrpc -lprotobuf -lpthread -ldl -liosxrsl -lglog 
-CPPFLAGS := -g -std=c++11 -I/usr/local/include -pthread
+# LDFLAGS from https://github.com/grpc/grpc/blob/master/examples/cpp/helloworld/Makefile#L23
+LDFLAGS := -L/root/.local/lib -L/usr/local/lib -liosxrsl `PKG_CONFIG_PATH=/root/.local/lib/pkgconfig pkg-config --libs protobuf grpc++ libglog`  -lcares -lupb -laddress_sorting -lz \
+	-pthread -Wl,--no-as-needed -lgrpc++_reflection -Wl,--as-needed -ldl
+# CPPFLAGS set based on  https://github.com/grpc/grpc/blob/master/examples/cpp/helloworld/Makefile#L20
+CPPFLAGS := -g -std=c++11 -pthread `PKG_CONFIG_PATH=/root/.local/lib/pkgconfig pkg-config --cflags protobuf grpc++ libglog`
 
 .PHONY: all
 all: $(TARGET)

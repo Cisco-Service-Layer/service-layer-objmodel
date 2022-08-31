@@ -3,7 +3,7 @@ FROM ubuntu:bionic
 RUN apt-get update && \
     apt-get install -y git vim doxygen autoconf automake libtool \
                        build-essential pkg-config curl make \
-                       unzip python3 python3-pip python3-venv wget
+                       unzip python3 python3-pip python3-venv wget libssl-dev
 
 # python
 RUN python3 -m venv /opt/venv
@@ -12,7 +12,7 @@ COPY grpc/python/requirements.txt /tmp
 RUN pip3 install -r /tmp/requirements.txt
 
 ARG GO_VER=1.19
-ARG WS=/slapi
+ARG WS=/ws
 RUN mkdir -p ${WS} 
 WORKDIR ${WS}
 
@@ -39,24 +39,38 @@ ENV PATH="${PATH}:/root/go/bin"
 
 ####################
 
-## CPP grpc build and install
-## reference https://grpc.io/docs/languages/cpp/quickstart
-## FIXME should use $HOME instead
-#ARG MY_INSTALL_DIR=/root/.local
-#RUN mkdir -p ${MY_INSTALL_DIR}
-#
-#ENV PATH="${PATH}:${MY_INSTALL_DIR}/bin"
-#
-##get cmake
-#RUN wget -q -O cmake-linux.sh https://github.com/Kitware/CMake/releases/download/v3.19.6/cmake-3.19.6-Linux-x86_64.sh
-#RUN sh cmake-linux.sh -- --skip-license --prefix=${MY_INSTALL_DIR}
-#
-## Clone GRPC repo
-#RUN git clone --recurse-submodules -b v1.46.3 --depth 1 --shallow-submodules https://github.com/grpc/grpc
-#WORKDIR ${WS}/grpc
-#
-#RUN mkdir -p cmake/build
-#WORKDIR ${WS}/grpc/cmake/build
-#RUN cmake -DgRPC_INSTALL=ON -DgRPC_BUILD_TESTS=OFF -DCMAKE_INSTALL_PREFIX=${MY_INSTALL_DIR} ../..
-#RUN make -j
-#RUN make install
+# CPP grpc build and install
+# reference https://grpc.io/docs/languages/cpp/quickstart
+# FIXME should use $HOME instead
+ARG MY_INSTALL_DIR=/root/.local
+RUN mkdir -p ${MY_INSTALL_DIR}
+
+ENV PATH="${PATH}:${MY_INSTALL_DIR}/bin"
+
+#get cmake
+RUN wget -q -O cmake-linux.sh https://github.com/Kitware/CMake/releases/download/v3.19.6/cmake-3.19.6-Linux-x86_64.sh
+RUN sh cmake-linux.sh -- --skip-license --prefix=${MY_INSTALL_DIR}
+
+# Clone GRPC repo
+RUN git clone --recurse-submodules -b v1.46.3 --depth 1 --shallow-submodules https://github.com/grpc/grpc
+WORKDIR ${WS}/grpc
+
+RUN mkdir -p cmake/build
+WORKDIR ${WS}/grpc/cmake/build
+RUN cmake -DgRPC_INSTALL=ON -DgRPC_BUILD_TESTS=OFF -DCMAKE_INSTALL_PREFIX=${MY_INSTALL_DIR} ../..
+RUN make -j
+RUN make install
+WORKDIR ${WS}
+
+############
+
+# Clone glog repo
+RUN git clone https://github.com/google/glog.git glog
+WORKDIR ${WS}/glog
+
+# Configure build tree
+RUN cmake -S . -B build -G "Unix Makefiles"
+RUN cmake --build build
+RUN cmake --build build --target install
+
+ENV PATH="${PATH}:."
