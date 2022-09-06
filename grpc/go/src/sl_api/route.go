@@ -174,7 +174,7 @@ func RouteOperation(conn *grpc.ClientConn, Oper pb.SLObjectOp,
     if (totalRoutes > 0) {
         var rate float64
         rate = float64(totalRoutes)/(t1.Sub(t0).Seconds())
-        fmt.Printf("Rate: %f\n", rate)
+        fmt.Printf("Preparation Rate: %f\n", rate)
     }
 
     t0 = time.Now()
@@ -192,6 +192,6 @@ func RouteOperation(conn *grpc.ClientConn, Oper pb.SLObjectOp,
     if (totalRoutes > 0) {
         var rate float64
         rate = float64(totalRoutes)/(t1.Sub(t0).Seconds())
-        fmt.Printf("Rate: %f\n", rate)
+        fmt.Printf("Programming Rate: %f\n", rate)
     }
 }

@@ -296,9 +296,23 @@ func LabelOperation(conn *grpc.ClientConn, Oper pb.SLObjectOp,
         label++
     }
 
+    t1 := time.Now()
+
+    fmt.Printf("%s Total Batches: %d, Ilms: %d, Preparation time: %v\n",
+        Oper.String(), batchIndex, sentIlms, t1.Sub(t0))
+
+    if (sentIlms > 0) {
+        var rate float64
+        rate = float64(sentIlms)/(t1.Sub(t0).Seconds())
+        fmt.Printf("Preparation Rate: %f\n", rate)
+    }
+
+    t0 = time.Now()
+
     runMPLSILMRequest(conn, messages)
 
-    t1 := time.Now()
+    t1 = time.Now()
+
 
     fmt.Printf("%s Total Batches: %d, Ilms: %d, ElapsedTime: %v\n",
         Oper.String(), batchIndex, sentIlms, t1.Sub(t0))
@@ -306,6 +320,6 @@ func LabelOperation(conn *grpc.ClientConn, Oper pb.SLObjectOp,
     if (sentIlms > 0) {
         var rate float64
         rate = float64(sentIlms)/(t1.Sub(t0).Seconds())
-        fmt.Printf("Rate: %f\n", rate)
+        fmt.Printf("Programming Rate: %f\n", rate)
     }
 }
