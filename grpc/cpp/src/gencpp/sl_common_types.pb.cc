@@ -59,7 +59,7 @@ static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_sl_5fcommon_5ftypes
 static const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* file_level_enum_descriptors_sl_5fcommon_5ftypes_2eproto[5];
 static constexpr ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor const** file_level_service_descriptors_sl_5fcommon_5ftypes_2eproto = nullptr;
 
-const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_sl_5fcommon_5ftypes_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
+const uint32_t TableStruct_sl_5fcommon_5ftypes_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::service_layer::SLErrorStatus, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -314,11 +314,13 @@ const char descriptor_table_protodef_sl_5fcommon_5ftypes_2eproto[] PROTOBUF_SECT
   "SL_NOTIFOP_RESERVED\020\000\022\025\n\021SL_NOTIFOP_ENAB"
   "LE\020\001\022\026\n\022SL_NOTIFOP_DISABLE\020\002*K\n\013SLEncapT"
   "ype\022\025\n\021SL_ENCAP_RESERVED\020\000\022\022\n\016SL_ENCAP_V"
-  "XLAN\020\001\022\021\n\rSL_ENCAP_MPLS\020\002b\006proto3"
+  "XLAN\020\001\022\021\n\rSL_ENCAP_MPLS\020\002BQZOgithub.com/"
+  "Cisco-service-layer/service-layer-objmod"
+  "el/grpc/protos;service_layerb\006proto3"
   ;
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_sl_5fcommon_5ftypes_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_sl_5fcommon_5ftypes_2eproto = {
-  false, false, 8633, descriptor_table_protodef_sl_5fcommon_5ftypes_2eproto, "sl_common_types.proto", 
+  false, false, 8716, descriptor_table_protodef_sl_5fcommon_5ftypes_2eproto, "sl_common_types.proto", 
   &descriptor_table_sl_5fcommon_5ftypes_2eproto_once, nullptr, 0, 3,
   schemas, file_default_instances, TableStruct_sl_5fcommon_5ftypes_2eproto::offsets,
   file_level_metadata_sl_5fcommon_5ftypes_2eproto, file_level_enum_descriptors_sl_5fcommon_5ftypes_2eproto, file_level_service_descriptors_sl_5fcommon_5ftypes_2eproto,
@@ -580,7 +582,7 @@ bool SLErrorStatus_SLErrno_IsValid(int value) {
   }
 }
 
-#if (__cplusplus < 201703) && (!defined(_MSC_VER) || _MSC_VER >= 1900)
+#if (__cplusplus < 201703) && (!defined(_MSC_VER) || (_MSC_VER >= 1900 && _MSC_VER < 1912))
 constexpr SLErrorStatus_SLErrno SLErrorStatus::SL_SUCCESS;
 constexpr SLErrorStatus_SLErrno SLErrorStatus::SL_NOT_CONNECTED;
 constexpr SLErrorStatus_SLErrno SLErrorStatus::SL_EAGAIN;
@@ -822,7 +824,7 @@ constexpr SLErrorStatus_SLErrno SLErrorStatus::SL_INTERNAL_START_OFFSET;
 constexpr SLErrorStatus_SLErrno SLErrorStatus::SLErrno_MIN;
 constexpr SLErrorStatus_SLErrno SLErrorStatus::SLErrno_MAX;
 constexpr int SLErrorStatus::SLErrno_ARRAYSIZE;
-#endif  // (__cplusplus < 201703) && (!defined(_MSC_VER) || _MSC_VER >= 1900)
+#endif  // (__cplusplus < 201703) && (!defined(_MSC_VER) || (_MSC_VER >= 1900 && _MSC_VER < 1912))
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* SLRegOp_descriptor() {
   ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_sl_5fcommon_5ftypes_2eproto);
   return file_level_enum_descriptors_sl_5fcommon_5ftypes_2eproto[1];
@@ -908,7 +910,7 @@ SLErrorStatus::SLErrorStatus(const SLErrorStatus& from)
   // @@protoc_insertion_point(copy_constructor:service_layer.SLErrorStatus)
 }
 
-void SLErrorStatus::SharedCtor() {
+inline void SLErrorStatus::SharedCtor() {
 status_ = 0;
 }
 
@@ -935,7 +937,7 @@ void SLErrorStatus::SetCachedSize(int size) const {
 
 void SLErrorStatus::Clear() {
 // @@protoc_insertion_point(message_clear_start:service_layer.SLErrorStatus)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -946,13 +948,13 @@ void SLErrorStatus::Clear() {
 const char* SLErrorStatus::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    uint32_t tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // .service_layer.SLErrorStatus.SLErrno Status = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
-          ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
+          uint64_t val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
           _internal_set_status(static_cast<::service_layer::SLErrorStatus_SLErrno>(val));
         } else
@@ -981,10 +983,10 @@ failure:
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* SLErrorStatus::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+uint8_t* SLErrorStatus::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:service_layer.SLErrorStatus)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   // .service_layer.SLErrorStatus.SLErrno Status = 1;
@@ -1006,7 +1008,7 @@ size_t SLErrorStatus::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:service_layer.SLErrorStatus)
   size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -1035,7 +1037,7 @@ void SLErrorStatus::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
 void SLErrorStatus::MergeFrom(const SLErrorStatus& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:service_layer.SLErrorStatus)
   GOOGLE_DCHECK_NE(&from, this);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   if (from._internal_status() != 0) {
@@ -1102,7 +1104,7 @@ SLInterface::SLInterface(const SLInterface& from)
   // @@protoc_insertion_point(copy_constructor:service_layer.SLInterface)
 }
 
-void SLInterface::SharedCtor() {
+inline void SLInterface::SharedCtor() {
 clear_has_Interface();
 }
 
@@ -1151,7 +1153,7 @@ void SLInterface::clear_Interface() {
 
 void SLInterface::Clear() {
 // @@protoc_insertion_point(message_clear_start:service_layer.SLInterface)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -1162,12 +1164,12 @@ void SLInterface::Clear() {
 const char* SLInterface::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    uint32_t tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // string Name = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
           auto str = _internal_mutable_name();
           ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "service_layer.SLInterface.Name"));
@@ -1177,7 +1179,7 @@ const char* SLInterface::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID
         continue;
       // uint32 Handle = 2;
       case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
           _internal_set_handle(::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr));
           CHK_(ptr);
         } else
@@ -1206,10 +1208,10 @@ failure:
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* SLInterface::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+uint8_t* SLInterface::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:service_layer.SLInterface)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   // string Name = 1;
@@ -1240,7 +1242,7 @@ size_t SLInterface::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:service_layer.SLInterface)
   size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -1280,7 +1282,7 @@ void SLInterface::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
 void SLInterface::MergeFrom(const SLInterface& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:service_layer.SLInterface)
   GOOGLE_DCHECK_NE(&from, this);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   switch (from.Interface_case()) {
@@ -1358,7 +1360,7 @@ SLIpAddress::SLIpAddress(const SLIpAddress& from)
   // @@protoc_insertion_point(copy_constructor:service_layer.SLIpAddress)
 }
 
-void SLIpAddress::SharedCtor() {
+inline void SLIpAddress::SharedCtor() {
 clear_has_Address();
 }
 
@@ -1407,7 +1409,7 @@ void SLIpAddress::clear_Address() {
 
 void SLIpAddress::Clear() {
 // @@protoc_insertion_point(message_clear_start:service_layer.SLIpAddress)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -1418,12 +1420,12 @@ void SLIpAddress::Clear() {
 const char* SLIpAddress::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    uint32_t tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // uint32 V4Address = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
           _internal_set_v4address(::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr));
           CHK_(ptr);
         } else
@@ -1431,7 +1433,7 @@ const char* SLIpAddress::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID
         continue;
       // bytes V6Address = 2;
       case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
           auto str = _internal_mutable_v6address();
           ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
@@ -1461,10 +1463,10 @@ failure:
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* SLIpAddress::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+uint8_t* SLIpAddress::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:service_layer.SLIpAddress)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   // uint32 V4Address = 1;
@@ -1491,7 +1493,7 @@ size_t SLIpAddress::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:service_layer.SLIpAddress)
   size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -1531,7 +1533,7 @@ void SLIpAddress::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
 void SLIpAddress::MergeFrom(const SLIpAddress& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:service_layer.SLIpAddress)
   GOOGLE_DCHECK_NE(&from, this);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   switch (from.Address_case()) {

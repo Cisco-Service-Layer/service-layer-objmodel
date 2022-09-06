@@ -156,11 +156,10 @@ This can be found here: grpc/python/src
 
 To install dependencies first create a virtual env:
 ```
-cd grpc/python/
 pip install virtualenv
-virtualenv sl-env --python=python3
+virtualenv sl-env --python=python3.6
 source sl-env/bin/activate
-pip install -r requirements.txt
+pip install -r grpc/python/requirements.txt
 ```
 
 To run the unit test regression, setup some Environment variables:

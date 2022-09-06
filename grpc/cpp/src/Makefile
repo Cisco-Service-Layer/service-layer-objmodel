@@ -1,4 +1,4 @@
-CPPFLAGS := -g -std=c++11 -I/usr/local/include -pthread
+CPPFLAGS := -g -std=c++11 -I/root/.local/include -pthread
 RM = rm -f  # rm command
 TARGET_LIB = libiosxrsl.a # target lib
 LIBDIR = /usr/local/lib/
@@ -12,6 +12,7 @@ INC_FILES := $(wildcard gencpp/*.h)
 all: $(TARGET_LIB)
 
 genobj/%.o: gencpp/%.cc
+	mkdir -p genobj
 	g++ $(CPPFLAGS) -c -o $@ $<
 
 
