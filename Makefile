@@ -29,11 +29,11 @@ DOCKER_RUN := docker run --rm=true --privileged \
 build:
 	$(DOCKER_BUILD) ;
 
-tutorial: build
+tutorial: build bindings
 	$(DOCKER_RUN) -t $(IMAGE_NAME):$(IMAGE_TAG) \
 	make -C grpc/go/src/tutorial
 
-cpp-tutorial: build
+cpp-tutorial: build bindings
 	$(DOCKER_RUN) -t $(IMAGE_NAME):$(IMAGE_TAG) \
 	bash -c "make -C grpc/cpp/src all && \
 		make -C grpc/cpp/src install && \

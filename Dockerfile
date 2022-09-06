@@ -34,14 +34,12 @@ RUN go install google.golang.org/protobuf/cmd/protoc-gen-go@v1.28
 RUN go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@v1.2
 
 # Above were installed in $HOME/go, since this is running as root
-# in container. FIXME, how to use $HOME ?
 ENV PATH="${PATH}:/root/go/bin"
 
 ####################
 
 # CPP grpc build and install
 # reference https://grpc.io/docs/languages/cpp/quickstart
-# FIXME should use $HOME instead
 ARG MY_INSTALL_DIR=/root/.local
 RUN mkdir -p ${MY_INSTALL_DIR}
 
@@ -64,7 +62,7 @@ WORKDIR ${WS}
 
 ############
 
-# Clone glog repo
+# Clone glog repo. this is required for the CPP rshuttle application.
 RUN git clone https://github.com/google/glog.git glog
 WORKDIR ${WS}/glog
 
@@ -73,4 +71,6 @@ RUN cmake -S . -B build -G "Unix Makefiles"
 RUN cmake --build build
 RUN cmake --build build --target install
 
+###########
+# Adjust PATH so that binding scripts can execute out of the cwd.
 ENV PATH="${PATH}:."
