@@ -32,20 +32,23 @@ func runSLAv4Request(conn *grpc.ClientConn, messages []*pb.SLRoutev4Msg) error {
         if err != nil {
                 return err
         }
-        waitc := make(chan struct{})
-        go func() (err error) {
+        errc := make(chan error, 1)
+        go func() {
                 for {
                         response, err := stream.Recv()
                         if response == nil {
                                 // read done.
-                                close(waitc)
-                                return nil
+                                close(errc)
+                                return
                         }
                         if err != nil {
-                                return err
+                                errc <- err
+                                return
                         }
                         if response.StatusSummary.Status != pb.SLErrorStatus_SL_SUCCESS {
-                                return fmt.Errorf("route operation failed: %s", response)
+                                errc <- fmt.Errorf("route operation failed: %s", response)
+                                close(errc)
+                                return
                         }
                 }
         }()
@@ -55,8 +58,8 @@ func runSLAv4Request(conn *grpc.ClientConn, messages []*pb.SLRoutev4Msg) error {
                 }
         }
         stream.CloseSend()
-        <-waitc
-        return nil
+        err = <-errc
+        return err
 }
 
 
