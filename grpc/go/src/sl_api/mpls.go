@@ -65,6 +65,26 @@ func runMPLSILMRequest(conn *grpc.ClientConn, messages []*pb.SLMplsIlmMsg) (err 
         return err
 }
 
+func MplsGetMsg(conn *grpc.ClientConn) {
+
+    /* Create a NewSLMplsOperClient instance */
+    c := pb.NewSLMplsOperClient(conn)
+
+    /* Create a SLMplsGetMsg */
+    mplsGetMsg := &pb.SLMplsGetMsg {}
+
+    /* RPC to Get the mpls values. */
+    response, err := c.SLMplsGet(context.Background(), mplsGetMsg)
+    if err != nil {
+        log.Fatalf("Client Error %v", err)
+    }
+
+    /* Print Server response */
+    fmt.Println("Max ILMs per batch   : ", response.GetMaxIlmPerIlmmsg())
+
+    MaxIlmInBatch = response.GetMaxIlmPerIlmmsg()
+}
+
 func MplsRegOperation(conn *grpc.ClientConn, oper pb.SLRegOp) {
 
     /* Create a NewSLMplsOperClient instance */
@@ -81,22 +101,6 @@ func MplsRegOperation(conn *grpc.ClientConn, oper pb.SLRegOp) {
 
     if response.ErrStatus.Status != pb.SLErrorStatus_SL_SUCCESS {
         log.Fatalf("MPLS registration operation error: ", response.String())
-    }
-
-    if oper == pb.SLRegOp_SL_REGOP_REGISTER {
-        /* Create a SLMplsGetMsg */
-        mplsGetMsg := &pb.SLMplsGetMsg {}
-
-        /* RPC to Get the mpls values. */
-        response, err := c.SLMplsGet(context.Background(), mplsGetMsg)
-        if err != nil {
-            log.Fatalf("Client Error %v", err)
-        }
-
-        /* Print Server response */
-        fmt.Println("Max ILMs per batch   : ", response.GetMaxIlmPerIlmmsg())
-
-        MaxIlmInBatch = response.GetMaxIlmPerIlmmsg()
     }
 }
 
@@ -181,6 +185,13 @@ func LabelOperation(conn *grpc.ClientConn, Oper pb.SLObjectOp,
         log.Fatalf("Invalid batch size: %d", batchSize)
     }
 
+    log.Debug("Label: start label: ", startLabel,
+              ", #labels: ", numLabels,
+              ", #numPaths: ", numPaths,
+              ", #numElsps: ", numElsps,
+              ", #batchNum: ", batchNum,
+              ", #batchSize: ", batchSize)
+
     if batchSize > uint(MaxIlmInBatch) {
         batchSize = uint(MaxIlmInBatch)
     }
@@ -213,7 +224,13 @@ func LabelOperation(conn *grpc.ClientConn, Oper pb.SLObjectOp,
      */
     for sentIlms < totalIlms  {
 
-        log.Debug("sentIlms ", sentIlms, " batchIdx ", batchIndex, " ilmsInBatch ", ilmsInBatch)
+        log.Debug("sentIlms ", sentIlms,
+		  " batchIdx ", batchIndex,
+		  " ilmsInBatch ", ilmsInBatch,
+		  " numIlms ", numIlms,
+		  " batchSize ", batchSize,
+		  " sentIlms ", sentIlms,
+		  " totalIlms ", totalIlms)
 
         if (ilmsInBatch + numIlms > batchSize) ||
            (sentIlms + numIlms >= totalIlms)  {

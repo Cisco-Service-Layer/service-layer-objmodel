@@ -77,16 +77,22 @@ var (
 )
 
 func testMPLS(conn *grpc.ClientConn) {
-    /* MPLS Registration and EOF to flush old entries */
-    sl_api.MplsRegOperation(conn, pb.SLRegOp_SL_REGOP_REGISTER)
+    /* Get MPLS vertical attributes */
+    sl_api.MplsGetMsg(conn)
 
-    /* Don't flush if we start up with delete */
-    if pb.SLObjectOp(*routeOper) != pb.SLObjectOp_SL_OBJOP_DELETE {
+    /*
+     * Perform registration with MPLS vertical only for ADD operation. Ideally
+     * this tool should have provided options for reg/object add/eof, but for
+     * now make it easy for user to perform an implicit register on ADD
+     */
+    if pb.SLObjectOp(*routeOper) == pb.SLObjectOp_SL_OBJOP_ADD {
+       /* MPLS Registration and EOF to flush old entries */
+       sl_api.MplsRegOperation(conn, pb.SLRegOp_SL_REGOP_REGISTER)
+
+       /* flush on add of new labels */
         sl_api.MplsRegOperation(conn, pb.SLRegOp_SL_REGOP_EOF)
         time.Sleep(5 * time.Second)
-    }
 
-    if pb.SLObjectOp(*routeOper) != pb.SLObjectOp_SL_OBJOP_DELETE {
         /* Batch Label Block Operation */
         sl_api.LabelBlockOperation(conn, pb.SLObjectOp(*routeOper),
                                    uint32(*startLabel), uint32(*numLabels), *numElsps,
