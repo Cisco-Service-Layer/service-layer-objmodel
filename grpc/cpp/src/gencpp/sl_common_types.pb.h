@@ -245,6 +245,7 @@ enum SLErrorStatus_SLErrno : int {
   SLErrorStatus_SLErrno_SL_NHLFE_LABEL_ACTION_MISSING = 40985,
   SLErrorStatus_SLErrno_SL_NHLFE_EXP_SET_FAILED = 40986,
   SLErrorStatus_SLErrno_SL_NHLFE_ELSP_PROTECTION_UNSUPPORTED = 40987,
+  SLErrorStatus_SLErrno_SL_NHLFE_INVALID_ELSP_EXP = 40988,
   SLErrorStatus_SLErrno_SL_LABEL_BLK_ERR_OFFSET = 45056,
   SLErrorStatus_SLErrno_SL_LABEL_BLK_LSD_ADD_FAILED = 45057,
   SLErrorStatus_SLErrno_SL_LABEL_BLK_LSD_DELETE_FAILED = 45058,
@@ -905,6 +906,8 @@ class SLErrorStatus final :
     SLErrorStatus_SLErrno_SL_NHLFE_EXP_SET_FAILED;
   static constexpr SLErrno SL_NHLFE_ELSP_PROTECTION_UNSUPPORTED =
     SLErrorStatus_SLErrno_SL_NHLFE_ELSP_PROTECTION_UNSUPPORTED;
+  static constexpr SLErrno SL_NHLFE_INVALID_ELSP_EXP =
+    SLErrorStatus_SLErrno_SL_NHLFE_INVALID_ELSP_EXP;
   static constexpr SLErrno SL_LABEL_BLK_ERR_OFFSET =
     SLErrorStatus_SLErrno_SL_LABEL_BLK_ERR_OFFSET;
   static constexpr SLErrno SL_LABEL_BLK_LSD_ADD_FAILED =

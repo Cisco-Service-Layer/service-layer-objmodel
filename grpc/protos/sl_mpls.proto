@@ -428,6 +428,10 @@ message SLMplsPath {
     // Alternatives.
     // For N+1 backup labels, N remote backup addresses must be specified.
     repeated SLIpAddress RemoteAddress = 9;
+
+    SLMplsCos SlMplsCosVal = 10;
+
+    uint32    SLMplsActivePath = 11;
 }
 
 // MPLS ILM entry's key.
