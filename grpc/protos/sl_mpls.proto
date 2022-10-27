@@ -439,7 +439,6 @@ message SLMplsPath {
     // 0: Path is installed as an active path
     // 1: Path is installed as an inactive path
     // Everything else: Reserved
-
     uint32    SlMplsPathPriority = 11;
 }
 

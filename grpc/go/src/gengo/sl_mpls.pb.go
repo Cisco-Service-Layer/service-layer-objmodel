@@ -1051,8 +1051,12 @@ type SLMplsPath struct {
 	// For class based forwarding of MPLS labels, the client can choose to program forwarding class as an attribute
 	// of the path. In this programming model, all paths for all classes must be programmed together and class must not
 	// be specified as key attribute on the ILM.,
-	SlMplsCosVal       *SLMplsCos `protobuf:"bytes,10,opt,name=SlMplsCosVal,proto3" json:"SlMplsCosVal,omitempty"`
-	SlMplsPathPriority uint32     `protobuf:"varint,11,opt,name=SlMplsPathPriority,proto3" json:"SlMplsPathPriority,omitempty"`
+	SlMplsCosVal *SLMplsCos `protobuf:"bytes,10,opt,name=SlMplsCosVal,proto3" json:"SlMplsCosVal,omitempty"`
+	// Set Path priority as active, backup or reserved
+	// 0: Path is installed as an active path
+	// 1: Path is installed as an inactive path
+	// Everything else: Reserved
+	SlMplsPathPriority uint32 `protobuf:"varint,11,opt,name=SlMplsPathPriority,proto3" json:"SlMplsPathPriority,omitempty"`
 }
 
 func (x *SLMplsPath) Reset() {
