@@ -429,9 +429,18 @@ message SLMplsPath {
     // For N+1 backup labels, N remote backup addresses must be specified.
     repeated SLIpAddress RemoteAddress = 9;
 
+    // Either Exp bits or CoS forwarding class.
+    // For class based forwarding of MPLS labels, the client can choose to program forwarding class as an attribute
+    // of the path. In this programming model, all paths for all classes must be programmed together and class must not
+    // be specified as key attribute on the ILM.,
     SLMplsCos SlMplsCosVal = 10;
 
-    uint32    SLMplsActivePath = 11;
+    // Set Path priority as active, backup or reserved
+    // 0: Path is installed as an active path
+    // 1: Path is installed as an inactive path
+    // Everything else: Reserved
+
+    uint32    SlMplsPathPriority = 11;
 }
 
 // MPLS ILM entry's key.

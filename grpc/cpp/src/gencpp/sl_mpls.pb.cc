@@ -197,7 +197,7 @@ constexpr SLMplsPath::SLMplsPath(
   , action_(0)
 
   , pathid_(0u)
-  , slmplsactivepath_(0u){}
+  , slmplspathpriority_(0u){}
 struct SLMplsPathDefaultTypeInternal {
   constexpr SLMplsPathDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
@@ -441,7 +441,7 @@ const uint32_t TableStruct_sl_5fmpls_2eproto::offsets[] PROTOBUF_SECTION_VARIABL
   PROTOBUF_FIELD_OFFSET(::service_layer::SLMplsPath, labelstack_),
   PROTOBUF_FIELD_OFFSET(::service_layer::SLMplsPath, remoteaddress_),
   PROTOBUF_FIELD_OFFSET(::service_layer::SLMplsPath, slmplscosval_),
-  PROTOBUF_FIELD_OFFSET(::service_layer::SLMplsPath, slmplsactivepath_),
+  PROTOBUF_FIELD_OFFSET(::service_layer::SLMplsPath, slmplspathpriority_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::service_layer::SLMplsIlmKey, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -599,7 +599,7 @@ const char descriptor_table_protodef_sl_5fmpls_2eproto[] PROTOBUF_SECTION_VARIAB
   "erIlm\030\007 \001(\r\"r\n\024SLMplsGetStatsMsgRsp\022/\n\tE"
   "rrStatus\030\001 \001(\0132\034.service_layer.SLErrorSt"
   "atus\022\027\n\017LabelBlockCount\030\002 \001(\r\022\020\n\010IlmCoun"
-  "t\030\003 \001(\r\"\207\003\n\nSLMplsPath\0222\n\016NexthopAddress"
+  "t\030\003 \001(\r\"\211\003\n\nSLMplsPath\0222\n\016NexthopAddress"
   "\030\001 \001(\0132\032.service_layer.SLIpAddress\0224\n\020Ne"
   "xthopInterface\030\002 \001(\0132\032.service_layer.SLI"
   "nterface\022\022\n\nLoadMetric\030\003 \001(\r\022\017\n\007VrfName\030"
@@ -608,69 +608,69 @@ const char descriptor_table_protodef_sl_5fmpls_2eproto[] PROTOBUF_SECTION_VARIAB
   "PathBitmap\030\007 \003(\004\022\022\n\nLabelStack\030\010 \003(\r\0221\n\r"
   "RemoteAddress\030\t \003(\0132\032.service_layer.SLIp"
   "Address\022.\n\014SlMplsCosVal\030\n \001(\0132\030.service_"
-  "layer.SLMplsCos\022\030\n\020SLMplsActivePath\030\013 \001("
-  "\r\"R\n\014SLMplsIlmKey\022\022\n\nLocalLabel\030\001 \001(\r\022.\n"
-  "\014SlMplsCosVal\030\002 \001(\0132\030.service_layer.SLMp"
-  "lsCos\"Y\n\tSLMplsCos\022\r\n\003Exp\030\001 \001(\rH\000\022\031\n\017Def"
-  "aultElspPath\030\002 \001(\010H\000\022\031\n\017ForwardingClass\030"
-  "\003 \001(\rH\000B\007\n\005value\"d\n\016SLMplsIlmEntry\022(\n\003Ke"
-  "y\030\001 \001(\0132\033.service_layer.SLMplsIlmKey\022(\n\005"
-  "Paths\030\002 \003(\0132\031.service_layer.SLMplsPath\"|"
-  "\n\014SLMplsIlmMsg\022\'\n\004Oper\030\001 \001(\0162\031.service_l"
-  "ayer.SLObjectOp\022\022\n\nCorrelator\030\002 \001(\004\022/\n\010M"
-  "plsIlms\030\003 \003(\0132\035.service_layer.SLMplsIlmE"
-  "ntry\"i\n\014SLMplsIlmRes\022/\n\tErrStatus\030\001 \001(\0132"
-  "\034.service_layer.SLErrorStatus\022(\n\003Key\030\002 \001"
-  "(\0132\033.service_layer.SLMplsIlmKey\"\210\001\n\017SLMp"
-  "lsIlmMsgRsp\022\022\n\nCorrelator\030\001 \001(\004\0223\n\rStatu"
-  "sSummary\030\002 \001(\0132\034.service_layer.SLErrorSt"
-  "atus\022,\n\007Results\030\003 \003(\0132\033.service_layer.SL"
-  "MplsIlmRes\"v\n\017SLMplsIlmGetMsg\022\022\n\nCorrela"
-  "tor\030\001 \001(\004\022(\n\003Key\030\002 \001(\0132\033.service_layer.S"
-  "LMplsIlmKey\022\024\n\014EntriesCount\030\003 \001(\r\022\017\n\007Get"
-  "Next\030\004 \001(\010\"\226\001\n\022SLMplsIlmGetMsgRsp\022\022\n\nCor"
-  "relator\030\001 \001(\004\022\013\n\003Eof\030\002 \001(\010\022/\n\tErrStatus\030"
-  "\003 \001(\0132\034.service_layer.SLErrorStatus\022.\n\007E"
-  "ntries\030\004 \003(\0132\035.service_layer.SLMplsIlmEn"
-  "try*\342\001\n\rSlLabelAction\022\034\n\030SL_LABEL_ACTION"
-  "_RESERVED\020\000\022\030\n\024SL_LABEL_ACTION_SWAP\020\001\022#\n"
-  "\037SL_LABEL_ACTION_POP_AND_FORWARD\020\002\022\'\n#SL"
-  "_LABEL_ACTION_POP_AND_LOOKUP_IPV4\020\003\022\'\n#S"
-  "L_LABEL_ACTION_POP_AND_LOOKUP_IPV6\020\004\022\"\n\036"
-  "SL_LABEL_ACTION_POP_AND_LOOKUP\020\005*\202\001\n\024SLM"
-  "plsLabelBlockType\022%\n!SL_MPLS_LABEL_BLOCK"
-  "_TYPE_RESERVED\020\000\022!\n\035SL_MPLS_LABEL_BLOCK_"
-  "TYPE_SRGB\020\001\022 \n\034SL_MPLS_LABEL_BLOCK_TYPE_"
-  "CBF\020\0022\221\006\n\nSLMplsOper\022J\n\013SLMplsRegOp\022\033.se"
-  "rvice_layer.SLMplsRegMsg\032\036.service_layer"
-  ".SLMplsRegMsgRsp\022H\n\tSLMplsGet\022\033.service_"
-  "layer.SLMplsGetMsg\032\036.service_layer.SLMpl"
-  "sGetMsgRsp\022R\n\016SLMplsGetStats\022\033.service_l"
-  "ayer.SLMplsGetMsg\032#.service_layer.SLMpls"
-  "GetStatsMsgRsp\022_\n\022SLMplsLabelBlockOp\022\".s"
-  "ervice_layer.SLMplsLabelBlockMsg\032%.servi"
-  "ce_layer.SLMplsLabelBlockMsgRsp\022f\n\023SLMpl"
-  "sLabelBlockGet\022%.service_layer.SLMplsLab"
-  "elBlockGetMsg\032(.service_layer.SLMplsLabe"
-  "lBlockGetMsgRsp\022J\n\013SLMplsIlmOp\022\033.service"
-  "_layer.SLMplsIlmMsg\032\036.service_layer.SLMp"
-  "lsIlmMsgRsp\022Q\n\014SLMplsIlmGet\022\036.service_la"
-  "yer.SLMplsIlmGetMsg\032!.service_layer.SLMp"
-  "lsIlmGetMsgRsp\022T\n\021SLMplsIlmOpStream\022\033.se"
-  "rvice_layer.SLMplsIlmMsg\032\036.service_layer"
-  ".SLMplsIlmMsgRsp(\0010\001\022[\n\022SLMplsIlmGetStre"
-  "am\022\036.service_layer.SLMplsIlmGetMsg\032!.ser"
-  "vice_layer.SLMplsIlmGetMsgRsp(\0010\001BQZOgit"
-  "hub.com/Cisco-service-layer/service-laye"
-  "r-objmodel/grpc/protos;service_layerb\006pr"
-  "oto3"
+  "layer.SLMplsCos\022\032\n\022SlMplsPathPriority\030\013 "
+  "\001(\r\"R\n\014SLMplsIlmKey\022\022\n\nLocalLabel\030\001 \001(\r\022"
+  ".\n\014SlMplsCosVal\030\002 \001(\0132\030.service_layer.SL"
+  "MplsCos\"Y\n\tSLMplsCos\022\r\n\003Exp\030\001 \001(\rH\000\022\031\n\017D"
+  "efaultElspPath\030\002 \001(\010H\000\022\031\n\017ForwardingClas"
+  "s\030\003 \001(\rH\000B\007\n\005value\"d\n\016SLMplsIlmEntry\022(\n\003"
+  "Key\030\001 \001(\0132\033.service_layer.SLMplsIlmKey\022("
+  "\n\005Paths\030\002 \003(\0132\031.service_layer.SLMplsPath"
+  "\"|\n\014SLMplsIlmMsg\022\'\n\004Oper\030\001 \001(\0162\031.service"
+  "_layer.SLObjectOp\022\022\n\nCorrelator\030\002 \001(\004\022/\n"
+  "\010MplsIlms\030\003 \003(\0132\035.service_layer.SLMplsIl"
+  "mEntry\"i\n\014SLMplsIlmRes\022/\n\tErrStatus\030\001 \001("
+  "\0132\034.service_layer.SLErrorStatus\022(\n\003Key\030\002"
+  " \001(\0132\033.service_layer.SLMplsIlmKey\"\210\001\n\017SL"
+  "MplsIlmMsgRsp\022\022\n\nCorrelator\030\001 \001(\004\0223\n\rSta"
+  "tusSummary\030\002 \001(\0132\034.service_layer.SLError"
+  "Status\022,\n\007Results\030\003 \003(\0132\033.service_layer."
+  "SLMplsIlmRes\"v\n\017SLMplsIlmGetMsg\022\022\n\nCorre"
+  "lator\030\001 \001(\004\022(\n\003Key\030\002 \001(\0132\033.service_layer"
+  ".SLMplsIlmKey\022\024\n\014EntriesCount\030\003 \001(\r\022\017\n\007G"
+  "etNext\030\004 \001(\010\"\226\001\n\022SLMplsIlmGetMsgRsp\022\022\n\nC"
+  "orrelator\030\001 \001(\004\022\013\n\003Eof\030\002 \001(\010\022/\n\tErrStatu"
+  "s\030\003 \001(\0132\034.service_layer.SLErrorStatus\022.\n"
+  "\007Entries\030\004 \003(\0132\035.service_layer.SLMplsIlm"
+  "Entry*\342\001\n\rSlLabelAction\022\034\n\030SL_LABEL_ACTI"
+  "ON_RESERVED\020\000\022\030\n\024SL_LABEL_ACTION_SWAP\020\001\022"
+  "#\n\037SL_LABEL_ACTION_POP_AND_FORWARD\020\002\022\'\n#"
+  "SL_LABEL_ACTION_POP_AND_LOOKUP_IPV4\020\003\022\'\n"
+  "#SL_LABEL_ACTION_POP_AND_LOOKUP_IPV6\020\004\022\""
+  "\n\036SL_LABEL_ACTION_POP_AND_LOOKUP\020\005*\202\001\n\024S"
+  "LMplsLabelBlockType\022%\n!SL_MPLS_LABEL_BLO"
+  "CK_TYPE_RESERVED\020\000\022!\n\035SL_MPLS_LABEL_BLOC"
+  "K_TYPE_SRGB\020\001\022 \n\034SL_MPLS_LABEL_BLOCK_TYP"
+  "E_CBF\020\0022\221\006\n\nSLMplsOper\022J\n\013SLMplsRegOp\022\033."
+  "service_layer.SLMplsRegMsg\032\036.service_lay"
+  "er.SLMplsRegMsgRsp\022H\n\tSLMplsGet\022\033.servic"
+  "e_layer.SLMplsGetMsg\032\036.service_layer.SLM"
+  "plsGetMsgRsp\022R\n\016SLMplsGetStats\022\033.service"
+  "_layer.SLMplsGetMsg\032#.service_layer.SLMp"
+  "lsGetStatsMsgRsp\022_\n\022SLMplsLabelBlockOp\022\""
+  ".service_layer.SLMplsLabelBlockMsg\032%.ser"
+  "vice_layer.SLMplsLabelBlockMsgRsp\022f\n\023SLM"
+  "plsLabelBlockGet\022%.service_layer.SLMplsL"
+  "abelBlockGetMsg\032(.service_layer.SLMplsLa"
+  "belBlockGetMsgRsp\022J\n\013SLMplsIlmOp\022\033.servi"
+  "ce_layer.SLMplsIlmMsg\032\036.service_layer.SL"
+  "MplsIlmMsgRsp\022Q\n\014SLMplsIlmGet\022\036.service_"
+  "layer.SLMplsIlmGetMsg\032!.service_layer.SL"
+  "MplsIlmGetMsgRsp\022T\n\021SLMplsIlmOpStream\022\033."
+  "service_layer.SLMplsIlmMsg\032\036.service_lay"
+  "er.SLMplsIlmMsgRsp(\0010\001\022[\n\022SLMplsIlmGetSt"
+  "ream\022\036.service_layer.SLMplsIlmGetMsg\032!.s"
+  "ervice_layer.SLMplsIlmGetMsgRsp(\0010\001BQZOg"
+  "ithub.com/Cisco-service-layer/service-la"
+  "yer-objmodel/grpc/protos;service_layerb\006"
+  "proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_sl_5fmpls_2eproto_deps[1] = {
   &::descriptor_table_sl_5fcommon_5ftypes_2eproto,
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_sl_5fmpls_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_sl_5fmpls_2eproto = {
-  false, false, 3964, descriptor_table_protodef_sl_5fmpls_2eproto, "sl_mpls.proto", 
+  false, false, 3966, descriptor_table_protodef_sl_5fmpls_2eproto, "sl_mpls.proto", 
   &descriptor_table_sl_5fmpls_2eproto_once, descriptor_table_sl_5fmpls_2eproto_deps, 1, 21,
   schemas, file_default_instances, TableStruct_sl_5fmpls_2eproto::offsets,
   file_level_metadata_sl_5fmpls_2eproto, file_level_enum_descriptors_sl_5fmpls_2eproto, file_level_service_descriptors_sl_5fmpls_2eproto,
@@ -3553,8 +3553,8 @@ SLMplsPath::SLMplsPath(const SLMplsPath& from)
     slmplscosval_ = nullptr;
   }
   ::memcpy(&loadmetric_, &from.loadmetric_,
-    static_cast<size_t>(reinterpret_cast<char*>(&slmplsactivepath_) -
-    reinterpret_cast<char*>(&loadmetric_)) + sizeof(slmplsactivepath_));
+    static_cast<size_t>(reinterpret_cast<char*>(&slmplspathpriority_) -
+    reinterpret_cast<char*>(&loadmetric_)) + sizeof(slmplspathpriority_));
   // @@protoc_insertion_point(copy_constructor:service_layer.SLMplsPath)
 }
 
@@ -3565,8 +3565,8 @@ vrfname_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlre
 #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
 ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
     reinterpret_cast<char*>(&nexthopaddress_) - reinterpret_cast<char*>(this)),
-    0, static_cast<size_t>(reinterpret_cast<char*>(&slmplsactivepath_) -
-    reinterpret_cast<char*>(&nexthopaddress_)) + sizeof(slmplsactivepath_));
+    0, static_cast<size_t>(reinterpret_cast<char*>(&slmplspathpriority_) -
+    reinterpret_cast<char*>(&nexthopaddress_)) + sizeof(slmplspathpriority_));
 }
 
 SLMplsPath::~SLMplsPath() {
@@ -3617,8 +3617,8 @@ void SLMplsPath::Clear() {
   }
   slmplscosval_ = nullptr;
   ::memset(&loadmetric_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&slmplsactivepath_) -
-      reinterpret_cast<char*>(&loadmetric_)) + sizeof(slmplsactivepath_));
+      reinterpret_cast<char*>(&slmplspathpriority_) -
+      reinterpret_cast<char*>(&loadmetric_)) + sizeof(slmplspathpriority_));
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -3722,10 +3722,10 @@ const char* SLMplsPath::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID:
         } else
           goto handle_unusual;
         continue;
-      // uint32 SLMplsActivePath = 11;
+      // uint32 SlMplsPathPriority = 11;
       case 11:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 88)) {
-          slmplsactivepath_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          slmplspathpriority_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -3838,10 +3838,10 @@ uint8_t* SLMplsPath::_InternalSerialize(
         10, _Internal::slmplscosval(this), target, stream);
   }
 
-  // uint32 SLMplsActivePath = 11;
-  if (this->_internal_slmplsactivepath() != 0) {
+  // uint32 SlMplsPathPriority = 11;
+  if (this->_internal_slmplspathpriority() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(11, this->_internal_slmplsactivepath(), target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(11, this->_internal_slmplspathpriority(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -3941,9 +3941,9 @@ size_t SLMplsPath::ByteSizeLong() const {
     total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_pathid());
   }
 
-  // uint32 SLMplsActivePath = 11;
-  if (this->_internal_slmplsactivepath() != 0) {
-    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_slmplsactivepath());
+  // uint32 SlMplsPathPriority = 11;
+  if (this->_internal_slmplspathpriority() != 0) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_slmplspathpriority());
   }
 
   return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
@@ -3992,8 +3992,8 @@ void SLMplsPath::MergeFrom(const SLMplsPath& from) {
   if (from._internal_pathid() != 0) {
     _internal_set_pathid(from._internal_pathid());
   }
-  if (from._internal_slmplsactivepath() != 0) {
-    _internal_set_slmplsactivepath(from._internal_slmplsactivepath());
+  if (from._internal_slmplspathpriority() != 0) {
+    _internal_set_slmplspathpriority(from._internal_slmplspathpriority());
   }
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
@@ -4023,8 +4023,8 @@ void SLMplsPath::InternalSwap(SLMplsPath* other) {
       &other->vrfname_, rhs_arena
   );
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(SLMplsPath, slmplsactivepath_)
-      + sizeof(SLMplsPath::slmplsactivepath_)
+      PROTOBUF_FIELD_OFFSET(SLMplsPath, slmplspathpriority_)
+      + sizeof(SLMplsPath::slmplspathpriority_)
       - PROTOBUF_FIELD_OFFSET(SLMplsPath, nexthopaddress_)>(
           reinterpret_cast<char*>(&nexthopaddress_),
           reinterpret_cast<char*>(&other->nexthopaddress_));

@@ -2381,7 +2381,7 @@ class SLMplsPath final :
     kLoadMetricFieldNumber = 3,
     kActionFieldNumber = 5,
     kPathIdFieldNumber = 6,
-    kSLMplsActivePathFieldNumber = 11,
+    kSlMplsPathPriorityFieldNumber = 11,
   };
   // repeated uint64 ProtectedPathBitmap = 7;
   int protectedpathbitmap_size() const;
@@ -2540,13 +2540,13 @@ class SLMplsPath final :
   void _internal_set_pathid(uint32_t value);
   public:
 
-  // uint32 SLMplsActivePath = 11;
-  void clear_slmplsactivepath();
-  uint32_t slmplsactivepath() const;
-  void set_slmplsactivepath(uint32_t value);
+  // uint32 SlMplsPathPriority = 11;
+  void clear_slmplspathpriority();
+  uint32_t slmplspathpriority() const;
+  void set_slmplspathpriority(uint32_t value);
   private:
-  uint32_t _internal_slmplsactivepath() const;
-  void _internal_set_slmplsactivepath(uint32_t value);
+  uint32_t _internal_slmplspathpriority() const;
+  void _internal_set_slmplspathpriority(uint32_t value);
   public:
 
   // @@protoc_insertion_point(class_scope:service_layer.SLMplsPath)
@@ -2568,7 +2568,7 @@ class SLMplsPath final :
   uint32_t loadmetric_;
   int action_;
   uint32_t pathid_;
-  uint32_t slmplsactivepath_;
+  uint32_t slmplspathpriority_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_sl_5fmpls_2eproto;
 };
@@ -5897,24 +5897,24 @@ inline void SLMplsPath::set_allocated_slmplscosval(::service_layer::SLMplsCos* s
   // @@protoc_insertion_point(field_set_allocated:service_layer.SLMplsPath.SlMplsCosVal)
 }
 
-// uint32 SLMplsActivePath = 11;
-inline void SLMplsPath::clear_slmplsactivepath() {
-  slmplsactivepath_ = 0u;
+// uint32 SlMplsPathPriority = 11;
+inline void SLMplsPath::clear_slmplspathpriority() {
+  slmplspathpriority_ = 0u;
 }
-inline uint32_t SLMplsPath::_internal_slmplsactivepath() const {
-  return slmplsactivepath_;
+inline uint32_t SLMplsPath::_internal_slmplspathpriority() const {
+  return slmplspathpriority_;
 }
-inline uint32_t SLMplsPath::slmplsactivepath() const {
-  // @@protoc_insertion_point(field_get:service_layer.SLMplsPath.SLMplsActivePath)
-  return _internal_slmplsactivepath();
+inline uint32_t SLMplsPath::slmplspathpriority() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLMplsPath.SlMplsPathPriority)
+  return _internal_slmplspathpriority();
 }
-inline void SLMplsPath::_internal_set_slmplsactivepath(uint32_t value) {
+inline void SLMplsPath::_internal_set_slmplspathpriority(uint32_t value) {
   
-  slmplsactivepath_ = value;
+  slmplspathpriority_ = value;
 }
-inline void SLMplsPath::set_slmplsactivepath(uint32_t value) {
-  _internal_set_slmplsactivepath(value);
-  // @@protoc_insertion_point(field_set:service_layer.SLMplsPath.SLMplsActivePath)
+inline void SLMplsPath::set_slmplspathpriority(uint32_t value) {
+  _internal_set_slmplspathpriority(value);
+  // @@protoc_insertion_point(field_set:service_layer.SLMplsPath.SlMplsPathPriority)
 }
 
 // -------------------------------------------------------------------
