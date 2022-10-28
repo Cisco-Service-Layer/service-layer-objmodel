@@ -19,7 +19,6 @@
 #include "sl_global.pb.h"
 
 #include <functional>
-#include <grpc/impl/codegen/port_platform.h>
 #include <grpcpp/impl/codegen/async_generic_service.h>
 #include <grpcpp/impl/codegen/async_stream.h>
 #include <grpcpp/impl/codegen/async_unary_call.h>
@@ -90,9 +89,9 @@ class SLGlobal final {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::service_layer::SLGlobalsGetMsgRsp>>(PrepareAsyncSLGlobalsGetRaw(context, request, cq));
     }
     // @}
-    class experimental_async_interface {
+    class async_interface {
      public:
-      virtual ~experimental_async_interface() {}
+      virtual ~async_interface() {}
       // Initialize the connection, and setup a notification channel.
       // This MUST be the first call to setup the Service Layer connection.
       //
@@ -112,34 +111,16 @@ class SLGlobal final {
       //        heartbeat notification messages are sent to the client on
       //        a periodic basis.
       //    Refer to SLGlobalNotif definition for further info.
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      virtual void SLGlobalInitNotif(::grpc::ClientContext* context, ::service_layer::SLInitMsg* request, ::grpc::ClientReadReactor< ::service_layer::SLGlobalNotif>* reactor) = 0;
-      #else
-      virtual void SLGlobalInitNotif(::grpc::ClientContext* context, ::service_layer::SLInitMsg* request, ::grpc::experimental::ClientReadReactor< ::service_layer::SLGlobalNotif>* reactor) = 0;
-      #endif
+      virtual void SLGlobalInitNotif(::grpc::ClientContext* context, const ::service_layer::SLInitMsg* request, ::grpc::ClientReadReactor< ::service_layer::SLGlobalNotif>* reactor) = 0;
       // Get platform specific globals
       virtual void SLGlobalsGet(::grpc::ClientContext* context, const ::service_layer::SLGlobalsGetMsg* request, ::service_layer::SLGlobalsGetMsgRsp* response, std::function<void(::grpc::Status)>) = 0;
-      virtual void SLGlobalsGet(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::service_layer::SLGlobalsGetMsgRsp* response, std::function<void(::grpc::Status)>) = 0;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       virtual void SLGlobalsGet(::grpc::ClientContext* context, const ::service_layer::SLGlobalsGetMsg* request, ::service_layer::SLGlobalsGetMsgRsp* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      #else
-      virtual void SLGlobalsGet(::grpc::ClientContext* context, const ::service_layer::SLGlobalsGetMsg* request, ::service_layer::SLGlobalsGetMsgRsp* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      #endif
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      virtual void SLGlobalsGet(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::service_layer::SLGlobalsGetMsgRsp* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      #else
-      virtual void SLGlobalsGet(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::service_layer::SLGlobalsGetMsgRsp* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      #endif
       // @}
     };
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-    typedef class experimental_async_interface async_interface;
-    #endif
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-    async_interface* async() { return experimental_async(); }
-    #endif
-    virtual class experimental_async_interface* experimental_async() { return nullptr; }
-  private:
+    typedef class async_interface experimental_async_interface;
+    virtual class async_interface* async() { return nullptr; }
+    class async_interface* experimental_async() { return async(); }
+   private:
     virtual ::grpc::ClientReaderInterface< ::service_layer::SLGlobalNotif>* SLGlobalInitNotifRaw(::grpc::ClientContext* context, const ::service_layer::SLInitMsg& request) = 0;
     virtual ::grpc::ClientAsyncReaderInterface< ::service_layer::SLGlobalNotif>* AsyncSLGlobalInitNotifRaw(::grpc::ClientContext* context, const ::service_layer::SLInitMsg& request, ::grpc::CompletionQueue* cq, void* tag) = 0;
     virtual ::grpc::ClientAsyncReaderInterface< ::service_layer::SLGlobalNotif>* PrepareAsyncSLGlobalInitNotifRaw(::grpc::ClientContext* context, const ::service_layer::SLInitMsg& request, ::grpc::CompletionQueue* cq) = 0;
@@ -148,7 +129,7 @@ class SLGlobal final {
   };
   class Stub final : public StubInterface {
    public:
-    Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel);
+    Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options = ::grpc::StubOptions());
     std::unique_ptr< ::grpc::ClientReader< ::service_layer::SLGlobalNotif>> SLGlobalInitNotif(::grpc::ClientContext* context, const ::service_layer::SLInitMsg& request) {
       return std::unique_ptr< ::grpc::ClientReader< ::service_layer::SLGlobalNotif>>(SLGlobalInitNotifRaw(context, request));
     }
@@ -165,37 +146,23 @@ class SLGlobal final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::service_layer::SLGlobalsGetMsgRsp>> PrepareAsyncSLGlobalsGet(::grpc::ClientContext* context, const ::service_layer::SLGlobalsGetMsg& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::service_layer::SLGlobalsGetMsgRsp>>(PrepareAsyncSLGlobalsGetRaw(context, request, cq));
     }
-    class experimental_async final :
-      public StubInterface::experimental_async_interface {
+    class async final :
+      public StubInterface::async_interface {
      public:
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      void SLGlobalInitNotif(::grpc::ClientContext* context, ::service_layer::SLInitMsg* request, ::grpc::ClientReadReactor< ::service_layer::SLGlobalNotif>* reactor) override;
-      #else
-      void SLGlobalInitNotif(::grpc::ClientContext* context, ::service_layer::SLInitMsg* request, ::grpc::experimental::ClientReadReactor< ::service_layer::SLGlobalNotif>* reactor) override;
-      #endif
+      void SLGlobalInitNotif(::grpc::ClientContext* context, const ::service_layer::SLInitMsg* request, ::grpc::ClientReadReactor< ::service_layer::SLGlobalNotif>* reactor) override;
       void SLGlobalsGet(::grpc::ClientContext* context, const ::service_layer::SLGlobalsGetMsg* request, ::service_layer::SLGlobalsGetMsgRsp* response, std::function<void(::grpc::Status)>) override;
-      void SLGlobalsGet(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::service_layer::SLGlobalsGetMsgRsp* response, std::function<void(::grpc::Status)>) override;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       void SLGlobalsGet(::grpc::ClientContext* context, const ::service_layer::SLGlobalsGetMsg* request, ::service_layer::SLGlobalsGetMsgRsp* response, ::grpc::ClientUnaryReactor* reactor) override;
-      #else
-      void SLGlobalsGet(::grpc::ClientContext* context, const ::service_layer::SLGlobalsGetMsg* request, ::service_layer::SLGlobalsGetMsgRsp* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
-      #endif
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      void SLGlobalsGet(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::service_layer::SLGlobalsGetMsgRsp* response, ::grpc::ClientUnaryReactor* reactor) override;
-      #else
-      void SLGlobalsGet(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::service_layer::SLGlobalsGetMsgRsp* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
-      #endif
      private:
       friend class Stub;
-      explicit experimental_async(Stub* stub): stub_(stub) { }
+      explicit async(Stub* stub): stub_(stub) { }
       Stub* stub() { return stub_; }
       Stub* stub_;
     };
-    class experimental_async_interface* experimental_async() override { return &async_stub_; }
+    class async* async() override { return &async_stub_; }
 
    private:
     std::shared_ptr< ::grpc::ChannelInterface> channel_;
-    class experimental_async async_stub_{this};
+    class async async_stub_{this};
     ::grpc::ClientReader< ::service_layer::SLGlobalNotif>* SLGlobalInitNotifRaw(::grpc::ClientContext* context, const ::service_layer::SLInitMsg& request) override;
     ::grpc::ClientAsyncReader< ::service_layer::SLGlobalNotif>* AsyncSLGlobalInitNotifRaw(::grpc::ClientContext* context, const ::service_layer::SLInitMsg& request, ::grpc::CompletionQueue* cq, void* tag) override;
     ::grpc::ClientAsyncReader< ::service_layer::SLGlobalNotif>* PrepareAsyncSLGlobalInitNotifRaw(::grpc::ClientContext* context, const ::service_layer::SLInitMsg& request, ::grpc::CompletionQueue* cq) override;
@@ -276,27 +243,17 @@ class SLGlobal final {
   };
   typedef WithAsyncMethod_SLGlobalInitNotif<WithAsyncMethod_SLGlobalsGet<Service > > AsyncService;
   template <class BaseClass>
-  class ExperimentalWithCallbackMethod_SLGlobalInitNotif : public BaseClass {
+  class WithCallbackMethod_SLGlobalInitNotif : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    ExperimentalWithCallbackMethod_SLGlobalInitNotif() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodCallback(0,
-          new ::grpc_impl::internal::CallbackServerStreamingHandler< ::service_layer::SLInitMsg, ::service_layer::SLGlobalNotif>(
+    WithCallbackMethod_SLGlobalInitNotif() {
+      ::grpc::Service::MarkMethodCallback(0,
+          new ::grpc::internal::CallbackServerStreamingHandler< ::service_layer::SLInitMsg, ::service_layer::SLGlobalNotif>(
             [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::service_layer::SLInitMsg* request) { return this->SLGlobalInitNotif(context, request); }));
+                   ::grpc::CallbackServerContext* context, const ::service_layer::SLInitMsg* request) { return this->SLGlobalInitNotif(context, request); }));
     }
-    ~ExperimentalWithCallbackMethod_SLGlobalInitNotif() override {
+    ~WithCallbackMethod_SLGlobalInitNotif() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
@@ -304,46 +261,26 @@ class SLGlobal final {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerWriteReactor< ::service_layer::SLGlobalNotif>* SLGlobalInitNotif(
-      ::grpc::CallbackServerContext* /*context*/, const ::service_layer::SLInitMsg* /*request*/)
-    #else
-    virtual ::grpc::experimental::ServerWriteReactor< ::service_layer::SLGlobalNotif>* SLGlobalInitNotif(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::service_layer::SLInitMsg* /*request*/)
-    #endif
-      { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::service_layer::SLInitMsg* /*request*/)  { return nullptr; }
   };
   template <class BaseClass>
-  class ExperimentalWithCallbackMethod_SLGlobalsGet : public BaseClass {
+  class WithCallbackMethod_SLGlobalsGet : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    ExperimentalWithCallbackMethod_SLGlobalsGet() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodCallback(1,
-          new ::grpc_impl::internal::CallbackUnaryHandler< ::service_layer::SLGlobalsGetMsg, ::service_layer::SLGlobalsGetMsgRsp>(
+    WithCallbackMethod_SLGlobalsGet() {
+      ::grpc::Service::MarkMethodCallback(1,
+          new ::grpc::internal::CallbackUnaryHandler< ::service_layer::SLGlobalsGetMsg, ::service_layer::SLGlobalsGetMsgRsp>(
             [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::service_layer::SLGlobalsGetMsg* request, ::service_layer::SLGlobalsGetMsgRsp* response) { return this->SLGlobalsGet(context, request, response); }));}
+                   ::grpc::CallbackServerContext* context, const ::service_layer::SLGlobalsGetMsg* request, ::service_layer::SLGlobalsGetMsgRsp* response) { return this->SLGlobalsGet(context, request, response); }));}
     void SetMessageAllocatorFor_SLGlobalsGet(
-        ::grpc::experimental::MessageAllocator< ::service_layer::SLGlobalsGetMsg, ::service_layer::SLGlobalsGetMsgRsp>* allocator) {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+        ::grpc::MessageAllocator< ::service_layer::SLGlobalsGetMsg, ::service_layer::SLGlobalsGetMsgRsp>* allocator) {
       ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(1);
-    #else
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(1);
-    #endif
-      static_cast<::grpc_impl::internal::CallbackUnaryHandler< ::service_layer::SLGlobalsGetMsg, ::service_layer::SLGlobalsGetMsgRsp>*>(handler)
+      static_cast<::grpc::internal::CallbackUnaryHandler< ::service_layer::SLGlobalsGetMsg, ::service_layer::SLGlobalsGetMsgRsp>*>(handler)
               ->SetMessageAllocator(allocator);
     }
-    ~ExperimentalWithCallbackMethod_SLGlobalsGet() override {
+    ~WithCallbackMethod_SLGlobalsGet() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
@@ -351,20 +288,11 @@ class SLGlobal final {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerUnaryReactor* SLGlobalsGet(
-      ::grpc::CallbackServerContext* /*context*/, const ::service_layer::SLGlobalsGetMsg* /*request*/, ::service_layer::SLGlobalsGetMsgRsp* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* SLGlobalsGet(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::service_layer::SLGlobalsGetMsg* /*request*/, ::service_layer::SLGlobalsGetMsgRsp* /*response*/)
-    #endif
-      { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::service_layer::SLGlobalsGetMsg* /*request*/, ::service_layer::SLGlobalsGetMsgRsp* /*response*/)  { return nullptr; }
   };
-  #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-  typedef ExperimentalWithCallbackMethod_SLGlobalInitNotif<ExperimentalWithCallbackMethod_SLGlobalsGet<Service > > CallbackService;
-  #endif
-
-  typedef ExperimentalWithCallbackMethod_SLGlobalInitNotif<ExperimentalWithCallbackMethod_SLGlobalsGet<Service > > ExperimentalCallbackService;
+  typedef WithCallbackMethod_SLGlobalInitNotif<WithCallbackMethod_SLGlobalsGet<Service > > CallbackService;
+  typedef CallbackService ExperimentalCallbackService;
   template <class BaseClass>
   class WithGenericMethod_SLGlobalInitNotif : public BaseClass {
    private:
@@ -440,27 +368,17 @@ class SLGlobal final {
     }
   };
   template <class BaseClass>
-  class ExperimentalWithRawCallbackMethod_SLGlobalInitNotif : public BaseClass {
+  class WithRawCallbackMethod_SLGlobalInitNotif : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    ExperimentalWithRawCallbackMethod_SLGlobalInitNotif() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodRawCallback(0,
-          new ::grpc_impl::internal::CallbackServerStreamingHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+    WithRawCallbackMethod_SLGlobalInitNotif() {
+      ::grpc::Service::MarkMethodRawCallback(0,
+          new ::grpc::internal::CallbackServerStreamingHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const::grpc::ByteBuffer* request) { return this->SLGlobalInitNotif(context, request); }));
+                   ::grpc::CallbackServerContext* context, const::grpc::ByteBuffer* request) { return this->SLGlobalInitNotif(context, request); }));
     }
-    ~ExperimentalWithRawCallbackMethod_SLGlobalInitNotif() override {
+    ~WithRawCallbackMethod_SLGlobalInitNotif() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
@@ -468,37 +386,21 @@ class SLGlobal final {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerWriteReactor< ::grpc::ByteBuffer>* SLGlobalInitNotif(
-      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/)
-    #else
-    virtual ::grpc::experimental::ServerWriteReactor< ::grpc::ByteBuffer>* SLGlobalInitNotif(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/)
-    #endif
-      { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/)  { return nullptr; }
   };
   template <class BaseClass>
-  class ExperimentalWithRawCallbackMethod_SLGlobalsGet : public BaseClass {
+  class WithRawCallbackMethod_SLGlobalsGet : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    ExperimentalWithRawCallbackMethod_SLGlobalsGet() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodRawCallback(1,
-          new ::grpc_impl::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+    WithRawCallbackMethod_SLGlobalsGet() {
+      ::grpc::Service::MarkMethodRawCallback(1,
+          new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->SLGlobalsGet(context, request, response); }));
+                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->SLGlobalsGet(context, request, response); }));
     }
-    ~ExperimentalWithRawCallbackMethod_SLGlobalsGet() override {
+    ~WithRawCallbackMethod_SLGlobalsGet() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
@@ -506,14 +408,8 @@ class SLGlobal final {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerUnaryReactor* SLGlobalsGet(
-      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* SLGlobalsGet(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #endif
-      { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
   class WithStreamedUnaryMethod_SLGlobalsGet : public BaseClass {
@@ -524,8 +420,8 @@ class SLGlobal final {
       ::grpc::Service::MarkMethodStreamed(1,
         new ::grpc::internal::StreamedUnaryHandler<
           ::service_layer::SLGlobalsGetMsg, ::service_layer::SLGlobalsGetMsgRsp>(
-            [this](::grpc_impl::ServerContext* context,
-                   ::grpc_impl::ServerUnaryStreamer<
+            [this](::grpc::ServerContext* context,
+                   ::grpc::ServerUnaryStreamer<
                      ::service_layer::SLGlobalsGetMsg, ::service_layer::SLGlobalsGetMsgRsp>* streamer) {
                        return this->StreamedSLGlobalsGet(context,
                          streamer);
@@ -552,8 +448,8 @@ class SLGlobal final {
       ::grpc::Service::MarkMethodStreamed(0,
         new ::grpc::internal::SplitServerStreamingHandler<
           ::service_layer::SLInitMsg, ::service_layer::SLGlobalNotif>(
-            [this](::grpc_impl::ServerContext* context,
-                   ::grpc_impl::ServerSplitStreamer<
+            [this](::grpc::ServerContext* context,
+                   ::grpc::ServerSplitStreamer<
                      ::service_layer::SLInitMsg, ::service_layer::SLGlobalNotif>* streamer) {
                        return this->StreamedSLGlobalInitNotif(context,
                          streamer);

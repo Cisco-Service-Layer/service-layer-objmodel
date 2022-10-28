@@ -193,7 +193,7 @@ static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_sl_5finterface_2epr
 static const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* file_level_enum_descriptors_sl_5finterface_2eproto[2];
 static constexpr ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor const** file_level_service_descriptors_sl_5finterface_2eproto = nullptr;
 
-const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_sl_5finterface_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
+const uint32_t TableStruct_sl_5finterface_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::service_layer::SLInterfaceGlobalsRegMsg, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -389,14 +389,16 @@ const char descriptor_table_protodef_sl_5finterface_2eproto[] PROTOBUF_SECTION_V
   "GetNotifMsg\032\037.service_layer.SLInterfaceN"
   "otif0\001\022_\n\022SLInterfaceNotifOp\022\".service_l"
   "ayer.SLInterfaceNotifMsg\032%.service_layer"
-  ".SLInterfaceNotifMsgRspb\006proto3"
+  ".SLInterfaceNotifMsgRspBQZOgithub.com/Ci"
+  "sco-service-layer/service-layer-objmodel"
+  "/grpc/protos;service_layerb\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_sl_5finterface_2eproto_deps[1] = {
   &::descriptor_table_sl_5fcommon_5ftypes_2eproto,
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_sl_5finterface_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_sl_5finterface_2eproto = {
-  false, false, 2311, descriptor_table_protodef_sl_5finterface_2eproto, "sl_interface.proto", 
+  false, false, 2394, descriptor_table_protodef_sl_5finterface_2eproto, "sl_interface.proto", 
   &descriptor_table_sl_5finterface_2eproto_once, descriptor_table_sl_5finterface_2eproto_deps, 1, 13,
   schemas, file_default_instances, TableStruct_sl_5finterface_2eproto::offsets,
   file_level_metadata_sl_5finterface_2eproto, file_level_enum_descriptors_sl_5finterface_2eproto, file_level_service_descriptors_sl_5finterface_2eproto,
@@ -461,7 +463,7 @@ SLInterfaceGlobalsRegMsg::SLInterfaceGlobalsRegMsg(const SLInterfaceGlobalsRegMs
   // @@protoc_insertion_point(copy_constructor:service_layer.SLInterfaceGlobalsRegMsg)
 }
 
-void SLInterfaceGlobalsRegMsg::SharedCtor() {
+inline void SLInterfaceGlobalsRegMsg::SharedCtor() {
 oper_ = 0;
 }
 
@@ -488,7 +490,7 @@ void SLInterfaceGlobalsRegMsg::SetCachedSize(int size) const {
 
 void SLInterfaceGlobalsRegMsg::Clear() {
 // @@protoc_insertion_point(message_clear_start:service_layer.SLInterfaceGlobalsRegMsg)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -499,13 +501,13 @@ void SLInterfaceGlobalsRegMsg::Clear() {
 const char* SLInterfaceGlobalsRegMsg::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    uint32_t tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // .service_layer.SLRegOp Oper = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
-          ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
+          uint64_t val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
           _internal_set_oper(static_cast<::service_layer::SLRegOp>(val));
         } else
@@ -534,10 +536,10 @@ failure:
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* SLInterfaceGlobalsRegMsg::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+uint8_t* SLInterfaceGlobalsRegMsg::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:service_layer.SLInterfaceGlobalsRegMsg)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   // .service_layer.SLRegOp Oper = 1;
@@ -559,7 +561,7 @@ size_t SLInterfaceGlobalsRegMsg::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:service_layer.SLInterfaceGlobalsRegMsg)
   size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -588,7 +590,7 @@ void SLInterfaceGlobalsRegMsg::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
 void SLInterfaceGlobalsRegMsg::MergeFrom(const SLInterfaceGlobalsRegMsg& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:service_layer.SLInterfaceGlobalsRegMsg)
   GOOGLE_DCHECK_NE(&from, this);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   if (from._internal_oper() != 0) {
@@ -657,7 +659,7 @@ SLInterfaceGlobalsRegMsgRsp::SLInterfaceGlobalsRegMsgRsp(const SLInterfaceGlobal
   // @@protoc_insertion_point(copy_constructor:service_layer.SLInterfaceGlobalsRegMsgRsp)
 }
 
-void SLInterfaceGlobalsRegMsgRsp::SharedCtor() {
+inline void SLInterfaceGlobalsRegMsgRsp::SharedCtor() {
 errstatus_ = nullptr;
 }
 
@@ -685,7 +687,7 @@ void SLInterfaceGlobalsRegMsgRsp::SetCachedSize(int size) const {
 
 void SLInterfaceGlobalsRegMsgRsp::Clear() {
 // @@protoc_insertion_point(message_clear_start:service_layer.SLInterfaceGlobalsRegMsgRsp)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -699,12 +701,12 @@ void SLInterfaceGlobalsRegMsgRsp::Clear() {
 const char* SLInterfaceGlobalsRegMsgRsp::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    uint32_t tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // .service_layer.SLErrorStatus ErrStatus = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
           ptr = ctx->ParseMessage(_internal_mutable_errstatus(), ptr);
           CHK_(ptr);
         } else
@@ -733,10 +735,10 @@ failure:
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* SLInterfaceGlobalsRegMsgRsp::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+uint8_t* SLInterfaceGlobalsRegMsgRsp::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:service_layer.SLInterfaceGlobalsRegMsgRsp)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   // .service_layer.SLErrorStatus ErrStatus = 1;
@@ -759,7 +761,7 @@ size_t SLInterfaceGlobalsRegMsgRsp::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:service_layer.SLInterfaceGlobalsRegMsgRsp)
   size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -789,7 +791,7 @@ void SLInterfaceGlobalsRegMsgRsp::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to
 void SLInterfaceGlobalsRegMsgRsp::MergeFrom(const SLInterfaceGlobalsRegMsgRsp& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:service_layer.SLInterfaceGlobalsRegMsgRsp)
   GOOGLE_DCHECK_NE(&from, this);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   if (from._internal_has_errstatus()) {
@@ -898,7 +900,7 @@ SLInterfaceGlobalsGetMsgRsp::SLInterfaceGlobalsGetMsgRsp(const SLInterfaceGlobal
   // @@protoc_insertion_point(copy_constructor:service_layer.SLInterfaceGlobalsGetMsgRsp)
 }
 
-void SLInterfaceGlobalsGetMsgRsp::SharedCtor() {
+inline void SLInterfaceGlobalsGetMsgRsp::SharedCtor() {
 ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
     reinterpret_cast<char*>(&errstatus_) - reinterpret_cast<char*>(this)),
     0, static_cast<size_t>(reinterpret_cast<char*>(&maxinterfacesperbatch_) -
@@ -929,7 +931,7 @@ void SLInterfaceGlobalsGetMsgRsp::SetCachedSize(int size) const {
 
 void SLInterfaceGlobalsGetMsgRsp::Clear() {
 // @@protoc_insertion_point(message_clear_start:service_layer.SLInterfaceGlobalsGetMsgRsp)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -944,12 +946,12 @@ void SLInterfaceGlobalsGetMsgRsp::Clear() {
 const char* SLInterfaceGlobalsGetMsgRsp::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    uint32_t tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // .service_layer.SLErrorStatus ErrStatus = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
           ptr = ctx->ParseMessage(_internal_mutable_errstatus(), ptr);
           CHK_(ptr);
         } else
@@ -957,7 +959,7 @@ const char* SLInterfaceGlobalsGetMsgRsp::_InternalParse(const char* ptr, ::PROTO
         continue;
       // uint32 MaxInterfacesPerBatch = 2;
       case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
           maxinterfacesperbatch_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
         } else
@@ -986,10 +988,10 @@ failure:
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* SLInterfaceGlobalsGetMsgRsp::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+uint8_t* SLInterfaceGlobalsGetMsgRsp::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:service_layer.SLInterfaceGlobalsGetMsgRsp)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   // .service_layer.SLErrorStatus ErrStatus = 1;
@@ -1018,7 +1020,7 @@ size_t SLInterfaceGlobalsGetMsgRsp::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:service_layer.SLInterfaceGlobalsGetMsgRsp)
   size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -1053,7 +1055,7 @@ void SLInterfaceGlobalsGetMsgRsp::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to
 void SLInterfaceGlobalsGetMsgRsp::MergeFrom(const SLInterfaceGlobalsGetMsgRsp& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:service_layer.SLInterfaceGlobalsGetMsgRsp)
   GOOGLE_DCHECK_NE(&from, this);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   if (from._internal_has_errstatus()) {
@@ -1133,7 +1135,7 @@ SLInterfaceGlobalsGetStatsMsgRsp::SLInterfaceGlobalsGetStatsMsgRsp(const SLInter
   // @@protoc_insertion_point(copy_constructor:service_layer.SLInterfaceGlobalsGetStatsMsgRsp)
 }
 
-void SLInterfaceGlobalsGetStatsMsgRsp::SharedCtor() {
+inline void SLInterfaceGlobalsGetStatsMsgRsp::SharedCtor() {
 ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
     reinterpret_cast<char*>(&errstatus_) - reinterpret_cast<char*>(this)),
     0, static_cast<size_t>(reinterpret_cast<char*>(&interfacenotifcount_) -
@@ -1164,7 +1166,7 @@ void SLInterfaceGlobalsGetStatsMsgRsp::SetCachedSize(int size) const {
 
 void SLInterfaceGlobalsGetStatsMsgRsp::Clear() {
 // @@protoc_insertion_point(message_clear_start:service_layer.SLInterfaceGlobalsGetStatsMsgRsp)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -1181,12 +1183,12 @@ void SLInterfaceGlobalsGetStatsMsgRsp::Clear() {
 const char* SLInterfaceGlobalsGetStatsMsgRsp::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    uint32_t tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // .service_layer.SLErrorStatus ErrStatus = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
           ptr = ctx->ParseMessage(_internal_mutable_errstatus(), ptr);
           CHK_(ptr);
         } else
@@ -1194,7 +1196,7 @@ const char* SLInterfaceGlobalsGetStatsMsgRsp::_InternalParse(const char* ptr, ::
         continue;
       // uint64 SeqNum = 2;
       case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
           seqnum_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else
@@ -1202,7 +1204,7 @@ const char* SLInterfaceGlobalsGetStatsMsgRsp::_InternalParse(const char* ptr, ::
         continue;
       // uint32 InterfaceNotifCount = 3;
       case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
           interfacenotifcount_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
         } else
@@ -1231,10 +1233,10 @@ failure:
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* SLInterfaceGlobalsGetStatsMsgRsp::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+uint8_t* SLInterfaceGlobalsGetStatsMsgRsp::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:service_layer.SLInterfaceGlobalsGetStatsMsgRsp)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   // .service_layer.SLErrorStatus ErrStatus = 1;
@@ -1269,7 +1271,7 @@ size_t SLInterfaceGlobalsGetStatsMsgRsp::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:service_layer.SLInterfaceGlobalsGetStatsMsgRsp)
   size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -1309,7 +1311,7 @@ void SLInterfaceGlobalsGetStatsMsgRsp::MergeImpl(::PROTOBUF_NAMESPACE_ID::Messag
 void SLInterfaceGlobalsGetStatsMsgRsp::MergeFrom(const SLInterfaceGlobalsGetStatsMsgRsp& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:service_layer.SLInterfaceGlobalsGetStatsMsgRsp)
   GOOGLE_DCHECK_NE(&from, this);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   if (from._internal_has_errstatus()) {
@@ -1392,7 +1394,7 @@ SLInterfaceGetMsg::SLInterfaceGetMsg(const SLInterfaceGetMsg& from)
   // @@protoc_insertion_point(copy_constructor:service_layer.SLInterfaceGetMsg)
 }
 
-void SLInterfaceGetMsg::SharedCtor() {
+inline void SLInterfaceGetMsg::SharedCtor() {
 ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
     reinterpret_cast<char*>(&key_) - reinterpret_cast<char*>(this)),
     0, static_cast<size_t>(reinterpret_cast<char*>(&getnext_) -
@@ -1423,7 +1425,7 @@ void SLInterfaceGetMsg::SetCachedSize(int size) const {
 
 void SLInterfaceGetMsg::Clear() {
 // @@protoc_insertion_point(message_clear_start:service_layer.SLInterfaceGetMsg)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -1440,12 +1442,12 @@ void SLInterfaceGetMsg::Clear() {
 const char* SLInterfaceGetMsg::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    uint32_t tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // .service_layer.SLInterface Key = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
           ptr = ctx->ParseMessage(_internal_mutable_key(), ptr);
           CHK_(ptr);
         } else
@@ -1453,7 +1455,7 @@ const char* SLInterfaceGetMsg::_InternalParse(const char* ptr, ::PROTOBUF_NAMESP
         continue;
       // uint32 EntriesCount = 2;
       case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
           entriescount_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
         } else
@@ -1461,7 +1463,7 @@ const char* SLInterfaceGetMsg::_InternalParse(const char* ptr, ::PROTOBUF_NAMESP
         continue;
       // bool GetNext = 3;
       case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
           getnext_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else
@@ -1490,10 +1492,10 @@ failure:
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* SLInterfaceGetMsg::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+uint8_t* SLInterfaceGetMsg::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:service_layer.SLInterfaceGetMsg)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   // .service_layer.SLInterface Key = 1;
@@ -1528,7 +1530,7 @@ size_t SLInterfaceGetMsg::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:service_layer.SLInterfaceGetMsg)
   size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -1568,7 +1570,7 @@ void SLInterfaceGetMsg::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
 void SLInterfaceGetMsg::MergeFrom(const SLInterfaceGetMsg& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:service_layer.SLInterfaceGetMsg)
   GOOGLE_DCHECK_NE(&from, this);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   if (from._internal_has_key()) {
@@ -1651,7 +1653,7 @@ SLInterfaceInfoMsg::SLInterfaceInfoMsg(const SLInterfaceInfoMsg& from)
   // @@protoc_insertion_point(copy_constructor:service_layer.SLInterfaceInfoMsg)
 }
 
-void SLInterfaceInfoMsg::SharedCtor() {
+inline void SLInterfaceInfoMsg::SharedCtor() {
 ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
     reinterpret_cast<char*>(&slifinfo_) - reinterpret_cast<char*>(this)),
     0, static_cast<size_t>(reinterpret_cast<char*>(&ifstate_) -
@@ -1682,7 +1684,7 @@ void SLInterfaceInfoMsg::SetCachedSize(int size) const {
 
 void SLInterfaceInfoMsg::Clear() {
 // @@protoc_insertion_point(message_clear_start:service_layer.SLInterfaceInfoMsg)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -1699,12 +1701,12 @@ void SLInterfaceInfoMsg::Clear() {
 const char* SLInterfaceInfoMsg::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    uint32_t tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // .service_layer.SLInterface SLIfInfo = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
           ptr = ctx->ParseMessage(_internal_mutable_slifinfo(), ptr);
           CHK_(ptr);
         } else
@@ -1712,8 +1714,8 @@ const char* SLInterfaceInfoMsg::_InternalParse(const char* ptr, ::PROTOBUF_NAMES
         continue;
       // .service_layer.SLInterfaceState IfState = 2;
       case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
-          ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
+          uint64_t val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
           _internal_set_ifstate(static_cast<::service_layer::SLInterfaceState>(val));
         } else
@@ -1721,7 +1723,7 @@ const char* SLInterfaceInfoMsg::_InternalParse(const char* ptr, ::PROTOBUF_NAMES
         continue;
       // uint64 SeqNum = 3;
       case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
           seqnum_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else
@@ -1750,10 +1752,10 @@ failure:
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* SLInterfaceInfoMsg::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+uint8_t* SLInterfaceInfoMsg::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:service_layer.SLInterfaceInfoMsg)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   // .service_layer.SLInterface SLIfInfo = 1;
@@ -1789,7 +1791,7 @@ size_t SLInterfaceInfoMsg::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:service_layer.SLInterfaceInfoMsg)
   size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -1830,7 +1832,7 @@ void SLInterfaceInfoMsg::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
 void SLInterfaceInfoMsg::MergeFrom(const SLInterfaceInfoMsg& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:service_layer.SLInterfaceInfoMsg)
   GOOGLE_DCHECK_NE(&from, this);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   if (from._internal_has_slifinfo()) {
@@ -1913,7 +1915,7 @@ SLInterfaceGetMsgRsp::SLInterfaceGetMsgRsp(const SLInterfaceGetMsgRsp& from)
   // @@protoc_insertion_point(copy_constructor:service_layer.SLInterfaceGetMsgRsp)
 }
 
-void SLInterfaceGetMsgRsp::SharedCtor() {
+inline void SLInterfaceGetMsgRsp::SharedCtor() {
 ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
     reinterpret_cast<char*>(&errstatus_) - reinterpret_cast<char*>(this)),
     0, static_cast<size_t>(reinterpret_cast<char*>(&eof_) -
@@ -1944,7 +1946,7 @@ void SLInterfaceGetMsgRsp::SetCachedSize(int size) const {
 
 void SLInterfaceGetMsgRsp::Clear() {
 // @@protoc_insertion_point(message_clear_start:service_layer.SLInterfaceGetMsgRsp)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -1960,12 +1962,12 @@ void SLInterfaceGetMsgRsp::Clear() {
 const char* SLInterfaceGetMsgRsp::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    uint32_t tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // bool Eof = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
           eof_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else
@@ -1973,7 +1975,7 @@ const char* SLInterfaceGetMsgRsp::_InternalParse(const char* ptr, ::PROTOBUF_NAM
         continue;
       // .service_layer.SLErrorStatus ErrStatus = 2;
       case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
           ptr = ctx->ParseMessage(_internal_mutable_errstatus(), ptr);
           CHK_(ptr);
         } else
@@ -1981,7 +1983,7 @@ const char* SLInterfaceGetMsgRsp::_InternalParse(const char* ptr, ::PROTOBUF_NAM
         continue;
       // repeated .service_layer.SLInterfaceInfoMsg Entries = 3;
       case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 26)) {
           ptr -= 1;
           do {
             ptr += 1;
@@ -2015,10 +2017,10 @@ failure:
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* SLInterfaceGetMsgRsp::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+uint8_t* SLInterfaceGetMsgRsp::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:service_layer.SLInterfaceGetMsgRsp)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   // bool Eof = 1;
@@ -2055,7 +2057,7 @@ size_t SLInterfaceGetMsgRsp::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:service_layer.SLInterfaceGetMsgRsp)
   size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -2097,7 +2099,7 @@ void SLInterfaceGetMsgRsp::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
 void SLInterfaceGetMsgRsp::MergeFrom(const SLInterfaceGetMsgRsp& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:service_layer.SLInterfaceGetMsgRsp)
   GOOGLE_DCHECK_NE(&from, this);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   entries_.MergeFrom(from.entries_);
@@ -2264,7 +2266,7 @@ SLInterfaceNotif::SLInterfaceNotif(const SLInterfaceNotif& from)
   // @@protoc_insertion_point(copy_constructor:service_layer.SLInterfaceNotif)
 }
 
-void SLInterfaceNotif::SharedCtor() {
+inline void SLInterfaceNotif::SharedCtor() {
 eventtype_ = 0;
 clear_has_Event();
 }
@@ -2318,7 +2320,7 @@ void SLInterfaceNotif::clear_Event() {
 
 void SLInterfaceNotif::Clear() {
 // @@protoc_insertion_point(message_clear_start:service_layer.SLInterfaceNotif)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -2330,13 +2332,13 @@ void SLInterfaceNotif::Clear() {
 const char* SLInterfaceNotif::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    uint32_t tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // .service_layer.SLInterfaceNotifType EventType = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
-          ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
+          uint64_t val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
           _internal_set_eventtype(static_cast<::service_layer::SLInterfaceNotifType>(val));
         } else
@@ -2344,7 +2346,7 @@ const char* SLInterfaceNotif::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPA
         continue;
       // .service_layer.SLErrorStatus ErrStatus = 2;
       case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
           ptr = ctx->ParseMessage(_internal_mutable_errstatus(), ptr);
           CHK_(ptr);
         } else
@@ -2352,7 +2354,7 @@ const char* SLInterfaceNotif::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPA
         continue;
       // .service_layer.SLInterfaceInfoMsg Info = 3;
       case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 26)) {
           ptr = ctx->ParseMessage(_internal_mutable_info(), ptr);
           CHK_(ptr);
         } else
@@ -2381,10 +2383,10 @@ failure:
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* SLInterfaceNotif::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+uint8_t* SLInterfaceNotif::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:service_layer.SLInterfaceNotif)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   // .service_layer.SLInterfaceNotifType EventType = 1;
@@ -2422,7 +2424,7 @@ size_t SLInterfaceNotif::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:service_layer.SLInterfaceNotif)
   size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -2470,7 +2472,7 @@ void SLInterfaceNotif::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
 void SLInterfaceNotif::MergeFrom(const SLInterfaceNotif& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:service_layer.SLInterfaceNotif)
   GOOGLE_DCHECK_NE(&from, this);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   if (from._internal_eventtype() != 0) {
@@ -2544,7 +2546,7 @@ SLInterfaceNotifMsg::SLInterfaceNotifMsg(const SLInterfaceNotifMsg& from)
   // @@protoc_insertion_point(copy_constructor:service_layer.SLInterfaceNotifMsg)
 }
 
-void SLInterfaceNotifMsg::SharedCtor() {
+inline void SLInterfaceNotifMsg::SharedCtor() {
 oper_ = 0;
 }
 
@@ -2571,7 +2573,7 @@ void SLInterfaceNotifMsg::SetCachedSize(int size) const {
 
 void SLInterfaceNotifMsg::Clear() {
 // @@protoc_insertion_point(message_clear_start:service_layer.SLInterfaceNotifMsg)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -2583,13 +2585,13 @@ void SLInterfaceNotifMsg::Clear() {
 const char* SLInterfaceNotifMsg::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    uint32_t tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // .service_layer.SLNotifOp Oper = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
-          ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
+          uint64_t val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
           _internal_set_oper(static_cast<::service_layer::SLNotifOp>(val));
         } else
@@ -2597,7 +2599,7 @@ const char* SLInterfaceNotifMsg::_InternalParse(const char* ptr, ::PROTOBUF_NAME
         continue;
       // repeated .service_layer.SLInterface Entries = 2;
       case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
           ptr -= 1;
           do {
             ptr += 1;
@@ -2631,10 +2633,10 @@ failure:
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* SLInterfaceNotifMsg::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+uint8_t* SLInterfaceNotifMsg::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:service_layer.SLInterfaceNotifMsg)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   // .service_layer.SLNotifOp Oper = 1;
@@ -2664,7 +2666,7 @@ size_t SLInterfaceNotifMsg::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:service_layer.SLInterfaceNotifMsg)
   size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -2700,7 +2702,7 @@ void SLInterfaceNotifMsg::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
 void SLInterfaceNotifMsg::MergeFrom(const SLInterfaceNotifMsg& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:service_layer.SLInterfaceNotifMsg)
   GOOGLE_DCHECK_NE(&from, this);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   entries_.MergeFrom(from.entries_);
@@ -2787,7 +2789,7 @@ SLInterfaceNotifMsgRes::SLInterfaceNotifMsgRes(const SLInterfaceNotifMsgRes& fro
   // @@protoc_insertion_point(copy_constructor:service_layer.SLInterfaceNotifMsgRes)
 }
 
-void SLInterfaceNotifMsgRes::SharedCtor() {
+inline void SLInterfaceNotifMsgRes::SharedCtor() {
 ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
     reinterpret_cast<char*>(&errstatus_) - reinterpret_cast<char*>(this)),
     0, static_cast<size_t>(reinterpret_cast<char*>(&key_) -
@@ -2819,7 +2821,7 @@ void SLInterfaceNotifMsgRes::SetCachedSize(int size) const {
 
 void SLInterfaceNotifMsgRes::Clear() {
 // @@protoc_insertion_point(message_clear_start:service_layer.SLInterfaceNotifMsgRes)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -2837,12 +2839,12 @@ void SLInterfaceNotifMsgRes::Clear() {
 const char* SLInterfaceNotifMsgRes::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    uint32_t tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // .service_layer.SLErrorStatus ErrStatus = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
           ptr = ctx->ParseMessage(_internal_mutable_errstatus(), ptr);
           CHK_(ptr);
         } else
@@ -2850,7 +2852,7 @@ const char* SLInterfaceNotifMsgRes::_InternalParse(const char* ptr, ::PROTOBUF_N
         continue;
       // .service_layer.SLInterface Key = 2;
       case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
           ptr = ctx->ParseMessage(_internal_mutable_key(), ptr);
           CHK_(ptr);
         } else
@@ -2879,10 +2881,10 @@ failure:
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* SLInterfaceNotifMsgRes::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+uint8_t* SLInterfaceNotifMsgRes::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:service_layer.SLInterfaceNotifMsgRes)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   // .service_layer.SLErrorStatus ErrStatus = 1;
@@ -2913,7 +2915,7 @@ size_t SLInterfaceNotifMsgRes::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:service_layer.SLInterfaceNotifMsgRes)
   size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -2950,7 +2952,7 @@ void SLInterfaceNotifMsgRes::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
 void SLInterfaceNotifMsgRes::MergeFrom(const SLInterfaceNotifMsgRes& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:service_layer.SLInterfaceNotifMsgRes)
   GOOGLE_DCHECK_NE(&from, this);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   if (from._internal_has_errstatus()) {
@@ -3029,7 +3031,7 @@ SLInterfaceNotifMsgRsp::SLInterfaceNotifMsgRsp(const SLInterfaceNotifMsgRsp& fro
   // @@protoc_insertion_point(copy_constructor:service_layer.SLInterfaceNotifMsgRsp)
 }
 
-void SLInterfaceNotifMsgRsp::SharedCtor() {
+inline void SLInterfaceNotifMsgRsp::SharedCtor() {
 statussummary_ = nullptr;
 }
 
@@ -3057,7 +3059,7 @@ void SLInterfaceNotifMsgRsp::SetCachedSize(int size) const {
 
 void SLInterfaceNotifMsgRsp::Clear() {
 // @@protoc_insertion_point(message_clear_start:service_layer.SLInterfaceNotifMsgRsp)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -3072,12 +3074,12 @@ void SLInterfaceNotifMsgRsp::Clear() {
 const char* SLInterfaceNotifMsgRsp::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    uint32_t tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // .service_layer.SLErrorStatus StatusSummary = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
           ptr = ctx->ParseMessage(_internal_mutable_statussummary(), ptr);
           CHK_(ptr);
         } else
@@ -3085,7 +3087,7 @@ const char* SLInterfaceNotifMsgRsp::_InternalParse(const char* ptr, ::PROTOBUF_N
         continue;
       // repeated .service_layer.SLInterfaceNotifMsgRes Results = 2;
       case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
           ptr -= 1;
           do {
             ptr += 1;
@@ -3119,10 +3121,10 @@ failure:
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* SLInterfaceNotifMsgRsp::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+uint8_t* SLInterfaceNotifMsgRsp::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:service_layer.SLInterfaceNotifMsgRsp)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   // .service_layer.SLErrorStatus StatusSummary = 1;
@@ -3153,7 +3155,7 @@ size_t SLInterfaceNotifMsgRsp::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:service_layer.SLInterfaceNotifMsgRsp)
   size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -3190,7 +3192,7 @@ void SLInterfaceNotifMsgRsp::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
 void SLInterfaceNotifMsgRsp::MergeFrom(const SLInterfaceNotifMsgRsp& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:service_layer.SLInterfaceNotifMsgRsp)
   GOOGLE_DCHECK_NE(&from, this);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   results_.MergeFrom(from.results_);

@@ -20,7 +20,7 @@ namespace service_layer {
 }  // namespace service_layer
 static const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* file_level_enum_descriptors_sl_5fversion_2eproto[1];
 static constexpr ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor const** file_level_service_descriptors_sl_5fversion_2eproto = nullptr;
-const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_sl_5fversion_2eproto::offsets[1] = {};
+const uint32_t TableStruct_sl_5fversion_2eproto::offsets[1] = {};
 static constexpr ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema* schemas = nullptr;
 static constexpr ::PROTOBUF_NAMESPACE_ID::Message* const* file_default_instances = nullptr;
 
@@ -28,11 +28,13 @@ const char descriptor_table_protodef_sl_5fversion_2eproto[] PROTOBUF_SECTION_VAR
   "\n\020sl_version.proto\022\rservice_layer*f\n\tSLV"
   "ersion\022\025\n\021SL_VERSION_UNUSED\020\000\022\024\n\020SL_MAJO"
   "R_VERSION\020\000\022\024\n\020SL_MINOR_VERSION\020\004\022\022\n\016SL_"
-  "SUB_VERSION\020\000\032\002\020\001b\006proto3"
+  "SUB_VERSION\020\000\032\002\020\001BQZOgithub.com/Cisco-se"
+  "rvice-layer/service-layer-objmodel/grpc/"
+  "protos;service_layerb\006proto3"
   ;
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_sl_5fversion_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_sl_5fversion_2eproto = {
-  false, false, 145, descriptor_table_protodef_sl_5fversion_2eproto, "sl_version.proto", 
+  false, false, 228, descriptor_table_protodef_sl_5fversion_2eproto, "sl_version.proto", 
   &descriptor_table_sl_5fversion_2eproto_once, nullptr, 0, 0,
   schemas, file_default_instances, TableStruct_sl_5fversion_2eproto::offsets,
   nullptr, file_level_enum_descriptors_sl_5fversion_2eproto, file_level_service_descriptors_sl_5fversion_2eproto,
