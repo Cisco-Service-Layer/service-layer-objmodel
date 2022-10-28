@@ -1,4 +1,7 @@
-FROM ubuntu:bionic
+FROM ubuntu:focal
+
+# https://askubuntu.com/questions/909277/avoiding-user-interaction-with-tzdata-when-installing-certbot-in-a-docker-contai/1098881#1098881
+RUN ln -snf /usr/share/zoneinfo/$CONTAINER_TIMEZONE /etc/localtime && echo $CONTAINER_TIMEZONE > /etc/timezone
 
 RUN apt-get update && \
     apt-get install -y git vim doxygen autoconf automake libtool \
@@ -15,6 +18,7 @@ ARG GO_VER=1.19
 ARG WS=/ws
 RUN mkdir -p ${WS} 
 WORKDIR ${WS}
+ARG PROTOC_VER=3.18.3
 
 # Install GO binary https://go.dev/doc/install
 RUN wget -qO- https://golang.org/dl/go${GO_VER}.linux-amd64.tar.gz | tar xzvf - -C /usr/local
@@ -24,8 +28,8 @@ ENV PATH="${PATH}:/usr/local/go/bin"
 
 # Install protocol buffer compiler https://grpc.io/docs/protoc-installation/
 ARG PB_REL=https://github.com/protocolbuffers/protobuf/releases
-RUN curl -LO ${PB_REL}/download/v3.18.1/protoc-3.18.1-linux-x86_64.zip
-RUN unzip protoc-3.18.1-linux-x86_64.zip -d /usr/local
+RUN curl -LO ${PB_REL}/download/v${PROTOC_VER}/protoc-${PROTOC_VER}-linux-x86_64.zip
+RUN unzip protoc-${PROTOC_VER}-linux-x86_64.zip -d /usr/local
 
 # Install protoc-gen-go and protoc-gen-go-grpc
 # Reference https://grpc.io/docs/languages/go/quickstart
