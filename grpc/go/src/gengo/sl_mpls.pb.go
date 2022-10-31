@@ -1048,9 +1048,10 @@ type SLMplsPath struct {
 	// For N+1 backup labels, N remote backup addresses must be specified.
 	RemoteAddress []*SLIpAddress `protobuf:"bytes,9,rep,name=RemoteAddress,proto3" json:"RemoteAddress,omitempty"`
 	// Either Exp bits or CoS forwarding class.
-	// For class based forwarding of MPLS labels, the client can choose to program forwarding class as an attribute
-	// of the path. In this programming model, all paths for all classes must be programmed together and class must not
-	// be specified as key attribute on the ILM.,
+	// For class based forwarding of MPLS labels, the client can choose to
+	// program forwarding class as an attribute of the path. In this
+	// programming model, all paths for all classes must be programmed together
+	// and class must not be specified as key attribute on the ILM.
 	SlMplsCosVal *SLMplsCos `protobuf:"bytes,10,opt,name=SlMplsCosVal,proto3" json:"SlMplsCosVal,omitempty"`
 	// Set Path priority as active, backup or reserved
 	// 0: Path is installed as an active path
