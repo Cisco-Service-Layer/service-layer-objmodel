@@ -2377,9 +2377,11 @@ class SLMplsPath final :
     kVrfNameFieldNumber = 4,
     kNexthopAddressFieldNumber = 1,
     kNexthopInterfaceFieldNumber = 2,
+    kSlMplsCosValFieldNumber = 10,
     kLoadMetricFieldNumber = 3,
     kActionFieldNumber = 5,
     kPathIdFieldNumber = 6,
+    kSlMplsPathPriorityFieldNumber = 11,
   };
   // repeated uint64 ProtectedPathBitmap = 7;
   int protectedpathbitmap_size() const;
@@ -2493,6 +2495,24 @@ class SLMplsPath final :
       ::service_layer::SLInterface* nexthopinterface);
   ::service_layer::SLInterface* unsafe_arena_release_nexthopinterface();
 
+  // .service_layer.SLMplsCos SlMplsCosVal = 10;
+  bool has_slmplscosval() const;
+  private:
+  bool _internal_has_slmplscosval() const;
+  public:
+  void clear_slmplscosval();
+  const ::service_layer::SLMplsCos& slmplscosval() const;
+  PROTOBUF_NODISCARD ::service_layer::SLMplsCos* release_slmplscosval();
+  ::service_layer::SLMplsCos* mutable_slmplscosval();
+  void set_allocated_slmplscosval(::service_layer::SLMplsCos* slmplscosval);
+  private:
+  const ::service_layer::SLMplsCos& _internal_slmplscosval() const;
+  ::service_layer::SLMplsCos* _internal_mutable_slmplscosval();
+  public:
+  void unsafe_arena_set_allocated_slmplscosval(
+      ::service_layer::SLMplsCos* slmplscosval);
+  ::service_layer::SLMplsCos* unsafe_arena_release_slmplscosval();
+
   // uint32 LoadMetric = 3;
   void clear_loadmetric();
   uint32_t loadmetric() const;
@@ -2520,6 +2540,15 @@ class SLMplsPath final :
   void _internal_set_pathid(uint32_t value);
   public:
 
+  // uint32 SlMplsPathPriority = 11;
+  void clear_slmplspathpriority();
+  uint32_t slmplspathpriority() const;
+  void set_slmplspathpriority(uint32_t value);
+  private:
+  uint32_t _internal_slmplspathpriority() const;
+  void _internal_set_slmplspathpriority(uint32_t value);
+  public:
+
   // @@protoc_insertion_point(class_scope:service_layer.SLMplsPath)
  private:
   class _Internal;
@@ -2535,9 +2564,11 @@ class SLMplsPath final :
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr vrfname_;
   ::service_layer::SLIpAddress* nexthopaddress_;
   ::service_layer::SLInterface* nexthopinterface_;
+  ::service_layer::SLMplsCos* slmplscosval_;
   uint32_t loadmetric_;
   int action_;
   uint32_t pathid_;
+  uint32_t slmplspathpriority_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_sl_5fmpls_2eproto;
 };
@@ -5774,6 +5805,116 @@ inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::service_layer::SLIpAdd
 SLMplsPath::remoteaddress() const {
   // @@protoc_insertion_point(field_list:service_layer.SLMplsPath.RemoteAddress)
   return remoteaddress_;
+}
+
+// .service_layer.SLMplsCos SlMplsCosVal = 10;
+inline bool SLMplsPath::_internal_has_slmplscosval() const {
+  return this != internal_default_instance() && slmplscosval_ != nullptr;
+}
+inline bool SLMplsPath::has_slmplscosval() const {
+  return _internal_has_slmplscosval();
+}
+inline void SLMplsPath::clear_slmplscosval() {
+  if (GetArenaForAllocation() == nullptr && slmplscosval_ != nullptr) {
+    delete slmplscosval_;
+  }
+  slmplscosval_ = nullptr;
+}
+inline const ::service_layer::SLMplsCos& SLMplsPath::_internal_slmplscosval() const {
+  const ::service_layer::SLMplsCos* p = slmplscosval_;
+  return p != nullptr ? *p : reinterpret_cast<const ::service_layer::SLMplsCos&>(
+      ::service_layer::_SLMplsCos_default_instance_);
+}
+inline const ::service_layer::SLMplsCos& SLMplsPath::slmplscosval() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLMplsPath.SlMplsCosVal)
+  return _internal_slmplscosval();
+}
+inline void SLMplsPath::unsafe_arena_set_allocated_slmplscosval(
+    ::service_layer::SLMplsCos* slmplscosval) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(slmplscosval_);
+  }
+  slmplscosval_ = slmplscosval;
+  if (slmplscosval) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:service_layer.SLMplsPath.SlMplsCosVal)
+}
+inline ::service_layer::SLMplsCos* SLMplsPath::release_slmplscosval() {
+  
+  ::service_layer::SLMplsCos* temp = slmplscosval_;
+  slmplscosval_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::service_layer::SLMplsCos* SLMplsPath::unsafe_arena_release_slmplscosval() {
+  // @@protoc_insertion_point(field_release:service_layer.SLMplsPath.SlMplsCosVal)
+  
+  ::service_layer::SLMplsCos* temp = slmplscosval_;
+  slmplscosval_ = nullptr;
+  return temp;
+}
+inline ::service_layer::SLMplsCos* SLMplsPath::_internal_mutable_slmplscosval() {
+  
+  if (slmplscosval_ == nullptr) {
+    auto* p = CreateMaybeMessage<::service_layer::SLMplsCos>(GetArenaForAllocation());
+    slmplscosval_ = p;
+  }
+  return slmplscosval_;
+}
+inline ::service_layer::SLMplsCos* SLMplsPath::mutable_slmplscosval() {
+  ::service_layer::SLMplsCos* _msg = _internal_mutable_slmplscosval();
+  // @@protoc_insertion_point(field_mutable:service_layer.SLMplsPath.SlMplsCosVal)
+  return _msg;
+}
+inline void SLMplsPath::set_allocated_slmplscosval(::service_layer::SLMplsCos* slmplscosval) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete slmplscosval_;
+  }
+  if (slmplscosval) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper<::service_layer::SLMplsCos>::GetOwningArena(slmplscosval);
+    if (message_arena != submessage_arena) {
+      slmplscosval = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, slmplscosval, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  slmplscosval_ = slmplscosval;
+  // @@protoc_insertion_point(field_set_allocated:service_layer.SLMplsPath.SlMplsCosVal)
+}
+
+// uint32 SlMplsPathPriority = 11;
+inline void SLMplsPath::clear_slmplspathpriority() {
+  slmplspathpriority_ = 0u;
+}
+inline uint32_t SLMplsPath::_internal_slmplspathpriority() const {
+  return slmplspathpriority_;
+}
+inline uint32_t SLMplsPath::slmplspathpriority() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLMplsPath.SlMplsPathPriority)
+  return _internal_slmplspathpriority();
+}
+inline void SLMplsPath::_internal_set_slmplspathpriority(uint32_t value) {
+  
+  slmplspathpriority_ = value;
+}
+inline void SLMplsPath::set_slmplspathpriority(uint32_t value) {
+  _internal_set_slmplspathpriority(value);
+  // @@protoc_insertion_point(field_set:service_layer.SLMplsPath.SlMplsPathPriority)
 }
 
 // -------------------------------------------------------------------
