@@ -525,31 +525,31 @@
             "vrf_name": "default"
         },
         "cos_nh_1" : {
-            "if_name": "FourHundredGigE0/0/0/0",
+            "if_name": "GigabitEthernet0/0/0/0",
             "v4_addr": "1.1.1.1",
             "v6_addr": "10:10:10:10::1", 
             "vrf_name": "default"
         },
         "cos_nh_2" : {
-            "if_name": "FourHundredGigE0/0/0/1",
+            "if_name": "GigabitEthernet0/0/0/0",
             "v4_addr": "1.1.1.2",
             "v6_addr": "10:10:10:10::2", 
             "vrf_name": "default"
         },
         "cos_nh_3" : {
-            "if_name": "FourHundredGigE0/0/0/2",
+            "if_name": "GigabitEthernet0/0/0/0",
             "v4_addr": "1.1.1.3",
             "v6_addr": "10:10:10:10::3", 
             "vrf_name": "default"
         },
         "cos_nh_4" : {
-            "if_name": "FourHundredGigE0/0/0/3",
+            "if_name": "GigabitEthernet0/0/0/0",
             "v4_addr": "1.1.1.4",
             "v6_addr": "10:10:10:10::4", 
             "vrf_name": "default"
         },
         "cos_nh_5" : {
-            "if_name": "FourHundredGigE0/0/0/4",
+            "if_name": "GigabitEthernet0/0/0/0",
             "v4_addr": "1.1.1.5",
             "v6_addr": "10:10:10:10::5", 
             "vrf_name": "default"
