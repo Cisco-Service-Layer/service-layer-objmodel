@@ -1417,3 +1417,93 @@ class TestSuite_029_MPLS_CoS_TC16_scale(unittest.TestCase):
 
     def test_013_mpls_unregister(self):
         client.mpls_unregister()
+
+class TestSuite_030_MPLS_CoS_NHLFE_TC1(unittest.TestCase):
+    AF = 4
+    STREAM = False
+
+    @classmethod
+    def setUpClass(cls):
+        super(TestSuite_030_MPLS_CoS_NHLFE_TC1, cls).setUpClass()
+        cls.ilm_entry = json_params['cos_nhlfe_tc1']
+        cls.ilm_entry_del = json_params['cos_ilm_del']
+        cls.lbl_blk_params = json_params['cos_mpls_lbl_block_1']
+        cls.lbl_blk_get = json_params['lbl_blk_get']
+        cls.reg_params = json_params['reg_params']
+        cls.path_info = {'paths': json_params['paths'], 'next_hops': json_params['next_hops']}
+
+    def test_000_get_globals(self):
+        # Get Global MPLS info
+        client.mpls_global_get()
+
+    def test_001_mpls_register(self):
+        client.mpls_register(self.reg_params)
+
+    def test_002_blk_add(self):
+        client.label_block_add(self.lbl_blk_params)
+
+    # # add label 32220, 32221
+    def test_003_ilm_add(self):
+        client.ilm_add(self.ilm_entry["cos_nhlfe_1"], stream=self.STREAM,
+                af=self.AF, **self.path_info)
+
+    # # update label 32220, change path priority
+    def test_004_ilm_update(self):
+        client.ilm_update(self.ilm_entry["cos_nhlfe_2"], stream=self.STREAM,
+                af=self.AF, **self.path_info)
+
+    # # update label 32221, change nexthop for exp
+    def test_005_ilm_update(self):
+        client.ilm_update(self.ilm_entry["cos_nhlfe_6"], stream=self.STREAM,
+                af=self.AF, **self.path_info)
+
+    # # Duplicate label 32220, change path priority (fail)
+    def test_006_ilm_add(self):
+        client.ilm_add(self.ilm_entry["cos_nhlfe_2"], stream=self.STREAM,
+                af=self.AF, xfail=True, **self.path_info)
+
+    #  # delete label 32220,
+    def test_007_ilm_delete(self):
+        client.ilm_delete(self.ilm_entry_del["cos_nhlfe_del_default"],
+                stream=self.STREAM, af=self.AF, **self.path_info)
+
+    # # add label 32222
+    def test_008_ilm_add(self):
+        client.ilm_add(self.ilm_entry["cos_nhlfe_3"], stream=self.STREAM,
+                af=self.AF, **self.path_info)
+
+    # # update the label actions
+    def test_009_ilm_update(self):
+        client.ilm_update(self.ilm_entry["cos_nhlfe_4"], stream=self.STREAM,
+                af=self.AF, **self.path_info)
+
+    # # delete labels 32220, 32221
+    def test_010_ilm_delete(self):
+        client.ilm_delete(self.ilm_entry_del["cos_nhlfe_del_1"],
+                stream=self.STREAM, af=self.AF, **self.path_info)
+
+    # # add label 32220, 32221,
+    def test_011_ilm_add(self):
+        client.ilm_add(self.ilm_entry["cos_nhlfe_5"], stream=self.STREAM,
+                af=self.AF, **self.path_info)
+
+    # # Update path priority
+    def test_012_ilm_update(self):
+        client.ilm_update(self.ilm_entry["cos_nhlfe_5"], stream=self.STREAM,
+                af=self.AF, **self.path_info)
+
+    # # delete labels 32220, 32221
+    def test_013_ilm_delete(self):
+        client.ilm_delete(self.ilm_entry_del["cos_nhlfe_del_2"],
+                stream=self.STREAM, af=self.AF, **self.path_info)
+
+    # # delete already delete label, should succeed
+    def test_014_ilm_delete(self):
+        client.ilm_delete(self.ilm_entry_del["cos_nhlfe_del_2"],
+                stream=self.STREAM, af=self.AF, **self.path_info)
+
+    def test_015_mpls_eof(self):
+        client.mpls_eof()
+
+    def test_016_mpls_unregister(self):
+        client.mpls_unregister()

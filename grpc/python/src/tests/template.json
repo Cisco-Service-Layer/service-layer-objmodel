@@ -525,31 +525,31 @@
             "vrf_name": "default"
         },
         "cos_nh_1" : {
-            "if_name": "GigabitEthernet0/0/0/0",
+            "if_name": "FourHundredGigE0/0/0/0",
             "v4_addr": "1.1.1.1",
             "v6_addr": "10:10:10:10::1", 
             "vrf_name": "default"
         },
         "cos_nh_2" : {
-            "if_name": "GigabitEthernet0/0/0/0",
+            "if_name": "FourHundredGigE0/0/0/1",
             "v4_addr": "1.1.1.2",
             "v6_addr": "10:10:10:10::2", 
             "vrf_name": "default"
         },
         "cos_nh_3" : {
-            "if_name": "GigabitEthernet0/0/0/0",
+            "if_name": "FourHundredGigE0/0/0/2",
             "v4_addr": "1.1.1.3",
             "v6_addr": "10:10:10:10::3", 
             "vrf_name": "default"
         },
         "cos_nh_4" : {
-            "if_name": "GigabitEthernet0/0/0/0",
+            "if_name": "FourHundredGigE0/0/0/3",
             "v4_addr": "1.1.1.4",
             "v6_addr": "10:10:10:10::4", 
             "vrf_name": "default"
         },
         "cos_nh_5" : {
-            "if_name": "GigabitEthernet0/0/0/0",
+            "if_name": "FourHundredGigE0/0/0/4",
             "v4_addr": "1.1.1.5",
             "v6_addr": "10:10:10:10::5", 
             "vrf_name": "default"
@@ -1183,6 +1183,232 @@
                 "next_hop": "nh_pop_and_lookup"
             }
         ], 
+        "cos_nhlfe_path_1" : [
+            {
+                "exp": 4,
+                "label_action": 1,
+                "labels": [ 46000 ],
+                "next_hop": "cos_nh_1",
+                "path_priority": false
+            },
+            {
+                "exp": 4,
+                "label_action": 2,
+                "labels": [ ],
+                "next_hop": "cos_nh_3",
+                "path_priority": true
+            },
+            {
+                "default_elsp": true,
+                "label_action": 5,
+                "labels": [],
+                "next_hop": "cos_nh_2"
+            }
+        ],
+        "cos_nhlfe_path_2" : [
+            {
+                "exp": 4,
+                "label_action": 1,
+                "labels": [ 46000 ],
+                "next_hop": "cos_nh_1",
+                "path_priority": true
+            },
+            {
+                "default_elsp": true,
+                "label_action": 5,
+                "labels": [],
+                "next_hop": "cos_nh_2",
+                "path_priority": false
+            },
+            {
+                "exp": 3,
+                "label_action": 2,
+                "labels": [ ],
+                "next_hop": "cos_nh_3",
+                "path_priority": false
+            }
+        ],
+        "cos_nhlfe_path_3" : [
+            {
+                "exp": 4,
+                "label_action": 1,
+                "labels": [ 46000 ],
+                "next_hop": "cos_nh_1",
+                "path_priority": true
+            },
+            {
+                "exp": 4,
+                "label_action": 2,
+                "labels": [ ],
+                "next_hop": "cos_nh_3",
+                "path_priority": false
+            },
+            {
+                "default_elsp": true,
+                "label_action": 5,
+                "labels": [],
+                "next_hop": "cos_nh_2"
+            }
+        ],
+        "cos_nhlfe_path_4" : [
+            {
+                "exp": 1,
+                "label_action": 1,
+                "labels": [ 46000 ],
+                "next_hop": "cos_nh_1",
+                "path_priority": true
+            },
+            {
+                "default_elsp": true,
+                "label_action": 5,
+                "labels": [],
+                "next_hop": "cos_nh_2"
+            },
+            {
+                "exp": 4,
+                "label_action": 2,
+                "labels": [ ],
+                "next_hop": "cos_nh_3",
+                "path_priority": false
+            }
+        ],
+        "cos_nhlfe_path_5" : [
+            {
+                "exp": 1,
+                "label_action": 2,
+                "labels": [  ],
+                "next_hop": "cos_nh_1",
+                "path_priority": false
+            },
+            {
+                "default_elsp": true,
+                "label_action": 1,
+                "labels": [46000],
+                "next_hop": "cos_nh_2"
+            },
+            {
+                "exp": 4,
+                "label_action": 5,
+                "labels": [ ],
+                "next_hop": "cos_nh_3",
+                "path_priority": false
+            }
+        ],
+        "cos_nhlfe_path_6" : [
+            {
+                "exp": 1,
+                "label_action": 1,
+                "labels": [ 46000 ],
+                "next_hop": "cos_nh_1",
+                "path_priority": false
+            },
+            {
+                "exp": 4,
+                "label_action": 2,
+                "labels": [ ],
+                "next_hop": "cos_nh_3",
+                "path_priority": true
+            },
+            {
+                "default_elsp": true,
+                "label_action": 5,
+                "labels": [],
+                "next_hop": "cos_nh_2",
+                "path_priority": true
+            }
+        ],
+        "cos_nhlfe_path_7" : [
+            {
+                "exp": 1,
+                "label_action": 1,
+                "labels": [ 46000 ],
+                "next_hop": "cos_nh_1",
+                "path_priority": true
+            },
+            {
+                "default_elsp": false,
+                "label_action": 5,
+                "labels": [],
+                "next_hop": "cos_nh_2",
+                "path_priority": false
+            },
+            {
+                "exp": 4,
+                "label_action": 2,
+                "labels": [ ],
+                "next_hop": "cos_nh_3",
+                "path_priority": false
+            }
+        ],
+        "cos_nhlfe_path_8" : [
+            {
+                "exp": 1,
+                "label_action": 1,
+                "labels": [ 46000 ],
+                "next_hop": "cos_nh_1",
+                "path_priority": true
+            },
+            {
+                "exp": 4,
+                "label_action": 2,
+                "labels": [ ],
+                "next_hop": "cos_nh_3",
+                "path_priority": false
+            },
+            {
+                "default_elsp": true,
+                "label_action": 5,
+                "labels": [],
+                "next_hop": "cos_nh_2",
+                "path_priority": false
+            }
+        ],
+        "cos_nhlfe_path_9" : [
+            {
+                "exp": 1,
+                "label_action": 1,
+                "labels": [ 46000 ],
+                "next_hop": "cos_nh_1",
+                "path_priority": true
+            },
+            {
+                "default_elsp": true,
+                "label_action": 5,
+                "labels": [],
+                "next_hop": "cos_nh_2",
+                "path_priority": false
+            },
+            {
+                "exp": 4,
+                "label_action": 2,
+                "labels": [ ],
+                "next_hop": "cos_nh_3",
+                "path_priority": false
+            }
+        ],
+        "cos_nhlfe_path_10" : [
+            {
+                "exp": 4,
+                "label_action": 1,
+                "labels": [ 46000 ],
+                "next_hop": "cos_nh_2",
+                "path_priority": true
+            },
+            {
+                "default_elsp": true,
+                "label_action": 5,
+                "labels": [],
+                "next_hop": "cos_nh_2",
+                "path_priority": false
+            },
+            {
+                "exp": 3,
+                "label_action": 2,
+                "labels": [ ],
+                "next_hop": "cos_nh_1",
+                "path_priority": false
+            }
+        ],
         "cos_scale_path_1" : [
             {
                 "label_action": 1,
@@ -1608,6 +1834,49 @@
                     "in_label": 32220,
                     "range": 1,
                     "path": "cos_path_1"
+                }
+             ]
+        },
+        "cos_nhlfe_del_default": {
+            "batch_size": 1,
+            "correlator": 1,
+            "ilms": [
+                {
+                    "in_label": 32220,
+                    "range": 1,
+                    "path": "cos_nhlfe_path_3"
+                }
+             ]
+        },
+        "cos_nhlfe_del_1": {
+            "batch_size": 1,
+            "correlator": 1,
+            "ilms": [
+                {
+                    "in_label": 32220,
+                    "range": 1,
+                    "path": "cos_nhlfe_path_5"
+                },
+                {
+                    "in_label": 32221,
+                    "range": 1,
+                    "path": "cos_nhlfe_path_10"
+                }
+             ]
+        },
+        "cos_nhlfe_del_2": {
+            "batch_size": 1,
+            "correlator": 1,
+            "ilms": [
+                {
+                    "in_label": 32220,
+                    "range": 1,
+                    "path": "cos_nhlfe_path_8"
+                },
+                {
+                    "in_label": 32221,
+                    "range": 1,
+                    "path": "cos_nhlfe_path_9"
                 }
              ]
         },
@@ -2571,6 +2840,100 @@
                     "default_elsp" : true,
                     "in_label": 32220,
                     "path": "cos_path_3",
+                    "range": 1
+                }
+             ]
+        }
+    },
+    "cos_nhlfe_tc1" : {
+        "cos_nhlfe_1": {
+            "batch_size": 2,
+            "correlator": 1,
+            "ilms": [
+                {
+                    "in_label": 32220,
+                    "path": "cos_nhlfe_path_1",
+                    "range": 1
+                },
+                {
+                    "in_label": 32221,
+                    "path": "cos_nhlfe_path_2",
+                    "range": 1
+                }
+             ]
+        },
+        "cos_nhlfe_2": {
+            "batch_size": 1,
+            "correlator": 1,
+            "ilms": [
+                {
+                    "in_label": 32220,
+                    "path": "cos_nhlfe_path_3",
+                    "range": 1
+                }
+             ]
+        },
+        "cos_nhlfe_3": {
+            "batch_size": 1,
+            "correlator": 1,
+            "ilms": [
+                {
+                    "in_label": 32220,
+                    "path": "cos_nhlfe_path_4",
+                    "range": 1
+                }
+             ]
+        },
+        "cos_nhlfe_4": {
+            "batch_size": 1,
+            "correlator": 1,
+            "ilms": [
+                {
+                    "in_label": 32220,
+                    "path": "cos_nhlfe_path_5",
+                    "range": 1
+                }
+             ]
+        },
+        "cos_nhlfe_5": {
+            "batch_size": 2,
+            "correlator": 1,
+            "ilms": [
+                {
+                    "in_label": 32220,
+                    "path": "cos_nhlfe_path_6",
+                    "range": 1
+                },
+                {
+                    "in_label": 32221,
+                    "path": "cos_nhlfe_path_7",
+                    "range": 1
+                }
+             ]
+        },
+        "cos_nhlfe_6": {
+            "batch_size": 2,
+            "correlator": 1,
+            "ilms": [
+                {
+                    "in_label": 32220,
+                    "path": "cos_nhlfe_path_8",
+                    "range": 1
+                },
+                {
+                    "in_label": 32221,
+                    "path": "cos_nhlfe_path_9",
+                    "range": 1
+                }
+             ]
+        },
+        "cos_nhlfe_7": {
+            "batch_size": 1,
+            "correlator": 1,
+            "ilms": [
+                {
+                    "in_label": 32221,
+                    "path": "cos_nhlfe_path_10",
                     "range": 1
                 }
              ]

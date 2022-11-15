@@ -375,6 +375,12 @@ def ilm_serializer(batch_info):
                             )
                             remote_addr.append(sl_r_addr)
                         p.RemoteAddress.extend(remote_addr)
+                if 'default_elsp' in path:
+                    p.SlMplsCosVal.DefaultElspPath = path["default_elsp"]
+                elif 'exp' in path:
+                    p.SlMplsCosVal.Exp = path["exp"]
+                if 'path_priority' in path:
+                    p.SlMplsPathPriority = path["path_priority"]
                 # Append the `SLMplsPathv4` object to the `ps` list
                 ps.append(p)
             assert len(ps), 'path list cannot be empty'
