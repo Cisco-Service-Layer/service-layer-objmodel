@@ -1183,230 +1183,218 @@
                 "next_hop": "nh_pop_and_lookup"
             }
         ], 
-        "cos_nhlfe_path_1" : [
-            {
-                "exp": 4,
-                "label_action": 1,
-                "labels": [ 46000 ],
-                "next_hop": "cos_nh_1",
-                "path_priority": false
-            },
-            {
-                "exp": 4,
-                "label_action": 2,
-                "labels": [ ],
-                "next_hop": "cos_nh_3",
-                "path_priority": true
-            },
+        "cos_nhlfe_path_1a" : [
             {
                 "default_elsp": true,
                 "label_action": 5,
                 "labels": [],
-                "next_hop": "cos_nh_2"
+                "next_hop": "cos_nh_1",
+                "path_priority": 0
             }
         ],
-        "cos_nhlfe_path_2" : [
-            {
-                "exp": 4,
-                "label_action": 1,
-                "labels": [ 46000 ],
-                "next_hop": "cos_nh_1",
-                "path_priority": true
-            },
+        "cos_nhlfe_path_1b" : [
             {
                 "default_elsp": true,
                 "label_action": 5,
                 "labels": [],
                 "next_hop": "cos_nh_2",
-                "path_priority": false
-            },
-            {
-                "exp": 3,
-                "label_action": 2,
-                "labels": [ ],
-                "next_hop": "cos_nh_3",
-                "path_priority": false
+                "path_priority": 0
             }
         ],
-        "cos_nhlfe_path_3" : [
+        "cos_nhlfe_path_1c" : [
+            {
+                "default_elsp": true,
+                "label_action": 5,
+                "labels": [],
+                "next_hop": "cos_nh_3",
+                "path_priority": 0
+            }
+        ],
+        "cos_nhlfe_path_1d" : [
+            {
+                "default_elsp": true,
+                "label_action": 5,
+                "labels": [],
+                "next_hop": "cos_nh_4"
+            }
+        ],
+        "cos_nhlfe_path_1e" : [
+            {
+                "default_elsp": true,
+                "label_action": 5,
+                "labels": [],
+                "next_hop": "cos_nh_5",
+                "path_priority": 0
+            }
+        ],
+        "cos_nhlfe_path_2a" : [
             {
                 "exp": 4,
                 "label_action": 1,
                 "labels": [ 46000 ],
                 "next_hop": "cos_nh_1",
-                "path_priority": true
-            },
-            {
-                "exp": 4,
-                "label_action": 2,
-                "labels": [ ],
-                "next_hop": "cos_nh_3",
-                "path_priority": false
-            },
-            {
-                "default_elsp": true,
-                "label_action": 5,
-                "labels": [],
-                "next_hop": "cos_nh_2"
-            }
-        ],
-        "cos_nhlfe_path_4" : [
-            {
-                "exp": 1,
-                "label_action": 1,
-                "labels": [ 46000 ],
-                "next_hop": "cos_nh_1",
-                "path_priority": true
-            },
-            {
-                "default_elsp": true,
-                "label_action": 5,
-                "labels": [],
-                "next_hop": "cos_nh_2"
-            },
-            {
-                "exp": 4,
-                "label_action": 2,
-                "labels": [ ],
-                "next_hop": "cos_nh_3",
-                "path_priority": false
-            }
-        ],
-        "cos_nhlfe_path_5" : [
-            {
-                "exp": 1,
-                "label_action": 2,
-                "labels": [  ],
-                "next_hop": "cos_nh_1",
-                "path_priority": false
+                "path_priority": 0
             },
             {
                 "default_elsp": true,
                 "label_action": 1,
                 "labels": [46000],
-                "next_hop": "cos_nh_2"
-            },
-            {
-                "exp": 4,
-                "label_action": 5,
-                "labels": [ ],
-                "next_hop": "cos_nh_3",
-                "path_priority": false
-            }
-        ],
-        "cos_nhlfe_path_6" : [
-            {
-                "exp": 1,
-                "label_action": 1,
-                "labels": [ 46000 ],
-                "next_hop": "cos_nh_1",
-                "path_priority": false
-            },
-            {
-                "exp": 4,
-                "label_action": 2,
-                "labels": [ ],
-                "next_hop": "cos_nh_3",
-                "path_priority": true
-            },
-            {
-                "default_elsp": true,
-                "label_action": 5,
-                "labels": [],
                 "next_hop": "cos_nh_2",
-                "path_priority": true
-            }
-        ],
-        "cos_nhlfe_path_7" : [
-            {
-                "exp": 1,
-                "label_action": 1,
-                "labels": [ 46000 ],
-                "next_hop": "cos_nh_1",
-                "path_priority": true
-            },
-            {
-                "default_elsp": false,
-                "label_action": 5,
-                "labels": [],
-                "next_hop": "cos_nh_2",
-                "path_priority": false
-            },
-            {
-                "exp": 4,
-                "label_action": 2,
-                "labels": [ ],
-                "next_hop": "cos_nh_3",
-                "path_priority": false
-            }
-        ],
-        "cos_nhlfe_path_8" : [
-            {
-                "exp": 1,
-                "label_action": 1,
-                "labels": [ 46000 ],
-                "next_hop": "cos_nh_1",
-                "path_priority": true
-            },
-            {
-                "exp": 4,
-                "label_action": 2,
-                "labels": [ ],
-                "next_hop": "cos_nh_3",
-                "path_priority": false
-            },
-            {
-                "default_elsp": true,
-                "label_action": 5,
-                "labels": [],
-                "next_hop": "cos_nh_2",
-                "path_priority": false
-            }
-        ],
-        "cos_nhlfe_path_9" : [
-            {
-                "exp": 1,
-                "label_action": 1,
-                "labels": [ 46000 ],
-                "next_hop": "cos_nh_1",
-                "path_priority": true
-            },
-            {
-                "default_elsp": true,
-                "label_action": 5,
-                "labels": [],
-                "next_hop": "cos_nh_2",
-                "path_priority": false
-            },
-            {
-                "exp": 4,
-                "label_action": 2,
-                "labels": [ ],
-                "next_hop": "cos_nh_3",
-                "path_priority": false
-            }
-        ],
-        "cos_nhlfe_path_10" : [
-            {
-                "exp": 4,
-                "label_action": 1,
-                "labels": [ 46000 ],
-                "next_hop": "cos_nh_2",
-                "path_priority": true
-            },
-            {
-                "default_elsp": true,
-                "label_action": 5,
-                "labels": [],
-                "next_hop": "cos_nh_2",
-                "path_priority": false
+                "path_priority": 0
             },
             {
                 "exp": 3,
                 "label_action": 2,
-                "labels": [ ],
+                "labels": [],
+                "next_hop": "cos_nh_3",
+                "path_priority": 1
+            }
+        ],
+        "cos_nhlfe_path_2b" : [
+            {
+                "exp": 2,
+                "label_action": 1,
+                "labels": [ 46001 ],
+                "next_hop": "cos_nh_4",
+                "path_priority": 0
+            },
+            {
+                "exp": 0,
+                "label_action": 2,
+                "labels": [],
+                "next_hop": "cos_nh_5",
+                "path_priority": 1
+            },
+            {
+                "exp": 2,
+                "label_action": 1,
+                "labels": [46001],
+                "next_hop": "cos_nh_6",
+                "path_priority": 1
+            }
+        ],
+        "cos_nhlfe_path_2c" : [
+            {
+                "exp": 1,
+                "label_action": 1,
+                "labels": [ 46002 ],
+                "next_hop": "cos_nh_7",
+                "path_priority": 0
+            },
+            {
+                "exp": 3,
+                "label_action": 1,
+                "labels": [46002],
+                "next_hop": "cos_nh_9",
+                "path_priority": 1
+            }
+        ],
+        "cos_nhlfe_path_2d" : [
+            {
+                "exp": 4,
+                "label_action": 1,
+                "labels": [ 46003 ],
+                "next_hop": "cos_nh_10",
+                "path_priority": 0
+            },
+            {
+                "exp": 5,
+                "label_action": 1,
+                "labels": [ 46003 ],
+                "next_hop": "cos_nh_11",
+                "path_priority": 0
+            },
+            {
+                "exp": 3,
+                "label_action": 2,
+                "labels": [  ],
+                "next_hop": "cos_nh_12",
+                "path_priority": 1
+            }
+        ],
+        "cos_nhlfe_path_2e" : [
+            {
+                "exp": 0,
+                "label_action": 1,
+                "labels": [ 46004 ],
                 "next_hop": "cos_nh_1",
-                "path_priority": false
+                "path_priority": 1
+            },
+            {
+                "exp": 1,
+                "label_action": 1,
+                "labels": [ 46004 ],
+                "next_hop": "cos_nh_2",
+                "path_priority": 1
+            },
+            {
+                "exp": 3,
+                "label_action": 2,
+                "labels": [],
+                "next_hop": "cos_nh_3",
+                "path_priority": 0
+            }
+        ],
+        "cos_nhlfe_path_3a" : [
+            {
+                "exp": 4,
+                "label_action": 1,
+                "labels": [ 46000 ],
+                "next_hop": "cos_nh_1",
+                "path_priority": 1
+            },
+            {
+                "default_elsp": true,
+                "label_action": 1,
+                "labels": [46000],
+                "next_hop": "cos_nh_2",
+                "path_priority": 1
+            },
+            {
+                "exp": 3,
+                "label_action": 2,
+                "labels": [],
+                "next_hop": "cos_nh_3",
+                "path_priority": 0
+            }
+        ],
+        "cos_nhlfe_path_3b" : [
+            {
+                "exp": 2,
+                "label_action": 1,
+                "labels": [ 46001 ],
+                "next_hop": "cos_nh_4",
+                "path_priority": 1
+            },
+            {
+                "exp": 0,
+                "label_action": 2,
+                "labels": [],
+                "next_hop": "cos_nh_5",
+                "path_priority": 1
+            },
+            {
+                "exp": 2,
+                "label_action": 1,
+                "labels": [46001],
+                "next_hop": "cos_nh_6",
+                "path_priority": 0
+            }
+        ],
+        "cos_nhlfe_path_3c" : [
+            {
+                "exp": 1,
+                "label_action": 1,
+                "labels": [ 46002 ],
+                "next_hop": "cos_nh_7",
+                "path_priority": 1
+            },
+            {
+                "exp": 3,
+                "label_action": 1,
+                "labels": [46002],
+                "next_hop": "cos_nh_9",
+                "path_priority": 0
             }
         ],
         "cos_scale_path_1" : [
@@ -1838,45 +1826,33 @@
              ]
         },
         "cos_nhlfe_del_default": {
-            "batch_size": 1,
+            "batch_size": 5,
             "correlator": 1,
             "ilms": [
                 {
                     "in_label": 32220,
-                    "range": 1,
-                    "path": "cos_nhlfe_path_3"
-                }
-             ]
-        },
-        "cos_nhlfe_del_1": {
-            "batch_size": 1,
-            "correlator": 1,
-            "ilms": [
-                {
-                    "in_label": 32220,
-                    "range": 1,
-                    "path": "cos_nhlfe_path_5"
+                    "path": "cos_nhlfe_path_1a",
+                    "range": 1
                 },
                 {
                     "in_label": 32221,
-                    "range": 1,
-                    "path": "cos_nhlfe_path_10"
-                }
-             ]
-        },
-        "cos_nhlfe_del_2": {
-            "batch_size": 1,
-            "correlator": 1,
-            "ilms": [
-                {
-                    "in_label": 32220,
-                    "range": 1,
-                    "path": "cos_nhlfe_path_8"
+                    "path": "cos_nhlfe_path_1b",
+                    "range": 1
                 },
                 {
-                    "in_label": 32221,
-                    "range": 1,
-                    "path": "cos_nhlfe_path_9"
+                    "in_label": 32222,
+                    "path": "cos_nhlfe_path_1c",
+                    "range": 1
+                },
+                {
+                    "in_label": 32223,
+                    "path": "cos_nhlfe_path_1d",
+                    "range": 1
+                },
+                {
+                    "in_label": 32224,
+                    "path": "cos_nhlfe_path_1e",
+                    "range": 1
                 }
              ]
         },
@@ -2847,93 +2823,84 @@
     },
     "cos_nhlfe_tc1" : {
         "cos_nhlfe_1": {
-            "batch_size": 2,
+            "batch_size": 5,
             "correlator": 1,
             "ilms": [
                 {
                     "in_label": 32220,
-                    "path": "cos_nhlfe_path_1",
+                    "path": "cos_nhlfe_path_1a",
                     "range": 1
                 },
                 {
                     "in_label": 32221,
-                    "path": "cos_nhlfe_path_2",
+                    "path": "cos_nhlfe_path_1b",
+                    "range": 1
+                },
+                {
+                    "in_label": 32222,
+                    "path": "cos_nhlfe_path_1c",
+                    "range": 1
+                },
+                {
+                    "in_label": 32223,
+                    "path": "cos_nhlfe_path_1d",
+                    "range": 1
+                },
+                {
+                    "in_label": 32224,
+                    "path": "cos_nhlfe_path_1e",
                     "range": 1
                 }
              ]
         },
         "cos_nhlfe_2": {
-            "batch_size": 1,
+            "batch_size": 5,
             "correlator": 1,
             "ilms": [
                 {
                     "in_label": 32220,
-                    "path": "cos_nhlfe_path_3",
+                    "path": "cos_nhlfe_path_2a",
+                    "range": 1
+                },
+                {
+                    "in_label": 32221,
+                    "path": "cos_nhlfe_path_2b",
+                    "range": 1
+                },
+                {
+                    "in_label": 32222,
+                    "path": "cos_nhlfe_path_2c",
+                    "range": 1
+                },
+                {
+                    "in_label": 32223,
+                    "path": "cos_nhlfe_path_2d",
+                    "range": 1
+                },
+                {
+                    "in_label": 32224,
+                    "path": "cos_nhlfe_path_2e",
                     "range": 1
                 }
              ]
         },
         "cos_nhlfe_3": {
-            "batch_size": 1,
+            "batch_size": 5,
             "correlator": 1,
             "ilms": [
                 {
                     "in_label": 32220,
-                    "path": "cos_nhlfe_path_4",
-                    "range": 1
-                }
-             ]
-        },
-        "cos_nhlfe_4": {
-            "batch_size": 1,
-            "correlator": 1,
-            "ilms": [
-                {
-                    "in_label": 32220,
-                    "path": "cos_nhlfe_path_5",
-                    "range": 1
-                }
-             ]
-        },
-        "cos_nhlfe_5": {
-            "batch_size": 2,
-            "correlator": 1,
-            "ilms": [
-                {
-                    "in_label": 32220,
-                    "path": "cos_nhlfe_path_6",
+                    "path": "cos_nhlfe_path_3a",
                     "range": 1
                 },
                 {
                     "in_label": 32221,
-                    "path": "cos_nhlfe_path_7",
-                    "range": 1
-                }
-             ]
-        },
-        "cos_nhlfe_6": {
-            "batch_size": 2,
-            "correlator": 1,
-            "ilms": [
-                {
-                    "in_label": 32220,
-                    "path": "cos_nhlfe_path_8",
+                    "path": "cos_nhlfe_path_3b",
                     "range": 1
                 },
                 {
-                    "in_label": 32221,
-                    "path": "cos_nhlfe_path_9",
-                    "range": 1
-                }
-             ]
-        },
-        "cos_nhlfe_7": {
-            "batch_size": 1,
-            "correlator": 1,
-            "ilms": [
-                {
-                    "in_label": 32221,
-                    "path": "cos_nhlfe_path_10",
+                    "in_label": 32222,
+                    "path": "cos_nhlfe_path_3c",
                     "range": 1
                 }
              ]
