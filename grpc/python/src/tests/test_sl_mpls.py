@@ -1417,3 +1417,69 @@ class TestSuite_029_MPLS_CoS_TC16_scale(unittest.TestCase):
 
     def test_013_mpls_unregister(self):
         client.mpls_unregister()
+
+class TestSuite_030_MPLS_CoS_NHLFE_TC1(unittest.TestCase):
+    AF = 4
+    STREAM = False
+
+    @classmethod
+    def setUpClass(cls):
+        super(TestSuite_030_MPLS_CoS_NHLFE_TC1, cls).setUpClass()
+        cls.ilm_entry = json_params['cos_nhlfe_tc1']
+        cls.ilm_entry_del = json_params['cos_ilm_del']
+        cls.lbl_blk_params = json_params['cos_mpls_lbl_block_1']
+        cls.lbl_blk_get = json_params['lbl_blk_get']
+        cls.reg_params = json_params['reg_params']
+        cls.path_info = {'paths': json_params['paths'], 'next_hops': json_params['next_hops']}
+
+    def test_000_get_globals(self):
+        # Get Global MPLS info
+        client.mpls_global_get()
+
+    def test_001_mpls_register(self):
+        client.mpls_register(self.reg_params)
+
+    def test_002_blk_add(self):
+        client.label_block_add(self.lbl_blk_params)
+
+    # # add label 32220 - 32224 - Pop and Lookup
+    def test_003_ilm_add(self):
+        client.ilm_add(self.ilm_entry["cos_nhlfe_1"], stream=self.STREAM,
+                af=self.AF, **self.path_info)
+
+    # # update label 32220-32224 - Swap/ Pop and Forward
+    def test_004_ilm_update(self):
+        client.ilm_update(self.ilm_entry["cos_nhlfe_2"], stream=self.STREAM,
+                af=self.AF, **self.path_info)
+
+     # # update label 32220 - 32224 - Pop and Lookup
+    def test_005_ilm_update(self):
+        client.ilm_update(self.ilm_entry["cos_nhlfe_1"], stream=self.STREAM,
+                af=self.AF, **self.path_info)
+
+     # # update label 32220-32224 - Swap/ Pop and Forward
+    def test_006_ilm_update(self):
+        client.ilm_update(self.ilm_entry["cos_nhlfe_2"], stream=self.STREAM,
+                af=self.AF, **self.path_info)
+
+     # # update label 32220-32224, change path priority
+    def test_007_ilm_update(self):
+        client.ilm_update(self.ilm_entry["cos_nhlfe_3"], stream=self.STREAM,
+                af=self.AF, **self.path_info)
+
+     # # update label 32220 - 32224 - Pop and Lookup
+    def test_008_ilm_update(self):
+        client.ilm_update(self.ilm_entry["cos_nhlfe_1"], stream=self.STREAM,
+                af=self.AF, **self.path_info)
+
+    #  # delete label 32220-32224
+    def test_009_ilm_delete(self):
+        client.ilm_delete(self.ilm_entry_del["cos_nhlfe_del_default"],
+                stream=self.STREAM, af=self.AF, **self.path_info)
+
+
+    def test_010_mpls_eof(self):
+        client.mpls_eof()
+
+    def test_011_mpls_unregister(self):
+        client.mpls_unregister()

@@ -1183,6 +1183,220 @@
                 "next_hop": "nh_pop_and_lookup"
             }
         ], 
+        "cos_nhlfe_path_1a" : [
+            {
+                "default_elsp": true,
+                "label_action": 5,
+                "labels": [],
+                "next_hop": "cos_nh_1",
+                "path_priority": 0
+            }
+        ],
+        "cos_nhlfe_path_1b" : [
+            {
+                "default_elsp": true,
+                "label_action": 5,
+                "labels": [],
+                "next_hop": "cos_nh_2",
+                "path_priority": 0
+            }
+        ],
+        "cos_nhlfe_path_1c" : [
+            {
+                "default_elsp": true,
+                "label_action": 5,
+                "labels": [],
+                "next_hop": "cos_nh_3",
+                "path_priority": 0
+            }
+        ],
+        "cos_nhlfe_path_1d" : [
+            {
+                "default_elsp": true,
+                "label_action": 5,
+                "labels": [],
+                "next_hop": "cos_nh_4"
+            }
+        ],
+        "cos_nhlfe_path_1e" : [
+            {
+                "default_elsp": true,
+                "label_action": 5,
+                "labels": [],
+                "next_hop": "cos_nh_5",
+                "path_priority": 0
+            }
+        ],
+        "cos_nhlfe_path_2a" : [
+            {
+                "exp": 4,
+                "label_action": 1,
+                "labels": [ 46000 ],
+                "next_hop": "cos_nh_1",
+                "path_priority": 0
+            },
+            {
+                "default_elsp": true,
+                "label_action": 1,
+                "labels": [46000],
+                "next_hop": "cos_nh_2",
+                "path_priority": 0
+            },
+            {
+                "exp": 3,
+                "label_action": 2,
+                "labels": [],
+                "next_hop": "cos_nh_3",
+                "path_priority": 1
+            }
+        ],
+        "cos_nhlfe_path_2b" : [
+            {
+                "exp": 2,
+                "label_action": 1,
+                "labels": [ 46001 ],
+                "next_hop": "cos_nh_4",
+                "path_priority": 0
+            },
+            {
+                "exp": 0,
+                "label_action": 2,
+                "labels": [],
+                "next_hop": "cos_nh_5",
+                "path_priority": 1
+            },
+            {
+                "exp": 2,
+                "label_action": 1,
+                "labels": [46001],
+                "next_hop": "cos_nh_6",
+                "path_priority": 1
+            }
+        ],
+        "cos_nhlfe_path_2c" : [
+            {
+                "exp": 1,
+                "label_action": 1,
+                "labels": [ 46002 ],
+                "next_hop": "cos_nh_7",
+                "path_priority": 0
+            },
+            {
+                "exp": 3,
+                "label_action": 1,
+                "labels": [46002],
+                "next_hop": "cos_nh_9",
+                "path_priority": 1
+            }
+        ],
+        "cos_nhlfe_path_2d" : [
+            {
+                "exp": 4,
+                "label_action": 1,
+                "labels": [ 46003 ],
+                "next_hop": "cos_nh_10",
+                "path_priority": 0
+            },
+            {
+                "exp": 5,
+                "label_action": 1,
+                "labels": [ 46003 ],
+                "next_hop": "cos_nh_11",
+                "path_priority": 0
+            },
+            {
+                "exp": 3,
+                "label_action": 2,
+                "labels": [  ],
+                "next_hop": "cos_nh_12",
+                "path_priority": 1
+            }
+        ],
+        "cos_nhlfe_path_2e" : [
+            {
+                "exp": 0,
+                "label_action": 1,
+                "labels": [ 46004 ],
+                "next_hop": "cos_nh_1",
+                "path_priority": 1
+            },
+            {
+                "exp": 1,
+                "label_action": 1,
+                "labels": [ 46004 ],
+                "next_hop": "cos_nh_2",
+                "path_priority": 1
+            },
+            {
+                "exp": 3,
+                "label_action": 2,
+                "labels": [],
+                "next_hop": "cos_nh_3",
+                "path_priority": 0
+            }
+        ],
+        "cos_nhlfe_path_3a" : [
+            {
+                "exp": 4,
+                "label_action": 1,
+                "labels": [ 46000 ],
+                "next_hop": "cos_nh_1",
+                "path_priority": 1
+            },
+            {
+                "default_elsp": true,
+                "label_action": 1,
+                "labels": [46000],
+                "next_hop": "cos_nh_2",
+                "path_priority": 1
+            },
+            {
+                "exp": 3,
+                "label_action": 2,
+                "labels": [],
+                "next_hop": "cos_nh_3",
+                "path_priority": 0
+            }
+        ],
+        "cos_nhlfe_path_3b" : [
+            {
+                "exp": 2,
+                "label_action": 1,
+                "labels": [ 46001 ],
+                "next_hop": "cos_nh_4",
+                "path_priority": 1
+            },
+            {
+                "exp": 0,
+                "label_action": 2,
+                "labels": [],
+                "next_hop": "cos_nh_5",
+                "path_priority": 1
+            },
+            {
+                "exp": 2,
+                "label_action": 1,
+                "labels": [46001],
+                "next_hop": "cos_nh_6",
+                "path_priority": 0
+            }
+        ],
+        "cos_nhlfe_path_3c" : [
+            {
+                "exp": 1,
+                "label_action": 1,
+                "labels": [ 46002 ],
+                "next_hop": "cos_nh_7",
+                "path_priority": 1
+            },
+            {
+                "exp": 3,
+                "label_action": 1,
+                "labels": [46002],
+                "next_hop": "cos_nh_9",
+                "path_priority": 0
+            }
+        ],
         "cos_scale_path_1" : [
             {
                 "label_action": 1,
@@ -1608,6 +1822,37 @@
                     "in_label": 32220,
                     "range": 1,
                     "path": "cos_path_1"
+                }
+             ]
+        },
+        "cos_nhlfe_del_default": {
+            "batch_size": 5,
+            "correlator": 1,
+            "ilms": [
+                {
+                    "in_label": 32220,
+                    "path": "cos_nhlfe_path_1a",
+                    "range": 1
+                },
+                {
+                    "in_label": 32221,
+                    "path": "cos_nhlfe_path_1b",
+                    "range": 1
+                },
+                {
+                    "in_label": 32222,
+                    "path": "cos_nhlfe_path_1c",
+                    "range": 1
+                },
+                {
+                    "in_label": 32223,
+                    "path": "cos_nhlfe_path_1d",
+                    "range": 1
+                },
+                {
+                    "in_label": 32224,
+                    "path": "cos_nhlfe_path_1e",
+                    "range": 1
                 }
              ]
         },
@@ -2571,6 +2816,91 @@
                     "default_elsp" : true,
                     "in_label": 32220,
                     "path": "cos_path_3",
+                    "range": 1
+                }
+             ]
+        }
+    },
+    "cos_nhlfe_tc1" : {
+        "cos_nhlfe_1": {
+            "batch_size": 5,
+            "correlator": 1,
+            "ilms": [
+                {
+                    "in_label": 32220,
+                    "path": "cos_nhlfe_path_1a",
+                    "range": 1
+                },
+                {
+                    "in_label": 32221,
+                    "path": "cos_nhlfe_path_1b",
+                    "range": 1
+                },
+                {
+                    "in_label": 32222,
+                    "path": "cos_nhlfe_path_1c",
+                    "range": 1
+                },
+                {
+                    "in_label": 32223,
+                    "path": "cos_nhlfe_path_1d",
+                    "range": 1
+                },
+                {
+                    "in_label": 32224,
+                    "path": "cos_nhlfe_path_1e",
+                    "range": 1
+                }
+             ]
+        },
+        "cos_nhlfe_2": {
+            "batch_size": 5,
+            "correlator": 1,
+            "ilms": [
+                {
+                    "in_label": 32220,
+                    "path": "cos_nhlfe_path_2a",
+                    "range": 1
+                },
+                {
+                    "in_label": 32221,
+                    "path": "cos_nhlfe_path_2b",
+                    "range": 1
+                },
+                {
+                    "in_label": 32222,
+                    "path": "cos_nhlfe_path_2c",
+                    "range": 1
+                },
+                {
+                    "in_label": 32223,
+                    "path": "cos_nhlfe_path_2d",
+                    "range": 1
+                },
+                {
+                    "in_label": 32224,
+                    "path": "cos_nhlfe_path_2e",
+                    "range": 1
+                }
+             ]
+        },
+        "cos_nhlfe_3": {
+            "batch_size": 5,
+            "correlator": 1,
+            "ilms": [
+                {
+                    "in_label": 32220,
+                    "path": "cos_nhlfe_path_3a",
+                    "range": 1
+                },
+                {
+                    "in_label": 32221,
+                    "path": "cos_nhlfe_path_3b",
+                    "range": 1
+                },
+                {
+                    "in_label": 32222,
+                    "path": "cos_nhlfe_path_3c",
                     "range": 1
                 }
              ]
