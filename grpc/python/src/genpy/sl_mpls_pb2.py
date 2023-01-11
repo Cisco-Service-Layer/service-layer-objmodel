@@ -21,7 +21,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'ZOgithub.com/Cisco-service-layer/service-layer-objmodel/grpc/protos;service_layer',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\rsl_mpls.proto\x12\rservice_layer\x1a\x15sl_common_types.proto\"\x8d\x01\n\x13SLMplsLabelBlockKey\x12\x12\n\nStartLabel\x18\x01 \x01(\r\x12\x16\n\x0eLabelBlockSize\x18\x02 \x01(\r\x12\x36\n\tBlockType\x18\x03 \x01(\x0e\x32#.service_layer.SLMplsLabelBlockType\x12\x12\n\nClientName\x18\x04 \x01(\t\"v\n\x13SLMplsLabelBlockMsg\x12\'\n\x04Oper\x18\x01 \x01(\x0e\x32\x19.service_layer.SLObjectOp\x12\x36\n\nMplsBlocks\x18\x02 \x03(\x0b\x32\".service_layer.SLMplsLabelBlockKey\"z\n\x16SLMplsLabelBlockMsgRes\x12/\n\tErrStatus\x18\x01 \x01(\x0b\x32\x1c.service_layer.SLErrorStatus\x12/\n\x03Key\x18\x02 \x01(\x0b\x32\".service_layer.SLMplsLabelBlockKey\"\x85\x01\n\x16SLMplsLabelBlockMsgRsp\x12\x33\n\rStatusSummary\x18\x01 \x01(\x0b\x32\x1c.service_layer.SLErrorStatus\x12\x36\n\x07Results\x18\x02 \x03(\x0b\x32%.service_layer.SLMplsLabelBlockMsgRes\"p\n\x16SLMplsLabelBlockGetMsg\x12/\n\x03Key\x18\x01 \x01(\x0b\x32\".service_layer.SLMplsLabelBlockKey\x12\x14\n\x0c\x45ntriesCount\x18\x02 \x01(\r\x12\x0f\n\x07GetNext\x18\x03 \x01(\x08\"\x8e\x01\n\x19SLMplsLabelBlockGetMsgRsp\x12\x0b\n\x03\x45of\x18\x01 \x01(\x08\x12/\n\tErrStatus\x18\x02 \x01(\x0b\x32\x1c.service_layer.SLErrorStatus\x12\x33\n\x07\x45ntries\x18\x03 \x03(\x0b\x32\".service_layer.SLMplsLabelBlockKey\")\n\tSlMplsReg\x12\x1c\n\x14PurgeIntervalSeconds\x18\x01 \x01(\r\"^\n\x0cSLMplsRegMsg\x12$\n\x04Oper\x18\x01 \x01(\x0e\x32\x16.service_layer.SLRegOp\x12(\n\x06RegMsg\x18\x02 \x01(\x0b\x32\x18.service_layer.SlMplsReg\"B\n\x0fSLMplsRegMsgRsp\x12/\n\tErrStatus\x18\x01 \x01(\x0b\x32\x1c.service_layer.SLErrorStatus\"\x0e\n\x0cSLMplsGetMsg\"\xe5\x01\n\x0fSLMplsGetMsgRsp\x12/\n\tErrStatus\x18\x01 \x01(\x0b\x32\x1c.service_layer.SLErrorStatus\x12\x19\n\x11MaxLabelsPerBlock\x18\x02 \x01(\r\x12&\n\x1eMaxLabelblocksPerLabelblockmsg\x18\x03 \x01(\r\x12\x15\n\rMinStartLabel\x18\x04 \x01(\r\x12\x16\n\x0eLabelTableSize\x18\x05 \x01(\r\x12\x17\n\x0fMaxIlmPerIlmmsg\x18\x06 \x01(\r\x12\x16\n\x0eMaxPathsPerIlm\x18\x07 \x01(\r\"r\n\x14SLMplsGetStatsMsgRsp\x12/\n\tErrStatus\x18\x01 \x01(\x0b\x32\x1c.service_layer.SLErrorStatus\x12\x17\n\x0fLabelBlockCount\x18\x02 \x01(\r\x12\x10\n\x08IlmCount\x18\x03 \x01(\r\"\x89\x03\n\nSLMplsPath\x12\x32\n\x0eNexthopAddress\x18\x01 \x01(\x0b\x32\x1a.service_layer.SLIpAddress\x12\x34\n\x10NexthopInterface\x18\x02 \x01(\x0b\x32\x1a.service_layer.SLInterface\x12\x12\n\nLoadMetric\x18\x03 \x01(\r\x12\x0f\n\x07VrfName\x18\x04 \x01(\t\x12,\n\x06\x41\x63tion\x18\x05 \x01(\x0e\x32\x1c.service_layer.SlLabelAction\x12\x0e\n\x06PathId\x18\x06 \x01(\r\x12\x1b\n\x13ProtectedPathBitmap\x18\x07 \x03(\x04\x12\x12\n\nLabelStack\x18\x08 \x03(\r\x12\x31\n\rRemoteAddress\x18\t \x03(\x0b\x32\x1a.service_layer.SLIpAddress\x12.\n\x0cSlMplsCosVal\x18\n \x01(\x0b\x32\x18.service_layer.SLMplsCos\x12\x1a\n\x12SlMplsPathPriority\x18\x0b \x01(\r\"R\n\x0cSLMplsIlmKey\x12\x12\n\nLocalLabel\x18\x01 \x01(\r\x12.\n\x0cSlMplsCosVal\x18\x02 \x01(\x0b\x32\x18.service_layer.SLMplsCos\"Y\n\tSLMplsCos\x12\r\n\x03\x45xp\x18\x01 \x01(\rH\x00\x12\x19\n\x0f\x44\x65\x66\x61ultElspPath\x18\x02 \x01(\x08H\x00\x12\x19\n\x0f\x46orwardingClass\x18\x03 \x01(\rH\x00\x42\x07\n\x05value\"d\n\x0eSLMplsIlmEntry\x12(\n\x03Key\x18\x01 \x01(\x0b\x32\x1b.service_layer.SLMplsIlmKey\x12(\n\x05Paths\x18\x02 \x03(\x0b\x32\x19.service_layer.SLMplsPath\"|\n\x0cSLMplsIlmMsg\x12\'\n\x04Oper\x18\x01 \x01(\x0e\x32\x19.service_layer.SLObjectOp\x12\x12\n\nCorrelator\x18\x02 \x01(\x04\x12/\n\x08MplsIlms\x18\x03 \x03(\x0b\x32\x1d.service_layer.SLMplsIlmEntry\"i\n\x0cSLMplsIlmRes\x12/\n\tErrStatus\x18\x01 \x01(\x0b\x32\x1c.service_layer.SLErrorStatus\x12(\n\x03Key\x18\x02 \x01(\x0b\x32\x1b.service_layer.SLMplsIlmKey\"\x88\x01\n\x0fSLMplsIlmMsgRsp\x12\x12\n\nCorrelator\x18\x01 \x01(\x04\x12\x33\n\rStatusSummary\x18\x02 \x01(\x0b\x32\x1c.service_layer.SLErrorStatus\x12,\n\x07Results\x18\x03 \x03(\x0b\x32\x1b.service_layer.SLMplsIlmRes\"v\n\x0fSLMplsIlmGetMsg\x12\x12\n\nCorrelator\x18\x01 \x01(\x04\x12(\n\x03Key\x18\x02 \x01(\x0b\x32\x1b.service_layer.SLMplsIlmKey\x12\x14\n\x0c\x45ntriesCount\x18\x03 \x01(\r\x12\x0f\n\x07GetNext\x18\x04 \x01(\x08\"\x96\x01\n\x12SLMplsIlmGetMsgRsp\x12\x12\n\nCorrelator\x18\x01 \x01(\x04\x12\x0b\n\x03\x45of\x18\x02 \x01(\x08\x12/\n\tErrStatus\x18\x03 \x01(\x0b\x32\x1c.service_layer.SLErrorStatus\x12.\n\x07\x45ntries\x18\x04 \x03(\x0b\x32\x1d.service_layer.SLMplsIlmEntry*\xe2\x01\n\rSlLabelAction\x12\x1c\n\x18SL_LABEL_ACTION_RESERVED\x10\x00\x12\x18\n\x14SL_LABEL_ACTION_SWAP\x10\x01\x12#\n\x1fSL_LABEL_ACTION_POP_AND_FORWARD\x10\x02\x12\'\n#SL_LABEL_ACTION_POP_AND_LOOKUP_IPV4\x10\x03\x12\'\n#SL_LABEL_ACTION_POP_AND_LOOKUP_IPV6\x10\x04\x12\"\n\x1eSL_LABEL_ACTION_POP_AND_LOOKUP\x10\x05*\x82\x01\n\x14SLMplsLabelBlockType\x12%\n!SL_MPLS_LABEL_BLOCK_TYPE_RESERVED\x10\x00\x12!\n\x1dSL_MPLS_LABEL_BLOCK_TYPE_SRGB\x10\x01\x12 \n\x1cSL_MPLS_LABEL_BLOCK_TYPE_CBF\x10\x02\x32\x91\x06\n\nSLMplsOper\x12J\n\x0bSLMplsRegOp\x12\x1b.service_layer.SLMplsRegMsg\x1a\x1e.service_layer.SLMplsRegMsgRsp\x12H\n\tSLMplsGet\x12\x1b.service_layer.SLMplsGetMsg\x1a\x1e.service_layer.SLMplsGetMsgRsp\x12R\n\x0eSLMplsGetStats\x12\x1b.service_layer.SLMplsGetMsg\x1a#.service_layer.SLMplsGetStatsMsgRsp\x12_\n\x12SLMplsLabelBlockOp\x12\".service_layer.SLMplsLabelBlockMsg\x1a%.service_layer.SLMplsLabelBlockMsgRsp\x12\x66\n\x13SLMplsLabelBlockGet\x12%.service_layer.SLMplsLabelBlockGetMsg\x1a(.service_layer.SLMplsLabelBlockGetMsgRsp\x12J\n\x0bSLMplsIlmOp\x12\x1b.service_layer.SLMplsIlmMsg\x1a\x1e.service_layer.SLMplsIlmMsgRsp\x12Q\n\x0cSLMplsIlmGet\x12\x1e.service_layer.SLMplsIlmGetMsg\x1a!.service_layer.SLMplsIlmGetMsgRsp\x12T\n\x11SLMplsIlmOpStream\x12\x1b.service_layer.SLMplsIlmMsg\x1a\x1e.service_layer.SLMplsIlmMsgRsp(\x01\x30\x01\x12[\n\x12SLMplsIlmGetStream\x12\x1e.service_layer.SLMplsIlmGetMsg\x1a!.service_layer.SLMplsIlmGetMsgRsp(\x01\x30\x01\x42QZOgithub.com/Cisco-service-layer/service-layer-objmodel/grpc/protos;service_layerb\x06proto3'
+  serialized_pb=b'\n\rsl_mpls.proto\x12\rservice_layer\x1a\x15sl_common_types.proto\"\x8d\x01\n\x13SLMplsLabelBlockKey\x12\x12\n\nStartLabel\x18\x01 \x01(\r\x12\x16\n\x0eLabelBlockSize\x18\x02 \x01(\r\x12\x36\n\tBlockType\x18\x03 \x01(\x0e\x32#.service_layer.SLMplsLabelBlockType\x12\x12\n\nClientName\x18\x04 \x01(\t\"v\n\x13SLMplsLabelBlockMsg\x12\'\n\x04Oper\x18\x01 \x01(\x0e\x32\x19.service_layer.SLObjectOp\x12\x36\n\nMplsBlocks\x18\x02 \x03(\x0b\x32\".service_layer.SLMplsLabelBlockKey\"z\n\x16SLMplsLabelBlockMsgRes\x12/\n\tErrStatus\x18\x01 \x01(\x0b\x32\x1c.service_layer.SLErrorStatus\x12/\n\x03Key\x18\x02 \x01(\x0b\x32\".service_layer.SLMplsLabelBlockKey\"\x85\x01\n\x16SLMplsLabelBlockMsgRsp\x12\x33\n\rStatusSummary\x18\x01 \x01(\x0b\x32\x1c.service_layer.SLErrorStatus\x12\x36\n\x07Results\x18\x02 \x03(\x0b\x32%.service_layer.SLMplsLabelBlockMsgRes\"p\n\x16SLMplsLabelBlockGetMsg\x12/\n\x03Key\x18\x01 \x01(\x0b\x32\".service_layer.SLMplsLabelBlockKey\x12\x14\n\x0c\x45ntriesCount\x18\x02 \x01(\r\x12\x0f\n\x07GetNext\x18\x03 \x01(\x08\"\x8e\x01\n\x19SLMplsLabelBlockGetMsgRsp\x12\x0b\n\x03\x45of\x18\x01 \x01(\x08\x12/\n\tErrStatus\x18\x02 \x01(\x0b\x32\x1c.service_layer.SLErrorStatus\x12\x33\n\x07\x45ntries\x18\x03 \x03(\x0b\x32\".service_layer.SLMplsLabelBlockKey\")\n\tSlMplsReg\x12\x1c\n\x14PurgeIntervalSeconds\x18\x01 \x01(\r\"^\n\x0cSLMplsRegMsg\x12$\n\x04Oper\x18\x01 \x01(\x0e\x32\x16.service_layer.SLRegOp\x12(\n\x06RegMsg\x18\x02 \x01(\x0b\x32\x18.service_layer.SlMplsReg\"B\n\x0fSLMplsRegMsgRsp\x12/\n\tErrStatus\x18\x01 \x01(\x0b\x32\x1c.service_layer.SLErrorStatus\"\x0e\n\x0cSLMplsGetMsg\"\xe5\x01\n\x0fSLMplsGetMsgRsp\x12/\n\tErrStatus\x18\x01 \x01(\x0b\x32\x1c.service_layer.SLErrorStatus\x12\x19\n\x11MaxLabelsPerBlock\x18\x02 \x01(\r\x12&\n\x1eMaxLabelblocksPerLabelblockmsg\x18\x03 \x01(\r\x12\x15\n\rMinStartLabel\x18\x04 \x01(\r\x12\x16\n\x0eLabelTableSize\x18\x05 \x01(\r\x12\x17\n\x0fMaxIlmPerIlmmsg\x18\x06 \x01(\r\x12\x16\n\x0eMaxPathsPerIlm\x18\x07 \x01(\r\"r\n\x14SLMplsGetStatsMsgRsp\x12/\n\tErrStatus\x18\x01 \x01(\x0b\x32\x1c.service_layer.SLErrorStatus\x12\x17\n\x0fLabelBlockCount\x18\x02 \x01(\r\x12\x10\n\x08IlmCount\x18\x03 \x01(\r\"\xa2\x03\n\nSLMplsPath\x12\x32\n\x0eNexthopAddress\x18\x01 \x01(\x0b\x32\x1a.service_layer.SLIpAddress\x12\x34\n\x10NexthopInterface\x18\x02 \x01(\x0b\x32\x1a.service_layer.SLInterface\x12\x12\n\nLoadMetric\x18\x03 \x01(\r\x12\x0f\n\x07VrfName\x18\x04 \x01(\t\x12,\n\x06\x41\x63tion\x18\x05 \x01(\x0e\x32\x1c.service_layer.SlLabelAction\x12\x0e\n\x06PathId\x18\x06 \x01(\r\x12\x1b\n\x13ProtectedPathBitmap\x18\x07 \x03(\x04\x12\x12\n\nLabelStack\x18\x08 \x03(\r\x12\x31\n\rRemoteAddress\x18\t \x03(\x0b\x32\x1a.service_layer.SLIpAddress\x12.\n\x0cSlMplsCosVal\x18\n \x01(\x0b\x32\x18.service_layer.SLMplsCos\x12\x1a\n\x12SlMplsPathPriority\x18\x0b \x01(\r\x12\x17\n\x0fSlMplsPathSetID\x18\x0c \x01(\r\"R\n\x0cSLMplsIlmKey\x12\x12\n\nLocalLabel\x18\x01 \x01(\r\x12.\n\x0cSlMplsCosVal\x18\x02 \x01(\x0b\x32\x18.service_layer.SLMplsCos\"Y\n\tSLMplsCos\x12\r\n\x03\x45xp\x18\x01 \x01(\rH\x00\x12\x19\n\x0f\x44\x65\x66\x61ultElspPath\x18\x02 \x01(\x08H\x00\x12\x19\n\x0f\x46orwardingClass\x18\x03 \x01(\rH\x00\x42\x07\n\x05value\"d\n\x0eSLMplsIlmEntry\x12(\n\x03Key\x18\x01 \x01(\x0b\x32\x1b.service_layer.SLMplsIlmKey\x12(\n\x05Paths\x18\x02 \x03(\x0b\x32\x19.service_layer.SLMplsPath\"|\n\x0cSLMplsIlmMsg\x12\'\n\x04Oper\x18\x01 \x01(\x0e\x32\x19.service_layer.SLObjectOp\x12\x12\n\nCorrelator\x18\x02 \x01(\x04\x12/\n\x08MplsIlms\x18\x03 \x03(\x0b\x32\x1d.service_layer.SLMplsIlmEntry\"i\n\x0cSLMplsIlmRes\x12/\n\tErrStatus\x18\x01 \x01(\x0b\x32\x1c.service_layer.SLErrorStatus\x12(\n\x03Key\x18\x02 \x01(\x0b\x32\x1b.service_layer.SLMplsIlmKey\"\x88\x01\n\x0fSLMplsIlmMsgRsp\x12\x12\n\nCorrelator\x18\x01 \x01(\x04\x12\x33\n\rStatusSummary\x18\x02 \x01(\x0b\x32\x1c.service_layer.SLErrorStatus\x12,\n\x07Results\x18\x03 \x03(\x0b\x32\x1b.service_layer.SLMplsIlmRes\"v\n\x0fSLMplsIlmGetMsg\x12\x12\n\nCorrelator\x18\x01 \x01(\x04\x12(\n\x03Key\x18\x02 \x01(\x0b\x32\x1b.service_layer.SLMplsIlmKey\x12\x14\n\x0c\x45ntriesCount\x18\x03 \x01(\r\x12\x0f\n\x07GetNext\x18\x04 \x01(\x08\"\x96\x01\n\x12SLMplsIlmGetMsgRsp\x12\x12\n\nCorrelator\x18\x01 \x01(\x04\x12\x0b\n\x03\x45of\x18\x02 \x01(\x08\x12/\n\tErrStatus\x18\x03 \x01(\x0b\x32\x1c.service_layer.SLErrorStatus\x12.\n\x07\x45ntries\x18\x04 \x03(\x0b\x32\x1d.service_layer.SLMplsIlmEntry*\xe2\x01\n\rSlLabelAction\x12\x1c\n\x18SL_LABEL_ACTION_RESERVED\x10\x00\x12\x18\n\x14SL_LABEL_ACTION_SWAP\x10\x01\x12#\n\x1fSL_LABEL_ACTION_POP_AND_FORWARD\x10\x02\x12\'\n#SL_LABEL_ACTION_POP_AND_LOOKUP_IPV4\x10\x03\x12\'\n#SL_LABEL_ACTION_POP_AND_LOOKUP_IPV6\x10\x04\x12\"\n\x1eSL_LABEL_ACTION_POP_AND_LOOKUP\x10\x05*\x82\x01\n\x14SLMplsLabelBlockType\x12%\n!SL_MPLS_LABEL_BLOCK_TYPE_RESERVED\x10\x00\x12!\n\x1dSL_MPLS_LABEL_BLOCK_TYPE_SRGB\x10\x01\x12 \n\x1cSL_MPLS_LABEL_BLOCK_TYPE_CBF\x10\x02\x32\x91\x06\n\nSLMplsOper\x12J\n\x0bSLMplsRegOp\x12\x1b.service_layer.SLMplsRegMsg\x1a\x1e.service_layer.SLMplsRegMsgRsp\x12H\n\tSLMplsGet\x12\x1b.service_layer.SLMplsGetMsg\x1a\x1e.service_layer.SLMplsGetMsgRsp\x12R\n\x0eSLMplsGetStats\x12\x1b.service_layer.SLMplsGetMsg\x1a#.service_layer.SLMplsGetStatsMsgRsp\x12_\n\x12SLMplsLabelBlockOp\x12\".service_layer.SLMplsLabelBlockMsg\x1a%.service_layer.SLMplsLabelBlockMsgRsp\x12\x66\n\x13SLMplsLabelBlockGet\x12%.service_layer.SLMplsLabelBlockGetMsg\x1a(.service_layer.SLMplsLabelBlockGetMsgRsp\x12J\n\x0bSLMplsIlmOp\x12\x1b.service_layer.SLMplsIlmMsg\x1a\x1e.service_layer.SLMplsIlmMsgRsp\x12Q\n\x0cSLMplsIlmGet\x12\x1e.service_layer.SLMplsIlmGetMsg\x1a!.service_layer.SLMplsIlmGetMsgRsp\x12T\n\x11SLMplsIlmOpStream\x12\x1b.service_layer.SLMplsIlmMsg\x1a\x1e.service_layer.SLMplsIlmMsgRsp(\x01\x30\x01\x12[\n\x12SLMplsIlmGetStream\x12\x1e.service_layer.SLMplsIlmGetMsg\x1a!.service_layer.SLMplsIlmGetMsgRsp(\x01\x30\x01\x42QZOgithub.com/Cisco-service-layer/service-layer-objmodel/grpc/protos;service_layerb\x06proto3'
   ,
   dependencies=[sl__common__types__pb2.DESCRIPTOR,])
 
@@ -65,8 +65,8 @@ _SLLABELACTION = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=2728,
-  serialized_end=2954,
+  serialized_start=2753,
+  serialized_end=2979,
 )
 _sym_db.RegisterEnumDescriptor(_SLLABELACTION)
 
@@ -96,8 +96,8 @@ _SLMPLSLABELBLOCKTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=2957,
-  serialized_end=3087,
+  serialized_start=2982,
+  serialized_end=3112,
 )
 _sym_db.RegisterEnumDescriptor(_SLMPLSLABELBLOCKTYPE)
 
@@ -709,6 +709,13 @@ _SLMPLSPATH = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='SlMplsPathSetID', full_name='service_layer.SLMplsPath.SlMplsPathSetID', index=11,
+      number=12, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -722,7 +729,7 @@ _SLMPLSPATH = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=1410,
-  serialized_end=1803,
+  serialized_end=1828,
 )
 
 
@@ -760,8 +767,8 @@ _SLMPLSILMKEY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1805,
-  serialized_end=1887,
+  serialized_start=1830,
+  serialized_end=1912,
 )
 
 
@@ -811,8 +818,8 @@ _SLMPLSCOS = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=1889,
-  serialized_end=1978,
+  serialized_start=1914,
+  serialized_end=2003,
 )
 
 
@@ -850,8 +857,8 @@ _SLMPLSILMENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1980,
-  serialized_end=2080,
+  serialized_start=2005,
+  serialized_end=2105,
 )
 
 
@@ -896,8 +903,8 @@ _SLMPLSILMMSG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2082,
-  serialized_end=2206,
+  serialized_start=2107,
+  serialized_end=2231,
 )
 
 
@@ -935,8 +942,8 @@ _SLMPLSILMRES = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2208,
-  serialized_end=2313,
+  serialized_start=2233,
+  serialized_end=2338,
 )
 
 
@@ -981,8 +988,8 @@ _SLMPLSILMMSGRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2316,
-  serialized_end=2452,
+  serialized_start=2341,
+  serialized_end=2477,
 )
 
 
@@ -1034,8 +1041,8 @@ _SLMPLSILMGETMSG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2454,
-  serialized_end=2572,
+  serialized_start=2479,
+  serialized_end=2597,
 )
 
 
@@ -1087,8 +1094,8 @@ _SLMPLSILMGETMSGRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2575,
-  serialized_end=2725,
+  serialized_start=2600,
+  serialized_end=2750,
 )
 
 _SLMPLSLABELBLOCKKEY.fields_by_name['BlockType'].enum_type = _SLMPLSLABELBLOCKTYPE
@@ -1314,8 +1321,8 @@ _SLMPLSOPER = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=3090,
-  serialized_end=3875,
+  serialized_start=3115,
+  serialized_end=3900,
   methods=[
   _descriptor.MethodDescriptor(
     name='SLMplsRegOp',

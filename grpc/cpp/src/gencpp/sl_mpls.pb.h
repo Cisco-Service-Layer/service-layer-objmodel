@@ -2382,6 +2382,7 @@ class SLMplsPath final :
     kActionFieldNumber = 5,
     kPathIdFieldNumber = 6,
     kSlMplsPathPriorityFieldNumber = 11,
+    kSlMplsPathSetIDFieldNumber = 12,
   };
   // repeated uint64 ProtectedPathBitmap = 7;
   int protectedpathbitmap_size() const;
@@ -2549,6 +2550,15 @@ class SLMplsPath final :
   void _internal_set_slmplspathpriority(uint32_t value);
   public:
 
+  // uint32 SlMplsPathSetID = 12;
+  void clear_slmplspathsetid();
+  uint32_t slmplspathsetid() const;
+  void set_slmplspathsetid(uint32_t value);
+  private:
+  uint32_t _internal_slmplspathsetid() const;
+  void _internal_set_slmplspathsetid(uint32_t value);
+  public:
+
   // @@protoc_insertion_point(class_scope:service_layer.SLMplsPath)
  private:
   class _Internal;
@@ -2569,6 +2579,7 @@ class SLMplsPath final :
   int action_;
   uint32_t pathid_;
   uint32_t slmplspathpriority_;
+  uint32_t slmplspathsetid_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_sl_5fmpls_2eproto;
 };
@@ -5915,6 +5926,26 @@ inline void SLMplsPath::_internal_set_slmplspathpriority(uint32_t value) {
 inline void SLMplsPath::set_slmplspathpriority(uint32_t value) {
   _internal_set_slmplspathpriority(value);
   // @@protoc_insertion_point(field_set:service_layer.SLMplsPath.SlMplsPathPriority)
+}
+
+// uint32 SlMplsPathSetID = 12;
+inline void SLMplsPath::clear_slmplspathsetid() {
+  slmplspathsetid_ = 0u;
+}
+inline uint32_t SLMplsPath::_internal_slmplspathsetid() const {
+  return slmplspathsetid_;
+}
+inline uint32_t SLMplsPath::slmplspathsetid() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLMplsPath.SlMplsPathSetID)
+  return _internal_slmplspathsetid();
+}
+inline void SLMplsPath::_internal_set_slmplspathsetid(uint32_t value) {
+  
+  slmplspathsetid_ = value;
+}
+inline void SLMplsPath::set_slmplspathsetid(uint32_t value) {
+  _internal_set_slmplspathsetid(value);
+  // @@protoc_insertion_point(field_set:service_layer.SLMplsPath.SlMplsPathSetID)
 }
 
 // -------------------------------------------------------------------
