@@ -6,7 +6,7 @@
 // @brief Server RPC proto file for Interface handles.
 // Declares an RPC that gets interface details.
 // ----------------------------------------------------------------
-//  Copyright (c) 2016 by Cisco Systems, Inc.
+//  Copyright (c) 2016, 2023 by Cisco Systems, Inc.
 //  All rights reserved.
 // -----------------------------------------------------------------
 //
