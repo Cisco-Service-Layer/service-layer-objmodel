@@ -63,6 +63,17 @@ service SLMplsOper {
     //     message to convey the end of replay of the client's known objects.
     //     This is especially useful under certain restart scenarios when the
     //     client and the server are trying to synchronize their MPLS objects.
+    //
+    // The MPLS registration operations can be used by the client to
+    // synchronize label block allocations and ILMs with the device. When
+    // the client re-registers with the server using SL_REGOP_REGISTER,
+    // server marks all label block allocations and ILMs as stale.
+    // Client then must reprogram label block allocations and ILMs.
+    // When client sends SL_REGOP_EOF, any objects not reprogrammed
+    // are removed from the device.
+    //
+    // The client must perform all operations (MPLS registration,
+    // label block and ILM) from a single execution context.
     rpc SLMplsRegOp(SLMplsRegMsg) returns (SLMplsRegMsgRsp);
 
     // Retrieve global MPLS info from the server.
