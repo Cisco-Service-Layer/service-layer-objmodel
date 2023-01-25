@@ -2382,7 +2382,8 @@ class SLMplsPath final :
     kActionFieldNumber = 5,
     kPathIdFieldNumber = 6,
     kSlMplsPathPriorityFieldNumber = 11,
-    kSlMplsPathSetIDFieldNumber = 12,
+    kSlMplsPathSetIdFieldNumber = 12,
+    kSlMplsPathDownFieldNumber = 13,
   };
   // repeated uint64 ProtectedPathBitmap = 7;
   int protectedpathbitmap_size() const;
@@ -2550,13 +2551,22 @@ class SLMplsPath final :
   void _internal_set_slmplspathpriority(uint32_t value);
   public:
 
-  // uint32 SlMplsPathSetID = 12;
+  // uint32 SlMplsPathSetId = 12;
   void clear_slmplspathsetid();
   uint32_t slmplspathsetid() const;
   void set_slmplspathsetid(uint32_t value);
   private:
   uint32_t _internal_slmplspathsetid() const;
   void _internal_set_slmplspathsetid(uint32_t value);
+  public:
+
+  // bool SlMplsPathDown = 13;
+  void clear_slmplspathdown();
+  bool slmplspathdown() const;
+  void set_slmplspathdown(bool value);
+  private:
+  bool _internal_slmplspathdown() const;
+  void _internal_set_slmplspathdown(bool value);
   public:
 
   // @@protoc_insertion_point(class_scope:service_layer.SLMplsPath)
@@ -2580,6 +2590,7 @@ class SLMplsPath final :
   uint32_t pathid_;
   uint32_t slmplspathpriority_;
   uint32_t slmplspathsetid_;
+  bool slmplspathdown_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_sl_5fmpls_2eproto;
 };
@@ -5928,7 +5939,7 @@ inline void SLMplsPath::set_slmplspathpriority(uint32_t value) {
   // @@protoc_insertion_point(field_set:service_layer.SLMplsPath.SlMplsPathPriority)
 }
 
-// uint32 SlMplsPathSetID = 12;
+// uint32 SlMplsPathSetId = 12;
 inline void SLMplsPath::clear_slmplspathsetid() {
   slmplspathsetid_ = 0u;
 }
@@ -5936,7 +5947,7 @@ inline uint32_t SLMplsPath::_internal_slmplspathsetid() const {
   return slmplspathsetid_;
 }
 inline uint32_t SLMplsPath::slmplspathsetid() const {
-  // @@protoc_insertion_point(field_get:service_layer.SLMplsPath.SlMplsPathSetID)
+  // @@protoc_insertion_point(field_get:service_layer.SLMplsPath.SlMplsPathSetId)
   return _internal_slmplspathsetid();
 }
 inline void SLMplsPath::_internal_set_slmplspathsetid(uint32_t value) {
@@ -5945,7 +5956,27 @@ inline void SLMplsPath::_internal_set_slmplspathsetid(uint32_t value) {
 }
 inline void SLMplsPath::set_slmplspathsetid(uint32_t value) {
   _internal_set_slmplspathsetid(value);
-  // @@protoc_insertion_point(field_set:service_layer.SLMplsPath.SlMplsPathSetID)
+  // @@protoc_insertion_point(field_set:service_layer.SLMplsPath.SlMplsPathSetId)
+}
+
+// bool SlMplsPathDown = 13;
+inline void SLMplsPath::clear_slmplspathdown() {
+  slmplspathdown_ = false;
+}
+inline bool SLMplsPath::_internal_slmplspathdown() const {
+  return slmplspathdown_;
+}
+inline bool SLMplsPath::slmplspathdown() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLMplsPath.SlMplsPathDown)
+  return _internal_slmplspathdown();
+}
+inline void SLMplsPath::_internal_set_slmplspathdown(bool value) {
+  
+  slmplspathdown_ = value;
+}
+inline void SLMplsPath::set_slmplspathdown(bool value) {
+  _internal_set_slmplspathdown(value);
+  // @@protoc_insertion_point(field_set:service_layer.SLMplsPath.SlMplsPathDown)
 }
 
 // -------------------------------------------------------------------

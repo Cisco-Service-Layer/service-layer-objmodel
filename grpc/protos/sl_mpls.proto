@@ -440,11 +440,18 @@ message SLMplsPath {
     // 0: Path is installed as an active path
     // 1: Path is installed as an inactive path
     // Everything else: Reserved
-    uint32    SlMplsPathPriority = 11;
+    uint32 SlMplsPathPriority = 11;
 
-    // Set ID for the path, used by the ageet to determine
-    // whether a set of paths needs to be made active/inactive
-    uint32    SlMplsPathSetID = 12;
+    // Set the Path set-id,
+    // Integer range [0 .. 2]; default = 0
+    // All paths with same SetID should have same SlMplsPathPriority Value. 
+    // SetID Value is scoped within Traffic Class.
+    uint32 SlMplsPathSetId = 12;
+
+    // Set the Path availability.
+    // TRUE  : Path is DOWN. Not available for carrying traffic but Preprogrammed
+    // FALSE : Path is UP. Available for carrying traffic.(default)
+    bool SlMplsPathDown = 13;
 }
 
 // MPLS ILM entry's key.
