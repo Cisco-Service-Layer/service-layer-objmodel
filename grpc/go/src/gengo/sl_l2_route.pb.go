@@ -2,7 +2,7 @@
 // @brief Server RPC proto file for L2 routes.
 //
 // ----------------------------------------------------------------
-//  Copyright (c) 2016, 2023 by cisco Systems, Inc.
+//  Copyright (c) 2016 by cisco Systems, Inc.
 //  All rights reserved.
 // -----------------------------------------------------------------
 //

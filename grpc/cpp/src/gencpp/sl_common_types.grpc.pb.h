@@ -6,7 +6,7 @@
 // @brief Common definitions for all of the service layer proto files. 
 //
 // ---------------------------------------------------------------------
-// Copyright (c) 2019, 2023 by Cisco Systems, Inc.
+// Copyright (c) 2019 by Cisco Systems, Inc.
 // All rights reserved.
 // ---------------------------------------------------------------------
 //

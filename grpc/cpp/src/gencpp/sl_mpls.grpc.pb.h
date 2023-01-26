@@ -6,7 +6,7 @@
 // @brief RPC proto file for MPLS types.
 //
 // ----------------------------------------------------------------
-//  Copyright (c) 2019, 2023 by Cisco Systems, Inc.
+//  Copyright (c) 2019 by Cisco Systems, Inc.
 //  All rights reserved.
 // -----------------------------------------------------------------
 //
