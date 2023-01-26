@@ -1060,8 +1060,11 @@ type SLMplsPath struct {
 	SlMplsPathPriority uint32 `protobuf:"varint,11,opt,name=SlMplsPathPriority,proto3" json:"SlMplsPathPriority,omitempty"`
 	// Set the Path set-id,
 	// Integer range [0 .. 2]; default = 0
-	// All paths with same SetID should have same SlMplsPathPriority Value.
-	// SetID Value is scoped within Traffic Class.
+	// Paths of an ILM should be associated with a SetID.
+	// SetID is used for grouping paths with the same SlMplsPathPriority value.
+	// Paths with same SetID must have same SlMplsPathPriority value
+	// Client should activate or deactivate the entire set by setting
+	// the SlMplsPathPriority for all paths in the set
 	SlMplsPathSetId uint32 `protobuf:"varint,12,opt,name=SlMplsPathSetId,proto3" json:"SlMplsPathSetId,omitempty"`
 	// Set the Path availability.
 	// TRUE  : Path is DOWN. Not available for carrying traffic but Preprogrammed
