@@ -438,7 +438,7 @@ message SLMplsPath {
 
     // Set Path priority as active, backup or reserved
     // 0: Path is installed as an active path
-    // 1: Path is installed as an inactive path
+    // 1: Path is installed as a backup path
     // Everything else: Reserved
     uint32 SlMplsPathPriority = 11;
 
