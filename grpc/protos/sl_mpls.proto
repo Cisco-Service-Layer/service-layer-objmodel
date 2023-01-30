@@ -454,6 +454,7 @@ message SLMplsPath {
     // Set the Path availability.
     // TRUE  : Path is DOWN. Not available for carrying traffic but preprogrammed.
     // FALSE : Path is UP. Available for carrying traffic.(default).
+    // Load metric should be set to 0 when the path is down.
     bool SlMplsPathDown = 13;
 }
 
