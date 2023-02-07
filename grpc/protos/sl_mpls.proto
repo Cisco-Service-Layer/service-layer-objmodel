@@ -447,18 +447,18 @@ message SLMplsPath {
     // and class must not be specified as key attribute on the ILM.
     SLMplsCos SlMplsCosVal = 10;
 
-    // Set Path priority as active, backup or reserved.
-    // 0: Path is installed as an active path.
+    // Set Path priority as primary, backup or reserved.
+    // 0: Path is installed as the primary path.
     // 1: Path is installed as a backup path.
     // Everything else: Reserved.
     uint32 SlMplsPathPriority = 11;
 
     // Set the Path set-id,
-    // Integer range [0 .. 2]; default = 0
+    // Integer range [0 .. 7]; default = 0
     // Paths of an ILM should be associated with a SetID.
     // SetID is used for grouping paths with the same SlMplsPathPriority value. 
     // Paths with same SetID must have same SlMplsPathPriority value.
-    // Client should activate or deactivate the entire set by setting
+    // Client makes the entire set primary or backup by setting
     // the SlMplsPathPriority for all paths in the set.
     uint32 SlMplsPathSetId = 12;
 
