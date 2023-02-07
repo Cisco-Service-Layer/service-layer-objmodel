@@ -445,6 +445,9 @@ message SLMplsPath {
     // program forwarding class as an attribute of the path. In this
     // programming model, all paths for all classes must be programmed together
     // and class must not be specified as key attribute on the ILM.
+    // All the paths of the same class must be contiguous.
+    // If any path has a class specified, then all others paths must
+    // have the class specified as well.
     SLMplsCos SlMplsCosVal = 10;
 
     // Set Path priority as primary, backup or reserved.
