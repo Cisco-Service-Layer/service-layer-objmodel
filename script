@@ -1,0 +1,5 @@
+git clone https://github.com/grpc/grpc-go.git $GOROOT/src/google.golang.org/grpc -b v1.30.0
+
+git clone https://github.com/golang/protobuf.git $GOROOT/src/github.com/golang/protobuf -b v1.4.2
+
+git clone https://github.com/protocolbuffers/protobuf-go $GOROOT/src/google.golang.org/protobuf -b v1.25.0

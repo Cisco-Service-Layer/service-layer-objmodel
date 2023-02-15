@@ -24,11 +24,12 @@ RUN curl -LO ${PB_REL}/download/v${PROTOC_VER}/protoc-${PROTOC_VER}-linux-x86_64
 RUN unzip protoc-${PROTOC_VER}-linux-x86_64.zip -d /usr/local
 
 # grpc
-# RUN git clone -b ${GRPC_VER} https://github.com/grpc/grpc.git ${WS}/grpc && \
-#     cd ${WS}/grpc && \
-#     git submodule update --init && \
-#     make && \
-#     make install
+ RUN git clone -b ${GRPC_VER} https://github.com/grpc/grpc.git ${WS}/grpc && \
+     cd ${WS}/grpc && \
+     git checkout -b ${GRPC_VER} ${GRPC_VER} && \
+     git submodule update --init && \
+     make grpc_python_plugin && \
+     make install
 
 # protobuf
 # RUN cd ${WS}/grpc/third_party/protobuf && \
