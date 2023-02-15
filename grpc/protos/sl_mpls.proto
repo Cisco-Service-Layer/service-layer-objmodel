@@ -432,11 +432,39 @@ message SLMplsPath {
 // MPLS ILM entry's key.
 // This message defines the Incoming Label Map key attributes.
 message SLMplsIlmKey {
+    message IPv4PrefixKey {
+        // IPv4 Prefix in host byte order.
+        //     0.0.0.0
+        //     1.0.0.0 - 223.255.255.255
+        uint32 Prefix = 1;
+    }
+    message IPv6PrefixKey {
+        // IPv6 Prefix in network byte order.
+        bytes Prefix = 1;
+    }
+    message IPPrefixKey {
+        oneof entry {
+            IPv4PrefixKey V4Prefix = 1;
+            IPv6PrefixKey V6Prefix = 2;
+        }
+        // IPv4 Prefix length [0-32]
+        // IPv6 Prefix length [0-128]
+        uint32 PrefixLen = 3;
+
+        // VRF name. Client must withdraw
+        // ILM if VRF configuration is removed.
+        string VrfName = 4;
+    }
+
     // Incoming local label.
     uint32 LocalLabel = 1;
 
     // Either Exp bits or CoS forwarding class.
     SLMplsCos SlMplsCosVal = 2;
+
+    // IP Prefix key. If set, the prefix is used
+    // as ILM key instead of LocalLabel.
+    IPPrefixKey Prefix = 3;
 }
 
 // MPLS ILM entry's CoS value
