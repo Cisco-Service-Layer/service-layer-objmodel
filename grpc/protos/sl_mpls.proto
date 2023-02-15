@@ -328,6 +328,11 @@ enum SlLabelAction {
     // Pop and lookup the next header in the packet (MPLS, IPv4, IPv6) in the specified Vrf.
     // Used for per vrf labels at egress PE.
     SL_LABEL_ACTION_POP_AND_LOOKUP = 0x5;
+
+    // Push. 0x6
+    // Push MPLS labels on a IP packet. Support
+    // only exists for IP imposition.
+    SL_LABEL_ACTION_PUSH = 0x6;
 }
 
 // Label Block Types
