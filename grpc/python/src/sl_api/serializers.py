@@ -320,6 +320,15 @@ def ilm_serializer(batch_info):
                 entry.Key.SlMplsCosVal.ForwardingClass = ilm["forwarding_class"]
             if 'in_label' in ilm:
                 entry.Key.LocalLabel = ilm["in_label"]
+            elif 'ip_prefix' in ilm:
+                ip_prefix = ilm.get('ip_prefix')
+                if 'ipv4_prefix' in ip_prefix:
+                    entry.Key.Prefix.V4Prefix.Prefix = int(ipaddress.ip_address(ip_prefix["ipv4_prefix"]))
+                    entry.Key.Prefix.PrefixLen = ip_prefix.get("prefix_len", 32)
+                elif 'ipv6_prefix' in ip_prefix:
+                    entry.Key.Prefix.V6Prefix.Prefix = ipaddress.ip_address(ip_prefix["ipv6_prefix"]).packed
+                    entry.Key.Prefix.PrefixLen = ip_prefix.get("prefix_len", 128)
+                entry.Key.Prefix.VrfName = ip_prefix.get("vrf_name", "default")
             ps = []
             for path in ilm['path']:
                 p = sl_mpls_pb2.SLMplsPath()
