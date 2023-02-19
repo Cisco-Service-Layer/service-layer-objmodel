@@ -1816,9 +1816,9 @@
         "blocks": [
             {
                 "block_size": 10000,
-                "start_label": 24000,
+                "start_label": 25000,
                 "client_name": "Service-layer",
-                "block_type": 1
+                "block_type": 2
             }
         ]
     },
