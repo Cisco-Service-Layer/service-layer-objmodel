@@ -714,14 +714,15 @@ class MplsUtil:
         if 'label_ranges' in info and 'label_range' in info:
             raise ValueError('cannot define both label_ranges and label_range')
 
-        if 'label_ranges' not in info and 'label_range' not in info:
-            raise ValueError('must define either label_range, label_ranges, or ilms')
+        if 'label_ranges' not in info and 'label_range' not in info and 'ip_or_label_ranges' not in info:
+            raise ValueError('must define either ip_or_label_ranges, label_range, label_ranges, or ilms')
 
         if 'exps' in info and 'label_path' in info:
             raise ValueError('cannot define both exps and label_path')
 
         if 'exps' not in info and 'label_path' not in info:
-            raise ValueError('must define exps or label_path')
+            if 'ip_or_label_ranges' not in info:
+                raise ValueError('must define exps or label_path')
 
         return True
 
@@ -735,7 +736,7 @@ class MplsUtil:
             ilms = MplsUtil.generate_ilms(op_info, af, paths)
         else:
             assert False, 'must specify a list of ilms or valid batch info'
-
+        
         return 'ilms', ilms
 
     @staticmethod
@@ -774,18 +775,57 @@ class MplsUtil:
 
             return ilm
 
-        ranges = batch_info.get('label_ranges', [{'range': batch_info.get('label_range', None), 'af': af}])
-        for range_info in ranges:
-            for label in generate_labels(range_info['range']):
-                if 'exps' in batch_info:
-                    for exp, path_info in sorted(batch_info['exps'].items(), key=lambda x: x[0]):
-                        if exp == 'default':
-                            yield make_ilm(label, path_info, default_elsp=True, af=range_info['af'])
-                        else:
-                            yield make_ilm(label, path_info, exp=int(exp), af=range_info['af'])
-                elif 'label_path' in batch_info:
-                    # Non-elsp (no exp or default elsp)
-                    yield make_ilm(label, batch_info['label_path'])
+        def make_ip_ilm(ip, path_info, af):
+            ilm = {
+                    'path': generate_paths(path_info),
+                    'range': 1
+            }
+
+            ilm['af'] = af
+            if type(ip) is ipaddress.IPv4Address:
+                ip_dict = {"ipv4_prefix": str(ip)}
+                ilm["ip_prefix"] = ip_dict
+            else:
+                ip_dict = {"ipv6_prefix": str(ip)}
+                ilm["ip_prefix"] = ip_dict
+
+            return ilm
+
+        if 'ip_or_label_ranges' in batch_info.keys():
+            ip_or_label_ranges = batch_info.get('ip_or_label_ranges')
+            for range_info in ip_or_label_ranges:
+                if 'start_ip' in range_info:
+                    base_ip = ipaddress.ip_address(range_info['start_ip'])
+                    for idx in range(range_info['num_routes']):
+                        ip = ipaddress.ip_address(int(base_ip) + idx)
+                        yield make_ip_ilm(ip, range_info['label_path'], range_info['af'])
+                elif 'label_ranges' in range_info or 'label_range' in batch_info:
+                    label_ranges = range_info.get('label_ranges', [{'range': range_info.get('label_range', None), 'af': af}])
+                    for label_range in label_ranges:
+                        for label in generate_labels(label_range['range']):
+                            if 'exps' in range_info:
+                                for exp, path_info in sorted(range_info['exps'].items(), key=lambda x: x[0]):
+                                    if exp == 'default':
+                                        yield make_ilm(label, path_info, default_elsp=True, af=label_range['af'])
+                                    else:
+                                        yield make_ilm(label, path_info, exp=int(exp), af=label_range['af'])
+                            elif 'label_path' in range_info:
+                                # Non-elsp (no exp or default elsp)
+                                yield make_ilm(label, range_info['label_path'])
+
+        elif 'label_ranges' in batch_info or 'label_range' in batch_info:
+            ranges = batch_info.get('label_ranges', [{'range': batch_info.get('label_range', None), 'af': af}])
+            for range_info in ranges:
+                for label in generate_labels(range_info['range']):
+                    if 'exps' in batch_info:
+                        for exp, path_info in sorted(batch_info['exps'].items(), key=lambda x: x[0]):
+                            if exp == 'default':
+                                yield make_ilm(label, path_info, default_elsp=True, af=range_info['af'])
+                            else:
+                                yield make_ilm(label, path_info, exp=int(exp), af=range_info['af'])
+                    elif 'label_path' in batch_info:
+                        # Non-elsp (no exp or default elsp)
+                        yield make_ilm(label, batch_info['label_path'])
 
 
 

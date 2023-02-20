@@ -9,6 +9,7 @@
 import unittest
 import os
 import time
+import pdb
 
 try:
     from base_ap import ApData
@@ -1416,4 +1417,243 @@ class TestSuite_029_MPLS_CoS_TC16_scale(unittest.TestCase):
         client.mpls_eof()
 
     def test_013_mpls_unregister(self):
+        client.mpls_unregister()
+
+
+class TestSuite_031_MPLS_IPV4_PREFIX(unittest.TestCase):
+    AF = 4
+    STREAM = False
+
+    @classmethod
+    def setUpClass(cls):
+        super(TestSuite_031_MPLS_IPV4_PREFIX, cls).setUpClass()
+        cls.ilm_entry = json_params['cos_ilm_ip_route_base']
+        cls.ilm_entry_del = json_params['cos_ilm_del']
+        cls.label_block = json_params['mpls_ip_route_label_block']
+        cls.reg_params = json_params['reg_params']
+        cls.path_info = {'paths': json_params['paths'], 'next_hops': json_params['next_hops']}
+
+    def test_000_get_globals(self):
+        # Get Global MPLS info
+        client.mpls_global_get()
+
+    def test_001_mpls_register(self):
+        client.mpls_register(self.reg_params)
+
+    def test_002_ilm_add(self):
+        # Add single ilm entry with ipv4 prefix 10.1.1.1
+        client.ilm_add(self.ilm_entry["cos_ilm_1"], stream=self.STREAM,
+                af=self.AF, **self.path_info)
+
+    def test_003_ilm_delete(self):
+        # Remove the ilm entry with ipv4 prefix 10.1.1.1
+        client.ilm_delete(self.ilm_entry_del["cos_del_prefix_1"],
+                stream=self.STREAM, af=self.AF, **self.path_info)
+    
+    def test_004_ilm_add(self):
+        # Add 5 ilm entries with ip prefix 10.1.1.2 to 10.1.1.6
+        client.ilm_add(self.ilm_entry["cos_ilm_2"], stream=self.STREAM,
+                af=self.AF, **self.path_info)
+
+    def test_005_ilm_update(self):
+        # Update the path entries for the above ip prefixes
+        client.ilm_update(self.ilm_entry["cos_ilm_3"], stream=self.STREAM,
+                af=self.AF, **self.path_info)
+
+    def test_006_ilm_delete(self):
+        # Remove the ilm entries
+        client.ilm_delete(self.ilm_entry_del["cos_del_prefix_2"],
+                stream=self.STREAM, af=self.AF, **self.path_info)
+
+    def test_007_mpls_eof(self):
+        client.mpls_eof()
+
+    def test_008_mpls_unregister(self):
+        client.mpls_unregister()
+
+class TestSuite_032_MPLS_IPV6_PREFIX(unittest.TestCase):
+    AF = 6
+    STREAM = False
+
+    @classmethod
+    def setUpClass(cls):
+        super(TestSuite_032_MPLS_IPV6_PREFIX, cls).setUpClass()
+        cls.ilm_entry = json_params['cos_ilm_ip_route_base']
+        cls.ilm_entry_del = json_params['cos_ilm_del']
+        cls.label_block = json_params['mpls_ip_route_label_block']
+        cls.reg_params = json_params['reg_params']
+        cls.path_info = {'paths': json_params['paths'], 'next_hops': json_params['next_hops']}
+
+    def test_000_get_globals(self):
+        # Get Global MPLS info
+        client.mpls_global_get()
+
+    def test_001_mpls_register(self):
+        client.mpls_register(self.reg_params)
+
+    def test_002_ilm_add(self):
+        # Add ilm with ipv6 prefix 10::1
+        client.ilm_add(self.ilm_entry["cos_ilm_4"], stream=self.STREAM,
+                af=self.AF, **self.path_info)
+
+    def test_003_ilm_delete(self):
+        # Delete the ilm with ipv6 prefix 10::1
+        client.ilm_delete(self.ilm_entry_del["cos_del_prefix_3"],
+                stream=self.STREAM, af=self.AF, **self.path_info)
+    
+    def test_004_ilm_add(self):
+        # Add 5 ilm entries with ipv6 prefixes 10::2 - 10::6
+        client.ilm_add(self.ilm_entry["cos_ilm_5"], stream=self.STREAM,
+                af=self.AF, **self.path_info)
+
+    def test_005_ilm_update(self):
+        # Update the ilm entries with different path entries
+        client.ilm_update(self.ilm_entry["cos_ilm_6"], stream=self.STREAM,
+                af=self.AF, **self.path_info)
+
+    def test_006_ilm_delete(self):
+        # Remove the ilm entries. 
+        client.ilm_delete(self.ilm_entry_del["cos_del_prefix_4"],
+                stream=self.STREAM, af=self.AF, **self.path_info)
+
+    def test_007_mpls_eof(self):
+        client.mpls_eof()
+
+    def test_008_mpls_unregister(self):
+        client.mpls_unregister()
+
+class TestSuite_033_MPLS_IPV4_IPV6_CBF_MIXED(unittest.TestCase):
+    AF = 4
+    STREAM = False
+
+    @classmethod
+    def setUpClass(cls):
+        super(TestSuite_033_MPLS_IPV4_PREFIX, cls).setUpClass()
+        cls.ilm_entry = json_params['cos_ilm_tc17']
+        cls.ilm_entry_del = json_params['cos_ilm_del']
+        cls.label_block = json_params['mpls_ip_route_label_block']
+        cls.reg_params = json_params['reg_params']
+        cls.path_info = {'paths': json_params['paths'], 'next_hops': json_params['next_hops']}
+
+    def test_000_get_globals(self):
+        # Get Global MPLS info
+        client.mpls_global_get()
+
+    def test_001_mpls_register(self):
+        client.mpls_register(self.reg_params)
+    
+    def test_002_blk_add(self):
+        client.label_block_add(self.label_block)
+
+    def test_003_ilm_add(self):
+        #add a mix of ilm entries with ipv4, ipv6 and cbf prefixes
+        client.ilm_add(self.ilm_entry["cos_ilm_1"], stream=self.STREAM,
+                af=self.AF, **self.path_info)
+
+    def test_004_mpls_eof(self):
+        client.mpls_eof()
+
+    def test_005_mpls_register(self):
+        client.mpls_register(self.reg_params)
+    
+    def test_006_blk_add(self):
+        client.label_block_add(self.label_block)
+
+    def test_007_ilm_add(self):
+        # Add half the number of entries, and check if previous entries are cleared
+        client.ilm_add(self.ilm_entry["cos_ilm_2"], stream=self.STREAM,
+                af=self.AF, **self.path_info)
+
+    def test_008_mpls_eof(self):
+        client.mpls_eof()
+
+    def test_011_mpls_unregister(self):
+        client.mpls_unregister()
+
+class TestSuite_034_MPLS_IP_PREFIX_SCALE(unittest.TestCase):
+    AF = 4
+    STREAM = False
+
+    @classmethod
+    def setUpClass(cls):
+        super(TestSuite_034_MPLS_IP_PREFIX_SCALE, cls).setUpClass()
+        cls.ilm_entry_1 = json_params['batch_ip_route_ilm']
+        cls.ilm_entry_2 = json_params['batch_ip_route_ilm2']
+        cls.reg_params = json_params['reg_params']
+        cls.path_info = {'paths': json_params['paths'], 'next_hops': json_params['next_hops']}
+
+    def test_000_get_globals(self):
+        # Get Global MPLS info
+        client.mpls_global_get()
+
+    def test_001_mpls_register(self):
+        client.mpls_register(self.reg_params)
+
+    def test_003_ilm_add(self):
+        # Generate and populate 50k ipv4 and ipv6 prefixes
+        client.ilm_add(self.ilm_entry_1, stream=self.STREAM,
+                af=self.AF, **self.path_info)
+
+    def test_004_mpls_eof(self):
+        client.mpls_eof()
+
+    def test_005_mpls_register(self):
+        client.mpls_register(self.reg_params)
+    
+    def test_006_ilm_add(self):
+        # mark and sweep  testingwith half the number of prefixes
+        client.ilm_add(self.ilm_entry_2, stream=self.STREAM,
+                af=self.AF, **self.path_info)
+
+    def test_007_mpls_eof(self):
+        client.mpls_eof()
+
+    def test_008_mpls_unregister(self):
+        client.mpls_unregister()
+
+class TestSuite_035_MPLS_IP_CBF_PREFIX_SCALE(unittest.TestCase):
+    AF = 4
+    STREAM = False
+
+    @classmethod
+    def setUpClass(cls):
+        super(TestSuite_035_MPLS_IP_CBF_PREFIX_SCALE, cls).setUpClass()
+        cls.label_block = json_params['mpls_ip_route_label_block']
+        cls.ilm_entry_1 = json_params['batch_ip_route_ilm3']
+        cls.ilm_entry_2 = json_params['batch_ip_route_ilm4']
+        cls.reg_params = json_params['reg_params']
+        cls.path_info = {'paths': json_params['paths'], 'next_hops': json_params['next_hops']}
+
+    def test_000_get_globals(self):
+        # Get Global MPLS info
+        client.mpls_global_get()
+
+    def test_001_mpls_register(self):
+        client.mpls_register(self.reg_params)
+    def test_002_blk_add(self):
+        client.label_block_add(self.label_block)
+
+    def test_003_ilm_add(self):
+        # Generate and populate 12k mixed ipv4 ipv6 and cbf prefixes
+        client.ilm_add(self.ilm_entry_1, stream=self.STREAM,
+                af=self.AF, **self.path_info)
+
+    def test_004_mpls_eof(self):
+        client.mpls_eof()
+
+    def test_005_mpls_register(self):
+        client.mpls_register(self.reg_params)
+
+    def test_006_blk_add(self):
+        client.label_block_add(self.label_block)
+    
+    def test_006_ilm_add(self):
+        # mark and sweep testing  with half the number of prefixes
+        client.ilm_add(self.ilm_entry_2, stream=self.STREAM,
+                af=self.AF, **self.path_info)
+
+    def test_007_mpls_eof(self):
+        client.mpls_eof()
+
+    def test_008_mpls_unregister(self):
         client.mpls_unregister()
