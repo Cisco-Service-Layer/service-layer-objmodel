@@ -714,14 +714,14 @@ class MplsUtil:
         if 'label_ranges' in info and 'label_range' in info:
             raise ValueError('cannot define both label_ranges and label_range')
 
-        if 'label_ranges' not in info and 'label_range' not in info and 'ip_cbf_ranges' not in info:
-            raise ValueError('must define either ip_cbf_ranges, label_range, label_ranges, or ilms')
+        if 'label_ranges' not in info and 'label_range' not in info and 'ip_or_label_ranges' not in info:
+            raise ValueError('must define either ip_or_label_ranges, label_range, label_ranges, or ilms')
 
         if 'exps' in info and 'label_path' in info:
             raise ValueError('cannot define both exps and label_path')
 
         if 'exps' not in info and 'label_path' not in info:
-            if 'ip_cbf_ranges' not in info:
+            if 'ip_or_label_ranges' not in info:
                 raise ValueError('must define exps or label_path')
 
         return True
@@ -791,9 +791,9 @@ class MplsUtil:
 
             return ilm
 
-        if 'ip_cbf_ranges' in batch_info.keys():
-            ip_cbf_ranges = batch_info.get('ip_cbf_ranges')
-            for range_info in ip_cbf_ranges:
+        if 'ip_or_label_ranges' in batch_info.keys():
+            ip_or_label_ranges = batch_info.get('ip_or_label_ranges')
+            for range_info in ip_or_label_ranges:
                 if 'start_ip' in range_info:
                     base_ip = ipaddress.ip_address(range_info['start_ip'])
                     for idx in range(range_info['num_routes']):

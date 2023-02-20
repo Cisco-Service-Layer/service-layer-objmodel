@@ -31,7 +31,7 @@
     "batch_ip_route_ilm": {
         "batch_size": 256,
         "correlator": 1,
-        "ip_cbf_ranges": [
+        "ip_or_label_ranges": [
             {"start_ip":"10.1.1.1",
              "num_routes": 25000,
             "af": 4,
@@ -46,7 +46,7 @@
     "batch_ip_route_ilm2": {
         "batch_size": 256,
         "correlator": 1,
-        "ip_cbf_ranges": [
+        "ip_or_label_ranges": [
             {"start_ip":"10.1.1.1",
              "num_routes": 12500,
             "af": 4,
@@ -62,7 +62,7 @@
     "batch_ip_route_ilm3": {
         "batch_size": 256,
         "correlator": 1,
-        "ip_cbf_ranges": [
+        "ip_or_label_ranges": [
             {"start_ip":"10.1.1.1",
              "num_routes": 4000,
             "af": 4,
@@ -86,7 +86,7 @@
     "batch_ip_route_ilm4": {
         "batch_size": 256,
         "correlator": 1,
-        "ip_cbf_ranges": [
+        "ip_or_label_ranges": [
             {"start_ip":"10.1.1.1",
              "num_routes": 2000,
             "af": 4,
