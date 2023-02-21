@@ -1528,7 +1528,7 @@ class TestSuite_033_MPLS_IPV4_IPV6_CBF_MIXED(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):
-        super(TestSuite_033_MPLS_IPV4_PREFIX, cls).setUpClass()
+        super(TestSuite_033_MPLS_IPV4_IPV6_CBF_MIXED, cls).setUpClass()
         cls.ilm_entry = json_params['cos_ilm_tc17']
         cls.ilm_entry_del = json_params['cos_ilm_del']
         cls.label_block = json_params['mpls_ip_route_label_block']
