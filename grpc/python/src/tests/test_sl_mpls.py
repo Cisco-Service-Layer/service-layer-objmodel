@@ -1440,6 +1440,9 @@ class TestSuite_031_MPLS_IPV4_PREFIX(unittest.TestCase):
     def test_001_mpls_register(self):
         client.mpls_register(self.reg_params)
 
+    def test_002_blk_add(self):
+        client.label_block_add(self.label_block)
+
     def test_002_ilm_add(self):
         # Add single ilm entry with ipv4 prefix 10.1.1.1
         client.ilm_add(self.ilm_entry["cos_ilm_1"], stream=self.STREAM,
@@ -1490,6 +1493,9 @@ class TestSuite_032_MPLS_IPV6_PREFIX(unittest.TestCase):
 
     def test_001_mpls_register(self):
         client.mpls_register(self.reg_params)
+
+    def test_002_blk_add(self):
+        client.label_block_add(self.label_block)
 
     def test_002_ilm_add(self):
         # Add ilm with ipv6 prefix 10::1
