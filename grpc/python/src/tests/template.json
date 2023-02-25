@@ -497,6 +497,53 @@
                      "in_label": 32000,
                      "exp": 0
             }
+        },
+        "get_exact_match_ilm": {
+            "_description": "Get exact match label",
+            "correlator": 6,
+            "count": 1,
+            "get_next": 0,
+            "ilm": {
+                "in_label": 32221
+                }
+        },
+        "get_exact_match_ilm_exp": {
+            "_description": "Get exact match label exp",
+            "correlator": 6,
+            "count": 1,
+            "get_next": 0,
+            "ilm": {
+                "in_label": 32222,
+                "exp": 4
+                }
+        },
+        "get_exact_match_ilm_ipv4": {
+            "_description": "Get exact match ipv4 prefix",
+            "correlator": 6,
+            "count": 1,
+            "get_next": 0,
+            "ilm": {
+                "ip_prefix": {
+                    "ipv4_prefix": "10.1.1.1"
+                }
+            }
+        },
+        "get_exact_match_ilm_ipv6": {
+            "_description": "Get exact match ipv4 prefix",
+            "correlator": 6,
+            "count": 1,
+            "get_next": 0,
+            "ilm": {
+                "ip_prefix": {
+                    "ipv6_prefix": "10::1"
+                }
+            }
+        },
+        "get_mixed_ilm_ip_prefixes": {
+            "_description": "Get exact match ipv4 prefix",
+            "correlator": 6,
+            "count": 30,
+            "get_next": 0
         }
     },
     "intf_get": {
@@ -3185,7 +3232,6 @@
                     "af": 4
                 },
                 {
-                    "default_elsp" : true,
                     "in_label": 32221,
                     "path": "cos_path_1",
                     "range": 1
