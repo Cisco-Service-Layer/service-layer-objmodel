@@ -340,14 +340,20 @@ def ilm_serializer(batch_info):
                     p.PathId = path['path_id']
                 if 'next_hop' in path:
                     nh = path['next_hop']
-                    if ilm['af'] == 4:
+                    if 'nh_afi' in ilm:
+                        local_af = ilm['nh_afi']
+                    else:
+                        local_af = ilm['af']
+
+                    if local_af == 4:
                         if 'v4_addr' in path['next_hop']:
                             p.NexthopAddress.V4Address = int(
                                 ipaddress.ip_address(nh['v4_addr']))
-                    elif ilm['af'] == 6:
+                    elif local_af == 6:
                         if 'v6_addr' in path['next_hop']:
                             p.NexthopAddress.V6Address = ipaddress.ip_address(
                                 nh['v6_addr']).packed
+
                     if 'if_name' in path['next_hop']:
                         p.NexthopInterface.Name = path['next_hop']['if_name']
                     if 'vrf_name' in path['next_hop']:
