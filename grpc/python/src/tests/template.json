@@ -3417,7 +3417,6 @@
                     "af": 4
                 },
                 {
-                    "default_elsp" : true,
                     "in_label": 32221,
                     "path": "cos_path_1",
                     "range": 1

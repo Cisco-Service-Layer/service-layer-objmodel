@@ -1670,6 +1670,7 @@ class TestSuite_035_MPLS_IP_CBF_PREFIX_SCALE(unittest.TestCase):
         client.ilm_add(self.ilm_entry_1, stream=self.STREAM,
                 af=self.AF, **self.path_info)
 
+
     def test_004_mpls_eof(self):
         client.mpls_eof()
 
@@ -1679,13 +1680,13 @@ class TestSuite_035_MPLS_IP_CBF_PREFIX_SCALE(unittest.TestCase):
     def test_006_blk_add(self):
         client.label_block_add(self.label_block)
     
-    def test_006_ilm_add(self):
+    def test_007_ilm_add(self):
         # mark and sweep testing  with half the number of prefixes
         client.ilm_add(self.ilm_entry_2, stream=self.STREAM,
                 af=self.AF, **self.path_info)
 
-    def test_007_mpls_eof(self):
+    def test_008_mpls_eof(self):
         client.mpls_eof()
 
-    def test_008_mpls_unregister(self):
+    def test_009_mpls_unregister(self):
         client.mpls_unregister()
