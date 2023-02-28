@@ -1585,6 +1585,10 @@ func (x *SLMplsIlmMsgRsp) GetResults() []*SLMplsIlmRes {
 
 // MPLS ILM Get Message
 // This message is used to query the attributes of an ILM entry.
+// All labels and prefixes programmed via the MPLS RPCs
+// are stored in the same table and objects are returned
+// from the specified key in the order of labels, IPv4 prefixes,
+// followed any IPv6 prefixes.
 type SLMplsIlmGetMsg struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
