@@ -1724,7 +1724,7 @@
         "blocks": [
             {
                 "block_size": 10000,
-                "start_label": 25000,
+                "start_label": 24000,
                 "client_name": "Service-layer",
                 "block_type": 2
             }
@@ -1734,7 +1734,7 @@
         "blocks": [
             {
                 "block_size": 10000,
-                "start_label": 25000,
+                "start_label": 24000,
                 "client_name": "Service-layer",
                 "block_type": 2
             }
@@ -1744,7 +1744,7 @@
         "blocks": [
             {
                 "block_size": 10000,
-                "start_label": 25000,
+                "start_label": 24000,
                 "client_name": "Not-Service-layer",
                 "block_type": 2
             }
@@ -1816,7 +1816,7 @@
         "blocks": [
             {
                 "block_size": 10000,
-                "start_label": 25000,
+                "start_label": 24000,
                 "client_name": "Service-layer",
                 "block_type": 2
             }
