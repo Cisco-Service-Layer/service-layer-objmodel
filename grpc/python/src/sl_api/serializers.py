@@ -340,7 +340,10 @@ def ilm_serializer(batch_info):
                     p.PathId = path['path_id']
                 if 'next_hop' in path:
                     nh = path['next_hop']
-                    if 'nh_afi' in ilm:
+
+                    if "nh_afi" in path:
+                        local_af = path['nh_afi']
+                    elif 'nh_afi' in ilm:
                         local_af = ilm['nh_afi']
                     else:
                         local_af = ilm['af']
