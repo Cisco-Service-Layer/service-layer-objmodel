@@ -69,6 +69,16 @@ class SLBfdv4Oper final {
     //     message to convey the end of replay of the client's known objects.
     //     This is especially useful under certain restart scenarios when the
     //     client and the server are trying to synchronize their BFD sessions.
+    //
+    // The BFD registration operations can be used by the client to synchronize
+    // BFD sessions with the server. When the client re-registers with the
+    // server using SL_REGOP_REGISTER, server marks all BFD sessions as stale.
+    // Client can then reprogram BFD sessions. When client sends
+    // SL_REGOP_EOF, any session not reprogrammed by the client are
+    // removed from the device.
+    //
+    // The client must perform all operations (BFD registration,
+    // BFD session operations) from a single execution context.
     virtual ::grpc::Status SLBfdv4RegOp(::grpc::ClientContext* context, const ::service_layer::SLBfdRegMsg& request, ::service_layer::SLBfdRegMsgRsp* response) = 0;
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::service_layer::SLBfdRegMsgRsp>> AsyncSLBfdv4RegOp(::grpc::ClientContext* context, const ::service_layer::SLBfdRegMsg& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::service_layer::SLBfdRegMsgRsp>>(AsyncSLBfdv4RegOpRaw(context, request, cq));
@@ -160,6 +170,16 @@ class SLBfdv4Oper final {
       //     message to convey the end of replay of the client's known objects.
       //     This is especially useful under certain restart scenarios when the
       //     client and the server are trying to synchronize their BFD sessions.
+      //
+      // The BFD registration operations can be used by the client to synchronize
+      // BFD sessions with the server. When the client re-registers with the
+      // server using SL_REGOP_REGISTER, server marks all BFD sessions as stale.
+      // Client can then reprogram BFD sessions. When client sends
+      // SL_REGOP_EOF, any session not reprogrammed by the client are
+      // removed from the device.
+      //
+      // The client must perform all operations (BFD registration,
+      // BFD session operations) from a single execution context.
       virtual void SLBfdv4RegOp(::grpc::ClientContext* context, const ::service_layer::SLBfdRegMsg* request, ::service_layer::SLBfdRegMsgRsp* response, std::function<void(::grpc::Status)>) = 0;
       virtual void SLBfdv4RegOp(::grpc::ClientContext* context, const ::service_layer::SLBfdRegMsg* request, ::service_layer::SLBfdRegMsgRsp* response, ::grpc::ClientUnaryReactor* reactor) = 0;
       // Used to retrieve global BFD info from the server.
@@ -332,6 +352,16 @@ class SLBfdv4Oper final {
     //     message to convey the end of replay of the client's known objects.
     //     This is especially useful under certain restart scenarios when the
     //     client and the server are trying to synchronize their BFD sessions.
+    //
+    // The BFD registration operations can be used by the client to synchronize
+    // BFD sessions with the server. When the client re-registers with the
+    // server using SL_REGOP_REGISTER, server marks all BFD sessions as stale.
+    // Client can then reprogram BFD sessions. When client sends
+    // SL_REGOP_EOF, any session not reprogrammed by the client are
+    // removed from the device.
+    //
+    // The client must perform all operations (BFD registration,
+    // BFD session operations) from a single execution context.
     virtual ::grpc::Status SLBfdv4RegOp(::grpc::ServerContext* context, const ::service_layer::SLBfdRegMsg* request, ::service_layer::SLBfdRegMsgRsp* response);
     // Used to retrieve global BFD info from the server.
     virtual ::grpc::Status SLBfdv4Get(::grpc::ServerContext* context, const ::service_layer::SLBfdGetMsg* request, ::service_layer::SLBfdGetMsgRsp* response);

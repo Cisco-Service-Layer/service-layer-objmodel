@@ -94,6 +94,16 @@ class SLRoutev6Oper final {
     //     message to convey the end of replay of the client's known objects.
     //     This is especially useful under certain restart scenarios when the
     //     client and the server are trying to synchronize their Routes.
+    //
+    // The VRF registration operations can be used by the client to
+    // synchronize routes with the device. When the client re-registers the VRF
+    // with the server using SL_REGOP_REGISTER, server marks routes as stale.
+    // Client then must reprogram routes it is interested in.
+    // When client sends SL_REGOP_EOF, any routes not reprogrammed
+    // are removed from the device.
+    //
+    // The client must perform all operations (VRF registration, routes)
+    // from a single execution context.
     virtual ::grpc::Status SLRoutev6VrfRegOp(::grpc::ClientContext* context, const ::service_layer::SLVrfRegMsg& request, ::service_layer::SLVrfRegMsgRsp* response) = 0;
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::service_layer::SLVrfRegMsgRsp>> AsyncSLRoutev6VrfRegOp(::grpc::ClientContext* context, const ::service_layer::SLVrfRegMsg& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::service_layer::SLVrfRegMsgRsp>>(AsyncSLRoutev6VrfRegOpRaw(context, request, cq));
@@ -236,6 +246,16 @@ class SLRoutev6Oper final {
       //     message to convey the end of replay of the client's known objects.
       //     This is especially useful under certain restart scenarios when the
       //     client and the server are trying to synchronize their Routes.
+      //
+      // The VRF registration operations can be used by the client to
+      // synchronize routes with the device. When the client re-registers the VRF
+      // with the server using SL_REGOP_REGISTER, server marks routes as stale.
+      // Client then must reprogram routes it is interested in.
+      // When client sends SL_REGOP_EOF, any routes not reprogrammed
+      // are removed from the device.
+      //
+      // The client must perform all operations (VRF registration, routes)
+      // from a single execution context.
       virtual void SLRoutev6VrfRegOp(::grpc::ClientContext* context, const ::service_layer::SLVrfRegMsg* request, ::service_layer::SLVrfRegMsgRsp* response, std::function<void(::grpc::Status)>) = 0;
       virtual void SLRoutev6VrfRegOp(::grpc::ClientContext* context, const ::service_layer::SLVrfRegMsg* request, ::service_layer::SLVrfRegMsgRsp* response, ::grpc::ClientUnaryReactor* reactor) = 0;
       // VRF get. Used to retrieve VRF attributes from the server.
@@ -503,6 +523,16 @@ class SLRoutev6Oper final {
     //     message to convey the end of replay of the client's known objects.
     //     This is especially useful under certain restart scenarios when the
     //     client and the server are trying to synchronize their Routes.
+    //
+    // The VRF registration operations can be used by the client to
+    // synchronize routes with the device. When the client re-registers the VRF
+    // with the server using SL_REGOP_REGISTER, server marks routes as stale.
+    // Client then must reprogram routes it is interested in.
+    // When client sends SL_REGOP_EOF, any routes not reprogrammed
+    // are removed from the device.
+    //
+    // The client must perform all operations (VRF registration, routes)
+    // from a single execution context.
     virtual ::grpc::Status SLRoutev6VrfRegOp(::grpc::ServerContext* context, const ::service_layer::SLVrfRegMsg* request, ::service_layer::SLVrfRegMsgRsp* response);
     // VRF get. Used to retrieve VRF attributes from the server.
     virtual ::grpc::Status SLRoutev6VrfRegGet(::grpc::ServerContext* context, const ::service_layer::SLVrfRegGetMsg* request, ::service_layer::SLVrfRegGetMsgRsp* response);
