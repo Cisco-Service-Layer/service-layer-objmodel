@@ -248,6 +248,7 @@ enum SLErrorStatus_SLErrno : int {
   SLErrorStatus_SLErrno_SL_NHLFE_INVALID_ELSP_EXP = 40988,
   SLErrorStatus_SLErrno_SL_NHLFE_INVALID_PATH_PRIORITY = 40989,
   SLErrorStatus_SLErrno_SL_NHLFE_INVALID_LOAD_METRIC = 40990,
+  SLErrorStatus_SLErrno_SL_NHLFE_INVALID_SETID = 40991,
   SLErrorStatus_SLErrno_SL_LABEL_BLK_ERR_OFFSET = 45056,
   SLErrorStatus_SLErrno_SL_LABEL_BLK_LSD_ADD_FAILED = 45057,
   SLErrorStatus_SLErrno_SL_LABEL_BLK_LSD_DELETE_FAILED = 45058,
@@ -914,6 +915,8 @@ class SLErrorStatus final :
     SLErrorStatus_SLErrno_SL_NHLFE_INVALID_PATH_PRIORITY;
   static constexpr SLErrno SL_NHLFE_INVALID_LOAD_METRIC =
     SLErrorStatus_SLErrno_SL_NHLFE_INVALID_LOAD_METRIC;
+  static constexpr SLErrno SL_NHLFE_INVALID_SETID =
+    SLErrorStatus_SLErrno_SL_NHLFE_INVALID_SETID;
   static constexpr SLErrno SL_LABEL_BLK_ERR_OFFSET =
     SLErrorStatus_SLErrno_SL_LABEL_BLK_ERR_OFFSET;
   static constexpr SLErrno SL_LABEL_BLK_LSD_ADD_FAILED =

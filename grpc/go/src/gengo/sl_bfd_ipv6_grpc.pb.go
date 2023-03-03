@@ -41,6 +41,16 @@ type SLBfdv6OperClient interface {
 	//	message to convey the end of replay of the client's known objects.
 	//	This is especially useful under certain restart scenarios when the
 	//	client and the server are trying to synchronize their BFD sessions.
+	//
+	// The BFD registration operations can be used by the client to synchronize
+	// BFD sessions with the server. When the client re-registers with the
+	// server using SL_REGOP_REGISTER, server marks all BFD sessions as stale.
+	// Client can then reprogram BFD sessions. When client sends
+	// SL_REGOP_EOF, any session not reprogrammed by the client are
+	// removed from the device.
+	//
+	// The client must perform all operations (BFD registration,
+	// BFD session operations) from a single execution context.
 	SLBfdv6RegOp(ctx context.Context, in *SLBfdRegMsg, opts ...grpc.CallOption) (*SLBfdRegMsgRsp, error)
 	// Used to retrieve global BFD info from the server.
 	SLBfdv6Get(ctx context.Context, in *SLBfdGetMsg, opts ...grpc.CallOption) (*SLBfdGetMsgRsp, error)
@@ -179,6 +189,16 @@ type SLBfdv6OperServer interface {
 	//	message to convey the end of replay of the client's known objects.
 	//	This is especially useful under certain restart scenarios when the
 	//	client and the server are trying to synchronize their BFD sessions.
+	//
+	// The BFD registration operations can be used by the client to synchronize
+	// BFD sessions with the server. When the client re-registers with the
+	// server using SL_REGOP_REGISTER, server marks all BFD sessions as stale.
+	// Client can then reprogram BFD sessions. When client sends
+	// SL_REGOP_EOF, any session not reprogrammed by the client are
+	// removed from the device.
+	//
+	// The client must perform all operations (BFD registration,
+	// BFD session operations) from a single execution context.
 	SLBfdv6RegOp(context.Context, *SLBfdRegMsg) (*SLBfdRegMsgRsp, error)
 	// Used to retrieve global BFD info from the server.
 	SLBfdv6Get(context.Context, *SLBfdGetMsg) (*SLBfdGetMsgRsp, error)

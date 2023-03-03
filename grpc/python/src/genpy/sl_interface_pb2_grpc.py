@@ -13,7 +13,8 @@ class SLInterfaceOperStub(object):
     @addtogroup Interfaces
     @{
     ;
-    Interface Registration Operations.
+    Interface Registration Operations. This service can be used to
+    receive interface state change notifications.
 
     """
 
@@ -63,7 +64,8 @@ class SLInterfaceOperServicer(object):
     @addtogroup Interfaces
     @{
     ;
-    Interface Registration Operations.
+    Interface Registration Operations. This service can be used to
+    receive interface state change notifications.
 
     """
 
@@ -83,6 +85,16 @@ class SLInterfaceOperServicer(object):
         message to convey the end of replay of the client's known objects.
         This is especially useful under certain restart scenarios when the
         client and the server are trying to synchronize their interfaces.
+
+        The SLInterfaceGlobalsRegMsg operations can be used by the client to synchronize
+        interface registrations with the server. When the client re-registers with the
+        server using SL_REGOP_REGISTER, server marks all interface registrations as stale.
+        Client can then reprogram interface registrations. When the client sends
+        SL_REGOP_EOF, any interface registrations not reprogrammed by the client are
+        removed from the device.
+
+        The client must perform all operations (SLInterfaceGlobalsRegMsg,
+        interface registration operations) from a single execution context.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -179,7 +191,8 @@ class SLInterfaceOper(object):
     @addtogroup Interfaces
     @{
     ;
-    Interface Registration Operations.
+    Interface Registration Operations. This service can be used to
+    receive interface state change notifications.
 
     """
 

@@ -65,6 +65,16 @@ class SLInterfaceOper final {
     //     message to convey the end of replay of the client's known objects.
     //     This is especially useful under certain restart scenarios when the
     //     client and the server are trying to synchronize their interfaces.
+    //
+    // The SLInterfaceGlobalsRegMsg operations can be used by the client to synchronize
+    // interface registrations with the server. When the client re-registers with the
+    // server using SL_REGOP_REGISTER, server marks all interface registrations as stale.
+    // Client can then reprogram interface registrations. When the client sends
+    // SL_REGOP_EOF, any interface registrations not reprogrammed by the client are
+    // removed from the device.
+    //
+    // The client must perform all operations (SLInterfaceGlobalsRegMsg,
+    // interface registration operations) from a single execution context.
     virtual ::grpc::Status SLInterfaceGlobalsRegOp(::grpc::ClientContext* context, const ::service_layer::SLInterfaceGlobalsRegMsg& request, ::service_layer::SLInterfaceGlobalsRegMsgRsp* response) = 0;
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::service_layer::SLInterfaceGlobalsRegMsgRsp>> AsyncSLInterfaceGlobalsRegOp(::grpc::ClientContext* context, const ::service_layer::SLInterfaceGlobalsRegMsg& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::service_layer::SLInterfaceGlobalsRegMsgRsp>>(AsyncSLInterfaceGlobalsRegOpRaw(context, request, cq));
@@ -140,6 +150,16 @@ class SLInterfaceOper final {
       //     message to convey the end of replay of the client's known objects.
       //     This is especially useful under certain restart scenarios when the
       //     client and the server are trying to synchronize their interfaces.
+      //
+      // The SLInterfaceGlobalsRegMsg operations can be used by the client to synchronize
+      // interface registrations with the server. When the client re-registers with the
+      // server using SL_REGOP_REGISTER, server marks all interface registrations as stale.
+      // Client can then reprogram interface registrations. When the client sends
+      // SL_REGOP_EOF, any interface registrations not reprogrammed by the client are
+      // removed from the device.
+      //
+      // The client must perform all operations (SLInterfaceGlobalsRegMsg,
+      // interface registration operations) from a single execution context.
       virtual void SLInterfaceGlobalsRegOp(::grpc::ClientContext* context, const ::service_layer::SLInterfaceGlobalsRegMsg* request, ::service_layer::SLInterfaceGlobalsRegMsgRsp* response, std::function<void(::grpc::Status)>) = 0;
       virtual void SLInterfaceGlobalsRegOp(::grpc::ClientContext* context, const ::service_layer::SLInterfaceGlobalsRegMsg* request, ::service_layer::SLInterfaceGlobalsRegMsgRsp* response, ::grpc::ClientUnaryReactor* reactor) = 0;
       // Used to retrieve global Interface info from the server.
@@ -296,6 +316,16 @@ class SLInterfaceOper final {
     //     message to convey the end of replay of the client's known objects.
     //     This is especially useful under certain restart scenarios when the
     //     client and the server are trying to synchronize their interfaces.
+    //
+    // The SLInterfaceGlobalsRegMsg operations can be used by the client to synchronize
+    // interface registrations with the server. When the client re-registers with the
+    // server using SL_REGOP_REGISTER, server marks all interface registrations as stale.
+    // Client can then reprogram interface registrations. When the client sends
+    // SL_REGOP_EOF, any interface registrations not reprogrammed by the client are
+    // removed from the device.
+    //
+    // The client must perform all operations (SLInterfaceGlobalsRegMsg,
+    // interface registration operations) from a single execution context.
     virtual ::grpc::Status SLInterfaceGlobalsRegOp(::grpc::ServerContext* context, const ::service_layer::SLInterfaceGlobalsRegMsg* request, ::service_layer::SLInterfaceGlobalsRegMsgRsp* response);
     // Used to retrieve global Interface info from the server.
     virtual ::grpc::Status SLInterfaceGlobalsGet(::grpc::ServerContext* context, const ::service_layer::SLInterfaceGlobalsGetMsg* request, ::service_layer::SLInterfaceGlobalsGetMsgRsp* response);
@@ -1119,7 +1149,8 @@ class SLInterfaceOper final {
 // @addtogroup Interfaces
 // @{
 // ;
-// Interface Registration Operations.
+// Interface Registration Operations. This service can be used to
+// receive interface state change notifications.
 //
 
 }  // namespace service_layer

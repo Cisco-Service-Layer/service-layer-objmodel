@@ -1052,23 +1052,27 @@ type SLMplsPath struct {
 	// program forwarding class as an attribute of the path. In this
 	// programming model, all paths for all classes must be programmed together
 	// and class must not be specified as key attribute on the ILM.
+	// All the paths of the same class must be contiguous.
+	// If any path has a class specified, then all others paths must
+	// have the class specified as well.
 	SlMplsCosVal *SLMplsCos `protobuf:"bytes,10,opt,name=SlMplsCosVal,proto3" json:"SlMplsCosVal,omitempty"`
-	// Set Path priority as active, backup or reserved.
-	// 0: Path is installed as an active path.
+	// Set Path priority as primary, backup or reserved.
+	// 0: Path is installed as the primary path.
 	// 1: Path is installed as a backup path.
 	// Everything else: Reserved.
 	SlMplsPathPriority uint32 `protobuf:"varint,11,opt,name=SlMplsPathPriority,proto3" json:"SlMplsPathPriority,omitempty"`
 	// Set the Path set-id,
-	// Integer range [0 .. 2]; default = 0
+	// Integer range [0 .. 7]; default = 0
 	// Paths of an ILM should be associated with a SetID.
 	// SetID is used for grouping paths with the same SlMplsPathPriority value.
 	// Paths with same SetID must have same SlMplsPathPriority value.
-	// Client should activate or deactivate the entire set by setting
+	// Client makes the entire set primary or backup by setting
 	// the SlMplsPathPriority for all paths in the set.
 	SlMplsPathSetId uint32 `protobuf:"varint,12,opt,name=SlMplsPathSetId,proto3" json:"SlMplsPathSetId,omitempty"`
 	// Set the Path availability.
 	// TRUE  : Path is DOWN. Not available for carrying traffic but preprogrammed.
 	// FALSE : Path is UP. Available for carrying traffic.(default).
+	// Load metric should be set to 0 when the path is down.
 	SlMplsPathDown bool `protobuf:"varint,13,opt,name=SlMplsPathDown,proto3" json:"SlMplsPathDown,omitempty"`
 }
 

@@ -47,6 +47,16 @@ type SLRoutev4OperClient interface {
 	//	message to convey the end of replay of the client's known objects.
 	//	This is especially useful under certain restart scenarios when the
 	//	client and the server are trying to synchronize their Routes.
+	//
+	// The VRF registration operations can be used by the client to
+	// synchronize routes with the device. When the client re-registers the VRF
+	// with the server using SL_REGOP_REGISTER, server marks routes as stale.
+	// Client then must reprogram routes it is interested in.
+	// When client sends SL_REGOP_EOF, any routes not reprogrammed
+	// are removed from the device.
+	//
+	// The client must perform all operations (VRF registration, routes)
+	// from a single execution context.
 	SLRoutev4VrfRegOp(ctx context.Context, in *SLVrfRegMsg, opts ...grpc.CallOption) (*SLVrfRegMsgRsp, error)
 	// VRF get. Used to retrieve VRF attributes from the server.
 	SLRoutev4VrfRegGet(ctx context.Context, in *SLVrfRegGetMsg, opts ...grpc.CallOption) (*SLVrfRegGetMsgRsp, error)
@@ -286,6 +296,16 @@ type SLRoutev4OperServer interface {
 	//	message to convey the end of replay of the client's known objects.
 	//	This is especially useful under certain restart scenarios when the
 	//	client and the server are trying to synchronize their Routes.
+	//
+	// The VRF registration operations can be used by the client to
+	// synchronize routes with the device. When the client re-registers the VRF
+	// with the server using SL_REGOP_REGISTER, server marks routes as stale.
+	// Client then must reprogram routes it is interested in.
+	// When client sends SL_REGOP_EOF, any routes not reprogrammed
+	// are removed from the device.
+	//
+	// The client must perform all operations (VRF registration, routes)
+	// from a single execution context.
 	SLRoutev4VrfRegOp(context.Context, *SLVrfRegMsg) (*SLVrfRegMsgRsp, error)
 	// VRF get. Used to retrieve VRF attributes from the server.
 	SLRoutev4VrfRegGet(context.Context, *SLVrfRegGetMsg) (*SLVrfRegGetMsgRsp, error)

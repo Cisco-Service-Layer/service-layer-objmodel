@@ -40,6 +40,16 @@ type SLInterfaceOperClient interface {
 	//	message to convey the end of replay of the client's known objects.
 	//	This is especially useful under certain restart scenarios when the
 	//	client and the server are trying to synchronize their interfaces.
+	//
+	// The SLInterfaceGlobalsRegMsg operations can be used by the client to synchronize
+	// interface registrations with the server. When the client re-registers with the
+	// server using SL_REGOP_REGISTER, server marks all interface registrations as stale.
+	// Client can then reprogram interface registrations. When the client sends
+	// SL_REGOP_EOF, any interface registrations not reprogrammed by the client are
+	// removed from the device.
+	//
+	// The client must perform all operations (SLInterfaceGlobalsRegMsg,
+	// interface registration operations) from a single execution context.
 	SLInterfaceGlobalsRegOp(ctx context.Context, in *SLInterfaceGlobalsRegMsg, opts ...grpc.CallOption) (*SLInterfaceGlobalsRegMsgRsp, error)
 	// Used to retrieve global Interface info from the server.
 	SLInterfaceGlobalsGet(ctx context.Context, in *SLInterfaceGlobalsGetMsg, opts ...grpc.CallOption) (*SLInterfaceGlobalsGetMsgRsp, error)
@@ -168,6 +178,16 @@ type SLInterfaceOperServer interface {
 	//	message to convey the end of replay of the client's known objects.
 	//	This is especially useful under certain restart scenarios when the
 	//	client and the server are trying to synchronize their interfaces.
+	//
+	// The SLInterfaceGlobalsRegMsg operations can be used by the client to synchronize
+	// interface registrations with the server. When the client re-registers with the
+	// server using SL_REGOP_REGISTER, server marks all interface registrations as stale.
+	// Client can then reprogram interface registrations. When the client sends
+	// SL_REGOP_EOF, any interface registrations not reprogrammed by the client are
+	// removed from the device.
+	//
+	// The client must perform all operations (SLInterfaceGlobalsRegMsg,
+	// interface registration operations) from a single execution context.
 	SLInterfaceGlobalsRegOp(context.Context, *SLInterfaceGlobalsRegMsg) (*SLInterfaceGlobalsRegMsgRsp, error)
 	// Used to retrieve global Interface info from the server.
 	SLInterfaceGlobalsGet(context.Context, *SLInterfaceGlobalsGetMsg) (*SLInterfaceGlobalsGetMsgRsp, error)

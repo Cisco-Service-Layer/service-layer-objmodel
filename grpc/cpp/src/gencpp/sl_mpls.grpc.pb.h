@@ -90,6 +90,17 @@ class SLMplsOper final {
     //     message to convey the end of replay of the client's known objects.
     //     This is especially useful under certain restart scenarios when the
     //     client and the server are trying to synchronize their MPLS objects.
+    //
+    // The MPLS registration operations can be used by the client to
+    // synchronize label block allocations and ILMs with the device. When
+    // the client re-registers with the server using SL_REGOP_REGISTER,
+    // server marks all label block allocations and ILMs as stale.
+    // Client then must reprogram label block allocations and ILMs.
+    // When client sends SL_REGOP_EOF, any objects not reprogrammed
+    // are removed from the device.
+    //
+    // The client must perform all operations (MPLS registration,
+    // label block and ILM) from a single execution context.
     virtual ::grpc::Status SLMplsRegOp(::grpc::ClientContext* context, const ::service_layer::SLMplsRegMsg& request, ::service_layer::SLMplsRegMsgRsp* response) = 0;
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::service_layer::SLMplsRegMsgRsp>> AsyncSLMplsRegOp(::grpc::ClientContext* context, const ::service_layer::SLMplsRegMsg& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::service_layer::SLMplsRegMsgRsp>>(AsyncSLMplsRegOpRaw(context, request, cq));
@@ -222,6 +233,17 @@ class SLMplsOper final {
       //     message to convey the end of replay of the client's known objects.
       //     This is especially useful under certain restart scenarios when the
       //     client and the server are trying to synchronize their MPLS objects.
+      //
+      // The MPLS registration operations can be used by the client to
+      // synchronize label block allocations and ILMs with the device. When
+      // the client re-registers with the server using SL_REGOP_REGISTER,
+      // server marks all label block allocations and ILMs as stale.
+      // Client then must reprogram label block allocations and ILMs.
+      // When client sends SL_REGOP_EOF, any objects not reprogrammed
+      // are removed from the device.
+      //
+      // The client must perform all operations (MPLS registration,
+      // label block and ILM) from a single execution context.
       virtual void SLMplsRegOp(::grpc::ClientContext* context, const ::service_layer::SLMplsRegMsg* request, ::service_layer::SLMplsRegMsgRsp* response, std::function<void(::grpc::Status)>) = 0;
       virtual void SLMplsRegOp(::grpc::ClientContext* context, const ::service_layer::SLMplsRegMsg* request, ::service_layer::SLMplsRegMsgRsp* response, ::grpc::ClientUnaryReactor* reactor) = 0;
       // Retrieve global MPLS info from the server.
@@ -462,6 +484,17 @@ class SLMplsOper final {
     //     message to convey the end of replay of the client's known objects.
     //     This is especially useful under certain restart scenarios when the
     //     client and the server are trying to synchronize their MPLS objects.
+    //
+    // The MPLS registration operations can be used by the client to
+    // synchronize label block allocations and ILMs with the device. When
+    // the client re-registers with the server using SL_REGOP_REGISTER,
+    // server marks all label block allocations and ILMs as stale.
+    // Client then must reprogram label block allocations and ILMs.
+    // When client sends SL_REGOP_EOF, any objects not reprogrammed
+    // are removed from the device.
+    //
+    // The client must perform all operations (MPLS registration,
+    // label block and ILM) from a single execution context.
     virtual ::grpc::Status SLMplsRegOp(::grpc::ServerContext* context, const ::service_layer::SLMplsRegMsg* request, ::service_layer::SLMplsRegMsgRsp* response);
     // Retrieve global MPLS info from the server.
     virtual ::grpc::Status SLMplsGet(::grpc::ServerContext* context, const ::service_layer::SLMplsGetMsg* request, ::service_layer::SLMplsGetMsgRsp* response);

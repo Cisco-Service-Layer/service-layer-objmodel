@@ -421,10 +421,12 @@
     SL_NHLFE_ELSP_PROTECTION_UNSUPPORTED = 0xa01b,\
     /* EXP value is outside of the valid range of <0-7>. 0xa01c */\
     SL_NHLFE_INVALID_ELSP_EXP = 0xa01c,\
-    /* Path Priority is invalid (valid: 0 or 1) */\
+    /* Path Priority is invalid (valid: 0 or 1). 0xa01d */\
     SL_NHLFE_INVALID_PATH_PRIORITY = 0xa01d,\
-    /* Load metric is is not zero even though path down */\
+    /* Load metric is not zero for a down path. 0xa01e */\
     SL_NHLFE_INVALID_LOAD_METRIC = 0xa01e,\
+    /* Set ID value is outside of the valid range of <0-7>. 0xa01f */\
+    SL_NHLFE_INVALID_SETID = 0xa01f,\
     /* !!!  MPLS Label block Error codes */\
     /* Offset for label block errors. 0xb000 */\
     SL_LABEL_BLK_ERR_OFFSET = 0xb000,\
@@ -1156,10 +1158,13 @@
         " EXP value is outside of the valid range of <0-7>.  "\
         },\
     {SL_NHLFE_INVALID_PATH_PRIORITY ,\
-        " Path Priority is invalid (valid: 0 or 1) "\
+        " Path Priority is invalid (valid: 0 or 1).  "\
         },\
     {SL_NHLFE_INVALID_LOAD_METRIC ,\
-        " Load metric is is not zero even though path down "\
+        " Load metric is not zero for a down path.  "\
+        },\
+    {SL_NHLFE_INVALID_SETID ,\
+        " Set ID value is outside of the valid range of <0-7>.  "\
         },\
     {SL_LABEL_BLK_ERR_OFFSET ,\
         " Offset for label block errors.  "\
