@@ -340,7 +340,10 @@ def ilm_serializer(batch_info):
                     p.PathId = path['path_id']
                 if 'next_hop' in path:
                     nh = path['next_hop']
-                    if 'nh_afi' in ilm:
+
+                    if "nh_afi" in path:
+                        local_af = path['nh_afi']
+                    elif 'nh_afi' in ilm:
                         local_af = ilm['nh_afi']
                     else:
                         local_af = ilm['af']
@@ -408,6 +411,15 @@ def ilm_get_serializer(get_info):
     if "ilm" in get_info:
         if "in_label" in get_info["ilm"]:
             serializer.Key.LocalLabel = get_info["ilm"]["in_label"]
+        elif 'ip_prefix' in get_info["ilm"]:
+            ip_prefix = get_info["ilm"].get('ip_prefix')
+            if 'ipv4_prefix' in ip_prefix:
+                serializer.Key.Prefix.V4Prefix.Prefix = int(ipaddress.ip_address(ip_prefix["ipv4_prefix"]))
+                serializer.Key.Prefix.PrefixLen = ip_prefix.get("prefix_len", 32)
+            elif 'ipv6_prefix' in ip_prefix:
+                serializer.Key.Prefix.V6Prefix.Prefix = ipaddress.ip_address(ip_prefix["ipv6_prefix"]).packed
+                serializer.Key.Prefix.PrefixLen = ip_prefix.get("prefix_len", 128)
+            serializer.Key.Prefix.VrfName = ip_prefix.get("vrf_name", "default")
         if "default_elsp" in get_info["ilm"]:
             serializer.Key.SlMplsCosVal.DefaultElspPath = get_info["ilm"]["default_elsp"]
         elif "exp" in get_info["ilm"]:

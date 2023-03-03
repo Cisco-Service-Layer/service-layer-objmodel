@@ -140,6 +140,7 @@ class TestSuite_003_ILM_IPv4(unittest.TestCase):
     def test_006_01_ilm_get_exact_match(self):
         get_info = self.ilm_get_info["get_exact_ilm"]
         client.ilm_get(get_info)
+    
 
     def test_006_02_ilm_get_firstN(self):
         get_info = self.ilm_get_info["get_firstN_ilm"]
@@ -1534,6 +1535,7 @@ class TestSuite_033_MPLS_IPV4_IPV6_CBF_MIXED(unittest.TestCase):
         cls.label_block = json_params['mpls_ip_route_label_block']
         cls.reg_params = json_params['reg_params']
         cls.path_info = {'paths': json_params['paths'], 'next_hops': json_params['next_hops']}
+        cls.get_ilm = json_params['cos_ilm_get']
 
     def test_000_get_globals(self):
         # Get Global MPLS info
@@ -1550,24 +1552,54 @@ class TestSuite_033_MPLS_IPV4_IPV6_CBF_MIXED(unittest.TestCase):
         client.ilm_add(self.ilm_entry["cos_ilm_1"], stream=self.STREAM,
                 af=self.AF, **self.path_info)
 
-    def test_004_mpls_eof(self):
+    def test_004_ilm_get_label(self):
+        # Check that we are able to get a label ilm
+        get_info = self.get_ilm["get_exact_match_ilm"]
+        response = client.ilm_get(get_info)
+        assert get_info["count"] == len(response.Entries)
+    
+    def test_005_ilm_get_label_exp(self):
+        # Check that get works for ilm with label and exp as keys
+        get_info = self.get_ilm["get_exact_match_ilm_exp"]
+        response = client.ilm_get(get_info)
+        assert get_info["count"] == len(response.Entries)
+
+    def test_006_ilm_get_label_ipv4(self):
+        #Check that get works for ilm with ipv4 prefix
+        get_info = self.get_ilm["get_exact_match_ilm_ipv4"]
+        response = client.ilm_get(get_info)
+        assert get_info["count"] == len(response.Entries)
+
+    def test_007_ilm_get_label_ipv6(self):
+        # Check that get work for ilm with ipv6 prefix
+        get_info = self.get_ilm["get_exact_match_ilm_ipv6"]
+        response = client.ilm_get(get_info)
+        assert get_info["count"] == len(response.Entries)
+    
+    def test_008_ilm_get_label_mixed(self):
+        # Check that get works for ilm with mixed label, cbf, ipv4 and ipv6 prefixes
+        get_info = self.get_ilm["get_mixed_ilm_ip_prefixes"]
+        response = client.ilm_get(get_info)
+        assert get_info["count"] == len(response.Entries)
+
+    def test_009_mpls_eof(self):
         client.mpls_eof()
 
-    def test_005_mpls_register(self):
+    def test_010_mpls_register(self):
         client.mpls_register(self.reg_params)
     
-    def test_006_blk_add(self):
+    def test_011_blk_add(self):
         client.label_block_add(self.label_block)
 
-    def test_007_ilm_add(self):
+    def test_012_ilm_add(self):
         # Add half the number of entries, and check if previous entries are cleared
         client.ilm_add(self.ilm_entry["cos_ilm_2"], stream=self.STREAM,
                 af=self.AF, **self.path_info)
 
-    def test_008_mpls_eof(self):
+    def test_013_mpls_eof(self):
         client.mpls_eof()
 
-    def test_011_mpls_unregister(self):
+    def test_014_mpls_unregister(self):
         client.mpls_unregister()
 
 class TestSuite_034_MPLS_IP_PREFIX_SCALE(unittest.TestCase):
@@ -1638,6 +1670,7 @@ class TestSuite_035_MPLS_IP_CBF_PREFIX_SCALE(unittest.TestCase):
         client.ilm_add(self.ilm_entry_1, stream=self.STREAM,
                 af=self.AF, **self.path_info)
 
+
     def test_004_mpls_eof(self):
         client.mpls_eof()
 
@@ -1647,13 +1680,13 @@ class TestSuite_035_MPLS_IP_CBF_PREFIX_SCALE(unittest.TestCase):
     def test_006_blk_add(self):
         client.label_block_add(self.label_block)
     
-    def test_006_ilm_add(self):
+    def test_007_ilm_add(self):
         # mark and sweep testing  with half the number of prefixes
         client.ilm_add(self.ilm_entry_2, stream=self.STREAM,
                 af=self.AF, **self.path_info)
 
-    def test_007_mpls_eof(self):
+    def test_008_mpls_eof(self):
         client.mpls_eof()
 
-    def test_008_mpls_unregister(self):
+    def test_009_mpls_unregister(self):
         client.mpls_unregister()
