@@ -360,6 +360,22 @@
     /* MPLS ILMs were played to Label Switching Database */\
     /* on a process restart or connection re-establishment. 0x9014 */\
     SL_ILM_REPLAY_OK = 0x9014,\
+    /* ILM's prefix length is invalid. 0x9015 */\
+    SL_ILM_INVALID_PREFIX_LEN = 0x9015,\
+    /* ILM prefix has host bits set. 0x9016 */\
+    SL_ILM_HOST_BITS_SET = 0x9016,\
+    /* Size of IPv6 prefix is invalid. 0x9017 */\
+    SL_ILM_INVALID_PREFIX_SZ = 0x9017,\
+    /* ILM's prefix is invalid. 0x9018 */\
+    SL_ILM_INVALID_PREFIX = 0x9018,\
+    /* ILM's IPv4 Route prefix is a multicast address. 0x9019 */\
+    SL_ILM_INVALID_PREFIX_MCAST = 0x9019,\
+    /* VRF name is too long. 0x9020 */\
+    SL_ILM_VRF_NAME_TOOLONG = 0x9020,\
+    /* VRF's table ID not found. 0x9021 */\
+    SL_ILM_VRF_NO_TABLE_ID = 0x9021,\
+    /* VRF name of the ILM route not specified. 0x9022 */\
+    SL_ILM_VRF_NAME_MISSING = 0x9022,\
     /* !!!  MPLS NHLFE Error codes */\
     /* Offset for MPLS NHLFE errors. 0xa000 */\
     SL_NHLFE_ERR_OFFSET = 0xa000,\
@@ -1067,6 +1083,30 @@
     {SL_ILM_REPLAY_OK ,\
         " MPLS ILMs were played to Label Switching Database "\
         " on a process restart or connection re-establishment.  "\
+        },\
+    {SL_ILM_INVALID_PREFIX_LEN ,\
+        " ILM's prefix length is invalid.  "\
+        },\
+    {SL_ILM_HOST_BITS_SET ,\
+        " ILM prefix has host bits set.  "\
+        },\
+    {SL_ILM_INVALID_PREFIX_SZ ,\
+        " Size of IPv6 prefix is invalid.  "\
+        },\
+    {SL_ILM_INVALID_PREFIX ,\
+        " ILM's prefix is invalid.  "\
+        },\
+    {SL_ILM_INVALID_PREFIX_MCAST ,\
+        " ILM's IPv4 Route prefix is a multicast address.  "\
+        },\
+    {SL_ILM_VRF_NAME_TOOLONG ,\
+        " VRF name is too long.  "\
+        },\
+    {SL_ILM_VRF_NO_TABLE_ID ,\
+        " VRF's table ID not found.  "\
+        },\
+    {SL_ILM_VRF_NAME_MISSING ,\
+        " VRF name of the ILM route not specified.  "\
         },\
     {SL_NHLFE_ERR_OFFSET ,\
         " Offset for MPLS NHLFE errors.  "\
