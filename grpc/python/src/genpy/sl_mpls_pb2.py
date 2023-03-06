@@ -21,7 +21,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'ZOgithub.com/Cisco-service-layer/service-layer-objmodel/grpc/protos;service_layer',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\rsl_mpls.proto\x12\rservice_layer\x1a\x15sl_common_types.proto\"\x8d\x01\n\x13SLMplsLabelBlockKey\x12\x12\n\nStartLabel\x18\x01 \x01(\r\x12\x16\n\x0eLabelBlockSize\x18\x02 \x01(\r\x12\x36\n\tBlockType\x18\x03 \x01(\x0e\x32#.service_layer.SLMplsLabelBlockType\x12\x12\n\nClientName\x18\x04 \x01(\t\"v\n\x13SLMplsLabelBlockMsg\x12\'\n\x04Oper\x18\x01 \x01(\x0e\x32\x19.service_layer.SLObjectOp\x12\x36\n\nMplsBlocks\x18\x02 \x03(\x0b\x32\".service_layer.SLMplsLabelBlockKey\"z\n\x16SLMplsLabelBlockMsgRes\x12/\n\tErrStatus\x18\x01 \x01(\x0b\x32\x1c.service_layer.SLErrorStatus\x12/\n\x03Key\x18\x02 \x01(\x0b\x32\".service_layer.SLMplsLabelBlockKey\"\x85\x01\n\x16SLMplsLabelBlockMsgRsp\x12\x33\n\rStatusSummary\x18\x01 \x01(\x0b\x32\x1c.service_layer.SLErrorStatus\x12\x36\n\x07Results\x18\x02 \x03(\x0b\x32%.service_layer.SLMplsLabelBlockMsgRes\"p\n\x16SLMplsLabelBlockGetMsg\x12/\n\x03Key\x18\x01 \x01(\x0b\x32\".service_layer.SLMplsLabelBlockKey\x12\x14\n\x0c\x45ntriesCount\x18\x02 \x01(\r\x12\x0f\n\x07GetNext\x18\x03 \x01(\x08\"\x8e\x01\n\x19SLMplsLabelBlockGetMsgRsp\x12\x0b\n\x03\x45of\x18\x01 \x01(\x08\x12/\n\tErrStatus\x18\x02 \x01(\x0b\x32\x1c.service_layer.SLErrorStatus\x12\x33\n\x07\x45ntries\x18\x03 \x03(\x0b\x32\".service_layer.SLMplsLabelBlockKey\")\n\tSlMplsReg\x12\x1c\n\x14PurgeIntervalSeconds\x18\x01 \x01(\r\"^\n\x0cSLMplsRegMsg\x12$\n\x04Oper\x18\x01 \x01(\x0e\x32\x16.service_layer.SLRegOp\x12(\n\x06RegMsg\x18\x02 \x01(\x0b\x32\x18.service_layer.SlMplsReg\"B\n\x0fSLMplsRegMsgRsp\x12/\n\tErrStatus\x18\x01 \x01(\x0b\x32\x1c.service_layer.SLErrorStatus\"\x0e\n\x0cSLMplsGetMsg\"\xe5\x01\n\x0fSLMplsGetMsgRsp\x12/\n\tErrStatus\x18\x01 \x01(\x0b\x32\x1c.service_layer.SLErrorStatus\x12\x19\n\x11MaxLabelsPerBlock\x18\x02 \x01(\r\x12&\n\x1eMaxLabelblocksPerLabelblockmsg\x18\x03 \x01(\r\x12\x15\n\rMinStartLabel\x18\x04 \x01(\r\x12\x16\n\x0eLabelTableSize\x18\x05 \x01(\r\x12\x17\n\x0fMaxIlmPerIlmmsg\x18\x06 \x01(\r\x12\x16\n\x0eMaxPathsPerIlm\x18\x07 \x01(\r\"r\n\x14SLMplsGetStatsMsgRsp\x12/\n\tErrStatus\x18\x01 \x01(\x0b\x32\x1c.service_layer.SLErrorStatus\x12\x17\n\x0fLabelBlockCount\x18\x02 \x01(\r\x12\x10\n\x08IlmCount\x18\x03 \x01(\r\"\xba\x03\n\nSLMplsPath\x12\x32\n\x0eNexthopAddress\x18\x01 \x01(\x0b\x32\x1a.service_layer.SLIpAddress\x12\x34\n\x10NexthopInterface\x18\x02 \x01(\x0b\x32\x1a.service_layer.SLInterface\x12\x12\n\nLoadMetric\x18\x03 \x01(\r\x12\x0f\n\x07VrfName\x18\x04 \x01(\t\x12,\n\x06\x41\x63tion\x18\x05 \x01(\x0e\x32\x1c.service_layer.SlLabelAction\x12\x0e\n\x06PathId\x18\x06 \x01(\r\x12\x1b\n\x13ProtectedPathBitmap\x18\x07 \x03(\x04\x12\x12\n\nLabelStack\x18\x08 \x03(\r\x12\x31\n\rRemoteAddress\x18\t \x03(\x0b\x32\x1a.service_layer.SLIpAddress\x12.\n\x0cSlMplsCosVal\x18\n \x01(\x0b\x32\x18.service_layer.SLMplsCos\x12\x1a\n\x12SlMplsPathPriority\x18\x0b \x01(\r\x12\x17\n\x0fSlMplsPathSetId\x18\x0c \x01(\r\x12\x16\n\x0eSlMplsPathDown\x18\r \x01(\x08\"R\n\x0cSLMplsIlmKey\x12\x12\n\nLocalLabel\x18\x01 \x01(\r\x12.\n\x0cSlMplsCosVal\x18\x02 \x01(\x0b\x32\x18.service_layer.SLMplsCos\"Y\n\tSLMplsCos\x12\r\n\x03\x45xp\x18\x01 \x01(\rH\x00\x12\x19\n\x0f\x44\x65\x66\x61ultElspPath\x18\x02 \x01(\x08H\x00\x12\x19\n\x0f\x46orwardingClass\x18\x03 \x01(\rH\x00\x42\x07\n\x05value\"d\n\x0eSLMplsIlmEntry\x12(\n\x03Key\x18\x01 \x01(\x0b\x32\x1b.service_layer.SLMplsIlmKey\x12(\n\x05Paths\x18\x02 \x03(\x0b\x32\x19.service_layer.SLMplsPath\"|\n\x0cSLMplsIlmMsg\x12\'\n\x04Oper\x18\x01 \x01(\x0e\x32\x19.service_layer.SLObjectOp\x12\x12\n\nCorrelator\x18\x02 \x01(\x04\x12/\n\x08MplsIlms\x18\x03 \x03(\x0b\x32\x1d.service_layer.SLMplsIlmEntry\"i\n\x0cSLMplsIlmRes\x12/\n\tErrStatus\x18\x01 \x01(\x0b\x32\x1c.service_layer.SLErrorStatus\x12(\n\x03Key\x18\x02 \x01(\x0b\x32\x1b.service_layer.SLMplsIlmKey\"\x88\x01\n\x0fSLMplsIlmMsgRsp\x12\x12\n\nCorrelator\x18\x01 \x01(\x04\x12\x33\n\rStatusSummary\x18\x02 \x01(\x0b\x32\x1c.service_layer.SLErrorStatus\x12,\n\x07Results\x18\x03 \x03(\x0b\x32\x1b.service_layer.SLMplsIlmRes\"v\n\x0fSLMplsIlmGetMsg\x12\x12\n\nCorrelator\x18\x01 \x01(\x04\x12(\n\x03Key\x18\x02 \x01(\x0b\x32\x1b.service_layer.SLMplsIlmKey\x12\x14\n\x0c\x45ntriesCount\x18\x03 \x01(\r\x12\x0f\n\x07GetNext\x18\x04 \x01(\x08\"\x96\x01\n\x12SLMplsIlmGetMsgRsp\x12\x12\n\nCorrelator\x18\x01 \x01(\x04\x12\x0b\n\x03\x45of\x18\x02 \x01(\x08\x12/\n\tErrStatus\x18\x03 \x01(\x0b\x32\x1c.service_layer.SLErrorStatus\x12.\n\x07\x45ntries\x18\x04 \x03(\x0b\x32\x1d.service_layer.SLMplsIlmEntry*\xe2\x01\n\rSlLabelAction\x12\x1c\n\x18SL_LABEL_ACTION_RESERVED\x10\x00\x12\x18\n\x14SL_LABEL_ACTION_SWAP\x10\x01\x12#\n\x1fSL_LABEL_ACTION_POP_AND_FORWARD\x10\x02\x12\'\n#SL_LABEL_ACTION_POP_AND_LOOKUP_IPV4\x10\x03\x12\'\n#SL_LABEL_ACTION_POP_AND_LOOKUP_IPV6\x10\x04\x12\"\n\x1eSL_LABEL_ACTION_POP_AND_LOOKUP\x10\x05*\x82\x01\n\x14SLMplsLabelBlockType\x12%\n!SL_MPLS_LABEL_BLOCK_TYPE_RESERVED\x10\x00\x12!\n\x1dSL_MPLS_LABEL_BLOCK_TYPE_SRGB\x10\x01\x12 \n\x1cSL_MPLS_LABEL_BLOCK_TYPE_CBF\x10\x02\x32\x91\x06\n\nSLMplsOper\x12J\n\x0bSLMplsRegOp\x12\x1b.service_layer.SLMplsRegMsg\x1a\x1e.service_layer.SLMplsRegMsgRsp\x12H\n\tSLMplsGet\x12\x1b.service_layer.SLMplsGetMsg\x1a\x1e.service_layer.SLMplsGetMsgRsp\x12R\n\x0eSLMplsGetStats\x12\x1b.service_layer.SLMplsGetMsg\x1a#.service_layer.SLMplsGetStatsMsgRsp\x12_\n\x12SLMplsLabelBlockOp\x12\".service_layer.SLMplsLabelBlockMsg\x1a%.service_layer.SLMplsLabelBlockMsgRsp\x12\x66\n\x13SLMplsLabelBlockGet\x12%.service_layer.SLMplsLabelBlockGetMsg\x1a(.service_layer.SLMplsLabelBlockGetMsgRsp\x12J\n\x0bSLMplsIlmOp\x12\x1b.service_layer.SLMplsIlmMsg\x1a\x1e.service_layer.SLMplsIlmMsgRsp\x12Q\n\x0cSLMplsIlmGet\x12\x1e.service_layer.SLMplsIlmGetMsg\x1a!.service_layer.SLMplsIlmGetMsgRsp\x12T\n\x11SLMplsIlmOpStream\x12\x1b.service_layer.SLMplsIlmMsg\x1a\x1e.service_layer.SLMplsIlmMsgRsp(\x01\x30\x01\x12[\n\x12SLMplsIlmGetStream\x12\x1e.service_layer.SLMplsIlmGetMsg\x1a!.service_layer.SLMplsIlmGetMsgRsp(\x01\x30\x01\x42QZOgithub.com/Cisco-service-layer/service-layer-objmodel/grpc/protos;service_layerb\x06proto3'
+  serialized_pb=b'\n\rsl_mpls.proto\x12\rservice_layer\x1a\x15sl_common_types.proto\"\x8d\x01\n\x13SLMplsLabelBlockKey\x12\x12\n\nStartLabel\x18\x01 \x01(\r\x12\x16\n\x0eLabelBlockSize\x18\x02 \x01(\r\x12\x36\n\tBlockType\x18\x03 \x01(\x0e\x32#.service_layer.SLMplsLabelBlockType\x12\x12\n\nClientName\x18\x04 \x01(\t\"v\n\x13SLMplsLabelBlockMsg\x12\'\n\x04Oper\x18\x01 \x01(\x0e\x32\x19.service_layer.SLObjectOp\x12\x36\n\nMplsBlocks\x18\x02 \x03(\x0b\x32\".service_layer.SLMplsLabelBlockKey\"z\n\x16SLMplsLabelBlockMsgRes\x12/\n\tErrStatus\x18\x01 \x01(\x0b\x32\x1c.service_layer.SLErrorStatus\x12/\n\x03Key\x18\x02 \x01(\x0b\x32\".service_layer.SLMplsLabelBlockKey\"\x85\x01\n\x16SLMplsLabelBlockMsgRsp\x12\x33\n\rStatusSummary\x18\x01 \x01(\x0b\x32\x1c.service_layer.SLErrorStatus\x12\x36\n\x07Results\x18\x02 \x03(\x0b\x32%.service_layer.SLMplsLabelBlockMsgRes\"p\n\x16SLMplsLabelBlockGetMsg\x12/\n\x03Key\x18\x01 \x01(\x0b\x32\".service_layer.SLMplsLabelBlockKey\x12\x14\n\x0c\x45ntriesCount\x18\x02 \x01(\r\x12\x0f\n\x07GetNext\x18\x03 \x01(\x08\"\x8e\x01\n\x19SLMplsLabelBlockGetMsgRsp\x12\x0b\n\x03\x45of\x18\x01 \x01(\x08\x12/\n\tErrStatus\x18\x02 \x01(\x0b\x32\x1c.service_layer.SLErrorStatus\x12\x33\n\x07\x45ntries\x18\x03 \x03(\x0b\x32\".service_layer.SLMplsLabelBlockKey\")\n\tSlMplsReg\x12\x1c\n\x14PurgeIntervalSeconds\x18\x01 \x01(\r\"^\n\x0cSLMplsRegMsg\x12$\n\x04Oper\x18\x01 \x01(\x0e\x32\x16.service_layer.SLRegOp\x12(\n\x06RegMsg\x18\x02 \x01(\x0b\x32\x18.service_layer.SlMplsReg\"B\n\x0fSLMplsRegMsgRsp\x12/\n\tErrStatus\x18\x01 \x01(\x0b\x32\x1c.service_layer.SLErrorStatus\"\x0e\n\x0cSLMplsGetMsg\"\xe5\x01\n\x0fSLMplsGetMsgRsp\x12/\n\tErrStatus\x18\x01 \x01(\x0b\x32\x1c.service_layer.SLErrorStatus\x12\x19\n\x11MaxLabelsPerBlock\x18\x02 \x01(\r\x12&\n\x1eMaxLabelblocksPerLabelblockmsg\x18\x03 \x01(\r\x12\x15\n\rMinStartLabel\x18\x04 \x01(\r\x12\x16\n\x0eLabelTableSize\x18\x05 \x01(\r\x12\x17\n\x0fMaxIlmPerIlmmsg\x18\x06 \x01(\r\x12\x16\n\x0eMaxPathsPerIlm\x18\x07 \x01(\r\"r\n\x14SLMplsGetStatsMsgRsp\x12/\n\tErrStatus\x18\x01 \x01(\x0b\x32\x1c.service_layer.SLErrorStatus\x12\x17\n\x0fLabelBlockCount\x18\x02 \x01(\r\x12\x10\n\x08IlmCount\x18\x03 \x01(\r\"\xba\x03\n\nSLMplsPath\x12\x32\n\x0eNexthopAddress\x18\x01 \x01(\x0b\x32\x1a.service_layer.SLIpAddress\x12\x34\n\x10NexthopInterface\x18\x02 \x01(\x0b\x32\x1a.service_layer.SLInterface\x12\x12\n\nLoadMetric\x18\x03 \x01(\r\x12\x0f\n\x07VrfName\x18\x04 \x01(\t\x12,\n\x06\x41\x63tion\x18\x05 \x01(\x0e\x32\x1c.service_layer.SlLabelAction\x12\x0e\n\x06PathId\x18\x06 \x01(\r\x12\x1b\n\x13ProtectedPathBitmap\x18\x07 \x03(\x04\x12\x12\n\nLabelStack\x18\x08 \x03(\r\x12\x31\n\rRemoteAddress\x18\t \x03(\x0b\x32\x1a.service_layer.SLIpAddress\x12.\n\x0cSlMplsCosVal\x18\n \x01(\x0b\x32\x18.service_layer.SLMplsCos\x12\x1a\n\x12SlMplsPathPriority\x18\x0b \x01(\r\x12\x17\n\x0fSlMplsPathSetId\x18\x0c \x01(\r\x12\x16\n\x0eSlMplsPathDown\x18\r \x01(\x08\"\x88\x03\n\x0cSLMplsIlmKey\x12\x12\n\nLocalLabel\x18\x01 \x01(\r\x12.\n\x0cSlMplsCosVal\x18\x02 \x01(\x0b\x32\x18.service_layer.SLMplsCos\x12\x37\n\x06Prefix\x18\x03 \x01(\x0b\x32\'.service_layer.SLMplsIlmKey.IPPrefixKey\x1a\x1f\n\rIPv4PrefixKey\x12\x0e\n\x06Prefix\x18\x01 \x01(\r\x1a\x1f\n\rIPv6PrefixKey\x12\x0e\n\x06Prefix\x18\x01 \x01(\x0c\x1a\xb8\x01\n\x0bIPPrefixKey\x12=\n\x08V4Prefix\x18\x01 \x01(\x0b\x32).service_layer.SLMplsIlmKey.IPv4PrefixKeyH\x00\x12=\n\x08V6Prefix\x18\x02 \x01(\x0b\x32).service_layer.SLMplsIlmKey.IPv6PrefixKeyH\x00\x12\x11\n\tPrefixLen\x18\x03 \x01(\r\x12\x0f\n\x07VrfName\x18\x04 \x01(\tB\x07\n\x05\x65ntry\"Y\n\tSLMplsCos\x12\r\n\x03\x45xp\x18\x01 \x01(\rH\x00\x12\x19\n\x0f\x44\x65\x66\x61ultElspPath\x18\x02 \x01(\x08H\x00\x12\x19\n\x0f\x46orwardingClass\x18\x03 \x01(\rH\x00\x42\x07\n\x05value\"d\n\x0eSLMplsIlmEntry\x12(\n\x03Key\x18\x01 \x01(\x0b\x32\x1b.service_layer.SLMplsIlmKey\x12(\n\x05Paths\x18\x02 \x03(\x0b\x32\x19.service_layer.SLMplsPath\"|\n\x0cSLMplsIlmMsg\x12\'\n\x04Oper\x18\x01 \x01(\x0e\x32\x19.service_layer.SLObjectOp\x12\x12\n\nCorrelator\x18\x02 \x01(\x04\x12/\n\x08MplsIlms\x18\x03 \x03(\x0b\x32\x1d.service_layer.SLMplsIlmEntry\"i\n\x0cSLMplsIlmRes\x12/\n\tErrStatus\x18\x01 \x01(\x0b\x32\x1c.service_layer.SLErrorStatus\x12(\n\x03Key\x18\x02 \x01(\x0b\x32\x1b.service_layer.SLMplsIlmKey\"\x88\x01\n\x0fSLMplsIlmMsgRsp\x12\x12\n\nCorrelator\x18\x01 \x01(\x04\x12\x33\n\rStatusSummary\x18\x02 \x01(\x0b\x32\x1c.service_layer.SLErrorStatus\x12,\n\x07Results\x18\x03 \x03(\x0b\x32\x1b.service_layer.SLMplsIlmRes\"v\n\x0fSLMplsIlmGetMsg\x12\x12\n\nCorrelator\x18\x01 \x01(\x04\x12(\n\x03Key\x18\x02 \x01(\x0b\x32\x1b.service_layer.SLMplsIlmKey\x12\x14\n\x0c\x45ntriesCount\x18\x03 \x01(\r\x12\x0f\n\x07GetNext\x18\x04 \x01(\x08\"\x96\x01\n\x12SLMplsIlmGetMsgRsp\x12\x12\n\nCorrelator\x18\x01 \x01(\x04\x12\x0b\n\x03\x45of\x18\x02 \x01(\x08\x12/\n\tErrStatus\x18\x03 \x01(\x0b\x32\x1c.service_layer.SLErrorStatus\x12.\n\x07\x45ntries\x18\x04 \x03(\x0b\x32\x1d.service_layer.SLMplsIlmEntry*\xfc\x01\n\rSlLabelAction\x12\x1c\n\x18SL_LABEL_ACTION_RESERVED\x10\x00\x12\x18\n\x14SL_LABEL_ACTION_SWAP\x10\x01\x12#\n\x1fSL_LABEL_ACTION_POP_AND_FORWARD\x10\x02\x12\'\n#SL_LABEL_ACTION_POP_AND_LOOKUP_IPV4\x10\x03\x12\'\n#SL_LABEL_ACTION_POP_AND_LOOKUP_IPV6\x10\x04\x12\"\n\x1eSL_LABEL_ACTION_POP_AND_LOOKUP\x10\x05\x12\x18\n\x14SL_LABEL_ACTION_PUSH\x10\x06*\x82\x01\n\x14SLMplsLabelBlockType\x12%\n!SL_MPLS_LABEL_BLOCK_TYPE_RESERVED\x10\x00\x12!\n\x1dSL_MPLS_LABEL_BLOCK_TYPE_SRGB\x10\x01\x12 \n\x1cSL_MPLS_LABEL_BLOCK_TYPE_CBF\x10\x02\x32\x91\x06\n\nSLMplsOper\x12J\n\x0bSLMplsRegOp\x12\x1b.service_layer.SLMplsRegMsg\x1a\x1e.service_layer.SLMplsRegMsgRsp\x12H\n\tSLMplsGet\x12\x1b.service_layer.SLMplsGetMsg\x1a\x1e.service_layer.SLMplsGetMsgRsp\x12R\n\x0eSLMplsGetStats\x12\x1b.service_layer.SLMplsGetMsg\x1a#.service_layer.SLMplsGetStatsMsgRsp\x12_\n\x12SLMplsLabelBlockOp\x12\".service_layer.SLMplsLabelBlockMsg\x1a%.service_layer.SLMplsLabelBlockMsgRsp\x12\x66\n\x13SLMplsLabelBlockGet\x12%.service_layer.SLMplsLabelBlockGetMsg\x1a(.service_layer.SLMplsLabelBlockGetMsgRsp\x12J\n\x0bSLMplsIlmOp\x12\x1b.service_layer.SLMplsIlmMsg\x1a\x1e.service_layer.SLMplsIlmMsgRsp\x12Q\n\x0cSLMplsIlmGet\x12\x1e.service_layer.SLMplsIlmGetMsg\x1a!.service_layer.SLMplsIlmGetMsgRsp\x12T\n\x11SLMplsIlmOpStream\x12\x1b.service_layer.SLMplsIlmMsg\x1a\x1e.service_layer.SLMplsIlmMsgRsp(\x01\x30\x01\x12[\n\x12SLMplsIlmGetStream\x12\x1e.service_layer.SLMplsIlmGetMsg\x1a!.service_layer.SLMplsIlmGetMsgRsp(\x01\x30\x01\x42QZOgithub.com/Cisco-service-layer/service-layer-objmodel/grpc/protos;service_layerb\x06proto3'
   ,
   dependencies=[sl__common__types__pb2.DESCRIPTOR,])
 
@@ -62,11 +62,16 @@ _SLLABELACTION = _descriptor.EnumDescriptor(
       serialized_options=None,
       type=None,
       create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='SL_LABEL_ACTION_PUSH', index=6, number=6,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=2777,
-  serialized_end=3003,
+  serialized_start=3088,
+  serialized_end=3340,
 )
 _sym_db.RegisterEnumDescriptor(_SLLABELACTION)
 
@@ -96,8 +101,8 @@ _SLMPLSLABELBLOCKTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=3006,
-  serialized_end=3136,
+  serialized_start=3343,
+  serialized_end=3473,
 )
 _sym_db.RegisterEnumDescriptor(_SLMPLSLABELBLOCKTYPE)
 
@@ -108,6 +113,7 @@ SL_LABEL_ACTION_POP_AND_FORWARD = 2
 SL_LABEL_ACTION_POP_AND_LOOKUP_IPV4 = 3
 SL_LABEL_ACTION_POP_AND_LOOKUP_IPV6 = 4
 SL_LABEL_ACTION_POP_AND_LOOKUP = 5
+SL_LABEL_ACTION_PUSH = 6
 SL_MPLS_LABEL_BLOCK_TYPE_RESERVED = 0
 SL_MPLS_LABEL_BLOCK_TYPE_SRGB = 1
 SL_MPLS_LABEL_BLOCK_TYPE_CBF = 2
@@ -740,6 +746,125 @@ _SLMPLSPATH = _descriptor.Descriptor(
 )
 
 
+_SLMPLSILMKEY_IPV4PREFIXKEY = _descriptor.Descriptor(
+  name='IPv4PrefixKey',
+  full_name='service_layer.SLMplsIlmKey.IPv4PrefixKey',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='Prefix', full_name='service_layer.SLMplsIlmKey.IPv4PrefixKey.Prefix', index=0,
+      number=1, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1996,
+  serialized_end=2027,
+)
+
+_SLMPLSILMKEY_IPV6PREFIXKEY = _descriptor.Descriptor(
+  name='IPv6PrefixKey',
+  full_name='service_layer.SLMplsIlmKey.IPv6PrefixKey',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='Prefix', full_name='service_layer.SLMplsIlmKey.IPv6PrefixKey.Prefix', index=0,
+      number=1, type=12, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"",
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2029,
+  serialized_end=2060,
+)
+
+_SLMPLSILMKEY_IPPREFIXKEY = _descriptor.Descriptor(
+  name='IPPrefixKey',
+  full_name='service_layer.SLMplsIlmKey.IPPrefixKey',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='V4Prefix', full_name='service_layer.SLMplsIlmKey.IPPrefixKey.V4Prefix', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='V6Prefix', full_name='service_layer.SLMplsIlmKey.IPPrefixKey.V6Prefix', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='PrefixLen', full_name='service_layer.SLMplsIlmKey.IPPrefixKey.PrefixLen', index=2,
+      number=3, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='VrfName', full_name='service_layer.SLMplsIlmKey.IPPrefixKey.VrfName', index=3,
+      number=4, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+    _descriptor.OneofDescriptor(
+      name='entry', full_name='service_layer.SLMplsIlmKey.IPPrefixKey.entry',
+      index=0, containing_type=None,
+      create_key=_descriptor._internal_create_key,
+    fields=[]),
+  ],
+  serialized_start=2063,
+  serialized_end=2247,
+)
+
 _SLMPLSILMKEY = _descriptor.Descriptor(
   name='SLMplsIlmKey',
   full_name='service_layer.SLMplsIlmKey',
@@ -762,10 +887,17 @@ _SLMPLSILMKEY = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='Prefix', full_name='service_layer.SLMplsIlmKey.Prefix', index=2,
+      number=3, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
-  nested_types=[],
+  nested_types=[_SLMPLSILMKEY_IPV4PREFIXKEY, _SLMPLSILMKEY_IPV6PREFIXKEY, _SLMPLSILMKEY_IPPREFIXKEY, ],
   enum_types=[
   ],
   serialized_options=None,
@@ -774,8 +906,8 @@ _SLMPLSILMKEY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1854,
-  serialized_end=1936,
+  serialized_start=1855,
+  serialized_end=2247,
 )
 
 
@@ -825,8 +957,8 @@ _SLMPLSCOS = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=1938,
-  serialized_end=2027,
+  serialized_start=2249,
+  serialized_end=2338,
 )
 
 
@@ -864,8 +996,8 @@ _SLMPLSILMENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2029,
-  serialized_end=2129,
+  serialized_start=2340,
+  serialized_end=2440,
 )
 
 
@@ -910,8 +1042,8 @@ _SLMPLSILMMSG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2131,
-  serialized_end=2255,
+  serialized_start=2442,
+  serialized_end=2566,
 )
 
 
@@ -949,8 +1081,8 @@ _SLMPLSILMRES = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2257,
-  serialized_end=2362,
+  serialized_start=2568,
+  serialized_end=2673,
 )
 
 
@@ -995,8 +1127,8 @@ _SLMPLSILMMSGRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2365,
-  serialized_end=2501,
+  serialized_start=2676,
+  serialized_end=2812,
 )
 
 
@@ -1048,8 +1180,8 @@ _SLMPLSILMGETMSG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2503,
-  serialized_end=2621,
+  serialized_start=2814,
+  serialized_end=2932,
 )
 
 
@@ -1101,8 +1233,8 @@ _SLMPLSILMGETMSGRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2624,
-  serialized_end=2774,
+  serialized_start=2935,
+  serialized_end=3085,
 )
 
 _SLMPLSLABELBLOCKKEY.fields_by_name['BlockType'].enum_type = _SLMPLSLABELBLOCKTYPE
@@ -1125,7 +1257,19 @@ _SLMPLSPATH.fields_by_name['NexthopInterface'].message_type = sl__common__types_
 _SLMPLSPATH.fields_by_name['Action'].enum_type = _SLLABELACTION
 _SLMPLSPATH.fields_by_name['RemoteAddress'].message_type = sl__common__types__pb2._SLIPADDRESS
 _SLMPLSPATH.fields_by_name['SlMplsCosVal'].message_type = _SLMPLSCOS
+_SLMPLSILMKEY_IPV4PREFIXKEY.containing_type = _SLMPLSILMKEY
+_SLMPLSILMKEY_IPV6PREFIXKEY.containing_type = _SLMPLSILMKEY
+_SLMPLSILMKEY_IPPREFIXKEY.fields_by_name['V4Prefix'].message_type = _SLMPLSILMKEY_IPV4PREFIXKEY
+_SLMPLSILMKEY_IPPREFIXKEY.fields_by_name['V6Prefix'].message_type = _SLMPLSILMKEY_IPV6PREFIXKEY
+_SLMPLSILMKEY_IPPREFIXKEY.containing_type = _SLMPLSILMKEY
+_SLMPLSILMKEY_IPPREFIXKEY.oneofs_by_name['entry'].fields.append(
+  _SLMPLSILMKEY_IPPREFIXKEY.fields_by_name['V4Prefix'])
+_SLMPLSILMKEY_IPPREFIXKEY.fields_by_name['V4Prefix'].containing_oneof = _SLMPLSILMKEY_IPPREFIXKEY.oneofs_by_name['entry']
+_SLMPLSILMKEY_IPPREFIXKEY.oneofs_by_name['entry'].fields.append(
+  _SLMPLSILMKEY_IPPREFIXKEY.fields_by_name['V6Prefix'])
+_SLMPLSILMKEY_IPPREFIXKEY.fields_by_name['V6Prefix'].containing_oneof = _SLMPLSILMKEY_IPPREFIXKEY.oneofs_by_name['entry']
 _SLMPLSILMKEY.fields_by_name['SlMplsCosVal'].message_type = _SLMPLSCOS
+_SLMPLSILMKEY.fields_by_name['Prefix'].message_type = _SLMPLSILMKEY_IPPREFIXKEY
 _SLMPLSCOS.oneofs_by_name['value'].fields.append(
   _SLMPLSCOS.fields_by_name['Exp'])
 _SLMPLSCOS.fields_by_name['Exp'].containing_oneof = _SLMPLSCOS.oneofs_by_name['value']
@@ -1263,11 +1407,35 @@ SLMplsPath = _reflection.GeneratedProtocolMessageType('SLMplsPath', (_message.Me
 _sym_db.RegisterMessage(SLMplsPath)
 
 SLMplsIlmKey = _reflection.GeneratedProtocolMessageType('SLMplsIlmKey', (_message.Message,), {
+
+  'IPv4PrefixKey' : _reflection.GeneratedProtocolMessageType('IPv4PrefixKey', (_message.Message,), {
+    'DESCRIPTOR' : _SLMPLSILMKEY_IPV4PREFIXKEY,
+    '__module__' : 'sl_mpls_pb2'
+    # @@protoc_insertion_point(class_scope:service_layer.SLMplsIlmKey.IPv4PrefixKey)
+    })
+  ,
+
+  'IPv6PrefixKey' : _reflection.GeneratedProtocolMessageType('IPv6PrefixKey', (_message.Message,), {
+    'DESCRIPTOR' : _SLMPLSILMKEY_IPV6PREFIXKEY,
+    '__module__' : 'sl_mpls_pb2'
+    # @@protoc_insertion_point(class_scope:service_layer.SLMplsIlmKey.IPv6PrefixKey)
+    })
+  ,
+
+  'IPPrefixKey' : _reflection.GeneratedProtocolMessageType('IPPrefixKey', (_message.Message,), {
+    'DESCRIPTOR' : _SLMPLSILMKEY_IPPREFIXKEY,
+    '__module__' : 'sl_mpls_pb2'
+    # @@protoc_insertion_point(class_scope:service_layer.SLMplsIlmKey.IPPrefixKey)
+    })
+  ,
   'DESCRIPTOR' : _SLMPLSILMKEY,
   '__module__' : 'sl_mpls_pb2'
   # @@protoc_insertion_point(class_scope:service_layer.SLMplsIlmKey)
   })
 _sym_db.RegisterMessage(SLMplsIlmKey)
+_sym_db.RegisterMessage(SLMplsIlmKey.IPv4PrefixKey)
+_sym_db.RegisterMessage(SLMplsIlmKey.IPv6PrefixKey)
+_sym_db.RegisterMessage(SLMplsIlmKey.IPPrefixKey)
 
 SLMplsCos = _reflection.GeneratedProtocolMessageType('SLMplsCos', (_message.Message,), {
   'DESCRIPTOR' : _SLMPLSCOS,
@@ -1328,8 +1496,8 @@ _SLMPLSOPER = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=3139,
-  serialized_end=3924,
+  serialized_start=3476,
+  serialized_end=4261,
   methods=[
   _descriptor.MethodDescriptor(
     name='SLMplsRegOp',

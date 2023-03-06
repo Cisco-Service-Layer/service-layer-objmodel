@@ -320,6 +320,15 @@ def ilm_serializer(batch_info):
                 entry.Key.SlMplsCosVal.ForwardingClass = ilm["forwarding_class"]
             if 'in_label' in ilm:
                 entry.Key.LocalLabel = ilm["in_label"]
+            elif 'ip_prefix' in ilm:
+                ip_prefix = ilm.get('ip_prefix')
+                if 'ipv4_prefix' in ip_prefix:
+                    entry.Key.Prefix.V4Prefix.Prefix = int(ipaddress.ip_address(ip_prefix["ipv4_prefix"]))
+                    entry.Key.Prefix.PrefixLen = ip_prefix.get("prefix_len", 32)
+                elif 'ipv6_prefix' in ip_prefix:
+                    entry.Key.Prefix.V6Prefix.Prefix = ipaddress.ip_address(ip_prefix["ipv6_prefix"]).packed
+                    entry.Key.Prefix.PrefixLen = ip_prefix.get("prefix_len", 128)
+                entry.Key.Prefix.VrfName = ip_prefix.get("vrf_name", "default")
             ps = []
             for path in ilm['path']:
                 p = sl_mpls_pb2.SLMplsPath()
@@ -331,11 +340,18 @@ def ilm_serializer(batch_info):
                     p.PathId = path['path_id']
                 if 'next_hop' in path:
                     nh = path['next_hop']
-                    if ilm['af'] == 4:
+                    if "nh_afi" in path:
+                        local_af = path['nh_afi']
+                    elif 'nh_afi' in ilm:
+                        local_af = ilm['nh_afi']
+                    else:
+                        local_af = ilm['af']
+
+                    if local_af == 4:
                         if 'v4_addr' in path['next_hop']:
                             p.NexthopAddress.V4Address = int(
                                 ipaddress.ip_address(nh['v4_addr']))
-                    elif ilm['af'] == 6:
+                    elif local_af == 6:
                         if 'v6_addr' in path['next_hop']:
                             p.NexthopAddress.V6Address = ipaddress.ip_address(
                                 nh['v6_addr']).packed
@@ -396,6 +412,15 @@ def ilm_get_serializer(get_info):
     serializer = sl_mpls_pb2.SLMplsIlmGetMsg()
     if "correlator" in get_info:
         serializer.Correlator = get_info["correlator"]
+        elif 'ip_prefix' in get_info["ilm"]:
+            ip_prefix = get_info["ilm"].get('ip_prefix')
+            if 'ipv4_prefix' in ip_prefix:
+                serializer.Key.Prefix.V4Prefix.Prefix = int(ipaddress.ip_address(ip_prefix["ipv4_prefix"]))
+                serializer.Key.Prefix.PrefixLen = ip_prefix.get("prefix_len", 32)
+            elif 'ipv6_prefix' in ip_prefix:
+                serializer.Key.Prefix.V6Prefix.Prefix = ipaddress.ip_address(ip_prefix["ipv6_prefix"]).packed
+                serializer.Key.Prefix.PrefixLen = ip_prefix.get("prefix_len", 128)
+            serializer.Key.Prefix.VrfName = ip_prefix.get("vrf_name", "default")
     if "ilm" in get_info:
         if "in_label" in get_info["ilm"]:
             serializer.Key.LocalLabel = get_info["ilm"]["in_label"]
