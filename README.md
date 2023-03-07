@@ -70,6 +70,13 @@ The bindings can be generated within a docker container created by the service l
 ```
 # cd (top level)
 # make bindings (creates/launches container and generates bindings)
+
+Note, if needed, setup the proxy variables within ./Dockerfile (just after FROM):
+ENV FTP_PROXY="http://proxy:80"
+ENV HTTPS_PROXY="http://proxy:80"
+ENV HTTP_PROXY="http://proxy:80"
+ENV https_proxy="http://proxy:80"
+ENV http_proxy="http://proxy:80"
 ```
 
 The bindings will be generated in the following directories:

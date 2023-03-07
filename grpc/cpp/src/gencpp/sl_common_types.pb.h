@@ -217,6 +217,14 @@ enum SLErrorStatus_SLErrno : int {
   SLErrorStatus_SLErrno_SL_ILM_LABEL_TOOMANY_EXP_CLASSES = 36882,
   SLErrorStatus_SLErrno_SL_ILM_REPLAY_FATAL_ERROR = 36883,
   SLErrorStatus_SLErrno_SL_ILM_REPLAY_OK = 36884,
+  SLErrorStatus_SLErrno_SL_ILM_INVALID_PREFIX_LEN = 36885,
+  SLErrorStatus_SLErrno_SL_ILM_HOST_BITS_SET = 36886,
+  SLErrorStatus_SLErrno_SL_ILM_INVALID_PREFIX_SZ = 36887,
+  SLErrorStatus_SLErrno_SL_ILM_INVALID_PREFIX = 36888,
+  SLErrorStatus_SLErrno_SL_ILM_INVALID_PREFIX_MCAST = 36889,
+  SLErrorStatus_SLErrno_SL_ILM_VRF_NAME_TOOLONG = 36896,
+  SLErrorStatus_SLErrno_SL_ILM_VRF_NO_TABLE_ID = 36897,
+  SLErrorStatus_SLErrno_SL_ILM_VRF_NAME_MISSING = 36898,
   SLErrorStatus_SLErrno_SL_NHLFE_ERR_OFFSET = 40960,
   SLErrorStatus_SLErrno_SL_NHLFE_NH_NO_TABLE = 40961,
   SLErrorStatus_SLErrno_SL_NHLFE_NH_INVALID_ADDR_SZ = 40962,
@@ -853,6 +861,22 @@ class SLErrorStatus final :
     SLErrorStatus_SLErrno_SL_ILM_REPLAY_FATAL_ERROR;
   static constexpr SLErrno SL_ILM_REPLAY_OK =
     SLErrorStatus_SLErrno_SL_ILM_REPLAY_OK;
+  static constexpr SLErrno SL_ILM_INVALID_PREFIX_LEN =
+    SLErrorStatus_SLErrno_SL_ILM_INVALID_PREFIX_LEN;
+  static constexpr SLErrno SL_ILM_HOST_BITS_SET =
+    SLErrorStatus_SLErrno_SL_ILM_HOST_BITS_SET;
+  static constexpr SLErrno SL_ILM_INVALID_PREFIX_SZ =
+    SLErrorStatus_SLErrno_SL_ILM_INVALID_PREFIX_SZ;
+  static constexpr SLErrno SL_ILM_INVALID_PREFIX =
+    SLErrorStatus_SLErrno_SL_ILM_INVALID_PREFIX;
+  static constexpr SLErrno SL_ILM_INVALID_PREFIX_MCAST =
+    SLErrorStatus_SLErrno_SL_ILM_INVALID_PREFIX_MCAST;
+  static constexpr SLErrno SL_ILM_VRF_NAME_TOOLONG =
+    SLErrorStatus_SLErrno_SL_ILM_VRF_NAME_TOOLONG;
+  static constexpr SLErrno SL_ILM_VRF_NO_TABLE_ID =
+    SLErrorStatus_SLErrno_SL_ILM_VRF_NO_TABLE_ID;
+  static constexpr SLErrno SL_ILM_VRF_NAME_MISSING =
+    SLErrorStatus_SLErrno_SL_ILM_VRF_NAME_MISSING;
   static constexpr SLErrno SL_NHLFE_ERR_OFFSET =
     SLErrorStatus_SLErrno_SL_NHLFE_ERR_OFFSET;
   static constexpr SLErrno SL_NHLFE_NH_NO_TABLE =

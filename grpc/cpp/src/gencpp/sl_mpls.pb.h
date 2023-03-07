@@ -49,7 +49,7 @@ struct TableStruct_sl_5fmpls_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::AuxiliaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[21]
+  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[24]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::FieldMetadata field_metadata[];
   static const ::PROTOBUF_NAMESPACE_ID::internal::SerializationTable serialization_table[];
@@ -81,6 +81,15 @@ extern SLMplsIlmGetMsgRspDefaultTypeInternal _SLMplsIlmGetMsgRsp_default_instanc
 class SLMplsIlmKey;
 struct SLMplsIlmKeyDefaultTypeInternal;
 extern SLMplsIlmKeyDefaultTypeInternal _SLMplsIlmKey_default_instance_;
+class SLMplsIlmKey_IPPrefixKey;
+struct SLMplsIlmKey_IPPrefixKeyDefaultTypeInternal;
+extern SLMplsIlmKey_IPPrefixKeyDefaultTypeInternal _SLMplsIlmKey_IPPrefixKey_default_instance_;
+class SLMplsIlmKey_IPv4PrefixKey;
+struct SLMplsIlmKey_IPv4PrefixKeyDefaultTypeInternal;
+extern SLMplsIlmKey_IPv4PrefixKeyDefaultTypeInternal _SLMplsIlmKey_IPv4PrefixKey_default_instance_;
+class SLMplsIlmKey_IPv6PrefixKey;
+struct SLMplsIlmKey_IPv6PrefixKeyDefaultTypeInternal;
+extern SLMplsIlmKey_IPv6PrefixKeyDefaultTypeInternal _SLMplsIlmKey_IPv6PrefixKey_default_instance_;
 class SLMplsIlmMsg;
 struct SLMplsIlmMsgDefaultTypeInternal;
 extern SLMplsIlmMsgDefaultTypeInternal _SLMplsIlmMsg_default_instance_;
@@ -130,6 +139,9 @@ template<> ::service_layer::SLMplsIlmEntry* Arena::CreateMaybeMessage<::service_
 template<> ::service_layer::SLMplsIlmGetMsg* Arena::CreateMaybeMessage<::service_layer::SLMplsIlmGetMsg>(Arena*);
 template<> ::service_layer::SLMplsIlmGetMsgRsp* Arena::CreateMaybeMessage<::service_layer::SLMplsIlmGetMsgRsp>(Arena*);
 template<> ::service_layer::SLMplsIlmKey* Arena::CreateMaybeMessage<::service_layer::SLMplsIlmKey>(Arena*);
+template<> ::service_layer::SLMplsIlmKey_IPPrefixKey* Arena::CreateMaybeMessage<::service_layer::SLMplsIlmKey_IPPrefixKey>(Arena*);
+template<> ::service_layer::SLMplsIlmKey_IPv4PrefixKey* Arena::CreateMaybeMessage<::service_layer::SLMplsIlmKey_IPv4PrefixKey>(Arena*);
+template<> ::service_layer::SLMplsIlmKey_IPv6PrefixKey* Arena::CreateMaybeMessage<::service_layer::SLMplsIlmKey_IPv6PrefixKey>(Arena*);
 template<> ::service_layer::SLMplsIlmMsg* Arena::CreateMaybeMessage<::service_layer::SLMplsIlmMsg>(Arena*);
 template<> ::service_layer::SLMplsIlmMsgRsp* Arena::CreateMaybeMessage<::service_layer::SLMplsIlmMsgRsp>(Arena*);
 template<> ::service_layer::SLMplsIlmRes* Arena::CreateMaybeMessage<::service_layer::SLMplsIlmRes>(Arena*);
@@ -153,12 +165,13 @@ enum SlLabelAction : int {
   SL_LABEL_ACTION_POP_AND_LOOKUP_IPV4 = 3,
   SL_LABEL_ACTION_POP_AND_LOOKUP_IPV6 = 4,
   SL_LABEL_ACTION_POP_AND_LOOKUP = 5,
+  SL_LABEL_ACTION_PUSH = 6,
   SlLabelAction_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::min(),
   SlLabelAction_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::max()
 };
 bool SlLabelAction_IsValid(int value);
 constexpr SlLabelAction SlLabelAction_MIN = SL_LABEL_ACTION_RESERVED;
-constexpr SlLabelAction SlLabelAction_MAX = SL_LABEL_ACTION_POP_AND_LOOKUP;
+constexpr SlLabelAction SlLabelAction_MAX = SL_LABEL_ACTION_PUSH;
 constexpr int SlLabelAction_ARRAYSIZE = SlLabelAction_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* SlLabelAction_descriptor();
@@ -2596,6 +2609,524 @@ class SLMplsPath final :
 };
 // -------------------------------------------------------------------
 
+class SLMplsIlmKey_IPv4PrefixKey final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:service_layer.SLMplsIlmKey.IPv4PrefixKey) */ {
+ public:
+  inline SLMplsIlmKey_IPv4PrefixKey() : SLMplsIlmKey_IPv4PrefixKey(nullptr) {}
+  ~SLMplsIlmKey_IPv4PrefixKey() override;
+  explicit constexpr SLMplsIlmKey_IPv4PrefixKey(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  SLMplsIlmKey_IPv4PrefixKey(const SLMplsIlmKey_IPv4PrefixKey& from);
+  SLMplsIlmKey_IPv4PrefixKey(SLMplsIlmKey_IPv4PrefixKey&& from) noexcept
+    : SLMplsIlmKey_IPv4PrefixKey() {
+    *this = ::std::move(from);
+  }
+
+  inline SLMplsIlmKey_IPv4PrefixKey& operator=(const SLMplsIlmKey_IPv4PrefixKey& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline SLMplsIlmKey_IPv4PrefixKey& operator=(SLMplsIlmKey_IPv4PrefixKey&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const SLMplsIlmKey_IPv4PrefixKey& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const SLMplsIlmKey_IPv4PrefixKey* internal_default_instance() {
+    return reinterpret_cast<const SLMplsIlmKey_IPv4PrefixKey*>(
+               &_SLMplsIlmKey_IPv4PrefixKey_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    13;
+
+  friend void swap(SLMplsIlmKey_IPv4PrefixKey& a, SLMplsIlmKey_IPv4PrefixKey& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(SLMplsIlmKey_IPv4PrefixKey* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(SLMplsIlmKey_IPv4PrefixKey* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  SLMplsIlmKey_IPv4PrefixKey* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<SLMplsIlmKey_IPv4PrefixKey>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const SLMplsIlmKey_IPv4PrefixKey& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom(const SLMplsIlmKey_IPv4PrefixKey& from);
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to, const ::PROTOBUF_NAMESPACE_ID::Message& from);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(SLMplsIlmKey_IPv4PrefixKey* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "service_layer.SLMplsIlmKey.IPv4PrefixKey";
+  }
+  protected:
+  explicit SLMplsIlmKey_IPv4PrefixKey(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kPrefixFieldNumber = 1,
+  };
+  // uint32 Prefix = 1;
+  void clear_prefix();
+  uint32_t prefix() const;
+  void set_prefix(uint32_t value);
+  private:
+  uint32_t _internal_prefix() const;
+  void _internal_set_prefix(uint32_t value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:service_layer.SLMplsIlmKey.IPv4PrefixKey)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  uint32_t prefix_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_sl_5fmpls_2eproto;
+};
+// -------------------------------------------------------------------
+
+class SLMplsIlmKey_IPv6PrefixKey final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:service_layer.SLMplsIlmKey.IPv6PrefixKey) */ {
+ public:
+  inline SLMplsIlmKey_IPv6PrefixKey() : SLMplsIlmKey_IPv6PrefixKey(nullptr) {}
+  ~SLMplsIlmKey_IPv6PrefixKey() override;
+  explicit constexpr SLMplsIlmKey_IPv6PrefixKey(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  SLMplsIlmKey_IPv6PrefixKey(const SLMplsIlmKey_IPv6PrefixKey& from);
+  SLMplsIlmKey_IPv6PrefixKey(SLMplsIlmKey_IPv6PrefixKey&& from) noexcept
+    : SLMplsIlmKey_IPv6PrefixKey() {
+    *this = ::std::move(from);
+  }
+
+  inline SLMplsIlmKey_IPv6PrefixKey& operator=(const SLMplsIlmKey_IPv6PrefixKey& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline SLMplsIlmKey_IPv6PrefixKey& operator=(SLMplsIlmKey_IPv6PrefixKey&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const SLMplsIlmKey_IPv6PrefixKey& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const SLMplsIlmKey_IPv6PrefixKey* internal_default_instance() {
+    return reinterpret_cast<const SLMplsIlmKey_IPv6PrefixKey*>(
+               &_SLMplsIlmKey_IPv6PrefixKey_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    14;
+
+  friend void swap(SLMplsIlmKey_IPv6PrefixKey& a, SLMplsIlmKey_IPv6PrefixKey& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(SLMplsIlmKey_IPv6PrefixKey* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(SLMplsIlmKey_IPv6PrefixKey* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  SLMplsIlmKey_IPv6PrefixKey* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<SLMplsIlmKey_IPv6PrefixKey>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const SLMplsIlmKey_IPv6PrefixKey& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom(const SLMplsIlmKey_IPv6PrefixKey& from);
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to, const ::PROTOBUF_NAMESPACE_ID::Message& from);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(SLMplsIlmKey_IPv6PrefixKey* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "service_layer.SLMplsIlmKey.IPv6PrefixKey";
+  }
+  protected:
+  explicit SLMplsIlmKey_IPv6PrefixKey(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kPrefixFieldNumber = 1,
+  };
+  // bytes Prefix = 1;
+  void clear_prefix();
+  const std::string& prefix() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_prefix(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_prefix();
+  PROTOBUF_NODISCARD std::string* release_prefix();
+  void set_allocated_prefix(std::string* prefix);
+  private:
+  const std::string& _internal_prefix() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_prefix(const std::string& value);
+  std::string* _internal_mutable_prefix();
+  public:
+
+  // @@protoc_insertion_point(class_scope:service_layer.SLMplsIlmKey.IPv6PrefixKey)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr prefix_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_sl_5fmpls_2eproto;
+};
+// -------------------------------------------------------------------
+
+class SLMplsIlmKey_IPPrefixKey final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:service_layer.SLMplsIlmKey.IPPrefixKey) */ {
+ public:
+  inline SLMplsIlmKey_IPPrefixKey() : SLMplsIlmKey_IPPrefixKey(nullptr) {}
+  ~SLMplsIlmKey_IPPrefixKey() override;
+  explicit constexpr SLMplsIlmKey_IPPrefixKey(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  SLMplsIlmKey_IPPrefixKey(const SLMplsIlmKey_IPPrefixKey& from);
+  SLMplsIlmKey_IPPrefixKey(SLMplsIlmKey_IPPrefixKey&& from) noexcept
+    : SLMplsIlmKey_IPPrefixKey() {
+    *this = ::std::move(from);
+  }
+
+  inline SLMplsIlmKey_IPPrefixKey& operator=(const SLMplsIlmKey_IPPrefixKey& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline SLMplsIlmKey_IPPrefixKey& operator=(SLMplsIlmKey_IPPrefixKey&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const SLMplsIlmKey_IPPrefixKey& default_instance() {
+    return *internal_default_instance();
+  }
+  enum EntryCase {
+    kV4Prefix = 1,
+    kV6Prefix = 2,
+    ENTRY_NOT_SET = 0,
+  };
+
+  static inline const SLMplsIlmKey_IPPrefixKey* internal_default_instance() {
+    return reinterpret_cast<const SLMplsIlmKey_IPPrefixKey*>(
+               &_SLMplsIlmKey_IPPrefixKey_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    15;
+
+  friend void swap(SLMplsIlmKey_IPPrefixKey& a, SLMplsIlmKey_IPPrefixKey& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(SLMplsIlmKey_IPPrefixKey* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(SLMplsIlmKey_IPPrefixKey* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  SLMplsIlmKey_IPPrefixKey* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<SLMplsIlmKey_IPPrefixKey>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const SLMplsIlmKey_IPPrefixKey& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom(const SLMplsIlmKey_IPPrefixKey& from);
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to, const ::PROTOBUF_NAMESPACE_ID::Message& from);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(SLMplsIlmKey_IPPrefixKey* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "service_layer.SLMplsIlmKey.IPPrefixKey";
+  }
+  protected:
+  explicit SLMplsIlmKey_IPPrefixKey(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kVrfNameFieldNumber = 4,
+    kPrefixLenFieldNumber = 3,
+    kV4PrefixFieldNumber = 1,
+    kV6PrefixFieldNumber = 2,
+  };
+  // string VrfName = 4;
+  void clear_vrfname();
+  const std::string& vrfname() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_vrfname(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_vrfname();
+  PROTOBUF_NODISCARD std::string* release_vrfname();
+  void set_allocated_vrfname(std::string* vrfname);
+  private:
+  const std::string& _internal_vrfname() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_vrfname(const std::string& value);
+  std::string* _internal_mutable_vrfname();
+  public:
+
+  // uint32 PrefixLen = 3;
+  void clear_prefixlen();
+  uint32_t prefixlen() const;
+  void set_prefixlen(uint32_t value);
+  private:
+  uint32_t _internal_prefixlen() const;
+  void _internal_set_prefixlen(uint32_t value);
+  public:
+
+  // .service_layer.SLMplsIlmKey.IPv4PrefixKey V4Prefix = 1;
+  bool has_v4prefix() const;
+  private:
+  bool _internal_has_v4prefix() const;
+  public:
+  void clear_v4prefix();
+  const ::service_layer::SLMplsIlmKey_IPv4PrefixKey& v4prefix() const;
+  PROTOBUF_NODISCARD ::service_layer::SLMplsIlmKey_IPv4PrefixKey* release_v4prefix();
+  ::service_layer::SLMplsIlmKey_IPv4PrefixKey* mutable_v4prefix();
+  void set_allocated_v4prefix(::service_layer::SLMplsIlmKey_IPv4PrefixKey* v4prefix);
+  private:
+  const ::service_layer::SLMplsIlmKey_IPv4PrefixKey& _internal_v4prefix() const;
+  ::service_layer::SLMplsIlmKey_IPv4PrefixKey* _internal_mutable_v4prefix();
+  public:
+  void unsafe_arena_set_allocated_v4prefix(
+      ::service_layer::SLMplsIlmKey_IPv4PrefixKey* v4prefix);
+  ::service_layer::SLMplsIlmKey_IPv4PrefixKey* unsafe_arena_release_v4prefix();
+
+  // .service_layer.SLMplsIlmKey.IPv6PrefixKey V6Prefix = 2;
+  bool has_v6prefix() const;
+  private:
+  bool _internal_has_v6prefix() const;
+  public:
+  void clear_v6prefix();
+  const ::service_layer::SLMplsIlmKey_IPv6PrefixKey& v6prefix() const;
+  PROTOBUF_NODISCARD ::service_layer::SLMplsIlmKey_IPv6PrefixKey* release_v6prefix();
+  ::service_layer::SLMplsIlmKey_IPv6PrefixKey* mutable_v6prefix();
+  void set_allocated_v6prefix(::service_layer::SLMplsIlmKey_IPv6PrefixKey* v6prefix);
+  private:
+  const ::service_layer::SLMplsIlmKey_IPv6PrefixKey& _internal_v6prefix() const;
+  ::service_layer::SLMplsIlmKey_IPv6PrefixKey* _internal_mutable_v6prefix();
+  public:
+  void unsafe_arena_set_allocated_v6prefix(
+      ::service_layer::SLMplsIlmKey_IPv6PrefixKey* v6prefix);
+  ::service_layer::SLMplsIlmKey_IPv6PrefixKey* unsafe_arena_release_v6prefix();
+
+  void clear_entry();
+  EntryCase entry_case() const;
+  // @@protoc_insertion_point(class_scope:service_layer.SLMplsIlmKey.IPPrefixKey)
+ private:
+  class _Internal;
+  void set_has_v4prefix();
+  void set_has_v6prefix();
+
+  inline bool has_entry() const;
+  inline void clear_has_entry();
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr vrfname_;
+  uint32_t prefixlen_;
+  union EntryUnion {
+    constexpr EntryUnion() : _constinit_{} {}
+      ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized _constinit_;
+    ::service_layer::SLMplsIlmKey_IPv4PrefixKey* v4prefix_;
+    ::service_layer::SLMplsIlmKey_IPv6PrefixKey* v6prefix_;
+  } entry_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  uint32_t _oneof_case_[1];
+
+  friend struct ::TableStruct_sl_5fmpls_2eproto;
+};
+// -------------------------------------------------------------------
+
 class SLMplsIlmKey final :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:service_layer.SLMplsIlmKey) */ {
  public:
@@ -2644,7 +3175,7 @@ class SLMplsIlmKey final :
                &_SLMplsIlmKey_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    13;
+    16;
 
   friend void swap(SLMplsIlmKey& a, SLMplsIlmKey& b) {
     a.Swap(&b);
@@ -2715,10 +3246,15 @@ class SLMplsIlmKey final :
 
   // nested types ----------------------------------------------------
 
+  typedef SLMplsIlmKey_IPv4PrefixKey IPv4PrefixKey;
+  typedef SLMplsIlmKey_IPv6PrefixKey IPv6PrefixKey;
+  typedef SLMplsIlmKey_IPPrefixKey IPPrefixKey;
+
   // accessors -------------------------------------------------------
 
   enum : int {
     kSlMplsCosValFieldNumber = 2,
+    kPrefixFieldNumber = 3,
     kLocalLabelFieldNumber = 1,
   };
   // .service_layer.SLMplsCos SlMplsCosVal = 2;
@@ -2739,6 +3275,24 @@ class SLMplsIlmKey final :
       ::service_layer::SLMplsCos* slmplscosval);
   ::service_layer::SLMplsCos* unsafe_arena_release_slmplscosval();
 
+  // .service_layer.SLMplsIlmKey.IPPrefixKey Prefix = 3;
+  bool has_prefix() const;
+  private:
+  bool _internal_has_prefix() const;
+  public:
+  void clear_prefix();
+  const ::service_layer::SLMplsIlmKey_IPPrefixKey& prefix() const;
+  PROTOBUF_NODISCARD ::service_layer::SLMplsIlmKey_IPPrefixKey* release_prefix();
+  ::service_layer::SLMplsIlmKey_IPPrefixKey* mutable_prefix();
+  void set_allocated_prefix(::service_layer::SLMplsIlmKey_IPPrefixKey* prefix);
+  private:
+  const ::service_layer::SLMplsIlmKey_IPPrefixKey& _internal_prefix() const;
+  ::service_layer::SLMplsIlmKey_IPPrefixKey* _internal_mutable_prefix();
+  public:
+  void unsafe_arena_set_allocated_prefix(
+      ::service_layer::SLMplsIlmKey_IPPrefixKey* prefix);
+  ::service_layer::SLMplsIlmKey_IPPrefixKey* unsafe_arena_release_prefix();
+
   // uint32 LocalLabel = 1;
   void clear_locallabel();
   uint32_t locallabel() const;
@@ -2756,6 +3310,7 @@ class SLMplsIlmKey final :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   ::service_layer::SLMplsCos* slmplscosval_;
+  ::service_layer::SLMplsIlmKey_IPPrefixKey* prefix_;
   uint32_t locallabel_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_sl_5fmpls_2eproto;
@@ -2817,7 +3372,7 @@ class SLMplsCos final :
                &_SLMplsCos_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    14;
+    17;
 
   friend void swap(SLMplsCos& a, SLMplsCos& b) {
     a.Swap(&b);
@@ -3011,7 +3566,7 @@ class SLMplsIlmEntry final :
                &_SLMplsIlmEntry_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    15;
+    18;
 
   friend void swap(SLMplsIlmEntry& a, SLMplsIlmEntry& b) {
     a.Swap(&b);
@@ -3186,7 +3741,7 @@ class SLMplsIlmMsg final :
                &_SLMplsIlmMsg_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    16;
+    19;
 
   friend void swap(SLMplsIlmMsg& a, SLMplsIlmMsg& b) {
     a.Swap(&b);
@@ -3363,7 +3918,7 @@ class SLMplsIlmRes final :
                &_SLMplsIlmRes_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    17;
+    20;
 
   friend void swap(SLMplsIlmRes& a, SLMplsIlmRes& b) {
     a.Swap(&b);
@@ -3538,7 +4093,7 @@ class SLMplsIlmMsgRsp final :
                &_SLMplsIlmMsgRsp_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    18;
+    21;
 
   friend void swap(SLMplsIlmMsgRsp& a, SLMplsIlmMsgRsp& b) {
     a.Swap(&b);
@@ -3724,7 +4279,7 @@ class SLMplsIlmGetMsg final :
                &_SLMplsIlmGetMsg_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    19;
+    22;
 
   friend void swap(SLMplsIlmGetMsg& a, SLMplsIlmGetMsg& b) {
     a.Swap(&b);
@@ -3912,7 +4467,7 @@ class SLMplsIlmGetMsgRsp final :
                &_SLMplsIlmGetMsgRsp_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    20;
+    23;
 
   friend void swap(SLMplsIlmGetMsgRsp& a, SLMplsIlmGetMsgRsp& b) {
     a.Swap(&b);
@@ -5981,6 +6536,317 @@ inline void SLMplsPath::set_slmplspathdown(bool value) {
 
 // -------------------------------------------------------------------
 
+// SLMplsIlmKey_IPv4PrefixKey
+
+// uint32 Prefix = 1;
+inline void SLMplsIlmKey_IPv4PrefixKey::clear_prefix() {
+  prefix_ = 0u;
+}
+inline uint32_t SLMplsIlmKey_IPv4PrefixKey::_internal_prefix() const {
+  return prefix_;
+}
+inline uint32_t SLMplsIlmKey_IPv4PrefixKey::prefix() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLMplsIlmKey.IPv4PrefixKey.Prefix)
+  return _internal_prefix();
+}
+inline void SLMplsIlmKey_IPv4PrefixKey::_internal_set_prefix(uint32_t value) {
+  
+  prefix_ = value;
+}
+inline void SLMplsIlmKey_IPv4PrefixKey::set_prefix(uint32_t value) {
+  _internal_set_prefix(value);
+  // @@protoc_insertion_point(field_set:service_layer.SLMplsIlmKey.IPv4PrefixKey.Prefix)
+}
+
+// -------------------------------------------------------------------
+
+// SLMplsIlmKey_IPv6PrefixKey
+
+// bytes Prefix = 1;
+inline void SLMplsIlmKey_IPv6PrefixKey::clear_prefix() {
+  prefix_.ClearToEmpty();
+}
+inline const std::string& SLMplsIlmKey_IPv6PrefixKey::prefix() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLMplsIlmKey.IPv6PrefixKey.Prefix)
+  return _internal_prefix();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void SLMplsIlmKey_IPv6PrefixKey::set_prefix(ArgT0&& arg0, ArgT... args) {
+ 
+ prefix_.SetBytes(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:service_layer.SLMplsIlmKey.IPv6PrefixKey.Prefix)
+}
+inline std::string* SLMplsIlmKey_IPv6PrefixKey::mutable_prefix() {
+  std::string* _s = _internal_mutable_prefix();
+  // @@protoc_insertion_point(field_mutable:service_layer.SLMplsIlmKey.IPv6PrefixKey.Prefix)
+  return _s;
+}
+inline const std::string& SLMplsIlmKey_IPv6PrefixKey::_internal_prefix() const {
+  return prefix_.Get();
+}
+inline void SLMplsIlmKey_IPv6PrefixKey::_internal_set_prefix(const std::string& value) {
+  
+  prefix_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArenaForAllocation());
+}
+inline std::string* SLMplsIlmKey_IPv6PrefixKey::_internal_mutable_prefix() {
+  
+  return prefix_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
+}
+inline std::string* SLMplsIlmKey_IPv6PrefixKey::release_prefix() {
+  // @@protoc_insertion_point(field_release:service_layer.SLMplsIlmKey.IPv6PrefixKey.Prefix)
+  return prefix_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArenaForAllocation());
+}
+inline void SLMplsIlmKey_IPv6PrefixKey::set_allocated_prefix(std::string* prefix) {
+  if (prefix != nullptr) {
+    
+  } else {
+    
+  }
+  prefix_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), prefix,
+      GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (prefix_.IsDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited())) {
+    prefix_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:service_layer.SLMplsIlmKey.IPv6PrefixKey.Prefix)
+}
+
+// -------------------------------------------------------------------
+
+// SLMplsIlmKey_IPPrefixKey
+
+// .service_layer.SLMplsIlmKey.IPv4PrefixKey V4Prefix = 1;
+inline bool SLMplsIlmKey_IPPrefixKey::_internal_has_v4prefix() const {
+  return entry_case() == kV4Prefix;
+}
+inline bool SLMplsIlmKey_IPPrefixKey::has_v4prefix() const {
+  return _internal_has_v4prefix();
+}
+inline void SLMplsIlmKey_IPPrefixKey::set_has_v4prefix() {
+  _oneof_case_[0] = kV4Prefix;
+}
+inline void SLMplsIlmKey_IPPrefixKey::clear_v4prefix() {
+  if (_internal_has_v4prefix()) {
+    if (GetArenaForAllocation() == nullptr) {
+      delete entry_.v4prefix_;
+    }
+    clear_has_entry();
+  }
+}
+inline ::service_layer::SLMplsIlmKey_IPv4PrefixKey* SLMplsIlmKey_IPPrefixKey::release_v4prefix() {
+  // @@protoc_insertion_point(field_release:service_layer.SLMplsIlmKey.IPPrefixKey.V4Prefix)
+  if (_internal_has_v4prefix()) {
+    clear_has_entry();
+      ::service_layer::SLMplsIlmKey_IPv4PrefixKey* temp = entry_.v4prefix_;
+    if (GetArenaForAllocation() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    entry_.v4prefix_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::service_layer::SLMplsIlmKey_IPv4PrefixKey& SLMplsIlmKey_IPPrefixKey::_internal_v4prefix() const {
+  return _internal_has_v4prefix()
+      ? *entry_.v4prefix_
+      : reinterpret_cast< ::service_layer::SLMplsIlmKey_IPv4PrefixKey&>(::service_layer::_SLMplsIlmKey_IPv4PrefixKey_default_instance_);
+}
+inline const ::service_layer::SLMplsIlmKey_IPv4PrefixKey& SLMplsIlmKey_IPPrefixKey::v4prefix() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLMplsIlmKey.IPPrefixKey.V4Prefix)
+  return _internal_v4prefix();
+}
+inline ::service_layer::SLMplsIlmKey_IPv4PrefixKey* SLMplsIlmKey_IPPrefixKey::unsafe_arena_release_v4prefix() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:service_layer.SLMplsIlmKey.IPPrefixKey.V4Prefix)
+  if (_internal_has_v4prefix()) {
+    clear_has_entry();
+    ::service_layer::SLMplsIlmKey_IPv4PrefixKey* temp = entry_.v4prefix_;
+    entry_.v4prefix_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void SLMplsIlmKey_IPPrefixKey::unsafe_arena_set_allocated_v4prefix(::service_layer::SLMplsIlmKey_IPv4PrefixKey* v4prefix) {
+  clear_entry();
+  if (v4prefix) {
+    set_has_v4prefix();
+    entry_.v4prefix_ = v4prefix;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:service_layer.SLMplsIlmKey.IPPrefixKey.V4Prefix)
+}
+inline ::service_layer::SLMplsIlmKey_IPv4PrefixKey* SLMplsIlmKey_IPPrefixKey::_internal_mutable_v4prefix() {
+  if (!_internal_has_v4prefix()) {
+    clear_entry();
+    set_has_v4prefix();
+    entry_.v4prefix_ = CreateMaybeMessage< ::service_layer::SLMplsIlmKey_IPv4PrefixKey >(GetArenaForAllocation());
+  }
+  return entry_.v4prefix_;
+}
+inline ::service_layer::SLMplsIlmKey_IPv4PrefixKey* SLMplsIlmKey_IPPrefixKey::mutable_v4prefix() {
+  ::service_layer::SLMplsIlmKey_IPv4PrefixKey* _msg = _internal_mutable_v4prefix();
+  // @@protoc_insertion_point(field_mutable:service_layer.SLMplsIlmKey.IPPrefixKey.V4Prefix)
+  return _msg;
+}
+
+// .service_layer.SLMplsIlmKey.IPv6PrefixKey V6Prefix = 2;
+inline bool SLMplsIlmKey_IPPrefixKey::_internal_has_v6prefix() const {
+  return entry_case() == kV6Prefix;
+}
+inline bool SLMplsIlmKey_IPPrefixKey::has_v6prefix() const {
+  return _internal_has_v6prefix();
+}
+inline void SLMplsIlmKey_IPPrefixKey::set_has_v6prefix() {
+  _oneof_case_[0] = kV6Prefix;
+}
+inline void SLMplsIlmKey_IPPrefixKey::clear_v6prefix() {
+  if (_internal_has_v6prefix()) {
+    if (GetArenaForAllocation() == nullptr) {
+      delete entry_.v6prefix_;
+    }
+    clear_has_entry();
+  }
+}
+inline ::service_layer::SLMplsIlmKey_IPv6PrefixKey* SLMplsIlmKey_IPPrefixKey::release_v6prefix() {
+  // @@protoc_insertion_point(field_release:service_layer.SLMplsIlmKey.IPPrefixKey.V6Prefix)
+  if (_internal_has_v6prefix()) {
+    clear_has_entry();
+      ::service_layer::SLMplsIlmKey_IPv6PrefixKey* temp = entry_.v6prefix_;
+    if (GetArenaForAllocation() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    entry_.v6prefix_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::service_layer::SLMplsIlmKey_IPv6PrefixKey& SLMplsIlmKey_IPPrefixKey::_internal_v6prefix() const {
+  return _internal_has_v6prefix()
+      ? *entry_.v6prefix_
+      : reinterpret_cast< ::service_layer::SLMplsIlmKey_IPv6PrefixKey&>(::service_layer::_SLMplsIlmKey_IPv6PrefixKey_default_instance_);
+}
+inline const ::service_layer::SLMplsIlmKey_IPv6PrefixKey& SLMplsIlmKey_IPPrefixKey::v6prefix() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLMplsIlmKey.IPPrefixKey.V6Prefix)
+  return _internal_v6prefix();
+}
+inline ::service_layer::SLMplsIlmKey_IPv6PrefixKey* SLMplsIlmKey_IPPrefixKey::unsafe_arena_release_v6prefix() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:service_layer.SLMplsIlmKey.IPPrefixKey.V6Prefix)
+  if (_internal_has_v6prefix()) {
+    clear_has_entry();
+    ::service_layer::SLMplsIlmKey_IPv6PrefixKey* temp = entry_.v6prefix_;
+    entry_.v6prefix_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void SLMplsIlmKey_IPPrefixKey::unsafe_arena_set_allocated_v6prefix(::service_layer::SLMplsIlmKey_IPv6PrefixKey* v6prefix) {
+  clear_entry();
+  if (v6prefix) {
+    set_has_v6prefix();
+    entry_.v6prefix_ = v6prefix;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:service_layer.SLMplsIlmKey.IPPrefixKey.V6Prefix)
+}
+inline ::service_layer::SLMplsIlmKey_IPv6PrefixKey* SLMplsIlmKey_IPPrefixKey::_internal_mutable_v6prefix() {
+  if (!_internal_has_v6prefix()) {
+    clear_entry();
+    set_has_v6prefix();
+    entry_.v6prefix_ = CreateMaybeMessage< ::service_layer::SLMplsIlmKey_IPv6PrefixKey >(GetArenaForAllocation());
+  }
+  return entry_.v6prefix_;
+}
+inline ::service_layer::SLMplsIlmKey_IPv6PrefixKey* SLMplsIlmKey_IPPrefixKey::mutable_v6prefix() {
+  ::service_layer::SLMplsIlmKey_IPv6PrefixKey* _msg = _internal_mutable_v6prefix();
+  // @@protoc_insertion_point(field_mutable:service_layer.SLMplsIlmKey.IPPrefixKey.V6Prefix)
+  return _msg;
+}
+
+// uint32 PrefixLen = 3;
+inline void SLMplsIlmKey_IPPrefixKey::clear_prefixlen() {
+  prefixlen_ = 0u;
+}
+inline uint32_t SLMplsIlmKey_IPPrefixKey::_internal_prefixlen() const {
+  return prefixlen_;
+}
+inline uint32_t SLMplsIlmKey_IPPrefixKey::prefixlen() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLMplsIlmKey.IPPrefixKey.PrefixLen)
+  return _internal_prefixlen();
+}
+inline void SLMplsIlmKey_IPPrefixKey::_internal_set_prefixlen(uint32_t value) {
+  
+  prefixlen_ = value;
+}
+inline void SLMplsIlmKey_IPPrefixKey::set_prefixlen(uint32_t value) {
+  _internal_set_prefixlen(value);
+  // @@protoc_insertion_point(field_set:service_layer.SLMplsIlmKey.IPPrefixKey.PrefixLen)
+}
+
+// string VrfName = 4;
+inline void SLMplsIlmKey_IPPrefixKey::clear_vrfname() {
+  vrfname_.ClearToEmpty();
+}
+inline const std::string& SLMplsIlmKey_IPPrefixKey::vrfname() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLMplsIlmKey.IPPrefixKey.VrfName)
+  return _internal_vrfname();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void SLMplsIlmKey_IPPrefixKey::set_vrfname(ArgT0&& arg0, ArgT... args) {
+ 
+ vrfname_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:service_layer.SLMplsIlmKey.IPPrefixKey.VrfName)
+}
+inline std::string* SLMplsIlmKey_IPPrefixKey::mutable_vrfname() {
+  std::string* _s = _internal_mutable_vrfname();
+  // @@protoc_insertion_point(field_mutable:service_layer.SLMplsIlmKey.IPPrefixKey.VrfName)
+  return _s;
+}
+inline const std::string& SLMplsIlmKey_IPPrefixKey::_internal_vrfname() const {
+  return vrfname_.Get();
+}
+inline void SLMplsIlmKey_IPPrefixKey::_internal_set_vrfname(const std::string& value) {
+  
+  vrfname_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArenaForAllocation());
+}
+inline std::string* SLMplsIlmKey_IPPrefixKey::_internal_mutable_vrfname() {
+  
+  return vrfname_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
+}
+inline std::string* SLMplsIlmKey_IPPrefixKey::release_vrfname() {
+  // @@protoc_insertion_point(field_release:service_layer.SLMplsIlmKey.IPPrefixKey.VrfName)
+  return vrfname_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArenaForAllocation());
+}
+inline void SLMplsIlmKey_IPPrefixKey::set_allocated_vrfname(std::string* vrfname) {
+  if (vrfname != nullptr) {
+    
+  } else {
+    
+  }
+  vrfname_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), vrfname,
+      GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (vrfname_.IsDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited())) {
+    vrfname_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:service_layer.SLMplsIlmKey.IPPrefixKey.VrfName)
+}
+
+inline bool SLMplsIlmKey_IPPrefixKey::has_entry() const {
+  return entry_case() != ENTRY_NOT_SET;
+}
+inline void SLMplsIlmKey_IPPrefixKey::clear_has_entry() {
+  _oneof_case_[0] = ENTRY_NOT_SET;
+}
+inline SLMplsIlmKey_IPPrefixKey::EntryCase SLMplsIlmKey_IPPrefixKey::entry_case() const {
+  return SLMplsIlmKey_IPPrefixKey::EntryCase(_oneof_case_[0]);
+}
+// -------------------------------------------------------------------
+
 // SLMplsIlmKey
 
 // uint32 LocalLabel = 1;
@@ -6091,6 +6957,96 @@ inline void SLMplsIlmKey::set_allocated_slmplscosval(::service_layer::SLMplsCos*
   }
   slmplscosval_ = slmplscosval;
   // @@protoc_insertion_point(field_set_allocated:service_layer.SLMplsIlmKey.SlMplsCosVal)
+}
+
+// .service_layer.SLMplsIlmKey.IPPrefixKey Prefix = 3;
+inline bool SLMplsIlmKey::_internal_has_prefix() const {
+  return this != internal_default_instance() && prefix_ != nullptr;
+}
+inline bool SLMplsIlmKey::has_prefix() const {
+  return _internal_has_prefix();
+}
+inline void SLMplsIlmKey::clear_prefix() {
+  if (GetArenaForAllocation() == nullptr && prefix_ != nullptr) {
+    delete prefix_;
+  }
+  prefix_ = nullptr;
+}
+inline const ::service_layer::SLMplsIlmKey_IPPrefixKey& SLMplsIlmKey::_internal_prefix() const {
+  const ::service_layer::SLMplsIlmKey_IPPrefixKey* p = prefix_;
+  return p != nullptr ? *p : reinterpret_cast<const ::service_layer::SLMplsIlmKey_IPPrefixKey&>(
+      ::service_layer::_SLMplsIlmKey_IPPrefixKey_default_instance_);
+}
+inline const ::service_layer::SLMplsIlmKey_IPPrefixKey& SLMplsIlmKey::prefix() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLMplsIlmKey.Prefix)
+  return _internal_prefix();
+}
+inline void SLMplsIlmKey::unsafe_arena_set_allocated_prefix(
+    ::service_layer::SLMplsIlmKey_IPPrefixKey* prefix) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(prefix_);
+  }
+  prefix_ = prefix;
+  if (prefix) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:service_layer.SLMplsIlmKey.Prefix)
+}
+inline ::service_layer::SLMplsIlmKey_IPPrefixKey* SLMplsIlmKey::release_prefix() {
+  
+  ::service_layer::SLMplsIlmKey_IPPrefixKey* temp = prefix_;
+  prefix_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::service_layer::SLMplsIlmKey_IPPrefixKey* SLMplsIlmKey::unsafe_arena_release_prefix() {
+  // @@protoc_insertion_point(field_release:service_layer.SLMplsIlmKey.Prefix)
+  
+  ::service_layer::SLMplsIlmKey_IPPrefixKey* temp = prefix_;
+  prefix_ = nullptr;
+  return temp;
+}
+inline ::service_layer::SLMplsIlmKey_IPPrefixKey* SLMplsIlmKey::_internal_mutable_prefix() {
+  
+  if (prefix_ == nullptr) {
+    auto* p = CreateMaybeMessage<::service_layer::SLMplsIlmKey_IPPrefixKey>(GetArenaForAllocation());
+    prefix_ = p;
+  }
+  return prefix_;
+}
+inline ::service_layer::SLMplsIlmKey_IPPrefixKey* SLMplsIlmKey::mutable_prefix() {
+  ::service_layer::SLMplsIlmKey_IPPrefixKey* _msg = _internal_mutable_prefix();
+  // @@protoc_insertion_point(field_mutable:service_layer.SLMplsIlmKey.Prefix)
+  return _msg;
+}
+inline void SLMplsIlmKey::set_allocated_prefix(::service_layer::SLMplsIlmKey_IPPrefixKey* prefix) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete prefix_;
+  }
+  if (prefix) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper<::service_layer::SLMplsIlmKey_IPPrefixKey>::GetOwningArena(prefix);
+    if (message_arena != submessage_arena) {
+      prefix = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, prefix, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  prefix_ = prefix;
+  // @@protoc_insertion_point(field_set_allocated:service_layer.SLMplsIlmKey.Prefix)
 }
 
 // -------------------------------------------------------------------
@@ -7095,6 +8051,12 @@ SLMplsIlmGetMsgRsp::entries() const {
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

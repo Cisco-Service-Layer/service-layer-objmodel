@@ -209,9 +209,48 @@ struct SLMplsPathDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT SLMplsPathDefaultTypeInternal _SLMplsPath_default_instance_;
+constexpr SLMplsIlmKey_IPv4PrefixKey::SLMplsIlmKey_IPv4PrefixKey(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : prefix_(0u){}
+struct SLMplsIlmKey_IPv4PrefixKeyDefaultTypeInternal {
+  constexpr SLMplsIlmKey_IPv4PrefixKeyDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~SLMplsIlmKey_IPv4PrefixKeyDefaultTypeInternal() {}
+  union {
+    SLMplsIlmKey_IPv4PrefixKey _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT SLMplsIlmKey_IPv4PrefixKeyDefaultTypeInternal _SLMplsIlmKey_IPv4PrefixKey_default_instance_;
+constexpr SLMplsIlmKey_IPv6PrefixKey::SLMplsIlmKey_IPv6PrefixKey(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : prefix_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string){}
+struct SLMplsIlmKey_IPv6PrefixKeyDefaultTypeInternal {
+  constexpr SLMplsIlmKey_IPv6PrefixKeyDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~SLMplsIlmKey_IPv6PrefixKeyDefaultTypeInternal() {}
+  union {
+    SLMplsIlmKey_IPv6PrefixKey _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT SLMplsIlmKey_IPv6PrefixKeyDefaultTypeInternal _SLMplsIlmKey_IPv6PrefixKey_default_instance_;
+constexpr SLMplsIlmKey_IPPrefixKey::SLMplsIlmKey_IPPrefixKey(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : vrfname_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
+  , prefixlen_(0u)
+  , _oneof_case_{}{}
+struct SLMplsIlmKey_IPPrefixKeyDefaultTypeInternal {
+  constexpr SLMplsIlmKey_IPPrefixKeyDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~SLMplsIlmKey_IPPrefixKeyDefaultTypeInternal() {}
+  union {
+    SLMplsIlmKey_IPPrefixKey _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT SLMplsIlmKey_IPPrefixKeyDefaultTypeInternal _SLMplsIlmKey_IPPrefixKey_default_instance_;
 constexpr SLMplsIlmKey::SLMplsIlmKey(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
   : slmplscosval_(nullptr)
+  , prefix_(nullptr)
   , locallabel_(0u){}
 struct SLMplsIlmKeyDefaultTypeInternal {
   constexpr SLMplsIlmKeyDefaultTypeInternal()
@@ -320,7 +359,7 @@ struct SLMplsIlmGetMsgRspDefaultTypeInternal {
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT SLMplsIlmGetMsgRspDefaultTypeInternal _SLMplsIlmGetMsgRsp_default_instance_;
 }  // namespace service_layer
-static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_sl_5fmpls_2eproto[21];
+static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_sl_5fmpls_2eproto[24];
 static const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* file_level_enum_descriptors_sl_5fmpls_2eproto[2];
 static constexpr ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor const** file_level_service_descriptors_sl_5fmpls_2eproto = nullptr;
 
@@ -447,6 +486,31 @@ const uint32_t TableStruct_sl_5fmpls_2eproto::offsets[] PROTOBUF_SECTION_VARIABL
   PROTOBUF_FIELD_OFFSET(::service_layer::SLMplsPath, slmplspathsetid_),
   PROTOBUF_FIELD_OFFSET(::service_layer::SLMplsPath, slmplspathdown_),
   ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::service_layer::SLMplsIlmKey_IPv4PrefixKey, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::service_layer::SLMplsIlmKey_IPv4PrefixKey, prefix_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::service_layer::SLMplsIlmKey_IPv6PrefixKey, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::service_layer::SLMplsIlmKey_IPv6PrefixKey, prefix_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::service_layer::SLMplsIlmKey_IPPrefixKey, _internal_metadata_),
+  ~0u,  // no _extensions_
+  PROTOBUF_FIELD_OFFSET(::service_layer::SLMplsIlmKey_IPPrefixKey, _oneof_case_[0]),
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
+  ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
+  PROTOBUF_FIELD_OFFSET(::service_layer::SLMplsIlmKey_IPPrefixKey, prefixlen_),
+  PROTOBUF_FIELD_OFFSET(::service_layer::SLMplsIlmKey_IPPrefixKey, vrfname_),
+  PROTOBUF_FIELD_OFFSET(::service_layer::SLMplsIlmKey_IPPrefixKey, entry_),
+  ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::service_layer::SLMplsIlmKey, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
@@ -454,6 +518,7 @@ const uint32_t TableStruct_sl_5fmpls_2eproto::offsets[] PROTOBUF_SECTION_VARIABL
   ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::service_layer::SLMplsIlmKey, locallabel_),
   PROTOBUF_FIELD_OFFSET(::service_layer::SLMplsIlmKey, slmplscosval_),
+  PROTOBUF_FIELD_OFFSET(::service_layer::SLMplsIlmKey, prefix_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::service_layer::SLMplsCos, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -533,14 +598,17 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOB
   { 80, -1, -1, sizeof(::service_layer::SLMplsGetMsgRsp)},
   { 93, -1, -1, sizeof(::service_layer::SLMplsGetStatsMsgRsp)},
   { 102, -1, -1, sizeof(::service_layer::SLMplsPath)},
-  { 121, -1, -1, sizeof(::service_layer::SLMplsIlmKey)},
-  { 129, -1, -1, sizeof(::service_layer::SLMplsCos)},
-  { 139, -1, -1, sizeof(::service_layer::SLMplsIlmEntry)},
-  { 147, -1, -1, sizeof(::service_layer::SLMplsIlmMsg)},
-  { 156, -1, -1, sizeof(::service_layer::SLMplsIlmRes)},
-  { 164, -1, -1, sizeof(::service_layer::SLMplsIlmMsgRsp)},
-  { 173, -1, -1, sizeof(::service_layer::SLMplsIlmGetMsg)},
-  { 183, -1, -1, sizeof(::service_layer::SLMplsIlmGetMsgRsp)},
+  { 121, -1, -1, sizeof(::service_layer::SLMplsIlmKey_IPv4PrefixKey)},
+  { 128, -1, -1, sizeof(::service_layer::SLMplsIlmKey_IPv6PrefixKey)},
+  { 135, -1, -1, sizeof(::service_layer::SLMplsIlmKey_IPPrefixKey)},
+  { 146, -1, -1, sizeof(::service_layer::SLMplsIlmKey)},
+  { 155, -1, -1, sizeof(::service_layer::SLMplsCos)},
+  { 165, -1, -1, sizeof(::service_layer::SLMplsIlmEntry)},
+  { 173, -1, -1, sizeof(::service_layer::SLMplsIlmMsg)},
+  { 182, -1, -1, sizeof(::service_layer::SLMplsIlmRes)},
+  { 190, -1, -1, sizeof(::service_layer::SLMplsIlmMsgRsp)},
+  { 199, -1, -1, sizeof(::service_layer::SLMplsIlmGetMsg)},
+  { 209, -1, -1, sizeof(::service_layer::SLMplsIlmGetMsgRsp)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -557,6 +625,9 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::service_layer::_SLMplsGetMsgRsp_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::service_layer::_SLMplsGetStatsMsgRsp_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::service_layer::_SLMplsPath_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::service_layer::_SLMplsIlmKey_IPv4PrefixKey_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::service_layer::_SLMplsIlmKey_IPv6PrefixKey_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::service_layer::_SLMplsIlmKey_IPPrefixKey_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::service_layer::_SLMplsIlmKey_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::service_layer::_SLMplsCos_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::service_layer::_SLMplsIlmEntry_default_instance_),
@@ -614,69 +685,77 @@ const char descriptor_table_protodef_sl_5fmpls_2eproto[] PROTOBUF_SECTION_VARIAB
   "Address\022.\n\014SlMplsCosVal\030\n \001(\0132\030.service_"
   "layer.SLMplsCos\022\032\n\022SlMplsPathPriority\030\013 "
   "\001(\r\022\027\n\017SlMplsPathSetId\030\014 \001(\r\022\026\n\016SlMplsPa"
-  "thDown\030\r \001(\010\"R\n\014SLMplsIlmKey\022\022\n\nLocalLab"
-  "el\030\001 \001(\r\022.\n\014SlMplsCosVal\030\002 \001(\0132\030.service"
-  "_layer.SLMplsCos\"Y\n\tSLMplsCos\022\r\n\003Exp\030\001 \001"
-  "(\rH\000\022\031\n\017DefaultElspPath\030\002 \001(\010H\000\022\031\n\017Forwa"
-  "rdingClass\030\003 \001(\rH\000B\007\n\005value\"d\n\016SLMplsIlm"
-  "Entry\022(\n\003Key\030\001 \001(\0132\033.service_layer.SLMpl"
-  "sIlmKey\022(\n\005Paths\030\002 \003(\0132\031.service_layer.S"
-  "LMplsPath\"|\n\014SLMplsIlmMsg\022\'\n\004Oper\030\001 \001(\0162"
-  "\031.service_layer.SLObjectOp\022\022\n\nCorrelator"
-  "\030\002 \001(\004\022/\n\010MplsIlms\030\003 \003(\0132\035.service_layer"
-  ".SLMplsIlmEntry\"i\n\014SLMplsIlmRes\022/\n\tErrSt"
-  "atus\030\001 \001(\0132\034.service_layer.SLErrorStatus"
-  "\022(\n\003Key\030\002 \001(\0132\033.service_layer.SLMplsIlmK"
-  "ey\"\210\001\n\017SLMplsIlmMsgRsp\022\022\n\nCorrelator\030\001 \001"
-  "(\004\0223\n\rStatusSummary\030\002 \001(\0132\034.service_laye"
-  "r.SLErrorStatus\022,\n\007Results\030\003 \003(\0132\033.servi"
-  "ce_layer.SLMplsIlmRes\"v\n\017SLMplsIlmGetMsg"
-  "\022\022\n\nCorrelator\030\001 \001(\004\022(\n\003Key\030\002 \001(\0132\033.serv"
-  "ice_layer.SLMplsIlmKey\022\024\n\014EntriesCount\030\003"
-  " \001(\r\022\017\n\007GetNext\030\004 \001(\010\"\226\001\n\022SLMplsIlmGetMs"
-  "gRsp\022\022\n\nCorrelator\030\001 \001(\004\022\013\n\003Eof\030\002 \001(\010\022/\n"
-  "\tErrStatus\030\003 \001(\0132\034.service_layer.SLError"
-  "Status\022.\n\007Entries\030\004 \003(\0132\035.service_layer."
-  "SLMplsIlmEntry*\342\001\n\rSlLabelAction\022\034\n\030SL_L"
-  "ABEL_ACTION_RESERVED\020\000\022\030\n\024SL_LABEL_ACTIO"
-  "N_SWAP\020\001\022#\n\037SL_LABEL_ACTION_POP_AND_FORW"
-  "ARD\020\002\022\'\n#SL_LABEL_ACTION_POP_AND_LOOKUP_"
-  "IPV4\020\003\022\'\n#SL_LABEL_ACTION_POP_AND_LOOKUP"
-  "_IPV6\020\004\022\"\n\036SL_LABEL_ACTION_POP_AND_LOOKU"
-  "P\020\005*\202\001\n\024SLMplsLabelBlockType\022%\n!SL_MPLS_"
-  "LABEL_BLOCK_TYPE_RESERVED\020\000\022!\n\035SL_MPLS_L"
-  "ABEL_BLOCK_TYPE_SRGB\020\001\022 \n\034SL_MPLS_LABEL_"
-  "BLOCK_TYPE_CBF\020\0022\221\006\n\nSLMplsOper\022J\n\013SLMpl"
-  "sRegOp\022\033.service_layer.SLMplsRegMsg\032\036.se"
-  "rvice_layer.SLMplsRegMsgRsp\022H\n\tSLMplsGet"
-  "\022\033.service_layer.SLMplsGetMsg\032\036.service_"
-  "layer.SLMplsGetMsgRsp\022R\n\016SLMplsGetStats\022"
-  "\033.service_layer.SLMplsGetMsg\032#.service_l"
-  "ayer.SLMplsGetStatsMsgRsp\022_\n\022SLMplsLabel"
-  "BlockOp\022\".service_layer.SLMplsLabelBlock"
-  "Msg\032%.service_layer.SLMplsLabelBlockMsgR"
-  "sp\022f\n\023SLMplsLabelBlockGet\022%.service_laye"
-  "r.SLMplsLabelBlockGetMsg\032(.service_layer"
-  ".SLMplsLabelBlockGetMsgRsp\022J\n\013SLMplsIlmO"
-  "p\022\033.service_layer.SLMplsIlmMsg\032\036.service"
-  "_layer.SLMplsIlmMsgRsp\022Q\n\014SLMplsIlmGet\022\036"
-  ".service_layer.SLMplsIlmGetMsg\032!.service"
-  "_layer.SLMplsIlmGetMsgRsp\022T\n\021SLMplsIlmOp"
-  "Stream\022\033.service_layer.SLMplsIlmMsg\032\036.se"
-  "rvice_layer.SLMplsIlmMsgRsp(\0010\001\022[\n\022SLMpl"
-  "sIlmGetStream\022\036.service_layer.SLMplsIlmG"
-  "etMsg\032!.service_layer.SLMplsIlmGetMsgRsp"
-  "(\0010\001BQZOgithub.com/Cisco-service-layer/s"
-  "ervice-layer-objmodel/grpc/protos;servic"
-  "e_layerb\006proto3"
+  "thDown\030\r \001(\010\"\210\003\n\014SLMplsIlmKey\022\022\n\nLocalLa"
+  "bel\030\001 \001(\r\022.\n\014SlMplsCosVal\030\002 \001(\0132\030.servic"
+  "e_layer.SLMplsCos\0227\n\006Prefix\030\003 \001(\0132\'.serv"
+  "ice_layer.SLMplsIlmKey.IPPrefixKey\032\037\n\rIP"
+  "v4PrefixKey\022\016\n\006Prefix\030\001 \001(\r\032\037\n\rIPv6Prefi"
+  "xKey\022\016\n\006Prefix\030\001 \001(\014\032\270\001\n\013IPPrefixKey\022=\n\010"
+  "V4Prefix\030\001 \001(\0132).service_layer.SLMplsIlm"
+  "Key.IPv4PrefixKeyH\000\022=\n\010V6Prefix\030\002 \001(\0132)."
+  "service_layer.SLMplsIlmKey.IPv6PrefixKey"
+  "H\000\022\021\n\tPrefixLen\030\003 \001(\r\022\017\n\007VrfName\030\004 \001(\tB\007"
+  "\n\005entry\"Y\n\tSLMplsCos\022\r\n\003Exp\030\001 \001(\rH\000\022\031\n\017D"
+  "efaultElspPath\030\002 \001(\010H\000\022\031\n\017ForwardingClas"
+  "s\030\003 \001(\rH\000B\007\n\005value\"d\n\016SLMplsIlmEntry\022(\n\003"
+  "Key\030\001 \001(\0132\033.service_layer.SLMplsIlmKey\022("
+  "\n\005Paths\030\002 \003(\0132\031.service_layer.SLMplsPath"
+  "\"|\n\014SLMplsIlmMsg\022\'\n\004Oper\030\001 \001(\0162\031.service"
+  "_layer.SLObjectOp\022\022\n\nCorrelator\030\002 \001(\004\022/\n"
+  "\010MplsIlms\030\003 \003(\0132\035.service_layer.SLMplsIl"
+  "mEntry\"i\n\014SLMplsIlmRes\022/\n\tErrStatus\030\001 \001("
+  "\0132\034.service_layer.SLErrorStatus\022(\n\003Key\030\002"
+  " \001(\0132\033.service_layer.SLMplsIlmKey\"\210\001\n\017SL"
+  "MplsIlmMsgRsp\022\022\n\nCorrelator\030\001 \001(\004\0223\n\rSta"
+  "tusSummary\030\002 \001(\0132\034.service_layer.SLError"
+  "Status\022,\n\007Results\030\003 \003(\0132\033.service_layer."
+  "SLMplsIlmRes\"v\n\017SLMplsIlmGetMsg\022\022\n\nCorre"
+  "lator\030\001 \001(\004\022(\n\003Key\030\002 \001(\0132\033.service_layer"
+  ".SLMplsIlmKey\022\024\n\014EntriesCount\030\003 \001(\r\022\017\n\007G"
+  "etNext\030\004 \001(\010\"\226\001\n\022SLMplsIlmGetMsgRsp\022\022\n\nC"
+  "orrelator\030\001 \001(\004\022\013\n\003Eof\030\002 \001(\010\022/\n\tErrStatu"
+  "s\030\003 \001(\0132\034.service_layer.SLErrorStatus\022.\n"
+  "\007Entries\030\004 \003(\0132\035.service_layer.SLMplsIlm"
+  "Entry*\374\001\n\rSlLabelAction\022\034\n\030SL_LABEL_ACTI"
+  "ON_RESERVED\020\000\022\030\n\024SL_LABEL_ACTION_SWAP\020\001\022"
+  "#\n\037SL_LABEL_ACTION_POP_AND_FORWARD\020\002\022\'\n#"
+  "SL_LABEL_ACTION_POP_AND_LOOKUP_IPV4\020\003\022\'\n"
+  "#SL_LABEL_ACTION_POP_AND_LOOKUP_IPV6\020\004\022\""
+  "\n\036SL_LABEL_ACTION_POP_AND_LOOKUP\020\005\022\030\n\024SL"
+  "_LABEL_ACTION_PUSH\020\006*\202\001\n\024SLMplsLabelBloc"
+  "kType\022%\n!SL_MPLS_LABEL_BLOCK_TYPE_RESERV"
+  "ED\020\000\022!\n\035SL_MPLS_LABEL_BLOCK_TYPE_SRGB\020\001\022"
+  " \n\034SL_MPLS_LABEL_BLOCK_TYPE_CBF\020\0022\221\006\n\nSL"
+  "MplsOper\022J\n\013SLMplsRegOp\022\033.service_layer."
+  "SLMplsRegMsg\032\036.service_layer.SLMplsRegMs"
+  "gRsp\022H\n\tSLMplsGet\022\033.service_layer.SLMpls"
+  "GetMsg\032\036.service_layer.SLMplsGetMsgRsp\022R"
+  "\n\016SLMplsGetStats\022\033.service_layer.SLMplsG"
+  "etMsg\032#.service_layer.SLMplsGetStatsMsgR"
+  "sp\022_\n\022SLMplsLabelBlockOp\022\".service_layer"
+  ".SLMplsLabelBlockMsg\032%.service_layer.SLM"
+  "plsLabelBlockMsgRsp\022f\n\023SLMplsLabelBlockG"
+  "et\022%.service_layer.SLMplsLabelBlockGetMs"
+  "g\032(.service_layer.SLMplsLabelBlockGetMsg"
+  "Rsp\022J\n\013SLMplsIlmOp\022\033.service_layer.SLMpl"
+  "sIlmMsg\032\036.service_layer.SLMplsIlmMsgRsp\022"
+  "Q\n\014SLMplsIlmGet\022\036.service_layer.SLMplsIl"
+  "mGetMsg\032!.service_layer.SLMplsIlmGetMsgR"
+  "sp\022T\n\021SLMplsIlmOpStream\022\033.service_layer."
+  "SLMplsIlmMsg\032\036.service_layer.SLMplsIlmMs"
+  "gRsp(\0010\001\022[\n\022SLMplsIlmGetStream\022\036.service"
+  "_layer.SLMplsIlmGetMsg\032!.service_layer.S"
+  "LMplsIlmGetMsgRsp(\0010\001BQZOgithub.com/Cisc"
+  "o-service-layer/service-layer-objmodel/g"
+  "rpc/protos;service_layerb\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_sl_5fmpls_2eproto_deps[1] = {
   &::descriptor_table_sl_5fcommon_5ftypes_2eproto,
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_sl_5fmpls_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_sl_5fmpls_2eproto = {
-  false, false, 4015, descriptor_table_protodef_sl_5fmpls_2eproto, "sl_mpls.proto", 
-  &descriptor_table_sl_5fmpls_2eproto_once, descriptor_table_sl_5fmpls_2eproto_deps, 1, 21,
+  false, false, 4352, descriptor_table_protodef_sl_5fmpls_2eproto, "sl_mpls.proto", 
+  &descriptor_table_sl_5fmpls_2eproto_once, descriptor_table_sl_5fmpls_2eproto_deps, 1, 24,
   schemas, file_default_instances, TableStruct_sl_5fmpls_2eproto::offsets,
   file_level_metadata_sl_5fmpls_2eproto, file_level_enum_descriptors_sl_5fmpls_2eproto, file_level_service_descriptors_sl_5fmpls_2eproto,
 };
@@ -699,6 +778,7 @@ bool SlLabelAction_IsValid(int value) {
     case 3:
     case 4:
     case 5:
+    case 6:
       return true;
     default:
       return false;
@@ -4087,14 +4167,772 @@ void SLMplsPath::InternalSwap(SLMplsPath* other) {
 
 // ===================================================================
 
+class SLMplsIlmKey_IPv4PrefixKey::_Internal {
+ public:
+};
+
+SLMplsIlmKey_IPv4PrefixKey::SLMplsIlmKey_IPv4PrefixKey(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor();
+  if (!is_message_owned) {
+    RegisterArenaDtor(arena);
+  }
+  // @@protoc_insertion_point(arena_constructor:service_layer.SLMplsIlmKey.IPv4PrefixKey)
+}
+SLMplsIlmKey_IPv4PrefixKey::SLMplsIlmKey_IPv4PrefixKey(const SLMplsIlmKey_IPv4PrefixKey& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  prefix_ = from.prefix_;
+  // @@protoc_insertion_point(copy_constructor:service_layer.SLMplsIlmKey.IPv4PrefixKey)
+}
+
+inline void SLMplsIlmKey_IPv4PrefixKey::SharedCtor() {
+prefix_ = 0u;
+}
+
+SLMplsIlmKey_IPv4PrefixKey::~SLMplsIlmKey_IPv4PrefixKey() {
+  // @@protoc_insertion_point(destructor:service_layer.SLMplsIlmKey.IPv4PrefixKey)
+  if (GetArenaForAllocation() != nullptr) return;
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+inline void SLMplsIlmKey_IPv4PrefixKey::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+}
+
+void SLMplsIlmKey_IPv4PrefixKey::ArenaDtor(void* object) {
+  SLMplsIlmKey_IPv4PrefixKey* _this = reinterpret_cast< SLMplsIlmKey_IPv4PrefixKey* >(object);
+  (void)_this;
+}
+void SLMplsIlmKey_IPv4PrefixKey::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void SLMplsIlmKey_IPv4PrefixKey::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void SLMplsIlmKey_IPv4PrefixKey::Clear() {
+// @@protoc_insertion_point(message_clear_start:service_layer.SLMplsIlmKey.IPv4PrefixKey)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  prefix_ = 0u;
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* SLMplsIlmKey_IPv4PrefixKey::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // uint32 Prefix = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
+          prefix_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* SLMplsIlmKey_IPv4PrefixKey::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:service_layer.SLMplsIlmKey.IPv4PrefixKey)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // uint32 Prefix = 1;
+  if (this->_internal_prefix() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_prefix(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:service_layer.SLMplsIlmKey.IPv4PrefixKey)
+  return target;
+}
+
+size_t SLMplsIlmKey_IPv4PrefixKey::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:service_layer.SLMplsIlmKey.IPv4PrefixKey)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // uint32 Prefix = 1;
+  if (this->_internal_prefix() != 0) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_prefix());
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData SLMplsIlmKey_IPv4PrefixKey::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    SLMplsIlmKey_IPv4PrefixKey::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*SLMplsIlmKey_IPv4PrefixKey::GetClassData() const { return &_class_data_; }
+
+void SLMplsIlmKey_IPv4PrefixKey::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<SLMplsIlmKey_IPv4PrefixKey *>(to)->MergeFrom(
+      static_cast<const SLMplsIlmKey_IPv4PrefixKey &>(from));
+}
+
+
+void SLMplsIlmKey_IPv4PrefixKey::MergeFrom(const SLMplsIlmKey_IPv4PrefixKey& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:service_layer.SLMplsIlmKey.IPv4PrefixKey)
+  GOOGLE_DCHECK_NE(&from, this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from._internal_prefix() != 0) {
+    _internal_set_prefix(from._internal_prefix());
+  }
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void SLMplsIlmKey_IPv4PrefixKey::CopyFrom(const SLMplsIlmKey_IPv4PrefixKey& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:service_layer.SLMplsIlmKey.IPv4PrefixKey)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool SLMplsIlmKey_IPv4PrefixKey::IsInitialized() const {
+  return true;
+}
+
+void SLMplsIlmKey_IPv4PrefixKey::InternalSwap(SLMplsIlmKey_IPv4PrefixKey* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(prefix_, other->prefix_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata SLMplsIlmKey_IPv4PrefixKey::GetMetadata() const {
+  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
+      &descriptor_table_sl_5fmpls_2eproto_getter, &descriptor_table_sl_5fmpls_2eproto_once,
+      file_level_metadata_sl_5fmpls_2eproto[13]);
+}
+
+// ===================================================================
+
+class SLMplsIlmKey_IPv6PrefixKey::_Internal {
+ public:
+};
+
+SLMplsIlmKey_IPv6PrefixKey::SLMplsIlmKey_IPv6PrefixKey(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor();
+  if (!is_message_owned) {
+    RegisterArenaDtor(arena);
+  }
+  // @@protoc_insertion_point(arena_constructor:service_layer.SLMplsIlmKey.IPv6PrefixKey)
+}
+SLMplsIlmKey_IPv6PrefixKey::SLMplsIlmKey_IPv6PrefixKey(const SLMplsIlmKey_IPv6PrefixKey& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  prefix_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    prefix_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_prefix().empty()) {
+    prefix_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_prefix(), 
+      GetArenaForAllocation());
+  }
+  // @@protoc_insertion_point(copy_constructor:service_layer.SLMplsIlmKey.IPv6PrefixKey)
+}
+
+inline void SLMplsIlmKey_IPv6PrefixKey::SharedCtor() {
+prefix_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  prefix_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+}
+
+SLMplsIlmKey_IPv6PrefixKey::~SLMplsIlmKey_IPv6PrefixKey() {
+  // @@protoc_insertion_point(destructor:service_layer.SLMplsIlmKey.IPv6PrefixKey)
+  if (GetArenaForAllocation() != nullptr) return;
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+inline void SLMplsIlmKey_IPv6PrefixKey::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  prefix_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+
+void SLMplsIlmKey_IPv6PrefixKey::ArenaDtor(void* object) {
+  SLMplsIlmKey_IPv6PrefixKey* _this = reinterpret_cast< SLMplsIlmKey_IPv6PrefixKey* >(object);
+  (void)_this;
+}
+void SLMplsIlmKey_IPv6PrefixKey::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void SLMplsIlmKey_IPv6PrefixKey::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void SLMplsIlmKey_IPv6PrefixKey::Clear() {
+// @@protoc_insertion_point(message_clear_start:service_layer.SLMplsIlmKey.IPv6PrefixKey)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  prefix_.ClearToEmpty();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* SLMplsIlmKey_IPv6PrefixKey::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // bytes Prefix = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
+          auto str = _internal_mutable_prefix();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* SLMplsIlmKey_IPv6PrefixKey::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:service_layer.SLMplsIlmKey.IPv6PrefixKey)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // bytes Prefix = 1;
+  if (!this->_internal_prefix().empty()) {
+    target = stream->WriteBytesMaybeAliased(
+        1, this->_internal_prefix(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:service_layer.SLMplsIlmKey.IPv6PrefixKey)
+  return target;
+}
+
+size_t SLMplsIlmKey_IPv6PrefixKey::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:service_layer.SLMplsIlmKey.IPv6PrefixKey)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // bytes Prefix = 1;
+  if (!this->_internal_prefix().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
+        this->_internal_prefix());
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData SLMplsIlmKey_IPv6PrefixKey::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    SLMplsIlmKey_IPv6PrefixKey::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*SLMplsIlmKey_IPv6PrefixKey::GetClassData() const { return &_class_data_; }
+
+void SLMplsIlmKey_IPv6PrefixKey::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<SLMplsIlmKey_IPv6PrefixKey *>(to)->MergeFrom(
+      static_cast<const SLMplsIlmKey_IPv6PrefixKey &>(from));
+}
+
+
+void SLMplsIlmKey_IPv6PrefixKey::MergeFrom(const SLMplsIlmKey_IPv6PrefixKey& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:service_layer.SLMplsIlmKey.IPv6PrefixKey)
+  GOOGLE_DCHECK_NE(&from, this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (!from._internal_prefix().empty()) {
+    _internal_set_prefix(from._internal_prefix());
+  }
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void SLMplsIlmKey_IPv6PrefixKey::CopyFrom(const SLMplsIlmKey_IPv6PrefixKey& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:service_layer.SLMplsIlmKey.IPv6PrefixKey)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool SLMplsIlmKey_IPv6PrefixKey::IsInitialized() const {
+  return true;
+}
+
+void SLMplsIlmKey_IPv6PrefixKey::InternalSwap(SLMplsIlmKey_IPv6PrefixKey* other) {
+  using std::swap;
+  auto* lhs_arena = GetArenaForAllocation();
+  auto* rhs_arena = other->GetArenaForAllocation();
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+      &prefix_, lhs_arena,
+      &other->prefix_, rhs_arena
+  );
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata SLMplsIlmKey_IPv6PrefixKey::GetMetadata() const {
+  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
+      &descriptor_table_sl_5fmpls_2eproto_getter, &descriptor_table_sl_5fmpls_2eproto_once,
+      file_level_metadata_sl_5fmpls_2eproto[14]);
+}
+
+// ===================================================================
+
+class SLMplsIlmKey_IPPrefixKey::_Internal {
+ public:
+  static const ::service_layer::SLMplsIlmKey_IPv4PrefixKey& v4prefix(const SLMplsIlmKey_IPPrefixKey* msg);
+  static const ::service_layer::SLMplsIlmKey_IPv6PrefixKey& v6prefix(const SLMplsIlmKey_IPPrefixKey* msg);
+};
+
+const ::service_layer::SLMplsIlmKey_IPv4PrefixKey&
+SLMplsIlmKey_IPPrefixKey::_Internal::v4prefix(const SLMplsIlmKey_IPPrefixKey* msg) {
+  return *msg->entry_.v4prefix_;
+}
+const ::service_layer::SLMplsIlmKey_IPv6PrefixKey&
+SLMplsIlmKey_IPPrefixKey::_Internal::v6prefix(const SLMplsIlmKey_IPPrefixKey* msg) {
+  return *msg->entry_.v6prefix_;
+}
+void SLMplsIlmKey_IPPrefixKey::set_allocated_v4prefix(::service_layer::SLMplsIlmKey_IPv4PrefixKey* v4prefix) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  clear_entry();
+  if (v4prefix) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper<::service_layer::SLMplsIlmKey_IPv4PrefixKey>::GetOwningArena(v4prefix);
+    if (message_arena != submessage_arena) {
+      v4prefix = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, v4prefix, submessage_arena);
+    }
+    set_has_v4prefix();
+    entry_.v4prefix_ = v4prefix;
+  }
+  // @@protoc_insertion_point(field_set_allocated:service_layer.SLMplsIlmKey.IPPrefixKey.V4Prefix)
+}
+void SLMplsIlmKey_IPPrefixKey::set_allocated_v6prefix(::service_layer::SLMplsIlmKey_IPv6PrefixKey* v6prefix) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  clear_entry();
+  if (v6prefix) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper<::service_layer::SLMplsIlmKey_IPv6PrefixKey>::GetOwningArena(v6prefix);
+    if (message_arena != submessage_arena) {
+      v6prefix = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, v6prefix, submessage_arena);
+    }
+    set_has_v6prefix();
+    entry_.v6prefix_ = v6prefix;
+  }
+  // @@protoc_insertion_point(field_set_allocated:service_layer.SLMplsIlmKey.IPPrefixKey.V6Prefix)
+}
+SLMplsIlmKey_IPPrefixKey::SLMplsIlmKey_IPPrefixKey(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor();
+  if (!is_message_owned) {
+    RegisterArenaDtor(arena);
+  }
+  // @@protoc_insertion_point(arena_constructor:service_layer.SLMplsIlmKey.IPPrefixKey)
+}
+SLMplsIlmKey_IPPrefixKey::SLMplsIlmKey_IPPrefixKey(const SLMplsIlmKey_IPPrefixKey& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  vrfname_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    vrfname_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_vrfname().empty()) {
+    vrfname_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_vrfname(), 
+      GetArenaForAllocation());
+  }
+  prefixlen_ = from.prefixlen_;
+  clear_has_entry();
+  switch (from.entry_case()) {
+    case kV4Prefix: {
+      _internal_mutable_v4prefix()->::service_layer::SLMplsIlmKey_IPv4PrefixKey::MergeFrom(from._internal_v4prefix());
+      break;
+    }
+    case kV6Prefix: {
+      _internal_mutable_v6prefix()->::service_layer::SLMplsIlmKey_IPv6PrefixKey::MergeFrom(from._internal_v6prefix());
+      break;
+    }
+    case ENTRY_NOT_SET: {
+      break;
+    }
+  }
+  // @@protoc_insertion_point(copy_constructor:service_layer.SLMplsIlmKey.IPPrefixKey)
+}
+
+inline void SLMplsIlmKey_IPPrefixKey::SharedCtor() {
+vrfname_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  vrfname_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+prefixlen_ = 0u;
+clear_has_entry();
+}
+
+SLMplsIlmKey_IPPrefixKey::~SLMplsIlmKey_IPPrefixKey() {
+  // @@protoc_insertion_point(destructor:service_layer.SLMplsIlmKey.IPPrefixKey)
+  if (GetArenaForAllocation() != nullptr) return;
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+inline void SLMplsIlmKey_IPPrefixKey::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  vrfname_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (has_entry()) {
+    clear_entry();
+  }
+}
+
+void SLMplsIlmKey_IPPrefixKey::ArenaDtor(void* object) {
+  SLMplsIlmKey_IPPrefixKey* _this = reinterpret_cast< SLMplsIlmKey_IPPrefixKey* >(object);
+  (void)_this;
+}
+void SLMplsIlmKey_IPPrefixKey::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void SLMplsIlmKey_IPPrefixKey::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void SLMplsIlmKey_IPPrefixKey::clear_entry() {
+// @@protoc_insertion_point(one_of_clear_start:service_layer.SLMplsIlmKey.IPPrefixKey)
+  switch (entry_case()) {
+    case kV4Prefix: {
+      if (GetArenaForAllocation() == nullptr) {
+        delete entry_.v4prefix_;
+      }
+      break;
+    }
+    case kV6Prefix: {
+      if (GetArenaForAllocation() == nullptr) {
+        delete entry_.v6prefix_;
+      }
+      break;
+    }
+    case ENTRY_NOT_SET: {
+      break;
+    }
+  }
+  _oneof_case_[0] = ENTRY_NOT_SET;
+}
+
+
+void SLMplsIlmKey_IPPrefixKey::Clear() {
+// @@protoc_insertion_point(message_clear_start:service_layer.SLMplsIlmKey.IPPrefixKey)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  vrfname_.ClearToEmpty();
+  prefixlen_ = 0u;
+  clear_entry();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* SLMplsIlmKey_IPPrefixKey::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // .service_layer.SLMplsIlmKey.IPv4PrefixKey V4Prefix = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
+          ptr = ctx->ParseMessage(_internal_mutable_v4prefix(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // .service_layer.SLMplsIlmKey.IPv6PrefixKey V6Prefix = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
+          ptr = ctx->ParseMessage(_internal_mutable_v6prefix(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // uint32 PrefixLen = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
+          prefixlen_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // string VrfName = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 34)) {
+          auto str = _internal_mutable_vrfname();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "service_layer.SLMplsIlmKey.IPPrefixKey.VrfName"));
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* SLMplsIlmKey_IPPrefixKey::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:service_layer.SLMplsIlmKey.IPPrefixKey)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // .service_layer.SLMplsIlmKey.IPv4PrefixKey V4Prefix = 1;
+  if (_internal_has_v4prefix()) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        1, _Internal::v4prefix(this), target, stream);
+  }
+
+  // .service_layer.SLMplsIlmKey.IPv6PrefixKey V6Prefix = 2;
+  if (_internal_has_v6prefix()) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        2, _Internal::v6prefix(this), target, stream);
+  }
+
+  // uint32 PrefixLen = 3;
+  if (this->_internal_prefixlen() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(3, this->_internal_prefixlen(), target);
+  }
+
+  // string VrfName = 4;
+  if (!this->_internal_vrfname().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_vrfname().data(), static_cast<int>(this->_internal_vrfname().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "service_layer.SLMplsIlmKey.IPPrefixKey.VrfName");
+    target = stream->WriteStringMaybeAliased(
+        4, this->_internal_vrfname(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:service_layer.SLMplsIlmKey.IPPrefixKey)
+  return target;
+}
+
+size_t SLMplsIlmKey_IPPrefixKey::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:service_layer.SLMplsIlmKey.IPPrefixKey)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // string VrfName = 4;
+  if (!this->_internal_vrfname().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_vrfname());
+  }
+
+  // uint32 PrefixLen = 3;
+  if (this->_internal_prefixlen() != 0) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_prefixlen());
+  }
+
+  switch (entry_case()) {
+    // .service_layer.SLMplsIlmKey.IPv4PrefixKey V4Prefix = 1;
+    case kV4Prefix: {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+          *entry_.v4prefix_);
+      break;
+    }
+    // .service_layer.SLMplsIlmKey.IPv6PrefixKey V6Prefix = 2;
+    case kV6Prefix: {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+          *entry_.v6prefix_);
+      break;
+    }
+    case ENTRY_NOT_SET: {
+      break;
+    }
+  }
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData SLMplsIlmKey_IPPrefixKey::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    SLMplsIlmKey_IPPrefixKey::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*SLMplsIlmKey_IPPrefixKey::GetClassData() const { return &_class_data_; }
+
+void SLMplsIlmKey_IPPrefixKey::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<SLMplsIlmKey_IPPrefixKey *>(to)->MergeFrom(
+      static_cast<const SLMplsIlmKey_IPPrefixKey &>(from));
+}
+
+
+void SLMplsIlmKey_IPPrefixKey::MergeFrom(const SLMplsIlmKey_IPPrefixKey& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:service_layer.SLMplsIlmKey.IPPrefixKey)
+  GOOGLE_DCHECK_NE(&from, this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (!from._internal_vrfname().empty()) {
+    _internal_set_vrfname(from._internal_vrfname());
+  }
+  if (from._internal_prefixlen() != 0) {
+    _internal_set_prefixlen(from._internal_prefixlen());
+  }
+  switch (from.entry_case()) {
+    case kV4Prefix: {
+      _internal_mutable_v4prefix()->::service_layer::SLMplsIlmKey_IPv4PrefixKey::MergeFrom(from._internal_v4prefix());
+      break;
+    }
+    case kV6Prefix: {
+      _internal_mutable_v6prefix()->::service_layer::SLMplsIlmKey_IPv6PrefixKey::MergeFrom(from._internal_v6prefix());
+      break;
+    }
+    case ENTRY_NOT_SET: {
+      break;
+    }
+  }
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void SLMplsIlmKey_IPPrefixKey::CopyFrom(const SLMplsIlmKey_IPPrefixKey& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:service_layer.SLMplsIlmKey.IPPrefixKey)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool SLMplsIlmKey_IPPrefixKey::IsInitialized() const {
+  return true;
+}
+
+void SLMplsIlmKey_IPPrefixKey::InternalSwap(SLMplsIlmKey_IPPrefixKey* other) {
+  using std::swap;
+  auto* lhs_arena = GetArenaForAllocation();
+  auto* rhs_arena = other->GetArenaForAllocation();
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+      &vrfname_, lhs_arena,
+      &other->vrfname_, rhs_arena
+  );
+  swap(prefixlen_, other->prefixlen_);
+  swap(entry_, other->entry_);
+  swap(_oneof_case_[0], other->_oneof_case_[0]);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata SLMplsIlmKey_IPPrefixKey::GetMetadata() const {
+  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
+      &descriptor_table_sl_5fmpls_2eproto_getter, &descriptor_table_sl_5fmpls_2eproto_once,
+      file_level_metadata_sl_5fmpls_2eproto[15]);
+}
+
+// ===================================================================
+
 class SLMplsIlmKey::_Internal {
  public:
   static const ::service_layer::SLMplsCos& slmplscosval(const SLMplsIlmKey* msg);
+  static const ::service_layer::SLMplsIlmKey_IPPrefixKey& prefix(const SLMplsIlmKey* msg);
 };
 
 const ::service_layer::SLMplsCos&
 SLMplsIlmKey::_Internal::slmplscosval(const SLMplsIlmKey* msg) {
   return *msg->slmplscosval_;
+}
+const ::service_layer::SLMplsIlmKey_IPPrefixKey&
+SLMplsIlmKey::_Internal::prefix(const SLMplsIlmKey* msg) {
+  return *msg->prefix_;
 }
 SLMplsIlmKey::SLMplsIlmKey(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
@@ -4112,6 +4950,11 @@ SLMplsIlmKey::SLMplsIlmKey(const SLMplsIlmKey& from)
     slmplscosval_ = new ::service_layer::SLMplsCos(*from.slmplscosval_);
   } else {
     slmplscosval_ = nullptr;
+  }
+  if (from._internal_has_prefix()) {
+    prefix_ = new ::service_layer::SLMplsIlmKey_IPPrefixKey(*from.prefix_);
+  } else {
+    prefix_ = nullptr;
   }
   locallabel_ = from.locallabel_;
   // @@protoc_insertion_point(copy_constructor:service_layer.SLMplsIlmKey)
@@ -4134,6 +4977,7 @@ SLMplsIlmKey::~SLMplsIlmKey() {
 inline void SLMplsIlmKey::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
   if (this != internal_default_instance()) delete slmplscosval_;
+  if (this != internal_default_instance()) delete prefix_;
 }
 
 void SLMplsIlmKey::ArenaDtor(void* object) {
@@ -4156,6 +5000,10 @@ void SLMplsIlmKey::Clear() {
     delete slmplscosval_;
   }
   slmplscosval_ = nullptr;
+  if (GetArenaForAllocation() == nullptr && prefix_ != nullptr) {
+    delete prefix_;
+  }
+  prefix_ = nullptr;
   locallabel_ = 0u;
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
@@ -4178,6 +5026,14 @@ const char* SLMplsIlmKey::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_I
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
           ptr = ctx->ParseMessage(_internal_mutable_slmplscosval(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // .service_layer.SLMplsIlmKey.IPPrefixKey Prefix = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 26)) {
+          ptr = ctx->ParseMessage(_internal_mutable_prefix(), ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -4225,6 +5081,14 @@ uint8_t* SLMplsIlmKey::_InternalSerialize(
         2, _Internal::slmplscosval(this), target, stream);
   }
 
+  // .service_layer.SLMplsIlmKey.IPPrefixKey Prefix = 3;
+  if (this->_internal_has_prefix()) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        3, _Internal::prefix(this), target, stream);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -4246,6 +5110,13 @@ size_t SLMplsIlmKey::ByteSizeLong() const {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
         *slmplscosval_);
+  }
+
+  // .service_layer.SLMplsIlmKey.IPPrefixKey Prefix = 3;
+  if (this->_internal_has_prefix()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *prefix_);
   }
 
   // uint32 LocalLabel = 1;
@@ -4278,6 +5149,9 @@ void SLMplsIlmKey::MergeFrom(const SLMplsIlmKey& from) {
   if (from._internal_has_slmplscosval()) {
     _internal_mutable_slmplscosval()->::service_layer::SLMplsCos::MergeFrom(from._internal_slmplscosval());
   }
+  if (from._internal_has_prefix()) {
+    _internal_mutable_prefix()->::service_layer::SLMplsIlmKey_IPPrefixKey::MergeFrom(from._internal_prefix());
+  }
   if (from._internal_locallabel() != 0) {
     _internal_set_locallabel(from._internal_locallabel());
   }
@@ -4309,7 +5183,7 @@ void SLMplsIlmKey::InternalSwap(SLMplsIlmKey* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata SLMplsIlmKey::GetMetadata() const {
   return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_sl_5fmpls_2eproto_getter, &descriptor_table_sl_5fmpls_2eproto_once,
-      file_level_metadata_sl_5fmpls_2eproto[13]);
+      file_level_metadata_sl_5fmpls_2eproto[16]);
 }
 
 // ===================================================================
@@ -4588,7 +5462,7 @@ void SLMplsCos::InternalSwap(SLMplsCos* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata SLMplsCos::GetMetadata() const {
   return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_sl_5fmpls_2eproto_getter, &descriptor_table_sl_5fmpls_2eproto_once,
-      file_level_metadata_sl_5fmpls_2eproto[14]);
+      file_level_metadata_sl_5fmpls_2eproto[17]);
 }
 
 // ===================================================================
@@ -4816,7 +5690,7 @@ void SLMplsIlmEntry::InternalSwap(SLMplsIlmEntry* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata SLMplsIlmEntry::GetMetadata() const {
   return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_sl_5fmpls_2eproto_getter, &descriptor_table_sl_5fmpls_2eproto_once,
-      file_level_metadata_sl_5fmpls_2eproto[15]);
+      file_level_metadata_sl_5fmpls_2eproto[18]);
 }
 
 // ===================================================================
@@ -5064,7 +5938,7 @@ void SLMplsIlmMsg::InternalSwap(SLMplsIlmMsg* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata SLMplsIlmMsg::GetMetadata() const {
   return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_sl_5fmpls_2eproto_getter, &descriptor_table_sl_5fmpls_2eproto_once,
-      file_level_metadata_sl_5fmpls_2eproto[16]);
+      file_level_metadata_sl_5fmpls_2eproto[19]);
 }
 
 // ===================================================================
@@ -5314,7 +6188,7 @@ void SLMplsIlmRes::InternalSwap(SLMplsIlmRes* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata SLMplsIlmRes::GetMetadata() const {
   return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_sl_5fmpls_2eproto_getter, &descriptor_table_sl_5fmpls_2eproto_once,
-      file_level_metadata_sl_5fmpls_2eproto[17]);
+      file_level_metadata_sl_5fmpls_2eproto[20]);
 }
 
 // ===================================================================
@@ -5580,7 +6454,7 @@ void SLMplsIlmMsgRsp::InternalSwap(SLMplsIlmMsgRsp* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata SLMplsIlmMsgRsp::GetMetadata() const {
   return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_sl_5fmpls_2eproto_getter, &descriptor_table_sl_5fmpls_2eproto_once,
-      file_level_metadata_sl_5fmpls_2eproto[18]);
+      file_level_metadata_sl_5fmpls_2eproto[21]);
 }
 
 // ===================================================================
@@ -5855,7 +6729,7 @@ void SLMplsIlmGetMsg::InternalSwap(SLMplsIlmGetMsg* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata SLMplsIlmGetMsg::GetMetadata() const {
   return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_sl_5fmpls_2eproto_getter, &descriptor_table_sl_5fmpls_2eproto_once,
-      file_level_metadata_sl_5fmpls_2eproto[19]);
+      file_level_metadata_sl_5fmpls_2eproto[22]);
 }
 
 // ===================================================================
@@ -6147,7 +7021,7 @@ void SLMplsIlmGetMsgRsp::InternalSwap(SLMplsIlmGetMsgRsp* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata SLMplsIlmGetMsgRsp::GetMetadata() const {
   return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_sl_5fmpls_2eproto_getter, &descriptor_table_sl_5fmpls_2eproto_once,
-      file_level_metadata_sl_5fmpls_2eproto[20]);
+      file_level_metadata_sl_5fmpls_2eproto[23]);
 }
 
 // @@protoc_insertion_point(namespace_scope)
@@ -6191,6 +7065,15 @@ template<> PROTOBUF_NOINLINE ::service_layer::SLMplsGetStatsMsgRsp* Arena::Creat
 }
 template<> PROTOBUF_NOINLINE ::service_layer::SLMplsPath* Arena::CreateMaybeMessage< ::service_layer::SLMplsPath >(Arena* arena) {
   return Arena::CreateMessageInternal< ::service_layer::SLMplsPath >(arena);
+}
+template<> PROTOBUF_NOINLINE ::service_layer::SLMplsIlmKey_IPv4PrefixKey* Arena::CreateMaybeMessage< ::service_layer::SLMplsIlmKey_IPv4PrefixKey >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::service_layer::SLMplsIlmKey_IPv4PrefixKey >(arena);
+}
+template<> PROTOBUF_NOINLINE ::service_layer::SLMplsIlmKey_IPv6PrefixKey* Arena::CreateMaybeMessage< ::service_layer::SLMplsIlmKey_IPv6PrefixKey >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::service_layer::SLMplsIlmKey_IPv6PrefixKey >(arena);
+}
+template<> PROTOBUF_NOINLINE ::service_layer::SLMplsIlmKey_IPPrefixKey* Arena::CreateMaybeMessage< ::service_layer::SLMplsIlmKey_IPPrefixKey >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::service_layer::SLMplsIlmKey_IPPrefixKey >(arena);
 }
 template<> PROTOBUF_NOINLINE ::service_layer::SLMplsIlmKey* Arena::CreateMaybeMessage< ::service_layer::SLMplsIlmKey >(Arena* arena) {
   return Arena::CreateMessageInternal< ::service_layer::SLMplsIlmKey >(arena);
