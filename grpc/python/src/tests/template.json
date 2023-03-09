@@ -504,7 +504,8 @@
             "count": 1,
             "get_next": 0,
             "ilm": {
-                "in_label": 32221
+                "in_label": 32221,
+                "default_elsp": true
                 }
         },
         "get_exact_match_ilm_exp": {
