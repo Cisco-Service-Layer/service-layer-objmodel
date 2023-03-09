@@ -15,18 +15,22 @@ try:
 except ImportError:
     from .base_ap import ApData
 
-from sl_api import SLAPIClient
-from sl_api import MplsUtil
-from genpy import sl_mpls_pb2
+try:
+    # If running in Cafy Env
+    from feature_lib.slapi.slapi_client import SLApiClient
+    from feature_lib.slapi.sl_util import MplsUtil
+    from feature_lib.slapi.genpy import sl_mpls_pb2
+except ImportError:
+    # Running outside of Cafy Env
+    from sl_api import SLApiClient
+    from sl_api import MplsUtil
+    from genpy import sl_mpls_pb2
 
-
-log = ApData.log
-
+log = ApData.logger()
 # Global variables
 # ------------------------------------------------------------------------------
 client = None
 json_params = None
-collect_cores = [ApData.default_uut]
 # ------------------------------------------------------------------------------
 
 
@@ -43,7 +47,8 @@ def setUpModule():
 
 def tearDownModule():
     client.cleanup()
-    ApData.run_collect_cores(collect_cores)
+    if ApData.sim_clean and ApData.vxr:
+       ApData.vxr.clean()
 
 
 class TestSuite_003_ILM_IPv4(unittest.TestCase):
@@ -64,10 +69,6 @@ class TestSuite_003_ILM_IPv4(unittest.TestCase):
             "paths": json_params["paths"],
             "next_hops": json_params["next_hops"],
         }
-
-    def tearDown(self):
-        if hasattr(self._outcome, "errors") and len(self._outcome.errors) > 0:
-            ApData.collect_failure_logs()
 
     def test_000_get_globals(self):
         # Get Global MPLS info
@@ -260,10 +261,6 @@ class TestSuite_014_MPLS_CoS_TC1(unittest.TestCase):
             "next_hops": json_params["next_hops"],
         }
 
-    def tearDown(self):
-        if hasattr(self._outcome, "errors") and len(self._outcome.errors) > 0:
-            ApData.collect_failure_logs()
-
     def test_000_get_globals(self):
         # Get Global MPLS info
         client.mpls_global_get()
@@ -424,10 +421,6 @@ class TestSuite_015_MPLS_CoS_TC2(unittest.TestCase):
             "next_hops": json_params["next_hops"],
         }
 
-    def tearDown(self):
-        if hasattr(self._outcome, "errors") and len(self._outcome.errors) > 0:
-            ApData.collect_failure_logs()
-
     def test_000_get_globals(self):
         # Get Global MPLS info
         client.mpls_global_get()
@@ -548,10 +541,6 @@ class TestSuite_016_MPLS_CoS_TC3(unittest.TestCase):
             "paths": json_params["paths"],
             "next_hops": json_params["next_hops"],
         }
-
-    def tearDown(self):
-        if hasattr(self._outcome, "errors") and len(self._outcome.errors) > 0:
-            ApData.collect_failure_logs()
 
     def test_000_get_globals(self):
         # Get Global MPLS info
@@ -821,10 +810,6 @@ class TestSuite_017_MPLS_CoS_TC4(unittest.TestCase):
             "next_hops": json_params["next_hops"],
         }
 
-    def tearDown(self):
-        if hasattr(self._outcome, "errors") and len(self._outcome.errors) > 0:
-            ApData.collect_failure_logs()
-
     def test_000_get_globals(self):
         # Get Global MPLS info
         client.mpls_global_get()
@@ -1091,9 +1076,6 @@ class TestSuite_018_MPLS_CoS_TC5(unittest.TestCase):
             "next_hops": json_params["next_hops"],
         }
 
-    def tearDown(self):
-        if hasattr(self._outcome, "errors") and len(self._outcome.errors) > 0:
-            ApData.collect_failure_logs()
 
     def test_000_get_globals(self):
         # Get Global MPLS info
@@ -1314,9 +1296,6 @@ class TestSuite_019_MPLS_CoS_TC6(unittest.TestCase):
             "next_hops": json_params["next_hops"],
         }
 
-    def tearDown(self):
-        if hasattr(self._outcome, "errors") and len(self._outcome.errors) > 0:
-            ApData.collect_failure_logs()
 
     def test_000_get_globals(self):
         # Get Global MPLS info
@@ -1465,9 +1444,6 @@ class TestSuite_020_COS_ILM_IPv4_TC7(unittest.TestCase):
             "next_hops": json_params["next_hops"],
         }
 
-    def tearDown(self):
-        if hasattr(self._outcome, "errors") and len(self._outcome.errors) > 0:
-            ApData.collect_failure_logs()
 
     def test_000_get_globals(self):
         # Get Global MPLS info
@@ -1605,9 +1581,6 @@ class TestSuite_022_COS_ILM_IPv4_TC9(unittest.TestCase):
             "next_hops": json_params["next_hops"],
         }
 
-    def tearDown(self):
-        if hasattr(self._outcome, "errors") and len(self._outcome.errors) > 0:
-            ApData.collect_failure_logs()
 
     def test_000_get_globals(self):
         # Get Global MPLS info
@@ -1727,9 +1700,6 @@ class TestSuite_025_MPLS_CoS_TC12(unittest.TestCase):
             "next_hops": json_params["next_hops"],
         }
 
-    def tearDown(self):
-        if hasattr(self._outcome, "errors") and len(self._outcome.errors) > 0:
-            ApData.collect_failure_logs()
 
     def test_000_get_globals(self):
         # Get Global MPLS info
@@ -1859,9 +1829,6 @@ class TestSuite_028_MPLS_CoS_TC15(unittest.TestCase):
             "next_hops": json_params["next_hops"],
         }
 
-    def tearDown(self):
-        if hasattr(self._outcome, "errors") and len(self._outcome.errors) > 0:
-            ApData.collect_failure_logs()
 
     def test_000_get_globals(self):
         # Get Global MPLS info
@@ -1965,9 +1932,6 @@ class TestSuite_029_MPLS_CoS_TC16_scale(unittest.TestCase):
             "next_hops": json_params["next_hops"],
         }
 
-    def tearDown(self):
-        if hasattr(self._outcome, "errors") and len(self._outcome.errors) > 0:
-            ApData.collect_failure_logs()
 
     def test_000_get_globals(self):
         # Get Global MPLS info
@@ -2306,9 +2270,6 @@ class TestSuite_030_MPLS_CoS_NHLFE_TC1(unittest.TestCase):
             "next_hops": json_params["next_hops"],
         }
 
-    def tearDown(self):
-        if hasattr(self._outcome, "errors") and len(self._outcome.errors) > 0:
-            ApData.collect_failure_logs()
 
     def test_000_get_globals(self):
         # Get Global MPLS info
