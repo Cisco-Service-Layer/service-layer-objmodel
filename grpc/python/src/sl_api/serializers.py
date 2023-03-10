@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2016 by cisco Systems, Inc. 
+# Copyright (c) 2016-2023 by cisco Systems, Inc.
 # All rights reserved.
 #
 import collections
@@ -412,6 +412,13 @@ def ilm_get_serializer(get_info):
     serializer = sl_mpls_pb2.SLMplsIlmGetMsg()
     if "correlator" in get_info:
         serializer.Correlator = get_info["correlator"]
+    if "ilm" in get_info:
+        if "in_label" in get_info["ilm"]:
+            serializer.Key.LocalLabel = get_info["ilm"]["in_label"]
+        if "default_elsp" in get_info["ilm"]:
+            serializer.Key.SlMplsCosVal.DefaultElspPath = get_info["ilm"]["default_elsp"]
+        elif "exp" in get_info["ilm"]:
+            serializer.Key.SlMplsCosVal.Exp = get_info["ilm"]["exp"]
         elif 'ip_prefix' in get_info["ilm"]:
             ip_prefix = get_info["ilm"].get('ip_prefix')
             if 'ipv4_prefix' in ip_prefix:
@@ -421,13 +428,6 @@ def ilm_get_serializer(get_info):
                 serializer.Key.Prefix.V6Prefix.Prefix = ipaddress.ip_address(ip_prefix["ipv6_prefix"]).packed
                 serializer.Key.Prefix.PrefixLen = ip_prefix.get("prefix_len", 128)
             serializer.Key.Prefix.VrfName = ip_prefix.get("vrf_name", "default")
-    if "ilm" in get_info:
-        if "in_label" in get_info["ilm"]:
-            serializer.Key.LocalLabel = get_info["ilm"]["in_label"]
-        if "default_elsp" in get_info["ilm"]:
-            serializer.Key.SlMplsCosVal.DefaultElspPath = get_info["ilm"]["default_elsp"]
-        elif "exp" in get_info["ilm"]:
-            serializer.Key.SlMplsCosVal.Exp = get_info["ilm"]["exp"]
     if "count" in get_info:
         serializer.EntriesCount = get_info["count"]
     if "get_next" in get_info:

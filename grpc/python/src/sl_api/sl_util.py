@@ -711,11 +711,11 @@ class MplsUtil:
         This method does not verify nested fields
         '''
 
-        if 'label_ranges' not in info and 'label_range' not in info and 'ip_or_label_ranges' not in info:
-            raise ValueError('must define either ip_or_label_ranges, label_range, label_ranges, or ilms')
+        if 'label_ranges' in info and 'label_range' in info:
+            raise ValueError('cannot define both label_ranges and label_range')
 
-        if 'label_ranges' not in info and 'label_range' not in info:
-            raise ValueError('must define either label_range, label_ranges, or ilms')
+        if 'label_ranges' not in info and 'label_range' not in info and 'ip_or_label_ranges' not in info:
+            raise ValueError('must define either ip_or_label_ranges, label_range, label_ranges, or ilms') 
 
         if 'exps' in info and 'label_path' in info:
             raise ValueError('cannot define both exps and label_path')
