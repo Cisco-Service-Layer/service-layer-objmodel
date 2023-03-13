@@ -482,6 +482,12 @@ message SLErrorStatus {
         SL_NHLFE_INVALID_LOAD_METRIC = 0xa01e;
         // Set ID value is outside of the valid range of <0-7>. 0xa01f
         SL_NHLFE_INVALID_SETID = 0xa01f;
+        // Two paths with the same Set ID have different path priorities. 0xa020
+        SL_NHLFE_INVALID_SETID_PRIORITY = 0xa020;
+        // Multiple Set IDs are set as the primary. 0xa021
+        SL_NHLFE_INVALID_MULTIPLE_PRIMARY_SETIDS = 0xa021;
+        // Paths with the same SET ID are not contiguous. 0xa022
+        SL_NHLFE_NON_CONTIGUOUS_SETIDS = 0xa022;
 
         // !!!  MPLS Label block Error codes
 
