@@ -1527,7 +1527,10 @@
                 "label_action": 5,
                 "labels": [],
                 "next_hop": "cos_nh_1",
-                "path_priority": 0
+                "path_priority": 0,
+                "path_setid": 1,
+                "load_metric": 8,
+                "path_down": 1
             }
         ],
         "cos_nhlfe_path_1b" : [
@@ -1536,7 +1539,8 @@
                 "label_action": 5,
                 "labels": [],
                 "next_hop": "cos_nh_2",
-                "path_priority": 0
+                "path_priority": 0,
+                "path_setid": 1
             }
         ],
         "cos_nhlfe_path_1c" : [
@@ -1545,7 +1549,8 @@
                 "label_action": 5,
                 "labels": [],
                 "next_hop": "cos_nh_3",
-                "path_priority": 0
+                "path_priority": 0,
+                "path_setid": 1
             }
         ],
         "cos_nhlfe_path_1d" : [
@@ -1553,7 +1558,8 @@
                 "default_elsp": true,
                 "label_action": 5,
                 "labels": [],
-                "next_hop": "cos_nh_4"
+                "next_hop": "cos_nh_4",
+                "path_setid": 1
             }
         ],
         "cos_nhlfe_path_1e" : [
@@ -1562,7 +1568,8 @@
                 "label_action": 5,
                 "labels": [],
                 "next_hop": "cos_nh_5",
-                "path_priority": 0
+                "path_priority": 0,
+                "path_setid": 1
             }
         ],
         "cos_nhlfe_path_2a" : [
@@ -1571,21 +1578,24 @@
                 "label_action": 1,
                 "labels": [ 46000 ],
                 "next_hop": "cos_nh_1",
-                "path_priority": 0
+                "path_priority": 0,
+                "path_setid": 0
             },
             {
                 "default_elsp": true,
                 "label_action": 1,
                 "labels": [46000],
                 "next_hop": "cos_nh_2",
-                "path_priority": 0
+                "path_priority": 0,
+                "path_setid": 1
             },
             {
                 "exp": 3,
                 "label_action": 2,
                 "labels": [],
                 "next_hop": "cos_nh_3",
-                "path_priority": 1
+                "path_priority": 1,
+                "path_setid": 2
             }
         ],
         "cos_nhlfe_path_2b" : [
@@ -1594,21 +1604,25 @@
                 "label_action": 1,
                 "labels": [ 46001 ],
                 "next_hop": "cos_nh_4",
-                "path_priority": 0
+                "path_priority": 0,
+                "path_setid": 1
             },
             {
                 "exp": 0,
                 "label_action": 2,
                 "labels": [],
                 "next_hop": "cos_nh_5",
-                "path_priority": 1
+                "path_priority": 1,
+                "path_setid": 0
             },
             {
                 "exp": 2,
                 "label_action": 1,
                 "labels": [46001],
                 "next_hop": "cos_nh_6",
-                "path_priority": 1
+                "path_priority": 1,
+                "path_setid": 2,
+                "path_down": 1
             }
         ],
         "cos_nhlfe_path_2c" : [

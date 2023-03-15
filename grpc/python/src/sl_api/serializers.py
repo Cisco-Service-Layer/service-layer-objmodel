@@ -397,6 +397,10 @@ def ilm_serializer(batch_info):
                     p.SlMplsCosVal.Exp = path["exp"]
                 if 'path_priority' in path:
                     p.SlMplsPathPriority = path["path_priority"]
+                if 'path_setid' in path:
+                    p.SlMplsPathSetId = path["path_setid"]
+                if 'path_down' in path:
+                    p.SlMplsPathDown = path["path_down"]
                 # Append the `SLMplsPathv4` object to the `ps` list
                 ps.append(p)
             assert len(ps), 'path list cannot be empty'
