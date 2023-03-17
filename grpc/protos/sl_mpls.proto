@@ -62,6 +62,17 @@ service SLMplsOper {
     //     message to convey the end of replay of the client's known objects.
     //     This is especially useful under certain restart scenarios when the
     //     client and the server are trying to synchronize their MPLS objects.
+    //
+    // The MPLS registration operations can be used by the client to
+    // synchronize label block allocations and ILMs with the device. When
+    // the client re-registers with the server using SL_REGOP_REGISTER,
+    // server marks all label block allocations and ILMs as stale.
+    // Client then must reprogram label block allocations and ILMs.
+    // When client sends SL_REGOP_EOF, any objects not reprogrammed
+    // are removed from the device.
+    //
+    // The client must perform all operations (MPLS registration,
+    // label block and ILM) from a single execution context.
     rpc SLMplsRegOp(SLMplsRegMsg) returns (SLMplsRegMsgRsp);
 
     // Retrieve global MPLS info from the server.
@@ -432,6 +443,37 @@ message SLMplsPath {
     // Alternatives.
     // For N+1 backup labels, N remote backup addresses must be specified.
     repeated SLIpAddress RemoteAddress = 9;
+
+    // Either Exp bits or CoS forwarding class.
+    // For class based forwarding of MPLS labels, the client can choose to
+    // program forwarding class as an attribute of the path. In this
+    // programming model, all paths for all classes must be programmed together
+    // and class must not be specified as key attribute on the ILM.
+    // All the paths of the same class must be contiguous.
+    // If any path has a class specified, then all others paths must
+    // have the class specified as well.
+    SLMplsCos SlMplsCosVal = 10;
+
+    // Set Path priority as primary, backup or reserved.
+    // 0: Path is installed as the primary path.
+    // 1: Path is installed as a backup path.
+    // Everything else: Reserved.
+    uint32 SlMplsPathPriority = 11;
+
+    // Set the Path set-id,
+    // Integer range [0 .. 7]; default = 0
+    // Paths of an ILM should be associated with a SetID.
+    // SetID is used for grouping paths with the same SlMplsPathPriority value.
+    // Paths with same SetID must have same SlMplsPathPriority value.
+    // Client makes the entire set primary or backup by setting
+    // the SlMplsPathPriority for all paths in the set.
+    uint32 SlMplsPathSetId = 12;
+
+    // Set the Path availability.
+    // TRUE  : Path is DOWN. Not available for carrying traffic but preprogrammed.
+    // FALSE : Path is UP. Available for carrying traffic.(default).
+    // Load metric should be set to 0 when the path is down.
+    bool SlMplsPathDown = 13;
 }
 
 // MPLS ILM entry's key.
