@@ -1051,6 +1051,33 @@ type SLMplsPath struct {
 	// Alternatives.
 	// For N+1 backup labels, N remote backup addresses must be specified.
 	RemoteAddress []*SLIpAddress `protobuf:"bytes,9,rep,name=RemoteAddress,proto3" json:"RemoteAddress,omitempty"`
+	// Either Exp bits or CoS forwarding class.
+	// For class based forwarding of MPLS labels, the client can choose to
+	// program forwarding class as an attribute of the path. In this
+	// programming model, all paths for all classes must be programmed together
+	// and class must not be specified as key attribute on the ILM.
+	// All the paths of the same class must be contiguous.
+	// If any path has a class specified, then all others paths must
+	// have the class specified as well.
+	SlMplsCosVal *SLMplsCos `protobuf:"bytes,10,opt,name=SlMplsCosVal,proto3" json:"SlMplsCosVal,omitempty"`
+	// Set Path priority as primary, backup or reserved.
+	// 0: Path is installed as the primary path.
+	// 1: Path is installed as a backup path.
+	// Everything else: Reserved.
+	SlMplsPathPriority uint32 `protobuf:"varint,11,opt,name=SlMplsPathPriority,proto3" json:"SlMplsPathPriority,omitempty"`
+	// Set the Path set-id,
+	// Integer range [0 .. 7]; default = 0
+	// Paths of an ILM should be associated with a SetID.
+	// SetID is used for grouping paths with the same SlMplsPathPriority value.
+	// Paths with same SetID must have same SlMplsPathPriority value.
+	// Client makes the entire set primary or backup by setting
+	// the SlMplsPathPriority for all paths in the set.
+	SlMplsPathSetId uint32 `protobuf:"varint,12,opt,name=SlMplsPathSetId,proto3" json:"SlMplsPathSetId,omitempty"`
+	// Set the Path availability.
+	// TRUE  : Path is DOWN. Not available for carrying traffic but preprogrammed.
+	// FALSE : Path is UP. Available for carrying traffic.(default).
+	// Load metric should be set to 0 when the path is down.
+	SlMplsPathDown bool `protobuf:"varint,13,opt,name=SlMplsPathDown,proto3" json:"SlMplsPathDown,omitempty"`
 }
 
 func (x *SLMplsPath) Reset() {
@@ -1146,6 +1173,34 @@ func (x *SLMplsPath) GetRemoteAddress() []*SLIpAddress {
 		return x.RemoteAddress
 	}
 	return nil
+}
+
+func (x *SLMplsPath) GetSlMplsCosVal() *SLMplsCos {
+	if x != nil {
+		return x.SlMplsCosVal
+	}
+	return nil
+}
+
+func (x *SLMplsPath) GetSlMplsPathPriority() uint32 {
+	if x != nil {
+		return x.SlMplsPathPriority
+	}
+	return 0
+}
+
+func (x *SLMplsPath) GetSlMplsPathSetId() uint32 {
+	if x != nil {
+		return x.SlMplsPathSetId
+	}
+	return 0
+}
+
+func (x *SLMplsPath) GetSlMplsPathDown() bool {
+	if x != nil {
+		return x.SlMplsPathDown
+	}
+	return false
 }
 
 // MPLS ILM entry's key.
@@ -2062,7 +2117,7 @@ var file_sl_mpls_proto_rawDesc = []byte{
 	0x43, 0x6f, 0x75, 0x6e, 0x74, 0x18, 0x02, 0x20, 0x01, 0x28, 0x0d, 0x52, 0x0f, 0x4c, 0x61, 0x62,
 	0x65, 0x6c, 0x42, 0x6c, 0x6f, 0x63, 0x6b, 0x43, 0x6f, 0x75, 0x6e, 0x74, 0x12, 0x1a, 0x0a, 0x08,
 	0x49, 0x6c, 0x6d, 0x43, 0x6f, 0x75, 0x6e, 0x74, 0x18, 0x03, 0x20, 0x01, 0x28, 0x0d, 0x52, 0x08,
-	0x49, 0x6c, 0x6d, 0x43, 0x6f, 0x75, 0x6e, 0x74, 0x22, 0xb4, 0x03, 0x0a, 0x0a, 0x53, 0x4c, 0x4d,
+	0x49, 0x6c, 0x6d, 0x43, 0x6f, 0x75, 0x6e, 0x74, 0x22, 0xf4, 0x04, 0x0a, 0x0a, 0x53, 0x4c, 0x4d,
 	0x70, 0x6c, 0x73, 0x50, 0x61, 0x74, 0x68, 0x12, 0x42, 0x0a, 0x0e, 0x4e, 0x65, 0x78, 0x74, 0x68,
 	0x6f, 0x70, 0x41, 0x64, 0x64, 0x72, 0x65, 0x73, 0x73, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32,
 	0x1a, 0x2e, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x5f, 0x6c, 0x61, 0x79, 0x65, 0x72, 0x2e,
@@ -2089,7 +2144,19 @@ var file_sl_mpls_proto_rawDesc = []byte{
 	0x0d, 0x52, 0x65, 0x6d, 0x6f, 0x74, 0x65, 0x41, 0x64, 0x64, 0x72, 0x65, 0x73, 0x73, 0x18, 0x09,
 	0x20, 0x03, 0x28, 0x0b, 0x32, 0x1a, 0x2e, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x5f, 0x6c,
 	0x61, 0x79, 0x65, 0x72, 0x2e, 0x53, 0x4c, 0x49, 0x70, 0x41, 0x64, 0x64, 0x72, 0x65, 0x73, 0x73,
-	0x52, 0x0d, 0x52, 0x65, 0x6d, 0x6f, 0x74, 0x65, 0x41, 0x64, 0x64, 0x72, 0x65, 0x73, 0x73, 0x22,
+	0x52, 0x0d, 0x52, 0x65, 0x6d, 0x6f, 0x74, 0x65, 0x41, 0x64, 0x64, 0x72, 0x65, 0x73, 0x73, 0x12,
+	0x3c, 0x0a, 0x0c, 0x53, 0x6c, 0x4d, 0x70, 0x6c, 0x73, 0x43, 0x6f, 0x73, 0x56, 0x61, 0x6c, 0x18,
+	0x0a, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x18, 0x2e, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x5f,
+	0x6c, 0x61, 0x79, 0x65, 0x72, 0x2e, 0x53, 0x4c, 0x4d, 0x70, 0x6c, 0x73, 0x43, 0x6f, 0x73, 0x52,
+	0x0c, 0x53, 0x6c, 0x4d, 0x70, 0x6c, 0x73, 0x43, 0x6f, 0x73, 0x56, 0x61, 0x6c, 0x12, 0x2e, 0x0a,
+	0x12, 0x53, 0x6c, 0x4d, 0x70, 0x6c, 0x73, 0x50, 0x61, 0x74, 0x68, 0x50, 0x72, 0x69, 0x6f, 0x72,
+	0x69, 0x74, 0x79, 0x18, 0x0b, 0x20, 0x01, 0x28, 0x0d, 0x52, 0x12, 0x53, 0x6c, 0x4d, 0x70, 0x6c,
+	0x73, 0x50, 0x61, 0x74, 0x68, 0x50, 0x72, 0x69, 0x6f, 0x72, 0x69, 0x74, 0x79, 0x12, 0x28, 0x0a,
+	0x0f, 0x53, 0x6c, 0x4d, 0x70, 0x6c, 0x73, 0x50, 0x61, 0x74, 0x68, 0x53, 0x65, 0x74, 0x49, 0x64,
+	0x18, 0x0c, 0x20, 0x01, 0x28, 0x0d, 0x52, 0x0f, 0x53, 0x6c, 0x4d, 0x70, 0x6c, 0x73, 0x50, 0x61,
+	0x74, 0x68, 0x53, 0x65, 0x74, 0x49, 0x64, 0x12, 0x26, 0x0a, 0x0e, 0x53, 0x6c, 0x4d, 0x70, 0x6c,
+	0x73, 0x50, 0x61, 0x74, 0x68, 0x44, 0x6f, 0x77, 0x6e, 0x18, 0x0d, 0x20, 0x01, 0x28, 0x08, 0x52,
+	0x0e, 0x53, 0x6c, 0x4d, 0x70, 0x6c, 0x73, 0x50, 0x61, 0x74, 0x68, 0x44, 0x6f, 0x77, 0x6e, 0x22,
 	0xe2, 0x03, 0x0a, 0x0c, 0x53, 0x4c, 0x4d, 0x70, 0x6c, 0x73, 0x49, 0x6c, 0x6d, 0x4b, 0x65, 0x79,
 	0x12, 0x1e, 0x0a, 0x0a, 0x4c, 0x6f, 0x63, 0x61, 0x6c, 0x4c, 0x61, 0x62, 0x65, 0x6c, 0x18, 0x01,
 	0x20, 0x01, 0x28, 0x0d, 0x52, 0x0a, 0x4c, 0x6f, 0x63, 0x61, 0x6c, 0x4c, 0x61, 0x62, 0x65, 0x6c,
@@ -2329,44 +2396,45 @@ var file_sl_mpls_proto_depIdxs = []int32{
 	30, // 16: service_layer.SLMplsPath.NexthopInterface:type_name -> service_layer.SLInterface
 	0,  // 17: service_layer.SLMplsPath.Action:type_name -> service_layer.SlLabelAction
 	29, // 18: service_layer.SLMplsPath.RemoteAddress:type_name -> service_layer.SLIpAddress
-	16, // 19: service_layer.SLMplsIlmKey.SlMplsCosVal:type_name -> service_layer.SLMplsCos
-	25, // 20: service_layer.SLMplsIlmKey.Prefix:type_name -> service_layer.SLMplsIlmKey.IPPrefixKey
-	15, // 21: service_layer.SLMplsIlmEntry.Key:type_name -> service_layer.SLMplsIlmKey
-	14, // 22: service_layer.SLMplsIlmEntry.Paths:type_name -> service_layer.SLMplsPath
-	26, // 23: service_layer.SLMplsIlmMsg.Oper:type_name -> service_layer.SLObjectOp
-	17, // 24: service_layer.SLMplsIlmMsg.MplsIlms:type_name -> service_layer.SLMplsIlmEntry
-	27, // 25: service_layer.SLMplsIlmRes.ErrStatus:type_name -> service_layer.SLErrorStatus
-	15, // 26: service_layer.SLMplsIlmRes.Key:type_name -> service_layer.SLMplsIlmKey
-	27, // 27: service_layer.SLMplsIlmMsgRsp.StatusSummary:type_name -> service_layer.SLErrorStatus
-	19, // 28: service_layer.SLMplsIlmMsgRsp.Results:type_name -> service_layer.SLMplsIlmRes
-	15, // 29: service_layer.SLMplsIlmGetMsg.Key:type_name -> service_layer.SLMplsIlmKey
-	27, // 30: service_layer.SLMplsIlmGetMsgRsp.ErrStatus:type_name -> service_layer.SLErrorStatus
-	17, // 31: service_layer.SLMplsIlmGetMsgRsp.Entries:type_name -> service_layer.SLMplsIlmEntry
-	23, // 32: service_layer.SLMplsIlmKey.IPPrefixKey.V4Prefix:type_name -> service_layer.SLMplsIlmKey.IPv4PrefixKey
-	24, // 33: service_layer.SLMplsIlmKey.IPPrefixKey.V6Prefix:type_name -> service_layer.SLMplsIlmKey.IPv6PrefixKey
-	9,  // 34: service_layer.SLMplsOper.SLMplsRegOp:input_type -> service_layer.SLMplsRegMsg
-	11, // 35: service_layer.SLMplsOper.SLMplsGet:input_type -> service_layer.SLMplsGetMsg
-	11, // 36: service_layer.SLMplsOper.SLMplsGetStats:input_type -> service_layer.SLMplsGetMsg
-	3,  // 37: service_layer.SLMplsOper.SLMplsLabelBlockOp:input_type -> service_layer.SLMplsLabelBlockMsg
-	6,  // 38: service_layer.SLMplsOper.SLMplsLabelBlockGet:input_type -> service_layer.SLMplsLabelBlockGetMsg
-	18, // 39: service_layer.SLMplsOper.SLMplsIlmOp:input_type -> service_layer.SLMplsIlmMsg
-	21, // 40: service_layer.SLMplsOper.SLMplsIlmGet:input_type -> service_layer.SLMplsIlmGetMsg
-	18, // 41: service_layer.SLMplsOper.SLMplsIlmOpStream:input_type -> service_layer.SLMplsIlmMsg
-	21, // 42: service_layer.SLMplsOper.SLMplsIlmGetStream:input_type -> service_layer.SLMplsIlmGetMsg
-	10, // 43: service_layer.SLMplsOper.SLMplsRegOp:output_type -> service_layer.SLMplsRegMsgRsp
-	12, // 44: service_layer.SLMplsOper.SLMplsGet:output_type -> service_layer.SLMplsGetMsgRsp
-	13, // 45: service_layer.SLMplsOper.SLMplsGetStats:output_type -> service_layer.SLMplsGetStatsMsgRsp
-	5,  // 46: service_layer.SLMplsOper.SLMplsLabelBlockOp:output_type -> service_layer.SLMplsLabelBlockMsgRsp
-	7,  // 47: service_layer.SLMplsOper.SLMplsLabelBlockGet:output_type -> service_layer.SLMplsLabelBlockGetMsgRsp
-	20, // 48: service_layer.SLMplsOper.SLMplsIlmOp:output_type -> service_layer.SLMplsIlmMsgRsp
-	22, // 49: service_layer.SLMplsOper.SLMplsIlmGet:output_type -> service_layer.SLMplsIlmGetMsgRsp
-	20, // 50: service_layer.SLMplsOper.SLMplsIlmOpStream:output_type -> service_layer.SLMplsIlmMsgRsp
-	22, // 51: service_layer.SLMplsOper.SLMplsIlmGetStream:output_type -> service_layer.SLMplsIlmGetMsgRsp
-	43, // [43:52] is the sub-list for method output_type
-	34, // [34:43] is the sub-list for method input_type
-	34, // [34:34] is the sub-list for extension type_name
-	34, // [34:34] is the sub-list for extension extendee
-	0,  // [0:34] is the sub-list for field type_name
+	16, // 19: service_layer.SLMplsPath.SlMplsCosVal:type_name -> service_layer.SLMplsCos
+	16, // 20: service_layer.SLMplsIlmKey.SlMplsCosVal:type_name -> service_layer.SLMplsCos
+	25, // 21: service_layer.SLMplsIlmKey.Prefix:type_name -> service_layer.SLMplsIlmKey.IPPrefixKey
+	15, // 22: service_layer.SLMplsIlmEntry.Key:type_name -> service_layer.SLMplsIlmKey
+	14, // 23: service_layer.SLMplsIlmEntry.Paths:type_name -> service_layer.SLMplsPath
+	26, // 24: service_layer.SLMplsIlmMsg.Oper:type_name -> service_layer.SLObjectOp
+	17, // 25: service_layer.SLMplsIlmMsg.MplsIlms:type_name -> service_layer.SLMplsIlmEntry
+	27, // 26: service_layer.SLMplsIlmRes.ErrStatus:type_name -> service_layer.SLErrorStatus
+	15, // 27: service_layer.SLMplsIlmRes.Key:type_name -> service_layer.SLMplsIlmKey
+	27, // 28: service_layer.SLMplsIlmMsgRsp.StatusSummary:type_name -> service_layer.SLErrorStatus
+	19, // 29: service_layer.SLMplsIlmMsgRsp.Results:type_name -> service_layer.SLMplsIlmRes
+	15, // 30: service_layer.SLMplsIlmGetMsg.Key:type_name -> service_layer.SLMplsIlmKey
+	27, // 31: service_layer.SLMplsIlmGetMsgRsp.ErrStatus:type_name -> service_layer.SLErrorStatus
+	17, // 32: service_layer.SLMplsIlmGetMsgRsp.Entries:type_name -> service_layer.SLMplsIlmEntry
+	23, // 33: service_layer.SLMplsIlmKey.IPPrefixKey.V4Prefix:type_name -> service_layer.SLMplsIlmKey.IPv4PrefixKey
+	24, // 34: service_layer.SLMplsIlmKey.IPPrefixKey.V6Prefix:type_name -> service_layer.SLMplsIlmKey.IPv6PrefixKey
+	9,  // 35: service_layer.SLMplsOper.SLMplsRegOp:input_type -> service_layer.SLMplsRegMsg
+	11, // 36: service_layer.SLMplsOper.SLMplsGet:input_type -> service_layer.SLMplsGetMsg
+	11, // 37: service_layer.SLMplsOper.SLMplsGetStats:input_type -> service_layer.SLMplsGetMsg
+	3,  // 38: service_layer.SLMplsOper.SLMplsLabelBlockOp:input_type -> service_layer.SLMplsLabelBlockMsg
+	6,  // 39: service_layer.SLMplsOper.SLMplsLabelBlockGet:input_type -> service_layer.SLMplsLabelBlockGetMsg
+	18, // 40: service_layer.SLMplsOper.SLMplsIlmOp:input_type -> service_layer.SLMplsIlmMsg
+	21, // 41: service_layer.SLMplsOper.SLMplsIlmGet:input_type -> service_layer.SLMplsIlmGetMsg
+	18, // 42: service_layer.SLMplsOper.SLMplsIlmOpStream:input_type -> service_layer.SLMplsIlmMsg
+	21, // 43: service_layer.SLMplsOper.SLMplsIlmGetStream:input_type -> service_layer.SLMplsIlmGetMsg
+	10, // 44: service_layer.SLMplsOper.SLMplsRegOp:output_type -> service_layer.SLMplsRegMsgRsp
+	12, // 45: service_layer.SLMplsOper.SLMplsGet:output_type -> service_layer.SLMplsGetMsgRsp
+	13, // 46: service_layer.SLMplsOper.SLMplsGetStats:output_type -> service_layer.SLMplsGetStatsMsgRsp
+	5,  // 47: service_layer.SLMplsOper.SLMplsLabelBlockOp:output_type -> service_layer.SLMplsLabelBlockMsgRsp
+	7,  // 48: service_layer.SLMplsOper.SLMplsLabelBlockGet:output_type -> service_layer.SLMplsLabelBlockGetMsgRsp
+	20, // 49: service_layer.SLMplsOper.SLMplsIlmOp:output_type -> service_layer.SLMplsIlmMsgRsp
+	22, // 50: service_layer.SLMplsOper.SLMplsIlmGet:output_type -> service_layer.SLMplsIlmGetMsgRsp
+	20, // 51: service_layer.SLMplsOper.SLMplsIlmOpStream:output_type -> service_layer.SLMplsIlmMsgRsp
+	22, // 52: service_layer.SLMplsOper.SLMplsIlmGetStream:output_type -> service_layer.SLMplsIlmGetMsgRsp
+	44, // [44:53] is the sub-list for method output_type
+	35, // [35:44] is the sub-list for method input_type
+	35, // [35:35] is the sub-list for extension type_name
+	35, // [35:35] is the sub-list for extension extendee
+	0,  // [0:35] is the sub-list for field type_name
 }
 
 func init() { file_sl_mpls_proto_init() }
@@ -2723,6 +2791,17 @@ type SLMplsOperClient interface {
 	//     message to convey the end of replay of the client's known objects.
 	//     This is especially useful under certain restart scenarios when the
 	//     client and the server are trying to synchronize their MPLS objects.
+	//
+	// The MPLS registration operations can be used by the client to
+	// synchronize label block allocations and ILMs with the device. When
+	// the client re-registers with the server using SL_REGOP_REGISTER,
+	// server marks all label block allocations and ILMs as stale.
+	// Client then must reprogram label block allocations and ILMs.
+	// When client sends SL_REGOP_EOF, any objects not reprogrammed
+	// are removed from the device.
+	//
+	// The client must perform all operations (MPLS registration,
+	// label block and ILM) from a single execution context.
 	SLMplsRegOp(ctx context.Context, in *SLMplsRegMsg, opts ...grpc.CallOption) (*SLMplsRegMsgRsp, error)
 	// Retrieve global MPLS info from the server.
 	SLMplsGet(ctx context.Context, in *SLMplsGetMsg, opts ...grpc.CallOption) (*SLMplsGetMsgRsp, error)
@@ -2914,6 +2993,17 @@ type SLMplsOperServer interface {
 	//     message to convey the end of replay of the client's known objects.
 	//     This is especially useful under certain restart scenarios when the
 	//     client and the server are trying to synchronize their MPLS objects.
+	//
+	// The MPLS registration operations can be used by the client to
+	// synchronize label block allocations and ILMs with the device. When
+	// the client re-registers with the server using SL_REGOP_REGISTER,
+	// server marks all label block allocations and ILMs as stale.
+	// Client then must reprogram label block allocations and ILMs.
+	// When client sends SL_REGOP_EOF, any objects not reprogrammed
+	// are removed from the device.
+	//
+	// The client must perform all operations (MPLS registration,
+	// label block and ILM) from a single execution context.
 	SLMplsRegOp(context.Context, *SLMplsRegMsg) (*SLMplsRegMsgRsp, error)
 	// Retrieve global MPLS info from the server.
 	SLMplsGet(context.Context, *SLMplsGetMsg) (*SLMplsGetMsgRsp, error)

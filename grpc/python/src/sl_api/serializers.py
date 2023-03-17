@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2016 by cisco Systems, Inc. 
+# Copyright (c) 2016-2023 by cisco Systems, Inc.
 # All rights reserved.
 #
 import collections
@@ -340,7 +340,6 @@ def ilm_serializer(batch_info):
                     p.PathId = path['path_id']
                 if 'next_hop' in path:
                     nh = path['next_hop']
-
                     if "nh_afi" in path:
                         local_af = path['nh_afi']
                     elif 'nh_afi' in ilm:
@@ -356,7 +355,6 @@ def ilm_serializer(batch_info):
                         if 'v6_addr' in path['next_hop']:
                             p.NexthopAddress.V6Address = ipaddress.ip_address(
                                 nh['v6_addr']).packed
-
                     if 'if_name' in path['next_hop']:
                         p.NexthopInterface.Name = path['next_hop']['if_name']
                     if 'vrf_name' in path['next_hop']:
@@ -393,6 +391,16 @@ def ilm_serializer(batch_info):
                             )
                             remote_addr.append(sl_r_addr)
                         p.RemoteAddress.extend(remote_addr)
+                if 'default_elsp' in path:
+                    p.SlMplsCosVal.DefaultElspPath = path["default_elsp"]
+                elif 'exp' in path:
+                    p.SlMplsCosVal.Exp = path["exp"]
+                if 'path_priority' in path:
+                    p.SlMplsPathPriority = path["path_priority"]
+                if 'path_setid' in path:
+                    p.SlMplsPathSetId = path["path_setid"]
+                if 'path_down' in path:
+                    p.SlMplsPathDown = path["path_down"]
                 # Append the `SLMplsPathv4` object to the `ps` list
                 ps.append(p)
             assert len(ps), 'path list cannot be empty'
