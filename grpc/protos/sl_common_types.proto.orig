@@ -725,7 +725,9 @@ message SLIpAddress {
 }
 
 // Encapsulation Types.
-// Specify tunnel encapsulation types.
+// Specify tunnel encapsulation types: VXLAN or MPLS.
+// This will determine the interpretation of some fields VrfName and
+// LabelStack in SLRoutePath. It will mandate the presence of certain fields.
 enum SLEncapType {
     // Reserved. 0x0
     SL_ENCAP_RESERVED = 0x0;
