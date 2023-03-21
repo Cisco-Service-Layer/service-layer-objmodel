@@ -435,6 +435,20 @@
     SL_NHLFE_EXP_SET_FAILED = 0xa01a,\
     /* ELSP protection is unsupported. 0xa01b */\
     SL_NHLFE_ELSP_PROTECTION_UNSUPPORTED = 0xa01b,\
+    /* EXP value is outside of the valid range of <0-7>. 0xa01c */\
+    SL_NHLFE_INVALID_ELSP_EXP = 0xa01c,\
+    /* Path Priority is invalid (valid: 0 or 1). 0xa01d */\
+    SL_NHLFE_INVALID_PATH_PRIORITY = 0xa01d,\
+    /* Load metric is not zero for a down path. 0xa01e */\
+    SL_NHLFE_INVALID_LOAD_METRIC = 0xa01e,\
+    /* Set ID value is outside of the valid range of <0-7>. 0xa01f */\
+    SL_NHLFE_INVALID_SETID = 0xa01f,\
+    /* Two paths with the same Set ID have different path priorities. 0xa020 */\
+    SL_NHLFE_INVALID_SETID_PRIORITY = 0xa020,\
+    /* Multiple Set IDs are set as the primary. 0xa021 */\
+    SL_NHLFE_INVALID_MULTIPLE_PRIMARY_SETIDS = 0xa021,\
+    /* Paths with the same SET ID are not contiguous. 0xa022 */\
+    SL_NHLFE_NON_CONTIGUOUS_SETIDS = 0xa022,\
     /* !!!  MPLS Label block Error codes */\
     /* Offset for label block errors. 0xb000 */\
     SL_LABEL_BLK_ERR_OFFSET = 0xb000,\
@@ -1185,6 +1199,27 @@
         },\
     {SL_NHLFE_ELSP_PROTECTION_UNSUPPORTED ,\
         " ELSP protection is unsupported.  "\
+        },\
+    {SL_NHLFE_INVALID_ELSP_EXP ,\
+        " EXP value is outside of the valid range of <0-7>.  "\
+        },\
+    {SL_NHLFE_INVALID_PATH_PRIORITY ,\
+        " Path Priority is invalid (valid: 0 or 1).  "\
+        },\
+    {SL_NHLFE_INVALID_LOAD_METRIC ,\
+        " Load metric is not zero for a down path.  "\
+        },\
+    {SL_NHLFE_INVALID_SETID ,\
+        " Set ID value is outside of the valid range of <0-7>.  "\
+        },\
+    {SL_NHLFE_INVALID_SETID_PRIORITY ,\
+        " Two paths with the same Set ID have different path priorities.  "\
+        },\
+    {SL_NHLFE_INVALID_MULTIPLE_PRIMARY_SETIDS ,\
+        " Multiple Set IDs are set as the primary.  "\
+        },\
+    {SL_NHLFE_NON_CONTIGUOUS_SETIDS ,\
+        " Paths with the same SET ID are not contiguous.  "\
         },\
     {SL_LABEL_BLK_ERR_OFFSET ,\
         " Offset for label block errors.  "\
