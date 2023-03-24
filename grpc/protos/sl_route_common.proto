@@ -310,28 +310,6 @@ message SLRouteCommon {
     uint32 Flags = 6;
 }
 
-// Attributes for constructing VxLAN encapsulation for a IP packet.
-message SLVxLANPath {
-    // Virtual network identifier. Client must set a valid non-zero idenifier.
-    uint32 VNI = 1;
-
-    // Virtual network identifier flags.
-    uint32 VNIFlags = 2;
-
-    // Source MAC address is mandatory.
-    bytes SourceMacAddress = 3;
-
-    // Destination MAC address is optional. If not set,
-    // Zero MAC address is used as the destination MAC address.
-    bytes DestMacAddress = 4;
-
-    // Source IP address is mandatory.
-    SLIpAddress SrcIpAddress = 5;
-
-    // Destination IP address is mandatory.
-    SLIpAddress DestIpAddress = 6;
-}
-
 // Route Path attributes.
 //
 // FRR Note:
@@ -340,10 +318,8 @@ message SLVxLANPath {
 // value is platform specific and is not configurable.
 message SLRoutePath {
     // One of IPv4 or IPv6 address
-    // For ENCAP_VXLAN, this field is optional and:
-    // - if set, packet is forwarded to NextHopAddress.
-    // - if not set, tunnel's destination IP address is resolved
-    //   to determine packet's next hop.
+    // For ENCAP_VXLAN, this will specify the tunnel end point IP
+    // address.
     SLIpAddress NexthopAddress = 1;
 
     // Outgoing interface name for the path.
@@ -355,6 +331,9 @@ message SLRoutePath {
 
     // Path VRF name. This field is used ONLY if the path is in a different
     // VRF than the route (e.g. VPN cases)
+    // For ENCAP_VXLAN, this field can be used to specify the VRF where
+    // the tunnel end point IP address resides ("default" will be assumed
+    // if not specified).
     string VrfName = 4;
 
     // Route Metric.
@@ -404,7 +383,7 @@ message SLRoutePath {
     // (1 << (pathId_1 - 1))  | (1 << (pathId_2 - 1)) | (1 << (pathId_3 - 1))
     repeated uint64 ProtectedPathBitmap = 7;
 
-    // MPLS label stack.
+    // MPLS label stack or VxLAN Virtual Network Identifier.
     // Stack of labels that is pushed when the packet is switched out.
     // Label size is LSB 20 bits. Forwarding will set EXP, TTL and BOS.
     // For primary path, typically only 1 label is used.
@@ -412,6 +391,8 @@ message SLRoutePath {
     // is used, remote backup addresses must be specified.
     // The maximum number of labels pushed for primary and backup are
     // platform dependent.
+    // For ENCAP_VXLAN, this field will specify the Virtual Network
+    // Identifier (VNI)
     repeated uint32 LabelStack = 8;
 
     // MPLS Remote router backup address.
@@ -425,17 +406,9 @@ message SLRoutePath {
     // VTEP (VxLAN tunnel end point) router MAC address.
     // A unique system MAC address that other VTEPs can use for inter-VNI
     // routing. The router MAC address is used as the inner destination MAC
-    // address for routed VXLAN packet. If this attribute
-    // is set, route can be only be signalled via BGP for EVPN use and
-    // local tunnel endpoint is not created.
-    //
-    // This field and VxLANPath are mutually exclusive. This field
-    // is deprecated and will eventually be removed.
+    // address for routed VXLAN packet.
+    // Used for ENCAP_VXLAN (mandatory) only.
     bytes VtepRouterMacAddress = 11;
-
-    // Create local tunnel endpoint. Apply VxLAN encapsulation
-    // on the IP packet.
-    SLVxLANPath VxLANPath = 12;
 }
 
 // @}

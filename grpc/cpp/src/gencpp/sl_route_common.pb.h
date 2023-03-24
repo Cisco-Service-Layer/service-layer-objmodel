@@ -49,7 +49,7 @@ struct TableStruct_sl_5froute_5fcommon_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::AuxiliaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[19]
+  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[18]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::FieldMetadata field_metadata[];
   static const ::PROTOBUF_NAMESPACE_ID::internal::SerializationTable serialization_table[];
@@ -111,9 +111,6 @@ extern SLVrfRegMsgResDefaultTypeInternal _SLVrfRegMsgRes_default_instance_;
 class SLVrfRegMsgRsp;
 struct SLVrfRegMsgRspDefaultTypeInternal;
 extern SLVrfRegMsgRspDefaultTypeInternal _SLVrfRegMsgRsp_default_instance_;
-class SLVxLANPath;
-struct SLVxLANPathDefaultTypeInternal;
-extern SLVxLANPathDefaultTypeInternal _SLVxLANPath_default_instance_;
 }  // namespace service_layer
 PROTOBUF_NAMESPACE_OPEN
 template<> ::service_layer::SLRouteCommon* Arena::CreateMaybeMessage<::service_layer::SLRouteCommon>(Arena*);
@@ -134,7 +131,6 @@ template<> ::service_layer::SLVrfRegGetMsgRsp* Arena::CreateMaybeMessage<::servi
 template<> ::service_layer::SLVrfRegMsg* Arena::CreateMaybeMessage<::service_layer::SLVrfRegMsg>(Arena*);
 template<> ::service_layer::SLVrfRegMsgRes* Arena::CreateMaybeMessage<::service_layer::SLVrfRegMsgRes>(Arena*);
 template<> ::service_layer::SLVrfRegMsgRsp* Arena::CreateMaybeMessage<::service_layer::SLVrfRegMsgRsp>(Arena*);
-template<> ::service_layer::SLVxLANPath* Arena::CreateMaybeMessage<::service_layer::SLVxLANPath>(Arena*);
 PROTOBUF_NAMESPACE_CLOSE
 namespace service_layer {
 
@@ -3063,235 +3059,6 @@ class SLRouteCommon final :
 };
 // -------------------------------------------------------------------
 
-class SLVxLANPath final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:service_layer.SLVxLANPath) */ {
- public:
-  inline SLVxLANPath() : SLVxLANPath(nullptr) {}
-  ~SLVxLANPath() override;
-  explicit constexpr SLVxLANPath(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
-
-  SLVxLANPath(const SLVxLANPath& from);
-  SLVxLANPath(SLVxLANPath&& from) noexcept
-    : SLVxLANPath() {
-    *this = ::std::move(from);
-  }
-
-  inline SLVxLANPath& operator=(const SLVxLANPath& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline SLVxLANPath& operator=(SLVxLANPath&& from) noexcept {
-    if (this == &from) return *this;
-    if (GetOwningArena() == from.GetOwningArena()
-  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
-        && GetOwningArena() != nullptr
-  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
-    ) {
-      InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
-    return default_instance().GetMetadata().descriptor;
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
-    return default_instance().GetMetadata().reflection;
-  }
-  static const SLVxLANPath& default_instance() {
-    return *internal_default_instance();
-  }
-  static inline const SLVxLANPath* internal_default_instance() {
-    return reinterpret_cast<const SLVxLANPath*>(
-               &_SLVxLANPath_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    17;
-
-  friend void swap(SLVxLANPath& a, SLVxLANPath& b) {
-    a.Swap(&b);
-  }
-  inline void Swap(SLVxLANPath* other) {
-    if (other == this) return;
-  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetOwningArena() != nullptr &&
-        GetOwningArena() == other->GetOwningArena()) {
-   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetOwningArena() == other->GetOwningArena()) {
-  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
-      InternalSwap(other);
-    } else {
-      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
-    }
-  }
-  void UnsafeArenaSwap(SLVxLANPath* other) {
-    if (other == this) return;
-    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  SLVxLANPath* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
-    return CreateMaybeMessage<SLVxLANPath>(arena);
-  }
-  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const SLVxLANPath& from);
-  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom(const SLVxLANPath& from);
-  private:
-  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to, const ::PROTOBUF_NAMESPACE_ID::Message& from);
-  public:
-  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
-  bool IsInitialized() const final;
-
-  size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  uint8_t* _InternalSerialize(
-      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
-  int GetCachedSize() const final { return _cached_size_.Get(); }
-
-  private:
-  void SharedCtor();
-  void SharedDtor();
-  void SetCachedSize(int size) const final;
-  void InternalSwap(SLVxLANPath* other);
-
-  private:
-  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
-  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "service_layer.SLVxLANPath";
-  }
-  protected:
-  explicit SLVxLANPath(::PROTOBUF_NAMESPACE_ID::Arena* arena,
-                       bool is_message_owned = false);
-  private:
-  static void ArenaDtor(void* object);
-  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
-  public:
-
-  static const ClassData _class_data_;
-  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
-
-  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  enum : int {
-    kSourceMacAddressFieldNumber = 3,
-    kDestMacAddressFieldNumber = 4,
-    kSrcIpAddressFieldNumber = 5,
-    kDestIpAddressFieldNumber = 6,
-    kVNIFieldNumber = 1,
-    kVNIFlagsFieldNumber = 2,
-  };
-  // bytes SourceMacAddress = 3;
-  void clear_sourcemacaddress();
-  const std::string& sourcemacaddress() const;
-  template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_sourcemacaddress(ArgT0&& arg0, ArgT... args);
-  std::string* mutable_sourcemacaddress();
-  PROTOBUF_NODISCARD std::string* release_sourcemacaddress();
-  void set_allocated_sourcemacaddress(std::string* sourcemacaddress);
-  private:
-  const std::string& _internal_sourcemacaddress() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_sourcemacaddress(const std::string& value);
-  std::string* _internal_mutable_sourcemacaddress();
-  public:
-
-  // bytes DestMacAddress = 4;
-  void clear_destmacaddress();
-  const std::string& destmacaddress() const;
-  template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_destmacaddress(ArgT0&& arg0, ArgT... args);
-  std::string* mutable_destmacaddress();
-  PROTOBUF_NODISCARD std::string* release_destmacaddress();
-  void set_allocated_destmacaddress(std::string* destmacaddress);
-  private:
-  const std::string& _internal_destmacaddress() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_destmacaddress(const std::string& value);
-  std::string* _internal_mutable_destmacaddress();
-  public:
-
-  // .service_layer.SLIpAddress SrcIpAddress = 5;
-  bool has_srcipaddress() const;
-  private:
-  bool _internal_has_srcipaddress() const;
-  public:
-  void clear_srcipaddress();
-  const ::service_layer::SLIpAddress& srcipaddress() const;
-  PROTOBUF_NODISCARD ::service_layer::SLIpAddress* release_srcipaddress();
-  ::service_layer::SLIpAddress* mutable_srcipaddress();
-  void set_allocated_srcipaddress(::service_layer::SLIpAddress* srcipaddress);
-  private:
-  const ::service_layer::SLIpAddress& _internal_srcipaddress() const;
-  ::service_layer::SLIpAddress* _internal_mutable_srcipaddress();
-  public:
-  void unsafe_arena_set_allocated_srcipaddress(
-      ::service_layer::SLIpAddress* srcipaddress);
-  ::service_layer::SLIpAddress* unsafe_arena_release_srcipaddress();
-
-  // .service_layer.SLIpAddress DestIpAddress = 6;
-  bool has_destipaddress() const;
-  private:
-  bool _internal_has_destipaddress() const;
-  public:
-  void clear_destipaddress();
-  const ::service_layer::SLIpAddress& destipaddress() const;
-  PROTOBUF_NODISCARD ::service_layer::SLIpAddress* release_destipaddress();
-  ::service_layer::SLIpAddress* mutable_destipaddress();
-  void set_allocated_destipaddress(::service_layer::SLIpAddress* destipaddress);
-  private:
-  const ::service_layer::SLIpAddress& _internal_destipaddress() const;
-  ::service_layer::SLIpAddress* _internal_mutable_destipaddress();
-  public:
-  void unsafe_arena_set_allocated_destipaddress(
-      ::service_layer::SLIpAddress* destipaddress);
-  ::service_layer::SLIpAddress* unsafe_arena_release_destipaddress();
-
-  // uint32 VNI = 1;
-  void clear_vni();
-  uint32_t vni() const;
-  void set_vni(uint32_t value);
-  private:
-  uint32_t _internal_vni() const;
-  void _internal_set_vni(uint32_t value);
-  public:
-
-  // uint32 VNIFlags = 2;
-  void clear_vniflags();
-  uint32_t vniflags() const;
-  void set_vniflags(uint32_t value);
-  private:
-  uint32_t _internal_vniflags() const;
-  void _internal_set_vniflags(uint32_t value);
-  public:
-
-  // @@protoc_insertion_point(class_scope:service_layer.SLVxLANPath)
- private:
-  class _Internal;
-
-  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
-  typedef void InternalArenaConstructable_;
-  typedef void DestructorSkippable_;
-  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr sourcemacaddress_;
-  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr destmacaddress_;
-  ::service_layer::SLIpAddress* srcipaddress_;
-  ::service_layer::SLIpAddress* destipaddress_;
-  uint32_t vni_;
-  uint32_t vniflags_;
-  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-  friend struct ::TableStruct_sl_5froute_5fcommon_2eproto;
-};
-// -------------------------------------------------------------------
-
 class SLRoutePath final :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:service_layer.SLRoutePath) */ {
  public:
@@ -3340,7 +3107,7 @@ class SLRoutePath final :
                &_SLRoutePath_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    18;
+    17;
 
   friend void swap(SLRoutePath& a, SLRoutePath& b) {
     a.Swap(&b);
@@ -3421,7 +3188,6 @@ class SLRoutePath final :
     kVtepRouterMacAddressFieldNumber = 11,
     kNexthopAddressFieldNumber = 1,
     kNexthopInterfaceFieldNumber = 2,
-    kVxLANPathFieldNumber = 12,
     kLoadMetricFieldNumber = 3,
     kMetricFieldNumber = 5,
     kPathIdFieldNumber = 6,
@@ -3553,24 +3319,6 @@ class SLRoutePath final :
       ::service_layer::SLInterface* nexthopinterface);
   ::service_layer::SLInterface* unsafe_arena_release_nexthopinterface();
 
-  // .service_layer.SLVxLANPath VxLANPath = 12;
-  bool has_vxlanpath() const;
-  private:
-  bool _internal_has_vxlanpath() const;
-  public:
-  void clear_vxlanpath();
-  const ::service_layer::SLVxLANPath& vxlanpath() const;
-  PROTOBUF_NODISCARD ::service_layer::SLVxLANPath* release_vxlanpath();
-  ::service_layer::SLVxLANPath* mutable_vxlanpath();
-  void set_allocated_vxlanpath(::service_layer::SLVxLANPath* vxlanpath);
-  private:
-  const ::service_layer::SLVxLANPath& _internal_vxlanpath() const;
-  ::service_layer::SLVxLANPath* _internal_mutable_vxlanpath();
-  public:
-  void unsafe_arena_set_allocated_vxlanpath(
-      ::service_layer::SLVxLANPath* vxlanpath);
-  ::service_layer::SLVxLANPath* unsafe_arena_release_vxlanpath();
-
   // uint32 LoadMetric = 3;
   void clear_loadmetric();
   uint32_t loadmetric() const;
@@ -3623,7 +3371,6 @@ class SLRoutePath final :
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr vteproutermacaddress_;
   ::service_layer::SLIpAddress* nexthopaddress_;
   ::service_layer::SLInterface* nexthopinterface_;
-  ::service_layer::SLVxLANPath* vxlanpath_;
   uint32_t loadmetric_;
   uint32_t metric_;
   uint32_t pathid_;
@@ -5482,324 +5229,6 @@ inline void SLRouteCommon::set_flags(uint32_t value) {
 
 // -------------------------------------------------------------------
 
-// SLVxLANPath
-
-// uint32 VNI = 1;
-inline void SLVxLANPath::clear_vni() {
-  vni_ = 0u;
-}
-inline uint32_t SLVxLANPath::_internal_vni() const {
-  return vni_;
-}
-inline uint32_t SLVxLANPath::vni() const {
-  // @@protoc_insertion_point(field_get:service_layer.SLVxLANPath.VNI)
-  return _internal_vni();
-}
-inline void SLVxLANPath::_internal_set_vni(uint32_t value) {
-  
-  vni_ = value;
-}
-inline void SLVxLANPath::set_vni(uint32_t value) {
-  _internal_set_vni(value);
-  // @@protoc_insertion_point(field_set:service_layer.SLVxLANPath.VNI)
-}
-
-// uint32 VNIFlags = 2;
-inline void SLVxLANPath::clear_vniflags() {
-  vniflags_ = 0u;
-}
-inline uint32_t SLVxLANPath::_internal_vniflags() const {
-  return vniflags_;
-}
-inline uint32_t SLVxLANPath::vniflags() const {
-  // @@protoc_insertion_point(field_get:service_layer.SLVxLANPath.VNIFlags)
-  return _internal_vniflags();
-}
-inline void SLVxLANPath::_internal_set_vniflags(uint32_t value) {
-  
-  vniflags_ = value;
-}
-inline void SLVxLANPath::set_vniflags(uint32_t value) {
-  _internal_set_vniflags(value);
-  // @@protoc_insertion_point(field_set:service_layer.SLVxLANPath.VNIFlags)
-}
-
-// bytes SourceMacAddress = 3;
-inline void SLVxLANPath::clear_sourcemacaddress() {
-  sourcemacaddress_.ClearToEmpty();
-}
-inline const std::string& SLVxLANPath::sourcemacaddress() const {
-  // @@protoc_insertion_point(field_get:service_layer.SLVxLANPath.SourceMacAddress)
-  return _internal_sourcemacaddress();
-}
-template <typename ArgT0, typename... ArgT>
-inline PROTOBUF_ALWAYS_INLINE
-void SLVxLANPath::set_sourcemacaddress(ArgT0&& arg0, ArgT... args) {
- 
- sourcemacaddress_.SetBytes(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
-  // @@protoc_insertion_point(field_set:service_layer.SLVxLANPath.SourceMacAddress)
-}
-inline std::string* SLVxLANPath::mutable_sourcemacaddress() {
-  std::string* _s = _internal_mutable_sourcemacaddress();
-  // @@protoc_insertion_point(field_mutable:service_layer.SLVxLANPath.SourceMacAddress)
-  return _s;
-}
-inline const std::string& SLVxLANPath::_internal_sourcemacaddress() const {
-  return sourcemacaddress_.Get();
-}
-inline void SLVxLANPath::_internal_set_sourcemacaddress(const std::string& value) {
-  
-  sourcemacaddress_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArenaForAllocation());
-}
-inline std::string* SLVxLANPath::_internal_mutable_sourcemacaddress() {
-  
-  return sourcemacaddress_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
-}
-inline std::string* SLVxLANPath::release_sourcemacaddress() {
-  // @@protoc_insertion_point(field_release:service_layer.SLVxLANPath.SourceMacAddress)
-  return sourcemacaddress_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArenaForAllocation());
-}
-inline void SLVxLANPath::set_allocated_sourcemacaddress(std::string* sourcemacaddress) {
-  if (sourcemacaddress != nullptr) {
-    
-  } else {
-    
-  }
-  sourcemacaddress_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), sourcemacaddress,
-      GetArenaForAllocation());
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (sourcemacaddress_.IsDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited())) {
-    sourcemacaddress_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
-  }
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  // @@protoc_insertion_point(field_set_allocated:service_layer.SLVxLANPath.SourceMacAddress)
-}
-
-// bytes DestMacAddress = 4;
-inline void SLVxLANPath::clear_destmacaddress() {
-  destmacaddress_.ClearToEmpty();
-}
-inline const std::string& SLVxLANPath::destmacaddress() const {
-  // @@protoc_insertion_point(field_get:service_layer.SLVxLANPath.DestMacAddress)
-  return _internal_destmacaddress();
-}
-template <typename ArgT0, typename... ArgT>
-inline PROTOBUF_ALWAYS_INLINE
-void SLVxLANPath::set_destmacaddress(ArgT0&& arg0, ArgT... args) {
- 
- destmacaddress_.SetBytes(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
-  // @@protoc_insertion_point(field_set:service_layer.SLVxLANPath.DestMacAddress)
-}
-inline std::string* SLVxLANPath::mutable_destmacaddress() {
-  std::string* _s = _internal_mutable_destmacaddress();
-  // @@protoc_insertion_point(field_mutable:service_layer.SLVxLANPath.DestMacAddress)
-  return _s;
-}
-inline const std::string& SLVxLANPath::_internal_destmacaddress() const {
-  return destmacaddress_.Get();
-}
-inline void SLVxLANPath::_internal_set_destmacaddress(const std::string& value) {
-  
-  destmacaddress_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArenaForAllocation());
-}
-inline std::string* SLVxLANPath::_internal_mutable_destmacaddress() {
-  
-  return destmacaddress_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
-}
-inline std::string* SLVxLANPath::release_destmacaddress() {
-  // @@protoc_insertion_point(field_release:service_layer.SLVxLANPath.DestMacAddress)
-  return destmacaddress_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArenaForAllocation());
-}
-inline void SLVxLANPath::set_allocated_destmacaddress(std::string* destmacaddress) {
-  if (destmacaddress != nullptr) {
-    
-  } else {
-    
-  }
-  destmacaddress_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), destmacaddress,
-      GetArenaForAllocation());
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (destmacaddress_.IsDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited())) {
-    destmacaddress_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
-  }
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  // @@protoc_insertion_point(field_set_allocated:service_layer.SLVxLANPath.DestMacAddress)
-}
-
-// .service_layer.SLIpAddress SrcIpAddress = 5;
-inline bool SLVxLANPath::_internal_has_srcipaddress() const {
-  return this != internal_default_instance() && srcipaddress_ != nullptr;
-}
-inline bool SLVxLANPath::has_srcipaddress() const {
-  return _internal_has_srcipaddress();
-}
-inline const ::service_layer::SLIpAddress& SLVxLANPath::_internal_srcipaddress() const {
-  const ::service_layer::SLIpAddress* p = srcipaddress_;
-  return p != nullptr ? *p : reinterpret_cast<const ::service_layer::SLIpAddress&>(
-      ::service_layer::_SLIpAddress_default_instance_);
-}
-inline const ::service_layer::SLIpAddress& SLVxLANPath::srcipaddress() const {
-  // @@protoc_insertion_point(field_get:service_layer.SLVxLANPath.SrcIpAddress)
-  return _internal_srcipaddress();
-}
-inline void SLVxLANPath::unsafe_arena_set_allocated_srcipaddress(
-    ::service_layer::SLIpAddress* srcipaddress) {
-  if (GetArenaForAllocation() == nullptr) {
-    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(srcipaddress_);
-  }
-  srcipaddress_ = srcipaddress;
-  if (srcipaddress) {
-    
-  } else {
-    
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:service_layer.SLVxLANPath.SrcIpAddress)
-}
-inline ::service_layer::SLIpAddress* SLVxLANPath::release_srcipaddress() {
-  
-  ::service_layer::SLIpAddress* temp = srcipaddress_;
-  srcipaddress_ = nullptr;
-#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
-  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
-  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-  if (GetArenaForAllocation() == nullptr) { delete old; }
-#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
-  if (GetArenaForAllocation() != nullptr) {
-    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-  }
-#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
-  return temp;
-}
-inline ::service_layer::SLIpAddress* SLVxLANPath::unsafe_arena_release_srcipaddress() {
-  // @@protoc_insertion_point(field_release:service_layer.SLVxLANPath.SrcIpAddress)
-  
-  ::service_layer::SLIpAddress* temp = srcipaddress_;
-  srcipaddress_ = nullptr;
-  return temp;
-}
-inline ::service_layer::SLIpAddress* SLVxLANPath::_internal_mutable_srcipaddress() {
-  
-  if (srcipaddress_ == nullptr) {
-    auto* p = CreateMaybeMessage<::service_layer::SLIpAddress>(GetArenaForAllocation());
-    srcipaddress_ = p;
-  }
-  return srcipaddress_;
-}
-inline ::service_layer::SLIpAddress* SLVxLANPath::mutable_srcipaddress() {
-  ::service_layer::SLIpAddress* _msg = _internal_mutable_srcipaddress();
-  // @@protoc_insertion_point(field_mutable:service_layer.SLVxLANPath.SrcIpAddress)
-  return _msg;
-}
-inline void SLVxLANPath::set_allocated_srcipaddress(::service_layer::SLIpAddress* srcipaddress) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
-  if (message_arena == nullptr) {
-    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(srcipaddress_);
-  }
-  if (srcipaddress) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-        ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper<
-            ::PROTOBUF_NAMESPACE_ID::MessageLite>::GetOwningArena(
-                reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(srcipaddress));
-    if (message_arena != submessage_arena) {
-      srcipaddress = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, srcipaddress, submessage_arena);
-    }
-    
-  } else {
-    
-  }
-  srcipaddress_ = srcipaddress;
-  // @@protoc_insertion_point(field_set_allocated:service_layer.SLVxLANPath.SrcIpAddress)
-}
-
-// .service_layer.SLIpAddress DestIpAddress = 6;
-inline bool SLVxLANPath::_internal_has_destipaddress() const {
-  return this != internal_default_instance() && destipaddress_ != nullptr;
-}
-inline bool SLVxLANPath::has_destipaddress() const {
-  return _internal_has_destipaddress();
-}
-inline const ::service_layer::SLIpAddress& SLVxLANPath::_internal_destipaddress() const {
-  const ::service_layer::SLIpAddress* p = destipaddress_;
-  return p != nullptr ? *p : reinterpret_cast<const ::service_layer::SLIpAddress&>(
-      ::service_layer::_SLIpAddress_default_instance_);
-}
-inline const ::service_layer::SLIpAddress& SLVxLANPath::destipaddress() const {
-  // @@protoc_insertion_point(field_get:service_layer.SLVxLANPath.DestIpAddress)
-  return _internal_destipaddress();
-}
-inline void SLVxLANPath::unsafe_arena_set_allocated_destipaddress(
-    ::service_layer::SLIpAddress* destipaddress) {
-  if (GetArenaForAllocation() == nullptr) {
-    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(destipaddress_);
-  }
-  destipaddress_ = destipaddress;
-  if (destipaddress) {
-    
-  } else {
-    
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:service_layer.SLVxLANPath.DestIpAddress)
-}
-inline ::service_layer::SLIpAddress* SLVxLANPath::release_destipaddress() {
-  
-  ::service_layer::SLIpAddress* temp = destipaddress_;
-  destipaddress_ = nullptr;
-#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
-  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
-  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-  if (GetArenaForAllocation() == nullptr) { delete old; }
-#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
-  if (GetArenaForAllocation() != nullptr) {
-    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-  }
-#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
-  return temp;
-}
-inline ::service_layer::SLIpAddress* SLVxLANPath::unsafe_arena_release_destipaddress() {
-  // @@protoc_insertion_point(field_release:service_layer.SLVxLANPath.DestIpAddress)
-  
-  ::service_layer::SLIpAddress* temp = destipaddress_;
-  destipaddress_ = nullptr;
-  return temp;
-}
-inline ::service_layer::SLIpAddress* SLVxLANPath::_internal_mutable_destipaddress() {
-  
-  if (destipaddress_ == nullptr) {
-    auto* p = CreateMaybeMessage<::service_layer::SLIpAddress>(GetArenaForAllocation());
-    destipaddress_ = p;
-  }
-  return destipaddress_;
-}
-inline ::service_layer::SLIpAddress* SLVxLANPath::mutable_destipaddress() {
-  ::service_layer::SLIpAddress* _msg = _internal_mutable_destipaddress();
-  // @@protoc_insertion_point(field_mutable:service_layer.SLVxLANPath.DestIpAddress)
-  return _msg;
-}
-inline void SLVxLANPath::set_allocated_destipaddress(::service_layer::SLIpAddress* destipaddress) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
-  if (message_arena == nullptr) {
-    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(destipaddress_);
-  }
-  if (destipaddress) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-        ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper<
-            ::PROTOBUF_NAMESPACE_ID::MessageLite>::GetOwningArena(
-                reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(destipaddress));
-    if (message_arena != submessage_arena) {
-      destipaddress = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, destipaddress, submessage_arena);
-    }
-    
-  } else {
-    
-  }
-  destipaddress_ = destipaddress;
-  // @@protoc_insertion_point(field_set_allocated:service_layer.SLVxLANPath.DestIpAddress)
-}
-
-// -------------------------------------------------------------------
-
 // SLRoutePath
 
 // .service_layer.SLIpAddress NexthopAddress = 1;
@@ -6287,101 +5716,9 @@ inline void SLRoutePath::set_allocated_vteproutermacaddress(std::string* vteprou
   // @@protoc_insertion_point(field_set_allocated:service_layer.SLRoutePath.VtepRouterMacAddress)
 }
 
-// .service_layer.SLVxLANPath VxLANPath = 12;
-inline bool SLRoutePath::_internal_has_vxlanpath() const {
-  return this != internal_default_instance() && vxlanpath_ != nullptr;
-}
-inline bool SLRoutePath::has_vxlanpath() const {
-  return _internal_has_vxlanpath();
-}
-inline void SLRoutePath::clear_vxlanpath() {
-  if (GetArenaForAllocation() == nullptr && vxlanpath_ != nullptr) {
-    delete vxlanpath_;
-  }
-  vxlanpath_ = nullptr;
-}
-inline const ::service_layer::SLVxLANPath& SLRoutePath::_internal_vxlanpath() const {
-  const ::service_layer::SLVxLANPath* p = vxlanpath_;
-  return p != nullptr ? *p : reinterpret_cast<const ::service_layer::SLVxLANPath&>(
-      ::service_layer::_SLVxLANPath_default_instance_);
-}
-inline const ::service_layer::SLVxLANPath& SLRoutePath::vxlanpath() const {
-  // @@protoc_insertion_point(field_get:service_layer.SLRoutePath.VxLANPath)
-  return _internal_vxlanpath();
-}
-inline void SLRoutePath::unsafe_arena_set_allocated_vxlanpath(
-    ::service_layer::SLVxLANPath* vxlanpath) {
-  if (GetArenaForAllocation() == nullptr) {
-    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(vxlanpath_);
-  }
-  vxlanpath_ = vxlanpath;
-  if (vxlanpath) {
-    
-  } else {
-    
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:service_layer.SLRoutePath.VxLANPath)
-}
-inline ::service_layer::SLVxLANPath* SLRoutePath::release_vxlanpath() {
-  
-  ::service_layer::SLVxLANPath* temp = vxlanpath_;
-  vxlanpath_ = nullptr;
-#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
-  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
-  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-  if (GetArenaForAllocation() == nullptr) { delete old; }
-#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
-  if (GetArenaForAllocation() != nullptr) {
-    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-  }
-#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
-  return temp;
-}
-inline ::service_layer::SLVxLANPath* SLRoutePath::unsafe_arena_release_vxlanpath() {
-  // @@protoc_insertion_point(field_release:service_layer.SLRoutePath.VxLANPath)
-  
-  ::service_layer::SLVxLANPath* temp = vxlanpath_;
-  vxlanpath_ = nullptr;
-  return temp;
-}
-inline ::service_layer::SLVxLANPath* SLRoutePath::_internal_mutable_vxlanpath() {
-  
-  if (vxlanpath_ == nullptr) {
-    auto* p = CreateMaybeMessage<::service_layer::SLVxLANPath>(GetArenaForAllocation());
-    vxlanpath_ = p;
-  }
-  return vxlanpath_;
-}
-inline ::service_layer::SLVxLANPath* SLRoutePath::mutable_vxlanpath() {
-  ::service_layer::SLVxLANPath* _msg = _internal_mutable_vxlanpath();
-  // @@protoc_insertion_point(field_mutable:service_layer.SLRoutePath.VxLANPath)
-  return _msg;
-}
-inline void SLRoutePath::set_allocated_vxlanpath(::service_layer::SLVxLANPath* vxlanpath) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
-  if (message_arena == nullptr) {
-    delete vxlanpath_;
-  }
-  if (vxlanpath) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-        ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper<::service_layer::SLVxLANPath>::GetOwningArena(vxlanpath);
-    if (message_arena != submessage_arena) {
-      vxlanpath = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, vxlanpath, submessage_arena);
-    }
-    
-  } else {
-    
-  }
-  vxlanpath_ = vxlanpath;
-  // @@protoc_insertion_point(field_set_allocated:service_layer.SLRoutePath.VxLANPath)
-}
-
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
-// -------------------------------------------------------------------
-
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------
