@@ -1672,7 +1672,7 @@
                 "label_action": 1,
                 "labels": [ 46004 ],
                 "next_hop": "cos_nh_1",
-                "path_priority": 1
+                "path_priority": 0
             },
             {
                 "exp": 1,
@@ -1688,7 +1688,7 @@
                 "label_action": 2,
                 "labels": [],
                 "next_hop": "cos_nh_3",
-                "path_priority": 0,
+                "path_priority": 1,
                 "path_setid": 2,
                 "path_down": 1
             }
