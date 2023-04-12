@@ -1,5 +1,5 @@
 {
-    "_copyright_": "All rights reserved. Copyright (c) 2016-2022 by cisco Systems, Inc.",
+    "_copyright_": "All rights reserved. Copyright (c) 2016-2023 by cisco Systems, Inc.",
     "batch_bfd_multihop": {
         "sessions": [
             {
@@ -1467,60 +1467,6 @@
                 "next_hop": "nh_pop_and_lookup"
             }
         ],
-        "cos_path_ipv4_route_1": [
-            {
-                "label_action": 6,
-                "labels": [
-                    46000
-                ],
-                "next_hop": "cos_nh_1"
-            }
-        ],
-        "cos_path_ipv4_route_2": [
-            {
-                "label_action": 6,
-                "labels": [
-                    46001
-                ],
-                "next_hop": "cos_nh_2"
-            }
-        ],
-        "cos_path_ipv4_route_3": [
-            {
-                "label_action": 6,
-                "labels": [
-                    46002
-                ],
-                "next_hop": "cos_nh_3"
-            }
-        ],
-        "cos_path_ipv4_route_4": [
-            {
-                "label_action": 6,
-                "labels": [
-                    46003
-                ],
-                "next_hop": "cos_nh_4"
-            }
-        ],
-        "cos_path_ipv4_route_5": [
-            {
-                "label_action": 6,
-                "labels": [
-                    46004
-                ],
-                "next_hop": "cos_nh_5"
-            }
-        ],
-        "cos_path_ipv4_route_6": [
-            {
-                "label_action": 6,
-                "labels": [
-                    46005
-                ],
-                "next_hop": "cos_nh_6"
-            }
-        ],
         "cos_nhlfe_path_1a" : [
             {
                 "default_elsp": true,
@@ -1528,9 +1474,7 @@
                 "labels": [],
                 "next_hop": "cos_nh_1",
                 "path_priority": 0,
-                "path_setid": 1,
-                "load_metric": 8,
-                "path_down": 0
+                "path_setid": 1
             }
         ],
         "cos_nhlfe_path_1b" : [
@@ -1672,25 +1616,22 @@
                 "label_action": 1,
                 "labels": [ 46004 ],
                 "next_hop": "cos_nh_1",
-                "path_priority": 0
+                "path_priority": 1
             },
             {
                 "exp": 1,
                 "label_action": 1,
                 "labels": [ 46004 ],
                 "next_hop": "cos_nh_2",
-                "path_priority": 1,
-                "path_setid": 1,
-                "path_down": 1
+                "path_priority": 1
             },
             {
                 "exp": 3,
                 "label_action": 2,
                 "labels": [],
                 "next_hop": "cos_nh_3",
-                "path_priority": 1,
-                "path_setid": 2,
-                "path_down": 1
+                "path_priority": 0,
+                "path_setid": 2
             }
         ],
         "cos_nhlfe_path_3a" : [
@@ -1706,14 +1647,16 @@
                 "label_action": 1,
                 "labels": [46000],
                 "next_hop": "cos_nh_2",
-                "path_priority": 1
+                "path_priority": 1,
+                "path_setid": 1
             },
             {
                 "exp": 3,
                 "label_action": 2,
                 "labels": [],
                 "next_hop": "cos_nh_3",
-                "path_priority": 0
+                "path_priority": 0,
+                "path_setid": 2
             }
         ],
         "cos_nhlfe_path_3b" : [
@@ -1722,7 +1665,8 @@
                 "label_action": 1,
                 "labels": [ 46001 ],
                 "next_hop": "cos_nh_4",
-                "path_priority": 1
+                "path_priority": 1,
+                "path_setid": 2
             },
             {
                 "exp": 0,
@@ -1736,7 +1680,8 @@
                 "label_action": 1,
                 "labels": [46001],
                 "next_hop": "cos_nh_6",
-                "path_priority": 0
+                "path_priority": 0,
+                "path_setid": 1
             }
         ],
         "cos_nhlfe_path_3c" : [
@@ -1752,7 +1697,100 @@
                 "label_action": 1,
                 "labels": [46002],
                 "next_hop": "cos_nh_9",
+                "path_priority": 0,
+                "path_setid": 2
+            }
+        ],
+        "cos_nhlfe_path_4a" : [
+            {
+                "exp": 0,
+                "label_action": 1,
+                "labels": [ 46004 ],
+                "next_hop": "cos_nh_1",
+                "path_priority": 1
+            },
+            {
+                "exp": 1,
+                "label_action": 1,
+                "labels": [ 46004 ],
+                "next_hop": "cos_nh_2",
+                "path_priority": 1,
+                "path_down": 1,
+                "load_metric": 8
+            }
+        ],
+        "cos_nhlfe_path_4b" : [
+            {
+                "exp": 0,
+                "label_action": 1,
+                "labels": [ 46004 ],
+                "next_hop": "cos_nh_1",
+                "path_priority": 1
+            },
+            {
+                "exp": 1,
+                "label_action": 1,
+                "labels": [ 46004 ],
+                "next_hop": "cos_nh_2",
                 "path_priority": 0
+            },
+            {
+                "exp": 3,
+                "label_action": 2,
+                "labels": [],
+                "next_hop": "cos_nh_3",
+                "path_priority": 1,
+                "path_setid": 1
+            }
+        ],
+        "cos_nhlfe_path_4c" : [
+            {
+                "exp": 0,
+                "label_action": 1,
+                "labels": [ 46004 ],
+                "next_hop": "cos_nh_1",
+                "path_priority": 1,
+                "path_setid": 1
+            },
+            {
+                "exp": 1,
+                "label_action": 1,
+                "labels": [ 46004 ],
+                "next_hop": "cos_nh_2",
+                "path_priority": 0,
+                "path_setid": 2
+            },
+            {
+                "exp": 3,
+                "label_action": 2,
+                "labels": [],
+                "next_hop": "cos_nh_3",
+                "path_priority": 0,
+                "path_setid": 3
+            }
+        ],
+        "cos_nhlfe_path_4d" : [
+            {
+                "exp": 0,
+                "label_action": 1,
+                "labels": [ 46004 ],
+                "next_hop": "cos_nh_1",
+                "path_priority": 1
+            },
+            {
+                "exp": 1,
+                "label_action": 1,
+                "labels": [ 46004 ],
+                "next_hop": "cos_nh_2",
+                "path_priority": 0,
+                "path_setid": 1
+            },
+            {
+                "exp": 3,
+                "label_action": 2,
+                "labels": [],
+                "next_hop": "cos_nh_3",
+                "path_priority": 1
             }
         ],
         "cos_scale_path_1" : [
@@ -2216,7 +2254,7 @@
         "blocks": [
             {
                 "block_size": 10000,
-                "start_label": 25000,
+                "start_label": 24000,
                 "client_name": "Service-layer",
                 "block_type": 2
             }
@@ -4037,6 +4075,50 @@
                 {
                     "in_label": 32222,
                     "path": "cos_nhlfe_path_3c",
+                    "range": 1
+                }
+             ]
+        },
+        "cos_nhlfe_4": {
+            "batch_size": 5,
+            "correlator": 1,
+            "ilms": [
+                {
+                    "in_label": 32220,
+                    "path": "cos_nhlfe_path_4a",
+                    "range": 1
+                }
+             ]
+        },
+        "cos_nhlfe_5": {
+            "batch_size": 5,
+            "correlator": 1,
+            "ilms": [
+                {
+                    "in_label": 32220,
+                    "path": "cos_nhlfe_path_4b",
+                    "range": 1
+                }
+             ]
+        },
+        "cos_nhlfe_6": {
+            "batch_size": 5,
+            "correlator": 1,
+            "ilms": [
+                {
+                    "in_label": 32220,
+                    "path": "cos_nhlfe_path_4c",
+                    "range": 1
+                }
+             ]
+        },
+        "cos_nhlfe_7": {
+            "batch_size": 5,
+            "correlator": 1,
+            "ilms": [
+                {
+                    "in_label": 32220,
+                    "path": "cos_nhlfe_path_4d",
                     "range": 1
                 }
              ]
