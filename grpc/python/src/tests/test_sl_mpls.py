@@ -1575,7 +1575,7 @@ class TestSuite_033_MPLS_IPV4_IPV6_CBF_MIXED(unittest.TestCase):
         get_info = self.get_ilm["get_exact_match_ilm_ipv6"]
         response = client.ilm_get(get_info)
         assert get_info["count"] == len(response.Entries)
-    
+
     def test_008_ilm_get_label_mixed(self):
         # Check that get works for ilm with mixed label, cbf, ipv4 and ipv6 prefixes
         get_info = self.get_ilm["get_mixed_ilm_ip_prefixes"]
@@ -1708,10 +1708,6 @@ class TestSuite_030_MPLS_CoS_NHLFE_TC1(unittest.TestCase):
             "paths": json_params["paths"],
             "next_hops": json_params["next_hops"],
         }
-
-    def tearDown(self):
-        if hasattr(self._outcome, "errors") and len(self._outcome.errors) > 0:
-            ApData.collect_failure_logs()
 
     def test_000_get_globals(self):
         # Get Global MPLS info
