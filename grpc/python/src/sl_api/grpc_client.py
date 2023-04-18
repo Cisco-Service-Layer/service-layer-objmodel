@@ -1,62 +1,33 @@
 import abc
 import grpc
 
-try:
-    from feature_lib.slapi import serializers
-    from feature_lib.slapi.sl_util import L2RouteUtil
-    from feature_lib.slapi.sl_util import RouteUtil
-    from feature_lib.slapi.sl_util import BDUtil
-    from feature_lib.slapi.genpy import (
-        sl_common_types_pb2,
-        sl_global_pb2,
-        sl_route_common_pb2,
-        sl_route_ipv4_pb2,
-        sl_route_ipv6_pb2,
-        sl_mpls_pb2,
-        sl_bfd_common_pb2,
-        sl_bfd_ipv4_pb2,
-        sl_bfd_ipv6_pb2,
-        sl_interface_pb2,
-        sl_l2_route_pb2,
-        sl_common_types_pb2_grpc,
-        sl_global_pb2_grpc,
-        sl_route_ipv4_pb2_grpc,
-        sl_route_ipv6_pb2_grpc,
-        sl_mpls_pb2_grpc,
-        sl_bfd_common_pb2_grpc,
-        sl_bfd_ipv4_pb2_grpc,
-        sl_bfd_ipv6_pb2_grpc,
-        sl_interface_pb2_grpc,
-        sl_l2_route_pb2_grpc,
-    )
-except ImportError:
-    from . import serializers
-    from .sl_util import L2RouteUtil
-    from .sl_util import RouteUtil
-    from .sl_util import BDUtil
-    from genpy import (
-        sl_common_types_pb2,
-        sl_global_pb2,
-        sl_route_common_pb2,
-        sl_route_ipv4_pb2,
-        sl_route_ipv6_pb2,
-        sl_mpls_pb2,
-        sl_bfd_common_pb2,
-        sl_bfd_ipv4_pb2,
-        sl_bfd_ipv6_pb2,
-        sl_interface_pb2,
-        sl_l2_route_pb2,
-        sl_common_types_pb2_grpc,
-        sl_global_pb2_grpc,
-        sl_route_ipv4_pb2_grpc,
-        sl_route_ipv6_pb2_grpc,
-        sl_mpls_pb2_grpc,
-        sl_bfd_common_pb2_grpc,
-        sl_bfd_ipv4_pb2_grpc,
-        sl_bfd_ipv6_pb2_grpc,
-        sl_interface_pb2_grpc,
-        sl_l2_route_pb2_grpc,
-    )
+from . import serializers
+from .sl_util import L2RouteUtil
+from .sl_util import RouteUtil
+from .sl_util import BDUtil
+from genpy import (
+    sl_common_types_pb2,
+    sl_global_pb2,
+    sl_route_common_pb2,
+    sl_route_ipv4_pb2,
+    sl_route_ipv6_pb2,
+    sl_mpls_pb2,
+    sl_bfd_common_pb2,
+    sl_bfd_ipv4_pb2,
+    sl_bfd_ipv6_pb2,
+    sl_interface_pb2,
+    sl_l2_route_pb2,
+    sl_common_types_pb2_grpc,
+    sl_global_pb2_grpc,
+    sl_route_ipv4_pb2_grpc,
+    sl_route_ipv6_pb2_grpc,
+    sl_mpls_pb2_grpc,
+    sl_bfd_common_pb2_grpc,
+    sl_bfd_ipv4_pb2_grpc,
+    sl_bfd_ipv6_pb2_grpc,
+    sl_interface_pb2_grpc,
+    sl_l2_route_pb2_grpc,
+)
 
 
 class AbstractClient(object, metaclass=abc.ABCMeta):
