@@ -25,6 +25,16 @@ def get_server_ip_port():
 
     return (os.environ['SERVER_IP'], int(os.environ['SERVER_PORT']))
 
+class LoggerStub:
+    '''
+    This simply a logger stub to replace CafyLogger outside of Cafy env
+    '''
+    def __init__(*args, **kwargs):
+        pass
+
+    debug = print
+    info = print
+    error = print
 
 if __name__ == '__main__':
     server_ip, server_port = get_server_ip_port()

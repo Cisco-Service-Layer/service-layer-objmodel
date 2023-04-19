@@ -9,25 +9,14 @@ from binascii import hexlify, unhexlify
 from contextlib import contextmanager
 import time
 import grpc
-
-try:
-    from feature_lib.slapi.sl_util import MplsUtil
-    from feature_lib.slapi.sl_util import BatchUtil
-    from feature_lib.slapi.sl_util import RouteUtil
-    from feature_lib.slapi.sl_util import L2RouteUtil
-    from feature_lib.slapi.grpc_client import GrpcClient
-    from feature_lib.slapi.genpy import sl_common_types_pb2
-    from feature_lib.slapi.genpy import sl_global_pb2
-    from logger.cafylog import CafyLog as Logger
-except ImportError:
-    from .sl_util import MplsUtil
-    from .sl_util import BatchUtil
-    from .sl_util import RouteUtil
-    from .sl_util import L2RouteUtil
-    from .grpc_client import GrpcClient
-    from genpy import sl_common_types_pb2
-    from genpy import sl_global_pb2
-    from tests.base_ap import LoggerStub as Logger
+from .sl_util import MplsUtil
+from .sl_util import BatchUtil
+from .sl_util import RouteUtil
+from .sl_util import L2RouteUtil
+from .grpc_client import GrpcClient
+from genpy import sl_common_types_pb2
+from genpy import sl_global_pb2
+from util.util import LoggerStub as Logger
 
 log = Logger(name="SLApiClient")
 

@@ -3,21 +3,12 @@ import ipaddress
 from binascii import hexlify, unhexlify
 import time
 import itertools
-
-try:
-    from feature_lib.slapi.genpy import sl_common_types_pb2
-    from feature_lib.slapi.genpy import sl_route_common_pb2
-    from feature_lib.slapi.genpy import sl_bfd_common_pb2
-    from feature_lib.slapi.genpy import sl_interface_pb2
-    from feature_lib.slapi.genpy import sl_l2_route_pb2
-    from logger.cafylog import CafyLog as Logger
-except ImportError:
-    from genpy import sl_common_types_pb2
-    from genpy import sl_route_common_pb2
-    from genpy import sl_bfd_common_pb2
-    from genpy import sl_interface_pb2
-    from genpy import sl_l2_route_pb2
-    from tests.base_ap import LoggerStub as Logger
+from genpy import sl_common_types_pb2
+from genpy import sl_route_common_pb2
+from genpy import sl_bfd_common_pb2
+from genpy import sl_interface_pb2
+from genpy import sl_l2_route_pb2
+from util.util import LoggerStub as Logger
 
 log = Logger(name="SLApiUtil")
 
