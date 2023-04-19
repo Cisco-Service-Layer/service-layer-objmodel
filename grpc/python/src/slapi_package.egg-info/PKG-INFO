@@ -2,9 +2,9 @@ Metadata-Version: 1.0
 Name: slapi-package
 Version: 0.1.0
 Summary: A package for SL-API
-Home-page: https://wwwin-github.cisco.com/ios-xr/service-layer-objmodel/grpc/python/src
+Home-page: https://github.com/Cisco-Service-Layer/service-layer-objmodel/grpc/python/src
 Author: SLAPI-team
-Author-email: mbenzeg@cisco.com
+Author-email: sl-api-dev@cisco.com
 License: UNKNOWN
 Description: UNKNOWN
 Platform: UNKNOWN
