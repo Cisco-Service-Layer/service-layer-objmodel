@@ -40,7 +40,7 @@ def setUpModule():
     json_params = ApData.json_params
 
     host, port = ApData.host, ApData.port
-    import pdb; pdb.set_trace()
+
     client = SLApiClient(host, port, json_params['global_init'])
 
 
