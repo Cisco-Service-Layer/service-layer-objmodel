@@ -1528,9 +1528,7 @@
                 "labels": [],
                 "next_hop": "cos_nh_1",
                 "path_priority": 0,
-                "path_setid": 1,
-                "load_metric": 8,
-                "path_down": 1
+                "path_setid": 1
             }
         ],
         "cos_nhlfe_path_1b" : [
@@ -1586,7 +1584,7 @@
                 "label_action": 1,
                 "labels": [46000],
                 "next_hop": "cos_nh_2",
-                "path_priority": 0,
+                "path_priority": 1,
                 "path_setid": 1
             },
             {
@@ -1638,7 +1636,8 @@
                 "label_action": 1,
                 "labels": [46002],
                 "next_hop": "cos_nh_9",
-                "path_priority": 1
+                "path_priority": 1,
+                "path_setid": 1
             }
         ],
         "cos_nhlfe_path_2d" : [
@@ -1661,7 +1660,8 @@
                 "label_action": 2,
                 "labels": [  ],
                 "next_hop": "cos_nh_12",
-                "path_priority": 1
+                "path_priority": 1,
+                "path_setid": 1
             }
         ],
         "cos_nhlfe_path_2e" : [
@@ -1684,7 +1684,8 @@
                 "label_action": 2,
                 "labels": [],
                 "next_hop": "cos_nh_3",
-                "path_priority": 0
+                "path_priority": 0,
+                "path_setid": 2
             }
         ],
         "cos_nhlfe_path_3a" : [
@@ -1700,14 +1701,16 @@
                 "label_action": 1,
                 "labels": [46000],
                 "next_hop": "cos_nh_2",
-                "path_priority": 1
+                "path_priority": 1,
+                "path_setid": 1
             },
             {
                 "exp": 3,
                 "label_action": 2,
                 "labels": [],
                 "next_hop": "cos_nh_3",
-                "path_priority": 0
+                "path_priority": 0,
+                "path_setid": 2
             }
         ],
         "cos_nhlfe_path_3b" : [
@@ -1716,7 +1719,8 @@
                 "label_action": 1,
                 "labels": [ 46001 ],
                 "next_hop": "cos_nh_4",
-                "path_priority": 1
+                "path_priority": 1,
+                "path_setid": 2
             },
             {
                 "exp": 0,
@@ -1730,7 +1734,8 @@
                 "label_action": 1,
                 "labels": [46001],
                 "next_hop": "cos_nh_6",
-                "path_priority": 0
+                "path_priority": 0,
+                "path_setid": 1
             }
         ],
         "cos_nhlfe_path_3c" : [
@@ -1746,7 +1751,8 @@
                 "label_action": 1,
                 "labels": [46002],
                 "next_hop": "cos_nh_9",
-                "path_priority": 0
+                "path_priority": 0,
+                "path_setid": 2
             }
         ],
         "cos_scale_path_1" : [
