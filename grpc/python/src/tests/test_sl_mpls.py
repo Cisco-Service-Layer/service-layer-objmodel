@@ -40,6 +40,7 @@ def setUpModule():
     json_params = ApData.json_params
 
     host, port = ApData.host, ApData.port
+
     client = SLApiClient(host, port, json_params['global_init'])
 
 
