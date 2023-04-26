@@ -201,9 +201,7 @@ func (SLNotifOp) EnumDescriptor() ([]byte, []int) {
 }
 
 // Encapsulation Types.
-// Specify tunnel encapsulation types: VXLAN or MPLS.
-// This will determine the interpretation of some fields VrfName and
-// LabelStack in SLRoutePath. It will mandate the presence of certain fields.
+// Specify tunnel encapsulation types.
 type SLEncapType int32
 
 const (
