@@ -10,7 +10,6 @@ import sys
 import threading
 import socket
 import struct
-import time
 import argparse
 
 # Add the generated python bindings directory to the path
@@ -51,6 +50,12 @@ def network_addresses(start_ip, prefix, count):
 
     return network_list
 
+def print_progress_bar(iteration, total, prefix='', suffix='', length=50, fill='█'):
+    percent = ("{0:.1f}").format(100 * (iteration / float(total)))
+    filled_length = int(length * iteration // total)
+    bar = fill * filled_length + '-' * (length - filled_length)
+    sys.stdout.write(f'\r{prefix} |{bar}| {iteration}/{total} ({percent}%) {suffix}')
+    sys.stdout.flush()
 
 #
 # Get the GRPC Server IP address and port number
@@ -269,8 +274,6 @@ def route_operation(channel, oper, p_begin, p_len, nh_begin, nh_intf, r_scale):
 
     # Fill in the routes
     for b in range((r_scale // batchSize)+1):
-        if (b%10 == 0):
-            time.sleep(1)
         # Create an empty list of routes.
         routeList = []
 
@@ -285,7 +288,6 @@ def route_operation(channel, oper, p_begin, p_len, nh_begin, nh_intf, r_scale):
         else:
             count = r_scale % batchSize
         for i in range(count):
-            print("index: {}, prefix: {}, next_hop: {}".format(r_index+1, prefixList[r_index], nhList[r_index]))
             #
             # Create an SLRoutev4 object and set its attributes
             #
@@ -314,7 +316,6 @@ def route_operation(channel, oper, p_begin, p_len, nh_begin, nh_intf, r_scale):
             path.NexthopAddress.V4Address = (
                 int(ipaddress.ip_address(nhList[r_index]))
             )
-            r_index += 1
             # Next hop interface name
             path.NexthopInterface.Name = nh_intf
             #
@@ -323,16 +324,17 @@ def route_operation(channel, oper, p_begin, p_len, nh_begin, nh_intf, r_scale):
             paths.append(path)
 
             # Let's create another path as equal cost multi-path (ECMP)
-            #path = sl_route_common_pb2.SLRoutePath()
-            #path.NexthopAddress.V4Address = (
-            #    int(ipaddress.ip_address('10.10.20.2'))
-            #)
-            #path.NexthopInterface.Name = 'FourHundredGigE0/0/0/11'
+            path = sl_route_common_pb2.SLRoutePath()
+            path.NexthopAddress.V4Address = (
+                int(ipaddress.ip_address(nhList[(r_index + 1)%r_scale]))
+            )
+            path.NexthopInterface.Name = nh_intf
 
             #
             # Add the path to the list
             #
-            #paths.append(path)
+            paths.append(path)
+            r_index += 1
 
             #
             # Assign the paths to the route object
@@ -357,14 +359,14 @@ def route_operation(channel, oper, p_begin, p_len, nh_begin, nh_intf, r_scale):
         Timeout = 10 # Seconds
         rtMsg.Oper = oper # Desired ADD, UPDATE, DELETE operation
         response = stub.SLRoutev4Op(rtMsg, Timeout)
-        print("making rpc call");
         #
         # Check the received result from the Server
         #
         if (sl_common_types_pb2.SLErrorStatus.SL_SUCCESS ==
                 response.StatusSummary.Status):
-            print("Route %s Success!" %(
-                list(sl_common_types_pb2.SLObjectOp.keys())[oper]))
+           #print("Route %s Success!" %(
+           #    list(sl_common_types_pb2.SLObjectOp.keys())[oper]))
+            print_progress_bar(r_index, r_scale, prefix='Routes:', suffix='Programmed', length=50)
         else:
             print("Error code for route %s is 0x%x" % (
                 list(sl_common_types_pb2.SLObjectOp.keys())[oper],
@@ -380,6 +382,9 @@ def route_operation(channel, oper, p_begin, p_len, nh_begin, nh_intf, r_scale):
                         result.ErrStatus.Status
                     ))
             os._exit(0)
+    print("\nSummary: \n prefixes:  [{} -> {}]\n next_hops: [{} -> {}]\n route_count: {}".format(
+        prefixList[0], prefixList[r_index-1],
+        nhList[0], nhList[r_index-1], r_scale))
 
 #
 # Setup the GRPC channel with the server, and issue RPCs
@@ -392,14 +397,14 @@ if __name__ == '__main__':
     parser.add_argument("--p_len", type=int, default=24, help="ipv4 prefix len (default: 24")
     parser.add_argument("--nh_start", type=str, default="100.0.0.1", help="starting next hop address (default: 100.0.0.1)")
     parser.add_argument("--nh_intf", type=str, default="FourHundredGigE0/0/0/10", help="next hop interface (default: FourHundredGigE0/0/0/10)")
-    parser.add_argument("--scale", type=int, default=100, help="prefix scale (default: 100)")
+    parser.add_argument("--num_routes", type=int, default=100, help="number of routes (default: 100)")
     args = parser.parse_args()
     print("Using GRPC Server IP: {} Port: {}\n"
           "prefix_start: {}\n"
           "prefix_len: {}\n"
           "nexthop_start: {}\n"
           "nexthop_intf: {}\n"
-          "scale: {}".format(server_ip, server_port, args.p_start, args.p_len, args.nh_start, args.nh_intf, args.scale))
+          "num_routes: {}".format(server_ip, server_port, args.p_start, args.p_len, args.nh_start, args.nh_intf, args.num_routes))
 
     # Create the channel for gRPC.
     channel = grpc.insecure_channel(str(server_ip) + ":" + str(server_port))
@@ -418,7 +423,7 @@ if __name__ == '__main__':
     #    for add: sl_common_types_pb2.SL_OBJOP_ADD
     #    for update: sl_common_types_pb2.SL_OBJOP_UPDATE
     #    for delete: sl_common_types_pb2.SL_OBJOP_DELETE
-    route_operation(channel, sl_common_types_pb2.SL_OBJOP_ADD, args.p_start, args.p_len, args.nh_start, args.nh_intf, args.scale)
+    route_operation(channel, sl_common_types_pb2.SL_OBJOP_ADD, args.p_start, args.p_len, args.nh_start, args.nh_intf, args.num_routes)
 
     #route_operation(channel, sl_common_types_pb2.SL_OBJOP_DELETE)
     # while ... add/update/delete routes
