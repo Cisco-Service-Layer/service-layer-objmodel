@@ -338,13 +338,11 @@ message SLVxLANPath {
 // value is platform specific and is not configurable.
 message SLRoutePath {
     // One of IPv4 or IPv6 address
-    // For ENCAP_VXLAN, this field is optional and:
-    // - if set, packet is forwarded to NextHopAddress.
-    // - if not set, tunnel's destination IP address is resolved
-    //   to determine packet's next hop.
+    // For ENCAP_VXLAN, this field is not supported and will be ignored
     SLIpAddress NexthopAddress = 1;
 
     // Outgoing interface name for the path.
+    // For ENCAP_VXLAN, this field is not supported and will be ignored
     SLInterface NexthopInterface = 2;
 
     // Load metric for this path.
@@ -431,7 +429,7 @@ message SLRoutePath {
     // is deprecated and will eventually be removed.
     bytes VtepRouterMacAddress = 11;
 
-    // Create local tunnel endpoint. Apply VxLAN encapsulation
+    // Create L3 VxLAN tunnel endpoint. Apply VxLAN encapsulation
     // on the IP packet.
     SLVxLANPath VxLANPath = 12;
 }
