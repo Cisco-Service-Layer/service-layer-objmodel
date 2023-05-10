@@ -449,6 +449,10 @@
     SL_NHLFE_INVALID_MULTIPLE_PRIMARY_SETIDS = 0xa021,\
     /* Paths with the same SET ID are not contiguous. 0xa022 */\
     SL_NHLFE_NON_CONTIGUOUS_SETIDS = 0xa022,\
+    /* Paths with same EXP classification are not contiguous. 0xa023 */\
+    SL_NHLFE_NON_CONTIGUOUS_EXP = 0xa023,\
+    /* On a ILM, mix of NHLFE with EXP class and others without any EXP class are not allowed. 0xa024 */\
+    SL_NHLFE_INCONSISTENT_EXP_ON_PATH = 0xa024,\
     /* !!!  MPLS Label block Error codes */\
     /* Offset for label block errors. 0xb000 */\
     SL_LABEL_BLK_ERR_OFFSET = 0xb000,\
@@ -1220,6 +1224,12 @@
         },\
     {SL_NHLFE_NON_CONTIGUOUS_SETIDS ,\
         " Paths with the same SET ID are not contiguous.  "\
+        },\
+    {SL_NHLFE_NON_CONTIGUOUS_EXP ,\
+        " Paths with same EXP classification are not contiguous.  "\
+        },\
+    {SL_NHLFE_INCONSISTENT_EXP_ON_PATH ,\
+        " On a ILM, mix of NHLFE with EXP class and others without any EXP class are not allowed.  "\
         },\
     {SL_LABEL_BLK_ERR_OFFSET ,\
         " Offset for label block errors.  "\
