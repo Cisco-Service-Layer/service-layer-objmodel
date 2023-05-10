@@ -9,7 +9,6 @@ import (
     "fmt"
     "google.golang.org/grpc"
     "flag"
-    "time"
 
     log "github.com/sirupsen/logrus"
 )
@@ -22,15 +21,8 @@ import (
 )
 
 var (
-    /* These can be overriden with command line arguments.
-     *
+    /*
      *   -h for help
-     *
-     * Common:
-     *   -num_batches:  Number of batches to be used in the operation
-     *   -batch_size:   The batch size (number of routes, ilms, etc)
-     *   -debug:        Enable debugging
-     *
      */
 
     BatchNum = flag.Uint("num_batches", 100,
@@ -52,8 +44,10 @@ var (
                               "First Prefix to be used in the route operation")
     PrefixLen = flag.Uint("prefix_len", 24,
                           "Prefix Length to be used in the route operation")
-    routeOper = flag.Int("route_oper", int(pb.SLObjectOp_SL_OBJOP_ADD),
+    RouteOper = flag.Int("route_oper", 0,
                          "Route Operation: Add(1), Update(2), Delete(3)")
+    VrfRegOper = flag.Int("vrf_reg_oper", 0,
+                         "VRF registration Operation: Reg(1), Unregister(2), EOF(3)")
 
     /*
      * For MPLS:
@@ -74,48 +68,72 @@ var (
                           "Increment the last index of the interface name for each elsp up to this number")
     ClientName = flag.String("client_name", "Service-layer",
                              "The client name to be used during MPLS CBF label block allocation")
+    AutoIncNHIP = flag.Bool("auto_inc_nhip", false,
+                         "Auto Increment next hop IP")
 )
 
-func testMPLS(conn *grpc.ClientConn) {
+func testMPLSReg(conn *grpc.ClientConn) {
     /* Get MPLS vertical attributes */
     sl_api.MplsGetMsg(conn)
 
-    /*
-     * Perform registration with MPLS vertical only for ADD operation. Ideally
-     * this tool should have provided options for reg/object add/eof, but for
-     * now make it easy for user to perform an implicit register on ADD
-     */
-    if pb.SLObjectOp(*routeOper) == pb.SLObjectOp_SL_OBJOP_ADD {
-       /* MPLS Registration and EOF to flush old entries */
-       sl_api.MplsRegOperation(conn, pb.SLRegOp_SL_REGOP_REGISTER)
+    /* Perform registration with MPLS vertical */
+    sl_api.MplsRegOperation(conn, pb.SLRegOp(*VrfRegOper))
+}
 
-       /* flush on add of new labels */
-        sl_api.MplsRegOperation(conn, pb.SLRegOp_SL_REGOP_EOF)
-        time.Sleep(5 * time.Second)
+func testMPLS(conn *grpc.ClientConn) {
 
-        /* Batch Label Block Operation */
-        sl_api.LabelBlockOperation(conn, pb.SLObjectOp(*routeOper),
+    if *RouteOper == int(pb.SLObjectOp_SL_OBJOP_ADD) ||
+             *RouteOper == int(pb.SLObjectOp_SL_OBJOP_UPDATE) {
+        /* Add Label Block Operation */
+        sl_api.LabelBlockOperation(conn, pb.SLObjectOp_SL_OBJOP_ADD,
                                    uint32(*startLabel), uint32(*numLabels), *numElsps,
                                    *ClientName)
     }
 
     /* Batch Label Operation */
-    sl_api.LabelOperation(conn, pb.SLObjectOp(*routeOper),
+    sl_api.LabelOperation(conn, pb.SLObjectOp(*RouteOper),
                     *startLabel, *startOutLabel, *numLabels, *numPaths,
                     *numElsps, *BatchNum, *BatchSize, *NextHopIP,
-                    *Interface, *MaxIfIdx)
+                    *Interface, *MaxIfIdx, *AutoIncNHIP)
+
+    if *RouteOper == int(pb.SLObjectOp_SL_OBJOP_DELETE) {
+        /* Delete Label Block Operation */
+        sl_api.LabelBlockOperation(conn, pb.SLObjectOp_SL_OBJOP_DELETE,
+                                   uint32(*startLabel), uint32(*numLabels),
+                                   *numElsps, *ClientName)
+    }
+}
+
+func testIPv4Reg(conn *grpc.ClientConn) {
+    /* Register VRF */
+    sl_api.VrfOperation(conn, pb.SLRegOp(*VrfRegOper))
 }
 
 func testIPv4(conn *grpc.ClientConn) {
-    /* Register VRF */
-    sl_api.VrfOperation(conn, pb.SLRegOp_SL_REGOP_REGISTER)
-
-    /* Send EOF for VRF */
-    sl_api.VrfOperation(conn, pb.SLRegOp_SL_REGOP_EOF)
-
     /* Batch Route Operation */
-    sl_api.RouteOperation(conn, pb.SLObjectOp(*routeOper), *FirstPrefix,
-        uint32(*PrefixLen), *BatchNum, *BatchSize, *NextHopIP, *Interface)
+    sl_api.RouteOperation(conn, pb.SLObjectOp(*RouteOper), *FirstPrefix,
+        uint32(*PrefixLen), *BatchNum, *BatchSize, *NextHopIP, *Interface,
+        *numPaths, *AutoIncNHIP)
+}
+
+func validObjectOp(op int) bool {
+    if op == int(pb.SLObjectOp_SL_OBJOP_ADD) ||
+       op == int(pb.SLObjectOp_SL_OBJOP_UPDATE) ||
+       op == int(pb.SLObjectOp_SL_OBJOP_DELETE) {
+       return true
+    }
+
+     return false
+}
+
+func validVrfReg(op int) bool {
+    if op == int(pb.SLRegOp_SL_REGOP_REGISTER) ||
+       op == int(pb.SLRegOp_SL_REGOP_UNREGISTER) ||
+       op == int(pb.SLRegOp_SL_REGOP_EOF) {
+       return true
+    }
+
+     return false
 }
 
 func main() {
@@ -129,6 +147,23 @@ func main() {
 
     if *numElsps > 9 {
         log.Fatal("Invalid number of ELSPs")
+    }
+
+    if *VrfRegOper != int(pb.SLRegOp_SL_REGOP_RESERVED) &&
+       !validVrfReg(*VrfRegOper) {
+        log.Fatalf("incorrect vrf reg operation")
+        return
+    }
+
+    if *RouteOper != int(pb.SLObjectOp_SL_OBJOP_RESERVED) &&
+       !validObjectOp(*RouteOper) {
+        log.Fatalf("incorrect route operation")
+        return
+    }
+
+    if *numPaths > 64 {
+        log.Fatalf("exceeded max paths")
+        return
     }
 
     /* Get Server IP and Port from Env */
@@ -149,9 +184,23 @@ func main() {
     }
 
     if (*TestMpls) {
-        testMPLS(conn)
+        fmt.Printf("Performing MPLS tests\n")
+        if validVrfReg(*VrfRegOper) {
+            testMPLSReg(conn)
+        }
+        if validObjectOp(*RouteOper) {
+            testMPLS(conn)
+        }
     } else {
-        testIPv4(conn)
+        fmt.Printf("Performing ipv4 test\n")
+        if validVrfReg(*VrfRegOper) {
+            fmt.Printf("Performing ipv4 vrf reg\n")
+            testIPv4Reg(conn)
+        }
+        if validObjectOp(*RouteOper) {
+            fmt.Printf("Performing route operation\n")
+            testIPv4(conn)
+        }
     }
 
     /* The process will exit here */

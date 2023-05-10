@@ -170,7 +170,7 @@ func ifMunge(ifName string, idx uint, maxIfIdx uint) string {
 func LabelOperation(conn *grpc.ClientConn, Oper pb.SLObjectOp,
                     startLabel uint, startOutLabel uint, numLabels uint,
                     numPaths uint, numElsps uint, batchNum uint, batchSize uint,
-                    NextHopIP string, Interface string, MaxIfIdx uint) {
+                    NextHopIP string, Interface string, MaxIfIdx uint, AutoIncNHIP bool) {
 
     var elspIdx, pathIdx, batchIndex uint
     var sentIlms uint = 0

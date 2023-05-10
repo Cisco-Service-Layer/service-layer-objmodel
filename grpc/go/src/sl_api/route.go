@@ -79,17 +79,17 @@ func incrementIpv4Pfx(pfx uint32, prefixLen uint32) (uint32){
  */
 func RouteOperation(conn *grpc.ClientConn, Oper pb.SLObjectOp,
         FirstPrefix string, prefixLen uint32, batchNum uint, batchSize uint,
-        NextHopIP string, Interface string) {
+        NextHopIP string, Interface string, numPaths uint, AutoIncNHIP bool) {
 
     var batchIndex uint
     var totalRoutes int64 = 0
     var messageGroup []*pb.SLRoutev4Msg
     var err error = nil
+    var pathIndex uint
 
     /* Initialize some route params */
     prefix := ip4toInt(net.ParseIP(fmt.Sprintf(FirstPrefix)))
     nexthop1 := ip4toInt(net.ParseIP(NextHopIP))
-    nexthop2 := nexthop1 + 1;
 
     /* Create a NewSLRoutev4OperClient instance */
     // c := pb.NewSLRoutev4OperClient(conn)
@@ -127,37 +127,26 @@ func RouteOperation(conn *grpc.ClientConn, Oper pb.SLObjectOp,
 
             /* We dont need to setup the paths for DELETE*/
             if Oper != pb.SLObjectOp_SL_OBJOP_DELETE {
-                /* Setup the route's Path 1*/
-                p1 := &pb.SLRoutePath{
-                    NexthopAddress: &pb.SLIpAddress {
-                        Address: &pb.SLIpAddress_V4Address{
-                            V4Address: nexthop1,
+                for pathIndex = 0; pathIndex < numPaths; pathIndex ++ {
+                    /* Setup the route's Path 1*/
+                    p1 := &pb.SLRoutePath{
+                        NexthopAddress: &pb.SLIpAddress {
+                            Address: &pb.SLIpAddress_V4Address{
+                                V4Address: nexthop1,
+                            },
                         },
-                    },
-                    NexthopInterface: &pb.SLInterface{
-                        Interface: &pb.SLInterface_Name{
-                            Name: Interface,
+                        NexthopInterface: &pb.SLInterface{
+                            Interface: &pb.SLInterface_Name{
+                                Name: Interface,
+                            },
                         },
-                    },
+                    }
+                    /*Append to route*/
+                    route.PathList = append(route.PathList, p1)
+                    if AutoIncNHIP {
+                        nexthop1 = nexthop1 + 1
+                    }
                 }
-                /*Append to route*/
-                route.PathList = append(route.PathList, p1)
-
-                /* Setup the route's Path 2 (ECMP) */
-                p2 := &pb.SLRoutePath{
-                    NexthopAddress: &pb.SLIpAddress {
-                        Address: &pb.SLIpAddress_V4Address{
-                            V4Address: nexthop2,
-                        },
-                    },
-                    NexthopInterface: &pb.SLInterface{
-                        Interface: &pb.SLInterface_Name{
-                            Name: Interface,
-                        },
-                    },
-                }
-                /* Append to route*/
-                route.PathList = append(route.PathList, p2)
             }
 
             /* Append Route to batch */
