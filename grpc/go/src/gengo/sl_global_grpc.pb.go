@@ -22,13 +22,7 @@ const _ = grpc.SupportPackageIsVersion7
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type SLGlobalClient interface {
-	// Initialize the connection, and setup a notification channel.
-	// This MUST be the first call to setup the Service Layer connection.
-	//
-	// The caller MUST maintain the notification channel to be able to
-	// communicate with the server.
-	// If this channel is not properly established and maintained, all other
-	// RPC requests are rejected.
+	// Initialize the connection, and setup a application level heartbeat channel.
 	//
 	// The caller must send its version information as part of the SLInitMsg
 	// message. The server will reply with SL_GLOBAL_EVENT_TYPE_VERSION
@@ -99,13 +93,7 @@ func (c *sLGlobalClient) SLGlobalsGet(ctx context.Context, in *SLGlobalsGetMsg, 
 // All implementations must embed UnimplementedSLGlobalServer
 // for forward compatibility
 type SLGlobalServer interface {
-	// Initialize the connection, and setup a notification channel.
-	// This MUST be the first call to setup the Service Layer connection.
-	//
-	// The caller MUST maintain the notification channel to be able to
-	// communicate with the server.
-	// If this channel is not properly established and maintained, all other
-	// RPC requests are rejected.
+	// Initialize the connection, and setup a application level heartbeat channel.
 	//
 	// The caller must send its version information as part of the SLInitMsg
 	// message. The server will reply with SL_GLOBAL_EVENT_TYPE_VERSION

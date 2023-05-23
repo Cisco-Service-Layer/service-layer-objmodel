@@ -22,7 +22,7 @@ log = Logger(name="SLApiClient")
 
 
 class SLApiBase:
-    def __init__(self, host, port, init_params):
+    def __init__(self, host, port, do_global_init,  init_params):
         """
         Initialize connection and start global thread
 
@@ -37,11 +37,13 @@ class SLApiBase:
         """
         self._host = host
         self._port = port
+        self.do_global_init = do_global_init
         self.client = GrpcClient(self._host, self._port)
-        self.global_notif_client = GrpcClient(self._host, self._port)
-        self.global_notif_thread = None
+        if do_global_init:
+            self.global_notif_client = GrpcClient(self._host, self._port)
+            self.global_notif_thread = None
 
-        self._start_global_notif_thread(init_params)
+            self._start_global_notif_thread(init_params)
 
     def _start_global_notif_thread(self, init_params):
         """Start global notif thread and wait for global init response"""
@@ -67,7 +69,7 @@ class SLApiBase:
                 if response.EventType == sl_global_pb2.SL_GLOBAL_EVENT_TYPE_ERROR:
                     if (response.ErrStatus.Status ==
                             sl_common_types_pb2.SLErrorStatus.SL_NOTIF_TERM):
-                            log.info("Service Layer Session was taken over by another client")
+                            log.info("SL takenover by anothet Global Init RPC. NOT EXPECTED")
                     else:
                         # If this session is lost, then most likely the server restarted
                         log.error("global_init: exiting unexpectedly, Server Restart?")
@@ -148,16 +150,18 @@ class SLApiBase:
 
     def cleanup(self):
         # Cancel global notif stream
-        self.global_notifs.cancel()
+        if self.do_global_init:
+            self.global_notifs.cancel()
 
         try:
             # Earlier grpc version do not support this
             self.client.channel.close()
-            self.global_notif_client.channel.close()
+            if self.do_global_init:
+                self.global_notif_client.channel.close()
         except AttributeError:
             pass
-
-        self.global_notif_thread.join()
+        if do_global_init:
+            self.global_notif_thread.join()
 
     @contextmanager
     def notif_channel(self):
@@ -269,9 +273,9 @@ class SLApiBase:
 class SLApiClient(SLApiBase):
     "Represents a SL API session"
 
-    def __init__(self, client, global_notif_client, json_params):
+    def __init__(self, client, global_notif_client, do_global_init, json_params):
         super(SLApiClient, self).__init__(client, 
-                global_notif_client, json_params)
+                global_notif_client, do_global_init, json_params)
 
     ###### Route Vertical ######
 

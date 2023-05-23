@@ -290,33 +290,6 @@ type SLGlobalNotif struct {
 	// Status code, interpreted based on the Event Type.
 	//
 	//	case EventType == SL_GLOBAL_EVENT_TYPE_ERROR:
-	//	    case ErrStatus == SL_NOTIF_TERM:
-	//	       => Another client is attempting to take over the session.
-	//	          This session will be closed.
-	//	    case ErrStatus == SL_VRF_V4_ROUTE_REPLAY_FATAL_ERROR:
-	//	       => IPv4 Routes replay failed for a VRF.
-	//	          See VrfReplayErrorNotif for details.
-	//	    case ErrStatus == SL_VRF_V6_ROUTE_REPLAY_FATAL_ERROR:
-	//	       => IPv6 Routes replay failed for a VRF.
-	//	          See VrfReplayErrorNotif for details.
-	//	    case ErrStatus == SL_ILM_REPLAY_FATAL_ERROR:
-	//	       => ILM replay failed.
-	//	    case ErrStatus == SL_VRF_V4_ROUTE_REPLAY_OK:
-	//	       => IPv4 Routes replay succeeded for a VRF.
-	//	          See VrfReplayErrorNotif for details.
-	//	          This notification is sent only if a
-	//	          SL_VRF_V4_ROUTE_REPLAY_FATAL_ERROR was sent earlier
-	//	          on the identified VRF.
-	//	    case ErrStatus == SL_VRF_V6_ROUTE_REPLAY_OK:
-	//	       => IPv6 Routes replay succeeded for a VRF.
-	//	          See VrfReplayErrorNotif for details.
-	//	          This notification is sent only if a
-	//	          SL_VRF_V6_ROUTE_REPLAY_FATAL_ERROR was sent earlier
-	//	          on the identified VRF.
-	//	    case ErrStatus == SL_ILM_REPLAY_OK:
-	//	       => ILM replay succeeded.
-	//	          This notification is sent only if a
-	//	          SL_ILM_REPLAY_FATAL_ERROR was sent earlier.
 	//	    case ErrStatus == (some error from SLErrorStatus)
 	//	       => Client must look into the specific error message returned.
 	//

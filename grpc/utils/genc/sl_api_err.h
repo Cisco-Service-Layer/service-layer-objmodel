@@ -237,6 +237,8 @@
     SL_PATH_INVALID_LABEL = 0x5015,\
     /* Size of router mac address is invalid. 0x5016 */\
     SL_PATH_ROUTER_MAC_ADDR_INVALID_SZ = 0x5016,\
+    /* A backup path has too many labels. 0x5017 */\
+    SL_PATH_BACKUP_TOOMANY_LABELS = 0x5017,\
     /* !!! Error codes for BFD opertations. */\
     /* Offset for BFD operation errors. 0x6000 */\
     SL_RPC_BFD_START_OFFSET = 0x6000,\
@@ -921,6 +923,9 @@
         },\
     {SL_PATH_ROUTER_MAC_ADDR_INVALID_SZ ,\
         " Size of router mac address is invalid.  "\
+        },\
+    {SL_PATH_BACKUP_TOOMANY_LABELS ,\
+        " A backup path has too many labels.  "\
         },\
     {SL_RPC_BFD_START_OFFSET ,\
         " Offset for BFD operation errors.  "\
