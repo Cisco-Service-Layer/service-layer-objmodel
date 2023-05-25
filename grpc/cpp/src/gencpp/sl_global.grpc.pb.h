@@ -41,7 +41,6 @@ namespace service_layer {
 
 // @defgroup SLGlobal
 // @ingroup Common
-//
 // Global Initialization and Notifications.
 // The following RPCs are used in global initialization and capability queries.
 // @{

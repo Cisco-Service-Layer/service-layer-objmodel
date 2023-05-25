@@ -8,7 +8,6 @@ from . import sl_global_pb2 as sl__global__pb2
 class SLGlobalStub(object):
     """@defgroup SLGlobal
     @ingroup Common
-
     Global Initialization and Notifications.
     The following RPCs are used in global initialization and capability queries.
     @{
@@ -38,7 +37,6 @@ class SLGlobalStub(object):
 class SLGlobalServicer(object):
     """@defgroup SLGlobal
     @ingroup Common
-
     Global Initialization and Notifications.
     The following RPCs are used in global initialization and capability queries.
     @{
@@ -97,7 +95,6 @@ def add_SLGlobalServicer_to_server(servicer, server):
 class SLGlobal(object):
     """@defgroup SLGlobal
     @ingroup Common
-
     Global Initialization and Notifications.
     The following RPCs are used in global initialization and capability queries.
     @{

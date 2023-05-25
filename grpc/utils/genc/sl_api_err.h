@@ -14,10 +14,7 @@
     /* !!! Common error codes for all RPCs and objects */\
     /* Success, no errors detected. 0x0. */\
     SL_SUCCESS = 0x0,\
-    /* Client is not connected. */\
-    /* The client is expected to remain connected after init and version */\
-    /* validation, RPC calls can fail with this error code otherwise. */\
-    /* Refer to RPC SLGlobalInitNotif. 0x1 */\
+    /* Rcvd Error/nil msg from client. Refer to  SLL2GetNotif. 0x1 */\
     SL_NOT_CONNECTED = 0x1,\
     /* Operation must be retried. 0x2 */\
     SL_EAGAIN = 0x2,\
@@ -618,10 +615,7 @@
     {SL_SUCCESS ,        " Success, no errors detected.  "\
         },\
     {SL_NOT_CONNECTED ,\
-        " Client is not connected. "\
-        " The client is expected to remain connected after init and version "\
-        " validation, RPC calls can fail with this error code otherwise. "\
-        " Refer to RPC SLGlobalInitNotif.  "\
+        " Rcvd Error/nil msg from client. Refer to  SLL2GetNotif.  "\
         },\
     {SL_EAGAIN ,\
         " Operation must be retried.  "\
