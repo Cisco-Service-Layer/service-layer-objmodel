@@ -14,7 +14,7 @@
     /* !!! Common error codes for all RPCs and objects */\
     /* Success, no errors detected. 0x0. */\
     SL_SUCCESS = 0x0,\
-    /* Rcvd Error/nil msg from client. Refer to  SLL2GetNotif. 0x1 */\
+    /* Client not connected. 0x1 */\
     SL_NOT_CONNECTED = 0x1,\
     /* Operation must be retried. 0x2 */\
     SL_EAGAIN = 0x2,\
@@ -615,7 +615,7 @@
     {SL_SUCCESS ,        " Success, no errors detected.  "\
         },\
     {SL_NOT_CONNECTED ,\
-        " Rcvd Error/nil msg from client. Refer to  SLL2GetNotif.  "\
+        " Client not connected.  "\
         },\
     {SL_EAGAIN ,\
         " Operation must be retried.  "\

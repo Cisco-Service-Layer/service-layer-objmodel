@@ -259,7 +259,7 @@ type SLErrorStatus_SLErrno int32
 const (
 	// Success, no errors detected. 0x0.
 	SLErrorStatus_SL_SUCCESS SLErrorStatus_SLErrno = 0
-	// Rcvd Error/nil msg from client. Refer to  SLL2GetNotif. 0x1
+	// Client not connected. 0x1
 	SLErrorStatus_SL_NOT_CONNECTED SLErrorStatus_SLErrno = 1
 	// Operation must be retried. 0x2
 	SLErrorStatus_SL_EAGAIN SLErrorStatus_SLErrno = 2
