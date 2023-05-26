@@ -256,8 +256,7 @@ constexpr SLVxLANPath::SLVxLANPath(
   , destmacaddress_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
   , srcipaddress_(nullptr)
   , destipaddress_(nullptr)
-  , vni_(0u)
-  , vniflags_(0u){}
+  , vni_(0u){}
 struct SLVxLANPathDefaultTypeInternal {
   constexpr SLVxLANPathDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
@@ -451,7 +450,6 @@ const uint32_t TableStruct_sl_5froute_5fcommon_2eproto::offsets[] PROTOBUF_SECTI
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::service_layer::SLVxLANPath, vni_),
-  PROTOBUF_FIELD_OFFSET(::service_layer::SLVxLANPath, vniflags_),
   PROTOBUF_FIELD_OFFSET(::service_layer::SLVxLANPath, sourcemacaddress_),
   PROTOBUF_FIELD_OFFSET(::service_layer::SLVxLANPath, destmacaddress_),
   PROTOBUF_FIELD_OFFSET(::service_layer::SLVxLANPath, srcipaddress_),
@@ -494,7 +492,7 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOB
   { 125, -1, -1, sizeof(::service_layer::SLVrfNotif)},
   { 133, -1, -1, sizeof(::service_layer::SLRouteCommon)},
   { 145, -1, -1, sizeof(::service_layer::SLVxLANPath)},
-  { 157, -1, -1, sizeof(::service_layer::SLRoutePath)},
+  { 156, -1, -1, sizeof(::service_layer::SLRoutePath)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -561,36 +559,36 @@ const char descriptor_table_protodef_sl_5froute_5fcommon_2eproto[] PROTOBUF_SECT
   "RouteCommon\022\025\n\rAdminDistance\030\001 \001(\r\022\022\n\nLo"
   "calLabel\030\002 \001(\r\022\013\n\003Tag\030\003 \001(\r\022\020\n\010SrcProto\030"
   "\004 \001(\t\022\023\n\013SrcProtoTag\030\005 \001(\t\022\r\n\005Flags\030\006 \001("
-  "\r\"\303\001\n\013SLVxLANPath\022\013\n\003VNI\030\001 \001(\r\022\020\n\010VNIFla"
-  "gs\030\002 \001(\r\022\030\n\020SourceMacAddress\030\003 \001(\014\022\026\n\016De"
-  "stMacAddress\030\004 \001(\014\0220\n\014SrcIpAddress\030\005 \001(\013"
-  "2\032.service_layer.SLIpAddress\0221\n\rDestIpAd"
-  "dress\030\006 \001(\0132\032.service_layer.SLIpAddress\""
-  "\234\003\n\013SLRoutePath\0222\n\016NexthopAddress\030\001 \001(\0132"
-  "\032.service_layer.SLIpAddress\0224\n\020NexthopIn"
-  "terface\030\002 \001(\0132\032.service_layer.SLInterfac"
-  "e\022\022\n\nLoadMetric\030\003 \001(\r\022\017\n\007VrfName\030\004 \001(\t\022\016"
-  "\n\006Metric\030\005 \001(\r\022\016\n\006PathId\030\006 \001(\r\022\033\n\023Protec"
-  "tedPathBitmap\030\007 \003(\004\022\022\n\nLabelStack\030\010 \003(\r\022"
-  "1\n\rRemoteAddress\030\t \003(\0132\032.service_layer.S"
-  "LIpAddress\022-\n\tEncapType\030\n \001(\0162\032.service_"
-  "layer.SLEncapType\022\034\n\024VtepRouterMacAddres"
-  "s\030\013 \001(\014\022-\n\tVxLANPath\030\014 \001(\0132\032.service_lay"
-  "er.SLVxLANPath*\312\001\n\013SLNotifType\022\032\n\026SL_EVE"
-  "NT_TYPE_RESERVED\020\000\022\027\n\023SL_EVENT_TYPE_ERRO"
-  "R\020\001\022\030\n\024SL_EVENT_TYPE_STATUS\020\002\022\027\n\023SL_EVEN"
-  "T_TYPE_ROUTE\020\003\022\036\n\032SL_EVENT_TYPE_START_MA"
-  "RKER\020\004\022\034\n\030SL_EVENT_TYPE_END_MARKER\020\005\022\025\n\021"
-  "SL_EVENT_TYPE_VRF\020\006BQZOgithub.com/Cisco-"
-  "service-layer/service-layer-objmodel/grp"
-  "c/protos;service_layerb\006proto3"
+  "\r\"\261\001\n\013SLVxLANPath\022\013\n\003VNI\030\001 \001(\r\022\030\n\020Source"
+  "MacAddress\030\002 \001(\014\022\026\n\016DestMacAddress\030\003 \001(\014"
+  "\0220\n\014SrcIpAddress\030\004 \001(\0132\032.service_layer.S"
+  "LIpAddress\0221\n\rDestIpAddress\030\005 \001(\0132\032.serv"
+  "ice_layer.SLIpAddress\"\234\003\n\013SLRoutePath\0222\n"
+  "\016NexthopAddress\030\001 \001(\0132\032.service_layer.SL"
+  "IpAddress\0224\n\020NexthopInterface\030\002 \001(\0132\032.se"
+  "rvice_layer.SLInterface\022\022\n\nLoadMetric\030\003 "
+  "\001(\r\022\017\n\007VrfName\030\004 \001(\t\022\016\n\006Metric\030\005 \001(\r\022\016\n\006"
+  "PathId\030\006 \001(\r\022\033\n\023ProtectedPathBitmap\030\007 \003("
+  "\004\022\022\n\nLabelStack\030\010 \003(\r\0221\n\rRemoteAddress\030\t"
+  " \003(\0132\032.service_layer.SLIpAddress\022-\n\tEnca"
+  "pType\030\n \001(\0162\032.service_layer.SLEncapType\022"
+  "\034\n\024VtepRouterMacAddress\030\013 \001(\014\022-\n\tVxLANPa"
+  "th\030\014 \001(\0132\032.service_layer.SLVxLANPath*\312\001\n"
+  "\013SLNotifType\022\032\n\026SL_EVENT_TYPE_RESERVED\020\000"
+  "\022\027\n\023SL_EVENT_TYPE_ERROR\020\001\022\030\n\024SL_EVENT_TY"
+  "PE_STATUS\020\002\022\027\n\023SL_EVENT_TYPE_ROUTE\020\003\022\036\n\032"
+  "SL_EVENT_TYPE_START_MARKER\020\004\022\034\n\030SL_EVENT"
+  "_TYPE_END_MARKER\020\005\022\025\n\021SL_EVENT_TYPE_VRF\020"
+  "\006BQZOgithub.com/Cisco-service-layer/serv"
+  "ice-layer-objmodel/grpc/protos;service_l"
+  "ayerb\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_sl_5froute_5fcommon_2eproto_deps[1] = {
   &::descriptor_table_sl_5fcommon_5ftypes_2eproto,
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_sl_5froute_5fcommon_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_sl_5froute_5fcommon_2eproto = {
-  false, false, 2550, descriptor_table_protodef_sl_5froute_5fcommon_2eproto, "sl_route_common.proto", 
+  false, false, 2532, descriptor_table_protodef_sl_5froute_5fcommon_2eproto, "sl_route_common.proto", 
   &descriptor_table_sl_5froute_5fcommon_2eproto_once, descriptor_table_sl_5froute_5fcommon_2eproto_deps, 1, 19,
   schemas, file_default_instances, TableStruct_sl_5froute_5fcommon_2eproto::offsets,
   file_level_metadata_sl_5froute_5fcommon_2eproto, file_level_enum_descriptors_sl_5froute_5fcommon_2eproto, file_level_service_descriptors_sl_5froute_5fcommon_2eproto,
@@ -4710,9 +4708,7 @@ SLVxLANPath::SLVxLANPath(const SLVxLANPath& from)
   } else {
     destipaddress_ = nullptr;
   }
-  ::memcpy(&vni_, &from.vni_,
-    static_cast<size_t>(reinterpret_cast<char*>(&vniflags_) -
-    reinterpret_cast<char*>(&vni_)) + sizeof(vniflags_));
+  vni_ = from.vni_;
   // @@protoc_insertion_point(copy_constructor:service_layer.SLVxLANPath)
 }
 
@@ -4727,8 +4723,8 @@ destmacaddress_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStr
 #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
 ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
     reinterpret_cast<char*>(&srcipaddress_) - reinterpret_cast<char*>(this)),
-    0, static_cast<size_t>(reinterpret_cast<char*>(&vniflags_) -
-    reinterpret_cast<char*>(&srcipaddress_)) + sizeof(vniflags_));
+    0, static_cast<size_t>(reinterpret_cast<char*>(&vni_) -
+    reinterpret_cast<char*>(&srcipaddress_)) + sizeof(vni_));
 }
 
 SLVxLANPath::~SLVxLANPath() {
@@ -4772,9 +4768,7 @@ void SLVxLANPath::Clear() {
     delete destipaddress_;
   }
   destipaddress_ = nullptr;
-  ::memset(&vni_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&vniflags_) -
-      reinterpret_cast<char*>(&vni_)) + sizeof(vniflags_));
+  vni_ = 0u;
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -4792,43 +4786,35 @@ const char* SLVxLANPath::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID
         } else
           goto handle_unusual;
         continue;
-      // uint32 VNIFlags = 2;
+      // bytes SourceMacAddress = 2;
       case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
-          vniflags_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
-          CHK_(ptr);
-        } else
-          goto handle_unusual;
-        continue;
-      // bytes SourceMacAddress = 3;
-      case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 26)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
           auto str = _internal_mutable_sourcemacaddress();
           ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
         } else
           goto handle_unusual;
         continue;
-      // bytes DestMacAddress = 4;
-      case 4:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 34)) {
+      // bytes DestMacAddress = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 26)) {
           auto str = _internal_mutable_destmacaddress();
           ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
         } else
           goto handle_unusual;
         continue;
-      // .service_layer.SLIpAddress SrcIpAddress = 5;
-      case 5:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 42)) {
+      // .service_layer.SLIpAddress SrcIpAddress = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 34)) {
           ptr = ctx->ParseMessage(_internal_mutable_srcipaddress(), ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
         continue;
-      // .service_layer.SLIpAddress DestIpAddress = 6;
-      case 6:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 50)) {
+      // .service_layer.SLIpAddress DestIpAddress = 5;
+      case 5:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 42)) {
           ptr = ctx->ParseMessage(_internal_mutable_destipaddress(), ptr);
           CHK_(ptr);
         } else
@@ -4869,38 +4855,32 @@ uint8_t* SLVxLANPath::_InternalSerialize(
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_vni(), target);
   }
 
-  // uint32 VNIFlags = 2;
-  if (this->_internal_vniflags() != 0) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_vniflags(), target);
-  }
-
-  // bytes SourceMacAddress = 3;
+  // bytes SourceMacAddress = 2;
   if (!this->_internal_sourcemacaddress().empty()) {
     target = stream->WriteBytesMaybeAliased(
-        3, this->_internal_sourcemacaddress(), target);
+        2, this->_internal_sourcemacaddress(), target);
   }
 
-  // bytes DestMacAddress = 4;
+  // bytes DestMacAddress = 3;
   if (!this->_internal_destmacaddress().empty()) {
     target = stream->WriteBytesMaybeAliased(
-        4, this->_internal_destmacaddress(), target);
+        3, this->_internal_destmacaddress(), target);
   }
 
-  // .service_layer.SLIpAddress SrcIpAddress = 5;
+  // .service_layer.SLIpAddress SrcIpAddress = 4;
   if (this->_internal_has_srcipaddress()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
       InternalWriteMessage(
-        5, _Internal::srcipaddress(this), target, stream);
+        4, _Internal::srcipaddress(this), target, stream);
   }
 
-  // .service_layer.SLIpAddress DestIpAddress = 6;
+  // .service_layer.SLIpAddress DestIpAddress = 5;
   if (this->_internal_has_destipaddress()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
       InternalWriteMessage(
-        6, _Internal::destipaddress(this), target, stream);
+        5, _Internal::destipaddress(this), target, stream);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -4919,28 +4899,28 @@ size_t SLVxLANPath::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // bytes SourceMacAddress = 3;
+  // bytes SourceMacAddress = 2;
   if (!this->_internal_sourcemacaddress().empty()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
         this->_internal_sourcemacaddress());
   }
 
-  // bytes DestMacAddress = 4;
+  // bytes DestMacAddress = 3;
   if (!this->_internal_destmacaddress().empty()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
         this->_internal_destmacaddress());
   }
 
-  // .service_layer.SLIpAddress SrcIpAddress = 5;
+  // .service_layer.SLIpAddress SrcIpAddress = 4;
   if (this->_internal_has_srcipaddress()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
         *srcipaddress_);
   }
 
-  // .service_layer.SLIpAddress DestIpAddress = 6;
+  // .service_layer.SLIpAddress DestIpAddress = 5;
   if (this->_internal_has_destipaddress()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
@@ -4950,11 +4930,6 @@ size_t SLVxLANPath::ByteSizeLong() const {
   // uint32 VNI = 1;
   if (this->_internal_vni() != 0) {
     total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_vni());
-  }
-
-  // uint32 VNIFlags = 2;
-  if (this->_internal_vniflags() != 0) {
-    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_vniflags());
   }
 
   return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
@@ -4994,9 +4969,6 @@ void SLVxLANPath::MergeFrom(const SLVxLANPath& from) {
   if (from._internal_vni() != 0) {
     _internal_set_vni(from._internal_vni());
   }
-  if (from._internal_vniflags() != 0) {
-    _internal_set_vniflags(from._internal_vniflags());
-  }
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
@@ -5027,8 +4999,8 @@ void SLVxLANPath::InternalSwap(SLVxLANPath* other) {
       &other->destmacaddress_, rhs_arena
   );
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(SLVxLANPath, vniflags_)
-      + sizeof(SLVxLANPath::vniflags_)
+      PROTOBUF_FIELD_OFFSET(SLVxLANPath, vni_)
+      + sizeof(SLVxLANPath::vni_)
       - PROTOBUF_FIELD_OFFSET(SLVxLANPath, srcipaddress_)>(
           reinterpret_cast<char*>(&srcipaddress_),
           reinterpret_cast<char*>(&other->srcipaddress_));

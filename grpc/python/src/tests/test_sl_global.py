@@ -39,7 +39,7 @@ def setUpModule():
     json_params = ApData.json_params
 
     host, port = ApData.host, ApData.port
-    client = SLApiClient(host, port, json_params['global_init'])
+    client = SLApiClient(host, port, json_params["do_global_init"], json_params['global_init'])
 
 
 def tearDownModule():

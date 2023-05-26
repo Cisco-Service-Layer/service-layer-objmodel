@@ -46,13 +46,7 @@ class SLGlobalServicer(object):
     """
 
     def SLGlobalInitNotif(self, request, context):
-        """Initialize the connection, and setup a notification channel.
-        This MUST be the first call to setup the Service Layer connection.
-
-        The caller MUST maintain the notification channel to be able to
-        communicate with the server.
-        If this channel is not properly established and maintained, all other
-        RPC requests are rejected.
+        """Initialize the connection, and setup a application level heartbeat channel.
 
         The caller must send its version information as part of the SLInitMsg
         message. The server will reply with SL_GLOBAL_EVENT_TYPE_VERSION
