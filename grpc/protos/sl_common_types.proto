@@ -267,7 +267,7 @@ message SLErrorStatus {
         // Size of router mac address is invalid. 0x5016
         SL_PATH_ROUTER_MAC_ADDR_INVALID_SZ = 0x5016;
         // Invalid VNI for VxLAN encap. 0x5017
-        SL_PATH_INVALID_VNI = 0x5017
+        SL_PATH_INVALID_VNI = 0x5017;
         // Path has an invalid  encap address. 0x5018
         SL_PATH_INVALID_ENCAP_ADDR = 0x5018;
 
