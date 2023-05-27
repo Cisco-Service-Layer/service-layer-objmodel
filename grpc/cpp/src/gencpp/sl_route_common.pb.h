@@ -3185,14 +3185,13 @@ class SLVxLANPath final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kSourceMacAddressFieldNumber = 3,
-    kDestMacAddressFieldNumber = 4,
-    kSrcIpAddressFieldNumber = 5,
-    kDestIpAddressFieldNumber = 6,
+    kSourceMacAddressFieldNumber = 2,
+    kDestMacAddressFieldNumber = 3,
+    kSrcIpAddressFieldNumber = 4,
+    kDestIpAddressFieldNumber = 5,
     kVNIFieldNumber = 1,
-    kVNIFlagsFieldNumber = 2,
   };
-  // bytes SourceMacAddress = 3;
+  // bytes SourceMacAddress = 2;
   void clear_sourcemacaddress();
   const std::string& sourcemacaddress() const;
   template <typename ArgT0 = const std::string&, typename... ArgT>
@@ -3206,7 +3205,7 @@ class SLVxLANPath final :
   std::string* _internal_mutable_sourcemacaddress();
   public:
 
-  // bytes DestMacAddress = 4;
+  // bytes DestMacAddress = 3;
   void clear_destmacaddress();
   const std::string& destmacaddress() const;
   template <typename ArgT0 = const std::string&, typename... ArgT>
@@ -3220,7 +3219,7 @@ class SLVxLANPath final :
   std::string* _internal_mutable_destmacaddress();
   public:
 
-  // .service_layer.SLIpAddress SrcIpAddress = 5;
+  // .service_layer.SLIpAddress SrcIpAddress = 4;
   bool has_srcipaddress() const;
   private:
   bool _internal_has_srcipaddress() const;
@@ -3238,7 +3237,7 @@ class SLVxLANPath final :
       ::service_layer::SLIpAddress* srcipaddress);
   ::service_layer::SLIpAddress* unsafe_arena_release_srcipaddress();
 
-  // .service_layer.SLIpAddress DestIpAddress = 6;
+  // .service_layer.SLIpAddress DestIpAddress = 5;
   bool has_destipaddress() const;
   private:
   bool _internal_has_destipaddress() const;
@@ -3265,15 +3264,6 @@ class SLVxLANPath final :
   void _internal_set_vni(uint32_t value);
   public:
 
-  // uint32 VNIFlags = 2;
-  void clear_vniflags();
-  uint32_t vniflags() const;
-  void set_vniflags(uint32_t value);
-  private:
-  uint32_t _internal_vniflags() const;
-  void _internal_set_vniflags(uint32_t value);
-  public:
-
   // @@protoc_insertion_point(class_scope:service_layer.SLVxLANPath)
  private:
   class _Internal;
@@ -3286,7 +3276,6 @@ class SLVxLANPath final :
   ::service_layer::SLIpAddress* srcipaddress_;
   ::service_layer::SLIpAddress* destipaddress_;
   uint32_t vni_;
-  uint32_t vniflags_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_sl_5froute_5fcommon_2eproto;
 };
@@ -5504,27 +5493,7 @@ inline void SLVxLANPath::set_vni(uint32_t value) {
   // @@protoc_insertion_point(field_set:service_layer.SLVxLANPath.VNI)
 }
 
-// uint32 VNIFlags = 2;
-inline void SLVxLANPath::clear_vniflags() {
-  vniflags_ = 0u;
-}
-inline uint32_t SLVxLANPath::_internal_vniflags() const {
-  return vniflags_;
-}
-inline uint32_t SLVxLANPath::vniflags() const {
-  // @@protoc_insertion_point(field_get:service_layer.SLVxLANPath.VNIFlags)
-  return _internal_vniflags();
-}
-inline void SLVxLANPath::_internal_set_vniflags(uint32_t value) {
-  
-  vniflags_ = value;
-}
-inline void SLVxLANPath::set_vniflags(uint32_t value) {
-  _internal_set_vniflags(value);
-  // @@protoc_insertion_point(field_set:service_layer.SLVxLANPath.VNIFlags)
-}
-
-// bytes SourceMacAddress = 3;
+// bytes SourceMacAddress = 2;
 inline void SLVxLANPath::clear_sourcemacaddress() {
   sourcemacaddress_.ClearToEmpty();
 }
@@ -5575,7 +5544,7 @@ inline void SLVxLANPath::set_allocated_sourcemacaddress(std::string* sourcemacad
   // @@protoc_insertion_point(field_set_allocated:service_layer.SLVxLANPath.SourceMacAddress)
 }
 
-// bytes DestMacAddress = 4;
+// bytes DestMacAddress = 3;
 inline void SLVxLANPath::clear_destmacaddress() {
   destmacaddress_.ClearToEmpty();
 }
@@ -5626,7 +5595,7 @@ inline void SLVxLANPath::set_allocated_destmacaddress(std::string* destmacaddres
   // @@protoc_insertion_point(field_set_allocated:service_layer.SLVxLANPath.DestMacAddress)
 }
 
-// .service_layer.SLIpAddress SrcIpAddress = 5;
+// .service_layer.SLIpAddress SrcIpAddress = 4;
 inline bool SLVxLANPath::_internal_has_srcipaddress() const {
   return this != internal_default_instance() && srcipaddress_ != nullptr;
 }
@@ -5712,7 +5681,7 @@ inline void SLVxLANPath::set_allocated_srcipaddress(::service_layer::SLIpAddress
   // @@protoc_insertion_point(field_set_allocated:service_layer.SLVxLANPath.SrcIpAddress)
 }
 
-// .service_layer.SLIpAddress DestIpAddress = 6;
+// .service_layer.SLIpAddress DestIpAddress = 5;
 inline bool SLVxLANPath::_internal_has_destipaddress() const {
   return this != internal_default_instance() && destipaddress_ != nullptr;
 }
