@@ -317,6 +317,7 @@ type SLGlobalNotif struct {
 	//	       => ILM replay succeeded.
 	//	          This notification is sent only if a
 	//	          SL_ILM_REPLAY_FATAL_ERROR was sent earlier.
+	//
 	//	    case ErrStatus == (some error from SLErrorStatus)
 	//	       => Client must look into the specific error message returned.
 	//

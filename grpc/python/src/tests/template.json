@@ -498,6 +498,7 @@
             "vrf_name": "default"
         }
     },
+    "do_global_init": true,
     "global_init": {
         "major": 0,
         "minor": 0,

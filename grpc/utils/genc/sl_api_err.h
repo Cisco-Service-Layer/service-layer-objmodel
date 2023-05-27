@@ -14,10 +14,7 @@
     /* !!! Common error codes for all RPCs and objects */\
     /* Success, no errors detected. 0x0. */\
     SL_SUCCESS = 0x0,\
-    /* Client is not connected. */\
-    /* The client is expected to remain connected after init and version */\
-    /* validation, RPC calls can fail with this error code otherwise. */\
-    /* Refer to RPC SLGlobalInitNotif. 0x1 */\
+    /* Client not connected. 0x1 */\
     SL_NOT_CONNECTED = 0x1,\
     /* Operation must be retried. 0x2 */\
     SL_EAGAIN = 0x2,\
@@ -237,10 +234,12 @@
     SL_PATH_INVALID_LABEL = 0x5015,\
     /* Size of router mac address is invalid. 0x5016 */\
     SL_PATH_ROUTER_MAC_ADDR_INVALID_SZ = 0x5016,\
-    /* Invalid VNI for VxLAN encap. 0x5017 */\
-    SL_PATH_INVALID_VNI = 0x5017,\
-    /* Path has an invalid  encap address. 0x5018 */\
-    SL_PATH_INVALID_ENCAP_ADDR = 0x5018,\
+    /* A backup path has too many labels. 0x5017 */\
+    SL_PATH_BACKUP_TOOMANY_LABELS = 0x5017,\
+    /* Invalid VNI for VxLAN encap. 0x5018 */\
+    SL_PATH_INVALID_VNI = 0x5018,\
+    /* Path has an invalid  encap address. 0x5019 */\
+    SL_PATH_INVALID_ENCAP_ADDR = 0x5019,\
     /* !!! Error codes for BFD opertations. */\
     /* Offset for BFD operation errors. 0x6000 */\
     SL_RPC_BFD_START_OFFSET = 0x6000,\
@@ -620,10 +619,7 @@
     {SL_SUCCESS ,        " Success, no errors detected.  "\
         },\
     {SL_NOT_CONNECTED ,\
-        " Client is not connected. "\
-        " The client is expected to remain connected after init and version "\
-        " validation, RPC calls can fail with this error code otherwise. "\
-        " Refer to RPC SLGlobalInitNotif.  "\
+        " Client not connected.  "\
         },\
     {SL_EAGAIN ,\
         " Operation must be retried.  "\
@@ -925,6 +921,9 @@
         },\
     {SL_PATH_ROUTER_MAC_ADDR_INVALID_SZ ,\
         " Size of router mac address is invalid.  "\
+        },\
+    {SL_PATH_BACKUP_TOOMANY_LABELS ,\
+        " A backup path has too many labels.  "\
         },\
     {SL_PATH_INVALID_VNI ,\
         " Invalid VNI for VxLAN encap.  "\
