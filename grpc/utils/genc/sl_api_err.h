@@ -237,6 +237,10 @@
     SL_PATH_INVALID_LABEL = 0x5015,\
     /* Size of router mac address is invalid. 0x5016 */\
     SL_PATH_ROUTER_MAC_ADDR_INVALID_SZ = 0x5016,\
+    /* Invalid VNI for VxLAN encap. 0x5017 */\
+    SL_PATH_INVALID_VNI = 0x5017,\
+    /* Path has an invalid  encap address. 0x5018 */\
+    SL_PATH_INVALID_ENCAP_ADDR = 0x5018,\
     /* !!! Error codes for BFD opertations. */\
     /* Offset for BFD operation errors. 0x6000 */\
     SL_RPC_BFD_START_OFFSET = 0x6000,\
@@ -921,6 +925,12 @@
         },\
     {SL_PATH_ROUTER_MAC_ADDR_INVALID_SZ ,\
         " Size of router mac address is invalid.  "\
+        },\
+    {SL_PATH_INVALID_VNI ,\
+        " Invalid VNI for VxLAN encap.  "\
+        },\
+    {SL_PATH_INVALID_ENCAP_ADDR ,\
+        " Path has an invalid  encap address.  "\
         },\
     {SL_RPC_BFD_START_OFFSET ,\
         " Offset for BFD operation errors.  "\
