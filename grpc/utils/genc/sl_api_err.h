@@ -236,6 +236,10 @@
     SL_PATH_ROUTER_MAC_ADDR_INVALID_SZ = 0x5016,\
     /* A backup path has too many labels. 0x5017 */\
     SL_PATH_BACKUP_TOOMANY_LABELS = 0x5017,\
+    /* Invalid VNI for VxLAN encap. 0x5018 */\
+    SL_PATH_INVALID_VNI = 0x5018,\
+    /* Path has an invalid  encap address. 0x5019 */\
+    SL_PATH_INVALID_ENCAP_ADDR = 0x5019,\
     /* !!! Error codes for BFD opertations. */\
     /* Offset for BFD operation errors. 0x6000 */\
     SL_RPC_BFD_START_OFFSET = 0x6000,\
@@ -920,6 +924,12 @@
         },\
     {SL_PATH_BACKUP_TOOMANY_LABELS ,\
         " A backup path has too many labels.  "\
+        },\
+    {SL_PATH_INVALID_VNI ,\
+        " Invalid VNI for VxLAN encap.  "\
+        },\
+    {SL_PATH_INVALID_ENCAP_ADDR ,\
+        " Path has an invalid  encap address.  "\
         },\
     {SL_RPC_BFD_START_OFFSET ,\
         " Offset for BFD operation errors.  "\

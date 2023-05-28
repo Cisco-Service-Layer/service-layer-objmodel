@@ -1259,15 +1259,13 @@ type SLVxLANPath struct {
 
 	// Virtual network identifier. Client must set a valid non-zero idenifier.
 	VNI uint32 `protobuf:"varint,1,opt,name=VNI,proto3" json:"VNI,omitempty"`
-	// Source MAC address is optional. If not set,
-	// Zero MAC address is used as the source MAC address.
+	// Source MAC address is optional.
 	SourceMacAddress []byte `protobuf:"bytes,2,opt,name=SourceMacAddress,proto3" json:"SourceMacAddress,omitempty"`
-	// Destination MAC address is optional. If not set,
-	// Zero MAC address is used as the destination MAC address.
+	// Destination MAC address is optional.
 	DestMacAddress []byte `protobuf:"bytes,3,opt,name=DestMacAddress,proto3" json:"DestMacAddress,omitempty"`
 	// Tunnel Source or Local IP address is mandatory.
 	SrcIpAddress *SLIpAddress `protobuf:"bytes,4,opt,name=SrcIpAddress,proto3" json:"SrcIpAddress,omitempty"`
-	// Tunnel Destination or Remote IP address is mandatory for encap.
+	// Tunnel Destination or Remote IP address is mandatory.
 	DestIpAddress *SLIpAddress `protobuf:"bytes,5,opt,name=DestIpAddress,proto3" json:"DestIpAddress,omitempty"`
 }
 

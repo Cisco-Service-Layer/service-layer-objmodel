@@ -315,18 +315,16 @@ message SLVxLANPath {
     // Virtual network identifier. Client must set a valid non-zero idenifier.
     uint32 VNI = 1;
 
-    // Source MAC address is optional. If not set,
-    // Zero MAC address is used as the source MAC address.
+    // Source MAC address is optional.
     bytes SourceMacAddress = 2;
 
-    // Destination MAC address is optional. If not set,
-    // Zero MAC address is used as the destination MAC address.
+    // Destination MAC address is optional.
     bytes DestMacAddress = 3;
 
     // Tunnel Source or Local IP address is mandatory.
     SLIpAddress SrcIpAddress = 4;
 
-    // Tunnel Destination or Remote IP address is mandatory for encap.
+    // Tunnel Destination or Remote IP address is mandatory.
     SLIpAddress DestIpAddress = 5;
 }
 

@@ -165,6 +165,8 @@ enum SLErrorStatus_SLErrno : int {
   SLErrorStatus_SLErrno_SL_PATH_INVALID_LABEL = 20501,
   SLErrorStatus_SLErrno_SL_PATH_ROUTER_MAC_ADDR_INVALID_SZ = 20502,
   SLErrorStatus_SLErrno_SL_PATH_BACKUP_TOOMANY_LABELS = 20503,
+  SLErrorStatus_SLErrno_SL_PATH_INVALID_VNI = 20504,
+  SLErrorStatus_SLErrno_SL_PATH_INVALID_ENCAP_ADDR = 20505,
   SLErrorStatus_SLErrno_SL_RPC_BFD_START_OFFSET = 24576,
   SLErrorStatus_SLErrno_SL_RPC_BFD_TOO_MANY_BFD_SESSIONS = 24577,
   SLErrorStatus_SLErrno_SL_RPC_BFD_API_BAD_PARAMETER = 24578,
@@ -763,6 +765,10 @@ class SLErrorStatus final :
     SLErrorStatus_SLErrno_SL_PATH_ROUTER_MAC_ADDR_INVALID_SZ;
   static constexpr SLErrno SL_PATH_BACKUP_TOOMANY_LABELS =
     SLErrorStatus_SLErrno_SL_PATH_BACKUP_TOOMANY_LABELS;
+  static constexpr SLErrno SL_PATH_INVALID_VNI =
+    SLErrorStatus_SLErrno_SL_PATH_INVALID_VNI;
+  static constexpr SLErrno SL_PATH_INVALID_ENCAP_ADDR =
+    SLErrorStatus_SLErrno_SL_PATH_INVALID_ENCAP_ADDR;
   static constexpr SLErrno SL_RPC_BFD_START_OFFSET =
     SLErrorStatus_SLErrno_SL_RPC_BFD_START_OFFSET;
   static constexpr SLErrno SL_RPC_BFD_TOO_MANY_BFD_SESSIONS =
