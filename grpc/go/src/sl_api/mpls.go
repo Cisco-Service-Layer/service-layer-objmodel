@@ -301,6 +301,9 @@ func LabelOperation(conn *grpc.ClientConn, Oper pb.SLObjectOp,
 
                 /* Append to route */
                 ilm.Paths = append(ilm.Paths, nhlfe)
+                if AutoIncNHIP {
+                    nexthop = nexthop + 1
+                }
 
             }
 
