@@ -34,16 +34,20 @@ To get help on running the tutorial:
 
 | Argument | Description |
 | --- | --- |
-| -mpls        | Select MPLS testing |
-| -batch_size   | Configure the number of ILM entries to be added to a batch |
-| -start_label | Configure the starting label for this test (default 12000) |
+| -mpls            | Select MPLS testing |
+| -batch_size      | Configure the number of ILM entries to be added to a batch |
+| -start_label     | Configure the starting label for this test (default 12000) |
 | -start_out_label | Configure the starting out label for this test (default 20000) |
-| -num_labels  | Configure the number of labels to be allocated (default 1000) |
-| -num_elsps   | Configure the number of ELSP entries to be added for this label (0-9, 0: no-elsp (default), 9: elsp-dflt) |
-| -num_paths   | Configure the number of paths to be added per ILM entry (default 1)|
-| -interface    | Set the name of the next hop interface (default "GigabitEthernet0/0/0/0") |
-| -max_if_idx  | Increment the last index of the interface up to this number based on the number of elsps configured, eg, GE0/0/0/0, GE0/0/0/1, etc |
-| -client_name  | The client name to be used during MPLS CBF label block allocation |
+| -num_labels      | Configure the number of labels to be allocated (default 1000) |
+| -num_elsps       | Configure the number of ELSP entries to be added for this label
+                     (0-9, 0: no-elsp (default), 9: elsp-dflt) |
+| -num_paths       | Configure the number of paths to be added per ILM entry (default 1)|
+| -interface       | Set the name of the next hop interface (default "GigabitEthernet0/0/0/0") |
+| -max_if_idx      | Increment the last index of the interface up to this number based on the number of elsps configured, eg,
+                     GE0/0/0/0, GE0/0/0/1, etc |
+| -client_name     | The client name to be used during MPLS CBF label block allocation |
+| -next_hop_ip     | Next Hop IP to be used (default 10.0.0.1) |
+| -auto_inc_nhip   | Automatic increament of next hop ip address |
 
 #### How to build
 If you have a docker environmemt, you can run "make tutorial" from the service-layer-objmodel
@@ -100,7 +104,15 @@ To run it with default parameters:
    [20000, [NH1]], [20001, [NH1]], …
 ```
 
-3) ./tutorial -mpls -start_label 30000 -num_labels 1000 -route_oper 1 -vrf_reg_oper 1 -num_elsps 4
+3) ./tutorial -mpls -interface FourHundredGigE0/0/0/0 -auto_inc_nhip -start_label 20000 -num_labels 100 -route_oper 1 -vrf_reg_oper 1
+
+   Will send: Add request of 100 ILM routes with starting label 20000 with
+              starting next_hop_ip:10.0.0.1 and interface_name set to FourHundredGigE0/0/0/0.
+```
+   [20000, [NH1]], [20001, [NH2]], …
+```
+
+4) ./tutorial -mpls -start_label 30000 -num_labels 1000 -route_oper 1 -vrf_reg_oper 1 -num_elsps 4
 
    Will send: Add request of 1000 ILM routes with starting label 30000 with EXP0-EXP4 for each label
 ```
@@ -108,7 +120,7 @@ To run it with default parameters:
    [30001, EXP0, [NH1]], [30001, EXP1, [NH2]],
    …
 ```
-4) ./tutorial -mpls -start_label 30000 -num_labels 1000 -route_oper 3 -vrf_reg_oper 3 -num_elsps 4
+5) ./tutorial -mpls -start_label 30000 -num_labels 1000 -route_oper 3 -vrf_reg_oper 3 -num_elsps 4
 
    Will send: Delete request of 1000 ILM routes with starting label 30000 with EXP0-EXP4 for each label
 ```
@@ -116,7 +128,7 @@ To run it with default parameters:
    [30001, EXP0, [NH1]], [30001, EXP1, [NH2]],
    …
 ```
-5) ./tutorial -mpls -start_label 20000 -num_labels 1000 -route_oper 1 -vrf_reg_oper 1 -num_elsps 8 -num_paths 2
+6) ./tutorial -mpls -start_label 20000 -num_labels 1000 -route_oper 1 -vrf_reg_oper 1 -num_elsps 8 -num_paths 2
 
    Will send:
 ```
