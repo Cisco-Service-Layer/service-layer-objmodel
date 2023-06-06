@@ -1,0 +1,166 @@
+// @file
+// @brief Client RPC proto file for operations on objects in a unicast address family.
+// This file defines SL-API stream rpc messages.
+//
+// ----------------------------------------------------------------
+//  Copyright (c) 2023 by Cisco Systems, Inc.
+//  All rights reserved.
+// -----------------------------------------------------------------
+//
+//
+
+//@defgroup AF
+//@brief Address family service definitions.
+
+syntax = "proto3";
+package service_layer;
+
+import "sl_common_types.proto";
+import "sl_mpls.proto";
+import "sl_route_common.proto";
+import "sl_route_ipv4.proto";
+import "sl_route_ipv6.proto";
+
+
+option go_package="github.com/Cisco-service-layer/service-layer-objmodel/grpc/protos;service_layer";
+
+// @defgroup SLAF
+// @ingroup Common
+// SL-API messages for a address family.
+// Defines SL-API operations service.
+// @{
+//;
+
+// The client initiating a programming or get RPC should pass a customer gRPC text
+// metadata to the client side RPC call to identify itself. The client application must
+// set the gRPC metadata key named "iosxr-slapi-clientid" with a numeric
+// string holding a number between 0 and 65535.
+//
+// Each client application must use a unique client ID identifying itself that is seperate
+// from other clients programming the server. If there are multiple instances
+// of the client application, then each such instance must be uniquely idenified.
+//
+// If "iosxr-slapi-clientid" gRPC metadata is missing, server assumes
+// a default client id of 0 for that RPC invocation.
+//
+// If there are multiple clients (or instances thereof) intending to program the
+// network element using this API, the co-ordination of the ClientId amongst these
+// instances is outside the scope of this specification.
+//
+// Clients must not change their identity for their lifetime - such as
+// RPC disconnects, client restarts, client upgrades.
+//
+// SL-API stores the objects programmed by clients and preserves them across
+// RPC disconnects, client restarts and server gRPC process restarts. As such
+// if a client application or instance is no longer needed, the client must remove
+// all its programming from the server before it is disabled or removed.
+//
+// The route redistribution and notifications are scoped to the RPC
+// and as such do not require a client ID.
+
+service SLAF {
+    //@addtogroup SLAF
+    //@{
+    //;
+
+    //
+    // Global IP Route, MPLS Label, and Paths operations
+    //
+    // IP route and MPLS label object are scoped to the respective producing
+    // client. A Path object is scoped globally and can be updated or removed by
+    // the first client that produced the object.
+    //
+    // Two or more clients cannot operate on the same object.
+
+    //
+    // VRF registration operations. The client must register with
+    // the corresponding VRF table before programming objects in that table.
+    //
+    // For Path VRF registration operations, only SLVrfReg.VrfName is used.
+    // Other attributes, if present are ignored.
+    //
+    // For MPLS VRF SL_REGOP_REGISTER operation, only PurgeInterval is used.
+    // Other attributes, if present are ignored. For Other MPLS VRF registration
+    // operations, attributes if present are ignored.
+    //
+    // SLAFVrfRegMsg.Oper = SL_REGOP_REGISTER:
+    //     VRF registration: Sends a list of VRF registration messages
+    //     and expects a list of registration responses.
+    //     A client Must Register a VRF BEFORE objects can be added/modified in
+    //     the associated VRF.
+    //
+    // SLAFVrfRegMsg.Oper = SL_REGOP_UNREGISTER:
+    //     VRF Un-registration: Sends a list of VRF un-registration messages
+    //     and expects a list of un-registration responses.
+    //     This can be used to convey that the client is no longer interested
+    //     in these VRFs. All previously installed objects would be remove.
+    //
+    // SLAFVrfRegMsg.Oper = SL_REGOP_EOF:
+    //     VRF End Of File message.
+    //     After Registration, the client is expected to send an EOF
+    //     message to convey the end of replay of the client's known objects.
+    //     This is especially useful under certain restart scenarios when the
+    //     client and the server are trying to synchronize their objects.
+    //
+    // The VRF registration operations can be used by the client to
+    // synchronize objects with the device. When the client re-registers the VRF
+    // with the server using SL_REGOP_REGISTER, server marks objects as stale.
+    // Client then must reprogram objects it is interested in.
+    // When client sends SL_REGOP_EOF, any objects not reprogrammed
+    // are removed from the device.
+    //
+    // The client must perform all operations (VRF registration, objects)
+    // from a single execution context.
+    rpc SLAFVrfRegOp(SLAFVrfRegMsg) returns (SLAFVrfRegMsgRsp);
+
+    //
+    //@}
+}
+
+// AF VRF Registration message.
+message SLAFVrfReg {
+    // Registration message is applied on VRF's identified table.
+    SLTableType Table = 1;
+
+    // VRF registration attibutes.
+    SLVrfReg VrfReg = 2;
+}
+
+// AF VRF Registration messages.
+message SLAFVrfRegMsg {
+    // Registration Operation
+    SLRegOp Oper = 1;
+
+    // List of VRF registrations
+    repeated SLAFVrfReg VrfRegMsgs = 2;
+}
+
+// AF VRF Registration message Result
+message SLAFVrfRegMsgRes {
+    // Corresponding error code
+    SLErrorStatus ErrStatus = 1;
+
+    // VRF Name
+    string VrfName = 2;
+
+    // Table type
+    SLTableType Table = 3;
+}
+
+// VRF Registration message Response.
+message SLAFVrfRegMsgRsp {
+    // Summary result of the bulk operation (refer to enum SLErrorStatus)
+    // In general, the StatusSummary implies one of 3 things:
+    // 1. SL_SUCCESS: signifies that the entire bulk operation was successful.
+    //         In this case, the Results list is empty.
+    // 2. SL_SOME_ERR: signifies that the operation failed for one or more
+    //         entries. In this case, Results holds the result for
+    //         each individual entry in the bulk.
+    // 3. SL_RPC_XXX: signifies that the entire bulk operation failed.
+    //         In this case, the Results list is empty.
+    SLErrorStatus StatusSummary = 1;
+
+    // In case of errors, this field indicates which entry in the bulk was
+    // erroneous.
+    repeated SLAFVrfRegMsgRes Results = 2;
+}

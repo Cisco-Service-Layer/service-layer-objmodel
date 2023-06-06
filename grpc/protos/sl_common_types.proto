@@ -742,4 +742,25 @@ enum SLEncapType {
     SL_ENCAP_MPLS =     0x2;
 }
 
+// Table types in a VRF.
+enum SLTableType {
+    // Reserved Table type. 0x0
+    SL_TABLE_TYPE_RESERVED = 0x0;
+
+    // IPv4 Route table. 0x1
+    SL_IPv4_ROUTE_TABLE = 0x1;
+
+    // IPv6 Route table. 0x2
+    SL_IPv6_ROUTE_TABLE = 0x2;
+
+    // MPLS label table. 0x3
+    SL_MPLS_LABEL_TABLE = 0x3;
+
+    // Path Group Table. 0x4
+    SL_PATH_GROUP_TABLE =    0x4;
+
+    // Policy forwarding table. 0x5
+    SL_PF_TABLE =    0x5;
+}
+
 // @}
