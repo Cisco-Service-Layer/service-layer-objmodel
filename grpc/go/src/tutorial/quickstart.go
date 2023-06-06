@@ -70,6 +70,11 @@ var (
                              "The client name to be used during MPLS CBF label block allocation")
     AutoIncNHIP = flag.Bool("auto_inc_nhip", false,
                          "Auto Increment next hop IP")
+    /*
+     * For Route Redistribution
+     *   - notif Set up channels for ipv4, ipv6 route notifications
+     */
+    TestGetNotif = flag.Bool("notif", false, "Test route redistribution for ipv4, ipv6 routes using single client")
 )
 
 func testMPLSReg(conn *grpc.ClientConn) {
@@ -136,6 +141,10 @@ func validVrfReg(op int) bool {
      return false
 }
 
+func testGetNotif(conn *grpc.ClientConn) {
+    /* Set up route notif channels for ipv4 and ipv6 routes */
+    sl_api.GetNotifChannel(conn)
+}
 func main() {
     /* Parse any command line arguments */
     flag.Parse()
@@ -201,6 +210,10 @@ func main() {
             fmt.Printf("Performing route operation\n")
             testIPv4(conn)
         }
+    }
+    if (*TestGetNotif) {
+        fmt.Println("Performing getNotif tests\n")
+        testGetNotif(conn)
     }
 
     /* The process will exit here */
