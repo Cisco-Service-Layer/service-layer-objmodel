@@ -459,6 +459,35 @@ inline bool SLEncapType_Parse(
   return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<SLEncapType>(
     SLEncapType_descriptor(), name, value);
 }
+enum SLTableType : int {
+  SL_TABLE_TYPE_RESERVED = 0,
+  SL_IPv4_ROUTE_TABLE = 1,
+  SL_IPv6_ROUTE_TABLE = 2,
+  SL_MPLS_LABEL_TABLE = 3,
+  SL_PATH_GROUP_TABLE = 4,
+  SL_PF_TABLE = 5,
+  SLTableType_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::min(),
+  SLTableType_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::max()
+};
+bool SLTableType_IsValid(int value);
+constexpr SLTableType SLTableType_MIN = SL_TABLE_TYPE_RESERVED;
+constexpr SLTableType SLTableType_MAX = SL_PF_TABLE;
+constexpr int SLTableType_ARRAYSIZE = SLTableType_MAX + 1;
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* SLTableType_descriptor();
+template<typename T>
+inline const std::string& SLTableType_Name(T enum_t_value) {
+  static_assert(::std::is_same<T, SLTableType>::value ||
+    ::std::is_integral<T>::value,
+    "Incorrect type passed to function SLTableType_Name.");
+  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
+    SLTableType_descriptor(), enum_t_value);
+}
+inline bool SLTableType_Parse(
+    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, SLTableType* value) {
+  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<SLTableType>(
+    SLTableType_descriptor(), name, value);
+}
 // ===================================================================
 
 class SLErrorStatus final :
@@ -1860,6 +1889,11 @@ template <> struct is_proto_enum< ::service_layer::SLEncapType> : ::std::true_ty
 template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::service_layer::SLEncapType>() {
   return ::service_layer::SLEncapType_descriptor();
+}
+template <> struct is_proto_enum< ::service_layer::SLTableType> : ::std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::service_layer::SLTableType>() {
+  return ::service_layer::SLTableType_descriptor();
 }
 
 PROTOBUF_NAMESPACE_CLOSE
