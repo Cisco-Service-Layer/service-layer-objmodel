@@ -207,6 +207,9 @@ func RouteOperation(conn *grpc.ClientConn, Oper pb.SLObjectOp,
 func GetNotifChannel(conn *grpc.ClientConn) {
     var err error
     var wg sync.WaitGroup
+    /* Take the lock to make sure console output for notif and parse IPs of each notif
+     * are not intermingled with other RPC's go routine.
+     */
     var lck sync.Mutex
     wg.Add(2)
     ctx, cancel := context.WithTimeout(context.Background(), time.Duration(240*time.Second))
