@@ -31,10 +31,9 @@ option go_package="github.com/Cisco-service-layer/service-layer-objmodel/grpc/pr
 // @{
 //;
 
-// The client initiating a programming or get RPC should pass a customer gRPC text
-// metadata to the client side RPC call to identify itself. The client application must
-// set the gRPC metadata key named "iosxr-slapi-clientid" with a numeric
-// string holding a number between 0 and 65535.
+// The client using this API MUST pass a gRPC-context metadata identifying itself.
+// The client application must set the gRPC metadata key named "iosxr-slapi-clientid"
+// with a numeric string holding a number between 0 and 65535.
 //
 // Each client application must use a unique client ID identifying itself that is seperate
 // from other clients programming the server. If there are multiple instances
@@ -66,9 +65,12 @@ service SLAF {
     //
     // Global IP Route, MPLS Label, and Paths operations
     //
-    // IP route and MPLS label object are scoped to the respective producing
-    // client. A Path object is scoped globally and can be updated or removed by
-    // the first client that produced the object.
+    //
+    // A Path object created by one client can be referenced by any other object 
+    // (e.g. IP Route and MPLS label object) created by ANY other client.
+    //
+    // Only the client that created the object (IP/MPLS, Policy Forwarding Entry 
+    // and Path included) can manipulate that object.
     //
     // Two or more clients cannot operate on the same object.
 
