@@ -34,11 +34,9 @@ option go_package="github.com/Cisco-service-layer/service-layer-objmodel/grpc/pr
 // If there are multiple clients intending to program the network
 // element using this API, the clients initiating a programming or get
 // RPC MUST pass a gRPC-context metadata identifying itself.
-// The clients initiating a programming or get RPC should pass a
-// customer gRPC text metadata to the client side RPC call to identify
-// themselves. The client application must set the gRPC metadata key
-// named "iosxr-slapi-clientid" with a numeric string holding a
-// number between 0 and 65535.
+// The client application must set the gRPC metadata key named
+// "iosxr-slapi-clientid" with a numeric string holding a number
+// between 0 and 65535.
 //
 // Each client application MUST use a unique client ID identifying itself
 // that is seperate from other clients programming the server. If there
