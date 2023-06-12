@@ -22,22 +22,23 @@ const _ = grpc.SupportPackageIsVersion7
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type SLAFClient interface {
-	// VRF registration operations. The client must register with
+	// VRF registration operations. The client MUST register with
 	// the corresponding VRF table before programming objects in that table.
 	//
 	// SLAFVrfRegMsg.Oper = SL_REGOP_REGISTER:
 	//
-	//	VRF table registration: Sends a list of VRF table registration messages
-	//	and expects a list of registration responses.
+	//	VRF table registration: Sends a list of VRF table registration
+	//	messages and expects a list of registration responses.
 	//	A client Must Register a VRF table BEFORE objects can be
 	//	added/modified in the associated VRF table.
 	//
 	// SLAFVrfRegMsg.Oper = SL_REGOP_UNREGISTER:
 	//
-	//	VRF table Un-registration: Sends a list of VRF table un-registration messages
-	//	and expects a list of un-registration responses.
+	//	VRF table Un-registration: Sends a list of VRF table un-registration
+	//	messages and expects a list of un-registration responses.
 	//	This can be used to convey that the client is no longer interested
-	//	in these VRFs. All previously installed objects would be remove.
+	//	in these VRF tables. All previously installed objects would be
+	//	remove.
 	//
 	// SLAFVrfRegMsg.Oper = SL_REGOP_EOF:
 	//
@@ -51,11 +52,12 @@ type SLAFClient interface {
 	// synchronize objects with the device. When the client re-registers the
 	// VRF table with the server using SL_REGOP_REGISTER, server marks
 	// objects in that table as stale.
-	// Client then must reprogram objects it is interested in.
+	// Client then MUST reprogram objects it is interested in.
 	// When client sends SL_REGOP_EOF, any objects not reprogrammed
-	// are removed from the device.
+	// are removed from the device. This feature can be turned
+	// off by setting SLVrfReg.NoMarking flag to True.
 	//
-	// The client must perform all operations (VRF registration, objects)
+	// The client MUST perform all operations (VRF registration, objects)
 	// from a single execution context.
 	SLAFVrfRegOp(ctx context.Context, in *SLAFVrfRegMsg, opts ...grpc.CallOption) (*SLAFVrfRegMsgRsp, error)
 }
@@ -81,22 +83,23 @@ func (c *sLAFClient) SLAFVrfRegOp(ctx context.Context, in *SLAFVrfRegMsg, opts .
 // All implementations must embed UnimplementedSLAFServer
 // for forward compatibility
 type SLAFServer interface {
-	// VRF registration operations. The client must register with
+	// VRF registration operations. The client MUST register with
 	// the corresponding VRF table before programming objects in that table.
 	//
 	// SLAFVrfRegMsg.Oper = SL_REGOP_REGISTER:
 	//
-	//	VRF table registration: Sends a list of VRF table registration messages
-	//	and expects a list of registration responses.
+	//	VRF table registration: Sends a list of VRF table registration
+	//	messages and expects a list of registration responses.
 	//	A client Must Register a VRF table BEFORE objects can be
 	//	added/modified in the associated VRF table.
 	//
 	// SLAFVrfRegMsg.Oper = SL_REGOP_UNREGISTER:
 	//
-	//	VRF table Un-registration: Sends a list of VRF table un-registration messages
-	//	and expects a list of un-registration responses.
+	//	VRF table Un-registration: Sends a list of VRF table un-registration
+	//	messages and expects a list of un-registration responses.
 	//	This can be used to convey that the client is no longer interested
-	//	in these VRFs. All previously installed objects would be remove.
+	//	in these VRF tables. All previously installed objects would be
+	//	remove.
 	//
 	// SLAFVrfRegMsg.Oper = SL_REGOP_EOF:
 	//
@@ -110,11 +113,12 @@ type SLAFServer interface {
 	// synchronize objects with the device. When the client re-registers the
 	// VRF table with the server using SL_REGOP_REGISTER, server marks
 	// objects in that table as stale.
-	// Client then must reprogram objects it is interested in.
+	// Client then MUST reprogram objects it is interested in.
 	// When client sends SL_REGOP_EOF, any objects not reprogrammed
-	// are removed from the device.
+	// are removed from the device. This feature can be turned
+	// off by setting SLVrfReg.NoMarking flag to True.
 	//
-	// The client must perform all operations (VRF registration, objects)
+	// The client MUST perform all operations (VRF registration, objects)
 	// from a single execution context.
 	SLAFVrfRegOp(context.Context, *SLAFVrfRegMsg) (*SLAFVrfRegMsgRsp, error)
 	mustEmbedUnimplementedSLAFServer()

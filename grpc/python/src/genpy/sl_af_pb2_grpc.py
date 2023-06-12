@@ -13,17 +13,19 @@ class SLAFStub(object):
     @{
     ;
 
+    This API supports programming the device by multiple clients.
+
     If there are multiple clients intending to program the network
     element using this API, the clients initiating a programming or get
     RPC MUST pass a gRPC-context metadata identifying itself.
-    The client application must set the gRPC metadata key named
-    "iosxr-slapi-clientid" with a numeric string holding a number
-    between 0 and 65535.
+    The client application MUST set the gRPC metadata key
+    named "iosxr-slapi-clientid" with a numeric string holding a
+    number between 0 and 65535.
 
     Each client application MUST use a unique client ID identifying itself
     that is seperate from other clients programming the server. If there
     are multiple instances of the client application, then each such
-    instance must be uniquely idenified.
+    instance MUST be uniquely idenified.
 
     If "iosxr-slapi-clientid" gRPC metadata is missing, server assumes
     a default client id of 0 for that RPC invocation and associates
@@ -32,13 +34,13 @@ class SLAFStub(object):
     The co-ordination of the ClientId amongst these instances is outside
     the scope of this specification.
 
-    Clients must not change their identity for their lifetime - such as
-    RPC disconnects, process restarts or software update. 
+    Clients MUST not change their identity for their lifetime - such as
+    RPC disconnects, process restarts or software update.
 
     SL-API stores the objects programmed by clients and preserves them across
     RPC disconnects, client restarts and server gRPC process restarts. As such
     if a client application or instance is no longer needed, the client
-    must remove all its programming from the server before it is disabled
+    MUST remove all its programming from the server before it is disabled
     or removed.
 
     The route redistribution and notifications are scoped to the RPC
@@ -70,17 +72,19 @@ class SLAFServicer(object):
     @{
     ;
 
+    This API supports programming the device by multiple clients.
+
     If there are multiple clients intending to program the network
     element using this API, the clients initiating a programming or get
     RPC MUST pass a gRPC-context metadata identifying itself.
-    The client application must set the gRPC metadata key named
-    "iosxr-slapi-clientid" with a numeric string holding a number
-    between 0 and 65535.
+    The client application MUST set the gRPC metadata key
+    named "iosxr-slapi-clientid" with a numeric string holding a
+    number between 0 and 65535.
 
     Each client application MUST use a unique client ID identifying itself
     that is seperate from other clients programming the server. If there
     are multiple instances of the client application, then each such
-    instance must be uniquely idenified.
+    instance MUST be uniquely idenified.
 
     If "iosxr-slapi-clientid" gRPC metadata is missing, server assumes
     a default client id of 0 for that RPC invocation and associates
@@ -89,13 +93,13 @@ class SLAFServicer(object):
     The co-ordination of the ClientId amongst these instances is outside
     the scope of this specification.
 
-    Clients must not change their identity for their lifetime - such as
-    RPC disconnects, process restarts or software update. 
+    Clients MUST not change their identity for their lifetime - such as
+    RPC disconnects, process restarts or software update.
 
     SL-API stores the objects programmed by clients and preserves them across
     RPC disconnects, client restarts and server gRPC process restarts. As such
     if a client application or instance is no longer needed, the client
-    must remove all its programming from the server before it is disabled
+    MUST remove all its programming from the server before it is disabled
     or removed.
 
     The route redistribution and notifications are scoped to the RPC
@@ -116,28 +120,25 @@ class SLAFServicer(object):
         any other object (e.g. IP Route and MPLS label object) created by
         ANY other client.
 
-
-        A Path Group object created by one client can be referenced by any other object 
-        (e.g. IP Route and MPLS label object) created by ANY other client.
-
         Only the client that created the object (IP/MPLS, Policy Forwarding
         Entry and Path Group included) can manipulate that object.
 
 
-        VRF registration operations. The client must register with
+        VRF registration operations. The client MUST register with
         the corresponding VRF table before programming objects in that table.
 
         SLAFVrfRegMsg.Oper = SL_REGOP_REGISTER:
-        VRF table registration: Sends a list of VRF table registration messages
-        and expects a list of registration responses.
-        A client Must Register a VRF table BEFORE objects can be 
+        VRF table registration: Sends a list of VRF table registration
+        messages and expects a list of registration responses.
+        A client Must Register a VRF table BEFORE objects can be
         added/modified in the associated VRF table.
 
         SLAFVrfRegMsg.Oper = SL_REGOP_UNREGISTER:
-        VRF table Un-registration: Sends a list of VRF table un-registration messages
-        and expects a list of un-registration responses.
+        VRF table Un-registration: Sends a list of VRF table un-registration
+        messages and expects a list of un-registration responses.
         This can be used to convey that the client is no longer interested
-        in these VRFs. All previously installed objects would be remove.
+        in these VRF tables. All previously installed objects would be
+        remove.
 
         SLAFVrfRegMsg.Oper = SL_REGOP_EOF:
         VRF table End Of File message.
@@ -150,11 +151,12 @@ class SLAFServicer(object):
         synchronize objects with the device. When the client re-registers the
         VRF table with the server using SL_REGOP_REGISTER, server marks
         objects in that table as stale.
-        Client then must reprogram objects it is interested in.
+        Client then MUST reprogram objects it is interested in.
         When client sends SL_REGOP_EOF, any objects not reprogrammed
-        are removed from the device.
+        are removed from the device. This feature can be turned
+        off by setting SLVrfReg.NoMarking flag to True.
 
-        The client must perform all operations (VRF registration, objects)
+        The client MUST perform all operations (VRF registration, objects)
         from a single execution context.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -184,17 +186,19 @@ class SLAF(object):
     @{
     ;
 
+    This API supports programming the device by multiple clients.
+
     If there are multiple clients intending to program the network
     element using this API, the clients initiating a programming or get
     RPC MUST pass a gRPC-context metadata identifying itself.
-    The client application must set the gRPC metadata key named
-    "iosxr-slapi-clientid" with a numeric string holding a number
-    between 0 and 65535.
+    The client application MUST set the gRPC metadata key
+    named "iosxr-slapi-clientid" with a numeric string holding a
+    number between 0 and 65535.
 
     Each client application MUST use a unique client ID identifying itself
     that is seperate from other clients programming the server. If there
     are multiple instances of the client application, then each such
-    instance must be uniquely idenified.
+    instance MUST be uniquely idenified.
 
     If "iosxr-slapi-clientid" gRPC metadata is missing, server assumes
     a default client id of 0 for that RPC invocation and associates
@@ -203,13 +207,13 @@ class SLAF(object):
     The co-ordination of the ClientId amongst these instances is outside
     the scope of this specification.
 
-    Clients must not change their identity for their lifetime - such as
-    RPC disconnects, process restarts or software update. 
+    Clients MUST not change their identity for their lifetime - such as
+    RPC disconnects, process restarts or software update.
 
     SL-API stores the objects programmed by clients and preserves them across
     RPC disconnects, client restarts and server gRPC process restarts. As such
     if a client application or instance is no longer needed, the client
-    must remove all its programming from the server before it is disabled
+    MUST remove all its programming from the server before it is disabled
     or removed.
 
     The route redistribution and notifications are scoped to the RPC

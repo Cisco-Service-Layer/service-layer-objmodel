@@ -1,7 +1,11 @@
 // @file
-// @brief Client RPC proto file for operations on objects in a unicast address family.
-// This file defines SL-API stream rpc messages.
-// This proto is still Work in Progress and experimental.
+// @brief Client RPC proto file for operations on objects in a address family.
+// This file defines SL-API service and messages for operations
+// on IP routes, MPLS objects, Path Groups and Policy Forwarding Entries.
+//
+// The RPCs and messages defined here are experimental and subject to
+// change without notice and such changes can break backwards compatibility.
+//
 // ----------------------------------------------------------------
 //  Copyright (c) 2023 by Cisco Systems, Inc.
 //  All rights reserved.
