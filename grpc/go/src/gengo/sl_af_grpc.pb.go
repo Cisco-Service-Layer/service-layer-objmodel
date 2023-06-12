@@ -25,38 +25,32 @@ type SLAFClient interface {
 	// VRF registration operations. The client must register with
 	// the corresponding VRF table before programming objects in that table.
 	//
-	// For Path VRF registration operations, only SLVrfReg.VrfName is used.
-	// Other attributes, if present are ignored.
-	//
-	// For MPLS VRF SL_REGOP_REGISTER operation, only PurgeInterval is used.
-	// Other attributes, if present are ignored. For Other MPLS VRF registration
-	// operations, attributes if present are ignored.
-	//
 	// SLAFVrfRegMsg.Oper = SL_REGOP_REGISTER:
 	//
-	//	VRF registration: Sends a list of VRF registration messages
+	//	VRF table registration: Sends a list of VRF table registration messages
 	//	and expects a list of registration responses.
-	//	A client Must Register a VRF BEFORE objects can be added/modified in
-	//	the associated VRF.
+	//	A client Must Register a VRF table BEFORE objects can be
+	//	added/modified in the associated VRF table.
 	//
 	// SLAFVrfRegMsg.Oper = SL_REGOP_UNREGISTER:
 	//
-	//	VRF Un-registration: Sends a list of VRF un-registration messages
+	//	VRF table Un-registration: Sends a list of VRF table un-registration messages
 	//	and expects a list of un-registration responses.
 	//	This can be used to convey that the client is no longer interested
 	//	in these VRFs. All previously installed objects would be remove.
 	//
 	// SLAFVrfRegMsg.Oper = SL_REGOP_EOF:
 	//
-	//	VRF End Of File message.
+	//	VRF table End Of File message.
 	//	After Registration, the client is expected to send an EOF
 	//	message to convey the end of replay of the client's known objects.
 	//	This is especially useful under certain restart scenarios when the
 	//	client and the server are trying to synchronize their objects.
 	//
-	// The VRF registration operations can be used by the client to
-	// synchronize objects with the device. When the client re-registers the VRF
-	// with the server using SL_REGOP_REGISTER, server marks objects as stale.
+	// The VRF table registration operations can be used by the client to
+	// synchronize objects with the device. When the client re-registers the
+	// VRF table with the server using SL_REGOP_REGISTER, server marks
+	// objects in that table as stale.
 	// Client then must reprogram objects it is interested in.
 	// When client sends SL_REGOP_EOF, any objects not reprogrammed
 	// are removed from the device.
@@ -90,38 +84,32 @@ type SLAFServer interface {
 	// VRF registration operations. The client must register with
 	// the corresponding VRF table before programming objects in that table.
 	//
-	// For Path VRF registration operations, only SLVrfReg.VrfName is used.
-	// Other attributes, if present are ignored.
-	//
-	// For MPLS VRF SL_REGOP_REGISTER operation, only PurgeInterval is used.
-	// Other attributes, if present are ignored. For Other MPLS VRF registration
-	// operations, attributes if present are ignored.
-	//
 	// SLAFVrfRegMsg.Oper = SL_REGOP_REGISTER:
 	//
-	//	VRF registration: Sends a list of VRF registration messages
+	//	VRF table registration: Sends a list of VRF table registration messages
 	//	and expects a list of registration responses.
-	//	A client Must Register a VRF BEFORE objects can be added/modified in
-	//	the associated VRF.
+	//	A client Must Register a VRF table BEFORE objects can be
+	//	added/modified in the associated VRF table.
 	//
 	// SLAFVrfRegMsg.Oper = SL_REGOP_UNREGISTER:
 	//
-	//	VRF Un-registration: Sends a list of VRF un-registration messages
+	//	VRF table Un-registration: Sends a list of VRF table un-registration messages
 	//	and expects a list of un-registration responses.
 	//	This can be used to convey that the client is no longer interested
 	//	in these VRFs. All previously installed objects would be remove.
 	//
 	// SLAFVrfRegMsg.Oper = SL_REGOP_EOF:
 	//
-	//	VRF End Of File message.
+	//	VRF table End Of File message.
 	//	After Registration, the client is expected to send an EOF
 	//	message to convey the end of replay of the client's known objects.
 	//	This is especially useful under certain restart scenarios when the
 	//	client and the server are trying to synchronize their objects.
 	//
-	// The VRF registration operations can be used by the client to
-	// synchronize objects with the device. When the client re-registers the VRF
-	// with the server using SL_REGOP_REGISTER, server marks objects as stale.
+	// The VRF table registration operations can be used by the client to
+	// synchronize objects with the device. When the client re-registers the
+	// VRF table with the server using SL_REGOP_REGISTER, server marks
+	// objects in that table as stale.
 	// Client then must reprogram objects it is interested in.
 	// When client sends SL_REGOP_EOF, any objects not reprogrammed
 	// are removed from the device.

@@ -1,7 +1,7 @@
 // @file
 // @brief Client RPC proto file for operations on objects in a unicast address family.
 // This file defines SL-API stream rpc messages.
-//
+// This proto is still Work in Progress and experimental.
 // ----------------------------------------------------------------
 //  Copyright (c) 2023 by Cisco Systems, Inc.
 //  All rights reserved.
