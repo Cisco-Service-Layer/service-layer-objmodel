@@ -1,7 +1,7 @@
 // @file
 // @brief Client RPC proto file for operations on objects in a unicast address family.
 // This file defines SL-API stream rpc messages.
-//
+// This proto is still Work in Progress and experimental.
 // ----------------------------------------------------------------
 //  Copyright (c) 2023 by Cisco Systems, Inc.
 //  All rights reserved.
@@ -90,7 +90,7 @@ service SLAF {
     // the corresponding VRF table before programming objects in that table.
     //
     // SLAFVrfRegMsg.Oper = SL_REGOP_REGISTER:
-    //     VRF table registration: Sends a list of VRF registration messages
+    //     VRF table registration: Sends a list of VRF table registration messages
     //     and expects a list of registration responses.
     //     A client Must Register a VRF table BEFORE objects can be 
     //     added/modified in the associated VRF table.
