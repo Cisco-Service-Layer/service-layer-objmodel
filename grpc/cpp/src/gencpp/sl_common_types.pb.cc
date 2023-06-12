@@ -56,7 +56,7 @@ struct SLIpAddressDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT SLIpAddressDefaultTypeInternal _SLIpAddress_default_instance_;
 }  // namespace service_layer
 static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_sl_5fcommon_5ftypes_2eproto[3];
-static const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* file_level_enum_descriptors_sl_5fcommon_5ftypes_2eproto[5];
+static const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* file_level_enum_descriptors_sl_5fcommon_5ftypes_2eproto[6];
 static constexpr ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor const** file_level_service_descriptors_sl_5fcommon_5ftypes_2eproto = nullptr;
 
 const uint32_t TableStruct_sl_5fcommon_5ftypes_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
@@ -331,14 +331,18 @@ const char descriptor_table_protodef_sl_5fcommon_5ftypes_2eproto[] PROTOBUF_SECT
   "p\022\027\n\023SL_NOTIFOP_RESERVED\020\000\022\025\n\021SL_NOTIFOP"
   "_ENABLE\020\001\022\026\n\022SL_NOTIFOP_DISABLE\020\002*K\n\013SLE"
   "ncapType\022\025\n\021SL_ENCAP_RESERVED\020\000\022\022\n\016SL_EN"
-  "CAP_VXLAN\020\001\022\021\n\rSL_ENCAP_MPLS\020\002BQZOgithub"
-  ".com/Cisco-service-layer/service-layer-o"
-  "bjmodel/grpc/protos;service_layerb\006proto"
-  "3"
+  "CAP_VXLAN\020\001\022\021\n\rSL_ENCAP_MPLS\020\002*\236\001\n\013SLTab"
+  "leType\022\032\n\026SL_TABLE_TYPE_RESERVED\020\000\022\027\n\023SL"
+  "_IPv4_ROUTE_TABLE\020\001\022\027\n\023SL_IPv6_ROUTE_TAB"
+  "LE\020\002\022\027\n\023SL_MPLS_LABEL_TABLE\020\003\022\027\n\023SL_PATH"
+  "_GROUP_TABLE\020\004\022\017\n\013SL_PF_TABLE\020\005BQZOgithu"
+  "b.com/Cisco-service-layer/service-layer-"
+  "objmodel/grpc/protos;service_layerb\006prot"
+  "o3"
   ;
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_sl_5fcommon_5ftypes_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_sl_5fcommon_5ftypes_2eproto = {
-  false, false, 9401, descriptor_table_protodef_sl_5fcommon_5ftypes_2eproto, "sl_common_types.proto", 
+  false, false, 9562, descriptor_table_protodef_sl_5fcommon_5ftypes_2eproto, "sl_common_types.proto", 
   &descriptor_table_sl_5fcommon_5ftypes_2eproto_once, nullptr, 0, 3,
   schemas, file_default_instances, TableStruct_sl_5fcommon_5ftypes_2eproto::offsets,
   file_level_metadata_sl_5fcommon_5ftypes_2eproto, file_level_enum_descriptors_sl_5fcommon_5ftypes_2eproto, file_level_service_descriptors_sl_5fcommon_5ftypes_2eproto,
@@ -939,6 +943,24 @@ bool SLEncapType_IsValid(int value) {
     case 0:
     case 1:
     case 2:
+      return true;
+    default:
+      return false;
+  }
+}
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* SLTableType_descriptor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_sl_5fcommon_5ftypes_2eproto);
+  return file_level_enum_descriptors_sl_5fcommon_5ftypes_2eproto[5];
+}
+bool SLTableType_IsValid(int value) {
+  switch (value) {
+    case 0:
+    case 1:
+    case 2:
+    case 3:
+    case 4:
+    case 5:
       return true;
     default:
       return false;
