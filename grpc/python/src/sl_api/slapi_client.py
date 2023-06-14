@@ -160,7 +160,7 @@ class SLApiBase:
                 self.global_notif_client.channel.close()
         except AttributeError:
             pass
-        if do_global_init:
+        if self.do_global_init:
             self.global_notif_thread.join()
 
     @contextmanager
