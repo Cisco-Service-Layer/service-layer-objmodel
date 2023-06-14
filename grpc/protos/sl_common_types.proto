@@ -2,7 +2,7 @@
 // @brief Common definitions for all of the service layer proto files. 
 //
 //---------------------------------------------------------------------
-// Copyright (c) 2019 by Cisco Systems, Inc.
+// Copyright (c) 2019, 2023 by Cisco Systems, Inc.
 // All rights reserved.
 //---------------------------------------------------------------------
 //
@@ -724,7 +724,7 @@ message SLInterface {
 
 // One of IPv4 or IPv6 addresses.
 message SLIpAddress {
-    // One of IPv4 or IPv6 address
+    // One of IPv4 or IPv6 address. V4Address must be in host byte order.
     oneof Address {
         uint32  V4Address = 1;
         bytes  V6Address = 2;

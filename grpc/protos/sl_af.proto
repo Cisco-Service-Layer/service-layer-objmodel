@@ -20,10 +20,7 @@ syntax = "proto3";
 package service_layer;
 
 import "sl_common_types.proto";
-import "sl_mpls.proto";
 import "sl_route_common.proto";
-import "sl_route_ipv4.proto";
-import "sl_route_ipv6.proto";
 
 
 option go_package="github.com/Cisco-service-layer/service-layer-objmodel/grpc/protos;service_layer";

@@ -5,7 +5,7 @@
 // default route status for a route object.
 //
 // ----------------------------------------------------------------
-//  Copyright (c) 2016 by Cisco Systems, Inc.
+//  Copyright (c) 2016, 2023 by Cisco Systems, Inc.
 //  All rights reserved.
 // -----------------------------------------------------------------
 //
@@ -121,7 +121,7 @@ message SLVrfRegMsgRsp {
 // VRF Get Message
 message SLVrfRegGetMsg {
     // VRF name (key).
-    // If the Key is not specified, then request up to the first 
+    // If the Key is not specified, then request up to the first
     // 'EntriesCount' entries.
     string VrfName = 1;
 
@@ -138,7 +138,7 @@ message SLVrfRegGetMsg {
 // VRF Get Message Response
 message SLVrfRegGetMsgRsp {
     // End Of File.
-    // When set to True, it indicates that the server has returned M, where 
+    // When set to True, it indicates that the server has returned M, where
     // M < N, of the original N requested Entries.
     bool Eof = 1;
 
@@ -345,6 +345,10 @@ message SLRoutePath {
 
     // Load metric for this path.
     // Used for equal/unequal cost load balancing of traffic distribution.
+    // For equal cost load balancing, all paths associated with the
+    // route must have LoadMetric value of 0. For unequal cost load
+    // balancing, all paths must have non-zero LoadMetricvalue, otherwise
+    // system defaults to equal cost load balancing.
     uint32 LoadMetric = 3;
 
     // Path VRF name. This field is used ONLY if the path is in a different

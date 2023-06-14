@@ -35,10 +35,10 @@ type SLRoutev6OperClient interface {
 	//
 	// SLVrfRegMsg.Oper = SL_REGOP_UNREGISTER:
 	//
-	//	VRF Un-registeration: Sends a list of VRF un-registration messages
+	//	VRF Un-registration: Sends a list of VRF un-registration messages
 	//	and expects a list of un-registration responses.
 	//	This can be used to convey that the client is no longer interested
-	//	in this VRF. All previously installed routes would be lost.
+	//	in these VRFs. All previously installed routes would be removed.
 	//
 	// SLVrfRegMsg.Oper = SL_REGOP_EOF:
 	//
@@ -64,7 +64,9 @@ type SLRoutev6OperClient interface {
 	SLRoutev6VrfGetStats(ctx context.Context, in *SLVrfRegGetMsg, opts ...grpc.CallOption) (*SLVRFGetStatsMsgRsp, error)
 	// SLRoutev6Msg.Oper = SL_OBJOP_ADD:
 	//
-	//	Route add. Fails if the route already exists.
+	//	Route add. Fails if the route already exists and not stale.
+	//	First ADD operation on a stale route is allowed and the route
+	//	is no longer considered stale.
 	//
 	// SLRoutev6Msg.Oper = SL_OBJOP_UPDATE:
 	//
@@ -73,12 +75,15 @@ type SLRoutev6OperClient interface {
 	// SLRoutev6Msg.Oper = SL_OBJOP_DELETE:
 	//
 	//	Route delete. The route path is not necessary to delete the route.
+	//	Delete of a non-existant route is returned as success.
 	SLRoutev6Op(ctx context.Context, in *SLRoutev6Msg, opts ...grpc.CallOption) (*SLRoutev6MsgRsp, error)
 	// Retrieves route attributes.
 	SLRoutev6Get(ctx context.Context, in *SLRoutev6GetMsg, opts ...grpc.CallOption) (*SLRoutev6GetMsgRsp, error)
 	// SLRoutev6Msg.Oper = SL_OBJOP_ADD:
 	//
-	//	Route add. Fails if the route already exists.
+	//	Route add. Fails if the route already exists and not stale.
+	//	First ADD operation on a stale route is allowed and the route
+	//	is no longer considered stale.
 	//
 	// SLRoutev6Msg.Oper = SL_OBJOP_UPDATE:
 	//
@@ -87,6 +92,7 @@ type SLRoutev6OperClient interface {
 	// SLRoutev6Msg.Oper = SL_OBJOP_DELETE:
 	//
 	//	Route delete. The route path is not necessary to delete the route.
+	//	Delete of a non-existant route is returned as success.
 	SLRoutev6OpStream(ctx context.Context, opts ...grpc.CallOption) (SLRoutev6Oper_SLRoutev6OpStreamClient, error)
 	// Retrieves route attributes.
 	SLRoutev6GetStream(ctx context.Context, opts ...grpc.CallOption) (SLRoutev6Oper_SLRoutev6GetStreamClient, error)
@@ -284,10 +290,10 @@ type SLRoutev6OperServer interface {
 	//
 	// SLVrfRegMsg.Oper = SL_REGOP_UNREGISTER:
 	//
-	//	VRF Un-registeration: Sends a list of VRF un-registration messages
+	//	VRF Un-registration: Sends a list of VRF un-registration messages
 	//	and expects a list of un-registration responses.
 	//	This can be used to convey that the client is no longer interested
-	//	in this VRF. All previously installed routes would be lost.
+	//	in these VRFs. All previously installed routes would be removed.
 	//
 	// SLVrfRegMsg.Oper = SL_REGOP_EOF:
 	//
@@ -313,7 +319,9 @@ type SLRoutev6OperServer interface {
 	SLRoutev6VrfGetStats(context.Context, *SLVrfRegGetMsg) (*SLVRFGetStatsMsgRsp, error)
 	// SLRoutev6Msg.Oper = SL_OBJOP_ADD:
 	//
-	//	Route add. Fails if the route already exists.
+	//	Route add. Fails if the route already exists and not stale.
+	//	First ADD operation on a stale route is allowed and the route
+	//	is no longer considered stale.
 	//
 	// SLRoutev6Msg.Oper = SL_OBJOP_UPDATE:
 	//
@@ -322,12 +330,15 @@ type SLRoutev6OperServer interface {
 	// SLRoutev6Msg.Oper = SL_OBJOP_DELETE:
 	//
 	//	Route delete. The route path is not necessary to delete the route.
+	//	Delete of a non-existant route is returned as success.
 	SLRoutev6Op(context.Context, *SLRoutev6Msg) (*SLRoutev6MsgRsp, error)
 	// Retrieves route attributes.
 	SLRoutev6Get(context.Context, *SLRoutev6GetMsg) (*SLRoutev6GetMsgRsp, error)
 	// SLRoutev6Msg.Oper = SL_OBJOP_ADD:
 	//
-	//	Route add. Fails if the route already exists.
+	//	Route add. Fails if the route already exists and not stale.
+	//	First ADD operation on a stale route is allowed and the route
+	//	is no longer considered stale.
 	//
 	// SLRoutev6Msg.Oper = SL_OBJOP_UPDATE:
 	//
@@ -336,6 +347,7 @@ type SLRoutev6OperServer interface {
 	// SLRoutev6Msg.Oper = SL_OBJOP_DELETE:
 	//
 	//	Route delete. The route path is not necessary to delete the route.
+	//	Delete of a non-existant route is returned as success.
 	SLRoutev6OpStream(SLRoutev6Oper_SLRoutev6OpStreamServer) error
 	// Retrieves route attributes.
 	SLRoutev6GetStream(SLRoutev6Oper_SLRoutev6GetStreamServer) error

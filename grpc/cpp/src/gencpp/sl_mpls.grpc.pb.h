@@ -6,7 +6,7 @@
 // @brief RPC proto file for MPLS types.
 //
 // ----------------------------------------------------------------
-//  Copyright (c) 2019 by Cisco Systems, Inc.
+//  Copyright (c) 2019, 2023 by Cisco Systems, Inc.
 //  All rights reserved.
 // -----------------------------------------------------------------
 //
@@ -156,13 +156,16 @@ class SLMplsOper final {
     //
     //
     // SLMplsIlmMsg.Oper = SL_OBJOP_ADD:
-    //     Add incoming label map entry.
+    //     Add incoming label map entry. Fails if the entry already
+    //     exists and not stale. First ADD operation on a stale entry
+    //     is allowed and the entry is no longer considered stale.
     //
     // SLMplsIlmMsg.Oper = SL_OBJOP_UPDATE:
-    //     Update incoming label map entry.
+    //     Create or update incoming label map entry.
     //
     // SLMplsIlmMsg.Oper = SL_OBJOP_DELETE:
-    //     Delete incoming label map entry.
+    //     Delete incoming label map entry. Delete of a
+    //     non-existant entry is considered a success.
     virtual ::grpc::Status SLMplsIlmOp(::grpc::ClientContext* context, const ::service_layer::SLMplsIlmMsg& request, ::service_layer::SLMplsIlmMsgRsp* response) = 0;
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::service_layer::SLMplsIlmMsgRsp>> AsyncSLMplsIlmOp(::grpc::ClientContext* context, const ::service_layer::SLMplsIlmMsg& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::service_layer::SLMplsIlmMsgRsp>>(AsyncSLMplsIlmOpRaw(context, request, cq));
@@ -183,13 +186,16 @@ class SLMplsOper final {
     //
     //
     // SLMplsIlmMsg.Oper = SL_OBJOP_ADD:
-    //     Add incoming label map entry.
+    //     Add incoming label map entry. Fails if the entry already
+    //     exists and not stale. First ADD operation on a stale entry
+    //     is allowed and the entry is no longer considered stale.
     //
     // SLMplsIlmMsg.Oper = SL_OBJOP_UPDATE:
-    //     Update incoming label map entry.
+    //     Create or update incoming label map entry.
     //
     // SLMplsIlmMsg.Oper = SL_OBJOP_DELETE:
-    //     Delete incoming label map entry.
+    //     Delete incoming label map entry. Delete of a
+    //     non-existant entry is returned as success.
     std::unique_ptr< ::grpc::ClientReaderWriterInterface< ::service_layer::SLMplsIlmMsg, ::service_layer::SLMplsIlmMsgRsp>> SLMplsIlmOpStream(::grpc::ClientContext* context) {
       return std::unique_ptr< ::grpc::ClientReaderWriterInterface< ::service_layer::SLMplsIlmMsg, ::service_layer::SLMplsIlmMsgRsp>>(SLMplsIlmOpStreamRaw(context));
     }
@@ -274,13 +280,16 @@ class SLMplsOper final {
       //
       //
       // SLMplsIlmMsg.Oper = SL_OBJOP_ADD:
-      //     Add incoming label map entry.
+      //     Add incoming label map entry. Fails if the entry already
+      //     exists and not stale. First ADD operation on a stale entry
+      //     is allowed and the entry is no longer considered stale.
       //
       // SLMplsIlmMsg.Oper = SL_OBJOP_UPDATE:
-      //     Update incoming label map entry.
+      //     Create or update incoming label map entry.
       //
       // SLMplsIlmMsg.Oper = SL_OBJOP_DELETE:
-      //     Delete incoming label map entry.
+      //     Delete incoming label map entry. Delete of a
+      //     non-existant entry is considered a success.
       virtual void SLMplsIlmOp(::grpc::ClientContext* context, const ::service_layer::SLMplsIlmMsg* request, ::service_layer::SLMplsIlmMsgRsp* response, std::function<void(::grpc::Status)>) = 0;
       virtual void SLMplsIlmOp(::grpc::ClientContext* context, const ::service_layer::SLMplsIlmMsg* request, ::service_layer::SLMplsIlmMsgRsp* response, ::grpc::ClientUnaryReactor* reactor) = 0;
       // Retrieve MPLS ILM entry attributes.
@@ -291,13 +300,16 @@ class SLMplsOper final {
       //
       //
       // SLMplsIlmMsg.Oper = SL_OBJOP_ADD:
-      //     Add incoming label map entry.
+      //     Add incoming label map entry. Fails if the entry already
+      //     exists and not stale. First ADD operation on a stale entry
+      //     is allowed and the entry is no longer considered stale.
       //
       // SLMplsIlmMsg.Oper = SL_OBJOP_UPDATE:
-      //     Update incoming label map entry.
+      //     Create or update incoming label map entry.
       //
       // SLMplsIlmMsg.Oper = SL_OBJOP_DELETE:
-      //     Delete incoming label map entry.
+      //     Delete incoming label map entry. Delete of a
+      //     non-existant entry is returned as success.
       virtual void SLMplsIlmOpStream(::grpc::ClientContext* context, ::grpc::ClientBidiReactor< ::service_layer::SLMplsIlmMsg,::service_layer::SLMplsIlmMsgRsp>* reactor) = 0;
       // Stream-Get of incoming label map
       virtual void SLMplsIlmGetStream(::grpc::ClientContext* context, ::grpc::ClientBidiReactor< ::service_layer::SLMplsIlmGetMsg,::service_layer::SLMplsIlmGetMsgRsp>* reactor) = 0;
@@ -520,13 +532,16 @@ class SLMplsOper final {
     //
     //
     // SLMplsIlmMsg.Oper = SL_OBJOP_ADD:
-    //     Add incoming label map entry.
+    //     Add incoming label map entry. Fails if the entry already
+    //     exists and not stale. First ADD operation on a stale entry
+    //     is allowed and the entry is no longer considered stale.
     //
     // SLMplsIlmMsg.Oper = SL_OBJOP_UPDATE:
-    //     Update incoming label map entry.
+    //     Create or update incoming label map entry.
     //
     // SLMplsIlmMsg.Oper = SL_OBJOP_DELETE:
-    //     Delete incoming label map entry.
+    //     Delete incoming label map entry. Delete of a
+    //     non-existant entry is considered a success.
     virtual ::grpc::Status SLMplsIlmOp(::grpc::ServerContext* context, const ::service_layer::SLMplsIlmMsg* request, ::service_layer::SLMplsIlmMsgRsp* response);
     // Retrieve MPLS ILM entry attributes.
     virtual ::grpc::Status SLMplsIlmGet(::grpc::ServerContext* context, const ::service_layer::SLMplsIlmGetMsg* request, ::service_layer::SLMplsIlmGetMsgRsp* response);
@@ -535,13 +550,16 @@ class SLMplsOper final {
     //
     //
     // SLMplsIlmMsg.Oper = SL_OBJOP_ADD:
-    //     Add incoming label map entry.
+    //     Add incoming label map entry. Fails if the entry already
+    //     exists and not stale. First ADD operation on a stale entry
+    //     is allowed and the entry is no longer considered stale.
     //
     // SLMplsIlmMsg.Oper = SL_OBJOP_UPDATE:
-    //     Update incoming label map entry.
+    //     Create or update incoming label map entry.
     //
     // SLMplsIlmMsg.Oper = SL_OBJOP_DELETE:
-    //     Delete incoming label map entry.
+    //     Delete incoming label map entry. Delete of a
+    //     non-existant entry is returned as success.
     virtual ::grpc::Status SLMplsIlmOpStream(::grpc::ServerContext* context, ::grpc::ServerReaderWriter< ::service_layer::SLMplsIlmMsgRsp, ::service_layer::SLMplsIlmMsg>* stream);
     // Stream-Get of incoming label map
     virtual ::grpc::Status SLMplsIlmGetStream(::grpc::ServerContext* context, ::grpc::ServerReaderWriter< ::service_layer::SLMplsIlmGetMsgRsp, ::service_layer::SLMplsIlmGetMsg>* stream);

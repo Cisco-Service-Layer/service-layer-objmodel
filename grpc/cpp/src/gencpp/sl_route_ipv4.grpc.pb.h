@@ -6,7 +6,7 @@
 // @brief Server RPC proto file for IPv4.
 //
 // ----------------------------------------------------------------
-//  Copyright (c) 2016 by cisco Systems, Inc.
+//  Copyright (c) 2016, 2023 by cisco Systems, Inc.
 //  All rights reserved.
 // -----------------------------------------------------------------
 //
@@ -43,6 +43,7 @@ namespace service_layer {
 // Defines RPC calls for IPv4 route changes and VRF registration.
 // This service declares both the Vrf Registration, as well as adding, deleting
 // and getting IPv4 routes.
+// All IPv4 prefixes are encoded in host byte order.
 // @{
 class SLRoutev4Oper final {
  public:
@@ -83,10 +84,10 @@ class SLRoutev4Oper final {
     //    the associated VRF.
     //
     // SLVrfRegMsg.Oper = SL_REGOP_UNREGISTER:
-    //     VRF Un-registeration: Sends a list of VRF un-registration messages
+    //     VRF Un-registration: Sends a list of VRF un-registration messages
     //     and expects a list of un-registration responses.
     //     This can be used to convey that the client is no longer interested
-    //     in this VRF. All previously installed routes would be lost.
+    //     in these VRFs. All previously installed routes would be removed.
     //
     // SLVrfRegMsg.Oper = SL_REGOP_EOF:
     //     VRF End Of File message.
@@ -132,13 +133,16 @@ class SLRoutev4Oper final {
     //
     //
     // SLRoutev4Msg.Oper = SL_OBJOP_ADD:
-    //     Route add. Fails if the route already exists.
+    //     Route add. Fails if the route already exists. First
+    //     ADD operation on a stale route is allowed and the route
+    //     is no longer considered stale.
     //
     // SLRoutev4Msg.Oper = SL_OBJOP_UPDATE:
     //     Route update. Creates or updates the route.
     //
     // SLRoutev4Msg.Oper = SL_OBJOP_DELETE:
     //     Route delete. The route path is not necessary to delete the route.
+    //     Delete of a non-existant route is returned as success.
     virtual ::grpc::Status SLRoutev4Op(::grpc::ClientContext* context, const ::service_layer::SLRoutev4Msg& request, ::service_layer::SLRoutev4MsgRsp* response) = 0;
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::service_layer::SLRoutev4MsgRsp>> AsyncSLRoutev4Op(::grpc::ClientContext* context, const ::service_layer::SLRoutev4Msg& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::service_layer::SLRoutev4MsgRsp>>(AsyncSLRoutev4OpRaw(context, request, cq));
@@ -159,13 +163,16 @@ class SLRoutev4Oper final {
     //
     //
     // SLRoutev4Msg.Oper = SL_OBJOP_ADD:
-    //     Route add. Fails if the route already exists.
+    //     Route add. Fails if the route already exists. First
+    //     ADD operation on a stale route is allowed and the route
+    //     is no longer considered stale.
     //
     // SLRoutev4Msg.Oper = SL_OBJOP_UPDATE:
     //     Route update. Creates or updates the route.
     //
     // SLRoutev4Msg.Oper = SL_OBJOP_DELETE:
     //     Route delete. The route path is not necessary to delete the route.
+    //     Delete of a non-existant route is returned as success.
     std::unique_ptr< ::grpc::ClientReaderWriterInterface< ::service_layer::SLRoutev4Msg, ::service_layer::SLRoutev4MsgRsp>> SLRoutev4OpStream(::grpc::ClientContext* context) {
       return std::unique_ptr< ::grpc::ClientReaderWriterInterface< ::service_layer::SLRoutev4Msg, ::service_layer::SLRoutev4MsgRsp>>(SLRoutev4OpStreamRaw(context));
     }
@@ -235,10 +242,10 @@ class SLRoutev4Oper final {
       //    the associated VRF.
       //
       // SLVrfRegMsg.Oper = SL_REGOP_UNREGISTER:
-      //     VRF Un-registeration: Sends a list of VRF un-registration messages
+      //     VRF Un-registration: Sends a list of VRF un-registration messages
       //     and expects a list of un-registration responses.
       //     This can be used to convey that the client is no longer interested
-      //     in this VRF. All previously installed routes would be lost.
+      //     in these VRFs. All previously installed routes would be removed.
       //
       // SLVrfRegMsg.Oper = SL_REGOP_EOF:
       //     VRF End Of File message.
@@ -269,13 +276,16 @@ class SLRoutev4Oper final {
       //
       //
       // SLRoutev4Msg.Oper = SL_OBJOP_ADD:
-      //     Route add. Fails if the route already exists.
+      //     Route add. Fails if the route already exists. First
+      //     ADD operation on a stale route is allowed and the route
+      //     is no longer considered stale.
       //
       // SLRoutev4Msg.Oper = SL_OBJOP_UPDATE:
       //     Route update. Creates or updates the route.
       //
       // SLRoutev4Msg.Oper = SL_OBJOP_DELETE:
       //     Route delete. The route path is not necessary to delete the route.
+      //     Delete of a non-existant route is returned as success.
       virtual void SLRoutev4Op(::grpc::ClientContext* context, const ::service_layer::SLRoutev4Msg* request, ::service_layer::SLRoutev4MsgRsp* response, std::function<void(::grpc::Status)>) = 0;
       virtual void SLRoutev4Op(::grpc::ClientContext* context, const ::service_layer::SLRoutev4Msg* request, ::service_layer::SLRoutev4MsgRsp* response, ::grpc::ClientUnaryReactor* reactor) = 0;
       // Retrieves route attributes.
@@ -286,13 +296,16 @@ class SLRoutev4Oper final {
       //
       //
       // SLRoutev4Msg.Oper = SL_OBJOP_ADD:
-      //     Route add. Fails if the route already exists.
+      //     Route add. Fails if the route already exists. First
+      //     ADD operation on a stale route is allowed and the route
+      //     is no longer considered stale.
       //
       // SLRoutev4Msg.Oper = SL_OBJOP_UPDATE:
       //     Route update. Creates or updates the route.
       //
       // SLRoutev4Msg.Oper = SL_OBJOP_DELETE:
       //     Route delete. The route path is not necessary to delete the route.
+      //     Delete of a non-existant route is returned as success.
       virtual void SLRoutev4OpStream(::grpc::ClientContext* context, ::grpc::ClientBidiReactor< ::service_layer::SLRoutev4Msg,::service_layer::SLRoutev4MsgRsp>* reactor) = 0;
       // Retrieves route attributes.
       virtual void SLRoutev4GetStream(::grpc::ClientContext* context, ::grpc::ClientBidiReactor< ::service_layer::SLRoutev4GetMsg,::service_layer::SLRoutev4GetMsgRsp>* reactor) = 0;
@@ -512,10 +525,10 @@ class SLRoutev4Oper final {
     //    the associated VRF.
     //
     // SLVrfRegMsg.Oper = SL_REGOP_UNREGISTER:
-    //     VRF Un-registeration: Sends a list of VRF un-registration messages
+    //     VRF Un-registration: Sends a list of VRF un-registration messages
     //     and expects a list of un-registration responses.
     //     This can be used to convey that the client is no longer interested
-    //     in this VRF. All previously installed routes would be lost.
+    //     in these VRFs. All previously installed routes would be removed.
     //
     // SLVrfRegMsg.Oper = SL_REGOP_EOF:
     //     VRF End Of File message.
@@ -543,13 +556,16 @@ class SLRoutev4Oper final {
     //
     //
     // SLRoutev4Msg.Oper = SL_OBJOP_ADD:
-    //     Route add. Fails if the route already exists.
+    //     Route add. Fails if the route already exists. First
+    //     ADD operation on a stale route is allowed and the route
+    //     is no longer considered stale.
     //
     // SLRoutev4Msg.Oper = SL_OBJOP_UPDATE:
     //     Route update. Creates or updates the route.
     //
     // SLRoutev4Msg.Oper = SL_OBJOP_DELETE:
     //     Route delete. The route path is not necessary to delete the route.
+    //     Delete of a non-existant route is returned as success.
     virtual ::grpc::Status SLRoutev4Op(::grpc::ServerContext* context, const ::service_layer::SLRoutev4Msg* request, ::service_layer::SLRoutev4MsgRsp* response);
     // Retrieves route attributes.
     virtual ::grpc::Status SLRoutev4Get(::grpc::ServerContext* context, const ::service_layer::SLRoutev4GetMsg* request, ::service_layer::SLRoutev4GetMsgRsp* response);
@@ -558,13 +574,16 @@ class SLRoutev4Oper final {
     //
     //
     // SLRoutev4Msg.Oper = SL_OBJOP_ADD:
-    //     Route add. Fails if the route already exists.
+    //     Route add. Fails if the route already exists. First
+    //     ADD operation on a stale route is allowed and the route
+    //     is no longer considered stale.
     //
     // SLRoutev4Msg.Oper = SL_OBJOP_UPDATE:
     //     Route update. Creates or updates the route.
     //
     // SLRoutev4Msg.Oper = SL_OBJOP_DELETE:
     //     Route delete. The route path is not necessary to delete the route.
+    //     Delete of a non-existant route is returned as success.
     virtual ::grpc::Status SLRoutev4OpStream(::grpc::ServerContext* context, ::grpc::ServerReaderWriter< ::service_layer::SLRoutev4MsgRsp, ::service_layer::SLRoutev4Msg>* stream);
     // Retrieves route attributes.
     virtual ::grpc::Status SLRoutev4GetStream(::grpc::ServerContext* context, ::grpc::ServerReaderWriter< ::service_layer::SLRoutev4GetMsgRsp, ::service_layer::SLRoutev4GetMsg>* stream);

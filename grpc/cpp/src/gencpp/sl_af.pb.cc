@@ -129,37 +129,32 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
 
 const char descriptor_table_protodef_sl_5faf_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
   "\n\013sl_af.proto\022\rservice_layer\032\025sl_common_"
-  "types.proto\032\rsl_mpls.proto\032\025sl_route_com"
-  "mon.proto\032\023sl_route_ipv4.proto\032\023sl_route"
-  "_ipv6.proto\"`\n\nSLAFVrfReg\022)\n\005Table\030\001 \001(\016"
-  "2\032.service_layer.SLTableType\022\'\n\006VrfReg\030\002"
-  " \001(\0132\027.service_layer.SLVrfReg\"d\n\rSLAFVrf"
-  "RegMsg\022$\n\004Oper\030\001 \001(\0162\026.service_layer.SLR"
-  "egOp\022-\n\nVrfRegMsgs\030\002 \003(\0132\031.service_layer"
-  ".SLAFVrfReg\"\177\n\020SLAFVrfRegMsgRes\022/\n\tErrSt"
-  "atus\030\001 \001(\0132\034.service_layer.SLErrorStatus"
-  "\022\017\n\007VrfName\030\002 \001(\t\022)\n\005Table\030\003 \001(\0162\032.servi"
-  "ce_layer.SLTableType\"y\n\020SLAFVrfRegMsgRsp"
-  "\0223\n\rStatusSummary\030\001 \001(\0132\034.service_layer."
-  "SLErrorStatus\0220\n\007Results\030\002 \003(\0132\037.service"
-  "_layer.SLAFVrfRegMsgRes2U\n\004SLAF\022M\n\014SLAFV"
-  "rfRegOp\022\034.service_layer.SLAFVrfRegMsg\032\037."
-  "service_layer.SLAFVrfRegMsgRspBQZOgithub"
-  ".com/Cisco-service-layer/service-layer-o"
-  "bjmodel/grpc/protos;service_layerb\006proto"
-  "3"
+  "types.proto\032\025sl_route_common.proto\"`\n\nSL"
+  "AFVrfReg\022)\n\005Table\030\001 \001(\0162\032.service_layer."
+  "SLTableType\022\'\n\006VrfReg\030\002 \001(\0132\027.service_la"
+  "yer.SLVrfReg\"d\n\rSLAFVrfRegMsg\022$\n\004Oper\030\001 "
+  "\001(\0162\026.service_layer.SLRegOp\022-\n\nVrfRegMsg"
+  "s\030\002 \003(\0132\031.service_layer.SLAFVrfReg\"\177\n\020SL"
+  "AFVrfRegMsgRes\022/\n\tErrStatus\030\001 \001(\0132\034.serv"
+  "ice_layer.SLErrorStatus\022\017\n\007VrfName\030\002 \001(\t"
+  "\022)\n\005Table\030\003 \001(\0162\032.service_layer.SLTableT"
+  "ype\"y\n\020SLAFVrfRegMsgRsp\0223\n\rStatusSummary"
+  "\030\001 \001(\0132\034.service_layer.SLErrorStatus\0220\n\007"
+  "Results\030\002 \003(\0132\037.service_layer.SLAFVrfReg"
+  "MsgRes2U\n\004SLAF\022M\n\014SLAFVrfRegOp\022\034.service"
+  "_layer.SLAFVrfRegMsg\032\037.service_layer.SLA"
+  "FVrfRegMsgRspBQZOgithub.com/Cisco-servic"
+  "e-layer/service-layer-objmodel/grpc/prot"
+  "os;service_layerb\006proto3"
   ;
-static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_sl_5faf_2eproto_deps[5] = {
+static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_sl_5faf_2eproto_deps[2] = {
   &::descriptor_table_sl_5fcommon_5ftypes_2eproto,
-  &::descriptor_table_sl_5fmpls_2eproto,
   &::descriptor_table_sl_5froute_5fcommon_2eproto,
-  &::descriptor_table_sl_5froute_5fipv4_2eproto,
-  &::descriptor_table_sl_5froute_5fipv6_2eproto,
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_sl_5faf_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_sl_5faf_2eproto = {
-  false, false, 761, descriptor_table_protodef_sl_5faf_2eproto, "sl_af.proto", 
-  &descriptor_table_sl_5faf_2eproto_once, descriptor_table_sl_5faf_2eproto_deps, 5, 4,
+  false, false, 704, descriptor_table_protodef_sl_5faf_2eproto, "sl_af.proto", 
+  &descriptor_table_sl_5faf_2eproto_once, descriptor_table_sl_5faf_2eproto_deps, 2, 4,
   schemas, file_default_instances, TableStruct_sl_5faf_2eproto::offsets,
   file_level_metadata_sl_5faf_2eproto, file_level_enum_descriptors_sl_5faf_2eproto, file_level_service_descriptors_sl_5faf_2eproto,
 };

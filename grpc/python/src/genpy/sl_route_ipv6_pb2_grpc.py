@@ -118,10 +118,10 @@ class SLRoutev6OperServicer(object):
         the associated VRF.
 
         SLVrfRegMsg.Oper = SL_REGOP_UNREGISTER:
-        VRF Un-registeration: Sends a list of VRF un-registration messages
+        VRF Un-registration: Sends a list of VRF un-registration messages
         and expects a list of un-registration responses.
         This can be used to convey that the client is no longer interested
-        in this VRF. All previously installed routes would be lost.
+        in these VRFs. All previously installed routes would be removed.
 
         SLVrfRegMsg.Oper = SL_REGOP_EOF:
         VRF End Of File message.
@@ -164,13 +164,16 @@ class SLRoutev6OperServicer(object):
 
 
         SLRoutev6Msg.Oper = SL_OBJOP_ADD:
-        Route add. Fails if the route already exists.
+        Route add. Fails if the route already exists and not stale.
+        First ADD operation on a stale route is allowed and the route
+        is no longer considered stale.
 
         SLRoutev6Msg.Oper = SL_OBJOP_UPDATE:
         Route update. Creates or updates the route.
 
         SLRoutev6Msg.Oper = SL_OBJOP_DELETE:
         Route delete. The route path is not necessary to delete the route.
+        Delete of a non-existant route is returned as success.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -189,13 +192,16 @@ class SLRoutev6OperServicer(object):
 
 
         SLRoutev6Msg.Oper = SL_OBJOP_ADD:
-        Route add. Fails if the route already exists.
+        Route add. Fails if the route already exists and not stale.
+        First ADD operation on a stale route is allowed and the route
+        is no longer considered stale.
 
         SLRoutev6Msg.Oper = SL_OBJOP_UPDATE:
         Route update. Creates or updates the route.
 
         SLRoutev6Msg.Oper = SL_OBJOP_DELETE:
         Route delete. The route path is not necessary to delete the route.
+        Delete of a non-existant route is returned as success.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')

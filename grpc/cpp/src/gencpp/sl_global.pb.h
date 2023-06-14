@@ -780,23 +780,23 @@ class SLGlobalNotif final :
       ::service_layer::SLInitMsgRsp* initrspmsg);
   ::service_layer::SLInitMsgRsp* unsafe_arena_release_initrspmsg();
 
-  // .service_layer.SLVrfRouteReplayErrorNotif VrfReplayErrorNotif = 4;
-  bool has_vrfreplayerrornotif() const;
+  // .service_layer.SLVrfRouteReplayErrorNotif VrfReplayErrorNotif = 4 [deprecated = true];
+  PROTOBUF_DEPRECATED bool has_vrfreplayerrornotif() const;
   private:
   bool _internal_has_vrfreplayerrornotif() const;
   public:
-  void clear_vrfreplayerrornotif();
-  const ::service_layer::SLVrfRouteReplayErrorNotif& vrfreplayerrornotif() const;
-  PROTOBUF_NODISCARD ::service_layer::SLVrfRouteReplayErrorNotif* release_vrfreplayerrornotif();
-  ::service_layer::SLVrfRouteReplayErrorNotif* mutable_vrfreplayerrornotif();
-  void set_allocated_vrfreplayerrornotif(::service_layer::SLVrfRouteReplayErrorNotif* vrfreplayerrornotif);
+  PROTOBUF_DEPRECATED void clear_vrfreplayerrornotif();
+  PROTOBUF_DEPRECATED const ::service_layer::SLVrfRouteReplayErrorNotif& vrfreplayerrornotif() const;
+  PROTOBUF_NODISCARD PROTOBUF_DEPRECATED ::service_layer::SLVrfRouteReplayErrorNotif* release_vrfreplayerrornotif();
+  PROTOBUF_DEPRECATED ::service_layer::SLVrfRouteReplayErrorNotif* mutable_vrfreplayerrornotif();
+  PROTOBUF_DEPRECATED void set_allocated_vrfreplayerrornotif(::service_layer::SLVrfRouteReplayErrorNotif* vrfreplayerrornotif);
   private:
   const ::service_layer::SLVrfRouteReplayErrorNotif& _internal_vrfreplayerrornotif() const;
   ::service_layer::SLVrfRouteReplayErrorNotif* _internal_mutable_vrfreplayerrornotif();
   public:
-  void unsafe_arena_set_allocated_vrfreplayerrornotif(
+  PROTOBUF_DEPRECATED void unsafe_arena_set_allocated_vrfreplayerrornotif(
       ::service_layer::SLVrfRouteReplayErrorNotif* vrfreplayerrornotif);
-  ::service_layer::SLVrfRouteReplayErrorNotif* unsafe_arena_release_vrfreplayerrornotif();
+  PROTOBUF_DEPRECATED ::service_layer::SLVrfRouteReplayErrorNotif* unsafe_arena_release_vrfreplayerrornotif();
 
   void clear_Event();
   EventCase Event_case() const;
@@ -1626,7 +1626,7 @@ inline ::service_layer::SLInitMsgRsp* SLGlobalNotif::mutable_initrspmsg() {
   return _msg;
 }
 
-// .service_layer.SLVrfRouteReplayErrorNotif VrfReplayErrorNotif = 4;
+// .service_layer.SLVrfRouteReplayErrorNotif VrfReplayErrorNotif = 4 [deprecated = true];
 inline bool SLGlobalNotif::_internal_has_vrfreplayerrornotif() const {
   return Event_case() == kVrfReplayErrorNotif;
 }

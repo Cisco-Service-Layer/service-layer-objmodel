@@ -2,7 +2,7 @@
 // @brief RPC proto file for MPLS types.
 //
 // ----------------------------------------------------------------
-//  Copyright (c) 2019 by Cisco Systems, Inc.
+//  Copyright (c) 2019, 2023 by Cisco Systems, Inc.
 //  All rights reserved.
 // -----------------------------------------------------------------
 //
@@ -995,6 +995,17 @@ type SLMplsPath struct {
 	//   - SL_LABEL_ACTION_POP_AND_LOOKUP: Pop the label, and lookup the
 	//     packet's next header's address in the specified VrfName.
 	//     Path attributes: VrfName.
+	//   - SL_LABEL_ACTION_POP_AND_LOOKUP_V4: Pop the label, and if the
+	//     packet is IPv4, then lookup the IPv4 address in the specified
+	//     VrfName.
+	//     Path attributes: VrfName.
+	//   - SL_LABEL_ACTION_POP_AND_LOOKUP_V6: Pop the label, and if the
+	//     packet is IPv6, then lookup the IPv6 address in the specified
+	//     VrfName.
+	//     Path attributes: VrfName.
+	//   - SL_LABEL_ACTION_PUSH: PUSH the specified LabelStack, and forward
+	//     the packet.
+	//     Path attributes: NexthopInterface, VrfName, NexthopAddress.
 	Action SlLabelAction `protobuf:"varint,5,opt,name=Action,proto3,enum=service_layer.SlLabelAction" json:"Action,omitempty"`
 	// Path identifier.
 	// Path-id is used to uniquely identify a path when it comes to

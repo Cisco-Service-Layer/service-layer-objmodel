@@ -12,10 +12,7 @@ _sym_db = _symbol_database.Default()
 
 
 from . import sl_common_types_pb2 as sl__common__types__pb2
-from . import sl_mpls_pb2 as sl__mpls__pb2
 from . import sl_route_common_pb2 as sl__route__common__pb2
-from . import sl_route_ipv4_pb2 as sl__route__ipv4__pb2
-from . import sl_route_ipv6_pb2 as sl__route__ipv6__pb2
 
 
 DESCRIPTOR = _descriptor.FileDescriptor(
@@ -24,9 +21,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'ZOgithub.com/Cisco-service-layer/service-layer-objmodel/grpc/protos;service_layer',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x0bsl_af.proto\x12\rservice_layer\x1a\x15sl_common_types.proto\x1a\rsl_mpls.proto\x1a\x15sl_route_common.proto\x1a\x13sl_route_ipv4.proto\x1a\x13sl_route_ipv6.proto\"`\n\nSLAFVrfReg\x12)\n\x05Table\x18\x01 \x01(\x0e\x32\x1a.service_layer.SLTableType\x12\'\n\x06VrfReg\x18\x02 \x01(\x0b\x32\x17.service_layer.SLVrfReg\"d\n\rSLAFVrfRegMsg\x12$\n\x04Oper\x18\x01 \x01(\x0e\x32\x16.service_layer.SLRegOp\x12-\n\nVrfRegMsgs\x18\x02 \x03(\x0b\x32\x19.service_layer.SLAFVrfReg\"\x7f\n\x10SLAFVrfRegMsgRes\x12/\n\tErrStatus\x18\x01 \x01(\x0b\x32\x1c.service_layer.SLErrorStatus\x12\x0f\n\x07VrfName\x18\x02 \x01(\t\x12)\n\x05Table\x18\x03 \x01(\x0e\x32\x1a.service_layer.SLTableType\"y\n\x10SLAFVrfRegMsgRsp\x12\x33\n\rStatusSummary\x18\x01 \x01(\x0b\x32\x1c.service_layer.SLErrorStatus\x12\x30\n\x07Results\x18\x02 \x03(\x0b\x32\x1f.service_layer.SLAFVrfRegMsgRes2U\n\x04SLAF\x12M\n\x0cSLAFVrfRegOp\x12\x1c.service_layer.SLAFVrfRegMsg\x1a\x1f.service_layer.SLAFVrfRegMsgRspBQZOgithub.com/Cisco-service-layer/service-layer-objmodel/grpc/protos;service_layerb\x06proto3'
+  serialized_pb=b'\n\x0bsl_af.proto\x12\rservice_layer\x1a\x15sl_common_types.proto\x1a\x15sl_route_common.proto\"`\n\nSLAFVrfReg\x12)\n\x05Table\x18\x01 \x01(\x0e\x32\x1a.service_layer.SLTableType\x12\'\n\x06VrfReg\x18\x02 \x01(\x0b\x32\x17.service_layer.SLVrfReg\"d\n\rSLAFVrfRegMsg\x12$\n\x04Oper\x18\x01 \x01(\x0e\x32\x16.service_layer.SLRegOp\x12-\n\nVrfRegMsgs\x18\x02 \x03(\x0b\x32\x19.service_layer.SLAFVrfReg\"\x7f\n\x10SLAFVrfRegMsgRes\x12/\n\tErrStatus\x18\x01 \x01(\x0b\x32\x1c.service_layer.SLErrorStatus\x12\x0f\n\x07VrfName\x18\x02 \x01(\t\x12)\n\x05Table\x18\x03 \x01(\x0e\x32\x1a.service_layer.SLTableType\"y\n\x10SLAFVrfRegMsgRsp\x12\x33\n\rStatusSummary\x18\x01 \x01(\x0b\x32\x1c.service_layer.SLErrorStatus\x12\x30\n\x07Results\x18\x02 \x03(\x0b\x32\x1f.service_layer.SLAFVrfRegMsgRes2U\n\x04SLAF\x12M\n\x0cSLAFVrfRegOp\x12\x1c.service_layer.SLAFVrfRegMsg\x1a\x1f.service_layer.SLAFVrfRegMsgRspBQZOgithub.com/Cisco-service-layer/service-layer-objmodel/grpc/protos;service_layerb\x06proto3'
   ,
-  dependencies=[sl__common__types__pb2.DESCRIPTOR,sl__mpls__pb2.DESCRIPTOR,sl__route__common__pb2.DESCRIPTOR,sl__route__ipv4__pb2.DESCRIPTOR,sl__route__ipv6__pb2.DESCRIPTOR,])
+  dependencies=[sl__common__types__pb2.DESCRIPTOR,sl__route__common__pb2.DESCRIPTOR,])
 
 
 
@@ -65,8 +62,8 @@ _SLAFVRFREG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=133,
-  serialized_end=229,
+  serialized_start=76,
+  serialized_end=172,
 )
 
 
@@ -104,8 +101,8 @@ _SLAFVRFREGMSG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=231,
-  serialized_end=331,
+  serialized_start=174,
+  serialized_end=274,
 )
 
 
@@ -150,8 +147,8 @@ _SLAFVRFREGMSGRES = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=333,
-  serialized_end=460,
+  serialized_start=276,
+  serialized_end=403,
 )
 
 
@@ -189,8 +186,8 @@ _SLAFVRFREGMSGRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=462,
-  serialized_end=583,
+  serialized_start=405,
+  serialized_end=526,
 )
 
 _SLAFVRFREG.fields_by_name['Table'].enum_type = sl__common__types__pb2._SLTABLETYPE
@@ -245,8 +242,8 @@ _SLAF = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=585,
-  serialized_end=670,
+  serialized_start=528,
+  serialized_end=613,
   methods=[
   _descriptor.MethodDescriptor(
     name='SLAFVrfRegOp',

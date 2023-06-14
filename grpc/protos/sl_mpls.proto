@@ -2,7 +2,7 @@
 // @brief RPC proto file for MPLS types.
 //
 // ----------------------------------------------------------------
-//  Copyright (c) 2019 by Cisco Systems, Inc.
+//  Copyright (c) 2019, 2023 by Cisco Systems, Inc.
 //  All rights reserved.
 // -----------------------------------------------------------------
 //
@@ -104,13 +104,16 @@ service SLMplsOper {
     //
 
     // SLMplsIlmMsg.Oper = SL_OBJOP_ADD:
-    //     Add incoming label map entry.
+    //     Add incoming label map entry. Fails if the entry already
+    //     exists and not stale. First ADD operation on a stale entry
+    //     is allowed and the entry is no longer considered stale.
     //
     // SLMplsIlmMsg.Oper = SL_OBJOP_UPDATE:
-    //     Update incoming label map entry.
+    //     Create or update incoming label map entry.
     //
     // SLMplsIlmMsg.Oper = SL_OBJOP_DELETE:
-    //     Delete incoming label map entry.
+    //     Delete incoming label map entry. Delete of a
+    //     non-existant entry is considered a success.
     rpc SLMplsIlmOp(SLMplsIlmMsg) returns (SLMplsIlmMsgRsp);
 
     // Retrieve MPLS ILM entry attributes.
@@ -121,13 +124,16 @@ service SLMplsOper {
     //
 
     // SLMplsIlmMsg.Oper = SL_OBJOP_ADD:
-    //     Add incoming label map entry.
+    //     Add incoming label map entry. Fails if the entry already
+    //     exists and not stale. First ADD operation on a stale entry
+    //     is allowed and the entry is no longer considered stale.
     //
     // SLMplsIlmMsg.Oper = SL_OBJOP_UPDATE:
-    //     Update incoming label map entry.
+    //     Create or update incoming label map entry.
     //
     // SLMplsIlmMsg.Oper = SL_OBJOP_DELETE:
-    //     Delete incoming label map entry.
+    //     Delete incoming label map entry. Delete of a
+    //     non-existant entry is returned as success.
     rpc SLMplsIlmOpStream(stream SLMplsIlmMsg) returns (stream SLMplsIlmMsgRsp);
 
     // Stream-Get of incoming label map
@@ -384,6 +390,17 @@ message SLMplsPath {
     //  - SL_LABEL_ACTION_POP_AND_LOOKUP: Pop the label, and lookup the
     //      packet's next header's address in the specified VrfName.
     //      Path attributes: VrfName.
+    //  - SL_LABEL_ACTION_POP_AND_LOOKUP_V4: Pop the label, and if the
+    //      packet is IPv4, then lookup the IPv4 address in the specified
+    //      VrfName.
+    //      Path attributes: VrfName.
+    //  - SL_LABEL_ACTION_POP_AND_LOOKUP_V6: Pop the label, and if the
+    //      packet is IPv6, then lookup the IPv6 address in the specified
+    //      VrfName.
+    //      Path attributes: VrfName.
+    //  - SL_LABEL_ACTION_PUSH: PUSH the specified LabelStack, and forward
+    //      the packet.
+    //      Path attributes: NexthopInterface, VrfName, NexthopAddress.
     SlLabelAction Action = 5;
 
     // Path identifier.

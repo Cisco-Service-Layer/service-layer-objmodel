@@ -2,7 +2,7 @@
 // @brief Common definitions for all of the service layer proto files.
 //
 //---------------------------------------------------------------------
-// Copyright (c) 2019 by Cisco Systems, Inc.
+// Copyright (c) 2019, 2023 by Cisco Systems, Inc.
 // All rights reserved.
 //---------------------------------------------------------------------
 //
@@ -1593,7 +1593,7 @@ type SLIpAddress struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	// One of IPv4 or IPv6 address
+	// One of IPv4 or IPv6 address. V4Address must be in host byte order.
 	//
 	// Types that are assignable to Address:
 	//

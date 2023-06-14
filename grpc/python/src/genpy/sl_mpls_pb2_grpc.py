@@ -194,13 +194,16 @@ class SLMplsOperServicer(object):
 
 
         SLMplsIlmMsg.Oper = SL_OBJOP_ADD:
-        Add incoming label map entry.
+        Add incoming label map entry. Fails if the entry already
+        exists and not stale. First ADD operation on a stale entry
+        is allowed and the entry is no longer considered stale.
 
         SLMplsIlmMsg.Oper = SL_OBJOP_UPDATE:
-        Update incoming label map entry.
+        Create or update incoming label map entry.
 
         SLMplsIlmMsg.Oper = SL_OBJOP_DELETE:
-        Delete incoming label map entry.
+        Delete incoming label map entry. Delete of a
+        non-existant entry is considered a success.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -219,13 +222,16 @@ class SLMplsOperServicer(object):
 
 
         SLMplsIlmMsg.Oper = SL_OBJOP_ADD:
-        Add incoming label map entry.
+        Add incoming label map entry. Fails if the entry already
+        exists and not stale. First ADD operation on a stale entry
+        is allowed and the entry is no longer considered stale.
 
         SLMplsIlmMsg.Oper = SL_OBJOP_UPDATE:
-        Update incoming label map entry.
+        Create or update incoming label map entry.
 
         SLMplsIlmMsg.Oper = SL_OBJOP_DELETE:
-        Delete incoming label map entry.
+        Delete incoming label map entry. Delete of a
+        non-existant entry is returned as success.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')

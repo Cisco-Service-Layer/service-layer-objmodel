@@ -203,44 +203,44 @@ const char descriptor_table_protodef_sl_5fglobal_2eproto[] PROTOBUF_SECTION_VARI
   "\030\001 \001(\r\022\020\n\010MinorVer\030\002 \001(\r\022\016\n\006SubVer\030\003 \001(\r"
   "\"B\n\014SLInitMsgRsp\022\020\n\010MajorVer\030\001 \001(\r\022\020\n\010Mi"
   "norVer\030\002 \001(\r\022\016\n\006SubVer\030\003 \001(\r\"-\n\032SLVrfRou"
-  "teReplayErrorNotif\022\017\n\007VrfName\030\001 \001(\t\"\373\001\n\r"
+  "teReplayErrorNotif\022\017\n\007VrfName\030\001 \001(\t\"\377\001\n\r"
   "SLGlobalNotif\0223\n\tEventType\030\001 \001(\0162 .servi"
   "ce_layer.SLGlobalNotifType\022/\n\tErrStatus\030"
   "\002 \001(\0132\034.service_layer.SLErrorStatus\0221\n\nI"
   "nitRspMsg\030\003 \001(\0132\033.service_layer.SLInitMs"
-  "gRspH\000\022H\n\023VrfReplayErrorNotif\030\004 \001(\0132).se"
-  "rvice_layer.SLVrfRouteReplayErrorNotifH\000"
-  "B\007\n\005Event\"\021\n\017SLGlobalsGetMsg\"\350\003\n\022SLGloba"
-  "lsGetMsgRsp\022/\n\tErrStatus\030\001 \001(\0132\034.service"
-  "_layer.SLErrorStatus\022\030\n\020MaxVrfNameLength"
-  "\030\002 \001(\r\022\036\n\026MaxInterfaceNameLength\030\003 \001(\r\022\030"
-  "\n\020MaxPathsPerEntry\030\004 \001(\r\022\036\n\026MaxPrimaryPa"
-  "thPerEntry\030\005 \001(\r\022\035\n\025MaxBackupPathPerEntr"
-  "y\030\006 \001(\r\022\034\n\024MaxMplsLabelsPerPath\030\007 \001(\r\022\033\n"
-  "\023MinPrimaryPathIdNum\030\010 \001(\r\022\033\n\023MaxPrimary"
-  "PathIdNum\030\t \001(\r\022\032\n\022MinBackupPathIdNum\030\n "
-  "\001(\r\022\032\n\022MaxBackupPathIdNum\030\013 \001(\r\022\033\n\023MaxRe"
-  "moteAddressNum\030\014 \001(\r\022\031\n\021MaxL2BdNameLengt"
-  "h\030\r \001(\r\022\037\n\027MaxL2PmsiTunnelIdLength\030\016 \001(\r"
-  "\022%\n\035MaxLabelBlockClientNameLength\030\017 \001(\r*"
-  "\234\001\n\021SLGlobalNotifType\022!\n\035SL_GLOBAL_EVENT"
-  "_TYPE_RESERVED\020\000\022\036\n\032SL_GLOBAL_EVENT_TYPE"
-  "_ERROR\020\001\022\"\n\036SL_GLOBAL_EVENT_TYPE_HEARTBE"
-  "AT\020\002\022 \n\034SL_GLOBAL_EVENT_TYPE_VERSION\020\0032\254"
-  "\001\n\010SLGlobal\022M\n\021SLGlobalInitNotif\022\030.servi"
-  "ce_layer.SLInitMsg\032\034.service_layer.SLGlo"
-  "balNotif0\001\022Q\n\014SLGlobalsGet\022\036.service_lay"
-  "er.SLGlobalsGetMsg\032!.service_layer.SLGlo"
-  "balsGetMsgRspBQZOgithub.com/Cisco-servic"
-  "e-layer/service-layer-objmodel/grpc/prot"
-  "os;service_layerb\006proto3"
+  "gRspH\000\022L\n\023VrfReplayErrorNotif\030\004 \001(\0132).se"
+  "rvice_layer.SLVrfRouteReplayErrorNotifB\002"
+  "\030\001H\000B\007\n\005Event\"\021\n\017SLGlobalsGetMsg\"\350\003\n\022SLG"
+  "lobalsGetMsgRsp\022/\n\tErrStatus\030\001 \001(\0132\034.ser"
+  "vice_layer.SLErrorStatus\022\030\n\020MaxVrfNameLe"
+  "ngth\030\002 \001(\r\022\036\n\026MaxInterfaceNameLength\030\003 \001"
+  "(\r\022\030\n\020MaxPathsPerEntry\030\004 \001(\r\022\036\n\026MaxPrima"
+  "ryPathPerEntry\030\005 \001(\r\022\035\n\025MaxBackupPathPer"
+  "Entry\030\006 \001(\r\022\034\n\024MaxMplsLabelsPerPath\030\007 \001("
+  "\r\022\033\n\023MinPrimaryPathIdNum\030\010 \001(\r\022\033\n\023MaxPri"
+  "maryPathIdNum\030\t \001(\r\022\032\n\022MinBackupPathIdNu"
+  "m\030\n \001(\r\022\032\n\022MaxBackupPathIdNum\030\013 \001(\r\022\033\n\023M"
+  "axRemoteAddressNum\030\014 \001(\r\022\031\n\021MaxL2BdNameL"
+  "ength\030\r \001(\r\022\037\n\027MaxL2PmsiTunnelIdLength\030\016"
+  " \001(\r\022%\n\035MaxLabelBlockClientNameLength\030\017 "
+  "\001(\r*\234\001\n\021SLGlobalNotifType\022!\n\035SL_GLOBAL_E"
+  "VENT_TYPE_RESERVED\020\000\022\036\n\032SL_GLOBAL_EVENT_"
+  "TYPE_ERROR\020\001\022\"\n\036SL_GLOBAL_EVENT_TYPE_HEA"
+  "RTBEAT\020\002\022 \n\034SL_GLOBAL_EVENT_TYPE_VERSION"
+  "\020\0032\254\001\n\010SLGlobal\022M\n\021SLGlobalInitNotif\022\030.s"
+  "ervice_layer.SLInitMsg\032\034.service_layer.S"
+  "LGlobalNotif0\001\022Q\n\014SLGlobalsGet\022\036.service"
+  "_layer.SLGlobalsGetMsg\032!.service_layer.S"
+  "LGlobalsGetMsgRspBQZOgithub.com/Cisco-se"
+  "rvice-layer/service-layer-objmodel/grpc/"
+  "protos;service_layerb\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_sl_5fglobal_2eproto_deps[1] = {
   &::descriptor_table_sl_5fcommon_5ftypes_2eproto,
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_sl_5fglobal_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_sl_5fglobal_2eproto = {
-  false, false, 1424, descriptor_table_protodef_sl_5fglobal_2eproto, "sl_global.proto", 
+  false, false, 1428, descriptor_table_protodef_sl_5fglobal_2eproto, "sl_global.proto", 
   &descriptor_table_sl_5fglobal_2eproto_once, descriptor_table_sl_5fglobal_2eproto_deps, 1, 6,
   schemas, file_default_instances, TableStruct_sl_5fglobal_2eproto::offsets,
   file_level_metadata_sl_5fglobal_2eproto, file_level_enum_descriptors_sl_5fglobal_2eproto, file_level_service_descriptors_sl_5fglobal_2eproto,
@@ -1134,7 +1134,7 @@ const char* SLGlobalNotif::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_
         } else
           goto handle_unusual;
         continue;
-      // .service_layer.SLVrfRouteReplayErrorNotif VrfReplayErrorNotif = 4;
+      // .service_layer.SLVrfRouteReplayErrorNotif VrfReplayErrorNotif = 4 [deprecated = true];
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 34)) {
           ptr = ctx->ParseMessage(_internal_mutable_vrfreplayerrornotif(), ptr);
@@ -1194,7 +1194,7 @@ uint8_t* SLGlobalNotif::_InternalSerialize(
         3, _Internal::initrspmsg(this), target, stream);
   }
 
-  // .service_layer.SLVrfRouteReplayErrorNotif VrfReplayErrorNotif = 4;
+  // .service_layer.SLVrfRouteReplayErrorNotif VrfReplayErrorNotif = 4 [deprecated = true];
   if (_internal_has_vrfreplayerrornotif()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
@@ -1239,7 +1239,7 @@ size_t SLGlobalNotif::ByteSizeLong() const {
           *Event_.initrspmsg_);
       break;
     }
-    // .service_layer.SLVrfRouteReplayErrorNotif VrfReplayErrorNotif = 4;
+    // .service_layer.SLVrfRouteReplayErrorNotif VrfReplayErrorNotif = 4 [deprecated = true];
     case kVrfReplayErrorNotif: {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(

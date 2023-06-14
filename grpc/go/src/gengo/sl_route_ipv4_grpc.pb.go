@@ -35,10 +35,10 @@ type SLRoutev4OperClient interface {
 	//
 	// SLVrfRegMsg.Oper = SL_REGOP_UNREGISTER:
 	//
-	//	VRF Un-registeration: Sends a list of VRF un-registration messages
+	//	VRF Un-registration: Sends a list of VRF un-registration messages
 	//	and expects a list of un-registration responses.
 	//	This can be used to convey that the client is no longer interested
-	//	in this VRF. All previously installed routes would be lost.
+	//	in these VRFs. All previously installed routes would be removed.
 	//
 	// SLVrfRegMsg.Oper = SL_REGOP_EOF:
 	//
@@ -64,7 +64,9 @@ type SLRoutev4OperClient interface {
 	SLRoutev4VrfGetStats(ctx context.Context, in *SLVrfRegGetMsg, opts ...grpc.CallOption) (*SLVRFGetStatsMsgRsp, error)
 	// SLRoutev4Msg.Oper = SL_OBJOP_ADD:
 	//
-	//	Route add. Fails if the route already exists.
+	//	Route add. Fails if the route already exists. First
+	//	ADD operation on a stale route is allowed and the route
+	//	is no longer considered stale.
 	//
 	// SLRoutev4Msg.Oper = SL_OBJOP_UPDATE:
 	//
@@ -73,12 +75,15 @@ type SLRoutev4OperClient interface {
 	// SLRoutev4Msg.Oper = SL_OBJOP_DELETE:
 	//
 	//	Route delete. The route path is not necessary to delete the route.
+	//	Delete of a non-existant route is returned as success.
 	SLRoutev4Op(ctx context.Context, in *SLRoutev4Msg, opts ...grpc.CallOption) (*SLRoutev4MsgRsp, error)
 	// Retrieves route attributes.
 	SLRoutev4Get(ctx context.Context, in *SLRoutev4GetMsg, opts ...grpc.CallOption) (*SLRoutev4GetMsgRsp, error)
 	// SLRoutev4Msg.Oper = SL_OBJOP_ADD:
 	//
-	//	Route add. Fails if the route already exists.
+	//	Route add. Fails if the route already exists. First
+	//	ADD operation on a stale route is allowed and the route
+	//	is no longer considered stale.
 	//
 	// SLRoutev4Msg.Oper = SL_OBJOP_UPDATE:
 	//
@@ -87,6 +92,7 @@ type SLRoutev4OperClient interface {
 	// SLRoutev4Msg.Oper = SL_OBJOP_DELETE:
 	//
 	//	Route delete. The route path is not necessary to delete the route.
+	//	Delete of a non-existant route is returned as success.
 	SLRoutev4OpStream(ctx context.Context, opts ...grpc.CallOption) (SLRoutev4Oper_SLRoutev4OpStreamClient, error)
 	// Retrieves route attributes.
 	SLRoutev4GetStream(ctx context.Context, opts ...grpc.CallOption) (SLRoutev4Oper_SLRoutev4GetStreamClient, error)
@@ -284,10 +290,10 @@ type SLRoutev4OperServer interface {
 	//
 	// SLVrfRegMsg.Oper = SL_REGOP_UNREGISTER:
 	//
-	//	VRF Un-registeration: Sends a list of VRF un-registration messages
+	//	VRF Un-registration: Sends a list of VRF un-registration messages
 	//	and expects a list of un-registration responses.
 	//	This can be used to convey that the client is no longer interested
-	//	in this VRF. All previously installed routes would be lost.
+	//	in these VRFs. All previously installed routes would be removed.
 	//
 	// SLVrfRegMsg.Oper = SL_REGOP_EOF:
 	//
@@ -313,7 +319,9 @@ type SLRoutev4OperServer interface {
 	SLRoutev4VrfGetStats(context.Context, *SLVrfRegGetMsg) (*SLVRFGetStatsMsgRsp, error)
 	// SLRoutev4Msg.Oper = SL_OBJOP_ADD:
 	//
-	//	Route add. Fails if the route already exists.
+	//	Route add. Fails if the route already exists. First
+	//	ADD operation on a stale route is allowed and the route
+	//	is no longer considered stale.
 	//
 	// SLRoutev4Msg.Oper = SL_OBJOP_UPDATE:
 	//
@@ -322,12 +330,15 @@ type SLRoutev4OperServer interface {
 	// SLRoutev4Msg.Oper = SL_OBJOP_DELETE:
 	//
 	//	Route delete. The route path is not necessary to delete the route.
+	//	Delete of a non-existant route is returned as success.
 	SLRoutev4Op(context.Context, *SLRoutev4Msg) (*SLRoutev4MsgRsp, error)
 	// Retrieves route attributes.
 	SLRoutev4Get(context.Context, *SLRoutev4GetMsg) (*SLRoutev4GetMsgRsp, error)
 	// SLRoutev4Msg.Oper = SL_OBJOP_ADD:
 	//
-	//	Route add. Fails if the route already exists.
+	//	Route add. Fails if the route already exists. First
+	//	ADD operation on a stale route is allowed and the route
+	//	is no longer considered stale.
 	//
 	// SLRoutev4Msg.Oper = SL_OBJOP_UPDATE:
 	//
@@ -336,6 +347,7 @@ type SLRoutev4OperServer interface {
 	// SLRoutev4Msg.Oper = SL_OBJOP_DELETE:
 	//
 	//	Route delete. The route path is not necessary to delete the route.
+	//	Delete of a non-existant route is returned as success.
 	SLRoutev4OpStream(SLRoutev4Oper_SLRoutev4OpStreamServer) error
 	// Retrieves route attributes.
 	SLRoutev4GetStream(SLRoutev4Oper_SLRoutev4GetStreamServer) error

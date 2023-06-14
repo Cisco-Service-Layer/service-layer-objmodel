@@ -32,10 +32,7 @@
 #include <google/protobuf/extension_set.h>  // IWYU pragma: export
 #include <google/protobuf/unknown_field_set.h>
 #include "sl_common_types.pb.h"
-#include "sl_mpls.pb.h"
 #include "sl_route_common.pb.h"
-#include "sl_route_ipv4.pb.h"
-#include "sl_route_ipv6.pb.h"
 // @@protoc_insertion_point(includes)
 #include <google/protobuf/port_def.inc>
 #define PROTOBUF_INTERNAL_EXPORT_sl_5faf_2eproto

@@ -72,29 +72,35 @@ type SLMplsOperClient interface {
 	SLMplsLabelBlockGet(ctx context.Context, in *SLMplsLabelBlockGetMsg, opts ...grpc.CallOption) (*SLMplsLabelBlockGetMsgRsp, error)
 	// SLMplsIlmMsg.Oper = SL_OBJOP_ADD:
 	//
-	//	Add incoming label map entry.
+	//	Add incoming label map entry. Fails if the entry already
+	//	exists and not stale. First ADD operation on a stale entry
+	//	is allowed and the entry is no longer considered stale.
 	//
 	// SLMplsIlmMsg.Oper = SL_OBJOP_UPDATE:
 	//
-	//	Update incoming label map entry.
+	//	Create or update incoming label map entry.
 	//
 	// SLMplsIlmMsg.Oper = SL_OBJOP_DELETE:
 	//
-	//	Delete incoming label map entry.
+	//	Delete incoming label map entry. Delete of a
+	//	non-existant entry is considered a success.
 	SLMplsIlmOp(ctx context.Context, in *SLMplsIlmMsg, opts ...grpc.CallOption) (*SLMplsIlmMsgRsp, error)
 	// Retrieve MPLS ILM entry attributes.
 	SLMplsIlmGet(ctx context.Context, in *SLMplsIlmGetMsg, opts ...grpc.CallOption) (*SLMplsIlmGetMsgRsp, error)
 	// SLMplsIlmMsg.Oper = SL_OBJOP_ADD:
 	//
-	//	Add incoming label map entry.
+	//	Add incoming label map entry. Fails if the entry already
+	//	exists and not stale. First ADD operation on a stale entry
+	//	is allowed and the entry is no longer considered stale.
 	//
 	// SLMplsIlmMsg.Oper = SL_OBJOP_UPDATE:
 	//
-	//	Update incoming label map entry.
+	//	Create or update incoming label map entry.
 	//
 	// SLMplsIlmMsg.Oper = SL_OBJOP_DELETE:
 	//
-	//	Delete incoming label map entry.
+	//	Delete incoming label map entry. Delete of a
+	//	non-existant entry is returned as success.
 	SLMplsIlmOpStream(ctx context.Context, opts ...grpc.CallOption) (SLMplsOper_SLMplsIlmOpStreamClient, error)
 	// Stream-Get of incoming label map
 	SLMplsIlmGetStream(ctx context.Context, opts ...grpc.CallOption) (SLMplsOper_SLMplsIlmGetStreamClient, error)
@@ -287,29 +293,35 @@ type SLMplsOperServer interface {
 	SLMplsLabelBlockGet(context.Context, *SLMplsLabelBlockGetMsg) (*SLMplsLabelBlockGetMsgRsp, error)
 	// SLMplsIlmMsg.Oper = SL_OBJOP_ADD:
 	//
-	//	Add incoming label map entry.
+	//	Add incoming label map entry. Fails if the entry already
+	//	exists and not stale. First ADD operation on a stale entry
+	//	is allowed and the entry is no longer considered stale.
 	//
 	// SLMplsIlmMsg.Oper = SL_OBJOP_UPDATE:
 	//
-	//	Update incoming label map entry.
+	//	Create or update incoming label map entry.
 	//
 	// SLMplsIlmMsg.Oper = SL_OBJOP_DELETE:
 	//
-	//	Delete incoming label map entry.
+	//	Delete incoming label map entry. Delete of a
+	//	non-existant entry is considered a success.
 	SLMplsIlmOp(context.Context, *SLMplsIlmMsg) (*SLMplsIlmMsgRsp, error)
 	// Retrieve MPLS ILM entry attributes.
 	SLMplsIlmGet(context.Context, *SLMplsIlmGetMsg) (*SLMplsIlmGetMsgRsp, error)
 	// SLMplsIlmMsg.Oper = SL_OBJOP_ADD:
 	//
-	//	Add incoming label map entry.
+	//	Add incoming label map entry. Fails if the entry already
+	//	exists and not stale. First ADD operation on a stale entry
+	//	is allowed and the entry is no longer considered stale.
 	//
 	// SLMplsIlmMsg.Oper = SL_OBJOP_UPDATE:
 	//
-	//	Update incoming label map entry.
+	//	Create or update incoming label map entry.
 	//
 	// SLMplsIlmMsg.Oper = SL_OBJOP_DELETE:
 	//
-	//	Delete incoming label map entry.
+	//	Delete incoming label map entry. Delete of a
+	//	non-existant entry is returned as success.
 	SLMplsIlmOpStream(SLMplsOper_SLMplsIlmOpStreamServer) error
 	// Stream-Get of incoming label map
 	SLMplsIlmGetStream(SLMplsOper_SLMplsIlmGetStreamServer) error

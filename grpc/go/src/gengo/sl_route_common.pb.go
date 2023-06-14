@@ -5,7 +5,7 @@
 // default route status for a route object.
 //
 // ----------------------------------------------------------------
-//  Copyright (c) 2016 by Cisco Systems, Inc.
+//  Copyright (c) 2016, 2023 by Cisco Systems, Inc.
 //  All rights reserved.
 // -----------------------------------------------------------------
 //
@@ -1355,6 +1355,10 @@ type SLRoutePath struct {
 	NexthopInterface *SLInterface `protobuf:"bytes,2,opt,name=NexthopInterface,proto3" json:"NexthopInterface,omitempty"`
 	// Load metric for this path.
 	// Used for equal/unequal cost load balancing of traffic distribution.
+	// For equal cost load balancing, all paths associated with the
+	// route must have a value of 0. For
+	// unequal cost load balancing, all paths must have non-zero value
+	// otherwise system defaults to equal cost load balancing.
 	LoadMetric uint32 `protobuf:"varint,3,opt,name=LoadMetric,proto3" json:"LoadMetric,omitempty"`
 	// Path VRF name. This field is used ONLY if the path is in a different
 	// VRF than the route (e.g. VPN cases)

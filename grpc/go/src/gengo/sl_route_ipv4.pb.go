@@ -2,7 +2,7 @@
 // @brief Server RPC proto file for IPv4.
 //
 // ----------------------------------------------------------------
-//  Copyright (c) 2016 by cisco Systems, Inc.
+//  Copyright (c) 2016, 2023 by cisco Systems, Inc.
 //  All rights reserved.
 // -----------------------------------------------------------------
 //
@@ -367,6 +367,7 @@ type SLRoutev4GetMsg struct {
 	// If GetNext is TRUE, or if the key exact match is not found:
 	//
 	//	request up to 'EntriesCount' entries starting from the key's next
+	//	GetNext does not get the routes in the next client
 	GetNext bool `protobuf:"varint,6,opt,name=GetNext,proto3" json:"GetNext,omitempty"`
 }
 
@@ -444,7 +445,7 @@ func (x *SLRoutev4GetMsg) GetGetNext() bool {
 	return false
 }
 
-// Gt Route message response
+// Get Route message response
 type SLRoutev4GetMsgRsp struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache

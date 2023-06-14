@@ -6,7 +6,7 @@
 // @brief Server RPC proto file for L2 routes.
 //
 // ----------------------------------------------------------------
-//  Copyright (c) 2016 by cisco Systems, Inc.
+//  Copyright (c) 2016, 2023 by cisco Systems, Inc.
 //  All rights reserved.
 // -----------------------------------------------------------------
 //
@@ -112,7 +112,7 @@ class SLL2Oper final {
     //     and expects a list of un-registration responses.
     //     This can be used to convey that the client is no longer
     //     interested in programming routes in this BD. All installed L2
-    //     routes will be lost.
+    //     routes will be removed.
     //
     // SLL2BdRegMsg.Oper = SL_REGOP_EOF:
     //     BD End Of File message.
@@ -250,7 +250,7 @@ class SLL2Oper final {
       //     and expects a list of un-registration responses.
       //     This can be used to convey that the client is no longer
       //     interested in programming routes in this BD. All installed L2
-      //     routes will be lost.
+      //     routes will be removed.
       //
       // SLL2BdRegMsg.Oper = SL_REGOP_EOF:
       //     BD End Of File message.
@@ -477,7 +477,7 @@ class SLL2Oper final {
     //     and expects a list of un-registration responses.
     //     This can be used to convey that the client is no longer
     //     interested in programming routes in this BD. All installed L2
-    //     routes will be lost.
+    //     routes will be removed.
     //
     // SLL2BdRegMsg.Oper = SL_REGOP_EOF:
     //     BD End Of File message.
