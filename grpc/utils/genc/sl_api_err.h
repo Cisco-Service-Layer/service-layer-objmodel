@@ -240,12 +240,12 @@
     SL_PATH_INVALID_VNI = 0x5018,\
     /* Path has an invalid  encap address. 0x5019 */\
     SL_PATH_INVALID_ENCAP_ADDR = 0x5019,\
-    /* VxLAN source and destination AFI mismatch. 0x501a */\
-    SL_PATH_SRC_DES_AFI_MISMATCH = 0x501a,\
-    /* Router mac not supported with VxLAN path attributes. 0x501b */\
-    SL_PATH_RTR_MAC_VXLAN_NOSUP = 0x501b,\
-    /* Encap type mismatch with VxLAN path. 0x501c */\
-    SL_PATH_ENCAP_TYPE_VXLANPATH_MISMATCH = 0x501c,\
+    /* VxLAN encapsulation source and destination AFI mismatch. 0x501a */\
+    SL_PATH_SRC_DST_AFI_MISMATCH = 0x501a,\
+    /* PATH router mac is not supported with VxLAN path attributes. 0x501b */\
+    SL_PATH_RTR_MAC_NOSUP = 0x501b,\
+    /* Path Encap type attribute does not match specified encapsulation. 0x501c */\
+    SL_PATH_ENCAP_TYPE_MISMATCH = 0x501c,\
     /* !!! Error codes for BFD opertations. */\
     /* Offset for BFD operation errors. 0x6000 */\
     SL_RPC_BFD_START_OFFSET = 0x6000,\
@@ -937,14 +937,14 @@
     {SL_PATH_INVALID_ENCAP_ADDR ,\
         " Path has an invalid  encap address.  "\
         },\
-    {SL_PATH_SRC_DES_AFI_MISMATCH ,\
-        " VxLAN source and destination AFI mismatch.  "\
+    {SL_PATH_SRC_DST_AFI_MISMATCH ,\
+        " VxLAN encapsulation source and destination AFI mismatch.  "\
         },\
-    {SL_PATH_RTR_MAC_VXLAN_NOSUP ,\
-        " Router mac not supported with VxLAN path attributes.  "\
+    {SL_PATH_RTR_MAC_NOSUP ,\
+        " PATH router mac is not supported with VxLAN path attributes.  "\
         },\
-    {SL_PATH_ENCAP_TYPE_VXLANPATH_MISMATCH ,\
-        " Encap type mismatch with VxLAN path.  "\
+    {SL_PATH_ENCAP_TYPE_MISMATCH ,\
+        " Path Encap type attribute does not match specified encapsulation.  "\
         },\
     {SL_RPC_BFD_START_OFFSET ,\
         " Offset for BFD operation errors.  "\
