@@ -240,8 +240,8 @@
     SL_PATH_INVALID_VNI = 0x5018,\
     /* Path has an invalid  encap address. 0x5019 */\
     SL_PATH_INVALID_ENCAP_ADDR = 0x5019,\
-    /* VxLAN encapsulation source and destination AFI mismatch. 0x501a */\
-    SL_PATH_SRC_DST_AFI_MISMATCH = 0x501a,\
+    /* Path encapsulation source and destination AFI mismatch. 0x501a */\
+    SL_PATH_ENCAP_SRC_DST_AFI_MISMATCH = 0x501a,\
     /* PATH router mac is not supported with VxLAN path attributes. 0x501b */\
     SL_PATH_RTR_MAC_NOSUP = 0x501b,\
     /* Path Encap type attribute does not match specified encapsulation. 0x501c */\
@@ -937,8 +937,8 @@
     {SL_PATH_INVALID_ENCAP_ADDR ,\
         " Path has an invalid  encap address.  "\
         },\
-    {SL_PATH_SRC_DST_AFI_MISMATCH ,\
-        " VxLAN encapsulation source and destination AFI mismatch.  "\
+    {SL_PATH_ENCAP_SRC_DST_AFI_MISMATCH ,\
+        " Path encapsulation source and destination AFI mismatch.  "\
         },\
     {SL_PATH_RTR_MAC_NOSUP ,\
         " PATH router mac is not supported with VxLAN path attributes.  "\

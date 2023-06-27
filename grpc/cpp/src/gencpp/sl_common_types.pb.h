@@ -167,7 +167,7 @@ enum SLErrorStatus_SLErrno : int {
   SLErrorStatus_SLErrno_SL_PATH_BACKUP_TOOMANY_LABELS = 20503,
   SLErrorStatus_SLErrno_SL_PATH_INVALID_VNI = 20504,
   SLErrorStatus_SLErrno_SL_PATH_INVALID_ENCAP_ADDR = 20505,
-  SLErrorStatus_SLErrno_SL_PATH_SRC_DST_AFI_MISMATCH = 20506,
+  SLErrorStatus_SLErrno_SL_PATH_ENCAP_SRC_DST_AFI_MISMATCH = 20506,
   SLErrorStatus_SLErrno_SL_PATH_RTR_MAC_NOSUP = 20507,
   SLErrorStatus_SLErrno_SL_PATH_ENCAP_TYPE_MISMATCH = 20508,
   SLErrorStatus_SLErrno_SL_RPC_BFD_START_OFFSET = 24576,
@@ -801,8 +801,8 @@ class SLErrorStatus final :
     SLErrorStatus_SLErrno_SL_PATH_INVALID_VNI;
   static constexpr SLErrno SL_PATH_INVALID_ENCAP_ADDR =
     SLErrorStatus_SLErrno_SL_PATH_INVALID_ENCAP_ADDR;
-  static constexpr SLErrno SL_PATH_SRC_DST_AFI_MISMATCH =
-    SLErrorStatus_SLErrno_SL_PATH_SRC_DST_AFI_MISMATCH;
+  static constexpr SLErrno SL_PATH_ENCAP_SRC_DST_AFI_MISMATCH =
+    SLErrorStatus_SLErrno_SL_PATH_ENCAP_SRC_DST_AFI_MISMATCH;
   static constexpr SLErrno SL_PATH_RTR_MAC_NOSUP =
     SLErrorStatus_SLErrno_SL_PATH_RTR_MAC_NOSUP;
   static constexpr SLErrno SL_PATH_ENCAP_TYPE_MISMATCH =
