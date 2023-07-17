@@ -2269,6 +2269,180 @@ class TestSuite_030_MPLS_CoS_NHLFE_TC1(unittest.TestCase):
             "next_hops": json_params["next_hops"],
         }
 
+    def test_000_get_globals(self):
+        # Get Global MPLS info
+        client.mpls_global_get()
+
+    def test_001_mpls_register(self):
+        client.mpls_register(self.reg_params)
+
+    def test_002_blk_add(self):
+        client.label_block_add(self.lbl_blk_params)
+
+    # # add label 32220 - 32224 - Pop and Lookup
+    def test_003_ilm_add(self):
+        client.ilm_add(
+            self.ilm_entry["cos_nhlfe_1"],
+            stream=self.STREAM,
+            af=self.AF,
+            **self.path_info
+        )
+    
+    #  # delete label 32220-32224
+    def test_004_ilm_delete(self):
+        client.ilm_delete(
+            self.ilm_entry_del["cos_nhlfe_del_default"],
+            stream=self.STREAM,
+            af=self.AF,
+            **self.path_info
+        )
+
+    # # add label 32220 -  Negative test, load metric non zero for down path
+    def test_005_ilm_add(self):
+        client.ilm_add(
+            self.ilm_entry["cos_nhlfe_4"],
+            stream=self.STREAM,
+            af=self.AF,
+            xfail=True,
+            **self.path_info
+        )
+
+    # add label 32220 -  Negative test, Different priority for same setid
+    def test_006_ilm_add(self):
+        client.ilm_add(
+            self.ilm_entry["cos_nhlfe_5"],
+            stream=self.STREAM,
+            af=self.AF,
+            xfail=True,
+            **self.path_info
+        )
+
+    # add label 32220 -  Negative test, Multiple primary setid
+    def test_007_ilm_add(self):
+        client.ilm_add(
+            self.ilm_entry["cos_nhlfe_6"],
+            stream=self.STREAM,
+            af=self.AF,
+            xfail=True,
+            **self.path_info
+        )
+    
+     # # add label 32220 -  Negative test, Non contiguous setids
+    def test_008_ilm_add(self):
+        client.ilm_add(
+            self.ilm_entry["cos_nhlfe_7"],
+            stream=self.STREAM,
+            af=self.AF,
+            xfail=True,
+            **self.path_info
+        )
+
+     # # add label 32220 -  Negative test, Non contiguous exps
+    def test_009_ilm_add(self):
+        client.ilm_add(
+            self.ilm_entry["cos_nhlfe_8"],
+            stream=self.STREAM,
+            af=self.AF,
+            xfail=True,
+            **self.path_info
+        )
+
+      # # add label 32220 -  Negative test, inconsistent exp on path
+    def test_010_ilm_add(self):
+        client.ilm_add(
+            self.ilm_entry["cos_nhlfe_9"],
+            stream=self.STREAM,
+            af=self.AF,
+            xfail=True,
+            **self.path_info
+        )
+
+    # # add label 32220 - 32224 - Pop and Lookup
+    def test_011_ilm_add(self):
+        client.ilm_add(
+            self.ilm_entry["cos_nhlfe_1"],
+            stream=self.STREAM,
+            af=self.AF,
+            **self.path_info
+        )
+
+    # # update label 32220-32224 - Swap/ Pop and Forward
+    def test_012_ilm_update(self):
+        client.ilm_update(
+            self.ilm_entry["cos_nhlfe_2"],
+            stream=self.STREAM,
+            af=self.AF,
+            **self.path_info
+        )
+
+    # # update label 32220 - 32224 - Pop and Lookup
+    def test_013_ilm_update(self):
+        client.ilm_update(
+            self.ilm_entry["cos_nhlfe_1"],
+            stream=self.STREAM,
+            af=self.AF,
+            **self.path_info
+        )
+
+    # # update label 32220-32224 - Swap/ Pop and Forward
+    def test_012_ilm_update(self):
+        client.ilm_update(
+            self.ilm_entry["cos_nhlfe_2"],
+            stream=self.STREAM,
+            af=self.AF,
+            **self.path_info
+        )
+
+    # # update label 32220-32224, change path priority
+    def test_014_ilm_update(self):
+        client.ilm_update(
+            self.ilm_entry["cos_nhlfe_3"],
+            stream=self.STREAM,
+            af=self.AF,
+            **self.path_info
+        )
+
+    # # update label 32220 - 32224 - Pop and Lookup
+    def test_015_ilm_update(self):
+        client.ilm_update(
+            self.ilm_entry["cos_nhlfe_1"],
+            stream=self.STREAM,
+            af=self.AF,
+            **self.path_info
+        )
+
+    #  # delete label 32220-32224
+    def test_016_ilm_delete(self):
+        client.ilm_delete(
+            self.ilm_entry_del["cos_nhlfe_del_default"],
+            stream=self.STREAM,
+            af=self.AF,
+            **self.path_info
+        )
+
+    def test_017_mpls_eof(self):
+        client.mpls_eof()
+
+    def test_018_mpls_unregister(self):
+        client.mpls_unregister()
+
+
+class TestSuite_036_MPLS_PRIMARY_BACKUP_TC1(unittest.TestCase):
+    AF = 4
+    STREAM = False
+
+    @classmethod
+    def setUpClass(cls):
+        super(TestSuite_036_MPLS_PRIMARY_BACKUP_TC1, cls).setUpClass()
+        cls.ilm_entry = json_params["cos_nhlfe_tc2"]
+        cls.ilm_entry_del = json_params["cos_ilm_del"]
+        cls.lbl_blk_params = json_params["cos_mpls_lbl_block_1"]
+        cls.lbl_blk_get = json_params["lbl_blk_get"]
+        cls.reg_params = json_params["reg_params"]
+        cls.path_info = {
+            "paths": json_params["paths"],
+            "next_hops": json_params["next_hops"],
+        }
 
     def test_000_get_globals(self):
         # Get Global MPLS info
@@ -2288,54 +2462,9 @@ class TestSuite_030_MPLS_CoS_NHLFE_TC1(unittest.TestCase):
             af=self.AF,
             **self.path_info
         )
-
-    # # update label 32220-32224 - Swap/ Pop and Forward
-    def test_004_ilm_update(self):
-        client.ilm_update(
-            self.ilm_entry["cos_nhlfe_2"],
-            stream=self.STREAM,
-            af=self.AF,
-            **self.path_info
-        )
-
-    # # update label 32220 - 32224 - Pop and Lookup
-    def test_005_ilm_update(self):
-        client.ilm_update(
-            self.ilm_entry["cos_nhlfe_1"],
-            stream=self.STREAM,
-            af=self.AF,
-            **self.path_info
-        )
-
-    # # update label 32220-32224 - Swap/ Pop and Forward
-    def test_006_ilm_update(self):
-        client.ilm_update(
-            self.ilm_entry["cos_nhlfe_2"],
-            stream=self.STREAM,
-            af=self.AF,
-            **self.path_info
-        )
-
-    # # update label 32220-32224, change path priority
-    def test_007_ilm_update(self):
-        client.ilm_update(
-            self.ilm_entry["cos_nhlfe_3"],
-            stream=self.STREAM,
-            af=self.AF,
-            **self.path_info
-        )
-
-    # # update label 32220 - 32224 - Pop and Lookup
-    def test_008_ilm_update(self):
-        client.ilm_update(
-            self.ilm_entry["cos_nhlfe_1"],
-            stream=self.STREAM,
-            af=self.AF,
-            **self.path_info
-        )
-
+    
     #  # delete label 32220-32224
-    def test_009_ilm_delete(self):
+    def test_004_ilm_delete(self):
         client.ilm_delete(
             self.ilm_entry_del["cos_nhlfe_del_default"],
             stream=self.STREAM,
@@ -2343,8 +2472,222 @@ class TestSuite_030_MPLS_CoS_NHLFE_TC1(unittest.TestCase):
             **self.path_info
         )
 
-    def test_010_mpls_eof(self):
+    # # add label 32220 -  Negative test, load metric non zero for down path
+    def test_005_ilm_add(self):
+        client.ilm_add(
+            self.ilm_entry["cos_nhlfe_4"],
+            stream=self.STREAM,
+            af=self.AF,
+            xfail=True,
+            **self.path_info
+        )
+
+    # delete label 32220
+    def test_006_ilm_delete(self):
+        client.ilm_delete(
+            self.ilm_entry_del["cos_nhlfe_del_2"],
+            stream=self.STREAM,
+            af=self.AF,
+            **self.path_info
+        )
+
+    # add label 32220 -  Negative test, Different priority for same setid
+    def test_007_ilm_add(self):
+        client.ilm_add(
+            self.ilm_entry["cos_nhlfe_5"],
+            stream=self.STREAM,
+            af=self.AF,
+            xfail=True,
+            **self.path_info
+        )
+
+    # delete label 32220
+    def test_008_ilm_delete(self):
+        client.ilm_delete(
+            self.ilm_entry_del["cos_nhlfe_del_2"],
+            stream=self.STREAM,
+            af=self.AF,
+            **self.path_info
+        )
+
+    # add label 32220 -  Negative test, Multiple primary setid
+    def test_009_ilm_add(self):
+        client.ilm_add(
+            self.ilm_entry["cos_nhlfe_6"],
+            stream=self.STREAM,
+            af=self.AF,
+            xfail=True,
+            **self.path_info
+        )
+    
+    # delete label 32220
+    def test_010_ilm_delete(self):
+        client.ilm_delete(
+            self.ilm_entry_del["cos_nhlfe_del_2"],
+            stream=self.STREAM,
+            af=self.AF,
+            **self.path_info
+        )
+
+    # add label 32220 -  Negative test, Non contiguous setids
+    def test_011_ilm_add(self):
+        client.ilm_add(
+            self.ilm_entry["cos_nhlfe_7"],
+            stream=self.STREAM,
+            af=self.AF,
+            xfail=True,
+            **self.path_info
+        )
+
+    # delete label 32220
+    def test_012_ilm_delete(self):
+        client.ilm_delete(
+            self.ilm_entry_del["cos_nhlfe_del_2"],
+            stream=self.STREAM,
+            af=self.AF,
+            **self.path_info
+        )
+
+
+    # # update label 32220
+    def test_013_ilm_add(self):
+        client.ilm_add(
+            self.ilm_entry["cos_nhlfe_2"],
+            stream=self.STREAM,
+            af=self.AF,
+            **self.path_info
+        )
+
+    # # update label 32220 change path priority
+    def test_014_ilm_update(self):
+        client.ilm_update(
+            self.ilm_entry["cos_nhlfe_3"],
+            stream=self.STREAM,
+            af=self.AF,
+            **self.path_info
+        )
+
+    #  # delete label 32220
+    def test_016_ilm_delete(self):
+        client.ilm_delete(
+            self.ilm_entry_del["cos_nhlfe_del_2"],
+            stream=self.STREAM,
+            af=self.AF,
+            **self.path_info
+        )
+
+    def test_016_mpls_eof(self):
         client.mpls_eof()
 
-    def test_011_mpls_unregister(self):
+    def test_017_mpls_unregister(self):
+        client.mpls_unregister()
+
+        
+class TestSuite_020_MPLS_CoS_TC7(unittest.TestCase):
+    AF = 4
+    STREAM = False
+
+    @classmethod
+    def setUpClass(cls):
+        super(TestSuite_020_MPLS_CoS_TC7, cls).setUpClass()
+        cls.ilm_entry = json_params["cos_ilm_tc7"]
+        cls.ilm_entry_del = json_params["cos_ilm_del"]
+        cls.lbl_blk_params = json_params["cos_mpls_lbl_block_1"]
+        cls.lbl_blk_get = json_params["lbl_blk_get"]
+        cls.reg_params = json_params["reg_params"]
+        cls.path_info = {
+            "paths": json_params["paths"],
+            "next_hops": json_params["next_hops"],
+        }
+
+
+    def test_000_get_globals(self):
+        # Get Global MPLS info
+        client.mpls_global_get()
+
+    def test_001_mpls_register(self):
+        client.mpls_register(self.reg_params)
+
+    def test_002_blk_add(self):
+        client.label_block_add(self.lbl_blk_params)
+
+
+    # add label 32220 - Push  
+    def test_002_ilm_add(self):
+        client.ilm_add(
+            self.ilm_entry["cos_ilm_1"],
+            stream=self.STREAM,
+            af=self.AF,
+            **self.path_info
+        )
+
+
+    def test_003_ilm_delete(self):
+        client.ilm_delete(
+            self.ilm_entry_del["cos_ilm_del_default_exp"],
+            stream=self.STREAM,
+            af=self.AF,
+            **self.path_info
+        )
+
+    def test_004_mpls_eof(self):
+        client.mpls_eof()
+
+
+    def test_005_mpls_unregister(self):
+        client.mpls_unregister()
+
+
+class TestSuite_020_MPLS_CoS_TC7_v6(TestSuite_020_MPLS_CoS_TC7):
+    AF = 6
+    STREAM = False
+
+class TestSuite_031_MPLS_CoS_NHLFE_TC2(unittest.TestCase):
+    AF = 4
+    STREAM = False
+
+    @classmethod
+    def setUpClass(cls):
+        super(TestSuite_031_MPLS_CoS_NHLFE_TC2, cls).setUpClass()
+        cls.ilm_entry = json_params["cos_nhlfe_tc3"]
+        cls.ilm_entry_del = json_params["cos_ilm_del"]
+        cls.lbl_blk_params = json_params["cos_mpls_lbl_block_1"]
+        cls.lbl_blk_get = json_params["lbl_blk_get"]
+        cls.reg_params = json_params["reg_params"]
+        cls.path_info = {
+            "paths": json_params["paths"],
+            "next_hops": json_params["next_hops"],
+        }
+
+    def test_000_get_globals(self):
+        # Get Global MPLS info
+        client.mpls_global_get()
+
+    def test_001_mpls_register(self):
+        client.mpls_register(self.reg_params)
+
+    def test_002_blk_add(self):
+        client.label_block_add(self.lbl_blk_params)
+
+    # add label to multiple paths(inc > 1 remote labe) Push 
+    def test_002_ilm_add(self):
+        client.ilm_add(
+            self.ilm_entry["cos_nhlfe_1"],
+            stream=self.STREAM,
+            af=self.AF,
+            **self.path_info
+        )
+
+    def test_003_ilm_delete(self):
+         client.ilm_delete(
+             self.ilm_entry_del["cos_nhlfe_del_default"],
+             stream=self.STREAM,
+             af=self.AF,
+             **self.path_info
+         )
+
+    def test_004_mpls_eof(self):
+        client.mpls_eof()
+
+    def test_005_mpls_unregister(self):
         client.mpls_unregister()
