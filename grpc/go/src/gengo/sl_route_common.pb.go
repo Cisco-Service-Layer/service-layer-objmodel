@@ -1356,9 +1356,9 @@ type SLRoutePath struct {
 	// Load metric for this path.
 	// Used for equal/unequal cost load balancing of traffic distribution.
 	// For equal cost load balancing, all paths associated with the
-	// route must have a value of 0. For
-	// unequal cost load balancing, all paths must have non-zero value
-	// otherwise system defaults to equal cost load balancing.
+	// route must have LoadMetric value of 0. For unequal cost load
+	// balancing, all paths must have non-zero LoadMetricvalue, otherwise
+	// system defaults to equal cost load balancing.
 	LoadMetric uint32 `protobuf:"varint,3,opt,name=LoadMetric,proto3" json:"LoadMetric,omitempty"`
 	// Path VRF name. This field is used ONLY if the path is in a different
 	// VRF than the route (e.g. VPN cases)
