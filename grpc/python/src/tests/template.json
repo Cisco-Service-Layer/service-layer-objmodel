@@ -1,5 +1,5 @@
 {
-    "_copyright_": "All rights reserved. Copyright (c) 2016-2023 by cisco Systems, Inc.",
+    "_copyright_": "All rights reserved. Copyright (c) 2016-2022 by cisco Systems, Inc.",
     "batch_bfd_multihop": {
         "sessions": [
             {
@@ -406,7 +406,7 @@
         "prefix_len": 24,
         "tag": 16,
         "vrf_name": "default",
-        "flag": 1
+        "flags": 1
     },
     "batch_v4_vrf": {
         "af": 4,
@@ -440,7 +440,7 @@
         "prefix_len": 64,
         "tag": 18,
         "vrf_name": "default",
-        "flag":1
+        "flags": 1
     },
     "batch_v6_vrf": {
         "af": 6,
@@ -498,6 +498,7 @@
             "vrf_name": "default"
         }
     },
+    "do_global_init": true,
     "global_init": {
         "major": 0,
         "minor": 0,
@@ -1467,6 +1468,14 @@
                 "next_hop": "nh_pop_and_lookup"
             }
         ],
+        "cos_path_37" : [
+            {
+                "label_action": 6,
+                "labels": [ 46000 ],
+                "load_metric": 3,
+                "next_hop": "cos_nh_1"
+            }
+        ],
         "cos_nhlfe_path_1a" : [
             {
                 "default_elsp": true,
@@ -1518,7 +1527,7 @@
         ],
         "cos_nhlfe_path_2a" : [
             {
-                "exp": 4,
+                "default_elsp": true,
                 "label_action": 1,
                 "labels": [ 46000 ],
                 "next_hop": "cos_nh_1",
@@ -1534,17 +1543,41 @@
                 "path_setid": 1
             },
             {
-                "exp": 3,
+                "default_elsp": true,
                 "label_action": 2,
                 "labels": [],
                 "next_hop": "cos_nh_3",
                 "path_priority": 1,
-                "path_setid": 2
+                "path_setid": 1
+            },
+            {
+                "exp": 1,
+                "label_action": 1,
+                "labels": [ 46000 ],
+                "next_hop": "cos_nh_1",
+                "path_priority": 1,
+                "path_setid": 0
+            },
+            {
+                "exp": 1,
+                "label_action": 1,
+                "labels": [46000],
+                "next_hop": "cos_nh_2",
+                "path_priority": 0,
+                "path_setid": 1
+            },
+            {
+                "exp": 1,
+                "label_action": 2,
+                "labels": [],
+                "next_hop": "cos_nh_3",
+                "path_priority": 0,
+                "path_setid": 1
             }
         ],
         "cos_nhlfe_path_2b" : [
             {
-                "exp": 2,
+                "default_elsp": true,
                 "label_action": 1,
                 "labels": [ 46001 ],
                 "next_hop": "cos_nh_4",
@@ -1552,7 +1585,7 @@
                 "path_setid": 1
             },
             {
-                "exp": 0,
+                "default_elsp": true,
                 "label_action": 2,
                 "labels": [],
                 "next_hop": "cos_nh_5",
@@ -1560,7 +1593,32 @@
                 "path_setid": 0
             },
             {
-                "exp": 2,
+                "default_elsp": true,
+                "label_action": 1,
+                "labels": [46001],
+                "next_hop": "cos_nh_6",
+                "path_priority": 1,
+                "path_setid": 2,
+                "path_down": 1
+            },
+            {
+                "exp": 1,
+                "label_action": 1,
+                "labels": [ 46001 ],
+                "next_hop": "cos_nh_4",
+                "path_priority": 1,
+                "path_setid": 1
+            },
+            {
+                "exp": 1,
+                "label_action": 2,
+                "labels": [],
+                "next_hop": "cos_nh_5",
+                "path_priority": 0,
+                "path_setid": 0
+            },
+            {
+                "exp": 1,
                 "label_action": 1,
                 "labels": [46001],
                 "next_hop": "cos_nh_6",
@@ -1571,76 +1629,136 @@
         ],
         "cos_nhlfe_path_2c" : [
             {
-                "exp": 1,
+                "default_elsp": true,
                 "label_action": 1,
                 "labels": [ 46002 ],
                 "next_hop": "cos_nh_7",
                 "path_priority": 0
             },
             {
-                "exp": 3,
+                "default_elsp": true,
                 "label_action": 1,
                 "labels": [46002],
                 "next_hop": "cos_nh_9",
                 "path_priority": 1,
                 "path_setid": 1
+            },
+            {
+                "exp": 1,
+                "label_action": 1,
+                "labels": [ 46002 ],
+                "next_hop": "cos_nh_7",
+                "path_priority": 1
+            },
+            {
+                "exp": 3,
+                "label_action": 1,
+                "labels": [46002],
+                "next_hop": "cos_nh_9",
+                "path_priority": 0,
+                "path_setid": 1
             }
         ],
         "cos_nhlfe_path_2d" : [
             {
-                "exp": 4,
+                "default_elsp": true,
                 "label_action": 1,
                 "labels": [ 46003 ],
                 "next_hop": "cos_nh_10",
                 "path_priority": 0
             },
             {
-                "exp": 5,
+                "default_elsp": true,
                 "label_action": 1,
                 "labels": [ 46003 ],
                 "next_hop": "cos_nh_11",
                 "path_priority": 0
             },
             {
-                "exp": 3,
+                "default_elsp": true,
                 "label_action": 2,
                 "labels": [  ],
                 "next_hop": "cos_nh_12",
                 "path_priority": 1,
                 "path_setid": 1
+            },
+            {
+                "exp": 1,
+                "label_action": 1,
+                "labels": [ 46003 ],
+                "next_hop": "cos_nh_10",
+                "path_priority": 1
+            },
+            {
+                "exp": 1,
+                "label_action": 1,
+                "labels": [ 46003 ],
+                "next_hop": "cos_nh_11",
+                "path_priority": 1
+            },
+            {
+                "exp": 1,
+                "label_action": 2,
+                "labels": [  ],
+                "next_hop": "cos_nh_12",
+                "path_priority": 0,
+                "path_setid": 1
             }
         ],
         "cos_nhlfe_path_2e" : [
             {
-                "exp": 0,
+                "default_elsp": true,
                 "label_action": 1,
                 "labels": [ 46004 ],
                 "next_hop": "cos_nh_1",
                 "path_priority": 1
             },
             {
-                "exp": 1,
+                "default_elsp": true,
                 "label_action": 1,
                 "labels": [ 46004 ],
                 "next_hop": "cos_nh_2",
                 "path_priority": 1
             },
             {
-                "exp": 3,
+                "default_elsp": true,
                 "label_action": 2,
                 "labels": [],
                 "next_hop": "cos_nh_3",
                 "path_priority": 0,
                 "path_setid": 2
+            },
+            {
+                "exp": 1,
+                "label_action": 1,
+                "labels": [ 46004 ],
+                "next_hop": "cos_nh_1",
+                "path_priority": 0
+            },
+            {
+                "exp": 1,
+                "label_action": 1,
+                "labels": [ 46004 ],
+                "next_hop": "cos_nh_2",
+                "path_priority": 0
+            },
+            {
+                "exp": 1,
+                "label_action": 2,
+                "labels": [],
+                "next_hop": "cos_nh_3",
+                "path_priority": 1,
+                "path_setid": 2
             }
         ],
         "cos_nhlfe_path_3a" : [
             {
-                "exp": 4,
+                "default_elsp": true,
                 "label_action": 1,
                 "labels": [ 46000 ],
                 "next_hop": "cos_nh_1",
-                "path_priority": 1
+                "path_priority": 0,
+                "path_setid": 0
             },
             {
                 "default_elsp": true,
@@ -1651,59 +1769,125 @@
                 "path_setid": 1
             },
             {
-                "exp": 3,
+                "default_elsp": true,
                 "label_action": 2,
                 "labels": [],
                 "next_hop": "cos_nh_3",
+                "path_priority": 1,
+                "path_setid": 1
+            },
+            {
+                "exp": 1,
+                "label_action": 1,
+                "labels": [ 46000 ],
+                "next_hop": "cos_nh_1",
                 "path_priority": 0,
-                "path_setid": 2
+                "path_setid": 0
+            },
+            {
+                "exp": 1,
+                "label_action": 1,
+                "labels": [46000],
+                "next_hop": "cos_nh_2",
+                "path_priority": 1,
+                "path_setid": 1
+            },
+            {
+                "exp": 1,
+                "label_action": 2,
+                "labels": [],
+                "next_hop": "cos_nh_3",
+                "path_priority": 1,
+                "path_setid": 1
             }
         ],
         "cos_nhlfe_path_3b" : [
             {
-                "exp": 2,
+                "default_elsp": true,
                 "label_action": 1,
                 "labels": [ 46001 ],
                 "next_hop": "cos_nh_4",
-                "path_priority": 1,
-                "path_setid": 2
+                "path_priority": 0,
+                "path_setid": 1
             },
             {
-                "exp": 0,
+                "default_elsp": true,
                 "label_action": 2,
                 "labels": [],
                 "next_hop": "cos_nh_5",
-                "path_priority": 1
+                "path_priority": 1,
+                "path_setid": 0
             },
             {
-                "exp": 2,
+                "default_elsp": true,
                 "label_action": 1,
                 "labels": [46001],
                 "next_hop": "cos_nh_6",
+                "path_priority": 1,
+                "path_setid": 2,
+                "path_down": 1
+            },
+            {
+                "exp": 1,
+                "label_action": 1,
+                "labels": [ 46001 ],
+                "next_hop": "cos_nh_4",
                 "path_priority": 0,
                 "path_setid": 1
+            },
+            {
+                "exp": 1,
+                "label_action": 2,
+                "labels": [],
+                "next_hop": "cos_nh_5",
+                "path_priority": 1,
+                "path_setid": 0
+            },
+            {
+                "exp": 1,
+                "label_action": 1,
+                "labels": [46001],
+                "next_hop": "cos_nh_6",
+                "path_priority": 1,
+                "path_setid": 2,
+                "path_down": 1
             }
         ],
         "cos_nhlfe_path_3c" : [
+            {
+                "default_elsp": true,
+                "label_action": 1,
+                "labels": [ 46002 ],
+                "next_hop": "cos_nh_7",
+                "path_priority": 0
+            },
+            {
+                "default_elsp": true,
+                "label_action": 1,
+                "labels": [46002],
+                "next_hop": "cos_nh_9",
+                "path_priority": 1,
+                "path_setid": 1
+            },
             {
                 "exp": 1,
                 "label_action": 1,
                 "labels": [ 46002 ],
                 "next_hop": "cos_nh_7",
-                "path_priority": 1
+                "path_priority": 0
             },
             {
                 "exp": 3,
                 "label_action": 1,
                 "labels": [46002],
                 "next_hop": "cos_nh_9",
-                "path_priority": 0,
-                "path_setid": 2
+                "path_priority": 1,
+                "path_setid": 1
             }
         ],
         "cos_nhlfe_path_4a" : [
             {
-                "exp": 0,
+                "default_elsp": true,
                 "label_action": 1,
                 "labels": [ 46004 ],
                 "next_hop": "cos_nh_1",
@@ -1721,11 +1905,80 @@
         ],
         "cos_nhlfe_path_4b" : [
             {
-                "exp": 0,
+                "default_elsp": true,
                 "label_action": 1,
                 "labels": [ 46004 ],
                 "next_hop": "cos_nh_1",
                 "path_priority": 1
+            },
+            {
+                "default_elsp": true,
+                "label_action": 1,
+                "labels": [ 46004 ],
+                "next_hop": "cos_nh_2",
+                "path_priority": 0
+            },
+            {
+                "default_elsp": true,
+                "label_action": 2,
+                "labels": [],
+                "next_hop": "cos_nh_3",
+                "path_priority": 1,
+                "path_setid": 1
+            },
+            {
+                "exp": 1,
+                "label_action": 1,
+                "labels": [ 46004 ],
+                "next_hop": "cos_nh_1",
+                "path_priority": 1
+            },
+            {
+                "exp": 1,
+                "label_action": 1,
+                "labels": [ 46004 ],
+                "next_hop": "cos_nh_2",
+                "path_priority": 1
+            },
+            {
+                "exp": 1,
+                "label_action": 2,
+                "labels": [],
+                "next_hop": "cos_nh_3",
+                "path_priority": 0,
+                "path_setid": 1
+            }
+        ],
+        "cos_nhlfe_path_4c" : [
+            {
+                "default_elsp": true,
+                "label_action": 1,
+                "labels": [ 46004 ],
+                "next_hop": "cos_nh_1",
+                "path_priority": 1
+            },
+            {
+                "default_elsp": true,
+                "label_action": 1,
+                "labels": [ 46004 ],
+                "next_hop": "cos_nh_2",
+                "path_priority": 1
+            },
+            {
+                "default_elsp": true,
+                "label_action": 2,
+                "labels": [],
+                "next_hop": "cos_nh_3",
+                "path_priority": 0,
+                "path_setid": 1
+            },
+            {
+                "exp": 1,
+                "label_action": 1,
+                "labels": [ 46004 ],
+                "next_hop": "cos_nh_1",
+                "path_priority": 1,
+                "path_setid": 2
             },
             {
                 "exp": 1,
@@ -1735,17 +1988,39 @@
                 "path_priority": 0
             },
             {
-                "exp": 3,
+                "exp": 1,
                 "label_action": 2,
                 "labels": [],
                 "next_hop": "cos_nh_3",
-                "path_priority": 1,
+                "path_priority": 0,
                 "path_setid": 1
             }
         ],
-        "cos_nhlfe_path_4c" : [
+        "cos_nhlfe_path_4d" : [
             {
-                "exp": 0,
+                "default_elsp": true,
+                "label_action": 1,
+                "labels": [ 46004 ],
+                "next_hop": "cos_nh_1",
+                "path_priority": 1
+            },
+            {
+                "default_elsp": true,
+                "label_action": 1,
+                "labels": [ 46004 ],
+                "next_hop": "cos_nh_2",
+                "path_priority": 1
+            },
+            {
+                "default_elsp": true,
+                "label_action": 2,
+                "labels": [],
+                "next_hop": "cos_nh_3",
+                "path_priority": 0,
+                "path_setid": 1
+            },
+            {
+                "exp": 1,
                 "label_action": 1,
                 "labels": [ 46004 ],
                 "next_hop": "cos_nh_1",
@@ -1754,6 +2029,210 @@
             },
             {
                 "exp": 1,
+                "label_action": 1,
+                "labels": [ 46004 ],
+                "next_hop": "cos_nh_2",
+                "path_priority": 0
+            },
+            {
+                "exp": 1,
+                "label_action": 2,
+                "labels": [],
+                "next_hop": "cos_nh_3",
+                "path_priority": 1,
+                "path_setid": 1
+            }
+        ],
+        "cos_nhlfe_path_4e" : [
+            {
+                "default_elsp": true,
+                "label_action": 1,
+                "labels": [ 46004 ],
+                "next_hop": "cos_nh_1",
+                "path_priority": 1
+            },
+            {
+                "default_elsp": true,
+                "label_action": 1,
+                "labels": [ 46004 ],
+                "next_hop": "cos_nh_2",
+                "path_priority": 1
+            },
+            {
+                "exp": 1,
+                "label_action": 1,
+                "labels": [ 46004 ],
+                "next_hop": "cos_nh_1",
+                "path_priority": 1,
+                "path_setid": 2
+            },
+            {
+                "default_elsp": true,
+                "label_action": 2,
+                "labels": [],
+                "next_hop": "cos_nh_3",
+                "path_priority": 0,
+                "path_setid": 1
+            },
+            {
+                "exp": 1,
+                "label_action": 1,
+                "labels": [ 46004 ],
+                "next_hop": "cos_nh_2",
+                "path_priority": 0
+            },
+            {
+                "exp": 1,
+                "label_action": 2,
+                "labels": [],
+                "next_hop": "cos_nh_3",
+                "path_priority": 1,
+                "path_setid": 1
+            }
+        ],
+        "cos_nhlfe_path_4f" : [
+            {
+                "default_elsp": true,
+                "label_action": 1,
+                "labels": [ 46004 ],
+                "next_hop": "cos_nh_1",
+                "path_priority": 1
+            },
+            {
+                "default_elsp": true,
+                "label_action": 1,
+                "labels": [ 46004 ],
+                "next_hop": "cos_nh_2",
+                "path_priority": 1
+            },
+            {
+                "label_action": 1,
+                "labels": [ 46004 ],
+                "next_hop": "cos_nh_1",
+                "path_priority": 1,
+                "path_setid": 2
+            },
+            {
+                "label_action": 2,
+                "labels": [],
+                "next_hop": "cos_nh_3",
+                "path_priority": 0,
+                "path_setid": 1
+            },
+            {
+                "exp": 1,
+                "label_action": 1,
+                "labels": [ 46004 ],
+                "next_hop": "cos_nh_2",
+                "path_priority": 0
+            },
+            {
+                "exp": 1,
+                "label_action": 2,
+                "labels": [],
+                "next_hop": "cos_nh_3",
+                "path_priority": 1,
+                "path_setid": 1
+            }
+        ],
+        "cos_nhlfe_path_5a" : [
+            {
+                "label_action": 1,
+                "labels": [ 46000 ],
+                "next_hop": "cos_nh_1",
+                "path_priority": 1
+            },
+            {
+                "label_action": 1,
+                "labels": [ 46001 ],
+                "next_hop": "cos_nh_2",
+                "path_priority": 0,
+                "path_down": 1,
+                "load_metric": 8,
+                "path_setid": 1
+            },
+            {
+                "label_action": 1,
+                "labels": [ 46002 ],
+                "next_hop": "cos_nh_3",
+                "path_priority": 0,
+                "path_setid": 1
+            }
+        ],
+        "cos_nhlfe_path_5b" : [
+            {
+                "label_action": 1,
+                "labels": [ 46000 ],
+                "next_hop": "cos_nh_1",
+                "path_priority": 0
+            },
+            {
+                "label_action": 1,
+                "labels": [ 46001 ],
+                "next_hop": "cos_nh_2",
+                "path_priority": 1,
+                "path_down": 1,
+                "path_setid": 1
+            },
+            {
+                "label_action": 1,
+                "labels": [ 46002 ],
+                "next_hop": "cos_nh_3",
+                "path_priority": 1,
+                "path_setid": 1
+            }
+        ],
+        "cos_nhlfe_path_5c" : [
+            {
+                "label_action": 1,
+                "labels": [ 46004 ],
+                "next_hop": "cos_nh_1",
+                "path_priority": 1
+            },
+            {
+                "label_action": 1,
+                "labels": [ 46004 ],
+                "next_hop": "cos_nh_2",
+                "path_priority": 0
+            },
+            {
+                "label_action": 2,
+                "labels": [],
+                "next_hop": "cos_nh_3",
+                "path_priority": 1,
+                "path_setid": 1
+            }
+        ],
+        "cos_nhlfe_path_5d" : [
+            {
+                "label_action": 1,
+                "labels": [ 46004 ],
+                "next_hop": "cos_nh_1",
+                "path_priority": 1
+            },
+            {
+                "label_action": 1,
+                "labels": [ 46004 ],
+                "next_hop": "cos_nh_2",
+                "path_priority": 1
+            },
+            {
+                "label_action": 2,
+                "labels": [],
+                "next_hop": "cos_nh_3",
+                "path_priority": 0,
+                "path_setid": 1
+            }
+        ],
+        "cos_nhlfe_path_5e" : [
+            {
+                "label_action": 1,
+                "labels": [ 46004 ],
+                "next_hop": "cos_nh_1",
+                "path_priority": 1,
+                "path_setid": 1
+            },
+            {
                 "label_action": 1,
                 "labels": [ 46004 ],
                 "next_hop": "cos_nh_2",
@@ -1761,7 +2240,6 @@
                 "path_setid": 2
             },
             {
-                "exp": 3,
                 "label_action": 2,
                 "labels": [],
                 "next_hop": "cos_nh_3",
@@ -1769,16 +2247,37 @@
                 "path_setid": 3
             }
         ],
-        "cos_nhlfe_path_4d" : [
+        "cos_nhlfe_path_5f" : [
             {
-                "exp": 0,
+                "label_action": 1,
+                "labels": [ 46004 ],
+                "next_hop": "cos_nh_1",
+                "path_priority": 0,
+                "path_setid": 1
+            },
+            {
+                "label_action": 1,
+                "labels": [ 46004 ],
+                "next_hop": "cos_nh_2",
+                "path_priority": 1,
+                "path_setid": 2
+            },
+            {
+                "label_action": 2,
+                "labels": [],
+                "next_hop": "cos_nh_3",
+                "path_priority": 1,
+                "path_setid": 3
+            }
+        ],
+        "cos_nhlfe_path_5g" : [
+            {
                 "label_action": 1,
                 "labels": [ 46004 ],
                 "next_hop": "cos_nh_1",
                 "path_priority": 1
             },
             {
-                "exp": 1,
                 "label_action": 1,
                 "labels": [ 46004 ],
                 "next_hop": "cos_nh_2",
@@ -1786,13 +2285,180 @@
                 "path_setid": 1
             },
             {
-                "exp": 3,
                 "label_action": 2,
                 "labels": [],
                 "next_hop": "cos_nh_3",
                 "path_priority": 1
             }
         ],
+        "cos_nhlfe_path_5h" : [
+            {
+                "label_action": 1,
+                "labels": [ 46004 ],
+                "next_hop": "cos_nh_1",
+                "path_priority": 0
+            },
+            {
+                "label_action": 1,
+                "labels": [ 46004 ],
+                "next_hop": "cos_nh_2",
+                "path_priority": 1,
+                "path_setid": 1
+            },
+            {
+                "label_action": 2,
+                "labels": [],
+                "next_hop": "cos_nh_3",
+                "path_priority": 1,
+                "path_setid": 1
+            }
+        ],
+        "cos_nhlfe_path_6a" : [
+            {
+                "label_action": 1,
+                "labels": [ 46000 ],
+                "next_hop": "cos_nh_1",
+                "path_priority": 0,
+                "path_setid": 0
+            },
+            {
+                "label_action": 1,
+                "labels": [46000],
+                "next_hop": "cos_nh_2",
+                "path_priority": 1,
+                "path_setid": 1
+            },
+            {
+                "label_action": 2,
+                "labels": [],
+                "next_hop": "cos_nh_3",
+                "path_priority": 1,
+                "path_setid": 1
+            }
+        ],
+        "cos_nhlfe_path_6b" : [
+            {
+                "label_action": 1,
+                "labels": [ 46000 ],
+                "next_hop": "cos_nh_1",
+                "path_priority": 1,
+                "path_setid": 0
+            },
+            {
+                "label_action": 1,
+                "labels": [46000],
+                "next_hop": "cos_nh_2",
+                "path_priority": 0,
+                "path_setid": 1
+            },
+            {
+                "label_action": 2,
+                "labels": [],
+                "next_hop": "cos_nh_3",
+                "path_priority": 0,
+                "path_setid": 1
+            }
+        ],
+        "cos_nhlfe_path_7a" : [
+            {
+                "label_action": 1,
+                "labels": [ 46000 ],
+                "next_hop": "cos_nh_1",
+                "path_priority": 1,
+                "path_setid": 0,
+                "path_down": 1
+            },
+            {
+                "label_action": 1,
+                "labels": [46000],
+                "next_hop": "cos_nh_2",
+                "path_priority": 0,
+                "path_setid": 1
+            },
+            {
+                "label_action": 2,
+                "labels": [],
+                "next_hop": "cos_nh_3",
+                "path_priority": 0,
+                "path_setid": 1
+            }
+        ],
+        "cos_nhlfe_path_7b" : [
+            {
+                "label_action": 1,
+                "labels": [ 46000 ],
+                "next_hop": "cos_nh_1",
+                "path_priority": 1,
+                "path_setid": 0
+            },
+            {
+                "label_action": 1,
+                "labels": [46000],
+                "next_hop": "cos_nh_2",
+                "path_priority": 0,
+                "path_setid": 1
+            },
+            {
+                "label_action": 2,
+                "labels": [],
+                "next_hop": "cos_nh_3",
+                "path_priority": 0,
+                "path_setid": 1
+            }
+        ],
+        "cos_nhlfe_path_8a" : [
+            {
+                "exp": 4,
+                "label_action": 6,
+                "labels": [ 46000 ],
+                "next_hop": "cos_nh_1",
+                "path_priority": 0,
+                "path_setid": 0
+            },
+            {
+                "default_elsp": true,
+                "label_action": 6,
+                "labels": [46000],
+                "next_hop": "cos_nh_2",
+                "path_priority": 1,
+                "path_setid": 1
+            },
+            {
+                "exp": 3,
+                "label_action": 6,
+                "labels": [46000],
+                "next_hop": "cos_nh_3",
+                "path_priority": 1,
+                "path_setid": 2
+            }
+        ],
+        "cos_nhlfe_path_8b" : [
+            {
+                "exp": 0,
+                "label_action": 6,
+                "labels": [ 46001 ],
+                "next_hop": "cos_nh_4",
+                "path_priority": 0,
+                "path_setid": 1
+            },
+            {
+                "exp": 1,
+                "label_action": 6,
+                "labels": [46001],
+                "next_hop": "cos_nh_5",
+                "path_priority": 1,
+                "path_setid": 0
+            },
+            {
+                "exp": 2,
+                "label_action": 6,
+                "labels": [46001, 46002],
+                "next_hop": "cos_nh_6",
+		        "path_priority": 1,
+                "path_setid": 2,
+                "path_down": 1
+             }
+         ],
         "cos_scale_path_1" : [
             {
                 "label_action": 1,
@@ -2383,6 +3049,24 @@
                     "in_label": 32224,
                     "path": "cos_nhlfe_path_1e",
                     "range": 1
+                }
+             ]
+        },
+        "cos_nhlfe_del_2": {
+            "batch_size": 5,
+            "correlator": 1,
+            "ilms": [
+                {
+                    "in_label": 32220,
+                    "path": "cos_nhlfe_path_1a",
+                    "range": 1,
+                    "exp": 1
+                },
+                {
+                    "in_label": 32220,
+                    "path": "cos_nhlfe_path_1a",
+                    "range": 1,
+                    "default_elsp": true
                 }
              ]
         },
@@ -3216,6 +3900,20 @@
              ]
         }
     },
+    "cos_ilm_tc7" : {
+        "cos_ilm_1": {
+           "batch_size": 1,
+           "correlator": 1,
+           "ilms": [
+               {
+                   "default_elsp" : true,
+                   "in_label": 32220,
+                   "path": "cos_path_37",
+                   "range": 1
+               }
+            ]
+        }
+   },
     "cos_ilm_tc9" : {
         "cos_ilm_1": {
             "batch_size": 1,
@@ -4119,6 +4817,187 @@
                 {
                     "in_label": 32220,
                     "path": "cos_nhlfe_path_4d",
+                    "range": 1
+                }
+             ]
+        },
+        "cos_nhlfe_8": {
+            "batch_size": 5,
+            "correlator": 1,
+            "ilms": [
+                {
+                    "in_label": 32220,
+                    "path": "cos_nhlfe_path_4e",
+                    "range": 1
+                }
+             ]
+        },
+        "cos_nhlfe_9": {
+            "batch_size": 5,
+            "correlator": 1,
+            "ilms": [
+                {
+                    "in_label": 32220,
+                    "path": "cos_nhlfe_path_4f",
+                    "range": 1
+                }
+             ]
+        }
+    },
+    "cos_nhlfe_tc2" : {
+        "cos_nhlfe_1": {
+            "batch_size": 5,
+            "correlator": 1,
+            "ilms": [
+                {
+                    "in_label": 32220,
+                    "path": "cos_nhlfe_path_1a",
+                    "range": 1
+                },
+                {
+                    "in_label": 32221,
+                    "path": "cos_nhlfe_path_1b",
+                    "range": 1
+                },
+                {
+                    "in_label": 32222,
+                    "path": "cos_nhlfe_path_1c",
+                    "range": 1
+                },
+                {
+                    "in_label": 32223,
+                    "path": "cos_nhlfe_path_1d",
+                    "range": 1
+                },
+                {
+                    "in_label": 32224,
+                    "path": "cos_nhlfe_path_1e",
+                    "range": 1
+                }
+             ]
+        },
+        "cos_nhlfe_2": {
+            "batch_size": 3,
+            "correlator": 1,
+            "ilms": [
+                {
+                    "in_label": 32220,
+                    "path": "cos_nhlfe_path_6a",
+                    "range": 1,
+                    "exp": 1
+                },
+                {
+                    "in_label": 32220,
+                    "path": "cos_nhlfe_path_6b",
+                    "range": 1,
+                    "default_elsp": true
+                }
+             ]
+        },
+        "cos_nhlfe_3": {
+            "batch_size": 3,
+            "correlator": 1,
+            "ilms": [
+                {
+                    "in_label": 32220,
+                    "path": "cos_nhlfe_path_7a",
+                    "range": 1,
+                    "exp": 1
+                },
+                {
+                    "in_label": 32220,
+                    "path": "cos_nhlfe_path_7b",
+                    "range": 1,
+                    "default_elsp": true
+                }
+             ]
+        },
+        "cos_nhlfe_4": {
+            "batch_size": 2,
+            "correlator": 1,
+            "ilms": [
+                {
+                    "in_label": 32220,
+                    "path": "cos_nhlfe_path_5a",
+                    "range": 1,
+                    "exp": 1
+                },
+                {
+                    "in_label": 32220,
+                    "path": "cos_nhlfe_path_5b",
+                    "range": 1,
+                    "default_elsp": true
+                }
+             ]
+        },
+        "cos_nhlfe_5": {
+            "batch_size": 2,
+            "correlator": 1,
+            "ilms": [
+                {
+                    "in_label": 32220,
+                    "path": "cos_nhlfe_path_5c",
+                    "range": 1,
+                    "exp": 1
+                },
+                {
+                    "in_label": 32220,
+                    "path": "cos_nhlfe_path_5d",
+                    "range": 1,
+                    "default_elsp": true
+                }
+             ]
+        },
+        "cos_nhlfe_6": {
+            "batch_size": 5,
+            "correlator": 1,
+            "ilms": [
+                {
+                    "in_label": 32220,
+                    "path": "cos_nhlfe_path_5e",
+                    "range": 1,
+                    "exp": 1
+                },
+                {
+                    "in_label": 32220,
+                    "path": "cos_nhlfe_path_5f",
+                    "range": 1,
+                    "default_elsp": true
+                }
+             ]
+        },
+        "cos_nhlfe_7": {
+            "batch_size": 5,
+            "correlator": 1,
+            "ilms": [
+                {
+                    "in_label": 32220,
+                    "path": "cos_nhlfe_path_5g",
+                    "range": 1,
+                    "exp": 1
+                },
+                {
+                    "in_label": 32220,
+                    "path": "cos_nhlfe_path_5h",
+                    "range": 1,
+                    "default_elsp": true
+                }
+             ]
+        }
+    },
+    "cos_nhlfe_tc3" : {
+        "cos_nhlfe_1": {
+            "batch_size": 5,
+            "correlator": 1,
+            "ilms": [
+                {
+                    "in_label": 32220,
+                    "path": "cos_nhlfe_path_8a",
+                    "range": 1
+                },
+                {
+                    "in_label": 32221,
+                    "path": "cos_nhlfe_path_8b",
                     "range": 1
                 }
              ]
