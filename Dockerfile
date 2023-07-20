@@ -1,4 +1,7 @@
-FROM ubuntu:focal
+ARG UBUNTU_VER=20.04
+FROM ubuntu:${UBUNTU_VER}
+# Here we define UBUNTU_VER again, so it can be used after FROM.
+ARG UBUNTU_VER
 
 # https://askubuntu.com/questions/909277/avoiding-user-interaction-with-tzdata-when-installing-certbot-in-a-docker-contai/1098881#1098881
 RUN ln -snf /usr/share/zoneinfo/$CONTAINER_TIMEZONE /etc/localtime && echo $CONTAINER_TIMEZONE > /etc/timezone
@@ -16,7 +19,7 @@ RUN pip3 install -r /tmp/requirements.txt
 
 ARG GO_VER=1.19
 ARG WS=/ws
-RUN mkdir -p ${WS} 
+RUN mkdir -p ${WS}
 WORKDIR ${WS}
 ARG PROTOC_VER=3.18.3
 
@@ -25,6 +28,15 @@ RUN wget -qO- https://golang.org/dl/go${GO_VER}.linux-amd64.tar.gz | tar xzvf - 
 
 #Ensure PATH has GO binary path
 ENV PATH="${PATH}:/usr/local/go/bin"
+
+# Avoid timezone prompts
+ENV DEBIAN_FRONTEND=noninteractive
+
+# Install .NET SDK
+RUN wget -q  -O packages-microsoft-prod.deb https://packages.microsoft.com/config/ubuntu/${UBUNTU_VER}/packages-microsoft-prod.deb
+RUN dpkg -i packages-microsoft-prod.deb
+RUN apt-get update && apt-get install -y dotnet-sdk-5.0
+RUN rm packages-microsoft-prod.deb
 
 # Install protocol buffer compiler https://grpc.io/docs/protoc-installation/
 ARG PB_REL=https://github.com/protocolbuffers/protobuf/releases
