@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Grpc.Core;
 using Grpc.Net.Client;
 using ObjectStore;
+using ServiceLayer;
 
 class GrpcClient 
 {
