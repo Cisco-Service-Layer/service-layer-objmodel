@@ -1439,7 +1439,7 @@ type SLRoutePath struct {
 	VxLANPath *SLVxLANPath `protobuf:"bytes,12,opt,name=VxLANPath,proto3" json:"VxLANPath,omitempty"`
 	// Path Flags.
 	// Each flag is indicated as a bit field. Supported values are:
-	// 0x1 = SINGLE_PATH_OPT Enables hardware optimization for single path VxLAN tunnels
+	// 0x00000001 = SINGLE_PATH_OPT Enables hardware optimization for single path VxLAN tunnels
 	Flags uint32 `protobuf:"varint,13,opt,name=Flags,proto3" json:"Flags,omitempty"`
 }
 

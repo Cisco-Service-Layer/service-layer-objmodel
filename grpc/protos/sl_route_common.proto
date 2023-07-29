@@ -437,7 +437,7 @@ message SLRoutePath {
     
     // Path Flags.
     // Each flag is indicated as a bit field. Supported values are:
-    // 0x1 = SINGLE_PATH_OPT Enables hardware optimization for single path VxLAN tunnels
+    // 0x00000001 = SINGLE_PATH_OPT Enables hardware optimization for single path VxLAN tunnels
     uint32 Flags = 13;
 
 }
