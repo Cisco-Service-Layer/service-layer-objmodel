@@ -1,76 +1,150 @@
 using System;
-using System.Collections.Generic;
-using System.Threading;
 using System.Threading.Tasks;
+using System.Collections.Generic;
 using Grpc.Core;
 using Grpc.Net.Client;
-using ObjectStore;
+using Newtonsoft.Json;
+using System.IO;
 using ServiceLayer;
 
-class GrpcClient 
+public class TestVxlan
+{
+    public Dictionary<string, object> register_vrfs { get; set; }
+    public Dictionary<string, object> get_registered_vrfs { get; set; }
+    public Dictionary<string, object> program_v4_routes { get; set; }
+    public Dictionary<string, object> get_v4_routes { get; set; }
+    public Dictionary<string, object> program_v6_routes { get; set; }
+    public Dictionary<string, object> get_v6_routes { get; set; }
+    public Dictionary<string, object> unregister { get; set; }
+}
+
+class SLClient
 {
     static async Task Main(string[] args)
     {
-        var serverIp = Environment.GetEnvironmentVariable("SERVER_IP");
-        var serverPort = Environment.GetEnvironmentVariable("SERVER_PORT");
-        
-        if (string.IsNullOrEmpty(serverIp) || string.IsNullOrEmpty(serverPort))
+       string serverAddress = string.Empty;
+       string jsonFilePath = string.Empty;
+       TestVxlan testData = null;
+       GrpcChannel channel;
+       SLRoutev4Oper.SLRoutev4OperClient client = null;
+
+       // Iterate over the arguments
+        for(int i = 0; i < args.Length; i++)
         {
-            Console.WriteLine("Environment variables SERVER_IP and SERVER_PORT must be set.");
-            return;
-        }
-        
-        var serverAddress = $"https://{serverIp}:{serverPort}";
-
-        using var channel = GrpcChannel.ForAddress(serverAddress);
-        var client = new ObjectStoreService.ObjectStoreServiceClient(channel);
-
-        // 1. Initialization
-        var initResponse = await client.InitializeAsync(new InitializationRequest { Version = "1.0" });
-        Console.WriteLine("Initialization Response: " + initResponse.Message);
-
-        // 2. Run a background thread to receive async notifications from the server
-        _ = Task.Run(async () =>
-        {
-            var notifications = client.AsyncNotifications(new Empty());
-
-            await foreach (var notification in notifications.ResponseStream.ReadAllAsync())
+            switch(args[i])
             {
-                Console.WriteLine("Received notification: " + notification.Message);
+                case "-h":
+                case "--help":
+                    Console.WriteLine("This is help text for the application.");
+                    break;
+                case "-t":
+                    if (i + 1 < args.Length) // Check if there is another argument following "-t"
+                    {
+                        Console.WriteLine("The value provided for -t is: " + args[i + 1]);
+                        serverAddress = args[i + 1];
+                        i++; // Skip the next iteration since we've already processed the following argument
+                    }
+                    else
+                    {
+                        Console.WriteLine("The -t option requires a following argument");
+	                Environment.Exit(1);
+                    }
+                    break;
+                case "-d":
+                    if (i + 1 < args.Length) // Check if there is another argument following "-d"
+                    {
+                        jsonFilePath = args[i + 1];
+                        i++; // Skip the next iteration since we've already processed the following argument
+                    }
+                    else
+                    {
+                        Console.WriteLine("The -d option requires a following argument");
+	                Environment.Exit(1);
+                    }
+                    break;
+                default:
+                    Console.WriteLine("Unknown option: " + args[i]);
+	            Environment.Exit(1);
+		    break;
             }
-        });
-
-        // 3. Perform operations
-        var objects = new List<Object>
+        }
+        if (!string.IsNullOrEmpty(jsonFilePath))
         {
-            new Object { Key = "key1", Data = "data1" },
-            new Object { Key = "key2", Data = "data2" }
+            try
+            {
+                var jsonString = File.ReadAllText(jsonFilePath);
+                testData = JsonConvert.DeserializeObject<TestVxlan>(jsonString);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"An error occurred: {ex.Message}");
+	        Environment.Exit(1);
+            }
+        }
+        else
+        {
+            Console.WriteLine("JSON file path is not provided.");
+	    Environment.Exit(1);
+        }
+        // Setup the channel and client
+        if (!string.IsNullOrEmpty(serverAddress)) {
+	    AppContext.SetSwitch("System.Net.Http.SocketsHttpHandler.Http2UnencryptedSupport", true);
+            channel = GrpcChannel.ForAddress($"https://{serverAddress}");
+            try {
+                client = new SLRoutev4Oper.SLRoutev4OperClient(channel);
+            }
+            catch (Exception ex) {
+                Console.WriteLine("Error initializing the client: " + ex.Message);
+	        Environment.Exit(1);
+            }
+        } else {
+            Console.WriteLine("Server address is not provided.");
+	    Environment.Exit(1);
+        }
+
+        // Register the VRF 'vxlan_red'
+        // Create and populate the SLVrfRegMsg for registration.
+        var regMsg = new SLVrfRegMsg
+        {   
+            Oper = SLRegOp.Register,
+            VrfRegMsgs =
+            {   
+                new SLVrfReg
+                {   
+                    VrfName = "vxlan_red",
+                    AdminDistance = 100,
+                    VrfPurgeIntervalSeconds = 60
+                }
+            }
         };
 
-        // Add operation
-        var addResponse = await client.OperateAsync(new OperationRequest
-        {
-            Operation = OperationType.ADD,
-            Objects = { objects }
-        });
-        Console.WriteLine("Add Response: " + addResponse.Message);
+        // Call the SLRoutev4VrfRegOp RPC
+        var regResponse = await client.SLRoutev4VrfRegOpAsync(regMsg);
 
-        // Get operation
-        var getResponse = await client.OperateAsync(new OperationRequest
-        {
-            Operation = OperationType.GET,
-            Objects = { new Object { Key = "key1" } }
-        });
-        foreach (var obj in getResponse.Objects)
-        {
-            Console.WriteLine($"Key: {obj.Key}, Data: {obj.Data}");
-        }
+        // Handle the response (not shown here).
 
-        // Other operations...
+        // Create and populate the SLVrfRegMsg for EOF operation.
+        var eofMsg = new SLVrfRegMsg
+        {   
+            Oper = SLRegOp.Eof
+        };
 
-        // Wait before exit
-        Console.WriteLine("Press any key to exit...");
-        Console.ReadKey();
+        // Call the SLRoutev4VrfRegOp RPC
+        var eofResponse = await client.SLRoutev4VrfRegOpAsync(eofMsg);
+
+        // Handle the response (not shown here).
+
+        // Create and populate the SLVrfRegGetMsg.
+        var getMsg = new SLVrfRegGetMsg
+        {   
+            VrfName = "vxlan_red",
+            EntriesCount = 10,
+            GetNext = false
+        };
+
+        // Call the SLRoutev4VrfRegGet RPC
+        var getResponse = await client.SLRoutev4VrfRegGetAsync(getMsg);
+
+        // Handle the response (not shown here).
     }
 }
-

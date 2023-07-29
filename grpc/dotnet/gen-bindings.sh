@@ -3,9 +3,10 @@
 # Copyright (c) 2023 by cisco Systems, Inc.
 # All rights reserved.
 #
+DOTNET_ROOT=$(pwd)
 printf "Generating dotnet bindings for ServiceLayer..."
-mkdir -p ./src/gencs
-cd ./src/gencs
+mkdir -p ${DOTNET_ROOT}/src/gencs
+cd ${DOTNET_ROOT}/src/gencs
 FILE=./ServiceLayer.csproj
 if [ -f "$FILE" ]; then
   echo "$FILE exists."
@@ -21,16 +22,13 @@ fi
 dotnet add package Grpc
 dotnet add package Grpc.Tools
 dotnet add package Google.Protobuf
-# replace end of line chars
-sed -i 's/\r$//' "$FILE"
-cd ../../../protos
-protoc -I . --csharp_out ../dotnet/src/gencs --grpc_out ../dotnet/src/gencs --plugin=protoc-gen-grpc=`which grpc_csharp_plugin` *.proto
+cd ${DOTNET_ROOT}/../protos
+protoc -I . --csharp_out ${DOTNET_ROOT}/src/gencs --grpc_out ${DOTNET_ROOT}/src/gencs --plugin=protoc-gen-grpc=`which grpc_csharp_plugin` *.proto
 if [ -f "../dotnet/src/gencs/Class1.cs" ]; then
   rm ../dotnet/src/gencs/Class1.cs
 fi
 rm -rf ../dotnet/src/gencs/obj/
-for file in $(find ../dotnet/src/gencs/ -name "*.cs")
-  do
-    echo -e "/*\n * Copyright (c) $(date +%Y) by cisco Systems, Inc. All rights reserved.\n */\n$(cat $file)" > $file
-  done
+cd ${DOTNET_ROOT}/tutorial/Quickstart
+# Restore packages needed by Quickstart
+dotnet restore
 echo "Done"
