@@ -1,0 +1,12 @@
+{
+    "register_v4_vrfs" : {
+        "purge_interval": 300,
+        "admin_distance": 2,
+        "vrf_list": ["vxlan_red", "vxlan_blue"]
+	},
+    "get_v4_vrfs" : {
+        "vrf_name" : "vxlan_red",
+        "entries_count" : 10,
+        "get_next" : true
+    }
+}
