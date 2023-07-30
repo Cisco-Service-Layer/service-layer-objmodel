@@ -282,7 +282,8 @@ constexpr SLRoutePath::SLRoutePath(
   , metric_(0u)
   , pathid_(0u)
   , encaptype_(0)
-{}
+
+  , flags_(0u){}
 struct SLRoutePathDefaultTypeInternal {
   constexpr SLRoutePathDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
@@ -472,6 +473,7 @@ const uint32_t TableStruct_sl_5froute_5fcommon_2eproto::offsets[] PROTOBUF_SECTI
   PROTOBUF_FIELD_OFFSET(::service_layer::SLRoutePath, encaptype_),
   PROTOBUF_FIELD_OFFSET(::service_layer::SLRoutePath, vteproutermacaddress_),
   PROTOBUF_FIELD_OFFSET(::service_layer::SLRoutePath, vxlanpath_),
+  PROTOBUF_FIELD_OFFSET(::service_layer::SLRoutePath, flags_),
 };
 static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, -1, sizeof(::service_layer::SLRouteGlobalsGetMsg)},
@@ -563,7 +565,7 @@ const char descriptor_table_protodef_sl_5froute_5fcommon_2eproto[] PROTOBUF_SECT
   "MacAddress\030\002 \001(\014\022\026\n\016DestMacAddress\030\003 \001(\014"
   "\0220\n\014SrcIpAddress\030\004 \001(\0132\032.service_layer.S"
   "LIpAddress\0221\n\rDestIpAddress\030\005 \001(\0132\032.serv"
-  "ice_layer.SLIpAddress\"\234\003\n\013SLRoutePath\0222\n"
+  "ice_layer.SLIpAddress\"\253\003\n\013SLRoutePath\0222\n"
   "\016NexthopAddress\030\001 \001(\0132\032.service_layer.SL"
   "IpAddress\0224\n\020NexthopInterface\030\002 \001(\0132\032.se"
   "rvice_layer.SLInterface\022\022\n\nLoadMetric\030\003 "
@@ -573,22 +575,22 @@ const char descriptor_table_protodef_sl_5froute_5fcommon_2eproto[] PROTOBUF_SECT
   " \003(\0132\032.service_layer.SLIpAddress\022-\n\tEnca"
   "pType\030\n \001(\0162\032.service_layer.SLEncapType\022"
   "\034\n\024VtepRouterMacAddress\030\013 \001(\014\022-\n\tVxLANPa"
-  "th\030\014 \001(\0132\032.service_layer.SLVxLANPath*\312\001\n"
-  "\013SLNotifType\022\032\n\026SL_EVENT_TYPE_RESERVED\020\000"
-  "\022\027\n\023SL_EVENT_TYPE_ERROR\020\001\022\030\n\024SL_EVENT_TY"
-  "PE_STATUS\020\002\022\027\n\023SL_EVENT_TYPE_ROUTE\020\003\022\036\n\032"
-  "SL_EVENT_TYPE_START_MARKER\020\004\022\034\n\030SL_EVENT"
-  "_TYPE_END_MARKER\020\005\022\025\n\021SL_EVENT_TYPE_VRF\020"
-  "\006BQZOgithub.com/Cisco-service-layer/serv"
-  "ice-layer-objmodel/grpc/protos;service_l"
-  "ayerb\006proto3"
+  "th\030\014 \001(\0132\032.service_layer.SLVxLANPath\022\r\n\005"
+  "Flags\030\r \001(\r*\312\001\n\013SLNotifType\022\032\n\026SL_EVENT_"
+  "TYPE_RESERVED\020\000\022\027\n\023SL_EVENT_TYPE_ERROR\020\001"
+  "\022\030\n\024SL_EVENT_TYPE_STATUS\020\002\022\027\n\023SL_EVENT_T"
+  "YPE_ROUTE\020\003\022\036\n\032SL_EVENT_TYPE_START_MARKE"
+  "R\020\004\022\034\n\030SL_EVENT_TYPE_END_MARKER\020\005\022\025\n\021SL_"
+  "EVENT_TYPE_VRF\020\006BQZOgithub.com/Cisco-ser"
+  "vice-layer/service-layer-objmodel/grpc/p"
+  "rotos;service_layerb\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_sl_5froute_5fcommon_2eproto_deps[1] = {
   &::descriptor_table_sl_5fcommon_5ftypes_2eproto,
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_sl_5froute_5fcommon_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_sl_5froute_5fcommon_2eproto = {
-  false, false, 2532, descriptor_table_protodef_sl_5froute_5fcommon_2eproto, "sl_route_common.proto", 
+  false, false, 2547, descriptor_table_protodef_sl_5froute_5fcommon_2eproto, "sl_route_common.proto", 
   &descriptor_table_sl_5froute_5fcommon_2eproto_once, descriptor_table_sl_5froute_5fcommon_2eproto_deps, 1, 19,
   schemas, file_default_instances, TableStruct_sl_5froute_5fcommon_2eproto::offsets,
   file_level_metadata_sl_5froute_5fcommon_2eproto, file_level_enum_descriptors_sl_5froute_5fcommon_2eproto, file_level_service_descriptors_sl_5froute_5fcommon_2eproto,
@@ -5098,8 +5100,8 @@ SLRoutePath::SLRoutePath(const SLRoutePath& from)
     vxlanpath_ = nullptr;
   }
   ::memcpy(&loadmetric_, &from.loadmetric_,
-    static_cast<size_t>(reinterpret_cast<char*>(&encaptype_) -
-    reinterpret_cast<char*>(&loadmetric_)) + sizeof(encaptype_));
+    static_cast<size_t>(reinterpret_cast<char*>(&flags_) -
+    reinterpret_cast<char*>(&loadmetric_)) + sizeof(flags_));
   // @@protoc_insertion_point(copy_constructor:service_layer.SLRoutePath)
 }
 
@@ -5114,8 +5116,8 @@ vteproutermacaddress_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEm
 #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
 ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
     reinterpret_cast<char*>(&nexthopaddress_) - reinterpret_cast<char*>(this)),
-    0, static_cast<size_t>(reinterpret_cast<char*>(&encaptype_) -
-    reinterpret_cast<char*>(&nexthopaddress_)) + sizeof(encaptype_));
+    0, static_cast<size_t>(reinterpret_cast<char*>(&flags_) -
+    reinterpret_cast<char*>(&nexthopaddress_)) + sizeof(flags_));
 }
 
 SLRoutePath::~SLRoutePath() {
@@ -5168,8 +5170,8 @@ void SLRoutePath::Clear() {
   }
   vxlanpath_ = nullptr;
   ::memset(&loadmetric_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&encaptype_) -
-      reinterpret_cast<char*>(&loadmetric_)) + sizeof(encaptype_));
+      reinterpret_cast<char*>(&flags_) -
+      reinterpret_cast<char*>(&loadmetric_)) + sizeof(flags_));
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -5286,6 +5288,14 @@ const char* SLRoutePath::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID
       case 12:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 98)) {
           ptr = ctx->ParseMessage(_internal_mutable_vxlanpath(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // uint32 Flags = 13;
+      case 13:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 104)) {
+          flags_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -5410,6 +5420,12 @@ uint8_t* SLRoutePath::_InternalSerialize(
         12, _Internal::vxlanpath(this), target, stream);
   }
 
+  // uint32 Flags = 13;
+  if (this->_internal_flags() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(13, this->_internal_flags(), target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -5519,6 +5535,11 @@ size_t SLRoutePath::ByteSizeLong() const {
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_encaptype());
   }
 
+  // uint32 Flags = 13;
+  if (this->_internal_flags() != 0) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_flags());
+  }
+
   return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
 }
 
@@ -5571,6 +5592,9 @@ void SLRoutePath::MergeFrom(const SLRoutePath& from) {
   if (from._internal_encaptype() != 0) {
     _internal_set_encaptype(from._internal_encaptype());
   }
+  if (from._internal_flags() != 0) {
+    _internal_set_flags(from._internal_flags());
+  }
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
@@ -5604,8 +5628,8 @@ void SLRoutePath::InternalSwap(SLRoutePath* other) {
       &other->vteproutermacaddress_, rhs_arena
   );
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(SLRoutePath, encaptype_)
-      + sizeof(SLRoutePath::encaptype_)
+      PROTOBUF_FIELD_OFFSET(SLRoutePath, flags_)
+      + sizeof(SLRoutePath::flags_)
       - PROTOBUF_FIELD_OFFSET(SLRoutePath, nexthopaddress_)>(
           reinterpret_cast<char*>(&nexthopaddress_),
           reinterpret_cast<char*>(&other->nexthopaddress_));
