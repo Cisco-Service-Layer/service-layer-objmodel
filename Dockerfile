@@ -38,6 +38,9 @@ RUN dpkg -i packages-microsoft-prod.deb
 RUN apt-get update && apt-get install -y dotnet-sdk-5.0
 RUN rm packages-microsoft-prod.deb
 
+# Disable .NET CLI's telemetry feature
+ENV DOTNET_CLI_TELEMETRY_OPTOUT=1
+
 # Install protocol buffer compiler https://grpc.io/docs/protoc-installation/
 ARG PB_REL=https://github.com/protocolbuffers/protobuf/releases
 RUN curl -LO ${PB_REL}/download/v${PROTOC_VER}/protoc-${PROTOC_VER}-linux-x86_64.zip

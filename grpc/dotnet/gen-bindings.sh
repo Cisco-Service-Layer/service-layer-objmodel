@@ -12,7 +12,7 @@ cd ${DOTNET_ROOT}/../protos
 protoc -I . --csharp_out ${DOTNET_ROOT}/src/gencs --grpc_out ${DOTNET_ROOT}/src/gencs --plugin=protoc-gen-grpc=`which grpc_csharp_plugin` *.proto
 #Remove unwanted files
 files=("Class1.cs" "SlHello.cs")
-for file in "${files[@]}"
+for file in "${DOTNET_ROOT}/src/gencs/${files[@]}"
 do
   if [ -f "$file" ]
   then
@@ -26,4 +26,5 @@ rm -rf ../dotnet/src/gencs/bin/
 cd ${DOTNET_ROOT}/src/tutorial/Quickstart
 # Restore packages needed by Quickstart
 dotnet restore
+cd ${DOTNET_ROOT}
 echo "Done"

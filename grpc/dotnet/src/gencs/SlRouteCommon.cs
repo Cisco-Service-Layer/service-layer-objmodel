@@ -64,7 +64,7 @@ namespace ServiceLayer {
             "ASABKA0SGAoQU291cmNlTWFjQWRkcmVzcxgCIAEoDBIWCg5EZXN0TWFjQWRk",
             "cmVzcxgDIAEoDBIwCgxTcmNJcEFkZHJlc3MYBCABKAsyGi5zZXJ2aWNlX2xh",
             "eWVyLlNMSXBBZGRyZXNzEjEKDURlc3RJcEFkZHJlc3MYBSABKAsyGi5zZXJ2",
-            "aWNlX2xheWVyLlNMSXBBZGRyZXNzIpwDCgtTTFJvdXRlUGF0aBIyCg5OZXh0",
+            "aWNlX2xheWVyLlNMSXBBZGRyZXNzIqsDCgtTTFJvdXRlUGF0aBIyCg5OZXh0",
             "aG9wQWRkcmVzcxgBIAEoCzIaLnNlcnZpY2VfbGF5ZXIuU0xJcEFkZHJlc3MS",
             "NAoQTmV4dGhvcEludGVyZmFjZRgCIAEoCzIaLnNlcnZpY2VfbGF5ZXIuU0xJ",
             "bnRlcmZhY2USEgoKTG9hZE1ldHJpYxgDIAEoDRIPCgdWcmZOYW1lGAQgASgJ",
@@ -73,14 +73,14 @@ namespace ServiceLayer {
             "ZUFkZHJlc3MYCSADKAsyGi5zZXJ2aWNlX2xheWVyLlNMSXBBZGRyZXNzEi0K",
             "CUVuY2FwVHlwZRgKIAEoDjIaLnNlcnZpY2VfbGF5ZXIuU0xFbmNhcFR5cGUS",
             "HAoUVnRlcFJvdXRlck1hY0FkZHJlc3MYCyABKAwSLQoJVnhMQU5QYXRoGAwg",
-            "ASgLMhouc2VydmljZV9sYXllci5TTFZ4TEFOUGF0aCrKAQoLU0xOb3RpZlR5",
-            "cGUSGgoWU0xfRVZFTlRfVFlQRV9SRVNFUlZFRBAAEhcKE1NMX0VWRU5UX1RZ",
-            "UEVfRVJST1IQARIYChRTTF9FVkVOVF9UWVBFX1NUQVRVUxACEhcKE1NMX0VW",
-            "RU5UX1RZUEVfUk9VVEUQAxIeChpTTF9FVkVOVF9UWVBFX1NUQVJUX01BUktF",
-            "UhAEEhwKGFNMX0VWRU5UX1RZUEVfRU5EX01BUktFUhAFEhUKEVNMX0VWRU5U",
-            "X1RZUEVfVlJGEAZCUVpPZ2l0aHViLmNvbS9DaXNjby1zZXJ2aWNlLWxheWVy",
-            "L3NlcnZpY2UtbGF5ZXItb2JqbW9kZWwvZ3JwYy9wcm90b3M7c2VydmljZV9s",
-            "YXllcmIGcHJvdG8z"));
+            "ASgLMhouc2VydmljZV9sYXllci5TTFZ4TEFOUGF0aBINCgVGbGFncxgNIAEo",
+            "DSrKAQoLU0xOb3RpZlR5cGUSGgoWU0xfRVZFTlRfVFlQRV9SRVNFUlZFRBAA",
+            "EhcKE1NMX0VWRU5UX1RZUEVfRVJST1IQARIYChRTTF9FVkVOVF9UWVBFX1NU",
+            "QVRVUxACEhcKE1NMX0VWRU5UX1RZUEVfUk9VVEUQAxIeChpTTF9FVkVOVF9U",
+            "WVBFX1NUQVJUX01BUktFUhAEEhwKGFNMX0VWRU5UX1RZUEVfRU5EX01BUktF",
+            "UhAFEhUKEVNMX0VWRU5UX1RZUEVfVlJGEAZCUVpPZ2l0aHViLmNvbS9DaXNj",
+            "by1zZXJ2aWNlLWxheWVyL3NlcnZpY2UtbGF5ZXItb2JqbW9kZWwvZ3JwYy9w",
+            "cm90b3M7c2VydmljZV9sYXllcmIGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::ServiceLayer.SlCommonTypesReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::ServiceLayer.SLNotifType), }, null, new pbr::GeneratedClrTypeInfo[] {
@@ -102,7 +102,7 @@ namespace ServiceLayer {
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLVrfNotif), global::ServiceLayer.SLVrfNotif.Parser, new[]{ "VrfName", "Status" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLRouteCommon), global::ServiceLayer.SLRouteCommon.Parser, new[]{ "AdminDistance", "LocalLabel", "Tag", "SrcProto", "SrcProtoTag", "Flags" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLVxLANPath), global::ServiceLayer.SLVxLANPath.Parser, new[]{ "VNI", "SourceMacAddress", "DestMacAddress", "SrcIpAddress", "DestIpAddress" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLRoutePath), global::ServiceLayer.SLRoutePath.Parser, new[]{ "NexthopAddress", "NexthopInterface", "LoadMetric", "VrfName", "Metric", "PathId", "ProtectedPathBitmap", "LabelStack", "RemoteAddress", "EncapType", "VtepRouterMacAddress", "VxLANPath" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLRoutePath), global::ServiceLayer.SLRoutePath.Parser, new[]{ "NexthopAddress", "NexthopInterface", "LoadMetric", "VrfName", "Metric", "PathId", "ProtectedPathBitmap", "LabelStack", "RemoteAddress", "EncapType", "VtepRouterMacAddress", "VxLANPath", "Flags" }, null, null, null, null)
           }));
     }
     #endregion
@@ -5021,6 +5021,7 @@ namespace ServiceLayer {
       encapType_ = other.encapType_;
       vtepRouterMacAddress_ = other.vtepRouterMacAddress_;
       vxLANPath_ = other.vxLANPath_ != null ? other.vxLANPath_.Clone() : null;
+      flags_ = other.flags_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -5271,6 +5272,23 @@ namespace ServiceLayer {
       }
     }
 
+    /// <summary>Field number for the "Flags" field.</summary>
+    public const int FlagsFieldNumber = 13;
+    private uint flags_;
+    /// <summary>
+    /// Path Flags.
+    /// Each flag is indicated as a bit field. Supported values are:
+    /// 0x00000001 = SINGLE_PATH_OPT Enables hardware optimization for single path VxLAN tunnels
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint Flags {
+      get { return flags_; }
+      set {
+        flags_ = value;
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -5298,6 +5316,7 @@ namespace ServiceLayer {
       if (EncapType != other.EncapType) return false;
       if (VtepRouterMacAddress != other.VtepRouterMacAddress) return false;
       if (!object.Equals(VxLANPath, other.VxLANPath)) return false;
+      if (Flags != other.Flags) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -5317,6 +5336,7 @@ namespace ServiceLayer {
       if (EncapType != global::ServiceLayer.SLEncapType.SlEncapReserved) hash ^= EncapType.GetHashCode();
       if (VtepRouterMacAddress.Length != 0) hash ^= VtepRouterMacAddress.GetHashCode();
       if (vxLANPath_ != null) hash ^= VxLANPath.GetHashCode();
+      if (Flags != 0) hash ^= Flags.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -5374,6 +5394,10 @@ namespace ServiceLayer {
         output.WriteRawTag(98);
         output.WriteMessage(VxLANPath);
       }
+      if (Flags != 0) {
+        output.WriteRawTag(104);
+        output.WriteUInt32(Flags);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -5423,6 +5447,10 @@ namespace ServiceLayer {
         output.WriteRawTag(98);
         output.WriteMessage(VxLANPath);
       }
+      if (Flags != 0) {
+        output.WriteRawTag(104);
+        output.WriteUInt32(Flags);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -5462,6 +5490,9 @@ namespace ServiceLayer {
       }
       if (vxLANPath_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(VxLANPath);
+      }
+      if (Flags != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Flags);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -5513,6 +5544,9 @@ namespace ServiceLayer {
           VxLANPath = new global::ServiceLayer.SLVxLANPath();
         }
         VxLANPath.MergeFrom(other.VxLANPath);
+      }
+      if (other.Flags != 0) {
+        Flags = other.Flags;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -5588,6 +5622,10 @@ namespace ServiceLayer {
             input.ReadMessage(VxLANPath);
             break;
           }
+          case 104: {
+            Flags = input.ReadUInt32();
+            break;
+          }
         }
       }
     #endif
@@ -5660,6 +5698,10 @@ namespace ServiceLayer {
               VxLANPath = new global::ServiceLayer.SLVxLANPath();
             }
             input.ReadMessage(VxLANPath);
+            break;
+          }
+          case 104: {
+            Flags = input.ReadUInt32();
             break;
           }
         }

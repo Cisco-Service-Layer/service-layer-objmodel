@@ -102,7 +102,7 @@ class SLClient
 	    Environment.Exit(1);
         }
 
-        // Register the VRF 'vxlan_red'
+        // Register the VRFs
         // Create and populate the SLVrfRegMsg for registration.
         var regMsg = new SLVrfRegMsg
         {   
