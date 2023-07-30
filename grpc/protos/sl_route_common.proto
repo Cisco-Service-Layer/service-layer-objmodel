@@ -434,6 +434,12 @@ message SLRoutePath {
     // Create L3 VxLAN tunnel endpoint. Apply VxLAN encapsulation
     // on the IP packet.
     SLVxLANPath VxLANPath = 12;
+    
+    // Path Flags.
+    // Each flag is indicated as a bit field. Supported values are:
+    // 0x00000001 = SINGLE_PATH_OPT Enables hardware optimization for single path VxLAN tunnels
+    uint32 Flags = 13;
+
 }
 
 // @}

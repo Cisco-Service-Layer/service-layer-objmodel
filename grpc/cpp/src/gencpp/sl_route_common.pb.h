@@ -3415,6 +3415,7 @@ class SLRoutePath final :
     kMetricFieldNumber = 5,
     kPathIdFieldNumber = 6,
     kEncapTypeFieldNumber = 10,
+    kFlagsFieldNumber = 13,
   };
   // repeated uint64 ProtectedPathBitmap = 7;
   int protectedpathbitmap_size() const;
@@ -3596,6 +3597,15 @@ class SLRoutePath final :
   void _internal_set_encaptype(::service_layer::SLEncapType value);
   public:
 
+  // uint32 Flags = 13;
+  void clear_flags();
+  uint32_t flags() const;
+  void set_flags(uint32_t value);
+  private:
+  uint32_t _internal_flags() const;
+  void _internal_set_flags(uint32_t value);
+  public:
+
   // @@protoc_insertion_point(class_scope:service_layer.SLRoutePath)
  private:
   class _Internal;
@@ -3617,6 +3627,7 @@ class SLRoutePath final :
   uint32_t metric_;
   uint32_t pathid_;
   int encaptype_;
+  uint32_t flags_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_sl_5froute_5fcommon_2eproto;
 };
@@ -6344,6 +6355,26 @@ inline void SLRoutePath::set_allocated_vxlanpath(::service_layer::SLVxLANPath* v
   }
   vxlanpath_ = vxlanpath;
   // @@protoc_insertion_point(field_set_allocated:service_layer.SLRoutePath.VxLANPath)
+}
+
+// uint32 Flags = 13;
+inline void SLRoutePath::clear_flags() {
+  flags_ = 0u;
+}
+inline uint32_t SLRoutePath::_internal_flags() const {
+  return flags_;
+}
+inline uint32_t SLRoutePath::flags() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLRoutePath.Flags)
+  return _internal_flags();
+}
+inline void SLRoutePath::_internal_set_flags(uint32_t value) {
+  
+  flags_ = value;
+}
+inline void SLRoutePath::set_flags(uint32_t value) {
+  _internal_set_flags(value);
+  // @@protoc_insertion_point(field_set:service_layer.SLRoutePath.Flags)
 }
 
 #ifdef __GNUC__
