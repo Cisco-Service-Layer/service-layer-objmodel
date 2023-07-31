@@ -21,7 +21,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'ZOgithub.com/Cisco-service-layer/service-layer-objmodel/grpc/protos;service_layer',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x13sl_route_ipv6.proto\x12\rservice_layer\x1a\x15sl_common_types.proto\x1a\x15sl_route_common.proto\"\x8f\x01\n\tSLRoutev6\x12\x0e\n\x06Prefix\x18\x01 \x01(\x0c\x12\x11\n\tPrefixLen\x18\x02 \x01(\r\x12\x31\n\x0bRouteCommon\x18\x03 \x01(\x0b\x32\x1c.service_layer.SLRouteCommon\x12,\n\x08PathList\x18\x04 \x03(\x0b\x32\x1a.service_layer.SLRoutePath\"\x86\x01\n\x0cSLRoutev6Msg\x12\'\n\x04Oper\x18\x01 \x01(\x0e\x32\x19.service_layer.SLObjectOp\x12\x12\n\nCorrelator\x18\x02 \x01(\x04\x12\x0f\n\x07VrfName\x18\x03 \x01(\t\x12(\n\x06Routes\x18\x04 \x03(\x0b\x32\x18.service_layer.SLRoutev6\"b\n\x0cSLRoutev6Res\x12/\n\tErrStatus\x18\x01 \x01(\x0b\x32\x1c.service_layer.SLErrorStatus\x12\x0e\n\x06Prefix\x18\x02 \x01(\x0c\x12\x11\n\tPrefixLen\x18\x03 \x01(\r\"\x99\x01\n\x0fSLRoutev6MsgRsp\x12\x12\n\nCorrelator\x18\x01 \x01(\x04\x12\x0f\n\x07VrfName\x18\x02 \x01(\t\x12\x33\n\rStatusSummary\x18\x03 \x01(\x0b\x32\x1c.service_layer.SLErrorStatus\x12,\n\x07Results\x18\x04 \x03(\x0b\x32\x1b.service_layer.SLRoutev6Res\"\x80\x01\n\x0fSLRoutev6GetMsg\x12\x12\n\nCorrelator\x18\x01 \x01(\x04\x12\x0f\n\x07VrfName\x18\x02 \x01(\t\x12\x0e\n\x06Prefix\x18\x03 \x01(\x0c\x12\x11\n\tPrefixLen\x18\x04 \x01(\r\x12\x14\n\x0c\x45ntriesCount\x18\x05 \x01(\r\x12\x0f\n\x07GetNext\x18\x06 \x01(\x08\"\xa2\x01\n\x12SLRoutev6GetMsgRsp\x12\x12\n\nCorrelator\x18\x01 \x01(\x04\x12\x0b\n\x03\x45of\x18\x02 \x01(\x08\x12\x0f\n\x07VrfName\x18\x03 \x01(\t\x12/\n\tErrStatus\x18\x04 \x01(\x0b\x32\x1c.service_layer.SLErrorStatus\x12)\n\x07\x45ntries\x18\x05 \x03(\x0b\x32\x18.service_layer.SLRoutev6\"Q\n\x13SLRoutev6NotifRoute\x12\x0f\n\x07VrfName\x18\x01 \x01(\t\x12)\n\x07\x45ntries\x18\x02 \x03(\x0b\x32\x18.service_layer.SLRoutev6\"\xc9\x02\n\x0eSLRoutev6Notif\x12-\n\tEventType\x18\x01 \x01(\x0e\x32\x1a.service_layer.SLNotifType\x12\x31\n\tErrStatus\x18\x02 \x01(\x0b\x32\x1c.service_layer.SLErrorStatusH\x00\x12\x38\n\x0bNotifStatus\x18\x03 \x01(\x0b\x32!.service_layer.SLRouteNotifStatusH\x00\x12\x33\n\x05Route\x18\x04 \x01(\x0b\x32\".service_layer.SLRoutev6NotifRouteH\x00\x12\x33\n\x06Marker\x18\x05 \x01(\x0b\x32!.service_layer.SLRouteNotifMarkerH\x00\x12(\n\x03Vrf\x18\x06 \x01(\x0b\x32\x19.service_layer.SLVrfNotifH\x00\x42\x07\n\x05\x45vent2\x98\x07\n\rSLRoutev6Oper\x12\x62\n\x13SLRoutev6GlobalsGet\x12#.service_layer.SLRouteGlobalsGetMsg\x1a&.service_layer.SLRouteGlobalsGetMsgRsp\x12n\n\x17SLRoutev6GlobalStatsGet\x12\'.service_layer.SLRouteGlobalStatsGetMsg\x1a*.service_layer.SLRouteGlobalStatsGetMsgRsp\x12N\n\x11SLRoutev6VrfRegOp\x12\x1a.service_layer.SLVrfRegMsg\x1a\x1d.service_layer.SLVrfRegMsgRsp\x12U\n\x12SLRoutev6VrfRegGet\x12\x1d.service_layer.SLVrfRegGetMsg\x1a .service_layer.SLVrfRegGetMsgRsp\x12Y\n\x14SLRoutev6VrfGetStats\x12\x1d.service_layer.SLVrfRegGetMsg\x1a\".service_layer.SLVRFGetStatsMsgRsp\x12J\n\x0bSLRoutev6Op\x12\x1b.service_layer.SLRoutev6Msg\x1a\x1e.service_layer.SLRoutev6MsgRsp\x12Q\n\x0cSLRoutev6Get\x12\x1e.service_layer.SLRoutev6GetMsg\x1a!.service_layer.SLRoutev6GetMsgRsp\x12T\n\x11SLRoutev6OpStream\x12\x1b.service_layer.SLRoutev6Msg\x1a\x1e.service_layer.SLRoutev6MsgRsp(\x01\x30\x01\x12[\n\x12SLRoutev6GetStream\x12\x1e.service_layer.SLRoutev6GetMsg\x1a!.service_layer.SLRoutev6GetMsgRsp(\x01\x30\x01\x12_\n\x17SLRoutev6GetNotifStream\x12!.service_layer.SLRouteGetNotifMsg\x1a\x1d.service_layer.SLRoutev6Notif(\x01\x30\x01\x42QZOgithub.com/Cisco-service-layer/service-layer-objmodel/grpc/protos;service_layerb\x06proto3'
+  serialized_pb=b'\n\x13sl_route_ipv6.proto\x12\rservice_layer\x1a\x15sl_common_types.proto\x1a\x15sl_route_common.proto\"\xd2\x01\n\tSLRoutev6\x12\x0e\n\x06Prefix\x18\x01 \x01(\x0c\x12\x11\n\tPrefixLen\x18\x02 \x01(\r\x12\x31\n\x0bRouteCommon\x18\x03 \x01(\x0b\x32\x1c.service_layer.SLRouteCommon\x12,\n\x08PathList\x18\x04 \x03(\x0b\x32\x1a.service_layer.SLRoutePath\x12\x38\n\x0cPathGroupKey\x18\x05 \x01(\x0b\x32 .service_layer.SLPathGroupRefKeyH\x00\x42\x07\n\x05\x65ntry\"\x86\x01\n\x0cSLRoutev6Msg\x12\'\n\x04Oper\x18\x01 \x01(\x0e\x32\x19.service_layer.SLObjectOp\x12\x12\n\nCorrelator\x18\x02 \x01(\x04\x12\x0f\n\x07VrfName\x18\x03 \x01(\t\x12(\n\x06Routes\x18\x04 \x03(\x0b\x32\x18.service_layer.SLRoutev6\"b\n\x0cSLRoutev6Res\x12/\n\tErrStatus\x18\x01 \x01(\x0b\x32\x1c.service_layer.SLErrorStatus\x12\x0e\n\x06Prefix\x18\x02 \x01(\x0c\x12\x11\n\tPrefixLen\x18\x03 \x01(\r\"\x99\x01\n\x0fSLRoutev6MsgRsp\x12\x12\n\nCorrelator\x18\x01 \x01(\x04\x12\x0f\n\x07VrfName\x18\x02 \x01(\t\x12\x33\n\rStatusSummary\x18\x03 \x01(\x0b\x32\x1c.service_layer.SLErrorStatus\x12,\n\x07Results\x18\x04 \x03(\x0b\x32\x1b.service_layer.SLRoutev6Res\"\x80\x01\n\x0fSLRoutev6GetMsg\x12\x12\n\nCorrelator\x18\x01 \x01(\x04\x12\x0f\n\x07VrfName\x18\x02 \x01(\t\x12\x0e\n\x06Prefix\x18\x03 \x01(\x0c\x12\x11\n\tPrefixLen\x18\x04 \x01(\r\x12\x14\n\x0c\x45ntriesCount\x18\x05 \x01(\r\x12\x0f\n\x07GetNext\x18\x06 \x01(\x08\"\xa2\x01\n\x12SLRoutev6GetMsgRsp\x12\x12\n\nCorrelator\x18\x01 \x01(\x04\x12\x0b\n\x03\x45of\x18\x02 \x01(\x08\x12\x0f\n\x07VrfName\x18\x03 \x01(\t\x12/\n\tErrStatus\x18\x04 \x01(\x0b\x32\x1c.service_layer.SLErrorStatus\x12)\n\x07\x45ntries\x18\x05 \x03(\x0b\x32\x18.service_layer.SLRoutev6\"Q\n\x13SLRoutev6NotifRoute\x12\x0f\n\x07VrfName\x18\x01 \x01(\t\x12)\n\x07\x45ntries\x18\x02 \x03(\x0b\x32\x18.service_layer.SLRoutev6\"\xc9\x02\n\x0eSLRoutev6Notif\x12-\n\tEventType\x18\x01 \x01(\x0e\x32\x1a.service_layer.SLNotifType\x12\x31\n\tErrStatus\x18\x02 \x01(\x0b\x32\x1c.service_layer.SLErrorStatusH\x00\x12\x38\n\x0bNotifStatus\x18\x03 \x01(\x0b\x32!.service_layer.SLRouteNotifStatusH\x00\x12\x33\n\x05Route\x18\x04 \x01(\x0b\x32\".service_layer.SLRoutev6NotifRouteH\x00\x12\x33\n\x06Marker\x18\x05 \x01(\x0b\x32!.service_layer.SLRouteNotifMarkerH\x00\x12(\n\x03Vrf\x18\x06 \x01(\x0b\x32\x19.service_layer.SLVrfNotifH\x00\x42\x07\n\x05\x45vent2\x98\x07\n\rSLRoutev6Oper\x12\x62\n\x13SLRoutev6GlobalsGet\x12#.service_layer.SLRouteGlobalsGetMsg\x1a&.service_layer.SLRouteGlobalsGetMsgRsp\x12n\n\x17SLRoutev6GlobalStatsGet\x12\'.service_layer.SLRouteGlobalStatsGetMsg\x1a*.service_layer.SLRouteGlobalStatsGetMsgRsp\x12N\n\x11SLRoutev6VrfRegOp\x12\x1a.service_layer.SLVrfRegMsg\x1a\x1d.service_layer.SLVrfRegMsgRsp\x12U\n\x12SLRoutev6VrfRegGet\x12\x1d.service_layer.SLVrfRegGetMsg\x1a .service_layer.SLVrfRegGetMsgRsp\x12Y\n\x14SLRoutev6VrfGetStats\x12\x1d.service_layer.SLVrfRegGetMsg\x1a\".service_layer.SLVRFGetStatsMsgRsp\x12J\n\x0bSLRoutev6Op\x12\x1b.service_layer.SLRoutev6Msg\x1a\x1e.service_layer.SLRoutev6MsgRsp\x12Q\n\x0cSLRoutev6Get\x12\x1e.service_layer.SLRoutev6GetMsg\x1a!.service_layer.SLRoutev6GetMsgRsp\x12T\n\x11SLRoutev6OpStream\x12\x1b.service_layer.SLRoutev6Msg\x1a\x1e.service_layer.SLRoutev6MsgRsp(\x01\x30\x01\x12[\n\x12SLRoutev6GetStream\x12\x1e.service_layer.SLRoutev6GetMsg\x1a!.service_layer.SLRoutev6GetMsgRsp(\x01\x30\x01\x12_\n\x17SLRoutev6GetNotifStream\x12!.service_layer.SLRouteGetNotifMsg\x1a\x1d.service_layer.SLRoutev6Notif(\x01\x30\x01\x42QZOgithub.com/Cisco-service-layer/service-layer-objmodel/grpc/protos;service_layerb\x06proto3'
   ,
   dependencies=[sl__common__types__pb2.DESCRIPTOR,sl__route__common__pb2.DESCRIPTOR,])
 
@@ -64,6 +64,13 @@ _SLROUTEV6 = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='PathGroupKey', full_name='service_layer.SLRoutev6.PathGroupKey', index=4,
+      number=5, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -75,9 +82,14 @@ _SLROUTEV6 = _descriptor.Descriptor(
   syntax='proto3',
   extension_ranges=[],
   oneofs=[
+    _descriptor.OneofDescriptor(
+      name='entry', full_name='service_layer.SLRoutev6.entry',
+      index=0, containing_type=None,
+      create_key=_descriptor._internal_create_key,
+    fields=[]),
   ],
   serialized_start=85,
-  serialized_end=228,
+  serialized_end=295,
 )
 
 
@@ -129,8 +141,8 @@ _SLROUTEV6MSG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=231,
-  serialized_end=365,
+  serialized_start=298,
+  serialized_end=432,
 )
 
 
@@ -175,8 +187,8 @@ _SLROUTEV6RES = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=367,
-  serialized_end=465,
+  serialized_start=434,
+  serialized_end=532,
 )
 
 
@@ -228,8 +240,8 @@ _SLROUTEV6MSGRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=468,
-  serialized_end=621,
+  serialized_start=535,
+  serialized_end=688,
 )
 
 
@@ -295,8 +307,8 @@ _SLROUTEV6GETMSG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=624,
-  serialized_end=752,
+  serialized_start=691,
+  serialized_end=819,
 )
 
 
@@ -355,8 +367,8 @@ _SLROUTEV6GETMSGRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=755,
-  serialized_end=917,
+  serialized_start=822,
+  serialized_end=984,
 )
 
 
@@ -394,8 +406,8 @@ _SLROUTEV6NOTIFROUTE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=919,
-  serialized_end=1000,
+  serialized_start=986,
+  serialized_end=1067,
 )
 
 
@@ -466,12 +478,16 @@ _SLROUTEV6NOTIF = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=1003,
-  serialized_end=1332,
+  serialized_start=1070,
+  serialized_end=1399,
 )
 
 _SLROUTEV6.fields_by_name['RouteCommon'].message_type = sl__route__common__pb2._SLROUTECOMMON
 _SLROUTEV6.fields_by_name['PathList'].message_type = sl__route__common__pb2._SLROUTEPATH
+_SLROUTEV6.fields_by_name['PathGroupKey'].message_type = sl__route__common__pb2._SLPATHGROUPREFKEY
+_SLROUTEV6.oneofs_by_name['entry'].fields.append(
+  _SLROUTEV6.fields_by_name['PathGroupKey'])
+_SLROUTEV6.fields_by_name['PathGroupKey'].containing_oneof = _SLROUTEV6.oneofs_by_name['entry']
 _SLROUTEV6MSG.fields_by_name['Oper'].enum_type = sl__common__types__pb2._SLOBJECTOP
 _SLROUTEV6MSG.fields_by_name['Routes'].message_type = _SLROUTEV6
 _SLROUTEV6RES.fields_by_name['ErrStatus'].message_type = sl__common__types__pb2._SLERRORSTATUS
@@ -577,8 +593,8 @@ _SLROUTEV6OPER = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=1335,
-  serialized_end=2255,
+  serialized_start=1402,
+  serialized_end=2322,
   methods=[
   _descriptor.MethodDescriptor(
     name='SLRoutev6GlobalsGet',

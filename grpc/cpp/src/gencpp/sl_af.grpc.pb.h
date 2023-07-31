@@ -148,6 +148,52 @@ class SLAF final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::service_layer::SLAFVrfRegMsgRsp>> PrepareAsyncSLAFVrfRegOp(::grpc::ClientContext* context, const ::service_layer::SLAFVrfRegMsg& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::service_layer::SLAFVrfRegMsgRsp>>(PrepareAsyncSLAFVrfRegOpRaw(context, request, cq));
     }
+    //
+    // Route, MPLS label and Path operations.
+    //
+    //
+    // SLAFMsg.Oper = SL_OBJOP_ADD:
+    //     Object add. Fails if the objects already exists and is not stale.
+    //     First ADD operation on a stale object is allowed and the object
+    //     is no longer considered stale.
+    //
+    // SLAFMsg.Oper = SL_OBJOP_UPDATE:
+    //     Object update. Creates or updates the objects.
+    //
+    // SLAFMsg.Oper = SL_OBJOP_DELETE:
+    //     Object delete. The object's key is enough to delete the object.
+    //     Delete of a non-existant object is returned as success.
+    virtual ::grpc::Status SLAFOp(::grpc::ClientContext* context, const ::service_layer::SLAFMsg& request, ::service_layer::SLAFMsgRsp* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::service_layer::SLAFMsgRsp>> AsyncSLAFOp(::grpc::ClientContext* context, const ::service_layer::SLAFMsg& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::service_layer::SLAFMsgRsp>>(AsyncSLAFOpRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::service_layer::SLAFMsgRsp>> PrepareAsyncSLAFOp(::grpc::ClientContext* context, const ::service_layer::SLAFMsg& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::service_layer::SLAFMsgRsp>>(PrepareAsyncSLAFOpRaw(context, request, cq));
+    }
+    //
+    // Stream object operations
+    //
+    //
+    // SLAFMsg.Oper = SL_OBJOP_ADD:
+    //     Object add. Fails if the objects already exists and is not stale.
+    //     First ADD operation on a stale object is allowed and the object
+    //     is no longer considered stale.
+    //
+    // SLAFMsg.Oper = SL_OBJOP_UPDATE:
+    //     Object update. Creates or updates the object.
+    //
+    // SLAFMsg.Oper = SL_OBJOP_DELETE:
+    //     Object delete. The object's key is enough to delete the object.
+    //     Delete of a non-existant object is returned as success.
+    std::unique_ptr< ::grpc::ClientReaderWriterInterface< ::service_layer::SLAFMsg, ::service_layer::SLAFMsgRsp>> SLAFOpStream(::grpc::ClientContext* context) {
+      return std::unique_ptr< ::grpc::ClientReaderWriterInterface< ::service_layer::SLAFMsg, ::service_layer::SLAFMsgRsp>>(SLAFOpStreamRaw(context));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncReaderWriterInterface< ::service_layer::SLAFMsg, ::service_layer::SLAFMsgRsp>> AsyncSLAFOpStream(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq, void* tag) {
+      return std::unique_ptr< ::grpc::ClientAsyncReaderWriterInterface< ::service_layer::SLAFMsg, ::service_layer::SLAFMsgRsp>>(AsyncSLAFOpStreamRaw(context, cq, tag));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncReaderWriterInterface< ::service_layer::SLAFMsg, ::service_layer::SLAFMsgRsp>> PrepareAsyncSLAFOpStream(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncReaderWriterInterface< ::service_layer::SLAFMsg, ::service_layer::SLAFMsgRsp>>(PrepareAsyncSLAFOpStreamRaw(context, cq));
+    }
     class async_interface {
      public:
       virtual ~async_interface() {}
@@ -200,6 +246,39 @@ class SLAF final {
       // from a single execution context.
       virtual void SLAFVrfRegOp(::grpc::ClientContext* context, const ::service_layer::SLAFVrfRegMsg* request, ::service_layer::SLAFVrfRegMsgRsp* response, std::function<void(::grpc::Status)>) = 0;
       virtual void SLAFVrfRegOp(::grpc::ClientContext* context, const ::service_layer::SLAFVrfRegMsg* request, ::service_layer::SLAFVrfRegMsgRsp* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      //
+      // Route, MPLS label and Path operations.
+      //
+      //
+      // SLAFMsg.Oper = SL_OBJOP_ADD:
+      //     Object add. Fails if the objects already exists and is not stale.
+      //     First ADD operation on a stale object is allowed and the object
+      //     is no longer considered stale.
+      //
+      // SLAFMsg.Oper = SL_OBJOP_UPDATE:
+      //     Object update. Creates or updates the objects.
+      //
+      // SLAFMsg.Oper = SL_OBJOP_DELETE:
+      //     Object delete. The object's key is enough to delete the object.
+      //     Delete of a non-existant object is returned as success.
+      virtual void SLAFOp(::grpc::ClientContext* context, const ::service_layer::SLAFMsg* request, ::service_layer::SLAFMsgRsp* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void SLAFOp(::grpc::ClientContext* context, const ::service_layer::SLAFMsg* request, ::service_layer::SLAFMsgRsp* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      //
+      // Stream object operations
+      //
+      //
+      // SLAFMsg.Oper = SL_OBJOP_ADD:
+      //     Object add. Fails if the objects already exists and is not stale.
+      //     First ADD operation on a stale object is allowed and the object
+      //     is no longer considered stale.
+      //
+      // SLAFMsg.Oper = SL_OBJOP_UPDATE:
+      //     Object update. Creates or updates the object.
+      //
+      // SLAFMsg.Oper = SL_OBJOP_DELETE:
+      //     Object delete. The object's key is enough to delete the object.
+      //     Delete of a non-existant object is returned as success.
+      virtual void SLAFOpStream(::grpc::ClientContext* context, ::grpc::ClientBidiReactor< ::service_layer::SLAFMsg,::service_layer::SLAFMsgRsp>* reactor) = 0;
     };
     typedef class async_interface experimental_async_interface;
     virtual class async_interface* async() { return nullptr; }
@@ -207,6 +286,11 @@ class SLAF final {
    private:
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::service_layer::SLAFVrfRegMsgRsp>* AsyncSLAFVrfRegOpRaw(::grpc::ClientContext* context, const ::service_layer::SLAFVrfRegMsg& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::service_layer::SLAFVrfRegMsgRsp>* PrepareAsyncSLAFVrfRegOpRaw(::grpc::ClientContext* context, const ::service_layer::SLAFVrfRegMsg& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::service_layer::SLAFMsgRsp>* AsyncSLAFOpRaw(::grpc::ClientContext* context, const ::service_layer::SLAFMsg& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::service_layer::SLAFMsgRsp>* PrepareAsyncSLAFOpRaw(::grpc::ClientContext* context, const ::service_layer::SLAFMsg& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientReaderWriterInterface< ::service_layer::SLAFMsg, ::service_layer::SLAFMsgRsp>* SLAFOpStreamRaw(::grpc::ClientContext* context) = 0;
+    virtual ::grpc::ClientAsyncReaderWriterInterface< ::service_layer::SLAFMsg, ::service_layer::SLAFMsgRsp>* AsyncSLAFOpStreamRaw(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq, void* tag) = 0;
+    virtual ::grpc::ClientAsyncReaderWriterInterface< ::service_layer::SLAFMsg, ::service_layer::SLAFMsgRsp>* PrepareAsyncSLAFOpStreamRaw(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq) = 0;
   };
   class Stub final : public StubInterface {
    public:
@@ -218,11 +302,30 @@ class SLAF final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::service_layer::SLAFVrfRegMsgRsp>> PrepareAsyncSLAFVrfRegOp(::grpc::ClientContext* context, const ::service_layer::SLAFVrfRegMsg& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::service_layer::SLAFVrfRegMsgRsp>>(PrepareAsyncSLAFVrfRegOpRaw(context, request, cq));
     }
+    ::grpc::Status SLAFOp(::grpc::ClientContext* context, const ::service_layer::SLAFMsg& request, ::service_layer::SLAFMsgRsp* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::service_layer::SLAFMsgRsp>> AsyncSLAFOp(::grpc::ClientContext* context, const ::service_layer::SLAFMsg& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::service_layer::SLAFMsgRsp>>(AsyncSLAFOpRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::service_layer::SLAFMsgRsp>> PrepareAsyncSLAFOp(::grpc::ClientContext* context, const ::service_layer::SLAFMsg& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::service_layer::SLAFMsgRsp>>(PrepareAsyncSLAFOpRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientReaderWriter< ::service_layer::SLAFMsg, ::service_layer::SLAFMsgRsp>> SLAFOpStream(::grpc::ClientContext* context) {
+      return std::unique_ptr< ::grpc::ClientReaderWriter< ::service_layer::SLAFMsg, ::service_layer::SLAFMsgRsp>>(SLAFOpStreamRaw(context));
+    }
+    std::unique_ptr<  ::grpc::ClientAsyncReaderWriter< ::service_layer::SLAFMsg, ::service_layer::SLAFMsgRsp>> AsyncSLAFOpStream(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq, void* tag) {
+      return std::unique_ptr< ::grpc::ClientAsyncReaderWriter< ::service_layer::SLAFMsg, ::service_layer::SLAFMsgRsp>>(AsyncSLAFOpStreamRaw(context, cq, tag));
+    }
+    std::unique_ptr<  ::grpc::ClientAsyncReaderWriter< ::service_layer::SLAFMsg, ::service_layer::SLAFMsgRsp>> PrepareAsyncSLAFOpStream(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncReaderWriter< ::service_layer::SLAFMsg, ::service_layer::SLAFMsgRsp>>(PrepareAsyncSLAFOpStreamRaw(context, cq));
+    }
     class async final :
       public StubInterface::async_interface {
      public:
       void SLAFVrfRegOp(::grpc::ClientContext* context, const ::service_layer::SLAFVrfRegMsg* request, ::service_layer::SLAFVrfRegMsgRsp* response, std::function<void(::grpc::Status)>) override;
       void SLAFVrfRegOp(::grpc::ClientContext* context, const ::service_layer::SLAFVrfRegMsg* request, ::service_layer::SLAFVrfRegMsgRsp* response, ::grpc::ClientUnaryReactor* reactor) override;
+      void SLAFOp(::grpc::ClientContext* context, const ::service_layer::SLAFMsg* request, ::service_layer::SLAFMsgRsp* response, std::function<void(::grpc::Status)>) override;
+      void SLAFOp(::grpc::ClientContext* context, const ::service_layer::SLAFMsg* request, ::service_layer::SLAFMsgRsp* response, ::grpc::ClientUnaryReactor* reactor) override;
+      void SLAFOpStream(::grpc::ClientContext* context, ::grpc::ClientBidiReactor< ::service_layer::SLAFMsg,::service_layer::SLAFMsgRsp>* reactor) override;
      private:
       friend class Stub;
       explicit async(Stub* stub): stub_(stub) { }
@@ -236,7 +339,14 @@ class SLAF final {
     class async async_stub_{this};
     ::grpc::ClientAsyncResponseReader< ::service_layer::SLAFVrfRegMsgRsp>* AsyncSLAFVrfRegOpRaw(::grpc::ClientContext* context, const ::service_layer::SLAFVrfRegMsg& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::service_layer::SLAFVrfRegMsgRsp>* PrepareAsyncSLAFVrfRegOpRaw(::grpc::ClientContext* context, const ::service_layer::SLAFVrfRegMsg& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::service_layer::SLAFMsgRsp>* AsyncSLAFOpRaw(::grpc::ClientContext* context, const ::service_layer::SLAFMsg& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::service_layer::SLAFMsgRsp>* PrepareAsyncSLAFOpRaw(::grpc::ClientContext* context, const ::service_layer::SLAFMsg& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientReaderWriter< ::service_layer::SLAFMsg, ::service_layer::SLAFMsgRsp>* SLAFOpStreamRaw(::grpc::ClientContext* context) override;
+    ::grpc::ClientAsyncReaderWriter< ::service_layer::SLAFMsg, ::service_layer::SLAFMsgRsp>* AsyncSLAFOpStreamRaw(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq, void* tag) override;
+    ::grpc::ClientAsyncReaderWriter< ::service_layer::SLAFMsg, ::service_layer::SLAFMsgRsp>* PrepareAsyncSLAFOpStreamRaw(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq) override;
     const ::grpc::internal::RpcMethod rpcmethod_SLAFVrfRegOp_;
+    const ::grpc::internal::RpcMethod rpcmethod_SLAFOp_;
+    const ::grpc::internal::RpcMethod rpcmethod_SLAFOpStream_;
   };
   static std::unique_ptr<Stub> NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options = ::grpc::StubOptions());
 
@@ -292,6 +402,38 @@ class SLAF final {
     // The client MUST perform all operations (VRF registration, objects)
     // from a single execution context.
     virtual ::grpc::Status SLAFVrfRegOp(::grpc::ServerContext* context, const ::service_layer::SLAFVrfRegMsg* request, ::service_layer::SLAFVrfRegMsgRsp* response);
+    //
+    // Route, MPLS label and Path operations.
+    //
+    //
+    // SLAFMsg.Oper = SL_OBJOP_ADD:
+    //     Object add. Fails if the objects already exists and is not stale.
+    //     First ADD operation on a stale object is allowed and the object
+    //     is no longer considered stale.
+    //
+    // SLAFMsg.Oper = SL_OBJOP_UPDATE:
+    //     Object update. Creates or updates the objects.
+    //
+    // SLAFMsg.Oper = SL_OBJOP_DELETE:
+    //     Object delete. The object's key is enough to delete the object.
+    //     Delete of a non-existant object is returned as success.
+    virtual ::grpc::Status SLAFOp(::grpc::ServerContext* context, const ::service_layer::SLAFMsg* request, ::service_layer::SLAFMsgRsp* response);
+    //
+    // Stream object operations
+    //
+    //
+    // SLAFMsg.Oper = SL_OBJOP_ADD:
+    //     Object add. Fails if the objects already exists and is not stale.
+    //     First ADD operation on a stale object is allowed and the object
+    //     is no longer considered stale.
+    //
+    // SLAFMsg.Oper = SL_OBJOP_UPDATE:
+    //     Object update. Creates or updates the object.
+    //
+    // SLAFMsg.Oper = SL_OBJOP_DELETE:
+    //     Object delete. The object's key is enough to delete the object.
+    //     Delete of a non-existant object is returned as success.
+    virtual ::grpc::Status SLAFOpStream(::grpc::ServerContext* context, ::grpc::ServerReaderWriter< ::service_layer::SLAFMsgRsp, ::service_layer::SLAFMsg>* stream);
   };
   template <class BaseClass>
   class WithAsyncMethod_SLAFVrfRegOp : public BaseClass {
@@ -313,7 +455,47 @@ class SLAF final {
       ::grpc::Service::RequestAsyncUnary(0, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
-  typedef WithAsyncMethod_SLAFVrfRegOp<Service > AsyncService;
+  template <class BaseClass>
+  class WithAsyncMethod_SLAFOp : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithAsyncMethod_SLAFOp() {
+      ::grpc::Service::MarkMethodAsync(1);
+    }
+    ~WithAsyncMethod_SLAFOp() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status SLAFOp(::grpc::ServerContext* /*context*/, const ::service_layer::SLAFMsg* /*request*/, ::service_layer::SLAFMsgRsp* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestSLAFOp(::grpc::ServerContext* context, ::service_layer::SLAFMsg* request, ::grpc::ServerAsyncResponseWriter< ::service_layer::SLAFMsgRsp>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(1, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithAsyncMethod_SLAFOpStream : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithAsyncMethod_SLAFOpStream() {
+      ::grpc::Service::MarkMethodAsync(2);
+    }
+    ~WithAsyncMethod_SLAFOpStream() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status SLAFOpStream(::grpc::ServerContext* /*context*/, ::grpc::ServerReaderWriter< ::service_layer::SLAFMsgRsp, ::service_layer::SLAFMsg>* /*stream*/)  override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestSLAFOpStream(::grpc::ServerContext* context, ::grpc::ServerAsyncReaderWriter< ::service_layer::SLAFMsgRsp, ::service_layer::SLAFMsg>* stream, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncBidiStreaming(2, context, stream, new_call_cq, notification_cq, tag);
+    }
+  };
+  typedef WithAsyncMethod_SLAFVrfRegOp<WithAsyncMethod_SLAFOp<WithAsyncMethod_SLAFOpStream<Service > > > AsyncService;
   template <class BaseClass>
   class WithCallbackMethod_SLAFVrfRegOp : public BaseClass {
    private:
@@ -341,7 +523,57 @@ class SLAF final {
     virtual ::grpc::ServerUnaryReactor* SLAFVrfRegOp(
       ::grpc::CallbackServerContext* /*context*/, const ::service_layer::SLAFVrfRegMsg* /*request*/, ::service_layer::SLAFVrfRegMsgRsp* /*response*/)  { return nullptr; }
   };
-  typedef WithCallbackMethod_SLAFVrfRegOp<Service > CallbackService;
+  template <class BaseClass>
+  class WithCallbackMethod_SLAFOp : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithCallbackMethod_SLAFOp() {
+      ::grpc::Service::MarkMethodCallback(1,
+          new ::grpc::internal::CallbackUnaryHandler< ::service_layer::SLAFMsg, ::service_layer::SLAFMsgRsp>(
+            [this](
+                   ::grpc::CallbackServerContext* context, const ::service_layer::SLAFMsg* request, ::service_layer::SLAFMsgRsp* response) { return this->SLAFOp(context, request, response); }));}
+    void SetMessageAllocatorFor_SLAFOp(
+        ::grpc::MessageAllocator< ::service_layer::SLAFMsg, ::service_layer::SLAFMsgRsp>* allocator) {
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(1);
+      static_cast<::grpc::internal::CallbackUnaryHandler< ::service_layer::SLAFMsg, ::service_layer::SLAFMsgRsp>*>(handler)
+              ->SetMessageAllocator(allocator);
+    }
+    ~WithCallbackMethod_SLAFOp() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status SLAFOp(::grpc::ServerContext* /*context*/, const ::service_layer::SLAFMsg* /*request*/, ::service_layer::SLAFMsgRsp* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    virtual ::grpc::ServerUnaryReactor* SLAFOp(
+      ::grpc::CallbackServerContext* /*context*/, const ::service_layer::SLAFMsg* /*request*/, ::service_layer::SLAFMsgRsp* /*response*/)  { return nullptr; }
+  };
+  template <class BaseClass>
+  class WithCallbackMethod_SLAFOpStream : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithCallbackMethod_SLAFOpStream() {
+      ::grpc::Service::MarkMethodCallback(2,
+          new ::grpc::internal::CallbackBidiHandler< ::service_layer::SLAFMsg, ::service_layer::SLAFMsgRsp>(
+            [this](
+                   ::grpc::CallbackServerContext* context) { return this->SLAFOpStream(context); }));
+    }
+    ~WithCallbackMethod_SLAFOpStream() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status SLAFOpStream(::grpc::ServerContext* /*context*/, ::grpc::ServerReaderWriter< ::service_layer::SLAFMsgRsp, ::service_layer::SLAFMsg>* /*stream*/)  override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    virtual ::grpc::ServerBidiReactor< ::service_layer::SLAFMsg, ::service_layer::SLAFMsgRsp>* SLAFOpStream(
+      ::grpc::CallbackServerContext* /*context*/)
+      { return nullptr; }
+  };
+  typedef WithCallbackMethod_SLAFVrfRegOp<WithCallbackMethod_SLAFOp<WithCallbackMethod_SLAFOpStream<Service > > > CallbackService;
   typedef CallbackService ExperimentalCallbackService;
   template <class BaseClass>
   class WithGenericMethod_SLAFVrfRegOp : public BaseClass {
@@ -356,6 +588,40 @@ class SLAF final {
     }
     // disable synchronous version of this method
     ::grpc::Status SLAFVrfRegOp(::grpc::ServerContext* /*context*/, const ::service_layer::SLAFVrfRegMsg* /*request*/, ::service_layer::SLAFVrfRegMsgRsp* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+  };
+  template <class BaseClass>
+  class WithGenericMethod_SLAFOp : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithGenericMethod_SLAFOp() {
+      ::grpc::Service::MarkMethodGeneric(1);
+    }
+    ~WithGenericMethod_SLAFOp() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status SLAFOp(::grpc::ServerContext* /*context*/, const ::service_layer::SLAFMsg* /*request*/, ::service_layer::SLAFMsgRsp* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+  };
+  template <class BaseClass>
+  class WithGenericMethod_SLAFOpStream : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithGenericMethod_SLAFOpStream() {
+      ::grpc::Service::MarkMethodGeneric(2);
+    }
+    ~WithGenericMethod_SLAFOpStream() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status SLAFOpStream(::grpc::ServerContext* /*context*/, ::grpc::ServerReaderWriter< ::service_layer::SLAFMsgRsp, ::service_layer::SLAFMsg>* /*stream*/)  override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -381,6 +647,46 @@ class SLAF final {
     }
   };
   template <class BaseClass>
+  class WithRawMethod_SLAFOp : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithRawMethod_SLAFOp() {
+      ::grpc::Service::MarkMethodRaw(1);
+    }
+    ~WithRawMethod_SLAFOp() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status SLAFOp(::grpc::ServerContext* /*context*/, const ::service_layer::SLAFMsg* /*request*/, ::service_layer::SLAFMsgRsp* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestSLAFOp(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(1, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithRawMethod_SLAFOpStream : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithRawMethod_SLAFOpStream() {
+      ::grpc::Service::MarkMethodRaw(2);
+    }
+    ~WithRawMethod_SLAFOpStream() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status SLAFOpStream(::grpc::ServerContext* /*context*/, ::grpc::ServerReaderWriter< ::service_layer::SLAFMsgRsp, ::service_layer::SLAFMsg>* /*stream*/)  override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestSLAFOpStream(::grpc::ServerContext* context, ::grpc::ServerAsyncReaderWriter< ::grpc::ByteBuffer, ::grpc::ByteBuffer>* stream, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncBidiStreaming(2, context, stream, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
   class WithRawCallbackMethod_SLAFVrfRegOp : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
@@ -401,6 +707,51 @@ class SLAF final {
     }
     virtual ::grpc::ServerUnaryReactor* SLAFVrfRegOp(
       ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
+  };
+  template <class BaseClass>
+  class WithRawCallbackMethod_SLAFOp : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithRawCallbackMethod_SLAFOp() {
+      ::grpc::Service::MarkMethodRawCallback(1,
+          new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+            [this](
+                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->SLAFOp(context, request, response); }));
+    }
+    ~WithRawCallbackMethod_SLAFOp() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status SLAFOp(::grpc::ServerContext* /*context*/, const ::service_layer::SLAFMsg* /*request*/, ::service_layer::SLAFMsgRsp* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    virtual ::grpc::ServerUnaryReactor* SLAFOp(
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
+  };
+  template <class BaseClass>
+  class WithRawCallbackMethod_SLAFOpStream : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithRawCallbackMethod_SLAFOpStream() {
+      ::grpc::Service::MarkMethodRawCallback(2,
+          new ::grpc::internal::CallbackBidiHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+            [this](
+                   ::grpc::CallbackServerContext* context) { return this->SLAFOpStream(context); }));
+    }
+    ~WithRawCallbackMethod_SLAFOpStream() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status SLAFOpStream(::grpc::ServerContext* /*context*/, ::grpc::ServerReaderWriter< ::service_layer::SLAFMsgRsp, ::service_layer::SLAFMsg>* /*stream*/)  override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    virtual ::grpc::ServerBidiReactor< ::grpc::ByteBuffer, ::grpc::ByteBuffer>* SLAFOpStream(
+      ::grpc::CallbackServerContext* /*context*/)
+      { return nullptr; }
   };
   template <class BaseClass>
   class WithStreamedUnaryMethod_SLAFVrfRegOp : public BaseClass {
@@ -429,9 +780,36 @@ class SLAF final {
     // replace default version of method with streamed unary
     virtual ::grpc::Status StreamedSLAFVrfRegOp(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::service_layer::SLAFVrfRegMsg,::service_layer::SLAFVrfRegMsgRsp>* server_unary_streamer) = 0;
   };
-  typedef WithStreamedUnaryMethod_SLAFVrfRegOp<Service > StreamedUnaryService;
+  template <class BaseClass>
+  class WithStreamedUnaryMethod_SLAFOp : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithStreamedUnaryMethod_SLAFOp() {
+      ::grpc::Service::MarkMethodStreamed(1,
+        new ::grpc::internal::StreamedUnaryHandler<
+          ::service_layer::SLAFMsg, ::service_layer::SLAFMsgRsp>(
+            [this](::grpc::ServerContext* context,
+                   ::grpc::ServerUnaryStreamer<
+                     ::service_layer::SLAFMsg, ::service_layer::SLAFMsgRsp>* streamer) {
+                       return this->StreamedSLAFOp(context,
+                         streamer);
+                  }));
+    }
+    ~WithStreamedUnaryMethod_SLAFOp() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable regular version of this method
+    ::grpc::Status SLAFOp(::grpc::ServerContext* /*context*/, const ::service_layer::SLAFMsg* /*request*/, ::service_layer::SLAFMsgRsp* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    // replace default version of method with streamed unary
+    virtual ::grpc::Status StreamedSLAFOp(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::service_layer::SLAFMsg,::service_layer::SLAFMsgRsp>* server_unary_streamer) = 0;
+  };
+  typedef WithStreamedUnaryMethod_SLAFVrfRegOp<WithStreamedUnaryMethod_SLAFOp<Service > > StreamedUnaryService;
   typedef Service SplitStreamedService;
-  typedef WithStreamedUnaryMethod_SLAFVrfRegOp<Service > StreamedService;
+  typedef WithStreamedUnaryMethod_SLAFVrfRegOp<WithStreamedUnaryMethod_SLAFOp<Service > > StreamedService;
 };
 // @addtogroup SLAF
 // @{

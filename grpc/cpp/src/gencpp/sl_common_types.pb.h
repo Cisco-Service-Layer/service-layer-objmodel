@@ -47,7 +47,7 @@ struct TableStruct_sl_5fcommon_5ftypes_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::AuxiliaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[3]
+  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[4]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::FieldMetadata field_metadata[];
   static const ::PROTOBUF_NAMESPACE_ID::internal::SerializationTable serialization_table[];
@@ -64,11 +64,15 @@ extern SLInterfaceDefaultTypeInternal _SLInterface_default_instance_;
 class SLIpAddress;
 struct SLIpAddressDefaultTypeInternal;
 extern SLIpAddressDefaultTypeInternal _SLIpAddress_default_instance_;
+class SLObjectId;
+struct SLObjectIdDefaultTypeInternal;
+extern SLObjectIdDefaultTypeInternal _SLObjectId_default_instance_;
 }  // namespace service_layer
 PROTOBUF_NAMESPACE_OPEN
 template<> ::service_layer::SLErrorStatus* Arena::CreateMaybeMessage<::service_layer::SLErrorStatus>(Arena*);
 template<> ::service_layer::SLInterface* Arena::CreateMaybeMessage<::service_layer::SLInterface>(Arena*);
 template<> ::service_layer::SLIpAddress* Arena::CreateMaybeMessage<::service_layer::SLIpAddress>(Arena*);
+template<> ::service_layer::SLObjectId* Arena::CreateMaybeMessage<::service_layer::SLObjectId>(Arena*);
 PROTOBUF_NAMESPACE_CLOSE
 namespace service_layer {
 
@@ -490,6 +494,30 @@ inline bool SLTableType_Parse(
     ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, SLTableType* value) {
   return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<SLTableType>(
     SLTableType_descriptor(), name, value);
+}
+enum SLRspACKType : int {
+  RIB_ACK = 0,
+  SLRspACKType_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::min(),
+  SLRspACKType_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::max()
+};
+bool SLRspACKType_IsValid(int value);
+constexpr SLRspACKType SLRspACKType_MIN = RIB_ACK;
+constexpr SLRspACKType SLRspACKType_MAX = RIB_ACK;
+constexpr int SLRspACKType_ARRAYSIZE = SLRspACKType_MAX + 1;
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* SLRspACKType_descriptor();
+template<typename T>
+inline const std::string& SLRspACKType_Name(T enum_t_value) {
+  static_assert(::std::is_same<T, SLRspACKType>::value ||
+    ::std::is_integral<T>::value,
+    "Incorrect type passed to function SLRspACKType_Name.");
+  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
+    SLRspACKType_descriptor(), enum_t_value);
+}
+inline bool SLRspACKType_Parse(
+    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, SLRspACKType* value) {
+  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<SLRspACKType>(
+    SLRspACKType_descriptor(), name, value);
 }
 // ===================================================================
 
@@ -1563,6 +1591,178 @@ class SLIpAddress final :
 
   friend struct ::TableStruct_sl_5fcommon_5ftypes_2eproto;
 };
+// -------------------------------------------------------------------
+
+class SLObjectId final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:service_layer.SLObjectId) */ {
+ public:
+  inline SLObjectId() : SLObjectId(nullptr) {}
+  ~SLObjectId() override;
+  explicit constexpr SLObjectId(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  SLObjectId(const SLObjectId& from);
+  SLObjectId(SLObjectId&& from) noexcept
+    : SLObjectId() {
+    *this = ::std::move(from);
+  }
+
+  inline SLObjectId& operator=(const SLObjectId& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline SLObjectId& operator=(SLObjectId&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const SLObjectId& default_instance() {
+    return *internal_default_instance();
+  }
+  enum EntryCase {
+    kName = 1,
+    ENTRY_NOT_SET = 0,
+  };
+
+  static inline const SLObjectId* internal_default_instance() {
+    return reinterpret_cast<const SLObjectId*>(
+               &_SLObjectId_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    3;
+
+  friend void swap(SLObjectId& a, SLObjectId& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(SLObjectId* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(SLObjectId* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  SLObjectId* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<SLObjectId>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const SLObjectId& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom(const SLObjectId& from);
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to, const ::PROTOBUF_NAMESPACE_ID::Message& from);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(SLObjectId* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "service_layer.SLObjectId";
+  }
+  protected:
+  explicit SLObjectId(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kNameFieldNumber = 1,
+  };
+  // string Name = 1;
+  bool has_name() const;
+  private:
+  bool _internal_has_name() const;
+  public:
+  void clear_name();
+  const std::string& name() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_name(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_name();
+  PROTOBUF_NODISCARD std::string* release_name();
+  void set_allocated_name(std::string* name);
+  private:
+  const std::string& _internal_name() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_name(const std::string& value);
+  std::string* _internal_mutable_name();
+  public:
+
+  void clear_entry();
+  EntryCase entry_case() const;
+  // @@protoc_insertion_point(class_scope:service_layer.SLObjectId)
+ private:
+  class _Internal;
+  void set_has_name();
+
+  inline bool has_entry() const;
+  inline void clear_has_entry();
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  union EntryUnion {
+    constexpr EntryUnion() : _constinit_{} {}
+      ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized _constinit_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr name_;
+  } entry_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  uint32_t _oneof_case_[1];
+
+  friend struct ::TableStruct_sl_5fcommon_5ftypes_2eproto;
+};
 // ===================================================================
 
 
@@ -1860,9 +2060,106 @@ inline void SLIpAddress::clear_has_Address() {
 inline SLIpAddress::AddressCase SLIpAddress::Address_case() const {
   return SLIpAddress::AddressCase(_oneof_case_[0]);
 }
+// -------------------------------------------------------------------
+
+// SLObjectId
+
+// string Name = 1;
+inline bool SLObjectId::_internal_has_name() const {
+  return entry_case() == kName;
+}
+inline bool SLObjectId::has_name() const {
+  return _internal_has_name();
+}
+inline void SLObjectId::set_has_name() {
+  _oneof_case_[0] = kName;
+}
+inline void SLObjectId::clear_name() {
+  if (_internal_has_name()) {
+    entry_.name_.Destroy(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
+    clear_has_entry();
+  }
+}
+inline const std::string& SLObjectId::name() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLObjectId.Name)
+  return _internal_name();
+}
+template <typename ArgT0, typename... ArgT>
+inline void SLObjectId::set_name(ArgT0&& arg0, ArgT... args) {
+  if (!_internal_has_name()) {
+    clear_entry();
+    set_has_name();
+    entry_.name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  }
+  entry_.name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:service_layer.SLObjectId.Name)
+}
+inline std::string* SLObjectId::mutable_name() {
+  std::string* _s = _internal_mutable_name();
+  // @@protoc_insertion_point(field_mutable:service_layer.SLObjectId.Name)
+  return _s;
+}
+inline const std::string& SLObjectId::_internal_name() const {
+  if (_internal_has_name()) {
+    return entry_.name_.Get();
+  }
+  return ::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited();
+}
+inline void SLObjectId::_internal_set_name(const std::string& value) {
+  if (!_internal_has_name()) {
+    clear_entry();
+    set_has_name();
+    entry_.name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  }
+  entry_.name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArenaForAllocation());
+}
+inline std::string* SLObjectId::_internal_mutable_name() {
+  if (!_internal_has_name()) {
+    clear_entry();
+    set_has_name();
+    entry_.name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  }
+  return entry_.name_.Mutable(
+      ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
+}
+inline std::string* SLObjectId::release_name() {
+  // @@protoc_insertion_point(field_release:service_layer.SLObjectId.Name)
+  if (_internal_has_name()) {
+    clear_has_entry();
+    return entry_.name_.ReleaseNonDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArenaForAllocation());
+  } else {
+    return nullptr;
+  }
+}
+inline void SLObjectId::set_allocated_name(std::string* name) {
+  if (has_entry()) {
+    clear_entry();
+  }
+  if (name != nullptr) {
+    set_has_name();
+    entry_.name_.UnsafeSetDefault(name);
+    ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArenaForAllocation();
+    if (arena != nullptr) {
+      arena->Own(name);
+    }
+  }
+  // @@protoc_insertion_point(field_set_allocated:service_layer.SLObjectId.Name)
+}
+
+inline bool SLObjectId::has_entry() const {
+  return entry_case() != ENTRY_NOT_SET;
+}
+inline void SLObjectId::clear_has_entry() {
+  _oneof_case_[0] = ENTRY_NOT_SET;
+}
+inline SLObjectId::EntryCase SLObjectId::entry_case() const {
+  return SLObjectId::EntryCase(_oneof_case_[0]);
+}
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------
@@ -1903,6 +2200,11 @@ template <> struct is_proto_enum< ::service_layer::SLTableType> : ::std::true_ty
 template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::service_layer::SLTableType>() {
   return ::service_layer::SLTableType_descriptor();
+}
+template <> struct is_proto_enum< ::service_layer::SLRspACKType> : ::std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::service_layer::SLRspACKType>() {
+  return ::service_layer::SLRspACKType_descriptor();
 }
 
 PROTOBUF_NAMESPACE_CLOSE
