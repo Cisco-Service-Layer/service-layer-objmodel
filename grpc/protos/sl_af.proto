@@ -21,7 +21,8 @@ package service_layer;
 
 import "sl_common_types.proto";
 import "sl_route_common.proto";
-
+import "sl_route_ipv4.proto";
+import "sl_route_ipv6.proto";
 
 option go_package="github.com/Cisco-service-layer/service-layer-objmodel/grpc/protos;service_layer";
 
@@ -120,6 +121,40 @@ service SLAF {
     rpc SLAFVrfRegOp(SLAFVrfRegMsg) returns (SLAFVrfRegMsgRsp);
 
     //
+    // Route, MPLS label and Path operations.
+    //
+
+    // SLAFMsg.Oper = SL_OBJOP_ADD:
+    //     Object add. Fails if the objects already exists and is not stale.
+    //     First ADD operation on a stale object is allowed and the object
+    //     is no longer considered stale.
+    //
+    // SLAFMsg.Oper = SL_OBJOP_UPDATE:
+    //     Object update. Creates or updates the objects.
+    //
+    // SLAFMsg.Oper = SL_OBJOP_DELETE:
+    //     Object delete. The object's key is enough to delete the object.
+    //     Delete of a non-existant object is returned as success.
+    rpc SLAFOp(SLAFMsg) returns (SLAFMsgRsp);
+
+    //
+    // Stream object operations
+    //
+
+    // SLAFMsg.Oper = SL_OBJOP_ADD:
+    //     Object add. Fails if the objects already exists and is not stale.
+    //     First ADD operation on a stale object is allowed and the object
+    //     is no longer considered stale.
+    //
+    // SLAFMsg.Oper = SL_OBJOP_UPDATE:
+    //     Object update. Creates or updates the object.
+    //
+    // SLAFMsg.Oper = SL_OBJOP_DELETE:
+    //     Object delete. The object's key is enough to delete the object.
+    //     Delete of a non-existant object is returned as success.
+    rpc SLAFOpStream(stream SLAFMsg) returns (stream SLAFMsgRsp);
+
+    //
     //@}
 }
 // AF VRF Registration message.
@@ -168,4 +203,102 @@ message SLAFVrfRegMsgRsp {
     // In case of errors, this field indicates which entry in the bulk was
     // erroneous.
     repeated SLAFVrfRegMsgRes Results = 2;
+}
+
+// Path Group definition.
+message SLPathGroup {
+    message SLPath {
+        // Primary path.
+        SLRoutePath Path = 1;
+
+    }
+
+    // A list of SLPathList
+    message SLPathList {
+        repeated SLPath Paths = 1;
+    }
+
+    // Path Group ID
+    SLObjectId PathGroupId = 1;
+
+    // Adminstrative distance of the Path Group. [0-255].
+    // RIB uses this field to break the tie when multiple
+    // sources install the same Path Group.
+    // Lower distance is preferred over higher distance.
+    // The per path group object admin distance overrides the default's admin
+    // distance set at VRF registration. see SLVrfReg
+    uint32 AdminDistance = 2;
+
+    // Description of paths in the PathGroup.
+    // Oneof is used here for future extensibility.
+    oneof entry {
+        // Path List
+        SLPathList PathList = 3;
+    }
+
+}
+
+// One of AF objects
+message SLAFObject {
+    oneof entry {
+        SLRoutev4 IPv4Route = 1;
+        SLRoutev6 IPv6Route = 2;
+        SLPathGroup PathGroup = 4;
+    }
+}
+
+// Operation on a forwarding table object
+message SLAFOp {
+    SLAFObject AFObject = 1;
+
+    // Unique operationID sent by the client to corelate the responses.
+    // The responses from network element can be out of order, and client can
+    // use operation ID to correlate the response for the operation on the object.
+    // Operation Id should be monotonically increasing for the life of the client.
+    uint64 OperationID = 2;
+}
+
+// Operation on the address family. The objects are programmed
+// in the given VRF's corresponding table.
+message SLAFMsg {
+    // Route Object Operations
+    SLObjectOp Oper = 1;
+
+    // VRF name. VRF name is ignored for MPLS ILM operations.
+    string VrfName = 2;
+
+    // Client's desired acknowledgement type
+    SLRspACKType AckType = 3;
+
+    // List of operations.
+    repeated SLAFOp OpList = 4;
+}
+
+// Result of an operation the object.
+message SLAFRes {
+    // Corresponding error code
+    SLErrorStatus ErrStatus = 1;
+
+    // OperationID sent by the client is returned in the reply
+    // to corelate the responses.
+    uint64 OperationID = 2;
+
+}
+
+// Route operations result status
+message SLAFMsgRsp {
+    // Summary result of the bulk operation (refer to enum SLErrorStatus)
+    // In general, the StatusSummary implies one of 3 things:
+    // 1. SL_SUCCESS: signifies that the entire bulk operation was successful.
+    //         Results holds the result for each individual entry in the bulk.
+    // 2. SL_SOME_ERR: signifies that the operation failed for one or more
+    //         entries. Results holds the result for each individual entry
+    //         in the bulk.
+    // 3. SL_RPC_XXX: signifies that the entire bulk operation failed.
+    //         In this case, the Results list is empty.
+    SLErrorStatus StatusSummary = 1;
+
+    // In case of errors, this field indicates which entry in the bulk was
+    // erroneous.
+    repeated SLAFRes Results = 2;
 }

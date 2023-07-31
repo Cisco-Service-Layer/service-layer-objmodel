@@ -769,4 +769,34 @@ enum SLTableType {
     SL_PF_TABLE =    0x5;
 }
 
+// The type of response that the client expects from the
+// network element for any object programming operation.
+//
+//
+// On a hardware programming failure, client is expected to retry or
+// delete the object. The device does not perform any retries or
+// take any other recovery action.
+// Client is expected to handle out of order responses using the OperationID.
+enum SLRspACKType {
+  // Network element shall respond with SL_SUCCESS
+  // on a successful update of the object to the RIB database.
+  //
+  // The operation is considered complete once result of RIB programming
+  // is sent to the client.
+  //
+  // By default, ack type is assumed to be RIB_ACK.
+  RIB_ACK = 0;
+
+}
+
+// Common Object Identifier.
+message SLObjectId {
+    // One of Object name or handle
+    oneof entry {
+      // Name of object.
+      string Name = 1;
+
+    }
+}
+
 // @}

@@ -442,4 +442,14 @@ message SLRoutePath {
 
 }
 
+// Path group reference key. This can be used by route or label
+// objects to refer a path group object.
+message SLPathGroupRefKey {
+    // VRF name
+    string VrfName = 1;
+
+    // Path Group ID
+    SLObjectId PathGroupId = 2;
+}
+
 // @}

@@ -151,6 +151,15 @@ message SLRoutev6 {
     // List of route paths for a particular route.
     // Specifying more than one path is allowed for ECMP/UCMP cases
     repeated SLRoutePath PathList = 4;
+
+    // When programming the device using SLAF service, If the operation is
+    // ADD or UPDATE and SLRoutev6.PathList is NOT specified, then
+    // the route can refer to a PathGroup instead. The attribute is oneof
+    // to allow for future extension.
+    oneof entry {
+      // Path group reference key
+      SLPathGroupRefKey PathGroupKey = 5;
+   }
 }
 
 // List of routes for bulk download
