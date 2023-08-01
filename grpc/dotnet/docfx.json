@@ -3,7 +3,7 @@
         {
             "src": [
                 {
-                    "files": [ "src/**.csproj" ],
+                    "files": [ "src/tutorial/Quickstart/Quickstart.csproj", "src/gencs/ServiceLayer.csproj" ],
                     "exclude": [ "**/obj/**", "**/bin/**" ]
                 }
             ],
