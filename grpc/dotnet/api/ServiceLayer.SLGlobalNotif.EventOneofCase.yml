@@ -1,0 +1,141 @@
+### YamlMime:ManagedReference
+items:
+- uid: ServiceLayer.SLGlobalNotif.EventOneofCase
+  commentId: T:ServiceLayer.SLGlobalNotif.EventOneofCase
+  id: SLGlobalNotif.EventOneofCase
+  parent: ServiceLayer
+  children:
+  - ServiceLayer.SLGlobalNotif.EventOneofCase.InitRspMsg
+  - ServiceLayer.SLGlobalNotif.EventOneofCase.None
+  - ServiceLayer.SLGlobalNotif.EventOneofCase.VrfReplayErrorNotif
+  langs:
+  - csharp
+  - vb
+  name: SLGlobalNotif.EventOneofCase
+  nameWithType: SLGlobalNotif.EventOneofCase
+  fullName: ServiceLayer.SLGlobalNotif.EventOneofCase
+  type: Enum
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlGlobal.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: EventOneofCase
+    path: src/gencs/SlGlobal.cs
+    startLine: 1001
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Enum of possible cases for the "Event" oneof.
+  example: []
+  syntax:
+    content: public enum SLGlobalNotif.EventOneofCase
+    content.vb: Public Enum SLGlobalNotif.EventOneofCase
+- uid: ServiceLayer.SLGlobalNotif.EventOneofCase.None
+  commentId: F:ServiceLayer.SLGlobalNotif.EventOneofCase.None
+  id: None
+  parent: ServiceLayer.SLGlobalNotif.EventOneofCase
+  langs:
+  - csharp
+  - vb
+  name: None
+  nameWithType: SLGlobalNotif.EventOneofCase.None
+  fullName: ServiceLayer.SLGlobalNotif.EventOneofCase.None
+  type: Field
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlGlobal.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: None
+    path: src/gencs/SlGlobal.cs
+    startLine: 1002
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  syntax:
+    content: None = 0
+    return:
+      type: ServiceLayer.SLGlobalNotif.EventOneofCase
+- uid: ServiceLayer.SLGlobalNotif.EventOneofCase.InitRspMsg
+  commentId: F:ServiceLayer.SLGlobalNotif.EventOneofCase.InitRspMsg
+  id: InitRspMsg
+  parent: ServiceLayer.SLGlobalNotif.EventOneofCase
+  langs:
+  - csharp
+  - vb
+  name: InitRspMsg
+  nameWithType: SLGlobalNotif.EventOneofCase.InitRspMsg
+  fullName: ServiceLayer.SLGlobalNotif.EventOneofCase.InitRspMsg
+  type: Field
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlGlobal.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: InitRspMsg
+    path: src/gencs/SlGlobal.cs
+    startLine: 1003
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  syntax:
+    content: InitRspMsg = 3
+    return:
+      type: ServiceLayer.SLGlobalNotif.EventOneofCase
+- uid: ServiceLayer.SLGlobalNotif.EventOneofCase.VrfReplayErrorNotif
+  commentId: F:ServiceLayer.SLGlobalNotif.EventOneofCase.VrfReplayErrorNotif
+  id: VrfReplayErrorNotif
+  parent: ServiceLayer.SLGlobalNotif.EventOneofCase
+  langs:
+  - csharp
+  - vb
+  name: VrfReplayErrorNotif
+  nameWithType: SLGlobalNotif.EventOneofCase.VrfReplayErrorNotif
+  fullName: ServiceLayer.SLGlobalNotif.EventOneofCase.VrfReplayErrorNotif
+  type: Field
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlGlobal.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: VrfReplayErrorNotif
+    path: src/gencs/SlGlobal.cs
+    startLine: 1004
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  syntax:
+    content: VrfReplayErrorNotif = 4
+    return:
+      type: ServiceLayer.SLGlobalNotif.EventOneofCase
+references:
+- uid: ServiceLayer
+  commentId: N:ServiceLayer
+  href: ServiceLayer.html
+  name: ServiceLayer
+  nameWithType: ServiceLayer
+  fullName: ServiceLayer
+- uid: ServiceLayer.SLGlobalNotif.EventOneofCase
+  commentId: T:ServiceLayer.SLGlobalNotif.EventOneofCase
+  parent: ServiceLayer
+  href: ServiceLayer.SLGlobalNotif.html
+  name: SLGlobalNotif.EventOneofCase
+  nameWithType: SLGlobalNotif.EventOneofCase
+  fullName: ServiceLayer.SLGlobalNotif.EventOneofCase
+  spec.csharp:
+  - uid: ServiceLayer.SLGlobalNotif
+    name: SLGlobalNotif
+    href: ServiceLayer.SLGlobalNotif.html
+  - name: .
+  - uid: ServiceLayer.SLGlobalNotif.EventOneofCase
+    name: EventOneofCase
+    href: ServiceLayer.SLGlobalNotif.EventOneofCase.html
+  spec.vb:
+  - uid: ServiceLayer.SLGlobalNotif
+    name: SLGlobalNotif
+    href: ServiceLayer.SLGlobalNotif.html
+  - name: .
+  - uid: ServiceLayer.SLGlobalNotif.EventOneofCase
+    name: EventOneofCase
+    href: ServiceLayer.SLGlobalNotif.EventOneofCase.html

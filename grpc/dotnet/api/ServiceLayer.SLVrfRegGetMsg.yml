@@ -1,0 +1,1562 @@
+### YamlMime:ManagedReference
+items:
+- uid: ServiceLayer.SLVrfRegGetMsg
+  commentId: T:ServiceLayer.SLVrfRegGetMsg
+  id: SLVrfRegGetMsg
+  parent: ServiceLayer
+  children:
+  - ServiceLayer.SLVrfRegGetMsg.#ctor
+  - ServiceLayer.SLVrfRegGetMsg.#ctor(ServiceLayer.SLVrfRegGetMsg)
+  - ServiceLayer.SLVrfRegGetMsg.CalculateSize
+  - ServiceLayer.SLVrfRegGetMsg.Clone
+  - ServiceLayer.SLVrfRegGetMsg.Descriptor
+  - ServiceLayer.SLVrfRegGetMsg.EntriesCount
+  - ServiceLayer.SLVrfRegGetMsg.EntriesCountFieldNumber
+  - ServiceLayer.SLVrfRegGetMsg.Equals(ServiceLayer.SLVrfRegGetMsg)
+  - ServiceLayer.SLVrfRegGetMsg.Equals(System.Object)
+  - ServiceLayer.SLVrfRegGetMsg.GetHashCode
+  - ServiceLayer.SLVrfRegGetMsg.GetNext
+  - ServiceLayer.SLVrfRegGetMsg.GetNextFieldNumber
+  - ServiceLayer.SLVrfRegGetMsg.MergeFrom(Google.Protobuf.CodedInputStream)
+  - ServiceLayer.SLVrfRegGetMsg.MergeFrom(ServiceLayer.SLVrfRegGetMsg)
+  - ServiceLayer.SLVrfRegGetMsg.Parser
+  - ServiceLayer.SLVrfRegGetMsg.ToString
+  - ServiceLayer.SLVrfRegGetMsg.VrfName
+  - ServiceLayer.SLVrfRegGetMsg.VrfNameFieldNumber
+  - ServiceLayer.SLVrfRegGetMsg.WriteTo(Google.Protobuf.CodedOutputStream)
+  langs:
+  - csharp
+  - vb
+  name: SLVrfRegGetMsg
+  nameWithType: SLVrfRegGetMsg
+  fullName: ServiceLayer.SLVrfRegGetMsg
+  type: Class
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlRouteCommon.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: SLVrfRegGetMsg
+    path: src/gencs/SlRouteCommon.cs
+    startLine: 2028
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: VRF Get Message
+  example: []
+  syntax:
+    content: 'public sealed class SLVrfRegGetMsg : IMessage<SLVrfRegGetMsg>, IEquatable<SLVrfRegGetMsg>, IDeepCloneable<SLVrfRegGetMsg>, IBufferMessage, IMessage'
+    content.vb: Public NotInheritable Class SLVrfRegGetMsg Implements IMessage(Of SLVrfRegGetMsg), IEquatable(Of SLVrfRegGetMsg), IDeepCloneable(Of SLVrfRegGetMsg), IBufferMessage, IMessage
+  inheritance:
+  - System.Object
+  implements:
+  - Google.Protobuf.IMessage{ServiceLayer.SLVrfRegGetMsg}
+  - System.IEquatable{ServiceLayer.SLVrfRegGetMsg}
+  - Google.Protobuf.IDeepCloneable{ServiceLayer.SLVrfRegGetMsg}
+  - Google.Protobuf.IBufferMessage
+  - Google.Protobuf.IMessage
+  inheritedMembers:
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: ServiceLayer.SLVrfRegGetMsg.Parser
+  commentId: P:ServiceLayer.SLVrfRegGetMsg.Parser
+  id: Parser
+  parent: ServiceLayer.SLVrfRegGetMsg
+  langs:
+  - csharp
+  - vb
+  name: Parser
+  nameWithType: SLVrfRegGetMsg.Parser
+  fullName: ServiceLayer.SLVrfRegGetMsg.Parser
+  type: Property
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlRouteCommon.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: Parser
+    path: src/gencs/SlRouteCommon.cs
+    startLine: 2035
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  syntax:
+    content: public static MessageParser<SLVrfRegGetMsg> Parser { get; }
+    parameters: []
+    return:
+      type: Google.Protobuf.MessageParser{ServiceLayer.SLVrfRegGetMsg}
+    content.vb: Public Shared ReadOnly Property Parser As MessageParser(Of SLVrfRegGetMsg)
+  overload: ServiceLayer.SLVrfRegGetMsg.Parser*
+- uid: ServiceLayer.SLVrfRegGetMsg.Descriptor
+  commentId: P:ServiceLayer.SLVrfRegGetMsg.Descriptor
+  id: Descriptor
+  parent: ServiceLayer.SLVrfRegGetMsg
+  langs:
+  - csharp
+  - vb
+  name: Descriptor
+  nameWithType: SLVrfRegGetMsg.Descriptor
+  fullName: ServiceLayer.SLVrfRegGetMsg.Descriptor
+  type: Property
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlRouteCommon.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: Descriptor
+    path: src/gencs/SlRouteCommon.cs
+    startLine: 2039
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  syntax:
+    content: public static MessageDescriptor Descriptor { get; }
+    parameters: []
+    return:
+      type: Google.Protobuf.Reflection.MessageDescriptor
+    content.vb: Public Shared ReadOnly Property Descriptor As MessageDescriptor
+  overload: ServiceLayer.SLVrfRegGetMsg.Descriptor*
+- uid: ServiceLayer.SLVrfRegGetMsg.#ctor
+  commentId: M:ServiceLayer.SLVrfRegGetMsg.#ctor
+  id: '#ctor'
+  parent: ServiceLayer.SLVrfRegGetMsg
+  langs:
+  - csharp
+  - vb
+  name: SLVrfRegGetMsg()
+  nameWithType: SLVrfRegGetMsg.SLVrfRegGetMsg()
+  fullName: ServiceLayer.SLVrfRegGetMsg.SLVrfRegGetMsg()
+  type: Constructor
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlRouteCommon.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: .ctor
+    path: src/gencs/SlRouteCommon.cs
+    startLine: 2051
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  syntax:
+    content: public SLVrfRegGetMsg()
+    content.vb: Public Sub New()
+  overload: ServiceLayer.SLVrfRegGetMsg.#ctor*
+  nameWithType.vb: SLVrfRegGetMsg.New()
+  fullName.vb: ServiceLayer.SLVrfRegGetMsg.New()
+  name.vb: New()
+- uid: ServiceLayer.SLVrfRegGetMsg.#ctor(ServiceLayer.SLVrfRegGetMsg)
+  commentId: M:ServiceLayer.SLVrfRegGetMsg.#ctor(ServiceLayer.SLVrfRegGetMsg)
+  id: '#ctor(ServiceLayer.SLVrfRegGetMsg)'
+  parent: ServiceLayer.SLVrfRegGetMsg
+  langs:
+  - csharp
+  - vb
+  name: SLVrfRegGetMsg(SLVrfRegGetMsg)
+  nameWithType: SLVrfRegGetMsg.SLVrfRegGetMsg(SLVrfRegGetMsg)
+  fullName: ServiceLayer.SLVrfRegGetMsg.SLVrfRegGetMsg(ServiceLayer.SLVrfRegGetMsg)
+  type: Constructor
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlRouteCommon.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: .ctor
+    path: src/gencs/SlRouteCommon.cs
+    startLine: 2059
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  syntax:
+    content: public SLVrfRegGetMsg(SLVrfRegGetMsg other)
+    parameters:
+    - id: other
+      type: ServiceLayer.SLVrfRegGetMsg
+    content.vb: Public Sub New(other As SLVrfRegGetMsg)
+  overload: ServiceLayer.SLVrfRegGetMsg.#ctor*
+  nameWithType.vb: SLVrfRegGetMsg.New(SLVrfRegGetMsg)
+  fullName.vb: ServiceLayer.SLVrfRegGetMsg.New(ServiceLayer.SLVrfRegGetMsg)
+  name.vb: New(SLVrfRegGetMsg)
+- uid: ServiceLayer.SLVrfRegGetMsg.Clone
+  commentId: M:ServiceLayer.SLVrfRegGetMsg.Clone
+  id: Clone
+  parent: ServiceLayer.SLVrfRegGetMsg
+  langs:
+  - csharp
+  - vb
+  name: Clone()
+  nameWithType: SLVrfRegGetMsg.Clone()
+  fullName: ServiceLayer.SLVrfRegGetMsg.Clone()
+  type: Method
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlRouteCommon.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: Clone
+    path: src/gencs/SlRouteCommon.cs
+    startLine: 2068
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Creates a deep clone of this object.
+  example: []
+  syntax:
+    content: public SLVrfRegGetMsg Clone()
+    return:
+      type: ServiceLayer.SLVrfRegGetMsg
+      description: A deep clone of this object.
+    content.vb: Public Function Clone() As SLVrfRegGetMsg
+  overload: ServiceLayer.SLVrfRegGetMsg.Clone*
+  implements:
+  - Google.Protobuf.IDeepCloneable{ServiceLayer.SLVrfRegGetMsg}.Clone
+- uid: ServiceLayer.SLVrfRegGetMsg.VrfNameFieldNumber
+  commentId: F:ServiceLayer.SLVrfRegGetMsg.VrfNameFieldNumber
+  id: VrfNameFieldNumber
+  parent: ServiceLayer.SLVrfRegGetMsg
+  langs:
+  - csharp
+  - vb
+  name: VrfNameFieldNumber
+  nameWithType: SLVrfRegGetMsg.VrfNameFieldNumber
+  fullName: ServiceLayer.SLVrfRegGetMsg.VrfNameFieldNumber
+  type: Field
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlRouteCommon.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: VrfNameFieldNumber
+    path: src/gencs/SlRouteCommon.cs
+    startLine: 2075
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Field number for the "VrfName" field.
+  example: []
+  syntax:
+    content: public const int VrfNameFieldNumber = 1
+    return:
+      type: System.Int32
+    content.vb: Public Const VrfNameFieldNumber As Integer = 1
+- uid: ServiceLayer.SLVrfRegGetMsg.VrfName
+  commentId: P:ServiceLayer.SLVrfRegGetMsg.VrfName
+  id: VrfName
+  parent: ServiceLayer.SLVrfRegGetMsg
+  langs:
+  - csharp
+  - vb
+  name: VrfName
+  nameWithType: SLVrfRegGetMsg.VrfName
+  fullName: ServiceLayer.SLVrfRegGetMsg.VrfName
+  type: Property
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlRouteCommon.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: VrfName
+    path: src/gencs/SlRouteCommon.cs
+    startLine: 2082
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: >-
+    VRF name (key).
+
+    If the Key is not specified, then request up to the first
+
+    'EntriesCount' entries.
+  example: []
+  syntax:
+    content: public string VrfName { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property VrfName As String
+  overload: ServiceLayer.SLVrfRegGetMsg.VrfName*
+- uid: ServiceLayer.SLVrfRegGetMsg.EntriesCountFieldNumber
+  commentId: F:ServiceLayer.SLVrfRegGetMsg.EntriesCountFieldNumber
+  id: EntriesCountFieldNumber
+  parent: ServiceLayer.SLVrfRegGetMsg
+  langs:
+  - csharp
+  - vb
+  name: EntriesCountFieldNumber
+  nameWithType: SLVrfRegGetMsg.EntriesCountFieldNumber
+  fullName: ServiceLayer.SLVrfRegGetMsg.EntriesCountFieldNumber
+  type: Field
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlRouteCommon.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: EntriesCountFieldNumber
+    path: src/gencs/SlRouteCommon.cs
+    startLine: 2092
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Field number for the "EntriesCount" field.
+  example: []
+  syntax:
+    content: public const int EntriesCountFieldNumber = 2
+    return:
+      type: System.Int32
+    content.vb: Public Const EntriesCountFieldNumber As Integer = 2
+- uid: ServiceLayer.SLVrfRegGetMsg.EntriesCount
+  commentId: P:ServiceLayer.SLVrfRegGetMsg.EntriesCount
+  id: EntriesCount
+  parent: ServiceLayer.SLVrfRegGetMsg
+  langs:
+  - csharp
+  - vb
+  name: EntriesCount
+  nameWithType: SLVrfRegGetMsg.EntriesCount
+  fullName: ServiceLayer.SLVrfRegGetMsg.EntriesCount
+  type: Property
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlRouteCommon.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: EntriesCount
+    path: src/gencs/SlRouteCommon.cs
+    startLine: 2097
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Number of entries requested
+  example: []
+  syntax:
+    content: public uint EntriesCount { get; set; }
+    parameters: []
+    return:
+      type: System.UInt32
+    content.vb: Public Property EntriesCount As UInteger
+  overload: ServiceLayer.SLVrfRegGetMsg.EntriesCount*
+- uid: ServiceLayer.SLVrfRegGetMsg.GetNextFieldNumber
+  commentId: F:ServiceLayer.SLVrfRegGetMsg.GetNextFieldNumber
+  id: GetNextFieldNumber
+  parent: ServiceLayer.SLVrfRegGetMsg
+  langs:
+  - csharp
+  - vb
+  name: GetNextFieldNumber
+  nameWithType: SLVrfRegGetMsg.GetNextFieldNumber
+  fullName: ServiceLayer.SLVrfRegGetMsg.GetNextFieldNumber
+  type: Field
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlRouteCommon.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: GetNextFieldNumber
+    path: src/gencs/SlRouteCommon.cs
+    startLine: 2107
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Field number for the "GetNext" field.
+  example: []
+  syntax:
+    content: public const int GetNextFieldNumber = 3
+    return:
+      type: System.Int32
+    content.vb: Public Const GetNextFieldNumber As Integer = 3
+- uid: ServiceLayer.SLVrfRegGetMsg.GetNext
+  commentId: P:ServiceLayer.SLVrfRegGetMsg.GetNext
+  id: GetNext
+  parent: ServiceLayer.SLVrfRegGetMsg
+  langs:
+  - csharp
+  - vb
+  name: GetNext
+  nameWithType: SLVrfRegGetMsg.GetNext
+  fullName: ServiceLayer.SLVrfRegGetMsg.GetNext
+  type: Property
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlRouteCommon.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: GetNext
+    path: src/gencs/SlRouteCommon.cs
+    startLine: 2115
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: >-
+    if GetNext is FALSE:
+        request up to 'EntriesCount' entries starting from the key
+    If GetNext is TRUE, or if the key exact match is not found:
+        request up to 'EntriesCount' entries starting from the key's next
+  example: []
+  syntax:
+    content: public bool GetNext { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property GetNext As Boolean
+  overload: ServiceLayer.SLVrfRegGetMsg.GetNext*
+- uid: ServiceLayer.SLVrfRegGetMsg.Equals(System.Object)
+  commentId: M:ServiceLayer.SLVrfRegGetMsg.Equals(System.Object)
+  id: Equals(System.Object)
+  parent: ServiceLayer.SLVrfRegGetMsg
+  langs:
+  - csharp
+  - vb
+  name: Equals(object)
+  nameWithType: SLVrfRegGetMsg.Equals(object)
+  fullName: ServiceLayer.SLVrfRegGetMsg.Equals(object)
+  type: Method
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlRouteCommon.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: Equals
+    path: src/gencs/SlRouteCommon.cs
+    startLine: 2124
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Determines whether the specified object is equal to the current object.
+  example: []
+  syntax:
+    content: public override bool Equals(object other)
+    parameters:
+    - id: other
+      type: System.Object
+    return:
+      type: System.Boolean
+      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the specified object  is equal to the current object; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+    content.vb: Public Overrides Function Equals(other As Object) As Boolean
+  overridden: System.Object.Equals(System.Object)
+  overload: ServiceLayer.SLVrfRegGetMsg.Equals*
+  nameWithType.vb: SLVrfRegGetMsg.Equals(Object)
+  fullName.vb: ServiceLayer.SLVrfRegGetMsg.Equals(Object)
+  name.vb: Equals(Object)
+- uid: ServiceLayer.SLVrfRegGetMsg.Equals(ServiceLayer.SLVrfRegGetMsg)
+  commentId: M:ServiceLayer.SLVrfRegGetMsg.Equals(ServiceLayer.SLVrfRegGetMsg)
+  id: Equals(ServiceLayer.SLVrfRegGetMsg)
+  parent: ServiceLayer.SLVrfRegGetMsg
+  langs:
+  - csharp
+  - vb
+  name: Equals(SLVrfRegGetMsg)
+  nameWithType: SLVrfRegGetMsg.Equals(SLVrfRegGetMsg)
+  fullName: ServiceLayer.SLVrfRegGetMsg.Equals(ServiceLayer.SLVrfRegGetMsg)
+  type: Method
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlRouteCommon.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: Equals
+    path: src/gencs/SlRouteCommon.cs
+    startLine: 2130
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Indicates whether the current object is equal to another object of the same type.
+  example: []
+  syntax:
+    content: public bool Equals(SLVrfRegGetMsg other)
+    parameters:
+    - id: other
+      type: ServiceLayer.SLVrfRegGetMsg
+      description: An object to compare with this object.
+    return:
+      type: System.Boolean
+      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the current object is equal to the <code class="paramref">other</code> parameter; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+    content.vb: Public Function Equals(other As SLVrfRegGetMsg) As Boolean
+  overload: ServiceLayer.SLVrfRegGetMsg.Equals*
+  implements:
+  - System.IEquatable{ServiceLayer.SLVrfRegGetMsg}.Equals(ServiceLayer.SLVrfRegGetMsg)
+- uid: ServiceLayer.SLVrfRegGetMsg.GetHashCode
+  commentId: M:ServiceLayer.SLVrfRegGetMsg.GetHashCode
+  id: GetHashCode
+  parent: ServiceLayer.SLVrfRegGetMsg
+  langs:
+  - csharp
+  - vb
+  name: GetHashCode()
+  nameWithType: SLVrfRegGetMsg.GetHashCode()
+  fullName: ServiceLayer.SLVrfRegGetMsg.GetHashCode()
+  type: Method
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlRouteCommon.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: GetHashCode
+    path: src/gencs/SlRouteCommon.cs
+    startLine: 2145
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Serves as the default hash function.
+  example: []
+  syntax:
+    content: public override int GetHashCode()
+    return:
+      type: System.Int32
+      description: A hash code for the current object.
+    content.vb: Public Overrides Function GetHashCode() As Integer
+  overridden: System.Object.GetHashCode
+  overload: ServiceLayer.SLVrfRegGetMsg.GetHashCode*
+- uid: ServiceLayer.SLVrfRegGetMsg.ToString
+  commentId: M:ServiceLayer.SLVrfRegGetMsg.ToString
+  id: ToString
+  parent: ServiceLayer.SLVrfRegGetMsg
+  langs:
+  - csharp
+  - vb
+  name: ToString()
+  nameWithType: SLVrfRegGetMsg.ToString()
+  fullName: ServiceLayer.SLVrfRegGetMsg.ToString()
+  type: Method
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlRouteCommon.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: ToString
+    path: src/gencs/SlRouteCommon.cs
+    startLine: 2158
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Returns a string that represents the current object.
+  example: []
+  syntax:
+    content: public override string ToString()
+    return:
+      type: System.String
+      description: A string that represents the current object.
+    content.vb: Public Overrides Function ToString() As String
+  overridden: System.Object.ToString
+  overload: ServiceLayer.SLVrfRegGetMsg.ToString*
+- uid: ServiceLayer.SLVrfRegGetMsg.WriteTo(Google.Protobuf.CodedOutputStream)
+  commentId: M:ServiceLayer.SLVrfRegGetMsg.WriteTo(Google.Protobuf.CodedOutputStream)
+  id: WriteTo(Google.Protobuf.CodedOutputStream)
+  parent: ServiceLayer.SLVrfRegGetMsg
+  langs:
+  - csharp
+  - vb
+  name: WriteTo(CodedOutputStream)
+  nameWithType: SLVrfRegGetMsg.WriteTo(CodedOutputStream)
+  fullName: ServiceLayer.SLVrfRegGetMsg.WriteTo(Google.Protobuf.CodedOutputStream)
+  type: Method
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlRouteCommon.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: WriteTo
+    path: src/gencs/SlRouteCommon.cs
+    startLine: 2164
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Writes the data to the given coded output stream.
+  example: []
+  syntax:
+    content: public void WriteTo(CodedOutputStream output)
+    parameters:
+    - id: output
+      type: Google.Protobuf.CodedOutputStream
+      description: Coded output stream to write the data to. Must not be null.
+    content.vb: Public Sub WriteTo(output As CodedOutputStream)
+  overload: ServiceLayer.SLVrfRegGetMsg.WriteTo*
+  implements:
+  - Google.Protobuf.IMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+- uid: ServiceLayer.SLVrfRegGetMsg.CalculateSize
+  commentId: M:ServiceLayer.SLVrfRegGetMsg.CalculateSize
+  id: CalculateSize
+  parent: ServiceLayer.SLVrfRegGetMsg
+  langs:
+  - csharp
+  - vb
+  name: CalculateSize()
+  nameWithType: SLVrfRegGetMsg.CalculateSize()
+  fullName: ServiceLayer.SLVrfRegGetMsg.CalculateSize()
+  type: Method
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlRouteCommon.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: CalculateSize
+    path: src/gencs/SlRouteCommon.cs
+    startLine: 2210
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Calculates the size of this message in Protocol Buffer wire format, in bytes.
+  example: []
+  syntax:
+    content: public int CalculateSize()
+    return:
+      type: System.Int32
+      description: >-
+        The number of bytes required to write this message
+                    to a coded output stream.
+    content.vb: Public Function CalculateSize() As Integer
+  overload: ServiceLayer.SLVrfRegGetMsg.CalculateSize*
+  implements:
+  - Google.Protobuf.IMessage.CalculateSize
+- uid: ServiceLayer.SLVrfRegGetMsg.MergeFrom(ServiceLayer.SLVrfRegGetMsg)
+  commentId: M:ServiceLayer.SLVrfRegGetMsg.MergeFrom(ServiceLayer.SLVrfRegGetMsg)
+  id: MergeFrom(ServiceLayer.SLVrfRegGetMsg)
+  parent: ServiceLayer.SLVrfRegGetMsg
+  langs:
+  - csharp
+  - vb
+  name: MergeFrom(SLVrfRegGetMsg)
+  nameWithType: SLVrfRegGetMsg.MergeFrom(SLVrfRegGetMsg)
+  fullName: ServiceLayer.SLVrfRegGetMsg.MergeFrom(ServiceLayer.SLVrfRegGetMsg)
+  type: Method
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlRouteCommon.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: MergeFrom
+    path: src/gencs/SlRouteCommon.cs
+    startLine: 2229
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Merges the given message into this one.
+  remarks: See the user guide for precise merge semantics.
+  example: []
+  syntax:
+    content: public void MergeFrom(SLVrfRegGetMsg other)
+    parameters:
+    - id: other
+      type: ServiceLayer.SLVrfRegGetMsg
+    content.vb: Public Sub MergeFrom(other As SLVrfRegGetMsg)
+  overload: ServiceLayer.SLVrfRegGetMsg.MergeFrom*
+  implements:
+  - Google.Protobuf.IMessage{ServiceLayer.SLVrfRegGetMsg}.MergeFrom(ServiceLayer.SLVrfRegGetMsg)
+- uid: ServiceLayer.SLVrfRegGetMsg.MergeFrom(Google.Protobuf.CodedInputStream)
+  commentId: M:ServiceLayer.SLVrfRegGetMsg.MergeFrom(Google.Protobuf.CodedInputStream)
+  id: MergeFrom(Google.Protobuf.CodedInputStream)
+  parent: ServiceLayer.SLVrfRegGetMsg
+  langs:
+  - csharp
+  - vb
+  name: MergeFrom(CodedInputStream)
+  nameWithType: SLVrfRegGetMsg.MergeFrom(CodedInputStream)
+  fullName: ServiceLayer.SLVrfRegGetMsg.MergeFrom(Google.Protobuf.CodedInputStream)
+  type: Method
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlRouteCommon.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: MergeFrom
+    path: src/gencs/SlRouteCommon.cs
+    startLine: 2247
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Merges the data from the specified coded input stream with the current message.
+  remarks: See the user guide for precise merge semantics.
+  example: []
+  syntax:
+    content: public void MergeFrom(CodedInputStream input)
+    parameters:
+    - id: input
+      type: Google.Protobuf.CodedInputStream
+      description: ''
+    content.vb: Public Sub MergeFrom(input As CodedInputStream)
+  overload: ServiceLayer.SLVrfRegGetMsg.MergeFrom*
+  implements:
+  - Google.Protobuf.IMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+references:
+- uid: ServiceLayer
+  commentId: N:ServiceLayer
+  href: ServiceLayer.html
+  name: ServiceLayer
+  nameWithType: ServiceLayer
+  fullName: ServiceLayer
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: Google.Protobuf.IMessage{ServiceLayer.SLVrfRegGetMsg}
+  commentId: T:Google.Protobuf.IMessage{ServiceLayer.SLVrfRegGetMsg}
+  parent: Google.Protobuf
+  definition: Google.Protobuf.IMessage`1
+  href: ServiceLayer.SLVrfRegGetMsg.html
+  name: IMessage<SLVrfRegGetMsg>
+  nameWithType: IMessage<SLVrfRegGetMsg>
+  fullName: Google.Protobuf.IMessage<ServiceLayer.SLVrfRegGetMsg>
+  nameWithType.vb: IMessage(Of SLVrfRegGetMsg)
+  fullName.vb: Google.Protobuf.IMessage(Of ServiceLayer.SLVrfRegGetMsg)
+  name.vb: IMessage(Of SLVrfRegGetMsg)
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage`1
+    name: IMessage
+    isExternal: true
+  - name: <
+  - uid: ServiceLayer.SLVrfRegGetMsg
+    name: SLVrfRegGetMsg
+    href: ServiceLayer.SLVrfRegGetMsg.html
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.IMessage`1
+    name: IMessage
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ServiceLayer.SLVrfRegGetMsg
+    name: SLVrfRegGetMsg
+    href: ServiceLayer.SLVrfRegGetMsg.html
+  - name: )
+- uid: System.IEquatable{ServiceLayer.SLVrfRegGetMsg}
+  commentId: T:System.IEquatable{ServiceLayer.SLVrfRegGetMsg}
+  parent: System
+  definition: System.IEquatable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<SLVrfRegGetMsg>
+  nameWithType: IEquatable<SLVrfRegGetMsg>
+  fullName: System.IEquatable<ServiceLayer.SLVrfRegGetMsg>
+  nameWithType.vb: IEquatable(Of SLVrfRegGetMsg)
+  fullName.vb: System.IEquatable(Of ServiceLayer.SLVrfRegGetMsg)
+  name.vb: IEquatable(Of SLVrfRegGetMsg)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - uid: ServiceLayer.SLVrfRegGetMsg
+    name: SLVrfRegGetMsg
+    href: ServiceLayer.SLVrfRegGetMsg.html
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ServiceLayer.SLVrfRegGetMsg
+    name: SLVrfRegGetMsg
+    href: ServiceLayer.SLVrfRegGetMsg.html
+  - name: )
+- uid: Google.Protobuf.IDeepCloneable{ServiceLayer.SLVrfRegGetMsg}
+  commentId: T:Google.Protobuf.IDeepCloneable{ServiceLayer.SLVrfRegGetMsg}
+  parent: Google.Protobuf
+  definition: Google.Protobuf.IDeepCloneable`1
+  href: ServiceLayer.SLVrfRegGetMsg.html
+  name: IDeepCloneable<SLVrfRegGetMsg>
+  nameWithType: IDeepCloneable<SLVrfRegGetMsg>
+  fullName: Google.Protobuf.IDeepCloneable<ServiceLayer.SLVrfRegGetMsg>
+  nameWithType.vb: IDeepCloneable(Of SLVrfRegGetMsg)
+  fullName.vb: Google.Protobuf.IDeepCloneable(Of ServiceLayer.SLVrfRegGetMsg)
+  name.vb: IDeepCloneable(Of SLVrfRegGetMsg)
+  spec.csharp:
+  - uid: Google.Protobuf.IDeepCloneable`1
+    name: IDeepCloneable
+    isExternal: true
+  - name: <
+  - uid: ServiceLayer.SLVrfRegGetMsg
+    name: SLVrfRegGetMsg
+    href: ServiceLayer.SLVrfRegGetMsg.html
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.IDeepCloneable`1
+    name: IDeepCloneable
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ServiceLayer.SLVrfRegGetMsg
+    name: SLVrfRegGetMsg
+    href: ServiceLayer.SLVrfRegGetMsg.html
+  - name: )
+- uid: Google.Protobuf.IBufferMessage
+  commentId: T:Google.Protobuf.IBufferMessage
+  parent: Google.Protobuf
+  isExternal: true
+  name: IBufferMessage
+  nameWithType: IBufferMessage
+  fullName: Google.Protobuf.IBufferMessage
+- uid: Google.Protobuf.IMessage
+  commentId: T:Google.Protobuf.IMessage
+  parent: Google.Protobuf
+  isExternal: true
+  name: IMessage
+  nameWithType: IMessage
+  fullName: Google.Protobuf.IMessage
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Google.Protobuf.IMessage`1
+  commentId: T:Google.Protobuf.IMessage`1
+  isExternal: true
+  name: IMessage<T>
+  nameWithType: IMessage<T>
+  fullName: Google.Protobuf.IMessage<T>
+  nameWithType.vb: IMessage(Of T)
+  fullName.vb: Google.Protobuf.IMessage(Of T)
+  name.vb: IMessage(Of T)
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage`1
+    name: IMessage
+    isExternal: true
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.IMessage`1
+    name: IMessage
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Google.Protobuf
+  commentId: N:Google.Protobuf
+  isExternal: true
+  name: Google.Protobuf
+  nameWithType: Google.Protobuf
+  fullName: Google.Protobuf
+  spec.csharp:
+  - uid: Google
+    name: Google
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf
+    name: Protobuf
+    isExternal: true
+  spec.vb:
+  - uid: Google
+    name: Google
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf
+    name: Protobuf
+    isExternal: true
+- uid: System.IEquatable`1
+  commentId: T:System.IEquatable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<T>
+  nameWithType: IEquatable<T>
+  fullName: System.IEquatable<T>
+  nameWithType.vb: IEquatable(Of T)
+  fullName.vb: System.IEquatable(Of T)
+  name.vb: IEquatable(Of T)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Google.Protobuf.IDeepCloneable`1
+  commentId: T:Google.Protobuf.IDeepCloneable`1
+  isExternal: true
+  name: IDeepCloneable<T>
+  nameWithType: IDeepCloneable<T>
+  fullName: Google.Protobuf.IDeepCloneable<T>
+  nameWithType.vb: IDeepCloneable(Of T)
+  fullName.vb: Google.Protobuf.IDeepCloneable(Of T)
+  name.vb: IDeepCloneable(Of T)
+  spec.csharp:
+  - uid: Google.Protobuf.IDeepCloneable`1
+    name: IDeepCloneable
+    isExternal: true
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.IDeepCloneable`1
+    name: IDeepCloneable
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: ServiceLayer.SLVrfRegGetMsg.Parser*
+  commentId: Overload:ServiceLayer.SLVrfRegGetMsg.Parser
+  href: ServiceLayer.SLVrfRegGetMsg.html#ServiceLayer.SLVrfRegGetMsg.Parser
+  name: Parser
+  nameWithType: SLVrfRegGetMsg.Parser
+  fullName: ServiceLayer.SLVrfRegGetMsg.Parser
+- uid: Google.Protobuf.MessageParser{ServiceLayer.SLVrfRegGetMsg}
+  commentId: T:Google.Protobuf.MessageParser{ServiceLayer.SLVrfRegGetMsg}
+  parent: Google.Protobuf
+  definition: Google.Protobuf.MessageParser`1
+  href: ServiceLayer.SLVrfRegGetMsg.html
+  name: MessageParser<SLVrfRegGetMsg>
+  nameWithType: MessageParser<SLVrfRegGetMsg>
+  fullName: Google.Protobuf.MessageParser<ServiceLayer.SLVrfRegGetMsg>
+  nameWithType.vb: MessageParser(Of SLVrfRegGetMsg)
+  fullName.vb: Google.Protobuf.MessageParser(Of ServiceLayer.SLVrfRegGetMsg)
+  name.vb: MessageParser(Of SLVrfRegGetMsg)
+  spec.csharp:
+  - uid: Google.Protobuf.MessageParser`1
+    name: MessageParser
+    isExternal: true
+  - name: <
+  - uid: ServiceLayer.SLVrfRegGetMsg
+    name: SLVrfRegGetMsg
+    href: ServiceLayer.SLVrfRegGetMsg.html
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.MessageParser`1
+    name: MessageParser
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ServiceLayer.SLVrfRegGetMsg
+    name: SLVrfRegGetMsg
+    href: ServiceLayer.SLVrfRegGetMsg.html
+  - name: )
+- uid: Google.Protobuf.MessageParser`1
+  commentId: T:Google.Protobuf.MessageParser`1
+  isExternal: true
+  name: MessageParser<T>
+  nameWithType: MessageParser<T>
+  fullName: Google.Protobuf.MessageParser<T>
+  nameWithType.vb: MessageParser(Of T)
+  fullName.vb: Google.Protobuf.MessageParser(Of T)
+  name.vb: MessageParser(Of T)
+  spec.csharp:
+  - uid: Google.Protobuf.MessageParser`1
+    name: MessageParser
+    isExternal: true
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.MessageParser`1
+    name: MessageParser
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: ServiceLayer.SLVrfRegGetMsg.Descriptor*
+  commentId: Overload:ServiceLayer.SLVrfRegGetMsg.Descriptor
+  href: ServiceLayer.SLVrfRegGetMsg.html#ServiceLayer.SLVrfRegGetMsg.Descriptor
+  name: Descriptor
+  nameWithType: SLVrfRegGetMsg.Descriptor
+  fullName: ServiceLayer.SLVrfRegGetMsg.Descriptor
+- uid: Google.Protobuf.Reflection.MessageDescriptor
+  commentId: T:Google.Protobuf.Reflection.MessageDescriptor
+  parent: Google.Protobuf.Reflection
+  isExternal: true
+  name: MessageDescriptor
+  nameWithType: MessageDescriptor
+  fullName: Google.Protobuf.Reflection.MessageDescriptor
+- uid: Google.Protobuf.Reflection
+  commentId: N:Google.Protobuf.Reflection
+  isExternal: true
+  name: Google.Protobuf.Reflection
+  nameWithType: Google.Protobuf.Reflection
+  fullName: Google.Protobuf.Reflection
+  spec.csharp:
+  - uid: Google
+    name: Google
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf
+    name: Protobuf
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf.Reflection
+    name: Reflection
+    isExternal: true
+  spec.vb:
+  - uid: Google
+    name: Google
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf
+    name: Protobuf
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf.Reflection
+    name: Reflection
+    isExternal: true
+- uid: ServiceLayer.SLVrfRegGetMsg.#ctor*
+  commentId: Overload:ServiceLayer.SLVrfRegGetMsg.#ctor
+  href: ServiceLayer.SLVrfRegGetMsg.html#ServiceLayer.SLVrfRegGetMsg.#ctor
+  name: SLVrfRegGetMsg
+  nameWithType: SLVrfRegGetMsg.SLVrfRegGetMsg
+  fullName: ServiceLayer.SLVrfRegGetMsg.SLVrfRegGetMsg
+  nameWithType.vb: SLVrfRegGetMsg.New
+  fullName.vb: ServiceLayer.SLVrfRegGetMsg.New
+  name.vb: New
+- uid: ServiceLayer.SLVrfRegGetMsg
+  commentId: T:ServiceLayer.SLVrfRegGetMsg
+  parent: ServiceLayer
+  href: ServiceLayer.SLVrfRegGetMsg.html
+  name: SLVrfRegGetMsg
+  nameWithType: SLVrfRegGetMsg
+  fullName: ServiceLayer.SLVrfRegGetMsg
+- uid: ServiceLayer.SLVrfRegGetMsg.Clone*
+  commentId: Overload:ServiceLayer.SLVrfRegGetMsg.Clone
+  href: ServiceLayer.SLVrfRegGetMsg.html#ServiceLayer.SLVrfRegGetMsg.Clone
+  name: Clone
+  nameWithType: SLVrfRegGetMsg.Clone
+  fullName: ServiceLayer.SLVrfRegGetMsg.Clone
+- uid: Google.Protobuf.IDeepCloneable{ServiceLayer.SLVrfRegGetMsg}.Clone
+  commentId: M:Google.Protobuf.IDeepCloneable{ServiceLayer.SLVrfRegGetMsg}.Clone
+  parent: Google.Protobuf.IDeepCloneable{ServiceLayer.SLVrfRegGetMsg}
+  definition: Google.Protobuf.IDeepCloneable`1.Clone
+  name: Clone()
+  nameWithType: IDeepCloneable<SLVrfRegGetMsg>.Clone()
+  fullName: Google.Protobuf.IDeepCloneable<ServiceLayer.SLVrfRegGetMsg>.Clone()
+  nameWithType.vb: IDeepCloneable(Of SLVrfRegGetMsg).Clone()
+  fullName.vb: Google.Protobuf.IDeepCloneable(Of ServiceLayer.SLVrfRegGetMsg).Clone()
+  spec.csharp:
+  - uid: Google.Protobuf.IDeepCloneable{ServiceLayer.SLVrfRegGetMsg}.Clone
+    name: Clone
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IDeepCloneable{ServiceLayer.SLVrfRegGetMsg}.Clone
+    name: Clone
+    isExternal: true
+  - name: (
+  - name: )
+- uid: Google.Protobuf.IDeepCloneable`1.Clone
+  commentId: M:Google.Protobuf.IDeepCloneable`1.Clone
+  isExternal: true
+  name: Clone()
+  nameWithType: IDeepCloneable<T>.Clone()
+  fullName: Google.Protobuf.IDeepCloneable<T>.Clone()
+  nameWithType.vb: IDeepCloneable(Of T).Clone()
+  fullName.vb: Google.Protobuf.IDeepCloneable(Of T).Clone()
+  spec.csharp:
+  - uid: Google.Protobuf.IDeepCloneable`1.Clone
+    name: Clone
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IDeepCloneable`1.Clone
+    name: Clone
+    isExternal: true
+  - name: (
+  - name: )
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: ServiceLayer.SLVrfRegGetMsg.VrfName*
+  commentId: Overload:ServiceLayer.SLVrfRegGetMsg.VrfName
+  href: ServiceLayer.SLVrfRegGetMsg.html#ServiceLayer.SLVrfRegGetMsg.VrfName
+  name: VrfName
+  nameWithType: SLVrfRegGetMsg.VrfName
+  fullName: ServiceLayer.SLVrfRegGetMsg.VrfName
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: ServiceLayer.SLVrfRegGetMsg.EntriesCount*
+  commentId: Overload:ServiceLayer.SLVrfRegGetMsg.EntriesCount
+  href: ServiceLayer.SLVrfRegGetMsg.html#ServiceLayer.SLVrfRegGetMsg.EntriesCount
+  name: EntriesCount
+  nameWithType: SLVrfRegGetMsg.EntriesCount
+  fullName: ServiceLayer.SLVrfRegGetMsg.EntriesCount
+- uid: System.UInt32
+  commentId: T:System.UInt32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.uint32
+  name: uint
+  nameWithType: uint
+  fullName: uint
+  nameWithType.vb: UInteger
+  fullName.vb: UInteger
+  name.vb: UInteger
+- uid: ServiceLayer.SLVrfRegGetMsg.GetNext*
+  commentId: Overload:ServiceLayer.SLVrfRegGetMsg.GetNext
+  href: ServiceLayer.SLVrfRegGetMsg.html#ServiceLayer.SLVrfRegGetMsg.GetNext
+  name: GetNext
+  nameWithType: SLVrfRegGetMsg.GetNext
+  fullName: ServiceLayer.SLVrfRegGetMsg.GetNext
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: ServiceLayer.SLVrfRegGetMsg.Equals*
+  commentId: Overload:ServiceLayer.SLVrfRegGetMsg.Equals
+  href: ServiceLayer.SLVrfRegGetMsg.html#ServiceLayer.SLVrfRegGetMsg.Equals(System.Object)
+  name: Equals
+  nameWithType: SLVrfRegGetMsg.Equals
+  fullName: ServiceLayer.SLVrfRegGetMsg.Equals
+- uid: System.IEquatable{ServiceLayer.SLVrfRegGetMsg}.Equals(ServiceLayer.SLVrfRegGetMsg)
+  commentId: M:System.IEquatable{ServiceLayer.SLVrfRegGetMsg}.Equals(ServiceLayer.SLVrfRegGetMsg)
+  parent: System.IEquatable{ServiceLayer.SLVrfRegGetMsg}
+  definition: System.IEquatable`1.Equals(`0)
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-servicelayer.slvrfreggetmsg-.equals#system-iequatable((servicelayer-slvrfreggetmsg))-equals(servicelayer-slvrfreggetmsg)
+  name: Equals(SLVrfRegGetMsg)
+  nameWithType: IEquatable<SLVrfRegGetMsg>.Equals(SLVrfRegGetMsg)
+  fullName: System.IEquatable<ServiceLayer.SLVrfRegGetMsg>.Equals(ServiceLayer.SLVrfRegGetMsg)
+  nameWithType.vb: IEquatable(Of SLVrfRegGetMsg).Equals(SLVrfRegGetMsg)
+  fullName.vb: System.IEquatable(Of ServiceLayer.SLVrfRegGetMsg).Equals(ServiceLayer.SLVrfRegGetMsg)
+  spec.csharp:
+  - uid: System.IEquatable{ServiceLayer.SLVrfRegGetMsg}.Equals(ServiceLayer.SLVrfRegGetMsg)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-servicelayer.slvrfreggetmsg-.equals#system-iequatable((servicelayer-slvrfreggetmsg))-equals(servicelayer-slvrfreggetmsg)
+  - name: (
+  - uid: ServiceLayer.SLVrfRegGetMsg
+    name: SLVrfRegGetMsg
+    href: ServiceLayer.SLVrfRegGetMsg.html
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable{ServiceLayer.SLVrfRegGetMsg}.Equals(ServiceLayer.SLVrfRegGetMsg)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-servicelayer.slvrfreggetmsg-.equals#system-iequatable((servicelayer-slvrfreggetmsg))-equals(servicelayer-slvrfreggetmsg)
+  - name: (
+  - uid: ServiceLayer.SLVrfRegGetMsg
+    name: SLVrfRegGetMsg
+    href: ServiceLayer.SLVrfRegGetMsg.html
+  - name: )
+- uid: System.IEquatable`1.Equals(`0)
+  commentId: M:System.IEquatable`1.Equals(`0)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(T)
+  nameWithType: IEquatable<T>.Equals(T)
+  fullName: System.IEquatable<T>.Equals(T)
+  nameWithType.vb: IEquatable(Of T).Equals(T)
+  fullName.vb: System.IEquatable(Of T).Equals(T)
+  spec.csharp:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: ServiceLayer.SLVrfRegGetMsg.GetHashCode*
+  commentId: Overload:ServiceLayer.SLVrfRegGetMsg.GetHashCode
+  href: ServiceLayer.SLVrfRegGetMsg.html#ServiceLayer.SLVrfRegGetMsg.GetHashCode
+  name: GetHashCode
+  nameWithType: SLVrfRegGetMsg.GetHashCode
+  fullName: ServiceLayer.SLVrfRegGetMsg.GetHashCode
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: ServiceLayer.SLVrfRegGetMsg.ToString*
+  commentId: Overload:ServiceLayer.SLVrfRegGetMsg.ToString
+  href: ServiceLayer.SLVrfRegGetMsg.html#ServiceLayer.SLVrfRegGetMsg.ToString
+  name: ToString
+  nameWithType: SLVrfRegGetMsg.ToString
+  fullName: ServiceLayer.SLVrfRegGetMsg.ToString
+- uid: ServiceLayer.SLVrfRegGetMsg.WriteTo*
+  commentId: Overload:ServiceLayer.SLVrfRegGetMsg.WriteTo
+  href: ServiceLayer.SLVrfRegGetMsg.html#ServiceLayer.SLVrfRegGetMsg.WriteTo(Google.Protobuf.CodedOutputStream)
+  name: WriteTo
+  nameWithType: SLVrfRegGetMsg.WriteTo
+  fullName: ServiceLayer.SLVrfRegGetMsg.WriteTo
+- uid: Google.Protobuf.IMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+  commentId: M:Google.Protobuf.IMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+  parent: Google.Protobuf.IMessage
+  isExternal: true
+  name: WriteTo(CodedOutputStream)
+  nameWithType: IMessage.WriteTo(CodedOutputStream)
+  fullName: Google.Protobuf.IMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+    name: WriteTo
+    isExternal: true
+  - name: (
+  - uid: Google.Protobuf.CodedOutputStream
+    name: CodedOutputStream
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+    name: WriteTo
+    isExternal: true
+  - name: (
+  - uid: Google.Protobuf.CodedOutputStream
+    name: CodedOutputStream
+    isExternal: true
+  - name: )
+- uid: Google.Protobuf.CodedOutputStream
+  commentId: T:Google.Protobuf.CodedOutputStream
+  parent: Google.Protobuf
+  isExternal: true
+  name: CodedOutputStream
+  nameWithType: CodedOutputStream
+  fullName: Google.Protobuf.CodedOutputStream
+- uid: ServiceLayer.SLVrfRegGetMsg.CalculateSize*
+  commentId: Overload:ServiceLayer.SLVrfRegGetMsg.CalculateSize
+  href: ServiceLayer.SLVrfRegGetMsg.html#ServiceLayer.SLVrfRegGetMsg.CalculateSize
+  name: CalculateSize
+  nameWithType: SLVrfRegGetMsg.CalculateSize
+  fullName: ServiceLayer.SLVrfRegGetMsg.CalculateSize
+- uid: Google.Protobuf.IMessage.CalculateSize
+  commentId: M:Google.Protobuf.IMessage.CalculateSize
+  parent: Google.Protobuf.IMessage
+  isExternal: true
+  name: CalculateSize()
+  nameWithType: IMessage.CalculateSize()
+  fullName: Google.Protobuf.IMessage.CalculateSize()
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage.CalculateSize
+    name: CalculateSize
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IMessage.CalculateSize
+    name: CalculateSize
+    isExternal: true
+  - name: (
+  - name: )
+- uid: ServiceLayer.SLVrfRegGetMsg.MergeFrom*
+  commentId: Overload:ServiceLayer.SLVrfRegGetMsg.MergeFrom
+  href: ServiceLayer.SLVrfRegGetMsg.html#ServiceLayer.SLVrfRegGetMsg.MergeFrom(ServiceLayer.SLVrfRegGetMsg)
+  name: MergeFrom
+  nameWithType: SLVrfRegGetMsg.MergeFrom
+  fullName: ServiceLayer.SLVrfRegGetMsg.MergeFrom
+- uid: Google.Protobuf.IMessage{ServiceLayer.SLVrfRegGetMsg}.MergeFrom(ServiceLayer.SLVrfRegGetMsg)
+  commentId: M:Google.Protobuf.IMessage{ServiceLayer.SLVrfRegGetMsg}.MergeFrom(ServiceLayer.SLVrfRegGetMsg)
+  parent: Google.Protobuf.IMessage{ServiceLayer.SLVrfRegGetMsg}
+  definition: Google.Protobuf.IMessage`1.MergeFrom(`0)
+  href: ServiceLayer.SLVrfRegGetMsg.html
+  name: MergeFrom(SLVrfRegGetMsg)
+  nameWithType: IMessage<SLVrfRegGetMsg>.MergeFrom(SLVrfRegGetMsg)
+  fullName: Google.Protobuf.IMessage<ServiceLayer.SLVrfRegGetMsg>.MergeFrom(ServiceLayer.SLVrfRegGetMsg)
+  nameWithType.vb: IMessage(Of SLVrfRegGetMsg).MergeFrom(SLVrfRegGetMsg)
+  fullName.vb: Google.Protobuf.IMessage(Of ServiceLayer.SLVrfRegGetMsg).MergeFrom(ServiceLayer.SLVrfRegGetMsg)
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage{ServiceLayer.SLVrfRegGetMsg}.MergeFrom(ServiceLayer.SLVrfRegGetMsg)
+    name: MergeFrom
+    isExternal: true
+  - name: (
+  - uid: ServiceLayer.SLVrfRegGetMsg
+    name: SLVrfRegGetMsg
+    href: ServiceLayer.SLVrfRegGetMsg.html
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IMessage{ServiceLayer.SLVrfRegGetMsg}.MergeFrom(ServiceLayer.SLVrfRegGetMsg)
+    name: MergeFrom
+    isExternal: true
+  - name: (
+  - uid: ServiceLayer.SLVrfRegGetMsg
+    name: SLVrfRegGetMsg
+    href: ServiceLayer.SLVrfRegGetMsg.html
+  - name: )
+- uid: Google.Protobuf.IMessage`1.MergeFrom(`0)
+  commentId: M:Google.Protobuf.IMessage`1.MergeFrom(`0)
+  isExternal: true
+  name: MergeFrom(T)
+  nameWithType: IMessage<T>.MergeFrom(T)
+  fullName: Google.Protobuf.IMessage<T>.MergeFrom(T)
+  nameWithType.vb: IMessage(Of T).MergeFrom(T)
+  fullName.vb: Google.Protobuf.IMessage(Of T).MergeFrom(T)
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage`1.MergeFrom(`0)
+    name: MergeFrom
+    isExternal: true
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IMessage`1.MergeFrom(`0)
+    name: MergeFrom
+    isExternal: true
+  - name: (
+  - name: T
+  - name: )
+- uid: Google.Protobuf.IMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+  commentId: M:Google.Protobuf.IMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+  parent: Google.Protobuf.IMessage
+  isExternal: true
+  name: MergeFrom(CodedInputStream)
+  nameWithType: IMessage.MergeFrom(CodedInputStream)
+  fullName: Google.Protobuf.IMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+    name: MergeFrom
+    isExternal: true
+  - name: (
+  - uid: Google.Protobuf.CodedInputStream
+    name: CodedInputStream
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+    name: MergeFrom
+    isExternal: true
+  - name: (
+  - uid: Google.Protobuf.CodedInputStream
+    name: CodedInputStream
+    isExternal: true
+  - name: )
+- uid: Google.Protobuf.CodedInputStream
+  commentId: T:Google.Protobuf.CodedInputStream
+  parent: Google.Protobuf
+  isExternal: true
+  name: CodedInputStream
+  nameWithType: CodedInputStream
+  fullName: Google.Protobuf.CodedInputStream

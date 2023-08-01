@@ -1,0 +1,1493 @@
+### YamlMime:ManagedReference
+items:
+- uid: ServiceLayer.SLMplsLabelBlockMsgRes
+  commentId: T:ServiceLayer.SLMplsLabelBlockMsgRes
+  id: SLMplsLabelBlockMsgRes
+  parent: ServiceLayer
+  children:
+  - ServiceLayer.SLMplsLabelBlockMsgRes.#ctor
+  - ServiceLayer.SLMplsLabelBlockMsgRes.#ctor(ServiceLayer.SLMplsLabelBlockMsgRes)
+  - ServiceLayer.SLMplsLabelBlockMsgRes.CalculateSize
+  - ServiceLayer.SLMplsLabelBlockMsgRes.Clone
+  - ServiceLayer.SLMplsLabelBlockMsgRes.Descriptor
+  - ServiceLayer.SLMplsLabelBlockMsgRes.Equals(ServiceLayer.SLMplsLabelBlockMsgRes)
+  - ServiceLayer.SLMplsLabelBlockMsgRes.Equals(System.Object)
+  - ServiceLayer.SLMplsLabelBlockMsgRes.ErrStatus
+  - ServiceLayer.SLMplsLabelBlockMsgRes.ErrStatusFieldNumber
+  - ServiceLayer.SLMplsLabelBlockMsgRes.GetHashCode
+  - ServiceLayer.SLMplsLabelBlockMsgRes.Key
+  - ServiceLayer.SLMplsLabelBlockMsgRes.KeyFieldNumber
+  - ServiceLayer.SLMplsLabelBlockMsgRes.MergeFrom(Google.Protobuf.CodedInputStream)
+  - ServiceLayer.SLMplsLabelBlockMsgRes.MergeFrom(ServiceLayer.SLMplsLabelBlockMsgRes)
+  - ServiceLayer.SLMplsLabelBlockMsgRes.Parser
+  - ServiceLayer.SLMplsLabelBlockMsgRes.ToString
+  - ServiceLayer.SLMplsLabelBlockMsgRes.WriteTo(Google.Protobuf.CodedOutputStream)
+  langs:
+  - csharp
+  - vb
+  name: SLMplsLabelBlockMsgRes
+  nameWithType: SLMplsLabelBlockMsgRes
+  fullName: ServiceLayer.SLMplsLabelBlockMsgRes
+  type: Class
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlMpls.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: SLMplsLabelBlockMsgRes
+    path: src/gencs/SlMpls.cs
+    startLine: 773
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: >-
+    MPLS Label block reservation result.
+
+    This message is used to convey the result status corresponding to
+
+    the label block operation.
+  example: []
+  syntax:
+    content: 'public sealed class SLMplsLabelBlockMsgRes : IMessage<SLMplsLabelBlockMsgRes>, IEquatable<SLMplsLabelBlockMsgRes>, IDeepCloneable<SLMplsLabelBlockMsgRes>, IBufferMessage, IMessage'
+    content.vb: Public NotInheritable Class SLMplsLabelBlockMsgRes Implements IMessage(Of SLMplsLabelBlockMsgRes), IEquatable(Of SLMplsLabelBlockMsgRes), IDeepCloneable(Of SLMplsLabelBlockMsgRes), IBufferMessage, IMessage
+  inheritance:
+  - System.Object
+  implements:
+  - Google.Protobuf.IMessage{ServiceLayer.SLMplsLabelBlockMsgRes}
+  - System.IEquatable{ServiceLayer.SLMplsLabelBlockMsgRes}
+  - Google.Protobuf.IDeepCloneable{ServiceLayer.SLMplsLabelBlockMsgRes}
+  - Google.Protobuf.IBufferMessage
+  - Google.Protobuf.IMessage
+  inheritedMembers:
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: ServiceLayer.SLMplsLabelBlockMsgRes.Parser
+  commentId: P:ServiceLayer.SLMplsLabelBlockMsgRes.Parser
+  id: Parser
+  parent: ServiceLayer.SLMplsLabelBlockMsgRes
+  langs:
+  - csharp
+  - vb
+  name: Parser
+  nameWithType: SLMplsLabelBlockMsgRes.Parser
+  fullName: ServiceLayer.SLMplsLabelBlockMsgRes.Parser
+  type: Property
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlMpls.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: Parser
+    path: src/gencs/SlMpls.cs
+    startLine: 780
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  syntax:
+    content: public static MessageParser<SLMplsLabelBlockMsgRes> Parser { get; }
+    parameters: []
+    return:
+      type: Google.Protobuf.MessageParser{ServiceLayer.SLMplsLabelBlockMsgRes}
+    content.vb: Public Shared ReadOnly Property Parser As MessageParser(Of SLMplsLabelBlockMsgRes)
+  overload: ServiceLayer.SLMplsLabelBlockMsgRes.Parser*
+- uid: ServiceLayer.SLMplsLabelBlockMsgRes.Descriptor
+  commentId: P:ServiceLayer.SLMplsLabelBlockMsgRes.Descriptor
+  id: Descriptor
+  parent: ServiceLayer.SLMplsLabelBlockMsgRes
+  langs:
+  - csharp
+  - vb
+  name: Descriptor
+  nameWithType: SLMplsLabelBlockMsgRes.Descriptor
+  fullName: ServiceLayer.SLMplsLabelBlockMsgRes.Descriptor
+  type: Property
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlMpls.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: Descriptor
+    path: src/gencs/SlMpls.cs
+    startLine: 784
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  syntax:
+    content: public static MessageDescriptor Descriptor { get; }
+    parameters: []
+    return:
+      type: Google.Protobuf.Reflection.MessageDescriptor
+    content.vb: Public Shared ReadOnly Property Descriptor As MessageDescriptor
+  overload: ServiceLayer.SLMplsLabelBlockMsgRes.Descriptor*
+- uid: ServiceLayer.SLMplsLabelBlockMsgRes.#ctor
+  commentId: M:ServiceLayer.SLMplsLabelBlockMsgRes.#ctor
+  id: '#ctor'
+  parent: ServiceLayer.SLMplsLabelBlockMsgRes
+  langs:
+  - csharp
+  - vb
+  name: SLMplsLabelBlockMsgRes()
+  nameWithType: SLMplsLabelBlockMsgRes.SLMplsLabelBlockMsgRes()
+  fullName: ServiceLayer.SLMplsLabelBlockMsgRes.SLMplsLabelBlockMsgRes()
+  type: Constructor
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlMpls.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: .ctor
+    path: src/gencs/SlMpls.cs
+    startLine: 796
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  syntax:
+    content: public SLMplsLabelBlockMsgRes()
+    content.vb: Public Sub New()
+  overload: ServiceLayer.SLMplsLabelBlockMsgRes.#ctor*
+  nameWithType.vb: SLMplsLabelBlockMsgRes.New()
+  fullName.vb: ServiceLayer.SLMplsLabelBlockMsgRes.New()
+  name.vb: New()
+- uid: ServiceLayer.SLMplsLabelBlockMsgRes.#ctor(ServiceLayer.SLMplsLabelBlockMsgRes)
+  commentId: M:ServiceLayer.SLMplsLabelBlockMsgRes.#ctor(ServiceLayer.SLMplsLabelBlockMsgRes)
+  id: '#ctor(ServiceLayer.SLMplsLabelBlockMsgRes)'
+  parent: ServiceLayer.SLMplsLabelBlockMsgRes
+  langs:
+  - csharp
+  - vb
+  name: SLMplsLabelBlockMsgRes(SLMplsLabelBlockMsgRes)
+  nameWithType: SLMplsLabelBlockMsgRes.SLMplsLabelBlockMsgRes(SLMplsLabelBlockMsgRes)
+  fullName: ServiceLayer.SLMplsLabelBlockMsgRes.SLMplsLabelBlockMsgRes(ServiceLayer.SLMplsLabelBlockMsgRes)
+  type: Constructor
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlMpls.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: .ctor
+    path: src/gencs/SlMpls.cs
+    startLine: 804
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  syntax:
+    content: public SLMplsLabelBlockMsgRes(SLMplsLabelBlockMsgRes other)
+    parameters:
+    - id: other
+      type: ServiceLayer.SLMplsLabelBlockMsgRes
+    content.vb: Public Sub New(other As SLMplsLabelBlockMsgRes)
+  overload: ServiceLayer.SLMplsLabelBlockMsgRes.#ctor*
+  nameWithType.vb: SLMplsLabelBlockMsgRes.New(SLMplsLabelBlockMsgRes)
+  fullName.vb: ServiceLayer.SLMplsLabelBlockMsgRes.New(ServiceLayer.SLMplsLabelBlockMsgRes)
+  name.vb: New(SLMplsLabelBlockMsgRes)
+- uid: ServiceLayer.SLMplsLabelBlockMsgRes.Clone
+  commentId: M:ServiceLayer.SLMplsLabelBlockMsgRes.Clone
+  id: Clone
+  parent: ServiceLayer.SLMplsLabelBlockMsgRes
+  langs:
+  - csharp
+  - vb
+  name: Clone()
+  nameWithType: SLMplsLabelBlockMsgRes.Clone()
+  fullName: ServiceLayer.SLMplsLabelBlockMsgRes.Clone()
+  type: Method
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlMpls.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: Clone
+    path: src/gencs/SlMpls.cs
+    startLine: 812
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Creates a deep clone of this object.
+  example: []
+  syntax:
+    content: public SLMplsLabelBlockMsgRes Clone()
+    return:
+      type: ServiceLayer.SLMplsLabelBlockMsgRes
+      description: A deep clone of this object.
+    content.vb: Public Function Clone() As SLMplsLabelBlockMsgRes
+  overload: ServiceLayer.SLMplsLabelBlockMsgRes.Clone*
+  implements:
+  - Google.Protobuf.IDeepCloneable{ServiceLayer.SLMplsLabelBlockMsgRes}.Clone
+- uid: ServiceLayer.SLMplsLabelBlockMsgRes.ErrStatusFieldNumber
+  commentId: F:ServiceLayer.SLMplsLabelBlockMsgRes.ErrStatusFieldNumber
+  id: ErrStatusFieldNumber
+  parent: ServiceLayer.SLMplsLabelBlockMsgRes
+  langs:
+  - csharp
+  - vb
+  name: ErrStatusFieldNumber
+  nameWithType: SLMplsLabelBlockMsgRes.ErrStatusFieldNumber
+  fullName: ServiceLayer.SLMplsLabelBlockMsgRes.ErrStatusFieldNumber
+  type: Field
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlMpls.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: ErrStatusFieldNumber
+    path: src/gencs/SlMpls.cs
+    startLine: 819
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Field number for the "ErrStatus" field.
+  example: []
+  syntax:
+    content: public const int ErrStatusFieldNumber = 1
+    return:
+      type: System.Int32
+    content.vb: Public Const ErrStatusFieldNumber As Integer = 1
+- uid: ServiceLayer.SLMplsLabelBlockMsgRes.ErrStatus
+  commentId: P:ServiceLayer.SLMplsLabelBlockMsgRes.ErrStatus
+  id: ErrStatus
+  parent: ServiceLayer.SLMplsLabelBlockMsgRes
+  langs:
+  - csharp
+  - vb
+  name: ErrStatus
+  nameWithType: SLMplsLabelBlockMsgRes.ErrStatus
+  fullName: ServiceLayer.SLMplsLabelBlockMsgRes.ErrStatus
+  type: Property
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlMpls.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: ErrStatus
+    path: src/gencs/SlMpls.cs
+    startLine: 824
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Corresponding error code.
+  example: []
+  syntax:
+    content: public SLErrorStatus ErrStatus { get; set; }
+    parameters: []
+    return:
+      type: ServiceLayer.SLErrorStatus
+    content.vb: Public Property ErrStatus As SLErrorStatus
+  overload: ServiceLayer.SLMplsLabelBlockMsgRes.ErrStatus*
+- uid: ServiceLayer.SLMplsLabelBlockMsgRes.KeyFieldNumber
+  commentId: F:ServiceLayer.SLMplsLabelBlockMsgRes.KeyFieldNumber
+  id: KeyFieldNumber
+  parent: ServiceLayer.SLMplsLabelBlockMsgRes
+  langs:
+  - csharp
+  - vb
+  name: KeyFieldNumber
+  nameWithType: SLMplsLabelBlockMsgRes.KeyFieldNumber
+  fullName: ServiceLayer.SLMplsLabelBlockMsgRes.KeyFieldNumber
+  type: Field
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlMpls.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: KeyFieldNumber
+    path: src/gencs/SlMpls.cs
+    startLine: 834
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Field number for the "Key" field.
+  example: []
+  syntax:
+    content: public const int KeyFieldNumber = 2
+    return:
+      type: System.Int32
+    content.vb: Public Const KeyFieldNumber As Integer = 2
+- uid: ServiceLayer.SLMplsLabelBlockMsgRes.Key
+  commentId: P:ServiceLayer.SLMplsLabelBlockMsgRes.Key
+  id: Key
+  parent: ServiceLayer.SLMplsLabelBlockMsgRes
+  langs:
+  - csharp
+  - vb
+  name: Key
+  nameWithType: SLMplsLabelBlockMsgRes.Key
+  fullName: ServiceLayer.SLMplsLabelBlockMsgRes.Key
+  type: Property
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlMpls.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: Key
+    path: src/gencs/SlMpls.cs
+    startLine: 839
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Key for which the error code is reported.
+  example: []
+  syntax:
+    content: public SLMplsLabelBlockKey Key { get; set; }
+    parameters: []
+    return:
+      type: ServiceLayer.SLMplsLabelBlockKey
+    content.vb: Public Property Key As SLMplsLabelBlockKey
+  overload: ServiceLayer.SLMplsLabelBlockMsgRes.Key*
+- uid: ServiceLayer.SLMplsLabelBlockMsgRes.Equals(System.Object)
+  commentId: M:ServiceLayer.SLMplsLabelBlockMsgRes.Equals(System.Object)
+  id: Equals(System.Object)
+  parent: ServiceLayer.SLMplsLabelBlockMsgRes
+  langs:
+  - csharp
+  - vb
+  name: Equals(object)
+  nameWithType: SLMplsLabelBlockMsgRes.Equals(object)
+  fullName: ServiceLayer.SLMplsLabelBlockMsgRes.Equals(object)
+  type: Method
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlMpls.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: Equals
+    path: src/gencs/SlMpls.cs
+    startLine: 848
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Determines whether the specified object is equal to the current object.
+  example: []
+  syntax:
+    content: public override bool Equals(object other)
+    parameters:
+    - id: other
+      type: System.Object
+    return:
+      type: System.Boolean
+      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the specified object  is equal to the current object; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+    content.vb: Public Overrides Function Equals(other As Object) As Boolean
+  overridden: System.Object.Equals(System.Object)
+  overload: ServiceLayer.SLMplsLabelBlockMsgRes.Equals*
+  nameWithType.vb: SLMplsLabelBlockMsgRes.Equals(Object)
+  fullName.vb: ServiceLayer.SLMplsLabelBlockMsgRes.Equals(Object)
+  name.vb: Equals(Object)
+- uid: ServiceLayer.SLMplsLabelBlockMsgRes.Equals(ServiceLayer.SLMplsLabelBlockMsgRes)
+  commentId: M:ServiceLayer.SLMplsLabelBlockMsgRes.Equals(ServiceLayer.SLMplsLabelBlockMsgRes)
+  id: Equals(ServiceLayer.SLMplsLabelBlockMsgRes)
+  parent: ServiceLayer.SLMplsLabelBlockMsgRes
+  langs:
+  - csharp
+  - vb
+  name: Equals(SLMplsLabelBlockMsgRes)
+  nameWithType: SLMplsLabelBlockMsgRes.Equals(SLMplsLabelBlockMsgRes)
+  fullName: ServiceLayer.SLMplsLabelBlockMsgRes.Equals(ServiceLayer.SLMplsLabelBlockMsgRes)
+  type: Method
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlMpls.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: Equals
+    path: src/gencs/SlMpls.cs
+    startLine: 854
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Indicates whether the current object is equal to another object of the same type.
+  example: []
+  syntax:
+    content: public bool Equals(SLMplsLabelBlockMsgRes other)
+    parameters:
+    - id: other
+      type: ServiceLayer.SLMplsLabelBlockMsgRes
+      description: An object to compare with this object.
+    return:
+      type: System.Boolean
+      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the current object is equal to the <code class="paramref">other</code> parameter; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+    content.vb: Public Function Equals(other As SLMplsLabelBlockMsgRes) As Boolean
+  overload: ServiceLayer.SLMplsLabelBlockMsgRes.Equals*
+  implements:
+  - System.IEquatable{ServiceLayer.SLMplsLabelBlockMsgRes}.Equals(ServiceLayer.SLMplsLabelBlockMsgRes)
+- uid: ServiceLayer.SLMplsLabelBlockMsgRes.GetHashCode
+  commentId: M:ServiceLayer.SLMplsLabelBlockMsgRes.GetHashCode
+  id: GetHashCode
+  parent: ServiceLayer.SLMplsLabelBlockMsgRes
+  langs:
+  - csharp
+  - vb
+  name: GetHashCode()
+  nameWithType: SLMplsLabelBlockMsgRes.GetHashCode()
+  fullName: ServiceLayer.SLMplsLabelBlockMsgRes.GetHashCode()
+  type: Method
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlMpls.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: GetHashCode
+    path: src/gencs/SlMpls.cs
+    startLine: 868
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Serves as the default hash function.
+  example: []
+  syntax:
+    content: public override int GetHashCode()
+    return:
+      type: System.Int32
+      description: A hash code for the current object.
+    content.vb: Public Overrides Function GetHashCode() As Integer
+  overridden: System.Object.GetHashCode
+  overload: ServiceLayer.SLMplsLabelBlockMsgRes.GetHashCode*
+- uid: ServiceLayer.SLMplsLabelBlockMsgRes.ToString
+  commentId: M:ServiceLayer.SLMplsLabelBlockMsgRes.ToString
+  id: ToString
+  parent: ServiceLayer.SLMplsLabelBlockMsgRes
+  langs:
+  - csharp
+  - vb
+  name: ToString()
+  nameWithType: SLMplsLabelBlockMsgRes.ToString()
+  fullName: ServiceLayer.SLMplsLabelBlockMsgRes.ToString()
+  type: Method
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlMpls.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: ToString
+    path: src/gencs/SlMpls.cs
+    startLine: 880
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Returns a string that represents the current object.
+  example: []
+  syntax:
+    content: public override string ToString()
+    return:
+      type: System.String
+      description: A string that represents the current object.
+    content.vb: Public Overrides Function ToString() As String
+  overridden: System.Object.ToString
+  overload: ServiceLayer.SLMplsLabelBlockMsgRes.ToString*
+- uid: ServiceLayer.SLMplsLabelBlockMsgRes.WriteTo(Google.Protobuf.CodedOutputStream)
+  commentId: M:ServiceLayer.SLMplsLabelBlockMsgRes.WriteTo(Google.Protobuf.CodedOutputStream)
+  id: WriteTo(Google.Protobuf.CodedOutputStream)
+  parent: ServiceLayer.SLMplsLabelBlockMsgRes
+  langs:
+  - csharp
+  - vb
+  name: WriteTo(CodedOutputStream)
+  nameWithType: SLMplsLabelBlockMsgRes.WriteTo(CodedOutputStream)
+  fullName: ServiceLayer.SLMplsLabelBlockMsgRes.WriteTo(Google.Protobuf.CodedOutputStream)
+  type: Method
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlMpls.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: WriteTo
+    path: src/gencs/SlMpls.cs
+    startLine: 886
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Writes the data to the given coded output stream.
+  example: []
+  syntax:
+    content: public void WriteTo(CodedOutputStream output)
+    parameters:
+    - id: output
+      type: Google.Protobuf.CodedOutputStream
+      description: Coded output stream to write the data to. Must not be null.
+    content.vb: Public Sub WriteTo(output As CodedOutputStream)
+  overload: ServiceLayer.SLMplsLabelBlockMsgRes.WriteTo*
+  implements:
+  - Google.Protobuf.IMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+- uid: ServiceLayer.SLMplsLabelBlockMsgRes.CalculateSize
+  commentId: M:ServiceLayer.SLMplsLabelBlockMsgRes.CalculateSize
+  id: CalculateSize
+  parent: ServiceLayer.SLMplsLabelBlockMsgRes
+  langs:
+  - csharp
+  - vb
+  name: CalculateSize()
+  nameWithType: SLMplsLabelBlockMsgRes.CalculateSize()
+  fullName: ServiceLayer.SLMplsLabelBlockMsgRes.CalculateSize()
+  type: Method
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlMpls.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: CalculateSize
+    path: src/gencs/SlMpls.cs
+    startLine: 924
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Calculates the size of this message in Protocol Buffer wire format, in bytes.
+  example: []
+  syntax:
+    content: public int CalculateSize()
+    return:
+      type: System.Int32
+      description: >-
+        The number of bytes required to write this message
+                    to a coded output stream.
+    content.vb: Public Function CalculateSize() As Integer
+  overload: ServiceLayer.SLMplsLabelBlockMsgRes.CalculateSize*
+  implements:
+  - Google.Protobuf.IMessage.CalculateSize
+- uid: ServiceLayer.SLMplsLabelBlockMsgRes.MergeFrom(ServiceLayer.SLMplsLabelBlockMsgRes)
+  commentId: M:ServiceLayer.SLMplsLabelBlockMsgRes.MergeFrom(ServiceLayer.SLMplsLabelBlockMsgRes)
+  id: MergeFrom(ServiceLayer.SLMplsLabelBlockMsgRes)
+  parent: ServiceLayer.SLMplsLabelBlockMsgRes
+  langs:
+  - csharp
+  - vb
+  name: MergeFrom(SLMplsLabelBlockMsgRes)
+  nameWithType: SLMplsLabelBlockMsgRes.MergeFrom(SLMplsLabelBlockMsgRes)
+  fullName: ServiceLayer.SLMplsLabelBlockMsgRes.MergeFrom(ServiceLayer.SLMplsLabelBlockMsgRes)
+  type: Method
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlMpls.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: MergeFrom
+    path: src/gencs/SlMpls.cs
+    startLine: 940
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Merges the given message into this one.
+  remarks: See the user guide for precise merge semantics.
+  example: []
+  syntax:
+    content: public void MergeFrom(SLMplsLabelBlockMsgRes other)
+    parameters:
+    - id: other
+      type: ServiceLayer.SLMplsLabelBlockMsgRes
+    content.vb: Public Sub MergeFrom(other As SLMplsLabelBlockMsgRes)
+  overload: ServiceLayer.SLMplsLabelBlockMsgRes.MergeFrom*
+  implements:
+  - Google.Protobuf.IMessage{ServiceLayer.SLMplsLabelBlockMsgRes}.MergeFrom(ServiceLayer.SLMplsLabelBlockMsgRes)
+- uid: ServiceLayer.SLMplsLabelBlockMsgRes.MergeFrom(Google.Protobuf.CodedInputStream)
+  commentId: M:ServiceLayer.SLMplsLabelBlockMsgRes.MergeFrom(Google.Protobuf.CodedInputStream)
+  id: MergeFrom(Google.Protobuf.CodedInputStream)
+  parent: ServiceLayer.SLMplsLabelBlockMsgRes
+  langs:
+  - csharp
+  - vb
+  name: MergeFrom(CodedInputStream)
+  nameWithType: SLMplsLabelBlockMsgRes.MergeFrom(CodedInputStream)
+  fullName: ServiceLayer.SLMplsLabelBlockMsgRes.MergeFrom(Google.Protobuf.CodedInputStream)
+  type: Method
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlMpls.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: MergeFrom
+    path: src/gencs/SlMpls.cs
+    startLine: 961
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Merges the data from the specified coded input stream with the current message.
+  remarks: See the user guide for precise merge semantics.
+  example: []
+  syntax:
+    content: public void MergeFrom(CodedInputStream input)
+    parameters:
+    - id: input
+      type: Google.Protobuf.CodedInputStream
+      description: ''
+    content.vb: Public Sub MergeFrom(input As CodedInputStream)
+  overload: ServiceLayer.SLMplsLabelBlockMsgRes.MergeFrom*
+  implements:
+  - Google.Protobuf.IMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+references:
+- uid: ServiceLayer
+  commentId: N:ServiceLayer
+  href: ServiceLayer.html
+  name: ServiceLayer
+  nameWithType: ServiceLayer
+  fullName: ServiceLayer
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: Google.Protobuf.IMessage{ServiceLayer.SLMplsLabelBlockMsgRes}
+  commentId: T:Google.Protobuf.IMessage{ServiceLayer.SLMplsLabelBlockMsgRes}
+  parent: Google.Protobuf
+  definition: Google.Protobuf.IMessage`1
+  href: ServiceLayer.SLMplsLabelBlockMsgRes.html
+  name: IMessage<SLMplsLabelBlockMsgRes>
+  nameWithType: IMessage<SLMplsLabelBlockMsgRes>
+  fullName: Google.Protobuf.IMessage<ServiceLayer.SLMplsLabelBlockMsgRes>
+  nameWithType.vb: IMessage(Of SLMplsLabelBlockMsgRes)
+  fullName.vb: Google.Protobuf.IMessage(Of ServiceLayer.SLMplsLabelBlockMsgRes)
+  name.vb: IMessage(Of SLMplsLabelBlockMsgRes)
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage`1
+    name: IMessage
+    isExternal: true
+  - name: <
+  - uid: ServiceLayer.SLMplsLabelBlockMsgRes
+    name: SLMplsLabelBlockMsgRes
+    href: ServiceLayer.SLMplsLabelBlockMsgRes.html
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.IMessage`1
+    name: IMessage
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ServiceLayer.SLMplsLabelBlockMsgRes
+    name: SLMplsLabelBlockMsgRes
+    href: ServiceLayer.SLMplsLabelBlockMsgRes.html
+  - name: )
+- uid: System.IEquatable{ServiceLayer.SLMplsLabelBlockMsgRes}
+  commentId: T:System.IEquatable{ServiceLayer.SLMplsLabelBlockMsgRes}
+  parent: System
+  definition: System.IEquatable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<SLMplsLabelBlockMsgRes>
+  nameWithType: IEquatable<SLMplsLabelBlockMsgRes>
+  fullName: System.IEquatable<ServiceLayer.SLMplsLabelBlockMsgRes>
+  nameWithType.vb: IEquatable(Of SLMplsLabelBlockMsgRes)
+  fullName.vb: System.IEquatable(Of ServiceLayer.SLMplsLabelBlockMsgRes)
+  name.vb: IEquatable(Of SLMplsLabelBlockMsgRes)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - uid: ServiceLayer.SLMplsLabelBlockMsgRes
+    name: SLMplsLabelBlockMsgRes
+    href: ServiceLayer.SLMplsLabelBlockMsgRes.html
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ServiceLayer.SLMplsLabelBlockMsgRes
+    name: SLMplsLabelBlockMsgRes
+    href: ServiceLayer.SLMplsLabelBlockMsgRes.html
+  - name: )
+- uid: Google.Protobuf.IDeepCloneable{ServiceLayer.SLMplsLabelBlockMsgRes}
+  commentId: T:Google.Protobuf.IDeepCloneable{ServiceLayer.SLMplsLabelBlockMsgRes}
+  parent: Google.Protobuf
+  definition: Google.Protobuf.IDeepCloneable`1
+  href: ServiceLayer.SLMplsLabelBlockMsgRes.html
+  name: IDeepCloneable<SLMplsLabelBlockMsgRes>
+  nameWithType: IDeepCloneable<SLMplsLabelBlockMsgRes>
+  fullName: Google.Protobuf.IDeepCloneable<ServiceLayer.SLMplsLabelBlockMsgRes>
+  nameWithType.vb: IDeepCloneable(Of SLMplsLabelBlockMsgRes)
+  fullName.vb: Google.Protobuf.IDeepCloneable(Of ServiceLayer.SLMplsLabelBlockMsgRes)
+  name.vb: IDeepCloneable(Of SLMplsLabelBlockMsgRes)
+  spec.csharp:
+  - uid: Google.Protobuf.IDeepCloneable`1
+    name: IDeepCloneable
+    isExternal: true
+  - name: <
+  - uid: ServiceLayer.SLMplsLabelBlockMsgRes
+    name: SLMplsLabelBlockMsgRes
+    href: ServiceLayer.SLMplsLabelBlockMsgRes.html
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.IDeepCloneable`1
+    name: IDeepCloneable
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ServiceLayer.SLMplsLabelBlockMsgRes
+    name: SLMplsLabelBlockMsgRes
+    href: ServiceLayer.SLMplsLabelBlockMsgRes.html
+  - name: )
+- uid: Google.Protobuf.IBufferMessage
+  commentId: T:Google.Protobuf.IBufferMessage
+  parent: Google.Protobuf
+  isExternal: true
+  name: IBufferMessage
+  nameWithType: IBufferMessage
+  fullName: Google.Protobuf.IBufferMessage
+- uid: Google.Protobuf.IMessage
+  commentId: T:Google.Protobuf.IMessage
+  parent: Google.Protobuf
+  isExternal: true
+  name: IMessage
+  nameWithType: IMessage
+  fullName: Google.Protobuf.IMessage
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Google.Protobuf.IMessage`1
+  commentId: T:Google.Protobuf.IMessage`1
+  isExternal: true
+  name: IMessage<T>
+  nameWithType: IMessage<T>
+  fullName: Google.Protobuf.IMessage<T>
+  nameWithType.vb: IMessage(Of T)
+  fullName.vb: Google.Protobuf.IMessage(Of T)
+  name.vb: IMessage(Of T)
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage`1
+    name: IMessage
+    isExternal: true
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.IMessage`1
+    name: IMessage
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Google.Protobuf
+  commentId: N:Google.Protobuf
+  isExternal: true
+  name: Google.Protobuf
+  nameWithType: Google.Protobuf
+  fullName: Google.Protobuf
+  spec.csharp:
+  - uid: Google
+    name: Google
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf
+    name: Protobuf
+    isExternal: true
+  spec.vb:
+  - uid: Google
+    name: Google
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf
+    name: Protobuf
+    isExternal: true
+- uid: System.IEquatable`1
+  commentId: T:System.IEquatable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<T>
+  nameWithType: IEquatable<T>
+  fullName: System.IEquatable<T>
+  nameWithType.vb: IEquatable(Of T)
+  fullName.vb: System.IEquatable(Of T)
+  name.vb: IEquatable(Of T)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Google.Protobuf.IDeepCloneable`1
+  commentId: T:Google.Protobuf.IDeepCloneable`1
+  isExternal: true
+  name: IDeepCloneable<T>
+  nameWithType: IDeepCloneable<T>
+  fullName: Google.Protobuf.IDeepCloneable<T>
+  nameWithType.vb: IDeepCloneable(Of T)
+  fullName.vb: Google.Protobuf.IDeepCloneable(Of T)
+  name.vb: IDeepCloneable(Of T)
+  spec.csharp:
+  - uid: Google.Protobuf.IDeepCloneable`1
+    name: IDeepCloneable
+    isExternal: true
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.IDeepCloneable`1
+    name: IDeepCloneable
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: ServiceLayer.SLMplsLabelBlockMsgRes.Parser*
+  commentId: Overload:ServiceLayer.SLMplsLabelBlockMsgRes.Parser
+  href: ServiceLayer.SLMplsLabelBlockMsgRes.html#ServiceLayer.SLMplsLabelBlockMsgRes.Parser
+  name: Parser
+  nameWithType: SLMplsLabelBlockMsgRes.Parser
+  fullName: ServiceLayer.SLMplsLabelBlockMsgRes.Parser
+- uid: Google.Protobuf.MessageParser{ServiceLayer.SLMplsLabelBlockMsgRes}
+  commentId: T:Google.Protobuf.MessageParser{ServiceLayer.SLMplsLabelBlockMsgRes}
+  parent: Google.Protobuf
+  definition: Google.Protobuf.MessageParser`1
+  href: ServiceLayer.SLMplsLabelBlockMsgRes.html
+  name: MessageParser<SLMplsLabelBlockMsgRes>
+  nameWithType: MessageParser<SLMplsLabelBlockMsgRes>
+  fullName: Google.Protobuf.MessageParser<ServiceLayer.SLMplsLabelBlockMsgRes>
+  nameWithType.vb: MessageParser(Of SLMplsLabelBlockMsgRes)
+  fullName.vb: Google.Protobuf.MessageParser(Of ServiceLayer.SLMplsLabelBlockMsgRes)
+  name.vb: MessageParser(Of SLMplsLabelBlockMsgRes)
+  spec.csharp:
+  - uid: Google.Protobuf.MessageParser`1
+    name: MessageParser
+    isExternal: true
+  - name: <
+  - uid: ServiceLayer.SLMplsLabelBlockMsgRes
+    name: SLMplsLabelBlockMsgRes
+    href: ServiceLayer.SLMplsLabelBlockMsgRes.html
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.MessageParser`1
+    name: MessageParser
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ServiceLayer.SLMplsLabelBlockMsgRes
+    name: SLMplsLabelBlockMsgRes
+    href: ServiceLayer.SLMplsLabelBlockMsgRes.html
+  - name: )
+- uid: Google.Protobuf.MessageParser`1
+  commentId: T:Google.Protobuf.MessageParser`1
+  isExternal: true
+  name: MessageParser<T>
+  nameWithType: MessageParser<T>
+  fullName: Google.Protobuf.MessageParser<T>
+  nameWithType.vb: MessageParser(Of T)
+  fullName.vb: Google.Protobuf.MessageParser(Of T)
+  name.vb: MessageParser(Of T)
+  spec.csharp:
+  - uid: Google.Protobuf.MessageParser`1
+    name: MessageParser
+    isExternal: true
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.MessageParser`1
+    name: MessageParser
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: ServiceLayer.SLMplsLabelBlockMsgRes.Descriptor*
+  commentId: Overload:ServiceLayer.SLMplsLabelBlockMsgRes.Descriptor
+  href: ServiceLayer.SLMplsLabelBlockMsgRes.html#ServiceLayer.SLMplsLabelBlockMsgRes.Descriptor
+  name: Descriptor
+  nameWithType: SLMplsLabelBlockMsgRes.Descriptor
+  fullName: ServiceLayer.SLMplsLabelBlockMsgRes.Descriptor
+- uid: Google.Protobuf.Reflection.MessageDescriptor
+  commentId: T:Google.Protobuf.Reflection.MessageDescriptor
+  parent: Google.Protobuf.Reflection
+  isExternal: true
+  name: MessageDescriptor
+  nameWithType: MessageDescriptor
+  fullName: Google.Protobuf.Reflection.MessageDescriptor
+- uid: Google.Protobuf.Reflection
+  commentId: N:Google.Protobuf.Reflection
+  isExternal: true
+  name: Google.Protobuf.Reflection
+  nameWithType: Google.Protobuf.Reflection
+  fullName: Google.Protobuf.Reflection
+  spec.csharp:
+  - uid: Google
+    name: Google
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf
+    name: Protobuf
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf.Reflection
+    name: Reflection
+    isExternal: true
+  spec.vb:
+  - uid: Google
+    name: Google
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf
+    name: Protobuf
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf.Reflection
+    name: Reflection
+    isExternal: true
+- uid: ServiceLayer.SLMplsLabelBlockMsgRes.#ctor*
+  commentId: Overload:ServiceLayer.SLMplsLabelBlockMsgRes.#ctor
+  href: ServiceLayer.SLMplsLabelBlockMsgRes.html#ServiceLayer.SLMplsLabelBlockMsgRes.#ctor
+  name: SLMplsLabelBlockMsgRes
+  nameWithType: SLMplsLabelBlockMsgRes.SLMplsLabelBlockMsgRes
+  fullName: ServiceLayer.SLMplsLabelBlockMsgRes.SLMplsLabelBlockMsgRes
+  nameWithType.vb: SLMplsLabelBlockMsgRes.New
+  fullName.vb: ServiceLayer.SLMplsLabelBlockMsgRes.New
+  name.vb: New
+- uid: ServiceLayer.SLMplsLabelBlockMsgRes
+  commentId: T:ServiceLayer.SLMplsLabelBlockMsgRes
+  parent: ServiceLayer
+  href: ServiceLayer.SLMplsLabelBlockMsgRes.html
+  name: SLMplsLabelBlockMsgRes
+  nameWithType: SLMplsLabelBlockMsgRes
+  fullName: ServiceLayer.SLMplsLabelBlockMsgRes
+- uid: ServiceLayer.SLMplsLabelBlockMsgRes.Clone*
+  commentId: Overload:ServiceLayer.SLMplsLabelBlockMsgRes.Clone
+  href: ServiceLayer.SLMplsLabelBlockMsgRes.html#ServiceLayer.SLMplsLabelBlockMsgRes.Clone
+  name: Clone
+  nameWithType: SLMplsLabelBlockMsgRes.Clone
+  fullName: ServiceLayer.SLMplsLabelBlockMsgRes.Clone
+- uid: Google.Protobuf.IDeepCloneable{ServiceLayer.SLMplsLabelBlockMsgRes}.Clone
+  commentId: M:Google.Protobuf.IDeepCloneable{ServiceLayer.SLMplsLabelBlockMsgRes}.Clone
+  parent: Google.Protobuf.IDeepCloneable{ServiceLayer.SLMplsLabelBlockMsgRes}
+  definition: Google.Protobuf.IDeepCloneable`1.Clone
+  name: Clone()
+  nameWithType: IDeepCloneable<SLMplsLabelBlockMsgRes>.Clone()
+  fullName: Google.Protobuf.IDeepCloneable<ServiceLayer.SLMplsLabelBlockMsgRes>.Clone()
+  nameWithType.vb: IDeepCloneable(Of SLMplsLabelBlockMsgRes).Clone()
+  fullName.vb: Google.Protobuf.IDeepCloneable(Of ServiceLayer.SLMplsLabelBlockMsgRes).Clone()
+  spec.csharp:
+  - uid: Google.Protobuf.IDeepCloneable{ServiceLayer.SLMplsLabelBlockMsgRes}.Clone
+    name: Clone
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IDeepCloneable{ServiceLayer.SLMplsLabelBlockMsgRes}.Clone
+    name: Clone
+    isExternal: true
+  - name: (
+  - name: )
+- uid: Google.Protobuf.IDeepCloneable`1.Clone
+  commentId: M:Google.Protobuf.IDeepCloneable`1.Clone
+  isExternal: true
+  name: Clone()
+  nameWithType: IDeepCloneable<T>.Clone()
+  fullName: Google.Protobuf.IDeepCloneable<T>.Clone()
+  nameWithType.vb: IDeepCloneable(Of T).Clone()
+  fullName.vb: Google.Protobuf.IDeepCloneable(Of T).Clone()
+  spec.csharp:
+  - uid: Google.Protobuf.IDeepCloneable`1.Clone
+    name: Clone
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IDeepCloneable`1.Clone
+    name: Clone
+    isExternal: true
+  - name: (
+  - name: )
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: ServiceLayer.SLMplsLabelBlockMsgRes.ErrStatus*
+  commentId: Overload:ServiceLayer.SLMplsLabelBlockMsgRes.ErrStatus
+  href: ServiceLayer.SLMplsLabelBlockMsgRes.html#ServiceLayer.SLMplsLabelBlockMsgRes.ErrStatus
+  name: ErrStatus
+  nameWithType: SLMplsLabelBlockMsgRes.ErrStatus
+  fullName: ServiceLayer.SLMplsLabelBlockMsgRes.ErrStatus
+- uid: ServiceLayer.SLErrorStatus
+  commentId: T:ServiceLayer.SLErrorStatus
+  parent: ServiceLayer
+  href: ServiceLayer.SLErrorStatus.html
+  name: SLErrorStatus
+  nameWithType: SLErrorStatus
+  fullName: ServiceLayer.SLErrorStatus
+- uid: ServiceLayer.SLMplsLabelBlockMsgRes.Key*
+  commentId: Overload:ServiceLayer.SLMplsLabelBlockMsgRes.Key
+  href: ServiceLayer.SLMplsLabelBlockMsgRes.html#ServiceLayer.SLMplsLabelBlockMsgRes.Key
+  name: Key
+  nameWithType: SLMplsLabelBlockMsgRes.Key
+  fullName: ServiceLayer.SLMplsLabelBlockMsgRes.Key
+- uid: ServiceLayer.SLMplsLabelBlockKey
+  commentId: T:ServiceLayer.SLMplsLabelBlockKey
+  parent: ServiceLayer
+  href: ServiceLayer.SLMplsLabelBlockKey.html
+  name: SLMplsLabelBlockKey
+  nameWithType: SLMplsLabelBlockKey
+  fullName: ServiceLayer.SLMplsLabelBlockKey
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: ServiceLayer.SLMplsLabelBlockMsgRes.Equals*
+  commentId: Overload:ServiceLayer.SLMplsLabelBlockMsgRes.Equals
+  href: ServiceLayer.SLMplsLabelBlockMsgRes.html#ServiceLayer.SLMplsLabelBlockMsgRes.Equals(System.Object)
+  name: Equals
+  nameWithType: SLMplsLabelBlockMsgRes.Equals
+  fullName: ServiceLayer.SLMplsLabelBlockMsgRes.Equals
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: System.IEquatable{ServiceLayer.SLMplsLabelBlockMsgRes}.Equals(ServiceLayer.SLMplsLabelBlockMsgRes)
+  commentId: M:System.IEquatable{ServiceLayer.SLMplsLabelBlockMsgRes}.Equals(ServiceLayer.SLMplsLabelBlockMsgRes)
+  parent: System.IEquatable{ServiceLayer.SLMplsLabelBlockMsgRes}
+  definition: System.IEquatable`1.Equals(`0)
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-servicelayer.slmplslabelblockmsgres-.equals#system-iequatable((servicelayer-slmplslabelblockmsgres))-equals(servicelayer-slmplslabelblockmsgres)
+  name: Equals(SLMplsLabelBlockMsgRes)
+  nameWithType: IEquatable<SLMplsLabelBlockMsgRes>.Equals(SLMplsLabelBlockMsgRes)
+  fullName: System.IEquatable<ServiceLayer.SLMplsLabelBlockMsgRes>.Equals(ServiceLayer.SLMplsLabelBlockMsgRes)
+  nameWithType.vb: IEquatable(Of SLMplsLabelBlockMsgRes).Equals(SLMplsLabelBlockMsgRes)
+  fullName.vb: System.IEquatable(Of ServiceLayer.SLMplsLabelBlockMsgRes).Equals(ServiceLayer.SLMplsLabelBlockMsgRes)
+  spec.csharp:
+  - uid: System.IEquatable{ServiceLayer.SLMplsLabelBlockMsgRes}.Equals(ServiceLayer.SLMplsLabelBlockMsgRes)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-servicelayer.slmplslabelblockmsgres-.equals#system-iequatable((servicelayer-slmplslabelblockmsgres))-equals(servicelayer-slmplslabelblockmsgres)
+  - name: (
+  - uid: ServiceLayer.SLMplsLabelBlockMsgRes
+    name: SLMplsLabelBlockMsgRes
+    href: ServiceLayer.SLMplsLabelBlockMsgRes.html
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable{ServiceLayer.SLMplsLabelBlockMsgRes}.Equals(ServiceLayer.SLMplsLabelBlockMsgRes)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-servicelayer.slmplslabelblockmsgres-.equals#system-iequatable((servicelayer-slmplslabelblockmsgres))-equals(servicelayer-slmplslabelblockmsgres)
+  - name: (
+  - uid: ServiceLayer.SLMplsLabelBlockMsgRes
+    name: SLMplsLabelBlockMsgRes
+    href: ServiceLayer.SLMplsLabelBlockMsgRes.html
+  - name: )
+- uid: System.IEquatable`1.Equals(`0)
+  commentId: M:System.IEquatable`1.Equals(`0)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(T)
+  nameWithType: IEquatable<T>.Equals(T)
+  fullName: System.IEquatable<T>.Equals(T)
+  nameWithType.vb: IEquatable(Of T).Equals(T)
+  fullName.vb: System.IEquatable(Of T).Equals(T)
+  spec.csharp:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: ServiceLayer.SLMplsLabelBlockMsgRes.GetHashCode*
+  commentId: Overload:ServiceLayer.SLMplsLabelBlockMsgRes.GetHashCode
+  href: ServiceLayer.SLMplsLabelBlockMsgRes.html#ServiceLayer.SLMplsLabelBlockMsgRes.GetHashCode
+  name: GetHashCode
+  nameWithType: SLMplsLabelBlockMsgRes.GetHashCode
+  fullName: ServiceLayer.SLMplsLabelBlockMsgRes.GetHashCode
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: ServiceLayer.SLMplsLabelBlockMsgRes.ToString*
+  commentId: Overload:ServiceLayer.SLMplsLabelBlockMsgRes.ToString
+  href: ServiceLayer.SLMplsLabelBlockMsgRes.html#ServiceLayer.SLMplsLabelBlockMsgRes.ToString
+  name: ToString
+  nameWithType: SLMplsLabelBlockMsgRes.ToString
+  fullName: ServiceLayer.SLMplsLabelBlockMsgRes.ToString
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: ServiceLayer.SLMplsLabelBlockMsgRes.WriteTo*
+  commentId: Overload:ServiceLayer.SLMplsLabelBlockMsgRes.WriteTo
+  href: ServiceLayer.SLMplsLabelBlockMsgRes.html#ServiceLayer.SLMplsLabelBlockMsgRes.WriteTo(Google.Protobuf.CodedOutputStream)
+  name: WriteTo
+  nameWithType: SLMplsLabelBlockMsgRes.WriteTo
+  fullName: ServiceLayer.SLMplsLabelBlockMsgRes.WriteTo
+- uid: Google.Protobuf.IMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+  commentId: M:Google.Protobuf.IMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+  parent: Google.Protobuf.IMessage
+  isExternal: true
+  name: WriteTo(CodedOutputStream)
+  nameWithType: IMessage.WriteTo(CodedOutputStream)
+  fullName: Google.Protobuf.IMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+    name: WriteTo
+    isExternal: true
+  - name: (
+  - uid: Google.Protobuf.CodedOutputStream
+    name: CodedOutputStream
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+    name: WriteTo
+    isExternal: true
+  - name: (
+  - uid: Google.Protobuf.CodedOutputStream
+    name: CodedOutputStream
+    isExternal: true
+  - name: )
+- uid: Google.Protobuf.CodedOutputStream
+  commentId: T:Google.Protobuf.CodedOutputStream
+  parent: Google.Protobuf
+  isExternal: true
+  name: CodedOutputStream
+  nameWithType: CodedOutputStream
+  fullName: Google.Protobuf.CodedOutputStream
+- uid: ServiceLayer.SLMplsLabelBlockMsgRes.CalculateSize*
+  commentId: Overload:ServiceLayer.SLMplsLabelBlockMsgRes.CalculateSize
+  href: ServiceLayer.SLMplsLabelBlockMsgRes.html#ServiceLayer.SLMplsLabelBlockMsgRes.CalculateSize
+  name: CalculateSize
+  nameWithType: SLMplsLabelBlockMsgRes.CalculateSize
+  fullName: ServiceLayer.SLMplsLabelBlockMsgRes.CalculateSize
+- uid: Google.Protobuf.IMessage.CalculateSize
+  commentId: M:Google.Protobuf.IMessage.CalculateSize
+  parent: Google.Protobuf.IMessage
+  isExternal: true
+  name: CalculateSize()
+  nameWithType: IMessage.CalculateSize()
+  fullName: Google.Protobuf.IMessage.CalculateSize()
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage.CalculateSize
+    name: CalculateSize
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IMessage.CalculateSize
+    name: CalculateSize
+    isExternal: true
+  - name: (
+  - name: )
+- uid: ServiceLayer.SLMplsLabelBlockMsgRes.MergeFrom*
+  commentId: Overload:ServiceLayer.SLMplsLabelBlockMsgRes.MergeFrom
+  href: ServiceLayer.SLMplsLabelBlockMsgRes.html#ServiceLayer.SLMplsLabelBlockMsgRes.MergeFrom(ServiceLayer.SLMplsLabelBlockMsgRes)
+  name: MergeFrom
+  nameWithType: SLMplsLabelBlockMsgRes.MergeFrom
+  fullName: ServiceLayer.SLMplsLabelBlockMsgRes.MergeFrom
+- uid: Google.Protobuf.IMessage{ServiceLayer.SLMplsLabelBlockMsgRes}.MergeFrom(ServiceLayer.SLMplsLabelBlockMsgRes)
+  commentId: M:Google.Protobuf.IMessage{ServiceLayer.SLMplsLabelBlockMsgRes}.MergeFrom(ServiceLayer.SLMplsLabelBlockMsgRes)
+  parent: Google.Protobuf.IMessage{ServiceLayer.SLMplsLabelBlockMsgRes}
+  definition: Google.Protobuf.IMessage`1.MergeFrom(`0)
+  href: ServiceLayer.SLMplsLabelBlockMsgRes.html
+  name: MergeFrom(SLMplsLabelBlockMsgRes)
+  nameWithType: IMessage<SLMplsLabelBlockMsgRes>.MergeFrom(SLMplsLabelBlockMsgRes)
+  fullName: Google.Protobuf.IMessage<ServiceLayer.SLMplsLabelBlockMsgRes>.MergeFrom(ServiceLayer.SLMplsLabelBlockMsgRes)
+  nameWithType.vb: IMessage(Of SLMplsLabelBlockMsgRes).MergeFrom(SLMplsLabelBlockMsgRes)
+  fullName.vb: Google.Protobuf.IMessage(Of ServiceLayer.SLMplsLabelBlockMsgRes).MergeFrom(ServiceLayer.SLMplsLabelBlockMsgRes)
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage{ServiceLayer.SLMplsLabelBlockMsgRes}.MergeFrom(ServiceLayer.SLMplsLabelBlockMsgRes)
+    name: MergeFrom
+    isExternal: true
+  - name: (
+  - uid: ServiceLayer.SLMplsLabelBlockMsgRes
+    name: SLMplsLabelBlockMsgRes
+    href: ServiceLayer.SLMplsLabelBlockMsgRes.html
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IMessage{ServiceLayer.SLMplsLabelBlockMsgRes}.MergeFrom(ServiceLayer.SLMplsLabelBlockMsgRes)
+    name: MergeFrom
+    isExternal: true
+  - name: (
+  - uid: ServiceLayer.SLMplsLabelBlockMsgRes
+    name: SLMplsLabelBlockMsgRes
+    href: ServiceLayer.SLMplsLabelBlockMsgRes.html
+  - name: )
+- uid: Google.Protobuf.IMessage`1.MergeFrom(`0)
+  commentId: M:Google.Protobuf.IMessage`1.MergeFrom(`0)
+  isExternal: true
+  name: MergeFrom(T)
+  nameWithType: IMessage<T>.MergeFrom(T)
+  fullName: Google.Protobuf.IMessage<T>.MergeFrom(T)
+  nameWithType.vb: IMessage(Of T).MergeFrom(T)
+  fullName.vb: Google.Protobuf.IMessage(Of T).MergeFrom(T)
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage`1.MergeFrom(`0)
+    name: MergeFrom
+    isExternal: true
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IMessage`1.MergeFrom(`0)
+    name: MergeFrom
+    isExternal: true
+  - name: (
+  - name: T
+  - name: )
+- uid: Google.Protobuf.IMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+  commentId: M:Google.Protobuf.IMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+  parent: Google.Protobuf.IMessage
+  isExternal: true
+  name: MergeFrom(CodedInputStream)
+  nameWithType: IMessage.MergeFrom(CodedInputStream)
+  fullName: Google.Protobuf.IMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+    name: MergeFrom
+    isExternal: true
+  - name: (
+  - uid: Google.Protobuf.CodedInputStream
+    name: CodedInputStream
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+    name: MergeFrom
+    isExternal: true
+  - name: (
+  - uid: Google.Protobuf.CodedInputStream
+    name: CodedInputStream
+    isExternal: true
+  - name: )
+- uid: Google.Protobuf.CodedInputStream
+  commentId: T:Google.Protobuf.CodedInputStream
+  parent: Google.Protobuf
+  isExternal: true
+  name: CodedInputStream
+  nameWithType: CodedInputStream
+  fullName: Google.Protobuf.CodedInputStream

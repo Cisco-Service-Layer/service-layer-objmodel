@@ -1,0 +1,141 @@
+### YamlMime:ManagedReference
+items:
+- uid: ServiceLayer.SLBfdv4Notif.EventOneofCase
+  commentId: T:ServiceLayer.SLBfdv4Notif.EventOneofCase
+  id: SLBfdv4Notif.EventOneofCase
+  parent: ServiceLayer
+  children:
+  - ServiceLayer.SLBfdv4Notif.EventOneofCase.ErrStatus
+  - ServiceLayer.SLBfdv4Notif.EventOneofCase.None
+  - ServiceLayer.SLBfdv4Notif.EventOneofCase.Session
+  langs:
+  - csharp
+  - vb
+  name: SLBfdv4Notif.EventOneofCase
+  nameWithType: SLBfdv4Notif.EventOneofCase
+  fullName: ServiceLayer.SLBfdv4Notif.EventOneofCase
+  type: Enum
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlBfdIpv4.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: EventOneofCase
+    path: src/gencs/SlBfdIpv4.cs
+    startLine: 2692
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Enum of possible cases for the "Event" oneof.
+  example: []
+  syntax:
+    content: public enum SLBfdv4Notif.EventOneofCase
+    content.vb: Public Enum SLBfdv4Notif.EventOneofCase
+- uid: ServiceLayer.SLBfdv4Notif.EventOneofCase.None
+  commentId: F:ServiceLayer.SLBfdv4Notif.EventOneofCase.None
+  id: None
+  parent: ServiceLayer.SLBfdv4Notif.EventOneofCase
+  langs:
+  - csharp
+  - vb
+  name: None
+  nameWithType: SLBfdv4Notif.EventOneofCase.None
+  fullName: ServiceLayer.SLBfdv4Notif.EventOneofCase.None
+  type: Field
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlBfdIpv4.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: None
+    path: src/gencs/SlBfdIpv4.cs
+    startLine: 2693
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  syntax:
+    content: None = 0
+    return:
+      type: ServiceLayer.SLBfdv4Notif.EventOneofCase
+- uid: ServiceLayer.SLBfdv4Notif.EventOneofCase.ErrStatus
+  commentId: F:ServiceLayer.SLBfdv4Notif.EventOneofCase.ErrStatus
+  id: ErrStatus
+  parent: ServiceLayer.SLBfdv4Notif.EventOneofCase
+  langs:
+  - csharp
+  - vb
+  name: ErrStatus
+  nameWithType: SLBfdv4Notif.EventOneofCase.ErrStatus
+  fullName: ServiceLayer.SLBfdv4Notif.EventOneofCase.ErrStatus
+  type: Field
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlBfdIpv4.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: ErrStatus
+    path: src/gencs/SlBfdIpv4.cs
+    startLine: 2694
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  syntax:
+    content: ErrStatus = 2
+    return:
+      type: ServiceLayer.SLBfdv4Notif.EventOneofCase
+- uid: ServiceLayer.SLBfdv4Notif.EventOneofCase.Session
+  commentId: F:ServiceLayer.SLBfdv4Notif.EventOneofCase.Session
+  id: Session
+  parent: ServiceLayer.SLBfdv4Notif.EventOneofCase
+  langs:
+  - csharp
+  - vb
+  name: Session
+  nameWithType: SLBfdv4Notif.EventOneofCase.Session
+  fullName: ServiceLayer.SLBfdv4Notif.EventOneofCase.Session
+  type: Field
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlBfdIpv4.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: Session
+    path: src/gencs/SlBfdIpv4.cs
+    startLine: 2695
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  syntax:
+    content: Session = 3
+    return:
+      type: ServiceLayer.SLBfdv4Notif.EventOneofCase
+references:
+- uid: ServiceLayer
+  commentId: N:ServiceLayer
+  href: ServiceLayer.html
+  name: ServiceLayer
+  nameWithType: ServiceLayer
+  fullName: ServiceLayer
+- uid: ServiceLayer.SLBfdv4Notif.EventOneofCase
+  commentId: T:ServiceLayer.SLBfdv4Notif.EventOneofCase
+  parent: ServiceLayer
+  href: ServiceLayer.SLBfdv4Notif.html
+  name: SLBfdv4Notif.EventOneofCase
+  nameWithType: SLBfdv4Notif.EventOneofCase
+  fullName: ServiceLayer.SLBfdv4Notif.EventOneofCase
+  spec.csharp:
+  - uid: ServiceLayer.SLBfdv4Notif
+    name: SLBfdv4Notif
+    href: ServiceLayer.SLBfdv4Notif.html
+  - name: .
+  - uid: ServiceLayer.SLBfdv4Notif.EventOneofCase
+    name: EventOneofCase
+    href: ServiceLayer.SLBfdv4Notif.EventOneofCase.html
+  spec.vb:
+  - uid: ServiceLayer.SLBfdv4Notif
+    name: SLBfdv4Notif
+    href: ServiceLayer.SLBfdv4Notif.html
+  - name: .
+  - uid: ServiceLayer.SLBfdv4Notif.EventOneofCase
+    name: EventOneofCase
+    href: ServiceLayer.SLBfdv4Notif.EventOneofCase.html

@@ -1,0 +1,1891 @@
+### YamlMime:ManagedReference
+items:
+- uid: ServiceLayer.SLRoutev6Notif
+  commentId: T:ServiceLayer.SLRoutev6Notif
+  id: SLRoutev6Notif
+  parent: ServiceLayer
+  children:
+  - ServiceLayer.SLRoutev6Notif.#ctor
+  - ServiceLayer.SLRoutev6Notif.#ctor(ServiceLayer.SLRoutev6Notif)
+  - ServiceLayer.SLRoutev6Notif.CalculateSize
+  - ServiceLayer.SLRoutev6Notif.ClearEvent
+  - ServiceLayer.SLRoutev6Notif.Clone
+  - ServiceLayer.SLRoutev6Notif.Descriptor
+  - ServiceLayer.SLRoutev6Notif.Equals(ServiceLayer.SLRoutev6Notif)
+  - ServiceLayer.SLRoutev6Notif.Equals(System.Object)
+  - ServiceLayer.SLRoutev6Notif.ErrStatus
+  - ServiceLayer.SLRoutev6Notif.ErrStatusFieldNumber
+  - ServiceLayer.SLRoutev6Notif.EventCase
+  - ServiceLayer.SLRoutev6Notif.EventType
+  - ServiceLayer.SLRoutev6Notif.EventTypeFieldNumber
+  - ServiceLayer.SLRoutev6Notif.GetHashCode
+  - ServiceLayer.SLRoutev6Notif.Marker
+  - ServiceLayer.SLRoutev6Notif.MarkerFieldNumber
+  - ServiceLayer.SLRoutev6Notif.MergeFrom(Google.Protobuf.CodedInputStream)
+  - ServiceLayer.SLRoutev6Notif.MergeFrom(ServiceLayer.SLRoutev6Notif)
+  - ServiceLayer.SLRoutev6Notif.NotifStatus
+  - ServiceLayer.SLRoutev6Notif.NotifStatusFieldNumber
+  - ServiceLayer.SLRoutev6Notif.Parser
+  - ServiceLayer.SLRoutev6Notif.Route
+  - ServiceLayer.SLRoutev6Notif.RouteFieldNumber
+  - ServiceLayer.SLRoutev6Notif.ToString
+  - ServiceLayer.SLRoutev6Notif.Vrf
+  - ServiceLayer.SLRoutev6Notif.VrfFieldNumber
+  - ServiceLayer.SLRoutev6Notif.WriteTo(Google.Protobuf.CodedOutputStream)
+  langs:
+  - csharp
+  - vb
+  name: SLRoutev6Notif
+  nameWithType: SLRoutev6Notif
+  fullName: ServiceLayer.SLRoutev6Notif
+  type: Class
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlRouteIpv6.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: SLRoutev6Notif
+    path: src/gencs/SlRouteIpv6.cs
+    startLine: 2308
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: IPv6 notification message
+  example: []
+  syntax:
+    content: 'public sealed class SLRoutev6Notif : IMessage<SLRoutev6Notif>, IEquatable<SLRoutev6Notif>, IDeepCloneable<SLRoutev6Notif>, IBufferMessage, IMessage'
+    content.vb: Public NotInheritable Class SLRoutev6Notif Implements IMessage(Of SLRoutev6Notif), IEquatable(Of SLRoutev6Notif), IDeepCloneable(Of SLRoutev6Notif), IBufferMessage, IMessage
+  inheritance:
+  - System.Object
+  implements:
+  - Google.Protobuf.IMessage{ServiceLayer.SLRoutev6Notif}
+  - System.IEquatable{ServiceLayer.SLRoutev6Notif}
+  - Google.Protobuf.IDeepCloneable{ServiceLayer.SLRoutev6Notif}
+  - Google.Protobuf.IBufferMessage
+  - Google.Protobuf.IMessage
+  inheritedMembers:
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: ServiceLayer.SLRoutev6Notif.Parser
+  commentId: P:ServiceLayer.SLRoutev6Notif.Parser
+  id: Parser
+  parent: ServiceLayer.SLRoutev6Notif
+  langs:
+  - csharp
+  - vb
+  name: Parser
+  nameWithType: SLRoutev6Notif.Parser
+  fullName: ServiceLayer.SLRoutev6Notif.Parser
+  type: Property
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlRouteIpv6.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: Parser
+    path: src/gencs/SlRouteIpv6.cs
+    startLine: 2315
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  syntax:
+    content: public static MessageParser<SLRoutev6Notif> Parser { get; }
+    parameters: []
+    return:
+      type: Google.Protobuf.MessageParser{ServiceLayer.SLRoutev6Notif}
+    content.vb: Public Shared ReadOnly Property Parser As MessageParser(Of SLRoutev6Notif)
+  overload: ServiceLayer.SLRoutev6Notif.Parser*
+- uid: ServiceLayer.SLRoutev6Notif.Descriptor
+  commentId: P:ServiceLayer.SLRoutev6Notif.Descriptor
+  id: Descriptor
+  parent: ServiceLayer.SLRoutev6Notif
+  langs:
+  - csharp
+  - vb
+  name: Descriptor
+  nameWithType: SLRoutev6Notif.Descriptor
+  fullName: ServiceLayer.SLRoutev6Notif.Descriptor
+  type: Property
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlRouteIpv6.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: Descriptor
+    path: src/gencs/SlRouteIpv6.cs
+    startLine: 2319
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  syntax:
+    content: public static MessageDescriptor Descriptor { get; }
+    parameters: []
+    return:
+      type: Google.Protobuf.Reflection.MessageDescriptor
+    content.vb: Public Shared ReadOnly Property Descriptor As MessageDescriptor
+  overload: ServiceLayer.SLRoutev6Notif.Descriptor*
+- uid: ServiceLayer.SLRoutev6Notif.#ctor
+  commentId: M:ServiceLayer.SLRoutev6Notif.#ctor
+  id: '#ctor'
+  parent: ServiceLayer.SLRoutev6Notif
+  langs:
+  - csharp
+  - vb
+  name: SLRoutev6Notif()
+  nameWithType: SLRoutev6Notif.SLRoutev6Notif()
+  fullName: ServiceLayer.SLRoutev6Notif.SLRoutev6Notif()
+  type: Constructor
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlRouteIpv6.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: .ctor
+    path: src/gencs/SlRouteIpv6.cs
+    startLine: 2331
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  syntax:
+    content: public SLRoutev6Notif()
+    content.vb: Public Sub New()
+  overload: ServiceLayer.SLRoutev6Notif.#ctor*
+  nameWithType.vb: SLRoutev6Notif.New()
+  fullName.vb: ServiceLayer.SLRoutev6Notif.New()
+  name.vb: New()
+- uid: ServiceLayer.SLRoutev6Notif.#ctor(ServiceLayer.SLRoutev6Notif)
+  commentId: M:ServiceLayer.SLRoutev6Notif.#ctor(ServiceLayer.SLRoutev6Notif)
+  id: '#ctor(ServiceLayer.SLRoutev6Notif)'
+  parent: ServiceLayer.SLRoutev6Notif
+  langs:
+  - csharp
+  - vb
+  name: SLRoutev6Notif(SLRoutev6Notif)
+  nameWithType: SLRoutev6Notif.SLRoutev6Notif(SLRoutev6Notif)
+  fullName: ServiceLayer.SLRoutev6Notif.SLRoutev6Notif(ServiceLayer.SLRoutev6Notif)
+  type: Constructor
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlRouteIpv6.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: .ctor
+    path: src/gencs/SlRouteIpv6.cs
+    startLine: 2339
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  syntax:
+    content: public SLRoutev6Notif(SLRoutev6Notif other)
+    parameters:
+    - id: other
+      type: ServiceLayer.SLRoutev6Notif
+    content.vb: Public Sub New(other As SLRoutev6Notif)
+  overload: ServiceLayer.SLRoutev6Notif.#ctor*
+  nameWithType.vb: SLRoutev6Notif.New(SLRoutev6Notif)
+  fullName.vb: ServiceLayer.SLRoutev6Notif.New(ServiceLayer.SLRoutev6Notif)
+  name.vb: New(SLRoutev6Notif)
+- uid: ServiceLayer.SLRoutev6Notif.Clone
+  commentId: M:ServiceLayer.SLRoutev6Notif.Clone
+  id: Clone
+  parent: ServiceLayer.SLRoutev6Notif
+  langs:
+  - csharp
+  - vb
+  name: Clone()
+  nameWithType: SLRoutev6Notif.Clone()
+  fullName: ServiceLayer.SLRoutev6Notif.Clone()
+  type: Method
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlRouteIpv6.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: Clone
+    path: src/gencs/SlRouteIpv6.cs
+    startLine: 2364
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Creates a deep clone of this object.
+  example: []
+  syntax:
+    content: public SLRoutev6Notif Clone()
+    return:
+      type: ServiceLayer.SLRoutev6Notif
+      description: A deep clone of this object.
+    content.vb: Public Function Clone() As SLRoutev6Notif
+  overload: ServiceLayer.SLRoutev6Notif.Clone*
+  implements:
+  - Google.Protobuf.IDeepCloneable{ServiceLayer.SLRoutev6Notif}.Clone
+- uid: ServiceLayer.SLRoutev6Notif.EventTypeFieldNumber
+  commentId: F:ServiceLayer.SLRoutev6Notif.EventTypeFieldNumber
+  id: EventTypeFieldNumber
+  parent: ServiceLayer.SLRoutev6Notif
+  langs:
+  - csharp
+  - vb
+  name: EventTypeFieldNumber
+  nameWithType: SLRoutev6Notif.EventTypeFieldNumber
+  fullName: ServiceLayer.SLRoutev6Notif.EventTypeFieldNumber
+  type: Field
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlRouteIpv6.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: EventTypeFieldNumber
+    path: src/gencs/SlRouteIpv6.cs
+    startLine: 2371
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Field number for the "EventType" field.
+  example: []
+  syntax:
+    content: public const int EventTypeFieldNumber = 1
+    return:
+      type: System.Int32
+    content.vb: Public Const EventTypeFieldNumber As Integer = 1
+- uid: ServiceLayer.SLRoutev6Notif.EventType
+  commentId: P:ServiceLayer.SLRoutev6Notif.EventType
+  id: EventType
+  parent: ServiceLayer.SLRoutev6Notif
+  langs:
+  - csharp
+  - vb
+  name: EventType
+  nameWithType: SLRoutev6Notif.EventType
+  fullName: ServiceLayer.SLRoutev6Notif.EventType
+  type: Property
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlRouteIpv6.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: EventType
+    path: src/gencs/SlRouteIpv6.cs
+    startLine: 2376
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Event Type
+  example: []
+  syntax:
+    content: public SLNotifType EventType { get; set; }
+    parameters: []
+    return:
+      type: ServiceLayer.SLNotifType
+    content.vb: Public Property EventType As SLNotifType
+  overload: ServiceLayer.SLRoutev6Notif.EventType*
+- uid: ServiceLayer.SLRoutev6Notif.ErrStatusFieldNumber
+  commentId: F:ServiceLayer.SLRoutev6Notif.ErrStatusFieldNumber
+  id: ErrStatusFieldNumber
+  parent: ServiceLayer.SLRoutev6Notif
+  langs:
+  - csharp
+  - vb
+  name: ErrStatusFieldNumber
+  nameWithType: SLRoutev6Notif.ErrStatusFieldNumber
+  fullName: ServiceLayer.SLRoutev6Notif.ErrStatusFieldNumber
+  type: Field
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlRouteIpv6.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: ErrStatusFieldNumber
+    path: src/gencs/SlRouteIpv6.cs
+    startLine: 2386
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Field number for the "ErrStatus" field.
+  example: []
+  syntax:
+    content: public const int ErrStatusFieldNumber = 2
+    return:
+      type: System.Int32
+    content.vb: Public Const ErrStatusFieldNumber As Integer = 2
+- uid: ServiceLayer.SLRoutev6Notif.ErrStatus
+  commentId: P:ServiceLayer.SLRoutev6Notif.ErrStatus
+  id: ErrStatus
+  parent: ServiceLayer.SLRoutev6Notif
+  langs:
+  - csharp
+  - vb
+  name: ErrStatus
+  nameWithType: SLRoutev6Notif.ErrStatus
+  fullName: ServiceLayer.SLRoutev6Notif.ErrStatus
+  type: Property
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlRouteIpv6.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: ErrStatus
+    path: src/gencs/SlRouteIpv6.cs
+    startLine: 2392
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: >-
+    case EventType == SL_EVENT_TYPE_ERROR:
+       =&gt; This field carries error info, if any error occurs during
+          notification stream setup.
+  example: []
+  syntax:
+    content: public SLErrorStatus ErrStatus { get; set; }
+    parameters: []
+    return:
+      type: ServiceLayer.SLErrorStatus
+    content.vb: Public Property ErrStatus As SLErrorStatus
+  overload: ServiceLayer.SLRoutev6Notif.ErrStatus*
+- uid: ServiceLayer.SLRoutev6Notif.NotifStatusFieldNumber
+  commentId: F:ServiceLayer.SLRoutev6Notif.NotifStatusFieldNumber
+  id: NotifStatusFieldNumber
+  parent: ServiceLayer.SLRoutev6Notif
+  langs:
+  - csharp
+  - vb
+  name: NotifStatusFieldNumber
+  nameWithType: SLRoutev6Notif.NotifStatusFieldNumber
+  fullName: ServiceLayer.SLRoutev6Notif.NotifStatusFieldNumber
+  type: Field
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlRouteIpv6.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: NotifStatusFieldNumber
+    path: src/gencs/SlRouteIpv6.cs
+    startLine: 2403
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Field number for the "NotifStatus" field.
+  example: []
+  syntax:
+    content: public const int NotifStatusFieldNumber = 3
+    return:
+      type: System.Int32
+    content.vb: Public Const NotifStatusFieldNumber As Integer = 3
+- uid: ServiceLayer.SLRoutev6Notif.NotifStatus
+  commentId: P:ServiceLayer.SLRoutev6Notif.NotifStatus
+  id: NotifStatus
+  parent: ServiceLayer.SLRoutev6Notif
+  langs:
+  - csharp
+  - vb
+  name: NotifStatus
+  nameWithType: SLRoutev6Notif.NotifStatus
+  fullName: ServiceLayer.SLRoutev6Notif.NotifStatus
+  type: Property
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlRouteIpv6.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: NotifStatus
+    path: src/gencs/SlRouteIpv6.cs
+    startLine: 2408
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: >-
+    case EventType == SL_EVENT_TYPE_STATUS:
+       =&gt; This field carries the status of the GetNotifMsg request.
+  example: []
+  syntax:
+    content: public SLRouteNotifStatus NotifStatus { get; set; }
+    parameters: []
+    return:
+      type: ServiceLayer.SLRouteNotifStatus
+    content.vb: Public Property NotifStatus As SLRouteNotifStatus
+  overload: ServiceLayer.SLRoutev6Notif.NotifStatus*
+- uid: ServiceLayer.SLRoutev6Notif.RouteFieldNumber
+  commentId: F:ServiceLayer.SLRoutev6Notif.RouteFieldNumber
+  id: RouteFieldNumber
+  parent: ServiceLayer.SLRoutev6Notif
+  langs:
+  - csharp
+  - vb
+  name: RouteFieldNumber
+  nameWithType: SLRoutev6Notif.RouteFieldNumber
+  fullName: ServiceLayer.SLRoutev6Notif.RouteFieldNumber
+  type: Field
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlRouteIpv6.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: RouteFieldNumber
+    path: src/gencs/SlRouteIpv6.cs
+    startLine: 2419
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Field number for the "Route" field.
+  example: []
+  syntax:
+    content: public const int RouteFieldNumber = 4
+    return:
+      type: System.Int32
+    content.vb: Public Const RouteFieldNumber As Integer = 4
+- uid: ServiceLayer.SLRoutev6Notif.Route
+  commentId: P:ServiceLayer.SLRoutev6Notif.Route
+  id: Route
+  parent: ServiceLayer.SLRoutev6Notif
+  langs:
+  - csharp
+  - vb
+  name: Route
+  nameWithType: SLRoutev6Notif.Route
+  fullName: ServiceLayer.SLRoutev6Notif.Route
+  type: Property
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlRouteIpv6.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: Route
+    path: src/gencs/SlRouteIpv6.cs
+    startLine: 2424
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: >-
+    case EventType == SL_EVENT_TYPE_ROUTE:
+       =&gt; This field carries the v6 route
+  example: []
+  syntax:
+    content: public SLRoutev6NotifRoute Route { get; set; }
+    parameters: []
+    return:
+      type: ServiceLayer.SLRoutev6NotifRoute
+    content.vb: Public Property Route As SLRoutev6NotifRoute
+  overload: ServiceLayer.SLRoutev6Notif.Route*
+- uid: ServiceLayer.SLRoutev6Notif.MarkerFieldNumber
+  commentId: F:ServiceLayer.SLRoutev6Notif.MarkerFieldNumber
+  id: MarkerFieldNumber
+  parent: ServiceLayer.SLRoutev6Notif
+  langs:
+  - csharp
+  - vb
+  name: MarkerFieldNumber
+  nameWithType: SLRoutev6Notif.MarkerFieldNumber
+  fullName: ServiceLayer.SLRoutev6Notif.MarkerFieldNumber
+  type: Field
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlRouteIpv6.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: MarkerFieldNumber
+    path: src/gencs/SlRouteIpv6.cs
+    startLine: 2435
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Field number for the "Marker" field.
+  example: []
+  syntax:
+    content: public const int MarkerFieldNumber = 5
+    return:
+      type: System.Int32
+    content.vb: Public Const MarkerFieldNumber As Integer = 5
+- uid: ServiceLayer.SLRoutev6Notif.Marker
+  commentId: P:ServiceLayer.SLRoutev6Notif.Marker
+  id: Marker
+  parent: ServiceLayer.SLRoutev6Notif
+  langs:
+  - csharp
+  - vb
+  name: Marker
+  nameWithType: SLRoutev6Notif.Marker
+  fullName: ServiceLayer.SLRoutev6Notif.Marker
+  type: Property
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlRouteIpv6.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: Marker
+    path: src/gencs/SlRouteIpv6.cs
+    startLine: 2441
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: >-
+    case EventType == SL_EVENT_TYPE_START_MARKER:
+
+    case EventType == SL_EVENT_TYPE_END_MARKER:
+       =&gt; This field carries the start marker and end marker per-VRF.
+  example: []
+  syntax:
+    content: public SLRouteNotifMarker Marker { get; set; }
+    parameters: []
+    return:
+      type: ServiceLayer.SLRouteNotifMarker
+    content.vb: Public Property Marker As SLRouteNotifMarker
+  overload: ServiceLayer.SLRoutev6Notif.Marker*
+- uid: ServiceLayer.SLRoutev6Notif.VrfFieldNumber
+  commentId: F:ServiceLayer.SLRoutev6Notif.VrfFieldNumber
+  id: VrfFieldNumber
+  parent: ServiceLayer.SLRoutev6Notif
+  langs:
+  - csharp
+  - vb
+  name: VrfFieldNumber
+  nameWithType: SLRoutev6Notif.VrfFieldNumber
+  fullName: ServiceLayer.SLRoutev6Notif.VrfFieldNumber
+  type: Field
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlRouteIpv6.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: VrfFieldNumber
+    path: src/gencs/SlRouteIpv6.cs
+    startLine: 2452
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Field number for the "Vrf" field.
+  example: []
+  syntax:
+    content: public const int VrfFieldNumber = 6
+    return:
+      type: System.Int32
+    content.vb: Public Const VrfFieldNumber As Integer = 6
+- uid: ServiceLayer.SLRoutev6Notif.Vrf
+  commentId: P:ServiceLayer.SLRoutev6Notif.Vrf
+  id: Vrf
+  parent: ServiceLayer.SLRoutev6Notif
+  langs:
+  - csharp
+  - vb
+  name: Vrf
+  nameWithType: SLRoutev6Notif.Vrf
+  fullName: ServiceLayer.SLRoutev6Notif.Vrf
+  type: Property
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlRouteIpv6.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: Vrf
+    path: src/gencs/SlRouteIpv6.cs
+    startLine: 2456
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: 'case EventType == SL_EVENT_TYPE_VRF:'
+  example: []
+  syntax:
+    content: public SLVrfNotif Vrf { get; set; }
+    parameters: []
+    return:
+      type: ServiceLayer.SLVrfNotif
+    content.vb: Public Property Vrf As SLVrfNotif
+  overload: ServiceLayer.SLRoutev6Notif.Vrf*
+- uid: ServiceLayer.SLRoutev6Notif.EventCase
+  commentId: P:ServiceLayer.SLRoutev6Notif.EventCase
+  id: EventCase
+  parent: ServiceLayer.SLRoutev6Notif
+  langs:
+  - csharp
+  - vb
+  name: EventCase
+  nameWithType: SLRoutev6Notif.EventCase
+  fullName: ServiceLayer.SLRoutev6Notif.EventCase
+  type: Property
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlRouteIpv6.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: EventCase
+    path: src/gencs/SlRouteIpv6.cs
+    startLine: 2477
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  syntax:
+    content: public SLRoutev6Notif.EventOneofCase EventCase { get; }
+    parameters: []
+    return:
+      type: ServiceLayer.SLRoutev6Notif.EventOneofCase
+    content.vb: Public ReadOnly Property EventCase As SLRoutev6Notif.EventOneofCase
+  overload: ServiceLayer.SLRoutev6Notif.EventCase*
+- uid: ServiceLayer.SLRoutev6Notif.ClearEvent
+  commentId: M:ServiceLayer.SLRoutev6Notif.ClearEvent
+  id: ClearEvent
+  parent: ServiceLayer.SLRoutev6Notif
+  langs:
+  - csharp
+  - vb
+  name: ClearEvent()
+  nameWithType: SLRoutev6Notif.ClearEvent()
+  fullName: ServiceLayer.SLRoutev6Notif.ClearEvent()
+  type: Method
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlRouteIpv6.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: ClearEvent
+    path: src/gencs/SlRouteIpv6.cs
+    startLine: 2483
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  syntax:
+    content: public void ClearEvent()
+    content.vb: Public Sub ClearEvent()
+  overload: ServiceLayer.SLRoutev6Notif.ClearEvent*
+- uid: ServiceLayer.SLRoutev6Notif.Equals(System.Object)
+  commentId: M:ServiceLayer.SLRoutev6Notif.Equals(System.Object)
+  id: Equals(System.Object)
+  parent: ServiceLayer.SLRoutev6Notif
+  langs:
+  - csharp
+  - vb
+  name: Equals(object)
+  nameWithType: SLRoutev6Notif.Equals(object)
+  fullName: ServiceLayer.SLRoutev6Notif.Equals(object)
+  type: Method
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlRouteIpv6.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: Equals
+    path: src/gencs/SlRouteIpv6.cs
+    startLine: 2490
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Determines whether the specified object is equal to the current object.
+  example: []
+  syntax:
+    content: public override bool Equals(object other)
+    parameters:
+    - id: other
+      type: System.Object
+    return:
+      type: System.Boolean
+      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the specified object  is equal to the current object; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+    content.vb: Public Overrides Function Equals(other As Object) As Boolean
+  overridden: System.Object.Equals(System.Object)
+  overload: ServiceLayer.SLRoutev6Notif.Equals*
+  nameWithType.vb: SLRoutev6Notif.Equals(Object)
+  fullName.vb: ServiceLayer.SLRoutev6Notif.Equals(Object)
+  name.vb: Equals(Object)
+- uid: ServiceLayer.SLRoutev6Notif.Equals(ServiceLayer.SLRoutev6Notif)
+  commentId: M:ServiceLayer.SLRoutev6Notif.Equals(ServiceLayer.SLRoutev6Notif)
+  id: Equals(ServiceLayer.SLRoutev6Notif)
+  parent: ServiceLayer.SLRoutev6Notif
+  langs:
+  - csharp
+  - vb
+  name: Equals(SLRoutev6Notif)
+  nameWithType: SLRoutev6Notif.Equals(SLRoutev6Notif)
+  fullName: ServiceLayer.SLRoutev6Notif.Equals(ServiceLayer.SLRoutev6Notif)
+  type: Method
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlRouteIpv6.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: Equals
+    path: src/gencs/SlRouteIpv6.cs
+    startLine: 2496
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Indicates whether the current object is equal to another object of the same type.
+  example: []
+  syntax:
+    content: public bool Equals(SLRoutev6Notif other)
+    parameters:
+    - id: other
+      type: ServiceLayer.SLRoutev6Notif
+      description: An object to compare with this object.
+    return:
+      type: System.Boolean
+      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the current object is equal to the <code class="paramref">other</code> parameter; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+    content.vb: Public Function Equals(other As SLRoutev6Notif) As Boolean
+  overload: ServiceLayer.SLRoutev6Notif.Equals*
+  implements:
+  - System.IEquatable{ServiceLayer.SLRoutev6Notif}.Equals(ServiceLayer.SLRoutev6Notif)
+- uid: ServiceLayer.SLRoutev6Notif.GetHashCode
+  commentId: M:ServiceLayer.SLRoutev6Notif.GetHashCode
+  id: GetHashCode
+  parent: ServiceLayer.SLRoutev6Notif
+  langs:
+  - csharp
+  - vb
+  name: GetHashCode()
+  nameWithType: SLRoutev6Notif.GetHashCode()
+  fullName: ServiceLayer.SLRoutev6Notif.GetHashCode()
+  type: Method
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlRouteIpv6.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: GetHashCode
+    path: src/gencs/SlRouteIpv6.cs
+    startLine: 2515
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Serves as the default hash function.
+  example: []
+  syntax:
+    content: public override int GetHashCode()
+    return:
+      type: System.Int32
+      description: A hash code for the current object.
+    content.vb: Public Overrides Function GetHashCode() As Integer
+  overridden: System.Object.GetHashCode
+  overload: ServiceLayer.SLRoutev6Notif.GetHashCode*
+- uid: ServiceLayer.SLRoutev6Notif.ToString
+  commentId: M:ServiceLayer.SLRoutev6Notif.ToString
+  id: ToString
+  parent: ServiceLayer.SLRoutev6Notif
+  langs:
+  - csharp
+  - vb
+  name: ToString()
+  nameWithType: SLRoutev6Notif.ToString()
+  fullName: ServiceLayer.SLRoutev6Notif.ToString()
+  type: Method
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlRouteIpv6.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: ToString
+    path: src/gencs/SlRouteIpv6.cs
+    startLine: 2532
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Returns a string that represents the current object.
+  example: []
+  syntax:
+    content: public override string ToString()
+    return:
+      type: System.String
+      description: A string that represents the current object.
+    content.vb: Public Overrides Function ToString() As String
+  overridden: System.Object.ToString
+  overload: ServiceLayer.SLRoutev6Notif.ToString*
+- uid: ServiceLayer.SLRoutev6Notif.WriteTo(Google.Protobuf.CodedOutputStream)
+  commentId: M:ServiceLayer.SLRoutev6Notif.WriteTo(Google.Protobuf.CodedOutputStream)
+  id: WriteTo(Google.Protobuf.CodedOutputStream)
+  parent: ServiceLayer.SLRoutev6Notif
+  langs:
+  - csharp
+  - vb
+  name: WriteTo(CodedOutputStream)
+  nameWithType: SLRoutev6Notif.WriteTo(CodedOutputStream)
+  fullName: ServiceLayer.SLRoutev6Notif.WriteTo(Google.Protobuf.CodedOutputStream)
+  type: Method
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlRouteIpv6.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: WriteTo
+    path: src/gencs/SlRouteIpv6.cs
+    startLine: 2538
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Writes the data to the given coded output stream.
+  example: []
+  syntax:
+    content: public void WriteTo(CodedOutputStream output)
+    parameters:
+    - id: output
+      type: Google.Protobuf.CodedOutputStream
+      description: Coded output stream to write the data to. Must not be null.
+    content.vb: Public Sub WriteTo(output As CodedOutputStream)
+  overload: ServiceLayer.SLRoutev6Notif.WriteTo*
+  implements:
+  - Google.Protobuf.IMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+- uid: ServiceLayer.SLRoutev6Notif.CalculateSize
+  commentId: M:ServiceLayer.SLRoutev6Notif.CalculateSize
+  id: CalculateSize
+  parent: ServiceLayer.SLRoutev6Notif
+  langs:
+  - csharp
+  - vb
+  name: CalculateSize()
+  nameWithType: SLRoutev6Notif.CalculateSize()
+  fullName: ServiceLayer.SLRoutev6Notif.CalculateSize()
+  type: Method
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlRouteIpv6.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: CalculateSize
+    path: src/gencs/SlRouteIpv6.cs
+    startLine: 2608
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Calculates the size of this message in Protocol Buffer wire format, in bytes.
+  example: []
+  syntax:
+    content: public int CalculateSize()
+    return:
+      type: System.Int32
+      description: >-
+        The number of bytes required to write this message
+                    to a coded output stream.
+    content.vb: Public Function CalculateSize() As Integer
+  overload: ServiceLayer.SLRoutev6Notif.CalculateSize*
+  implements:
+  - Google.Protobuf.IMessage.CalculateSize
+- uid: ServiceLayer.SLRoutev6Notif.MergeFrom(ServiceLayer.SLRoutev6Notif)
+  commentId: M:ServiceLayer.SLRoutev6Notif.MergeFrom(ServiceLayer.SLRoutev6Notif)
+  id: MergeFrom(ServiceLayer.SLRoutev6Notif)
+  parent: ServiceLayer.SLRoutev6Notif
+  langs:
+  - csharp
+  - vb
+  name: MergeFrom(SLRoutev6Notif)
+  nameWithType: SLRoutev6Notif.MergeFrom(SLRoutev6Notif)
+  fullName: ServiceLayer.SLRoutev6Notif.MergeFrom(ServiceLayer.SLRoutev6Notif)
+  type: Method
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlRouteIpv6.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: MergeFrom
+    path: src/gencs/SlRouteIpv6.cs
+    startLine: 2636
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Merges the given message into this one.
+  remarks: See the user guide for precise merge semantics.
+  example: []
+  syntax:
+    content: public void MergeFrom(SLRoutev6Notif other)
+    parameters:
+    - id: other
+      type: ServiceLayer.SLRoutev6Notif
+    content.vb: Public Sub MergeFrom(other As SLRoutev6Notif)
+  overload: ServiceLayer.SLRoutev6Notif.MergeFrom*
+  implements:
+  - Google.Protobuf.IMessage{ServiceLayer.SLRoutev6Notif}.MergeFrom(ServiceLayer.SLRoutev6Notif)
+- uid: ServiceLayer.SLRoutev6Notif.MergeFrom(Google.Protobuf.CodedInputStream)
+  commentId: M:ServiceLayer.SLRoutev6Notif.MergeFrom(Google.Protobuf.CodedInputStream)
+  id: MergeFrom(Google.Protobuf.CodedInputStream)
+  parent: ServiceLayer.SLRoutev6Notif
+  langs:
+  - csharp
+  - vb
+  name: MergeFrom(CodedInputStream)
+  nameWithType: SLRoutev6Notif.MergeFrom(CodedInputStream)
+  fullName: ServiceLayer.SLRoutev6Notif.MergeFrom(Google.Protobuf.CodedInputStream)
+  type: Method
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlRouteIpv6.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: MergeFrom
+    path: src/gencs/SlRouteIpv6.cs
+    startLine: 2681
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Merges the data from the specified coded input stream with the current message.
+  remarks: See the user guide for precise merge semantics.
+  example: []
+  syntax:
+    content: public void MergeFrom(CodedInputStream input)
+    parameters:
+    - id: input
+      type: Google.Protobuf.CodedInputStream
+      description: ''
+    content.vb: Public Sub MergeFrom(input As CodedInputStream)
+  overload: ServiceLayer.SLRoutev6Notif.MergeFrom*
+  implements:
+  - Google.Protobuf.IMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+references:
+- uid: ServiceLayer
+  commentId: N:ServiceLayer
+  href: ServiceLayer.html
+  name: ServiceLayer
+  nameWithType: ServiceLayer
+  fullName: ServiceLayer
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: Google.Protobuf.IMessage{ServiceLayer.SLRoutev6Notif}
+  commentId: T:Google.Protobuf.IMessage{ServiceLayer.SLRoutev6Notif}
+  parent: Google.Protobuf
+  definition: Google.Protobuf.IMessage`1
+  href: ServiceLayer.SLRoutev6Notif.html
+  name: IMessage<SLRoutev6Notif>
+  nameWithType: IMessage<SLRoutev6Notif>
+  fullName: Google.Protobuf.IMessage<ServiceLayer.SLRoutev6Notif>
+  nameWithType.vb: IMessage(Of SLRoutev6Notif)
+  fullName.vb: Google.Protobuf.IMessage(Of ServiceLayer.SLRoutev6Notif)
+  name.vb: IMessage(Of SLRoutev6Notif)
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage`1
+    name: IMessage
+    isExternal: true
+  - name: <
+  - uid: ServiceLayer.SLRoutev6Notif
+    name: SLRoutev6Notif
+    href: ServiceLayer.SLRoutev6Notif.html
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.IMessage`1
+    name: IMessage
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ServiceLayer.SLRoutev6Notif
+    name: SLRoutev6Notif
+    href: ServiceLayer.SLRoutev6Notif.html
+  - name: )
+- uid: System.IEquatable{ServiceLayer.SLRoutev6Notif}
+  commentId: T:System.IEquatable{ServiceLayer.SLRoutev6Notif}
+  parent: System
+  definition: System.IEquatable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<SLRoutev6Notif>
+  nameWithType: IEquatable<SLRoutev6Notif>
+  fullName: System.IEquatable<ServiceLayer.SLRoutev6Notif>
+  nameWithType.vb: IEquatable(Of SLRoutev6Notif)
+  fullName.vb: System.IEquatable(Of ServiceLayer.SLRoutev6Notif)
+  name.vb: IEquatable(Of SLRoutev6Notif)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - uid: ServiceLayer.SLRoutev6Notif
+    name: SLRoutev6Notif
+    href: ServiceLayer.SLRoutev6Notif.html
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ServiceLayer.SLRoutev6Notif
+    name: SLRoutev6Notif
+    href: ServiceLayer.SLRoutev6Notif.html
+  - name: )
+- uid: Google.Protobuf.IDeepCloneable{ServiceLayer.SLRoutev6Notif}
+  commentId: T:Google.Protobuf.IDeepCloneable{ServiceLayer.SLRoutev6Notif}
+  parent: Google.Protobuf
+  definition: Google.Protobuf.IDeepCloneable`1
+  href: ServiceLayer.SLRoutev6Notif.html
+  name: IDeepCloneable<SLRoutev6Notif>
+  nameWithType: IDeepCloneable<SLRoutev6Notif>
+  fullName: Google.Protobuf.IDeepCloneable<ServiceLayer.SLRoutev6Notif>
+  nameWithType.vb: IDeepCloneable(Of SLRoutev6Notif)
+  fullName.vb: Google.Protobuf.IDeepCloneable(Of ServiceLayer.SLRoutev6Notif)
+  name.vb: IDeepCloneable(Of SLRoutev6Notif)
+  spec.csharp:
+  - uid: Google.Protobuf.IDeepCloneable`1
+    name: IDeepCloneable
+    isExternal: true
+  - name: <
+  - uid: ServiceLayer.SLRoutev6Notif
+    name: SLRoutev6Notif
+    href: ServiceLayer.SLRoutev6Notif.html
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.IDeepCloneable`1
+    name: IDeepCloneable
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ServiceLayer.SLRoutev6Notif
+    name: SLRoutev6Notif
+    href: ServiceLayer.SLRoutev6Notif.html
+  - name: )
+- uid: Google.Protobuf.IBufferMessage
+  commentId: T:Google.Protobuf.IBufferMessage
+  parent: Google.Protobuf
+  isExternal: true
+  name: IBufferMessage
+  nameWithType: IBufferMessage
+  fullName: Google.Protobuf.IBufferMessage
+- uid: Google.Protobuf.IMessage
+  commentId: T:Google.Protobuf.IMessage
+  parent: Google.Protobuf
+  isExternal: true
+  name: IMessage
+  nameWithType: IMessage
+  fullName: Google.Protobuf.IMessage
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Google.Protobuf.IMessage`1
+  commentId: T:Google.Protobuf.IMessage`1
+  isExternal: true
+  name: IMessage<T>
+  nameWithType: IMessage<T>
+  fullName: Google.Protobuf.IMessage<T>
+  nameWithType.vb: IMessage(Of T)
+  fullName.vb: Google.Protobuf.IMessage(Of T)
+  name.vb: IMessage(Of T)
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage`1
+    name: IMessage
+    isExternal: true
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.IMessage`1
+    name: IMessage
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Google.Protobuf
+  commentId: N:Google.Protobuf
+  isExternal: true
+  name: Google.Protobuf
+  nameWithType: Google.Protobuf
+  fullName: Google.Protobuf
+  spec.csharp:
+  - uid: Google
+    name: Google
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf
+    name: Protobuf
+    isExternal: true
+  spec.vb:
+  - uid: Google
+    name: Google
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf
+    name: Protobuf
+    isExternal: true
+- uid: System.IEquatable`1
+  commentId: T:System.IEquatable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<T>
+  nameWithType: IEquatable<T>
+  fullName: System.IEquatable<T>
+  nameWithType.vb: IEquatable(Of T)
+  fullName.vb: System.IEquatable(Of T)
+  name.vb: IEquatable(Of T)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Google.Protobuf.IDeepCloneable`1
+  commentId: T:Google.Protobuf.IDeepCloneable`1
+  isExternal: true
+  name: IDeepCloneable<T>
+  nameWithType: IDeepCloneable<T>
+  fullName: Google.Protobuf.IDeepCloneable<T>
+  nameWithType.vb: IDeepCloneable(Of T)
+  fullName.vb: Google.Protobuf.IDeepCloneable(Of T)
+  name.vb: IDeepCloneable(Of T)
+  spec.csharp:
+  - uid: Google.Protobuf.IDeepCloneable`1
+    name: IDeepCloneable
+    isExternal: true
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.IDeepCloneable`1
+    name: IDeepCloneable
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: ServiceLayer.SLRoutev6Notif.Parser*
+  commentId: Overload:ServiceLayer.SLRoutev6Notif.Parser
+  href: ServiceLayer.SLRoutev6Notif.html#ServiceLayer.SLRoutev6Notif.Parser
+  name: Parser
+  nameWithType: SLRoutev6Notif.Parser
+  fullName: ServiceLayer.SLRoutev6Notif.Parser
+- uid: Google.Protobuf.MessageParser{ServiceLayer.SLRoutev6Notif}
+  commentId: T:Google.Protobuf.MessageParser{ServiceLayer.SLRoutev6Notif}
+  parent: Google.Protobuf
+  definition: Google.Protobuf.MessageParser`1
+  href: ServiceLayer.SLRoutev6Notif.html
+  name: MessageParser<SLRoutev6Notif>
+  nameWithType: MessageParser<SLRoutev6Notif>
+  fullName: Google.Protobuf.MessageParser<ServiceLayer.SLRoutev6Notif>
+  nameWithType.vb: MessageParser(Of SLRoutev6Notif)
+  fullName.vb: Google.Protobuf.MessageParser(Of ServiceLayer.SLRoutev6Notif)
+  name.vb: MessageParser(Of SLRoutev6Notif)
+  spec.csharp:
+  - uid: Google.Protobuf.MessageParser`1
+    name: MessageParser
+    isExternal: true
+  - name: <
+  - uid: ServiceLayer.SLRoutev6Notif
+    name: SLRoutev6Notif
+    href: ServiceLayer.SLRoutev6Notif.html
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.MessageParser`1
+    name: MessageParser
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ServiceLayer.SLRoutev6Notif
+    name: SLRoutev6Notif
+    href: ServiceLayer.SLRoutev6Notif.html
+  - name: )
+- uid: Google.Protobuf.MessageParser`1
+  commentId: T:Google.Protobuf.MessageParser`1
+  isExternal: true
+  name: MessageParser<T>
+  nameWithType: MessageParser<T>
+  fullName: Google.Protobuf.MessageParser<T>
+  nameWithType.vb: MessageParser(Of T)
+  fullName.vb: Google.Protobuf.MessageParser(Of T)
+  name.vb: MessageParser(Of T)
+  spec.csharp:
+  - uid: Google.Protobuf.MessageParser`1
+    name: MessageParser
+    isExternal: true
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.MessageParser`1
+    name: MessageParser
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: ServiceLayer.SLRoutev6Notif.Descriptor*
+  commentId: Overload:ServiceLayer.SLRoutev6Notif.Descriptor
+  href: ServiceLayer.SLRoutev6Notif.html#ServiceLayer.SLRoutev6Notif.Descriptor
+  name: Descriptor
+  nameWithType: SLRoutev6Notif.Descriptor
+  fullName: ServiceLayer.SLRoutev6Notif.Descriptor
+- uid: Google.Protobuf.Reflection.MessageDescriptor
+  commentId: T:Google.Protobuf.Reflection.MessageDescriptor
+  parent: Google.Protobuf.Reflection
+  isExternal: true
+  name: MessageDescriptor
+  nameWithType: MessageDescriptor
+  fullName: Google.Protobuf.Reflection.MessageDescriptor
+- uid: Google.Protobuf.Reflection
+  commentId: N:Google.Protobuf.Reflection
+  isExternal: true
+  name: Google.Protobuf.Reflection
+  nameWithType: Google.Protobuf.Reflection
+  fullName: Google.Protobuf.Reflection
+  spec.csharp:
+  - uid: Google
+    name: Google
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf
+    name: Protobuf
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf.Reflection
+    name: Reflection
+    isExternal: true
+  spec.vb:
+  - uid: Google
+    name: Google
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf
+    name: Protobuf
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf.Reflection
+    name: Reflection
+    isExternal: true
+- uid: ServiceLayer.SLRoutev6Notif.#ctor*
+  commentId: Overload:ServiceLayer.SLRoutev6Notif.#ctor
+  href: ServiceLayer.SLRoutev6Notif.html#ServiceLayer.SLRoutev6Notif.#ctor
+  name: SLRoutev6Notif
+  nameWithType: SLRoutev6Notif.SLRoutev6Notif
+  fullName: ServiceLayer.SLRoutev6Notif.SLRoutev6Notif
+  nameWithType.vb: SLRoutev6Notif.New
+  fullName.vb: ServiceLayer.SLRoutev6Notif.New
+  name.vb: New
+- uid: ServiceLayer.SLRoutev6Notif
+  commentId: T:ServiceLayer.SLRoutev6Notif
+  parent: ServiceLayer
+  href: ServiceLayer.SLRoutev6Notif.html
+  name: SLRoutev6Notif
+  nameWithType: SLRoutev6Notif
+  fullName: ServiceLayer.SLRoutev6Notif
+- uid: ServiceLayer.SLRoutev6Notif.Clone*
+  commentId: Overload:ServiceLayer.SLRoutev6Notif.Clone
+  href: ServiceLayer.SLRoutev6Notif.html#ServiceLayer.SLRoutev6Notif.Clone
+  name: Clone
+  nameWithType: SLRoutev6Notif.Clone
+  fullName: ServiceLayer.SLRoutev6Notif.Clone
+- uid: Google.Protobuf.IDeepCloneable{ServiceLayer.SLRoutev6Notif}.Clone
+  commentId: M:Google.Protobuf.IDeepCloneable{ServiceLayer.SLRoutev6Notif}.Clone
+  parent: Google.Protobuf.IDeepCloneable{ServiceLayer.SLRoutev6Notif}
+  definition: Google.Protobuf.IDeepCloneable`1.Clone
+  name: Clone()
+  nameWithType: IDeepCloneable<SLRoutev6Notif>.Clone()
+  fullName: Google.Protobuf.IDeepCloneable<ServiceLayer.SLRoutev6Notif>.Clone()
+  nameWithType.vb: IDeepCloneable(Of SLRoutev6Notif).Clone()
+  fullName.vb: Google.Protobuf.IDeepCloneable(Of ServiceLayer.SLRoutev6Notif).Clone()
+  spec.csharp:
+  - uid: Google.Protobuf.IDeepCloneable{ServiceLayer.SLRoutev6Notif}.Clone
+    name: Clone
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IDeepCloneable{ServiceLayer.SLRoutev6Notif}.Clone
+    name: Clone
+    isExternal: true
+  - name: (
+  - name: )
+- uid: Google.Protobuf.IDeepCloneable`1.Clone
+  commentId: M:Google.Protobuf.IDeepCloneable`1.Clone
+  isExternal: true
+  name: Clone()
+  nameWithType: IDeepCloneable<T>.Clone()
+  fullName: Google.Protobuf.IDeepCloneable<T>.Clone()
+  nameWithType.vb: IDeepCloneable(Of T).Clone()
+  fullName.vb: Google.Protobuf.IDeepCloneable(Of T).Clone()
+  spec.csharp:
+  - uid: Google.Protobuf.IDeepCloneable`1.Clone
+    name: Clone
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IDeepCloneable`1.Clone
+    name: Clone
+    isExternal: true
+  - name: (
+  - name: )
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: ServiceLayer.SLRoutev6Notif.EventType*
+  commentId: Overload:ServiceLayer.SLRoutev6Notif.EventType
+  href: ServiceLayer.SLRoutev6Notif.html#ServiceLayer.SLRoutev6Notif.EventType
+  name: EventType
+  nameWithType: SLRoutev6Notif.EventType
+  fullName: ServiceLayer.SLRoutev6Notif.EventType
+- uid: ServiceLayer.SLNotifType
+  commentId: T:ServiceLayer.SLNotifType
+  parent: ServiceLayer
+  href: ServiceLayer.SLNotifType.html
+  name: SLNotifType
+  nameWithType: SLNotifType
+  fullName: ServiceLayer.SLNotifType
+- uid: ServiceLayer.SLRoutev6Notif.ErrStatus*
+  commentId: Overload:ServiceLayer.SLRoutev6Notif.ErrStatus
+  href: ServiceLayer.SLRoutev6Notif.html#ServiceLayer.SLRoutev6Notif.ErrStatus
+  name: ErrStatus
+  nameWithType: SLRoutev6Notif.ErrStatus
+  fullName: ServiceLayer.SLRoutev6Notif.ErrStatus
+- uid: ServiceLayer.SLErrorStatus
+  commentId: T:ServiceLayer.SLErrorStatus
+  parent: ServiceLayer
+  href: ServiceLayer.SLErrorStatus.html
+  name: SLErrorStatus
+  nameWithType: SLErrorStatus
+  fullName: ServiceLayer.SLErrorStatus
+- uid: ServiceLayer.SLRoutev6Notif.NotifStatus*
+  commentId: Overload:ServiceLayer.SLRoutev6Notif.NotifStatus
+  href: ServiceLayer.SLRoutev6Notif.html#ServiceLayer.SLRoutev6Notif.NotifStatus
+  name: NotifStatus
+  nameWithType: SLRoutev6Notif.NotifStatus
+  fullName: ServiceLayer.SLRoutev6Notif.NotifStatus
+- uid: ServiceLayer.SLRouteNotifStatus
+  commentId: T:ServiceLayer.SLRouteNotifStatus
+  parent: ServiceLayer
+  href: ServiceLayer.SLRouteNotifStatus.html
+  name: SLRouteNotifStatus
+  nameWithType: SLRouteNotifStatus
+  fullName: ServiceLayer.SLRouteNotifStatus
+- uid: ServiceLayer.SLRoutev6Notif.Route*
+  commentId: Overload:ServiceLayer.SLRoutev6Notif.Route
+  href: ServiceLayer.SLRoutev6Notif.html#ServiceLayer.SLRoutev6Notif.Route
+  name: Route
+  nameWithType: SLRoutev6Notif.Route
+  fullName: ServiceLayer.SLRoutev6Notif.Route
+- uid: ServiceLayer.SLRoutev6NotifRoute
+  commentId: T:ServiceLayer.SLRoutev6NotifRoute
+  parent: ServiceLayer
+  href: ServiceLayer.SLRoutev6NotifRoute.html
+  name: SLRoutev6NotifRoute
+  nameWithType: SLRoutev6NotifRoute
+  fullName: ServiceLayer.SLRoutev6NotifRoute
+- uid: ServiceLayer.SLRoutev6Notif.Marker*
+  commentId: Overload:ServiceLayer.SLRoutev6Notif.Marker
+  href: ServiceLayer.SLRoutev6Notif.html#ServiceLayer.SLRoutev6Notif.Marker
+  name: Marker
+  nameWithType: SLRoutev6Notif.Marker
+  fullName: ServiceLayer.SLRoutev6Notif.Marker
+- uid: ServiceLayer.SLRouteNotifMarker
+  commentId: T:ServiceLayer.SLRouteNotifMarker
+  parent: ServiceLayer
+  href: ServiceLayer.SLRouteNotifMarker.html
+  name: SLRouteNotifMarker
+  nameWithType: SLRouteNotifMarker
+  fullName: ServiceLayer.SLRouteNotifMarker
+- uid: ServiceLayer.SLRoutev6Notif.Vrf*
+  commentId: Overload:ServiceLayer.SLRoutev6Notif.Vrf
+  href: ServiceLayer.SLRoutev6Notif.html#ServiceLayer.SLRoutev6Notif.Vrf
+  name: Vrf
+  nameWithType: SLRoutev6Notif.Vrf
+  fullName: ServiceLayer.SLRoutev6Notif.Vrf
+- uid: ServiceLayer.SLVrfNotif
+  commentId: T:ServiceLayer.SLVrfNotif
+  parent: ServiceLayer
+  href: ServiceLayer.SLVrfNotif.html
+  name: SLVrfNotif
+  nameWithType: SLVrfNotif
+  fullName: ServiceLayer.SLVrfNotif
+- uid: ServiceLayer.SLRoutev6Notif.EventCase*
+  commentId: Overload:ServiceLayer.SLRoutev6Notif.EventCase
+  href: ServiceLayer.SLRoutev6Notif.html#ServiceLayer.SLRoutev6Notif.EventCase
+  name: EventCase
+  nameWithType: SLRoutev6Notif.EventCase
+  fullName: ServiceLayer.SLRoutev6Notif.EventCase
+- uid: ServiceLayer.SLRoutev6Notif.EventOneofCase
+  commentId: T:ServiceLayer.SLRoutev6Notif.EventOneofCase
+  parent: ServiceLayer
+  href: ServiceLayer.SLRoutev6Notif.html
+  name: SLRoutev6Notif.EventOneofCase
+  nameWithType: SLRoutev6Notif.EventOneofCase
+  fullName: ServiceLayer.SLRoutev6Notif.EventOneofCase
+  spec.csharp:
+  - uid: ServiceLayer.SLRoutev6Notif
+    name: SLRoutev6Notif
+    href: ServiceLayer.SLRoutev6Notif.html
+  - name: .
+  - uid: ServiceLayer.SLRoutev6Notif.EventOneofCase
+    name: EventOneofCase
+    href: ServiceLayer.SLRoutev6Notif.EventOneofCase.html
+  spec.vb:
+  - uid: ServiceLayer.SLRoutev6Notif
+    name: SLRoutev6Notif
+    href: ServiceLayer.SLRoutev6Notif.html
+  - name: .
+  - uid: ServiceLayer.SLRoutev6Notif.EventOneofCase
+    name: EventOneofCase
+    href: ServiceLayer.SLRoutev6Notif.EventOneofCase.html
+- uid: ServiceLayer.SLRoutev6Notif.ClearEvent*
+  commentId: Overload:ServiceLayer.SLRoutev6Notif.ClearEvent
+  href: ServiceLayer.SLRoutev6Notif.html#ServiceLayer.SLRoutev6Notif.ClearEvent
+  name: ClearEvent
+  nameWithType: SLRoutev6Notif.ClearEvent
+  fullName: ServiceLayer.SLRoutev6Notif.ClearEvent
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: ServiceLayer.SLRoutev6Notif.Equals*
+  commentId: Overload:ServiceLayer.SLRoutev6Notif.Equals
+  href: ServiceLayer.SLRoutev6Notif.html#ServiceLayer.SLRoutev6Notif.Equals(System.Object)
+  name: Equals
+  nameWithType: SLRoutev6Notif.Equals
+  fullName: ServiceLayer.SLRoutev6Notif.Equals
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: System.IEquatable{ServiceLayer.SLRoutev6Notif}.Equals(ServiceLayer.SLRoutev6Notif)
+  commentId: M:System.IEquatable{ServiceLayer.SLRoutev6Notif}.Equals(ServiceLayer.SLRoutev6Notif)
+  parent: System.IEquatable{ServiceLayer.SLRoutev6Notif}
+  definition: System.IEquatable`1.Equals(`0)
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-servicelayer.slroutev6notif-.equals#system-iequatable((servicelayer-slroutev6notif))-equals(servicelayer-slroutev6notif)
+  name: Equals(SLRoutev6Notif)
+  nameWithType: IEquatable<SLRoutev6Notif>.Equals(SLRoutev6Notif)
+  fullName: System.IEquatable<ServiceLayer.SLRoutev6Notif>.Equals(ServiceLayer.SLRoutev6Notif)
+  nameWithType.vb: IEquatable(Of SLRoutev6Notif).Equals(SLRoutev6Notif)
+  fullName.vb: System.IEquatable(Of ServiceLayer.SLRoutev6Notif).Equals(ServiceLayer.SLRoutev6Notif)
+  spec.csharp:
+  - uid: System.IEquatable{ServiceLayer.SLRoutev6Notif}.Equals(ServiceLayer.SLRoutev6Notif)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-servicelayer.slroutev6notif-.equals#system-iequatable((servicelayer-slroutev6notif))-equals(servicelayer-slroutev6notif)
+  - name: (
+  - uid: ServiceLayer.SLRoutev6Notif
+    name: SLRoutev6Notif
+    href: ServiceLayer.SLRoutev6Notif.html
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable{ServiceLayer.SLRoutev6Notif}.Equals(ServiceLayer.SLRoutev6Notif)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-servicelayer.slroutev6notif-.equals#system-iequatable((servicelayer-slroutev6notif))-equals(servicelayer-slroutev6notif)
+  - name: (
+  - uid: ServiceLayer.SLRoutev6Notif
+    name: SLRoutev6Notif
+    href: ServiceLayer.SLRoutev6Notif.html
+  - name: )
+- uid: System.IEquatable`1.Equals(`0)
+  commentId: M:System.IEquatable`1.Equals(`0)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(T)
+  nameWithType: IEquatable<T>.Equals(T)
+  fullName: System.IEquatable<T>.Equals(T)
+  nameWithType.vb: IEquatable(Of T).Equals(T)
+  fullName.vb: System.IEquatable(Of T).Equals(T)
+  spec.csharp:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: ServiceLayer.SLRoutev6Notif.GetHashCode*
+  commentId: Overload:ServiceLayer.SLRoutev6Notif.GetHashCode
+  href: ServiceLayer.SLRoutev6Notif.html#ServiceLayer.SLRoutev6Notif.GetHashCode
+  name: GetHashCode
+  nameWithType: SLRoutev6Notif.GetHashCode
+  fullName: ServiceLayer.SLRoutev6Notif.GetHashCode
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: ServiceLayer.SLRoutev6Notif.ToString*
+  commentId: Overload:ServiceLayer.SLRoutev6Notif.ToString
+  href: ServiceLayer.SLRoutev6Notif.html#ServiceLayer.SLRoutev6Notif.ToString
+  name: ToString
+  nameWithType: SLRoutev6Notif.ToString
+  fullName: ServiceLayer.SLRoutev6Notif.ToString
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: ServiceLayer.SLRoutev6Notif.WriteTo*
+  commentId: Overload:ServiceLayer.SLRoutev6Notif.WriteTo
+  href: ServiceLayer.SLRoutev6Notif.html#ServiceLayer.SLRoutev6Notif.WriteTo(Google.Protobuf.CodedOutputStream)
+  name: WriteTo
+  nameWithType: SLRoutev6Notif.WriteTo
+  fullName: ServiceLayer.SLRoutev6Notif.WriteTo
+- uid: Google.Protobuf.IMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+  commentId: M:Google.Protobuf.IMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+  parent: Google.Protobuf.IMessage
+  isExternal: true
+  name: WriteTo(CodedOutputStream)
+  nameWithType: IMessage.WriteTo(CodedOutputStream)
+  fullName: Google.Protobuf.IMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+    name: WriteTo
+    isExternal: true
+  - name: (
+  - uid: Google.Protobuf.CodedOutputStream
+    name: CodedOutputStream
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+    name: WriteTo
+    isExternal: true
+  - name: (
+  - uid: Google.Protobuf.CodedOutputStream
+    name: CodedOutputStream
+    isExternal: true
+  - name: )
+- uid: Google.Protobuf.CodedOutputStream
+  commentId: T:Google.Protobuf.CodedOutputStream
+  parent: Google.Protobuf
+  isExternal: true
+  name: CodedOutputStream
+  nameWithType: CodedOutputStream
+  fullName: Google.Protobuf.CodedOutputStream
+- uid: ServiceLayer.SLRoutev6Notif.CalculateSize*
+  commentId: Overload:ServiceLayer.SLRoutev6Notif.CalculateSize
+  href: ServiceLayer.SLRoutev6Notif.html#ServiceLayer.SLRoutev6Notif.CalculateSize
+  name: CalculateSize
+  nameWithType: SLRoutev6Notif.CalculateSize
+  fullName: ServiceLayer.SLRoutev6Notif.CalculateSize
+- uid: Google.Protobuf.IMessage.CalculateSize
+  commentId: M:Google.Protobuf.IMessage.CalculateSize
+  parent: Google.Protobuf.IMessage
+  isExternal: true
+  name: CalculateSize()
+  nameWithType: IMessage.CalculateSize()
+  fullName: Google.Protobuf.IMessage.CalculateSize()
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage.CalculateSize
+    name: CalculateSize
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IMessage.CalculateSize
+    name: CalculateSize
+    isExternal: true
+  - name: (
+  - name: )
+- uid: ServiceLayer.SLRoutev6Notif.MergeFrom*
+  commentId: Overload:ServiceLayer.SLRoutev6Notif.MergeFrom
+  href: ServiceLayer.SLRoutev6Notif.html#ServiceLayer.SLRoutev6Notif.MergeFrom(ServiceLayer.SLRoutev6Notif)
+  name: MergeFrom
+  nameWithType: SLRoutev6Notif.MergeFrom
+  fullName: ServiceLayer.SLRoutev6Notif.MergeFrom
+- uid: Google.Protobuf.IMessage{ServiceLayer.SLRoutev6Notif}.MergeFrom(ServiceLayer.SLRoutev6Notif)
+  commentId: M:Google.Protobuf.IMessage{ServiceLayer.SLRoutev6Notif}.MergeFrom(ServiceLayer.SLRoutev6Notif)
+  parent: Google.Protobuf.IMessage{ServiceLayer.SLRoutev6Notif}
+  definition: Google.Protobuf.IMessage`1.MergeFrom(`0)
+  href: ServiceLayer.SLRoutev6Notif.html
+  name: MergeFrom(SLRoutev6Notif)
+  nameWithType: IMessage<SLRoutev6Notif>.MergeFrom(SLRoutev6Notif)
+  fullName: Google.Protobuf.IMessage<ServiceLayer.SLRoutev6Notif>.MergeFrom(ServiceLayer.SLRoutev6Notif)
+  nameWithType.vb: IMessage(Of SLRoutev6Notif).MergeFrom(SLRoutev6Notif)
+  fullName.vb: Google.Protobuf.IMessage(Of ServiceLayer.SLRoutev6Notif).MergeFrom(ServiceLayer.SLRoutev6Notif)
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage{ServiceLayer.SLRoutev6Notif}.MergeFrom(ServiceLayer.SLRoutev6Notif)
+    name: MergeFrom
+    isExternal: true
+  - name: (
+  - uid: ServiceLayer.SLRoutev6Notif
+    name: SLRoutev6Notif
+    href: ServiceLayer.SLRoutev6Notif.html
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IMessage{ServiceLayer.SLRoutev6Notif}.MergeFrom(ServiceLayer.SLRoutev6Notif)
+    name: MergeFrom
+    isExternal: true
+  - name: (
+  - uid: ServiceLayer.SLRoutev6Notif
+    name: SLRoutev6Notif
+    href: ServiceLayer.SLRoutev6Notif.html
+  - name: )
+- uid: Google.Protobuf.IMessage`1.MergeFrom(`0)
+  commentId: M:Google.Protobuf.IMessage`1.MergeFrom(`0)
+  isExternal: true
+  name: MergeFrom(T)
+  nameWithType: IMessage<T>.MergeFrom(T)
+  fullName: Google.Protobuf.IMessage<T>.MergeFrom(T)
+  nameWithType.vb: IMessage(Of T).MergeFrom(T)
+  fullName.vb: Google.Protobuf.IMessage(Of T).MergeFrom(T)
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage`1.MergeFrom(`0)
+    name: MergeFrom
+    isExternal: true
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IMessage`1.MergeFrom(`0)
+    name: MergeFrom
+    isExternal: true
+  - name: (
+  - name: T
+  - name: )
+- uid: Google.Protobuf.IMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+  commentId: M:Google.Protobuf.IMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+  parent: Google.Protobuf.IMessage
+  isExternal: true
+  name: MergeFrom(CodedInputStream)
+  nameWithType: IMessage.MergeFrom(CodedInputStream)
+  fullName: Google.Protobuf.IMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+    name: MergeFrom
+    isExternal: true
+  - name: (
+  - uid: Google.Protobuf.CodedInputStream
+    name: CodedInputStream
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+    name: MergeFrom
+    isExternal: true
+  - name: (
+  - uid: Google.Protobuf.CodedInputStream
+    name: CodedInputStream
+    isExternal: true
+  - name: )
+- uid: Google.Protobuf.CodedInputStream
+  commentId: T:Google.Protobuf.CodedInputStream
+  parent: Google.Protobuf
+  isExternal: true
+  name: CodedInputStream
+  nameWithType: CodedInputStream
+  fullName: Google.Protobuf.CodedInputStream

@@ -1,0 +1,236 @@
+### YamlMime:ManagedReference
+items:
+- uid: ServiceLayer.SLBfdCommonState.Types.SLBfdStateEnum
+  commentId: T:ServiceLayer.SLBfdCommonState.Types.SLBfdStateEnum
+  id: SLBfdCommonState.Types.SLBfdStateEnum
+  parent: ServiceLayer
+  children:
+  - ServiceLayer.SLBfdCommonState.Types.SLBfdStateEnum.SlBfdNeighborUnconfig
+  - ServiceLayer.SLBfdCommonState.Types.SLBfdStateEnum.SlBfdSessionDown
+  - ServiceLayer.SLBfdCommonState.Types.SLBfdStateEnum.SlBfdSessionStateUnknown
+  - ServiceLayer.SLBfdCommonState.Types.SLBfdStateEnum.SlBfdSessionUp
+  langs:
+  - csharp
+  - vb
+  name: SLBfdCommonState.Types.SLBfdStateEnum
+  nameWithType: SLBfdCommonState.Types.SLBfdStateEnum
+  fullName: ServiceLayer.SLBfdCommonState.Types.SLBfdStateEnum
+  type: Enum
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlBfdCommon.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: SLBfdStateEnum
+    path: src/gencs/SlBfdCommon.cs
+    startLine: 2032
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: BFD state information.
+  example: []
+  syntax:
+    content: public enum SLBfdCommonState.Types.SLBfdStateEnum
+    content.vb: Public Enum SLBfdCommonState.Types.SLBfdStateEnum
+- uid: ServiceLayer.SLBfdCommonState.Types.SLBfdStateEnum.SlBfdSessionStateUnknown
+  commentId: F:ServiceLayer.SLBfdCommonState.Types.SLBfdStateEnum.SlBfdSessionStateUnknown
+  id: SlBfdSessionStateUnknown
+  parent: ServiceLayer.SLBfdCommonState.Types.SLBfdStateEnum
+  langs:
+  - csharp
+  - vb
+  name: SlBfdSessionStateUnknown
+  nameWithType: SLBfdCommonState.Types.SLBfdStateEnum.SlBfdSessionStateUnknown
+  fullName: ServiceLayer.SLBfdCommonState.Types.SLBfdStateEnum.SlBfdSessionStateUnknown
+  type: Field
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlBfdCommon.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: SlBfdSessionStateUnknown
+    path: src/gencs/SlBfdCommon.cs
+    startLine: 2036
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Session never established
+  example: []
+  syntax:
+    content: >-
+      [OriginalName("SL_BFD_SESSION_STATE_UNKNOWN")]
+
+      SlBfdSessionStateUnknown = 0
+    return:
+      type: ServiceLayer.SLBfdCommonState.Types.SLBfdStateEnum
+    content.vb: >-
+      <OriginalName("SL_BFD_SESSION_STATE_UNKNOWN")>
+
+      SlBfdSessionStateUnknown = 0
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: SL_BFD_SESSION_STATE_UNKNOWN
+- uid: ServiceLayer.SLBfdCommonState.Types.SLBfdStateEnum.SlBfdSessionUp
+  commentId: F:ServiceLayer.SLBfdCommonState.Types.SLBfdStateEnum.SlBfdSessionUp
+  id: SlBfdSessionUp
+  parent: ServiceLayer.SLBfdCommonState.Types.SLBfdStateEnum
+  langs:
+  - csharp
+  - vb
+  name: SlBfdSessionUp
+  nameWithType: SLBfdCommonState.Types.SLBfdStateEnum.SlBfdSessionUp
+  fullName: ServiceLayer.SLBfdCommonState.Types.SLBfdStateEnum.SlBfdSessionUp
+  type: Field
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlBfdCommon.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: SlBfdSessionUp
+    path: src/gencs/SlBfdCommon.cs
+    startLine: 2040
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Session state UP
+  example: []
+  syntax:
+    content: >-
+      [OriginalName("SL_BFD_SESSION_UP")]
+
+      SlBfdSessionUp = 1
+    return:
+      type: ServiceLayer.SLBfdCommonState.Types.SLBfdStateEnum
+    content.vb: >-
+      <OriginalName("SL_BFD_SESSION_UP")>
+
+      SlBfdSessionUp = 1
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: SL_BFD_SESSION_UP
+- uid: ServiceLayer.SLBfdCommonState.Types.SLBfdStateEnum.SlBfdSessionDown
+  commentId: F:ServiceLayer.SLBfdCommonState.Types.SLBfdStateEnum.SlBfdSessionDown
+  id: SlBfdSessionDown
+  parent: ServiceLayer.SLBfdCommonState.Types.SLBfdStateEnum
+  langs:
+  - csharp
+  - vb
+  name: SlBfdSessionDown
+  nameWithType: SLBfdCommonState.Types.SLBfdStateEnum.SlBfdSessionDown
+  fullName: ServiceLayer.SLBfdCommonState.Types.SLBfdStateEnum.SlBfdSessionDown
+  type: Field
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlBfdCommon.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: SlBfdSessionDown
+    path: src/gencs/SlBfdCommon.cs
+    startLine: 2044
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Session state is down
+  example: []
+  syntax:
+    content: >-
+      [OriginalName("SL_BFD_SESSION_DOWN")]
+
+      SlBfdSessionDown = 2
+    return:
+      type: ServiceLayer.SLBfdCommonState.Types.SLBfdStateEnum
+    content.vb: >-
+      <OriginalName("SL_BFD_SESSION_DOWN")>
+
+      SlBfdSessionDown = 2
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: SL_BFD_SESSION_DOWN
+- uid: ServiceLayer.SLBfdCommonState.Types.SLBfdStateEnum.SlBfdNeighborUnconfig
+  commentId: F:ServiceLayer.SLBfdCommonState.Types.SLBfdStateEnum.SlBfdNeighborUnconfig
+  id: SlBfdNeighborUnconfig
+  parent: ServiceLayer.SLBfdCommonState.Types.SLBfdStateEnum
+  langs:
+  - csharp
+  - vb
+  name: SlBfdNeighborUnconfig
+  nameWithType: SLBfdCommonState.Types.SLBfdStateEnum.SlBfdNeighborUnconfig
+  fullName: ServiceLayer.SLBfdCommonState.Types.SLBfdStateEnum.SlBfdNeighborUnconfig
+  type: Field
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlBfdCommon.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: SlBfdNeighborUnconfig
+    path: src/gencs/SlBfdCommon.cs
+    startLine: 2048
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Neighbor's config was removed
+  example: []
+  syntax:
+    content: >-
+      [OriginalName("SL_BFD_NEIGHBOR_UNCONFIG")]
+
+      SlBfdNeighborUnconfig = 3
+    return:
+      type: ServiceLayer.SLBfdCommonState.Types.SLBfdStateEnum
+    content.vb: >-
+      <OriginalName("SL_BFD_NEIGHBOR_UNCONFIG")>
+
+      SlBfdNeighborUnconfig = 3
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: SL_BFD_NEIGHBOR_UNCONFIG
+references:
+- uid: ServiceLayer
+  commentId: N:ServiceLayer
+  href: ServiceLayer.html
+  name: ServiceLayer
+  nameWithType: ServiceLayer
+  fullName: ServiceLayer
+- uid: ServiceLayer.SLBfdCommonState.Types.SLBfdStateEnum
+  commentId: T:ServiceLayer.SLBfdCommonState.Types.SLBfdStateEnum
+  parent: ServiceLayer
+  href: ServiceLayer.SLBfdCommonState.html
+  name: SLBfdCommonState.Types.SLBfdStateEnum
+  nameWithType: SLBfdCommonState.Types.SLBfdStateEnum
+  fullName: ServiceLayer.SLBfdCommonState.Types.SLBfdStateEnum
+  spec.csharp:
+  - uid: ServiceLayer.SLBfdCommonState
+    name: SLBfdCommonState
+    href: ServiceLayer.SLBfdCommonState.html
+  - name: .
+  - uid: ServiceLayer.SLBfdCommonState.Types
+    name: Types
+    href: ServiceLayer.SLBfdCommonState.Types.html
+  - name: .
+  - uid: ServiceLayer.SLBfdCommonState.Types.SLBfdStateEnum
+    name: SLBfdStateEnum
+    href: ServiceLayer.SLBfdCommonState.Types.SLBfdStateEnum.html
+  spec.vb:
+  - uid: ServiceLayer.SLBfdCommonState
+    name: SLBfdCommonState
+    href: ServiceLayer.SLBfdCommonState.html
+  - name: .
+  - uid: ServiceLayer.SLBfdCommonState.Types
+    name: Types
+    href: ServiceLayer.SLBfdCommonState.Types.html
+  - name: .
+  - uid: ServiceLayer.SLBfdCommonState.Types.SLBfdStateEnum
+    name: SLBfdStateEnum
+    href: ServiceLayer.SLBfdCommonState.Types.SLBfdStateEnum.html

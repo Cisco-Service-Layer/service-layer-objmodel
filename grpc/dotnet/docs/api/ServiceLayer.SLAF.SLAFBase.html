@@ -1,0 +1,233 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Class SLAF.SLAFBase
+ </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Class SLAF.SLAFBase
+ ">
+    
+      <link rel="shortcut icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="">
+      <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="ServiceLayer.SLAF.SLAFBase">
+
+
+
+  <h1 id="ServiceLayer_SLAF_SLAFBase" data-uid="ServiceLayer.SLAF.SLAFBase" class="text-break">Class SLAF.SLAFBase
+</h1>
+  <div class="markdown level0 summary"><p>Base class for server-side implementations of SLAF</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+    <div class="level1"><span class="xref">SLAF.SLAFBase</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="ServiceLayer.html">ServiceLayer</a></h6>
+  <h6><strong>Assembly</strong>: ServiceLayer.dll</h6>
+  <h5 id="ServiceLayer_SLAF_SLAFBase_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[BindServiceMethod(typeof(SLAF), &quot;BindService&quot;)]
+public abstract class SLAF.SLAFBase</code></pre>
+  </div>
+  <h3 id="methods">Methods
+</h3>
+
+
+  <a id="ServiceLayer_SLAF_SLAFBase_SLAFVrfRegOp_" data-uid="ServiceLayer.SLAF.SLAFBase.SLAFVrfRegOp*"></a>
+  <h4 id="ServiceLayer_SLAF_SLAFBase_SLAFVrfRegOp_ServiceLayer_SLAFVrfRegMsg_Grpc_Core_ServerCallContext_" data-uid="ServiceLayer.SLAF.SLAFBase.SLAFVrfRegOp(ServiceLayer.SLAFVrfRegMsg,Grpc.Core.ServerCallContext)">SLAFVrfRegOp(SLAFVrfRegMsg, ServerCallContext)</h4>
+  <div class="markdown level1 summary"><p>VRF registration operations. The client MUST register with
+the corresponding VRF table before programming objects in that table.</p>
+<p>SLAFVrfRegMsg.Oper = SL_REGOP_REGISTER:
+VRF table registration: Sends a list of VRF table registration
+messages and expects a list of registration responses.
+A client Must Register a VRF table BEFORE objects can be
+added/modified in the associated VRF table.</p>
+<p>SLAFVrfRegMsg.Oper = SL_REGOP_UNREGISTER:
+VRF table Un-registration: Sends a list of VRF table un-registration
+messages and expects a list of un-registration responses.
+This can be used to convey that the client is no longer interested
+in these VRF tables. All previously installed objects would be
+remove.</p>
+<p>SLAFVrfRegMsg.Oper = SL_REGOP_EOF:
+VRF table End Of File message.
+After Registration, the client is expected to send an EOF
+message to convey the end of replay of the client's known objects.
+This is especially useful under certain restart scenarios when the
+client and the server are trying to synchronize their objects.</p>
+<p>The VRF table registration operations can be used by the client to
+synchronize objects with the device. When the client re-registers the
+VRF table with the server using SL_REGOP_REGISTER, server marks
+objects in that table as stale.
+Client then MUST reprogram objects it is interested in.
+When client sends SL_REGOP_EOF, any objects not reprogrammed
+are removed from the device. This feature can be turned
+off by setting SLVrfReg.NoMarking flag to True.</p>
+<p>The client MUST perform all operations (VRF registration, objects)
+from a single execution context.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual Task&lt;SLAFVrfRegMsgRsp&gt; SLAFVrfRegOp(SLAFVrfRegMsg request, ServerCallContext context)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ServiceLayer.SLAFVrfRegMsg.html">SLAFVrfRegMsg</a></td>
+        <td><span class="parametername">request</span></td>
+        <td><p>The request received from the client.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/ServerCallContext.cs">ServerCallContext</a></td>
+        <td><span class="parametername">context</span></td>
+        <td><p>The context of the server-side call handler being invoked.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="ServiceLayer.SLAFVrfRegMsgRsp.html">SLAFVrfRegMsgRsp</a>&gt;</td>
+        <td><p>The response to send back to the client (wrapped by a task).</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

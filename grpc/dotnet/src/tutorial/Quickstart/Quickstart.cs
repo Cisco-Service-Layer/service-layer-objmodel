@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2023 by cisco Systems, Inc.
+ * All rights reserved.
+ */
 using System;
 using System.Threading;
 using System.Threading.Tasks;
@@ -12,7 +16,9 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 using Newtonsoft.Json.Linq;
 using ServiceLayer;
-
+/// <summary>
+/// Defines the primary keys from json data file
+/// </summary>
 public class TestVxlan
 {
     [JsonProperty("register_v4_vrfs")]
@@ -22,14 +28,26 @@ public class TestVxlan
     public Dictionary<string, object> ProgramV4VxlanRoutes { get; set; }
 }
 
+/// <summary>
+/// Defines the arguments parsed from commandline
+/// </summary>
 public class ParsedArguments
 {
     public string ServerAddress { get; set; }
     public string JsonFilePath { get; set; }
 }
 
+/// <summary>
+/// Implements GRPC client that exercises the SLAPI RPCs for IPv4 Vertical
+/// defined in
+/// https://github.com/Cisco-Service-Layer/service-layer-objmodel/blob/master/grpc/protos/sl_common_types.proto
+/// This implementation particularly exercises L3 VxLAN tunnels
+/// </summary>
 class SLClient
 {
+    /// <summary>
+    /// Coverts dotted decimal string ipv4 address to unsigned 32 bit integer in network byte order
+    /// </summary>
     public static uint IpToUInt32(string ipString)
     {
         var ipAddress = IPAddress.Parse(ipString);
@@ -42,14 +60,18 @@ class SLClient
 
         return BitConverter.ToUInt32(bytes, 0);
     }
-
+    /// <summary>
+    /// Converts Ipv6 Address string to byte string
+    /// </summary>
     public static ByteString GetIPv6ByteString(string ipv6String)
     {
         IPAddress ipAddress = IPAddress.Parse(ipv6String);
         byte[] ipBytes = ipAddress.GetAddressBytes();
         return ByteString.CopyFrom(ipBytes);
     }
-
+    /// <summary>
+    /// Converts MAC Address string to byte string
+    /// </summary>
     public static ByteString MACStringToByteString(string mac)
     {
         byte[] macBytes = mac.Split(':')
@@ -69,7 +91,7 @@ class SLClient
         var parsedArgs = ProcessArgs(args);
         var serverAddress = parsedArgs.ServerAddress;
         var jsonFilePath = parsedArgs.JsonFilePath;
-        
+
         if (!string.IsNullOrEmpty(jsonFilePath))
         {
             try
@@ -113,7 +135,7 @@ class SLClient
         {
             AppContext.SetSwitch("System.Net.Http.SocketsHttpHandler.Http2UnencryptedSupport", true);
 
-            channel = GrpcChannel.ForAddress($"http://{serverAddress}", 
+            channel = GrpcChannel.ForAddress($"http://{serverAddress}",
                                              new GrpcChannelOptions { Credentials = ChannelCredentials.Insecure });
 
             try {
@@ -262,20 +284,20 @@ class SLClient
                 e.Cancel = true;
             };
             //Programming the same set of routes again, using streaming RPC
-            //Send EOF and re-register vrfs to reset the server state so 
+            //Send EOF and re-register vrfs to reset the server state so
             //that re-programming the same routes will not return
             //route exists error
             await EofVrfsAsync(client);
             await RegisterVrfsAsync(client, testData);
             using (var call = client.SLRoutev4OpStream())
-            {   
+            {
                 // Start the response listening task.
                 var responseReaderTask = Task.Run(async () =>
-                {   
+                {
                     try
                     {
                         await foreach (var message in call.ResponseStream.ReadAllAsync())
-                        {   
+                        {
                             Console.WriteLine($"Correlator: {message.Correlator}");
                             Console.WriteLine($"VRF Name: {message.VrfName}");
                             Console.WriteLine($"Error Status: {message.StatusSummary}");
@@ -283,19 +305,19 @@ class SLClient
                             {
                                 IPAddress ipAddr = new IPAddress(BitConverter.GetBytes(result.Prefix).Reverse().ToArray());
                                 Console.WriteLine($"Received error response for route with Prefix {ipAddr} and PrefixLen {result.PrefixLen}");
-                            }                    
+                            }
                         }
                     }
                     catch (RpcException ex)
-                    {   
+                    {
                         Console.WriteLine($"An RPC error occurred: {ex.Status.Detail}");
                     }
                     catch (Exception ex)
-                    {   
+                    {
                         Console.WriteLine($"An unexpected error occurred: {ex.Message}");
                     }
                 }, cts.Token);
-            
+
                 try
                 {
                     // Writing messages to the server.
@@ -305,14 +327,14 @@ class SLClient
                     await responseReaderTask;
                 }
                 catch (RpcException ex)
-                {   
+                {
                     Console.WriteLine($"An RPC error occurred: {ex.Status.Detail}");
                 }
                 catch (Exception ex)
-                {   
+                {
                     Console.WriteLine($"An unexpected error occurred: {ex.Message}");
                 }
-            } 
+            }
         }
         else
         {
@@ -320,11 +342,13 @@ class SLClient
         }
         await channel.ShutdownAsync();
     }
-
+    /// <summary>
+    /// Parse command line arguments 
+    /// </summary>
     private static ParsedArguments ProcessArgs(string[] args)
     {
         var parsedArgs = new ParsedArguments();
-    
+
         for (int i = 0; i < args.Length; i++)
         {
             switch (args[i])
@@ -346,10 +370,12 @@ class SLClient
                     break;
             }
         }
-    
+
         return parsedArgs;
     }
-    
+    /// <summary>
+    /// Utility function to get the next command line argument
+    /// </summary>
     private static string GetNextArgument(int i, string[] args, string errorMessage)
     {
         if (i + 1 < args.Length) // Check if there is another argument following the current one
@@ -363,7 +389,9 @@ class SLClient
             return null; // To satisfy the function's return type
         }
     }
-    
+    /// <summary>
+    /// Prints help for command line arguments
+    /// </summary>
     private static void ShowHelp()
     {
         Console.WriteLine("Usage: Quickstart [options]\n" +
@@ -372,7 +400,9 @@ class SLClient
                           "  -t <target>     The target server address in the format <ipv4 address>:<port>.\n" +
                           "  -d <path>       The path to the JSON file having test data compliant with schema test_vxlan_schema.json");
     }
-
+    /// <summary>
+    /// Registers the vrfs provided in testData into the GRPC Server using handle client
+    /// </summary>
     private static async Task RegisterVrfsAsync(SLRoutev4Oper.SLRoutev4OperClient client, TestVxlan testData)
     {
         // Create and populate the SLVrfRegMsg for registration.
@@ -381,7 +411,7 @@ class SLClient
         int adminDistance = Convert.ToInt32(testData.RegisterV4Vrfs["admin_distance"]);
         JArray vrfJArray = (JArray)testData.RegisterV4Vrfs["vrf_list"];
         List<string> vrfList = vrfJArray.ToObject<List<string>>();
-    
+
         foreach (string vrfName in vrfList)
         {
             regMsg.VrfRegMsgs.Add(new SLVrfReg
@@ -391,7 +421,7 @@ class SLClient
                 VrfPurgeIntervalSeconds = (uint)purgeInterval
             });
         }
-    
+
         // Call the SLRoutev4VrfRegOp RPC
         var regResponse = await client.SLRoutev4VrfRegOpAsync(regMsg);
         if (regResponse.StatusSummary.Status == SLErrorStatus.Types.SLErrno.SlSuccess)
@@ -414,7 +444,9 @@ class SLClient
             Console.WriteLine($"Operation failed with error: {regResponse.StatusSummary.Status}");
         }
     }
-
+    /// <summary>
+    /// Send EOF to all vrfs marking end of programming
+    /// </summary>
     private static async Task EofVrfsAsync(SLRoutev4Oper.SLRoutev4OperClient client)
     {
         // Create and populate the SLVrfRegMsg for EOF operation.
@@ -422,7 +454,7 @@ class SLClient
         {
             Oper = SLRegOp.Eof
         };
-    
+
         // Call the SLRoutev4VrfRegOp RPC
         var eofResponse = await client.SLRoutev4VrfRegOpAsync(eofMsg);
         if (eofResponse.StatusSummary.Status != SLErrorStatus.Types.SLErrno.SlSuccess)

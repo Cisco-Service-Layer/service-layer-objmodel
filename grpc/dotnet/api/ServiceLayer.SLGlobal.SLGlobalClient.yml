@@ -1,0 +1,1338 @@
+### YamlMime:ManagedReference
+items:
+- uid: ServiceLayer.SLGlobal.SLGlobalClient
+  commentId: T:ServiceLayer.SLGlobal.SLGlobalClient
+  id: SLGlobal.SLGlobalClient
+  parent: ServiceLayer
+  children:
+  - ServiceLayer.SLGlobal.SLGlobalClient.#ctor
+  - ServiceLayer.SLGlobal.SLGlobalClient.#ctor(Grpc.Core.CallInvoker)
+  - ServiceLayer.SLGlobal.SLGlobalClient.#ctor(Grpc.Core.ChannelBase)
+  - ServiceLayer.SLGlobal.SLGlobalClient.#ctor(Grpc.Core.ClientBase.ClientBaseConfiguration)
+  - ServiceLayer.SLGlobal.SLGlobalClient.NewInstance(Grpc.Core.ClientBase.ClientBaseConfiguration)
+  - ServiceLayer.SLGlobal.SLGlobalClient.SLGlobalInitNotif(ServiceLayer.SLInitMsg,Grpc.Core.CallOptions)
+  - ServiceLayer.SLGlobal.SLGlobalClient.SLGlobalInitNotif(ServiceLayer.SLInitMsg,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)
+  - ServiceLayer.SLGlobal.SLGlobalClient.SLGlobalsGet(ServiceLayer.SLGlobalsGetMsg,Grpc.Core.CallOptions)
+  - ServiceLayer.SLGlobal.SLGlobalClient.SLGlobalsGet(ServiceLayer.SLGlobalsGetMsg,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)
+  - ServiceLayer.SLGlobal.SLGlobalClient.SLGlobalsGetAsync(ServiceLayer.SLGlobalsGetMsg,Grpc.Core.CallOptions)
+  - ServiceLayer.SLGlobal.SLGlobalClient.SLGlobalsGetAsync(ServiceLayer.SLGlobalsGetMsg,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)
+  langs:
+  - csharp
+  - vb
+  name: SLGlobal.SLGlobalClient
+  nameWithType: SLGlobal.SLGlobalClient
+  fullName: ServiceLayer.SLGlobal.SLGlobalClient
+  type: Class
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlGlobalGrpc.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: SLGlobalClient
+    path: src/gencs/SlGlobalGrpc.cs
+    startLine: 141
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Client for SLGlobal
+  example: []
+  syntax:
+    content: 'public class SLGlobal.SLGlobalClient : ClientBase<SLGlobal.SLGlobalClient>'
+    content.vb: Public Class SLGlobal.SLGlobalClient Inherits ClientBase(Of SLGlobal.SLGlobalClient)
+  inheritance:
+  - System.Object
+  - Grpc.Core.ClientBase
+  - Grpc.Core.ClientBase{ServiceLayer.SLGlobal.SLGlobalClient}
+  inheritedMembers:
+  - Grpc.Core.ClientBase{ServiceLayer.SLGlobal.SLGlobalClient}.WithHost(System.String)
+  - Grpc.Core.ClientBase.CallInvoker
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: ServiceLayer.SLGlobal.SLGlobalClient.#ctor(Grpc.Core.ChannelBase)
+  commentId: M:ServiceLayer.SLGlobal.SLGlobalClient.#ctor(Grpc.Core.ChannelBase)
+  id: '#ctor(Grpc.Core.ChannelBase)'
+  parent: ServiceLayer.SLGlobal.SLGlobalClient
+  langs:
+  - csharp
+  - vb
+  name: SLGlobalClient(ChannelBase)
+  nameWithType: SLGlobal.SLGlobalClient.SLGlobalClient(ChannelBase)
+  fullName: ServiceLayer.SLGlobal.SLGlobalClient.SLGlobalClient(Grpc.Core.ChannelBase)
+  type: Constructor
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlGlobalGrpc.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: .ctor
+    path: src/gencs/SlGlobalGrpc.cs
+    startLine: 145
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Creates a new client for SLGlobal
+  example: []
+  syntax:
+    content: public SLGlobalClient(ChannelBase channel)
+    parameters:
+    - id: channel
+      type: Grpc.Core.ChannelBase
+      description: The channel to use to make remote calls.
+    content.vb: Public Sub New(channel As ChannelBase)
+  overload: ServiceLayer.SLGlobal.SLGlobalClient.#ctor*
+  nameWithType.vb: SLGlobal.SLGlobalClient.New(ChannelBase)
+  fullName.vb: ServiceLayer.SLGlobal.SLGlobalClient.New(Grpc.Core.ChannelBase)
+  name.vb: New(ChannelBase)
+- uid: ServiceLayer.SLGlobal.SLGlobalClient.#ctor(Grpc.Core.CallInvoker)
+  commentId: M:ServiceLayer.SLGlobal.SLGlobalClient.#ctor(Grpc.Core.CallInvoker)
+  id: '#ctor(Grpc.Core.CallInvoker)'
+  parent: ServiceLayer.SLGlobal.SLGlobalClient
+  langs:
+  - csharp
+  - vb
+  name: SLGlobalClient(CallInvoker)
+  nameWithType: SLGlobal.SLGlobalClient.SLGlobalClient(CallInvoker)
+  fullName: ServiceLayer.SLGlobal.SLGlobalClient.SLGlobalClient(Grpc.Core.CallInvoker)
+  type: Constructor
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlGlobalGrpc.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: .ctor
+    path: src/gencs/SlGlobalGrpc.cs
+    startLine: 151
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Creates a new client for SLGlobal that uses a custom <code>CallInvoker</code>.
+  example: []
+  syntax:
+    content: public SLGlobalClient(CallInvoker callInvoker)
+    parameters:
+    - id: callInvoker
+      type: Grpc.Core.CallInvoker
+      description: The callInvoker to use to make remote calls.
+    content.vb: Public Sub New(callInvoker As CallInvoker)
+  overload: ServiceLayer.SLGlobal.SLGlobalClient.#ctor*
+  nameWithType.vb: SLGlobal.SLGlobalClient.New(CallInvoker)
+  fullName.vb: ServiceLayer.SLGlobal.SLGlobalClient.New(Grpc.Core.CallInvoker)
+  name.vb: New(CallInvoker)
+- uid: ServiceLayer.SLGlobal.SLGlobalClient.#ctor
+  commentId: M:ServiceLayer.SLGlobal.SLGlobalClient.#ctor
+  id: '#ctor'
+  parent: ServiceLayer.SLGlobal.SLGlobalClient
+  langs:
+  - csharp
+  - vb
+  name: SLGlobalClient()
+  nameWithType: SLGlobal.SLGlobalClient.SLGlobalClient()
+  fullName: ServiceLayer.SLGlobal.SLGlobalClient.SLGlobalClient()
+  type: Constructor
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlGlobalGrpc.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: .ctor
+    path: src/gencs/SlGlobalGrpc.cs
+    startLine: 156
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Protected parameterless constructor to allow creation of test doubles.
+  example: []
+  syntax:
+    content: protected SLGlobalClient()
+    content.vb: Protected Sub New()
+  overload: ServiceLayer.SLGlobal.SLGlobalClient.#ctor*
+  nameWithType.vb: SLGlobal.SLGlobalClient.New()
+  fullName.vb: ServiceLayer.SLGlobal.SLGlobalClient.New()
+  name.vb: New()
+- uid: ServiceLayer.SLGlobal.SLGlobalClient.#ctor(Grpc.Core.ClientBase.ClientBaseConfiguration)
+  commentId: M:ServiceLayer.SLGlobal.SLGlobalClient.#ctor(Grpc.Core.ClientBase.ClientBaseConfiguration)
+  id: '#ctor(Grpc.Core.ClientBase.ClientBaseConfiguration)'
+  parent: ServiceLayer.SLGlobal.SLGlobalClient
+  langs:
+  - csharp
+  - vb
+  name: SLGlobalClient(ClientBaseConfiguration)
+  nameWithType: SLGlobal.SLGlobalClient.SLGlobalClient(ClientBase.ClientBaseConfiguration)
+  fullName: ServiceLayer.SLGlobal.SLGlobalClient.SLGlobalClient(Grpc.Core.ClientBase.ClientBaseConfiguration)
+  type: Constructor
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlGlobalGrpc.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: .ctor
+    path: src/gencs/SlGlobalGrpc.cs
+    startLine: 162
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Protected constructor to allow creation of configured clients.
+  example: []
+  syntax:
+    content: protected SLGlobalClient(ClientBase.ClientBaseConfiguration configuration)
+    parameters:
+    - id: configuration
+      type: Grpc.Core.ClientBase.ClientBaseConfiguration
+      description: The client configuration.
+    content.vb: Protected Sub New(configuration As ClientBase.ClientBaseConfiguration)
+  overload: ServiceLayer.SLGlobal.SLGlobalClient.#ctor*
+  nameWithType.vb: SLGlobal.SLGlobalClient.New(ClientBase.ClientBaseConfiguration)
+  fullName.vb: ServiceLayer.SLGlobal.SLGlobalClient.New(Grpc.Core.ClientBase.ClientBaseConfiguration)
+  name.vb: New(ClientBaseConfiguration)
+- uid: ServiceLayer.SLGlobal.SLGlobalClient.SLGlobalInitNotif(ServiceLayer.SLInitMsg,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)
+  commentId: M:ServiceLayer.SLGlobal.SLGlobalClient.SLGlobalInitNotif(ServiceLayer.SLInitMsg,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)
+  id: SLGlobalInitNotif(ServiceLayer.SLInitMsg,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)
+  parent: ServiceLayer.SLGlobal.SLGlobalClient
+  langs:
+  - csharp
+  - vb
+  name: SLGlobalInitNotif(SLInitMsg, Metadata, DateTime?, CancellationToken)
+  nameWithType: SLGlobal.SLGlobalClient.SLGlobalInitNotif(SLInitMsg, Metadata, DateTime?, CancellationToken)
+  fullName: ServiceLayer.SLGlobal.SLGlobalClient.SLGlobalInitNotif(ServiceLayer.SLInitMsg, Grpc.Core.Metadata, System.DateTime?, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlGlobalGrpc.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: SLGlobalInitNotif
+    path: src/gencs/SlGlobalGrpc.cs
+    startLine: 187
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: >-
+    Initialize the connection, and setup a application level heartbeat channel.
+
+
+    The caller must send its version information as part of the SLInitMsg
+
+    message. The server will reply with SL_GLOBAL_EVENT_TYPE_VERSION
+
+    that tells the caller whether he can proceed or not.
+
+    Refer to message SLGlobalNotif below for further details.
+
+
+    After the version handshake, the notification channel is used for
+
+    "push" event notifications, such as:
+       - SLGlobalNotif.EventType = SL_GLOBAL_EVENT_TYPE_HEARTBEAT
+           heartbeat notification messages are sent to the client on
+           a periodic basis.
+       Refer to SLGlobalNotif definition for further info.
+  example: []
+  syntax:
+    content: public virtual AsyncServerStreamingCall<SLGlobalNotif> SLGlobalInitNotif(SLInitMsg request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default)
+    parameters:
+    - id: request
+      type: ServiceLayer.SLInitMsg
+      description: The request to send to the server.
+    - id: headers
+      type: Grpc.Core.Metadata
+      description: The initial metadata to send with the call. This parameter is optional.
+    - id: deadline
+      type: System.Nullable{System.DateTime}
+      description: An optional deadline for the call. The call will be cancelled if deadline is hit.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: An optional token for canceling the call.
+    return:
+      type: Grpc.Core.AsyncServerStreamingCall{ServiceLayer.SLGlobalNotif}
+      description: The call object.
+    content.vb: Public Overridable Function SLGlobalInitNotif(request As SLInitMsg, headers As Metadata = Nothing, deadline As Date? = Nothing, cancellationToken As CancellationToken = Nothing) As AsyncServerStreamingCall(Of SLGlobalNotif)
+  overload: ServiceLayer.SLGlobal.SLGlobalClient.SLGlobalInitNotif*
+  nameWithType.vb: SLGlobal.SLGlobalClient.SLGlobalInitNotif(SLInitMsg, Metadata, Date?, CancellationToken)
+  fullName.vb: ServiceLayer.SLGlobal.SLGlobalClient.SLGlobalInitNotif(ServiceLayer.SLInitMsg, Grpc.Core.Metadata, Date?, System.Threading.CancellationToken)
+  name.vb: SLGlobalInitNotif(SLInitMsg, Metadata, Date?, CancellationToken)
+- uid: ServiceLayer.SLGlobal.SLGlobalClient.SLGlobalInitNotif(ServiceLayer.SLInitMsg,Grpc.Core.CallOptions)
+  commentId: M:ServiceLayer.SLGlobal.SLGlobalClient.SLGlobalInitNotif(ServiceLayer.SLInitMsg,Grpc.Core.CallOptions)
+  id: SLGlobalInitNotif(ServiceLayer.SLInitMsg,Grpc.Core.CallOptions)
+  parent: ServiceLayer.SLGlobal.SLGlobalClient
+  langs:
+  - csharp
+  - vb
+  name: SLGlobalInitNotif(SLInitMsg, CallOptions)
+  nameWithType: SLGlobal.SLGlobalClient.SLGlobalInitNotif(SLInitMsg, CallOptions)
+  fullName: ServiceLayer.SLGlobal.SLGlobalClient.SLGlobalInitNotif(ServiceLayer.SLInitMsg, Grpc.Core.CallOptions)
+  type: Method
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlGlobalGrpc.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: SLGlobalInitNotif
+    path: src/gencs/SlGlobalGrpc.cs
+    startLine: 210
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: >-
+    Initialize the connection, and setup a application level heartbeat channel.
+
+
+    The caller must send its version information as part of the SLInitMsg
+
+    message. The server will reply with SL_GLOBAL_EVENT_TYPE_VERSION
+
+    that tells the caller whether he can proceed or not.
+
+    Refer to message SLGlobalNotif below for further details.
+
+
+    After the version handshake, the notification channel is used for
+
+    "push" event notifications, such as:
+       - SLGlobalNotif.EventType = SL_GLOBAL_EVENT_TYPE_HEARTBEAT
+           heartbeat notification messages are sent to the client on
+           a periodic basis.
+       Refer to SLGlobalNotif definition for further info.
+  example: []
+  syntax:
+    content: public virtual AsyncServerStreamingCall<SLGlobalNotif> SLGlobalInitNotif(SLInitMsg request, CallOptions options)
+    parameters:
+    - id: request
+      type: ServiceLayer.SLInitMsg
+      description: The request to send to the server.
+    - id: options
+      type: Grpc.Core.CallOptions
+      description: The options for the call.
+    return:
+      type: Grpc.Core.AsyncServerStreamingCall{ServiceLayer.SLGlobalNotif}
+      description: The call object.
+    content.vb: Public Overridable Function SLGlobalInitNotif(request As SLInitMsg, options As CallOptions) As AsyncServerStreamingCall(Of SLGlobalNotif)
+  overload: ServiceLayer.SLGlobal.SLGlobalClient.SLGlobalInitNotif*
+- uid: ServiceLayer.SLGlobal.SLGlobalClient.SLGlobalsGet(ServiceLayer.SLGlobalsGetMsg,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)
+  commentId: M:ServiceLayer.SLGlobal.SLGlobalClient.SLGlobalsGet(ServiceLayer.SLGlobalsGetMsg,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)
+  id: SLGlobalsGet(ServiceLayer.SLGlobalsGetMsg,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)
+  parent: ServiceLayer.SLGlobal.SLGlobalClient
+  langs:
+  - csharp
+  - vb
+  name: SLGlobalsGet(SLGlobalsGetMsg, Metadata, DateTime?, CancellationToken)
+  nameWithType: SLGlobal.SLGlobalClient.SLGlobalsGet(SLGlobalsGetMsg, Metadata, DateTime?, CancellationToken)
+  fullName: ServiceLayer.SLGlobal.SLGlobalClient.SLGlobalsGet(ServiceLayer.SLGlobalsGetMsg, Grpc.Core.Metadata, System.DateTime?, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlGlobalGrpc.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: SLGlobalsGet
+    path: src/gencs/SlGlobalGrpc.cs
+    startLine: 223
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Get platform specific globals
+  example: []
+  syntax:
+    content: public virtual SLGlobalsGetMsgRsp SLGlobalsGet(SLGlobalsGetMsg request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default)
+    parameters:
+    - id: request
+      type: ServiceLayer.SLGlobalsGetMsg
+      description: The request to send to the server.
+    - id: headers
+      type: Grpc.Core.Metadata
+      description: The initial metadata to send with the call. This parameter is optional.
+    - id: deadline
+      type: System.Nullable{System.DateTime}
+      description: An optional deadline for the call. The call will be cancelled if deadline is hit.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: An optional token for canceling the call.
+    return:
+      type: ServiceLayer.SLGlobalsGetMsgRsp
+      description: The response received from the server.
+    content.vb: Public Overridable Function SLGlobalsGet(request As SLGlobalsGetMsg, headers As Metadata = Nothing, deadline As Date? = Nothing, cancellationToken As CancellationToken = Nothing) As SLGlobalsGetMsgRsp
+  overload: ServiceLayer.SLGlobal.SLGlobalClient.SLGlobalsGet*
+  nameWithType.vb: SLGlobal.SLGlobalClient.SLGlobalsGet(SLGlobalsGetMsg, Metadata, Date?, CancellationToken)
+  fullName.vb: ServiceLayer.SLGlobal.SLGlobalClient.SLGlobalsGet(ServiceLayer.SLGlobalsGetMsg, Grpc.Core.Metadata, Date?, System.Threading.CancellationToken)
+  name.vb: SLGlobalsGet(SLGlobalsGetMsg, Metadata, Date?, CancellationToken)
+- uid: ServiceLayer.SLGlobal.SLGlobalClient.SLGlobalsGet(ServiceLayer.SLGlobalsGetMsg,Grpc.Core.CallOptions)
+  commentId: M:ServiceLayer.SLGlobal.SLGlobalClient.SLGlobalsGet(ServiceLayer.SLGlobalsGetMsg,Grpc.Core.CallOptions)
+  id: SLGlobalsGet(ServiceLayer.SLGlobalsGetMsg,Grpc.Core.CallOptions)
+  parent: ServiceLayer.SLGlobal.SLGlobalClient
+  langs:
+  - csharp
+  - vb
+  name: SLGlobalsGet(SLGlobalsGetMsg, CallOptions)
+  nameWithType: SLGlobal.SLGlobalClient.SLGlobalsGet(SLGlobalsGetMsg, CallOptions)
+  fullName: ServiceLayer.SLGlobal.SLGlobalClient.SLGlobalsGet(ServiceLayer.SLGlobalsGetMsg, Grpc.Core.CallOptions)
+  type: Method
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlGlobalGrpc.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: SLGlobalsGet
+    path: src/gencs/SlGlobalGrpc.cs
+    startLine: 234
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Get platform specific globals
+  example: []
+  syntax:
+    content: public virtual SLGlobalsGetMsgRsp SLGlobalsGet(SLGlobalsGetMsg request, CallOptions options)
+    parameters:
+    - id: request
+      type: ServiceLayer.SLGlobalsGetMsg
+      description: The request to send to the server.
+    - id: options
+      type: Grpc.Core.CallOptions
+      description: The options for the call.
+    return:
+      type: ServiceLayer.SLGlobalsGetMsgRsp
+      description: The response received from the server.
+    content.vb: Public Overridable Function SLGlobalsGet(request As SLGlobalsGetMsg, options As CallOptions) As SLGlobalsGetMsgRsp
+  overload: ServiceLayer.SLGlobal.SLGlobalClient.SLGlobalsGet*
+- uid: ServiceLayer.SLGlobal.SLGlobalClient.SLGlobalsGetAsync(ServiceLayer.SLGlobalsGetMsg,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)
+  commentId: M:ServiceLayer.SLGlobal.SLGlobalClient.SLGlobalsGetAsync(ServiceLayer.SLGlobalsGetMsg,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)
+  id: SLGlobalsGetAsync(ServiceLayer.SLGlobalsGetMsg,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)
+  parent: ServiceLayer.SLGlobal.SLGlobalClient
+  langs:
+  - csharp
+  - vb
+  name: SLGlobalsGetAsync(SLGlobalsGetMsg, Metadata, DateTime?, CancellationToken)
+  nameWithType: SLGlobal.SLGlobalClient.SLGlobalsGetAsync(SLGlobalsGetMsg, Metadata, DateTime?, CancellationToken)
+  fullName: ServiceLayer.SLGlobal.SLGlobalClient.SLGlobalsGetAsync(ServiceLayer.SLGlobalsGetMsg, Grpc.Core.Metadata, System.DateTime?, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlGlobalGrpc.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: SLGlobalsGetAsync
+    path: src/gencs/SlGlobalGrpc.cs
+    startLine: 247
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Get platform specific globals
+  example: []
+  syntax:
+    content: public virtual AsyncUnaryCall<SLGlobalsGetMsgRsp> SLGlobalsGetAsync(SLGlobalsGetMsg request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default)
+    parameters:
+    - id: request
+      type: ServiceLayer.SLGlobalsGetMsg
+      description: The request to send to the server.
+    - id: headers
+      type: Grpc.Core.Metadata
+      description: The initial metadata to send with the call. This parameter is optional.
+    - id: deadline
+      type: System.Nullable{System.DateTime}
+      description: An optional deadline for the call. The call will be cancelled if deadline is hit.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: An optional token for canceling the call.
+    return:
+      type: Grpc.Core.AsyncUnaryCall{ServiceLayer.SLGlobalsGetMsgRsp}
+      description: The call object.
+    content.vb: Public Overridable Function SLGlobalsGetAsync(request As SLGlobalsGetMsg, headers As Metadata = Nothing, deadline As Date? = Nothing, cancellationToken As CancellationToken = Nothing) As AsyncUnaryCall(Of SLGlobalsGetMsgRsp)
+  overload: ServiceLayer.SLGlobal.SLGlobalClient.SLGlobalsGetAsync*
+  nameWithType.vb: SLGlobal.SLGlobalClient.SLGlobalsGetAsync(SLGlobalsGetMsg, Metadata, Date?, CancellationToken)
+  fullName.vb: ServiceLayer.SLGlobal.SLGlobalClient.SLGlobalsGetAsync(ServiceLayer.SLGlobalsGetMsg, Grpc.Core.Metadata, Date?, System.Threading.CancellationToken)
+  name.vb: SLGlobalsGetAsync(SLGlobalsGetMsg, Metadata, Date?, CancellationToken)
+- uid: ServiceLayer.SLGlobal.SLGlobalClient.SLGlobalsGetAsync(ServiceLayer.SLGlobalsGetMsg,Grpc.Core.CallOptions)
+  commentId: M:ServiceLayer.SLGlobal.SLGlobalClient.SLGlobalsGetAsync(ServiceLayer.SLGlobalsGetMsg,Grpc.Core.CallOptions)
+  id: SLGlobalsGetAsync(ServiceLayer.SLGlobalsGetMsg,Grpc.Core.CallOptions)
+  parent: ServiceLayer.SLGlobal.SLGlobalClient
+  langs:
+  - csharp
+  - vb
+  name: SLGlobalsGetAsync(SLGlobalsGetMsg, CallOptions)
+  nameWithType: SLGlobal.SLGlobalClient.SLGlobalsGetAsync(SLGlobalsGetMsg, CallOptions)
+  fullName: ServiceLayer.SLGlobal.SLGlobalClient.SLGlobalsGetAsync(ServiceLayer.SLGlobalsGetMsg, Grpc.Core.CallOptions)
+  type: Method
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlGlobalGrpc.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: SLGlobalsGetAsync
+    path: src/gencs/SlGlobalGrpc.cs
+    startLine: 258
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Get platform specific globals
+  example: []
+  syntax:
+    content: public virtual AsyncUnaryCall<SLGlobalsGetMsgRsp> SLGlobalsGetAsync(SLGlobalsGetMsg request, CallOptions options)
+    parameters:
+    - id: request
+      type: ServiceLayer.SLGlobalsGetMsg
+      description: The request to send to the server.
+    - id: options
+      type: Grpc.Core.CallOptions
+      description: The options for the call.
+    return:
+      type: Grpc.Core.AsyncUnaryCall{ServiceLayer.SLGlobalsGetMsgRsp}
+      description: The call object.
+    content.vb: Public Overridable Function SLGlobalsGetAsync(request As SLGlobalsGetMsg, options As CallOptions) As AsyncUnaryCall(Of SLGlobalsGetMsgRsp)
+  overload: ServiceLayer.SLGlobal.SLGlobalClient.SLGlobalsGetAsync*
+- uid: ServiceLayer.SLGlobal.SLGlobalClient.NewInstance(Grpc.Core.ClientBase.ClientBaseConfiguration)
+  commentId: M:ServiceLayer.SLGlobal.SLGlobalClient.NewInstance(Grpc.Core.ClientBase.ClientBaseConfiguration)
+  id: NewInstance(Grpc.Core.ClientBase.ClientBaseConfiguration)
+  parent: ServiceLayer.SLGlobal.SLGlobalClient
+  langs:
+  - csharp
+  - vb
+  name: NewInstance(ClientBaseConfiguration)
+  nameWithType: SLGlobal.SLGlobalClient.NewInstance(ClientBase.ClientBaseConfiguration)
+  fullName: ServiceLayer.SLGlobal.SLGlobalClient.NewInstance(Grpc.Core.ClientBase.ClientBaseConfiguration)
+  type: Method
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlGlobalGrpc.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: NewInstance
+    path: src/gencs/SlGlobalGrpc.cs
+    startLine: 264
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Creates a new instance of client from given <code>ClientBaseConfiguration</code>.
+  example: []
+  syntax:
+    content: protected override SLGlobal.SLGlobalClient NewInstance(ClientBase.ClientBaseConfiguration configuration)
+    parameters:
+    - id: configuration
+      type: Grpc.Core.ClientBase.ClientBaseConfiguration
+    return:
+      type: ServiceLayer.SLGlobal.SLGlobalClient
+    content.vb: Protected Overrides Function NewInstance(configuration As ClientBase.ClientBaseConfiguration) As SLGlobal.SLGlobalClient
+  overridden: Grpc.Core.ClientBase{ServiceLayer.SLGlobal.SLGlobalClient}.NewInstance(Grpc.Core.ClientBase.ClientBaseConfiguration)
+  overload: ServiceLayer.SLGlobal.SLGlobalClient.NewInstance*
+references:
+- uid: ServiceLayer
+  commentId: N:ServiceLayer
+  href: ServiceLayer.html
+  name: ServiceLayer
+  nameWithType: ServiceLayer
+  fullName: ServiceLayer
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: Grpc.Core.ClientBase
+  commentId: T:Grpc.Core.ClientBase
+  parent: Grpc.Core
+  isExternal: true
+  href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/ClientBase.cs
+  name: ClientBase
+  nameWithType: ClientBase
+  fullName: Grpc.Core.ClientBase
+- uid: Grpc.Core.ClientBase{ServiceLayer.SLGlobal.SLGlobalClient}
+  commentId: T:Grpc.Core.ClientBase{ServiceLayer.SLGlobal.SLGlobalClient}
+  parent: Grpc.Core
+  definition: Grpc.Core.ClientBase`1
+  href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/ClientBase.cs
+  name: ClientBase<SLGlobal.SLGlobalClient>
+  nameWithType: ClientBase<SLGlobal.SLGlobalClient>
+  fullName: Grpc.Core.ClientBase<ServiceLayer.SLGlobal.SLGlobalClient>
+  nameWithType.vb: ClientBase(Of SLGlobal.SLGlobalClient)
+  fullName.vb: Grpc.Core.ClientBase(Of ServiceLayer.SLGlobal.SLGlobalClient)
+  name.vb: ClientBase(Of SLGlobal.SLGlobalClient)
+  spec.csharp:
+  - uid: Grpc.Core.ClientBase`1
+    name: ClientBase
+    isExternal: true
+    href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/ClientBase.cs
+  - name: <
+  - uid: ServiceLayer.SLGlobal
+    name: SLGlobal
+    href: ServiceLayer.SLGlobal.html
+  - name: .
+  - uid: ServiceLayer.SLGlobal.SLGlobalClient
+    name: SLGlobalClient
+    href: ServiceLayer.SLGlobal.SLGlobalClient.html
+  - name: '>'
+  spec.vb:
+  - uid: Grpc.Core.ClientBase`1
+    name: ClientBase
+    isExternal: true
+    href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/ClientBase.cs
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ServiceLayer.SLGlobal
+    name: SLGlobal
+    href: ServiceLayer.SLGlobal.html
+  - name: .
+  - uid: ServiceLayer.SLGlobal.SLGlobalClient
+    name: SLGlobalClient
+    href: ServiceLayer.SLGlobal.SLGlobalClient.html
+  - name: )
+- uid: Grpc.Core.ClientBase{ServiceLayer.SLGlobal.SLGlobalClient}.WithHost(System.String)
+  commentId: M:Grpc.Core.ClientBase{ServiceLayer.SLGlobal.SLGlobalClient}.WithHost(System.String)
+  parent: Grpc.Core.ClientBase{ServiceLayer.SLGlobal.SLGlobalClient}
+  definition: Grpc.Core.ClientBase`1.WithHost(System.String)
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: WithHost(string)
+  nameWithType: ClientBase<SLGlobal.SLGlobalClient>.WithHost(string)
+  fullName: Grpc.Core.ClientBase<ServiceLayer.SLGlobal.SLGlobalClient>.WithHost(string)
+  nameWithType.vb: ClientBase(Of SLGlobal.SLGlobalClient).WithHost(String)
+  fullName.vb: Grpc.Core.ClientBase(Of ServiceLayer.SLGlobal.SLGlobalClient).WithHost(String)
+  name.vb: WithHost(String)
+  spec.csharp:
+  - uid: Grpc.Core.ClientBase{ServiceLayer.SLGlobal.SLGlobalClient}.WithHost(System.String)
+    name: WithHost
+    isExternal: true
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: Grpc.Core.ClientBase{ServiceLayer.SLGlobal.SLGlobalClient}.WithHost(System.String)
+    name: WithHost
+    isExternal: true
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: Grpc.Core.ClientBase.CallInvoker
+  commentId: P:Grpc.Core.ClientBase.CallInvoker
+  parent: Grpc.Core.ClientBase
+  isExternal: true
+  href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/ClientBase.cs
+  name: CallInvoker
+  nameWithType: ClientBase.CallInvoker
+  fullName: Grpc.Core.ClientBase.CallInvoker
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Grpc.Core
+  commentId: N:Grpc.Core
+  isExternal: true
+  name: Grpc.Core
+  nameWithType: Grpc.Core
+  fullName: Grpc.Core
+  spec.csharp:
+  - uid: Grpc
+    name: Grpc
+    isExternal: true
+  - name: .
+  - uid: Grpc.Core
+    name: Core
+    isExternal: true
+  spec.vb:
+  - uid: Grpc
+    name: Grpc
+    isExternal: true
+  - name: .
+  - uid: Grpc.Core
+    name: Core
+    isExternal: true
+- uid: Grpc.Core.ClientBase`1
+  commentId: T:Grpc.Core.ClientBase`1
+  isExternal: true
+  href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/ClientBase.cs
+  name: ClientBase<T>
+  nameWithType: ClientBase<T>
+  fullName: Grpc.Core.ClientBase<T>
+  nameWithType.vb: ClientBase(Of T)
+  fullName.vb: Grpc.Core.ClientBase(Of T)
+  name.vb: ClientBase(Of T)
+  spec.csharp:
+  - uid: Grpc.Core.ClientBase`1
+    name: ClientBase
+    isExternal: true
+    href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/ClientBase.cs
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Grpc.Core.ClientBase`1
+    name: ClientBase
+    isExternal: true
+    href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/ClientBase.cs
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Grpc.Core.ClientBase`1.WithHost(System.String)
+  commentId: M:Grpc.Core.ClientBase`1.WithHost(System.String)
+  isExternal: true
+  href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/ClientBase.cs
+  name: WithHost(string)
+  nameWithType: ClientBase<T>.WithHost(string)
+  fullName: Grpc.Core.ClientBase<T>.WithHost(string)
+  nameWithType.vb: ClientBase(Of T).WithHost(String)
+  fullName.vb: Grpc.Core.ClientBase(Of T).WithHost(String)
+  name.vb: WithHost(String)
+  spec.csharp:
+  - uid: Grpc.Core.ClientBase`1.WithHost(System.String)
+    name: WithHost
+    isExternal: true
+    href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/ClientBase.cs
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: Grpc.Core.ClientBase`1.WithHost(System.String)
+    name: WithHost
+    isExternal: true
+    href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/ClientBase.cs
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: ServiceLayer.SLGlobal.SLGlobalClient.#ctor*
+  commentId: Overload:ServiceLayer.SLGlobal.SLGlobalClient.#ctor
+  href: ServiceLayer.SLGlobal.SLGlobalClient.html#ServiceLayer.SLGlobal.SLGlobalClient.#ctor(Grpc.Core.ChannelBase)
+  name: SLGlobalClient
+  nameWithType: SLGlobal.SLGlobalClient.SLGlobalClient
+  fullName: ServiceLayer.SLGlobal.SLGlobalClient.SLGlobalClient
+  nameWithType.vb: SLGlobal.SLGlobalClient.New
+  fullName.vb: ServiceLayer.SLGlobal.SLGlobalClient.New
+  name.vb: New
+- uid: Grpc.Core.ChannelBase
+  commentId: T:Grpc.Core.ChannelBase
+  parent: Grpc.Core
+  isExternal: true
+  href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/ChannelBase.cs
+  name: ChannelBase
+  nameWithType: ChannelBase
+  fullName: Grpc.Core.ChannelBase
+- uid: Grpc.Core.CallInvoker
+  commentId: T:Grpc.Core.CallInvoker
+  parent: Grpc.Core
+  isExternal: true
+  href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/CallInvoker.cs
+  name: CallInvoker
+  nameWithType: CallInvoker
+  fullName: Grpc.Core.CallInvoker
+- uid: Grpc.Core.ClientBase.ClientBaseConfiguration
+  commentId: T:Grpc.Core.ClientBase.ClientBaseConfiguration
+  parent: Grpc.Core
+  isExternal: true
+  href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/ClientBase.cs
+  name: ClientBase.ClientBaseConfiguration
+  nameWithType: ClientBase.ClientBaseConfiguration
+  fullName: Grpc.Core.ClientBase.ClientBaseConfiguration
+  spec.csharp:
+  - uid: Grpc.Core.ClientBase
+    name: ClientBase
+    isExternal: true
+    href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/ClientBase.cs
+  - name: .
+  - uid: Grpc.Core.ClientBase.ClientBaseConfiguration
+    name: ClientBaseConfiguration
+    isExternal: true
+    href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/ClientBase.cs
+  spec.vb:
+  - uid: Grpc.Core.ClientBase
+    name: ClientBase
+    isExternal: true
+    href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/ClientBase.cs
+  - name: .
+  - uid: Grpc.Core.ClientBase.ClientBaseConfiguration
+    name: ClientBaseConfiguration
+    isExternal: true
+    href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/ClientBase.cs
+- uid: ServiceLayer.SLGlobal.SLGlobalClient.SLGlobalInitNotif*
+  commentId: Overload:ServiceLayer.SLGlobal.SLGlobalClient.SLGlobalInitNotif
+  href: ServiceLayer.SLGlobal.SLGlobalClient.html#ServiceLayer.SLGlobal.SLGlobalClient.SLGlobalInitNotif(ServiceLayer.SLInitMsg,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)
+  name: SLGlobalInitNotif
+  nameWithType: SLGlobal.SLGlobalClient.SLGlobalInitNotif
+  fullName: ServiceLayer.SLGlobal.SLGlobalClient.SLGlobalInitNotif
+- uid: ServiceLayer.SLInitMsg
+  commentId: T:ServiceLayer.SLInitMsg
+  parent: ServiceLayer
+  href: ServiceLayer.SLInitMsg.html
+  name: SLInitMsg
+  nameWithType: SLInitMsg
+  fullName: ServiceLayer.SLInitMsg
+- uid: Grpc.Core.Metadata
+  commentId: T:Grpc.Core.Metadata
+  parent: Grpc.Core
+  isExternal: true
+  href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/Metadata.cs
+  name: Metadata
+  nameWithType: Metadata
+  fullName: Grpc.Core.Metadata
+- uid: System.Nullable{System.DateTime}
+  commentId: T:System.Nullable{System.DateTime}
+  parent: System
+  definition: System.Nullable`1
+  href: https://learn.microsoft.com/dotnet/api/system.datetime
+  name: DateTime?
+  nameWithType: DateTime?
+  fullName: System.DateTime?
+  nameWithType.vb: Date?
+  fullName.vb: Date?
+  name.vb: Date?
+  spec.csharp:
+  - uid: System.DateTime
+    name: DateTime
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.datetime
+  - name: '?'
+  spec.vb:
+  - uid: System.DateTime
+    name: Date
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.datetime
+  - name: '?'
+- uid: System.Threading.CancellationToken
+  commentId: T:System.Threading.CancellationToken
+  parent: System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  name: CancellationToken
+  nameWithType: CancellationToken
+  fullName: System.Threading.CancellationToken
+- uid: Grpc.Core.AsyncServerStreamingCall{ServiceLayer.SLGlobalNotif}
+  commentId: T:Grpc.Core.AsyncServerStreamingCall{ServiceLayer.SLGlobalNotif}
+  parent: Grpc.Core
+  definition: Grpc.Core.AsyncServerStreamingCall`1
+  href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/AsyncServerStreamingCall.cs
+  name: AsyncServerStreamingCall<SLGlobalNotif>
+  nameWithType: AsyncServerStreamingCall<SLGlobalNotif>
+  fullName: Grpc.Core.AsyncServerStreamingCall<ServiceLayer.SLGlobalNotif>
+  nameWithType.vb: AsyncServerStreamingCall(Of SLGlobalNotif)
+  fullName.vb: Grpc.Core.AsyncServerStreamingCall(Of ServiceLayer.SLGlobalNotif)
+  name.vb: AsyncServerStreamingCall(Of SLGlobalNotif)
+  spec.csharp:
+  - uid: Grpc.Core.AsyncServerStreamingCall`1
+    name: AsyncServerStreamingCall
+    isExternal: true
+    href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/AsyncServerStreamingCall.cs
+  - name: <
+  - uid: ServiceLayer.SLGlobalNotif
+    name: SLGlobalNotif
+    href: ServiceLayer.SLGlobalNotif.html
+  - name: '>'
+  spec.vb:
+  - uid: Grpc.Core.AsyncServerStreamingCall`1
+    name: AsyncServerStreamingCall
+    isExternal: true
+    href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/AsyncServerStreamingCall.cs
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ServiceLayer.SLGlobalNotif
+    name: SLGlobalNotif
+    href: ServiceLayer.SLGlobalNotif.html
+  - name: )
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Threading
+  commentId: N:System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading
+  nameWithType: System.Threading
+  fullName: System.Threading
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+- uid: Grpc.Core.AsyncServerStreamingCall`1
+  commentId: T:Grpc.Core.AsyncServerStreamingCall`1
+  isExternal: true
+  href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/AsyncServerStreamingCall.cs
+  name: AsyncServerStreamingCall<TResponse>
+  nameWithType: AsyncServerStreamingCall<TResponse>
+  fullName: Grpc.Core.AsyncServerStreamingCall<TResponse>
+  nameWithType.vb: AsyncServerStreamingCall(Of TResponse)
+  fullName.vb: Grpc.Core.AsyncServerStreamingCall(Of TResponse)
+  name.vb: AsyncServerStreamingCall(Of TResponse)
+  spec.csharp:
+  - uid: Grpc.Core.AsyncServerStreamingCall`1
+    name: AsyncServerStreamingCall
+    isExternal: true
+    href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/AsyncServerStreamingCall.cs
+  - name: <
+  - name: TResponse
+  - name: '>'
+  spec.vb:
+  - uid: Grpc.Core.AsyncServerStreamingCall`1
+    name: AsyncServerStreamingCall
+    isExternal: true
+    href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/AsyncServerStreamingCall.cs
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResponse
+  - name: )
+- uid: Grpc.Core.CallOptions
+  commentId: T:Grpc.Core.CallOptions
+  parent: Grpc.Core
+  isExternal: true
+  href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/CallOptions.cs
+  name: CallOptions
+  nameWithType: CallOptions
+  fullName: Grpc.Core.CallOptions
+- uid: ServiceLayer.SLGlobal.SLGlobalClient.SLGlobalsGet*
+  commentId: Overload:ServiceLayer.SLGlobal.SLGlobalClient.SLGlobalsGet
+  href: ServiceLayer.SLGlobal.SLGlobalClient.html#ServiceLayer.SLGlobal.SLGlobalClient.SLGlobalsGet(ServiceLayer.SLGlobalsGetMsg,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)
+  name: SLGlobalsGet
+  nameWithType: SLGlobal.SLGlobalClient.SLGlobalsGet
+  fullName: ServiceLayer.SLGlobal.SLGlobalClient.SLGlobalsGet
+- uid: ServiceLayer.SLGlobalsGetMsg
+  commentId: T:ServiceLayer.SLGlobalsGetMsg
+  parent: ServiceLayer
+  href: ServiceLayer.SLGlobalsGetMsg.html
+  name: SLGlobalsGetMsg
+  nameWithType: SLGlobalsGetMsg
+  fullName: ServiceLayer.SLGlobalsGetMsg
+- uid: ServiceLayer.SLGlobalsGetMsgRsp
+  commentId: T:ServiceLayer.SLGlobalsGetMsgRsp
+  parent: ServiceLayer
+  href: ServiceLayer.SLGlobalsGetMsgRsp.html
+  name: SLGlobalsGetMsgRsp
+  nameWithType: SLGlobalsGetMsgRsp
+  fullName: ServiceLayer.SLGlobalsGetMsgRsp
+- uid: ServiceLayer.SLGlobal.SLGlobalClient.SLGlobalsGetAsync*
+  commentId: Overload:ServiceLayer.SLGlobal.SLGlobalClient.SLGlobalsGetAsync
+  href: ServiceLayer.SLGlobal.SLGlobalClient.html#ServiceLayer.SLGlobal.SLGlobalClient.SLGlobalsGetAsync(ServiceLayer.SLGlobalsGetMsg,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)
+  name: SLGlobalsGetAsync
+  nameWithType: SLGlobal.SLGlobalClient.SLGlobalsGetAsync
+  fullName: ServiceLayer.SLGlobal.SLGlobalClient.SLGlobalsGetAsync
+- uid: Grpc.Core.AsyncUnaryCall{ServiceLayer.SLGlobalsGetMsgRsp}
+  commentId: T:Grpc.Core.AsyncUnaryCall{ServiceLayer.SLGlobalsGetMsgRsp}
+  parent: Grpc.Core
+  definition: Grpc.Core.AsyncUnaryCall`1
+  href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/AsyncUnaryCall.cs
+  name: AsyncUnaryCall<SLGlobalsGetMsgRsp>
+  nameWithType: AsyncUnaryCall<SLGlobalsGetMsgRsp>
+  fullName: Grpc.Core.AsyncUnaryCall<ServiceLayer.SLGlobalsGetMsgRsp>
+  nameWithType.vb: AsyncUnaryCall(Of SLGlobalsGetMsgRsp)
+  fullName.vb: Grpc.Core.AsyncUnaryCall(Of ServiceLayer.SLGlobalsGetMsgRsp)
+  name.vb: AsyncUnaryCall(Of SLGlobalsGetMsgRsp)
+  spec.csharp:
+  - uid: Grpc.Core.AsyncUnaryCall`1
+    name: AsyncUnaryCall
+    isExternal: true
+    href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/AsyncUnaryCall.cs
+  - name: <
+  - uid: ServiceLayer.SLGlobalsGetMsgRsp
+    name: SLGlobalsGetMsgRsp
+    href: ServiceLayer.SLGlobalsGetMsgRsp.html
+  - name: '>'
+  spec.vb:
+  - uid: Grpc.Core.AsyncUnaryCall`1
+    name: AsyncUnaryCall
+    isExternal: true
+    href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/AsyncUnaryCall.cs
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ServiceLayer.SLGlobalsGetMsgRsp
+    name: SLGlobalsGetMsgRsp
+    href: ServiceLayer.SLGlobalsGetMsgRsp.html
+  - name: )
+- uid: Grpc.Core.AsyncUnaryCall`1
+  commentId: T:Grpc.Core.AsyncUnaryCall`1
+  isExternal: true
+  href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/AsyncUnaryCall.cs
+  name: AsyncUnaryCall<TResponse>
+  nameWithType: AsyncUnaryCall<TResponse>
+  fullName: Grpc.Core.AsyncUnaryCall<TResponse>
+  nameWithType.vb: AsyncUnaryCall(Of TResponse)
+  fullName.vb: Grpc.Core.AsyncUnaryCall(Of TResponse)
+  name.vb: AsyncUnaryCall(Of TResponse)
+  spec.csharp:
+  - uid: Grpc.Core.AsyncUnaryCall`1
+    name: AsyncUnaryCall
+    isExternal: true
+    href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/AsyncUnaryCall.cs
+  - name: <
+  - name: TResponse
+  - name: '>'
+  spec.vb:
+  - uid: Grpc.Core.AsyncUnaryCall`1
+    name: AsyncUnaryCall
+    isExternal: true
+    href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/AsyncUnaryCall.cs
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResponse
+  - name: )
+- uid: Grpc.Core.ClientBase{ServiceLayer.SLGlobal.SLGlobalClient}.NewInstance(Grpc.Core.ClientBase.ClientBaseConfiguration)
+  commentId: M:Grpc.Core.ClientBase{ServiceLayer.SLGlobal.SLGlobalClient}.NewInstance(Grpc.Core.ClientBase.ClientBaseConfiguration)
+  parent: Grpc.Core.ClientBase{ServiceLayer.SLGlobal.SLGlobalClient}
+  definition: Grpc.Core.ClientBase`1.NewInstance(Grpc.Core.ClientBase.ClientBaseConfiguration)
+  href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/ClientBase.cs
+  name: NewInstance(ClientBaseConfiguration)
+  nameWithType: ClientBase<SLGlobal.SLGlobalClient>.NewInstance(ClientBase.ClientBaseConfiguration)
+  fullName: Grpc.Core.ClientBase<ServiceLayer.SLGlobal.SLGlobalClient>.NewInstance(Grpc.Core.ClientBase.ClientBaseConfiguration)
+  nameWithType.vb: ClientBase(Of SLGlobal.SLGlobalClient).NewInstance(ClientBase.ClientBaseConfiguration)
+  fullName.vb: Grpc.Core.ClientBase(Of ServiceLayer.SLGlobal.SLGlobalClient).NewInstance(Grpc.Core.ClientBase.ClientBaseConfiguration)
+  spec.csharp:
+  - uid: Grpc.Core.ClientBase{ServiceLayer.SLGlobal.SLGlobalClient}.NewInstance(Grpc.Core.ClientBase.ClientBaseConfiguration)
+    name: NewInstance
+    isExternal: true
+  - name: (
+  - uid: Grpc.Core.ClientBase.ClientBaseConfiguration
+    name: ClientBaseConfiguration
+    isExternal: true
+    href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/ClientBase.cs
+  - name: )
+  spec.vb:
+  - uid: Grpc.Core.ClientBase{ServiceLayer.SLGlobal.SLGlobalClient}.NewInstance(Grpc.Core.ClientBase.ClientBaseConfiguration)
+    name: NewInstance
+    isExternal: true
+  - name: (
+  - uid: Grpc.Core.ClientBase.ClientBaseConfiguration
+    name: ClientBaseConfiguration
+    isExternal: true
+    href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/ClientBase.cs
+  - name: )
+- uid: ServiceLayer.SLGlobal.SLGlobalClient.NewInstance*
+  commentId: Overload:ServiceLayer.SLGlobal.SLGlobalClient.NewInstance
+  href: ServiceLayer.SLGlobal.SLGlobalClient.html#ServiceLayer.SLGlobal.SLGlobalClient.NewInstance(Grpc.Core.ClientBase.ClientBaseConfiguration)
+  name: NewInstance
+  nameWithType: SLGlobal.SLGlobalClient.NewInstance
+  fullName: ServiceLayer.SLGlobal.SLGlobalClient.NewInstance
+- uid: ServiceLayer.SLGlobal.SLGlobalClient
+  commentId: T:ServiceLayer.SLGlobal.SLGlobalClient
+  parent: ServiceLayer
+  href: ServiceLayer.SLGlobal.html
+  name: SLGlobal.SLGlobalClient
+  nameWithType: SLGlobal.SLGlobalClient
+  fullName: ServiceLayer.SLGlobal.SLGlobalClient
+  spec.csharp:
+  - uid: ServiceLayer.SLGlobal
+    name: SLGlobal
+    href: ServiceLayer.SLGlobal.html
+  - name: .
+  - uid: ServiceLayer.SLGlobal.SLGlobalClient
+    name: SLGlobalClient
+    href: ServiceLayer.SLGlobal.SLGlobalClient.html
+  spec.vb:
+  - uid: ServiceLayer.SLGlobal
+    name: SLGlobal
+    href: ServiceLayer.SLGlobal.html
+  - name: .
+  - uid: ServiceLayer.SLGlobal.SLGlobalClient
+    name: SLGlobalClient
+    href: ServiceLayer.SLGlobal.SLGlobalClient.html
+- uid: Grpc.Core.ClientBase`1.NewInstance(Grpc.Core.ClientBase.ClientBaseConfiguration)
+  commentId: M:Grpc.Core.ClientBase`1.NewInstance(Grpc.Core.ClientBase.ClientBaseConfiguration)
+  isExternal: true
+  href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/ClientBase.cs
+  name: NewInstance(ClientBaseConfiguration)
+  nameWithType: ClientBase<T>.NewInstance(ClientBase.ClientBaseConfiguration)
+  fullName: Grpc.Core.ClientBase<T>.NewInstance(Grpc.Core.ClientBase.ClientBaseConfiguration)
+  nameWithType.vb: ClientBase(Of T).NewInstance(ClientBase.ClientBaseConfiguration)
+  fullName.vb: Grpc.Core.ClientBase(Of T).NewInstance(Grpc.Core.ClientBase.ClientBaseConfiguration)
+  spec.csharp:
+  - uid: Grpc.Core.ClientBase`1.NewInstance(Grpc.Core.ClientBase.ClientBaseConfiguration)
+    name: NewInstance
+    isExternal: true
+    href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/ClientBase.cs
+  - name: (
+  - uid: Grpc.Core.ClientBase.ClientBaseConfiguration
+    name: ClientBaseConfiguration
+    isExternal: true
+    href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/ClientBase.cs
+  - name: )
+  spec.vb:
+  - uid: Grpc.Core.ClientBase`1.NewInstance(Grpc.Core.ClientBase.ClientBaseConfiguration)
+    name: NewInstance
+    isExternal: true
+    href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/ClientBase.cs
+  - name: (
+  - uid: Grpc.Core.ClientBase.ClientBaseConfiguration
+    name: ClientBaseConfiguration
+    isExternal: true
+    href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/ClientBase.cs
+  - name: )

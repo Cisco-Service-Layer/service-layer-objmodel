@@ -35,19 +35,16 @@ ENV DEBIAN_FRONTEND=noninteractive
 # Install .NET SDK
 RUN wget -q  -O packages-microsoft-prod.deb https://packages.microsoft.com/config/ubuntu/${UBUNTU_VER}/packages-microsoft-prod.deb
 RUN dpkg -i packages-microsoft-prod.deb
-RUN apt-get update && apt-get install -y dotnet-sdk-5.0
+RUN apt-get update && apt-get install -y dotnet-sdk-6.0
 RUN rm packages-microsoft-prod.deb
-
-# Download and extract DocFX
-RUN wget https://github.com/dotnet/docfx/releases/download/v2.58.9/docfx.zip \
-    && unzip docfx.zip -d /usr/bin/docfx \
-    && rm docfx.zip
-
-# Add DocFX to your path
-ENV PATH="/usr/bin/docfx:${PATH}"
 
 # Disable .NET CLI's telemetry feature
 ENV DOTNET_CLI_TELEMETRY_OPTOUT=1
+# Install DocFX
+RUN dotnet tool install --global docfx
+
+# Add .NET tools to PATH
+ENV PATH="${PATH}:/root/.dotnet/tools"
 
 # Install protocol buffer compiler https://grpc.io/docs/protoc-installation/
 ARG PB_REL=https://github.com/protocolbuffers/protobuf/releases

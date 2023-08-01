@@ -1,0 +1,1567 @@
+### YamlMime:ManagedReference
+items:
+- uid: ServiceLayer.SLInterfaceNotifMsg
+  commentId: T:ServiceLayer.SLInterfaceNotifMsg
+  id: SLInterfaceNotifMsg
+  parent: ServiceLayer
+  children:
+  - ServiceLayer.SLInterfaceNotifMsg.#ctor
+  - ServiceLayer.SLInterfaceNotifMsg.#ctor(ServiceLayer.SLInterfaceNotifMsg)
+  - ServiceLayer.SLInterfaceNotifMsg.CalculateSize
+  - ServiceLayer.SLInterfaceNotifMsg.Clone
+  - ServiceLayer.SLInterfaceNotifMsg.Descriptor
+  - ServiceLayer.SLInterfaceNotifMsg.Entries
+  - ServiceLayer.SLInterfaceNotifMsg.EntriesFieldNumber
+  - ServiceLayer.SLInterfaceNotifMsg.Equals(ServiceLayer.SLInterfaceNotifMsg)
+  - ServiceLayer.SLInterfaceNotifMsg.Equals(System.Object)
+  - ServiceLayer.SLInterfaceNotifMsg.GetHashCode
+  - ServiceLayer.SLInterfaceNotifMsg.MergeFrom(Google.Protobuf.CodedInputStream)
+  - ServiceLayer.SLInterfaceNotifMsg.MergeFrom(ServiceLayer.SLInterfaceNotifMsg)
+  - ServiceLayer.SLInterfaceNotifMsg.Oper
+  - ServiceLayer.SLInterfaceNotifMsg.OperFieldNumber
+  - ServiceLayer.SLInterfaceNotifMsg.Parser
+  - ServiceLayer.SLInterfaceNotifMsg.ToString
+  - ServiceLayer.SLInterfaceNotifMsg.WriteTo(Google.Protobuf.CodedOutputStream)
+  langs:
+  - csharp
+  - vb
+  name: SLInterfaceNotifMsg
+  nameWithType: SLInterfaceNotifMsg
+  fullName: ServiceLayer.SLInterfaceNotifMsg
+  type: Class
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlInterface.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: SLInterfaceNotifMsg
+    path: src/gencs/SlInterface.cs
+    startLine: 2576
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Interface Notification message.
+  example: []
+  syntax:
+    content: 'public sealed class SLInterfaceNotifMsg : IMessage<SLInterfaceNotifMsg>, IEquatable<SLInterfaceNotifMsg>, IDeepCloneable<SLInterfaceNotifMsg>, IBufferMessage, IMessage'
+    content.vb: Public NotInheritable Class SLInterfaceNotifMsg Implements IMessage(Of SLInterfaceNotifMsg), IEquatable(Of SLInterfaceNotifMsg), IDeepCloneable(Of SLInterfaceNotifMsg), IBufferMessage, IMessage
+  inheritance:
+  - System.Object
+  implements:
+  - Google.Protobuf.IMessage{ServiceLayer.SLInterfaceNotifMsg}
+  - System.IEquatable{ServiceLayer.SLInterfaceNotifMsg}
+  - Google.Protobuf.IDeepCloneable{ServiceLayer.SLInterfaceNotifMsg}
+  - Google.Protobuf.IBufferMessage
+  - Google.Protobuf.IMessage
+  inheritedMembers:
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: ServiceLayer.SLInterfaceNotifMsg.Parser
+  commentId: P:ServiceLayer.SLInterfaceNotifMsg.Parser
+  id: Parser
+  parent: ServiceLayer.SLInterfaceNotifMsg
+  langs:
+  - csharp
+  - vb
+  name: Parser
+  nameWithType: SLInterfaceNotifMsg.Parser
+  fullName: ServiceLayer.SLInterfaceNotifMsg.Parser
+  type: Property
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlInterface.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: Parser
+    path: src/gencs/SlInterface.cs
+    startLine: 2583
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  syntax:
+    content: public static MessageParser<SLInterfaceNotifMsg> Parser { get; }
+    parameters: []
+    return:
+      type: Google.Protobuf.MessageParser{ServiceLayer.SLInterfaceNotifMsg}
+    content.vb: Public Shared ReadOnly Property Parser As MessageParser(Of SLInterfaceNotifMsg)
+  overload: ServiceLayer.SLInterfaceNotifMsg.Parser*
+- uid: ServiceLayer.SLInterfaceNotifMsg.Descriptor
+  commentId: P:ServiceLayer.SLInterfaceNotifMsg.Descriptor
+  id: Descriptor
+  parent: ServiceLayer.SLInterfaceNotifMsg
+  langs:
+  - csharp
+  - vb
+  name: Descriptor
+  nameWithType: SLInterfaceNotifMsg.Descriptor
+  fullName: ServiceLayer.SLInterfaceNotifMsg.Descriptor
+  type: Property
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlInterface.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: Descriptor
+    path: src/gencs/SlInterface.cs
+    startLine: 2587
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  syntax:
+    content: public static MessageDescriptor Descriptor { get; }
+    parameters: []
+    return:
+      type: Google.Protobuf.Reflection.MessageDescriptor
+    content.vb: Public Shared ReadOnly Property Descriptor As MessageDescriptor
+  overload: ServiceLayer.SLInterfaceNotifMsg.Descriptor*
+- uid: ServiceLayer.SLInterfaceNotifMsg.#ctor
+  commentId: M:ServiceLayer.SLInterfaceNotifMsg.#ctor
+  id: '#ctor'
+  parent: ServiceLayer.SLInterfaceNotifMsg
+  langs:
+  - csharp
+  - vb
+  name: SLInterfaceNotifMsg()
+  nameWithType: SLInterfaceNotifMsg.SLInterfaceNotifMsg()
+  fullName: ServiceLayer.SLInterfaceNotifMsg.SLInterfaceNotifMsg()
+  type: Constructor
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlInterface.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: .ctor
+    path: src/gencs/SlInterface.cs
+    startLine: 2599
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  syntax:
+    content: public SLInterfaceNotifMsg()
+    content.vb: Public Sub New()
+  overload: ServiceLayer.SLInterfaceNotifMsg.#ctor*
+  nameWithType.vb: SLInterfaceNotifMsg.New()
+  fullName.vb: ServiceLayer.SLInterfaceNotifMsg.New()
+  name.vb: New()
+- uid: ServiceLayer.SLInterfaceNotifMsg.#ctor(ServiceLayer.SLInterfaceNotifMsg)
+  commentId: M:ServiceLayer.SLInterfaceNotifMsg.#ctor(ServiceLayer.SLInterfaceNotifMsg)
+  id: '#ctor(ServiceLayer.SLInterfaceNotifMsg)'
+  parent: ServiceLayer.SLInterfaceNotifMsg
+  langs:
+  - csharp
+  - vb
+  name: SLInterfaceNotifMsg(SLInterfaceNotifMsg)
+  nameWithType: SLInterfaceNotifMsg.SLInterfaceNotifMsg(SLInterfaceNotifMsg)
+  fullName: ServiceLayer.SLInterfaceNotifMsg.SLInterfaceNotifMsg(ServiceLayer.SLInterfaceNotifMsg)
+  type: Constructor
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlInterface.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: .ctor
+    path: src/gencs/SlInterface.cs
+    startLine: 2607
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  syntax:
+    content: public SLInterfaceNotifMsg(SLInterfaceNotifMsg other)
+    parameters:
+    - id: other
+      type: ServiceLayer.SLInterfaceNotifMsg
+    content.vb: Public Sub New(other As SLInterfaceNotifMsg)
+  overload: ServiceLayer.SLInterfaceNotifMsg.#ctor*
+  nameWithType.vb: SLInterfaceNotifMsg.New(SLInterfaceNotifMsg)
+  fullName.vb: ServiceLayer.SLInterfaceNotifMsg.New(ServiceLayer.SLInterfaceNotifMsg)
+  name.vb: New(SLInterfaceNotifMsg)
+- uid: ServiceLayer.SLInterfaceNotifMsg.Clone
+  commentId: M:ServiceLayer.SLInterfaceNotifMsg.Clone
+  id: Clone
+  parent: ServiceLayer.SLInterfaceNotifMsg
+  langs:
+  - csharp
+  - vb
+  name: Clone()
+  nameWithType: SLInterfaceNotifMsg.Clone()
+  fullName: ServiceLayer.SLInterfaceNotifMsg.Clone()
+  type: Method
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlInterface.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: Clone
+    path: src/gencs/SlInterface.cs
+    startLine: 2615
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Creates a deep clone of this object.
+  example: []
+  syntax:
+    content: public SLInterfaceNotifMsg Clone()
+    return:
+      type: ServiceLayer.SLInterfaceNotifMsg
+      description: A deep clone of this object.
+    content.vb: Public Function Clone() As SLInterfaceNotifMsg
+  overload: ServiceLayer.SLInterfaceNotifMsg.Clone*
+  implements:
+  - Google.Protobuf.IDeepCloneable{ServiceLayer.SLInterfaceNotifMsg}.Clone
+- uid: ServiceLayer.SLInterfaceNotifMsg.OperFieldNumber
+  commentId: F:ServiceLayer.SLInterfaceNotifMsg.OperFieldNumber
+  id: OperFieldNumber
+  parent: ServiceLayer.SLInterfaceNotifMsg
+  langs:
+  - csharp
+  - vb
+  name: OperFieldNumber
+  nameWithType: SLInterfaceNotifMsg.OperFieldNumber
+  fullName: ServiceLayer.SLInterfaceNotifMsg.OperFieldNumber
+  type: Field
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlInterface.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: OperFieldNumber
+    path: src/gencs/SlInterface.cs
+    startLine: 2622
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Field number for the "Oper" field.
+  example: []
+  syntax:
+    content: public const int OperFieldNumber = 1
+    return:
+      type: System.Int32
+    content.vb: Public Const OperFieldNumber As Integer = 1
+- uid: ServiceLayer.SLInterfaceNotifMsg.Oper
+  commentId: P:ServiceLayer.SLInterfaceNotifMsg.Oper
+  id: Oper
+  parent: ServiceLayer.SLInterfaceNotifMsg
+  langs:
+  - csharp
+  - vb
+  name: Oper
+  nameWithType: SLInterfaceNotifMsg.Oper
+  fullName: ServiceLayer.SLInterfaceNotifMsg.Oper
+  type: Property
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlInterface.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: Oper
+    path: src/gencs/SlInterface.cs
+    startLine: 2627
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Notification Operation.
+  example: []
+  syntax:
+    content: public SLNotifOp Oper { get; set; }
+    parameters: []
+    return:
+      type: ServiceLayer.SLNotifOp
+    content.vb: Public Property Oper As SLNotifOp
+  overload: ServiceLayer.SLInterfaceNotifMsg.Oper*
+- uid: ServiceLayer.SLInterfaceNotifMsg.EntriesFieldNumber
+  commentId: F:ServiceLayer.SLInterfaceNotifMsg.EntriesFieldNumber
+  id: EntriesFieldNumber
+  parent: ServiceLayer.SLInterfaceNotifMsg
+  langs:
+  - csharp
+  - vb
+  name: EntriesFieldNumber
+  nameWithType: SLInterfaceNotifMsg.EntriesFieldNumber
+  fullName: ServiceLayer.SLInterfaceNotifMsg.EntriesFieldNumber
+  type: Field
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlInterface.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: EntriesFieldNumber
+    path: src/gencs/SlInterface.cs
+    startLine: 2637
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Field number for the "Entries" field.
+  example: []
+  syntax:
+    content: public const int EntriesFieldNumber = 2
+    return:
+      type: System.Int32
+    content.vb: Public Const EntriesFieldNumber As Integer = 2
+- uid: ServiceLayer.SLInterfaceNotifMsg.Entries
+  commentId: P:ServiceLayer.SLInterfaceNotifMsg.Entries
+  id: Entries
+  parent: ServiceLayer.SLInterfaceNotifMsg
+  langs:
+  - csharp
+  - vb
+  name: Entries
+  nameWithType: SLInterfaceNotifMsg.Entries
+  fullName: ServiceLayer.SLInterfaceNotifMsg.Entries
+  type: Property
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlInterface.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: Entries
+    path: src/gencs/SlInterface.cs
+    startLine: 2644
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Interface key attributes.
+  example: []
+  syntax:
+    content: public RepeatedField<SLInterface> Entries { get; }
+    parameters: []
+    return:
+      type: Google.Protobuf.Collections.RepeatedField{ServiceLayer.SLInterface}
+    content.vb: Public ReadOnly Property Entries As RepeatedField(Of SLInterface)
+  overload: ServiceLayer.SLInterfaceNotifMsg.Entries*
+- uid: ServiceLayer.SLInterfaceNotifMsg.Equals(System.Object)
+  commentId: M:ServiceLayer.SLInterfaceNotifMsg.Equals(System.Object)
+  id: Equals(System.Object)
+  parent: ServiceLayer.SLInterfaceNotifMsg
+  langs:
+  - csharp
+  - vb
+  name: Equals(object)
+  nameWithType: SLInterfaceNotifMsg.Equals(object)
+  fullName: ServiceLayer.SLInterfaceNotifMsg.Equals(object)
+  type: Method
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlInterface.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: Equals
+    path: src/gencs/SlInterface.cs
+    startLine: 2650
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Determines whether the specified object is equal to the current object.
+  example: []
+  syntax:
+    content: public override bool Equals(object other)
+    parameters:
+    - id: other
+      type: System.Object
+    return:
+      type: System.Boolean
+      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the specified object  is equal to the current object; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+    content.vb: Public Overrides Function Equals(other As Object) As Boolean
+  overridden: System.Object.Equals(System.Object)
+  overload: ServiceLayer.SLInterfaceNotifMsg.Equals*
+  nameWithType.vb: SLInterfaceNotifMsg.Equals(Object)
+  fullName.vb: ServiceLayer.SLInterfaceNotifMsg.Equals(Object)
+  name.vb: Equals(Object)
+- uid: ServiceLayer.SLInterfaceNotifMsg.Equals(ServiceLayer.SLInterfaceNotifMsg)
+  commentId: M:ServiceLayer.SLInterfaceNotifMsg.Equals(ServiceLayer.SLInterfaceNotifMsg)
+  id: Equals(ServiceLayer.SLInterfaceNotifMsg)
+  parent: ServiceLayer.SLInterfaceNotifMsg
+  langs:
+  - csharp
+  - vb
+  name: Equals(SLInterfaceNotifMsg)
+  nameWithType: SLInterfaceNotifMsg.Equals(SLInterfaceNotifMsg)
+  fullName: ServiceLayer.SLInterfaceNotifMsg.Equals(ServiceLayer.SLInterfaceNotifMsg)
+  type: Method
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlInterface.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: Equals
+    path: src/gencs/SlInterface.cs
+    startLine: 2656
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Indicates whether the current object is equal to another object of the same type.
+  example: []
+  syntax:
+    content: public bool Equals(SLInterfaceNotifMsg other)
+    parameters:
+    - id: other
+      type: ServiceLayer.SLInterfaceNotifMsg
+      description: An object to compare with this object.
+    return:
+      type: System.Boolean
+      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the current object is equal to the <code class="paramref">other</code> parameter; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+    content.vb: Public Function Equals(other As SLInterfaceNotifMsg) As Boolean
+  overload: ServiceLayer.SLInterfaceNotifMsg.Equals*
+  implements:
+  - System.IEquatable{ServiceLayer.SLInterfaceNotifMsg}.Equals(ServiceLayer.SLInterfaceNotifMsg)
+- uid: ServiceLayer.SLInterfaceNotifMsg.GetHashCode
+  commentId: M:ServiceLayer.SLInterfaceNotifMsg.GetHashCode
+  id: GetHashCode
+  parent: ServiceLayer.SLInterfaceNotifMsg
+  langs:
+  - csharp
+  - vb
+  name: GetHashCode()
+  nameWithType: SLInterfaceNotifMsg.GetHashCode()
+  fullName: ServiceLayer.SLInterfaceNotifMsg.GetHashCode()
+  type: Method
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlInterface.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: GetHashCode
+    path: src/gencs/SlInterface.cs
+    startLine: 2670
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Serves as the default hash function.
+  example: []
+  syntax:
+    content: public override int GetHashCode()
+    return:
+      type: System.Int32
+      description: A hash code for the current object.
+    content.vb: Public Overrides Function GetHashCode() As Integer
+  overridden: System.Object.GetHashCode
+  overload: ServiceLayer.SLInterfaceNotifMsg.GetHashCode*
+- uid: ServiceLayer.SLInterfaceNotifMsg.ToString
+  commentId: M:ServiceLayer.SLInterfaceNotifMsg.ToString
+  id: ToString
+  parent: ServiceLayer.SLInterfaceNotifMsg
+  langs:
+  - csharp
+  - vb
+  name: ToString()
+  nameWithType: SLInterfaceNotifMsg.ToString()
+  fullName: ServiceLayer.SLInterfaceNotifMsg.ToString()
+  type: Method
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlInterface.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: ToString
+    path: src/gencs/SlInterface.cs
+    startLine: 2682
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Returns a string that represents the current object.
+  example: []
+  syntax:
+    content: public override string ToString()
+    return:
+      type: System.String
+      description: A string that represents the current object.
+    content.vb: Public Overrides Function ToString() As String
+  overridden: System.Object.ToString
+  overload: ServiceLayer.SLInterfaceNotifMsg.ToString*
+- uid: ServiceLayer.SLInterfaceNotifMsg.WriteTo(Google.Protobuf.CodedOutputStream)
+  commentId: M:ServiceLayer.SLInterfaceNotifMsg.WriteTo(Google.Protobuf.CodedOutputStream)
+  id: WriteTo(Google.Protobuf.CodedOutputStream)
+  parent: ServiceLayer.SLInterfaceNotifMsg
+  langs:
+  - csharp
+  - vb
+  name: WriteTo(CodedOutputStream)
+  nameWithType: SLInterfaceNotifMsg.WriteTo(CodedOutputStream)
+  fullName: ServiceLayer.SLInterfaceNotifMsg.WriteTo(Google.Protobuf.CodedOutputStream)
+  type: Method
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlInterface.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: WriteTo
+    path: src/gencs/SlInterface.cs
+    startLine: 2688
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Writes the data to the given coded output stream.
+  example: []
+  syntax:
+    content: public void WriteTo(CodedOutputStream output)
+    parameters:
+    - id: output
+      type: Google.Protobuf.CodedOutputStream
+      description: Coded output stream to write the data to. Must not be null.
+    content.vb: Public Sub WriteTo(output As CodedOutputStream)
+  overload: ServiceLayer.SLInterfaceNotifMsg.WriteTo*
+  implements:
+  - Google.Protobuf.IMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+- uid: ServiceLayer.SLInterfaceNotifMsg.CalculateSize
+  commentId: M:ServiceLayer.SLInterfaceNotifMsg.CalculateSize
+  id: CalculateSize
+  parent: ServiceLayer.SLInterfaceNotifMsg
+  langs:
+  - csharp
+  - vb
+  name: CalculateSize()
+  nameWithType: SLInterfaceNotifMsg.CalculateSize()
+  fullName: ServiceLayer.SLInterfaceNotifMsg.CalculateSize()
+  type: Method
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlInterface.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: CalculateSize
+    path: src/gencs/SlInterface.cs
+    startLine: 2720
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Calculates the size of this message in Protocol Buffer wire format, in bytes.
+  example: []
+  syntax:
+    content: public int CalculateSize()
+    return:
+      type: System.Int32
+      description: >-
+        The number of bytes required to write this message
+                    to a coded output stream.
+    content.vb: Public Function CalculateSize() As Integer
+  overload: ServiceLayer.SLInterfaceNotifMsg.CalculateSize*
+  implements:
+  - Google.Protobuf.IMessage.CalculateSize
+- uid: ServiceLayer.SLInterfaceNotifMsg.MergeFrom(ServiceLayer.SLInterfaceNotifMsg)
+  commentId: M:ServiceLayer.SLInterfaceNotifMsg.MergeFrom(ServiceLayer.SLInterfaceNotifMsg)
+  id: MergeFrom(ServiceLayer.SLInterfaceNotifMsg)
+  parent: ServiceLayer.SLInterfaceNotifMsg
+  langs:
+  - csharp
+  - vb
+  name: MergeFrom(SLInterfaceNotifMsg)
+  nameWithType: SLInterfaceNotifMsg.MergeFrom(SLInterfaceNotifMsg)
+  fullName: ServiceLayer.SLInterfaceNotifMsg.MergeFrom(ServiceLayer.SLInterfaceNotifMsg)
+  type: Method
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlInterface.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: MergeFrom
+    path: src/gencs/SlInterface.cs
+    startLine: 2734
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Merges the given message into this one.
+  remarks: See the user guide for precise merge semantics.
+  example: []
+  syntax:
+    content: public void MergeFrom(SLInterfaceNotifMsg other)
+    parameters:
+    - id: other
+      type: ServiceLayer.SLInterfaceNotifMsg
+    content.vb: Public Sub MergeFrom(other As SLInterfaceNotifMsg)
+  overload: ServiceLayer.SLInterfaceNotifMsg.MergeFrom*
+  implements:
+  - Google.Protobuf.IMessage{ServiceLayer.SLInterfaceNotifMsg}.MergeFrom(ServiceLayer.SLInterfaceNotifMsg)
+- uid: ServiceLayer.SLInterfaceNotifMsg.MergeFrom(Google.Protobuf.CodedInputStream)
+  commentId: M:ServiceLayer.SLInterfaceNotifMsg.MergeFrom(Google.Protobuf.CodedInputStream)
+  id: MergeFrom(Google.Protobuf.CodedInputStream)
+  parent: ServiceLayer.SLInterfaceNotifMsg
+  langs:
+  - csharp
+  - vb
+  name: MergeFrom(CodedInputStream)
+  nameWithType: SLInterfaceNotifMsg.MergeFrom(CodedInputStream)
+  fullName: ServiceLayer.SLInterfaceNotifMsg.MergeFrom(Google.Protobuf.CodedInputStream)
+  type: Method
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlInterface.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: MergeFrom
+    path: src/gencs/SlInterface.cs
+    startLine: 2747
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Merges the data from the specified coded input stream with the current message.
+  remarks: See the user guide for precise merge semantics.
+  example: []
+  syntax:
+    content: public void MergeFrom(CodedInputStream input)
+    parameters:
+    - id: input
+      type: Google.Protobuf.CodedInputStream
+      description: ''
+    content.vb: Public Sub MergeFrom(input As CodedInputStream)
+  overload: ServiceLayer.SLInterfaceNotifMsg.MergeFrom*
+  implements:
+  - Google.Protobuf.IMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+references:
+- uid: ServiceLayer
+  commentId: N:ServiceLayer
+  href: ServiceLayer.html
+  name: ServiceLayer
+  nameWithType: ServiceLayer
+  fullName: ServiceLayer
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: Google.Protobuf.IMessage{ServiceLayer.SLInterfaceNotifMsg}
+  commentId: T:Google.Protobuf.IMessage{ServiceLayer.SLInterfaceNotifMsg}
+  parent: Google.Protobuf
+  definition: Google.Protobuf.IMessage`1
+  href: ServiceLayer.SLInterfaceNotifMsg.html
+  name: IMessage<SLInterfaceNotifMsg>
+  nameWithType: IMessage<SLInterfaceNotifMsg>
+  fullName: Google.Protobuf.IMessage<ServiceLayer.SLInterfaceNotifMsg>
+  nameWithType.vb: IMessage(Of SLInterfaceNotifMsg)
+  fullName.vb: Google.Protobuf.IMessage(Of ServiceLayer.SLInterfaceNotifMsg)
+  name.vb: IMessage(Of SLInterfaceNotifMsg)
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage`1
+    name: IMessage
+    isExternal: true
+  - name: <
+  - uid: ServiceLayer.SLInterfaceNotifMsg
+    name: SLInterfaceNotifMsg
+    href: ServiceLayer.SLInterfaceNotifMsg.html
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.IMessage`1
+    name: IMessage
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ServiceLayer.SLInterfaceNotifMsg
+    name: SLInterfaceNotifMsg
+    href: ServiceLayer.SLInterfaceNotifMsg.html
+  - name: )
+- uid: System.IEquatable{ServiceLayer.SLInterfaceNotifMsg}
+  commentId: T:System.IEquatable{ServiceLayer.SLInterfaceNotifMsg}
+  parent: System
+  definition: System.IEquatable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<SLInterfaceNotifMsg>
+  nameWithType: IEquatable<SLInterfaceNotifMsg>
+  fullName: System.IEquatable<ServiceLayer.SLInterfaceNotifMsg>
+  nameWithType.vb: IEquatable(Of SLInterfaceNotifMsg)
+  fullName.vb: System.IEquatable(Of ServiceLayer.SLInterfaceNotifMsg)
+  name.vb: IEquatable(Of SLInterfaceNotifMsg)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - uid: ServiceLayer.SLInterfaceNotifMsg
+    name: SLInterfaceNotifMsg
+    href: ServiceLayer.SLInterfaceNotifMsg.html
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ServiceLayer.SLInterfaceNotifMsg
+    name: SLInterfaceNotifMsg
+    href: ServiceLayer.SLInterfaceNotifMsg.html
+  - name: )
+- uid: Google.Protobuf.IDeepCloneable{ServiceLayer.SLInterfaceNotifMsg}
+  commentId: T:Google.Protobuf.IDeepCloneable{ServiceLayer.SLInterfaceNotifMsg}
+  parent: Google.Protobuf
+  definition: Google.Protobuf.IDeepCloneable`1
+  href: ServiceLayer.SLInterfaceNotifMsg.html
+  name: IDeepCloneable<SLInterfaceNotifMsg>
+  nameWithType: IDeepCloneable<SLInterfaceNotifMsg>
+  fullName: Google.Protobuf.IDeepCloneable<ServiceLayer.SLInterfaceNotifMsg>
+  nameWithType.vb: IDeepCloneable(Of SLInterfaceNotifMsg)
+  fullName.vb: Google.Protobuf.IDeepCloneable(Of ServiceLayer.SLInterfaceNotifMsg)
+  name.vb: IDeepCloneable(Of SLInterfaceNotifMsg)
+  spec.csharp:
+  - uid: Google.Protobuf.IDeepCloneable`1
+    name: IDeepCloneable
+    isExternal: true
+  - name: <
+  - uid: ServiceLayer.SLInterfaceNotifMsg
+    name: SLInterfaceNotifMsg
+    href: ServiceLayer.SLInterfaceNotifMsg.html
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.IDeepCloneable`1
+    name: IDeepCloneable
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ServiceLayer.SLInterfaceNotifMsg
+    name: SLInterfaceNotifMsg
+    href: ServiceLayer.SLInterfaceNotifMsg.html
+  - name: )
+- uid: Google.Protobuf.IBufferMessage
+  commentId: T:Google.Protobuf.IBufferMessage
+  parent: Google.Protobuf
+  isExternal: true
+  name: IBufferMessage
+  nameWithType: IBufferMessage
+  fullName: Google.Protobuf.IBufferMessage
+- uid: Google.Protobuf.IMessage
+  commentId: T:Google.Protobuf.IMessage
+  parent: Google.Protobuf
+  isExternal: true
+  name: IMessage
+  nameWithType: IMessage
+  fullName: Google.Protobuf.IMessage
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Google.Protobuf.IMessage`1
+  commentId: T:Google.Protobuf.IMessage`1
+  isExternal: true
+  name: IMessage<T>
+  nameWithType: IMessage<T>
+  fullName: Google.Protobuf.IMessage<T>
+  nameWithType.vb: IMessage(Of T)
+  fullName.vb: Google.Protobuf.IMessage(Of T)
+  name.vb: IMessage(Of T)
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage`1
+    name: IMessage
+    isExternal: true
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.IMessage`1
+    name: IMessage
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Google.Protobuf
+  commentId: N:Google.Protobuf
+  isExternal: true
+  name: Google.Protobuf
+  nameWithType: Google.Protobuf
+  fullName: Google.Protobuf
+  spec.csharp:
+  - uid: Google
+    name: Google
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf
+    name: Protobuf
+    isExternal: true
+  spec.vb:
+  - uid: Google
+    name: Google
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf
+    name: Protobuf
+    isExternal: true
+- uid: System.IEquatable`1
+  commentId: T:System.IEquatable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<T>
+  nameWithType: IEquatable<T>
+  fullName: System.IEquatable<T>
+  nameWithType.vb: IEquatable(Of T)
+  fullName.vb: System.IEquatable(Of T)
+  name.vb: IEquatable(Of T)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Google.Protobuf.IDeepCloneable`1
+  commentId: T:Google.Protobuf.IDeepCloneable`1
+  isExternal: true
+  name: IDeepCloneable<T>
+  nameWithType: IDeepCloneable<T>
+  fullName: Google.Protobuf.IDeepCloneable<T>
+  nameWithType.vb: IDeepCloneable(Of T)
+  fullName.vb: Google.Protobuf.IDeepCloneable(Of T)
+  name.vb: IDeepCloneable(Of T)
+  spec.csharp:
+  - uid: Google.Protobuf.IDeepCloneable`1
+    name: IDeepCloneable
+    isExternal: true
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.IDeepCloneable`1
+    name: IDeepCloneable
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: ServiceLayer.SLInterfaceNotifMsg.Parser*
+  commentId: Overload:ServiceLayer.SLInterfaceNotifMsg.Parser
+  href: ServiceLayer.SLInterfaceNotifMsg.html#ServiceLayer.SLInterfaceNotifMsg.Parser
+  name: Parser
+  nameWithType: SLInterfaceNotifMsg.Parser
+  fullName: ServiceLayer.SLInterfaceNotifMsg.Parser
+- uid: Google.Protobuf.MessageParser{ServiceLayer.SLInterfaceNotifMsg}
+  commentId: T:Google.Protobuf.MessageParser{ServiceLayer.SLInterfaceNotifMsg}
+  parent: Google.Protobuf
+  definition: Google.Protobuf.MessageParser`1
+  href: ServiceLayer.SLInterfaceNotifMsg.html
+  name: MessageParser<SLInterfaceNotifMsg>
+  nameWithType: MessageParser<SLInterfaceNotifMsg>
+  fullName: Google.Protobuf.MessageParser<ServiceLayer.SLInterfaceNotifMsg>
+  nameWithType.vb: MessageParser(Of SLInterfaceNotifMsg)
+  fullName.vb: Google.Protobuf.MessageParser(Of ServiceLayer.SLInterfaceNotifMsg)
+  name.vb: MessageParser(Of SLInterfaceNotifMsg)
+  spec.csharp:
+  - uid: Google.Protobuf.MessageParser`1
+    name: MessageParser
+    isExternal: true
+  - name: <
+  - uid: ServiceLayer.SLInterfaceNotifMsg
+    name: SLInterfaceNotifMsg
+    href: ServiceLayer.SLInterfaceNotifMsg.html
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.MessageParser`1
+    name: MessageParser
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ServiceLayer.SLInterfaceNotifMsg
+    name: SLInterfaceNotifMsg
+    href: ServiceLayer.SLInterfaceNotifMsg.html
+  - name: )
+- uid: Google.Protobuf.MessageParser`1
+  commentId: T:Google.Protobuf.MessageParser`1
+  isExternal: true
+  name: MessageParser<T>
+  nameWithType: MessageParser<T>
+  fullName: Google.Protobuf.MessageParser<T>
+  nameWithType.vb: MessageParser(Of T)
+  fullName.vb: Google.Protobuf.MessageParser(Of T)
+  name.vb: MessageParser(Of T)
+  spec.csharp:
+  - uid: Google.Protobuf.MessageParser`1
+    name: MessageParser
+    isExternal: true
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.MessageParser`1
+    name: MessageParser
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: ServiceLayer.SLInterfaceNotifMsg.Descriptor*
+  commentId: Overload:ServiceLayer.SLInterfaceNotifMsg.Descriptor
+  href: ServiceLayer.SLInterfaceNotifMsg.html#ServiceLayer.SLInterfaceNotifMsg.Descriptor
+  name: Descriptor
+  nameWithType: SLInterfaceNotifMsg.Descriptor
+  fullName: ServiceLayer.SLInterfaceNotifMsg.Descriptor
+- uid: Google.Protobuf.Reflection.MessageDescriptor
+  commentId: T:Google.Protobuf.Reflection.MessageDescriptor
+  parent: Google.Protobuf.Reflection
+  isExternal: true
+  name: MessageDescriptor
+  nameWithType: MessageDescriptor
+  fullName: Google.Protobuf.Reflection.MessageDescriptor
+- uid: Google.Protobuf.Reflection
+  commentId: N:Google.Protobuf.Reflection
+  isExternal: true
+  name: Google.Protobuf.Reflection
+  nameWithType: Google.Protobuf.Reflection
+  fullName: Google.Protobuf.Reflection
+  spec.csharp:
+  - uid: Google
+    name: Google
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf
+    name: Protobuf
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf.Reflection
+    name: Reflection
+    isExternal: true
+  spec.vb:
+  - uid: Google
+    name: Google
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf
+    name: Protobuf
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf.Reflection
+    name: Reflection
+    isExternal: true
+- uid: ServiceLayer.SLInterfaceNotifMsg.#ctor*
+  commentId: Overload:ServiceLayer.SLInterfaceNotifMsg.#ctor
+  href: ServiceLayer.SLInterfaceNotifMsg.html#ServiceLayer.SLInterfaceNotifMsg.#ctor
+  name: SLInterfaceNotifMsg
+  nameWithType: SLInterfaceNotifMsg.SLInterfaceNotifMsg
+  fullName: ServiceLayer.SLInterfaceNotifMsg.SLInterfaceNotifMsg
+  nameWithType.vb: SLInterfaceNotifMsg.New
+  fullName.vb: ServiceLayer.SLInterfaceNotifMsg.New
+  name.vb: New
+- uid: ServiceLayer.SLInterfaceNotifMsg
+  commentId: T:ServiceLayer.SLInterfaceNotifMsg
+  parent: ServiceLayer
+  href: ServiceLayer.SLInterfaceNotifMsg.html
+  name: SLInterfaceNotifMsg
+  nameWithType: SLInterfaceNotifMsg
+  fullName: ServiceLayer.SLInterfaceNotifMsg
+- uid: ServiceLayer.SLInterfaceNotifMsg.Clone*
+  commentId: Overload:ServiceLayer.SLInterfaceNotifMsg.Clone
+  href: ServiceLayer.SLInterfaceNotifMsg.html#ServiceLayer.SLInterfaceNotifMsg.Clone
+  name: Clone
+  nameWithType: SLInterfaceNotifMsg.Clone
+  fullName: ServiceLayer.SLInterfaceNotifMsg.Clone
+- uid: Google.Protobuf.IDeepCloneable{ServiceLayer.SLInterfaceNotifMsg}.Clone
+  commentId: M:Google.Protobuf.IDeepCloneable{ServiceLayer.SLInterfaceNotifMsg}.Clone
+  parent: Google.Protobuf.IDeepCloneable{ServiceLayer.SLInterfaceNotifMsg}
+  definition: Google.Protobuf.IDeepCloneable`1.Clone
+  name: Clone()
+  nameWithType: IDeepCloneable<SLInterfaceNotifMsg>.Clone()
+  fullName: Google.Protobuf.IDeepCloneable<ServiceLayer.SLInterfaceNotifMsg>.Clone()
+  nameWithType.vb: IDeepCloneable(Of SLInterfaceNotifMsg).Clone()
+  fullName.vb: Google.Protobuf.IDeepCloneable(Of ServiceLayer.SLInterfaceNotifMsg).Clone()
+  spec.csharp:
+  - uid: Google.Protobuf.IDeepCloneable{ServiceLayer.SLInterfaceNotifMsg}.Clone
+    name: Clone
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IDeepCloneable{ServiceLayer.SLInterfaceNotifMsg}.Clone
+    name: Clone
+    isExternal: true
+  - name: (
+  - name: )
+- uid: Google.Protobuf.IDeepCloneable`1.Clone
+  commentId: M:Google.Protobuf.IDeepCloneable`1.Clone
+  isExternal: true
+  name: Clone()
+  nameWithType: IDeepCloneable<T>.Clone()
+  fullName: Google.Protobuf.IDeepCloneable<T>.Clone()
+  nameWithType.vb: IDeepCloneable(Of T).Clone()
+  fullName.vb: Google.Protobuf.IDeepCloneable(Of T).Clone()
+  spec.csharp:
+  - uid: Google.Protobuf.IDeepCloneable`1.Clone
+    name: Clone
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IDeepCloneable`1.Clone
+    name: Clone
+    isExternal: true
+  - name: (
+  - name: )
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: ServiceLayer.SLInterfaceNotifMsg.Oper*
+  commentId: Overload:ServiceLayer.SLInterfaceNotifMsg.Oper
+  href: ServiceLayer.SLInterfaceNotifMsg.html#ServiceLayer.SLInterfaceNotifMsg.Oper
+  name: Oper
+  nameWithType: SLInterfaceNotifMsg.Oper
+  fullName: ServiceLayer.SLInterfaceNotifMsg.Oper
+- uid: ServiceLayer.SLNotifOp
+  commentId: T:ServiceLayer.SLNotifOp
+  parent: ServiceLayer
+  href: ServiceLayer.SLNotifOp.html
+  name: SLNotifOp
+  nameWithType: SLNotifOp
+  fullName: ServiceLayer.SLNotifOp
+- uid: ServiceLayer.SLInterfaceNotifMsg.Entries*
+  commentId: Overload:ServiceLayer.SLInterfaceNotifMsg.Entries
+  href: ServiceLayer.SLInterfaceNotifMsg.html#ServiceLayer.SLInterfaceNotifMsg.Entries
+  name: Entries
+  nameWithType: SLInterfaceNotifMsg.Entries
+  fullName: ServiceLayer.SLInterfaceNotifMsg.Entries
+- uid: Google.Protobuf.Collections.RepeatedField{ServiceLayer.SLInterface}
+  commentId: T:Google.Protobuf.Collections.RepeatedField{ServiceLayer.SLInterface}
+  parent: Google.Protobuf.Collections
+  definition: Google.Protobuf.Collections.RepeatedField`1
+  href: ServiceLayer.SLInterface.html
+  name: RepeatedField<SLInterface>
+  nameWithType: RepeatedField<SLInterface>
+  fullName: Google.Protobuf.Collections.RepeatedField<ServiceLayer.SLInterface>
+  nameWithType.vb: RepeatedField(Of SLInterface)
+  fullName.vb: Google.Protobuf.Collections.RepeatedField(Of ServiceLayer.SLInterface)
+  name.vb: RepeatedField(Of SLInterface)
+  spec.csharp:
+  - uid: Google.Protobuf.Collections.RepeatedField`1
+    name: RepeatedField
+    isExternal: true
+  - name: <
+  - uid: ServiceLayer.SLInterface
+    name: SLInterface
+    href: ServiceLayer.SLInterface.html
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.Collections.RepeatedField`1
+    name: RepeatedField
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ServiceLayer.SLInterface
+    name: SLInterface
+    href: ServiceLayer.SLInterface.html
+  - name: )
+- uid: Google.Protobuf.Collections.RepeatedField`1
+  commentId: T:Google.Protobuf.Collections.RepeatedField`1
+  isExternal: true
+  name: RepeatedField<T>
+  nameWithType: RepeatedField<T>
+  fullName: Google.Protobuf.Collections.RepeatedField<T>
+  nameWithType.vb: RepeatedField(Of T)
+  fullName.vb: Google.Protobuf.Collections.RepeatedField(Of T)
+  name.vb: RepeatedField(Of T)
+  spec.csharp:
+  - uid: Google.Protobuf.Collections.RepeatedField`1
+    name: RepeatedField
+    isExternal: true
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.Collections.RepeatedField`1
+    name: RepeatedField
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Google.Protobuf.Collections
+  commentId: N:Google.Protobuf.Collections
+  isExternal: true
+  name: Google.Protobuf.Collections
+  nameWithType: Google.Protobuf.Collections
+  fullName: Google.Protobuf.Collections
+  spec.csharp:
+  - uid: Google
+    name: Google
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf
+    name: Protobuf
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf.Collections
+    name: Collections
+    isExternal: true
+  spec.vb:
+  - uid: Google
+    name: Google
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf
+    name: Protobuf
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf.Collections
+    name: Collections
+    isExternal: true
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: ServiceLayer.SLInterfaceNotifMsg.Equals*
+  commentId: Overload:ServiceLayer.SLInterfaceNotifMsg.Equals
+  href: ServiceLayer.SLInterfaceNotifMsg.html#ServiceLayer.SLInterfaceNotifMsg.Equals(System.Object)
+  name: Equals
+  nameWithType: SLInterfaceNotifMsg.Equals
+  fullName: ServiceLayer.SLInterfaceNotifMsg.Equals
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: System.IEquatable{ServiceLayer.SLInterfaceNotifMsg}.Equals(ServiceLayer.SLInterfaceNotifMsg)
+  commentId: M:System.IEquatable{ServiceLayer.SLInterfaceNotifMsg}.Equals(ServiceLayer.SLInterfaceNotifMsg)
+  parent: System.IEquatable{ServiceLayer.SLInterfaceNotifMsg}
+  definition: System.IEquatable`1.Equals(`0)
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-servicelayer.slinterfacenotifmsg-.equals#system-iequatable((servicelayer-slinterfacenotifmsg))-equals(servicelayer-slinterfacenotifmsg)
+  name: Equals(SLInterfaceNotifMsg)
+  nameWithType: IEquatable<SLInterfaceNotifMsg>.Equals(SLInterfaceNotifMsg)
+  fullName: System.IEquatable<ServiceLayer.SLInterfaceNotifMsg>.Equals(ServiceLayer.SLInterfaceNotifMsg)
+  nameWithType.vb: IEquatable(Of SLInterfaceNotifMsg).Equals(SLInterfaceNotifMsg)
+  fullName.vb: System.IEquatable(Of ServiceLayer.SLInterfaceNotifMsg).Equals(ServiceLayer.SLInterfaceNotifMsg)
+  spec.csharp:
+  - uid: System.IEquatable{ServiceLayer.SLInterfaceNotifMsg}.Equals(ServiceLayer.SLInterfaceNotifMsg)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-servicelayer.slinterfacenotifmsg-.equals#system-iequatable((servicelayer-slinterfacenotifmsg))-equals(servicelayer-slinterfacenotifmsg)
+  - name: (
+  - uid: ServiceLayer.SLInterfaceNotifMsg
+    name: SLInterfaceNotifMsg
+    href: ServiceLayer.SLInterfaceNotifMsg.html
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable{ServiceLayer.SLInterfaceNotifMsg}.Equals(ServiceLayer.SLInterfaceNotifMsg)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-servicelayer.slinterfacenotifmsg-.equals#system-iequatable((servicelayer-slinterfacenotifmsg))-equals(servicelayer-slinterfacenotifmsg)
+  - name: (
+  - uid: ServiceLayer.SLInterfaceNotifMsg
+    name: SLInterfaceNotifMsg
+    href: ServiceLayer.SLInterfaceNotifMsg.html
+  - name: )
+- uid: System.IEquatable`1.Equals(`0)
+  commentId: M:System.IEquatable`1.Equals(`0)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(T)
+  nameWithType: IEquatable<T>.Equals(T)
+  fullName: System.IEquatable<T>.Equals(T)
+  nameWithType.vb: IEquatable(Of T).Equals(T)
+  fullName.vb: System.IEquatable(Of T).Equals(T)
+  spec.csharp:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: ServiceLayer.SLInterfaceNotifMsg.GetHashCode*
+  commentId: Overload:ServiceLayer.SLInterfaceNotifMsg.GetHashCode
+  href: ServiceLayer.SLInterfaceNotifMsg.html#ServiceLayer.SLInterfaceNotifMsg.GetHashCode
+  name: GetHashCode
+  nameWithType: SLInterfaceNotifMsg.GetHashCode
+  fullName: ServiceLayer.SLInterfaceNotifMsg.GetHashCode
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: ServiceLayer.SLInterfaceNotifMsg.ToString*
+  commentId: Overload:ServiceLayer.SLInterfaceNotifMsg.ToString
+  href: ServiceLayer.SLInterfaceNotifMsg.html#ServiceLayer.SLInterfaceNotifMsg.ToString
+  name: ToString
+  nameWithType: SLInterfaceNotifMsg.ToString
+  fullName: ServiceLayer.SLInterfaceNotifMsg.ToString
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: ServiceLayer.SLInterfaceNotifMsg.WriteTo*
+  commentId: Overload:ServiceLayer.SLInterfaceNotifMsg.WriteTo
+  href: ServiceLayer.SLInterfaceNotifMsg.html#ServiceLayer.SLInterfaceNotifMsg.WriteTo(Google.Protobuf.CodedOutputStream)
+  name: WriteTo
+  nameWithType: SLInterfaceNotifMsg.WriteTo
+  fullName: ServiceLayer.SLInterfaceNotifMsg.WriteTo
+- uid: Google.Protobuf.IMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+  commentId: M:Google.Protobuf.IMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+  parent: Google.Protobuf.IMessage
+  isExternal: true
+  name: WriteTo(CodedOutputStream)
+  nameWithType: IMessage.WriteTo(CodedOutputStream)
+  fullName: Google.Protobuf.IMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+    name: WriteTo
+    isExternal: true
+  - name: (
+  - uid: Google.Protobuf.CodedOutputStream
+    name: CodedOutputStream
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+    name: WriteTo
+    isExternal: true
+  - name: (
+  - uid: Google.Protobuf.CodedOutputStream
+    name: CodedOutputStream
+    isExternal: true
+  - name: )
+- uid: Google.Protobuf.CodedOutputStream
+  commentId: T:Google.Protobuf.CodedOutputStream
+  parent: Google.Protobuf
+  isExternal: true
+  name: CodedOutputStream
+  nameWithType: CodedOutputStream
+  fullName: Google.Protobuf.CodedOutputStream
+- uid: ServiceLayer.SLInterfaceNotifMsg.CalculateSize*
+  commentId: Overload:ServiceLayer.SLInterfaceNotifMsg.CalculateSize
+  href: ServiceLayer.SLInterfaceNotifMsg.html#ServiceLayer.SLInterfaceNotifMsg.CalculateSize
+  name: CalculateSize
+  nameWithType: SLInterfaceNotifMsg.CalculateSize
+  fullName: ServiceLayer.SLInterfaceNotifMsg.CalculateSize
+- uid: Google.Protobuf.IMessage.CalculateSize
+  commentId: M:Google.Protobuf.IMessage.CalculateSize
+  parent: Google.Protobuf.IMessage
+  isExternal: true
+  name: CalculateSize()
+  nameWithType: IMessage.CalculateSize()
+  fullName: Google.Protobuf.IMessage.CalculateSize()
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage.CalculateSize
+    name: CalculateSize
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IMessage.CalculateSize
+    name: CalculateSize
+    isExternal: true
+  - name: (
+  - name: )
+- uid: ServiceLayer.SLInterfaceNotifMsg.MergeFrom*
+  commentId: Overload:ServiceLayer.SLInterfaceNotifMsg.MergeFrom
+  href: ServiceLayer.SLInterfaceNotifMsg.html#ServiceLayer.SLInterfaceNotifMsg.MergeFrom(ServiceLayer.SLInterfaceNotifMsg)
+  name: MergeFrom
+  nameWithType: SLInterfaceNotifMsg.MergeFrom
+  fullName: ServiceLayer.SLInterfaceNotifMsg.MergeFrom
+- uid: Google.Protobuf.IMessage{ServiceLayer.SLInterfaceNotifMsg}.MergeFrom(ServiceLayer.SLInterfaceNotifMsg)
+  commentId: M:Google.Protobuf.IMessage{ServiceLayer.SLInterfaceNotifMsg}.MergeFrom(ServiceLayer.SLInterfaceNotifMsg)
+  parent: Google.Protobuf.IMessage{ServiceLayer.SLInterfaceNotifMsg}
+  definition: Google.Protobuf.IMessage`1.MergeFrom(`0)
+  href: ServiceLayer.SLInterfaceNotifMsg.html
+  name: MergeFrom(SLInterfaceNotifMsg)
+  nameWithType: IMessage<SLInterfaceNotifMsg>.MergeFrom(SLInterfaceNotifMsg)
+  fullName: Google.Protobuf.IMessage<ServiceLayer.SLInterfaceNotifMsg>.MergeFrom(ServiceLayer.SLInterfaceNotifMsg)
+  nameWithType.vb: IMessage(Of SLInterfaceNotifMsg).MergeFrom(SLInterfaceNotifMsg)
+  fullName.vb: Google.Protobuf.IMessage(Of ServiceLayer.SLInterfaceNotifMsg).MergeFrom(ServiceLayer.SLInterfaceNotifMsg)
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage{ServiceLayer.SLInterfaceNotifMsg}.MergeFrom(ServiceLayer.SLInterfaceNotifMsg)
+    name: MergeFrom
+    isExternal: true
+  - name: (
+  - uid: ServiceLayer.SLInterfaceNotifMsg
+    name: SLInterfaceNotifMsg
+    href: ServiceLayer.SLInterfaceNotifMsg.html
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IMessage{ServiceLayer.SLInterfaceNotifMsg}.MergeFrom(ServiceLayer.SLInterfaceNotifMsg)
+    name: MergeFrom
+    isExternal: true
+  - name: (
+  - uid: ServiceLayer.SLInterfaceNotifMsg
+    name: SLInterfaceNotifMsg
+    href: ServiceLayer.SLInterfaceNotifMsg.html
+  - name: )
+- uid: Google.Protobuf.IMessage`1.MergeFrom(`0)
+  commentId: M:Google.Protobuf.IMessage`1.MergeFrom(`0)
+  isExternal: true
+  name: MergeFrom(T)
+  nameWithType: IMessage<T>.MergeFrom(T)
+  fullName: Google.Protobuf.IMessage<T>.MergeFrom(T)
+  nameWithType.vb: IMessage(Of T).MergeFrom(T)
+  fullName.vb: Google.Protobuf.IMessage(Of T).MergeFrom(T)
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage`1.MergeFrom(`0)
+    name: MergeFrom
+    isExternal: true
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IMessage`1.MergeFrom(`0)
+    name: MergeFrom
+    isExternal: true
+  - name: (
+  - name: T
+  - name: )
+- uid: Google.Protobuf.IMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+  commentId: M:Google.Protobuf.IMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+  parent: Google.Protobuf.IMessage
+  isExternal: true
+  name: MergeFrom(CodedInputStream)
+  nameWithType: IMessage.MergeFrom(CodedInputStream)
+  fullName: Google.Protobuf.IMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+    name: MergeFrom
+    isExternal: true
+  - name: (
+  - uid: Google.Protobuf.CodedInputStream
+    name: CodedInputStream
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+    name: MergeFrom
+    isExternal: true
+  - name: (
+  - uid: Google.Protobuf.CodedInputStream
+    name: CodedInputStream
+    isExternal: true
+  - name: )
+- uid: Google.Protobuf.CodedInputStream
+  commentId: T:Google.Protobuf.CodedInputStream
+  parent: Google.Protobuf
+  isExternal: true
+  name: CodedInputStream
+  nameWithType: CodedInputStream
+  fullName: Google.Protobuf.CodedInputStream

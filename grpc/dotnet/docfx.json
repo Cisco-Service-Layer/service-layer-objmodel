@@ -1,0 +1,34 @@
+{
+    "metadata": [
+        {
+            "src": [
+                {
+                    "files": [ "src/**.csproj" ],
+                    "exclude": [ "**/obj/**", "**/bin/**" ]
+                }
+            ],
+            "dest": "api"
+        }
+    ],
+    "build": {
+        "content": [
+            {
+                "files": [ "api/**.yml", "toc.yml", "*.md" ],
+                "exclude": [ "**/obj/**", "**/bin/**" ]
+            }
+        ],
+        "resource": [
+            {
+                "files": [ "images/**" ]
+            }
+        ],
+        "overwrite": [
+            {
+                "files": [ "apidoc/**.md" ],
+                "exclude": [ "**/obj/**", "**/bin/**" ]
+            }
+        ],
+        "dest": "docs",
+        "markdownEngineName": "markdig"
+    }
+}

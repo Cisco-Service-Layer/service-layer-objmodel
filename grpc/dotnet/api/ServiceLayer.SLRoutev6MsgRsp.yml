@@ -1,0 +1,1731 @@
+### YamlMime:ManagedReference
+items:
+- uid: ServiceLayer.SLRoutev6MsgRsp
+  commentId: T:ServiceLayer.SLRoutev6MsgRsp
+  id: SLRoutev6MsgRsp
+  parent: ServiceLayer
+  children:
+  - ServiceLayer.SLRoutev6MsgRsp.#ctor
+  - ServiceLayer.SLRoutev6MsgRsp.#ctor(ServiceLayer.SLRoutev6MsgRsp)
+  - ServiceLayer.SLRoutev6MsgRsp.CalculateSize
+  - ServiceLayer.SLRoutev6MsgRsp.Clone
+  - ServiceLayer.SLRoutev6MsgRsp.Correlator
+  - ServiceLayer.SLRoutev6MsgRsp.CorrelatorFieldNumber
+  - ServiceLayer.SLRoutev6MsgRsp.Descriptor
+  - ServiceLayer.SLRoutev6MsgRsp.Equals(ServiceLayer.SLRoutev6MsgRsp)
+  - ServiceLayer.SLRoutev6MsgRsp.Equals(System.Object)
+  - ServiceLayer.SLRoutev6MsgRsp.GetHashCode
+  - ServiceLayer.SLRoutev6MsgRsp.MergeFrom(Google.Protobuf.CodedInputStream)
+  - ServiceLayer.SLRoutev6MsgRsp.MergeFrom(ServiceLayer.SLRoutev6MsgRsp)
+  - ServiceLayer.SLRoutev6MsgRsp.Parser
+  - ServiceLayer.SLRoutev6MsgRsp.Results
+  - ServiceLayer.SLRoutev6MsgRsp.ResultsFieldNumber
+  - ServiceLayer.SLRoutev6MsgRsp.StatusSummary
+  - ServiceLayer.SLRoutev6MsgRsp.StatusSummaryFieldNumber
+  - ServiceLayer.SLRoutev6MsgRsp.ToString
+  - ServiceLayer.SLRoutev6MsgRsp.VrfName
+  - ServiceLayer.SLRoutev6MsgRsp.VrfNameFieldNumber
+  - ServiceLayer.SLRoutev6MsgRsp.WriteTo(Google.Protobuf.CodedOutputStream)
+  langs:
+  - csharp
+  - vb
+  name: SLRoutev6MsgRsp
+  nameWithType: SLRoutev6MsgRsp
+  fullName: ServiceLayer.SLRoutev6MsgRsp
+  type: Class
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlRouteIpv6.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: SLRoutev6MsgRsp
+    path: src/gencs/SlRouteIpv6.cs
+    startLine: 1003
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: IPv6 bulk route result status
+  example: []
+  syntax:
+    content: 'public sealed class SLRoutev6MsgRsp : IMessage<SLRoutev6MsgRsp>, IEquatable<SLRoutev6MsgRsp>, IDeepCloneable<SLRoutev6MsgRsp>, IBufferMessage, IMessage'
+    content.vb: Public NotInheritable Class SLRoutev6MsgRsp Implements IMessage(Of SLRoutev6MsgRsp), IEquatable(Of SLRoutev6MsgRsp), IDeepCloneable(Of SLRoutev6MsgRsp), IBufferMessage, IMessage
+  inheritance:
+  - System.Object
+  implements:
+  - Google.Protobuf.IMessage{ServiceLayer.SLRoutev6MsgRsp}
+  - System.IEquatable{ServiceLayer.SLRoutev6MsgRsp}
+  - Google.Protobuf.IDeepCloneable{ServiceLayer.SLRoutev6MsgRsp}
+  - Google.Protobuf.IBufferMessage
+  - Google.Protobuf.IMessage
+  inheritedMembers:
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: ServiceLayer.SLRoutev6MsgRsp.Parser
+  commentId: P:ServiceLayer.SLRoutev6MsgRsp.Parser
+  id: Parser
+  parent: ServiceLayer.SLRoutev6MsgRsp
+  langs:
+  - csharp
+  - vb
+  name: Parser
+  nameWithType: SLRoutev6MsgRsp.Parser
+  fullName: ServiceLayer.SLRoutev6MsgRsp.Parser
+  type: Property
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlRouteIpv6.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: Parser
+    path: src/gencs/SlRouteIpv6.cs
+    startLine: 1010
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  syntax:
+    content: public static MessageParser<SLRoutev6MsgRsp> Parser { get; }
+    parameters: []
+    return:
+      type: Google.Protobuf.MessageParser{ServiceLayer.SLRoutev6MsgRsp}
+    content.vb: Public Shared ReadOnly Property Parser As MessageParser(Of SLRoutev6MsgRsp)
+  overload: ServiceLayer.SLRoutev6MsgRsp.Parser*
+- uid: ServiceLayer.SLRoutev6MsgRsp.Descriptor
+  commentId: P:ServiceLayer.SLRoutev6MsgRsp.Descriptor
+  id: Descriptor
+  parent: ServiceLayer.SLRoutev6MsgRsp
+  langs:
+  - csharp
+  - vb
+  name: Descriptor
+  nameWithType: SLRoutev6MsgRsp.Descriptor
+  fullName: ServiceLayer.SLRoutev6MsgRsp.Descriptor
+  type: Property
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlRouteIpv6.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: Descriptor
+    path: src/gencs/SlRouteIpv6.cs
+    startLine: 1014
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  syntax:
+    content: public static MessageDescriptor Descriptor { get; }
+    parameters: []
+    return:
+      type: Google.Protobuf.Reflection.MessageDescriptor
+    content.vb: Public Shared ReadOnly Property Descriptor As MessageDescriptor
+  overload: ServiceLayer.SLRoutev6MsgRsp.Descriptor*
+- uid: ServiceLayer.SLRoutev6MsgRsp.#ctor
+  commentId: M:ServiceLayer.SLRoutev6MsgRsp.#ctor
+  id: '#ctor'
+  parent: ServiceLayer.SLRoutev6MsgRsp
+  langs:
+  - csharp
+  - vb
+  name: SLRoutev6MsgRsp()
+  nameWithType: SLRoutev6MsgRsp.SLRoutev6MsgRsp()
+  fullName: ServiceLayer.SLRoutev6MsgRsp.SLRoutev6MsgRsp()
+  type: Constructor
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlRouteIpv6.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: .ctor
+    path: src/gencs/SlRouteIpv6.cs
+    startLine: 1026
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  syntax:
+    content: public SLRoutev6MsgRsp()
+    content.vb: Public Sub New()
+  overload: ServiceLayer.SLRoutev6MsgRsp.#ctor*
+  nameWithType.vb: SLRoutev6MsgRsp.New()
+  fullName.vb: ServiceLayer.SLRoutev6MsgRsp.New()
+  name.vb: New()
+- uid: ServiceLayer.SLRoutev6MsgRsp.#ctor(ServiceLayer.SLRoutev6MsgRsp)
+  commentId: M:ServiceLayer.SLRoutev6MsgRsp.#ctor(ServiceLayer.SLRoutev6MsgRsp)
+  id: '#ctor(ServiceLayer.SLRoutev6MsgRsp)'
+  parent: ServiceLayer.SLRoutev6MsgRsp
+  langs:
+  - csharp
+  - vb
+  name: SLRoutev6MsgRsp(SLRoutev6MsgRsp)
+  nameWithType: SLRoutev6MsgRsp.SLRoutev6MsgRsp(SLRoutev6MsgRsp)
+  fullName: ServiceLayer.SLRoutev6MsgRsp.SLRoutev6MsgRsp(ServiceLayer.SLRoutev6MsgRsp)
+  type: Constructor
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlRouteIpv6.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: .ctor
+    path: src/gencs/SlRouteIpv6.cs
+    startLine: 1034
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  syntax:
+    content: public SLRoutev6MsgRsp(SLRoutev6MsgRsp other)
+    parameters:
+    - id: other
+      type: ServiceLayer.SLRoutev6MsgRsp
+    content.vb: Public Sub New(other As SLRoutev6MsgRsp)
+  overload: ServiceLayer.SLRoutev6MsgRsp.#ctor*
+  nameWithType.vb: SLRoutev6MsgRsp.New(SLRoutev6MsgRsp)
+  fullName.vb: ServiceLayer.SLRoutev6MsgRsp.New(ServiceLayer.SLRoutev6MsgRsp)
+  name.vb: New(SLRoutev6MsgRsp)
+- uid: ServiceLayer.SLRoutev6MsgRsp.Clone
+  commentId: M:ServiceLayer.SLRoutev6MsgRsp.Clone
+  id: Clone
+  parent: ServiceLayer.SLRoutev6MsgRsp
+  langs:
+  - csharp
+  - vb
+  name: Clone()
+  nameWithType: SLRoutev6MsgRsp.Clone()
+  fullName: ServiceLayer.SLRoutev6MsgRsp.Clone()
+  type: Method
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlRouteIpv6.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: Clone
+    path: src/gencs/SlRouteIpv6.cs
+    startLine: 1044
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Creates a deep clone of this object.
+  example: []
+  syntax:
+    content: public SLRoutev6MsgRsp Clone()
+    return:
+      type: ServiceLayer.SLRoutev6MsgRsp
+      description: A deep clone of this object.
+    content.vb: Public Function Clone() As SLRoutev6MsgRsp
+  overload: ServiceLayer.SLRoutev6MsgRsp.Clone*
+  implements:
+  - Google.Protobuf.IDeepCloneable{ServiceLayer.SLRoutev6MsgRsp}.Clone
+- uid: ServiceLayer.SLRoutev6MsgRsp.CorrelatorFieldNumber
+  commentId: F:ServiceLayer.SLRoutev6MsgRsp.CorrelatorFieldNumber
+  id: CorrelatorFieldNumber
+  parent: ServiceLayer.SLRoutev6MsgRsp
+  langs:
+  - csharp
+  - vb
+  name: CorrelatorFieldNumber
+  nameWithType: SLRoutev6MsgRsp.CorrelatorFieldNumber
+  fullName: ServiceLayer.SLRoutev6MsgRsp.CorrelatorFieldNumber
+  type: Field
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlRouteIpv6.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: CorrelatorFieldNumber
+    path: src/gencs/SlRouteIpv6.cs
+    startLine: 1051
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Field number for the "Correlator" field.
+  example: []
+  syntax:
+    content: public const int CorrelatorFieldNumber = 1
+    return:
+      type: System.Int32
+    content.vb: Public Const CorrelatorFieldNumber As Integer = 1
+- uid: ServiceLayer.SLRoutev6MsgRsp.Correlator
+  commentId: P:ServiceLayer.SLRoutev6MsgRsp.Correlator
+  id: Correlator
+  parent: ServiceLayer.SLRoutev6MsgRsp
+  langs:
+  - csharp
+  - vb
+  name: Correlator
+  nameWithType: SLRoutev6MsgRsp.Correlator
+  fullName: ServiceLayer.SLRoutev6MsgRsp.Correlator
+  type: Property
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlRouteIpv6.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: Correlator
+    path: src/gencs/SlRouteIpv6.cs
+    startLine: 1057
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: >-
+    Correlator. This can be used to correlate replies with requests.
+
+    The Server simply reflects this field back in the reply.
+  example: []
+  syntax:
+    content: public ulong Correlator { get; set; }
+    parameters: []
+    return:
+      type: System.UInt64
+    content.vb: Public Property Correlator As ULong
+  overload: ServiceLayer.SLRoutev6MsgRsp.Correlator*
+- uid: ServiceLayer.SLRoutev6MsgRsp.VrfNameFieldNumber
+  commentId: F:ServiceLayer.SLRoutev6MsgRsp.VrfNameFieldNumber
+  id: VrfNameFieldNumber
+  parent: ServiceLayer.SLRoutev6MsgRsp
+  langs:
+  - csharp
+  - vb
+  name: VrfNameFieldNumber
+  nameWithType: SLRoutev6MsgRsp.VrfNameFieldNumber
+  fullName: ServiceLayer.SLRoutev6MsgRsp.VrfNameFieldNumber
+  type: Field
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlRouteIpv6.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: VrfNameFieldNumber
+    path: src/gencs/SlRouteIpv6.cs
+    startLine: 1067
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Field number for the "VrfName" field.
+  example: []
+  syntax:
+    content: public const int VrfNameFieldNumber = 2
+    return:
+      type: System.Int32
+    content.vb: Public Const VrfNameFieldNumber As Integer = 2
+- uid: ServiceLayer.SLRoutev6MsgRsp.VrfName
+  commentId: P:ServiceLayer.SLRoutev6MsgRsp.VrfName
+  id: VrfName
+  parent: ServiceLayer.SLRoutev6MsgRsp
+  langs:
+  - csharp
+  - vb
+  name: VrfName
+  nameWithType: SLRoutev6MsgRsp.VrfName
+  fullName: ServiceLayer.SLRoutev6MsgRsp.VrfName
+  type: Property
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlRouteIpv6.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: VrfName
+    path: src/gencs/SlRouteIpv6.cs
+    startLine: 1072
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: VRF name (matches the VRF name of the original operation)
+  example: []
+  syntax:
+    content: public string VrfName { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property VrfName As String
+  overload: ServiceLayer.SLRoutev6MsgRsp.VrfName*
+- uid: ServiceLayer.SLRoutev6MsgRsp.StatusSummaryFieldNumber
+  commentId: F:ServiceLayer.SLRoutev6MsgRsp.StatusSummaryFieldNumber
+  id: StatusSummaryFieldNumber
+  parent: ServiceLayer.SLRoutev6MsgRsp
+  langs:
+  - csharp
+  - vb
+  name: StatusSummaryFieldNumber
+  nameWithType: SLRoutev6MsgRsp.StatusSummaryFieldNumber
+  fullName: ServiceLayer.SLRoutev6MsgRsp.StatusSummaryFieldNumber
+  type: Field
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlRouteIpv6.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: StatusSummaryFieldNumber
+    path: src/gencs/SlRouteIpv6.cs
+    startLine: 1082
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Field number for the "StatusSummary" field.
+  example: []
+  syntax:
+    content: public const int StatusSummaryFieldNumber = 3
+    return:
+      type: System.Int32
+    content.vb: Public Const StatusSummaryFieldNumber As Integer = 3
+- uid: ServiceLayer.SLRoutev6MsgRsp.StatusSummary
+  commentId: P:ServiceLayer.SLRoutev6MsgRsp.StatusSummary
+  id: StatusSummary
+  parent: ServiceLayer.SLRoutev6MsgRsp
+  langs:
+  - csharp
+  - vb
+  name: StatusSummary
+  nameWithType: SLRoutev6MsgRsp.StatusSummary
+  fullName: ServiceLayer.SLRoutev6MsgRsp.StatusSummary
+  type: Property
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlRouteIpv6.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: StatusSummary
+    path: src/gencs/SlRouteIpv6.cs
+    startLine: 1095
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: >-
+    Summary result of the bulk operation (refer to enum SLErrorStatus)
+
+    In general, the StatusSummary implies one of 3 things:
+
+    1. SL_SUCCESS: signifies that the entire bulk operation was successful.
+            In this case, the Results list is empty.
+    2. SL_SOME_ERR: signifies that the operation failed for one or more
+            entries. In this case, Results holds the result for
+            each individual entry in the bulk.
+    3. SL_RPC_XXX: signifies that the entire bulk operation failed.
+            In this case, the Results list is empty.
+  example: []
+  syntax:
+    content: public SLErrorStatus StatusSummary { get; set; }
+    parameters: []
+    return:
+      type: ServiceLayer.SLErrorStatus
+    content.vb: Public Property StatusSummary As SLErrorStatus
+  overload: ServiceLayer.SLRoutev6MsgRsp.StatusSummary*
+- uid: ServiceLayer.SLRoutev6MsgRsp.ResultsFieldNumber
+  commentId: F:ServiceLayer.SLRoutev6MsgRsp.ResultsFieldNumber
+  id: ResultsFieldNumber
+  parent: ServiceLayer.SLRoutev6MsgRsp
+  langs:
+  - csharp
+  - vb
+  name: ResultsFieldNumber
+  nameWithType: SLRoutev6MsgRsp.ResultsFieldNumber
+  fullName: ServiceLayer.SLRoutev6MsgRsp.ResultsFieldNumber
+  type: Field
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlRouteIpv6.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: ResultsFieldNumber
+    path: src/gencs/SlRouteIpv6.cs
+    startLine: 1105
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Field number for the "Results" field.
+  example: []
+  syntax:
+    content: public const int ResultsFieldNumber = 4
+    return:
+      type: System.Int32
+    content.vb: Public Const ResultsFieldNumber As Integer = 4
+- uid: ServiceLayer.SLRoutev6MsgRsp.Results
+  commentId: P:ServiceLayer.SLRoutev6MsgRsp.Results
+  id: Results
+  parent: ServiceLayer.SLRoutev6MsgRsp
+  langs:
+  - csharp
+  - vb
+  name: Results
+  nameWithType: SLRoutev6MsgRsp.Results
+  fullName: ServiceLayer.SLRoutev6MsgRsp.Results
+  type: Property
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlRouteIpv6.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: Results
+    path: src/gencs/SlRouteIpv6.cs
+    startLine: 1113
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: >-
+    In case of errors, this field indicates which entry in the bulk was
+
+    erroneous.
+  example: []
+  syntax:
+    content: public RepeatedField<SLRoutev6Res> Results { get; }
+    parameters: []
+    return:
+      type: Google.Protobuf.Collections.RepeatedField{ServiceLayer.SLRoutev6Res}
+    content.vb: Public ReadOnly Property Results As RepeatedField(Of SLRoutev6Res)
+  overload: ServiceLayer.SLRoutev6MsgRsp.Results*
+- uid: ServiceLayer.SLRoutev6MsgRsp.Equals(System.Object)
+  commentId: M:ServiceLayer.SLRoutev6MsgRsp.Equals(System.Object)
+  id: Equals(System.Object)
+  parent: ServiceLayer.SLRoutev6MsgRsp
+  langs:
+  - csharp
+  - vb
+  name: Equals(object)
+  nameWithType: SLRoutev6MsgRsp.Equals(object)
+  fullName: ServiceLayer.SLRoutev6MsgRsp.Equals(object)
+  type: Method
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlRouteIpv6.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: Equals
+    path: src/gencs/SlRouteIpv6.cs
+    startLine: 1119
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Determines whether the specified object is equal to the current object.
+  example: []
+  syntax:
+    content: public override bool Equals(object other)
+    parameters:
+    - id: other
+      type: System.Object
+    return:
+      type: System.Boolean
+      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the specified object  is equal to the current object; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+    content.vb: Public Overrides Function Equals(other As Object) As Boolean
+  overridden: System.Object.Equals(System.Object)
+  overload: ServiceLayer.SLRoutev6MsgRsp.Equals*
+  nameWithType.vb: SLRoutev6MsgRsp.Equals(Object)
+  fullName.vb: ServiceLayer.SLRoutev6MsgRsp.Equals(Object)
+  name.vb: Equals(Object)
+- uid: ServiceLayer.SLRoutev6MsgRsp.Equals(ServiceLayer.SLRoutev6MsgRsp)
+  commentId: M:ServiceLayer.SLRoutev6MsgRsp.Equals(ServiceLayer.SLRoutev6MsgRsp)
+  id: Equals(ServiceLayer.SLRoutev6MsgRsp)
+  parent: ServiceLayer.SLRoutev6MsgRsp
+  langs:
+  - csharp
+  - vb
+  name: Equals(SLRoutev6MsgRsp)
+  nameWithType: SLRoutev6MsgRsp.Equals(SLRoutev6MsgRsp)
+  fullName: ServiceLayer.SLRoutev6MsgRsp.Equals(ServiceLayer.SLRoutev6MsgRsp)
+  type: Method
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlRouteIpv6.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: Equals
+    path: src/gencs/SlRouteIpv6.cs
+    startLine: 1125
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Indicates whether the current object is equal to another object of the same type.
+  example: []
+  syntax:
+    content: public bool Equals(SLRoutev6MsgRsp other)
+    parameters:
+    - id: other
+      type: ServiceLayer.SLRoutev6MsgRsp
+      description: An object to compare with this object.
+    return:
+      type: System.Boolean
+      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the current object is equal to the <code class="paramref">other</code> parameter; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+    content.vb: Public Function Equals(other As SLRoutev6MsgRsp) As Boolean
+  overload: ServiceLayer.SLRoutev6MsgRsp.Equals*
+  implements:
+  - System.IEquatable{ServiceLayer.SLRoutev6MsgRsp}.Equals(ServiceLayer.SLRoutev6MsgRsp)
+- uid: ServiceLayer.SLRoutev6MsgRsp.GetHashCode
+  commentId: M:ServiceLayer.SLRoutev6MsgRsp.GetHashCode
+  id: GetHashCode
+  parent: ServiceLayer.SLRoutev6MsgRsp
+  langs:
+  - csharp
+  - vb
+  name: GetHashCode()
+  nameWithType: SLRoutev6MsgRsp.GetHashCode()
+  fullName: ServiceLayer.SLRoutev6MsgRsp.GetHashCode()
+  type: Method
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlRouteIpv6.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: GetHashCode
+    path: src/gencs/SlRouteIpv6.cs
+    startLine: 1141
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Serves as the default hash function.
+  example: []
+  syntax:
+    content: public override int GetHashCode()
+    return:
+      type: System.Int32
+      description: A hash code for the current object.
+    content.vb: Public Overrides Function GetHashCode() As Integer
+  overridden: System.Object.GetHashCode
+  overload: ServiceLayer.SLRoutev6MsgRsp.GetHashCode*
+- uid: ServiceLayer.SLRoutev6MsgRsp.ToString
+  commentId: M:ServiceLayer.SLRoutev6MsgRsp.ToString
+  id: ToString
+  parent: ServiceLayer.SLRoutev6MsgRsp
+  langs:
+  - csharp
+  - vb
+  name: ToString()
+  nameWithType: SLRoutev6MsgRsp.ToString()
+  fullName: ServiceLayer.SLRoutev6MsgRsp.ToString()
+  type: Method
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlRouteIpv6.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: ToString
+    path: src/gencs/SlRouteIpv6.cs
+    startLine: 1155
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Returns a string that represents the current object.
+  example: []
+  syntax:
+    content: public override string ToString()
+    return:
+      type: System.String
+      description: A string that represents the current object.
+    content.vb: Public Overrides Function ToString() As String
+  overridden: System.Object.ToString
+  overload: ServiceLayer.SLRoutev6MsgRsp.ToString*
+- uid: ServiceLayer.SLRoutev6MsgRsp.WriteTo(Google.Protobuf.CodedOutputStream)
+  commentId: M:ServiceLayer.SLRoutev6MsgRsp.WriteTo(Google.Protobuf.CodedOutputStream)
+  id: WriteTo(Google.Protobuf.CodedOutputStream)
+  parent: ServiceLayer.SLRoutev6MsgRsp
+  langs:
+  - csharp
+  - vb
+  name: WriteTo(CodedOutputStream)
+  nameWithType: SLRoutev6MsgRsp.WriteTo(CodedOutputStream)
+  fullName: ServiceLayer.SLRoutev6MsgRsp.WriteTo(Google.Protobuf.CodedOutputStream)
+  type: Method
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlRouteIpv6.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: WriteTo
+    path: src/gencs/SlRouteIpv6.cs
+    startLine: 1161
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Writes the data to the given coded output stream.
+  example: []
+  syntax:
+    content: public void WriteTo(CodedOutputStream output)
+    parameters:
+    - id: output
+      type: Google.Protobuf.CodedOutputStream
+      description: Coded output stream to write the data to. Must not be null.
+    content.vb: Public Sub WriteTo(output As CodedOutputStream)
+  overload: ServiceLayer.SLRoutev6MsgRsp.WriteTo*
+  implements:
+  - Google.Protobuf.IMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+- uid: ServiceLayer.SLRoutev6MsgRsp.CalculateSize
+  commentId: M:ServiceLayer.SLRoutev6MsgRsp.CalculateSize
+  id: CalculateSize
+  parent: ServiceLayer.SLRoutev6MsgRsp
+  langs:
+  - csharp
+  - vb
+  name: CalculateSize()
+  nameWithType: SLRoutev6MsgRsp.CalculateSize()
+  fullName: ServiceLayer.SLRoutev6MsgRsp.CalculateSize()
+  type: Method
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlRouteIpv6.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: CalculateSize
+    path: src/gencs/SlRouteIpv6.cs
+    startLine: 1209
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Calculates the size of this message in Protocol Buffer wire format, in bytes.
+  example: []
+  syntax:
+    content: public int CalculateSize()
+    return:
+      type: System.Int32
+      description: >-
+        The number of bytes required to write this message
+                    to a coded output stream.
+    content.vb: Public Function CalculateSize() As Integer
+  overload: ServiceLayer.SLRoutev6MsgRsp.CalculateSize*
+  implements:
+  - Google.Protobuf.IMessage.CalculateSize
+- uid: ServiceLayer.SLRoutev6MsgRsp.MergeFrom(ServiceLayer.SLRoutev6MsgRsp)
+  commentId: M:ServiceLayer.SLRoutev6MsgRsp.MergeFrom(ServiceLayer.SLRoutev6MsgRsp)
+  id: MergeFrom(ServiceLayer.SLRoutev6MsgRsp)
+  parent: ServiceLayer.SLRoutev6MsgRsp
+  langs:
+  - csharp
+  - vb
+  name: MergeFrom(SLRoutev6MsgRsp)
+  nameWithType: SLRoutev6MsgRsp.MergeFrom(SLRoutev6MsgRsp)
+  fullName: ServiceLayer.SLRoutev6MsgRsp.MergeFrom(ServiceLayer.SLRoutev6MsgRsp)
+  type: Method
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlRouteIpv6.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: MergeFrom
+    path: src/gencs/SlRouteIpv6.cs
+    startLine: 1229
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Merges the given message into this one.
+  remarks: See the user guide for precise merge semantics.
+  example: []
+  syntax:
+    content: public void MergeFrom(SLRoutev6MsgRsp other)
+    parameters:
+    - id: other
+      type: ServiceLayer.SLRoutev6MsgRsp
+    content.vb: Public Sub MergeFrom(other As SLRoutev6MsgRsp)
+  overload: ServiceLayer.SLRoutev6MsgRsp.MergeFrom*
+  implements:
+  - Google.Protobuf.IMessage{ServiceLayer.SLRoutev6MsgRsp}.MergeFrom(ServiceLayer.SLRoutev6MsgRsp)
+- uid: ServiceLayer.SLRoutev6MsgRsp.MergeFrom(Google.Protobuf.CodedInputStream)
+  commentId: M:ServiceLayer.SLRoutev6MsgRsp.MergeFrom(Google.Protobuf.CodedInputStream)
+  id: MergeFrom(Google.Protobuf.CodedInputStream)
+  parent: ServiceLayer.SLRoutev6MsgRsp
+  langs:
+  - csharp
+  - vb
+  name: MergeFrom(CodedInputStream)
+  nameWithType: SLRoutev6MsgRsp.MergeFrom(CodedInputStream)
+  fullName: ServiceLayer.SLRoutev6MsgRsp.MergeFrom(Google.Protobuf.CodedInputStream)
+  type: Method
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlRouteIpv6.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: MergeFrom
+    path: src/gencs/SlRouteIpv6.cs
+    startLine: 1251
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Merges the data from the specified coded input stream with the current message.
+  remarks: See the user guide for precise merge semantics.
+  example: []
+  syntax:
+    content: public void MergeFrom(CodedInputStream input)
+    parameters:
+    - id: input
+      type: Google.Protobuf.CodedInputStream
+      description: ''
+    content.vb: Public Sub MergeFrom(input As CodedInputStream)
+  overload: ServiceLayer.SLRoutev6MsgRsp.MergeFrom*
+  implements:
+  - Google.Protobuf.IMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+references:
+- uid: ServiceLayer
+  commentId: N:ServiceLayer
+  href: ServiceLayer.html
+  name: ServiceLayer
+  nameWithType: ServiceLayer
+  fullName: ServiceLayer
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: Google.Protobuf.IMessage{ServiceLayer.SLRoutev6MsgRsp}
+  commentId: T:Google.Protobuf.IMessage{ServiceLayer.SLRoutev6MsgRsp}
+  parent: Google.Protobuf
+  definition: Google.Protobuf.IMessage`1
+  href: ServiceLayer.SLRoutev6MsgRsp.html
+  name: IMessage<SLRoutev6MsgRsp>
+  nameWithType: IMessage<SLRoutev6MsgRsp>
+  fullName: Google.Protobuf.IMessage<ServiceLayer.SLRoutev6MsgRsp>
+  nameWithType.vb: IMessage(Of SLRoutev6MsgRsp)
+  fullName.vb: Google.Protobuf.IMessage(Of ServiceLayer.SLRoutev6MsgRsp)
+  name.vb: IMessage(Of SLRoutev6MsgRsp)
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage`1
+    name: IMessage
+    isExternal: true
+  - name: <
+  - uid: ServiceLayer.SLRoutev6MsgRsp
+    name: SLRoutev6MsgRsp
+    href: ServiceLayer.SLRoutev6MsgRsp.html
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.IMessage`1
+    name: IMessage
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ServiceLayer.SLRoutev6MsgRsp
+    name: SLRoutev6MsgRsp
+    href: ServiceLayer.SLRoutev6MsgRsp.html
+  - name: )
+- uid: System.IEquatable{ServiceLayer.SLRoutev6MsgRsp}
+  commentId: T:System.IEquatable{ServiceLayer.SLRoutev6MsgRsp}
+  parent: System
+  definition: System.IEquatable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<SLRoutev6MsgRsp>
+  nameWithType: IEquatable<SLRoutev6MsgRsp>
+  fullName: System.IEquatable<ServiceLayer.SLRoutev6MsgRsp>
+  nameWithType.vb: IEquatable(Of SLRoutev6MsgRsp)
+  fullName.vb: System.IEquatable(Of ServiceLayer.SLRoutev6MsgRsp)
+  name.vb: IEquatable(Of SLRoutev6MsgRsp)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - uid: ServiceLayer.SLRoutev6MsgRsp
+    name: SLRoutev6MsgRsp
+    href: ServiceLayer.SLRoutev6MsgRsp.html
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ServiceLayer.SLRoutev6MsgRsp
+    name: SLRoutev6MsgRsp
+    href: ServiceLayer.SLRoutev6MsgRsp.html
+  - name: )
+- uid: Google.Protobuf.IDeepCloneable{ServiceLayer.SLRoutev6MsgRsp}
+  commentId: T:Google.Protobuf.IDeepCloneable{ServiceLayer.SLRoutev6MsgRsp}
+  parent: Google.Protobuf
+  definition: Google.Protobuf.IDeepCloneable`1
+  href: ServiceLayer.SLRoutev6MsgRsp.html
+  name: IDeepCloneable<SLRoutev6MsgRsp>
+  nameWithType: IDeepCloneable<SLRoutev6MsgRsp>
+  fullName: Google.Protobuf.IDeepCloneable<ServiceLayer.SLRoutev6MsgRsp>
+  nameWithType.vb: IDeepCloneable(Of SLRoutev6MsgRsp)
+  fullName.vb: Google.Protobuf.IDeepCloneable(Of ServiceLayer.SLRoutev6MsgRsp)
+  name.vb: IDeepCloneable(Of SLRoutev6MsgRsp)
+  spec.csharp:
+  - uid: Google.Protobuf.IDeepCloneable`1
+    name: IDeepCloneable
+    isExternal: true
+  - name: <
+  - uid: ServiceLayer.SLRoutev6MsgRsp
+    name: SLRoutev6MsgRsp
+    href: ServiceLayer.SLRoutev6MsgRsp.html
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.IDeepCloneable`1
+    name: IDeepCloneable
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ServiceLayer.SLRoutev6MsgRsp
+    name: SLRoutev6MsgRsp
+    href: ServiceLayer.SLRoutev6MsgRsp.html
+  - name: )
+- uid: Google.Protobuf.IBufferMessage
+  commentId: T:Google.Protobuf.IBufferMessage
+  parent: Google.Protobuf
+  isExternal: true
+  name: IBufferMessage
+  nameWithType: IBufferMessage
+  fullName: Google.Protobuf.IBufferMessage
+- uid: Google.Protobuf.IMessage
+  commentId: T:Google.Protobuf.IMessage
+  parent: Google.Protobuf
+  isExternal: true
+  name: IMessage
+  nameWithType: IMessage
+  fullName: Google.Protobuf.IMessage
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Google.Protobuf.IMessage`1
+  commentId: T:Google.Protobuf.IMessage`1
+  isExternal: true
+  name: IMessage<T>
+  nameWithType: IMessage<T>
+  fullName: Google.Protobuf.IMessage<T>
+  nameWithType.vb: IMessage(Of T)
+  fullName.vb: Google.Protobuf.IMessage(Of T)
+  name.vb: IMessage(Of T)
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage`1
+    name: IMessage
+    isExternal: true
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.IMessage`1
+    name: IMessage
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Google.Protobuf
+  commentId: N:Google.Protobuf
+  isExternal: true
+  name: Google.Protobuf
+  nameWithType: Google.Protobuf
+  fullName: Google.Protobuf
+  spec.csharp:
+  - uid: Google
+    name: Google
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf
+    name: Protobuf
+    isExternal: true
+  spec.vb:
+  - uid: Google
+    name: Google
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf
+    name: Protobuf
+    isExternal: true
+- uid: System.IEquatable`1
+  commentId: T:System.IEquatable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<T>
+  nameWithType: IEquatable<T>
+  fullName: System.IEquatable<T>
+  nameWithType.vb: IEquatable(Of T)
+  fullName.vb: System.IEquatable(Of T)
+  name.vb: IEquatable(Of T)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Google.Protobuf.IDeepCloneable`1
+  commentId: T:Google.Protobuf.IDeepCloneable`1
+  isExternal: true
+  name: IDeepCloneable<T>
+  nameWithType: IDeepCloneable<T>
+  fullName: Google.Protobuf.IDeepCloneable<T>
+  nameWithType.vb: IDeepCloneable(Of T)
+  fullName.vb: Google.Protobuf.IDeepCloneable(Of T)
+  name.vb: IDeepCloneable(Of T)
+  spec.csharp:
+  - uid: Google.Protobuf.IDeepCloneable`1
+    name: IDeepCloneable
+    isExternal: true
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.IDeepCloneable`1
+    name: IDeepCloneable
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: ServiceLayer.SLRoutev6MsgRsp.Parser*
+  commentId: Overload:ServiceLayer.SLRoutev6MsgRsp.Parser
+  href: ServiceLayer.SLRoutev6MsgRsp.html#ServiceLayer.SLRoutev6MsgRsp.Parser
+  name: Parser
+  nameWithType: SLRoutev6MsgRsp.Parser
+  fullName: ServiceLayer.SLRoutev6MsgRsp.Parser
+- uid: Google.Protobuf.MessageParser{ServiceLayer.SLRoutev6MsgRsp}
+  commentId: T:Google.Protobuf.MessageParser{ServiceLayer.SLRoutev6MsgRsp}
+  parent: Google.Protobuf
+  definition: Google.Protobuf.MessageParser`1
+  href: ServiceLayer.SLRoutev6MsgRsp.html
+  name: MessageParser<SLRoutev6MsgRsp>
+  nameWithType: MessageParser<SLRoutev6MsgRsp>
+  fullName: Google.Protobuf.MessageParser<ServiceLayer.SLRoutev6MsgRsp>
+  nameWithType.vb: MessageParser(Of SLRoutev6MsgRsp)
+  fullName.vb: Google.Protobuf.MessageParser(Of ServiceLayer.SLRoutev6MsgRsp)
+  name.vb: MessageParser(Of SLRoutev6MsgRsp)
+  spec.csharp:
+  - uid: Google.Protobuf.MessageParser`1
+    name: MessageParser
+    isExternal: true
+  - name: <
+  - uid: ServiceLayer.SLRoutev6MsgRsp
+    name: SLRoutev6MsgRsp
+    href: ServiceLayer.SLRoutev6MsgRsp.html
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.MessageParser`1
+    name: MessageParser
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ServiceLayer.SLRoutev6MsgRsp
+    name: SLRoutev6MsgRsp
+    href: ServiceLayer.SLRoutev6MsgRsp.html
+  - name: )
+- uid: Google.Protobuf.MessageParser`1
+  commentId: T:Google.Protobuf.MessageParser`1
+  isExternal: true
+  name: MessageParser<T>
+  nameWithType: MessageParser<T>
+  fullName: Google.Protobuf.MessageParser<T>
+  nameWithType.vb: MessageParser(Of T)
+  fullName.vb: Google.Protobuf.MessageParser(Of T)
+  name.vb: MessageParser(Of T)
+  spec.csharp:
+  - uid: Google.Protobuf.MessageParser`1
+    name: MessageParser
+    isExternal: true
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.MessageParser`1
+    name: MessageParser
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: ServiceLayer.SLRoutev6MsgRsp.Descriptor*
+  commentId: Overload:ServiceLayer.SLRoutev6MsgRsp.Descriptor
+  href: ServiceLayer.SLRoutev6MsgRsp.html#ServiceLayer.SLRoutev6MsgRsp.Descriptor
+  name: Descriptor
+  nameWithType: SLRoutev6MsgRsp.Descriptor
+  fullName: ServiceLayer.SLRoutev6MsgRsp.Descriptor
+- uid: Google.Protobuf.Reflection.MessageDescriptor
+  commentId: T:Google.Protobuf.Reflection.MessageDescriptor
+  parent: Google.Protobuf.Reflection
+  isExternal: true
+  name: MessageDescriptor
+  nameWithType: MessageDescriptor
+  fullName: Google.Protobuf.Reflection.MessageDescriptor
+- uid: Google.Protobuf.Reflection
+  commentId: N:Google.Protobuf.Reflection
+  isExternal: true
+  name: Google.Protobuf.Reflection
+  nameWithType: Google.Protobuf.Reflection
+  fullName: Google.Protobuf.Reflection
+  spec.csharp:
+  - uid: Google
+    name: Google
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf
+    name: Protobuf
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf.Reflection
+    name: Reflection
+    isExternal: true
+  spec.vb:
+  - uid: Google
+    name: Google
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf
+    name: Protobuf
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf.Reflection
+    name: Reflection
+    isExternal: true
+- uid: ServiceLayer.SLRoutev6MsgRsp.#ctor*
+  commentId: Overload:ServiceLayer.SLRoutev6MsgRsp.#ctor
+  href: ServiceLayer.SLRoutev6MsgRsp.html#ServiceLayer.SLRoutev6MsgRsp.#ctor
+  name: SLRoutev6MsgRsp
+  nameWithType: SLRoutev6MsgRsp.SLRoutev6MsgRsp
+  fullName: ServiceLayer.SLRoutev6MsgRsp.SLRoutev6MsgRsp
+  nameWithType.vb: SLRoutev6MsgRsp.New
+  fullName.vb: ServiceLayer.SLRoutev6MsgRsp.New
+  name.vb: New
+- uid: ServiceLayer.SLRoutev6MsgRsp
+  commentId: T:ServiceLayer.SLRoutev6MsgRsp
+  parent: ServiceLayer
+  href: ServiceLayer.SLRoutev6MsgRsp.html
+  name: SLRoutev6MsgRsp
+  nameWithType: SLRoutev6MsgRsp
+  fullName: ServiceLayer.SLRoutev6MsgRsp
+- uid: ServiceLayer.SLRoutev6MsgRsp.Clone*
+  commentId: Overload:ServiceLayer.SLRoutev6MsgRsp.Clone
+  href: ServiceLayer.SLRoutev6MsgRsp.html#ServiceLayer.SLRoutev6MsgRsp.Clone
+  name: Clone
+  nameWithType: SLRoutev6MsgRsp.Clone
+  fullName: ServiceLayer.SLRoutev6MsgRsp.Clone
+- uid: Google.Protobuf.IDeepCloneable{ServiceLayer.SLRoutev6MsgRsp}.Clone
+  commentId: M:Google.Protobuf.IDeepCloneable{ServiceLayer.SLRoutev6MsgRsp}.Clone
+  parent: Google.Protobuf.IDeepCloneable{ServiceLayer.SLRoutev6MsgRsp}
+  definition: Google.Protobuf.IDeepCloneable`1.Clone
+  name: Clone()
+  nameWithType: IDeepCloneable<SLRoutev6MsgRsp>.Clone()
+  fullName: Google.Protobuf.IDeepCloneable<ServiceLayer.SLRoutev6MsgRsp>.Clone()
+  nameWithType.vb: IDeepCloneable(Of SLRoutev6MsgRsp).Clone()
+  fullName.vb: Google.Protobuf.IDeepCloneable(Of ServiceLayer.SLRoutev6MsgRsp).Clone()
+  spec.csharp:
+  - uid: Google.Protobuf.IDeepCloneable{ServiceLayer.SLRoutev6MsgRsp}.Clone
+    name: Clone
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IDeepCloneable{ServiceLayer.SLRoutev6MsgRsp}.Clone
+    name: Clone
+    isExternal: true
+  - name: (
+  - name: )
+- uid: Google.Protobuf.IDeepCloneable`1.Clone
+  commentId: M:Google.Protobuf.IDeepCloneable`1.Clone
+  isExternal: true
+  name: Clone()
+  nameWithType: IDeepCloneable<T>.Clone()
+  fullName: Google.Protobuf.IDeepCloneable<T>.Clone()
+  nameWithType.vb: IDeepCloneable(Of T).Clone()
+  fullName.vb: Google.Protobuf.IDeepCloneable(Of T).Clone()
+  spec.csharp:
+  - uid: Google.Protobuf.IDeepCloneable`1.Clone
+    name: Clone
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IDeepCloneable`1.Clone
+    name: Clone
+    isExternal: true
+  - name: (
+  - name: )
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: ServiceLayer.SLRoutev6MsgRsp.Correlator*
+  commentId: Overload:ServiceLayer.SLRoutev6MsgRsp.Correlator
+  href: ServiceLayer.SLRoutev6MsgRsp.html#ServiceLayer.SLRoutev6MsgRsp.Correlator
+  name: Correlator
+  nameWithType: SLRoutev6MsgRsp.Correlator
+  fullName: ServiceLayer.SLRoutev6MsgRsp.Correlator
+- uid: System.UInt64
+  commentId: T:System.UInt64
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.uint64
+  name: ulong
+  nameWithType: ulong
+  fullName: ulong
+  nameWithType.vb: ULong
+  fullName.vb: ULong
+  name.vb: ULong
+- uid: ServiceLayer.SLRoutev6MsgRsp.VrfName*
+  commentId: Overload:ServiceLayer.SLRoutev6MsgRsp.VrfName
+  href: ServiceLayer.SLRoutev6MsgRsp.html#ServiceLayer.SLRoutev6MsgRsp.VrfName
+  name: VrfName
+  nameWithType: SLRoutev6MsgRsp.VrfName
+  fullName: ServiceLayer.SLRoutev6MsgRsp.VrfName
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: ServiceLayer.SLRoutev6MsgRsp.StatusSummary*
+  commentId: Overload:ServiceLayer.SLRoutev6MsgRsp.StatusSummary
+  href: ServiceLayer.SLRoutev6MsgRsp.html#ServiceLayer.SLRoutev6MsgRsp.StatusSummary
+  name: StatusSummary
+  nameWithType: SLRoutev6MsgRsp.StatusSummary
+  fullName: ServiceLayer.SLRoutev6MsgRsp.StatusSummary
+- uid: ServiceLayer.SLErrorStatus
+  commentId: T:ServiceLayer.SLErrorStatus
+  parent: ServiceLayer
+  href: ServiceLayer.SLErrorStatus.html
+  name: SLErrorStatus
+  nameWithType: SLErrorStatus
+  fullName: ServiceLayer.SLErrorStatus
+- uid: ServiceLayer.SLRoutev6MsgRsp.Results*
+  commentId: Overload:ServiceLayer.SLRoutev6MsgRsp.Results
+  href: ServiceLayer.SLRoutev6MsgRsp.html#ServiceLayer.SLRoutev6MsgRsp.Results
+  name: Results
+  nameWithType: SLRoutev6MsgRsp.Results
+  fullName: ServiceLayer.SLRoutev6MsgRsp.Results
+- uid: Google.Protobuf.Collections.RepeatedField{ServiceLayer.SLRoutev6Res}
+  commentId: T:Google.Protobuf.Collections.RepeatedField{ServiceLayer.SLRoutev6Res}
+  parent: Google.Protobuf.Collections
+  definition: Google.Protobuf.Collections.RepeatedField`1
+  href: ServiceLayer.SLRoutev6Res.html
+  name: RepeatedField<SLRoutev6Res>
+  nameWithType: RepeatedField<SLRoutev6Res>
+  fullName: Google.Protobuf.Collections.RepeatedField<ServiceLayer.SLRoutev6Res>
+  nameWithType.vb: RepeatedField(Of SLRoutev6Res)
+  fullName.vb: Google.Protobuf.Collections.RepeatedField(Of ServiceLayer.SLRoutev6Res)
+  name.vb: RepeatedField(Of SLRoutev6Res)
+  spec.csharp:
+  - uid: Google.Protobuf.Collections.RepeatedField`1
+    name: RepeatedField
+    isExternal: true
+  - name: <
+  - uid: ServiceLayer.SLRoutev6Res
+    name: SLRoutev6Res
+    href: ServiceLayer.SLRoutev6Res.html
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.Collections.RepeatedField`1
+    name: RepeatedField
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ServiceLayer.SLRoutev6Res
+    name: SLRoutev6Res
+    href: ServiceLayer.SLRoutev6Res.html
+  - name: )
+- uid: Google.Protobuf.Collections.RepeatedField`1
+  commentId: T:Google.Protobuf.Collections.RepeatedField`1
+  isExternal: true
+  name: RepeatedField<T>
+  nameWithType: RepeatedField<T>
+  fullName: Google.Protobuf.Collections.RepeatedField<T>
+  nameWithType.vb: RepeatedField(Of T)
+  fullName.vb: Google.Protobuf.Collections.RepeatedField(Of T)
+  name.vb: RepeatedField(Of T)
+  spec.csharp:
+  - uid: Google.Protobuf.Collections.RepeatedField`1
+    name: RepeatedField
+    isExternal: true
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.Collections.RepeatedField`1
+    name: RepeatedField
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Google.Protobuf.Collections
+  commentId: N:Google.Protobuf.Collections
+  isExternal: true
+  name: Google.Protobuf.Collections
+  nameWithType: Google.Protobuf.Collections
+  fullName: Google.Protobuf.Collections
+  spec.csharp:
+  - uid: Google
+    name: Google
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf
+    name: Protobuf
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf.Collections
+    name: Collections
+    isExternal: true
+  spec.vb:
+  - uid: Google
+    name: Google
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf
+    name: Protobuf
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf.Collections
+    name: Collections
+    isExternal: true
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: ServiceLayer.SLRoutev6MsgRsp.Equals*
+  commentId: Overload:ServiceLayer.SLRoutev6MsgRsp.Equals
+  href: ServiceLayer.SLRoutev6MsgRsp.html#ServiceLayer.SLRoutev6MsgRsp.Equals(System.Object)
+  name: Equals
+  nameWithType: SLRoutev6MsgRsp.Equals
+  fullName: ServiceLayer.SLRoutev6MsgRsp.Equals
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: System.IEquatable{ServiceLayer.SLRoutev6MsgRsp}.Equals(ServiceLayer.SLRoutev6MsgRsp)
+  commentId: M:System.IEquatable{ServiceLayer.SLRoutev6MsgRsp}.Equals(ServiceLayer.SLRoutev6MsgRsp)
+  parent: System.IEquatable{ServiceLayer.SLRoutev6MsgRsp}
+  definition: System.IEquatable`1.Equals(`0)
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-servicelayer.slroutev6msgrsp-.equals#system-iequatable((servicelayer-slroutev6msgrsp))-equals(servicelayer-slroutev6msgrsp)
+  name: Equals(SLRoutev6MsgRsp)
+  nameWithType: IEquatable<SLRoutev6MsgRsp>.Equals(SLRoutev6MsgRsp)
+  fullName: System.IEquatable<ServiceLayer.SLRoutev6MsgRsp>.Equals(ServiceLayer.SLRoutev6MsgRsp)
+  nameWithType.vb: IEquatable(Of SLRoutev6MsgRsp).Equals(SLRoutev6MsgRsp)
+  fullName.vb: System.IEquatable(Of ServiceLayer.SLRoutev6MsgRsp).Equals(ServiceLayer.SLRoutev6MsgRsp)
+  spec.csharp:
+  - uid: System.IEquatable{ServiceLayer.SLRoutev6MsgRsp}.Equals(ServiceLayer.SLRoutev6MsgRsp)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-servicelayer.slroutev6msgrsp-.equals#system-iequatable((servicelayer-slroutev6msgrsp))-equals(servicelayer-slroutev6msgrsp)
+  - name: (
+  - uid: ServiceLayer.SLRoutev6MsgRsp
+    name: SLRoutev6MsgRsp
+    href: ServiceLayer.SLRoutev6MsgRsp.html
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable{ServiceLayer.SLRoutev6MsgRsp}.Equals(ServiceLayer.SLRoutev6MsgRsp)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-servicelayer.slroutev6msgrsp-.equals#system-iequatable((servicelayer-slroutev6msgrsp))-equals(servicelayer-slroutev6msgrsp)
+  - name: (
+  - uid: ServiceLayer.SLRoutev6MsgRsp
+    name: SLRoutev6MsgRsp
+    href: ServiceLayer.SLRoutev6MsgRsp.html
+  - name: )
+- uid: System.IEquatable`1.Equals(`0)
+  commentId: M:System.IEquatable`1.Equals(`0)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(T)
+  nameWithType: IEquatable<T>.Equals(T)
+  fullName: System.IEquatable<T>.Equals(T)
+  nameWithType.vb: IEquatable(Of T).Equals(T)
+  fullName.vb: System.IEquatable(Of T).Equals(T)
+  spec.csharp:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: ServiceLayer.SLRoutev6MsgRsp.GetHashCode*
+  commentId: Overload:ServiceLayer.SLRoutev6MsgRsp.GetHashCode
+  href: ServiceLayer.SLRoutev6MsgRsp.html#ServiceLayer.SLRoutev6MsgRsp.GetHashCode
+  name: GetHashCode
+  nameWithType: SLRoutev6MsgRsp.GetHashCode
+  fullName: ServiceLayer.SLRoutev6MsgRsp.GetHashCode
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: ServiceLayer.SLRoutev6MsgRsp.ToString*
+  commentId: Overload:ServiceLayer.SLRoutev6MsgRsp.ToString
+  href: ServiceLayer.SLRoutev6MsgRsp.html#ServiceLayer.SLRoutev6MsgRsp.ToString
+  name: ToString
+  nameWithType: SLRoutev6MsgRsp.ToString
+  fullName: ServiceLayer.SLRoutev6MsgRsp.ToString
+- uid: ServiceLayer.SLRoutev6MsgRsp.WriteTo*
+  commentId: Overload:ServiceLayer.SLRoutev6MsgRsp.WriteTo
+  href: ServiceLayer.SLRoutev6MsgRsp.html#ServiceLayer.SLRoutev6MsgRsp.WriteTo(Google.Protobuf.CodedOutputStream)
+  name: WriteTo
+  nameWithType: SLRoutev6MsgRsp.WriteTo
+  fullName: ServiceLayer.SLRoutev6MsgRsp.WriteTo
+- uid: Google.Protobuf.IMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+  commentId: M:Google.Protobuf.IMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+  parent: Google.Protobuf.IMessage
+  isExternal: true
+  name: WriteTo(CodedOutputStream)
+  nameWithType: IMessage.WriteTo(CodedOutputStream)
+  fullName: Google.Protobuf.IMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+    name: WriteTo
+    isExternal: true
+  - name: (
+  - uid: Google.Protobuf.CodedOutputStream
+    name: CodedOutputStream
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+    name: WriteTo
+    isExternal: true
+  - name: (
+  - uid: Google.Protobuf.CodedOutputStream
+    name: CodedOutputStream
+    isExternal: true
+  - name: )
+- uid: Google.Protobuf.CodedOutputStream
+  commentId: T:Google.Protobuf.CodedOutputStream
+  parent: Google.Protobuf
+  isExternal: true
+  name: CodedOutputStream
+  nameWithType: CodedOutputStream
+  fullName: Google.Protobuf.CodedOutputStream
+- uid: ServiceLayer.SLRoutev6MsgRsp.CalculateSize*
+  commentId: Overload:ServiceLayer.SLRoutev6MsgRsp.CalculateSize
+  href: ServiceLayer.SLRoutev6MsgRsp.html#ServiceLayer.SLRoutev6MsgRsp.CalculateSize
+  name: CalculateSize
+  nameWithType: SLRoutev6MsgRsp.CalculateSize
+  fullName: ServiceLayer.SLRoutev6MsgRsp.CalculateSize
+- uid: Google.Protobuf.IMessage.CalculateSize
+  commentId: M:Google.Protobuf.IMessage.CalculateSize
+  parent: Google.Protobuf.IMessage
+  isExternal: true
+  name: CalculateSize()
+  nameWithType: IMessage.CalculateSize()
+  fullName: Google.Protobuf.IMessage.CalculateSize()
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage.CalculateSize
+    name: CalculateSize
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IMessage.CalculateSize
+    name: CalculateSize
+    isExternal: true
+  - name: (
+  - name: )
+- uid: ServiceLayer.SLRoutev6MsgRsp.MergeFrom*
+  commentId: Overload:ServiceLayer.SLRoutev6MsgRsp.MergeFrom
+  href: ServiceLayer.SLRoutev6MsgRsp.html#ServiceLayer.SLRoutev6MsgRsp.MergeFrom(ServiceLayer.SLRoutev6MsgRsp)
+  name: MergeFrom
+  nameWithType: SLRoutev6MsgRsp.MergeFrom
+  fullName: ServiceLayer.SLRoutev6MsgRsp.MergeFrom
+- uid: Google.Protobuf.IMessage{ServiceLayer.SLRoutev6MsgRsp}.MergeFrom(ServiceLayer.SLRoutev6MsgRsp)
+  commentId: M:Google.Protobuf.IMessage{ServiceLayer.SLRoutev6MsgRsp}.MergeFrom(ServiceLayer.SLRoutev6MsgRsp)
+  parent: Google.Protobuf.IMessage{ServiceLayer.SLRoutev6MsgRsp}
+  definition: Google.Protobuf.IMessage`1.MergeFrom(`0)
+  href: ServiceLayer.SLRoutev6MsgRsp.html
+  name: MergeFrom(SLRoutev6MsgRsp)
+  nameWithType: IMessage<SLRoutev6MsgRsp>.MergeFrom(SLRoutev6MsgRsp)
+  fullName: Google.Protobuf.IMessage<ServiceLayer.SLRoutev6MsgRsp>.MergeFrom(ServiceLayer.SLRoutev6MsgRsp)
+  nameWithType.vb: IMessage(Of SLRoutev6MsgRsp).MergeFrom(SLRoutev6MsgRsp)
+  fullName.vb: Google.Protobuf.IMessage(Of ServiceLayer.SLRoutev6MsgRsp).MergeFrom(ServiceLayer.SLRoutev6MsgRsp)
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage{ServiceLayer.SLRoutev6MsgRsp}.MergeFrom(ServiceLayer.SLRoutev6MsgRsp)
+    name: MergeFrom
+    isExternal: true
+  - name: (
+  - uid: ServiceLayer.SLRoutev6MsgRsp
+    name: SLRoutev6MsgRsp
+    href: ServiceLayer.SLRoutev6MsgRsp.html
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IMessage{ServiceLayer.SLRoutev6MsgRsp}.MergeFrom(ServiceLayer.SLRoutev6MsgRsp)
+    name: MergeFrom
+    isExternal: true
+  - name: (
+  - uid: ServiceLayer.SLRoutev6MsgRsp
+    name: SLRoutev6MsgRsp
+    href: ServiceLayer.SLRoutev6MsgRsp.html
+  - name: )
+- uid: Google.Protobuf.IMessage`1.MergeFrom(`0)
+  commentId: M:Google.Protobuf.IMessage`1.MergeFrom(`0)
+  isExternal: true
+  name: MergeFrom(T)
+  nameWithType: IMessage<T>.MergeFrom(T)
+  fullName: Google.Protobuf.IMessage<T>.MergeFrom(T)
+  nameWithType.vb: IMessage(Of T).MergeFrom(T)
+  fullName.vb: Google.Protobuf.IMessage(Of T).MergeFrom(T)
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage`1.MergeFrom(`0)
+    name: MergeFrom
+    isExternal: true
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IMessage`1.MergeFrom(`0)
+    name: MergeFrom
+    isExternal: true
+  - name: (
+  - name: T
+  - name: )
+- uid: Google.Protobuf.IMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+  commentId: M:Google.Protobuf.IMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+  parent: Google.Protobuf.IMessage
+  isExternal: true
+  name: MergeFrom(CodedInputStream)
+  nameWithType: IMessage.MergeFrom(CodedInputStream)
+  fullName: Google.Protobuf.IMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+    name: MergeFrom
+    isExternal: true
+  - name: (
+  - uid: Google.Protobuf.CodedInputStream
+    name: CodedInputStream
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+    name: MergeFrom
+    isExternal: true
+  - name: (
+  - uid: Google.Protobuf.CodedInputStream
+    name: CodedInputStream
+    isExternal: true
+  - name: )
+- uid: Google.Protobuf.CodedInputStream
+  commentId: T:Google.Protobuf.CodedInputStream
+  parent: Google.Protobuf
+  isExternal: true
+  name: CodedInputStream
+  nameWithType: CodedInputStream
+  fullName: Google.Protobuf.CodedInputStream

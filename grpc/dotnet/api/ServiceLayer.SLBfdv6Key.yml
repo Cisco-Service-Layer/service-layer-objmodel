@@ -1,0 +1,1699 @@
+### YamlMime:ManagedReference
+items:
+- uid: ServiceLayer.SLBfdv6Key
+  commentId: T:ServiceLayer.SLBfdv6Key
+  id: SLBfdv6Key
+  parent: ServiceLayer
+  children:
+  - ServiceLayer.SLBfdv6Key.#ctor
+  - ServiceLayer.SLBfdv6Key.#ctor(ServiceLayer.SLBfdv6Key)
+  - ServiceLayer.SLBfdv6Key.CalculateSize
+  - ServiceLayer.SLBfdv6Key.Clone
+  - ServiceLayer.SLBfdv6Key.Descriptor
+  - ServiceLayer.SLBfdv6Key.Equals(ServiceLayer.SLBfdv6Key)
+  - ServiceLayer.SLBfdv6Key.Equals(System.Object)
+  - ServiceLayer.SLBfdv6Key.GetHashCode
+  - ServiceLayer.SLBfdv6Key.Interface
+  - ServiceLayer.SLBfdv6Key.InterfaceFieldNumber
+  - ServiceLayer.SLBfdv6Key.MergeFrom(Google.Protobuf.CodedInputStream)
+  - ServiceLayer.SLBfdv6Key.MergeFrom(ServiceLayer.SLBfdv6Key)
+  - ServiceLayer.SLBfdv6Key.NbrAddr
+  - ServiceLayer.SLBfdv6Key.NbrAddrFieldNumber
+  - ServiceLayer.SLBfdv6Key.Parser
+  - ServiceLayer.SLBfdv6Key.SourceAddr
+  - ServiceLayer.SLBfdv6Key.SourceAddrFieldNumber
+  - ServiceLayer.SLBfdv6Key.ToString
+  - ServiceLayer.SLBfdv6Key.Type
+  - ServiceLayer.SLBfdv6Key.TypeFieldNumber
+  - ServiceLayer.SLBfdv6Key.VrfName
+  - ServiceLayer.SLBfdv6Key.VrfNameFieldNumber
+  - ServiceLayer.SLBfdv6Key.WriteTo(Google.Protobuf.CodedOutputStream)
+  langs:
+  - csharp
+  - vb
+  name: SLBfdv6Key
+  nameWithType: SLBfdv6Key
+  fullName: ServiceLayer.SLBfdv6Key
+  type: Class
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlBfdIpv6.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: SLBfdv6Key
+    path: src/gencs/SlBfdIpv6.cs
+    startLine: 92
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: BFD unique key identifier.
+  example: []
+  syntax:
+    content: 'public sealed class SLBfdv6Key : IMessage<SLBfdv6Key>, IEquatable<SLBfdv6Key>, IDeepCloneable<SLBfdv6Key>, IBufferMessage, IMessage'
+    content.vb: Public NotInheritable Class SLBfdv6Key Implements IMessage(Of SLBfdv6Key), IEquatable(Of SLBfdv6Key), IDeepCloneable(Of SLBfdv6Key), IBufferMessage, IMessage
+  inheritance:
+  - System.Object
+  implements:
+  - Google.Protobuf.IMessage{ServiceLayer.SLBfdv6Key}
+  - System.IEquatable{ServiceLayer.SLBfdv6Key}
+  - Google.Protobuf.IDeepCloneable{ServiceLayer.SLBfdv6Key}
+  - Google.Protobuf.IBufferMessage
+  - Google.Protobuf.IMessage
+  inheritedMembers:
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: ServiceLayer.SLBfdv6Key.Parser
+  commentId: P:ServiceLayer.SLBfdv6Key.Parser
+  id: Parser
+  parent: ServiceLayer.SLBfdv6Key
+  langs:
+  - csharp
+  - vb
+  name: Parser
+  nameWithType: SLBfdv6Key.Parser
+  fullName: ServiceLayer.SLBfdv6Key.Parser
+  type: Property
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlBfdIpv6.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: Parser
+    path: src/gencs/SlBfdIpv6.cs
+    startLine: 99
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  syntax:
+    content: public static MessageParser<SLBfdv6Key> Parser { get; }
+    parameters: []
+    return:
+      type: Google.Protobuf.MessageParser{ServiceLayer.SLBfdv6Key}
+    content.vb: Public Shared ReadOnly Property Parser As MessageParser(Of SLBfdv6Key)
+  overload: ServiceLayer.SLBfdv6Key.Parser*
+- uid: ServiceLayer.SLBfdv6Key.Descriptor
+  commentId: P:ServiceLayer.SLBfdv6Key.Descriptor
+  id: Descriptor
+  parent: ServiceLayer.SLBfdv6Key
+  langs:
+  - csharp
+  - vb
+  name: Descriptor
+  nameWithType: SLBfdv6Key.Descriptor
+  fullName: ServiceLayer.SLBfdv6Key.Descriptor
+  type: Property
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlBfdIpv6.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: Descriptor
+    path: src/gencs/SlBfdIpv6.cs
+    startLine: 103
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  syntax:
+    content: public static MessageDescriptor Descriptor { get; }
+    parameters: []
+    return:
+      type: Google.Protobuf.Reflection.MessageDescriptor
+    content.vb: Public Shared ReadOnly Property Descriptor As MessageDescriptor
+  overload: ServiceLayer.SLBfdv6Key.Descriptor*
+- uid: ServiceLayer.SLBfdv6Key.#ctor
+  commentId: M:ServiceLayer.SLBfdv6Key.#ctor
+  id: '#ctor'
+  parent: ServiceLayer.SLBfdv6Key
+  langs:
+  - csharp
+  - vb
+  name: SLBfdv6Key()
+  nameWithType: SLBfdv6Key.SLBfdv6Key()
+  fullName: ServiceLayer.SLBfdv6Key.SLBfdv6Key()
+  type: Constructor
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlBfdIpv6.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: .ctor
+    path: src/gencs/SlBfdIpv6.cs
+    startLine: 115
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  syntax:
+    content: public SLBfdv6Key()
+    content.vb: Public Sub New()
+  overload: ServiceLayer.SLBfdv6Key.#ctor*
+  nameWithType.vb: SLBfdv6Key.New()
+  fullName.vb: ServiceLayer.SLBfdv6Key.New()
+  name.vb: New()
+- uid: ServiceLayer.SLBfdv6Key.#ctor(ServiceLayer.SLBfdv6Key)
+  commentId: M:ServiceLayer.SLBfdv6Key.#ctor(ServiceLayer.SLBfdv6Key)
+  id: '#ctor(ServiceLayer.SLBfdv6Key)'
+  parent: ServiceLayer.SLBfdv6Key
+  langs:
+  - csharp
+  - vb
+  name: SLBfdv6Key(SLBfdv6Key)
+  nameWithType: SLBfdv6Key.SLBfdv6Key(SLBfdv6Key)
+  fullName: ServiceLayer.SLBfdv6Key.SLBfdv6Key(ServiceLayer.SLBfdv6Key)
+  type: Constructor
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlBfdIpv6.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: .ctor
+    path: src/gencs/SlBfdIpv6.cs
+    startLine: 123
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  syntax:
+    content: public SLBfdv6Key(SLBfdv6Key other)
+    parameters:
+    - id: other
+      type: ServiceLayer.SLBfdv6Key
+    content.vb: Public Sub New(other As SLBfdv6Key)
+  overload: ServiceLayer.SLBfdv6Key.#ctor*
+  nameWithType.vb: SLBfdv6Key.New(SLBfdv6Key)
+  fullName.vb: ServiceLayer.SLBfdv6Key.New(ServiceLayer.SLBfdv6Key)
+  name.vb: New(SLBfdv6Key)
+- uid: ServiceLayer.SLBfdv6Key.Clone
+  commentId: M:ServiceLayer.SLBfdv6Key.Clone
+  id: Clone
+  parent: ServiceLayer.SLBfdv6Key
+  langs:
+  - csharp
+  - vb
+  name: Clone()
+  nameWithType: SLBfdv6Key.Clone()
+  fullName: ServiceLayer.SLBfdv6Key.Clone()
+  type: Method
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlBfdIpv6.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: Clone
+    path: src/gencs/SlBfdIpv6.cs
+    startLine: 134
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Creates a deep clone of this object.
+  example: []
+  syntax:
+    content: public SLBfdv6Key Clone()
+    return:
+      type: ServiceLayer.SLBfdv6Key
+      description: A deep clone of this object.
+    content.vb: Public Function Clone() As SLBfdv6Key
+  overload: ServiceLayer.SLBfdv6Key.Clone*
+  implements:
+  - Google.Protobuf.IDeepCloneable{ServiceLayer.SLBfdv6Key}.Clone
+- uid: ServiceLayer.SLBfdv6Key.TypeFieldNumber
+  commentId: F:ServiceLayer.SLBfdv6Key.TypeFieldNumber
+  id: TypeFieldNumber
+  parent: ServiceLayer.SLBfdv6Key
+  langs:
+  - csharp
+  - vb
+  name: TypeFieldNumber
+  nameWithType: SLBfdv6Key.TypeFieldNumber
+  fullName: ServiceLayer.SLBfdv6Key.TypeFieldNumber
+  type: Field
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlBfdIpv6.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: TypeFieldNumber
+    path: src/gencs/SlBfdIpv6.cs
+    startLine: 141
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Field number for the "Type" field.
+  example: []
+  syntax:
+    content: public const int TypeFieldNumber = 1
+    return:
+      type: System.Int32
+    content.vb: Public Const TypeFieldNumber As Integer = 1
+- uid: ServiceLayer.SLBfdv6Key.Type
+  commentId: P:ServiceLayer.SLBfdv6Key.Type
+  id: Type
+  parent: ServiceLayer.SLBfdv6Key
+  langs:
+  - csharp
+  - vb
+  name: Type
+  nameWithType: SLBfdv6Key.Type
+  fullName: ServiceLayer.SLBfdv6Key.Type
+  type: Property
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlBfdIpv6.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: Type
+    path: src/gencs/SlBfdIpv6.cs
+    startLine: 146
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: BFD Session Type
+  example: []
+  syntax:
+    content: public SLBfdType Type { get; set; }
+    parameters: []
+    return:
+      type: ServiceLayer.SLBfdType
+    content.vb: Public Property Type As SLBfdType
+  overload: ServiceLayer.SLBfdv6Key.Type*
+- uid: ServiceLayer.SLBfdv6Key.VrfNameFieldNumber
+  commentId: F:ServiceLayer.SLBfdv6Key.VrfNameFieldNumber
+  id: VrfNameFieldNumber
+  parent: ServiceLayer.SLBfdv6Key
+  langs:
+  - csharp
+  - vb
+  name: VrfNameFieldNumber
+  nameWithType: SLBfdv6Key.VrfNameFieldNumber
+  fullName: ServiceLayer.SLBfdv6Key.VrfNameFieldNumber
+  type: Field
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlBfdIpv6.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: VrfNameFieldNumber
+    path: src/gencs/SlBfdIpv6.cs
+    startLine: 156
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Field number for the "VrfName" field.
+  example: []
+  syntax:
+    content: public const int VrfNameFieldNumber = 2
+    return:
+      type: System.Int32
+    content.vb: Public Const VrfNameFieldNumber As Integer = 2
+- uid: ServiceLayer.SLBfdv6Key.VrfName
+  commentId: P:ServiceLayer.SLBfdv6Key.VrfName
+  id: VrfName
+  parent: ServiceLayer.SLBfdv6Key
+  langs:
+  - csharp
+  - vb
+  name: VrfName
+  nameWithType: SLBfdv6Key.VrfName
+  fullName: ServiceLayer.SLBfdv6Key.VrfName
+  type: Property
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlBfdIpv6.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: VrfName
+    path: src/gencs/SlBfdIpv6.cs
+    startLine: 161
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: VRF name.
+  example: []
+  syntax:
+    content: public string VrfName { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property VrfName As String
+  overload: ServiceLayer.SLBfdv6Key.VrfName*
+- uid: ServiceLayer.SLBfdv6Key.NbrAddrFieldNumber
+  commentId: F:ServiceLayer.SLBfdv6Key.NbrAddrFieldNumber
+  id: NbrAddrFieldNumber
+  parent: ServiceLayer.SLBfdv6Key
+  langs:
+  - csharp
+  - vb
+  name: NbrAddrFieldNumber
+  nameWithType: SLBfdv6Key.NbrAddrFieldNumber
+  fullName: ServiceLayer.SLBfdv6Key.NbrAddrFieldNumber
+  type: Field
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlBfdIpv6.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: NbrAddrFieldNumber
+    path: src/gencs/SlBfdIpv6.cs
+    startLine: 171
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Field number for the "NbrAddr" field.
+  example: []
+  syntax:
+    content: public const int NbrAddrFieldNumber = 3
+    return:
+      type: System.Int32
+    content.vb: Public Const NbrAddrFieldNumber As Integer = 3
+- uid: ServiceLayer.SLBfdv6Key.NbrAddr
+  commentId: P:ServiceLayer.SLBfdv6Key.NbrAddr
+  id: NbrAddr
+  parent: ServiceLayer.SLBfdv6Key
+  langs:
+  - csharp
+  - vb
+  name: NbrAddr
+  nameWithType: SLBfdv6Key.NbrAddr
+  fullName: ServiceLayer.SLBfdv6Key.NbrAddr
+  type: Property
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlBfdIpv6.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: NbrAddr
+    path: src/gencs/SlBfdIpv6.cs
+    startLine: 176
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Neighbor Ipv6 address.
+  example: []
+  syntax:
+    content: public ByteString NbrAddr { get; set; }
+    parameters: []
+    return:
+      type: Google.Protobuf.ByteString
+    content.vb: Public Property NbrAddr As ByteString
+  overload: ServiceLayer.SLBfdv6Key.NbrAddr*
+- uid: ServiceLayer.SLBfdv6Key.InterfaceFieldNumber
+  commentId: F:ServiceLayer.SLBfdv6Key.InterfaceFieldNumber
+  id: InterfaceFieldNumber
+  parent: ServiceLayer.SLBfdv6Key
+  langs:
+  - csharp
+  - vb
+  name: InterfaceFieldNumber
+  nameWithType: SLBfdv6Key.InterfaceFieldNumber
+  fullName: ServiceLayer.SLBfdv6Key.InterfaceFieldNumber
+  type: Field
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlBfdIpv6.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: InterfaceFieldNumber
+    path: src/gencs/SlBfdIpv6.cs
+    startLine: 186
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Field number for the "Interface" field.
+  example: []
+  syntax:
+    content: public const int InterfaceFieldNumber = 4
+    return:
+      type: System.Int32
+    content.vb: Public Const InterfaceFieldNumber As Integer = 4
+- uid: ServiceLayer.SLBfdv6Key.Interface
+  commentId: P:ServiceLayer.SLBfdv6Key.Interface
+  id: Interface
+  parent: ServiceLayer.SLBfdv6Key
+  langs:
+  - csharp
+  - vb
+  name: Interface
+  nameWithType: SLBfdv6Key.Interface
+  fullName: ServiceLayer.SLBfdv6Key.Interface
+  type: Property
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlBfdIpv6.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: Interface
+    path: src/gencs/SlBfdIpv6.cs
+    startLine: 191
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Interface name and handle, needed for single-hop BFD
+  example: []
+  syntax:
+    content: public SLInterface Interface { get; set; }
+    parameters: []
+    return:
+      type: ServiceLayer.SLInterface
+    content.vb: Public Property [Interface] As SLInterface
+  overload: ServiceLayer.SLBfdv6Key.Interface*
+- uid: ServiceLayer.SLBfdv6Key.SourceAddrFieldNumber
+  commentId: F:ServiceLayer.SLBfdv6Key.SourceAddrFieldNumber
+  id: SourceAddrFieldNumber
+  parent: ServiceLayer.SLBfdv6Key
+  langs:
+  - csharp
+  - vb
+  name: SourceAddrFieldNumber
+  nameWithType: SLBfdv6Key.SourceAddrFieldNumber
+  fullName: ServiceLayer.SLBfdv6Key.SourceAddrFieldNumber
+  type: Field
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlBfdIpv6.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: SourceAddrFieldNumber
+    path: src/gencs/SlBfdIpv6.cs
+    startLine: 201
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Field number for the "SourceAddr" field.
+  example: []
+  syntax:
+    content: public const int SourceAddrFieldNumber = 5
+    return:
+      type: System.Int32
+    content.vb: Public Const SourceAddrFieldNumber As Integer = 5
+- uid: ServiceLayer.SLBfdv6Key.SourceAddr
+  commentId: P:ServiceLayer.SLBfdv6Key.SourceAddr
+  id: SourceAddr
+  parent: ServiceLayer.SLBfdv6Key
+  langs:
+  - csharp
+  - vb
+  name: SourceAddr
+  nameWithType: SLBfdv6Key.SourceAddr
+  fullName: ServiceLayer.SLBfdv6Key.SourceAddr
+  type: Property
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlBfdIpv6.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: SourceAddr
+    path: src/gencs/SlBfdIpv6.cs
+    startLine: 206
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Source Ipv6 address, needed for multi-hop BFD
+  example: []
+  syntax:
+    content: public ByteString SourceAddr { get; set; }
+    parameters: []
+    return:
+      type: Google.Protobuf.ByteString
+    content.vb: Public Property SourceAddr As ByteString
+  overload: ServiceLayer.SLBfdv6Key.SourceAddr*
+- uid: ServiceLayer.SLBfdv6Key.Equals(System.Object)
+  commentId: M:ServiceLayer.SLBfdv6Key.Equals(System.Object)
+  id: Equals(System.Object)
+  parent: ServiceLayer.SLBfdv6Key
+  langs:
+  - csharp
+  - vb
+  name: Equals(object)
+  nameWithType: SLBfdv6Key.Equals(object)
+  fullName: ServiceLayer.SLBfdv6Key.Equals(object)
+  type: Method
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlBfdIpv6.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: Equals
+    path: src/gencs/SlBfdIpv6.cs
+    startLine: 215
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Determines whether the specified object is equal to the current object.
+  example: []
+  syntax:
+    content: public override bool Equals(object other)
+    parameters:
+    - id: other
+      type: System.Object
+    return:
+      type: System.Boolean
+      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the specified object  is equal to the current object; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+    content.vb: Public Overrides Function Equals(other As Object) As Boolean
+  overridden: System.Object.Equals(System.Object)
+  overload: ServiceLayer.SLBfdv6Key.Equals*
+  nameWithType.vb: SLBfdv6Key.Equals(Object)
+  fullName.vb: ServiceLayer.SLBfdv6Key.Equals(Object)
+  name.vb: Equals(Object)
+- uid: ServiceLayer.SLBfdv6Key.Equals(ServiceLayer.SLBfdv6Key)
+  commentId: M:ServiceLayer.SLBfdv6Key.Equals(ServiceLayer.SLBfdv6Key)
+  id: Equals(ServiceLayer.SLBfdv6Key)
+  parent: ServiceLayer.SLBfdv6Key
+  langs:
+  - csharp
+  - vb
+  name: Equals(SLBfdv6Key)
+  nameWithType: SLBfdv6Key.Equals(SLBfdv6Key)
+  fullName: ServiceLayer.SLBfdv6Key.Equals(ServiceLayer.SLBfdv6Key)
+  type: Method
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlBfdIpv6.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: Equals
+    path: src/gencs/SlBfdIpv6.cs
+    startLine: 221
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Indicates whether the current object is equal to another object of the same type.
+  example: []
+  syntax:
+    content: public bool Equals(SLBfdv6Key other)
+    parameters:
+    - id: other
+      type: ServiceLayer.SLBfdv6Key
+      description: An object to compare with this object.
+    return:
+      type: System.Boolean
+      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the current object is equal to the <code class="paramref">other</code> parameter; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+    content.vb: Public Function Equals(other As SLBfdv6Key) As Boolean
+  overload: ServiceLayer.SLBfdv6Key.Equals*
+  implements:
+  - System.IEquatable{ServiceLayer.SLBfdv6Key}.Equals(ServiceLayer.SLBfdv6Key)
+- uid: ServiceLayer.SLBfdv6Key.GetHashCode
+  commentId: M:ServiceLayer.SLBfdv6Key.GetHashCode
+  id: GetHashCode
+  parent: ServiceLayer.SLBfdv6Key
+  langs:
+  - csharp
+  - vb
+  name: GetHashCode()
+  nameWithType: SLBfdv6Key.GetHashCode()
+  fullName: ServiceLayer.SLBfdv6Key.GetHashCode()
+  type: Method
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlBfdIpv6.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: GetHashCode
+    path: src/gencs/SlBfdIpv6.cs
+    startLine: 238
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Serves as the default hash function.
+  example: []
+  syntax:
+    content: public override int GetHashCode()
+    return:
+      type: System.Int32
+      description: A hash code for the current object.
+    content.vb: Public Overrides Function GetHashCode() As Integer
+  overridden: System.Object.GetHashCode
+  overload: ServiceLayer.SLBfdv6Key.GetHashCode*
+- uid: ServiceLayer.SLBfdv6Key.ToString
+  commentId: M:ServiceLayer.SLBfdv6Key.ToString
+  id: ToString
+  parent: ServiceLayer.SLBfdv6Key
+  langs:
+  - csharp
+  - vb
+  name: ToString()
+  nameWithType: SLBfdv6Key.ToString()
+  fullName: ServiceLayer.SLBfdv6Key.ToString()
+  type: Method
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlBfdIpv6.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: ToString
+    path: src/gencs/SlBfdIpv6.cs
+    startLine: 253
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Returns a string that represents the current object.
+  example: []
+  syntax:
+    content: public override string ToString()
+    return:
+      type: System.String
+      description: A string that represents the current object.
+    content.vb: Public Overrides Function ToString() As String
+  overridden: System.Object.ToString
+  overload: ServiceLayer.SLBfdv6Key.ToString*
+- uid: ServiceLayer.SLBfdv6Key.WriteTo(Google.Protobuf.CodedOutputStream)
+  commentId: M:ServiceLayer.SLBfdv6Key.WriteTo(Google.Protobuf.CodedOutputStream)
+  id: WriteTo(Google.Protobuf.CodedOutputStream)
+  parent: ServiceLayer.SLBfdv6Key
+  langs:
+  - csharp
+  - vb
+  name: WriteTo(CodedOutputStream)
+  nameWithType: SLBfdv6Key.WriteTo(CodedOutputStream)
+  fullName: ServiceLayer.SLBfdv6Key.WriteTo(Google.Protobuf.CodedOutputStream)
+  type: Method
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlBfdIpv6.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: WriteTo
+    path: src/gencs/SlBfdIpv6.cs
+    startLine: 259
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Writes the data to the given coded output stream.
+  example: []
+  syntax:
+    content: public void WriteTo(CodedOutputStream output)
+    parameters:
+    - id: output
+      type: Google.Protobuf.CodedOutputStream
+      description: Coded output stream to write the data to. Must not be null.
+    content.vb: Public Sub WriteTo(output As CodedOutputStream)
+  overload: ServiceLayer.SLBfdv6Key.WriteTo*
+  implements:
+  - Google.Protobuf.IMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+- uid: ServiceLayer.SLBfdv6Key.CalculateSize
+  commentId: M:ServiceLayer.SLBfdv6Key.CalculateSize
+  id: CalculateSize
+  parent: ServiceLayer.SLBfdv6Key
+  langs:
+  - csharp
+  - vb
+  name: CalculateSize()
+  nameWithType: SLBfdv6Key.CalculateSize()
+  fullName: ServiceLayer.SLBfdv6Key.CalculateSize()
+  type: Method
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlBfdIpv6.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: CalculateSize
+    path: src/gencs/SlBfdIpv6.cs
+    startLine: 321
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Calculates the size of this message in Protocol Buffer wire format, in bytes.
+  example: []
+  syntax:
+    content: public int CalculateSize()
+    return:
+      type: System.Int32
+      description: >-
+        The number of bytes required to write this message
+                    to a coded output stream.
+    content.vb: Public Function CalculateSize() As Integer
+  overload: ServiceLayer.SLBfdv6Key.CalculateSize*
+  implements:
+  - Google.Protobuf.IMessage.CalculateSize
+- uid: ServiceLayer.SLBfdv6Key.MergeFrom(ServiceLayer.SLBfdv6Key)
+  commentId: M:ServiceLayer.SLBfdv6Key.MergeFrom(ServiceLayer.SLBfdv6Key)
+  id: MergeFrom(ServiceLayer.SLBfdv6Key)
+  parent: ServiceLayer.SLBfdv6Key
+  langs:
+  - csharp
+  - vb
+  name: MergeFrom(SLBfdv6Key)
+  nameWithType: SLBfdv6Key.MergeFrom(SLBfdv6Key)
+  fullName: ServiceLayer.SLBfdv6Key.MergeFrom(ServiceLayer.SLBfdv6Key)
+  type: Method
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlBfdIpv6.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: MergeFrom
+    path: src/gencs/SlBfdIpv6.cs
+    startLine: 346
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Merges the given message into this one.
+  remarks: See the user guide for precise merge semantics.
+  example: []
+  syntax:
+    content: public void MergeFrom(SLBfdv6Key other)
+    parameters:
+    - id: other
+      type: ServiceLayer.SLBfdv6Key
+    content.vb: Public Sub MergeFrom(other As SLBfdv6Key)
+  overload: ServiceLayer.SLBfdv6Key.MergeFrom*
+  implements:
+  - Google.Protobuf.IMessage{ServiceLayer.SLBfdv6Key}.MergeFrom(ServiceLayer.SLBfdv6Key)
+- uid: ServiceLayer.SLBfdv6Key.MergeFrom(Google.Protobuf.CodedInputStream)
+  commentId: M:ServiceLayer.SLBfdv6Key.MergeFrom(Google.Protobuf.CodedInputStream)
+  id: MergeFrom(Google.Protobuf.CodedInputStream)
+  parent: ServiceLayer.SLBfdv6Key
+  langs:
+  - csharp
+  - vb
+  name: MergeFrom(CodedInputStream)
+  nameWithType: SLBfdv6Key.MergeFrom(CodedInputStream)
+  fullName: ServiceLayer.SLBfdv6Key.MergeFrom(Google.Protobuf.CodedInputStream)
+  type: Method
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlBfdIpv6.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: MergeFrom
+    path: src/gencs/SlBfdIpv6.cs
+    startLine: 373
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Merges the data from the specified coded input stream with the current message.
+  remarks: See the user guide for precise merge semantics.
+  example: []
+  syntax:
+    content: public void MergeFrom(CodedInputStream input)
+    parameters:
+    - id: input
+      type: Google.Protobuf.CodedInputStream
+      description: ''
+    content.vb: Public Sub MergeFrom(input As CodedInputStream)
+  overload: ServiceLayer.SLBfdv6Key.MergeFrom*
+  implements:
+  - Google.Protobuf.IMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+references:
+- uid: ServiceLayer
+  commentId: N:ServiceLayer
+  href: ServiceLayer.html
+  name: ServiceLayer
+  nameWithType: ServiceLayer
+  fullName: ServiceLayer
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: Google.Protobuf.IMessage{ServiceLayer.SLBfdv6Key}
+  commentId: T:Google.Protobuf.IMessage{ServiceLayer.SLBfdv6Key}
+  parent: Google.Protobuf
+  definition: Google.Protobuf.IMessage`1
+  href: ServiceLayer.SLBfdv6Key.html
+  name: IMessage<SLBfdv6Key>
+  nameWithType: IMessage<SLBfdv6Key>
+  fullName: Google.Protobuf.IMessage<ServiceLayer.SLBfdv6Key>
+  nameWithType.vb: IMessage(Of SLBfdv6Key)
+  fullName.vb: Google.Protobuf.IMessage(Of ServiceLayer.SLBfdv6Key)
+  name.vb: IMessage(Of SLBfdv6Key)
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage`1
+    name: IMessage
+    isExternal: true
+  - name: <
+  - uid: ServiceLayer.SLBfdv6Key
+    name: SLBfdv6Key
+    href: ServiceLayer.SLBfdv6Key.html
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.IMessage`1
+    name: IMessage
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ServiceLayer.SLBfdv6Key
+    name: SLBfdv6Key
+    href: ServiceLayer.SLBfdv6Key.html
+  - name: )
+- uid: System.IEquatable{ServiceLayer.SLBfdv6Key}
+  commentId: T:System.IEquatable{ServiceLayer.SLBfdv6Key}
+  parent: System
+  definition: System.IEquatable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<SLBfdv6Key>
+  nameWithType: IEquatable<SLBfdv6Key>
+  fullName: System.IEquatable<ServiceLayer.SLBfdv6Key>
+  nameWithType.vb: IEquatable(Of SLBfdv6Key)
+  fullName.vb: System.IEquatable(Of ServiceLayer.SLBfdv6Key)
+  name.vb: IEquatable(Of SLBfdv6Key)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - uid: ServiceLayer.SLBfdv6Key
+    name: SLBfdv6Key
+    href: ServiceLayer.SLBfdv6Key.html
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ServiceLayer.SLBfdv6Key
+    name: SLBfdv6Key
+    href: ServiceLayer.SLBfdv6Key.html
+  - name: )
+- uid: Google.Protobuf.IDeepCloneable{ServiceLayer.SLBfdv6Key}
+  commentId: T:Google.Protobuf.IDeepCloneable{ServiceLayer.SLBfdv6Key}
+  parent: Google.Protobuf
+  definition: Google.Protobuf.IDeepCloneable`1
+  href: ServiceLayer.SLBfdv6Key.html
+  name: IDeepCloneable<SLBfdv6Key>
+  nameWithType: IDeepCloneable<SLBfdv6Key>
+  fullName: Google.Protobuf.IDeepCloneable<ServiceLayer.SLBfdv6Key>
+  nameWithType.vb: IDeepCloneable(Of SLBfdv6Key)
+  fullName.vb: Google.Protobuf.IDeepCloneable(Of ServiceLayer.SLBfdv6Key)
+  name.vb: IDeepCloneable(Of SLBfdv6Key)
+  spec.csharp:
+  - uid: Google.Protobuf.IDeepCloneable`1
+    name: IDeepCloneable
+    isExternal: true
+  - name: <
+  - uid: ServiceLayer.SLBfdv6Key
+    name: SLBfdv6Key
+    href: ServiceLayer.SLBfdv6Key.html
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.IDeepCloneable`1
+    name: IDeepCloneable
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ServiceLayer.SLBfdv6Key
+    name: SLBfdv6Key
+    href: ServiceLayer.SLBfdv6Key.html
+  - name: )
+- uid: Google.Protobuf.IBufferMessage
+  commentId: T:Google.Protobuf.IBufferMessage
+  parent: Google.Protobuf
+  isExternal: true
+  name: IBufferMessage
+  nameWithType: IBufferMessage
+  fullName: Google.Protobuf.IBufferMessage
+- uid: Google.Protobuf.IMessage
+  commentId: T:Google.Protobuf.IMessage
+  parent: Google.Protobuf
+  isExternal: true
+  name: IMessage
+  nameWithType: IMessage
+  fullName: Google.Protobuf.IMessage
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Google.Protobuf.IMessage`1
+  commentId: T:Google.Protobuf.IMessage`1
+  isExternal: true
+  name: IMessage<T>
+  nameWithType: IMessage<T>
+  fullName: Google.Protobuf.IMessage<T>
+  nameWithType.vb: IMessage(Of T)
+  fullName.vb: Google.Protobuf.IMessage(Of T)
+  name.vb: IMessage(Of T)
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage`1
+    name: IMessage
+    isExternal: true
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.IMessage`1
+    name: IMessage
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Google.Protobuf
+  commentId: N:Google.Protobuf
+  isExternal: true
+  name: Google.Protobuf
+  nameWithType: Google.Protobuf
+  fullName: Google.Protobuf
+  spec.csharp:
+  - uid: Google
+    name: Google
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf
+    name: Protobuf
+    isExternal: true
+  spec.vb:
+  - uid: Google
+    name: Google
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf
+    name: Protobuf
+    isExternal: true
+- uid: System.IEquatable`1
+  commentId: T:System.IEquatable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<T>
+  nameWithType: IEquatable<T>
+  fullName: System.IEquatable<T>
+  nameWithType.vb: IEquatable(Of T)
+  fullName.vb: System.IEquatable(Of T)
+  name.vb: IEquatable(Of T)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Google.Protobuf.IDeepCloneable`1
+  commentId: T:Google.Protobuf.IDeepCloneable`1
+  isExternal: true
+  name: IDeepCloneable<T>
+  nameWithType: IDeepCloneable<T>
+  fullName: Google.Protobuf.IDeepCloneable<T>
+  nameWithType.vb: IDeepCloneable(Of T)
+  fullName.vb: Google.Protobuf.IDeepCloneable(Of T)
+  name.vb: IDeepCloneable(Of T)
+  spec.csharp:
+  - uid: Google.Protobuf.IDeepCloneable`1
+    name: IDeepCloneable
+    isExternal: true
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.IDeepCloneable`1
+    name: IDeepCloneable
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: ServiceLayer.SLBfdv6Key.Parser*
+  commentId: Overload:ServiceLayer.SLBfdv6Key.Parser
+  href: ServiceLayer.SLBfdv6Key.html#ServiceLayer.SLBfdv6Key.Parser
+  name: Parser
+  nameWithType: SLBfdv6Key.Parser
+  fullName: ServiceLayer.SLBfdv6Key.Parser
+- uid: Google.Protobuf.MessageParser{ServiceLayer.SLBfdv6Key}
+  commentId: T:Google.Protobuf.MessageParser{ServiceLayer.SLBfdv6Key}
+  parent: Google.Protobuf
+  definition: Google.Protobuf.MessageParser`1
+  href: ServiceLayer.SLBfdv6Key.html
+  name: MessageParser<SLBfdv6Key>
+  nameWithType: MessageParser<SLBfdv6Key>
+  fullName: Google.Protobuf.MessageParser<ServiceLayer.SLBfdv6Key>
+  nameWithType.vb: MessageParser(Of SLBfdv6Key)
+  fullName.vb: Google.Protobuf.MessageParser(Of ServiceLayer.SLBfdv6Key)
+  name.vb: MessageParser(Of SLBfdv6Key)
+  spec.csharp:
+  - uid: Google.Protobuf.MessageParser`1
+    name: MessageParser
+    isExternal: true
+  - name: <
+  - uid: ServiceLayer.SLBfdv6Key
+    name: SLBfdv6Key
+    href: ServiceLayer.SLBfdv6Key.html
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.MessageParser`1
+    name: MessageParser
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ServiceLayer.SLBfdv6Key
+    name: SLBfdv6Key
+    href: ServiceLayer.SLBfdv6Key.html
+  - name: )
+- uid: Google.Protobuf.MessageParser`1
+  commentId: T:Google.Protobuf.MessageParser`1
+  isExternal: true
+  name: MessageParser<T>
+  nameWithType: MessageParser<T>
+  fullName: Google.Protobuf.MessageParser<T>
+  nameWithType.vb: MessageParser(Of T)
+  fullName.vb: Google.Protobuf.MessageParser(Of T)
+  name.vb: MessageParser(Of T)
+  spec.csharp:
+  - uid: Google.Protobuf.MessageParser`1
+    name: MessageParser
+    isExternal: true
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.MessageParser`1
+    name: MessageParser
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: ServiceLayer.SLBfdv6Key.Descriptor*
+  commentId: Overload:ServiceLayer.SLBfdv6Key.Descriptor
+  href: ServiceLayer.SLBfdv6Key.html#ServiceLayer.SLBfdv6Key.Descriptor
+  name: Descriptor
+  nameWithType: SLBfdv6Key.Descriptor
+  fullName: ServiceLayer.SLBfdv6Key.Descriptor
+- uid: Google.Protobuf.Reflection.MessageDescriptor
+  commentId: T:Google.Protobuf.Reflection.MessageDescriptor
+  parent: Google.Protobuf.Reflection
+  isExternal: true
+  name: MessageDescriptor
+  nameWithType: MessageDescriptor
+  fullName: Google.Protobuf.Reflection.MessageDescriptor
+- uid: Google.Protobuf.Reflection
+  commentId: N:Google.Protobuf.Reflection
+  isExternal: true
+  name: Google.Protobuf.Reflection
+  nameWithType: Google.Protobuf.Reflection
+  fullName: Google.Protobuf.Reflection
+  spec.csharp:
+  - uid: Google
+    name: Google
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf
+    name: Protobuf
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf.Reflection
+    name: Reflection
+    isExternal: true
+  spec.vb:
+  - uid: Google
+    name: Google
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf
+    name: Protobuf
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf.Reflection
+    name: Reflection
+    isExternal: true
+- uid: ServiceLayer.SLBfdv6Key.#ctor*
+  commentId: Overload:ServiceLayer.SLBfdv6Key.#ctor
+  href: ServiceLayer.SLBfdv6Key.html#ServiceLayer.SLBfdv6Key.#ctor
+  name: SLBfdv6Key
+  nameWithType: SLBfdv6Key.SLBfdv6Key
+  fullName: ServiceLayer.SLBfdv6Key.SLBfdv6Key
+  nameWithType.vb: SLBfdv6Key.New
+  fullName.vb: ServiceLayer.SLBfdv6Key.New
+  name.vb: New
+- uid: ServiceLayer.SLBfdv6Key
+  commentId: T:ServiceLayer.SLBfdv6Key
+  parent: ServiceLayer
+  href: ServiceLayer.SLBfdv6Key.html
+  name: SLBfdv6Key
+  nameWithType: SLBfdv6Key
+  fullName: ServiceLayer.SLBfdv6Key
+- uid: ServiceLayer.SLBfdv6Key.Clone*
+  commentId: Overload:ServiceLayer.SLBfdv6Key.Clone
+  href: ServiceLayer.SLBfdv6Key.html#ServiceLayer.SLBfdv6Key.Clone
+  name: Clone
+  nameWithType: SLBfdv6Key.Clone
+  fullName: ServiceLayer.SLBfdv6Key.Clone
+- uid: Google.Protobuf.IDeepCloneable{ServiceLayer.SLBfdv6Key}.Clone
+  commentId: M:Google.Protobuf.IDeepCloneable{ServiceLayer.SLBfdv6Key}.Clone
+  parent: Google.Protobuf.IDeepCloneable{ServiceLayer.SLBfdv6Key}
+  definition: Google.Protobuf.IDeepCloneable`1.Clone
+  name: Clone()
+  nameWithType: IDeepCloneable<SLBfdv6Key>.Clone()
+  fullName: Google.Protobuf.IDeepCloneable<ServiceLayer.SLBfdv6Key>.Clone()
+  nameWithType.vb: IDeepCloneable(Of SLBfdv6Key).Clone()
+  fullName.vb: Google.Protobuf.IDeepCloneable(Of ServiceLayer.SLBfdv6Key).Clone()
+  spec.csharp:
+  - uid: Google.Protobuf.IDeepCloneable{ServiceLayer.SLBfdv6Key}.Clone
+    name: Clone
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IDeepCloneable{ServiceLayer.SLBfdv6Key}.Clone
+    name: Clone
+    isExternal: true
+  - name: (
+  - name: )
+- uid: Google.Protobuf.IDeepCloneable`1.Clone
+  commentId: M:Google.Protobuf.IDeepCloneable`1.Clone
+  isExternal: true
+  name: Clone()
+  nameWithType: IDeepCloneable<T>.Clone()
+  fullName: Google.Protobuf.IDeepCloneable<T>.Clone()
+  nameWithType.vb: IDeepCloneable(Of T).Clone()
+  fullName.vb: Google.Protobuf.IDeepCloneable(Of T).Clone()
+  spec.csharp:
+  - uid: Google.Protobuf.IDeepCloneable`1.Clone
+    name: Clone
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IDeepCloneable`1.Clone
+    name: Clone
+    isExternal: true
+  - name: (
+  - name: )
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: ServiceLayer.SLBfdv6Key.Type*
+  commentId: Overload:ServiceLayer.SLBfdv6Key.Type
+  href: ServiceLayer.SLBfdv6Key.html#ServiceLayer.SLBfdv6Key.Type
+  name: Type
+  nameWithType: SLBfdv6Key.Type
+  fullName: ServiceLayer.SLBfdv6Key.Type
+- uid: ServiceLayer.SLBfdType
+  commentId: T:ServiceLayer.SLBfdType
+  parent: ServiceLayer
+  href: ServiceLayer.SLBfdType.html
+  name: SLBfdType
+  nameWithType: SLBfdType
+  fullName: ServiceLayer.SLBfdType
+- uid: ServiceLayer.SLBfdv6Key.VrfName*
+  commentId: Overload:ServiceLayer.SLBfdv6Key.VrfName
+  href: ServiceLayer.SLBfdv6Key.html#ServiceLayer.SLBfdv6Key.VrfName
+  name: VrfName
+  nameWithType: SLBfdv6Key.VrfName
+  fullName: ServiceLayer.SLBfdv6Key.VrfName
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: ServiceLayer.SLBfdv6Key.NbrAddr*
+  commentId: Overload:ServiceLayer.SLBfdv6Key.NbrAddr
+  href: ServiceLayer.SLBfdv6Key.html#ServiceLayer.SLBfdv6Key.NbrAddr
+  name: NbrAddr
+  nameWithType: SLBfdv6Key.NbrAddr
+  fullName: ServiceLayer.SLBfdv6Key.NbrAddr
+- uid: Google.Protobuf.ByteString
+  commentId: T:Google.Protobuf.ByteString
+  parent: Google.Protobuf
+  isExternal: true
+  name: ByteString
+  nameWithType: ByteString
+  fullName: Google.Protobuf.ByteString
+- uid: ServiceLayer.SLBfdv6Key.Interface*
+  commentId: Overload:ServiceLayer.SLBfdv6Key.Interface
+  href: ServiceLayer.SLBfdv6Key.html#ServiceLayer.SLBfdv6Key.Interface
+  name: Interface
+  nameWithType: SLBfdv6Key.Interface
+  fullName: ServiceLayer.SLBfdv6Key.Interface
+- uid: ServiceLayer.SLInterface
+  commentId: T:ServiceLayer.SLInterface
+  parent: ServiceLayer
+  href: ServiceLayer.SLInterface.html
+  name: SLInterface
+  nameWithType: SLInterface
+  fullName: ServiceLayer.SLInterface
+- uid: ServiceLayer.SLBfdv6Key.SourceAddr*
+  commentId: Overload:ServiceLayer.SLBfdv6Key.SourceAddr
+  href: ServiceLayer.SLBfdv6Key.html#ServiceLayer.SLBfdv6Key.SourceAddr
+  name: SourceAddr
+  nameWithType: SLBfdv6Key.SourceAddr
+  fullName: ServiceLayer.SLBfdv6Key.SourceAddr
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: ServiceLayer.SLBfdv6Key.Equals*
+  commentId: Overload:ServiceLayer.SLBfdv6Key.Equals
+  href: ServiceLayer.SLBfdv6Key.html#ServiceLayer.SLBfdv6Key.Equals(System.Object)
+  name: Equals
+  nameWithType: SLBfdv6Key.Equals
+  fullName: ServiceLayer.SLBfdv6Key.Equals
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: System.IEquatable{ServiceLayer.SLBfdv6Key}.Equals(ServiceLayer.SLBfdv6Key)
+  commentId: M:System.IEquatable{ServiceLayer.SLBfdv6Key}.Equals(ServiceLayer.SLBfdv6Key)
+  parent: System.IEquatable{ServiceLayer.SLBfdv6Key}
+  definition: System.IEquatable`1.Equals(`0)
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-servicelayer.slbfdv6key-.equals#system-iequatable((servicelayer-slbfdv6key))-equals(servicelayer-slbfdv6key)
+  name: Equals(SLBfdv6Key)
+  nameWithType: IEquatable<SLBfdv6Key>.Equals(SLBfdv6Key)
+  fullName: System.IEquatable<ServiceLayer.SLBfdv6Key>.Equals(ServiceLayer.SLBfdv6Key)
+  nameWithType.vb: IEquatable(Of SLBfdv6Key).Equals(SLBfdv6Key)
+  fullName.vb: System.IEquatable(Of ServiceLayer.SLBfdv6Key).Equals(ServiceLayer.SLBfdv6Key)
+  spec.csharp:
+  - uid: System.IEquatable{ServiceLayer.SLBfdv6Key}.Equals(ServiceLayer.SLBfdv6Key)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-servicelayer.slbfdv6key-.equals#system-iequatable((servicelayer-slbfdv6key))-equals(servicelayer-slbfdv6key)
+  - name: (
+  - uid: ServiceLayer.SLBfdv6Key
+    name: SLBfdv6Key
+    href: ServiceLayer.SLBfdv6Key.html
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable{ServiceLayer.SLBfdv6Key}.Equals(ServiceLayer.SLBfdv6Key)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-servicelayer.slbfdv6key-.equals#system-iequatable((servicelayer-slbfdv6key))-equals(servicelayer-slbfdv6key)
+  - name: (
+  - uid: ServiceLayer.SLBfdv6Key
+    name: SLBfdv6Key
+    href: ServiceLayer.SLBfdv6Key.html
+  - name: )
+- uid: System.IEquatable`1.Equals(`0)
+  commentId: M:System.IEquatable`1.Equals(`0)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(T)
+  nameWithType: IEquatable<T>.Equals(T)
+  fullName: System.IEquatable<T>.Equals(T)
+  nameWithType.vb: IEquatable(Of T).Equals(T)
+  fullName.vb: System.IEquatable(Of T).Equals(T)
+  spec.csharp:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: ServiceLayer.SLBfdv6Key.GetHashCode*
+  commentId: Overload:ServiceLayer.SLBfdv6Key.GetHashCode
+  href: ServiceLayer.SLBfdv6Key.html#ServiceLayer.SLBfdv6Key.GetHashCode
+  name: GetHashCode
+  nameWithType: SLBfdv6Key.GetHashCode
+  fullName: ServiceLayer.SLBfdv6Key.GetHashCode
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: ServiceLayer.SLBfdv6Key.ToString*
+  commentId: Overload:ServiceLayer.SLBfdv6Key.ToString
+  href: ServiceLayer.SLBfdv6Key.html#ServiceLayer.SLBfdv6Key.ToString
+  name: ToString
+  nameWithType: SLBfdv6Key.ToString
+  fullName: ServiceLayer.SLBfdv6Key.ToString
+- uid: ServiceLayer.SLBfdv6Key.WriteTo*
+  commentId: Overload:ServiceLayer.SLBfdv6Key.WriteTo
+  href: ServiceLayer.SLBfdv6Key.html#ServiceLayer.SLBfdv6Key.WriteTo(Google.Protobuf.CodedOutputStream)
+  name: WriteTo
+  nameWithType: SLBfdv6Key.WriteTo
+  fullName: ServiceLayer.SLBfdv6Key.WriteTo
+- uid: Google.Protobuf.IMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+  commentId: M:Google.Protobuf.IMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+  parent: Google.Protobuf.IMessage
+  isExternal: true
+  name: WriteTo(CodedOutputStream)
+  nameWithType: IMessage.WriteTo(CodedOutputStream)
+  fullName: Google.Protobuf.IMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+    name: WriteTo
+    isExternal: true
+  - name: (
+  - uid: Google.Protobuf.CodedOutputStream
+    name: CodedOutputStream
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+    name: WriteTo
+    isExternal: true
+  - name: (
+  - uid: Google.Protobuf.CodedOutputStream
+    name: CodedOutputStream
+    isExternal: true
+  - name: )
+- uid: Google.Protobuf.CodedOutputStream
+  commentId: T:Google.Protobuf.CodedOutputStream
+  parent: Google.Protobuf
+  isExternal: true
+  name: CodedOutputStream
+  nameWithType: CodedOutputStream
+  fullName: Google.Protobuf.CodedOutputStream
+- uid: ServiceLayer.SLBfdv6Key.CalculateSize*
+  commentId: Overload:ServiceLayer.SLBfdv6Key.CalculateSize
+  href: ServiceLayer.SLBfdv6Key.html#ServiceLayer.SLBfdv6Key.CalculateSize
+  name: CalculateSize
+  nameWithType: SLBfdv6Key.CalculateSize
+  fullName: ServiceLayer.SLBfdv6Key.CalculateSize
+- uid: Google.Protobuf.IMessage.CalculateSize
+  commentId: M:Google.Protobuf.IMessage.CalculateSize
+  parent: Google.Protobuf.IMessage
+  isExternal: true
+  name: CalculateSize()
+  nameWithType: IMessage.CalculateSize()
+  fullName: Google.Protobuf.IMessage.CalculateSize()
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage.CalculateSize
+    name: CalculateSize
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IMessage.CalculateSize
+    name: CalculateSize
+    isExternal: true
+  - name: (
+  - name: )
+- uid: ServiceLayer.SLBfdv6Key.MergeFrom*
+  commentId: Overload:ServiceLayer.SLBfdv6Key.MergeFrom
+  href: ServiceLayer.SLBfdv6Key.html#ServiceLayer.SLBfdv6Key.MergeFrom(ServiceLayer.SLBfdv6Key)
+  name: MergeFrom
+  nameWithType: SLBfdv6Key.MergeFrom
+  fullName: ServiceLayer.SLBfdv6Key.MergeFrom
+- uid: Google.Protobuf.IMessage{ServiceLayer.SLBfdv6Key}.MergeFrom(ServiceLayer.SLBfdv6Key)
+  commentId: M:Google.Protobuf.IMessage{ServiceLayer.SLBfdv6Key}.MergeFrom(ServiceLayer.SLBfdv6Key)
+  parent: Google.Protobuf.IMessage{ServiceLayer.SLBfdv6Key}
+  definition: Google.Protobuf.IMessage`1.MergeFrom(`0)
+  href: ServiceLayer.SLBfdv6Key.html
+  name: MergeFrom(SLBfdv6Key)
+  nameWithType: IMessage<SLBfdv6Key>.MergeFrom(SLBfdv6Key)
+  fullName: Google.Protobuf.IMessage<ServiceLayer.SLBfdv6Key>.MergeFrom(ServiceLayer.SLBfdv6Key)
+  nameWithType.vb: IMessage(Of SLBfdv6Key).MergeFrom(SLBfdv6Key)
+  fullName.vb: Google.Protobuf.IMessage(Of ServiceLayer.SLBfdv6Key).MergeFrom(ServiceLayer.SLBfdv6Key)
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage{ServiceLayer.SLBfdv6Key}.MergeFrom(ServiceLayer.SLBfdv6Key)
+    name: MergeFrom
+    isExternal: true
+  - name: (
+  - uid: ServiceLayer.SLBfdv6Key
+    name: SLBfdv6Key
+    href: ServiceLayer.SLBfdv6Key.html
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IMessage{ServiceLayer.SLBfdv6Key}.MergeFrom(ServiceLayer.SLBfdv6Key)
+    name: MergeFrom
+    isExternal: true
+  - name: (
+  - uid: ServiceLayer.SLBfdv6Key
+    name: SLBfdv6Key
+    href: ServiceLayer.SLBfdv6Key.html
+  - name: )
+- uid: Google.Protobuf.IMessage`1.MergeFrom(`0)
+  commentId: M:Google.Protobuf.IMessage`1.MergeFrom(`0)
+  isExternal: true
+  name: MergeFrom(T)
+  nameWithType: IMessage<T>.MergeFrom(T)
+  fullName: Google.Protobuf.IMessage<T>.MergeFrom(T)
+  nameWithType.vb: IMessage(Of T).MergeFrom(T)
+  fullName.vb: Google.Protobuf.IMessage(Of T).MergeFrom(T)
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage`1.MergeFrom(`0)
+    name: MergeFrom
+    isExternal: true
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IMessage`1.MergeFrom(`0)
+    name: MergeFrom
+    isExternal: true
+  - name: (
+  - name: T
+  - name: )
+- uid: Google.Protobuf.IMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+  commentId: M:Google.Protobuf.IMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+  parent: Google.Protobuf.IMessage
+  isExternal: true
+  name: MergeFrom(CodedInputStream)
+  nameWithType: IMessage.MergeFrom(CodedInputStream)
+  fullName: Google.Protobuf.IMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+    name: MergeFrom
+    isExternal: true
+  - name: (
+  - uid: Google.Protobuf.CodedInputStream
+    name: CodedInputStream
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+    name: MergeFrom
+    isExternal: true
+  - name: (
+  - uid: Google.Protobuf.CodedInputStream
+    name: CodedInputStream
+    isExternal: true
+  - name: )
+- uid: Google.Protobuf.CodedInputStream
+  commentId: T:Google.Protobuf.CodedInputStream
+  parent: Google.Protobuf
+  isExternal: true
+  name: CodedInputStream
+  nameWithType: CodedInputStream
+  fullName: Google.Protobuf.CodedInputStream

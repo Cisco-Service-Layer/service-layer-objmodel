@@ -1,0 +1,249 @@
+### YamlMime:ManagedReference
+items:
+- uid: ServiceLayer.SLL2BdStateInfo.Types.SLL2BdState
+  commentId: T:ServiceLayer.SLL2BdStateInfo.Types.SLL2BdState
+  id: SLL2BdStateInfo.Types.SLL2BdState
+  parent: ServiceLayer
+  children:
+  - ServiceLayer.SLL2BdStateInfo.Types.SLL2BdState.Added
+  - ServiceLayer.SLL2BdStateInfo.Types.SLL2BdState.Deleted
+  - ServiceLayer.SLL2BdStateInfo.Types.SLL2BdState.ReplayNeeded
+  - ServiceLayer.SLL2BdStateInfo.Types.SLL2BdState.Reserved
+  langs:
+  - csharp
+  - vb
+  name: SLL2BdStateInfo.Types.SLL2BdState
+  nameWithType: SLL2BdStateInfo.Types.SLL2BdState
+  fullName: ServiceLayer.SLL2BdStateInfo.Types.SLL2BdState
+  type: Enum
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlL2Route.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: SLL2BdState
+    path: src/gencs/SlL2Route.cs
+    startLine: 6469
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: BD states
+  example: []
+  syntax:
+    content: public enum SLL2BdStateInfo.Types.SLL2BdState
+    content.vb: Public Enum SLL2BdStateInfo.Types.SLL2BdState
+- uid: ServiceLayer.SLL2BdStateInfo.Types.SLL2BdState.Reserved
+  commentId: F:ServiceLayer.SLL2BdStateInfo.Types.SLL2BdState.Reserved
+  id: Reserved
+  parent: ServiceLayer.SLL2BdStateInfo.Types.SLL2BdState
+  langs:
+  - csharp
+  - vb
+  name: Reserved
+  nameWithType: SLL2BdStateInfo.Types.SLL2BdState.Reserved
+  fullName: ServiceLayer.SLL2BdStateInfo.Types.SLL2BdState.Reserved
+  type: Field
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlL2Route.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: Reserved
+    path: src/gencs/SlL2Route.cs
+    startLine: 6473
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Reserved. 0x0
+  example: []
+  syntax:
+    content: >-
+      [OriginalName("SL_L2_BD_STATE_RESERVED")]
+
+      Reserved = 0
+    return:
+      type: ServiceLayer.SLL2BdStateInfo.Types.SLL2BdState
+    content.vb: >-
+      <OriginalName("SL_L2_BD_STATE_RESERVED")>
+
+      Reserved = 0
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: SL_L2_BD_STATE_RESERVED
+- uid: ServiceLayer.SLL2BdStateInfo.Types.SLL2BdState.Added
+  commentId: F:ServiceLayer.SLL2BdStateInfo.Types.SLL2BdState.Added
+  id: Added
+  parent: ServiceLayer.SLL2BdStateInfo.Types.SLL2BdState
+  langs:
+  - csharp
+  - vb
+  name: Added
+  nameWithType: SLL2BdStateInfo.Types.SLL2BdState.Added
+  fullName: ServiceLayer.SLL2BdStateInfo.Types.SLL2BdState.Added
+  type: Field
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlL2Route.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: Added
+    path: src/gencs/SlL2Route.cs
+    startLine: 6478
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: >-
+    BD Added State.
+
+    Implies BD is ready for programming and notification request. 0x1
+  example: []
+  syntax:
+    content: >-
+      [OriginalName("SL_L2_BD_STATE_ADDED")]
+
+      Added = 1
+    return:
+      type: ServiceLayer.SLL2BdStateInfo.Types.SLL2BdState
+    content.vb: >-
+      <OriginalName("SL_L2_BD_STATE_ADDED")>
+
+      Added = 1
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: SL_L2_BD_STATE_ADDED
+- uid: ServiceLayer.SLL2BdStateInfo.Types.SLL2BdState.Deleted
+  commentId: F:ServiceLayer.SLL2BdStateInfo.Types.SLL2BdState.Deleted
+  id: Deleted
+  parent: ServiceLayer.SLL2BdStateInfo.Types.SLL2BdState
+  langs:
+  - csharp
+  - vb
+  name: Deleted
+  nameWithType: SLL2BdStateInfo.Types.SLL2BdState.Deleted
+  fullName: ServiceLayer.SLL2BdStateInfo.Types.SLL2BdState.Deleted
+  type: Field
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlL2Route.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: Deleted
+    path: src/gencs/SlL2Route.cs
+    startLine: 6484
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: >-
+    BD Deleted State.
+
+    Implies BD has been deleted, all installed routes will be
+
+    deleted and no further notifications will be sent. 0x2
+  example: []
+  syntax:
+    content: >-
+      [OriginalName("SL_L2_BD_STATE_DELETED")]
+
+      Deleted = 2
+    return:
+      type: ServiceLayer.SLL2BdStateInfo.Types.SLL2BdState
+    content.vb: >-
+      <OriginalName("SL_L2_BD_STATE_DELETED")>
+
+      Deleted = 2
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: SL_L2_BD_STATE_DELETED
+- uid: ServiceLayer.SLL2BdStateInfo.Types.SLL2BdState.ReplayNeeded
+  commentId: F:ServiceLayer.SLL2BdStateInfo.Types.SLL2BdState.ReplayNeeded
+  id: ReplayNeeded
+  parent: ServiceLayer.SLL2BdStateInfo.Types.SLL2BdState
+  langs:
+  - csharp
+  - vb
+  name: ReplayNeeded
+  nameWithType: SLL2BdStateInfo.Types.SLL2BdState.ReplayNeeded
+  fullName: ServiceLayer.SLL2BdStateInfo.Types.SLL2BdState.ReplayNeeded
+  type: Field
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlL2Route.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: ReplayNeeded
+    path: src/gencs/SlL2Route.cs
+    startLine: 6490
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: >-
+    BD Replay Needed.
+
+    Implies the routes in this BD could not be recovered and the
+
+    client has to replay the routes. 0x3
+  example: []
+  syntax:
+    content: >-
+      [OriginalName("SL_L2_BD_STATE_REPLAY_NEEDED")]
+
+      ReplayNeeded = 3
+    return:
+      type: ServiceLayer.SLL2BdStateInfo.Types.SLL2BdState
+    content.vb: >-
+      <OriginalName("SL_L2_BD_STATE_REPLAY_NEEDED")>
+
+      ReplayNeeded = 3
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: SL_L2_BD_STATE_REPLAY_NEEDED
+references:
+- uid: ServiceLayer
+  commentId: N:ServiceLayer
+  href: ServiceLayer.html
+  name: ServiceLayer
+  nameWithType: ServiceLayer
+  fullName: ServiceLayer
+- uid: ServiceLayer.SLL2BdStateInfo.Types.SLL2BdState
+  commentId: T:ServiceLayer.SLL2BdStateInfo.Types.SLL2BdState
+  parent: ServiceLayer
+  href: ServiceLayer.SLL2BdStateInfo.html
+  name: SLL2BdStateInfo.Types.SLL2BdState
+  nameWithType: SLL2BdStateInfo.Types.SLL2BdState
+  fullName: ServiceLayer.SLL2BdStateInfo.Types.SLL2BdState
+  spec.csharp:
+  - uid: ServiceLayer.SLL2BdStateInfo
+    name: SLL2BdStateInfo
+    href: ServiceLayer.SLL2BdStateInfo.html
+  - name: .
+  - uid: ServiceLayer.SLL2BdStateInfo.Types
+    name: Types
+    href: ServiceLayer.SLL2BdStateInfo.Types.html
+  - name: .
+  - uid: ServiceLayer.SLL2BdStateInfo.Types.SLL2BdState
+    name: SLL2BdState
+    href: ServiceLayer.SLL2BdStateInfo.Types.SLL2BdState.html
+  spec.vb:
+  - uid: ServiceLayer.SLL2BdStateInfo
+    name: SLL2BdStateInfo
+    href: ServiceLayer.SLL2BdStateInfo.html
+  - name: .
+  - uid: ServiceLayer.SLL2BdStateInfo.Types
+    name: Types
+    href: ServiceLayer.SLL2BdStateInfo.Types.html
+  - name: .
+  - uid: ServiceLayer.SLL2BdStateInfo.Types.SLL2BdState
+    name: SLL2BdState
+    href: ServiceLayer.SLL2BdStateInfo.Types.SLL2BdState.html

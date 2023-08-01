@@ -1,0 +1,529 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Class SLL2Oper.SLL2OperBase
+ </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Class SLL2Oper.SLL2OperBase
+ ">
+    
+      <link rel="shortcut icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="">
+      <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="ServiceLayer.SLL2Oper.SLL2OperBase">
+
+
+
+  <h1 id="ServiceLayer_SLL2Oper_SLL2OperBase" data-uid="ServiceLayer.SLL2Oper.SLL2OperBase" class="text-break">Class SLL2Oper.SLL2OperBase
+</h1>
+  <div class="markdown level0 summary"><p>Base class for server-side implementations of SLL2Oper</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+    <div class="level1"><span class="xref">SLL2Oper.SLL2OperBase</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="ServiceLayer.html">ServiceLayer</a></h6>
+  <h6><strong>Assembly</strong>: ServiceLayer.dll</h6>
+  <h5 id="ServiceLayer_SLL2Oper_SLL2OperBase_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[BindServiceMethod(typeof(SLL2Oper), &quot;BindService&quot;)]
+public abstract class SLL2Oper.SLL2OperBase</code></pre>
+  </div>
+  <h3 id="methods">Methods
+</h3>
+
+
+  <a id="ServiceLayer_SLL2Oper_SLL2OperBase_SLL2BdRegOp_" data-uid="ServiceLayer.SLL2Oper.SLL2OperBase.SLL2BdRegOp*"></a>
+  <h4 id="ServiceLayer_SLL2Oper_SLL2OperBase_SLL2BdRegOp_ServiceLayer_SLL2BdRegMsg_Grpc_Core_ServerCallContext_" data-uid="ServiceLayer.SLL2Oper.SLL2OperBase.SLL2BdRegOp(ServiceLayer.SLL2BdRegMsg,Grpc.Core.ServerCallContext)">SLL2BdRegOp(SLL2BdRegMsg, ServerCallContext)</h4>
+  <div class="markdown level1 summary"><p>SLL2BdRegMsg.Oper = SL_REGOP_REGISTER:
+BD registration: Sends a list of BD registration messages and
+expects a list of registration responses.
+A client Must Register a BD BEFORE L2 Routes can be added/modified
+in that BD.</p>
+<p>SLL2BdRegMsg.Oper = SL_REGOP_UNREGISTER:
+BD un-registration: Sends a list of BD un-registration messages
+and expects a list of un-registration responses.
+This can be used to convey that the client is no longer
+interested in programming routes in this BD. All installed L2
+routes will be removed.</p>
+<p>SLL2BdRegMsg.Oper = SL_REGOP_EOF:
+BD End Of File message.
+After Registration, the client is expected to send an EOF
+message to convey the end of replay of the client's known objects
+in that BD.
+This is especially useful under certain restart scenarios when the
+client and the server are trying to synchronize their routes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual Task&lt;SLL2BdRegMsgRsp&gt; SLL2BdRegOp(SLL2BdRegMsg request, ServerCallContext context)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ServiceLayer.SLL2BdRegMsg.html">SLL2BdRegMsg</a></td>
+        <td><span class="parametername">request</span></td>
+        <td><p>The request received from the client.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/ServerCallContext.cs">ServerCallContext</a></td>
+        <td><span class="parametername">context</span></td>
+        <td><p>The context of the server-side call handler being invoked.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="ServiceLayer.SLL2BdRegMsgRsp.html">SLL2BdRegMsgRsp</a>&gt;</td>
+        <td><p>The response to send back to the client (wrapped by a task).</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="ServiceLayer_SLL2Oper_SLL2OperBase_SLL2GetNotifStream_" data-uid="ServiceLayer.SLL2Oper.SLL2OperBase.SLL2GetNotifStream*"></a>
+  <h4 id="ServiceLayer_SLL2Oper_SLL2OperBase_SLL2GetNotifStream_Grpc_Core_IAsyncStreamReader_ServiceLayer_SLL2GetNotifMsg__Grpc_Core_IServerStreamWriter_ServiceLayer_SLL2Notif__Grpc_Core_ServerCallContext_" data-uid="ServiceLayer.SLL2Oper.SLL2OperBase.SLL2GetNotifStream(Grpc.Core.IAsyncStreamReader{ServiceLayer.SLL2GetNotifMsg},Grpc.Core.IServerStreamWriter{ServiceLayer.SLL2Notif},Grpc.Core.ServerCallContext)">SLL2GetNotifStream(IAsyncStreamReader&lt;SLL2GetNotifMsg&gt;, IServerStreamWriter&lt;SLL2Notif&gt;, ServerCallContext)</h4>
+  <div class="markdown level1 summary"><p>This call is used to get a stream of BD state and route notifications.
+It can be used to get &quot;push&quot; notifications for route
+adds/updates/deletes.
+The caller must maintain the GRPC channel as long as there is
+interest in route notifications.</p>
+<p>The call takes 3 types of notification requests:</p>
+<ol>
+<li>Request for BD state notifications only (pass only Oper and
+Correlator).</li>
+<li>Request for BD state and Route notifications in all BDs.</li>
+<li>Request for Route notifications per-BD.
+This should be sent after requesting for BD state notifications
+and after receiving BD-ready notification.</li>
+</ol>
+<p>The success/failure of the notification request is relayed in the
+SLL2NotifStatusMsg followed by a Start marker, any routes if present,
+and an End Marker.</p>
+<p>After all requests are sent, client should send GetNotifEof = TRUE.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual Task SLL2GetNotifStream(IAsyncStreamReader&lt;SLL2GetNotifMsg&gt; requestStream, IServerStreamWriter&lt;SLL2Notif&gt; responseStream, ServerCallContext context)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/IAsyncStreamReader.cs">IAsyncStreamReader</a>&lt;<a class="xref" href="ServiceLayer.SLL2GetNotifMsg.html">SLL2GetNotifMsg</a>&gt;</td>
+        <td><span class="parametername">requestStream</span></td>
+        <td><p>Used for reading requests from the client.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/IServerStreamWriter.cs">IServerStreamWriter</a>&lt;<a class="xref" href="ServiceLayer.SLL2Notif.html">SLL2Notif</a>&gt;</td>
+        <td><span class="parametername">responseStream</span></td>
+        <td><p>Used for sending responses back to the client.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/ServerCallContext.cs">ServerCallContext</a></td>
+        <td><span class="parametername">context</span></td>
+        <td><p>The context of the server-side call handler being invoked.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></td>
+        <td><p>A task indicating completion of the handler.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="ServiceLayer_SLL2Oper_SLL2OperBase_SLL2GlobalsGet_" data-uid="ServiceLayer.SLL2Oper.SLL2OperBase.SLL2GlobalsGet*"></a>
+  <h4 id="ServiceLayer_SLL2Oper_SLL2OperBase_SLL2GlobalsGet_ServiceLayer_SLL2GlobalsGetMsg_Grpc_Core_ServerCallContext_" data-uid="ServiceLayer.SLL2Oper.SLL2OperBase.SLL2GlobalsGet(ServiceLayer.SLL2GlobalsGetMsg,Grpc.Core.ServerCallContext)">SLL2GlobalsGet(SLL2GlobalsGetMsg, ServerCallContext)</h4>
+  <div class="markdown level1 summary"><p>Used to retrieve global L2 info from the server.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual Task&lt;SLL2GlobalsGetMsgRsp&gt; SLL2GlobalsGet(SLL2GlobalsGetMsg request, ServerCallContext context)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ServiceLayer.SLL2GlobalsGetMsg.html">SLL2GlobalsGetMsg</a></td>
+        <td><span class="parametername">request</span></td>
+        <td><p>The request received from the client.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/ServerCallContext.cs">ServerCallContext</a></td>
+        <td><span class="parametername">context</span></td>
+        <td><p>The context of the server-side call handler being invoked.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="ServiceLayer.SLL2GlobalsGetMsgRsp.html">SLL2GlobalsGetMsgRsp</a>&gt;</td>
+        <td><p>The response to send back to the client (wrapped by a task).</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="ServiceLayer_SLL2Oper_SLL2OperBase_SLL2RegOp_" data-uid="ServiceLayer.SLL2Oper.SLL2OperBase.SLL2RegOp*"></a>
+  <h4 id="ServiceLayer_SLL2Oper_SLL2OperBase_SLL2RegOp_ServiceLayer_SLL2RegMsg_Grpc_Core_ServerCallContext_" data-uid="ServiceLayer.SLL2Oper.SLL2OperBase.SLL2RegOp(ServiceLayer.SLL2RegMsg,Grpc.Core.ServerCallContext)">SLL2RegOp(SLL2RegMsg, ServerCallContext)</h4>
+  <div class="markdown level1 summary"><p>SLL2RegMsg.Oper = SL_REGOP_REGISTER:
+Global L2 registration.
+A client Must Register BEFORE sending BD registration messages
+(to add/update/delete routes) or BEFORE requesting for L2 route
+notifications.</p>
+<p>SLL2RegMsg.Oper = SL_REGOP_UNREGISTER:
+Global L2 un-registration.
+This call is used to convey that the client is no longer
+interested in programming L2 routes and in receiving L2 route
+notifications. All programmed L2 routes will be deleted on the
+server and the server will stop sending L2 route notifications.</p>
+<p>SLL2RegMsg.Oper = SL_REGOP_EOF:
+Global L2 End Of File message.
+After Registration, the client is expected to send an EOF
+message to convey the end of replay of the client's known
+objects and to convey the end of requests for L2 route
+notifications.
+This is especially useful under certain restart scenarios when the
+client and the server are trying to synchronize their routes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual Task&lt;SLL2RegMsgRsp&gt; SLL2RegOp(SLL2RegMsg request, ServerCallContext context)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ServiceLayer.SLL2RegMsg.html">SLL2RegMsg</a></td>
+        <td><span class="parametername">request</span></td>
+        <td><p>The request received from the client.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/ServerCallContext.cs">ServerCallContext</a></td>
+        <td><span class="parametername">context</span></td>
+        <td><p>The context of the server-side call handler being invoked.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="ServiceLayer.SLL2RegMsgRsp.html">SLL2RegMsgRsp</a>&gt;</td>
+        <td><p>The response to send back to the client (wrapped by a task).</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="ServiceLayer_SLL2Oper_SLL2OperBase_SLL2RouteOp_" data-uid="ServiceLayer.SLL2Oper.SLL2OperBase.SLL2RouteOp*"></a>
+  <h4 id="ServiceLayer_SLL2Oper_SLL2OperBase_SLL2RouteOp_ServiceLayer_SLL2RouteMsg_Grpc_Core_ServerCallContext_" data-uid="ServiceLayer.SLL2Oper.SLL2OperBase.SLL2RouteOp(ServiceLayer.SLL2RouteMsg,Grpc.Core.ServerCallContext)">SLL2RouteOp(SLL2RouteMsg, ServerCallContext)</h4>
+  <div class="markdown level1 summary"><p>SLL2RouteMsg.Oper = SL_OBJOP_ADD:
+Route add. Fails if the route already exists.</p>
+<p>SLL2RouteMsg.Oper = SL_OBJOP_UPDATE:
+Route update. Creates or updates the route.</p>
+<p>SLL2RouteMsg.Oper = SL_OBJOP_DELETE:
+Route delete. The route path is not necessary to delete the route.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual Task&lt;SLL2RouteMsgRsp&gt; SLL2RouteOp(SLL2RouteMsg request, ServerCallContext context)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ServiceLayer.SLL2RouteMsg.html">SLL2RouteMsg</a></td>
+        <td><span class="parametername">request</span></td>
+        <td><p>The request received from the client.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/ServerCallContext.cs">ServerCallContext</a></td>
+        <td><span class="parametername">context</span></td>
+        <td><p>The context of the server-side call handler being invoked.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="ServiceLayer.SLL2RouteMsgRsp.html">SLL2RouteMsgRsp</a>&gt;</td>
+        <td><p>The response to send back to the client (wrapped by a task).</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="ServiceLayer_SLL2Oper_SLL2OperBase_SLL2RouteOpStream_" data-uid="ServiceLayer.SLL2Oper.SLL2OperBase.SLL2RouteOpStream*"></a>
+  <h4 id="ServiceLayer_SLL2Oper_SLL2OperBase_SLL2RouteOpStream_Grpc_Core_IAsyncStreamReader_ServiceLayer_SLL2RouteMsg__Grpc_Core_IServerStreamWriter_ServiceLayer_SLL2RouteMsgRsp__Grpc_Core_ServerCallContext_" data-uid="ServiceLayer.SLL2Oper.SLL2OperBase.SLL2RouteOpStream(Grpc.Core.IAsyncStreamReader{ServiceLayer.SLL2RouteMsg},Grpc.Core.IServerStreamWriter{ServiceLayer.SLL2RouteMsgRsp},Grpc.Core.ServerCallContext)">SLL2RouteOpStream(IAsyncStreamReader&lt;SLL2RouteMsg&gt;, IServerStreamWriter&lt;SLL2RouteMsgRsp&gt;, ServerCallContext)</h4>
+  <div class="markdown level1 summary"><p>Stream adds/updates/deletes of L2 Routes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual Task SLL2RouteOpStream(IAsyncStreamReader&lt;SLL2RouteMsg&gt; requestStream, IServerStreamWriter&lt;SLL2RouteMsgRsp&gt; responseStream, ServerCallContext context)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/IAsyncStreamReader.cs">IAsyncStreamReader</a>&lt;<a class="xref" href="ServiceLayer.SLL2RouteMsg.html">SLL2RouteMsg</a>&gt;</td>
+        <td><span class="parametername">requestStream</span></td>
+        <td><p>Used for reading requests from the client.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/IServerStreamWriter.cs">IServerStreamWriter</a>&lt;<a class="xref" href="ServiceLayer.SLL2RouteMsgRsp.html">SLL2RouteMsgRsp</a>&gt;</td>
+        <td><span class="parametername">responseStream</span></td>
+        <td><p>Used for sending responses back to the client.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/ServerCallContext.cs">ServerCallContext</a></td>
+        <td><span class="parametername">context</span></td>
+        <td><p>The context of the server-side call handler being invoked.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></td>
+        <td><p>A task indicating completion of the handler.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

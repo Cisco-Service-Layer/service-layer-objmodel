@@ -1,0 +1,2558 @@
+### YamlMime:ManagedReference
+items:
+- uid: ServiceLayer.SLMplsPath
+  commentId: T:ServiceLayer.SLMplsPath
+  id: SLMplsPath
+  parent: ServiceLayer
+  children:
+  - ServiceLayer.SLMplsPath.#ctor
+  - ServiceLayer.SLMplsPath.#ctor(ServiceLayer.SLMplsPath)
+  - ServiceLayer.SLMplsPath.Action
+  - ServiceLayer.SLMplsPath.ActionFieldNumber
+  - ServiceLayer.SLMplsPath.CalculateSize
+  - ServiceLayer.SLMplsPath.Clone
+  - ServiceLayer.SLMplsPath.Descriptor
+  - ServiceLayer.SLMplsPath.Equals(ServiceLayer.SLMplsPath)
+  - ServiceLayer.SLMplsPath.Equals(System.Object)
+  - ServiceLayer.SLMplsPath.GetHashCode
+  - ServiceLayer.SLMplsPath.LabelStack
+  - ServiceLayer.SLMplsPath.LabelStackFieldNumber
+  - ServiceLayer.SLMplsPath.LoadMetric
+  - ServiceLayer.SLMplsPath.LoadMetricFieldNumber
+  - ServiceLayer.SLMplsPath.MergeFrom(Google.Protobuf.CodedInputStream)
+  - ServiceLayer.SLMplsPath.MergeFrom(ServiceLayer.SLMplsPath)
+  - ServiceLayer.SLMplsPath.NexthopAddress
+  - ServiceLayer.SLMplsPath.NexthopAddressFieldNumber
+  - ServiceLayer.SLMplsPath.NexthopInterface
+  - ServiceLayer.SLMplsPath.NexthopInterfaceFieldNumber
+  - ServiceLayer.SLMplsPath.Parser
+  - ServiceLayer.SLMplsPath.PathId
+  - ServiceLayer.SLMplsPath.PathIdFieldNumber
+  - ServiceLayer.SLMplsPath.ProtectedPathBitmap
+  - ServiceLayer.SLMplsPath.ProtectedPathBitmapFieldNumber
+  - ServiceLayer.SLMplsPath.RemoteAddress
+  - ServiceLayer.SLMplsPath.RemoteAddressFieldNumber
+  - ServiceLayer.SLMplsPath.SlMplsCosVal
+  - ServiceLayer.SLMplsPath.SlMplsCosValFieldNumber
+  - ServiceLayer.SLMplsPath.SlMplsPathDown
+  - ServiceLayer.SLMplsPath.SlMplsPathDownFieldNumber
+  - ServiceLayer.SLMplsPath.SlMplsPathPriority
+  - ServiceLayer.SLMplsPath.SlMplsPathPriorityFieldNumber
+  - ServiceLayer.SLMplsPath.SlMplsPathSetId
+  - ServiceLayer.SLMplsPath.SlMplsPathSetIdFieldNumber
+  - ServiceLayer.SLMplsPath.ToString
+  - ServiceLayer.SLMplsPath.VrfName
+  - ServiceLayer.SLMplsPath.VrfNameFieldNumber
+  - ServiceLayer.SLMplsPath.WriteTo(Google.Protobuf.CodedOutputStream)
+  langs:
+  - csharp
+  - vb
+  name: SLMplsPath
+  nameWithType: SLMplsPath
+  fullName: ServiceLayer.SLMplsPath
+  type: Class
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlMpls.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: SLMplsPath
+    path: src/gencs/SlMpls.cs
+    startLine: 3382
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: >-
+    MPLS Path (or NHLFE) information.
+
+    This message holds the ILM path attributes.
+  example: []
+  syntax:
+    content: 'public sealed class SLMplsPath : IMessage<SLMplsPath>, IEquatable<SLMplsPath>, IDeepCloneable<SLMplsPath>, IBufferMessage, IMessage'
+    content.vb: Public NotInheritable Class SLMplsPath Implements IMessage(Of SLMplsPath), IEquatable(Of SLMplsPath), IDeepCloneable(Of SLMplsPath), IBufferMessage, IMessage
+  inheritance:
+  - System.Object
+  implements:
+  - Google.Protobuf.IMessage{ServiceLayer.SLMplsPath}
+  - System.IEquatable{ServiceLayer.SLMplsPath}
+  - Google.Protobuf.IDeepCloneable{ServiceLayer.SLMplsPath}
+  - Google.Protobuf.IBufferMessage
+  - Google.Protobuf.IMessage
+  inheritedMembers:
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: ServiceLayer.SLMplsPath.Parser
+  commentId: P:ServiceLayer.SLMplsPath.Parser
+  id: Parser
+  parent: ServiceLayer.SLMplsPath
+  langs:
+  - csharp
+  - vb
+  name: Parser
+  nameWithType: SLMplsPath.Parser
+  fullName: ServiceLayer.SLMplsPath.Parser
+  type: Property
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlMpls.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: Parser
+    path: src/gencs/SlMpls.cs
+    startLine: 3389
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  syntax:
+    content: public static MessageParser<SLMplsPath> Parser { get; }
+    parameters: []
+    return:
+      type: Google.Protobuf.MessageParser{ServiceLayer.SLMplsPath}
+    content.vb: Public Shared ReadOnly Property Parser As MessageParser(Of SLMplsPath)
+  overload: ServiceLayer.SLMplsPath.Parser*
+- uid: ServiceLayer.SLMplsPath.Descriptor
+  commentId: P:ServiceLayer.SLMplsPath.Descriptor
+  id: Descriptor
+  parent: ServiceLayer.SLMplsPath
+  langs:
+  - csharp
+  - vb
+  name: Descriptor
+  nameWithType: SLMplsPath.Descriptor
+  fullName: ServiceLayer.SLMplsPath.Descriptor
+  type: Property
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlMpls.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: Descriptor
+    path: src/gencs/SlMpls.cs
+    startLine: 3393
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  syntax:
+    content: public static MessageDescriptor Descriptor { get; }
+    parameters: []
+    return:
+      type: Google.Protobuf.Reflection.MessageDescriptor
+    content.vb: Public Shared ReadOnly Property Descriptor As MessageDescriptor
+  overload: ServiceLayer.SLMplsPath.Descriptor*
+- uid: ServiceLayer.SLMplsPath.#ctor
+  commentId: M:ServiceLayer.SLMplsPath.#ctor
+  id: '#ctor'
+  parent: ServiceLayer.SLMplsPath
+  langs:
+  - csharp
+  - vb
+  name: SLMplsPath()
+  nameWithType: SLMplsPath.SLMplsPath()
+  fullName: ServiceLayer.SLMplsPath.SLMplsPath()
+  type: Constructor
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlMpls.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: .ctor
+    path: src/gencs/SlMpls.cs
+    startLine: 3405
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  syntax:
+    content: public SLMplsPath()
+    content.vb: Public Sub New()
+  overload: ServiceLayer.SLMplsPath.#ctor*
+  nameWithType.vb: SLMplsPath.New()
+  fullName.vb: ServiceLayer.SLMplsPath.New()
+  name.vb: New()
+- uid: ServiceLayer.SLMplsPath.#ctor(ServiceLayer.SLMplsPath)
+  commentId: M:ServiceLayer.SLMplsPath.#ctor(ServiceLayer.SLMplsPath)
+  id: '#ctor(ServiceLayer.SLMplsPath)'
+  parent: ServiceLayer.SLMplsPath
+  langs:
+  - csharp
+  - vb
+  name: SLMplsPath(SLMplsPath)
+  nameWithType: SLMplsPath.SLMplsPath(SLMplsPath)
+  fullName: ServiceLayer.SLMplsPath.SLMplsPath(ServiceLayer.SLMplsPath)
+  type: Constructor
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlMpls.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: .ctor
+    path: src/gencs/SlMpls.cs
+    startLine: 3413
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  syntax:
+    content: public SLMplsPath(SLMplsPath other)
+    parameters:
+    - id: other
+      type: ServiceLayer.SLMplsPath
+    content.vb: Public Sub New(other As SLMplsPath)
+  overload: ServiceLayer.SLMplsPath.#ctor*
+  nameWithType.vb: SLMplsPath.New(SLMplsPath)
+  fullName.vb: ServiceLayer.SLMplsPath.New(ServiceLayer.SLMplsPath)
+  name.vb: New(SLMplsPath)
+- uid: ServiceLayer.SLMplsPath.Clone
+  commentId: M:ServiceLayer.SLMplsPath.Clone
+  id: Clone
+  parent: ServiceLayer.SLMplsPath
+  langs:
+  - csharp
+  - vb
+  name: Clone()
+  nameWithType: SLMplsPath.Clone()
+  fullName: ServiceLayer.SLMplsPath.Clone()
+  type: Method
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlMpls.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: Clone
+    path: src/gencs/SlMpls.cs
+    startLine: 3432
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Creates a deep clone of this object.
+  example: []
+  syntax:
+    content: public SLMplsPath Clone()
+    return:
+      type: ServiceLayer.SLMplsPath
+      description: A deep clone of this object.
+    content.vb: Public Function Clone() As SLMplsPath
+  overload: ServiceLayer.SLMplsPath.Clone*
+  implements:
+  - Google.Protobuf.IDeepCloneable{ServiceLayer.SLMplsPath}.Clone
+- uid: ServiceLayer.SLMplsPath.NexthopAddressFieldNumber
+  commentId: F:ServiceLayer.SLMplsPath.NexthopAddressFieldNumber
+  id: NexthopAddressFieldNumber
+  parent: ServiceLayer.SLMplsPath
+  langs:
+  - csharp
+  - vb
+  name: NexthopAddressFieldNumber
+  nameWithType: SLMplsPath.NexthopAddressFieldNumber
+  fullName: ServiceLayer.SLMplsPath.NexthopAddressFieldNumber
+  type: Field
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlMpls.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: NexthopAddressFieldNumber
+    path: src/gencs/SlMpls.cs
+    startLine: 3439
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Field number for the "NexthopAddress" field.
+  example: []
+  syntax:
+    content: public const int NexthopAddressFieldNumber = 1
+    return:
+      type: System.Int32
+    content.vb: Public Const NexthopAddressFieldNumber As Integer = 1
+- uid: ServiceLayer.SLMplsPath.NexthopAddress
+  commentId: P:ServiceLayer.SLMplsPath.NexthopAddress
+  id: NexthopAddress
+  parent: ServiceLayer.SLMplsPath
+  langs:
+  - csharp
+  - vb
+  name: NexthopAddress
+  nameWithType: SLMplsPath.NexthopAddress
+  fullName: ServiceLayer.SLMplsPath.NexthopAddress
+  type: Property
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlMpls.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: NexthopAddress
+    path: src/gencs/SlMpls.cs
+    startLine: 3444
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: One of IPv4 or IPv6 address
+  example: []
+  syntax:
+    content: public SLIpAddress NexthopAddress { get; set; }
+    parameters: []
+    return:
+      type: ServiceLayer.SLIpAddress
+    content.vb: Public Property NexthopAddress As SLIpAddress
+  overload: ServiceLayer.SLMplsPath.NexthopAddress*
+- uid: ServiceLayer.SLMplsPath.NexthopInterfaceFieldNumber
+  commentId: F:ServiceLayer.SLMplsPath.NexthopInterfaceFieldNumber
+  id: NexthopInterfaceFieldNumber
+  parent: ServiceLayer.SLMplsPath
+  langs:
+  - csharp
+  - vb
+  name: NexthopInterfaceFieldNumber
+  nameWithType: SLMplsPath.NexthopInterfaceFieldNumber
+  fullName: ServiceLayer.SLMplsPath.NexthopInterfaceFieldNumber
+  type: Field
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlMpls.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: NexthopInterfaceFieldNumber
+    path: src/gencs/SlMpls.cs
+    startLine: 3454
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Field number for the "NexthopInterface" field.
+  example: []
+  syntax:
+    content: public const int NexthopInterfaceFieldNumber = 2
+    return:
+      type: System.Int32
+    content.vb: Public Const NexthopInterfaceFieldNumber As Integer = 2
+- uid: ServiceLayer.SLMplsPath.NexthopInterface
+  commentId: P:ServiceLayer.SLMplsPath.NexthopInterface
+  id: NexthopInterface
+  parent: ServiceLayer.SLMplsPath
+  langs:
+  - csharp
+  - vb
+  name: NexthopInterface
+  nameWithType: SLMplsPath.NexthopInterface
+  fullName: ServiceLayer.SLMplsPath.NexthopInterface
+  type: Property
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlMpls.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: NexthopInterface
+    path: src/gencs/SlMpls.cs
+    startLine: 3459
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Next hop interface.
+  example: []
+  syntax:
+    content: public SLInterface NexthopInterface { get; set; }
+    parameters: []
+    return:
+      type: ServiceLayer.SLInterface
+    content.vb: Public Property NexthopInterface As SLInterface
+  overload: ServiceLayer.SLMplsPath.NexthopInterface*
+- uid: ServiceLayer.SLMplsPath.LoadMetricFieldNumber
+  commentId: F:ServiceLayer.SLMplsPath.LoadMetricFieldNumber
+  id: LoadMetricFieldNumber
+  parent: ServiceLayer.SLMplsPath
+  langs:
+  - csharp
+  - vb
+  name: LoadMetricFieldNumber
+  nameWithType: SLMplsPath.LoadMetricFieldNumber
+  fullName: ServiceLayer.SLMplsPath.LoadMetricFieldNumber
+  type: Field
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlMpls.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: LoadMetricFieldNumber
+    path: src/gencs/SlMpls.cs
+    startLine: 3469
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Field number for the "LoadMetric" field.
+  example: []
+  syntax:
+    content: public const int LoadMetricFieldNumber = 3
+    return:
+      type: System.Int32
+    content.vb: Public Const LoadMetricFieldNumber As Integer = 3
+- uid: ServiceLayer.SLMplsPath.LoadMetric
+  commentId: P:ServiceLayer.SLMplsPath.LoadMetric
+  id: LoadMetric
+  parent: ServiceLayer.SLMplsPath
+  langs:
+  - csharp
+  - vb
+  name: LoadMetric
+  nameWithType: SLMplsPath.LoadMetric
+  fullName: ServiceLayer.SLMplsPath.LoadMetric
+  type: Property
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlMpls.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: LoadMetric
+    path: src/gencs/SlMpls.cs
+    startLine: 3474
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: ECMP load weight metric
+  example: []
+  syntax:
+    content: public uint LoadMetric { get; set; }
+    parameters: []
+    return:
+      type: System.UInt32
+    content.vb: Public Property LoadMetric As UInteger
+  overload: ServiceLayer.SLMplsPath.LoadMetric*
+- uid: ServiceLayer.SLMplsPath.VrfNameFieldNumber
+  commentId: F:ServiceLayer.SLMplsPath.VrfNameFieldNumber
+  id: VrfNameFieldNumber
+  parent: ServiceLayer.SLMplsPath
+  langs:
+  - csharp
+  - vb
+  name: VrfNameFieldNumber
+  nameWithType: SLMplsPath.VrfNameFieldNumber
+  fullName: ServiceLayer.SLMplsPath.VrfNameFieldNumber
+  type: Field
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlMpls.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: VrfNameFieldNumber
+    path: src/gencs/SlMpls.cs
+    startLine: 3484
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Field number for the "VrfName" field.
+  example: []
+  syntax:
+    content: public const int VrfNameFieldNumber = 4
+    return:
+      type: System.Int32
+    content.vb: Public Const VrfNameFieldNumber As Integer = 4
+- uid: ServiceLayer.SLMplsPath.VrfName
+  commentId: P:ServiceLayer.SLMplsPath.VrfName
+  id: VrfName
+  parent: ServiceLayer.SLMplsPath
+  langs:
+  - csharp
+  - vb
+  name: VrfName
+  nameWithType: SLMplsPath.VrfName
+  fullName: ServiceLayer.SLMplsPath.VrfName
+  type: Property
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlMpls.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: VrfName
+    path: src/gencs/SlMpls.cs
+    startLine: 3489
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: VRF name
+  example: []
+  syntax:
+    content: public string VrfName { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property VrfName As String
+  overload: ServiceLayer.SLMplsPath.VrfName*
+- uid: ServiceLayer.SLMplsPath.ActionFieldNumber
+  commentId: F:ServiceLayer.SLMplsPath.ActionFieldNumber
+  id: ActionFieldNumber
+  parent: ServiceLayer.SLMplsPath
+  langs:
+  - csharp
+  - vb
+  name: ActionFieldNumber
+  nameWithType: SLMplsPath.ActionFieldNumber
+  fullName: ServiceLayer.SLMplsPath.ActionFieldNumber
+  type: Field
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlMpls.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: ActionFieldNumber
+    path: src/gencs/SlMpls.cs
+    startLine: 3499
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Field number for the "Action" field.
+  example: []
+  syntax:
+    content: public const int ActionFieldNumber = 5
+    return:
+      type: System.Int32
+    content.vb: Public Const ActionFieldNumber As Integer = 5
+- uid: ServiceLayer.SLMplsPath.Action
+  commentId: P:ServiceLayer.SLMplsPath.Action
+  id: Action
+  parent: ServiceLayer.SLMplsPath
+  langs:
+  - csharp
+  - vb
+  name: Action
+  nameWithType: SLMplsPath.Action
+  fullName: ServiceLayer.SLMplsPath.Action
+  type: Property
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlMpls.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: Action
+    path: src/gencs/SlMpls.cs
+    startLine: 3526
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: >-
+    Associated MPLS incoming label's action.
+
+    The label action dictates what to do with the incoming label.
+
+    Possible actions are:
+     - SL_LABEL_ACTION_SWAP: SWAP the incoming label with the
+         specified LabelStack (see below), and forward the packet.
+         Path attributes: NexthopInterface, VrfName, NexthopAddress.
+     - SL_LABEL_ACTION_POP_AND_FORWARD: Pop the label, and forward the
+         packet to the specified nexthop.
+         Path attributes: NexthopInterface, VrfName, NexthopAddress.
+     - SL_LABEL_ACTION_POP_AND_LOOKUP: Pop the label, and lookup the
+         packet's next header's address in the specified VrfName.
+         Path attributes: VrfName.
+     - SL_LABEL_ACTION_POP_AND_LOOKUP_V4: Pop the label, and if the
+         packet is IPv4, then lookup the IPv4 address in the specified
+         VrfName.
+         Path attributes: VrfName.
+     - SL_LABEL_ACTION_POP_AND_LOOKUP_V6: Pop the label, and if the
+         packet is IPv6, then lookup the IPv6 address in the specified
+         VrfName.
+         Path attributes: VrfName.
+     - SL_LABEL_ACTION_PUSH: PUSH the specified LabelStack, and forward
+         the packet.
+         Path attributes: NexthopInterface, VrfName, NexthopAddress.
+  example: []
+  syntax:
+    content: public SlLabelAction Action { get; set; }
+    parameters: []
+    return:
+      type: ServiceLayer.SlLabelAction
+    content.vb: Public Property Action As SlLabelAction
+  overload: ServiceLayer.SLMplsPath.Action*
+- uid: ServiceLayer.SLMplsPath.PathIdFieldNumber
+  commentId: F:ServiceLayer.SLMplsPath.PathIdFieldNumber
+  id: PathIdFieldNumber
+  parent: ServiceLayer.SLMplsPath
+  langs:
+  - csharp
+  - vb
+  name: PathIdFieldNumber
+  nameWithType: SLMplsPath.PathIdFieldNumber
+  fullName: ServiceLayer.SLMplsPath.PathIdFieldNumber
+  type: Field
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlMpls.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: PathIdFieldNumber
+    path: src/gencs/SlMpls.cs
+    startLine: 3536
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Field number for the "PathId" field.
+  example: []
+  syntax:
+    content: public const int PathIdFieldNumber = 6
+    return:
+      type: System.Int32
+    content.vb: Public Const PathIdFieldNumber As Integer = 6
+- uid: ServiceLayer.SLMplsPath.PathId
+  commentId: P:ServiceLayer.SLMplsPath.PathId
+  id: PathId
+  parent: ServiceLayer.SLMplsPath
+  langs:
+  - csharp
+  - vb
+  name: PathId
+  nameWithType: SLMplsPath.PathId
+  fullName: ServiceLayer.SLMplsPath.PathId
+  type: Property
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlMpls.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: PathId
+    path: src/gencs/SlMpls.cs
+    startLine: 3569
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: >-
+    Path identifier.
+
+    Path-id is used to uniquely identify a path when it comes to
+
+    protection (Fast Re-Route - FRR). It is not used otherwise.
+
+
+    In general, for FRR, There are 3 main path attributes:
+       1. Primary. The path is the main path to carry traffic.
+       2. Protected. A primary path with a configured backup path.
+       3. Backup. The path is protecting a primary path.
+
+    NOTE1: a primary path (A) can be simultaneously protected (by B), and
+
+    acting as a backup for another path (C).
+
+    In this example, the primary path C is protected by A (which happens to
+
+    be primary). So the primary path (A) is Primary, Protected, and Backup.
+
+
+    The following are various path types based on combinations of attributes:
+       1. Pure Primary i.e. Not Protected and is not a Backup.
+          =&gt; PathId is optional. ProtectedPathBitmap = 0x0
+       2. Primary and Protected. Path is not a Backup.
+          =&gt; PathId is mandatory. ProtectedPathBitmap = 0x0
+       3. Primary and Not Protected. Path is also a Backup.
+          =&gt; PathId is mandatory. ProtectedPathBitmap = 0xYYYY
+       4. Primary and Protected. Path is also a Backup.
+          =&gt; PathId is mandatory. ProtectedPathBitmap = 0xYYYY
+       5. Pure Backup. Protection is not allowed for backup paths.
+          =&gt; PathId is mandatory. ProtectedPathBitmap = 0xYYYY
+
+    NOTE2: Pure backup path-id uses a different range than primary path-ids.
+
+    The valid range of primary path IDs, and pure backup path IDS are
+
+    platform dependent and can be retrieved through the client init message.
+  example: []
+  syntax:
+    content: public uint PathId { get; set; }
+    parameters: []
+    return:
+      type: System.UInt32
+    content.vb: Public Property PathId As UInteger
+  overload: ServiceLayer.SLMplsPath.PathId*
+- uid: ServiceLayer.SLMplsPath.ProtectedPathBitmapFieldNumber
+  commentId: F:ServiceLayer.SLMplsPath.ProtectedPathBitmapFieldNumber
+  id: ProtectedPathBitmapFieldNumber
+  parent: ServiceLayer.SLMplsPath
+  langs:
+  - csharp
+  - vb
+  name: ProtectedPathBitmapFieldNumber
+  nameWithType: SLMplsPath.ProtectedPathBitmapFieldNumber
+  fullName: ServiceLayer.SLMplsPath.ProtectedPathBitmapFieldNumber
+  type: Field
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlMpls.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: ProtectedPathBitmapFieldNumber
+    path: src/gencs/SlMpls.cs
+    startLine: 3579
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Field number for the "ProtectedPathBitmap" field.
+  example: []
+  syntax:
+    content: public const int ProtectedPathBitmapFieldNumber = 7
+    return:
+      type: System.Int32
+    content.vb: Public Const ProtectedPathBitmapFieldNumber As Integer = 7
+- uid: ServiceLayer.SLMplsPath.ProtectedPathBitmap
+  commentId: P:ServiceLayer.SLMplsPath.ProtectedPathBitmap
+  id: ProtectedPathBitmap
+  parent: ServiceLayer.SLMplsPath
+  langs:
+  - csharp
+  - vb
+  name: ProtectedPathBitmap
+  nameWithType: SLMplsPath.ProtectedPathBitmap
+  fullName: ServiceLayer.SLMplsPath.ProtectedPathBitmap
+  type: Property
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlMpls.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: ProtectedPathBitmap
+    path: src/gencs/SlMpls.cs
+    startLine: 3594
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: >-
+    Path protection bitmap.
+
+    The bitmap of paths this Backup path is protecting.
+
+    Example: If this path is protecting paths with IDs 4, 5 and 6, then
+
+    set bitmap to:
+
+    0x38 ==&gt; 0011 1000
+               || |-- path 4
+               ||-- path 5
+               |-- path 6
+    (1 &lt;&lt; (pathId_1 - 1))  | (1 &lt;&lt; (pathId_2 - 1)) | (1 &lt;&lt; (pathId_3 - 1))
+  example: []
+  syntax:
+    content: public RepeatedField<ulong> ProtectedPathBitmap { get; }
+    parameters: []
+    return:
+      type: Google.Protobuf.Collections.RepeatedField{System.UInt64}
+    content.vb: Public ReadOnly Property ProtectedPathBitmap As RepeatedField(Of ULong)
+  overload: ServiceLayer.SLMplsPath.ProtectedPathBitmap*
+- uid: ServiceLayer.SLMplsPath.LabelStackFieldNumber
+  commentId: F:ServiceLayer.SLMplsPath.LabelStackFieldNumber
+  id: LabelStackFieldNumber
+  parent: ServiceLayer.SLMplsPath
+  langs:
+  - csharp
+  - vb
+  name: LabelStackFieldNumber
+  nameWithType: SLMplsPath.LabelStackFieldNumber
+  fullName: ServiceLayer.SLMplsPath.LabelStackFieldNumber
+  type: Field
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlMpls.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: LabelStackFieldNumber
+    path: src/gencs/SlMpls.cs
+    startLine: 3601
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Field number for the "LabelStack" field.
+  example: []
+  syntax:
+    content: public const int LabelStackFieldNumber = 8
+    return:
+      type: System.Int32
+    content.vb: Public Const LabelStackFieldNumber As Integer = 8
+- uid: ServiceLayer.SLMplsPath.LabelStack
+  commentId: P:ServiceLayer.SLMplsPath.LabelStack
+  id: LabelStack
+  parent: ServiceLayer.SLMplsPath
+  langs:
+  - csharp
+  - vb
+  name: LabelStack
+  nameWithType: SLMplsPath.LabelStack
+  fullName: ServiceLayer.SLMplsPath.LabelStack
+  type: Property
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlMpls.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: LabelStack
+    path: src/gencs/SlMpls.cs
+    startLine: 3615
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: >-
+    MPLS label stack.
+
+    Stack of labels that is pushed when the packet is switched out.
+
+    Label size is LSB 20 bits. Forwarding will set EXP, TTL and BOS.
+
+    For primary path, typically only 1 label is used.
+
+    For backup paths, more than 1 label can be used. If more than one label
+
+    is used, remote backup addresses must be specified.
+
+    The maximum number of labels pushed for primary and backup are
+
+    platform dependent.
+  example: []
+  syntax:
+    content: public RepeatedField<uint> LabelStack { get; }
+    parameters: []
+    return:
+      type: Google.Protobuf.Collections.RepeatedField{System.UInt32}
+    content.vb: Public ReadOnly Property LabelStack As RepeatedField(Of UInteger)
+  overload: ServiceLayer.SLMplsPath.LabelStack*
+- uid: ServiceLayer.SLMplsPath.RemoteAddressFieldNumber
+  commentId: F:ServiceLayer.SLMplsPath.RemoteAddressFieldNumber
+  id: RemoteAddressFieldNumber
+  parent: ServiceLayer.SLMplsPath
+  langs:
+  - csharp
+  - vb
+  name: RemoteAddressFieldNumber
+  nameWithType: SLMplsPath.RemoteAddressFieldNumber
+  fullName: ServiceLayer.SLMplsPath.RemoteAddressFieldNumber
+  type: Field
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlMpls.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: RemoteAddressFieldNumber
+    path: src/gencs/SlMpls.cs
+    startLine: 3622
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Field number for the "RemoteAddress" field.
+  example: []
+  syntax:
+    content: public const int RemoteAddressFieldNumber = 9
+    return:
+      type: System.Int32
+    content.vb: Public Const RemoteAddressFieldNumber As Integer = 9
+- uid: ServiceLayer.SLMplsPath.RemoteAddress
+  commentId: P:ServiceLayer.SLMplsPath.RemoteAddress
+  id: RemoteAddress
+  parent: ServiceLayer.SLMplsPath
+  langs:
+  - csharp
+  - vb
+  name: RemoteAddress
+  nameWithType: SLMplsPath.RemoteAddress
+  fullName: ServiceLayer.SLMplsPath.RemoteAddress
+  type: Property
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlMpls.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: RemoteAddress
+    path: src/gencs/SlMpls.cs
+    startLine: 3633
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: >-
+    MPLS Remote router backup address.
+
+    This field is used for backup MPLS path with more than one label,
+
+    Typically associated with the PQ routers and remote Loop Free
+
+    Alternatives.
+
+    For N+1 backup labels, N remote backup addresses must be specified.
+  example: []
+  syntax:
+    content: public RepeatedField<SLIpAddress> RemoteAddress { get; }
+    parameters: []
+    return:
+      type: Google.Protobuf.Collections.RepeatedField{ServiceLayer.SLIpAddress}
+    content.vb: Public ReadOnly Property RemoteAddress As RepeatedField(Of SLIpAddress)
+  overload: ServiceLayer.SLMplsPath.RemoteAddress*
+- uid: ServiceLayer.SLMplsPath.SlMplsCosValFieldNumber
+  commentId: F:ServiceLayer.SLMplsPath.SlMplsCosValFieldNumber
+  id: SlMplsCosValFieldNumber
+  parent: ServiceLayer.SLMplsPath
+  langs:
+  - csharp
+  - vb
+  name: SlMplsCosValFieldNumber
+  nameWithType: SLMplsPath.SlMplsCosValFieldNumber
+  fullName: ServiceLayer.SLMplsPath.SlMplsCosValFieldNumber
+  type: Field
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlMpls.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: SlMplsCosValFieldNumber
+    path: src/gencs/SlMpls.cs
+    startLine: 3640
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Field number for the "SlMplsCosVal" field.
+  example: []
+  syntax:
+    content: public const int SlMplsCosValFieldNumber = 10
+    return:
+      type: System.Int32
+    content.vb: Public Const SlMplsCosValFieldNumber As Integer = 10
+- uid: ServiceLayer.SLMplsPath.SlMplsCosVal
+  commentId: P:ServiceLayer.SLMplsPath.SlMplsCosVal
+  id: SlMplsCosVal
+  parent: ServiceLayer.SLMplsPath
+  langs:
+  - csharp
+  - vb
+  name: SlMplsCosVal
+  nameWithType: SLMplsPath.SlMplsCosVal
+  fullName: ServiceLayer.SLMplsPath.SlMplsCosVal
+  type: Property
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlMpls.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: SlMplsCosVal
+    path: src/gencs/SlMpls.cs
+    startLine: 3652
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: >-
+    Either Exp bits or CoS forwarding class.
+
+    For class based forwarding of MPLS labels, the client can choose to
+
+    program forwarding class as an attribute of the path. In this
+
+    programming model, all paths for all classes must be programmed together
+
+    and class must not be specified as key attribute on the ILM.
+
+    All the paths of the same class must be contiguous.
+
+    If any path has a class specified, then all others paths must
+
+    have the class specified as well.
+  example: []
+  syntax:
+    content: public SLMplsCos SlMplsCosVal { get; set; }
+    parameters: []
+    return:
+      type: ServiceLayer.SLMplsCos
+    content.vb: Public Property SlMplsCosVal As SLMplsCos
+  overload: ServiceLayer.SLMplsPath.SlMplsCosVal*
+- uid: ServiceLayer.SLMplsPath.SlMplsPathPriorityFieldNumber
+  commentId: F:ServiceLayer.SLMplsPath.SlMplsPathPriorityFieldNumber
+  id: SlMplsPathPriorityFieldNumber
+  parent: ServiceLayer.SLMplsPath
+  langs:
+  - csharp
+  - vb
+  name: SlMplsPathPriorityFieldNumber
+  nameWithType: SLMplsPath.SlMplsPathPriorityFieldNumber
+  fullName: ServiceLayer.SLMplsPath.SlMplsPathPriorityFieldNumber
+  type: Field
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlMpls.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: SlMplsPathPriorityFieldNumber
+    path: src/gencs/SlMpls.cs
+    startLine: 3662
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Field number for the "SlMplsPathPriority" field.
+  example: []
+  syntax:
+    content: public const int SlMplsPathPriorityFieldNumber = 11
+    return:
+      type: System.Int32
+    content.vb: Public Const SlMplsPathPriorityFieldNumber As Integer = 11
+- uid: ServiceLayer.SLMplsPath.SlMplsPathPriority
+  commentId: P:ServiceLayer.SLMplsPath.SlMplsPathPriority
+  id: SlMplsPathPriority
+  parent: ServiceLayer.SLMplsPath
+  langs:
+  - csharp
+  - vb
+  name: SlMplsPathPriority
+  nameWithType: SLMplsPath.SlMplsPathPriority
+  fullName: ServiceLayer.SLMplsPath.SlMplsPathPriority
+  type: Property
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlMpls.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: SlMplsPathPriority
+    path: src/gencs/SlMpls.cs
+    startLine: 3670
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: >-
+    Set Path priority as primary, backup or reserved.
+
+    0: Path is installed as the primary path.
+
+    1: Path is installed as a backup path.
+
+    Everything else: Reserved.
+  example: []
+  syntax:
+    content: public uint SlMplsPathPriority { get; set; }
+    parameters: []
+    return:
+      type: System.UInt32
+    content.vb: Public Property SlMplsPathPriority As UInteger
+  overload: ServiceLayer.SLMplsPath.SlMplsPathPriority*
+- uid: ServiceLayer.SLMplsPath.SlMplsPathSetIdFieldNumber
+  commentId: F:ServiceLayer.SLMplsPath.SlMplsPathSetIdFieldNumber
+  id: SlMplsPathSetIdFieldNumber
+  parent: ServiceLayer.SLMplsPath
+  langs:
+  - csharp
+  - vb
+  name: SlMplsPathSetIdFieldNumber
+  nameWithType: SLMplsPath.SlMplsPathSetIdFieldNumber
+  fullName: ServiceLayer.SLMplsPath.SlMplsPathSetIdFieldNumber
+  type: Field
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlMpls.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: SlMplsPathSetIdFieldNumber
+    path: src/gencs/SlMpls.cs
+    startLine: 3680
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Field number for the "SlMplsPathSetId" field.
+  example: []
+  syntax:
+    content: public const int SlMplsPathSetIdFieldNumber = 12
+    return:
+      type: System.Int32
+    content.vb: Public Const SlMplsPathSetIdFieldNumber As Integer = 12
+- uid: ServiceLayer.SLMplsPath.SlMplsPathSetId
+  commentId: P:ServiceLayer.SLMplsPath.SlMplsPathSetId
+  id: SlMplsPathSetId
+  parent: ServiceLayer.SLMplsPath
+  langs:
+  - csharp
+  - vb
+  name: SlMplsPathSetId
+  nameWithType: SLMplsPath.SlMplsPathSetId
+  fullName: ServiceLayer.SLMplsPath.SlMplsPathSetId
+  type: Property
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlMpls.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: SlMplsPathSetId
+    path: src/gencs/SlMpls.cs
+    startLine: 3691
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: >-
+    Set the Path set-id,
+
+    Integer range [0 .. 7]; default = 0
+
+    Paths of an ILM should be associated with a SetID.
+
+    SetID is used for grouping paths with the same SlMplsPathPriority value. 
+
+    Paths with same SetID must have same SlMplsPathPriority value.
+
+    Client makes the entire set primary or backup by setting
+
+    the SlMplsPathPriority for all paths in the set.
+  example: []
+  syntax:
+    content: public uint SlMplsPathSetId { get; set; }
+    parameters: []
+    return:
+      type: System.UInt32
+    content.vb: Public Property SlMplsPathSetId As UInteger
+  overload: ServiceLayer.SLMplsPath.SlMplsPathSetId*
+- uid: ServiceLayer.SLMplsPath.SlMplsPathDownFieldNumber
+  commentId: F:ServiceLayer.SLMplsPath.SlMplsPathDownFieldNumber
+  id: SlMplsPathDownFieldNumber
+  parent: ServiceLayer.SLMplsPath
+  langs:
+  - csharp
+  - vb
+  name: SlMplsPathDownFieldNumber
+  nameWithType: SLMplsPath.SlMplsPathDownFieldNumber
+  fullName: ServiceLayer.SLMplsPath.SlMplsPathDownFieldNumber
+  type: Field
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlMpls.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: SlMplsPathDownFieldNumber
+    path: src/gencs/SlMpls.cs
+    startLine: 3701
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Field number for the "SlMplsPathDown" field.
+  example: []
+  syntax:
+    content: public const int SlMplsPathDownFieldNumber = 13
+    return:
+      type: System.Int32
+    content.vb: Public Const SlMplsPathDownFieldNumber As Integer = 13
+- uid: ServiceLayer.SLMplsPath.SlMplsPathDown
+  commentId: P:ServiceLayer.SLMplsPath.SlMplsPathDown
+  id: SlMplsPathDown
+  parent: ServiceLayer.SLMplsPath
+  langs:
+  - csharp
+  - vb
+  name: SlMplsPathDown
+  nameWithType: SLMplsPath.SlMplsPathDown
+  fullName: ServiceLayer.SLMplsPath.SlMplsPathDown
+  type: Property
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlMpls.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: SlMplsPathDown
+    path: src/gencs/SlMpls.cs
+    startLine: 3709
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: >-
+    Set the Path availability.
+
+    TRUE  : Path is DOWN. Not available for carrying traffic but preprogrammed.
+
+    FALSE : Path is UP. Available for carrying traffic.(default).
+
+    Load metric should be set to 0 when the path is down.
+  example: []
+  syntax:
+    content: public bool SlMplsPathDown { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property SlMplsPathDown As Boolean
+  overload: ServiceLayer.SLMplsPath.SlMplsPathDown*
+- uid: ServiceLayer.SLMplsPath.Equals(System.Object)
+  commentId: M:ServiceLayer.SLMplsPath.Equals(System.Object)
+  id: Equals(System.Object)
+  parent: ServiceLayer.SLMplsPath
+  langs:
+  - csharp
+  - vb
+  name: Equals(object)
+  nameWithType: SLMplsPath.Equals(object)
+  fullName: ServiceLayer.SLMplsPath.Equals(object)
+  type: Method
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlMpls.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: Equals
+    path: src/gencs/SlMpls.cs
+    startLine: 3718
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Determines whether the specified object is equal to the current object.
+  example: []
+  syntax:
+    content: public override bool Equals(object other)
+    parameters:
+    - id: other
+      type: System.Object
+    return:
+      type: System.Boolean
+      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the specified object  is equal to the current object; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+    content.vb: Public Overrides Function Equals(other As Object) As Boolean
+  overridden: System.Object.Equals(System.Object)
+  overload: ServiceLayer.SLMplsPath.Equals*
+  nameWithType.vb: SLMplsPath.Equals(Object)
+  fullName.vb: ServiceLayer.SLMplsPath.Equals(Object)
+  name.vb: Equals(Object)
+- uid: ServiceLayer.SLMplsPath.Equals(ServiceLayer.SLMplsPath)
+  commentId: M:ServiceLayer.SLMplsPath.Equals(ServiceLayer.SLMplsPath)
+  id: Equals(ServiceLayer.SLMplsPath)
+  parent: ServiceLayer.SLMplsPath
+  langs:
+  - csharp
+  - vb
+  name: Equals(SLMplsPath)
+  nameWithType: SLMplsPath.Equals(SLMplsPath)
+  fullName: ServiceLayer.SLMplsPath.Equals(ServiceLayer.SLMplsPath)
+  type: Method
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlMpls.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: Equals
+    path: src/gencs/SlMpls.cs
+    startLine: 3724
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Indicates whether the current object is equal to another object of the same type.
+  example: []
+  syntax:
+    content: public bool Equals(SLMplsPath other)
+    parameters:
+    - id: other
+      type: ServiceLayer.SLMplsPath
+      description: An object to compare with this object.
+    return:
+      type: System.Boolean
+      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the current object is equal to the <code class="paramref">other</code> parameter; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+    content.vb: Public Function Equals(other As SLMplsPath) As Boolean
+  overload: ServiceLayer.SLMplsPath.Equals*
+  implements:
+  - System.IEquatable{ServiceLayer.SLMplsPath}.Equals(ServiceLayer.SLMplsPath)
+- uid: ServiceLayer.SLMplsPath.GetHashCode
+  commentId: M:ServiceLayer.SLMplsPath.GetHashCode
+  id: GetHashCode
+  parent: ServiceLayer.SLMplsPath
+  langs:
+  - csharp
+  - vb
+  name: GetHashCode()
+  nameWithType: SLMplsPath.GetHashCode()
+  fullName: ServiceLayer.SLMplsPath.GetHashCode()
+  type: Method
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlMpls.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: GetHashCode
+    path: src/gencs/SlMpls.cs
+    startLine: 3749
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Serves as the default hash function.
+  example: []
+  syntax:
+    content: public override int GetHashCode()
+    return:
+      type: System.Int32
+      description: A hash code for the current object.
+    content.vb: Public Overrides Function GetHashCode() As Integer
+  overridden: System.Object.GetHashCode
+  overload: ServiceLayer.SLMplsPath.GetHashCode*
+- uid: ServiceLayer.SLMplsPath.ToString
+  commentId: M:ServiceLayer.SLMplsPath.ToString
+  id: ToString
+  parent: ServiceLayer.SLMplsPath
+  langs:
+  - csharp
+  - vb
+  name: ToString()
+  nameWithType: SLMplsPath.ToString()
+  fullName: ServiceLayer.SLMplsPath.ToString()
+  type: Method
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlMpls.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: ToString
+    path: src/gencs/SlMpls.cs
+    startLine: 3772
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Returns a string that represents the current object.
+  example: []
+  syntax:
+    content: public override string ToString()
+    return:
+      type: System.String
+      description: A string that represents the current object.
+    content.vb: Public Overrides Function ToString() As String
+  overridden: System.Object.ToString
+  overload: ServiceLayer.SLMplsPath.ToString*
+- uid: ServiceLayer.SLMplsPath.WriteTo(Google.Protobuf.CodedOutputStream)
+  commentId: M:ServiceLayer.SLMplsPath.WriteTo(Google.Protobuf.CodedOutputStream)
+  id: WriteTo(Google.Protobuf.CodedOutputStream)
+  parent: ServiceLayer.SLMplsPath
+  langs:
+  - csharp
+  - vb
+  name: WriteTo(CodedOutputStream)
+  nameWithType: SLMplsPath.WriteTo(CodedOutputStream)
+  fullName: ServiceLayer.SLMplsPath.WriteTo(Google.Protobuf.CodedOutputStream)
+  type: Method
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlMpls.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: WriteTo
+    path: src/gencs/SlMpls.cs
+    startLine: 3778
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Writes the data to the given coded output stream.
+  example: []
+  syntax:
+    content: public void WriteTo(CodedOutputStream output)
+    parameters:
+    - id: output
+      type: Google.Protobuf.CodedOutputStream
+      description: Coded output stream to write the data to. Must not be null.
+    content.vb: Public Sub WriteTo(output As CodedOutputStream)
+  overload: ServiceLayer.SLMplsPath.WriteTo*
+  implements:
+  - Google.Protobuf.IMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+- uid: ServiceLayer.SLMplsPath.CalculateSize
+  commentId: M:ServiceLayer.SLMplsPath.CalculateSize
+  id: CalculateSize
+  parent: ServiceLayer.SLMplsPath
+  langs:
+  - csharp
+  - vb
+  name: CalculateSize()
+  nameWithType: SLMplsPath.CalculateSize()
+  fullName: ServiceLayer.SLMplsPath.CalculateSize()
+  type: Method
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlMpls.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: CalculateSize
+    path: src/gencs/SlMpls.cs
+    startLine: 3886
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Calculates the size of this message in Protocol Buffer wire format, in bytes.
+  example: []
+  syntax:
+    content: public int CalculateSize()
+    return:
+      type: System.Int32
+      description: >-
+        The number of bytes required to write this message
+                    to a coded output stream.
+    content.vb: Public Function CalculateSize() As Integer
+  overload: ServiceLayer.SLMplsPath.CalculateSize*
+  implements:
+  - Google.Protobuf.IMessage.CalculateSize
+- uid: ServiceLayer.SLMplsPath.MergeFrom(ServiceLayer.SLMplsPath)
+  commentId: M:ServiceLayer.SLMplsPath.MergeFrom(ServiceLayer.SLMplsPath)
+  id: MergeFrom(ServiceLayer.SLMplsPath)
+  parent: ServiceLayer.SLMplsPath
+  langs:
+  - csharp
+  - vb
+  name: MergeFrom(SLMplsPath)
+  nameWithType: SLMplsPath.MergeFrom(SLMplsPath)
+  fullName: ServiceLayer.SLMplsPath.MergeFrom(ServiceLayer.SLMplsPath)
+  type: Method
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlMpls.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: MergeFrom
+    path: src/gencs/SlMpls.cs
+    startLine: 3929
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Merges the given message into this one.
+  remarks: See the user guide for precise merge semantics.
+  example: []
+  syntax:
+    content: public void MergeFrom(SLMplsPath other)
+    parameters:
+    - id: other
+      type: ServiceLayer.SLMplsPath
+    content.vb: Public Sub MergeFrom(other As SLMplsPath)
+  overload: ServiceLayer.SLMplsPath.MergeFrom*
+  implements:
+  - Google.Protobuf.IMessage{ServiceLayer.SLMplsPath}.MergeFrom(ServiceLayer.SLMplsPath)
+- uid: ServiceLayer.SLMplsPath.MergeFrom(Google.Protobuf.CodedInputStream)
+  commentId: M:ServiceLayer.SLMplsPath.MergeFrom(Google.Protobuf.CodedInputStream)
+  id: MergeFrom(Google.Protobuf.CodedInputStream)
+  parent: ServiceLayer.SLMplsPath
+  langs:
+  - csharp
+  - vb
+  name: MergeFrom(CodedInputStream)
+  nameWithType: SLMplsPath.MergeFrom(CodedInputStream)
+  fullName: ServiceLayer.SLMplsPath.MergeFrom(Google.Protobuf.CodedInputStream)
+  type: Method
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlMpls.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: MergeFrom
+    path: src/gencs/SlMpls.cs
+    startLine: 3980
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Merges the data from the specified coded input stream with the current message.
+  remarks: See the user guide for precise merge semantics.
+  example: []
+  syntax:
+    content: public void MergeFrom(CodedInputStream input)
+    parameters:
+    - id: input
+      type: Google.Protobuf.CodedInputStream
+      description: ''
+    content.vb: Public Sub MergeFrom(input As CodedInputStream)
+  overload: ServiceLayer.SLMplsPath.MergeFrom*
+  implements:
+  - Google.Protobuf.IMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+references:
+- uid: ServiceLayer
+  commentId: N:ServiceLayer
+  href: ServiceLayer.html
+  name: ServiceLayer
+  nameWithType: ServiceLayer
+  fullName: ServiceLayer
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: Google.Protobuf.IMessage{ServiceLayer.SLMplsPath}
+  commentId: T:Google.Protobuf.IMessage{ServiceLayer.SLMplsPath}
+  parent: Google.Protobuf
+  definition: Google.Protobuf.IMessage`1
+  href: ServiceLayer.SLMplsPath.html
+  name: IMessage<SLMplsPath>
+  nameWithType: IMessage<SLMplsPath>
+  fullName: Google.Protobuf.IMessage<ServiceLayer.SLMplsPath>
+  nameWithType.vb: IMessage(Of SLMplsPath)
+  fullName.vb: Google.Protobuf.IMessage(Of ServiceLayer.SLMplsPath)
+  name.vb: IMessage(Of SLMplsPath)
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage`1
+    name: IMessage
+    isExternal: true
+  - name: <
+  - uid: ServiceLayer.SLMplsPath
+    name: SLMplsPath
+    href: ServiceLayer.SLMplsPath.html
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.IMessage`1
+    name: IMessage
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ServiceLayer.SLMplsPath
+    name: SLMplsPath
+    href: ServiceLayer.SLMplsPath.html
+  - name: )
+- uid: System.IEquatable{ServiceLayer.SLMplsPath}
+  commentId: T:System.IEquatable{ServiceLayer.SLMplsPath}
+  parent: System
+  definition: System.IEquatable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<SLMplsPath>
+  nameWithType: IEquatable<SLMplsPath>
+  fullName: System.IEquatable<ServiceLayer.SLMplsPath>
+  nameWithType.vb: IEquatable(Of SLMplsPath)
+  fullName.vb: System.IEquatable(Of ServiceLayer.SLMplsPath)
+  name.vb: IEquatable(Of SLMplsPath)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - uid: ServiceLayer.SLMplsPath
+    name: SLMplsPath
+    href: ServiceLayer.SLMplsPath.html
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ServiceLayer.SLMplsPath
+    name: SLMplsPath
+    href: ServiceLayer.SLMplsPath.html
+  - name: )
+- uid: Google.Protobuf.IDeepCloneable{ServiceLayer.SLMplsPath}
+  commentId: T:Google.Protobuf.IDeepCloneable{ServiceLayer.SLMplsPath}
+  parent: Google.Protobuf
+  definition: Google.Protobuf.IDeepCloneable`1
+  href: ServiceLayer.SLMplsPath.html
+  name: IDeepCloneable<SLMplsPath>
+  nameWithType: IDeepCloneable<SLMplsPath>
+  fullName: Google.Protobuf.IDeepCloneable<ServiceLayer.SLMplsPath>
+  nameWithType.vb: IDeepCloneable(Of SLMplsPath)
+  fullName.vb: Google.Protobuf.IDeepCloneable(Of ServiceLayer.SLMplsPath)
+  name.vb: IDeepCloneable(Of SLMplsPath)
+  spec.csharp:
+  - uid: Google.Protobuf.IDeepCloneable`1
+    name: IDeepCloneable
+    isExternal: true
+  - name: <
+  - uid: ServiceLayer.SLMplsPath
+    name: SLMplsPath
+    href: ServiceLayer.SLMplsPath.html
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.IDeepCloneable`1
+    name: IDeepCloneable
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ServiceLayer.SLMplsPath
+    name: SLMplsPath
+    href: ServiceLayer.SLMplsPath.html
+  - name: )
+- uid: Google.Protobuf.IBufferMessage
+  commentId: T:Google.Protobuf.IBufferMessage
+  parent: Google.Protobuf
+  isExternal: true
+  name: IBufferMessage
+  nameWithType: IBufferMessage
+  fullName: Google.Protobuf.IBufferMessage
+- uid: Google.Protobuf.IMessage
+  commentId: T:Google.Protobuf.IMessage
+  parent: Google.Protobuf
+  isExternal: true
+  name: IMessage
+  nameWithType: IMessage
+  fullName: Google.Protobuf.IMessage
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Google.Protobuf.IMessage`1
+  commentId: T:Google.Protobuf.IMessage`1
+  isExternal: true
+  name: IMessage<T>
+  nameWithType: IMessage<T>
+  fullName: Google.Protobuf.IMessage<T>
+  nameWithType.vb: IMessage(Of T)
+  fullName.vb: Google.Protobuf.IMessage(Of T)
+  name.vb: IMessage(Of T)
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage`1
+    name: IMessage
+    isExternal: true
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.IMessage`1
+    name: IMessage
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Google.Protobuf
+  commentId: N:Google.Protobuf
+  isExternal: true
+  name: Google.Protobuf
+  nameWithType: Google.Protobuf
+  fullName: Google.Protobuf
+  spec.csharp:
+  - uid: Google
+    name: Google
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf
+    name: Protobuf
+    isExternal: true
+  spec.vb:
+  - uid: Google
+    name: Google
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf
+    name: Protobuf
+    isExternal: true
+- uid: System.IEquatable`1
+  commentId: T:System.IEquatable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<T>
+  nameWithType: IEquatable<T>
+  fullName: System.IEquatable<T>
+  nameWithType.vb: IEquatable(Of T)
+  fullName.vb: System.IEquatable(Of T)
+  name.vb: IEquatable(Of T)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Google.Protobuf.IDeepCloneable`1
+  commentId: T:Google.Protobuf.IDeepCloneable`1
+  isExternal: true
+  name: IDeepCloneable<T>
+  nameWithType: IDeepCloneable<T>
+  fullName: Google.Protobuf.IDeepCloneable<T>
+  nameWithType.vb: IDeepCloneable(Of T)
+  fullName.vb: Google.Protobuf.IDeepCloneable(Of T)
+  name.vb: IDeepCloneable(Of T)
+  spec.csharp:
+  - uid: Google.Protobuf.IDeepCloneable`1
+    name: IDeepCloneable
+    isExternal: true
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.IDeepCloneable`1
+    name: IDeepCloneable
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: ServiceLayer.SLMplsPath.Parser*
+  commentId: Overload:ServiceLayer.SLMplsPath.Parser
+  href: ServiceLayer.SLMplsPath.html#ServiceLayer.SLMplsPath.Parser
+  name: Parser
+  nameWithType: SLMplsPath.Parser
+  fullName: ServiceLayer.SLMplsPath.Parser
+- uid: Google.Protobuf.MessageParser{ServiceLayer.SLMplsPath}
+  commentId: T:Google.Protobuf.MessageParser{ServiceLayer.SLMplsPath}
+  parent: Google.Protobuf
+  definition: Google.Protobuf.MessageParser`1
+  href: ServiceLayer.SLMplsPath.html
+  name: MessageParser<SLMplsPath>
+  nameWithType: MessageParser<SLMplsPath>
+  fullName: Google.Protobuf.MessageParser<ServiceLayer.SLMplsPath>
+  nameWithType.vb: MessageParser(Of SLMplsPath)
+  fullName.vb: Google.Protobuf.MessageParser(Of ServiceLayer.SLMplsPath)
+  name.vb: MessageParser(Of SLMplsPath)
+  spec.csharp:
+  - uid: Google.Protobuf.MessageParser`1
+    name: MessageParser
+    isExternal: true
+  - name: <
+  - uid: ServiceLayer.SLMplsPath
+    name: SLMplsPath
+    href: ServiceLayer.SLMplsPath.html
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.MessageParser`1
+    name: MessageParser
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ServiceLayer.SLMplsPath
+    name: SLMplsPath
+    href: ServiceLayer.SLMplsPath.html
+  - name: )
+- uid: Google.Protobuf.MessageParser`1
+  commentId: T:Google.Protobuf.MessageParser`1
+  isExternal: true
+  name: MessageParser<T>
+  nameWithType: MessageParser<T>
+  fullName: Google.Protobuf.MessageParser<T>
+  nameWithType.vb: MessageParser(Of T)
+  fullName.vb: Google.Protobuf.MessageParser(Of T)
+  name.vb: MessageParser(Of T)
+  spec.csharp:
+  - uid: Google.Protobuf.MessageParser`1
+    name: MessageParser
+    isExternal: true
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.MessageParser`1
+    name: MessageParser
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: ServiceLayer.SLMplsPath.Descriptor*
+  commentId: Overload:ServiceLayer.SLMplsPath.Descriptor
+  href: ServiceLayer.SLMplsPath.html#ServiceLayer.SLMplsPath.Descriptor
+  name: Descriptor
+  nameWithType: SLMplsPath.Descriptor
+  fullName: ServiceLayer.SLMplsPath.Descriptor
+- uid: Google.Protobuf.Reflection.MessageDescriptor
+  commentId: T:Google.Protobuf.Reflection.MessageDescriptor
+  parent: Google.Protobuf.Reflection
+  isExternal: true
+  name: MessageDescriptor
+  nameWithType: MessageDescriptor
+  fullName: Google.Protobuf.Reflection.MessageDescriptor
+- uid: Google.Protobuf.Reflection
+  commentId: N:Google.Protobuf.Reflection
+  isExternal: true
+  name: Google.Protobuf.Reflection
+  nameWithType: Google.Protobuf.Reflection
+  fullName: Google.Protobuf.Reflection
+  spec.csharp:
+  - uid: Google
+    name: Google
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf
+    name: Protobuf
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf.Reflection
+    name: Reflection
+    isExternal: true
+  spec.vb:
+  - uid: Google
+    name: Google
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf
+    name: Protobuf
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf.Reflection
+    name: Reflection
+    isExternal: true
+- uid: ServiceLayer.SLMplsPath.#ctor*
+  commentId: Overload:ServiceLayer.SLMplsPath.#ctor
+  href: ServiceLayer.SLMplsPath.html#ServiceLayer.SLMplsPath.#ctor
+  name: SLMplsPath
+  nameWithType: SLMplsPath.SLMplsPath
+  fullName: ServiceLayer.SLMplsPath.SLMplsPath
+  nameWithType.vb: SLMplsPath.New
+  fullName.vb: ServiceLayer.SLMplsPath.New
+  name.vb: New
+- uid: ServiceLayer.SLMplsPath
+  commentId: T:ServiceLayer.SLMplsPath
+  parent: ServiceLayer
+  href: ServiceLayer.SLMplsPath.html
+  name: SLMplsPath
+  nameWithType: SLMplsPath
+  fullName: ServiceLayer.SLMplsPath
+- uid: ServiceLayer.SLMplsPath.Clone*
+  commentId: Overload:ServiceLayer.SLMplsPath.Clone
+  href: ServiceLayer.SLMplsPath.html#ServiceLayer.SLMplsPath.Clone
+  name: Clone
+  nameWithType: SLMplsPath.Clone
+  fullName: ServiceLayer.SLMplsPath.Clone
+- uid: Google.Protobuf.IDeepCloneable{ServiceLayer.SLMplsPath}.Clone
+  commentId: M:Google.Protobuf.IDeepCloneable{ServiceLayer.SLMplsPath}.Clone
+  parent: Google.Protobuf.IDeepCloneable{ServiceLayer.SLMplsPath}
+  definition: Google.Protobuf.IDeepCloneable`1.Clone
+  name: Clone()
+  nameWithType: IDeepCloneable<SLMplsPath>.Clone()
+  fullName: Google.Protobuf.IDeepCloneable<ServiceLayer.SLMplsPath>.Clone()
+  nameWithType.vb: IDeepCloneable(Of SLMplsPath).Clone()
+  fullName.vb: Google.Protobuf.IDeepCloneable(Of ServiceLayer.SLMplsPath).Clone()
+  spec.csharp:
+  - uid: Google.Protobuf.IDeepCloneable{ServiceLayer.SLMplsPath}.Clone
+    name: Clone
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IDeepCloneable{ServiceLayer.SLMplsPath}.Clone
+    name: Clone
+    isExternal: true
+  - name: (
+  - name: )
+- uid: Google.Protobuf.IDeepCloneable`1.Clone
+  commentId: M:Google.Protobuf.IDeepCloneable`1.Clone
+  isExternal: true
+  name: Clone()
+  nameWithType: IDeepCloneable<T>.Clone()
+  fullName: Google.Protobuf.IDeepCloneable<T>.Clone()
+  nameWithType.vb: IDeepCloneable(Of T).Clone()
+  fullName.vb: Google.Protobuf.IDeepCloneable(Of T).Clone()
+  spec.csharp:
+  - uid: Google.Protobuf.IDeepCloneable`1.Clone
+    name: Clone
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IDeepCloneable`1.Clone
+    name: Clone
+    isExternal: true
+  - name: (
+  - name: )
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: ServiceLayer.SLMplsPath.NexthopAddress*
+  commentId: Overload:ServiceLayer.SLMplsPath.NexthopAddress
+  href: ServiceLayer.SLMplsPath.html#ServiceLayer.SLMplsPath.NexthopAddress
+  name: NexthopAddress
+  nameWithType: SLMplsPath.NexthopAddress
+  fullName: ServiceLayer.SLMplsPath.NexthopAddress
+- uid: ServiceLayer.SLIpAddress
+  commentId: T:ServiceLayer.SLIpAddress
+  parent: ServiceLayer
+  href: ServiceLayer.SLIpAddress.html
+  name: SLIpAddress
+  nameWithType: SLIpAddress
+  fullName: ServiceLayer.SLIpAddress
+- uid: ServiceLayer.SLMplsPath.NexthopInterface*
+  commentId: Overload:ServiceLayer.SLMplsPath.NexthopInterface
+  href: ServiceLayer.SLMplsPath.html#ServiceLayer.SLMplsPath.NexthopInterface
+  name: NexthopInterface
+  nameWithType: SLMplsPath.NexthopInterface
+  fullName: ServiceLayer.SLMplsPath.NexthopInterface
+- uid: ServiceLayer.SLInterface
+  commentId: T:ServiceLayer.SLInterface
+  parent: ServiceLayer
+  href: ServiceLayer.SLInterface.html
+  name: SLInterface
+  nameWithType: SLInterface
+  fullName: ServiceLayer.SLInterface
+- uid: ServiceLayer.SLMplsPath.LoadMetric*
+  commentId: Overload:ServiceLayer.SLMplsPath.LoadMetric
+  href: ServiceLayer.SLMplsPath.html#ServiceLayer.SLMplsPath.LoadMetric
+  name: LoadMetric
+  nameWithType: SLMplsPath.LoadMetric
+  fullName: ServiceLayer.SLMplsPath.LoadMetric
+- uid: System.UInt32
+  commentId: T:System.UInt32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.uint32
+  name: uint
+  nameWithType: uint
+  fullName: uint
+  nameWithType.vb: UInteger
+  fullName.vb: UInteger
+  name.vb: UInteger
+- uid: ServiceLayer.SLMplsPath.VrfName*
+  commentId: Overload:ServiceLayer.SLMplsPath.VrfName
+  href: ServiceLayer.SLMplsPath.html#ServiceLayer.SLMplsPath.VrfName
+  name: VrfName
+  nameWithType: SLMplsPath.VrfName
+  fullName: ServiceLayer.SLMplsPath.VrfName
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: ServiceLayer.SLMplsPath.Action*
+  commentId: Overload:ServiceLayer.SLMplsPath.Action
+  href: ServiceLayer.SLMplsPath.html#ServiceLayer.SLMplsPath.Action
+  name: Action
+  nameWithType: SLMplsPath.Action
+  fullName: ServiceLayer.SLMplsPath.Action
+- uid: ServiceLayer.SlLabelAction
+  commentId: T:ServiceLayer.SlLabelAction
+  parent: ServiceLayer
+  href: ServiceLayer.SlLabelAction.html
+  name: SlLabelAction
+  nameWithType: SlLabelAction
+  fullName: ServiceLayer.SlLabelAction
+- uid: ServiceLayer.SLMplsPath.PathId*
+  commentId: Overload:ServiceLayer.SLMplsPath.PathId
+  href: ServiceLayer.SLMplsPath.html#ServiceLayer.SLMplsPath.PathId
+  name: PathId
+  nameWithType: SLMplsPath.PathId
+  fullName: ServiceLayer.SLMplsPath.PathId
+- uid: ServiceLayer.SLMplsPath.ProtectedPathBitmap*
+  commentId: Overload:ServiceLayer.SLMplsPath.ProtectedPathBitmap
+  href: ServiceLayer.SLMplsPath.html#ServiceLayer.SLMplsPath.ProtectedPathBitmap
+  name: ProtectedPathBitmap
+  nameWithType: SLMplsPath.ProtectedPathBitmap
+  fullName: ServiceLayer.SLMplsPath.ProtectedPathBitmap
+- uid: Google.Protobuf.Collections.RepeatedField{System.UInt64}
+  commentId: T:Google.Protobuf.Collections.RepeatedField{System.UInt64}
+  parent: Google.Protobuf.Collections
+  definition: Google.Protobuf.Collections.RepeatedField`1
+  href: https://learn.microsoft.com/dotnet/api/system.uint64
+  name: RepeatedField<ulong>
+  nameWithType: RepeatedField<ulong>
+  fullName: Google.Protobuf.Collections.RepeatedField<ulong>
+  nameWithType.vb: RepeatedField(Of ULong)
+  fullName.vb: Google.Protobuf.Collections.RepeatedField(Of ULong)
+  name.vb: RepeatedField(Of ULong)
+  spec.csharp:
+  - uid: Google.Protobuf.Collections.RepeatedField`1
+    name: RepeatedField
+    isExternal: true
+  - name: <
+  - uid: System.UInt64
+    name: ulong
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.uint64
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.Collections.RepeatedField`1
+    name: RepeatedField
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.UInt64
+    name: ULong
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.uint64
+  - name: )
+- uid: Google.Protobuf.Collections.RepeatedField`1
+  commentId: T:Google.Protobuf.Collections.RepeatedField`1
+  isExternal: true
+  name: RepeatedField<T>
+  nameWithType: RepeatedField<T>
+  fullName: Google.Protobuf.Collections.RepeatedField<T>
+  nameWithType.vb: RepeatedField(Of T)
+  fullName.vb: Google.Protobuf.Collections.RepeatedField(Of T)
+  name.vb: RepeatedField(Of T)
+  spec.csharp:
+  - uid: Google.Protobuf.Collections.RepeatedField`1
+    name: RepeatedField
+    isExternal: true
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.Collections.RepeatedField`1
+    name: RepeatedField
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Google.Protobuf.Collections
+  commentId: N:Google.Protobuf.Collections
+  isExternal: true
+  name: Google.Protobuf.Collections
+  nameWithType: Google.Protobuf.Collections
+  fullName: Google.Protobuf.Collections
+  spec.csharp:
+  - uid: Google
+    name: Google
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf
+    name: Protobuf
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf.Collections
+    name: Collections
+    isExternal: true
+  spec.vb:
+  - uid: Google
+    name: Google
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf
+    name: Protobuf
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf.Collections
+    name: Collections
+    isExternal: true
+- uid: ServiceLayer.SLMplsPath.LabelStack*
+  commentId: Overload:ServiceLayer.SLMplsPath.LabelStack
+  href: ServiceLayer.SLMplsPath.html#ServiceLayer.SLMplsPath.LabelStack
+  name: LabelStack
+  nameWithType: SLMplsPath.LabelStack
+  fullName: ServiceLayer.SLMplsPath.LabelStack
+- uid: Google.Protobuf.Collections.RepeatedField{System.UInt32}
+  commentId: T:Google.Protobuf.Collections.RepeatedField{System.UInt32}
+  parent: Google.Protobuf.Collections
+  definition: Google.Protobuf.Collections.RepeatedField`1
+  href: https://learn.microsoft.com/dotnet/api/system.uint32
+  name: RepeatedField<uint>
+  nameWithType: RepeatedField<uint>
+  fullName: Google.Protobuf.Collections.RepeatedField<uint>
+  nameWithType.vb: RepeatedField(Of UInteger)
+  fullName.vb: Google.Protobuf.Collections.RepeatedField(Of UInteger)
+  name.vb: RepeatedField(Of UInteger)
+  spec.csharp:
+  - uid: Google.Protobuf.Collections.RepeatedField`1
+    name: RepeatedField
+    isExternal: true
+  - name: <
+  - uid: System.UInt32
+    name: uint
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.uint32
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.Collections.RepeatedField`1
+    name: RepeatedField
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.UInt32
+    name: UInteger
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.uint32
+  - name: )
+- uid: ServiceLayer.SLMplsPath.RemoteAddress*
+  commentId: Overload:ServiceLayer.SLMplsPath.RemoteAddress
+  href: ServiceLayer.SLMplsPath.html#ServiceLayer.SLMplsPath.RemoteAddress
+  name: RemoteAddress
+  nameWithType: SLMplsPath.RemoteAddress
+  fullName: ServiceLayer.SLMplsPath.RemoteAddress
+- uid: Google.Protobuf.Collections.RepeatedField{ServiceLayer.SLIpAddress}
+  commentId: T:Google.Protobuf.Collections.RepeatedField{ServiceLayer.SLIpAddress}
+  parent: Google.Protobuf.Collections
+  definition: Google.Protobuf.Collections.RepeatedField`1
+  href: ServiceLayer.SLIpAddress.html
+  name: RepeatedField<SLIpAddress>
+  nameWithType: RepeatedField<SLIpAddress>
+  fullName: Google.Protobuf.Collections.RepeatedField<ServiceLayer.SLIpAddress>
+  nameWithType.vb: RepeatedField(Of SLIpAddress)
+  fullName.vb: Google.Protobuf.Collections.RepeatedField(Of ServiceLayer.SLIpAddress)
+  name.vb: RepeatedField(Of SLIpAddress)
+  spec.csharp:
+  - uid: Google.Protobuf.Collections.RepeatedField`1
+    name: RepeatedField
+    isExternal: true
+  - name: <
+  - uid: ServiceLayer.SLIpAddress
+    name: SLIpAddress
+    href: ServiceLayer.SLIpAddress.html
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.Collections.RepeatedField`1
+    name: RepeatedField
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ServiceLayer.SLIpAddress
+    name: SLIpAddress
+    href: ServiceLayer.SLIpAddress.html
+  - name: )
+- uid: ServiceLayer.SLMplsPath.SlMplsCosVal*
+  commentId: Overload:ServiceLayer.SLMplsPath.SlMplsCosVal
+  href: ServiceLayer.SLMplsPath.html#ServiceLayer.SLMplsPath.SlMplsCosVal
+  name: SlMplsCosVal
+  nameWithType: SLMplsPath.SlMplsCosVal
+  fullName: ServiceLayer.SLMplsPath.SlMplsCosVal
+- uid: ServiceLayer.SLMplsCos
+  commentId: T:ServiceLayer.SLMplsCos
+  parent: ServiceLayer
+  href: ServiceLayer.SLMplsCos.html
+  name: SLMplsCos
+  nameWithType: SLMplsCos
+  fullName: ServiceLayer.SLMplsCos
+- uid: ServiceLayer.SLMplsPath.SlMplsPathPriority*
+  commentId: Overload:ServiceLayer.SLMplsPath.SlMplsPathPriority
+  href: ServiceLayer.SLMplsPath.html#ServiceLayer.SLMplsPath.SlMplsPathPriority
+  name: SlMplsPathPriority
+  nameWithType: SLMplsPath.SlMplsPathPriority
+  fullName: ServiceLayer.SLMplsPath.SlMplsPathPriority
+- uid: ServiceLayer.SLMplsPath.SlMplsPathSetId*
+  commentId: Overload:ServiceLayer.SLMplsPath.SlMplsPathSetId
+  href: ServiceLayer.SLMplsPath.html#ServiceLayer.SLMplsPath.SlMplsPathSetId
+  name: SlMplsPathSetId
+  nameWithType: SLMplsPath.SlMplsPathSetId
+  fullName: ServiceLayer.SLMplsPath.SlMplsPathSetId
+- uid: ServiceLayer.SLMplsPath.SlMplsPathDown*
+  commentId: Overload:ServiceLayer.SLMplsPath.SlMplsPathDown
+  href: ServiceLayer.SLMplsPath.html#ServiceLayer.SLMplsPath.SlMplsPathDown
+  name: SlMplsPathDown
+  nameWithType: SLMplsPath.SlMplsPathDown
+  fullName: ServiceLayer.SLMplsPath.SlMplsPathDown
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: ServiceLayer.SLMplsPath.Equals*
+  commentId: Overload:ServiceLayer.SLMplsPath.Equals
+  href: ServiceLayer.SLMplsPath.html#ServiceLayer.SLMplsPath.Equals(System.Object)
+  name: Equals
+  nameWithType: SLMplsPath.Equals
+  fullName: ServiceLayer.SLMplsPath.Equals
+- uid: System.IEquatable{ServiceLayer.SLMplsPath}.Equals(ServiceLayer.SLMplsPath)
+  commentId: M:System.IEquatable{ServiceLayer.SLMplsPath}.Equals(ServiceLayer.SLMplsPath)
+  parent: System.IEquatable{ServiceLayer.SLMplsPath}
+  definition: System.IEquatable`1.Equals(`0)
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-servicelayer.slmplspath-.equals#system-iequatable((servicelayer-slmplspath))-equals(servicelayer-slmplspath)
+  name: Equals(SLMplsPath)
+  nameWithType: IEquatable<SLMplsPath>.Equals(SLMplsPath)
+  fullName: System.IEquatable<ServiceLayer.SLMplsPath>.Equals(ServiceLayer.SLMplsPath)
+  nameWithType.vb: IEquatable(Of SLMplsPath).Equals(SLMplsPath)
+  fullName.vb: System.IEquatable(Of ServiceLayer.SLMplsPath).Equals(ServiceLayer.SLMplsPath)
+  spec.csharp:
+  - uid: System.IEquatable{ServiceLayer.SLMplsPath}.Equals(ServiceLayer.SLMplsPath)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-servicelayer.slmplspath-.equals#system-iequatable((servicelayer-slmplspath))-equals(servicelayer-slmplspath)
+  - name: (
+  - uid: ServiceLayer.SLMplsPath
+    name: SLMplsPath
+    href: ServiceLayer.SLMplsPath.html
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable{ServiceLayer.SLMplsPath}.Equals(ServiceLayer.SLMplsPath)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-servicelayer.slmplspath-.equals#system-iequatable((servicelayer-slmplspath))-equals(servicelayer-slmplspath)
+  - name: (
+  - uid: ServiceLayer.SLMplsPath
+    name: SLMplsPath
+    href: ServiceLayer.SLMplsPath.html
+  - name: )
+- uid: System.IEquatable`1.Equals(`0)
+  commentId: M:System.IEquatable`1.Equals(`0)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(T)
+  nameWithType: IEquatable<T>.Equals(T)
+  fullName: System.IEquatable<T>.Equals(T)
+  nameWithType.vb: IEquatable(Of T).Equals(T)
+  fullName.vb: System.IEquatable(Of T).Equals(T)
+  spec.csharp:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: ServiceLayer.SLMplsPath.GetHashCode*
+  commentId: Overload:ServiceLayer.SLMplsPath.GetHashCode
+  href: ServiceLayer.SLMplsPath.html#ServiceLayer.SLMplsPath.GetHashCode
+  name: GetHashCode
+  nameWithType: SLMplsPath.GetHashCode
+  fullName: ServiceLayer.SLMplsPath.GetHashCode
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: ServiceLayer.SLMplsPath.ToString*
+  commentId: Overload:ServiceLayer.SLMplsPath.ToString
+  href: ServiceLayer.SLMplsPath.html#ServiceLayer.SLMplsPath.ToString
+  name: ToString
+  nameWithType: SLMplsPath.ToString
+  fullName: ServiceLayer.SLMplsPath.ToString
+- uid: ServiceLayer.SLMplsPath.WriteTo*
+  commentId: Overload:ServiceLayer.SLMplsPath.WriteTo
+  href: ServiceLayer.SLMplsPath.html#ServiceLayer.SLMplsPath.WriteTo(Google.Protobuf.CodedOutputStream)
+  name: WriteTo
+  nameWithType: SLMplsPath.WriteTo
+  fullName: ServiceLayer.SLMplsPath.WriteTo
+- uid: Google.Protobuf.IMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+  commentId: M:Google.Protobuf.IMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+  parent: Google.Protobuf.IMessage
+  isExternal: true
+  name: WriteTo(CodedOutputStream)
+  nameWithType: IMessage.WriteTo(CodedOutputStream)
+  fullName: Google.Protobuf.IMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+    name: WriteTo
+    isExternal: true
+  - name: (
+  - uid: Google.Protobuf.CodedOutputStream
+    name: CodedOutputStream
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+    name: WriteTo
+    isExternal: true
+  - name: (
+  - uid: Google.Protobuf.CodedOutputStream
+    name: CodedOutputStream
+    isExternal: true
+  - name: )
+- uid: Google.Protobuf.CodedOutputStream
+  commentId: T:Google.Protobuf.CodedOutputStream
+  parent: Google.Protobuf
+  isExternal: true
+  name: CodedOutputStream
+  nameWithType: CodedOutputStream
+  fullName: Google.Protobuf.CodedOutputStream
+- uid: ServiceLayer.SLMplsPath.CalculateSize*
+  commentId: Overload:ServiceLayer.SLMplsPath.CalculateSize
+  href: ServiceLayer.SLMplsPath.html#ServiceLayer.SLMplsPath.CalculateSize
+  name: CalculateSize
+  nameWithType: SLMplsPath.CalculateSize
+  fullName: ServiceLayer.SLMplsPath.CalculateSize
+- uid: Google.Protobuf.IMessage.CalculateSize
+  commentId: M:Google.Protobuf.IMessage.CalculateSize
+  parent: Google.Protobuf.IMessage
+  isExternal: true
+  name: CalculateSize()
+  nameWithType: IMessage.CalculateSize()
+  fullName: Google.Protobuf.IMessage.CalculateSize()
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage.CalculateSize
+    name: CalculateSize
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IMessage.CalculateSize
+    name: CalculateSize
+    isExternal: true
+  - name: (
+  - name: )
+- uid: ServiceLayer.SLMplsPath.MergeFrom*
+  commentId: Overload:ServiceLayer.SLMplsPath.MergeFrom
+  href: ServiceLayer.SLMplsPath.html#ServiceLayer.SLMplsPath.MergeFrom(ServiceLayer.SLMplsPath)
+  name: MergeFrom
+  nameWithType: SLMplsPath.MergeFrom
+  fullName: ServiceLayer.SLMplsPath.MergeFrom
+- uid: Google.Protobuf.IMessage{ServiceLayer.SLMplsPath}.MergeFrom(ServiceLayer.SLMplsPath)
+  commentId: M:Google.Protobuf.IMessage{ServiceLayer.SLMplsPath}.MergeFrom(ServiceLayer.SLMplsPath)
+  parent: Google.Protobuf.IMessage{ServiceLayer.SLMplsPath}
+  definition: Google.Protobuf.IMessage`1.MergeFrom(`0)
+  href: ServiceLayer.SLMplsPath.html
+  name: MergeFrom(SLMplsPath)
+  nameWithType: IMessage<SLMplsPath>.MergeFrom(SLMplsPath)
+  fullName: Google.Protobuf.IMessage<ServiceLayer.SLMplsPath>.MergeFrom(ServiceLayer.SLMplsPath)
+  nameWithType.vb: IMessage(Of SLMplsPath).MergeFrom(SLMplsPath)
+  fullName.vb: Google.Protobuf.IMessage(Of ServiceLayer.SLMplsPath).MergeFrom(ServiceLayer.SLMplsPath)
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage{ServiceLayer.SLMplsPath}.MergeFrom(ServiceLayer.SLMplsPath)
+    name: MergeFrom
+    isExternal: true
+  - name: (
+  - uid: ServiceLayer.SLMplsPath
+    name: SLMplsPath
+    href: ServiceLayer.SLMplsPath.html
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IMessage{ServiceLayer.SLMplsPath}.MergeFrom(ServiceLayer.SLMplsPath)
+    name: MergeFrom
+    isExternal: true
+  - name: (
+  - uid: ServiceLayer.SLMplsPath
+    name: SLMplsPath
+    href: ServiceLayer.SLMplsPath.html
+  - name: )
+- uid: Google.Protobuf.IMessage`1.MergeFrom(`0)
+  commentId: M:Google.Protobuf.IMessage`1.MergeFrom(`0)
+  isExternal: true
+  name: MergeFrom(T)
+  nameWithType: IMessage<T>.MergeFrom(T)
+  fullName: Google.Protobuf.IMessage<T>.MergeFrom(T)
+  nameWithType.vb: IMessage(Of T).MergeFrom(T)
+  fullName.vb: Google.Protobuf.IMessage(Of T).MergeFrom(T)
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage`1.MergeFrom(`0)
+    name: MergeFrom
+    isExternal: true
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IMessage`1.MergeFrom(`0)
+    name: MergeFrom
+    isExternal: true
+  - name: (
+  - name: T
+  - name: )
+- uid: Google.Protobuf.IMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+  commentId: M:Google.Protobuf.IMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+  parent: Google.Protobuf.IMessage
+  isExternal: true
+  name: MergeFrom(CodedInputStream)
+  nameWithType: IMessage.MergeFrom(CodedInputStream)
+  fullName: Google.Protobuf.IMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+    name: MergeFrom
+    isExternal: true
+  - name: (
+  - uid: Google.Protobuf.CodedInputStream
+    name: CodedInputStream
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+    name: MergeFrom
+    isExternal: true
+  - name: (
+  - uid: Google.Protobuf.CodedInputStream
+    name: CodedInputStream
+    isExternal: true
+  - name: )
+- uid: Google.Protobuf.CodedInputStream
+  commentId: T:Google.Protobuf.CodedInputStream
+  parent: Google.Protobuf
+  isExternal: true
+  name: CodedInputStream
+  nameWithType: CodedInputStream
+  fullName: Google.Protobuf.CodedInputStream

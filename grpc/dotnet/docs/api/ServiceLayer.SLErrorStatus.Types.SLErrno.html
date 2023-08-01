@@ -1,0 +1,1501 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Enum SLErrorStatus.Types.SLErrno
+ </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Enum SLErrorStatus.Types.SLErrno
+ ">
+    
+      <link rel="shortcut icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="">
+      <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="ServiceLayer.SLErrorStatus.Types.SLErrno">
+
+
+
+
+  <h1 id="ServiceLayer_SLErrorStatus_Types_SLErrno" data-uid="ServiceLayer.SLErrorStatus.Types.SLErrno" class="text-break">Enum SLErrorStatus.Types.SLErrno
+</h1>
+  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 conceptual"></div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="ServiceLayer.html">ServiceLayer</a></h6>
+  <h6><strong>Assembly</strong>: ServiceLayer.dll</h6>
+  <h5 id="ServiceLayer_SLErrorStatus_Types_SLErrno_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public enum SLErrorStatus.Types.SLErrno</code></pre>
+  </div>
+  <h3 id="fields">Fields
+</h3>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    <thead>
+    <tbody>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlAuthFail">SlAuthFail</td>
+        <td><p>Authentication failure.
+Incorrect credentials passed in by RPC. 0xd</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlBfdApiInternalError">SlBfdApiInternalError</td>
+        <td><p>BFD Session failed with internal error. 0x7009</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlBfdBadParameter">SlBfdBadParameter</td>
+        <td><p>BFD Session's one or more parameters are invalid.
+For example, Multihop BFD can not have the interface name set. 0x7008</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlBfdInternalDbError">SlBfdInternalDbError</td>
+        <td><p>BFD Internal database error. 0x7010</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlBfdIntfNameMissing">SlBfdIntfNameMissing</td>
+        <td><p>BFD Session's interface name is missing. 0x7004</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlBfdIntfNameToolong">SlBfdIntfNameToolong</td>
+        <td><p>BFD Session's interface name exceeds supported length. 0x7001</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlBfdIntfNotFound">SlBfdIntfNotFound</td>
+        <td><p>BFD Session's interface not found. 0x7002</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlBfdInvalidAttribute">SlBfdInvalidAttribute</td>
+        <td><p>BFD Session's tx interval or multiplier are beyond the
+supported range. 0x7003</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlBfdInvalidNbr">SlBfdInvalidNbr</td>
+        <td><p>BFD Session's neighbor address is invalid. 0x7006</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlBfdInvalidNbrMcast">SlBfdInvalidNbrMcast</td>
+        <td><p>BFD Session's neighbor is mcast address. 0x7005</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlBfdInvalidPrefixSize">SlBfdInvalidPrefixSize</td>
+        <td><p>BFD Session's neighbor IPv6 prefix size is invalid. 0x700b</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlBfdInvalidSessionType">SlBfdInvalidSessionType</td>
+        <td><p>BFD Session type invalid. 0x700c</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlBfdInvalidVrf">SlBfdInvalidVrf</td>
+        <td><p>BFD Session's VRF is Invalid. 0x700d</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlBfdRecoveryError">SlBfdRecoveryError</td>
+        <td><p>BFD Recovery error. 0x7011</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlBfdSessionExists">SlBfdSessionExists</td>
+        <td><p>BFD Session exists. 0x700f</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlBfdSessionNotFound">SlBfdSessionNotFound</td>
+        <td><p>BFD Session not found. 0x700e</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlBfdStartOffset">SlBfdStartOffset</td>
+        <td><p>Offset for BFD errors. 0x7000</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlBfdVrfNameToolong">SlBfdVrfNameToolong</td>
+        <td><p>BFD Session's VRF Name is too long. 0x7007</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlBfdVrfNotFound">SlBfdVrfNotFound</td>
+        <td><p>BFD Session's VRF not found. 0x700a</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlEagain">SlEagain</td>
+        <td><p>Operation must be retried. 0x2</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlEbusy">SlEbusy</td>
+        <td><p>Too many outstanding requests. 0x4</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlEinval">SlEinval</td>
+        <td><p>One or more arguments are invalid. 0x5</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlEnomem">SlEnomem</td>
+        <td><p>One or more components does not have sufficient memory. 0x3</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlEnotsup">SlEnotsup</td>
+        <td><p>Operation not supported. 0x9</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlIlmAddFailed">SlIlmAddFailed</td>
+        <td><p>MPLS ILM add to service layer failed. 0x9001</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlIlmAddNoPaths">SlIlmAddNoPaths</td>
+        <td><p>MPLS ILM add operation requested but no paths were provided. 0x900f</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlIlmDbNomem">SlIlmDbNomem</td>
+        <td><p>The ILM database is out of memory. 0x900c</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlIlmDeleteFailed">SlIlmDeleteFailed</td>
+        <td><p>MPLS ILM delete from service layer failed. 0x9005</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlIlmEexist">SlIlmEexist</td>
+        <td><p>MPLS ILM already exists in the database. 0x900b</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlIlmElspExpOrDfltAlreadySet">SlIlmElspExpOrDfltAlreadySet</td>
+        <td><p>EXP value or Default already set. 0x900e</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlIlmErrOffset">SlIlmErrOffset</td>
+        <td><p>Offset for MPLS ILM errors. 0x9000</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlIlmHostBitsSet">SlIlmHostBitsSet</td>
+        <td><p>ILM prefix has host bits set. 0x9016</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlIlmInvalidElspExp">SlIlmInvalidElspExp</td>
+        <td><p>EXP value is outside of the valid range of &lt;0-7&gt;. 0x900d</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlIlmInvalidLabel">SlIlmInvalidLabel</td>
+        <td><p>MPLS ILM label value out of range. 0x9004</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlIlmInvalidNumNhlfe">SlIlmInvalidNumNhlfe</td>
+        <td><p>MPLS ILM NHLFE count exceeded max supported number. 0x9003</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlIlmInvalidPrefix">SlIlmInvalidPrefix</td>
+        <td><p>ILM's prefix is invalid. 0x9018</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlIlmInvalidPrefixLen">SlIlmInvalidPrefixLen</td>
+        <td><p>ILM's prefix length is invalid. 0x9015</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlIlmInvalidPrefixMcast">SlIlmInvalidPrefixMcast</td>
+        <td><p>ILM's IPv4 Route prefix is a multicast address. 0x9019</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlIlmInvalidPrefixSz">SlIlmInvalidPrefixSz</td>
+        <td><p>Size of IPv6 prefix is invalid. 0x9017</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlIlmLabelToomanyExpClasses">SlIlmLabelToomanyExpClasses</td>
+        <td><p>Number of EXP classes on the label exceed system capabilities. 0x9012</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlIlmLsdAddFailed">SlIlmLsdAddFailed</td>
+        <td><p>MPLS ILM add to Label Switching Database failed. 0x9002</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlIlmLsdAddLabelAllocFailed">SlIlmLsdAddLabelAllocFailed</td>
+        <td><p>MPLS ILM label alloc failed in Label switching database. 0x9009</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlIlmLsdDeleteFailed">SlIlmLsdDeleteFailed</td>
+        <td><p>MPLS ILM delete from Label Switching Database failed. 0x9006</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlIlmLsdNhlfeInvalidAttrib">SlIlmLsdNhlfeInvalidAttrib</td>
+        <td><p>MPLS ILM NHLFE attribute invalid. 0x900a</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlIlmReplayFatalError">SlIlmReplayFatalError</td>
+        <td><p>MPLS ILMs cannot be played to Label Switching Database
+on a process restart or connection re-establishment.
+The Forwarding Information Base can
+can be inconsistent. Agent/Controller should initiate a
+recovery action by reloading the device. 0x9013</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlIlmReplayOk">SlIlmReplayOk</td>
+        <td><p>MPLS ILMs were played to Label Switching Database
+on a process restart or connection re-establishment. 0x9014</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlIlmToomanyBackupNhlfes">SlIlmToomanyBackupNhlfes</td>
+        <td><p>Number of backup NHLFEs exceeds system capabilities. 0x9008</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlIlmToomanyPrimaryNhlfes">SlIlmToomanyPrimaryNhlfes</td>
+        <td><p>Number of primary NHLFEs exceeds system capabilities. 0x9007</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlIlmUnsupportedElsp">SlIlmUnsupportedElsp</td>
+        <td><p>LSP and ELSP on the same label not supported. 0x9011</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlIlmUpdateNoPaths">SlIlmUpdateNoPaths</td>
+        <td><p>MPLS ILM update operation requested but no paths were provided. 0x9010</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlIlmVrfNameMissing">SlIlmVrfNameMissing</td>
+        <td><p>VRF name of the ILM route not specified. 0x9022</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlIlmVrfNameToolong">SlIlmVrfNameToolong</td>
+        <td><p>VRF name is too long. 0x9020</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlIlmVrfNoTableId">SlIlmVrfNoTableId</td>
+        <td><p>VRF's table ID not found. 0x9021</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlInitServerModeChangeFailed">SlInitServerModeChangeFailed</td>
+        <td><p>Server operational mode change from stream to non-stream
+or vice-versa failed. 0x505</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlInitServerNotInitialized">SlInitServerNotInitialized</td>
+        <td><p>Initialization request received while server is not ready. 0x504</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlInitStartOffset">SlInitStartOffset</td>
+        <td><p>Offset for INIT errors. 0x500</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlInitStateClear">SlInitStateClear</td>
+        <td><p>Success, no errors detected - clear state.
+This error is returned on the first-ever initialization, or,
+when a fatal event has occured and all previous state was lost. 0x501</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlInitStateReady">SlInitStateReady</td>
+        <td><p>Success, no errors detected - previous state is recovered.
+This error is returned on a client re-initialization with
+successful recovery of state. Note that any unacknowledged
+data previously sent should be considered lost. 0x502</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlInitUnsupportedVer">SlInitUnsupportedVer</td>
+        <td><p>Server software incompatible with client software version. 0x503</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlInternalStartOffset">SlInternalStartOffset</td>
+        <td><p>Offset for Internal errors. 0x100000</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlIntfInterfaceExists">SlIntfInterfaceExists</td>
+        <td><p>Interface exists. 0xe006</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlIntfInterfaceNameMissing">SlIntfInterfaceNameMissing</td>
+        <td><p>Interface object's interface name missing. 0xe001</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlIntfInterfaceNameToolong">SlIntfInterfaceNameToolong</td>
+        <td><p>Interface object's interface name exceeds supported length. 0xe002</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlIntfInterfaceNotFound">SlIntfInterfaceNotFound</td>
+        <td><p>Interface not found. 0xe007</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlIntfInterfaceRegErr">SlIntfInterfaceRegErr</td>
+        <td><p>Interface internal registration error. 0xe003</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlIntfInternalDbError">SlIntfInternalDbError</td>
+        <td><p>Internal database error. 0xe004</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlIntfRecoveryError">SlIntfRecoveryError</td>
+        <td><p>Interface Recovery error. 0xe005</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlIntfStartOffset">SlIntfStartOffset</td>
+        <td><p>Offset for Interface object errors. 0xe000</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlL2BdEofErr">SlL2BdEofErr</td>
+        <td><p>BD EOF Operation error. 0x11003;</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlL2BdRegBdNotFound">SlL2BdRegBdNotFound</td>
+        <td><p>BD not found in BD registration message. 0x11005</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlL2BdRegNameTooLong">SlL2BdRegNameTooLong</td>
+        <td><p>Name is too long in BD registration message. 0x11004</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlL2BdRegStartOffset">SlL2BdRegStartOffset</td>
+        <td><p>Offset for L2 BD object errors. 0x11000</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlL2BdRegistrationErr">SlL2BdRegistrationErr</td>
+        <td><p>BD cannot be registered with Layer-2 RIB. 0x11001</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlL2BdUnregistrationErr">SlL2BdUnregistrationErr</td>
+        <td><p>BD cannot be unregistered with Layer-2 RIB. 0x11002</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlL2EofErr">SlL2EofErr</td>
+        <td><p>EOF Operation error. 0xf003</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlL2RegInvalidAdminDistance">SlL2RegInvalidAdminDistance</td>
+        <td><p>L2 registration message with invalid admin distance. 0xf004</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlL2RegIsDuplicate">SlL2RegIsDuplicate</td>
+        <td><p>Duplicate L2 registration message. 0xf005</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlL2RegServerNotInitialized">SlL2RegServerNotInitialized</td>
+        <td><p>L2 registration rejected as server is not initialized. 0xf006</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlL2RegStartOffset">SlL2RegStartOffset</td>
+        <td><p>Offset for Global L2 operation errors. 0xf000</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlL2RegistrationErr">SlL2RegistrationErr</td>
+        <td><p>Client cannot be registered with Layer-2 RIB. 0xf001</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlL2RouteBdNameMissing">SlL2RouteBdNameMissing</td>
+        <td><p>L2 route operation rejected as BD name is missing. 0x13001</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlL2RouteBdNameToolong">SlL2RouteBdNameToolong</td>
+        <td><p>L2 route operation rejected as BD name is too long. 0x13002</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlL2RouteBdNotFound">SlL2RouteBdNotFound</td>
+        <td><p>L2 route operation rejected as BD not found. 0x13003</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlL2RouteBdNotRegistered">SlL2RouteBdNotRegistered</td>
+        <td><p>L2 route operation rejected as BD is not registered. 0x13004</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlL2RouteInvalidArgs">SlL2RouteInvalidArgs</td>
+        <td><p>L2 route operation rejected due to one or more invalid
+arguments. 0x13005</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlL2RouteStartOffset">SlL2RouteStartOffset</td>
+        <td><p>Offset for L2 object errors. 0x13000</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlL2UnregistrationErr">SlL2UnregistrationErr</td>
+        <td><p>Client cannot be unregistered with Layer-2 RIB. 0xf002</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlLabelBlkClientNameToolong">SlLabelBlkClientNameToolong</td>
+        <td><p>MPLS label block client name exceeds max length. 0xb00b</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlLabelBlkDbNomem">SlLabelBlkDbNomem</td>
+        <td><p>MPLS label database is out of memory. 0xb009</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlLabelBlkEexist">SlLabelBlkEexist</td>
+        <td><p>MPLS label block already exists in the database. 0xb008</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlLabelBlkErrOffset">SlLabelBlkErrOffset</td>
+        <td><p>Offset for label block errors. 0xb000</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlLabelBlkInvalidBlockSize">SlLabelBlkInvalidBlockSize</td>
+        <td><p>MPLS label block size &gt; max size per block. 0xb006</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlLabelBlkInvalidStartLabel">SlLabelBlkInvalidStartLabel</td>
+        <td><p>MPLS label start_label &lt; min label for platform . 0xb007</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlLabelBlkLsdAddFailed">SlLabelBlkLsdAddFailed</td>
+        <td><p>MPLS label block add from Label Switching Database failed. 0xb001</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlLabelBlkLsdDeleteFailed">SlLabelBlkLsdDeleteFailed</td>
+        <td><p>MPLS label block delete from Label Switching Database failed. 0xb002</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlLabelBlkLsdInvalidAttrib">SlLabelBlkLsdInvalidAttrib</td>
+        <td><p>MPLS label block attribute invalid. 0xb005</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlLabelBlkLsdLabelBlkInUse">SlLabelBlkLsdLabelBlkInUse</td>
+        <td><p>MPLS label block in use. 0xb004</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlLabelBlkLsdLabelBlkNotFound">SlLabelBlkLsdLabelBlkNotFound</td>
+        <td><p>MPLS label block not found. 0xb003</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlLabelBlkTypeInvalid">SlLabelBlkTypeInvalid</td>
+        <td><p>MPLS label block type invalid. 0xb00a</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlMplsEofErr">SlMplsEofErr</td>
+        <td><p>MPLS EOF error. 0xc003</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlMplsRegErr">SlMplsRegErr</td>
+        <td><p>MPLS registration error. 0xc001</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlMplsRegErrOffset">SlMplsRegErrOffset</td>
+        <td><p>Offset for MPLS registration errors. 0xc000</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlMplsUnregErr">SlMplsUnregErr</td>
+        <td><p>MPLS unregistration error. 0xc002</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlNhlfeBackupIdRepeated">SlNhlfeBackupIdRepeated</td>
+        <td><p>Too many pure backup NHLFE with same Path ID. 0xa00f</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlNhlfeBackupMissingPrimaryPath">SlNhlfeBackupMissingPrimaryPath</td>
+        <td><p>Protection bitmap of a backup NHLFE refers to a missing path. 0xa014</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlNhlfeBackupProtectedBitmapEmpty">SlNhlfeBackupProtectedBitmapEmpty</td>
+        <td><p>Pure backup NHLFE has a empty protected bitmap. 0xa011</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlNhlfeElspProtectionUnsupported">SlNhlfeElspProtectionUnsupported</td>
+        <td><p>ELSP protection is unsupported. 0xa01b</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlNhlfeErrOffset">SlNhlfeErrOffset</td>
+        <td><p>Offset for MPLS NHLFE errors. 0xa000</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlNhlfeExpSetFailed">SlNhlfeExpSetFailed</td>
+        <td><p>Setting EXP value failed. 0xa01a</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlNhlfeInconsistentExpOnPath">SlNhlfeInconsistentExpOnPath</td>
+        <td><p>On a ILM, mix of NHLFE with EXP class and others without any EXP class are not allowed. 0xa024</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlNhlfeInvalidElspExp">SlNhlfeInvalidElspExp</td>
+        <td><p>EXP value is outside of the valid range of &lt;0-7&gt;. 0xa01c</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlNhlfeInvalidLabel">SlNhlfeInvalidLabel</td>
+        <td><p>MPLS NHLFE label value out of range. 0xa009</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlNhlfeInvalidLabelCount">SlNhlfeInvalidLabelCount</td>
+        <td><p>Number of labels in the path incompatible with system capabilities
+for the given label action. 0xa007</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlNhlfeInvalidLoadMetric">SlNhlfeInvalidLoadMetric</td>
+        <td><p>Load metric is not zero for a down path. 0xa01e</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlNhlfeInvalidMultiplePrimarySetids">SlNhlfeInvalidMultiplePrimarySetids</td>
+        <td><p>Multiple Set IDs are set as the primary. 0xa021</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlNhlfeInvalidNextHopAddr">SlNhlfeInvalidNextHopAddr</td>
+        <td><p>NHLFE has an invalid next hop address. 0xa003</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlNhlfeInvalidPathId">SlNhlfeInvalidPathId</td>
+        <td><p>Path id is invalid in NHLFE. 0xa008</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlNhlfeInvalidPathPriority">SlNhlfeInvalidPathPriority</td>
+        <td><p>Path Priority is invalid (valid: 0 or 1). 0xa01d</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlNhlfeInvalidProtectedBitmap">SlNhlfeInvalidProtectedBitmap</td>
+        <td><p>NHLFE has an invalid protection bitmap. 0xa00a</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlNhlfeInvalidRemoteAddrCount">SlNhlfeInvalidRemoteAddrCount</td>
+        <td><p>Number of remote backup addresses in the NHLFE exceeds
+system capabilities. 0xa00b</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlNhlfeInvalidSetid">SlNhlfeInvalidSetid</td>
+        <td><p>Set ID value is outside of the valid range of &lt;0-7&gt;. 0xa01f</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlNhlfeInvalidSetidPriority">SlNhlfeInvalidSetidPriority</td>
+        <td><p>Two paths with the same Set ID have different path priorities. 0xa020</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlNhlfeLabelActionInvalid">SlNhlfeLabelActionInvalid</td>
+        <td><p>Label action specified is invalid. 0xa016</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlNhlfeLabelActionMissing">SlNhlfeLabelActionMissing</td>
+        <td><p>MPLS NHLFE label action missing. 0xa019</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlNhlfeNextHopMissing">SlNhlfeNextHopMissing</td>
+        <td><p>NHLFE next-hop missing. 0xa015</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlNhlfeNhInfNameMissing">SlNhlfeNhInfNameMissing</td>
+        <td><p>Next hop interface name is missing from path. 0xa005</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlNhlfeNhIntfNameToolong">SlNhlfeNhIntfNameToolong</td>
+        <td><p>Interface name exceeds supported length. 0xa006</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlNhlfeNhIntfNotFound">SlNhlfeNhIntfNotFound</td>
+        <td><p>NHLFE next hop interface not found. 0xa017</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlNhlfeNhInvalidAddrSz">SlNhlfeNhInvalidAddrSz</td>
+        <td><p>Size of next hop IPv6 address is invalid. 0xa002</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlNhlfeNhNoTable">SlNhlfeNhNoTable</td>
+        <td><p>MPLS NHLFE vrf table could not be determined. 0xa001</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlNhlfeNonContiguousExp">SlNhlfeNonContiguousExp</td>
+        <td><p>Paths with same EXP classification are not contiguous. 0xa023</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlNhlfeNonContiguousSetids">SlNhlfeNonContiguousSetids</td>
+        <td><p>Paths with the same SET ID are not contiguous. 0xa022</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlNhlfeOperFailed">SlNhlfeOperFailed</td>
+        <td><p>MPLS NHLFE operation failed. 0xa018</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlNhlfePrimaryIdRepeated">SlNhlfePrimaryIdRepeated</td>
+        <td><p>Too many primary NHLFE with same Path ID. 0xa010</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlNhlfePrimaryToomanyBackupPaths">SlNhlfePrimaryToomanyBackupPaths</td>
+        <td><p>A primary NHLFE has too many backup paths. 0xa012</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlNhlfePrimaryToomanyLabels">SlNhlfePrimaryToomanyLabels</td>
+        <td><p>A primary NHLFE has too many labels. 0xa00d</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlNhlfePrimaryToomanyRemoteAddr">SlNhlfePrimaryToomanyRemoteAddr</td>
+        <td><p>A primary NHLFE has too many remote addresses. 0xa00e</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlNhlfeRemoteAddrInvalid">SlNhlfeRemoteAddrInvalid</td>
+        <td><p>A pure backup remote address is invalid. 0xa013</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlNhlfeRemoteAddrInvalidSz">SlNhlfeRemoteAddrInvalidSz</td>
+        <td><p>Size of IPv6 remote backup address is invalid. 0xa00c</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlNhlfeVrfNameToolong">SlNhlfeVrfNameToolong</td>
+        <td><p>Path VRF name exceeds supported length. 0xa004</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlNotAvailable">SlNotAvailable</td>
+        <td><p>Not Available. 0x7</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlNotConnected">SlNotConnected</td>
+        <td><p>Client not connected. 0x1</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlNotifTerm">SlNotifTerm</td>
+        <td><p>Due to some event, the client will no longer receive notification
+events on this channel. 0xc
+Such events include:</p>
+<ul>
+<li>Notification Session was hijacked by another client.</li>
+</ul>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlPathBackupIdRepeated">SlPathBackupIdRepeated</td>
+        <td><p>Too many pure backup paths with same Path ID. 0x5010</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlPathBackupMissingPrimaryPath">SlPathBackupMissingPrimaryPath</td>
+        <td><p>Protection bitmap of a backup path refers to a missing path. 0x500e</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlPathBackupToomanyLabels">SlPathBackupToomanyLabels</td>
+        <td><p>A backup path has too many labels. 0x5017</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlPathEncapSrcDstAfiMismatch">SlPathEncapSrcDstAfiMismatch</td>
+        <td><p>Path encapsulation source and destination AFI mismatch. 0x501a</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlPathEncapTypeMismatch">SlPathEncapTypeMismatch</td>
+        <td><p>Path Encap type attribute does not match specified encapsulation. 0x501c</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlPathInvalidEncapAddr">SlPathInvalidEncapAddr</td>
+        <td><p>Path has an invalid  encap address. 0x5019</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlPathInvalidId">SlPathInvalidId</td>
+        <td><p>Path ID assigned to the path falls outside the supported range. 0x5004</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlPathInvalidLabel">SlPathInvalidLabel</td>
+        <td><p>Path has an invalid label. 0x5015</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlPathInvalidLabelCount">SlPathInvalidLabelCount</td>
+        <td><p>Number of labels in the path exceeds system capabilities. 0x5003</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlPathInvalidNextHopAddr">SlPathInvalidNextHopAddr</td>
+        <td><p>Path has an invalid next hop address. 0x5009</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlPathInvalidProtectedBitmap">SlPathInvalidProtectedBitmap</td>
+        <td><p>Path has an invalid protection bitmap. 0x500d</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlPathInvalidRemoteAddrCount">SlPathInvalidRemoteAddrCount</td>
+        <td><p>Number of remote backup addresses in the path exceeds
+system capabilities. 0x500a</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlPathInvalidVni">SlPathInvalidVni</td>
+        <td><p>Invalid VNI for VxLAN encap. 0x5018</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlPathNhInfNameMissing">SlPathNhInfNameMissing</td>
+        <td><p>Next hop interface name is missing from path. 0x5008</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlPathNhIntfNameToolong">SlPathNhIntfNameToolong</td>
+        <td><p>Path next hop interface name exceeds supported length. 0x5006</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlPathNhIntfNotFound">SlPathNhIntfNotFound</td>
+        <td><p>Path next hop interface not found. 0x5002</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlPathNhInvalidAddrSz">SlPathNhInvalidAddrSz</td>
+        <td><p>Size of next hop IPv6 address is invalid. 0x5007</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlPathNhNoTable">SlPathNhNoTable</td>
+        <td><p>VRF table for the path could not be determined. 0x5001</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlPathPrimaryIdRepeated">SlPathPrimaryIdRepeated</td>
+        <td><p>Too many primary paths with same Path ID. 0x500f</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlPathPrimaryToomanyBackupPaths">SlPathPrimaryToomanyBackupPaths</td>
+        <td><p>A primary path has too many backup paths. 0x5011</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlPathPrimaryToomanyLabels">SlPathPrimaryToomanyLabels</td>
+        <td><p>A primary path has too many labels. 0x5012</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlPathPrimaryToomanyRemoteAddr">SlPathPrimaryToomanyRemoteAddr</td>
+        <td><p>A primary path has too many remote addresses. 0x5013</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlPathRemoteAddrAfiMismatch">SlPathRemoteAddrAfiMismatch</td>
+        <td><p>Route and Path remote backup address AFI does not match. 0x500c</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlPathRemoteAddrInvalid">SlPathRemoteAddrInvalid</td>
+        <td><p>A pure backup remote address is invalid. 0x5014</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlPathRemoteAddrInvalidSz">SlPathRemoteAddrInvalidSz</td>
+        <td><p>Size of IPv6 remote backup address is invalid. 0x500b</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlPathRouterMacAddrInvalidSz">SlPathRouterMacAddrInvalidSz</td>
+        <td><p>Size of router mac address is invalid. 0x5016</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlPathRtrMacNosup">SlPathRtrMacNosup</td>
+        <td><p>PATH router mac is not supported with VxLAN path attributes. 0x501b</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlPathStartOffset">SlPathStartOffset</td>
+        <td><p>Offset for route path errors. 0x5000</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlPathVrfNameToolong">SlPathVrfNameToolong</td>
+        <td><p>Path VRF name exceeds supported length. 0x5005</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlRouteAddNoPaths">SlRouteAddNoPaths</td>
+        <td><p>Route add operation requested but no paths were provided. 0x4001</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlRouteDbNomem">SlRouteDbNomem</td>
+        <td><p>The route database is out of memory. 0x4012</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlRouteEexist">SlRouteEexist</td>
+        <td><p>This route already exists in the database. 0x400c</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlRouteErrRibInvalidArgs">SlRouteErrRibInvalidArgs</td>
+        <td><p>RIB route programming failed in RIB due to invalid arguments. 0x4009</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlRouteErrRibPathTableLimit">SlRouteErrRibPathTableLimit</td>
+        <td><p>One or more paths could not be programmed in RIB as VRF
+table limit reached. 0x400a</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlRouteErrRibTableLimitReached">SlRouteErrRibTableLimitReached</td>
+        <td><p>Route programming failed in RIB as VRF table limit reached. 0x4008</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlRouteErrRibToomanypaths">SlRouteErrRibToomanypaths</td>
+        <td><p>One or more paths could not be programmed in RIB as number of paths
+reached system limit. 0x400b</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlRouteHostBitsSet">SlRouteHostBitsSet</td>
+        <td><p>Route prefix has host bits set. 0x400d</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlRouteInvalidAdminDistance">SlRouteInvalidAdminDistance</td>
+        <td><p>Route's admininstrative distance is invalid. 0x4004</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlRouteInvalidLocalLabel">SlRouteInvalidLocalLabel</td>
+        <td><p>The route has an invalid local label. 0x4013</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlRouteInvalidNumPaths">SlRouteInvalidNumPaths</td>
+        <td><p>Route's number of paths exceeds system capabilities. 0x4005</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlRouteInvalidPrefix">SlRouteInvalidPrefix</td>
+        <td><p>Route's prefix is invalid. 0x4007</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlRouteInvalidPrefixLen">SlRouteInvalidPrefixLen</td>
+        <td><p>Route's prefix length is invalid. 0x4003</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlRouteInvalidPrefixMcast">SlRouteInvalidPrefixMcast</td>
+        <td><p>IPv4 Route prefix is a multicast address. 0x400e</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlRouteInvalidPrefixSz">SlRouteInvalidPrefixSz</td>
+        <td><p>Size of IPv6 prefix is invalid. 0x4006</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlRoutePathAfiMismatch">SlRoutePathAfiMismatch</td>
+        <td><p>Route and Path AFI does not match. 0x400f</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlRouteStartOffset">SlRouteStartOffset</td>
+        <td><p>Offset for route errors. 0x4000</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlRouteToomanyBackupPaths">SlRouteToomanyBackupPaths</td>
+        <td><p>Number of backup paths exceeds system capabilities. 0x4011</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlRouteToomanyPrimaryPaths">SlRouteToomanyPrimaryPaths</td>
+        <td><p>Number of primary paths exceeds system capabilities. 0x4010</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlRouteUpdateNoPaths">SlRouteUpdateNoPaths</td>
+        <td><p>Route update operation requested but no paths were provided. 0x4002</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlRpcBfdApiBadParameter">SlRpcBfdApiBadParameter</td>
+        <td><p>BFD Operation rejected due to one or many invalid parameters. 0x6002</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlRpcBfdApiClientNotRegistered">SlRpcBfdApiClientNotRegistered</td>
+        <td><p>BFD Operation failed as server is not registered with BFD. 0x6003</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlRpcBfdApiInternalError">SlRpcBfdApiInternalError</td>
+        <td><p>BFD Operation failed with internal error. 0x6004</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlRpcBfdServerNotInitialized">SlRpcBfdServerNotInitialized</td>
+        <td><p>BFD Operation rejected as server is not initialized. 0x6005</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlRpcBfdStartOffset">SlRpcBfdStartOffset</td>
+        <td><p>Offset for BFD operation errors. 0x6000</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlRpcBfdTooManyBfdSessions">SlRpcBfdTooManyBfdSessions</td>
+        <td><p>BFD Operation rejected for ALL Sessions as the BFD Session count
+is beyond supported limit. 0x6001</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlRpcBfdV4NotRegistered">SlRpcBfdV4NotRegistered</td>
+        <td><p>BFD IPv4 not registered. 0x6006</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlRpcBfdV6NotRegistered">SlRpcBfdV6NotRegistered</td>
+        <td><p>BFD IPv6 not registered. 0x6007</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlRpcIntfApiClientNotRegistered">SlRpcIntfApiClientNotRegistered</td>
+        <td><p>Interface Operation failed as server is not registered with
+interface manager. 0xd003</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlRpcIntfServerNotInitialized">SlRpcIntfServerNotInitialized</td>
+        <td><p>Interface Operation rejected as server is not initialized. 0xd002</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlRpcIntfStartOffset">SlRpcIntfStartOffset</td>
+        <td><p>Offset for Interface operation errors. 0xd000</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlRpcIntfTooManyInterfaces">SlRpcIntfTooManyInterfaces</td>
+        <td><p>Interface Operation rejected for ALL Sessions as the Interface
+Session count is beyond supported limit. 0xd001</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlRpcL2BdRegClientNotRegistered">SlRpcL2BdRegClientNotRegistered</td>
+        <td><p>Operation rejected for all BDs as client is not registered.
+0x10004</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlRpcL2BdRegNameMissing">SlRpcL2BdRegNameMissing</td>
+        <td><p>Operation is rejected for all BDs as name is missing. 0x10001</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlRpcL2BdRegServerNotInitialized">SlRpcL2BdRegServerNotInitialized</td>
+        <td><p>Operation rejected for all BDs as server is not initialized.
+0x10003</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlRpcL2BdRegStartOffset">SlRpcL2BdRegStartOffset</td>
+        <td><p>Offset for L2 BD operation errors. 0x10000</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlRpcL2BdRegTooManyMsgs">SlRpcL2BdRegTooManyMsgs</td>
+        <td><p>Operation rejected for all BDs due to too many BD registration
+messages in the request. 0x10002</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlRpcL2NotifBdNameMissing">SlRpcL2NotifBdNameMissing</td>
+        <td><p>L2 notification request rejected as BD name is missing. 0x14007</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlRpcL2NotifBdNameToolong">SlRpcL2NotifBdNameToolong</td>
+        <td><p>L2 notification request rejected as BD name is too long.
+0x14008</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlRpcL2NotifBdNotFound">SlRpcL2NotifBdNotFound</td>
+        <td><p>L2 notification request rejected as BD not found. 0x14009</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlRpcL2NotifClientNotRegistered">SlRpcL2NotifClientNotRegistered</td>
+        <td><p>L2 notification request rejected as client is not registered.
+0x14003</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlRpcL2NotifDisableErr">SlRpcL2NotifDisableErr</td>
+        <td><p>L2 notification disable error. 0x14005</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlRpcL2NotifEnableErr">SlRpcL2NotifEnableErr</td>
+        <td><p>L2 notification enable error. 0x14004</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlRpcL2NotifEofErr">SlRpcL2NotifEofErr</td>
+        <td><p>L2 notification EOF error. 0x14006</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlRpcL2NotifServerNotInitialized">SlRpcL2NotifServerNotInitialized</td>
+        <td><p>L2 notification request rejected as server is not initialized.
+0x14002</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlRpcL2NotifStartOffset">SlRpcL2NotifStartOffset</td>
+        <td><p>Offset for L2 Get Notification Operation errors. 0x14000</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlRpcL2RouteClientNotRegistered">SlRpcL2RouteClientNotRegistered</td>
+        <td><p>Operation rejected for all L2 routes as client is not
+registered. 0x12003</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlRpcL2RouteServerNotInitialized">SlRpcL2RouteServerNotInitialized</td>
+        <td><p>Operation rejected for all L2 routes as server is not
+initialized. 0x12002</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlRpcL2RouteStartOffset">SlRpcL2RouteStartOffset</td>
+        <td><p>Offset for L2 Route Operation errors. 0x12000</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlRpcL2RouteTooManyMsgs">SlRpcL2RouteTooManyMsgs</td>
+        <td><p>Operation rejected for all L2 routes due to too many messages
+in the request. 0x12001</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlRpcMplsIlmTooManyIlms">SlRpcMplsIlmTooManyIlms</td>
+        <td><p>Operation rejected for ALL ILMS due to too many ILMS in the
+request. 0x8001</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlRpcMplsInitModeIncompatible">SlRpcMplsInitModeIncompatible</td>
+        <td><p>Operation rejected for all ILMs as the RPC request is
+not supported for the library's initialization mode. 0x8003</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlRpcMplsLabelBlkTooManyLabelBlks">SlRpcMplsLabelBlkTooManyLabelBlks</td>
+        <td><p>Operation rejected for ALL label blocks due to too many
+label blocks in the request. 0x8004</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlRpcMplsNotRegistered">SlRpcMplsNotRegistered</td>
+        <td><p>Operation rejected for ALL ILMs as MPLS layer is not registered.
+0x8005</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlRpcMplsServerNotInitialized">SlRpcMplsServerNotInitialized</td>
+        <td><p>Operation rejected for all ILMs as server is not initialized.
+0x0x8002</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlRpcMplsStartOffset">SlRpcMplsStartOffset</td>
+        <td><p>Offset for MPLS operation errors. 0x8000</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlRpcRouteInitModeIncompatible">SlRpcRouteInitModeIncompatible</td>
+        <td><p>Operation rejected for all routes as the RPC request is
+not supported for the library's initialization mode. 0x3007</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlRpcRouteNotifSrcProtoTagToolong">SlRpcRouteNotifSrcProtoTagToolong</td>
+        <td><p>Operation rejected as the request's SrcProtoTag is too long. 0x300a</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlRpcRouteNotifSrcProtoToolong">SlRpcRouteNotifSrcProtoToolong</td>
+        <td><p>Operation rejected as the request's SrcProto is too long. 0x3009</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlRpcRouteServerNotInitialized">SlRpcRouteServerNotInitialized</td>
+        <td><p>Operation rejected for all routes as server is not initialized.
+0x3008</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlRpcRouteStartOffset">SlRpcRouteStartOffset</td>
+        <td><p>Offset for Route operation errors. 0x3000</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlRpcRouteTooManyRoutes">SlRpcRouteTooManyRoutes</td>
+        <td><p>Operation rejected for ALL routes due to too many routes in the
+request. 0x3001</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlRpcRouteVrfNameMissing">SlRpcRouteVrfNameMissing</td>
+        <td><p>Route Operation rejected for ALL objects as VRF name is missing.
+0x3006</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlRpcRouteVrfNameToolong">SlRpcRouteVrfNameToolong</td>
+        <td><p>Operation rejected for ALL routes as the request's VRF name
+is too long. 0x3002</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlRpcRouteVrfNoTable">SlRpcRouteVrfNoTable</td>
+        <td><p>Operation rejected for ALL routes as VRF's Table ID is not found.
+0x3004</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlRpcRouteVrfNotFound">SlRpcRouteVrfNotFound</td>
+        <td><p>Operation rejected for ALL routes as VRF for the given name
+is not found. 0x3003</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlRpcRouteVrfTableNotRegistered">SlRpcRouteVrfTableNotRegistered</td>
+        <td><p>Operation rejected for ALL routes as VRF is not registered with RIB.
+0x3005</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlRpcVrfServerNotInitialized">SlRpcVrfServerNotInitialized</td>
+        <td><p>Operation rejected for all VRFs as server is not initialized. 0x1002</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlRpcVrfStartOffset">SlRpcVrfStartOffset</td>
+        <td><p>Offset for VRF errors. 0x1000</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlRpcVrfTooManyVrfRegMsgs">SlRpcVrfTooManyVrfRegMsgs</td>
+        <td><p>Operation rejected for ALL VRFs due to too many VRF registration
+messages in the request. 0x1001</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlSomeErr">SlSomeErr</td>
+        <td><p>One or more objects is errored:
+Each object must be individually examined. 0xa</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlStreamNotSupported">SlStreamNotSupported</td>
+        <td><p>Stream mode not supported. 0x8</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlSuccess">SlSuccess</td>
+        <td><p>Success, no errors detected. 0x0.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlTimeout">SlTimeout</td>
+        <td><p>Operation Timed out.
+The result of the operation is undeterministic (success or fail). 0xb</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlUnsupportedVer">SlUnsupportedVer</td>
+        <td><p>Unsupported version. 0x6</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlVrfNameToolong">SlVrfNameToolong</td>
+        <td><p>VRF name in the VRF registration message is too long. 0x2001</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlVrfNoTableId">SlVrfNoTableId</td>
+        <td><p>On a VRF registration, Table ID for the VRF is not found. 0x2003</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlVrfNotFound">SlVrfNotFound</td>
+        <td><p>VRF not found during a unregister or EOF. 0x2002</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlVrfRegInvalidAdminDistance">SlVrfRegInvalidAdminDistance</td>
+        <td><p>VRF add registration message with invalid administrative distance. 0x2004</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlVrfRegVrfNameMissing">SlVrfRegVrfNameMissing</td>
+        <td><p>VRF registration message does not have a VRF name. 0x2009</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlVrfStartOffset">SlVrfStartOffset</td>
+        <td><p>Offset for VRF errors. 0x2000</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlVrfTableAddErr">SlVrfTableAddErr</td>
+        <td><p>On a VRF registration, Table cannot be added to persistent memory. 0x2005</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlVrfTableEofErr">SlVrfTableEofErr</td>
+        <td><p>VRF table RIB EOF operation error. 0x2008</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlVrfTableRegistrationErr">SlVrfTableRegistrationErr</td>
+        <td><p>VRF table cannot be registered with RIB. 0x2006</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlVrfTableUnregistrationErr">SlVrfTableUnregistrationErr</td>
+        <td><p>VRF table cannot be unregistered with RIB. 0x2007</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlVrfV4RouteReplayFatalError">SlVrfV4RouteReplayFatalError</td>
+        <td><p>IPv4 routes in VRF cannot be played to Routing Information Base
+on a process restart or connection re-establishment.
+The Forwarding Information Base can
+can be inconsistent. Agent/Controller should initiate a
+recovery action by reloading the device. 0x2010</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlVrfV4RouteReplayOk">SlVrfV4RouteReplayOk</td>
+        <td><p>IPv4 routes in VRF were played to Routing Information Base
+on a process restart or connection re-establishment. 0x2012</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlVrfV6RouteReplayFatalError">SlVrfV6RouteReplayFatalError</td>
+        <td><p>IPv6 routes in VRF cannot be played to Routing Information Base
+on a process restart or connection re-establishment.
+The Forwarding Information Base can
+can be inconsistent. Agent/Controller should initiate a
+recovery action by reloading the device. 0x2011</p>
+</td>
+      </tr>
+      <tr>
+        <td id="ServiceLayer_SLErrorStatus_Types_SLErrno_SlVrfV6RouteReplayOk">SlVrfV6RouteReplayOk</td>
+        <td><p>IPv6 routes in VRF were played to Routing Information Base
+on a process restart or connection re-establishment. 0x2013</p>
+</td>
+      </tr>
+    </tbody>
+  </thead></thead></table>
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

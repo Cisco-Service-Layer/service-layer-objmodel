@@ -1,0 +1,170 @@
+### YamlMime:ManagedReference
+items:
+- uid: ServiceLayer.SLMplsLabelBlockType
+  commentId: T:ServiceLayer.SLMplsLabelBlockType
+  id: SLMplsLabelBlockType
+  parent: ServiceLayer
+  children:
+  - ServiceLayer.SLMplsLabelBlockType.Cbf
+  - ServiceLayer.SLMplsLabelBlockType.Reserved
+  - ServiceLayer.SLMplsLabelBlockType.Srgb
+  langs:
+  - csharp
+  - vb
+  name: SLMplsLabelBlockType
+  nameWithType: SLMplsLabelBlockType
+  fullName: ServiceLayer.SLMplsLabelBlockType
+  type: Enum
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlMpls.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: SLMplsLabelBlockType
+    path: src/gencs/SlMpls.cs
+    startLine: 204
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Label Block Types
+  example: []
+  syntax:
+    content: public enum SLMplsLabelBlockType
+    content.vb: Public Enum SLMplsLabelBlockType
+- uid: ServiceLayer.SLMplsLabelBlockType.Reserved
+  commentId: F:ServiceLayer.SLMplsLabelBlockType.Reserved
+  id: Reserved
+  parent: ServiceLayer.SLMplsLabelBlockType
+  langs:
+  - csharp
+  - vb
+  name: Reserved
+  nameWithType: SLMplsLabelBlockType.Reserved
+  fullName: ServiceLayer.SLMplsLabelBlockType.Reserved
+  type: Field
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlMpls.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: Reserved
+    path: src/gencs/SlMpls.cs
+    startLine: 208
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Reserved. 0x0
+  example: []
+  syntax:
+    content: >-
+      [OriginalName("SL_MPLS_LABEL_BLOCK_TYPE_RESERVED")]
+
+      Reserved = 0
+    return:
+      type: ServiceLayer.SLMplsLabelBlockType
+    content.vb: >-
+      <OriginalName("SL_MPLS_LABEL_BLOCK_TYPE_RESERVED")>
+
+      Reserved = 0
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: SL_MPLS_LABEL_BLOCK_TYPE_RESERVED
+- uid: ServiceLayer.SLMplsLabelBlockType.Srgb
+  commentId: F:ServiceLayer.SLMplsLabelBlockType.Srgb
+  id: Srgb
+  parent: ServiceLayer.SLMplsLabelBlockType
+  langs:
+  - csharp
+  - vb
+  name: Srgb
+  nameWithType: SLMplsLabelBlockType.Srgb
+  fullName: ServiceLayer.SLMplsLabelBlockType.Srgb
+  type: Field
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlMpls.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: Srgb
+    path: src/gencs/SlMpls.cs
+    startLine: 212
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Segment Routing Global Block (SRGB) Block Type. 0x1
+  example: []
+  syntax:
+    content: >-
+      [OriginalName("SL_MPLS_LABEL_BLOCK_TYPE_SRGB")]
+
+      Srgb = 1
+    return:
+      type: ServiceLayer.SLMplsLabelBlockType
+    content.vb: >-
+      <OriginalName("SL_MPLS_LABEL_BLOCK_TYPE_SRGB")>
+
+      Srgb = 1
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: SL_MPLS_LABEL_BLOCK_TYPE_SRGB
+- uid: ServiceLayer.SLMplsLabelBlockType.Cbf
+  commentId: F:ServiceLayer.SLMplsLabelBlockType.Cbf
+  id: Cbf
+  parent: ServiceLayer.SLMplsLabelBlockType
+  langs:
+  - csharp
+  - vb
+  name: Cbf
+  nameWithType: SLMplsLabelBlockType.Cbf
+  fullName: ServiceLayer.SLMplsLabelBlockType.Cbf
+  type: Field
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlMpls.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: Cbf
+    path: src/gencs/SlMpls.cs
+    startLine: 216
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Class Based Forwarding (CBF) Block Type. 0x2
+  example: []
+  syntax:
+    content: >-
+      [OriginalName("SL_MPLS_LABEL_BLOCK_TYPE_CBF")]
+
+      Cbf = 2
+    return:
+      type: ServiceLayer.SLMplsLabelBlockType
+    content.vb: >-
+      <OriginalName("SL_MPLS_LABEL_BLOCK_TYPE_CBF")>
+
+      Cbf = 2
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: SL_MPLS_LABEL_BLOCK_TYPE_CBF
+references:
+- uid: ServiceLayer
+  commentId: N:ServiceLayer
+  href: ServiceLayer.html
+  name: ServiceLayer
+  nameWithType: ServiceLayer
+  fullName: ServiceLayer
+- uid: ServiceLayer.SLMplsLabelBlockType
+  commentId: T:ServiceLayer.SLMplsLabelBlockType
+  parent: ServiceLayer
+  href: ServiceLayer.SLMplsLabelBlockType.html
+  name: SLMplsLabelBlockType
+  nameWithType: SLMplsLabelBlockType
+  fullName: ServiceLayer.SLMplsLabelBlockType

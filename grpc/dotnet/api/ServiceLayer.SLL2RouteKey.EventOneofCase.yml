@@ -1,0 +1,141 @@
+### YamlMime:ManagedReference
+items:
+- uid: ServiceLayer.SLL2RouteKey.EventOneofCase
+  commentId: T:ServiceLayer.SLL2RouteKey.EventOneofCase
+  id: SLL2RouteKey.EventOneofCase
+  parent: ServiceLayer
+  children:
+  - ServiceLayer.SLL2RouteKey.EventOneofCase.ImetKey
+  - ServiceLayer.SLL2RouteKey.EventOneofCase.MacKey
+  - ServiceLayer.SLL2RouteKey.EventOneofCase.None
+  langs:
+  - csharp
+  - vb
+  name: SLL2RouteKey.EventOneofCase
+  nameWithType: SLL2RouteKey.EventOneofCase
+  fullName: ServiceLayer.SLL2RouteKey.EventOneofCase
+  type: Enum
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlL2Route.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: EventOneofCase
+    path: src/gencs/SlL2Route.cs
+    startLine: 4155
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Enum of possible cases for the "Event" oneof.
+  example: []
+  syntax:
+    content: public enum SLL2RouteKey.EventOneofCase
+    content.vb: Public Enum SLL2RouteKey.EventOneofCase
+- uid: ServiceLayer.SLL2RouteKey.EventOneofCase.None
+  commentId: F:ServiceLayer.SLL2RouteKey.EventOneofCase.None
+  id: None
+  parent: ServiceLayer.SLL2RouteKey.EventOneofCase
+  langs:
+  - csharp
+  - vb
+  name: None
+  nameWithType: SLL2RouteKey.EventOneofCase.None
+  fullName: ServiceLayer.SLL2RouteKey.EventOneofCase.None
+  type: Field
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlL2Route.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: None
+    path: src/gencs/SlL2Route.cs
+    startLine: 4156
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  syntax:
+    content: None = 0
+    return:
+      type: ServiceLayer.SLL2RouteKey.EventOneofCase
+- uid: ServiceLayer.SLL2RouteKey.EventOneofCase.MacKey
+  commentId: F:ServiceLayer.SLL2RouteKey.EventOneofCase.MacKey
+  id: MacKey
+  parent: ServiceLayer.SLL2RouteKey.EventOneofCase
+  langs:
+  - csharp
+  - vb
+  name: MacKey
+  nameWithType: SLL2RouteKey.EventOneofCase.MacKey
+  fullName: ServiceLayer.SLL2RouteKey.EventOneofCase.MacKey
+  type: Field
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlL2Route.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: MacKey
+    path: src/gencs/SlL2Route.cs
+    startLine: 4157
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  syntax:
+    content: MacKey = 3
+    return:
+      type: ServiceLayer.SLL2RouteKey.EventOneofCase
+- uid: ServiceLayer.SLL2RouteKey.EventOneofCase.ImetKey
+  commentId: F:ServiceLayer.SLL2RouteKey.EventOneofCase.ImetKey
+  id: ImetKey
+  parent: ServiceLayer.SLL2RouteKey.EventOneofCase
+  langs:
+  - csharp
+  - vb
+  name: ImetKey
+  nameWithType: SLL2RouteKey.EventOneofCase.ImetKey
+  fullName: ServiceLayer.SLL2RouteKey.EventOneofCase.ImetKey
+  type: Field
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlL2Route.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: ImetKey
+    path: src/gencs/SlL2Route.cs
+    startLine: 4158
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  syntax:
+    content: ImetKey = 4
+    return:
+      type: ServiceLayer.SLL2RouteKey.EventOneofCase
+references:
+- uid: ServiceLayer
+  commentId: N:ServiceLayer
+  href: ServiceLayer.html
+  name: ServiceLayer
+  nameWithType: ServiceLayer
+  fullName: ServiceLayer
+- uid: ServiceLayer.SLL2RouteKey.EventOneofCase
+  commentId: T:ServiceLayer.SLL2RouteKey.EventOneofCase
+  parent: ServiceLayer
+  href: ServiceLayer.SLL2RouteKey.html
+  name: SLL2RouteKey.EventOneofCase
+  nameWithType: SLL2RouteKey.EventOneofCase
+  fullName: ServiceLayer.SLL2RouteKey.EventOneofCase
+  spec.csharp:
+  - uid: ServiceLayer.SLL2RouteKey
+    name: SLL2RouteKey
+    href: ServiceLayer.SLL2RouteKey.html
+  - name: .
+  - uid: ServiceLayer.SLL2RouteKey.EventOneofCase
+    name: EventOneofCase
+    href: ServiceLayer.SLL2RouteKey.EventOneofCase.html
+  spec.vb:
+  - uid: ServiceLayer.SLL2RouteKey
+    name: SLL2RouteKey
+    href: ServiceLayer.SLL2RouteKey.html
+  - name: .
+  - uid: ServiceLayer.SLL2RouteKey.EventOneofCase
+    name: EventOneofCase
+    href: ServiceLayer.SLL2RouteKey.EventOneofCase.html

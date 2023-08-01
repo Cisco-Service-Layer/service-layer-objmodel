@@ -1,0 +1,1471 @@
+### YamlMime:ManagedReference
+items:
+- uid: ServiceLayer.SLRoutev6Oper.SLRoutev6OperBase
+  commentId: T:ServiceLayer.SLRoutev6Oper.SLRoutev6OperBase
+  id: SLRoutev6Oper.SLRoutev6OperBase
+  parent: ServiceLayer
+  children:
+  - ServiceLayer.SLRoutev6Oper.SLRoutev6OperBase.SLRoutev6Get(ServiceLayer.SLRoutev6GetMsg,Grpc.Core.ServerCallContext)
+  - ServiceLayer.SLRoutev6Oper.SLRoutev6OperBase.SLRoutev6GetNotifStream(Grpc.Core.IAsyncStreamReader{ServiceLayer.SLRouteGetNotifMsg},Grpc.Core.IServerStreamWriter{ServiceLayer.SLRoutev6Notif},Grpc.Core.ServerCallContext)
+  - ServiceLayer.SLRoutev6Oper.SLRoutev6OperBase.SLRoutev6GetStream(Grpc.Core.IAsyncStreamReader{ServiceLayer.SLRoutev6GetMsg},Grpc.Core.IServerStreamWriter{ServiceLayer.SLRoutev6GetMsgRsp},Grpc.Core.ServerCallContext)
+  - ServiceLayer.SLRoutev6Oper.SLRoutev6OperBase.SLRoutev6GlobalStatsGet(ServiceLayer.SLRouteGlobalStatsGetMsg,Grpc.Core.ServerCallContext)
+  - ServiceLayer.SLRoutev6Oper.SLRoutev6OperBase.SLRoutev6GlobalsGet(ServiceLayer.SLRouteGlobalsGetMsg,Grpc.Core.ServerCallContext)
+  - ServiceLayer.SLRoutev6Oper.SLRoutev6OperBase.SLRoutev6Op(ServiceLayer.SLRoutev6Msg,Grpc.Core.ServerCallContext)
+  - ServiceLayer.SLRoutev6Oper.SLRoutev6OperBase.SLRoutev6OpStream(Grpc.Core.IAsyncStreamReader{ServiceLayer.SLRoutev6Msg},Grpc.Core.IServerStreamWriter{ServiceLayer.SLRoutev6MsgRsp},Grpc.Core.ServerCallContext)
+  - ServiceLayer.SLRoutev6Oper.SLRoutev6OperBase.SLRoutev6VrfGetStats(ServiceLayer.SLVrfRegGetMsg,Grpc.Core.ServerCallContext)
+  - ServiceLayer.SLRoutev6Oper.SLRoutev6OperBase.SLRoutev6VrfRegGet(ServiceLayer.SLVrfRegGetMsg,Grpc.Core.ServerCallContext)
+  - ServiceLayer.SLRoutev6Oper.SLRoutev6OperBase.SLRoutev6VrfRegOp(ServiceLayer.SLVrfRegMsg,Grpc.Core.ServerCallContext)
+  langs:
+  - csharp
+  - vb
+  name: SLRoutev6Oper.SLRoutev6OperBase
+  nameWithType: SLRoutev6Oper.SLRoutev6OperBase
+  fullName: ServiceLayer.SLRoutev6Oper.SLRoutev6OperBase
+  type: Class
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlRouteIpv6Grpc.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: SLRoutev6OperBase
+    path: src/gencs/SlRouteIpv6Grpc.cs
+    startLine: 184
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Base class for server-side implementations of SLRoutev6Oper
+  example: []
+  syntax:
+    content: >-
+      [BindServiceMethod(typeof(SLRoutev6Oper), "BindService")]
+
+      public abstract class SLRoutev6Oper.SLRoutev6OperBase
+    content.vb: >-
+      <BindServiceMethod(GetType(SLRoutev6Oper), "BindService")>
+
+      Public MustInherit Class SLRoutev6Oper.SLRoutev6OperBase
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  attributes:
+  - type: Grpc.Core.BindServiceMethodAttribute
+    ctor: Grpc.Core.BindServiceMethodAttribute.#ctor(System.Type,System.String)
+    arguments:
+    - type: System.Type
+      value: ServiceLayer.SLRoutev6Oper
+    - type: System.String
+      value: BindService
+- uid: ServiceLayer.SLRoutev6Oper.SLRoutev6OperBase.SLRoutev6GlobalsGet(ServiceLayer.SLRouteGlobalsGetMsg,Grpc.Core.ServerCallContext)
+  commentId: M:ServiceLayer.SLRoutev6Oper.SLRoutev6OperBase.SLRoutev6GlobalsGet(ServiceLayer.SLRouteGlobalsGetMsg,Grpc.Core.ServerCallContext)
+  id: SLRoutev6GlobalsGet(ServiceLayer.SLRouteGlobalsGetMsg,Grpc.Core.ServerCallContext)
+  parent: ServiceLayer.SLRoutev6Oper.SLRoutev6OperBase
+  langs:
+  - csharp
+  - vb
+  name: SLRoutev6GlobalsGet(SLRouteGlobalsGetMsg, ServerCallContext)
+  nameWithType: SLRoutev6Oper.SLRoutev6OperBase.SLRoutev6GlobalsGet(SLRouteGlobalsGetMsg, ServerCallContext)
+  fullName: ServiceLayer.SLRoutev6Oper.SLRoutev6OperBase.SLRoutev6GlobalsGet(ServiceLayer.SLRouteGlobalsGetMsg, Grpc.Core.ServerCallContext)
+  type: Method
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlRouteIpv6Grpc.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: SLRoutev6GlobalsGet
+    path: src/gencs/SlRouteIpv6Grpc.cs
+    startLine: 193
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Used to retrieve Global Route information
+  example: []
+  syntax:
+    content: public virtual Task<SLRouteGlobalsGetMsgRsp> SLRoutev6GlobalsGet(SLRouteGlobalsGetMsg request, ServerCallContext context)
+    parameters:
+    - id: request
+      type: ServiceLayer.SLRouteGlobalsGetMsg
+      description: The request received from the client.
+    - id: context
+      type: Grpc.Core.ServerCallContext
+      description: The context of the server-side call handler being invoked.
+    return:
+      type: System.Threading.Tasks.Task{ServiceLayer.SLRouteGlobalsGetMsgRsp}
+      description: The response to send back to the client (wrapped by a task).
+    content.vb: Public Overridable Function SLRoutev6GlobalsGet(request As SLRouteGlobalsGetMsg, context As ServerCallContext) As Task(Of SLRouteGlobalsGetMsgRsp)
+  overload: ServiceLayer.SLRoutev6Oper.SLRoutev6OperBase.SLRoutev6GlobalsGet*
+- uid: ServiceLayer.SLRoutev6Oper.SLRoutev6OperBase.SLRoutev6GlobalStatsGet(ServiceLayer.SLRouteGlobalStatsGetMsg,Grpc.Core.ServerCallContext)
+  commentId: M:ServiceLayer.SLRoutev6Oper.SLRoutev6OperBase.SLRoutev6GlobalStatsGet(ServiceLayer.SLRouteGlobalStatsGetMsg,Grpc.Core.ServerCallContext)
+  id: SLRoutev6GlobalStatsGet(ServiceLayer.SLRouteGlobalStatsGetMsg,Grpc.Core.ServerCallContext)
+  parent: ServiceLayer.SLRoutev6Oper.SLRoutev6OperBase
+  langs:
+  - csharp
+  - vb
+  name: SLRoutev6GlobalStatsGet(SLRouteGlobalStatsGetMsg, ServerCallContext)
+  nameWithType: SLRoutev6Oper.SLRoutev6OperBase.SLRoutev6GlobalStatsGet(SLRouteGlobalStatsGetMsg, ServerCallContext)
+  fullName: ServiceLayer.SLRoutev6Oper.SLRoutev6OperBase.SLRoutev6GlobalStatsGet(ServiceLayer.SLRouteGlobalStatsGetMsg, Grpc.Core.ServerCallContext)
+  type: Method
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlRouteIpv6Grpc.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: SLRoutev6GlobalStatsGet
+    path: src/gencs/SlRouteIpv6Grpc.cs
+    startLine: 205
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Used to retrieve Global Route Stats
+  example: []
+  syntax:
+    content: public virtual Task<SLRouteGlobalStatsGetMsgRsp> SLRoutev6GlobalStatsGet(SLRouteGlobalStatsGetMsg request, ServerCallContext context)
+    parameters:
+    - id: request
+      type: ServiceLayer.SLRouteGlobalStatsGetMsg
+      description: The request received from the client.
+    - id: context
+      type: Grpc.Core.ServerCallContext
+      description: The context of the server-side call handler being invoked.
+    return:
+      type: System.Threading.Tasks.Task{ServiceLayer.SLRouteGlobalStatsGetMsgRsp}
+      description: The response to send back to the client (wrapped by a task).
+    content.vb: Public Overridable Function SLRoutev6GlobalStatsGet(request As SLRouteGlobalStatsGetMsg, context As ServerCallContext) As Task(Of SLRouteGlobalStatsGetMsgRsp)
+  overload: ServiceLayer.SLRoutev6Oper.SLRoutev6OperBase.SLRoutev6GlobalStatsGet*
+- uid: ServiceLayer.SLRoutev6Oper.SLRoutev6OperBase.SLRoutev6VrfRegOp(ServiceLayer.SLVrfRegMsg,Grpc.Core.ServerCallContext)
+  commentId: M:ServiceLayer.SLRoutev6Oper.SLRoutev6OperBase.SLRoutev6VrfRegOp(ServiceLayer.SLVrfRegMsg,Grpc.Core.ServerCallContext)
+  id: SLRoutev6VrfRegOp(ServiceLayer.SLVrfRegMsg,Grpc.Core.ServerCallContext)
+  parent: ServiceLayer.SLRoutev6Oper.SLRoutev6OperBase
+  langs:
+  - csharp
+  - vb
+  name: SLRoutev6VrfRegOp(SLVrfRegMsg, ServerCallContext)
+  nameWithType: SLRoutev6Oper.SLRoutev6OperBase.SLRoutev6VrfRegOp(SLVrfRegMsg, ServerCallContext)
+  fullName: ServiceLayer.SLRoutev6Oper.SLRoutev6OperBase.SLRoutev6VrfRegOp(ServiceLayer.SLVrfRegMsg, Grpc.Core.ServerCallContext)
+  type: Method
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlRouteIpv6Grpc.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: SLRoutev6VrfRegOp
+    path: src/gencs/SlRouteIpv6Grpc.cs
+    startLine: 244
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: >-
+    SLVrfRegMsg.Oper = SL_REGOP_REGISTER:
+        VRF registration: Sends a list of VRF registration messages
+        and expects a list of registration responses.
+        A client Must Register a VRF BEFORE routes can be added/modified in
+       the associated VRF.
+
+    SLVrfRegMsg.Oper = SL_REGOP_UNREGISTER:
+        VRF Un-registration: Sends a list of VRF un-registration messages
+        and expects a list of un-registration responses.
+        This can be used to convey that the client is no longer interested
+        in these VRFs. All previously installed routes would be removed.
+
+    SLVrfRegMsg.Oper = SL_REGOP_EOF:
+        VRF End Of File message.
+        After Registration, the client is expected to send an EOF
+        message to convey the end of replay of the client's known objects.
+        This is especially useful under certain restart scenarios when the
+        client and the server are trying to synchronize their Routes.
+
+    The VRF registration operations can be used by the client to
+
+    synchronize routes with the device. When the client re-registers the VRF
+
+    with the server using SL_REGOP_REGISTER, server marks routes as stale.
+
+    Client then must reprogram routes it is interested in.
+
+    When client sends SL_REGOP_EOF, any routes not reprogrammed
+
+    are removed from the device.
+
+
+    The client must perform all operations (VRF registration, routes)
+
+    from a single execution context.
+  example: []
+  syntax:
+    content: public virtual Task<SLVrfRegMsgRsp> SLRoutev6VrfRegOp(SLVrfRegMsg request, ServerCallContext context)
+    parameters:
+    - id: request
+      type: ServiceLayer.SLVrfRegMsg
+      description: The request received from the client.
+    - id: context
+      type: Grpc.Core.ServerCallContext
+      description: The context of the server-side call handler being invoked.
+    return:
+      type: System.Threading.Tasks.Task{ServiceLayer.SLVrfRegMsgRsp}
+      description: The response to send back to the client (wrapped by a task).
+    content.vb: Public Overridable Function SLRoutev6VrfRegOp(request As SLVrfRegMsg, context As ServerCallContext) As Task(Of SLVrfRegMsgRsp)
+  overload: ServiceLayer.SLRoutev6Oper.SLRoutev6OperBase.SLRoutev6VrfRegOp*
+- uid: ServiceLayer.SLRoutev6Oper.SLRoutev6OperBase.SLRoutev6VrfRegGet(ServiceLayer.SLVrfRegGetMsg,Grpc.Core.ServerCallContext)
+  commentId: M:ServiceLayer.SLRoutev6Oper.SLRoutev6OperBase.SLRoutev6VrfRegGet(ServiceLayer.SLVrfRegGetMsg,Grpc.Core.ServerCallContext)
+  id: SLRoutev6VrfRegGet(ServiceLayer.SLVrfRegGetMsg,Grpc.Core.ServerCallContext)
+  parent: ServiceLayer.SLRoutev6Oper.SLRoutev6OperBase
+  langs:
+  - csharp
+  - vb
+  name: SLRoutev6VrfRegGet(SLVrfRegGetMsg, ServerCallContext)
+  nameWithType: SLRoutev6Oper.SLRoutev6OperBase.SLRoutev6VrfRegGet(SLVrfRegGetMsg, ServerCallContext)
+  fullName: ServiceLayer.SLRoutev6Oper.SLRoutev6OperBase.SLRoutev6VrfRegGet(ServiceLayer.SLVrfRegGetMsg, Grpc.Core.ServerCallContext)
+  type: Method
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlRouteIpv6Grpc.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: SLRoutev6VrfRegGet
+    path: src/gencs/SlRouteIpv6Grpc.cs
+    startLine: 256
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: VRF get. Used to retrieve VRF attributes from the server.
+  example: []
+  syntax:
+    content: public virtual Task<SLVrfRegGetMsgRsp> SLRoutev6VrfRegGet(SLVrfRegGetMsg request, ServerCallContext context)
+    parameters:
+    - id: request
+      type: ServiceLayer.SLVrfRegGetMsg
+      description: The request received from the client.
+    - id: context
+      type: Grpc.Core.ServerCallContext
+      description: The context of the server-side call handler being invoked.
+    return:
+      type: System.Threading.Tasks.Task{ServiceLayer.SLVrfRegGetMsgRsp}
+      description: The response to send back to the client (wrapped by a task).
+    content.vb: Public Overridable Function SLRoutev6VrfRegGet(request As SLVrfRegGetMsg, context As ServerCallContext) As Task(Of SLVrfRegGetMsgRsp)
+  overload: ServiceLayer.SLRoutev6Oper.SLRoutev6OperBase.SLRoutev6VrfRegGet*
+- uid: ServiceLayer.SLRoutev6Oper.SLRoutev6OperBase.SLRoutev6VrfGetStats(ServiceLayer.SLVrfRegGetMsg,Grpc.Core.ServerCallContext)
+  commentId: M:ServiceLayer.SLRoutev6Oper.SLRoutev6OperBase.SLRoutev6VrfGetStats(ServiceLayer.SLVrfRegGetMsg,Grpc.Core.ServerCallContext)
+  id: SLRoutev6VrfGetStats(ServiceLayer.SLVrfRegGetMsg,Grpc.Core.ServerCallContext)
+  parent: ServiceLayer.SLRoutev6Oper.SLRoutev6OperBase
+  langs:
+  - csharp
+  - vb
+  name: SLRoutev6VrfGetStats(SLVrfRegGetMsg, ServerCallContext)
+  nameWithType: SLRoutev6Oper.SLRoutev6OperBase.SLRoutev6VrfGetStats(SLVrfRegGetMsg, ServerCallContext)
+  fullName: ServiceLayer.SLRoutev6Oper.SLRoutev6OperBase.SLRoutev6VrfGetStats(ServiceLayer.SLVrfRegGetMsg, Grpc.Core.ServerCallContext)
+  type: Method
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlRouteIpv6Grpc.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: SLRoutev6VrfGetStats
+    path: src/gencs/SlRouteIpv6Grpc.cs
+    startLine: 268
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Used to retrieve VRF Stats from the server.
+  example: []
+  syntax:
+    content: public virtual Task<SLVRFGetStatsMsgRsp> SLRoutev6VrfGetStats(SLVrfRegGetMsg request, ServerCallContext context)
+    parameters:
+    - id: request
+      type: ServiceLayer.SLVrfRegGetMsg
+      description: The request received from the client.
+    - id: context
+      type: Grpc.Core.ServerCallContext
+      description: The context of the server-side call handler being invoked.
+    return:
+      type: System.Threading.Tasks.Task{ServiceLayer.SLVRFGetStatsMsgRsp}
+      description: The response to send back to the client (wrapped by a task).
+    content.vb: Public Overridable Function SLRoutev6VrfGetStats(request As SLVrfRegGetMsg, context As ServerCallContext) As Task(Of SLVRFGetStatsMsgRsp)
+  overload: ServiceLayer.SLRoutev6Oper.SLRoutev6OperBase.SLRoutev6VrfGetStats*
+- uid: ServiceLayer.SLRoutev6Oper.SLRoutev6OperBase.SLRoutev6Op(ServiceLayer.SLRoutev6Msg,Grpc.Core.ServerCallContext)
+  commentId: M:ServiceLayer.SLRoutev6Oper.SLRoutev6OperBase.SLRoutev6Op(ServiceLayer.SLRoutev6Msg,Grpc.Core.ServerCallContext)
+  id: SLRoutev6Op(ServiceLayer.SLRoutev6Msg,Grpc.Core.ServerCallContext)
+  parent: ServiceLayer.SLRoutev6Oper.SLRoutev6OperBase
+  langs:
+  - csharp
+  - vb
+  name: SLRoutev6Op(SLRoutev6Msg, ServerCallContext)
+  nameWithType: SLRoutev6Oper.SLRoutev6OperBase.SLRoutev6Op(SLRoutev6Msg, ServerCallContext)
+  fullName: ServiceLayer.SLRoutev6Oper.SLRoutev6OperBase.SLRoutev6Op(ServiceLayer.SLRoutev6Msg, Grpc.Core.ServerCallContext)
+  type: Method
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlRouteIpv6Grpc.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: SLRoutev6Op
+    path: src/gencs/SlRouteIpv6Grpc.cs
+    startLine: 290
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: >-
+    SLRoutev6Msg.Oper = SL_OBJOP_ADD:
+        Route add. Fails if the route already exists and not stale.
+        First ADD operation on a stale route is allowed and the route
+        is no longer considered stale.
+
+    SLRoutev6Msg.Oper = SL_OBJOP_UPDATE:
+        Route update. Creates or updates the route.
+
+    SLRoutev6Msg.Oper = SL_OBJOP_DELETE:
+        Route delete. The route path is not necessary to delete the route.
+        Delete of a non-existant route is returned as success.
+  example: []
+  syntax:
+    content: public virtual Task<SLRoutev6MsgRsp> SLRoutev6Op(SLRoutev6Msg request, ServerCallContext context)
+    parameters:
+    - id: request
+      type: ServiceLayer.SLRoutev6Msg
+      description: The request received from the client.
+    - id: context
+      type: Grpc.Core.ServerCallContext
+      description: The context of the server-side call handler being invoked.
+    return:
+      type: System.Threading.Tasks.Task{ServiceLayer.SLRoutev6MsgRsp}
+      description: The response to send back to the client (wrapped by a task).
+    content.vb: Public Overridable Function SLRoutev6Op(request As SLRoutev6Msg, context As ServerCallContext) As Task(Of SLRoutev6MsgRsp)
+  overload: ServiceLayer.SLRoutev6Oper.SLRoutev6OperBase.SLRoutev6Op*
+- uid: ServiceLayer.SLRoutev6Oper.SLRoutev6OperBase.SLRoutev6Get(ServiceLayer.SLRoutev6GetMsg,Grpc.Core.ServerCallContext)
+  commentId: M:ServiceLayer.SLRoutev6Oper.SLRoutev6OperBase.SLRoutev6Get(ServiceLayer.SLRoutev6GetMsg,Grpc.Core.ServerCallContext)
+  id: SLRoutev6Get(ServiceLayer.SLRoutev6GetMsg,Grpc.Core.ServerCallContext)
+  parent: ServiceLayer.SLRoutev6Oper.SLRoutev6OperBase
+  langs:
+  - csharp
+  - vb
+  name: SLRoutev6Get(SLRoutev6GetMsg, ServerCallContext)
+  nameWithType: SLRoutev6Oper.SLRoutev6OperBase.SLRoutev6Get(SLRoutev6GetMsg, ServerCallContext)
+  fullName: ServiceLayer.SLRoutev6Oper.SLRoutev6OperBase.SLRoutev6Get(ServiceLayer.SLRoutev6GetMsg, Grpc.Core.ServerCallContext)
+  type: Method
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlRouteIpv6Grpc.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: SLRoutev6Get
+    path: src/gencs/SlRouteIpv6Grpc.cs
+    startLine: 302
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Retrieves route attributes.
+  example: []
+  syntax:
+    content: public virtual Task<SLRoutev6GetMsgRsp> SLRoutev6Get(SLRoutev6GetMsg request, ServerCallContext context)
+    parameters:
+    - id: request
+      type: ServiceLayer.SLRoutev6GetMsg
+      description: The request received from the client.
+    - id: context
+      type: Grpc.Core.ServerCallContext
+      description: The context of the server-side call handler being invoked.
+    return:
+      type: System.Threading.Tasks.Task{ServiceLayer.SLRoutev6GetMsgRsp}
+      description: The response to send back to the client (wrapped by a task).
+    content.vb: Public Overridable Function SLRoutev6Get(request As SLRoutev6GetMsg, context As ServerCallContext) As Task(Of SLRoutev6GetMsgRsp)
+  overload: ServiceLayer.SLRoutev6Oper.SLRoutev6OperBase.SLRoutev6Get*
+- uid: ServiceLayer.SLRoutev6Oper.SLRoutev6OperBase.SLRoutev6OpStream(Grpc.Core.IAsyncStreamReader{ServiceLayer.SLRoutev6Msg},Grpc.Core.IServerStreamWriter{ServiceLayer.SLRoutev6MsgRsp},Grpc.Core.ServerCallContext)
+  commentId: M:ServiceLayer.SLRoutev6Oper.SLRoutev6OperBase.SLRoutev6OpStream(Grpc.Core.IAsyncStreamReader{ServiceLayer.SLRoutev6Msg},Grpc.Core.IServerStreamWriter{ServiceLayer.SLRoutev6MsgRsp},Grpc.Core.ServerCallContext)
+  id: SLRoutev6OpStream(Grpc.Core.IAsyncStreamReader{ServiceLayer.SLRoutev6Msg},Grpc.Core.IServerStreamWriter{ServiceLayer.SLRoutev6MsgRsp},Grpc.Core.ServerCallContext)
+  parent: ServiceLayer.SLRoutev6Oper.SLRoutev6OperBase
+  langs:
+  - csharp
+  - vb
+  name: SLRoutev6OpStream(IAsyncStreamReader<SLRoutev6Msg>, IServerStreamWriter<SLRoutev6MsgRsp>, ServerCallContext)
+  nameWithType: SLRoutev6Oper.SLRoutev6OperBase.SLRoutev6OpStream(IAsyncStreamReader<SLRoutev6Msg>, IServerStreamWriter<SLRoutev6MsgRsp>, ServerCallContext)
+  fullName: ServiceLayer.SLRoutev6Oper.SLRoutev6OperBase.SLRoutev6OpStream(Grpc.Core.IAsyncStreamReader<ServiceLayer.SLRoutev6Msg>, Grpc.Core.IServerStreamWriter<ServiceLayer.SLRoutev6MsgRsp>, Grpc.Core.ServerCallContext)
+  type: Method
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlRouteIpv6Grpc.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: SLRoutev6OpStream
+    path: src/gencs/SlRouteIpv6Grpc.cs
+    startLine: 325
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: >-
+    SLRoutev6Msg.Oper = SL_OBJOP_ADD:
+        Route add. Fails if the route already exists and not stale.
+        First ADD operation on a stale route is allowed and the route
+        is no longer considered stale.
+
+    SLRoutev6Msg.Oper = SL_OBJOP_UPDATE:
+        Route update. Creates or updates the route.
+
+    SLRoutev6Msg.Oper = SL_OBJOP_DELETE:
+        Route delete. The route path is not necessary to delete the route.
+        Delete of a non-existant route is returned as success.
+  example: []
+  syntax:
+    content: public virtual Task SLRoutev6OpStream(IAsyncStreamReader<SLRoutev6Msg> requestStream, IServerStreamWriter<SLRoutev6MsgRsp> responseStream, ServerCallContext context)
+    parameters:
+    - id: requestStream
+      type: Grpc.Core.IAsyncStreamReader{ServiceLayer.SLRoutev6Msg}
+      description: Used for reading requests from the client.
+    - id: responseStream
+      type: Grpc.Core.IServerStreamWriter{ServiceLayer.SLRoutev6MsgRsp}
+      description: Used for sending responses back to the client.
+    - id: context
+      type: Grpc.Core.ServerCallContext
+      description: The context of the server-side call handler being invoked.
+    return:
+      type: System.Threading.Tasks.Task
+      description: A task indicating completion of the handler.
+    content.vb: Public Overridable Function SLRoutev6OpStream(requestStream As IAsyncStreamReader(Of SLRoutev6Msg), responseStream As IServerStreamWriter(Of SLRoutev6MsgRsp), context As ServerCallContext) As Task
+  overload: ServiceLayer.SLRoutev6Oper.SLRoutev6OperBase.SLRoutev6OpStream*
+  nameWithType.vb: SLRoutev6Oper.SLRoutev6OperBase.SLRoutev6OpStream(IAsyncStreamReader(Of SLRoutev6Msg), IServerStreamWriter(Of SLRoutev6MsgRsp), ServerCallContext)
+  fullName.vb: ServiceLayer.SLRoutev6Oper.SLRoutev6OperBase.SLRoutev6OpStream(Grpc.Core.IAsyncStreamReader(Of ServiceLayer.SLRoutev6Msg), Grpc.Core.IServerStreamWriter(Of ServiceLayer.SLRoutev6MsgRsp), Grpc.Core.ServerCallContext)
+  name.vb: SLRoutev6OpStream(IAsyncStreamReader(Of SLRoutev6Msg), IServerStreamWriter(Of SLRoutev6MsgRsp), ServerCallContext)
+- uid: ServiceLayer.SLRoutev6Oper.SLRoutev6OperBase.SLRoutev6GetStream(Grpc.Core.IAsyncStreamReader{ServiceLayer.SLRoutev6GetMsg},Grpc.Core.IServerStreamWriter{ServiceLayer.SLRoutev6GetMsgRsp},Grpc.Core.ServerCallContext)
+  commentId: M:ServiceLayer.SLRoutev6Oper.SLRoutev6OperBase.SLRoutev6GetStream(Grpc.Core.IAsyncStreamReader{ServiceLayer.SLRoutev6GetMsg},Grpc.Core.IServerStreamWriter{ServiceLayer.SLRoutev6GetMsgRsp},Grpc.Core.ServerCallContext)
+  id: SLRoutev6GetStream(Grpc.Core.IAsyncStreamReader{ServiceLayer.SLRoutev6GetMsg},Grpc.Core.IServerStreamWriter{ServiceLayer.SLRoutev6GetMsgRsp},Grpc.Core.ServerCallContext)
+  parent: ServiceLayer.SLRoutev6Oper.SLRoutev6OperBase
+  langs:
+  - csharp
+  - vb
+  name: SLRoutev6GetStream(IAsyncStreamReader<SLRoutev6GetMsg>, IServerStreamWriter<SLRoutev6GetMsgRsp>, ServerCallContext)
+  nameWithType: SLRoutev6Oper.SLRoutev6OperBase.SLRoutev6GetStream(IAsyncStreamReader<SLRoutev6GetMsg>, IServerStreamWriter<SLRoutev6GetMsgRsp>, ServerCallContext)
+  fullName: ServiceLayer.SLRoutev6Oper.SLRoutev6OperBase.SLRoutev6GetStream(Grpc.Core.IAsyncStreamReader<ServiceLayer.SLRoutev6GetMsg>, Grpc.Core.IServerStreamWriter<ServiceLayer.SLRoutev6GetMsgRsp>, Grpc.Core.ServerCallContext)
+  type: Method
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlRouteIpv6Grpc.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: SLRoutev6GetStream
+    path: src/gencs/SlRouteIpv6Grpc.cs
+    startLine: 338
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Retrieves route attributes.
+  example: []
+  syntax:
+    content: public virtual Task SLRoutev6GetStream(IAsyncStreamReader<SLRoutev6GetMsg> requestStream, IServerStreamWriter<SLRoutev6GetMsgRsp> responseStream, ServerCallContext context)
+    parameters:
+    - id: requestStream
+      type: Grpc.Core.IAsyncStreamReader{ServiceLayer.SLRoutev6GetMsg}
+      description: Used for reading requests from the client.
+    - id: responseStream
+      type: Grpc.Core.IServerStreamWriter{ServiceLayer.SLRoutev6GetMsgRsp}
+      description: Used for sending responses back to the client.
+    - id: context
+      type: Grpc.Core.ServerCallContext
+      description: The context of the server-side call handler being invoked.
+    return:
+      type: System.Threading.Tasks.Task
+      description: A task indicating completion of the handler.
+    content.vb: Public Overridable Function SLRoutev6GetStream(requestStream As IAsyncStreamReader(Of SLRoutev6GetMsg), responseStream As IServerStreamWriter(Of SLRoutev6GetMsgRsp), context As ServerCallContext) As Task
+  overload: ServiceLayer.SLRoutev6Oper.SLRoutev6OperBase.SLRoutev6GetStream*
+  nameWithType.vb: SLRoutev6Oper.SLRoutev6OperBase.SLRoutev6GetStream(IAsyncStreamReader(Of SLRoutev6GetMsg), IServerStreamWriter(Of SLRoutev6GetMsgRsp), ServerCallContext)
+  fullName.vb: ServiceLayer.SLRoutev6Oper.SLRoutev6OperBase.SLRoutev6GetStream(Grpc.Core.IAsyncStreamReader(Of ServiceLayer.SLRoutev6GetMsg), Grpc.Core.IServerStreamWriter(Of ServiceLayer.SLRoutev6GetMsgRsp), Grpc.Core.ServerCallContext)
+  name.vb: SLRoutev6GetStream(IAsyncStreamReader(Of SLRoutev6GetMsg), IServerStreamWriter(Of SLRoutev6GetMsgRsp), ServerCallContext)
+- uid: ServiceLayer.SLRoutev6Oper.SLRoutev6OperBase.SLRoutev6GetNotifStream(Grpc.Core.IAsyncStreamReader{ServiceLayer.SLRouteGetNotifMsg},Grpc.Core.IServerStreamWriter{ServiceLayer.SLRoutev6Notif},Grpc.Core.ServerCallContext)
+  commentId: M:ServiceLayer.SLRoutev6Oper.SLRoutev6OperBase.SLRoutev6GetNotifStream(Grpc.Core.IAsyncStreamReader{ServiceLayer.SLRouteGetNotifMsg},Grpc.Core.IServerStreamWriter{ServiceLayer.SLRoutev6Notif},Grpc.Core.ServerCallContext)
+  id: SLRoutev6GetNotifStream(Grpc.Core.IAsyncStreamReader{ServiceLayer.SLRouteGetNotifMsg},Grpc.Core.IServerStreamWriter{ServiceLayer.SLRoutev6Notif},Grpc.Core.ServerCallContext)
+  parent: ServiceLayer.SLRoutev6Oper.SLRoutev6OperBase
+  langs:
+  - csharp
+  - vb
+  name: SLRoutev6GetNotifStream(IAsyncStreamReader<SLRouteGetNotifMsg>, IServerStreamWriter<SLRoutev6Notif>, ServerCallContext)
+  nameWithType: SLRoutev6Oper.SLRoutev6OperBase.SLRoutev6GetNotifStream(IAsyncStreamReader<SLRouteGetNotifMsg>, IServerStreamWriter<SLRoutev6Notif>, ServerCallContext)
+  fullName: ServiceLayer.SLRoutev6Oper.SLRoutev6OperBase.SLRoutev6GetNotifStream(Grpc.Core.IAsyncStreamReader<ServiceLayer.SLRouteGetNotifMsg>, Grpc.Core.IServerStreamWriter<ServiceLayer.SLRoutev6Notif>, Grpc.Core.ServerCallContext)
+  type: Method
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlRouteIpv6Grpc.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: SLRoutev6GetNotifStream
+    path: src/gencs/SlRouteIpv6Grpc.cs
+    startLine: 360
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: >-
+    This call is used to get a stream of route notifications.
+
+    It can be used to get "push" notifications for route
+
+    adds/updates/deletes.
+
+    The caller must maintain the GRPC channel as long as there is
+
+    interest in route notifications.
+
+
+    The call takes a stream of per-VRF notification requests.
+
+    The success/failure of the notification request is relayed in the
+
+    SLRouteNotifStatus followed by a Start marker, any routes if present,
+
+    and an End Marker.
+  example: []
+  syntax:
+    content: public virtual Task SLRoutev6GetNotifStream(IAsyncStreamReader<SLRouteGetNotifMsg> requestStream, IServerStreamWriter<SLRoutev6Notif> responseStream, ServerCallContext context)
+    parameters:
+    - id: requestStream
+      type: Grpc.Core.IAsyncStreamReader{ServiceLayer.SLRouteGetNotifMsg}
+      description: Used for reading requests from the client.
+    - id: responseStream
+      type: Grpc.Core.IServerStreamWriter{ServiceLayer.SLRoutev6Notif}
+      description: Used for sending responses back to the client.
+    - id: context
+      type: Grpc.Core.ServerCallContext
+      description: The context of the server-side call handler being invoked.
+    return:
+      type: System.Threading.Tasks.Task
+      description: A task indicating completion of the handler.
+    content.vb: Public Overridable Function SLRoutev6GetNotifStream(requestStream As IAsyncStreamReader(Of SLRouteGetNotifMsg), responseStream As IServerStreamWriter(Of SLRoutev6Notif), context As ServerCallContext) As Task
+  overload: ServiceLayer.SLRoutev6Oper.SLRoutev6OperBase.SLRoutev6GetNotifStream*
+  nameWithType.vb: SLRoutev6Oper.SLRoutev6OperBase.SLRoutev6GetNotifStream(IAsyncStreamReader(Of SLRouteGetNotifMsg), IServerStreamWriter(Of SLRoutev6Notif), ServerCallContext)
+  fullName.vb: ServiceLayer.SLRoutev6Oper.SLRoutev6OperBase.SLRoutev6GetNotifStream(Grpc.Core.IAsyncStreamReader(Of ServiceLayer.SLRouteGetNotifMsg), Grpc.Core.IServerStreamWriter(Of ServiceLayer.SLRoutev6Notif), Grpc.Core.ServerCallContext)
+  name.vb: SLRoutev6GetNotifStream(IAsyncStreamReader(Of SLRouteGetNotifMsg), IServerStreamWriter(Of SLRoutev6Notif), ServerCallContext)
+references:
+- uid: ServiceLayer
+  commentId: N:ServiceLayer
+  href: ServiceLayer.html
+  name: ServiceLayer
+  nameWithType: ServiceLayer
+  fullName: ServiceLayer
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: ServiceLayer.SLRoutev6Oper.SLRoutev6OperBase.SLRoutev6GlobalsGet*
+  commentId: Overload:ServiceLayer.SLRoutev6Oper.SLRoutev6OperBase.SLRoutev6GlobalsGet
+  href: ServiceLayer.SLRoutev6Oper.SLRoutev6OperBase.html#ServiceLayer.SLRoutev6Oper.SLRoutev6OperBase.SLRoutev6GlobalsGet(ServiceLayer.SLRouteGlobalsGetMsg,Grpc.Core.ServerCallContext)
+  name: SLRoutev6GlobalsGet
+  nameWithType: SLRoutev6Oper.SLRoutev6OperBase.SLRoutev6GlobalsGet
+  fullName: ServiceLayer.SLRoutev6Oper.SLRoutev6OperBase.SLRoutev6GlobalsGet
+- uid: ServiceLayer.SLRouteGlobalsGetMsg
+  commentId: T:ServiceLayer.SLRouteGlobalsGetMsg
+  parent: ServiceLayer
+  href: ServiceLayer.SLRouteGlobalsGetMsg.html
+  name: SLRouteGlobalsGetMsg
+  nameWithType: SLRouteGlobalsGetMsg
+  fullName: ServiceLayer.SLRouteGlobalsGetMsg
+- uid: Grpc.Core.ServerCallContext
+  commentId: T:Grpc.Core.ServerCallContext
+  parent: Grpc.Core
+  isExternal: true
+  href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/ServerCallContext.cs
+  name: ServerCallContext
+  nameWithType: ServerCallContext
+  fullName: Grpc.Core.ServerCallContext
+- uid: System.Threading.Tasks.Task{ServiceLayer.SLRouteGlobalsGetMsgRsp}
+  commentId: T:System.Threading.Tasks.Task{ServiceLayer.SLRouteGlobalsGetMsgRsp}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<SLRouteGlobalsGetMsgRsp>
+  nameWithType: Task<SLRouteGlobalsGetMsgRsp>
+  fullName: System.Threading.Tasks.Task<ServiceLayer.SLRouteGlobalsGetMsgRsp>
+  nameWithType.vb: Task(Of SLRouteGlobalsGetMsgRsp)
+  fullName.vb: System.Threading.Tasks.Task(Of ServiceLayer.SLRouteGlobalsGetMsgRsp)
+  name.vb: Task(Of SLRouteGlobalsGetMsgRsp)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: ServiceLayer.SLRouteGlobalsGetMsgRsp
+    name: SLRouteGlobalsGetMsgRsp
+    href: ServiceLayer.SLRouteGlobalsGetMsgRsp.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ServiceLayer.SLRouteGlobalsGetMsgRsp
+    name: SLRouteGlobalsGetMsgRsp
+    href: ServiceLayer.SLRouteGlobalsGetMsgRsp.html
+  - name: )
+- uid: Grpc.Core
+  commentId: N:Grpc.Core
+  isExternal: true
+  name: Grpc.Core
+  nameWithType: Grpc.Core
+  fullName: Grpc.Core
+  spec.csharp:
+  - uid: Grpc
+    name: Grpc
+    isExternal: true
+  - name: .
+  - uid: Grpc.Core
+    name: Core
+    isExternal: true
+  spec.vb:
+  - uid: Grpc
+    name: Grpc
+    isExternal: true
+  - name: .
+  - uid: Grpc.Core
+    name: Core
+    isExternal: true
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+- uid: ServiceLayer.SLRoutev6Oper.SLRoutev6OperBase.SLRoutev6GlobalStatsGet*
+  commentId: Overload:ServiceLayer.SLRoutev6Oper.SLRoutev6OperBase.SLRoutev6GlobalStatsGet
+  href: ServiceLayer.SLRoutev6Oper.SLRoutev6OperBase.html#ServiceLayer.SLRoutev6Oper.SLRoutev6OperBase.SLRoutev6GlobalStatsGet(ServiceLayer.SLRouteGlobalStatsGetMsg,Grpc.Core.ServerCallContext)
+  name: SLRoutev6GlobalStatsGet
+  nameWithType: SLRoutev6Oper.SLRoutev6OperBase.SLRoutev6GlobalStatsGet
+  fullName: ServiceLayer.SLRoutev6Oper.SLRoutev6OperBase.SLRoutev6GlobalStatsGet
+- uid: ServiceLayer.SLRouteGlobalStatsGetMsg
+  commentId: T:ServiceLayer.SLRouteGlobalStatsGetMsg
+  parent: ServiceLayer
+  href: ServiceLayer.SLRouteGlobalStatsGetMsg.html
+  name: SLRouteGlobalStatsGetMsg
+  nameWithType: SLRouteGlobalStatsGetMsg
+  fullName: ServiceLayer.SLRouteGlobalStatsGetMsg
+- uid: System.Threading.Tasks.Task{ServiceLayer.SLRouteGlobalStatsGetMsgRsp}
+  commentId: T:System.Threading.Tasks.Task{ServiceLayer.SLRouteGlobalStatsGetMsgRsp}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<SLRouteGlobalStatsGetMsgRsp>
+  nameWithType: Task<SLRouteGlobalStatsGetMsgRsp>
+  fullName: System.Threading.Tasks.Task<ServiceLayer.SLRouteGlobalStatsGetMsgRsp>
+  nameWithType.vb: Task(Of SLRouteGlobalStatsGetMsgRsp)
+  fullName.vb: System.Threading.Tasks.Task(Of ServiceLayer.SLRouteGlobalStatsGetMsgRsp)
+  name.vb: Task(Of SLRouteGlobalStatsGetMsgRsp)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: ServiceLayer.SLRouteGlobalStatsGetMsgRsp
+    name: SLRouteGlobalStatsGetMsgRsp
+    href: ServiceLayer.SLRouteGlobalStatsGetMsgRsp.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ServiceLayer.SLRouteGlobalStatsGetMsgRsp
+    name: SLRouteGlobalStatsGetMsgRsp
+    href: ServiceLayer.SLRouteGlobalStatsGetMsgRsp.html
+  - name: )
+- uid: ServiceLayer.SLRoutev6Oper.SLRoutev6OperBase.SLRoutev6VrfRegOp*
+  commentId: Overload:ServiceLayer.SLRoutev6Oper.SLRoutev6OperBase.SLRoutev6VrfRegOp
+  href: ServiceLayer.SLRoutev6Oper.SLRoutev6OperBase.html#ServiceLayer.SLRoutev6Oper.SLRoutev6OperBase.SLRoutev6VrfRegOp(ServiceLayer.SLVrfRegMsg,Grpc.Core.ServerCallContext)
+  name: SLRoutev6VrfRegOp
+  nameWithType: SLRoutev6Oper.SLRoutev6OperBase.SLRoutev6VrfRegOp
+  fullName: ServiceLayer.SLRoutev6Oper.SLRoutev6OperBase.SLRoutev6VrfRegOp
+- uid: ServiceLayer.SLVrfRegMsg
+  commentId: T:ServiceLayer.SLVrfRegMsg
+  parent: ServiceLayer
+  href: ServiceLayer.SLVrfRegMsg.html
+  name: SLVrfRegMsg
+  nameWithType: SLVrfRegMsg
+  fullName: ServiceLayer.SLVrfRegMsg
+- uid: System.Threading.Tasks.Task{ServiceLayer.SLVrfRegMsgRsp}
+  commentId: T:System.Threading.Tasks.Task{ServiceLayer.SLVrfRegMsgRsp}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<SLVrfRegMsgRsp>
+  nameWithType: Task<SLVrfRegMsgRsp>
+  fullName: System.Threading.Tasks.Task<ServiceLayer.SLVrfRegMsgRsp>
+  nameWithType.vb: Task(Of SLVrfRegMsgRsp)
+  fullName.vb: System.Threading.Tasks.Task(Of ServiceLayer.SLVrfRegMsgRsp)
+  name.vb: Task(Of SLVrfRegMsgRsp)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: ServiceLayer.SLVrfRegMsgRsp
+    name: SLVrfRegMsgRsp
+    href: ServiceLayer.SLVrfRegMsgRsp.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ServiceLayer.SLVrfRegMsgRsp
+    name: SLVrfRegMsgRsp
+    href: ServiceLayer.SLVrfRegMsgRsp.html
+  - name: )
+- uid: ServiceLayer.SLRoutev6Oper.SLRoutev6OperBase.SLRoutev6VrfRegGet*
+  commentId: Overload:ServiceLayer.SLRoutev6Oper.SLRoutev6OperBase.SLRoutev6VrfRegGet
+  href: ServiceLayer.SLRoutev6Oper.SLRoutev6OperBase.html#ServiceLayer.SLRoutev6Oper.SLRoutev6OperBase.SLRoutev6VrfRegGet(ServiceLayer.SLVrfRegGetMsg,Grpc.Core.ServerCallContext)
+  name: SLRoutev6VrfRegGet
+  nameWithType: SLRoutev6Oper.SLRoutev6OperBase.SLRoutev6VrfRegGet
+  fullName: ServiceLayer.SLRoutev6Oper.SLRoutev6OperBase.SLRoutev6VrfRegGet
+- uid: ServiceLayer.SLVrfRegGetMsg
+  commentId: T:ServiceLayer.SLVrfRegGetMsg
+  parent: ServiceLayer
+  href: ServiceLayer.SLVrfRegGetMsg.html
+  name: SLVrfRegGetMsg
+  nameWithType: SLVrfRegGetMsg
+  fullName: ServiceLayer.SLVrfRegGetMsg
+- uid: System.Threading.Tasks.Task{ServiceLayer.SLVrfRegGetMsgRsp}
+  commentId: T:System.Threading.Tasks.Task{ServiceLayer.SLVrfRegGetMsgRsp}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<SLVrfRegGetMsgRsp>
+  nameWithType: Task<SLVrfRegGetMsgRsp>
+  fullName: System.Threading.Tasks.Task<ServiceLayer.SLVrfRegGetMsgRsp>
+  nameWithType.vb: Task(Of SLVrfRegGetMsgRsp)
+  fullName.vb: System.Threading.Tasks.Task(Of ServiceLayer.SLVrfRegGetMsgRsp)
+  name.vb: Task(Of SLVrfRegGetMsgRsp)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: ServiceLayer.SLVrfRegGetMsgRsp
+    name: SLVrfRegGetMsgRsp
+    href: ServiceLayer.SLVrfRegGetMsgRsp.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ServiceLayer.SLVrfRegGetMsgRsp
+    name: SLVrfRegGetMsgRsp
+    href: ServiceLayer.SLVrfRegGetMsgRsp.html
+  - name: )
+- uid: ServiceLayer.SLRoutev6Oper.SLRoutev6OperBase.SLRoutev6VrfGetStats*
+  commentId: Overload:ServiceLayer.SLRoutev6Oper.SLRoutev6OperBase.SLRoutev6VrfGetStats
+  href: ServiceLayer.SLRoutev6Oper.SLRoutev6OperBase.html#ServiceLayer.SLRoutev6Oper.SLRoutev6OperBase.SLRoutev6VrfGetStats(ServiceLayer.SLVrfRegGetMsg,Grpc.Core.ServerCallContext)
+  name: SLRoutev6VrfGetStats
+  nameWithType: SLRoutev6Oper.SLRoutev6OperBase.SLRoutev6VrfGetStats
+  fullName: ServiceLayer.SLRoutev6Oper.SLRoutev6OperBase.SLRoutev6VrfGetStats
+- uid: System.Threading.Tasks.Task{ServiceLayer.SLVRFGetStatsMsgRsp}
+  commentId: T:System.Threading.Tasks.Task{ServiceLayer.SLVRFGetStatsMsgRsp}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<SLVRFGetStatsMsgRsp>
+  nameWithType: Task<SLVRFGetStatsMsgRsp>
+  fullName: System.Threading.Tasks.Task<ServiceLayer.SLVRFGetStatsMsgRsp>
+  nameWithType.vb: Task(Of SLVRFGetStatsMsgRsp)
+  fullName.vb: System.Threading.Tasks.Task(Of ServiceLayer.SLVRFGetStatsMsgRsp)
+  name.vb: Task(Of SLVRFGetStatsMsgRsp)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: ServiceLayer.SLVRFGetStatsMsgRsp
+    name: SLVRFGetStatsMsgRsp
+    href: ServiceLayer.SLVRFGetStatsMsgRsp.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ServiceLayer.SLVRFGetStatsMsgRsp
+    name: SLVRFGetStatsMsgRsp
+    href: ServiceLayer.SLVRFGetStatsMsgRsp.html
+  - name: )
+- uid: ServiceLayer.SLRoutev6Oper.SLRoutev6OperBase.SLRoutev6Op*
+  commentId: Overload:ServiceLayer.SLRoutev6Oper.SLRoutev6OperBase.SLRoutev6Op
+  href: ServiceLayer.SLRoutev6Oper.SLRoutev6OperBase.html#ServiceLayer.SLRoutev6Oper.SLRoutev6OperBase.SLRoutev6Op(ServiceLayer.SLRoutev6Msg,Grpc.Core.ServerCallContext)
+  name: SLRoutev6Op
+  nameWithType: SLRoutev6Oper.SLRoutev6OperBase.SLRoutev6Op
+  fullName: ServiceLayer.SLRoutev6Oper.SLRoutev6OperBase.SLRoutev6Op
+- uid: ServiceLayer.SLRoutev6Msg
+  commentId: T:ServiceLayer.SLRoutev6Msg
+  parent: ServiceLayer
+  href: ServiceLayer.SLRoutev6Msg.html
+  name: SLRoutev6Msg
+  nameWithType: SLRoutev6Msg
+  fullName: ServiceLayer.SLRoutev6Msg
+- uid: System.Threading.Tasks.Task{ServiceLayer.SLRoutev6MsgRsp}
+  commentId: T:System.Threading.Tasks.Task{ServiceLayer.SLRoutev6MsgRsp}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<SLRoutev6MsgRsp>
+  nameWithType: Task<SLRoutev6MsgRsp>
+  fullName: System.Threading.Tasks.Task<ServiceLayer.SLRoutev6MsgRsp>
+  nameWithType.vb: Task(Of SLRoutev6MsgRsp)
+  fullName.vb: System.Threading.Tasks.Task(Of ServiceLayer.SLRoutev6MsgRsp)
+  name.vb: Task(Of SLRoutev6MsgRsp)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: ServiceLayer.SLRoutev6MsgRsp
+    name: SLRoutev6MsgRsp
+    href: ServiceLayer.SLRoutev6MsgRsp.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ServiceLayer.SLRoutev6MsgRsp
+    name: SLRoutev6MsgRsp
+    href: ServiceLayer.SLRoutev6MsgRsp.html
+  - name: )
+- uid: ServiceLayer.SLRoutev6Oper.SLRoutev6OperBase.SLRoutev6Get*
+  commentId: Overload:ServiceLayer.SLRoutev6Oper.SLRoutev6OperBase.SLRoutev6Get
+  href: ServiceLayer.SLRoutev6Oper.SLRoutev6OperBase.html#ServiceLayer.SLRoutev6Oper.SLRoutev6OperBase.SLRoutev6Get(ServiceLayer.SLRoutev6GetMsg,Grpc.Core.ServerCallContext)
+  name: SLRoutev6Get
+  nameWithType: SLRoutev6Oper.SLRoutev6OperBase.SLRoutev6Get
+  fullName: ServiceLayer.SLRoutev6Oper.SLRoutev6OperBase.SLRoutev6Get
+- uid: ServiceLayer.SLRoutev6GetMsg
+  commentId: T:ServiceLayer.SLRoutev6GetMsg
+  parent: ServiceLayer
+  href: ServiceLayer.SLRoutev6GetMsg.html
+  name: SLRoutev6GetMsg
+  nameWithType: SLRoutev6GetMsg
+  fullName: ServiceLayer.SLRoutev6GetMsg
+- uid: System.Threading.Tasks.Task{ServiceLayer.SLRoutev6GetMsgRsp}
+  commentId: T:System.Threading.Tasks.Task{ServiceLayer.SLRoutev6GetMsgRsp}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<SLRoutev6GetMsgRsp>
+  nameWithType: Task<SLRoutev6GetMsgRsp>
+  fullName: System.Threading.Tasks.Task<ServiceLayer.SLRoutev6GetMsgRsp>
+  nameWithType.vb: Task(Of SLRoutev6GetMsgRsp)
+  fullName.vb: System.Threading.Tasks.Task(Of ServiceLayer.SLRoutev6GetMsgRsp)
+  name.vb: Task(Of SLRoutev6GetMsgRsp)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: ServiceLayer.SLRoutev6GetMsgRsp
+    name: SLRoutev6GetMsgRsp
+    href: ServiceLayer.SLRoutev6GetMsgRsp.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ServiceLayer.SLRoutev6GetMsgRsp
+    name: SLRoutev6GetMsgRsp
+    href: ServiceLayer.SLRoutev6GetMsgRsp.html
+  - name: )
+- uid: ServiceLayer.SLRoutev6Oper.SLRoutev6OperBase.SLRoutev6OpStream*
+  commentId: Overload:ServiceLayer.SLRoutev6Oper.SLRoutev6OperBase.SLRoutev6OpStream
+  href: ServiceLayer.SLRoutev6Oper.SLRoutev6OperBase.html#ServiceLayer.SLRoutev6Oper.SLRoutev6OperBase.SLRoutev6OpStream(Grpc.Core.IAsyncStreamReader{ServiceLayer.SLRoutev6Msg},Grpc.Core.IServerStreamWriter{ServiceLayer.SLRoutev6MsgRsp},Grpc.Core.ServerCallContext)
+  name: SLRoutev6OpStream
+  nameWithType: SLRoutev6Oper.SLRoutev6OperBase.SLRoutev6OpStream
+  fullName: ServiceLayer.SLRoutev6Oper.SLRoutev6OperBase.SLRoutev6OpStream
+- uid: Grpc.Core.IAsyncStreamReader{ServiceLayer.SLRoutev6Msg}
+  commentId: T:Grpc.Core.IAsyncStreamReader{ServiceLayer.SLRoutev6Msg}
+  parent: Grpc.Core
+  definition: Grpc.Core.IAsyncStreamReader`1
+  href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/IAsyncStreamReader.cs
+  name: IAsyncStreamReader<SLRoutev6Msg>
+  nameWithType: IAsyncStreamReader<SLRoutev6Msg>
+  fullName: Grpc.Core.IAsyncStreamReader<ServiceLayer.SLRoutev6Msg>
+  nameWithType.vb: IAsyncStreamReader(Of SLRoutev6Msg)
+  fullName.vb: Grpc.Core.IAsyncStreamReader(Of ServiceLayer.SLRoutev6Msg)
+  name.vb: IAsyncStreamReader(Of SLRoutev6Msg)
+  spec.csharp:
+  - uid: Grpc.Core.IAsyncStreamReader`1
+    name: IAsyncStreamReader
+    isExternal: true
+    href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/IAsyncStreamReader.cs
+  - name: <
+  - uid: ServiceLayer.SLRoutev6Msg
+    name: SLRoutev6Msg
+    href: ServiceLayer.SLRoutev6Msg.html
+  - name: '>'
+  spec.vb:
+  - uid: Grpc.Core.IAsyncStreamReader`1
+    name: IAsyncStreamReader
+    isExternal: true
+    href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/IAsyncStreamReader.cs
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ServiceLayer.SLRoutev6Msg
+    name: SLRoutev6Msg
+    href: ServiceLayer.SLRoutev6Msg.html
+  - name: )
+- uid: Grpc.Core.IServerStreamWriter{ServiceLayer.SLRoutev6MsgRsp}
+  commentId: T:Grpc.Core.IServerStreamWriter{ServiceLayer.SLRoutev6MsgRsp}
+  parent: Grpc.Core
+  definition: Grpc.Core.IServerStreamWriter`1
+  href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/IServerStreamWriter.cs
+  name: IServerStreamWriter<SLRoutev6MsgRsp>
+  nameWithType: IServerStreamWriter<SLRoutev6MsgRsp>
+  fullName: Grpc.Core.IServerStreamWriter<ServiceLayer.SLRoutev6MsgRsp>
+  nameWithType.vb: IServerStreamWriter(Of SLRoutev6MsgRsp)
+  fullName.vb: Grpc.Core.IServerStreamWriter(Of ServiceLayer.SLRoutev6MsgRsp)
+  name.vb: IServerStreamWriter(Of SLRoutev6MsgRsp)
+  spec.csharp:
+  - uid: Grpc.Core.IServerStreamWriter`1
+    name: IServerStreamWriter
+    isExternal: true
+    href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/IServerStreamWriter.cs
+  - name: <
+  - uid: ServiceLayer.SLRoutev6MsgRsp
+    name: SLRoutev6MsgRsp
+    href: ServiceLayer.SLRoutev6MsgRsp.html
+  - name: '>'
+  spec.vb:
+  - uid: Grpc.Core.IServerStreamWriter`1
+    name: IServerStreamWriter
+    isExternal: true
+    href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/IServerStreamWriter.cs
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ServiceLayer.SLRoutev6MsgRsp
+    name: SLRoutev6MsgRsp
+    href: ServiceLayer.SLRoutev6MsgRsp.html
+  - name: )
+- uid: System.Threading.Tasks.Task
+  commentId: T:System.Threading.Tasks.Task
+  parent: System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task
+  name: Task
+  nameWithType: Task
+  fullName: System.Threading.Tasks.Task
+- uid: Grpc.Core.IAsyncStreamReader`1
+  commentId: T:Grpc.Core.IAsyncStreamReader`1
+  isExternal: true
+  href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/IAsyncStreamReader.cs
+  name: IAsyncStreamReader<T>
+  nameWithType: IAsyncStreamReader<T>
+  fullName: Grpc.Core.IAsyncStreamReader<T>
+  nameWithType.vb: IAsyncStreamReader(Of T)
+  fullName.vb: Grpc.Core.IAsyncStreamReader(Of T)
+  name.vb: IAsyncStreamReader(Of T)
+  spec.csharp:
+  - uid: Grpc.Core.IAsyncStreamReader`1
+    name: IAsyncStreamReader
+    isExternal: true
+    href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/IAsyncStreamReader.cs
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Grpc.Core.IAsyncStreamReader`1
+    name: IAsyncStreamReader
+    isExternal: true
+    href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/IAsyncStreamReader.cs
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Grpc.Core.IServerStreamWriter`1
+  commentId: T:Grpc.Core.IServerStreamWriter`1
+  isExternal: true
+  href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/IServerStreamWriter.cs
+  name: IServerStreamWriter<T>
+  nameWithType: IServerStreamWriter<T>
+  fullName: Grpc.Core.IServerStreamWriter<T>
+  nameWithType.vb: IServerStreamWriter(Of T)
+  fullName.vb: Grpc.Core.IServerStreamWriter(Of T)
+  name.vb: IServerStreamWriter(Of T)
+  spec.csharp:
+  - uid: Grpc.Core.IServerStreamWriter`1
+    name: IServerStreamWriter
+    isExternal: true
+    href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/IServerStreamWriter.cs
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Grpc.Core.IServerStreamWriter`1
+    name: IServerStreamWriter
+    isExternal: true
+    href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/IServerStreamWriter.cs
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: ServiceLayer.SLRoutev6Oper.SLRoutev6OperBase.SLRoutev6GetStream*
+  commentId: Overload:ServiceLayer.SLRoutev6Oper.SLRoutev6OperBase.SLRoutev6GetStream
+  href: ServiceLayer.SLRoutev6Oper.SLRoutev6OperBase.html#ServiceLayer.SLRoutev6Oper.SLRoutev6OperBase.SLRoutev6GetStream(Grpc.Core.IAsyncStreamReader{ServiceLayer.SLRoutev6GetMsg},Grpc.Core.IServerStreamWriter{ServiceLayer.SLRoutev6GetMsgRsp},Grpc.Core.ServerCallContext)
+  name: SLRoutev6GetStream
+  nameWithType: SLRoutev6Oper.SLRoutev6OperBase.SLRoutev6GetStream
+  fullName: ServiceLayer.SLRoutev6Oper.SLRoutev6OperBase.SLRoutev6GetStream
+- uid: Grpc.Core.IAsyncStreamReader{ServiceLayer.SLRoutev6GetMsg}
+  commentId: T:Grpc.Core.IAsyncStreamReader{ServiceLayer.SLRoutev6GetMsg}
+  parent: Grpc.Core
+  definition: Grpc.Core.IAsyncStreamReader`1
+  href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/IAsyncStreamReader.cs
+  name: IAsyncStreamReader<SLRoutev6GetMsg>
+  nameWithType: IAsyncStreamReader<SLRoutev6GetMsg>
+  fullName: Grpc.Core.IAsyncStreamReader<ServiceLayer.SLRoutev6GetMsg>
+  nameWithType.vb: IAsyncStreamReader(Of SLRoutev6GetMsg)
+  fullName.vb: Grpc.Core.IAsyncStreamReader(Of ServiceLayer.SLRoutev6GetMsg)
+  name.vb: IAsyncStreamReader(Of SLRoutev6GetMsg)
+  spec.csharp:
+  - uid: Grpc.Core.IAsyncStreamReader`1
+    name: IAsyncStreamReader
+    isExternal: true
+    href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/IAsyncStreamReader.cs
+  - name: <
+  - uid: ServiceLayer.SLRoutev6GetMsg
+    name: SLRoutev6GetMsg
+    href: ServiceLayer.SLRoutev6GetMsg.html
+  - name: '>'
+  spec.vb:
+  - uid: Grpc.Core.IAsyncStreamReader`1
+    name: IAsyncStreamReader
+    isExternal: true
+    href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/IAsyncStreamReader.cs
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ServiceLayer.SLRoutev6GetMsg
+    name: SLRoutev6GetMsg
+    href: ServiceLayer.SLRoutev6GetMsg.html
+  - name: )
+- uid: Grpc.Core.IServerStreamWriter{ServiceLayer.SLRoutev6GetMsgRsp}
+  commentId: T:Grpc.Core.IServerStreamWriter{ServiceLayer.SLRoutev6GetMsgRsp}
+  parent: Grpc.Core
+  definition: Grpc.Core.IServerStreamWriter`1
+  href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/IServerStreamWriter.cs
+  name: IServerStreamWriter<SLRoutev6GetMsgRsp>
+  nameWithType: IServerStreamWriter<SLRoutev6GetMsgRsp>
+  fullName: Grpc.Core.IServerStreamWriter<ServiceLayer.SLRoutev6GetMsgRsp>
+  nameWithType.vb: IServerStreamWriter(Of SLRoutev6GetMsgRsp)
+  fullName.vb: Grpc.Core.IServerStreamWriter(Of ServiceLayer.SLRoutev6GetMsgRsp)
+  name.vb: IServerStreamWriter(Of SLRoutev6GetMsgRsp)
+  spec.csharp:
+  - uid: Grpc.Core.IServerStreamWriter`1
+    name: IServerStreamWriter
+    isExternal: true
+    href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/IServerStreamWriter.cs
+  - name: <
+  - uid: ServiceLayer.SLRoutev6GetMsgRsp
+    name: SLRoutev6GetMsgRsp
+    href: ServiceLayer.SLRoutev6GetMsgRsp.html
+  - name: '>'
+  spec.vb:
+  - uid: Grpc.Core.IServerStreamWriter`1
+    name: IServerStreamWriter
+    isExternal: true
+    href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/IServerStreamWriter.cs
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ServiceLayer.SLRoutev6GetMsgRsp
+    name: SLRoutev6GetMsgRsp
+    href: ServiceLayer.SLRoutev6GetMsgRsp.html
+  - name: )
+- uid: ServiceLayer.SLRoutev6Oper.SLRoutev6OperBase.SLRoutev6GetNotifStream*
+  commentId: Overload:ServiceLayer.SLRoutev6Oper.SLRoutev6OperBase.SLRoutev6GetNotifStream
+  href: ServiceLayer.SLRoutev6Oper.SLRoutev6OperBase.html#ServiceLayer.SLRoutev6Oper.SLRoutev6OperBase.SLRoutev6GetNotifStream(Grpc.Core.IAsyncStreamReader{ServiceLayer.SLRouteGetNotifMsg},Grpc.Core.IServerStreamWriter{ServiceLayer.SLRoutev6Notif},Grpc.Core.ServerCallContext)
+  name: SLRoutev6GetNotifStream
+  nameWithType: SLRoutev6Oper.SLRoutev6OperBase.SLRoutev6GetNotifStream
+  fullName: ServiceLayer.SLRoutev6Oper.SLRoutev6OperBase.SLRoutev6GetNotifStream
+- uid: Grpc.Core.IAsyncStreamReader{ServiceLayer.SLRouteGetNotifMsg}
+  commentId: T:Grpc.Core.IAsyncStreamReader{ServiceLayer.SLRouteGetNotifMsg}
+  parent: Grpc.Core
+  definition: Grpc.Core.IAsyncStreamReader`1
+  href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/IAsyncStreamReader.cs
+  name: IAsyncStreamReader<SLRouteGetNotifMsg>
+  nameWithType: IAsyncStreamReader<SLRouteGetNotifMsg>
+  fullName: Grpc.Core.IAsyncStreamReader<ServiceLayer.SLRouteGetNotifMsg>
+  nameWithType.vb: IAsyncStreamReader(Of SLRouteGetNotifMsg)
+  fullName.vb: Grpc.Core.IAsyncStreamReader(Of ServiceLayer.SLRouteGetNotifMsg)
+  name.vb: IAsyncStreamReader(Of SLRouteGetNotifMsg)
+  spec.csharp:
+  - uid: Grpc.Core.IAsyncStreamReader`1
+    name: IAsyncStreamReader
+    isExternal: true
+    href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/IAsyncStreamReader.cs
+  - name: <
+  - uid: ServiceLayer.SLRouteGetNotifMsg
+    name: SLRouteGetNotifMsg
+    href: ServiceLayer.SLRouteGetNotifMsg.html
+  - name: '>'
+  spec.vb:
+  - uid: Grpc.Core.IAsyncStreamReader`1
+    name: IAsyncStreamReader
+    isExternal: true
+    href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/IAsyncStreamReader.cs
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ServiceLayer.SLRouteGetNotifMsg
+    name: SLRouteGetNotifMsg
+    href: ServiceLayer.SLRouteGetNotifMsg.html
+  - name: )
+- uid: Grpc.Core.IServerStreamWriter{ServiceLayer.SLRoutev6Notif}
+  commentId: T:Grpc.Core.IServerStreamWriter{ServiceLayer.SLRoutev6Notif}
+  parent: Grpc.Core
+  definition: Grpc.Core.IServerStreamWriter`1
+  href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/IServerStreamWriter.cs
+  name: IServerStreamWriter<SLRoutev6Notif>
+  nameWithType: IServerStreamWriter<SLRoutev6Notif>
+  fullName: Grpc.Core.IServerStreamWriter<ServiceLayer.SLRoutev6Notif>
+  nameWithType.vb: IServerStreamWriter(Of SLRoutev6Notif)
+  fullName.vb: Grpc.Core.IServerStreamWriter(Of ServiceLayer.SLRoutev6Notif)
+  name.vb: IServerStreamWriter(Of SLRoutev6Notif)
+  spec.csharp:
+  - uid: Grpc.Core.IServerStreamWriter`1
+    name: IServerStreamWriter
+    isExternal: true
+    href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/IServerStreamWriter.cs
+  - name: <
+  - uid: ServiceLayer.SLRoutev6Notif
+    name: SLRoutev6Notif
+    href: ServiceLayer.SLRoutev6Notif.html
+  - name: '>'
+  spec.vb:
+  - uid: Grpc.Core.IServerStreamWriter`1
+    name: IServerStreamWriter
+    isExternal: true
+    href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/IServerStreamWriter.cs
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ServiceLayer.SLRoutev6Notif
+    name: SLRoutev6Notif
+    href: ServiceLayer.SLRoutev6Notif.html
+  - name: )

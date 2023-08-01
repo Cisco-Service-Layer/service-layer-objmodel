@@ -1,0 +1,995 @@
+### YamlMime:ManagedReference
+items:
+- uid: ServiceLayer.SLBfdv4Oper.SLBfdv4OperBase
+  commentId: T:ServiceLayer.SLBfdv4Oper.SLBfdv4OperBase
+  id: SLBfdv4Oper.SLBfdv4OperBase
+  parent: ServiceLayer
+  children:
+  - ServiceLayer.SLBfdv4Oper.SLBfdv4OperBase.SLBfdv4Get(ServiceLayer.SLBfdGetMsg,Grpc.Core.ServerCallContext)
+  - ServiceLayer.SLBfdv4Oper.SLBfdv4OperBase.SLBfdv4GetNotifStream(ServiceLayer.SLBfdGetNotifMsg,Grpc.Core.IServerStreamWriter{ServiceLayer.SLBfdv4Notif},Grpc.Core.ServerCallContext)
+  - ServiceLayer.SLBfdv4Oper.SLBfdv4OperBase.SLBfdv4GetStats(ServiceLayer.SLBfdGetMsg,Grpc.Core.ServerCallContext)
+  - ServiceLayer.SLBfdv4Oper.SLBfdv4OperBase.SLBfdv4RegOp(ServiceLayer.SLBfdRegMsg,Grpc.Core.ServerCallContext)
+  - ServiceLayer.SLBfdv4Oper.SLBfdv4OperBase.SLBfdv4SessionGet(ServiceLayer.SLBfdv4GetMsg,Grpc.Core.ServerCallContext)
+  - ServiceLayer.SLBfdv4Oper.SLBfdv4OperBase.SLBfdv4SessionOp(ServiceLayer.SLBfdv4Msg,Grpc.Core.ServerCallContext)
+  langs:
+  - csharp
+  - vb
+  name: SLBfdv4Oper.SLBfdv4OperBase
+  nameWithType: SLBfdv4Oper.SLBfdv4OperBase
+  fullName: ServiceLayer.SLBfdv4Oper.SLBfdv4OperBase
+  type: Class
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlBfdIpv4Grpc.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: SLBfdv4OperBase
+    path: src/gencs/SlBfdIpv4Grpc.cs
+    startLine: 145
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Base class for server-side implementations of SLBfdv4Oper
+  example: []
+  syntax:
+    content: >-
+      [BindServiceMethod(typeof(SLBfdv4Oper), "BindService")]
+
+      public abstract class SLBfdv4Oper.SLBfdv4OperBase
+    content.vb: >-
+      <BindServiceMethod(GetType(SLBfdv4Oper), "BindService")>
+
+      Public MustInherit Class SLBfdv4Oper.SLBfdv4OperBase
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  attributes:
+  - type: Grpc.Core.BindServiceMethodAttribute
+    ctor: Grpc.Core.BindServiceMethodAttribute.#ctor(System.Type,System.String)
+    arguments:
+    - type: System.Type
+      value: ServiceLayer.SLBfdv4Oper
+    - type: System.String
+      value: BindService
+- uid: ServiceLayer.SLBfdv4Oper.SLBfdv4OperBase.SLBfdv4RegOp(ServiceLayer.SLBfdRegMsg,Grpc.Core.ServerCallContext)
+  commentId: M:ServiceLayer.SLBfdv4Oper.SLBfdv4OperBase.SLBfdv4RegOp(ServiceLayer.SLBfdRegMsg,Grpc.Core.ServerCallContext)
+  id: SLBfdv4RegOp(ServiceLayer.SLBfdRegMsg,Grpc.Core.ServerCallContext)
+  parent: ServiceLayer.SLBfdv4Oper.SLBfdv4OperBase
+  langs:
+  - csharp
+  - vb
+  name: SLBfdv4RegOp(SLBfdRegMsg, ServerCallContext)
+  nameWithType: SLBfdv4Oper.SLBfdv4OperBase.SLBfdv4RegOp(SLBfdRegMsg, ServerCallContext)
+  fullName: ServiceLayer.SLBfdv4Oper.SLBfdv4OperBase.SLBfdv4RegOp(ServiceLayer.SLBfdRegMsg, Grpc.Core.ServerCallContext)
+  type: Method
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlBfdIpv4Grpc.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: SLBfdv4RegOp
+    path: src/gencs/SlBfdIpv4Grpc.cs
+    startLine: 179
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: >-
+    SLBfdRegMsg.Oper = SL_REGOP_REGISTER:
+        Global BFD registration.
+        A client Must Register BEFORE BFD sessions can be added/modified.
+
+    SLBfdRegMsg.Oper = SL_REGOP_UNREGISTER:
+        Global BFD un-registration.
+        This call is used to end all BFD notifications and unregister any
+        interest in BFD session configuration.
+        This call cleans up all BFD sessions previously requested.
+
+    SLBfdRegMsg.Oper = SL_REGOP_EOF:
+        BFD End Of File.
+        After Registration, the client is expected to send an EOF
+        message to convey the end of replay of the client's known objects.
+        This is especially useful under certain restart scenarios when the
+        client and the server are trying to synchronize their BFD sessions.
+
+    The BFD registration operations can be used by the client to synchronize
+
+    BFD sessions with the server. When the client re-registers with the
+
+    server using SL_REGOP_REGISTER, server marks all BFD sessions as stale.
+
+    Client can then reprogram BFD sessions. When client sends
+
+    SL_REGOP_EOF, any session not reprogrammed by the client are
+
+    removed from the device.
+
+
+    The client must perform all operations (BFD registration,
+
+    BFD session operations) from a single execution context.
+  example: []
+  syntax:
+    content: public virtual Task<SLBfdRegMsgRsp> SLBfdv4RegOp(SLBfdRegMsg request, ServerCallContext context)
+    parameters:
+    - id: request
+      type: ServiceLayer.SLBfdRegMsg
+      description: The request received from the client.
+    - id: context
+      type: Grpc.Core.ServerCallContext
+      description: The context of the server-side call handler being invoked.
+    return:
+      type: System.Threading.Tasks.Task{ServiceLayer.SLBfdRegMsgRsp}
+      description: The response to send back to the client (wrapped by a task).
+    content.vb: Public Overridable Function SLBfdv4RegOp(request As SLBfdRegMsg, context As ServerCallContext) As Task(Of SLBfdRegMsgRsp)
+  overload: ServiceLayer.SLBfdv4Oper.SLBfdv4OperBase.SLBfdv4RegOp*
+- uid: ServiceLayer.SLBfdv4Oper.SLBfdv4OperBase.SLBfdv4Get(ServiceLayer.SLBfdGetMsg,Grpc.Core.ServerCallContext)
+  commentId: M:ServiceLayer.SLBfdv4Oper.SLBfdv4OperBase.SLBfdv4Get(ServiceLayer.SLBfdGetMsg,Grpc.Core.ServerCallContext)
+  id: SLBfdv4Get(ServiceLayer.SLBfdGetMsg,Grpc.Core.ServerCallContext)
+  parent: ServiceLayer.SLBfdv4Oper.SLBfdv4OperBase
+  langs:
+  - csharp
+  - vb
+  name: SLBfdv4Get(SLBfdGetMsg, ServerCallContext)
+  nameWithType: SLBfdv4Oper.SLBfdv4OperBase.SLBfdv4Get(SLBfdGetMsg, ServerCallContext)
+  fullName: ServiceLayer.SLBfdv4Oper.SLBfdv4OperBase.SLBfdv4Get(ServiceLayer.SLBfdGetMsg, Grpc.Core.ServerCallContext)
+  type: Method
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlBfdIpv4Grpc.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: SLBfdv4Get
+    path: src/gencs/SlBfdIpv4Grpc.cs
+    startLine: 191
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Used to retrieve global BFD info from the server.
+  example: []
+  syntax:
+    content: public virtual Task<SLBfdGetMsgRsp> SLBfdv4Get(SLBfdGetMsg request, ServerCallContext context)
+    parameters:
+    - id: request
+      type: ServiceLayer.SLBfdGetMsg
+      description: The request received from the client.
+    - id: context
+      type: Grpc.Core.ServerCallContext
+      description: The context of the server-side call handler being invoked.
+    return:
+      type: System.Threading.Tasks.Task{ServiceLayer.SLBfdGetMsgRsp}
+      description: The response to send back to the client (wrapped by a task).
+    content.vb: Public Overridable Function SLBfdv4Get(request As SLBfdGetMsg, context As ServerCallContext) As Task(Of SLBfdGetMsgRsp)
+  overload: ServiceLayer.SLBfdv4Oper.SLBfdv4OperBase.SLBfdv4Get*
+- uid: ServiceLayer.SLBfdv4Oper.SLBfdv4OperBase.SLBfdv4GetStats(ServiceLayer.SLBfdGetMsg,Grpc.Core.ServerCallContext)
+  commentId: M:ServiceLayer.SLBfdv4Oper.SLBfdv4OperBase.SLBfdv4GetStats(ServiceLayer.SLBfdGetMsg,Grpc.Core.ServerCallContext)
+  id: SLBfdv4GetStats(ServiceLayer.SLBfdGetMsg,Grpc.Core.ServerCallContext)
+  parent: ServiceLayer.SLBfdv4Oper.SLBfdv4OperBase
+  langs:
+  - csharp
+  - vb
+  name: SLBfdv4GetStats(SLBfdGetMsg, ServerCallContext)
+  nameWithType: SLBfdv4Oper.SLBfdv4OperBase.SLBfdv4GetStats(SLBfdGetMsg, ServerCallContext)
+  fullName: ServiceLayer.SLBfdv4Oper.SLBfdv4OperBase.SLBfdv4GetStats(ServiceLayer.SLBfdGetMsg, Grpc.Core.ServerCallContext)
+  type: Method
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlBfdIpv4Grpc.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: SLBfdv4GetStats
+    path: src/gencs/SlBfdIpv4Grpc.cs
+    startLine: 203
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Used to retrieve global BFD stats from the server.
+  example: []
+  syntax:
+    content: public virtual Task<SLBfdGetStatsMsgRsp> SLBfdv4GetStats(SLBfdGetMsg request, ServerCallContext context)
+    parameters:
+    - id: request
+      type: ServiceLayer.SLBfdGetMsg
+      description: The request received from the client.
+    - id: context
+      type: Grpc.Core.ServerCallContext
+      description: The context of the server-side call handler being invoked.
+    return:
+      type: System.Threading.Tasks.Task{ServiceLayer.SLBfdGetStatsMsgRsp}
+      description: The response to send back to the client (wrapped by a task).
+    content.vb: Public Overridable Function SLBfdv4GetStats(request As SLBfdGetMsg, context As ServerCallContext) As Task(Of SLBfdGetStatsMsgRsp)
+  overload: ServiceLayer.SLBfdv4Oper.SLBfdv4OperBase.SLBfdv4GetStats*
+- uid: ServiceLayer.SLBfdv4Oper.SLBfdv4OperBase.SLBfdv4GetNotifStream(ServiceLayer.SLBfdGetNotifMsg,Grpc.Core.IServerStreamWriter{ServiceLayer.SLBfdv4Notif},Grpc.Core.ServerCallContext)
+  commentId: M:ServiceLayer.SLBfdv4Oper.SLBfdv4OperBase.SLBfdv4GetNotifStream(ServiceLayer.SLBfdGetNotifMsg,Grpc.Core.IServerStreamWriter{ServiceLayer.SLBfdv4Notif},Grpc.Core.ServerCallContext)
+  id: SLBfdv4GetNotifStream(ServiceLayer.SLBfdGetNotifMsg,Grpc.Core.IServerStreamWriter{ServiceLayer.SLBfdv4Notif},Grpc.Core.ServerCallContext)
+  parent: ServiceLayer.SLBfdv4Oper.SLBfdv4OperBase
+  langs:
+  - csharp
+  - vb
+  name: SLBfdv4GetNotifStream(SLBfdGetNotifMsg, IServerStreamWriter<SLBfdv4Notif>, ServerCallContext)
+  nameWithType: SLBfdv4Oper.SLBfdv4OperBase.SLBfdv4GetNotifStream(SLBfdGetNotifMsg, IServerStreamWriter<SLBfdv4Notif>, ServerCallContext)
+  fullName: ServiceLayer.SLBfdv4Oper.SLBfdv4OperBase.SLBfdv4GetNotifStream(ServiceLayer.SLBfdGetNotifMsg, Grpc.Core.IServerStreamWriter<ServiceLayer.SLBfdv4Notif>, Grpc.Core.ServerCallContext)
+  type: Method
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlBfdIpv4Grpc.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: SLBfdv4GetNotifStream
+    path: src/gencs/SlBfdIpv4Grpc.cs
+    startLine: 222
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: >-
+    This call is used to get a stream of session state notifications.
+
+    The caller must maintain the GRPC channel as long as
+
+    there is interest in BFD session notifications. Only sessions that were
+
+    created through this API will be notified to caller.
+
+    This call can be used to get "push" notifications for session states.
+
+    It is advised that the caller register for notifications before any
+
+    sessions are created to avoid any loss of notifications.
+  example: []
+  syntax:
+    content: public virtual Task SLBfdv4GetNotifStream(SLBfdGetNotifMsg request, IServerStreamWriter<SLBfdv4Notif> responseStream, ServerCallContext context)
+    parameters:
+    - id: request
+      type: ServiceLayer.SLBfdGetNotifMsg
+      description: The request received from the client.
+    - id: responseStream
+      type: Grpc.Core.IServerStreamWriter{ServiceLayer.SLBfdv4Notif}
+      description: Used for sending responses back to the client.
+    - id: context
+      type: Grpc.Core.ServerCallContext
+      description: The context of the server-side call handler being invoked.
+    return:
+      type: System.Threading.Tasks.Task
+      description: A task indicating completion of the handler.
+    content.vb: Public Overridable Function SLBfdv4GetNotifStream(request As SLBfdGetNotifMsg, responseStream As IServerStreamWriter(Of SLBfdv4Notif), context As ServerCallContext) As Task
+  overload: ServiceLayer.SLBfdv4Oper.SLBfdv4OperBase.SLBfdv4GetNotifStream*
+  nameWithType.vb: SLBfdv4Oper.SLBfdv4OperBase.SLBfdv4GetNotifStream(SLBfdGetNotifMsg, IServerStreamWriter(Of SLBfdv4Notif), ServerCallContext)
+  fullName.vb: ServiceLayer.SLBfdv4Oper.SLBfdv4OperBase.SLBfdv4GetNotifStream(ServiceLayer.SLBfdGetNotifMsg, Grpc.Core.IServerStreamWriter(Of ServiceLayer.SLBfdv4Notif), Grpc.Core.ServerCallContext)
+  name.vb: SLBfdv4GetNotifStream(SLBfdGetNotifMsg, IServerStreamWriter(Of SLBfdv4Notif), ServerCallContext)
+- uid: ServiceLayer.SLBfdv4Oper.SLBfdv4OperBase.SLBfdv4SessionOp(ServiceLayer.SLBfdv4Msg,Grpc.Core.ServerCallContext)
+  commentId: M:ServiceLayer.SLBfdv4Oper.SLBfdv4OperBase.SLBfdv4SessionOp(ServiceLayer.SLBfdv4Msg,Grpc.Core.ServerCallContext)
+  id: SLBfdv4SessionOp(ServiceLayer.SLBfdv4Msg,Grpc.Core.ServerCallContext)
+  parent: ServiceLayer.SLBfdv4Oper.SLBfdv4OperBase
+  langs:
+  - csharp
+  - vb
+  name: SLBfdv4SessionOp(SLBfdv4Msg, ServerCallContext)
+  nameWithType: SLBfdv4Oper.SLBfdv4OperBase.SLBfdv4SessionOp(SLBfdv4Msg, ServerCallContext)
+  fullName: ServiceLayer.SLBfdv4Oper.SLBfdv4OperBase.SLBfdv4SessionOp(ServiceLayer.SLBfdv4Msg, Grpc.Core.ServerCallContext)
+  type: Method
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlBfdIpv4Grpc.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: SLBfdv4SessionOp
+    path: src/gencs/SlBfdIpv4Grpc.cs
+    startLine: 241
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: >-
+    SLBfdv4Msg.Oper = SL_OBJOP_ADD:
+        Add one or multiple BFD sessions.
+
+    SLBfdv4Msg.Oper = SL_OBJOP_UPDATE:
+        Update one or multiple BFD sessions.
+
+    SLBfdv4Msg.Oper = SL_OBJOP_DELETE:
+        Delete one or multiple BFD sessions.
+  example: []
+  syntax:
+    content: public virtual Task<SLBfdv4MsgRsp> SLBfdv4SessionOp(SLBfdv4Msg request, ServerCallContext context)
+    parameters:
+    - id: request
+      type: ServiceLayer.SLBfdv4Msg
+      description: The request received from the client.
+    - id: context
+      type: Grpc.Core.ServerCallContext
+      description: The context of the server-side call handler being invoked.
+    return:
+      type: System.Threading.Tasks.Task{ServiceLayer.SLBfdv4MsgRsp}
+      description: The response to send back to the client (wrapped by a task).
+    content.vb: Public Overridable Function SLBfdv4SessionOp(request As SLBfdv4Msg, context As ServerCallContext) As Task(Of SLBfdv4MsgRsp)
+  overload: ServiceLayer.SLBfdv4Oper.SLBfdv4OperBase.SLBfdv4SessionOp*
+- uid: ServiceLayer.SLBfdv4Oper.SLBfdv4OperBase.SLBfdv4SessionGet(ServiceLayer.SLBfdv4GetMsg,Grpc.Core.ServerCallContext)
+  commentId: M:ServiceLayer.SLBfdv4Oper.SLBfdv4OperBase.SLBfdv4SessionGet(ServiceLayer.SLBfdv4GetMsg,Grpc.Core.ServerCallContext)
+  id: SLBfdv4SessionGet(ServiceLayer.SLBfdv4GetMsg,Grpc.Core.ServerCallContext)
+  parent: ServiceLayer.SLBfdv4Oper.SLBfdv4OperBase
+  langs:
+  - csharp
+  - vb
+  name: SLBfdv4SessionGet(SLBfdv4GetMsg, ServerCallContext)
+  nameWithType: SLBfdv4Oper.SLBfdv4OperBase.SLBfdv4SessionGet(SLBfdv4GetMsg, ServerCallContext)
+  fullName: ServiceLayer.SLBfdv4Oper.SLBfdv4OperBase.SLBfdv4SessionGet(ServiceLayer.SLBfdv4GetMsg, Grpc.Core.ServerCallContext)
+  type: Method
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlBfdIpv4Grpc.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: SLBfdv4SessionGet
+    path: src/gencs/SlBfdIpv4Grpc.cs
+    startLine: 254
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: >-
+    Retrieve BFD session attributes and state.
+
+    This call can be used to "poll" the current state of a session.
+  example: []
+  syntax:
+    content: public virtual Task<SLBfdv4GetMsgRsp> SLBfdv4SessionGet(SLBfdv4GetMsg request, ServerCallContext context)
+    parameters:
+    - id: request
+      type: ServiceLayer.SLBfdv4GetMsg
+      description: The request received from the client.
+    - id: context
+      type: Grpc.Core.ServerCallContext
+      description: The context of the server-side call handler being invoked.
+    return:
+      type: System.Threading.Tasks.Task{ServiceLayer.SLBfdv4GetMsgRsp}
+      description: The response to send back to the client (wrapped by a task).
+    content.vb: Public Overridable Function SLBfdv4SessionGet(request As SLBfdv4GetMsg, context As ServerCallContext) As Task(Of SLBfdv4GetMsgRsp)
+  overload: ServiceLayer.SLBfdv4Oper.SLBfdv4OperBase.SLBfdv4SessionGet*
+references:
+- uid: ServiceLayer
+  commentId: N:ServiceLayer
+  href: ServiceLayer.html
+  name: ServiceLayer
+  nameWithType: ServiceLayer
+  fullName: ServiceLayer
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: ServiceLayer.SLBfdv4Oper.SLBfdv4OperBase.SLBfdv4RegOp*
+  commentId: Overload:ServiceLayer.SLBfdv4Oper.SLBfdv4OperBase.SLBfdv4RegOp
+  href: ServiceLayer.SLBfdv4Oper.SLBfdv4OperBase.html#ServiceLayer.SLBfdv4Oper.SLBfdv4OperBase.SLBfdv4RegOp(ServiceLayer.SLBfdRegMsg,Grpc.Core.ServerCallContext)
+  name: SLBfdv4RegOp
+  nameWithType: SLBfdv4Oper.SLBfdv4OperBase.SLBfdv4RegOp
+  fullName: ServiceLayer.SLBfdv4Oper.SLBfdv4OperBase.SLBfdv4RegOp
+- uid: ServiceLayer.SLBfdRegMsg
+  commentId: T:ServiceLayer.SLBfdRegMsg
+  parent: ServiceLayer
+  href: ServiceLayer.SLBfdRegMsg.html
+  name: SLBfdRegMsg
+  nameWithType: SLBfdRegMsg
+  fullName: ServiceLayer.SLBfdRegMsg
+- uid: Grpc.Core.ServerCallContext
+  commentId: T:Grpc.Core.ServerCallContext
+  parent: Grpc.Core
+  isExternal: true
+  href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/ServerCallContext.cs
+  name: ServerCallContext
+  nameWithType: ServerCallContext
+  fullName: Grpc.Core.ServerCallContext
+- uid: System.Threading.Tasks.Task{ServiceLayer.SLBfdRegMsgRsp}
+  commentId: T:System.Threading.Tasks.Task{ServiceLayer.SLBfdRegMsgRsp}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<SLBfdRegMsgRsp>
+  nameWithType: Task<SLBfdRegMsgRsp>
+  fullName: System.Threading.Tasks.Task<ServiceLayer.SLBfdRegMsgRsp>
+  nameWithType.vb: Task(Of SLBfdRegMsgRsp)
+  fullName.vb: System.Threading.Tasks.Task(Of ServiceLayer.SLBfdRegMsgRsp)
+  name.vb: Task(Of SLBfdRegMsgRsp)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: ServiceLayer.SLBfdRegMsgRsp
+    name: SLBfdRegMsgRsp
+    href: ServiceLayer.SLBfdRegMsgRsp.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ServiceLayer.SLBfdRegMsgRsp
+    name: SLBfdRegMsgRsp
+    href: ServiceLayer.SLBfdRegMsgRsp.html
+  - name: )
+- uid: Grpc.Core
+  commentId: N:Grpc.Core
+  isExternal: true
+  name: Grpc.Core
+  nameWithType: Grpc.Core
+  fullName: Grpc.Core
+  spec.csharp:
+  - uid: Grpc
+    name: Grpc
+    isExternal: true
+  - name: .
+  - uid: Grpc.Core
+    name: Core
+    isExternal: true
+  spec.vb:
+  - uid: Grpc
+    name: Grpc
+    isExternal: true
+  - name: .
+  - uid: Grpc.Core
+    name: Core
+    isExternal: true
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+- uid: ServiceLayer.SLBfdv4Oper.SLBfdv4OperBase.SLBfdv4Get*
+  commentId: Overload:ServiceLayer.SLBfdv4Oper.SLBfdv4OperBase.SLBfdv4Get
+  href: ServiceLayer.SLBfdv4Oper.SLBfdv4OperBase.html#ServiceLayer.SLBfdv4Oper.SLBfdv4OperBase.SLBfdv4Get(ServiceLayer.SLBfdGetMsg,Grpc.Core.ServerCallContext)
+  name: SLBfdv4Get
+  nameWithType: SLBfdv4Oper.SLBfdv4OperBase.SLBfdv4Get
+  fullName: ServiceLayer.SLBfdv4Oper.SLBfdv4OperBase.SLBfdv4Get
+- uid: ServiceLayer.SLBfdGetMsg
+  commentId: T:ServiceLayer.SLBfdGetMsg
+  parent: ServiceLayer
+  href: ServiceLayer.SLBfdGetMsg.html
+  name: SLBfdGetMsg
+  nameWithType: SLBfdGetMsg
+  fullName: ServiceLayer.SLBfdGetMsg
+- uid: System.Threading.Tasks.Task{ServiceLayer.SLBfdGetMsgRsp}
+  commentId: T:System.Threading.Tasks.Task{ServiceLayer.SLBfdGetMsgRsp}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<SLBfdGetMsgRsp>
+  nameWithType: Task<SLBfdGetMsgRsp>
+  fullName: System.Threading.Tasks.Task<ServiceLayer.SLBfdGetMsgRsp>
+  nameWithType.vb: Task(Of SLBfdGetMsgRsp)
+  fullName.vb: System.Threading.Tasks.Task(Of ServiceLayer.SLBfdGetMsgRsp)
+  name.vb: Task(Of SLBfdGetMsgRsp)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: ServiceLayer.SLBfdGetMsgRsp
+    name: SLBfdGetMsgRsp
+    href: ServiceLayer.SLBfdGetMsgRsp.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ServiceLayer.SLBfdGetMsgRsp
+    name: SLBfdGetMsgRsp
+    href: ServiceLayer.SLBfdGetMsgRsp.html
+  - name: )
+- uid: ServiceLayer.SLBfdv4Oper.SLBfdv4OperBase.SLBfdv4GetStats*
+  commentId: Overload:ServiceLayer.SLBfdv4Oper.SLBfdv4OperBase.SLBfdv4GetStats
+  href: ServiceLayer.SLBfdv4Oper.SLBfdv4OperBase.html#ServiceLayer.SLBfdv4Oper.SLBfdv4OperBase.SLBfdv4GetStats(ServiceLayer.SLBfdGetMsg,Grpc.Core.ServerCallContext)
+  name: SLBfdv4GetStats
+  nameWithType: SLBfdv4Oper.SLBfdv4OperBase.SLBfdv4GetStats
+  fullName: ServiceLayer.SLBfdv4Oper.SLBfdv4OperBase.SLBfdv4GetStats
+- uid: System.Threading.Tasks.Task{ServiceLayer.SLBfdGetStatsMsgRsp}
+  commentId: T:System.Threading.Tasks.Task{ServiceLayer.SLBfdGetStatsMsgRsp}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<SLBfdGetStatsMsgRsp>
+  nameWithType: Task<SLBfdGetStatsMsgRsp>
+  fullName: System.Threading.Tasks.Task<ServiceLayer.SLBfdGetStatsMsgRsp>
+  nameWithType.vb: Task(Of SLBfdGetStatsMsgRsp)
+  fullName.vb: System.Threading.Tasks.Task(Of ServiceLayer.SLBfdGetStatsMsgRsp)
+  name.vb: Task(Of SLBfdGetStatsMsgRsp)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: ServiceLayer.SLBfdGetStatsMsgRsp
+    name: SLBfdGetStatsMsgRsp
+    href: ServiceLayer.SLBfdGetStatsMsgRsp.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ServiceLayer.SLBfdGetStatsMsgRsp
+    name: SLBfdGetStatsMsgRsp
+    href: ServiceLayer.SLBfdGetStatsMsgRsp.html
+  - name: )
+- uid: ServiceLayer.SLBfdv4Oper.SLBfdv4OperBase.SLBfdv4GetNotifStream*
+  commentId: Overload:ServiceLayer.SLBfdv4Oper.SLBfdv4OperBase.SLBfdv4GetNotifStream
+  href: ServiceLayer.SLBfdv4Oper.SLBfdv4OperBase.html#ServiceLayer.SLBfdv4Oper.SLBfdv4OperBase.SLBfdv4GetNotifStream(ServiceLayer.SLBfdGetNotifMsg,Grpc.Core.IServerStreamWriter{ServiceLayer.SLBfdv4Notif},Grpc.Core.ServerCallContext)
+  name: SLBfdv4GetNotifStream
+  nameWithType: SLBfdv4Oper.SLBfdv4OperBase.SLBfdv4GetNotifStream
+  fullName: ServiceLayer.SLBfdv4Oper.SLBfdv4OperBase.SLBfdv4GetNotifStream
+- uid: ServiceLayer.SLBfdGetNotifMsg
+  commentId: T:ServiceLayer.SLBfdGetNotifMsg
+  parent: ServiceLayer
+  href: ServiceLayer.SLBfdGetNotifMsg.html
+  name: SLBfdGetNotifMsg
+  nameWithType: SLBfdGetNotifMsg
+  fullName: ServiceLayer.SLBfdGetNotifMsg
+- uid: Grpc.Core.IServerStreamWriter{ServiceLayer.SLBfdv4Notif}
+  commentId: T:Grpc.Core.IServerStreamWriter{ServiceLayer.SLBfdv4Notif}
+  parent: Grpc.Core
+  definition: Grpc.Core.IServerStreamWriter`1
+  href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/IServerStreamWriter.cs
+  name: IServerStreamWriter<SLBfdv4Notif>
+  nameWithType: IServerStreamWriter<SLBfdv4Notif>
+  fullName: Grpc.Core.IServerStreamWriter<ServiceLayer.SLBfdv4Notif>
+  nameWithType.vb: IServerStreamWriter(Of SLBfdv4Notif)
+  fullName.vb: Grpc.Core.IServerStreamWriter(Of ServiceLayer.SLBfdv4Notif)
+  name.vb: IServerStreamWriter(Of SLBfdv4Notif)
+  spec.csharp:
+  - uid: Grpc.Core.IServerStreamWriter`1
+    name: IServerStreamWriter
+    isExternal: true
+    href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/IServerStreamWriter.cs
+  - name: <
+  - uid: ServiceLayer.SLBfdv4Notif
+    name: SLBfdv4Notif
+    href: ServiceLayer.SLBfdv4Notif.html
+  - name: '>'
+  spec.vb:
+  - uid: Grpc.Core.IServerStreamWriter`1
+    name: IServerStreamWriter
+    isExternal: true
+    href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/IServerStreamWriter.cs
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ServiceLayer.SLBfdv4Notif
+    name: SLBfdv4Notif
+    href: ServiceLayer.SLBfdv4Notif.html
+  - name: )
+- uid: System.Threading.Tasks.Task
+  commentId: T:System.Threading.Tasks.Task
+  parent: System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task
+  name: Task
+  nameWithType: Task
+  fullName: System.Threading.Tasks.Task
+- uid: Grpc.Core.IServerStreamWriter`1
+  commentId: T:Grpc.Core.IServerStreamWriter`1
+  isExternal: true
+  href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/IServerStreamWriter.cs
+  name: IServerStreamWriter<T>
+  nameWithType: IServerStreamWriter<T>
+  fullName: Grpc.Core.IServerStreamWriter<T>
+  nameWithType.vb: IServerStreamWriter(Of T)
+  fullName.vb: Grpc.Core.IServerStreamWriter(Of T)
+  name.vb: IServerStreamWriter(Of T)
+  spec.csharp:
+  - uid: Grpc.Core.IServerStreamWriter`1
+    name: IServerStreamWriter
+    isExternal: true
+    href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/IServerStreamWriter.cs
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Grpc.Core.IServerStreamWriter`1
+    name: IServerStreamWriter
+    isExternal: true
+    href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/IServerStreamWriter.cs
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: ServiceLayer.SLBfdv4Oper.SLBfdv4OperBase.SLBfdv4SessionOp*
+  commentId: Overload:ServiceLayer.SLBfdv4Oper.SLBfdv4OperBase.SLBfdv4SessionOp
+  href: ServiceLayer.SLBfdv4Oper.SLBfdv4OperBase.html#ServiceLayer.SLBfdv4Oper.SLBfdv4OperBase.SLBfdv4SessionOp(ServiceLayer.SLBfdv4Msg,Grpc.Core.ServerCallContext)
+  name: SLBfdv4SessionOp
+  nameWithType: SLBfdv4Oper.SLBfdv4OperBase.SLBfdv4SessionOp
+  fullName: ServiceLayer.SLBfdv4Oper.SLBfdv4OperBase.SLBfdv4SessionOp
+- uid: ServiceLayer.SLBfdv4Msg
+  commentId: T:ServiceLayer.SLBfdv4Msg
+  parent: ServiceLayer
+  href: ServiceLayer.SLBfdv4Msg.html
+  name: SLBfdv4Msg
+  nameWithType: SLBfdv4Msg
+  fullName: ServiceLayer.SLBfdv4Msg
+- uid: System.Threading.Tasks.Task{ServiceLayer.SLBfdv4MsgRsp}
+  commentId: T:System.Threading.Tasks.Task{ServiceLayer.SLBfdv4MsgRsp}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<SLBfdv4MsgRsp>
+  nameWithType: Task<SLBfdv4MsgRsp>
+  fullName: System.Threading.Tasks.Task<ServiceLayer.SLBfdv4MsgRsp>
+  nameWithType.vb: Task(Of SLBfdv4MsgRsp)
+  fullName.vb: System.Threading.Tasks.Task(Of ServiceLayer.SLBfdv4MsgRsp)
+  name.vb: Task(Of SLBfdv4MsgRsp)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: ServiceLayer.SLBfdv4MsgRsp
+    name: SLBfdv4MsgRsp
+    href: ServiceLayer.SLBfdv4MsgRsp.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ServiceLayer.SLBfdv4MsgRsp
+    name: SLBfdv4MsgRsp
+    href: ServiceLayer.SLBfdv4MsgRsp.html
+  - name: )
+- uid: ServiceLayer.SLBfdv4Oper.SLBfdv4OperBase.SLBfdv4SessionGet*
+  commentId: Overload:ServiceLayer.SLBfdv4Oper.SLBfdv4OperBase.SLBfdv4SessionGet
+  href: ServiceLayer.SLBfdv4Oper.SLBfdv4OperBase.html#ServiceLayer.SLBfdv4Oper.SLBfdv4OperBase.SLBfdv4SessionGet(ServiceLayer.SLBfdv4GetMsg,Grpc.Core.ServerCallContext)
+  name: SLBfdv4SessionGet
+  nameWithType: SLBfdv4Oper.SLBfdv4OperBase.SLBfdv4SessionGet
+  fullName: ServiceLayer.SLBfdv4Oper.SLBfdv4OperBase.SLBfdv4SessionGet
+- uid: ServiceLayer.SLBfdv4GetMsg
+  commentId: T:ServiceLayer.SLBfdv4GetMsg
+  parent: ServiceLayer
+  href: ServiceLayer.SLBfdv4GetMsg.html
+  name: SLBfdv4GetMsg
+  nameWithType: SLBfdv4GetMsg
+  fullName: ServiceLayer.SLBfdv4GetMsg
+- uid: System.Threading.Tasks.Task{ServiceLayer.SLBfdv4GetMsgRsp}
+  commentId: T:System.Threading.Tasks.Task{ServiceLayer.SLBfdv4GetMsgRsp}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<SLBfdv4GetMsgRsp>
+  nameWithType: Task<SLBfdv4GetMsgRsp>
+  fullName: System.Threading.Tasks.Task<ServiceLayer.SLBfdv4GetMsgRsp>
+  nameWithType.vb: Task(Of SLBfdv4GetMsgRsp)
+  fullName.vb: System.Threading.Tasks.Task(Of ServiceLayer.SLBfdv4GetMsgRsp)
+  name.vb: Task(Of SLBfdv4GetMsgRsp)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: ServiceLayer.SLBfdv4GetMsgRsp
+    name: SLBfdv4GetMsgRsp
+    href: ServiceLayer.SLBfdv4GetMsgRsp.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ServiceLayer.SLBfdv4GetMsgRsp
+    name: SLBfdv4GetMsgRsp
+    href: ServiceLayer.SLBfdv4GetMsgRsp.html
+  - name: )

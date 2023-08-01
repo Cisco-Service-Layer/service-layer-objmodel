@@ -1,0 +1,1727 @@
+### YamlMime:ManagedReference
+items:
+- uid: ServiceLayer.SLL2RouteKey
+  commentId: T:ServiceLayer.SLL2RouteKey
+  id: SLL2RouteKey
+  parent: ServiceLayer
+  children:
+  - ServiceLayer.SLL2RouteKey.#ctor
+  - ServiceLayer.SLL2RouteKey.#ctor(ServiceLayer.SLL2RouteKey)
+  - ServiceLayer.SLL2RouteKey.BdName
+  - ServiceLayer.SLL2RouteKey.BdNameFieldNumber
+  - ServiceLayer.SLL2RouteKey.CalculateSize
+  - ServiceLayer.SLL2RouteKey.ClearEvent
+  - ServiceLayer.SLL2RouteKey.Clone
+  - ServiceLayer.SLL2RouteKey.Descriptor
+  - ServiceLayer.SLL2RouteKey.Equals(ServiceLayer.SLL2RouteKey)
+  - ServiceLayer.SLL2RouteKey.Equals(System.Object)
+  - ServiceLayer.SLL2RouteKey.EventCase
+  - ServiceLayer.SLL2RouteKey.GetHashCode
+  - ServiceLayer.SLL2RouteKey.ImetKey
+  - ServiceLayer.SLL2RouteKey.ImetKeyFieldNumber
+  - ServiceLayer.SLL2RouteKey.MacKey
+  - ServiceLayer.SLL2RouteKey.MacKeyFieldNumber
+  - ServiceLayer.SLL2RouteKey.MergeFrom(Google.Protobuf.CodedInputStream)
+  - ServiceLayer.SLL2RouteKey.MergeFrom(ServiceLayer.SLL2RouteKey)
+  - ServiceLayer.SLL2RouteKey.Parser
+  - ServiceLayer.SLL2RouteKey.ToString
+  - ServiceLayer.SLL2RouteKey.Type
+  - ServiceLayer.SLL2RouteKey.TypeFieldNumber
+  - ServiceLayer.SLL2RouteKey.WriteTo(Google.Protobuf.CodedOutputStream)
+  langs:
+  - csharp
+  - vb
+  name: SLL2RouteKey
+  nameWithType: SLL2RouteKey
+  fullName: ServiceLayer.SLL2RouteKey
+  type: Class
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlL2Route.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: SLL2RouteKey
+    path: src/gencs/SlL2Route.cs
+    startLine: 4037
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: L2 route key
+  example: []
+  syntax:
+    content: 'public sealed class SLL2RouteKey : IMessage<SLL2RouteKey>, IEquatable<SLL2RouteKey>, IDeepCloneable<SLL2RouteKey>, IBufferMessage, IMessage'
+    content.vb: Public NotInheritable Class SLL2RouteKey Implements IMessage(Of SLL2RouteKey), IEquatable(Of SLL2RouteKey), IDeepCloneable(Of SLL2RouteKey), IBufferMessage, IMessage
+  inheritance:
+  - System.Object
+  implements:
+  - Google.Protobuf.IMessage{ServiceLayer.SLL2RouteKey}
+  - System.IEquatable{ServiceLayer.SLL2RouteKey}
+  - Google.Protobuf.IDeepCloneable{ServiceLayer.SLL2RouteKey}
+  - Google.Protobuf.IBufferMessage
+  - Google.Protobuf.IMessage
+  inheritedMembers:
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: ServiceLayer.SLL2RouteKey.Parser
+  commentId: P:ServiceLayer.SLL2RouteKey.Parser
+  id: Parser
+  parent: ServiceLayer.SLL2RouteKey
+  langs:
+  - csharp
+  - vb
+  name: Parser
+  nameWithType: SLL2RouteKey.Parser
+  fullName: ServiceLayer.SLL2RouteKey.Parser
+  type: Property
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlL2Route.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: Parser
+    path: src/gencs/SlL2Route.cs
+    startLine: 4044
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  syntax:
+    content: public static MessageParser<SLL2RouteKey> Parser { get; }
+    parameters: []
+    return:
+      type: Google.Protobuf.MessageParser{ServiceLayer.SLL2RouteKey}
+    content.vb: Public Shared ReadOnly Property Parser As MessageParser(Of SLL2RouteKey)
+  overload: ServiceLayer.SLL2RouteKey.Parser*
+- uid: ServiceLayer.SLL2RouteKey.Descriptor
+  commentId: P:ServiceLayer.SLL2RouteKey.Descriptor
+  id: Descriptor
+  parent: ServiceLayer.SLL2RouteKey
+  langs:
+  - csharp
+  - vb
+  name: Descriptor
+  nameWithType: SLL2RouteKey.Descriptor
+  fullName: ServiceLayer.SLL2RouteKey.Descriptor
+  type: Property
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlL2Route.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: Descriptor
+    path: src/gencs/SlL2Route.cs
+    startLine: 4048
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  syntax:
+    content: public static MessageDescriptor Descriptor { get; }
+    parameters: []
+    return:
+      type: Google.Protobuf.Reflection.MessageDescriptor
+    content.vb: Public Shared ReadOnly Property Descriptor As MessageDescriptor
+  overload: ServiceLayer.SLL2RouteKey.Descriptor*
+- uid: ServiceLayer.SLL2RouteKey.#ctor
+  commentId: M:ServiceLayer.SLL2RouteKey.#ctor
+  id: '#ctor'
+  parent: ServiceLayer.SLL2RouteKey
+  langs:
+  - csharp
+  - vb
+  name: SLL2RouteKey()
+  nameWithType: SLL2RouteKey.SLL2RouteKey()
+  fullName: ServiceLayer.SLL2RouteKey.SLL2RouteKey()
+  type: Constructor
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlL2Route.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: .ctor
+    path: src/gencs/SlL2Route.cs
+    startLine: 4060
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  syntax:
+    content: public SLL2RouteKey()
+    content.vb: Public Sub New()
+  overload: ServiceLayer.SLL2RouteKey.#ctor*
+  nameWithType.vb: SLL2RouteKey.New()
+  fullName.vb: ServiceLayer.SLL2RouteKey.New()
+  name.vb: New()
+- uid: ServiceLayer.SLL2RouteKey.#ctor(ServiceLayer.SLL2RouteKey)
+  commentId: M:ServiceLayer.SLL2RouteKey.#ctor(ServiceLayer.SLL2RouteKey)
+  id: '#ctor(ServiceLayer.SLL2RouteKey)'
+  parent: ServiceLayer.SLL2RouteKey
+  langs:
+  - csharp
+  - vb
+  name: SLL2RouteKey(SLL2RouteKey)
+  nameWithType: SLL2RouteKey.SLL2RouteKey(SLL2RouteKey)
+  fullName: ServiceLayer.SLL2RouteKey.SLL2RouteKey(ServiceLayer.SLL2RouteKey)
+  type: Constructor
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlL2Route.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: .ctor
+    path: src/gencs/SlL2Route.cs
+    startLine: 4068
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  syntax:
+    content: public SLL2RouteKey(SLL2RouteKey other)
+    parameters:
+    - id: other
+      type: ServiceLayer.SLL2RouteKey
+    content.vb: Public Sub New(other As SLL2RouteKey)
+  overload: ServiceLayer.SLL2RouteKey.#ctor*
+  nameWithType.vb: SLL2RouteKey.New(SLL2RouteKey)
+  fullName.vb: ServiceLayer.SLL2RouteKey.New(ServiceLayer.SLL2RouteKey)
+  name.vb: New(SLL2RouteKey)
+- uid: ServiceLayer.SLL2RouteKey.Clone
+  commentId: M:ServiceLayer.SLL2RouteKey.Clone
+  id: Clone
+  parent: ServiceLayer.SLL2RouteKey
+  langs:
+  - csharp
+  - vb
+  name: Clone()
+  nameWithType: SLL2RouteKey.Clone()
+  fullName: ServiceLayer.SLL2RouteKey.Clone()
+  type: Method
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlL2Route.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: Clone
+    path: src/gencs/SlL2Route.cs
+    startLine: 4085
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Creates a deep clone of this object.
+  example: []
+  syntax:
+    content: public SLL2RouteKey Clone()
+    return:
+      type: ServiceLayer.SLL2RouteKey
+      description: A deep clone of this object.
+    content.vb: Public Function Clone() As SLL2RouteKey
+  overload: ServiceLayer.SLL2RouteKey.Clone*
+  implements:
+  - Google.Protobuf.IDeepCloneable{ServiceLayer.SLL2RouteKey}.Clone
+- uid: ServiceLayer.SLL2RouteKey.BdNameFieldNumber
+  commentId: F:ServiceLayer.SLL2RouteKey.BdNameFieldNumber
+  id: BdNameFieldNumber
+  parent: ServiceLayer.SLL2RouteKey
+  langs:
+  - csharp
+  - vb
+  name: BdNameFieldNumber
+  nameWithType: SLL2RouteKey.BdNameFieldNumber
+  fullName: ServiceLayer.SLL2RouteKey.BdNameFieldNumber
+  type: Field
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlL2Route.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: BdNameFieldNumber
+    path: src/gencs/SlL2Route.cs
+    startLine: 4092
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Field number for the "BdName" field.
+  example: []
+  syntax:
+    content: public const int BdNameFieldNumber = 1
+    return:
+      type: System.Int32
+    content.vb: Public Const BdNameFieldNumber As Integer = 1
+- uid: ServiceLayer.SLL2RouteKey.BdName
+  commentId: P:ServiceLayer.SLL2RouteKey.BdName
+  id: BdName
+  parent: ServiceLayer.SLL2RouteKey
+  langs:
+  - csharp
+  - vb
+  name: BdName
+  nameWithType: SLL2RouteKey.BdName
+  fullName: ServiceLayer.SLL2RouteKey.BdName
+  type: Property
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlL2Route.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: BdName
+    path: src/gencs/SlL2Route.cs
+    startLine: 4097
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: BD name
+  example: []
+  syntax:
+    content: public string BdName { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property BdName As String
+  overload: ServiceLayer.SLL2RouteKey.BdName*
+- uid: ServiceLayer.SLL2RouteKey.TypeFieldNumber
+  commentId: F:ServiceLayer.SLL2RouteKey.TypeFieldNumber
+  id: TypeFieldNumber
+  parent: ServiceLayer.SLL2RouteKey
+  langs:
+  - csharp
+  - vb
+  name: TypeFieldNumber
+  nameWithType: SLL2RouteKey.TypeFieldNumber
+  fullName: ServiceLayer.SLL2RouteKey.TypeFieldNumber
+  type: Field
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlL2Route.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: TypeFieldNumber
+    path: src/gencs/SlL2Route.cs
+    startLine: 4107
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Field number for the "Type" field.
+  example: []
+  syntax:
+    content: public const int TypeFieldNumber = 2
+    return:
+      type: System.Int32
+    content.vb: Public Const TypeFieldNumber As Integer = 2
+- uid: ServiceLayer.SLL2RouteKey.Type
+  commentId: P:ServiceLayer.SLL2RouteKey.Type
+  id: Type
+  parent: ServiceLayer.SLL2RouteKey
+  langs:
+  - csharp
+  - vb
+  name: Type
+  nameWithType: SLL2RouteKey.Type
+  fullName: ServiceLayer.SLL2RouteKey.Type
+  type: Property
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlL2Route.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: Type
+    path: src/gencs/SlL2Route.cs
+    startLine: 4112
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: L2 Route Type
+  example: []
+  syntax:
+    content: public SLL2RouteType Type { get; set; }
+    parameters: []
+    return:
+      type: ServiceLayer.SLL2RouteType
+    content.vb: Public Property Type As SLL2RouteType
+  overload: ServiceLayer.SLL2RouteKey.Type*
+- uid: ServiceLayer.SLL2RouteKey.MacKeyFieldNumber
+  commentId: F:ServiceLayer.SLL2RouteKey.MacKeyFieldNumber
+  id: MacKeyFieldNumber
+  parent: ServiceLayer.SLL2RouteKey
+  langs:
+  - csharp
+  - vb
+  name: MacKeyFieldNumber
+  nameWithType: SLL2RouteKey.MacKeyFieldNumber
+  fullName: ServiceLayer.SLL2RouteKey.MacKeyFieldNumber
+  type: Field
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlL2Route.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: MacKeyFieldNumber
+    path: src/gencs/SlL2Route.cs
+    startLine: 4122
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Field number for the "MacKey" field.
+  example: []
+  syntax:
+    content: public const int MacKeyFieldNumber = 3
+    return:
+      type: System.Int32
+    content.vb: Public Const MacKeyFieldNumber As Integer = 3
+- uid: ServiceLayer.SLL2RouteKey.MacKey
+  commentId: P:ServiceLayer.SLL2RouteKey.MacKey
+  id: MacKey
+  parent: ServiceLayer.SLL2RouteKey
+  langs:
+  - csharp
+  - vb
+  name: MacKey
+  nameWithType: SLL2RouteKey.MacKey
+  fullName: ServiceLayer.SLL2RouteKey.MacKey
+  type: Property
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlL2Route.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: MacKey
+    path: src/gencs/SlL2Route.cs
+    startLine: 4127
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: >-
+    case Type == SL_L2_ROUTE_MAC:
+      =&gt; Carries the Mac Route Key
+  example: []
+  syntax:
+    content: public SLL2MacRouteKey MacKey { get; set; }
+    parameters: []
+    return:
+      type: ServiceLayer.SLL2MacRouteKey
+    content.vb: Public Property MacKey As SLL2MacRouteKey
+  overload: ServiceLayer.SLL2RouteKey.MacKey*
+- uid: ServiceLayer.SLL2RouteKey.ImetKeyFieldNumber
+  commentId: F:ServiceLayer.SLL2RouteKey.ImetKeyFieldNumber
+  id: ImetKeyFieldNumber
+  parent: ServiceLayer.SLL2RouteKey
+  langs:
+  - csharp
+  - vb
+  name: ImetKeyFieldNumber
+  nameWithType: SLL2RouteKey.ImetKeyFieldNumber
+  fullName: ServiceLayer.SLL2RouteKey.ImetKeyFieldNumber
+  type: Field
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlL2Route.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: ImetKeyFieldNumber
+    path: src/gencs/SlL2Route.cs
+    startLine: 4138
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Field number for the "ImetKey" field.
+  example: []
+  syntax:
+    content: public const int ImetKeyFieldNumber = 4
+    return:
+      type: System.Int32
+    content.vb: Public Const ImetKeyFieldNumber As Integer = 4
+- uid: ServiceLayer.SLL2RouteKey.ImetKey
+  commentId: P:ServiceLayer.SLL2RouteKey.ImetKey
+  id: ImetKey
+  parent: ServiceLayer.SLL2RouteKey
+  langs:
+  - csharp
+  - vb
+  name: ImetKey
+  nameWithType: SLL2RouteKey.ImetKey
+  fullName: ServiceLayer.SLL2RouteKey.ImetKey
+  type: Property
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlL2Route.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: ImetKey
+    path: src/gencs/SlL2Route.cs
+    startLine: 4143
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: >-
+    case Type == SL_L2_ROUTE_IMET:
+      =&gt; Carries the IMET Route Key
+  example: []
+  syntax:
+    content: public SLL2ImetRouteKey ImetKey { get; set; }
+    parameters: []
+    return:
+      type: ServiceLayer.SLL2ImetRouteKey
+    content.vb: Public Property ImetKey As SLL2ImetRouteKey
+  overload: ServiceLayer.SLL2RouteKey.ImetKey*
+- uid: ServiceLayer.SLL2RouteKey.EventCase
+  commentId: P:ServiceLayer.SLL2RouteKey.EventCase
+  id: EventCase
+  parent: ServiceLayer.SLL2RouteKey
+  langs:
+  - csharp
+  - vb
+  name: EventCase
+  nameWithType: SLL2RouteKey.EventCase
+  fullName: ServiceLayer.SLL2RouteKey.EventCase
+  type: Property
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlL2Route.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: EventCase
+    path: src/gencs/SlL2Route.cs
+    startLine: 4161
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  syntax:
+    content: public SLL2RouteKey.EventOneofCase EventCase { get; }
+    parameters: []
+    return:
+      type: ServiceLayer.SLL2RouteKey.EventOneofCase
+    content.vb: Public ReadOnly Property EventCase As SLL2RouteKey.EventOneofCase
+  overload: ServiceLayer.SLL2RouteKey.EventCase*
+- uid: ServiceLayer.SLL2RouteKey.ClearEvent
+  commentId: M:ServiceLayer.SLL2RouteKey.ClearEvent
+  id: ClearEvent
+  parent: ServiceLayer.SLL2RouteKey
+  langs:
+  - csharp
+  - vb
+  name: ClearEvent()
+  nameWithType: SLL2RouteKey.ClearEvent()
+  fullName: ServiceLayer.SLL2RouteKey.ClearEvent()
+  type: Method
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlL2Route.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: ClearEvent
+    path: src/gencs/SlL2Route.cs
+    startLine: 4167
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  syntax:
+    content: public void ClearEvent()
+    content.vb: Public Sub ClearEvent()
+  overload: ServiceLayer.SLL2RouteKey.ClearEvent*
+- uid: ServiceLayer.SLL2RouteKey.Equals(System.Object)
+  commentId: M:ServiceLayer.SLL2RouteKey.Equals(System.Object)
+  id: Equals(System.Object)
+  parent: ServiceLayer.SLL2RouteKey
+  langs:
+  - csharp
+  - vb
+  name: Equals(object)
+  nameWithType: SLL2RouteKey.Equals(object)
+  fullName: ServiceLayer.SLL2RouteKey.Equals(object)
+  type: Method
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlL2Route.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: Equals
+    path: src/gencs/SlL2Route.cs
+    startLine: 4174
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Determines whether the specified object is equal to the current object.
+  example: []
+  syntax:
+    content: public override bool Equals(object other)
+    parameters:
+    - id: other
+      type: System.Object
+    return:
+      type: System.Boolean
+      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the specified object  is equal to the current object; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+    content.vb: Public Overrides Function Equals(other As Object) As Boolean
+  overridden: System.Object.Equals(System.Object)
+  overload: ServiceLayer.SLL2RouteKey.Equals*
+  nameWithType.vb: SLL2RouteKey.Equals(Object)
+  fullName.vb: ServiceLayer.SLL2RouteKey.Equals(Object)
+  name.vb: Equals(Object)
+- uid: ServiceLayer.SLL2RouteKey.Equals(ServiceLayer.SLL2RouteKey)
+  commentId: M:ServiceLayer.SLL2RouteKey.Equals(ServiceLayer.SLL2RouteKey)
+  id: Equals(ServiceLayer.SLL2RouteKey)
+  parent: ServiceLayer.SLL2RouteKey
+  langs:
+  - csharp
+  - vb
+  name: Equals(SLL2RouteKey)
+  nameWithType: SLL2RouteKey.Equals(SLL2RouteKey)
+  fullName: ServiceLayer.SLL2RouteKey.Equals(ServiceLayer.SLL2RouteKey)
+  type: Method
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlL2Route.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: Equals
+    path: src/gencs/SlL2Route.cs
+    startLine: 4180
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Indicates whether the current object is equal to another object of the same type.
+  example: []
+  syntax:
+    content: public bool Equals(SLL2RouteKey other)
+    parameters:
+    - id: other
+      type: ServiceLayer.SLL2RouteKey
+      description: An object to compare with this object.
+    return:
+      type: System.Boolean
+      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the current object is equal to the <code class="paramref">other</code> parameter; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+    content.vb: Public Function Equals(other As SLL2RouteKey) As Boolean
+  overload: ServiceLayer.SLL2RouteKey.Equals*
+  implements:
+  - System.IEquatable{ServiceLayer.SLL2RouteKey}.Equals(ServiceLayer.SLL2RouteKey)
+- uid: ServiceLayer.SLL2RouteKey.GetHashCode
+  commentId: M:ServiceLayer.SLL2RouteKey.GetHashCode
+  id: GetHashCode
+  parent: ServiceLayer.SLL2RouteKey
+  langs:
+  - csharp
+  - vb
+  name: GetHashCode()
+  nameWithType: SLL2RouteKey.GetHashCode()
+  fullName: ServiceLayer.SLL2RouteKey.GetHashCode()
+  type: Method
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlL2Route.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: GetHashCode
+    path: src/gencs/SlL2Route.cs
+    startLine: 4197
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Serves as the default hash function.
+  example: []
+  syntax:
+    content: public override int GetHashCode()
+    return:
+      type: System.Int32
+      description: A hash code for the current object.
+    content.vb: Public Overrides Function GetHashCode() As Integer
+  overridden: System.Object.GetHashCode
+  overload: ServiceLayer.SLL2RouteKey.GetHashCode*
+- uid: ServiceLayer.SLL2RouteKey.ToString
+  commentId: M:ServiceLayer.SLL2RouteKey.ToString
+  id: ToString
+  parent: ServiceLayer.SLL2RouteKey
+  langs:
+  - csharp
+  - vb
+  name: ToString()
+  nameWithType: SLL2RouteKey.ToString()
+  fullName: ServiceLayer.SLL2RouteKey.ToString()
+  type: Method
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlL2Route.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: ToString
+    path: src/gencs/SlL2Route.cs
+    startLine: 4212
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Returns a string that represents the current object.
+  example: []
+  syntax:
+    content: public override string ToString()
+    return:
+      type: System.String
+      description: A string that represents the current object.
+    content.vb: Public Overrides Function ToString() As String
+  overridden: System.Object.ToString
+  overload: ServiceLayer.SLL2RouteKey.ToString*
+- uid: ServiceLayer.SLL2RouteKey.WriteTo(Google.Protobuf.CodedOutputStream)
+  commentId: M:ServiceLayer.SLL2RouteKey.WriteTo(Google.Protobuf.CodedOutputStream)
+  id: WriteTo(Google.Protobuf.CodedOutputStream)
+  parent: ServiceLayer.SLL2RouteKey
+  langs:
+  - csharp
+  - vb
+  name: WriteTo(CodedOutputStream)
+  nameWithType: SLL2RouteKey.WriteTo(CodedOutputStream)
+  fullName: ServiceLayer.SLL2RouteKey.WriteTo(Google.Protobuf.CodedOutputStream)
+  type: Method
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlL2Route.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: WriteTo
+    path: src/gencs/SlL2Route.cs
+    startLine: 4218
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Writes the data to the given coded output stream.
+  example: []
+  syntax:
+    content: public void WriteTo(CodedOutputStream output)
+    parameters:
+    - id: output
+      type: Google.Protobuf.CodedOutputStream
+      description: Coded output stream to write the data to. Must not be null.
+    content.vb: Public Sub WriteTo(output As CodedOutputStream)
+  overload: ServiceLayer.SLL2RouteKey.WriteTo*
+  implements:
+  - Google.Protobuf.IMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+- uid: ServiceLayer.SLL2RouteKey.CalculateSize
+  commentId: M:ServiceLayer.SLL2RouteKey.CalculateSize
+  id: CalculateSize
+  parent: ServiceLayer.SLL2RouteKey
+  langs:
+  - csharp
+  - vb
+  name: CalculateSize()
+  nameWithType: SLL2RouteKey.CalculateSize()
+  fullName: ServiceLayer.SLL2RouteKey.CalculateSize()
+  type: Method
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlL2Route.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: CalculateSize
+    path: src/gencs/SlL2Route.cs
+    startLine: 4272
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Calculates the size of this message in Protocol Buffer wire format, in bytes.
+  example: []
+  syntax:
+    content: public int CalculateSize()
+    return:
+      type: System.Int32
+      description: >-
+        The number of bytes required to write this message
+                    to a coded output stream.
+    content.vb: Public Function CalculateSize() As Integer
+  overload: ServiceLayer.SLL2RouteKey.CalculateSize*
+  implements:
+  - Google.Protobuf.IMessage.CalculateSize
+- uid: ServiceLayer.SLL2RouteKey.MergeFrom(ServiceLayer.SLL2RouteKey)
+  commentId: M:ServiceLayer.SLL2RouteKey.MergeFrom(ServiceLayer.SLL2RouteKey)
+  id: MergeFrom(ServiceLayer.SLL2RouteKey)
+  parent: ServiceLayer.SLL2RouteKey
+  langs:
+  - csharp
+  - vb
+  name: MergeFrom(SLL2RouteKey)
+  nameWithType: SLL2RouteKey.MergeFrom(SLL2RouteKey)
+  fullName: ServiceLayer.SLL2RouteKey.MergeFrom(ServiceLayer.SLL2RouteKey)
+  type: Method
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlL2Route.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: MergeFrom
+    path: src/gencs/SlL2Route.cs
+    startLine: 4294
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Merges the given message into this one.
+  remarks: See the user guide for precise merge semantics.
+  example: []
+  syntax:
+    content: public void MergeFrom(SLL2RouteKey other)
+    parameters:
+    - id: other
+      type: ServiceLayer.SLL2RouteKey
+    content.vb: Public Sub MergeFrom(other As SLL2RouteKey)
+  overload: ServiceLayer.SLL2RouteKey.MergeFrom*
+  implements:
+  - Google.Protobuf.IMessage{ServiceLayer.SLL2RouteKey}.MergeFrom(ServiceLayer.SLL2RouteKey)
+- uid: ServiceLayer.SLL2RouteKey.MergeFrom(Google.Protobuf.CodedInputStream)
+  commentId: M:ServiceLayer.SLL2RouteKey.MergeFrom(Google.Protobuf.CodedInputStream)
+  id: MergeFrom(Google.Protobuf.CodedInputStream)
+  parent: ServiceLayer.SLL2RouteKey
+  langs:
+  - csharp
+  - vb
+  name: MergeFrom(CodedInputStream)
+  nameWithType: SLL2RouteKey.MergeFrom(CodedInputStream)
+  fullName: ServiceLayer.SLL2RouteKey.MergeFrom(Google.Protobuf.CodedInputStream)
+  type: Method
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlL2Route.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: MergeFrom
+    path: src/gencs/SlL2Route.cs
+    startLine: 4324
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Merges the data from the specified coded input stream with the current message.
+  remarks: See the user guide for precise merge semantics.
+  example: []
+  syntax:
+    content: public void MergeFrom(CodedInputStream input)
+    parameters:
+    - id: input
+      type: Google.Protobuf.CodedInputStream
+      description: ''
+    content.vb: Public Sub MergeFrom(input As CodedInputStream)
+  overload: ServiceLayer.SLL2RouteKey.MergeFrom*
+  implements:
+  - Google.Protobuf.IMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+references:
+- uid: ServiceLayer
+  commentId: N:ServiceLayer
+  href: ServiceLayer.html
+  name: ServiceLayer
+  nameWithType: ServiceLayer
+  fullName: ServiceLayer
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: Google.Protobuf.IMessage{ServiceLayer.SLL2RouteKey}
+  commentId: T:Google.Protobuf.IMessage{ServiceLayer.SLL2RouteKey}
+  parent: Google.Protobuf
+  definition: Google.Protobuf.IMessage`1
+  href: ServiceLayer.SLL2RouteKey.html
+  name: IMessage<SLL2RouteKey>
+  nameWithType: IMessage<SLL2RouteKey>
+  fullName: Google.Protobuf.IMessage<ServiceLayer.SLL2RouteKey>
+  nameWithType.vb: IMessage(Of SLL2RouteKey)
+  fullName.vb: Google.Protobuf.IMessage(Of ServiceLayer.SLL2RouteKey)
+  name.vb: IMessage(Of SLL2RouteKey)
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage`1
+    name: IMessage
+    isExternal: true
+  - name: <
+  - uid: ServiceLayer.SLL2RouteKey
+    name: SLL2RouteKey
+    href: ServiceLayer.SLL2RouteKey.html
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.IMessage`1
+    name: IMessage
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ServiceLayer.SLL2RouteKey
+    name: SLL2RouteKey
+    href: ServiceLayer.SLL2RouteKey.html
+  - name: )
+- uid: System.IEquatable{ServiceLayer.SLL2RouteKey}
+  commentId: T:System.IEquatable{ServiceLayer.SLL2RouteKey}
+  parent: System
+  definition: System.IEquatable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<SLL2RouteKey>
+  nameWithType: IEquatable<SLL2RouteKey>
+  fullName: System.IEquatable<ServiceLayer.SLL2RouteKey>
+  nameWithType.vb: IEquatable(Of SLL2RouteKey)
+  fullName.vb: System.IEquatable(Of ServiceLayer.SLL2RouteKey)
+  name.vb: IEquatable(Of SLL2RouteKey)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - uid: ServiceLayer.SLL2RouteKey
+    name: SLL2RouteKey
+    href: ServiceLayer.SLL2RouteKey.html
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ServiceLayer.SLL2RouteKey
+    name: SLL2RouteKey
+    href: ServiceLayer.SLL2RouteKey.html
+  - name: )
+- uid: Google.Protobuf.IDeepCloneable{ServiceLayer.SLL2RouteKey}
+  commentId: T:Google.Protobuf.IDeepCloneable{ServiceLayer.SLL2RouteKey}
+  parent: Google.Protobuf
+  definition: Google.Protobuf.IDeepCloneable`1
+  href: ServiceLayer.SLL2RouteKey.html
+  name: IDeepCloneable<SLL2RouteKey>
+  nameWithType: IDeepCloneable<SLL2RouteKey>
+  fullName: Google.Protobuf.IDeepCloneable<ServiceLayer.SLL2RouteKey>
+  nameWithType.vb: IDeepCloneable(Of SLL2RouteKey)
+  fullName.vb: Google.Protobuf.IDeepCloneable(Of ServiceLayer.SLL2RouteKey)
+  name.vb: IDeepCloneable(Of SLL2RouteKey)
+  spec.csharp:
+  - uid: Google.Protobuf.IDeepCloneable`1
+    name: IDeepCloneable
+    isExternal: true
+  - name: <
+  - uid: ServiceLayer.SLL2RouteKey
+    name: SLL2RouteKey
+    href: ServiceLayer.SLL2RouteKey.html
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.IDeepCloneable`1
+    name: IDeepCloneable
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ServiceLayer.SLL2RouteKey
+    name: SLL2RouteKey
+    href: ServiceLayer.SLL2RouteKey.html
+  - name: )
+- uid: Google.Protobuf.IBufferMessage
+  commentId: T:Google.Protobuf.IBufferMessage
+  parent: Google.Protobuf
+  isExternal: true
+  name: IBufferMessage
+  nameWithType: IBufferMessage
+  fullName: Google.Protobuf.IBufferMessage
+- uid: Google.Protobuf.IMessage
+  commentId: T:Google.Protobuf.IMessage
+  parent: Google.Protobuf
+  isExternal: true
+  name: IMessage
+  nameWithType: IMessage
+  fullName: Google.Protobuf.IMessage
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Google.Protobuf.IMessage`1
+  commentId: T:Google.Protobuf.IMessage`1
+  isExternal: true
+  name: IMessage<T>
+  nameWithType: IMessage<T>
+  fullName: Google.Protobuf.IMessage<T>
+  nameWithType.vb: IMessage(Of T)
+  fullName.vb: Google.Protobuf.IMessage(Of T)
+  name.vb: IMessage(Of T)
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage`1
+    name: IMessage
+    isExternal: true
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.IMessage`1
+    name: IMessage
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Google.Protobuf
+  commentId: N:Google.Protobuf
+  isExternal: true
+  name: Google.Protobuf
+  nameWithType: Google.Protobuf
+  fullName: Google.Protobuf
+  spec.csharp:
+  - uid: Google
+    name: Google
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf
+    name: Protobuf
+    isExternal: true
+  spec.vb:
+  - uid: Google
+    name: Google
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf
+    name: Protobuf
+    isExternal: true
+- uid: System.IEquatable`1
+  commentId: T:System.IEquatable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<T>
+  nameWithType: IEquatable<T>
+  fullName: System.IEquatable<T>
+  nameWithType.vb: IEquatable(Of T)
+  fullName.vb: System.IEquatable(Of T)
+  name.vb: IEquatable(Of T)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Google.Protobuf.IDeepCloneable`1
+  commentId: T:Google.Protobuf.IDeepCloneable`1
+  isExternal: true
+  name: IDeepCloneable<T>
+  nameWithType: IDeepCloneable<T>
+  fullName: Google.Protobuf.IDeepCloneable<T>
+  nameWithType.vb: IDeepCloneable(Of T)
+  fullName.vb: Google.Protobuf.IDeepCloneable(Of T)
+  name.vb: IDeepCloneable(Of T)
+  spec.csharp:
+  - uid: Google.Protobuf.IDeepCloneable`1
+    name: IDeepCloneable
+    isExternal: true
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.IDeepCloneable`1
+    name: IDeepCloneable
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: ServiceLayer.SLL2RouteKey.Parser*
+  commentId: Overload:ServiceLayer.SLL2RouteKey.Parser
+  href: ServiceLayer.SLL2RouteKey.html#ServiceLayer.SLL2RouteKey.Parser
+  name: Parser
+  nameWithType: SLL2RouteKey.Parser
+  fullName: ServiceLayer.SLL2RouteKey.Parser
+- uid: Google.Protobuf.MessageParser{ServiceLayer.SLL2RouteKey}
+  commentId: T:Google.Protobuf.MessageParser{ServiceLayer.SLL2RouteKey}
+  parent: Google.Protobuf
+  definition: Google.Protobuf.MessageParser`1
+  href: ServiceLayer.SLL2RouteKey.html
+  name: MessageParser<SLL2RouteKey>
+  nameWithType: MessageParser<SLL2RouteKey>
+  fullName: Google.Protobuf.MessageParser<ServiceLayer.SLL2RouteKey>
+  nameWithType.vb: MessageParser(Of SLL2RouteKey)
+  fullName.vb: Google.Protobuf.MessageParser(Of ServiceLayer.SLL2RouteKey)
+  name.vb: MessageParser(Of SLL2RouteKey)
+  spec.csharp:
+  - uid: Google.Protobuf.MessageParser`1
+    name: MessageParser
+    isExternal: true
+  - name: <
+  - uid: ServiceLayer.SLL2RouteKey
+    name: SLL2RouteKey
+    href: ServiceLayer.SLL2RouteKey.html
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.MessageParser`1
+    name: MessageParser
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ServiceLayer.SLL2RouteKey
+    name: SLL2RouteKey
+    href: ServiceLayer.SLL2RouteKey.html
+  - name: )
+- uid: Google.Protobuf.MessageParser`1
+  commentId: T:Google.Protobuf.MessageParser`1
+  isExternal: true
+  name: MessageParser<T>
+  nameWithType: MessageParser<T>
+  fullName: Google.Protobuf.MessageParser<T>
+  nameWithType.vb: MessageParser(Of T)
+  fullName.vb: Google.Protobuf.MessageParser(Of T)
+  name.vb: MessageParser(Of T)
+  spec.csharp:
+  - uid: Google.Protobuf.MessageParser`1
+    name: MessageParser
+    isExternal: true
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.MessageParser`1
+    name: MessageParser
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: ServiceLayer.SLL2RouteKey.Descriptor*
+  commentId: Overload:ServiceLayer.SLL2RouteKey.Descriptor
+  href: ServiceLayer.SLL2RouteKey.html#ServiceLayer.SLL2RouteKey.Descriptor
+  name: Descriptor
+  nameWithType: SLL2RouteKey.Descriptor
+  fullName: ServiceLayer.SLL2RouteKey.Descriptor
+- uid: Google.Protobuf.Reflection.MessageDescriptor
+  commentId: T:Google.Protobuf.Reflection.MessageDescriptor
+  parent: Google.Protobuf.Reflection
+  isExternal: true
+  name: MessageDescriptor
+  nameWithType: MessageDescriptor
+  fullName: Google.Protobuf.Reflection.MessageDescriptor
+- uid: Google.Protobuf.Reflection
+  commentId: N:Google.Protobuf.Reflection
+  isExternal: true
+  name: Google.Protobuf.Reflection
+  nameWithType: Google.Protobuf.Reflection
+  fullName: Google.Protobuf.Reflection
+  spec.csharp:
+  - uid: Google
+    name: Google
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf
+    name: Protobuf
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf.Reflection
+    name: Reflection
+    isExternal: true
+  spec.vb:
+  - uid: Google
+    name: Google
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf
+    name: Protobuf
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf.Reflection
+    name: Reflection
+    isExternal: true
+- uid: ServiceLayer.SLL2RouteKey.#ctor*
+  commentId: Overload:ServiceLayer.SLL2RouteKey.#ctor
+  href: ServiceLayer.SLL2RouteKey.html#ServiceLayer.SLL2RouteKey.#ctor
+  name: SLL2RouteKey
+  nameWithType: SLL2RouteKey.SLL2RouteKey
+  fullName: ServiceLayer.SLL2RouteKey.SLL2RouteKey
+  nameWithType.vb: SLL2RouteKey.New
+  fullName.vb: ServiceLayer.SLL2RouteKey.New
+  name.vb: New
+- uid: ServiceLayer.SLL2RouteKey
+  commentId: T:ServiceLayer.SLL2RouteKey
+  parent: ServiceLayer
+  href: ServiceLayer.SLL2RouteKey.html
+  name: SLL2RouteKey
+  nameWithType: SLL2RouteKey
+  fullName: ServiceLayer.SLL2RouteKey
+- uid: ServiceLayer.SLL2RouteKey.Clone*
+  commentId: Overload:ServiceLayer.SLL2RouteKey.Clone
+  href: ServiceLayer.SLL2RouteKey.html#ServiceLayer.SLL2RouteKey.Clone
+  name: Clone
+  nameWithType: SLL2RouteKey.Clone
+  fullName: ServiceLayer.SLL2RouteKey.Clone
+- uid: Google.Protobuf.IDeepCloneable{ServiceLayer.SLL2RouteKey}.Clone
+  commentId: M:Google.Protobuf.IDeepCloneable{ServiceLayer.SLL2RouteKey}.Clone
+  parent: Google.Protobuf.IDeepCloneable{ServiceLayer.SLL2RouteKey}
+  definition: Google.Protobuf.IDeepCloneable`1.Clone
+  name: Clone()
+  nameWithType: IDeepCloneable<SLL2RouteKey>.Clone()
+  fullName: Google.Protobuf.IDeepCloneable<ServiceLayer.SLL2RouteKey>.Clone()
+  nameWithType.vb: IDeepCloneable(Of SLL2RouteKey).Clone()
+  fullName.vb: Google.Protobuf.IDeepCloneable(Of ServiceLayer.SLL2RouteKey).Clone()
+  spec.csharp:
+  - uid: Google.Protobuf.IDeepCloneable{ServiceLayer.SLL2RouteKey}.Clone
+    name: Clone
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IDeepCloneable{ServiceLayer.SLL2RouteKey}.Clone
+    name: Clone
+    isExternal: true
+  - name: (
+  - name: )
+- uid: Google.Protobuf.IDeepCloneable`1.Clone
+  commentId: M:Google.Protobuf.IDeepCloneable`1.Clone
+  isExternal: true
+  name: Clone()
+  nameWithType: IDeepCloneable<T>.Clone()
+  fullName: Google.Protobuf.IDeepCloneable<T>.Clone()
+  nameWithType.vb: IDeepCloneable(Of T).Clone()
+  fullName.vb: Google.Protobuf.IDeepCloneable(Of T).Clone()
+  spec.csharp:
+  - uid: Google.Protobuf.IDeepCloneable`1.Clone
+    name: Clone
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IDeepCloneable`1.Clone
+    name: Clone
+    isExternal: true
+  - name: (
+  - name: )
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: ServiceLayer.SLL2RouteKey.BdName*
+  commentId: Overload:ServiceLayer.SLL2RouteKey.BdName
+  href: ServiceLayer.SLL2RouteKey.html#ServiceLayer.SLL2RouteKey.BdName
+  name: BdName
+  nameWithType: SLL2RouteKey.BdName
+  fullName: ServiceLayer.SLL2RouteKey.BdName
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: ServiceLayer.SLL2RouteKey.Type*
+  commentId: Overload:ServiceLayer.SLL2RouteKey.Type
+  href: ServiceLayer.SLL2RouteKey.html#ServiceLayer.SLL2RouteKey.Type
+  name: Type
+  nameWithType: SLL2RouteKey.Type
+  fullName: ServiceLayer.SLL2RouteKey.Type
+- uid: ServiceLayer.SLL2RouteType
+  commentId: T:ServiceLayer.SLL2RouteType
+  parent: ServiceLayer
+  href: ServiceLayer.SLL2RouteType.html
+  name: SLL2RouteType
+  nameWithType: SLL2RouteType
+  fullName: ServiceLayer.SLL2RouteType
+- uid: ServiceLayer.SLL2RouteKey.MacKey*
+  commentId: Overload:ServiceLayer.SLL2RouteKey.MacKey
+  href: ServiceLayer.SLL2RouteKey.html#ServiceLayer.SLL2RouteKey.MacKey
+  name: MacKey
+  nameWithType: SLL2RouteKey.MacKey
+  fullName: ServiceLayer.SLL2RouteKey.MacKey
+- uid: ServiceLayer.SLL2MacRouteKey
+  commentId: T:ServiceLayer.SLL2MacRouteKey
+  parent: ServiceLayer
+  href: ServiceLayer.SLL2MacRouteKey.html
+  name: SLL2MacRouteKey
+  nameWithType: SLL2MacRouteKey
+  fullName: ServiceLayer.SLL2MacRouteKey
+- uid: ServiceLayer.SLL2RouteKey.ImetKey*
+  commentId: Overload:ServiceLayer.SLL2RouteKey.ImetKey
+  href: ServiceLayer.SLL2RouteKey.html#ServiceLayer.SLL2RouteKey.ImetKey
+  name: ImetKey
+  nameWithType: SLL2RouteKey.ImetKey
+  fullName: ServiceLayer.SLL2RouteKey.ImetKey
+- uid: ServiceLayer.SLL2ImetRouteKey
+  commentId: T:ServiceLayer.SLL2ImetRouteKey
+  parent: ServiceLayer
+  href: ServiceLayer.SLL2ImetRouteKey.html
+  name: SLL2ImetRouteKey
+  nameWithType: SLL2ImetRouteKey
+  fullName: ServiceLayer.SLL2ImetRouteKey
+- uid: ServiceLayer.SLL2RouteKey.EventCase*
+  commentId: Overload:ServiceLayer.SLL2RouteKey.EventCase
+  href: ServiceLayer.SLL2RouteKey.html#ServiceLayer.SLL2RouteKey.EventCase
+  name: EventCase
+  nameWithType: SLL2RouteKey.EventCase
+  fullName: ServiceLayer.SLL2RouteKey.EventCase
+- uid: ServiceLayer.SLL2RouteKey.EventOneofCase
+  commentId: T:ServiceLayer.SLL2RouteKey.EventOneofCase
+  parent: ServiceLayer
+  href: ServiceLayer.SLL2RouteKey.html
+  name: SLL2RouteKey.EventOneofCase
+  nameWithType: SLL2RouteKey.EventOneofCase
+  fullName: ServiceLayer.SLL2RouteKey.EventOneofCase
+  spec.csharp:
+  - uid: ServiceLayer.SLL2RouteKey
+    name: SLL2RouteKey
+    href: ServiceLayer.SLL2RouteKey.html
+  - name: .
+  - uid: ServiceLayer.SLL2RouteKey.EventOneofCase
+    name: EventOneofCase
+    href: ServiceLayer.SLL2RouteKey.EventOneofCase.html
+  spec.vb:
+  - uid: ServiceLayer.SLL2RouteKey
+    name: SLL2RouteKey
+    href: ServiceLayer.SLL2RouteKey.html
+  - name: .
+  - uid: ServiceLayer.SLL2RouteKey.EventOneofCase
+    name: EventOneofCase
+    href: ServiceLayer.SLL2RouteKey.EventOneofCase.html
+- uid: ServiceLayer.SLL2RouteKey.ClearEvent*
+  commentId: Overload:ServiceLayer.SLL2RouteKey.ClearEvent
+  href: ServiceLayer.SLL2RouteKey.html#ServiceLayer.SLL2RouteKey.ClearEvent
+  name: ClearEvent
+  nameWithType: SLL2RouteKey.ClearEvent
+  fullName: ServiceLayer.SLL2RouteKey.ClearEvent
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: ServiceLayer.SLL2RouteKey.Equals*
+  commentId: Overload:ServiceLayer.SLL2RouteKey.Equals
+  href: ServiceLayer.SLL2RouteKey.html#ServiceLayer.SLL2RouteKey.Equals(System.Object)
+  name: Equals
+  nameWithType: SLL2RouteKey.Equals
+  fullName: ServiceLayer.SLL2RouteKey.Equals
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: System.IEquatable{ServiceLayer.SLL2RouteKey}.Equals(ServiceLayer.SLL2RouteKey)
+  commentId: M:System.IEquatable{ServiceLayer.SLL2RouteKey}.Equals(ServiceLayer.SLL2RouteKey)
+  parent: System.IEquatable{ServiceLayer.SLL2RouteKey}
+  definition: System.IEquatable`1.Equals(`0)
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-servicelayer.sll2routekey-.equals#system-iequatable((servicelayer-sll2routekey))-equals(servicelayer-sll2routekey)
+  name: Equals(SLL2RouteKey)
+  nameWithType: IEquatable<SLL2RouteKey>.Equals(SLL2RouteKey)
+  fullName: System.IEquatable<ServiceLayer.SLL2RouteKey>.Equals(ServiceLayer.SLL2RouteKey)
+  nameWithType.vb: IEquatable(Of SLL2RouteKey).Equals(SLL2RouteKey)
+  fullName.vb: System.IEquatable(Of ServiceLayer.SLL2RouteKey).Equals(ServiceLayer.SLL2RouteKey)
+  spec.csharp:
+  - uid: System.IEquatable{ServiceLayer.SLL2RouteKey}.Equals(ServiceLayer.SLL2RouteKey)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-servicelayer.sll2routekey-.equals#system-iequatable((servicelayer-sll2routekey))-equals(servicelayer-sll2routekey)
+  - name: (
+  - uid: ServiceLayer.SLL2RouteKey
+    name: SLL2RouteKey
+    href: ServiceLayer.SLL2RouteKey.html
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable{ServiceLayer.SLL2RouteKey}.Equals(ServiceLayer.SLL2RouteKey)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-servicelayer.sll2routekey-.equals#system-iequatable((servicelayer-sll2routekey))-equals(servicelayer-sll2routekey)
+  - name: (
+  - uid: ServiceLayer.SLL2RouteKey
+    name: SLL2RouteKey
+    href: ServiceLayer.SLL2RouteKey.html
+  - name: )
+- uid: System.IEquatable`1.Equals(`0)
+  commentId: M:System.IEquatable`1.Equals(`0)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(T)
+  nameWithType: IEquatable<T>.Equals(T)
+  fullName: System.IEquatable<T>.Equals(T)
+  nameWithType.vb: IEquatable(Of T).Equals(T)
+  fullName.vb: System.IEquatable(Of T).Equals(T)
+  spec.csharp:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: ServiceLayer.SLL2RouteKey.GetHashCode*
+  commentId: Overload:ServiceLayer.SLL2RouteKey.GetHashCode
+  href: ServiceLayer.SLL2RouteKey.html#ServiceLayer.SLL2RouteKey.GetHashCode
+  name: GetHashCode
+  nameWithType: SLL2RouteKey.GetHashCode
+  fullName: ServiceLayer.SLL2RouteKey.GetHashCode
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: ServiceLayer.SLL2RouteKey.ToString*
+  commentId: Overload:ServiceLayer.SLL2RouteKey.ToString
+  href: ServiceLayer.SLL2RouteKey.html#ServiceLayer.SLL2RouteKey.ToString
+  name: ToString
+  nameWithType: SLL2RouteKey.ToString
+  fullName: ServiceLayer.SLL2RouteKey.ToString
+- uid: ServiceLayer.SLL2RouteKey.WriteTo*
+  commentId: Overload:ServiceLayer.SLL2RouteKey.WriteTo
+  href: ServiceLayer.SLL2RouteKey.html#ServiceLayer.SLL2RouteKey.WriteTo(Google.Protobuf.CodedOutputStream)
+  name: WriteTo
+  nameWithType: SLL2RouteKey.WriteTo
+  fullName: ServiceLayer.SLL2RouteKey.WriteTo
+- uid: Google.Protobuf.IMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+  commentId: M:Google.Protobuf.IMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+  parent: Google.Protobuf.IMessage
+  isExternal: true
+  name: WriteTo(CodedOutputStream)
+  nameWithType: IMessage.WriteTo(CodedOutputStream)
+  fullName: Google.Protobuf.IMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+    name: WriteTo
+    isExternal: true
+  - name: (
+  - uid: Google.Protobuf.CodedOutputStream
+    name: CodedOutputStream
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+    name: WriteTo
+    isExternal: true
+  - name: (
+  - uid: Google.Protobuf.CodedOutputStream
+    name: CodedOutputStream
+    isExternal: true
+  - name: )
+- uid: Google.Protobuf.CodedOutputStream
+  commentId: T:Google.Protobuf.CodedOutputStream
+  parent: Google.Protobuf
+  isExternal: true
+  name: CodedOutputStream
+  nameWithType: CodedOutputStream
+  fullName: Google.Protobuf.CodedOutputStream
+- uid: ServiceLayer.SLL2RouteKey.CalculateSize*
+  commentId: Overload:ServiceLayer.SLL2RouteKey.CalculateSize
+  href: ServiceLayer.SLL2RouteKey.html#ServiceLayer.SLL2RouteKey.CalculateSize
+  name: CalculateSize
+  nameWithType: SLL2RouteKey.CalculateSize
+  fullName: ServiceLayer.SLL2RouteKey.CalculateSize
+- uid: Google.Protobuf.IMessage.CalculateSize
+  commentId: M:Google.Protobuf.IMessage.CalculateSize
+  parent: Google.Protobuf.IMessage
+  isExternal: true
+  name: CalculateSize()
+  nameWithType: IMessage.CalculateSize()
+  fullName: Google.Protobuf.IMessage.CalculateSize()
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage.CalculateSize
+    name: CalculateSize
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IMessage.CalculateSize
+    name: CalculateSize
+    isExternal: true
+  - name: (
+  - name: )
+- uid: ServiceLayer.SLL2RouteKey.MergeFrom*
+  commentId: Overload:ServiceLayer.SLL2RouteKey.MergeFrom
+  href: ServiceLayer.SLL2RouteKey.html#ServiceLayer.SLL2RouteKey.MergeFrom(ServiceLayer.SLL2RouteKey)
+  name: MergeFrom
+  nameWithType: SLL2RouteKey.MergeFrom
+  fullName: ServiceLayer.SLL2RouteKey.MergeFrom
+- uid: Google.Protobuf.IMessage{ServiceLayer.SLL2RouteKey}.MergeFrom(ServiceLayer.SLL2RouteKey)
+  commentId: M:Google.Protobuf.IMessage{ServiceLayer.SLL2RouteKey}.MergeFrom(ServiceLayer.SLL2RouteKey)
+  parent: Google.Protobuf.IMessage{ServiceLayer.SLL2RouteKey}
+  definition: Google.Protobuf.IMessage`1.MergeFrom(`0)
+  href: ServiceLayer.SLL2RouteKey.html
+  name: MergeFrom(SLL2RouteKey)
+  nameWithType: IMessage<SLL2RouteKey>.MergeFrom(SLL2RouteKey)
+  fullName: Google.Protobuf.IMessage<ServiceLayer.SLL2RouteKey>.MergeFrom(ServiceLayer.SLL2RouteKey)
+  nameWithType.vb: IMessage(Of SLL2RouteKey).MergeFrom(SLL2RouteKey)
+  fullName.vb: Google.Protobuf.IMessage(Of ServiceLayer.SLL2RouteKey).MergeFrom(ServiceLayer.SLL2RouteKey)
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage{ServiceLayer.SLL2RouteKey}.MergeFrom(ServiceLayer.SLL2RouteKey)
+    name: MergeFrom
+    isExternal: true
+  - name: (
+  - uid: ServiceLayer.SLL2RouteKey
+    name: SLL2RouteKey
+    href: ServiceLayer.SLL2RouteKey.html
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IMessage{ServiceLayer.SLL2RouteKey}.MergeFrom(ServiceLayer.SLL2RouteKey)
+    name: MergeFrom
+    isExternal: true
+  - name: (
+  - uid: ServiceLayer.SLL2RouteKey
+    name: SLL2RouteKey
+    href: ServiceLayer.SLL2RouteKey.html
+  - name: )
+- uid: Google.Protobuf.IMessage`1.MergeFrom(`0)
+  commentId: M:Google.Protobuf.IMessage`1.MergeFrom(`0)
+  isExternal: true
+  name: MergeFrom(T)
+  nameWithType: IMessage<T>.MergeFrom(T)
+  fullName: Google.Protobuf.IMessage<T>.MergeFrom(T)
+  nameWithType.vb: IMessage(Of T).MergeFrom(T)
+  fullName.vb: Google.Protobuf.IMessage(Of T).MergeFrom(T)
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage`1.MergeFrom(`0)
+    name: MergeFrom
+    isExternal: true
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IMessage`1.MergeFrom(`0)
+    name: MergeFrom
+    isExternal: true
+  - name: (
+  - name: T
+  - name: )
+- uid: Google.Protobuf.IMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+  commentId: M:Google.Protobuf.IMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+  parent: Google.Protobuf.IMessage
+  isExternal: true
+  name: MergeFrom(CodedInputStream)
+  nameWithType: IMessage.MergeFrom(CodedInputStream)
+  fullName: Google.Protobuf.IMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+    name: MergeFrom
+    isExternal: true
+  - name: (
+  - uid: Google.Protobuf.CodedInputStream
+    name: CodedInputStream
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+    name: MergeFrom
+    isExternal: true
+  - name: (
+  - uid: Google.Protobuf.CodedInputStream
+    name: CodedInputStream
+    isExternal: true
+  - name: )
+- uid: Google.Protobuf.CodedInputStream
+  commentId: T:Google.Protobuf.CodedInputStream
+  parent: Google.Protobuf
+  isExternal: true
+  name: CodedInputStream
+  nameWithType: CodedInputStream
+  fullName: Google.Protobuf.CodedInputStream

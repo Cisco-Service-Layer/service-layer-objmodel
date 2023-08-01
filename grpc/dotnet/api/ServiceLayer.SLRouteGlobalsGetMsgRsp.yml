@@ -1,0 +1,1560 @@
+### YamlMime:ManagedReference
+items:
+- uid: ServiceLayer.SLRouteGlobalsGetMsgRsp
+  commentId: T:ServiceLayer.SLRouteGlobalsGetMsgRsp
+  id: SLRouteGlobalsGetMsgRsp
+  parent: ServiceLayer
+  children:
+  - ServiceLayer.SLRouteGlobalsGetMsgRsp.#ctor
+  - ServiceLayer.SLRouteGlobalsGetMsgRsp.#ctor(ServiceLayer.SLRouteGlobalsGetMsgRsp)
+  - ServiceLayer.SLRouteGlobalsGetMsgRsp.CalculateSize
+  - ServiceLayer.SLRouteGlobalsGetMsgRsp.Clone
+  - ServiceLayer.SLRouteGlobalsGetMsgRsp.Descriptor
+  - ServiceLayer.SLRouteGlobalsGetMsgRsp.Equals(ServiceLayer.SLRouteGlobalsGetMsgRsp)
+  - ServiceLayer.SLRouteGlobalsGetMsgRsp.Equals(System.Object)
+  - ServiceLayer.SLRouteGlobalsGetMsgRsp.ErrStatus
+  - ServiceLayer.SLRouteGlobalsGetMsgRsp.ErrStatusFieldNumber
+  - ServiceLayer.SLRouteGlobalsGetMsgRsp.GetHashCode
+  - ServiceLayer.SLRouteGlobalsGetMsgRsp.MaxRoutePerRoutemsg
+  - ServiceLayer.SLRouteGlobalsGetMsgRsp.MaxRoutePerRoutemsgFieldNumber
+  - ServiceLayer.SLRouteGlobalsGetMsgRsp.MaxVrfregPerVrfregmsg
+  - ServiceLayer.SLRouteGlobalsGetMsgRsp.MaxVrfregPerVrfregmsgFieldNumber
+  - ServiceLayer.SLRouteGlobalsGetMsgRsp.MergeFrom(Google.Protobuf.CodedInputStream)
+  - ServiceLayer.SLRouteGlobalsGetMsgRsp.MergeFrom(ServiceLayer.SLRouteGlobalsGetMsgRsp)
+  - ServiceLayer.SLRouteGlobalsGetMsgRsp.Parser
+  - ServiceLayer.SLRouteGlobalsGetMsgRsp.ToString
+  - ServiceLayer.SLRouteGlobalsGetMsgRsp.WriteTo(Google.Protobuf.CodedOutputStream)
+  langs:
+  - csharp
+  - vb
+  name: SLRouteGlobalsGetMsgRsp
+  nameWithType: SLRouteGlobalsGetMsgRsp
+  fullName: ServiceLayer.SLRouteGlobalsGetMsgRsp
+  type: Class
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlRouteCommon.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: SLRouteGlobalsGetMsgRsp
+    path: src/gencs/SlRouteCommon.cs
+    startLine: 312
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Route Globals Get Message Response
+  example: []
+  syntax:
+    content: 'public sealed class SLRouteGlobalsGetMsgRsp : IMessage<SLRouteGlobalsGetMsgRsp>, IEquatable<SLRouteGlobalsGetMsgRsp>, IDeepCloneable<SLRouteGlobalsGetMsgRsp>, IBufferMessage, IMessage'
+    content.vb: Public NotInheritable Class SLRouteGlobalsGetMsgRsp Implements IMessage(Of SLRouteGlobalsGetMsgRsp), IEquatable(Of SLRouteGlobalsGetMsgRsp), IDeepCloneable(Of SLRouteGlobalsGetMsgRsp), IBufferMessage, IMessage
+  inheritance:
+  - System.Object
+  implements:
+  - Google.Protobuf.IMessage{ServiceLayer.SLRouteGlobalsGetMsgRsp}
+  - System.IEquatable{ServiceLayer.SLRouteGlobalsGetMsgRsp}
+  - Google.Protobuf.IDeepCloneable{ServiceLayer.SLRouteGlobalsGetMsgRsp}
+  - Google.Protobuf.IBufferMessage
+  - Google.Protobuf.IMessage
+  inheritedMembers:
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: ServiceLayer.SLRouteGlobalsGetMsgRsp.Parser
+  commentId: P:ServiceLayer.SLRouteGlobalsGetMsgRsp.Parser
+  id: Parser
+  parent: ServiceLayer.SLRouteGlobalsGetMsgRsp
+  langs:
+  - csharp
+  - vb
+  name: Parser
+  nameWithType: SLRouteGlobalsGetMsgRsp.Parser
+  fullName: ServiceLayer.SLRouteGlobalsGetMsgRsp.Parser
+  type: Property
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlRouteCommon.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: Parser
+    path: src/gencs/SlRouteCommon.cs
+    startLine: 319
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  syntax:
+    content: public static MessageParser<SLRouteGlobalsGetMsgRsp> Parser { get; }
+    parameters: []
+    return:
+      type: Google.Protobuf.MessageParser{ServiceLayer.SLRouteGlobalsGetMsgRsp}
+    content.vb: Public Shared ReadOnly Property Parser As MessageParser(Of SLRouteGlobalsGetMsgRsp)
+  overload: ServiceLayer.SLRouteGlobalsGetMsgRsp.Parser*
+- uid: ServiceLayer.SLRouteGlobalsGetMsgRsp.Descriptor
+  commentId: P:ServiceLayer.SLRouteGlobalsGetMsgRsp.Descriptor
+  id: Descriptor
+  parent: ServiceLayer.SLRouteGlobalsGetMsgRsp
+  langs:
+  - csharp
+  - vb
+  name: Descriptor
+  nameWithType: SLRouteGlobalsGetMsgRsp.Descriptor
+  fullName: ServiceLayer.SLRouteGlobalsGetMsgRsp.Descriptor
+  type: Property
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlRouteCommon.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: Descriptor
+    path: src/gencs/SlRouteCommon.cs
+    startLine: 323
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  syntax:
+    content: public static MessageDescriptor Descriptor { get; }
+    parameters: []
+    return:
+      type: Google.Protobuf.Reflection.MessageDescriptor
+    content.vb: Public Shared ReadOnly Property Descriptor As MessageDescriptor
+  overload: ServiceLayer.SLRouteGlobalsGetMsgRsp.Descriptor*
+- uid: ServiceLayer.SLRouteGlobalsGetMsgRsp.#ctor
+  commentId: M:ServiceLayer.SLRouteGlobalsGetMsgRsp.#ctor
+  id: '#ctor'
+  parent: ServiceLayer.SLRouteGlobalsGetMsgRsp
+  langs:
+  - csharp
+  - vb
+  name: SLRouteGlobalsGetMsgRsp()
+  nameWithType: SLRouteGlobalsGetMsgRsp.SLRouteGlobalsGetMsgRsp()
+  fullName: ServiceLayer.SLRouteGlobalsGetMsgRsp.SLRouteGlobalsGetMsgRsp()
+  type: Constructor
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlRouteCommon.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: .ctor
+    path: src/gencs/SlRouteCommon.cs
+    startLine: 335
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  syntax:
+    content: public SLRouteGlobalsGetMsgRsp()
+    content.vb: Public Sub New()
+  overload: ServiceLayer.SLRouteGlobalsGetMsgRsp.#ctor*
+  nameWithType.vb: SLRouteGlobalsGetMsgRsp.New()
+  fullName.vb: ServiceLayer.SLRouteGlobalsGetMsgRsp.New()
+  name.vb: New()
+- uid: ServiceLayer.SLRouteGlobalsGetMsgRsp.#ctor(ServiceLayer.SLRouteGlobalsGetMsgRsp)
+  commentId: M:ServiceLayer.SLRouteGlobalsGetMsgRsp.#ctor(ServiceLayer.SLRouteGlobalsGetMsgRsp)
+  id: '#ctor(ServiceLayer.SLRouteGlobalsGetMsgRsp)'
+  parent: ServiceLayer.SLRouteGlobalsGetMsgRsp
+  langs:
+  - csharp
+  - vb
+  name: SLRouteGlobalsGetMsgRsp(SLRouteGlobalsGetMsgRsp)
+  nameWithType: SLRouteGlobalsGetMsgRsp.SLRouteGlobalsGetMsgRsp(SLRouteGlobalsGetMsgRsp)
+  fullName: ServiceLayer.SLRouteGlobalsGetMsgRsp.SLRouteGlobalsGetMsgRsp(ServiceLayer.SLRouteGlobalsGetMsgRsp)
+  type: Constructor
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlRouteCommon.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: .ctor
+    path: src/gencs/SlRouteCommon.cs
+    startLine: 343
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  syntax:
+    content: public SLRouteGlobalsGetMsgRsp(SLRouteGlobalsGetMsgRsp other)
+    parameters:
+    - id: other
+      type: ServiceLayer.SLRouteGlobalsGetMsgRsp
+    content.vb: Public Sub New(other As SLRouteGlobalsGetMsgRsp)
+  overload: ServiceLayer.SLRouteGlobalsGetMsgRsp.#ctor*
+  nameWithType.vb: SLRouteGlobalsGetMsgRsp.New(SLRouteGlobalsGetMsgRsp)
+  fullName.vb: ServiceLayer.SLRouteGlobalsGetMsgRsp.New(ServiceLayer.SLRouteGlobalsGetMsgRsp)
+  name.vb: New(SLRouteGlobalsGetMsgRsp)
+- uid: ServiceLayer.SLRouteGlobalsGetMsgRsp.Clone
+  commentId: M:ServiceLayer.SLRouteGlobalsGetMsgRsp.Clone
+  id: Clone
+  parent: ServiceLayer.SLRouteGlobalsGetMsgRsp
+  langs:
+  - csharp
+  - vb
+  name: Clone()
+  nameWithType: SLRouteGlobalsGetMsgRsp.Clone()
+  fullName: ServiceLayer.SLRouteGlobalsGetMsgRsp.Clone()
+  type: Method
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlRouteCommon.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: Clone
+    path: src/gencs/SlRouteCommon.cs
+    startLine: 352
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Creates a deep clone of this object.
+  example: []
+  syntax:
+    content: public SLRouteGlobalsGetMsgRsp Clone()
+    return:
+      type: ServiceLayer.SLRouteGlobalsGetMsgRsp
+      description: A deep clone of this object.
+    content.vb: Public Function Clone() As SLRouteGlobalsGetMsgRsp
+  overload: ServiceLayer.SLRouteGlobalsGetMsgRsp.Clone*
+  implements:
+  - Google.Protobuf.IDeepCloneable{ServiceLayer.SLRouteGlobalsGetMsgRsp}.Clone
+- uid: ServiceLayer.SLRouteGlobalsGetMsgRsp.ErrStatusFieldNumber
+  commentId: F:ServiceLayer.SLRouteGlobalsGetMsgRsp.ErrStatusFieldNumber
+  id: ErrStatusFieldNumber
+  parent: ServiceLayer.SLRouteGlobalsGetMsgRsp
+  langs:
+  - csharp
+  - vb
+  name: ErrStatusFieldNumber
+  nameWithType: SLRouteGlobalsGetMsgRsp.ErrStatusFieldNumber
+  fullName: ServiceLayer.SLRouteGlobalsGetMsgRsp.ErrStatusFieldNumber
+  type: Field
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlRouteCommon.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: ErrStatusFieldNumber
+    path: src/gencs/SlRouteCommon.cs
+    startLine: 359
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Field number for the "ErrStatus" field.
+  example: []
+  syntax:
+    content: public const int ErrStatusFieldNumber = 1
+    return:
+      type: System.Int32
+    content.vb: Public Const ErrStatusFieldNumber As Integer = 1
+- uid: ServiceLayer.SLRouteGlobalsGetMsgRsp.ErrStatus
+  commentId: P:ServiceLayer.SLRouteGlobalsGetMsgRsp.ErrStatus
+  id: ErrStatus
+  parent: ServiceLayer.SLRouteGlobalsGetMsgRsp
+  langs:
+  - csharp
+  - vb
+  name: ErrStatus
+  nameWithType: SLRouteGlobalsGetMsgRsp.ErrStatus
+  fullName: ServiceLayer.SLRouteGlobalsGetMsgRsp.ErrStatus
+  type: Property
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlRouteCommon.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: ErrStatus
+    path: src/gencs/SlRouteCommon.cs
+    startLine: 364
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Corresponding error code
+  example: []
+  syntax:
+    content: public SLErrorStatus ErrStatus { get; set; }
+    parameters: []
+    return:
+      type: ServiceLayer.SLErrorStatus
+    content.vb: Public Property ErrStatus As SLErrorStatus
+  overload: ServiceLayer.SLRouteGlobalsGetMsgRsp.ErrStatus*
+- uid: ServiceLayer.SLRouteGlobalsGetMsgRsp.MaxVrfregPerVrfregmsgFieldNumber
+  commentId: F:ServiceLayer.SLRouteGlobalsGetMsgRsp.MaxVrfregPerVrfregmsgFieldNumber
+  id: MaxVrfregPerVrfregmsgFieldNumber
+  parent: ServiceLayer.SLRouteGlobalsGetMsgRsp
+  langs:
+  - csharp
+  - vb
+  name: MaxVrfregPerVrfregmsgFieldNumber
+  nameWithType: SLRouteGlobalsGetMsgRsp.MaxVrfregPerVrfregmsgFieldNumber
+  fullName: ServiceLayer.SLRouteGlobalsGetMsgRsp.MaxVrfregPerVrfregmsgFieldNumber
+  type: Field
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlRouteCommon.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: MaxVrfregPerVrfregmsgFieldNumber
+    path: src/gencs/SlRouteCommon.cs
+    startLine: 374
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Field number for the "MaxVrfregPerVrfregmsg" field.
+  example: []
+  syntax:
+    content: public const int MaxVrfregPerVrfregmsgFieldNumber = 2
+    return:
+      type: System.Int32
+    content.vb: Public Const MaxVrfregPerVrfregmsgFieldNumber As Integer = 2
+- uid: ServiceLayer.SLRouteGlobalsGetMsgRsp.MaxVrfregPerVrfregmsg
+  commentId: P:ServiceLayer.SLRouteGlobalsGetMsgRsp.MaxVrfregPerVrfregmsg
+  id: MaxVrfregPerVrfregmsg
+  parent: ServiceLayer.SLRouteGlobalsGetMsgRsp
+  langs:
+  - csharp
+  - vb
+  name: MaxVrfregPerVrfregmsg
+  nameWithType: SLRouteGlobalsGetMsgRsp.MaxVrfregPerVrfregmsg
+  fullName: ServiceLayer.SLRouteGlobalsGetMsgRsp.MaxVrfregPerVrfregmsg
+  type: Property
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlRouteCommon.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: MaxVrfregPerVrfregmsg
+    path: src/gencs/SlRouteCommon.cs
+    startLine: 379
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Max VrfReg objects within a single VrfRegMsg message.
+  example: []
+  syntax:
+    content: public uint MaxVrfregPerVrfregmsg { get; set; }
+    parameters: []
+    return:
+      type: System.UInt32
+    content.vb: Public Property MaxVrfregPerVrfregmsg As UInteger
+  overload: ServiceLayer.SLRouteGlobalsGetMsgRsp.MaxVrfregPerVrfregmsg*
+- uid: ServiceLayer.SLRouteGlobalsGetMsgRsp.MaxRoutePerRoutemsgFieldNumber
+  commentId: F:ServiceLayer.SLRouteGlobalsGetMsgRsp.MaxRoutePerRoutemsgFieldNumber
+  id: MaxRoutePerRoutemsgFieldNumber
+  parent: ServiceLayer.SLRouteGlobalsGetMsgRsp
+  langs:
+  - csharp
+  - vb
+  name: MaxRoutePerRoutemsgFieldNumber
+  nameWithType: SLRouteGlobalsGetMsgRsp.MaxRoutePerRoutemsgFieldNumber
+  fullName: ServiceLayer.SLRouteGlobalsGetMsgRsp.MaxRoutePerRoutemsgFieldNumber
+  type: Field
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlRouteCommon.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: MaxRoutePerRoutemsgFieldNumber
+    path: src/gencs/SlRouteCommon.cs
+    startLine: 389
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Field number for the "MaxRoutePerRoutemsg" field.
+  example: []
+  syntax:
+    content: public const int MaxRoutePerRoutemsgFieldNumber = 3
+    return:
+      type: System.Int32
+    content.vb: Public Const MaxRoutePerRoutemsgFieldNumber As Integer = 3
+- uid: ServiceLayer.SLRouteGlobalsGetMsgRsp.MaxRoutePerRoutemsg
+  commentId: P:ServiceLayer.SLRouteGlobalsGetMsgRsp.MaxRoutePerRoutemsg
+  id: MaxRoutePerRoutemsg
+  parent: ServiceLayer.SLRouteGlobalsGetMsgRsp
+  langs:
+  - csharp
+  - vb
+  name: MaxRoutePerRoutemsg
+  nameWithType: SLRouteGlobalsGetMsgRsp.MaxRoutePerRoutemsg
+  fullName: ServiceLayer.SLRouteGlobalsGetMsgRsp.MaxRoutePerRoutemsg
+  type: Property
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlRouteCommon.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: MaxRoutePerRoutemsg
+    path: src/gencs/SlRouteCommon.cs
+    startLine: 394
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Max Route objects within a single RouteMsg message.
+  example: []
+  syntax:
+    content: public uint MaxRoutePerRoutemsg { get; set; }
+    parameters: []
+    return:
+      type: System.UInt32
+    content.vb: Public Property MaxRoutePerRoutemsg As UInteger
+  overload: ServiceLayer.SLRouteGlobalsGetMsgRsp.MaxRoutePerRoutemsg*
+- uid: ServiceLayer.SLRouteGlobalsGetMsgRsp.Equals(System.Object)
+  commentId: M:ServiceLayer.SLRouteGlobalsGetMsgRsp.Equals(System.Object)
+  id: Equals(System.Object)
+  parent: ServiceLayer.SLRouteGlobalsGetMsgRsp
+  langs:
+  - csharp
+  - vb
+  name: Equals(object)
+  nameWithType: SLRouteGlobalsGetMsgRsp.Equals(object)
+  fullName: ServiceLayer.SLRouteGlobalsGetMsgRsp.Equals(object)
+  type: Method
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlRouteCommon.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: Equals
+    path: src/gencs/SlRouteCommon.cs
+    startLine: 403
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Determines whether the specified object is equal to the current object.
+  example: []
+  syntax:
+    content: public override bool Equals(object other)
+    parameters:
+    - id: other
+      type: System.Object
+    return:
+      type: System.Boolean
+      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the specified object  is equal to the current object; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+    content.vb: Public Overrides Function Equals(other As Object) As Boolean
+  overridden: System.Object.Equals(System.Object)
+  overload: ServiceLayer.SLRouteGlobalsGetMsgRsp.Equals*
+  nameWithType.vb: SLRouteGlobalsGetMsgRsp.Equals(Object)
+  fullName.vb: ServiceLayer.SLRouteGlobalsGetMsgRsp.Equals(Object)
+  name.vb: Equals(Object)
+- uid: ServiceLayer.SLRouteGlobalsGetMsgRsp.Equals(ServiceLayer.SLRouteGlobalsGetMsgRsp)
+  commentId: M:ServiceLayer.SLRouteGlobalsGetMsgRsp.Equals(ServiceLayer.SLRouteGlobalsGetMsgRsp)
+  id: Equals(ServiceLayer.SLRouteGlobalsGetMsgRsp)
+  parent: ServiceLayer.SLRouteGlobalsGetMsgRsp
+  langs:
+  - csharp
+  - vb
+  name: Equals(SLRouteGlobalsGetMsgRsp)
+  nameWithType: SLRouteGlobalsGetMsgRsp.Equals(SLRouteGlobalsGetMsgRsp)
+  fullName: ServiceLayer.SLRouteGlobalsGetMsgRsp.Equals(ServiceLayer.SLRouteGlobalsGetMsgRsp)
+  type: Method
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlRouteCommon.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: Equals
+    path: src/gencs/SlRouteCommon.cs
+    startLine: 409
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Indicates whether the current object is equal to another object of the same type.
+  example: []
+  syntax:
+    content: public bool Equals(SLRouteGlobalsGetMsgRsp other)
+    parameters:
+    - id: other
+      type: ServiceLayer.SLRouteGlobalsGetMsgRsp
+      description: An object to compare with this object.
+    return:
+      type: System.Boolean
+      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the current object is equal to the <code class="paramref">other</code> parameter; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+    content.vb: Public Function Equals(other As SLRouteGlobalsGetMsgRsp) As Boolean
+  overload: ServiceLayer.SLRouteGlobalsGetMsgRsp.Equals*
+  implements:
+  - System.IEquatable{ServiceLayer.SLRouteGlobalsGetMsgRsp}.Equals(ServiceLayer.SLRouteGlobalsGetMsgRsp)
+- uid: ServiceLayer.SLRouteGlobalsGetMsgRsp.GetHashCode
+  commentId: M:ServiceLayer.SLRouteGlobalsGetMsgRsp.GetHashCode
+  id: GetHashCode
+  parent: ServiceLayer.SLRouteGlobalsGetMsgRsp
+  langs:
+  - csharp
+  - vb
+  name: GetHashCode()
+  nameWithType: SLRouteGlobalsGetMsgRsp.GetHashCode()
+  fullName: ServiceLayer.SLRouteGlobalsGetMsgRsp.GetHashCode()
+  type: Method
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlRouteCommon.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: GetHashCode
+    path: src/gencs/SlRouteCommon.cs
+    startLine: 424
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Serves as the default hash function.
+  example: []
+  syntax:
+    content: public override int GetHashCode()
+    return:
+      type: System.Int32
+      description: A hash code for the current object.
+    content.vb: Public Overrides Function GetHashCode() As Integer
+  overridden: System.Object.GetHashCode
+  overload: ServiceLayer.SLRouteGlobalsGetMsgRsp.GetHashCode*
+- uid: ServiceLayer.SLRouteGlobalsGetMsgRsp.ToString
+  commentId: M:ServiceLayer.SLRouteGlobalsGetMsgRsp.ToString
+  id: ToString
+  parent: ServiceLayer.SLRouteGlobalsGetMsgRsp
+  langs:
+  - csharp
+  - vb
+  name: ToString()
+  nameWithType: SLRouteGlobalsGetMsgRsp.ToString()
+  fullName: ServiceLayer.SLRouteGlobalsGetMsgRsp.ToString()
+  type: Method
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlRouteCommon.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: ToString
+    path: src/gencs/SlRouteCommon.cs
+    startLine: 437
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Returns a string that represents the current object.
+  example: []
+  syntax:
+    content: public override string ToString()
+    return:
+      type: System.String
+      description: A string that represents the current object.
+    content.vb: Public Overrides Function ToString() As String
+  overridden: System.Object.ToString
+  overload: ServiceLayer.SLRouteGlobalsGetMsgRsp.ToString*
+- uid: ServiceLayer.SLRouteGlobalsGetMsgRsp.WriteTo(Google.Protobuf.CodedOutputStream)
+  commentId: M:ServiceLayer.SLRouteGlobalsGetMsgRsp.WriteTo(Google.Protobuf.CodedOutputStream)
+  id: WriteTo(Google.Protobuf.CodedOutputStream)
+  parent: ServiceLayer.SLRouteGlobalsGetMsgRsp
+  langs:
+  - csharp
+  - vb
+  name: WriteTo(CodedOutputStream)
+  nameWithType: SLRouteGlobalsGetMsgRsp.WriteTo(CodedOutputStream)
+  fullName: ServiceLayer.SLRouteGlobalsGetMsgRsp.WriteTo(Google.Protobuf.CodedOutputStream)
+  type: Method
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlRouteCommon.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: WriteTo
+    path: src/gencs/SlRouteCommon.cs
+    startLine: 443
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Writes the data to the given coded output stream.
+  example: []
+  syntax:
+    content: public void WriteTo(CodedOutputStream output)
+    parameters:
+    - id: output
+      type: Google.Protobuf.CodedOutputStream
+      description: Coded output stream to write the data to. Must not be null.
+    content.vb: Public Sub WriteTo(output As CodedOutputStream)
+  overload: ServiceLayer.SLRouteGlobalsGetMsgRsp.WriteTo*
+  implements:
+  - Google.Protobuf.IMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+- uid: ServiceLayer.SLRouteGlobalsGetMsgRsp.CalculateSize
+  commentId: M:ServiceLayer.SLRouteGlobalsGetMsgRsp.CalculateSize
+  id: CalculateSize
+  parent: ServiceLayer.SLRouteGlobalsGetMsgRsp
+  langs:
+  - csharp
+  - vb
+  name: CalculateSize()
+  nameWithType: SLRouteGlobalsGetMsgRsp.CalculateSize()
+  fullName: ServiceLayer.SLRouteGlobalsGetMsgRsp.CalculateSize()
+  type: Method
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlRouteCommon.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: CalculateSize
+    path: src/gencs/SlRouteCommon.cs
+    startLine: 489
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Calculates the size of this message in Protocol Buffer wire format, in bytes.
+  example: []
+  syntax:
+    content: public int CalculateSize()
+    return:
+      type: System.Int32
+      description: >-
+        The number of bytes required to write this message
+                    to a coded output stream.
+    content.vb: Public Function CalculateSize() As Integer
+  overload: ServiceLayer.SLRouteGlobalsGetMsgRsp.CalculateSize*
+  implements:
+  - Google.Protobuf.IMessage.CalculateSize
+- uid: ServiceLayer.SLRouteGlobalsGetMsgRsp.MergeFrom(ServiceLayer.SLRouteGlobalsGetMsgRsp)
+  commentId: M:ServiceLayer.SLRouteGlobalsGetMsgRsp.MergeFrom(ServiceLayer.SLRouteGlobalsGetMsgRsp)
+  id: MergeFrom(ServiceLayer.SLRouteGlobalsGetMsgRsp)
+  parent: ServiceLayer.SLRouteGlobalsGetMsgRsp
+  langs:
+  - csharp
+  - vb
+  name: MergeFrom(SLRouteGlobalsGetMsgRsp)
+  nameWithType: SLRouteGlobalsGetMsgRsp.MergeFrom(SLRouteGlobalsGetMsgRsp)
+  fullName: ServiceLayer.SLRouteGlobalsGetMsgRsp.MergeFrom(ServiceLayer.SLRouteGlobalsGetMsgRsp)
+  type: Method
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlRouteCommon.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: MergeFrom
+    path: src/gencs/SlRouteCommon.cs
+    startLine: 508
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Merges the given message into this one.
+  remarks: See the user guide for precise merge semantics.
+  example: []
+  syntax:
+    content: public void MergeFrom(SLRouteGlobalsGetMsgRsp other)
+    parameters:
+    - id: other
+      type: ServiceLayer.SLRouteGlobalsGetMsgRsp
+    content.vb: Public Sub MergeFrom(other As SLRouteGlobalsGetMsgRsp)
+  overload: ServiceLayer.SLRouteGlobalsGetMsgRsp.MergeFrom*
+  implements:
+  - Google.Protobuf.IMessage{ServiceLayer.SLRouteGlobalsGetMsgRsp}.MergeFrom(ServiceLayer.SLRouteGlobalsGetMsgRsp)
+- uid: ServiceLayer.SLRouteGlobalsGetMsgRsp.MergeFrom(Google.Protobuf.CodedInputStream)
+  commentId: M:ServiceLayer.SLRouteGlobalsGetMsgRsp.MergeFrom(Google.Protobuf.CodedInputStream)
+  id: MergeFrom(Google.Protobuf.CodedInputStream)
+  parent: ServiceLayer.SLRouteGlobalsGetMsgRsp
+  langs:
+  - csharp
+  - vb
+  name: MergeFrom(CodedInputStream)
+  nameWithType: SLRouteGlobalsGetMsgRsp.MergeFrom(CodedInputStream)
+  fullName: ServiceLayer.SLRouteGlobalsGetMsgRsp.MergeFrom(Google.Protobuf.CodedInputStream)
+  type: Method
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlRouteCommon.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: MergeFrom
+    path: src/gencs/SlRouteCommon.cs
+    startLine: 529
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Merges the data from the specified coded input stream with the current message.
+  remarks: See the user guide for precise merge semantics.
+  example: []
+  syntax:
+    content: public void MergeFrom(CodedInputStream input)
+    parameters:
+    - id: input
+      type: Google.Protobuf.CodedInputStream
+      description: ''
+    content.vb: Public Sub MergeFrom(input As CodedInputStream)
+  overload: ServiceLayer.SLRouteGlobalsGetMsgRsp.MergeFrom*
+  implements:
+  - Google.Protobuf.IMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+references:
+- uid: ServiceLayer
+  commentId: N:ServiceLayer
+  href: ServiceLayer.html
+  name: ServiceLayer
+  nameWithType: ServiceLayer
+  fullName: ServiceLayer
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: Google.Protobuf.IMessage{ServiceLayer.SLRouteGlobalsGetMsgRsp}
+  commentId: T:Google.Protobuf.IMessage{ServiceLayer.SLRouteGlobalsGetMsgRsp}
+  parent: Google.Protobuf
+  definition: Google.Protobuf.IMessage`1
+  href: ServiceLayer.SLRouteGlobalsGetMsgRsp.html
+  name: IMessage<SLRouteGlobalsGetMsgRsp>
+  nameWithType: IMessage<SLRouteGlobalsGetMsgRsp>
+  fullName: Google.Protobuf.IMessage<ServiceLayer.SLRouteGlobalsGetMsgRsp>
+  nameWithType.vb: IMessage(Of SLRouteGlobalsGetMsgRsp)
+  fullName.vb: Google.Protobuf.IMessage(Of ServiceLayer.SLRouteGlobalsGetMsgRsp)
+  name.vb: IMessage(Of SLRouteGlobalsGetMsgRsp)
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage`1
+    name: IMessage
+    isExternal: true
+  - name: <
+  - uid: ServiceLayer.SLRouteGlobalsGetMsgRsp
+    name: SLRouteGlobalsGetMsgRsp
+    href: ServiceLayer.SLRouteGlobalsGetMsgRsp.html
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.IMessage`1
+    name: IMessage
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ServiceLayer.SLRouteGlobalsGetMsgRsp
+    name: SLRouteGlobalsGetMsgRsp
+    href: ServiceLayer.SLRouteGlobalsGetMsgRsp.html
+  - name: )
+- uid: System.IEquatable{ServiceLayer.SLRouteGlobalsGetMsgRsp}
+  commentId: T:System.IEquatable{ServiceLayer.SLRouteGlobalsGetMsgRsp}
+  parent: System
+  definition: System.IEquatable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<SLRouteGlobalsGetMsgRsp>
+  nameWithType: IEquatable<SLRouteGlobalsGetMsgRsp>
+  fullName: System.IEquatable<ServiceLayer.SLRouteGlobalsGetMsgRsp>
+  nameWithType.vb: IEquatable(Of SLRouteGlobalsGetMsgRsp)
+  fullName.vb: System.IEquatable(Of ServiceLayer.SLRouteGlobalsGetMsgRsp)
+  name.vb: IEquatable(Of SLRouteGlobalsGetMsgRsp)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - uid: ServiceLayer.SLRouteGlobalsGetMsgRsp
+    name: SLRouteGlobalsGetMsgRsp
+    href: ServiceLayer.SLRouteGlobalsGetMsgRsp.html
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ServiceLayer.SLRouteGlobalsGetMsgRsp
+    name: SLRouteGlobalsGetMsgRsp
+    href: ServiceLayer.SLRouteGlobalsGetMsgRsp.html
+  - name: )
+- uid: Google.Protobuf.IDeepCloneable{ServiceLayer.SLRouteGlobalsGetMsgRsp}
+  commentId: T:Google.Protobuf.IDeepCloneable{ServiceLayer.SLRouteGlobalsGetMsgRsp}
+  parent: Google.Protobuf
+  definition: Google.Protobuf.IDeepCloneable`1
+  href: ServiceLayer.SLRouteGlobalsGetMsgRsp.html
+  name: IDeepCloneable<SLRouteGlobalsGetMsgRsp>
+  nameWithType: IDeepCloneable<SLRouteGlobalsGetMsgRsp>
+  fullName: Google.Protobuf.IDeepCloneable<ServiceLayer.SLRouteGlobalsGetMsgRsp>
+  nameWithType.vb: IDeepCloneable(Of SLRouteGlobalsGetMsgRsp)
+  fullName.vb: Google.Protobuf.IDeepCloneable(Of ServiceLayer.SLRouteGlobalsGetMsgRsp)
+  name.vb: IDeepCloneable(Of SLRouteGlobalsGetMsgRsp)
+  spec.csharp:
+  - uid: Google.Protobuf.IDeepCloneable`1
+    name: IDeepCloneable
+    isExternal: true
+  - name: <
+  - uid: ServiceLayer.SLRouteGlobalsGetMsgRsp
+    name: SLRouteGlobalsGetMsgRsp
+    href: ServiceLayer.SLRouteGlobalsGetMsgRsp.html
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.IDeepCloneable`1
+    name: IDeepCloneable
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ServiceLayer.SLRouteGlobalsGetMsgRsp
+    name: SLRouteGlobalsGetMsgRsp
+    href: ServiceLayer.SLRouteGlobalsGetMsgRsp.html
+  - name: )
+- uid: Google.Protobuf.IBufferMessage
+  commentId: T:Google.Protobuf.IBufferMessage
+  parent: Google.Protobuf
+  isExternal: true
+  name: IBufferMessage
+  nameWithType: IBufferMessage
+  fullName: Google.Protobuf.IBufferMessage
+- uid: Google.Protobuf.IMessage
+  commentId: T:Google.Protobuf.IMessage
+  parent: Google.Protobuf
+  isExternal: true
+  name: IMessage
+  nameWithType: IMessage
+  fullName: Google.Protobuf.IMessage
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Google.Protobuf.IMessage`1
+  commentId: T:Google.Protobuf.IMessage`1
+  isExternal: true
+  name: IMessage<T>
+  nameWithType: IMessage<T>
+  fullName: Google.Protobuf.IMessage<T>
+  nameWithType.vb: IMessage(Of T)
+  fullName.vb: Google.Protobuf.IMessage(Of T)
+  name.vb: IMessage(Of T)
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage`1
+    name: IMessage
+    isExternal: true
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.IMessage`1
+    name: IMessage
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Google.Protobuf
+  commentId: N:Google.Protobuf
+  isExternal: true
+  name: Google.Protobuf
+  nameWithType: Google.Protobuf
+  fullName: Google.Protobuf
+  spec.csharp:
+  - uid: Google
+    name: Google
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf
+    name: Protobuf
+    isExternal: true
+  spec.vb:
+  - uid: Google
+    name: Google
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf
+    name: Protobuf
+    isExternal: true
+- uid: System.IEquatable`1
+  commentId: T:System.IEquatable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<T>
+  nameWithType: IEquatable<T>
+  fullName: System.IEquatable<T>
+  nameWithType.vb: IEquatable(Of T)
+  fullName.vb: System.IEquatable(Of T)
+  name.vb: IEquatable(Of T)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Google.Protobuf.IDeepCloneable`1
+  commentId: T:Google.Protobuf.IDeepCloneable`1
+  isExternal: true
+  name: IDeepCloneable<T>
+  nameWithType: IDeepCloneable<T>
+  fullName: Google.Protobuf.IDeepCloneable<T>
+  nameWithType.vb: IDeepCloneable(Of T)
+  fullName.vb: Google.Protobuf.IDeepCloneable(Of T)
+  name.vb: IDeepCloneable(Of T)
+  spec.csharp:
+  - uid: Google.Protobuf.IDeepCloneable`1
+    name: IDeepCloneable
+    isExternal: true
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.IDeepCloneable`1
+    name: IDeepCloneable
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: ServiceLayer.SLRouteGlobalsGetMsgRsp.Parser*
+  commentId: Overload:ServiceLayer.SLRouteGlobalsGetMsgRsp.Parser
+  href: ServiceLayer.SLRouteGlobalsGetMsgRsp.html#ServiceLayer.SLRouteGlobalsGetMsgRsp.Parser
+  name: Parser
+  nameWithType: SLRouteGlobalsGetMsgRsp.Parser
+  fullName: ServiceLayer.SLRouteGlobalsGetMsgRsp.Parser
+- uid: Google.Protobuf.MessageParser{ServiceLayer.SLRouteGlobalsGetMsgRsp}
+  commentId: T:Google.Protobuf.MessageParser{ServiceLayer.SLRouteGlobalsGetMsgRsp}
+  parent: Google.Protobuf
+  definition: Google.Protobuf.MessageParser`1
+  href: ServiceLayer.SLRouteGlobalsGetMsgRsp.html
+  name: MessageParser<SLRouteGlobalsGetMsgRsp>
+  nameWithType: MessageParser<SLRouteGlobalsGetMsgRsp>
+  fullName: Google.Protobuf.MessageParser<ServiceLayer.SLRouteGlobalsGetMsgRsp>
+  nameWithType.vb: MessageParser(Of SLRouteGlobalsGetMsgRsp)
+  fullName.vb: Google.Protobuf.MessageParser(Of ServiceLayer.SLRouteGlobalsGetMsgRsp)
+  name.vb: MessageParser(Of SLRouteGlobalsGetMsgRsp)
+  spec.csharp:
+  - uid: Google.Protobuf.MessageParser`1
+    name: MessageParser
+    isExternal: true
+  - name: <
+  - uid: ServiceLayer.SLRouteGlobalsGetMsgRsp
+    name: SLRouteGlobalsGetMsgRsp
+    href: ServiceLayer.SLRouteGlobalsGetMsgRsp.html
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.MessageParser`1
+    name: MessageParser
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ServiceLayer.SLRouteGlobalsGetMsgRsp
+    name: SLRouteGlobalsGetMsgRsp
+    href: ServiceLayer.SLRouteGlobalsGetMsgRsp.html
+  - name: )
+- uid: Google.Protobuf.MessageParser`1
+  commentId: T:Google.Protobuf.MessageParser`1
+  isExternal: true
+  name: MessageParser<T>
+  nameWithType: MessageParser<T>
+  fullName: Google.Protobuf.MessageParser<T>
+  nameWithType.vb: MessageParser(Of T)
+  fullName.vb: Google.Protobuf.MessageParser(Of T)
+  name.vb: MessageParser(Of T)
+  spec.csharp:
+  - uid: Google.Protobuf.MessageParser`1
+    name: MessageParser
+    isExternal: true
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Google.Protobuf.MessageParser`1
+    name: MessageParser
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: ServiceLayer.SLRouteGlobalsGetMsgRsp.Descriptor*
+  commentId: Overload:ServiceLayer.SLRouteGlobalsGetMsgRsp.Descriptor
+  href: ServiceLayer.SLRouteGlobalsGetMsgRsp.html#ServiceLayer.SLRouteGlobalsGetMsgRsp.Descriptor
+  name: Descriptor
+  nameWithType: SLRouteGlobalsGetMsgRsp.Descriptor
+  fullName: ServiceLayer.SLRouteGlobalsGetMsgRsp.Descriptor
+- uid: Google.Protobuf.Reflection.MessageDescriptor
+  commentId: T:Google.Protobuf.Reflection.MessageDescriptor
+  parent: Google.Protobuf.Reflection
+  isExternal: true
+  name: MessageDescriptor
+  nameWithType: MessageDescriptor
+  fullName: Google.Protobuf.Reflection.MessageDescriptor
+- uid: Google.Protobuf.Reflection
+  commentId: N:Google.Protobuf.Reflection
+  isExternal: true
+  name: Google.Protobuf.Reflection
+  nameWithType: Google.Protobuf.Reflection
+  fullName: Google.Protobuf.Reflection
+  spec.csharp:
+  - uid: Google
+    name: Google
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf
+    name: Protobuf
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf.Reflection
+    name: Reflection
+    isExternal: true
+  spec.vb:
+  - uid: Google
+    name: Google
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf
+    name: Protobuf
+    isExternal: true
+  - name: .
+  - uid: Google.Protobuf.Reflection
+    name: Reflection
+    isExternal: true
+- uid: ServiceLayer.SLRouteGlobalsGetMsgRsp.#ctor*
+  commentId: Overload:ServiceLayer.SLRouteGlobalsGetMsgRsp.#ctor
+  href: ServiceLayer.SLRouteGlobalsGetMsgRsp.html#ServiceLayer.SLRouteGlobalsGetMsgRsp.#ctor
+  name: SLRouteGlobalsGetMsgRsp
+  nameWithType: SLRouteGlobalsGetMsgRsp.SLRouteGlobalsGetMsgRsp
+  fullName: ServiceLayer.SLRouteGlobalsGetMsgRsp.SLRouteGlobalsGetMsgRsp
+  nameWithType.vb: SLRouteGlobalsGetMsgRsp.New
+  fullName.vb: ServiceLayer.SLRouteGlobalsGetMsgRsp.New
+  name.vb: New
+- uid: ServiceLayer.SLRouteGlobalsGetMsgRsp
+  commentId: T:ServiceLayer.SLRouteGlobalsGetMsgRsp
+  parent: ServiceLayer
+  href: ServiceLayer.SLRouteGlobalsGetMsgRsp.html
+  name: SLRouteGlobalsGetMsgRsp
+  nameWithType: SLRouteGlobalsGetMsgRsp
+  fullName: ServiceLayer.SLRouteGlobalsGetMsgRsp
+- uid: ServiceLayer.SLRouteGlobalsGetMsgRsp.Clone*
+  commentId: Overload:ServiceLayer.SLRouteGlobalsGetMsgRsp.Clone
+  href: ServiceLayer.SLRouteGlobalsGetMsgRsp.html#ServiceLayer.SLRouteGlobalsGetMsgRsp.Clone
+  name: Clone
+  nameWithType: SLRouteGlobalsGetMsgRsp.Clone
+  fullName: ServiceLayer.SLRouteGlobalsGetMsgRsp.Clone
+- uid: Google.Protobuf.IDeepCloneable{ServiceLayer.SLRouteGlobalsGetMsgRsp}.Clone
+  commentId: M:Google.Protobuf.IDeepCloneable{ServiceLayer.SLRouteGlobalsGetMsgRsp}.Clone
+  parent: Google.Protobuf.IDeepCloneable{ServiceLayer.SLRouteGlobalsGetMsgRsp}
+  definition: Google.Protobuf.IDeepCloneable`1.Clone
+  name: Clone()
+  nameWithType: IDeepCloneable<SLRouteGlobalsGetMsgRsp>.Clone()
+  fullName: Google.Protobuf.IDeepCloneable<ServiceLayer.SLRouteGlobalsGetMsgRsp>.Clone()
+  nameWithType.vb: IDeepCloneable(Of SLRouteGlobalsGetMsgRsp).Clone()
+  fullName.vb: Google.Protobuf.IDeepCloneable(Of ServiceLayer.SLRouteGlobalsGetMsgRsp).Clone()
+  spec.csharp:
+  - uid: Google.Protobuf.IDeepCloneable{ServiceLayer.SLRouteGlobalsGetMsgRsp}.Clone
+    name: Clone
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IDeepCloneable{ServiceLayer.SLRouteGlobalsGetMsgRsp}.Clone
+    name: Clone
+    isExternal: true
+  - name: (
+  - name: )
+- uid: Google.Protobuf.IDeepCloneable`1.Clone
+  commentId: M:Google.Protobuf.IDeepCloneable`1.Clone
+  isExternal: true
+  name: Clone()
+  nameWithType: IDeepCloneable<T>.Clone()
+  fullName: Google.Protobuf.IDeepCloneable<T>.Clone()
+  nameWithType.vb: IDeepCloneable(Of T).Clone()
+  fullName.vb: Google.Protobuf.IDeepCloneable(Of T).Clone()
+  spec.csharp:
+  - uid: Google.Protobuf.IDeepCloneable`1.Clone
+    name: Clone
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IDeepCloneable`1.Clone
+    name: Clone
+    isExternal: true
+  - name: (
+  - name: )
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: ServiceLayer.SLRouteGlobalsGetMsgRsp.ErrStatus*
+  commentId: Overload:ServiceLayer.SLRouteGlobalsGetMsgRsp.ErrStatus
+  href: ServiceLayer.SLRouteGlobalsGetMsgRsp.html#ServiceLayer.SLRouteGlobalsGetMsgRsp.ErrStatus
+  name: ErrStatus
+  nameWithType: SLRouteGlobalsGetMsgRsp.ErrStatus
+  fullName: ServiceLayer.SLRouteGlobalsGetMsgRsp.ErrStatus
+- uid: ServiceLayer.SLErrorStatus
+  commentId: T:ServiceLayer.SLErrorStatus
+  parent: ServiceLayer
+  href: ServiceLayer.SLErrorStatus.html
+  name: SLErrorStatus
+  nameWithType: SLErrorStatus
+  fullName: ServiceLayer.SLErrorStatus
+- uid: ServiceLayer.SLRouteGlobalsGetMsgRsp.MaxVrfregPerVrfregmsg*
+  commentId: Overload:ServiceLayer.SLRouteGlobalsGetMsgRsp.MaxVrfregPerVrfregmsg
+  href: ServiceLayer.SLRouteGlobalsGetMsgRsp.html#ServiceLayer.SLRouteGlobalsGetMsgRsp.MaxVrfregPerVrfregmsg
+  name: MaxVrfregPerVrfregmsg
+  nameWithType: SLRouteGlobalsGetMsgRsp.MaxVrfregPerVrfregmsg
+  fullName: ServiceLayer.SLRouteGlobalsGetMsgRsp.MaxVrfregPerVrfregmsg
+- uid: System.UInt32
+  commentId: T:System.UInt32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.uint32
+  name: uint
+  nameWithType: uint
+  fullName: uint
+  nameWithType.vb: UInteger
+  fullName.vb: UInteger
+  name.vb: UInteger
+- uid: ServiceLayer.SLRouteGlobalsGetMsgRsp.MaxRoutePerRoutemsg*
+  commentId: Overload:ServiceLayer.SLRouteGlobalsGetMsgRsp.MaxRoutePerRoutemsg
+  href: ServiceLayer.SLRouteGlobalsGetMsgRsp.html#ServiceLayer.SLRouteGlobalsGetMsgRsp.MaxRoutePerRoutemsg
+  name: MaxRoutePerRoutemsg
+  nameWithType: SLRouteGlobalsGetMsgRsp.MaxRoutePerRoutemsg
+  fullName: ServiceLayer.SLRouteGlobalsGetMsgRsp.MaxRoutePerRoutemsg
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: ServiceLayer.SLRouteGlobalsGetMsgRsp.Equals*
+  commentId: Overload:ServiceLayer.SLRouteGlobalsGetMsgRsp.Equals
+  href: ServiceLayer.SLRouteGlobalsGetMsgRsp.html#ServiceLayer.SLRouteGlobalsGetMsgRsp.Equals(System.Object)
+  name: Equals
+  nameWithType: SLRouteGlobalsGetMsgRsp.Equals
+  fullName: ServiceLayer.SLRouteGlobalsGetMsgRsp.Equals
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: System.IEquatable{ServiceLayer.SLRouteGlobalsGetMsgRsp}.Equals(ServiceLayer.SLRouteGlobalsGetMsgRsp)
+  commentId: M:System.IEquatable{ServiceLayer.SLRouteGlobalsGetMsgRsp}.Equals(ServiceLayer.SLRouteGlobalsGetMsgRsp)
+  parent: System.IEquatable{ServiceLayer.SLRouteGlobalsGetMsgRsp}
+  definition: System.IEquatable`1.Equals(`0)
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-servicelayer.slrouteglobalsgetmsgrsp-.equals#system-iequatable((servicelayer-slrouteglobalsgetmsgrsp))-equals(servicelayer-slrouteglobalsgetmsgrsp)
+  name: Equals(SLRouteGlobalsGetMsgRsp)
+  nameWithType: IEquatable<SLRouteGlobalsGetMsgRsp>.Equals(SLRouteGlobalsGetMsgRsp)
+  fullName: System.IEquatable<ServiceLayer.SLRouteGlobalsGetMsgRsp>.Equals(ServiceLayer.SLRouteGlobalsGetMsgRsp)
+  nameWithType.vb: IEquatable(Of SLRouteGlobalsGetMsgRsp).Equals(SLRouteGlobalsGetMsgRsp)
+  fullName.vb: System.IEquatable(Of ServiceLayer.SLRouteGlobalsGetMsgRsp).Equals(ServiceLayer.SLRouteGlobalsGetMsgRsp)
+  spec.csharp:
+  - uid: System.IEquatable{ServiceLayer.SLRouteGlobalsGetMsgRsp}.Equals(ServiceLayer.SLRouteGlobalsGetMsgRsp)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-servicelayer.slrouteglobalsgetmsgrsp-.equals#system-iequatable((servicelayer-slrouteglobalsgetmsgrsp))-equals(servicelayer-slrouteglobalsgetmsgrsp)
+  - name: (
+  - uid: ServiceLayer.SLRouteGlobalsGetMsgRsp
+    name: SLRouteGlobalsGetMsgRsp
+    href: ServiceLayer.SLRouteGlobalsGetMsgRsp.html
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable{ServiceLayer.SLRouteGlobalsGetMsgRsp}.Equals(ServiceLayer.SLRouteGlobalsGetMsgRsp)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-servicelayer.slrouteglobalsgetmsgrsp-.equals#system-iequatable((servicelayer-slrouteglobalsgetmsgrsp))-equals(servicelayer-slrouteglobalsgetmsgrsp)
+  - name: (
+  - uid: ServiceLayer.SLRouteGlobalsGetMsgRsp
+    name: SLRouteGlobalsGetMsgRsp
+    href: ServiceLayer.SLRouteGlobalsGetMsgRsp.html
+  - name: )
+- uid: System.IEquatable`1.Equals(`0)
+  commentId: M:System.IEquatable`1.Equals(`0)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(T)
+  nameWithType: IEquatable<T>.Equals(T)
+  fullName: System.IEquatable<T>.Equals(T)
+  nameWithType.vb: IEquatable(Of T).Equals(T)
+  fullName.vb: System.IEquatable(Of T).Equals(T)
+  spec.csharp:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: ServiceLayer.SLRouteGlobalsGetMsgRsp.GetHashCode*
+  commentId: Overload:ServiceLayer.SLRouteGlobalsGetMsgRsp.GetHashCode
+  href: ServiceLayer.SLRouteGlobalsGetMsgRsp.html#ServiceLayer.SLRouteGlobalsGetMsgRsp.GetHashCode
+  name: GetHashCode
+  nameWithType: SLRouteGlobalsGetMsgRsp.GetHashCode
+  fullName: ServiceLayer.SLRouteGlobalsGetMsgRsp.GetHashCode
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: ServiceLayer.SLRouteGlobalsGetMsgRsp.ToString*
+  commentId: Overload:ServiceLayer.SLRouteGlobalsGetMsgRsp.ToString
+  href: ServiceLayer.SLRouteGlobalsGetMsgRsp.html#ServiceLayer.SLRouteGlobalsGetMsgRsp.ToString
+  name: ToString
+  nameWithType: SLRouteGlobalsGetMsgRsp.ToString
+  fullName: ServiceLayer.SLRouteGlobalsGetMsgRsp.ToString
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: ServiceLayer.SLRouteGlobalsGetMsgRsp.WriteTo*
+  commentId: Overload:ServiceLayer.SLRouteGlobalsGetMsgRsp.WriteTo
+  href: ServiceLayer.SLRouteGlobalsGetMsgRsp.html#ServiceLayer.SLRouteGlobalsGetMsgRsp.WriteTo(Google.Protobuf.CodedOutputStream)
+  name: WriteTo
+  nameWithType: SLRouteGlobalsGetMsgRsp.WriteTo
+  fullName: ServiceLayer.SLRouteGlobalsGetMsgRsp.WriteTo
+- uid: Google.Protobuf.IMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+  commentId: M:Google.Protobuf.IMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+  parent: Google.Protobuf.IMessage
+  isExternal: true
+  name: WriteTo(CodedOutputStream)
+  nameWithType: IMessage.WriteTo(CodedOutputStream)
+  fullName: Google.Protobuf.IMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+    name: WriteTo
+    isExternal: true
+  - name: (
+  - uid: Google.Protobuf.CodedOutputStream
+    name: CodedOutputStream
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IMessage.WriteTo(Google.Protobuf.CodedOutputStream)
+    name: WriteTo
+    isExternal: true
+  - name: (
+  - uid: Google.Protobuf.CodedOutputStream
+    name: CodedOutputStream
+    isExternal: true
+  - name: )
+- uid: Google.Protobuf.CodedOutputStream
+  commentId: T:Google.Protobuf.CodedOutputStream
+  parent: Google.Protobuf
+  isExternal: true
+  name: CodedOutputStream
+  nameWithType: CodedOutputStream
+  fullName: Google.Protobuf.CodedOutputStream
+- uid: ServiceLayer.SLRouteGlobalsGetMsgRsp.CalculateSize*
+  commentId: Overload:ServiceLayer.SLRouteGlobalsGetMsgRsp.CalculateSize
+  href: ServiceLayer.SLRouteGlobalsGetMsgRsp.html#ServiceLayer.SLRouteGlobalsGetMsgRsp.CalculateSize
+  name: CalculateSize
+  nameWithType: SLRouteGlobalsGetMsgRsp.CalculateSize
+  fullName: ServiceLayer.SLRouteGlobalsGetMsgRsp.CalculateSize
+- uid: Google.Protobuf.IMessage.CalculateSize
+  commentId: M:Google.Protobuf.IMessage.CalculateSize
+  parent: Google.Protobuf.IMessage
+  isExternal: true
+  name: CalculateSize()
+  nameWithType: IMessage.CalculateSize()
+  fullName: Google.Protobuf.IMessage.CalculateSize()
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage.CalculateSize
+    name: CalculateSize
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IMessage.CalculateSize
+    name: CalculateSize
+    isExternal: true
+  - name: (
+  - name: )
+- uid: ServiceLayer.SLRouteGlobalsGetMsgRsp.MergeFrom*
+  commentId: Overload:ServiceLayer.SLRouteGlobalsGetMsgRsp.MergeFrom
+  href: ServiceLayer.SLRouteGlobalsGetMsgRsp.html#ServiceLayer.SLRouteGlobalsGetMsgRsp.MergeFrom(ServiceLayer.SLRouteGlobalsGetMsgRsp)
+  name: MergeFrom
+  nameWithType: SLRouteGlobalsGetMsgRsp.MergeFrom
+  fullName: ServiceLayer.SLRouteGlobalsGetMsgRsp.MergeFrom
+- uid: Google.Protobuf.IMessage{ServiceLayer.SLRouteGlobalsGetMsgRsp}.MergeFrom(ServiceLayer.SLRouteGlobalsGetMsgRsp)
+  commentId: M:Google.Protobuf.IMessage{ServiceLayer.SLRouteGlobalsGetMsgRsp}.MergeFrom(ServiceLayer.SLRouteGlobalsGetMsgRsp)
+  parent: Google.Protobuf.IMessage{ServiceLayer.SLRouteGlobalsGetMsgRsp}
+  definition: Google.Protobuf.IMessage`1.MergeFrom(`0)
+  href: ServiceLayer.SLRouteGlobalsGetMsgRsp.html
+  name: MergeFrom(SLRouteGlobalsGetMsgRsp)
+  nameWithType: IMessage<SLRouteGlobalsGetMsgRsp>.MergeFrom(SLRouteGlobalsGetMsgRsp)
+  fullName: Google.Protobuf.IMessage<ServiceLayer.SLRouteGlobalsGetMsgRsp>.MergeFrom(ServiceLayer.SLRouteGlobalsGetMsgRsp)
+  nameWithType.vb: IMessage(Of SLRouteGlobalsGetMsgRsp).MergeFrom(SLRouteGlobalsGetMsgRsp)
+  fullName.vb: Google.Protobuf.IMessage(Of ServiceLayer.SLRouteGlobalsGetMsgRsp).MergeFrom(ServiceLayer.SLRouteGlobalsGetMsgRsp)
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage{ServiceLayer.SLRouteGlobalsGetMsgRsp}.MergeFrom(ServiceLayer.SLRouteGlobalsGetMsgRsp)
+    name: MergeFrom
+    isExternal: true
+  - name: (
+  - uid: ServiceLayer.SLRouteGlobalsGetMsgRsp
+    name: SLRouteGlobalsGetMsgRsp
+    href: ServiceLayer.SLRouteGlobalsGetMsgRsp.html
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IMessage{ServiceLayer.SLRouteGlobalsGetMsgRsp}.MergeFrom(ServiceLayer.SLRouteGlobalsGetMsgRsp)
+    name: MergeFrom
+    isExternal: true
+  - name: (
+  - uid: ServiceLayer.SLRouteGlobalsGetMsgRsp
+    name: SLRouteGlobalsGetMsgRsp
+    href: ServiceLayer.SLRouteGlobalsGetMsgRsp.html
+  - name: )
+- uid: Google.Protobuf.IMessage`1.MergeFrom(`0)
+  commentId: M:Google.Protobuf.IMessage`1.MergeFrom(`0)
+  isExternal: true
+  name: MergeFrom(T)
+  nameWithType: IMessage<T>.MergeFrom(T)
+  fullName: Google.Protobuf.IMessage<T>.MergeFrom(T)
+  nameWithType.vb: IMessage(Of T).MergeFrom(T)
+  fullName.vb: Google.Protobuf.IMessage(Of T).MergeFrom(T)
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage`1.MergeFrom(`0)
+    name: MergeFrom
+    isExternal: true
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IMessage`1.MergeFrom(`0)
+    name: MergeFrom
+    isExternal: true
+  - name: (
+  - name: T
+  - name: )
+- uid: Google.Protobuf.IMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+  commentId: M:Google.Protobuf.IMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+  parent: Google.Protobuf.IMessage
+  isExternal: true
+  name: MergeFrom(CodedInputStream)
+  nameWithType: IMessage.MergeFrom(CodedInputStream)
+  fullName: Google.Protobuf.IMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+  spec.csharp:
+  - uid: Google.Protobuf.IMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+    name: MergeFrom
+    isExternal: true
+  - name: (
+  - uid: Google.Protobuf.CodedInputStream
+    name: CodedInputStream
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: Google.Protobuf.IMessage.MergeFrom(Google.Protobuf.CodedInputStream)
+    name: MergeFrom
+    isExternal: true
+  - name: (
+  - uid: Google.Protobuf.CodedInputStream
+    name: CodedInputStream
+    isExternal: true
+  - name: )
+- uid: Google.Protobuf.CodedInputStream
+  commentId: T:Google.Protobuf.CodedInputStream
+  parent: Google.Protobuf
+  isExternal: true
+  name: CodedInputStream
+  nameWithType: CodedInputStream
+  fullName: Google.Protobuf.CodedInputStream

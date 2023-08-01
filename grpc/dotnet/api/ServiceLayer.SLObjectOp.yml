@@ -1,0 +1,212 @@
+### YamlMime:ManagedReference
+items:
+- uid: ServiceLayer.SLObjectOp
+  commentId: T:ServiceLayer.SLObjectOp
+  id: SLObjectOp
+  parent: ServiceLayer
+  children:
+  - ServiceLayer.SLObjectOp.SlObjopAdd
+  - ServiceLayer.SLObjectOp.SlObjopDelete
+  - ServiceLayer.SLObjectOp.SlObjopReserved
+  - ServiceLayer.SLObjectOp.SlObjopUpdate
+  langs:
+  - csharp
+  - vb
+  name: SLObjectOp
+  nameWithType: SLObjectOp
+  fullName: ServiceLayer.SLObjectOp
+  type: Enum
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlCommonTypes.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: SLObjectOp
+    path: src/gencs/SlCommonTypes.cs
+    startLine: 278
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Object Operations.
+  example: []
+  syntax:
+    content: public enum SLObjectOp
+    content.vb: Public Enum SLObjectOp
+- uid: ServiceLayer.SLObjectOp.SlObjopReserved
+  commentId: F:ServiceLayer.SLObjectOp.SlObjopReserved
+  id: SlObjopReserved
+  parent: ServiceLayer.SLObjectOp
+  langs:
+  - csharp
+  - vb
+  name: SlObjopReserved
+  nameWithType: SLObjectOp.SlObjopReserved
+  fullName: ServiceLayer.SLObjectOp.SlObjopReserved
+  type: Field
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlCommonTypes.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: SlObjopReserved
+    path: src/gencs/SlCommonTypes.cs
+    startLine: 282
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Reserved. 0x0
+  example: []
+  syntax:
+    content: >-
+      [OriginalName("SL_OBJOP_RESERVED")]
+
+      SlObjopReserved = 0
+    return:
+      type: ServiceLayer.SLObjectOp
+    content.vb: >-
+      <OriginalName("SL_OBJOP_RESERVED")>
+
+      SlObjopReserved = 0
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: SL_OBJOP_RESERVED
+- uid: ServiceLayer.SLObjectOp.SlObjopAdd
+  commentId: F:ServiceLayer.SLObjectOp.SlObjopAdd
+  id: SlObjopAdd
+  parent: ServiceLayer.SLObjectOp
+  langs:
+  - csharp
+  - vb
+  name: SlObjopAdd
+  nameWithType: SLObjectOp.SlObjopAdd
+  fullName: ServiceLayer.SLObjectOp.SlObjopAdd
+  type: Field
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlCommonTypes.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: SlObjopAdd
+    path: src/gencs/SlCommonTypes.cs
+    startLine: 286
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Add. 0x1
+  example: []
+  syntax:
+    content: >-
+      [OriginalName("SL_OBJOP_ADD")]
+
+      SlObjopAdd = 1
+    return:
+      type: ServiceLayer.SLObjectOp
+    content.vb: >-
+      <OriginalName("SL_OBJOP_ADD")>
+
+      SlObjopAdd = 1
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: SL_OBJOP_ADD
+- uid: ServiceLayer.SLObjectOp.SlObjopUpdate
+  commentId: F:ServiceLayer.SLObjectOp.SlObjopUpdate
+  id: SlObjopUpdate
+  parent: ServiceLayer.SLObjectOp
+  langs:
+  - csharp
+  - vb
+  name: SlObjopUpdate
+  nameWithType: SLObjectOp.SlObjopUpdate
+  fullName: ServiceLayer.SLObjectOp.SlObjopUpdate
+  type: Field
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlCommonTypes.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: SlObjopUpdate
+    path: src/gencs/SlCommonTypes.cs
+    startLine: 290
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Update. 0x2
+  example: []
+  syntax:
+    content: >-
+      [OriginalName("SL_OBJOP_UPDATE")]
+
+      SlObjopUpdate = 2
+    return:
+      type: ServiceLayer.SLObjectOp
+    content.vb: >-
+      <OriginalName("SL_OBJOP_UPDATE")>
+
+      SlObjopUpdate = 2
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: SL_OBJOP_UPDATE
+- uid: ServiceLayer.SLObjectOp.SlObjopDelete
+  commentId: F:ServiceLayer.SLObjectOp.SlObjopDelete
+  id: SlObjopDelete
+  parent: ServiceLayer.SLObjectOp
+  langs:
+  - csharp
+  - vb
+  name: SlObjopDelete
+  nameWithType: SLObjectOp.SlObjopDelete
+  fullName: ServiceLayer.SLObjectOp.SlObjopDelete
+  type: Field
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlCommonTypes.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: SlObjopDelete
+    path: src/gencs/SlCommonTypes.cs
+    startLine: 294
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Delete. 0x3
+  example: []
+  syntax:
+    content: >-
+      [OriginalName("SL_OBJOP_DELETE")]
+
+      SlObjopDelete = 3
+    return:
+      type: ServiceLayer.SLObjectOp
+    content.vb: >-
+      <OriginalName("SL_OBJOP_DELETE")>
+
+      SlObjopDelete = 3
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: SL_OBJOP_DELETE
+references:
+- uid: ServiceLayer
+  commentId: N:ServiceLayer
+  href: ServiceLayer.html
+  name: ServiceLayer
+  nameWithType: ServiceLayer
+  fullName: ServiceLayer
+- uid: ServiceLayer.SLObjectOp
+  commentId: T:ServiceLayer.SLObjectOp
+  parent: ServiceLayer
+  href: ServiceLayer.SLObjectOp.html
+  name: SLObjectOp
+  nameWithType: SLObjectOp
+  fullName: ServiceLayer.SLObjectOp

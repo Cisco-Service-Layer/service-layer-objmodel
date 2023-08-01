@@ -1,0 +1,2407 @@
+### YamlMime:ManagedReference
+items:
+- uid: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient
+  commentId: T:ServiceLayer.SLInterfaceOper.SLInterfaceOperClient
+  id: SLInterfaceOper.SLInterfaceOperClient
+  parent: ServiceLayer
+  children:
+  - ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.#ctor
+  - ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.#ctor(Grpc.Core.CallInvoker)
+  - ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.#ctor(Grpc.Core.ChannelBase)
+  - ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.#ctor(Grpc.Core.ClientBase.ClientBaseConfiguration)
+  - ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.NewInstance(Grpc.Core.ClientBase.ClientBaseConfiguration)
+  - ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGet(ServiceLayer.SLInterfaceGetMsg,Grpc.Core.CallOptions)
+  - ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGet(ServiceLayer.SLInterfaceGetMsg,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)
+  - ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGetAsync(ServiceLayer.SLInterfaceGetMsg,Grpc.Core.CallOptions)
+  - ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGetAsync(ServiceLayer.SLInterfaceGetMsg,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)
+  - ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGetNotifStream(ServiceLayer.SLInterfaceGetNotifMsg,Grpc.Core.CallOptions)
+  - ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGetNotifStream(ServiceLayer.SLInterfaceGetNotifMsg,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)
+  - ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGlobalsGet(ServiceLayer.SLInterfaceGlobalsGetMsg,Grpc.Core.CallOptions)
+  - ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGlobalsGet(ServiceLayer.SLInterfaceGlobalsGetMsg,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)
+  - ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGlobalsGetAsync(ServiceLayer.SLInterfaceGlobalsGetMsg,Grpc.Core.CallOptions)
+  - ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGlobalsGetAsync(ServiceLayer.SLInterfaceGlobalsGetMsg,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)
+  - ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGlobalsGetStats(ServiceLayer.SLInterfaceGlobalsGetMsg,Grpc.Core.CallOptions)
+  - ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGlobalsGetStats(ServiceLayer.SLInterfaceGlobalsGetMsg,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)
+  - ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGlobalsGetStatsAsync(ServiceLayer.SLInterfaceGlobalsGetMsg,Grpc.Core.CallOptions)
+  - ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGlobalsGetStatsAsync(ServiceLayer.SLInterfaceGlobalsGetMsg,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)
+  - ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGlobalsRegOp(ServiceLayer.SLInterfaceGlobalsRegMsg,Grpc.Core.CallOptions)
+  - ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGlobalsRegOp(ServiceLayer.SLInterfaceGlobalsRegMsg,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)
+  - ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGlobalsRegOpAsync(ServiceLayer.SLInterfaceGlobalsRegMsg,Grpc.Core.CallOptions)
+  - ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGlobalsRegOpAsync(ServiceLayer.SLInterfaceGlobalsRegMsg,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)
+  - ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceNotifOp(ServiceLayer.SLInterfaceNotifMsg,Grpc.Core.CallOptions)
+  - ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceNotifOp(ServiceLayer.SLInterfaceNotifMsg,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)
+  - ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceNotifOpAsync(ServiceLayer.SLInterfaceNotifMsg,Grpc.Core.CallOptions)
+  - ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceNotifOpAsync(ServiceLayer.SLInterfaceNotifMsg,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)
+  langs:
+  - csharp
+  - vb
+  name: SLInterfaceOper.SLInterfaceOperClient
+  nameWithType: SLInterfaceOper.SLInterfaceOperClient
+  fullName: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient
+  type: Class
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlInterfaceGrpc.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: SLInterfaceOperClient
+    path: src/gencs/SlInterfaceGrpc.cs
+    startLine: 253
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Client for SLInterfaceOper
+  example: []
+  syntax:
+    content: 'public class SLInterfaceOper.SLInterfaceOperClient : ClientBase<SLInterfaceOper.SLInterfaceOperClient>'
+    content.vb: Public Class SLInterfaceOper.SLInterfaceOperClient Inherits ClientBase(Of SLInterfaceOper.SLInterfaceOperClient)
+  inheritance:
+  - System.Object
+  - Grpc.Core.ClientBase
+  - Grpc.Core.ClientBase{ServiceLayer.SLInterfaceOper.SLInterfaceOperClient}
+  inheritedMembers:
+  - Grpc.Core.ClientBase{ServiceLayer.SLInterfaceOper.SLInterfaceOperClient}.WithHost(System.String)
+  - Grpc.Core.ClientBase.CallInvoker
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.#ctor(Grpc.Core.ChannelBase)
+  commentId: M:ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.#ctor(Grpc.Core.ChannelBase)
+  id: '#ctor(Grpc.Core.ChannelBase)'
+  parent: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient
+  langs:
+  - csharp
+  - vb
+  name: SLInterfaceOperClient(ChannelBase)
+  nameWithType: SLInterfaceOper.SLInterfaceOperClient.SLInterfaceOperClient(ChannelBase)
+  fullName: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceOperClient(Grpc.Core.ChannelBase)
+  type: Constructor
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlInterfaceGrpc.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: .ctor
+    path: src/gencs/SlInterfaceGrpc.cs
+    startLine: 257
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Creates a new client for SLInterfaceOper
+  example: []
+  syntax:
+    content: public SLInterfaceOperClient(ChannelBase channel)
+    parameters:
+    - id: channel
+      type: Grpc.Core.ChannelBase
+      description: The channel to use to make remote calls.
+    content.vb: Public Sub New(channel As ChannelBase)
+  overload: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.#ctor*
+  nameWithType.vb: SLInterfaceOper.SLInterfaceOperClient.New(ChannelBase)
+  fullName.vb: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.New(Grpc.Core.ChannelBase)
+  name.vb: New(ChannelBase)
+- uid: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.#ctor(Grpc.Core.CallInvoker)
+  commentId: M:ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.#ctor(Grpc.Core.CallInvoker)
+  id: '#ctor(Grpc.Core.CallInvoker)'
+  parent: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient
+  langs:
+  - csharp
+  - vb
+  name: SLInterfaceOperClient(CallInvoker)
+  nameWithType: SLInterfaceOper.SLInterfaceOperClient.SLInterfaceOperClient(CallInvoker)
+  fullName: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceOperClient(Grpc.Core.CallInvoker)
+  type: Constructor
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlInterfaceGrpc.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: .ctor
+    path: src/gencs/SlInterfaceGrpc.cs
+    startLine: 263
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Creates a new client for SLInterfaceOper that uses a custom <code>CallInvoker</code>.
+  example: []
+  syntax:
+    content: public SLInterfaceOperClient(CallInvoker callInvoker)
+    parameters:
+    - id: callInvoker
+      type: Grpc.Core.CallInvoker
+      description: The callInvoker to use to make remote calls.
+    content.vb: Public Sub New(callInvoker As CallInvoker)
+  overload: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.#ctor*
+  nameWithType.vb: SLInterfaceOper.SLInterfaceOperClient.New(CallInvoker)
+  fullName.vb: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.New(Grpc.Core.CallInvoker)
+  name.vb: New(CallInvoker)
+- uid: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.#ctor
+  commentId: M:ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.#ctor
+  id: '#ctor'
+  parent: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient
+  langs:
+  - csharp
+  - vb
+  name: SLInterfaceOperClient()
+  nameWithType: SLInterfaceOper.SLInterfaceOperClient.SLInterfaceOperClient()
+  fullName: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceOperClient()
+  type: Constructor
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlInterfaceGrpc.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: .ctor
+    path: src/gencs/SlInterfaceGrpc.cs
+    startLine: 268
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Protected parameterless constructor to allow creation of test doubles.
+  example: []
+  syntax:
+    content: protected SLInterfaceOperClient()
+    content.vb: Protected Sub New()
+  overload: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.#ctor*
+  nameWithType.vb: SLInterfaceOper.SLInterfaceOperClient.New()
+  fullName.vb: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.New()
+  name.vb: New()
+- uid: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.#ctor(Grpc.Core.ClientBase.ClientBaseConfiguration)
+  commentId: M:ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.#ctor(Grpc.Core.ClientBase.ClientBaseConfiguration)
+  id: '#ctor(Grpc.Core.ClientBase.ClientBaseConfiguration)'
+  parent: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient
+  langs:
+  - csharp
+  - vb
+  name: SLInterfaceOperClient(ClientBaseConfiguration)
+  nameWithType: SLInterfaceOper.SLInterfaceOperClient.SLInterfaceOperClient(ClientBase.ClientBaseConfiguration)
+  fullName: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceOperClient(Grpc.Core.ClientBase.ClientBaseConfiguration)
+  type: Constructor
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlInterfaceGrpc.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: .ctor
+    path: src/gencs/SlInterfaceGrpc.cs
+    startLine: 274
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Protected constructor to allow creation of configured clients.
+  example: []
+  syntax:
+    content: protected SLInterfaceOperClient(ClientBase.ClientBaseConfiguration configuration)
+    parameters:
+    - id: configuration
+      type: Grpc.Core.ClientBase.ClientBaseConfiguration
+      description: The client configuration.
+    content.vb: Protected Sub New(configuration As ClientBase.ClientBaseConfiguration)
+  overload: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.#ctor*
+  nameWithType.vb: SLInterfaceOper.SLInterfaceOperClient.New(ClientBase.ClientBaseConfiguration)
+  fullName.vb: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.New(Grpc.Core.ClientBase.ClientBaseConfiguration)
+  name.vb: New(ClientBaseConfiguration)
+- uid: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGlobalsRegOp(ServiceLayer.SLInterfaceGlobalsRegMsg,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)
+  commentId: M:ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGlobalsRegOp(ServiceLayer.SLInterfaceGlobalsRegMsg,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)
+  id: SLInterfaceGlobalsRegOp(ServiceLayer.SLInterfaceGlobalsRegMsg,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)
+  parent: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient
+  langs:
+  - csharp
+  - vb
+  name: SLInterfaceGlobalsRegOp(SLInterfaceGlobalsRegMsg, Metadata, DateTime?, CancellationToken)
+  nameWithType: SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGlobalsRegOp(SLInterfaceGlobalsRegMsg, Metadata, DateTime?, CancellationToken)
+  fullName: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGlobalsRegOp(ServiceLayer.SLInterfaceGlobalsRegMsg, Grpc.Core.Metadata, System.DateTime?, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlInterfaceGrpc.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: SLInterfaceGlobalsRegOp
+    path: src/gencs/SlInterfaceGrpc.cs
+    startLine: 311
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: >-
+    SLInterfaceGlobalsRegMsg.Oper = SL_REGOP_REGISTER:
+        Global Interface registration.
+        A client Must Register BEFORE interfaces can be modified/queried.
+
+    SLInterfaceGlobalsRegMsg.Oper = SL_REGOP_UNREGISTER:
+        Global Interface un-registration.
+        This call is used to end all interface notifications.
+        This call cleans up all interface notifications previously requested.
+
+    SLInterfaceGlobalsRegMsg.Oper = SL_REGOP_EOF:
+        Interface End Of File.
+        After Registration, the client is expected to send an EOF
+        message to convey the end of replay of the client's known objects.
+        This is especially useful under certain restart scenarios when the
+        client and the server are trying to synchronize their interfaces.
+
+    The SLInterfaceGlobalsRegMsg operations can be used by the client to synchronize
+
+    interface registrations with the server. When the client re-registers with the
+
+    server using SL_REGOP_REGISTER, server marks all interface registrations as stale.
+
+    Client can then reprogram interface registrations. When the client sends
+
+    SL_REGOP_EOF, any interface registrations not reprogrammed by the client are
+
+    removed from the device.
+
+
+    The client must perform all operations (SLInterfaceGlobalsRegMsg,
+
+    interface registration operations) from a single execution context.
+  example: []
+  syntax:
+    content: public virtual SLInterfaceGlobalsRegMsgRsp SLInterfaceGlobalsRegOp(SLInterfaceGlobalsRegMsg request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default)
+    parameters:
+    - id: request
+      type: ServiceLayer.SLInterfaceGlobalsRegMsg
+      description: The request to send to the server.
+    - id: headers
+      type: Grpc.Core.Metadata
+      description: The initial metadata to send with the call. This parameter is optional.
+    - id: deadline
+      type: System.Nullable{System.DateTime}
+      description: An optional deadline for the call. The call will be cancelled if deadline is hit.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: An optional token for canceling the call.
+    return:
+      type: ServiceLayer.SLInterfaceGlobalsRegMsgRsp
+      description: The response received from the server.
+    content.vb: Public Overridable Function SLInterfaceGlobalsRegOp(request As SLInterfaceGlobalsRegMsg, headers As Metadata = Nothing, deadline As Date? = Nothing, cancellationToken As CancellationToken = Nothing) As SLInterfaceGlobalsRegMsgRsp
+  overload: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGlobalsRegOp*
+  nameWithType.vb: SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGlobalsRegOp(SLInterfaceGlobalsRegMsg, Metadata, Date?, CancellationToken)
+  fullName.vb: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGlobalsRegOp(ServiceLayer.SLInterfaceGlobalsRegMsg, Grpc.Core.Metadata, Date?, System.Threading.CancellationToken)
+  name.vb: SLInterfaceGlobalsRegOp(SLInterfaceGlobalsRegMsg, Metadata, Date?, CancellationToken)
+- uid: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGlobalsRegOp(ServiceLayer.SLInterfaceGlobalsRegMsg,Grpc.Core.CallOptions)
+  commentId: M:ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGlobalsRegOp(ServiceLayer.SLInterfaceGlobalsRegMsg,Grpc.Core.CallOptions)
+  id: SLInterfaceGlobalsRegOp(ServiceLayer.SLInterfaceGlobalsRegMsg,Grpc.Core.CallOptions)
+  parent: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient
+  langs:
+  - csharp
+  - vb
+  name: SLInterfaceGlobalsRegOp(SLInterfaceGlobalsRegMsg, CallOptions)
+  nameWithType: SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGlobalsRegOp(SLInterfaceGlobalsRegMsg, CallOptions)
+  fullName: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGlobalsRegOp(ServiceLayer.SLInterfaceGlobalsRegMsg, Grpc.Core.CallOptions)
+  type: Method
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlInterfaceGrpc.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: SLInterfaceGlobalsRegOp
+    path: src/gencs/SlInterfaceGrpc.cs
+    startLine: 346
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: >-
+    SLInterfaceGlobalsRegMsg.Oper = SL_REGOP_REGISTER:
+        Global Interface registration.
+        A client Must Register BEFORE interfaces can be modified/queried.
+
+    SLInterfaceGlobalsRegMsg.Oper = SL_REGOP_UNREGISTER:
+        Global Interface un-registration.
+        This call is used to end all interface notifications.
+        This call cleans up all interface notifications previously requested.
+
+    SLInterfaceGlobalsRegMsg.Oper = SL_REGOP_EOF:
+        Interface End Of File.
+        After Registration, the client is expected to send an EOF
+        message to convey the end of replay of the client's known objects.
+        This is especially useful under certain restart scenarios when the
+        client and the server are trying to synchronize their interfaces.
+
+    The SLInterfaceGlobalsRegMsg operations can be used by the client to synchronize
+
+    interface registrations with the server. When the client re-registers with the
+
+    server using SL_REGOP_REGISTER, server marks all interface registrations as stale.
+
+    Client can then reprogram interface registrations. When the client sends
+
+    SL_REGOP_EOF, any interface registrations not reprogrammed by the client are
+
+    removed from the device.
+
+
+    The client must perform all operations (SLInterfaceGlobalsRegMsg,
+
+    interface registration operations) from a single execution context.
+  example: []
+  syntax:
+    content: public virtual SLInterfaceGlobalsRegMsgRsp SLInterfaceGlobalsRegOp(SLInterfaceGlobalsRegMsg request, CallOptions options)
+    parameters:
+    - id: request
+      type: ServiceLayer.SLInterfaceGlobalsRegMsg
+      description: The request to send to the server.
+    - id: options
+      type: Grpc.Core.CallOptions
+      description: The options for the call.
+    return:
+      type: ServiceLayer.SLInterfaceGlobalsRegMsgRsp
+      description: The response received from the server.
+    content.vb: Public Overridable Function SLInterfaceGlobalsRegOp(request As SLInterfaceGlobalsRegMsg, options As CallOptions) As SLInterfaceGlobalsRegMsgRsp
+  overload: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGlobalsRegOp*
+- uid: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGlobalsRegOpAsync(ServiceLayer.SLInterfaceGlobalsRegMsg,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)
+  commentId: M:ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGlobalsRegOpAsync(ServiceLayer.SLInterfaceGlobalsRegMsg,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)
+  id: SLInterfaceGlobalsRegOpAsync(ServiceLayer.SLInterfaceGlobalsRegMsg,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)
+  parent: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient
+  langs:
+  - csharp
+  - vb
+  name: SLInterfaceGlobalsRegOpAsync(SLInterfaceGlobalsRegMsg, Metadata, DateTime?, CancellationToken)
+  nameWithType: SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGlobalsRegOpAsync(SLInterfaceGlobalsRegMsg, Metadata, DateTime?, CancellationToken)
+  fullName: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGlobalsRegOpAsync(ServiceLayer.SLInterfaceGlobalsRegMsg, Grpc.Core.Metadata, System.DateTime?, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlInterfaceGrpc.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: SLInterfaceGlobalsRegOpAsync
+    path: src/gencs/SlInterfaceGrpc.cs
+    startLine: 383
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: >-
+    SLInterfaceGlobalsRegMsg.Oper = SL_REGOP_REGISTER:
+        Global Interface registration.
+        A client Must Register BEFORE interfaces can be modified/queried.
+
+    SLInterfaceGlobalsRegMsg.Oper = SL_REGOP_UNREGISTER:
+        Global Interface un-registration.
+        This call is used to end all interface notifications.
+        This call cleans up all interface notifications previously requested.
+
+    SLInterfaceGlobalsRegMsg.Oper = SL_REGOP_EOF:
+        Interface End Of File.
+        After Registration, the client is expected to send an EOF
+        message to convey the end of replay of the client's known objects.
+        This is especially useful under certain restart scenarios when the
+        client and the server are trying to synchronize their interfaces.
+
+    The SLInterfaceGlobalsRegMsg operations can be used by the client to synchronize
+
+    interface registrations with the server. When the client re-registers with the
+
+    server using SL_REGOP_REGISTER, server marks all interface registrations as stale.
+
+    Client can then reprogram interface registrations. When the client sends
+
+    SL_REGOP_EOF, any interface registrations not reprogrammed by the client are
+
+    removed from the device.
+
+
+    The client must perform all operations (SLInterfaceGlobalsRegMsg,
+
+    interface registration operations) from a single execution context.
+  example: []
+  syntax:
+    content: public virtual AsyncUnaryCall<SLInterfaceGlobalsRegMsgRsp> SLInterfaceGlobalsRegOpAsync(SLInterfaceGlobalsRegMsg request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default)
+    parameters:
+    - id: request
+      type: ServiceLayer.SLInterfaceGlobalsRegMsg
+      description: The request to send to the server.
+    - id: headers
+      type: Grpc.Core.Metadata
+      description: The initial metadata to send with the call. This parameter is optional.
+    - id: deadline
+      type: System.Nullable{System.DateTime}
+      description: An optional deadline for the call. The call will be cancelled if deadline is hit.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: An optional token for canceling the call.
+    return:
+      type: Grpc.Core.AsyncUnaryCall{ServiceLayer.SLInterfaceGlobalsRegMsgRsp}
+      description: The call object.
+    content.vb: Public Overridable Function SLInterfaceGlobalsRegOpAsync(request As SLInterfaceGlobalsRegMsg, headers As Metadata = Nothing, deadline As Date? = Nothing, cancellationToken As CancellationToken = Nothing) As AsyncUnaryCall(Of SLInterfaceGlobalsRegMsgRsp)
+  overload: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGlobalsRegOpAsync*
+  nameWithType.vb: SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGlobalsRegOpAsync(SLInterfaceGlobalsRegMsg, Metadata, Date?, CancellationToken)
+  fullName.vb: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGlobalsRegOpAsync(ServiceLayer.SLInterfaceGlobalsRegMsg, Grpc.Core.Metadata, Date?, System.Threading.CancellationToken)
+  name.vb: SLInterfaceGlobalsRegOpAsync(SLInterfaceGlobalsRegMsg, Metadata, Date?, CancellationToken)
+- uid: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGlobalsRegOpAsync(ServiceLayer.SLInterfaceGlobalsRegMsg,Grpc.Core.CallOptions)
+  commentId: M:ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGlobalsRegOpAsync(ServiceLayer.SLInterfaceGlobalsRegMsg,Grpc.Core.CallOptions)
+  id: SLInterfaceGlobalsRegOpAsync(ServiceLayer.SLInterfaceGlobalsRegMsg,Grpc.Core.CallOptions)
+  parent: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient
+  langs:
+  - csharp
+  - vb
+  name: SLInterfaceGlobalsRegOpAsync(SLInterfaceGlobalsRegMsg, CallOptions)
+  nameWithType: SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGlobalsRegOpAsync(SLInterfaceGlobalsRegMsg, CallOptions)
+  fullName: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGlobalsRegOpAsync(ServiceLayer.SLInterfaceGlobalsRegMsg, Grpc.Core.CallOptions)
+  type: Method
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlInterfaceGrpc.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: SLInterfaceGlobalsRegOpAsync
+    path: src/gencs/SlInterfaceGrpc.cs
+    startLine: 418
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: >-
+    SLInterfaceGlobalsRegMsg.Oper = SL_REGOP_REGISTER:
+        Global Interface registration.
+        A client Must Register BEFORE interfaces can be modified/queried.
+
+    SLInterfaceGlobalsRegMsg.Oper = SL_REGOP_UNREGISTER:
+        Global Interface un-registration.
+        This call is used to end all interface notifications.
+        This call cleans up all interface notifications previously requested.
+
+    SLInterfaceGlobalsRegMsg.Oper = SL_REGOP_EOF:
+        Interface End Of File.
+        After Registration, the client is expected to send an EOF
+        message to convey the end of replay of the client's known objects.
+        This is especially useful under certain restart scenarios when the
+        client and the server are trying to synchronize their interfaces.
+
+    The SLInterfaceGlobalsRegMsg operations can be used by the client to synchronize
+
+    interface registrations with the server. When the client re-registers with the
+
+    server using SL_REGOP_REGISTER, server marks all interface registrations as stale.
+
+    Client can then reprogram interface registrations. When the client sends
+
+    SL_REGOP_EOF, any interface registrations not reprogrammed by the client are
+
+    removed from the device.
+
+
+    The client must perform all operations (SLInterfaceGlobalsRegMsg,
+
+    interface registration operations) from a single execution context.
+  example: []
+  syntax:
+    content: public virtual AsyncUnaryCall<SLInterfaceGlobalsRegMsgRsp> SLInterfaceGlobalsRegOpAsync(SLInterfaceGlobalsRegMsg request, CallOptions options)
+    parameters:
+    - id: request
+      type: ServiceLayer.SLInterfaceGlobalsRegMsg
+      description: The request to send to the server.
+    - id: options
+      type: Grpc.Core.CallOptions
+      description: The options for the call.
+    return:
+      type: Grpc.Core.AsyncUnaryCall{ServiceLayer.SLInterfaceGlobalsRegMsgRsp}
+      description: The call object.
+    content.vb: Public Overridable Function SLInterfaceGlobalsRegOpAsync(request As SLInterfaceGlobalsRegMsg, options As CallOptions) As AsyncUnaryCall(Of SLInterfaceGlobalsRegMsgRsp)
+  overload: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGlobalsRegOpAsync*
+- uid: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGlobalsGet(ServiceLayer.SLInterfaceGlobalsGetMsg,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)
+  commentId: M:ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGlobalsGet(ServiceLayer.SLInterfaceGlobalsGetMsg,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)
+  id: SLInterfaceGlobalsGet(ServiceLayer.SLInterfaceGlobalsGetMsg,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)
+  parent: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient
+  langs:
+  - csharp
+  - vb
+  name: SLInterfaceGlobalsGet(SLInterfaceGlobalsGetMsg, Metadata, DateTime?, CancellationToken)
+  nameWithType: SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGlobalsGet(SLInterfaceGlobalsGetMsg, Metadata, DateTime?, CancellationToken)
+  fullName: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGlobalsGet(ServiceLayer.SLInterfaceGlobalsGetMsg, Grpc.Core.Metadata, System.DateTime?, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlInterfaceGrpc.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: SLInterfaceGlobalsGet
+    path: src/gencs/SlInterfaceGrpc.cs
+    startLine: 431
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Used to retrieve global Interface info from the server.
+  example: []
+  syntax:
+    content: public virtual SLInterfaceGlobalsGetMsgRsp SLInterfaceGlobalsGet(SLInterfaceGlobalsGetMsg request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default)
+    parameters:
+    - id: request
+      type: ServiceLayer.SLInterfaceGlobalsGetMsg
+      description: The request to send to the server.
+    - id: headers
+      type: Grpc.Core.Metadata
+      description: The initial metadata to send with the call. This parameter is optional.
+    - id: deadline
+      type: System.Nullable{System.DateTime}
+      description: An optional deadline for the call. The call will be cancelled if deadline is hit.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: An optional token for canceling the call.
+    return:
+      type: ServiceLayer.SLInterfaceGlobalsGetMsgRsp
+      description: The response received from the server.
+    content.vb: Public Overridable Function SLInterfaceGlobalsGet(request As SLInterfaceGlobalsGetMsg, headers As Metadata = Nothing, deadline As Date? = Nothing, cancellationToken As CancellationToken = Nothing) As SLInterfaceGlobalsGetMsgRsp
+  overload: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGlobalsGet*
+  nameWithType.vb: SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGlobalsGet(SLInterfaceGlobalsGetMsg, Metadata, Date?, CancellationToken)
+  fullName.vb: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGlobalsGet(ServiceLayer.SLInterfaceGlobalsGetMsg, Grpc.Core.Metadata, Date?, System.Threading.CancellationToken)
+  name.vb: SLInterfaceGlobalsGet(SLInterfaceGlobalsGetMsg, Metadata, Date?, CancellationToken)
+- uid: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGlobalsGet(ServiceLayer.SLInterfaceGlobalsGetMsg,Grpc.Core.CallOptions)
+  commentId: M:ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGlobalsGet(ServiceLayer.SLInterfaceGlobalsGetMsg,Grpc.Core.CallOptions)
+  id: SLInterfaceGlobalsGet(ServiceLayer.SLInterfaceGlobalsGetMsg,Grpc.Core.CallOptions)
+  parent: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient
+  langs:
+  - csharp
+  - vb
+  name: SLInterfaceGlobalsGet(SLInterfaceGlobalsGetMsg, CallOptions)
+  nameWithType: SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGlobalsGet(SLInterfaceGlobalsGetMsg, CallOptions)
+  fullName: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGlobalsGet(ServiceLayer.SLInterfaceGlobalsGetMsg, Grpc.Core.CallOptions)
+  type: Method
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlInterfaceGrpc.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: SLInterfaceGlobalsGet
+    path: src/gencs/SlInterfaceGrpc.cs
+    startLine: 442
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Used to retrieve global Interface info from the server.
+  example: []
+  syntax:
+    content: public virtual SLInterfaceGlobalsGetMsgRsp SLInterfaceGlobalsGet(SLInterfaceGlobalsGetMsg request, CallOptions options)
+    parameters:
+    - id: request
+      type: ServiceLayer.SLInterfaceGlobalsGetMsg
+      description: The request to send to the server.
+    - id: options
+      type: Grpc.Core.CallOptions
+      description: The options for the call.
+    return:
+      type: ServiceLayer.SLInterfaceGlobalsGetMsgRsp
+      description: The response received from the server.
+    content.vb: Public Overridable Function SLInterfaceGlobalsGet(request As SLInterfaceGlobalsGetMsg, options As CallOptions) As SLInterfaceGlobalsGetMsgRsp
+  overload: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGlobalsGet*
+- uid: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGlobalsGetAsync(ServiceLayer.SLInterfaceGlobalsGetMsg,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)
+  commentId: M:ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGlobalsGetAsync(ServiceLayer.SLInterfaceGlobalsGetMsg,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)
+  id: SLInterfaceGlobalsGetAsync(ServiceLayer.SLInterfaceGlobalsGetMsg,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)
+  parent: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient
+  langs:
+  - csharp
+  - vb
+  name: SLInterfaceGlobalsGetAsync(SLInterfaceGlobalsGetMsg, Metadata, DateTime?, CancellationToken)
+  nameWithType: SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGlobalsGetAsync(SLInterfaceGlobalsGetMsg, Metadata, DateTime?, CancellationToken)
+  fullName: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGlobalsGetAsync(ServiceLayer.SLInterfaceGlobalsGetMsg, Grpc.Core.Metadata, System.DateTime?, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlInterfaceGrpc.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: SLInterfaceGlobalsGetAsync
+    path: src/gencs/SlInterfaceGrpc.cs
+    startLine: 455
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Used to retrieve global Interface info from the server.
+  example: []
+  syntax:
+    content: public virtual AsyncUnaryCall<SLInterfaceGlobalsGetMsgRsp> SLInterfaceGlobalsGetAsync(SLInterfaceGlobalsGetMsg request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default)
+    parameters:
+    - id: request
+      type: ServiceLayer.SLInterfaceGlobalsGetMsg
+      description: The request to send to the server.
+    - id: headers
+      type: Grpc.Core.Metadata
+      description: The initial metadata to send with the call. This parameter is optional.
+    - id: deadline
+      type: System.Nullable{System.DateTime}
+      description: An optional deadline for the call. The call will be cancelled if deadline is hit.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: An optional token for canceling the call.
+    return:
+      type: Grpc.Core.AsyncUnaryCall{ServiceLayer.SLInterfaceGlobalsGetMsgRsp}
+      description: The call object.
+    content.vb: Public Overridable Function SLInterfaceGlobalsGetAsync(request As SLInterfaceGlobalsGetMsg, headers As Metadata = Nothing, deadline As Date? = Nothing, cancellationToken As CancellationToken = Nothing) As AsyncUnaryCall(Of SLInterfaceGlobalsGetMsgRsp)
+  overload: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGlobalsGetAsync*
+  nameWithType.vb: SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGlobalsGetAsync(SLInterfaceGlobalsGetMsg, Metadata, Date?, CancellationToken)
+  fullName.vb: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGlobalsGetAsync(ServiceLayer.SLInterfaceGlobalsGetMsg, Grpc.Core.Metadata, Date?, System.Threading.CancellationToken)
+  name.vb: SLInterfaceGlobalsGetAsync(SLInterfaceGlobalsGetMsg, Metadata, Date?, CancellationToken)
+- uid: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGlobalsGetAsync(ServiceLayer.SLInterfaceGlobalsGetMsg,Grpc.Core.CallOptions)
+  commentId: M:ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGlobalsGetAsync(ServiceLayer.SLInterfaceGlobalsGetMsg,Grpc.Core.CallOptions)
+  id: SLInterfaceGlobalsGetAsync(ServiceLayer.SLInterfaceGlobalsGetMsg,Grpc.Core.CallOptions)
+  parent: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient
+  langs:
+  - csharp
+  - vb
+  name: SLInterfaceGlobalsGetAsync(SLInterfaceGlobalsGetMsg, CallOptions)
+  nameWithType: SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGlobalsGetAsync(SLInterfaceGlobalsGetMsg, CallOptions)
+  fullName: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGlobalsGetAsync(ServiceLayer.SLInterfaceGlobalsGetMsg, Grpc.Core.CallOptions)
+  type: Method
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlInterfaceGrpc.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: SLInterfaceGlobalsGetAsync
+    path: src/gencs/SlInterfaceGrpc.cs
+    startLine: 466
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Used to retrieve global Interface info from the server.
+  example: []
+  syntax:
+    content: public virtual AsyncUnaryCall<SLInterfaceGlobalsGetMsgRsp> SLInterfaceGlobalsGetAsync(SLInterfaceGlobalsGetMsg request, CallOptions options)
+    parameters:
+    - id: request
+      type: ServiceLayer.SLInterfaceGlobalsGetMsg
+      description: The request to send to the server.
+    - id: options
+      type: Grpc.Core.CallOptions
+      description: The options for the call.
+    return:
+      type: Grpc.Core.AsyncUnaryCall{ServiceLayer.SLInterfaceGlobalsGetMsgRsp}
+      description: The call object.
+    content.vb: Public Overridable Function SLInterfaceGlobalsGetAsync(request As SLInterfaceGlobalsGetMsg, options As CallOptions) As AsyncUnaryCall(Of SLInterfaceGlobalsGetMsgRsp)
+  overload: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGlobalsGetAsync*
+- uid: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGlobalsGetStats(ServiceLayer.SLInterfaceGlobalsGetMsg,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)
+  commentId: M:ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGlobalsGetStats(ServiceLayer.SLInterfaceGlobalsGetMsg,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)
+  id: SLInterfaceGlobalsGetStats(ServiceLayer.SLInterfaceGlobalsGetMsg,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)
+  parent: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient
+  langs:
+  - csharp
+  - vb
+  name: SLInterfaceGlobalsGetStats(SLInterfaceGlobalsGetMsg, Metadata, DateTime?, CancellationToken)
+  nameWithType: SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGlobalsGetStats(SLInterfaceGlobalsGetMsg, Metadata, DateTime?, CancellationToken)
+  fullName: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGlobalsGetStats(ServiceLayer.SLInterfaceGlobalsGetMsg, Grpc.Core.Metadata, System.DateTime?, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlInterfaceGrpc.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: SLInterfaceGlobalsGetStats
+    path: src/gencs/SlInterfaceGrpc.cs
+    startLine: 479
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Used to retrieve global Interface stats from the server.
+  example: []
+  syntax:
+    content: public virtual SLInterfaceGlobalsGetStatsMsgRsp SLInterfaceGlobalsGetStats(SLInterfaceGlobalsGetMsg request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default)
+    parameters:
+    - id: request
+      type: ServiceLayer.SLInterfaceGlobalsGetMsg
+      description: The request to send to the server.
+    - id: headers
+      type: Grpc.Core.Metadata
+      description: The initial metadata to send with the call. This parameter is optional.
+    - id: deadline
+      type: System.Nullable{System.DateTime}
+      description: An optional deadline for the call. The call will be cancelled if deadline is hit.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: An optional token for canceling the call.
+    return:
+      type: ServiceLayer.SLInterfaceGlobalsGetStatsMsgRsp
+      description: The response received from the server.
+    content.vb: Public Overridable Function SLInterfaceGlobalsGetStats(request As SLInterfaceGlobalsGetMsg, headers As Metadata = Nothing, deadline As Date? = Nothing, cancellationToken As CancellationToken = Nothing) As SLInterfaceGlobalsGetStatsMsgRsp
+  overload: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGlobalsGetStats*
+  nameWithType.vb: SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGlobalsGetStats(SLInterfaceGlobalsGetMsg, Metadata, Date?, CancellationToken)
+  fullName.vb: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGlobalsGetStats(ServiceLayer.SLInterfaceGlobalsGetMsg, Grpc.Core.Metadata, Date?, System.Threading.CancellationToken)
+  name.vb: SLInterfaceGlobalsGetStats(SLInterfaceGlobalsGetMsg, Metadata, Date?, CancellationToken)
+- uid: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGlobalsGetStats(ServiceLayer.SLInterfaceGlobalsGetMsg,Grpc.Core.CallOptions)
+  commentId: M:ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGlobalsGetStats(ServiceLayer.SLInterfaceGlobalsGetMsg,Grpc.Core.CallOptions)
+  id: SLInterfaceGlobalsGetStats(ServiceLayer.SLInterfaceGlobalsGetMsg,Grpc.Core.CallOptions)
+  parent: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient
+  langs:
+  - csharp
+  - vb
+  name: SLInterfaceGlobalsGetStats(SLInterfaceGlobalsGetMsg, CallOptions)
+  nameWithType: SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGlobalsGetStats(SLInterfaceGlobalsGetMsg, CallOptions)
+  fullName: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGlobalsGetStats(ServiceLayer.SLInterfaceGlobalsGetMsg, Grpc.Core.CallOptions)
+  type: Method
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlInterfaceGrpc.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: SLInterfaceGlobalsGetStats
+    path: src/gencs/SlInterfaceGrpc.cs
+    startLine: 490
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Used to retrieve global Interface stats from the server.
+  example: []
+  syntax:
+    content: public virtual SLInterfaceGlobalsGetStatsMsgRsp SLInterfaceGlobalsGetStats(SLInterfaceGlobalsGetMsg request, CallOptions options)
+    parameters:
+    - id: request
+      type: ServiceLayer.SLInterfaceGlobalsGetMsg
+      description: The request to send to the server.
+    - id: options
+      type: Grpc.Core.CallOptions
+      description: The options for the call.
+    return:
+      type: ServiceLayer.SLInterfaceGlobalsGetStatsMsgRsp
+      description: The response received from the server.
+    content.vb: Public Overridable Function SLInterfaceGlobalsGetStats(request As SLInterfaceGlobalsGetMsg, options As CallOptions) As SLInterfaceGlobalsGetStatsMsgRsp
+  overload: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGlobalsGetStats*
+- uid: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGlobalsGetStatsAsync(ServiceLayer.SLInterfaceGlobalsGetMsg,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)
+  commentId: M:ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGlobalsGetStatsAsync(ServiceLayer.SLInterfaceGlobalsGetMsg,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)
+  id: SLInterfaceGlobalsGetStatsAsync(ServiceLayer.SLInterfaceGlobalsGetMsg,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)
+  parent: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient
+  langs:
+  - csharp
+  - vb
+  name: SLInterfaceGlobalsGetStatsAsync(SLInterfaceGlobalsGetMsg, Metadata, DateTime?, CancellationToken)
+  nameWithType: SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGlobalsGetStatsAsync(SLInterfaceGlobalsGetMsg, Metadata, DateTime?, CancellationToken)
+  fullName: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGlobalsGetStatsAsync(ServiceLayer.SLInterfaceGlobalsGetMsg, Grpc.Core.Metadata, System.DateTime?, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlInterfaceGrpc.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: SLInterfaceGlobalsGetStatsAsync
+    path: src/gencs/SlInterfaceGrpc.cs
+    startLine: 503
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Used to retrieve global Interface stats from the server.
+  example: []
+  syntax:
+    content: public virtual AsyncUnaryCall<SLInterfaceGlobalsGetStatsMsgRsp> SLInterfaceGlobalsGetStatsAsync(SLInterfaceGlobalsGetMsg request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default)
+    parameters:
+    - id: request
+      type: ServiceLayer.SLInterfaceGlobalsGetMsg
+      description: The request to send to the server.
+    - id: headers
+      type: Grpc.Core.Metadata
+      description: The initial metadata to send with the call. This parameter is optional.
+    - id: deadline
+      type: System.Nullable{System.DateTime}
+      description: An optional deadline for the call. The call will be cancelled if deadline is hit.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: An optional token for canceling the call.
+    return:
+      type: Grpc.Core.AsyncUnaryCall{ServiceLayer.SLInterfaceGlobalsGetStatsMsgRsp}
+      description: The call object.
+    content.vb: Public Overridable Function SLInterfaceGlobalsGetStatsAsync(request As SLInterfaceGlobalsGetMsg, headers As Metadata = Nothing, deadline As Date? = Nothing, cancellationToken As CancellationToken = Nothing) As AsyncUnaryCall(Of SLInterfaceGlobalsGetStatsMsgRsp)
+  overload: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGlobalsGetStatsAsync*
+  nameWithType.vb: SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGlobalsGetStatsAsync(SLInterfaceGlobalsGetMsg, Metadata, Date?, CancellationToken)
+  fullName.vb: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGlobalsGetStatsAsync(ServiceLayer.SLInterfaceGlobalsGetMsg, Grpc.Core.Metadata, Date?, System.Threading.CancellationToken)
+  name.vb: SLInterfaceGlobalsGetStatsAsync(SLInterfaceGlobalsGetMsg, Metadata, Date?, CancellationToken)
+- uid: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGlobalsGetStatsAsync(ServiceLayer.SLInterfaceGlobalsGetMsg,Grpc.Core.CallOptions)
+  commentId: M:ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGlobalsGetStatsAsync(ServiceLayer.SLInterfaceGlobalsGetMsg,Grpc.Core.CallOptions)
+  id: SLInterfaceGlobalsGetStatsAsync(ServiceLayer.SLInterfaceGlobalsGetMsg,Grpc.Core.CallOptions)
+  parent: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient
+  langs:
+  - csharp
+  - vb
+  name: SLInterfaceGlobalsGetStatsAsync(SLInterfaceGlobalsGetMsg, CallOptions)
+  nameWithType: SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGlobalsGetStatsAsync(SLInterfaceGlobalsGetMsg, CallOptions)
+  fullName: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGlobalsGetStatsAsync(ServiceLayer.SLInterfaceGlobalsGetMsg, Grpc.Core.CallOptions)
+  type: Method
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlInterfaceGrpc.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: SLInterfaceGlobalsGetStatsAsync
+    path: src/gencs/SlInterfaceGrpc.cs
+    startLine: 514
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Used to retrieve global Interface stats from the server.
+  example: []
+  syntax:
+    content: public virtual AsyncUnaryCall<SLInterfaceGlobalsGetStatsMsgRsp> SLInterfaceGlobalsGetStatsAsync(SLInterfaceGlobalsGetMsg request, CallOptions options)
+    parameters:
+    - id: request
+      type: ServiceLayer.SLInterfaceGlobalsGetMsg
+      description: The request to send to the server.
+    - id: options
+      type: Grpc.Core.CallOptions
+      description: The options for the call.
+    return:
+      type: Grpc.Core.AsyncUnaryCall{ServiceLayer.SLInterfaceGlobalsGetStatsMsgRsp}
+      description: The call object.
+    content.vb: Public Overridable Function SLInterfaceGlobalsGetStatsAsync(request As SLInterfaceGlobalsGetMsg, options As CallOptions) As AsyncUnaryCall(Of SLInterfaceGlobalsGetStatsMsgRsp)
+  overload: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGlobalsGetStatsAsync*
+- uid: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGet(ServiceLayer.SLInterfaceGetMsg,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)
+  commentId: M:ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGet(ServiceLayer.SLInterfaceGetMsg,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)
+  id: SLInterfaceGet(ServiceLayer.SLInterfaceGetMsg,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)
+  parent: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient
+  langs:
+  - csharp
+  - vb
+  name: SLInterfaceGet(SLInterfaceGetMsg, Metadata, DateTime?, CancellationToken)
+  nameWithType: SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGet(SLInterfaceGetMsg, Metadata, DateTime?, CancellationToken)
+  fullName: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGet(ServiceLayer.SLInterfaceGetMsg, Grpc.Core.Metadata, System.DateTime?, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlInterfaceGrpc.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: SLInterfaceGet
+    path: src/gencs/SlInterfaceGrpc.cs
+    startLine: 528
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: >-
+    Retrieve interface attributes and state.
+
+    This call can be used to "poll" the current state of interfaces.
+  example: []
+  syntax:
+    content: public virtual SLInterfaceGetMsgRsp SLInterfaceGet(SLInterfaceGetMsg request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default)
+    parameters:
+    - id: request
+      type: ServiceLayer.SLInterfaceGetMsg
+      description: The request to send to the server.
+    - id: headers
+      type: Grpc.Core.Metadata
+      description: The initial metadata to send with the call. This parameter is optional.
+    - id: deadline
+      type: System.Nullable{System.DateTime}
+      description: An optional deadline for the call. The call will be cancelled if deadline is hit.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: An optional token for canceling the call.
+    return:
+      type: ServiceLayer.SLInterfaceGetMsgRsp
+      description: The response received from the server.
+    content.vb: Public Overridable Function SLInterfaceGet(request As SLInterfaceGetMsg, headers As Metadata = Nothing, deadline As Date? = Nothing, cancellationToken As CancellationToken = Nothing) As SLInterfaceGetMsgRsp
+  overload: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGet*
+  nameWithType.vb: SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGet(SLInterfaceGetMsg, Metadata, Date?, CancellationToken)
+  fullName.vb: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGet(ServiceLayer.SLInterfaceGetMsg, Grpc.Core.Metadata, Date?, System.Threading.CancellationToken)
+  name.vb: SLInterfaceGet(SLInterfaceGetMsg, Metadata, Date?, CancellationToken)
+- uid: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGet(ServiceLayer.SLInterfaceGetMsg,Grpc.Core.CallOptions)
+  commentId: M:ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGet(ServiceLayer.SLInterfaceGetMsg,Grpc.Core.CallOptions)
+  id: SLInterfaceGet(ServiceLayer.SLInterfaceGetMsg,Grpc.Core.CallOptions)
+  parent: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient
+  langs:
+  - csharp
+  - vb
+  name: SLInterfaceGet(SLInterfaceGetMsg, CallOptions)
+  nameWithType: SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGet(SLInterfaceGetMsg, CallOptions)
+  fullName: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGet(ServiceLayer.SLInterfaceGetMsg, Grpc.Core.CallOptions)
+  type: Method
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlInterfaceGrpc.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: SLInterfaceGet
+    path: src/gencs/SlInterfaceGrpc.cs
+    startLine: 540
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: >-
+    Retrieve interface attributes and state.
+
+    This call can be used to "poll" the current state of interfaces.
+  example: []
+  syntax:
+    content: public virtual SLInterfaceGetMsgRsp SLInterfaceGet(SLInterfaceGetMsg request, CallOptions options)
+    parameters:
+    - id: request
+      type: ServiceLayer.SLInterfaceGetMsg
+      description: The request to send to the server.
+    - id: options
+      type: Grpc.Core.CallOptions
+      description: The options for the call.
+    return:
+      type: ServiceLayer.SLInterfaceGetMsgRsp
+      description: The response received from the server.
+    content.vb: Public Overridable Function SLInterfaceGet(request As SLInterfaceGetMsg, options As CallOptions) As SLInterfaceGetMsgRsp
+  overload: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGet*
+- uid: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGetAsync(ServiceLayer.SLInterfaceGetMsg,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)
+  commentId: M:ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGetAsync(ServiceLayer.SLInterfaceGetMsg,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)
+  id: SLInterfaceGetAsync(ServiceLayer.SLInterfaceGetMsg,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)
+  parent: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient
+  langs:
+  - csharp
+  - vb
+  name: SLInterfaceGetAsync(SLInterfaceGetMsg, Metadata, DateTime?, CancellationToken)
+  nameWithType: SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGetAsync(SLInterfaceGetMsg, Metadata, DateTime?, CancellationToken)
+  fullName: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGetAsync(ServiceLayer.SLInterfaceGetMsg, Grpc.Core.Metadata, System.DateTime?, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlInterfaceGrpc.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: SLInterfaceGetAsync
+    path: src/gencs/SlInterfaceGrpc.cs
+    startLine: 554
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: >-
+    Retrieve interface attributes and state.
+
+    This call can be used to "poll" the current state of interfaces.
+  example: []
+  syntax:
+    content: public virtual AsyncUnaryCall<SLInterfaceGetMsgRsp> SLInterfaceGetAsync(SLInterfaceGetMsg request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default)
+    parameters:
+    - id: request
+      type: ServiceLayer.SLInterfaceGetMsg
+      description: The request to send to the server.
+    - id: headers
+      type: Grpc.Core.Metadata
+      description: The initial metadata to send with the call. This parameter is optional.
+    - id: deadline
+      type: System.Nullable{System.DateTime}
+      description: An optional deadline for the call. The call will be cancelled if deadline is hit.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: An optional token for canceling the call.
+    return:
+      type: Grpc.Core.AsyncUnaryCall{ServiceLayer.SLInterfaceGetMsgRsp}
+      description: The call object.
+    content.vb: Public Overridable Function SLInterfaceGetAsync(request As SLInterfaceGetMsg, headers As Metadata = Nothing, deadline As Date? = Nothing, cancellationToken As CancellationToken = Nothing) As AsyncUnaryCall(Of SLInterfaceGetMsgRsp)
+  overload: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGetAsync*
+  nameWithType.vb: SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGetAsync(SLInterfaceGetMsg, Metadata, Date?, CancellationToken)
+  fullName.vb: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGetAsync(ServiceLayer.SLInterfaceGetMsg, Grpc.Core.Metadata, Date?, System.Threading.CancellationToken)
+  name.vb: SLInterfaceGetAsync(SLInterfaceGetMsg, Metadata, Date?, CancellationToken)
+- uid: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGetAsync(ServiceLayer.SLInterfaceGetMsg,Grpc.Core.CallOptions)
+  commentId: M:ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGetAsync(ServiceLayer.SLInterfaceGetMsg,Grpc.Core.CallOptions)
+  id: SLInterfaceGetAsync(ServiceLayer.SLInterfaceGetMsg,Grpc.Core.CallOptions)
+  parent: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient
+  langs:
+  - csharp
+  - vb
+  name: SLInterfaceGetAsync(SLInterfaceGetMsg, CallOptions)
+  nameWithType: SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGetAsync(SLInterfaceGetMsg, CallOptions)
+  fullName: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGetAsync(ServiceLayer.SLInterfaceGetMsg, Grpc.Core.CallOptions)
+  type: Method
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlInterfaceGrpc.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: SLInterfaceGetAsync
+    path: src/gencs/SlInterfaceGrpc.cs
+    startLine: 566
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: >-
+    Retrieve interface attributes and state.
+
+    This call can be used to "poll" the current state of interfaces.
+  example: []
+  syntax:
+    content: public virtual AsyncUnaryCall<SLInterfaceGetMsgRsp> SLInterfaceGetAsync(SLInterfaceGetMsg request, CallOptions options)
+    parameters:
+    - id: request
+      type: ServiceLayer.SLInterfaceGetMsg
+      description: The request to send to the server.
+    - id: options
+      type: Grpc.Core.CallOptions
+      description: The options for the call.
+    return:
+      type: Grpc.Core.AsyncUnaryCall{ServiceLayer.SLInterfaceGetMsgRsp}
+      description: The call object.
+    content.vb: Public Overridable Function SLInterfaceGetAsync(request As SLInterfaceGetMsg, options As CallOptions) As AsyncUnaryCall(Of SLInterfaceGetMsgRsp)
+  overload: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGetAsync*
+- uid: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGetNotifStream(ServiceLayer.SLInterfaceGetNotifMsg,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)
+  commentId: M:ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGetNotifStream(ServiceLayer.SLInterfaceGetNotifMsg,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)
+  id: SLInterfaceGetNotifStream(ServiceLayer.SLInterfaceGetNotifMsg,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)
+  parent: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient
+  langs:
+  - csharp
+  - vb
+  name: SLInterfaceGetNotifStream(SLInterfaceGetNotifMsg, Metadata, DateTime?, CancellationToken)
+  nameWithType: SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGetNotifStream(SLInterfaceGetNotifMsg, Metadata, DateTime?, CancellationToken)
+  fullName: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGetNotifStream(ServiceLayer.SLInterfaceGetNotifMsg, Grpc.Core.Metadata, System.DateTime?, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlInterfaceGrpc.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: SLInterfaceGetNotifStream
+    path: src/gencs/SlInterfaceGrpc.cs
+    startLine: 584
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: >-
+    This call is used to get a stream of interface notifications.
+
+    The caller must maintain the GRPC channel as long as
+
+    there is interest in interface notifications.
+
+    This call can be used to get "push" notifications for interface info.
+
+    It is advised that the caller register for notifications before any
+
+    interfaces are used to avoid any loss of notifications.
+  example: []
+  syntax:
+    content: public virtual AsyncServerStreamingCall<SLInterfaceNotif> SLInterfaceGetNotifStream(SLInterfaceGetNotifMsg request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default)
+    parameters:
+    - id: request
+      type: ServiceLayer.SLInterfaceGetNotifMsg
+      description: The request to send to the server.
+    - id: headers
+      type: Grpc.Core.Metadata
+      description: The initial metadata to send with the call. This parameter is optional.
+    - id: deadline
+      type: System.Nullable{System.DateTime}
+      description: An optional deadline for the call. The call will be cancelled if deadline is hit.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: An optional token for canceling the call.
+    return:
+      type: Grpc.Core.AsyncServerStreamingCall{ServiceLayer.SLInterfaceNotif}
+      description: The call object.
+    content.vb: Public Overridable Function SLInterfaceGetNotifStream(request As SLInterfaceGetNotifMsg, headers As Metadata = Nothing, deadline As Date? = Nothing, cancellationToken As CancellationToken = Nothing) As AsyncServerStreamingCall(Of SLInterfaceNotif)
+  overload: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGetNotifStream*
+  nameWithType.vb: SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGetNotifStream(SLInterfaceGetNotifMsg, Metadata, Date?, CancellationToken)
+  fullName.vb: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGetNotifStream(ServiceLayer.SLInterfaceGetNotifMsg, Grpc.Core.Metadata, Date?, System.Threading.CancellationToken)
+  name.vb: SLInterfaceGetNotifStream(SLInterfaceGetNotifMsg, Metadata, Date?, CancellationToken)
+- uid: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGetNotifStream(ServiceLayer.SLInterfaceGetNotifMsg,Grpc.Core.CallOptions)
+  commentId: M:ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGetNotifStream(ServiceLayer.SLInterfaceGetNotifMsg,Grpc.Core.CallOptions)
+  id: SLInterfaceGetNotifStream(ServiceLayer.SLInterfaceGetNotifMsg,Grpc.Core.CallOptions)
+  parent: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient
+  langs:
+  - csharp
+  - vb
+  name: SLInterfaceGetNotifStream(SLInterfaceGetNotifMsg, CallOptions)
+  nameWithType: SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGetNotifStream(SLInterfaceGetNotifMsg, CallOptions)
+  fullName: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGetNotifStream(ServiceLayer.SLInterfaceGetNotifMsg, Grpc.Core.CallOptions)
+  type: Method
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlInterfaceGrpc.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: SLInterfaceGetNotifStream
+    path: src/gencs/SlInterfaceGrpc.cs
+    startLine: 600
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: >-
+    This call is used to get a stream of interface notifications.
+
+    The caller must maintain the GRPC channel as long as
+
+    there is interest in interface notifications.
+
+    This call can be used to get "push" notifications for interface info.
+
+    It is advised that the caller register for notifications before any
+
+    interfaces are used to avoid any loss of notifications.
+  example: []
+  syntax:
+    content: public virtual AsyncServerStreamingCall<SLInterfaceNotif> SLInterfaceGetNotifStream(SLInterfaceGetNotifMsg request, CallOptions options)
+    parameters:
+    - id: request
+      type: ServiceLayer.SLInterfaceGetNotifMsg
+      description: The request to send to the server.
+    - id: options
+      type: Grpc.Core.CallOptions
+      description: The options for the call.
+    return:
+      type: Grpc.Core.AsyncServerStreamingCall{ServiceLayer.SLInterfaceNotif}
+      description: The call object.
+    content.vb: Public Overridable Function SLInterfaceGetNotifStream(request As SLInterfaceGetNotifMsg, options As CallOptions) As AsyncServerStreamingCall(Of SLInterfaceNotif)
+  overload: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGetNotifStream*
+- uid: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceNotifOp(ServiceLayer.SLInterfaceNotifMsg,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)
+  commentId: M:ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceNotifOp(ServiceLayer.SLInterfaceNotifMsg,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)
+  id: SLInterfaceNotifOp(ServiceLayer.SLInterfaceNotifMsg,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)
+  parent: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient
+  langs:
+  - csharp
+  - vb
+  name: SLInterfaceNotifOp(SLInterfaceNotifMsg, Metadata, DateTime?, CancellationToken)
+  nameWithType: SLInterfaceOper.SLInterfaceOperClient.SLInterfaceNotifOp(SLInterfaceNotifMsg, Metadata, DateTime?, CancellationToken)
+  fullName: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceNotifOp(ServiceLayer.SLInterfaceNotifMsg, Grpc.Core.Metadata, System.DateTime?, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlInterfaceGrpc.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: SLInterfaceNotifOp
+    path: src/gencs/SlInterfaceGrpc.cs
+    startLine: 615
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: >-
+    Used to enable/disable event notifications for a certain interface.
+
+    By default, all interface events are disabled. The user must enable
+
+    notifications for the interested interfaces.
+  example: []
+  syntax:
+    content: public virtual SLInterfaceNotifMsgRsp SLInterfaceNotifOp(SLInterfaceNotifMsg request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default)
+    parameters:
+    - id: request
+      type: ServiceLayer.SLInterfaceNotifMsg
+      description: The request to send to the server.
+    - id: headers
+      type: Grpc.Core.Metadata
+      description: The initial metadata to send with the call. This parameter is optional.
+    - id: deadline
+      type: System.Nullable{System.DateTime}
+      description: An optional deadline for the call. The call will be cancelled if deadline is hit.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: An optional token for canceling the call.
+    return:
+      type: ServiceLayer.SLInterfaceNotifMsgRsp
+      description: The response received from the server.
+    content.vb: Public Overridable Function SLInterfaceNotifOp(request As SLInterfaceNotifMsg, headers As Metadata = Nothing, deadline As Date? = Nothing, cancellationToken As CancellationToken = Nothing) As SLInterfaceNotifMsgRsp
+  overload: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceNotifOp*
+  nameWithType.vb: SLInterfaceOper.SLInterfaceOperClient.SLInterfaceNotifOp(SLInterfaceNotifMsg, Metadata, Date?, CancellationToken)
+  fullName.vb: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceNotifOp(ServiceLayer.SLInterfaceNotifMsg, Grpc.Core.Metadata, Date?, System.Threading.CancellationToken)
+  name.vb: SLInterfaceNotifOp(SLInterfaceNotifMsg, Metadata, Date?, CancellationToken)
+- uid: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceNotifOp(ServiceLayer.SLInterfaceNotifMsg,Grpc.Core.CallOptions)
+  commentId: M:ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceNotifOp(ServiceLayer.SLInterfaceNotifMsg,Grpc.Core.CallOptions)
+  id: SLInterfaceNotifOp(ServiceLayer.SLInterfaceNotifMsg,Grpc.Core.CallOptions)
+  parent: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient
+  langs:
+  - csharp
+  - vb
+  name: SLInterfaceNotifOp(SLInterfaceNotifMsg, CallOptions)
+  nameWithType: SLInterfaceOper.SLInterfaceOperClient.SLInterfaceNotifOp(SLInterfaceNotifMsg, CallOptions)
+  fullName: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceNotifOp(ServiceLayer.SLInterfaceNotifMsg, Grpc.Core.CallOptions)
+  type: Method
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlInterfaceGrpc.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: SLInterfaceNotifOp
+    path: src/gencs/SlInterfaceGrpc.cs
+    startLine: 628
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: >-
+    Used to enable/disable event notifications for a certain interface.
+
+    By default, all interface events are disabled. The user must enable
+
+    notifications for the interested interfaces.
+  example: []
+  syntax:
+    content: public virtual SLInterfaceNotifMsgRsp SLInterfaceNotifOp(SLInterfaceNotifMsg request, CallOptions options)
+    parameters:
+    - id: request
+      type: ServiceLayer.SLInterfaceNotifMsg
+      description: The request to send to the server.
+    - id: options
+      type: Grpc.Core.CallOptions
+      description: The options for the call.
+    return:
+      type: ServiceLayer.SLInterfaceNotifMsgRsp
+      description: The response received from the server.
+    content.vb: Public Overridable Function SLInterfaceNotifOp(request As SLInterfaceNotifMsg, options As CallOptions) As SLInterfaceNotifMsgRsp
+  overload: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceNotifOp*
+- uid: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceNotifOpAsync(ServiceLayer.SLInterfaceNotifMsg,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)
+  commentId: M:ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceNotifOpAsync(ServiceLayer.SLInterfaceNotifMsg,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)
+  id: SLInterfaceNotifOpAsync(ServiceLayer.SLInterfaceNotifMsg,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)
+  parent: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient
+  langs:
+  - csharp
+  - vb
+  name: SLInterfaceNotifOpAsync(SLInterfaceNotifMsg, Metadata, DateTime?, CancellationToken)
+  nameWithType: SLInterfaceOper.SLInterfaceOperClient.SLInterfaceNotifOpAsync(SLInterfaceNotifMsg, Metadata, DateTime?, CancellationToken)
+  fullName: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceNotifOpAsync(ServiceLayer.SLInterfaceNotifMsg, Grpc.Core.Metadata, System.DateTime?, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlInterfaceGrpc.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: SLInterfaceNotifOpAsync
+    path: src/gencs/SlInterfaceGrpc.cs
+    startLine: 643
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: >-
+    Used to enable/disable event notifications for a certain interface.
+
+    By default, all interface events are disabled. The user must enable
+
+    notifications for the interested interfaces.
+  example: []
+  syntax:
+    content: public virtual AsyncUnaryCall<SLInterfaceNotifMsgRsp> SLInterfaceNotifOpAsync(SLInterfaceNotifMsg request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default)
+    parameters:
+    - id: request
+      type: ServiceLayer.SLInterfaceNotifMsg
+      description: The request to send to the server.
+    - id: headers
+      type: Grpc.Core.Metadata
+      description: The initial metadata to send with the call. This parameter is optional.
+    - id: deadline
+      type: System.Nullable{System.DateTime}
+      description: An optional deadline for the call. The call will be cancelled if deadline is hit.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: An optional token for canceling the call.
+    return:
+      type: Grpc.Core.AsyncUnaryCall{ServiceLayer.SLInterfaceNotifMsgRsp}
+      description: The call object.
+    content.vb: Public Overridable Function SLInterfaceNotifOpAsync(request As SLInterfaceNotifMsg, headers As Metadata = Nothing, deadline As Date? = Nothing, cancellationToken As CancellationToken = Nothing) As AsyncUnaryCall(Of SLInterfaceNotifMsgRsp)
+  overload: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceNotifOpAsync*
+  nameWithType.vb: SLInterfaceOper.SLInterfaceOperClient.SLInterfaceNotifOpAsync(SLInterfaceNotifMsg, Metadata, Date?, CancellationToken)
+  fullName.vb: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceNotifOpAsync(ServiceLayer.SLInterfaceNotifMsg, Grpc.Core.Metadata, Date?, System.Threading.CancellationToken)
+  name.vb: SLInterfaceNotifOpAsync(SLInterfaceNotifMsg, Metadata, Date?, CancellationToken)
+- uid: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceNotifOpAsync(ServiceLayer.SLInterfaceNotifMsg,Grpc.Core.CallOptions)
+  commentId: M:ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceNotifOpAsync(ServiceLayer.SLInterfaceNotifMsg,Grpc.Core.CallOptions)
+  id: SLInterfaceNotifOpAsync(ServiceLayer.SLInterfaceNotifMsg,Grpc.Core.CallOptions)
+  parent: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient
+  langs:
+  - csharp
+  - vb
+  name: SLInterfaceNotifOpAsync(SLInterfaceNotifMsg, CallOptions)
+  nameWithType: SLInterfaceOper.SLInterfaceOperClient.SLInterfaceNotifOpAsync(SLInterfaceNotifMsg, CallOptions)
+  fullName: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceNotifOpAsync(ServiceLayer.SLInterfaceNotifMsg, Grpc.Core.CallOptions)
+  type: Method
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlInterfaceGrpc.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: SLInterfaceNotifOpAsync
+    path: src/gencs/SlInterfaceGrpc.cs
+    startLine: 656
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: >-
+    Used to enable/disable event notifications for a certain interface.
+
+    By default, all interface events are disabled. The user must enable
+
+    notifications for the interested interfaces.
+  example: []
+  syntax:
+    content: public virtual AsyncUnaryCall<SLInterfaceNotifMsgRsp> SLInterfaceNotifOpAsync(SLInterfaceNotifMsg request, CallOptions options)
+    parameters:
+    - id: request
+      type: ServiceLayer.SLInterfaceNotifMsg
+      description: The request to send to the server.
+    - id: options
+      type: Grpc.Core.CallOptions
+      description: The options for the call.
+    return:
+      type: Grpc.Core.AsyncUnaryCall{ServiceLayer.SLInterfaceNotifMsgRsp}
+      description: The call object.
+    content.vb: Public Overridable Function SLInterfaceNotifOpAsync(request As SLInterfaceNotifMsg, options As CallOptions) As AsyncUnaryCall(Of SLInterfaceNotifMsgRsp)
+  overload: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceNotifOpAsync*
+- uid: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.NewInstance(Grpc.Core.ClientBase.ClientBaseConfiguration)
+  commentId: M:ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.NewInstance(Grpc.Core.ClientBase.ClientBaseConfiguration)
+  id: NewInstance(Grpc.Core.ClientBase.ClientBaseConfiguration)
+  parent: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient
+  langs:
+  - csharp
+  - vb
+  name: NewInstance(ClientBaseConfiguration)
+  nameWithType: SLInterfaceOper.SLInterfaceOperClient.NewInstance(ClientBase.ClientBaseConfiguration)
+  fullName: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.NewInstance(Grpc.Core.ClientBase.ClientBaseConfiguration)
+  type: Method
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlInterfaceGrpc.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: NewInstance
+    path: src/gencs/SlInterfaceGrpc.cs
+    startLine: 662
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Creates a new instance of client from given <code>ClientBaseConfiguration</code>.
+  example: []
+  syntax:
+    content: protected override SLInterfaceOper.SLInterfaceOperClient NewInstance(ClientBase.ClientBaseConfiguration configuration)
+    parameters:
+    - id: configuration
+      type: Grpc.Core.ClientBase.ClientBaseConfiguration
+    return:
+      type: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient
+    content.vb: Protected Overrides Function NewInstance(configuration As ClientBase.ClientBaseConfiguration) As SLInterfaceOper.SLInterfaceOperClient
+  overridden: Grpc.Core.ClientBase{ServiceLayer.SLInterfaceOper.SLInterfaceOperClient}.NewInstance(Grpc.Core.ClientBase.ClientBaseConfiguration)
+  overload: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.NewInstance*
+references:
+- uid: ServiceLayer
+  commentId: N:ServiceLayer
+  href: ServiceLayer.html
+  name: ServiceLayer
+  nameWithType: ServiceLayer
+  fullName: ServiceLayer
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: Grpc.Core.ClientBase
+  commentId: T:Grpc.Core.ClientBase
+  parent: Grpc.Core
+  isExternal: true
+  href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/ClientBase.cs
+  name: ClientBase
+  nameWithType: ClientBase
+  fullName: Grpc.Core.ClientBase
+- uid: Grpc.Core.ClientBase{ServiceLayer.SLInterfaceOper.SLInterfaceOperClient}
+  commentId: T:Grpc.Core.ClientBase{ServiceLayer.SLInterfaceOper.SLInterfaceOperClient}
+  parent: Grpc.Core
+  definition: Grpc.Core.ClientBase`1
+  href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/ClientBase.cs
+  name: ClientBase<SLInterfaceOper.SLInterfaceOperClient>
+  nameWithType: ClientBase<SLInterfaceOper.SLInterfaceOperClient>
+  fullName: Grpc.Core.ClientBase<ServiceLayer.SLInterfaceOper.SLInterfaceOperClient>
+  nameWithType.vb: ClientBase(Of SLInterfaceOper.SLInterfaceOperClient)
+  fullName.vb: Grpc.Core.ClientBase(Of ServiceLayer.SLInterfaceOper.SLInterfaceOperClient)
+  name.vb: ClientBase(Of SLInterfaceOper.SLInterfaceOperClient)
+  spec.csharp:
+  - uid: Grpc.Core.ClientBase`1
+    name: ClientBase
+    isExternal: true
+    href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/ClientBase.cs
+  - name: <
+  - uid: ServiceLayer.SLInterfaceOper
+    name: SLInterfaceOper
+    href: ServiceLayer.SLInterfaceOper.html
+  - name: .
+  - uid: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient
+    name: SLInterfaceOperClient
+    href: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.html
+  - name: '>'
+  spec.vb:
+  - uid: Grpc.Core.ClientBase`1
+    name: ClientBase
+    isExternal: true
+    href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/ClientBase.cs
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ServiceLayer.SLInterfaceOper
+    name: SLInterfaceOper
+    href: ServiceLayer.SLInterfaceOper.html
+  - name: .
+  - uid: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient
+    name: SLInterfaceOperClient
+    href: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.html
+  - name: )
+- uid: Grpc.Core.ClientBase{ServiceLayer.SLInterfaceOper.SLInterfaceOperClient}.WithHost(System.String)
+  commentId: M:Grpc.Core.ClientBase{ServiceLayer.SLInterfaceOper.SLInterfaceOperClient}.WithHost(System.String)
+  parent: Grpc.Core.ClientBase{ServiceLayer.SLInterfaceOper.SLInterfaceOperClient}
+  definition: Grpc.Core.ClientBase`1.WithHost(System.String)
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: WithHost(string)
+  nameWithType: ClientBase<SLInterfaceOper.SLInterfaceOperClient>.WithHost(string)
+  fullName: Grpc.Core.ClientBase<ServiceLayer.SLInterfaceOper.SLInterfaceOperClient>.WithHost(string)
+  nameWithType.vb: ClientBase(Of SLInterfaceOper.SLInterfaceOperClient).WithHost(String)
+  fullName.vb: Grpc.Core.ClientBase(Of ServiceLayer.SLInterfaceOper.SLInterfaceOperClient).WithHost(String)
+  name.vb: WithHost(String)
+  spec.csharp:
+  - uid: Grpc.Core.ClientBase{ServiceLayer.SLInterfaceOper.SLInterfaceOperClient}.WithHost(System.String)
+    name: WithHost
+    isExternal: true
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: Grpc.Core.ClientBase{ServiceLayer.SLInterfaceOper.SLInterfaceOperClient}.WithHost(System.String)
+    name: WithHost
+    isExternal: true
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: Grpc.Core.ClientBase.CallInvoker
+  commentId: P:Grpc.Core.ClientBase.CallInvoker
+  parent: Grpc.Core.ClientBase
+  isExternal: true
+  href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/ClientBase.cs
+  name: CallInvoker
+  nameWithType: ClientBase.CallInvoker
+  fullName: Grpc.Core.ClientBase.CallInvoker
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Grpc.Core
+  commentId: N:Grpc.Core
+  isExternal: true
+  name: Grpc.Core
+  nameWithType: Grpc.Core
+  fullName: Grpc.Core
+  spec.csharp:
+  - uid: Grpc
+    name: Grpc
+    isExternal: true
+  - name: .
+  - uid: Grpc.Core
+    name: Core
+    isExternal: true
+  spec.vb:
+  - uid: Grpc
+    name: Grpc
+    isExternal: true
+  - name: .
+  - uid: Grpc.Core
+    name: Core
+    isExternal: true
+- uid: Grpc.Core.ClientBase`1
+  commentId: T:Grpc.Core.ClientBase`1
+  isExternal: true
+  href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/ClientBase.cs
+  name: ClientBase<T>
+  nameWithType: ClientBase<T>
+  fullName: Grpc.Core.ClientBase<T>
+  nameWithType.vb: ClientBase(Of T)
+  fullName.vb: Grpc.Core.ClientBase(Of T)
+  name.vb: ClientBase(Of T)
+  spec.csharp:
+  - uid: Grpc.Core.ClientBase`1
+    name: ClientBase
+    isExternal: true
+    href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/ClientBase.cs
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Grpc.Core.ClientBase`1
+    name: ClientBase
+    isExternal: true
+    href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/ClientBase.cs
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Grpc.Core.ClientBase`1.WithHost(System.String)
+  commentId: M:Grpc.Core.ClientBase`1.WithHost(System.String)
+  isExternal: true
+  href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/ClientBase.cs
+  name: WithHost(string)
+  nameWithType: ClientBase<T>.WithHost(string)
+  fullName: Grpc.Core.ClientBase<T>.WithHost(string)
+  nameWithType.vb: ClientBase(Of T).WithHost(String)
+  fullName.vb: Grpc.Core.ClientBase(Of T).WithHost(String)
+  name.vb: WithHost(String)
+  spec.csharp:
+  - uid: Grpc.Core.ClientBase`1.WithHost(System.String)
+    name: WithHost
+    isExternal: true
+    href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/ClientBase.cs
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: Grpc.Core.ClientBase`1.WithHost(System.String)
+    name: WithHost
+    isExternal: true
+    href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/ClientBase.cs
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.#ctor*
+  commentId: Overload:ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.#ctor
+  href: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.html#ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.#ctor(Grpc.Core.ChannelBase)
+  name: SLInterfaceOperClient
+  nameWithType: SLInterfaceOper.SLInterfaceOperClient.SLInterfaceOperClient
+  fullName: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceOperClient
+  nameWithType.vb: SLInterfaceOper.SLInterfaceOperClient.New
+  fullName.vb: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.New
+  name.vb: New
+- uid: Grpc.Core.ChannelBase
+  commentId: T:Grpc.Core.ChannelBase
+  parent: Grpc.Core
+  isExternal: true
+  href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/ChannelBase.cs
+  name: ChannelBase
+  nameWithType: ChannelBase
+  fullName: Grpc.Core.ChannelBase
+- uid: Grpc.Core.CallInvoker
+  commentId: T:Grpc.Core.CallInvoker
+  parent: Grpc.Core
+  isExternal: true
+  href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/CallInvoker.cs
+  name: CallInvoker
+  nameWithType: CallInvoker
+  fullName: Grpc.Core.CallInvoker
+- uid: Grpc.Core.ClientBase.ClientBaseConfiguration
+  commentId: T:Grpc.Core.ClientBase.ClientBaseConfiguration
+  parent: Grpc.Core
+  isExternal: true
+  href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/ClientBase.cs
+  name: ClientBase.ClientBaseConfiguration
+  nameWithType: ClientBase.ClientBaseConfiguration
+  fullName: Grpc.Core.ClientBase.ClientBaseConfiguration
+  spec.csharp:
+  - uid: Grpc.Core.ClientBase
+    name: ClientBase
+    isExternal: true
+    href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/ClientBase.cs
+  - name: .
+  - uid: Grpc.Core.ClientBase.ClientBaseConfiguration
+    name: ClientBaseConfiguration
+    isExternal: true
+    href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/ClientBase.cs
+  spec.vb:
+  - uid: Grpc.Core.ClientBase
+    name: ClientBase
+    isExternal: true
+    href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/ClientBase.cs
+  - name: .
+  - uid: Grpc.Core.ClientBase.ClientBaseConfiguration
+    name: ClientBaseConfiguration
+    isExternal: true
+    href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/ClientBase.cs
+- uid: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGlobalsRegOp*
+  commentId: Overload:ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGlobalsRegOp
+  href: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.html#ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGlobalsRegOp(ServiceLayer.SLInterfaceGlobalsRegMsg,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)
+  name: SLInterfaceGlobalsRegOp
+  nameWithType: SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGlobalsRegOp
+  fullName: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGlobalsRegOp
+- uid: ServiceLayer.SLInterfaceGlobalsRegMsg
+  commentId: T:ServiceLayer.SLInterfaceGlobalsRegMsg
+  parent: ServiceLayer
+  href: ServiceLayer.SLInterfaceGlobalsRegMsg.html
+  name: SLInterfaceGlobalsRegMsg
+  nameWithType: SLInterfaceGlobalsRegMsg
+  fullName: ServiceLayer.SLInterfaceGlobalsRegMsg
+- uid: Grpc.Core.Metadata
+  commentId: T:Grpc.Core.Metadata
+  parent: Grpc.Core
+  isExternal: true
+  href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/Metadata.cs
+  name: Metadata
+  nameWithType: Metadata
+  fullName: Grpc.Core.Metadata
+- uid: System.Nullable{System.DateTime}
+  commentId: T:System.Nullable{System.DateTime}
+  parent: System
+  definition: System.Nullable`1
+  href: https://learn.microsoft.com/dotnet/api/system.datetime
+  name: DateTime?
+  nameWithType: DateTime?
+  fullName: System.DateTime?
+  nameWithType.vb: Date?
+  fullName.vb: Date?
+  name.vb: Date?
+  spec.csharp:
+  - uid: System.DateTime
+    name: DateTime
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.datetime
+  - name: '?'
+  spec.vb:
+  - uid: System.DateTime
+    name: Date
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.datetime
+  - name: '?'
+- uid: System.Threading.CancellationToken
+  commentId: T:System.Threading.CancellationToken
+  parent: System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  name: CancellationToken
+  nameWithType: CancellationToken
+  fullName: System.Threading.CancellationToken
+- uid: ServiceLayer.SLInterfaceGlobalsRegMsgRsp
+  commentId: T:ServiceLayer.SLInterfaceGlobalsRegMsgRsp
+  parent: ServiceLayer
+  href: ServiceLayer.SLInterfaceGlobalsRegMsgRsp.html
+  name: SLInterfaceGlobalsRegMsgRsp
+  nameWithType: SLInterfaceGlobalsRegMsgRsp
+  fullName: ServiceLayer.SLInterfaceGlobalsRegMsgRsp
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Threading
+  commentId: N:System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading
+  nameWithType: System.Threading
+  fullName: System.Threading
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+- uid: Grpc.Core.CallOptions
+  commentId: T:Grpc.Core.CallOptions
+  parent: Grpc.Core
+  isExternal: true
+  href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/CallOptions.cs
+  name: CallOptions
+  nameWithType: CallOptions
+  fullName: Grpc.Core.CallOptions
+- uid: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGlobalsRegOpAsync*
+  commentId: Overload:ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGlobalsRegOpAsync
+  href: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.html#ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGlobalsRegOpAsync(ServiceLayer.SLInterfaceGlobalsRegMsg,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)
+  name: SLInterfaceGlobalsRegOpAsync
+  nameWithType: SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGlobalsRegOpAsync
+  fullName: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGlobalsRegOpAsync
+- uid: Grpc.Core.AsyncUnaryCall{ServiceLayer.SLInterfaceGlobalsRegMsgRsp}
+  commentId: T:Grpc.Core.AsyncUnaryCall{ServiceLayer.SLInterfaceGlobalsRegMsgRsp}
+  parent: Grpc.Core
+  definition: Grpc.Core.AsyncUnaryCall`1
+  href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/AsyncUnaryCall.cs
+  name: AsyncUnaryCall<SLInterfaceGlobalsRegMsgRsp>
+  nameWithType: AsyncUnaryCall<SLInterfaceGlobalsRegMsgRsp>
+  fullName: Grpc.Core.AsyncUnaryCall<ServiceLayer.SLInterfaceGlobalsRegMsgRsp>
+  nameWithType.vb: AsyncUnaryCall(Of SLInterfaceGlobalsRegMsgRsp)
+  fullName.vb: Grpc.Core.AsyncUnaryCall(Of ServiceLayer.SLInterfaceGlobalsRegMsgRsp)
+  name.vb: AsyncUnaryCall(Of SLInterfaceGlobalsRegMsgRsp)
+  spec.csharp:
+  - uid: Grpc.Core.AsyncUnaryCall`1
+    name: AsyncUnaryCall
+    isExternal: true
+    href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/AsyncUnaryCall.cs
+  - name: <
+  - uid: ServiceLayer.SLInterfaceGlobalsRegMsgRsp
+    name: SLInterfaceGlobalsRegMsgRsp
+    href: ServiceLayer.SLInterfaceGlobalsRegMsgRsp.html
+  - name: '>'
+  spec.vb:
+  - uid: Grpc.Core.AsyncUnaryCall`1
+    name: AsyncUnaryCall
+    isExternal: true
+    href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/AsyncUnaryCall.cs
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ServiceLayer.SLInterfaceGlobalsRegMsgRsp
+    name: SLInterfaceGlobalsRegMsgRsp
+    href: ServiceLayer.SLInterfaceGlobalsRegMsgRsp.html
+  - name: )
+- uid: Grpc.Core.AsyncUnaryCall`1
+  commentId: T:Grpc.Core.AsyncUnaryCall`1
+  isExternal: true
+  href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/AsyncUnaryCall.cs
+  name: AsyncUnaryCall<TResponse>
+  nameWithType: AsyncUnaryCall<TResponse>
+  fullName: Grpc.Core.AsyncUnaryCall<TResponse>
+  nameWithType.vb: AsyncUnaryCall(Of TResponse)
+  fullName.vb: Grpc.Core.AsyncUnaryCall(Of TResponse)
+  name.vb: AsyncUnaryCall(Of TResponse)
+  spec.csharp:
+  - uid: Grpc.Core.AsyncUnaryCall`1
+    name: AsyncUnaryCall
+    isExternal: true
+    href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/AsyncUnaryCall.cs
+  - name: <
+  - name: TResponse
+  - name: '>'
+  spec.vb:
+  - uid: Grpc.Core.AsyncUnaryCall`1
+    name: AsyncUnaryCall
+    isExternal: true
+    href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/AsyncUnaryCall.cs
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResponse
+  - name: )
+- uid: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGlobalsGet*
+  commentId: Overload:ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGlobalsGet
+  href: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.html#ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGlobalsGet(ServiceLayer.SLInterfaceGlobalsGetMsg,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)
+  name: SLInterfaceGlobalsGet
+  nameWithType: SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGlobalsGet
+  fullName: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGlobalsGet
+- uid: ServiceLayer.SLInterfaceGlobalsGetMsg
+  commentId: T:ServiceLayer.SLInterfaceGlobalsGetMsg
+  parent: ServiceLayer
+  href: ServiceLayer.SLInterfaceGlobalsGetMsg.html
+  name: SLInterfaceGlobalsGetMsg
+  nameWithType: SLInterfaceGlobalsGetMsg
+  fullName: ServiceLayer.SLInterfaceGlobalsGetMsg
+- uid: ServiceLayer.SLInterfaceGlobalsGetMsgRsp
+  commentId: T:ServiceLayer.SLInterfaceGlobalsGetMsgRsp
+  parent: ServiceLayer
+  href: ServiceLayer.SLInterfaceGlobalsGetMsgRsp.html
+  name: SLInterfaceGlobalsGetMsgRsp
+  nameWithType: SLInterfaceGlobalsGetMsgRsp
+  fullName: ServiceLayer.SLInterfaceGlobalsGetMsgRsp
+- uid: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGlobalsGetAsync*
+  commentId: Overload:ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGlobalsGetAsync
+  href: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.html#ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGlobalsGetAsync(ServiceLayer.SLInterfaceGlobalsGetMsg,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)
+  name: SLInterfaceGlobalsGetAsync
+  nameWithType: SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGlobalsGetAsync
+  fullName: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGlobalsGetAsync
+- uid: Grpc.Core.AsyncUnaryCall{ServiceLayer.SLInterfaceGlobalsGetMsgRsp}
+  commentId: T:Grpc.Core.AsyncUnaryCall{ServiceLayer.SLInterfaceGlobalsGetMsgRsp}
+  parent: Grpc.Core
+  definition: Grpc.Core.AsyncUnaryCall`1
+  href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/AsyncUnaryCall.cs
+  name: AsyncUnaryCall<SLInterfaceGlobalsGetMsgRsp>
+  nameWithType: AsyncUnaryCall<SLInterfaceGlobalsGetMsgRsp>
+  fullName: Grpc.Core.AsyncUnaryCall<ServiceLayer.SLInterfaceGlobalsGetMsgRsp>
+  nameWithType.vb: AsyncUnaryCall(Of SLInterfaceGlobalsGetMsgRsp)
+  fullName.vb: Grpc.Core.AsyncUnaryCall(Of ServiceLayer.SLInterfaceGlobalsGetMsgRsp)
+  name.vb: AsyncUnaryCall(Of SLInterfaceGlobalsGetMsgRsp)
+  spec.csharp:
+  - uid: Grpc.Core.AsyncUnaryCall`1
+    name: AsyncUnaryCall
+    isExternal: true
+    href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/AsyncUnaryCall.cs
+  - name: <
+  - uid: ServiceLayer.SLInterfaceGlobalsGetMsgRsp
+    name: SLInterfaceGlobalsGetMsgRsp
+    href: ServiceLayer.SLInterfaceGlobalsGetMsgRsp.html
+  - name: '>'
+  spec.vb:
+  - uid: Grpc.Core.AsyncUnaryCall`1
+    name: AsyncUnaryCall
+    isExternal: true
+    href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/AsyncUnaryCall.cs
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ServiceLayer.SLInterfaceGlobalsGetMsgRsp
+    name: SLInterfaceGlobalsGetMsgRsp
+    href: ServiceLayer.SLInterfaceGlobalsGetMsgRsp.html
+  - name: )
+- uid: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGlobalsGetStats*
+  commentId: Overload:ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGlobalsGetStats
+  href: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.html#ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGlobalsGetStats(ServiceLayer.SLInterfaceGlobalsGetMsg,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)
+  name: SLInterfaceGlobalsGetStats
+  nameWithType: SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGlobalsGetStats
+  fullName: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGlobalsGetStats
+- uid: ServiceLayer.SLInterfaceGlobalsGetStatsMsgRsp
+  commentId: T:ServiceLayer.SLInterfaceGlobalsGetStatsMsgRsp
+  parent: ServiceLayer
+  href: ServiceLayer.SLInterfaceGlobalsGetStatsMsgRsp.html
+  name: SLInterfaceGlobalsGetStatsMsgRsp
+  nameWithType: SLInterfaceGlobalsGetStatsMsgRsp
+  fullName: ServiceLayer.SLInterfaceGlobalsGetStatsMsgRsp
+- uid: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGlobalsGetStatsAsync*
+  commentId: Overload:ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGlobalsGetStatsAsync
+  href: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.html#ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGlobalsGetStatsAsync(ServiceLayer.SLInterfaceGlobalsGetMsg,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)
+  name: SLInterfaceGlobalsGetStatsAsync
+  nameWithType: SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGlobalsGetStatsAsync
+  fullName: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGlobalsGetStatsAsync
+- uid: Grpc.Core.AsyncUnaryCall{ServiceLayer.SLInterfaceGlobalsGetStatsMsgRsp}
+  commentId: T:Grpc.Core.AsyncUnaryCall{ServiceLayer.SLInterfaceGlobalsGetStatsMsgRsp}
+  parent: Grpc.Core
+  definition: Grpc.Core.AsyncUnaryCall`1
+  href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/AsyncUnaryCall.cs
+  name: AsyncUnaryCall<SLInterfaceGlobalsGetStatsMsgRsp>
+  nameWithType: AsyncUnaryCall<SLInterfaceGlobalsGetStatsMsgRsp>
+  fullName: Grpc.Core.AsyncUnaryCall<ServiceLayer.SLInterfaceGlobalsGetStatsMsgRsp>
+  nameWithType.vb: AsyncUnaryCall(Of SLInterfaceGlobalsGetStatsMsgRsp)
+  fullName.vb: Grpc.Core.AsyncUnaryCall(Of ServiceLayer.SLInterfaceGlobalsGetStatsMsgRsp)
+  name.vb: AsyncUnaryCall(Of SLInterfaceGlobalsGetStatsMsgRsp)
+  spec.csharp:
+  - uid: Grpc.Core.AsyncUnaryCall`1
+    name: AsyncUnaryCall
+    isExternal: true
+    href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/AsyncUnaryCall.cs
+  - name: <
+  - uid: ServiceLayer.SLInterfaceGlobalsGetStatsMsgRsp
+    name: SLInterfaceGlobalsGetStatsMsgRsp
+    href: ServiceLayer.SLInterfaceGlobalsGetStatsMsgRsp.html
+  - name: '>'
+  spec.vb:
+  - uid: Grpc.Core.AsyncUnaryCall`1
+    name: AsyncUnaryCall
+    isExternal: true
+    href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/AsyncUnaryCall.cs
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ServiceLayer.SLInterfaceGlobalsGetStatsMsgRsp
+    name: SLInterfaceGlobalsGetStatsMsgRsp
+    href: ServiceLayer.SLInterfaceGlobalsGetStatsMsgRsp.html
+  - name: )
+- uid: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGet*
+  commentId: Overload:ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGet
+  href: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.html#ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGet(ServiceLayer.SLInterfaceGetMsg,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)
+  name: SLInterfaceGet
+  nameWithType: SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGet
+  fullName: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGet
+- uid: ServiceLayer.SLInterfaceGetMsg
+  commentId: T:ServiceLayer.SLInterfaceGetMsg
+  parent: ServiceLayer
+  href: ServiceLayer.SLInterfaceGetMsg.html
+  name: SLInterfaceGetMsg
+  nameWithType: SLInterfaceGetMsg
+  fullName: ServiceLayer.SLInterfaceGetMsg
+- uid: ServiceLayer.SLInterfaceGetMsgRsp
+  commentId: T:ServiceLayer.SLInterfaceGetMsgRsp
+  parent: ServiceLayer
+  href: ServiceLayer.SLInterfaceGetMsgRsp.html
+  name: SLInterfaceGetMsgRsp
+  nameWithType: SLInterfaceGetMsgRsp
+  fullName: ServiceLayer.SLInterfaceGetMsgRsp
+- uid: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGetAsync*
+  commentId: Overload:ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGetAsync
+  href: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.html#ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGetAsync(ServiceLayer.SLInterfaceGetMsg,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)
+  name: SLInterfaceGetAsync
+  nameWithType: SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGetAsync
+  fullName: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGetAsync
+- uid: Grpc.Core.AsyncUnaryCall{ServiceLayer.SLInterfaceGetMsgRsp}
+  commentId: T:Grpc.Core.AsyncUnaryCall{ServiceLayer.SLInterfaceGetMsgRsp}
+  parent: Grpc.Core
+  definition: Grpc.Core.AsyncUnaryCall`1
+  href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/AsyncUnaryCall.cs
+  name: AsyncUnaryCall<SLInterfaceGetMsgRsp>
+  nameWithType: AsyncUnaryCall<SLInterfaceGetMsgRsp>
+  fullName: Grpc.Core.AsyncUnaryCall<ServiceLayer.SLInterfaceGetMsgRsp>
+  nameWithType.vb: AsyncUnaryCall(Of SLInterfaceGetMsgRsp)
+  fullName.vb: Grpc.Core.AsyncUnaryCall(Of ServiceLayer.SLInterfaceGetMsgRsp)
+  name.vb: AsyncUnaryCall(Of SLInterfaceGetMsgRsp)
+  spec.csharp:
+  - uid: Grpc.Core.AsyncUnaryCall`1
+    name: AsyncUnaryCall
+    isExternal: true
+    href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/AsyncUnaryCall.cs
+  - name: <
+  - uid: ServiceLayer.SLInterfaceGetMsgRsp
+    name: SLInterfaceGetMsgRsp
+    href: ServiceLayer.SLInterfaceGetMsgRsp.html
+  - name: '>'
+  spec.vb:
+  - uid: Grpc.Core.AsyncUnaryCall`1
+    name: AsyncUnaryCall
+    isExternal: true
+    href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/AsyncUnaryCall.cs
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ServiceLayer.SLInterfaceGetMsgRsp
+    name: SLInterfaceGetMsgRsp
+    href: ServiceLayer.SLInterfaceGetMsgRsp.html
+  - name: )
+- uid: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGetNotifStream*
+  commentId: Overload:ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGetNotifStream
+  href: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.html#ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGetNotifStream(ServiceLayer.SLInterfaceGetNotifMsg,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)
+  name: SLInterfaceGetNotifStream
+  nameWithType: SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGetNotifStream
+  fullName: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceGetNotifStream
+- uid: ServiceLayer.SLInterfaceGetNotifMsg
+  commentId: T:ServiceLayer.SLInterfaceGetNotifMsg
+  parent: ServiceLayer
+  href: ServiceLayer.SLInterfaceGetNotifMsg.html
+  name: SLInterfaceGetNotifMsg
+  nameWithType: SLInterfaceGetNotifMsg
+  fullName: ServiceLayer.SLInterfaceGetNotifMsg
+- uid: Grpc.Core.AsyncServerStreamingCall{ServiceLayer.SLInterfaceNotif}
+  commentId: T:Grpc.Core.AsyncServerStreamingCall{ServiceLayer.SLInterfaceNotif}
+  parent: Grpc.Core
+  definition: Grpc.Core.AsyncServerStreamingCall`1
+  href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/AsyncServerStreamingCall.cs
+  name: AsyncServerStreamingCall<SLInterfaceNotif>
+  nameWithType: AsyncServerStreamingCall<SLInterfaceNotif>
+  fullName: Grpc.Core.AsyncServerStreamingCall<ServiceLayer.SLInterfaceNotif>
+  nameWithType.vb: AsyncServerStreamingCall(Of SLInterfaceNotif)
+  fullName.vb: Grpc.Core.AsyncServerStreamingCall(Of ServiceLayer.SLInterfaceNotif)
+  name.vb: AsyncServerStreamingCall(Of SLInterfaceNotif)
+  spec.csharp:
+  - uid: Grpc.Core.AsyncServerStreamingCall`1
+    name: AsyncServerStreamingCall
+    isExternal: true
+    href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/AsyncServerStreamingCall.cs
+  - name: <
+  - uid: ServiceLayer.SLInterfaceNotif
+    name: SLInterfaceNotif
+    href: ServiceLayer.SLInterfaceNotif.html
+  - name: '>'
+  spec.vb:
+  - uid: Grpc.Core.AsyncServerStreamingCall`1
+    name: AsyncServerStreamingCall
+    isExternal: true
+    href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/AsyncServerStreamingCall.cs
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ServiceLayer.SLInterfaceNotif
+    name: SLInterfaceNotif
+    href: ServiceLayer.SLInterfaceNotif.html
+  - name: )
+- uid: Grpc.Core.AsyncServerStreamingCall`1
+  commentId: T:Grpc.Core.AsyncServerStreamingCall`1
+  isExternal: true
+  href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/AsyncServerStreamingCall.cs
+  name: AsyncServerStreamingCall<TResponse>
+  nameWithType: AsyncServerStreamingCall<TResponse>
+  fullName: Grpc.Core.AsyncServerStreamingCall<TResponse>
+  nameWithType.vb: AsyncServerStreamingCall(Of TResponse)
+  fullName.vb: Grpc.Core.AsyncServerStreamingCall(Of TResponse)
+  name.vb: AsyncServerStreamingCall(Of TResponse)
+  spec.csharp:
+  - uid: Grpc.Core.AsyncServerStreamingCall`1
+    name: AsyncServerStreamingCall
+    isExternal: true
+    href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/AsyncServerStreamingCall.cs
+  - name: <
+  - name: TResponse
+  - name: '>'
+  spec.vb:
+  - uid: Grpc.Core.AsyncServerStreamingCall`1
+    name: AsyncServerStreamingCall
+    isExternal: true
+    href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/AsyncServerStreamingCall.cs
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResponse
+  - name: )
+- uid: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceNotifOp*
+  commentId: Overload:ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceNotifOp
+  href: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.html#ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceNotifOp(ServiceLayer.SLInterfaceNotifMsg,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)
+  name: SLInterfaceNotifOp
+  nameWithType: SLInterfaceOper.SLInterfaceOperClient.SLInterfaceNotifOp
+  fullName: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceNotifOp
+- uid: ServiceLayer.SLInterfaceNotifMsg
+  commentId: T:ServiceLayer.SLInterfaceNotifMsg
+  parent: ServiceLayer
+  href: ServiceLayer.SLInterfaceNotifMsg.html
+  name: SLInterfaceNotifMsg
+  nameWithType: SLInterfaceNotifMsg
+  fullName: ServiceLayer.SLInterfaceNotifMsg
+- uid: ServiceLayer.SLInterfaceNotifMsgRsp
+  commentId: T:ServiceLayer.SLInterfaceNotifMsgRsp
+  parent: ServiceLayer
+  href: ServiceLayer.SLInterfaceNotifMsgRsp.html
+  name: SLInterfaceNotifMsgRsp
+  nameWithType: SLInterfaceNotifMsgRsp
+  fullName: ServiceLayer.SLInterfaceNotifMsgRsp
+- uid: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceNotifOpAsync*
+  commentId: Overload:ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceNotifOpAsync
+  href: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.html#ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceNotifOpAsync(ServiceLayer.SLInterfaceNotifMsg,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)
+  name: SLInterfaceNotifOpAsync
+  nameWithType: SLInterfaceOper.SLInterfaceOperClient.SLInterfaceNotifOpAsync
+  fullName: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.SLInterfaceNotifOpAsync
+- uid: Grpc.Core.AsyncUnaryCall{ServiceLayer.SLInterfaceNotifMsgRsp}
+  commentId: T:Grpc.Core.AsyncUnaryCall{ServiceLayer.SLInterfaceNotifMsgRsp}
+  parent: Grpc.Core
+  definition: Grpc.Core.AsyncUnaryCall`1
+  href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/AsyncUnaryCall.cs
+  name: AsyncUnaryCall<SLInterfaceNotifMsgRsp>
+  nameWithType: AsyncUnaryCall<SLInterfaceNotifMsgRsp>
+  fullName: Grpc.Core.AsyncUnaryCall<ServiceLayer.SLInterfaceNotifMsgRsp>
+  nameWithType.vb: AsyncUnaryCall(Of SLInterfaceNotifMsgRsp)
+  fullName.vb: Grpc.Core.AsyncUnaryCall(Of ServiceLayer.SLInterfaceNotifMsgRsp)
+  name.vb: AsyncUnaryCall(Of SLInterfaceNotifMsgRsp)
+  spec.csharp:
+  - uid: Grpc.Core.AsyncUnaryCall`1
+    name: AsyncUnaryCall
+    isExternal: true
+    href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/AsyncUnaryCall.cs
+  - name: <
+  - uid: ServiceLayer.SLInterfaceNotifMsgRsp
+    name: SLInterfaceNotifMsgRsp
+    href: ServiceLayer.SLInterfaceNotifMsgRsp.html
+  - name: '>'
+  spec.vb:
+  - uid: Grpc.Core.AsyncUnaryCall`1
+    name: AsyncUnaryCall
+    isExternal: true
+    href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/AsyncUnaryCall.cs
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ServiceLayer.SLInterfaceNotifMsgRsp
+    name: SLInterfaceNotifMsgRsp
+    href: ServiceLayer.SLInterfaceNotifMsgRsp.html
+  - name: )
+- uid: Grpc.Core.ClientBase{ServiceLayer.SLInterfaceOper.SLInterfaceOperClient}.NewInstance(Grpc.Core.ClientBase.ClientBaseConfiguration)
+  commentId: M:Grpc.Core.ClientBase{ServiceLayer.SLInterfaceOper.SLInterfaceOperClient}.NewInstance(Grpc.Core.ClientBase.ClientBaseConfiguration)
+  parent: Grpc.Core.ClientBase{ServiceLayer.SLInterfaceOper.SLInterfaceOperClient}
+  definition: Grpc.Core.ClientBase`1.NewInstance(Grpc.Core.ClientBase.ClientBaseConfiguration)
+  href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/ClientBase.cs
+  name: NewInstance(ClientBaseConfiguration)
+  nameWithType: ClientBase<SLInterfaceOper.SLInterfaceOperClient>.NewInstance(ClientBase.ClientBaseConfiguration)
+  fullName: Grpc.Core.ClientBase<ServiceLayer.SLInterfaceOper.SLInterfaceOperClient>.NewInstance(Grpc.Core.ClientBase.ClientBaseConfiguration)
+  nameWithType.vb: ClientBase(Of SLInterfaceOper.SLInterfaceOperClient).NewInstance(ClientBase.ClientBaseConfiguration)
+  fullName.vb: Grpc.Core.ClientBase(Of ServiceLayer.SLInterfaceOper.SLInterfaceOperClient).NewInstance(Grpc.Core.ClientBase.ClientBaseConfiguration)
+  spec.csharp:
+  - uid: Grpc.Core.ClientBase{ServiceLayer.SLInterfaceOper.SLInterfaceOperClient}.NewInstance(Grpc.Core.ClientBase.ClientBaseConfiguration)
+    name: NewInstance
+    isExternal: true
+  - name: (
+  - uid: Grpc.Core.ClientBase.ClientBaseConfiguration
+    name: ClientBaseConfiguration
+    isExternal: true
+    href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/ClientBase.cs
+  - name: )
+  spec.vb:
+  - uid: Grpc.Core.ClientBase{ServiceLayer.SLInterfaceOper.SLInterfaceOperClient}.NewInstance(Grpc.Core.ClientBase.ClientBaseConfiguration)
+    name: NewInstance
+    isExternal: true
+  - name: (
+  - uid: Grpc.Core.ClientBase.ClientBaseConfiguration
+    name: ClientBaseConfiguration
+    isExternal: true
+    href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/ClientBase.cs
+  - name: )
+- uid: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.NewInstance*
+  commentId: Overload:ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.NewInstance
+  href: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.html#ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.NewInstance(Grpc.Core.ClientBase.ClientBaseConfiguration)
+  name: NewInstance
+  nameWithType: SLInterfaceOper.SLInterfaceOperClient.NewInstance
+  fullName: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.NewInstance
+- uid: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient
+  commentId: T:ServiceLayer.SLInterfaceOper.SLInterfaceOperClient
+  parent: ServiceLayer
+  href: ServiceLayer.SLInterfaceOper.html
+  name: SLInterfaceOper.SLInterfaceOperClient
+  nameWithType: SLInterfaceOper.SLInterfaceOperClient
+  fullName: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient
+  spec.csharp:
+  - uid: ServiceLayer.SLInterfaceOper
+    name: SLInterfaceOper
+    href: ServiceLayer.SLInterfaceOper.html
+  - name: .
+  - uid: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient
+    name: SLInterfaceOperClient
+    href: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.html
+  spec.vb:
+  - uid: ServiceLayer.SLInterfaceOper
+    name: SLInterfaceOper
+    href: ServiceLayer.SLInterfaceOper.html
+  - name: .
+  - uid: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient
+    name: SLInterfaceOperClient
+    href: ServiceLayer.SLInterfaceOper.SLInterfaceOperClient.html
+- uid: Grpc.Core.ClientBase`1.NewInstance(Grpc.Core.ClientBase.ClientBaseConfiguration)
+  commentId: M:Grpc.Core.ClientBase`1.NewInstance(Grpc.Core.ClientBase.ClientBaseConfiguration)
+  isExternal: true
+  href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/ClientBase.cs
+  name: NewInstance(ClientBaseConfiguration)
+  nameWithType: ClientBase<T>.NewInstance(ClientBase.ClientBaseConfiguration)
+  fullName: Grpc.Core.ClientBase<T>.NewInstance(Grpc.Core.ClientBase.ClientBaseConfiguration)
+  nameWithType.vb: ClientBase(Of T).NewInstance(ClientBase.ClientBaseConfiguration)
+  fullName.vb: Grpc.Core.ClientBase(Of T).NewInstance(Grpc.Core.ClientBase.ClientBaseConfiguration)
+  spec.csharp:
+  - uid: Grpc.Core.ClientBase`1.NewInstance(Grpc.Core.ClientBase.ClientBaseConfiguration)
+    name: NewInstance
+    isExternal: true
+    href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/ClientBase.cs
+  - name: (
+  - uid: Grpc.Core.ClientBase.ClientBaseConfiguration
+    name: ClientBaseConfiguration
+    isExternal: true
+    href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/ClientBase.cs
+  - name: )
+  spec.vb:
+  - uid: Grpc.Core.ClientBase`1.NewInstance(Grpc.Core.ClientBase.ClientBaseConfiguration)
+    name: NewInstance
+    isExternal: true
+    href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/ClientBase.cs
+  - name: (
+  - uid: Grpc.Core.ClientBase.ClientBaseConfiguration
+    name: ClientBaseConfiguration
+    isExternal: true
+    href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/ClientBase.cs
+  - name: )

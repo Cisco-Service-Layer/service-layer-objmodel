@@ -1,0 +1,2266 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Class SLMplsOper.SLMplsOperClient
+ </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Class SLMplsOper.SLMplsOperClient
+ ">
+    
+      <link rel="shortcut icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="">
+      <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="ServiceLayer.SLMplsOper.SLMplsOperClient">
+
+
+
+  <h1 id="ServiceLayer_SLMplsOper_SLMplsOperClient" data-uid="ServiceLayer.SLMplsOper.SLMplsOperClient" class="text-break">Class SLMplsOper.SLMplsOperClient
+</h1>
+  <div class="markdown level0 summary"><p>Client for SLMplsOper</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+    <div class="level1"><a class="xref" href="https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/ClientBase.cs">ClientBase</a></div>
+    <div class="level2"><a class="xref" href="https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/ClientBase.cs">ClientBase</a>&lt;<a class="xref" href="ServiceLayer.SLMplsOper.html">SLMplsOper</a>.<a class="xref" href="ServiceLayer.SLMplsOper.SLMplsOperClient.html">SLMplsOperClient</a>&gt;</div>
+    <div class="level3"><span class="xref">SLMplsOper.SLMplsOperClient</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/ClientBase.cs">ClientBase&lt;SLMplsOper.SLMplsOperClient&gt;.WithHost(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/ClientBase.cs">ClientBase.CallInvoker</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="ServiceLayer.html">ServiceLayer</a></h6>
+  <h6><strong>Assembly</strong>: ServiceLayer.dll</h6>
+  <h5 id="ServiceLayer_SLMplsOper_SLMplsOperClient_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class SLMplsOper.SLMplsOperClient : ClientBase&lt;SLMplsOper.SLMplsOperClient&gt;</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+</h3>
+
+
+  <a id="ServiceLayer_SLMplsOper_SLMplsOperClient__ctor_" data-uid="ServiceLayer.SLMplsOper.SLMplsOperClient.#ctor*"></a>
+  <h4 id="ServiceLayer_SLMplsOper_SLMplsOperClient__ctor" data-uid="ServiceLayer.SLMplsOper.SLMplsOperClient.#ctor">SLMplsOperClient()</h4>
+  <div class="markdown level1 summary"><p>Protected parameterless constructor to allow creation of test doubles.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected SLMplsOperClient()</code></pre>
+  </div>
+
+
+  <a id="ServiceLayer_SLMplsOper_SLMplsOperClient__ctor_" data-uid="ServiceLayer.SLMplsOper.SLMplsOperClient.#ctor*"></a>
+  <h4 id="ServiceLayer_SLMplsOper_SLMplsOperClient__ctor_Grpc_Core_CallInvoker_" data-uid="ServiceLayer.SLMplsOper.SLMplsOperClient.#ctor(Grpc.Core.CallInvoker)">SLMplsOperClient(CallInvoker)</h4>
+  <div class="markdown level1 summary"><p>Creates a new client for SLMplsOper that uses a custom <code>CallInvoker</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SLMplsOperClient(CallInvoker callInvoker)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/CallInvoker.cs">CallInvoker</a></td>
+        <td><span class="parametername">callInvoker</span></td>
+        <td><p>The callInvoker to use to make remote calls.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="ServiceLayer_SLMplsOper_SLMplsOperClient__ctor_" data-uid="ServiceLayer.SLMplsOper.SLMplsOperClient.#ctor*"></a>
+  <h4 id="ServiceLayer_SLMplsOper_SLMplsOperClient__ctor_Grpc_Core_ChannelBase_" data-uid="ServiceLayer.SLMplsOper.SLMplsOperClient.#ctor(Grpc.Core.ChannelBase)">SLMplsOperClient(ChannelBase)</h4>
+  <div class="markdown level1 summary"><p>Creates a new client for SLMplsOper</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SLMplsOperClient(ChannelBase channel)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/ChannelBase.cs">ChannelBase</a></td>
+        <td><span class="parametername">channel</span></td>
+        <td><p>The channel to use to make remote calls.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="ServiceLayer_SLMplsOper_SLMplsOperClient__ctor_" data-uid="ServiceLayer.SLMplsOper.SLMplsOperClient.#ctor*"></a>
+  <h4 id="ServiceLayer_SLMplsOper_SLMplsOperClient__ctor_Grpc_Core_ClientBase_ClientBaseConfiguration_" data-uid="ServiceLayer.SLMplsOper.SLMplsOperClient.#ctor(Grpc.Core.ClientBase.ClientBaseConfiguration)">SLMplsOperClient(ClientBaseConfiguration)</h4>
+  <div class="markdown level1 summary"><p>Protected constructor to allow creation of configured clients.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected SLMplsOperClient(ClientBase.ClientBaseConfiguration configuration)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/ClientBase.cs">ClientBase</a>.<a class="xref" href="https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/ClientBase.cs">ClientBaseConfiguration</a></td>
+        <td><span class="parametername">configuration</span></td>
+        <td><p>The client configuration.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+</h3>
+
+
+  <a id="ServiceLayer_SLMplsOper_SLMplsOperClient_NewInstance_" data-uid="ServiceLayer.SLMplsOper.SLMplsOperClient.NewInstance*"></a>
+  <h4 id="ServiceLayer_SLMplsOper_SLMplsOperClient_NewInstance_Grpc_Core_ClientBase_ClientBaseConfiguration_" data-uid="ServiceLayer.SLMplsOper.SLMplsOperClient.NewInstance(Grpc.Core.ClientBase.ClientBaseConfiguration)">NewInstance(ClientBaseConfiguration)</h4>
+  <div class="markdown level1 summary"><p>Creates a new instance of client from given <code>ClientBaseConfiguration</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override SLMplsOper.SLMplsOperClient NewInstance(ClientBase.ClientBaseConfiguration configuration)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/ClientBase.cs">ClientBase</a>.<a class="xref" href="https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/ClientBase.cs">ClientBaseConfiguration</a></td>
+        <td><span class="parametername">configuration</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ServiceLayer.SLMplsOper.html">SLMplsOper</a>.<a class="xref" href="ServiceLayer.SLMplsOper.SLMplsOperClient.html">SLMplsOperClient</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/ClientBase.cs">ClientBase&lt;SLMplsOper.SLMplsOperClient&gt;.NewInstance(ClientBase.ClientBaseConfiguration)</a></div>
+
+
+  <a id="ServiceLayer_SLMplsOper_SLMplsOperClient_SLMplsGet_" data-uid="ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsGet*"></a>
+  <h4 id="ServiceLayer_SLMplsOper_SLMplsOperClient_SLMplsGet_ServiceLayer_SLMplsGetMsg_Grpc_Core_CallOptions_" data-uid="ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsGet(ServiceLayer.SLMplsGetMsg,Grpc.Core.CallOptions)">SLMplsGet(SLMplsGetMsg, CallOptions)</h4>
+  <div class="markdown level1 summary"><p>Retrieve global MPLS info from the server.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual SLMplsGetMsgRsp SLMplsGet(SLMplsGetMsg request, CallOptions options)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ServiceLayer.SLMplsGetMsg.html">SLMplsGetMsg</a></td>
+        <td><span class="parametername">request</span></td>
+        <td><p>The request to send to the server.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/CallOptions.cs">CallOptions</a></td>
+        <td><span class="parametername">options</span></td>
+        <td><p>The options for the call.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ServiceLayer.SLMplsGetMsgRsp.html">SLMplsGetMsgRsp</a></td>
+        <td><p>The response received from the server.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="ServiceLayer_SLMplsOper_SLMplsOperClient_SLMplsGet_" data-uid="ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsGet*"></a>
+  <h4 id="ServiceLayer_SLMplsOper_SLMplsOperClient_SLMplsGet_ServiceLayer_SLMplsGetMsg_Grpc_Core_Metadata_System_Nullable_System_DateTime__System_Threading_CancellationToken_" data-uid="ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsGet(ServiceLayer.SLMplsGetMsg,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)">SLMplsGet(SLMplsGetMsg, Metadata, DateTime?, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Retrieve global MPLS info from the server.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual SLMplsGetMsgRsp SLMplsGet(SLMplsGetMsg request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ServiceLayer.SLMplsGetMsg.html">SLMplsGetMsg</a></td>
+        <td><span class="parametername">request</span></td>
+        <td><p>The request to send to the server.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/Metadata.cs">Metadata</a></td>
+        <td><span class="parametername">headers</span></td>
+        <td><p>The initial metadata to send with the call. This parameter is optional.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetime">DateTime</a>?</td>
+        <td><span class="parametername">deadline</span></td>
+        <td><p>An optional deadline for the call. The call will be cancelled if deadline is hit.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>An optional token for canceling the call.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ServiceLayer.SLMplsGetMsgRsp.html">SLMplsGetMsgRsp</a></td>
+        <td><p>The response received from the server.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="ServiceLayer_SLMplsOper_SLMplsOperClient_SLMplsGetAsync_" data-uid="ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsGetAsync*"></a>
+  <h4 id="ServiceLayer_SLMplsOper_SLMplsOperClient_SLMplsGetAsync_ServiceLayer_SLMplsGetMsg_Grpc_Core_CallOptions_" data-uid="ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsGetAsync(ServiceLayer.SLMplsGetMsg,Grpc.Core.CallOptions)">SLMplsGetAsync(SLMplsGetMsg, CallOptions)</h4>
+  <div class="markdown level1 summary"><p>Retrieve global MPLS info from the server.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual AsyncUnaryCall&lt;SLMplsGetMsgRsp&gt; SLMplsGetAsync(SLMplsGetMsg request, CallOptions options)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ServiceLayer.SLMplsGetMsg.html">SLMplsGetMsg</a></td>
+        <td><span class="parametername">request</span></td>
+        <td><p>The request to send to the server.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/CallOptions.cs">CallOptions</a></td>
+        <td><span class="parametername">options</span></td>
+        <td><p>The options for the call.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/AsyncUnaryCall.cs">AsyncUnaryCall</a>&lt;<a class="xref" href="ServiceLayer.SLMplsGetMsgRsp.html">SLMplsGetMsgRsp</a>&gt;</td>
+        <td><p>The call object.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="ServiceLayer_SLMplsOper_SLMplsOperClient_SLMplsGetAsync_" data-uid="ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsGetAsync*"></a>
+  <h4 id="ServiceLayer_SLMplsOper_SLMplsOperClient_SLMplsGetAsync_ServiceLayer_SLMplsGetMsg_Grpc_Core_Metadata_System_Nullable_System_DateTime__System_Threading_CancellationToken_" data-uid="ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsGetAsync(ServiceLayer.SLMplsGetMsg,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)">SLMplsGetAsync(SLMplsGetMsg, Metadata, DateTime?, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Retrieve global MPLS info from the server.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual AsyncUnaryCall&lt;SLMplsGetMsgRsp&gt; SLMplsGetAsync(SLMplsGetMsg request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ServiceLayer.SLMplsGetMsg.html">SLMplsGetMsg</a></td>
+        <td><span class="parametername">request</span></td>
+        <td><p>The request to send to the server.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/Metadata.cs">Metadata</a></td>
+        <td><span class="parametername">headers</span></td>
+        <td><p>The initial metadata to send with the call. This parameter is optional.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetime">DateTime</a>?</td>
+        <td><span class="parametername">deadline</span></td>
+        <td><p>An optional deadline for the call. The call will be cancelled if deadline is hit.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>An optional token for canceling the call.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/AsyncUnaryCall.cs">AsyncUnaryCall</a>&lt;<a class="xref" href="ServiceLayer.SLMplsGetMsgRsp.html">SLMplsGetMsgRsp</a>&gt;</td>
+        <td><p>The call object.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="ServiceLayer_SLMplsOper_SLMplsOperClient_SLMplsGetStats_" data-uid="ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsGetStats*"></a>
+  <h4 id="ServiceLayer_SLMplsOper_SLMplsOperClient_SLMplsGetStats_ServiceLayer_SLMplsGetMsg_Grpc_Core_CallOptions_" data-uid="ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsGetStats(ServiceLayer.SLMplsGetMsg,Grpc.Core.CallOptions)">SLMplsGetStats(SLMplsGetMsg, CallOptions)</h4>
+  <div class="markdown level1 summary"><p>Retrieve global MPLS Stats from the server.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual SLMplsGetStatsMsgRsp SLMplsGetStats(SLMplsGetMsg request, CallOptions options)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ServiceLayer.SLMplsGetMsg.html">SLMplsGetMsg</a></td>
+        <td><span class="parametername">request</span></td>
+        <td><p>The request to send to the server.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/CallOptions.cs">CallOptions</a></td>
+        <td><span class="parametername">options</span></td>
+        <td><p>The options for the call.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ServiceLayer.SLMplsGetStatsMsgRsp.html">SLMplsGetStatsMsgRsp</a></td>
+        <td><p>The response received from the server.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="ServiceLayer_SLMplsOper_SLMplsOperClient_SLMplsGetStats_" data-uid="ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsGetStats*"></a>
+  <h4 id="ServiceLayer_SLMplsOper_SLMplsOperClient_SLMplsGetStats_ServiceLayer_SLMplsGetMsg_Grpc_Core_Metadata_System_Nullable_System_DateTime__System_Threading_CancellationToken_" data-uid="ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsGetStats(ServiceLayer.SLMplsGetMsg,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)">SLMplsGetStats(SLMplsGetMsg, Metadata, DateTime?, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Retrieve global MPLS Stats from the server.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual SLMplsGetStatsMsgRsp SLMplsGetStats(SLMplsGetMsg request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ServiceLayer.SLMplsGetMsg.html">SLMplsGetMsg</a></td>
+        <td><span class="parametername">request</span></td>
+        <td><p>The request to send to the server.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/Metadata.cs">Metadata</a></td>
+        <td><span class="parametername">headers</span></td>
+        <td><p>The initial metadata to send with the call. This parameter is optional.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetime">DateTime</a>?</td>
+        <td><span class="parametername">deadline</span></td>
+        <td><p>An optional deadline for the call. The call will be cancelled if deadline is hit.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>An optional token for canceling the call.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ServiceLayer.SLMplsGetStatsMsgRsp.html">SLMplsGetStatsMsgRsp</a></td>
+        <td><p>The response received from the server.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="ServiceLayer_SLMplsOper_SLMplsOperClient_SLMplsGetStatsAsync_" data-uid="ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsGetStatsAsync*"></a>
+  <h4 id="ServiceLayer_SLMplsOper_SLMplsOperClient_SLMplsGetStatsAsync_ServiceLayer_SLMplsGetMsg_Grpc_Core_CallOptions_" data-uid="ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsGetStatsAsync(ServiceLayer.SLMplsGetMsg,Grpc.Core.CallOptions)">SLMplsGetStatsAsync(SLMplsGetMsg, CallOptions)</h4>
+  <div class="markdown level1 summary"><p>Retrieve global MPLS Stats from the server.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual AsyncUnaryCall&lt;SLMplsGetStatsMsgRsp&gt; SLMplsGetStatsAsync(SLMplsGetMsg request, CallOptions options)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ServiceLayer.SLMplsGetMsg.html">SLMplsGetMsg</a></td>
+        <td><span class="parametername">request</span></td>
+        <td><p>The request to send to the server.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/CallOptions.cs">CallOptions</a></td>
+        <td><span class="parametername">options</span></td>
+        <td><p>The options for the call.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/AsyncUnaryCall.cs">AsyncUnaryCall</a>&lt;<a class="xref" href="ServiceLayer.SLMplsGetStatsMsgRsp.html">SLMplsGetStatsMsgRsp</a>&gt;</td>
+        <td><p>The call object.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="ServiceLayer_SLMplsOper_SLMplsOperClient_SLMplsGetStatsAsync_" data-uid="ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsGetStatsAsync*"></a>
+  <h4 id="ServiceLayer_SLMplsOper_SLMplsOperClient_SLMplsGetStatsAsync_ServiceLayer_SLMplsGetMsg_Grpc_Core_Metadata_System_Nullable_System_DateTime__System_Threading_CancellationToken_" data-uid="ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsGetStatsAsync(ServiceLayer.SLMplsGetMsg,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)">SLMplsGetStatsAsync(SLMplsGetMsg, Metadata, DateTime?, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Retrieve global MPLS Stats from the server.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual AsyncUnaryCall&lt;SLMplsGetStatsMsgRsp&gt; SLMplsGetStatsAsync(SLMplsGetMsg request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ServiceLayer.SLMplsGetMsg.html">SLMplsGetMsg</a></td>
+        <td><span class="parametername">request</span></td>
+        <td><p>The request to send to the server.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/Metadata.cs">Metadata</a></td>
+        <td><span class="parametername">headers</span></td>
+        <td><p>The initial metadata to send with the call. This parameter is optional.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetime">DateTime</a>?</td>
+        <td><span class="parametername">deadline</span></td>
+        <td><p>An optional deadline for the call. The call will be cancelled if deadline is hit.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>An optional token for canceling the call.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/AsyncUnaryCall.cs">AsyncUnaryCall</a>&lt;<a class="xref" href="ServiceLayer.SLMplsGetStatsMsgRsp.html">SLMplsGetStatsMsgRsp</a>&gt;</td>
+        <td><p>The call object.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="ServiceLayer_SLMplsOper_SLMplsOperClient_SLMplsIlmGet_" data-uid="ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsIlmGet*"></a>
+  <h4 id="ServiceLayer_SLMplsOper_SLMplsOperClient_SLMplsIlmGet_ServiceLayer_SLMplsIlmGetMsg_Grpc_Core_CallOptions_" data-uid="ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsIlmGet(ServiceLayer.SLMplsIlmGetMsg,Grpc.Core.CallOptions)">SLMplsIlmGet(SLMplsIlmGetMsg, CallOptions)</h4>
+  <div class="markdown level1 summary"><p>Retrieve MPLS ILM entry attributes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual SLMplsIlmGetMsgRsp SLMplsIlmGet(SLMplsIlmGetMsg request, CallOptions options)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ServiceLayer.SLMplsIlmGetMsg.html">SLMplsIlmGetMsg</a></td>
+        <td><span class="parametername">request</span></td>
+        <td><p>The request to send to the server.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/CallOptions.cs">CallOptions</a></td>
+        <td><span class="parametername">options</span></td>
+        <td><p>The options for the call.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ServiceLayer.SLMplsIlmGetMsgRsp.html">SLMplsIlmGetMsgRsp</a></td>
+        <td><p>The response received from the server.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="ServiceLayer_SLMplsOper_SLMplsOperClient_SLMplsIlmGet_" data-uid="ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsIlmGet*"></a>
+  <h4 id="ServiceLayer_SLMplsOper_SLMplsOperClient_SLMplsIlmGet_ServiceLayer_SLMplsIlmGetMsg_Grpc_Core_Metadata_System_Nullable_System_DateTime__System_Threading_CancellationToken_" data-uid="ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsIlmGet(ServiceLayer.SLMplsIlmGetMsg,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)">SLMplsIlmGet(SLMplsIlmGetMsg, Metadata, DateTime?, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Retrieve MPLS ILM entry attributes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual SLMplsIlmGetMsgRsp SLMplsIlmGet(SLMplsIlmGetMsg request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ServiceLayer.SLMplsIlmGetMsg.html">SLMplsIlmGetMsg</a></td>
+        <td><span class="parametername">request</span></td>
+        <td><p>The request to send to the server.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/Metadata.cs">Metadata</a></td>
+        <td><span class="parametername">headers</span></td>
+        <td><p>The initial metadata to send with the call. This parameter is optional.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetime">DateTime</a>?</td>
+        <td><span class="parametername">deadline</span></td>
+        <td><p>An optional deadline for the call. The call will be cancelled if deadline is hit.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>An optional token for canceling the call.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ServiceLayer.SLMplsIlmGetMsgRsp.html">SLMplsIlmGetMsgRsp</a></td>
+        <td><p>The response received from the server.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="ServiceLayer_SLMplsOper_SLMplsOperClient_SLMplsIlmGetAsync_" data-uid="ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsIlmGetAsync*"></a>
+  <h4 id="ServiceLayer_SLMplsOper_SLMplsOperClient_SLMplsIlmGetAsync_ServiceLayer_SLMplsIlmGetMsg_Grpc_Core_CallOptions_" data-uid="ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsIlmGetAsync(ServiceLayer.SLMplsIlmGetMsg,Grpc.Core.CallOptions)">SLMplsIlmGetAsync(SLMplsIlmGetMsg, CallOptions)</h4>
+  <div class="markdown level1 summary"><p>Retrieve MPLS ILM entry attributes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual AsyncUnaryCall&lt;SLMplsIlmGetMsgRsp&gt; SLMplsIlmGetAsync(SLMplsIlmGetMsg request, CallOptions options)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ServiceLayer.SLMplsIlmGetMsg.html">SLMplsIlmGetMsg</a></td>
+        <td><span class="parametername">request</span></td>
+        <td><p>The request to send to the server.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/CallOptions.cs">CallOptions</a></td>
+        <td><span class="parametername">options</span></td>
+        <td><p>The options for the call.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/AsyncUnaryCall.cs">AsyncUnaryCall</a>&lt;<a class="xref" href="ServiceLayer.SLMplsIlmGetMsgRsp.html">SLMplsIlmGetMsgRsp</a>&gt;</td>
+        <td><p>The call object.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="ServiceLayer_SLMplsOper_SLMplsOperClient_SLMplsIlmGetAsync_" data-uid="ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsIlmGetAsync*"></a>
+  <h4 id="ServiceLayer_SLMplsOper_SLMplsOperClient_SLMplsIlmGetAsync_ServiceLayer_SLMplsIlmGetMsg_Grpc_Core_Metadata_System_Nullable_System_DateTime__System_Threading_CancellationToken_" data-uid="ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsIlmGetAsync(ServiceLayer.SLMplsIlmGetMsg,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)">SLMplsIlmGetAsync(SLMplsIlmGetMsg, Metadata, DateTime?, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Retrieve MPLS ILM entry attributes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual AsyncUnaryCall&lt;SLMplsIlmGetMsgRsp&gt; SLMplsIlmGetAsync(SLMplsIlmGetMsg request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ServiceLayer.SLMplsIlmGetMsg.html">SLMplsIlmGetMsg</a></td>
+        <td><span class="parametername">request</span></td>
+        <td><p>The request to send to the server.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/Metadata.cs">Metadata</a></td>
+        <td><span class="parametername">headers</span></td>
+        <td><p>The initial metadata to send with the call. This parameter is optional.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetime">DateTime</a>?</td>
+        <td><span class="parametername">deadline</span></td>
+        <td><p>An optional deadline for the call. The call will be cancelled if deadline is hit.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>An optional token for canceling the call.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/AsyncUnaryCall.cs">AsyncUnaryCall</a>&lt;<a class="xref" href="ServiceLayer.SLMplsIlmGetMsgRsp.html">SLMplsIlmGetMsgRsp</a>&gt;</td>
+        <td><p>The call object.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="ServiceLayer_SLMplsOper_SLMplsOperClient_SLMplsIlmGetStream_" data-uid="ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsIlmGetStream*"></a>
+  <h4 id="ServiceLayer_SLMplsOper_SLMplsOperClient_SLMplsIlmGetStream_Grpc_Core_CallOptions_" data-uid="ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsIlmGetStream(Grpc.Core.CallOptions)">SLMplsIlmGetStream(CallOptions)</h4>
+  <div class="markdown level1 summary"><p>Stream-Get of incoming label map</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual AsyncDuplexStreamingCall&lt;SLMplsIlmGetMsg, SLMplsIlmGetMsgRsp&gt; SLMplsIlmGetStream(CallOptions options)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/CallOptions.cs">CallOptions</a></td>
+        <td><span class="parametername">options</span></td>
+        <td><p>The options for the call.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/AsyncDuplexStreamingCall.cs">AsyncDuplexStreamingCall</a>&lt;<a class="xref" href="ServiceLayer.SLMplsIlmGetMsg.html">SLMplsIlmGetMsg</a>, <a class="xref" href="ServiceLayer.SLMplsIlmGetMsgRsp.html">SLMplsIlmGetMsgRsp</a>&gt;</td>
+        <td><p>The call object.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="ServiceLayer_SLMplsOper_SLMplsOperClient_SLMplsIlmGetStream_" data-uid="ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsIlmGetStream*"></a>
+  <h4 id="ServiceLayer_SLMplsOper_SLMplsOperClient_SLMplsIlmGetStream_Grpc_Core_Metadata_System_Nullable_System_DateTime__System_Threading_CancellationToken_" data-uid="ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsIlmGetStream(Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)">SLMplsIlmGetStream(Metadata, DateTime?, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Stream-Get of incoming label map</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual AsyncDuplexStreamingCall&lt;SLMplsIlmGetMsg, SLMplsIlmGetMsgRsp&gt; SLMplsIlmGetStream(Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/Metadata.cs">Metadata</a></td>
+        <td><span class="parametername">headers</span></td>
+        <td><p>The initial metadata to send with the call. This parameter is optional.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetime">DateTime</a>?</td>
+        <td><span class="parametername">deadline</span></td>
+        <td><p>An optional deadline for the call. The call will be cancelled if deadline is hit.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>An optional token for canceling the call.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/AsyncDuplexStreamingCall.cs">AsyncDuplexStreamingCall</a>&lt;<a class="xref" href="ServiceLayer.SLMplsIlmGetMsg.html">SLMplsIlmGetMsg</a>, <a class="xref" href="ServiceLayer.SLMplsIlmGetMsgRsp.html">SLMplsIlmGetMsgRsp</a>&gt;</td>
+        <td><p>The call object.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="ServiceLayer_SLMplsOper_SLMplsOperClient_SLMplsIlmOp_" data-uid="ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsIlmOp*"></a>
+  <h4 id="ServiceLayer_SLMplsOper_SLMplsOperClient_SLMplsIlmOp_ServiceLayer_SLMplsIlmMsg_Grpc_Core_CallOptions_" data-uid="ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsIlmOp(ServiceLayer.SLMplsIlmMsg,Grpc.Core.CallOptions)">SLMplsIlmOp(SLMplsIlmMsg, CallOptions)</h4>
+  <div class="markdown level1 summary"><p>SLMplsIlmMsg.Oper = SL_OBJOP_ADD:
+Add incoming label map entry. Fails if the entry already
+exists and not stale. First ADD operation on a stale entry
+is allowed and the entry is no longer considered stale.</p>
+<p>SLMplsIlmMsg.Oper = SL_OBJOP_UPDATE:
+Create or update incoming label map entry.</p>
+<p>SLMplsIlmMsg.Oper = SL_OBJOP_DELETE:
+Delete incoming label map entry. Delete of a
+non-existant entry is considered a success.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual SLMplsIlmMsgRsp SLMplsIlmOp(SLMplsIlmMsg request, CallOptions options)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ServiceLayer.SLMplsIlmMsg.html">SLMplsIlmMsg</a></td>
+        <td><span class="parametername">request</span></td>
+        <td><p>The request to send to the server.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/CallOptions.cs">CallOptions</a></td>
+        <td><span class="parametername">options</span></td>
+        <td><p>The options for the call.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ServiceLayer.SLMplsIlmMsgRsp.html">SLMplsIlmMsgRsp</a></td>
+        <td><p>The response received from the server.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="ServiceLayer_SLMplsOper_SLMplsOperClient_SLMplsIlmOp_" data-uid="ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsIlmOp*"></a>
+  <h4 id="ServiceLayer_SLMplsOper_SLMplsOperClient_SLMplsIlmOp_ServiceLayer_SLMplsIlmMsg_Grpc_Core_Metadata_System_Nullable_System_DateTime__System_Threading_CancellationToken_" data-uid="ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsIlmOp(ServiceLayer.SLMplsIlmMsg,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)">SLMplsIlmOp(SLMplsIlmMsg, Metadata, DateTime?, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>SLMplsIlmMsg.Oper = SL_OBJOP_ADD:
+Add incoming label map entry. Fails if the entry already
+exists and not stale. First ADD operation on a stale entry
+is allowed and the entry is no longer considered stale.</p>
+<p>SLMplsIlmMsg.Oper = SL_OBJOP_UPDATE:
+Create or update incoming label map entry.</p>
+<p>SLMplsIlmMsg.Oper = SL_OBJOP_DELETE:
+Delete incoming label map entry. Delete of a
+non-existant entry is considered a success.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual SLMplsIlmMsgRsp SLMplsIlmOp(SLMplsIlmMsg request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ServiceLayer.SLMplsIlmMsg.html">SLMplsIlmMsg</a></td>
+        <td><span class="parametername">request</span></td>
+        <td><p>The request to send to the server.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/Metadata.cs">Metadata</a></td>
+        <td><span class="parametername">headers</span></td>
+        <td><p>The initial metadata to send with the call. This parameter is optional.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetime">DateTime</a>?</td>
+        <td><span class="parametername">deadline</span></td>
+        <td><p>An optional deadline for the call. The call will be cancelled if deadline is hit.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>An optional token for canceling the call.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ServiceLayer.SLMplsIlmMsgRsp.html">SLMplsIlmMsgRsp</a></td>
+        <td><p>The response received from the server.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="ServiceLayer_SLMplsOper_SLMplsOperClient_SLMplsIlmOpAsync_" data-uid="ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsIlmOpAsync*"></a>
+  <h4 id="ServiceLayer_SLMplsOper_SLMplsOperClient_SLMplsIlmOpAsync_ServiceLayer_SLMplsIlmMsg_Grpc_Core_CallOptions_" data-uid="ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsIlmOpAsync(ServiceLayer.SLMplsIlmMsg,Grpc.Core.CallOptions)">SLMplsIlmOpAsync(SLMplsIlmMsg, CallOptions)</h4>
+  <div class="markdown level1 summary"><p>SLMplsIlmMsg.Oper = SL_OBJOP_ADD:
+Add incoming label map entry. Fails if the entry already
+exists and not stale. First ADD operation on a stale entry
+is allowed and the entry is no longer considered stale.</p>
+<p>SLMplsIlmMsg.Oper = SL_OBJOP_UPDATE:
+Create or update incoming label map entry.</p>
+<p>SLMplsIlmMsg.Oper = SL_OBJOP_DELETE:
+Delete incoming label map entry. Delete of a
+non-existant entry is considered a success.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual AsyncUnaryCall&lt;SLMplsIlmMsgRsp&gt; SLMplsIlmOpAsync(SLMplsIlmMsg request, CallOptions options)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ServiceLayer.SLMplsIlmMsg.html">SLMplsIlmMsg</a></td>
+        <td><span class="parametername">request</span></td>
+        <td><p>The request to send to the server.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/CallOptions.cs">CallOptions</a></td>
+        <td><span class="parametername">options</span></td>
+        <td><p>The options for the call.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/AsyncUnaryCall.cs">AsyncUnaryCall</a>&lt;<a class="xref" href="ServiceLayer.SLMplsIlmMsgRsp.html">SLMplsIlmMsgRsp</a>&gt;</td>
+        <td><p>The call object.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="ServiceLayer_SLMplsOper_SLMplsOperClient_SLMplsIlmOpAsync_" data-uid="ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsIlmOpAsync*"></a>
+  <h4 id="ServiceLayer_SLMplsOper_SLMplsOperClient_SLMplsIlmOpAsync_ServiceLayer_SLMplsIlmMsg_Grpc_Core_Metadata_System_Nullable_System_DateTime__System_Threading_CancellationToken_" data-uid="ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsIlmOpAsync(ServiceLayer.SLMplsIlmMsg,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)">SLMplsIlmOpAsync(SLMplsIlmMsg, Metadata, DateTime?, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>SLMplsIlmMsg.Oper = SL_OBJOP_ADD:
+Add incoming label map entry. Fails if the entry already
+exists and not stale. First ADD operation on a stale entry
+is allowed and the entry is no longer considered stale.</p>
+<p>SLMplsIlmMsg.Oper = SL_OBJOP_UPDATE:
+Create or update incoming label map entry.</p>
+<p>SLMplsIlmMsg.Oper = SL_OBJOP_DELETE:
+Delete incoming label map entry. Delete of a
+non-existant entry is considered a success.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual AsyncUnaryCall&lt;SLMplsIlmMsgRsp&gt; SLMplsIlmOpAsync(SLMplsIlmMsg request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ServiceLayer.SLMplsIlmMsg.html">SLMplsIlmMsg</a></td>
+        <td><span class="parametername">request</span></td>
+        <td><p>The request to send to the server.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/Metadata.cs">Metadata</a></td>
+        <td><span class="parametername">headers</span></td>
+        <td><p>The initial metadata to send with the call. This parameter is optional.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetime">DateTime</a>?</td>
+        <td><span class="parametername">deadline</span></td>
+        <td><p>An optional deadline for the call. The call will be cancelled if deadline is hit.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>An optional token for canceling the call.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/AsyncUnaryCall.cs">AsyncUnaryCall</a>&lt;<a class="xref" href="ServiceLayer.SLMplsIlmMsgRsp.html">SLMplsIlmMsgRsp</a>&gt;</td>
+        <td><p>The call object.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="ServiceLayer_SLMplsOper_SLMplsOperClient_SLMplsIlmOpStream_" data-uid="ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsIlmOpStream*"></a>
+  <h4 id="ServiceLayer_SLMplsOper_SLMplsOperClient_SLMplsIlmOpStream_Grpc_Core_CallOptions_" data-uid="ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsIlmOpStream(Grpc.Core.CallOptions)">SLMplsIlmOpStream(CallOptions)</h4>
+  <div class="markdown level1 summary"><p>SLMplsIlmMsg.Oper = SL_OBJOP_ADD:
+Add incoming label map entry. Fails if the entry already
+exists and not stale. First ADD operation on a stale entry
+is allowed and the entry is no longer considered stale.</p>
+<p>SLMplsIlmMsg.Oper = SL_OBJOP_UPDATE:
+Create or update incoming label map entry.</p>
+<p>SLMplsIlmMsg.Oper = SL_OBJOP_DELETE:
+Delete incoming label map entry. Delete of a
+non-existant entry is returned as success.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual AsyncDuplexStreamingCall&lt;SLMplsIlmMsg, SLMplsIlmMsgRsp&gt; SLMplsIlmOpStream(CallOptions options)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/CallOptions.cs">CallOptions</a></td>
+        <td><span class="parametername">options</span></td>
+        <td><p>The options for the call.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/AsyncDuplexStreamingCall.cs">AsyncDuplexStreamingCall</a>&lt;<a class="xref" href="ServiceLayer.SLMplsIlmMsg.html">SLMplsIlmMsg</a>, <a class="xref" href="ServiceLayer.SLMplsIlmMsgRsp.html">SLMplsIlmMsgRsp</a>&gt;</td>
+        <td><p>The call object.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="ServiceLayer_SLMplsOper_SLMplsOperClient_SLMplsIlmOpStream_" data-uid="ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsIlmOpStream*"></a>
+  <h4 id="ServiceLayer_SLMplsOper_SLMplsOperClient_SLMplsIlmOpStream_Grpc_Core_Metadata_System_Nullable_System_DateTime__System_Threading_CancellationToken_" data-uid="ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsIlmOpStream(Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)">SLMplsIlmOpStream(Metadata, DateTime?, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>SLMplsIlmMsg.Oper = SL_OBJOP_ADD:
+Add incoming label map entry. Fails if the entry already
+exists and not stale. First ADD operation on a stale entry
+is allowed and the entry is no longer considered stale.</p>
+<p>SLMplsIlmMsg.Oper = SL_OBJOP_UPDATE:
+Create or update incoming label map entry.</p>
+<p>SLMplsIlmMsg.Oper = SL_OBJOP_DELETE:
+Delete incoming label map entry. Delete of a
+non-existant entry is returned as success.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual AsyncDuplexStreamingCall&lt;SLMplsIlmMsg, SLMplsIlmMsgRsp&gt; SLMplsIlmOpStream(Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/Metadata.cs">Metadata</a></td>
+        <td><span class="parametername">headers</span></td>
+        <td><p>The initial metadata to send with the call. This parameter is optional.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetime">DateTime</a>?</td>
+        <td><span class="parametername">deadline</span></td>
+        <td><p>An optional deadline for the call. The call will be cancelled if deadline is hit.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>An optional token for canceling the call.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/AsyncDuplexStreamingCall.cs">AsyncDuplexStreamingCall</a>&lt;<a class="xref" href="ServiceLayer.SLMplsIlmMsg.html">SLMplsIlmMsg</a>, <a class="xref" href="ServiceLayer.SLMplsIlmMsgRsp.html">SLMplsIlmMsgRsp</a>&gt;</td>
+        <td><p>The call object.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="ServiceLayer_SLMplsOper_SLMplsOperClient_SLMplsLabelBlockGet_" data-uid="ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsLabelBlockGet*"></a>
+  <h4 id="ServiceLayer_SLMplsOper_SLMplsOperClient_SLMplsLabelBlockGet_ServiceLayer_SLMplsLabelBlockGetMsg_Grpc_Core_CallOptions_" data-uid="ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsLabelBlockGet(ServiceLayer.SLMplsLabelBlockGetMsg,Grpc.Core.CallOptions)">SLMplsLabelBlockGet(SLMplsLabelBlockGetMsg, CallOptions)</h4>
+  <div class="markdown level1 summary"><p>Retrieve Label Block attributes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual SLMplsLabelBlockGetMsgRsp SLMplsLabelBlockGet(SLMplsLabelBlockGetMsg request, CallOptions options)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ServiceLayer.SLMplsLabelBlockGetMsg.html">SLMplsLabelBlockGetMsg</a></td>
+        <td><span class="parametername">request</span></td>
+        <td><p>The request to send to the server.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/CallOptions.cs">CallOptions</a></td>
+        <td><span class="parametername">options</span></td>
+        <td><p>The options for the call.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ServiceLayer.SLMplsLabelBlockGetMsgRsp.html">SLMplsLabelBlockGetMsgRsp</a></td>
+        <td><p>The response received from the server.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="ServiceLayer_SLMplsOper_SLMplsOperClient_SLMplsLabelBlockGet_" data-uid="ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsLabelBlockGet*"></a>
+  <h4 id="ServiceLayer_SLMplsOper_SLMplsOperClient_SLMplsLabelBlockGet_ServiceLayer_SLMplsLabelBlockGetMsg_Grpc_Core_Metadata_System_Nullable_System_DateTime__System_Threading_CancellationToken_" data-uid="ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsLabelBlockGet(ServiceLayer.SLMplsLabelBlockGetMsg,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)">SLMplsLabelBlockGet(SLMplsLabelBlockGetMsg, Metadata, DateTime?, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Retrieve Label Block attributes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual SLMplsLabelBlockGetMsgRsp SLMplsLabelBlockGet(SLMplsLabelBlockGetMsg request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ServiceLayer.SLMplsLabelBlockGetMsg.html">SLMplsLabelBlockGetMsg</a></td>
+        <td><span class="parametername">request</span></td>
+        <td><p>The request to send to the server.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/Metadata.cs">Metadata</a></td>
+        <td><span class="parametername">headers</span></td>
+        <td><p>The initial metadata to send with the call. This parameter is optional.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetime">DateTime</a>?</td>
+        <td><span class="parametername">deadline</span></td>
+        <td><p>An optional deadline for the call. The call will be cancelled if deadline is hit.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>An optional token for canceling the call.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ServiceLayer.SLMplsLabelBlockGetMsgRsp.html">SLMplsLabelBlockGetMsgRsp</a></td>
+        <td><p>The response received from the server.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="ServiceLayer_SLMplsOper_SLMplsOperClient_SLMplsLabelBlockGetAsync_" data-uid="ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsLabelBlockGetAsync*"></a>
+  <h4 id="ServiceLayer_SLMplsOper_SLMplsOperClient_SLMplsLabelBlockGetAsync_ServiceLayer_SLMplsLabelBlockGetMsg_Grpc_Core_CallOptions_" data-uid="ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsLabelBlockGetAsync(ServiceLayer.SLMplsLabelBlockGetMsg,Grpc.Core.CallOptions)">SLMplsLabelBlockGetAsync(SLMplsLabelBlockGetMsg, CallOptions)</h4>
+  <div class="markdown level1 summary"><p>Retrieve Label Block attributes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual AsyncUnaryCall&lt;SLMplsLabelBlockGetMsgRsp&gt; SLMplsLabelBlockGetAsync(SLMplsLabelBlockGetMsg request, CallOptions options)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ServiceLayer.SLMplsLabelBlockGetMsg.html">SLMplsLabelBlockGetMsg</a></td>
+        <td><span class="parametername">request</span></td>
+        <td><p>The request to send to the server.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/CallOptions.cs">CallOptions</a></td>
+        <td><span class="parametername">options</span></td>
+        <td><p>The options for the call.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/AsyncUnaryCall.cs">AsyncUnaryCall</a>&lt;<a class="xref" href="ServiceLayer.SLMplsLabelBlockGetMsgRsp.html">SLMplsLabelBlockGetMsgRsp</a>&gt;</td>
+        <td><p>The call object.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="ServiceLayer_SLMplsOper_SLMplsOperClient_SLMplsLabelBlockGetAsync_" data-uid="ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsLabelBlockGetAsync*"></a>
+  <h4 id="ServiceLayer_SLMplsOper_SLMplsOperClient_SLMplsLabelBlockGetAsync_ServiceLayer_SLMplsLabelBlockGetMsg_Grpc_Core_Metadata_System_Nullable_System_DateTime__System_Threading_CancellationToken_" data-uid="ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsLabelBlockGetAsync(ServiceLayer.SLMplsLabelBlockGetMsg,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)">SLMplsLabelBlockGetAsync(SLMplsLabelBlockGetMsg, Metadata, DateTime?, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Retrieve Label Block attributes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual AsyncUnaryCall&lt;SLMplsLabelBlockGetMsgRsp&gt; SLMplsLabelBlockGetAsync(SLMplsLabelBlockGetMsg request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ServiceLayer.SLMplsLabelBlockGetMsg.html">SLMplsLabelBlockGetMsg</a></td>
+        <td><span class="parametername">request</span></td>
+        <td><p>The request to send to the server.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/Metadata.cs">Metadata</a></td>
+        <td><span class="parametername">headers</span></td>
+        <td><p>The initial metadata to send with the call. This parameter is optional.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetime">DateTime</a>?</td>
+        <td><span class="parametername">deadline</span></td>
+        <td><p>An optional deadline for the call. The call will be cancelled if deadline is hit.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>An optional token for canceling the call.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/AsyncUnaryCall.cs">AsyncUnaryCall</a>&lt;<a class="xref" href="ServiceLayer.SLMplsLabelBlockGetMsgRsp.html">SLMplsLabelBlockGetMsgRsp</a>&gt;</td>
+        <td><p>The call object.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="ServiceLayer_SLMplsOper_SLMplsOperClient_SLMplsLabelBlockOp_" data-uid="ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsLabelBlockOp*"></a>
+  <h4 id="ServiceLayer_SLMplsOper_SLMplsOperClient_SLMplsLabelBlockOp_ServiceLayer_SLMplsLabelBlockMsg_Grpc_Core_CallOptions_" data-uid="ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsLabelBlockOp(ServiceLayer.SLMplsLabelBlockMsg,Grpc.Core.CallOptions)">SLMplsLabelBlockOp(SLMplsLabelBlockMsg, CallOptions)</h4>
+  <div class="markdown level1 summary"><p>SLMplsLabelBlockMsg.Oper = SL_OBJOP_ADD.
+Add a contiguous label block.
+Add request may fail if the full block cannot be allocated.</p>
+<p>SLMplsLabelBlockMsg.Oper = SL_OBJOP_DELETE.
+Delete a contiguous label block.
+Delete request may fail if the block is in use or the keys don't
+match the keys used on add.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual SLMplsLabelBlockMsgRsp SLMplsLabelBlockOp(SLMplsLabelBlockMsg request, CallOptions options)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ServiceLayer.SLMplsLabelBlockMsg.html">SLMplsLabelBlockMsg</a></td>
+        <td><span class="parametername">request</span></td>
+        <td><p>The request to send to the server.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/CallOptions.cs">CallOptions</a></td>
+        <td><span class="parametername">options</span></td>
+        <td><p>The options for the call.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ServiceLayer.SLMplsLabelBlockMsgRsp.html">SLMplsLabelBlockMsgRsp</a></td>
+        <td><p>The response received from the server.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="ServiceLayer_SLMplsOper_SLMplsOperClient_SLMplsLabelBlockOp_" data-uid="ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsLabelBlockOp*"></a>
+  <h4 id="ServiceLayer_SLMplsOper_SLMplsOperClient_SLMplsLabelBlockOp_ServiceLayer_SLMplsLabelBlockMsg_Grpc_Core_Metadata_System_Nullable_System_DateTime__System_Threading_CancellationToken_" data-uid="ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsLabelBlockOp(ServiceLayer.SLMplsLabelBlockMsg,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)">SLMplsLabelBlockOp(SLMplsLabelBlockMsg, Metadata, DateTime?, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>SLMplsLabelBlockMsg.Oper = SL_OBJOP_ADD.
+Add a contiguous label block.
+Add request may fail if the full block cannot be allocated.</p>
+<p>SLMplsLabelBlockMsg.Oper = SL_OBJOP_DELETE.
+Delete a contiguous label block.
+Delete request may fail if the block is in use or the keys don't
+match the keys used on add.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual SLMplsLabelBlockMsgRsp SLMplsLabelBlockOp(SLMplsLabelBlockMsg request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ServiceLayer.SLMplsLabelBlockMsg.html">SLMplsLabelBlockMsg</a></td>
+        <td><span class="parametername">request</span></td>
+        <td><p>The request to send to the server.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/Metadata.cs">Metadata</a></td>
+        <td><span class="parametername">headers</span></td>
+        <td><p>The initial metadata to send with the call. This parameter is optional.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetime">DateTime</a>?</td>
+        <td><span class="parametername">deadline</span></td>
+        <td><p>An optional deadline for the call. The call will be cancelled if deadline is hit.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>An optional token for canceling the call.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ServiceLayer.SLMplsLabelBlockMsgRsp.html">SLMplsLabelBlockMsgRsp</a></td>
+        <td><p>The response received from the server.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="ServiceLayer_SLMplsOper_SLMplsOperClient_SLMplsLabelBlockOpAsync_" data-uid="ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsLabelBlockOpAsync*"></a>
+  <h4 id="ServiceLayer_SLMplsOper_SLMplsOperClient_SLMplsLabelBlockOpAsync_ServiceLayer_SLMplsLabelBlockMsg_Grpc_Core_CallOptions_" data-uid="ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsLabelBlockOpAsync(ServiceLayer.SLMplsLabelBlockMsg,Grpc.Core.CallOptions)">SLMplsLabelBlockOpAsync(SLMplsLabelBlockMsg, CallOptions)</h4>
+  <div class="markdown level1 summary"><p>SLMplsLabelBlockMsg.Oper = SL_OBJOP_ADD.
+Add a contiguous label block.
+Add request may fail if the full block cannot be allocated.</p>
+<p>SLMplsLabelBlockMsg.Oper = SL_OBJOP_DELETE.
+Delete a contiguous label block.
+Delete request may fail if the block is in use or the keys don't
+match the keys used on add.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual AsyncUnaryCall&lt;SLMplsLabelBlockMsgRsp&gt; SLMplsLabelBlockOpAsync(SLMplsLabelBlockMsg request, CallOptions options)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ServiceLayer.SLMplsLabelBlockMsg.html">SLMplsLabelBlockMsg</a></td>
+        <td><span class="parametername">request</span></td>
+        <td><p>The request to send to the server.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/CallOptions.cs">CallOptions</a></td>
+        <td><span class="parametername">options</span></td>
+        <td><p>The options for the call.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/AsyncUnaryCall.cs">AsyncUnaryCall</a>&lt;<a class="xref" href="ServiceLayer.SLMplsLabelBlockMsgRsp.html">SLMplsLabelBlockMsgRsp</a>&gt;</td>
+        <td><p>The call object.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="ServiceLayer_SLMplsOper_SLMplsOperClient_SLMplsLabelBlockOpAsync_" data-uid="ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsLabelBlockOpAsync*"></a>
+  <h4 id="ServiceLayer_SLMplsOper_SLMplsOperClient_SLMplsLabelBlockOpAsync_ServiceLayer_SLMplsLabelBlockMsg_Grpc_Core_Metadata_System_Nullable_System_DateTime__System_Threading_CancellationToken_" data-uid="ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsLabelBlockOpAsync(ServiceLayer.SLMplsLabelBlockMsg,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)">SLMplsLabelBlockOpAsync(SLMplsLabelBlockMsg, Metadata, DateTime?, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>SLMplsLabelBlockMsg.Oper = SL_OBJOP_ADD.
+Add a contiguous label block.
+Add request may fail if the full block cannot be allocated.</p>
+<p>SLMplsLabelBlockMsg.Oper = SL_OBJOP_DELETE.
+Delete a contiguous label block.
+Delete request may fail if the block is in use or the keys don't
+match the keys used on add.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual AsyncUnaryCall&lt;SLMplsLabelBlockMsgRsp&gt; SLMplsLabelBlockOpAsync(SLMplsLabelBlockMsg request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ServiceLayer.SLMplsLabelBlockMsg.html">SLMplsLabelBlockMsg</a></td>
+        <td><span class="parametername">request</span></td>
+        <td><p>The request to send to the server.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/Metadata.cs">Metadata</a></td>
+        <td><span class="parametername">headers</span></td>
+        <td><p>The initial metadata to send with the call. This parameter is optional.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetime">DateTime</a>?</td>
+        <td><span class="parametername">deadline</span></td>
+        <td><p>An optional deadline for the call. The call will be cancelled if deadline is hit.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>An optional token for canceling the call.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/AsyncUnaryCall.cs">AsyncUnaryCall</a>&lt;<a class="xref" href="ServiceLayer.SLMplsLabelBlockMsgRsp.html">SLMplsLabelBlockMsgRsp</a>&gt;</td>
+        <td><p>The call object.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="ServiceLayer_SLMplsOper_SLMplsOperClient_SLMplsRegOp_" data-uid="ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsRegOp*"></a>
+  <h4 id="ServiceLayer_SLMplsOper_SLMplsOperClient_SLMplsRegOp_ServiceLayer_SLMplsRegMsg_Grpc_Core_CallOptions_" data-uid="ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsRegOp(ServiceLayer.SLMplsRegMsg,Grpc.Core.CallOptions)">SLMplsRegOp(SLMplsRegMsg, CallOptions)</h4>
+  <div class="markdown level1 summary"><p>SLMplsRegMsg.Oper = SL_REGOP_REGISTER.
+Global MPLS registration.
+A client Must Register BEFORE MPLS objects can be added/modified.</p>
+<p>SLMplsRegMsg.Oper = SL_REGOP_UNREGISTER.
+Global MPLS un-registration.
+This call is used to end all MPLS notifications and unregister any
+interest in MPLS object configuration.
+This call cleans up all MPLS objects previously requested.</p>
+<p>SLMplsRegMsg.Oper = SL_REGOP_EOF.
+MPLS End Of File.
+After Registration, the client is expected to send an EOF
+message to convey the end of replay of the client's known objects.
+This is especially useful under certain restart scenarios when the
+client and the server are trying to synchronize their MPLS objects.</p>
+<p>The MPLS registration operations can be used by the client to
+synchronize label block allocations and ILMs with the device. When
+the client re-registers with the server using SL_REGOP_REGISTER,
+server marks all label block allocations and ILMs as stale.
+Client then must reprogram label block allocations and ILMs.
+When client sends SL_REGOP_EOF, any objects not reprogrammed
+are removed from the device.</p>
+<p>The client must perform all operations (MPLS registration,
+label block and ILM) from a single execution context.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual SLMplsRegMsgRsp SLMplsRegOp(SLMplsRegMsg request, CallOptions options)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ServiceLayer.SLMplsRegMsg.html">SLMplsRegMsg</a></td>
+        <td><span class="parametername">request</span></td>
+        <td><p>The request to send to the server.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/CallOptions.cs">CallOptions</a></td>
+        <td><span class="parametername">options</span></td>
+        <td><p>The options for the call.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ServiceLayer.SLMplsRegMsgRsp.html">SLMplsRegMsgRsp</a></td>
+        <td><p>The response received from the server.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="ServiceLayer_SLMplsOper_SLMplsOperClient_SLMplsRegOp_" data-uid="ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsRegOp*"></a>
+  <h4 id="ServiceLayer_SLMplsOper_SLMplsOperClient_SLMplsRegOp_ServiceLayer_SLMplsRegMsg_Grpc_Core_Metadata_System_Nullable_System_DateTime__System_Threading_CancellationToken_" data-uid="ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsRegOp(ServiceLayer.SLMplsRegMsg,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)">SLMplsRegOp(SLMplsRegMsg, Metadata, DateTime?, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>SLMplsRegMsg.Oper = SL_REGOP_REGISTER.
+Global MPLS registration.
+A client Must Register BEFORE MPLS objects can be added/modified.</p>
+<p>SLMplsRegMsg.Oper = SL_REGOP_UNREGISTER.
+Global MPLS un-registration.
+This call is used to end all MPLS notifications and unregister any
+interest in MPLS object configuration.
+This call cleans up all MPLS objects previously requested.</p>
+<p>SLMplsRegMsg.Oper = SL_REGOP_EOF.
+MPLS End Of File.
+After Registration, the client is expected to send an EOF
+message to convey the end of replay of the client's known objects.
+This is especially useful under certain restart scenarios when the
+client and the server are trying to synchronize their MPLS objects.</p>
+<p>The MPLS registration operations can be used by the client to
+synchronize label block allocations and ILMs with the device. When
+the client re-registers with the server using SL_REGOP_REGISTER,
+server marks all label block allocations and ILMs as stale.
+Client then must reprogram label block allocations and ILMs.
+When client sends SL_REGOP_EOF, any objects not reprogrammed
+are removed from the device.</p>
+<p>The client must perform all operations (MPLS registration,
+label block and ILM) from a single execution context.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual SLMplsRegMsgRsp SLMplsRegOp(SLMplsRegMsg request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ServiceLayer.SLMplsRegMsg.html">SLMplsRegMsg</a></td>
+        <td><span class="parametername">request</span></td>
+        <td><p>The request to send to the server.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/Metadata.cs">Metadata</a></td>
+        <td><span class="parametername">headers</span></td>
+        <td><p>The initial metadata to send with the call. This parameter is optional.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetime">DateTime</a>?</td>
+        <td><span class="parametername">deadline</span></td>
+        <td><p>An optional deadline for the call. The call will be cancelled if deadline is hit.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>An optional token for canceling the call.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ServiceLayer.SLMplsRegMsgRsp.html">SLMplsRegMsgRsp</a></td>
+        <td><p>The response received from the server.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="ServiceLayer_SLMplsOper_SLMplsOperClient_SLMplsRegOpAsync_" data-uid="ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsRegOpAsync*"></a>
+  <h4 id="ServiceLayer_SLMplsOper_SLMplsOperClient_SLMplsRegOpAsync_ServiceLayer_SLMplsRegMsg_Grpc_Core_CallOptions_" data-uid="ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsRegOpAsync(ServiceLayer.SLMplsRegMsg,Grpc.Core.CallOptions)">SLMplsRegOpAsync(SLMplsRegMsg, CallOptions)</h4>
+  <div class="markdown level1 summary"><p>SLMplsRegMsg.Oper = SL_REGOP_REGISTER.
+Global MPLS registration.
+A client Must Register BEFORE MPLS objects can be added/modified.</p>
+<p>SLMplsRegMsg.Oper = SL_REGOP_UNREGISTER.
+Global MPLS un-registration.
+This call is used to end all MPLS notifications and unregister any
+interest in MPLS object configuration.
+This call cleans up all MPLS objects previously requested.</p>
+<p>SLMplsRegMsg.Oper = SL_REGOP_EOF.
+MPLS End Of File.
+After Registration, the client is expected to send an EOF
+message to convey the end of replay of the client's known objects.
+This is especially useful under certain restart scenarios when the
+client and the server are trying to synchronize their MPLS objects.</p>
+<p>The MPLS registration operations can be used by the client to
+synchronize label block allocations and ILMs with the device. When
+the client re-registers with the server using SL_REGOP_REGISTER,
+server marks all label block allocations and ILMs as stale.
+Client then must reprogram label block allocations and ILMs.
+When client sends SL_REGOP_EOF, any objects not reprogrammed
+are removed from the device.</p>
+<p>The client must perform all operations (MPLS registration,
+label block and ILM) from a single execution context.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual AsyncUnaryCall&lt;SLMplsRegMsgRsp&gt; SLMplsRegOpAsync(SLMplsRegMsg request, CallOptions options)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ServiceLayer.SLMplsRegMsg.html">SLMplsRegMsg</a></td>
+        <td><span class="parametername">request</span></td>
+        <td><p>The request to send to the server.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/CallOptions.cs">CallOptions</a></td>
+        <td><span class="parametername">options</span></td>
+        <td><p>The options for the call.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/AsyncUnaryCall.cs">AsyncUnaryCall</a>&lt;<a class="xref" href="ServiceLayer.SLMplsRegMsgRsp.html">SLMplsRegMsgRsp</a>&gt;</td>
+        <td><p>The call object.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="ServiceLayer_SLMplsOper_SLMplsOperClient_SLMplsRegOpAsync_" data-uid="ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsRegOpAsync*"></a>
+  <h4 id="ServiceLayer_SLMplsOper_SLMplsOperClient_SLMplsRegOpAsync_ServiceLayer_SLMplsRegMsg_Grpc_Core_Metadata_System_Nullable_System_DateTime__System_Threading_CancellationToken_" data-uid="ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsRegOpAsync(ServiceLayer.SLMplsRegMsg,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)">SLMplsRegOpAsync(SLMplsRegMsg, Metadata, DateTime?, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>SLMplsRegMsg.Oper = SL_REGOP_REGISTER.
+Global MPLS registration.
+A client Must Register BEFORE MPLS objects can be added/modified.</p>
+<p>SLMplsRegMsg.Oper = SL_REGOP_UNREGISTER.
+Global MPLS un-registration.
+This call is used to end all MPLS notifications and unregister any
+interest in MPLS object configuration.
+This call cleans up all MPLS objects previously requested.</p>
+<p>SLMplsRegMsg.Oper = SL_REGOP_EOF.
+MPLS End Of File.
+After Registration, the client is expected to send an EOF
+message to convey the end of replay of the client's known objects.
+This is especially useful under certain restart scenarios when the
+client and the server are trying to synchronize their MPLS objects.</p>
+<p>The MPLS registration operations can be used by the client to
+synchronize label block allocations and ILMs with the device. When
+the client re-registers with the server using SL_REGOP_REGISTER,
+server marks all label block allocations and ILMs as stale.
+Client then must reprogram label block allocations and ILMs.
+When client sends SL_REGOP_EOF, any objects not reprogrammed
+are removed from the device.</p>
+<p>The client must perform all operations (MPLS registration,
+label block and ILM) from a single execution context.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual AsyncUnaryCall&lt;SLMplsRegMsgRsp&gt; SLMplsRegOpAsync(SLMplsRegMsg request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ServiceLayer.SLMplsRegMsg.html">SLMplsRegMsg</a></td>
+        <td><span class="parametername">request</span></td>
+        <td><p>The request to send to the server.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/Metadata.cs">Metadata</a></td>
+        <td><span class="parametername">headers</span></td>
+        <td><p>The initial metadata to send with the call. This parameter is optional.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetime">DateTime</a>?</td>
+        <td><span class="parametername">deadline</span></td>
+        <td><p>An optional deadline for the call. The call will be cancelled if deadline is hit.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>An optional token for canceling the call.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/AsyncUnaryCall.cs">AsyncUnaryCall</a>&lt;<a class="xref" href="ServiceLayer.SLMplsRegMsgRsp.html">SLMplsRegMsgRsp</a>&gt;</td>
+        <td><p>The call object.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

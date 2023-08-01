@@ -1,0 +1,217 @@
+### YamlMime:ManagedReference
+items:
+- uid: ServiceLayer.SLVersion
+  commentId: T:ServiceLayer.SLVersion
+  id: SLVersion
+  parent: ServiceLayer
+  children:
+  - ServiceLayer.SLVersion.SlMajorVersion
+  - ServiceLayer.SLVersion.SlMinorVersion
+  - ServiceLayer.SLVersion.SlSubVersion
+  - ServiceLayer.SLVersion.Unused
+  langs:
+  - csharp
+  - vb
+  name: SLVersion
+  nameWithType: SLVersion
+  fullName: ServiceLayer.SLVersion
+  type: Enum
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlVersion.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: SLVersion
+    path: src/gencs/SlVersion.cs
+    startLine: 45
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: >-
+    Service Layer API version.
+
+    This is used in the Global init message exchange to handshake client/server
+
+    Version numbers.
+  example: []
+  syntax:
+    content: public enum SLVersion
+    content.vb: Public Enum SLVersion
+- uid: ServiceLayer.SLVersion.Unused
+  commentId: F:ServiceLayer.SLVersion.Unused
+  id: Unused
+  parent: ServiceLayer.SLVersion
+  langs:
+  - csharp
+  - vb
+  name: Unused
+  nameWithType: SLVersion.Unused
+  fullName: ServiceLayer.SLVersion.Unused
+  type: Field
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlVersion.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: Unused
+    path: src/gencs/SlVersion.cs
+    startLine: 46
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  syntax:
+    content: >-
+      [OriginalName("SL_VERSION_UNUSED")]
+
+      Unused = 0
+    return:
+      type: ServiceLayer.SLVersion
+    content.vb: >-
+      <OriginalName("SL_VERSION_UNUSED")>
+
+      Unused = 0
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: SL_VERSION_UNUSED
+- uid: ServiceLayer.SLVersion.SlMajorVersion
+  commentId: F:ServiceLayer.SLVersion.SlMajorVersion
+  id: SlMajorVersion
+  parent: ServiceLayer.SLVersion
+  langs:
+  - csharp
+  - vb
+  name: SlMajorVersion
+  nameWithType: SLVersion.SlMajorVersion
+  fullName: ServiceLayer.SLVersion.SlMajorVersion
+  type: Field
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlVersion.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: SlMajorVersion
+    path: src/gencs/SlVersion.cs
+    startLine: 47
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  syntax:
+    content: >-
+      [OriginalName("SL_MAJOR_VERSION", PreferredAlias = false)]
+
+      SlMajorVersion = 0
+    return:
+      type: ServiceLayer.SLVersion
+    content.vb: >-
+      <OriginalName("SL_MAJOR_VERSION", PreferredAlias:=False)>
+
+      SlMajorVersion = 0
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: SL_MAJOR_VERSION
+    namedArguments:
+    - name: PreferredAlias
+      type: System.Boolean
+      value: false
+- uid: ServiceLayer.SLVersion.SlMinorVersion
+  commentId: F:ServiceLayer.SLVersion.SlMinorVersion
+  id: SlMinorVersion
+  parent: ServiceLayer.SLVersion
+  langs:
+  - csharp
+  - vb
+  name: SlMinorVersion
+  nameWithType: SLVersion.SlMinorVersion
+  fullName: ServiceLayer.SLVersion.SlMinorVersion
+  type: Field
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlVersion.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: SlMinorVersion
+    path: src/gencs/SlVersion.cs
+    startLine: 48
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  syntax:
+    content: >-
+      [OriginalName("SL_MINOR_VERSION")]
+
+      SlMinorVersion = 7
+    return:
+      type: ServiceLayer.SLVersion
+    content.vb: >-
+      <OriginalName("SL_MINOR_VERSION")>
+
+      SlMinorVersion = 7
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: SL_MINOR_VERSION
+- uid: ServiceLayer.SLVersion.SlSubVersion
+  commentId: F:ServiceLayer.SLVersion.SlSubVersion
+  id: SlSubVersion
+  parent: ServiceLayer.SLVersion
+  langs:
+  - csharp
+  - vb
+  name: SlSubVersion
+  nameWithType: SLVersion.SlSubVersion
+  fullName: ServiceLayer.SLVersion.SlSubVersion
+  type: Field
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlVersion.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: SlSubVersion
+    path: src/gencs/SlVersion.cs
+    startLine: 49
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  syntax:
+    content: >-
+      [OriginalName("SL_SUB_VERSION", PreferredAlias = false)]
+
+      SlSubVersion = 0
+    return:
+      type: ServiceLayer.SLVersion
+    content.vb: >-
+      <OriginalName("SL_SUB_VERSION", PreferredAlias:=False)>
+
+      SlSubVersion = 0
+  attributes:
+  - type: Google.Protobuf.Reflection.OriginalNameAttribute
+    ctor: Google.Protobuf.Reflection.OriginalNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: SL_SUB_VERSION
+    namedArguments:
+    - name: PreferredAlias
+      type: System.Boolean
+      value: false
+references:
+- uid: ServiceLayer
+  commentId: N:ServiceLayer
+  href: ServiceLayer.html
+  name: ServiceLayer
+  nameWithType: ServiceLayer
+  fullName: ServiceLayer
+- uid: ServiceLayer.SLVersion
+  commentId: T:ServiceLayer.SLVersion
+  parent: ServiceLayer
+  href: ServiceLayer.SLVersion.html
+  name: SLVersion
+  nameWithType: SLVersion
+  fullName: ServiceLayer.SLVersion

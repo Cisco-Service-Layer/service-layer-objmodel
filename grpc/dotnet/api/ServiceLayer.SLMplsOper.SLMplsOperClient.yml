@@ -1,0 +1,3062 @@
+### YamlMime:ManagedReference
+items:
+- uid: ServiceLayer.SLMplsOper.SLMplsOperClient
+  commentId: T:ServiceLayer.SLMplsOper.SLMplsOperClient
+  id: SLMplsOper.SLMplsOperClient
+  parent: ServiceLayer
+  children:
+  - ServiceLayer.SLMplsOper.SLMplsOperClient.#ctor
+  - ServiceLayer.SLMplsOper.SLMplsOperClient.#ctor(Grpc.Core.CallInvoker)
+  - ServiceLayer.SLMplsOper.SLMplsOperClient.#ctor(Grpc.Core.ChannelBase)
+  - ServiceLayer.SLMplsOper.SLMplsOperClient.#ctor(Grpc.Core.ClientBase.ClientBaseConfiguration)
+  - ServiceLayer.SLMplsOper.SLMplsOperClient.NewInstance(Grpc.Core.ClientBase.ClientBaseConfiguration)
+  - ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsGet(ServiceLayer.SLMplsGetMsg,Grpc.Core.CallOptions)
+  - ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsGet(ServiceLayer.SLMplsGetMsg,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)
+  - ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsGetAsync(ServiceLayer.SLMplsGetMsg,Grpc.Core.CallOptions)
+  - ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsGetAsync(ServiceLayer.SLMplsGetMsg,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)
+  - ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsGetStats(ServiceLayer.SLMplsGetMsg,Grpc.Core.CallOptions)
+  - ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsGetStats(ServiceLayer.SLMplsGetMsg,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)
+  - ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsGetStatsAsync(ServiceLayer.SLMplsGetMsg,Grpc.Core.CallOptions)
+  - ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsGetStatsAsync(ServiceLayer.SLMplsGetMsg,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)
+  - ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsIlmGet(ServiceLayer.SLMplsIlmGetMsg,Grpc.Core.CallOptions)
+  - ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsIlmGet(ServiceLayer.SLMplsIlmGetMsg,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)
+  - ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsIlmGetAsync(ServiceLayer.SLMplsIlmGetMsg,Grpc.Core.CallOptions)
+  - ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsIlmGetAsync(ServiceLayer.SLMplsIlmGetMsg,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)
+  - ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsIlmGetStream(Grpc.Core.CallOptions)
+  - ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsIlmGetStream(Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)
+  - ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsIlmOp(ServiceLayer.SLMplsIlmMsg,Grpc.Core.CallOptions)
+  - ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsIlmOp(ServiceLayer.SLMplsIlmMsg,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)
+  - ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsIlmOpAsync(ServiceLayer.SLMplsIlmMsg,Grpc.Core.CallOptions)
+  - ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsIlmOpAsync(ServiceLayer.SLMplsIlmMsg,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)
+  - ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsIlmOpStream(Grpc.Core.CallOptions)
+  - ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsIlmOpStream(Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)
+  - ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsLabelBlockGet(ServiceLayer.SLMplsLabelBlockGetMsg,Grpc.Core.CallOptions)
+  - ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsLabelBlockGet(ServiceLayer.SLMplsLabelBlockGetMsg,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)
+  - ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsLabelBlockGetAsync(ServiceLayer.SLMplsLabelBlockGetMsg,Grpc.Core.CallOptions)
+  - ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsLabelBlockGetAsync(ServiceLayer.SLMplsLabelBlockGetMsg,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)
+  - ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsLabelBlockOp(ServiceLayer.SLMplsLabelBlockMsg,Grpc.Core.CallOptions)
+  - ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsLabelBlockOp(ServiceLayer.SLMplsLabelBlockMsg,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)
+  - ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsLabelBlockOpAsync(ServiceLayer.SLMplsLabelBlockMsg,Grpc.Core.CallOptions)
+  - ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsLabelBlockOpAsync(ServiceLayer.SLMplsLabelBlockMsg,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)
+  - ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsRegOp(ServiceLayer.SLMplsRegMsg,Grpc.Core.CallOptions)
+  - ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsRegOp(ServiceLayer.SLMplsRegMsg,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)
+  - ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsRegOpAsync(ServiceLayer.SLMplsRegMsg,Grpc.Core.CallOptions)
+  - ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsRegOpAsync(ServiceLayer.SLMplsRegMsg,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)
+  langs:
+  - csharp
+  - vb
+  name: SLMplsOper.SLMplsOperClient
+  nameWithType: SLMplsOper.SLMplsOperClient
+  fullName: ServiceLayer.SLMplsOper.SLMplsOperClient
+  type: Class
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlMplsGrpc.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: SLMplsOperClient
+    path: src/gencs/SlMplsGrpc.cs
+    startLine: 359
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Client for SLMplsOper
+  example: []
+  syntax:
+    content: 'public class SLMplsOper.SLMplsOperClient : ClientBase<SLMplsOper.SLMplsOperClient>'
+    content.vb: Public Class SLMplsOper.SLMplsOperClient Inherits ClientBase(Of SLMplsOper.SLMplsOperClient)
+  inheritance:
+  - System.Object
+  - Grpc.Core.ClientBase
+  - Grpc.Core.ClientBase{ServiceLayer.SLMplsOper.SLMplsOperClient}
+  inheritedMembers:
+  - Grpc.Core.ClientBase{ServiceLayer.SLMplsOper.SLMplsOperClient}.WithHost(System.String)
+  - Grpc.Core.ClientBase.CallInvoker
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: ServiceLayer.SLMplsOper.SLMplsOperClient.#ctor(Grpc.Core.ChannelBase)
+  commentId: M:ServiceLayer.SLMplsOper.SLMplsOperClient.#ctor(Grpc.Core.ChannelBase)
+  id: '#ctor(Grpc.Core.ChannelBase)'
+  parent: ServiceLayer.SLMplsOper.SLMplsOperClient
+  langs:
+  - csharp
+  - vb
+  name: SLMplsOperClient(ChannelBase)
+  nameWithType: SLMplsOper.SLMplsOperClient.SLMplsOperClient(ChannelBase)
+  fullName: ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsOperClient(Grpc.Core.ChannelBase)
+  type: Constructor
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlMplsGrpc.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: .ctor
+    path: src/gencs/SlMplsGrpc.cs
+    startLine: 363
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Creates a new client for SLMplsOper
+  example: []
+  syntax:
+    content: public SLMplsOperClient(ChannelBase channel)
+    parameters:
+    - id: channel
+      type: Grpc.Core.ChannelBase
+      description: The channel to use to make remote calls.
+    content.vb: Public Sub New(channel As ChannelBase)
+  overload: ServiceLayer.SLMplsOper.SLMplsOperClient.#ctor*
+  nameWithType.vb: SLMplsOper.SLMplsOperClient.New(ChannelBase)
+  fullName.vb: ServiceLayer.SLMplsOper.SLMplsOperClient.New(Grpc.Core.ChannelBase)
+  name.vb: New(ChannelBase)
+- uid: ServiceLayer.SLMplsOper.SLMplsOperClient.#ctor(Grpc.Core.CallInvoker)
+  commentId: M:ServiceLayer.SLMplsOper.SLMplsOperClient.#ctor(Grpc.Core.CallInvoker)
+  id: '#ctor(Grpc.Core.CallInvoker)'
+  parent: ServiceLayer.SLMplsOper.SLMplsOperClient
+  langs:
+  - csharp
+  - vb
+  name: SLMplsOperClient(CallInvoker)
+  nameWithType: SLMplsOper.SLMplsOperClient.SLMplsOperClient(CallInvoker)
+  fullName: ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsOperClient(Grpc.Core.CallInvoker)
+  type: Constructor
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlMplsGrpc.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: .ctor
+    path: src/gencs/SlMplsGrpc.cs
+    startLine: 369
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Creates a new client for SLMplsOper that uses a custom <code>CallInvoker</code>.
+  example: []
+  syntax:
+    content: public SLMplsOperClient(CallInvoker callInvoker)
+    parameters:
+    - id: callInvoker
+      type: Grpc.Core.CallInvoker
+      description: The callInvoker to use to make remote calls.
+    content.vb: Public Sub New(callInvoker As CallInvoker)
+  overload: ServiceLayer.SLMplsOper.SLMplsOperClient.#ctor*
+  nameWithType.vb: SLMplsOper.SLMplsOperClient.New(CallInvoker)
+  fullName.vb: ServiceLayer.SLMplsOper.SLMplsOperClient.New(Grpc.Core.CallInvoker)
+  name.vb: New(CallInvoker)
+- uid: ServiceLayer.SLMplsOper.SLMplsOperClient.#ctor
+  commentId: M:ServiceLayer.SLMplsOper.SLMplsOperClient.#ctor
+  id: '#ctor'
+  parent: ServiceLayer.SLMplsOper.SLMplsOperClient
+  langs:
+  - csharp
+  - vb
+  name: SLMplsOperClient()
+  nameWithType: SLMplsOper.SLMplsOperClient.SLMplsOperClient()
+  fullName: ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsOperClient()
+  type: Constructor
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlMplsGrpc.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: .ctor
+    path: src/gencs/SlMplsGrpc.cs
+    startLine: 374
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Protected parameterless constructor to allow creation of test doubles.
+  example: []
+  syntax:
+    content: protected SLMplsOperClient()
+    content.vb: Protected Sub New()
+  overload: ServiceLayer.SLMplsOper.SLMplsOperClient.#ctor*
+  nameWithType.vb: SLMplsOper.SLMplsOperClient.New()
+  fullName.vb: ServiceLayer.SLMplsOper.SLMplsOperClient.New()
+  name.vb: New()
+- uid: ServiceLayer.SLMplsOper.SLMplsOperClient.#ctor(Grpc.Core.ClientBase.ClientBaseConfiguration)
+  commentId: M:ServiceLayer.SLMplsOper.SLMplsOperClient.#ctor(Grpc.Core.ClientBase.ClientBaseConfiguration)
+  id: '#ctor(Grpc.Core.ClientBase.ClientBaseConfiguration)'
+  parent: ServiceLayer.SLMplsOper.SLMplsOperClient
+  langs:
+  - csharp
+  - vb
+  name: SLMplsOperClient(ClientBaseConfiguration)
+  nameWithType: SLMplsOper.SLMplsOperClient.SLMplsOperClient(ClientBase.ClientBaseConfiguration)
+  fullName: ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsOperClient(Grpc.Core.ClientBase.ClientBaseConfiguration)
+  type: Constructor
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlMplsGrpc.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: .ctor
+    path: src/gencs/SlMplsGrpc.cs
+    startLine: 380
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Protected constructor to allow creation of configured clients.
+  example: []
+  syntax:
+    content: protected SLMplsOperClient(ClientBase.ClientBaseConfiguration configuration)
+    parameters:
+    - id: configuration
+      type: Grpc.Core.ClientBase.ClientBaseConfiguration
+      description: The client configuration.
+    content.vb: Protected Sub New(configuration As ClientBase.ClientBaseConfiguration)
+  overload: ServiceLayer.SLMplsOper.SLMplsOperClient.#ctor*
+  nameWithType.vb: SLMplsOper.SLMplsOperClient.New(ClientBase.ClientBaseConfiguration)
+  fullName.vb: ServiceLayer.SLMplsOper.SLMplsOperClient.New(Grpc.Core.ClientBase.ClientBaseConfiguration)
+  name.vb: New(ClientBaseConfiguration)
+- uid: ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsRegOp(ServiceLayer.SLMplsRegMsg,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)
+  commentId: M:ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsRegOp(ServiceLayer.SLMplsRegMsg,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)
+  id: SLMplsRegOp(ServiceLayer.SLMplsRegMsg,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)
+  parent: ServiceLayer.SLMplsOper.SLMplsOperClient
+  langs:
+  - csharp
+  - vb
+  name: SLMplsRegOp(SLMplsRegMsg, Metadata, DateTime?, CancellationToken)
+  nameWithType: SLMplsOper.SLMplsOperClient.SLMplsRegOp(SLMplsRegMsg, Metadata, DateTime?, CancellationToken)
+  fullName: ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsRegOp(ServiceLayer.SLMplsRegMsg, Grpc.Core.Metadata, System.DateTime?, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlMplsGrpc.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: SLMplsRegOp
+    path: src/gencs/SlMplsGrpc.cs
+    startLine: 419
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: >-
+    SLMplsRegMsg.Oper = SL_REGOP_REGISTER.
+        Global MPLS registration.
+        A client Must Register BEFORE MPLS objects can be added/modified.
+
+    SLMplsRegMsg.Oper = SL_REGOP_UNREGISTER.
+        Global MPLS un-registration.
+        This call is used to end all MPLS notifications and unregister any
+        interest in MPLS object configuration.
+        This call cleans up all MPLS objects previously requested.
+
+    SLMplsRegMsg.Oper = SL_REGOP_EOF.
+        MPLS End Of File.
+        After Registration, the client is expected to send an EOF
+        message to convey the end of replay of the client's known objects.
+        This is especially useful under certain restart scenarios when the
+        client and the server are trying to synchronize their MPLS objects.
+
+    The MPLS registration operations can be used by the client to
+
+    synchronize label block allocations and ILMs with the device. When
+
+    the client re-registers with the server using SL_REGOP_REGISTER,
+
+    server marks all label block allocations and ILMs as stale.
+
+    Client then must reprogram label block allocations and ILMs.
+
+    When client sends SL_REGOP_EOF, any objects not reprogrammed
+
+    are removed from the device.
+
+
+    The client must perform all operations (MPLS registration,
+
+    label block and ILM) from a single execution context.
+  example: []
+  syntax:
+    content: public virtual SLMplsRegMsgRsp SLMplsRegOp(SLMplsRegMsg request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default)
+    parameters:
+    - id: request
+      type: ServiceLayer.SLMplsRegMsg
+      description: The request to send to the server.
+    - id: headers
+      type: Grpc.Core.Metadata
+      description: The initial metadata to send with the call. This parameter is optional.
+    - id: deadline
+      type: System.Nullable{System.DateTime}
+      description: An optional deadline for the call. The call will be cancelled if deadline is hit.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: An optional token for canceling the call.
+    return:
+      type: ServiceLayer.SLMplsRegMsgRsp
+      description: The response received from the server.
+    content.vb: Public Overridable Function SLMplsRegOp(request As SLMplsRegMsg, headers As Metadata = Nothing, deadline As Date? = Nothing, cancellationToken As CancellationToken = Nothing) As SLMplsRegMsgRsp
+  overload: ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsRegOp*
+  nameWithType.vb: SLMplsOper.SLMplsOperClient.SLMplsRegOp(SLMplsRegMsg, Metadata, Date?, CancellationToken)
+  fullName.vb: ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsRegOp(ServiceLayer.SLMplsRegMsg, Grpc.Core.Metadata, Date?, System.Threading.CancellationToken)
+  name.vb: SLMplsRegOp(SLMplsRegMsg, Metadata, Date?, CancellationToken)
+- uid: ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsRegOp(ServiceLayer.SLMplsRegMsg,Grpc.Core.CallOptions)
+  commentId: M:ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsRegOp(ServiceLayer.SLMplsRegMsg,Grpc.Core.CallOptions)
+  id: SLMplsRegOp(ServiceLayer.SLMplsRegMsg,Grpc.Core.CallOptions)
+  parent: ServiceLayer.SLMplsOper.SLMplsOperClient
+  langs:
+  - csharp
+  - vb
+  name: SLMplsRegOp(SLMplsRegMsg, CallOptions)
+  nameWithType: SLMplsOper.SLMplsOperClient.SLMplsRegOp(SLMplsRegMsg, CallOptions)
+  fullName: ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsRegOp(ServiceLayer.SLMplsRegMsg, Grpc.Core.CallOptions)
+  type: Method
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlMplsGrpc.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: SLMplsRegOp
+    path: src/gencs/SlMplsGrpc.cs
+    startLine: 456
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: >-
+    SLMplsRegMsg.Oper = SL_REGOP_REGISTER.
+        Global MPLS registration.
+        A client Must Register BEFORE MPLS objects can be added/modified.
+
+    SLMplsRegMsg.Oper = SL_REGOP_UNREGISTER.
+        Global MPLS un-registration.
+        This call is used to end all MPLS notifications and unregister any
+        interest in MPLS object configuration.
+        This call cleans up all MPLS objects previously requested.
+
+    SLMplsRegMsg.Oper = SL_REGOP_EOF.
+        MPLS End Of File.
+        After Registration, the client is expected to send an EOF
+        message to convey the end of replay of the client's known objects.
+        This is especially useful under certain restart scenarios when the
+        client and the server are trying to synchronize their MPLS objects.
+
+    The MPLS registration operations can be used by the client to
+
+    synchronize label block allocations and ILMs with the device. When
+
+    the client re-registers with the server using SL_REGOP_REGISTER,
+
+    server marks all label block allocations and ILMs as stale.
+
+    Client then must reprogram label block allocations and ILMs.
+
+    When client sends SL_REGOP_EOF, any objects not reprogrammed
+
+    are removed from the device.
+
+
+    The client must perform all operations (MPLS registration,
+
+    label block and ILM) from a single execution context.
+  example: []
+  syntax:
+    content: public virtual SLMplsRegMsgRsp SLMplsRegOp(SLMplsRegMsg request, CallOptions options)
+    parameters:
+    - id: request
+      type: ServiceLayer.SLMplsRegMsg
+      description: The request to send to the server.
+    - id: options
+      type: Grpc.Core.CallOptions
+      description: The options for the call.
+    return:
+      type: ServiceLayer.SLMplsRegMsgRsp
+      description: The response received from the server.
+    content.vb: Public Overridable Function SLMplsRegOp(request As SLMplsRegMsg, options As CallOptions) As SLMplsRegMsgRsp
+  overload: ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsRegOp*
+- uid: ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsRegOpAsync(ServiceLayer.SLMplsRegMsg,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)
+  commentId: M:ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsRegOpAsync(ServiceLayer.SLMplsRegMsg,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)
+  id: SLMplsRegOpAsync(ServiceLayer.SLMplsRegMsg,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)
+  parent: ServiceLayer.SLMplsOper.SLMplsOperClient
+  langs:
+  - csharp
+  - vb
+  name: SLMplsRegOpAsync(SLMplsRegMsg, Metadata, DateTime?, CancellationToken)
+  nameWithType: SLMplsOper.SLMplsOperClient.SLMplsRegOpAsync(SLMplsRegMsg, Metadata, DateTime?, CancellationToken)
+  fullName: ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsRegOpAsync(ServiceLayer.SLMplsRegMsg, Grpc.Core.Metadata, System.DateTime?, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlMplsGrpc.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: SLMplsRegOpAsync
+    path: src/gencs/SlMplsGrpc.cs
+    startLine: 495
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: >-
+    SLMplsRegMsg.Oper = SL_REGOP_REGISTER.
+        Global MPLS registration.
+        A client Must Register BEFORE MPLS objects can be added/modified.
+
+    SLMplsRegMsg.Oper = SL_REGOP_UNREGISTER.
+        Global MPLS un-registration.
+        This call is used to end all MPLS notifications and unregister any
+        interest in MPLS object configuration.
+        This call cleans up all MPLS objects previously requested.
+
+    SLMplsRegMsg.Oper = SL_REGOP_EOF.
+        MPLS End Of File.
+        After Registration, the client is expected to send an EOF
+        message to convey the end of replay of the client's known objects.
+        This is especially useful under certain restart scenarios when the
+        client and the server are trying to synchronize their MPLS objects.
+
+    The MPLS registration operations can be used by the client to
+
+    synchronize label block allocations and ILMs with the device. When
+
+    the client re-registers with the server using SL_REGOP_REGISTER,
+
+    server marks all label block allocations and ILMs as stale.
+
+    Client then must reprogram label block allocations and ILMs.
+
+    When client sends SL_REGOP_EOF, any objects not reprogrammed
+
+    are removed from the device.
+
+
+    The client must perform all operations (MPLS registration,
+
+    label block and ILM) from a single execution context.
+  example: []
+  syntax:
+    content: public virtual AsyncUnaryCall<SLMplsRegMsgRsp> SLMplsRegOpAsync(SLMplsRegMsg request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default)
+    parameters:
+    - id: request
+      type: ServiceLayer.SLMplsRegMsg
+      description: The request to send to the server.
+    - id: headers
+      type: Grpc.Core.Metadata
+      description: The initial metadata to send with the call. This parameter is optional.
+    - id: deadline
+      type: System.Nullable{System.DateTime}
+      description: An optional deadline for the call. The call will be cancelled if deadline is hit.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: An optional token for canceling the call.
+    return:
+      type: Grpc.Core.AsyncUnaryCall{ServiceLayer.SLMplsRegMsgRsp}
+      description: The call object.
+    content.vb: Public Overridable Function SLMplsRegOpAsync(request As SLMplsRegMsg, headers As Metadata = Nothing, deadline As Date? = Nothing, cancellationToken As CancellationToken = Nothing) As AsyncUnaryCall(Of SLMplsRegMsgRsp)
+  overload: ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsRegOpAsync*
+  nameWithType.vb: SLMplsOper.SLMplsOperClient.SLMplsRegOpAsync(SLMplsRegMsg, Metadata, Date?, CancellationToken)
+  fullName.vb: ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsRegOpAsync(ServiceLayer.SLMplsRegMsg, Grpc.Core.Metadata, Date?, System.Threading.CancellationToken)
+  name.vb: SLMplsRegOpAsync(SLMplsRegMsg, Metadata, Date?, CancellationToken)
+- uid: ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsRegOpAsync(ServiceLayer.SLMplsRegMsg,Grpc.Core.CallOptions)
+  commentId: M:ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsRegOpAsync(ServiceLayer.SLMplsRegMsg,Grpc.Core.CallOptions)
+  id: SLMplsRegOpAsync(ServiceLayer.SLMplsRegMsg,Grpc.Core.CallOptions)
+  parent: ServiceLayer.SLMplsOper.SLMplsOperClient
+  langs:
+  - csharp
+  - vb
+  name: SLMplsRegOpAsync(SLMplsRegMsg, CallOptions)
+  nameWithType: SLMplsOper.SLMplsOperClient.SLMplsRegOpAsync(SLMplsRegMsg, CallOptions)
+  fullName: ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsRegOpAsync(ServiceLayer.SLMplsRegMsg, Grpc.Core.CallOptions)
+  type: Method
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlMplsGrpc.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: SLMplsRegOpAsync
+    path: src/gencs/SlMplsGrpc.cs
+    startLine: 532
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: >-
+    SLMplsRegMsg.Oper = SL_REGOP_REGISTER.
+        Global MPLS registration.
+        A client Must Register BEFORE MPLS objects can be added/modified.
+
+    SLMplsRegMsg.Oper = SL_REGOP_UNREGISTER.
+        Global MPLS un-registration.
+        This call is used to end all MPLS notifications and unregister any
+        interest in MPLS object configuration.
+        This call cleans up all MPLS objects previously requested.
+
+    SLMplsRegMsg.Oper = SL_REGOP_EOF.
+        MPLS End Of File.
+        After Registration, the client is expected to send an EOF
+        message to convey the end of replay of the client's known objects.
+        This is especially useful under certain restart scenarios when the
+        client and the server are trying to synchronize their MPLS objects.
+
+    The MPLS registration operations can be used by the client to
+
+    synchronize label block allocations and ILMs with the device. When
+
+    the client re-registers with the server using SL_REGOP_REGISTER,
+
+    server marks all label block allocations and ILMs as stale.
+
+    Client then must reprogram label block allocations and ILMs.
+
+    When client sends SL_REGOP_EOF, any objects not reprogrammed
+
+    are removed from the device.
+
+
+    The client must perform all operations (MPLS registration,
+
+    label block and ILM) from a single execution context.
+  example: []
+  syntax:
+    content: public virtual AsyncUnaryCall<SLMplsRegMsgRsp> SLMplsRegOpAsync(SLMplsRegMsg request, CallOptions options)
+    parameters:
+    - id: request
+      type: ServiceLayer.SLMplsRegMsg
+      description: The request to send to the server.
+    - id: options
+      type: Grpc.Core.CallOptions
+      description: The options for the call.
+    return:
+      type: Grpc.Core.AsyncUnaryCall{ServiceLayer.SLMplsRegMsgRsp}
+      description: The call object.
+    content.vb: Public Overridable Function SLMplsRegOpAsync(request As SLMplsRegMsg, options As CallOptions) As AsyncUnaryCall(Of SLMplsRegMsgRsp)
+  overload: ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsRegOpAsync*
+- uid: ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsGet(ServiceLayer.SLMplsGetMsg,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)
+  commentId: M:ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsGet(ServiceLayer.SLMplsGetMsg,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)
+  id: SLMplsGet(ServiceLayer.SLMplsGetMsg,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)
+  parent: ServiceLayer.SLMplsOper.SLMplsOperClient
+  langs:
+  - csharp
+  - vb
+  name: SLMplsGet(SLMplsGetMsg, Metadata, DateTime?, CancellationToken)
+  nameWithType: SLMplsOper.SLMplsOperClient.SLMplsGet(SLMplsGetMsg, Metadata, DateTime?, CancellationToken)
+  fullName: ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsGet(ServiceLayer.SLMplsGetMsg, Grpc.Core.Metadata, System.DateTime?, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlMplsGrpc.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: SLMplsGet
+    path: src/gencs/SlMplsGrpc.cs
+    startLine: 545
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Retrieve global MPLS info from the server.
+  example: []
+  syntax:
+    content: public virtual SLMplsGetMsgRsp SLMplsGet(SLMplsGetMsg request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default)
+    parameters:
+    - id: request
+      type: ServiceLayer.SLMplsGetMsg
+      description: The request to send to the server.
+    - id: headers
+      type: Grpc.Core.Metadata
+      description: The initial metadata to send with the call. This parameter is optional.
+    - id: deadline
+      type: System.Nullable{System.DateTime}
+      description: An optional deadline for the call. The call will be cancelled if deadline is hit.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: An optional token for canceling the call.
+    return:
+      type: ServiceLayer.SLMplsGetMsgRsp
+      description: The response received from the server.
+    content.vb: Public Overridable Function SLMplsGet(request As SLMplsGetMsg, headers As Metadata = Nothing, deadline As Date? = Nothing, cancellationToken As CancellationToken = Nothing) As SLMplsGetMsgRsp
+  overload: ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsGet*
+  nameWithType.vb: SLMplsOper.SLMplsOperClient.SLMplsGet(SLMplsGetMsg, Metadata, Date?, CancellationToken)
+  fullName.vb: ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsGet(ServiceLayer.SLMplsGetMsg, Grpc.Core.Metadata, Date?, System.Threading.CancellationToken)
+  name.vb: SLMplsGet(SLMplsGetMsg, Metadata, Date?, CancellationToken)
+- uid: ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsGet(ServiceLayer.SLMplsGetMsg,Grpc.Core.CallOptions)
+  commentId: M:ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsGet(ServiceLayer.SLMplsGetMsg,Grpc.Core.CallOptions)
+  id: SLMplsGet(ServiceLayer.SLMplsGetMsg,Grpc.Core.CallOptions)
+  parent: ServiceLayer.SLMplsOper.SLMplsOperClient
+  langs:
+  - csharp
+  - vb
+  name: SLMplsGet(SLMplsGetMsg, CallOptions)
+  nameWithType: SLMplsOper.SLMplsOperClient.SLMplsGet(SLMplsGetMsg, CallOptions)
+  fullName: ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsGet(ServiceLayer.SLMplsGetMsg, Grpc.Core.CallOptions)
+  type: Method
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlMplsGrpc.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: SLMplsGet
+    path: src/gencs/SlMplsGrpc.cs
+    startLine: 556
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Retrieve global MPLS info from the server.
+  example: []
+  syntax:
+    content: public virtual SLMplsGetMsgRsp SLMplsGet(SLMplsGetMsg request, CallOptions options)
+    parameters:
+    - id: request
+      type: ServiceLayer.SLMplsGetMsg
+      description: The request to send to the server.
+    - id: options
+      type: Grpc.Core.CallOptions
+      description: The options for the call.
+    return:
+      type: ServiceLayer.SLMplsGetMsgRsp
+      description: The response received from the server.
+    content.vb: Public Overridable Function SLMplsGet(request As SLMplsGetMsg, options As CallOptions) As SLMplsGetMsgRsp
+  overload: ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsGet*
+- uid: ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsGetAsync(ServiceLayer.SLMplsGetMsg,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)
+  commentId: M:ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsGetAsync(ServiceLayer.SLMplsGetMsg,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)
+  id: SLMplsGetAsync(ServiceLayer.SLMplsGetMsg,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)
+  parent: ServiceLayer.SLMplsOper.SLMplsOperClient
+  langs:
+  - csharp
+  - vb
+  name: SLMplsGetAsync(SLMplsGetMsg, Metadata, DateTime?, CancellationToken)
+  nameWithType: SLMplsOper.SLMplsOperClient.SLMplsGetAsync(SLMplsGetMsg, Metadata, DateTime?, CancellationToken)
+  fullName: ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsGetAsync(ServiceLayer.SLMplsGetMsg, Grpc.Core.Metadata, System.DateTime?, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlMplsGrpc.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: SLMplsGetAsync
+    path: src/gencs/SlMplsGrpc.cs
+    startLine: 569
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Retrieve global MPLS info from the server.
+  example: []
+  syntax:
+    content: public virtual AsyncUnaryCall<SLMplsGetMsgRsp> SLMplsGetAsync(SLMplsGetMsg request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default)
+    parameters:
+    - id: request
+      type: ServiceLayer.SLMplsGetMsg
+      description: The request to send to the server.
+    - id: headers
+      type: Grpc.Core.Metadata
+      description: The initial metadata to send with the call. This parameter is optional.
+    - id: deadline
+      type: System.Nullable{System.DateTime}
+      description: An optional deadline for the call. The call will be cancelled if deadline is hit.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: An optional token for canceling the call.
+    return:
+      type: Grpc.Core.AsyncUnaryCall{ServiceLayer.SLMplsGetMsgRsp}
+      description: The call object.
+    content.vb: Public Overridable Function SLMplsGetAsync(request As SLMplsGetMsg, headers As Metadata = Nothing, deadline As Date? = Nothing, cancellationToken As CancellationToken = Nothing) As AsyncUnaryCall(Of SLMplsGetMsgRsp)
+  overload: ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsGetAsync*
+  nameWithType.vb: SLMplsOper.SLMplsOperClient.SLMplsGetAsync(SLMplsGetMsg, Metadata, Date?, CancellationToken)
+  fullName.vb: ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsGetAsync(ServiceLayer.SLMplsGetMsg, Grpc.Core.Metadata, Date?, System.Threading.CancellationToken)
+  name.vb: SLMplsGetAsync(SLMplsGetMsg, Metadata, Date?, CancellationToken)
+- uid: ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsGetAsync(ServiceLayer.SLMplsGetMsg,Grpc.Core.CallOptions)
+  commentId: M:ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsGetAsync(ServiceLayer.SLMplsGetMsg,Grpc.Core.CallOptions)
+  id: SLMplsGetAsync(ServiceLayer.SLMplsGetMsg,Grpc.Core.CallOptions)
+  parent: ServiceLayer.SLMplsOper.SLMplsOperClient
+  langs:
+  - csharp
+  - vb
+  name: SLMplsGetAsync(SLMplsGetMsg, CallOptions)
+  nameWithType: SLMplsOper.SLMplsOperClient.SLMplsGetAsync(SLMplsGetMsg, CallOptions)
+  fullName: ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsGetAsync(ServiceLayer.SLMplsGetMsg, Grpc.Core.CallOptions)
+  type: Method
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlMplsGrpc.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: SLMplsGetAsync
+    path: src/gencs/SlMplsGrpc.cs
+    startLine: 580
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Retrieve global MPLS info from the server.
+  example: []
+  syntax:
+    content: public virtual AsyncUnaryCall<SLMplsGetMsgRsp> SLMplsGetAsync(SLMplsGetMsg request, CallOptions options)
+    parameters:
+    - id: request
+      type: ServiceLayer.SLMplsGetMsg
+      description: The request to send to the server.
+    - id: options
+      type: Grpc.Core.CallOptions
+      description: The options for the call.
+    return:
+      type: Grpc.Core.AsyncUnaryCall{ServiceLayer.SLMplsGetMsgRsp}
+      description: The call object.
+    content.vb: Public Overridable Function SLMplsGetAsync(request As SLMplsGetMsg, options As CallOptions) As AsyncUnaryCall(Of SLMplsGetMsgRsp)
+  overload: ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsGetAsync*
+- uid: ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsGetStats(ServiceLayer.SLMplsGetMsg,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)
+  commentId: M:ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsGetStats(ServiceLayer.SLMplsGetMsg,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)
+  id: SLMplsGetStats(ServiceLayer.SLMplsGetMsg,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)
+  parent: ServiceLayer.SLMplsOper.SLMplsOperClient
+  langs:
+  - csharp
+  - vb
+  name: SLMplsGetStats(SLMplsGetMsg, Metadata, DateTime?, CancellationToken)
+  nameWithType: SLMplsOper.SLMplsOperClient.SLMplsGetStats(SLMplsGetMsg, Metadata, DateTime?, CancellationToken)
+  fullName: ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsGetStats(ServiceLayer.SLMplsGetMsg, Grpc.Core.Metadata, System.DateTime?, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlMplsGrpc.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: SLMplsGetStats
+    path: src/gencs/SlMplsGrpc.cs
+    startLine: 593
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Retrieve global MPLS Stats from the server.
+  example: []
+  syntax:
+    content: public virtual SLMplsGetStatsMsgRsp SLMplsGetStats(SLMplsGetMsg request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default)
+    parameters:
+    - id: request
+      type: ServiceLayer.SLMplsGetMsg
+      description: The request to send to the server.
+    - id: headers
+      type: Grpc.Core.Metadata
+      description: The initial metadata to send with the call. This parameter is optional.
+    - id: deadline
+      type: System.Nullable{System.DateTime}
+      description: An optional deadline for the call. The call will be cancelled if deadline is hit.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: An optional token for canceling the call.
+    return:
+      type: ServiceLayer.SLMplsGetStatsMsgRsp
+      description: The response received from the server.
+    content.vb: Public Overridable Function SLMplsGetStats(request As SLMplsGetMsg, headers As Metadata = Nothing, deadline As Date? = Nothing, cancellationToken As CancellationToken = Nothing) As SLMplsGetStatsMsgRsp
+  overload: ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsGetStats*
+  nameWithType.vb: SLMplsOper.SLMplsOperClient.SLMplsGetStats(SLMplsGetMsg, Metadata, Date?, CancellationToken)
+  fullName.vb: ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsGetStats(ServiceLayer.SLMplsGetMsg, Grpc.Core.Metadata, Date?, System.Threading.CancellationToken)
+  name.vb: SLMplsGetStats(SLMplsGetMsg, Metadata, Date?, CancellationToken)
+- uid: ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsGetStats(ServiceLayer.SLMplsGetMsg,Grpc.Core.CallOptions)
+  commentId: M:ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsGetStats(ServiceLayer.SLMplsGetMsg,Grpc.Core.CallOptions)
+  id: SLMplsGetStats(ServiceLayer.SLMplsGetMsg,Grpc.Core.CallOptions)
+  parent: ServiceLayer.SLMplsOper.SLMplsOperClient
+  langs:
+  - csharp
+  - vb
+  name: SLMplsGetStats(SLMplsGetMsg, CallOptions)
+  nameWithType: SLMplsOper.SLMplsOperClient.SLMplsGetStats(SLMplsGetMsg, CallOptions)
+  fullName: ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsGetStats(ServiceLayer.SLMplsGetMsg, Grpc.Core.CallOptions)
+  type: Method
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlMplsGrpc.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: SLMplsGetStats
+    path: src/gencs/SlMplsGrpc.cs
+    startLine: 604
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Retrieve global MPLS Stats from the server.
+  example: []
+  syntax:
+    content: public virtual SLMplsGetStatsMsgRsp SLMplsGetStats(SLMplsGetMsg request, CallOptions options)
+    parameters:
+    - id: request
+      type: ServiceLayer.SLMplsGetMsg
+      description: The request to send to the server.
+    - id: options
+      type: Grpc.Core.CallOptions
+      description: The options for the call.
+    return:
+      type: ServiceLayer.SLMplsGetStatsMsgRsp
+      description: The response received from the server.
+    content.vb: Public Overridable Function SLMplsGetStats(request As SLMplsGetMsg, options As CallOptions) As SLMplsGetStatsMsgRsp
+  overload: ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsGetStats*
+- uid: ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsGetStatsAsync(ServiceLayer.SLMplsGetMsg,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)
+  commentId: M:ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsGetStatsAsync(ServiceLayer.SLMplsGetMsg,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)
+  id: SLMplsGetStatsAsync(ServiceLayer.SLMplsGetMsg,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)
+  parent: ServiceLayer.SLMplsOper.SLMplsOperClient
+  langs:
+  - csharp
+  - vb
+  name: SLMplsGetStatsAsync(SLMplsGetMsg, Metadata, DateTime?, CancellationToken)
+  nameWithType: SLMplsOper.SLMplsOperClient.SLMplsGetStatsAsync(SLMplsGetMsg, Metadata, DateTime?, CancellationToken)
+  fullName: ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsGetStatsAsync(ServiceLayer.SLMplsGetMsg, Grpc.Core.Metadata, System.DateTime?, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlMplsGrpc.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: SLMplsGetStatsAsync
+    path: src/gencs/SlMplsGrpc.cs
+    startLine: 617
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Retrieve global MPLS Stats from the server.
+  example: []
+  syntax:
+    content: public virtual AsyncUnaryCall<SLMplsGetStatsMsgRsp> SLMplsGetStatsAsync(SLMplsGetMsg request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default)
+    parameters:
+    - id: request
+      type: ServiceLayer.SLMplsGetMsg
+      description: The request to send to the server.
+    - id: headers
+      type: Grpc.Core.Metadata
+      description: The initial metadata to send with the call. This parameter is optional.
+    - id: deadline
+      type: System.Nullable{System.DateTime}
+      description: An optional deadline for the call. The call will be cancelled if deadline is hit.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: An optional token for canceling the call.
+    return:
+      type: Grpc.Core.AsyncUnaryCall{ServiceLayer.SLMplsGetStatsMsgRsp}
+      description: The call object.
+    content.vb: Public Overridable Function SLMplsGetStatsAsync(request As SLMplsGetMsg, headers As Metadata = Nothing, deadline As Date? = Nothing, cancellationToken As CancellationToken = Nothing) As AsyncUnaryCall(Of SLMplsGetStatsMsgRsp)
+  overload: ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsGetStatsAsync*
+  nameWithType.vb: SLMplsOper.SLMplsOperClient.SLMplsGetStatsAsync(SLMplsGetMsg, Metadata, Date?, CancellationToken)
+  fullName.vb: ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsGetStatsAsync(ServiceLayer.SLMplsGetMsg, Grpc.Core.Metadata, Date?, System.Threading.CancellationToken)
+  name.vb: SLMplsGetStatsAsync(SLMplsGetMsg, Metadata, Date?, CancellationToken)
+- uid: ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsGetStatsAsync(ServiceLayer.SLMplsGetMsg,Grpc.Core.CallOptions)
+  commentId: M:ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsGetStatsAsync(ServiceLayer.SLMplsGetMsg,Grpc.Core.CallOptions)
+  id: SLMplsGetStatsAsync(ServiceLayer.SLMplsGetMsg,Grpc.Core.CallOptions)
+  parent: ServiceLayer.SLMplsOper.SLMplsOperClient
+  langs:
+  - csharp
+  - vb
+  name: SLMplsGetStatsAsync(SLMplsGetMsg, CallOptions)
+  nameWithType: SLMplsOper.SLMplsOperClient.SLMplsGetStatsAsync(SLMplsGetMsg, CallOptions)
+  fullName: ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsGetStatsAsync(ServiceLayer.SLMplsGetMsg, Grpc.Core.CallOptions)
+  type: Method
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlMplsGrpc.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: SLMplsGetStatsAsync
+    path: src/gencs/SlMplsGrpc.cs
+    startLine: 628
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Retrieve global MPLS Stats from the server.
+  example: []
+  syntax:
+    content: public virtual AsyncUnaryCall<SLMplsGetStatsMsgRsp> SLMplsGetStatsAsync(SLMplsGetMsg request, CallOptions options)
+    parameters:
+    - id: request
+      type: ServiceLayer.SLMplsGetMsg
+      description: The request to send to the server.
+    - id: options
+      type: Grpc.Core.CallOptions
+      description: The options for the call.
+    return:
+      type: Grpc.Core.AsyncUnaryCall{ServiceLayer.SLMplsGetStatsMsgRsp}
+      description: The call object.
+    content.vb: Public Overridable Function SLMplsGetStatsAsync(request As SLMplsGetMsg, options As CallOptions) As AsyncUnaryCall(Of SLMplsGetStatsMsgRsp)
+  overload: ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsGetStatsAsync*
+- uid: ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsLabelBlockOp(ServiceLayer.SLMplsLabelBlockMsg,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)
+  commentId: M:ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsLabelBlockOp(ServiceLayer.SLMplsLabelBlockMsg,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)
+  id: SLMplsLabelBlockOp(ServiceLayer.SLMplsLabelBlockMsg,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)
+  parent: ServiceLayer.SLMplsOper.SLMplsOperClient
+  langs:
+  - csharp
+  - vb
+  name: SLMplsLabelBlockOp(SLMplsLabelBlockMsg, Metadata, DateTime?, CancellationToken)
+  nameWithType: SLMplsOper.SLMplsOperClient.SLMplsLabelBlockOp(SLMplsLabelBlockMsg, Metadata, DateTime?, CancellationToken)
+  fullName: ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsLabelBlockOp(ServiceLayer.SLMplsLabelBlockMsg, Grpc.Core.Metadata, System.DateTime?, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlMplsGrpc.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: SLMplsLabelBlockOp
+    path: src/gencs/SlMplsGrpc.cs
+    startLine: 648
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: >-
+    SLMplsLabelBlockMsg.Oper = SL_OBJOP_ADD.
+        Add a contiguous label block.
+        Add request may fail if the full block cannot be allocated.
+
+    SLMplsLabelBlockMsg.Oper = SL_OBJOP_DELETE.
+        Delete a contiguous label block.
+        Delete request may fail if the block is in use or the keys don't
+        match the keys used on add.
+  example: []
+  syntax:
+    content: public virtual SLMplsLabelBlockMsgRsp SLMplsLabelBlockOp(SLMplsLabelBlockMsg request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default)
+    parameters:
+    - id: request
+      type: ServiceLayer.SLMplsLabelBlockMsg
+      description: The request to send to the server.
+    - id: headers
+      type: Grpc.Core.Metadata
+      description: The initial metadata to send with the call. This parameter is optional.
+    - id: deadline
+      type: System.Nullable{System.DateTime}
+      description: An optional deadline for the call. The call will be cancelled if deadline is hit.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: An optional token for canceling the call.
+    return:
+      type: ServiceLayer.SLMplsLabelBlockMsgRsp
+      description: The response received from the server.
+    content.vb: Public Overridable Function SLMplsLabelBlockOp(request As SLMplsLabelBlockMsg, headers As Metadata = Nothing, deadline As Date? = Nothing, cancellationToken As CancellationToken = Nothing) As SLMplsLabelBlockMsgRsp
+  overload: ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsLabelBlockOp*
+  nameWithType.vb: SLMplsOper.SLMplsOperClient.SLMplsLabelBlockOp(SLMplsLabelBlockMsg, Metadata, Date?, CancellationToken)
+  fullName.vb: ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsLabelBlockOp(ServiceLayer.SLMplsLabelBlockMsg, Grpc.Core.Metadata, Date?, System.Threading.CancellationToken)
+  name.vb: SLMplsLabelBlockOp(SLMplsLabelBlockMsg, Metadata, Date?, CancellationToken)
+- uid: ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsLabelBlockOp(ServiceLayer.SLMplsLabelBlockMsg,Grpc.Core.CallOptions)
+  commentId: M:ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsLabelBlockOp(ServiceLayer.SLMplsLabelBlockMsg,Grpc.Core.CallOptions)
+  id: SLMplsLabelBlockOp(ServiceLayer.SLMplsLabelBlockMsg,Grpc.Core.CallOptions)
+  parent: ServiceLayer.SLMplsOper.SLMplsOperClient
+  langs:
+  - csharp
+  - vb
+  name: SLMplsLabelBlockOp(SLMplsLabelBlockMsg, CallOptions)
+  nameWithType: SLMplsOper.SLMplsOperClient.SLMplsLabelBlockOp(SLMplsLabelBlockMsg, CallOptions)
+  fullName: ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsLabelBlockOp(ServiceLayer.SLMplsLabelBlockMsg, Grpc.Core.CallOptions)
+  type: Method
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlMplsGrpc.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: SLMplsLabelBlockOp
+    path: src/gencs/SlMplsGrpc.cs
+    startLine: 666
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: >-
+    SLMplsLabelBlockMsg.Oper = SL_OBJOP_ADD.
+        Add a contiguous label block.
+        Add request may fail if the full block cannot be allocated.
+
+    SLMplsLabelBlockMsg.Oper = SL_OBJOP_DELETE.
+        Delete a contiguous label block.
+        Delete request may fail if the block is in use or the keys don't
+        match the keys used on add.
+  example: []
+  syntax:
+    content: public virtual SLMplsLabelBlockMsgRsp SLMplsLabelBlockOp(SLMplsLabelBlockMsg request, CallOptions options)
+    parameters:
+    - id: request
+      type: ServiceLayer.SLMplsLabelBlockMsg
+      description: The request to send to the server.
+    - id: options
+      type: Grpc.Core.CallOptions
+      description: The options for the call.
+    return:
+      type: ServiceLayer.SLMplsLabelBlockMsgRsp
+      description: The response received from the server.
+    content.vb: Public Overridable Function SLMplsLabelBlockOp(request As SLMplsLabelBlockMsg, options As CallOptions) As SLMplsLabelBlockMsgRsp
+  overload: ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsLabelBlockOp*
+- uid: ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsLabelBlockOpAsync(ServiceLayer.SLMplsLabelBlockMsg,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)
+  commentId: M:ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsLabelBlockOpAsync(ServiceLayer.SLMplsLabelBlockMsg,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)
+  id: SLMplsLabelBlockOpAsync(ServiceLayer.SLMplsLabelBlockMsg,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)
+  parent: ServiceLayer.SLMplsOper.SLMplsOperClient
+  langs:
+  - csharp
+  - vb
+  name: SLMplsLabelBlockOpAsync(SLMplsLabelBlockMsg, Metadata, DateTime?, CancellationToken)
+  nameWithType: SLMplsOper.SLMplsOperClient.SLMplsLabelBlockOpAsync(SLMplsLabelBlockMsg, Metadata, DateTime?, CancellationToken)
+  fullName: ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsLabelBlockOpAsync(ServiceLayer.SLMplsLabelBlockMsg, Grpc.Core.Metadata, System.DateTime?, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlMplsGrpc.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: SLMplsLabelBlockOpAsync
+    path: src/gencs/SlMplsGrpc.cs
+    startLine: 686
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: >-
+    SLMplsLabelBlockMsg.Oper = SL_OBJOP_ADD.
+        Add a contiguous label block.
+        Add request may fail if the full block cannot be allocated.
+
+    SLMplsLabelBlockMsg.Oper = SL_OBJOP_DELETE.
+        Delete a contiguous label block.
+        Delete request may fail if the block is in use or the keys don't
+        match the keys used on add.
+  example: []
+  syntax:
+    content: public virtual AsyncUnaryCall<SLMplsLabelBlockMsgRsp> SLMplsLabelBlockOpAsync(SLMplsLabelBlockMsg request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default)
+    parameters:
+    - id: request
+      type: ServiceLayer.SLMplsLabelBlockMsg
+      description: The request to send to the server.
+    - id: headers
+      type: Grpc.Core.Metadata
+      description: The initial metadata to send with the call. This parameter is optional.
+    - id: deadline
+      type: System.Nullable{System.DateTime}
+      description: An optional deadline for the call. The call will be cancelled if deadline is hit.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: An optional token for canceling the call.
+    return:
+      type: Grpc.Core.AsyncUnaryCall{ServiceLayer.SLMplsLabelBlockMsgRsp}
+      description: The call object.
+    content.vb: Public Overridable Function SLMplsLabelBlockOpAsync(request As SLMplsLabelBlockMsg, headers As Metadata = Nothing, deadline As Date? = Nothing, cancellationToken As CancellationToken = Nothing) As AsyncUnaryCall(Of SLMplsLabelBlockMsgRsp)
+  overload: ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsLabelBlockOpAsync*
+  nameWithType.vb: SLMplsOper.SLMplsOperClient.SLMplsLabelBlockOpAsync(SLMplsLabelBlockMsg, Metadata, Date?, CancellationToken)
+  fullName.vb: ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsLabelBlockOpAsync(ServiceLayer.SLMplsLabelBlockMsg, Grpc.Core.Metadata, Date?, System.Threading.CancellationToken)
+  name.vb: SLMplsLabelBlockOpAsync(SLMplsLabelBlockMsg, Metadata, Date?, CancellationToken)
+- uid: ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsLabelBlockOpAsync(ServiceLayer.SLMplsLabelBlockMsg,Grpc.Core.CallOptions)
+  commentId: M:ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsLabelBlockOpAsync(ServiceLayer.SLMplsLabelBlockMsg,Grpc.Core.CallOptions)
+  id: SLMplsLabelBlockOpAsync(ServiceLayer.SLMplsLabelBlockMsg,Grpc.Core.CallOptions)
+  parent: ServiceLayer.SLMplsOper.SLMplsOperClient
+  langs:
+  - csharp
+  - vb
+  name: SLMplsLabelBlockOpAsync(SLMplsLabelBlockMsg, CallOptions)
+  nameWithType: SLMplsOper.SLMplsOperClient.SLMplsLabelBlockOpAsync(SLMplsLabelBlockMsg, CallOptions)
+  fullName: ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsLabelBlockOpAsync(ServiceLayer.SLMplsLabelBlockMsg, Grpc.Core.CallOptions)
+  type: Method
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlMplsGrpc.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: SLMplsLabelBlockOpAsync
+    path: src/gencs/SlMplsGrpc.cs
+    startLine: 704
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: >-
+    SLMplsLabelBlockMsg.Oper = SL_OBJOP_ADD.
+        Add a contiguous label block.
+        Add request may fail if the full block cannot be allocated.
+
+    SLMplsLabelBlockMsg.Oper = SL_OBJOP_DELETE.
+        Delete a contiguous label block.
+        Delete request may fail if the block is in use or the keys don't
+        match the keys used on add.
+  example: []
+  syntax:
+    content: public virtual AsyncUnaryCall<SLMplsLabelBlockMsgRsp> SLMplsLabelBlockOpAsync(SLMplsLabelBlockMsg request, CallOptions options)
+    parameters:
+    - id: request
+      type: ServiceLayer.SLMplsLabelBlockMsg
+      description: The request to send to the server.
+    - id: options
+      type: Grpc.Core.CallOptions
+      description: The options for the call.
+    return:
+      type: Grpc.Core.AsyncUnaryCall{ServiceLayer.SLMplsLabelBlockMsgRsp}
+      description: The call object.
+    content.vb: Public Overridable Function SLMplsLabelBlockOpAsync(request As SLMplsLabelBlockMsg, options As CallOptions) As AsyncUnaryCall(Of SLMplsLabelBlockMsgRsp)
+  overload: ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsLabelBlockOpAsync*
+- uid: ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsLabelBlockGet(ServiceLayer.SLMplsLabelBlockGetMsg,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)
+  commentId: M:ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsLabelBlockGet(ServiceLayer.SLMplsLabelBlockGetMsg,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)
+  id: SLMplsLabelBlockGet(ServiceLayer.SLMplsLabelBlockGetMsg,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)
+  parent: ServiceLayer.SLMplsOper.SLMplsOperClient
+  langs:
+  - csharp
+  - vb
+  name: SLMplsLabelBlockGet(SLMplsLabelBlockGetMsg, Metadata, DateTime?, CancellationToken)
+  nameWithType: SLMplsOper.SLMplsOperClient.SLMplsLabelBlockGet(SLMplsLabelBlockGetMsg, Metadata, DateTime?, CancellationToken)
+  fullName: ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsLabelBlockGet(ServiceLayer.SLMplsLabelBlockGetMsg, Grpc.Core.Metadata, System.DateTime?, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlMplsGrpc.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: SLMplsLabelBlockGet
+    path: src/gencs/SlMplsGrpc.cs
+    startLine: 717
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Retrieve Label Block attributes.
+  example: []
+  syntax:
+    content: public virtual SLMplsLabelBlockGetMsgRsp SLMplsLabelBlockGet(SLMplsLabelBlockGetMsg request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default)
+    parameters:
+    - id: request
+      type: ServiceLayer.SLMplsLabelBlockGetMsg
+      description: The request to send to the server.
+    - id: headers
+      type: Grpc.Core.Metadata
+      description: The initial metadata to send with the call. This parameter is optional.
+    - id: deadline
+      type: System.Nullable{System.DateTime}
+      description: An optional deadline for the call. The call will be cancelled if deadline is hit.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: An optional token for canceling the call.
+    return:
+      type: ServiceLayer.SLMplsLabelBlockGetMsgRsp
+      description: The response received from the server.
+    content.vb: Public Overridable Function SLMplsLabelBlockGet(request As SLMplsLabelBlockGetMsg, headers As Metadata = Nothing, deadline As Date? = Nothing, cancellationToken As CancellationToken = Nothing) As SLMplsLabelBlockGetMsgRsp
+  overload: ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsLabelBlockGet*
+  nameWithType.vb: SLMplsOper.SLMplsOperClient.SLMplsLabelBlockGet(SLMplsLabelBlockGetMsg, Metadata, Date?, CancellationToken)
+  fullName.vb: ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsLabelBlockGet(ServiceLayer.SLMplsLabelBlockGetMsg, Grpc.Core.Metadata, Date?, System.Threading.CancellationToken)
+  name.vb: SLMplsLabelBlockGet(SLMplsLabelBlockGetMsg, Metadata, Date?, CancellationToken)
+- uid: ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsLabelBlockGet(ServiceLayer.SLMplsLabelBlockGetMsg,Grpc.Core.CallOptions)
+  commentId: M:ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsLabelBlockGet(ServiceLayer.SLMplsLabelBlockGetMsg,Grpc.Core.CallOptions)
+  id: SLMplsLabelBlockGet(ServiceLayer.SLMplsLabelBlockGetMsg,Grpc.Core.CallOptions)
+  parent: ServiceLayer.SLMplsOper.SLMplsOperClient
+  langs:
+  - csharp
+  - vb
+  name: SLMplsLabelBlockGet(SLMplsLabelBlockGetMsg, CallOptions)
+  nameWithType: SLMplsOper.SLMplsOperClient.SLMplsLabelBlockGet(SLMplsLabelBlockGetMsg, CallOptions)
+  fullName: ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsLabelBlockGet(ServiceLayer.SLMplsLabelBlockGetMsg, Grpc.Core.CallOptions)
+  type: Method
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlMplsGrpc.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: SLMplsLabelBlockGet
+    path: src/gencs/SlMplsGrpc.cs
+    startLine: 728
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Retrieve Label Block attributes.
+  example: []
+  syntax:
+    content: public virtual SLMplsLabelBlockGetMsgRsp SLMplsLabelBlockGet(SLMplsLabelBlockGetMsg request, CallOptions options)
+    parameters:
+    - id: request
+      type: ServiceLayer.SLMplsLabelBlockGetMsg
+      description: The request to send to the server.
+    - id: options
+      type: Grpc.Core.CallOptions
+      description: The options for the call.
+    return:
+      type: ServiceLayer.SLMplsLabelBlockGetMsgRsp
+      description: The response received from the server.
+    content.vb: Public Overridable Function SLMplsLabelBlockGet(request As SLMplsLabelBlockGetMsg, options As CallOptions) As SLMplsLabelBlockGetMsgRsp
+  overload: ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsLabelBlockGet*
+- uid: ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsLabelBlockGetAsync(ServiceLayer.SLMplsLabelBlockGetMsg,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)
+  commentId: M:ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsLabelBlockGetAsync(ServiceLayer.SLMplsLabelBlockGetMsg,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)
+  id: SLMplsLabelBlockGetAsync(ServiceLayer.SLMplsLabelBlockGetMsg,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)
+  parent: ServiceLayer.SLMplsOper.SLMplsOperClient
+  langs:
+  - csharp
+  - vb
+  name: SLMplsLabelBlockGetAsync(SLMplsLabelBlockGetMsg, Metadata, DateTime?, CancellationToken)
+  nameWithType: SLMplsOper.SLMplsOperClient.SLMplsLabelBlockGetAsync(SLMplsLabelBlockGetMsg, Metadata, DateTime?, CancellationToken)
+  fullName: ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsLabelBlockGetAsync(ServiceLayer.SLMplsLabelBlockGetMsg, Grpc.Core.Metadata, System.DateTime?, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlMplsGrpc.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: SLMplsLabelBlockGetAsync
+    path: src/gencs/SlMplsGrpc.cs
+    startLine: 741
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Retrieve Label Block attributes.
+  example: []
+  syntax:
+    content: public virtual AsyncUnaryCall<SLMplsLabelBlockGetMsgRsp> SLMplsLabelBlockGetAsync(SLMplsLabelBlockGetMsg request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default)
+    parameters:
+    - id: request
+      type: ServiceLayer.SLMplsLabelBlockGetMsg
+      description: The request to send to the server.
+    - id: headers
+      type: Grpc.Core.Metadata
+      description: The initial metadata to send with the call. This parameter is optional.
+    - id: deadline
+      type: System.Nullable{System.DateTime}
+      description: An optional deadline for the call. The call will be cancelled if deadline is hit.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: An optional token for canceling the call.
+    return:
+      type: Grpc.Core.AsyncUnaryCall{ServiceLayer.SLMplsLabelBlockGetMsgRsp}
+      description: The call object.
+    content.vb: Public Overridable Function SLMplsLabelBlockGetAsync(request As SLMplsLabelBlockGetMsg, headers As Metadata = Nothing, deadline As Date? = Nothing, cancellationToken As CancellationToken = Nothing) As AsyncUnaryCall(Of SLMplsLabelBlockGetMsgRsp)
+  overload: ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsLabelBlockGetAsync*
+  nameWithType.vb: SLMplsOper.SLMplsOperClient.SLMplsLabelBlockGetAsync(SLMplsLabelBlockGetMsg, Metadata, Date?, CancellationToken)
+  fullName.vb: ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsLabelBlockGetAsync(ServiceLayer.SLMplsLabelBlockGetMsg, Grpc.Core.Metadata, Date?, System.Threading.CancellationToken)
+  name.vb: SLMplsLabelBlockGetAsync(SLMplsLabelBlockGetMsg, Metadata, Date?, CancellationToken)
+- uid: ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsLabelBlockGetAsync(ServiceLayer.SLMplsLabelBlockGetMsg,Grpc.Core.CallOptions)
+  commentId: M:ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsLabelBlockGetAsync(ServiceLayer.SLMplsLabelBlockGetMsg,Grpc.Core.CallOptions)
+  id: SLMplsLabelBlockGetAsync(ServiceLayer.SLMplsLabelBlockGetMsg,Grpc.Core.CallOptions)
+  parent: ServiceLayer.SLMplsOper.SLMplsOperClient
+  langs:
+  - csharp
+  - vb
+  name: SLMplsLabelBlockGetAsync(SLMplsLabelBlockGetMsg, CallOptions)
+  nameWithType: SLMplsOper.SLMplsOperClient.SLMplsLabelBlockGetAsync(SLMplsLabelBlockGetMsg, CallOptions)
+  fullName: ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsLabelBlockGetAsync(ServiceLayer.SLMplsLabelBlockGetMsg, Grpc.Core.CallOptions)
+  type: Method
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlMplsGrpc.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: SLMplsLabelBlockGetAsync
+    path: src/gencs/SlMplsGrpc.cs
+    startLine: 752
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Retrieve Label Block attributes.
+  example: []
+  syntax:
+    content: public virtual AsyncUnaryCall<SLMplsLabelBlockGetMsgRsp> SLMplsLabelBlockGetAsync(SLMplsLabelBlockGetMsg request, CallOptions options)
+    parameters:
+    - id: request
+      type: ServiceLayer.SLMplsLabelBlockGetMsg
+      description: The request to send to the server.
+    - id: options
+      type: Grpc.Core.CallOptions
+      description: The options for the call.
+    return:
+      type: Grpc.Core.AsyncUnaryCall{ServiceLayer.SLMplsLabelBlockGetMsgRsp}
+      description: The call object.
+    content.vb: Public Overridable Function SLMplsLabelBlockGetAsync(request As SLMplsLabelBlockGetMsg, options As CallOptions) As AsyncUnaryCall(Of SLMplsLabelBlockGetMsgRsp)
+  overload: ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsLabelBlockGetAsync*
+- uid: ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsIlmOp(ServiceLayer.SLMplsIlmMsg,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)
+  commentId: M:ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsIlmOp(ServiceLayer.SLMplsIlmMsg,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)
+  id: SLMplsIlmOp(ServiceLayer.SLMplsIlmMsg,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)
+  parent: ServiceLayer.SLMplsOper.SLMplsOperClient
+  langs:
+  - csharp
+  - vb
+  name: SLMplsIlmOp(SLMplsIlmMsg, Metadata, DateTime?, CancellationToken)
+  nameWithType: SLMplsOper.SLMplsOperClient.SLMplsIlmOp(SLMplsIlmMsg, Metadata, DateTime?, CancellationToken)
+  fullName: ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsIlmOp(ServiceLayer.SLMplsIlmMsg, Grpc.Core.Metadata, System.DateTime?, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlMplsGrpc.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: SLMplsIlmOp
+    path: src/gencs/SlMplsGrpc.cs
+    startLine: 775
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: >-
+    SLMplsIlmMsg.Oper = SL_OBJOP_ADD:
+        Add incoming label map entry. Fails if the entry already
+        exists and not stale. First ADD operation on a stale entry
+        is allowed and the entry is no longer considered stale.
+
+    SLMplsIlmMsg.Oper = SL_OBJOP_UPDATE:
+        Create or update incoming label map entry.
+
+    SLMplsIlmMsg.Oper = SL_OBJOP_DELETE:
+        Delete incoming label map entry. Delete of a
+        non-existant entry is considered a success.
+  example: []
+  syntax:
+    content: public virtual SLMplsIlmMsgRsp SLMplsIlmOp(SLMplsIlmMsg request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default)
+    parameters:
+    - id: request
+      type: ServiceLayer.SLMplsIlmMsg
+      description: The request to send to the server.
+    - id: headers
+      type: Grpc.Core.Metadata
+      description: The initial metadata to send with the call. This parameter is optional.
+    - id: deadline
+      type: System.Nullable{System.DateTime}
+      description: An optional deadline for the call. The call will be cancelled if deadline is hit.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: An optional token for canceling the call.
+    return:
+      type: ServiceLayer.SLMplsIlmMsgRsp
+      description: The response received from the server.
+    content.vb: Public Overridable Function SLMplsIlmOp(request As SLMplsIlmMsg, headers As Metadata = Nothing, deadline As Date? = Nothing, cancellationToken As CancellationToken = Nothing) As SLMplsIlmMsgRsp
+  overload: ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsIlmOp*
+  nameWithType.vb: SLMplsOper.SLMplsOperClient.SLMplsIlmOp(SLMplsIlmMsg, Metadata, Date?, CancellationToken)
+  fullName.vb: ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsIlmOp(ServiceLayer.SLMplsIlmMsg, Grpc.Core.Metadata, Date?, System.Threading.CancellationToken)
+  name.vb: SLMplsIlmOp(SLMplsIlmMsg, Metadata, Date?, CancellationToken)
+- uid: ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsIlmOp(ServiceLayer.SLMplsIlmMsg,Grpc.Core.CallOptions)
+  commentId: M:ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsIlmOp(ServiceLayer.SLMplsIlmMsg,Grpc.Core.CallOptions)
+  id: SLMplsIlmOp(ServiceLayer.SLMplsIlmMsg,Grpc.Core.CallOptions)
+  parent: ServiceLayer.SLMplsOper.SLMplsOperClient
+  langs:
+  - csharp
+  - vb
+  name: SLMplsIlmOp(SLMplsIlmMsg, CallOptions)
+  nameWithType: SLMplsOper.SLMplsOperClient.SLMplsIlmOp(SLMplsIlmMsg, CallOptions)
+  fullName: ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsIlmOp(ServiceLayer.SLMplsIlmMsg, Grpc.Core.CallOptions)
+  type: Method
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlMplsGrpc.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: SLMplsIlmOp
+    path: src/gencs/SlMplsGrpc.cs
+    startLine: 796
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: >-
+    SLMplsIlmMsg.Oper = SL_OBJOP_ADD:
+        Add incoming label map entry. Fails if the entry already
+        exists and not stale. First ADD operation on a stale entry
+        is allowed and the entry is no longer considered stale.
+
+    SLMplsIlmMsg.Oper = SL_OBJOP_UPDATE:
+        Create or update incoming label map entry.
+
+    SLMplsIlmMsg.Oper = SL_OBJOP_DELETE:
+        Delete incoming label map entry. Delete of a
+        non-existant entry is considered a success.
+  example: []
+  syntax:
+    content: public virtual SLMplsIlmMsgRsp SLMplsIlmOp(SLMplsIlmMsg request, CallOptions options)
+    parameters:
+    - id: request
+      type: ServiceLayer.SLMplsIlmMsg
+      description: The request to send to the server.
+    - id: options
+      type: Grpc.Core.CallOptions
+      description: The options for the call.
+    return:
+      type: ServiceLayer.SLMplsIlmMsgRsp
+      description: The response received from the server.
+    content.vb: Public Overridable Function SLMplsIlmOp(request As SLMplsIlmMsg, options As CallOptions) As SLMplsIlmMsgRsp
+  overload: ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsIlmOp*
+- uid: ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsIlmOpAsync(ServiceLayer.SLMplsIlmMsg,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)
+  commentId: M:ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsIlmOpAsync(ServiceLayer.SLMplsIlmMsg,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)
+  id: SLMplsIlmOpAsync(ServiceLayer.SLMplsIlmMsg,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)
+  parent: ServiceLayer.SLMplsOper.SLMplsOperClient
+  langs:
+  - csharp
+  - vb
+  name: SLMplsIlmOpAsync(SLMplsIlmMsg, Metadata, DateTime?, CancellationToken)
+  nameWithType: SLMplsOper.SLMplsOperClient.SLMplsIlmOpAsync(SLMplsIlmMsg, Metadata, DateTime?, CancellationToken)
+  fullName: ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsIlmOpAsync(ServiceLayer.SLMplsIlmMsg, Grpc.Core.Metadata, System.DateTime?, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlMplsGrpc.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: SLMplsIlmOpAsync
+    path: src/gencs/SlMplsGrpc.cs
+    startLine: 819
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: >-
+    SLMplsIlmMsg.Oper = SL_OBJOP_ADD:
+        Add incoming label map entry. Fails if the entry already
+        exists and not stale. First ADD operation on a stale entry
+        is allowed and the entry is no longer considered stale.
+
+    SLMplsIlmMsg.Oper = SL_OBJOP_UPDATE:
+        Create or update incoming label map entry.
+
+    SLMplsIlmMsg.Oper = SL_OBJOP_DELETE:
+        Delete incoming label map entry. Delete of a
+        non-existant entry is considered a success.
+  example: []
+  syntax:
+    content: public virtual AsyncUnaryCall<SLMplsIlmMsgRsp> SLMplsIlmOpAsync(SLMplsIlmMsg request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default)
+    parameters:
+    - id: request
+      type: ServiceLayer.SLMplsIlmMsg
+      description: The request to send to the server.
+    - id: headers
+      type: Grpc.Core.Metadata
+      description: The initial metadata to send with the call. This parameter is optional.
+    - id: deadline
+      type: System.Nullable{System.DateTime}
+      description: An optional deadline for the call. The call will be cancelled if deadline is hit.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: An optional token for canceling the call.
+    return:
+      type: Grpc.Core.AsyncUnaryCall{ServiceLayer.SLMplsIlmMsgRsp}
+      description: The call object.
+    content.vb: Public Overridable Function SLMplsIlmOpAsync(request As SLMplsIlmMsg, headers As Metadata = Nothing, deadline As Date? = Nothing, cancellationToken As CancellationToken = Nothing) As AsyncUnaryCall(Of SLMplsIlmMsgRsp)
+  overload: ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsIlmOpAsync*
+  nameWithType.vb: SLMplsOper.SLMplsOperClient.SLMplsIlmOpAsync(SLMplsIlmMsg, Metadata, Date?, CancellationToken)
+  fullName.vb: ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsIlmOpAsync(ServiceLayer.SLMplsIlmMsg, Grpc.Core.Metadata, Date?, System.Threading.CancellationToken)
+  name.vb: SLMplsIlmOpAsync(SLMplsIlmMsg, Metadata, Date?, CancellationToken)
+- uid: ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsIlmOpAsync(ServiceLayer.SLMplsIlmMsg,Grpc.Core.CallOptions)
+  commentId: M:ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsIlmOpAsync(ServiceLayer.SLMplsIlmMsg,Grpc.Core.CallOptions)
+  id: SLMplsIlmOpAsync(ServiceLayer.SLMplsIlmMsg,Grpc.Core.CallOptions)
+  parent: ServiceLayer.SLMplsOper.SLMplsOperClient
+  langs:
+  - csharp
+  - vb
+  name: SLMplsIlmOpAsync(SLMplsIlmMsg, CallOptions)
+  nameWithType: SLMplsOper.SLMplsOperClient.SLMplsIlmOpAsync(SLMplsIlmMsg, CallOptions)
+  fullName: ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsIlmOpAsync(ServiceLayer.SLMplsIlmMsg, Grpc.Core.CallOptions)
+  type: Method
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlMplsGrpc.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: SLMplsIlmOpAsync
+    path: src/gencs/SlMplsGrpc.cs
+    startLine: 840
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: >-
+    SLMplsIlmMsg.Oper = SL_OBJOP_ADD:
+        Add incoming label map entry. Fails if the entry already
+        exists and not stale. First ADD operation on a stale entry
+        is allowed and the entry is no longer considered stale.
+
+    SLMplsIlmMsg.Oper = SL_OBJOP_UPDATE:
+        Create or update incoming label map entry.
+
+    SLMplsIlmMsg.Oper = SL_OBJOP_DELETE:
+        Delete incoming label map entry. Delete of a
+        non-existant entry is considered a success.
+  example: []
+  syntax:
+    content: public virtual AsyncUnaryCall<SLMplsIlmMsgRsp> SLMplsIlmOpAsync(SLMplsIlmMsg request, CallOptions options)
+    parameters:
+    - id: request
+      type: ServiceLayer.SLMplsIlmMsg
+      description: The request to send to the server.
+    - id: options
+      type: Grpc.Core.CallOptions
+      description: The options for the call.
+    return:
+      type: Grpc.Core.AsyncUnaryCall{ServiceLayer.SLMplsIlmMsgRsp}
+      description: The call object.
+    content.vb: Public Overridable Function SLMplsIlmOpAsync(request As SLMplsIlmMsg, options As CallOptions) As AsyncUnaryCall(Of SLMplsIlmMsgRsp)
+  overload: ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsIlmOpAsync*
+- uid: ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsIlmGet(ServiceLayer.SLMplsIlmGetMsg,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)
+  commentId: M:ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsIlmGet(ServiceLayer.SLMplsIlmGetMsg,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)
+  id: SLMplsIlmGet(ServiceLayer.SLMplsIlmGetMsg,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)
+  parent: ServiceLayer.SLMplsOper.SLMplsOperClient
+  langs:
+  - csharp
+  - vb
+  name: SLMplsIlmGet(SLMplsIlmGetMsg, Metadata, DateTime?, CancellationToken)
+  nameWithType: SLMplsOper.SLMplsOperClient.SLMplsIlmGet(SLMplsIlmGetMsg, Metadata, DateTime?, CancellationToken)
+  fullName: ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsIlmGet(ServiceLayer.SLMplsIlmGetMsg, Grpc.Core.Metadata, System.DateTime?, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlMplsGrpc.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: SLMplsIlmGet
+    path: src/gencs/SlMplsGrpc.cs
+    startLine: 853
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Retrieve MPLS ILM entry attributes.
+  example: []
+  syntax:
+    content: public virtual SLMplsIlmGetMsgRsp SLMplsIlmGet(SLMplsIlmGetMsg request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default)
+    parameters:
+    - id: request
+      type: ServiceLayer.SLMplsIlmGetMsg
+      description: The request to send to the server.
+    - id: headers
+      type: Grpc.Core.Metadata
+      description: The initial metadata to send with the call. This parameter is optional.
+    - id: deadline
+      type: System.Nullable{System.DateTime}
+      description: An optional deadline for the call. The call will be cancelled if deadline is hit.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: An optional token for canceling the call.
+    return:
+      type: ServiceLayer.SLMplsIlmGetMsgRsp
+      description: The response received from the server.
+    content.vb: Public Overridable Function SLMplsIlmGet(request As SLMplsIlmGetMsg, headers As Metadata = Nothing, deadline As Date? = Nothing, cancellationToken As CancellationToken = Nothing) As SLMplsIlmGetMsgRsp
+  overload: ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsIlmGet*
+  nameWithType.vb: SLMplsOper.SLMplsOperClient.SLMplsIlmGet(SLMplsIlmGetMsg, Metadata, Date?, CancellationToken)
+  fullName.vb: ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsIlmGet(ServiceLayer.SLMplsIlmGetMsg, Grpc.Core.Metadata, Date?, System.Threading.CancellationToken)
+  name.vb: SLMplsIlmGet(SLMplsIlmGetMsg, Metadata, Date?, CancellationToken)
+- uid: ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsIlmGet(ServiceLayer.SLMplsIlmGetMsg,Grpc.Core.CallOptions)
+  commentId: M:ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsIlmGet(ServiceLayer.SLMplsIlmGetMsg,Grpc.Core.CallOptions)
+  id: SLMplsIlmGet(ServiceLayer.SLMplsIlmGetMsg,Grpc.Core.CallOptions)
+  parent: ServiceLayer.SLMplsOper.SLMplsOperClient
+  langs:
+  - csharp
+  - vb
+  name: SLMplsIlmGet(SLMplsIlmGetMsg, CallOptions)
+  nameWithType: SLMplsOper.SLMplsOperClient.SLMplsIlmGet(SLMplsIlmGetMsg, CallOptions)
+  fullName: ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsIlmGet(ServiceLayer.SLMplsIlmGetMsg, Grpc.Core.CallOptions)
+  type: Method
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlMplsGrpc.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: SLMplsIlmGet
+    path: src/gencs/SlMplsGrpc.cs
+    startLine: 864
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Retrieve MPLS ILM entry attributes.
+  example: []
+  syntax:
+    content: public virtual SLMplsIlmGetMsgRsp SLMplsIlmGet(SLMplsIlmGetMsg request, CallOptions options)
+    parameters:
+    - id: request
+      type: ServiceLayer.SLMplsIlmGetMsg
+      description: The request to send to the server.
+    - id: options
+      type: Grpc.Core.CallOptions
+      description: The options for the call.
+    return:
+      type: ServiceLayer.SLMplsIlmGetMsgRsp
+      description: The response received from the server.
+    content.vb: Public Overridable Function SLMplsIlmGet(request As SLMplsIlmGetMsg, options As CallOptions) As SLMplsIlmGetMsgRsp
+  overload: ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsIlmGet*
+- uid: ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsIlmGetAsync(ServiceLayer.SLMplsIlmGetMsg,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)
+  commentId: M:ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsIlmGetAsync(ServiceLayer.SLMplsIlmGetMsg,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)
+  id: SLMplsIlmGetAsync(ServiceLayer.SLMplsIlmGetMsg,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)
+  parent: ServiceLayer.SLMplsOper.SLMplsOperClient
+  langs:
+  - csharp
+  - vb
+  name: SLMplsIlmGetAsync(SLMplsIlmGetMsg, Metadata, DateTime?, CancellationToken)
+  nameWithType: SLMplsOper.SLMplsOperClient.SLMplsIlmGetAsync(SLMplsIlmGetMsg, Metadata, DateTime?, CancellationToken)
+  fullName: ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsIlmGetAsync(ServiceLayer.SLMplsIlmGetMsg, Grpc.Core.Metadata, System.DateTime?, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlMplsGrpc.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: SLMplsIlmGetAsync
+    path: src/gencs/SlMplsGrpc.cs
+    startLine: 877
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Retrieve MPLS ILM entry attributes.
+  example: []
+  syntax:
+    content: public virtual AsyncUnaryCall<SLMplsIlmGetMsgRsp> SLMplsIlmGetAsync(SLMplsIlmGetMsg request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default)
+    parameters:
+    - id: request
+      type: ServiceLayer.SLMplsIlmGetMsg
+      description: The request to send to the server.
+    - id: headers
+      type: Grpc.Core.Metadata
+      description: The initial metadata to send with the call. This parameter is optional.
+    - id: deadline
+      type: System.Nullable{System.DateTime}
+      description: An optional deadline for the call. The call will be cancelled if deadline is hit.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: An optional token for canceling the call.
+    return:
+      type: Grpc.Core.AsyncUnaryCall{ServiceLayer.SLMplsIlmGetMsgRsp}
+      description: The call object.
+    content.vb: Public Overridable Function SLMplsIlmGetAsync(request As SLMplsIlmGetMsg, headers As Metadata = Nothing, deadline As Date? = Nothing, cancellationToken As CancellationToken = Nothing) As AsyncUnaryCall(Of SLMplsIlmGetMsgRsp)
+  overload: ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsIlmGetAsync*
+  nameWithType.vb: SLMplsOper.SLMplsOperClient.SLMplsIlmGetAsync(SLMplsIlmGetMsg, Metadata, Date?, CancellationToken)
+  fullName.vb: ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsIlmGetAsync(ServiceLayer.SLMplsIlmGetMsg, Grpc.Core.Metadata, Date?, System.Threading.CancellationToken)
+  name.vb: SLMplsIlmGetAsync(SLMplsIlmGetMsg, Metadata, Date?, CancellationToken)
+- uid: ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsIlmGetAsync(ServiceLayer.SLMplsIlmGetMsg,Grpc.Core.CallOptions)
+  commentId: M:ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsIlmGetAsync(ServiceLayer.SLMplsIlmGetMsg,Grpc.Core.CallOptions)
+  id: SLMplsIlmGetAsync(ServiceLayer.SLMplsIlmGetMsg,Grpc.Core.CallOptions)
+  parent: ServiceLayer.SLMplsOper.SLMplsOperClient
+  langs:
+  - csharp
+  - vb
+  name: SLMplsIlmGetAsync(SLMplsIlmGetMsg, CallOptions)
+  nameWithType: SLMplsOper.SLMplsOperClient.SLMplsIlmGetAsync(SLMplsIlmGetMsg, CallOptions)
+  fullName: ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsIlmGetAsync(ServiceLayer.SLMplsIlmGetMsg, Grpc.Core.CallOptions)
+  type: Method
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlMplsGrpc.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: SLMplsIlmGetAsync
+    path: src/gencs/SlMplsGrpc.cs
+    startLine: 888
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Retrieve MPLS ILM entry attributes.
+  example: []
+  syntax:
+    content: public virtual AsyncUnaryCall<SLMplsIlmGetMsgRsp> SLMplsIlmGetAsync(SLMplsIlmGetMsg request, CallOptions options)
+    parameters:
+    - id: request
+      type: ServiceLayer.SLMplsIlmGetMsg
+      description: The request to send to the server.
+    - id: options
+      type: Grpc.Core.CallOptions
+      description: The options for the call.
+    return:
+      type: Grpc.Core.AsyncUnaryCall{ServiceLayer.SLMplsIlmGetMsgRsp}
+      description: The call object.
+    content.vb: Public Overridable Function SLMplsIlmGetAsync(request As SLMplsIlmGetMsg, options As CallOptions) As AsyncUnaryCall(Of SLMplsIlmGetMsgRsp)
+  overload: ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsIlmGetAsync*
+- uid: ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsIlmOpStream(Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)
+  commentId: M:ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsIlmOpStream(Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)
+  id: SLMplsIlmOpStream(Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)
+  parent: ServiceLayer.SLMplsOper.SLMplsOperClient
+  langs:
+  - csharp
+  - vb
+  name: SLMplsIlmOpStream(Metadata, DateTime?, CancellationToken)
+  nameWithType: SLMplsOper.SLMplsOperClient.SLMplsIlmOpStream(Metadata, DateTime?, CancellationToken)
+  fullName: ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsIlmOpStream(Grpc.Core.Metadata, System.DateTime?, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlMplsGrpc.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: SLMplsIlmOpStream
+    path: src/gencs/SlMplsGrpc.cs
+    startLine: 910
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: >-
+    SLMplsIlmMsg.Oper = SL_OBJOP_ADD:
+        Add incoming label map entry. Fails if the entry already
+        exists and not stale. First ADD operation on a stale entry
+        is allowed and the entry is no longer considered stale.
+
+    SLMplsIlmMsg.Oper = SL_OBJOP_UPDATE:
+        Create or update incoming label map entry.
+
+    SLMplsIlmMsg.Oper = SL_OBJOP_DELETE:
+        Delete incoming label map entry. Delete of a
+        non-existant entry is returned as success.
+  example: []
+  syntax:
+    content: public virtual AsyncDuplexStreamingCall<SLMplsIlmMsg, SLMplsIlmMsgRsp> SLMplsIlmOpStream(Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default)
+    parameters:
+    - id: headers
+      type: Grpc.Core.Metadata
+      description: The initial metadata to send with the call. This parameter is optional.
+    - id: deadline
+      type: System.Nullable{System.DateTime}
+      description: An optional deadline for the call. The call will be cancelled if deadline is hit.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: An optional token for canceling the call.
+    return:
+      type: Grpc.Core.AsyncDuplexStreamingCall{ServiceLayer.SLMplsIlmMsg,ServiceLayer.SLMplsIlmMsgRsp}
+      description: The call object.
+    content.vb: Public Overridable Function SLMplsIlmOpStream(headers As Metadata = Nothing, deadline As Date? = Nothing, cancellationToken As CancellationToken = Nothing) As AsyncDuplexStreamingCall(Of SLMplsIlmMsg, SLMplsIlmMsgRsp)
+  overload: ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsIlmOpStream*
+  nameWithType.vb: SLMplsOper.SLMplsOperClient.SLMplsIlmOpStream(Metadata, Date?, CancellationToken)
+  fullName.vb: ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsIlmOpStream(Grpc.Core.Metadata, Date?, System.Threading.CancellationToken)
+  name.vb: SLMplsIlmOpStream(Metadata, Date?, CancellationToken)
+- uid: ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsIlmOpStream(Grpc.Core.CallOptions)
+  commentId: M:ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsIlmOpStream(Grpc.Core.CallOptions)
+  id: SLMplsIlmOpStream(Grpc.Core.CallOptions)
+  parent: ServiceLayer.SLMplsOper.SLMplsOperClient
+  langs:
+  - csharp
+  - vb
+  name: SLMplsIlmOpStream(CallOptions)
+  nameWithType: SLMplsOper.SLMplsOperClient.SLMplsIlmOpStream(CallOptions)
+  fullName: ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsIlmOpStream(Grpc.Core.CallOptions)
+  type: Method
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlMplsGrpc.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: SLMplsIlmOpStream
+    path: src/gencs/SlMplsGrpc.cs
+    startLine: 930
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: >-
+    SLMplsIlmMsg.Oper = SL_OBJOP_ADD:
+        Add incoming label map entry. Fails if the entry already
+        exists and not stale. First ADD operation on a stale entry
+        is allowed and the entry is no longer considered stale.
+
+    SLMplsIlmMsg.Oper = SL_OBJOP_UPDATE:
+        Create or update incoming label map entry.
+
+    SLMplsIlmMsg.Oper = SL_OBJOP_DELETE:
+        Delete incoming label map entry. Delete of a
+        non-existant entry is returned as success.
+  example: []
+  syntax:
+    content: public virtual AsyncDuplexStreamingCall<SLMplsIlmMsg, SLMplsIlmMsgRsp> SLMplsIlmOpStream(CallOptions options)
+    parameters:
+    - id: options
+      type: Grpc.Core.CallOptions
+      description: The options for the call.
+    return:
+      type: Grpc.Core.AsyncDuplexStreamingCall{ServiceLayer.SLMplsIlmMsg,ServiceLayer.SLMplsIlmMsgRsp}
+      description: The call object.
+    content.vb: Public Overridable Function SLMplsIlmOpStream(options As CallOptions) As AsyncDuplexStreamingCall(Of SLMplsIlmMsg, SLMplsIlmMsgRsp)
+  overload: ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsIlmOpStream*
+- uid: ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsIlmGetStream(Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)
+  commentId: M:ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsIlmGetStream(Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)
+  id: SLMplsIlmGetStream(Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)
+  parent: ServiceLayer.SLMplsOper.SLMplsOperClient
+  langs:
+  - csharp
+  - vb
+  name: SLMplsIlmGetStream(Metadata, DateTime?, CancellationToken)
+  nameWithType: SLMplsOper.SLMplsOperClient.SLMplsIlmGetStream(Metadata, DateTime?, CancellationToken)
+  fullName: ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsIlmGetStream(Grpc.Core.Metadata, System.DateTime?, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlMplsGrpc.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: SLMplsIlmGetStream
+    path: src/gencs/SlMplsGrpc.cs
+    startLine: 942
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Stream-Get of incoming label map
+  example: []
+  syntax:
+    content: public virtual AsyncDuplexStreamingCall<SLMplsIlmGetMsg, SLMplsIlmGetMsgRsp> SLMplsIlmGetStream(Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default)
+    parameters:
+    - id: headers
+      type: Grpc.Core.Metadata
+      description: The initial metadata to send with the call. This parameter is optional.
+    - id: deadline
+      type: System.Nullable{System.DateTime}
+      description: An optional deadline for the call. The call will be cancelled if deadline is hit.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: An optional token for canceling the call.
+    return:
+      type: Grpc.Core.AsyncDuplexStreamingCall{ServiceLayer.SLMplsIlmGetMsg,ServiceLayer.SLMplsIlmGetMsgRsp}
+      description: The call object.
+    content.vb: Public Overridable Function SLMplsIlmGetStream(headers As Metadata = Nothing, deadline As Date? = Nothing, cancellationToken As CancellationToken = Nothing) As AsyncDuplexStreamingCall(Of SLMplsIlmGetMsg, SLMplsIlmGetMsgRsp)
+  overload: ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsIlmGetStream*
+  nameWithType.vb: SLMplsOper.SLMplsOperClient.SLMplsIlmGetStream(Metadata, Date?, CancellationToken)
+  fullName.vb: ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsIlmGetStream(Grpc.Core.Metadata, Date?, System.Threading.CancellationToken)
+  name.vb: SLMplsIlmGetStream(Metadata, Date?, CancellationToken)
+- uid: ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsIlmGetStream(Grpc.Core.CallOptions)
+  commentId: M:ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsIlmGetStream(Grpc.Core.CallOptions)
+  id: SLMplsIlmGetStream(Grpc.Core.CallOptions)
+  parent: ServiceLayer.SLMplsOper.SLMplsOperClient
+  langs:
+  - csharp
+  - vb
+  name: SLMplsIlmGetStream(CallOptions)
+  nameWithType: SLMplsOper.SLMplsOperClient.SLMplsIlmGetStream(CallOptions)
+  fullName: ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsIlmGetStream(Grpc.Core.CallOptions)
+  type: Method
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlMplsGrpc.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: SLMplsIlmGetStream
+    path: src/gencs/SlMplsGrpc.cs
+    startLine: 952
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Stream-Get of incoming label map
+  example: []
+  syntax:
+    content: public virtual AsyncDuplexStreamingCall<SLMplsIlmGetMsg, SLMplsIlmGetMsgRsp> SLMplsIlmGetStream(CallOptions options)
+    parameters:
+    - id: options
+      type: Grpc.Core.CallOptions
+      description: The options for the call.
+    return:
+      type: Grpc.Core.AsyncDuplexStreamingCall{ServiceLayer.SLMplsIlmGetMsg,ServiceLayer.SLMplsIlmGetMsgRsp}
+      description: The call object.
+    content.vb: Public Overridable Function SLMplsIlmGetStream(options As CallOptions) As AsyncDuplexStreamingCall(Of SLMplsIlmGetMsg, SLMplsIlmGetMsgRsp)
+  overload: ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsIlmGetStream*
+- uid: ServiceLayer.SLMplsOper.SLMplsOperClient.NewInstance(Grpc.Core.ClientBase.ClientBaseConfiguration)
+  commentId: M:ServiceLayer.SLMplsOper.SLMplsOperClient.NewInstance(Grpc.Core.ClientBase.ClientBaseConfiguration)
+  id: NewInstance(Grpc.Core.ClientBase.ClientBaseConfiguration)
+  parent: ServiceLayer.SLMplsOper.SLMplsOperClient
+  langs:
+  - csharp
+  - vb
+  name: NewInstance(ClientBaseConfiguration)
+  nameWithType: SLMplsOper.SLMplsOperClient.NewInstance(ClientBase.ClientBaseConfiguration)
+  fullName: ServiceLayer.SLMplsOper.SLMplsOperClient.NewInstance(Grpc.Core.ClientBase.ClientBaseConfiguration)
+  type: Method
+  source:
+    remote:
+      path: grpc/dotnet/src/gencs/SlMplsGrpc.cs
+      branch: dotnet.master.yasser
+      repo: git@wwwin-github.cisco.com:ios-xr/service-layer-objmodel.git
+    id: NewInstance
+    path: src/gencs/SlMplsGrpc.cs
+    startLine: 958
+  assemblies:
+  - ServiceLayer
+  namespace: ServiceLayer
+  summary: Creates a new instance of client from given <code>ClientBaseConfiguration</code>.
+  example: []
+  syntax:
+    content: protected override SLMplsOper.SLMplsOperClient NewInstance(ClientBase.ClientBaseConfiguration configuration)
+    parameters:
+    - id: configuration
+      type: Grpc.Core.ClientBase.ClientBaseConfiguration
+    return:
+      type: ServiceLayer.SLMplsOper.SLMplsOperClient
+    content.vb: Protected Overrides Function NewInstance(configuration As ClientBase.ClientBaseConfiguration) As SLMplsOper.SLMplsOperClient
+  overridden: Grpc.Core.ClientBase{ServiceLayer.SLMplsOper.SLMplsOperClient}.NewInstance(Grpc.Core.ClientBase.ClientBaseConfiguration)
+  overload: ServiceLayer.SLMplsOper.SLMplsOperClient.NewInstance*
+references:
+- uid: ServiceLayer
+  commentId: N:ServiceLayer
+  href: ServiceLayer.html
+  name: ServiceLayer
+  nameWithType: ServiceLayer
+  fullName: ServiceLayer
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: Grpc.Core.ClientBase
+  commentId: T:Grpc.Core.ClientBase
+  parent: Grpc.Core
+  isExternal: true
+  href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/ClientBase.cs
+  name: ClientBase
+  nameWithType: ClientBase
+  fullName: Grpc.Core.ClientBase
+- uid: Grpc.Core.ClientBase{ServiceLayer.SLMplsOper.SLMplsOperClient}
+  commentId: T:Grpc.Core.ClientBase{ServiceLayer.SLMplsOper.SLMplsOperClient}
+  parent: Grpc.Core
+  definition: Grpc.Core.ClientBase`1
+  href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/ClientBase.cs
+  name: ClientBase<SLMplsOper.SLMplsOperClient>
+  nameWithType: ClientBase<SLMplsOper.SLMplsOperClient>
+  fullName: Grpc.Core.ClientBase<ServiceLayer.SLMplsOper.SLMplsOperClient>
+  nameWithType.vb: ClientBase(Of SLMplsOper.SLMplsOperClient)
+  fullName.vb: Grpc.Core.ClientBase(Of ServiceLayer.SLMplsOper.SLMplsOperClient)
+  name.vb: ClientBase(Of SLMplsOper.SLMplsOperClient)
+  spec.csharp:
+  - uid: Grpc.Core.ClientBase`1
+    name: ClientBase
+    isExternal: true
+    href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/ClientBase.cs
+  - name: <
+  - uid: ServiceLayer.SLMplsOper
+    name: SLMplsOper
+    href: ServiceLayer.SLMplsOper.html
+  - name: .
+  - uid: ServiceLayer.SLMplsOper.SLMplsOperClient
+    name: SLMplsOperClient
+    href: ServiceLayer.SLMplsOper.SLMplsOperClient.html
+  - name: '>'
+  spec.vb:
+  - uid: Grpc.Core.ClientBase`1
+    name: ClientBase
+    isExternal: true
+    href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/ClientBase.cs
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ServiceLayer.SLMplsOper
+    name: SLMplsOper
+    href: ServiceLayer.SLMplsOper.html
+  - name: .
+  - uid: ServiceLayer.SLMplsOper.SLMplsOperClient
+    name: SLMplsOperClient
+    href: ServiceLayer.SLMplsOper.SLMplsOperClient.html
+  - name: )
+- uid: Grpc.Core.ClientBase{ServiceLayer.SLMplsOper.SLMplsOperClient}.WithHost(System.String)
+  commentId: M:Grpc.Core.ClientBase{ServiceLayer.SLMplsOper.SLMplsOperClient}.WithHost(System.String)
+  parent: Grpc.Core.ClientBase{ServiceLayer.SLMplsOper.SLMplsOperClient}
+  definition: Grpc.Core.ClientBase`1.WithHost(System.String)
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: WithHost(string)
+  nameWithType: ClientBase<SLMplsOper.SLMplsOperClient>.WithHost(string)
+  fullName: Grpc.Core.ClientBase<ServiceLayer.SLMplsOper.SLMplsOperClient>.WithHost(string)
+  nameWithType.vb: ClientBase(Of SLMplsOper.SLMplsOperClient).WithHost(String)
+  fullName.vb: Grpc.Core.ClientBase(Of ServiceLayer.SLMplsOper.SLMplsOperClient).WithHost(String)
+  name.vb: WithHost(String)
+  spec.csharp:
+  - uid: Grpc.Core.ClientBase{ServiceLayer.SLMplsOper.SLMplsOperClient}.WithHost(System.String)
+    name: WithHost
+    isExternal: true
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: Grpc.Core.ClientBase{ServiceLayer.SLMplsOper.SLMplsOperClient}.WithHost(System.String)
+    name: WithHost
+    isExternal: true
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: Grpc.Core.ClientBase.CallInvoker
+  commentId: P:Grpc.Core.ClientBase.CallInvoker
+  parent: Grpc.Core.ClientBase
+  isExternal: true
+  href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/ClientBase.cs
+  name: CallInvoker
+  nameWithType: ClientBase.CallInvoker
+  fullName: Grpc.Core.ClientBase.CallInvoker
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Grpc.Core
+  commentId: N:Grpc.Core
+  isExternal: true
+  name: Grpc.Core
+  nameWithType: Grpc.Core
+  fullName: Grpc.Core
+  spec.csharp:
+  - uid: Grpc
+    name: Grpc
+    isExternal: true
+  - name: .
+  - uid: Grpc.Core
+    name: Core
+    isExternal: true
+  spec.vb:
+  - uid: Grpc
+    name: Grpc
+    isExternal: true
+  - name: .
+  - uid: Grpc.Core
+    name: Core
+    isExternal: true
+- uid: Grpc.Core.ClientBase`1
+  commentId: T:Grpc.Core.ClientBase`1
+  isExternal: true
+  href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/ClientBase.cs
+  name: ClientBase<T>
+  nameWithType: ClientBase<T>
+  fullName: Grpc.Core.ClientBase<T>
+  nameWithType.vb: ClientBase(Of T)
+  fullName.vb: Grpc.Core.ClientBase(Of T)
+  name.vb: ClientBase(Of T)
+  spec.csharp:
+  - uid: Grpc.Core.ClientBase`1
+    name: ClientBase
+    isExternal: true
+    href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/ClientBase.cs
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Grpc.Core.ClientBase`1
+    name: ClientBase
+    isExternal: true
+    href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/ClientBase.cs
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Grpc.Core.ClientBase`1.WithHost(System.String)
+  commentId: M:Grpc.Core.ClientBase`1.WithHost(System.String)
+  isExternal: true
+  href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/ClientBase.cs
+  name: WithHost(string)
+  nameWithType: ClientBase<T>.WithHost(string)
+  fullName: Grpc.Core.ClientBase<T>.WithHost(string)
+  nameWithType.vb: ClientBase(Of T).WithHost(String)
+  fullName.vb: Grpc.Core.ClientBase(Of T).WithHost(String)
+  name.vb: WithHost(String)
+  spec.csharp:
+  - uid: Grpc.Core.ClientBase`1.WithHost(System.String)
+    name: WithHost
+    isExternal: true
+    href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/ClientBase.cs
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: Grpc.Core.ClientBase`1.WithHost(System.String)
+    name: WithHost
+    isExternal: true
+    href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/ClientBase.cs
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: ServiceLayer.SLMplsOper.SLMplsOperClient.#ctor*
+  commentId: Overload:ServiceLayer.SLMplsOper.SLMplsOperClient.#ctor
+  href: ServiceLayer.SLMplsOper.SLMplsOperClient.html#ServiceLayer.SLMplsOper.SLMplsOperClient.#ctor(Grpc.Core.ChannelBase)
+  name: SLMplsOperClient
+  nameWithType: SLMplsOper.SLMplsOperClient.SLMplsOperClient
+  fullName: ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsOperClient
+  nameWithType.vb: SLMplsOper.SLMplsOperClient.New
+  fullName.vb: ServiceLayer.SLMplsOper.SLMplsOperClient.New
+  name.vb: New
+- uid: Grpc.Core.ChannelBase
+  commentId: T:Grpc.Core.ChannelBase
+  parent: Grpc.Core
+  isExternal: true
+  href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/ChannelBase.cs
+  name: ChannelBase
+  nameWithType: ChannelBase
+  fullName: Grpc.Core.ChannelBase
+- uid: Grpc.Core.CallInvoker
+  commentId: T:Grpc.Core.CallInvoker
+  parent: Grpc.Core
+  isExternal: true
+  href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/CallInvoker.cs
+  name: CallInvoker
+  nameWithType: CallInvoker
+  fullName: Grpc.Core.CallInvoker
+- uid: Grpc.Core.ClientBase.ClientBaseConfiguration
+  commentId: T:Grpc.Core.ClientBase.ClientBaseConfiguration
+  parent: Grpc.Core
+  isExternal: true
+  href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/ClientBase.cs
+  name: ClientBase.ClientBaseConfiguration
+  nameWithType: ClientBase.ClientBaseConfiguration
+  fullName: Grpc.Core.ClientBase.ClientBaseConfiguration
+  spec.csharp:
+  - uid: Grpc.Core.ClientBase
+    name: ClientBase
+    isExternal: true
+    href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/ClientBase.cs
+  - name: .
+  - uid: Grpc.Core.ClientBase.ClientBaseConfiguration
+    name: ClientBaseConfiguration
+    isExternal: true
+    href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/ClientBase.cs
+  spec.vb:
+  - uid: Grpc.Core.ClientBase
+    name: ClientBase
+    isExternal: true
+    href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/ClientBase.cs
+  - name: .
+  - uid: Grpc.Core.ClientBase.ClientBaseConfiguration
+    name: ClientBaseConfiguration
+    isExternal: true
+    href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/ClientBase.cs
+- uid: ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsRegOp*
+  commentId: Overload:ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsRegOp
+  href: ServiceLayer.SLMplsOper.SLMplsOperClient.html#ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsRegOp(ServiceLayer.SLMplsRegMsg,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)
+  name: SLMplsRegOp
+  nameWithType: SLMplsOper.SLMplsOperClient.SLMplsRegOp
+  fullName: ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsRegOp
+- uid: ServiceLayer.SLMplsRegMsg
+  commentId: T:ServiceLayer.SLMplsRegMsg
+  parent: ServiceLayer
+  href: ServiceLayer.SLMplsRegMsg.html
+  name: SLMplsRegMsg
+  nameWithType: SLMplsRegMsg
+  fullName: ServiceLayer.SLMplsRegMsg
+- uid: Grpc.Core.Metadata
+  commentId: T:Grpc.Core.Metadata
+  parent: Grpc.Core
+  isExternal: true
+  href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/Metadata.cs
+  name: Metadata
+  nameWithType: Metadata
+  fullName: Grpc.Core.Metadata
+- uid: System.Nullable{System.DateTime}
+  commentId: T:System.Nullable{System.DateTime}
+  parent: System
+  definition: System.Nullable`1
+  href: https://learn.microsoft.com/dotnet/api/system.datetime
+  name: DateTime?
+  nameWithType: DateTime?
+  fullName: System.DateTime?
+  nameWithType.vb: Date?
+  fullName.vb: Date?
+  name.vb: Date?
+  spec.csharp:
+  - uid: System.DateTime
+    name: DateTime
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.datetime
+  - name: '?'
+  spec.vb:
+  - uid: System.DateTime
+    name: Date
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.datetime
+  - name: '?'
+- uid: System.Threading.CancellationToken
+  commentId: T:System.Threading.CancellationToken
+  parent: System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  name: CancellationToken
+  nameWithType: CancellationToken
+  fullName: System.Threading.CancellationToken
+- uid: ServiceLayer.SLMplsRegMsgRsp
+  commentId: T:ServiceLayer.SLMplsRegMsgRsp
+  parent: ServiceLayer
+  href: ServiceLayer.SLMplsRegMsgRsp.html
+  name: SLMplsRegMsgRsp
+  nameWithType: SLMplsRegMsgRsp
+  fullName: ServiceLayer.SLMplsRegMsgRsp
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Threading
+  commentId: N:System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading
+  nameWithType: System.Threading
+  fullName: System.Threading
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+- uid: Grpc.Core.CallOptions
+  commentId: T:Grpc.Core.CallOptions
+  parent: Grpc.Core
+  isExternal: true
+  href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/CallOptions.cs
+  name: CallOptions
+  nameWithType: CallOptions
+  fullName: Grpc.Core.CallOptions
+- uid: ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsRegOpAsync*
+  commentId: Overload:ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsRegOpAsync
+  href: ServiceLayer.SLMplsOper.SLMplsOperClient.html#ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsRegOpAsync(ServiceLayer.SLMplsRegMsg,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)
+  name: SLMplsRegOpAsync
+  nameWithType: SLMplsOper.SLMplsOperClient.SLMplsRegOpAsync
+  fullName: ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsRegOpAsync
+- uid: Grpc.Core.AsyncUnaryCall{ServiceLayer.SLMplsRegMsgRsp}
+  commentId: T:Grpc.Core.AsyncUnaryCall{ServiceLayer.SLMplsRegMsgRsp}
+  parent: Grpc.Core
+  definition: Grpc.Core.AsyncUnaryCall`1
+  href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/AsyncUnaryCall.cs
+  name: AsyncUnaryCall<SLMplsRegMsgRsp>
+  nameWithType: AsyncUnaryCall<SLMplsRegMsgRsp>
+  fullName: Grpc.Core.AsyncUnaryCall<ServiceLayer.SLMplsRegMsgRsp>
+  nameWithType.vb: AsyncUnaryCall(Of SLMplsRegMsgRsp)
+  fullName.vb: Grpc.Core.AsyncUnaryCall(Of ServiceLayer.SLMplsRegMsgRsp)
+  name.vb: AsyncUnaryCall(Of SLMplsRegMsgRsp)
+  spec.csharp:
+  - uid: Grpc.Core.AsyncUnaryCall`1
+    name: AsyncUnaryCall
+    isExternal: true
+    href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/AsyncUnaryCall.cs
+  - name: <
+  - uid: ServiceLayer.SLMplsRegMsgRsp
+    name: SLMplsRegMsgRsp
+    href: ServiceLayer.SLMplsRegMsgRsp.html
+  - name: '>'
+  spec.vb:
+  - uid: Grpc.Core.AsyncUnaryCall`1
+    name: AsyncUnaryCall
+    isExternal: true
+    href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/AsyncUnaryCall.cs
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ServiceLayer.SLMplsRegMsgRsp
+    name: SLMplsRegMsgRsp
+    href: ServiceLayer.SLMplsRegMsgRsp.html
+  - name: )
+- uid: Grpc.Core.AsyncUnaryCall`1
+  commentId: T:Grpc.Core.AsyncUnaryCall`1
+  isExternal: true
+  href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/AsyncUnaryCall.cs
+  name: AsyncUnaryCall<TResponse>
+  nameWithType: AsyncUnaryCall<TResponse>
+  fullName: Grpc.Core.AsyncUnaryCall<TResponse>
+  nameWithType.vb: AsyncUnaryCall(Of TResponse)
+  fullName.vb: Grpc.Core.AsyncUnaryCall(Of TResponse)
+  name.vb: AsyncUnaryCall(Of TResponse)
+  spec.csharp:
+  - uid: Grpc.Core.AsyncUnaryCall`1
+    name: AsyncUnaryCall
+    isExternal: true
+    href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/AsyncUnaryCall.cs
+  - name: <
+  - name: TResponse
+  - name: '>'
+  spec.vb:
+  - uid: Grpc.Core.AsyncUnaryCall`1
+    name: AsyncUnaryCall
+    isExternal: true
+    href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/AsyncUnaryCall.cs
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResponse
+  - name: )
+- uid: ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsGet*
+  commentId: Overload:ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsGet
+  href: ServiceLayer.SLMplsOper.SLMplsOperClient.html#ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsGet(ServiceLayer.SLMplsGetMsg,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)
+  name: SLMplsGet
+  nameWithType: SLMplsOper.SLMplsOperClient.SLMplsGet
+  fullName: ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsGet
+- uid: ServiceLayer.SLMplsGetMsg
+  commentId: T:ServiceLayer.SLMplsGetMsg
+  parent: ServiceLayer
+  href: ServiceLayer.SLMplsGetMsg.html
+  name: SLMplsGetMsg
+  nameWithType: SLMplsGetMsg
+  fullName: ServiceLayer.SLMplsGetMsg
+- uid: ServiceLayer.SLMplsGetMsgRsp
+  commentId: T:ServiceLayer.SLMplsGetMsgRsp
+  parent: ServiceLayer
+  href: ServiceLayer.SLMplsGetMsgRsp.html
+  name: SLMplsGetMsgRsp
+  nameWithType: SLMplsGetMsgRsp
+  fullName: ServiceLayer.SLMplsGetMsgRsp
+- uid: ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsGetAsync*
+  commentId: Overload:ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsGetAsync
+  href: ServiceLayer.SLMplsOper.SLMplsOperClient.html#ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsGetAsync(ServiceLayer.SLMplsGetMsg,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)
+  name: SLMplsGetAsync
+  nameWithType: SLMplsOper.SLMplsOperClient.SLMplsGetAsync
+  fullName: ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsGetAsync
+- uid: Grpc.Core.AsyncUnaryCall{ServiceLayer.SLMplsGetMsgRsp}
+  commentId: T:Grpc.Core.AsyncUnaryCall{ServiceLayer.SLMplsGetMsgRsp}
+  parent: Grpc.Core
+  definition: Grpc.Core.AsyncUnaryCall`1
+  href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/AsyncUnaryCall.cs
+  name: AsyncUnaryCall<SLMplsGetMsgRsp>
+  nameWithType: AsyncUnaryCall<SLMplsGetMsgRsp>
+  fullName: Grpc.Core.AsyncUnaryCall<ServiceLayer.SLMplsGetMsgRsp>
+  nameWithType.vb: AsyncUnaryCall(Of SLMplsGetMsgRsp)
+  fullName.vb: Grpc.Core.AsyncUnaryCall(Of ServiceLayer.SLMplsGetMsgRsp)
+  name.vb: AsyncUnaryCall(Of SLMplsGetMsgRsp)
+  spec.csharp:
+  - uid: Grpc.Core.AsyncUnaryCall`1
+    name: AsyncUnaryCall
+    isExternal: true
+    href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/AsyncUnaryCall.cs
+  - name: <
+  - uid: ServiceLayer.SLMplsGetMsgRsp
+    name: SLMplsGetMsgRsp
+    href: ServiceLayer.SLMplsGetMsgRsp.html
+  - name: '>'
+  spec.vb:
+  - uid: Grpc.Core.AsyncUnaryCall`1
+    name: AsyncUnaryCall
+    isExternal: true
+    href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/AsyncUnaryCall.cs
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ServiceLayer.SLMplsGetMsgRsp
+    name: SLMplsGetMsgRsp
+    href: ServiceLayer.SLMplsGetMsgRsp.html
+  - name: )
+- uid: ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsGetStats*
+  commentId: Overload:ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsGetStats
+  href: ServiceLayer.SLMplsOper.SLMplsOperClient.html#ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsGetStats(ServiceLayer.SLMplsGetMsg,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)
+  name: SLMplsGetStats
+  nameWithType: SLMplsOper.SLMplsOperClient.SLMplsGetStats
+  fullName: ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsGetStats
+- uid: ServiceLayer.SLMplsGetStatsMsgRsp
+  commentId: T:ServiceLayer.SLMplsGetStatsMsgRsp
+  parent: ServiceLayer
+  href: ServiceLayer.SLMplsGetStatsMsgRsp.html
+  name: SLMplsGetStatsMsgRsp
+  nameWithType: SLMplsGetStatsMsgRsp
+  fullName: ServiceLayer.SLMplsGetStatsMsgRsp
+- uid: ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsGetStatsAsync*
+  commentId: Overload:ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsGetStatsAsync
+  href: ServiceLayer.SLMplsOper.SLMplsOperClient.html#ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsGetStatsAsync(ServiceLayer.SLMplsGetMsg,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)
+  name: SLMplsGetStatsAsync
+  nameWithType: SLMplsOper.SLMplsOperClient.SLMplsGetStatsAsync
+  fullName: ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsGetStatsAsync
+- uid: Grpc.Core.AsyncUnaryCall{ServiceLayer.SLMplsGetStatsMsgRsp}
+  commentId: T:Grpc.Core.AsyncUnaryCall{ServiceLayer.SLMplsGetStatsMsgRsp}
+  parent: Grpc.Core
+  definition: Grpc.Core.AsyncUnaryCall`1
+  href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/AsyncUnaryCall.cs
+  name: AsyncUnaryCall<SLMplsGetStatsMsgRsp>
+  nameWithType: AsyncUnaryCall<SLMplsGetStatsMsgRsp>
+  fullName: Grpc.Core.AsyncUnaryCall<ServiceLayer.SLMplsGetStatsMsgRsp>
+  nameWithType.vb: AsyncUnaryCall(Of SLMplsGetStatsMsgRsp)
+  fullName.vb: Grpc.Core.AsyncUnaryCall(Of ServiceLayer.SLMplsGetStatsMsgRsp)
+  name.vb: AsyncUnaryCall(Of SLMplsGetStatsMsgRsp)
+  spec.csharp:
+  - uid: Grpc.Core.AsyncUnaryCall`1
+    name: AsyncUnaryCall
+    isExternal: true
+    href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/AsyncUnaryCall.cs
+  - name: <
+  - uid: ServiceLayer.SLMplsGetStatsMsgRsp
+    name: SLMplsGetStatsMsgRsp
+    href: ServiceLayer.SLMplsGetStatsMsgRsp.html
+  - name: '>'
+  spec.vb:
+  - uid: Grpc.Core.AsyncUnaryCall`1
+    name: AsyncUnaryCall
+    isExternal: true
+    href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/AsyncUnaryCall.cs
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ServiceLayer.SLMplsGetStatsMsgRsp
+    name: SLMplsGetStatsMsgRsp
+    href: ServiceLayer.SLMplsGetStatsMsgRsp.html
+  - name: )
+- uid: ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsLabelBlockOp*
+  commentId: Overload:ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsLabelBlockOp
+  href: ServiceLayer.SLMplsOper.SLMplsOperClient.html#ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsLabelBlockOp(ServiceLayer.SLMplsLabelBlockMsg,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)
+  name: SLMplsLabelBlockOp
+  nameWithType: SLMplsOper.SLMplsOperClient.SLMplsLabelBlockOp
+  fullName: ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsLabelBlockOp
+- uid: ServiceLayer.SLMplsLabelBlockMsg
+  commentId: T:ServiceLayer.SLMplsLabelBlockMsg
+  parent: ServiceLayer
+  href: ServiceLayer.SLMplsLabelBlockMsg.html
+  name: SLMplsLabelBlockMsg
+  nameWithType: SLMplsLabelBlockMsg
+  fullName: ServiceLayer.SLMplsLabelBlockMsg
+- uid: ServiceLayer.SLMplsLabelBlockMsgRsp
+  commentId: T:ServiceLayer.SLMplsLabelBlockMsgRsp
+  parent: ServiceLayer
+  href: ServiceLayer.SLMplsLabelBlockMsgRsp.html
+  name: SLMplsLabelBlockMsgRsp
+  nameWithType: SLMplsLabelBlockMsgRsp
+  fullName: ServiceLayer.SLMplsLabelBlockMsgRsp
+- uid: ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsLabelBlockOpAsync*
+  commentId: Overload:ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsLabelBlockOpAsync
+  href: ServiceLayer.SLMplsOper.SLMplsOperClient.html#ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsLabelBlockOpAsync(ServiceLayer.SLMplsLabelBlockMsg,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)
+  name: SLMplsLabelBlockOpAsync
+  nameWithType: SLMplsOper.SLMplsOperClient.SLMplsLabelBlockOpAsync
+  fullName: ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsLabelBlockOpAsync
+- uid: Grpc.Core.AsyncUnaryCall{ServiceLayer.SLMplsLabelBlockMsgRsp}
+  commentId: T:Grpc.Core.AsyncUnaryCall{ServiceLayer.SLMplsLabelBlockMsgRsp}
+  parent: Grpc.Core
+  definition: Grpc.Core.AsyncUnaryCall`1
+  href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/AsyncUnaryCall.cs
+  name: AsyncUnaryCall<SLMplsLabelBlockMsgRsp>
+  nameWithType: AsyncUnaryCall<SLMplsLabelBlockMsgRsp>
+  fullName: Grpc.Core.AsyncUnaryCall<ServiceLayer.SLMplsLabelBlockMsgRsp>
+  nameWithType.vb: AsyncUnaryCall(Of SLMplsLabelBlockMsgRsp)
+  fullName.vb: Grpc.Core.AsyncUnaryCall(Of ServiceLayer.SLMplsLabelBlockMsgRsp)
+  name.vb: AsyncUnaryCall(Of SLMplsLabelBlockMsgRsp)
+  spec.csharp:
+  - uid: Grpc.Core.AsyncUnaryCall`1
+    name: AsyncUnaryCall
+    isExternal: true
+    href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/AsyncUnaryCall.cs
+  - name: <
+  - uid: ServiceLayer.SLMplsLabelBlockMsgRsp
+    name: SLMplsLabelBlockMsgRsp
+    href: ServiceLayer.SLMplsLabelBlockMsgRsp.html
+  - name: '>'
+  spec.vb:
+  - uid: Grpc.Core.AsyncUnaryCall`1
+    name: AsyncUnaryCall
+    isExternal: true
+    href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/AsyncUnaryCall.cs
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ServiceLayer.SLMplsLabelBlockMsgRsp
+    name: SLMplsLabelBlockMsgRsp
+    href: ServiceLayer.SLMplsLabelBlockMsgRsp.html
+  - name: )
+- uid: ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsLabelBlockGet*
+  commentId: Overload:ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsLabelBlockGet
+  href: ServiceLayer.SLMplsOper.SLMplsOperClient.html#ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsLabelBlockGet(ServiceLayer.SLMplsLabelBlockGetMsg,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)
+  name: SLMplsLabelBlockGet
+  nameWithType: SLMplsOper.SLMplsOperClient.SLMplsLabelBlockGet
+  fullName: ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsLabelBlockGet
+- uid: ServiceLayer.SLMplsLabelBlockGetMsg
+  commentId: T:ServiceLayer.SLMplsLabelBlockGetMsg
+  parent: ServiceLayer
+  href: ServiceLayer.SLMplsLabelBlockGetMsg.html
+  name: SLMplsLabelBlockGetMsg
+  nameWithType: SLMplsLabelBlockGetMsg
+  fullName: ServiceLayer.SLMplsLabelBlockGetMsg
+- uid: ServiceLayer.SLMplsLabelBlockGetMsgRsp
+  commentId: T:ServiceLayer.SLMplsLabelBlockGetMsgRsp
+  parent: ServiceLayer
+  href: ServiceLayer.SLMplsLabelBlockGetMsgRsp.html
+  name: SLMplsLabelBlockGetMsgRsp
+  nameWithType: SLMplsLabelBlockGetMsgRsp
+  fullName: ServiceLayer.SLMplsLabelBlockGetMsgRsp
+- uid: ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsLabelBlockGetAsync*
+  commentId: Overload:ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsLabelBlockGetAsync
+  href: ServiceLayer.SLMplsOper.SLMplsOperClient.html#ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsLabelBlockGetAsync(ServiceLayer.SLMplsLabelBlockGetMsg,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)
+  name: SLMplsLabelBlockGetAsync
+  nameWithType: SLMplsOper.SLMplsOperClient.SLMplsLabelBlockGetAsync
+  fullName: ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsLabelBlockGetAsync
+- uid: Grpc.Core.AsyncUnaryCall{ServiceLayer.SLMplsLabelBlockGetMsgRsp}
+  commentId: T:Grpc.Core.AsyncUnaryCall{ServiceLayer.SLMplsLabelBlockGetMsgRsp}
+  parent: Grpc.Core
+  definition: Grpc.Core.AsyncUnaryCall`1
+  href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/AsyncUnaryCall.cs
+  name: AsyncUnaryCall<SLMplsLabelBlockGetMsgRsp>
+  nameWithType: AsyncUnaryCall<SLMplsLabelBlockGetMsgRsp>
+  fullName: Grpc.Core.AsyncUnaryCall<ServiceLayer.SLMplsLabelBlockGetMsgRsp>
+  nameWithType.vb: AsyncUnaryCall(Of SLMplsLabelBlockGetMsgRsp)
+  fullName.vb: Grpc.Core.AsyncUnaryCall(Of ServiceLayer.SLMplsLabelBlockGetMsgRsp)
+  name.vb: AsyncUnaryCall(Of SLMplsLabelBlockGetMsgRsp)
+  spec.csharp:
+  - uid: Grpc.Core.AsyncUnaryCall`1
+    name: AsyncUnaryCall
+    isExternal: true
+    href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/AsyncUnaryCall.cs
+  - name: <
+  - uid: ServiceLayer.SLMplsLabelBlockGetMsgRsp
+    name: SLMplsLabelBlockGetMsgRsp
+    href: ServiceLayer.SLMplsLabelBlockGetMsgRsp.html
+  - name: '>'
+  spec.vb:
+  - uid: Grpc.Core.AsyncUnaryCall`1
+    name: AsyncUnaryCall
+    isExternal: true
+    href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/AsyncUnaryCall.cs
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ServiceLayer.SLMplsLabelBlockGetMsgRsp
+    name: SLMplsLabelBlockGetMsgRsp
+    href: ServiceLayer.SLMplsLabelBlockGetMsgRsp.html
+  - name: )
+- uid: ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsIlmOp*
+  commentId: Overload:ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsIlmOp
+  href: ServiceLayer.SLMplsOper.SLMplsOperClient.html#ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsIlmOp(ServiceLayer.SLMplsIlmMsg,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)
+  name: SLMplsIlmOp
+  nameWithType: SLMplsOper.SLMplsOperClient.SLMplsIlmOp
+  fullName: ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsIlmOp
+- uid: ServiceLayer.SLMplsIlmMsg
+  commentId: T:ServiceLayer.SLMplsIlmMsg
+  parent: ServiceLayer
+  href: ServiceLayer.SLMplsIlmMsg.html
+  name: SLMplsIlmMsg
+  nameWithType: SLMplsIlmMsg
+  fullName: ServiceLayer.SLMplsIlmMsg
+- uid: ServiceLayer.SLMplsIlmMsgRsp
+  commentId: T:ServiceLayer.SLMplsIlmMsgRsp
+  parent: ServiceLayer
+  href: ServiceLayer.SLMplsIlmMsgRsp.html
+  name: SLMplsIlmMsgRsp
+  nameWithType: SLMplsIlmMsgRsp
+  fullName: ServiceLayer.SLMplsIlmMsgRsp
+- uid: ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsIlmOpAsync*
+  commentId: Overload:ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsIlmOpAsync
+  href: ServiceLayer.SLMplsOper.SLMplsOperClient.html#ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsIlmOpAsync(ServiceLayer.SLMplsIlmMsg,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)
+  name: SLMplsIlmOpAsync
+  nameWithType: SLMplsOper.SLMplsOperClient.SLMplsIlmOpAsync
+  fullName: ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsIlmOpAsync
+- uid: Grpc.Core.AsyncUnaryCall{ServiceLayer.SLMplsIlmMsgRsp}
+  commentId: T:Grpc.Core.AsyncUnaryCall{ServiceLayer.SLMplsIlmMsgRsp}
+  parent: Grpc.Core
+  definition: Grpc.Core.AsyncUnaryCall`1
+  href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/AsyncUnaryCall.cs
+  name: AsyncUnaryCall<SLMplsIlmMsgRsp>
+  nameWithType: AsyncUnaryCall<SLMplsIlmMsgRsp>
+  fullName: Grpc.Core.AsyncUnaryCall<ServiceLayer.SLMplsIlmMsgRsp>
+  nameWithType.vb: AsyncUnaryCall(Of SLMplsIlmMsgRsp)
+  fullName.vb: Grpc.Core.AsyncUnaryCall(Of ServiceLayer.SLMplsIlmMsgRsp)
+  name.vb: AsyncUnaryCall(Of SLMplsIlmMsgRsp)
+  spec.csharp:
+  - uid: Grpc.Core.AsyncUnaryCall`1
+    name: AsyncUnaryCall
+    isExternal: true
+    href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/AsyncUnaryCall.cs
+  - name: <
+  - uid: ServiceLayer.SLMplsIlmMsgRsp
+    name: SLMplsIlmMsgRsp
+    href: ServiceLayer.SLMplsIlmMsgRsp.html
+  - name: '>'
+  spec.vb:
+  - uid: Grpc.Core.AsyncUnaryCall`1
+    name: AsyncUnaryCall
+    isExternal: true
+    href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/AsyncUnaryCall.cs
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ServiceLayer.SLMplsIlmMsgRsp
+    name: SLMplsIlmMsgRsp
+    href: ServiceLayer.SLMplsIlmMsgRsp.html
+  - name: )
+- uid: ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsIlmGet*
+  commentId: Overload:ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsIlmGet
+  href: ServiceLayer.SLMplsOper.SLMplsOperClient.html#ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsIlmGet(ServiceLayer.SLMplsIlmGetMsg,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)
+  name: SLMplsIlmGet
+  nameWithType: SLMplsOper.SLMplsOperClient.SLMplsIlmGet
+  fullName: ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsIlmGet
+- uid: ServiceLayer.SLMplsIlmGetMsg
+  commentId: T:ServiceLayer.SLMplsIlmGetMsg
+  parent: ServiceLayer
+  href: ServiceLayer.SLMplsIlmGetMsg.html
+  name: SLMplsIlmGetMsg
+  nameWithType: SLMplsIlmGetMsg
+  fullName: ServiceLayer.SLMplsIlmGetMsg
+- uid: ServiceLayer.SLMplsIlmGetMsgRsp
+  commentId: T:ServiceLayer.SLMplsIlmGetMsgRsp
+  parent: ServiceLayer
+  href: ServiceLayer.SLMplsIlmGetMsgRsp.html
+  name: SLMplsIlmGetMsgRsp
+  nameWithType: SLMplsIlmGetMsgRsp
+  fullName: ServiceLayer.SLMplsIlmGetMsgRsp
+- uid: ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsIlmGetAsync*
+  commentId: Overload:ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsIlmGetAsync
+  href: ServiceLayer.SLMplsOper.SLMplsOperClient.html#ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsIlmGetAsync(ServiceLayer.SLMplsIlmGetMsg,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)
+  name: SLMplsIlmGetAsync
+  nameWithType: SLMplsOper.SLMplsOperClient.SLMplsIlmGetAsync
+  fullName: ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsIlmGetAsync
+- uid: Grpc.Core.AsyncUnaryCall{ServiceLayer.SLMplsIlmGetMsgRsp}
+  commentId: T:Grpc.Core.AsyncUnaryCall{ServiceLayer.SLMplsIlmGetMsgRsp}
+  parent: Grpc.Core
+  definition: Grpc.Core.AsyncUnaryCall`1
+  href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/AsyncUnaryCall.cs
+  name: AsyncUnaryCall<SLMplsIlmGetMsgRsp>
+  nameWithType: AsyncUnaryCall<SLMplsIlmGetMsgRsp>
+  fullName: Grpc.Core.AsyncUnaryCall<ServiceLayer.SLMplsIlmGetMsgRsp>
+  nameWithType.vb: AsyncUnaryCall(Of SLMplsIlmGetMsgRsp)
+  fullName.vb: Grpc.Core.AsyncUnaryCall(Of ServiceLayer.SLMplsIlmGetMsgRsp)
+  name.vb: AsyncUnaryCall(Of SLMplsIlmGetMsgRsp)
+  spec.csharp:
+  - uid: Grpc.Core.AsyncUnaryCall`1
+    name: AsyncUnaryCall
+    isExternal: true
+    href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/AsyncUnaryCall.cs
+  - name: <
+  - uid: ServiceLayer.SLMplsIlmGetMsgRsp
+    name: SLMplsIlmGetMsgRsp
+    href: ServiceLayer.SLMplsIlmGetMsgRsp.html
+  - name: '>'
+  spec.vb:
+  - uid: Grpc.Core.AsyncUnaryCall`1
+    name: AsyncUnaryCall
+    isExternal: true
+    href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/AsyncUnaryCall.cs
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ServiceLayer.SLMplsIlmGetMsgRsp
+    name: SLMplsIlmGetMsgRsp
+    href: ServiceLayer.SLMplsIlmGetMsgRsp.html
+  - name: )
+- uid: ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsIlmOpStream*
+  commentId: Overload:ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsIlmOpStream
+  href: ServiceLayer.SLMplsOper.SLMplsOperClient.html#ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsIlmOpStream(Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)
+  name: SLMplsIlmOpStream
+  nameWithType: SLMplsOper.SLMplsOperClient.SLMplsIlmOpStream
+  fullName: ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsIlmOpStream
+- uid: Grpc.Core.AsyncDuplexStreamingCall{ServiceLayer.SLMplsIlmMsg,ServiceLayer.SLMplsIlmMsgRsp}
+  commentId: T:Grpc.Core.AsyncDuplexStreamingCall{ServiceLayer.SLMplsIlmMsg,ServiceLayer.SLMplsIlmMsgRsp}
+  parent: Grpc.Core
+  definition: Grpc.Core.AsyncDuplexStreamingCall`2
+  href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/AsyncDuplexStreamingCall.cs
+  name: AsyncDuplexStreamingCall<SLMplsIlmMsg, SLMplsIlmMsgRsp>
+  nameWithType: AsyncDuplexStreamingCall<SLMplsIlmMsg, SLMplsIlmMsgRsp>
+  fullName: Grpc.Core.AsyncDuplexStreamingCall<ServiceLayer.SLMplsIlmMsg, ServiceLayer.SLMplsIlmMsgRsp>
+  nameWithType.vb: AsyncDuplexStreamingCall(Of SLMplsIlmMsg, SLMplsIlmMsgRsp)
+  fullName.vb: Grpc.Core.AsyncDuplexStreamingCall(Of ServiceLayer.SLMplsIlmMsg, ServiceLayer.SLMplsIlmMsgRsp)
+  name.vb: AsyncDuplexStreamingCall(Of SLMplsIlmMsg, SLMplsIlmMsgRsp)
+  spec.csharp:
+  - uid: Grpc.Core.AsyncDuplexStreamingCall`2
+    name: AsyncDuplexStreamingCall
+    isExternal: true
+    href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/AsyncDuplexStreamingCall.cs
+  - name: <
+  - uid: ServiceLayer.SLMplsIlmMsg
+    name: SLMplsIlmMsg
+    href: ServiceLayer.SLMplsIlmMsg.html
+  - name: ','
+  - name: " "
+  - uid: ServiceLayer.SLMplsIlmMsgRsp
+    name: SLMplsIlmMsgRsp
+    href: ServiceLayer.SLMplsIlmMsgRsp.html
+  - name: '>'
+  spec.vb:
+  - uid: Grpc.Core.AsyncDuplexStreamingCall`2
+    name: AsyncDuplexStreamingCall
+    isExternal: true
+    href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/AsyncDuplexStreamingCall.cs
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ServiceLayer.SLMplsIlmMsg
+    name: SLMplsIlmMsg
+    href: ServiceLayer.SLMplsIlmMsg.html
+  - name: ','
+  - name: " "
+  - uid: ServiceLayer.SLMplsIlmMsgRsp
+    name: SLMplsIlmMsgRsp
+    href: ServiceLayer.SLMplsIlmMsgRsp.html
+  - name: )
+- uid: Grpc.Core.AsyncDuplexStreamingCall`2
+  commentId: T:Grpc.Core.AsyncDuplexStreamingCall`2
+  isExternal: true
+  href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/AsyncDuplexStreamingCall.cs
+  name: AsyncDuplexStreamingCall<TRequest, TResponse>
+  nameWithType: AsyncDuplexStreamingCall<TRequest, TResponse>
+  fullName: Grpc.Core.AsyncDuplexStreamingCall<TRequest, TResponse>
+  nameWithType.vb: AsyncDuplexStreamingCall(Of TRequest, TResponse)
+  fullName.vb: Grpc.Core.AsyncDuplexStreamingCall(Of TRequest, TResponse)
+  name.vb: AsyncDuplexStreamingCall(Of TRequest, TResponse)
+  spec.csharp:
+  - uid: Grpc.Core.AsyncDuplexStreamingCall`2
+    name: AsyncDuplexStreamingCall
+    isExternal: true
+    href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/AsyncDuplexStreamingCall.cs
+  - name: <
+  - name: TRequest
+  - name: ','
+  - name: " "
+  - name: TResponse
+  - name: '>'
+  spec.vb:
+  - uid: Grpc.Core.AsyncDuplexStreamingCall`2
+    name: AsyncDuplexStreamingCall
+    isExternal: true
+    href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/AsyncDuplexStreamingCall.cs
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TRequest
+  - name: ','
+  - name: " "
+  - name: TResponse
+  - name: )
+- uid: ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsIlmGetStream*
+  commentId: Overload:ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsIlmGetStream
+  href: ServiceLayer.SLMplsOper.SLMplsOperClient.html#ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsIlmGetStream(Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)
+  name: SLMplsIlmGetStream
+  nameWithType: SLMplsOper.SLMplsOperClient.SLMplsIlmGetStream
+  fullName: ServiceLayer.SLMplsOper.SLMplsOperClient.SLMplsIlmGetStream
+- uid: Grpc.Core.AsyncDuplexStreamingCall{ServiceLayer.SLMplsIlmGetMsg,ServiceLayer.SLMplsIlmGetMsgRsp}
+  commentId: T:Grpc.Core.AsyncDuplexStreamingCall{ServiceLayer.SLMplsIlmGetMsg,ServiceLayer.SLMplsIlmGetMsgRsp}
+  parent: Grpc.Core
+  definition: Grpc.Core.AsyncDuplexStreamingCall`2
+  href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/AsyncDuplexStreamingCall.cs
+  name: AsyncDuplexStreamingCall<SLMplsIlmGetMsg, SLMplsIlmGetMsgRsp>
+  nameWithType: AsyncDuplexStreamingCall<SLMplsIlmGetMsg, SLMplsIlmGetMsgRsp>
+  fullName: Grpc.Core.AsyncDuplexStreamingCall<ServiceLayer.SLMplsIlmGetMsg, ServiceLayer.SLMplsIlmGetMsgRsp>
+  nameWithType.vb: AsyncDuplexStreamingCall(Of SLMplsIlmGetMsg, SLMplsIlmGetMsgRsp)
+  fullName.vb: Grpc.Core.AsyncDuplexStreamingCall(Of ServiceLayer.SLMplsIlmGetMsg, ServiceLayer.SLMplsIlmGetMsgRsp)
+  name.vb: AsyncDuplexStreamingCall(Of SLMplsIlmGetMsg, SLMplsIlmGetMsgRsp)
+  spec.csharp:
+  - uid: Grpc.Core.AsyncDuplexStreamingCall`2
+    name: AsyncDuplexStreamingCall
+    isExternal: true
+    href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/AsyncDuplexStreamingCall.cs
+  - name: <
+  - uid: ServiceLayer.SLMplsIlmGetMsg
+    name: SLMplsIlmGetMsg
+    href: ServiceLayer.SLMplsIlmGetMsg.html
+  - name: ','
+  - name: " "
+  - uid: ServiceLayer.SLMplsIlmGetMsgRsp
+    name: SLMplsIlmGetMsgRsp
+    href: ServiceLayer.SLMplsIlmGetMsgRsp.html
+  - name: '>'
+  spec.vb:
+  - uid: Grpc.Core.AsyncDuplexStreamingCall`2
+    name: AsyncDuplexStreamingCall
+    isExternal: true
+    href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/AsyncDuplexStreamingCall.cs
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ServiceLayer.SLMplsIlmGetMsg
+    name: SLMplsIlmGetMsg
+    href: ServiceLayer.SLMplsIlmGetMsg.html
+  - name: ','
+  - name: " "
+  - uid: ServiceLayer.SLMplsIlmGetMsgRsp
+    name: SLMplsIlmGetMsgRsp
+    href: ServiceLayer.SLMplsIlmGetMsgRsp.html
+  - name: )
+- uid: Grpc.Core.ClientBase{ServiceLayer.SLMplsOper.SLMplsOperClient}.NewInstance(Grpc.Core.ClientBase.ClientBaseConfiguration)
+  commentId: M:Grpc.Core.ClientBase{ServiceLayer.SLMplsOper.SLMplsOperClient}.NewInstance(Grpc.Core.ClientBase.ClientBaseConfiguration)
+  parent: Grpc.Core.ClientBase{ServiceLayer.SLMplsOper.SLMplsOperClient}
+  definition: Grpc.Core.ClientBase`1.NewInstance(Grpc.Core.ClientBase.ClientBaseConfiguration)
+  href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/ClientBase.cs
+  name: NewInstance(ClientBaseConfiguration)
+  nameWithType: ClientBase<SLMplsOper.SLMplsOperClient>.NewInstance(ClientBase.ClientBaseConfiguration)
+  fullName: Grpc.Core.ClientBase<ServiceLayer.SLMplsOper.SLMplsOperClient>.NewInstance(Grpc.Core.ClientBase.ClientBaseConfiguration)
+  nameWithType.vb: ClientBase(Of SLMplsOper.SLMplsOperClient).NewInstance(ClientBase.ClientBaseConfiguration)
+  fullName.vb: Grpc.Core.ClientBase(Of ServiceLayer.SLMplsOper.SLMplsOperClient).NewInstance(Grpc.Core.ClientBase.ClientBaseConfiguration)
+  spec.csharp:
+  - uid: Grpc.Core.ClientBase{ServiceLayer.SLMplsOper.SLMplsOperClient}.NewInstance(Grpc.Core.ClientBase.ClientBaseConfiguration)
+    name: NewInstance
+    isExternal: true
+  - name: (
+  - uid: Grpc.Core.ClientBase.ClientBaseConfiguration
+    name: ClientBaseConfiguration
+    isExternal: true
+    href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/ClientBase.cs
+  - name: )
+  spec.vb:
+  - uid: Grpc.Core.ClientBase{ServiceLayer.SLMplsOper.SLMplsOperClient}.NewInstance(Grpc.Core.ClientBase.ClientBaseConfiguration)
+    name: NewInstance
+    isExternal: true
+  - name: (
+  - uid: Grpc.Core.ClientBase.ClientBaseConfiguration
+    name: ClientBaseConfiguration
+    isExternal: true
+    href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/ClientBase.cs
+  - name: )
+- uid: ServiceLayer.SLMplsOper.SLMplsOperClient.NewInstance*
+  commentId: Overload:ServiceLayer.SLMplsOper.SLMplsOperClient.NewInstance
+  href: ServiceLayer.SLMplsOper.SLMplsOperClient.html#ServiceLayer.SLMplsOper.SLMplsOperClient.NewInstance(Grpc.Core.ClientBase.ClientBaseConfiguration)
+  name: NewInstance
+  nameWithType: SLMplsOper.SLMplsOperClient.NewInstance
+  fullName: ServiceLayer.SLMplsOper.SLMplsOperClient.NewInstance
+- uid: ServiceLayer.SLMplsOper.SLMplsOperClient
+  commentId: T:ServiceLayer.SLMplsOper.SLMplsOperClient
+  parent: ServiceLayer
+  href: ServiceLayer.SLMplsOper.html
+  name: SLMplsOper.SLMplsOperClient
+  nameWithType: SLMplsOper.SLMplsOperClient
+  fullName: ServiceLayer.SLMplsOper.SLMplsOperClient
+  spec.csharp:
+  - uid: ServiceLayer.SLMplsOper
+    name: SLMplsOper
+    href: ServiceLayer.SLMplsOper.html
+  - name: .
+  - uid: ServiceLayer.SLMplsOper.SLMplsOperClient
+    name: SLMplsOperClient
+    href: ServiceLayer.SLMplsOper.SLMplsOperClient.html
+  spec.vb:
+  - uid: ServiceLayer.SLMplsOper
+    name: SLMplsOper
+    href: ServiceLayer.SLMplsOper.html
+  - name: .
+  - uid: ServiceLayer.SLMplsOper.SLMplsOperClient
+    name: SLMplsOperClient
+    href: ServiceLayer.SLMplsOper.SLMplsOperClient.html
+- uid: Grpc.Core.ClientBase`1.NewInstance(Grpc.Core.ClientBase.ClientBaseConfiguration)
+  commentId: M:Grpc.Core.ClientBase`1.NewInstance(Grpc.Core.ClientBase.ClientBaseConfiguration)
+  isExternal: true
+  href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/ClientBase.cs
+  name: NewInstance(ClientBaseConfiguration)
+  nameWithType: ClientBase<T>.NewInstance(ClientBase.ClientBaseConfiguration)
+  fullName: Grpc.Core.ClientBase<T>.NewInstance(Grpc.Core.ClientBase.ClientBaseConfiguration)
+  nameWithType.vb: ClientBase(Of T).NewInstance(ClientBase.ClientBaseConfiguration)
+  fullName.vb: Grpc.Core.ClientBase(Of T).NewInstance(Grpc.Core.ClientBase.ClientBaseConfiguration)
+  spec.csharp:
+  - uid: Grpc.Core.ClientBase`1.NewInstance(Grpc.Core.ClientBase.ClientBaseConfiguration)
+    name: NewInstance
+    isExternal: true
+    href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/ClientBase.cs
+  - name: (
+  - uid: Grpc.Core.ClientBase.ClientBaseConfiguration
+    name: ClientBaseConfiguration
+    isExternal: true
+    href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/ClientBase.cs
+  - name: )
+  spec.vb:
+  - uid: Grpc.Core.ClientBase`1.NewInstance(Grpc.Core.ClientBase.ClientBaseConfiguration)
+    name: NewInstance
+    isExternal: true
+    href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/ClientBase.cs
+  - name: (
+  - uid: Grpc.Core.ClientBase.ClientBaseConfiguration
+    name: ClientBaseConfiguration
+    isExternal: true
+    href: https://github.com/grpc/grpc/blob/cdc97245c7977e85bb0234941f5c6cd9cb7accdf/src/csharp/Grpc.Core.Api/ClientBase.cs
+  - name: )
