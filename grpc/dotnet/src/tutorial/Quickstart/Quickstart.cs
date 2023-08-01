@@ -397,7 +397,7 @@ class SLClient
         Console.WriteLine("Usage: Quickstart [options]\n" +
                           "\nOptions:\n" +
                           "  -h, --help      Show this help text.\n" +
-                          "  -t <target>     The target server address in the format <ipv4 address>:<port>.\n" +
+                          "  -t <target>     The target server address in the format \"<ipv4 address>:<port>\".\n" +
                           "  -d <path>       The path to the JSON file having test data compliant with schema test_vxlan_schema.json");
     }
     /// <summary>
