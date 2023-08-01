@@ -33,8 +33,8 @@ The '---' argument is mandatory. It marks the end of arguments to the dotnet run
 | -d <path>      | The path to the JSON file having test data compliant with schema test_vxlan_schema.json" |
 
 ###### Note
-If you don't have dotnet installed, you can do all of the above from inside the docker prompt
-launch docker prompt like this
+If you don't have dotnet installed, you can do all of the above from inside the docker prompt.
+To launch the docker, do the following from the root folder
 ```
 make slapi-bash
 ```
