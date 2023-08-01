@@ -26,8 +26,6 @@ dotnet run -p <path>Quickstart.csproj -- -t "172.29.94.88:62704" -d test_vxlan.j
 The '---' argument is mandatory. It marks the end of arguments to the dotnet runtime and beginning of arguments to the Quickstart application
 
 ##### Arguments
-From this folder
-dotnet run -- --help
 | Argument | Description |
 | --- | --- |
 | - --help       | Show this help text |
