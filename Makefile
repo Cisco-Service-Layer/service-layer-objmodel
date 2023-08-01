@@ -57,6 +57,10 @@ docs: build
 	$(DOCKER_RUN) -t $(IMAGE_NAME):$(IMAGE_TAG) \
 	bash -c "cd grpc/docs/scripts && ./doc-gen.sh"
 
+dotnet-docs: build
+	$(DOCKER_RUN) -t $(IMAGE_NAME):$(IMAGE_TAG) \
+	bash -c "cd grpc/dotnet/ && doxygen ./doxyfile"
+
 slapi-bash: build
 	$(DOCKER_RUN) -t $(IMAGE_NAME):$(IMAGE_TAG) bash
 

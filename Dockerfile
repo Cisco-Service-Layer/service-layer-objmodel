@@ -40,11 +40,6 @@ RUN rm packages-microsoft-prod.deb
 
 # Disable .NET CLI's telemetry feature
 ENV DOTNET_CLI_TELEMETRY_OPTOUT=1
-# Install DocFX
-RUN dotnet tool install --global docfx
-
-# Add .NET tools to PATH
-ENV PATH="${PATH}:/root/.dotnet/tools"
 
 # Install protocol buffer compiler https://grpc.io/docs/protoc-installation/
 ARG PB_REL=https://github.com/protocolbuffers/protobuf/releases
