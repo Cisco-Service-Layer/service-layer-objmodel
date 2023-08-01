@@ -1,9 +1,9 @@
-### C# quick Tutorial
+### C# Quick Tutorial
 The program Quickstart.cs can be used to test programming of VxLAN tunnel as an Ipv4  route through SLAPI
 
 #### Dependencies
-The Quickstart.cs needs dotnet to be installed. Quickstart.csproj has the complete list of dotnet libraries this application depends on.
-If dotnet is installed, the dependencies can be resolved by running the following command from this folder
+The Quickstart.cs needs dotnet sdk to be installed. Quickstart.csproj has the complete list of dotnet libraries this application depends on.
+If dotnet is installed, the dependencies can be resolved by running the following command from the current folder
 ```
 dotnet restore
 ```
