@@ -2,21 +2,15 @@
   "register_v4_vrfs" : {
     "purge_interval": 300,
     "admin_distance": 2,
-    "vrf_list": ["vxlan_red", "vxlan_blue"]
-  },
-  "register_v6_vrfs" : {
-    "purge_interval": 300,
-    "admin_distance": 2,
-    "vrf_list": ["vxlan_red", "vxlan_blue"]
+    "vrf_list": ["vxlan_red"]
   },
   "program_v4_vxlan_routes" : {
-    "batch_size" : 2,
     "prefix_vrf" : "vxlan_red",
-    "routes" : [
+    "route_list" : [
     {
       "prefix": "172.16.30.0",
       "prefix_len": 24,
-      "paths": [
+      "path_list": [
       {
         "path_vrf": "default",
         "single_path": true,
@@ -32,7 +26,7 @@
     {
       "prefix": "172.16.40.0",
       "prefix_len": 24,
-      "paths": [
+      "path_list": [
       {
         "path_vrf": "default",
         "single_path": true,
@@ -45,6 +39,46 @@
         "vxlan_dst_mac": "00:00:00:00:00:00"
       }]
     }]
+  },
+  "register_v6_vrfs" : {
+    "purge_interval": 300,
+    "admin_distance": 2,
+    "vrf_list": ["vxlan_blue"]
+  },
+  "program_v6_vxlan_routes" : {
+    "prefix_vrf" : "vxlan_blue",
+    "route_list" : [
+    {
+      "prefix": "172:16:30::",
+      "prefix_len": 64,
+      "path_list": [
+      {
+        "path_vrf": "default",
+        "single_path": true,
+        "encap_type": "encap_vxlan",
+        "encap_afi": 4,
+        "vni": 94111,
+        "v4_src_ip": "120.10.40.1",
+        "v4_dst_ip": "100.10.50.2",
+        "vxlan_src_mac": "CC:1B:77:50:54:FD",
+        "vxlan_dst_mac": "00:00:00:00:00:00"
+      }]
+    },
+    {
+      "prefix": "172:16:40::",
+      "prefix_len": 64,
+      "path_list": [
+      {
+        "path_vrf": "default",
+        "single_path": true,
+        "encap_type": "encap_vxlan",
+        "encap_afi": 6,
+        "vni": 96111,
+        "v6_src_ip": "120:10:40::1",
+        "v6_dst_ip": "100:10:50::2",
+        "vxlan_src_mac": "CC:1B:77:50:56:FD",
+        "vxlan_dst_mac": "00:00:00:00:00:00"
+      }]
+    }]
   }
 }
-

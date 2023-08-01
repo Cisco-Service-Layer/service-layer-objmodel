@@ -1,4 +1,5 @@
 using System;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,11 +18,14 @@ public class TestVxlan
     [JsonProperty("register_v4_vrfs")]
     public Dictionary<string, object> RegisterV4Vrfs { get; set; }
 
-    [JsonProperty("register_v6_vrfs")]
-    public Dictionary<string, object> RegisterV6Vrfs { get; set; }
-
     [JsonProperty("program_v4_vxlan_routes")]
     public Dictionary<string, object> ProgramV4VxlanRoutes { get; set; }
+}
+
+public class ParsedArguments
+{
+    public string ServerAddress { get; set; }
+    public string JsonFilePath { get; set; }
 }
 
 class SLClient
@@ -51,59 +55,21 @@ class SLClient
         byte[] macBytes = mac.Split(':')
                              .Select(x => Convert.ToByte(x, 16))
                              .ToArray();
-        
         return ByteString.CopyFrom(macBytes);
+
     }
 
     static async Task Main(string[] args)
     {
-        string serverAddress = string.Empty;
-        string jsonFilePath = string.Empty;
         TestVxlan testData = null;
-        GrpcChannel channel;
+        GrpcChannel channel = null;
         SLRoutev4Oper.SLRoutev4OperClient client = null;
 
-        // Iterate over the arguments
-        for(int i = 0; i < args.Length; i++)
-        {
-            switch(args[i])
-            {
-                case "-h":
-                case "--help":
-                    Console.WriteLine("This is help text for the application.");
-                    break;
-                case "-t":
-                    if (i + 1 < args.Length) // Check if there is another argument following "-t"
-                    {
-                        Console.WriteLine("The value provided for -t is: " + args[i + 1]);
-                        serverAddress = args[i + 1];
-                        i++; // Skip the next iteration since we've already processed the following argument
-                    }
-                    else
-                    {
-                        Console.WriteLine("The -t option requires a following argument");
-	                Environment.Exit(1);
-                    }
-                    break;
-                case "-d":
-                    if (i + 1 < args.Length) // Check if there is another argument following "-d"
-                    {
-                        jsonFilePath = args[i + 1];
-                        i++; // Skip the next iteration since we've already processed the following argument
-                    }
-                    else
-                    {
-                        Console.WriteLine("The -d option requires a following argument");
-	                Environment.Exit(1);
-                    }
-                    break;
-                default:
-                    Console.WriteLine("Unknown option: " + args[i]);
-	            Environment.Exit(1);
-		    break;
-            }
-        }
-
+        // Process  arguments
+        var parsedArgs = ProcessArgs(args);
+        var serverAddress = parsedArgs.ServerAddress;
+        var jsonFilePath = parsedArgs.JsonFilePath;
+        
         if (!string.IsNullOrEmpty(jsonFilePath))
         {
             try
@@ -135,17 +101,16 @@ class SLClient
                 Console.WriteLine($"An error occurred: {ex.Message}");
                 Environment.Exit(1);
             }
-
         }
         else
         {
             Console.WriteLine("JSON file path is not provided.");
-	        Environment.Exit(1);
+            Environment.Exit(1);
         }
 
         // Setup the channel and client
         if (!string.IsNullOrEmpty(serverAddress))
-       	{
+        {
             AppContext.SetSwitch("System.Net.Http.SocketsHttpHandler.Http2UnencryptedSupport", true);
 
             channel = GrpcChannel.ForAddress($"http://{serverAddress}", 
@@ -159,62 +124,13 @@ class SLClient
             }
         }
         else
-       	{
+        {
             Console.WriteLine("Server address is not provided.");
-	        Environment.Exit(1);
+            Environment.Exit(1);
         }
         if (testData.RegisterV4Vrfs != null)
-	{
-             // Create and populate the SLVrfRegMsg for registration.
-             var regMsg = new SLVrfRegMsg { Oper = SLRegOp.Register };
-             int purgeInterval = Convert.ToInt32(testData.RegisterV4Vrfs["purge_interval"]);
-             int adminDistance = Convert.ToInt32(testData.RegisterV4Vrfs["admin_distance"]);
-             JArray vrfJArray = (JArray)testData.RegisterV4Vrfs["vrf_list"];
-             List<string> vrfList = vrfJArray.ToObject<List<string>>();
-
-             foreach (string vrfName in vrfList)
-             {
-                 regMsg.VrfRegMsgs.Add(new SLVrfReg
-                 {
-                     VrfName = vrfName,
-                     AdminDistance = (uint)adminDistance,
-                     VrfPurgeIntervalSeconds = (uint)purgeInterval
-                 });
-             }
-
-            // Call the SLRoutev4VrfRegOp RPC
-            var regResponse = await client.SLRoutev4VrfRegOpAsync(regMsg);
-            if (regResponse.StatusSummary.Status == SLErrorStatus.Types.SLErrno.SlSuccess)
-            {
-                Console.WriteLine("Operation was successful");
-            }
-            else if (regResponse.StatusSummary.Status == SLErrorStatus.Types.SLErrno.SlSomeErr)
-            {
-                Console.WriteLine("Operation failed for one or more entries");
-                foreach (var result in regResponse.Results)
-                {
-                    if (result.ErrStatus.Status != SLErrorStatus.Types.SLErrno.SlSuccess)
-                    {
-                        Console.WriteLine($"Operation failed for VRF Name: {result.VrfName} with error: {result.ErrStatus.Status}");
-                    }
-                }
-            }
-            else
-            {
-                Console.WriteLine($"Operation failed with error: {regResponse.StatusSummary.Status}");
-            }
-            // Create and populate the SLVrfRegMsg for EOF operation.
-            var eofMsg = new SLVrfRegMsg
-            {
-                Oper = SLRegOp.Eof
-            };
-
-            // Call the SLRoutev4VrfRegOp RPC
-            var eofResponse = await client.SLRoutev4VrfRegOpAsync(eofMsg);
-            if (eofResponse.StatusSummary.Status != SLErrorStatus.Types.SLErrno.SlSuccess)
-            {
-                Console.WriteLine($"Operation failed with error: {eofResponse.StatusSummary.Status}");
-            }
+        {
+            await RegisterVrfsAsync(client, testData);
             // Create and populate the SLVrfRegGetMsg.
             var getMsg = new SLVrfRegGetMsg
             {
@@ -224,7 +140,7 @@ class SLClient
 
             // Call the SLRoutev4VrfRegGet RPC
             var getResponse = await client.SLRoutev4VrfRegGetAsync(getMsg);
-	    if (getResponse.ErrStatus.Status != SLErrorStatus.Types.SLErrno.SlSuccess)
+            if (getResponse.ErrStatus.Status != SLErrorStatus.Types.SLErrno.SlSuccess)
             {
                 // The operation was not successful
                 Console.WriteLine($"Operation failed with status: {getResponse.ErrStatus.Status}");
@@ -240,38 +156,36 @@ class SLClient
                     Console.WriteLine();  // newline for better formatting
                 }
             }
- 	}
-	else
-	{
+        }
+        else
+        {
             Console.WriteLine("testData.RegisterV4Vrfs is null");
-	}
-	if (testData.ProgramV4VxlanRoutes != null)
-	{
+        }
+        if (testData.ProgramV4VxlanRoutes != null)
+        {
             //var batchSize = Convert.ToInt32(testData.ProgramV4VxlanRoutes["batch_size"]);
-            
-	    var slRoutev4Msg = new SLRoutev4Msg
-	    {
-                Oper = SLObjectOp.SlObjopAdd,  
+            var slRoutev4Msg = new SLRoutev4Msg
+            {
+                Oper = SLObjectOp.SlObjopAdd,
                 Correlator = 1,
-                VrfName = testData.ProgramV4VxlanRoutes["prefix_vrf"].ToString(), 
+                VrfName = testData.ProgramV4VxlanRoutes["prefix_vrf"].ToString(),
             };
-            
-            var routesData = testData.ProgramV4VxlanRoutes["routes"] as JArray;
+            var routesData = testData.ProgramV4VxlanRoutes["route_list"] as JArray;
             foreach (JObject route in routesData)
             {
                 var slRoutev4 = new SLRoutev4
                 {
                     Prefix = IpToUInt32(route["prefix"].ToString()),
                     PrefixLen = Convert.ToUInt32(route["prefix_len"]),
-		};
-		var pathsData = route["paths"] as JArray;
-		foreach (JObject path in pathsData)
-		{
-		    var slRoutePath = new SLRoutePath
+                };
+                var pathsData = route["path_list"] as JArray;
+                foreach (JObject path in pathsData)
+                {
+                    var slRoutePath = new SLRoutePath
                     {
-                        VrfName = path["path_vrf"].ToString(),
-		        Flags = (bool)path["single_path"] ? 0x00000001U : 0x00000000U
-		    };
+                                VrfName = path["path_vrf"].ToString(),
+                        Flags = (bool)path["single_path"] ? 0x00000001U : 0x00000000U
+                    };
                     if (path["encap_type"].ToString() == "encap_vxlan")
                     {
                         slRoutePath.EncapType = SLEncapType.SlEncapVxlan;
@@ -280,34 +194,34 @@ class SLClient
                             VNI = Convert.ToUInt32(path["vni"]),
                             SourceMacAddress = MACStringToByteString(path["vxlan_src_mac"].ToString()),
                             DestMacAddress = MACStringToByteString(path["vxlan_dst_mac"].ToString())
-			};
+                        };
                         var encapAfi = Convert.ToInt32(path["encap_afi"]);
                         if (encapAfi == 4)
                         {
                             slRoutePath.VxLANPath.SrcIpAddress = new SLIpAddress
-                            {   
+                            {
                                 V4Address = IpToUInt32(path["v4_src_ip"].ToString())
                             };
                             slRoutePath.VxLANPath.DestIpAddress = new SLIpAddress
-                            {   
+                            {
                                 V4Address = IpToUInt32(path["v4_dst_ip"].ToString())
                             };
                         }
                         else if (encapAfi == 6)
                         {
                             slRoutePath.VxLANPath.SrcIpAddress = new SLIpAddress
-                            {   
+                            {
                                 V6Address = GetIPv6ByteString(path["v6_src_ip"].ToString())
                             };
                             slRoutePath.VxLANPath.DestIpAddress = new SLIpAddress
-                            {   
+                            {
                                 V6Address = GetIPv6ByteString(path["v6_dst_ip"].ToString())
                             };
                         }
                     }
-		    // Add each constructed path to the PathList of slRoutev4
-		    slRoutev4.PathList.Add(slRoutePath);
-                    if ((bool)path["single_path"]) 
+                    // Add each constructed path to the PathList of slRoutev4
+                    slRoutev4.PathList.Add(slRoutePath);
+                    if ((bool)path["single_path"])
                     {
                         break;
                     }
@@ -317,15 +231,15 @@ class SLClient
             try {
                 // Make the RPC call
                 var response = client.SLRoutev4Op(slRoutev4Msg);
-            
+
                 // Process the response
                 Console.WriteLine("Response Correlator: " + response.Correlator);
                 Console.WriteLine("Response VRF name: " + response.VrfName);
-            
+
                 // Process status
                 var statusSummary = response.StatusSummary.Status;
                 Console.WriteLine("Response Status Summary: " + statusSummary);
-            
+
                 // Process results
                 foreach (var result in response.Results) {
                     Console.WriteLine("Route error status: " + result.ErrStatus.Status);
@@ -339,11 +253,181 @@ class SLClient
                 // Other exceptions
                 Console.WriteLine("Operation failed: " + ex.Message);
             }
-
-	}
-	else
-	{
+            //press ctrl+c to gracefully exit client program
+            using var cts = new CancellationTokenSource();
+            Console.CancelKeyPress += (s, e) =>
+            {
+                Console.WriteLine("Cancellation requested.");
+                cts.Cancel();
+                e.Cancel = true;
+            };
+            //Programming the same set of routes again, using streaming RPC
+            //Send EOF and re-register vrfs to reset the server state so 
+            //that re-programming the same routes will not return
+            //route exists error
+            await EofVrfsAsync(client);
+            await RegisterVrfsAsync(client, testData);
+            using (var call = client.SLRoutev4OpStream())
+            {   
+                // Start the response listening task.
+                var responseReaderTask = Task.Run(async () =>
+                {   
+                    try
+                    {
+                        await foreach (var message in call.ResponseStream.ReadAllAsync())
+                        {   
+                            Console.WriteLine($"Correlator: {message.Correlator}");
+                            Console.WriteLine($"VRF Name: {message.VrfName}");
+                            Console.WriteLine($"Error Status: {message.StatusSummary}");
+                            foreach (var result in message.Results)
+                            {
+                                IPAddress ipAddr = new IPAddress(BitConverter.GetBytes(result.Prefix).Reverse().ToArray());
+                                Console.WriteLine($"Received error response for route with Prefix {ipAddr} and PrefixLen {result.PrefixLen}");
+                            }                    
+                        }
+                    }
+                    catch (RpcException ex)
+                    {   
+                        Console.WriteLine($"An RPC error occurred: {ex.Status.Detail}");
+                    }
+                    catch (Exception ex)
+                    {   
+                        Console.WriteLine($"An unexpected error occurred: {ex.Message}");
+                    }
+                }, cts.Token);
+            
+                try
+                {
+                    // Writing messages to the server.
+                    await call.RequestStream.WriteAsync(slRoutev4Msg);
+                    // When all messages are written, we signal the server by completing our writing side of the stream.
+                    await call.RequestStream.CompleteAsync();
+                    await responseReaderTask;
+                }
+                catch (RpcException ex)
+                {   
+                    Console.WriteLine($"An RPC error occurred: {ex.Status.Detail}");
+                }
+                catch (Exception ex)
+                {   
+                    Console.WriteLine($"An unexpected error occurred: {ex.Message}");
+                }
+            } 
+        }
+        else
+        {
             Console.WriteLine("testData.ProgramV4VxlanRoutes is null");
-	}
+        }
+        await channel.ShutdownAsync();
+    }
+
+    private static ParsedArguments ProcessArgs(string[] args)
+    {
+        var parsedArgs = new ParsedArguments();
+    
+        for (int i = 0; i < args.Length; i++)
+        {
+            switch (args[i])
+            {
+                case "-h":
+                case "--help":
+                    ShowHelp();
+                    Environment.Exit(0);
+                    break;
+                case "-t":
+                    parsedArgs.ServerAddress = GetNextArgument(i++, args, "-t  incomplete argument check --help");
+                    break;
+                case "-d":
+                    parsedArgs.JsonFilePath = GetNextArgument(i++, args, "-d incomplete argument check --help");
+                    break;
+                default:
+                    Console.WriteLine("Unknown option: " + args[i] + "\nUse -h or --help to display the help text.");
+                    Environment.Exit(1);
+                    break;
+            }
+        }
+    
+        return parsedArgs;
+    }
+    
+    private static string GetNextArgument(int i, string[] args, string errorMessage)
+    {
+        if (i + 1 < args.Length) // Check if there is another argument following the current one
+        {
+            return args[i + 1];
+        }
+        else
+        {
+            Console.WriteLine(errorMessage);
+            Environment.Exit(1);
+            return null; // To satisfy the function's return type
+        }
+    }
+    
+    private static void ShowHelp()
+    {
+        Console.WriteLine("Usage: Quickstart [options]\n" +
+                          "\nOptions:\n" +
+                          "  -h, --help      Show this help text.\n" +
+                          "  -t <target>     The target server address in the format <ipv4 address>:<port>.\n" +
+                          "  -d <path>       The path to the JSON file having test data compliant with schema test_vxlan_schema.json");
+    }
+
+    private static async Task RegisterVrfsAsync(SLRoutev4Oper.SLRoutev4OperClient client, TestVxlan testData)
+    {
+        // Create and populate the SLVrfRegMsg for registration.
+        var regMsg = new SLVrfRegMsg { Oper = SLRegOp.Register };
+        int purgeInterval = Convert.ToInt32(testData.RegisterV4Vrfs["purge_interval"]);
+        int adminDistance = Convert.ToInt32(testData.RegisterV4Vrfs["admin_distance"]);
+        JArray vrfJArray = (JArray)testData.RegisterV4Vrfs["vrf_list"];
+        List<string> vrfList = vrfJArray.ToObject<List<string>>();
+    
+        foreach (string vrfName in vrfList)
+        {
+            regMsg.VrfRegMsgs.Add(new SLVrfReg
+            {
+                VrfName = vrfName,
+                AdminDistance = (uint)adminDistance,
+                VrfPurgeIntervalSeconds = (uint)purgeInterval
+            });
+        }
+    
+        // Call the SLRoutev4VrfRegOp RPC
+        var regResponse = await client.SLRoutev4VrfRegOpAsync(regMsg);
+        if (regResponse.StatusSummary.Status == SLErrorStatus.Types.SLErrno.SlSuccess)
+        {
+            Console.WriteLine("Operation was successful");
+        }
+        else if (regResponse.StatusSummary.Status == SLErrorStatus.Types.SLErrno.SlSomeErr)
+        {
+            Console.WriteLine("Operation failed for one or more entries");
+            foreach (var result in regResponse.Results)
+            {
+                if (result.ErrStatus.Status != SLErrorStatus.Types.SLErrno.SlSuccess)
+                {
+                    Console.WriteLine($"Operation failed for VRF Name: {result.VrfName} with error: {result.ErrStatus.Status}");
+                }
+            }
+        }
+        else
+        {
+            Console.WriteLine($"Operation failed with error: {regResponse.StatusSummary.Status}");
+        }
+    }
+
+    private static async Task EofVrfsAsync(SLRoutev4Oper.SLRoutev4OperClient client)
+    {
+        // Create and populate the SLVrfRegMsg for EOF operation.
+        var eofMsg = new SLVrfRegMsg
+        {
+            Oper = SLRegOp.Eof
+        };
+    
+        // Call the SLRoutev4VrfRegOp RPC
+        var eofResponse = await client.SLRoutev4VrfRegOpAsync(eofMsg);
+        if (eofResponse.StatusSummary.Status != SLErrorStatus.Types.SLErrno.SlSuccess)
+        {
+            Console.WriteLine($"Operation failed with error: {eofResponse.StatusSummary.Status}");
+        }
     }
 }

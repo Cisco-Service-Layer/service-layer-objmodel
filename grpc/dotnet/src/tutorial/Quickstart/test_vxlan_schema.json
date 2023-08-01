@@ -1,0 +1,139 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "register_v4_vrfs": {
+      "$ref": "#/definitions/register_vrf"
+    },
+    "program_v4_vxlan_routes": {
+      "$ref": "#/definitions/program_vxlan_route"
+    },
+    "register_v6_vrfs": {
+      "$ref": "#/definitions/register_vrf"
+    },
+    "program_v6_vxlan_routes": {
+      "$ref": "#/definitions/program_vxlan_route"
+    }
+  },
+  "required": ["register_v4_vrfs", "program_v4_vxlan_routes", "register_v6_vrfs", "program_v6_vxlan_routes"],
+  "definitions": {
+    "register_vrf": {
+      "type": "object",
+      "properties": {
+        "purge_interval": {
+          "type": "integer"
+        },
+        "admin_distance": {
+          "type": "integer"
+        },
+        "vrf_list": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": ["purge_interval", "admin_distance", "vrf_list"]
+    },
+    "program_vxlan_route": {
+      "type": "object",
+      "properties": {
+        "prefix_vrf": {
+          "type": "string"
+        },
+        "route_list": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/route"
+          }
+        }
+      },
+      "required": ["prefix_vrf", "route_list"]
+    },
+    "route": {
+      "type": "object",
+      "properties": {
+        "prefix": {
+          "type": "string"
+        },
+        "prefix_len": {
+          "type": "integer"
+        },
+        "path_list": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/path"
+          }
+        }
+      },
+      "required": ["prefix", "prefix_len", "path_list"]
+    },
+    "path": {
+      "type": "object",
+      "properties": {
+        "path_vrf": {
+          "type": "string"
+        },
+        "single_path": {
+          "type": "boolean"
+        },
+        "encap_type": {
+          "type": "string"
+        },
+        "encap_afi": {
+          "type": "integer"
+        },
+        "vni": {
+          "type": "integer"
+        },
+        "v4_src_ip": {
+          "type": "string"
+        },
+        "v4_dst_ip": {
+          "type": "string"
+        },
+        "v6_src_ip": {
+          "type": "string"
+        },
+        "v6_dst_ip": {
+          "type": "string"
+        },
+        "vxlan_src_mac": {
+          "type": "string"
+        },
+        "vxlan_dst_mac": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "encap_afi": {
+                "const": 4
+              }
+            },
+            "required": ["encap_afi"]
+          },
+          "then": {
+            "required": ["path_vrf", "single_path", "encap_type", "encap_afi", "vni", "v4_src_ip", "v4_dst_ip", "vxlan_src_mac", "vxlan_dst_mac"]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "encap_afi": {
+                "const": 6
+              }
+            },
+            "required": ["encap_afi"]
+          },
+          "then": {
+            "required": ["path_vrf", "single_path", "encap_type", "encap_afi", "vni", "v6_src_ip", "v6_dst_ip", "vxlan_src_mac", "vxlan_dst_mac"]
+          }
+        }
+      ]
+    }
+  }
+}
+

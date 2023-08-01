@@ -38,6 +38,14 @@ RUN dpkg -i packages-microsoft-prod.deb
 RUN apt-get update && apt-get install -y dotnet-sdk-5.0
 RUN rm packages-microsoft-prod.deb
 
+# Download and extract DocFX
+RUN wget https://github.com/dotnet/docfx/releases/download/v2.58.9/docfx.zip \
+    && unzip docfx.zip -d /usr/bin/docfx \
+    && rm docfx.zip
+
+# Add DocFX to your path
+ENV PATH="/usr/bin/docfx:${PATH}"
+
 # Disable .NET CLI's telemetry feature
 ENV DOTNET_CLI_TELEMETRY_OPTOUT=1
 
