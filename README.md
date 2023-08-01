@@ -165,10 +165,13 @@ grpc/dotnet/src/tutorial/Quickstart/quickstart.csproj
 ```
 Please refer  README file in Quickstart directory for information on rebuild and running the Quickstart
 
+We can generate documentation for dotnet proto bindings invoking make dotnet-docs
 ```
 # cd (top level)
-# make tutorial (creates/launches container)
+# make dotnet-docs
 ```
+This will generate html documentation in grpc/dotnet/docs/html/
+
 ## Python UT regresion suite
 
 * A Python unittest regression suite that covers basic API sanities. It is also very useful and handy if someone wants to get some reference implementation for a certain use case.
