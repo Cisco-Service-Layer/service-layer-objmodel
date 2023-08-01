@@ -40,7 +40,7 @@ public class ParsedArguments
 /// <summary>
 /// Implements GRPC client that exercises the SLAPI RPCs for IPv4 Vertical
 /// defined in
-/// https://github.com/Cisco-Service-Layer/service-layer-objmodel/blob/master/grpc/protos/sl_common_types.proto
+/// https://github.com/Cisco-Service-Layer/service-layer-objmodel/blob/master/grpc/protos/sl_route_ipv4.proto
 /// This implementation particularly exercises L3 VxLAN tunnels
 /// </summary>
 class SLClient
