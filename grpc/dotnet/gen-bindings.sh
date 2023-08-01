@@ -24,14 +24,7 @@ cd ${DOTNET_ROOT}/src/tutorial/Quickstart
 # Restore packages needed by Quickstart
 dotnet restore
 cd ${DOTNET_ROOT}
-# Generating documentation with DocFX
-printf "Generating documentation with DocFX..."
-#Remove unwanted directories
-rm -rf ${DOTNET_ROOT}/api/
-rm -rf ${DOTNET_ROOT}/docs/
-docfx docfx.json
 #Remove unwanted directories
 rm -rf ${DOTNET_ROOT}/src/gencs/obj/
 rm -rf ${DOTNET_ROOT}/src/gencs/bin/
-rm -rf ${DOTNET_ROOT}/api/
 echo "Done"
