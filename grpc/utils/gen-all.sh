@@ -6,3 +6,5 @@ cd ../cpp
 gen-bindings.sh
 cd ../go
 gen-bindings.sh
+cd ../dotnet
+gen-bindings.sh

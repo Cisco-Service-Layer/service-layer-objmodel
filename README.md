@@ -84,6 +84,7 @@ The bindings will be generated in the following directories:
 grpc/go/src/gengo
 grpc/python/src/genpy
 grpc/cpp/src/gencpp
+grpc/dotnet/src/gencs
 ```
 The bindings can also be generated manually using protoc in an environment with the correct toolchain versions. The toolchain versions in the Dockerfile:
 * GO_VER: Go version
@@ -152,6 +153,24 @@ A makefile exists in the tutorial directory and could be invoked to re-build the
 # cd (top level)
 # make tutorial (creates/launches container)
 ```
+
+### Dotnet (C#)
+
+Another similar tutorial written in Dotnet (C#). This tutorial's code is pre-compiled and committed in the code repo for a quick start on some of the API key features showing batching, etc.
+
+The C# project can be found here:
+
+```
+grpc/dotnet/src/tutorial/Quickstart/quickstart.csproj
+```
+Please refer  README file in Quickstart directory for information on rebuild and running the Quickstart
+
+We can generate documentation for dotnet proto bindings invoking make dotnet-docs
+```
+# cd (top level)
+# make dotnet-docs
+```
+This will generate html documentation in grpc/dotnet/docs/html/
 
 ## Python UT regresion suite
 
