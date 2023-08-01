@@ -33,6 +33,8 @@
 #include <google/protobuf/unknown_field_set.h>
 #include "sl_common_types.pb.h"
 #include "sl_route_common.pb.h"
+#include "sl_route_ipv4.pb.h"
+#include "sl_route_ipv6.pb.h"
 // @@protoc_insertion_point(includes)
 #include <google/protobuf/port_def.inc>
 #define PROTOBUF_INTERNAL_EXPORT_sl_5faf_2eproto
@@ -48,7 +50,7 @@ struct TableStruct_sl_5faf_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::AuxiliaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[4]
+  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[12]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::FieldMetadata field_metadata[];
   static const ::PROTOBUF_NAMESPACE_ID::internal::SerializationTable serialization_table[];
@@ -56,6 +58,21 @@ struct TableStruct_sl_5faf_2eproto {
 };
 extern const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_sl_5faf_2eproto;
 namespace service_layer {
+class SLAFMsg;
+struct SLAFMsgDefaultTypeInternal;
+extern SLAFMsgDefaultTypeInternal _SLAFMsg_default_instance_;
+class SLAFMsgRsp;
+struct SLAFMsgRspDefaultTypeInternal;
+extern SLAFMsgRspDefaultTypeInternal _SLAFMsgRsp_default_instance_;
+class SLAFObject;
+struct SLAFObjectDefaultTypeInternal;
+extern SLAFObjectDefaultTypeInternal _SLAFObject_default_instance_;
+class SLAFOp;
+struct SLAFOpDefaultTypeInternal;
+extern SLAFOpDefaultTypeInternal _SLAFOp_default_instance_;
+class SLAFRes;
+struct SLAFResDefaultTypeInternal;
+extern SLAFResDefaultTypeInternal _SLAFRes_default_instance_;
 class SLAFVrfReg;
 struct SLAFVrfRegDefaultTypeInternal;
 extern SLAFVrfRegDefaultTypeInternal _SLAFVrfReg_default_instance_;
@@ -68,12 +85,29 @@ extern SLAFVrfRegMsgResDefaultTypeInternal _SLAFVrfRegMsgRes_default_instance_;
 class SLAFVrfRegMsgRsp;
 struct SLAFVrfRegMsgRspDefaultTypeInternal;
 extern SLAFVrfRegMsgRspDefaultTypeInternal _SLAFVrfRegMsgRsp_default_instance_;
+class SLPathGroup;
+struct SLPathGroupDefaultTypeInternal;
+extern SLPathGroupDefaultTypeInternal _SLPathGroup_default_instance_;
+class SLPathGroup_SLPath;
+struct SLPathGroup_SLPathDefaultTypeInternal;
+extern SLPathGroup_SLPathDefaultTypeInternal _SLPathGroup_SLPath_default_instance_;
+class SLPathGroup_SLPathList;
+struct SLPathGroup_SLPathListDefaultTypeInternal;
+extern SLPathGroup_SLPathListDefaultTypeInternal _SLPathGroup_SLPathList_default_instance_;
 }  // namespace service_layer
 PROTOBUF_NAMESPACE_OPEN
+template<> ::service_layer::SLAFMsg* Arena::CreateMaybeMessage<::service_layer::SLAFMsg>(Arena*);
+template<> ::service_layer::SLAFMsgRsp* Arena::CreateMaybeMessage<::service_layer::SLAFMsgRsp>(Arena*);
+template<> ::service_layer::SLAFObject* Arena::CreateMaybeMessage<::service_layer::SLAFObject>(Arena*);
+template<> ::service_layer::SLAFOp* Arena::CreateMaybeMessage<::service_layer::SLAFOp>(Arena*);
+template<> ::service_layer::SLAFRes* Arena::CreateMaybeMessage<::service_layer::SLAFRes>(Arena*);
 template<> ::service_layer::SLAFVrfReg* Arena::CreateMaybeMessage<::service_layer::SLAFVrfReg>(Arena*);
 template<> ::service_layer::SLAFVrfRegMsg* Arena::CreateMaybeMessage<::service_layer::SLAFVrfRegMsg>(Arena*);
 template<> ::service_layer::SLAFVrfRegMsgRes* Arena::CreateMaybeMessage<::service_layer::SLAFVrfRegMsgRes>(Arena*);
 template<> ::service_layer::SLAFVrfRegMsgRsp* Arena::CreateMaybeMessage<::service_layer::SLAFVrfRegMsgRsp>(Arena*);
+template<> ::service_layer::SLPathGroup* Arena::CreateMaybeMessage<::service_layer::SLPathGroup>(Arena*);
+template<> ::service_layer::SLPathGroup_SLPath* Arena::CreateMaybeMessage<::service_layer::SLPathGroup_SLPath>(Arena*);
+template<> ::service_layer::SLPathGroup_SLPathList* Arena::CreateMaybeMessage<::service_layer::SLPathGroup_SLPathList>(Arena*);
 PROTOBUF_NAMESPACE_CLOSE
 namespace service_layer {
 
@@ -766,6 +800,1438 @@ class SLAFVrfRegMsgRsp final :
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_sl_5faf_2eproto;
 };
+// -------------------------------------------------------------------
+
+class SLPathGroup_SLPath final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:service_layer.SLPathGroup.SLPath) */ {
+ public:
+  inline SLPathGroup_SLPath() : SLPathGroup_SLPath(nullptr) {}
+  ~SLPathGroup_SLPath() override;
+  explicit constexpr SLPathGroup_SLPath(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  SLPathGroup_SLPath(const SLPathGroup_SLPath& from);
+  SLPathGroup_SLPath(SLPathGroup_SLPath&& from) noexcept
+    : SLPathGroup_SLPath() {
+    *this = ::std::move(from);
+  }
+
+  inline SLPathGroup_SLPath& operator=(const SLPathGroup_SLPath& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline SLPathGroup_SLPath& operator=(SLPathGroup_SLPath&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const SLPathGroup_SLPath& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const SLPathGroup_SLPath* internal_default_instance() {
+    return reinterpret_cast<const SLPathGroup_SLPath*>(
+               &_SLPathGroup_SLPath_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    4;
+
+  friend void swap(SLPathGroup_SLPath& a, SLPathGroup_SLPath& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(SLPathGroup_SLPath* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(SLPathGroup_SLPath* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  SLPathGroup_SLPath* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<SLPathGroup_SLPath>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const SLPathGroup_SLPath& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom(const SLPathGroup_SLPath& from);
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to, const ::PROTOBUF_NAMESPACE_ID::Message& from);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(SLPathGroup_SLPath* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "service_layer.SLPathGroup.SLPath";
+  }
+  protected:
+  explicit SLPathGroup_SLPath(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kPathFieldNumber = 1,
+  };
+  // .service_layer.SLRoutePath Path = 1;
+  bool has_path() const;
+  private:
+  bool _internal_has_path() const;
+  public:
+  void clear_path();
+  const ::service_layer::SLRoutePath& path() const;
+  PROTOBUF_NODISCARD ::service_layer::SLRoutePath* release_path();
+  ::service_layer::SLRoutePath* mutable_path();
+  void set_allocated_path(::service_layer::SLRoutePath* path);
+  private:
+  const ::service_layer::SLRoutePath& _internal_path() const;
+  ::service_layer::SLRoutePath* _internal_mutable_path();
+  public:
+  void unsafe_arena_set_allocated_path(
+      ::service_layer::SLRoutePath* path);
+  ::service_layer::SLRoutePath* unsafe_arena_release_path();
+
+  // @@protoc_insertion_point(class_scope:service_layer.SLPathGroup.SLPath)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::service_layer::SLRoutePath* path_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_sl_5faf_2eproto;
+};
+// -------------------------------------------------------------------
+
+class SLPathGroup_SLPathList final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:service_layer.SLPathGroup.SLPathList) */ {
+ public:
+  inline SLPathGroup_SLPathList() : SLPathGroup_SLPathList(nullptr) {}
+  ~SLPathGroup_SLPathList() override;
+  explicit constexpr SLPathGroup_SLPathList(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  SLPathGroup_SLPathList(const SLPathGroup_SLPathList& from);
+  SLPathGroup_SLPathList(SLPathGroup_SLPathList&& from) noexcept
+    : SLPathGroup_SLPathList() {
+    *this = ::std::move(from);
+  }
+
+  inline SLPathGroup_SLPathList& operator=(const SLPathGroup_SLPathList& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline SLPathGroup_SLPathList& operator=(SLPathGroup_SLPathList&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const SLPathGroup_SLPathList& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const SLPathGroup_SLPathList* internal_default_instance() {
+    return reinterpret_cast<const SLPathGroup_SLPathList*>(
+               &_SLPathGroup_SLPathList_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    5;
+
+  friend void swap(SLPathGroup_SLPathList& a, SLPathGroup_SLPathList& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(SLPathGroup_SLPathList* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(SLPathGroup_SLPathList* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  SLPathGroup_SLPathList* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<SLPathGroup_SLPathList>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const SLPathGroup_SLPathList& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom(const SLPathGroup_SLPathList& from);
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to, const ::PROTOBUF_NAMESPACE_ID::Message& from);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(SLPathGroup_SLPathList* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "service_layer.SLPathGroup.SLPathList";
+  }
+  protected:
+  explicit SLPathGroup_SLPathList(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kPathsFieldNumber = 1,
+  };
+  // repeated .service_layer.SLPathGroup.SLPath Paths = 1;
+  int paths_size() const;
+  private:
+  int _internal_paths_size() const;
+  public:
+  void clear_paths();
+  ::service_layer::SLPathGroup_SLPath* mutable_paths(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::service_layer::SLPathGroup_SLPath >*
+      mutable_paths();
+  private:
+  const ::service_layer::SLPathGroup_SLPath& _internal_paths(int index) const;
+  ::service_layer::SLPathGroup_SLPath* _internal_add_paths();
+  public:
+  const ::service_layer::SLPathGroup_SLPath& paths(int index) const;
+  ::service_layer::SLPathGroup_SLPath* add_paths();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::service_layer::SLPathGroup_SLPath >&
+      paths() const;
+
+  // @@protoc_insertion_point(class_scope:service_layer.SLPathGroup.SLPathList)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::service_layer::SLPathGroup_SLPath > paths_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_sl_5faf_2eproto;
+};
+// -------------------------------------------------------------------
+
+class SLPathGroup final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:service_layer.SLPathGroup) */ {
+ public:
+  inline SLPathGroup() : SLPathGroup(nullptr) {}
+  ~SLPathGroup() override;
+  explicit constexpr SLPathGroup(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  SLPathGroup(const SLPathGroup& from);
+  SLPathGroup(SLPathGroup&& from) noexcept
+    : SLPathGroup() {
+    *this = ::std::move(from);
+  }
+
+  inline SLPathGroup& operator=(const SLPathGroup& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline SLPathGroup& operator=(SLPathGroup&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const SLPathGroup& default_instance() {
+    return *internal_default_instance();
+  }
+  enum EntryCase {
+    kPathList = 3,
+    ENTRY_NOT_SET = 0,
+  };
+
+  static inline const SLPathGroup* internal_default_instance() {
+    return reinterpret_cast<const SLPathGroup*>(
+               &_SLPathGroup_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    6;
+
+  friend void swap(SLPathGroup& a, SLPathGroup& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(SLPathGroup* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(SLPathGroup* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  SLPathGroup* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<SLPathGroup>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const SLPathGroup& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom(const SLPathGroup& from);
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to, const ::PROTOBUF_NAMESPACE_ID::Message& from);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(SLPathGroup* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "service_layer.SLPathGroup";
+  }
+  protected:
+  explicit SLPathGroup(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  typedef SLPathGroup_SLPath SLPath;
+  typedef SLPathGroup_SLPathList SLPathList;
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kPathGroupIdFieldNumber = 1,
+    kAdminDistanceFieldNumber = 2,
+    kPathListFieldNumber = 3,
+  };
+  // .service_layer.SLObjectId PathGroupId = 1;
+  bool has_pathgroupid() const;
+  private:
+  bool _internal_has_pathgroupid() const;
+  public:
+  void clear_pathgroupid();
+  const ::service_layer::SLObjectId& pathgroupid() const;
+  PROTOBUF_NODISCARD ::service_layer::SLObjectId* release_pathgroupid();
+  ::service_layer::SLObjectId* mutable_pathgroupid();
+  void set_allocated_pathgroupid(::service_layer::SLObjectId* pathgroupid);
+  private:
+  const ::service_layer::SLObjectId& _internal_pathgroupid() const;
+  ::service_layer::SLObjectId* _internal_mutable_pathgroupid();
+  public:
+  void unsafe_arena_set_allocated_pathgroupid(
+      ::service_layer::SLObjectId* pathgroupid);
+  ::service_layer::SLObjectId* unsafe_arena_release_pathgroupid();
+
+  // uint32 AdminDistance = 2;
+  void clear_admindistance();
+  uint32_t admindistance() const;
+  void set_admindistance(uint32_t value);
+  private:
+  uint32_t _internal_admindistance() const;
+  void _internal_set_admindistance(uint32_t value);
+  public:
+
+  // .service_layer.SLPathGroup.SLPathList PathList = 3;
+  bool has_pathlist() const;
+  private:
+  bool _internal_has_pathlist() const;
+  public:
+  void clear_pathlist();
+  const ::service_layer::SLPathGroup_SLPathList& pathlist() const;
+  PROTOBUF_NODISCARD ::service_layer::SLPathGroup_SLPathList* release_pathlist();
+  ::service_layer::SLPathGroup_SLPathList* mutable_pathlist();
+  void set_allocated_pathlist(::service_layer::SLPathGroup_SLPathList* pathlist);
+  private:
+  const ::service_layer::SLPathGroup_SLPathList& _internal_pathlist() const;
+  ::service_layer::SLPathGroup_SLPathList* _internal_mutable_pathlist();
+  public:
+  void unsafe_arena_set_allocated_pathlist(
+      ::service_layer::SLPathGroup_SLPathList* pathlist);
+  ::service_layer::SLPathGroup_SLPathList* unsafe_arena_release_pathlist();
+
+  void clear_entry();
+  EntryCase entry_case() const;
+  // @@protoc_insertion_point(class_scope:service_layer.SLPathGroup)
+ private:
+  class _Internal;
+  void set_has_pathlist();
+
+  inline bool has_entry() const;
+  inline void clear_has_entry();
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::service_layer::SLObjectId* pathgroupid_;
+  uint32_t admindistance_;
+  union EntryUnion {
+    constexpr EntryUnion() : _constinit_{} {}
+      ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized _constinit_;
+    ::service_layer::SLPathGroup_SLPathList* pathlist_;
+  } entry_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  uint32_t _oneof_case_[1];
+
+  friend struct ::TableStruct_sl_5faf_2eproto;
+};
+// -------------------------------------------------------------------
+
+class SLAFObject final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:service_layer.SLAFObject) */ {
+ public:
+  inline SLAFObject() : SLAFObject(nullptr) {}
+  ~SLAFObject() override;
+  explicit constexpr SLAFObject(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  SLAFObject(const SLAFObject& from);
+  SLAFObject(SLAFObject&& from) noexcept
+    : SLAFObject() {
+    *this = ::std::move(from);
+  }
+
+  inline SLAFObject& operator=(const SLAFObject& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline SLAFObject& operator=(SLAFObject&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const SLAFObject& default_instance() {
+    return *internal_default_instance();
+  }
+  enum EntryCase {
+    kIPv4Route = 1,
+    kIPv6Route = 2,
+    kPathGroup = 4,
+    ENTRY_NOT_SET = 0,
+  };
+
+  static inline const SLAFObject* internal_default_instance() {
+    return reinterpret_cast<const SLAFObject*>(
+               &_SLAFObject_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    7;
+
+  friend void swap(SLAFObject& a, SLAFObject& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(SLAFObject* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(SLAFObject* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  SLAFObject* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<SLAFObject>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const SLAFObject& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom(const SLAFObject& from);
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to, const ::PROTOBUF_NAMESPACE_ID::Message& from);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(SLAFObject* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "service_layer.SLAFObject";
+  }
+  protected:
+  explicit SLAFObject(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kIPv4RouteFieldNumber = 1,
+    kIPv6RouteFieldNumber = 2,
+    kPathGroupFieldNumber = 4,
+  };
+  // .service_layer.SLRoutev4 IPv4Route = 1;
+  bool has_ipv4route() const;
+  private:
+  bool _internal_has_ipv4route() const;
+  public:
+  void clear_ipv4route();
+  const ::service_layer::SLRoutev4& ipv4route() const;
+  PROTOBUF_NODISCARD ::service_layer::SLRoutev4* release_ipv4route();
+  ::service_layer::SLRoutev4* mutable_ipv4route();
+  void set_allocated_ipv4route(::service_layer::SLRoutev4* ipv4route);
+  private:
+  const ::service_layer::SLRoutev4& _internal_ipv4route() const;
+  ::service_layer::SLRoutev4* _internal_mutable_ipv4route();
+  public:
+  void unsafe_arena_set_allocated_ipv4route(
+      ::service_layer::SLRoutev4* ipv4route);
+  ::service_layer::SLRoutev4* unsafe_arena_release_ipv4route();
+
+  // .service_layer.SLRoutev6 IPv6Route = 2;
+  bool has_ipv6route() const;
+  private:
+  bool _internal_has_ipv6route() const;
+  public:
+  void clear_ipv6route();
+  const ::service_layer::SLRoutev6& ipv6route() const;
+  PROTOBUF_NODISCARD ::service_layer::SLRoutev6* release_ipv6route();
+  ::service_layer::SLRoutev6* mutable_ipv6route();
+  void set_allocated_ipv6route(::service_layer::SLRoutev6* ipv6route);
+  private:
+  const ::service_layer::SLRoutev6& _internal_ipv6route() const;
+  ::service_layer::SLRoutev6* _internal_mutable_ipv6route();
+  public:
+  void unsafe_arena_set_allocated_ipv6route(
+      ::service_layer::SLRoutev6* ipv6route);
+  ::service_layer::SLRoutev6* unsafe_arena_release_ipv6route();
+
+  // .service_layer.SLPathGroup PathGroup = 4;
+  bool has_pathgroup() const;
+  private:
+  bool _internal_has_pathgroup() const;
+  public:
+  void clear_pathgroup();
+  const ::service_layer::SLPathGroup& pathgroup() const;
+  PROTOBUF_NODISCARD ::service_layer::SLPathGroup* release_pathgroup();
+  ::service_layer::SLPathGroup* mutable_pathgroup();
+  void set_allocated_pathgroup(::service_layer::SLPathGroup* pathgroup);
+  private:
+  const ::service_layer::SLPathGroup& _internal_pathgroup() const;
+  ::service_layer::SLPathGroup* _internal_mutable_pathgroup();
+  public:
+  void unsafe_arena_set_allocated_pathgroup(
+      ::service_layer::SLPathGroup* pathgroup);
+  ::service_layer::SLPathGroup* unsafe_arena_release_pathgroup();
+
+  void clear_entry();
+  EntryCase entry_case() const;
+  // @@protoc_insertion_point(class_scope:service_layer.SLAFObject)
+ private:
+  class _Internal;
+  void set_has_ipv4route();
+  void set_has_ipv6route();
+  void set_has_pathgroup();
+
+  inline bool has_entry() const;
+  inline void clear_has_entry();
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  union EntryUnion {
+    constexpr EntryUnion() : _constinit_{} {}
+      ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized _constinit_;
+    ::service_layer::SLRoutev4* ipv4route_;
+    ::service_layer::SLRoutev6* ipv6route_;
+    ::service_layer::SLPathGroup* pathgroup_;
+  } entry_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  uint32_t _oneof_case_[1];
+
+  friend struct ::TableStruct_sl_5faf_2eproto;
+};
+// -------------------------------------------------------------------
+
+class SLAFOp final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:service_layer.SLAFOp) */ {
+ public:
+  inline SLAFOp() : SLAFOp(nullptr) {}
+  ~SLAFOp() override;
+  explicit constexpr SLAFOp(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  SLAFOp(const SLAFOp& from);
+  SLAFOp(SLAFOp&& from) noexcept
+    : SLAFOp() {
+    *this = ::std::move(from);
+  }
+
+  inline SLAFOp& operator=(const SLAFOp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline SLAFOp& operator=(SLAFOp&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const SLAFOp& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const SLAFOp* internal_default_instance() {
+    return reinterpret_cast<const SLAFOp*>(
+               &_SLAFOp_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    8;
+
+  friend void swap(SLAFOp& a, SLAFOp& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(SLAFOp* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(SLAFOp* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  SLAFOp* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<SLAFOp>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const SLAFOp& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom(const SLAFOp& from);
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to, const ::PROTOBUF_NAMESPACE_ID::Message& from);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(SLAFOp* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "service_layer.SLAFOp";
+  }
+  protected:
+  explicit SLAFOp(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kAFObjectFieldNumber = 1,
+    kOperationIDFieldNumber = 2,
+  };
+  // .service_layer.SLAFObject AFObject = 1;
+  bool has_afobject() const;
+  private:
+  bool _internal_has_afobject() const;
+  public:
+  void clear_afobject();
+  const ::service_layer::SLAFObject& afobject() const;
+  PROTOBUF_NODISCARD ::service_layer::SLAFObject* release_afobject();
+  ::service_layer::SLAFObject* mutable_afobject();
+  void set_allocated_afobject(::service_layer::SLAFObject* afobject);
+  private:
+  const ::service_layer::SLAFObject& _internal_afobject() const;
+  ::service_layer::SLAFObject* _internal_mutable_afobject();
+  public:
+  void unsafe_arena_set_allocated_afobject(
+      ::service_layer::SLAFObject* afobject);
+  ::service_layer::SLAFObject* unsafe_arena_release_afobject();
+
+  // uint64 OperationID = 2;
+  void clear_operationid();
+  uint64_t operationid() const;
+  void set_operationid(uint64_t value);
+  private:
+  uint64_t _internal_operationid() const;
+  void _internal_set_operationid(uint64_t value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:service_layer.SLAFOp)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::service_layer::SLAFObject* afobject_;
+  uint64_t operationid_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_sl_5faf_2eproto;
+};
+// -------------------------------------------------------------------
+
+class SLAFMsg final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:service_layer.SLAFMsg) */ {
+ public:
+  inline SLAFMsg() : SLAFMsg(nullptr) {}
+  ~SLAFMsg() override;
+  explicit constexpr SLAFMsg(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  SLAFMsg(const SLAFMsg& from);
+  SLAFMsg(SLAFMsg&& from) noexcept
+    : SLAFMsg() {
+    *this = ::std::move(from);
+  }
+
+  inline SLAFMsg& operator=(const SLAFMsg& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline SLAFMsg& operator=(SLAFMsg&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const SLAFMsg& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const SLAFMsg* internal_default_instance() {
+    return reinterpret_cast<const SLAFMsg*>(
+               &_SLAFMsg_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    9;
+
+  friend void swap(SLAFMsg& a, SLAFMsg& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(SLAFMsg* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(SLAFMsg* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  SLAFMsg* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<SLAFMsg>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const SLAFMsg& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom(const SLAFMsg& from);
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to, const ::PROTOBUF_NAMESPACE_ID::Message& from);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(SLAFMsg* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "service_layer.SLAFMsg";
+  }
+  protected:
+  explicit SLAFMsg(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kOpListFieldNumber = 4,
+    kVrfNameFieldNumber = 2,
+    kOperFieldNumber = 1,
+    kAckTypeFieldNumber = 3,
+  };
+  // repeated .service_layer.SLAFOp OpList = 4;
+  int oplist_size() const;
+  private:
+  int _internal_oplist_size() const;
+  public:
+  void clear_oplist();
+  ::service_layer::SLAFOp* mutable_oplist(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::service_layer::SLAFOp >*
+      mutable_oplist();
+  private:
+  const ::service_layer::SLAFOp& _internal_oplist(int index) const;
+  ::service_layer::SLAFOp* _internal_add_oplist();
+  public:
+  const ::service_layer::SLAFOp& oplist(int index) const;
+  ::service_layer::SLAFOp* add_oplist();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::service_layer::SLAFOp >&
+      oplist() const;
+
+  // string VrfName = 2;
+  void clear_vrfname();
+  const std::string& vrfname() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_vrfname(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_vrfname();
+  PROTOBUF_NODISCARD std::string* release_vrfname();
+  void set_allocated_vrfname(std::string* vrfname);
+  private:
+  const std::string& _internal_vrfname() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_vrfname(const std::string& value);
+  std::string* _internal_mutable_vrfname();
+  public:
+
+  // .service_layer.SLObjectOp Oper = 1;
+  void clear_oper();
+  ::service_layer::SLObjectOp oper() const;
+  void set_oper(::service_layer::SLObjectOp value);
+  private:
+  ::service_layer::SLObjectOp _internal_oper() const;
+  void _internal_set_oper(::service_layer::SLObjectOp value);
+  public:
+
+  // .service_layer.SLRspACKType AckType = 3;
+  void clear_acktype();
+  ::service_layer::SLRspACKType acktype() const;
+  void set_acktype(::service_layer::SLRspACKType value);
+  private:
+  ::service_layer::SLRspACKType _internal_acktype() const;
+  void _internal_set_acktype(::service_layer::SLRspACKType value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:service_layer.SLAFMsg)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::service_layer::SLAFOp > oplist_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr vrfname_;
+  int oper_;
+  int acktype_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_sl_5faf_2eproto;
+};
+// -------------------------------------------------------------------
+
+class SLAFRes final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:service_layer.SLAFRes) */ {
+ public:
+  inline SLAFRes() : SLAFRes(nullptr) {}
+  ~SLAFRes() override;
+  explicit constexpr SLAFRes(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  SLAFRes(const SLAFRes& from);
+  SLAFRes(SLAFRes&& from) noexcept
+    : SLAFRes() {
+    *this = ::std::move(from);
+  }
+
+  inline SLAFRes& operator=(const SLAFRes& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline SLAFRes& operator=(SLAFRes&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const SLAFRes& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const SLAFRes* internal_default_instance() {
+    return reinterpret_cast<const SLAFRes*>(
+               &_SLAFRes_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    10;
+
+  friend void swap(SLAFRes& a, SLAFRes& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(SLAFRes* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(SLAFRes* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  SLAFRes* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<SLAFRes>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const SLAFRes& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom(const SLAFRes& from);
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to, const ::PROTOBUF_NAMESPACE_ID::Message& from);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(SLAFRes* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "service_layer.SLAFRes";
+  }
+  protected:
+  explicit SLAFRes(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kErrStatusFieldNumber = 1,
+    kOperationIDFieldNumber = 2,
+  };
+  // .service_layer.SLErrorStatus ErrStatus = 1;
+  bool has_errstatus() const;
+  private:
+  bool _internal_has_errstatus() const;
+  public:
+  void clear_errstatus();
+  const ::service_layer::SLErrorStatus& errstatus() const;
+  PROTOBUF_NODISCARD ::service_layer::SLErrorStatus* release_errstatus();
+  ::service_layer::SLErrorStatus* mutable_errstatus();
+  void set_allocated_errstatus(::service_layer::SLErrorStatus* errstatus);
+  private:
+  const ::service_layer::SLErrorStatus& _internal_errstatus() const;
+  ::service_layer::SLErrorStatus* _internal_mutable_errstatus();
+  public:
+  void unsafe_arena_set_allocated_errstatus(
+      ::service_layer::SLErrorStatus* errstatus);
+  ::service_layer::SLErrorStatus* unsafe_arena_release_errstatus();
+
+  // uint64 OperationID = 2;
+  void clear_operationid();
+  uint64_t operationid() const;
+  void set_operationid(uint64_t value);
+  private:
+  uint64_t _internal_operationid() const;
+  void _internal_set_operationid(uint64_t value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:service_layer.SLAFRes)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::service_layer::SLErrorStatus* errstatus_;
+  uint64_t operationid_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_sl_5faf_2eproto;
+};
+// -------------------------------------------------------------------
+
+class SLAFMsgRsp final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:service_layer.SLAFMsgRsp) */ {
+ public:
+  inline SLAFMsgRsp() : SLAFMsgRsp(nullptr) {}
+  ~SLAFMsgRsp() override;
+  explicit constexpr SLAFMsgRsp(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  SLAFMsgRsp(const SLAFMsgRsp& from);
+  SLAFMsgRsp(SLAFMsgRsp&& from) noexcept
+    : SLAFMsgRsp() {
+    *this = ::std::move(from);
+  }
+
+  inline SLAFMsgRsp& operator=(const SLAFMsgRsp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline SLAFMsgRsp& operator=(SLAFMsgRsp&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const SLAFMsgRsp& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const SLAFMsgRsp* internal_default_instance() {
+    return reinterpret_cast<const SLAFMsgRsp*>(
+               &_SLAFMsgRsp_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    11;
+
+  friend void swap(SLAFMsgRsp& a, SLAFMsgRsp& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(SLAFMsgRsp* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(SLAFMsgRsp* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  SLAFMsgRsp* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<SLAFMsgRsp>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const SLAFMsgRsp& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom(const SLAFMsgRsp& from);
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to, const ::PROTOBUF_NAMESPACE_ID::Message& from);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(SLAFMsgRsp* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "service_layer.SLAFMsgRsp";
+  }
+  protected:
+  explicit SLAFMsgRsp(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kResultsFieldNumber = 2,
+    kStatusSummaryFieldNumber = 1,
+  };
+  // repeated .service_layer.SLAFRes Results = 2;
+  int results_size() const;
+  private:
+  int _internal_results_size() const;
+  public:
+  void clear_results();
+  ::service_layer::SLAFRes* mutable_results(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::service_layer::SLAFRes >*
+      mutable_results();
+  private:
+  const ::service_layer::SLAFRes& _internal_results(int index) const;
+  ::service_layer::SLAFRes* _internal_add_results();
+  public:
+  const ::service_layer::SLAFRes& results(int index) const;
+  ::service_layer::SLAFRes* add_results();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::service_layer::SLAFRes >&
+      results() const;
+
+  // .service_layer.SLErrorStatus StatusSummary = 1;
+  bool has_statussummary() const;
+  private:
+  bool _internal_has_statussummary() const;
+  public:
+  void clear_statussummary();
+  const ::service_layer::SLErrorStatus& statussummary() const;
+  PROTOBUF_NODISCARD ::service_layer::SLErrorStatus* release_statussummary();
+  ::service_layer::SLErrorStatus* mutable_statussummary();
+  void set_allocated_statussummary(::service_layer::SLErrorStatus* statussummary);
+  private:
+  const ::service_layer::SLErrorStatus& _internal_statussummary() const;
+  ::service_layer::SLErrorStatus* _internal_mutable_statussummary();
+  public:
+  void unsafe_arena_set_allocated_statussummary(
+      ::service_layer::SLErrorStatus* statussummary);
+  ::service_layer::SLErrorStatus* unsafe_arena_release_statussummary();
+
+  // @@protoc_insertion_point(class_scope:service_layer.SLAFMsgRsp)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::service_layer::SLAFRes > results_;
+  ::service_layer::SLErrorStatus* statussummary_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_sl_5faf_2eproto;
+};
 // ===================================================================
 
 
@@ -1238,9 +2704,1060 @@ SLAFVrfRegMsgRsp::results() const {
   return results_;
 }
 
+// -------------------------------------------------------------------
+
+// SLPathGroup_SLPath
+
+// .service_layer.SLRoutePath Path = 1;
+inline bool SLPathGroup_SLPath::_internal_has_path() const {
+  return this != internal_default_instance() && path_ != nullptr;
+}
+inline bool SLPathGroup_SLPath::has_path() const {
+  return _internal_has_path();
+}
+inline const ::service_layer::SLRoutePath& SLPathGroup_SLPath::_internal_path() const {
+  const ::service_layer::SLRoutePath* p = path_;
+  return p != nullptr ? *p : reinterpret_cast<const ::service_layer::SLRoutePath&>(
+      ::service_layer::_SLRoutePath_default_instance_);
+}
+inline const ::service_layer::SLRoutePath& SLPathGroup_SLPath::path() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLPathGroup.SLPath.Path)
+  return _internal_path();
+}
+inline void SLPathGroup_SLPath::unsafe_arena_set_allocated_path(
+    ::service_layer::SLRoutePath* path) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(path_);
+  }
+  path_ = path;
+  if (path) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:service_layer.SLPathGroup.SLPath.Path)
+}
+inline ::service_layer::SLRoutePath* SLPathGroup_SLPath::release_path() {
+  
+  ::service_layer::SLRoutePath* temp = path_;
+  path_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::service_layer::SLRoutePath* SLPathGroup_SLPath::unsafe_arena_release_path() {
+  // @@protoc_insertion_point(field_release:service_layer.SLPathGroup.SLPath.Path)
+  
+  ::service_layer::SLRoutePath* temp = path_;
+  path_ = nullptr;
+  return temp;
+}
+inline ::service_layer::SLRoutePath* SLPathGroup_SLPath::_internal_mutable_path() {
+  
+  if (path_ == nullptr) {
+    auto* p = CreateMaybeMessage<::service_layer::SLRoutePath>(GetArenaForAllocation());
+    path_ = p;
+  }
+  return path_;
+}
+inline ::service_layer::SLRoutePath* SLPathGroup_SLPath::mutable_path() {
+  ::service_layer::SLRoutePath* _msg = _internal_mutable_path();
+  // @@protoc_insertion_point(field_mutable:service_layer.SLPathGroup.SLPath.Path)
+  return _msg;
+}
+inline void SLPathGroup_SLPath::set_allocated_path(::service_layer::SLRoutePath* path) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(path_);
+  }
+  if (path) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper<
+            ::PROTOBUF_NAMESPACE_ID::MessageLite>::GetOwningArena(
+                reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(path));
+    if (message_arena != submessage_arena) {
+      path = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, path, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  path_ = path;
+  // @@protoc_insertion_point(field_set_allocated:service_layer.SLPathGroup.SLPath.Path)
+}
+
+// -------------------------------------------------------------------
+
+// SLPathGroup_SLPathList
+
+// repeated .service_layer.SLPathGroup.SLPath Paths = 1;
+inline int SLPathGroup_SLPathList::_internal_paths_size() const {
+  return paths_.size();
+}
+inline int SLPathGroup_SLPathList::paths_size() const {
+  return _internal_paths_size();
+}
+inline void SLPathGroup_SLPathList::clear_paths() {
+  paths_.Clear();
+}
+inline ::service_layer::SLPathGroup_SLPath* SLPathGroup_SLPathList::mutable_paths(int index) {
+  // @@protoc_insertion_point(field_mutable:service_layer.SLPathGroup.SLPathList.Paths)
+  return paths_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::service_layer::SLPathGroup_SLPath >*
+SLPathGroup_SLPathList::mutable_paths() {
+  // @@protoc_insertion_point(field_mutable_list:service_layer.SLPathGroup.SLPathList.Paths)
+  return &paths_;
+}
+inline const ::service_layer::SLPathGroup_SLPath& SLPathGroup_SLPathList::_internal_paths(int index) const {
+  return paths_.Get(index);
+}
+inline const ::service_layer::SLPathGroup_SLPath& SLPathGroup_SLPathList::paths(int index) const {
+  // @@protoc_insertion_point(field_get:service_layer.SLPathGroup.SLPathList.Paths)
+  return _internal_paths(index);
+}
+inline ::service_layer::SLPathGroup_SLPath* SLPathGroup_SLPathList::_internal_add_paths() {
+  return paths_.Add();
+}
+inline ::service_layer::SLPathGroup_SLPath* SLPathGroup_SLPathList::add_paths() {
+  ::service_layer::SLPathGroup_SLPath* _add = _internal_add_paths();
+  // @@protoc_insertion_point(field_add:service_layer.SLPathGroup.SLPathList.Paths)
+  return _add;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::service_layer::SLPathGroup_SLPath >&
+SLPathGroup_SLPathList::paths() const {
+  // @@protoc_insertion_point(field_list:service_layer.SLPathGroup.SLPathList.Paths)
+  return paths_;
+}
+
+// -------------------------------------------------------------------
+
+// SLPathGroup
+
+// .service_layer.SLObjectId PathGroupId = 1;
+inline bool SLPathGroup::_internal_has_pathgroupid() const {
+  return this != internal_default_instance() && pathgroupid_ != nullptr;
+}
+inline bool SLPathGroup::has_pathgroupid() const {
+  return _internal_has_pathgroupid();
+}
+inline const ::service_layer::SLObjectId& SLPathGroup::_internal_pathgroupid() const {
+  const ::service_layer::SLObjectId* p = pathgroupid_;
+  return p != nullptr ? *p : reinterpret_cast<const ::service_layer::SLObjectId&>(
+      ::service_layer::_SLObjectId_default_instance_);
+}
+inline const ::service_layer::SLObjectId& SLPathGroup::pathgroupid() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLPathGroup.PathGroupId)
+  return _internal_pathgroupid();
+}
+inline void SLPathGroup::unsafe_arena_set_allocated_pathgroupid(
+    ::service_layer::SLObjectId* pathgroupid) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(pathgroupid_);
+  }
+  pathgroupid_ = pathgroupid;
+  if (pathgroupid) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:service_layer.SLPathGroup.PathGroupId)
+}
+inline ::service_layer::SLObjectId* SLPathGroup::release_pathgroupid() {
+  
+  ::service_layer::SLObjectId* temp = pathgroupid_;
+  pathgroupid_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::service_layer::SLObjectId* SLPathGroup::unsafe_arena_release_pathgroupid() {
+  // @@protoc_insertion_point(field_release:service_layer.SLPathGroup.PathGroupId)
+  
+  ::service_layer::SLObjectId* temp = pathgroupid_;
+  pathgroupid_ = nullptr;
+  return temp;
+}
+inline ::service_layer::SLObjectId* SLPathGroup::_internal_mutable_pathgroupid() {
+  
+  if (pathgroupid_ == nullptr) {
+    auto* p = CreateMaybeMessage<::service_layer::SLObjectId>(GetArenaForAllocation());
+    pathgroupid_ = p;
+  }
+  return pathgroupid_;
+}
+inline ::service_layer::SLObjectId* SLPathGroup::mutable_pathgroupid() {
+  ::service_layer::SLObjectId* _msg = _internal_mutable_pathgroupid();
+  // @@protoc_insertion_point(field_mutable:service_layer.SLPathGroup.PathGroupId)
+  return _msg;
+}
+inline void SLPathGroup::set_allocated_pathgroupid(::service_layer::SLObjectId* pathgroupid) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(pathgroupid_);
+  }
+  if (pathgroupid) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper<
+            ::PROTOBUF_NAMESPACE_ID::MessageLite>::GetOwningArena(
+                reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(pathgroupid));
+    if (message_arena != submessage_arena) {
+      pathgroupid = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, pathgroupid, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  pathgroupid_ = pathgroupid;
+  // @@protoc_insertion_point(field_set_allocated:service_layer.SLPathGroup.PathGroupId)
+}
+
+// uint32 AdminDistance = 2;
+inline void SLPathGroup::clear_admindistance() {
+  admindistance_ = 0u;
+}
+inline uint32_t SLPathGroup::_internal_admindistance() const {
+  return admindistance_;
+}
+inline uint32_t SLPathGroup::admindistance() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLPathGroup.AdminDistance)
+  return _internal_admindistance();
+}
+inline void SLPathGroup::_internal_set_admindistance(uint32_t value) {
+  
+  admindistance_ = value;
+}
+inline void SLPathGroup::set_admindistance(uint32_t value) {
+  _internal_set_admindistance(value);
+  // @@protoc_insertion_point(field_set:service_layer.SLPathGroup.AdminDistance)
+}
+
+// .service_layer.SLPathGroup.SLPathList PathList = 3;
+inline bool SLPathGroup::_internal_has_pathlist() const {
+  return entry_case() == kPathList;
+}
+inline bool SLPathGroup::has_pathlist() const {
+  return _internal_has_pathlist();
+}
+inline void SLPathGroup::set_has_pathlist() {
+  _oneof_case_[0] = kPathList;
+}
+inline void SLPathGroup::clear_pathlist() {
+  if (_internal_has_pathlist()) {
+    if (GetArenaForAllocation() == nullptr) {
+      delete entry_.pathlist_;
+    }
+    clear_has_entry();
+  }
+}
+inline ::service_layer::SLPathGroup_SLPathList* SLPathGroup::release_pathlist() {
+  // @@protoc_insertion_point(field_release:service_layer.SLPathGroup.PathList)
+  if (_internal_has_pathlist()) {
+    clear_has_entry();
+      ::service_layer::SLPathGroup_SLPathList* temp = entry_.pathlist_;
+    if (GetArenaForAllocation() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    entry_.pathlist_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::service_layer::SLPathGroup_SLPathList& SLPathGroup::_internal_pathlist() const {
+  return _internal_has_pathlist()
+      ? *entry_.pathlist_
+      : reinterpret_cast< ::service_layer::SLPathGroup_SLPathList&>(::service_layer::_SLPathGroup_SLPathList_default_instance_);
+}
+inline const ::service_layer::SLPathGroup_SLPathList& SLPathGroup::pathlist() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLPathGroup.PathList)
+  return _internal_pathlist();
+}
+inline ::service_layer::SLPathGroup_SLPathList* SLPathGroup::unsafe_arena_release_pathlist() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:service_layer.SLPathGroup.PathList)
+  if (_internal_has_pathlist()) {
+    clear_has_entry();
+    ::service_layer::SLPathGroup_SLPathList* temp = entry_.pathlist_;
+    entry_.pathlist_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void SLPathGroup::unsafe_arena_set_allocated_pathlist(::service_layer::SLPathGroup_SLPathList* pathlist) {
+  clear_entry();
+  if (pathlist) {
+    set_has_pathlist();
+    entry_.pathlist_ = pathlist;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:service_layer.SLPathGroup.PathList)
+}
+inline ::service_layer::SLPathGroup_SLPathList* SLPathGroup::_internal_mutable_pathlist() {
+  if (!_internal_has_pathlist()) {
+    clear_entry();
+    set_has_pathlist();
+    entry_.pathlist_ = CreateMaybeMessage< ::service_layer::SLPathGroup_SLPathList >(GetArenaForAllocation());
+  }
+  return entry_.pathlist_;
+}
+inline ::service_layer::SLPathGroup_SLPathList* SLPathGroup::mutable_pathlist() {
+  ::service_layer::SLPathGroup_SLPathList* _msg = _internal_mutable_pathlist();
+  // @@protoc_insertion_point(field_mutable:service_layer.SLPathGroup.PathList)
+  return _msg;
+}
+
+inline bool SLPathGroup::has_entry() const {
+  return entry_case() != ENTRY_NOT_SET;
+}
+inline void SLPathGroup::clear_has_entry() {
+  _oneof_case_[0] = ENTRY_NOT_SET;
+}
+inline SLPathGroup::EntryCase SLPathGroup::entry_case() const {
+  return SLPathGroup::EntryCase(_oneof_case_[0]);
+}
+// -------------------------------------------------------------------
+
+// SLAFObject
+
+// .service_layer.SLRoutev4 IPv4Route = 1;
+inline bool SLAFObject::_internal_has_ipv4route() const {
+  return entry_case() == kIPv4Route;
+}
+inline bool SLAFObject::has_ipv4route() const {
+  return _internal_has_ipv4route();
+}
+inline void SLAFObject::set_has_ipv4route() {
+  _oneof_case_[0] = kIPv4Route;
+}
+inline ::service_layer::SLRoutev4* SLAFObject::release_ipv4route() {
+  // @@protoc_insertion_point(field_release:service_layer.SLAFObject.IPv4Route)
+  if (_internal_has_ipv4route()) {
+    clear_has_entry();
+      ::service_layer::SLRoutev4* temp = entry_.ipv4route_;
+    if (GetArenaForAllocation() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    entry_.ipv4route_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::service_layer::SLRoutev4& SLAFObject::_internal_ipv4route() const {
+  return _internal_has_ipv4route()
+      ? *entry_.ipv4route_
+      : reinterpret_cast< ::service_layer::SLRoutev4&>(::service_layer::_SLRoutev4_default_instance_);
+}
+inline const ::service_layer::SLRoutev4& SLAFObject::ipv4route() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLAFObject.IPv4Route)
+  return _internal_ipv4route();
+}
+inline ::service_layer::SLRoutev4* SLAFObject::unsafe_arena_release_ipv4route() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:service_layer.SLAFObject.IPv4Route)
+  if (_internal_has_ipv4route()) {
+    clear_has_entry();
+    ::service_layer::SLRoutev4* temp = entry_.ipv4route_;
+    entry_.ipv4route_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void SLAFObject::unsafe_arena_set_allocated_ipv4route(::service_layer::SLRoutev4* ipv4route) {
+  clear_entry();
+  if (ipv4route) {
+    set_has_ipv4route();
+    entry_.ipv4route_ = ipv4route;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:service_layer.SLAFObject.IPv4Route)
+}
+inline ::service_layer::SLRoutev4* SLAFObject::_internal_mutable_ipv4route() {
+  if (!_internal_has_ipv4route()) {
+    clear_entry();
+    set_has_ipv4route();
+    entry_.ipv4route_ = CreateMaybeMessage< ::service_layer::SLRoutev4 >(GetArenaForAllocation());
+  }
+  return entry_.ipv4route_;
+}
+inline ::service_layer::SLRoutev4* SLAFObject::mutable_ipv4route() {
+  ::service_layer::SLRoutev4* _msg = _internal_mutable_ipv4route();
+  // @@protoc_insertion_point(field_mutable:service_layer.SLAFObject.IPv4Route)
+  return _msg;
+}
+
+// .service_layer.SLRoutev6 IPv6Route = 2;
+inline bool SLAFObject::_internal_has_ipv6route() const {
+  return entry_case() == kIPv6Route;
+}
+inline bool SLAFObject::has_ipv6route() const {
+  return _internal_has_ipv6route();
+}
+inline void SLAFObject::set_has_ipv6route() {
+  _oneof_case_[0] = kIPv6Route;
+}
+inline ::service_layer::SLRoutev6* SLAFObject::release_ipv6route() {
+  // @@protoc_insertion_point(field_release:service_layer.SLAFObject.IPv6Route)
+  if (_internal_has_ipv6route()) {
+    clear_has_entry();
+      ::service_layer::SLRoutev6* temp = entry_.ipv6route_;
+    if (GetArenaForAllocation() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    entry_.ipv6route_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::service_layer::SLRoutev6& SLAFObject::_internal_ipv6route() const {
+  return _internal_has_ipv6route()
+      ? *entry_.ipv6route_
+      : reinterpret_cast< ::service_layer::SLRoutev6&>(::service_layer::_SLRoutev6_default_instance_);
+}
+inline const ::service_layer::SLRoutev6& SLAFObject::ipv6route() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLAFObject.IPv6Route)
+  return _internal_ipv6route();
+}
+inline ::service_layer::SLRoutev6* SLAFObject::unsafe_arena_release_ipv6route() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:service_layer.SLAFObject.IPv6Route)
+  if (_internal_has_ipv6route()) {
+    clear_has_entry();
+    ::service_layer::SLRoutev6* temp = entry_.ipv6route_;
+    entry_.ipv6route_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void SLAFObject::unsafe_arena_set_allocated_ipv6route(::service_layer::SLRoutev6* ipv6route) {
+  clear_entry();
+  if (ipv6route) {
+    set_has_ipv6route();
+    entry_.ipv6route_ = ipv6route;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:service_layer.SLAFObject.IPv6Route)
+}
+inline ::service_layer::SLRoutev6* SLAFObject::_internal_mutable_ipv6route() {
+  if (!_internal_has_ipv6route()) {
+    clear_entry();
+    set_has_ipv6route();
+    entry_.ipv6route_ = CreateMaybeMessage< ::service_layer::SLRoutev6 >(GetArenaForAllocation());
+  }
+  return entry_.ipv6route_;
+}
+inline ::service_layer::SLRoutev6* SLAFObject::mutable_ipv6route() {
+  ::service_layer::SLRoutev6* _msg = _internal_mutable_ipv6route();
+  // @@protoc_insertion_point(field_mutable:service_layer.SLAFObject.IPv6Route)
+  return _msg;
+}
+
+// .service_layer.SLPathGroup PathGroup = 4;
+inline bool SLAFObject::_internal_has_pathgroup() const {
+  return entry_case() == kPathGroup;
+}
+inline bool SLAFObject::has_pathgroup() const {
+  return _internal_has_pathgroup();
+}
+inline void SLAFObject::set_has_pathgroup() {
+  _oneof_case_[0] = kPathGroup;
+}
+inline void SLAFObject::clear_pathgroup() {
+  if (_internal_has_pathgroup()) {
+    if (GetArenaForAllocation() == nullptr) {
+      delete entry_.pathgroup_;
+    }
+    clear_has_entry();
+  }
+}
+inline ::service_layer::SLPathGroup* SLAFObject::release_pathgroup() {
+  // @@protoc_insertion_point(field_release:service_layer.SLAFObject.PathGroup)
+  if (_internal_has_pathgroup()) {
+    clear_has_entry();
+      ::service_layer::SLPathGroup* temp = entry_.pathgroup_;
+    if (GetArenaForAllocation() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    entry_.pathgroup_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::service_layer::SLPathGroup& SLAFObject::_internal_pathgroup() const {
+  return _internal_has_pathgroup()
+      ? *entry_.pathgroup_
+      : reinterpret_cast< ::service_layer::SLPathGroup&>(::service_layer::_SLPathGroup_default_instance_);
+}
+inline const ::service_layer::SLPathGroup& SLAFObject::pathgroup() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLAFObject.PathGroup)
+  return _internal_pathgroup();
+}
+inline ::service_layer::SLPathGroup* SLAFObject::unsafe_arena_release_pathgroup() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:service_layer.SLAFObject.PathGroup)
+  if (_internal_has_pathgroup()) {
+    clear_has_entry();
+    ::service_layer::SLPathGroup* temp = entry_.pathgroup_;
+    entry_.pathgroup_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void SLAFObject::unsafe_arena_set_allocated_pathgroup(::service_layer::SLPathGroup* pathgroup) {
+  clear_entry();
+  if (pathgroup) {
+    set_has_pathgroup();
+    entry_.pathgroup_ = pathgroup;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:service_layer.SLAFObject.PathGroup)
+}
+inline ::service_layer::SLPathGroup* SLAFObject::_internal_mutable_pathgroup() {
+  if (!_internal_has_pathgroup()) {
+    clear_entry();
+    set_has_pathgroup();
+    entry_.pathgroup_ = CreateMaybeMessage< ::service_layer::SLPathGroup >(GetArenaForAllocation());
+  }
+  return entry_.pathgroup_;
+}
+inline ::service_layer::SLPathGroup* SLAFObject::mutable_pathgroup() {
+  ::service_layer::SLPathGroup* _msg = _internal_mutable_pathgroup();
+  // @@protoc_insertion_point(field_mutable:service_layer.SLAFObject.PathGroup)
+  return _msg;
+}
+
+inline bool SLAFObject::has_entry() const {
+  return entry_case() != ENTRY_NOT_SET;
+}
+inline void SLAFObject::clear_has_entry() {
+  _oneof_case_[0] = ENTRY_NOT_SET;
+}
+inline SLAFObject::EntryCase SLAFObject::entry_case() const {
+  return SLAFObject::EntryCase(_oneof_case_[0]);
+}
+// -------------------------------------------------------------------
+
+// SLAFOp
+
+// .service_layer.SLAFObject AFObject = 1;
+inline bool SLAFOp::_internal_has_afobject() const {
+  return this != internal_default_instance() && afobject_ != nullptr;
+}
+inline bool SLAFOp::has_afobject() const {
+  return _internal_has_afobject();
+}
+inline void SLAFOp::clear_afobject() {
+  if (GetArenaForAllocation() == nullptr && afobject_ != nullptr) {
+    delete afobject_;
+  }
+  afobject_ = nullptr;
+}
+inline const ::service_layer::SLAFObject& SLAFOp::_internal_afobject() const {
+  const ::service_layer::SLAFObject* p = afobject_;
+  return p != nullptr ? *p : reinterpret_cast<const ::service_layer::SLAFObject&>(
+      ::service_layer::_SLAFObject_default_instance_);
+}
+inline const ::service_layer::SLAFObject& SLAFOp::afobject() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLAFOp.AFObject)
+  return _internal_afobject();
+}
+inline void SLAFOp::unsafe_arena_set_allocated_afobject(
+    ::service_layer::SLAFObject* afobject) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(afobject_);
+  }
+  afobject_ = afobject;
+  if (afobject) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:service_layer.SLAFOp.AFObject)
+}
+inline ::service_layer::SLAFObject* SLAFOp::release_afobject() {
+  
+  ::service_layer::SLAFObject* temp = afobject_;
+  afobject_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::service_layer::SLAFObject* SLAFOp::unsafe_arena_release_afobject() {
+  // @@protoc_insertion_point(field_release:service_layer.SLAFOp.AFObject)
+  
+  ::service_layer::SLAFObject* temp = afobject_;
+  afobject_ = nullptr;
+  return temp;
+}
+inline ::service_layer::SLAFObject* SLAFOp::_internal_mutable_afobject() {
+  
+  if (afobject_ == nullptr) {
+    auto* p = CreateMaybeMessage<::service_layer::SLAFObject>(GetArenaForAllocation());
+    afobject_ = p;
+  }
+  return afobject_;
+}
+inline ::service_layer::SLAFObject* SLAFOp::mutable_afobject() {
+  ::service_layer::SLAFObject* _msg = _internal_mutable_afobject();
+  // @@protoc_insertion_point(field_mutable:service_layer.SLAFOp.AFObject)
+  return _msg;
+}
+inline void SLAFOp::set_allocated_afobject(::service_layer::SLAFObject* afobject) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete afobject_;
+  }
+  if (afobject) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper<::service_layer::SLAFObject>::GetOwningArena(afobject);
+    if (message_arena != submessage_arena) {
+      afobject = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, afobject, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  afobject_ = afobject;
+  // @@protoc_insertion_point(field_set_allocated:service_layer.SLAFOp.AFObject)
+}
+
+// uint64 OperationID = 2;
+inline void SLAFOp::clear_operationid() {
+  operationid_ = uint64_t{0u};
+}
+inline uint64_t SLAFOp::_internal_operationid() const {
+  return operationid_;
+}
+inline uint64_t SLAFOp::operationid() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLAFOp.OperationID)
+  return _internal_operationid();
+}
+inline void SLAFOp::_internal_set_operationid(uint64_t value) {
+  
+  operationid_ = value;
+}
+inline void SLAFOp::set_operationid(uint64_t value) {
+  _internal_set_operationid(value);
+  // @@protoc_insertion_point(field_set:service_layer.SLAFOp.OperationID)
+}
+
+// -------------------------------------------------------------------
+
+// SLAFMsg
+
+// .service_layer.SLObjectOp Oper = 1;
+inline void SLAFMsg::clear_oper() {
+  oper_ = 0;
+}
+inline ::service_layer::SLObjectOp SLAFMsg::_internal_oper() const {
+  return static_cast< ::service_layer::SLObjectOp >(oper_);
+}
+inline ::service_layer::SLObjectOp SLAFMsg::oper() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLAFMsg.Oper)
+  return _internal_oper();
+}
+inline void SLAFMsg::_internal_set_oper(::service_layer::SLObjectOp value) {
+  
+  oper_ = value;
+}
+inline void SLAFMsg::set_oper(::service_layer::SLObjectOp value) {
+  _internal_set_oper(value);
+  // @@protoc_insertion_point(field_set:service_layer.SLAFMsg.Oper)
+}
+
+// string VrfName = 2;
+inline void SLAFMsg::clear_vrfname() {
+  vrfname_.ClearToEmpty();
+}
+inline const std::string& SLAFMsg::vrfname() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLAFMsg.VrfName)
+  return _internal_vrfname();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void SLAFMsg::set_vrfname(ArgT0&& arg0, ArgT... args) {
+ 
+ vrfname_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:service_layer.SLAFMsg.VrfName)
+}
+inline std::string* SLAFMsg::mutable_vrfname() {
+  std::string* _s = _internal_mutable_vrfname();
+  // @@protoc_insertion_point(field_mutable:service_layer.SLAFMsg.VrfName)
+  return _s;
+}
+inline const std::string& SLAFMsg::_internal_vrfname() const {
+  return vrfname_.Get();
+}
+inline void SLAFMsg::_internal_set_vrfname(const std::string& value) {
+  
+  vrfname_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArenaForAllocation());
+}
+inline std::string* SLAFMsg::_internal_mutable_vrfname() {
+  
+  return vrfname_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
+}
+inline std::string* SLAFMsg::release_vrfname() {
+  // @@protoc_insertion_point(field_release:service_layer.SLAFMsg.VrfName)
+  return vrfname_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArenaForAllocation());
+}
+inline void SLAFMsg::set_allocated_vrfname(std::string* vrfname) {
+  if (vrfname != nullptr) {
+    
+  } else {
+    
+  }
+  vrfname_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), vrfname,
+      GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (vrfname_.IsDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited())) {
+    vrfname_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:service_layer.SLAFMsg.VrfName)
+}
+
+// .service_layer.SLRspACKType AckType = 3;
+inline void SLAFMsg::clear_acktype() {
+  acktype_ = 0;
+}
+inline ::service_layer::SLRspACKType SLAFMsg::_internal_acktype() const {
+  return static_cast< ::service_layer::SLRspACKType >(acktype_);
+}
+inline ::service_layer::SLRspACKType SLAFMsg::acktype() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLAFMsg.AckType)
+  return _internal_acktype();
+}
+inline void SLAFMsg::_internal_set_acktype(::service_layer::SLRspACKType value) {
+  
+  acktype_ = value;
+}
+inline void SLAFMsg::set_acktype(::service_layer::SLRspACKType value) {
+  _internal_set_acktype(value);
+  // @@protoc_insertion_point(field_set:service_layer.SLAFMsg.AckType)
+}
+
+// repeated .service_layer.SLAFOp OpList = 4;
+inline int SLAFMsg::_internal_oplist_size() const {
+  return oplist_.size();
+}
+inline int SLAFMsg::oplist_size() const {
+  return _internal_oplist_size();
+}
+inline void SLAFMsg::clear_oplist() {
+  oplist_.Clear();
+}
+inline ::service_layer::SLAFOp* SLAFMsg::mutable_oplist(int index) {
+  // @@protoc_insertion_point(field_mutable:service_layer.SLAFMsg.OpList)
+  return oplist_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::service_layer::SLAFOp >*
+SLAFMsg::mutable_oplist() {
+  // @@protoc_insertion_point(field_mutable_list:service_layer.SLAFMsg.OpList)
+  return &oplist_;
+}
+inline const ::service_layer::SLAFOp& SLAFMsg::_internal_oplist(int index) const {
+  return oplist_.Get(index);
+}
+inline const ::service_layer::SLAFOp& SLAFMsg::oplist(int index) const {
+  // @@protoc_insertion_point(field_get:service_layer.SLAFMsg.OpList)
+  return _internal_oplist(index);
+}
+inline ::service_layer::SLAFOp* SLAFMsg::_internal_add_oplist() {
+  return oplist_.Add();
+}
+inline ::service_layer::SLAFOp* SLAFMsg::add_oplist() {
+  ::service_layer::SLAFOp* _add = _internal_add_oplist();
+  // @@protoc_insertion_point(field_add:service_layer.SLAFMsg.OpList)
+  return _add;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::service_layer::SLAFOp >&
+SLAFMsg::oplist() const {
+  // @@protoc_insertion_point(field_list:service_layer.SLAFMsg.OpList)
+  return oplist_;
+}
+
+// -------------------------------------------------------------------
+
+// SLAFRes
+
+// .service_layer.SLErrorStatus ErrStatus = 1;
+inline bool SLAFRes::_internal_has_errstatus() const {
+  return this != internal_default_instance() && errstatus_ != nullptr;
+}
+inline bool SLAFRes::has_errstatus() const {
+  return _internal_has_errstatus();
+}
+inline const ::service_layer::SLErrorStatus& SLAFRes::_internal_errstatus() const {
+  const ::service_layer::SLErrorStatus* p = errstatus_;
+  return p != nullptr ? *p : reinterpret_cast<const ::service_layer::SLErrorStatus&>(
+      ::service_layer::_SLErrorStatus_default_instance_);
+}
+inline const ::service_layer::SLErrorStatus& SLAFRes::errstatus() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLAFRes.ErrStatus)
+  return _internal_errstatus();
+}
+inline void SLAFRes::unsafe_arena_set_allocated_errstatus(
+    ::service_layer::SLErrorStatus* errstatus) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(errstatus_);
+  }
+  errstatus_ = errstatus;
+  if (errstatus) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:service_layer.SLAFRes.ErrStatus)
+}
+inline ::service_layer::SLErrorStatus* SLAFRes::release_errstatus() {
+  
+  ::service_layer::SLErrorStatus* temp = errstatus_;
+  errstatus_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::service_layer::SLErrorStatus* SLAFRes::unsafe_arena_release_errstatus() {
+  // @@protoc_insertion_point(field_release:service_layer.SLAFRes.ErrStatus)
+  
+  ::service_layer::SLErrorStatus* temp = errstatus_;
+  errstatus_ = nullptr;
+  return temp;
+}
+inline ::service_layer::SLErrorStatus* SLAFRes::_internal_mutable_errstatus() {
+  
+  if (errstatus_ == nullptr) {
+    auto* p = CreateMaybeMessage<::service_layer::SLErrorStatus>(GetArenaForAllocation());
+    errstatus_ = p;
+  }
+  return errstatus_;
+}
+inline ::service_layer::SLErrorStatus* SLAFRes::mutable_errstatus() {
+  ::service_layer::SLErrorStatus* _msg = _internal_mutable_errstatus();
+  // @@protoc_insertion_point(field_mutable:service_layer.SLAFRes.ErrStatus)
+  return _msg;
+}
+inline void SLAFRes::set_allocated_errstatus(::service_layer::SLErrorStatus* errstatus) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(errstatus_);
+  }
+  if (errstatus) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper<
+            ::PROTOBUF_NAMESPACE_ID::MessageLite>::GetOwningArena(
+                reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(errstatus));
+    if (message_arena != submessage_arena) {
+      errstatus = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, errstatus, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  errstatus_ = errstatus;
+  // @@protoc_insertion_point(field_set_allocated:service_layer.SLAFRes.ErrStatus)
+}
+
+// uint64 OperationID = 2;
+inline void SLAFRes::clear_operationid() {
+  operationid_ = uint64_t{0u};
+}
+inline uint64_t SLAFRes::_internal_operationid() const {
+  return operationid_;
+}
+inline uint64_t SLAFRes::operationid() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLAFRes.OperationID)
+  return _internal_operationid();
+}
+inline void SLAFRes::_internal_set_operationid(uint64_t value) {
+  
+  operationid_ = value;
+}
+inline void SLAFRes::set_operationid(uint64_t value) {
+  _internal_set_operationid(value);
+  // @@protoc_insertion_point(field_set:service_layer.SLAFRes.OperationID)
+}
+
+// -------------------------------------------------------------------
+
+// SLAFMsgRsp
+
+// .service_layer.SLErrorStatus StatusSummary = 1;
+inline bool SLAFMsgRsp::_internal_has_statussummary() const {
+  return this != internal_default_instance() && statussummary_ != nullptr;
+}
+inline bool SLAFMsgRsp::has_statussummary() const {
+  return _internal_has_statussummary();
+}
+inline const ::service_layer::SLErrorStatus& SLAFMsgRsp::_internal_statussummary() const {
+  const ::service_layer::SLErrorStatus* p = statussummary_;
+  return p != nullptr ? *p : reinterpret_cast<const ::service_layer::SLErrorStatus&>(
+      ::service_layer::_SLErrorStatus_default_instance_);
+}
+inline const ::service_layer::SLErrorStatus& SLAFMsgRsp::statussummary() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLAFMsgRsp.StatusSummary)
+  return _internal_statussummary();
+}
+inline void SLAFMsgRsp::unsafe_arena_set_allocated_statussummary(
+    ::service_layer::SLErrorStatus* statussummary) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(statussummary_);
+  }
+  statussummary_ = statussummary;
+  if (statussummary) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:service_layer.SLAFMsgRsp.StatusSummary)
+}
+inline ::service_layer::SLErrorStatus* SLAFMsgRsp::release_statussummary() {
+  
+  ::service_layer::SLErrorStatus* temp = statussummary_;
+  statussummary_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::service_layer::SLErrorStatus* SLAFMsgRsp::unsafe_arena_release_statussummary() {
+  // @@protoc_insertion_point(field_release:service_layer.SLAFMsgRsp.StatusSummary)
+  
+  ::service_layer::SLErrorStatus* temp = statussummary_;
+  statussummary_ = nullptr;
+  return temp;
+}
+inline ::service_layer::SLErrorStatus* SLAFMsgRsp::_internal_mutable_statussummary() {
+  
+  if (statussummary_ == nullptr) {
+    auto* p = CreateMaybeMessage<::service_layer::SLErrorStatus>(GetArenaForAllocation());
+    statussummary_ = p;
+  }
+  return statussummary_;
+}
+inline ::service_layer::SLErrorStatus* SLAFMsgRsp::mutable_statussummary() {
+  ::service_layer::SLErrorStatus* _msg = _internal_mutable_statussummary();
+  // @@protoc_insertion_point(field_mutable:service_layer.SLAFMsgRsp.StatusSummary)
+  return _msg;
+}
+inline void SLAFMsgRsp::set_allocated_statussummary(::service_layer::SLErrorStatus* statussummary) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(statussummary_);
+  }
+  if (statussummary) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper<
+            ::PROTOBUF_NAMESPACE_ID::MessageLite>::GetOwningArena(
+                reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(statussummary));
+    if (message_arena != submessage_arena) {
+      statussummary = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, statussummary, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  statussummary_ = statussummary;
+  // @@protoc_insertion_point(field_set_allocated:service_layer.SLAFMsgRsp.StatusSummary)
+}
+
+// repeated .service_layer.SLAFRes Results = 2;
+inline int SLAFMsgRsp::_internal_results_size() const {
+  return results_.size();
+}
+inline int SLAFMsgRsp::results_size() const {
+  return _internal_results_size();
+}
+inline void SLAFMsgRsp::clear_results() {
+  results_.Clear();
+}
+inline ::service_layer::SLAFRes* SLAFMsgRsp::mutable_results(int index) {
+  // @@protoc_insertion_point(field_mutable:service_layer.SLAFMsgRsp.Results)
+  return results_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::service_layer::SLAFRes >*
+SLAFMsgRsp::mutable_results() {
+  // @@protoc_insertion_point(field_mutable_list:service_layer.SLAFMsgRsp.Results)
+  return &results_;
+}
+inline const ::service_layer::SLAFRes& SLAFMsgRsp::_internal_results(int index) const {
+  return results_.Get(index);
+}
+inline const ::service_layer::SLAFRes& SLAFMsgRsp::results(int index) const {
+  // @@protoc_insertion_point(field_get:service_layer.SLAFMsgRsp.Results)
+  return _internal_results(index);
+}
+inline ::service_layer::SLAFRes* SLAFMsgRsp::_internal_add_results() {
+  return results_.Add();
+}
+inline ::service_layer::SLAFRes* SLAFMsgRsp::add_results() {
+  ::service_layer::SLAFRes* _add = _internal_add_results();
+  // @@protoc_insertion_point(field_add:service_layer.SLAFMsgRsp.Results)
+  return _add;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::service_layer::SLAFRes >&
+SLAFMsgRsp::results() const {
+  // @@protoc_insertion_point(field_list:service_layer.SLAFMsgRsp.Results)
+  return results_;
+}
+
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

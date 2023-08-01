@@ -62,6 +62,16 @@ class SLAFStub(object):
                 request_serializer=sl__af__pb2.SLAFVrfRegMsg.SerializeToString,
                 response_deserializer=sl__af__pb2.SLAFVrfRegMsgRsp.FromString,
                 )
+        self.SLAFOp = channel.unary_unary(
+                '/service_layer.SLAF/SLAFOp',
+                request_serializer=sl__af__pb2.SLAFMsg.SerializeToString,
+                response_deserializer=sl__af__pb2.SLAFMsgRsp.FromString,
+                )
+        self.SLAFOpStream = channel.stream_stream(
+                '/service_layer.SLAF/SLAFOpStream',
+                request_serializer=sl__af__pb2.SLAFMsg.SerializeToString,
+                response_deserializer=sl__af__pb2.SLAFMsgRsp.FromString,
+                )
 
 
 class SLAFServicer(object):
@@ -163,6 +173,48 @@ class SLAFServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def SLAFOp(self, request, context):
+        """
+        Route, MPLS label and Path operations.
+
+
+        SLAFMsg.Oper = SL_OBJOP_ADD:
+        Object add. Fails if the objects already exists and is not stale.
+        First ADD operation on a stale object is allowed and the object
+        is no longer considered stale.
+
+        SLAFMsg.Oper = SL_OBJOP_UPDATE:
+        Object update. Creates or updates the objects.
+
+        SLAFMsg.Oper = SL_OBJOP_DELETE:
+        Object delete. The object's key is enough to delete the object.
+        Delete of a non-existant object is returned as success.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def SLAFOpStream(self, request_iterator, context):
+        """
+        Stream object operations
+
+
+        SLAFMsg.Oper = SL_OBJOP_ADD:
+        Object add. Fails if the objects already exists and is not stale.
+        First ADD operation on a stale object is allowed and the object
+        is no longer considered stale.
+
+        SLAFMsg.Oper = SL_OBJOP_UPDATE:
+        Object update. Creates or updates the object.
+
+        SLAFMsg.Oper = SL_OBJOP_DELETE:
+        Object delete. The object's key is enough to delete the object.
+        Delete of a non-existant object is returned as success.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_SLAFServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -170,6 +222,16 @@ def add_SLAFServicer_to_server(servicer, server):
                     servicer.SLAFVrfRegOp,
                     request_deserializer=sl__af__pb2.SLAFVrfRegMsg.FromString,
                     response_serializer=sl__af__pb2.SLAFVrfRegMsgRsp.SerializeToString,
+            ),
+            'SLAFOp': grpc.unary_unary_rpc_method_handler(
+                    servicer.SLAFOp,
+                    request_deserializer=sl__af__pb2.SLAFMsg.FromString,
+                    response_serializer=sl__af__pb2.SLAFMsgRsp.SerializeToString,
+            ),
+            'SLAFOpStream': grpc.stream_stream_rpc_method_handler(
+                    servicer.SLAFOpStream,
+                    request_deserializer=sl__af__pb2.SLAFMsg.FromString,
+                    response_serializer=sl__af__pb2.SLAFMsgRsp.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -238,5 +300,39 @@ class SLAF(object):
         return grpc.experimental.unary_unary(request, target, '/service_layer.SLAF/SLAFVrfRegOp',
             sl__af__pb2.SLAFVrfRegMsg.SerializeToString,
             sl__af__pb2.SLAFVrfRegMsgRsp.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def SLAFOp(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/service_layer.SLAF/SLAFOp',
+            sl__af__pb2.SLAFMsg.SerializeToString,
+            sl__af__pb2.SLAFMsgRsp.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def SLAFOpStream(request_iterator,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.stream_stream(request_iterator, target, '/service_layer.SLAF/SLAFOpStream',
+            sl__af__pb2.SLAFMsg.SerializeToString,
+            sl__af__pb2.SLAFMsgRsp.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

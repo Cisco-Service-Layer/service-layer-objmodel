@@ -60,6 +60,36 @@ type SLAFClient interface {
 	// The client MUST perform all operations (VRF registration, objects)
 	// from a single execution context.
 	SLAFVrfRegOp(ctx context.Context, in *SLAFVrfRegMsg, opts ...grpc.CallOption) (*SLAFVrfRegMsgRsp, error)
+	// SLAFMsg.Oper = SL_OBJOP_ADD:
+	//
+	//	Object add. Fails if the objects already exists and is not stale.
+	//	First ADD operation on a stale object is allowed and the object
+	//	is no longer considered stale.
+	//
+	// SLAFMsg.Oper = SL_OBJOP_UPDATE:
+	//
+	//	Object update. Creates or updates the objects.
+	//
+	// SLAFMsg.Oper = SL_OBJOP_DELETE:
+	//
+	//	Object delete. The object's key is enough to delete the object.
+	//	Delete of a non-existant object is returned as success.
+	SLAFOp(ctx context.Context, in *SLAFMsg, opts ...grpc.CallOption) (*SLAFMsgRsp, error)
+	// SLAFMsg.Oper = SL_OBJOP_ADD:
+	//
+	//	Object add. Fails if the objects already exists and is not stale.
+	//	First ADD operation on a stale object is allowed and the object
+	//	is no longer considered stale.
+	//
+	// SLAFMsg.Oper = SL_OBJOP_UPDATE:
+	//
+	//	Object update. Creates or updates the object.
+	//
+	// SLAFMsg.Oper = SL_OBJOP_DELETE:
+	//
+	//	Object delete. The object's key is enough to delete the object.
+	//	Delete of a non-existant object is returned as success.
+	SLAFOpStream(ctx context.Context, opts ...grpc.CallOption) (SLAF_SLAFOpStreamClient, error)
 }
 
 type sLAFClient struct {
@@ -77,6 +107,46 @@ func (c *sLAFClient) SLAFVrfRegOp(ctx context.Context, in *SLAFVrfRegMsg, opts .
 		return nil, err
 	}
 	return out, nil
+}
+
+func (c *sLAFClient) SLAFOp(ctx context.Context, in *SLAFMsg, opts ...grpc.CallOption) (*SLAFMsgRsp, error) {
+	out := new(SLAFMsgRsp)
+	err := c.cc.Invoke(ctx, "/service_layer.SLAF/SLAFOp", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sLAFClient) SLAFOpStream(ctx context.Context, opts ...grpc.CallOption) (SLAF_SLAFOpStreamClient, error) {
+	stream, err := c.cc.NewStream(ctx, &SLAF_ServiceDesc.Streams[0], "/service_layer.SLAF/SLAFOpStream", opts...)
+	if err != nil {
+		return nil, err
+	}
+	x := &sLAFSLAFOpStreamClient{stream}
+	return x, nil
+}
+
+type SLAF_SLAFOpStreamClient interface {
+	Send(*SLAFMsg) error
+	Recv() (*SLAFMsgRsp, error)
+	grpc.ClientStream
+}
+
+type sLAFSLAFOpStreamClient struct {
+	grpc.ClientStream
+}
+
+func (x *sLAFSLAFOpStreamClient) Send(m *SLAFMsg) error {
+	return x.ClientStream.SendMsg(m)
+}
+
+func (x *sLAFSLAFOpStreamClient) Recv() (*SLAFMsgRsp, error) {
+	m := new(SLAFMsgRsp)
+	if err := x.ClientStream.RecvMsg(m); err != nil {
+		return nil, err
+	}
+	return m, nil
 }
 
 // SLAFServer is the server API for SLAF service.
@@ -121,6 +191,36 @@ type SLAFServer interface {
 	// The client MUST perform all operations (VRF registration, objects)
 	// from a single execution context.
 	SLAFVrfRegOp(context.Context, *SLAFVrfRegMsg) (*SLAFVrfRegMsgRsp, error)
+	// SLAFMsg.Oper = SL_OBJOP_ADD:
+	//
+	//	Object add. Fails if the objects already exists and is not stale.
+	//	First ADD operation on a stale object is allowed and the object
+	//	is no longer considered stale.
+	//
+	// SLAFMsg.Oper = SL_OBJOP_UPDATE:
+	//
+	//	Object update. Creates or updates the objects.
+	//
+	// SLAFMsg.Oper = SL_OBJOP_DELETE:
+	//
+	//	Object delete. The object's key is enough to delete the object.
+	//	Delete of a non-existant object is returned as success.
+	SLAFOp(context.Context, *SLAFMsg) (*SLAFMsgRsp, error)
+	// SLAFMsg.Oper = SL_OBJOP_ADD:
+	//
+	//	Object add. Fails if the objects already exists and is not stale.
+	//	First ADD operation on a stale object is allowed and the object
+	//	is no longer considered stale.
+	//
+	// SLAFMsg.Oper = SL_OBJOP_UPDATE:
+	//
+	//	Object update. Creates or updates the object.
+	//
+	// SLAFMsg.Oper = SL_OBJOP_DELETE:
+	//
+	//	Object delete. The object's key is enough to delete the object.
+	//	Delete of a non-existant object is returned as success.
+	SLAFOpStream(SLAF_SLAFOpStreamServer) error
 	mustEmbedUnimplementedSLAFServer()
 }
 
@@ -130,6 +230,12 @@ type UnimplementedSLAFServer struct {
 
 func (UnimplementedSLAFServer) SLAFVrfRegOp(context.Context, *SLAFVrfRegMsg) (*SLAFVrfRegMsgRsp, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method SLAFVrfRegOp not implemented")
+}
+func (UnimplementedSLAFServer) SLAFOp(context.Context, *SLAFMsg) (*SLAFMsgRsp, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method SLAFOp not implemented")
+}
+func (UnimplementedSLAFServer) SLAFOpStream(SLAF_SLAFOpStreamServer) error {
+	return status.Errorf(codes.Unimplemented, "method SLAFOpStream not implemented")
 }
 func (UnimplementedSLAFServer) mustEmbedUnimplementedSLAFServer() {}
 
@@ -162,6 +268,50 @@ func _SLAF_SLAFVrfRegOp_Handler(srv interface{}, ctx context.Context, dec func(i
 	return interceptor(ctx, in, info, handler)
 }
 
+func _SLAF_SLAFOp_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SLAFMsg)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SLAFServer).SLAFOp(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/service_layer.SLAF/SLAFOp",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SLAFServer).SLAFOp(ctx, req.(*SLAFMsg))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SLAF_SLAFOpStream_Handler(srv interface{}, stream grpc.ServerStream) error {
+	return srv.(SLAFServer).SLAFOpStream(&sLAFSLAFOpStreamServer{stream})
+}
+
+type SLAF_SLAFOpStreamServer interface {
+	Send(*SLAFMsgRsp) error
+	Recv() (*SLAFMsg, error)
+	grpc.ServerStream
+}
+
+type sLAFSLAFOpStreamServer struct {
+	grpc.ServerStream
+}
+
+func (x *sLAFSLAFOpStreamServer) Send(m *SLAFMsgRsp) error {
+	return x.ServerStream.SendMsg(m)
+}
+
+func (x *sLAFSLAFOpStreamServer) Recv() (*SLAFMsg, error) {
+	m := new(SLAFMsg)
+	if err := x.ServerStream.RecvMsg(m); err != nil {
+		return nil, err
+	}
+	return m, nil
+}
+
 // SLAF_ServiceDesc is the grpc.ServiceDesc for SLAF service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -173,7 +323,18 @@ var SLAF_ServiceDesc = grpc.ServiceDesc{
 			MethodName: "SLAFVrfRegOp",
 			Handler:    _SLAF_SLAFVrfRegOp_Handler,
 		},
+		{
+			MethodName: "SLAFOp",
+			Handler:    _SLAF_SLAFOp_Handler,
+		},
 	},
-	Streams:  []grpc.StreamDesc{},
+	Streams: []grpc.StreamDesc{
+		{
+			StreamName:    "SLAFOpStream",
+			Handler:       _SLAF_SLAFOpStream_Handler,
+			ServerStreams: true,
+			ClientStreams: true,
+		},
+	},
 	Metadata: "sl_af.proto",
 }
