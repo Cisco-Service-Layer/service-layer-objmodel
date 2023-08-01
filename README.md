@@ -163,7 +163,7 @@ The C# project can be found here:
 ```
 grpc/dotnet/src/tutorial/Quickstart/quickstart.csproj
 ```
-Please refer  README file in tutorial directory for information on rebuild and running the Quickstart
+Please refer  README file in Quickstart directory for information on rebuild and running the Quickstart
 
 ```
 # cd (top level)
