@@ -238,11 +238,38 @@ message SLPathGroup {
 
 }
 
+// MPLS entry.
+// This message defines an entry in the MPLS forwarding table.
+message SLMplsEntry {
+    // Local Label.
+    uint32 LocalLabel = 1;
+
+    // Adminstrative distance of the MPLS label. [0-255].
+    // RIB uses this field to break the tie when multiple
+    // sources install the same incoming MPLS label.
+    // Lower distance is preferred over higher distance.
+    // The per MPLS label object admin distance overrides the
+    // default's admin
+    // distance set at VRF registration. see SLVrfReg
+    uint32 AdminDistance = 2;
+
+    // List of paths for a particular MPLS label.
+    // Specifying more than one path is allowed for ECMP/UCMP cases
+    repeated SLRoutePath PathList = 3;
+
+    // Path Group the key forwards to
+    oneof entry {
+      // Path group reference key
+      SLPathGroupRefKey PathGroupKey = 4;
+    }
+}
+
 // One of AF objects
 message SLAFObject {
     oneof entry {
         SLRoutev4 IPv4Route = 1;
         SLRoutev6 IPv6Route = 2;
+        SLMplsEntry MplsLabel = 3;
         SLPathGroup PathGroup = 4;
     }
 }
