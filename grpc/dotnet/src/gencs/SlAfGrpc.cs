@@ -73,6 +73,10 @@ namespace ServiceLayer {
     static readonly grpc::Marshaller<global::ServiceLayer.SLAFVrfRegMsg> __Marshaller_service_layer_SLAFVrfRegMsg = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::ServiceLayer.SLAFVrfRegMsg.Parser));
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Marshaller<global::ServiceLayer.SLAFVrfRegMsgRsp> __Marshaller_service_layer_SLAFVrfRegMsgRsp = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::ServiceLayer.SLAFVrfRegMsgRsp.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::ServiceLayer.SLAFMsg> __Marshaller_service_layer_SLAFMsg = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::ServiceLayer.SLAFMsg.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::ServiceLayer.SLAFMsgRsp> __Marshaller_service_layer_SLAFMsgRsp = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::ServiceLayer.SLAFMsgRsp.Parser));
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Method<global::ServiceLayer.SLAFVrfRegMsg, global::ServiceLayer.SLAFVrfRegMsgRsp> __Method_SLAFVrfRegOp = new grpc::Method<global::ServiceLayer.SLAFVrfRegMsg, global::ServiceLayer.SLAFVrfRegMsgRsp>(
@@ -81,6 +85,22 @@ namespace ServiceLayer {
         "SLAFVrfRegOp",
         __Marshaller_service_layer_SLAFVrfRegMsg,
         __Marshaller_service_layer_SLAFVrfRegMsgRsp);
+
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Method<global::ServiceLayer.SLAFMsg, global::ServiceLayer.SLAFMsgRsp> __Method_SLAFOp = new grpc::Method<global::ServiceLayer.SLAFMsg, global::ServiceLayer.SLAFMsgRsp>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "SLAFOp",
+        __Marshaller_service_layer_SLAFMsg,
+        __Marshaller_service_layer_SLAFMsgRsp);
+
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Method<global::ServiceLayer.SLAFMsg, global::ServiceLayer.SLAFMsgRsp> __Method_SLAFOpStream = new grpc::Method<global::ServiceLayer.SLAFMsg, global::ServiceLayer.SLAFMsgRsp>(
+        grpc::MethodType.DuplexStreaming,
+        __ServiceName,
+        "SLAFOpStream",
+        __Marshaller_service_layer_SLAFMsg,
+        __Marshaller_service_layer_SLAFMsgRsp);
 
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
@@ -134,6 +154,51 @@ namespace ServiceLayer {
       /// <returns>The response to send back to the client (wrapped by a task).</returns>
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       public virtual global::System.Threading.Tasks.Task<global::ServiceLayer.SLAFVrfRegMsgRsp> SLAFVrfRegOp(global::ServiceLayer.SLAFVrfRegMsg request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      /// <summary>
+      /// SLAFMsg.Oper = SL_OBJOP_ADD:
+      ///     Object add. Fails if the objects already exists and is not stale.
+      ///     First ADD operation on a stale object is allowed and the object
+      ///     is no longer considered stale.
+      ///
+      /// SLAFMsg.Oper = SL_OBJOP_UPDATE:
+      ///     Object update. Creates or updates the objects.
+      ///
+      /// SLAFMsg.Oper = SL_OBJOP_DELETE:
+      ///     Object delete. The object's key is enough to delete the object.
+      ///     Delete of a non-existant object is returned as success.
+      /// </summary>
+      /// <param name="request">The request received from the client.</param>
+      /// <param name="context">The context of the server-side call handler being invoked.</param>
+      /// <returns>The response to send back to the client (wrapped by a task).</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::System.Threading.Tasks.Task<global::ServiceLayer.SLAFMsgRsp> SLAFOp(global::ServiceLayer.SLAFMsg request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      /// <summary>
+      /// SLAFMsg.Oper = SL_OBJOP_ADD:
+      ///     Object add. Fails if the objects already exists and is not stale.
+      ///     First ADD operation on a stale object is allowed and the object
+      ///     is no longer considered stale.
+      ///
+      /// SLAFMsg.Oper = SL_OBJOP_UPDATE:
+      ///     Object update. Creates or updates the object.
+      ///
+      /// SLAFMsg.Oper = SL_OBJOP_DELETE:
+      ///     Object delete. The object's key is enough to delete the object.
+      ///     Delete of a non-existant object is returned as success.
+      /// </summary>
+      /// <param name="requestStream">Used for reading requests from the client.</param>
+      /// <param name="responseStream">Used for sending responses back to the client.</param>
+      /// <param name="context">The context of the server-side call handler being invoked.</param>
+      /// <returns>A task indicating completion of the handler.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::System.Threading.Tasks.Task SLAFOpStream(grpc::IAsyncStreamReader<global::ServiceLayer.SLAFMsg> requestStream, grpc::IServerStreamWriter<global::ServiceLayer.SLAFMsgRsp> responseStream, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
@@ -351,6 +416,136 @@ namespace ServiceLayer {
       {
         return CallInvoker.AsyncUnaryCall(__Method_SLAFVrfRegOp, null, options, request);
       }
+      /// <summary>
+      /// SLAFMsg.Oper = SL_OBJOP_ADD:
+      ///     Object add. Fails if the objects already exists and is not stale.
+      ///     First ADD operation on a stale object is allowed and the object
+      ///     is no longer considered stale.
+      ///
+      /// SLAFMsg.Oper = SL_OBJOP_UPDATE:
+      ///     Object update. Creates or updates the objects.
+      ///
+      /// SLAFMsg.Oper = SL_OBJOP_DELETE:
+      ///     Object delete. The object's key is enough to delete the object.
+      ///     Delete of a non-existant object is returned as success.
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
+      /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
+      /// <param name="cancellationToken">An optional token for canceling the call.</param>
+      /// <returns>The response received from the server.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::ServiceLayer.SLAFMsgRsp SLAFOp(global::ServiceLayer.SLAFMsg request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return SLAFOp(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      /// <summary>
+      /// SLAFMsg.Oper = SL_OBJOP_ADD:
+      ///     Object add. Fails if the objects already exists and is not stale.
+      ///     First ADD operation on a stale object is allowed and the object
+      ///     is no longer considered stale.
+      ///
+      /// SLAFMsg.Oper = SL_OBJOP_UPDATE:
+      ///     Object update. Creates or updates the objects.
+      ///
+      /// SLAFMsg.Oper = SL_OBJOP_DELETE:
+      ///     Object delete. The object's key is enough to delete the object.
+      ///     Delete of a non-existant object is returned as success.
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="options">The options for the call.</param>
+      /// <returns>The response received from the server.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::ServiceLayer.SLAFMsgRsp SLAFOp(global::ServiceLayer.SLAFMsg request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_SLAFOp, null, options, request);
+      }
+      /// <summary>
+      /// SLAFMsg.Oper = SL_OBJOP_ADD:
+      ///     Object add. Fails if the objects already exists and is not stale.
+      ///     First ADD operation on a stale object is allowed and the object
+      ///     is no longer considered stale.
+      ///
+      /// SLAFMsg.Oper = SL_OBJOP_UPDATE:
+      ///     Object update. Creates or updates the objects.
+      ///
+      /// SLAFMsg.Oper = SL_OBJOP_DELETE:
+      ///     Object delete. The object's key is enough to delete the object.
+      ///     Delete of a non-existant object is returned as success.
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
+      /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
+      /// <param name="cancellationToken">An optional token for canceling the call.</param>
+      /// <returns>The call object.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::ServiceLayer.SLAFMsgRsp> SLAFOpAsync(global::ServiceLayer.SLAFMsg request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return SLAFOpAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      /// <summary>
+      /// SLAFMsg.Oper = SL_OBJOP_ADD:
+      ///     Object add. Fails if the objects already exists and is not stale.
+      ///     First ADD operation on a stale object is allowed and the object
+      ///     is no longer considered stale.
+      ///
+      /// SLAFMsg.Oper = SL_OBJOP_UPDATE:
+      ///     Object update. Creates or updates the objects.
+      ///
+      /// SLAFMsg.Oper = SL_OBJOP_DELETE:
+      ///     Object delete. The object's key is enough to delete the object.
+      ///     Delete of a non-existant object is returned as success.
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="options">The options for the call.</param>
+      /// <returns>The call object.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::ServiceLayer.SLAFMsgRsp> SLAFOpAsync(global::ServiceLayer.SLAFMsg request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_SLAFOp, null, options, request);
+      }
+      /// <summary>
+      /// SLAFMsg.Oper = SL_OBJOP_ADD:
+      ///     Object add. Fails if the objects already exists and is not stale.
+      ///     First ADD operation on a stale object is allowed and the object
+      ///     is no longer considered stale.
+      ///
+      /// SLAFMsg.Oper = SL_OBJOP_UPDATE:
+      ///     Object update. Creates or updates the object.
+      ///
+      /// SLAFMsg.Oper = SL_OBJOP_DELETE:
+      ///     Object delete. The object's key is enough to delete the object.
+      ///     Delete of a non-existant object is returned as success.
+      /// </summary>
+      /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
+      /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
+      /// <param name="cancellationToken">An optional token for canceling the call.</param>
+      /// <returns>The call object.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncDuplexStreamingCall<global::ServiceLayer.SLAFMsg, global::ServiceLayer.SLAFMsgRsp> SLAFOpStream(grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return SLAFOpStream(new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      /// <summary>
+      /// SLAFMsg.Oper = SL_OBJOP_ADD:
+      ///     Object add. Fails if the objects already exists and is not stale.
+      ///     First ADD operation on a stale object is allowed and the object
+      ///     is no longer considered stale.
+      ///
+      /// SLAFMsg.Oper = SL_OBJOP_UPDATE:
+      ///     Object update. Creates or updates the object.
+      ///
+      /// SLAFMsg.Oper = SL_OBJOP_DELETE:
+      ///     Object delete. The object's key is enough to delete the object.
+      ///     Delete of a non-existant object is returned as success.
+      /// </summary>
+      /// <param name="options">The options for the call.</param>
+      /// <returns>The call object.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncDuplexStreamingCall<global::ServiceLayer.SLAFMsg, global::ServiceLayer.SLAFMsgRsp> SLAFOpStream(grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncDuplexStreamingCall(__Method_SLAFOpStream, null, options);
+      }
       /// <summary>Creates a new instance of client from given <c>ClientBaseConfiguration</c>.</summary>
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       protected override SLAFClient NewInstance(ClientBaseConfiguration configuration)
@@ -365,7 +560,9 @@ namespace ServiceLayer {
     public static grpc::ServerServiceDefinition BindService(SLAFBase serviceImpl)
     {
       return grpc::ServerServiceDefinition.CreateBuilder()
-          .AddMethod(__Method_SLAFVrfRegOp, serviceImpl.SLAFVrfRegOp).Build();
+          .AddMethod(__Method_SLAFVrfRegOp, serviceImpl.SLAFVrfRegOp)
+          .AddMethod(__Method_SLAFOp, serviceImpl.SLAFOp)
+          .AddMethod(__Method_SLAFOpStream, serviceImpl.SLAFOpStream).Build();
     }
 
     /// <summary>Register service method with a service binder with or without implementation. Useful when customizing the service binding logic.
@@ -376,6 +573,8 @@ namespace ServiceLayer {
     public static void BindService(grpc::ServiceBinderBase serviceBinder, SLAFBase serviceImpl)
     {
       serviceBinder.AddMethod(__Method_SLAFVrfRegOp, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::ServiceLayer.SLAFVrfRegMsg, global::ServiceLayer.SLAFVrfRegMsgRsp>(serviceImpl.SLAFVrfRegOp));
+      serviceBinder.AddMethod(__Method_SLAFOp, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::ServiceLayer.SLAFMsg, global::ServiceLayer.SLAFMsgRsp>(serviceImpl.SLAFOp));
+      serviceBinder.AddMethod(__Method_SLAFOpStream, serviceImpl == null ? null : new grpc::DuplexStreamingServerMethod<global::ServiceLayer.SLAFMsg, global::ServiceLayer.SLAFMsgRsp>(serviceImpl.SLAFOpStream));
     }
 
   }
