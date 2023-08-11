@@ -392,13 +392,11 @@ type SLMplsEntry struct {
 
 	// Local Label.
 	LocalLabel uint32 `protobuf:"varint,1,opt,name=LocalLabel,proto3" json:"LocalLabel,omitempty"`
-	// Adminstrative distance of the MPLS label. [0-255].
-	// RIB uses this field to break the tie when multiple
-	// sources install the same incoming MPLS label.
-	// Lower distance is preferred over higher distance.
-	// The per MPLS label object admin distance overrides the
-	// default's admin
-	// distance set at VRF registration. see SLVrfReg
+	// Administrative distance of the MPLS label. [0-255]. RIB uses this field
+	// to break the tie when multiple sources install the same incoming MPLS
+	// label. Lower distance is preferred over higher distance. The per MPLS
+	// label object admin distance overrides the default's admin distance set
+	// at VRF registration. see SLVrfReg
 	AdminDistance uint32 `protobuf:"varint,2,opt,name=AdminDistance,proto3" json:"AdminDistance,omitempty"`
 	// List of paths for a particular MPLS label.
 	// Specifying more than one path is allowed for ECMP/UCMP cases

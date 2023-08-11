@@ -1880,13 +1880,11 @@ namespace ServiceLayer {
     public const int AdminDistanceFieldNumber = 2;
     private uint adminDistance_;
     /// <summary>
-    /// Adminstrative distance of the MPLS label. [0-255].
-    /// RIB uses this field to break the tie when multiple
-    /// sources install the same incoming MPLS label.
-    /// Lower distance is preferred over higher distance.
-    /// The per MPLS label object admin distance overrides the
-    /// default's admin
-    /// distance set at VRF registration. see SLVrfReg
+    /// Administrative distance of the MPLS label. [0-255]. RIB uses this field 
+    /// to break the tie when multiple sources install the same incoming MPLS 
+    /// label. Lower distance is preferred over higher distance. The per MPLS 
+    /// label object admin distance overrides the default's admin distance set 
+    /// at VRF registration. see SLVrfReg
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
