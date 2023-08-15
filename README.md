@@ -130,8 +130,10 @@ A quick start tutorial written in Python. The intent here is to get the user a j
 
 It can be found here:
 ```
- grpc/python/src/tutorial/quickstart.py
+ grpc/python/src/tutorial/
 ```
+
+Please check the tutorial [README](/grpc/python/src/tutorial/README.md) for instructions on how to setup the server and python enviromnent.
 
 ### Golang (Go)
 
@@ -171,79 +173,6 @@ We can generate documentation for dotnet proto bindings invoking make dotnet-doc
 # make dotnet-docs
 ```
 This will generate html documentation in grpc/dotnet/docs/html/
-
-## Python UT regresion suite
-
-* A Python unittest regression suite that covers basic API sanities. It is also very useful and handy if someone wants to get some reference implementation for a certain use case.
-
-```
-This can be found here: grpc/python/src
-```
-
-To install dependencies first create a virtual env:
-```
-pip install virtualenv
-virtualenv sl-env --python=python3.6
-source sl-env/bin/activate
-pip install -r grpc/python/requirements.txt
-```
-
-To run the unit test regression, setup some Environment variables:
-
-```
-export SERVER_IP=192.168.122.192
-export SERVER_PORT=57344
-```
-
-Required router configuration for test suite:
-```
-# Configure mgmt interface
-configure
-interface MgmtEth 0/RP0/CPU0/0
-ipv4 address dhcp
-no shut
-commit
-end
- 
-! Configure GRPC
-configure
-grpc port 57344
-grpc address-family ipv4
-grpc service-layer
-commit
-end
-
-# Configure l2vpn (only needed if exercising the L2 UTs)
-configure
-l2vpn
-bridge group bg1
-bridge-domain bd0
-exit
-bridge-domain bd1
-exit
-bridge-domain bd2
-commit
-end
-```
-
-Note: The following test suite does not currently support TLS for authentication. Until the python client is extended to support this, TLS must be disabled to run the suite.
-```
-configure
-grpc no-tls
-commit
-end
-```
-
-Run a test:
-```
-pytest grpc/python/src/tests/test_sl_route.py
-```
-
-Use pytest discovery to run all tests:
-
-```
-pytest
-```
 
 
 

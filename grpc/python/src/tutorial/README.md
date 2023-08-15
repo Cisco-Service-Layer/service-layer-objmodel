@@ -1,7 +1,8 @@
 # Python Quick Tutorial
 
 ## Table of Contents
-- [Server Setup](#server)
+- [Server Setup](#server)\
+- [Python Setup](#python)
 - [Running the tutorial](#quick)
 - [Generate gRPC Code](#gen)
 - [Initialize the client server connection](#init)
@@ -55,6 +56,15 @@ The above assumes that the IP address of the node is 192.168.122.192.
 This completes all the setup needed to start writing some code! Hop into
 your python interpreter and try out some of the commands to get familiar
 with the API.
+
+## <a name='python'></a>Setting up Python Environment
+
+To install dependencies first create a virtual env:
+
+    pip install virtualenv
+    virtualenv sl-env --python=python3.6
+    source sl-env/bin/activate
+    pip install -r grpc/python/requirements.txt
 
 ## <a name='quick'></a>Running the tutorial
 
