@@ -734,7 +734,7 @@ func (x *SLAFMsg) GetOpList() []*SLAFOp {
 	return nil
 }
 
-// Result of an operation the object.
+// Result of an operation on the object.
 type SLAFRes struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
@@ -743,7 +743,7 @@ type SLAFRes struct {
 	// Corresponding error code
 	ErrStatus *SLErrorStatus `protobuf:"bytes,1,opt,name=ErrStatus,proto3" json:"ErrStatus,omitempty"`
 	// The operation ID and object are returned.
-	// Only attibutes describing an object's key
+	// Only attributes describing an object's key
 	// are returned.
 	Operation *SLAFOp `protobuf:"bytes,2,opt,name=Operation,proto3" json:"Operation,omitempty"`
 }

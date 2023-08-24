@@ -299,13 +299,13 @@ message SLAFMsg {
     repeated SLAFOp OpList = 4;
 }
 
-// Result of an operation the object.
+// Result of an operation on the object.
 message SLAFRes {
     // Corresponding error code
     SLErrorStatus ErrStatus = 1;
 
     // The operation ID and object are returned.
-    // Only attibutes describing an object's key
+    // Only attributes describing an object's key
     // are returned.
     SLAFOp Operation = 2;
 }

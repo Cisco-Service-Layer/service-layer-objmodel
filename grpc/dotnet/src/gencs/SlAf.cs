@@ -3102,7 +3102,7 @@ namespace ServiceLayer {
   }
 
   /// <summary>
-  /// Result of an operation the object.
+  /// Result of an operation on the object.
   /// </summary>
   public sealed partial class SLAFRes : pb::IMessage<SLAFRes>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
@@ -3169,7 +3169,7 @@ namespace ServiceLayer {
     private global::ServiceLayer.SLAFOp operation_;
     /// <summary>
     /// The operation ID and object are returned.
-    /// Only attibutes describing an object's key
+    /// Only attributes describing an object's key
     /// are returned.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
