@@ -304,24 +304,16 @@ message SLAFRes {
     // Corresponding error code
     SLErrorStatus ErrStatus = 1;
 
-    // OperationID sent by the client is returned in the reply
-    // to corelate the responses.
-    uint64 OperationID = 2;
-
+    // The operation ID and object are returned.
+    // Only attibutes describing an object's key
+    // are returned.
+    SLAFOp Operation = 2;
 }
 
 // Route operations result status
 message SLAFMsgRsp {
-    // Summary result of the bulk operation (refer to enum SLErrorStatus)
-    // In general, the StatusSummary implies one of 3 things:
-    // 1. SL_SUCCESS: signifies that the entire bulk operation was successful.
-    //         Results holds the result for each individual entry in the bulk.
-    // 2. SL_SOME_ERR: signifies that the operation failed for one or more
-    //         entries. Results holds the result for each individual entry
-    //         in the bulk.
-    // 3. SL_RPC_XXX: signifies that the entire bulk operation failed.
-    //         In this case, the Results list is empty.
-    SLErrorStatus StatusSummary = 1;
+    // VRF name.
+    string VrfName = 1;
 
     // In case of errors, this field indicates which entry in the bulk was
     // erroneous.

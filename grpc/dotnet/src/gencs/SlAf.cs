@@ -56,18 +56,18 @@ namespace ServiceLayer {
             "AQoHU0xBRk1zZxInCgRPcGVyGAEgASgOMhkuc2VydmljZV9sYXllci5TTE9i",
             "amVjdE9wEg8KB1ZyZk5hbWUYAiABKAkSLAoHQWNrVHlwZRgDIAEoDjIbLnNl",
             "cnZpY2VfbGF5ZXIuU0xSc3BBQ0tUeXBlEiUKBk9wTGlzdBgEIAMoCzIVLnNl",
-            "cnZpY2VfbGF5ZXIuU0xBRk9wIk8KB1NMQUZSZXMSLwoJRXJyU3RhdHVzGAEg",
-            "ASgLMhwuc2VydmljZV9sYXllci5TTEVycm9yU3RhdHVzEhMKC09wZXJhdGlv",
-            "bklEGAIgASgEImoKClNMQUZNc2dSc3ASMwoNU3RhdHVzU3VtbWFyeRgBIAEo",
-            "CzIcLnNlcnZpY2VfbGF5ZXIuU0xFcnJvclN0YXR1cxInCgdSZXN1bHRzGAIg",
-            "AygLMhYuc2VydmljZV9sYXllci5TTEFGUmVzMtkBCgRTTEFGEk0KDFNMQUZW",
-            "cmZSZWdPcBIcLnNlcnZpY2VfbGF5ZXIuU0xBRlZyZlJlZ01zZxofLnNlcnZp",
-            "Y2VfbGF5ZXIuU0xBRlZyZlJlZ01zZ1JzcBI7CgZTTEFGT3ASFi5zZXJ2aWNl",
-            "X2xheWVyLlNMQUZNc2caGS5zZXJ2aWNlX2xheWVyLlNMQUZNc2dSc3ASRQoM",
-            "U0xBRk9wU3RyZWFtEhYuc2VydmljZV9sYXllci5TTEFGTXNnGhkuc2Vydmlj",
-            "ZV9sYXllci5TTEFGTXNnUnNwKAEwAUJRWk9naXRodWIuY29tL0Npc2NvLXNl",
-            "cnZpY2UtbGF5ZXIvc2VydmljZS1sYXllci1vYmptb2RlbC9ncnBjL3Byb3Rv",
-            "cztzZXJ2aWNlX2xheWVyYgZwcm90bzM="));
+            "cnZpY2VfbGF5ZXIuU0xBRk9wImQKB1NMQUZSZXMSLwoJRXJyU3RhdHVzGAEg",
+            "ASgLMhwuc2VydmljZV9sYXllci5TTEVycm9yU3RhdHVzEigKCU9wZXJhdGlv",
+            "bhgCIAEoCzIVLnNlcnZpY2VfbGF5ZXIuU0xBRk9wIkYKClNMQUZNc2dSc3AS",
+            "DwoHVnJmTmFtZRgBIAEoCRInCgdSZXN1bHRzGAIgAygLMhYuc2VydmljZV9s",
+            "YXllci5TTEFGUmVzMtkBCgRTTEFGEk0KDFNMQUZWcmZSZWdPcBIcLnNlcnZp",
+            "Y2VfbGF5ZXIuU0xBRlZyZlJlZ01zZxofLnNlcnZpY2VfbGF5ZXIuU0xBRlZy",
+            "ZlJlZ01zZ1JzcBI7CgZTTEFGT3ASFi5zZXJ2aWNlX2xheWVyLlNMQUZNc2ca",
+            "GS5zZXJ2aWNlX2xheWVyLlNMQUZNc2dSc3ASRQoMU0xBRk9wU3RyZWFtEhYu",
+            "c2VydmljZV9sYXllci5TTEFGTXNnGhkuc2VydmljZV9sYXllci5TTEFGTXNn",
+            "UnNwKAEwAUJRWk9naXRodWIuY29tL0Npc2NvLXNlcnZpY2UtbGF5ZXIvc2Vy",
+            "dmljZS1sYXllci1vYmptb2RlbC9ncnBjL3Byb3RvcztzZXJ2aWNlX2xheWVy",
+            "YgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::ServiceLayer.SlCommonTypesReflection.Descriptor, global::ServiceLayer.SlRouteCommonReflection.Descriptor, global::ServiceLayer.SlRouteIpv4Reflection.Descriptor, global::ServiceLayer.SlRouteIpv6Reflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
@@ -81,8 +81,8 @@ namespace ServiceLayer {
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLAFObject), global::ServiceLayer.SLAFObject.Parser, new[]{ "IPv4Route", "IPv6Route", "MplsLabel", "PathGroup" }, new[]{ "Entry" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLAFOp), global::ServiceLayer.SLAFOp.Parser, new[]{ "AFObject", "OperationID" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLAFMsg), global::ServiceLayer.SLAFMsg.Parser, new[]{ "Oper", "VrfName", "AckType", "OpList" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLAFRes), global::ServiceLayer.SLAFRes.Parser, new[]{ "ErrStatus", "OperationID" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLAFMsgRsp), global::ServiceLayer.SLAFMsgRsp.Parser, new[]{ "StatusSummary", "Results" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLAFRes), global::ServiceLayer.SLAFRes.Parser, new[]{ "ErrStatus", "Operation" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLAFMsgRsp), global::ServiceLayer.SLAFMsgRsp.Parser, new[]{ "VrfName", "Results" }, null, null, null, null)
           }));
     }
     #endregion
@@ -3139,7 +3139,7 @@ namespace ServiceLayer {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public SLAFRes(SLAFRes other) : this() {
       errStatus_ = other.errStatus_ != null ? other.errStatus_.Clone() : null;
-      operationID_ = other.operationID_;
+      operation_ = other.operation_ != null ? other.operation_.Clone() : null;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -3164,19 +3164,20 @@ namespace ServiceLayer {
       }
     }
 
-    /// <summary>Field number for the "OperationID" field.</summary>
-    public const int OperationIDFieldNumber = 2;
-    private ulong operationID_;
+    /// <summary>Field number for the "Operation" field.</summary>
+    public const int OperationFieldNumber = 2;
+    private global::ServiceLayer.SLAFOp operation_;
     /// <summary>
-    /// OperationID sent by the client is returned in the reply
-    /// to corelate the responses.
+    /// The operation ID and object are returned.
+    /// Only attibutes describing an object's key
+    /// are returned.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public ulong OperationID {
-      get { return operationID_; }
+    public global::ServiceLayer.SLAFOp Operation {
+      get { return operation_; }
       set {
-        operationID_ = value;
+        operation_ = value;
       }
     }
 
@@ -3196,7 +3197,7 @@ namespace ServiceLayer {
         return true;
       }
       if (!object.Equals(ErrStatus, other.ErrStatus)) return false;
-      if (OperationID != other.OperationID) return false;
+      if (!object.Equals(Operation, other.Operation)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -3205,7 +3206,7 @@ namespace ServiceLayer {
     public override int GetHashCode() {
       int hash = 1;
       if (errStatus_ != null) hash ^= ErrStatus.GetHashCode();
-      if (OperationID != 0UL) hash ^= OperationID.GetHashCode();
+      if (operation_ != null) hash ^= Operation.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -3228,9 +3229,9 @@ namespace ServiceLayer {
         output.WriteRawTag(10);
         output.WriteMessage(ErrStatus);
       }
-      if (OperationID != 0UL) {
-        output.WriteRawTag(16);
-        output.WriteUInt64(OperationID);
+      if (operation_ != null) {
+        output.WriteRawTag(18);
+        output.WriteMessage(Operation);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -3246,9 +3247,9 @@ namespace ServiceLayer {
         output.WriteRawTag(10);
         output.WriteMessage(ErrStatus);
       }
-      if (OperationID != 0UL) {
-        output.WriteRawTag(16);
-        output.WriteUInt64(OperationID);
+      if (operation_ != null) {
+        output.WriteRawTag(18);
+        output.WriteMessage(Operation);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -3263,8 +3264,8 @@ namespace ServiceLayer {
       if (errStatus_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(ErrStatus);
       }
-      if (OperationID != 0UL) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(OperationID);
+      if (operation_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Operation);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -3284,8 +3285,11 @@ namespace ServiceLayer {
         }
         ErrStatus.MergeFrom(other.ErrStatus);
       }
-      if (other.OperationID != 0UL) {
-        OperationID = other.OperationID;
+      if (other.operation_ != null) {
+        if (operation_ == null) {
+          Operation = new global::ServiceLayer.SLAFOp();
+        }
+        Operation.MergeFrom(other.Operation);
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -3309,8 +3313,11 @@ namespace ServiceLayer {
             input.ReadMessage(ErrStatus);
             break;
           }
-          case 16: {
-            OperationID = input.ReadUInt64();
+          case 18: {
+            if (operation_ == null) {
+              Operation = new global::ServiceLayer.SLAFOp();
+            }
+            input.ReadMessage(Operation);
             break;
           }
         }
@@ -3335,8 +3342,11 @@ namespace ServiceLayer {
             input.ReadMessage(ErrStatus);
             break;
           }
-          case 16: {
-            OperationID = input.ReadUInt64();
+          case 18: {
+            if (operation_ == null) {
+              Operation = new global::ServiceLayer.SLAFOp();
+            }
+            input.ReadMessage(Operation);
             break;
           }
         }
@@ -3383,7 +3393,7 @@ namespace ServiceLayer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public SLAFMsgRsp(SLAFMsgRsp other) : this() {
-      statusSummary_ = other.statusSummary_ != null ? other.statusSummary_.Clone() : null;
+      vrfName_ = other.vrfName_;
       results_ = other.results_.Clone();
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
@@ -3394,26 +3404,18 @@ namespace ServiceLayer {
       return new SLAFMsgRsp(this);
     }
 
-    /// <summary>Field number for the "StatusSummary" field.</summary>
-    public const int StatusSummaryFieldNumber = 1;
-    private global::ServiceLayer.SLErrorStatus statusSummary_;
+    /// <summary>Field number for the "VrfName" field.</summary>
+    public const int VrfNameFieldNumber = 1;
+    private string vrfName_ = "";
     /// <summary>
-    /// Summary result of the bulk operation (refer to enum SLErrorStatus)
-    /// In general, the StatusSummary implies one of 3 things:
-    /// 1. SL_SUCCESS: signifies that the entire bulk operation was successful.
-    ///         Results holds the result for each individual entry in the bulk.
-    /// 2. SL_SOME_ERR: signifies that the operation failed for one or more
-    ///         entries. Results holds the result for each individual entry
-    ///         in the bulk.
-    /// 3. SL_RPC_XXX: signifies that the entire bulk operation failed.
-    ///         In this case, the Results list is empty.
+    /// VRF name.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::ServiceLayer.SLErrorStatus StatusSummary {
-      get { return statusSummary_; }
+    public string VrfName {
+      get { return vrfName_; }
       set {
-        statusSummary_ = value;
+        vrfName_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
     }
 
@@ -3447,7 +3449,7 @@ namespace ServiceLayer {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (!object.Equals(StatusSummary, other.StatusSummary)) return false;
+      if (VrfName != other.VrfName) return false;
       if(!results_.Equals(other.results_)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
@@ -3456,7 +3458,7 @@ namespace ServiceLayer {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (statusSummary_ != null) hash ^= StatusSummary.GetHashCode();
+      if (VrfName.Length != 0) hash ^= VrfName.GetHashCode();
       hash ^= results_.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
@@ -3476,9 +3478,9 @@ namespace ServiceLayer {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (statusSummary_ != null) {
+      if (VrfName.Length != 0) {
         output.WriteRawTag(10);
-        output.WriteMessage(StatusSummary);
+        output.WriteString(VrfName);
       }
       results_.WriteTo(output, _repeated_results_codec);
       if (_unknownFields != null) {
@@ -3491,9 +3493,9 @@ namespace ServiceLayer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (statusSummary_ != null) {
+      if (VrfName.Length != 0) {
         output.WriteRawTag(10);
-        output.WriteMessage(StatusSummary);
+        output.WriteString(VrfName);
       }
       results_.WriteTo(ref output, _repeated_results_codec);
       if (_unknownFields != null) {
@@ -3506,8 +3508,8 @@ namespace ServiceLayer {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (statusSummary_ != null) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(StatusSummary);
+      if (VrfName.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(VrfName);
       }
       size += results_.CalculateSize(_repeated_results_codec);
       if (_unknownFields != null) {
@@ -3522,11 +3524,8 @@ namespace ServiceLayer {
       if (other == null) {
         return;
       }
-      if (other.statusSummary_ != null) {
-        if (statusSummary_ == null) {
-          StatusSummary = new global::ServiceLayer.SLErrorStatus();
-        }
-        StatusSummary.MergeFrom(other.StatusSummary);
+      if (other.VrfName.Length != 0) {
+        VrfName = other.VrfName;
       }
       results_.Add(other.results_);
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
@@ -3545,10 +3544,7 @@ namespace ServiceLayer {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 10: {
-            if (statusSummary_ == null) {
-              StatusSummary = new global::ServiceLayer.SLErrorStatus();
-            }
-            input.ReadMessage(StatusSummary);
+            VrfName = input.ReadString();
             break;
           }
           case 18: {
@@ -3571,10 +3567,7 @@ namespace ServiceLayer {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
           case 10: {
-            if (statusSummary_ == null) {
-              StatusSummary = new global::ServiceLayer.SLErrorStatus();
-            }
-            input.ReadMessage(StatusSummary);
+            VrfName = input.ReadString();
             break;
           }
           case 18: {
