@@ -536,30 +536,21 @@ message SLMplsCos {
 message SLMplsIlmEntry {
     // ILM Key.
     SLMplsIlmKey Key = 1;
-    enum EntryPriority {
+
+    // List of path (NHLFE) information.
+    repeated SLMplsPath Paths = 2;
+    enum UpdatePriority {
         // Reserved. 0x0
         RESERVED = 0x0;
         CRITICAL = 0x1;
         HIGH = 0x2;
         MEDIUM = 0x3;
+        LOW = 0x4;
     }
-
-    enum OverrideAction {
-        // No override, routes are process as per given priority
-        ACTION_NONE = 0x0;
-        // Ignore priority and process route immediately
-        ACTION_OUTOFBAND = 0x1;
-    }
-
     // Priority.
     // Each entry can have priority value, this is priority value may be used
     // in internal queuing of routes while programming the data-plane
-    EntryPriority Priority = 7;
-    // Over-ride
-    OverrideAction Override = 8;
-
-    // List of path (NHLFE) information.
-    repeated SLMplsPath Paths = 2;
+    UpdatePriority Priority = 3;
 }
 
 // A batch of MPLS ILM entries.
