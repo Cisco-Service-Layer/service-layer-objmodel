@@ -236,6 +236,19 @@ message SLPathGroup {
         SLPathList PathList = 3;
     }
 
+    // Flags to control programming of the PathGroup to Routing
+    // Information Base. Each flag is indicated as a bit field.
+    // Supported values are:
+    //
+    // 0x8 – SL_ACTIVE_ON_VIABLE_PATH – Routes referencing this PathGroup
+    // are included in best route calculations only if the PathGroup
+    // has at least one viable path.
+    //
+    // 0x4 – SL_VIABLE_PATHS_ONLY - Install only viable paths in the
+    // load balance group.
+    //
+    // Others – Reserved.
+    uint32 Flags = 4;
 }
 
 // MPLS entry.

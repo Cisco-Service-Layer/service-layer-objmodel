@@ -1248,6 +1248,7 @@ class SLPathGroup final :
   enum : int {
     kPathGroupIdFieldNumber = 1,
     kAdminDistanceFieldNumber = 2,
+    kFlagsFieldNumber = 4,
     kPathListFieldNumber = 3,
   };
   // .service_layer.SLObjectId PathGroupId = 1;
@@ -1275,6 +1276,15 @@ class SLPathGroup final :
   private:
   uint32_t _internal_admindistance() const;
   void _internal_set_admindistance(uint32_t value);
+  public:
+
+  // uint32 Flags = 4;
+  void clear_flags();
+  uint32_t flags() const;
+  void set_flags(uint32_t value);
+  private:
+  uint32_t _internal_flags() const;
+  void _internal_set_flags(uint32_t value);
   public:
 
   // .service_layer.SLPathGroup.SLPathList PathList = 3;
@@ -1310,6 +1320,7 @@ class SLPathGroup final :
   typedef void DestructorSkippable_;
   ::service_layer::SLObjectId* pathgroupid_;
   uint32_t admindistance_;
+  uint32_t flags_;
   union EntryUnion {
     constexpr EntryUnion() : _constinit_{} {}
       ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized _constinit_;
@@ -3265,6 +3276,26 @@ inline ::service_layer::SLPathGroup_SLPathList* SLPathGroup::mutable_pathlist() 
   ::service_layer::SLPathGroup_SLPathList* _msg = _internal_mutable_pathlist();
   // @@protoc_insertion_point(field_mutable:service_layer.SLPathGroup.PathList)
   return _msg;
+}
+
+// uint32 Flags = 4;
+inline void SLPathGroup::clear_flags() {
+  flags_ = 0u;
+}
+inline uint32_t SLPathGroup::_internal_flags() const {
+  return flags_;
+}
+inline uint32_t SLPathGroup::flags() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLPathGroup.Flags)
+  return _internal_flags();
+}
+inline void SLPathGroup::_internal_set_flags(uint32_t value) {
+  
+  flags_ = value;
+}
+inline void SLPathGroup::set_flags(uint32_t value) {
+  _internal_set_flags(value);
+  // @@protoc_insertion_point(field_set:service_layer.SLPathGroup.Flags)
 }
 
 inline bool SLPathGroup::has_entry() const {
