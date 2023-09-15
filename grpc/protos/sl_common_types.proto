@@ -706,6 +706,15 @@ enum SLNotifOp {
     SL_NOTIFOP_DISABLE    = 0x2;
 }
 
+enum SLUpdatePriority {
+    // Reserved. 0x0
+    SL_PRIORITY_RESERVED = 0x0;
+    SL_PRIORITY_CRITICAL = 0x4;
+    SL_PRIORITY_HIGH = 0x8;
+    SL_PRIORITY_MEDIUM = 0xc;
+    SL_PRIORITY_LOW = 0x10;
+}
+
 // Interface info.
 message SLInterface {
      // One of Interface name or handle

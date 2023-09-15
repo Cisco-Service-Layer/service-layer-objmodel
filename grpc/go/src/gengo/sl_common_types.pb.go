@@ -200,6 +200,62 @@ func (SLNotifOp) EnumDescriptor() ([]byte, []int) {
 	return file_sl_common_types_proto_rawDescGZIP(), []int{2}
 }
 
+type SLUpdatePriority int32
+
+const (
+	// Reserved. 0x0
+	SLUpdatePriority_SL_PRIORITY_RESERVED SLUpdatePriority = 0
+	SLUpdatePriority_SL_PRIORITY_CRITICAL SLUpdatePriority = 4
+	SLUpdatePriority_SL_PRIORITY_HIGH     SLUpdatePriority = 8
+	SLUpdatePriority_SL_PRIORITY_MEDIUM   SLUpdatePriority = 12
+	SLUpdatePriority_SL_PRIORITY_LOW      SLUpdatePriority = 16
+)
+
+// Enum value maps for SLUpdatePriority.
+var (
+	SLUpdatePriority_name = map[int32]string{
+		0:  "SL_PRIORITY_RESERVED",
+		4:  "SL_PRIORITY_CRITICAL",
+		8:  "SL_PRIORITY_HIGH",
+		12: "SL_PRIORITY_MEDIUM",
+		16: "SL_PRIORITY_LOW",
+	}
+	SLUpdatePriority_value = map[string]int32{
+		"SL_PRIORITY_RESERVED": 0,
+		"SL_PRIORITY_CRITICAL": 4,
+		"SL_PRIORITY_HIGH":     8,
+		"SL_PRIORITY_MEDIUM":   12,
+		"SL_PRIORITY_LOW":      16,
+	}
+)
+
+func (x SLUpdatePriority) Enum() *SLUpdatePriority {
+	p := new(SLUpdatePriority)
+	*p = x
+	return p
+}
+
+func (x SLUpdatePriority) String() string {
+	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
+}
+
+func (SLUpdatePriority) Descriptor() protoreflect.EnumDescriptor {
+	return file_sl_common_types_proto_enumTypes[3].Descriptor()
+}
+
+func (SLUpdatePriority) Type() protoreflect.EnumType {
+	return &file_sl_common_types_proto_enumTypes[3]
+}
+
+func (x SLUpdatePriority) Number() protoreflect.EnumNumber {
+	return protoreflect.EnumNumber(x)
+}
+
+// Deprecated: Use SLUpdatePriority.Descriptor instead.
+func (SLUpdatePriority) EnumDescriptor() ([]byte, []int) {
+	return file_sl_common_types_proto_rawDescGZIP(), []int{3}
+}
+
 // Encapsulation Types.
 // Specify tunnel encapsulation types: VXLAN or MPLS.
 // This will determine the interpretation of some fields VrfName and
@@ -240,11 +296,11 @@ func (x SLEncapType) String() string {
 }
 
 func (SLEncapType) Descriptor() protoreflect.EnumDescriptor {
-	return file_sl_common_types_proto_enumTypes[3].Descriptor()
+	return file_sl_common_types_proto_enumTypes[4].Descriptor()
 }
 
 func (SLEncapType) Type() protoreflect.EnumType {
-	return &file_sl_common_types_proto_enumTypes[3]
+	return &file_sl_common_types_proto_enumTypes[4]
 }
 
 func (x SLEncapType) Number() protoreflect.EnumNumber {
@@ -253,7 +309,7 @@ func (x SLEncapType) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use SLEncapType.Descriptor instead.
 func (SLEncapType) EnumDescriptor() ([]byte, []int) {
-	return file_sl_common_types_proto_rawDescGZIP(), []int{3}
+	return file_sl_common_types_proto_rawDescGZIP(), []int{4}
 }
 
 type SLErrorStatus_SLErrno int32
@@ -1364,11 +1420,11 @@ func (x SLErrorStatus_SLErrno) String() string {
 }
 
 func (SLErrorStatus_SLErrno) Descriptor() protoreflect.EnumDescriptor {
-	return file_sl_common_types_proto_enumTypes[4].Descriptor()
+	return file_sl_common_types_proto_enumTypes[5].Descriptor()
 }
 
 func (SLErrorStatus_SLErrno) Type() protoreflect.EnumType {
-	return &file_sl_common_types_proto_enumTypes[4]
+	return &file_sl_common_types_proto_enumTypes[5]
 }
 
 func (x SLErrorStatus_SLErrno) Number() protoreflect.EnumNumber {
@@ -2173,12 +2229,21 @@ var file_sl_common_types_proto_rawDesc = []byte{
 	0x50, 0x5f, 0x52, 0x45, 0x53, 0x45, 0x52, 0x56, 0x45, 0x44, 0x10, 0x00, 0x12, 0x15, 0x0a, 0x11,
 	0x53, 0x4c, 0x5f, 0x4e, 0x4f, 0x54, 0x49, 0x46, 0x4f, 0x50, 0x5f, 0x45, 0x4e, 0x41, 0x42, 0x4c,
 	0x45, 0x10, 0x01, 0x12, 0x16, 0x0a, 0x12, 0x53, 0x4c, 0x5f, 0x4e, 0x4f, 0x54, 0x49, 0x46, 0x4f,
-	0x50, 0x5f, 0x44, 0x49, 0x53, 0x41, 0x42, 0x4c, 0x45, 0x10, 0x02, 0x2a, 0x4b, 0x0a, 0x0b, 0x53,
-	0x4c, 0x45, 0x6e, 0x63, 0x61, 0x70, 0x54, 0x79, 0x70, 0x65, 0x12, 0x15, 0x0a, 0x11, 0x53, 0x4c,
-	0x5f, 0x45, 0x4e, 0x43, 0x41, 0x50, 0x5f, 0x52, 0x45, 0x53, 0x45, 0x52, 0x56, 0x45, 0x44, 0x10,
-	0x00, 0x12, 0x12, 0x0a, 0x0e, 0x53, 0x4c, 0x5f, 0x45, 0x4e, 0x43, 0x41, 0x50, 0x5f, 0x56, 0x58,
-	0x4c, 0x41, 0x4e, 0x10, 0x01, 0x12, 0x11, 0x0a, 0x0d, 0x53, 0x4c, 0x5f, 0x45, 0x4e, 0x43, 0x41,
-	0x50, 0x5f, 0x4d, 0x50, 0x4c, 0x53, 0x10, 0x02, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x50, 0x5f, 0x44, 0x49, 0x53, 0x41, 0x42, 0x4c, 0x45, 0x10, 0x02, 0x2a, 0x89, 0x01, 0x0a, 0x10,
+	0x53, 0x4c, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x50, 0x72, 0x69, 0x6f, 0x72, 0x69, 0x74, 0x79,
+	0x12, 0x18, 0x0a, 0x14, 0x53, 0x4c, 0x5f, 0x50, 0x52, 0x49, 0x4f, 0x52, 0x49, 0x54, 0x59, 0x5f,
+	0x52, 0x45, 0x53, 0x45, 0x52, 0x56, 0x45, 0x44, 0x10, 0x00, 0x12, 0x18, 0x0a, 0x14, 0x53, 0x4c,
+	0x5f, 0x50, 0x52, 0x49, 0x4f, 0x52, 0x49, 0x54, 0x59, 0x5f, 0x43, 0x52, 0x49, 0x54, 0x49, 0x43,
+	0x41, 0x4c, 0x10, 0x04, 0x12, 0x14, 0x0a, 0x10, 0x53, 0x4c, 0x5f, 0x50, 0x52, 0x49, 0x4f, 0x52,
+	0x49, 0x54, 0x59, 0x5f, 0x48, 0x49, 0x47, 0x48, 0x10, 0x08, 0x12, 0x16, 0x0a, 0x12, 0x53, 0x4c,
+	0x5f, 0x50, 0x52, 0x49, 0x4f, 0x52, 0x49, 0x54, 0x59, 0x5f, 0x4d, 0x45, 0x44, 0x49, 0x55, 0x4d,
+	0x10, 0x0c, 0x12, 0x13, 0x0a, 0x0f, 0x53, 0x4c, 0x5f, 0x50, 0x52, 0x49, 0x4f, 0x52, 0x49, 0x54,
+	0x59, 0x5f, 0x4c, 0x4f, 0x57, 0x10, 0x10, 0x2a, 0x4b, 0x0a, 0x0b, 0x53, 0x4c, 0x45, 0x6e, 0x63,
+	0x61, 0x70, 0x54, 0x79, 0x70, 0x65, 0x12, 0x15, 0x0a, 0x11, 0x53, 0x4c, 0x5f, 0x45, 0x4e, 0x43,
+	0x41, 0x50, 0x5f, 0x52, 0x45, 0x53, 0x45, 0x52, 0x56, 0x45, 0x44, 0x10, 0x00, 0x12, 0x12, 0x0a,
+	0x0e, 0x53, 0x4c, 0x5f, 0x45, 0x4e, 0x43, 0x41, 0x50, 0x5f, 0x56, 0x58, 0x4c, 0x41, 0x4e, 0x10,
+	0x01, 0x12, 0x11, 0x0a, 0x0d, 0x53, 0x4c, 0x5f, 0x45, 0x4e, 0x43, 0x41, 0x50, 0x5f, 0x4d, 0x50,
+	0x4c, 0x53, 0x10, 0x02, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -2193,20 +2258,21 @@ func file_sl_common_types_proto_rawDescGZIP() []byte {
 	return file_sl_common_types_proto_rawDescData
 }
 
-var file_sl_common_types_proto_enumTypes = make([]protoimpl.EnumInfo, 5)
+var file_sl_common_types_proto_enumTypes = make([]protoimpl.EnumInfo, 6)
 var file_sl_common_types_proto_msgTypes = make([]protoimpl.MessageInfo, 3)
 var file_sl_common_types_proto_goTypes = []interface{}{
 	(SLRegOp)(0),               // 0: service_layer.SLRegOp
 	(SLObjectOp)(0),            // 1: service_layer.SLObjectOp
 	(SLNotifOp)(0),             // 2: service_layer.SLNotifOp
-	(SLEncapType)(0),           // 3: service_layer.SLEncapType
-	(SLErrorStatus_SLErrno)(0), // 4: service_layer.SLErrorStatus.SLErrno
-	(*SLErrorStatus)(nil),      // 5: service_layer.SLErrorStatus
-	(*SLInterface)(nil),        // 6: service_layer.SLInterface
-	(*SLIpAddress)(nil),        // 7: service_layer.SLIpAddress
+	(SLUpdatePriority)(0),      // 3: service_layer.SLUpdatePriority
+	(SLEncapType)(0),           // 4: service_layer.SLEncapType
+	(SLErrorStatus_SLErrno)(0), // 5: service_layer.SLErrorStatus.SLErrno
+	(*SLErrorStatus)(nil),      // 6: service_layer.SLErrorStatus
+	(*SLInterface)(nil),        // 7: service_layer.SLInterface
+	(*SLIpAddress)(nil),        // 8: service_layer.SLIpAddress
 }
 var file_sl_common_types_proto_depIdxs = []int32{
-	4, // 0: service_layer.SLErrorStatus.Status:type_name -> service_layer.SLErrorStatus.SLErrno
+	5, // 0: service_layer.SLErrorStatus.Status:type_name -> service_layer.SLErrorStatus.SLErrno
 	1, // [1:1] is the sub-list for method output_type
 	1, // [1:1] is the sub-list for method input_type
 	1, // [1:1] is the sub-list for extension type_name
@@ -2270,7 +2336,7 @@ func file_sl_common_types_proto_init() {
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_sl_common_types_proto_rawDesc,
-			NumEnums:      5,
+			NumEnums:      6,
 			NumMessages:   3,
 			NumExtensions: 0,
 			NumServices:   0,

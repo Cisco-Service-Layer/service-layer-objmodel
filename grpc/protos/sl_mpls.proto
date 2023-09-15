@@ -539,18 +539,9 @@ message SLMplsIlmEntry {
 
     // List of path (NHLFE) information.
     repeated SLMplsPath Paths = 2;
-    enum UpdatePriority {
-        // Reserved. 0x0
-        RESERVED = 0x0;
-        CRITICAL = 0x1;
-        HIGH = 0x2;
-        MEDIUM = 0x3;
-        LOW = 0x4;
-    }
-    // Priority.
-    // Each entry can have priority value, this is priority value may be used
+    // Each entry can have priority value, this priority value may be used
     // in internal queuing of routes while programming the data-plane
-    UpdatePriority Priority = 3;
+    SLUpdatePriority Priority = 3;
 }
 
 // A batch of MPLS ILM entries.
