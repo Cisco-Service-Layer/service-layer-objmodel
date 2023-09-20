@@ -539,6 +539,10 @@ message SLMplsIlmEntry {
 
     // List of path (NHLFE) information.
     repeated SLMplsPath Paths = 2;
+
+    // Each entry can have priority value, this priority value may be used
+    // in internal queuing of routes while programming the data-plane
+    SLUpdatePriority Priority = 3;
 }
 
 // A batch of MPLS ILM entries.
