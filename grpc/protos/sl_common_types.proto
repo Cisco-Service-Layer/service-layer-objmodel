@@ -706,6 +706,7 @@ enum SLNotifOp {
     SL_NOTIFOP_DISABLE    = 0x2;
 }
 
+// Update Priority
 enum SLUpdatePriority {
     // Reserved. 0x0
     SL_PRIORITY_RESERVED = 0x0;
