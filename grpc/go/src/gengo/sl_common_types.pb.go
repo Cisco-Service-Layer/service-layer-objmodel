@@ -200,6 +200,7 @@ func (SLNotifOp) EnumDescriptor() ([]byte, []int) {
 	return file_sl_common_types_proto_rawDescGZIP(), []int{2}
 }
 
+// Update Priority
 type SLUpdatePriority int32
 
 const (
