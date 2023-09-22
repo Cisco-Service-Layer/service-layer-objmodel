@@ -46,6 +46,8 @@
     /* Authentication failure. */\
     /* Incorrect credentials passed in by RPC. 0xd */\
     SL_AUTH_FAIL = 0xd,\
+    /* Ack type not supported error */\
+    SL_ACK_TYPE_NOT_SUPPORTED = 0xe,\
     /* !!! Error codes for Client INIT operations. */\
     /* Offset for INIT errors. 0x500 */\
     SL_INIT_START_OFFSET = 0x500,\
@@ -668,6 +670,9 @@
     {SL_AUTH_FAIL ,\
         " Authentication failure. "\
         " Incorrect credentials passed in by RPC.  "\
+        },\
+    {SL_ACK_TYPE_NOT_SUPPORTED ,\
+        " Ack type not supported error "\
         },\
     {SL_INIT_START_OFFSET ,\
         " Offset for INIT errors.  "\

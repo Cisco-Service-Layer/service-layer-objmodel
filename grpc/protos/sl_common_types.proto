@@ -63,6 +63,8 @@ message SLErrorStatus {
         // Authentication failure.
         // Incorrect credentials passed in by RPC. 0xd
         SL_AUTH_FAIL = 0xd;
+        // Ack type not supported error
+        SL_ACK_TYPE_NOT_SUPPORTED = 0xe;
 
         // !!! Error codes for Client INIT operations.
 
