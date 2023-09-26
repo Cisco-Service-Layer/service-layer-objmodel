@@ -413,7 +413,7 @@ const (
 	// Authentication failure.
 	// Incorrect credentials passed in by RPC. 0xd
 	SLErrorStatus_SL_AUTH_FAIL SLErrorStatus_SLErrno = 13
-	// Ack type not supported error
+	// Ack type not supported error. 0xe
 	SLErrorStatus_SL_ACK_TYPE_NOT_SUPPORTED SLErrorStatus_SLErrno = 14
 	// Offset for INIT errors. 0x500
 	SLErrorStatus_SL_INIT_START_OFFSET SLErrorStatus_SLErrno = 1280
@@ -962,13 +962,13 @@ const (
 	SLErrorStatus_SL_RPC_L2_NOTIF_BD_NAME_TOOLONG SLErrorStatus_SLErrno = 81928
 	// L2 notification request rejected as BD not found. 0x14009
 	SLErrorStatus_SL_RPC_L2_NOTIF_BD_NOT_FOUND SLErrorStatus_SLErrno = 81929
-	// Container VRF for PathGroup could not be added
+	// Container VRF for PathGroup could not be added. 0x15001
 	SLErrorStatus_SL_PG_VRF_ADD_ERR SLErrorStatus_SLErrno = 86017
-	// PathGroup's VRF ID could not be determined
+	// PathGroup's VRF ID could not be determined. 0x15002
 	SLErrorStatus_SL_PG_VRF_NO_VRFID SLErrorStatus_SLErrno = 86018
-	// PathGroup's string key is too long
+	// PathGroup's string key is too long. 0x15003
 	SLErrorStatus_SL_PG_STR_KEY_TOOLONG SLErrorStatus_SLErrno = 86019
-	// ID of a next hop VRF in a path in the PathGroup cannot be determined
+	// ID of a next hop VRF in a path in the PathGroup cannot be determined. 0x15004
 	SLErrorStatus_SL_PG_TARGET_VRF_NO_VRFID SLErrorStatus_SLErrno = 86020
 	// Offset for Internal errors. 0x100000
 	SLErrorStatus_SL_INTERNAL_START_OFFSET SLErrorStatus_SLErrno = 1048576

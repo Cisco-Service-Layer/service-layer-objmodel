@@ -653,7 +653,7 @@ namespace ServiceLayer {
         /// </summary>
         [pbr::OriginalName("SL_AUTH_FAIL")] SlAuthFail = 13,
         /// <summary>
-        /// Ack type not supported error
+        /// Ack type not supported error. 0xe
         /// </summary>
         [pbr::OriginalName("SL_ACK_TYPE_NOT_SUPPORTED")] SlAckTypeNotSupported = 14,
         /// <summary>
@@ -1696,19 +1696,19 @@ namespace ServiceLayer {
         /// </summary>
         [pbr::OriginalName("SL_RPC_L2_NOTIF_BD_NOT_FOUND")] SlRpcL2NotifBdNotFound = 81929,
         /// <summary>
-        /// Container VRF for PathGroup could not be added
+        /// Container VRF for PathGroup could not be added. 0x15001
         /// </summary>
         [pbr::OriginalName("SL_PG_VRF_ADD_ERR")] SlPgVrfAddErr = 86017,
         /// <summary>
-        /// PathGroup's VRF ID could not be determined 
+        /// PathGroup's VRF ID could not be determined. 0x15002
         /// </summary>
         [pbr::OriginalName("SL_PG_VRF_NO_VRFID")] SlPgVrfNoVrfid = 86018,
         /// <summary>
-        /// PathGroup's string key is too long
+        /// PathGroup's string key is too long. 0x15003
         /// </summary>
         [pbr::OriginalName("SL_PG_STR_KEY_TOOLONG")] SlPgStrKeyToolong = 86019,
         /// <summary>
-        /// ID of a next hop VRF in a path in the PathGroup cannot be determined
+        /// ID of a next hop VRF in a path in the PathGroup cannot be determined. 0x15004
         /// </summary>
         [pbr::OriginalName("SL_PG_TARGET_VRF_NO_VRFID")] SlPgTargetVrfNoVrfid = 86020,
         /// <summary>
