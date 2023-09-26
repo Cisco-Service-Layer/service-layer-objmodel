@@ -4383,54 +4383,10 @@ namespace ServiceLayer {
     public const int FlagsFieldNumber = 6;
     private uint flags_;
     /// <summary>
+    /// Route Flags.
     /// Flags to control programming of the route to Routing Information Base.
-    /// Each flag is indicated as a bit field. 
-    /// See SLRouteFlags for flag enumerations.
-    /// Supported values are:
-    ///
-    /// SL_ROUTE_FLAG_PREFER_OVER_LDP - This route takes precedence
-    /// over a route learnt by LDP.
-    ///
-    /// SL_ROUTE_FLAG_VIABLE_PATHS_ONLY - This flag on the route
-    /// is applicable only if the route contains the PathList.
-    ///
-    /// - If the flag is not set, all paths in the PathList are installed in
-    ///   the route’s load balance group, even if paths are unviable. The 
-    ///   Network element does not automatically update the route’s load balance
-    ///   group when path viability changes and expects the client to take
-    ///   corrective action.
-    ///
-    /// - If the flag is set, the network element only installs viable
-    ///   paths from the PathList in the route’s load balance group.
-    ///   The Network element also automatically updates the route’s
-    ///   load balance group when path viability changes.
-    ///
-    /// - This flag is ignored if the route refers to the PathGroup and the
-    ///   corresponding setting on the PathGroup dictates path programming.
-    ///
-    /// SL_ROUTE_FLAG_ACTIVE_ON_VIABLE_PATH - This flag is supported only for
-    /// routes that contain the PathList.
-    ///
-    /// - If this flag is not set, the route is active if it is preferred
-    ///   based on administrative distance. Viability of the paths in
-    ///   the PathList is not used as a criterion to determine
-    ///   route’s activeness.
-    ///   If the route is active, the PathList programming is dictated by
-    ///   SL_ROUTE_FLAG_VIABLE_PATHS_ONLY.
-    ///
-    /// - If this flag is set, SL_ROUTE_FLAG_VIABLE_PATHS_ONLY must also
-    ///   be set. The route is considered as active if it is preferred based
-    ///   on administrative distance AND at least one path in the PathList
-    ///   is viable. The Network element also automatically promotes or demotes
-    ///   the route when the first path becomes viable or none of the paths
-    ///   are no longer viable.
-    ///
-    /// - If the route refers to the PathGroup,
-    ///   then this flag on the route is ignored. Instead, the
-    ///   corresponding setting on PathGroup dictates whether this
-    ///   route should be considered in best route calculations.
-    ///
-    /// All others are reserved.
+    /// Each flag is indicated as a bit field. Supported values are:
+    /// 0x1 - This route takes precedence over a route learnt by LDP.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
