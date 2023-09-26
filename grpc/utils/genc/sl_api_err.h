@@ -616,6 +616,15 @@
     SL_RPC_L2_NOTIF_BD_NAME_TOOLONG = 0x14008,\
     /* L2 notification request rejected as BD not found. 0x14009 */\
     SL_RPC_L2_NOTIF_BD_NOT_FOUND = 0x14009,\
+    /* !!! Error codes for route path group objects. */\
+    /* Container VRF for PathGroup could not be added */\
+    SL_PG_VRF_ADD_ERR = 0x15001,\
+    /* PathGroup's VRF ID could not be determined  */\
+    SL_PG_VRF_NO_VRFID = 0x15002,\
+    /* PathGroup's string key is too long */\
+    SL_PG_STR_KEY_TOOLONG = 0x15003,\
+    /* ID of a next hop VRF in a path in the PathGroup cannot be determined */\
+    SL_PG_TARGET_VRF_NO_VRFID = 0x15004,\
     /* !!! Error codes Reserved for internal errors. */\
     /* Offset for Internal errors. 0x100000 */\
     SL_INTERNAL_START_OFFSET = 0x100000,\
@@ -1464,6 +1473,18 @@
         },\
     {SL_RPC_L2_NOTIF_BD_NOT_FOUND ,\
         " L2 notification request rejected as BD not found.  "\
+        },\
+    {SL_PG_VRF_ADD_ERR ,\
+        " Container VRF for PathGroup could not be added "\
+        },\
+    {SL_PG_VRF_NO_VRFID ,\
+        " PathGroup's VRF ID could not be determined  "\
+        },\
+    {SL_PG_STR_KEY_TOOLONG ,\
+        " PathGroup's string key is too long "\
+        },\
+    {SL_PG_TARGET_VRF_NO_VRFID ,\
+        " ID of a next hop VRF in a path in the PathGroup cannot be determined "\
         },\
     {SL_INTERNAL_START_OFFSET ,\
         " Offset for Internal errors.  "\

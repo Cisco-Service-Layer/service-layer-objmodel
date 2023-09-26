@@ -121,9 +121,9 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
 };
 
 const char descriptor_table_protodef_sl_5fcommon_5ftypes_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
-  "\n\025sl_common_types.proto\022\rservice_layer\"\325"
-  "E\n\rSLErrorStatus\0224\n\006Status\030\001 \001(\0162$.servi"
-  "ce_layer.SLErrorStatus.SLErrno\"\215E\n\007SLErr"
+  "\n\025sl_common_types.proto\022\rservice_layer\"\306"
+  "F\n\rSLErrorStatus\0224\n\006Status\030\001 \001(\0162$.servi"
+  "ce_layer.SLErrorStatus.SLErrno\"\376E\n\007SLErr"
   "no\022\016\n\nSL_SUCCESS\020\000\022\024\n\020SL_NOT_CONNECTED\020\001"
   "\022\r\n\tSL_EAGAIN\020\002\022\r\n\tSL_ENOMEM\020\003\022\014\n\010SL_EBU"
   "SY\020\004\022\r\n\tSL_EINVAL\020\005\022\026\n\022SL_UNSUPPORTED_VE"
@@ -344,32 +344,34 @@ const char descriptor_table_protodef_sl_5fcommon_5ftypes_2eproto[] PROTOBUF_SECT
   "_EOF_ERR\020\206\200\005\022%\n\037SL_RPC_L2_NOTIF_BD_NAME_"
   "MISSING\020\207\200\005\022%\n\037SL_RPC_L2_NOTIF_BD_NAME_T"
   "OOLONG\020\210\200\005\022\"\n\034SL_RPC_L2_NOTIF_BD_NOT_FOU"
-  "ND\020\211\200\005\022\036\n\030SL_INTERNAL_START_OFFSET\020\200\200@\"<"
-  "\n\013SLInterface\022\016\n\004Name\030\001 \001(\tH\000\022\020\n\006Handle\030"
-  "\002 \001(\rH\000B\013\n\tInterface\"B\n\013SLIpAddress\022\023\n\tV"
-  "4Address\030\001 \001(\rH\000\022\023\n\tV6Address\030\002 \001(\014H\000B\t\n"
-  "\007Address\"%\n\nSLObjectId\022\016\n\004Name\030\001 \001(\tH\000B\007"
-  "\n\005entry*b\n\007SLRegOp\022\025\n\021SL_REGOP_RESERVED\020"
-  "\000\022\025\n\021SL_REGOP_REGISTER\020\001\022\027\n\023SL_REGOP_UNR"
-  "EGISTER\020\002\022\020\n\014SL_REGOP_EOF\020\003*_\n\nSLObjectO"
-  "p\022\025\n\021SL_OBJOP_RESERVED\020\000\022\020\n\014SL_OBJOP_ADD"
-  "\020\001\022\023\n\017SL_OBJOP_UPDATE\020\002\022\023\n\017SL_OBJOP_DELE"
-  "TE\020\003*S\n\tSLNotifOp\022\027\n\023SL_NOTIFOP_RESERVED"
-  "\020\000\022\025\n\021SL_NOTIFOP_ENABLE\020\001\022\026\n\022SL_NOTIFOP_"
-  "DISABLE\020\002*K\n\013SLEncapType\022\025\n\021SL_ENCAP_RES"
-  "ERVED\020\000\022\022\n\016SL_ENCAP_VXLAN\020\001\022\021\n\rSL_ENCAP_"
-  "MPLS\020\002*\236\001\n\013SLTableType\022\032\n\026SL_TABLE_TYPE_"
-  "RESERVED\020\000\022\027\n\023SL_IPv4_ROUTE_TABLE\020\001\022\027\n\023S"
-  "L_IPv6_ROUTE_TABLE\020\002\022\027\n\023SL_MPLS_LABEL_TA"
-  "BLE\020\003\022\027\n\023SL_PATH_GROUP_TABLE\020\004\022\017\n\013SL_PF_"
-  "TABLE\020\005*\033\n\014SLRspACKType\022\013\n\007RIB_ACK\020\000BQZO"
-  "github.com/Cisco-service-layer/service-l"
-  "ayer-objmodel/grpc/protos;service_layerb"
-  "\006proto3"
+  "ND\020\211\200\005\022\027\n\021SL_PG_VRF_ADD_ERR\020\201\240\005\022\030\n\022SL_PG"
+  "_VRF_NO_VRFID\020\202\240\005\022\033\n\025SL_PG_STR_KEY_TOOLO"
+  "NG\020\203\240\005\022\037\n\031SL_PG_TARGET_VRF_NO_VRFID\020\204\240\005\022"
+  "\036\n\030SL_INTERNAL_START_OFFSET\020\200\200@\"<\n\013SLInt"
+  "erface\022\016\n\004Name\030\001 \001(\tH\000\022\020\n\006Handle\030\002 \001(\rH\000"
+  "B\013\n\tInterface\"B\n\013SLIpAddress\022\023\n\tV4Addres"
+  "s\030\001 \001(\rH\000\022\023\n\tV6Address\030\002 \001(\014H\000B\t\n\007Addres"
+  "s\"%\n\nSLObjectId\022\016\n\004Name\030\001 \001(\tH\000B\007\n\005entry"
+  "*b\n\007SLRegOp\022\025\n\021SL_REGOP_RESERVED\020\000\022\025\n\021SL"
+  "_REGOP_REGISTER\020\001\022\027\n\023SL_REGOP_UNREGISTER"
+  "\020\002\022\020\n\014SL_REGOP_EOF\020\003*_\n\nSLObjectOp\022\025\n\021SL"
+  "_OBJOP_RESERVED\020\000\022\020\n\014SL_OBJOP_ADD\020\001\022\023\n\017S"
+  "L_OBJOP_UPDATE\020\002\022\023\n\017SL_OBJOP_DELETE\020\003*S\n"
+  "\tSLNotifOp\022\027\n\023SL_NOTIFOP_RESERVED\020\000\022\025\n\021S"
+  "L_NOTIFOP_ENABLE\020\001\022\026\n\022SL_NOTIFOP_DISABLE"
+  "\020\002*K\n\013SLEncapType\022\025\n\021SL_ENCAP_RESERVED\020\000"
+  "\022\022\n\016SL_ENCAP_VXLAN\020\001\022\021\n\rSL_ENCAP_MPLS\020\002*"
+  "\236\001\n\013SLTableType\022\032\n\026SL_TABLE_TYPE_RESERVE"
+  "D\020\000\022\027\n\023SL_IPv4_ROUTE_TABLE\020\001\022\027\n\023SL_IPv6_"
+  "ROUTE_TABLE\020\002\022\027\n\023SL_MPLS_LABEL_TABLE\020\003\022\027"
+  "\n\023SL_PATH_GROUP_TABLE\020\004\022\017\n\013SL_PF_TABLE\020\005"
+  "*\033\n\014SLRspACKType\022\013\n\007RIB_ACK\020\000BQZOgithub."
+  "com/Cisco-service-layer/service-layer-ob"
+  "jmodel/grpc/protos;service_layerb\006proto3"
   ;
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_sl_5fcommon_5ftypes_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_sl_5fcommon_5ftypes_2eproto = {
-  false, false, 9767, descriptor_table_protodef_sl_5fcommon_5ftypes_2eproto, "sl_common_types.proto", 
+  false, false, 9880, descriptor_table_protodef_sl_5fcommon_5ftypes_2eproto, "sl_common_types.proto", 
   &descriptor_table_sl_5fcommon_5ftypes_2eproto_once, nullptr, 0, 4,
   schemas, file_default_instances, TableStruct_sl_5fcommon_5ftypes_2eproto::offsets,
   file_level_metadata_sl_5fcommon_5ftypes_2eproto, file_level_enum_descriptors_sl_5fcommon_5ftypes_2eproto, file_level_service_descriptors_sl_5fcommon_5ftypes_2eproto,
@@ -648,6 +650,10 @@ bool SLErrorStatus_SLErrno_IsValid(int value) {
     case 81927:
     case 81928:
     case 81929:
+    case 86017:
+    case 86018:
+    case 86019:
+    case 86020:
     case 1048576:
       return true;
     default:
@@ -917,6 +923,10 @@ constexpr SLErrorStatus_SLErrno SLErrorStatus::SL_RPC_L2_NOTIF_EOF_ERR;
 constexpr SLErrorStatus_SLErrno SLErrorStatus::SL_RPC_L2_NOTIF_BD_NAME_MISSING;
 constexpr SLErrorStatus_SLErrno SLErrorStatus::SL_RPC_L2_NOTIF_BD_NAME_TOOLONG;
 constexpr SLErrorStatus_SLErrno SLErrorStatus::SL_RPC_L2_NOTIF_BD_NOT_FOUND;
+constexpr SLErrorStatus_SLErrno SLErrorStatus::SL_PG_VRF_ADD_ERR;
+constexpr SLErrorStatus_SLErrno SLErrorStatus::SL_PG_VRF_NO_VRFID;
+constexpr SLErrorStatus_SLErrno SLErrorStatus::SL_PG_STR_KEY_TOOLONG;
+constexpr SLErrorStatus_SLErrno SLErrorStatus::SL_PG_TARGET_VRF_NO_VRFID;
 constexpr SLErrorStatus_SLErrno SLErrorStatus::SL_INTERNAL_START_OFFSET;
 constexpr SLErrorStatus_SLErrno SLErrorStatus::SLErrno_MIN;
 constexpr SLErrorStatus_SLErrno SLErrorStatus::SLErrno_MAX;

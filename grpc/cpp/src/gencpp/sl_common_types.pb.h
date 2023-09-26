@@ -338,6 +338,10 @@ enum SLErrorStatus_SLErrno : int {
   SLErrorStatus_SLErrno_SL_RPC_L2_NOTIF_BD_NAME_MISSING = 81927,
   SLErrorStatus_SLErrno_SL_RPC_L2_NOTIF_BD_NAME_TOOLONG = 81928,
   SLErrorStatus_SLErrno_SL_RPC_L2_NOTIF_BD_NOT_FOUND = 81929,
+  SLErrorStatus_SLErrno_SL_PG_VRF_ADD_ERR = 86017,
+  SLErrorStatus_SLErrno_SL_PG_VRF_NO_VRFID = 86018,
+  SLErrorStatus_SLErrno_SL_PG_STR_KEY_TOOLONG = 86019,
+  SLErrorStatus_SLErrno_SL_PG_TARGET_VRF_NO_VRFID = 86020,
   SLErrorStatus_SLErrno_SL_INTERNAL_START_OFFSET = 1048576,
   SLErrorStatus_SLErrno_SLErrorStatus_SLErrno_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::min(),
   SLErrorStatus_SLErrno_SLErrorStatus_SLErrno_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::max()
@@ -1164,6 +1168,14 @@ class SLErrorStatus final :
     SLErrorStatus_SLErrno_SL_RPC_L2_NOTIF_BD_NAME_TOOLONG;
   static constexpr SLErrno SL_RPC_L2_NOTIF_BD_NOT_FOUND =
     SLErrorStatus_SLErrno_SL_RPC_L2_NOTIF_BD_NOT_FOUND;
+  static constexpr SLErrno SL_PG_VRF_ADD_ERR =
+    SLErrorStatus_SLErrno_SL_PG_VRF_ADD_ERR;
+  static constexpr SLErrno SL_PG_VRF_NO_VRFID =
+    SLErrorStatus_SLErrno_SL_PG_VRF_NO_VRFID;
+  static constexpr SLErrno SL_PG_STR_KEY_TOOLONG =
+    SLErrorStatus_SLErrno_SL_PG_STR_KEY_TOOLONG;
+  static constexpr SLErrno SL_PG_TARGET_VRF_NO_VRFID =
+    SLErrorStatus_SLErrno_SL_PG_TARGET_VRF_NO_VRFID;
   static constexpr SLErrno SL_INTERNAL_START_OFFSET =
     SLErrorStatus_SLErrno_SL_INTERNAL_START_OFFSET;
   static inline bool SLErrno_IsValid(int value) {

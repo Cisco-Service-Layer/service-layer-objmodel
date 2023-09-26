@@ -24,9 +24,9 @@ namespace ServiceLayer {
     static SlCommonTypesReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChVzbF9jb21tb25fdHlwZXMucHJvdG8SDXNlcnZpY2VfbGF5ZXIi1UUKDVNM",
+            "ChVzbF9jb21tb25fdHlwZXMucHJvdG8SDXNlcnZpY2VfbGF5ZXIixkYKDVNM",
             "RXJyb3JTdGF0dXMSNAoGU3RhdHVzGAEgASgOMiQuc2VydmljZV9sYXllci5T",
-            "TEVycm9yU3RhdHVzLlNMRXJybm8ijUUKB1NMRXJybm8SDgoKU0xfU1VDQ0VT",
+            "TEVycm9yU3RhdHVzLlNMRXJybm8i/kUKB1NMRXJybm8SDgoKU0xfU1VDQ0VT",
             "UxAAEhQKEFNMX05PVF9DT05ORUNURUQQARINCglTTF9FQUdBSU4QAhINCglT",
             "TF9FTk9NRU0QAxIMCghTTF9FQlVTWRAEEg0KCVNMX0VJTlZBTBAFEhYKElNM",
             "X1VOU1VQUE9SVEVEX1ZFUhAGEhQKEFNMX05PVF9BVkFJTEFCTEUQBxIbChdT",
@@ -222,26 +222,28 @@ namespace ServiceLayer {
             "UlIQhYAFEh0KF1NMX1JQQ19MMl9OT1RJRl9FT0ZfRVJSEIaABRIlCh9TTF9S",
             "UENfTDJfTk9USUZfQkRfTkFNRV9NSVNTSU5HEIeABRIlCh9TTF9SUENfTDJf",
             "Tk9USUZfQkRfTkFNRV9UT09MT05HEIiABRIiChxTTF9SUENfTDJfTk9USUZf",
-            "QkRfTk9UX0ZPVU5EEImABRIeChhTTF9JTlRFUk5BTF9TVEFSVF9PRkZTRVQQ",
-            "gIBAIjwKC1NMSW50ZXJmYWNlEg4KBE5hbWUYASABKAlIABIQCgZIYW5kbGUY",
-            "AiABKA1IAEILCglJbnRlcmZhY2UiQgoLU0xJcEFkZHJlc3MSEwoJVjRBZGRy",
-            "ZXNzGAEgASgNSAASEwoJVjZBZGRyZXNzGAIgASgMSABCCQoHQWRkcmVzcyIl",
-            "CgpTTE9iamVjdElkEg4KBE5hbWUYASABKAlIAEIHCgVlbnRyeSpiCgdTTFJl",
-            "Z09wEhUKEVNMX1JFR09QX1JFU0VSVkVEEAASFQoRU0xfUkVHT1BfUkVHSVNU",
-            "RVIQARIXChNTTF9SRUdPUF9VTlJFR0lTVEVSEAISEAoMU0xfUkVHT1BfRU9G",
-            "EAMqXwoKU0xPYmplY3RPcBIVChFTTF9PQkpPUF9SRVNFUlZFRBAAEhAKDFNM",
-            "X09CSk9QX0FERBABEhMKD1NMX09CSk9QX1VQREFURRACEhMKD1NMX09CSk9Q",
-            "X0RFTEVURRADKlMKCVNMTm90aWZPcBIXChNTTF9OT1RJRk9QX1JFU0VSVkVE",
-            "EAASFQoRU0xfTk9USUZPUF9FTkFCTEUQARIWChJTTF9OT1RJRk9QX0RJU0FC",
-            "TEUQAipLCgtTTEVuY2FwVHlwZRIVChFTTF9FTkNBUF9SRVNFUlZFRBAAEhIK",
-            "DlNMX0VOQ0FQX1ZYTEFOEAESEQoNU0xfRU5DQVBfTVBMUxACKp4BCgtTTFRh",
-            "YmxlVHlwZRIaChZTTF9UQUJMRV9UWVBFX1JFU0VSVkVEEAASFwoTU0xfSVB2",
-            "NF9ST1VURV9UQUJMRRABEhcKE1NMX0lQdjZfUk9VVEVfVEFCTEUQAhIXChNT",
-            "TF9NUExTX0xBQkVMX1RBQkxFEAMSFwoTU0xfUEFUSF9HUk9VUF9UQUJMRRAE",
-            "Eg8KC1NMX1BGX1RBQkxFEAUqGwoMU0xSc3BBQ0tUeXBlEgsKB1JJQl9BQ0sQ",
-            "AEJRWk9naXRodWIuY29tL0Npc2NvLXNlcnZpY2UtbGF5ZXIvc2VydmljZS1s",
-            "YXllci1vYmptb2RlbC9ncnBjL3Byb3RvcztzZXJ2aWNlX2xheWVyYgZwcm90",
-            "bzM="));
+            "QkRfTk9UX0ZPVU5EEImABRIXChFTTF9QR19WUkZfQUREX0VSUhCBoAUSGAoS",
+            "U0xfUEdfVlJGX05PX1ZSRklEEIKgBRIbChVTTF9QR19TVFJfS0VZX1RPT0xP",
+            "TkcQg6AFEh8KGVNMX1BHX1RBUkdFVF9WUkZfTk9fVlJGSUQQhKAFEh4KGFNM",
+            "X0lOVEVSTkFMX1NUQVJUX09GRlNFVBCAgEAiPAoLU0xJbnRlcmZhY2USDgoE",
+            "TmFtZRgBIAEoCUgAEhAKBkhhbmRsZRgCIAEoDUgAQgsKCUludGVyZmFjZSJC",
+            "CgtTTElwQWRkcmVzcxITCglWNEFkZHJlc3MYASABKA1IABITCglWNkFkZHJl",
+            "c3MYAiABKAxIAEIJCgdBZGRyZXNzIiUKClNMT2JqZWN0SWQSDgoETmFtZRgB",
+            "IAEoCUgAQgcKBWVudHJ5KmIKB1NMUmVnT3ASFQoRU0xfUkVHT1BfUkVTRVJW",
+            "RUQQABIVChFTTF9SRUdPUF9SRUdJU1RFUhABEhcKE1NMX1JFR09QX1VOUkVH",
+            "SVNURVIQAhIQCgxTTF9SRUdPUF9FT0YQAypfCgpTTE9iamVjdE9wEhUKEVNM",
+            "X09CSk9QX1JFU0VSVkVEEAASEAoMU0xfT0JKT1BfQUREEAESEwoPU0xfT0JK",
+            "T1BfVVBEQVRFEAISEwoPU0xfT0JKT1BfREVMRVRFEAMqUwoJU0xOb3RpZk9w",
+            "EhcKE1NMX05PVElGT1BfUkVTRVJWRUQQABIVChFTTF9OT1RJRk9QX0VOQUJM",
+            "RRABEhYKElNMX05PVElGT1BfRElTQUJMRRACKksKC1NMRW5jYXBUeXBlEhUK",
+            "EVNMX0VOQ0FQX1JFU0VSVkVEEAASEgoOU0xfRU5DQVBfVlhMQU4QARIRCg1T",
+            "TF9FTkNBUF9NUExTEAIqngEKC1NMVGFibGVUeXBlEhoKFlNMX1RBQkxFX1RZ",
+            "UEVfUkVTRVJWRUQQABIXChNTTF9JUHY0X1JPVVRFX1RBQkxFEAESFwoTU0xf",
+            "SVB2Nl9ST1VURV9UQUJMRRACEhcKE1NMX01QTFNfTEFCRUxfVEFCTEUQAxIX",
+            "ChNTTF9QQVRIX0dST1VQX1RBQkxFEAQSDwoLU0xfUEZfVEFCTEUQBSobCgxT",
+            "TFJzcEFDS1R5cGUSCwoHUklCX0FDSxAAQlFaT2dpdGh1Yi5jb20vQ2lzY28t",
+            "c2VydmljZS1sYXllci9zZXJ2aWNlLWxheWVyLW9iam1vZGVsL2dycGMvcHJv",
+            "dG9zO3NlcnZpY2VfbGF5ZXJiBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::ServiceLayer.SLRegOp), typeof(global::ServiceLayer.SLObjectOp), typeof(global::ServiceLayer.SLNotifOp), typeof(global::ServiceLayer.SLEncapType), typeof(global::ServiceLayer.SLTableType), typeof(global::ServiceLayer.SLRspACKType), }, null, new pbr::GeneratedClrTypeInfo[] {
@@ -1693,6 +1695,22 @@ namespace ServiceLayer {
         /// L2 notification request rejected as BD not found. 0x14009
         /// </summary>
         [pbr::OriginalName("SL_RPC_L2_NOTIF_BD_NOT_FOUND")] SlRpcL2NotifBdNotFound = 81929,
+        /// <summary>
+        /// Container VRF for PathGroup could not be added
+        /// </summary>
+        [pbr::OriginalName("SL_PG_VRF_ADD_ERR")] SlPgVrfAddErr = 86017,
+        /// <summary>
+        /// PathGroup's VRF ID could not be determined 
+        /// </summary>
+        [pbr::OriginalName("SL_PG_VRF_NO_VRFID")] SlPgVrfNoVrfid = 86018,
+        /// <summary>
+        /// PathGroup's string key is too long
+        /// </summary>
+        [pbr::OriginalName("SL_PG_STR_KEY_TOOLONG")] SlPgStrKeyToolong = 86019,
+        /// <summary>
+        /// ID of a next hop VRF in a path in the PathGroup cannot be determined
+        /// </summary>
+        [pbr::OriginalName("SL_PG_TARGET_VRF_NO_VRFID")] SlPgTargetVrfNoVrfid = 86020,
         /// <summary>
         /// Offset for Internal errors. 0x100000
         /// </summary>
