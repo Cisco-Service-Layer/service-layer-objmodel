@@ -80,14 +80,12 @@ namespace ServiceLayer {
             "U0xfRVZFTlRfVFlQRV9FUlJPUhABEhgKFFNMX0VWRU5UX1RZUEVfU1RBVFVT",
             "EAISFwoTU0xfRVZFTlRfVFlQRV9ST1VURRADEh4KGlNMX0VWRU5UX1RZUEVf",
             "U1RBUlRfTUFSS0VSEAQSHAoYU0xfRVZFTlRfVFlQRV9FTkRfTUFSS0VSEAUS",
-            "FQoRU0xfRVZFTlRfVFlQRV9WUkYQBiqbAQoMU0xSb3V0ZUZsYWdzEhoKFlNM",
-            "X1JPVVRFX0ZMQUdfUkVTRVJWRUQQABIhCh1TTF9ST1VURV9GTEFHX1BSRUZF",
-            "Ul9PVkVSX0xEUBABEiMKH1NMX1JPVVRFX0ZMQUdfVklBQkxFX1BBVEhTX09O",
-            "TFkQBBInCiNTTF9ST1VURV9GTEFHX0FDVElWRV9PTl9WSUFCTEVfUEFUSBAI",
-            "KkoKC1NMUGF0aEZsYWdzEhkKFVNMX1BBVEhfRkxBR19SRVNFUlZFRBAAEiAK",
-            "HFNMX1BBVEhfRkxBR19TSU5HTEVfUEFUSF9PUFQQAUJRWk9naXRodWIuY29t",
-            "L0Npc2NvLXNlcnZpY2UtbGF5ZXIvc2VydmljZS1sYXllci1vYmptb2RlbC9n",
-            "cnBjL3Byb3RvcztzZXJ2aWNlX2xheWVyYgZwcm90bzM="));
+            "FQoRU0xfRVZFTlRfVFlQRV9WUkYQBipNCgxTTFJvdXRlRmxhZ3MSGgoWU0xf",
+            "Uk9VVEVfRkxBR19SRVNFUlZFRBAAEiEKHVNMX1JPVVRFX0ZMQUdfUFJFRkVS",
+            "X09WRVJfTERQEAEqSgoLU0xQYXRoRmxhZ3MSGQoVU0xfUEFUSF9GTEFHX1JF",
+            "U0VSVkVEEAASIAocU0xfUEFUSF9GTEFHX1NJTkdMRV9QQVRIX09QVBABQlFa",
+            "T2dpdGh1Yi5jb20vQ2lzY28tc2VydmljZS1sYXllci9zZXJ2aWNlLWxheWVy",
+            "LW9iam1vZGVsL2dycGMvcHJvdG9zO3NlcnZpY2VfbGF5ZXJiBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::ServiceLayer.SlCommonTypesReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::ServiceLayer.SLNotifType), typeof(global::ServiceLayer.SLRouteFlags), typeof(global::ServiceLayer.SLPathFlags), }, null, new pbr::GeneratedClrTypeInfo[] {
@@ -172,22 +170,6 @@ namespace ServiceLayer {
     /// learnt by LDP.
     /// </summary>
     [pbr::OriginalName("SL_ROUTE_FLAG_PREFER_OVER_LDP")] SlRouteFlagPreferOverLdp = 1,
-    /// <summary>
-    /// This flag is applicable only on the routes that contain the PathList. 
-    /// If the flag is set, the network element only installs viable paths from 
-    /// the PathList in the load balance group. 
-    /// This flag is ignored if the route refers to the PathGroup.
-    /// </summary>
-    [pbr::OriginalName("SL_ROUTE_FLAG_VIABLE_PATHS_ONLY")] SlRouteFlagViablePathsOnly = 4,
-    /// <summary>
-    /// This flag is supported only for routes that contain the PathList.
-    /// Entries with this flag are included in best route calculations only if 
-    /// at least one path in the PathList is viable. 
-    /// If the route refers to the PathGroup, then this flag on the route is ignored. 
-    /// Instead, the corresponding setting on PathGroup dictates whether this
-    /// route should be considered in best route calculations.
-    /// </summary>
-    [pbr::OriginalName("SL_ROUTE_FLAG_ACTIVE_ON_VIABLE_PATH")] SlRouteFlagActiveOnViablePath = 8,
   }
 
   /// <summary>

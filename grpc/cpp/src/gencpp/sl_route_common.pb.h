@@ -175,14 +175,12 @@ inline bool SLNotifType_Parse(
 enum SLRouteFlags : int {
   SL_ROUTE_FLAG_RESERVED = 0,
   SL_ROUTE_FLAG_PREFER_OVER_LDP = 1,
-  SL_ROUTE_FLAG_VIABLE_PATHS_ONLY = 4,
-  SL_ROUTE_FLAG_ACTIVE_ON_VIABLE_PATH = 8,
   SLRouteFlags_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::min(),
   SLRouteFlags_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::max()
 };
 bool SLRouteFlags_IsValid(int value);
 constexpr SLRouteFlags SLRouteFlags_MIN = SL_ROUTE_FLAG_RESERVED;
-constexpr SLRouteFlags SLRouteFlags_MAX = SL_ROUTE_FLAG_ACTIVE_ON_VIABLE_PATH;
+constexpr SLRouteFlags SLRouteFlags_MAX = SL_ROUTE_FLAG_PREFER_OVER_LDP;
 constexpr int SLRouteFlags_ARRAYSIZE = SLRouteFlags_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* SLRouteFlags_descriptor();
