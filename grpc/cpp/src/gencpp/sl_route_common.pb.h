@@ -172,6 +172,58 @@ inline bool SLNotifType_Parse(
   return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<SLNotifType>(
     SLNotifType_descriptor(), name, value);
 }
+enum SLRouteFlags : int {
+  SL_ROUTE_FLAG_RESERVED = 0,
+  SL_ROUTE_FLAG_PREFER_OVER_LDP = 1,
+  SL_ROUTE_FLAG_VIABLE_PATHS_ONLY = 4,
+  SL_ROUTE_FLAG_ACTIVE_ON_VIABLE_PATH = 8,
+  SLRouteFlags_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::min(),
+  SLRouteFlags_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::max()
+};
+bool SLRouteFlags_IsValid(int value);
+constexpr SLRouteFlags SLRouteFlags_MIN = SL_ROUTE_FLAG_RESERVED;
+constexpr SLRouteFlags SLRouteFlags_MAX = SL_ROUTE_FLAG_ACTIVE_ON_VIABLE_PATH;
+constexpr int SLRouteFlags_ARRAYSIZE = SLRouteFlags_MAX + 1;
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* SLRouteFlags_descriptor();
+template<typename T>
+inline const std::string& SLRouteFlags_Name(T enum_t_value) {
+  static_assert(::std::is_same<T, SLRouteFlags>::value ||
+    ::std::is_integral<T>::value,
+    "Incorrect type passed to function SLRouteFlags_Name.");
+  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
+    SLRouteFlags_descriptor(), enum_t_value);
+}
+inline bool SLRouteFlags_Parse(
+    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, SLRouteFlags* value) {
+  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<SLRouteFlags>(
+    SLRouteFlags_descriptor(), name, value);
+}
+enum SLPathFlags : int {
+  SL_PATH_FLAG_RESERVED = 0,
+  SL_PATH_FLAG_SINGLE_PATH_OPT = 1,
+  SLPathFlags_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::min(),
+  SLPathFlags_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::max()
+};
+bool SLPathFlags_IsValid(int value);
+constexpr SLPathFlags SLPathFlags_MIN = SL_PATH_FLAG_RESERVED;
+constexpr SLPathFlags SLPathFlags_MAX = SL_PATH_FLAG_SINGLE_PATH_OPT;
+constexpr int SLPathFlags_ARRAYSIZE = SLPathFlags_MAX + 1;
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* SLPathFlags_descriptor();
+template<typename T>
+inline const std::string& SLPathFlags_Name(T enum_t_value) {
+  static_assert(::std::is_same<T, SLPathFlags>::value ||
+    ::std::is_integral<T>::value,
+    "Incorrect type passed to function SLPathFlags_Name.");
+  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
+    SLPathFlags_descriptor(), enum_t_value);
+}
+inline bool SLPathFlags_Parse(
+    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, SLPathFlags* value) {
+  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<SLPathFlags>(
+    SLPathFlags_descriptor(), name, value);
+}
 // ===================================================================
 
 class SLRouteGlobalsGetMsg final :
@@ -6745,6 +6797,16 @@ template <> struct is_proto_enum< ::service_layer::SLNotifType> : ::std::true_ty
 template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::service_layer::SLNotifType>() {
   return ::service_layer::SLNotifType_descriptor();
+}
+template <> struct is_proto_enum< ::service_layer::SLRouteFlags> : ::std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::service_layer::SLRouteFlags>() {
+  return ::service_layer::SLRouteFlags_descriptor();
+}
+template <> struct is_proto_enum< ::service_layer::SLPathFlags> : ::std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::service_layer::SLPathFlags>() {
+  return ::service_layer::SLPathFlags_descriptor();
 }
 
 PROTOBUF_NAMESPACE_CLOSE

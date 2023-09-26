@@ -111,6 +111,119 @@ func (SLNotifType) EnumDescriptor() ([]byte, []int) {
 	return file_sl_route_common_proto_rawDescGZIP(), []int{0}
 }
 
+type SLRouteFlags int32
+
+const (
+	// Reserved.
+	SLRouteFlags_SL_ROUTE_FLAG_RESERVED SLRouteFlags = 0
+	// This route takes precedence over a route
+	// learnt by LDP.
+	SLRouteFlags_SL_ROUTE_FLAG_PREFER_OVER_LDP SLRouteFlags = 1
+	// This flag is applicable only on the routes that contain the PathList.
+	// If the flag is set, the network element only installs viable paths from
+	// the PathList in the load balance group.
+	// This flag is ignored if the route refers to the PathGroup.
+	SLRouteFlags_SL_ROUTE_FLAG_VIABLE_PATHS_ONLY SLRouteFlags = 4
+	// This flag is supported only for routes that contain the PathList.
+	// Entries with this flag are included in best route calculations only if
+	// at least one path in the PathList is viable.
+	// If the route refers to the PathGroup, then this flag on the route is ignored.
+	// Instead, the corresponding setting on PathGroup dictates whether this
+	// route should be considered in best route calculations.
+	SLRouteFlags_SL_ROUTE_FLAG_ACTIVE_ON_VIABLE_PATH SLRouteFlags = 8
+)
+
+// Enum value maps for SLRouteFlags.
+var (
+	SLRouteFlags_name = map[int32]string{
+		0: "SL_ROUTE_FLAG_RESERVED",
+		1: "SL_ROUTE_FLAG_PREFER_OVER_LDP",
+		4: "SL_ROUTE_FLAG_VIABLE_PATHS_ONLY",
+		8: "SL_ROUTE_FLAG_ACTIVE_ON_VIABLE_PATH",
+	}
+	SLRouteFlags_value = map[string]int32{
+		"SL_ROUTE_FLAG_RESERVED":              0,
+		"SL_ROUTE_FLAG_PREFER_OVER_LDP":       1,
+		"SL_ROUTE_FLAG_VIABLE_PATHS_ONLY":     4,
+		"SL_ROUTE_FLAG_ACTIVE_ON_VIABLE_PATH": 8,
+	}
+)
+
+func (x SLRouteFlags) Enum() *SLRouteFlags {
+	p := new(SLRouteFlags)
+	*p = x
+	return p
+}
+
+func (x SLRouteFlags) String() string {
+	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
+}
+
+func (SLRouteFlags) Descriptor() protoreflect.EnumDescriptor {
+	return file_sl_route_common_proto_enumTypes[1].Descriptor()
+}
+
+func (SLRouteFlags) Type() protoreflect.EnumType {
+	return &file_sl_route_common_proto_enumTypes[1]
+}
+
+func (x SLRouteFlags) Number() protoreflect.EnumNumber {
+	return protoreflect.EnumNumber(x)
+}
+
+// Deprecated: Use SLRouteFlags.Descriptor instead.
+func (SLRouteFlags) EnumDescriptor() ([]byte, []int) {
+	return file_sl_route_common_proto_rawDescGZIP(), []int{1}
+}
+
+type SLPathFlags int32
+
+const (
+	// Reserved.
+	SLPathFlags_SL_PATH_FLAG_RESERVED SLPathFlags = 0
+	// Enables hardware optimization for single path VxLAN tunnels.
+	SLPathFlags_SL_PATH_FLAG_SINGLE_PATH_OPT SLPathFlags = 1
+)
+
+// Enum value maps for SLPathFlags.
+var (
+	SLPathFlags_name = map[int32]string{
+		0: "SL_PATH_FLAG_RESERVED",
+		1: "SL_PATH_FLAG_SINGLE_PATH_OPT",
+	}
+	SLPathFlags_value = map[string]int32{
+		"SL_PATH_FLAG_RESERVED":        0,
+		"SL_PATH_FLAG_SINGLE_PATH_OPT": 1,
+	}
+)
+
+func (x SLPathFlags) Enum() *SLPathFlags {
+	p := new(SLPathFlags)
+	*p = x
+	return p
+}
+
+func (x SLPathFlags) String() string {
+	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
+}
+
+func (SLPathFlags) Descriptor() protoreflect.EnumDescriptor {
+	return file_sl_route_common_proto_enumTypes[2].Descriptor()
+}
+
+func (SLPathFlags) Type() protoreflect.EnumType {
+	return &file_sl_route_common_proto_enumTypes[2]
+}
+
+func (x SLPathFlags) Number() protoreflect.EnumNumber {
+	return protoreflect.EnumNumber(x)
+}
+
+// Deprecated: Use SLPathFlags.Descriptor instead.
+func (SLPathFlags) EnumDescriptor() ([]byte, []int) {
+	return file_sl_route_common_proto_rawDescGZIP(), []int{2}
+}
+
 // Route Globals Get Message
 type SLRouteGlobalsGetMsg struct {
 	state         protoimpl.MessageState
@@ -1170,10 +1283,54 @@ type SLRouteCommon struct {
 	// ignored otherwise.
 	// Contact Cisco for supported protocol tags.
 	SrcProtoTag string `protobuf:"bytes,5,opt,name=SrcProtoTag,proto3" json:"SrcProtoTag,omitempty"`
-	// Route Flags.
 	// Flags to control programming of the route to Routing Information Base.
-	// Each flag is indicated as a bit field. Supported values are:
-	// 0x1 - This route takes precedence over a route learnt by LDP.
+	// Each flag is indicated as a bit field.
+	// See SLRouteFlags for flag enumerations.
+	// Supported values are:
+	//
+	// SL_ROUTE_FLAG_PREFER_OVER_LDP - This route takes precedence
+	// over a route learnt by LDP.
+	//
+	// SL_ROUTE_FLAG_VIABLE_PATHS_ONLY - This flag on the route
+	// is applicable only if the route contains the PathList.
+	//
+	//   - If the flag is not set, all paths in the PathList are installed in
+	//     the route’s load balance group, even if paths are unviable. The
+	//     Network element does not automatically update the route’s load balance
+	//     group when path viability changes and expects the client to take
+	//     corrective action.
+	//
+	//   - If the flag is set, the network element only installs viable
+	//     paths from the PathList in the route’s load balance group.
+	//     The Network element also automatically updates the route’s
+	//     load balance group when path viability changes.
+	//
+	//   - This flag is ignored if the route refers to the PathGroup and the
+	//     corresponding setting on the PathGroup dictates path programming.
+	//
+	// SL_ROUTE_FLAG_ACTIVE_ON_VIABLE_PATH - This flag is supported only for
+	// routes that contain the PathList.
+	//
+	//   - If this flag is not set, the route is active if it is preferred
+	//     based on administrative distance. Viability of the paths in
+	//     the PathList is not used as a criterion to determine
+	//     route’s activeness.
+	//     If the route is active, the PathList programming is dictated by
+	//     SL_ROUTE_FLAG_VIABLE_PATHS_ONLY.
+	//
+	//   - If this flag is set, SL_ROUTE_FLAG_VIABLE_PATHS_ONLY must also
+	//     be set. The route is considered as active if it is preferred based
+	//     on administrative distance AND at least one path in the PathList
+	//     is viable. The Network element also automatically promotes or demotes
+	//     the route when the first path becomes viable or none of the paths
+	//     are no longer viable.
+	//
+	//   - If the route refers to the PathGroup,
+	//     then this flag on the route is ignored. Instead, the
+	//     corresponding setting on PathGroup dictates whether this
+	//     route should be considered in best route calculations.
+	//
+	// All others are reserved.
 	Flags uint32 `protobuf:"varint,6,opt,name=Flags,proto3" json:"Flags,omitempty"`
 }
 
@@ -1833,12 +1990,27 @@ var file_sl_route_common_proto_rawDesc = []byte{
 	0x18, 0x53, 0x4c, 0x5f, 0x45, 0x56, 0x45, 0x4e, 0x54, 0x5f, 0x54, 0x59, 0x50, 0x45, 0x5f, 0x45,
 	0x4e, 0x44, 0x5f, 0x4d, 0x41, 0x52, 0x4b, 0x45, 0x52, 0x10, 0x05, 0x12, 0x15, 0x0a, 0x11, 0x53,
 	0x4c, 0x5f, 0x45, 0x56, 0x45, 0x4e, 0x54, 0x5f, 0x54, 0x59, 0x50, 0x45, 0x5f, 0x56, 0x52, 0x46,
-	0x10, 0x06, 0x42, 0x51, 0x5a, 0x4f, 0x67, 0x69, 0x74, 0x68, 0x75, 0x62, 0x2e, 0x63, 0x6f, 0x6d,
-	0x2f, 0x43, 0x69, 0x73, 0x63, 0x6f, 0x2d, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x2d, 0x6c,
-	0x61, 0x79, 0x65, 0x72, 0x2f, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x2d, 0x6c, 0x61, 0x79,
-	0x65, 0x72, 0x2d, 0x6f, 0x62, 0x6a, 0x6d, 0x6f, 0x64, 0x65, 0x6c, 0x2f, 0x67, 0x72, 0x70, 0x63,
-	0x2f, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x73, 0x3b, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x5f,
-	0x6c, 0x61, 0x79, 0x65, 0x72, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x10, 0x06, 0x2a, 0x9b, 0x01, 0x0a, 0x0c, 0x53, 0x4c, 0x52, 0x6f, 0x75, 0x74, 0x65, 0x46, 0x6c,
+	0x61, 0x67, 0x73, 0x12, 0x1a, 0x0a, 0x16, 0x53, 0x4c, 0x5f, 0x52, 0x4f, 0x55, 0x54, 0x45, 0x5f,
+	0x46, 0x4c, 0x41, 0x47, 0x5f, 0x52, 0x45, 0x53, 0x45, 0x52, 0x56, 0x45, 0x44, 0x10, 0x00, 0x12,
+	0x21, 0x0a, 0x1d, 0x53, 0x4c, 0x5f, 0x52, 0x4f, 0x55, 0x54, 0x45, 0x5f, 0x46, 0x4c, 0x41, 0x47,
+	0x5f, 0x50, 0x52, 0x45, 0x46, 0x45, 0x52, 0x5f, 0x4f, 0x56, 0x45, 0x52, 0x5f, 0x4c, 0x44, 0x50,
+	0x10, 0x01, 0x12, 0x23, 0x0a, 0x1f, 0x53, 0x4c, 0x5f, 0x52, 0x4f, 0x55, 0x54, 0x45, 0x5f, 0x46,
+	0x4c, 0x41, 0x47, 0x5f, 0x56, 0x49, 0x41, 0x42, 0x4c, 0x45, 0x5f, 0x50, 0x41, 0x54, 0x48, 0x53,
+	0x5f, 0x4f, 0x4e, 0x4c, 0x59, 0x10, 0x04, 0x12, 0x27, 0x0a, 0x23, 0x53, 0x4c, 0x5f, 0x52, 0x4f,
+	0x55, 0x54, 0x45, 0x5f, 0x46, 0x4c, 0x41, 0x47, 0x5f, 0x41, 0x43, 0x54, 0x49, 0x56, 0x45, 0x5f,
+	0x4f, 0x4e, 0x5f, 0x56, 0x49, 0x41, 0x42, 0x4c, 0x45, 0x5f, 0x50, 0x41, 0x54, 0x48, 0x10, 0x08,
+	0x2a, 0x4a, 0x0a, 0x0b, 0x53, 0x4c, 0x50, 0x61, 0x74, 0x68, 0x46, 0x6c, 0x61, 0x67, 0x73, 0x12,
+	0x19, 0x0a, 0x15, 0x53, 0x4c, 0x5f, 0x50, 0x41, 0x54, 0x48, 0x5f, 0x46, 0x4c, 0x41, 0x47, 0x5f,
+	0x52, 0x45, 0x53, 0x45, 0x52, 0x56, 0x45, 0x44, 0x10, 0x00, 0x12, 0x20, 0x0a, 0x1c, 0x53, 0x4c,
+	0x5f, 0x50, 0x41, 0x54, 0x48, 0x5f, 0x46, 0x4c, 0x41, 0x47, 0x5f, 0x53, 0x49, 0x4e, 0x47, 0x4c,
+	0x45, 0x5f, 0x50, 0x41, 0x54, 0x48, 0x5f, 0x4f, 0x50, 0x54, 0x10, 0x01, 0x42, 0x51, 0x5a, 0x4f,
+	0x67, 0x69, 0x74, 0x68, 0x75, 0x62, 0x2e, 0x63, 0x6f, 0x6d, 0x2f, 0x43, 0x69, 0x73, 0x63, 0x6f,
+	0x2d, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x2d, 0x6c, 0x61, 0x79, 0x65, 0x72, 0x2f, 0x73,
+	0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x2d, 0x6c, 0x61, 0x79, 0x65, 0x72, 0x2d, 0x6f, 0x62, 0x6a,
+	0x6d, 0x6f, 0x64, 0x65, 0x6c, 0x2f, 0x67, 0x72, 0x70, 0x63, 0x2f, 0x70, 0x72, 0x6f, 0x74, 0x6f,
+	0x73, 0x3b, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x5f, 0x6c, 0x61, 0x79, 0x65, 0x72, 0x62,
+	0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -1853,62 +2025,64 @@ func file_sl_route_common_proto_rawDescGZIP() []byte {
 	return file_sl_route_common_proto_rawDescData
 }
 
-var file_sl_route_common_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
+var file_sl_route_common_proto_enumTypes = make([]protoimpl.EnumInfo, 3)
 var file_sl_route_common_proto_msgTypes = make([]protoimpl.MessageInfo, 20)
 var file_sl_route_common_proto_goTypes = []interface{}{
 	(SLNotifType)(0),                    // 0: service_layer.SLNotifType
-	(*SLRouteGlobalsGetMsg)(nil),        // 1: service_layer.SLRouteGlobalsGetMsg
-	(*SLRouteGlobalsGetMsgRsp)(nil),     // 2: service_layer.SLRouteGlobalsGetMsgRsp
-	(*SLRouteGlobalStatsGetMsg)(nil),    // 3: service_layer.SLRouteGlobalStatsGetMsg
-	(*SLRouteGlobalStatsGetMsgRsp)(nil), // 4: service_layer.SLRouteGlobalStatsGetMsgRsp
-	(*SLVrfReg)(nil),                    // 5: service_layer.SLVrfReg
-	(*SLVrfRegMsg)(nil),                 // 6: service_layer.SLVrfRegMsg
-	(*SLVrfRegMsgRes)(nil),              // 7: service_layer.SLVrfRegMsgRes
-	(*SLVrfRegMsgRsp)(nil),              // 8: service_layer.SLVrfRegMsgRsp
-	(*SLVrfRegGetMsg)(nil),              // 9: service_layer.SLVrfRegGetMsg
-	(*SLVrfRegGetMsgRsp)(nil),           // 10: service_layer.SLVrfRegGetMsgRsp
-	(*SLVRFGetStatsMsgRes)(nil),         // 11: service_layer.SLVRFGetStatsMsgRes
-	(*SLVRFGetStatsMsgRsp)(nil),         // 12: service_layer.SLVRFGetStatsMsgRsp
-	(*SLRouteGetNotifMsg)(nil),          // 13: service_layer.SLRouteGetNotifMsg
-	(*SLRouteNotifStatus)(nil),          // 14: service_layer.SLRouteNotifStatus
-	(*SLRouteNotifMarker)(nil),          // 15: service_layer.SLRouteNotifMarker
-	(*SLVrfNotif)(nil),                  // 16: service_layer.SLVrfNotif
-	(*SLRouteCommon)(nil),               // 17: service_layer.SLRouteCommon
-	(*SLVxLANPath)(nil),                 // 18: service_layer.SLVxLANPath
-	(*SLRoutePath)(nil),                 // 19: service_layer.SLRoutePath
-	(*SLPathGroupRefKey)(nil),           // 20: service_layer.SLPathGroupRefKey
-	(*SLErrorStatus)(nil),               // 21: service_layer.SLErrorStatus
-	(SLRegOp)(0),                        // 22: service_layer.SLRegOp
-	(SLNotifOp)(0),                      // 23: service_layer.SLNotifOp
-	(SLObjectOp)(0),                     // 24: service_layer.SLObjectOp
-	(*SLIpAddress)(nil),                 // 25: service_layer.SLIpAddress
-	(*SLInterface)(nil),                 // 26: service_layer.SLInterface
-	(SLEncapType)(0),                    // 27: service_layer.SLEncapType
-	(*SLObjectId)(nil),                  // 28: service_layer.SLObjectId
+	(SLRouteFlags)(0),                   // 1: service_layer.SLRouteFlags
+	(SLPathFlags)(0),                    // 2: service_layer.SLPathFlags
+	(*SLRouteGlobalsGetMsg)(nil),        // 3: service_layer.SLRouteGlobalsGetMsg
+	(*SLRouteGlobalsGetMsgRsp)(nil),     // 4: service_layer.SLRouteGlobalsGetMsgRsp
+	(*SLRouteGlobalStatsGetMsg)(nil),    // 5: service_layer.SLRouteGlobalStatsGetMsg
+	(*SLRouteGlobalStatsGetMsgRsp)(nil), // 6: service_layer.SLRouteGlobalStatsGetMsgRsp
+	(*SLVrfReg)(nil),                    // 7: service_layer.SLVrfReg
+	(*SLVrfRegMsg)(nil),                 // 8: service_layer.SLVrfRegMsg
+	(*SLVrfRegMsgRes)(nil),              // 9: service_layer.SLVrfRegMsgRes
+	(*SLVrfRegMsgRsp)(nil),              // 10: service_layer.SLVrfRegMsgRsp
+	(*SLVrfRegGetMsg)(nil),              // 11: service_layer.SLVrfRegGetMsg
+	(*SLVrfRegGetMsgRsp)(nil),           // 12: service_layer.SLVrfRegGetMsgRsp
+	(*SLVRFGetStatsMsgRes)(nil),         // 13: service_layer.SLVRFGetStatsMsgRes
+	(*SLVRFGetStatsMsgRsp)(nil),         // 14: service_layer.SLVRFGetStatsMsgRsp
+	(*SLRouteGetNotifMsg)(nil),          // 15: service_layer.SLRouteGetNotifMsg
+	(*SLRouteNotifStatus)(nil),          // 16: service_layer.SLRouteNotifStatus
+	(*SLRouteNotifMarker)(nil),          // 17: service_layer.SLRouteNotifMarker
+	(*SLVrfNotif)(nil),                  // 18: service_layer.SLVrfNotif
+	(*SLRouteCommon)(nil),               // 19: service_layer.SLRouteCommon
+	(*SLVxLANPath)(nil),                 // 20: service_layer.SLVxLANPath
+	(*SLRoutePath)(nil),                 // 21: service_layer.SLRoutePath
+	(*SLPathGroupRefKey)(nil),           // 22: service_layer.SLPathGroupRefKey
+	(*SLErrorStatus)(nil),               // 23: service_layer.SLErrorStatus
+	(SLRegOp)(0),                        // 24: service_layer.SLRegOp
+	(SLNotifOp)(0),                      // 25: service_layer.SLNotifOp
+	(SLObjectOp)(0),                     // 26: service_layer.SLObjectOp
+	(*SLIpAddress)(nil),                 // 27: service_layer.SLIpAddress
+	(*SLInterface)(nil),                 // 28: service_layer.SLInterface
+	(SLEncapType)(0),                    // 29: service_layer.SLEncapType
+	(*SLObjectId)(nil),                  // 30: service_layer.SLObjectId
 }
 var file_sl_route_common_proto_depIdxs = []int32{
-	21, // 0: service_layer.SLRouteGlobalsGetMsgRsp.ErrStatus:type_name -> service_layer.SLErrorStatus
-	21, // 1: service_layer.SLRouteGlobalStatsGetMsgRsp.ErrStatus:type_name -> service_layer.SLErrorStatus
-	22, // 2: service_layer.SLVrfRegMsg.Oper:type_name -> service_layer.SLRegOp
-	5,  // 3: service_layer.SLVrfRegMsg.VrfRegMsgs:type_name -> service_layer.SLVrfReg
-	21, // 4: service_layer.SLVrfRegMsgRes.ErrStatus:type_name -> service_layer.SLErrorStatus
-	21, // 5: service_layer.SLVrfRegMsgRsp.StatusSummary:type_name -> service_layer.SLErrorStatus
-	7,  // 6: service_layer.SLVrfRegMsgRsp.Results:type_name -> service_layer.SLVrfRegMsgRes
-	21, // 7: service_layer.SLVrfRegGetMsgRsp.ErrStatus:type_name -> service_layer.SLErrorStatus
-	5,  // 8: service_layer.SLVrfRegGetMsgRsp.Entries:type_name -> service_layer.SLVrfReg
-	21, // 9: service_layer.SLVRFGetStatsMsgRsp.ErrStatus:type_name -> service_layer.SLErrorStatus
-	11, // 10: service_layer.SLVRFGetStatsMsgRsp.Entries:type_name -> service_layer.SLVRFGetStatsMsgRes
-	23, // 11: service_layer.SLRouteGetNotifMsg.Oper:type_name -> service_layer.SLNotifOp
-	21, // 12: service_layer.SLRouteNotifStatus.NotifStatus:type_name -> service_layer.SLErrorStatus
-	24, // 13: service_layer.SLVrfNotif.Status:type_name -> service_layer.SLObjectOp
-	25, // 14: service_layer.SLVxLANPath.SrcIpAddress:type_name -> service_layer.SLIpAddress
-	25, // 15: service_layer.SLVxLANPath.DestIpAddress:type_name -> service_layer.SLIpAddress
-	25, // 16: service_layer.SLRoutePath.NexthopAddress:type_name -> service_layer.SLIpAddress
-	26, // 17: service_layer.SLRoutePath.NexthopInterface:type_name -> service_layer.SLInterface
-	25, // 18: service_layer.SLRoutePath.RemoteAddress:type_name -> service_layer.SLIpAddress
-	27, // 19: service_layer.SLRoutePath.EncapType:type_name -> service_layer.SLEncapType
-	18, // 20: service_layer.SLRoutePath.VxLANPath:type_name -> service_layer.SLVxLANPath
-	28, // 21: service_layer.SLPathGroupRefKey.PathGroupId:type_name -> service_layer.SLObjectId
+	23, // 0: service_layer.SLRouteGlobalsGetMsgRsp.ErrStatus:type_name -> service_layer.SLErrorStatus
+	23, // 1: service_layer.SLRouteGlobalStatsGetMsgRsp.ErrStatus:type_name -> service_layer.SLErrorStatus
+	24, // 2: service_layer.SLVrfRegMsg.Oper:type_name -> service_layer.SLRegOp
+	7,  // 3: service_layer.SLVrfRegMsg.VrfRegMsgs:type_name -> service_layer.SLVrfReg
+	23, // 4: service_layer.SLVrfRegMsgRes.ErrStatus:type_name -> service_layer.SLErrorStatus
+	23, // 5: service_layer.SLVrfRegMsgRsp.StatusSummary:type_name -> service_layer.SLErrorStatus
+	9,  // 6: service_layer.SLVrfRegMsgRsp.Results:type_name -> service_layer.SLVrfRegMsgRes
+	23, // 7: service_layer.SLVrfRegGetMsgRsp.ErrStatus:type_name -> service_layer.SLErrorStatus
+	7,  // 8: service_layer.SLVrfRegGetMsgRsp.Entries:type_name -> service_layer.SLVrfReg
+	23, // 9: service_layer.SLVRFGetStatsMsgRsp.ErrStatus:type_name -> service_layer.SLErrorStatus
+	13, // 10: service_layer.SLVRFGetStatsMsgRsp.Entries:type_name -> service_layer.SLVRFGetStatsMsgRes
+	25, // 11: service_layer.SLRouteGetNotifMsg.Oper:type_name -> service_layer.SLNotifOp
+	23, // 12: service_layer.SLRouteNotifStatus.NotifStatus:type_name -> service_layer.SLErrorStatus
+	26, // 13: service_layer.SLVrfNotif.Status:type_name -> service_layer.SLObjectOp
+	27, // 14: service_layer.SLVxLANPath.SrcIpAddress:type_name -> service_layer.SLIpAddress
+	27, // 15: service_layer.SLVxLANPath.DestIpAddress:type_name -> service_layer.SLIpAddress
+	27, // 16: service_layer.SLRoutePath.NexthopAddress:type_name -> service_layer.SLIpAddress
+	28, // 17: service_layer.SLRoutePath.NexthopInterface:type_name -> service_layer.SLInterface
+	27, // 18: service_layer.SLRoutePath.RemoteAddress:type_name -> service_layer.SLIpAddress
+	29, // 19: service_layer.SLRoutePath.EncapType:type_name -> service_layer.SLEncapType
+	20, // 20: service_layer.SLRoutePath.VxLANPath:type_name -> service_layer.SLVxLANPath
+	30, // 21: service_layer.SLPathGroupRefKey.PathGroupId:type_name -> service_layer.SLObjectId
 	22, // [22:22] is the sub-list for method output_type
 	22, // [22:22] is the sub-list for method input_type
 	22, // [22:22] is the sub-list for extension type_name
@@ -2169,7 +2343,7 @@ func file_sl_route_common_proto_init() {
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_sl_route_common_proto_rawDesc,
-			NumEnums:      1,
+			NumEnums:      3,
 			NumMessages:   20,
 			NumExtensions: 0,
 			NumServices:   0,
