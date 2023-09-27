@@ -236,6 +236,10 @@ message SLPathGroup {
         SLPathList PathList = 3;
     }
 
+    // Flags to control programming of the PathGroup to Routing
+    // Information Base. Each flag is indicated as a bit field.
+    // See SLRouteFlags for flag enumerations.
+    uint32 Flags = 4;
 }
 
 // MPLS entry.

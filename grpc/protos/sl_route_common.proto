@@ -204,6 +204,32 @@ enum SLNotifType {
     SL_EVENT_TYPE_VRF = 0x6;
 }
 
+enum SLRouteFlags {
+    // Flags to control programming of the route and Path Group to 
+    // Routing Information Base.
+    // Each flag is indicated as a bit field. Supported values are:
+
+    // Reserved.
+    SL_ROUTE_FLAG_RESERVED = 0x00;
+
+    // This route takes precedence over a route
+    // learnt by LDP.
+    SL_ROUTE_FLAG_PREFER_OVER_LDP = 0x01;
+    
+    // All others are reserved.
+}
+
+enum SLPathFlags {
+    // Path Flags.
+    // Each flag is indicated as a bit field. Supported values are:
+
+    // Reserved.
+    SL_PATH_FLAG_RESERVED = 0x00;
+
+    // Enables hardware optimization for single path VxLAN tunnels.
+    SL_PATH_FLAG_SINGLE_PATH_OPT  = 0x01;
+}
+
 // Common Get Notifications message
 message SLRouteGetNotifMsg {
     // Oper = SL_NOTIFOP_ENABLE

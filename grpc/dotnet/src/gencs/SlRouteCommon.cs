@@ -80,12 +80,15 @@ namespace ServiceLayer {
             "U0xfRVZFTlRfVFlQRV9FUlJPUhABEhgKFFNMX0VWRU5UX1RZUEVfU1RBVFVT",
             "EAISFwoTU0xfRVZFTlRfVFlQRV9ST1VURRADEh4KGlNMX0VWRU5UX1RZUEVf",
             "U1RBUlRfTUFSS0VSEAQSHAoYU0xfRVZFTlRfVFlQRV9FTkRfTUFSS0VSEAUS",
-            "FQoRU0xfRVZFTlRfVFlQRV9WUkYQBkJRWk9naXRodWIuY29tL0Npc2NvLXNl",
-            "cnZpY2UtbGF5ZXIvc2VydmljZS1sYXllci1vYmptb2RlbC9ncnBjL3Byb3Rv",
-            "cztzZXJ2aWNlX2xheWVyYgZwcm90bzM="));
+            "FQoRU0xfRVZFTlRfVFlQRV9WUkYQBipNCgxTTFJvdXRlRmxhZ3MSGgoWU0xf",
+            "Uk9VVEVfRkxBR19SRVNFUlZFRBAAEiEKHVNMX1JPVVRFX0ZMQUdfUFJFRkVS",
+            "X09WRVJfTERQEAEqSgoLU0xQYXRoRmxhZ3MSGQoVU0xfUEFUSF9GTEFHX1JF",
+            "U0VSVkVEEAASIAocU0xfUEFUSF9GTEFHX1NJTkdMRV9QQVRIX09QVBABQlFa",
+            "T2dpdGh1Yi5jb20vQ2lzY28tc2VydmljZS1sYXllci9zZXJ2aWNlLWxheWVy",
+            "LW9iam1vZGVsL2dycGMvcHJvdG9zO3NlcnZpY2VfbGF5ZXJiBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::ServiceLayer.SlCommonTypesReflection.Descriptor, },
-          new pbr::GeneratedClrTypeInfo(new[] {typeof(global::ServiceLayer.SLNotifType), }, null, new pbr::GeneratedClrTypeInfo[] {
+          new pbr::GeneratedClrTypeInfo(new[] {typeof(global::ServiceLayer.SLNotifType), typeof(global::ServiceLayer.SLRouteFlags), typeof(global::ServiceLayer.SLPathFlags), }, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLRouteGlobalsGetMsg), global::ServiceLayer.SLRouteGlobalsGetMsg.Parser, null, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLRouteGlobalsGetMsgRsp), global::ServiceLayer.SLRouteGlobalsGetMsgRsp.Parser, new[]{ "ErrStatus", "MaxVrfregPerVrfregmsg", "MaxRoutePerRoutemsg" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLRouteGlobalStatsGetMsg), global::ServiceLayer.SLRouteGlobalStatsGetMsg.Parser, null, null, null, null, null),
@@ -150,6 +153,38 @@ namespace ServiceLayer {
     /// VRF Add/Update/Delete Notification. 0x6
     /// </summary>
     [pbr::OriginalName("SL_EVENT_TYPE_VRF")] SlEventTypeVrf = 6,
+  }
+
+  /// <summary>
+  /// Flags to control programming of the route and Path Group to 
+  /// Routing Information Base.
+  /// Each flag is indicated as a bit field. Supported values are:
+  /// </summary>
+  public enum SLRouteFlags {
+    /// <summary>
+    /// Reserved.
+    /// </summary>
+    [pbr::OriginalName("SL_ROUTE_FLAG_RESERVED")] SlRouteFlagReserved = 0,
+    /// <summary>
+    /// This route takes precedence over a route
+    /// learnt by LDP.
+    /// </summary>
+    [pbr::OriginalName("SL_ROUTE_FLAG_PREFER_OVER_LDP")] SlRouteFlagPreferOverLdp = 1,
+  }
+
+  /// <summary>
+  /// Path Flags.
+  /// Each flag is indicated as a bit field. Supported values are:
+  /// </summary>
+  public enum SLPathFlags {
+    /// <summary>
+    /// Reserved.
+    /// </summary>
+    [pbr::OriginalName("SL_PATH_FLAG_RESERVED")] SlPathFlagReserved = 0,
+    /// <summary>
+    /// Enables hardware optimization for single path VxLAN tunnels.
+    /// </summary>
+    [pbr::OriginalName("SL_PATH_FLAG_SINGLE_PATH_OPT")] InglePathOpt = 1,
   }
 
   #endregion
