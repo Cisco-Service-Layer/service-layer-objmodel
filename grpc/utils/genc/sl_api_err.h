@@ -46,6 +46,8 @@
     /* Authentication failure. */\
     /* Incorrect credentials passed in by RPC. 0xd */\
     SL_AUTH_FAIL = 0xd,\
+    /* Ack type not supported error. 0xe */\
+    SL_ACK_TYPE_NOT_SUPPORTED = 0xe,\
     /* !!! Error codes for Client INIT operations. */\
     /* Offset for INIT errors. 0x500 */\
     SL_INIT_START_OFFSET = 0x500,\
@@ -614,6 +616,15 @@
     SL_RPC_L2_NOTIF_BD_NAME_TOOLONG = 0x14008,\
     /* L2 notification request rejected as BD not found. 0x14009 */\
     SL_RPC_L2_NOTIF_BD_NOT_FOUND = 0x14009,\
+    /* !!! Error codes for path group objects. */\
+    /* Container VRF for PathGroup could not be added. 0x15001 */\
+    SL_PG_VRF_ADD_ERR = 0x15001,\
+    /* PathGroup's VRF ID could not be determined. 0x15002 */\
+    SL_PG_VRF_NO_VRFID = 0x15002,\
+    /* PathGroup's string key is too long. 0x15003 */\
+    SL_PG_STR_KEY_TOOLONG = 0x15003,\
+    /* ID of a next hop VRF in a path in the PathGroup cannot be determined. 0x15004 */\
+    SL_PG_TARGET_VRF_NO_VRFID = 0x15004,\
     /* !!! Error codes Reserved for internal errors. */\
     /* Offset for Internal errors. 0x100000 */\
     SL_INTERNAL_START_OFFSET = 0x100000,\
@@ -668,6 +679,9 @@
     {SL_AUTH_FAIL ,\
         " Authentication failure. "\
         " Incorrect credentials passed in by RPC.  "\
+        },\
+    {SL_ACK_TYPE_NOT_SUPPORTED ,\
+        " Ack type not supported error.  "\
         },\
     {SL_INIT_START_OFFSET ,\
         " Offset for INIT errors.  "\
@@ -1459,6 +1473,18 @@
         },\
     {SL_RPC_L2_NOTIF_BD_NOT_FOUND ,\
         " L2 notification request rejected as BD not found.  "\
+        },\
+    {SL_PG_VRF_ADD_ERR ,\
+        " Container VRF for PathGroup could not be added.  "\
+        },\
+    {SL_PG_VRF_NO_VRFID ,\
+        " PathGroup's VRF ID could not be determined.  "\
+        },\
+    {SL_PG_STR_KEY_TOOLONG ,\
+        " PathGroup's string key is too long.  "\
+        },\
+    {SL_PG_TARGET_VRF_NO_VRFID ,\
+        " ID of a next hop VRF in a path in the PathGroup cannot be determined.  "\
         },\
     {SL_INTERNAL_START_OFFSET ,\
         " Offset for Internal errors.  "\
