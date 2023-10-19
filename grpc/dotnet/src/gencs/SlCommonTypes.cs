@@ -229,28 +229,31 @@ namespace ServiceLayer {
             "TmFtZRgBIAEoCUgAEhAKBkhhbmRsZRgCIAEoDUgAQgsKCUludGVyZmFjZSJC",
             "CgtTTElwQWRkcmVzcxITCglWNEFkZHJlc3MYASABKA1IABITCglWNkFkZHJl",
             "c3MYAiABKAxIAEIJCgdBZGRyZXNzIiUKClNMT2JqZWN0SWQSDgoETmFtZRgB",
-            "IAEoCUgAQgcKBWVudHJ5KmIKB1NMUmVnT3ASFQoRU0xfUkVHT1BfUkVTRVJW",
-            "RUQQABIVChFTTF9SRUdPUF9SRUdJU1RFUhABEhcKE1NMX1JFR09QX1VOUkVH",
-            "SVNURVIQAhIQCgxTTF9SRUdPUF9FT0YQAypfCgpTTE9iamVjdE9wEhUKEVNM",
-            "X09CSk9QX1JFU0VSVkVEEAASEAoMU0xfT0JKT1BfQUREEAESEwoPU0xfT0JK",
-            "T1BfVVBEQVRFEAISEwoPU0xfT0JKT1BfREVMRVRFEAMqUwoJU0xOb3RpZk9w",
-            "EhcKE1NMX05PVElGT1BfUkVTRVJWRUQQABIVChFTTF9OT1RJRk9QX0VOQUJM",
-            "RRABEhYKElNMX05PVElGT1BfRElTQUJMRRACKksKC1NMRW5jYXBUeXBlEhUK",
-            "EVNMX0VOQ0FQX1JFU0VSVkVEEAASEgoOU0xfRU5DQVBfVlhMQU4QARIRCg1T",
-            "TF9FTkNBUF9NUExTEAIqngEKC1NMVGFibGVUeXBlEhoKFlNMX1RBQkxFX1RZ",
-            "UEVfUkVTRVJWRUQQABIXChNTTF9JUHY0X1JPVVRFX1RBQkxFEAESFwoTU0xf",
-            "SVB2Nl9ST1VURV9UQUJMRRACEhcKE1NMX01QTFNfTEFCRUxfVEFCTEUQAxIX",
-            "ChNTTF9QQVRIX0dST1VQX1RBQkxFEAQSDwoLU0xfUEZfVEFCTEUQBSobCgxT",
-            "TFJzcEFDS1R5cGUSCwoHUklCX0FDSxAAQlFaT2dpdGh1Yi5jb20vQ2lzY28t",
-            "c2VydmljZS1sYXllci9zZXJ2aWNlLWxheWVyLW9iam1vZGVsL2dycGMvcHJv",
-            "dG9zO3NlcnZpY2VfbGF5ZXJiBnByb3RvMw=="));
+            "IAEoCUgAQgcKBWVudHJ5IlQKEVNMUGF0aEdyb3VwUmVmS2V5Eg8KB1ZyZk5h",
+            "bWUYASABKAkSLgoLUGF0aEdyb3VwSWQYAiABKAsyGS5zZXJ2aWNlX2xheWVy",
+            "LlNMT2JqZWN0SWQqYgoHU0xSZWdPcBIVChFTTF9SRUdPUF9SRVNFUlZFRBAA",
+            "EhUKEVNMX1JFR09QX1JFR0lTVEVSEAESFwoTU0xfUkVHT1BfVU5SRUdJU1RF",
+            "UhACEhAKDFNMX1JFR09QX0VPRhADKl8KClNMT2JqZWN0T3ASFQoRU0xfT0JK",
+            "T1BfUkVTRVJWRUQQABIQCgxTTF9PQkpPUF9BREQQARITCg9TTF9PQkpPUF9V",
+            "UERBVEUQAhITCg9TTF9PQkpPUF9ERUxFVEUQAypTCglTTE5vdGlmT3ASFwoT",
+            "U0xfTk9USUZPUF9SRVNFUlZFRBAAEhUKEVNMX05PVElGT1BfRU5BQkxFEAES",
+            "FgoSU0xfTk9USUZPUF9ESVNBQkxFEAIqSwoLU0xFbmNhcFR5cGUSFQoRU0xf",
+            "RU5DQVBfUkVTRVJWRUQQABISCg5TTF9FTkNBUF9WWExBThABEhEKDVNMX0VO",
+            "Q0FQX01QTFMQAiqeAQoLU0xUYWJsZVR5cGUSGgoWU0xfVEFCTEVfVFlQRV9S",
+            "RVNFUlZFRBAAEhcKE1NMX0lQdjRfUk9VVEVfVEFCTEUQARIXChNTTF9JUHY2",
+            "X1JPVVRFX1RBQkxFEAISFwoTU0xfTVBMU19MQUJFTF9UQUJMRRADEhcKE1NM",
+            "X1BBVEhfR1JPVVBfVEFCTEUQBBIPCgtTTF9QRl9UQUJMRRAFKhsKDFNMUnNw",
+            "QUNLVHlwZRILCgdSSUJfQUNLEABCUVpPZ2l0aHViLmNvbS9DaXNjby1zZXJ2",
+            "aWNlLWxheWVyL3NlcnZpY2UtbGF5ZXItb2JqbW9kZWwvZ3JwYy9wcm90b3M7",
+            "c2VydmljZV9sYXllcmIGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::ServiceLayer.SLRegOp), typeof(global::ServiceLayer.SLObjectOp), typeof(global::ServiceLayer.SLNotifOp), typeof(global::ServiceLayer.SLEncapType), typeof(global::ServiceLayer.SLTableType), typeof(global::ServiceLayer.SLRspACKType), }, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLErrorStatus), global::ServiceLayer.SLErrorStatus.Parser, new[]{ "Status" }, null, new[]{ typeof(global::ServiceLayer.SLErrorStatus.Types.SLErrno) }, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLInterface), global::ServiceLayer.SLInterface.Parser, new[]{ "Name", "Handle" }, new[]{ "Interface" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLIpAddress), global::ServiceLayer.SLIpAddress.Parser, new[]{ "V4Address", "V6Address" }, new[]{ "Address" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLObjectId), global::ServiceLayer.SLObjectId.Parser, new[]{ "Name" }, new[]{ "Entry" }, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLObjectId), global::ServiceLayer.SLObjectId.Parser, new[]{ "Name" }, new[]{ "Entry" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLPathGroupRefKey), global::ServiceLayer.SLPathGroupRefKey.Parser, new[]{ "VrfName", "PathGroupId" }, null, null, null, null)
           }));
     }
     #endregion
@@ -2468,6 +2471,251 @@ namespace ServiceLayer {
             break;
           case 10: {
             Name = input.ReadString();
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  /// <summary>
+  /// Path group reference key. This can be used by route, label
+  /// or policy objects to refer a path group object.
+  /// </summary>
+  public sealed partial class SLPathGroupRefKey : pb::IMessage<SLPathGroupRefKey>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<SLPathGroupRefKey> _parser = new pb::MessageParser<SLPathGroupRefKey>(() => new SLPathGroupRefKey());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<SLPathGroupRefKey> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::ServiceLayer.SlCommonTypesReflection.Descriptor.MessageTypes[4]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SLPathGroupRefKey() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SLPathGroupRefKey(SLPathGroupRefKey other) : this() {
+      vrfName_ = other.vrfName_;
+      pathGroupId_ = other.pathGroupId_ != null ? other.pathGroupId_.Clone() : null;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SLPathGroupRefKey Clone() {
+      return new SLPathGroupRefKey(this);
+    }
+
+    /// <summary>Field number for the "VrfName" field.</summary>
+    public const int VrfNameFieldNumber = 1;
+    private string vrfName_ = "";
+    /// <summary>
+    /// VRF name
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string VrfName {
+      get { return vrfName_; }
+      set {
+        vrfName_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "PathGroupId" field.</summary>
+    public const int PathGroupIdFieldNumber = 2;
+    private global::ServiceLayer.SLObjectId pathGroupId_;
+    /// <summary>
+    /// Path Group ID
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::ServiceLayer.SLObjectId PathGroupId {
+      get { return pathGroupId_; }
+      set {
+        pathGroupId_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as SLPathGroupRefKey);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(SLPathGroupRefKey other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (VrfName != other.VrfName) return false;
+      if (!object.Equals(PathGroupId, other.PathGroupId)) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (VrfName.Length != 0) hash ^= VrfName.GetHashCode();
+      if (pathGroupId_ != null) hash ^= PathGroupId.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (VrfName.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(VrfName);
+      }
+      if (pathGroupId_ != null) {
+        output.WriteRawTag(18);
+        output.WriteMessage(PathGroupId);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (VrfName.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(VrfName);
+      }
+      if (pathGroupId_ != null) {
+        output.WriteRawTag(18);
+        output.WriteMessage(PathGroupId);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (VrfName.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(VrfName);
+      }
+      if (pathGroupId_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(PathGroupId);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(SLPathGroupRefKey other) {
+      if (other == null) {
+        return;
+      }
+      if (other.VrfName.Length != 0) {
+        VrfName = other.VrfName;
+      }
+      if (other.pathGroupId_ != null) {
+        if (pathGroupId_ == null) {
+          PathGroupId = new global::ServiceLayer.SLObjectId();
+        }
+        PathGroupId.MergeFrom(other.PathGroupId);
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            VrfName = input.ReadString();
+            break;
+          }
+          case 18: {
+            if (pathGroupId_ == null) {
+              PathGroupId = new global::ServiceLayer.SLObjectId();
+            }
+            input.ReadMessage(PathGroupId);
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            VrfName = input.ReadString();
+            break;
+          }
+          case 18: {
+            if (pathGroupId_ == null) {
+              PathGroupId = new global::ServiceLayer.SLObjectId();
+            }
+            input.ReadMessage(PathGroupId);
             break;
           }
         }

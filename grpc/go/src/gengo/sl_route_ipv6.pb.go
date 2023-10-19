@@ -43,13 +43,11 @@ type SLRoutev6 struct {
 	PrefixLen uint32 `protobuf:"varint,2,opt,name=PrefixLen,proto3" json:"PrefixLen,omitempty"`
 	// Common route attributes
 	RouteCommon *SLRouteCommon `protobuf:"bytes,3,opt,name=RouteCommon,proto3" json:"RouteCommon,omitempty"`
-	// List of route paths for a particular route.
+	// List of route paths for this route.
 	// Specifying more than one path is allowed for ECMP/UCMP cases
 	PathList []*SLRoutePath `protobuf:"bytes,4,rep,name=PathList,proto3" json:"PathList,omitempty"`
-	// When programming the device using SLAF service, If the operation is
-	// ADD or UPDATE and SLRoutev6.PathList is NOT specified, then
-	// the route can refer to a PathGroup instead. The attribute is oneof
-	// to allow for future extension.
+	// Reference to the Path Group for this route.
+	// The attribute is oneof to allow for future extension.
 	//
 	// Types that are assignable to Entry:
 	//
@@ -398,6 +396,7 @@ type SLRoutev6GetMsg struct {
 	// If GetNext is TRUE, or if the key exact match is not found:
 	//
 	//	request up to 'EntriesCount' entries starting from the key's next
+	//	GetNext does not get the routes in the next client
 	GetNext bool `protobuf:"varint,6,opt,name=GetNext,proto3" json:"GetNext,omitempty"`
 }
 

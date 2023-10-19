@@ -409,10 +409,11 @@ type SLMplsEntry struct {
 	// label object admin distance overrides the default's admin distance set
 	// at VRF registration. see SLVrfReg
 	AdminDistance uint32 `protobuf:"varint,2,opt,name=AdminDistance,proto3" json:"AdminDistance,omitempty"`
-	// List of paths for a particular MPLS label.
+	// List of paths for this MPLS label entry.
 	// Specifying more than one path is allowed for ECMP/UCMP cases
 	PathList []*SLRoutePath `protobuf:"bytes,3,rep,name=PathList,proto3" json:"PathList,omitempty"`
-	// Path Group the key forwards to
+	// Reference to the Path Group for this MPLS label entry.
+	// The attribute is oneof to allow for future extension.
 	//
 	// Types that are assignable to Entry:
 	//

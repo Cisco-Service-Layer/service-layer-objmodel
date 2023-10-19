@@ -161,11 +161,14 @@ class SLMplsOper final {
     //     is allowed and the entry is no longer considered stale.
     //
     // SLMplsIlmMsg.Oper = SL_OBJOP_UPDATE:
-    //     Create or update incoming label map entry.
+    //     Create or update incoming label map entry. The RPC implements
+    //     replacement semantics, wherein if the entry exists, all its
+    //     attributes are replaced with values from the new message.
     //
     // SLMplsIlmMsg.Oper = SL_OBJOP_DELETE:
-    //     Delete incoming label map entry. Delete of a
-    //     non-existant entry is considered a success.
+    //     Delete incoming label map entry. The entry's key is enough
+    //     to delete the object; other attributes if present are ignored.
+    //     Delete of a non-existant entry is considered a success.
     virtual ::grpc::Status SLMplsIlmOp(::grpc::ClientContext* context, const ::service_layer::SLMplsIlmMsg& request, ::service_layer::SLMplsIlmMsgRsp* response) = 0;
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::service_layer::SLMplsIlmMsgRsp>> AsyncSLMplsIlmOp(::grpc::ClientContext* context, const ::service_layer::SLMplsIlmMsg& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::service_layer::SLMplsIlmMsgRsp>>(AsyncSLMplsIlmOpRaw(context, request, cq));
@@ -285,11 +288,14 @@ class SLMplsOper final {
       //     is allowed and the entry is no longer considered stale.
       //
       // SLMplsIlmMsg.Oper = SL_OBJOP_UPDATE:
-      //     Create or update incoming label map entry.
+      //     Create or update incoming label map entry. The RPC implements
+      //     replacement semantics, wherein if the entry exists, all its
+      //     attributes are replaced with values from the new message.
       //
       // SLMplsIlmMsg.Oper = SL_OBJOP_DELETE:
-      //     Delete incoming label map entry. Delete of a
-      //     non-existant entry is considered a success.
+      //     Delete incoming label map entry. The entry's key is enough
+      //     to delete the object; other attributes if present are ignored.
+      //     Delete of a non-existant entry is considered a success.
       virtual void SLMplsIlmOp(::grpc::ClientContext* context, const ::service_layer::SLMplsIlmMsg* request, ::service_layer::SLMplsIlmMsgRsp* response, std::function<void(::grpc::Status)>) = 0;
       virtual void SLMplsIlmOp(::grpc::ClientContext* context, const ::service_layer::SLMplsIlmMsg* request, ::service_layer::SLMplsIlmMsgRsp* response, ::grpc::ClientUnaryReactor* reactor) = 0;
       // Retrieve MPLS ILM entry attributes.
@@ -537,11 +543,14 @@ class SLMplsOper final {
     //     is allowed and the entry is no longer considered stale.
     //
     // SLMplsIlmMsg.Oper = SL_OBJOP_UPDATE:
-    //     Create or update incoming label map entry.
+    //     Create or update incoming label map entry. The RPC implements
+    //     replacement semantics, wherein if the entry exists, all its
+    //     attributes are replaced with values from the new message.
     //
     // SLMplsIlmMsg.Oper = SL_OBJOP_DELETE:
-    //     Delete incoming label map entry. Delete of a
-    //     non-existant entry is considered a success.
+    //     Delete incoming label map entry. The entry's key is enough
+    //     to delete the object; other attributes if present are ignored.
+    //     Delete of a non-existant entry is considered a success.
     virtual ::grpc::Status SLMplsIlmOp(::grpc::ServerContext* context, const ::service_layer::SLMplsIlmMsg* request, ::service_layer::SLMplsIlmMsgRsp* response);
     // Retrieve MPLS ILM entry attributes.
     virtual ::grpc::Status SLMplsIlmGet(::grpc::ServerContext* context, const ::service_layer::SLMplsIlmGetMsg* request, ::service_layer::SLMplsIlmGetMsgRsp* response);

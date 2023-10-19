@@ -47,7 +47,7 @@ struct TableStruct_sl_5fcommon_5ftypes_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::AuxiliaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[4]
+  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[5]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::FieldMetadata field_metadata[];
   static const ::PROTOBUF_NAMESPACE_ID::internal::SerializationTable serialization_table[];
@@ -67,12 +67,16 @@ extern SLIpAddressDefaultTypeInternal _SLIpAddress_default_instance_;
 class SLObjectId;
 struct SLObjectIdDefaultTypeInternal;
 extern SLObjectIdDefaultTypeInternal _SLObjectId_default_instance_;
+class SLPathGroupRefKey;
+struct SLPathGroupRefKeyDefaultTypeInternal;
+extern SLPathGroupRefKeyDefaultTypeInternal _SLPathGroupRefKey_default_instance_;
 }  // namespace service_layer
 PROTOBUF_NAMESPACE_OPEN
 template<> ::service_layer::SLErrorStatus* Arena::CreateMaybeMessage<::service_layer::SLErrorStatus>(Arena*);
 template<> ::service_layer::SLInterface* Arena::CreateMaybeMessage<::service_layer::SLInterface>(Arena*);
 template<> ::service_layer::SLIpAddress* Arena::CreateMaybeMessage<::service_layer::SLIpAddress>(Arena*);
 template<> ::service_layer::SLObjectId* Arena::CreateMaybeMessage<::service_layer::SLObjectId>(Arena*);
+template<> ::service_layer::SLPathGroupRefKey* Arena::CreateMaybeMessage<::service_layer::SLPathGroupRefKey>(Arena*);
 PROTOBUF_NAMESPACE_CLOSE
 namespace service_layer {
 
@@ -1778,6 +1782,177 @@ class SLObjectId final :
 
   friend struct ::TableStruct_sl_5fcommon_5ftypes_2eproto;
 };
+// -------------------------------------------------------------------
+
+class SLPathGroupRefKey final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:service_layer.SLPathGroupRefKey) */ {
+ public:
+  inline SLPathGroupRefKey() : SLPathGroupRefKey(nullptr) {}
+  ~SLPathGroupRefKey() override;
+  explicit constexpr SLPathGroupRefKey(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  SLPathGroupRefKey(const SLPathGroupRefKey& from);
+  SLPathGroupRefKey(SLPathGroupRefKey&& from) noexcept
+    : SLPathGroupRefKey() {
+    *this = ::std::move(from);
+  }
+
+  inline SLPathGroupRefKey& operator=(const SLPathGroupRefKey& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline SLPathGroupRefKey& operator=(SLPathGroupRefKey&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const SLPathGroupRefKey& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const SLPathGroupRefKey* internal_default_instance() {
+    return reinterpret_cast<const SLPathGroupRefKey*>(
+               &_SLPathGroupRefKey_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    4;
+
+  friend void swap(SLPathGroupRefKey& a, SLPathGroupRefKey& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(SLPathGroupRefKey* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(SLPathGroupRefKey* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  SLPathGroupRefKey* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<SLPathGroupRefKey>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const SLPathGroupRefKey& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom(const SLPathGroupRefKey& from);
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to, const ::PROTOBUF_NAMESPACE_ID::Message& from);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(SLPathGroupRefKey* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "service_layer.SLPathGroupRefKey";
+  }
+  protected:
+  explicit SLPathGroupRefKey(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kVrfNameFieldNumber = 1,
+    kPathGroupIdFieldNumber = 2,
+  };
+  // string VrfName = 1;
+  void clear_vrfname();
+  const std::string& vrfname() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_vrfname(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_vrfname();
+  PROTOBUF_NODISCARD std::string* release_vrfname();
+  void set_allocated_vrfname(std::string* vrfname);
+  private:
+  const std::string& _internal_vrfname() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_vrfname(const std::string& value);
+  std::string* _internal_mutable_vrfname();
+  public:
+
+  // .service_layer.SLObjectId PathGroupId = 2;
+  bool has_pathgroupid() const;
+  private:
+  bool _internal_has_pathgroupid() const;
+  public:
+  void clear_pathgroupid();
+  const ::service_layer::SLObjectId& pathgroupid() const;
+  PROTOBUF_NODISCARD ::service_layer::SLObjectId* release_pathgroupid();
+  ::service_layer::SLObjectId* mutable_pathgroupid();
+  void set_allocated_pathgroupid(::service_layer::SLObjectId* pathgroupid);
+  private:
+  const ::service_layer::SLObjectId& _internal_pathgroupid() const;
+  ::service_layer::SLObjectId* _internal_mutable_pathgroupid();
+  public:
+  void unsafe_arena_set_allocated_pathgroupid(
+      ::service_layer::SLObjectId* pathgroupid);
+  ::service_layer::SLObjectId* unsafe_arena_release_pathgroupid();
+
+  // @@protoc_insertion_point(class_scope:service_layer.SLPathGroupRefKey)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr vrfname_;
+  ::service_layer::SLObjectId* pathgroupid_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_sl_5fcommon_5ftypes_2eproto;
+};
 // ===================================================================
 
 
@@ -2170,9 +2345,156 @@ inline void SLObjectId::clear_has_entry() {
 inline SLObjectId::EntryCase SLObjectId::entry_case() const {
   return SLObjectId::EntryCase(_oneof_case_[0]);
 }
+// -------------------------------------------------------------------
+
+// SLPathGroupRefKey
+
+// string VrfName = 1;
+inline void SLPathGroupRefKey::clear_vrfname() {
+  vrfname_.ClearToEmpty();
+}
+inline const std::string& SLPathGroupRefKey::vrfname() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLPathGroupRefKey.VrfName)
+  return _internal_vrfname();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void SLPathGroupRefKey::set_vrfname(ArgT0&& arg0, ArgT... args) {
+ 
+ vrfname_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:service_layer.SLPathGroupRefKey.VrfName)
+}
+inline std::string* SLPathGroupRefKey::mutable_vrfname() {
+  std::string* _s = _internal_mutable_vrfname();
+  // @@protoc_insertion_point(field_mutable:service_layer.SLPathGroupRefKey.VrfName)
+  return _s;
+}
+inline const std::string& SLPathGroupRefKey::_internal_vrfname() const {
+  return vrfname_.Get();
+}
+inline void SLPathGroupRefKey::_internal_set_vrfname(const std::string& value) {
+  
+  vrfname_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArenaForAllocation());
+}
+inline std::string* SLPathGroupRefKey::_internal_mutable_vrfname() {
+  
+  return vrfname_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
+}
+inline std::string* SLPathGroupRefKey::release_vrfname() {
+  // @@protoc_insertion_point(field_release:service_layer.SLPathGroupRefKey.VrfName)
+  return vrfname_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArenaForAllocation());
+}
+inline void SLPathGroupRefKey::set_allocated_vrfname(std::string* vrfname) {
+  if (vrfname != nullptr) {
+    
+  } else {
+    
+  }
+  vrfname_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), vrfname,
+      GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (vrfname_.IsDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited())) {
+    vrfname_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:service_layer.SLPathGroupRefKey.VrfName)
+}
+
+// .service_layer.SLObjectId PathGroupId = 2;
+inline bool SLPathGroupRefKey::_internal_has_pathgroupid() const {
+  return this != internal_default_instance() && pathgroupid_ != nullptr;
+}
+inline bool SLPathGroupRefKey::has_pathgroupid() const {
+  return _internal_has_pathgroupid();
+}
+inline void SLPathGroupRefKey::clear_pathgroupid() {
+  if (GetArenaForAllocation() == nullptr && pathgroupid_ != nullptr) {
+    delete pathgroupid_;
+  }
+  pathgroupid_ = nullptr;
+}
+inline const ::service_layer::SLObjectId& SLPathGroupRefKey::_internal_pathgroupid() const {
+  const ::service_layer::SLObjectId* p = pathgroupid_;
+  return p != nullptr ? *p : reinterpret_cast<const ::service_layer::SLObjectId&>(
+      ::service_layer::_SLObjectId_default_instance_);
+}
+inline const ::service_layer::SLObjectId& SLPathGroupRefKey::pathgroupid() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLPathGroupRefKey.PathGroupId)
+  return _internal_pathgroupid();
+}
+inline void SLPathGroupRefKey::unsafe_arena_set_allocated_pathgroupid(
+    ::service_layer::SLObjectId* pathgroupid) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(pathgroupid_);
+  }
+  pathgroupid_ = pathgroupid;
+  if (pathgroupid) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:service_layer.SLPathGroupRefKey.PathGroupId)
+}
+inline ::service_layer::SLObjectId* SLPathGroupRefKey::release_pathgroupid() {
+  
+  ::service_layer::SLObjectId* temp = pathgroupid_;
+  pathgroupid_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::service_layer::SLObjectId* SLPathGroupRefKey::unsafe_arena_release_pathgroupid() {
+  // @@protoc_insertion_point(field_release:service_layer.SLPathGroupRefKey.PathGroupId)
+  
+  ::service_layer::SLObjectId* temp = pathgroupid_;
+  pathgroupid_ = nullptr;
+  return temp;
+}
+inline ::service_layer::SLObjectId* SLPathGroupRefKey::_internal_mutable_pathgroupid() {
+  
+  if (pathgroupid_ == nullptr) {
+    auto* p = CreateMaybeMessage<::service_layer::SLObjectId>(GetArenaForAllocation());
+    pathgroupid_ = p;
+  }
+  return pathgroupid_;
+}
+inline ::service_layer::SLObjectId* SLPathGroupRefKey::mutable_pathgroupid() {
+  ::service_layer::SLObjectId* _msg = _internal_mutable_pathgroupid();
+  // @@protoc_insertion_point(field_mutable:service_layer.SLPathGroupRefKey.PathGroupId)
+  return _msg;
+}
+inline void SLPathGroupRefKey::set_allocated_pathgroupid(::service_layer::SLObjectId* pathgroupid) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete pathgroupid_;
+  }
+  if (pathgroupid) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper<::service_layer::SLObjectId>::GetOwningArena(pathgroupid);
+    if (message_arena != submessage_arena) {
+      pathgroupid = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, pathgroupid, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  pathgroupid_ = pathgroupid;
+  // @@protoc_insertion_point(field_set_allocated:service_layer.SLPathGroupRefKey.PathGroupId)
+}
+
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

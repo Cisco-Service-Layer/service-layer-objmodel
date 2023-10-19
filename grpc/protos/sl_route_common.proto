@@ -22,8 +22,7 @@ option go_package="github.com/Cisco-service-layer/service-layer-objmodel/grpc/pr
 
 // @defgroup SLRouteCommon
 // @ingroup Route
-// Common IPv4, IPv6 Route messages.
-// The following messages are used in both IPv4 and IPv6 Route operations.
+// The following messages are used in IPv4, IPv6 Route, MPLS and PathGroup operations.
 // @{
 //;
 
@@ -54,10 +53,10 @@ message SLRouteGlobalStatsGetMsgRsp {
     // Corresponding error code
     SLErrorStatus ErrStatus = 1;
 
-    // Num VRFs registered through the service layer.
+    // Num VRFs registered through the service layer for the requested client
     uint32 VrfCount = 2;
 
-    // Num Routes added through the service layer.
+    // Num Routes added through the service layer for the requested client
     uint32 RouteCount = 3;
 }
 
@@ -132,6 +131,7 @@ message SLVrfRegGetMsg {
     //     request up to 'EntriesCount' entries starting from the key
     // If GetNext is TRUE, or if the key exact match is not found:
     //     request up to 'EntriesCount' entries starting from the key's next
+    //     GetNext does not get the routes in the next client.
     bool GetNext = 3;
 }
 
@@ -169,7 +169,7 @@ message SLVRFGetStatsMsgRsp {
     // Status of the Get Stats operation
     SLErrorStatus ErrStatus = 2;
 
-    // Returned entries as requested in the Get Stats operation.
+    // Returned entries as requested in the Get Stats operation on per client basis
     // if ErrStatus is SL_SUCCESS, Entries contains the info requested
     repeated SLVRFGetStatsMsgRes Entries = 3;
 }
@@ -356,6 +356,12 @@ message SLVxLANPath {
 
 // Route Path attributes.
 //
+// In the multi-path associated with a IP route, MPLS label or a Path Group,
+// paths with identical keys are coalesced and cannot be used
+// as a mechanism to achieve unequal cost multi-path distribution.
+//
+// Path key includes NextHopAdress, NextHopInterface, and VrfName.
+//
 // FRR Note:
 // Failover from primary to backup is based on the trigger used (e.g.
 // link down, BFD, etc.). Revertion is mainly timeout based. The timeout
@@ -372,9 +378,9 @@ message SLRoutePath {
     // Load metric for this path.
     // Used for equal/unequal cost load balancing of traffic distribution.
     // For equal cost load balancing, all paths associated with the
-    // route must have LoadMetric value of 0. For unequal cost load
-    // balancing, all paths must have non-zero LoadMetricvalue, otherwise
-    // system defaults to equal cost load balancing.
+    // route, MPLS label or PathGroup must have a value of 0. For
+    // unequal cost load balancing, all paths must have non-zero value
+    // otherwise system defaults to equal cost load balancing.
     uint32 LoadMetric = 3;
 
     // Path VRF name. This field is used ONLY if the path is in a different
@@ -434,6 +440,7 @@ message SLRoutePath {
     // For primary path, typically only 1 label is used.
     // For backup paths, more than 1 label can be used. If more than one label
     // is used, remote backup addresses must be specified.
+    //
     // The maximum number of labels pushed for primary and backup are
     // platform dependent.
     repeated uint32 LabelStack = 8;
@@ -443,7 +450,7 @@ message SLRoutePath {
     // For N+1 backup labels, N remote backup addresses must be specified.
     repeated SLIpAddress RemoteAddress = 9;
 
-    // Encapsulation type (VXLAN or MPLS)
+    // For VxLAN, Encapsulation type must be set to SL_ENCAP_VXLAN.
     SLEncapType EncapType = 10;
 
     // VTEP (VxLAN tunnel end point) router MAC address.
@@ -466,16 +473,6 @@ message SLRoutePath {
     // 0x00000001 = SINGLE_PATH_OPT Enables hardware optimization for single path VxLAN tunnels
     uint32 Flags = 13;
 
-}
-
-// Path group reference key. This can be used by route or label
-// objects to refer a path group object.
-message SLPathGroupRefKey {
-    // VRF name
-    string VrfName = 1;
-
-    // Path Group ID
-    SLObjectId PathGroupId = 2;
 }
 
 // @}

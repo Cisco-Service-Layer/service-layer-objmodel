@@ -133,15 +133,18 @@ class SLRoutev4Oper final {
     //
     //
     // SLRoutev4Msg.Oper = SL_OBJOP_ADD:
-    //     Route add. Fails if the route already exists. First
-    //     ADD operation on a stale route is allowed and the route
-    //     is no longer considered stale.
+    //     Route add. Fails if the route already exists and is not stale.
+    //     First ADD operation on a stale route is treated as implicit update
+    //     and the route is no longer considered stale.
     //
     // SLRoutev4Msg.Oper = SL_OBJOP_UPDATE:
-    //     Route update. Creates or updates the route.
+    //     Route update. Create or update the route. The RPC implements
+    //     replacement semantics, wherein if the route exists, all its
+    //     attributes are replaced with values from the new message.
     //
     // SLRoutev4Msg.Oper = SL_OBJOP_DELETE:
-    //     Route delete. The route path is not necessary to delete the route.
+    //     Route delete. The route's key is enough to delete the object;
+    //     other attributes, if provided are ignored.
     //     Delete of a non-existant route is returned as success.
     virtual ::grpc::Status SLRoutev4Op(::grpc::ClientContext* context, const ::service_layer::SLRoutev4Msg& request, ::service_layer::SLRoutev4MsgRsp* response) = 0;
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::service_layer::SLRoutev4MsgRsp>> AsyncSLRoutev4Op(::grpc::ClientContext* context, const ::service_layer::SLRoutev4Msg& request, ::grpc::CompletionQueue* cq) {
@@ -163,15 +166,18 @@ class SLRoutev4Oper final {
     //
     //
     // SLRoutev4Msg.Oper = SL_OBJOP_ADD:
-    //     Route add. Fails if the route already exists. First
-    //     ADD operation on a stale route is allowed and the route
-    //     is no longer considered stale.
+    //     Route add. Fails if the route already exists and is not stale.
+    //     First ADD operation on a stale route is treated as implicit update
+    //     and the route is no longer considered stale.
     //
     // SLRoutev4Msg.Oper = SL_OBJOP_UPDATE:
-    //     Route update. Creates or updates the route.
+    //     Route update. Create or update the route. The RPC implements
+    //     replacement semantics, wherein if the route exists, all its
+    //     attributes are replaced with values from the new message.
     //
     // SLRoutev4Msg.Oper = SL_OBJOP_DELETE:
-    //     Route delete. The route path is not necessary to delete the route.
+    //     Route delete. The route's key is enough to delete the object;
+    //     other attributes, if provided are ignored.
     //     Delete of a non-existant route is returned as success.
     std::unique_ptr< ::grpc::ClientReaderWriterInterface< ::service_layer::SLRoutev4Msg, ::service_layer::SLRoutev4MsgRsp>> SLRoutev4OpStream(::grpc::ClientContext* context) {
       return std::unique_ptr< ::grpc::ClientReaderWriterInterface< ::service_layer::SLRoutev4Msg, ::service_layer::SLRoutev4MsgRsp>>(SLRoutev4OpStreamRaw(context));
@@ -276,15 +282,18 @@ class SLRoutev4Oper final {
       //
       //
       // SLRoutev4Msg.Oper = SL_OBJOP_ADD:
-      //     Route add. Fails if the route already exists. First
-      //     ADD operation on a stale route is allowed and the route
-      //     is no longer considered stale.
+      //     Route add. Fails if the route already exists and is not stale.
+      //     First ADD operation on a stale route is treated as implicit update
+      //     and the route is no longer considered stale.
       //
       // SLRoutev4Msg.Oper = SL_OBJOP_UPDATE:
-      //     Route update. Creates or updates the route.
+      //     Route update. Create or update the route. The RPC implements
+      //     replacement semantics, wherein if the route exists, all its
+      //     attributes are replaced with values from the new message.
       //
       // SLRoutev4Msg.Oper = SL_OBJOP_DELETE:
-      //     Route delete. The route path is not necessary to delete the route.
+      //     Route delete. The route's key is enough to delete the object;
+      //     other attributes, if provided are ignored.
       //     Delete of a non-existant route is returned as success.
       virtual void SLRoutev4Op(::grpc::ClientContext* context, const ::service_layer::SLRoutev4Msg* request, ::service_layer::SLRoutev4MsgRsp* response, std::function<void(::grpc::Status)>) = 0;
       virtual void SLRoutev4Op(::grpc::ClientContext* context, const ::service_layer::SLRoutev4Msg* request, ::service_layer::SLRoutev4MsgRsp* response, ::grpc::ClientUnaryReactor* reactor) = 0;
@@ -296,15 +305,18 @@ class SLRoutev4Oper final {
       //
       //
       // SLRoutev4Msg.Oper = SL_OBJOP_ADD:
-      //     Route add. Fails if the route already exists. First
-      //     ADD operation on a stale route is allowed and the route
-      //     is no longer considered stale.
+      //     Route add. Fails if the route already exists and is not stale.
+      //     First ADD operation on a stale route is treated as implicit update
+      //     and the route is no longer considered stale.
       //
       // SLRoutev4Msg.Oper = SL_OBJOP_UPDATE:
-      //     Route update. Creates or updates the route.
+      //     Route update. Create or update the route. The RPC implements
+      //     replacement semantics, wherein if the route exists, all its
+      //     attributes are replaced with values from the new message.
       //
       // SLRoutev4Msg.Oper = SL_OBJOP_DELETE:
-      //     Route delete. The route path is not necessary to delete the route.
+      //     Route delete. The route's key is enough to delete the object;
+      //     other attributes, if provided are ignored.
       //     Delete of a non-existant route is returned as success.
       virtual void SLRoutev4OpStream(::grpc::ClientContext* context, ::grpc::ClientBidiReactor< ::service_layer::SLRoutev4Msg,::service_layer::SLRoutev4MsgRsp>* reactor) = 0;
       // Retrieves route attributes.
@@ -556,15 +568,18 @@ class SLRoutev4Oper final {
     //
     //
     // SLRoutev4Msg.Oper = SL_OBJOP_ADD:
-    //     Route add. Fails if the route already exists. First
-    //     ADD operation on a stale route is allowed and the route
-    //     is no longer considered stale.
+    //     Route add. Fails if the route already exists and is not stale.
+    //     First ADD operation on a stale route is treated as implicit update
+    //     and the route is no longer considered stale.
     //
     // SLRoutev4Msg.Oper = SL_OBJOP_UPDATE:
-    //     Route update. Creates or updates the route.
+    //     Route update. Create or update the route. The RPC implements
+    //     replacement semantics, wherein if the route exists, all its
+    //     attributes are replaced with values from the new message.
     //
     // SLRoutev4Msg.Oper = SL_OBJOP_DELETE:
-    //     Route delete. The route path is not necessary to delete the route.
+    //     Route delete. The route's key is enough to delete the object;
+    //     other attributes, if provided are ignored.
     //     Delete of a non-existant route is returned as success.
     virtual ::grpc::Status SLRoutev4Op(::grpc::ServerContext* context, const ::service_layer::SLRoutev4Msg* request, ::service_layer::SLRoutev4MsgRsp* response);
     // Retrieves route attributes.
@@ -574,15 +589,18 @@ class SLRoutev4Oper final {
     //
     //
     // SLRoutev4Msg.Oper = SL_OBJOP_ADD:
-    //     Route add. Fails if the route already exists. First
-    //     ADD operation on a stale route is allowed and the route
-    //     is no longer considered stale.
+    //     Route add. Fails if the route already exists and is not stale.
+    //     First ADD operation on a stale route is treated as implicit update
+    //     and the route is no longer considered stale.
     //
     // SLRoutev4Msg.Oper = SL_OBJOP_UPDATE:
-    //     Route update. Creates or updates the route.
+    //     Route update. Create or update the route. The RPC implements
+    //     replacement semantics, wherein if the route exists, all its
+    //     attributes are replaced with values from the new message.
     //
     // SLRoutev4Msg.Oper = SL_OBJOP_DELETE:
-    //     Route delete. The route path is not necessary to delete the route.
+    //     Route delete. The route's key is enough to delete the object;
+    //     other attributes, if provided are ignored.
     //     Delete of a non-existant route is returned as success.
     virtual ::grpc::Status SLRoutev4OpStream(::grpc::ServerContext* context, ::grpc::ServerReaderWriter< ::service_layer::SLRoutev4MsgRsp, ::service_layer::SLRoutev4Msg>* stream);
     // Retrieves route attributes.

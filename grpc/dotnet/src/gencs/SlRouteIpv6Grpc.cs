@@ -274,15 +274,18 @@ namespace ServiceLayer {
 
       /// <summary>
       /// SLRoutev6Msg.Oper = SL_OBJOP_ADD:
-      ///     Route add. Fails if the route already exists and not stale.
-      ///     First ADD operation on a stale route is allowed and the route
-      ///     is no longer considered stale.
+      ///     Route add. Fails if the route already exists and is not stale.
+      ///     First ADD operation on a stale route is treated as implicit update
+      ///     and the route is no longer considered stale.
       ///
       /// SLRoutev6Msg.Oper = SL_OBJOP_UPDATE:
-      ///     Route update. Creates or updates the route.
+      ///     Route update. Create or update the route. The RPC implements
+      ///     replacement semantics, wherein if the route exists, all its
+      ///     attributes are replaced with values from the new message.
       ///
       /// SLRoutev6Msg.Oper = SL_OBJOP_DELETE:
-      ///     Route delete. The route path is not necessary to delete the route.
+      ///     Route delete. The route's key is enough to delete the object;
+      ///     other attributes, if provided are ignored.
       ///     Delete of a non-existant route is returned as success.
       /// </summary>
       /// <param name="request">The request received from the client.</param>
@@ -308,15 +311,18 @@ namespace ServiceLayer {
 
       /// <summary>
       /// SLRoutev6Msg.Oper = SL_OBJOP_ADD:
-      ///     Route add. Fails if the route already exists and not stale.
-      ///     First ADD operation on a stale route is allowed and the route
-      ///     is no longer considered stale.
+      ///     Route add. Fails if the route already exists and is not stale.
+      ///     First ADD operation on a stale route is treated as implicit update
+      ///     and the route is no longer considered stale.
       ///
       /// SLRoutev6Msg.Oper = SL_OBJOP_UPDATE:
-      ///     Route update. Creates or updates the route.
+      ///     Route update. Create or update the route. The RPC implements
+      ///     replacement semantics, wherein if the route exists, all its
+      ///     attributes are replaced with values from the new message.
       ///
       /// SLRoutev6Msg.Oper = SL_OBJOP_DELETE:
-      ///     Route delete. The route path is not necessary to delete the route.
+      ///     Route delete. The route's key is enough to delete the object;
+      ///     other attributes, if provided are ignored.
       ///     Delete of a non-existant route is returned as success.
       /// </summary>
       /// <param name="requestStream">Used for reading requests from the client.</param>
@@ -743,15 +749,18 @@ namespace ServiceLayer {
       }
       /// <summary>
       /// SLRoutev6Msg.Oper = SL_OBJOP_ADD:
-      ///     Route add. Fails if the route already exists and not stale.
-      ///     First ADD operation on a stale route is allowed and the route
-      ///     is no longer considered stale.
+      ///     Route add. Fails if the route already exists and is not stale.
+      ///     First ADD operation on a stale route is treated as implicit update
+      ///     and the route is no longer considered stale.
       ///
       /// SLRoutev6Msg.Oper = SL_OBJOP_UPDATE:
-      ///     Route update. Creates or updates the route.
+      ///     Route update. Create or update the route. The RPC implements
+      ///     replacement semantics, wherein if the route exists, all its
+      ///     attributes are replaced with values from the new message.
       ///
       /// SLRoutev6Msg.Oper = SL_OBJOP_DELETE:
-      ///     Route delete. The route path is not necessary to delete the route.
+      ///     Route delete. The route's key is enough to delete the object;
+      ///     other attributes, if provided are ignored.
       ///     Delete of a non-existant route is returned as success.
       /// </summary>
       /// <param name="request">The request to send to the server.</param>
@@ -766,15 +775,18 @@ namespace ServiceLayer {
       }
       /// <summary>
       /// SLRoutev6Msg.Oper = SL_OBJOP_ADD:
-      ///     Route add. Fails if the route already exists and not stale.
-      ///     First ADD operation on a stale route is allowed and the route
-      ///     is no longer considered stale.
+      ///     Route add. Fails if the route already exists and is not stale.
+      ///     First ADD operation on a stale route is treated as implicit update
+      ///     and the route is no longer considered stale.
       ///
       /// SLRoutev6Msg.Oper = SL_OBJOP_UPDATE:
-      ///     Route update. Creates or updates the route.
+      ///     Route update. Create or update the route. The RPC implements
+      ///     replacement semantics, wherein if the route exists, all its
+      ///     attributes are replaced with values from the new message.
       ///
       /// SLRoutev6Msg.Oper = SL_OBJOP_DELETE:
-      ///     Route delete. The route path is not necessary to delete the route.
+      ///     Route delete. The route's key is enough to delete the object;
+      ///     other attributes, if provided are ignored.
       ///     Delete of a non-existant route is returned as success.
       /// </summary>
       /// <param name="request">The request to send to the server.</param>
@@ -787,15 +799,18 @@ namespace ServiceLayer {
       }
       /// <summary>
       /// SLRoutev6Msg.Oper = SL_OBJOP_ADD:
-      ///     Route add. Fails if the route already exists and not stale.
-      ///     First ADD operation on a stale route is allowed and the route
-      ///     is no longer considered stale.
+      ///     Route add. Fails if the route already exists and is not stale.
+      ///     First ADD operation on a stale route is treated as implicit update
+      ///     and the route is no longer considered stale.
       ///
       /// SLRoutev6Msg.Oper = SL_OBJOP_UPDATE:
-      ///     Route update. Creates or updates the route.
+      ///     Route update. Create or update the route. The RPC implements
+      ///     replacement semantics, wherein if the route exists, all its
+      ///     attributes are replaced with values from the new message.
       ///
       /// SLRoutev6Msg.Oper = SL_OBJOP_DELETE:
-      ///     Route delete. The route path is not necessary to delete the route.
+      ///     Route delete. The route's key is enough to delete the object;
+      ///     other attributes, if provided are ignored.
       ///     Delete of a non-existant route is returned as success.
       /// </summary>
       /// <param name="request">The request to send to the server.</param>
@@ -810,15 +825,18 @@ namespace ServiceLayer {
       }
       /// <summary>
       /// SLRoutev6Msg.Oper = SL_OBJOP_ADD:
-      ///     Route add. Fails if the route already exists and not stale.
-      ///     First ADD operation on a stale route is allowed and the route
-      ///     is no longer considered stale.
+      ///     Route add. Fails if the route already exists and is not stale.
+      ///     First ADD operation on a stale route is treated as implicit update
+      ///     and the route is no longer considered stale.
       ///
       /// SLRoutev6Msg.Oper = SL_OBJOP_UPDATE:
-      ///     Route update. Creates or updates the route.
+      ///     Route update. Create or update the route. The RPC implements
+      ///     replacement semantics, wherein if the route exists, all its
+      ///     attributes are replaced with values from the new message.
       ///
       /// SLRoutev6Msg.Oper = SL_OBJOP_DELETE:
-      ///     Route delete. The route path is not necessary to delete the route.
+      ///     Route delete. The route's key is enough to delete the object;
+      ///     other attributes, if provided are ignored.
       ///     Delete of a non-existant route is returned as success.
       /// </summary>
       /// <param name="request">The request to send to the server.</param>
@@ -879,15 +897,18 @@ namespace ServiceLayer {
       }
       /// <summary>
       /// SLRoutev6Msg.Oper = SL_OBJOP_ADD:
-      ///     Route add. Fails if the route already exists and not stale.
-      ///     First ADD operation on a stale route is allowed and the route
-      ///     is no longer considered stale.
+      ///     Route add. Fails if the route already exists and is not stale.
+      ///     First ADD operation on a stale route is treated as implicit update
+      ///     and the route is no longer considered stale.
       ///
       /// SLRoutev6Msg.Oper = SL_OBJOP_UPDATE:
-      ///     Route update. Creates or updates the route.
+      ///     Route update. Create or update the route. The RPC implements
+      ///     replacement semantics, wherein if the route exists, all its
+      ///     attributes are replaced with values from the new message.
       ///
       /// SLRoutev6Msg.Oper = SL_OBJOP_DELETE:
-      ///     Route delete. The route path is not necessary to delete the route.
+      ///     Route delete. The route's key is enough to delete the object;
+      ///     other attributes, if provided are ignored.
       ///     Delete of a non-existant route is returned as success.
       /// </summary>
       /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
@@ -901,15 +922,18 @@ namespace ServiceLayer {
       }
       /// <summary>
       /// SLRoutev6Msg.Oper = SL_OBJOP_ADD:
-      ///     Route add. Fails if the route already exists and not stale.
-      ///     First ADD operation on a stale route is allowed and the route
-      ///     is no longer considered stale.
+      ///     Route add. Fails if the route already exists and is not stale.
+      ///     First ADD operation on a stale route is treated as implicit update
+      ///     and the route is no longer considered stale.
       ///
       /// SLRoutev6Msg.Oper = SL_OBJOP_UPDATE:
-      ///     Route update. Creates or updates the route.
+      ///     Route update. Create or update the route. The RPC implements
+      ///     replacement semantics, wherein if the route exists, all its
+      ///     attributes are replaced with values from the new message.
       ///
       /// SLRoutev6Msg.Oper = SL_OBJOP_DELETE:
-      ///     Route delete. The route path is not necessary to delete the route.
+      ///     Route delete. The route's key is enough to delete the object;
+      ///     other attributes, if provided are ignored.
       ///     Delete of a non-existant route is returned as success.
       /// </summary>
       /// <param name="options">The options for the call.</param>

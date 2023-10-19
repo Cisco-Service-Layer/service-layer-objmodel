@@ -109,11 +109,14 @@ service SLMplsOper {
     //     is allowed and the entry is no longer considered stale.
     //
     // SLMplsIlmMsg.Oper = SL_OBJOP_UPDATE:
-    //     Create or update incoming label map entry.
+    //     Create or update incoming label map entry. The RPC implements
+    //     replacement semantics, wherein if the entry exists, all its
+    //     attributes are replaced with values from the new message.
     //
     // SLMplsIlmMsg.Oper = SL_OBJOP_DELETE:
-    //     Delete incoming label map entry. Delete of a
-    //     non-existant entry is considered a success.
+    //     Delete incoming label map entry. The entry's key is enough
+    //     to delete the object; other attributes if present are ignored.
+    //     Delete of a non-existant entry is considered a success.
     rpc SLMplsIlmOp(SLMplsIlmMsg) returns (SLMplsIlmMsgRsp);
 
     // Retrieve MPLS ILM entry attributes.

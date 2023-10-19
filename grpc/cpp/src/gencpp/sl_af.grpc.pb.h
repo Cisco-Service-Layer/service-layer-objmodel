@@ -63,7 +63,7 @@ namespace service_layer {
 // number between 0 and 65535.
 //
 // Each client application MUST use a unique client ID identifying itself
-// that is seperate from other clients programming the server. If there
+// that is separate from other clients programming the server. If there
 // are multiple instances of the client application, then each such
 // instance MUST be uniquely idenified.
 //
@@ -107,7 +107,7 @@ class SLAF final {
     // Entry and Path Group included) can manipulate that object.
     //
     //
-    // VRF registration operations. The client MUST register with
+    // VRF registration operations. By default, The client must register with
     // the corresponding VRF table before programming objects in that table.
     //
     // SLAFVrfRegMsg.Oper = SL_REGOP_REGISTER:
@@ -136,11 +136,18 @@ class SLAF final {
     // objects in that table as stale.
     // Client then MUST reprogram objects it is interested in.
     // When client sends SL_REGOP_EOF, any objects not reprogrammed
-    // are removed from the device. This feature can be turned
-    // off by setting SLVrfReg.NoMarking flag to True.
+    // are removed from the device.
     //
     // The client MUST perform all operations (VRF registration, objects)
     // from a single execution context.
+    //
+    // The VRF registration requirement and recovery using mark and
+    // sweep can be disabled by configuring
+    // "grpc service-layer auto-register" on the device. In presence
+    // of this configuration, on client restart or RPC disconnects,
+    // the client has the responsibility to reconcile its new state
+    // with the state on the device by replaying the difference.
+    //
     virtual ::grpc::Status SLAFVrfRegOp(::grpc::ClientContext* context, const ::service_layer::SLAFVrfRegMsg& request, ::service_layer::SLAFVrfRegMsgRsp* response) = 0;
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::service_layer::SLAFVrfRegMsgRsp>> AsyncSLAFVrfRegOp(::grpc::ClientContext* context, const ::service_layer::SLAFVrfRegMsg& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::service_layer::SLAFVrfRegMsgRsp>>(AsyncSLAFVrfRegOpRaw(context, request, cq));
@@ -153,15 +160,18 @@ class SLAF final {
     //
     //
     // SLAFMsg.Oper = SL_OBJOP_ADD:
-    //     Object add. Fails if the objects already exists and is not stale.
-    //     First ADD operation on a stale object is allowed and the object
-    //     is no longer considered stale.
+    //     Object add. Fails if the object already exists and is not stale.
+    //     First ADD operation on a stale object is treated as implicit update
+    //     and the object is no longer considered stale.
     //
     // SLAFMsg.Oper = SL_OBJOP_UPDATE:
-    //     Object update. Creates or updates the objects.
+    //     Object update. Create or update the object. The RPC implements
+    //     replacement semantics, wherein if the object exists, all its
+    //     attributes are replaced with values from the new message.
     //
     // SLAFMsg.Oper = SL_OBJOP_DELETE:
-    //     Object delete. The object's key is enough to delete the object.
+    //     Object delete. The object's key is enough to delete the object;
+    //     other attributes if present are ignored.
     //     Delete of a non-existant object is returned as success.
     virtual ::grpc::Status SLAFOp(::grpc::ClientContext* context, const ::service_layer::SLAFMsg& request, ::service_layer::SLAFMsgRsp* response) = 0;
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::service_layer::SLAFMsgRsp>> AsyncSLAFOp(::grpc::ClientContext* context, const ::service_layer::SLAFMsg& request, ::grpc::CompletionQueue* cq) {
@@ -210,7 +220,7 @@ class SLAF final {
       // Entry and Path Group included) can manipulate that object.
       //
       //
-      // VRF registration operations. The client MUST register with
+      // VRF registration operations. By default, The client must register with
       // the corresponding VRF table before programming objects in that table.
       //
       // SLAFVrfRegMsg.Oper = SL_REGOP_REGISTER:
@@ -239,11 +249,18 @@ class SLAF final {
       // objects in that table as stale.
       // Client then MUST reprogram objects it is interested in.
       // When client sends SL_REGOP_EOF, any objects not reprogrammed
-      // are removed from the device. This feature can be turned
-      // off by setting SLVrfReg.NoMarking flag to True.
+      // are removed from the device.
       //
       // The client MUST perform all operations (VRF registration, objects)
       // from a single execution context.
+      //
+      // The VRF registration requirement and recovery using mark and
+      // sweep can be disabled by configuring
+      // "grpc service-layer auto-register" on the device. In presence
+      // of this configuration, on client restart or RPC disconnects,
+      // the client has the responsibility to reconcile its new state
+      // with the state on the device by replaying the difference.
+      //
       virtual void SLAFVrfRegOp(::grpc::ClientContext* context, const ::service_layer::SLAFVrfRegMsg* request, ::service_layer::SLAFVrfRegMsgRsp* response, std::function<void(::grpc::Status)>) = 0;
       virtual void SLAFVrfRegOp(::grpc::ClientContext* context, const ::service_layer::SLAFVrfRegMsg* request, ::service_layer::SLAFVrfRegMsgRsp* response, ::grpc::ClientUnaryReactor* reactor) = 0;
       //
@@ -251,15 +268,18 @@ class SLAF final {
       //
       //
       // SLAFMsg.Oper = SL_OBJOP_ADD:
-      //     Object add. Fails if the objects already exists and is not stale.
-      //     First ADD operation on a stale object is allowed and the object
-      //     is no longer considered stale.
+      //     Object add. Fails if the object already exists and is not stale.
+      //     First ADD operation on a stale object is treated as implicit update
+      //     and the object is no longer considered stale.
       //
       // SLAFMsg.Oper = SL_OBJOP_UPDATE:
-      //     Object update. Creates or updates the objects.
+      //     Object update. Create or update the object. The RPC implements
+      //     replacement semantics, wherein if the object exists, all its
+      //     attributes are replaced with values from the new message.
       //
       // SLAFMsg.Oper = SL_OBJOP_DELETE:
-      //     Object delete. The object's key is enough to delete the object.
+      //     Object delete. The object's key is enough to delete the object;
+      //     other attributes if present are ignored.
       //     Delete of a non-existant object is returned as success.
       virtual void SLAFOp(::grpc::ClientContext* context, const ::service_layer::SLAFMsg* request, ::service_layer::SLAFMsgRsp* response, std::function<void(::grpc::Status)>) = 0;
       virtual void SLAFOp(::grpc::ClientContext* context, const ::service_layer::SLAFMsg* request, ::service_layer::SLAFMsgRsp* response, ::grpc::ClientUnaryReactor* reactor) = 0;
@@ -367,7 +387,7 @@ class SLAF final {
     // Entry and Path Group included) can manipulate that object.
     //
     //
-    // VRF registration operations. The client MUST register with
+    // VRF registration operations. By default, The client must register with
     // the corresponding VRF table before programming objects in that table.
     //
     // SLAFVrfRegMsg.Oper = SL_REGOP_REGISTER:
@@ -396,26 +416,36 @@ class SLAF final {
     // objects in that table as stale.
     // Client then MUST reprogram objects it is interested in.
     // When client sends SL_REGOP_EOF, any objects not reprogrammed
-    // are removed from the device. This feature can be turned
-    // off by setting SLVrfReg.NoMarking flag to True.
+    // are removed from the device.
     //
     // The client MUST perform all operations (VRF registration, objects)
     // from a single execution context.
+    //
+    // The VRF registration requirement and recovery using mark and
+    // sweep can be disabled by configuring
+    // "grpc service-layer auto-register" on the device. In presence
+    // of this configuration, on client restart or RPC disconnects,
+    // the client has the responsibility to reconcile its new state
+    // with the state on the device by replaying the difference.
+    //
     virtual ::grpc::Status SLAFVrfRegOp(::grpc::ServerContext* context, const ::service_layer::SLAFVrfRegMsg* request, ::service_layer::SLAFVrfRegMsgRsp* response);
     //
     // Route, MPLS label and Path operations.
     //
     //
     // SLAFMsg.Oper = SL_OBJOP_ADD:
-    //     Object add. Fails if the objects already exists and is not stale.
-    //     First ADD operation on a stale object is allowed and the object
-    //     is no longer considered stale.
+    //     Object add. Fails if the object already exists and is not stale.
+    //     First ADD operation on a stale object is treated as implicit update
+    //     and the object is no longer considered stale.
     //
     // SLAFMsg.Oper = SL_OBJOP_UPDATE:
-    //     Object update. Creates or updates the objects.
+    //     Object update. Create or update the object. The RPC implements
+    //     replacement semantics, wherein if the object exists, all its
+    //     attributes are replaced with values from the new message.
     //
     // SLAFMsg.Oper = SL_OBJOP_DELETE:
-    //     Object delete. The object's key is enough to delete the object.
+    //     Object delete. The object's key is enough to delete the object;
+    //     other attributes if present are ignored.
     //     Delete of a non-existant object is returned as success.
     virtual ::grpc::Status SLAFOp(::grpc::ServerContext* context, const ::service_layer::SLAFMsg* request, ::service_layer::SLAFMsgRsp* response);
     //

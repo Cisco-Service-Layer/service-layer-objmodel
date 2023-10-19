@@ -166,15 +166,18 @@ class SLRoutev4OperServicer(object):
 
 
         SLRoutev4Msg.Oper = SL_OBJOP_ADD:
-        Route add. Fails if the route already exists. First
-        ADD operation on a stale route is allowed and the route
-        is no longer considered stale.
+        Route add. Fails if the route already exists and is not stale.
+        First ADD operation on a stale route is treated as implicit update
+        and the route is no longer considered stale.
 
         SLRoutev4Msg.Oper = SL_OBJOP_UPDATE:
-        Route update. Creates or updates the route.
+        Route update. Create or update the route. The RPC implements
+        replacement semantics, wherein if the route exists, all its
+        attributes are replaced with values from the new message.
 
         SLRoutev4Msg.Oper = SL_OBJOP_DELETE:
-        Route delete. The route path is not necessary to delete the route.
+        Route delete. The route's key is enough to delete the object;
+        other attributes, if provided are ignored.
         Delete of a non-existant route is returned as success.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -194,15 +197,18 @@ class SLRoutev4OperServicer(object):
 
 
         SLRoutev4Msg.Oper = SL_OBJOP_ADD:
-        Route add. Fails if the route already exists. First
-        ADD operation on a stale route is allowed and the route
-        is no longer considered stale.
+        Route add. Fails if the route already exists and is not stale.
+        First ADD operation on a stale route is treated as implicit update
+        and the route is no longer considered stale.
 
         SLRoutev4Msg.Oper = SL_OBJOP_UPDATE:
-        Route update. Creates or updates the route.
+        Route update. Create or update the route. The RPC implements
+        replacement semantics, wherein if the route exists, all its
+        attributes are replaced with values from the new message.
 
         SLRoutev4Msg.Oper = SL_OBJOP_DELETE:
-        Route delete. The route path is not necessary to delete the route.
+        Route delete. The route's key is enough to delete the object;
+        other attributes, if provided are ignored.
         Delete of a non-existant route is returned as success.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)

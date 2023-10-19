@@ -484,7 +484,7 @@ _SLROUTEV4NOTIF = _descriptor.Descriptor(
 
 _SLROUTEV4.fields_by_name['RouteCommon'].message_type = sl__route__common__pb2._SLROUTECOMMON
 _SLROUTEV4.fields_by_name['PathList'].message_type = sl__route__common__pb2._SLROUTEPATH
-_SLROUTEV4.fields_by_name['PathGroupKey'].message_type = sl__route__common__pb2._SLPATHGROUPREFKEY
+_SLROUTEV4.fields_by_name['PathGroupKey'].message_type = sl__common__types__pb2._SLPATHGROUPREFKEY
 _SLROUTEV4.oneofs_by_name['entry'].fields.append(
   _SLROUTEV4.fields_by_name['PathGroupKey'])
 _SLROUTEV4.fields_by_name['PathGroupKey'].containing_oneof = _SLROUTEV4.oneofs_by_name['entry']

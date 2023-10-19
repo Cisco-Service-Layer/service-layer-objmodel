@@ -812,4 +812,14 @@ message SLObjectId {
     }
 }
 
+// Path group reference key. This can be used by route, label
+// or policy objects to refer a path group object.
+message SLPathGroupRefKey {
+    // VRF name
+    string VrfName = 1;
+
+    // Path Group ID
+    SLObjectId PathGroupId = 2;
+}
+
 // @}

@@ -203,7 +203,7 @@ namespace ServiceLayer {
         = pb::FieldCodec.ForMessage(34, global::ServiceLayer.SLRoutePath.Parser);
     private readonly pbc::RepeatedField<global::ServiceLayer.SLRoutePath> pathList_ = new pbc::RepeatedField<global::ServiceLayer.SLRoutePath>();
     /// <summary>
-    /// List of route paths for a particular route.
+    /// List of route paths for this route.
     /// Specifying more than one path is allowed for ECMP/UCMP cases
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1543,6 +1543,7 @@ namespace ServiceLayer {
     ///     request up to 'EntriesCount' entries starting from the key
     /// If GetNext is TRUE, or if the key exact match is not found:
     ///     request up to 'EntriesCount' entries starting from the key's next
+    ///     GetNext does not get the routes in the next client
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
