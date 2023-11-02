@@ -1,0 +1,364 @@
+// @file 
+// @brief Client RPC proto file for Policy RPCs. 
+// Declares calls for adding, deleting, updating the policies
+// and apply, unapply policies from interfaces. 
+// 
+// ----------------------------------------------------------------
+//  Copyright (c) 2023 by Cisco Systems, Inc.
+//  All rights reserved.
+// -----------------------------------------------------------------
+//
+//
+
+syntax = "proto3";
+package service_layer;
+ 
+import "sl_common_types.proto";
+ 
+option go_package="github.com/Cisco-service-layer/service-layer-objmodel/grpc/protos;service_layer";
+
+//@defgroup SLPolicy
+//@ingroup Policy
+//Used for policy creation and deletion, add and delete rules from policy, 
+//apply and un-apply policy from interfaces. 
+//Defines the RPC for operations on policy, interface and get requests.
+//@{ 
+service SLPolicy { 
+     //@addtogroup SLPolicy
+     //@{
+     ///;
+ 
+     //    
+     // Policy-object operations
+     //
+     
+     // SLPolicyOpMsg.Oper = SL_OBJOP_POLICY_ADD 
+     // Add a new Policy object. Fails if the Policy object 
+     // already exists. 
+     // 
+
+     // SLPolicyOpMsg.Oper = SL_OBJOP_POLICY_DELETE 
+     // Delete the policy object. The object's key is enough to delete the 
+     // object. other attributes if present are ignored. Delete of a non-
+     // existant object is returned as success. 
+     // 
+
+     // SLPolicyOpMsg.Oper = SL_OBJOP_RULE_ADD 
+     // Add rules to an existing Policy object. Fails if the Policy does 
+     // not exist in the system. 
+     // 
+
+     // SLPolicyOpMsg.Oper = SL_OBJOP_RULE_DELETE 
+     // Delete an existing Rule within a policy object. Ignores and  
+     // returns success on deletion of a non-existing Rule. 
+     // 
+
+     // SLPolicyOpMsg.Oper = SL_OBJOP_POLICY_APPLY 
+     // Apply the policy on an interface.  
+     // 
+
+     // SLPolicyOpMsg.Oper = SL_OBJOP_POLICY_UNAPPLY 
+     // Unapply the policy on an interface. 
+     // 
+
+     rpc SLPolicyOp(SLPolicyOpMsg) returns (SLPolicyOpRsp);
+
+     // SLPolicyGetMsg.Oper = SL_OBJOP_POLICY_GET_RULES 
+     // Get all policy rules 
+     // 
+     // SLPolicyGetMsg.Oper = SL_OBJOP_POLICY_GET_INTFS 
+     // Get all interfaces where policy is applied 
+
+     // Retrieve Policy-map and its rules/intfs where policy is applied from the server
+     rpc SLPolicyGetAll(stream SLPolicyGetMsg) returns (stream SLPolicyGetMsgRsp);
+ 
+     // Retrieve Global Policy capabilities 
+     rpc SLPolicyGlobalsGet(SLPolicyGlobalCapGetMsg) returns (SLPolicyGlobalsGetMsgRsp);
+     //@} 
+}
+ 
+message SLPolicyOpMsg {
+ 
+     //Policy object operation
+     SLPolicyObjectOp Oper = 1;
+         
+     //List of Policies
+     repeated SLPolicyCfg PolicyObjs = 2;
+}
+
+// Policy Object Operations.
+enum SLPolicyObjectOp {
+     
+     // Reserved. 0x0
+     SL_OBJOP_RESERVED       = 0x0;
+      
+     // Policy Add. 0x1
+     SL_OBJOP_POLICY_ADD     = 0x1;
+         
+     // Policy Delete. 0x2
+     SL_OBJOP_POLICY_DELETE  = 0x2;
+     
+     // Rule Add. 0x3
+     SL_OBJOP_RULE_ADD       = 0x3;
+         
+     // Rule Delete. 0x4
+     SL_OBJOP_RULE_DELETE    = 0x4;
+         
+     // Policy Apply 
+     SL_OBJOP_POLICY_APPLY   = 0x5;
+         
+     // Policy UnApply 
+     SL_OBJOP_POLICY_UNAPPLY = 0x6;
+     
+     // GET ALL POLICY RULES   
+     SL_OBJOP_POLICY_GET_RULES     = 0x7;
+ 
+     // GET ALL POLICY INTERFACES 
+     SL_OBJOP_POLICY_GET_INTFS     = 0x8;
+}
+ 
+ 
+//Policy-map config object
+message SLPolicyCfg {
+      //Policy unique key identifier
+      SLPolicyKey Key = 1;
+ 
+      oneof SLPolicyObjectList {
+         PolicyRuleList Rules = 2;
+         PolicyIntfList Intfs = 3;
+     }
+}
+
+message PolicyRuleList {
+       repeated SLPolicyRule PolicyRules = 1;
+}
+ 
+message PolicyIntfList {
+       repeated SLPolicyIntf PolicyIntfs = 1;
+}
+ 
+message SLPolicyKey {
+     //Name of the policy
+     string PolicyName = 1;
+ 
+     //PolicyType
+     SLPolicyType Type = 2;
+}
+ 
+enum SLPolicyType {
+     //Reserved, 0x0
+     SL_PM_PTYPE_RESERVED = 0x0;
+ 
+     //Qos type policy
+     SL_PM_PTYPE_QOS = 0x1;
+ 
+     //PBR type policy
+     SL_PM_PTYPE_PBR = 0x2;
+}
+ 
+message SLPolicyRule {
+    //Name of the rule referenced in the policy object 
+    string RuleName = 1;
+ 
+    //Priority of the rule within the policy
+    string PriorityStr = 2;
+ 
+    //Defines the matches under this rule
+    repeated SLRuleMatch Matches = 3;
+ 
+    //Actions associated with this rule 
+    repeated SLRuleAction Action = 4;
+}
+ 
+//Match types supported 
+message SLRuleMatch {
+     oneof MatchType {
+ 
+        //Encapsulate all different values of dscp supported
+        SLDscpMatch Dscp = 1;
+ 
+        //Match on input NHG string
+        string InputNHG = 2;
+     }
+}
+
+//Dscp match type 
+message SLDscpMatch {
+      oneof Dscp {
+ 
+          //Single dscp value
+          uint32 DscpValue = 1;
+ 
+          //Indicates dscp * if DscpAny is set to 1;
+          bool DscpAny = 2;
+      }
+}
+ 
+//Action types supported in a rule
+message SLRuleAction {
+     oneof ActionType {
+ 
+        //Output NHG string where packet will be forwarded
+        string RedirectOutputNHG = 1;
+ 
+     }
+}
+ 
+enum SLApplyDirection {
+ 
+     //Reserved, 0x0
+     SL_APPLY_TYPE_RESERVED = 0x0;
+ 
+     //Ingress direction, 0x1
+     SL_APPLY_DIRECTION_INGRESS = 0x1;
+ 
+     //Egress direction, 0x2
+     SL_APPLY_DIRECTION_EGRESS = 0x2;
+}
+ 
+//Policy intf object
+message SLPolicyIntf {
+ 
+     //Interface on which the policy is applied/unapplied
+     SLInterface Key = 1;
+ 
+     //Apply Direction (ingress/egress) 
+     SLApplyDirection IntfDir = 2;
+}
+
+message SLPolicyOpRsp {
+ 
+     //Policy object operation for which the response is sent
+     SLPolicyObjectOp Oper = 1;
+ 
+    // Result of the Bulk operation
+    // SL_SUCCESS  => Bulk operation successful and result list empty
+    // SL_RPC_XXX  => Entire Bulk operation failed and result list empty
+    // SL_SOME_ERR => Operation on one or more polices failed, check results for each policy
+    SLErrorStatus PolicyCfgOpStatus = 2;
+ 
+    repeated SLPolicyRes Results = 3;
+}
+ 
+message SLPolicyRes {
+ 
+      //Policy unique key identifier
+      SLPolicyKey Key = 1;
+ 
+      //Status of policy
+      SLPolicyErrno PolicyStatus = 2;
+ 
+      oneof SLPolicyObjectList {
+        SLPolicyRuleStatusList RulesStatus = 3;
+        SLPolicyIntfStatusList IntfStatus = 4;
+     }
+ 
+}
+ 
+message SLPolicyRuleStatusList {
+       repeated SLPolicyRuleStatus RulesStatus =1;
+}
+ 
+message SLPolicyIntfStatusList {
+       repeated SLPolicyIntfStatus IntfsStatus = 1;
+}
+ 
+message SLPolicyRuleStatus {
+    string RuleName = 1;
+    SLPolicyErrno Status = 2;
+}
+ 
+message SLPolicyIntfStatus {
+     SLInterface Intf = 1;
+     SLPolicyErrno Status = 2;
+}
+
+enum SLPolicyErrno {
+ 
+     //Success, bulk operation success, no per policy status provided
+     SL_POLICY_SUCCESS = 0x0;
+ 
+     //entire bulk operation failed, no per policy status provided
+     SL_POLICY_ERR     = 0x1;
+ 
+     //One or more policies failed, look at SLPMgrPolicyRuleStatus for more details
+     SL_POLICY_FAILED   = 0x2;
+ 
+     //One or more rules failed, look at SLPMgrPolicyRuleStatus for more details
+     SL_RULE_FAILED = 0x3;
+ 
+     //Requested operation on intf (apply/unapply) succeeded
+     SL_POLICY_INTF_SUCCESS= 0x4;
+ 
+     //Requested operation on intf (apply/unapply) failed
+     SL_POLICY_INTF_FAILED = 0x5;
+}
+ 
+ 
+message SLPolicyGetMsg {
+ 
+     // Correlator. This can be used to correlate replies with requests.
+     // The Server simply reflects this field back in the reply.
+     uint64 Correlator = 1;
+ 
+     //Policy object operation to get all policy rules or policy interfaces 
+     SLPolicyObjectOp Oper = 2;
+ 
+ 
+     // If the Key is not specified, then request up to the first
+     // 'EntriesCount' entries.
+     //Policy unique key identifier
+     SLPolicyKey Key = 3;
+ 
+     // Number of entries requested
+     uint32 EntriesCount = 4;
+ 
+     // if GetNext is FALSE:
+     //     request up to 'EntriesCount' entries starting from the key
+     // If GetNext is TRUE, or if the key exact match is not found:
+     //     request up to 'EntriesCount' entries starting from the key's next
+     bool GetNext = 5;
+}
+
+message SLPolicyGetMsgRsp {
+ 
+     // Correlator. This can be used to correlate replies with requests.
+     // The Server simply reflects this field back in the reply.
+     uint64 Correlator = 1;
+ 
+     //Policy object operation
+     SLPolicyObjectOp Oper = 2;
+ 
+     // End Of File.
+     // When set to True, it indicates that the server has returned M, where
+     // M < N, of the original N requested Entries.
+     bool Eof = 4;
+ 
+     // Result of the Bulk operation
+     // SL_SUCCESS  => Bulk operation successful and result list empty
+     // SL_RPC_XXX  => Entire Bulk operation failed and result list empty
+     SLErrorStatus PolicyCfgOpStatus = 3;
+ 
+ 
+     //List of Policies. It will be empty incase of failure
+     repeated SLPolicyCfg PolicyObjs = 5;
+}
+ 
+// Policy Global Get Capabilities Message
+message SLPolicyGlobalCapGetMsg {
+ 
+}
+ 
+// Policy Global Get Capabilities Message Response
+message SLPolicyGlobalsGetMsgRsp {
+     // Corresponding error code
+     SLErrorStatus ErrStatus = 1;
+ 
+     // Max number of policies supported 
+     uint32 MaxPolicies = 2;
+ 
+     // Max Rules supported within a policy
+     uint32 MaxRules = 3;
+}
+
+//@}
