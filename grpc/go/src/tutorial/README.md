@@ -24,11 +24,13 @@ To get help on running the tutorial:
 | -num_batches     | Configure the number of batches |
 | -first_prefix    | First prefix to be used (default 20.0.0.0) |
 | -prefix_len      | Prefix length to be used in the route operation (default 24) |
-| -interface       | Set the name of the next hop interface (default "GigabitEthernet0/0/0/0") |
+| -interface       | Set the name of the next hop interface (default "") |
 | -next_hop_ip     | Next Hop IP to be used (default 10.0.0.1) |
 | -auto_inc_nhip   | Automatic increament of next hop ip address |
 | -route_oper      | Route Operation: Add(1), Update(2), Delete(3) |
 | -vrf_reg_oper    | VRF registration Operation: Reg(1), Unregister(2), EOF(3) |
+| -username        | Username (default "") |
+| -password        | Password (default "") |
 
 ##### MPLS Testing
 
@@ -42,12 +44,15 @@ To get help on running the tutorial:
 | -num_elsps       | Configure the number of ELSP entries to be added for this label
                      (0-9, 0: no-elsp (default), 9: elsp-dflt) |
 | -num_paths       | Configure the number of paths to be added per ILM entry (default 1)|
-| -interface       | Set the name of the next hop interface (default "GigabitEthernet0/0/0/0") |
+| -interface       | Set the name of the next hop interface (default none) |
 | -max_if_idx      | Increment the last index of the interface up to this number based on the number of elsps configured, eg,
                      GE0/0/0/0, GE0/0/0/1, etc |
 | -client_name     | The client name to be used during MPLS CBF label block allocation |
 | -next_hop_ip     | Next Hop IP to be used (default 10.0.0.1) |
 | -auto_inc_nhip   | Automatic increament of next hop ip address |
+| -username        | Username (default "") |
+| -password        | Password (default "") |
+
 
 #### How to build
 If you have a docker environmemt, you can run "make tutorial" from the service-layer-objmodel
@@ -72,13 +77,13 @@ To run it with default parameters:
 ./tutorial
 
 #####IPV4 Examples:
-1) ./tutorial -ipv4 -interface FourHundredGigE0/0/0/0 -num_batches 5 -batch_size 100 -auto_inc_nhip -route_oper 1 -vrf_reg_oper 1
+1) ./tutorial -ipv4 -interface FourHundredGigE0/0/0/0 -num_batches 5 -batch_size 100 -auto_inc_nhip -route_oper 1 -vrf_reg_oper 1 -username <> -password <>
    Will send: 5 batches of IPV4 routes with 100 routes in each batch with starting prefix: 20.0.0.0/24,
               starting next_hop_ip:10.0.0.1 with interface_name set to FourHundredGigE0/0/0/0.
 ```
    [20.0.0.0/24, [10.0.0.1, FourHundredGigE0/0/0/0]], [20.0.1.0/24, [10.0.0.2, FourHundredGigE0/0/0/0]], …
 ```
-2) ./tutorial -ipv4 -interface FourHundredGigE0/0/0/0 -num_batches 5 -batch_size 100 -auto_inc_nhip -route_oper 3
+2) ./tutorial -ipv4 -interface FourHundredGigE0/0/0/0 -num_batches 5 -batch_size 100 -auto_inc_nhip -route_oper 3 -username <> -password <>
    Will send: Delete request of 5 batches of IPV4 routes with 100 routes in each batch with starting prefix: 20.0.0.0/24,
               starting next_hop_ip:10.0.0.1 with interface_name set to FourHundredGigE0/0/0/0.
 ```
@@ -88,7 +93,7 @@ To run it with default parameters:
 #####MPLS Examples:
 ------------
 
-1) ./tutorial -mpls -interface FourHundredGigE0/0/0/0 -start_label 20000 -num_labels 100 -route_oper 1 -vrf_reg_oper 1
+1) ./tutorial -mpls -interface FourHundredGigE0/0/0/0 -start_label 20000 -num_labels 100 -route_oper 1 -vrf_reg_oper 1 -username <> -password <>
 
    Will send: Add request of 100 ILM routes with starting label 20000 with
               next_hop_ip:10.0.0.1 and interface_name set to FourHundredGigE0/0/0/0.
@@ -96,7 +101,7 @@ To run it with default parameters:
    [20000, [NH1]], [20001, [NH1]], …
 ```
 
-2) ./tutorial -mpls -interface FourHundredGigE0/0/0/0 -start_label 20000 -num_labels 100 -route_oper 3 -vrf_reg_oper 3
+2) ./tutorial -mpls -interface FourHundredGigE0/0/0/0 -start_label 20000 -num_labels 100 -route_oper 3 -vrf_reg_oper 3 -username <> -password <>
 
    Will send: Delete request of 100 ILM routes with starting label 20000 with
               next_hop_ip:10.0.0.1 and interface_name set to FourHundredGigE0/0/0/0.
