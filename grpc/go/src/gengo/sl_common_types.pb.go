@@ -440,7 +440,7 @@ const (
 	SLErrorStatus_SL_RPC_VRF_TOO_MANY_VRF_REG_MSGS SLErrorStatus_SLErrno = 4097
 	// Operation rejected for all VRFs as server is not initialized. 0x1002
 	SLErrorStatus_SL_RPC_VRF_SERVER_NOT_INITIALIZED SLErrorStatus_SLErrno = 4098
-	// Operation not supported in auto-register mode.
+	// Operation not supported in auto-register mode. 0x1003
 	SLErrorStatus_SL_RPC_VRF_OP_NOTSUP_WITH_AUTOREG SLErrorStatus_SLErrno = 4099
 	// Offset for VRF errors. 0x2000
 	SLErrorStatus_SL_VRF_START_OFFSET SLErrorStatus_SLErrno = 8192

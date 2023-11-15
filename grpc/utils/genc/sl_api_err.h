@@ -75,7 +75,7 @@
     SL_RPC_VRF_TOO_MANY_VRF_REG_MSGS = 0x1001,\
     /* Operation rejected for all VRFs as server is not initialized. 0x1002 */\
     SL_RPC_VRF_SERVER_NOT_INITIALIZED = 0x1002,\
-    /* Operation not supported in auto-register mode. */\
+    /* Operation not supported in auto-register mode. 0x1003 */\
     SL_RPC_VRF_OP_NOTSUP_WITH_AUTOREG = 0x1003,\
     /* !!! Error codes for VRF objects. */\
     /* Offset for VRF errors. 0x2000 */\
@@ -720,7 +720,7 @@
         " Operation rejected for all VRFs as server is not initialized.  "\
         },\
     {SL_RPC_VRF_OP_NOTSUP_WITH_AUTOREG ,\
-        " Operation not supported in auto-register mode. "\
+        " Operation not supported in auto-register mode.  "\
         },\
     {SL_VRF_START_OFFSET ,\
         " Offset for VRF errors.  "\

@@ -704,7 +704,7 @@ namespace ServiceLayer {
         /// </summary>
         [pbr::OriginalName("SL_RPC_VRF_SERVER_NOT_INITIALIZED")] SlRpcVrfServerNotInitialized = 4098,
         /// <summary>
-        /// Operation not supported in auto-register mode.
+        /// Operation not supported in auto-register mode. 0x1003
         /// </summary>
         [pbr::OriginalName("SL_RPC_VRF_OP_NOTSUP_WITH_AUTOREG")] SlRpcVrfOpNotsupWithAutoreg = 4099,
         /// <summary>
