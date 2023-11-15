@@ -144,9 +144,9 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
 };
 
 const char descriptor_table_protodef_sl_5fcommon_5ftypes_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
-  "\n\025sl_common_types.proto\022\rservice_layer\"\306"
+  "\n\025sl_common_types.proto\022\rservice_layer\"\356"
   "F\n\rSLErrorStatus\0224\n\006Status\030\001 \001(\0162$.servi"
-  "ce_layer.SLErrorStatus.SLErrno\"\376E\n\007SLErr"
+  "ce_layer.SLErrorStatus.SLErrno\"\246F\n\007SLErr"
   "no\022\016\n\nSL_SUCCESS\020\000\022\024\n\020SL_NOT_CONNECTED\020\001"
   "\022\r\n\tSL_EAGAIN\020\002\022\r\n\tSL_ENOMEM\020\003\022\014\n\010SL_EBU"
   "SY\020\004\022\r\n\tSL_EINVAL\020\005\022\026\n\022SL_UNSUPPORTED_VE"
@@ -161,7 +161,8 @@ const char descriptor_table_protodef_sl_5fcommon_5ftypes_2eproto[] PROTOBUF_SECT
   "!SL_INIT_SERVER_MODE_CHANGE_FAILED\020\205\n\022\034\n"
   "\027SL_RPC_VRF_START_OFFSET\020\200 \022%\n SL_RPC_VR"
   "F_TOO_MANY_VRF_REG_MSGS\020\201 \022&\n!SL_RPC_VRF"
-  "_SERVER_NOT_INITIALIZED\020\202 \022\030\n\023SL_VRF_STA"
+  "_SERVER_NOT_INITIALIZED\020\202 \022&\n!SL_RPC_VRF"
+  "_OP_NOTSUP_WITH_AUTOREG\020\203 \022\030\n\023SL_VRF_STA"
   "RT_OFFSET\020\200@\022\030\n\023SL_VRF_NAME_TOOLONG\020\201@\022\025"
   "\n\020SL_VRF_NOT_FOUND\020\202@\022\027\n\022SL_VRF_NO_TABLE"
   "_ID\020\203@\022&\n!SL_VRF_REG_INVALID_ADMIN_DISTA"
@@ -397,7 +398,7 @@ const char descriptor_table_protodef_sl_5fcommon_5ftypes_2eproto[] PROTOBUF_SECT
   ;
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_sl_5fcommon_5ftypes_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_sl_5fcommon_5ftypes_2eproto = {
-  false, false, 9966, descriptor_table_protodef_sl_5fcommon_5ftypes_2eproto, "sl_common_types.proto", 
+  false, false, 10006, descriptor_table_protodef_sl_5fcommon_5ftypes_2eproto, "sl_common_types.proto", 
   &descriptor_table_sl_5fcommon_5ftypes_2eproto_once, nullptr, 0, 5,
   schemas, file_default_instances, TableStruct_sl_5fcommon_5ftypes_2eproto::offsets,
   file_level_metadata_sl_5fcommon_5ftypes_2eproto, file_level_enum_descriptors_sl_5fcommon_5ftypes_2eproto, file_level_service_descriptors_sl_5fcommon_5ftypes_2eproto,
@@ -439,6 +440,7 @@ bool SLErrorStatus_SLErrno_IsValid(int value) {
     case 4096:
     case 4097:
     case 4098:
+    case 4099:
     case 8192:
     case 8193:
     case 8194:
@@ -712,6 +714,7 @@ constexpr SLErrorStatus_SLErrno SLErrorStatus::SL_INIT_SERVER_MODE_CHANGE_FAILED
 constexpr SLErrorStatus_SLErrno SLErrorStatus::SL_RPC_VRF_START_OFFSET;
 constexpr SLErrorStatus_SLErrno SLErrorStatus::SL_RPC_VRF_TOO_MANY_VRF_REG_MSGS;
 constexpr SLErrorStatus_SLErrno SLErrorStatus::SL_RPC_VRF_SERVER_NOT_INITIALIZED;
+constexpr SLErrorStatus_SLErrno SLErrorStatus::SL_RPC_VRF_OP_NOTSUP_WITH_AUTOREG;
 constexpr SLErrorStatus_SLErrno SLErrorStatus::SL_VRF_START_OFFSET;
 constexpr SLErrorStatus_SLErrno SLErrorStatus::SL_VRF_NAME_TOOLONG;
 constexpr SLErrorStatus_SLErrno SLErrorStatus::SL_VRF_NOT_FOUND;
