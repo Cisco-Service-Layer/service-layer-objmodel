@@ -405,6 +405,9 @@ def ilm_serializer(batch_info):
                 ps.append(p)
             assert len(ps), 'path list cannot be empty'
             entry.Paths.extend(ps)
+            if "update_priority" in ilm:
+                entry.Priority = ilm["update_priority"]
+
             # Append the `SLMplsIlmv4Msg`|`SLMplsIlmv6Msg` object
             ilms.append(entry)
         assert len(ilms), 'ilm list cannot be empty'
