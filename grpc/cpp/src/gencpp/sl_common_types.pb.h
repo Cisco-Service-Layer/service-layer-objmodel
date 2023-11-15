@@ -105,6 +105,7 @@ enum SLErrorStatus_SLErrno : int {
   SLErrorStatus_SLErrno_SL_RPC_VRF_START_OFFSET = 4096,
   SLErrorStatus_SLErrno_SL_RPC_VRF_TOO_MANY_VRF_REG_MSGS = 4097,
   SLErrorStatus_SLErrno_SL_RPC_VRF_SERVER_NOT_INITIALIZED = 4098,
+  SLErrorStatus_SLErrno_SL_RPC_VRF_OP_NOTSUP_WITH_AUTOREG = 4099,
   SLErrorStatus_SLErrno_SL_VRF_START_OFFSET = 8192,
   SLErrorStatus_SLErrno_SL_VRF_NAME_TOOLONG = 8193,
   SLErrorStatus_SLErrno_SL_VRF_NOT_FOUND = 8194,
@@ -698,6 +699,8 @@ class SLErrorStatus final :
     SLErrorStatus_SLErrno_SL_RPC_VRF_TOO_MANY_VRF_REG_MSGS;
   static constexpr SLErrno SL_RPC_VRF_SERVER_NOT_INITIALIZED =
     SLErrorStatus_SLErrno_SL_RPC_VRF_SERVER_NOT_INITIALIZED;
+  static constexpr SLErrno SL_RPC_VRF_OP_NOTSUP_WITH_AUTOREG =
+    SLErrorStatus_SLErrno_SL_RPC_VRF_OP_NOTSUP_WITH_AUTOREG;
   static constexpr SLErrno SL_VRF_START_OFFSET =
     SLErrorStatus_SLErrno_SL_VRF_START_OFFSET;
   static constexpr SLErrno SL_VRF_NAME_TOOLONG =
