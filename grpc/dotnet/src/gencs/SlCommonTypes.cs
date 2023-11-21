@@ -238,18 +238,21 @@ namespace ServiceLayer {
             "U0VSVkVEEAASEAoMU0xfT0JKT1BfQUREEAESEwoPU0xfT0JKT1BfVVBEQVRF",
             "EAISEwoPU0xfT0JKT1BfREVMRVRFEAMqUwoJU0xOb3RpZk9wEhcKE1NMX05P",
             "VElGT1BfUkVTRVJWRUQQABIVChFTTF9OT1RJRk9QX0VOQUJMRRABEhYKElNM",
-            "X05PVElGT1BfRElTQUJMRRACKksKC1NMRW5jYXBUeXBlEhUKEVNMX0VOQ0FQ",
-            "X1JFU0VSVkVEEAASEgoOU0xfRU5DQVBfVlhMQU4QARIRCg1TTF9FTkNBUF9N",
-            "UExTEAIqngEKC1NMVGFibGVUeXBlEhoKFlNMX1RBQkxFX1RZUEVfUkVTRVJW",
-            "RUQQABIXChNTTF9JUHY0X1JPVVRFX1RBQkxFEAESFwoTU0xfSVB2Nl9ST1VU",
-            "RV9UQUJMRRACEhcKE1NMX01QTFNfTEFCRUxfVEFCTEUQAxIXChNTTF9QQVRI",
-            "X0dST1VQX1RBQkxFEAQSDwoLU0xfUEZfVEFCTEUQBSobCgxTTFJzcEFDS1R5",
-            "cGUSCwoHUklCX0FDSxAAQlFaT2dpdGh1Yi5jb20vQ2lzY28tc2VydmljZS1s",
-            "YXllci9zZXJ2aWNlLWxheWVyLW9iam1vZGVsL2dycGMvcHJvdG9zO3NlcnZp",
-            "Y2VfbGF5ZXJiBnByb3RvMw=="));
+            "X05PVElGT1BfRElTQUJMRRACKokBChBTTFVwZGF0ZVByaW9yaXR5EhgKFFNM",
+            "X1BSSU9SSVRZX1JFU0VSVkVEEAASGAoUU0xfUFJJT1JJVFlfQ1JJVElDQUwQ",
+            "BBIUChBTTF9QUklPUklUWV9ISUdIEAgSFgoSU0xfUFJJT1JJVFlfTUVESVVN",
+            "EAwSEwoPU0xfUFJJT1JJVFlfTE9XEBAqSwoLU0xFbmNhcFR5cGUSFQoRU0xf",
+            "RU5DQVBfUkVTRVJWRUQQABISCg5TTF9FTkNBUF9WWExBThABEhEKDVNMX0VO",
+            "Q0FQX01QTFMQAiqeAQoLU0xUYWJsZVR5cGUSGgoWU0xfVEFCTEVfVFlQRV9S",
+            "RVNFUlZFRBAAEhcKE1NMX0lQdjRfUk9VVEVfVEFCTEUQARIXChNTTF9JUHY2",
+            "X1JPVVRFX1RBQkxFEAISFwoTU0xfTVBMU19MQUJFTF9UQUJMRRADEhcKE1NM",
+            "X1BBVEhfR1JPVVBfVEFCTEUQBBIPCgtTTF9QRl9UQUJMRRAFKhsKDFNMUnNw",
+            "QUNLVHlwZRILCgdSSUJfQUNLEABCUVpPZ2l0aHViLmNvbS9DaXNjby1zZXJ2",
+            "aWNlLWxheWVyL3NlcnZpY2UtbGF5ZXItb2JqbW9kZWwvZ3JwYy9wcm90b3M7",
+            "c2VydmljZV9sYXllcmIGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
-          new pbr::GeneratedClrTypeInfo(new[] {typeof(global::ServiceLayer.SLRegOp), typeof(global::ServiceLayer.SLObjectOp), typeof(global::ServiceLayer.SLNotifOp), typeof(global::ServiceLayer.SLEncapType), typeof(global::ServiceLayer.SLTableType), typeof(global::ServiceLayer.SLRspACKType), }, null, new pbr::GeneratedClrTypeInfo[] {
+          new pbr::GeneratedClrTypeInfo(new[] {typeof(global::ServiceLayer.SLRegOp), typeof(global::ServiceLayer.SLObjectOp), typeof(global::ServiceLayer.SLNotifOp), typeof(global::ServiceLayer.SLUpdatePriority), typeof(global::ServiceLayer.SLEncapType), typeof(global::ServiceLayer.SLTableType), typeof(global::ServiceLayer.SLRspACKType), }, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLErrorStatus), global::ServiceLayer.SLErrorStatus.Parser, new[]{ "Status" }, null, new[]{ typeof(global::ServiceLayer.SLErrorStatus.Types.SLErrno) }, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLInterface), global::ServiceLayer.SLInterface.Parser, new[]{ "Name", "Handle" }, new[]{ "Interface" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLIpAddress), global::ServiceLayer.SLIpAddress.Parser, new[]{ "V4Address", "V6Address" }, new[]{ "Address" }, null, null, null),
@@ -321,6 +324,20 @@ namespace ServiceLayer {
     /// Disable. 0x2
     /// </summary>
     [pbr::OriginalName("SL_NOTIFOP_DISABLE")] Disable = 2,
+  }
+
+  /// <summary>
+  /// Update Priority
+  /// </summary>
+  public enum SLUpdatePriority {
+    /// <summary>
+    /// Reserved. 0x0
+    /// </summary>
+    [pbr::OriginalName("SL_PRIORITY_RESERVED")] SlPriorityReserved = 0,
+    [pbr::OriginalName("SL_PRIORITY_CRITICAL")] SlPriorityCritical = 4,
+    [pbr::OriginalName("SL_PRIORITY_HIGH")] SlPriorityHigh = 8,
+    [pbr::OriginalName("SL_PRIORITY_MEDIUM")] SlPriorityMedium = 12,
+    [pbr::OriginalName("SL_PRIORITY_LOW")] SlPriorityLow = 16,
   }
 
   /// <summary>

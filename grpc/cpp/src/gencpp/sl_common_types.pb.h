@@ -450,6 +450,34 @@ inline bool SLNotifOp_Parse(
   return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<SLNotifOp>(
     SLNotifOp_descriptor(), name, value);
 }
+enum SLUpdatePriority : int {
+  SL_PRIORITY_RESERVED = 0,
+  SL_PRIORITY_CRITICAL = 4,
+  SL_PRIORITY_HIGH = 8,
+  SL_PRIORITY_MEDIUM = 12,
+  SL_PRIORITY_LOW = 16,
+  SLUpdatePriority_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::min(),
+  SLUpdatePriority_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::max()
+};
+bool SLUpdatePriority_IsValid(int value);
+constexpr SLUpdatePriority SLUpdatePriority_MIN = SL_PRIORITY_RESERVED;
+constexpr SLUpdatePriority SLUpdatePriority_MAX = SL_PRIORITY_LOW;
+constexpr int SLUpdatePriority_ARRAYSIZE = SLUpdatePriority_MAX + 1;
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* SLUpdatePriority_descriptor();
+template<typename T>
+inline const std::string& SLUpdatePriority_Name(T enum_t_value) {
+  static_assert(::std::is_same<T, SLUpdatePriority>::value ||
+    ::std::is_integral<T>::value,
+    "Incorrect type passed to function SLUpdatePriority_Name.");
+  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
+    SLUpdatePriority_descriptor(), enum_t_value);
+}
+inline bool SLUpdatePriority_Parse(
+    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, SLUpdatePriority* value) {
+  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<SLUpdatePriority>(
+    SLUpdatePriority_descriptor(), name, value);
+}
 enum SLEncapType : int {
   SL_ENCAP_RESERVED = 0,
   SL_ENCAP_VXLAN = 1,
@@ -2530,6 +2558,11 @@ template <> struct is_proto_enum< ::service_layer::SLNotifOp> : ::std::true_type
 template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::service_layer::SLNotifOp>() {
   return ::service_layer::SLNotifOp_descriptor();
+}
+template <> struct is_proto_enum< ::service_layer::SLUpdatePriority> : ::std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::service_layer::SLUpdatePriority>() {
+  return ::service_layer::SLUpdatePriority_descriptor();
 }
 template <> struct is_proto_enum< ::service_layer::SLEncapType> : ::std::true_type {};
 template <>

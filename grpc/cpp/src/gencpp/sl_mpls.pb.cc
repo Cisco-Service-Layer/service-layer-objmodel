@@ -276,7 +276,9 @@ PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT SLMplsCosDefaultTypeInternal _S
 constexpr SLMplsIlmEntry::SLMplsIlmEntry(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
   : paths_()
-  , key_(nullptr){}
+  , key_(nullptr)
+  , priority_(0)
+{}
 struct SLMplsIlmEntryDefaultTypeInternal {
   constexpr SLMplsIlmEntryDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
@@ -537,6 +539,7 @@ const uint32_t TableStruct_sl_5fmpls_2eproto::offsets[] PROTOBUF_SECTION_VARIABL
   ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::service_layer::SLMplsIlmEntry, key_),
   PROTOBUF_FIELD_OFFSET(::service_layer::SLMplsIlmEntry, paths_),
+  PROTOBUF_FIELD_OFFSET(::service_layer::SLMplsIlmEntry, priority_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::service_layer::SLMplsIlmMsg, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -604,11 +607,11 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOB
   { 146, -1, -1, sizeof(::service_layer::SLMplsIlmKey)},
   { 155, -1, -1, sizeof(::service_layer::SLMplsCos)},
   { 165, -1, -1, sizeof(::service_layer::SLMplsIlmEntry)},
-  { 173, -1, -1, sizeof(::service_layer::SLMplsIlmMsg)},
-  { 182, -1, -1, sizeof(::service_layer::SLMplsIlmRes)},
-  { 190, -1, -1, sizeof(::service_layer::SLMplsIlmMsgRsp)},
-  { 199, -1, -1, sizeof(::service_layer::SLMplsIlmGetMsg)},
-  { 209, -1, -1, sizeof(::service_layer::SLMplsIlmGetMsgRsp)},
+  { 174, -1, -1, sizeof(::service_layer::SLMplsIlmMsg)},
+  { 183, -1, -1, sizeof(::service_layer::SLMplsIlmRes)},
+  { 191, -1, -1, sizeof(::service_layer::SLMplsIlmMsgRsp)},
+  { 200, -1, -1, sizeof(::service_layer::SLMplsIlmGetMsg)},
+  { 210, -1, -1, sizeof(::service_layer::SLMplsIlmGetMsgRsp)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -697,64 +700,66 @@ const char descriptor_table_protodef_sl_5fmpls_2eproto[] PROTOBUF_SECTION_VARIAB
   "H\000\022\021\n\tPrefixLen\030\003 \001(\r\022\017\n\007VrfName\030\004 \001(\tB\007"
   "\n\005entry\"Y\n\tSLMplsCos\022\r\n\003Exp\030\001 \001(\rH\000\022\031\n\017D"
   "efaultElspPath\030\002 \001(\010H\000\022\031\n\017ForwardingClas"
-  "s\030\003 \001(\rH\000B\007\n\005value\"d\n\016SLMplsIlmEntry\022(\n\003"
-  "Key\030\001 \001(\0132\033.service_layer.SLMplsIlmKey\022("
-  "\n\005Paths\030\002 \003(\0132\031.service_layer.SLMplsPath"
-  "\"|\n\014SLMplsIlmMsg\022\'\n\004Oper\030\001 \001(\0162\031.service"
-  "_layer.SLObjectOp\022\022\n\nCorrelator\030\002 \001(\004\022/\n"
-  "\010MplsIlms\030\003 \003(\0132\035.service_layer.SLMplsIl"
-  "mEntry\"i\n\014SLMplsIlmRes\022/\n\tErrStatus\030\001 \001("
-  "\0132\034.service_layer.SLErrorStatus\022(\n\003Key\030\002"
-  " \001(\0132\033.service_layer.SLMplsIlmKey\"\210\001\n\017SL"
-  "MplsIlmMsgRsp\022\022\n\nCorrelator\030\001 \001(\004\0223\n\rSta"
-  "tusSummary\030\002 \001(\0132\034.service_layer.SLError"
-  "Status\022,\n\007Results\030\003 \003(\0132\033.service_layer."
-  "SLMplsIlmRes\"v\n\017SLMplsIlmGetMsg\022\022\n\nCorre"
-  "lator\030\001 \001(\004\022(\n\003Key\030\002 \001(\0132\033.service_layer"
-  ".SLMplsIlmKey\022\024\n\014EntriesCount\030\003 \001(\r\022\017\n\007G"
-  "etNext\030\004 \001(\010\"\226\001\n\022SLMplsIlmGetMsgRsp\022\022\n\nC"
-  "orrelator\030\001 \001(\004\022\013\n\003Eof\030\002 \001(\010\022/\n\tErrStatu"
-  "s\030\003 \001(\0132\034.service_layer.SLErrorStatus\022.\n"
-  "\007Entries\030\004 \003(\0132\035.service_layer.SLMplsIlm"
-  "Entry*\374\001\n\rSlLabelAction\022\034\n\030SL_LABEL_ACTI"
-  "ON_RESERVED\020\000\022\030\n\024SL_LABEL_ACTION_SWAP\020\001\022"
-  "#\n\037SL_LABEL_ACTION_POP_AND_FORWARD\020\002\022\'\n#"
-  "SL_LABEL_ACTION_POP_AND_LOOKUP_IPV4\020\003\022\'\n"
-  "#SL_LABEL_ACTION_POP_AND_LOOKUP_IPV6\020\004\022\""
-  "\n\036SL_LABEL_ACTION_POP_AND_LOOKUP\020\005\022\030\n\024SL"
-  "_LABEL_ACTION_PUSH\020\006*\202\001\n\024SLMplsLabelBloc"
-  "kType\022%\n!SL_MPLS_LABEL_BLOCK_TYPE_RESERV"
-  "ED\020\000\022!\n\035SL_MPLS_LABEL_BLOCK_TYPE_SRGB\020\001\022"
-  " \n\034SL_MPLS_LABEL_BLOCK_TYPE_CBF\020\0022\221\006\n\nSL"
-  "MplsOper\022J\n\013SLMplsRegOp\022\033.service_layer."
-  "SLMplsRegMsg\032\036.service_layer.SLMplsRegMs"
-  "gRsp\022H\n\tSLMplsGet\022\033.service_layer.SLMpls"
-  "GetMsg\032\036.service_layer.SLMplsGetMsgRsp\022R"
-  "\n\016SLMplsGetStats\022\033.service_layer.SLMplsG"
-  "etMsg\032#.service_layer.SLMplsGetStatsMsgR"
-  "sp\022_\n\022SLMplsLabelBlockOp\022\".service_layer"
-  ".SLMplsLabelBlockMsg\032%.service_layer.SLM"
-  "plsLabelBlockMsgRsp\022f\n\023SLMplsLabelBlockG"
-  "et\022%.service_layer.SLMplsLabelBlockGetMs"
-  "g\032(.service_layer.SLMplsLabelBlockGetMsg"
-  "Rsp\022J\n\013SLMplsIlmOp\022\033.service_layer.SLMpl"
-  "sIlmMsg\032\036.service_layer.SLMplsIlmMsgRsp\022"
-  "Q\n\014SLMplsIlmGet\022\036.service_layer.SLMplsIl"
-  "mGetMsg\032!.service_layer.SLMplsIlmGetMsgR"
-  "sp\022T\n\021SLMplsIlmOpStream\022\033.service_layer."
-  "SLMplsIlmMsg\032\036.service_layer.SLMplsIlmMs"
-  "gRsp(\0010\001\022[\n\022SLMplsIlmGetStream\022\036.service"
-  "_layer.SLMplsIlmGetMsg\032!.service_layer.S"
-  "LMplsIlmGetMsgRsp(\0010\001BQZOgithub.com/Cisc"
-  "o-service-layer/service-layer-objmodel/g"
-  "rpc/protos;service_layerb\006proto3"
+  "s\030\003 \001(\rH\000B\007\n\005value\"\227\001\n\016SLMplsIlmEntry\022(\n"
+  "\003Key\030\001 \001(\0132\033.service_layer.SLMplsIlmKey\022"
+  "(\n\005Paths\030\002 \003(\0132\031.service_layer.SLMplsPat"
+  "h\0221\n\010Priority\030\003 \001(\0162\037.service_layer.SLUp"
+  "datePriority\"|\n\014SLMplsIlmMsg\022\'\n\004Oper\030\001 \001"
+  "(\0162\031.service_layer.SLObjectOp\022\022\n\nCorrela"
+  "tor\030\002 \001(\004\022/\n\010MplsIlms\030\003 \003(\0132\035.service_la"
+  "yer.SLMplsIlmEntry\"i\n\014SLMplsIlmRes\022/\n\tEr"
+  "rStatus\030\001 \001(\0132\034.service_layer.SLErrorSta"
+  "tus\022(\n\003Key\030\002 \001(\0132\033.service_layer.SLMplsI"
+  "lmKey\"\210\001\n\017SLMplsIlmMsgRsp\022\022\n\nCorrelator\030"
+  "\001 \001(\004\0223\n\rStatusSummary\030\002 \001(\0132\034.service_l"
+  "ayer.SLErrorStatus\022,\n\007Results\030\003 \003(\0132\033.se"
+  "rvice_layer.SLMplsIlmRes\"v\n\017SLMplsIlmGet"
+  "Msg\022\022\n\nCorrelator\030\001 \001(\004\022(\n\003Key\030\002 \001(\0132\033.s"
+  "ervice_layer.SLMplsIlmKey\022\024\n\014EntriesCoun"
+  "t\030\003 \001(\r\022\017\n\007GetNext\030\004 \001(\010\"\226\001\n\022SLMplsIlmGe"
+  "tMsgRsp\022\022\n\nCorrelator\030\001 \001(\004\022\013\n\003Eof\030\002 \001(\010"
+  "\022/\n\tErrStatus\030\003 \001(\0132\034.service_layer.SLEr"
+  "rorStatus\022.\n\007Entries\030\004 \003(\0132\035.service_lay"
+  "er.SLMplsIlmEntry*\374\001\n\rSlLabelAction\022\034\n\030S"
+  "L_LABEL_ACTION_RESERVED\020\000\022\030\n\024SL_LABEL_AC"
+  "TION_SWAP\020\001\022#\n\037SL_LABEL_ACTION_POP_AND_F"
+  "ORWARD\020\002\022\'\n#SL_LABEL_ACTION_POP_AND_LOOK"
+  "UP_IPV4\020\003\022\'\n#SL_LABEL_ACTION_POP_AND_LOO"
+  "KUP_IPV6\020\004\022\"\n\036SL_LABEL_ACTION_POP_AND_LO"
+  "OKUP\020\005\022\030\n\024SL_LABEL_ACTION_PUSH\020\006*\202\001\n\024SLM"
+  "plsLabelBlockType\022%\n!SL_MPLS_LABEL_BLOCK"
+  "_TYPE_RESERVED\020\000\022!\n\035SL_MPLS_LABEL_BLOCK_"
+  "TYPE_SRGB\020\001\022 \n\034SL_MPLS_LABEL_BLOCK_TYPE_"
+  "CBF\020\0022\221\006\n\nSLMplsOper\022J\n\013SLMplsRegOp\022\033.se"
+  "rvice_layer.SLMplsRegMsg\032\036.service_layer"
+  ".SLMplsRegMsgRsp\022H\n\tSLMplsGet\022\033.service_"
+  "layer.SLMplsGetMsg\032\036.service_layer.SLMpl"
+  "sGetMsgRsp\022R\n\016SLMplsGetStats\022\033.service_l"
+  "ayer.SLMplsGetMsg\032#.service_layer.SLMpls"
+  "GetStatsMsgRsp\022_\n\022SLMplsLabelBlockOp\022\".s"
+  "ervice_layer.SLMplsLabelBlockMsg\032%.servi"
+  "ce_layer.SLMplsLabelBlockMsgRsp\022f\n\023SLMpl"
+  "sLabelBlockGet\022%.service_layer.SLMplsLab"
+  "elBlockGetMsg\032(.service_layer.SLMplsLabe"
+  "lBlockGetMsgRsp\022J\n\013SLMplsIlmOp\022\033.service"
+  "_layer.SLMplsIlmMsg\032\036.service_layer.SLMp"
+  "lsIlmMsgRsp\022Q\n\014SLMplsIlmGet\022\036.service_la"
+  "yer.SLMplsIlmGetMsg\032!.service_layer.SLMp"
+  "lsIlmGetMsgRsp\022T\n\021SLMplsIlmOpStream\022\033.se"
+  "rvice_layer.SLMplsIlmMsg\032\036.service_layer"
+  ".SLMplsIlmMsgRsp(\0010\001\022[\n\022SLMplsIlmGetStre"
+  "am\022\036.service_layer.SLMplsIlmGetMsg\032!.ser"
+  "vice_layer.SLMplsIlmGetMsgRsp(\0010\001BQZOgit"
+  "hub.com/Cisco-service-layer/service-laye"
+  "r-objmodel/grpc/protos;service_layerb\006pr"
+  "oto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_sl_5fmpls_2eproto_deps[1] = {
   &::descriptor_table_sl_5fcommon_5ftypes_2eproto,
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_sl_5fmpls_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_sl_5fmpls_2eproto = {
-  false, false, 4352, descriptor_table_protodef_sl_5fmpls_2eproto, "sl_mpls.proto", 
+  false, false, 4404, descriptor_table_protodef_sl_5fmpls_2eproto, "sl_mpls.proto", 
   &descriptor_table_sl_5fmpls_2eproto_once, descriptor_table_sl_5fmpls_2eproto_deps, 1, 24,
   schemas, file_default_instances, TableStruct_sl_5fmpls_2eproto::offsets,
   file_level_metadata_sl_5fmpls_2eproto, file_level_enum_descriptors_sl_5fmpls_2eproto, file_level_service_descriptors_sl_5fmpls_2eproto,
@@ -5495,11 +5500,15 @@ SLMplsIlmEntry::SLMplsIlmEntry(const SLMplsIlmEntry& from)
   } else {
     key_ = nullptr;
   }
+  priority_ = from.priority_;
   // @@protoc_insertion_point(copy_constructor:service_layer.SLMplsIlmEntry)
 }
 
 inline void SLMplsIlmEntry::SharedCtor() {
-key_ = nullptr;
+::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+    reinterpret_cast<char*>(&key_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&priority_) -
+    reinterpret_cast<char*>(&key_)) + sizeof(priority_));
 }
 
 SLMplsIlmEntry::~SLMplsIlmEntry() {
@@ -5535,6 +5544,7 @@ void SLMplsIlmEntry::Clear() {
     delete key_;
   }
   key_ = nullptr;
+  priority_ = 0;
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -5562,6 +5572,15 @@ const char* SLMplsIlmEntry::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE
             CHK_(ptr);
             if (!ctx->DataAvailable(ptr)) break;
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<18>(ptr));
+        } else
+          goto handle_unusual;
+        continue;
+      // .service_layer.SLUpdatePriority Priority = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
+          uint64_t val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+          _internal_set_priority(static_cast<::service_layer::SLUpdatePriority>(val));
         } else
           goto handle_unusual;
         continue;
@@ -5610,6 +5629,13 @@ uint8_t* SLMplsIlmEntry::_InternalSerialize(
       InternalWriteMessage(2, this->_internal_paths(i), target, stream);
   }
 
+  // .service_layer.SLUpdatePriority Priority = 3;
+  if (this->_internal_priority() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
+      3, this->_internal_priority(), target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -5640,6 +5666,12 @@ size_t SLMplsIlmEntry::ByteSizeLong() const {
         *key_);
   }
 
+  // .service_layer.SLUpdatePriority Priority = 3;
+  if (this->_internal_priority() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_priority());
+  }
+
   return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
 }
 
@@ -5666,6 +5698,9 @@ void SLMplsIlmEntry::MergeFrom(const SLMplsIlmEntry& from) {
   if (from._internal_has_key()) {
     _internal_mutable_key()->::service_layer::SLMplsIlmKey::MergeFrom(from._internal_key());
   }
+  if (from._internal_priority() != 0) {
+    _internal_set_priority(from._internal_priority());
+  }
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
@@ -5684,7 +5719,12 @@ void SLMplsIlmEntry::InternalSwap(SLMplsIlmEntry* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   paths_.InternalSwap(&other->paths_);
-  swap(key_, other->key_);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(SLMplsIlmEntry, priority_)
+      + sizeof(SLMplsIlmEntry::priority_)
+      - PROTOBUF_FIELD_OFFSET(SLMplsIlmEntry, key_)>(
+          reinterpret_cast<char*>(&key_),
+          reinterpret_cast<char*>(&other->key_));
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata SLMplsIlmEntry::GetMetadata() const {
