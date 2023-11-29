@@ -727,6 +727,28 @@ message SLErrorStatus {
         // The operation is not viable to be programmed in hardware at this time. 0x17003
         SL_FIB_INELIGIBLE = 0x17003;
 
+        // !!! Error codes for operations on policy objects.
+
+        // Offset for policy object operations. 0x18000
+        SL_POLICY_START_OFFSET = 0x18000;
+        // Policy object could not be created. 0x18001  
+        SL_POLICY_ADD_ERR = 0x18001;
+        // Policy object already exists. 0x18002
+        SL_POLICY_EXISTS_ERR = 0x18002;
+        // Policy object delete failed. 0x18003
+        SL_POLICY_DELETE_ERR = 0x18003;
+        // Rule could not be created. 0x18004
+        SL_POLICY_RULE_ADD_ERR = 0x18004;
+        // Rule already exists. 0x18005
+        SL_POLICY_RULE_EXISTS_ERR = 0x18005;
+        // Rule delete error. 0x18006
+        SL_POLICY_RULE_DELETE_ERR = 0x18006;
+        // Policy object apply error. 0x18007
+        SL_POLICY_APPLY_ERR = 0x18007;
+        // Policy object unapply error. 0x18008
+        SL_POLICY_UNAPPLY_ERR = 0x18008;
+
+
         // !!! Error codes Reserved for internal errors.
 
         // Offset for Internal errors. 0x100000
