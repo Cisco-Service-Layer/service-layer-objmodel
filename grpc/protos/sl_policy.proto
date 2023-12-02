@@ -31,6 +31,29 @@ service SLPolicy {
      //    
      // Policy-object operations
      //
+
+     // Policy and its rules
+     // Example for policy p1 with 2 rules r1,r2 and r3
+     // ------------------------------------------------
+     // Policy p1  
+     //  Rule r1    
+     //  Priority 1
+     //  Match dscp 1  
+     //  Match NHGString Silver
+     //  Action NHGString Bronze  
+     //                              
+     //  Rule r2 
+     //  Priority 2
+     //  Match dscp 2
+     //  Match NHGstring Bronze
+     //  Action NHGString Silver
+     //  
+     //  Rule r3
+     //  Priority 3
+     //  Match NHGstring xxx
+     //  Action NHGString Gold
+     // End-policy 
+
      
      // SLPolicyOpMsg.Oper = SL_OBJOP_POLICY_ADD 
      // Add a new Policy object. Fails if a Policy object with the
@@ -85,8 +108,8 @@ message SLPolicyOpMsg {
      // Policy object operation
      SLPolicyObjectOp Oper = 1;
          
-     // List of Policies
-     repeated SLPolicyCfg PolicyObjs = 2;
+     // List of operations
+     repeated SLPolicyCfg OpList = 2;
 }
 
 // Policy Object Operations.
@@ -127,32 +150,18 @@ message SLPolicyCfg {
       }
       
       // Unique OperationID sent by the client
-      // to corelate the responses.Operation Id 
+      // to corelate the responses. Operation Id 
       // should be monotonically increasing for 
       // the life of the client.
       uint64 OperationID = 4;
 }
-      
-// Policy and its rules
-// Example for policy p1 with 2 rules r1 and r2
-// --------------------------------------------
-// Policy p1  
-//  Rule r1    
-//  Priority 1
-//  Match dscp 1  
-//  Match NHGString Silver
-//  Action NHGString Bronze  
-//                              
-//  Rule r2 
-//  Priority 2
-//  Match dscp 2
-//  Match NHGstring Bronze
-//  Action NHGString Gold
-// End-policy 
+
+// List of rules
 message PolicyRuleList {
        repeated SLPolicyRule PolicyRules = 1;
 }
- 
+
+// List of interfaces
 message PolicyIntfList {
        repeated SLPolicyIntf PolicyIntfs = 1;
 }
