@@ -33,25 +33,25 @@ service SLPolicy {
      //
 
      // Policy and its rules
-     // Example for policy p1 with 2 rules r1,r2 and r3
+     // Example for policy p1 with 3 rules r1, r2 and r3
      // ------------------------------------------------
      // Policy p1  
      //  Rule r1    
      //  Priority 1
      //  Match dscp 1  
-     //  Match NHGString Silver
-     //  Action NHGString Bronze  
+     //  Match PathGroup Silver
+     //  Action PathGroup Bronze  
      //                              
      //  Rule r2 
      //  Priority 2
      //  Match dscp 2
-     //  Match NHGstring Bronze
-     //  Action NHGString Silver
+     //  Match PathGroup Bronze
+     //  Action PathGroup Silver
      //  
      //  Rule r3
      //  Priority 3
-     //  Match NHGstring xxx
-     //  Action NHGString Gold
+     //  Match PathGroup xxx
+     //  Action PathGroup Gold
      // End-policy 
 
      
@@ -76,26 +76,26 @@ service SLPolicy {
      // If the policy object does not exist, "Policy not found" error
      // is returned. If policy object exists, delete the list of rules
      // provided. Delete of a non-existant rule within a policy object
-     // is returned as success.If the last rule within a policy object
-     // is deleted, an empty policy will continue to exist.Fails if no
+     // is returned as success. If the last rule within a policy object
+     // is deleted, an empty policy will continue to exist. Fails if no
      // rule is provided.
      // 
 
      // SLPolicyOpMsg.Oper = SL_OBJOP_POLICY_APPLY 
-     // Apply the policy on an interface.Only the policy object key
-     // and the interface where it needs to be applied will be looked at. 
-     // Other attributes if present are ignored. 
+     // Apply the policy on an interface. Only the policy object key
+     // and the interface where it needs to be applied will be verified
+     // and used. Other attributes are ignored.  
 
      // SLPolicyOpMsg.Oper = SL_OBJOP_POLICY_UNAPPLY 
-     // Unapply the policy on an interface.Only the policy object key
-     // and the interface where it needs to be removed from  will be looked at.
-     // Other attributes if present are ignored. 
+     // Unapply the policy on an interface. Only the policy object key
+     // and the interface where it needs to be removed from  will be 
+     // verified and used, other attributes are ignored.
      // 
 
      rpc SLPolicyOp(SLPolicyOpMsg) returns (SLPolicyOpRsp);
 
-     // Retrieve all Policies and its rules and the intfs where policy is applied 
-     // from the server
+     // Retrieve all Policies and its rules and the interfaces where the  
+     // policy is applied from the server
      rpc SLPolicyGet(SLPolicyGetMsg) returns (stream SLPolicyGetMsgRsp);
  
      // Retrieve Global Policy capabilities 
@@ -108,8 +108,8 @@ message SLPolicyOpMsg {
      // Policy object operation
      SLPolicyObjectOp Oper = 1;
          
-     // List of operations
-     repeated SLPolicyCfg OpList = 2;
+     // List of policy configurations
+     repeated SLPolicyCfg ConfigList = 2;
 }
 
 // Policy Object Operations.
@@ -187,11 +187,13 @@ enum SLPolicyType {
 // Each rule in a policy is associated with a
 // Rule name - that identifies a rule 
 // Priority - priority of the rule within the policy
-// One or more matches - Rules to match.Packet is a
+// One or more matches - Rules to match. Packet is a
 // match if ALL the fields in the packet match the 
-// criteria.
+// criteria. Atleast one rule MUST be present for 
+// the packet to match.
 // One or more actions - Action applied on the packet
-// that matches the rule.
+// that matches the rule. Atleast one action MUST be 
+// present for the matches under a rule.  
 message SLPolicyRule {
     // Name of the rule referenced in the policy object 
     string RuleName = 1;
@@ -200,47 +202,43 @@ message SLPolicyRule {
     string PriorityStr = 2;
  
     // Defines the matches under this rule
-    repeated SLRuleMatch Matches = 3;
+    SLRuleMatch Matches = 3;
  
     // Actions associated with this rule 
-    repeated SLRuleAction Action = 4;
+    SLRuleAction Actions = 4;
 }
  
-// Attributes to match within a rule in a policy
+// Attributes to match within a rule in a policy.
 // All specified values in the message MUST be
 // matched by the packet for application of the
-// specified action.
+// specified action. 
 message SLRuleMatch {
-     oneof MatchType {
  
-        // Encapsulate all different values of dscp supported
-        SLDscpMatch Dscp = 1;
+    // Encapsulate all different values of dscp supported
+    optional SLDscpMatch Dscp = 1;
  
-        // Match on PathGroup Identifier
-        // The path group belongs to the same VRF as the policy entry.
-        SLPathGroupRefKey PathGroup = 2;
-     }
+    // Match on PathGroup Identifier
+    // The path group belongs to the same VRF as the policy entry.
+    optional SLPathGroupRefKey PathGroup = 2;
 }
 
 // Dscp match type
 // Oneof is used here for future extensibility 
 message SLDscpMatch {
-      oneof Dscp {
+    oneof Dscp {
  
-          // Single dscp value
-          uint32 DscpValue = 1;
-      }
+        // Single dscp value
+        uint32 DscpValue = 1;
+    }
 }
  
-// Action applied on the packet that matches a rule 
+// Action applied on the packet that matches a rule.
 message SLRuleAction {
-     oneof ActionType {
  
-        // PathGroup where packet will be forwarded
-        // The path group belongs to the same VRF as the policy entry.
-        SLPathGroupRefKey PathGroup = 1;
+    // PathGroup where packet will be forwarded.
+    // The path group belongs to the same VRF as the policy entry.
+    optional SLPathGroupRefKey PathGroup = 1;
  
-     }
 }
 
 // Direction of policy apply 
