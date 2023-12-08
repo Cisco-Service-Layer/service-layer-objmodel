@@ -264,6 +264,12 @@ message SLMplsEntry {
       // Path group reference key
       SLPathGroupRefKey PathGroupKey = 4;
     }
+
+    // Flags to control programming of the MPLS Entry to Routing
+    // Information Base. Each flag is indicated as a bit field.
+    // See SLRouteFlags for flag enumerations.
+    uint32 Flags = 5;
+
 }
 
 // One of AF objects

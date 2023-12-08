@@ -764,9 +764,6 @@ enum SLTableType {
 
     // Path Group Table. 0x4
     SL_PATH_GROUP_TABLE =    0x4;
-
-    // Policy forwarding table. 0x5
-    SL_PF_TABLE =    0x5;
 }
 
 // The type of response that the client expects from the

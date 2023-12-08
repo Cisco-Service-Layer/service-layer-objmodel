@@ -1463,6 +1463,7 @@ class SLMplsEntry final :
     kPathListFieldNumber = 3,
     kLocalLabelFieldNumber = 1,
     kAdminDistanceFieldNumber = 2,
+    kFlagsFieldNumber = 5,
     kPathGroupKeyFieldNumber = 4,
   };
   // repeated .service_layer.SLRoutePath PathList = 3;
@@ -1501,6 +1502,15 @@ class SLMplsEntry final :
   void _internal_set_admindistance(uint32_t value);
   public:
 
+  // uint32 Flags = 5;
+  void clear_flags();
+  uint32_t flags() const;
+  void set_flags(uint32_t value);
+  private:
+  uint32_t _internal_flags() const;
+  void _internal_set_flags(uint32_t value);
+  public:
+
   // .service_layer.SLPathGroupRefKey PathGroupKey = 4;
   bool has_pathgroupkey() const;
   private:
@@ -1535,6 +1545,7 @@ class SLMplsEntry final :
   ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::service_layer::SLRoutePath > pathlist_;
   uint32_t locallabel_;
   uint32_t admindistance_;
+  uint32_t flags_;
   union EntryUnion {
     constexpr EntryUnion() : _constinit_{} {}
       ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized _constinit_;
@@ -3452,6 +3463,26 @@ inline ::service_layer::SLPathGroupRefKey* SLMplsEntry::mutable_pathgroupkey() {
   ::service_layer::SLPathGroupRefKey* _msg = _internal_mutable_pathgroupkey();
   // @@protoc_insertion_point(field_mutable:service_layer.SLMplsEntry.PathGroupKey)
   return _msg;
+}
+
+// uint32 Flags = 5;
+inline void SLMplsEntry::clear_flags() {
+  flags_ = 0u;
+}
+inline uint32_t SLMplsEntry::_internal_flags() const {
+  return flags_;
+}
+inline uint32_t SLMplsEntry::flags() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLMplsEntry.Flags)
+  return _internal_flags();
+}
+inline void SLMplsEntry::_internal_set_flags(uint32_t value) {
+  
+  flags_ = value;
+}
+inline void SLMplsEntry::set_flags(uint32_t value) {
+  _internal_set_flags(value);
+  // @@protoc_insertion_point(field_set:service_layer.SLMplsEntry.Flags)
 }
 
 inline bool SLMplsEntry::has_entry() const {

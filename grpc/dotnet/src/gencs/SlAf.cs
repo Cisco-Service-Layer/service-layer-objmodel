@@ -43,31 +43,31 @@ namespace ServiceLayer {
             "YWdzGAQgASgNGjIKBlNMUGF0aBIoCgRQYXRoGAEgASgLMhouc2VydmljZV9s",
             "YXllci5TTFJvdXRlUGF0aBo+CgpTTFBhdGhMaXN0EjAKBVBhdGhzGAEgAygL",
             "MiEuc2VydmljZV9sYXllci5TTFBhdGhHcm91cC5TTFBhdGhCBwoFZW50cnki",
-            "qQEKC1NMTXBsc0VudHJ5EhIKCkxvY2FsTGFiZWwYASABKA0SFQoNQWRtaW5E",
+            "uAEKC1NMTXBsc0VudHJ5EhIKCkxvY2FsTGFiZWwYASABKA0SFQoNQWRtaW5E",
             "aXN0YW5jZRgCIAEoDRIsCghQYXRoTGlzdBgDIAMoCzIaLnNlcnZpY2VfbGF5",
             "ZXIuU0xSb3V0ZVBhdGgSOAoMUGF0aEdyb3VwS2V5GAQgASgLMiAuc2Vydmlj",
-            "ZV9sYXllci5TTFBhdGhHcm91cFJlZktleUgAQgcKBWVudHJ5ItUBCgpTTEFG",
-            "T2JqZWN0Ei0KCUlQdjRSb3V0ZRgBIAEoCzIYLnNlcnZpY2VfbGF5ZXIuU0xS",
-            "b3V0ZXY0SAASLQoJSVB2NlJvdXRlGAIgASgLMhguc2VydmljZV9sYXllci5T",
-            "TFJvdXRldjZIABIvCglNcGxzTGFiZWwYAyABKAsyGi5zZXJ2aWNlX2xheWVy",
-            "LlNMTXBsc0VudHJ5SAASLwoJUGF0aEdyb3VwGAQgASgLMhouc2VydmljZV9s",
-            "YXllci5TTFBhdGhHcm91cEgAQgcKBWVudHJ5IkoKBlNMQUZPcBIrCghBRk9i",
-            "amVjdBgBIAEoCzIZLnNlcnZpY2VfbGF5ZXIuU0xBRk9iamVjdBITCgtPcGVy",
-            "YXRpb25JRBgCIAEoBCKYAQoHU0xBRk1zZxInCgRPcGVyGAEgASgOMhkuc2Vy",
-            "dmljZV9sYXllci5TTE9iamVjdE9wEg8KB1ZyZk5hbWUYAiABKAkSLAoHQWNr",
-            "VHlwZRgDIAEoDjIbLnNlcnZpY2VfbGF5ZXIuU0xSc3BBQ0tUeXBlEiUKBk9w",
-            "TGlzdBgEIAMoCzIVLnNlcnZpY2VfbGF5ZXIuU0xBRk9wImQKB1NMQUZSZXMS",
-            "LwoJRXJyU3RhdHVzGAEgASgLMhwuc2VydmljZV9sYXllci5TTEVycm9yU3Rh",
-            "dHVzEigKCU9wZXJhdGlvbhgCIAEoCzIVLnNlcnZpY2VfbGF5ZXIuU0xBRk9w",
-            "IkYKClNMQUZNc2dSc3ASDwoHVnJmTmFtZRgBIAEoCRInCgdSZXN1bHRzGAIg",
-            "AygLMhYuc2VydmljZV9sYXllci5TTEFGUmVzMtkBCgRTTEFGEk0KDFNMQUZW",
-            "cmZSZWdPcBIcLnNlcnZpY2VfbGF5ZXIuU0xBRlZyZlJlZ01zZxofLnNlcnZp",
-            "Y2VfbGF5ZXIuU0xBRlZyZlJlZ01zZ1JzcBI7CgZTTEFGT3ASFi5zZXJ2aWNl",
-            "X2xheWVyLlNMQUZNc2caGS5zZXJ2aWNlX2xheWVyLlNMQUZNc2dSc3ASRQoM",
-            "U0xBRk9wU3RyZWFtEhYuc2VydmljZV9sYXllci5TTEFGTXNnGhkuc2Vydmlj",
-            "ZV9sYXllci5TTEFGTXNnUnNwKAEwAUJRWk9naXRodWIuY29tL0Npc2NvLXNl",
-            "cnZpY2UtbGF5ZXIvc2VydmljZS1sYXllci1vYmptb2RlbC9ncnBjL3Byb3Rv",
-            "cztzZXJ2aWNlX2xheWVyYgZwcm90bzM="));
+            "ZV9sYXllci5TTFBhdGhHcm91cFJlZktleUgAEg0KBUZsYWdzGAUgASgNQgcK",
+            "BWVudHJ5ItUBCgpTTEFGT2JqZWN0Ei0KCUlQdjRSb3V0ZRgBIAEoCzIYLnNl",
+            "cnZpY2VfbGF5ZXIuU0xSb3V0ZXY0SAASLQoJSVB2NlJvdXRlGAIgASgLMhgu",
+            "c2VydmljZV9sYXllci5TTFJvdXRldjZIABIvCglNcGxzTGFiZWwYAyABKAsy",
+            "Gi5zZXJ2aWNlX2xheWVyLlNMTXBsc0VudHJ5SAASLwoJUGF0aEdyb3VwGAQg",
+            "ASgLMhouc2VydmljZV9sYXllci5TTFBhdGhHcm91cEgAQgcKBWVudHJ5IkoK",
+            "BlNMQUZPcBIrCghBRk9iamVjdBgBIAEoCzIZLnNlcnZpY2VfbGF5ZXIuU0xB",
+            "Rk9iamVjdBITCgtPcGVyYXRpb25JRBgCIAEoBCKYAQoHU0xBRk1zZxInCgRP",
+            "cGVyGAEgASgOMhkuc2VydmljZV9sYXllci5TTE9iamVjdE9wEg8KB1ZyZk5h",
+            "bWUYAiABKAkSLAoHQWNrVHlwZRgDIAEoDjIbLnNlcnZpY2VfbGF5ZXIuU0xS",
+            "c3BBQ0tUeXBlEiUKBk9wTGlzdBgEIAMoCzIVLnNlcnZpY2VfbGF5ZXIuU0xB",
+            "Rk9wImQKB1NMQUZSZXMSLwoJRXJyU3RhdHVzGAEgASgLMhwuc2VydmljZV9s",
+            "YXllci5TTEVycm9yU3RhdHVzEigKCU9wZXJhdGlvbhgCIAEoCzIVLnNlcnZp",
+            "Y2VfbGF5ZXIuU0xBRk9wIkYKClNMQUZNc2dSc3ASDwoHVnJmTmFtZRgBIAEo",
+            "CRInCgdSZXN1bHRzGAIgAygLMhYuc2VydmljZV9sYXllci5TTEFGUmVzMtkB",
+            "CgRTTEFGEk0KDFNMQUZWcmZSZWdPcBIcLnNlcnZpY2VfbGF5ZXIuU0xBRlZy",
+            "ZlJlZ01zZxofLnNlcnZpY2VfbGF5ZXIuU0xBRlZyZlJlZ01zZ1JzcBI7CgZT",
+            "TEFGT3ASFi5zZXJ2aWNlX2xheWVyLlNMQUZNc2caGS5zZXJ2aWNlX2xheWVy",
+            "LlNMQUZNc2dSc3ASRQoMU0xBRk9wU3RyZWFtEhYuc2VydmljZV9sYXllci5T",
+            "TEFGTXNnGhkuc2VydmljZV9sYXllci5TTEFGTXNnUnNwKAEwAUJRWk9naXRo",
+            "dWIuY29tL0Npc2NvLXNlcnZpY2UtbGF5ZXIvc2VydmljZS1sYXllci1vYmpt",
+            "b2RlbC9ncnBjL3Byb3RvcztzZXJ2aWNlX2xheWVyYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::ServiceLayer.SlCommonTypesReflection.Descriptor, global::ServiceLayer.SlRouteCommonReflection.Descriptor, global::ServiceLayer.SlRouteIpv4Reflection.Descriptor, global::ServiceLayer.SlRouteIpv6Reflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
@@ -77,7 +77,7 @@ namespace ServiceLayer {
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLAFVrfRegMsgRsp), global::ServiceLayer.SLAFVrfRegMsgRsp.Parser, new[]{ "StatusSummary", "Results" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLPathGroup), global::ServiceLayer.SLPathGroup.Parser, new[]{ "PathGroupId", "AdminDistance", "PathList", "Flags" }, new[]{ "Entry" }, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLPathGroup.Types.SLPath), global::ServiceLayer.SLPathGroup.Types.SLPath.Parser, new[]{ "Path" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLPathGroup.Types.SLPathList), global::ServiceLayer.SLPathGroup.Types.SLPathList.Parser, new[]{ "Paths" }, null, null, null, null)}),
-            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLMplsEntry), global::ServiceLayer.SLMplsEntry.Parser, new[]{ "LocalLabel", "AdminDistance", "PathList", "PathGroupKey" }, new[]{ "Entry" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLMplsEntry), global::ServiceLayer.SLMplsEntry.Parser, new[]{ "LocalLabel", "AdminDistance", "PathList", "PathGroupKey", "Flags" }, new[]{ "Entry" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLAFObject), global::ServiceLayer.SLAFObject.Parser, new[]{ "IPv4Route", "IPv6Route", "MplsLabel", "PathGroup" }, new[]{ "Entry" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLAFOp), global::ServiceLayer.SLAFOp.Parser, new[]{ "AFObject", "OperationID" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLAFMsg), global::ServiceLayer.SLAFMsg.Parser, new[]{ "Oper", "VrfName", "AckType", "OpList" }, null, null, null, null),
@@ -1888,6 +1888,7 @@ namespace ServiceLayer {
       localLabel_ = other.localLabel_;
       adminDistance_ = other.adminDistance_;
       pathList_ = other.pathList_.Clone();
+      flags_ = other.flags_;
       switch (other.EntryCase) {
         case EntryOneofCase.PathGroupKey:
           PathGroupKey = other.PathGroupKey.Clone();
@@ -1967,6 +1968,23 @@ namespace ServiceLayer {
       }
     }
 
+    /// <summary>Field number for the "Flags" field.</summary>
+    public const int FlagsFieldNumber = 5;
+    private uint flags_;
+    /// <summary>
+    /// Flags to control programming of the MPLS Entry to Routing
+    /// Information Base. Each flag is indicated as a bit field.
+    /// See SLRouteFlags for flag enumerations.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint Flags {
+      get { return flags_; }
+      set {
+        flags_ = value;
+      }
+    }
+
     private object entry_;
     /// <summary>Enum of possible cases for the "entry" oneof.</summary>
     public enum EntryOneofCase {
@@ -2006,6 +2024,7 @@ namespace ServiceLayer {
       if (AdminDistance != other.AdminDistance) return false;
       if(!pathList_.Equals(other.pathList_)) return false;
       if (!object.Equals(PathGroupKey, other.PathGroupKey)) return false;
+      if (Flags != other.Flags) return false;
       if (EntryCase != other.EntryCase) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
@@ -2018,6 +2037,7 @@ namespace ServiceLayer {
       if (AdminDistance != 0) hash ^= AdminDistance.GetHashCode();
       hash ^= pathList_.GetHashCode();
       if (entryCase_ == EntryOneofCase.PathGroupKey) hash ^= PathGroupKey.GetHashCode();
+      if (Flags != 0) hash ^= Flags.GetHashCode();
       hash ^= (int) entryCase_;
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
@@ -2050,6 +2070,10 @@ namespace ServiceLayer {
         output.WriteRawTag(34);
         output.WriteMessage(PathGroupKey);
       }
+      if (Flags != 0) {
+        output.WriteRawTag(40);
+        output.WriteUInt32(Flags);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -2073,6 +2097,10 @@ namespace ServiceLayer {
         output.WriteRawTag(34);
         output.WriteMessage(PathGroupKey);
       }
+      if (Flags != 0) {
+        output.WriteRawTag(40);
+        output.WriteUInt32(Flags);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -2093,6 +2121,9 @@ namespace ServiceLayer {
       if (entryCase_ == EntryOneofCase.PathGroupKey) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(PathGroupKey);
       }
+      if (Flags != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Flags);
+      }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -2112,6 +2143,9 @@ namespace ServiceLayer {
         AdminDistance = other.AdminDistance;
       }
       pathList_.Add(other.pathList_);
+      if (other.Flags != 0) {
+        Flags = other.Flags;
+      }
       switch (other.EntryCase) {
         case EntryOneofCase.PathGroupKey:
           if (PathGroupKey == null) {
@@ -2157,6 +2191,10 @@ namespace ServiceLayer {
             PathGroupKey = subBuilder;
             break;
           }
+          case 40: {
+            Flags = input.ReadUInt32();
+            break;
+          }
         }
       }
     #endif
@@ -2191,6 +2229,10 @@ namespace ServiceLayer {
             }
             input.ReadMessage(subBuilder);
             PathGroupKey = subBuilder;
+            break;
+          }
+          case 40: {
+            Flags = input.ReadUInt32();
             break;
           }
         }
