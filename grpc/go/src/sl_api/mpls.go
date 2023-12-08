@@ -15,6 +15,7 @@ import (
     pb "gengo"
     "golang.org/x/net/context"
     "google.golang.org/grpc"
+    "google.golang.org/grpc/metadata"
 )
 
 var (
@@ -22,9 +23,12 @@ var (
 )
 
 // runMPLSILMRequestStream sends ILM (incoming label requests) request to router.
-func runMPLSILMRequest(conn *grpc.ClientConn, messages []*pb.SLMplsIlmMsg) (err error) {
+func runMPLSILMRequest(conn *grpc.ClientConn, messages []*pb.SLMplsIlmMsg,
+                       username string, password string) (err error) {
         client := pb.NewSLMplsOperClient(conn)
         ctx, cancel := context.WithTimeout(context.Background(), 600*time.Second)
+        ctx = metadata.AppendToOutgoingContext(ctx,
+            "username", username, "password", password)
         defer cancel() // make sure all paths cancel the context to avoid context leak
 
         stream, err := client.SLMplsIlmOpStream(ctx)
@@ -65,7 +69,7 @@ func runMPLSILMRequest(conn *grpc.ClientConn, messages []*pb.SLMplsIlmMsg) (err 
         return err
 }
 
-func MplsGetMsg(conn *grpc.ClientConn) {
+func MplsGetMsg(conn *grpc.ClientConn, username string, password string) {
 
     /* Create a NewSLMplsOperClient instance */
     c := pb.NewSLMplsOperClient(conn)
@@ -73,8 +77,11 @@ func MplsGetMsg(conn *grpc.ClientConn) {
     /* Create a SLMplsGetMsg */
     mplsGetMsg := &pb.SLMplsGetMsg {}
 
+    ctx := metadata.AppendToOutgoingContext(context.Background(),
+        "username", username, "password", password)
+
     /* RPC to Get the mpls values. */
-    response, err := c.SLMplsGet(context.Background(), mplsGetMsg)
+    response, err := c.SLMplsGet(ctx, mplsGetMsg)
     if err != nil {
         log.Fatalf("Client Error %v", err)
     }
@@ -85,7 +92,8 @@ func MplsGetMsg(conn *grpc.ClientConn) {
     MaxIlmInBatch = response.GetMaxIlmPerIlmmsg()
 }
 
-func MplsRegOperation(conn *grpc.ClientConn, oper pb.SLRegOp) {
+func MplsRegOperation(conn *grpc.ClientConn, oper pb.SLRegOp,
+                      username string, password string) {
 
     /* Create a NewSLMplsOperClient instance */
     c := pb.NewSLMplsOperClient(conn)
@@ -93,8 +101,11 @@ func MplsRegOperation(conn *grpc.ClientConn, oper pb.SLRegOp) {
     /* Create an MPLS registration message */
     message := &pb.SLMplsRegMsg{Oper: oper,}
 
+    ctx := metadata.AppendToOutgoingContext(context.Background(),
+        "username", username, "password", password)
+
     /* RPC the Registration message*/
-    response, err := c.SLMplsRegOp(context.Background(), message)
+    response, err := c.SLMplsRegOp(ctx, message)
     if err != nil {
         log.Fatal(err)
     }
@@ -106,7 +117,7 @@ func MplsRegOperation(conn *grpc.ClientConn, oper pb.SLRegOp) {
 
 func LabelBlockOperation(conn *grpc.ClientConn, oper pb.SLObjectOp,
                          startLabel uint32, numLabels uint32, numElsps uint,
-                         clientName string) {
+                         clientName string, username string, password string) {
 
     /* Create a NewSLMplsOperClient instance */
     c := pb.NewSLMplsOperClient(conn)
@@ -133,8 +144,11 @@ func LabelBlockOperation(conn *grpc.ClientConn, oper pb.SLObjectOp,
 
     message.MplsBlocks = append(message.MplsBlocks, key)
 
+    ctx := metadata.AppendToOutgoingContext(context.Background(),
+        "username", username, "password", password)
+
     /* RPC the message */
-    response, err := c.SLMplsLabelBlockOp(context.Background(), message)
+    response, err := c.SLMplsLabelBlockOp(ctx, message)
     if err != nil {
         log.Fatal(err)
     }
@@ -170,7 +184,8 @@ func ifMunge(ifName string, idx uint, maxIfIdx uint) string {
 func LabelOperation(conn *grpc.ClientConn, Oper pb.SLObjectOp,
                     startLabel uint, startOutLabel uint, numLabels uint,
                     numPaths uint, numElsps uint, batchNum uint, batchSize uint,
-                    NextHopIP string, Interface string, MaxIfIdx uint, AutoIncNHIP bool) {
+                    NextHopIP string, Interface string, MaxIfIdx uint, AutoIncNHIP bool,
+                    username string, password string) {
 
     var elspIdx, pathIdx, batchIndex uint
     var sentIlms uint = 0
@@ -283,11 +298,13 @@ func LabelOperation(conn *grpc.ClientConn, Oper pb.SLObjectOp,
                             V4Address: nexthop + uint32(elspIdx),
                         },
                     },
-                    NexthopInterface: &pb.SLInterface{
+                }
+                if len(nexthopInterface) != 0 {
+                    nhlfe.NexthopInterface = &pb.SLInterface{
                         Interface: &pb.SLInterface_Name{
                             Name: nexthopInterface,
                         },
-                    },
+                    }
                 }
 
                 if startOutLabel > 0 {
@@ -304,7 +321,6 @@ func LabelOperation(conn *grpc.ClientConn, Oper pb.SLObjectOp,
                 if AutoIncNHIP {
                     nexthop = nexthop + 1
                 }
-
             }
 
             /* Append Route to batch */
@@ -329,7 +345,7 @@ func LabelOperation(conn *grpc.ClientConn, Oper pb.SLObjectOp,
 
     t0 = time.Now()
 
-    runMPLSILMRequest(conn, messages)
+    runMPLSILMRequest(conn, messages, username, password)
 
     t1 = time.Now()
 

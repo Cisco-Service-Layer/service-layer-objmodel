@@ -81,15 +81,18 @@ service SLRoutev6Oper {
     //
 
     // SLRoutev6Msg.Oper = SL_OBJOP_ADD:
-    //     Route add. Fails if the route already exists and not stale.
-    //     First ADD operation on a stale route is allowed and the route
-    //     is no longer considered stale.
+    //     Route add. Fails if the route already exists and is not stale.
+    //     First ADD operation on a stale route is treated as implicit update
+    //     and the route is no longer considered stale.
     //
     // SLRoutev6Msg.Oper = SL_OBJOP_UPDATE:
-    //     Route update. Creates or updates the route.
+    //     Route update. Create or update the route. The RPC implements
+    //     replacement semantics, wherein if the route exists, all its
+    //     attributes are replaced with values from the new message.
     //
     // SLRoutev6Msg.Oper = SL_OBJOP_DELETE:
-    //     Route delete. The route path is not necessary to delete the route.
+    //     Route delete. The route's key is enough to delete the object;
+    //     other attributes, if provided are ignored.
     //     Delete of a non-existant route is returned as success.
     rpc SLRoutev6Op(SLRoutev6Msg) returns (SLRoutev6MsgRsp);
 
@@ -101,15 +104,18 @@ service SLRoutev6Oper {
     //
 
     // SLRoutev6Msg.Oper = SL_OBJOP_ADD:
-    //     Route add. Fails if the route already exists and not stale.
-    //     First ADD operation on a stale route is allowed and the route
-    //     is no longer considered stale.
+    //     Route add. Fails if the route already exists and is not stale.
+    //     First ADD operation on a stale route is treated as implicit update
+    //     and the route is no longer considered stale.
     //
     // SLRoutev6Msg.Oper = SL_OBJOP_UPDATE:
-    //     Route update. Creates or updates the route.
+    //     Route update. Create or update the route. The RPC implements
+    //     replacement semantics, wherein if the route exists, all its
+    //     attributes are replaced with values from the new message.
     //
     // SLRoutev6Msg.Oper = SL_OBJOP_DELETE:
-    //     Route delete. The route path is not necessary to delete the route.
+    //     Route delete. The route's key is enough to delete the object;
+    //     other attributes, if provided are ignored.
     //     Delete of a non-existant route is returned as success.
     rpc SLRoutev6OpStream(stream SLRoutev6Msg) returns (stream SLRoutev6MsgRsp);
 
@@ -148,17 +154,19 @@ message SLRoutev6 {
     // Common route attributes
     SLRouteCommon RouteCommon = 3;
 
-    // List of route paths for a particular route.
+    // For ADD or UPDATE operation, only one of PathList or
+    // SLPathGroupRefKey must be specified. For DELETE, neither
+    // are required.
+
+    // List of route paths for this route.
     // Specifying more than one path is allowed for ECMP/UCMP cases
     repeated SLRoutePath PathList = 4;
 
-    // When programming the device using SLAF service, If the operation is
-    // ADD or UPDATE and SLRoutev6.PathList is NOT specified, then
-    // the route can refer to a PathGroup instead. The attribute is oneof
-    // to allow for future extension.
+    // Reference to the Path Group for this route.
+    // The attribute is oneof to allow for future extension.
     oneof entry {
-      // Path group reference key
-      SLPathGroupRefKey PathGroupKey = 5;
+        // Path group reference key
+        SLPathGroupRefKey PathGroupKey = 5;
    }
 }
 
@@ -239,6 +247,7 @@ message SLRoutev6GetMsg {
     //     request up to 'EntriesCount' entries starting from the key
     // If GetNext is TRUE, or if the key exact match is not found:
     //     request up to 'EntriesCount' entries starting from the key's next
+    //     GetNext does not get the routes in the next client
     bool GetNext = 6;
 }
 

@@ -30,7 +30,7 @@ var (
     BatchSize = flag.Uint("batch_size", 1000,
                           "Number of entries per batch, used in the operation")
     debug     = flag.Bool("debug", false, "Enable debugging")
-    Interface = flag.String("interface", "GigabitEthernet0/0/0/0", "Interface name")
+    Interface = flag.String("interface", "", "Interface name")
     NextHopIP = flag.String("next_hop_ip", "10.0.0.1", "Next Hop IP base address")
 
     /*
@@ -75,50 +75,52 @@ var (
      *   - notif Set up channels for ipv4, ipv6 route notifications
      */
     TestGetNotif = flag.Bool("notif", false, "Test route redistribution for ipv4, ipv6 routes using single client")
+    UserName = flag.String("username", "", "user name")
+    Password = flag.String("password", "", "password")
 )
 
-func testMPLSReg(conn *grpc.ClientConn) {
+func testMPLSReg(conn *grpc.ClientConn, username string, password string) {
     /* Get MPLS vertical attributes */
-    sl_api.MplsGetMsg(conn)
+    sl_api.MplsGetMsg(conn, username, password)
 
     /* Perform registration with MPLS vertical */
-    sl_api.MplsRegOperation(conn, pb.SLRegOp(*VrfRegOper))
+    sl_api.MplsRegOperation(conn, pb.SLRegOp(*VrfRegOper), username, password)
 }
 
-func testMPLS(conn *grpc.ClientConn) {
+func testMPLS(conn *grpc.ClientConn, username string, password string) {
 
     if *RouteOper == int(pb.SLObjectOp_SL_OBJOP_ADD) ||
              *RouteOper == int(pb.SLObjectOp_SL_OBJOP_UPDATE) {
         /* Add Label Block Operation */
         sl_api.LabelBlockOperation(conn, pb.SLObjectOp_SL_OBJOP_ADD,
                                    uint32(*startLabel), uint32(*numLabels), *numElsps,
-                                   *ClientName)
+                                   *ClientName, username, password)
     }
 
     /* Batch Label Operation */
     sl_api.LabelOperation(conn, pb.SLObjectOp(*RouteOper),
                     *startLabel, *startOutLabel, *numLabels, *numPaths,
                     *numElsps, *BatchNum, *BatchSize, *NextHopIP,
-                    *Interface, *MaxIfIdx, *AutoIncNHIP)
+                    *Interface, *MaxIfIdx, *AutoIncNHIP, username, password)
 
     if *RouteOper == int(pb.SLObjectOp_SL_OBJOP_DELETE) {
         /* Delete Label Block Operation */
         sl_api.LabelBlockOperation(conn, pb.SLObjectOp_SL_OBJOP_DELETE,
                                    uint32(*startLabel), uint32(*numLabels),
-                                   *numElsps, *ClientName)
+                                   *numElsps, *ClientName, username, password)
     }
 }
 
-func testIPv4Reg(conn *grpc.ClientConn) {
+func testIPv4Reg(conn *grpc.ClientConn, username string, password string) {
     /* Register VRF */
-    sl_api.VrfOperation(conn, pb.SLRegOp(*VrfRegOper))
+    sl_api.VrfOperation(conn, pb.SLRegOp(*VrfRegOper), username, password)
 }
 
-func testIPv4(conn *grpc.ClientConn) {
+func testIPv4(conn *grpc.ClientConn, username string, password string) {
     /* Batch Route Operation */
     sl_api.RouteOperation(conn, pb.SLObjectOp(*RouteOper), *FirstPrefix,
         uint32(*PrefixLen), *BatchNum, *BatchSize, *NextHopIP, *Interface,
-        *numPaths, *AutoIncNHIP)
+        *numPaths, *AutoIncNHIP, username, password)
 }
 
 func validObjectOp(op int) bool {
@@ -141,9 +143,9 @@ func validVrfReg(op int) bool {
      return false
 }
 
-func testGetNotif(conn *grpc.ClientConn) {
+func testGetNotif(conn *grpc.ClientConn, username string, password string) {
     /* Set up route notif channels for ipv4 and ipv6 routes */
-    sl_api.GetNotifChannel(conn)
+    sl_api.GetNotifChannel(conn, username, password)
 }
 func main() {
     /* Parse any command line arguments */
@@ -170,11 +172,6 @@ func main() {
         return
     }
 
-    if *numPaths > 64 {
-        log.Fatalf("exceeded max paths")
-        return
-    }
-
     /* Get Server IP and Port from Env */
     server,port := util.GetServerIPPort()
     address := fmt.Sprintf("%s:%s", server, port)
@@ -187,7 +184,7 @@ func main() {
     defer conn.Close()
 
     /* Initialize and handshake with server */
-    if sl_api.ClientInit(conn) == 0 {
+    if sl_api.ClientInit(conn, *UserName, *Password) == 0 {
         log.Fatalf("ClientInit error")
         return
     }
@@ -195,25 +192,25 @@ func main() {
     if (*TestMpls) {
         fmt.Printf("Performing MPLS tests\n")
         if validVrfReg(*VrfRegOper) {
-            testMPLSReg(conn)
+            testMPLSReg(conn, *UserName, *Password)
         }
         if validObjectOp(*RouteOper) {
-            testMPLS(conn)
+            testMPLS(conn, *UserName, *Password)
         }
     } else {
         fmt.Printf("Performing ipv4 test\n")
         if validVrfReg(*VrfRegOper) {
             fmt.Printf("Performing ipv4 vrf reg\n")
-            testIPv4Reg(conn)
+            testIPv4Reg(conn, *UserName, *Password)
         }
         if validObjectOp(*RouteOper) {
             fmt.Printf("Performing route operation\n")
-            testIPv4(conn)
+            testIPv4(conn, *UserName, *Password)
         }
     }
     if (*TestGetNotif) {
         fmt.Println("Performing getNotif tests\n")
-        testGetNotif(conn)
+        testGetNotif(conn, *UserName, *Password)
     }
 
     /* The process will exit here */

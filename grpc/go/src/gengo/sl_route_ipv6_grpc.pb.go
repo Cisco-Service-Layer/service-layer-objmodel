@@ -64,34 +64,40 @@ type SLRoutev6OperClient interface {
 	SLRoutev6VrfGetStats(ctx context.Context, in *SLVrfRegGetMsg, opts ...grpc.CallOption) (*SLVRFGetStatsMsgRsp, error)
 	// SLRoutev6Msg.Oper = SL_OBJOP_ADD:
 	//
-	//	Route add. Fails if the route already exists and not stale.
-	//	First ADD operation on a stale route is allowed and the route
-	//	is no longer considered stale.
+	//	Route add. Fails if the route already exists and is not stale.
+	//	First ADD operation on a stale route is treated as implicit update
+	//	and the route is no longer considered stale.
 	//
 	// SLRoutev6Msg.Oper = SL_OBJOP_UPDATE:
 	//
-	//	Route update. Creates or updates the route.
+	//	Route update. Create or update the route. The RPC implements
+	//	replacement semantics, wherein if the route exists, all its
+	//	attributes are replaced with values from the new message.
 	//
 	// SLRoutev6Msg.Oper = SL_OBJOP_DELETE:
 	//
-	//	Route delete. The route path is not necessary to delete the route.
+	//	Route delete. The route's key is enough to delete the object;
+	//	other attributes, if provided are ignored.
 	//	Delete of a non-existant route is returned as success.
 	SLRoutev6Op(ctx context.Context, in *SLRoutev6Msg, opts ...grpc.CallOption) (*SLRoutev6MsgRsp, error)
 	// Retrieves route attributes.
 	SLRoutev6Get(ctx context.Context, in *SLRoutev6GetMsg, opts ...grpc.CallOption) (*SLRoutev6GetMsgRsp, error)
 	// SLRoutev6Msg.Oper = SL_OBJOP_ADD:
 	//
-	//	Route add. Fails if the route already exists and not stale.
-	//	First ADD operation on a stale route is allowed and the route
-	//	is no longer considered stale.
+	//	Route add. Fails if the route already exists and is not stale.
+	//	First ADD operation on a stale route is treated as implicit update
+	//	and the route is no longer considered stale.
 	//
 	// SLRoutev6Msg.Oper = SL_OBJOP_UPDATE:
 	//
-	//	Route update. Creates or updates the route.
+	//	Route update. Create or update the route. The RPC implements
+	//	replacement semantics, wherein if the route exists, all its
+	//	attributes are replaced with values from the new message.
 	//
 	// SLRoutev6Msg.Oper = SL_OBJOP_DELETE:
 	//
-	//	Route delete. The route path is not necessary to delete the route.
+	//	Route delete. The route's key is enough to delete the object;
+	//	other attributes, if provided are ignored.
 	//	Delete of a non-existant route is returned as success.
 	SLRoutev6OpStream(ctx context.Context, opts ...grpc.CallOption) (SLRoutev6Oper_SLRoutev6OpStreamClient, error)
 	// Retrieves route attributes.
@@ -319,34 +325,40 @@ type SLRoutev6OperServer interface {
 	SLRoutev6VrfGetStats(context.Context, *SLVrfRegGetMsg) (*SLVRFGetStatsMsgRsp, error)
 	// SLRoutev6Msg.Oper = SL_OBJOP_ADD:
 	//
-	//	Route add. Fails if the route already exists and not stale.
-	//	First ADD operation on a stale route is allowed and the route
-	//	is no longer considered stale.
+	//	Route add. Fails if the route already exists and is not stale.
+	//	First ADD operation on a stale route is treated as implicit update
+	//	and the route is no longer considered stale.
 	//
 	// SLRoutev6Msg.Oper = SL_OBJOP_UPDATE:
 	//
-	//	Route update. Creates or updates the route.
+	//	Route update. Create or update the route. The RPC implements
+	//	replacement semantics, wherein if the route exists, all its
+	//	attributes are replaced with values from the new message.
 	//
 	// SLRoutev6Msg.Oper = SL_OBJOP_DELETE:
 	//
-	//	Route delete. The route path is not necessary to delete the route.
+	//	Route delete. The route's key is enough to delete the object;
+	//	other attributes, if provided are ignored.
 	//	Delete of a non-existant route is returned as success.
 	SLRoutev6Op(context.Context, *SLRoutev6Msg) (*SLRoutev6MsgRsp, error)
 	// Retrieves route attributes.
 	SLRoutev6Get(context.Context, *SLRoutev6GetMsg) (*SLRoutev6GetMsgRsp, error)
 	// SLRoutev6Msg.Oper = SL_OBJOP_ADD:
 	//
-	//	Route add. Fails if the route already exists and not stale.
-	//	First ADD operation on a stale route is allowed and the route
-	//	is no longer considered stale.
+	//	Route add. Fails if the route already exists and is not stale.
+	//	First ADD operation on a stale route is treated as implicit update
+	//	and the route is no longer considered stale.
 	//
 	// SLRoutev6Msg.Oper = SL_OBJOP_UPDATE:
 	//
-	//	Route update. Creates or updates the route.
+	//	Route update. Create or update the route. The RPC implements
+	//	replacement semantics, wherein if the route exists, all its
+	//	attributes are replaced with values from the new message.
 	//
 	// SLRoutev6Msg.Oper = SL_OBJOP_DELETE:
 	//
-	//	Route delete. The route path is not necessary to delete the route.
+	//	Route delete. The route's key is enough to delete the object;
+	//	other attributes, if provided are ignored.
 	//	Delete of a non-existant route is returned as success.
 	SLRoutev6OpStream(SLRoutev6Oper_SLRoutev6OpStreamServer) error
 	// Retrieves route attributes.

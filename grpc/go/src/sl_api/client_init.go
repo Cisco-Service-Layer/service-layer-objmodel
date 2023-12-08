@@ -9,6 +9,7 @@ import (
     "fmt"
     "log"
     "google.golang.org/grpc"
+    "google.golang.org/grpc/metadata"
     "golang.org/x/net/context"
 )
 
@@ -17,12 +18,12 @@ import (
     pb "gengo"
 )
 
-func ClientInit(conn *grpc.ClientConn) (int) {
+func ClientInit(conn *grpc.ClientConn, username string, password string) (int) {
     /* Setup a go-routine channel to synchronize both go-routines*/
     sync_chan := make(chan int)
 
     /* Setup the notification channel */
-    go setupNotifChannel(conn, sync_chan)
+    go setupNotifChannel(conn, sync_chan, username, password)
 
     /* Wait for response 0: error. 1: all ok*/
     wait_resp := <- sync_chan
@@ -37,8 +38,12 @@ func ClientInit(conn *grpc.ClientConn) (int) {
     /* Create a SLGlobalsGetMsg */
     globalGetMsg := &pb.SLGlobalsGetMsg {}
 
+    /* new context with metadata */
+    ctx := metadata.AppendToOutgoingContext(context.Background(),
+        "username", username, "password", password)
+
     /* RPC to Get the globals. */
-    response, err := globalClient.SLGlobalsGet(context.Background(),
+    response, err := globalClient.SLGlobalsGet(ctx,
         globalGetMsg)
     if err != nil {
         fmt.Println("Client Error %v", err)
@@ -63,7 +68,8 @@ func ClientInit(conn *grpc.ClientConn) (int) {
     return wait_resp
 }
 
-func setupNotifChannel(conn *grpc.ClientConn, sync_chan chan int) {
+func setupNotifChannel(conn *grpc.ClientConn, sync_chan chan int,
+                       username string, password string) {
     /* Create a sLGlobalClient instance */
     globalClient := pb.NewSLGlobalClient(conn)
 
@@ -74,8 +80,12 @@ func setupNotifChannel(conn *grpc.ClientConn, sync_chan chan int) {
         SubVer: uint32(pb.SLVersion_SL_SUB_VERSION),
     }
 
+    /* context with metadata */
+    ctx := metadata.AppendToOutgoingContext(context.Background(),
+        "username", username, "password", password)
+
     /* RPC to Init the notification channel */
-    stream, err := globalClient.SLGlobalInitNotif(context.Background(),
+    stream, err := globalClient.SLGlobalInitNotif(ctx,
         initMsg)
     if err != nil {
         fmt.Println("Client Error %v", err)

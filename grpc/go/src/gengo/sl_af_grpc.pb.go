@@ -22,7 +22,7 @@ const _ = grpc.SupportPackageIsVersion7
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type SLAFClient interface {
-	// VRF registration operations. The client MUST register with
+	// VRF registration operations. By default, The client must register with
 	// the corresponding VRF table before programming objects in that table.
 	//
 	// SLAFVrfRegMsg.Oper = SL_REGOP_REGISTER:
@@ -54,25 +54,34 @@ type SLAFClient interface {
 	// objects in that table as stale.
 	// Client then MUST reprogram objects it is interested in.
 	// When client sends SL_REGOP_EOF, any objects not reprogrammed
-	// are removed from the device. This feature can be turned
-	// off by setting SLVrfReg.NoMarking flag to True.
+	// are removed from the device.
 	//
 	// The client MUST perform all operations (VRF registration, objects)
 	// from a single execution context.
+	//
+	// The VRF registration requirement and recovery using mark and
+	// sweep can be disabled by configuring
+	// "grpc service-layer auto-register" on the device. In presence
+	// of this configuration, on client restart or RPC disconnects,
+	// the client has the responsibility to reconcile its new state
+	// with the state on the device by replaying the difference.
 	SLAFVrfRegOp(ctx context.Context, in *SLAFVrfRegMsg, opts ...grpc.CallOption) (*SLAFVrfRegMsgRsp, error)
 	// SLAFMsg.Oper = SL_OBJOP_ADD:
 	//
-	//	Object add. Fails if the objects already exists and is not stale.
-	//	First ADD operation on a stale object is allowed and the object
-	//	is no longer considered stale.
+	//	Object add. Fails if the object already exists and is not stale.
+	//	First ADD operation on a stale object is treated as implicit update
+	//	and the object is no longer considered stale.
 	//
 	// SLAFMsg.Oper = SL_OBJOP_UPDATE:
 	//
-	//	Object update. Creates or updates the objects.
+	//	Object update. Create or update the object. The RPC implements
+	//	replacement semantics, wherein if the object exists, all its
+	//	attributes are replaced with values from the new message.
 	//
 	// SLAFMsg.Oper = SL_OBJOP_DELETE:
 	//
-	//	Object delete. The object's key is enough to delete the object.
+	//	Object delete. The object's key is enough to delete the object;
+	//	other attributes if present are ignored.
 	//	Delete of a non-existant object is returned as success.
 	SLAFOp(ctx context.Context, in *SLAFMsg, opts ...grpc.CallOption) (*SLAFMsgRsp, error)
 	// SLAFMsg.Oper = SL_OBJOP_ADD:
@@ -153,7 +162,7 @@ func (x *sLAFSLAFOpStreamClient) Recv() (*SLAFMsgRsp, error) {
 // All implementations must embed UnimplementedSLAFServer
 // for forward compatibility
 type SLAFServer interface {
-	// VRF registration operations. The client MUST register with
+	// VRF registration operations. By default, The client must register with
 	// the corresponding VRF table before programming objects in that table.
 	//
 	// SLAFVrfRegMsg.Oper = SL_REGOP_REGISTER:
@@ -185,25 +194,34 @@ type SLAFServer interface {
 	// objects in that table as stale.
 	// Client then MUST reprogram objects it is interested in.
 	// When client sends SL_REGOP_EOF, any objects not reprogrammed
-	// are removed from the device. This feature can be turned
-	// off by setting SLVrfReg.NoMarking flag to True.
+	// are removed from the device.
 	//
 	// The client MUST perform all operations (VRF registration, objects)
 	// from a single execution context.
+	//
+	// The VRF registration requirement and recovery using mark and
+	// sweep can be disabled by configuring
+	// "grpc service-layer auto-register" on the device. In presence
+	// of this configuration, on client restart or RPC disconnects,
+	// the client has the responsibility to reconcile its new state
+	// with the state on the device by replaying the difference.
 	SLAFVrfRegOp(context.Context, *SLAFVrfRegMsg) (*SLAFVrfRegMsgRsp, error)
 	// SLAFMsg.Oper = SL_OBJOP_ADD:
 	//
-	//	Object add. Fails if the objects already exists and is not stale.
-	//	First ADD operation on a stale object is allowed and the object
-	//	is no longer considered stale.
+	//	Object add. Fails if the object already exists and is not stale.
+	//	First ADD operation on a stale object is treated as implicit update
+	//	and the object is no longer considered stale.
 	//
 	// SLAFMsg.Oper = SL_OBJOP_UPDATE:
 	//
-	//	Object update. Creates or updates the objects.
+	//	Object update. Create or update the object. The RPC implements
+	//	replacement semantics, wherein if the object exists, all its
+	//	attributes are replaced with values from the new message.
 	//
 	// SLAFMsg.Oper = SL_OBJOP_DELETE:
 	//
-	//	Object delete. The object's key is enough to delete the object.
+	//	Object delete. The object's key is enough to delete the object;
+	//	other attributes if present are ignored.
 	//	Delete of a non-existant object is returned as success.
 	SLAFOp(context.Context, *SLAFMsg) (*SLAFMsgRsp, error)
 	// SLAFMsg.Oper = SL_OBJOP_ADD:

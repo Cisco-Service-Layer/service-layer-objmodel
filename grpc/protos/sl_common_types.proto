@@ -63,6 +63,8 @@ message SLErrorStatus {
         // Authentication failure.
         // Incorrect credentials passed in by RPC. 0xd
         SL_AUTH_FAIL = 0xd;
+        // Ack type not supported error. 0xe
+        SL_ACK_TYPE_NOT_SUPPORTED = 0xe;
 
         // !!! Error codes for Client INIT operations.
 
@@ -94,6 +96,8 @@ message SLErrorStatus {
         SL_RPC_VRF_TOO_MANY_VRF_REG_MSGS = 0x1001;
         // Operation rejected for all VRFs as server is not initialized. 0x1002
         SL_RPC_VRF_SERVER_NOT_INITIALIZED = 0x1002;
+        // Operation not supported in auto-register mode. 0x1003
+        SL_RPC_VRF_OP_NOTSUP_WITH_AUTOREG = 0x1003;
         
         // !!! Error codes for VRF objects.
 
@@ -674,6 +678,17 @@ message SLErrorStatus {
         // L2 notification request rejected as BD not found. 0x14009
         SL_RPC_L2_NOTIF_BD_NOT_FOUND = 0x14009;
 
+        // !!! Error codes for path group objects.
+
+        // Container VRF for PathGroup could not be added. 0x15001
+        SL_PG_VRF_ADD_ERR = 0x15001;
+        // PathGroup's VRF ID could not be determined. 0x15002
+        SL_PG_VRF_NO_VRFID = 0x15002;
+        // PathGroup's string key is too long. 0x15003
+        SL_PG_STR_KEY_TOOLONG = 0x15003;
+        // ID of a next hop VRF in a path in the PathGroup cannot be determined. 0x15004
+        SL_PG_TARGET_VRF_NO_VRFID = 0x15004;
+
         // !!! Error codes Reserved for internal errors.
 
         // Offset for Internal errors. 0x100000
@@ -714,6 +729,16 @@ enum SLNotifOp {
     SL_NOTIFOP_ENABLE     = 0x1;
     // Disable. 0x2
     SL_NOTIFOP_DISABLE    = 0x2;
+}
+
+// Update Priority
+enum SLUpdatePriority {
+    // Reserved. 0x0
+    SL_PRIORITY_RESERVED = 0x0;
+    SL_PRIORITY_CRITICAL = 0x4;
+    SL_PRIORITY_HIGH = 0x8;
+    SL_PRIORITY_MEDIUM = 0xc;
+    SL_PRIORITY_LOW = 0x10;
 }
 
 // Interface info.
@@ -794,6 +819,16 @@ message SLObjectId {
       string Name = 1;
 
     }
+}
+
+// Path group reference key. This can be used by route, label
+// or policy objects to refer a path group object.
+message SLPathGroupRefKey {
+    // VRF name
+    string VrfName = 1;
+
+    // Path Group ID
+    SLObjectId PathGroupId = 2;
 }
 
 // @}

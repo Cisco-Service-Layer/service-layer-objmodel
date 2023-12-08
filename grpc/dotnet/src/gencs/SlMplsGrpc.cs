@@ -291,11 +291,14 @@ namespace ServiceLayer {
       ///     is allowed and the entry is no longer considered stale.
       ///
       /// SLMplsIlmMsg.Oper = SL_OBJOP_UPDATE:
-      ///     Create or update incoming label map entry.
+      ///     Create or update incoming label map entry. The RPC implements
+      ///     replacement semantics, wherein if the entry exists, all its
+      ///     attributes are replaced with values from the new message.
       ///
       /// SLMplsIlmMsg.Oper = SL_OBJOP_DELETE:
-      ///     Delete incoming label map entry. Delete of a
-      ///     non-existant entry is considered a success.
+      ///     Delete incoming label map entry. The entry's key is enough
+      ///     to delete the object; other attributes if present are ignored.
+      ///     Delete of a non-existant entry is considered a success.
       /// </summary>
       /// <param name="request">The request received from the client.</param>
       /// <param name="context">The context of the server-side call handler being invoked.</param>
@@ -762,11 +765,14 @@ namespace ServiceLayer {
       ///     is allowed and the entry is no longer considered stale.
       ///
       /// SLMplsIlmMsg.Oper = SL_OBJOP_UPDATE:
-      ///     Create or update incoming label map entry.
+      ///     Create or update incoming label map entry. The RPC implements
+      ///     replacement semantics, wherein if the entry exists, all its
+      ///     attributes are replaced with values from the new message.
       ///
       /// SLMplsIlmMsg.Oper = SL_OBJOP_DELETE:
-      ///     Delete incoming label map entry. Delete of a
-      ///     non-existant entry is considered a success.
+      ///     Delete incoming label map entry. The entry's key is enough
+      ///     to delete the object; other attributes if present are ignored.
+      ///     Delete of a non-existant entry is considered a success.
       /// </summary>
       /// <param name="request">The request to send to the server.</param>
       /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
@@ -785,11 +791,14 @@ namespace ServiceLayer {
       ///     is allowed and the entry is no longer considered stale.
       ///
       /// SLMplsIlmMsg.Oper = SL_OBJOP_UPDATE:
-      ///     Create or update incoming label map entry.
+      ///     Create or update incoming label map entry. The RPC implements
+      ///     replacement semantics, wherein if the entry exists, all its
+      ///     attributes are replaced with values from the new message.
       ///
       /// SLMplsIlmMsg.Oper = SL_OBJOP_DELETE:
-      ///     Delete incoming label map entry. Delete of a
-      ///     non-existant entry is considered a success.
+      ///     Delete incoming label map entry. The entry's key is enough
+      ///     to delete the object; other attributes if present are ignored.
+      ///     Delete of a non-existant entry is considered a success.
       /// </summary>
       /// <param name="request">The request to send to the server.</param>
       /// <param name="options">The options for the call.</param>
@@ -806,11 +815,14 @@ namespace ServiceLayer {
       ///     is allowed and the entry is no longer considered stale.
       ///
       /// SLMplsIlmMsg.Oper = SL_OBJOP_UPDATE:
-      ///     Create or update incoming label map entry.
+      ///     Create or update incoming label map entry. The RPC implements
+      ///     replacement semantics, wherein if the entry exists, all its
+      ///     attributes are replaced with values from the new message.
       ///
       /// SLMplsIlmMsg.Oper = SL_OBJOP_DELETE:
-      ///     Delete incoming label map entry. Delete of a
-      ///     non-existant entry is considered a success.
+      ///     Delete incoming label map entry. The entry's key is enough
+      ///     to delete the object; other attributes if present are ignored.
+      ///     Delete of a non-existant entry is considered a success.
       /// </summary>
       /// <param name="request">The request to send to the server.</param>
       /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
@@ -829,11 +841,14 @@ namespace ServiceLayer {
       ///     is allowed and the entry is no longer considered stale.
       ///
       /// SLMplsIlmMsg.Oper = SL_OBJOP_UPDATE:
-      ///     Create or update incoming label map entry.
+      ///     Create or update incoming label map entry. The RPC implements
+      ///     replacement semantics, wherein if the entry exists, all its
+      ///     attributes are replaced with values from the new message.
       ///
       /// SLMplsIlmMsg.Oper = SL_OBJOP_DELETE:
-      ///     Delete incoming label map entry. Delete of a
-      ///     non-existant entry is considered a success.
+      ///     Delete incoming label map entry. The entry's key is enough
+      ///     to delete the object; other attributes if present are ignored.
+      ///     Delete of a non-existant entry is considered a success.
       /// </summary>
       /// <param name="request">The request to send to the server.</param>
       /// <param name="options">The options for the call.</param>

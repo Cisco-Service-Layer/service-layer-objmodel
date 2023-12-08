@@ -623,7 +623,7 @@ _SLPATHGROUP.oneofs_by_name['entry'].fields.append(
   _SLPATHGROUP.fields_by_name['PathList'])
 _SLPATHGROUP.fields_by_name['PathList'].containing_oneof = _SLPATHGROUP.oneofs_by_name['entry']
 _SLMPLSENTRY.fields_by_name['PathList'].message_type = sl__route__common__pb2._SLROUTEPATH
-_SLMPLSENTRY.fields_by_name['PathGroupKey'].message_type = sl__route__common__pb2._SLPATHGROUPREFKEY
+_SLMPLSENTRY.fields_by_name['PathGroupKey'].message_type = sl__common__types__pb2._SLPATHGROUPREFKEY
 _SLMPLSENTRY.oneofs_by_name['entry'].fields.append(
   _SLMPLSENTRY.fields_by_name['PathGroupKey'])
 _SLMPLSENTRY.fields_by_name['PathGroupKey'].containing_oneof = _SLMPLSENTRY.oneofs_by_name['entry']

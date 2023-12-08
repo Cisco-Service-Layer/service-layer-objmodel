@@ -1923,10 +1923,10 @@ namespace ServiceLayer {
     public const int AdminDistanceFieldNumber = 2;
     private uint adminDistance_;
     /// <summary>
-    /// Administrative distance of the MPLS label. [0-255]. RIB uses this field 
-    /// to break the tie when multiple sources install the same incoming MPLS 
-    /// label. Lower distance is preferred over higher distance. The per MPLS 
-    /// label object admin distance overrides the default's admin distance set 
+    /// Administrative distance of the MPLS label. [0-255]. RIB uses this field
+    /// to break the tie when multiple sources install the same incoming MPLS
+    /// label. Lower distance is preferred over higher distance. The per MPLS
+    /// label object admin distance overrides the default's admin distance set
     /// at VRF registration. see SLVrfReg
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1944,7 +1944,7 @@ namespace ServiceLayer {
         = pb::FieldCodec.ForMessage(26, global::ServiceLayer.SLRoutePath.Parser);
     private readonly pbc::RepeatedField<global::ServiceLayer.SLRoutePath> pathList_ = new pbc::RepeatedField<global::ServiceLayer.SLRoutePath>();
     /// <summary>
-    /// List of paths for a particular MPLS label.
+    /// List of paths for this MPLS label entry.
     /// Specifying more than one path is allowed for ECMP/UCMP cases
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]

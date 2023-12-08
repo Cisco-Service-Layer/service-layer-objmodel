@@ -19,6 +19,7 @@ import (
     pb "gengo"
     "golang.org/x/net/context"
     "google.golang.org/grpc"
+    "google.golang.org/grpc/metadata"
 )
 
 func ip4toInt(IPv4Address net.IP) uint32 {
@@ -39,9 +40,13 @@ func byte2ip6(IPV6Address []byte) net.IP {
 }
 
 // runSLAv4Request streams IPv4 SL-API object to router.
-func runSLAv4Request(conn *grpc.ClientConn, messages []*pb.SLRoutev4Msg) error {
+func runSLAv4Request(conn *grpc.ClientConn, messages []*pb.SLRoutev4Msg,
+                     username string, password string) error {
         client := pb.NewSLRoutev4OperClient(conn)
+
         ctx, cancel := context.WithTimeout(context.Background(), 600*time.Second)
+        ctx = metadata.AppendToOutgoingContext(ctx,
+            "username", username, "password", password)
         defer cancel() // make sure all paths cancel the context to avoid context leak
 
         stream, err := client.SLRoutev4OpStream(ctx)
@@ -63,7 +68,6 @@ func runSLAv4Request(conn *grpc.ClientConn, messages []*pb.SLRoutev4Msg) error {
                         }
                         if response.StatusSummary.Status != pb.SLErrorStatus_SL_SUCCESS {
                                 errc <- fmt.Errorf("route operation failed: %s", response)
-                                close(errc)
                                 return
                         }
                 }
@@ -95,7 +99,8 @@ func incrementIpv4Pfx(pfx uint32, prefixLen uint32) (uint32){
  */
 func RouteOperation(conn *grpc.ClientConn, Oper pb.SLObjectOp,
         FirstPrefix string, prefixLen uint32, batchNum uint, batchSize uint,
-        NextHopIP string, Interface string, numPaths uint, AutoIncNHIP bool) {
+        NextHopIP string, Interface string, numPaths uint, AutoIncNHIP bool,
+        username string, password string) {
 
     var batchIndex uint
     var totalRoutes int64 = 0
@@ -151,12 +156,16 @@ func RouteOperation(conn *grpc.ClientConn, Oper pb.SLObjectOp,
                                 V4Address: nexthop1,
                             },
                         },
-                        NexthopInterface: &pb.SLInterface{
+                    }
+
+                    if len(Interface) != 0 {
+                        p1.NexthopInterface = &pb.SLInterface{
                             Interface: &pb.SLInterface_Name{
                                 Name: Interface,
                             },
-                        },
+                        }
                     }
+
                     /*Append to route*/
                     route.PathList = append(route.PathList, p1)
                     if AutoIncNHIP {
@@ -187,7 +196,7 @@ func RouteOperation(conn *grpc.ClientConn, Oper pb.SLObjectOp,
 
     t0 = time.Now()
 
-    err = runSLAv4Request(conn, messageGroup)
+    err = runSLAv4Request(conn, messageGroup, username, password)
     if err != nil {
         fmt.Printf("Route send failed %s", err)
     }
@@ -204,7 +213,7 @@ func RouteOperation(conn *grpc.ClientConn, Oper pb.SLObjectOp,
     }
 }
 
-func GetNotifChannel(conn *grpc.ClientConn) {
+func GetNotifChannel(conn *grpc.ClientConn, username string, password string) {
     var err error
     var wg sync.WaitGroup
     /* Take the lock to make sure console output for notif and parse IPs of each notif
@@ -213,6 +222,8 @@ func GetNotifChannel(conn *grpc.ClientConn) {
     var lck sync.Mutex
     wg.Add(2)
     ctx, cancel := context.WithTimeout(context.Background(), time.Duration(240*time.Second))
+    ctx = metadata.AppendToOutgoingContext(ctx,
+        "username", username, "password", password)
     defer cancel() // Release resources if we exit before timeout 
     var msgs1  = []*pb.SLRouteGetNotifMsg {
                                  constructNotifmsg(1, "default", "local", ""),

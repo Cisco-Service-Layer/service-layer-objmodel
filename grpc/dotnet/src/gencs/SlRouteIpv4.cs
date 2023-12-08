@@ -205,7 +205,7 @@ namespace ServiceLayer {
         = pb::FieldCodec.ForMessage(34, global::ServiceLayer.SLRoutePath.Parser);
     private readonly pbc::RepeatedField<global::ServiceLayer.SLRoutePath> pathList_ = new pbc::RepeatedField<global::ServiceLayer.SLRoutePath>();
     /// <summary>
-    /// List of route paths for a particular route.
+    /// List of route paths for this route.
     /// Specifying more than one path is allowed for ECMP/UCMP cases
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]

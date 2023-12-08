@@ -78,12 +78,15 @@ type SLMplsOperClient interface {
 	//
 	// SLMplsIlmMsg.Oper = SL_OBJOP_UPDATE:
 	//
-	//	Create or update incoming label map entry.
+	//	Create or update incoming label map entry. The RPC implements
+	//	replacement semantics, wherein if the entry exists, all its
+	//	attributes are replaced with values from the new message.
 	//
 	// SLMplsIlmMsg.Oper = SL_OBJOP_DELETE:
 	//
-	//	Delete incoming label map entry. Delete of a
-	//	non-existant entry is considered a success.
+	//	Delete incoming label map entry. The entry's key is enough
+	//	to delete the object; other attributes if present are ignored.
+	//	Delete of a non-existant entry is considered a success.
 	SLMplsIlmOp(ctx context.Context, in *SLMplsIlmMsg, opts ...grpc.CallOption) (*SLMplsIlmMsgRsp, error)
 	// Retrieve MPLS ILM entry attributes.
 	SLMplsIlmGet(ctx context.Context, in *SLMplsIlmGetMsg, opts ...grpc.CallOption) (*SLMplsIlmGetMsgRsp, error)
@@ -299,12 +302,15 @@ type SLMplsOperServer interface {
 	//
 	// SLMplsIlmMsg.Oper = SL_OBJOP_UPDATE:
 	//
-	//	Create or update incoming label map entry.
+	//	Create or update incoming label map entry. The RPC implements
+	//	replacement semantics, wherein if the entry exists, all its
+	//	attributes are replaced with values from the new message.
 	//
 	// SLMplsIlmMsg.Oper = SL_OBJOP_DELETE:
 	//
-	//	Delete incoming label map entry. Delete of a
-	//	non-existant entry is considered a success.
+	//	Delete incoming label map entry. The entry's key is enough
+	//	to delete the object; other attributes if present are ignored.
+	//	Delete of a non-existant entry is considered a success.
 	SLMplsIlmOp(context.Context, *SLMplsIlmMsg) (*SLMplsIlmMsgRsp, error)
 	// Retrieve MPLS ILM entry attributes.
 	SLMplsIlmGet(context.Context, *SLMplsIlmGetMsg) (*SLMplsIlmGetMsgRsp, error)

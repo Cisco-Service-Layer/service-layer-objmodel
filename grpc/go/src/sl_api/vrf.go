@@ -9,6 +9,7 @@ import (
     "fmt"
     "log"
     "google.golang.org/grpc"
+    "google.golang.org/grpc/metadata"
     "golang.org/x/net/context"
 )
 
@@ -17,7 +18,7 @@ import (
     pb "gengo"
 )
 
-func VrfOperation(conn *grpc.ClientConn, oper pb.SLRegOp) {
+func VrfOperation(conn *grpc.ClientConn, oper pb.SLRegOp, username string, password string) {
     /* Create a NewSLRoutev4OperClient instance */
     c := pb.NewSLRoutev4OperClient(conn)
 
@@ -37,8 +38,12 @@ func VrfOperation(conn *grpc.ClientConn, oper pb.SLRegOp) {
     /* Append VRF registration object to batch */
     message.VrfRegMsgs = append(message.VrfRegMsgs, m1)
 
+    /* context with metadata */
+    ctx := metadata.AppendToOutgoingContext(context.Background(), "username",
+                    username, "password", password)
+
     /* RPC the Registration message*/
-    response, err := c.SLRoutev4VrfRegOp(context.Background(), message)
+    response, err := c.SLRoutev4VrfRegOp(ctx, message)
     if err != nil {
         log.Fatal(err)
     }
