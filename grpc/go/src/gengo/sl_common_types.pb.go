@@ -1888,8 +1888,8 @@ type SLObjectId_Name struct {
 
 func (*SLObjectId_Name) isSLObjectId_Entry() {}
 
-// Path group reference key. This can be used by route, label
-// or policy objects to refer a path group object.
+// Path group reference key. This can be used by route or label
+// objects to refer a path group object.
 type SLPathGroupRefKey struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache

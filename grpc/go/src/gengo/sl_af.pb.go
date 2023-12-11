@@ -1,7 +1,7 @@
 // @file
 // @brief Client RPC proto file for operations on objects in a address family.
 // This file defines SL-API service and messages for operations
-// on IP routes, MPLS objects, Path Groups and Policy Forwarding Entries.
+// on IP routes, MPLS objects and Path Groups objects.
 //
 // The RPCs and messages defined here are experimental and subject to
 // change without notice and such changes can break backwards compatibility.
