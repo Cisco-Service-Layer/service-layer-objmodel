@@ -510,13 +510,12 @@ enum SLTableType : int {
   SL_IPv6_ROUTE_TABLE = 2,
   SL_MPLS_LABEL_TABLE = 3,
   SL_PATH_GROUP_TABLE = 4,
-  SL_PF_TABLE = 5,
   SLTableType_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::min(),
   SLTableType_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::max()
 };
 bool SLTableType_IsValid(int value);
 constexpr SLTableType SLTableType_MIN = SL_TABLE_TYPE_RESERVED;
-constexpr SLTableType SLTableType_MAX = SL_PF_TABLE;
+constexpr SLTableType SLTableType_MAX = SL_PATH_GROUP_TABLE;
 constexpr int SLTableType_ARRAYSIZE = SLTableType_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* SLTableType_descriptor();

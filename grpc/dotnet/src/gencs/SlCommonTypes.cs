@@ -243,13 +243,13 @@ namespace ServiceLayer {
             "BBIUChBTTF9QUklPUklUWV9ISUdIEAgSFgoSU0xfUFJJT1JJVFlfTUVESVVN",
             "EAwSEwoPU0xfUFJJT1JJVFlfTE9XEBAqSwoLU0xFbmNhcFR5cGUSFQoRU0xf",
             "RU5DQVBfUkVTRVJWRUQQABISCg5TTF9FTkNBUF9WWExBThABEhEKDVNMX0VO",
-            "Q0FQX01QTFMQAiqeAQoLU0xUYWJsZVR5cGUSGgoWU0xfVEFCTEVfVFlQRV9S",
+            "Q0FQX01QTFMQAiqNAQoLU0xUYWJsZVR5cGUSGgoWU0xfVEFCTEVfVFlQRV9S",
             "RVNFUlZFRBAAEhcKE1NMX0lQdjRfUk9VVEVfVEFCTEUQARIXChNTTF9JUHY2",
             "X1JPVVRFX1RBQkxFEAISFwoTU0xfTVBMU19MQUJFTF9UQUJMRRADEhcKE1NM",
-            "X1BBVEhfR1JPVVBfVEFCTEUQBBIPCgtTTF9QRl9UQUJMRRAFKhsKDFNMUnNw",
-            "QUNLVHlwZRILCgdSSUJfQUNLEABCUVpPZ2l0aHViLmNvbS9DaXNjby1zZXJ2",
-            "aWNlLWxheWVyL3NlcnZpY2UtbGF5ZXItb2JqbW9kZWwvZ3JwYy9wcm90b3M7",
-            "c2VydmljZV9sYXllcmIGcHJvdG8z"));
+            "X1BBVEhfR1JPVVBfVEFCTEUQBCobCgxTTFJzcEFDS1R5cGUSCwoHUklCX0FD",
+            "SxAAQlFaT2dpdGh1Yi5jb20vQ2lzY28tc2VydmljZS1sYXllci9zZXJ2aWNl",
+            "LWxheWVyLW9iam1vZGVsL2dycGMvcHJvdG9zO3NlcnZpY2VfbGF5ZXJiBnBy",
+            "b3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::ServiceLayer.SLRegOp), typeof(global::ServiceLayer.SLObjectOp), typeof(global::ServiceLayer.SLNotifOp), typeof(global::ServiceLayer.SLUpdatePriority), typeof(global::ServiceLayer.SLEncapType), typeof(global::ServiceLayer.SLTableType), typeof(global::ServiceLayer.SLRspACKType), }, null, new pbr::GeneratedClrTypeInfo[] {
@@ -383,10 +383,6 @@ namespace ServiceLayer {
     /// Path Group Table. 0x4
     /// </summary>
     [pbr::OriginalName("SL_PATH_GROUP_TABLE")] SlPathGroupTable = 4,
-    /// <summary>
-    /// Policy forwarding table. 0x5
-    /// </summary>
-    [pbr::OriginalName("SL_PF_TABLE")] SlPfTable = 5,
   }
 
   /// <summary>
