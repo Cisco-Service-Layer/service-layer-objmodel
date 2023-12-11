@@ -2499,8 +2499,8 @@ namespace ServiceLayer {
   }
 
   /// <summary>
-  /// Path group reference key. This can be used by route or label
-  /// objects to refer a path group object.
+  /// Path group reference key. This can be used by route, label
+  /// or policy objects to refer a path group object.
   /// </summary>
   public sealed partial class SLPathGroupRefKey : pb::IMessage<SLPathGroupRefKey>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
