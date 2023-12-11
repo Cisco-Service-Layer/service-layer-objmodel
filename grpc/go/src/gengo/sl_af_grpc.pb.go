@@ -99,6 +99,8 @@ type SLAFClient interface {
 	//	Object delete. The object's key is enough to delete the object.
 	//	Delete of a non-existant object is returned as success.
 	SLAFOpStream(ctx context.Context, opts ...grpc.CallOption) (SLAF_SLAFOpStreamClient, error)
+	// Retrieves object attributes.
+	SLAFGet(ctx context.Context, in *SLAFGetMsg, opts ...grpc.CallOption) (SLAF_SLAFGetClient, error)
 }
 
 type sLAFClient struct {
@@ -152,6 +154,38 @@ func (x *sLAFSLAFOpStreamClient) Send(m *SLAFMsg) error {
 
 func (x *sLAFSLAFOpStreamClient) Recv() (*SLAFMsgRsp, error) {
 	m := new(SLAFMsgRsp)
+	if err := x.ClientStream.RecvMsg(m); err != nil {
+		return nil, err
+	}
+	return m, nil
+}
+
+func (c *sLAFClient) SLAFGet(ctx context.Context, in *SLAFGetMsg, opts ...grpc.CallOption) (SLAF_SLAFGetClient, error) {
+	stream, err := c.cc.NewStream(ctx, &SLAF_ServiceDesc.Streams[1], "/service_layer.SLAF/SLAFGet", opts...)
+	if err != nil {
+		return nil, err
+	}
+	x := &sLAFSLAFGetClient{stream}
+	if err := x.ClientStream.SendMsg(in); err != nil {
+		return nil, err
+	}
+	if err := x.ClientStream.CloseSend(); err != nil {
+		return nil, err
+	}
+	return x, nil
+}
+
+type SLAF_SLAFGetClient interface {
+	Recv() (*SLAFGetMsgRsp, error)
+	grpc.ClientStream
+}
+
+type sLAFSLAFGetClient struct {
+	grpc.ClientStream
+}
+
+func (x *sLAFSLAFGetClient) Recv() (*SLAFGetMsgRsp, error) {
+	m := new(SLAFGetMsgRsp)
 	if err := x.ClientStream.RecvMsg(m); err != nil {
 		return nil, err
 	}
@@ -239,6 +273,8 @@ type SLAFServer interface {
 	//	Object delete. The object's key is enough to delete the object.
 	//	Delete of a non-existant object is returned as success.
 	SLAFOpStream(SLAF_SLAFOpStreamServer) error
+	// Retrieves object attributes.
+	SLAFGet(*SLAFGetMsg, SLAF_SLAFGetServer) error
 	mustEmbedUnimplementedSLAFServer()
 }
 
@@ -254,6 +290,9 @@ func (UnimplementedSLAFServer) SLAFOp(context.Context, *SLAFMsg) (*SLAFMsgRsp, e
 }
 func (UnimplementedSLAFServer) SLAFOpStream(SLAF_SLAFOpStreamServer) error {
 	return status.Errorf(codes.Unimplemented, "method SLAFOpStream not implemented")
+}
+func (UnimplementedSLAFServer) SLAFGet(*SLAFGetMsg, SLAF_SLAFGetServer) error {
+	return status.Errorf(codes.Unimplemented, "method SLAFGet not implemented")
 }
 func (UnimplementedSLAFServer) mustEmbedUnimplementedSLAFServer() {}
 
@@ -330,6 +369,27 @@ func (x *sLAFSLAFOpStreamServer) Recv() (*SLAFMsg, error) {
 	return m, nil
 }
 
+func _SLAF_SLAFGet_Handler(srv interface{}, stream grpc.ServerStream) error {
+	m := new(SLAFGetMsg)
+	if err := stream.RecvMsg(m); err != nil {
+		return err
+	}
+	return srv.(SLAFServer).SLAFGet(m, &sLAFSLAFGetServer{stream})
+}
+
+type SLAF_SLAFGetServer interface {
+	Send(*SLAFGetMsgRsp) error
+	grpc.ServerStream
+}
+
+type sLAFSLAFGetServer struct {
+	grpc.ServerStream
+}
+
+func (x *sLAFSLAFGetServer) Send(m *SLAFGetMsgRsp) error {
+	return x.ServerStream.SendMsg(m)
+}
+
 // SLAF_ServiceDesc is the grpc.ServiceDesc for SLAF service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -352,6 +412,11 @@ var SLAF_ServiceDesc = grpc.ServiceDesc{
 			Handler:       _SLAF_SLAFOpStream_Handler,
 			ServerStreams: true,
 			ClientStreams: true,
+		},
+		{
+			StreamName:    "SLAFGet",
+			Handler:       _SLAF_SLAFGet_Handler,
+			ServerStreams: true,
 		},
 	},
 	Metadata: "sl_af.proto",

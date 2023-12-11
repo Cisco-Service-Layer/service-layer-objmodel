@@ -72,6 +72,11 @@ class SLAFStub(object):
                 request_serializer=sl__af__pb2.SLAFMsg.SerializeToString,
                 response_deserializer=sl__af__pb2.SLAFMsgRsp.FromString,
                 )
+        self.SLAFGet = channel.unary_stream(
+                '/service_layer.SLAF/SLAFGet',
+                request_serializer=sl__af__pb2.SLAFGetMsg.SerializeToString,
+                response_deserializer=sl__af__pb2.SLAFGetMsgRsp.FromString,
+                )
 
 
 class SLAFServicer(object):
@@ -225,6 +230,13 @@ class SLAFServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def SLAFGet(self, request, context):
+        """Retrieves object attributes.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_SLAFServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -242,6 +254,11 @@ def add_SLAFServicer_to_server(servicer, server):
                     servicer.SLAFOpStream,
                     request_deserializer=sl__af__pb2.SLAFMsg.FromString,
                     response_serializer=sl__af__pb2.SLAFMsgRsp.SerializeToString,
+            ),
+            'SLAFGet': grpc.unary_stream_rpc_method_handler(
+                    servicer.SLAFGet,
+                    request_deserializer=sl__af__pb2.SLAFGetMsg.FromString,
+                    response_serializer=sl__af__pb2.SLAFGetMsgRsp.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -344,5 +361,22 @@ class SLAF(object):
         return grpc.experimental.stream_stream(request_iterator, target, '/service_layer.SLAF/SLAFOpStream',
             sl__af__pb2.SLAFMsg.SerializeToString,
             sl__af__pb2.SLAFMsgRsp.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def SLAFGet(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/service_layer.SLAF/SLAFGet',
+            sl__af__pb2.SLAFGetMsg.SerializeToString,
+            sl__af__pb2.SLAFGetMsgRsp.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
