@@ -390,18 +390,18 @@ const char descriptor_table_protodef_sl_5fcommon_5ftypes_2eproto[] PROTOBUF_SECT
   "\004\022\024\n\020SL_PRIORITY_HIGH\020\010\022\026\n\022SL_PRIORITY_M"
   "EDIUM\020\014\022\023\n\017SL_PRIORITY_LOW\020\020*K\n\013SLEncapT"
   "ype\022\025\n\021SL_ENCAP_RESERVED\020\000\022\022\n\016SL_ENCAP_V"
-  "XLAN\020\001\022\021\n\rSL_ENCAP_MPLS\020\002*\236\001\n\013SLTableTyp"
+  "XLAN\020\001\022\021\n\rSL_ENCAP_MPLS\020\002*\215\001\n\013SLTableTyp"
   "e\022\032\n\026SL_TABLE_TYPE_RESERVED\020\000\022\027\n\023SL_IPv4"
   "_ROUTE_TABLE\020\001\022\027\n\023SL_IPv6_ROUTE_TABLE\020\002\022"
   "\027\n\023SL_MPLS_LABEL_TABLE\020\003\022\027\n\023SL_PATH_GROU"
-  "P_TABLE\020\004\022\017\n\013SL_PF_TABLE\020\005*\033\n\014SLRspACKTy"
-  "pe\022\013\n\007RIB_ACK\020\000BQZOgithub.com/Cisco-serv"
-  "ice-layer/service-layer-objmodel/grpc/pr"
-  "otos;service_layerb\006proto3"
+  "P_TABLE\020\004*\033\n\014SLRspACKType\022\013\n\007RIB_ACK\020\000BQ"
+  "ZOgithub.com/Cisco-service-layer/service"
+  "-layer-objmodel/grpc/protos;service_laye"
+  "rb\006proto3"
   ;
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_sl_5fcommon_5ftypes_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_sl_5fcommon_5ftypes_2eproto = {
-  false, false, 10146, descriptor_table_protodef_sl_5fcommon_5ftypes_2eproto, "sl_common_types.proto", 
+  false, false, 10129, descriptor_table_protodef_sl_5fcommon_5ftypes_2eproto, "sl_common_types.proto", 
   &descriptor_table_sl_5fcommon_5ftypes_2eproto_once, nullptr, 0, 5,
   schemas, file_default_instances, TableStruct_sl_5fcommon_5ftypes_2eproto::offsets,
   file_level_metadata_sl_5fcommon_5ftypes_2eproto, file_level_enum_descriptors_sl_5fcommon_5ftypes_2eproto, file_level_service_descriptors_sl_5fcommon_5ftypes_2eproto,
@@ -1054,7 +1054,6 @@ bool SLTableType_IsValid(int value) {
     case 2:
     case 3:
     case 4:
-    case 5:
       return true;
     default:
       return false;

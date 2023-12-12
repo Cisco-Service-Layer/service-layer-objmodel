@@ -117,6 +117,7 @@ constexpr SLMplsEntry::SLMplsEntry(
   : pathlist_()
   , locallabel_(0u)
   , admindistance_(0u)
+  , flags_(0u)
   , _oneof_case_{}{}
 struct SLMplsEntryDefaultTypeInternal {
   constexpr SLMplsEntryDefaultTypeInternal()
@@ -269,6 +270,7 @@ const uint32_t TableStruct_sl_5faf_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(
   PROTOBUF_FIELD_OFFSET(::service_layer::SLMplsEntry, admindistance_),
   PROTOBUF_FIELD_OFFSET(::service_layer::SLMplsEntry, pathlist_),
   ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
+  PROTOBUF_FIELD_OFFSET(::service_layer::SLMplsEntry, flags_),
   PROTOBUF_FIELD_OFFSET(::service_layer::SLMplsEntry, entry_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::service_layer::SLAFObject, _internal_metadata_),
@@ -325,11 +327,11 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOB
   { 40, -1, -1, sizeof(::service_layer::SLPathGroup_SLPathList)},
   { 47, -1, -1, sizeof(::service_layer::SLPathGroup)},
   { 58, -1, -1, sizeof(::service_layer::SLMplsEntry)},
-  { 69, -1, -1, sizeof(::service_layer::SLAFObject)},
-  { 80, -1, -1, sizeof(::service_layer::SLAFOp)},
-  { 88, -1, -1, sizeof(::service_layer::SLAFMsg)},
-  { 98, -1, -1, sizeof(::service_layer::SLAFRes)},
-  { 106, -1, -1, sizeof(::service_layer::SLAFMsgRsp)},
+  { 70, -1, -1, sizeof(::service_layer::SLAFObject)},
+  { 81, -1, -1, sizeof(::service_layer::SLAFOp)},
+  { 89, -1, -1, sizeof(::service_layer::SLAFMsg)},
+  { 99, -1, -1, sizeof(::service_layer::SLAFRes)},
+  { 107, -1, -1, sizeof(::service_layer::SLAFMsgRsp)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -370,34 +372,35 @@ const char descriptor_table_protodef_sl_5faf_2eproto[] PROTOBUF_SECTION_VARIABLE
   "ags\030\004 \001(\r\0322\n\006SLPath\022(\n\004Path\030\001 \001(\0132\032.serv"
   "ice_layer.SLRoutePath\032>\n\nSLPathList\0220\n\005P"
   "aths\030\001 \003(\0132!.service_layer.SLPathGroup.S"
-  "LPathB\007\n\005entry\"\251\001\n\013SLMplsEntry\022\022\n\nLocalL"
+  "LPathB\007\n\005entry\"\270\001\n\013SLMplsEntry\022\022\n\nLocalL"
   "abel\030\001 \001(\r\022\025\n\rAdminDistance\030\002 \001(\r\022,\n\010Pat"
   "hList\030\003 \003(\0132\032.service_layer.SLRoutePath\022"
   "8\n\014PathGroupKey\030\004 \001(\0132 .service_layer.SL"
-  "PathGroupRefKeyH\000B\007\n\005entry\"\325\001\n\nSLAFObjec"
-  "t\022-\n\tIPv4Route\030\001 \001(\0132\030.service_layer.SLR"
-  "outev4H\000\022-\n\tIPv6Route\030\002 \001(\0132\030.service_la"
-  "yer.SLRoutev6H\000\022/\n\tMplsLabel\030\003 \001(\0132\032.ser"
-  "vice_layer.SLMplsEntryH\000\022/\n\tPathGroup\030\004 "
-  "\001(\0132\032.service_layer.SLPathGroupH\000B\007\n\005ent"
-  "ry\"J\n\006SLAFOp\022+\n\010AFObject\030\001 \001(\0132\031.service"
-  "_layer.SLAFObject\022\023\n\013OperationID\030\002 \001(\004\"\230"
-  "\001\n\007SLAFMsg\022\'\n\004Oper\030\001 \001(\0162\031.service_layer"
-  ".SLObjectOp\022\017\n\007VrfName\030\002 \001(\t\022,\n\007AckType\030"
-  "\003 \001(\0162\033.service_layer.SLRspACKType\022%\n\006Op"
-  "List\030\004 \003(\0132\025.service_layer.SLAFOp\"d\n\007SLA"
-  "FRes\022/\n\tErrStatus\030\001 \001(\0132\034.service_layer."
-  "SLErrorStatus\022(\n\tOperation\030\002 \001(\0132\025.servi"
-  "ce_layer.SLAFOp\"F\n\nSLAFMsgRsp\022\017\n\007VrfName"
-  "\030\001 \001(\t\022\'\n\007Results\030\002 \003(\0132\026.service_layer."
-  "SLAFRes2\331\001\n\004SLAF\022M\n\014SLAFVrfRegOp\022\034.servi"
-  "ce_layer.SLAFVrfRegMsg\032\037.service_layer.S"
-  "LAFVrfRegMsgRsp\022;\n\006SLAFOp\022\026.service_laye"
-  "r.SLAFMsg\032\031.service_layer.SLAFMsgRsp\022E\n\014"
-  "SLAFOpStream\022\026.service_layer.SLAFMsg\032\031.s"
-  "ervice_layer.SLAFMsgRsp(\0010\001BQZOgithub.co"
-  "m/Cisco-service-layer/service-layer-objm"
-  "odel/grpc/protos;service_layerb\006proto3"
+  "PathGroupRefKeyH\000\022\r\n\005Flags\030\005 \001(\rB\007\n\005entr"
+  "y\"\325\001\n\nSLAFObject\022-\n\tIPv4Route\030\001 \001(\0132\030.se"
+  "rvice_layer.SLRoutev4H\000\022-\n\tIPv6Route\030\002 \001"
+  "(\0132\030.service_layer.SLRoutev6H\000\022/\n\tMplsLa"
+  "bel\030\003 \001(\0132\032.service_layer.SLMplsEntryH\000\022"
+  "/\n\tPathGroup\030\004 \001(\0132\032.service_layer.SLPat"
+  "hGroupH\000B\007\n\005entry\"J\n\006SLAFOp\022+\n\010AFObject\030"
+  "\001 \001(\0132\031.service_layer.SLAFObject\022\023\n\013Oper"
+  "ationID\030\002 \001(\004\"\230\001\n\007SLAFMsg\022\'\n\004Oper\030\001 \001(\0162"
+  "\031.service_layer.SLObjectOp\022\017\n\007VrfName\030\002 "
+  "\001(\t\022,\n\007AckType\030\003 \001(\0162\033.service_layer.SLR"
+  "spACKType\022%\n\006OpList\030\004 \003(\0132\025.service_laye"
+  "r.SLAFOp\"d\n\007SLAFRes\022/\n\tErrStatus\030\001 \001(\0132\034"
+  ".service_layer.SLErrorStatus\022(\n\tOperatio"
+  "n\030\002 \001(\0132\025.service_layer.SLAFOp\"F\n\nSLAFMs"
+  "gRsp\022\017\n\007VrfName\030\001 \001(\t\022\'\n\007Results\030\002 \003(\0132\026"
+  ".service_layer.SLAFRes2\331\001\n\004SLAF\022M\n\014SLAFV"
+  "rfRegOp\022\034.service_layer.SLAFVrfRegMsg\032\037."
+  "service_layer.SLAFVrfRegMsgRsp\022;\n\006SLAFOp"
+  "\022\026.service_layer.SLAFMsg\032\031.service_layer"
+  ".SLAFMsgRsp\022E\n\014SLAFOpStream\022\026.service_la"
+  "yer.SLAFMsg\032\031.service_layer.SLAFMsgRsp(\001"
+  "0\001BQZOgithub.com/Cisco-service-layer/ser"
+  "vice-layer-objmodel/grpc/protos;service_"
+  "layerb\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_sl_5faf_2eproto_deps[4] = {
   &::descriptor_table_sl_5fcommon_5ftypes_2eproto,
@@ -407,7 +410,7 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_sl_5faf_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_sl_5faf_2eproto = {
-  false, false, 1958, descriptor_table_protodef_sl_5faf_2eproto, "sl_af.proto", 
+  false, false, 1973, descriptor_table_protodef_sl_5faf_2eproto, "sl_af.proto", 
   &descriptor_table_sl_5faf_2eproto_once, descriptor_table_sl_5faf_2eproto_deps, 4, 13,
   schemas, file_default_instances, TableStruct_sl_5faf_2eproto::offsets,
   file_level_metadata_sl_5faf_2eproto, file_level_enum_descriptors_sl_5faf_2eproto, file_level_service_descriptors_sl_5faf_2eproto,
@@ -2181,8 +2184,8 @@ SLMplsEntry::SLMplsEntry(const SLMplsEntry& from)
       pathlist_(from.pathlist_) {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   ::memcpy(&locallabel_, &from.locallabel_,
-    static_cast<size_t>(reinterpret_cast<char*>(&admindistance_) -
-    reinterpret_cast<char*>(&locallabel_)) + sizeof(admindistance_));
+    static_cast<size_t>(reinterpret_cast<char*>(&flags_) -
+    reinterpret_cast<char*>(&locallabel_)) + sizeof(flags_));
   clear_has_entry();
   switch (from.entry_case()) {
     case kPathGroupKey: {
@@ -2199,8 +2202,8 @@ SLMplsEntry::SLMplsEntry(const SLMplsEntry& from)
 inline void SLMplsEntry::SharedCtor() {
 ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
     reinterpret_cast<char*>(&locallabel_) - reinterpret_cast<char*>(this)),
-    0, static_cast<size_t>(reinterpret_cast<char*>(&admindistance_) -
-    reinterpret_cast<char*>(&locallabel_)) + sizeof(admindistance_));
+    0, static_cast<size_t>(reinterpret_cast<char*>(&flags_) -
+    reinterpret_cast<char*>(&locallabel_)) + sizeof(flags_));
 clear_has_entry();
 }
 
@@ -2253,8 +2256,8 @@ void SLMplsEntry::Clear() {
 
   pathlist_.Clear();
   ::memset(&locallabel_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&admindistance_) -
-      reinterpret_cast<char*>(&locallabel_)) + sizeof(admindistance_));
+      reinterpret_cast<char*>(&flags_) -
+      reinterpret_cast<char*>(&locallabel_)) + sizeof(flags_));
   clear_entry();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
@@ -2298,6 +2301,14 @@ const char* SLMplsEntry::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 34)) {
           ptr = ctx->ParseMessage(_internal_mutable_pathgroupkey(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // uint32 Flags = 5;
+      case 5:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 40)) {
+          flags_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -2359,6 +2370,12 @@ uint8_t* SLMplsEntry::_InternalSerialize(
         4, _Internal::pathgroupkey(this), target, stream);
   }
 
+  // uint32 Flags = 5;
+  if (this->_internal_flags() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(5, this->_internal_flags(), target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -2390,6 +2407,11 @@ size_t SLMplsEntry::ByteSizeLong() const {
   // uint32 AdminDistance = 2;
   if (this->_internal_admindistance() != 0) {
     total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_admindistance());
+  }
+
+  // uint32 Flags = 5;
+  if (this->_internal_flags() != 0) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_flags());
   }
 
   switch (entry_case()) {
@@ -2433,6 +2455,9 @@ void SLMplsEntry::MergeFrom(const SLMplsEntry& from) {
   if (from._internal_admindistance() != 0) {
     _internal_set_admindistance(from._internal_admindistance());
   }
+  if (from._internal_flags() != 0) {
+    _internal_set_flags(from._internal_flags());
+  }
   switch (from.entry_case()) {
     case kPathGroupKey: {
       _internal_mutable_pathgroupkey()->::service_layer::SLPathGroupRefKey::MergeFrom(from._internal_pathgroupkey());
@@ -2461,8 +2486,8 @@ void SLMplsEntry::InternalSwap(SLMplsEntry* other) {
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   pathlist_.InternalSwap(&other->pathlist_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(SLMplsEntry, admindistance_)
-      + sizeof(SLMplsEntry::admindistance_)
+      PROTOBUF_FIELD_OFFSET(SLMplsEntry, flags_)
+      + sizeof(SLMplsEntry::flags_)
       - PROTOBUF_FIELD_OFFSET(SLMplsEntry, locallabel_)>(
           reinterpret_cast<char*>(&locallabel_),
           reinterpret_cast<char*>(&other->locallabel_));
