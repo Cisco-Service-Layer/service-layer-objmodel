@@ -190,10 +190,9 @@ class SLClient
         if (!string.IsNullOrEmpty(serverAddress))
         {
             AppContext.SetSwitch("System.Net.Http.SocketsHttpHandler.Http2UnencryptedSupport", true);
+
             channel = GrpcChannel.ForAddress($"http://{serverAddress}",
                                              new GrpcChannelOptions { Credentials = ChannelCredentials.Insecure });
-
-
             try {
                 client = new SLRoutev4Oper.SLRoutev4OperClient(channel);
             } catch (Exception ex) {
@@ -206,7 +205,6 @@ class SLClient
             Console.WriteLine("Server address is not provided.");
             Environment.Exit(1);
         }
-        
         if (testData.RegisterV4Vrfs != null)
         {
             Console.WriteLine("\nTestcase 1: Register Vrfs");
