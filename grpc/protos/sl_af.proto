@@ -330,7 +330,7 @@ message SLAFGetMsg {
 // Object and its programming status returned on Get.
 message SLAFEntry {
     // Object
-    SLAFObject AFObject = 1;
+    SLAFOp AFOp = 1;
 
     // FIB programming status. This field is available only
     // if the object was programmed with RIB_AND_FIB_ACK. If
