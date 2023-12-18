@@ -5,7 +5,7 @@
 // @file
 // @brief Client RPC proto file for operations on objects in a address family.
 // This file defines SL-API service and messages for operations
-// on IP routes, MPLS objects, Path Groups and Policy Forwarding Entries.
+// on IP routes, MPLS objects and Path Groups objects.
 //
 // The RPCs and messages defined here are experimental and subject to
 // change without notice and such changes can break backwards compatibility.
@@ -96,15 +96,14 @@ class SLAF final {
     virtual ~StubInterface() {}
     //
     // RPCs for object programming and access. Supported objects are
-    // IP Routes, MPLS Labels, and Path Group objects and Policy
-    // Forwarding Entries.
+    // IP Routes, MPLS Labels, and Path Group objects.
     //
     // A Path Group object created by one client can be referenced by
     // any other object (e.g. IP Route and MPLS label object) created by
     // ANY other client.
     //
-    // Only the client that created the object (IP/MPLS, Policy Forwarding
-    // Entry and Path Group included) can manipulate that object.
+    // Only the client that created the object (IP/MPLS and Path Group included) 
+    // can manipulate that object.
     //
     //
     // VRF registration operations. By default, The client must register with
@@ -219,15 +218,14 @@ class SLAF final {
       virtual ~async_interface() {}
       //
       // RPCs for object programming and access. Supported objects are
-      // IP Routes, MPLS Labels, and Path Group objects and Policy
-      // Forwarding Entries.
+      // IP Routes, MPLS Labels, and Path Group objects.
       //
       // A Path Group object created by one client can be referenced by
       // any other object (e.g. IP Route and MPLS label object) created by
       // ANY other client.
       //
-      // Only the client that created the object (IP/MPLS, Policy Forwarding
-      // Entry and Path Group included) can manipulate that object.
+      // Only the client that created the object (IP/MPLS and Path Group included) 
+      // can manipulate that object.
       //
       //
       // VRF registration operations. By default, The client must register with
@@ -405,15 +403,14 @@ class SLAF final {
     virtual ~Service();
     //
     // RPCs for object programming and access. Supported objects are
-    // IP Routes, MPLS Labels, and Path Group objects and Policy
-    // Forwarding Entries.
+    // IP Routes, MPLS Labels, and Path Group objects.
     //
     // A Path Group object created by one client can be referenced by
     // any other object (e.g. IP Route and MPLS label object) created by
     // ANY other client.
     //
-    // Only the client that created the object (IP/MPLS, Policy Forwarding
-    // Entry and Path Group included) can manipulate that object.
+    // Only the client that created the object (IP/MPLS and Path Group included) 
+    // can manipulate that object.
     //
     //
     // VRF registration operations. By default, The client must register with

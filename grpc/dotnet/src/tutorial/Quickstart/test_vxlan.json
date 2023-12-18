@@ -1,4 +1,8 @@
 {
+  "authentication_info" : {
+    "username": "cisco",
+    "password": "cisco123"
+  },
   "register_v4_vrfs" : {
     "purge_interval": 300,
     "admin_distance": 2,

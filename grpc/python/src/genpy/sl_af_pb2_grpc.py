@@ -128,15 +128,14 @@ class SLAFServicer(object):
     def SLAFVrfRegOp(self, request, context):
         """
         RPCs for object programming and access. Supported objects are
-        IP Routes, MPLS Labels, and Path Group objects and Policy
-        Forwarding Entries.
+        IP Routes, MPLS Labels, and Path Group objects.
 
         A Path Group object created by one client can be referenced by
         any other object (e.g. IP Route and MPLS label object) created by
         ANY other client.
 
-        Only the client that created the object (IP/MPLS, Policy Forwarding
-        Entry and Path Group included) can manipulate that object.
+        Only the client that created the object (IP/MPLS and Path Group included) 
+        can manipulate that object.
 
 
         VRF registration operations. By default, The client must register with
