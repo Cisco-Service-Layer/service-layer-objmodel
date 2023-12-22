@@ -24,9 +24,9 @@ namespace ServiceLayer {
     static SlCommonTypesReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChVzbF9jb21tb25fdHlwZXMucHJvdG8SDXNlcnZpY2VfbGF5ZXIi7kYKDVNM",
+            "ChVzbF9jb21tb25fdHlwZXMucHJvdG8SDXNlcnZpY2VfbGF5ZXIizUgKDVNM",
             "RXJyb3JTdGF0dXMSNAoGU3RhdHVzGAEgASgOMiQuc2VydmljZV9sYXllci5T",
-            "TEVycm9yU3RhdHVzLlNMRXJybm8ipkYKB1NMRXJybm8SDgoKU0xfU1VDQ0VT",
+            "TEVycm9yU3RhdHVzLlNMRXJybm8ihUgKB1NMRXJybm8SDgoKU0xfU1VDQ0VT",
             "UxAAEhQKEFNMX05PVF9DT05ORUNURUQQARINCglTTF9FQUdBSU4QAhINCglT",
             "TF9FTk9NRU0QAxIMCghTTF9FQlVTWRAEEg0KCVNMX0VJTlZBTBAFEhYKElNM",
             "X1VOU1VQUE9SVEVEX1ZFUhAGEhQKEFNMX05PVF9BVkFJTEFCTEUQBxIbChdT",
@@ -225,31 +225,36 @@ namespace ServiceLayer {
             "X0JEX05BTUVfVE9PTE9ORxCIgAUSIgocU0xfUlBDX0wyX05PVElGX0JEX05P",
             "VF9GT1VORBCJgAUSFwoRU0xfUEdfVlJGX0FERF9FUlIQgaAFEhgKElNMX1BH",
             "X1ZSRl9OT19WUkZJRBCCoAUSGwoVU0xfUEdfU1RSX0tFWV9UT09MT05HEIOg",
-            "BRIfChlTTF9QR19UQVJHRVRfVlJGX05PX1ZSRklEEISgBRIeChhTTF9JTlRF",
-            "Uk5BTF9TVEFSVF9PRkZTRVQQgIBAIjwKC1NMSW50ZXJmYWNlEg4KBE5hbWUY",
-            "ASABKAlIABIQCgZIYW5kbGUYAiABKA1IAEILCglJbnRlcmZhY2UiQgoLU0xJ",
-            "cEFkZHJlc3MSEwoJVjRBZGRyZXNzGAEgASgNSAASEwoJVjZBZGRyZXNzGAIg",
-            "ASgMSABCCQoHQWRkcmVzcyIlCgpTTE9iamVjdElkEg4KBE5hbWUYASABKAlI",
-            "AEIHCgVlbnRyeSJUChFTTFBhdGhHcm91cFJlZktleRIPCgdWcmZOYW1lGAEg",
-            "ASgJEi4KC1BhdGhHcm91cElkGAIgASgLMhkuc2VydmljZV9sYXllci5TTE9i",
-            "amVjdElkKmIKB1NMUmVnT3ASFQoRU0xfUkVHT1BfUkVTRVJWRUQQABIVChFT",
-            "TF9SRUdPUF9SRUdJU1RFUhABEhcKE1NMX1JFR09QX1VOUkVHSVNURVIQAhIQ",
-            "CgxTTF9SRUdPUF9FT0YQAypfCgpTTE9iamVjdE9wEhUKEVNMX09CSk9QX1JF",
-            "U0VSVkVEEAASEAoMU0xfT0JKT1BfQUREEAESEwoPU0xfT0JKT1BfVVBEQVRF",
-            "EAISEwoPU0xfT0JKT1BfREVMRVRFEAMqUwoJU0xOb3RpZk9wEhcKE1NMX05P",
-            "VElGT1BfUkVTRVJWRUQQABIVChFTTF9OT1RJRk9QX0VOQUJMRRABEhYKElNM",
-            "X05PVElGT1BfRElTQUJMRRACKokBChBTTFVwZGF0ZVByaW9yaXR5EhgKFFNM",
-            "X1BSSU9SSVRZX1JFU0VSVkVEEAASGAoUU0xfUFJJT1JJVFlfQ1JJVElDQUwQ",
-            "BBIUChBTTF9QUklPUklUWV9ISUdIEAgSFgoSU0xfUFJJT1JJVFlfTUVESVVN",
-            "EAwSEwoPU0xfUFJJT1JJVFlfTE9XEBAqSwoLU0xFbmNhcFR5cGUSFQoRU0xf",
-            "RU5DQVBfUkVTRVJWRUQQABISCg5TTF9FTkNBUF9WWExBThABEhEKDVNMX0VO",
-            "Q0FQX01QTFMQAiqNAQoLU0xUYWJsZVR5cGUSGgoWU0xfVEFCTEVfVFlQRV9S",
-            "RVNFUlZFRBAAEhcKE1NMX0lQdjRfUk9VVEVfVEFCTEUQARIXChNTTF9JUHY2",
-            "X1JPVVRFX1RBQkxFEAISFwoTU0xfTVBMU19MQUJFTF9UQUJMRRADEhcKE1NM",
-            "X1BBVEhfR1JPVVBfVEFCTEUQBCobCgxTTFJzcEFDS1R5cGUSCwoHUklCX0FD",
-            "SxAAQlFaT2dpdGh1Yi5jb20vQ2lzY28tc2VydmljZS1sYXllci9zZXJ2aWNl",
-            "LWxheWVyLW9iam1vZGVsL2dycGMvcHJvdG9zO3NlcnZpY2VfbGF5ZXJiBnBy",
-            "b3RvMw=="));
+            "BRIfChlTTF9QR19UQVJHRVRfVlJGX05PX1ZSRklEEISgBRIkCh5TTF9ORVhU",
+            "X0hPUF9JTlZBTElEX1BSRUZJWF9MRU4QgcAFEh8KGVNMX05FWFRfSE9QX0hP",
+            "U1RfQklUU19TRVQQgsAFEiYKIFNMX05FWFRfSE9QX0lOVkFMSURfUFJFRklY",
+            "X01DQVNUEIPABRIgChpTTF9ORVhUX0hPUF9JTlZBTElEX1BSRUZJWBCEwAUS",
+            "JwohU0xfTkVYVF9IT1BfSU5WQUxJRF9ORVhUX0hPUF9BRERSEIXABRIjCh1T",
+            "TF9ORVhUX0hPUF9JTlZBTElEX1BSRUZJWF9TWhCGwAUSHgoYU0xfSU5URVJO",
+            "QUxfU1RBUlRfT0ZGU0VUEICAQCI8CgtTTEludGVyZmFjZRIOCgROYW1lGAEg",
+            "ASgJSAASEAoGSGFuZGxlGAIgASgNSABCCwoJSW50ZXJmYWNlIkIKC1NMSXBB",
+            "ZGRyZXNzEhMKCVY0QWRkcmVzcxgBIAEoDUgAEhMKCVY2QWRkcmVzcxgCIAEo",
+            "DEgAQgkKB0FkZHJlc3MiJQoKU0xPYmplY3RJZBIOCgROYW1lGAEgASgJSABC",
+            "BwoFZW50cnkiVAoRU0xQYXRoR3JvdXBSZWZLZXkSDwoHVnJmTmFtZRgBIAEo",
+            "CRIuCgtQYXRoR3JvdXBJZBgCIAEoCzIZLnNlcnZpY2VfbGF5ZXIuU0xPYmpl",
+            "Y3RJZCpiCgdTTFJlZ09wEhUKEVNMX1JFR09QX1JFU0VSVkVEEAASFQoRU0xf",
+            "UkVHT1BfUkVHSVNURVIQARIXChNTTF9SRUdPUF9VTlJFR0lTVEVSEAISEAoM",
+            "U0xfUkVHT1BfRU9GEAMqXwoKU0xPYmplY3RPcBIVChFTTF9PQkpPUF9SRVNF",
+            "UlZFRBAAEhAKDFNMX09CSk9QX0FERBABEhMKD1NMX09CSk9QX1VQREFURRAC",
+            "EhMKD1NMX09CSk9QX0RFTEVURRADKlMKCVNMTm90aWZPcBIXChNTTF9OT1RJ",
+            "Rk9QX1JFU0VSVkVEEAASFQoRU0xfTk9USUZPUF9FTkFCTEUQARIWChJTTF9O",
+            "T1RJRk9QX0RJU0FCTEUQAiqJAQoQU0xVcGRhdGVQcmlvcml0eRIYChRTTF9Q",
+            "UklPUklUWV9SRVNFUlZFRBAAEhgKFFNMX1BSSU9SSVRZX0NSSVRJQ0FMEAQS",
+            "FAoQU0xfUFJJT1JJVFlfSElHSBAIEhYKElNMX1BSSU9SSVRZX01FRElVTRAM",
+            "EhMKD1NMX1BSSU9SSVRZX0xPVxAQKksKC1NMRW5jYXBUeXBlEhUKEVNMX0VO",
+            "Q0FQX1JFU0VSVkVEEAASEgoOU0xfRU5DQVBfVlhMQU4QARIRCg1TTF9FTkNB",
+            "UF9NUExTEAIqjQEKC1NMVGFibGVUeXBlEhoKFlNMX1RBQkxFX1RZUEVfUkVT",
+            "RVJWRUQQABIXChNTTF9JUHY0X1JPVVRFX1RBQkxFEAESFwoTU0xfSVB2Nl9S",
+            "T1VURV9UQUJMRRACEhcKE1NMX01QTFNfTEFCRUxfVEFCTEUQAxIXChNTTF9Q",
+            "QVRIX0dST1VQX1RBQkxFEAQqGwoMU0xSc3BBQ0tUeXBlEgsKB1JJQl9BQ0sQ",
+            "AEJRWk9naXRodWIuY29tL0Npc2NvLXNlcnZpY2UtbGF5ZXIvc2VydmljZS1s",
+            "YXllci1vYmptb2RlbC9ncnBjL3Byb3RvcztzZXJ2aWNlX2xheWVyYgZwcm90",
+            "bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::ServiceLayer.SLRegOp), typeof(global::ServiceLayer.SLObjectOp), typeof(global::ServiceLayer.SLNotifOp), typeof(global::ServiceLayer.SLUpdatePriority), typeof(global::ServiceLayer.SLEncapType), typeof(global::ServiceLayer.SLTableType), typeof(global::ServiceLayer.SLRspACKType), }, null, new pbr::GeneratedClrTypeInfo[] {
@@ -851,7 +856,7 @@ namespace ServiceLayer {
         /// </summary>
         [pbr::OriginalName("SL_ROUTE_UPDATE_NO_PATHS")] SlRouteUpdateNoPaths = 16386,
         /// <summary>
-        /// Route's or RIB notification next hop's prefix length is invalid. 0x4003
+        /// Route's prefix length is invalid. 0x4003
         /// </summary>
         [pbr::OriginalName("SL_ROUTE_INVALID_PREFIX_LEN")] SlRouteInvalidPrefixLen = 16387,
         /// <summary>
@@ -867,7 +872,7 @@ namespace ServiceLayer {
         /// </summary>
         [pbr::OriginalName("SL_ROUTE_INVALID_PREFIX_SZ")] SlRouteInvalidPrefixSz = 16390,
         /// <summary>
-        /// Route's or RIB notification next hop's prefix is invalid. 0x4007
+        /// Route's prefix is invalid. 0x4007
         /// </summary>
         [pbr::OriginalName("SL_ROUTE_INVALID_PREFIX")] SlRouteInvalidPrefix = 16391,
         /// <summary>
@@ -893,7 +898,7 @@ namespace ServiceLayer {
         /// </summary>
         [pbr::OriginalName("SL_ROUTE_EEXIST")] SlRouteEexist = 16396,
         /// <summary>
-        /// Route or RIB notification next hop prefix has host bits set. 0x400d
+        /// Route prefix has host bits set. 0x400d
         /// </summary>
         [pbr::OriginalName("SL_ROUTE_HOST_BITS_SET")] SlRouteHostBitsSet = 16397,
         /// <summary>
@@ -957,7 +962,7 @@ namespace ServiceLayer {
         /// </summary>
         [pbr::OriginalName("SL_PATH_NH_INF_NAME_MISSING")] SlPathNhInfNameMissing = 20488,
         /// <summary>
-        /// Path or RIB notif request has an invalid next hop address. 0x5009
+        /// Path has an invalid next hop address. 0x5009
         /// </summary>
         [pbr::OriginalName("SL_PATH_INVALID_NEXT_HOP_ADDR")] SlPathInvalidNextHopAddr = 20489,
         /// <summary>
@@ -1732,6 +1737,31 @@ namespace ServiceLayer {
         /// ID of a next hop VRF in a path in the PathGroup cannot be determined. 0x15004
         /// </summary>
         [pbr::OriginalName("SL_PG_TARGET_VRF_NO_VRFID")] SlPgTargetVrfNoVrfid = 86020,
+        /// <summary>
+        /// Offset for Nexthop request errors. 0x16000
+        /// Nexthop prefix length is invalid. 0x16001
+        /// </summary>
+        [pbr::OriginalName("SL_NEXT_HOP_INVALID_PREFIX_LEN")] SlNextHopInvalidPrefixLen = 90113,
+        /// <summary>
+        /// Nexthop prefix has host bits set. 0x16002
+        /// </summary>
+        [pbr::OriginalName("SL_NEXT_HOP_HOST_BITS_SET")] SlNextHopHostBitsSet = 90114,
+        /// <summary>
+        /// IPv4 Route prefix is a multicast address. 0x16003
+        /// </summary>
+        [pbr::OriginalName("SL_NEXT_HOP_INVALID_PREFIX_MCAST")] SlNextHopInvalidPrefixMcast = 90115,
+        /// <summary>
+        /// Nexthop prefix is invalid. 0x16004
+        /// </summary>
+        [pbr::OriginalName("SL_NEXT_HOP_INVALID_PREFIX")] SlNextHopInvalidPrefix = 90116,
+        /// <summary>
+        /// Invalid next hop address. 0x16005
+        /// </summary>
+        [pbr::OriginalName("SL_NEXT_HOP_INVALID_NEXT_HOP_ADDR")] SlNextHopInvalidNextHopAddr = 90117,
+        /// <summary>
+        /// Size of IPv6 prefix is invalid. 0x16006
+        /// </summary>
+        [pbr::OriginalName("SL_NEXT_HOP_INVALID_PREFIX_SZ")] SlNextHopInvalidPrefixSz = 90118,
         /// <summary>
         /// Offset for Internal errors. 0x100000
         /// </summary>

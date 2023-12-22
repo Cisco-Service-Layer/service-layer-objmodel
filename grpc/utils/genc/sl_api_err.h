@@ -154,7 +154,7 @@
     SL_ROUTE_ADD_NO_PATHS = 0x4001,\
     /* Route update operation requested but no paths were provided. 0x4002 */\
     SL_ROUTE_UPDATE_NO_PATHS = 0x4002,\
-    /* Route's or RIB notification next hop's prefix length is invalid. 0x4003 */\
+    /* Route's prefix length is invalid. 0x4003 */\
     SL_ROUTE_INVALID_PREFIX_LEN = 0x4003,\
     /* Route's admininstrative distance is invalid. 0x4004 */\
     SL_ROUTE_INVALID_ADMIN_DISTANCE = 0x4004,\
@@ -162,7 +162,7 @@
     SL_ROUTE_INVALID_NUM_PATHS = 0x4005,\
     /* Size of IPv6 prefix is invalid. 0x4006 */\
     SL_ROUTE_INVALID_PREFIX_SZ = 0x4006,\
-    /* Route's or RIB notification next hop's prefix is invalid. 0x4007 */\
+    /* Route's prefix is invalid. 0x4007 */\
     SL_ROUTE_INVALID_PREFIX = 0x4007,\
     /* Route programming failed in RIB as VRF table limit reached. 0x4008 */\
     SL_ROUTE_ERR_RIB_TABLE_LIMIT_REACHED = 0x4008,\
@@ -176,7 +176,7 @@
     SL_ROUTE_ERR_RIB_TOOMANYPATHS = 0x400b,\
     /* This route already exists in the database. 0x400c   */\
     SL_ROUTE_EEXIST = 0x400c,\
-    /* Route or RIB notification next hop prefix has host bits set. 0x400d */\
+    /* Route prefix has host bits set. 0x400d */\
     SL_ROUTE_HOST_BITS_SET = 0x400d,\
     /* IPv4 Route prefix is a multicast address. 0x400e */\
     SL_ROUTE_INVALID_PREFIX_MCAST = 0x400e,\
@@ -209,7 +209,7 @@
     SL_PATH_NH_INVALID_ADDR_SZ = 0x5007,\
     /* Next hop interface name is missing from path. 0x5008 */\
     SL_PATH_NH_INF_NAME_MISSING = 0x5008,\
-    /* Path or RIB notif request has an invalid next hop address. 0x5009 */\
+    /* Path has an invalid next hop address. 0x5009 */\
     SL_PATH_INVALID_NEXT_HOP_ADDR = 0x5009,\
     /* Number of remote backup addresses in the path exceeds */\
     /* system capabilities. 0x500a */\
@@ -627,6 +627,20 @@
     SL_PG_STR_KEY_TOOLONG = 0x15003,\
     /* ID of a next hop VRF in a path in the PathGroup cannot be determined. 0x15004 */\
     SL_PG_TARGET_VRF_NO_VRFID = 0x15004,\
+    /* !!! Error codes for Nexthop request objects. */\
+    /* Offset for Nexthop request errors. 0x16000 */\
+    /* Nexthop prefix length is invalid. 0x16001 */\
+    SL_NEXT_HOP_INVALID_PREFIX_LEN = 0x16001,\
+    /* Nexthop prefix has host bits set. 0x16002 */\
+    SL_NEXT_HOP_HOST_BITS_SET = 0x16002,\
+    /* IPv4 Route prefix is a multicast address. 0x16003 */\
+    SL_NEXT_HOP_INVALID_PREFIX_MCAST = 0x16003,\
+    /* Nexthop prefix is invalid. 0x16004 */\
+    SL_NEXT_HOP_INVALID_PREFIX = 0x16004,\
+    /* Invalid next hop address. 0x16005 */\
+    SL_NEXT_HOP_INVALID_NEXT_HOP_ADDR = 0x16005,\
+    /* Size of IPv6 prefix is invalid. 0x16006 */\
+    SL_NEXT_HOP_INVALID_PREFIX_SZ = 0x16006,\
     /* !!! Error codes Reserved for internal errors. */\
     /* Offset for Internal errors. 0x100000 */\
     SL_INTERNAL_START_OFFSET = 0x100000,\
@@ -825,7 +839,7 @@
         " Route update operation requested but no paths were provided.  "\
         },\
     {SL_ROUTE_INVALID_PREFIX_LEN ,\
-        " Route's or RIB notification next hop's prefix length is invalid.  "\
+        " Route's prefix length is invalid.  "\
         },\
     {SL_ROUTE_INVALID_ADMIN_DISTANCE ,\
         " Route's admininstrative distance is invalid.  "\
@@ -837,7 +851,7 @@
         " Size of IPv6 prefix is invalid.  "\
         },\
     {SL_ROUTE_INVALID_PREFIX ,\
-        " Route's or RIB notification next hop's prefix is invalid.  "\
+        " Route's prefix is invalid.  "\
         },\
     {SL_ROUTE_ERR_RIB_TABLE_LIMIT_REACHED ,\
         " Route programming failed in RIB as VRF table limit reached.  "\
@@ -857,7 +871,7 @@
         " This route already exists in the database.  "\
         },\
     {SL_ROUTE_HOST_BITS_SET ,\
-        " Route or RIB notification next hop prefix has host bits set.  "\
+        " Route prefix has host bits set.  "\
         },\
     {SL_ROUTE_INVALID_PREFIX_MCAST ,\
         " IPv4 Route prefix is a multicast address.  "\
@@ -905,7 +919,7 @@
         " Next hop interface name is missing from path.  "\
         },\
     {SL_PATH_INVALID_NEXT_HOP_ADDR ,\
-        " Path or RIB notif request has an invalid next hop address.  "\
+        " Path has an invalid next hop address.  "\
         },\
     {SL_PATH_INVALID_REMOTE_ADDR_COUNT ,\
         " Number of remote backup addresses in the path exceeds "\
@@ -1490,6 +1504,25 @@
         },\
     {SL_PG_TARGET_VRF_NO_VRFID ,\
         " ID of a next hop VRF in a path in the PathGroup cannot be determined.  "\
+        },\
+    {SL_NEXT_HOP_INVALID_PREFIX_LEN ,\
+        " Offset for Nexthop request errors.  "\
+        " Nexthop prefix length is invalid.  "\
+        },\
+    {SL_NEXT_HOP_HOST_BITS_SET ,\
+        " Nexthop prefix has host bits set.  "\
+        },\
+    {SL_NEXT_HOP_INVALID_PREFIX_MCAST ,\
+        " IPv4 Route prefix is a multicast address.  "\
+        },\
+    {SL_NEXT_HOP_INVALID_PREFIX ,\
+        " Nexthop prefix is invalid.  "\
+        },\
+    {SL_NEXT_HOP_INVALID_NEXT_HOP_ADDR ,\
+        " Invalid next hop address.  "\
+        },\
+    {SL_NEXT_HOP_INVALID_PREFIX_SZ ,\
+        " Size of IPv6 prefix is invalid.  "\
         },\
     {SL_INTERNAL_START_OFFSET ,\
         " Offset for Internal errors.  "\
