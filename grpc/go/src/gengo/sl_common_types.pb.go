@@ -569,7 +569,7 @@ const (
 	SLErrorStatus_SL_ROUTE_ADD_NO_PATHS SLErrorStatus_SLErrno = 16385
 	// Route update operation requested but no paths were provided. 0x4002
 	SLErrorStatus_SL_ROUTE_UPDATE_NO_PATHS SLErrorStatus_SLErrno = 16386
-	// Route's prefix length is invalid. 0x4003
+	// Route's or Rib notification next hop's prefix length is invalid. 0x4003
 	SLErrorStatus_SL_ROUTE_INVALID_PREFIX_LEN SLErrorStatus_SLErrno = 16387
 	// Route's admininstrative distance is invalid. 0x4004
 	SLErrorStatus_SL_ROUTE_INVALID_ADMIN_DISTANCE SLErrorStatus_SLErrno = 16388
@@ -577,7 +577,7 @@ const (
 	SLErrorStatus_SL_ROUTE_INVALID_NUM_PATHS SLErrorStatus_SLErrno = 16389
 	// Size of IPv6 prefix is invalid. 0x4006
 	SLErrorStatus_SL_ROUTE_INVALID_PREFIX_SZ SLErrorStatus_SLErrno = 16390
-	// Route's prefix is invalid. 0x4007
+	// Route's or rib notification next hop's prefix is invalid. 0x4007
 	SLErrorStatus_SL_ROUTE_INVALID_PREFIX SLErrorStatus_SLErrno = 16391
 	// Route programming failed in RIB as VRF table limit reached. 0x4008
 	SLErrorStatus_SL_ROUTE_ERR_RIB_TABLE_LIMIT_REACHED SLErrorStatus_SLErrno = 16392
@@ -591,7 +591,7 @@ const (
 	SLErrorStatus_SL_ROUTE_ERR_RIB_TOOMANYPATHS SLErrorStatus_SLErrno = 16395
 	// This route already exists in the database. 0x400c
 	SLErrorStatus_SL_ROUTE_EEXIST SLErrorStatus_SLErrno = 16396
-	// Route prefix has host bits set. 0x400d
+	// Route or rib notification next hop prefix has host bits set. 0x400d
 	SLErrorStatus_SL_ROUTE_HOST_BITS_SET SLErrorStatus_SLErrno = 16397
 	// IPv4 Route prefix is a multicast address. 0x400e
 	SLErrorStatus_SL_ROUTE_INVALID_PREFIX_MCAST SLErrorStatus_SLErrno = 16398
@@ -623,7 +623,7 @@ const (
 	SLErrorStatus_SL_PATH_NH_INVALID_ADDR_SZ SLErrorStatus_SLErrno = 20487
 	// Next hop interface name is missing from path. 0x5008
 	SLErrorStatus_SL_PATH_NH_INF_NAME_MISSING SLErrorStatus_SLErrno = 20488
-	// Path has an invalid next hop address. 0x5009
+	// Path or rib notif request has an invalid next hop address. 0x5009
 	SLErrorStatus_SL_PATH_INVALID_NEXT_HOP_ADDR SLErrorStatus_SLErrno = 20489
 	// Number of remote backup addresses in the path exceeds
 	// system capabilities. 0x500a
