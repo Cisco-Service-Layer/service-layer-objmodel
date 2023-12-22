@@ -627,6 +627,20 @@
     SL_PG_STR_KEY_TOOLONG = 0x15003,\
     /* ID of a next hop VRF in a path in the PathGroup cannot be determined. 0x15004 */\
     SL_PG_TARGET_VRF_NO_VRFID = 0x15004,\
+    /* !!! Error codes for Nexthop request objects. */\
+    /* Offset for Nexthop request errors. 0x16000 */\
+    /* Nexthop prefix length is invalid. 0x16001 */\
+    SL_NEXT_HOP_INVALID_PREFIX_LEN = 0x16001,\
+    /* Nexthop prefix has host bits set. 0x16002 */\
+    SL_NEXT_HOP_HOST_BITS_SET = 0x16002,\
+    /* IPv4 Route prefix is a multicast address. 0x16003 */\
+    SL_NEXT_HOP_INVALID_PREFIX_MCAST = 0x16003,\
+    /* Nexthop prefix is invalid. 0x16004 */\
+    SL_NEXT_HOP_INVALID_PREFIX = 0x16004,\
+    /* Invalid next hop address. 0x16005 */\
+    SL_NEXT_HOP_INVALID_NEXT_HOP_ADDR = 0x16005,\
+    /* Size of IPv6 prefix is invalid. 0x16006 */\
+    SL_NEXT_HOP_INVALID_PREFIX_SZ = 0x16006,\
     /* !!! Error codes Reserved for internal errors. */\
     /* Offset for Internal errors. 0x100000 */\
     SL_INTERNAL_START_OFFSET = 0x100000,\
@@ -1490,6 +1504,25 @@
         },\
     {SL_PG_TARGET_VRF_NO_VRFID ,\
         " ID of a next hop VRF in a path in the PathGroup cannot be determined.  "\
+        },\
+    {SL_NEXT_HOP_INVALID_PREFIX_LEN ,\
+        " Offset for Nexthop request errors.  "\
+        " Nexthop prefix length is invalid.  "\
+        },\
+    {SL_NEXT_HOP_HOST_BITS_SET ,\
+        " Nexthop prefix has host bits set.  "\
+        },\
+    {SL_NEXT_HOP_INVALID_PREFIX_MCAST ,\
+        " IPv4 Route prefix is a multicast address.  "\
+        },\
+    {SL_NEXT_HOP_INVALID_PREFIX ,\
+        " Nexthop prefix is invalid.  "\
+        },\
+    {SL_NEXT_HOP_INVALID_NEXT_HOP_ADDR ,\
+        " Invalid next hop address.  "\
+        },\
+    {SL_NEXT_HOP_INVALID_PREFIX_SZ ,\
+        " Size of IPv6 prefix is invalid.  "\
         },\
     {SL_INTERNAL_START_OFFSET ,\
         " Offset for Internal errors.  "\
