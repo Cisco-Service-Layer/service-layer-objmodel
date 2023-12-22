@@ -851,7 +851,7 @@ namespace ServiceLayer {
         /// </summary>
         [pbr::OriginalName("SL_ROUTE_UPDATE_NO_PATHS")] SlRouteUpdateNoPaths = 16386,
         /// <summary>
-        /// Route's or Rib notification next hop's prefix length is invalid. 0x4003
+        /// Route's or RIB notification next hop's prefix length is invalid. 0x4003
         /// </summary>
         [pbr::OriginalName("SL_ROUTE_INVALID_PREFIX_LEN")] SlRouteInvalidPrefixLen = 16387,
         /// <summary>
@@ -867,7 +867,7 @@ namespace ServiceLayer {
         /// </summary>
         [pbr::OriginalName("SL_ROUTE_INVALID_PREFIX_SZ")] SlRouteInvalidPrefixSz = 16390,
         /// <summary>
-        /// Route's or rib notification next hop's prefix is invalid. 0x4007
+        /// Route's or RIB notification next hop's prefix is invalid. 0x4007
         /// </summary>
         [pbr::OriginalName("SL_ROUTE_INVALID_PREFIX")] SlRouteInvalidPrefix = 16391,
         /// <summary>
@@ -893,7 +893,7 @@ namespace ServiceLayer {
         /// </summary>
         [pbr::OriginalName("SL_ROUTE_EEXIST")] SlRouteEexist = 16396,
         /// <summary>
-        /// Route or rib notification next hop prefix has host bits set. 0x400d
+        /// Route or RIB notification next hop prefix has host bits set. 0x400d
         /// </summary>
         [pbr::OriginalName("SL_ROUTE_HOST_BITS_SET")] SlRouteHostBitsSet = 16397,
         /// <summary>
@@ -957,7 +957,7 @@ namespace ServiceLayer {
         /// </summary>
         [pbr::OriginalName("SL_PATH_NH_INF_NAME_MISSING")] SlPathNhInfNameMissing = 20488,
         /// <summary>
-        /// Path or rib notif request has an invalid next hop address. 0x5009
+        /// Path or RIB notif request has an invalid next hop address. 0x5009
         /// </summary>
         [pbr::OriginalName("SL_PATH_INVALID_NEXT_HOP_ADDR")] SlPathInvalidNextHopAddr = 20489,
         /// <summary>
