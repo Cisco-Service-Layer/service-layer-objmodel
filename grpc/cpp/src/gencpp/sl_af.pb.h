@@ -2270,7 +2270,6 @@ class SLAFEntry final :
 
   enum : int {
     kAFOpFieldNumber = 1,
-    kOperationIDFieldNumber = 3,
   };
   // .service_layer.SLAFOp AFOp = 1;
   bool has_afop() const;
@@ -2290,15 +2289,6 @@ class SLAFEntry final :
       ::service_layer::SLAFOp* afop);
   ::service_layer::SLAFOp* unsafe_arena_release_afop();
 
-  // uint64 OperationID = 3;
-  void clear_operationid();
-  uint64_t operationid() const;
-  void set_operationid(uint64_t value);
-  private:
-  uint64_t _internal_operationid() const;
-  void _internal_set_operationid(uint64_t value);
-  public:
-
   // @@protoc_insertion_point(class_scope:service_layer.SLAFEntry)
  private:
   class _Internal;
@@ -2307,7 +2297,6 @@ class SLAFEntry final :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   ::service_layer::SLAFOp* afop_;
-  uint64_t operationid_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_sl_5faf_2eproto;
 };
@@ -2490,13 +2479,13 @@ class SLAFGetMsgRsp final :
       ::service_layer::SLErrorStatus* errstatus);
   ::service_layer::SLErrorStatus* unsafe_arena_release_errstatus();
 
-  // uint32 ClientID = 3;
+  // uint64 ClientID = 3;
   void clear_clientid();
-  uint32_t clientid() const;
-  void set_clientid(uint32_t value);
+  uint64_t clientid() const;
+  void set_clientid(uint64_t value);
   private:
-  uint32_t _internal_clientid() const;
-  void _internal_set_clientid(uint32_t value);
+  uint64_t _internal_clientid() const;
+  void _internal_set_clientid(uint64_t value);
   public:
 
   // @@protoc_insertion_point(class_scope:service_layer.SLAFGetMsgRsp)
@@ -2509,7 +2498,7 @@ class SLAFGetMsgRsp final :
   ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::service_layer::SLAFEntry > aflist_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr vrfname_;
   ::service_layer::SLErrorStatus* errstatus_;
-  uint32_t clientid_;
+  uint64_t clientid_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_sl_5faf_2eproto;
 };
@@ -4643,26 +4632,6 @@ inline void SLAFEntry::set_allocated_afop(::service_layer::SLAFOp* afop) {
   // @@protoc_insertion_point(field_set_allocated:service_layer.SLAFEntry.AFOp)
 }
 
-// uint64 OperationID = 3;
-inline void SLAFEntry::clear_operationid() {
-  operationid_ = uint64_t{0u};
-}
-inline uint64_t SLAFEntry::_internal_operationid() const {
-  return operationid_;
-}
-inline uint64_t SLAFEntry::operationid() const {
-  // @@protoc_insertion_point(field_get:service_layer.SLAFEntry.OperationID)
-  return _internal_operationid();
-}
-inline void SLAFEntry::_internal_set_operationid(uint64_t value) {
-  
-  operationid_ = value;
-}
-inline void SLAFEntry::set_operationid(uint64_t value) {
-  _internal_set_operationid(value);
-  // @@protoc_insertion_point(field_set:service_layer.SLAFEntry.OperationID)
-}
-
 // -------------------------------------------------------------------
 
 // SLAFGetMsgRsp
@@ -4804,22 +4773,22 @@ inline void SLAFGetMsgRsp::set_allocated_vrfname(std::string* vrfname) {
   // @@protoc_insertion_point(field_set_allocated:service_layer.SLAFGetMsgRsp.VrfName)
 }
 
-// uint32 ClientID = 3;
+// uint64 ClientID = 3;
 inline void SLAFGetMsgRsp::clear_clientid() {
-  clientid_ = 0u;
+  clientid_ = uint64_t{0u};
 }
-inline uint32_t SLAFGetMsgRsp::_internal_clientid() const {
+inline uint64_t SLAFGetMsgRsp::_internal_clientid() const {
   return clientid_;
 }
-inline uint32_t SLAFGetMsgRsp::clientid() const {
+inline uint64_t SLAFGetMsgRsp::clientid() const {
   // @@protoc_insertion_point(field_get:service_layer.SLAFGetMsgRsp.ClientID)
   return _internal_clientid();
 }
-inline void SLAFGetMsgRsp::_internal_set_clientid(uint32_t value) {
+inline void SLAFGetMsgRsp::_internal_set_clientid(uint64_t value) {
   
   clientid_ = value;
 }
-inline void SLAFGetMsgRsp::set_clientid(uint32_t value) {
+inline void SLAFGetMsgRsp::set_clientid(uint64_t value) {
   _internal_set_clientid(value);
   // @@protoc_insertion_point(field_set:service_layer.SLAFGetMsgRsp.ClientID)
 }

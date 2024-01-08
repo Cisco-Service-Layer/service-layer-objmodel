@@ -55,28 +55,27 @@ namespace ServiceLayer {
             "BlNMQUZPcBIrCghBRk9iamVjdBgBIAEoCzIZLnNlcnZpY2VfbGF5ZXIuU0xB",
             "Rk9iamVjdBITCgtPcGVyYXRpb25JRBgCIAEoBCJfCgpTTEFGR2V0TXNnEg8K",
             "B1ZyZk5hbWUYASABKAkSKQoFVGFibGUYAiABKA4yGi5zZXJ2aWNlX2xheWVy",
-            "LlNMVGFibGVUeXBlEhUKDUdldEFsbENsaWVudHMYAyABKAgiRQoJU0xBRkVu",
-            "dHJ5EiMKBEFGT3AYASABKAsyFS5zZXJ2aWNlX2xheWVyLlNMQUZPcBITCgtP",
-            "cGVyYXRpb25JRBgDIAEoBCKNAQoNU0xBRkdldE1zZ1JzcBIvCglFcnJTdGF0",
-            "dXMYASABKAsyHC5zZXJ2aWNlX2xheWVyLlNMRXJyb3JTdGF0dXMSDwoHVnJm",
-            "TmFtZRgCIAEoCRIQCghDbGllbnRJRBgDIAEoDRIoCgZBRkxpc3QYBCADKAsy",
-            "GC5zZXJ2aWNlX2xheWVyLlNMQUZFbnRyeSKYAQoHU0xBRk1zZxInCgRPcGVy",
-            "GAEgASgOMhkuc2VydmljZV9sYXllci5TTE9iamVjdE9wEg8KB1ZyZk5hbWUY",
-            "AiABKAkSLAoHQWNrVHlwZRgDIAEoDjIbLnNlcnZpY2VfbGF5ZXIuU0xSc3BB",
-            "Q0tUeXBlEiUKBk9wTGlzdBgEIAMoCzIVLnNlcnZpY2VfbGF5ZXIuU0xBRk9w",
-            "ImQKB1NMQUZSZXMSLwoJRXJyU3RhdHVzGAEgASgLMhwuc2VydmljZV9sYXll",
-            "ci5TTEVycm9yU3RhdHVzEigKCU9wZXJhdGlvbhgCIAEoCzIVLnNlcnZpY2Vf",
-            "bGF5ZXIuU0xBRk9wIkYKClNMQUZNc2dSc3ASDwoHVnJmTmFtZRgBIAEoCRIn",
-            "CgdSZXN1bHRzGAIgAygLMhYuc2VydmljZV9sYXllci5TTEFGUmVzMp8CCgRT",
-            "TEFGEk0KDFNMQUZWcmZSZWdPcBIcLnNlcnZpY2VfbGF5ZXIuU0xBRlZyZlJl",
-            "Z01zZxofLnNlcnZpY2VfbGF5ZXIuU0xBRlZyZlJlZ01zZ1JzcBI7CgZTTEFG",
-            "T3ASFi5zZXJ2aWNlX2xheWVyLlNMQUZNc2caGS5zZXJ2aWNlX2xheWVyLlNM",
-            "QUZNc2dSc3ASRQoMU0xBRk9wU3RyZWFtEhYuc2VydmljZV9sYXllci5TTEFG",
-            "TXNnGhkuc2VydmljZV9sYXllci5TTEFGTXNnUnNwKAEwARJECgdTTEFGR2V0",
-            "Ehkuc2VydmljZV9sYXllci5TTEFGR2V0TXNnGhwuc2VydmljZV9sYXllci5T",
-            "TEFGR2V0TXNnUnNwMAFCUVpPZ2l0aHViLmNvbS9DaXNjby1zZXJ2aWNlLWxh",
-            "eWVyL3NlcnZpY2UtbGF5ZXItb2JqbW9kZWwvZ3JwYy9wcm90b3M7c2Vydmlj",
-            "ZV9sYXllcmIGcHJvdG8z"));
+            "LlNMVGFibGVUeXBlEhUKDUdldEFsbENsaWVudHMYAyABKAgiMAoJU0xBRkVu",
+            "dHJ5EiMKBEFGT3AYASABKAsyFS5zZXJ2aWNlX2xheWVyLlNMQUZPcCKNAQoN",
+            "U0xBRkdldE1zZ1JzcBIvCglFcnJTdGF0dXMYASABKAsyHC5zZXJ2aWNlX2xh",
+            "eWVyLlNMRXJyb3JTdGF0dXMSDwoHVnJmTmFtZRgCIAEoCRIQCghDbGllbnRJ",
+            "RBgDIAEoBBIoCgZBRkxpc3QYBCADKAsyGC5zZXJ2aWNlX2xheWVyLlNMQUZF",
+            "bnRyeSKYAQoHU0xBRk1zZxInCgRPcGVyGAEgASgOMhkuc2VydmljZV9sYXll",
+            "ci5TTE9iamVjdE9wEg8KB1ZyZk5hbWUYAiABKAkSLAoHQWNrVHlwZRgDIAEo",
+            "DjIbLnNlcnZpY2VfbGF5ZXIuU0xSc3BBQ0tUeXBlEiUKBk9wTGlzdBgEIAMo",
+            "CzIVLnNlcnZpY2VfbGF5ZXIuU0xBRk9wImQKB1NMQUZSZXMSLwoJRXJyU3Rh",
+            "dHVzGAEgASgLMhwuc2VydmljZV9sYXllci5TTEVycm9yU3RhdHVzEigKCU9w",
+            "ZXJhdGlvbhgCIAEoCzIVLnNlcnZpY2VfbGF5ZXIuU0xBRk9wIkYKClNMQUZN",
+            "c2dSc3ASDwoHVnJmTmFtZRgBIAEoCRInCgdSZXN1bHRzGAIgAygLMhYuc2Vy",
+            "dmljZV9sYXllci5TTEFGUmVzMp8CCgRTTEFGEk0KDFNMQUZWcmZSZWdPcBIc",
+            "LnNlcnZpY2VfbGF5ZXIuU0xBRlZyZlJlZ01zZxofLnNlcnZpY2VfbGF5ZXIu",
+            "U0xBRlZyZlJlZ01zZ1JzcBI7CgZTTEFGT3ASFi5zZXJ2aWNlX2xheWVyLlNM",
+            "QUZNc2caGS5zZXJ2aWNlX2xheWVyLlNMQUZNc2dSc3ASRQoMU0xBRk9wU3Ry",
+            "ZWFtEhYuc2VydmljZV9sYXllci5TTEFGTXNnGhkuc2VydmljZV9sYXllci5T",
+            "TEFGTXNnUnNwKAEwARJECgdTTEFGR2V0Ehkuc2VydmljZV9sYXllci5TTEFG",
+            "R2V0TXNnGhwuc2VydmljZV9sYXllci5TTEFGR2V0TXNnUnNwMAFCUVpPZ2l0",
+            "aHViLmNvbS9DaXNjby1zZXJ2aWNlLWxheWVyL3NlcnZpY2UtbGF5ZXItb2Jq",
+            "bW9kZWwvZ3JwYy9wcm90b3M7c2VydmljZV9sYXllcmIGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::ServiceLayer.SlCommonTypesReflection.Descriptor, global::ServiceLayer.SlRouteCommonReflection.Descriptor, global::ServiceLayer.SlRouteIpv4Reflection.Descriptor, global::ServiceLayer.SlRouteIpv6Reflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
@@ -90,7 +89,7 @@ namespace ServiceLayer {
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLAFObject), global::ServiceLayer.SLAFObject.Parser, new[]{ "IPv4Route", "IPv6Route", "MplsLabel", "PathGroup" }, new[]{ "Entry" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLAFOp), global::ServiceLayer.SLAFOp.Parser, new[]{ "AFObject", "OperationID" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLAFGetMsg), global::ServiceLayer.SLAFGetMsg.Parser, new[]{ "VrfName", "Table", "GetAllClients" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLAFEntry), global::ServiceLayer.SLAFEntry.Parser, new[]{ "AFOp", "OperationID" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLAFEntry), global::ServiceLayer.SLAFEntry.Parser, new[]{ "AFOp" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLAFGetMsgRsp), global::ServiceLayer.SLAFGetMsgRsp.Parser, new[]{ "ErrStatus", "VrfName", "ClientID", "AFList" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLAFMsg), global::ServiceLayer.SLAFMsg.Parser, new[]{ "Oper", "VrfName", "AckType", "OpList" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLAFRes), global::ServiceLayer.SLAFRes.Parser, new[]{ "ErrStatus", "Operation" }, null, null, null, null),
@@ -3211,7 +3210,6 @@ namespace ServiceLayer {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public SLAFEntry(SLAFEntry other) : this() {
       aFOp_ = other.aFOp_ != null ? other.aFOp_.Clone() : null;
-      operationID_ = other.operationID_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -3236,22 +3234,6 @@ namespace ServiceLayer {
       }
     }
 
-    /// <summary>Field number for the "OperationID" field.</summary>
-    public const int OperationIDFieldNumber = 3;
-    private ulong operationID_;
-    /// <summary>
-    /// OperationID of the object that is installed in the network
-    /// element's RIB.
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public ulong OperationID {
-      get { return operationID_; }
-      set {
-        operationID_ = value;
-      }
-    }
-
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -3268,7 +3250,6 @@ namespace ServiceLayer {
         return true;
       }
       if (!object.Equals(AFOp, other.AFOp)) return false;
-      if (OperationID != other.OperationID) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -3277,7 +3258,6 @@ namespace ServiceLayer {
     public override int GetHashCode() {
       int hash = 1;
       if (aFOp_ != null) hash ^= AFOp.GetHashCode();
-      if (OperationID != 0UL) hash ^= OperationID.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -3300,10 +3280,6 @@ namespace ServiceLayer {
         output.WriteRawTag(10);
         output.WriteMessage(AFOp);
       }
-      if (OperationID != 0UL) {
-        output.WriteRawTag(24);
-        output.WriteUInt64(OperationID);
-      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -3318,10 +3294,6 @@ namespace ServiceLayer {
         output.WriteRawTag(10);
         output.WriteMessage(AFOp);
       }
-      if (OperationID != 0UL) {
-        output.WriteRawTag(24);
-        output.WriteUInt64(OperationID);
-      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -3334,9 +3306,6 @@ namespace ServiceLayer {
       int size = 0;
       if (aFOp_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(AFOp);
-      }
-      if (OperationID != 0UL) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(OperationID);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -3355,9 +3324,6 @@ namespace ServiceLayer {
           AFOp = new global::ServiceLayer.SLAFOp();
         }
         AFOp.MergeFrom(other.AFOp);
-      }
-      if (other.OperationID != 0UL) {
-        OperationID = other.OperationID;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -3381,10 +3347,6 @@ namespace ServiceLayer {
             input.ReadMessage(AFOp);
             break;
           }
-          case 24: {
-            OperationID = input.ReadUInt64();
-            break;
-          }
         }
       }
     #endif
@@ -3405,10 +3367,6 @@ namespace ServiceLayer {
               AFOp = new global::ServiceLayer.SLAFOp();
             }
             input.ReadMessage(AFOp);
-            break;
-          }
-          case 24: {
-            OperationID = input.ReadUInt64();
             break;
           }
         }
@@ -3501,7 +3459,7 @@ namespace ServiceLayer {
 
     /// <summary>Field number for the "ClientID" field.</summary>
     public const int ClientIDFieldNumber = 3;
-    private uint clientID_;
+    private ulong clientID_;
     /// <summary>
     /// Client ID. If the client requested read of all clients' objects,
     /// the Client ID field can be used by the client to determine
@@ -3510,7 +3468,7 @@ namespace ServiceLayer {
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public uint ClientID {
+    public ulong ClientID {
       get { return clientID_; }
       set {
         clientID_ = value;
@@ -3561,7 +3519,7 @@ namespace ServiceLayer {
       int hash = 1;
       if (errStatus_ != null) hash ^= ErrStatus.GetHashCode();
       if (VrfName.Length != 0) hash ^= VrfName.GetHashCode();
-      if (ClientID != 0) hash ^= ClientID.GetHashCode();
+      if (ClientID != 0UL) hash ^= ClientID.GetHashCode();
       hash ^= aFList_.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
@@ -3589,9 +3547,9 @@ namespace ServiceLayer {
         output.WriteRawTag(18);
         output.WriteString(VrfName);
       }
-      if (ClientID != 0) {
+      if (ClientID != 0UL) {
         output.WriteRawTag(24);
-        output.WriteUInt32(ClientID);
+        output.WriteUInt64(ClientID);
       }
       aFList_.WriteTo(output, _repeated_aFList_codec);
       if (_unknownFields != null) {
@@ -3612,9 +3570,9 @@ namespace ServiceLayer {
         output.WriteRawTag(18);
         output.WriteString(VrfName);
       }
-      if (ClientID != 0) {
+      if (ClientID != 0UL) {
         output.WriteRawTag(24);
-        output.WriteUInt32(ClientID);
+        output.WriteUInt64(ClientID);
       }
       aFList_.WriteTo(ref output, _repeated_aFList_codec);
       if (_unknownFields != null) {
@@ -3633,8 +3591,8 @@ namespace ServiceLayer {
       if (VrfName.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(VrfName);
       }
-      if (ClientID != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(ClientID);
+      if (ClientID != 0UL) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(ClientID);
       }
       size += aFList_.CalculateSize(_repeated_aFList_codec);
       if (_unknownFields != null) {
@@ -3658,7 +3616,7 @@ namespace ServiceLayer {
       if (other.VrfName.Length != 0) {
         VrfName = other.VrfName;
       }
-      if (other.ClientID != 0) {
+      if (other.ClientID != 0UL) {
         ClientID = other.ClientID;
       }
       aFList_.Add(other.aFList_);
@@ -3689,7 +3647,7 @@ namespace ServiceLayer {
             break;
           }
           case 24: {
-            ClientID = input.ReadUInt32();
+            ClientID = input.ReadUInt64();
             break;
           }
           case 34: {
@@ -3723,7 +3681,7 @@ namespace ServiceLayer {
             break;
           }
           case 24: {
-            ClientID = input.ReadUInt32();
+            ClientID = input.ReadUInt64();
             break;
           }
           case 34: {
