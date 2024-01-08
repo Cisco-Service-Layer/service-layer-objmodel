@@ -251,10 +251,10 @@ namespace ServiceLayer {
             "UF9NUExTEAIqjQEKC1NMVGFibGVUeXBlEhoKFlNMX1RBQkxFX1RZUEVfUkVT",
             "RVJWRUQQABIXChNTTF9JUHY0X1JPVVRFX1RBQkxFEAESFwoTU0xfSVB2Nl9S",
             "T1VURV9UQUJMRRACEhcKE1NMX01QTFNfTEFCRUxfVEFCTEUQAxIXChNTTF9Q",
-            "QVRIX0dST1VQX1RBQkxFEAQqGwoMU0xSc3BBQ0tUeXBlEgsKB1JJQl9BQ0sQ",
-            "AEJRWk9naXRodWIuY29tL0Npc2NvLXNlcnZpY2UtbGF5ZXIvc2VydmljZS1s",
-            "YXllci1vYmptb2RlbC9ncnBjL3Byb3RvcztzZXJ2aWNlX2xheWVyYgZwcm90",
-            "bzM="));
+            "QVRIX0dST1VQX1RBQkxFEAQqMAoMU0xSc3BBQ0tUeXBlEgsKB1JJQl9BQ0sQ",
+            "ABITCg9SSUJfQU5EX0ZJQl9BQ0sQAUJRWk9naXRodWIuY29tL0Npc2NvLXNl",
+            "cnZpY2UtbGF5ZXIvc2VydmljZS1sYXllci1vYmptb2RlbC9ncnBjL3Byb3Rv",
+            "cztzZXJ2aWNlX2xheWVyYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::ServiceLayer.SLRegOp), typeof(global::ServiceLayer.SLObjectOp), typeof(global::ServiceLayer.SLNotifOp), typeof(global::ServiceLayer.SLUpdatePriority), typeof(global::ServiceLayer.SLEncapType), typeof(global::ServiceLayer.SLTableType), typeof(global::ServiceLayer.SLRspACKType), }, null, new pbr::GeneratedClrTypeInfo[] {
@@ -410,6 +410,13 @@ namespace ServiceLayer {
     /// By default, ack type is assumed to be RIB_ACK.
     /// </summary>
     [pbr::OriginalName("RIB_ACK")] RibAck = 0,
+    /// <summary>
+    /// The controller can request for FIB ACK along with RIB ack. FIB stands for
+    /// hardware data-plane, whereas RIB stands for software data-plane. If the
+    /// chosen ack_type is RIB_AND_FIB_ACK, then the controller shall receive a
+    /// seperate RIB ACK followed by one or more FIB acks delivered asynchronously.
+    /// </summary>
+    [pbr::OriginalName("RIB_AND_FIB_ACK")] RibAndFibAck = 1,
   }
 
   #endregion

@@ -65,7 +65,7 @@ RUN mkdir -p ${MY_INSTALL_DIR}
 ENV PATH="${PATH}:${MY_INSTALL_DIR}/bin"
 
 #get cmake
-RUN wget -q -O cmake-linux.sh https://github.com/Kitware/CMake/releases/download/v3.21.7/cmake-3.21.7-Linux-x86_64.sh
+RUN wget -q -O cmake-linux.sh https://github.com/Kitware/CMake/releases/download/v3.22.0/cmake-3.22.0-linux-x86_64.sh
 RUN sh cmake-linux.sh -- --skip-license --prefix=${MY_INSTALL_DIR}
 
 # Clone GRPC repo

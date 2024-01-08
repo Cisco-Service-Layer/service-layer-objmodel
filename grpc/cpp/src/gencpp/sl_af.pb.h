@@ -1920,6 +1920,7 @@ class SLAFOp final :
   enum : int {
     kAFObjectFieldNumber = 1,
     kOperationIDFieldNumber = 2,
+    kAckTypeFieldNumber = 3,
   };
   // .service_layer.SLAFObject AFObject = 1;
   bool has_afobject() const;
@@ -1948,6 +1949,15 @@ class SLAFOp final :
   void _internal_set_operationid(uint64_t value);
   public:
 
+  // .service_layer.SLRspACKType AckType = 3;
+  void clear_acktype();
+  ::service_layer::SLRspACKType acktype() const;
+  void set_acktype(::service_layer::SLRspACKType value);
+  private:
+  ::service_layer::SLRspACKType _internal_acktype() const;
+  void _internal_set_acktype(::service_layer::SLRspACKType value);
+  public:
+
   // @@protoc_insertion_point(class_scope:service_layer.SLAFOp)
  private:
   class _Internal;
@@ -1957,6 +1967,7 @@ class SLAFOp final :
   typedef void DestructorSkippable_;
   ::service_layer::SLAFObject* afobject_;
   uint64_t operationid_;
+  int acktype_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_sl_5faf_2eproto;
 };
@@ -2084,12 +2095,11 @@ class SLAFMsg final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kOpListFieldNumber = 4,
+    kOpListFieldNumber = 3,
     kVrfNameFieldNumber = 2,
     kOperFieldNumber = 1,
-    kAckTypeFieldNumber = 3,
   };
-  // repeated .service_layer.SLAFOp OpList = 4;
+  // repeated .service_layer.SLAFOp OpList = 3;
   int oplist_size() const;
   private:
   int _internal_oplist_size() const;
@@ -2130,15 +2140,6 @@ class SLAFMsg final :
   void _internal_set_oper(::service_layer::SLObjectOp value);
   public:
 
-  // .service_layer.SLRspACKType AckType = 3;
-  void clear_acktype();
-  ::service_layer::SLRspACKType acktype() const;
-  void set_acktype(::service_layer::SLRspACKType value);
-  private:
-  ::service_layer::SLRspACKType _internal_acktype() const;
-  void _internal_set_acktype(::service_layer::SLRspACKType value);
-  public:
-
   // @@protoc_insertion_point(class_scope:service_layer.SLAFMsg)
  private:
   class _Internal;
@@ -2149,7 +2150,6 @@ class SLAFMsg final :
   ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::service_layer::SLAFOp > oplist_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr vrfname_;
   int oper_;
-  int acktype_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_sl_5faf_2eproto;
 };
@@ -2278,7 +2278,10 @@ class SLAFRes final :
 
   enum : int {
     kErrStatusFieldNumber = 1,
-    kOperationFieldNumber = 2,
+    kOperationKeyFieldNumber = 2,
+    kHwAckVersionFieldNumber = 3,
+    kPathGroupOperationIDFieldNumber = 4,
+    kPathGroupHwAckVersionFieldNumber = 5,
   };
   // .service_layer.SLErrorStatus ErrStatus = 1;
   bool has_errstatus() const;
@@ -2298,23 +2301,50 @@ class SLAFRes final :
       ::service_layer::SLErrorStatus* errstatus);
   ::service_layer::SLErrorStatus* unsafe_arena_release_errstatus();
 
-  // .service_layer.SLAFOp Operation = 2;
-  bool has_operation() const;
+  // .service_layer.SLAFOp OperationKey = 2;
+  bool has_operationkey() const;
   private:
-  bool _internal_has_operation() const;
+  bool _internal_has_operationkey() const;
   public:
-  void clear_operation();
-  const ::service_layer::SLAFOp& operation() const;
-  PROTOBUF_NODISCARD ::service_layer::SLAFOp* release_operation();
-  ::service_layer::SLAFOp* mutable_operation();
-  void set_allocated_operation(::service_layer::SLAFOp* operation);
+  void clear_operationkey();
+  const ::service_layer::SLAFOp& operationkey() const;
+  PROTOBUF_NODISCARD ::service_layer::SLAFOp* release_operationkey();
+  ::service_layer::SLAFOp* mutable_operationkey();
+  void set_allocated_operationkey(::service_layer::SLAFOp* operationkey);
   private:
-  const ::service_layer::SLAFOp& _internal_operation() const;
-  ::service_layer::SLAFOp* _internal_mutable_operation();
+  const ::service_layer::SLAFOp& _internal_operationkey() const;
+  ::service_layer::SLAFOp* _internal_mutable_operationkey();
   public:
-  void unsafe_arena_set_allocated_operation(
-      ::service_layer::SLAFOp* operation);
-  ::service_layer::SLAFOp* unsafe_arena_release_operation();
+  void unsafe_arena_set_allocated_operationkey(
+      ::service_layer::SLAFOp* operationkey);
+  ::service_layer::SLAFOp* unsafe_arena_release_operationkey();
+
+  // uint64 HwAckVersion = 3;
+  void clear_hwackversion();
+  uint64_t hwackversion() const;
+  void set_hwackversion(uint64_t value);
+  private:
+  uint64_t _internal_hwackversion() const;
+  void _internal_set_hwackversion(uint64_t value);
+  public:
+
+  // uint64 PathGroupOperationID = 4;
+  void clear_pathgroupoperationid();
+  uint64_t pathgroupoperationid() const;
+  void set_pathgroupoperationid(uint64_t value);
+  private:
+  uint64_t _internal_pathgroupoperationid() const;
+  void _internal_set_pathgroupoperationid(uint64_t value);
+  public:
+
+  // uint64 PathGroupHwAckVersion = 5;
+  void clear_pathgrouphwackversion();
+  uint64_t pathgrouphwackversion() const;
+  void set_pathgrouphwackversion(uint64_t value);
+  private:
+  uint64_t _internal_pathgrouphwackversion() const;
+  void _internal_set_pathgrouphwackversion(uint64_t value);
+  public:
 
   // @@protoc_insertion_point(class_scope:service_layer.SLAFRes)
  private:
@@ -2324,7 +2354,10 @@ class SLAFRes final :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   ::service_layer::SLErrorStatus* errstatus_;
-  ::service_layer::SLAFOp* operation_;
+  ::service_layer::SLAFOp* operationkey_;
+  uint64_t hwackversion_;
+  uint64_t pathgroupoperationid_;
+  uint64_t pathgrouphwackversion_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_sl_5faf_2eproto;
 };
@@ -3901,6 +3934,26 @@ inline void SLAFOp::set_operationid(uint64_t value) {
   // @@protoc_insertion_point(field_set:service_layer.SLAFOp.OperationID)
 }
 
+// .service_layer.SLRspACKType AckType = 3;
+inline void SLAFOp::clear_acktype() {
+  acktype_ = 0;
+}
+inline ::service_layer::SLRspACKType SLAFOp::_internal_acktype() const {
+  return static_cast< ::service_layer::SLRspACKType >(acktype_);
+}
+inline ::service_layer::SLRspACKType SLAFOp::acktype() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLAFOp.AckType)
+  return _internal_acktype();
+}
+inline void SLAFOp::_internal_set_acktype(::service_layer::SLRspACKType value) {
+  
+  acktype_ = value;
+}
+inline void SLAFOp::set_acktype(::service_layer::SLRspACKType value) {
+  _internal_set_acktype(value);
+  // @@protoc_insertion_point(field_set:service_layer.SLAFOp.AckType)
+}
+
 // -------------------------------------------------------------------
 
 // SLAFMsg
@@ -3976,27 +4029,7 @@ inline void SLAFMsg::set_allocated_vrfname(std::string* vrfname) {
   // @@protoc_insertion_point(field_set_allocated:service_layer.SLAFMsg.VrfName)
 }
 
-// .service_layer.SLRspACKType AckType = 3;
-inline void SLAFMsg::clear_acktype() {
-  acktype_ = 0;
-}
-inline ::service_layer::SLRspACKType SLAFMsg::_internal_acktype() const {
-  return static_cast< ::service_layer::SLRspACKType >(acktype_);
-}
-inline ::service_layer::SLRspACKType SLAFMsg::acktype() const {
-  // @@protoc_insertion_point(field_get:service_layer.SLAFMsg.AckType)
-  return _internal_acktype();
-}
-inline void SLAFMsg::_internal_set_acktype(::service_layer::SLRspACKType value) {
-  
-  acktype_ = value;
-}
-inline void SLAFMsg::set_acktype(::service_layer::SLRspACKType value) {
-  _internal_set_acktype(value);
-  // @@protoc_insertion_point(field_set:service_layer.SLAFMsg.AckType)
-}
-
-// repeated .service_layer.SLAFOp OpList = 4;
+// repeated .service_layer.SLAFOp OpList = 3;
 inline int SLAFMsg::_internal_oplist_size() const {
   return oplist_.size();
 }
@@ -4126,45 +4159,45 @@ inline void SLAFRes::set_allocated_errstatus(::service_layer::SLErrorStatus* err
   // @@protoc_insertion_point(field_set_allocated:service_layer.SLAFRes.ErrStatus)
 }
 
-// .service_layer.SLAFOp Operation = 2;
-inline bool SLAFRes::_internal_has_operation() const {
-  return this != internal_default_instance() && operation_ != nullptr;
+// .service_layer.SLAFOp OperationKey = 2;
+inline bool SLAFRes::_internal_has_operationkey() const {
+  return this != internal_default_instance() && operationkey_ != nullptr;
 }
-inline bool SLAFRes::has_operation() const {
-  return _internal_has_operation();
+inline bool SLAFRes::has_operationkey() const {
+  return _internal_has_operationkey();
 }
-inline void SLAFRes::clear_operation() {
-  if (GetArenaForAllocation() == nullptr && operation_ != nullptr) {
-    delete operation_;
+inline void SLAFRes::clear_operationkey() {
+  if (GetArenaForAllocation() == nullptr && operationkey_ != nullptr) {
+    delete operationkey_;
   }
-  operation_ = nullptr;
+  operationkey_ = nullptr;
 }
-inline const ::service_layer::SLAFOp& SLAFRes::_internal_operation() const {
-  const ::service_layer::SLAFOp* p = operation_;
+inline const ::service_layer::SLAFOp& SLAFRes::_internal_operationkey() const {
+  const ::service_layer::SLAFOp* p = operationkey_;
   return p != nullptr ? *p : reinterpret_cast<const ::service_layer::SLAFOp&>(
       ::service_layer::_SLAFOp_default_instance_);
 }
-inline const ::service_layer::SLAFOp& SLAFRes::operation() const {
-  // @@protoc_insertion_point(field_get:service_layer.SLAFRes.Operation)
-  return _internal_operation();
+inline const ::service_layer::SLAFOp& SLAFRes::operationkey() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLAFRes.OperationKey)
+  return _internal_operationkey();
 }
-inline void SLAFRes::unsafe_arena_set_allocated_operation(
-    ::service_layer::SLAFOp* operation) {
+inline void SLAFRes::unsafe_arena_set_allocated_operationkey(
+    ::service_layer::SLAFOp* operationkey) {
   if (GetArenaForAllocation() == nullptr) {
-    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(operation_);
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(operationkey_);
   }
-  operation_ = operation;
-  if (operation) {
+  operationkey_ = operationkey;
+  if (operationkey) {
     
   } else {
     
   }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:service_layer.SLAFRes.Operation)
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:service_layer.SLAFRes.OperationKey)
 }
-inline ::service_layer::SLAFOp* SLAFRes::release_operation() {
+inline ::service_layer::SLAFOp* SLAFRes::release_operationkey() {
   
-  ::service_layer::SLAFOp* temp = operation_;
-  operation_ = nullptr;
+  ::service_layer::SLAFOp* temp = operationkey_;
+  operationkey_ = nullptr;
 #ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
   auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
   temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
@@ -4176,44 +4209,104 @@ inline ::service_layer::SLAFOp* SLAFRes::release_operation() {
 #endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
   return temp;
 }
-inline ::service_layer::SLAFOp* SLAFRes::unsafe_arena_release_operation() {
-  // @@protoc_insertion_point(field_release:service_layer.SLAFRes.Operation)
+inline ::service_layer::SLAFOp* SLAFRes::unsafe_arena_release_operationkey() {
+  // @@protoc_insertion_point(field_release:service_layer.SLAFRes.OperationKey)
   
-  ::service_layer::SLAFOp* temp = operation_;
-  operation_ = nullptr;
+  ::service_layer::SLAFOp* temp = operationkey_;
+  operationkey_ = nullptr;
   return temp;
 }
-inline ::service_layer::SLAFOp* SLAFRes::_internal_mutable_operation() {
+inline ::service_layer::SLAFOp* SLAFRes::_internal_mutable_operationkey() {
   
-  if (operation_ == nullptr) {
+  if (operationkey_ == nullptr) {
     auto* p = CreateMaybeMessage<::service_layer::SLAFOp>(GetArenaForAllocation());
-    operation_ = p;
+    operationkey_ = p;
   }
-  return operation_;
+  return operationkey_;
 }
-inline ::service_layer::SLAFOp* SLAFRes::mutable_operation() {
-  ::service_layer::SLAFOp* _msg = _internal_mutable_operation();
-  // @@protoc_insertion_point(field_mutable:service_layer.SLAFRes.Operation)
+inline ::service_layer::SLAFOp* SLAFRes::mutable_operationkey() {
+  ::service_layer::SLAFOp* _msg = _internal_mutable_operationkey();
+  // @@protoc_insertion_point(field_mutable:service_layer.SLAFRes.OperationKey)
   return _msg;
 }
-inline void SLAFRes::set_allocated_operation(::service_layer::SLAFOp* operation) {
+inline void SLAFRes::set_allocated_operationkey(::service_layer::SLAFOp* operationkey) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
   if (message_arena == nullptr) {
-    delete operation_;
+    delete operationkey_;
   }
-  if (operation) {
+  if (operationkey) {
     ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-        ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper<::service_layer::SLAFOp>::GetOwningArena(operation);
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper<::service_layer::SLAFOp>::GetOwningArena(operationkey);
     if (message_arena != submessage_arena) {
-      operation = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, operation, submessage_arena);
+      operationkey = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, operationkey, submessage_arena);
     }
     
   } else {
     
   }
-  operation_ = operation;
-  // @@protoc_insertion_point(field_set_allocated:service_layer.SLAFRes.Operation)
+  operationkey_ = operationkey;
+  // @@protoc_insertion_point(field_set_allocated:service_layer.SLAFRes.OperationKey)
+}
+
+// uint64 HwAckVersion = 3;
+inline void SLAFRes::clear_hwackversion() {
+  hwackversion_ = uint64_t{0u};
+}
+inline uint64_t SLAFRes::_internal_hwackversion() const {
+  return hwackversion_;
+}
+inline uint64_t SLAFRes::hwackversion() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLAFRes.HwAckVersion)
+  return _internal_hwackversion();
+}
+inline void SLAFRes::_internal_set_hwackversion(uint64_t value) {
+  
+  hwackversion_ = value;
+}
+inline void SLAFRes::set_hwackversion(uint64_t value) {
+  _internal_set_hwackversion(value);
+  // @@protoc_insertion_point(field_set:service_layer.SLAFRes.HwAckVersion)
+}
+
+// uint64 PathGroupOperationID = 4;
+inline void SLAFRes::clear_pathgroupoperationid() {
+  pathgroupoperationid_ = uint64_t{0u};
+}
+inline uint64_t SLAFRes::_internal_pathgroupoperationid() const {
+  return pathgroupoperationid_;
+}
+inline uint64_t SLAFRes::pathgroupoperationid() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLAFRes.PathGroupOperationID)
+  return _internal_pathgroupoperationid();
+}
+inline void SLAFRes::_internal_set_pathgroupoperationid(uint64_t value) {
+  
+  pathgroupoperationid_ = value;
+}
+inline void SLAFRes::set_pathgroupoperationid(uint64_t value) {
+  _internal_set_pathgroupoperationid(value);
+  // @@protoc_insertion_point(field_set:service_layer.SLAFRes.PathGroupOperationID)
+}
+
+// uint64 PathGroupHwAckVersion = 5;
+inline void SLAFRes::clear_pathgrouphwackversion() {
+  pathgrouphwackversion_ = uint64_t{0u};
+}
+inline uint64_t SLAFRes::_internal_pathgrouphwackversion() const {
+  return pathgrouphwackversion_;
+}
+inline uint64_t SLAFRes::pathgrouphwackversion() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLAFRes.PathGroupHwAckVersion)
+  return _internal_pathgrouphwackversion();
+}
+inline void SLAFRes::_internal_set_pathgrouphwackversion(uint64_t value) {
+  
+  pathgrouphwackversion_ = value;
+}
+inline void SLAFRes::set_pathgrouphwackversion(uint64_t value) {
+  _internal_set_pathgrouphwackversion(value);
+  // @@protoc_insertion_point(field_set:service_layer.SLAFRes.PathGroupHwAckVersion)
 }
 
 // -------------------------------------------------------------------

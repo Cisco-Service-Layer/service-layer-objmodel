@@ -399,14 +399,15 @@ const char descriptor_table_protodef_sl_5fcommon_5ftypes_2eproto[] PROTOBUF_SECT
   "P_MPLS\020\002*\215\001\n\013SLTableType\022\032\n\026SL_TABLE_TYP"
   "E_RESERVED\020\000\022\027\n\023SL_IPv4_ROUTE_TABLE\020\001\022\027\n"
   "\023SL_IPv6_ROUTE_TABLE\020\002\022\027\n\023SL_MPLS_LABEL_"
-  "TABLE\020\003\022\027\n\023SL_PATH_GROUP_TABLE\020\004*\033\n\014SLRs"
-  "pACKType\022\013\n\007RIB_ACK\020\000BQZOgithub.com/Cisc"
-  "o-service-layer/service-layer-objmodel/g"
-  "rpc/protos;service_layerb\006proto3"
+  "TABLE\020\003\022\027\n\023SL_PATH_GROUP_TABLE\020\004*0\n\014SLRs"
+  "pACKType\022\013\n\007RIB_ACK\020\000\022\023\n\017RIB_AND_FIB_ACK"
+  "\020\001BQZOgithub.com/Cisco-service-layer/ser"
+  "vice-layer-objmodel/grpc/protos;service_"
+  "layerb\006proto3"
   ;
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_sl_5fcommon_5ftypes_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_sl_5fcommon_5ftypes_2eproto = {
-  false, false, 10352, descriptor_table_protodef_sl_5fcommon_5ftypes_2eproto, "sl_common_types.proto", 
+  false, false, 10373, descriptor_table_protodef_sl_5fcommon_5ftypes_2eproto, "sl_common_types.proto", 
   &descriptor_table_sl_5fcommon_5ftypes_2eproto_once, nullptr, 0, 5,
   schemas, file_default_instances, TableStruct_sl_5fcommon_5ftypes_2eproto::offsets,
   file_level_metadata_sl_5fcommon_5ftypes_2eproto, file_level_enum_descriptors_sl_5fcommon_5ftypes_2eproto, file_level_service_descriptors_sl_5fcommon_5ftypes_2eproto,
@@ -1084,6 +1085,7 @@ const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* SLRspACKType_descriptor() {
 bool SLRspACKType_IsValid(int value) {
   switch (value) {
     case 0:
+    case 1:
       return true;
     default:
       return false;

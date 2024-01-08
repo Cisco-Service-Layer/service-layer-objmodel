@@ -304,6 +304,9 @@ message SLAFOp {
     // use operation ID to correlate the response for the operation on the object.
     // Operation Id should be monotonically increasing for the life of the client.
     uint64 OperationID = 2;
+
+    // Client's desired acknowledgement type for the above operation id
+    SLRspACKType AckType = 3;
 }
 
 // Operation on the address family. The objects are programmed
@@ -315,11 +318,8 @@ message SLAFMsg {
     // VRF name. VRF name is ignored for MPLS ILM operations.
     string VrfName = 2;
 
-    // Client's desired acknowledgement type
-    SLRspACKType AckType = 3;
-
     // List of operations.
-    repeated SLAFOp OpList = 4;
+    repeated SLAFOp OpList = 3;
 }
 
 // Result of an operation on the object.
@@ -330,7 +330,20 @@ message SLAFRes {
     // The operation ID and object are returned.
     // Only attributes describing an object's key
     // are returned.
-    SLAFOp Operation = 2;
+    SLAFOp OperationKey = 2;
+
+    // If hardware ack was requested, the HwAckVersion will provide a unique
+    // version number that acknowledge the hardware programming of the given
+    // operation id
+    uint64 HwAckVersion = 3;
+
+    // The operation id of pathgroup that is referenced by the above operation
+    // if applicable
+    uint64 PathGroupOperationID = 4;
+
+    // HwAckVersion of the  pathgroup that is referenced by the above operation
+    // if applicable.
+    uint64 PathGroupHwAckVersion = 5;
 }
 
 // Route operations result status
