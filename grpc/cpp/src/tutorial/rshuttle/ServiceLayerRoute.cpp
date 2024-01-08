@@ -79,8 +79,9 @@ RShuttle::ByteArrayStringtoIpv6(std::string ipv6ByteArray)
     }
 }
 
-RShuttle::RShuttle(std::shared_ptr<grpc::Channel> Channel)
-    : channel(Channel) {} 
+RShuttle::RShuttle(std::shared_ptr<grpc::Channel> Channel, std::string Username,
+                   std::string Password)
+    : channel(Channel), username(Username), password(Password) {} 
 
 
 void 
@@ -179,6 +180,12 @@ RShuttle::routev4Op(service_layer::SLObjectOp routeOp,
         std::chrono::system_clock::now() + std::chrono::seconds(timeout);
 
     context.set_deadline(deadline);
+    if (username.length() > 0) {
+        context.AddMetadata("username", username);
+    }
+    if (password.length() > 0) {
+        context.AddMetadata("password", password);
+    }
 
     //Issue the RPC         
     std::string s;
@@ -526,6 +533,12 @@ RShuttle::getPrefixPathsV4(service_layer::SLRoutev4& route,
 
     // Context for the client.
     grpc::ClientContext context;
+    if (username.length() > 0) {
+        context.AddMetadata("username", username);
+    }
+    if (password.length() > 0) {
+        context.AddMetadata("password", password);
+    }
 
     // Storage for the status of the RPC upon completion.
     grpc::Status status;
@@ -758,7 +771,12 @@ RShuttle::routev6Op(service_layer::SLObjectOp routeOp,
         std::chrono::system_clock::now() + std::chrono::seconds(timeout);
 
     context.set_deadline(deadline);
-
+    if (username.length() > 0) {
+        context.AddMetadata("username", username);
+    }
+    if (password.length() > 0) {
+        context.AddMetadata("password", password);
+    }
 
     //Issue the RPC         
     std::string s;
@@ -1109,7 +1127,12 @@ RShuttle::getPrefixPathsV6(service_layer::SLRoutev6& route,
         std::chrono::system_clock::now() + std::chrono::seconds(timeout);
 
     context.set_deadline(deadline);
-
+    if (username.length() > 0) {
+        context.AddMetadata("username", username);
+    }
+    if (password.length() > 0) {
+        context.AddMetadata("password", password);
+    }
 
     //Issue the RPC         
     std::string s;
@@ -1235,8 +1258,8 @@ RShuttle::deletePrefixPathV6(std::string prefix,
 }
 
 
-SLVrf::SLVrf(std::shared_ptr<grpc::Channel> Channel)
-    : channel(Channel) {}
+SLVrf::SLVrf(std::shared_ptr<grpc::Channel> Channel, std::string Username, std::string Password)
+    : channel(Channel), username(Username), password(Password) {}
 
 // Overloaded variant of vrfRegMsgAdd without adminDistance and Purgeinterval
 // Suitable for VRF UNREGISTER and REGISTER operations
@@ -1359,6 +1382,12 @@ SLVrf::vrfOpv4(service_layer::SLRegOp vrfOp)
         std::chrono::system_clock::now() + std::chrono::seconds(timeout);
 
     context.set_deadline(deadline);
+    if (username.length() > 0) {
+        context.AddMetadata("username", username);
+    }
+    if (password.length() > 0) {
+        context.AddMetadata("password", password);
+    }
 
     // Set up vrfRegMsg Operation
 
@@ -1438,6 +1467,12 @@ SLVrf::vrfOpv6(service_layer::SLRegOp vrfOp)
         std::chrono::system_clock::now() + std::chrono::seconds(timeout);
      
     context.set_deadline(deadline);
+    if (username.length() > 0) {
+        context.AddMetadata("username", username);
+    }
+    if (password.length() > 0) {
+        context.AddMetadata("password", password);
+    }
 
     // Set up vrfRegMsg Operation
 

@@ -1,4 +1,5 @@
 #include "ServiceLayerRoute.h"
+#include <string>
 #include <csignal>
 
 using grpc::ClientContext;
@@ -10,6 +11,9 @@ using grpc::Status;
 using service_layer::SLInitMsg;
 using service_layer::SLVersion;
 using service_layer::SLGlobal;
+
+std::string username = "";
+std::string password = "";
 
 class Timer
 {
@@ -93,13 +97,13 @@ void routepush(RShuttle* route_shuttle,
     uint8_t prefix_len = 24;
 
     Timer tmr;
-    unsigned int totalroutes;
+    unsigned int totalroutes = 0;
 
     for (int batchindex = 0; batchindex < batchNum; batchindex++) {
         VLOG(1) << "Batch: " << (batchindex + 1) << "\n";
         VLOG(1) << tmr.elapsed();
         for (int routeindex = 0; routeindex < batchSize; routeindex++, prefix=incrementIpv4Pfx(prefix, prefix_len)) {
-            route_shuttle->insertAddBatchV4(route_shuttle->longToIpv4(prefix), prefix_len, 99, "14.1.1.10", "GigabitEthernet0/0/0/0");
+            route_shuttle->insertAddBatchV4(route_shuttle->longToIpv4(prefix), prefix_len, 99, "14.1.1.10", "Bundle-Ether1");
             totalroutes++;
         }
         route_shuttle->routev4Op(service_layer::SL_OBJOP_UPDATE);
@@ -117,6 +121,7 @@ void routepush(RShuttle* route_shuttle,
 
 int main(int argc, char** argv) {
 
+    int option_char;
 
     auto server_ip = getEnvVar("SERVER_IP");
     auto server_port = getEnvVar("SERVER_PORT");
@@ -129,6 +134,20 @@ int main(int argc, char** argv) {
             LOG(ERROR) << "SERVER_PORT environment variable not set";
         }
         return 1;
+    }
+
+    while ((option_char = getopt(argc, argv, "u:p:")) != -1) {
+        switch (option_char) {
+            case 'u':
+                username = optarg;
+                break;
+            case 'p':
+                password = optarg;
+                break;
+            default:
+                fprintf (stderr, "usage: %s -u username -p password\n", argv[0]);
+                return 1;
+        }
     }
 
     auto batch_size = (getEnvVar("BATCH_SIZE") != "")?stoi(getEnvVar("BATCH_SIZE")):1024;
@@ -158,6 +177,12 @@ int main(int argc, char** argv) {
     init_msg.set_minorver(service_layer::SL_MINOR_VERSION);
     init_msg.set_subver(service_layer::SL_SUB_VERSION);
 
+    if (username.length() > 0) {
+        asynchandler.call.context.AddMetadata("username", username);
+    }
+    if (password.length() > 0) {
+        asynchandler.call.context.AddMetadata("password", password);
+    }
 
     asynchandler.SendInitMsg(init_msg);
 
@@ -166,7 +191,7 @@ int main(int argc, char** argv) {
         init_condVar.wait(initlock);
     }
 
-    auto vrfhandler = SLVrf(channel);
+    auto vrfhandler = SLVrf(channel, username, password);
 
     // Create a new SLVrfRegMsg batch
     vrfhandler.vrfRegMsgAdd("default", 10, 500);
@@ -175,7 +200,7 @@ int main(int argc, char** argv) {
     vrfhandler.registerVrf(AF_INET);
     vrfhandler.registerVrf(AF_INET6);
 
-    route_shuttle = new RShuttle(vrfhandler.channel);
+    route_shuttle = new RShuttle(vrfhandler.channel, username, password);
 
     routepush(route_shuttle, batch_size, batch_num);
 
