@@ -57,19 +57,17 @@ namespace ServiceLayer {
             "Mhsuc2VydmljZV9sYXllci5TTFJzcEFDS1R5cGUiagoHU0xBRk1zZxInCgRP",
             "cGVyGAEgASgOMhkuc2VydmljZV9sYXllci5TTE9iamVjdE9wEg8KB1ZyZk5h",
             "bWUYAiABKAkSJQoGT3BMaXN0GAMgAygLMhUuc2VydmljZV9sYXllci5TTEFG",
-            "T3AiugEKB1NMQUZSZXMSLwoJRXJyU3RhdHVzGAEgASgLMhwuc2VydmljZV9s",
-            "YXllci5TTEVycm9yU3RhdHVzEisKDE9wZXJhdGlvbktleRgCIAEoCzIVLnNl",
-            "cnZpY2VfbGF5ZXIuU0xBRk9wEhQKDEh3QWNrVmVyc2lvbhgDIAEoBBIcChRQ",
-            "YXRoR3JvdXBPcGVyYXRpb25JRBgEIAEoBBIdChVQYXRoR3JvdXBId0Fja1Zl",
-            "cnNpb24YBSABKAQiRgoKU0xBRk1zZ1JzcBIPCgdWcmZOYW1lGAEgASgJEicK",
-            "B1Jlc3VsdHMYAiADKAsyFi5zZXJ2aWNlX2xheWVyLlNMQUZSZXMy2QEKBFNM",
-            "QUYSTQoMU0xBRlZyZlJlZ09wEhwuc2VydmljZV9sYXllci5TTEFGVnJmUmVn",
-            "TXNnGh8uc2VydmljZV9sYXllci5TTEFGVnJmUmVnTXNnUnNwEjsKBlNMQUZP",
-            "cBIWLnNlcnZpY2VfbGF5ZXIuU0xBRk1zZxoZLnNlcnZpY2VfbGF5ZXIuU0xB",
-            "Rk1zZ1JzcBJFCgxTTEFGT3BTdHJlYW0SFi5zZXJ2aWNlX2xheWVyLlNMQUZN",
-            "c2caGS5zZXJ2aWNlX2xheWVyLlNMQUZNc2dSc3AoATABQlFaT2dpdGh1Yi5j",
-            "b20vQ2lzY28tc2VydmljZS1sYXllci9zZXJ2aWNlLWxheWVyLW9iam1vZGVs",
-            "L2dycGMvcHJvdG9zO3NlcnZpY2VfbGF5ZXJiBnByb3RvMw=="));
+            "T3AiZAoHU0xBRlJlcxIvCglFcnJTdGF0dXMYASABKAsyHC5zZXJ2aWNlX2xh",
+            "eWVyLlNMRXJyb3JTdGF0dXMSKAoJT3BlcmF0aW9uGAIgASgLMhUuc2Vydmlj",
+            "ZV9sYXllci5TTEFGT3AiRgoKU0xBRk1zZ1JzcBIPCgdWcmZOYW1lGAEgASgJ",
+            "EicKB1Jlc3VsdHMYAiADKAsyFi5zZXJ2aWNlX2xheWVyLlNMQUZSZXMy2QEK",
+            "BFNMQUYSTQoMU0xBRlZyZlJlZ09wEhwuc2VydmljZV9sYXllci5TTEFGVnJm",
+            "UmVnTXNnGh8uc2VydmljZV9sYXllci5TTEFGVnJmUmVnTXNnUnNwEjsKBlNM",
+            "QUZPcBIWLnNlcnZpY2VfbGF5ZXIuU0xBRk1zZxoZLnNlcnZpY2VfbGF5ZXIu",
+            "U0xBRk1zZ1JzcBJFCgxTTEFGT3BTdHJlYW0SFi5zZXJ2aWNlX2xheWVyLlNM",
+            "QUZNc2caGS5zZXJ2aWNlX2xheWVyLlNMQUZNc2dSc3AoATABQlFaT2dpdGh1",
+            "Yi5jb20vQ2lzY28tc2VydmljZS1sYXllci9zZXJ2aWNlLWxheWVyLW9iam1v",
+            "ZGVsL2dycGMvcHJvdG9zO3NlcnZpY2VfbGF5ZXJiBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::ServiceLayer.SlCommonTypesReflection.Descriptor, global::ServiceLayer.SlRouteCommonReflection.Descriptor, global::ServiceLayer.SlRouteIpv4Reflection.Descriptor, global::ServiceLayer.SlRouteIpv6Reflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
@@ -83,7 +81,7 @@ namespace ServiceLayer {
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLAFObject), global::ServiceLayer.SLAFObject.Parser, new[]{ "IPv4Route", "IPv6Route", "MplsLabel", "PathGroup" }, new[]{ "Entry" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLAFOp), global::ServiceLayer.SLAFOp.Parser, new[]{ "AFObject", "OperationID", "AckType" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLAFMsg), global::ServiceLayer.SLAFMsg.Parser, new[]{ "Oper", "VrfName", "OpList" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLAFRes), global::ServiceLayer.SLAFRes.Parser, new[]{ "ErrStatus", "OperationKey", "HwAckVersion", "PathGroupOperationID", "PathGroupHwAckVersion" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLAFRes), global::ServiceLayer.SLAFRes.Parser, new[]{ "ErrStatus", "Operation" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLAFMsgRsp), global::ServiceLayer.SLAFMsgRsp.Parser, new[]{ "VrfName", "Results" }, null, null, null, null)
           }));
     }
@@ -3225,10 +3223,7 @@ namespace ServiceLayer {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public SLAFRes(SLAFRes other) : this() {
       errStatus_ = other.errStatus_ != null ? other.errStatus_.Clone() : null;
-      operationKey_ = other.operationKey_ != null ? other.operationKey_.Clone() : null;
-      hwAckVersion_ = other.hwAckVersion_;
-      pathGroupOperationID_ = other.pathGroupOperationID_;
-      pathGroupHwAckVersion_ = other.pathGroupHwAckVersion_;
+      operation_ = other.operation_ != null ? other.operation_.Clone() : null;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -3253,9 +3248,9 @@ namespace ServiceLayer {
       }
     }
 
-    /// <summary>Field number for the "OperationKey" field.</summary>
-    public const int OperationKeyFieldNumber = 2;
-    private global::ServiceLayer.SLAFOp operationKey_;
+    /// <summary>Field number for the "Operation" field.</summary>
+    public const int OperationFieldNumber = 2;
+    private global::ServiceLayer.SLAFOp operation_;
     /// <summary>
     /// The operation ID and object are returned.
     /// Only attributes describing an object's key
@@ -3263,59 +3258,10 @@ namespace ServiceLayer {
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::ServiceLayer.SLAFOp OperationKey {
-      get { return operationKey_; }
+    public global::ServiceLayer.SLAFOp Operation {
+      get { return operation_; }
       set {
-        operationKey_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "HwAckVersion" field.</summary>
-    public const int HwAckVersionFieldNumber = 3;
-    private ulong hwAckVersion_;
-    /// <summary>
-    /// If hardware ack was requested, the HwAckVersion will provide a unique
-    /// version number that acknowledge the hardware programming of the given
-    /// operation id
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public ulong HwAckVersion {
-      get { return hwAckVersion_; }
-      set {
-        hwAckVersion_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "PathGroupOperationID" field.</summary>
-    public const int PathGroupOperationIDFieldNumber = 4;
-    private ulong pathGroupOperationID_;
-    /// <summary>
-    /// The operation id of pathgroup that is referenced by the above operation
-    /// if applicable
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public ulong PathGroupOperationID {
-      get { return pathGroupOperationID_; }
-      set {
-        pathGroupOperationID_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "PathGroupHwAckVersion" field.</summary>
-    public const int PathGroupHwAckVersionFieldNumber = 5;
-    private ulong pathGroupHwAckVersion_;
-    /// <summary>
-    /// HwAckVersion of the  pathgroup that is referenced by the above operation
-    /// if applicable.
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public ulong PathGroupHwAckVersion {
-      get { return pathGroupHwAckVersion_; }
-      set {
-        pathGroupHwAckVersion_ = value;
+        operation_ = value;
       }
     }
 
@@ -3335,10 +3281,7 @@ namespace ServiceLayer {
         return true;
       }
       if (!object.Equals(ErrStatus, other.ErrStatus)) return false;
-      if (!object.Equals(OperationKey, other.OperationKey)) return false;
-      if (HwAckVersion != other.HwAckVersion) return false;
-      if (PathGroupOperationID != other.PathGroupOperationID) return false;
-      if (PathGroupHwAckVersion != other.PathGroupHwAckVersion) return false;
+      if (!object.Equals(Operation, other.Operation)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -3347,10 +3290,7 @@ namespace ServiceLayer {
     public override int GetHashCode() {
       int hash = 1;
       if (errStatus_ != null) hash ^= ErrStatus.GetHashCode();
-      if (operationKey_ != null) hash ^= OperationKey.GetHashCode();
-      if (HwAckVersion != 0UL) hash ^= HwAckVersion.GetHashCode();
-      if (PathGroupOperationID != 0UL) hash ^= PathGroupOperationID.GetHashCode();
-      if (PathGroupHwAckVersion != 0UL) hash ^= PathGroupHwAckVersion.GetHashCode();
+      if (operation_ != null) hash ^= Operation.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -3373,21 +3313,9 @@ namespace ServiceLayer {
         output.WriteRawTag(10);
         output.WriteMessage(ErrStatus);
       }
-      if (operationKey_ != null) {
+      if (operation_ != null) {
         output.WriteRawTag(18);
-        output.WriteMessage(OperationKey);
-      }
-      if (HwAckVersion != 0UL) {
-        output.WriteRawTag(24);
-        output.WriteUInt64(HwAckVersion);
-      }
-      if (PathGroupOperationID != 0UL) {
-        output.WriteRawTag(32);
-        output.WriteUInt64(PathGroupOperationID);
-      }
-      if (PathGroupHwAckVersion != 0UL) {
-        output.WriteRawTag(40);
-        output.WriteUInt64(PathGroupHwAckVersion);
+        output.WriteMessage(Operation);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -3403,21 +3331,9 @@ namespace ServiceLayer {
         output.WriteRawTag(10);
         output.WriteMessage(ErrStatus);
       }
-      if (operationKey_ != null) {
+      if (operation_ != null) {
         output.WriteRawTag(18);
-        output.WriteMessage(OperationKey);
-      }
-      if (HwAckVersion != 0UL) {
-        output.WriteRawTag(24);
-        output.WriteUInt64(HwAckVersion);
-      }
-      if (PathGroupOperationID != 0UL) {
-        output.WriteRawTag(32);
-        output.WriteUInt64(PathGroupOperationID);
-      }
-      if (PathGroupHwAckVersion != 0UL) {
-        output.WriteRawTag(40);
-        output.WriteUInt64(PathGroupHwAckVersion);
+        output.WriteMessage(Operation);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -3432,17 +3348,8 @@ namespace ServiceLayer {
       if (errStatus_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(ErrStatus);
       }
-      if (operationKey_ != null) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(OperationKey);
-      }
-      if (HwAckVersion != 0UL) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(HwAckVersion);
-      }
-      if (PathGroupOperationID != 0UL) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(PathGroupOperationID);
-      }
-      if (PathGroupHwAckVersion != 0UL) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(PathGroupHwAckVersion);
+      if (operation_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Operation);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -3462,20 +3369,11 @@ namespace ServiceLayer {
         }
         ErrStatus.MergeFrom(other.ErrStatus);
       }
-      if (other.operationKey_ != null) {
-        if (operationKey_ == null) {
-          OperationKey = new global::ServiceLayer.SLAFOp();
+      if (other.operation_ != null) {
+        if (operation_ == null) {
+          Operation = new global::ServiceLayer.SLAFOp();
         }
-        OperationKey.MergeFrom(other.OperationKey);
-      }
-      if (other.HwAckVersion != 0UL) {
-        HwAckVersion = other.HwAckVersion;
-      }
-      if (other.PathGroupOperationID != 0UL) {
-        PathGroupOperationID = other.PathGroupOperationID;
-      }
-      if (other.PathGroupHwAckVersion != 0UL) {
-        PathGroupHwAckVersion = other.PathGroupHwAckVersion;
+        Operation.MergeFrom(other.Operation);
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -3500,22 +3398,10 @@ namespace ServiceLayer {
             break;
           }
           case 18: {
-            if (operationKey_ == null) {
-              OperationKey = new global::ServiceLayer.SLAFOp();
+            if (operation_ == null) {
+              Operation = new global::ServiceLayer.SLAFOp();
             }
-            input.ReadMessage(OperationKey);
-            break;
-          }
-          case 24: {
-            HwAckVersion = input.ReadUInt64();
-            break;
-          }
-          case 32: {
-            PathGroupOperationID = input.ReadUInt64();
-            break;
-          }
-          case 40: {
-            PathGroupHwAckVersion = input.ReadUInt64();
+            input.ReadMessage(Operation);
             break;
           }
         }
@@ -3541,22 +3427,10 @@ namespace ServiceLayer {
             break;
           }
           case 18: {
-            if (operationKey_ == null) {
-              OperationKey = new global::ServiceLayer.SLAFOp();
+            if (operation_ == null) {
+              Operation = new global::ServiceLayer.SLAFOp();
             }
-            input.ReadMessage(OperationKey);
-            break;
-          }
-          case 24: {
-            HwAckVersion = input.ReadUInt64();
-            break;
-          }
-          case 32: {
-            PathGroupOperationID = input.ReadUInt64();
-            break;
-          }
-          case 40: {
-            PathGroupHwAckVersion = input.ReadUInt64();
+            input.ReadMessage(Operation);
             break;
           }
         }

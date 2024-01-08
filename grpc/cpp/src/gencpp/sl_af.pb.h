@@ -2278,10 +2278,7 @@ class SLAFRes final :
 
   enum : int {
     kErrStatusFieldNumber = 1,
-    kOperationKeyFieldNumber = 2,
-    kHwAckVersionFieldNumber = 3,
-    kPathGroupOperationIDFieldNumber = 4,
-    kPathGroupHwAckVersionFieldNumber = 5,
+    kOperationFieldNumber = 2,
   };
   // .service_layer.SLErrorStatus ErrStatus = 1;
   bool has_errstatus() const;
@@ -2301,50 +2298,23 @@ class SLAFRes final :
       ::service_layer::SLErrorStatus* errstatus);
   ::service_layer::SLErrorStatus* unsafe_arena_release_errstatus();
 
-  // .service_layer.SLAFOp OperationKey = 2;
-  bool has_operationkey() const;
+  // .service_layer.SLAFOp Operation = 2;
+  bool has_operation() const;
   private:
-  bool _internal_has_operationkey() const;
+  bool _internal_has_operation() const;
   public:
-  void clear_operationkey();
-  const ::service_layer::SLAFOp& operationkey() const;
-  PROTOBUF_NODISCARD ::service_layer::SLAFOp* release_operationkey();
-  ::service_layer::SLAFOp* mutable_operationkey();
-  void set_allocated_operationkey(::service_layer::SLAFOp* operationkey);
+  void clear_operation();
+  const ::service_layer::SLAFOp& operation() const;
+  PROTOBUF_NODISCARD ::service_layer::SLAFOp* release_operation();
+  ::service_layer::SLAFOp* mutable_operation();
+  void set_allocated_operation(::service_layer::SLAFOp* operation);
   private:
-  const ::service_layer::SLAFOp& _internal_operationkey() const;
-  ::service_layer::SLAFOp* _internal_mutable_operationkey();
+  const ::service_layer::SLAFOp& _internal_operation() const;
+  ::service_layer::SLAFOp* _internal_mutable_operation();
   public:
-  void unsafe_arena_set_allocated_operationkey(
-      ::service_layer::SLAFOp* operationkey);
-  ::service_layer::SLAFOp* unsafe_arena_release_operationkey();
-
-  // uint64 HwAckVersion = 3;
-  void clear_hwackversion();
-  uint64_t hwackversion() const;
-  void set_hwackversion(uint64_t value);
-  private:
-  uint64_t _internal_hwackversion() const;
-  void _internal_set_hwackversion(uint64_t value);
-  public:
-
-  // uint64 PathGroupOperationID = 4;
-  void clear_pathgroupoperationid();
-  uint64_t pathgroupoperationid() const;
-  void set_pathgroupoperationid(uint64_t value);
-  private:
-  uint64_t _internal_pathgroupoperationid() const;
-  void _internal_set_pathgroupoperationid(uint64_t value);
-  public:
-
-  // uint64 PathGroupHwAckVersion = 5;
-  void clear_pathgrouphwackversion();
-  uint64_t pathgrouphwackversion() const;
-  void set_pathgrouphwackversion(uint64_t value);
-  private:
-  uint64_t _internal_pathgrouphwackversion() const;
-  void _internal_set_pathgrouphwackversion(uint64_t value);
-  public:
+  void unsafe_arena_set_allocated_operation(
+      ::service_layer::SLAFOp* operation);
+  ::service_layer::SLAFOp* unsafe_arena_release_operation();
 
   // @@protoc_insertion_point(class_scope:service_layer.SLAFRes)
  private:
@@ -2354,10 +2324,7 @@ class SLAFRes final :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   ::service_layer::SLErrorStatus* errstatus_;
-  ::service_layer::SLAFOp* operationkey_;
-  uint64_t hwackversion_;
-  uint64_t pathgroupoperationid_;
-  uint64_t pathgrouphwackversion_;
+  ::service_layer::SLAFOp* operation_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_sl_5faf_2eproto;
 };
@@ -4159,45 +4126,45 @@ inline void SLAFRes::set_allocated_errstatus(::service_layer::SLErrorStatus* err
   // @@protoc_insertion_point(field_set_allocated:service_layer.SLAFRes.ErrStatus)
 }
 
-// .service_layer.SLAFOp OperationKey = 2;
-inline bool SLAFRes::_internal_has_operationkey() const {
-  return this != internal_default_instance() && operationkey_ != nullptr;
+// .service_layer.SLAFOp Operation = 2;
+inline bool SLAFRes::_internal_has_operation() const {
+  return this != internal_default_instance() && operation_ != nullptr;
 }
-inline bool SLAFRes::has_operationkey() const {
-  return _internal_has_operationkey();
+inline bool SLAFRes::has_operation() const {
+  return _internal_has_operation();
 }
-inline void SLAFRes::clear_operationkey() {
-  if (GetArenaForAllocation() == nullptr && operationkey_ != nullptr) {
-    delete operationkey_;
+inline void SLAFRes::clear_operation() {
+  if (GetArenaForAllocation() == nullptr && operation_ != nullptr) {
+    delete operation_;
   }
-  operationkey_ = nullptr;
+  operation_ = nullptr;
 }
-inline const ::service_layer::SLAFOp& SLAFRes::_internal_operationkey() const {
-  const ::service_layer::SLAFOp* p = operationkey_;
+inline const ::service_layer::SLAFOp& SLAFRes::_internal_operation() const {
+  const ::service_layer::SLAFOp* p = operation_;
   return p != nullptr ? *p : reinterpret_cast<const ::service_layer::SLAFOp&>(
       ::service_layer::_SLAFOp_default_instance_);
 }
-inline const ::service_layer::SLAFOp& SLAFRes::operationkey() const {
-  // @@protoc_insertion_point(field_get:service_layer.SLAFRes.OperationKey)
-  return _internal_operationkey();
+inline const ::service_layer::SLAFOp& SLAFRes::operation() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLAFRes.Operation)
+  return _internal_operation();
 }
-inline void SLAFRes::unsafe_arena_set_allocated_operationkey(
-    ::service_layer::SLAFOp* operationkey) {
+inline void SLAFRes::unsafe_arena_set_allocated_operation(
+    ::service_layer::SLAFOp* operation) {
   if (GetArenaForAllocation() == nullptr) {
-    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(operationkey_);
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(operation_);
   }
-  operationkey_ = operationkey;
-  if (operationkey) {
+  operation_ = operation;
+  if (operation) {
     
   } else {
     
   }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:service_layer.SLAFRes.OperationKey)
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:service_layer.SLAFRes.Operation)
 }
-inline ::service_layer::SLAFOp* SLAFRes::release_operationkey() {
+inline ::service_layer::SLAFOp* SLAFRes::release_operation() {
   
-  ::service_layer::SLAFOp* temp = operationkey_;
-  operationkey_ = nullptr;
+  ::service_layer::SLAFOp* temp = operation_;
+  operation_ = nullptr;
 #ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
   auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
   temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
@@ -4209,104 +4176,44 @@ inline ::service_layer::SLAFOp* SLAFRes::release_operationkey() {
 #endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
   return temp;
 }
-inline ::service_layer::SLAFOp* SLAFRes::unsafe_arena_release_operationkey() {
-  // @@protoc_insertion_point(field_release:service_layer.SLAFRes.OperationKey)
+inline ::service_layer::SLAFOp* SLAFRes::unsafe_arena_release_operation() {
+  // @@protoc_insertion_point(field_release:service_layer.SLAFRes.Operation)
   
-  ::service_layer::SLAFOp* temp = operationkey_;
-  operationkey_ = nullptr;
+  ::service_layer::SLAFOp* temp = operation_;
+  operation_ = nullptr;
   return temp;
 }
-inline ::service_layer::SLAFOp* SLAFRes::_internal_mutable_operationkey() {
+inline ::service_layer::SLAFOp* SLAFRes::_internal_mutable_operation() {
   
-  if (operationkey_ == nullptr) {
+  if (operation_ == nullptr) {
     auto* p = CreateMaybeMessage<::service_layer::SLAFOp>(GetArenaForAllocation());
-    operationkey_ = p;
+    operation_ = p;
   }
-  return operationkey_;
+  return operation_;
 }
-inline ::service_layer::SLAFOp* SLAFRes::mutable_operationkey() {
-  ::service_layer::SLAFOp* _msg = _internal_mutable_operationkey();
-  // @@protoc_insertion_point(field_mutable:service_layer.SLAFRes.OperationKey)
+inline ::service_layer::SLAFOp* SLAFRes::mutable_operation() {
+  ::service_layer::SLAFOp* _msg = _internal_mutable_operation();
+  // @@protoc_insertion_point(field_mutable:service_layer.SLAFRes.Operation)
   return _msg;
 }
-inline void SLAFRes::set_allocated_operationkey(::service_layer::SLAFOp* operationkey) {
+inline void SLAFRes::set_allocated_operation(::service_layer::SLAFOp* operation) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
   if (message_arena == nullptr) {
-    delete operationkey_;
+    delete operation_;
   }
-  if (operationkey) {
+  if (operation) {
     ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-        ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper<::service_layer::SLAFOp>::GetOwningArena(operationkey);
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper<::service_layer::SLAFOp>::GetOwningArena(operation);
     if (message_arena != submessage_arena) {
-      operationkey = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, operationkey, submessage_arena);
+      operation = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, operation, submessage_arena);
     }
     
   } else {
     
   }
-  operationkey_ = operationkey;
-  // @@protoc_insertion_point(field_set_allocated:service_layer.SLAFRes.OperationKey)
-}
-
-// uint64 HwAckVersion = 3;
-inline void SLAFRes::clear_hwackversion() {
-  hwackversion_ = uint64_t{0u};
-}
-inline uint64_t SLAFRes::_internal_hwackversion() const {
-  return hwackversion_;
-}
-inline uint64_t SLAFRes::hwackversion() const {
-  // @@protoc_insertion_point(field_get:service_layer.SLAFRes.HwAckVersion)
-  return _internal_hwackversion();
-}
-inline void SLAFRes::_internal_set_hwackversion(uint64_t value) {
-  
-  hwackversion_ = value;
-}
-inline void SLAFRes::set_hwackversion(uint64_t value) {
-  _internal_set_hwackversion(value);
-  // @@protoc_insertion_point(field_set:service_layer.SLAFRes.HwAckVersion)
-}
-
-// uint64 PathGroupOperationID = 4;
-inline void SLAFRes::clear_pathgroupoperationid() {
-  pathgroupoperationid_ = uint64_t{0u};
-}
-inline uint64_t SLAFRes::_internal_pathgroupoperationid() const {
-  return pathgroupoperationid_;
-}
-inline uint64_t SLAFRes::pathgroupoperationid() const {
-  // @@protoc_insertion_point(field_get:service_layer.SLAFRes.PathGroupOperationID)
-  return _internal_pathgroupoperationid();
-}
-inline void SLAFRes::_internal_set_pathgroupoperationid(uint64_t value) {
-  
-  pathgroupoperationid_ = value;
-}
-inline void SLAFRes::set_pathgroupoperationid(uint64_t value) {
-  _internal_set_pathgroupoperationid(value);
-  // @@protoc_insertion_point(field_set:service_layer.SLAFRes.PathGroupOperationID)
-}
-
-// uint64 PathGroupHwAckVersion = 5;
-inline void SLAFRes::clear_pathgrouphwackversion() {
-  pathgrouphwackversion_ = uint64_t{0u};
-}
-inline uint64_t SLAFRes::_internal_pathgrouphwackversion() const {
-  return pathgrouphwackversion_;
-}
-inline uint64_t SLAFRes::pathgrouphwackversion() const {
-  // @@protoc_insertion_point(field_get:service_layer.SLAFRes.PathGroupHwAckVersion)
-  return _internal_pathgrouphwackversion();
-}
-inline void SLAFRes::_internal_set_pathgrouphwackversion(uint64_t value) {
-  
-  pathgrouphwackversion_ = value;
-}
-inline void SLAFRes::set_pathgrouphwackversion(uint64_t value) {
-  _internal_set_pathgrouphwackversion(value);
-  // @@protoc_insertion_point(field_set:service_layer.SLAFRes.PathGroupHwAckVersion)
+  operation_ = operation;
+  // @@protoc_insertion_point(field_set_allocated:service_layer.SLAFRes.Operation)
 }
 
 // -------------------------------------------------------------------

@@ -23,7 +23,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'ZOgithub.com/Cisco-service-layer/service-layer-objmodel/grpc/protos;service_layer',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x0bsl_af.proto\x12\rservice_layer\x1a\x15sl_common_types.proto\x1a\x15sl_route_common.proto\x1a\x13sl_route_ipv4.proto\x1a\x13sl_route_ipv6.proto\"`\n\nSLAFVrfReg\x12)\n\x05Table\x18\x01 \x01(\x0e\x32\x1a.service_layer.SLTableType\x12\'\n\x06VrfReg\x18\x02 \x01(\x0b\x32\x17.service_layer.SLVrfReg\"d\n\rSLAFVrfRegMsg\x12$\n\x04Oper\x18\x01 \x01(\x0e\x32\x16.service_layer.SLRegOp\x12-\n\nVrfRegMsgs\x18\x02 \x03(\x0b\x32\x19.service_layer.SLAFVrfReg\"\x7f\n\x10SLAFVrfRegMsgRes\x12/\n\tErrStatus\x18\x01 \x01(\x0b\x32\x1c.service_layer.SLErrorStatus\x12\x0f\n\x07VrfName\x18\x02 \x01(\t\x12)\n\x05Table\x18\x03 \x01(\x0e\x32\x1a.service_layer.SLTableType\"y\n\x10SLAFVrfRegMsgRsp\x12\x33\n\rStatusSummary\x18\x01 \x01(\x0b\x32\x1c.service_layer.SLErrorStatus\x12\x30\n\x07Results\x18\x02 \x03(\x0b\x32\x1f.service_layer.SLAFVrfRegMsgRes\"\x9b\x02\n\x0bSLPathGroup\x12.\n\x0bPathGroupId\x18\x01 \x01(\x0b\x32\x19.service_layer.SLObjectId\x12\x15\n\rAdminDistance\x18\x02 \x01(\r\x12\x39\n\x08PathList\x18\x03 \x01(\x0b\x32%.service_layer.SLPathGroup.SLPathListH\x00\x12\r\n\x05\x46lags\x18\x04 \x01(\r\x1a\x32\n\x06SLPath\x12(\n\x04Path\x18\x01 \x01(\x0b\x32\x1a.service_layer.SLRoutePath\x1a>\n\nSLPathList\x12\x30\n\x05Paths\x18\x01 \x03(\x0b\x32!.service_layer.SLPathGroup.SLPathB\x07\n\x05\x65ntry\"\xb8\x01\n\x0bSLMplsEntry\x12\x12\n\nLocalLabel\x18\x01 \x01(\r\x12\x15\n\rAdminDistance\x18\x02 \x01(\r\x12,\n\x08PathList\x18\x03 \x03(\x0b\x32\x1a.service_layer.SLRoutePath\x12\x38\n\x0cPathGroupKey\x18\x04 \x01(\x0b\x32 .service_layer.SLPathGroupRefKeyH\x00\x12\r\n\x05\x46lags\x18\x05 \x01(\rB\x07\n\x05\x65ntry\"\xd5\x01\n\nSLAFObject\x12-\n\tIPv4Route\x18\x01 \x01(\x0b\x32\x18.service_layer.SLRoutev4H\x00\x12-\n\tIPv6Route\x18\x02 \x01(\x0b\x32\x18.service_layer.SLRoutev6H\x00\x12/\n\tMplsLabel\x18\x03 \x01(\x0b\x32\x1a.service_layer.SLMplsEntryH\x00\x12/\n\tPathGroup\x18\x04 \x01(\x0b\x32\x1a.service_layer.SLPathGroupH\x00\x42\x07\n\x05\x65ntry\"x\n\x06SLAFOp\x12+\n\x08\x41\x46Object\x18\x01 \x01(\x0b\x32\x19.service_layer.SLAFObject\x12\x13\n\x0bOperationID\x18\x02 \x01(\x04\x12,\n\x07\x41\x63kType\x18\x03 \x01(\x0e\x32\x1b.service_layer.SLRspACKType\"j\n\x07SLAFMsg\x12\'\n\x04Oper\x18\x01 \x01(\x0e\x32\x19.service_layer.SLObjectOp\x12\x0f\n\x07VrfName\x18\x02 \x01(\t\x12%\n\x06OpList\x18\x03 \x03(\x0b\x32\x15.service_layer.SLAFOp\"\xba\x01\n\x07SLAFRes\x12/\n\tErrStatus\x18\x01 \x01(\x0b\x32\x1c.service_layer.SLErrorStatus\x12+\n\x0cOperationKey\x18\x02 \x01(\x0b\x32\x15.service_layer.SLAFOp\x12\x14\n\x0cHwAckVersion\x18\x03 \x01(\x04\x12\x1c\n\x14PathGroupOperationID\x18\x04 \x01(\x04\x12\x1d\n\x15PathGroupHwAckVersion\x18\x05 \x01(\x04\"F\n\nSLAFMsgRsp\x12\x0f\n\x07VrfName\x18\x01 \x01(\t\x12\'\n\x07Results\x18\x02 \x03(\x0b\x32\x16.service_layer.SLAFRes2\xd9\x01\n\x04SLAF\x12M\n\x0cSLAFVrfRegOp\x12\x1c.service_layer.SLAFVrfRegMsg\x1a\x1f.service_layer.SLAFVrfRegMsgRsp\x12;\n\x06SLAFOp\x12\x16.service_layer.SLAFMsg\x1a\x19.service_layer.SLAFMsgRsp\x12\x45\n\x0cSLAFOpStream\x12\x16.service_layer.SLAFMsg\x1a\x19.service_layer.SLAFMsgRsp(\x01\x30\x01\x42QZOgithub.com/Cisco-service-layer/service-layer-objmodel/grpc/protos;service_layerb\x06proto3'
+  serialized_pb=b'\n\x0bsl_af.proto\x12\rservice_layer\x1a\x15sl_common_types.proto\x1a\x15sl_route_common.proto\x1a\x13sl_route_ipv4.proto\x1a\x13sl_route_ipv6.proto\"`\n\nSLAFVrfReg\x12)\n\x05Table\x18\x01 \x01(\x0e\x32\x1a.service_layer.SLTableType\x12\'\n\x06VrfReg\x18\x02 \x01(\x0b\x32\x17.service_layer.SLVrfReg\"d\n\rSLAFVrfRegMsg\x12$\n\x04Oper\x18\x01 \x01(\x0e\x32\x16.service_layer.SLRegOp\x12-\n\nVrfRegMsgs\x18\x02 \x03(\x0b\x32\x19.service_layer.SLAFVrfReg\"\x7f\n\x10SLAFVrfRegMsgRes\x12/\n\tErrStatus\x18\x01 \x01(\x0b\x32\x1c.service_layer.SLErrorStatus\x12\x0f\n\x07VrfName\x18\x02 \x01(\t\x12)\n\x05Table\x18\x03 \x01(\x0e\x32\x1a.service_layer.SLTableType\"y\n\x10SLAFVrfRegMsgRsp\x12\x33\n\rStatusSummary\x18\x01 \x01(\x0b\x32\x1c.service_layer.SLErrorStatus\x12\x30\n\x07Results\x18\x02 \x03(\x0b\x32\x1f.service_layer.SLAFVrfRegMsgRes\"\x9b\x02\n\x0bSLPathGroup\x12.\n\x0bPathGroupId\x18\x01 \x01(\x0b\x32\x19.service_layer.SLObjectId\x12\x15\n\rAdminDistance\x18\x02 \x01(\r\x12\x39\n\x08PathList\x18\x03 \x01(\x0b\x32%.service_layer.SLPathGroup.SLPathListH\x00\x12\r\n\x05\x46lags\x18\x04 \x01(\r\x1a\x32\n\x06SLPath\x12(\n\x04Path\x18\x01 \x01(\x0b\x32\x1a.service_layer.SLRoutePath\x1a>\n\nSLPathList\x12\x30\n\x05Paths\x18\x01 \x03(\x0b\x32!.service_layer.SLPathGroup.SLPathB\x07\n\x05\x65ntry\"\xb8\x01\n\x0bSLMplsEntry\x12\x12\n\nLocalLabel\x18\x01 \x01(\r\x12\x15\n\rAdminDistance\x18\x02 \x01(\r\x12,\n\x08PathList\x18\x03 \x03(\x0b\x32\x1a.service_layer.SLRoutePath\x12\x38\n\x0cPathGroupKey\x18\x04 \x01(\x0b\x32 .service_layer.SLPathGroupRefKeyH\x00\x12\r\n\x05\x46lags\x18\x05 \x01(\rB\x07\n\x05\x65ntry\"\xd5\x01\n\nSLAFObject\x12-\n\tIPv4Route\x18\x01 \x01(\x0b\x32\x18.service_layer.SLRoutev4H\x00\x12-\n\tIPv6Route\x18\x02 \x01(\x0b\x32\x18.service_layer.SLRoutev6H\x00\x12/\n\tMplsLabel\x18\x03 \x01(\x0b\x32\x1a.service_layer.SLMplsEntryH\x00\x12/\n\tPathGroup\x18\x04 \x01(\x0b\x32\x1a.service_layer.SLPathGroupH\x00\x42\x07\n\x05\x65ntry\"x\n\x06SLAFOp\x12+\n\x08\x41\x46Object\x18\x01 \x01(\x0b\x32\x19.service_layer.SLAFObject\x12\x13\n\x0bOperationID\x18\x02 \x01(\x04\x12,\n\x07\x41\x63kType\x18\x03 \x01(\x0e\x32\x1b.service_layer.SLRspACKType\"j\n\x07SLAFMsg\x12\'\n\x04Oper\x18\x01 \x01(\x0e\x32\x19.service_layer.SLObjectOp\x12\x0f\n\x07VrfName\x18\x02 \x01(\t\x12%\n\x06OpList\x18\x03 \x03(\x0b\x32\x15.service_layer.SLAFOp\"d\n\x07SLAFRes\x12/\n\tErrStatus\x18\x01 \x01(\x0b\x32\x1c.service_layer.SLErrorStatus\x12(\n\tOperation\x18\x02 \x01(\x0b\x32\x15.service_layer.SLAFOp\"F\n\nSLAFMsgRsp\x12\x0f\n\x07VrfName\x18\x01 \x01(\t\x12\'\n\x07Results\x18\x02 \x03(\x0b\x32\x16.service_layer.SLAFRes2\xd9\x01\n\x04SLAF\x12M\n\x0cSLAFVrfRegOp\x12\x1c.service_layer.SLAFVrfRegMsg\x1a\x1f.service_layer.SLAFVrfRegMsgRsp\x12;\n\x06SLAFOp\x12\x16.service_layer.SLAFMsg\x1a\x19.service_layer.SLAFMsgRsp\x12\x45\n\x0cSLAFOpStream\x12\x16.service_layer.SLAFMsg\x1a\x19.service_layer.SLAFMsgRsp(\x01\x30\x01\x42QZOgithub.com/Cisco-service-layer/service-layer-objmodel/grpc/protos;service_layerb\x06proto3'
   ,
   dependencies=[sl__common__types__pb2.DESCRIPTOR,sl__route__common__pb2.DESCRIPTOR,sl__route__ipv4__pb2.DESCRIPTOR,sl__route__ipv6__pb2.DESCRIPTOR,])
 
@@ -544,30 +544,9 @@ _SLAFRES = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='OperationKey', full_name='service_layer.SLAFRes.OperationKey', index=1,
+      name='Operation', full_name='service_layer.SLAFRes.Operation', index=1,
       number=2, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='HwAckVersion', full_name='service_layer.SLAFRes.HwAckVersion', index=2,
-      number=3, type=4, cpp_type=4, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='PathGroupOperationID', full_name='service_layer.SLAFRes.PathGroupOperationID', index=3,
-      number=4, type=4, cpp_type=4, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='PathGroupHwAckVersion', full_name='service_layer.SLAFRes.PathGroupHwAckVersion', index=4,
-      number=5, type=4, cpp_type=4, label=1,
-      has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
@@ -583,8 +562,8 @@ _SLAFRES = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1490,
-  serialized_end=1676,
+  serialized_start=1489,
+  serialized_end=1589,
 )
 
 
@@ -622,8 +601,8 @@ _SLAFMSGRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1678,
-  serialized_end=1748,
+  serialized_start=1591,
+  serialized_end=1661,
 )
 
 _SLAFVRFREG.fields_by_name['Table'].enum_type = sl__common__types__pb2._SLTABLETYPE
@@ -669,7 +648,7 @@ _SLAFOP.fields_by_name['AckType'].enum_type = sl__common__types__pb2._SLRSPACKTY
 _SLAFMSG.fields_by_name['Oper'].enum_type = sl__common__types__pb2._SLOBJECTOP
 _SLAFMSG.fields_by_name['OpList'].message_type = _SLAFOP
 _SLAFRES.fields_by_name['ErrStatus'].message_type = sl__common__types__pb2._SLERRORSTATUS
-_SLAFRES.fields_by_name['OperationKey'].message_type = _SLAFOP
+_SLAFRES.fields_by_name['Operation'].message_type = _SLAFOP
 _SLAFMSGRSP.fields_by_name['Results'].message_type = _SLAFRES
 DESCRIPTOR.message_types_by_name['SLAFVrfReg'] = _SLAFVRFREG
 DESCRIPTOR.message_types_by_name['SLAFVrfRegMsg'] = _SLAFVRFREGMSG
@@ -787,8 +766,8 @@ _SLAF = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=1751,
-  serialized_end=1968,
+  serialized_start=1664,
+  serialized_end=1881,
   methods=[
   _descriptor.MethodDescriptor(
     name='SLAFVrfRegOp',
