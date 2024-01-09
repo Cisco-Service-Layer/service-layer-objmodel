@@ -701,6 +701,10 @@ type SLAFGetMsg struct {
 	// Filter based on name for objects with string names as keys such
 	// as PathGroups. Only objects that match the regular expression
 	// defined by MatchRegex are returned.
+	// If specified, this is applied only to PGs. If specified with other table
+	// types, the regex is ignored. Specifying this does not control the scope
+	// of the table type.
+	// control the scope of the table types.
 	// Constructs defined by RE2 are supported for regular expression.
 	// Refer https://github.com/google/re2/wiki/Syntax for supported regex
 	// syntax
