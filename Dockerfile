@@ -82,7 +82,7 @@ WORKDIR ${WS}
 ############
 
 # Clone glog repo. this is required for the CPP rshuttle application.
-RUN git clone https://github.com/google/glog.git glog
+RUN git clone https://github.com/google/glog.git -b v0.6.0-rc2 glog
 WORKDIR ${WS}/glog
 
 # Configure build tree
