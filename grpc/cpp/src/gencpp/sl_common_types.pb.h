@@ -540,12 +540,13 @@ inline bool SLTableType_Parse(
 }
 enum SLRspACKType : int {
   RIB_ACK = 0,
+  RIB_AND_FIB_ACK = 1,
   SLRspACKType_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::min(),
   SLRspACKType_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::max()
 };
 bool SLRspACKType_IsValid(int value);
 constexpr SLRspACKType SLRspACKType_MIN = RIB_ACK;
-constexpr SLRspACKType SLRspACKType_MAX = RIB_ACK;
+constexpr SLRspACKType SLRspACKType_MAX = RIB_AND_FIB_ACK;
 constexpr int SLRspACKType_ARRAYSIZE = SLRspACKType_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* SLRspACKType_descriptor();

@@ -1920,6 +1920,7 @@ class SLAFOp final :
   enum : int {
     kAFObjectFieldNumber = 1,
     kOperationIDFieldNumber = 2,
+    kAckTypeFieldNumber = 3,
   };
   // .service_layer.SLAFObject AFObject = 1;
   bool has_afobject() const;
@@ -1948,6 +1949,15 @@ class SLAFOp final :
   void _internal_set_operationid(uint64_t value);
   public:
 
+  // .service_layer.SLRspACKType AckType = 3;
+  void clear_acktype();
+  ::service_layer::SLRspACKType acktype() const;
+  void set_acktype(::service_layer::SLRspACKType value);
+  private:
+  ::service_layer::SLRspACKType _internal_acktype() const;
+  void _internal_set_acktype(::service_layer::SLRspACKType value);
+  public:
+
   // @@protoc_insertion_point(class_scope:service_layer.SLAFOp)
  private:
   class _Internal;
@@ -1957,6 +1967,7 @@ class SLAFOp final :
   typedef void DestructorSkippable_;
   ::service_layer::SLAFObject* afobject_;
   uint64_t operationid_;
+  int acktype_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_sl_5faf_2eproto;
 };
@@ -2084,12 +2095,11 @@ class SLAFMsg final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kOpListFieldNumber = 4,
+    kOpListFieldNumber = 3,
     kVrfNameFieldNumber = 2,
     kOperFieldNumber = 1,
-    kAckTypeFieldNumber = 3,
   };
-  // repeated .service_layer.SLAFOp OpList = 4;
+  // repeated .service_layer.SLAFOp OpList = 3;
   int oplist_size() const;
   private:
   int _internal_oplist_size() const;
@@ -2130,15 +2140,6 @@ class SLAFMsg final :
   void _internal_set_oper(::service_layer::SLObjectOp value);
   public:
 
-  // .service_layer.SLRspACKType AckType = 3;
-  void clear_acktype();
-  ::service_layer::SLRspACKType acktype() const;
-  void set_acktype(::service_layer::SLRspACKType value);
-  private:
-  ::service_layer::SLRspACKType _internal_acktype() const;
-  void _internal_set_acktype(::service_layer::SLRspACKType value);
-  public:
-
   // @@protoc_insertion_point(class_scope:service_layer.SLAFMsg)
  private:
   class _Internal;
@@ -2149,7 +2150,6 @@ class SLAFMsg final :
   ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::service_layer::SLAFOp > oplist_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr vrfname_;
   int oper_;
-  int acktype_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_sl_5faf_2eproto;
 };
@@ -3901,6 +3901,26 @@ inline void SLAFOp::set_operationid(uint64_t value) {
   // @@protoc_insertion_point(field_set:service_layer.SLAFOp.OperationID)
 }
 
+// .service_layer.SLRspACKType AckType = 3;
+inline void SLAFOp::clear_acktype() {
+  acktype_ = 0;
+}
+inline ::service_layer::SLRspACKType SLAFOp::_internal_acktype() const {
+  return static_cast< ::service_layer::SLRspACKType >(acktype_);
+}
+inline ::service_layer::SLRspACKType SLAFOp::acktype() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLAFOp.AckType)
+  return _internal_acktype();
+}
+inline void SLAFOp::_internal_set_acktype(::service_layer::SLRspACKType value) {
+  
+  acktype_ = value;
+}
+inline void SLAFOp::set_acktype(::service_layer::SLRspACKType value) {
+  _internal_set_acktype(value);
+  // @@protoc_insertion_point(field_set:service_layer.SLAFOp.AckType)
+}
+
 // -------------------------------------------------------------------
 
 // SLAFMsg
@@ -3976,27 +3996,7 @@ inline void SLAFMsg::set_allocated_vrfname(std::string* vrfname) {
   // @@protoc_insertion_point(field_set_allocated:service_layer.SLAFMsg.VrfName)
 }
 
-// .service_layer.SLRspACKType AckType = 3;
-inline void SLAFMsg::clear_acktype() {
-  acktype_ = 0;
-}
-inline ::service_layer::SLRspACKType SLAFMsg::_internal_acktype() const {
-  return static_cast< ::service_layer::SLRspACKType >(acktype_);
-}
-inline ::service_layer::SLRspACKType SLAFMsg::acktype() const {
-  // @@protoc_insertion_point(field_get:service_layer.SLAFMsg.AckType)
-  return _internal_acktype();
-}
-inline void SLAFMsg::_internal_set_acktype(::service_layer::SLRspACKType value) {
-  
-  acktype_ = value;
-}
-inline void SLAFMsg::set_acktype(::service_layer::SLRspACKType value) {
-  _internal_set_acktype(value);
-  // @@protoc_insertion_point(field_set:service_layer.SLAFMsg.AckType)
-}
-
-// repeated .service_layer.SLAFOp OpList = 4;
+// repeated .service_layer.SLAFOp OpList = 3;
 inline int SLAFMsg::_internal_oplist_size() const {
   return oplist_.size();
 }
