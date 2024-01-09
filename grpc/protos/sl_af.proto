@@ -325,6 +325,14 @@ message SLAFGetMsg {
     // Get objects programmed by all clients, ignoring any RPC ClientID
     // metadata.
     bool GetAllClients = 3;
+
+    // Filter based on name for objects with string names as keys such
+    // as PathGroups. Only objects that match the regular expression
+    // defined by MatchRegex are returned.
+    // Constructs defined by RE2 are supported for regular expression.
+    // Refer https://github.com/google/re2/wiki/Syntax for supported regex
+    // syntax
+    string MatchRegex = 4;
 }
 
 // Object and its programming status returned on Get.

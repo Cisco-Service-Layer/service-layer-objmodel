@@ -53,29 +53,30 @@ namespace ServiceLayer {
             "Gi5zZXJ2aWNlX2xheWVyLlNMTXBsc0VudHJ5SAASLwoJUGF0aEdyb3VwGAQg",
             "ASgLMhouc2VydmljZV9sYXllci5TTFBhdGhHcm91cEgAQgcKBWVudHJ5IkoK",
             "BlNMQUZPcBIrCghBRk9iamVjdBgBIAEoCzIZLnNlcnZpY2VfbGF5ZXIuU0xB",
-            "Rk9iamVjdBITCgtPcGVyYXRpb25JRBgCIAEoBCJfCgpTTEFGR2V0TXNnEg8K",
+            "Rk9iamVjdBITCgtPcGVyYXRpb25JRBgCIAEoBCJzCgpTTEFGR2V0TXNnEg8K",
             "B1ZyZk5hbWUYASABKAkSKQoFVGFibGUYAiABKA4yGi5zZXJ2aWNlX2xheWVy",
-            "LlNMVGFibGVUeXBlEhUKDUdldEFsbENsaWVudHMYAyABKAgiMAoJU0xBRkVu",
-            "dHJ5EiMKBEFGT3AYASABKAsyFS5zZXJ2aWNlX2xheWVyLlNMQUZPcCKNAQoN",
-            "U0xBRkdldE1zZ1JzcBIvCglFcnJTdGF0dXMYASABKAsyHC5zZXJ2aWNlX2xh",
-            "eWVyLlNMRXJyb3JTdGF0dXMSDwoHVnJmTmFtZRgCIAEoCRIQCghDbGllbnRJ",
-            "RBgDIAEoBBIoCgZBRkxpc3QYBCADKAsyGC5zZXJ2aWNlX2xheWVyLlNMQUZF",
-            "bnRyeSKYAQoHU0xBRk1zZxInCgRPcGVyGAEgASgOMhkuc2VydmljZV9sYXll",
-            "ci5TTE9iamVjdE9wEg8KB1ZyZk5hbWUYAiABKAkSLAoHQWNrVHlwZRgDIAEo",
-            "DjIbLnNlcnZpY2VfbGF5ZXIuU0xSc3BBQ0tUeXBlEiUKBk9wTGlzdBgEIAMo",
-            "CzIVLnNlcnZpY2VfbGF5ZXIuU0xBRk9wImQKB1NMQUZSZXMSLwoJRXJyU3Rh",
-            "dHVzGAEgASgLMhwuc2VydmljZV9sYXllci5TTEVycm9yU3RhdHVzEigKCU9w",
-            "ZXJhdGlvbhgCIAEoCzIVLnNlcnZpY2VfbGF5ZXIuU0xBRk9wIkYKClNMQUZN",
-            "c2dSc3ASDwoHVnJmTmFtZRgBIAEoCRInCgdSZXN1bHRzGAIgAygLMhYuc2Vy",
-            "dmljZV9sYXllci5TTEFGUmVzMp8CCgRTTEFGEk0KDFNMQUZWcmZSZWdPcBIc",
-            "LnNlcnZpY2VfbGF5ZXIuU0xBRlZyZlJlZ01zZxofLnNlcnZpY2VfbGF5ZXIu",
-            "U0xBRlZyZlJlZ01zZ1JzcBI7CgZTTEFGT3ASFi5zZXJ2aWNlX2xheWVyLlNM",
-            "QUZNc2caGS5zZXJ2aWNlX2xheWVyLlNMQUZNc2dSc3ASRQoMU0xBRk9wU3Ry",
-            "ZWFtEhYuc2VydmljZV9sYXllci5TTEFGTXNnGhkuc2VydmljZV9sYXllci5T",
-            "TEFGTXNnUnNwKAEwARJECgdTTEFGR2V0Ehkuc2VydmljZV9sYXllci5TTEFG",
-            "R2V0TXNnGhwuc2VydmljZV9sYXllci5TTEFGR2V0TXNnUnNwMAFCUVpPZ2l0",
-            "aHViLmNvbS9DaXNjby1zZXJ2aWNlLWxheWVyL3NlcnZpY2UtbGF5ZXItb2Jq",
-            "bW9kZWwvZ3JwYy9wcm90b3M7c2VydmljZV9sYXllcmIGcHJvdG8z"));
+            "LlNMVGFibGVUeXBlEhUKDUdldEFsbENsaWVudHMYAyABKAgSEgoKTWF0Y2hS",
+            "ZWdleBgEIAEoCSIwCglTTEFGRW50cnkSIwoEQUZPcBgBIAEoCzIVLnNlcnZp",
+            "Y2VfbGF5ZXIuU0xBRk9wIo0BCg1TTEFGR2V0TXNnUnNwEi8KCUVyclN0YXR1",
+            "cxgBIAEoCzIcLnNlcnZpY2VfbGF5ZXIuU0xFcnJvclN0YXR1cxIPCgdWcmZO",
+            "YW1lGAIgASgJEhAKCENsaWVudElEGAMgASgEEigKBkFGTGlzdBgEIAMoCzIY",
+            "LnNlcnZpY2VfbGF5ZXIuU0xBRkVudHJ5IpgBCgdTTEFGTXNnEicKBE9wZXIY",
+            "ASABKA4yGS5zZXJ2aWNlX2xheWVyLlNMT2JqZWN0T3ASDwoHVnJmTmFtZRgC",
+            "IAEoCRIsCgdBY2tUeXBlGAMgASgOMhsuc2VydmljZV9sYXllci5TTFJzcEFD",
+            "S1R5cGUSJQoGT3BMaXN0GAQgAygLMhUuc2VydmljZV9sYXllci5TTEFGT3Ai",
+            "ZAoHU0xBRlJlcxIvCglFcnJTdGF0dXMYASABKAsyHC5zZXJ2aWNlX2xheWVy",
+            "LlNMRXJyb3JTdGF0dXMSKAoJT3BlcmF0aW9uGAIgASgLMhUuc2VydmljZV9s",
+            "YXllci5TTEFGT3AiRgoKU0xBRk1zZ1JzcBIPCgdWcmZOYW1lGAEgASgJEicK",
+            "B1Jlc3VsdHMYAiADKAsyFi5zZXJ2aWNlX2xheWVyLlNMQUZSZXMynwIKBFNM",
+            "QUYSTQoMU0xBRlZyZlJlZ09wEhwuc2VydmljZV9sYXllci5TTEFGVnJmUmVn",
+            "TXNnGh8uc2VydmljZV9sYXllci5TTEFGVnJmUmVnTXNnUnNwEjsKBlNMQUZP",
+            "cBIWLnNlcnZpY2VfbGF5ZXIuU0xBRk1zZxoZLnNlcnZpY2VfbGF5ZXIuU0xB",
+            "Rk1zZ1JzcBJFCgxTTEFGT3BTdHJlYW0SFi5zZXJ2aWNlX2xheWVyLlNMQUZN",
+            "c2caGS5zZXJ2aWNlX2xheWVyLlNMQUZNc2dSc3AoATABEkQKB1NMQUZHZXQS",
+            "GS5zZXJ2aWNlX2xheWVyLlNMQUZHZXRNc2caHC5zZXJ2aWNlX2xheWVyLlNM",
+            "QUZHZXRNc2dSc3AwAUJRWk9naXRodWIuY29tL0Npc2NvLXNlcnZpY2UtbGF5",
+            "ZXIvc2VydmljZS1sYXllci1vYmptb2RlbC9ncnBjL3Byb3RvcztzZXJ2aWNl",
+            "X2xheWVyYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::ServiceLayer.SlCommonTypesReflection.Descriptor, global::ServiceLayer.SlRouteCommonReflection.Descriptor, global::ServiceLayer.SlRouteIpv4Reflection.Descriptor, global::ServiceLayer.SlRouteIpv6Reflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
@@ -88,7 +89,7 @@ namespace ServiceLayer {
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLMplsEntry), global::ServiceLayer.SLMplsEntry.Parser, new[]{ "LocalLabel", "AdminDistance", "PathList", "PathGroupKey", "Flags" }, new[]{ "Entry" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLAFObject), global::ServiceLayer.SLAFObject.Parser, new[]{ "IPv4Route", "IPv6Route", "MplsLabel", "PathGroup" }, new[]{ "Entry" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLAFOp), global::ServiceLayer.SLAFOp.Parser, new[]{ "AFObject", "OperationID" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLAFGetMsg), global::ServiceLayer.SLAFGetMsg.Parser, new[]{ "VrfName", "Table", "GetAllClients" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLAFGetMsg), global::ServiceLayer.SLAFGetMsg.Parser, new[]{ "VrfName", "Table", "GetAllClients", "MatchRegex" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLAFEntry), global::ServiceLayer.SLAFEntry.Parser, new[]{ "AFOp" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLAFGetMsgRsp), global::ServiceLayer.SLAFGetMsgRsp.Parser, new[]{ "ErrStatus", "VrfName", "ClientID", "AFList" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLAFMsg), global::ServiceLayer.SLAFMsg.Parser, new[]{ "Oper", "VrfName", "AckType", "OpList" }, null, null, null, null),
@@ -2934,6 +2935,7 @@ namespace ServiceLayer {
       vrfName_ = other.vrfName_;
       table_ = other.table_;
       getAllClients_ = other.getAllClients_;
+      matchRegex_ = other.matchRegex_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -2991,6 +2993,26 @@ namespace ServiceLayer {
       }
     }
 
+    /// <summary>Field number for the "MatchRegex" field.</summary>
+    public const int MatchRegexFieldNumber = 4;
+    private string matchRegex_ = "";
+    /// <summary>
+    /// Filter based on name for objects with string names as keys such
+    /// as PathGroups. Only objects that match the regular expression
+    /// defined by MatchRegex are returned.
+    /// Constructs defined by RE2 are supported for regular expression.
+    /// Refer https://github.com/google/re2/wiki/Syntax for supported regex
+    /// syntax
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string MatchRegex {
+      get { return matchRegex_; }
+      set {
+        matchRegex_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -3009,6 +3031,7 @@ namespace ServiceLayer {
       if (VrfName != other.VrfName) return false;
       if (Table != other.Table) return false;
       if (GetAllClients != other.GetAllClients) return false;
+      if (MatchRegex != other.MatchRegex) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -3019,6 +3042,7 @@ namespace ServiceLayer {
       if (VrfName.Length != 0) hash ^= VrfName.GetHashCode();
       if (Table != global::ServiceLayer.SLTableType.Reserved) hash ^= Table.GetHashCode();
       if (GetAllClients != false) hash ^= GetAllClients.GetHashCode();
+      if (MatchRegex.Length != 0) hash ^= MatchRegex.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -3049,6 +3073,10 @@ namespace ServiceLayer {
         output.WriteRawTag(24);
         output.WriteBool(GetAllClients);
       }
+      if (MatchRegex.Length != 0) {
+        output.WriteRawTag(34);
+        output.WriteString(MatchRegex);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -3071,6 +3099,10 @@ namespace ServiceLayer {
         output.WriteRawTag(24);
         output.WriteBool(GetAllClients);
       }
+      if (MatchRegex.Length != 0) {
+        output.WriteRawTag(34);
+        output.WriteString(MatchRegex);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -3089,6 +3121,9 @@ namespace ServiceLayer {
       }
       if (GetAllClients != false) {
         size += 1 + 1;
+      }
+      if (MatchRegex.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(MatchRegex);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -3110,6 +3145,9 @@ namespace ServiceLayer {
       }
       if (other.GetAllClients != false) {
         GetAllClients = other.GetAllClients;
+      }
+      if (other.MatchRegex.Length != 0) {
+        MatchRegex = other.MatchRegex;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -3138,6 +3176,10 @@ namespace ServiceLayer {
             GetAllClients = input.ReadBool();
             break;
           }
+          case 34: {
+            MatchRegex = input.ReadString();
+            break;
+          }
         }
       }
     #endif
@@ -3163,6 +3205,10 @@ namespace ServiceLayer {
           }
           case 24: {
             GetAllClients = input.ReadBool();
+            break;
+          }
+          case 34: {
+            MatchRegex = input.ReadString();
             break;
           }
         }
