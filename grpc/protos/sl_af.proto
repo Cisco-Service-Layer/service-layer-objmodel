@@ -163,6 +163,9 @@ service SLAF {
     //     Delete of a non-existant object is returned as success.
     rpc SLAFOpStream(stream SLAFMsg) returns (stream SLAFMsgRsp);
 
+    // Retrieves object attributes.
+    rpc SLAFGet(SLAFGetMsg) returns (stream SLAFGetMsgRsp);
+
     //
     //@}
 }
@@ -304,6 +307,51 @@ message SLAFOp {
     // use operation ID to correlate the response for the operation on the object.
     // Operation Id should be monotonically increasing for the life of the client.
     uint64 OperationID = 2;
+}
+
+// Used to retrieve objects in a VRF table.
+// Only objects produced by this client (as indicated in the RPC's metadata)
+// are returned unless the GetAllClients is set to true. In that case, all
+// the objects produced by all the clients is returned.
+message SLAFGetMsg {
+    // VRF name. If VRF name is not specified or is nil, get objects from
+    // all VRFs.
+    string VrfName = 1;
+
+    // If Table is set to SL_TABLE_TYPE_RESERVED, or is unset, objects from
+    // all tables for selected VRFs are returned.
+    SLTableType Table = 2;
+
+    // Get objects programmed by all clients, ignoring any RPC ClientID
+    // metadata.
+    bool GetAllClients = 3;
+}
+
+// Object and its programming status returned on Get.
+message SLAFEntry {
+    // Object
+    SLAFOp AFOp = 1;
+}
+
+// Get AF message response. The objects can be returned in
+// any order.
+message SLAFGetMsgRsp {
+    // Status of the Get Stats operation
+    SLErrorStatus ErrStatus = 1;
+
+    // VRF name.
+    string VrfName = 2;
+
+    // Client ID. If the client requested read of all clients' objects,
+    // the Client ID field can be used by the client to determine
+    // if the object was previously programmed by this client or some
+    // other client.
+    uint64 ClientID = 3;
+
+    // Returned entries as requested in the Get operation.
+    // if ErrStatus is SL_SUCCESS, entry contains the list
+    // of objects from the specified Table.
+    repeated SLAFEntry AFList = 4;
 }
 
 // Operation on the address family. The objects are programmed

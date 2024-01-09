@@ -77,6 +77,10 @@ namespace ServiceLayer {
     static readonly grpc::Marshaller<global::ServiceLayer.SLAFMsg> __Marshaller_service_layer_SLAFMsg = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::ServiceLayer.SLAFMsg.Parser));
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Marshaller<global::ServiceLayer.SLAFMsgRsp> __Marshaller_service_layer_SLAFMsgRsp = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::ServiceLayer.SLAFMsgRsp.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::ServiceLayer.SLAFGetMsg> __Marshaller_service_layer_SLAFGetMsg = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::ServiceLayer.SLAFGetMsg.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::ServiceLayer.SLAFGetMsgRsp> __Marshaller_service_layer_SLAFGetMsgRsp = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::ServiceLayer.SLAFGetMsgRsp.Parser));
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Method<global::ServiceLayer.SLAFVrfRegMsg, global::ServiceLayer.SLAFVrfRegMsgRsp> __Method_SLAFVrfRegOp = new grpc::Method<global::ServiceLayer.SLAFVrfRegMsg, global::ServiceLayer.SLAFVrfRegMsgRsp>(
@@ -101,6 +105,14 @@ namespace ServiceLayer {
         "SLAFOpStream",
         __Marshaller_service_layer_SLAFMsg,
         __Marshaller_service_layer_SLAFMsgRsp);
+
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Method<global::ServiceLayer.SLAFGetMsg, global::ServiceLayer.SLAFGetMsgRsp> __Method_SLAFGet = new grpc::Method<global::ServiceLayer.SLAFGetMsg, global::ServiceLayer.SLAFGetMsgRsp>(
+        grpc::MethodType.ServerStreaming,
+        __ServiceName,
+        "SLAFGet",
+        __Marshaller_service_layer_SLAFGetMsg,
+        __Marshaller_service_layer_SLAFGetMsgRsp);
 
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
@@ -208,6 +220,19 @@ namespace ServiceLayer {
       /// <returns>A task indicating completion of the handler.</returns>
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       public virtual global::System.Threading.Tasks.Task SLAFOpStream(grpc::IAsyncStreamReader<global::ServiceLayer.SLAFMsg> requestStream, grpc::IServerStreamWriter<global::ServiceLayer.SLAFMsgRsp> responseStream, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      /// <summary>
+      /// Retrieves object attributes.
+      /// </summary>
+      /// <param name="request">The request received from the client.</param>
+      /// <param name="responseStream">Used for sending responses back to the client.</param>
+      /// <param name="context">The context of the server-side call handler being invoked.</param>
+      /// <returns>A task indicating completion of the handler.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::System.Threading.Tasks.Task SLAFGet(global::ServiceLayer.SLAFGetMsg request, grpc::IServerStreamWriter<global::ServiceLayer.SLAFGetMsgRsp> responseStream, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
@@ -591,6 +616,30 @@ namespace ServiceLayer {
       {
         return CallInvoker.AsyncDuplexStreamingCall(__Method_SLAFOpStream, null, options);
       }
+      /// <summary>
+      /// Retrieves object attributes.
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
+      /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
+      /// <param name="cancellationToken">An optional token for canceling the call.</param>
+      /// <returns>The call object.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncServerStreamingCall<global::ServiceLayer.SLAFGetMsgRsp> SLAFGet(global::ServiceLayer.SLAFGetMsg request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return SLAFGet(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      /// <summary>
+      /// Retrieves object attributes.
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="options">The options for the call.</param>
+      /// <returns>The call object.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncServerStreamingCall<global::ServiceLayer.SLAFGetMsgRsp> SLAFGet(global::ServiceLayer.SLAFGetMsg request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncServerStreamingCall(__Method_SLAFGet, null, options, request);
+      }
       /// <summary>Creates a new instance of client from given <c>ClientBaseConfiguration</c>.</summary>
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       protected override SLAFClient NewInstance(ClientBaseConfiguration configuration)
@@ -607,7 +656,8 @@ namespace ServiceLayer {
       return grpc::ServerServiceDefinition.CreateBuilder()
           .AddMethod(__Method_SLAFVrfRegOp, serviceImpl.SLAFVrfRegOp)
           .AddMethod(__Method_SLAFOp, serviceImpl.SLAFOp)
-          .AddMethod(__Method_SLAFOpStream, serviceImpl.SLAFOpStream).Build();
+          .AddMethod(__Method_SLAFOpStream, serviceImpl.SLAFOpStream)
+          .AddMethod(__Method_SLAFGet, serviceImpl.SLAFGet).Build();
     }
 
     /// <summary>Register service method with a service binder with or without implementation. Useful when customizing the service binding logic.
@@ -620,6 +670,7 @@ namespace ServiceLayer {
       serviceBinder.AddMethod(__Method_SLAFVrfRegOp, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::ServiceLayer.SLAFVrfRegMsg, global::ServiceLayer.SLAFVrfRegMsgRsp>(serviceImpl.SLAFVrfRegOp));
       serviceBinder.AddMethod(__Method_SLAFOp, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::ServiceLayer.SLAFMsg, global::ServiceLayer.SLAFMsgRsp>(serviceImpl.SLAFOp));
       serviceBinder.AddMethod(__Method_SLAFOpStream, serviceImpl == null ? null : new grpc::DuplexStreamingServerMethod<global::ServiceLayer.SLAFMsg, global::ServiceLayer.SLAFMsgRsp>(serviceImpl.SLAFOpStream));
+      serviceBinder.AddMethod(__Method_SLAFGet, serviceImpl == null ? null : new grpc::ServerStreamingServerMethod<global::ServiceLayer.SLAFGetMsg, global::ServiceLayer.SLAFGetMsgRsp>(serviceImpl.SLAFGet));
     }
 
   }

@@ -25,6 +25,7 @@ static const char* SLAF_method_names[] = {
   "/service_layer.SLAF/SLAFVrfRegOp",
   "/service_layer.SLAF/SLAFOp",
   "/service_layer.SLAF/SLAFOpStream",
+  "/service_layer.SLAF/SLAFGet",
 };
 
 std::unique_ptr< SLAF::Stub> SLAF::NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options) {
@@ -37,6 +38,7 @@ SLAF::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, cons
   : channel_(channel), rpcmethod_SLAFVrfRegOp_(SLAF_method_names[0], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   , rpcmethod_SLAFOp_(SLAF_method_names[1], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   , rpcmethod_SLAFOpStream_(SLAF_method_names[2], options.suffix_for_stats(),::grpc::internal::RpcMethod::BIDI_STREAMING, channel)
+  , rpcmethod_SLAFGet_(SLAF_method_names[3], options.suffix_for_stats(),::grpc::internal::RpcMethod::SERVER_STREAMING, channel)
   {}
 
 ::grpc::Status SLAF::Stub::SLAFVrfRegOp(::grpc::ClientContext* context, const ::service_layer::SLAFVrfRegMsg& request, ::service_layer::SLAFVrfRegMsgRsp* response) {
@@ -101,6 +103,22 @@ void SLAF::Stub::async::SLAFOpStream(::grpc::ClientContext* context, ::grpc::Cli
   return ::grpc::internal::ClientAsyncReaderWriterFactory< ::service_layer::SLAFMsg, ::service_layer::SLAFMsgRsp>::Create(channel_.get(), cq, rpcmethod_SLAFOpStream_, context, false, nullptr);
 }
 
+::grpc::ClientReader< ::service_layer::SLAFGetMsgRsp>* SLAF::Stub::SLAFGetRaw(::grpc::ClientContext* context, const ::service_layer::SLAFGetMsg& request) {
+  return ::grpc::internal::ClientReaderFactory< ::service_layer::SLAFGetMsgRsp>::Create(channel_.get(), rpcmethod_SLAFGet_, context, request);
+}
+
+void SLAF::Stub::async::SLAFGet(::grpc::ClientContext* context, const ::service_layer::SLAFGetMsg* request, ::grpc::ClientReadReactor< ::service_layer::SLAFGetMsgRsp>* reactor) {
+  ::grpc::internal::ClientCallbackReaderFactory< ::service_layer::SLAFGetMsgRsp>::Create(stub_->channel_.get(), stub_->rpcmethod_SLAFGet_, context, request, reactor);
+}
+
+::grpc::ClientAsyncReader< ::service_layer::SLAFGetMsgRsp>* SLAF::Stub::AsyncSLAFGetRaw(::grpc::ClientContext* context, const ::service_layer::SLAFGetMsg& request, ::grpc::CompletionQueue* cq, void* tag) {
+  return ::grpc::internal::ClientAsyncReaderFactory< ::service_layer::SLAFGetMsgRsp>::Create(channel_.get(), cq, rpcmethod_SLAFGet_, context, request, true, tag);
+}
+
+::grpc::ClientAsyncReader< ::service_layer::SLAFGetMsgRsp>* SLAF::Stub::PrepareAsyncSLAFGetRaw(::grpc::ClientContext* context, const ::service_layer::SLAFGetMsg& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncReaderFactory< ::service_layer::SLAFGetMsgRsp>::Create(channel_.get(), cq, rpcmethod_SLAFGet_, context, request, false, nullptr);
+}
+
 SLAF::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       SLAF_method_names[0],
@@ -132,6 +150,16 @@ SLAF::Service::Service() {
              ::service_layer::SLAFMsg>* stream) {
                return service->SLAFOpStream(ctx, stream);
              }, this)));
+  AddMethod(new ::grpc::internal::RpcServiceMethod(
+      SLAF_method_names[3],
+      ::grpc::internal::RpcMethod::SERVER_STREAMING,
+      new ::grpc::internal::ServerStreamingHandler< SLAF::Service, ::service_layer::SLAFGetMsg, ::service_layer::SLAFGetMsgRsp>(
+          [](SLAF::Service* service,
+             ::grpc::ServerContext* ctx,
+             const ::service_layer::SLAFGetMsg* req,
+             ::grpc::ServerWriter<::service_layer::SLAFGetMsgRsp>* writer) {
+               return service->SLAFGet(ctx, req, writer);
+             }, this)));
 }
 
 SLAF::Service::~Service() {
@@ -154,6 +182,13 @@ SLAF::Service::~Service() {
 ::grpc::Status SLAF::Service::SLAFOpStream(::grpc::ServerContext* context, ::grpc::ServerReaderWriter< ::service_layer::SLAFMsgRsp, ::service_layer::SLAFMsg>* stream) {
   (void) context;
   (void) stream;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
+::grpc::Status SLAF::Service::SLAFGet(::grpc::ServerContext* context, const ::service_layer::SLAFGetMsg* request, ::grpc::ServerWriter< ::service_layer::SLAFGetMsgRsp>* writer) {
+  (void) context;
+  (void) request;
+  (void) writer;
   return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
 }
 
