@@ -824,11 +824,6 @@ enum SLRspACKType {
   //
   // By default, ack type is assumed to be RIB_ACK.
   RIB_ACK = 0;
-  // The controller can request for FIB ACK along with RIB ack. FIB stands for
-  // hardware data-plane, whereas RIB stands for software data-plane. If the
-  // chosen ack_type is RIB_AND_FIB_ACK, then the controller shall receive a
-  // seperate RIB ACK followed by one or more FIB acks delivered asynchronously.
-  RIB_AND_FIB_ACK = 1;
 
 }
 
