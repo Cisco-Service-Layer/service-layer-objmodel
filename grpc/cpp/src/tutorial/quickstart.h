@@ -126,19 +126,6 @@ public:
     std::condition_variable channel_condVar;
     bool channel_closed = false;
 
-private:
-    // Out of the passed in Channel comes the stub, stored here, our view of the
-    // server's exposed services.
-    std::unique_ptr<service_layer::SLGlobal::Stub> stub_;
-
-    // The producer-consumer queue we use to communicate asynchronously with the
-    // gRPC runtime.
-    grpc::CompletionQueue cq_;
-
-
-    // Used as an indicator to exit completion queue thread upon queue shutdown.
-    bool tear_down = false;
-
     class AsyncClientCall {
     private:
         enum CallStatus {CREATE, PROCESS, FINISH};
@@ -159,4 +146,16 @@ private:
         void HandleResponse(bool responseStatus, grpc::CompletionQueue* pcq_);      
     }call;
 
+private:
+    // Out of the passed in Channel comes the stub, stored here, our view of the
+    // server's exposed services.
+    std::unique_ptr<service_layer::SLGlobal::Stub> stub_;
+
+    // The producer-consumer queue we use to communicate asynchronously with the
+    // gRPC runtime.
+    grpc::CompletionQueue cq_;
+
+
+    // Used as an indicator to exit completion queue thread upon queue shutdown.
+    bool tear_down = false;
 };

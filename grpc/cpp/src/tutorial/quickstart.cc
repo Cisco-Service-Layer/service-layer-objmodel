@@ -1,7 +1,9 @@
-#include "quickstart.h"
 #include <arpa/inet.h>
 #include <google/protobuf/text_format.h>
+#include <string>
 #include <csignal>
+#include <unistd.h>
+#include "quickstart.h"
 
 using grpc::ClientContext;
 using grpc::ClientReader;
@@ -18,6 +20,8 @@ std::mutex init_mutex;
 std::condition_variable init_condVar;
 bool init_success;
 
+std::string username = "";
+std::string password = "";
 
 RShuttle::RShuttle(std::shared_ptr<grpc::Channel> Channel)
     : channel(Channel) {} 
@@ -105,6 +109,12 @@ void RShuttle::routev4Op(service_layer::SLObjectOp routeOp,
         std::chrono::system_clock::now() + std::chrono::seconds(timeout);
 
     context.set_deadline(deadline);
+    if (username.length() > 0) {
+        context.AddMetadata("username", username);
+    }
+    if (password.length() > 0) {
+        context.AddMetadata("password", password);
+    }
 
     //Issue the RPC         
     std::string s;
@@ -207,6 +217,12 @@ void RShuttle::routev6Op(service_layer::SLObjectOp routeOp,
 
     context.set_deadline(deadline);
 
+    if (username.length() > 0) {
+        context.AddMetadata("username", username);
+    }
+    if (password.length() > 0) {
+        context.AddMetadata("password", password);
+    }
 
     //Issue the RPC         
     std::string s;
@@ -363,6 +379,12 @@ void SLVrf::vrfOpv4() {
         std::chrono::system_clock::now() + std::chrono::seconds(timeout);
 
     context.set_deadline(deadline);
+    if (username.length() > 0) {
+        context.AddMetadata("username", username);
+    }
+    if (password.length() > 0) {
+        context.AddMetadata("password", password);
+    }
 
     // Set up vrfRegMsg Operation
 
@@ -430,6 +452,12 @@ void SLVrf::vrfOpv6() {
         std::chrono::system_clock::now() + std::chrono::seconds(timeout);
      
     context.set_deadline(deadline);
+    if (username.length() > 0) {
+        context.AddMetadata("username", username);
+    }
+    if (password.length() > 0) {
+        context.AddMetadata("password", password);
+    }
 
     // Set up vrfRegMsg Operation
 
@@ -689,6 +717,8 @@ void signalHandler( int signum ) {
 
 int main(int argc, char** argv) {
 
+    int option_char;
+
     auto server_ip = getEnvVar("SERVER_IP");
     auto server_port = getEnvVar("SERVER_PORT");
 
@@ -702,10 +732,24 @@ int main(int argc, char** argv) {
         return 1;
 
     }
+
+    while ((option_char = getopt(argc, argv, "u:p:")) != -1) {
+        switch (option_char) {  
+            case 'u':
+                username = optarg;
+                break;
+            case 'p':
+                password = optarg;
+                break;
+            default:
+                fprintf (stderr, "usage: %s -u username -p password\n", argv[0]);
+                return 1;
+        }
+    }
+
     std::string grpc_server = server_ip + ":" + server_port;
 
     std::cout << "\n\nConnecting to grpc server at " << grpc_server << std::endl;
-
 
     // Create a gRPC channel
     auto channel = grpc::CreateChannel(
@@ -725,6 +769,12 @@ int main(int argc, char** argv) {
     init_msg.set_minorver(service_layer::SL_MINOR_VERSION);
     init_msg.set_subver(service_layer::SL_SUB_VERSION);
 
+    if (username.length() > 0) {
+        asynchandler.call.context.AddMetadata("username", username);
+    }
+    if (password.length() > 0) {
+        asynchandler.call.context.AddMetadata("password", password);
+    }
 
     asynchandler.SendInitMsg(init_msg);  
 
@@ -761,8 +811,8 @@ int main(int argc, char** argv) {
     rshuttle.routev4Set(routev4_ptr2, rshuttle.IPv4ToLong("23.0.1.0") , 24, 120);
  
     // Set up the paths for each v4 route object    
-    rshuttle.routev4PathAdd(routev4_ptr, rshuttle.IPv4ToLong("14.1.1.10"), "GigabitEthernet0/0/0/0"); 
-    rshuttle.routev4PathAdd(routev4_ptr2, rshuttle.IPv4ToLong("14.1.1.10"), "GigabitEthernet0/0/0/0");
+    rshuttle.routev4PathAdd(routev4_ptr, rshuttle.IPv4ToLong("14.1.1.10"), "Bundle-Ether1");
+    rshuttle.routev4PathAdd(routev4_ptr2, rshuttle.IPv4ToLong("14.1.1.10"), "Bundle-Ether1");
     rshuttle.routev4Op(service_layer::SL_OBJOP_ADD);
 
 
@@ -774,7 +824,7 @@ int main(int argc, char** argv) {
     rshuttle.routev6Set(routev6_ptr, rshuttle.IPv6ToByteArrayString("2002:aa::0"), 64, 120);
   
     // Set up the path for v6 route object
-    rshuttle.routev6PathAdd(routev6_ptr, rshuttle.IPv6ToByteArrayString("2002:ae::3"), "GigabitEthernet0/0/0/0");
+    rshuttle.routev6PathAdd(routev6_ptr, rshuttle.IPv6ToByteArrayString("2002:ae::3"), "Bundle-Ether1");
     rshuttle.routev6Op(service_layer::SL_OBJOP_ADD);
 
     vrfhandler_signum = &vrfhandler;

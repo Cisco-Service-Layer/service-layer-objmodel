@@ -1,5 +1,6 @@
 #pragma once
 
+#include <string>
 #include "ServiceLayerAsyncInit.h"
 #include <iosxrsl/sl_route_common.pb.h>
 #include <iosxrsl/sl_route_ipv4.grpc.pb.h>
@@ -11,7 +12,8 @@ class RShuttle;
 extern RShuttle* route_shuttle;
 class RShuttle {
 public:
-    explicit RShuttle(std::shared_ptr<grpc::Channel> Channel);
+    explicit RShuttle(std::shared_ptr<grpc::Channel> Channel, std::string Username,
+                      std::string Password);
 
     enum PathUpdateAction
     {
@@ -20,6 +22,10 @@ public:
     };
 
     std::shared_ptr<grpc::Channel> channel;
+
+    std::string username;
+    std::string password;
+
     service_layer::SLObjectOp route_op;
     service_layer::SLRoutev4Msg routev4_msg;
     service_layer::SLRoutev4MsgRsp routev4_msg_resp;
@@ -190,9 +196,13 @@ public:
 
 class SLVrf {
 public:
-    explicit SLVrf(std::shared_ptr<grpc::Channel> Channel);
+    explicit SLVrf(std::shared_ptr<grpc::Channel> Channel, std::string Username, std::string Password);
 
     std::shared_ptr<grpc::Channel> channel;
+
+    std::string username;
+    std::string password;
+
     service_layer::SLVrfRegMsg vrf_msg;
     service_layer::SLVrfRegMsgRsp vrf_msg_resp;
 
