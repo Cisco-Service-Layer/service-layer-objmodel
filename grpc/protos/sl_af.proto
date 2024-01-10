@@ -307,6 +307,9 @@ message SLAFOp {
     // use operation ID to correlate the response for the operation on the object.
     // Operation Id should be monotonically increasing for the life of the client.
     uint64 OperationID = 2;
+
+    // Client's desired acknowledgement type for the above operation id
+    SLRspACKType AckType = 3;
 }
 
 // Used to retrieve objects in a VRF table.
@@ -363,11 +366,8 @@ message SLAFMsg {
     // VRF name. VRF name is ignored for MPLS ILM operations.
     string VrfName = 2;
 
-    // Client's desired acknowledgement type
-    SLRspACKType AckType = 3;
-
     // List of operations.
-    repeated SLAFOp OpList = 4;
+    repeated SLAFOp OpList = 3;
 }
 
 // Result of an operation on the object.
