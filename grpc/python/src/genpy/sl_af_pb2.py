@@ -23,7 +23,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'ZOgithub.com/Cisco-service-layer/service-layer-objmodel/grpc/protos;service_layer',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x0bsl_af.proto\x12\rservice_layer\x1a\x15sl_common_types.proto\x1a\x15sl_route_common.proto\x1a\x13sl_route_ipv4.proto\x1a\x13sl_route_ipv6.proto\"`\n\nSLAFVrfReg\x12)\n\x05Table\x18\x01 \x01(\x0e\x32\x1a.service_layer.SLTableType\x12\'\n\x06VrfReg\x18\x02 \x01(\x0b\x32\x17.service_layer.SLVrfReg\"d\n\rSLAFVrfRegMsg\x12$\n\x04Oper\x18\x01 \x01(\x0e\x32\x16.service_layer.SLRegOp\x12-\n\nVrfRegMsgs\x18\x02 \x03(\x0b\x32\x19.service_layer.SLAFVrfReg\"\x7f\n\x10SLAFVrfRegMsgRes\x12/\n\tErrStatus\x18\x01 \x01(\x0b\x32\x1c.service_layer.SLErrorStatus\x12\x0f\n\x07VrfName\x18\x02 \x01(\t\x12)\n\x05Table\x18\x03 \x01(\x0e\x32\x1a.service_layer.SLTableType\"y\n\x10SLAFVrfRegMsgRsp\x12\x33\n\rStatusSummary\x18\x01 \x01(\x0b\x32\x1c.service_layer.SLErrorStatus\x12\x30\n\x07Results\x18\x02 \x03(\x0b\x32\x1f.service_layer.SLAFVrfRegMsgRes\"\x9b\x02\n\x0bSLPathGroup\x12.\n\x0bPathGroupId\x18\x01 \x01(\x0b\x32\x19.service_layer.SLObjectId\x12\x15\n\rAdminDistance\x18\x02 \x01(\r\x12\x39\n\x08PathList\x18\x03 \x01(\x0b\x32%.service_layer.SLPathGroup.SLPathListH\x00\x12\r\n\x05\x46lags\x18\x04 \x01(\r\x1a\x32\n\x06SLPath\x12(\n\x04Path\x18\x01 \x01(\x0b\x32\x1a.service_layer.SLRoutePath\x1a>\n\nSLPathList\x12\x30\n\x05Paths\x18\x01 \x03(\x0b\x32!.service_layer.SLPathGroup.SLPathB\x07\n\x05\x65ntry\"\xb8\x01\n\x0bSLMplsEntry\x12\x12\n\nLocalLabel\x18\x01 \x01(\r\x12\x15\n\rAdminDistance\x18\x02 \x01(\r\x12,\n\x08PathList\x18\x03 \x03(\x0b\x32\x1a.service_layer.SLRoutePath\x12\x38\n\x0cPathGroupKey\x18\x04 \x01(\x0b\x32 .service_layer.SLPathGroupRefKeyH\x00\x12\r\n\x05\x46lags\x18\x05 \x01(\rB\x07\n\x05\x65ntry\"\xd5\x01\n\nSLAFObject\x12-\n\tIPv4Route\x18\x01 \x01(\x0b\x32\x18.service_layer.SLRoutev4H\x00\x12-\n\tIPv6Route\x18\x02 \x01(\x0b\x32\x18.service_layer.SLRoutev6H\x00\x12/\n\tMplsLabel\x18\x03 \x01(\x0b\x32\x1a.service_layer.SLMplsEntryH\x00\x12/\n\tPathGroup\x18\x04 \x01(\x0b\x32\x1a.service_layer.SLPathGroupH\x00\x42\x07\n\x05\x65ntry\"J\n\x06SLAFOp\x12+\n\x08\x41\x46Object\x18\x01 \x01(\x0b\x32\x19.service_layer.SLAFObject\x12\x13\n\x0bOperationID\x18\x02 \x01(\x04\"_\n\nSLAFGetMsg\x12\x0f\n\x07VrfName\x18\x01 \x01(\t\x12)\n\x05Table\x18\x02 \x01(\x0e\x32\x1a.service_layer.SLTableType\x12\x15\n\rGetAllClients\x18\x03 \x01(\x08\"0\n\tSLAFEntry\x12#\n\x04\x41\x46Op\x18\x01 \x01(\x0b\x32\x15.service_layer.SLAFOp\"\x8d\x01\n\rSLAFGetMsgRsp\x12/\n\tErrStatus\x18\x01 \x01(\x0b\x32\x1c.service_layer.SLErrorStatus\x12\x0f\n\x07VrfName\x18\x02 \x01(\t\x12\x10\n\x08\x43lientID\x18\x03 \x01(\x04\x12(\n\x06\x41\x46List\x18\x04 \x03(\x0b\x32\x18.service_layer.SLAFEntry\"\x98\x01\n\x07SLAFMsg\x12\'\n\x04Oper\x18\x01 \x01(\x0e\x32\x19.service_layer.SLObjectOp\x12\x0f\n\x07VrfName\x18\x02 \x01(\t\x12,\n\x07\x41\x63kType\x18\x03 \x01(\x0e\x32\x1b.service_layer.SLRspACKType\x12%\n\x06OpList\x18\x04 \x03(\x0b\x32\x15.service_layer.SLAFOp\"d\n\x07SLAFRes\x12/\n\tErrStatus\x18\x01 \x01(\x0b\x32\x1c.service_layer.SLErrorStatus\x12(\n\tOperation\x18\x02 \x01(\x0b\x32\x15.service_layer.SLAFOp\"F\n\nSLAFMsgRsp\x12\x0f\n\x07VrfName\x18\x01 \x01(\t\x12\'\n\x07Results\x18\x02 \x03(\x0b\x32\x16.service_layer.SLAFRes2\x9f\x02\n\x04SLAF\x12M\n\x0cSLAFVrfRegOp\x12\x1c.service_layer.SLAFVrfRegMsg\x1a\x1f.service_layer.SLAFVrfRegMsgRsp\x12;\n\x06SLAFOp\x12\x16.service_layer.SLAFMsg\x1a\x19.service_layer.SLAFMsgRsp\x12\x45\n\x0cSLAFOpStream\x12\x16.service_layer.SLAFMsg\x1a\x19.service_layer.SLAFMsgRsp(\x01\x30\x01\x12\x44\n\x07SLAFGet\x12\x19.service_layer.SLAFGetMsg\x1a\x1c.service_layer.SLAFGetMsgRsp0\x01\x42QZOgithub.com/Cisco-service-layer/service-layer-objmodel/grpc/protos;service_layerb\x06proto3'
+  serialized_pb=b'\n\x0bsl_af.proto\x12\rservice_layer\x1a\x15sl_common_types.proto\x1a\x15sl_route_common.proto\x1a\x13sl_route_ipv4.proto\x1a\x13sl_route_ipv6.proto\"`\n\nSLAFVrfReg\x12)\n\x05Table\x18\x01 \x01(\x0e\x32\x1a.service_layer.SLTableType\x12\'\n\x06VrfReg\x18\x02 \x01(\x0b\x32\x17.service_layer.SLVrfReg\"d\n\rSLAFVrfRegMsg\x12$\n\x04Oper\x18\x01 \x01(\x0e\x32\x16.service_layer.SLRegOp\x12-\n\nVrfRegMsgs\x18\x02 \x03(\x0b\x32\x19.service_layer.SLAFVrfReg\"\x7f\n\x10SLAFVrfRegMsgRes\x12/\n\tErrStatus\x18\x01 \x01(\x0b\x32\x1c.service_layer.SLErrorStatus\x12\x0f\n\x07VrfName\x18\x02 \x01(\t\x12)\n\x05Table\x18\x03 \x01(\x0e\x32\x1a.service_layer.SLTableType\"y\n\x10SLAFVrfRegMsgRsp\x12\x33\n\rStatusSummary\x18\x01 \x01(\x0b\x32\x1c.service_layer.SLErrorStatus\x12\x30\n\x07Results\x18\x02 \x03(\x0b\x32\x1f.service_layer.SLAFVrfRegMsgRes\"\x9b\x02\n\x0bSLPathGroup\x12.\n\x0bPathGroupId\x18\x01 \x01(\x0b\x32\x19.service_layer.SLObjectId\x12\x15\n\rAdminDistance\x18\x02 \x01(\r\x12\x39\n\x08PathList\x18\x03 \x01(\x0b\x32%.service_layer.SLPathGroup.SLPathListH\x00\x12\r\n\x05\x46lags\x18\x04 \x01(\r\x1a\x32\n\x06SLPath\x12(\n\x04Path\x18\x01 \x01(\x0b\x32\x1a.service_layer.SLRoutePath\x1a>\n\nSLPathList\x12\x30\n\x05Paths\x18\x01 \x03(\x0b\x32!.service_layer.SLPathGroup.SLPathB\x07\n\x05\x65ntry\"\xb8\x01\n\x0bSLMplsEntry\x12\x12\n\nLocalLabel\x18\x01 \x01(\r\x12\x15\n\rAdminDistance\x18\x02 \x01(\r\x12,\n\x08PathList\x18\x03 \x03(\x0b\x32\x1a.service_layer.SLRoutePath\x12\x38\n\x0cPathGroupKey\x18\x04 \x01(\x0b\x32 .service_layer.SLPathGroupRefKeyH\x00\x12\r\n\x05\x46lags\x18\x05 \x01(\rB\x07\n\x05\x65ntry\"\xd5\x01\n\nSLAFObject\x12-\n\tIPv4Route\x18\x01 \x01(\x0b\x32\x18.service_layer.SLRoutev4H\x00\x12-\n\tIPv6Route\x18\x02 \x01(\x0b\x32\x18.service_layer.SLRoutev6H\x00\x12/\n\tMplsLabel\x18\x03 \x01(\x0b\x32\x1a.service_layer.SLMplsEntryH\x00\x12/\n\tPathGroup\x18\x04 \x01(\x0b\x32\x1a.service_layer.SLPathGroupH\x00\x42\x07\n\x05\x65ntry\"J\n\x06SLAFOp\x12+\n\x08\x41\x46Object\x18\x01 \x01(\x0b\x32\x19.service_layer.SLAFObject\x12\x13\n\x0bOperationID\x18\x02 \x01(\x04\"s\n\nSLAFGetMsg\x12\x0f\n\x07VrfName\x18\x01 \x01(\t\x12)\n\x05Table\x18\x02 \x01(\x0e\x32\x1a.service_layer.SLTableType\x12\x15\n\rGetAllClients\x18\x03 \x01(\x08\x12\x12\n\nMatchRegex\x18\x04 \x01(\t\"0\n\tSLAFEntry\x12#\n\x04\x41\x46Op\x18\x01 \x01(\x0b\x32\x15.service_layer.SLAFOp\"\x8d\x01\n\rSLAFGetMsgRsp\x12/\n\tErrStatus\x18\x01 \x01(\x0b\x32\x1c.service_layer.SLErrorStatus\x12\x0f\n\x07VrfName\x18\x02 \x01(\t\x12\x10\n\x08\x43lientID\x18\x03 \x01(\x04\x12(\n\x06\x41\x46List\x18\x04 \x03(\x0b\x32\x18.service_layer.SLAFEntry\"\x98\x01\n\x07SLAFMsg\x12\'\n\x04Oper\x18\x01 \x01(\x0e\x32\x19.service_layer.SLObjectOp\x12\x0f\n\x07VrfName\x18\x02 \x01(\t\x12,\n\x07\x41\x63kType\x18\x03 \x01(\x0e\x32\x1b.service_layer.SLRspACKType\x12%\n\x06OpList\x18\x04 \x03(\x0b\x32\x15.service_layer.SLAFOp\"d\n\x07SLAFRes\x12/\n\tErrStatus\x18\x01 \x01(\x0b\x32\x1c.service_layer.SLErrorStatus\x12(\n\tOperation\x18\x02 \x01(\x0b\x32\x15.service_layer.SLAFOp\"F\n\nSLAFMsgRsp\x12\x0f\n\x07VrfName\x18\x01 \x01(\t\x12\'\n\x07Results\x18\x02 \x03(\x0b\x32\x16.service_layer.SLAFRes2\x9f\x02\n\x04SLAF\x12M\n\x0cSLAFVrfRegOp\x12\x1c.service_layer.SLAFVrfRegMsg\x1a\x1f.service_layer.SLAFVrfRegMsgRsp\x12;\n\x06SLAFOp\x12\x16.service_layer.SLAFMsg\x1a\x19.service_layer.SLAFMsgRsp\x12\x45\n\x0cSLAFOpStream\x12\x16.service_layer.SLAFMsg\x1a\x19.service_layer.SLAFMsgRsp(\x01\x30\x01\x12\x44\n\x07SLAFGet\x12\x19.service_layer.SLAFGetMsg\x1a\x1c.service_layer.SLAFGetMsgRsp0\x01\x42QZOgithub.com/Cisco-service-layer/service-layer-objmodel/grpc/protos;service_layerb\x06proto3'
   ,
   dependencies=[sl__common__types__pb2.DESCRIPTOR,sl__route__common__pb2.DESCRIPTOR,sl__route__ipv4__pb2.DESCRIPTOR,sl__route__ipv6__pb2.DESCRIPTOR,])
 
@@ -504,6 +504,13 @@ _SLAFGETMSG = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='MatchRegex', full_name='service_layer.SLAFGetMsg.MatchRegex', index=3,
+      number=4, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -517,7 +524,7 @@ _SLAFGETMSG = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=1335,
-  serialized_end=1430,
+  serialized_end=1450,
 )
 
 
@@ -548,8 +555,8 @@ _SLAFENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1432,
-  serialized_end=1480,
+  serialized_start=1452,
+  serialized_end=1500,
 )
 
 
@@ -601,8 +608,8 @@ _SLAFGETMSGRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1483,
-  serialized_end=1624,
+  serialized_start=1503,
+  serialized_end=1644,
 )
 
 
@@ -654,8 +661,8 @@ _SLAFMSG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1627,
-  serialized_end=1779,
+  serialized_start=1647,
+  serialized_end=1799,
 )
 
 
@@ -693,8 +700,8 @@ _SLAFRES = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1781,
-  serialized_end=1881,
+  serialized_start=1801,
+  serialized_end=1901,
 )
 
 
@@ -732,8 +739,8 @@ _SLAFMSGRSP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1883,
-  serialized_end=1953,
+  serialized_start=1903,
+  serialized_end=1973,
 )
 
 _SLAFVRFREG.fields_by_name['Table'].enum_type = sl__common__types__pb2._SLTABLETYPE
@@ -925,8 +932,8 @@ _SLAF = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=1956,
-  serialized_end=2243,
+  serialized_start=1976,
+  serialized_end=2263,
   methods=[
   _descriptor.MethodDescriptor(
     name='SLAFVrfRegOp',
