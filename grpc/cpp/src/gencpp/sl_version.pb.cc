@@ -27,7 +27,7 @@ static constexpr ::PROTOBUF_NAMESPACE_ID::Message* const* file_default_instances
 const char descriptor_table_protodef_sl_5fversion_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
   "\n\020sl_version.proto\022\rservice_layer*f\n\tSLV"
   "ersion\022\025\n\021SL_VERSION_UNUSED\020\000\022\024\n\020SL_MAJO"
-  "R_VERSION\020\001\022\024\n\020SL_MINOR_VERSION\020\000\022\022\n\016SL_"
+  "R_VERSION\020\000\022\024\n\020SL_MINOR_VERSION\020\t\022\022\n\016SL_"
   "SUB_VERSION\020\000\032\002\020\001BQZOgithub.com/Cisco-se"
   "rvice-layer/service-layer-objmodel/grpc/"
   "protos;service_layerb\006proto3"
@@ -53,7 +53,7 @@ const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* SLVersion_descriptor() {
 bool SLVersion_IsValid(int value) {
   switch (value) {
     case 0:
-    case 1:
+    case 9:
       return true;
     default:
       return false;

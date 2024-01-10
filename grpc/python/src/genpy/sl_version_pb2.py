@@ -20,7 +20,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'ZOgithub.com/Cisco-service-layer/service-layer-objmodel/grpc/protos;service_layer',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x10sl_version.proto\x12\rservice_layer*f\n\tSLVersion\x12\x15\n\x11SL_VERSION_UNUSED\x10\x00\x12\x14\n\x10SL_MAJOR_VERSION\x10\x01\x12\x14\n\x10SL_MINOR_VERSION\x10\x00\x12\x12\n\x0eSL_SUB_VERSION\x10\x00\x1a\x02\x10\x01\x42QZOgithub.com/Cisco-service-layer/service-layer-objmodel/grpc/protos;service_layerb\x06proto3'
+  serialized_pb=b'\n\x10sl_version.proto\x12\rservice_layer*f\n\tSLVersion\x12\x15\n\x11SL_VERSION_UNUSED\x10\x00\x12\x14\n\x10SL_MAJOR_VERSION\x10\x00\x12\x14\n\x10SL_MINOR_VERSION\x10\t\x12\x12\n\x0eSL_SUB_VERSION\x10\x00\x1a\x02\x10\x01\x42QZOgithub.com/Cisco-service-layer/service-layer-objmodel/grpc/protos;service_layerb\x06proto3'
 )
 
 _SLVERSION = _descriptor.EnumDescriptor(
@@ -36,12 +36,12 @@ _SLVERSION = _descriptor.EnumDescriptor(
       type=None,
       create_key=_descriptor._internal_create_key),
     _descriptor.EnumValueDescriptor(
-      name='SL_MAJOR_VERSION', index=1, number=1,
+      name='SL_MAJOR_VERSION', index=1, number=0,
       serialized_options=None,
       type=None,
       create_key=_descriptor._internal_create_key),
     _descriptor.EnumValueDescriptor(
-      name='SL_MINOR_VERSION', index=2, number=0,
+      name='SL_MINOR_VERSION', index=2, number=9,
       serialized_options=None,
       type=None,
       create_key=_descriptor._internal_create_key),
@@ -60,8 +60,8 @@ _sym_db.RegisterEnumDescriptor(_SLVERSION)
 
 SLVersion = enum_type_wrapper.EnumTypeWrapper(_SLVERSION)
 SL_VERSION_UNUSED = 0
-SL_MAJOR_VERSION = 1
-SL_MINOR_VERSION = 0
+SL_MAJOR_VERSION = 0
+SL_MINOR_VERSION = 9
 SL_SUB_VERSION = 0
 
 
