@@ -1932,7 +1932,6 @@ class SLAFOp final :
   enum : int {
     kAFObjectFieldNumber = 1,
     kOperationIDFieldNumber = 2,
-    kAckTypeFieldNumber = 3,
   };
   // .service_layer.SLAFObject AFObject = 1;
   bool has_afobject() const;
@@ -1961,15 +1960,6 @@ class SLAFOp final :
   void _internal_set_operationid(uint64_t value);
   public:
 
-  // .service_layer.SLRspACKType AckType = 3;
-  void clear_acktype();
-  ::service_layer::SLRspACKType acktype() const;
-  void set_acktype(::service_layer::SLRspACKType value);
-  private:
-  ::service_layer::SLRspACKType _internal_acktype() const;
-  void _internal_set_acktype(::service_layer::SLRspACKType value);
-  public:
-
   // @@protoc_insertion_point(class_scope:service_layer.SLAFOp)
  private:
   class _Internal;
@@ -1979,7 +1969,6 @@ class SLAFOp final :
   typedef void DestructorSkippable_;
   ::service_layer::SLAFObject* afobject_;
   uint64_t operationid_;
-  int acktype_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_sl_5faf_2eproto;
 };
@@ -2108,6 +2097,7 @@ class SLAFGetMsg final :
 
   enum : int {
     kVrfNameFieldNumber = 1,
+    kMatchRegexFieldNumber = 4,
     kTableFieldNumber = 2,
     kGetAllClientsFieldNumber = 3,
   };
@@ -2123,6 +2113,20 @@ class SLAFGetMsg final :
   const std::string& _internal_vrfname() const;
   inline PROTOBUF_ALWAYS_INLINE void _internal_set_vrfname(const std::string& value);
   std::string* _internal_mutable_vrfname();
+  public:
+
+  // string MatchRegex = 4;
+  void clear_matchregex();
+  const std::string& matchregex() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_matchregex(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_matchregex();
+  PROTOBUF_NODISCARD std::string* release_matchregex();
+  void set_allocated_matchregex(std::string* matchregex);
+  private:
+  const std::string& _internal_matchregex() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_matchregex(const std::string& value);
+  std::string* _internal_mutable_matchregex();
   public:
 
   // .service_layer.SLTableType Table = 2;
@@ -2151,6 +2155,7 @@ class SLAFGetMsg final :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr vrfname_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr matchregex_;
   int table_;
   bool getallclients_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
@@ -2637,11 +2642,12 @@ class SLAFMsg final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kOpListFieldNumber = 3,
+    kOpListFieldNumber = 4,
     kVrfNameFieldNumber = 2,
     kOperFieldNumber = 1,
+    kAckTypeFieldNumber = 3,
   };
-  // repeated .service_layer.SLAFOp OpList = 3;
+  // repeated .service_layer.SLAFOp OpList = 4;
   int oplist_size() const;
   private:
   int _internal_oplist_size() const;
@@ -2682,6 +2688,15 @@ class SLAFMsg final :
   void _internal_set_oper(::service_layer::SLObjectOp value);
   public:
 
+  // .service_layer.SLRspACKType AckType = 3;
+  void clear_acktype();
+  ::service_layer::SLRspACKType acktype() const;
+  void set_acktype(::service_layer::SLRspACKType value);
+  private:
+  ::service_layer::SLRspACKType _internal_acktype() const;
+  void _internal_set_acktype(::service_layer::SLRspACKType value);
+  public:
+
   // @@protoc_insertion_point(class_scope:service_layer.SLAFMsg)
  private:
   class _Internal;
@@ -2692,6 +2707,7 @@ class SLAFMsg final :
   ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::service_layer::SLAFOp > oplist_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr vrfname_;
   int oper_;
+  int acktype_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_sl_5faf_2eproto;
 };
@@ -4443,26 +4459,6 @@ inline void SLAFOp::set_operationid(uint64_t value) {
   // @@protoc_insertion_point(field_set:service_layer.SLAFOp.OperationID)
 }
 
-// .service_layer.SLRspACKType AckType = 3;
-inline void SLAFOp::clear_acktype() {
-  acktype_ = 0;
-}
-inline ::service_layer::SLRspACKType SLAFOp::_internal_acktype() const {
-  return static_cast< ::service_layer::SLRspACKType >(acktype_);
-}
-inline ::service_layer::SLRspACKType SLAFOp::acktype() const {
-  // @@protoc_insertion_point(field_get:service_layer.SLAFOp.AckType)
-  return _internal_acktype();
-}
-inline void SLAFOp::_internal_set_acktype(::service_layer::SLRspACKType value) {
-  
-  acktype_ = value;
-}
-inline void SLAFOp::set_acktype(::service_layer::SLRspACKType value) {
-  _internal_set_acktype(value);
-  // @@protoc_insertion_point(field_set:service_layer.SLAFOp.AckType)
-}
-
 // -------------------------------------------------------------------
 
 // SLAFGetMsg
@@ -4556,6 +4552,57 @@ inline void SLAFGetMsg::_internal_set_getallclients(bool value) {
 inline void SLAFGetMsg::set_getallclients(bool value) {
   _internal_set_getallclients(value);
   // @@protoc_insertion_point(field_set:service_layer.SLAFGetMsg.GetAllClients)
+}
+
+// string MatchRegex = 4;
+inline void SLAFGetMsg::clear_matchregex() {
+  matchregex_.ClearToEmpty();
+}
+inline const std::string& SLAFGetMsg::matchregex() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLAFGetMsg.MatchRegex)
+  return _internal_matchregex();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void SLAFGetMsg::set_matchregex(ArgT0&& arg0, ArgT... args) {
+ 
+ matchregex_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:service_layer.SLAFGetMsg.MatchRegex)
+}
+inline std::string* SLAFGetMsg::mutable_matchregex() {
+  std::string* _s = _internal_mutable_matchregex();
+  // @@protoc_insertion_point(field_mutable:service_layer.SLAFGetMsg.MatchRegex)
+  return _s;
+}
+inline const std::string& SLAFGetMsg::_internal_matchregex() const {
+  return matchregex_.Get();
+}
+inline void SLAFGetMsg::_internal_set_matchregex(const std::string& value) {
+  
+  matchregex_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArenaForAllocation());
+}
+inline std::string* SLAFGetMsg::_internal_mutable_matchregex() {
+  
+  return matchregex_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
+}
+inline std::string* SLAFGetMsg::release_matchregex() {
+  // @@protoc_insertion_point(field_release:service_layer.SLAFGetMsg.MatchRegex)
+  return matchregex_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArenaForAllocation());
+}
+inline void SLAFGetMsg::set_allocated_matchregex(std::string* matchregex) {
+  if (matchregex != nullptr) {
+    
+  } else {
+    
+  }
+  matchregex_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), matchregex,
+      GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (matchregex_.IsDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited())) {
+    matchregex_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:service_layer.SLAFGetMsg.MatchRegex)
 }
 
 // -------------------------------------------------------------------
@@ -4928,7 +4975,27 @@ inline void SLAFMsg::set_allocated_vrfname(std::string* vrfname) {
   // @@protoc_insertion_point(field_set_allocated:service_layer.SLAFMsg.VrfName)
 }
 
-// repeated .service_layer.SLAFOp OpList = 3;
+// .service_layer.SLRspACKType AckType = 3;
+inline void SLAFMsg::clear_acktype() {
+  acktype_ = 0;
+}
+inline ::service_layer::SLRspACKType SLAFMsg::_internal_acktype() const {
+  return static_cast< ::service_layer::SLRspACKType >(acktype_);
+}
+inline ::service_layer::SLRspACKType SLAFMsg::acktype() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLAFMsg.AckType)
+  return _internal_acktype();
+}
+inline void SLAFMsg::_internal_set_acktype(::service_layer::SLRspACKType value) {
+  
+  acktype_ = value;
+}
+inline void SLAFMsg::set_acktype(::service_layer::SLRspACKType value) {
+  _internal_set_acktype(value);
+  // @@protoc_insertion_point(field_set:service_layer.SLAFMsg.AckType)
+}
+
+// repeated .service_layer.SLAFOp OpList = 4;
 inline int SLAFMsg::_internal_oplist_size() const {
   return oplist_.size();
 }
