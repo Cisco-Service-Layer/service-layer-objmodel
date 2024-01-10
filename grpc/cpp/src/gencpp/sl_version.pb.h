@@ -58,15 +58,15 @@ namespace service_layer {
 
 enum SLVersion : int {
   SL_VERSION_UNUSED = 0,
-  SL_MAJOR_VERSION = 0,
-  SL_MINOR_VERSION = 8,
+  SL_MAJOR_VERSION = 1,
+  SL_MINOR_VERSION = 0,
   SL_SUB_VERSION = 0,
   SLVersion_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::min(),
   SLVersion_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::max()
 };
 bool SLVersion_IsValid(int value);
 constexpr SLVersion SLVersion_MIN = SL_VERSION_UNUSED;
-constexpr SLVersion SLVersion_MAX = SL_MINOR_VERSION;
+constexpr SLVersion SLVersion_MAX = SL_MAJOR_VERSION;
 constexpr int SLVersion_ARRAYSIZE = SLVersion_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* SLVersion_descriptor();

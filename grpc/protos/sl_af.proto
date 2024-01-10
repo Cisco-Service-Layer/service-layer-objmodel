@@ -308,8 +308,6 @@ message SLAFOp {
     // Operation Id should be monotonically increasing for the life of the client.
     uint64 OperationID = 2;
 
-    // Client's desired acknowledgement type for the above operation id
-    SLRspACKType AckType = 3;
 }
 
 // Used to retrieve objects in a VRF table.
