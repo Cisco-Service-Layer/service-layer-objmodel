@@ -24,7 +24,7 @@ enum SLVersion {
     option allow_alias = true;
     SL_VERSION_UNUSED = 0;
     SL_MAJOR_VERSION = 0;
-    SL_MINOR_VERSION = 8;
+    SL_MINOR_VERSION = 9;
     SL_SUB_VERSION = 0;
 }
 

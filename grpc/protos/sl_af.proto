@@ -375,11 +375,8 @@ message SLAFMsg {
     // VRF name. VRF name is ignored for MPLS ILM operations.
     string VrfName = 2;
 
-    // Client's desired acknowledgement type
-    SLRspACKType AckType = 3;
-
     // List of operations.
-    repeated SLAFOp OpList = 4;
+    repeated SLAFOp OpList = 3;
 }
 
 // Result of an operation on the object.

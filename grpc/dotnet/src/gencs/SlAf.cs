@@ -60,23 +60,22 @@ namespace ServiceLayer {
             "Y2VfbGF5ZXIuU0xBRk9wIo0BCg1TTEFGR2V0TXNnUnNwEi8KCUVyclN0YXR1",
             "cxgBIAEoCzIcLnNlcnZpY2VfbGF5ZXIuU0xFcnJvclN0YXR1cxIPCgdWcmZO",
             "YW1lGAIgASgJEhAKCENsaWVudElEGAMgASgEEigKBkFGTGlzdBgEIAMoCzIY",
-            "LnNlcnZpY2VfbGF5ZXIuU0xBRkVudHJ5IpgBCgdTTEFGTXNnEicKBE9wZXIY",
-            "ASABKA4yGS5zZXJ2aWNlX2xheWVyLlNMT2JqZWN0T3ASDwoHVnJmTmFtZRgC",
-            "IAEoCRIsCgdBY2tUeXBlGAMgASgOMhsuc2VydmljZV9sYXllci5TTFJzcEFD",
-            "S1R5cGUSJQoGT3BMaXN0GAQgAygLMhUuc2VydmljZV9sYXllci5TTEFGT3Ai",
-            "ZAoHU0xBRlJlcxIvCglFcnJTdGF0dXMYASABKAsyHC5zZXJ2aWNlX2xheWVy",
-            "LlNMRXJyb3JTdGF0dXMSKAoJT3BlcmF0aW9uGAIgASgLMhUuc2VydmljZV9s",
-            "YXllci5TTEFGT3AiRgoKU0xBRk1zZ1JzcBIPCgdWcmZOYW1lGAEgASgJEicK",
-            "B1Jlc3VsdHMYAiADKAsyFi5zZXJ2aWNlX2xheWVyLlNMQUZSZXMynwIKBFNM",
-            "QUYSTQoMU0xBRlZyZlJlZ09wEhwuc2VydmljZV9sYXllci5TTEFGVnJmUmVn",
-            "TXNnGh8uc2VydmljZV9sYXllci5TTEFGVnJmUmVnTXNnUnNwEjsKBlNMQUZP",
-            "cBIWLnNlcnZpY2VfbGF5ZXIuU0xBRk1zZxoZLnNlcnZpY2VfbGF5ZXIuU0xB",
-            "Rk1zZ1JzcBJFCgxTTEFGT3BTdHJlYW0SFi5zZXJ2aWNlX2xheWVyLlNMQUZN",
-            "c2caGS5zZXJ2aWNlX2xheWVyLlNMQUZNc2dSc3AoATABEkQKB1NMQUZHZXQS",
-            "GS5zZXJ2aWNlX2xheWVyLlNMQUZHZXRNc2caHC5zZXJ2aWNlX2xheWVyLlNM",
-            "QUZHZXRNc2dSc3AwAUJRWk9naXRodWIuY29tL0Npc2NvLXNlcnZpY2UtbGF5",
-            "ZXIvc2VydmljZS1sYXllci1vYmptb2RlbC9ncnBjL3Byb3RvcztzZXJ2aWNl",
-            "X2xheWVyYgZwcm90bzM="));
+            "LnNlcnZpY2VfbGF5ZXIuU0xBRkVudHJ5ImoKB1NMQUZNc2cSJwoET3BlchgB",
+            "IAEoDjIZLnNlcnZpY2VfbGF5ZXIuU0xPYmplY3RPcBIPCgdWcmZOYW1lGAIg",
+            "ASgJEiUKBk9wTGlzdBgDIAMoCzIVLnNlcnZpY2VfbGF5ZXIuU0xBRk9wImQK",
+            "B1NMQUZSZXMSLwoJRXJyU3RhdHVzGAEgASgLMhwuc2VydmljZV9sYXllci5T",
+            "TEVycm9yU3RhdHVzEigKCU9wZXJhdGlvbhgCIAEoCzIVLnNlcnZpY2VfbGF5",
+            "ZXIuU0xBRk9wIkYKClNMQUZNc2dSc3ASDwoHVnJmTmFtZRgBIAEoCRInCgdS",
+            "ZXN1bHRzGAIgAygLMhYuc2VydmljZV9sYXllci5TTEFGUmVzMp8CCgRTTEFG",
+            "Ek0KDFNMQUZWcmZSZWdPcBIcLnNlcnZpY2VfbGF5ZXIuU0xBRlZyZlJlZ01z",
+            "ZxofLnNlcnZpY2VfbGF5ZXIuU0xBRlZyZlJlZ01zZ1JzcBI7CgZTTEFGT3AS",
+            "Fi5zZXJ2aWNlX2xheWVyLlNMQUZNc2caGS5zZXJ2aWNlX2xheWVyLlNMQUZN",
+            "c2dSc3ASRQoMU0xBRk9wU3RyZWFtEhYuc2VydmljZV9sYXllci5TTEFGTXNn",
+            "Ghkuc2VydmljZV9sYXllci5TTEFGTXNnUnNwKAEwARJECgdTTEFGR2V0Ehku",
+            "c2VydmljZV9sYXllci5TTEFGR2V0TXNnGhwuc2VydmljZV9sYXllci5TTEFG",
+            "R2V0TXNnUnNwMAFCUVpPZ2l0aHViLmNvbS9DaXNjby1zZXJ2aWNlLWxheWVy",
+            "L3NlcnZpY2UtbGF5ZXItb2JqbW9kZWwvZ3JwYy9wcm90b3M7c2VydmljZV9s",
+            "YXllcmIGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::ServiceLayer.SlCommonTypesReflection.Descriptor, global::ServiceLayer.SlRouteCommonReflection.Descriptor, global::ServiceLayer.SlRouteIpv4Reflection.Descriptor, global::ServiceLayer.SlRouteIpv6Reflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
@@ -92,7 +91,7 @@ namespace ServiceLayer {
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLAFGetMsg), global::ServiceLayer.SLAFGetMsg.Parser, new[]{ "VrfName", "Table", "GetAllClients", "MatchRegex" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLAFEntry), global::ServiceLayer.SLAFEntry.Parser, new[]{ "AFOp" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLAFGetMsgRsp), global::ServiceLayer.SLAFGetMsgRsp.Parser, new[]{ "ErrStatus", "VrfName", "ClientID", "AFList" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLAFMsg), global::ServiceLayer.SLAFMsg.Parser, new[]{ "Oper", "VrfName", "AckType", "OpList" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLAFMsg), global::ServiceLayer.SLAFMsg.Parser, new[]{ "Oper", "VrfName", "OpList" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLAFRes), global::ServiceLayer.SLAFRes.Parser, new[]{ "ErrStatus", "Operation" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLAFMsgRsp), global::ServiceLayer.SLAFMsgRsp.Parser, new[]{ "VrfName", "Results" }, null, null, null, null)
           }));
@@ -3785,7 +3784,6 @@ namespace ServiceLayer {
     public SLAFMsg(SLAFMsg other) : this() {
       oper_ = other.oper_;
       vrfName_ = other.vrfName_;
-      ackType_ = other.ackType_;
       opList_ = other.opList_.Clone();
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
@@ -3826,25 +3824,10 @@ namespace ServiceLayer {
       }
     }
 
-    /// <summary>Field number for the "AckType" field.</summary>
-    public const int AckTypeFieldNumber = 3;
-    private global::ServiceLayer.SLRspACKType ackType_ = global::ServiceLayer.SLRspACKType.RibAck;
-    /// <summary>
-    /// Client's desired acknowledgement type
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::ServiceLayer.SLRspACKType AckType {
-      get { return ackType_; }
-      set {
-        ackType_ = value;
-      }
-    }
-
     /// <summary>Field number for the "OpList" field.</summary>
-    public const int OpListFieldNumber = 4;
+    public const int OpListFieldNumber = 3;
     private static readonly pb::FieldCodec<global::ServiceLayer.SLAFOp> _repeated_opList_codec
-        = pb::FieldCodec.ForMessage(34, global::ServiceLayer.SLAFOp.Parser);
+        = pb::FieldCodec.ForMessage(26, global::ServiceLayer.SLAFOp.Parser);
     private readonly pbc::RepeatedField<global::ServiceLayer.SLAFOp> opList_ = new pbc::RepeatedField<global::ServiceLayer.SLAFOp>();
     /// <summary>
     /// List of operations.
@@ -3872,7 +3855,6 @@ namespace ServiceLayer {
       }
       if (Oper != other.Oper) return false;
       if (VrfName != other.VrfName) return false;
-      if (AckType != other.AckType) return false;
       if(!opList_.Equals(other.opList_)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
@@ -3883,7 +3865,6 @@ namespace ServiceLayer {
       int hash = 1;
       if (Oper != global::ServiceLayer.SLObjectOp.SlObjopReserved) hash ^= Oper.GetHashCode();
       if (VrfName.Length != 0) hash ^= VrfName.GetHashCode();
-      if (AckType != global::ServiceLayer.SLRspACKType.RibAck) hash ^= AckType.GetHashCode();
       hash ^= opList_.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
@@ -3911,10 +3892,6 @@ namespace ServiceLayer {
         output.WriteRawTag(18);
         output.WriteString(VrfName);
       }
-      if (AckType != global::ServiceLayer.SLRspACKType.RibAck) {
-        output.WriteRawTag(24);
-        output.WriteEnum((int) AckType);
-      }
       opList_.WriteTo(output, _repeated_opList_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -3934,10 +3911,6 @@ namespace ServiceLayer {
         output.WriteRawTag(18);
         output.WriteString(VrfName);
       }
-      if (AckType != global::ServiceLayer.SLRspACKType.RibAck) {
-        output.WriteRawTag(24);
-        output.WriteEnum((int) AckType);
-      }
       opList_.WriteTo(ref output, _repeated_opList_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -3954,9 +3927,6 @@ namespace ServiceLayer {
       }
       if (VrfName.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(VrfName);
-      }
-      if (AckType != global::ServiceLayer.SLRspACKType.RibAck) {
-        size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) AckType);
       }
       size += opList_.CalculateSize(_repeated_opList_codec);
       if (_unknownFields != null) {
@@ -3976,9 +3946,6 @@ namespace ServiceLayer {
       }
       if (other.VrfName.Length != 0) {
         VrfName = other.VrfName;
-      }
-      if (other.AckType != global::ServiceLayer.SLRspACKType.RibAck) {
-        AckType = other.AckType;
       }
       opList_.Add(other.opList_);
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
@@ -4004,11 +3971,7 @@ namespace ServiceLayer {
             VrfName = input.ReadString();
             break;
           }
-          case 24: {
-            AckType = (global::ServiceLayer.SLRspACKType) input.ReadEnum();
-            break;
-          }
-          case 34: {
+          case 26: {
             opList_.AddEntriesFrom(input, _repeated_opList_codec);
             break;
           }
@@ -4035,11 +3998,7 @@ namespace ServiceLayer {
             VrfName = input.ReadString();
             break;
           }
-          case 24: {
-            AckType = (global::ServiceLayer.SLRspACKType) input.ReadEnum();
-            break;
-          }
-          case 34: {
+          case 26: {
             opList_.AddEntriesFrom(ref input, _repeated_opList_codec);
             break;
           }
