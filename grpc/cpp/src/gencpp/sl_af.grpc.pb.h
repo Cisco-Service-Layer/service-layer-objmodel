@@ -213,6 +213,34 @@ class SLAF final {
     std::unique_ptr< ::grpc::ClientAsyncReaderInterface< ::service_layer::SLAFGetMsgRsp>> PrepareAsyncSLAFGet(::grpc::ClientContext* context, const ::service_layer::SLAFGetMsg& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncReaderInterface< ::service_layer::SLAFGetMsgRsp>>(PrepareAsyncSLAFGetRaw(context, request, cq));
     }
+    // The notification request registrations and corresponding
+    // notifications are scoped to the RPC. On a RPC disconnection,
+    // the client should re-establish the RPC and re-program
+    // the notification requests.
+    // The caller MUST maintain the GRPC channel as long as there is
+    // interest in the notifications.
+    //
+    // For route redistribution, this call is used to get a stream
+    // of route notifications. It can be used to get "push"
+    // notifications for route adds/updates/deletes.
+    //
+    // For next hop change notifications, this call can be used to get
+    // "push" notifications for nexthop adds/updates/deletes.
+    //
+    // The call takes a stream of per-VRF table notification requests.
+    // The success/failure of the notification request is relayed in the
+    // SLAFNotif followed by any redistributed routes if requested
+    // and present, and any next hops if requested and present.
+    //
+    std::unique_ptr< ::grpc::ClientReaderWriterInterface< ::service_layer::SLAFNotifReq, ::service_layer::SLAFNotifMsg>> SLAFNotifStream(::grpc::ClientContext* context) {
+      return std::unique_ptr< ::grpc::ClientReaderWriterInterface< ::service_layer::SLAFNotifReq, ::service_layer::SLAFNotifMsg>>(SLAFNotifStreamRaw(context));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncReaderWriterInterface< ::service_layer::SLAFNotifReq, ::service_layer::SLAFNotifMsg>> AsyncSLAFNotifStream(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq, void* tag) {
+      return std::unique_ptr< ::grpc::ClientAsyncReaderWriterInterface< ::service_layer::SLAFNotifReq, ::service_layer::SLAFNotifMsg>>(AsyncSLAFNotifStreamRaw(context, cq, tag));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncReaderWriterInterface< ::service_layer::SLAFNotifReq, ::service_layer::SLAFNotifMsg>> PrepareAsyncSLAFNotifStream(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncReaderWriterInterface< ::service_layer::SLAFNotifReq, ::service_layer::SLAFNotifMsg>>(PrepareAsyncSLAFNotifStreamRaw(context, cq));
+    }
     class async_interface {
      public:
       virtual ~async_interface() {}
@@ -309,6 +337,26 @@ class SLAF final {
       virtual void SLAFOpStream(::grpc::ClientContext* context, ::grpc::ClientBidiReactor< ::service_layer::SLAFMsg,::service_layer::SLAFMsgRsp>* reactor) = 0;
       // Retrieves object attributes.
       virtual void SLAFGet(::grpc::ClientContext* context, const ::service_layer::SLAFGetMsg* request, ::grpc::ClientReadReactor< ::service_layer::SLAFGetMsgRsp>* reactor) = 0;
+      // The notification request registrations and corresponding
+      // notifications are scoped to the RPC. On a RPC disconnection,
+      // the client should re-establish the RPC and re-program
+      // the notification requests.
+      // The caller MUST maintain the GRPC channel as long as there is
+      // interest in the notifications.
+      //
+      // For route redistribution, this call is used to get a stream
+      // of route notifications. It can be used to get "push"
+      // notifications for route adds/updates/deletes.
+      //
+      // For next hop change notifications, this call can be used to get
+      // "push" notifications for nexthop adds/updates/deletes.
+      //
+      // The call takes a stream of per-VRF table notification requests.
+      // The success/failure of the notification request is relayed in the
+      // SLAFNotif followed by any redistributed routes if requested
+      // and present, and any next hops if requested and present.
+      //
+      virtual void SLAFNotifStream(::grpc::ClientContext* context, ::grpc::ClientBidiReactor< ::service_layer::SLAFNotifReq,::service_layer::SLAFNotifMsg>* reactor) = 0;
     };
     typedef class async_interface experimental_async_interface;
     virtual class async_interface* async() { return nullptr; }
@@ -324,6 +372,9 @@ class SLAF final {
     virtual ::grpc::ClientReaderInterface< ::service_layer::SLAFGetMsgRsp>* SLAFGetRaw(::grpc::ClientContext* context, const ::service_layer::SLAFGetMsg& request) = 0;
     virtual ::grpc::ClientAsyncReaderInterface< ::service_layer::SLAFGetMsgRsp>* AsyncSLAFGetRaw(::grpc::ClientContext* context, const ::service_layer::SLAFGetMsg& request, ::grpc::CompletionQueue* cq, void* tag) = 0;
     virtual ::grpc::ClientAsyncReaderInterface< ::service_layer::SLAFGetMsgRsp>* PrepareAsyncSLAFGetRaw(::grpc::ClientContext* context, const ::service_layer::SLAFGetMsg& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientReaderWriterInterface< ::service_layer::SLAFNotifReq, ::service_layer::SLAFNotifMsg>* SLAFNotifStreamRaw(::grpc::ClientContext* context) = 0;
+    virtual ::grpc::ClientAsyncReaderWriterInterface< ::service_layer::SLAFNotifReq, ::service_layer::SLAFNotifMsg>* AsyncSLAFNotifStreamRaw(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq, void* tag) = 0;
+    virtual ::grpc::ClientAsyncReaderWriterInterface< ::service_layer::SLAFNotifReq, ::service_layer::SLAFNotifMsg>* PrepareAsyncSLAFNotifStreamRaw(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq) = 0;
   };
   class Stub final : public StubInterface {
    public:
@@ -360,6 +411,15 @@ class SLAF final {
     std::unique_ptr< ::grpc::ClientAsyncReader< ::service_layer::SLAFGetMsgRsp>> PrepareAsyncSLAFGet(::grpc::ClientContext* context, const ::service_layer::SLAFGetMsg& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncReader< ::service_layer::SLAFGetMsgRsp>>(PrepareAsyncSLAFGetRaw(context, request, cq));
     }
+    std::unique_ptr< ::grpc::ClientReaderWriter< ::service_layer::SLAFNotifReq, ::service_layer::SLAFNotifMsg>> SLAFNotifStream(::grpc::ClientContext* context) {
+      return std::unique_ptr< ::grpc::ClientReaderWriter< ::service_layer::SLAFNotifReq, ::service_layer::SLAFNotifMsg>>(SLAFNotifStreamRaw(context));
+    }
+    std::unique_ptr<  ::grpc::ClientAsyncReaderWriter< ::service_layer::SLAFNotifReq, ::service_layer::SLAFNotifMsg>> AsyncSLAFNotifStream(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq, void* tag) {
+      return std::unique_ptr< ::grpc::ClientAsyncReaderWriter< ::service_layer::SLAFNotifReq, ::service_layer::SLAFNotifMsg>>(AsyncSLAFNotifStreamRaw(context, cq, tag));
+    }
+    std::unique_ptr<  ::grpc::ClientAsyncReaderWriter< ::service_layer::SLAFNotifReq, ::service_layer::SLAFNotifMsg>> PrepareAsyncSLAFNotifStream(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncReaderWriter< ::service_layer::SLAFNotifReq, ::service_layer::SLAFNotifMsg>>(PrepareAsyncSLAFNotifStreamRaw(context, cq));
+    }
     class async final :
       public StubInterface::async_interface {
      public:
@@ -369,6 +429,7 @@ class SLAF final {
       void SLAFOp(::grpc::ClientContext* context, const ::service_layer::SLAFMsg* request, ::service_layer::SLAFMsgRsp* response, ::grpc::ClientUnaryReactor* reactor) override;
       void SLAFOpStream(::grpc::ClientContext* context, ::grpc::ClientBidiReactor< ::service_layer::SLAFMsg,::service_layer::SLAFMsgRsp>* reactor) override;
       void SLAFGet(::grpc::ClientContext* context, const ::service_layer::SLAFGetMsg* request, ::grpc::ClientReadReactor< ::service_layer::SLAFGetMsgRsp>* reactor) override;
+      void SLAFNotifStream(::grpc::ClientContext* context, ::grpc::ClientBidiReactor< ::service_layer::SLAFNotifReq,::service_layer::SLAFNotifMsg>* reactor) override;
      private:
       friend class Stub;
       explicit async(Stub* stub): stub_(stub) { }
@@ -390,10 +451,14 @@ class SLAF final {
     ::grpc::ClientReader< ::service_layer::SLAFGetMsgRsp>* SLAFGetRaw(::grpc::ClientContext* context, const ::service_layer::SLAFGetMsg& request) override;
     ::grpc::ClientAsyncReader< ::service_layer::SLAFGetMsgRsp>* AsyncSLAFGetRaw(::grpc::ClientContext* context, const ::service_layer::SLAFGetMsg& request, ::grpc::CompletionQueue* cq, void* tag) override;
     ::grpc::ClientAsyncReader< ::service_layer::SLAFGetMsgRsp>* PrepareAsyncSLAFGetRaw(::grpc::ClientContext* context, const ::service_layer::SLAFGetMsg& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientReaderWriter< ::service_layer::SLAFNotifReq, ::service_layer::SLAFNotifMsg>* SLAFNotifStreamRaw(::grpc::ClientContext* context) override;
+    ::grpc::ClientAsyncReaderWriter< ::service_layer::SLAFNotifReq, ::service_layer::SLAFNotifMsg>* AsyncSLAFNotifStreamRaw(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq, void* tag) override;
+    ::grpc::ClientAsyncReaderWriter< ::service_layer::SLAFNotifReq, ::service_layer::SLAFNotifMsg>* PrepareAsyncSLAFNotifStreamRaw(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq) override;
     const ::grpc::internal::RpcMethod rpcmethod_SLAFVrfRegOp_;
     const ::grpc::internal::RpcMethod rpcmethod_SLAFOp_;
     const ::grpc::internal::RpcMethod rpcmethod_SLAFOpStream_;
     const ::grpc::internal::RpcMethod rpcmethod_SLAFGet_;
+    const ::grpc::internal::RpcMethod rpcmethod_SLAFNotifStream_;
   };
   static std::unique_ptr<Stub> NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options = ::grpc::StubOptions());
 
@@ -492,6 +557,26 @@ class SLAF final {
     virtual ::grpc::Status SLAFOpStream(::grpc::ServerContext* context, ::grpc::ServerReaderWriter< ::service_layer::SLAFMsgRsp, ::service_layer::SLAFMsg>* stream);
     // Retrieves object attributes.
     virtual ::grpc::Status SLAFGet(::grpc::ServerContext* context, const ::service_layer::SLAFGetMsg* request, ::grpc::ServerWriter< ::service_layer::SLAFGetMsgRsp>* writer);
+    // The notification request registrations and corresponding
+    // notifications are scoped to the RPC. On a RPC disconnection,
+    // the client should re-establish the RPC and re-program
+    // the notification requests.
+    // The caller MUST maintain the GRPC channel as long as there is
+    // interest in the notifications.
+    //
+    // For route redistribution, this call is used to get a stream
+    // of route notifications. It can be used to get "push"
+    // notifications for route adds/updates/deletes.
+    //
+    // For next hop change notifications, this call can be used to get
+    // "push" notifications for nexthop adds/updates/deletes.
+    //
+    // The call takes a stream of per-VRF table notification requests.
+    // The success/failure of the notification request is relayed in the
+    // SLAFNotif followed by any redistributed routes if requested
+    // and present, and any next hops if requested and present.
+    //
+    virtual ::grpc::Status SLAFNotifStream(::grpc::ServerContext* context, ::grpc::ServerReaderWriter< ::service_layer::SLAFNotifMsg, ::service_layer::SLAFNotifReq>* stream);
   };
   template <class BaseClass>
   class WithAsyncMethod_SLAFVrfRegOp : public BaseClass {
@@ -573,7 +658,27 @@ class SLAF final {
       ::grpc::Service::RequestAsyncServerStreaming(3, context, request, writer, new_call_cq, notification_cq, tag);
     }
   };
-  typedef WithAsyncMethod_SLAFVrfRegOp<WithAsyncMethod_SLAFOp<WithAsyncMethod_SLAFOpStream<WithAsyncMethod_SLAFGet<Service > > > > AsyncService;
+  template <class BaseClass>
+  class WithAsyncMethod_SLAFNotifStream : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithAsyncMethod_SLAFNotifStream() {
+      ::grpc::Service::MarkMethodAsync(4);
+    }
+    ~WithAsyncMethod_SLAFNotifStream() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status SLAFNotifStream(::grpc::ServerContext* /*context*/, ::grpc::ServerReaderWriter< ::service_layer::SLAFNotifMsg, ::service_layer::SLAFNotifReq>* /*stream*/)  override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestSLAFNotifStream(::grpc::ServerContext* context, ::grpc::ServerAsyncReaderWriter< ::service_layer::SLAFNotifMsg, ::service_layer::SLAFNotifReq>* stream, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncBidiStreaming(4, context, stream, new_call_cq, notification_cq, tag);
+    }
+  };
+  typedef WithAsyncMethod_SLAFVrfRegOp<WithAsyncMethod_SLAFOp<WithAsyncMethod_SLAFOpStream<WithAsyncMethod_SLAFGet<WithAsyncMethod_SLAFNotifStream<Service > > > > > AsyncService;
   template <class BaseClass>
   class WithCallbackMethod_SLAFVrfRegOp : public BaseClass {
    private:
@@ -673,7 +778,30 @@ class SLAF final {
     virtual ::grpc::ServerWriteReactor< ::service_layer::SLAFGetMsgRsp>* SLAFGet(
       ::grpc::CallbackServerContext* /*context*/, const ::service_layer::SLAFGetMsg* /*request*/)  { return nullptr; }
   };
-  typedef WithCallbackMethod_SLAFVrfRegOp<WithCallbackMethod_SLAFOp<WithCallbackMethod_SLAFOpStream<WithCallbackMethod_SLAFGet<Service > > > > CallbackService;
+  template <class BaseClass>
+  class WithCallbackMethod_SLAFNotifStream : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithCallbackMethod_SLAFNotifStream() {
+      ::grpc::Service::MarkMethodCallback(4,
+          new ::grpc::internal::CallbackBidiHandler< ::service_layer::SLAFNotifReq, ::service_layer::SLAFNotifMsg>(
+            [this](
+                   ::grpc::CallbackServerContext* context) { return this->SLAFNotifStream(context); }));
+    }
+    ~WithCallbackMethod_SLAFNotifStream() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status SLAFNotifStream(::grpc::ServerContext* /*context*/, ::grpc::ServerReaderWriter< ::service_layer::SLAFNotifMsg, ::service_layer::SLAFNotifReq>* /*stream*/)  override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    virtual ::grpc::ServerBidiReactor< ::service_layer::SLAFNotifReq, ::service_layer::SLAFNotifMsg>* SLAFNotifStream(
+      ::grpc::CallbackServerContext* /*context*/)
+      { return nullptr; }
+  };
+  typedef WithCallbackMethod_SLAFVrfRegOp<WithCallbackMethod_SLAFOp<WithCallbackMethod_SLAFOpStream<WithCallbackMethod_SLAFGet<WithCallbackMethod_SLAFNotifStream<Service > > > > > CallbackService;
   typedef CallbackService ExperimentalCallbackService;
   template <class BaseClass>
   class WithGenericMethod_SLAFVrfRegOp : public BaseClass {
@@ -739,6 +867,23 @@ class SLAF final {
     }
     // disable synchronous version of this method
     ::grpc::Status SLAFGet(::grpc::ServerContext* /*context*/, const ::service_layer::SLAFGetMsg* /*request*/, ::grpc::ServerWriter< ::service_layer::SLAFGetMsgRsp>* /*writer*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+  };
+  template <class BaseClass>
+  class WithGenericMethod_SLAFNotifStream : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithGenericMethod_SLAFNotifStream() {
+      ::grpc::Service::MarkMethodGeneric(4);
+    }
+    ~WithGenericMethod_SLAFNotifStream() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status SLAFNotifStream(::grpc::ServerContext* /*context*/, ::grpc::ServerReaderWriter< ::service_layer::SLAFNotifMsg, ::service_layer::SLAFNotifReq>* /*stream*/)  override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -821,6 +966,26 @@ class SLAF final {
     }
     void RequestSLAFGet(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncWriter< ::grpc::ByteBuffer>* writer, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncServerStreaming(3, context, request, writer, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithRawMethod_SLAFNotifStream : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithRawMethod_SLAFNotifStream() {
+      ::grpc::Service::MarkMethodRaw(4);
+    }
+    ~WithRawMethod_SLAFNotifStream() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status SLAFNotifStream(::grpc::ServerContext* /*context*/, ::grpc::ServerReaderWriter< ::service_layer::SLAFNotifMsg, ::service_layer::SLAFNotifReq>* /*stream*/)  override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestSLAFNotifStream(::grpc::ServerContext* context, ::grpc::ServerAsyncReaderWriter< ::grpc::ByteBuffer, ::grpc::ByteBuffer>* stream, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncBidiStreaming(4, context, stream, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -911,6 +1076,29 @@ class SLAF final {
     }
     virtual ::grpc::ServerWriteReactor< ::grpc::ByteBuffer>* SLAFGet(
       ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/)  { return nullptr; }
+  };
+  template <class BaseClass>
+  class WithRawCallbackMethod_SLAFNotifStream : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithRawCallbackMethod_SLAFNotifStream() {
+      ::grpc::Service::MarkMethodRawCallback(4,
+          new ::grpc::internal::CallbackBidiHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+            [this](
+                   ::grpc::CallbackServerContext* context) { return this->SLAFNotifStream(context); }));
+    }
+    ~WithRawCallbackMethod_SLAFNotifStream() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status SLAFNotifStream(::grpc::ServerContext* /*context*/, ::grpc::ServerReaderWriter< ::service_layer::SLAFNotifMsg, ::service_layer::SLAFNotifReq>* /*stream*/)  override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    virtual ::grpc::ServerBidiReactor< ::grpc::ByteBuffer, ::grpc::ByteBuffer>* SLAFNotifStream(
+      ::grpc::CallbackServerContext* /*context*/)
+      { return nullptr; }
   };
   template <class BaseClass>
   class WithStreamedUnaryMethod_SLAFVrfRegOp : public BaseClass {

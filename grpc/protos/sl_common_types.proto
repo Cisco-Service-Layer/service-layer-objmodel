@@ -847,4 +847,8 @@ message SLPathGroupRefKey {
     SLObjectId PathGroupId = 2;
 }
 
+// Empty message. It can be used in a message to indicate a specific event.
+// The event is identified by the name of the attribute in the message.
+message SLEmpty {
+}
 // @}

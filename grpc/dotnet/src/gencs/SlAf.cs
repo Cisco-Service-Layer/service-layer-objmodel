@@ -66,16 +66,52 @@ namespace ServiceLayer {
             "B1NMQUZSZXMSLwoJRXJyU3RhdHVzGAEgASgLMhwuc2VydmljZV9sYXllci5T",
             "TEVycm9yU3RhdHVzEigKCU9wZXJhdGlvbhgCIAEoCzIVLnNlcnZpY2VfbGF5",
             "ZXIuU0xBRk9wIkYKClNMQUZNc2dSc3ASDwoHVnJmTmFtZRgBIAEoCRInCgdS",
-            "ZXN1bHRzGAIgAygLMhYuc2VydmljZV9sYXllci5TTEFGUmVzMp8CCgRTTEFG",
-            "Ek0KDFNMQUZWcmZSZWdPcBIcLnNlcnZpY2VfbGF5ZXIuU0xBRlZyZlJlZ01z",
-            "ZxofLnNlcnZpY2VfbGF5ZXIuU0xBRlZyZlJlZ01zZ1JzcBI7CgZTTEFGT3AS",
-            "Fi5zZXJ2aWNlX2xheWVyLlNMQUZNc2caGS5zZXJ2aWNlX2xheWVyLlNMQUZN",
-            "c2dSc3ASRQoMU0xBRk9wU3RyZWFtEhYuc2VydmljZV9sYXllci5TTEFGTXNn",
-            "Ghkuc2VydmljZV9sYXllci5TTEFGTXNnUnNwKAEwARJECgdTTEFGR2V0Ehku",
-            "c2VydmljZV9sYXllci5TTEFGR2V0TXNnGhwuc2VydmljZV9sYXllci5TTEFG",
-            "R2V0TXNnUnNwMAFCUVpPZ2l0aHViLmNvbS9DaXNjby1zZXJ2aWNlLWxheWVy",
-            "L3NlcnZpY2UtbGF5ZXItb2JqbW9kZWwvZ3JwYy9wcm90b3M7c2VydmljZV9s",
-            "YXllcmIGcHJvdG8z"));
+            "ZXN1bHRzGAIgAygLMhYuc2VydmljZV9sYXllci5TTEFGUmVzImQKEFNMQUZS",
+            "ZWRpc3RSZWdNc2cSEAoIU3JjUHJvdG8YASABKAkSEwoLU3JjUHJvdG9UYWcY",
+            "AiABKAkSKQoFVGFibGUYAyABKA4yGi5zZXJ2aWNlX2xheWVyLlNMVGFibGVU",
+            "eXBlIsECChFTTEFGTmV4dEhvcFJlZ0tleRJACgdOZXh0SG9wGAEgASgLMi0u",
+            "c2VydmljZV9sYXllci5TTEFGTmV4dEhvcFJlZ0tleS5TTE5leHRIb3BLZXlI",
+            "ABIwCgtQYXRoR3JvdXBJZBgCIAEoCzIZLnNlcnZpY2VfbGF5ZXIuU0xPYmpl",
+            "Y3RJZEgAEh0KFU9ubHlEaXJlY3RseUNvbm5lY3RlZBgDIAEoCBqKAQoMU0xO",
+            "ZXh0SG9wS2V5EisKB05leHRIb3AYASABKAsyGi5zZXJ2aWNlX2xheWVyLlNM",
+            "SXBBZGRyZXNzEhIKCk5leHRIb3BMZW4YAiABKA0SEgoKRXhhY3RNYXRjaBgD",
+            "IAEoCBIUCgxBbGxvd0RlZmF1bHQYBCABKAgSDwoHUmVjdXJzZRgFIAEoCEIM",
+            "CgpuZXh0aG9wa2V5Ip8BCg9TTEFGTm90aWZSZWdSZXESNAoJUmVkaXN0UmVx",
+            "GAEgASgLMh8uc2VydmljZV9sYXllci5TTEFGUmVkaXN0UmVnTXNnSAASNgoK",
+            "TmV4dEhvcFJlcRgCIAEoCzIgLnNlcnZpY2VfbGF5ZXIuU0xBRk5leHRIb3BS",
+            "ZWdNc2dIABITCgtPcGVyYXRpb25JRBgDIAEoBEIJCgdyZXF1ZXN0InkKDFNM",
+            "QUZOb3RpZlJlcRImCgRPcGVyGAEgASgOMhguc2VydmljZV9sYXllci5TTE5v",
+            "dGlmT3ASDwoHVnJmTmFtZRgCIAEoCRIwCghOb3RpZlJlcRgDIAMoCzIeLnNl",
+            "cnZpY2VfbGF5ZXIuU0xBRk5vdGlmUmVnUmVxInMKDFNMQUZOb3RpZlJzcBIw",
+            "CghOb3RpZlJlcRgBIAEoCzIeLnNlcnZpY2VfbGF5ZXIuU0xBRk5vdGlmUmVn",
+            "UmVxEjEKC05vdGlmU3RhdHVzGAIgASgLMhwuc2VydmljZV9sYXllci5TTEVy",
+            "cm9yU3RhdHVzIkkKEVNMQUZOZXh0SG9wUmVnTXNnEjQKCk5leHRIb3BLZXkY",
+            "ASABKAsyIC5zZXJ2aWNlX2xheWVyLlNMQUZOZXh0SG9wUmVnS2V5IvUBCglT",
+            "TE5leHRIb3ASNAoKTmV4dEhvcEtleRgBIAEoCzIgLnNlcnZpY2VfbGF5ZXIu",
+            "U0xBRk5leHRIb3BSZWdLZXkSMgoOUmVzb2x2aW5nUm91dGUYAiABKAsyGi5z",
+            "ZXJ2aWNlX2xheWVyLlNMSXBBZGRyZXNzEhkKEVJlc29sdmluZ1JvdXRlTGVu",
+            "GAMgASgNEhAKCFNyY1Byb3RvGAQgASgJEhYKDmFkbWluX2Rpc3RhbmNlGAUg",
+            "ASgNEg4KBm1ldHJpYxgGIAEoDRIpCgVQYXRocxgHIAMoCzIaLnNlcnZpY2Vf",
+            "bGF5ZXIuU0xSb3V0ZVBhdGgihAIKCVNMQUZOb3RpZhIyCgtOb3RpZlN0YXR1",
+            "cxgBIAEoCzIbLnNlcnZpY2VfbGF5ZXIuU0xBRk5vdGlmUnNwSAASLQoLU3Rh",
+            "cnRNYXJrZXIYAiABKAsyFi5zZXJ2aWNlX2xheWVyLlNMRW1wdHlIABIrCglF",
+            "bmRNYXJrZXIYAyABKAsyFi5zZXJ2aWNlX2xheWVyLlNMRW1wdHlIABIxCgxS",
+            "ZWRpc3RPYmplY3QYBCABKAsyGS5zZXJ2aWNlX2xheWVyLlNMQUZPYmplY3RI",
+            "ABIrCgdOZXh0SG9wGAUgASgLMhguc2VydmljZV9sYXllci5TTE5leHRIb3BI",
+            "AEIHCgVFdmVudCJ2CgxTTEFGTm90aWZNc2cSDwoHVnJmTmFtZRgBIAEoCRIp",
+            "CgVUYWJsZRgCIAEoDjIaLnNlcnZpY2VfbGF5ZXIuU0xUYWJsZVR5cGUSKgoI",
+            "QUZOb3RpZnMYAyADKAsyGC5zZXJ2aWNlX2xheWVyLlNMQUZOb3RpZjLwAgoE",
+            "U0xBRhJNCgxTTEFGVnJmUmVnT3ASHC5zZXJ2aWNlX2xheWVyLlNMQUZWcmZS",
+            "ZWdNc2caHy5zZXJ2aWNlX2xheWVyLlNMQUZWcmZSZWdNc2dSc3ASOwoGU0xB",
+            "Rk9wEhYuc2VydmljZV9sYXllci5TTEFGTXNnGhkuc2VydmljZV9sYXllci5T",
+            "TEFGTXNnUnNwEkUKDFNMQUZPcFN0cmVhbRIWLnNlcnZpY2VfbGF5ZXIuU0xB",
+            "Rk1zZxoZLnNlcnZpY2VfbGF5ZXIuU0xBRk1zZ1JzcCgBMAESRAoHU0xBRkdl",
+            "dBIZLnNlcnZpY2VfbGF5ZXIuU0xBRkdldE1zZxocLnNlcnZpY2VfbGF5ZXIu",
+            "U0xBRkdldE1zZ1JzcDABEk8KD1NMQUZOb3RpZlN0cmVhbRIbLnNlcnZpY2Vf",
+            "bGF5ZXIuU0xBRk5vdGlmUmVxGhsuc2VydmljZV9sYXllci5TTEFGTm90aWZN",
+            "c2coATABQlFaT2dpdGh1Yi5jb20vQ2lzY28tc2VydmljZS1sYXllci9zZXJ2",
+            "aWNlLWxheWVyLW9iam1vZGVsL2dycGMvcHJvdG9zO3NlcnZpY2VfbGF5ZXJi",
+            "BnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::ServiceLayer.SlCommonTypesReflection.Descriptor, global::ServiceLayer.SlRouteCommonReflection.Descriptor, global::ServiceLayer.SlRouteIpv4Reflection.Descriptor, global::ServiceLayer.SlRouteIpv6Reflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
@@ -93,7 +129,16 @@ namespace ServiceLayer {
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLAFGetMsgRsp), global::ServiceLayer.SLAFGetMsgRsp.Parser, new[]{ "ErrStatus", "VrfName", "ClientID", "AFList" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLAFMsg), global::ServiceLayer.SLAFMsg.Parser, new[]{ "Oper", "VrfName", "OpList" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLAFRes), global::ServiceLayer.SLAFRes.Parser, new[]{ "ErrStatus", "Operation" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLAFMsgRsp), global::ServiceLayer.SLAFMsgRsp.Parser, new[]{ "VrfName", "Results" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLAFMsgRsp), global::ServiceLayer.SLAFMsgRsp.Parser, new[]{ "VrfName", "Results" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLAFRedistRegMsg), global::ServiceLayer.SLAFRedistRegMsg.Parser, new[]{ "SrcProto", "SrcProtoTag", "Table" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLAFNextHopRegKey), global::ServiceLayer.SLAFNextHopRegKey.Parser, new[]{ "NextHop", "PathGroupId", "OnlyDirectlyConnected" }, new[]{ "Nexthopkey" }, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLAFNextHopRegKey.Types.SLNextHopKey), global::ServiceLayer.SLAFNextHopRegKey.Types.SLNextHopKey.Parser, new[]{ "NextHop", "NextHopLen", "ExactMatch", "AllowDefault", "Recurse" }, null, null, null, null)}),
+            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLAFNotifRegReq), global::ServiceLayer.SLAFNotifRegReq.Parser, new[]{ "RedistReq", "NextHopReq", "OperationID" }, new[]{ "Request" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLAFNotifReq), global::ServiceLayer.SLAFNotifReq.Parser, new[]{ "Oper", "VrfName", "NotifReq" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLAFNotifRsp), global::ServiceLayer.SLAFNotifRsp.Parser, new[]{ "NotifReq", "NotifStatus" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLAFNextHopRegMsg), global::ServiceLayer.SLAFNextHopRegMsg.Parser, new[]{ "NextHopKey" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLNextHop), global::ServiceLayer.SLNextHop.Parser, new[]{ "NextHopKey", "ResolvingRoute", "ResolvingRouteLen", "SrcProto", "AdminDistance", "Metric", "Paths" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLAFNotif), global::ServiceLayer.SLAFNotif.Parser, new[]{ "NotifStatus", "StartMarker", "EndMarker", "RedistObject", "NextHop" }, new[]{ "Event" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLAFNotifMsg), global::ServiceLayer.SLAFNotifMsg.Parser, new[]{ "VrfName", "Table", "AFNotifs" }, null, null, null, null)
           }));
     }
     #endregion
@@ -4480,6 +4525,3243 @@ namespace ServiceLayer {
           }
           case 18: {
             results_.AddEntriesFrom(ref input, _repeated_results_codec);
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  /// <summary>
+  /// Request message for route redistribution registration.
+  /// </summary>
+  public sealed partial class SLAFRedistRegMsg : pb::IMessage<SLAFRedistRegMsg>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<SLAFRedistRegMsg> _parser = new pb::MessageParser<SLAFRedistRegMsg>(() => new SLAFRedistRegMsg());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<SLAFRedistRegMsg> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::ServiceLayer.SlAfReflection.Descriptor.MessageTypes[14]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SLAFRedistRegMsg() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SLAFRedistRegMsg(SLAFRedistRegMsg other) : this() {
+      srcProto_ = other.srcProto_;
+      srcProtoTag_ = other.srcProtoTag_;
+      table_ = other.table_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SLAFRedistRegMsg Clone() {
+      return new SLAFRedistRegMsg(this);
+    }
+
+    /// <summary>Field number for the "SrcProto" field.</summary>
+    public const int SrcProtoFieldNumber = 1;
+    private string srcProto_ = "";
+    /// <summary>
+    /// Source Protocol.
+    /// Only routes with specified source protocol and protocol tag will be
+    /// notified.
+    /// Contact Cisco for supported protocol string names.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string SrcProto {
+      get { return srcProto_; }
+      set {
+        srcProto_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "SrcProtoTag" field.</summary>
+    public const int SrcProtoTagFieldNumber = 2;
+    private string srcProtoTag_ = "";
+    /// <summary>
+    /// Source Protocol Tag. This can be empty if N/A.
+    /// Contact Cisco for supported protocol tags.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string SrcProtoTag {
+      get { return srcProtoTag_; }
+      set {
+        srcProtoTag_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "Table" field.</summary>
+    public const int TableFieldNumber = 3;
+    private global::ServiceLayer.SLTableType table_ = global::ServiceLayer.SLTableType.Reserved;
+    /// <summary>
+    /// Table type the client is interested in.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::ServiceLayer.SLTableType Table {
+      get { return table_; }
+      set {
+        table_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as SLAFRedistRegMsg);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(SLAFRedistRegMsg other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (SrcProto != other.SrcProto) return false;
+      if (SrcProtoTag != other.SrcProtoTag) return false;
+      if (Table != other.Table) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (SrcProto.Length != 0) hash ^= SrcProto.GetHashCode();
+      if (SrcProtoTag.Length != 0) hash ^= SrcProtoTag.GetHashCode();
+      if (Table != global::ServiceLayer.SLTableType.Reserved) hash ^= Table.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (SrcProto.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(SrcProto);
+      }
+      if (SrcProtoTag.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteString(SrcProtoTag);
+      }
+      if (Table != global::ServiceLayer.SLTableType.Reserved) {
+        output.WriteRawTag(24);
+        output.WriteEnum((int) Table);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (SrcProto.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(SrcProto);
+      }
+      if (SrcProtoTag.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteString(SrcProtoTag);
+      }
+      if (Table != global::ServiceLayer.SLTableType.Reserved) {
+        output.WriteRawTag(24);
+        output.WriteEnum((int) Table);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (SrcProto.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(SrcProto);
+      }
+      if (SrcProtoTag.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(SrcProtoTag);
+      }
+      if (Table != global::ServiceLayer.SLTableType.Reserved) {
+        size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Table);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(SLAFRedistRegMsg other) {
+      if (other == null) {
+        return;
+      }
+      if (other.SrcProto.Length != 0) {
+        SrcProto = other.SrcProto;
+      }
+      if (other.SrcProtoTag.Length != 0) {
+        SrcProtoTag = other.SrcProtoTag;
+      }
+      if (other.Table != global::ServiceLayer.SLTableType.Reserved) {
+        Table = other.Table;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            SrcProto = input.ReadString();
+            break;
+          }
+          case 18: {
+            SrcProtoTag = input.ReadString();
+            break;
+          }
+          case 24: {
+            Table = (global::ServiceLayer.SLTableType) input.ReadEnum();
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            SrcProto = input.ReadString();
+            break;
+          }
+          case 18: {
+            SrcProtoTag = input.ReadString();
+            break;
+          }
+          case 24: {
+            Table = (global::ServiceLayer.SLTableType) input.ReadEnum();
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  /// <summary>
+  /// Next hop change registration request key.
+  /// </summary>
+  public sealed partial class SLAFNextHopRegKey : pb::IMessage<SLAFNextHopRegKey>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<SLAFNextHopRegKey> _parser = new pb::MessageParser<SLAFNextHopRegKey>(() => new SLAFNextHopRegKey());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<SLAFNextHopRegKey> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::ServiceLayer.SlAfReflection.Descriptor.MessageTypes[15]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SLAFNextHopRegKey() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SLAFNextHopRegKey(SLAFNextHopRegKey other) : this() {
+      onlyDirectlyConnected_ = other.onlyDirectlyConnected_;
+      switch (other.NexthopkeyCase) {
+        case NexthopkeyOneofCase.NextHop:
+          NextHop = other.NextHop.Clone();
+          break;
+        case NexthopkeyOneofCase.PathGroupId:
+          PathGroupId = other.PathGroupId.Clone();
+          break;
+      }
+
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SLAFNextHopRegKey Clone() {
+      return new SLAFNextHopRegKey(this);
+    }
+
+    /// <summary>Field number for the "NextHop" field.</summary>
+    public const int NextHopFieldNumber = 1;
+    /// <summary>
+    /// A next hop IP address.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::ServiceLayer.SLAFNextHopRegKey.Types.SLNextHopKey NextHop {
+      get { return nexthopkeyCase_ == NexthopkeyOneofCase.NextHop ? (global::ServiceLayer.SLAFNextHopRegKey.Types.SLNextHopKey) nexthopkey_ : null; }
+      set {
+        nexthopkey_ = value;
+        nexthopkeyCase_ = value == null ? NexthopkeyOneofCase.None : NexthopkeyOneofCase.NextHop;
+      }
+    }
+
+    /// <summary>Field number for the "PathGroupId" field.</summary>
+    public const int PathGroupIdFieldNumber = 2;
+    /// <summary>
+    /// A path group object.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::ServiceLayer.SLObjectId PathGroupId {
+      get { return nexthopkeyCase_ == NexthopkeyOneofCase.PathGroupId ? (global::ServiceLayer.SLObjectId) nexthopkey_ : null; }
+      set {
+        nexthopkey_ = value;
+        nexthopkeyCase_ = value == null ? NexthopkeyOneofCase.None : NexthopkeyOneofCase.PathGroupId;
+      }
+    }
+
+    /// <summary>Field number for the "OnlyDirectlyConnected" field.</summary>
+    public const int OnlyDirectlyConnectedFieldNumber = 3;
+    private bool onlyDirectlyConnected_;
+    /// <summary>
+    /// Immediate resolving paths are required to be a directly
+    /// connected interface paths.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool OnlyDirectlyConnected {
+      get { return onlyDirectlyConnected_; }
+      set {
+        onlyDirectlyConnected_ = value;
+      }
+    }
+
+    private object nexthopkey_;
+    /// <summary>Enum of possible cases for the "nexthopkey" oneof.</summary>
+    public enum NexthopkeyOneofCase {
+      None = 0,
+      NextHop = 1,
+      PathGroupId = 2,
+    }
+    private NexthopkeyOneofCase nexthopkeyCase_ = NexthopkeyOneofCase.None;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public NexthopkeyOneofCase NexthopkeyCase {
+      get { return nexthopkeyCase_; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearNexthopkey() {
+      nexthopkeyCase_ = NexthopkeyOneofCase.None;
+      nexthopkey_ = null;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as SLAFNextHopRegKey);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(SLAFNextHopRegKey other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (!object.Equals(NextHop, other.NextHop)) return false;
+      if (!object.Equals(PathGroupId, other.PathGroupId)) return false;
+      if (OnlyDirectlyConnected != other.OnlyDirectlyConnected) return false;
+      if (NexthopkeyCase != other.NexthopkeyCase) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (nexthopkeyCase_ == NexthopkeyOneofCase.NextHop) hash ^= NextHop.GetHashCode();
+      if (nexthopkeyCase_ == NexthopkeyOneofCase.PathGroupId) hash ^= PathGroupId.GetHashCode();
+      if (OnlyDirectlyConnected != false) hash ^= OnlyDirectlyConnected.GetHashCode();
+      hash ^= (int) nexthopkeyCase_;
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (nexthopkeyCase_ == NexthopkeyOneofCase.NextHop) {
+        output.WriteRawTag(10);
+        output.WriteMessage(NextHop);
+      }
+      if (nexthopkeyCase_ == NexthopkeyOneofCase.PathGroupId) {
+        output.WriteRawTag(18);
+        output.WriteMessage(PathGroupId);
+      }
+      if (OnlyDirectlyConnected != false) {
+        output.WriteRawTag(24);
+        output.WriteBool(OnlyDirectlyConnected);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (nexthopkeyCase_ == NexthopkeyOneofCase.NextHop) {
+        output.WriteRawTag(10);
+        output.WriteMessage(NextHop);
+      }
+      if (nexthopkeyCase_ == NexthopkeyOneofCase.PathGroupId) {
+        output.WriteRawTag(18);
+        output.WriteMessage(PathGroupId);
+      }
+      if (OnlyDirectlyConnected != false) {
+        output.WriteRawTag(24);
+        output.WriteBool(OnlyDirectlyConnected);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (nexthopkeyCase_ == NexthopkeyOneofCase.NextHop) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(NextHop);
+      }
+      if (nexthopkeyCase_ == NexthopkeyOneofCase.PathGroupId) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(PathGroupId);
+      }
+      if (OnlyDirectlyConnected != false) {
+        size += 1 + 1;
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(SLAFNextHopRegKey other) {
+      if (other == null) {
+        return;
+      }
+      if (other.OnlyDirectlyConnected != false) {
+        OnlyDirectlyConnected = other.OnlyDirectlyConnected;
+      }
+      switch (other.NexthopkeyCase) {
+        case NexthopkeyOneofCase.NextHop:
+          if (NextHop == null) {
+            NextHop = new global::ServiceLayer.SLAFNextHopRegKey.Types.SLNextHopKey();
+          }
+          NextHop.MergeFrom(other.NextHop);
+          break;
+        case NexthopkeyOneofCase.PathGroupId:
+          if (PathGroupId == null) {
+            PathGroupId = new global::ServiceLayer.SLObjectId();
+          }
+          PathGroupId.MergeFrom(other.PathGroupId);
+          break;
+      }
+
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            global::ServiceLayer.SLAFNextHopRegKey.Types.SLNextHopKey subBuilder = new global::ServiceLayer.SLAFNextHopRegKey.Types.SLNextHopKey();
+            if (nexthopkeyCase_ == NexthopkeyOneofCase.NextHop) {
+              subBuilder.MergeFrom(NextHop);
+            }
+            input.ReadMessage(subBuilder);
+            NextHop = subBuilder;
+            break;
+          }
+          case 18: {
+            global::ServiceLayer.SLObjectId subBuilder = new global::ServiceLayer.SLObjectId();
+            if (nexthopkeyCase_ == NexthopkeyOneofCase.PathGroupId) {
+              subBuilder.MergeFrom(PathGroupId);
+            }
+            input.ReadMessage(subBuilder);
+            PathGroupId = subBuilder;
+            break;
+          }
+          case 24: {
+            OnlyDirectlyConnected = input.ReadBool();
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            global::ServiceLayer.SLAFNextHopRegKey.Types.SLNextHopKey subBuilder = new global::ServiceLayer.SLAFNextHopRegKey.Types.SLNextHopKey();
+            if (nexthopkeyCase_ == NexthopkeyOneofCase.NextHop) {
+              subBuilder.MergeFrom(NextHop);
+            }
+            input.ReadMessage(subBuilder);
+            NextHop = subBuilder;
+            break;
+          }
+          case 18: {
+            global::ServiceLayer.SLObjectId subBuilder = new global::ServiceLayer.SLObjectId();
+            if (nexthopkeyCase_ == NexthopkeyOneofCase.PathGroupId) {
+              subBuilder.MergeFrom(PathGroupId);
+            }
+            input.ReadMessage(subBuilder);
+            PathGroupId = subBuilder;
+            break;
+          }
+          case 24: {
+            OnlyDirectlyConnected = input.ReadBool();
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+    #region Nested types
+    /// <summary>Container for nested types declared in the SLAFNextHopRegKey message type.</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static partial class Types {
+      public sealed partial class SLNextHopKey : pb::IMessage<SLNextHopKey>
+      #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+          , pb::IBufferMessage
+      #endif
+      {
+        private static readonly pb::MessageParser<SLNextHopKey> _parser = new pb::MessageParser<SLNextHopKey>(() => new SLNextHopKey());
+        private pb::UnknownFieldSet _unknownFields;
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public static pb::MessageParser<SLNextHopKey> Parser { get { return _parser; } }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public static pbr::MessageDescriptor Descriptor {
+          get { return global::ServiceLayer.SLAFNextHopRegKey.Descriptor.NestedTypes[0]; }
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        pbr::MessageDescriptor pb::IMessage.Descriptor {
+          get { return Descriptor; }
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public SLNextHopKey() {
+          OnConstruction();
+        }
+
+        partial void OnConstruction();
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public SLNextHopKey(SLNextHopKey other) : this() {
+          nextHop_ = other.nextHop_ != null ? other.nextHop_.Clone() : null;
+          nextHopLen_ = other.nextHopLen_;
+          exactMatch_ = other.exactMatch_;
+          allowDefault_ = other.allowDefault_;
+          recurse_ = other.recurse_;
+          _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public SLNextHopKey Clone() {
+          return new SLNextHopKey(this);
+        }
+
+        /// <summary>Field number for the "NextHop" field.</summary>
+        public const int NextHopFieldNumber = 1;
+        private global::ServiceLayer.SLIpAddress nextHop_;
+        /// <summary>
+        /// Next Hop IP to resolve
+        /// </summary>
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public global::ServiceLayer.SLIpAddress NextHop {
+          get { return nextHop_; }
+          set {
+            nextHop_ = value;
+          }
+        }
+
+        /// <summary>Field number for the "NextHopLen" field.</summary>
+        public const int NextHopLenFieldNumber = 2;
+        private uint nextHopLen_;
+        /// <summary>
+        /// Length of Next Hop IP address to use for resolution
+        /// </summary>
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public uint NextHopLen {
+          get { return nextHopLen_; }
+          set {
+            nextHopLen_ = value;
+          }
+        }
+
+        /// <summary>Field number for the "ExactMatch" field.</summary>
+        public const int ExactMatchFieldNumber = 3;
+        private bool exactMatch_;
+        /// <summary>
+        /// Chose exact vs. best match
+        /// </summary>
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public bool ExactMatch {
+          get { return exactMatch_; }
+          set {
+            exactMatch_ = value;
+          }
+        }
+
+        /// <summary>Field number for the "AllowDefault" field.</summary>
+        public const int AllowDefaultFieldNumber = 4;
+        private bool allowDefault_;
+        /// <summary>
+        /// Allow default route to be returned
+        /// </summary>
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public bool AllowDefault {
+          get { return allowDefault_; }
+          set {
+            allowDefault_ = value;
+          }
+        }
+
+        /// <summary>Field number for the "Recurse" field.</summary>
+        public const int RecurseFieldNumber = 5;
+        private bool recurse_;
+        /// <summary>
+        /// If this flag is not set or set to False, only the immediate
+        /// viable path list is returned. If set to True, recursively resolve
+        /// the next hop’s paths and return the flattened path list.
+        /// </summary>
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public bool Recurse {
+          get { return recurse_; }
+          set {
+            recurse_ = value;
+          }
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public override bool Equals(object other) {
+          return Equals(other as SLNextHopKey);
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public bool Equals(SLNextHopKey other) {
+          if (ReferenceEquals(other, null)) {
+            return false;
+          }
+          if (ReferenceEquals(other, this)) {
+            return true;
+          }
+          if (!object.Equals(NextHop, other.NextHop)) return false;
+          if (NextHopLen != other.NextHopLen) return false;
+          if (ExactMatch != other.ExactMatch) return false;
+          if (AllowDefault != other.AllowDefault) return false;
+          if (Recurse != other.Recurse) return false;
+          return Equals(_unknownFields, other._unknownFields);
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public override int GetHashCode() {
+          int hash = 1;
+          if (nextHop_ != null) hash ^= NextHop.GetHashCode();
+          if (NextHopLen != 0) hash ^= NextHopLen.GetHashCode();
+          if (ExactMatch != false) hash ^= ExactMatch.GetHashCode();
+          if (AllowDefault != false) hash ^= AllowDefault.GetHashCode();
+          if (Recurse != false) hash ^= Recurse.GetHashCode();
+          if (_unknownFields != null) {
+            hash ^= _unknownFields.GetHashCode();
+          }
+          return hash;
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public override string ToString() {
+          return pb::JsonFormatter.ToDiagnosticString(this);
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public void WriteTo(pb::CodedOutputStream output) {
+        #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+          output.WriteRawMessage(this);
+        #else
+          if (nextHop_ != null) {
+            output.WriteRawTag(10);
+            output.WriteMessage(NextHop);
+          }
+          if (NextHopLen != 0) {
+            output.WriteRawTag(16);
+            output.WriteUInt32(NextHopLen);
+          }
+          if (ExactMatch != false) {
+            output.WriteRawTag(24);
+            output.WriteBool(ExactMatch);
+          }
+          if (AllowDefault != false) {
+            output.WriteRawTag(32);
+            output.WriteBool(AllowDefault);
+          }
+          if (Recurse != false) {
+            output.WriteRawTag(40);
+            output.WriteBool(Recurse);
+          }
+          if (_unknownFields != null) {
+            _unknownFields.WriteTo(output);
+          }
+        #endif
+        }
+
+        #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+          if (nextHop_ != null) {
+            output.WriteRawTag(10);
+            output.WriteMessage(NextHop);
+          }
+          if (NextHopLen != 0) {
+            output.WriteRawTag(16);
+            output.WriteUInt32(NextHopLen);
+          }
+          if (ExactMatch != false) {
+            output.WriteRawTag(24);
+            output.WriteBool(ExactMatch);
+          }
+          if (AllowDefault != false) {
+            output.WriteRawTag(32);
+            output.WriteBool(AllowDefault);
+          }
+          if (Recurse != false) {
+            output.WriteRawTag(40);
+            output.WriteBool(Recurse);
+          }
+          if (_unknownFields != null) {
+            _unknownFields.WriteTo(ref output);
+          }
+        }
+        #endif
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public int CalculateSize() {
+          int size = 0;
+          if (nextHop_ != null) {
+            size += 1 + pb::CodedOutputStream.ComputeMessageSize(NextHop);
+          }
+          if (NextHopLen != 0) {
+            size += 1 + pb::CodedOutputStream.ComputeUInt32Size(NextHopLen);
+          }
+          if (ExactMatch != false) {
+            size += 1 + 1;
+          }
+          if (AllowDefault != false) {
+            size += 1 + 1;
+          }
+          if (Recurse != false) {
+            size += 1 + 1;
+          }
+          if (_unknownFields != null) {
+            size += _unknownFields.CalculateSize();
+          }
+          return size;
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public void MergeFrom(SLNextHopKey other) {
+          if (other == null) {
+            return;
+          }
+          if (other.nextHop_ != null) {
+            if (nextHop_ == null) {
+              NextHop = new global::ServiceLayer.SLIpAddress();
+            }
+            NextHop.MergeFrom(other.NextHop);
+          }
+          if (other.NextHopLen != 0) {
+            NextHopLen = other.NextHopLen;
+          }
+          if (other.ExactMatch != false) {
+            ExactMatch = other.ExactMatch;
+          }
+          if (other.AllowDefault != false) {
+            AllowDefault = other.AllowDefault;
+          }
+          if (other.Recurse != false) {
+            Recurse = other.Recurse;
+          }
+          _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        public void MergeFrom(pb::CodedInputStream input) {
+        #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+          input.ReadRawMessage(this);
+        #else
+          uint tag;
+          while ((tag = input.ReadTag()) != 0) {
+            switch(tag) {
+              default:
+                _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+                break;
+              case 10: {
+                if (nextHop_ == null) {
+                  NextHop = new global::ServiceLayer.SLIpAddress();
+                }
+                input.ReadMessage(NextHop);
+                break;
+              }
+              case 16: {
+                NextHopLen = input.ReadUInt32();
+                break;
+              }
+              case 24: {
+                ExactMatch = input.ReadBool();
+                break;
+              }
+              case 32: {
+                AllowDefault = input.ReadBool();
+                break;
+              }
+              case 40: {
+                Recurse = input.ReadBool();
+                break;
+              }
+            }
+          }
+        #endif
+        }
+
+        #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+          uint tag;
+          while ((tag = input.ReadTag()) != 0) {
+            switch(tag) {
+              default:
+                _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+                break;
+              case 10: {
+                if (nextHop_ == null) {
+                  NextHop = new global::ServiceLayer.SLIpAddress();
+                }
+                input.ReadMessage(NextHop);
+                break;
+              }
+              case 16: {
+                NextHopLen = input.ReadUInt32();
+                break;
+              }
+              case 24: {
+                ExactMatch = input.ReadBool();
+                break;
+              }
+              case 32: {
+                AllowDefault = input.ReadBool();
+                break;
+              }
+              case 40: {
+                Recurse = input.ReadBool();
+                break;
+              }
+            }
+          }
+        }
+        #endif
+
+      }
+
+    }
+    #endregion
+
+  }
+
+  /// <summary>
+  /// Notification request message for a single item.
+  /// </summary>
+  public sealed partial class SLAFNotifRegReq : pb::IMessage<SLAFNotifRegReq>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<SLAFNotifRegReq> _parser = new pb::MessageParser<SLAFNotifRegReq>(() => new SLAFNotifRegReq());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<SLAFNotifRegReq> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::ServiceLayer.SlAfReflection.Descriptor.MessageTypes[16]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SLAFNotifRegReq() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SLAFNotifRegReq(SLAFNotifRegReq other) : this() {
+      operationID_ = other.operationID_;
+      switch (other.RequestCase) {
+        case RequestOneofCase.RedistReq:
+          RedistReq = other.RedistReq.Clone();
+          break;
+        case RequestOneofCase.NextHopReq:
+          NextHopReq = other.NextHopReq.Clone();
+          break;
+      }
+
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SLAFNotifRegReq Clone() {
+      return new SLAFNotifRegReq(this);
+    }
+
+    /// <summary>Field number for the "RedistReq" field.</summary>
+    public const int RedistReqFieldNumber = 1;
+    /// <summary>
+    /// Route redistribution request.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::ServiceLayer.SLAFRedistRegMsg RedistReq {
+      get { return requestCase_ == RequestOneofCase.RedistReq ? (global::ServiceLayer.SLAFRedistRegMsg) request_ : null; }
+      set {
+        request_ = value;
+        requestCase_ = value == null ? RequestOneofCase.None : RequestOneofCase.RedistReq;
+      }
+    }
+
+    /// <summary>Field number for the "NextHopReq" field.</summary>
+    public const int NextHopReqFieldNumber = 2;
+    /// <summary>
+    /// Next hop change notification request.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::ServiceLayer.SLAFNextHopRegMsg NextHopReq {
+      get { return requestCase_ == RequestOneofCase.NextHopReq ? (global::ServiceLayer.SLAFNextHopRegMsg) request_ : null; }
+      set {
+        request_ = value;
+        requestCase_ = value == null ? RequestOneofCase.None : RequestOneofCase.NextHopReq;
+      }
+    }
+
+    /// <summary>Field number for the "OperationID" field.</summary>
+    public const int OperationIDFieldNumber = 3;
+    private ulong operationID_;
+    /// <summary>
+    /// Unique OperationID sent by the client to correlate the
+    /// registration request with the response.
+    /// When this change registration request is applied
+    /// in the server,the result of this registration operation is returned
+    /// to the client along with Operation ID to allow the client correlate
+    /// responses with the requests. Note, server reflects the OperationID
+    /// only in registration responses, and not in the corresponding
+    /// notifications.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public ulong OperationID {
+      get { return operationID_; }
+      set {
+        operationID_ = value;
+      }
+    }
+
+    private object request_;
+    /// <summary>Enum of possible cases for the "request" oneof.</summary>
+    public enum RequestOneofCase {
+      None = 0,
+      RedistReq = 1,
+      NextHopReq = 2,
+    }
+    private RequestOneofCase requestCase_ = RequestOneofCase.None;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public RequestOneofCase RequestCase {
+      get { return requestCase_; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearRequest() {
+      requestCase_ = RequestOneofCase.None;
+      request_ = null;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as SLAFNotifRegReq);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(SLAFNotifRegReq other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (!object.Equals(RedistReq, other.RedistReq)) return false;
+      if (!object.Equals(NextHopReq, other.NextHopReq)) return false;
+      if (OperationID != other.OperationID) return false;
+      if (RequestCase != other.RequestCase) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (requestCase_ == RequestOneofCase.RedistReq) hash ^= RedistReq.GetHashCode();
+      if (requestCase_ == RequestOneofCase.NextHopReq) hash ^= NextHopReq.GetHashCode();
+      if (OperationID != 0UL) hash ^= OperationID.GetHashCode();
+      hash ^= (int) requestCase_;
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (requestCase_ == RequestOneofCase.RedistReq) {
+        output.WriteRawTag(10);
+        output.WriteMessage(RedistReq);
+      }
+      if (requestCase_ == RequestOneofCase.NextHopReq) {
+        output.WriteRawTag(18);
+        output.WriteMessage(NextHopReq);
+      }
+      if (OperationID != 0UL) {
+        output.WriteRawTag(24);
+        output.WriteUInt64(OperationID);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (requestCase_ == RequestOneofCase.RedistReq) {
+        output.WriteRawTag(10);
+        output.WriteMessage(RedistReq);
+      }
+      if (requestCase_ == RequestOneofCase.NextHopReq) {
+        output.WriteRawTag(18);
+        output.WriteMessage(NextHopReq);
+      }
+      if (OperationID != 0UL) {
+        output.WriteRawTag(24);
+        output.WriteUInt64(OperationID);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (requestCase_ == RequestOneofCase.RedistReq) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(RedistReq);
+      }
+      if (requestCase_ == RequestOneofCase.NextHopReq) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(NextHopReq);
+      }
+      if (OperationID != 0UL) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(OperationID);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(SLAFNotifRegReq other) {
+      if (other == null) {
+        return;
+      }
+      if (other.OperationID != 0UL) {
+        OperationID = other.OperationID;
+      }
+      switch (other.RequestCase) {
+        case RequestOneofCase.RedistReq:
+          if (RedistReq == null) {
+            RedistReq = new global::ServiceLayer.SLAFRedistRegMsg();
+          }
+          RedistReq.MergeFrom(other.RedistReq);
+          break;
+        case RequestOneofCase.NextHopReq:
+          if (NextHopReq == null) {
+            NextHopReq = new global::ServiceLayer.SLAFNextHopRegMsg();
+          }
+          NextHopReq.MergeFrom(other.NextHopReq);
+          break;
+      }
+
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            global::ServiceLayer.SLAFRedistRegMsg subBuilder = new global::ServiceLayer.SLAFRedistRegMsg();
+            if (requestCase_ == RequestOneofCase.RedistReq) {
+              subBuilder.MergeFrom(RedistReq);
+            }
+            input.ReadMessage(subBuilder);
+            RedistReq = subBuilder;
+            break;
+          }
+          case 18: {
+            global::ServiceLayer.SLAFNextHopRegMsg subBuilder = new global::ServiceLayer.SLAFNextHopRegMsg();
+            if (requestCase_ == RequestOneofCase.NextHopReq) {
+              subBuilder.MergeFrom(NextHopReq);
+            }
+            input.ReadMessage(subBuilder);
+            NextHopReq = subBuilder;
+            break;
+          }
+          case 24: {
+            OperationID = input.ReadUInt64();
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            global::ServiceLayer.SLAFRedistRegMsg subBuilder = new global::ServiceLayer.SLAFRedistRegMsg();
+            if (requestCase_ == RequestOneofCase.RedistReq) {
+              subBuilder.MergeFrom(RedistReq);
+            }
+            input.ReadMessage(subBuilder);
+            RedistReq = subBuilder;
+            break;
+          }
+          case 18: {
+            global::ServiceLayer.SLAFNextHopRegMsg subBuilder = new global::ServiceLayer.SLAFNextHopRegMsg();
+            if (requestCase_ == RequestOneofCase.NextHopReq) {
+              subBuilder.MergeFrom(NextHopReq);
+            }
+            input.ReadMessage(subBuilder);
+            NextHopReq = subBuilder;
+            break;
+          }
+          case 24: {
+            OperationID = input.ReadUInt64();
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  /// <summary>
+  /// RPC Notification request - either a route redistribution
+  /// request or a next hop change notification request.
+  /// </summary>
+  public sealed partial class SLAFNotifReq : pb::IMessage<SLAFNotifReq>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<SLAFNotifReq> _parser = new pb::MessageParser<SLAFNotifReq>(() => new SLAFNotifReq());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<SLAFNotifReq> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::ServiceLayer.SlAfReflection.Descriptor.MessageTypes[17]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SLAFNotifReq() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SLAFNotifReq(SLAFNotifReq other) : this() {
+      oper_ = other.oper_;
+      vrfName_ = other.vrfName_;
+      notifReq_ = other.notifReq_.Clone();
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SLAFNotifReq Clone() {
+      return new SLAFNotifReq(this);
+    }
+
+    /// <summary>Field number for the "Oper" field.</summary>
+    public const int OperFieldNumber = 1;
+    private global::ServiceLayer.SLNotifOp oper_ = global::ServiceLayer.SLNotifOp.Reserved;
+    /// <summary>
+    /// Oper = SL_NOTIFOP_ENABLE
+    ///   This is to enable route notifications in a VRF or
+    ///    the next hop change notification.
+    /// Oper = SL_NOTIFOP_DISABLE
+    ///   This is to disable route notifications in a VRF or
+    ///   the next hop change notification.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::ServiceLayer.SLNotifOp Oper {
+      get { return oper_; }
+      set {
+        oper_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "VrfName" field.</summary>
+    public const int VrfNameFieldNumber = 2;
+    private string vrfName_ = "";
+    /// <summary>
+    /// Vrf that the client is interested in.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string VrfName {
+      get { return vrfName_; }
+      set {
+        vrfName_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "NotifReq" field.</summary>
+    public const int NotifReqFieldNumber = 3;
+    private static readonly pb::FieldCodec<global::ServiceLayer.SLAFNotifRegReq> _repeated_notifReq_codec
+        = pb::FieldCodec.ForMessage(26, global::ServiceLayer.SLAFNotifRegReq.Parser);
+    private readonly pbc::RepeatedField<global::ServiceLayer.SLAFNotifRegReq> notifReq_ = new pbc::RepeatedField<global::ServiceLayer.SLAFNotifRegReq>();
+    /// <summary>
+    /// Notification request.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pbc::RepeatedField<global::ServiceLayer.SLAFNotifRegReq> NotifReq {
+      get { return notifReq_; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as SLAFNotifReq);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(SLAFNotifReq other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (Oper != other.Oper) return false;
+      if (VrfName != other.VrfName) return false;
+      if(!notifReq_.Equals(other.notifReq_)) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (Oper != global::ServiceLayer.SLNotifOp.Reserved) hash ^= Oper.GetHashCode();
+      if (VrfName.Length != 0) hash ^= VrfName.GetHashCode();
+      hash ^= notifReq_.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (Oper != global::ServiceLayer.SLNotifOp.Reserved) {
+        output.WriteRawTag(8);
+        output.WriteEnum((int) Oper);
+      }
+      if (VrfName.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteString(VrfName);
+      }
+      notifReq_.WriteTo(output, _repeated_notifReq_codec);
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (Oper != global::ServiceLayer.SLNotifOp.Reserved) {
+        output.WriteRawTag(8);
+        output.WriteEnum((int) Oper);
+      }
+      if (VrfName.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteString(VrfName);
+      }
+      notifReq_.WriteTo(ref output, _repeated_notifReq_codec);
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (Oper != global::ServiceLayer.SLNotifOp.Reserved) {
+        size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Oper);
+      }
+      if (VrfName.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(VrfName);
+      }
+      size += notifReq_.CalculateSize(_repeated_notifReq_codec);
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(SLAFNotifReq other) {
+      if (other == null) {
+        return;
+      }
+      if (other.Oper != global::ServiceLayer.SLNotifOp.Reserved) {
+        Oper = other.Oper;
+      }
+      if (other.VrfName.Length != 0) {
+        VrfName = other.VrfName;
+      }
+      notifReq_.Add(other.notifReq_);
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            Oper = (global::ServiceLayer.SLNotifOp) input.ReadEnum();
+            break;
+          }
+          case 18: {
+            VrfName = input.ReadString();
+            break;
+          }
+          case 26: {
+            notifReq_.AddEntriesFrom(input, _repeated_notifReq_codec);
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 8: {
+            Oper = (global::ServiceLayer.SLNotifOp) input.ReadEnum();
+            break;
+          }
+          case 18: {
+            VrfName = input.ReadString();
+            break;
+          }
+          case 26: {
+            notifReq_.AddEntriesFrom(ref input, _repeated_notifReq_codec);
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  /// <summary>
+  /// Notification response message for a single item.
+  /// </summary>
+  public sealed partial class SLAFNotifRsp : pb::IMessage<SLAFNotifRsp>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<SLAFNotifRsp> _parser = new pb::MessageParser<SLAFNotifRsp>(() => new SLAFNotifRsp());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<SLAFNotifRsp> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::ServiceLayer.SlAfReflection.Descriptor.MessageTypes[18]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SLAFNotifRsp() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SLAFNotifRsp(SLAFNotifRsp other) : this() {
+      notifReq_ = other.notifReq_ != null ? other.notifReq_.Clone() : null;
+      notifStatus_ = other.notifStatus_ != null ? other.notifStatus_.Clone() : null;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SLAFNotifRsp Clone() {
+      return new SLAFNotifRsp(this);
+    }
+
+    /// <summary>Field number for the "NotifReq" field.</summary>
+    public const int NotifReqFieldNumber = 1;
+    private global::ServiceLayer.SLAFNotifRegReq notifReq_;
+    /// <summary>
+    /// Corresponding request.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::ServiceLayer.SLAFNotifRegReq NotifReq {
+      get { return notifReq_; }
+      set {
+        notifReq_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "NotifStatus" field.</summary>
+    public const int NotifStatusFieldNumber = 2;
+    private global::ServiceLayer.SLErrorStatus notifStatus_;
+    /// <summary>
+    /// The NotifStatus implies one of 2 things:
+    /// SL_SUCCESS: signifies that the notification request was successful
+    /// SL_XXX: signifies an error in setting up a notification for the Vrf.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::ServiceLayer.SLErrorStatus NotifStatus {
+      get { return notifStatus_; }
+      set {
+        notifStatus_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as SLAFNotifRsp);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(SLAFNotifRsp other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (!object.Equals(NotifReq, other.NotifReq)) return false;
+      if (!object.Equals(NotifStatus, other.NotifStatus)) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (notifReq_ != null) hash ^= NotifReq.GetHashCode();
+      if (notifStatus_ != null) hash ^= NotifStatus.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (notifReq_ != null) {
+        output.WriteRawTag(10);
+        output.WriteMessage(NotifReq);
+      }
+      if (notifStatus_ != null) {
+        output.WriteRawTag(18);
+        output.WriteMessage(NotifStatus);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (notifReq_ != null) {
+        output.WriteRawTag(10);
+        output.WriteMessage(NotifReq);
+      }
+      if (notifStatus_ != null) {
+        output.WriteRawTag(18);
+        output.WriteMessage(NotifStatus);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (notifReq_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(NotifReq);
+      }
+      if (notifStatus_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(NotifStatus);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(SLAFNotifRsp other) {
+      if (other == null) {
+        return;
+      }
+      if (other.notifReq_ != null) {
+        if (notifReq_ == null) {
+          NotifReq = new global::ServiceLayer.SLAFNotifRegReq();
+        }
+        NotifReq.MergeFrom(other.NotifReq);
+      }
+      if (other.notifStatus_ != null) {
+        if (notifStatus_ == null) {
+          NotifStatus = new global::ServiceLayer.SLErrorStatus();
+        }
+        NotifStatus.MergeFrom(other.NotifStatus);
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            if (notifReq_ == null) {
+              NotifReq = new global::ServiceLayer.SLAFNotifRegReq();
+            }
+            input.ReadMessage(NotifReq);
+            break;
+          }
+          case 18: {
+            if (notifStatus_ == null) {
+              NotifStatus = new global::ServiceLayer.SLErrorStatus();
+            }
+            input.ReadMessage(NotifStatus);
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            if (notifReq_ == null) {
+              NotifReq = new global::ServiceLayer.SLAFNotifRegReq();
+            }
+            input.ReadMessage(NotifReq);
+            break;
+          }
+          case 18: {
+            if (notifStatus_ == null) {
+              NotifStatus = new global::ServiceLayer.SLErrorStatus();
+            }
+            input.ReadMessage(NotifStatus);
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  /// <summary>
+  /// Next hop change registration message.
+  /// </summary>
+  public sealed partial class SLAFNextHopRegMsg : pb::IMessage<SLAFNextHopRegMsg>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<SLAFNextHopRegMsg> _parser = new pb::MessageParser<SLAFNextHopRegMsg>(() => new SLAFNextHopRegMsg());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<SLAFNextHopRegMsg> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::ServiceLayer.SlAfReflection.Descriptor.MessageTypes[19]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SLAFNextHopRegMsg() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SLAFNextHopRegMsg(SLAFNextHopRegMsg other) : this() {
+      nextHopKey_ = other.nextHopKey_ != null ? other.nextHopKey_.Clone() : null;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SLAFNextHopRegMsg Clone() {
+      return new SLAFNextHopRegMsg(this);
+    }
+
+    /// <summary>Field number for the "NextHopKey" field.</summary>
+    public const int NextHopKeyFieldNumber = 1;
+    private global::ServiceLayer.SLAFNextHopRegKey nextHopKey_;
+    /// <summary>
+    /// Next hop registration key.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::ServiceLayer.SLAFNextHopRegKey NextHopKey {
+      get { return nextHopKey_; }
+      set {
+        nextHopKey_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as SLAFNextHopRegMsg);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(SLAFNextHopRegMsg other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (!object.Equals(NextHopKey, other.NextHopKey)) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (nextHopKey_ != null) hash ^= NextHopKey.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (nextHopKey_ != null) {
+        output.WriteRawTag(10);
+        output.WriteMessage(NextHopKey);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (nextHopKey_ != null) {
+        output.WriteRawTag(10);
+        output.WriteMessage(NextHopKey);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (nextHopKey_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(NextHopKey);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(SLAFNextHopRegMsg other) {
+      if (other == null) {
+        return;
+      }
+      if (other.nextHopKey_ != null) {
+        if (nextHopKey_ == null) {
+          NextHopKey = new global::ServiceLayer.SLAFNextHopRegKey();
+        }
+        NextHopKey.MergeFrom(other.NextHopKey);
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            if (nextHopKey_ == null) {
+              NextHopKey = new global::ServiceLayer.SLAFNextHopRegKey();
+            }
+            input.ReadMessage(NextHopKey);
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            if (nextHopKey_ == null) {
+              NextHopKey = new global::ServiceLayer.SLAFNextHopRegKey();
+            }
+            input.ReadMessage(NextHopKey);
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  /// <summary>
+  /// Next hop Change Notification
+  /// </summary>
+  public sealed partial class SLNextHop : pb::IMessage<SLNextHop>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<SLNextHop> _parser = new pb::MessageParser<SLNextHop>(() => new SLNextHop());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<SLNextHop> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::ServiceLayer.SlAfReflection.Descriptor.MessageTypes[20]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SLNextHop() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SLNextHop(SLNextHop other) : this() {
+      nextHopKey_ = other.nextHopKey_ != null ? other.nextHopKey_.Clone() : null;
+      resolvingRoute_ = other.resolvingRoute_ != null ? other.resolvingRoute_.Clone() : null;
+      resolvingRouteLen_ = other.resolvingRouteLen_;
+      srcProto_ = other.srcProto_;
+      adminDistance_ = other.adminDistance_;
+      metric_ = other.metric_;
+      paths_ = other.paths_.Clone();
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SLNextHop Clone() {
+      return new SLNextHop(this);
+    }
+
+    /// <summary>Field number for the "NextHopKey" field.</summary>
+    public const int NextHopKeyFieldNumber = 1;
+    private global::ServiceLayer.SLAFNextHopRegKey nextHopKey_;
+    /// <summary>
+    /// Next hop registration key.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::ServiceLayer.SLAFNextHopRegKey NextHopKey {
+      get { return nextHopKey_; }
+      set {
+        nextHopKey_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "ResolvingRoute" field.</summary>
+    public const int ResolvingRouteFieldNumber = 2;
+    private global::ServiceLayer.SLIpAddress resolvingRoute_;
+    /// <summary>
+    /// Prefix of the route resolving the nexthop
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::ServiceLayer.SLIpAddress ResolvingRoute {
+      get { return resolvingRoute_; }
+      set {
+        resolvingRoute_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "ResolvingRouteLen" field.</summary>
+    public const int ResolvingRouteLenFieldNumber = 3;
+    private uint resolvingRouteLen_;
+    /// <summary>
+    /// Resolving route's prefix length
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint ResolvingRouteLen {
+      get { return resolvingRouteLen_; }
+      set {
+        resolvingRouteLen_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "SrcProto" field.</summary>
+    public const int SrcProtoFieldNumber = 4;
+    private string srcProto_ = "";
+    /// <summary>
+    /// Source Protocol.
+    /// Contact Cisco for supported protocol string names.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string SrcProto {
+      get { return srcProto_; }
+      set {
+        srcProto_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "admin_distance" field.</summary>
+    public const int AdminDistanceFieldNumber = 5;
+    private uint adminDistance_;
+    /// <summary>
+    /// Nexthop route distance
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint AdminDistance {
+      get { return adminDistance_; }
+      set {
+        adminDistance_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "metric" field.</summary>
+    public const int MetricFieldNumber = 6;
+    private uint metric_;
+    /// <summary>
+    /// Nexthop route metric
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint Metric {
+      get { return metric_; }
+      set {
+        metric_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "Paths" field.</summary>
+    public const int PathsFieldNumber = 7;
+    private static readonly pb::FieldCodec<global::ServiceLayer.SLRoutePath> _repeated_paths_codec
+        = pb::FieldCodec.ForMessage(58, global::ServiceLayer.SLRoutePath.Parser);
+    private readonly pbc::RepeatedField<global::ServiceLayer.SLRoutePath> paths_ = new pbc::RepeatedField<global::ServiceLayer.SLRoutePath>();
+    /// <summary>
+    /// Nexthop's path list. Paths indicate paths available
+    /// for the next hop. In case of recursive next hop resolution,
+    /// the returned path list consists of flattened directly connected
+    /// paths.
+    ///
+    /// If this field is not present,
+    /// then no viable path to the next hop exist.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pbc::RepeatedField<global::ServiceLayer.SLRoutePath> Paths {
+      get { return paths_; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as SLNextHop);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(SLNextHop other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (!object.Equals(NextHopKey, other.NextHopKey)) return false;
+      if (!object.Equals(ResolvingRoute, other.ResolvingRoute)) return false;
+      if (ResolvingRouteLen != other.ResolvingRouteLen) return false;
+      if (SrcProto != other.SrcProto) return false;
+      if (AdminDistance != other.AdminDistance) return false;
+      if (Metric != other.Metric) return false;
+      if(!paths_.Equals(other.paths_)) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (nextHopKey_ != null) hash ^= NextHopKey.GetHashCode();
+      if (resolvingRoute_ != null) hash ^= ResolvingRoute.GetHashCode();
+      if (ResolvingRouteLen != 0) hash ^= ResolvingRouteLen.GetHashCode();
+      if (SrcProto.Length != 0) hash ^= SrcProto.GetHashCode();
+      if (AdminDistance != 0) hash ^= AdminDistance.GetHashCode();
+      if (Metric != 0) hash ^= Metric.GetHashCode();
+      hash ^= paths_.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (nextHopKey_ != null) {
+        output.WriteRawTag(10);
+        output.WriteMessage(NextHopKey);
+      }
+      if (resolvingRoute_ != null) {
+        output.WriteRawTag(18);
+        output.WriteMessage(ResolvingRoute);
+      }
+      if (ResolvingRouteLen != 0) {
+        output.WriteRawTag(24);
+        output.WriteUInt32(ResolvingRouteLen);
+      }
+      if (SrcProto.Length != 0) {
+        output.WriteRawTag(34);
+        output.WriteString(SrcProto);
+      }
+      if (AdminDistance != 0) {
+        output.WriteRawTag(40);
+        output.WriteUInt32(AdminDistance);
+      }
+      if (Metric != 0) {
+        output.WriteRawTag(48);
+        output.WriteUInt32(Metric);
+      }
+      paths_.WriteTo(output, _repeated_paths_codec);
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (nextHopKey_ != null) {
+        output.WriteRawTag(10);
+        output.WriteMessage(NextHopKey);
+      }
+      if (resolvingRoute_ != null) {
+        output.WriteRawTag(18);
+        output.WriteMessage(ResolvingRoute);
+      }
+      if (ResolvingRouteLen != 0) {
+        output.WriteRawTag(24);
+        output.WriteUInt32(ResolvingRouteLen);
+      }
+      if (SrcProto.Length != 0) {
+        output.WriteRawTag(34);
+        output.WriteString(SrcProto);
+      }
+      if (AdminDistance != 0) {
+        output.WriteRawTag(40);
+        output.WriteUInt32(AdminDistance);
+      }
+      if (Metric != 0) {
+        output.WriteRawTag(48);
+        output.WriteUInt32(Metric);
+      }
+      paths_.WriteTo(ref output, _repeated_paths_codec);
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (nextHopKey_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(NextHopKey);
+      }
+      if (resolvingRoute_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(ResolvingRoute);
+      }
+      if (ResolvingRouteLen != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(ResolvingRouteLen);
+      }
+      if (SrcProto.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(SrcProto);
+      }
+      if (AdminDistance != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(AdminDistance);
+      }
+      if (Metric != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Metric);
+      }
+      size += paths_.CalculateSize(_repeated_paths_codec);
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(SLNextHop other) {
+      if (other == null) {
+        return;
+      }
+      if (other.nextHopKey_ != null) {
+        if (nextHopKey_ == null) {
+          NextHopKey = new global::ServiceLayer.SLAFNextHopRegKey();
+        }
+        NextHopKey.MergeFrom(other.NextHopKey);
+      }
+      if (other.resolvingRoute_ != null) {
+        if (resolvingRoute_ == null) {
+          ResolvingRoute = new global::ServiceLayer.SLIpAddress();
+        }
+        ResolvingRoute.MergeFrom(other.ResolvingRoute);
+      }
+      if (other.ResolvingRouteLen != 0) {
+        ResolvingRouteLen = other.ResolvingRouteLen;
+      }
+      if (other.SrcProto.Length != 0) {
+        SrcProto = other.SrcProto;
+      }
+      if (other.AdminDistance != 0) {
+        AdminDistance = other.AdminDistance;
+      }
+      if (other.Metric != 0) {
+        Metric = other.Metric;
+      }
+      paths_.Add(other.paths_);
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            if (nextHopKey_ == null) {
+              NextHopKey = new global::ServiceLayer.SLAFNextHopRegKey();
+            }
+            input.ReadMessage(NextHopKey);
+            break;
+          }
+          case 18: {
+            if (resolvingRoute_ == null) {
+              ResolvingRoute = new global::ServiceLayer.SLIpAddress();
+            }
+            input.ReadMessage(ResolvingRoute);
+            break;
+          }
+          case 24: {
+            ResolvingRouteLen = input.ReadUInt32();
+            break;
+          }
+          case 34: {
+            SrcProto = input.ReadString();
+            break;
+          }
+          case 40: {
+            AdminDistance = input.ReadUInt32();
+            break;
+          }
+          case 48: {
+            Metric = input.ReadUInt32();
+            break;
+          }
+          case 58: {
+            paths_.AddEntriesFrom(input, _repeated_paths_codec);
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            if (nextHopKey_ == null) {
+              NextHopKey = new global::ServiceLayer.SLAFNextHopRegKey();
+            }
+            input.ReadMessage(NextHopKey);
+            break;
+          }
+          case 18: {
+            if (resolvingRoute_ == null) {
+              ResolvingRoute = new global::ServiceLayer.SLIpAddress();
+            }
+            input.ReadMessage(ResolvingRoute);
+            break;
+          }
+          case 24: {
+            ResolvingRouteLen = input.ReadUInt32();
+            break;
+          }
+          case 34: {
+            SrcProto = input.ReadString();
+            break;
+          }
+          case 40: {
+            AdminDistance = input.ReadUInt32();
+            break;
+          }
+          case 48: {
+            Metric = input.ReadUInt32();
+            break;
+          }
+          case 58: {
+            paths_.AddEntriesFrom(ref input, _repeated_paths_codec);
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  /// <summary>
+  /// AF Notification message.
+  /// </summary>
+  public sealed partial class SLAFNotif : pb::IMessage<SLAFNotif>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<SLAFNotif> _parser = new pb::MessageParser<SLAFNotif>(() => new SLAFNotif());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<SLAFNotif> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::ServiceLayer.SlAfReflection.Descriptor.MessageTypes[21]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SLAFNotif() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SLAFNotif(SLAFNotif other) : this() {
+      switch (other.EventCase) {
+        case EventOneofCase.NotifStatus:
+          NotifStatus = other.NotifStatus.Clone();
+          break;
+        case EventOneofCase.StartMarker:
+          StartMarker = other.StartMarker.Clone();
+          break;
+        case EventOneofCase.EndMarker:
+          EndMarker = other.EndMarker.Clone();
+          break;
+        case EventOneofCase.RedistObject:
+          RedistObject = other.RedistObject.Clone();
+          break;
+        case EventOneofCase.NextHop:
+          NextHop = other.NextHop.Clone();
+          break;
+      }
+
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SLAFNotif Clone() {
+      return new SLAFNotif(this);
+    }
+
+    /// <summary>Field number for the "NotifStatus" field.</summary>
+    public const int NotifStatusFieldNumber = 1;
+    /// <summary>
+    /// This field carries the status of the SLAFNotifReq message.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::ServiceLayer.SLAFNotifRsp NotifStatus {
+      get { return eventCase_ == EventOneofCase.NotifStatus ? (global::ServiceLayer.SLAFNotifRsp) event_ : null; }
+      set {
+        event_ = value;
+        eventCase_ = value == null ? EventOneofCase.None : EventOneofCase.NotifStatus;
+      }
+    }
+
+    /// <summary>Field number for the "StartMarker" field.</summary>
+    public const int StartMarkerFieldNumber = 2;
+    /// <summary>
+    /// This field carries the start marker. Server sends this
+    /// event before any notifications are sent. This allows
+    /// the client to stale any previous notifications in its
+    /// database.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::ServiceLayer.SLEmpty StartMarker {
+      get { return eventCase_ == EventOneofCase.StartMarker ? (global::ServiceLayer.SLEmpty) event_ : null; }
+      set {
+        event_ = value;
+        eventCase_ = value == null ? EventOneofCase.None : EventOneofCase.StartMarker;
+      }
+    }
+
+    /// <summary>Field number for the "EndMarker" field.</summary>
+    public const int EndMarkerFieldNumber = 3;
+    /// <summary>
+    /// This field carries the end marker for notifications
+    /// and is an indication from the server that all notifications
+    /// corresponding to the registered requests have been
+    /// sent to the client. The client can now reconcile and
+    /// sweep all stale notifications.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::ServiceLayer.SLEmpty EndMarker {
+      get { return eventCase_ == EventOneofCase.EndMarker ? (global::ServiceLayer.SLEmpty) event_ : null; }
+      set {
+        event_ = value;
+        eventCase_ = value == null ? EventOneofCase.None : EventOneofCase.EndMarker;
+      }
+    }
+
+    /// <summary>Field number for the "RedistObject" field.</summary>
+    public const int RedistObjectFieldNumber = 4;
+    /// <summary>
+    /// Route redistribution notification.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::ServiceLayer.SLAFObject RedistObject {
+      get { return eventCase_ == EventOneofCase.RedistObject ? (global::ServiceLayer.SLAFObject) event_ : null; }
+      set {
+        event_ = value;
+        eventCase_ = value == null ? EventOneofCase.None : EventOneofCase.RedistObject;
+      }
+    }
+
+    /// <summary>Field number for the "NextHop" field.</summary>
+    public const int NextHopFieldNumber = 5;
+    /// <summary>
+    /// Next hop change notification.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::ServiceLayer.SLNextHop NextHop {
+      get { return eventCase_ == EventOneofCase.NextHop ? (global::ServiceLayer.SLNextHop) event_ : null; }
+      set {
+        event_ = value;
+        eventCase_ = value == null ? EventOneofCase.None : EventOneofCase.NextHop;
+      }
+    }
+
+    private object event_;
+    /// <summary>Enum of possible cases for the "Event" oneof.</summary>
+    public enum EventOneofCase {
+      None = 0,
+      NotifStatus = 1,
+      StartMarker = 2,
+      EndMarker = 3,
+      RedistObject = 4,
+      NextHop = 5,
+    }
+    private EventOneofCase eventCase_ = EventOneofCase.None;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public EventOneofCase EventCase {
+      get { return eventCase_; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearEvent() {
+      eventCase_ = EventOneofCase.None;
+      event_ = null;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as SLAFNotif);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(SLAFNotif other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (!object.Equals(NotifStatus, other.NotifStatus)) return false;
+      if (!object.Equals(StartMarker, other.StartMarker)) return false;
+      if (!object.Equals(EndMarker, other.EndMarker)) return false;
+      if (!object.Equals(RedistObject, other.RedistObject)) return false;
+      if (!object.Equals(NextHop, other.NextHop)) return false;
+      if (EventCase != other.EventCase) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (eventCase_ == EventOneofCase.NotifStatus) hash ^= NotifStatus.GetHashCode();
+      if (eventCase_ == EventOneofCase.StartMarker) hash ^= StartMarker.GetHashCode();
+      if (eventCase_ == EventOneofCase.EndMarker) hash ^= EndMarker.GetHashCode();
+      if (eventCase_ == EventOneofCase.RedistObject) hash ^= RedistObject.GetHashCode();
+      if (eventCase_ == EventOneofCase.NextHop) hash ^= NextHop.GetHashCode();
+      hash ^= (int) eventCase_;
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (eventCase_ == EventOneofCase.NotifStatus) {
+        output.WriteRawTag(10);
+        output.WriteMessage(NotifStatus);
+      }
+      if (eventCase_ == EventOneofCase.StartMarker) {
+        output.WriteRawTag(18);
+        output.WriteMessage(StartMarker);
+      }
+      if (eventCase_ == EventOneofCase.EndMarker) {
+        output.WriteRawTag(26);
+        output.WriteMessage(EndMarker);
+      }
+      if (eventCase_ == EventOneofCase.RedistObject) {
+        output.WriteRawTag(34);
+        output.WriteMessage(RedistObject);
+      }
+      if (eventCase_ == EventOneofCase.NextHop) {
+        output.WriteRawTag(42);
+        output.WriteMessage(NextHop);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (eventCase_ == EventOneofCase.NotifStatus) {
+        output.WriteRawTag(10);
+        output.WriteMessage(NotifStatus);
+      }
+      if (eventCase_ == EventOneofCase.StartMarker) {
+        output.WriteRawTag(18);
+        output.WriteMessage(StartMarker);
+      }
+      if (eventCase_ == EventOneofCase.EndMarker) {
+        output.WriteRawTag(26);
+        output.WriteMessage(EndMarker);
+      }
+      if (eventCase_ == EventOneofCase.RedistObject) {
+        output.WriteRawTag(34);
+        output.WriteMessage(RedistObject);
+      }
+      if (eventCase_ == EventOneofCase.NextHop) {
+        output.WriteRawTag(42);
+        output.WriteMessage(NextHop);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (eventCase_ == EventOneofCase.NotifStatus) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(NotifStatus);
+      }
+      if (eventCase_ == EventOneofCase.StartMarker) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(StartMarker);
+      }
+      if (eventCase_ == EventOneofCase.EndMarker) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(EndMarker);
+      }
+      if (eventCase_ == EventOneofCase.RedistObject) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(RedistObject);
+      }
+      if (eventCase_ == EventOneofCase.NextHop) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(NextHop);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(SLAFNotif other) {
+      if (other == null) {
+        return;
+      }
+      switch (other.EventCase) {
+        case EventOneofCase.NotifStatus:
+          if (NotifStatus == null) {
+            NotifStatus = new global::ServiceLayer.SLAFNotifRsp();
+          }
+          NotifStatus.MergeFrom(other.NotifStatus);
+          break;
+        case EventOneofCase.StartMarker:
+          if (StartMarker == null) {
+            StartMarker = new global::ServiceLayer.SLEmpty();
+          }
+          StartMarker.MergeFrom(other.StartMarker);
+          break;
+        case EventOneofCase.EndMarker:
+          if (EndMarker == null) {
+            EndMarker = new global::ServiceLayer.SLEmpty();
+          }
+          EndMarker.MergeFrom(other.EndMarker);
+          break;
+        case EventOneofCase.RedistObject:
+          if (RedistObject == null) {
+            RedistObject = new global::ServiceLayer.SLAFObject();
+          }
+          RedistObject.MergeFrom(other.RedistObject);
+          break;
+        case EventOneofCase.NextHop:
+          if (NextHop == null) {
+            NextHop = new global::ServiceLayer.SLNextHop();
+          }
+          NextHop.MergeFrom(other.NextHop);
+          break;
+      }
+
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            global::ServiceLayer.SLAFNotifRsp subBuilder = new global::ServiceLayer.SLAFNotifRsp();
+            if (eventCase_ == EventOneofCase.NotifStatus) {
+              subBuilder.MergeFrom(NotifStatus);
+            }
+            input.ReadMessage(subBuilder);
+            NotifStatus = subBuilder;
+            break;
+          }
+          case 18: {
+            global::ServiceLayer.SLEmpty subBuilder = new global::ServiceLayer.SLEmpty();
+            if (eventCase_ == EventOneofCase.StartMarker) {
+              subBuilder.MergeFrom(StartMarker);
+            }
+            input.ReadMessage(subBuilder);
+            StartMarker = subBuilder;
+            break;
+          }
+          case 26: {
+            global::ServiceLayer.SLEmpty subBuilder = new global::ServiceLayer.SLEmpty();
+            if (eventCase_ == EventOneofCase.EndMarker) {
+              subBuilder.MergeFrom(EndMarker);
+            }
+            input.ReadMessage(subBuilder);
+            EndMarker = subBuilder;
+            break;
+          }
+          case 34: {
+            global::ServiceLayer.SLAFObject subBuilder = new global::ServiceLayer.SLAFObject();
+            if (eventCase_ == EventOneofCase.RedistObject) {
+              subBuilder.MergeFrom(RedistObject);
+            }
+            input.ReadMessage(subBuilder);
+            RedistObject = subBuilder;
+            break;
+          }
+          case 42: {
+            global::ServiceLayer.SLNextHop subBuilder = new global::ServiceLayer.SLNextHop();
+            if (eventCase_ == EventOneofCase.NextHop) {
+              subBuilder.MergeFrom(NextHop);
+            }
+            input.ReadMessage(subBuilder);
+            NextHop = subBuilder;
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            global::ServiceLayer.SLAFNotifRsp subBuilder = new global::ServiceLayer.SLAFNotifRsp();
+            if (eventCase_ == EventOneofCase.NotifStatus) {
+              subBuilder.MergeFrom(NotifStatus);
+            }
+            input.ReadMessage(subBuilder);
+            NotifStatus = subBuilder;
+            break;
+          }
+          case 18: {
+            global::ServiceLayer.SLEmpty subBuilder = new global::ServiceLayer.SLEmpty();
+            if (eventCase_ == EventOneofCase.StartMarker) {
+              subBuilder.MergeFrom(StartMarker);
+            }
+            input.ReadMessage(subBuilder);
+            StartMarker = subBuilder;
+            break;
+          }
+          case 26: {
+            global::ServiceLayer.SLEmpty subBuilder = new global::ServiceLayer.SLEmpty();
+            if (eventCase_ == EventOneofCase.EndMarker) {
+              subBuilder.MergeFrom(EndMarker);
+            }
+            input.ReadMessage(subBuilder);
+            EndMarker = subBuilder;
+            break;
+          }
+          case 34: {
+            global::ServiceLayer.SLAFObject subBuilder = new global::ServiceLayer.SLAFObject();
+            if (eventCase_ == EventOneofCase.RedistObject) {
+              subBuilder.MergeFrom(RedistObject);
+            }
+            input.ReadMessage(subBuilder);
+            RedistObject = subBuilder;
+            break;
+          }
+          case 42: {
+            global::ServiceLayer.SLNextHop subBuilder = new global::ServiceLayer.SLNextHop();
+            if (eventCase_ == EventOneofCase.NextHop) {
+              subBuilder.MergeFrom(NextHop);
+            }
+            input.ReadMessage(subBuilder);
+            NextHop = subBuilder;
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  /// <summary>
+  /// RPC Notification message.
+  /// </summary>
+  public sealed partial class SLAFNotifMsg : pb::IMessage<SLAFNotifMsg>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<SLAFNotifMsg> _parser = new pb::MessageParser<SLAFNotifMsg>(() => new SLAFNotifMsg());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<SLAFNotifMsg> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::ServiceLayer.SlAfReflection.Descriptor.MessageTypes[22]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SLAFNotifMsg() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SLAFNotifMsg(SLAFNotifMsg other) : this() {
+      vrfName_ = other.vrfName_;
+      table_ = other.table_;
+      aFNotifs_ = other.aFNotifs_.Clone();
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SLAFNotifMsg Clone() {
+      return new SLAFNotifMsg(this);
+    }
+
+    /// <summary>Field number for the "VrfName" field.</summary>
+    public const int VrfNameFieldNumber = 1;
+    private string vrfName_ = "";
+    /// <summary>
+    /// VRF name.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string VrfName {
+      get { return vrfName_; }
+      set {
+        vrfName_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "Table" field.</summary>
+    public const int TableFieldNumber = 2;
+    private global::ServiceLayer.SLTableType table_ = global::ServiceLayer.SLTableType.Reserved;
+    /// <summary>
+    /// Table type.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::ServiceLayer.SLTableType Table {
+      get { return table_; }
+      set {
+        table_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "AFNotifs" field.</summary>
+    public const int AFNotifsFieldNumber = 3;
+    private static readonly pb::FieldCodec<global::ServiceLayer.SLAFNotif> _repeated_aFNotifs_codec
+        = pb::FieldCodec.ForMessage(26, global::ServiceLayer.SLAFNotif.Parser);
+    private readonly pbc::RepeatedField<global::ServiceLayer.SLAFNotif> aFNotifs_ = new pbc::RepeatedField<global::ServiceLayer.SLAFNotif>();
+    /// <summary>
+    /// Notifications.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pbc::RepeatedField<global::ServiceLayer.SLAFNotif> AFNotifs {
+      get { return aFNotifs_; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as SLAFNotifMsg);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(SLAFNotifMsg other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (VrfName != other.VrfName) return false;
+      if (Table != other.Table) return false;
+      if(!aFNotifs_.Equals(other.aFNotifs_)) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (VrfName.Length != 0) hash ^= VrfName.GetHashCode();
+      if (Table != global::ServiceLayer.SLTableType.Reserved) hash ^= Table.GetHashCode();
+      hash ^= aFNotifs_.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (VrfName.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(VrfName);
+      }
+      if (Table != global::ServiceLayer.SLTableType.Reserved) {
+        output.WriteRawTag(16);
+        output.WriteEnum((int) Table);
+      }
+      aFNotifs_.WriteTo(output, _repeated_aFNotifs_codec);
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (VrfName.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(VrfName);
+      }
+      if (Table != global::ServiceLayer.SLTableType.Reserved) {
+        output.WriteRawTag(16);
+        output.WriteEnum((int) Table);
+      }
+      aFNotifs_.WriteTo(ref output, _repeated_aFNotifs_codec);
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (VrfName.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(VrfName);
+      }
+      if (Table != global::ServiceLayer.SLTableType.Reserved) {
+        size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Table);
+      }
+      size += aFNotifs_.CalculateSize(_repeated_aFNotifs_codec);
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(SLAFNotifMsg other) {
+      if (other == null) {
+        return;
+      }
+      if (other.VrfName.Length != 0) {
+        VrfName = other.VrfName;
+      }
+      if (other.Table != global::ServiceLayer.SLTableType.Reserved) {
+        Table = other.Table;
+      }
+      aFNotifs_.Add(other.aFNotifs_);
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            VrfName = input.ReadString();
+            break;
+          }
+          case 16: {
+            Table = (global::ServiceLayer.SLTableType) input.ReadEnum();
+            break;
+          }
+          case 26: {
+            aFNotifs_.AddEntriesFrom(input, _repeated_aFNotifs_codec);
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            VrfName = input.ReadString();
+            break;
+          }
+          case 16: {
+            Table = (global::ServiceLayer.SLTableType) input.ReadEnum();
+            break;
+          }
+          case 26: {
+            aFNotifs_.AddEntriesFrom(ref input, _repeated_aFNotifs_codec);
             break;
           }
         }

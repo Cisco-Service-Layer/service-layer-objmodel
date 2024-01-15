@@ -101,6 +101,7 @@ type SLAFClient interface {
 	SLAFOpStream(ctx context.Context, opts ...grpc.CallOption) (SLAF_SLAFOpStreamClient, error)
 	// Retrieves object attributes.
 	SLAFGet(ctx context.Context, in *SLAFGetMsg, opts ...grpc.CallOption) (SLAF_SLAFGetClient, error)
+	SLAFNotifStream(ctx context.Context, opts ...grpc.CallOption) (SLAF_SLAFNotifStreamClient, error)
 }
 
 type sLAFClient struct {
@@ -192,6 +193,37 @@ func (x *sLAFSLAFGetClient) Recv() (*SLAFGetMsgRsp, error) {
 	return m, nil
 }
 
+func (c *sLAFClient) SLAFNotifStream(ctx context.Context, opts ...grpc.CallOption) (SLAF_SLAFNotifStreamClient, error) {
+	stream, err := c.cc.NewStream(ctx, &SLAF_ServiceDesc.Streams[2], "/service_layer.SLAF/SLAFNotifStream", opts...)
+	if err != nil {
+		return nil, err
+	}
+	x := &sLAFSLAFNotifStreamClient{stream}
+	return x, nil
+}
+
+type SLAF_SLAFNotifStreamClient interface {
+	Send(*SLAFNotifReq) error
+	Recv() (*SLAFNotifMsg, error)
+	grpc.ClientStream
+}
+
+type sLAFSLAFNotifStreamClient struct {
+	grpc.ClientStream
+}
+
+func (x *sLAFSLAFNotifStreamClient) Send(m *SLAFNotifReq) error {
+	return x.ClientStream.SendMsg(m)
+}
+
+func (x *sLAFSLAFNotifStreamClient) Recv() (*SLAFNotifMsg, error) {
+	m := new(SLAFNotifMsg)
+	if err := x.ClientStream.RecvMsg(m); err != nil {
+		return nil, err
+	}
+	return m, nil
+}
+
 // SLAFServer is the server API for SLAF service.
 // All implementations must embed UnimplementedSLAFServer
 // for forward compatibility
@@ -275,6 +307,7 @@ type SLAFServer interface {
 	SLAFOpStream(SLAF_SLAFOpStreamServer) error
 	// Retrieves object attributes.
 	SLAFGet(*SLAFGetMsg, SLAF_SLAFGetServer) error
+	SLAFNotifStream(SLAF_SLAFNotifStreamServer) error
 	mustEmbedUnimplementedSLAFServer()
 }
 
@@ -293,6 +326,9 @@ func (UnimplementedSLAFServer) SLAFOpStream(SLAF_SLAFOpStreamServer) error {
 }
 func (UnimplementedSLAFServer) SLAFGet(*SLAFGetMsg, SLAF_SLAFGetServer) error {
 	return status.Errorf(codes.Unimplemented, "method SLAFGet not implemented")
+}
+func (UnimplementedSLAFServer) SLAFNotifStream(SLAF_SLAFNotifStreamServer) error {
+	return status.Errorf(codes.Unimplemented, "method SLAFNotifStream not implemented")
 }
 func (UnimplementedSLAFServer) mustEmbedUnimplementedSLAFServer() {}
 
@@ -390,6 +426,32 @@ func (x *sLAFSLAFGetServer) Send(m *SLAFGetMsgRsp) error {
 	return x.ServerStream.SendMsg(m)
 }
 
+func _SLAF_SLAFNotifStream_Handler(srv interface{}, stream grpc.ServerStream) error {
+	return srv.(SLAFServer).SLAFNotifStream(&sLAFSLAFNotifStreamServer{stream})
+}
+
+type SLAF_SLAFNotifStreamServer interface {
+	Send(*SLAFNotifMsg) error
+	Recv() (*SLAFNotifReq, error)
+	grpc.ServerStream
+}
+
+type sLAFSLAFNotifStreamServer struct {
+	grpc.ServerStream
+}
+
+func (x *sLAFSLAFNotifStreamServer) Send(m *SLAFNotifMsg) error {
+	return x.ServerStream.SendMsg(m)
+}
+
+func (x *sLAFSLAFNotifStreamServer) Recv() (*SLAFNotifReq, error) {
+	m := new(SLAFNotifReq)
+	if err := x.ServerStream.RecvMsg(m); err != nil {
+		return nil, err
+	}
+	return m, nil
+}
+
 // SLAF_ServiceDesc is the grpc.ServiceDesc for SLAF service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -417,6 +479,12 @@ var SLAF_ServiceDesc = grpc.ServiceDesc{
 			StreamName:    "SLAFGet",
 			Handler:       _SLAF_SLAFGet_Handler,
 			ServerStreams: true,
+		},
+		{
+			StreamName:    "SLAFNotifStream",
+			Handler:       _SLAF_SLAFNotifStream_Handler,
+			ServerStreams: true,
+			ClientStreams: true,
 		},
 	},
 	Metadata: "sl_af.proto",
