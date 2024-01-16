@@ -79,19 +79,8 @@ struct SLPathGroupRefKeyDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT SLPathGroupRefKeyDefaultTypeInternal _SLPathGroupRefKey_default_instance_;
-constexpr SLEmpty::SLEmpty(
-  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized){}
-struct SLEmptyDefaultTypeInternal {
-  constexpr SLEmptyDefaultTypeInternal()
-    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
-  ~SLEmptyDefaultTypeInternal() {}
-  union {
-    SLEmpty _instance;
-  };
-};
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT SLEmptyDefaultTypeInternal _SLEmpty_default_instance_;
 }  // namespace service_layer
-static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_sl_5fcommon_5ftypes_2eproto[6];
+static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_sl_5fcommon_5ftypes_2eproto[5];
 static const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* file_level_enum_descriptors_sl_5fcommon_5ftypes_2eproto[8];
 static constexpr ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor const** file_level_service_descriptors_sl_5fcommon_5ftypes_2eproto = nullptr;
 
@@ -137,12 +126,6 @@ const uint32_t TableStruct_sl_5fcommon_5ftypes_2eproto::offsets[] PROTOBUF_SECTI
   ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::service_layer::SLPathGroupRefKey, vrfname_),
   PROTOBUF_FIELD_OFFSET(::service_layer::SLPathGroupRefKey, pathgroupid_),
-  ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::service_layer::SLEmpty, _internal_metadata_),
-  ~0u,  // no _extensions_
-  ~0u,  // no _oneof_case_
-  ~0u,  // no _weak_field_map_
-  ~0u,  // no _inlined_string_donated_
 };
 static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, -1, sizeof(::service_layer::SLErrorStatus)},
@@ -150,7 +133,6 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOB
   { 16, -1, -1, sizeof(::service_layer::SLIpAddress)},
   { 25, -1, -1, sizeof(::service_layer::SLObjectId)},
   { 33, -1, -1, sizeof(::service_layer::SLPathGroupRefKey)},
-  { 41, -1, -1, sizeof(::service_layer::SLEmpty)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -159,7 +141,6 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::service_layer::_SLIpAddress_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::service_layer::_SLObjectId_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::service_layer::_SLPathGroupRefKey_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::service_layer::_SLEmpty_default_instance_),
 };
 
 const char descriptor_table_protodef_sl_5fcommon_5ftypes_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
@@ -402,32 +383,31 @@ const char descriptor_table_protodef_sl_5fcommon_5ftypes_2eproto[] PROTOBUF_SECT
   "dress\030\002 \001(\014H\000B\t\n\007Address\"%\n\nSLObjectId\022\016"
   "\n\004Name\030\001 \001(\tH\000B\007\n\005entry\"T\n\021SLPathGroupRe"
   "fKey\022\017\n\007VrfName\030\001 \001(\t\022.\n\013PathGroupId\030\002 \001"
-  "(\0132\031.service_layer.SLObjectId\"\t\n\007SLEmpty"
-  "*b\n\007SLRegOp\022\025\n\021SL_REGOP_RESERVED\020\000\022\025\n\021SL"
-  "_REGOP_REGISTER\020\001\022\027\n\023SL_REGOP_UNREGISTER"
-  "\020\002\022\020\n\014SL_REGOP_EOF\020\003*_\n\nSLObjectOp\022\025\n\021SL"
-  "_OBJOP_RESERVED\020\000\022\020\n\014SL_OBJOP_ADD\020\001\022\023\n\017S"
-  "L_OBJOP_UPDATE\020\002\022\023\n\017SL_OBJOP_DELETE\020\003*S\n"
-  "\tSLNotifOp\022\027\n\023SL_NOTIFOP_RESERVED\020\000\022\025\n\021S"
-  "L_NOTIFOP_ENABLE\020\001\022\026\n\022SL_NOTIFOP_DISABLE"
-  "\020\002*\211\001\n\020SLUpdatePriority\022\030\n\024SL_PRIORITY_R"
-  "ESERVED\020\000\022\030\n\024SL_PRIORITY_CRITICAL\020\004\022\024\n\020S"
-  "L_PRIORITY_HIGH\020\010\022\026\n\022SL_PRIORITY_MEDIUM\020"
-  "\014\022\023\n\017SL_PRIORITY_LOW\020\020*K\n\013SLEncapType\022\025\n"
-  "\021SL_ENCAP_RESERVED\020\000\022\022\n\016SL_ENCAP_VXLAN\020\001"
-  "\022\021\n\rSL_ENCAP_MPLS\020\002*\215\001\n\013SLTableType\022\032\n\026S"
-  "L_TABLE_TYPE_RESERVED\020\000\022\027\n\023SL_IPv4_ROUTE"
-  "_TABLE\020\001\022\027\n\023SL_IPv6_ROUTE_TABLE\020\002\022\027\n\023SL_"
-  "MPLS_LABEL_TABLE\020\003\022\027\n\023SL_PATH_GROUP_TABL"
-  "E\020\004*\033\n\014SLRspACKType\022\013\n\007RIB_ACK\020\000BQZOgith"
-  "ub.com/Cisco-service-layer/service-layer"
-  "-objmodel/grpc/protos;service_layerb\006pro"
-  "to3"
+  "(\0132\031.service_layer.SLObjectId*b\n\007SLRegOp"
+  "\022\025\n\021SL_REGOP_RESERVED\020\000\022\025\n\021SL_REGOP_REGI"
+  "STER\020\001\022\027\n\023SL_REGOP_UNREGISTER\020\002\022\020\n\014SL_RE"
+  "GOP_EOF\020\003*_\n\nSLObjectOp\022\025\n\021SL_OBJOP_RESE"
+  "RVED\020\000\022\020\n\014SL_OBJOP_ADD\020\001\022\023\n\017SL_OBJOP_UPD"
+  "ATE\020\002\022\023\n\017SL_OBJOP_DELETE\020\003*S\n\tSLNotifOp\022"
+  "\027\n\023SL_NOTIFOP_RESERVED\020\000\022\025\n\021SL_NOTIFOP_E"
+  "NABLE\020\001\022\026\n\022SL_NOTIFOP_DISABLE\020\002*\211\001\n\020SLUp"
+  "datePriority\022\030\n\024SL_PRIORITY_RESERVED\020\000\022\030"
+  "\n\024SL_PRIORITY_CRITICAL\020\004\022\024\n\020SL_PRIORITY_"
+  "HIGH\020\010\022\026\n\022SL_PRIORITY_MEDIUM\020\014\022\023\n\017SL_PRI"
+  "ORITY_LOW\020\020*K\n\013SLEncapType\022\025\n\021SL_ENCAP_R"
+  "ESERVED\020\000\022\022\n\016SL_ENCAP_VXLAN\020\001\022\021\n\rSL_ENCA"
+  "P_MPLS\020\002*\215\001\n\013SLTableType\022\032\n\026SL_TABLE_TYP"
+  "E_RESERVED\020\000\022\027\n\023SL_IPv4_ROUTE_TABLE\020\001\022\027\n"
+  "\023SL_IPv6_ROUTE_TABLE\020\002\022\027\n\023SL_MPLS_LABEL_"
+  "TABLE\020\003\022\027\n\023SL_PATH_GROUP_TABLE\020\004*\033\n\014SLRs"
+  "pACKType\022\013\n\007RIB_ACK\020\000BQZOgithub.com/Cisc"
+  "o-service-layer/service-layer-objmodel/g"
+  "rpc/protos;service_layerb\006proto3"
   ;
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_sl_5fcommon_5ftypes_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_sl_5fcommon_5ftypes_2eproto = {
-  false, false, 10363, descriptor_table_protodef_sl_5fcommon_5ftypes_2eproto, "sl_common_types.proto", 
-  &descriptor_table_sl_5fcommon_5ftypes_2eproto_once, nullptr, 0, 6,
+  false, false, 10352, descriptor_table_protodef_sl_5fcommon_5ftypes_2eproto, "sl_common_types.proto", 
+  &descriptor_table_sl_5fcommon_5ftypes_2eproto_once, nullptr, 0, 5,
   schemas, file_default_instances, TableStruct_sl_5fcommon_5ftypes_2eproto::offsets,
   file_level_metadata_sl_5fcommon_5ftypes_2eproto, file_level_enum_descriptors_sl_5fcommon_5ftypes_2eproto, file_level_service_descriptors_sl_5fcommon_5ftypes_2eproto,
 };
@@ -2270,45 +2250,6 @@ void SLPathGroupRefKey::InternalSwap(SLPathGroupRefKey* other) {
       file_level_metadata_sl_5fcommon_5ftypes_2eproto[4]);
 }
 
-// ===================================================================
-
-class SLEmpty::_Internal {
- public:
-};
-
-SLEmpty::SLEmpty(::PROTOBUF_NAMESPACE_ID::Arena* arena,
-                         bool is_message_owned)
-  : ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase(arena, is_message_owned) {
-  // @@protoc_insertion_point(arena_constructor:service_layer.SLEmpty)
-}
-SLEmpty::SLEmpty(const SLEmpty& from)
-  : ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase() {
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  // @@protoc_insertion_point(copy_constructor:service_layer.SLEmpty)
-}
-
-
-
-
-
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData SLEmpty::_class_data_ = {
-    ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::CopyImpl,
-    ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::MergeImpl,
-};
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*SLEmpty::GetClassData() const { return &_class_data_; }
-
-
-
-
-
-
-
-::PROTOBUF_NAMESPACE_ID::Metadata SLEmpty::GetMetadata() const {
-  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
-      &descriptor_table_sl_5fcommon_5ftypes_2eproto_getter, &descriptor_table_sl_5fcommon_5ftypes_2eproto_once,
-      file_level_metadata_sl_5fcommon_5ftypes_2eproto[5]);
-}
-
 // @@protoc_insertion_point(namespace_scope)
 }  // namespace service_layer
 PROTOBUF_NAMESPACE_OPEN
@@ -2326,9 +2267,6 @@ template<> PROTOBUF_NOINLINE ::service_layer::SLObjectId* Arena::CreateMaybeMess
 }
 template<> PROTOBUF_NOINLINE ::service_layer::SLPathGroupRefKey* Arena::CreateMaybeMessage< ::service_layer::SLPathGroupRefKey >(Arena* arena) {
   return Arena::CreateMessageInternal< ::service_layer::SLPathGroupRefKey >(arena);
-}
-template<> PROTOBUF_NOINLINE ::service_layer::SLEmpty* Arena::CreateMaybeMessage< ::service_layer::SLEmpty >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::service_layer::SLEmpty >(arena);
 }
 PROTOBUF_NAMESPACE_CLOSE
 

@@ -257,9 +257,10 @@ class SLAFServicer(object):
         "push" notifications for nexthop adds/updates/deletes.
 
         The call takes a stream of per-VRF table notification requests.
-        The success/failure of the notification request is relayed in the
-        SLAFNotif followed by any redistributed routes if requested
-        and present, and any next hops if requested and present.
+        Each notification request is first responded to with the result
+        of the registration operation itself, followed by any redistributed
+        routes if requested and present, and any next hops if requested and present.
+        From then on, any updates are notified as long as RPC is up.
 
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)

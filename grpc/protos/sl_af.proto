@@ -181,9 +181,10 @@ service SLAF {
     // "push" notifications for nexthop adds/updates/deletes.
     //
     // The call takes a stream of per-VRF table notification requests.
-    // The success/failure of the notification request is relayed in the
-    // SLAFNotif followed by any redistributed routes if requested
-    // and present, and any next hops if requested and present.
+    // Each notification request is first responded to with the result
+    // of the registration operation itself, followed by any redistributed
+    // routes if requested and present, and any next hops if requested and present.
+    // From then on, any updates are notified as long as RPC is up.
 
     rpc SLAFNotifStream(stream SLAFNotifReq) returns (stream SLAFNotifMsg);
 
@@ -434,50 +435,17 @@ message SLAFRedistRegMsg {
     // Only routes with specified source protocol and protocol tag will be
     // notified.
     // Contact Cisco for supported protocol string names.
+    // This field is mandatory.
     string SrcProto = 1;
 
     // Source Protocol Tag. This can be empty if N/A.
     // Contact Cisco for supported protocol tags.
+    // This field is optional.
     string SrcProtoTag = 2;
 
     // Table type the client is interested in.
+    // This field is mandatory.
     SLTableType Table = 3;
-}
-
-// Next hop change registration request key.
-message SLAFNextHopRegKey {
-    message SLNextHopKey {
-        // Next Hop IP to resolve
-        SLIpAddress NextHop = 1;
-
-        // Length of Next Hop IP address to use for resolution
-        uint32 NextHopLen = 2;
-
-        // Chose exact vs. best match
-        bool ExactMatch = 3;
-
-        // Allow default route to be returned
-        bool AllowDefault = 4;
-
-        // If this flag is not set or set to False, only the immediate
-        // viable path list is returned. If set to True, recursively resolve
-        // the next hop’s paths and return the flattened path list.
-        bool Recurse = 5;
-    }
-
-    // Notification request key.
-    oneof nexthopkey {
-        // A next hop IP address.
-        SLNextHopKey NextHop = 1;
-
-        // A path group object.
-        SLObjectId PathGroupId = 2;
-    }
-
-    // Immediate resolving paths are required to be a directly
-    // connected interface paths.
-    bool OnlyDirectlyConnected = 3;
-
 }
 
 // Notification request message for a single item.
@@ -485,9 +453,6 @@ message SLAFNotifRegReq {
     oneof request {
         // Route redistribution request.
         SLAFRedistRegMsg RedistReq = 1;
-
-        // Next hop change notification request.
-        SLAFNextHopRegMsg NextHopReq = 2;
     }
 
     // Unique OperationID sent by the client to correlate the
@@ -530,67 +495,14 @@ message SLAFNotifRsp {
     SLErrorStatus NotifStatus = 2;
 }
 
-// Next hop change registration message.
-message SLAFNextHopRegMsg {
-    // Next hop registration key.
-    SLAFNextHopRegKey NextHopKey = 1;
-}
-
-// Next hop Change Notification
-message SLNextHop {
-    // Next hop registration key.
-    SLAFNextHopRegKey NextHopKey = 1;
-
-    // Prefix of the route resolving the nexthop
-    SLIpAddress ResolvingRoute = 2;
-
-    // Resolving route's prefix length
-    uint32 ResolvingRouteLen = 3;
-
-    // Source Protocol.
-    // Contact Cisco for supported protocol string names.
-    string SrcProto = 4;
-
-    // Nexthop route distance
-    uint32 admin_distance = 5;
-
-    // Nexthop route metric
-    uint32 metric = 6;
-
-    // Nexthop's path list. Paths indicate paths available
-    // for the next hop. In case of recursive next hop resolution,
-    // the returned path list consists of flattened directly connected
-    // paths.
-    //
-    // If this field is not present,
-    // then no viable path to the next hop exist.
-    repeated SLRoutePath Paths = 7;
-}
-
 // AF Notification message.
 message SLAFNotif {
     oneof Event {
         // This field carries the status of the SLAFNotifReq message.
         SLAFNotifRsp NotifStatus = 1;
 
-        // This field carries the start marker. Server sends this
-        // event before any notifications are sent. This allows
-        // the client to stale any previous notifications in its
-        // database.
-        SLEmpty StartMarker = 2;
-
-        // This field carries the end marker for notifications
-        // and is an indication from the server that all notifications
-        // corresponding to the registered requests have been
-        // sent to the client. The client can now reconcile and
-        // sweep all stale notifications.
-        SLEmpty EndMarker = 3;
-
         // Route redistribution notification.
         SLAFObject RedistObject = 4;
-
-        // Next hop change notification.
-        SLNextHop NextHop = 5;
     }
 }
 

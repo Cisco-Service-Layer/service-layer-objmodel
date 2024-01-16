@@ -23,7 +23,6 @@
 #include <google/protobuf/io/coded_stream.h>
 #include <google/protobuf/arena.h>
 #include <google/protobuf/arenastring.h>
-#include <google/protobuf/generated_message_bases.h>
 #include <google/protobuf/generated_message_table_driven.h>
 #include <google/protobuf/generated_message_util.h>
 #include <google/protobuf/metadata_lite.h>
@@ -48,7 +47,7 @@ struct TableStruct_sl_5fcommon_5ftypes_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::AuxiliaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[6]
+  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[5]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::FieldMetadata field_metadata[];
   static const ::PROTOBUF_NAMESPACE_ID::internal::SerializationTable serialization_table[];
@@ -56,9 +55,6 @@ struct TableStruct_sl_5fcommon_5ftypes_2eproto {
 };
 extern const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_sl_5fcommon_5ftypes_2eproto;
 namespace service_layer {
-class SLEmpty;
-struct SLEmptyDefaultTypeInternal;
-extern SLEmptyDefaultTypeInternal _SLEmpty_default_instance_;
 class SLErrorStatus;
 struct SLErrorStatusDefaultTypeInternal;
 extern SLErrorStatusDefaultTypeInternal _SLErrorStatus_default_instance_;
@@ -76,7 +72,6 @@ struct SLPathGroupRefKeyDefaultTypeInternal;
 extern SLPathGroupRefKeyDefaultTypeInternal _SLPathGroupRefKey_default_instance_;
 }  // namespace service_layer
 PROTOBUF_NAMESPACE_OPEN
-template<> ::service_layer::SLEmpty* Arena::CreateMaybeMessage<::service_layer::SLEmpty>(Arena*);
 template<> ::service_layer::SLErrorStatus* Arena::CreateMaybeMessage<::service_layer::SLErrorStatus>(Arena*);
 template<> ::service_layer::SLInterface* Arena::CreateMaybeMessage<::service_layer::SLInterface>(Arena*);
 template<> ::service_layer::SLIpAddress* Arena::CreateMaybeMessage<::service_layer::SLIpAddress>(Arena*);
@@ -2006,124 +2001,6 @@ class SLPathGroupRefKey final :
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_sl_5fcommon_5ftypes_2eproto;
 };
-// -------------------------------------------------------------------
-
-class SLEmpty final :
-    public ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase /* @@protoc_insertion_point(class_definition:service_layer.SLEmpty) */ {
- public:
-  inline SLEmpty() : SLEmpty(nullptr) {}
-  explicit constexpr SLEmpty(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
-
-  SLEmpty(const SLEmpty& from);
-  SLEmpty(SLEmpty&& from) noexcept
-    : SLEmpty() {
-    *this = ::std::move(from);
-  }
-
-  inline SLEmpty& operator=(const SLEmpty& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline SLEmpty& operator=(SLEmpty&& from) noexcept {
-    if (this == &from) return *this;
-    if (GetOwningArena() == from.GetOwningArena()
-  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
-        && GetOwningArena() != nullptr
-  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
-    ) {
-      InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
-    return default_instance().GetMetadata().descriptor;
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
-    return default_instance().GetMetadata().reflection;
-  }
-  static const SLEmpty& default_instance() {
-    return *internal_default_instance();
-  }
-  static inline const SLEmpty* internal_default_instance() {
-    return reinterpret_cast<const SLEmpty*>(
-               &_SLEmpty_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    5;
-
-  friend void swap(SLEmpty& a, SLEmpty& b) {
-    a.Swap(&b);
-  }
-  inline void Swap(SLEmpty* other) {
-    if (other == this) return;
-  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetOwningArena() != nullptr &&
-        GetOwningArena() == other->GetOwningArena()) {
-   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetOwningArena() == other->GetOwningArena()) {
-  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
-      InternalSwap(other);
-    } else {
-      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
-    }
-  }
-  void UnsafeArenaSwap(SLEmpty* other) {
-    if (other == this) return;
-    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  SLEmpty* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
-    return CreateMaybeMessage<SLEmpty>(arena);
-  }
-  using ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::CopyFrom;
-  inline void CopyFrom(const SLEmpty& from) {
-    ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::CopyImpl(this, from);
-  }
-  using ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::MergeFrom;
-  void MergeFrom(const SLEmpty& from) {
-    ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::MergeImpl(this, from);
-  }
-  public:
-
-  private:
-  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
-  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "service_layer.SLEmpty";
-  }
-  protected:
-  explicit SLEmpty(::PROTOBUF_NAMESPACE_ID::Arena* arena,
-                       bool is_message_owned = false);
-  private:
-  public:
-
-  static const ClassData _class_data_;
-  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
-
-  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  // @@protoc_insertion_point(class_scope:service_layer.SLEmpty)
- private:
-  class _Internal;
-
-  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
-  typedef void InternalArenaConstructable_;
-  typedef void DestructorSkippable_;
-  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-  friend struct ::TableStruct_sl_5fcommon_5ftypes_2eproto;
-};
 // ===================================================================
 
 
@@ -2661,15 +2538,9 @@ inline void SLPathGroupRefKey::set_allocated_pathgroupid(::service_layer::SLObje
   // @@protoc_insertion_point(field_set_allocated:service_layer.SLPathGroupRefKey.PathGroupId)
 }
 
-// -------------------------------------------------------------------
-
-// SLEmpty
-
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
-// -------------------------------------------------------------------
-
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

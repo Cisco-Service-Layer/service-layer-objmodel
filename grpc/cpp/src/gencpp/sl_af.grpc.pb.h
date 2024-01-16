@@ -228,9 +228,10 @@ class SLAF final {
     // "push" notifications for nexthop adds/updates/deletes.
     //
     // The call takes a stream of per-VRF table notification requests.
-    // The success/failure of the notification request is relayed in the
-    // SLAFNotif followed by any redistributed routes if requested
-    // and present, and any next hops if requested and present.
+    // Each notification request is first responded to with the result
+    // of the registration operation itself, followed by any redistributed
+    // routes if requested and present, and any next hops if requested and present.
+    // From then on, any updates are notified as long as RPC is up.
     //
     std::unique_ptr< ::grpc::ClientReaderWriterInterface< ::service_layer::SLAFNotifReq, ::service_layer::SLAFNotifMsg>> SLAFNotifStream(::grpc::ClientContext* context) {
       return std::unique_ptr< ::grpc::ClientReaderWriterInterface< ::service_layer::SLAFNotifReq, ::service_layer::SLAFNotifMsg>>(SLAFNotifStreamRaw(context));
@@ -352,9 +353,10 @@ class SLAF final {
       // "push" notifications for nexthop adds/updates/deletes.
       //
       // The call takes a stream of per-VRF table notification requests.
-      // The success/failure of the notification request is relayed in the
-      // SLAFNotif followed by any redistributed routes if requested
-      // and present, and any next hops if requested and present.
+      // Each notification request is first responded to with the result
+      // of the registration operation itself, followed by any redistributed
+      // routes if requested and present, and any next hops if requested and present.
+      // From then on, any updates are notified as long as RPC is up.
       //
       virtual void SLAFNotifStream(::grpc::ClientContext* context, ::grpc::ClientBidiReactor< ::service_layer::SLAFNotifReq,::service_layer::SLAFNotifMsg>* reactor) = 0;
     };
@@ -572,9 +574,10 @@ class SLAF final {
     // "push" notifications for nexthop adds/updates/deletes.
     //
     // The call takes a stream of per-VRF table notification requests.
-    // The success/failure of the notification request is relayed in the
-    // SLAFNotif followed by any redistributed routes if requested
-    // and present, and any next hops if requested and present.
+    // Each notification request is first responded to with the result
+    // of the registration operation itself, followed by any redistributed
+    // routes if requested and present, and any next hops if requested and present.
+    // From then on, any updates are notified as long as RPC is up.
     //
     virtual ::grpc::Status SLAFNotifStream(::grpc::ServerContext* context, ::grpc::ServerReaderWriter< ::service_layer::SLAFNotifMsg, ::service_layer::SLAFNotifReq>* stream);
   };
