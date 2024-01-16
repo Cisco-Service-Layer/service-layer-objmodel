@@ -246,7 +246,7 @@ class SLAFServicer(object):
         notifications are scoped to the RPC. On a RPC disconnection,
         the client should re-establish the RPC and re-program
         the notification requests.
-        The caller MUST maintain the GRPC channel as long as there is
+        The caller MUST keep the RPC up as long as there is
         interest in the notifications.
 
         For route redistribution, this call is used to get a stream
