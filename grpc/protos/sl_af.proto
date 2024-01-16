@@ -458,7 +458,7 @@ message SLAFNotifRegReq {
     // Unique OperationID sent by the client to correlate the
     // registration request with the response.
     // When this change registration request is applied
-    // in the server,the result of this registration operation is returned
+    // in the server, the result of this registration operation is returned
     // to the client along with Operation ID to allow the client correlate
     // responses with the requests. Note, server reflects the OperationID
     // only in registration responses, and not in the corresponding
