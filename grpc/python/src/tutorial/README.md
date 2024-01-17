@@ -62,7 +62,7 @@ with the API.
 To install dependencies first create a virtual env:
 
     pip install virtualenv
-    virtualenv sl-env --python=python3.6
+    virtualenv sl-env --python=python3.11
     source sl-env/bin/activate
     pip install -r grpc/python/requirements.txt
 
