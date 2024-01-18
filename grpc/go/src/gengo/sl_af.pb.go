@@ -1089,6 +1089,452 @@ func (x *SLAFMsgRsp) GetResults() []*SLAFRes {
 	return nil
 }
 
+// Request message for route redistribution registration.
+type SLAFRedistRegMsg struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	// Source Protocol.
+	// Only routes with specified source protocol and protocol tag will be
+	// notified.
+	// Contact Cisco for supported protocol string names.
+	// This field is mandatory.
+	SrcProto string `protobuf:"bytes,1,opt,name=SrcProto,proto3" json:"SrcProto,omitempty"`
+	// Source Protocol Tag. This can be empty if N/A.
+	// Contact Cisco for supported protocol tags.
+	// This field is optional.
+	SrcProtoTag string `protobuf:"bytes,2,opt,name=SrcProtoTag,proto3" json:"SrcProtoTag,omitempty"`
+	// Table type the client is interested in.
+	// This field is mandatory.
+	Table SLTableType `protobuf:"varint,3,opt,name=Table,proto3,enum=service_layer.SLTableType" json:"Table,omitempty"`
+}
+
+func (x *SLAFRedistRegMsg) Reset() {
+	*x = SLAFRedistRegMsg{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_sl_af_proto_msgTypes[14]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *SLAFRedistRegMsg) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SLAFRedistRegMsg) ProtoMessage() {}
+
+func (x *SLAFRedistRegMsg) ProtoReflect() protoreflect.Message {
+	mi := &file_sl_af_proto_msgTypes[14]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SLAFRedistRegMsg.ProtoReflect.Descriptor instead.
+func (*SLAFRedistRegMsg) Descriptor() ([]byte, []int) {
+	return file_sl_af_proto_rawDescGZIP(), []int{14}
+}
+
+func (x *SLAFRedistRegMsg) GetSrcProto() string {
+	if x != nil {
+		return x.SrcProto
+	}
+	return ""
+}
+
+func (x *SLAFRedistRegMsg) GetSrcProtoTag() string {
+	if x != nil {
+		return x.SrcProtoTag
+	}
+	return ""
+}
+
+func (x *SLAFRedistRegMsg) GetTable() SLTableType {
+	if x != nil {
+		return x.Table
+	}
+	return SLTableType_SL_TABLE_TYPE_RESERVED
+}
+
+// Notification request message for a single item.
+type SLAFNotifRegReq struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	// Types that are assignable to Request:
+	//
+	//	*SLAFNotifRegReq_RedistReq
+	Request isSLAFNotifRegReq_Request `protobuf_oneof:"request"`
+	// Unique OperationID sent by the client to correlate the
+	// registration request with the response.
+	// When this change registration request is applied
+	// in the server, the result of this registration operation is returned
+	// to the client along with Operation ID to allow the client correlate
+	// responses with the requests. Note, server reflects the OperationID
+	// only in registration responses, and not in the corresponding
+	// notifications.
+	OperationID uint64 `protobuf:"varint,3,opt,name=OperationID,proto3" json:"OperationID,omitempty"`
+}
+
+func (x *SLAFNotifRegReq) Reset() {
+	*x = SLAFNotifRegReq{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_sl_af_proto_msgTypes[15]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *SLAFNotifRegReq) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SLAFNotifRegReq) ProtoMessage() {}
+
+func (x *SLAFNotifRegReq) ProtoReflect() protoreflect.Message {
+	mi := &file_sl_af_proto_msgTypes[15]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SLAFNotifRegReq.ProtoReflect.Descriptor instead.
+func (*SLAFNotifRegReq) Descriptor() ([]byte, []int) {
+	return file_sl_af_proto_rawDescGZIP(), []int{15}
+}
+
+func (m *SLAFNotifRegReq) GetRequest() isSLAFNotifRegReq_Request {
+	if m != nil {
+		return m.Request
+	}
+	return nil
+}
+
+func (x *SLAFNotifRegReq) GetRedistReq() *SLAFRedistRegMsg {
+	if x, ok := x.GetRequest().(*SLAFNotifRegReq_RedistReq); ok {
+		return x.RedistReq
+	}
+	return nil
+}
+
+func (x *SLAFNotifRegReq) GetOperationID() uint64 {
+	if x != nil {
+		return x.OperationID
+	}
+	return 0
+}
+
+type isSLAFNotifRegReq_Request interface {
+	isSLAFNotifRegReq_Request()
+}
+
+type SLAFNotifRegReq_RedistReq struct {
+	// Route redistribution request.
+	RedistReq *SLAFRedistRegMsg `protobuf:"bytes,1,opt,name=RedistReq,proto3,oneof"`
+}
+
+func (*SLAFNotifRegReq_RedistReq) isSLAFNotifRegReq_Request() {}
+
+// RPC Notification request - either a route redistribution
+// request or a next hop change notification request.
+type SLAFNotifReq struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	// Oper = SL_NOTIFOP_ENABLE
+	//
+	//	This is to enable route notifications in a VRF or
+	//	 the next hop change notification.
+	//
+	// Oper = SL_NOTIFOP_DISABLE
+	//
+	//	This is to disable route notifications in a VRF or
+	//	the next hop change notification.
+	Oper SLNotifOp `protobuf:"varint,1,opt,name=Oper,proto3,enum=service_layer.SLNotifOp" json:"Oper,omitempty"`
+	// Vrf that the client is interested in.
+	VrfName string `protobuf:"bytes,2,opt,name=VrfName,proto3" json:"VrfName,omitempty"`
+	// Notification request.
+	NotifReq []*SLAFNotifRegReq `protobuf:"bytes,3,rep,name=NotifReq,proto3" json:"NotifReq,omitempty"`
+}
+
+func (x *SLAFNotifReq) Reset() {
+	*x = SLAFNotifReq{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_sl_af_proto_msgTypes[16]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *SLAFNotifReq) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SLAFNotifReq) ProtoMessage() {}
+
+func (x *SLAFNotifReq) ProtoReflect() protoreflect.Message {
+	mi := &file_sl_af_proto_msgTypes[16]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SLAFNotifReq.ProtoReflect.Descriptor instead.
+func (*SLAFNotifReq) Descriptor() ([]byte, []int) {
+	return file_sl_af_proto_rawDescGZIP(), []int{16}
+}
+
+func (x *SLAFNotifReq) GetOper() SLNotifOp {
+	if x != nil {
+		return x.Oper
+	}
+	return SLNotifOp_SL_NOTIFOP_RESERVED
+}
+
+func (x *SLAFNotifReq) GetVrfName() string {
+	if x != nil {
+		return x.VrfName
+	}
+	return ""
+}
+
+func (x *SLAFNotifReq) GetNotifReq() []*SLAFNotifRegReq {
+	if x != nil {
+		return x.NotifReq
+	}
+	return nil
+}
+
+// Notification response message for a single item.
+type SLAFNotifRsp struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	// Corresponding request.
+	NotifReq *SLAFNotifRegReq `protobuf:"bytes,1,opt,name=NotifReq,proto3" json:"NotifReq,omitempty"`
+	// The NotifStatus implies one of 2 things:
+	// SL_SUCCESS: signifies that the notification request was successful
+	// SL_XXX: signifies an error in setting up a notification for the Vrf.
+	NotifStatus *SLErrorStatus `protobuf:"bytes,2,opt,name=NotifStatus,proto3" json:"NotifStatus,omitempty"`
+}
+
+func (x *SLAFNotifRsp) Reset() {
+	*x = SLAFNotifRsp{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_sl_af_proto_msgTypes[17]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *SLAFNotifRsp) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SLAFNotifRsp) ProtoMessage() {}
+
+func (x *SLAFNotifRsp) ProtoReflect() protoreflect.Message {
+	mi := &file_sl_af_proto_msgTypes[17]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SLAFNotifRsp.ProtoReflect.Descriptor instead.
+func (*SLAFNotifRsp) Descriptor() ([]byte, []int) {
+	return file_sl_af_proto_rawDescGZIP(), []int{17}
+}
+
+func (x *SLAFNotifRsp) GetNotifReq() *SLAFNotifRegReq {
+	if x != nil {
+		return x.NotifReq
+	}
+	return nil
+}
+
+func (x *SLAFNotifRsp) GetNotifStatus() *SLErrorStatus {
+	if x != nil {
+		return x.NotifStatus
+	}
+	return nil
+}
+
+// AF Notification message.
+type SLAFNotif struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	// Types that are assignable to Event:
+	//
+	//	*SLAFNotif_NotifStatus
+	//	*SLAFNotif_RedistObject
+	Event isSLAFNotif_Event `protobuf_oneof:"Event"`
+}
+
+func (x *SLAFNotif) Reset() {
+	*x = SLAFNotif{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_sl_af_proto_msgTypes[18]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *SLAFNotif) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SLAFNotif) ProtoMessage() {}
+
+func (x *SLAFNotif) ProtoReflect() protoreflect.Message {
+	mi := &file_sl_af_proto_msgTypes[18]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SLAFNotif.ProtoReflect.Descriptor instead.
+func (*SLAFNotif) Descriptor() ([]byte, []int) {
+	return file_sl_af_proto_rawDescGZIP(), []int{18}
+}
+
+func (m *SLAFNotif) GetEvent() isSLAFNotif_Event {
+	if m != nil {
+		return m.Event
+	}
+	return nil
+}
+
+func (x *SLAFNotif) GetNotifStatus() *SLAFNotifRsp {
+	if x, ok := x.GetEvent().(*SLAFNotif_NotifStatus); ok {
+		return x.NotifStatus
+	}
+	return nil
+}
+
+func (x *SLAFNotif) GetRedistObject() *SLAFObject {
+	if x, ok := x.GetEvent().(*SLAFNotif_RedistObject); ok {
+		return x.RedistObject
+	}
+	return nil
+}
+
+type isSLAFNotif_Event interface {
+	isSLAFNotif_Event()
+}
+
+type SLAFNotif_NotifStatus struct {
+	// This field carries the status of the SLAFNotifReq message.
+	NotifStatus *SLAFNotifRsp `protobuf:"bytes,1,opt,name=NotifStatus,proto3,oneof"`
+}
+
+type SLAFNotif_RedistObject struct {
+	// Route redistribution notification.
+	RedistObject *SLAFObject `protobuf:"bytes,4,opt,name=RedistObject,proto3,oneof"`
+}
+
+func (*SLAFNotif_NotifStatus) isSLAFNotif_Event() {}
+
+func (*SLAFNotif_RedistObject) isSLAFNotif_Event() {}
+
+// RPC Notification message.
+type SLAFNotifMsg struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	// VRF name.
+	VrfName string `protobuf:"bytes,1,opt,name=VrfName,proto3" json:"VrfName,omitempty"`
+	// Table type.
+	Table SLTableType `protobuf:"varint,2,opt,name=Table,proto3,enum=service_layer.SLTableType" json:"Table,omitempty"`
+	// Notifications.
+	AFNotifs []*SLAFNotif `protobuf:"bytes,3,rep,name=AFNotifs,proto3" json:"AFNotifs,omitempty"`
+}
+
+func (x *SLAFNotifMsg) Reset() {
+	*x = SLAFNotifMsg{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_sl_af_proto_msgTypes[19]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *SLAFNotifMsg) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SLAFNotifMsg) ProtoMessage() {}
+
+func (x *SLAFNotifMsg) ProtoReflect() protoreflect.Message {
+	mi := &file_sl_af_proto_msgTypes[19]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SLAFNotifMsg.ProtoReflect.Descriptor instead.
+func (*SLAFNotifMsg) Descriptor() ([]byte, []int) {
+	return file_sl_af_proto_rawDescGZIP(), []int{19}
+}
+
+func (x *SLAFNotifMsg) GetVrfName() string {
+	if x != nil {
+		return x.VrfName
+	}
+	return ""
+}
+
+func (x *SLAFNotifMsg) GetTable() SLTableType {
+	if x != nil {
+		return x.Table
+	}
+	return SLTableType_SL_TABLE_TYPE_RESERVED
+}
+
+func (x *SLAFNotifMsg) GetAFNotifs() []*SLAFNotif {
+	if x != nil {
+		return x.AFNotifs
+	}
+	return nil
+}
+
 type SLPathGroup_SLPath struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
@@ -1101,7 +1547,7 @@ type SLPathGroup_SLPath struct {
 func (x *SLPathGroup_SLPath) Reset() {
 	*x = SLPathGroup_SLPath{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_sl_af_proto_msgTypes[14]
+		mi := &file_sl_af_proto_msgTypes[20]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1114,7 +1560,7 @@ func (x *SLPathGroup_SLPath) String() string {
 func (*SLPathGroup_SLPath) ProtoMessage() {}
 
 func (x *SLPathGroup_SLPath) ProtoReflect() protoreflect.Message {
-	mi := &file_sl_af_proto_msgTypes[14]
+	mi := &file_sl_af_proto_msgTypes[20]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1149,7 +1595,7 @@ type SLPathGroup_SLPathList struct {
 func (x *SLPathGroup_SLPathList) Reset() {
 	*x = SLPathGroup_SLPathList{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_sl_af_proto_msgTypes[15]
+		mi := &file_sl_af_proto_msgTypes[21]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1162,7 +1608,7 @@ func (x *SLPathGroup_SLPathList) String() string {
 func (*SLPathGroup_SLPathList) ProtoMessage() {}
 
 func (x *SLPathGroup_SLPathList) ProtoReflect() protoreflect.Message {
-	mi := &file_sl_af_proto_msgTypes[15]
+	mi := &file_sl_af_proto_msgTypes[21]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1334,31 +1780,89 @@ var file_sl_af_proto_rawDesc = []byte{
 	0x52, 0x07, 0x56, 0x72, 0x66, 0x4e, 0x61, 0x6d, 0x65, 0x12, 0x30, 0x0a, 0x07, 0x52, 0x65, 0x73,
 	0x75, 0x6c, 0x74, 0x73, 0x18, 0x02, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x16, 0x2e, 0x73, 0x65, 0x72,
 	0x76, 0x69, 0x63, 0x65, 0x5f, 0x6c, 0x61, 0x79, 0x65, 0x72, 0x2e, 0x53, 0x4c, 0x41, 0x46, 0x52,
-	0x65, 0x73, 0x52, 0x07, 0x52, 0x65, 0x73, 0x75, 0x6c, 0x74, 0x73, 0x32, 0x9f, 0x02, 0x0a, 0x04,
-	0x53, 0x4c, 0x41, 0x46, 0x12, 0x4d, 0x0a, 0x0c, 0x53, 0x4c, 0x41, 0x46, 0x56, 0x72, 0x66, 0x52,
-	0x65, 0x67, 0x4f, 0x70, 0x12, 0x1c, 0x2e, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x5f, 0x6c,
-	0x61, 0x79, 0x65, 0x72, 0x2e, 0x53, 0x4c, 0x41, 0x46, 0x56, 0x72, 0x66, 0x52, 0x65, 0x67, 0x4d,
-	0x73, 0x67, 0x1a, 0x1f, 0x2e, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x5f, 0x6c, 0x61, 0x79,
-	0x65, 0x72, 0x2e, 0x53, 0x4c, 0x41, 0x46, 0x56, 0x72, 0x66, 0x52, 0x65, 0x67, 0x4d, 0x73, 0x67,
-	0x52, 0x73, 0x70, 0x12, 0x3b, 0x0a, 0x06, 0x53, 0x4c, 0x41, 0x46, 0x4f, 0x70, 0x12, 0x16, 0x2e,
+	0x65, 0x73, 0x52, 0x07, 0x52, 0x65, 0x73, 0x75, 0x6c, 0x74, 0x73, 0x22, 0x82, 0x01, 0x0a, 0x10,
+	0x53, 0x4c, 0x41, 0x46, 0x52, 0x65, 0x64, 0x69, 0x73, 0x74, 0x52, 0x65, 0x67, 0x4d, 0x73, 0x67,
+	0x12, 0x1a, 0x0a, 0x08, 0x53, 0x72, 0x63, 0x50, 0x72, 0x6f, 0x74, 0x6f, 0x18, 0x01, 0x20, 0x01,
+	0x28, 0x09, 0x52, 0x08, 0x53, 0x72, 0x63, 0x50, 0x72, 0x6f, 0x74, 0x6f, 0x12, 0x20, 0x0a, 0x0b,
+	0x53, 0x72, 0x63, 0x50, 0x72, 0x6f, 0x74, 0x6f, 0x54, 0x61, 0x67, 0x18, 0x02, 0x20, 0x01, 0x28,
+	0x09, 0x52, 0x0b, 0x53, 0x72, 0x63, 0x50, 0x72, 0x6f, 0x74, 0x6f, 0x54, 0x61, 0x67, 0x12, 0x30,
+	0x0a, 0x05, 0x54, 0x61, 0x62, 0x6c, 0x65, 0x18, 0x03, 0x20, 0x01, 0x28, 0x0e, 0x32, 0x1a, 0x2e,
 	0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x5f, 0x6c, 0x61, 0x79, 0x65, 0x72, 0x2e, 0x53, 0x4c,
-	0x41, 0x46, 0x4d, 0x73, 0x67, 0x1a, 0x19, 0x2e, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x5f,
-	0x6c, 0x61, 0x79, 0x65, 0x72, 0x2e, 0x53, 0x4c, 0x41, 0x46, 0x4d, 0x73, 0x67, 0x52, 0x73, 0x70,
-	0x12, 0x45, 0x0a, 0x0c, 0x53, 0x4c, 0x41, 0x46, 0x4f, 0x70, 0x53, 0x74, 0x72, 0x65, 0x61, 0x6d,
-	0x12, 0x16, 0x2e, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x5f, 0x6c, 0x61, 0x79, 0x65, 0x72,
-	0x2e, 0x53, 0x4c, 0x41, 0x46, 0x4d, 0x73, 0x67, 0x1a, 0x19, 0x2e, 0x73, 0x65, 0x72, 0x76, 0x69,
-	0x63, 0x65, 0x5f, 0x6c, 0x61, 0x79, 0x65, 0x72, 0x2e, 0x53, 0x4c, 0x41, 0x46, 0x4d, 0x73, 0x67,
-	0x52, 0x73, 0x70, 0x28, 0x01, 0x30, 0x01, 0x12, 0x44, 0x0a, 0x07, 0x53, 0x4c, 0x41, 0x46, 0x47,
-	0x65, 0x74, 0x12, 0x19, 0x2e, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x5f, 0x6c, 0x61, 0x79,
-	0x65, 0x72, 0x2e, 0x53, 0x4c, 0x41, 0x46, 0x47, 0x65, 0x74, 0x4d, 0x73, 0x67, 0x1a, 0x1c, 0x2e,
-	0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x5f, 0x6c, 0x61, 0x79, 0x65, 0x72, 0x2e, 0x53, 0x4c,
-	0x41, 0x46, 0x47, 0x65, 0x74, 0x4d, 0x73, 0x67, 0x52, 0x73, 0x70, 0x30, 0x01, 0x42, 0x51, 0x5a,
-	0x4f, 0x67, 0x69, 0x74, 0x68, 0x75, 0x62, 0x2e, 0x63, 0x6f, 0x6d, 0x2f, 0x43, 0x69, 0x73, 0x63,
-	0x6f, 0x2d, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x2d, 0x6c, 0x61, 0x79, 0x65, 0x72, 0x2f,
-	0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x2d, 0x6c, 0x61, 0x79, 0x65, 0x72, 0x2d, 0x6f, 0x62,
-	0x6a, 0x6d, 0x6f, 0x64, 0x65, 0x6c, 0x2f, 0x67, 0x72, 0x70, 0x63, 0x2f, 0x70, 0x72, 0x6f, 0x74,
-	0x6f, 0x73, 0x3b, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x5f, 0x6c, 0x61, 0x79, 0x65, 0x72,
-	0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x54, 0x61, 0x62, 0x6c, 0x65, 0x54, 0x79, 0x70, 0x65, 0x52, 0x05, 0x54, 0x61, 0x62, 0x6c, 0x65,
+	0x22, 0x7f, 0x0a, 0x0f, 0x53, 0x4c, 0x41, 0x46, 0x4e, 0x6f, 0x74, 0x69, 0x66, 0x52, 0x65, 0x67,
+	0x52, 0x65, 0x71, 0x12, 0x3f, 0x0a, 0x09, 0x52, 0x65, 0x64, 0x69, 0x73, 0x74, 0x52, 0x65, 0x71,
+	0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x1f, 0x2e, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65,
+	0x5f, 0x6c, 0x61, 0x79, 0x65, 0x72, 0x2e, 0x53, 0x4c, 0x41, 0x46, 0x52, 0x65, 0x64, 0x69, 0x73,
+	0x74, 0x52, 0x65, 0x67, 0x4d, 0x73, 0x67, 0x48, 0x00, 0x52, 0x09, 0x52, 0x65, 0x64, 0x69, 0x73,
+	0x74, 0x52, 0x65, 0x71, 0x12, 0x20, 0x0a, 0x0b, 0x4f, 0x70, 0x65, 0x72, 0x61, 0x74, 0x69, 0x6f,
+	0x6e, 0x49, 0x44, 0x18, 0x03, 0x20, 0x01, 0x28, 0x04, 0x52, 0x0b, 0x4f, 0x70, 0x65, 0x72, 0x61,
+	0x74, 0x69, 0x6f, 0x6e, 0x49, 0x44, 0x42, 0x09, 0x0a, 0x07, 0x72, 0x65, 0x71, 0x75, 0x65, 0x73,
+	0x74, 0x22, 0x92, 0x01, 0x0a, 0x0c, 0x53, 0x4c, 0x41, 0x46, 0x4e, 0x6f, 0x74, 0x69, 0x66, 0x52,
+	0x65, 0x71, 0x12, 0x2c, 0x0a, 0x04, 0x4f, 0x70, 0x65, 0x72, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0e,
+	0x32, 0x18, 0x2e, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x5f, 0x6c, 0x61, 0x79, 0x65, 0x72,
+	0x2e, 0x53, 0x4c, 0x4e, 0x6f, 0x74, 0x69, 0x66, 0x4f, 0x70, 0x52, 0x04, 0x4f, 0x70, 0x65, 0x72,
+	0x12, 0x18, 0x0a, 0x07, 0x56, 0x72, 0x66, 0x4e, 0x61, 0x6d, 0x65, 0x18, 0x02, 0x20, 0x01, 0x28,
+	0x09, 0x52, 0x07, 0x56, 0x72, 0x66, 0x4e, 0x61, 0x6d, 0x65, 0x12, 0x3a, 0x0a, 0x08, 0x4e, 0x6f,
+	0x74, 0x69, 0x66, 0x52, 0x65, 0x71, 0x18, 0x03, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x1e, 0x2e, 0x73,
+	0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x5f, 0x6c, 0x61, 0x79, 0x65, 0x72, 0x2e, 0x53, 0x4c, 0x41,
+	0x46, 0x4e, 0x6f, 0x74, 0x69, 0x66, 0x52, 0x65, 0x67, 0x52, 0x65, 0x71, 0x52, 0x08, 0x4e, 0x6f,
+	0x74, 0x69, 0x66, 0x52, 0x65, 0x71, 0x22, 0x8a, 0x01, 0x0a, 0x0c, 0x53, 0x4c, 0x41, 0x46, 0x4e,
+	0x6f, 0x74, 0x69, 0x66, 0x52, 0x73, 0x70, 0x12, 0x3a, 0x0a, 0x08, 0x4e, 0x6f, 0x74, 0x69, 0x66,
+	0x52, 0x65, 0x71, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x1e, 0x2e, 0x73, 0x65, 0x72, 0x76,
+	0x69, 0x63, 0x65, 0x5f, 0x6c, 0x61, 0x79, 0x65, 0x72, 0x2e, 0x53, 0x4c, 0x41, 0x46, 0x4e, 0x6f,
+	0x74, 0x69, 0x66, 0x52, 0x65, 0x67, 0x52, 0x65, 0x71, 0x52, 0x08, 0x4e, 0x6f, 0x74, 0x69, 0x66,
+	0x52, 0x65, 0x71, 0x12, 0x3e, 0x0a, 0x0b, 0x4e, 0x6f, 0x74, 0x69, 0x66, 0x53, 0x74, 0x61, 0x74,
+	0x75, 0x73, 0x18, 0x02, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x1c, 0x2e, 0x73, 0x65, 0x72, 0x76, 0x69,
+	0x63, 0x65, 0x5f, 0x6c, 0x61, 0x79, 0x65, 0x72, 0x2e, 0x53, 0x4c, 0x45, 0x72, 0x72, 0x6f, 0x72,
+	0x53, 0x74, 0x61, 0x74, 0x75, 0x73, 0x52, 0x0b, 0x4e, 0x6f, 0x74, 0x69, 0x66, 0x53, 0x74, 0x61,
+	0x74, 0x75, 0x73, 0x22, 0x96, 0x01, 0x0a, 0x09, 0x53, 0x4c, 0x41, 0x46, 0x4e, 0x6f, 0x74, 0x69,
+	0x66, 0x12, 0x3f, 0x0a, 0x0b, 0x4e, 0x6f, 0x74, 0x69, 0x66, 0x53, 0x74, 0x61, 0x74, 0x75, 0x73,
+	0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x1b, 0x2e, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65,
+	0x5f, 0x6c, 0x61, 0x79, 0x65, 0x72, 0x2e, 0x53, 0x4c, 0x41, 0x46, 0x4e, 0x6f, 0x74, 0x69, 0x66,
+	0x52, 0x73, 0x70, 0x48, 0x00, 0x52, 0x0b, 0x4e, 0x6f, 0x74, 0x69, 0x66, 0x53, 0x74, 0x61, 0x74,
+	0x75, 0x73, 0x12, 0x3f, 0x0a, 0x0c, 0x52, 0x65, 0x64, 0x69, 0x73, 0x74, 0x4f, 0x62, 0x6a, 0x65,
+	0x63, 0x74, 0x18, 0x04, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x19, 0x2e, 0x73, 0x65, 0x72, 0x76, 0x69,
+	0x63, 0x65, 0x5f, 0x6c, 0x61, 0x79, 0x65, 0x72, 0x2e, 0x53, 0x4c, 0x41, 0x46, 0x4f, 0x62, 0x6a,
+	0x65, 0x63, 0x74, 0x48, 0x00, 0x52, 0x0c, 0x52, 0x65, 0x64, 0x69, 0x73, 0x74, 0x4f, 0x62, 0x6a,
+	0x65, 0x63, 0x74, 0x42, 0x07, 0x0a, 0x05, 0x45, 0x76, 0x65, 0x6e, 0x74, 0x22, 0x90, 0x01, 0x0a,
+	0x0c, 0x53, 0x4c, 0x41, 0x46, 0x4e, 0x6f, 0x74, 0x69, 0x66, 0x4d, 0x73, 0x67, 0x12, 0x18, 0x0a,
+	0x07, 0x56, 0x72, 0x66, 0x4e, 0x61, 0x6d, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x07,
+	0x56, 0x72, 0x66, 0x4e, 0x61, 0x6d, 0x65, 0x12, 0x30, 0x0a, 0x05, 0x54, 0x61, 0x62, 0x6c, 0x65,
+	0x18, 0x02, 0x20, 0x01, 0x28, 0x0e, 0x32, 0x1a, 0x2e, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65,
+	0x5f, 0x6c, 0x61, 0x79, 0x65, 0x72, 0x2e, 0x53, 0x4c, 0x54, 0x61, 0x62, 0x6c, 0x65, 0x54, 0x79,
+	0x70, 0x65, 0x52, 0x05, 0x54, 0x61, 0x62, 0x6c, 0x65, 0x12, 0x34, 0x0a, 0x08, 0x41, 0x46, 0x4e,
+	0x6f, 0x74, 0x69, 0x66, 0x73, 0x18, 0x03, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x18, 0x2e, 0x73, 0x65,
+	0x72, 0x76, 0x69, 0x63, 0x65, 0x5f, 0x6c, 0x61, 0x79, 0x65, 0x72, 0x2e, 0x53, 0x4c, 0x41, 0x46,
+	0x4e, 0x6f, 0x74, 0x69, 0x66, 0x52, 0x08, 0x41, 0x46, 0x4e, 0x6f, 0x74, 0x69, 0x66, 0x73, 0x32,
+	0xf0, 0x02, 0x0a, 0x04, 0x53, 0x4c, 0x41, 0x46, 0x12, 0x4d, 0x0a, 0x0c, 0x53, 0x4c, 0x41, 0x46,
+	0x56, 0x72, 0x66, 0x52, 0x65, 0x67, 0x4f, 0x70, 0x12, 0x1c, 0x2e, 0x73, 0x65, 0x72, 0x76, 0x69,
+	0x63, 0x65, 0x5f, 0x6c, 0x61, 0x79, 0x65, 0x72, 0x2e, 0x53, 0x4c, 0x41, 0x46, 0x56, 0x72, 0x66,
+	0x52, 0x65, 0x67, 0x4d, 0x73, 0x67, 0x1a, 0x1f, 0x2e, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65,
+	0x5f, 0x6c, 0x61, 0x79, 0x65, 0x72, 0x2e, 0x53, 0x4c, 0x41, 0x46, 0x56, 0x72, 0x66, 0x52, 0x65,
+	0x67, 0x4d, 0x73, 0x67, 0x52, 0x73, 0x70, 0x12, 0x3b, 0x0a, 0x06, 0x53, 0x4c, 0x41, 0x46, 0x4f,
+	0x70, 0x12, 0x16, 0x2e, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x5f, 0x6c, 0x61, 0x79, 0x65,
+	0x72, 0x2e, 0x53, 0x4c, 0x41, 0x46, 0x4d, 0x73, 0x67, 0x1a, 0x19, 0x2e, 0x73, 0x65, 0x72, 0x76,
+	0x69, 0x63, 0x65, 0x5f, 0x6c, 0x61, 0x79, 0x65, 0x72, 0x2e, 0x53, 0x4c, 0x41, 0x46, 0x4d, 0x73,
+	0x67, 0x52, 0x73, 0x70, 0x12, 0x45, 0x0a, 0x0c, 0x53, 0x4c, 0x41, 0x46, 0x4f, 0x70, 0x53, 0x74,
+	0x72, 0x65, 0x61, 0x6d, 0x12, 0x16, 0x2e, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x5f, 0x6c,
+	0x61, 0x79, 0x65, 0x72, 0x2e, 0x53, 0x4c, 0x41, 0x46, 0x4d, 0x73, 0x67, 0x1a, 0x19, 0x2e, 0x73,
+	0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x5f, 0x6c, 0x61, 0x79, 0x65, 0x72, 0x2e, 0x53, 0x4c, 0x41,
+	0x46, 0x4d, 0x73, 0x67, 0x52, 0x73, 0x70, 0x28, 0x01, 0x30, 0x01, 0x12, 0x44, 0x0a, 0x07, 0x53,
+	0x4c, 0x41, 0x46, 0x47, 0x65, 0x74, 0x12, 0x19, 0x2e, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65,
+	0x5f, 0x6c, 0x61, 0x79, 0x65, 0x72, 0x2e, 0x53, 0x4c, 0x41, 0x46, 0x47, 0x65, 0x74, 0x4d, 0x73,
+	0x67, 0x1a, 0x1c, 0x2e, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x5f, 0x6c, 0x61, 0x79, 0x65,
+	0x72, 0x2e, 0x53, 0x4c, 0x41, 0x46, 0x47, 0x65, 0x74, 0x4d, 0x73, 0x67, 0x52, 0x73, 0x70, 0x30,
+	0x01, 0x12, 0x4f, 0x0a, 0x0f, 0x53, 0x4c, 0x41, 0x46, 0x4e, 0x6f, 0x74, 0x69, 0x66, 0x53, 0x74,
+	0x72, 0x65, 0x61, 0x6d, 0x12, 0x1b, 0x2e, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x5f, 0x6c,
+	0x61, 0x79, 0x65, 0x72, 0x2e, 0x53, 0x4c, 0x41, 0x46, 0x4e, 0x6f, 0x74, 0x69, 0x66, 0x52, 0x65,
+	0x71, 0x1a, 0x1b, 0x2e, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x5f, 0x6c, 0x61, 0x79, 0x65,
+	0x72, 0x2e, 0x53, 0x4c, 0x41, 0x46, 0x4e, 0x6f, 0x74, 0x69, 0x66, 0x4d, 0x73, 0x67, 0x28, 0x01,
+	0x30, 0x01, 0x42, 0x51, 0x5a, 0x4f, 0x67, 0x69, 0x74, 0x68, 0x75, 0x62, 0x2e, 0x63, 0x6f, 0x6d,
+	0x2f, 0x43, 0x69, 0x73, 0x63, 0x6f, 0x2d, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x2d, 0x6c,
+	0x61, 0x79, 0x65, 0x72, 0x2f, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x2d, 0x6c, 0x61, 0x79,
+	0x65, 0x72, 0x2d, 0x6f, 0x62, 0x6a, 0x6d, 0x6f, 0x64, 0x65, 0x6c, 0x2f, 0x67, 0x72, 0x70, 0x63,
+	0x2f, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x73, 0x3b, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x5f,
+	0x6c, 0x61, 0x79, 0x65, 0x72, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -1373,7 +1877,7 @@ func file_sl_af_proto_rawDescGZIP() []byte {
 	return file_sl_af_proto_rawDescData
 }
 
-var file_sl_af_proto_msgTypes = make([]protoimpl.MessageInfo, 16)
+var file_sl_af_proto_msgTypes = make([]protoimpl.MessageInfo, 22)
 var file_sl_af_proto_goTypes = []interface{}{
 	(*SLAFVrfReg)(nil),             // 0: service_layer.SLAFVrfReg
 	(*SLAFVrfRegMsg)(nil),          // 1: service_layer.SLAFVrfRegMsg
@@ -1389,61 +1893,80 @@ var file_sl_af_proto_goTypes = []interface{}{
 	(*SLAFMsg)(nil),                // 11: service_layer.SLAFMsg
 	(*SLAFRes)(nil),                // 12: service_layer.SLAFRes
 	(*SLAFMsgRsp)(nil),             // 13: service_layer.SLAFMsgRsp
-	(*SLPathGroup_SLPath)(nil),     // 14: service_layer.SLPathGroup.SLPath
-	(*SLPathGroup_SLPathList)(nil), // 15: service_layer.SLPathGroup.SLPathList
-	(SLTableType)(0),               // 16: service_layer.SLTableType
-	(*SLVrfReg)(nil),               // 17: service_layer.SLVrfReg
-	(SLRegOp)(0),                   // 18: service_layer.SLRegOp
-	(*SLErrorStatus)(nil),          // 19: service_layer.SLErrorStatus
-	(*SLObjectId)(nil),             // 20: service_layer.SLObjectId
-	(*SLRoutePath)(nil),            // 21: service_layer.SLRoutePath
-	(*SLPathGroupRefKey)(nil),      // 22: service_layer.SLPathGroupRefKey
-	(*SLRoutev4)(nil),              // 23: service_layer.SLRoutev4
-	(*SLRoutev6)(nil),              // 24: service_layer.SLRoutev6
-	(SLObjectOp)(0),                // 25: service_layer.SLObjectOp
+	(*SLAFRedistRegMsg)(nil),       // 14: service_layer.SLAFRedistRegMsg
+	(*SLAFNotifRegReq)(nil),        // 15: service_layer.SLAFNotifRegReq
+	(*SLAFNotifReq)(nil),           // 16: service_layer.SLAFNotifReq
+	(*SLAFNotifRsp)(nil),           // 17: service_layer.SLAFNotifRsp
+	(*SLAFNotif)(nil),              // 18: service_layer.SLAFNotif
+	(*SLAFNotifMsg)(nil),           // 19: service_layer.SLAFNotifMsg
+	(*SLPathGroup_SLPath)(nil),     // 20: service_layer.SLPathGroup.SLPath
+	(*SLPathGroup_SLPathList)(nil), // 21: service_layer.SLPathGroup.SLPathList
+	(SLTableType)(0),               // 22: service_layer.SLTableType
+	(*SLVrfReg)(nil),               // 23: service_layer.SLVrfReg
+	(SLRegOp)(0),                   // 24: service_layer.SLRegOp
+	(*SLErrorStatus)(nil),          // 25: service_layer.SLErrorStatus
+	(*SLObjectId)(nil),             // 26: service_layer.SLObjectId
+	(*SLRoutePath)(nil),            // 27: service_layer.SLRoutePath
+	(*SLPathGroupRefKey)(nil),      // 28: service_layer.SLPathGroupRefKey
+	(*SLRoutev4)(nil),              // 29: service_layer.SLRoutev4
+	(*SLRoutev6)(nil),              // 30: service_layer.SLRoutev6
+	(SLObjectOp)(0),                // 31: service_layer.SLObjectOp
+	(SLNotifOp)(0),                 // 32: service_layer.SLNotifOp
 }
 var file_sl_af_proto_depIdxs = []int32{
-	16, // 0: service_layer.SLAFVrfReg.Table:type_name -> service_layer.SLTableType
-	17, // 1: service_layer.SLAFVrfReg.VrfReg:type_name -> service_layer.SLVrfReg
-	18, // 2: service_layer.SLAFVrfRegMsg.Oper:type_name -> service_layer.SLRegOp
+	22, // 0: service_layer.SLAFVrfReg.Table:type_name -> service_layer.SLTableType
+	23, // 1: service_layer.SLAFVrfReg.VrfReg:type_name -> service_layer.SLVrfReg
+	24, // 2: service_layer.SLAFVrfRegMsg.Oper:type_name -> service_layer.SLRegOp
 	0,  // 3: service_layer.SLAFVrfRegMsg.VrfRegMsgs:type_name -> service_layer.SLAFVrfReg
-	19, // 4: service_layer.SLAFVrfRegMsgRes.ErrStatus:type_name -> service_layer.SLErrorStatus
-	16, // 5: service_layer.SLAFVrfRegMsgRes.Table:type_name -> service_layer.SLTableType
-	19, // 6: service_layer.SLAFVrfRegMsgRsp.StatusSummary:type_name -> service_layer.SLErrorStatus
+	25, // 4: service_layer.SLAFVrfRegMsgRes.ErrStatus:type_name -> service_layer.SLErrorStatus
+	22, // 5: service_layer.SLAFVrfRegMsgRes.Table:type_name -> service_layer.SLTableType
+	25, // 6: service_layer.SLAFVrfRegMsgRsp.StatusSummary:type_name -> service_layer.SLErrorStatus
 	2,  // 7: service_layer.SLAFVrfRegMsgRsp.Results:type_name -> service_layer.SLAFVrfRegMsgRes
-	20, // 8: service_layer.SLPathGroup.PathGroupId:type_name -> service_layer.SLObjectId
-	15, // 9: service_layer.SLPathGroup.PathList:type_name -> service_layer.SLPathGroup.SLPathList
-	21, // 10: service_layer.SLMplsEntry.PathList:type_name -> service_layer.SLRoutePath
-	22, // 11: service_layer.SLMplsEntry.PathGroupKey:type_name -> service_layer.SLPathGroupRefKey
-	23, // 12: service_layer.SLAFObject.IPv4Route:type_name -> service_layer.SLRoutev4
-	24, // 13: service_layer.SLAFObject.IPv6Route:type_name -> service_layer.SLRoutev6
+	26, // 8: service_layer.SLPathGroup.PathGroupId:type_name -> service_layer.SLObjectId
+	21, // 9: service_layer.SLPathGroup.PathList:type_name -> service_layer.SLPathGroup.SLPathList
+	27, // 10: service_layer.SLMplsEntry.PathList:type_name -> service_layer.SLRoutePath
+	28, // 11: service_layer.SLMplsEntry.PathGroupKey:type_name -> service_layer.SLPathGroupRefKey
+	29, // 12: service_layer.SLAFObject.IPv4Route:type_name -> service_layer.SLRoutev4
+	30, // 13: service_layer.SLAFObject.IPv6Route:type_name -> service_layer.SLRoutev6
 	5,  // 14: service_layer.SLAFObject.MplsLabel:type_name -> service_layer.SLMplsEntry
 	4,  // 15: service_layer.SLAFObject.PathGroup:type_name -> service_layer.SLPathGroup
 	6,  // 16: service_layer.SLAFOp.AFObject:type_name -> service_layer.SLAFObject
-	16, // 17: service_layer.SLAFGetMsg.Table:type_name -> service_layer.SLTableType
+	22, // 17: service_layer.SLAFGetMsg.Table:type_name -> service_layer.SLTableType
 	7,  // 18: service_layer.SLAFEntry.AFOp:type_name -> service_layer.SLAFOp
-	19, // 19: service_layer.SLAFGetMsgRsp.ErrStatus:type_name -> service_layer.SLErrorStatus
+	25, // 19: service_layer.SLAFGetMsgRsp.ErrStatus:type_name -> service_layer.SLErrorStatus
 	9,  // 20: service_layer.SLAFGetMsgRsp.AFList:type_name -> service_layer.SLAFEntry
-	25, // 21: service_layer.SLAFMsg.Oper:type_name -> service_layer.SLObjectOp
+	31, // 21: service_layer.SLAFMsg.Oper:type_name -> service_layer.SLObjectOp
 	7,  // 22: service_layer.SLAFMsg.OpList:type_name -> service_layer.SLAFOp
-	19, // 23: service_layer.SLAFRes.ErrStatus:type_name -> service_layer.SLErrorStatus
+	25, // 23: service_layer.SLAFRes.ErrStatus:type_name -> service_layer.SLErrorStatus
 	7,  // 24: service_layer.SLAFRes.Operation:type_name -> service_layer.SLAFOp
 	12, // 25: service_layer.SLAFMsgRsp.Results:type_name -> service_layer.SLAFRes
-	21, // 26: service_layer.SLPathGroup.SLPath.Path:type_name -> service_layer.SLRoutePath
-	14, // 27: service_layer.SLPathGroup.SLPathList.Paths:type_name -> service_layer.SLPathGroup.SLPath
-	1,  // 28: service_layer.SLAF.SLAFVrfRegOp:input_type -> service_layer.SLAFVrfRegMsg
-	11, // 29: service_layer.SLAF.SLAFOp:input_type -> service_layer.SLAFMsg
-	11, // 30: service_layer.SLAF.SLAFOpStream:input_type -> service_layer.SLAFMsg
-	8,  // 31: service_layer.SLAF.SLAFGet:input_type -> service_layer.SLAFGetMsg
-	3,  // 32: service_layer.SLAF.SLAFVrfRegOp:output_type -> service_layer.SLAFVrfRegMsgRsp
-	13, // 33: service_layer.SLAF.SLAFOp:output_type -> service_layer.SLAFMsgRsp
-	13, // 34: service_layer.SLAF.SLAFOpStream:output_type -> service_layer.SLAFMsgRsp
-	10, // 35: service_layer.SLAF.SLAFGet:output_type -> service_layer.SLAFGetMsgRsp
-	32, // [32:36] is the sub-list for method output_type
-	28, // [28:32] is the sub-list for method input_type
-	28, // [28:28] is the sub-list for extension type_name
-	28, // [28:28] is the sub-list for extension extendee
-	0,  // [0:28] is the sub-list for field type_name
+	22, // 26: service_layer.SLAFRedistRegMsg.Table:type_name -> service_layer.SLTableType
+	14, // 27: service_layer.SLAFNotifRegReq.RedistReq:type_name -> service_layer.SLAFRedistRegMsg
+	32, // 28: service_layer.SLAFNotifReq.Oper:type_name -> service_layer.SLNotifOp
+	15, // 29: service_layer.SLAFNotifReq.NotifReq:type_name -> service_layer.SLAFNotifRegReq
+	15, // 30: service_layer.SLAFNotifRsp.NotifReq:type_name -> service_layer.SLAFNotifRegReq
+	25, // 31: service_layer.SLAFNotifRsp.NotifStatus:type_name -> service_layer.SLErrorStatus
+	17, // 32: service_layer.SLAFNotif.NotifStatus:type_name -> service_layer.SLAFNotifRsp
+	6,  // 33: service_layer.SLAFNotif.RedistObject:type_name -> service_layer.SLAFObject
+	22, // 34: service_layer.SLAFNotifMsg.Table:type_name -> service_layer.SLTableType
+	18, // 35: service_layer.SLAFNotifMsg.AFNotifs:type_name -> service_layer.SLAFNotif
+	27, // 36: service_layer.SLPathGroup.SLPath.Path:type_name -> service_layer.SLRoutePath
+	20, // 37: service_layer.SLPathGroup.SLPathList.Paths:type_name -> service_layer.SLPathGroup.SLPath
+	1,  // 38: service_layer.SLAF.SLAFVrfRegOp:input_type -> service_layer.SLAFVrfRegMsg
+	11, // 39: service_layer.SLAF.SLAFOp:input_type -> service_layer.SLAFMsg
+	11, // 40: service_layer.SLAF.SLAFOpStream:input_type -> service_layer.SLAFMsg
+	8,  // 41: service_layer.SLAF.SLAFGet:input_type -> service_layer.SLAFGetMsg
+	16, // 42: service_layer.SLAF.SLAFNotifStream:input_type -> service_layer.SLAFNotifReq
+	3,  // 43: service_layer.SLAF.SLAFVrfRegOp:output_type -> service_layer.SLAFVrfRegMsgRsp
+	13, // 44: service_layer.SLAF.SLAFOp:output_type -> service_layer.SLAFMsgRsp
+	13, // 45: service_layer.SLAF.SLAFOpStream:output_type -> service_layer.SLAFMsgRsp
+	10, // 46: service_layer.SLAF.SLAFGet:output_type -> service_layer.SLAFGetMsgRsp
+	19, // 47: service_layer.SLAF.SLAFNotifStream:output_type -> service_layer.SLAFNotifMsg
+	43, // [43:48] is the sub-list for method output_type
+	38, // [38:43] is the sub-list for method input_type
+	38, // [38:38] is the sub-list for extension type_name
+	38, // [38:38] is the sub-list for extension extendee
+	0,  // [0:38] is the sub-list for field type_name
 }
 
 func init() { file_sl_af_proto_init() }
@@ -1625,7 +2148,7 @@ func file_sl_af_proto_init() {
 			}
 		}
 		file_sl_af_proto_msgTypes[14].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*SLPathGroup_SLPath); i {
+			switch v := v.(*SLAFRedistRegMsg); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -1637,6 +2160,78 @@ func file_sl_af_proto_init() {
 			}
 		}
 		file_sl_af_proto_msgTypes[15].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*SLAFNotifRegReq); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_sl_af_proto_msgTypes[16].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*SLAFNotifReq); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_sl_af_proto_msgTypes[17].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*SLAFNotifRsp); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_sl_af_proto_msgTypes[18].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*SLAFNotif); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_sl_af_proto_msgTypes[19].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*SLAFNotifMsg); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_sl_af_proto_msgTypes[20].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*SLPathGroup_SLPath); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_sl_af_proto_msgTypes[21].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*SLPathGroup_SLPathList); i {
 			case 0:
 				return &v.state
@@ -1661,13 +2256,20 @@ func file_sl_af_proto_init() {
 		(*SLAFObject_MplsLabel)(nil),
 		(*SLAFObject_PathGroup)(nil),
 	}
+	file_sl_af_proto_msgTypes[15].OneofWrappers = []interface{}{
+		(*SLAFNotifRegReq_RedistReq)(nil),
+	}
+	file_sl_af_proto_msgTypes[18].OneofWrappers = []interface{}{
+		(*SLAFNotif_NotifStatus)(nil),
+		(*SLAFNotif_RedistObject)(nil),
+	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_sl_af_proto_rawDesc,
 			NumEnums:      0,
-			NumMessages:   16,
+			NumMessages:   22,
 			NumExtensions: 0,
 			NumServices:   1,
 		},

@@ -23,7 +23,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'ZOgithub.com/Cisco-service-layer/service-layer-objmodel/grpc/protos;service_layer',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x0bsl_af.proto\x12\rservice_layer\x1a\x15sl_common_types.proto\x1a\x15sl_route_common.proto\x1a\x13sl_route_ipv4.proto\x1a\x13sl_route_ipv6.proto\"`\n\nSLAFVrfReg\x12)\n\x05Table\x18\x01 \x01(\x0e\x32\x1a.service_layer.SLTableType\x12\'\n\x06VrfReg\x18\x02 \x01(\x0b\x32\x17.service_layer.SLVrfReg\"d\n\rSLAFVrfRegMsg\x12$\n\x04Oper\x18\x01 \x01(\x0e\x32\x16.service_layer.SLRegOp\x12-\n\nVrfRegMsgs\x18\x02 \x03(\x0b\x32\x19.service_layer.SLAFVrfReg\"\x7f\n\x10SLAFVrfRegMsgRes\x12/\n\tErrStatus\x18\x01 \x01(\x0b\x32\x1c.service_layer.SLErrorStatus\x12\x0f\n\x07VrfName\x18\x02 \x01(\t\x12)\n\x05Table\x18\x03 \x01(\x0e\x32\x1a.service_layer.SLTableType\"y\n\x10SLAFVrfRegMsgRsp\x12\x33\n\rStatusSummary\x18\x01 \x01(\x0b\x32\x1c.service_layer.SLErrorStatus\x12\x30\n\x07Results\x18\x02 \x03(\x0b\x32\x1f.service_layer.SLAFVrfRegMsgRes\"\x9b\x02\n\x0bSLPathGroup\x12.\n\x0bPathGroupId\x18\x01 \x01(\x0b\x32\x19.service_layer.SLObjectId\x12\x15\n\rAdminDistance\x18\x02 \x01(\r\x12\x39\n\x08PathList\x18\x03 \x01(\x0b\x32%.service_layer.SLPathGroup.SLPathListH\x00\x12\r\n\x05\x46lags\x18\x04 \x01(\r\x1a\x32\n\x06SLPath\x12(\n\x04Path\x18\x01 \x01(\x0b\x32\x1a.service_layer.SLRoutePath\x1a>\n\nSLPathList\x12\x30\n\x05Paths\x18\x01 \x03(\x0b\x32!.service_layer.SLPathGroup.SLPathB\x07\n\x05\x65ntry\"\xb8\x01\n\x0bSLMplsEntry\x12\x12\n\nLocalLabel\x18\x01 \x01(\r\x12\x15\n\rAdminDistance\x18\x02 \x01(\r\x12,\n\x08PathList\x18\x03 \x03(\x0b\x32\x1a.service_layer.SLRoutePath\x12\x38\n\x0cPathGroupKey\x18\x04 \x01(\x0b\x32 .service_layer.SLPathGroupRefKeyH\x00\x12\r\n\x05\x46lags\x18\x05 \x01(\rB\x07\n\x05\x65ntry\"\xd5\x01\n\nSLAFObject\x12-\n\tIPv4Route\x18\x01 \x01(\x0b\x32\x18.service_layer.SLRoutev4H\x00\x12-\n\tIPv6Route\x18\x02 \x01(\x0b\x32\x18.service_layer.SLRoutev6H\x00\x12/\n\tMplsLabel\x18\x03 \x01(\x0b\x32\x1a.service_layer.SLMplsEntryH\x00\x12/\n\tPathGroup\x18\x04 \x01(\x0b\x32\x1a.service_layer.SLPathGroupH\x00\x42\x07\n\x05\x65ntry\"J\n\x06SLAFOp\x12+\n\x08\x41\x46Object\x18\x01 \x01(\x0b\x32\x19.service_layer.SLAFObject\x12\x13\n\x0bOperationID\x18\x02 \x01(\x04\"s\n\nSLAFGetMsg\x12\x0f\n\x07VrfName\x18\x01 \x01(\t\x12)\n\x05Table\x18\x02 \x01(\x0e\x32\x1a.service_layer.SLTableType\x12\x15\n\rGetAllClients\x18\x03 \x01(\x08\x12\x12\n\nMatchRegex\x18\x04 \x01(\t\"0\n\tSLAFEntry\x12#\n\x04\x41\x46Op\x18\x01 \x01(\x0b\x32\x15.service_layer.SLAFOp\"\x8d\x01\n\rSLAFGetMsgRsp\x12/\n\tErrStatus\x18\x01 \x01(\x0b\x32\x1c.service_layer.SLErrorStatus\x12\x0f\n\x07VrfName\x18\x02 \x01(\t\x12\x10\n\x08\x43lientID\x18\x03 \x01(\x04\x12(\n\x06\x41\x46List\x18\x04 \x03(\x0b\x32\x18.service_layer.SLAFEntry\"j\n\x07SLAFMsg\x12\'\n\x04Oper\x18\x01 \x01(\x0e\x32\x19.service_layer.SLObjectOp\x12\x0f\n\x07VrfName\x18\x02 \x01(\t\x12%\n\x06OpList\x18\x03 \x03(\x0b\x32\x15.service_layer.SLAFOp\"d\n\x07SLAFRes\x12/\n\tErrStatus\x18\x01 \x01(\x0b\x32\x1c.service_layer.SLErrorStatus\x12(\n\tOperation\x18\x02 \x01(\x0b\x32\x15.service_layer.SLAFOp\"F\n\nSLAFMsgRsp\x12\x0f\n\x07VrfName\x18\x01 \x01(\t\x12\'\n\x07Results\x18\x02 \x03(\x0b\x32\x16.service_layer.SLAFRes2\x9f\x02\n\x04SLAF\x12M\n\x0cSLAFVrfRegOp\x12\x1c.service_layer.SLAFVrfRegMsg\x1a\x1f.service_layer.SLAFVrfRegMsgRsp\x12;\n\x06SLAFOp\x12\x16.service_layer.SLAFMsg\x1a\x19.service_layer.SLAFMsgRsp\x12\x45\n\x0cSLAFOpStream\x12\x16.service_layer.SLAFMsg\x1a\x19.service_layer.SLAFMsgRsp(\x01\x30\x01\x12\x44\n\x07SLAFGet\x12\x19.service_layer.SLAFGetMsg\x1a\x1c.service_layer.SLAFGetMsgRsp0\x01\x42QZOgithub.com/Cisco-service-layer/service-layer-objmodel/grpc/protos;service_layerb\x06proto3'
+  serialized_pb=b'\n\x0bsl_af.proto\x12\rservice_layer\x1a\x15sl_common_types.proto\x1a\x15sl_route_common.proto\x1a\x13sl_route_ipv4.proto\x1a\x13sl_route_ipv6.proto\"`\n\nSLAFVrfReg\x12)\n\x05Table\x18\x01 \x01(\x0e\x32\x1a.service_layer.SLTableType\x12\'\n\x06VrfReg\x18\x02 \x01(\x0b\x32\x17.service_layer.SLVrfReg\"d\n\rSLAFVrfRegMsg\x12$\n\x04Oper\x18\x01 \x01(\x0e\x32\x16.service_layer.SLRegOp\x12-\n\nVrfRegMsgs\x18\x02 \x03(\x0b\x32\x19.service_layer.SLAFVrfReg\"\x7f\n\x10SLAFVrfRegMsgRes\x12/\n\tErrStatus\x18\x01 \x01(\x0b\x32\x1c.service_layer.SLErrorStatus\x12\x0f\n\x07VrfName\x18\x02 \x01(\t\x12)\n\x05Table\x18\x03 \x01(\x0e\x32\x1a.service_layer.SLTableType\"y\n\x10SLAFVrfRegMsgRsp\x12\x33\n\rStatusSummary\x18\x01 \x01(\x0b\x32\x1c.service_layer.SLErrorStatus\x12\x30\n\x07Results\x18\x02 \x03(\x0b\x32\x1f.service_layer.SLAFVrfRegMsgRes\"\x9b\x02\n\x0bSLPathGroup\x12.\n\x0bPathGroupId\x18\x01 \x01(\x0b\x32\x19.service_layer.SLObjectId\x12\x15\n\rAdminDistance\x18\x02 \x01(\r\x12\x39\n\x08PathList\x18\x03 \x01(\x0b\x32%.service_layer.SLPathGroup.SLPathListH\x00\x12\r\n\x05\x46lags\x18\x04 \x01(\r\x1a\x32\n\x06SLPath\x12(\n\x04Path\x18\x01 \x01(\x0b\x32\x1a.service_layer.SLRoutePath\x1a>\n\nSLPathList\x12\x30\n\x05Paths\x18\x01 \x03(\x0b\x32!.service_layer.SLPathGroup.SLPathB\x07\n\x05\x65ntry\"\xb8\x01\n\x0bSLMplsEntry\x12\x12\n\nLocalLabel\x18\x01 \x01(\r\x12\x15\n\rAdminDistance\x18\x02 \x01(\r\x12,\n\x08PathList\x18\x03 \x03(\x0b\x32\x1a.service_layer.SLRoutePath\x12\x38\n\x0cPathGroupKey\x18\x04 \x01(\x0b\x32 .service_layer.SLPathGroupRefKeyH\x00\x12\r\n\x05\x46lags\x18\x05 \x01(\rB\x07\n\x05\x65ntry\"\xd5\x01\n\nSLAFObject\x12-\n\tIPv4Route\x18\x01 \x01(\x0b\x32\x18.service_layer.SLRoutev4H\x00\x12-\n\tIPv6Route\x18\x02 \x01(\x0b\x32\x18.service_layer.SLRoutev6H\x00\x12/\n\tMplsLabel\x18\x03 \x01(\x0b\x32\x1a.service_layer.SLMplsEntryH\x00\x12/\n\tPathGroup\x18\x04 \x01(\x0b\x32\x1a.service_layer.SLPathGroupH\x00\x42\x07\n\x05\x65ntry\"J\n\x06SLAFOp\x12+\n\x08\x41\x46Object\x18\x01 \x01(\x0b\x32\x19.service_layer.SLAFObject\x12\x13\n\x0bOperationID\x18\x02 \x01(\x04\"s\n\nSLAFGetMsg\x12\x0f\n\x07VrfName\x18\x01 \x01(\t\x12)\n\x05Table\x18\x02 \x01(\x0e\x32\x1a.service_layer.SLTableType\x12\x15\n\rGetAllClients\x18\x03 \x01(\x08\x12\x12\n\nMatchRegex\x18\x04 \x01(\t\"0\n\tSLAFEntry\x12#\n\x04\x41\x46Op\x18\x01 \x01(\x0b\x32\x15.service_layer.SLAFOp\"\x8d\x01\n\rSLAFGetMsgRsp\x12/\n\tErrStatus\x18\x01 \x01(\x0b\x32\x1c.service_layer.SLErrorStatus\x12\x0f\n\x07VrfName\x18\x02 \x01(\t\x12\x10\n\x08\x43lientID\x18\x03 \x01(\x04\x12(\n\x06\x41\x46List\x18\x04 \x03(\x0b\x32\x18.service_layer.SLAFEntry\"j\n\x07SLAFMsg\x12\'\n\x04Oper\x18\x01 \x01(\x0e\x32\x19.service_layer.SLObjectOp\x12\x0f\n\x07VrfName\x18\x02 \x01(\t\x12%\n\x06OpList\x18\x03 \x03(\x0b\x32\x15.service_layer.SLAFOp\"d\n\x07SLAFRes\x12/\n\tErrStatus\x18\x01 \x01(\x0b\x32\x1c.service_layer.SLErrorStatus\x12(\n\tOperation\x18\x02 \x01(\x0b\x32\x15.service_layer.SLAFOp\"F\n\nSLAFMsgRsp\x12\x0f\n\x07VrfName\x18\x01 \x01(\t\x12\'\n\x07Results\x18\x02 \x03(\x0b\x32\x16.service_layer.SLAFRes\"d\n\x10SLAFRedistRegMsg\x12\x10\n\x08SrcProto\x18\x01 \x01(\t\x12\x13\n\x0bSrcProtoTag\x18\x02 \x01(\t\x12)\n\x05Table\x18\x03 \x01(\x0e\x32\x1a.service_layer.SLTableType\"g\n\x0fSLAFNotifRegReq\x12\x34\n\tRedistReq\x18\x01 \x01(\x0b\x32\x1f.service_layer.SLAFRedistRegMsgH\x00\x12\x13\n\x0bOperationID\x18\x03 \x01(\x04\x42\t\n\x07request\"y\n\x0cSLAFNotifReq\x12&\n\x04Oper\x18\x01 \x01(\x0e\x32\x18.service_layer.SLNotifOp\x12\x0f\n\x07VrfName\x18\x02 \x01(\t\x12\x30\n\x08NotifReq\x18\x03 \x03(\x0b\x32\x1e.service_layer.SLAFNotifRegReq\"s\n\x0cSLAFNotifRsp\x12\x30\n\x08NotifReq\x18\x01 \x01(\x0b\x32\x1e.service_layer.SLAFNotifRegReq\x12\x31\n\x0bNotifStatus\x18\x02 \x01(\x0b\x32\x1c.service_layer.SLErrorStatus\"{\n\tSLAFNotif\x12\x32\n\x0bNotifStatus\x18\x01 \x01(\x0b\x32\x1b.service_layer.SLAFNotifRspH\x00\x12\x31\n\x0cRedistObject\x18\x04 \x01(\x0b\x32\x19.service_layer.SLAFObjectH\x00\x42\x07\n\x05\x45vent\"v\n\x0cSLAFNotifMsg\x12\x0f\n\x07VrfName\x18\x01 \x01(\t\x12)\n\x05Table\x18\x02 \x01(\x0e\x32\x1a.service_layer.SLTableType\x12*\n\x08\x41\x46Notifs\x18\x03 \x03(\x0b\x32\x18.service_layer.SLAFNotif2\xf0\x02\n\x04SLAF\x12M\n\x0cSLAFVrfRegOp\x12\x1c.service_layer.SLAFVrfRegMsg\x1a\x1f.service_layer.SLAFVrfRegMsgRsp\x12;\n\x06SLAFOp\x12\x16.service_layer.SLAFMsg\x1a\x19.service_layer.SLAFMsgRsp\x12\x45\n\x0cSLAFOpStream\x12\x16.service_layer.SLAFMsg\x1a\x19.service_layer.SLAFMsgRsp(\x01\x30\x01\x12\x44\n\x07SLAFGet\x12\x19.service_layer.SLAFGetMsg\x1a\x1c.service_layer.SLAFGetMsgRsp0\x01\x12O\n\x0fSLAFNotifStream\x12\x1b.service_layer.SLAFNotifReq\x1a\x1b.service_layer.SLAFNotifMsg(\x01\x30\x01\x42QZOgithub.com/Cisco-service-layer/service-layer-objmodel/grpc/protos;service_layerb\x06proto3'
   ,
   dependencies=[sl__common__types__pb2.DESCRIPTOR,sl__route__common__pb2.DESCRIPTOR,sl__route__ipv4__pb2.DESCRIPTOR,sl__route__ipv6__pb2.DESCRIPTOR,])
 
@@ -736,6 +736,271 @@ _SLAFMSGRSP = _descriptor.Descriptor(
   serialized_end=1926,
 )
 
+
+_SLAFREDISTREGMSG = _descriptor.Descriptor(
+  name='SLAFRedistRegMsg',
+  full_name='service_layer.SLAFRedistRegMsg',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='SrcProto', full_name='service_layer.SLAFRedistRegMsg.SrcProto', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='SrcProtoTag', full_name='service_layer.SLAFRedistRegMsg.SrcProtoTag', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='Table', full_name='service_layer.SLAFRedistRegMsg.Table', index=2,
+      number=3, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1928,
+  serialized_end=2028,
+)
+
+
+_SLAFNOTIFREGREQ = _descriptor.Descriptor(
+  name='SLAFNotifRegReq',
+  full_name='service_layer.SLAFNotifRegReq',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='RedistReq', full_name='service_layer.SLAFNotifRegReq.RedistReq', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='OperationID', full_name='service_layer.SLAFNotifRegReq.OperationID', index=1,
+      number=3, type=4, cpp_type=4, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+    _descriptor.OneofDescriptor(
+      name='request', full_name='service_layer.SLAFNotifRegReq.request',
+      index=0, containing_type=None,
+      create_key=_descriptor._internal_create_key,
+    fields=[]),
+  ],
+  serialized_start=2030,
+  serialized_end=2133,
+)
+
+
+_SLAFNOTIFREQ = _descriptor.Descriptor(
+  name='SLAFNotifReq',
+  full_name='service_layer.SLAFNotifReq',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='Oper', full_name='service_layer.SLAFNotifReq.Oper', index=0,
+      number=1, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='VrfName', full_name='service_layer.SLAFNotifReq.VrfName', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='NotifReq', full_name='service_layer.SLAFNotifReq.NotifReq', index=2,
+      number=3, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2135,
+  serialized_end=2256,
+)
+
+
+_SLAFNOTIFRSP = _descriptor.Descriptor(
+  name='SLAFNotifRsp',
+  full_name='service_layer.SLAFNotifRsp',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='NotifReq', full_name='service_layer.SLAFNotifRsp.NotifReq', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='NotifStatus', full_name='service_layer.SLAFNotifRsp.NotifStatus', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2258,
+  serialized_end=2373,
+)
+
+
+_SLAFNOTIF = _descriptor.Descriptor(
+  name='SLAFNotif',
+  full_name='service_layer.SLAFNotif',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='NotifStatus', full_name='service_layer.SLAFNotif.NotifStatus', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='RedistObject', full_name='service_layer.SLAFNotif.RedistObject', index=1,
+      number=4, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+    _descriptor.OneofDescriptor(
+      name='Event', full_name='service_layer.SLAFNotif.Event',
+      index=0, containing_type=None,
+      create_key=_descriptor._internal_create_key,
+    fields=[]),
+  ],
+  serialized_start=2375,
+  serialized_end=2498,
+)
+
+
+_SLAFNOTIFMSG = _descriptor.Descriptor(
+  name='SLAFNotifMsg',
+  full_name='service_layer.SLAFNotifMsg',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='VrfName', full_name='service_layer.SLAFNotifMsg.VrfName', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='Table', full_name='service_layer.SLAFNotifMsg.Table', index=1,
+      number=2, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='AFNotifs', full_name='service_layer.SLAFNotifMsg.AFNotifs', index=2,
+      number=3, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2500,
+  serialized_end=2618,
+)
+
 _SLAFVRFREG.fields_by_name['Table'].enum_type = sl__common__types__pb2._SLTABLETYPE
 _SLAFVRFREG.fields_by_name['VrfReg'].message_type = sl__route__common__pb2._SLVRFREG
 _SLAFVRFREGMSG.fields_by_name['Oper'].enum_type = sl__common__types__pb2._SLREGOP
@@ -784,6 +1049,25 @@ _SLAFMSG.fields_by_name['OpList'].message_type = _SLAFOP
 _SLAFRES.fields_by_name['ErrStatus'].message_type = sl__common__types__pb2._SLERRORSTATUS
 _SLAFRES.fields_by_name['Operation'].message_type = _SLAFOP
 _SLAFMSGRSP.fields_by_name['Results'].message_type = _SLAFRES
+_SLAFREDISTREGMSG.fields_by_name['Table'].enum_type = sl__common__types__pb2._SLTABLETYPE
+_SLAFNOTIFREGREQ.fields_by_name['RedistReq'].message_type = _SLAFREDISTREGMSG
+_SLAFNOTIFREGREQ.oneofs_by_name['request'].fields.append(
+  _SLAFNOTIFREGREQ.fields_by_name['RedistReq'])
+_SLAFNOTIFREGREQ.fields_by_name['RedistReq'].containing_oneof = _SLAFNOTIFREGREQ.oneofs_by_name['request']
+_SLAFNOTIFREQ.fields_by_name['Oper'].enum_type = sl__common__types__pb2._SLNOTIFOP
+_SLAFNOTIFREQ.fields_by_name['NotifReq'].message_type = _SLAFNOTIFREGREQ
+_SLAFNOTIFRSP.fields_by_name['NotifReq'].message_type = _SLAFNOTIFREGREQ
+_SLAFNOTIFRSP.fields_by_name['NotifStatus'].message_type = sl__common__types__pb2._SLERRORSTATUS
+_SLAFNOTIF.fields_by_name['NotifStatus'].message_type = _SLAFNOTIFRSP
+_SLAFNOTIF.fields_by_name['RedistObject'].message_type = _SLAFOBJECT
+_SLAFNOTIF.oneofs_by_name['Event'].fields.append(
+  _SLAFNOTIF.fields_by_name['NotifStatus'])
+_SLAFNOTIF.fields_by_name['NotifStatus'].containing_oneof = _SLAFNOTIF.oneofs_by_name['Event']
+_SLAFNOTIF.oneofs_by_name['Event'].fields.append(
+  _SLAFNOTIF.fields_by_name['RedistObject'])
+_SLAFNOTIF.fields_by_name['RedistObject'].containing_oneof = _SLAFNOTIF.oneofs_by_name['Event']
+_SLAFNOTIFMSG.fields_by_name['Table'].enum_type = sl__common__types__pb2._SLTABLETYPE
+_SLAFNOTIFMSG.fields_by_name['AFNotifs'].message_type = _SLAFNOTIF
 DESCRIPTOR.message_types_by_name['SLAFVrfReg'] = _SLAFVRFREG
 DESCRIPTOR.message_types_by_name['SLAFVrfRegMsg'] = _SLAFVRFREGMSG
 DESCRIPTOR.message_types_by_name['SLAFVrfRegMsgRes'] = _SLAFVRFREGMSGRES
@@ -798,6 +1082,12 @@ DESCRIPTOR.message_types_by_name['SLAFGetMsgRsp'] = _SLAFGETMSGRSP
 DESCRIPTOR.message_types_by_name['SLAFMsg'] = _SLAFMSG
 DESCRIPTOR.message_types_by_name['SLAFRes'] = _SLAFRES
 DESCRIPTOR.message_types_by_name['SLAFMsgRsp'] = _SLAFMSGRSP
+DESCRIPTOR.message_types_by_name['SLAFRedistRegMsg'] = _SLAFREDISTREGMSG
+DESCRIPTOR.message_types_by_name['SLAFNotifRegReq'] = _SLAFNOTIFREGREQ
+DESCRIPTOR.message_types_by_name['SLAFNotifReq'] = _SLAFNOTIFREQ
+DESCRIPTOR.message_types_by_name['SLAFNotifRsp'] = _SLAFNOTIFRSP
+DESCRIPTOR.message_types_by_name['SLAFNotif'] = _SLAFNOTIF
+DESCRIPTOR.message_types_by_name['SLAFNotifMsg'] = _SLAFNOTIFMSG
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 SLAFVrfReg = _reflection.GeneratedProtocolMessageType('SLAFVrfReg', (_message.Message,), {
@@ -914,6 +1204,48 @@ SLAFMsgRsp = _reflection.GeneratedProtocolMessageType('SLAFMsgRsp', (_message.Me
   })
 _sym_db.RegisterMessage(SLAFMsgRsp)
 
+SLAFRedistRegMsg = _reflection.GeneratedProtocolMessageType('SLAFRedistRegMsg', (_message.Message,), {
+  'DESCRIPTOR' : _SLAFREDISTREGMSG,
+  '__module__' : 'sl_af_pb2'
+  # @@protoc_insertion_point(class_scope:service_layer.SLAFRedistRegMsg)
+  })
+_sym_db.RegisterMessage(SLAFRedistRegMsg)
+
+SLAFNotifRegReq = _reflection.GeneratedProtocolMessageType('SLAFNotifRegReq', (_message.Message,), {
+  'DESCRIPTOR' : _SLAFNOTIFREGREQ,
+  '__module__' : 'sl_af_pb2'
+  # @@protoc_insertion_point(class_scope:service_layer.SLAFNotifRegReq)
+  })
+_sym_db.RegisterMessage(SLAFNotifRegReq)
+
+SLAFNotifReq = _reflection.GeneratedProtocolMessageType('SLAFNotifReq', (_message.Message,), {
+  'DESCRIPTOR' : _SLAFNOTIFREQ,
+  '__module__' : 'sl_af_pb2'
+  # @@protoc_insertion_point(class_scope:service_layer.SLAFNotifReq)
+  })
+_sym_db.RegisterMessage(SLAFNotifReq)
+
+SLAFNotifRsp = _reflection.GeneratedProtocolMessageType('SLAFNotifRsp', (_message.Message,), {
+  'DESCRIPTOR' : _SLAFNOTIFRSP,
+  '__module__' : 'sl_af_pb2'
+  # @@protoc_insertion_point(class_scope:service_layer.SLAFNotifRsp)
+  })
+_sym_db.RegisterMessage(SLAFNotifRsp)
+
+SLAFNotif = _reflection.GeneratedProtocolMessageType('SLAFNotif', (_message.Message,), {
+  'DESCRIPTOR' : _SLAFNOTIF,
+  '__module__' : 'sl_af_pb2'
+  # @@protoc_insertion_point(class_scope:service_layer.SLAFNotif)
+  })
+_sym_db.RegisterMessage(SLAFNotif)
+
+SLAFNotifMsg = _reflection.GeneratedProtocolMessageType('SLAFNotifMsg', (_message.Message,), {
+  'DESCRIPTOR' : _SLAFNOTIFMSG,
+  '__module__' : 'sl_af_pb2'
+  # @@protoc_insertion_point(class_scope:service_layer.SLAFNotifMsg)
+  })
+_sym_db.RegisterMessage(SLAFNotifMsg)
+
 
 DESCRIPTOR._options = None
 
@@ -924,8 +1256,8 @@ _SLAF = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=1929,
-  serialized_end=2216,
+  serialized_start=2621,
+  serialized_end=2989,
   methods=[
   _descriptor.MethodDescriptor(
     name='SLAFVrfRegOp',
@@ -964,6 +1296,16 @@ _SLAF = _descriptor.ServiceDescriptor(
     containing_service=None,
     input_type=_SLAFGETMSG,
     output_type=_SLAFGETMSGRSP,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='SLAFNotifStream',
+    full_name='service_layer.SLAF.SLAFNotifStream',
+    index=4,
+    containing_service=None,
+    input_type=_SLAFNOTIFREQ,
+    output_type=_SLAFNOTIFMSG,
     serialized_options=None,
     create_key=_descriptor._internal_create_key,
   ),

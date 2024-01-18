@@ -77,6 +77,11 @@ class SLAFStub(object):
                 request_serializer=sl__af__pb2.SLAFGetMsg.SerializeToString,
                 response_deserializer=sl__af__pb2.SLAFGetMsgRsp.FromString,
                 )
+        self.SLAFNotifStream = channel.stream_stream(
+                '/service_layer.SLAF/SLAFNotifStream',
+                request_serializer=sl__af__pb2.SLAFNotifReq.SerializeToString,
+                response_deserializer=sl__af__pb2.SLAFNotifMsg.FromString,
+                )
 
 
 class SLAFServicer(object):
@@ -236,6 +241,32 @@ class SLAFServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def SLAFNotifStream(self, request_iterator, context):
+        """The notification request registrations and corresponding
+        notifications are scoped to the RPC. On a RPC disconnection,
+        the client should re-establish the RPC and re-program
+        the notification requests.
+        The caller MUST keep the RPC up as long as there is
+        interest in the notifications.
+
+        For route redistribution, this call is used to get a stream
+        of route notifications. It can be used to get "push"
+        notifications for route adds/updates/deletes.
+
+        For next hop change notifications, this call can be used to get
+        "push" notifications for nexthop adds/updates/deletes.
+
+        The call takes a stream of per-VRF table notification requests.
+        Each notification request is first responded to with the result
+        of the registration operation itself, followed by any redistributed
+        routes if requested and present, and any next hops if requested and present.
+        From then on, any updates are notified as long as RPC is up.
+
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_SLAFServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -258,6 +289,11 @@ def add_SLAFServicer_to_server(servicer, server):
                     servicer.SLAFGet,
                     request_deserializer=sl__af__pb2.SLAFGetMsg.FromString,
                     response_serializer=sl__af__pb2.SLAFGetMsgRsp.SerializeToString,
+            ),
+            'SLAFNotifStream': grpc.stream_stream_rpc_method_handler(
+                    servicer.SLAFNotifStream,
+                    request_deserializer=sl__af__pb2.SLAFNotifReq.FromString,
+                    response_serializer=sl__af__pb2.SLAFNotifMsg.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -377,5 +413,22 @@ class SLAF(object):
         return grpc.experimental.unary_stream(request, target, '/service_layer.SLAF/SLAFGet',
             sl__af__pb2.SLAFGetMsg.SerializeToString,
             sl__af__pb2.SLAFGetMsgRsp.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def SLAFNotifStream(request_iterator,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.stream_stream(request_iterator, target, '/service_layer.SLAF/SLAFNotifStream',
+            sl__af__pb2.SLAFNotifReq.SerializeToString,
+            sl__af__pb2.SLAFNotifMsg.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

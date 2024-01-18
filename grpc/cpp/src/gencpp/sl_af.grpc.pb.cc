@@ -26,6 +26,7 @@ static const char* SLAF_method_names[] = {
   "/service_layer.SLAF/SLAFOp",
   "/service_layer.SLAF/SLAFOpStream",
   "/service_layer.SLAF/SLAFGet",
+  "/service_layer.SLAF/SLAFNotifStream",
 };
 
 std::unique_ptr< SLAF::Stub> SLAF::NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options) {
@@ -39,6 +40,7 @@ SLAF::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, cons
   , rpcmethod_SLAFOp_(SLAF_method_names[1], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   , rpcmethod_SLAFOpStream_(SLAF_method_names[2], options.suffix_for_stats(),::grpc::internal::RpcMethod::BIDI_STREAMING, channel)
   , rpcmethod_SLAFGet_(SLAF_method_names[3], options.suffix_for_stats(),::grpc::internal::RpcMethod::SERVER_STREAMING, channel)
+  , rpcmethod_SLAFNotifStream_(SLAF_method_names[4], options.suffix_for_stats(),::grpc::internal::RpcMethod::BIDI_STREAMING, channel)
   {}
 
 ::grpc::Status SLAF::Stub::SLAFVrfRegOp(::grpc::ClientContext* context, const ::service_layer::SLAFVrfRegMsg& request, ::service_layer::SLAFVrfRegMsgRsp* response) {
@@ -119,6 +121,22 @@ void SLAF::Stub::async::SLAFGet(::grpc::ClientContext* context, const ::service_
   return ::grpc::internal::ClientAsyncReaderFactory< ::service_layer::SLAFGetMsgRsp>::Create(channel_.get(), cq, rpcmethod_SLAFGet_, context, request, false, nullptr);
 }
 
+::grpc::ClientReaderWriter< ::service_layer::SLAFNotifReq, ::service_layer::SLAFNotifMsg>* SLAF::Stub::SLAFNotifStreamRaw(::grpc::ClientContext* context) {
+  return ::grpc::internal::ClientReaderWriterFactory< ::service_layer::SLAFNotifReq, ::service_layer::SLAFNotifMsg>::Create(channel_.get(), rpcmethod_SLAFNotifStream_, context);
+}
+
+void SLAF::Stub::async::SLAFNotifStream(::grpc::ClientContext* context, ::grpc::ClientBidiReactor< ::service_layer::SLAFNotifReq,::service_layer::SLAFNotifMsg>* reactor) {
+  ::grpc::internal::ClientCallbackReaderWriterFactory< ::service_layer::SLAFNotifReq,::service_layer::SLAFNotifMsg>::Create(stub_->channel_.get(), stub_->rpcmethod_SLAFNotifStream_, context, reactor);
+}
+
+::grpc::ClientAsyncReaderWriter< ::service_layer::SLAFNotifReq, ::service_layer::SLAFNotifMsg>* SLAF::Stub::AsyncSLAFNotifStreamRaw(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq, void* tag) {
+  return ::grpc::internal::ClientAsyncReaderWriterFactory< ::service_layer::SLAFNotifReq, ::service_layer::SLAFNotifMsg>::Create(channel_.get(), cq, rpcmethod_SLAFNotifStream_, context, true, tag);
+}
+
+::grpc::ClientAsyncReaderWriter< ::service_layer::SLAFNotifReq, ::service_layer::SLAFNotifMsg>* SLAF::Stub::PrepareAsyncSLAFNotifStreamRaw(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncReaderWriterFactory< ::service_layer::SLAFNotifReq, ::service_layer::SLAFNotifMsg>::Create(channel_.get(), cq, rpcmethod_SLAFNotifStream_, context, false, nullptr);
+}
+
 SLAF::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       SLAF_method_names[0],
@@ -160,6 +178,16 @@ SLAF::Service::Service() {
              ::grpc::ServerWriter<::service_layer::SLAFGetMsgRsp>* writer) {
                return service->SLAFGet(ctx, req, writer);
              }, this)));
+  AddMethod(new ::grpc::internal::RpcServiceMethod(
+      SLAF_method_names[4],
+      ::grpc::internal::RpcMethod::BIDI_STREAMING,
+      new ::grpc::internal::BidiStreamingHandler< SLAF::Service, ::service_layer::SLAFNotifReq, ::service_layer::SLAFNotifMsg>(
+          [](SLAF::Service* service,
+             ::grpc::ServerContext* ctx,
+             ::grpc::ServerReaderWriter<::service_layer::SLAFNotifMsg,
+             ::service_layer::SLAFNotifReq>* stream) {
+               return service->SLAFNotifStream(ctx, stream);
+             }, this)));
 }
 
 SLAF::Service::~Service() {
@@ -189,6 +217,12 @@ SLAF::Service::~Service() {
   (void) context;
   (void) request;
   (void) writer;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
+::grpc::Status SLAF::Service::SLAFNotifStream(::grpc::ServerContext* context, ::grpc::ServerReaderWriter< ::service_layer::SLAFNotifMsg, ::service_layer::SLAFNotifReq>* stream) {
+  (void) context;
+  (void) stream;
   return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
 }
 

@@ -81,6 +81,10 @@ namespace ServiceLayer {
     static readonly grpc::Marshaller<global::ServiceLayer.SLAFGetMsg> __Marshaller_service_layer_SLAFGetMsg = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::ServiceLayer.SLAFGetMsg.Parser));
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Marshaller<global::ServiceLayer.SLAFGetMsgRsp> __Marshaller_service_layer_SLAFGetMsgRsp = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::ServiceLayer.SLAFGetMsgRsp.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::ServiceLayer.SLAFNotifReq> __Marshaller_service_layer_SLAFNotifReq = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::ServiceLayer.SLAFNotifReq.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::ServiceLayer.SLAFNotifMsg> __Marshaller_service_layer_SLAFNotifMsg = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::ServiceLayer.SLAFNotifMsg.Parser));
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Method<global::ServiceLayer.SLAFVrfRegMsg, global::ServiceLayer.SLAFVrfRegMsgRsp> __Method_SLAFVrfRegOp = new grpc::Method<global::ServiceLayer.SLAFVrfRegMsg, global::ServiceLayer.SLAFVrfRegMsgRsp>(
@@ -113,6 +117,14 @@ namespace ServiceLayer {
         "SLAFGet",
         __Marshaller_service_layer_SLAFGetMsg,
         __Marshaller_service_layer_SLAFGetMsgRsp);
+
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Method<global::ServiceLayer.SLAFNotifReq, global::ServiceLayer.SLAFNotifMsg> __Method_SLAFNotifStream = new grpc::Method<global::ServiceLayer.SLAFNotifReq, global::ServiceLayer.SLAFNotifMsg>(
+        grpc::MethodType.DuplexStreaming,
+        __ServiceName,
+        "SLAFNotifStream",
+        __Marshaller_service_layer_SLAFNotifReq,
+        __Marshaller_service_layer_SLAFNotifMsg);
 
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
@@ -233,6 +245,12 @@ namespace ServiceLayer {
       /// <returns>A task indicating completion of the handler.</returns>
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       public virtual global::System.Threading.Tasks.Task SLAFGet(global::ServiceLayer.SLAFGetMsg request, grpc::IServerStreamWriter<global::ServiceLayer.SLAFGetMsgRsp> responseStream, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::System.Threading.Tasks.Task SLAFNotifStream(grpc::IAsyncStreamReader<global::ServiceLayer.SLAFNotifReq> requestStream, grpc::IServerStreamWriter<global::ServiceLayer.SLAFNotifMsg> responseStream, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
@@ -640,6 +658,16 @@ namespace ServiceLayer {
       {
         return CallInvoker.AsyncServerStreamingCall(__Method_SLAFGet, null, options, request);
       }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncDuplexStreamingCall<global::ServiceLayer.SLAFNotifReq, global::ServiceLayer.SLAFNotifMsg> SLAFNotifStream(grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return SLAFNotifStream(new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncDuplexStreamingCall<global::ServiceLayer.SLAFNotifReq, global::ServiceLayer.SLAFNotifMsg> SLAFNotifStream(grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncDuplexStreamingCall(__Method_SLAFNotifStream, null, options);
+      }
       /// <summary>Creates a new instance of client from given <c>ClientBaseConfiguration</c>.</summary>
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       protected override SLAFClient NewInstance(ClientBaseConfiguration configuration)
@@ -657,7 +685,8 @@ namespace ServiceLayer {
           .AddMethod(__Method_SLAFVrfRegOp, serviceImpl.SLAFVrfRegOp)
           .AddMethod(__Method_SLAFOp, serviceImpl.SLAFOp)
           .AddMethod(__Method_SLAFOpStream, serviceImpl.SLAFOpStream)
-          .AddMethod(__Method_SLAFGet, serviceImpl.SLAFGet).Build();
+          .AddMethod(__Method_SLAFGet, serviceImpl.SLAFGet)
+          .AddMethod(__Method_SLAFNotifStream, serviceImpl.SLAFNotifStream).Build();
     }
 
     /// <summary>Register service method with a service binder with or without implementation. Useful when customizing the service binding logic.
@@ -671,6 +700,7 @@ namespace ServiceLayer {
       serviceBinder.AddMethod(__Method_SLAFOp, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::ServiceLayer.SLAFMsg, global::ServiceLayer.SLAFMsgRsp>(serviceImpl.SLAFOp));
       serviceBinder.AddMethod(__Method_SLAFOpStream, serviceImpl == null ? null : new grpc::DuplexStreamingServerMethod<global::ServiceLayer.SLAFMsg, global::ServiceLayer.SLAFMsgRsp>(serviceImpl.SLAFOpStream));
       serviceBinder.AddMethod(__Method_SLAFGet, serviceImpl == null ? null : new grpc::ServerStreamingServerMethod<global::ServiceLayer.SLAFGetMsg, global::ServiceLayer.SLAFGetMsgRsp>(serviceImpl.SLAFGet));
+      serviceBinder.AddMethod(__Method_SLAFNotifStream, serviceImpl == null ? null : new grpc::DuplexStreamingServerMethod<global::ServiceLayer.SLAFNotifReq, global::ServiceLayer.SLAFNotifMsg>(serviceImpl.SLAFNotifStream));
     }
 
   }
