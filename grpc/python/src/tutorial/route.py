@@ -194,7 +194,7 @@ def global_init(channel, metadata):
 
 
 
-def vrf_operation(channel, ope, metadata):
+def vrf_operation(channel, oper, metadata):
     # Create the gRPC stub.
     stub = sl_route_ipv4_pb2_grpc.SLRoutev4OperStub(channel)
 
@@ -263,7 +263,7 @@ def vrf_operation(channel, ope, metadata):
 # A SLRoutev4Msg contains a list of SLRoutev4 (routes)
 # Each SLRoutev4 (route) contains a list of SLRoutePath (paths)
 #
-def route_operation(channel, oper, p_begin, p_len, nh_begin, nh_intf, r_scale):
+def route_operation(channel, oper, p_begin, p_len, nh_begin, nh_intf, r_scale, metadata):
     # Create the gRPC stub.
     stub = sl_route_ipv4_pb2_grpc.SLRoutev4OperStub(channel)
 
@@ -358,7 +358,7 @@ def route_operation(channel, oper, p_begin, p_len, nh_begin, nh_intf, r_scale):
         #
         Timeout = 10 # Seconds
         rtMsg.Oper = oper # Desired ADD, UPDATE, DELETE operation
-        response = stub.SLRoutev4Op(rtMsg, Timeout)
+        response = stub.SLRoutev4Op(rtMsg, Timeout, metadata = metadata)
         #
         # Check the received result from the Server
         #

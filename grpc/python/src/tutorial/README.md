@@ -71,6 +71,7 @@ This may require some initial python and GRPC setup, which will be explained bel
 
     cd grpc/python/src
     python3.11 tutorial/quickstart.py -u <username> -p <password> 
+each of the individual tests also can be run in similar way.(vrf.py, riute.py,client_init.py)
  
 The following sections explain the details of the above example tutorial.
 
