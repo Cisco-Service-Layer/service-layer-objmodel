@@ -167,9 +167,9 @@ def get_server_ip_port():
 #
 if __name__ == '__main__':
 
-    parser = argparse.ArgumentParser(description ='Basic test')
-    parser.add_argument('-u', '--username', help='Specify username', default="cisco")
-    parser.add_argument('-p', '--password', help='Specify password', default="cisco123")
+    parser = argparse.ArgumentParser(description ='The full tutorial example')
+    parser.add_argument('-u', '--username', help='Specify username')
+    parser.add_argument('-p', '--password', help='Specify password')
     args = parser.parse_args()
 
     server_ip, server_port = get_server_ip_port()

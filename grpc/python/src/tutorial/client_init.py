@@ -7,6 +7,7 @@
 import os
 import sys
 import threading
+import argparse
 # Add the generated python bindings to the path
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.realpath(__file__))))
 
@@ -156,6 +157,10 @@ def get_server_ip_port():
 #
 if __name__ == '__main__':
     server_ip, server_port = get_server_ip_port()
+    parser = argparse.ArgumentParser(description ='Used to setup the client-server connection')
+    parser.add_argument('-u', '--username', help='Specify username')
+    parser.add_argument('-p', '--password', help='Specify password')
+    args = parser.parse_args()
 
     print("Using GRPC Server IP(%s) Port(%s)" %(server_ip, server_port))
 
@@ -164,8 +169,8 @@ if __name__ == '__main__':
     
     global metadata 
     metadata = [
-                    ("username", "cisco"),
-                    ("password", "cisco123")
+                    ("username", args.username),
+                    ("password", args.password)
                     ]
 
     # Initialize client (check major/minor versions and globals)

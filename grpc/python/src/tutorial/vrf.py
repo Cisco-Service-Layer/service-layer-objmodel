@@ -111,9 +111,9 @@ def get_server_ip_port():
 if __name__ == '__main__':
 
     server_ip, server_port = get_server_ip_port()
-    parser = argparse.ArgumentParser(description ='Basic test')
-    parser.add_argument('-u', '--username', help='Specify username', default="cisco")
-    parser.add_argument('-p', '--password', help='Specify password', default="cisco123")
+    parser = argparse.ArgumentParser(description ='Used to setup the Route vertical')
+    parser.add_argument('-u', '--username', help='Specify username')
+    parser.add_argument('-p', '--password', help='Specify password')
     args = parser.parse_args()
 
     metadata = [

@@ -398,8 +398,8 @@ if __name__ == '__main__':
     parser.add_argument("--nh_start", type=str, default="100.0.0.1", help="starting next hop address (default: 100.0.0.1)")
     parser.add_argument("--nh_intf", type=str, default="FourHundredGigE0/0/0/10", help="next hop interface (default: FourHundredGigE0/0/0/10)")
     parser.add_argument("--num_routes", type=int, default=100, help="number of routes (default: 100)")
-    parser.add_argument('-u', '--username', help='Specify username', default="cisco")
-    parser.add_argument('-p', '--password', help='Specify password', default="cisco123")
+    parser.add_argument('-u', '--username', help='Specify username')
+    parser.add_argument('-p', '--password', help='Specify password')
     args = parser.parse_args()
     global metadata 
 
