@@ -26,7 +26,7 @@ from tutorial import client_init
 #    channel: GRPC channel
 #    oper: sl_common_types_pb2.SL_REGOP_XXX
 #
-def vrf_operation(channel, oper):
+def vrf_operation(channel, oper, metadata):
     # Create the gRPC stub.
     stub = sl_route_ipv4_pb2_grpc.SLRoutev4OperStub(channel)
 
@@ -62,7 +62,7 @@ def vrf_operation(channel, oper):
     # Make an RPC call
     #
     Timeout = 10 # Seconds
-    response = stub.SLRoutev4VrfRegOp(vrfMsg, Timeout)
+    response = stub.SLRoutev4VrfRegOp(vrfMsg, Timeout, metadata = metadata)
 
     #
     # Check the received result from the Server

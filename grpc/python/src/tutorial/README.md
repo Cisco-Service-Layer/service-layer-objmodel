@@ -60,9 +60,7 @@ with the API.
 ## <a name='python'></a>Setting up Python Environment
 
 To install dependencies first create a virtual env:
-
-    pip install virtualenv
-    virtualenv sl-env --python=python3.11
+    /auto/cafy/release/latest/exec8/bin/python3.11  -m venv sl-env
     source sl-env/bin/activate
     pip install -r grpc/python/requirements.txt
 

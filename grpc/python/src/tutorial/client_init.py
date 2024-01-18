@@ -7,7 +7,6 @@
 import os
 import sys
 import threading
-
 # Add the generated python bindings to the path
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.realpath(__file__))))
 
@@ -24,7 +23,8 @@ import grpc
 # Client Init: Initialize client session
 #    stub: GRPC stub
 #
-def client_init(stub, event):
+def client_init(stub, event, metadata):
+
     #
     # Create SLInitMsg to handshake the version number with the server.
     # The Server will allow/deny access based on the version number.
@@ -42,7 +42,7 @@ def client_init(stub, event):
     Timeout = 365*24*60*60 # Seconds
 
     # This for loop will never end unless the server closes the session
-    for response in stub.SLGlobalInitNotif(init_msg, Timeout):
+    for response in stub.SLGlobalInitNotif(init_msg, Timeout, metadata = metadata):
         if response.EventType == sl_global_pb2.SL_GLOBAL_EVENT_TYPE_VERSION:
             if (sl_common_types_pb2.SLErrorStatus.SL_SUCCESS ==
                     response.ErrStatus.Status) or \
@@ -77,11 +77,11 @@ def client_init(stub, event):
 #
 # Thread starting point
 #
-def global_thread(stub, event):
+def global_thread(stub, event, metadata):
     print("Global thread spawned")
 
     # Initialize the GRPC session. This function should never return
-    client_init(stub, event)
+    client_init(stub, event, metadata)
 
     print("global_thread: exiting unexpectedly")
     # If this session is lost, then most likely the server restarted
@@ -91,7 +91,7 @@ def global_thread(stub, event):
 #
 # Spawn a thread for global events
 #
-def global_init(channel):
+def global_init(channel, metadata):
     # Create the gRPC stub.
     stub = sl_global_pb2_grpc.SLGlobalStub(channel)
 
@@ -101,7 +101,7 @@ def global_init(channel):
     # The main reason we spawn a thread here, is that we dedicate a GRPC
     # channel to listen on Global asynchronous events/notifications.
     # This thread will be handling these event notifications.
-    t = threading.Thread(target = global_thread, args=(stub, event))
+    t = threading.Thread(target = global_thread, args=(stub, event, metadata))
     t.start()
 
     # Wait for the spawned thread before proceeding
@@ -114,7 +114,7 @@ def global_init(channel):
     # Make an RPC call to get global attributes
     #
     Timeout = 10 # Seconds
-    response = stub.SLGlobalsGet(global_get, Timeout)
+    response = stub.SLGlobalsGet(global_get, Timeout, metadata = metadata)
 
     # Check the received result from the Server
     if (response.ErrStatus.Status ==
@@ -135,19 +135,41 @@ def global_init(channel):
         os._exit(0)
 
 #
+# Get the GRPC Server IP address and port number
+#
+def get_server_ip_port():
+    # Get GRPC Server's IP from the environment
+    if 'SERVER_IP' not in list(os.environ.keys()):
+        print("Need to set the SERVER_IP env variable e.g.")
+        print("export SERVER_IP='10.30.110.214'")
+        os._exit(0)
+
+    # Get GRPC Server's Port from the environment
+    if 'SERVER_PORT' not in list(os.environ.keys()):
+        print("Need to set the SERVER_PORT env variable e.g.")
+        print("export SERVER_PORT='57777'")
+        os._exit(0)
+    return (os.environ['SERVER_IP'], int(os.environ['SERVER_PORT']))
+
+#
 # Setup the GRPC channel with the server, and issue RPCs
 #
 if __name__ == '__main__':
-    from util import util
-    server_ip, server_port = util.get_server_ip_port()
+    server_ip, server_port = get_server_ip_port()
 
     print("Using GRPC Server IP(%s) Port(%s)" %(server_ip, server_port))
 
     # Create the channel for gRPC.
     channel = grpc.insecure_channel(str(server_ip)+":"+str(server_port))
+    
+    global metadata 
+    metadata = [
+                    ("username", "cisco"),
+                    ("password", "cisco123")
+                    ]
 
     # Initialize client (check major/minor versions and globals)
-    global_init(channel)
+    global_init(channel, metadata)
 
     # Exit and Kill any running GRPC threads.
     os._exit(0)
