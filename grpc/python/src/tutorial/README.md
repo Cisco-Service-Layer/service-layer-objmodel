@@ -70,8 +70,8 @@ The following basic tutorial will walk you through getting started with the Serv
 This may require some initial python and GRPC setup, which will be explained below. For now, if you already have passed this setup step, run the example:
 
     cd grpc/python/src
-    python3 tutorial/quickstart.py
-
+    python3.11 tutorial/quickstart.py -u <username> -p <password> 
+ 
 The following sections explain the details of the above example tutorial.
 
 #### <a name='gen'></a>Generate gRPC Code (optional in this example)
