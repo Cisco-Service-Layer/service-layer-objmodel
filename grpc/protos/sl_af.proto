@@ -166,6 +166,28 @@ service SLAF {
     // Retrieves object attributes.
     rpc SLAFGet(SLAFGetMsg) returns (stream SLAFGetMsgRsp);
 
+    // The notification request registrations and corresponding
+    // notifications are scoped to the RPC. On a RPC disconnection,
+    // the client should re-establish the RPC and re-program
+    // the notification requests.
+    // The caller MUST keep the RPC up as long as there is
+    // interest in the notifications.
+    //
+    // For route redistribution, this call is used to get a stream
+    // of route notifications. It can be used to get "push"
+    // notifications for route adds/updates/deletes.
+    //
+    // For next hop change notifications, this call can be used to get
+    // "push" notifications for nexthop adds/updates/deletes.
+    //
+    // The call takes a stream of per-VRF table notification requests.
+    // Each notification request is first responded to with the result
+    // of the registration operation itself, followed by any redistributed
+    // routes if requested and present, and any next hops if requested and present.
+    // From then on, any updates are notified as long as RPC is up.
+
+    rpc SLAFNotifStream(stream SLAFNotifReq) returns (stream SLAFNotifMsg);
+
     //
     //@}
 }
@@ -399,3 +421,101 @@ message SLAFMsgRsp {
     // erroneous.
     repeated SLAFRes Results = 2;
 }
+
+//
+//
+// Messages for route redistribution and next hop change requests
+// and responses.
+//
+//
+
+// Request message for route redistribution registration.
+message SLAFRedistRegMsg {
+    // Source Protocol.
+    // Only routes with specified source protocol and protocol tag will be
+    // notified.
+    // Contact Cisco for supported protocol string names.
+    // This field is mandatory.
+    string SrcProto = 1;
+
+    // Source Protocol Tag. This can be empty if N/A.
+    // Contact Cisco for supported protocol tags.
+    // This field is optional.
+    string SrcProtoTag = 2;
+
+    // Table type the client is interested in.
+    // This field is mandatory.
+    SLTableType Table = 3;
+}
+
+// Notification request message for a single item.
+message SLAFNotifRegReq {
+    oneof request {
+        // Route redistribution request.
+        SLAFRedistRegMsg RedistReq = 1;
+    }
+
+    // Unique OperationID sent by the client to correlate the
+    // registration request with the response.
+    // When this change registration request is applied
+    // in the server, the result of this registration operation is returned
+    // to the client along with Operation ID to allow the client correlate
+    // responses with the requests. Note, server reflects the OperationID
+    // only in registration responses, and not in the corresponding
+    // notifications.
+    uint64 OperationID = 3;
+}
+
+// RPC Notification request - either a route redistribution
+// request or a next hop change notification request.
+message SLAFNotifReq {
+    // Oper = SL_NOTIFOP_ENABLE
+    //   This is to enable route notifications in a VRF or
+    //    the next hop change notification.
+    // Oper = SL_NOTIFOP_DISABLE
+    //   This is to disable route notifications in a VRF or
+    //   the next hop change notification.
+    SLNotifOp Oper = 1;
+
+    // Vrf that the client is interested in.
+    string VrfName = 2;
+
+    // Notification request.
+    repeated SLAFNotifRegReq NotifReq = 3;
+}
+
+// Notification response message for a single item.
+message SLAFNotifRsp {
+    // Corresponding request.
+    SLAFNotifRegReq NotifReq = 1;
+
+    // The NotifStatus implies one of 2 things:
+    // SL_SUCCESS: signifies that the notification request was successful
+    // SL_XXX: signifies an error in setting up a notification for the Vrf.
+    SLErrorStatus NotifStatus = 2;
+}
+
+// AF Notification message.
+message SLAFNotif {
+    oneof Event {
+        // This field carries the status of the SLAFNotifReq message.
+        SLAFNotifRsp NotifStatus = 1;
+
+        // Route redistribution notification.
+        SLAFObject RedistObject = 4;
+    }
+}
+
+// RPC Notification message.
+message SLAFNotifMsg {
+    // VRF name.
+    string VrfName = 1;
+
+    // Table type.
+    SLTableType Table = 2;
+
+    // Notifications.
+    repeated SLAFNotif AFNotifs = 3;
+}
+
+// @}
