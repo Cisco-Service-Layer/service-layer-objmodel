@@ -1,7 +1,16 @@
 {
+  "test_flags": {
+    "auto_register": 1,
+    "clean_up": 1
+  },
   "authentication_info" : {
     "username": "cisco",
     "password": "cisco123"
+  },
+  "certificate_info" : {
+    "cert_pfx_path": "./cert/client.pfx",
+    "cert_ca_path": "./cert/ca.cert",
+    "cert_pfx_pswd": "cisco123"
   },
   "register_v4_vrfs" : {
     "purge_interval": 300,

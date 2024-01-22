@@ -8,10 +8,12 @@ using System.Threading.Tasks;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
+using System.Net.Http;
+using System.Security.Cryptography.X509Certificates;
+using Grpc.Net.Client;
 using System.IO;
 using Google.Protobuf;
 using Grpc.Core;
-using Grpc.Net.Client;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 using Newtonsoft.Json.Linq;
@@ -30,6 +32,12 @@ public class TestVxlan
 
     [JsonProperty("authentication_info")]
     public Dictionary<string, object> AuthenticationInfo { get; set; }
+
+    [JsonProperty("certificate_info")]
+    public Dictionary<string, object> CertificateInfo { get; set; }
+
+    [JsonProperty("test_flags")]
+    public Dictionary<string, object> TestFlags { get; set; }
 }
 
 /// <summary>
@@ -136,10 +144,13 @@ class SLClient
         GrpcChannel channel = null;
         SLRoutev4Oper.SLRoutev4OperClient client = null;
         Metadata headers = null;
+        SLRoutev4Msg slRoutev4Msg = null;
+	var cleanUp = false;
+	var autoRegister = false;
 
         // Process  arguments
         var parsedArgs = ProcessArgs(args);
-        var serverAddress = parsedArgs.ServerAddress;
+        var serverIp = parsedArgs.ServerAddress;
         var jsonFilePath = parsedArgs.JsonFilePath;
 
         if (!string.IsNullOrEmpty(jsonFilePath))
@@ -179,6 +190,12 @@ class SLClient
             Console.WriteLine("JSON file path is not provided.");
             Environment.Exit(1);
         }
+	if (testData.TestFlags != null)
+	{
+            autoRegister = Convert.ToBoolean(testData.TestFlags["auto_register"]);
+            cleanUp = Convert.ToBoolean(testData.TestFlags["clean_up"]);
+	}	
+            
         if (testData.AuthenticationInfo != null)
         {
             string userName = Convert.ToString(testData.AuthenticationInfo["username"]);
@@ -186,16 +203,56 @@ class SLClient
             headers = new Metadata { { "username", userName }, { "password", passWord } };
         }
 
-        // Setup the channel and client
-        if (!string.IsNullOrEmpty(serverAddress))
+        //Setting exception handling, press ctrl+c to gracefully exit client program
+        using var cts = new CancellationTokenSource();
+        Console.CancelKeyPress += (s, e) =>
         {
-            AppContext.SetSwitch("System.Net.Http.SocketsHttpHandler.Http2UnencryptedSupport", true);
-
-            channel = GrpcChannel.ForAddress($"http://{serverAddress}",
-                                             new GrpcChannelOptions { Credentials = ChannelCredentials.Insecure });
-            try {
+            Console.WriteLine("Cancellation requested.");
+            cts.Cancel();
+            e.Cancel = true;
+        };
+        // Setup the channel and client
+        if (!string.IsNullOrEmpty(serverIp))
+        {
+            var serverAddress = $"https://{serverIp}"; // Use https for secure connections
+        
+            if (testData.CertificateInfo != null)
+            {
+                // Load the client certificate with private key (in PFX format)
+	        string certPath = Convert.ToString(testData.CertificateInfo["cert_pfx_path"]);
+	        string certPswd = Convert.ToString(testData.CertificateInfo["cert_pfx_pswd"]);
+                var clientCert = new X509Certificate2(certPath, certPswd);
+                
+                // Create an HttpClientHandler and add the client certificate
+                var handler = new HttpClientHandler();
+                handler.ClientCertificates.Add(clientCert);
+        
+                // Load the CA certificate and implement validation logic
+		string certCA = Convert.ToString(testData.CertificateInfo["cert_ca_path"]);
+                var caCert = new X509Certificate2(certCA);
+                handler.ServerCertificateCustomValidationCallback = (httpRequestMessage, cert, cetChain, policyErrors) => {
+                     return cert.Issuer == caCert.Issuer; // Example validation logic
+                };
+        
+                // Create an HttpClient with the handler
+                var httpClient = new HttpClient(handler);
+        
+                // Create the gRPC channel using the HttpClient
+                channel = GrpcChannel.ForAddress(serverAddress, new GrpcChannelOptions { HttpClient = httpClient });
+            }
+            else
+            {
+                serverAddress = $"http://{serverIp}"; // Fallback to http for insecure connections
+                AppContext.SetSwitch("System.Net.Http.SocketsHttpHandler.Http2UnencryptedSupport", true);
+                channel = GrpcChannel.ForAddress(serverAddress, new GrpcChannelOptions { Credentials = ChannelCredentials.Insecure });
+            }
+        
+            try
+            {
                 client = new SLRoutev4Oper.SLRoutev4OperClient(channel);
-            } catch (Exception ex) {
+            }
+            catch (Exception ex)
+            {
                 Console.WriteLine("Error initializing the client: " + ex.Message);
                 Environment.Exit(1);
             }
@@ -205,67 +262,82 @@ class SLClient
             Console.WriteLine("Server address is not provided.");
             Environment.Exit(1);
         }
-        if (testData.RegisterV4Vrfs != null)
-        {
-            Console.WriteLine("\nTestcase 1: Register Vrfs");
-            Console.WriteLine(" Step 1: Get all Vrfs Registered in the server");
-            // Create and populate the SLVrfRegGetMsg.
-            var getMsg = new SLVrfRegGetMsg
-            {
-                EntriesCount = 10,
-                GetNext = true
-            };
 
-            // Call the SLRoutev4VrfRegGet RPC
-            var getResponse = await client.SLRoutev4VrfRegGetAsync(getMsg, headers);
-            if (getResponse.ErrStatus.Status != SLErrorStatus.Types.SLErrno.SlSuccess)
+	if (autoRegister) {
+            // Make sure the router is configured with 
+	    // grpc service-layer auto-register
+            Console.WriteLine("testData.AutoRegister is true, skipping vrf register");
+	}
+	else
+	{
+            if (testData.RegisterV4Vrfs != null)
             {
-                // The operation was not successful
-                Console.WriteLine($"Operation failed with status: {getResponse.ErrStatus.Status}");
+                Console.WriteLine("\nTestcase 1: Register Vrfs");
+                Console.WriteLine(" Step 1: Get all Vrfs Registered in the server");
+                // Create and populate the SLVrfRegGetMsg.
+                var getMsg = new SLVrfRegGetMsg
+                {
+                    EntriesCount = 10,
+                    GetNext = true
+                };
+
+                // Call the SLRoutev4VrfRegGet RPC
+                var getResponse = await client.SLRoutev4VrfRegGetAsync(getMsg, headers);
+                if (getResponse.ErrStatus.Status != SLErrorStatus.Types.SLErrno.SlSuccess)
+                {
+                    // The operation was not successful
+                    Console.WriteLine($"Operation failed with status: {getResponse.ErrStatus.Status}");
+                }
+                else
+                {
+                    // The operation was successful, so print the SLVrfReg entries
+                    foreach (var entry in getResponse.Entries)
+                    {
+                        Console.WriteLine($"VRF Name: {entry.VrfName}");
+                        Console.WriteLine($"Admin Distance: {entry.AdminDistance}");
+                        Console.WriteLine($"VRF Purge Interval Seconds: {entry.VrfPurgeIntervalSeconds}");
+                        Console.WriteLine();  // newline for better formatting
+                    }
+                }
+      
+	        if (!cleanUp) 
+		{	
+                    // The following line will allow running this
+                    // tutorial multiple times without hitting route exists error
+		    // in the case where previous run did not do the cleanup
+                    await UnRegisterVrfsAsync(client, testData, headers);
+		}
+                // TODO Do mark and sweep of vrfs by
+                // a) Un registering vrfs that are no longer needed
+                // await UnRegisterVrfsAsync(client, testData);
+                // b) Registering vrfs that are not registered yet
+                // await RegisterVrfsAsync(client, testData, headers);
+
+                Console.WriteLine(" Step 2: Register new vrfs");
+                await RegisterVrfsAsync(client, testData, headers);
+                Console.WriteLine(" Step 3: Send Eofs");
+                await EofVrfsAsync(client, testData, headers);
             }
             else
             {
-                // The operation was successful, so print the SLVrfReg entries
-                foreach (var entry in getResponse.Entries)
-                {
-                    Console.WriteLine($"VRF Name: {entry.VrfName}");
-                    Console.WriteLine($"Admin Distance: {entry.AdminDistance}");
-                    Console.WriteLine($"VRF Purge Interval Seconds: {entry.VrfPurgeIntervalSeconds}");
-                    Console.WriteLine();  // newline for better formatting
-                }
+                Console.WriteLine("testData.RegisterV4Vrfs is null");
             }
-            // TODO Do mark and sweep of vrfs by
-            // a) Registering vrfs that are not registered yet
-            // b) Un registering vrfs that are no longer needed
-            // await UnRegisterVrfsAsync(client, testData);
-      
-            // FIXME: The following line will allow running this
-            // tutorial multiple times without hitting route exists error
-            await UnRegisterVrfsAsync(client, testData, headers);
-            //END OF FIXME
-
-            Console.WriteLine(" Step 2: Register new vrfs");
-            await RegisterVrfsAsync(client, testData, headers);
-            Console.WriteLine(" Step 3: Send Eofs");
-            await EofVrfsAsync(client, testData, headers);
-        }
-        else
-        {
-            Console.WriteLine("testData.RegisterV4Vrfs is null");
-        }
+	}
         if (testData.ProgramV4VxlanRoutes != null)
         {
             Console.WriteLine("\nTestcase 2: Program V4 Routes, Unary");
-            //TODO
-            //Console.WriteLine("  Step 1: Get all routes in this vrf");
-            //await GetRoutesAsync(client, testData.ProgramV4VxlanRoutes["prefix_vrf"].ToString());
-
-            //TODO
-            //Mark and sweep of routes in the vrf, add new routes (delta)
-            //TODO
-            //Console.WriteLine("Step 2: Mark and sweep of routes");
-            Console.WriteLine("  Step 3: Add/Update/Delte routes");
-            var slRoutev4Msg = new SLRoutev4Msg
+	    if (autoRegister) 
+	    {
+                //TODO
+                //Console.WriteLine("  Step 1: Get all routes in this vrf");
+                //await GetRoutesAsync(client, testData.ProgramV4VxlanRoutes["prefix_vrf"].ToString());
+                //TODO
+                //Mark and sweep of routes in the vrf, add new routes (delta)
+                //TODO
+                //Console.WriteLine("Step 2: Mark and sweep of routes");
+	    } 
+            Console.WriteLine("  Step 3: Add/Update/Delete routes");
+            slRoutev4Msg = new SLRoutev4Msg
             {
                 Oper = SLObjectOp.SlObjopAdd, // To ADD new routes
                 //Oper = SLObjectOp.SlObjopUpdate, // To MODIFY existing routes 
@@ -360,21 +432,54 @@ class SLClient
             Console.WriteLine("  Step 4: Verify routes programmed");
             await GetRoutesAsync(client, testData.ProgramV4VxlanRoutes["prefix_vrf"].ToString(), headers);
             //Programming the same set of routes again, using streaming RPC
-            Console.WriteLine("\nTestcase 3: Programming v4 routes, streaming"); 
-            // Unregistering to wipe the slate clean before re-programming
-            await UnRegisterVrfsAsync(client, testData, headers);
-            //Setting exception handling, press ctrl+c to gracefully exit client program
-            using var cts = new CancellationTokenSource();
-            Console.CancelKeyPress += (s, e) =>
-            {
-                Console.WriteLine("Cancellation requested.");
-                cts.Cancel();
-                e.Cancel = true;
-            };
-            Console.WriteLine(" Step 1: Register Vrfs");
-            await RegisterVrfsAsync(client, testData, headers);
-            Console.WriteLine(" Step 2: Send Eofs");
-            await EofVrfsAsync(client, testData, headers);
+            Console.WriteLine("\nTestcase 3: Programming v4 routes, streaming");
+	    // Cleanup previously programmed routes
+	    if (autoRegister)
+	    {
+	        // Delete all the routes that were programmed
+		// Change the Oper to Delete
+                slRoutev4Msg.Oper = SLObjectOp.SlObjopDelete;
+                try {
+                    // Make the RPC call
+                    var response = client.SLRoutev4Op(slRoutev4Msg, headers);
+
+                    // Process the response
+                    Console.WriteLine("Response Correlator: " + response.Correlator);
+                    Console.WriteLine("Response VRF name: " + response.VrfName);
+
+                    // Process status
+                    var statusSummary = response.StatusSummary.Status;
+                    Console.WriteLine("Response Status Summary: " + statusSummary);
+
+                    // Process results
+                    foreach (var result in response.Results) {
+                        Console.WriteLine("Route error status: " + result.ErrStatus.Status);
+                        Console.WriteLine("Route prefix: " + result.Prefix);
+                        Console.WriteLine("Route prefix length: " + result.PrefixLen);
+                    }
+                } catch (RpcException e) {
+                    // RPC failed
+                    Console.WriteLine("RPC failed: " + e.Status.Detail);
+                } catch (Exception ex) {
+                    // Other exceptions
+                    Console.WriteLine("Operation failed: " + ex.Message);
+                }
+		// Change Oper back to Add 
+                slRoutev4Msg.Oper = SLObjectOp.SlObjopAdd;
+	    }
+	    else
+	    {
+                // Unregistering to wipe the slate clean before re-programming
+                await UnRegisterVrfsAsync(client, testData, headers);
+	    }
+
+	    if (!autoRegister) 
+	    {
+                Console.WriteLine(" Step 1: Register Vrfs");
+                await RegisterVrfsAsync(client, testData, headers);
+                Console.WriteLine(" Step 2: Send Eofs");
+                await EofVrfsAsync(client, testData, headers);
+	    }
 
             using (var call = client.SLRoutev4OpStream(headers: headers))
             {
@@ -443,6 +548,45 @@ class SLClient
         {
             Console.WriteLine("testData.ProgramV4VxlanRoutes is null");
         }
+
+	if (cleanUp)
+	{
+            if (autoRegister)
+	    {
+	        // Delete all the routes that were programmed
+                slRoutev4Msg.Oper = SLObjectOp.SlObjopDelete;
+                try {
+                    // Make the RPC call
+                    var response = client.SLRoutev4Op(slRoutev4Msg, headers);
+
+                    // Process the response
+                    Console.WriteLine("Response Correlator: " + response.Correlator);
+                    Console.WriteLine("Response VRF name: " + response.VrfName);
+
+                    // Process status
+                    var statusSummary = response.StatusSummary.Status;
+                    Console.WriteLine("Response Status Summary: " + statusSummary);
+
+                    // Process results
+                    foreach (var result in response.Results) {
+                        Console.WriteLine("Route error status: " + result.ErrStatus.Status);
+                        Console.WriteLine("Route prefix: " + result.Prefix);
+                        Console.WriteLine("Route prefix length: " + result.PrefixLen);
+                    }
+                } catch (RpcException e) {
+                    // RPC failed
+                    Console.WriteLine("RPC failed: " + e.Status.Detail);
+                } catch (Exception ex) {
+                    // Other exceptions
+                    Console.WriteLine("Operation failed: " + ex.Message);
+                }
+	    }
+	    else
+	    {
+                // Unregistering to wipe the slate clean before re-programming
+                await UnRegisterVrfsAsync(client, testData, headers);
+	    }
+	}
 
         await channel.ShutdownAsync();
     }
