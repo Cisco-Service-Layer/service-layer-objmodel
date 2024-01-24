@@ -1,4 +1,4 @@
-#include "ServiceLayerRoute.h"
+#include "ServiceLayerRoutev2.h"
 #include <string>
 #include <csignal>
 
@@ -49,8 +49,10 @@ getEnvVar(std::string const & key)
 }
 
 
-SLVrf* vrfhandler_signum;
-RShuttle* rshuttle_signum;
+// SLVrf* vrfhandler_signum;
+// RShuttle* rshuttle_signum;
+SLAFVrf* afvrfhandler_signum;
+RShuttlev2* rshuttle_signum;
 AsyncNotifChannel* asynchandler_signum;
 bool sighandle_initiated = false;
 
@@ -63,13 +65,13 @@ signalHandler(int signum)
        VLOG(1) << "Interrupt signal (" << signum << ") received.";
 
        // Clear out the last vrfRegMsg batch
-       vrfhandler_signum->vrf_msg.clear_vrfregmsgs();
+       afvrfhandler_signum->af_vrf_msg.clear_vrfregmsgs();
 
        // Create a fresh SLVrfRegMsg batch for cleanup
-       vrfhandler_signum->vrfRegMsgAdd("default");
+       afvrfhandler_signum->afVrfRegMsgAdd("default",AF_INET);
 
-       vrfhandler_signum->unregisterVrf(AF_INET);
-       vrfhandler_signum->unregisterVrf(AF_INET6);
+       afvrfhandler_signum->unregisterAfVrf(AF_INET);
+    //    afvrfhandler_signum->unregisterAfVrf(AF_INET6);
 
        delete rshuttle_signum;
 
@@ -82,7 +84,7 @@ signalHandler(int signum)
 }
 
 
-void routepush(RShuttle* route_shuttle,
+void routepush(RShuttlev2* route_shuttle,
                unsigned int batchSize,
                unsigned int batchNum)
 
@@ -191,6 +193,28 @@ int main(int argc, char** argv) {
         init_condVar.wait(initlock);
     }
 
+    auto af_vrf_handler = SLAFVrf(channel,username,password);
+
+    // Create a new SLAFVrfRegMsg batch
+    af_vrf_handler.afVrfRegMsgAdd("default", 10, 500, AF_INET);
+
+    // Register the SLVrfRegMsg batch for v4 and v6
+    af_vrf_handler.registerAfVrf(AF_INET);
+    // af_vrf_handler.registerAfVrf(AF_INET6);
+
+    route_shuttle = new RShuttlev2(af_vrf_handler.channel, username, password);
+
+    routepush(route_shuttle, batch_size, batch_num);
+
+    asynchandler_signum = &asynchandler;
+    afvrfhandler_signum = &af_vrf_handler;
+    rshuttle_signum = route_shuttle;
+    
+
+    signal(SIGINT, signalHandler);
+
+    /*
+
     auto vrfhandler = SLVrf(channel, username, password);
 
     // Create a new SLVrfRegMsg batch
@@ -207,8 +231,10 @@ int main(int argc, char** argv) {
     asynchandler_signum = &asynchandler;
     vrfhandler_signum = &vrfhandler;
     rshuttle_signum = route_shuttle;
+    
 
     signal(SIGINT, signalHandler);  
+    */
     LOG(INFO) << "Press control-c to quit";
     thread_.join();
 
