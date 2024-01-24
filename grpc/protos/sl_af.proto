@@ -126,6 +126,9 @@ service SLAF {
     //
     rpc SLAFVrfRegOp(SLAFVrfRegMsg) returns (SLAFVrfRegMsgRsp);
 
+    // VRF get. Used to retrieve VRF attributes from the server.
+    rpc SLAFVrfRegGet(SLAFVrfRegGetMsg) returns (stream SLAFVrfRegGetMsgRsp);
+
     //
     // Route, MPLS label and Path operations.
     //
@@ -237,6 +240,31 @@ message SLAFVrfRegMsgRsp {
     // In case of errors, this field indicates which entry in the bulk was
     // erroneous.
     repeated SLAFVrfRegMsgRes Results = 2;
+}
+
+// VRF Reg Get Request Message.
+// Returns the VRF registrations done for all table types
+message SLAFVrfRegGetMsg {
+    // If true,  returns VRF registrations for all clients.
+    // If false, returns VRF registrations for this client as identified by the gRPC metadata
+    bool GetAll = 1;
+}
+
+// VRF Reg Get Message Response
+message SLAFVrfRegGetMsgRsp {
+    // Status of the Get operation
+    SLErrorStatus ErrStatus = 1;
+
+    // Client that performed this registration
+    uint64 ClientID = 2;
+
+    // if ErrStatus is SL_SUCCESS, Table and Entries
+    // contain the table in which the VRF registration
+    // operation was previously applied.
+    SLTableType Table = 3;
+
+    // VRF registration operation
+    repeated SLVrfReg Entries = 4;
 }
 
 // Path Group definition.

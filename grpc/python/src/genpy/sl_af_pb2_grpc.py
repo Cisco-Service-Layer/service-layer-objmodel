@@ -62,6 +62,11 @@ class SLAFStub(object):
                 request_serializer=sl__af__pb2.SLAFVrfRegMsg.SerializeToString,
                 response_deserializer=sl__af__pb2.SLAFVrfRegMsgRsp.FromString,
                 )
+        self.SLAFVrfRegGet = channel.unary_stream(
+                '/service_layer.SLAF/SLAFVrfRegGet',
+                request_serializer=sl__af__pb2.SLAFVrfRegGetMsg.SerializeToString,
+                response_deserializer=sl__af__pb2.SLAFVrfRegGetMsgRsp.FromString,
+                )
         self.SLAFOp = channel.unary_unary(
                 '/service_layer.SLAF/SLAFOp',
                 request_serializer=sl__af__pb2.SLAFMsg.SerializeToString,
@@ -189,6 +194,13 @@ class SLAFServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def SLAFVrfRegGet(self, request, context):
+        """VRF get. Used to retrieve VRF attributes from the server.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def SLAFOp(self, request, context):
         """
         Route, MPLS label and Path operations.
@@ -274,6 +286,11 @@ def add_SLAFServicer_to_server(servicer, server):
                     servicer.SLAFVrfRegOp,
                     request_deserializer=sl__af__pb2.SLAFVrfRegMsg.FromString,
                     response_serializer=sl__af__pb2.SLAFVrfRegMsgRsp.SerializeToString,
+            ),
+            'SLAFVrfRegGet': grpc.unary_stream_rpc_method_handler(
+                    servicer.SLAFVrfRegGet,
+                    request_deserializer=sl__af__pb2.SLAFVrfRegGetMsg.FromString,
+                    response_serializer=sl__af__pb2.SLAFVrfRegGetMsgRsp.SerializeToString,
             ),
             'SLAFOp': grpc.unary_unary_rpc_method_handler(
                     servicer.SLAFOp,
@@ -362,6 +379,23 @@ class SLAF(object):
         return grpc.experimental.unary_unary(request, target, '/service_layer.SLAF/SLAFVrfRegOp',
             sl__af__pb2.SLAFVrfRegMsg.SerializeToString,
             sl__af__pb2.SLAFVrfRegMsgRsp.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def SLAFVrfRegGet(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/service_layer.SLAF/SLAFVrfRegGet',
+            sl__af__pb2.SLAFVrfRegGetMsg.SerializeToString,
+            sl__af__pb2.SLAFVrfRegGetMsgRsp.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

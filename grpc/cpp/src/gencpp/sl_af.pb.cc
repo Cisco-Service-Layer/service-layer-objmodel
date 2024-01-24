@@ -73,6 +73,34 @@ struct SLAFVrfRegMsgRspDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT SLAFVrfRegMsgRspDefaultTypeInternal _SLAFVrfRegMsgRsp_default_instance_;
+constexpr SLAFVrfRegGetMsg::SLAFVrfRegGetMsg(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : getall_(false){}
+struct SLAFVrfRegGetMsgDefaultTypeInternal {
+  constexpr SLAFVrfRegGetMsgDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~SLAFVrfRegGetMsgDefaultTypeInternal() {}
+  union {
+    SLAFVrfRegGetMsg _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT SLAFVrfRegGetMsgDefaultTypeInternal _SLAFVrfRegGetMsg_default_instance_;
+constexpr SLAFVrfRegGetMsgRsp::SLAFVrfRegGetMsgRsp(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : entries_()
+  , errstatus_(nullptr)
+  , clientid_(uint64_t{0u})
+  , table_(0)
+{}
+struct SLAFVrfRegGetMsgRspDefaultTypeInternal {
+  constexpr SLAFVrfRegGetMsgRspDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~SLAFVrfRegGetMsgRspDefaultTypeInternal() {}
+  union {
+    SLAFVrfRegGetMsgRsp _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT SLAFVrfRegGetMsgRspDefaultTypeInternal _SLAFVrfRegGetMsgRsp_default_instance_;
 constexpr SLPathGroup_SLPath::SLPathGroup_SLPath(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
   : path_(nullptr){}
@@ -321,7 +349,7 @@ struct SLAFNotifMsgDefaultTypeInternal {
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT SLAFNotifMsgDefaultTypeInternal _SLAFNotifMsg_default_instance_;
 }  // namespace service_layer
-static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_sl_5faf_2eproto[22];
+static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_sl_5faf_2eproto[24];
 static constexpr ::PROTOBUF_NAMESPACE_ID::EnumDescriptor const** file_level_enum_descriptors_sl_5faf_2eproto = nullptr;
 static constexpr ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor const** file_level_service_descriptors_sl_5faf_2eproto = nullptr;
 
@@ -359,6 +387,23 @@ const uint32_t TableStruct_sl_5faf_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(
   ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::service_layer::SLAFVrfRegMsgRsp, statussummary_),
   PROTOBUF_FIELD_OFFSET(::service_layer::SLAFVrfRegMsgRsp, results_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::service_layer::SLAFVrfRegGetMsg, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::service_layer::SLAFVrfRegGetMsg, getall_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::service_layer::SLAFVrfRegGetMsgRsp, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::service_layer::SLAFVrfRegGetMsgRsp, errstatus_),
+  PROTOBUF_FIELD_OFFSET(::service_layer::SLAFVrfRegGetMsgRsp, clientid_),
+  PROTOBUF_FIELD_OFFSET(::service_layer::SLAFVrfRegGetMsgRsp, table_),
+  PROTOBUF_FIELD_OFFSET(::service_layer::SLAFVrfRegGetMsgRsp, entries_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::service_layer::SLPathGroup_SLPath, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -526,24 +571,26 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOB
   { 8, -1, -1, sizeof(::service_layer::SLAFVrfRegMsg)},
   { 16, -1, -1, sizeof(::service_layer::SLAFVrfRegMsgRes)},
   { 25, -1, -1, sizeof(::service_layer::SLAFVrfRegMsgRsp)},
-  { 33, -1, -1, sizeof(::service_layer::SLPathGroup_SLPath)},
-  { 40, -1, -1, sizeof(::service_layer::SLPathGroup_SLPathList)},
-  { 47, -1, -1, sizeof(::service_layer::SLPathGroup)},
-  { 58, -1, -1, sizeof(::service_layer::SLMplsEntry)},
-  { 70, -1, -1, sizeof(::service_layer::SLAFObject)},
-  { 81, -1, -1, sizeof(::service_layer::SLAFOp)},
-  { 89, -1, -1, sizeof(::service_layer::SLAFGetMsg)},
-  { 99, -1, -1, sizeof(::service_layer::SLAFEntry)},
-  { 106, -1, -1, sizeof(::service_layer::SLAFGetMsgRsp)},
-  { 116, -1, -1, sizeof(::service_layer::SLAFMsg)},
-  { 125, -1, -1, sizeof(::service_layer::SLAFRes)},
-  { 133, -1, -1, sizeof(::service_layer::SLAFMsgRsp)},
-  { 141, -1, -1, sizeof(::service_layer::SLAFRedistRegMsg)},
-  { 150, -1, -1, sizeof(::service_layer::SLAFNotifRegReq)},
-  { 159, -1, -1, sizeof(::service_layer::SLAFNotifReq)},
-  { 168, -1, -1, sizeof(::service_layer::SLAFNotifRsp)},
-  { 176, -1, -1, sizeof(::service_layer::SLAFNotif)},
-  { 185, -1, -1, sizeof(::service_layer::SLAFNotifMsg)},
+  { 33, -1, -1, sizeof(::service_layer::SLAFVrfRegGetMsg)},
+  { 40, -1, -1, sizeof(::service_layer::SLAFVrfRegGetMsgRsp)},
+  { 50, -1, -1, sizeof(::service_layer::SLPathGroup_SLPath)},
+  { 57, -1, -1, sizeof(::service_layer::SLPathGroup_SLPathList)},
+  { 64, -1, -1, sizeof(::service_layer::SLPathGroup)},
+  { 75, -1, -1, sizeof(::service_layer::SLMplsEntry)},
+  { 87, -1, -1, sizeof(::service_layer::SLAFObject)},
+  { 98, -1, -1, sizeof(::service_layer::SLAFOp)},
+  { 106, -1, -1, sizeof(::service_layer::SLAFGetMsg)},
+  { 116, -1, -1, sizeof(::service_layer::SLAFEntry)},
+  { 123, -1, -1, sizeof(::service_layer::SLAFGetMsgRsp)},
+  { 133, -1, -1, sizeof(::service_layer::SLAFMsg)},
+  { 142, -1, -1, sizeof(::service_layer::SLAFRes)},
+  { 150, -1, -1, sizeof(::service_layer::SLAFMsgRsp)},
+  { 158, -1, -1, sizeof(::service_layer::SLAFRedistRegMsg)},
+  { 167, -1, -1, sizeof(::service_layer::SLAFNotifRegReq)},
+  { 176, -1, -1, sizeof(::service_layer::SLAFNotifReq)},
+  { 185, -1, -1, sizeof(::service_layer::SLAFNotifRsp)},
+  { 193, -1, -1, sizeof(::service_layer::SLAFNotif)},
+  { 202, -1, -1, sizeof(::service_layer::SLAFNotifMsg)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -551,6 +598,8 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::service_layer::_SLAFVrfRegMsg_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::service_layer::_SLAFVrfRegMsgRes_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::service_layer::_SLAFVrfRegMsgRsp_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::service_layer::_SLAFVrfRegGetMsg_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::service_layer::_SLAFVrfRegGetMsgRsp_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::service_layer::_SLPathGroup_SLPath_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::service_layer::_SLPathGroup_SLPathList_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::service_layer::_SLPathGroup_default_instance_),
@@ -586,69 +635,77 @@ const char descriptor_table_protodef_sl_5faf_2eproto[] PROTOBUF_SECTION_VARIABLE
   "eType\"y\n\020SLAFVrfRegMsgRsp\0223\n\rStatusSumma"
   "ry\030\001 \001(\0132\034.service_layer.SLErrorStatus\0220"
   "\n\007Results\030\002 \003(\0132\037.service_layer.SLAFVrfR"
-  "egMsgRes\"\233\002\n\013SLPathGroup\022.\n\013PathGroupId\030"
-  "\001 \001(\0132\031.service_layer.SLObjectId\022\025\n\rAdmi"
-  "nDistance\030\002 \001(\r\0229\n\010PathList\030\003 \001(\0132%.serv"
-  "ice_layer.SLPathGroup.SLPathListH\000\022\r\n\005Fl"
-  "ags\030\004 \001(\r\0322\n\006SLPath\022(\n\004Path\030\001 \001(\0132\032.serv"
-  "ice_layer.SLRoutePath\032>\n\nSLPathList\0220\n\005P"
-  "aths\030\001 \003(\0132!.service_layer.SLPathGroup.S"
-  "LPathB\007\n\005entry\"\270\001\n\013SLMplsEntry\022\022\n\nLocalL"
-  "abel\030\001 \001(\r\022\025\n\rAdminDistance\030\002 \001(\r\022,\n\010Pat"
-  "hList\030\003 \003(\0132\032.service_layer.SLRoutePath\022"
-  "8\n\014PathGroupKey\030\004 \001(\0132 .service_layer.SL"
-  "PathGroupRefKeyH\000\022\r\n\005Flags\030\005 \001(\rB\007\n\005entr"
-  "y\"\325\001\n\nSLAFObject\022-\n\tIPv4Route\030\001 \001(\0132\030.se"
-  "rvice_layer.SLRoutev4H\000\022-\n\tIPv6Route\030\002 \001"
-  "(\0132\030.service_layer.SLRoutev6H\000\022/\n\tMplsLa"
-  "bel\030\003 \001(\0132\032.service_layer.SLMplsEntryH\000\022"
-  "/\n\tPathGroup\030\004 \001(\0132\032.service_layer.SLPat"
-  "hGroupH\000B\007\n\005entry\"J\n\006SLAFOp\022+\n\010AFObject\030"
-  "\001 \001(\0132\031.service_layer.SLAFObject\022\023\n\013Oper"
-  "ationID\030\002 \001(\004\"s\n\nSLAFGetMsg\022\017\n\007VrfName\030\001"
-  " \001(\t\022)\n\005Table\030\002 \001(\0162\032.service_layer.SLTa"
-  "bleType\022\025\n\rGetAllClients\030\003 \001(\010\022\022\n\nMatchR"
-  "egex\030\004 \001(\t\"0\n\tSLAFEntry\022#\n\004AFOp\030\001 \001(\0132\025."
-  "service_layer.SLAFOp\"\215\001\n\rSLAFGetMsgRsp\022/"
-  "\n\tErrStatus\030\001 \001(\0132\034.service_layer.SLErro"
-  "rStatus\022\017\n\007VrfName\030\002 \001(\t\022\020\n\010ClientID\030\003 \001"
-  "(\004\022(\n\006AFList\030\004 \003(\0132\030.service_layer.SLAFE"
-  "ntry\"j\n\007SLAFMsg\022\'\n\004Oper\030\001 \001(\0162\031.service_"
-  "layer.SLObjectOp\022\017\n\007VrfName\030\002 \001(\t\022%\n\006OpL"
-  "ist\030\003 \003(\0132\025.service_layer.SLAFOp\"d\n\007SLAF"
-  "Res\022/\n\tErrStatus\030\001 \001(\0132\034.service_layer.S"
-  "LErrorStatus\022(\n\tOperation\030\002 \001(\0132\025.servic"
-  "e_layer.SLAFOp\"F\n\nSLAFMsgRsp\022\017\n\007VrfName\030"
-  "\001 \001(\t\022\'\n\007Results\030\002 \003(\0132\026.service_layer.S"
-  "LAFRes\"d\n\020SLAFRedistRegMsg\022\020\n\010SrcProto\030\001"
-  " \001(\t\022\023\n\013SrcProtoTag\030\002 \001(\t\022)\n\005Table\030\003 \001(\016"
-  "2\032.service_layer.SLTableType\"g\n\017SLAFNoti"
-  "fRegReq\0224\n\tRedistReq\030\001 \001(\0132\037.service_lay"
-  "er.SLAFRedistRegMsgH\000\022\023\n\013OperationID\030\003 \001"
-  "(\004B\t\n\007request\"y\n\014SLAFNotifReq\022&\n\004Oper\030\001 "
-  "\001(\0162\030.service_layer.SLNotifOp\022\017\n\007VrfName"
-  "\030\002 \001(\t\0220\n\010NotifReq\030\003 \003(\0132\036.service_layer"
-  ".SLAFNotifRegReq\"s\n\014SLAFNotifRsp\0220\n\010Noti"
-  "fReq\030\001 \001(\0132\036.service_layer.SLAFNotifRegR"
-  "eq\0221\n\013NotifStatus\030\002 \001(\0132\034.service_layer."
-  "SLErrorStatus\"{\n\tSLAFNotif\0222\n\013NotifStatu"
-  "s\030\001 \001(\0132\033.service_layer.SLAFNotifRspH\000\0221"
-  "\n\014RedistObject\030\004 \001(\0132\031.service_layer.SLA"
-  "FObjectH\000B\007\n\005Event\"v\n\014SLAFNotifMsg\022\017\n\007Vr"
-  "fName\030\001 \001(\t\022)\n\005Table\030\002 \001(\0162\032.service_lay"
-  "er.SLTableType\022*\n\010AFNotifs\030\003 \003(\0132\030.servi"
-  "ce_layer.SLAFNotif2\360\002\n\004SLAF\022M\n\014SLAFVrfRe"
-  "gOp\022\034.service_layer.SLAFVrfRegMsg\032\037.serv"
-  "ice_layer.SLAFVrfRegMsgRsp\022;\n\006SLAFOp\022\026.s"
-  "ervice_layer.SLAFMsg\032\031.service_layer.SLA"
-  "FMsgRsp\022E\n\014SLAFOpStream\022\026.service_layer."
-  "SLAFMsg\032\031.service_layer.SLAFMsgRsp(\0010\001\022D"
-  "\n\007SLAFGet\022\031.service_layer.SLAFGetMsg\032\034.s"
-  "ervice_layer.SLAFGetMsgRsp0\001\022O\n\017SLAFNoti"
-  "fStream\022\033.service_layer.SLAFNotifReq\032\033.s"
-  "ervice_layer.SLAFNotifMsg(\0010\001BQZOgithub."
-  "com/Cisco-service-layer/service-layer-ob"
-  "jmodel/grpc/protos;service_layerb\006proto3"
+  "egMsgRes\"\"\n\020SLAFVrfRegGetMsg\022\016\n\006GetAll\030\001"
+  " \001(\010\"\255\001\n\023SLAFVrfRegGetMsgRsp\022/\n\tErrStatu"
+  "s\030\001 \001(\0132\034.service_layer.SLErrorStatus\022\020\n"
+  "\010ClientID\030\002 \001(\004\022)\n\005Table\030\003 \001(\0162\032.service"
+  "_layer.SLTableType\022(\n\007Entries\030\004 \003(\0132\027.se"
+  "rvice_layer.SLVrfReg\"\233\002\n\013SLPathGroup\022.\n\013"
+  "PathGroupId\030\001 \001(\0132\031.service_layer.SLObje"
+  "ctId\022\025\n\rAdminDistance\030\002 \001(\r\0229\n\010PathList\030"
+  "\003 \001(\0132%.service_layer.SLPathGroup.SLPath"
+  "ListH\000\022\r\n\005Flags\030\004 \001(\r\0322\n\006SLPath\022(\n\004Path\030"
+  "\001 \001(\0132\032.service_layer.SLRoutePath\032>\n\nSLP"
+  "athList\0220\n\005Paths\030\001 \003(\0132!.service_layer.S"
+  "LPathGroup.SLPathB\007\n\005entry\"\270\001\n\013SLMplsEnt"
+  "ry\022\022\n\nLocalLabel\030\001 \001(\r\022\025\n\rAdminDistance\030"
+  "\002 \001(\r\022,\n\010PathList\030\003 \003(\0132\032.service_layer."
+  "SLRoutePath\0228\n\014PathGroupKey\030\004 \001(\0132 .serv"
+  "ice_layer.SLPathGroupRefKeyH\000\022\r\n\005Flags\030\005"
+  " \001(\rB\007\n\005entry\"\325\001\n\nSLAFObject\022-\n\tIPv4Rout"
+  "e\030\001 \001(\0132\030.service_layer.SLRoutev4H\000\022-\n\tI"
+  "Pv6Route\030\002 \001(\0132\030.service_layer.SLRoutev6"
+  "H\000\022/\n\tMplsLabel\030\003 \001(\0132\032.service_layer.SL"
+  "MplsEntryH\000\022/\n\tPathGroup\030\004 \001(\0132\032.service"
+  "_layer.SLPathGroupH\000B\007\n\005entry\"J\n\006SLAFOp\022"
+  "+\n\010AFObject\030\001 \001(\0132\031.service_layer.SLAFOb"
+  "ject\022\023\n\013OperationID\030\002 \001(\004\"s\n\nSLAFGetMsg\022"
+  "\017\n\007VrfName\030\001 \001(\t\022)\n\005Table\030\002 \001(\0162\032.servic"
+  "e_layer.SLTableType\022\025\n\rGetAllClients\030\003 \001"
+  "(\010\022\022\n\nMatchRegex\030\004 \001(\t\"0\n\tSLAFEntry\022#\n\004A"
+  "FOp\030\001 \001(\0132\025.service_layer.SLAFOp\"\215\001\n\rSLA"
+  "FGetMsgRsp\022/\n\tErrStatus\030\001 \001(\0132\034.service_"
+  "layer.SLErrorStatus\022\017\n\007VrfName\030\002 \001(\t\022\020\n\010"
+  "ClientID\030\003 \001(\004\022(\n\006AFList\030\004 \003(\0132\030.service"
+  "_layer.SLAFEntry\"j\n\007SLAFMsg\022\'\n\004Oper\030\001 \001("
+  "\0162\031.service_layer.SLObjectOp\022\017\n\007VrfName\030"
+  "\002 \001(\t\022%\n\006OpList\030\003 \003(\0132\025.service_layer.SL"
+  "AFOp\"d\n\007SLAFRes\022/\n\tErrStatus\030\001 \001(\0132\034.ser"
+  "vice_layer.SLErrorStatus\022(\n\tOperation\030\002 "
+  "\001(\0132\025.service_layer.SLAFOp\"F\n\nSLAFMsgRsp"
+  "\022\017\n\007VrfName\030\001 \001(\t\022\'\n\007Results\030\002 \003(\0132\026.ser"
+  "vice_layer.SLAFRes\"d\n\020SLAFRedistRegMsg\022\020"
+  "\n\010SrcProto\030\001 \001(\t\022\023\n\013SrcProtoTag\030\002 \001(\t\022)\n"
+  "\005Table\030\003 \001(\0162\032.service_layer.SLTableType"
+  "\"g\n\017SLAFNotifRegReq\0224\n\tRedistReq\030\001 \001(\0132\037"
+  ".service_layer.SLAFRedistRegMsgH\000\022\023\n\013Ope"
+  "rationID\030\003 \001(\004B\t\n\007request\"y\n\014SLAFNotifRe"
+  "q\022&\n\004Oper\030\001 \001(\0162\030.service_layer.SLNotifO"
+  "p\022\017\n\007VrfName\030\002 \001(\t\0220\n\010NotifReq\030\003 \003(\0132\036.s"
+  "ervice_layer.SLAFNotifRegReq\"s\n\014SLAFNoti"
+  "fRsp\0220\n\010NotifReq\030\001 \001(\0132\036.service_layer.S"
+  "LAFNotifRegReq\0221\n\013NotifStatus\030\002 \001(\0132\034.se"
+  "rvice_layer.SLErrorStatus\"{\n\tSLAFNotif\0222"
+  "\n\013NotifStatus\030\001 \001(\0132\033.service_layer.SLAF"
+  "NotifRspH\000\0221\n\014RedistObject\030\004 \001(\0132\031.servi"
+  "ce_layer.SLAFObjectH\000B\007\n\005Event\"v\n\014SLAFNo"
+  "tifMsg\022\017\n\007VrfName\030\001 \001(\t\022)\n\005Table\030\002 \001(\0162\032"
+  ".service_layer.SLTableType\022*\n\010AFNotifs\030\003"
+  " \003(\0132\030.service_layer.SLAFNotif2\310\003\n\004SLAF\022"
+  "M\n\014SLAFVrfRegOp\022\034.service_layer.SLAFVrfR"
+  "egMsg\032\037.service_layer.SLAFVrfRegMsgRsp\022V"
+  "\n\rSLAFVrfRegGet\022\037.service_layer.SLAFVrfR"
+  "egGetMsg\032\".service_layer.SLAFVrfRegGetMs"
+  "gRsp0\001\022;\n\006SLAFOp\022\026.service_layer.SLAFMsg"
+  "\032\031.service_layer.SLAFMsgRsp\022E\n\014SLAFOpStr"
+  "eam\022\026.service_layer.SLAFMsg\032\031.service_la"
+  "yer.SLAFMsgRsp(\0010\001\022D\n\007SLAFGet\022\031.service_"
+  "layer.SLAFGetMsg\032\034.service_layer.SLAFGet"
+  "MsgRsp0\001\022O\n\017SLAFNotifStream\022\033.service_la"
+  "yer.SLAFNotifReq\032\033.service_layer.SLAFNot"
+  "ifMsg(\0010\001BQZOgithub.com/Cisco-service-la"
+  "yer/service-layer-objmodel/grpc/protos;s"
+  "ervice_layerb\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_sl_5faf_2eproto_deps[4] = {
   &::descriptor_table_sl_5fcommon_5ftypes_2eproto,
@@ -658,8 +715,8 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_sl_5faf_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_sl_5faf_2eproto = {
-  false, false, 3080, descriptor_table_protodef_sl_5faf_2eproto, "sl_af.proto", 
-  &descriptor_table_sl_5faf_2eproto_once, descriptor_table_sl_5faf_2eproto_deps, 4, 22,
+  false, false, 3380, descriptor_table_protodef_sl_5faf_2eproto, "sl_af.proto", 
+  &descriptor_table_sl_5faf_2eproto_once, descriptor_table_sl_5faf_2eproto_deps, 4, 24,
   schemas, file_default_instances, TableStruct_sl_5faf_2eproto::offsets,
   file_level_metadata_sl_5faf_2eproto, file_level_enum_descriptors_sl_5faf_2eproto, file_level_service_descriptors_sl_5faf_2eproto,
 };
@@ -1644,6 +1701,482 @@ void SLAFVrfRegMsgRsp::InternalSwap(SLAFVrfRegMsgRsp* other) {
 
 // ===================================================================
 
+class SLAFVrfRegGetMsg::_Internal {
+ public:
+};
+
+SLAFVrfRegGetMsg::SLAFVrfRegGetMsg(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor();
+  if (!is_message_owned) {
+    RegisterArenaDtor(arena);
+  }
+  // @@protoc_insertion_point(arena_constructor:service_layer.SLAFVrfRegGetMsg)
+}
+SLAFVrfRegGetMsg::SLAFVrfRegGetMsg(const SLAFVrfRegGetMsg& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  getall_ = from.getall_;
+  // @@protoc_insertion_point(copy_constructor:service_layer.SLAFVrfRegGetMsg)
+}
+
+inline void SLAFVrfRegGetMsg::SharedCtor() {
+getall_ = false;
+}
+
+SLAFVrfRegGetMsg::~SLAFVrfRegGetMsg() {
+  // @@protoc_insertion_point(destructor:service_layer.SLAFVrfRegGetMsg)
+  if (GetArenaForAllocation() != nullptr) return;
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+inline void SLAFVrfRegGetMsg::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+}
+
+void SLAFVrfRegGetMsg::ArenaDtor(void* object) {
+  SLAFVrfRegGetMsg* _this = reinterpret_cast< SLAFVrfRegGetMsg* >(object);
+  (void)_this;
+}
+void SLAFVrfRegGetMsg::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void SLAFVrfRegGetMsg::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void SLAFVrfRegGetMsg::Clear() {
+// @@protoc_insertion_point(message_clear_start:service_layer.SLAFVrfRegGetMsg)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  getall_ = false;
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* SLAFVrfRegGetMsg::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // bool GetAll = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
+          getall_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* SLAFVrfRegGetMsg::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:service_layer.SLAFVrfRegGetMsg)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // bool GetAll = 1;
+  if (this->_internal_getall() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(1, this->_internal_getall(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:service_layer.SLAFVrfRegGetMsg)
+  return target;
+}
+
+size_t SLAFVrfRegGetMsg::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:service_layer.SLAFVrfRegGetMsg)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // bool GetAll = 1;
+  if (this->_internal_getall() != 0) {
+    total_size += 1 + 1;
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData SLAFVrfRegGetMsg::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    SLAFVrfRegGetMsg::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*SLAFVrfRegGetMsg::GetClassData() const { return &_class_data_; }
+
+void SLAFVrfRegGetMsg::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<SLAFVrfRegGetMsg *>(to)->MergeFrom(
+      static_cast<const SLAFVrfRegGetMsg &>(from));
+}
+
+
+void SLAFVrfRegGetMsg::MergeFrom(const SLAFVrfRegGetMsg& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:service_layer.SLAFVrfRegGetMsg)
+  GOOGLE_DCHECK_NE(&from, this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from._internal_getall() != 0) {
+    _internal_set_getall(from._internal_getall());
+  }
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void SLAFVrfRegGetMsg::CopyFrom(const SLAFVrfRegGetMsg& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:service_layer.SLAFVrfRegGetMsg)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool SLAFVrfRegGetMsg::IsInitialized() const {
+  return true;
+}
+
+void SLAFVrfRegGetMsg::InternalSwap(SLAFVrfRegGetMsg* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(getall_, other->getall_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata SLAFVrfRegGetMsg::GetMetadata() const {
+  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
+      &descriptor_table_sl_5faf_2eproto_getter, &descriptor_table_sl_5faf_2eproto_once,
+      file_level_metadata_sl_5faf_2eproto[4]);
+}
+
+// ===================================================================
+
+class SLAFVrfRegGetMsgRsp::_Internal {
+ public:
+  static const ::service_layer::SLErrorStatus& errstatus(const SLAFVrfRegGetMsgRsp* msg);
+};
+
+const ::service_layer::SLErrorStatus&
+SLAFVrfRegGetMsgRsp::_Internal::errstatus(const SLAFVrfRegGetMsgRsp* msg) {
+  return *msg->errstatus_;
+}
+void SLAFVrfRegGetMsgRsp::clear_errstatus() {
+  if (GetArenaForAllocation() == nullptr && errstatus_ != nullptr) {
+    delete errstatus_;
+  }
+  errstatus_ = nullptr;
+}
+void SLAFVrfRegGetMsgRsp::clear_entries() {
+  entries_.Clear();
+}
+SLAFVrfRegGetMsgRsp::SLAFVrfRegGetMsgRsp(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned),
+  entries_(arena) {
+  SharedCtor();
+  if (!is_message_owned) {
+    RegisterArenaDtor(arena);
+  }
+  // @@protoc_insertion_point(arena_constructor:service_layer.SLAFVrfRegGetMsgRsp)
+}
+SLAFVrfRegGetMsgRsp::SLAFVrfRegGetMsgRsp(const SLAFVrfRegGetMsgRsp& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
+      entries_(from.entries_) {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  if (from._internal_has_errstatus()) {
+    errstatus_ = new ::service_layer::SLErrorStatus(*from.errstatus_);
+  } else {
+    errstatus_ = nullptr;
+  }
+  ::memcpy(&clientid_, &from.clientid_,
+    static_cast<size_t>(reinterpret_cast<char*>(&table_) -
+    reinterpret_cast<char*>(&clientid_)) + sizeof(table_));
+  // @@protoc_insertion_point(copy_constructor:service_layer.SLAFVrfRegGetMsgRsp)
+}
+
+inline void SLAFVrfRegGetMsgRsp::SharedCtor() {
+::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+    reinterpret_cast<char*>(&errstatus_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&table_) -
+    reinterpret_cast<char*>(&errstatus_)) + sizeof(table_));
+}
+
+SLAFVrfRegGetMsgRsp::~SLAFVrfRegGetMsgRsp() {
+  // @@protoc_insertion_point(destructor:service_layer.SLAFVrfRegGetMsgRsp)
+  if (GetArenaForAllocation() != nullptr) return;
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+inline void SLAFVrfRegGetMsgRsp::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  if (this != internal_default_instance()) delete errstatus_;
+}
+
+void SLAFVrfRegGetMsgRsp::ArenaDtor(void* object) {
+  SLAFVrfRegGetMsgRsp* _this = reinterpret_cast< SLAFVrfRegGetMsgRsp* >(object);
+  (void)_this;
+}
+void SLAFVrfRegGetMsgRsp::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void SLAFVrfRegGetMsgRsp::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void SLAFVrfRegGetMsgRsp::Clear() {
+// @@protoc_insertion_point(message_clear_start:service_layer.SLAFVrfRegGetMsgRsp)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  entries_.Clear();
+  if (GetArenaForAllocation() == nullptr && errstatus_ != nullptr) {
+    delete errstatus_;
+  }
+  errstatus_ = nullptr;
+  ::memset(&clientid_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&table_) -
+      reinterpret_cast<char*>(&clientid_)) + sizeof(table_));
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* SLAFVrfRegGetMsgRsp::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // .service_layer.SLErrorStatus ErrStatus = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
+          ptr = ctx->ParseMessage(_internal_mutable_errstatus(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // uint64 ClientID = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
+          clientid_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // .service_layer.SLTableType Table = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
+          uint64_t val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+          _internal_set_table(static_cast<::service_layer::SLTableType>(val));
+        } else
+          goto handle_unusual;
+        continue;
+      // repeated .service_layer.SLVrfReg Entries = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 34)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            ptr = ctx->ParseMessage(_internal_add_entries(), ptr);
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<34>(ptr));
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* SLAFVrfRegGetMsgRsp::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:service_layer.SLAFVrfRegGetMsgRsp)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // .service_layer.SLErrorStatus ErrStatus = 1;
+  if (this->_internal_has_errstatus()) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        1, _Internal::errstatus(this), target, stream);
+  }
+
+  // uint64 ClientID = 2;
+  if (this->_internal_clientid() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(2, this->_internal_clientid(), target);
+  }
+
+  // .service_layer.SLTableType Table = 3;
+  if (this->_internal_table() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
+      3, this->_internal_table(), target);
+  }
+
+  // repeated .service_layer.SLVrfReg Entries = 4;
+  for (unsigned int i = 0,
+      n = static_cast<unsigned int>(this->_internal_entries_size()); i < n; i++) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(4, this->_internal_entries(i), target, stream);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:service_layer.SLAFVrfRegGetMsgRsp)
+  return target;
+}
+
+size_t SLAFVrfRegGetMsgRsp::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:service_layer.SLAFVrfRegGetMsgRsp)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // repeated .service_layer.SLVrfReg Entries = 4;
+  total_size += 1UL * this->_internal_entries_size();
+  for (const auto& msg : this->entries_) {
+    total_size +=
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
+  }
+
+  // .service_layer.SLErrorStatus ErrStatus = 1;
+  if (this->_internal_has_errstatus()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *errstatus_);
+  }
+
+  // uint64 ClientID = 2;
+  if (this->_internal_clientid() != 0) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64SizePlusOne(this->_internal_clientid());
+  }
+
+  // .service_layer.SLTableType Table = 3;
+  if (this->_internal_table() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_table());
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData SLAFVrfRegGetMsgRsp::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    SLAFVrfRegGetMsgRsp::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*SLAFVrfRegGetMsgRsp::GetClassData() const { return &_class_data_; }
+
+void SLAFVrfRegGetMsgRsp::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<SLAFVrfRegGetMsgRsp *>(to)->MergeFrom(
+      static_cast<const SLAFVrfRegGetMsgRsp &>(from));
+}
+
+
+void SLAFVrfRegGetMsgRsp::MergeFrom(const SLAFVrfRegGetMsgRsp& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:service_layer.SLAFVrfRegGetMsgRsp)
+  GOOGLE_DCHECK_NE(&from, this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  entries_.MergeFrom(from.entries_);
+  if (from._internal_has_errstatus()) {
+    _internal_mutable_errstatus()->::service_layer::SLErrorStatus::MergeFrom(from._internal_errstatus());
+  }
+  if (from._internal_clientid() != 0) {
+    _internal_set_clientid(from._internal_clientid());
+  }
+  if (from._internal_table() != 0) {
+    _internal_set_table(from._internal_table());
+  }
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void SLAFVrfRegGetMsgRsp::CopyFrom(const SLAFVrfRegGetMsgRsp& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:service_layer.SLAFVrfRegGetMsgRsp)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool SLAFVrfRegGetMsgRsp::IsInitialized() const {
+  return true;
+}
+
+void SLAFVrfRegGetMsgRsp::InternalSwap(SLAFVrfRegGetMsgRsp* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  entries_.InternalSwap(&other->entries_);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(SLAFVrfRegGetMsgRsp, table_)
+      + sizeof(SLAFVrfRegGetMsgRsp::table_)
+      - PROTOBUF_FIELD_OFFSET(SLAFVrfRegGetMsgRsp, errstatus_)>(
+          reinterpret_cast<char*>(&errstatus_),
+          reinterpret_cast<char*>(&other->errstatus_));
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata SLAFVrfRegGetMsgRsp::GetMetadata() const {
+  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
+      &descriptor_table_sl_5faf_2eproto_getter, &descriptor_table_sl_5faf_2eproto_once,
+      file_level_metadata_sl_5faf_2eproto[5]);
+}
+
+// ===================================================================
+
 class SLPathGroup_SLPath::_Internal {
  public:
   static const ::service_layer::SLRoutePath& path(const SLPathGroup_SLPath* msg);
@@ -1840,7 +2373,7 @@ void SLPathGroup_SLPath::InternalSwap(SLPathGroup_SLPath* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata SLPathGroup_SLPath::GetMetadata() const {
   return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_sl_5faf_2eproto_getter, &descriptor_table_sl_5faf_2eproto_once,
-      file_level_metadata_sl_5faf_2eproto[4]);
+      file_level_metadata_sl_5faf_2eproto[6]);
 }
 
 // ===================================================================
@@ -2025,7 +2558,7 @@ void SLPathGroup_SLPathList::InternalSwap(SLPathGroup_SLPathList* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata SLPathGroup_SLPathList::GetMetadata() const {
   return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_sl_5faf_2eproto_getter, &descriptor_table_sl_5faf_2eproto_once,
-      file_level_metadata_sl_5faf_2eproto[5]);
+      file_level_metadata_sl_5faf_2eproto[7]);
 }
 
 // ===================================================================
@@ -2375,7 +2908,7 @@ void SLPathGroup::InternalSwap(SLPathGroup* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata SLPathGroup::GetMetadata() const {
   return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_sl_5faf_2eproto_getter, &descriptor_table_sl_5faf_2eproto_once,
-      file_level_metadata_sl_5faf_2eproto[6]);
+      file_level_metadata_sl_5faf_2eproto[8]);
 }
 
 // ===================================================================
@@ -2746,7 +3279,7 @@ void SLMplsEntry::InternalSwap(SLMplsEntry* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata SLMplsEntry::GetMetadata() const {
   return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_sl_5faf_2eproto_getter, &descriptor_table_sl_5faf_2eproto_once,
-      file_level_metadata_sl_5faf_2eproto[7]);
+      file_level_metadata_sl_5faf_2eproto[9]);
 }
 
 // ===================================================================
@@ -3180,7 +3713,7 @@ void SLAFObject::InternalSwap(SLAFObject* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata SLAFObject::GetMetadata() const {
   return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_sl_5faf_2eproto_getter, &descriptor_table_sl_5faf_2eproto_once,
-      file_level_metadata_sl_5faf_2eproto[8]);
+      file_level_metadata_sl_5faf_2eproto[10]);
 }
 
 // ===================================================================
@@ -3407,7 +3940,7 @@ void SLAFOp::InternalSwap(SLAFOp* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata SLAFOp::GetMetadata() const {
   return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_sl_5faf_2eproto_getter, &descriptor_table_sl_5faf_2eproto_once,
-      file_level_metadata_sl_5faf_2eproto[9]);
+      file_level_metadata_sl_5faf_2eproto[11]);
 }
 
 // ===================================================================
@@ -3722,7 +4255,7 @@ void SLAFGetMsg::InternalSwap(SLAFGetMsg* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata SLAFGetMsg::GetMetadata() const {
   return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_sl_5faf_2eproto_getter, &descriptor_table_sl_5faf_2eproto_once,
-      file_level_metadata_sl_5faf_2eproto[10]);
+      file_level_metadata_sl_5faf_2eproto[12]);
 }
 
 // ===================================================================
@@ -3917,7 +4450,7 @@ void SLAFEntry::InternalSwap(SLAFEntry* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata SLAFEntry::GetMetadata() const {
   return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_sl_5faf_2eproto_getter, &descriptor_table_sl_5faf_2eproto_once,
-      file_level_metadata_sl_5faf_2eproto[11]);
+      file_level_metadata_sl_5faf_2eproto[13]);
 }
 
 // ===================================================================
@@ -4234,7 +4767,7 @@ void SLAFGetMsgRsp::InternalSwap(SLAFGetMsgRsp* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata SLAFGetMsgRsp::GetMetadata() const {
   return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_sl_5faf_2eproto_getter, &descriptor_table_sl_5faf_2eproto_once,
-      file_level_metadata_sl_5faf_2eproto[12]);
+      file_level_metadata_sl_5faf_2eproto[14]);
 }
 
 // ===================================================================
@@ -4499,7 +5032,7 @@ void SLAFMsg::InternalSwap(SLAFMsg* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata SLAFMsg::GetMetadata() const {
   return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_sl_5faf_2eproto_getter, &descriptor_table_sl_5faf_2eproto_once,
-      file_level_metadata_sl_5faf_2eproto[13]);
+      file_level_metadata_sl_5faf_2eproto[15]);
 }
 
 // ===================================================================
@@ -4749,7 +5282,7 @@ void SLAFRes::InternalSwap(SLAFRes* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata SLAFRes::GetMetadata() const {
   return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_sl_5faf_2eproto_getter, &descriptor_table_sl_5faf_2eproto_once,
-      file_level_metadata_sl_5faf_2eproto[14]);
+      file_level_metadata_sl_5faf_2eproto[16]);
 }
 
 // ===================================================================
@@ -4985,7 +5518,7 @@ void SLAFMsgRsp::InternalSwap(SLAFMsgRsp* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata SLAFMsgRsp::GetMetadata() const {
   return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_sl_5faf_2eproto_getter, &descriptor_table_sl_5faf_2eproto_once,
-      file_level_metadata_sl_5faf_2eproto[15]);
+      file_level_metadata_sl_5faf_2eproto[17]);
 }
 
 // ===================================================================
@@ -5266,7 +5799,7 @@ void SLAFRedistRegMsg::InternalSwap(SLAFRedistRegMsg* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata SLAFRedistRegMsg::GetMetadata() const {
   return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_sl_5faf_2eproto_getter, &descriptor_table_sl_5faf_2eproto_once,
-      file_level_metadata_sl_5faf_2eproto[16]);
+      file_level_metadata_sl_5faf_2eproto[18]);
 }
 
 // ===================================================================
@@ -5535,7 +6068,7 @@ void SLAFNotifRegReq::InternalSwap(SLAFNotifRegReq* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata SLAFNotifRegReq::GetMetadata() const {
   return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_sl_5faf_2eproto_getter, &descriptor_table_sl_5faf_2eproto_once,
-      file_level_metadata_sl_5faf_2eproto[17]);
+      file_level_metadata_sl_5faf_2eproto[19]);
 }
 
 // ===================================================================
@@ -5800,7 +6333,7 @@ void SLAFNotifReq::InternalSwap(SLAFNotifReq* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata SLAFNotifReq::GetMetadata() const {
   return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_sl_5faf_2eproto_getter, &descriptor_table_sl_5faf_2eproto_once,
-      file_level_metadata_sl_5faf_2eproto[18]);
+      file_level_metadata_sl_5faf_2eproto[20]);
 }
 
 // ===================================================================
@@ -6050,7 +6583,7 @@ void SLAFNotifRsp::InternalSwap(SLAFNotifRsp* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata SLAFNotifRsp::GetMetadata() const {
   return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_sl_5faf_2eproto_getter, &descriptor_table_sl_5faf_2eproto_once,
-      file_level_metadata_sl_5faf_2eproto[19]);
+      file_level_metadata_sl_5faf_2eproto[21]);
 }
 
 // ===================================================================
@@ -6350,7 +6883,7 @@ void SLAFNotif::InternalSwap(SLAFNotif* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata SLAFNotif::GetMetadata() const {
   return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_sl_5faf_2eproto_getter, &descriptor_table_sl_5faf_2eproto_once,
-      file_level_metadata_sl_5faf_2eproto[20]);
+      file_level_metadata_sl_5faf_2eproto[22]);
 }
 
 // ===================================================================
@@ -6615,7 +7148,7 @@ void SLAFNotifMsg::InternalSwap(SLAFNotifMsg* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata SLAFNotifMsg::GetMetadata() const {
   return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_sl_5faf_2eproto_getter, &descriptor_table_sl_5faf_2eproto_once,
-      file_level_metadata_sl_5faf_2eproto[21]);
+      file_level_metadata_sl_5faf_2eproto[23]);
 }
 
 // @@protoc_insertion_point(namespace_scope)
@@ -6632,6 +7165,12 @@ template<> PROTOBUF_NOINLINE ::service_layer::SLAFVrfRegMsgRes* Arena::CreateMay
 }
 template<> PROTOBUF_NOINLINE ::service_layer::SLAFVrfRegMsgRsp* Arena::CreateMaybeMessage< ::service_layer::SLAFVrfRegMsgRsp >(Arena* arena) {
   return Arena::CreateMessageInternal< ::service_layer::SLAFVrfRegMsgRsp >(arena);
+}
+template<> PROTOBUF_NOINLINE ::service_layer::SLAFVrfRegGetMsg* Arena::CreateMaybeMessage< ::service_layer::SLAFVrfRegGetMsg >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::service_layer::SLAFVrfRegGetMsg >(arena);
+}
+template<> PROTOBUF_NOINLINE ::service_layer::SLAFVrfRegGetMsgRsp* Arena::CreateMaybeMessage< ::service_layer::SLAFVrfRegGetMsgRsp >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::service_layer::SLAFVrfRegGetMsgRsp >(arena);
 }
 template<> PROTOBUF_NOINLINE ::service_layer::SLPathGroup_SLPath* Arena::CreateMaybeMessage< ::service_layer::SLPathGroup_SLPath >(Arena* arena) {
   return Arena::CreateMessageInternal< ::service_layer::SLPathGroup_SLPath >(arena);
