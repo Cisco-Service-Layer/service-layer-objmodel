@@ -1,14 +1,14 @@
 {
   "test_flags": {
     "auto_register": 1,
-    "clean_up": 0
+    "clean_up": 1
   },
   "authentication_info" : {
     "username": "cisco",
     "password": "cisco123"
   },
   "certificate_info" : {
-    "cert_type": "no-tls",
+    "cert_type": "tls",
     "cert_ca_path": "./cert/ca.cert"
   },
   "register_v4_vrfs" : {

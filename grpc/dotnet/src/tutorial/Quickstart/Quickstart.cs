@@ -795,62 +795,79 @@ class SLClient
             Console.WriteLine($"Operation failed with error: {eofResponse.StatusSummary.Status}");
         }
     }
+
+    private static SLRoutev4GetMsg PrintRouteResponse(SLRoutev4GetMsgRsp getRouteResponse)
+    {
+	var markerRoute = new SLRoutev4GetMsg();
+        // Print the response correlator, EOF status, and VRF name
+        Console.WriteLine($"Response Correlator: {getRouteResponse.Correlator}");
+        Console.WriteLine($"EOF Status: {getRouteResponse.Eof}");
+        Console.WriteLine($"VRF Name: {getRouteResponse.VrfName}");
+
+	markerRoute.EntriesCount = 1;
+	markerRoute.VrfName = getRouteResponse.VrfName;
+	markerRoute.GetNext = !getRouteResponse.Eof;
+
+        // If successful, iterate through the returned IPv4 routes
+        foreach (var route in getRouteResponse.Entries)
+        {
+            Console.WriteLine($"------------------------------------");
+            Console.WriteLine($"IPv4 Prefix: {GetIpv4AddressString(route.Prefix)}");
+            Console.WriteLine($"IPv4 Prefix Length: {route.PrefixLen}");
+	    markerRoute.Prefix = route.Prefix;
+	    markerRoute.PrefixLen = route.PrefixLen;
+
+            // For each route, iterate through its path list
+            foreach (var path in route.PathList)
+            {
+                Console.WriteLine($"    Path VRF Name: {path.VrfName}");
+                Console.WriteLine($"    Encapsulation Type: {path.EncapType}");
+
+                // If the path has a VxLAN encapsulation, print its details
+                if (path.EncapType == SLEncapType.SlEncapVxlan)
+                {
+                    var vxlan = path.VxLANPath;
+                    Console.WriteLine($"        VNI: {vxlan.VNI}");
+
+                    // Convert bytes to MAC addresses (assuming standard MAC format)
+                    Console.WriteLine($"        Source MAC Address: {BitConverter.ToString(vxlan.SourceMacAddress.ToByteArray()).Replace("-",":")}");
+                    Console.WriteLine($"        Destination MAC Address: {BitConverter.ToString(vxlan.DestMacAddress.ToByteArray()).Replace("-",":")}");
+                    Console.Write($"        Source IP Address: ");
+                    PrintSlIpAddress(vxlan.SrcIpAddress);
+                    Console.Write($"        Destination IP Address: ");
+                    PrintSlIpAddress(vxlan.DestIpAddress);
+                }
+            }
+        }
+	return markerRoute;
+    } 
     private static async Task GetRoutesAsync(SLRoutev4Oper.SLRoutev4OperClient client, string vrf_name, Metadata headers)
     {
         // Create and populate the SLRoutev4GetMsg.
-        var getRouteMsg = new SLRoutev4GetMsg
+        var markerRouteMsg = new SLRoutev4GetMsg
         {
             VrfName = vrf_name,
             //Prefix = 0xAC101E00,
             //PrefixLen = 24,
-            EntriesCount = 10,   // Fetch 10 entries at once
-            GetNext = false      // Flag to get next set of entries (pagination)
+            EntriesCount = 1,   // Fetch n  entries upto 1000 entries at once
+            GetNext = false     // GetNext set to false in the case we are trying to get the first set and there is no marker 
         };
 
-        // Call the SLRoutev4Get RPC
-        var getRouteResponse = await client.SLRoutev4GetAsync(getRouteMsg, headers);
-        if (getRouteResponse.ErrStatus.Status != SLErrorStatus.Types.SLErrno.SlSuccess)
-        {
-            // The operation was not successful
-            Console.WriteLine($"Operation failed with status: {getRouteResponse.ErrStatus.Status}");
-        }
-        else
-        {
-
-            // Print the response correlator, EOF status, and VRF name
-            Console.WriteLine($"Response Correlator: {getRouteResponse.Correlator}");
-            Console.WriteLine($"EOF Status: {getRouteResponse.Eof}");
-            Console.WriteLine($"VRF Name: {getRouteResponse.VrfName}");
-
-            // If successful, iterate through the returned IPv4 routes
-            foreach (var route in getRouteResponse.Entries)
+	do 
+	{
+            // Call the SLRoutev4Get RPC
+            var getRouteResponse = await client.SLRoutev4GetAsync(markerRouteMsg, headers);
+            if (getRouteResponse.ErrStatus.Status != SLErrorStatus.Types.SLErrno.SlSuccess)
             {
-                Console.WriteLine($"----------------------------------");
-                Console.WriteLine($"IPv4 Prefix: {GetIpv4AddressString(route.Prefix)}");
-                Console.WriteLine($"IPv4 Prefix Length: {route.PrefixLen}");
-
-                // For each route, iterate through its path list
-                foreach (var path in route.PathList)
-                {
-                    Console.WriteLine($"    Path VRF Name: {path.VrfName}");
-                    Console.WriteLine($"    Encapsulation Type: {path.EncapType}");
-
-                    // If the path has a VxLAN encapsulation, print its details
-                    if (path.EncapType == SLEncapType.SlEncapVxlan)
-                    {
-                        var vxlan = path.VxLANPath;
-                        Console.WriteLine($"        VNI: {vxlan.VNI}");
-
-                        // Convert bytes to MAC addresses (assuming standard MAC format)
-                        Console.WriteLine($"        Source MAC Address: {BitConverter.ToString(vxlan.SourceMacAddress.ToByteArray()).Replace("-",":")}");
-                        Console.WriteLine($"        Destination MAC Address: {BitConverter.ToString(vxlan.DestMacAddress.ToByteArray()).Replace("-",":")}");
-                        Console.Write($"        Source IP Address: ");
-                        PrintSlIpAddress(vxlan.SrcIpAddress);
-                        Console.Write($"        Destination IP Address: ");
-                        PrintSlIpAddress(vxlan.DestIpAddress);
-                    }
-                }
+                // The operation was not successful
+                Console.WriteLine($"Operation failed with status: {getRouteResponse.ErrStatus.Status}");
             }
-        }
+            else
+            {
+                //Print the response
+                markerRouteMsg = PrintRouteResponse(getRouteResponse);
+
+            }
+	} while (markerRouteMsg.GetNext);
     }
 }
