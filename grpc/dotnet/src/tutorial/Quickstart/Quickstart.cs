@@ -225,7 +225,7 @@ class SLClient
             if (certType == "tls") 
             {
 
-                // Create an HttpClientHandler and add the client certificate
+                // Create an HttpClientHandler
                 var handler = new HttpClientHandler();
 
                 // Load the CA certificate and implement validation logic
