@@ -141,11 +141,11 @@ class SLClient
     static async Task Main(string[] args)
     {
         TestVxlan testData = null;
-        GrpcChannel channel = null;
+        //GrpcChannel channel = null;
+        Grpc.Core.Channel channel = null;	
         SLRoutev4Oper.SLRoutev4OperClient client = null;
         SLGlobal.SLGlobalClient kl_client = null;
 
-        Metadata headers = null;
         SLRoutev4Msg slRoutev4Msg = null;
 	var cleanUp = false;
 	var autoRegister = false;
@@ -155,6 +155,8 @@ class SLClient
         var parsedArgs = ProcessArgs(args);
         var serverIp = parsedArgs.ServerAddress;
         var jsonFilePath = parsedArgs.JsonFilePath;
+        string userName = "cisco";
+        string passWord = "cisco123";
 
         if (!string.IsNullOrEmpty(jsonFilePath))
         {
@@ -200,9 +202,8 @@ class SLClient
 	}
         if (testData.AuthenticationInfo != null)
         {
-            string userName = Convert.ToString(testData.AuthenticationInfo["username"]);
-            string passWord = Convert.ToString(testData.AuthenticationInfo["password"]);
-            headers = new Metadata { { "username", userName }, { "password", passWord } };
+            userName = Convert.ToString(testData.AuthenticationInfo["username"]);
+            passWord = Convert.ToString(testData.AuthenticationInfo["password"]);
         }
 
         //Setting exception handling, press ctrl+c to gracefully exit client program
@@ -221,31 +222,32 @@ class SLClient
         // Setup the channel and client
         if (!string.IsNullOrEmpty(serverIp))
         {
-            var serverAddress = $"https://{serverIp}"; // Use https for secure connections
+            var serverAddress = $"{serverIp}";
             if (certType == "tls") 
             {
-
-                // Create an HttpClientHandler
-                var handler = new HttpClientHandler();
-
-                // Load the CA certificate and implement validation logic
-                string certCA = Convert.ToString(testData.CertificateInfo["cert_ca_path"]);
-                var caCert = new X509Certificate2(certCA);
-                handler.ServerCertificateCustomValidationCallback = (httpRequestMessage, cert, cetChain, policyErrors) => {
-                     return cert.Issuer == caCert.Issuer; // Example validation logic
-                };
-
-                // Create an HttpClient with the handler
-                var httpClient = new HttpClient(handler);
-
-                // Create the gRPC channel using the HttpClient
-                channel = GrpcChannel.ForAddress(serverAddress, new GrpcChannelOptions { HttpClient = httpClient });
+	       string caCertificatePath = Convert.ToString(testData.CertificateInfo["cert_ca_path"]);
+	       string chain = File.ReadAllText(caCertificatePath);
+	       var certCred = new Grpc.Core.SslCredentials(chain);
+               var pswdCred = Grpc.Core.CallCredentials.FromInterceptor((ctx, meta) =>
+               {
+                   meta.Add("username", userName);
+                   meta.Add("password", passWord);
+                   return Task.CompletedTask;
+               });
+               var cred = Grpc.Core.ChannelCredentials.Create(certCred, pswdCred);
+               channel = new Grpc.Core.Channel(serverAddress, cred);
             }
             else
             {
-                serverAddress = $"http://{serverIp}"; // Fallback to http for insecure connections
-                AppContext.SetSwitch("System.Net.Http.SocketsHttpHandler.Http2UnencryptedSupport", true);
-                channel = GrpcChannel.ForAddress(serverAddress, new GrpcChannelOptions { Credentials = ChannelCredentials.Insecure });
+                var callCred = Grpc.Core.CallCredentials.FromInterceptor((ctx, meta) =>
+                {
+                    meta.Add("username", userName);
+                    meta.Add("password", passWord);
+                    return Task.CompletedTask;
+                });
+            
+                // Use ChannelCredentials.Insecure to create an insecure channel
+                channel = new Grpc.Core.Channel(serverAddress, Grpc.Core.ChannelCredentials.Create(Grpc.Core.ChannelCredentials.Insecure, callCred));
             }
 
             try
@@ -269,7 +271,7 @@ class SLClient
          * connection alive
          */
 	var slGlobalsGetMsg = new SLGlobalsGetMsg();
-        var getGlobalRsp = await kl_client.SLGlobalsGetAsync(slGlobalsGetMsg, headers);
+        var getGlobalRsp = await kl_client.SLGlobalsGetAsync(slGlobalsGetMsg);
         if (getGlobalRsp.ErrStatus.Status != SLErrorStatus.Types.SLErrno.SlSuccess)
         {
             // The operation was not successful
@@ -292,13 +294,13 @@ class SLClient
     	{
             if (testData.RegisterV4Vrfs != null)
             {
-	            if (!cleanUp)
-		        {
-                    // The following line will allow running this
-                    // tutorial multiple times without hitting route exists error
-		            // in the case where previous run did not do the cleanup
-                    await UnRegisterVrfsAsync(client, testData, headers);
-		        }
+	        if (!cleanUp)
+		{
+                   // The following line will allow running this
+                   // tutorial multiple times without hitting route exists error
+		   // in the case where previous run did not do the cleanup
+                   await UnRegisterVrfsAsync(client, testData);
+		}
                 Console.WriteLine("\nTestcase 1: Register Vrfs");
                 Console.WriteLine(" Step 1: Get all Vrfs Registered in the server");
                 // Create and populate the SLVrfRegGetMsg.
@@ -309,7 +311,7 @@ class SLClient
                 };
 
                 // Call the SLRoutev4VrfRegGet RPC
-                var getResponse = await client.SLRoutev4VrfRegGetAsync(getMsg, headers);
+                var getResponse = await client.SLRoutev4VrfRegGetAsync(getMsg);
                 if (getResponse.ErrStatus.Status != SLErrorStatus.Types.SLErrno.SlSuccess)
                 {
                     // The operation was not successful
@@ -331,12 +333,12 @@ class SLClient
                 // a) Un registering vrfs that are no longer needed
                 // await UnRegisterVrfsAsync(client, testData);
                 // b) Registering vrfs that are not registered yet
-                // await RegisterVrfsAsync(client, testData, headers);
+                // await RegisterVrfsAsync(client, testData);
 
                 Console.WriteLine(" Step 2: Register new vrfs");
-                await RegisterVrfsAsync(client, testData, headers);
+                await RegisterVrfsAsync(client, testData);
                 Console.WriteLine(" Step 3: Send Eofs");
-                await EofVrfsAsync(client, testData, headers);
+                await EofVrfsAsync(client, testData);
             }
             else
             {
@@ -425,7 +427,7 @@ class SLClient
             }
             try {
                 // Make the RPC call
-                var response = client.SLRoutev4Op(slRoutev4Msg, headers);
+                var response = client.SLRoutev4Op(slRoutev4Msg);
 
                 // Process the response
                 Console.WriteLine("Response Correlator: " + response.Correlator);
@@ -449,7 +451,7 @@ class SLClient
                 Console.WriteLine("Operation failed: " + ex.Message);
             }
             Console.WriteLine("  Step 4: Verify routes programmed");
-            await GetRoutesAsync(client, testData.ProgramV4VxlanRoutes["prefix_vrf"].ToString(), headers);
+            await GetRoutesAsync(client, testData.ProgramV4VxlanRoutes["prefix_vrf"].ToString());
             //Programming the same set of routes again, using streaming RPC
             Console.WriteLine("\nTestcase 3: Programming v4 routes, streaming");
 	        // Cleanup previously programmed routes
@@ -460,7 +462,7 @@ class SLClient
                 slRoutev4Msg.Oper = SLObjectOp.SlObjopDelete;
                 try {
                     // Make the RPC call
-                    var response = client.SLRoutev4Op(slRoutev4Msg, headers);
+                    var response = client.SLRoutev4Op(slRoutev4Msg);
 
                     // Process the response
                     Console.WriteLine("Response Correlator: " + response.Correlator);
@@ -489,18 +491,18 @@ class SLClient
 	        else
 	        {
                 // Unregistering to wipe the slate clean before re-programming
-                await UnRegisterVrfsAsync(client, testData, headers);
+                await UnRegisterVrfsAsync(client, testData);
 	        }
 
 	        if (!autoRegister)
 	        {
                 Console.WriteLine(" Step 1: Register Vrfs");
-                await RegisterVrfsAsync(client, testData, headers);
+                await RegisterVrfsAsync(client, testData);
                 Console.WriteLine(" Step 2: Send Eofs");
-                await EofVrfsAsync(client, testData, headers);
+                await EofVrfsAsync(client, testData);
 	        }
 
-            using (var call = client.SLRoutev4OpStream(headers: headers))
+            using (var call = client.SLRoutev4OpStream())
             {
                 // Start the response listening task.
                 var responseReaderTask = Task.Run(async () =>
@@ -576,7 +578,7 @@ class SLClient
                 slRoutev4Msg.Oper = SLObjectOp.SlObjopDelete;
                 try {
                     // Make the RPC call
-                    var response = client.SLRoutev4Op(slRoutev4Msg, headers);
+                    var response = client.SLRoutev4Op(slRoutev4Msg);
 
                     // Process the response
                     Console.WriteLine("Response Correlator: " + response.Correlator);
@@ -603,7 +605,7 @@ class SLClient
 	        else
 	        {
                 // Unregistering to wipe the slate clean before re-programming
-                await UnRegisterVrfsAsync(client, testData, headers);
+                await UnRegisterVrfsAsync(client, testData);
 	        }
 	    }
 
@@ -673,7 +675,7 @@ class SLClient
     /// <summary>
     /// Registers the vrfs provided in testData into the GRPC Server using handle client
     /// </summary>
-    private static async Task RegisterVrfsAsync(SLRoutev4Oper.SLRoutev4OperClient client, TestVxlan testData, Metadata headers)
+    private static async Task RegisterVrfsAsync(SLRoutev4Oper.SLRoutev4OperClient client, TestVxlan testData)
     {
         // Create and populate the SLVrfRegMsg for registration.
         var regMsg = new SLVrfRegMsg { Oper = SLRegOp.Register };
@@ -693,7 +695,7 @@ class SLClient
         }
 
         // Call the SLRoutev4VrfRegOp RPC
-        var regResponse = await client.SLRoutev4VrfRegOpAsync(regMsg, headers);
+        var regResponse = await client.SLRoutev4VrfRegOpAsync(regMsg);
         if (regResponse.StatusSummary.Status == SLErrorStatus.Types.SLErrno.SlSuccess)
         {
             Console.WriteLine("RegisterVrfsAsync: Success");
@@ -718,7 +720,7 @@ class SLClient
     /// <summary>
     /// UnRegisters the vrfs provided in testData into the GRPC Server using handle client
     /// </summary>
-    private static async Task UnRegisterVrfsAsync(SLRoutev4Oper.SLRoutev4OperClient client, TestVxlan testData, Metadata headers)
+    private static async Task UnRegisterVrfsAsync(SLRoutev4Oper.SLRoutev4OperClient client, TestVxlan testData)
     {
         // Create and populate the SLVrfRegMsg for registration.
         var regMsg = new SLVrfRegMsg { Oper = SLRegOp.Unregister };
@@ -734,7 +736,7 @@ class SLClient
         }
 
         // Call the SLRoutev4VrfRegOp RPC
-        var regResponse = await client.SLRoutev4VrfRegOpAsync(regMsg, headers);
+        var regResponse = await client.SLRoutev4VrfRegOpAsync(regMsg);
         if (regResponse.StatusSummary.Status == SLErrorStatus.Types.SLErrno.SlSuccess)
         {
             Console.WriteLine("UnRegisterVrfsAsync:  Success");
@@ -758,7 +760,7 @@ class SLClient
     /// <summary>
     /// Send EOF for given vrf
     /// </summary>
-    private static async Task EofVrfsAsync(SLRoutev4Oper.SLRoutev4OperClient client, TestVxlan testData, Metadata headers)
+    private static async Task EofVrfsAsync(SLRoutev4Oper.SLRoutev4OperClient client, TestVxlan testData)
     {
         // Create and populate the SLVrfRegMsg for EOF operation.
         var eofMsg = new SLVrfRegMsg { Oper = SLRegOp.Eof };
@@ -774,7 +776,7 @@ class SLClient
         }
 
         // Call the SLRoutev4VrfRegOp RPC
-        var eofResponse = await client.SLRoutev4VrfRegOpAsync(eofMsg, headers);
+        var eofResponse = await client.SLRoutev4VrfRegOpAsync(eofMsg);
         if (eofResponse.StatusSummary.Status == SLErrorStatus.Types.SLErrno.SlSuccess)
         {
             Console.WriteLine("EofVrfsAsync: Success");
@@ -841,7 +843,7 @@ class SLClient
         }
 	return markerRoute;
     } 
-    private static async Task GetRoutesAsync(SLRoutev4Oper.SLRoutev4OperClient client, string vrf_name, Metadata headers)
+    private static async Task GetRoutesAsync(SLRoutev4Oper.SLRoutev4OperClient client, string vrf_name)
     {
         // Create and populate the SLRoutev4GetMsg.
         var markerRouteMsg = new SLRoutev4GetMsg
@@ -849,14 +851,14 @@ class SLClient
             VrfName = vrf_name,
             //Prefix = 0xAC101E00,
             //PrefixLen = 24,
-            EntriesCount = 1,   // Fetch n  entries upto 1000 entries at once
+            EntriesCount = 10,   // Fetch n  entries upto 1000 entries at once
             GetNext = false     // GetNext set to false in the case we are trying to get the first set and there is no marker 
         };
 
 	do 
 	{
             // Call the SLRoutev4Get RPC
-            var getRouteResponse = await client.SLRoutev4GetAsync(markerRouteMsg, headers);
+            var getRouteResponse = await client.SLRoutev4GetAsync(markerRouteMsg);
             if (getRouteResponse.ErrStatus.Status != SLErrorStatus.Types.SLErrno.SlSuccess)
             {
                 // The operation was not successful
