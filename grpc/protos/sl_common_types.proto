@@ -747,6 +747,8 @@ message SLErrorStatus {
         SL_POLICY_APPLY_ERR = 0x18007;
         // Policy object unapply error. 0x18008
         SL_POLICY_UNAPPLY_ERR = 0x18008;
+        // Operation rejected due to too many policies in the request. 0x18009
+        SL_POLICY_TOO_MANY_POLICIES = 0x18009;
 
 
         // !!! Error codes Reserved for internal errors.

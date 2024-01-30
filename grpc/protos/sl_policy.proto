@@ -107,6 +107,12 @@ message SLPolicyOpMsg {
  
      // Policy object operation
      SLPolicyObjectOp Oper = 1;
+
+     // Unique OperationID sent by the client
+     // to corelate the responses. Operation Id 
+     // should be monotonically increasing for 
+     // the life of the client.
+     uint64 OperationID = 4;
          
      // List of policy configurations
      repeated SLPolicyCfg ConfigList = 2;
@@ -148,12 +154,6 @@ message SLPolicyCfg {
          PolicyRuleList Rules = 2;
          PolicyIntfList Intfs = 3;
       }
-      
-      // Unique OperationID sent by the client
-      // to corelate the responses. Operation Id 
-      // should be monotonically increasing for 
-      // the life of the client.
-      uint64 OperationID = 4;
 }
 
 // List of rules
@@ -311,13 +311,29 @@ message SLPolicyGetMsg {
 
 }
 
+// List of policies, rules and the interfaces where it is applied
+message SLPolicyInfo {
+
+    // Policy unique key identifier
+    SLPolicyKey Key = 1;
+
+    // List of rules 
+    repeated SLPolicyRule PolicyRules = 2;
+
+    // List of interfaces 
+    repeated SLPolicyIntf PolicyIntfs = 3;
+}
+
 message SLPolicyGetMsgRsp {
+
+     // Operation ID
+     uint64 OperationID = 1;
+
      // Status of the policy get operation
-     SLErrorStatus PolicyCfgOpStatus = 1;
+     SLErrorStatus PolicyCfgOpStatus = 2;
  
- 
-     // List of Policies. It will be empty incase of failure
-     repeated SLPolicyCfg PolicyObjs = 5;
+     // List of Policy info. It will be empty incase of failure
+     repeated SLPolicyInfo PolicyObjs = 3;
 }
  
 // Policy Global Get Capabilities Message
