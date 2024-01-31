@@ -361,8 +361,6 @@ message SLAFOp {
     // The type of Acknowledgment that the controller or agent expects from
     // from the network element.
     SLRspACKType AckType = 3;
-    // FIXME SLAFOp should contain SLObjectOp Oper but it's kept at 
-    // batch level
 }
 
 // Used to retrieve objects in a VRF table.
@@ -399,6 +397,7 @@ message SLAFGetMsg {
 message SLAFEntry {
     // Object
     SLAFOp AFOp = 1;
+
     // Result
     SLAFRes AFResult = 2;
 }
@@ -439,19 +438,22 @@ message SLAFMsg {
 
 // Result of an operation on the object.
 message SLAFRes {
-    // Errorcode associated with the operation
+    // Error code associated with the operation
     SLErrorStatus ErrStatus = 1;
+
     // The operation for which the above result applies.
     // *NOTE*: Only attributes describing an object's key are returned.
     SLAFOp Operation = 2;
-    // if AckType requested during programming of the Operation was
-    // RIB_AND_FIB_ACK, then FIBversion indicates the version associated with
-    // the hardware programming of the operation. FIBVersion if present is
-    // a non-zero positive number
-    // *NOTE*: There can be multiple successive FIBversions associated with
-    // hardware programming of the given Operation
+
+    // if ACK type requested was RIB_AND_FIB_ACK, then FIBversion indicates
+    // the version associated with the hardware programming of the operation.
+    // FIBVersion if present is a non-zero positive number.
     uint64 FibVersion = 3;
-    // Result of any operation that this operation depends on (if any)
+
+    // DepResult is the result of any operation that this operation depends on.
+    // For example: if this operation is about programming an ipv4 or ipv6
+    // route that is pointing to a Path Group, then DepResult will carry
+    // the Result of operation that programmed that Path Group.
     repeated SLAFRes DepResult = 4;
 }
 
