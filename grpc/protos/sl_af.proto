@@ -445,10 +445,11 @@ message SLAFRes {
     // *NOTE*: Only attributes describing an object's key are returned.
     SLAFOp Operation = 2;
     // if AckType requested during programming of the Operation was
-    // RIB_AND_FIB_ACK, then the following FIBversion associated with
-    // the operation.
-    // *NOTE*: The can be multiple successive FIBversions associated with
-    // hardware programming of the Operation
+    // RIB_AND_FIB_ACK, then FIBversion indicates the version associated with
+    // the hardware programming of the operation. FIBVersion if present is
+    // a non-zero positive number
+    // *NOTE*: There can be multiple successive FIBversions associated with
+    // hardware programming of the given Operation
     uint64 FibVersion = 3;
     // Result of any operation that this operation depends on (if any)
     repeated SLAFRes DepResult = 4;
