@@ -246,7 +246,8 @@ constexpr SLAFRes::SLAFRes(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
   : depresult_()
   , errstatus_(nullptr)
-  , operation_(nullptr){}
+  , operation_(nullptr)
+  , fibversion_(uint64_t{0u}){}
 struct SLAFResDefaultTypeInternal {
   constexpr SLAFResDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
@@ -510,6 +511,7 @@ const uint32_t TableStruct_sl_5faf_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(
   ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::service_layer::SLAFRes, errstatus_),
   PROTOBUF_FIELD_OFFSET(::service_layer::SLAFRes, operation_),
+  PROTOBUF_FIELD_OFFSET(::service_layer::SLAFRes, fibversion_),
   PROTOBUF_FIELD_OFFSET(::service_layer::SLAFRes, depresult_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::service_layer::SLAFMsgRsp, _internal_metadata_),
@@ -591,13 +593,13 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOB
   { 125, -1, -1, sizeof(::service_layer::SLAFGetMsgRsp)},
   { 135, -1, -1, sizeof(::service_layer::SLAFMsg)},
   { 144, -1, -1, sizeof(::service_layer::SLAFRes)},
-  { 153, -1, -1, sizeof(::service_layer::SLAFMsgRsp)},
-  { 161, -1, -1, sizeof(::service_layer::SLAFRedistRegMsg)},
-  { 170, -1, -1, sizeof(::service_layer::SLAFNotifRegReq)},
-  { 179, -1, -1, sizeof(::service_layer::SLAFNotifReq)},
-  { 188, -1, -1, sizeof(::service_layer::SLAFNotifRsp)},
-  { 196, -1, -1, sizeof(::service_layer::SLAFNotif)},
-  { 205, -1, -1, sizeof(::service_layer::SLAFNotifMsg)},
+  { 154, -1, -1, sizeof(::service_layer::SLAFMsgRsp)},
+  { 162, -1, -1, sizeof(::service_layer::SLAFRedistRegMsg)},
+  { 171, -1, -1, sizeof(::service_layer::SLAFNotifRegReq)},
+  { 180, -1, -1, sizeof(::service_layer::SLAFNotifReq)},
+  { 189, -1, -1, sizeof(::service_layer::SLAFNotifRsp)},
+  { 197, -1, -1, sizeof(::service_layer::SLAFNotif)},
+  { 206, -1, -1, sizeof(::service_layer::SLAFNotifMsg)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -679,43 +681,44 @@ const char descriptor_table_protodef_sl_5faf_2eproto[] PROTOBUF_SECTION_VARIABLE
   ".service_layer.SLAFEntry\"j\n\007SLAFMsg\022\'\n\004O"
   "per\030\001 \001(\0162\031.service_layer.SLObjectOp\022\017\n\007"
   "VrfName\030\002 \001(\t\022%\n\006OpList\030\003 \003(\0132\025.service_"
-  "layer.SLAFOp\"\217\001\n\007SLAFRes\022/\n\tErrStatus\030\001 "
+  "layer.SLAFOp\"\243\001\n\007SLAFRes\022/\n\tErrStatus\030\001 "
   "\001(\0132\034.service_layer.SLErrorStatus\022(\n\tOpe"
-  "ration\030\002 \001(\0132\025.service_layer.SLAFOp\022)\n\tD"
-  "epResult\030\003 \003(\0132\026.service_layer.SLAFRes\"F"
-  "\n\nSLAFMsgRsp\022\017\n\007VrfName\030\001 \001(\t\022\'\n\007Results"
-  "\030\002 \003(\0132\026.service_layer.SLAFRes\"d\n\020SLAFRe"
-  "distRegMsg\022\020\n\010SrcProto\030\001 \001(\t\022\023\n\013SrcProto"
-  "Tag\030\002 \001(\t\022)\n\005Table\030\003 \001(\0162\032.service_layer"
-  ".SLTableType\"g\n\017SLAFNotifRegReq\0224\n\tRedis"
-  "tReq\030\001 \001(\0132\037.service_layer.SLAFRedistReg"
-  "MsgH\000\022\023\n\013OperationID\030\003 \001(\004B\t\n\007request\"y\n"
-  "\014SLAFNotifReq\022&\n\004Oper\030\001 \001(\0162\030.service_la"
-  "yer.SLNotifOp\022\017\n\007VrfName\030\002 \001(\t\0220\n\010NotifR"
-  "eq\030\003 \003(\0132\036.service_layer.SLAFNotifRegReq"
-  "\"s\n\014SLAFNotifRsp\0220\n\010NotifReq\030\001 \001(\0132\036.ser"
-  "vice_layer.SLAFNotifRegReq\0221\n\013NotifStatu"
-  "s\030\002 \001(\0132\034.service_layer.SLErrorStatus\"{\n"
-  "\tSLAFNotif\0222\n\013NotifStatus\030\001 \001(\0132\033.servic"
-  "e_layer.SLAFNotifRspH\000\0221\n\014RedistObject\030\004"
-  " \001(\0132\031.service_layer.SLAFObjectH\000B\007\n\005Eve"
-  "nt\"v\n\014SLAFNotifMsg\022\017\n\007VrfName\030\001 \001(\t\022)\n\005T"
-  "able\030\002 \001(\0162\032.service_layer.SLTableType\022*"
-  "\n\010AFNotifs\030\003 \003(\0132\030.service_layer.SLAFNot"
-  "if2\310\003\n\004SLAF\022M\n\014SLAFVrfRegOp\022\034.service_la"
-  "yer.SLAFVrfRegMsg\032\037.service_layer.SLAFVr"
-  "fRegMsgRsp\022V\n\rSLAFVrfRegGet\022\037.service_la"
-  "yer.SLAFVrfRegGetMsg\032\".service_layer.SLA"
-  "FVrfRegGetMsgRsp0\001\022;\n\006SLAFOp\022\026.service_l"
-  "ayer.SLAFMsg\032\031.service_layer.SLAFMsgRsp\022"
-  "E\n\014SLAFOpStream\022\026.service_layer.SLAFMsg\032"
-  "\031.service_layer.SLAFMsgRsp(\0010\001\022D\n\007SLAFGe"
-  "t\022\031.service_layer.SLAFGetMsg\032\034.service_l"
-  "ayer.SLAFGetMsgRsp0\001\022O\n\017SLAFNotifStream\022"
-  "\033.service_layer.SLAFNotifReq\032\033.service_l"
-  "ayer.SLAFNotifMsg(\0010\001BQZOgithub.com/Cisc"
-  "o-service-layer/service-layer-objmodel/g"
-  "rpc/protos;service_layerb\006proto3"
+  "ration\030\002 \001(\0132\025.service_layer.SLAFOp\022\022\n\nF"
+  "ibVersion\030\003 \001(\004\022)\n\tDepResult\030\004 \003(\0132\026.ser"
+  "vice_layer.SLAFRes\"F\n\nSLAFMsgRsp\022\017\n\007VrfN"
+  "ame\030\001 \001(\t\022\'\n\007Results\030\002 \003(\0132\026.service_lay"
+  "er.SLAFRes\"d\n\020SLAFRedistRegMsg\022\020\n\010SrcPro"
+  "to\030\001 \001(\t\022\023\n\013SrcProtoTag\030\002 \001(\t\022)\n\005Table\030\003"
+  " \001(\0162\032.service_layer.SLTableType\"g\n\017SLAF"
+  "NotifRegReq\0224\n\tRedistReq\030\001 \001(\0132\037.service"
+  "_layer.SLAFRedistRegMsgH\000\022\023\n\013OperationID"
+  "\030\003 \001(\004B\t\n\007request\"y\n\014SLAFNotifReq\022&\n\004Ope"
+  "r\030\001 \001(\0162\030.service_layer.SLNotifOp\022\017\n\007Vrf"
+  "Name\030\002 \001(\t\0220\n\010NotifReq\030\003 \003(\0132\036.service_l"
+  "ayer.SLAFNotifRegReq\"s\n\014SLAFNotifRsp\0220\n\010"
+  "NotifReq\030\001 \001(\0132\036.service_layer.SLAFNotif"
+  "RegReq\0221\n\013NotifStatus\030\002 \001(\0132\034.service_la"
+  "yer.SLErrorStatus\"{\n\tSLAFNotif\0222\n\013NotifS"
+  "tatus\030\001 \001(\0132\033.service_layer.SLAFNotifRsp"
+  "H\000\0221\n\014RedistObject\030\004 \001(\0132\031.service_layer"
+  ".SLAFObjectH\000B\007\n\005Event\"v\n\014SLAFNotifMsg\022\017"
+  "\n\007VrfName\030\001 \001(\t\022)\n\005Table\030\002 \001(\0162\032.service"
+  "_layer.SLTableType\022*\n\010AFNotifs\030\003 \003(\0132\030.s"
+  "ervice_layer.SLAFNotif2\310\003\n\004SLAF\022M\n\014SLAFV"
+  "rfRegOp\022\034.service_layer.SLAFVrfRegMsg\032\037."
+  "service_layer.SLAFVrfRegMsgRsp\022V\n\rSLAFVr"
+  "fRegGet\022\037.service_layer.SLAFVrfRegGetMsg"
+  "\032\".service_layer.SLAFVrfRegGetMsgRsp0\001\022;"
+  "\n\006SLAFOp\022\026.service_layer.SLAFMsg\032\031.servi"
+  "ce_layer.SLAFMsgRsp\022E\n\014SLAFOpStream\022\026.se"
+  "rvice_layer.SLAFMsg\032\031.service_layer.SLAF"
+  "MsgRsp(\0010\001\022D\n\007SLAFGet\022\031.service_layer.SL"
+  "AFGetMsg\032\034.service_layer.SLAFGetMsgRsp0\001"
+  "\022O\n\017SLAFNotifStream\022\033.service_layer.SLAF"
+  "NotifReq\032\033.service_layer.SLAFNotifMsg(\0010"
+  "\001BQZOgithub.com/Cisco-service-layer/serv"
+  "ice-layer-objmodel/grpc/protos;service_l"
+  "ayerb\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_sl_5faf_2eproto_deps[4] = {
   &::descriptor_table_sl_5fcommon_5ftypes_2eproto,
@@ -725,7 +728,7 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_sl_5faf_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_sl_5faf_2eproto = {
-  false, false, 3512, descriptor_table_protodef_sl_5faf_2eproto, "sl_af.proto", 
+  false, false, 3532, descriptor_table_protodef_sl_5faf_2eproto, "sl_af.proto", 
   &descriptor_table_sl_5faf_2eproto_once, descriptor_table_sl_5faf_2eproto_deps, 4, 24,
   schemas, file_default_instances, TableStruct_sl_5faf_2eproto::offsets,
   file_level_metadata_sl_5faf_2eproto, file_level_enum_descriptors_sl_5faf_2eproto, file_level_service_descriptors_sl_5faf_2eproto,
@@ -5169,14 +5172,15 @@ SLAFRes::SLAFRes(const SLAFRes& from)
   } else {
     operation_ = nullptr;
   }
+  fibversion_ = from.fibversion_;
   // @@protoc_insertion_point(copy_constructor:service_layer.SLAFRes)
 }
 
 inline void SLAFRes::SharedCtor() {
 ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
     reinterpret_cast<char*>(&errstatus_) - reinterpret_cast<char*>(this)),
-    0, static_cast<size_t>(reinterpret_cast<char*>(&operation_) -
-    reinterpret_cast<char*>(&errstatus_)) + sizeof(operation_));
+    0, static_cast<size_t>(reinterpret_cast<char*>(&fibversion_) -
+    reinterpret_cast<char*>(&errstatus_)) + sizeof(fibversion_));
 }
 
 SLAFRes::~SLAFRes() {
@@ -5217,6 +5221,7 @@ void SLAFRes::Clear() {
     delete operation_;
   }
   operation_ = nullptr;
+  fibversion_ = uint64_t{0u};
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -5242,16 +5247,24 @@ const char* SLAFRes::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::in
         } else
           goto handle_unusual;
         continue;
-      // repeated .service_layer.SLAFRes DepResult = 3;
+      // uint64 FibVersion = 3;
       case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 26)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
+          fibversion_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // repeated .service_layer.SLAFRes DepResult = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 34)) {
           ptr -= 1;
           do {
             ptr += 1;
             ptr = ctx->ParseMessage(_internal_add_depresult(), ptr);
             CHK_(ptr);
             if (!ctx->DataAvailable(ptr)) break;
-          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<26>(ptr));
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<34>(ptr));
         } else
           goto handle_unusual;
         continue;
@@ -5300,12 +5313,18 @@ uint8_t* SLAFRes::_InternalSerialize(
         2, _Internal::operation(this), target, stream);
   }
 
-  // repeated .service_layer.SLAFRes DepResult = 3;
+  // uint64 FibVersion = 3;
+  if (this->_internal_fibversion() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(3, this->_internal_fibversion(), target);
+  }
+
+  // repeated .service_layer.SLAFRes DepResult = 4;
   for (unsigned int i = 0,
       n = static_cast<unsigned int>(this->_internal_depresult_size()); i < n; i++) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(3, this->_internal_depresult(i), target, stream);
+      InternalWriteMessage(4, this->_internal_depresult(i), target, stream);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -5324,7 +5343,7 @@ size_t SLAFRes::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // repeated .service_layer.SLAFRes DepResult = 3;
+  // repeated .service_layer.SLAFRes DepResult = 4;
   total_size += 1UL * this->_internal_depresult_size();
   for (const auto& msg : this->depresult_) {
     total_size +=
@@ -5343,6 +5362,11 @@ size_t SLAFRes::ByteSizeLong() const {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
         *operation_);
+  }
+
+  // uint64 FibVersion = 3;
+  if (this->_internal_fibversion() != 0) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64SizePlusOne(this->_internal_fibversion());
   }
 
   return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
@@ -5374,6 +5398,9 @@ void SLAFRes::MergeFrom(const SLAFRes& from) {
   if (from._internal_has_operation()) {
     _internal_mutable_operation()->::service_layer::SLAFOp::MergeFrom(from._internal_operation());
   }
+  if (from._internal_fibversion() != 0) {
+    _internal_set_fibversion(from._internal_fibversion());
+  }
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
@@ -5393,8 +5420,8 @@ void SLAFRes::InternalSwap(SLAFRes* other) {
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   depresult_.InternalSwap(&other->depresult_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(SLAFRes, operation_)
-      + sizeof(SLAFRes::operation_)
+      PROTOBUF_FIELD_OFFSET(SLAFRes, fibversion_)
+      + sizeof(SLAFRes::fibversion_)
       - PROTOBUF_FIELD_OFFSET(SLAFRes, errstatus_)>(
           reinterpret_cast<char*>(&errstatus_),
           reinterpret_cast<char*>(&other->errstatus_));

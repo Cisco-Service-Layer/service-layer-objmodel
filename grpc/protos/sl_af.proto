@@ -439,15 +439,19 @@ message SLAFMsg {
 
 // Result of an operation on the object.
 message SLAFRes {
-    // Corresponding error code
+    // Errorcode associated with the operation
     SLErrorStatus ErrStatus = 1;
-
-    // The operation ID and object are returned.
-    // Only attributes describing an object's key
-    // are returned.
+    // The operation for which the above result applies.
+    // *NOTE*: Only attributes describing an object's key are returned.
     SLAFOp Operation = 2;
-    // Result of any operation that this operation depends on
-    repeated SLAFRes DepResult = 3;
+    // if AckType requested during programming of the Operation was
+    // RIB_AND_FIB_ACK, then the following FIBversion associated with
+    // the operation.
+    // *NOTE*: The can be multiple successive FIBversions associated with
+    // hardware programming of the Operation
+    uint64 FibVersion = 3;
+    // Result of any operation that this operation depends on (if any)
+    repeated SLAFRes DepResult = 4;
 }
 
 // Route operations result status

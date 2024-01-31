@@ -3230,11 +3230,12 @@ class SLAFRes final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kDepResultFieldNumber = 3,
+    kDepResultFieldNumber = 4,
     kErrStatusFieldNumber = 1,
     kOperationFieldNumber = 2,
+    kFibVersionFieldNumber = 3,
   };
-  // repeated .service_layer.SLAFRes DepResult = 3;
+  // repeated .service_layer.SLAFRes DepResult = 4;
   int depresult_size() const;
   private:
   int _internal_depresult_size() const;
@@ -3288,6 +3289,15 @@ class SLAFRes final :
       ::service_layer::SLAFOp* operation);
   ::service_layer::SLAFOp* unsafe_arena_release_operation();
 
+  // uint64 FibVersion = 3;
+  void clear_fibversion();
+  uint64_t fibversion() const;
+  void set_fibversion(uint64_t value);
+  private:
+  uint64_t _internal_fibversion() const;
+  void _internal_set_fibversion(uint64_t value);
+  public:
+
   // @@protoc_insertion_point(class_scope:service_layer.SLAFRes)
  private:
   class _Internal;
@@ -3298,6 +3308,7 @@ class SLAFRes final :
   ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::service_layer::SLAFRes > depresult_;
   ::service_layer::SLErrorStatus* errstatus_;
   ::service_layer::SLAFOp* operation_;
+  uint64_t fibversion_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_sl_5faf_2eproto;
 };
@@ -7005,7 +7016,27 @@ inline void SLAFRes::set_allocated_operation(::service_layer::SLAFOp* operation)
   // @@protoc_insertion_point(field_set_allocated:service_layer.SLAFRes.Operation)
 }
 
-// repeated .service_layer.SLAFRes DepResult = 3;
+// uint64 FibVersion = 3;
+inline void SLAFRes::clear_fibversion() {
+  fibversion_ = uint64_t{0u};
+}
+inline uint64_t SLAFRes::_internal_fibversion() const {
+  return fibversion_;
+}
+inline uint64_t SLAFRes::fibversion() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLAFRes.FibVersion)
+  return _internal_fibversion();
+}
+inline void SLAFRes::_internal_set_fibversion(uint64_t value) {
+  
+  fibversion_ = value;
+}
+inline void SLAFRes::set_fibversion(uint64_t value) {
+  _internal_set_fibversion(value);
+  // @@protoc_insertion_point(field_set:service_layer.SLAFRes.FibVersion)
+}
+
+// repeated .service_layer.SLAFRes DepResult = 4;
 inline int SLAFRes::_internal_depresult_size() const {
   return depresult_.size();
 }
