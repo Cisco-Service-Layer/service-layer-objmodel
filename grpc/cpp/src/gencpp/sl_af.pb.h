@@ -2672,6 +2672,7 @@ class SLAFEntry final :
 
   enum : int {
     kAFOpFieldNumber = 1,
+    kAFResultFieldNumber = 2,
   };
   // .service_layer.SLAFOp AFOp = 1;
   bool has_afop() const;
@@ -2691,6 +2692,24 @@ class SLAFEntry final :
       ::service_layer::SLAFOp* afop);
   ::service_layer::SLAFOp* unsafe_arena_release_afop();
 
+  // .service_layer.SLAFRes AFResult = 2;
+  bool has_afresult() const;
+  private:
+  bool _internal_has_afresult() const;
+  public:
+  void clear_afresult();
+  const ::service_layer::SLAFRes& afresult() const;
+  PROTOBUF_NODISCARD ::service_layer::SLAFRes* release_afresult();
+  ::service_layer::SLAFRes* mutable_afresult();
+  void set_allocated_afresult(::service_layer::SLAFRes* afresult);
+  private:
+  const ::service_layer::SLAFRes& _internal_afresult() const;
+  ::service_layer::SLAFRes* _internal_mutable_afresult();
+  public:
+  void unsafe_arena_set_allocated_afresult(
+      ::service_layer::SLAFRes* afresult);
+  ::service_layer::SLAFRes* unsafe_arena_release_afresult();
+
   // @@protoc_insertion_point(class_scope:service_layer.SLAFEntry)
  private:
   class _Internal;
@@ -2699,6 +2718,7 @@ class SLAFEntry final :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   ::service_layer::SLAFOp* afop_;
+  ::service_layer::SLAFRes* afresult_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_sl_5faf_2eproto;
 };
@@ -3210,9 +3230,28 @@ class SLAFRes final :
   // accessors -------------------------------------------------------
 
   enum : int {
+    kDepResultFieldNumber = 3,
     kErrStatusFieldNumber = 1,
     kOperationFieldNumber = 2,
   };
+  // repeated .service_layer.SLAFRes DepResult = 3;
+  int depresult_size() const;
+  private:
+  int _internal_depresult_size() const;
+  public:
+  void clear_depresult();
+  ::service_layer::SLAFRes* mutable_depresult(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::service_layer::SLAFRes >*
+      mutable_depresult();
+  private:
+  const ::service_layer::SLAFRes& _internal_depresult(int index) const;
+  ::service_layer::SLAFRes* _internal_add_depresult();
+  public:
+  const ::service_layer::SLAFRes& depresult(int index) const;
+  ::service_layer::SLAFRes* add_depresult();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::service_layer::SLAFRes >&
+      depresult() const;
+
   // .service_layer.SLErrorStatus ErrStatus = 1;
   bool has_errstatus() const;
   private:
@@ -3256,6 +3295,7 @@ class SLAFRes final :
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::service_layer::SLAFRes > depresult_;
   ::service_layer::SLErrorStatus* errstatus_;
   ::service_layer::SLAFOp* operation_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
@@ -6379,6 +6419,96 @@ inline void SLAFEntry::set_allocated_afop(::service_layer::SLAFOp* afop) {
   // @@protoc_insertion_point(field_set_allocated:service_layer.SLAFEntry.AFOp)
 }
 
+// .service_layer.SLAFRes AFResult = 2;
+inline bool SLAFEntry::_internal_has_afresult() const {
+  return this != internal_default_instance() && afresult_ != nullptr;
+}
+inline bool SLAFEntry::has_afresult() const {
+  return _internal_has_afresult();
+}
+inline void SLAFEntry::clear_afresult() {
+  if (GetArenaForAllocation() == nullptr && afresult_ != nullptr) {
+    delete afresult_;
+  }
+  afresult_ = nullptr;
+}
+inline const ::service_layer::SLAFRes& SLAFEntry::_internal_afresult() const {
+  const ::service_layer::SLAFRes* p = afresult_;
+  return p != nullptr ? *p : reinterpret_cast<const ::service_layer::SLAFRes&>(
+      ::service_layer::_SLAFRes_default_instance_);
+}
+inline const ::service_layer::SLAFRes& SLAFEntry::afresult() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLAFEntry.AFResult)
+  return _internal_afresult();
+}
+inline void SLAFEntry::unsafe_arena_set_allocated_afresult(
+    ::service_layer::SLAFRes* afresult) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(afresult_);
+  }
+  afresult_ = afresult;
+  if (afresult) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:service_layer.SLAFEntry.AFResult)
+}
+inline ::service_layer::SLAFRes* SLAFEntry::release_afresult() {
+  
+  ::service_layer::SLAFRes* temp = afresult_;
+  afresult_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::service_layer::SLAFRes* SLAFEntry::unsafe_arena_release_afresult() {
+  // @@protoc_insertion_point(field_release:service_layer.SLAFEntry.AFResult)
+  
+  ::service_layer::SLAFRes* temp = afresult_;
+  afresult_ = nullptr;
+  return temp;
+}
+inline ::service_layer::SLAFRes* SLAFEntry::_internal_mutable_afresult() {
+  
+  if (afresult_ == nullptr) {
+    auto* p = CreateMaybeMessage<::service_layer::SLAFRes>(GetArenaForAllocation());
+    afresult_ = p;
+  }
+  return afresult_;
+}
+inline ::service_layer::SLAFRes* SLAFEntry::mutable_afresult() {
+  ::service_layer::SLAFRes* _msg = _internal_mutable_afresult();
+  // @@protoc_insertion_point(field_mutable:service_layer.SLAFEntry.AFResult)
+  return _msg;
+}
+inline void SLAFEntry::set_allocated_afresult(::service_layer::SLAFRes* afresult) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete afresult_;
+  }
+  if (afresult) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper<::service_layer::SLAFRes>::GetOwningArena(afresult);
+    if (message_arena != submessage_arena) {
+      afresult = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, afresult, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  afresult_ = afresult;
+  // @@protoc_insertion_point(field_set_allocated:service_layer.SLAFEntry.AFResult)
+}
+
 // -------------------------------------------------------------------
 
 // SLAFGetMsgRsp
@@ -6873,6 +7003,46 @@ inline void SLAFRes::set_allocated_operation(::service_layer::SLAFOp* operation)
   }
   operation_ = operation;
   // @@protoc_insertion_point(field_set_allocated:service_layer.SLAFRes.Operation)
+}
+
+// repeated .service_layer.SLAFRes DepResult = 3;
+inline int SLAFRes::_internal_depresult_size() const {
+  return depresult_.size();
+}
+inline int SLAFRes::depresult_size() const {
+  return _internal_depresult_size();
+}
+inline void SLAFRes::clear_depresult() {
+  depresult_.Clear();
+}
+inline ::service_layer::SLAFRes* SLAFRes::mutable_depresult(int index) {
+  // @@protoc_insertion_point(field_mutable:service_layer.SLAFRes.DepResult)
+  return depresult_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::service_layer::SLAFRes >*
+SLAFRes::mutable_depresult() {
+  // @@protoc_insertion_point(field_mutable_list:service_layer.SLAFRes.DepResult)
+  return &depresult_;
+}
+inline const ::service_layer::SLAFRes& SLAFRes::_internal_depresult(int index) const {
+  return depresult_.Get(index);
+}
+inline const ::service_layer::SLAFRes& SLAFRes::depresult(int index) const {
+  // @@protoc_insertion_point(field_get:service_layer.SLAFRes.DepResult)
+  return _internal_depresult(index);
+}
+inline ::service_layer::SLAFRes* SLAFRes::_internal_add_depresult() {
+  return depresult_.Add();
+}
+inline ::service_layer::SLAFRes* SLAFRes::add_depresult() {
+  ::service_layer::SLAFRes* _add = _internal_add_depresult();
+  // @@protoc_insertion_point(field_add:service_layer.SLAFRes.DepResult)
+  return _add;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::service_layer::SLAFRes >&
+SLAFRes::depresult() const {
+  // @@protoc_insertion_point(field_list:service_layer.SLAFRes.DepResult)
+  return depresult_;
 }
 
 // -------------------------------------------------------------------

@@ -361,6 +361,8 @@ message SLAFOp {
     // The type of Acknowledgment that the controller or agent expects from
     // from the network element.
     SLRspACKType AckType = 3;
+    // FIXME SLAFOp should contain SLObjectOp Oper but it's kept at 
+    // batch level
 }
 
 // Used to retrieve objects in a VRF table.
@@ -397,6 +399,8 @@ message SLAFGetMsg {
 message SLAFEntry {
     // Object
     SLAFOp AFOp = 1;
+    // Result
+    SLAFRes AFResult = 2;
 }
 
 // Get AF message response. The objects can be returned in
@@ -442,6 +446,8 @@ message SLAFRes {
     // Only attributes describing an object's key
     // are returned.
     SLAFOp Operation = 2;
+    // Result of any operation that this operation depends on
+    repeated SLAFRes DepResult = 3;
 }
 
 // Route operations result status
