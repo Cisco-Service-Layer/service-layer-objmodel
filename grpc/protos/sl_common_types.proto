@@ -705,6 +705,14 @@ message SLErrorStatus {
         // Size of IPv6 prefix is invalid. 0x16006
         SL_NEXT_HOP_INVALID_PREFIX_SZ = 0x16006;
 
+        // Offset for Hardware Ack errors. 0x17000
+        // The operation is successfully program in hardware
+        SL_FIB_SUCCESS = 0x17000;
+        // There is a generic failure in hardware programming of operation
+        SL_FIB_FAILED = 0x17001;
+        // The operation is not viable to be programmed in hardware at this time
+        SL_RIB_FIB_INELIGIBLE = 0x17002;
+
         // !!! Error codes Reserved for internal errors.
 
         // Offset for Internal errors. 0x100000
@@ -816,6 +824,9 @@ enum SLTableType {
 // take any other recovery action.
 // Client is expected to handle out of order responses using the OperationID.
 enum SLRspACKType {
+  // RIB - Routing Information Base is the software routing table
+  // FIB - Forwarding Information Base is the hardware forwarding table
+  //
   // Network element shall respond with SL_SUCCESS
   // on a successful update of the object to the RIB database.
   //
@@ -824,7 +835,16 @@ enum SLRspACKType {
   //
   // By default, ack type is assumed to be RIB_ACK.
   RIB_ACK = 0;
-
+  // When  ACKTYPE type requested is RIB_AND_FIB_ACK, along with RIB ack
+  // the network element will also return one or more acknowledgment of
+  // the status of hardware programming of the operation.
+  //
+  // The FIB ACK is always sent  asynchronously by the network element,
+  // whereas the RIB ACK is sent synchronously in the case of unary service
+  // or in the case of streaming service RIB ack is sent immediately after the
+  // operation is accepted by the network element.
+  // *NOTE*: RIB_AND_FIB_ACK is supported only in streaming service
+  RIB_AND_FIB_ACK = 1;
 }
 
 // Common Object Identifier.
