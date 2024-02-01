@@ -390,8 +390,8 @@ const (
 	//
 	// By default, ACK type is assumed to be RIB_ACK.
 	SLRspACKType_RIB_ACK SLRspACKType = 0
-	// When ACK type requested is RIB_AND_FIB_ACK, thea,n along with RIB ack
-	// the network element will also return one or more acknowledgments of
+	// When ACK type requested is RIB_AND_FIB_ACK, then along with RIB ack
+	// the network element will also return one or more FIB acks which is
 	// the status of hardware programming of the operation.
 	// *NOTE*: RIB_AND_FIB_ACK is supported only in streaming service
 	SLRspACKType_RIB_AND_FIB_ACK SLRspACKType = 1

@@ -413,8 +413,8 @@ namespace ServiceLayer {
     /// </summary>
     [pbr::OriginalName("RIB_ACK")] RibAck = 0,
     /// <summary>
-    /// When ACK type requested is RIB_AND_FIB_ACK, thea,n along with RIB ack
-    /// the network element will also return one or more acknowledgments of
+    /// When ACK type requested is RIB_AND_FIB_ACK, then along with RIB ack
+    /// the network element will also return one or more FIB acks which is
     /// the status of hardware programming of the operation.
     /// *NOTE*: RIB_AND_FIB_ACK is supported only in streaming service
     /// </summary>

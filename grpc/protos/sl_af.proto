@@ -400,7 +400,13 @@ message SLAFGetMsgRspEntry {
 
     // Hardware programming status. This field is available only
     // if the object was programmed with ACk type set to RIB_AND_FIB_ACK.
-    SLAFRes  FIBStatus = 2;
+    // Error code associated with the hardware programming of operation.
+    SLErrorStatus FIBStatus = 2;
+
+    // if ACK type requested was RIB_AND_FIB_ACK, then FIBVersion indicates
+    // the latest version associated with the hardware programming of operation.
+    // FIBVersion if present is a non-zero positive number.
+    uint64 FIBVersion = 3;
 }
 
 // Get AF message response. The objects can be returned in
@@ -439,32 +445,36 @@ message SLAFMsg {
 
 // Result of an operation on the object.
 message SLAFRes {
-    // Error code associated with the operation
+    // Error code
     SLErrorStatus ErrStatus = 1;
 
-    // The operation for which the above result applies.
+    // operation-id
     uint64 OperationID = 2;
+
+    // The operation, expected to carry only the part that is considered
+    // the key to uniquely identify the object that is programmed
+    SLAFOp AFOp = 3;
 
     // The fields (FIBStatus, FIBVersion, ErrorString, DepResult)
     // are available only if the object was programmed with ACk type set to
     // RIB_AND_FIB_ACK.
 
     // Error code associated with the hardware programming of operation.
-    SLErrorStatus FIBStatus = 3;
+    SLErrorStatus FIBStatus = 4;
 
     // if ACK type requested was RIB_AND_FIB_ACK, then FIBVersion indicates
     // the latest version associated with the hardware programming of operation.
     // FIBVersion if present is a non-zero positive number.
-    uint64 FIBVersion = 4;
+    uint64 FIBVersion = 5;
 
     // Descriptive string describing error if any, on the operation.
-    string ErrorString = 5;
+    string ErrorString = 6;
 
     // DepResult is the result of any operation that this operation depends on.
     // For example: if this operation is about programming an ipv4 or ipv6
     // route that is pointing to a Path Group, then DepResult will carry
     // the Result of operation that programmed that Path Group.
-    repeated SLAFRes DepResult = 6;
+    repeated SLAFRes DepResult = 7;
 }
 
 // Route operations result status
