@@ -359,7 +359,7 @@ message SLAFOp {
     uint64 OperationID = 2;
 
     // The type of Acknowledgment that the controller or agent expects from
-    // from the network element.
+    // the network element.
     SLRspACKType AckType = 3;
 }
 
@@ -394,7 +394,7 @@ message SLAFGetMsg {
 }
 
 // Object and its programming status returned on Get.
-message SLAFEntry {
+message SLAFGetMsgRspEntry {
     // Object
     SLAFOp AFOp = 1;
 
@@ -420,7 +420,7 @@ message SLAFGetMsgRsp {
     // Returned entries as requested in the Get operation.
     // if ErrStatus is SL_SUCCESS, entry contains the list
     // of objects from the specified Table.
-    repeated SLAFEntry AFList = 4;
+    repeated SLAFGetMsgRspEntry AFList = 4;
 }
 
 // Operation on the address family. The objects are programmed
@@ -442,8 +442,7 @@ message SLAFRes {
     SLErrorStatus ErrStatus = 1;
 
     // The operation for which the above result applies.
-    // *NOTE*: Only attributes describing an object's key are returned.
-    SLAFOp Operation = 2;
+    uint64 OperationID = 2;
 
     // if ACK type requested was RIB_AND_FIB_ACK, then FIBversion indicates
     // the version associated with the hardware programming of the operation.

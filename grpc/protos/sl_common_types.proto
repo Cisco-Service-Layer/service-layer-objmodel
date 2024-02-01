@@ -833,8 +833,8 @@ enum SLRspACKType {
   // By default, ACK type is assumed to be RIB_ACK.
   RIB_ACK = 0;
 
-  // When  ACK type requested is RIB_AND_FIB_ACK, along with RIB ack
-  // the network element will also return one or more acknowledgment of
+  // When ACK type requested is RIB_AND_FIB_ACK, thea,n along with RIB ack
+  // the network element will also return one or more acknowledgments of
   // the status of hardware programming of the operation.
   // *NOTE*: RIB_AND_FIB_ACK is supported only in streaming service
   RIB_AND_FIB_ACK = 1;

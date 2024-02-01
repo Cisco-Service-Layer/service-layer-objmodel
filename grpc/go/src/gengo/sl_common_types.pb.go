@@ -382,25 +382,17 @@ func (SLTableType) EnumDescriptor() ([]byte, []int) {
 type SLRspACKType int32
 
 const (
-	// RIB - Routing Information Base is the software routing table
-	// FIB - Forwarding Information Base is the hardware forwarding table
-	//
 	// Network element shall respond with SL_SUCCESS
 	// on a successful update of the object to the RIB database.
 	//
 	// The operation is considered complete once result of RIB programming
-	// is sent to the client.
+	// is sent back to the client.
 	//
-	// By default, ack type is assumed to be RIB_ACK.
+	// By default, ACK type is assumed to be RIB_ACK.
 	SLRspACKType_RIB_ACK SLRspACKType = 0
-	// When  ACKTYPE type requested is RIB_AND_FIB_ACK, along with RIB ack
-	// the network element will also return one or more acknowledgment of
+	// When ACK type requested is RIB_AND_FIB_ACK, thea,n along with RIB ack
+	// the network element will also return one or more acknowledgments of
 	// the status of hardware programming of the operation.
-	//
-	// The FIB ACK is always sent  asynchronously by the network element,
-	// whereas the RIB ACK is sent synchronously in the case of unary service
-	// or in the case of streaming service RIB ack is sent immediately after the
-	// operation is accepted by the network element.
 	// *NOTE*: RIB_AND_FIB_ACK is supported only in streaming service
 	SLRspACKType_RIB_AND_FIB_ACK SLRspACKType = 1
 )
