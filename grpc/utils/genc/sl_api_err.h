@@ -647,7 +647,9 @@
     /* There is a generic failure in hardware programming of operation */\
     SL_FIB_FAILED = 0x17001,\
     /* The operation is not viable to be programmed in hardware at this time */\
-    SL_RIB_FIB_INELIGIBLE = 0x17002,\
+    SL_FIB_INELIGIBLE = 0x17002,\
+    /* The status of hardware programming is not available at this time. */\
+    SL_FIB_NA = 0x17003,\
     /* !!! Error codes Reserved for internal errors. */\
     /* Offset for Internal errors. 0x100000 */\
     SL_INTERNAL_START_OFFSET = 0x100000,\
@@ -1538,8 +1540,11 @@
     {SL_FIB_FAILED ,\
         " There is a generic failure in hardware programming of operation "\
         },\
-    {SL_RIB_FIB_INELIGIBLE ,\
+    {SL_FIB_INELIGIBLE ,\
         " The operation is not viable to be programmed in hardware at this time "\
+        },\
+    {SL_FIB_NA ,\
+        " The status of hardware programming is not available at this time. "\
         },\
     {SL_INTERNAL_START_OFFSET ,\
         " Offset for Internal errors.  "\

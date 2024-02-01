@@ -24,9 +24,9 @@ namespace ServiceLayer {
     static SlCommonTypesReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChVzbF9jb21tb25fdHlwZXMucHJvdG8SDXNlcnZpY2VfbGF5ZXIilUkKDVNM",
+            "ChVzbF9jb21tb25fdHlwZXMucHJvdG8SDXNlcnZpY2VfbGF5ZXIiokkKDVNM",
             "RXJyb3JTdGF0dXMSNAoGU3RhdHVzGAEgASgOMiQuc2VydmljZV9sYXllci5T",
-            "TEVycm9yU3RhdHVzLlNMRXJybm8izUgKB1NMRXJybm8SDgoKU0xfU1VDQ0VT",
+            "TEVycm9yU3RhdHVzLlNMRXJybm8i2kgKB1NMRXJybm8SDgoKU0xfU1VDQ0VT",
             "UxAAEhQKEFNMX05PVF9DT05ORUNURUQQARINCglTTF9FQUdBSU4QAhINCglT",
             "TF9FTk9NRU0QAxIMCghTTF9FQlVTWRAEEg0KCVNMX0VJTlZBTBAFEhYKElNM",
             "X1VOU1VQUE9SVEVEX1ZFUhAGEhQKEFNMX05PVF9BVkFJTEFCTEUQBxIbChdT",
@@ -231,32 +231,32 @@ namespace ServiceLayer {
             "X01DQVNUEIPABRIgChpTTF9ORVhUX0hPUF9JTlZBTElEX1BSRUZJWBCEwAUS",
             "JwohU0xfTkVYVF9IT1BfSU5WQUxJRF9ORVhUX0hPUF9BRERSEIXABRIjCh1T",
             "TF9ORVhUX0hPUF9JTlZBTElEX1BSRUZJWF9TWhCGwAUSFAoOU0xfRklCX1NV",
-            "Q0NFU1MQgOAFEhMKDVNMX0ZJQl9GQUlMRUQQgeAFEhsKFVNMX1JJQl9GSUJf",
-            "SU5FTElHSUJMRRCC4AUSHgoYU0xfSU5URVJOQUxfU1RBUlRfT0ZGU0VUEICA",
-            "QCI8CgtTTEludGVyZmFjZRIOCgROYW1lGAEgASgJSAASEAoGSGFuZGxlGAIg",
-            "ASgNSABCCwoJSW50ZXJmYWNlIkIKC1NMSXBBZGRyZXNzEhMKCVY0QWRkcmVz",
-            "cxgBIAEoDUgAEhMKCVY2QWRkcmVzcxgCIAEoDEgAQgkKB0FkZHJlc3MiJQoK",
-            "U0xPYmplY3RJZBIOCgROYW1lGAEgASgJSABCBwoFZW50cnkiVAoRU0xQYXRo",
-            "R3JvdXBSZWZLZXkSDwoHVnJmTmFtZRgBIAEoCRIuCgtQYXRoR3JvdXBJZBgC",
-            "IAEoCzIZLnNlcnZpY2VfbGF5ZXIuU0xPYmplY3RJZCpiCgdTTFJlZ09wEhUK",
-            "EVNMX1JFR09QX1JFU0VSVkVEEAASFQoRU0xfUkVHT1BfUkVHSVNURVIQARIX",
-            "ChNTTF9SRUdPUF9VTlJFR0lTVEVSEAISEAoMU0xfUkVHT1BfRU9GEAMqXwoK",
-            "U0xPYmplY3RPcBIVChFTTF9PQkpPUF9SRVNFUlZFRBAAEhAKDFNMX09CSk9Q",
-            "X0FERBABEhMKD1NMX09CSk9QX1VQREFURRACEhMKD1NMX09CSk9QX0RFTEVU",
-            "RRADKlMKCVNMTm90aWZPcBIXChNTTF9OT1RJRk9QX1JFU0VSVkVEEAASFQoR",
-            "U0xfTk9USUZPUF9FTkFCTEUQARIWChJTTF9OT1RJRk9QX0RJU0FCTEUQAiqJ",
-            "AQoQU0xVcGRhdGVQcmlvcml0eRIYChRTTF9QUklPUklUWV9SRVNFUlZFRBAA",
-            "EhgKFFNMX1BSSU9SSVRZX0NSSVRJQ0FMEAQSFAoQU0xfUFJJT1JJVFlfSElH",
-            "SBAIEhYKElNMX1BSSU9SSVRZX01FRElVTRAMEhMKD1NMX1BSSU9SSVRZX0xP",
-            "VxAQKksKC1NMRW5jYXBUeXBlEhUKEVNMX0VOQ0FQX1JFU0VSVkVEEAASEgoO",
-            "U0xfRU5DQVBfVlhMQU4QARIRCg1TTF9FTkNBUF9NUExTEAIqjQEKC1NMVGFi",
-            "bGVUeXBlEhoKFlNMX1RBQkxFX1RZUEVfUkVTRVJWRUQQABIXChNTTF9JUHY0",
-            "X1JPVVRFX1RBQkxFEAESFwoTU0xfSVB2Nl9ST1VURV9UQUJMRRACEhcKE1NM",
-            "X01QTFNfTEFCRUxfVEFCTEUQAxIXChNTTF9QQVRIX0dST1VQX1RBQkxFEAQq",
-            "MAoMU0xSc3BBQ0tUeXBlEgsKB1JJQl9BQ0sQABITCg9SSUJfQU5EX0ZJQl9B",
-            "Q0sQAUJRWk9naXRodWIuY29tL0Npc2NvLXNlcnZpY2UtbGF5ZXIvc2Vydmlj",
-            "ZS1sYXllci1vYmptb2RlbC9ncnBjL3Byb3RvcztzZXJ2aWNlX2xheWVyYgZw",
-            "cm90bzM="));
+            "Q0NFU1MQgOAFEhMKDVNMX0ZJQl9GQUlMRUQQgeAFEhcKEVNMX0ZJQl9JTkVM",
+            "SUdJQkxFEILgBRIPCglTTF9GSUJfTkEQg+AFEh4KGFNMX0lOVEVSTkFMX1NU",
+            "QVJUX09GRlNFVBCAgEAiPAoLU0xJbnRlcmZhY2USDgoETmFtZRgBIAEoCUgA",
+            "EhAKBkhhbmRsZRgCIAEoDUgAQgsKCUludGVyZmFjZSJCCgtTTElwQWRkcmVz",
+            "cxITCglWNEFkZHJlc3MYASABKA1IABITCglWNkFkZHJlc3MYAiABKAxIAEIJ",
+            "CgdBZGRyZXNzIiUKClNMT2JqZWN0SWQSDgoETmFtZRgBIAEoCUgAQgcKBWVu",
+            "dHJ5IlQKEVNMUGF0aEdyb3VwUmVmS2V5Eg8KB1ZyZk5hbWUYASABKAkSLgoL",
+            "UGF0aEdyb3VwSWQYAiABKAsyGS5zZXJ2aWNlX2xheWVyLlNMT2JqZWN0SWQq",
+            "YgoHU0xSZWdPcBIVChFTTF9SRUdPUF9SRVNFUlZFRBAAEhUKEVNMX1JFR09Q",
+            "X1JFR0lTVEVSEAESFwoTU0xfUkVHT1BfVU5SRUdJU1RFUhACEhAKDFNMX1JF",
+            "R09QX0VPRhADKl8KClNMT2JqZWN0T3ASFQoRU0xfT0JKT1BfUkVTRVJWRUQQ",
+            "ABIQCgxTTF9PQkpPUF9BREQQARITCg9TTF9PQkpPUF9VUERBVEUQAhITCg9T",
+            "TF9PQkpPUF9ERUxFVEUQAypTCglTTE5vdGlmT3ASFwoTU0xfTk9USUZPUF9S",
+            "RVNFUlZFRBAAEhUKEVNMX05PVElGT1BfRU5BQkxFEAESFgoSU0xfTk9USUZP",
+            "UF9ESVNBQkxFEAIqiQEKEFNMVXBkYXRlUHJpb3JpdHkSGAoUU0xfUFJJT1JJ",
+            "VFlfUkVTRVJWRUQQABIYChRTTF9QUklPUklUWV9DUklUSUNBTBAEEhQKEFNM",
+            "X1BSSU9SSVRZX0hJR0gQCBIWChJTTF9QUklPUklUWV9NRURJVU0QDBITCg9T",
+            "TF9QUklPUklUWV9MT1cQECpLCgtTTEVuY2FwVHlwZRIVChFTTF9FTkNBUF9S",
+            "RVNFUlZFRBAAEhIKDlNMX0VOQ0FQX1ZYTEFOEAESEQoNU0xfRU5DQVBfTVBM",
+            "UxACKo0BCgtTTFRhYmxlVHlwZRIaChZTTF9UQUJMRV9UWVBFX1JFU0VSVkVE",
+            "EAASFwoTU0xfSVB2NF9ST1VURV9UQUJMRRABEhcKE1NMX0lQdjZfUk9VVEVf",
+            "VEFCTEUQAhIXChNTTF9NUExTX0xBQkVMX1RBQkxFEAMSFwoTU0xfUEFUSF9H",
+            "Uk9VUF9UQUJMRRAEKjAKDFNMUnNwQUNLVHlwZRILCgdSSUJfQUNLEAASEwoP",
+            "UklCX0FORF9GSUJfQUNLEAFCUVpPZ2l0aHViLmNvbS9DaXNjby1zZXJ2aWNl",
+            "LWxheWVyL3NlcnZpY2UtbGF5ZXItb2JqbW9kZWwvZ3JwYy9wcm90b3M7c2Vy",
+            "dmljZV9sYXllcmIGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::ServiceLayer.SLRegOp), typeof(global::ServiceLayer.SLObjectOp), typeof(global::ServiceLayer.SLNotifOp), typeof(global::ServiceLayer.SLUpdatePriority), typeof(global::ServiceLayer.SLEncapType), typeof(global::ServiceLayer.SLTableType), typeof(global::ServiceLayer.SLRspACKType), }, null, new pbr::GeneratedClrTypeInfo[] {
@@ -1783,7 +1783,11 @@ namespace ServiceLayer {
         /// <summary>
         /// The operation is not viable to be programmed in hardware at this time
         /// </summary>
-        [pbr::OriginalName("SL_RIB_FIB_INELIGIBLE")] SlRibFibIneligible = 94210,
+        [pbr::OriginalName("SL_FIB_INELIGIBLE")] SlFibIneligible = 94210,
+        /// <summary>
+        /// The status of hardware programming is not available at this time.
+        /// </summary>
+        [pbr::OriginalName("SL_FIB_NA")] SlFibNa = 94211,
         /// <summary>
         /// Offset for Internal errors. 0x100000
         /// </summary>

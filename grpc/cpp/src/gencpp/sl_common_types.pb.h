@@ -355,7 +355,8 @@ enum SLErrorStatus_SLErrno : int {
   SLErrorStatus_SLErrno_SL_NEXT_HOP_INVALID_PREFIX_SZ = 90118,
   SLErrorStatus_SLErrno_SL_FIB_SUCCESS = 94208,
   SLErrorStatus_SLErrno_SL_FIB_FAILED = 94209,
-  SLErrorStatus_SLErrno_SL_RIB_FIB_INELIGIBLE = 94210,
+  SLErrorStatus_SLErrno_SL_FIB_INELIGIBLE = 94210,
+  SLErrorStatus_SLErrno_SL_FIB_NA = 94211,
   SLErrorStatus_SLErrno_SL_INTERNAL_START_OFFSET = 1048576,
   SLErrorStatus_SLErrno_SLErrorStatus_SLErrno_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::min(),
   SLErrorStatus_SLErrno_SLErrorStatus_SLErrno_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::max()
@@ -1236,8 +1237,10 @@ class SLErrorStatus final :
     SLErrorStatus_SLErrno_SL_FIB_SUCCESS;
   static constexpr SLErrno SL_FIB_FAILED =
     SLErrorStatus_SLErrno_SL_FIB_FAILED;
-  static constexpr SLErrno SL_RIB_FIB_INELIGIBLE =
-    SLErrorStatus_SLErrno_SL_RIB_FIB_INELIGIBLE;
+  static constexpr SLErrno SL_FIB_INELIGIBLE =
+    SLErrorStatus_SLErrno_SL_FIB_INELIGIBLE;
+  static constexpr SLErrno SL_FIB_NA =
+    SLErrorStatus_SLErrno_SL_FIB_NA;
   static constexpr SLErrno SL_INTERNAL_START_OFFSET =
     SLErrorStatus_SLErrno_SL_INTERNAL_START_OFFSET;
   static inline bool SLErrno_IsValid(int value) {
