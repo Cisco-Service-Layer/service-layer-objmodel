@@ -3839,9 +3839,9 @@ namespace ServiceLayer {
     public const int FIBStatusFieldNumber = 2;
     private global::ServiceLayer.SLErrorStatus fIBStatus_;
     /// <summary>
-    /// Hardware programming status. This field is available only
-    /// if the object was programmed with ACk type set to RIB_AND_FIB_ACK.
-    /// Error code associated with the hardware programming of operation.
+    /// if the operation was programmed with ACk type set to RIB_AND_FIB_ACK,
+    /// then FIBStatus indicates the Error code associated with the hardware
+    /// programming of operation.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -3856,9 +3856,9 @@ namespace ServiceLayer {
     public const int FIBVersionFieldNumber = 3;
     private ulong fIBVersion_;
     /// <summary>
-    /// if ACK type requested was RIB_AND_FIB_ACK, then FIBVersion indicates
-    /// the latest version associated with the hardware programming of operation.
-    /// FIBVersion if present is a non-zero positive number.
+    /// if the operation was programmed with ACk type set to RIB_AND_FIB_ACK,
+    /// then FIBVersion indicates the latest version of hardware programming
+    /// of operation.  A valid FIBVersion is a non-zero positive number.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]

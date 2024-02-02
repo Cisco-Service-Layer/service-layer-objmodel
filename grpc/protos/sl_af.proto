@@ -394,14 +394,14 @@ message SLAFGetMsgRspEntry {
     // Object
     SLAFOp AFOp = 1;
 
-    // Hardware programming status. This field is available only
-    // if the object was programmed with ACk type set to RIB_AND_FIB_ACK.
-    // Error code associated with the hardware programming of operation.
+    // if the operation was programmed with ACk type set to RIB_AND_FIB_ACK,
+    // then FIBStatus indicates the Error code associated with the hardware
+    // programming of operation.
     SLErrorStatus FIBStatus = 2;
 
-    // if ACK type requested was RIB_AND_FIB_ACK, then FIBVersion indicates
-    // the latest version associated with the hardware programming of operation.
-    // FIBVersion if present is a non-zero positive number.
+    // if the operation was programmed with ACk type set to RIB_AND_FIB_ACK,
+    // then FIBVersion indicates the latest version of hardware programming
+    // of operation.  A valid FIBVersion is a non-zero positive number.
     uint64 FIBVersion = 3;
 }
 

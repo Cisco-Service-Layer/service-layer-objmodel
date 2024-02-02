@@ -908,13 +908,13 @@ type SLAFGetMsgRspEntry struct {
 
 	// Object
 	AFOp *SLAFOp `protobuf:"bytes,1,opt,name=AFOp,proto3" json:"AFOp,omitempty"`
-	// Hardware programming status. This field is available only
-	// if the object was programmed with ACk type set to RIB_AND_FIB_ACK.
-	// Error code associated with the hardware programming of operation.
+	// if the operation was programmed with ACk type set to RIB_AND_FIB_ACK,
+	// then FIBStatus indicates the Error code associated with the hardware
+	// programming of operation.
 	FIBStatus *SLErrorStatus `protobuf:"bytes,2,opt,name=FIBStatus,proto3" json:"FIBStatus,omitempty"`
-	// if ACK type requested was RIB_AND_FIB_ACK, then FIBVersion indicates
-	// the latest version associated with the hardware programming of operation.
-	// FIBVersion if present is a non-zero positive number.
+	// if the operation was programmed with ACk type set to RIB_AND_FIB_ACK,
+	// then FIBVersion indicates the latest version of hardware programming
+	// of operation.  A valid FIBVersion is a non-zero positive number.
 	FIBVersion uint64 `protobuf:"varint,3,opt,name=FIBVersion,proto3" json:"FIBVersion,omitempty"`
 }
 
