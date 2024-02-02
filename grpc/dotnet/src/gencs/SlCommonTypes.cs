@@ -24,9 +24,9 @@ namespace ServiceLayer {
     static SlCommonTypesReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChVzbF9jb21tb25fdHlwZXMucHJvdG8SDXNlcnZpY2VfbGF5ZXIizUgKDVNM",
+            "ChVzbF9jb21tb25fdHlwZXMucHJvdG8SDXNlcnZpY2VfbGF5ZXIiokkKDVNM",
             "RXJyb3JTdGF0dXMSNAoGU3RhdHVzGAEgASgOMiQuc2VydmljZV9sYXllci5T",
-            "TEVycm9yU3RhdHVzLlNMRXJybm8ihUgKB1NMRXJybm8SDgoKU0xfU1VDQ0VT",
+            "TEVycm9yU3RhdHVzLlNMRXJybm8i2kgKB1NMRXJybm8SDgoKU0xfU1VDQ0VT",
             "UxAAEhQKEFNMX05PVF9DT05ORUNURUQQARINCglTTF9FQUdBSU4QAhINCglT",
             "TF9FTk9NRU0QAxIMCghTTF9FQlVTWRAEEg0KCVNMX0VJTlZBTBAFEhYKElNM",
             "X1VOU1VQUE9SVEVEX1ZFUhAGEhQKEFNMX05PVF9BVkFJTEFCTEUQBxIbChdT",
@@ -230,31 +230,33 @@ namespace ServiceLayer {
             "U1RfQklUU19TRVQQgsAFEiYKIFNMX05FWFRfSE9QX0lOVkFMSURfUFJFRklY",
             "X01DQVNUEIPABRIgChpTTF9ORVhUX0hPUF9JTlZBTElEX1BSRUZJWBCEwAUS",
             "JwohU0xfTkVYVF9IT1BfSU5WQUxJRF9ORVhUX0hPUF9BRERSEIXABRIjCh1T",
-            "TF9ORVhUX0hPUF9JTlZBTElEX1BSRUZJWF9TWhCGwAUSHgoYU0xfSU5URVJO",
-            "QUxfU1RBUlRfT0ZGU0VUEICAQCI8CgtTTEludGVyZmFjZRIOCgROYW1lGAEg",
-            "ASgJSAASEAoGSGFuZGxlGAIgASgNSABCCwoJSW50ZXJmYWNlIkIKC1NMSXBB",
-            "ZGRyZXNzEhMKCVY0QWRkcmVzcxgBIAEoDUgAEhMKCVY2QWRkcmVzcxgCIAEo",
-            "DEgAQgkKB0FkZHJlc3MiJQoKU0xPYmplY3RJZBIOCgROYW1lGAEgASgJSABC",
-            "BwoFZW50cnkiVAoRU0xQYXRoR3JvdXBSZWZLZXkSDwoHVnJmTmFtZRgBIAEo",
-            "CRIuCgtQYXRoR3JvdXBJZBgCIAEoCzIZLnNlcnZpY2VfbGF5ZXIuU0xPYmpl",
-            "Y3RJZCpiCgdTTFJlZ09wEhUKEVNMX1JFR09QX1JFU0VSVkVEEAASFQoRU0xf",
-            "UkVHT1BfUkVHSVNURVIQARIXChNTTF9SRUdPUF9VTlJFR0lTVEVSEAISEAoM",
-            "U0xfUkVHT1BfRU9GEAMqXwoKU0xPYmplY3RPcBIVChFTTF9PQkpPUF9SRVNF",
-            "UlZFRBAAEhAKDFNMX09CSk9QX0FERBABEhMKD1NMX09CSk9QX1VQREFURRAC",
-            "EhMKD1NMX09CSk9QX0RFTEVURRADKlMKCVNMTm90aWZPcBIXChNTTF9OT1RJ",
-            "Rk9QX1JFU0VSVkVEEAASFQoRU0xfTk9USUZPUF9FTkFCTEUQARIWChJTTF9O",
-            "T1RJRk9QX0RJU0FCTEUQAiqJAQoQU0xVcGRhdGVQcmlvcml0eRIYChRTTF9Q",
-            "UklPUklUWV9SRVNFUlZFRBAAEhgKFFNMX1BSSU9SSVRZX0NSSVRJQ0FMEAQS",
-            "FAoQU0xfUFJJT1JJVFlfSElHSBAIEhYKElNMX1BSSU9SSVRZX01FRElVTRAM",
-            "EhMKD1NMX1BSSU9SSVRZX0xPVxAQKksKC1NMRW5jYXBUeXBlEhUKEVNMX0VO",
-            "Q0FQX1JFU0VSVkVEEAASEgoOU0xfRU5DQVBfVlhMQU4QARIRCg1TTF9FTkNB",
-            "UF9NUExTEAIqjQEKC1NMVGFibGVUeXBlEhoKFlNMX1RBQkxFX1RZUEVfUkVT",
-            "RVJWRUQQABIXChNTTF9JUHY0X1JPVVRFX1RBQkxFEAESFwoTU0xfSVB2Nl9S",
-            "T1VURV9UQUJMRRACEhcKE1NMX01QTFNfTEFCRUxfVEFCTEUQAxIXChNTTF9Q",
-            "QVRIX0dST1VQX1RBQkxFEAQqGwoMU0xSc3BBQ0tUeXBlEgsKB1JJQl9BQ0sQ",
-            "AEJRWk9naXRodWIuY29tL0Npc2NvLXNlcnZpY2UtbGF5ZXIvc2VydmljZS1s",
-            "YXllci1vYmptb2RlbC9ncnBjL3Byb3RvcztzZXJ2aWNlX2xheWVyYgZwcm90",
-            "bzM="));
+            "TF9ORVhUX0hPUF9JTlZBTElEX1BSRUZJWF9TWhCGwAUSFAoOU0xfRklCX1NV",
+            "Q0NFU1MQgOAFEhMKDVNMX0ZJQl9GQUlMRUQQgeAFEhcKEVNMX0ZJQl9JTkVM",
+            "SUdJQkxFEILgBRIPCglTTF9GSUJfTkEQg+AFEh4KGFNMX0lOVEVSTkFMX1NU",
+            "QVJUX09GRlNFVBCAgEAiPAoLU0xJbnRlcmZhY2USDgoETmFtZRgBIAEoCUgA",
+            "EhAKBkhhbmRsZRgCIAEoDUgAQgsKCUludGVyZmFjZSJCCgtTTElwQWRkcmVz",
+            "cxITCglWNEFkZHJlc3MYASABKA1IABITCglWNkFkZHJlc3MYAiABKAxIAEIJ",
+            "CgdBZGRyZXNzIiUKClNMT2JqZWN0SWQSDgoETmFtZRgBIAEoCUgAQgcKBWVu",
+            "dHJ5IlQKEVNMUGF0aEdyb3VwUmVmS2V5Eg8KB1ZyZk5hbWUYASABKAkSLgoL",
+            "UGF0aEdyb3VwSWQYAiABKAsyGS5zZXJ2aWNlX2xheWVyLlNMT2JqZWN0SWQq",
+            "YgoHU0xSZWdPcBIVChFTTF9SRUdPUF9SRVNFUlZFRBAAEhUKEVNMX1JFR09Q",
+            "X1JFR0lTVEVSEAESFwoTU0xfUkVHT1BfVU5SRUdJU1RFUhACEhAKDFNMX1JF",
+            "R09QX0VPRhADKl8KClNMT2JqZWN0T3ASFQoRU0xfT0JKT1BfUkVTRVJWRUQQ",
+            "ABIQCgxTTF9PQkpPUF9BREQQARITCg9TTF9PQkpPUF9VUERBVEUQAhITCg9T",
+            "TF9PQkpPUF9ERUxFVEUQAypTCglTTE5vdGlmT3ASFwoTU0xfTk9USUZPUF9S",
+            "RVNFUlZFRBAAEhUKEVNMX05PVElGT1BfRU5BQkxFEAESFgoSU0xfTk9USUZP",
+            "UF9ESVNBQkxFEAIqiQEKEFNMVXBkYXRlUHJpb3JpdHkSGAoUU0xfUFJJT1JJ",
+            "VFlfUkVTRVJWRUQQABIYChRTTF9QUklPUklUWV9DUklUSUNBTBAEEhQKEFNM",
+            "X1BSSU9SSVRZX0hJR0gQCBIWChJTTF9QUklPUklUWV9NRURJVU0QDBITCg9T",
+            "TF9QUklPUklUWV9MT1cQECpLCgtTTEVuY2FwVHlwZRIVChFTTF9FTkNBUF9S",
+            "RVNFUlZFRBAAEhIKDlNMX0VOQ0FQX1ZYTEFOEAESEQoNU0xfRU5DQVBfTVBM",
+            "UxACKo0BCgtTTFRhYmxlVHlwZRIaChZTTF9UQUJMRV9UWVBFX1JFU0VSVkVE",
+            "EAASFwoTU0xfSVB2NF9ST1VURV9UQUJMRRABEhcKE1NMX0lQdjZfUk9VVEVf",
+            "VEFCTEUQAhIXChNTTF9NUExTX0xBQkVMX1RBQkxFEAMSFwoTU0xfUEFUSF9H",
+            "Uk9VUF9UQUJMRRAEKjAKDFNMUnNwQUNLVHlwZRILCgdSSUJfQUNLEAASEwoP",
+            "UklCX0FORF9GSUJfQUNLEAFCUVpPZ2l0aHViLmNvbS9DaXNjby1zZXJ2aWNl",
+            "LWxheWVyL3NlcnZpY2UtbGF5ZXItb2JqbW9kZWwvZ3JwYy9wcm90b3M7c2Vy",
+            "dmljZV9sYXllcmIGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::ServiceLayer.SLRegOp), typeof(global::ServiceLayer.SLObjectOp), typeof(global::ServiceLayer.SLNotifOp), typeof(global::ServiceLayer.SLUpdatePriority), typeof(global::ServiceLayer.SLEncapType), typeof(global::ServiceLayer.SLTableType), typeof(global::ServiceLayer.SLRspACKType), }, null, new pbr::GeneratedClrTypeInfo[] {
@@ -405,11 +407,18 @@ namespace ServiceLayer {
     /// on a successful update of the object to the RIB database.
     ///
     /// The operation is considered complete once result of RIB programming
-    /// is sent to the client.
+    /// is sent back to the client.
     ///
-    /// By default, ack type is assumed to be RIB_ACK.
+    /// By default, ACK type is assumed to be RIB_ACK.
     /// </summary>
     [pbr::OriginalName("RIB_ACK")] RibAck = 0,
+    /// <summary>
+    /// If ACK type requested is RIB_AND_FIB_ACK, then along with RIB ack
+    /// the network element will also return one or more FIB acks which is
+    /// the status of hardware programming of the operation.
+    /// *NOTE*: RIB_AND_FIB_ACK is supported only in streaming service
+    /// </summary>
+    [pbr::OriginalName("RIB_AND_FIB_ACK")] RibAndFibAck = 1,
   }
 
   #endregion
@@ -1762,6 +1771,23 @@ namespace ServiceLayer {
         /// Size of IPv6 prefix is invalid. 0x16006
         /// </summary>
         [pbr::OriginalName("SL_NEXT_HOP_INVALID_PREFIX_SZ")] SlNextHopInvalidPrefixSz = 90118,
+        /// <summary>
+        /// Offset for Hardware Ack errors. 0x17000
+        /// The operation is successfully program in hardware
+        /// </summary>
+        [pbr::OriginalName("SL_FIB_SUCCESS")] SlFibSuccess = 94208,
+        /// <summary>
+        /// There is a generic failure in hardware programming of operation
+        /// </summary>
+        [pbr::OriginalName("SL_FIB_FAILED")] SlFibFailed = 94209,
+        /// <summary>
+        /// The operation is not viable to be programmed in hardware at this time
+        /// </summary>
+        [pbr::OriginalName("SL_FIB_INELIGIBLE")] SlFibIneligible = 94210,
+        /// <summary>
+        /// The status of hardware programming is not available at this time.
+        /// </summary>
+        [pbr::OriginalName("SL_FIB_NA")] SlFibNa = 94211,
         /// <summary>
         /// Offset for Internal errors. 0x100000
         /// </summary>

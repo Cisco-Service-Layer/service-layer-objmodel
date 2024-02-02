@@ -389,10 +389,37 @@ message SLAFGetMsg {
     string MatchRegex = 4;
 }
 
+message SLAFFibStatus {
+    //Error code associated with hardware programming
+    SLErrorStatus ErrorCode = 1;
+
+    // Operation ID associated with hardware programming.
+    uint64 OperationID = 2;
+
+    // Version associated with hardware programming. A valid version is
+    // a non-zero positive number
+    uint64 Version = 3;
+
+    // Descriptive string describing error if any, on the hardware programming
+    string ErrorString = 4;
+
+    // DepResult is the result of any operation that this operation depends on.
+    // For example: if this OperationID is about programming an ipv4 or ipv6
+    // route that is pointing to a Path Group, then DepResult will carry
+    // the Result of operation that programmed that Path Group.
+    // *NOTE*: DepResult is not supported on Get Operations
+    repeated SLAFFibStatus DepResult = 5;
+}
+
 // Object and its programming status returned on Get.
-message SLAFEntry {
+message SLAFGetMsgRspEntry {
     // Object
     SLAFOp AFOp = 1;
+
+    // if the operation was programmed with ACk type set to RIB_AND_FIB_ACK,
+    // then FIBStatus indicates status of hardware programming of the
+    // operation
+    SLAFFibStatus FIBStatus = 2;
 }
 
 // Get AF message response. The objects can be returned in
@@ -413,7 +440,7 @@ message SLAFGetMsgRsp {
     // Returned entries as requested in the Get operation.
     // if ErrStatus is SL_SUCCESS, entry contains the list
     // of objects from the specified Table.
-    repeated SLAFEntry AFList = 4;
+    repeated SLAFGetMsgRspEntry AFList = 4;
 }
 
 // Operation on the address family. The objects are programmed
@@ -427,17 +454,25 @@ message SLAFMsg {
 
     // List of operations.
     repeated SLAFOp OpList = 3;
+
+    // The type of Acknowledgment that the controller or agent expects from
+    // the network element.
+    SLRspACKType AckType = 4;
 }
 
 // Result of an operation on the object.
 message SLAFRes {
-    // Corresponding error code
+    // Error code
     SLErrorStatus ErrStatus = 1;
 
-    // The operation ID and object are returned.
-    // Only attributes describing an object's key
-    // are returned.
+    // The operation, expected to carry only the part that is considered
+    // the key to uniquely identify the object that is programmed
     SLAFOp Operation = 2;
+
+    // if the operation was programmed with ACk type set to RIB_AND_FIB_ACK,
+    // then FIBStatus indicates status of hardware programming of the
+    // operation
+    SLAFFibStatus FIBStatus = 3;
 }
 
 // Route operations result status
