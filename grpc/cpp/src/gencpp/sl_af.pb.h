@@ -3241,15 +3241,14 @@ class SLAFRes final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kDepResultFieldNumber = 7,
-    kErrorStringFieldNumber = 6,
+    kDepResultFieldNumber = 6,
+    kErrorStringFieldNumber = 5,
     kErrStatusFieldNumber = 1,
     kOperationFieldNumber = 2,
-    kFIBStatusFieldNumber = 4,
-    kOperationIDFieldNumber = 3,
-    kFIBVersionFieldNumber = 5,
+    kFIBStatusFieldNumber = 3,
+    kFIBVersionFieldNumber = 4,
   };
-  // repeated .service_layer.SLAFRes DepResult = 7;
+  // repeated .service_layer.SLAFRes DepResult = 6;
   int depresult_size() const;
   private:
   int _internal_depresult_size() const;
@@ -3267,7 +3266,7 @@ class SLAFRes final :
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::service_layer::SLAFRes >&
       depresult() const;
 
-  // string ErrorString = 6;
+  // string ErrorString = 5;
   void clear_errorstring();
   const std::string& errorstring() const;
   template <typename ArgT0 = const std::string&, typename... ArgT>
@@ -3317,7 +3316,7 @@ class SLAFRes final :
       ::service_layer::SLAFOp* operation);
   ::service_layer::SLAFOp* unsafe_arena_release_operation();
 
-  // .service_layer.SLErrorStatus FIBStatus = 4;
+  // .service_layer.SLErrorStatus FIBStatus = 3;
   bool has_fibstatus() const;
   private:
   bool _internal_has_fibstatus() const;
@@ -3335,16 +3334,7 @@ class SLAFRes final :
       ::service_layer::SLErrorStatus* fibstatus);
   ::service_layer::SLErrorStatus* unsafe_arena_release_fibstatus();
 
-  // uint64 OperationID = 3;
-  void clear_operationid();
-  uint64_t operationid() const;
-  void set_operationid(uint64_t value);
-  private:
-  uint64_t _internal_operationid() const;
-  void _internal_set_operationid(uint64_t value);
-  public:
-
-  // uint64 FIBVersion = 5;
+  // uint64 FIBVersion = 4;
   void clear_fibversion();
   uint64_t fibversion() const;
   void set_fibversion(uint64_t value);
@@ -3365,7 +3355,6 @@ class SLAFRes final :
   ::service_layer::SLErrorStatus* errstatus_;
   ::service_layer::SLAFOp* operation_;
   ::service_layer::SLErrorStatus* fibstatus_;
-  uint64_t operationid_;
   uint64_t fibversion_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_sl_5faf_2eproto;
@@ -7090,27 +7079,7 @@ inline void SLAFRes::set_allocated_operation(::service_layer::SLAFOp* operation)
   // @@protoc_insertion_point(field_set_allocated:service_layer.SLAFRes.Operation)
 }
 
-// uint64 OperationID = 3;
-inline void SLAFRes::clear_operationid() {
-  operationid_ = uint64_t{0u};
-}
-inline uint64_t SLAFRes::_internal_operationid() const {
-  return operationid_;
-}
-inline uint64_t SLAFRes::operationid() const {
-  // @@protoc_insertion_point(field_get:service_layer.SLAFRes.OperationID)
-  return _internal_operationid();
-}
-inline void SLAFRes::_internal_set_operationid(uint64_t value) {
-  
-  operationid_ = value;
-}
-inline void SLAFRes::set_operationid(uint64_t value) {
-  _internal_set_operationid(value);
-  // @@protoc_insertion_point(field_set:service_layer.SLAFRes.OperationID)
-}
-
-// .service_layer.SLErrorStatus FIBStatus = 4;
+// .service_layer.SLErrorStatus FIBStatus = 3;
 inline bool SLAFRes::_internal_has_fibstatus() const {
   return this != internal_default_instance() && fibstatus_ != nullptr;
 }
@@ -7196,7 +7165,7 @@ inline void SLAFRes::set_allocated_fibstatus(::service_layer::SLErrorStatus* fib
   // @@protoc_insertion_point(field_set_allocated:service_layer.SLAFRes.FIBStatus)
 }
 
-// uint64 FIBVersion = 5;
+// uint64 FIBVersion = 4;
 inline void SLAFRes::clear_fibversion() {
   fibversion_ = uint64_t{0u};
 }
@@ -7216,7 +7185,7 @@ inline void SLAFRes::set_fibversion(uint64_t value) {
   // @@protoc_insertion_point(field_set:service_layer.SLAFRes.FIBVersion)
 }
 
-// string ErrorString = 6;
+// string ErrorString = 5;
 inline void SLAFRes::clear_errorstring() {
   errorstring_.ClearToEmpty();
 }
@@ -7267,7 +7236,7 @@ inline void SLAFRes::set_allocated_errorstring(std::string* errorstring) {
   // @@protoc_insertion_point(field_set_allocated:service_layer.SLAFRes.ErrorString)
 }
 
-// repeated .service_layer.SLAFRes DepResult = 7;
+// repeated .service_layer.SLAFRes DepResult = 6;
 inline int SLAFRes::_internal_depresult_size() const {
   return depresult_.size();
 }

@@ -452,29 +452,26 @@ message SLAFRes {
     // the key to uniquely identify the object that is programmed
     SLAFOp Operation = 2;
 
-    // operation-id
-    uint64 OperationID = 3;
-
     // The fields (FIBStatus, FIBVersion, ErrorString, DepResult)
     // are available only if the object was programmed with ACk type set to
     // RIB_AND_FIB_ACK.
 
     // Error code associated with the hardware programming of operation.
-    SLErrorStatus FIBStatus = 4;
+    SLErrorStatus FIBStatus = 3;
 
     // if ACK type requested was RIB_AND_FIB_ACK, then FIBVersion indicates
     // the latest version associated with the hardware programming of operation.
     // FIBVersion if present is a non-zero positive number.
-    uint64 FIBVersion = 5;
+    uint64 FIBVersion = 4;
 
     // Descriptive string describing error if any, on the operation.
-    string ErrorString = 6;
+    string ErrorString = 5;
 
     // DepResult is the result of any operation that this operation depends on.
     // For example: if this operation is about programming an ipv4 or ipv6
     // route that is pointing to a Path Group, then DepResult will carry
     // the Result of operation that programmed that Path Group.
-    repeated SLAFRes DepResult = 7;
+    repeated SLAFRes DepResult = 6;
 }
 
 // Route operations result status
