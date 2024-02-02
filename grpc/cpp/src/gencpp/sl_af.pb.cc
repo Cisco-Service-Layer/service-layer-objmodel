@@ -515,8 +515,8 @@ const uint32_t TableStruct_sl_5faf_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::service_layer::SLAFRes, errstatus_),
-  PROTOBUF_FIELD_OFFSET(::service_layer::SLAFRes, operationid_),
   PROTOBUF_FIELD_OFFSET(::service_layer::SLAFRes, operation_),
+  PROTOBUF_FIELD_OFFSET(::service_layer::SLAFRes, operationid_),
   PROTOBUF_FIELD_OFFSET(::service_layer::SLAFRes, fibstatus_),
   PROTOBUF_FIELD_OFFSET(::service_layer::SLAFRes, fibversion_),
   PROTOBUF_FIELD_OFFSET(::service_layer::SLAFRes, errorstring_),
@@ -692,8 +692,8 @@ const char descriptor_table_protodef_sl_5faf_2eproto[] PROTOBUF_SECTION_VARIABLE
   "layer.SLAFOp\022,\n\007AckType\030\004 \001(\0162\033.service_"
   "layer.SLRspACKType\"\376\001\n\007SLAFRes\022/\n\tErrSta"
   "tus\030\001 \001(\0132\034.service_layer.SLErrorStatus\022"
-  "\023\n\013OperationID\030\002 \001(\004\022(\n\tOperation\030\003 \001(\0132"
-  "\025.service_layer.SLAFOp\022/\n\tFIBStatus\030\004 \001("
+  "(\n\tOperation\030\002 \001(\0132\025.service_layer.SLAFO"
+  "p\022\023\n\013OperationID\030\003 \001(\004\022/\n\tFIBStatus\030\004 \001("
   "\0132\034.service_layer.SLErrorStatus\022\022\n\nFIBVe"
   "rsion\030\005 \001(\004\022\023\n\013ErrorString\030\006 \001(\t\022)\n\tDepR"
   "esult\030\007 \003(\0132\026.service_layer.SLAFRes\"F\n\nS"
@@ -5327,18 +5327,18 @@ const char* SLAFRes::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::in
         } else
           goto handle_unusual;
         continue;
-      // uint64 OperationID = 2;
+      // .service_layer.SLAFOp Operation = 2;
       case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
-          operationid_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
+          ptr = ctx->ParseMessage(_internal_mutable_operation(), ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
         continue;
-      // .service_layer.SLAFOp Operation = 3;
+      // uint64 OperationID = 3;
       case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 26)) {
-          ptr = ctx->ParseMessage(_internal_mutable_operation(), ptr);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
+          operationid_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -5419,18 +5419,18 @@ uint8_t* SLAFRes::_InternalSerialize(
         1, _Internal::errstatus(this), target, stream);
   }
 
-  // uint64 OperationID = 2;
-  if (this->_internal_operationid() != 0) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(2, this->_internal_operationid(), target);
-  }
-
-  // .service_layer.SLAFOp Operation = 3;
+  // .service_layer.SLAFOp Operation = 2;
   if (this->_internal_has_operation()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
       InternalWriteMessage(
-        3, _Internal::operation(this), target, stream);
+        2, _Internal::operation(this), target, stream);
+  }
+
+  // uint64 OperationID = 3;
+  if (this->_internal_operationid() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(3, this->_internal_operationid(), target);
   }
 
   // .service_layer.SLErrorStatus FIBStatus = 4;
@@ -5502,7 +5502,7 @@ size_t SLAFRes::ByteSizeLong() const {
         *errstatus_);
   }
 
-  // .service_layer.SLAFOp Operation = 3;
+  // .service_layer.SLAFOp Operation = 2;
   if (this->_internal_has_operation()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
@@ -5516,7 +5516,7 @@ size_t SLAFRes::ByteSizeLong() const {
         *fibstatus_);
   }
 
-  // uint64 OperationID = 2;
+  // uint64 OperationID = 3;
   if (this->_internal_operationid() != 0) {
     total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64SizePlusOne(this->_internal_operationid());
   }

@@ -3244,9 +3244,9 @@ class SLAFRes final :
     kDepResultFieldNumber = 7,
     kErrorStringFieldNumber = 6,
     kErrStatusFieldNumber = 1,
-    kOperationFieldNumber = 3,
+    kOperationFieldNumber = 2,
     kFIBStatusFieldNumber = 4,
-    kOperationIDFieldNumber = 2,
+    kOperationIDFieldNumber = 3,
     kFIBVersionFieldNumber = 5,
   };
   // repeated .service_layer.SLAFRes DepResult = 7;
@@ -3299,7 +3299,7 @@ class SLAFRes final :
       ::service_layer::SLErrorStatus* errstatus);
   ::service_layer::SLErrorStatus* unsafe_arena_release_errstatus();
 
-  // .service_layer.SLAFOp Operation = 3;
+  // .service_layer.SLAFOp Operation = 2;
   bool has_operation() const;
   private:
   bool _internal_has_operation() const;
@@ -3335,7 +3335,7 @@ class SLAFRes final :
       ::service_layer::SLErrorStatus* fibstatus);
   ::service_layer::SLErrorStatus* unsafe_arena_release_fibstatus();
 
-  // uint64 OperationID = 2;
+  // uint64 OperationID = 3;
   void clear_operationid();
   uint64_t operationid() const;
   void set_operationid(uint64_t value);
@@ -7000,27 +7000,7 @@ inline void SLAFRes::set_allocated_errstatus(::service_layer::SLErrorStatus* err
   // @@protoc_insertion_point(field_set_allocated:service_layer.SLAFRes.ErrStatus)
 }
 
-// uint64 OperationID = 2;
-inline void SLAFRes::clear_operationid() {
-  operationid_ = uint64_t{0u};
-}
-inline uint64_t SLAFRes::_internal_operationid() const {
-  return operationid_;
-}
-inline uint64_t SLAFRes::operationid() const {
-  // @@protoc_insertion_point(field_get:service_layer.SLAFRes.OperationID)
-  return _internal_operationid();
-}
-inline void SLAFRes::_internal_set_operationid(uint64_t value) {
-  
-  operationid_ = value;
-}
-inline void SLAFRes::set_operationid(uint64_t value) {
-  _internal_set_operationid(value);
-  // @@protoc_insertion_point(field_set:service_layer.SLAFRes.OperationID)
-}
-
-// .service_layer.SLAFOp Operation = 3;
+// .service_layer.SLAFOp Operation = 2;
 inline bool SLAFRes::_internal_has_operation() const {
   return this != internal_default_instance() && operation_ != nullptr;
 }
@@ -7108,6 +7088,26 @@ inline void SLAFRes::set_allocated_operation(::service_layer::SLAFOp* operation)
   }
   operation_ = operation;
   // @@protoc_insertion_point(field_set_allocated:service_layer.SLAFRes.Operation)
+}
+
+// uint64 OperationID = 3;
+inline void SLAFRes::clear_operationid() {
+  operationid_ = uint64_t{0u};
+}
+inline uint64_t SLAFRes::_internal_operationid() const {
+  return operationid_;
+}
+inline uint64_t SLAFRes::operationid() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLAFRes.OperationID)
+  return _internal_operationid();
+}
+inline void SLAFRes::_internal_set_operationid(uint64_t value) {
+  
+  operationid_ = value;
+}
+inline void SLAFRes::set_operationid(uint64_t value) {
+  _internal_set_operationid(value);
+  // @@protoc_insertion_point(field_set:service_layer.SLAFRes.OperationID)
 }
 
 // .service_layer.SLErrorStatus FIBStatus = 4;

@@ -72,8 +72,8 @@ namespace ServiceLayer {
             "IAMoCzIVLnNlcnZpY2VfbGF5ZXIuU0xBRk9wEiwKB0Fja1R5cGUYBCABKA4y",
             "Gy5zZXJ2aWNlX2xheWVyLlNMUnNwQUNLVHlwZSL+AQoHU0xBRlJlcxIvCglF",
             "cnJTdGF0dXMYASABKAsyHC5zZXJ2aWNlX2xheWVyLlNMRXJyb3JTdGF0dXMS",
-            "EwoLT3BlcmF0aW9uSUQYAiABKAQSKAoJT3BlcmF0aW9uGAMgASgLMhUuc2Vy",
-            "dmljZV9sYXllci5TTEFGT3ASLwoJRklCU3RhdHVzGAQgASgLMhwuc2Vydmlj",
+            "KAoJT3BlcmF0aW9uGAIgASgLMhUuc2VydmljZV9sYXllci5TTEFGT3ASEwoL",
+            "T3BlcmF0aW9uSUQYAyABKAQSLwoJRklCU3RhdHVzGAQgASgLMhwuc2Vydmlj",
             "ZV9sYXllci5TTEVycm9yU3RhdHVzEhIKCkZJQlZlcnNpb24YBSABKAQSEwoL",
             "RXJyb3JTdHJpbmcYBiABKAkSKQoJRGVwUmVzdWx0GAcgAygLMhYuc2Vydmlj",
             "ZV9sYXllci5TTEFGUmVzIkYKClNMQUZNc2dSc3ASDwoHVnJmTmFtZRgBIAEo",
@@ -124,7 +124,7 @@ namespace ServiceLayer {
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLAFGetMsgRspEntry), global::ServiceLayer.SLAFGetMsgRspEntry.Parser, new[]{ "AFOp", "FIBStatus", "FIBVersion" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLAFGetMsgRsp), global::ServiceLayer.SLAFGetMsgRsp.Parser, new[]{ "ErrStatus", "VrfName", "ClientID", "AFList" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLAFMsg), global::ServiceLayer.SLAFMsg.Parser, new[]{ "Oper", "VrfName", "OpList", "AckType" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLAFRes), global::ServiceLayer.SLAFRes.Parser, new[]{ "ErrStatus", "OperationID", "Operation", "FIBStatus", "FIBVersion", "ErrorString", "DepResult" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLAFRes), global::ServiceLayer.SLAFRes.Parser, new[]{ "ErrStatus", "Operation", "OperationID", "FIBStatus", "FIBVersion", "ErrorString", "DepResult" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLAFMsgRsp), global::ServiceLayer.SLAFMsgRsp.Parser, new[]{ "VrfName", "Results" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLAFRedistRegMsg), global::ServiceLayer.SLAFRedistRegMsg.Parser, new[]{ "SrcProto", "SrcProtoTag", "Table" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLAFNotifRegReq), global::ServiceLayer.SLAFNotifRegReq.Parser, new[]{ "RedistReq", "OperationID" }, new[]{ "Request" }, null, null, null),
@@ -4731,8 +4731,8 @@ namespace ServiceLayer {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public SLAFRes(SLAFRes other) : this() {
       errStatus_ = other.errStatus_ != null ? other.errStatus_.Clone() : null;
-      operationID_ = other.operationID_;
       operation_ = other.operation_ != null ? other.operation_.Clone() : null;
+      operationID_ = other.operationID_;
       fIBStatus_ = other.fIBStatus_ != null ? other.fIBStatus_.Clone() : null;
       fIBVersion_ = other.fIBVersion_;
       errorString_ = other.errorString_;
@@ -4761,23 +4761,8 @@ namespace ServiceLayer {
       }
     }
 
-    /// <summary>Field number for the "OperationID" field.</summary>
-    public const int OperationIDFieldNumber = 2;
-    private ulong operationID_;
-    /// <summary>
-    /// operation-id
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public ulong OperationID {
-      get { return operationID_; }
-      set {
-        operationID_ = value;
-      }
-    }
-
     /// <summary>Field number for the "Operation" field.</summary>
-    public const int OperationFieldNumber = 3;
+    public const int OperationFieldNumber = 2;
     private global::ServiceLayer.SLAFOp operation_;
     /// <summary>
     /// The operation, expected to carry only the part that is considered
@@ -4789,6 +4774,21 @@ namespace ServiceLayer {
       get { return operation_; }
       set {
         operation_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "OperationID" field.</summary>
+    public const int OperationIDFieldNumber = 3;
+    private ulong operationID_;
+    /// <summary>
+    /// operation-id
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public ulong OperationID {
+      get { return operationID_; }
+      set {
+        operationID_ = value;
       }
     }
 
@@ -4872,8 +4872,8 @@ namespace ServiceLayer {
         return true;
       }
       if (!object.Equals(ErrStatus, other.ErrStatus)) return false;
-      if (OperationID != other.OperationID) return false;
       if (!object.Equals(Operation, other.Operation)) return false;
+      if (OperationID != other.OperationID) return false;
       if (!object.Equals(FIBStatus, other.FIBStatus)) return false;
       if (FIBVersion != other.FIBVersion) return false;
       if (ErrorString != other.ErrorString) return false;
@@ -4886,8 +4886,8 @@ namespace ServiceLayer {
     public override int GetHashCode() {
       int hash = 1;
       if (errStatus_ != null) hash ^= ErrStatus.GetHashCode();
-      if (OperationID != 0UL) hash ^= OperationID.GetHashCode();
       if (operation_ != null) hash ^= Operation.GetHashCode();
+      if (OperationID != 0UL) hash ^= OperationID.GetHashCode();
       if (fIBStatus_ != null) hash ^= FIBStatus.GetHashCode();
       if (FIBVersion != 0UL) hash ^= FIBVersion.GetHashCode();
       if (ErrorString.Length != 0) hash ^= ErrorString.GetHashCode();
@@ -4914,13 +4914,13 @@ namespace ServiceLayer {
         output.WriteRawTag(10);
         output.WriteMessage(ErrStatus);
       }
-      if (OperationID != 0UL) {
-        output.WriteRawTag(16);
-        output.WriteUInt64(OperationID);
-      }
       if (operation_ != null) {
-        output.WriteRawTag(26);
+        output.WriteRawTag(18);
         output.WriteMessage(Operation);
+      }
+      if (OperationID != 0UL) {
+        output.WriteRawTag(24);
+        output.WriteUInt64(OperationID);
       }
       if (fIBStatus_ != null) {
         output.WriteRawTag(34);
@@ -4949,13 +4949,13 @@ namespace ServiceLayer {
         output.WriteRawTag(10);
         output.WriteMessage(ErrStatus);
       }
-      if (OperationID != 0UL) {
-        output.WriteRawTag(16);
-        output.WriteUInt64(OperationID);
-      }
       if (operation_ != null) {
-        output.WriteRawTag(26);
+        output.WriteRawTag(18);
         output.WriteMessage(Operation);
+      }
+      if (OperationID != 0UL) {
+        output.WriteRawTag(24);
+        output.WriteUInt64(OperationID);
       }
       if (fIBStatus_ != null) {
         output.WriteRawTag(34);
@@ -4983,11 +4983,11 @@ namespace ServiceLayer {
       if (errStatus_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(ErrStatus);
       }
-      if (OperationID != 0UL) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(OperationID);
-      }
       if (operation_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(Operation);
+      }
+      if (OperationID != 0UL) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(OperationID);
       }
       if (fIBStatus_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(FIBStatus);
@@ -5017,14 +5017,14 @@ namespace ServiceLayer {
         }
         ErrStatus.MergeFrom(other.ErrStatus);
       }
-      if (other.OperationID != 0UL) {
-        OperationID = other.OperationID;
-      }
       if (other.operation_ != null) {
         if (operation_ == null) {
           Operation = new global::ServiceLayer.SLAFOp();
         }
         Operation.MergeFrom(other.Operation);
+      }
+      if (other.OperationID != 0UL) {
+        OperationID = other.OperationID;
       }
       if (other.fIBStatus_ != null) {
         if (fIBStatus_ == null) {
@@ -5061,15 +5061,15 @@ namespace ServiceLayer {
             input.ReadMessage(ErrStatus);
             break;
           }
-          case 16: {
-            OperationID = input.ReadUInt64();
-            break;
-          }
-          case 26: {
+          case 18: {
             if (operation_ == null) {
               Operation = new global::ServiceLayer.SLAFOp();
             }
             input.ReadMessage(Operation);
+            break;
+          }
+          case 24: {
+            OperationID = input.ReadUInt64();
             break;
           }
           case 34: {
@@ -5113,15 +5113,15 @@ namespace ServiceLayer {
             input.ReadMessage(ErrStatus);
             break;
           }
-          case 16: {
-            OperationID = input.ReadUInt64();
-            break;
-          }
-          case 26: {
+          case 18: {
             if (operation_ == null) {
               Operation = new global::ServiceLayer.SLAFOp();
             }
             input.ReadMessage(Operation);
+            break;
+          }
+          case 24: {
+            OperationID = input.ReadUInt64();
             break;
           }
           case 34: {

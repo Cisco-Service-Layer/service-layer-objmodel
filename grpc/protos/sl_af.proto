@@ -357,7 +357,6 @@ message SLAFOp {
     // use operation ID to correlate the response for the operation on the object.
     // Operation Id should be monotonically increasing for the life of the client.
     uint64 OperationID = 2;
-
 }
 
 // Used to retrieve objects in a VRF table.
@@ -449,12 +448,12 @@ message SLAFRes {
     // Error code
     SLErrorStatus ErrStatus = 1;
 
-    // operation-id
-    uint64 OperationID = 2;
-
     // The operation, expected to carry only the part that is considered
     // the key to uniquely identify the object that is programmed
-    SLAFOp Operation = 3;
+    SLAFOp Operation = 2;
+
+    // operation-id
+    uint64 OperationID = 3;
 
     // The fields (FIBStatus, FIBVersion, ErrorString, DepResult)
     // are available only if the object was programmed with ACk type set to
