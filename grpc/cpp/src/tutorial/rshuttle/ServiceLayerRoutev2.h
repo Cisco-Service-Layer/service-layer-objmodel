@@ -11,11 +11,11 @@
 #include <iosxrsl/sl_af.pb.h>
 
 
-class RShuttlev2;
-extern RShuttlev2* route_shuttle;
-class RShuttlev2 {
+class SLAFRShuttle;
+extern SLAFRShuttle* slaf_route_shuttle;
+class SLAFRShuttle {
 public:
-    explicit RShuttlev2(std::shared_ptr<grpc::Channel> Channel, std::string Username,
+    explicit SLAFRShuttle(std::shared_ptr<grpc::Channel> Channel, std::string Username,
                       std::string Password);
 
     enum PathUpdateAction
@@ -30,14 +30,17 @@ public:
     std::string password;
 
     service_layer::SLObjectOp route_op;
-    service_layer::SLAFMsg routev4_version2_msg;
-    service_layer::SLAFMsgRsp routev4_version2_msg_resp;
-    service_layer::SLRoutev6Msg routev6_msg;
-    service_layer::SLRoutev6MsgRsp routev6_msg_resp;
+    service_layer::SLAFMsg route_msg;
+    service_layer::SLAFMsgRsp route_msg_resp;
 
     std::map<std::string, int> prefix_map_v4;
     std::map<std::string, int> prefix_map_v6;
 
+    bool routeSLAFOp(service_layer::SLObjectOp routeOp,
+                    unsigned int addrFamily,
+                    unsigned int timeout=10);
+    
+    void clearBatch();
 
     // IPv4 and IPv6 string manipulation methods
 
@@ -71,11 +74,6 @@ public:
     void routev4PathAdd(service_layer::SLRoutev4* routev4Ptr,
                         uint32_t nextHopAddress,
                         std::string nextHopIf);
- 
-
-    bool routev4Op(service_layer::SLObjectOp routeOp,
-                   unsigned int timeout=10);
-
 
     bool insertAddBatchV4(std::string prefix,
                           uint8_t prefixLen,
@@ -83,18 +81,9 @@ public:
                           std::string nextHopAddress,
                           std::string nextHopIf);
 
-
-    void clearBatchV4();
-
     // IPv6 methods
 
     void setVrfV6(std::string vrfName);
-
-    bool insertAddBatchV4Version2(std::string prefix,
-                          uint8_t prefixLen,
-                          uint32_t adminDistance,
-                          std::string nextHopAddress,
-                          std::string nextHopIf);
 
 
     service_layer::SLRoutev6*
@@ -117,10 +106,6 @@ public:
     void routev6PathAdd(service_layer::SLRoutev6* routev6Ptr,
                         std::string nextHopAddress,
                         std::string nextHopIf);
- 
-
-    bool routev6Op(service_layer::SLObjectOp routeOp,
-                   unsigned int timeout=10);
 
     bool insertAddBatchV6(std::string prefix,
                           uint8_t prefixLen,
@@ -128,42 +113,14 @@ public:
                           std::string nextHopAddress,
                           std::string nextHopIf);
 
-    bool insertDeleteBatchV6(std::string prefix,
-                             uint8_t prefixLen);
+    // MPLS methods
 
-    bool insertUpdateBatchV6(std::string prefix,
-                             uint8_t prefixLen,
-                             std::string nextHopAddress,
-                             std::string nextHopIf,
-                             PathUpdateAction action);
-
-    bool insertUpdateBatchV6(std::string prefix,
-                             uint8_t prefixLen,
-                             uint32_t adminDistance,
-                             std::string nextHopAddress,
-                             std::string nextHopIf,
-                             PathUpdateAction action); 
-
-
-    void clearBatchV6();
-
-    // Returns true if the prefix exists in Application RIB and route
-    // gets populated with all the route attributes like Nexthop, adminDistance etc.
-    bool getPrefixPathsV6(service_layer::SLRoutev6& route,
-                          std::string vrfName,
-                          std::string prefix,
-                          uint8_t prefixLen,
-                          unsigned int timeout=10);
-
-    bool addPrefixPathV6(std::string prefix,
-                         uint8_t prefixLen,
-                         std::string nextHopAddress,
-                         std::string nextHopIf);
-
-    bool deletePrefixPathV6(std::string prefix,
-                            uint8_t prefixLen,
-                            std::string nextHopAddress,
-                            std::string nextHopIf);
+    unsigned int insertAddBatchMPLS(unsigned int startLabel,
+                            unsigned int numLabel,
+                            unsigned int numPaths,
+                            unsigned int batchSize,
+                            uint32_t nextHopAddress,
+                            std::string nextHopInterface);
 
 };
 

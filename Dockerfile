@@ -89,6 +89,7 @@ WORKDIR ${WS}/glog
 RUN cmake -S . -B build -G "Unix Makefiles"
 RUN cmake --build build
 RUN cmake --build build --target install
+ENV LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:/usr/local/lib"
 
 ###########
 # Adjust PATH so that binding scripts can execute out of the cwd.
