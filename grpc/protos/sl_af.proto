@@ -357,6 +357,10 @@ message SLAFOp {
     // use operation ID to correlate the response for the operation on the object.
     // Operation Id should be monotonically increasing for the life of the client.
     uint64 OperationID = 2;
+
+    // The type of Acknowledgment that the controller or agent expects from
+    // the network element.
+    SLRspACKType AckType = 3;
 }
 
 // Used to retrieve objects in a VRF table.
@@ -416,7 +420,7 @@ message SLAFGetMsgRspEntry {
     // Object
     SLAFOp AFOp = 1;
 
-    // if the operation was programmed with ACk type set to RIB_AND_FIB_ACK,
+    // if the operation was programmed with ACK type set to RIB_AND_FIB_ACK,
     // then FIBStatus indicates status of hardware programming of the
     // operation
     SLAFFibStatus FIBStatus = 2;
@@ -455,9 +459,6 @@ message SLAFMsg {
     // List of operations.
     repeated SLAFOp OpList = 3;
 
-    // The type of Acknowledgment that the controller or agent expects from
-    // the network element.
-    SLRspACKType AckType = 4;
 }
 
 // Result of an operation on the object.
@@ -469,7 +470,7 @@ message SLAFRes {
     // the key to uniquely identify the object that is programmed
     SLAFOp Operation = 2;
 
-    // if the operation was programmed with ACk type set to RIB_AND_FIB_ACK,
+    // if the operation was programmed with ACK type set to RIB_AND_FIB_ACK,
     // then FIBStatus indicates status of hardware programming of the
     // operation
     SLAFFibStatus FIBStatus = 3;
