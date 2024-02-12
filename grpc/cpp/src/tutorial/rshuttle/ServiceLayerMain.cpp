@@ -19,8 +19,8 @@ std::string password = "";
 class testingData
 {
 public:
-    // route_op is used to determine if we are doing ipv4(value = 0) ipv6(value = 1), or mpls(value = 2)
-    unsigned int route_op;
+    // table_type is used to determine if we are doing ipv4(value = 0) ipv6(value = 1), or mpls(value = 2)
+    unsigned int table_type;
     unsigned int batch_size;
     unsigned int batch_num;
 
@@ -43,7 +43,7 @@ public:
     unsigned int num_label;
     unsigned int num_paths;
 };
-int route_operation;
+int table_type_operation;
 
 class Timer
 {
@@ -98,13 +98,13 @@ signalHandler(int signum)
        afvrfhandler_signum->af_vrf_msg.clear_vrfregmsgs();
 
         // Create a fresh SLVrfRegMsg batch for cleanup
-        if(route_operation == AF_INET){
+        if(table_type_operation == AF_INET){
             afvrfhandler_signum->afVrfRegMsgAdd("default",AF_INET);
             afvrfhandler_signum->unregisterAfVrf(AF_INET);
-        } else if (route_operation == AF_INET6){
+        } else if (table_type_operation == AF_INET6){
             afvrfhandler_signum->afVrfRegMsgAdd("default",AF_INET6);
             afvrfhandler_signum->unregisterAfVrf(AF_INET6);
-        } else if(route_operation == AF_MPLS){
+        } else if(table_type_operation == AF_MPLS){
             afvrfhandler_signum->afVrfRegMsgAdd("default",AF_MPLS);
             afvrfhandler_signum->unregisterAfVrf(AF_MPLS);
         }
@@ -293,7 +293,7 @@ int main(int argc, char** argv) {
     }
 
     testingData env_data;
-    env_data.route_op = (getEnvVar("route_op") != "")?stoi(getEnvVar("route_op")):0;
+    env_data.table_type = (getEnvVar("table_type") != "")?stoi(getEnvVar("table_type")):0;
     env_data.batch_size = (getEnvVar("batch_size") != "")?stoi(getEnvVar("batch_size")):1024;
     env_data.batch_num = (getEnvVar("batch_num") != "")?stoi(getEnvVar("batch_num")):98;
 
@@ -311,7 +311,7 @@ int main(int argc, char** argv) {
 
     // For MPLS
     env_data.first_prefix_mpls = (getEnvVar("first_prefix_mpls") != "")?getEnvVar("first_prefix_mpls"):"11.0.0.1";
-    env_data.next_hop_interface_mpls = (getEnvVar("first_prefix_mpls") != "")?getEnvVar("first_prefix_mpls"):"FourHundredGigE0/0/0/0";
+    env_data.next_hop_interface_mpls = (getEnvVar("next_hop_interface_mpls") != "")?getEnvVar("next_hop_interface_mpls"):"FourHundredGigE0/0/0/0";
     env_data.start_label = (getEnvVar("start_label") != "")?stoi(getEnvVar("start_label")):20000;
     env_data.num_label = (getEnvVar("num_label") != "")?stoi(getEnvVar("num_label")):1000;
     env_data.num_paths = (getEnvVar("num_paths") != "")?stoi(getEnvVar("num_paths")):1;
@@ -357,17 +357,17 @@ int main(int argc, char** argv) {
     auto af_vrf_handler = SLAFVrf(channel,username,password);
 
     // Need to specify ipv4 (default), ipv6(value = 1) or mpls(value = 2)
-    if (env_data.route_op == 1) {
-        route_operation = AF_INET6;
-    } else if (env_data.route_op == 2) {
-        route_operation = AF_MPLS;
+    if (env_data.table_type == 1) {
+        table_type_operation = AF_INET6;
+    } else if (env_data.table_type == 2) {
+        table_type_operation = AF_MPLS;
     } else {
-        route_operation = AF_INET;
+        table_type_operation = AF_INET;
     }
-    run_v2(&af_vrf_handler,route_operation);
+    run_v2(&af_vrf_handler,table_type_operation);
     slaf_route_shuttle = new SLAFRShuttle(af_vrf_handler.channel, username, password);
 
-    routepushv2(slaf_route_shuttle, env_data, route_operation);
+    routepushv2(slaf_route_shuttle, env_data, table_type_operation);
 
     asynchandler_signum = &asynchandler;
     afvrfhandler_signum = &af_vrf_handler;
