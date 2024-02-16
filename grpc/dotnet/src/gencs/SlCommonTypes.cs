@@ -1773,7 +1773,7 @@ namespace ServiceLayer {
         /// </summary>
         [pbr::OriginalName("SL_NEXT_HOP_INVALID_PREFIX_SZ")] SlNextHopInvalidPrefixSz = 90118,
         /// <summary>
-        /// RIB failure to flush the NH registrations. 0x16007
+        /// Unable to program NH tracking registration to RIB. 0x16007
         /// </summary>
         [pbr::OriginalName("SL_NEXT_HOP_RIB_ADD_FAILED")] SlNextHopRibAddFailed = 90119,
         /// <summary>

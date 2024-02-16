@@ -641,7 +641,7 @@
     SL_NEXT_HOP_INVALID_NEXT_HOP_ADDR = 0x16005,\
     /* Size of IPv6 prefix is invalid. 0x16006 */\
     SL_NEXT_HOP_INVALID_PREFIX_SZ = 0x16006,\
-    /* RIB failure to flush the NH registrations. 0x16007 */\
+    /* Unable to program NH tracking registration to RIB. 0x16007 */\
     SL_NEXT_HOP_RIB_ADD_FAILED = 0x16007,\
     /* Offset for Hardware Ack errors. 0x17000 */\
     /* The operation is successfully program in hardware */\
@@ -1536,7 +1536,7 @@
         " Size of IPv6 prefix is invalid.  "\
         },\
     {SL_NEXT_HOP_RIB_ADD_FAILED ,\
-        " RIB failure to flush the NH registrations.  "\
+        " Unable to program NH tracking registration to RIB.  "\
         },\
     {SL_FIB_SUCCESS ,\
         " Offset for Hardware Ack errors.  "\

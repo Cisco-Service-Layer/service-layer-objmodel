@@ -1045,7 +1045,7 @@ const (
 	SLErrorStatus_SL_NEXT_HOP_INVALID_NEXT_HOP_ADDR SLErrorStatus_SLErrno = 90117
 	// Size of IPv6 prefix is invalid. 0x16006
 	SLErrorStatus_SL_NEXT_HOP_INVALID_PREFIX_SZ SLErrorStatus_SLErrno = 90118
-	// RIB failure to flush the NH registrations. 0x16007
+	// Unable to program NH tracking registration to RIB. 0x16007
 	SLErrorStatus_SL_NEXT_HOP_RIB_ADD_FAILED SLErrorStatus_SLErrno = 90119
 	// Offset for Hardware Ack errors. 0x17000
 	// The operation is successfully program in hardware
