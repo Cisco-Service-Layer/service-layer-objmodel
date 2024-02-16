@@ -112,10 +112,10 @@ message SLPolicyOpMsg {
      // to corelate the responses. Operation Id 
      // should be monotonically increasing for 
      // the life of the client.
-     uint64 OperationID = 4;
+     uint64 OperationID = 2;
          
      // List of policy configurations
-     repeated SLPolicyCfg ConfigList = 2;
+     repeated SLPolicyCfg ConfigList = 3;
 }
 
 // Policy Object Operations.
@@ -238,6 +238,9 @@ message SLRuleAction {
     // PathGroup where packet will be forwarded.
     // The path group belongs to the same VRF as the policy entry.
     optional SLPathGroupRefKey PathGroup = 1;
+
+    // Enable Stats counter 
+    optional  bool  EnableStatsCounter = 2;
  
 }
 
@@ -326,14 +329,11 @@ message SLPolicyInfo {
 
 message SLPolicyGetMsgRsp {
 
-     // Operation ID
-     uint64 OperationID = 1;
-
      // Status of the policy get operation
-     SLErrorStatus PolicyCfgOpStatus = 2;
+     SLErrorStatus PolicyCfgOpStatus = 1;
  
      // List of Policy info. It will be empty incase of failure
-     repeated SLPolicyInfo PolicyObjs = 3;
+     repeated SLPolicyInfo PolicyObjs = 2;
 }
  
 // Policy Global Get Capabilities Message

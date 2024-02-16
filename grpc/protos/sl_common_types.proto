@@ -749,10 +749,40 @@ message SLErrorStatus {
         SL_POLICY_UNAPPLY_ERR = 0x18008;
         // Operation rejected due to too many policies in the request. 0x18009
         SL_POLICY_TOO_MANY_POLICIES = 0x18009;
+        // Policy name is too long. 0x1800a
+        SL_POLICY_NAME_TOO_LONG = 0x1800a;
+        // Rule name is too long. 0x1800b
+        SL_POLICY_RULE_NAME_TOO_LONG = 0x1800b;
+        // Duplicate priority for the rule in the same policy. 0x1800c
+        SL_POLICY_DUPLICATE_PRIORITY_IN_RULE = 0x1800c;
+        // Rule modification not allowed. 0x1800d
+        SL_POLICY_RULE_MOD_NOT_ALLOWED = 0x1800d;
+        // Rule belongs to a different policy. 0x1800e
+        SL_POLICY_INVALID_RULE = 0x1800e;
+        // Rule add operation requested but no rules were provided. 0x1800f
+        SL_POLICY_RULE_ADD_NO_RULES = 0x1800f; 
+        // Rule add operation requested but no matches were provided. 0x18010
+        SL_POLICY_INVALID_MATCH_COUNT_IN_RULE = 0x18010;
+        // Rule add operation requested but no actions were provided. 0x18011
+        SL_POLICY_INVALID_ACTION_COUNT_IN_RULE = 0x18011;
+        // Policy not found.0x18012
+        SL_POLICY_NOT_FOUND = 0x18012;
+        // Policy invalid. 0x18013
+        SL_POLICY_INVALID = 0x18013;
+        // Policy name missing. 0x18014
+        SL_POLICY_NAME_MISSING = 0x18014;
+        // Rule name missing. 0x18015 
+        SL_POLICY_RULE_NAME_MISSING = 0x18015;
+        // Priority missing in rule. 0x18016
+        SL_POLICY_PRIORITY_MISSING_IN_RULE = 0x18016;
+        // Invalid policy type. 0x18017 
+        SL_POLICY_TYPE_INVALID = 0x18017;
+        // Invalid policy direction. 0x18018
+        SL_POLICY_INVALID_DIRECTION = 0x18018;
 
 
         // !!! Error codes Reserved for internal errors.
-
+        
         // Offset for Internal errors. 0x100000
         SL_INTERNAL_START_OFFSET = 0x100000;
     }
