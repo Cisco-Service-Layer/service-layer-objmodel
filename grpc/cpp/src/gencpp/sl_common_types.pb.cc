@@ -144,9 +144,9 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
 };
 
 const char descriptor_table_protodef_sl_5fcommon_5ftypes_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
-  "\n\025sl_common_types.proto\022\rservice_layer\"\242"
+  "\n\025sl_common_types.proto\022\rservice_layer\"\304"
   "I\n\rSLErrorStatus\0224\n\006Status\030\001 \001(\0162$.servi"
-  "ce_layer.SLErrorStatus.SLErrno\"\332H\n\007SLErr"
+  "ce_layer.SLErrorStatus.SLErrno\"\374H\n\007SLErr"
   "no\022\016\n\nSL_SUCCESS\020\000\022\024\n\020SL_NOT_CONNECTED\020\001"
   "\022\r\n\tSL_EAGAIN\020\002\022\r\n\tSL_ENOMEM\020\003\022\014\n\010SL_EBU"
   "SY\020\004\022\r\n\tSL_EINVAL\020\005\022\026\n\022SL_UNSUPPORTED_VE"
@@ -376,40 +376,41 @@ const char descriptor_table_protodef_sl_5fcommon_5ftypes_2eproto[] PROTOBUF_SECT
   "T_HOP_INVALID_PREFIX_MCAST\020\203\300\005\022 \n\032SL_NEX"
   "T_HOP_INVALID_PREFIX\020\204\300\005\022\'\n!SL_NEXT_HOP_"
   "INVALID_NEXT_HOP_ADDR\020\205\300\005\022#\n\035SL_NEXT_HOP"
-  "_INVALID_PREFIX_SZ\020\206\300\005\022\024\n\016SL_FIB_SUCCESS"
-  "\020\200\340\005\022\023\n\rSL_FIB_FAILED\020\201\340\005\022\027\n\021SL_FIB_INEL"
-  "IGIBLE\020\202\340\005\022\017\n\tSL_FIB_NA\020\203\340\005\022\036\n\030SL_INTERN"
-  "AL_START_OFFSET\020\200\200@\"<\n\013SLInterface\022\016\n\004Na"
-  "me\030\001 \001(\tH\000\022\020\n\006Handle\030\002 \001(\rH\000B\013\n\tInterfac"
-  "e\"B\n\013SLIpAddress\022\023\n\tV4Address\030\001 \001(\rH\000\022\023\n"
-  "\tV6Address\030\002 \001(\014H\000B\t\n\007Address\"%\n\nSLObjec"
-  "tId\022\016\n\004Name\030\001 \001(\tH\000B\007\n\005entry\"T\n\021SLPathGr"
-  "oupRefKey\022\017\n\007VrfName\030\001 \001(\t\022.\n\013PathGroupI"
-  "d\030\002 \001(\0132\031.service_layer.SLObjectId*b\n\007SL"
-  "RegOp\022\025\n\021SL_REGOP_RESERVED\020\000\022\025\n\021SL_REGOP"
-  "_REGISTER\020\001\022\027\n\023SL_REGOP_UNREGISTER\020\002\022\020\n\014"
-  "SL_REGOP_EOF\020\003*_\n\nSLObjectOp\022\025\n\021SL_OBJOP"
-  "_RESERVED\020\000\022\020\n\014SL_OBJOP_ADD\020\001\022\023\n\017SL_OBJO"
-  "P_UPDATE\020\002\022\023\n\017SL_OBJOP_DELETE\020\003*S\n\tSLNot"
-  "ifOp\022\027\n\023SL_NOTIFOP_RESERVED\020\000\022\025\n\021SL_NOTI"
-  "FOP_ENABLE\020\001\022\026\n\022SL_NOTIFOP_DISABLE\020\002*\211\001\n"
-  "\020SLUpdatePriority\022\030\n\024SL_PRIORITY_RESERVE"
-  "D\020\000\022\030\n\024SL_PRIORITY_CRITICAL\020\004\022\024\n\020SL_PRIO"
-  "RITY_HIGH\020\010\022\026\n\022SL_PRIORITY_MEDIUM\020\014\022\023\n\017S"
-  "L_PRIORITY_LOW\020\020*K\n\013SLEncapType\022\025\n\021SL_EN"
-  "CAP_RESERVED\020\000\022\022\n\016SL_ENCAP_VXLAN\020\001\022\021\n\rSL"
-  "_ENCAP_MPLS\020\002*\215\001\n\013SLTableType\022\032\n\026SL_TABL"
-  "E_TYPE_RESERVED\020\000\022\027\n\023SL_IPv4_ROUTE_TABLE"
-  "\020\001\022\027\n\023SL_IPv6_ROUTE_TABLE\020\002\022\027\n\023SL_MPLS_L"
-  "ABEL_TABLE\020\003\022\027\n\023SL_PATH_GROUP_TABLE\020\004*0\n"
-  "\014SLRspACKType\022\013\n\007RIB_ACK\020\000\022\023\n\017RIB_AND_FI"
-  "B_ACK\020\001BQZOgithub.com/Cisco-service-laye"
-  "r/service-layer-objmodel/grpc/protos;ser"
-  "vice_layerb\006proto3"
+  "_INVALID_PREFIX_SZ\020\206\300\005\022 \n\032SL_NEXT_HOP_RI"
+  "B_ADD_FAILED\020\207\300\005\022\024\n\016SL_FIB_SUCCESS\020\200\340\005\022\023"
+  "\n\rSL_FIB_FAILED\020\201\340\005\022\027\n\021SL_FIB_INELIGIBLE"
+  "\020\202\340\005\022\017\n\tSL_FIB_NA\020\203\340\005\022\036\n\030SL_INTERNAL_STA"
+  "RT_OFFSET\020\200\200@\"<\n\013SLInterface\022\016\n\004Name\030\001 \001"
+  "(\tH\000\022\020\n\006Handle\030\002 \001(\rH\000B\013\n\tInterface\"B\n\013S"
+  "LIpAddress\022\023\n\tV4Address\030\001 \001(\rH\000\022\023\n\tV6Add"
+  "ress\030\002 \001(\014H\000B\t\n\007Address\"%\n\nSLObjectId\022\016\n"
+  "\004Name\030\001 \001(\tH\000B\007\n\005entry\"T\n\021SLPathGroupRef"
+  "Key\022\017\n\007VrfName\030\001 \001(\t\022.\n\013PathGroupId\030\002 \001("
+  "\0132\031.service_layer.SLObjectId*b\n\007SLRegOp\022"
+  "\025\n\021SL_REGOP_RESERVED\020\000\022\025\n\021SL_REGOP_REGIS"
+  "TER\020\001\022\027\n\023SL_REGOP_UNREGISTER\020\002\022\020\n\014SL_REG"
+  "OP_EOF\020\003*_\n\nSLObjectOp\022\025\n\021SL_OBJOP_RESER"
+  "VED\020\000\022\020\n\014SL_OBJOP_ADD\020\001\022\023\n\017SL_OBJOP_UPDA"
+  "TE\020\002\022\023\n\017SL_OBJOP_DELETE\020\003*S\n\tSLNotifOp\022\027"
+  "\n\023SL_NOTIFOP_RESERVED\020\000\022\025\n\021SL_NOTIFOP_EN"
+  "ABLE\020\001\022\026\n\022SL_NOTIFOP_DISABLE\020\002*\211\001\n\020SLUpd"
+  "atePriority\022\030\n\024SL_PRIORITY_RESERVED\020\000\022\030\n"
+  "\024SL_PRIORITY_CRITICAL\020\004\022\024\n\020SL_PRIORITY_H"
+  "IGH\020\010\022\026\n\022SL_PRIORITY_MEDIUM\020\014\022\023\n\017SL_PRIO"
+  "RITY_LOW\020\020*K\n\013SLEncapType\022\025\n\021SL_ENCAP_RE"
+  "SERVED\020\000\022\022\n\016SL_ENCAP_VXLAN\020\001\022\021\n\rSL_ENCAP"
+  "_MPLS\020\002*\215\001\n\013SLTableType\022\032\n\026SL_TABLE_TYPE"
+  "_RESERVED\020\000\022\027\n\023SL_IPv4_ROUTE_TABLE\020\001\022\027\n\023"
+  "SL_IPv6_ROUTE_TABLE\020\002\022\027\n\023SL_MPLS_LABEL_T"
+  "ABLE\020\003\022\027\n\023SL_PATH_GROUP_TABLE\020\004*0\n\014SLRsp"
+  "ACKType\022\013\n\007RIB_ACK\020\000\022\023\n\017RIB_AND_FIB_ACK\020"
+  "\001BQZOgithub.com/Cisco-service-layer/serv"
+  "ice-layer-objmodel/grpc/protos;service_l"
+  "ayerb\006proto3"
   ;
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_sl_5fcommon_5ftypes_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_sl_5fcommon_5ftypes_2eproto = {
-  false, false, 10458, descriptor_table_protodef_sl_5fcommon_5ftypes_2eproto, "sl_common_types.proto", 
+  false, false, 10492, descriptor_table_protodef_sl_5fcommon_5ftypes_2eproto, "sl_common_types.proto", 
   &descriptor_table_sl_5fcommon_5ftypes_2eproto_once, nullptr, 0, 5,
   schemas, file_default_instances, TableStruct_sl_5fcommon_5ftypes_2eproto::offsets,
   file_level_metadata_sl_5fcommon_5ftypes_2eproto, file_level_enum_descriptors_sl_5fcommon_5ftypes_2eproto, file_level_service_descriptors_sl_5fcommon_5ftypes_2eproto,
@@ -699,6 +700,7 @@ bool SLErrorStatus_SLErrno_IsValid(int value) {
     case 90116:
     case 90117:
     case 90118:
+    case 90119:
     case 94208:
     case 94209:
     case 94210:
@@ -983,6 +985,7 @@ constexpr SLErrorStatus_SLErrno SLErrorStatus::SL_NEXT_HOP_INVALID_PREFIX_MCAST;
 constexpr SLErrorStatus_SLErrno SLErrorStatus::SL_NEXT_HOP_INVALID_PREFIX;
 constexpr SLErrorStatus_SLErrno SLErrorStatus::SL_NEXT_HOP_INVALID_NEXT_HOP_ADDR;
 constexpr SLErrorStatus_SLErrno SLErrorStatus::SL_NEXT_HOP_INVALID_PREFIX_SZ;
+constexpr SLErrorStatus_SLErrno SLErrorStatus::SL_NEXT_HOP_RIB_ADD_FAILED;
 constexpr SLErrorStatus_SLErrno SLErrorStatus::SL_FIB_SUCCESS;
 constexpr SLErrorStatus_SLErrno SLErrorStatus::SL_FIB_FAILED;
 constexpr SLErrorStatus_SLErrno SLErrorStatus::SL_FIB_INELIGIBLE;
