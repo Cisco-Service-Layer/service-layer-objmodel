@@ -273,6 +273,10 @@ class GrpcClient(AbstractClient):
     REGISTER_TIMEOUT_SECONDS = 120
 
     def __init__(self, host, port, channel_credentials=None):
+        self.metadata = [
+            ("username", "cisco"),
+            ("password", "cisco123"),
+        ]
         if channel_credentials is None:
             # Instantiate insecure channel object.
             self.channel = grpc.insecure_channel(str(host) + ":" + str(port))
@@ -305,7 +309,7 @@ class GrpcClient(AbstractClient):
         response = {
             4: self._stubs[0].SLRoutev4GlobalsGet,
             6: self._stubs[1].SLRoutev6GlobalsGet,
-        }[af](serializer, self.TIMEOUT_SECONDS)
+        }[af](serializer, self.TIMEOUT_SECONDS, metadata=self.metadata)
         return response
 
     def route_global_stats_get(self, af):
@@ -314,7 +318,7 @@ class GrpcClient(AbstractClient):
         response = {
             4: self._stubs[0].SLRoutev4GlobalStatsGet,
             6: self._stubs[1].SLRoutev6GlobalStatsGet,
-        }[af](serializer, self.TIMEOUT_SECONDS)
+        }[af](serializer, self.TIMEOUT_SECONDS, metadata=self.metadata)
         return response
 
     def route_add(self, route_info):
@@ -324,7 +328,7 @@ class GrpcClient(AbstractClient):
         response = {
             4: self._stubs[0].SLRoutev4Op,
             6: self._stubs[1].SLRoutev6Op,
-        }[route_info['af']](serializer, self.TIMEOUT_SECONDS)
+        }[route_info['af']](serializer, self.TIMEOUT_SECONDS, metadata=self.metadata)
         return response
 
     def route_update(self, route_info):
@@ -334,7 +338,7 @@ class GrpcClient(AbstractClient):
         response = {
             4: self._stubs[0].SLRoutev4Op,
             6: self._stubs[1].SLRoutev6Op,
-        }[route_info['af']](serializer, self.TIMEOUT_SECONDS)
+        }[route_info['af']](serializer, self.TIMEOUT_SECONDS, metadata=self.metadata)
         return response
 
     def route_delete(self, route_info):
@@ -348,7 +352,7 @@ class GrpcClient(AbstractClient):
         response = {
             4: self._stubs[0].SLRoutev4Op,
             6: self._stubs[1].SLRoutev6Op,
-        }[route_info['af']](serializer, self.TIMEOUT_SECONDS)
+        }[route_info['af']](serializer, self.TIMEOUT_SECONDS, metadata=self.metadata)
         return response
 
     def route_get(self, get_info):
@@ -357,7 +361,7 @@ class GrpcClient(AbstractClient):
         response = {
             4: self._stubs[0].SLRoutev4Get,
             6: self._stubs[1].SLRoutev6Get,
-        }[get_info['af']](serializer, 10*self.TIMEOUT_SECONDS)
+        }[get_info['af']](serializer, 10*self.TIMEOUT_SECONDS, metadata=self.metadata)
         return response
 
     def route_get_stream(self, stream_info):
@@ -375,7 +379,7 @@ class GrpcClient(AbstractClient):
         serialized_itor = map(serialize, stream_info['iterator'])
 
         # Get iterator of responses
-        responses = func(serialized_itor, 100*self.TIMEOUT_SECONDS)
+        responses = func(serialized_itor, 100*self.TIMEOUT_SECONDS, metadata=self.metadata)
         return responses
 
     def route_op_stream(self, stream_info, oper):
@@ -394,7 +398,7 @@ class GrpcClient(AbstractClient):
         serialized_itor = map(serialize, stream_info['iterator'])
 
         # Get iterator of responses
-        responses = func(serialized_itor, 100*self.TIMEOUT_SECONDS)
+        responses = func(serialized_itor, 100*self.TIMEOUT_SECONDS, metadata=self.metadata)
         return responses
 
 
@@ -422,7 +426,7 @@ class GrpcClient(AbstractClient):
         response = {
             4: self._stubs[0].SLRoutev4VrfRegOp,
             6: self._stubs[1].SLRoutev6VrfRegOp,
-        }[batch['af']](serializer, self.TIMEOUT_SECONDS)
+        }[batch['af']](serializer, self.TIMEOUT_SECONDS, metadata=self.metadata)
         return response
 
     def vrf_registration_delete(self, batch):
@@ -437,7 +441,7 @@ class GrpcClient(AbstractClient):
         response = {
             4: self._stubs[0].SLRoutev4VrfRegOp,
             6: self._stubs[1].SLRoutev6VrfRegOp,
-        }[batch['af']](serializer, self.TIMEOUT_SECONDS)
+        }[batch['af']](serializer, self.TIMEOUT_SECONDS, metadata=self.metadata)
         return response
 
     def vrf_get(self, get_info, stats):
@@ -447,12 +451,12 @@ class GrpcClient(AbstractClient):
             response = {
                 4: self._stubs[0].SLRoutev4VrfGetStats,
                 6: self._stubs[1].SLRoutev6VrfGetStats,
-            }[get_info['af']](serializer, self.TIMEOUT_SECONDS)
+            }[get_info['af']](serializer, self.TIMEOUT_SECONDS, metadata=self.metadata)
         else:
             response = {
                 4: self._stubs[0].SLRoutev4VrfRegGet,
                 6: self._stubs[1].SLRoutev6VrfRegGet,
-            }[get_info['af']](serializer, self.TIMEOUT_SECONDS)
+            }[get_info['af']](serializer, self.TIMEOUT_SECONDS, metadata=self.metadata)
         return response
 
     def vrf_registration_eof(self, batch):
@@ -467,7 +471,7 @@ class GrpcClient(AbstractClient):
         response = {
             4: self._stubs[0].SLRoutev4VrfRegOp,
             6: self._stubs[1].SLRoutev6VrfRegOp,
-        }[batch['af']](serializer, self.TIMEOUT_SECONDS)
+        }[batch['af']](serializer, self.TIMEOUT_SECONDS, metadata=self.metadata)
         return response
 
     def mpls_register_oper(self, batch):
@@ -479,7 +483,7 @@ class GrpcClient(AbstractClient):
         """
         serializer = serializers.mpls_regop_serializer(batch)
         serializer.Oper = sl_common_types_pb2.SL_REGOP_REGISTER
-        response = self._stubs[3].SLMplsRegOp(serializer, self.REGISTER_TIMEOUT_SECONDS)
+        response = self._stubs[3].SLMplsRegOp(serializer, self.REGISTER_TIMEOUT_SECONDS, metadata=self.metadata)
         return response
 
     def mpls_unregister_oper(self):
@@ -490,7 +494,7 @@ class GrpcClient(AbstractClient):
         """
         serializer = serializers.mpls_regop_serializer()
         serializer.Oper = sl_common_types_pb2.SL_REGOP_UNREGISTER
-        response = self._stubs[3].SLMplsRegOp(serializer, self.TIMEOUT_SECONDS)
+        response = self._stubs[3].SLMplsRegOp(serializer, self.TIMEOUT_SECONDS, metadata=self.metadata)
         return response
 
     def mpls_eof_oper(self):
@@ -501,7 +505,7 @@ class GrpcClient(AbstractClient):
         """
         serializer = serializers.mpls_regop_serializer()
         serializer.Oper = sl_common_types_pb2.SL_REGOP_EOF
-        response = self._stubs[3].SLMplsRegOp(serializer, self.TIMEOUT_SECONDS)
+        response = self._stubs[3].SLMplsRegOp(serializer, self.TIMEOUT_SECONDS, metadata=self.metadata)
         return response
 
     def mpls_global_get(self):
@@ -511,7 +515,7 @@ class GrpcClient(AbstractClient):
         :return: response: mpls global get response
         """
         serializer = serializers.mpls_get_serializer()
-        response = self._stubs[3].SLMplsGet(serializer, self.TIMEOUT_SECONDS)
+        response = self._stubs[3].SLMplsGet(serializer, self.TIMEOUT_SECONDS, metadata=self.metadata)
         return response
 
     def mpls_global_get_stats(self):
@@ -522,7 +526,7 @@ class GrpcClient(AbstractClient):
         """
         serializer = serializers.mpls_get_serializer()
         response = self._stubs[3].SLMplsGetStats(serializer,
-            self.TIMEOUT_SECONDS)
+            self.TIMEOUT_SECONDS, metadata=self.metadata)
         return response
 
     def label_block_add(self, batch):
@@ -535,7 +539,7 @@ class GrpcClient(AbstractClient):
         serializer = serializers.label_block_serializer(batch)
         serializer.Oper = sl_common_types_pb2.SL_OBJOP_ADD
         response = self._stubs[3].SLMplsLabelBlockOp(serializer,
-                self.TIMEOUT_SECONDS)
+                self.TIMEOUT_SECONDS, metadata=self.metadata)
         return response
 
     def label_block_delete(self, batch):
@@ -548,7 +552,7 @@ class GrpcClient(AbstractClient):
         serializer = serializers.label_block_serializer(batch)
         serializer.Oper = sl_common_types_pb2.SL_OBJOP_DELETE
         response = self._stubs[3].SLMplsLabelBlockOp(serializer,
-                self.TIMEOUT_SECONDS)
+                self.TIMEOUT_SECONDS, metadata=self.metadata)
         return response
 
     def label_block_get(self, get_info):
@@ -560,7 +564,7 @@ class GrpcClient(AbstractClient):
         """
         serializer = serializers.label_block_get_serializer(get_info)
         response = self._stubs[3].SLMplsLabelBlockGet(serializer,
-             self.TIMEOUT_SECONDS)
+             self.TIMEOUT_SECONDS, metadata=self.metadata)
         return response
 
     def ilm_add(self, ilm_info):
@@ -568,7 +572,7 @@ class GrpcClient(AbstractClient):
         serializer = serializers.ilm_serializer(ilm_info)
         serializer.Oper = sl_common_types_pb2.SL_OBJOP_ADD
         response = self._stubs[3].SLMplsIlmOp(serializer,
-            self.TIMEOUT_SECONDS)
+            self.TIMEOUT_SECONDS, metadata=self.metadata)
         return response
 
     def ilm_update(self, ilm_info):
@@ -576,7 +580,7 @@ class GrpcClient(AbstractClient):
         serializer = serializers.ilm_serializer(ilm_info)
         serializer.Oper = sl_common_types_pb2.SL_OBJOP_UPDATE
         response = self._stubs[3].SLMplsIlmOp(serializer,
-            self.TIMEOUT_SECONDS)
+            self.TIMEOUT_SECONDS, metadata=self.metadata)
         return response
 
     def ilm_delete(self, ilm_info):
@@ -584,7 +588,7 @@ class GrpcClient(AbstractClient):
         serializer = serializers.ilm_serializer(ilm_info)
         serializer.Oper = sl_common_types_pb2.SL_OBJOP_DELETE
         response = self._stubs[3].SLMplsIlmOp(serializer,
-            self.TIMEOUT_SECONDS)
+            self.TIMEOUT_SECONDS, metadata=self.metadata)
         return response
 
     def ilm_get(self, get_info):
@@ -595,7 +599,7 @@ class GrpcClient(AbstractClient):
         :return: response: mpls block get response
         """
         serializer = serializers.ilm_get_serializer(get_info)
-        response = self._stubs[3].SLMplsIlmGet(serializer, 10*self.TIMEOUT_SECONDS)
+        response = self._stubs[3].SLMplsIlmGet(serializer, 10*self.TIMEOUT_SECONDS, metadata=self.metadata)
         return response
 
     def ilm_get_stream(self, stream_info):
@@ -610,7 +614,7 @@ class GrpcClient(AbstractClient):
         serialized_itor = map(serialize, stream_info['iterator'])
 
         # Get iterator of responses
-        responses = func(serialized_itor, 100*self.TIMEOUT_SECONDS)
+        responses = func(serialized_itor, 100*self.TIMEOUT_SECONDS, metadata=self.metadata)
         return responses
 
     def ilm_op_stream(self, stream_info, oper):
@@ -626,7 +630,7 @@ class GrpcClient(AbstractClient):
         serialized_itor = map(serialize, stream_info['iterator'])
 
         # Get iterator of responses
-        responses = func(serialized_itor, 100*self.TIMEOUT_SECONDS)
+        responses = func(serialized_itor, 100*self.TIMEOUT_SECONDS, metadata=self.metadata)
         return responses
 
     def ilm_add_stream(self, stream_info):
@@ -743,13 +747,13 @@ class GrpcClient(AbstractClient):
         """Global Init"""
         serializer = serializers.global_init_serializer(g_params)
         # Expect a stream of SLGlobalNotif - XXX Use large timeout for now
-        return self._stubs[2].SLGlobalInitNotif(serializer, 3600*24*365)
+        return self._stubs[2].SLGlobalInitNotif(serializer, 3600*24*365, metadata=self.metadata)
 
     def global_get(self):
         """Global Get"""
         serializer = serializers.global_get_serializer()
         response = self._stubs[2].SLGlobalsGet(serializer,
-            self.TIMEOUT_SECONDS)
+            self.TIMEOUT_SECONDS, metadata=self.metadata)
         return response
 
     def intf_register_op(self):
