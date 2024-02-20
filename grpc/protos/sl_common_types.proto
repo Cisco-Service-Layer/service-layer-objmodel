@@ -779,10 +779,29 @@ message SLErrorStatus {
         SL_POLICY_TYPE_INVALID = 0x18017;
         // Invalid policy direction. 0x18018
         SL_POLICY_INVALID_DIRECTION = 0x18018;
-
-
+        // Policy object's interface name exceeds supported length. 0x18019
+        SL_POLICY_INTF_NAME_TOOLONG = 0x18019;
+        // Policy object's interface name is missing. 0x1801a 
+        SL_POLICY_INTF_NAME_MISSING = 0x1801a;
+        // Max rule limit within a policy is reached. 0x1801b
+        SL_POLICY_MAX_RULE_LIMIT_REACHED = 0x1801b;
+        // Vrf name in policy object is too long. 0x1801c
+        SL_POLICY_VRF_NAME_TOO_LONG = 0x1801c;
+        // Vrf name missing in policy object. 0x1801d
+        SL_POLICY_VRF_NAME_MISSING = 0x1801d;
+        // Path Group name in policy object too long. 0x1801e
+        SL_POLICY_PATH_GRP_NAME_TOO_LONG = 0x1801e;
+        // Path Group name missing in policy object. 0x1801f
+        SL_POLICY_PATH_GRP_NAME_MISSING = 0x1801f;
+        // Invalid Dscp Value. 0x18020
+        SL_POLICY_INVALID_DSCP_VALUE = 0x18020;
+        // Priority string too long. 0x18021 
+        SL_POLICY_PRIORITY_STR_TOO_LONG = 0x18021;
+        // Max interfaces limit in policy reached. 0x18022
+        SL_POLICY_MAX_INTF_LIMIT_REACHED = 0x18022;
+ 
         // !!! Error codes Reserved for internal errors.
-        
+
         // Offset for Internal errors. 0x100000
         SL_INTERNAL_START_OFFSET = 0x100000;
     }
