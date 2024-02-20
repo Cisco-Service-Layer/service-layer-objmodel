@@ -2306,29 +2306,9 @@ class TestSuite_030_MPLS_CoS_NHLFE_TC1(unittest.TestCase):
             xfail=True,
             **self.path_info
         )
-
-    # add label 32220 -  Negative test, Different priority for same setid
-    def test_006_ilm_add(self):
-        client.ilm_add(
-            self.ilm_entry["cos_nhlfe_5"],
-            stream=self.STREAM,
-            af=self.AF,
-            xfail=True,
-            **self.path_info
-        )
-
-    # add label 32220 -  Negative test, Multiple primary setid
-    def test_007_ilm_add(self):
-        client.ilm_add(
-            self.ilm_entry["cos_nhlfe_6"],
-            stream=self.STREAM,
-            af=self.AF,
-            xfail=True,
-            **self.path_info
-        )
     
      # # add label 32220 -  Negative test, Non contiguous setids
-    def test_008_ilm_add(self):
+    def test_006_ilm_add(self):
         client.ilm_add(
             self.ilm_entry["cos_nhlfe_7"],
             stream=self.STREAM,
@@ -2338,7 +2318,7 @@ class TestSuite_030_MPLS_CoS_NHLFE_TC1(unittest.TestCase):
         )
 
      # # add label 32220 -  Negative test, Non contiguous exps
-    def test_009_ilm_add(self):
+    def test_007_ilm_add(self):
         client.ilm_add(
             self.ilm_entry["cos_nhlfe_8"],
             stream=self.STREAM,
@@ -2348,7 +2328,7 @@ class TestSuite_030_MPLS_CoS_NHLFE_TC1(unittest.TestCase):
         )
 
       # # add label 32220 -  Negative test, inconsistent exp on path
-    def test_010_ilm_add(self):
+    def test_008_ilm_add(self):
         client.ilm_add(
             self.ilm_entry["cos_nhlfe_9"],
             stream=self.STREAM,
@@ -2358,7 +2338,7 @@ class TestSuite_030_MPLS_CoS_NHLFE_TC1(unittest.TestCase):
         )
 
     # # add label 32220 - 32224 - Pop and Lookup
-    def test_011_ilm_add(self):
+    def test_009_ilm_add(self):
         client.ilm_add(
             self.ilm_entry["cos_nhlfe_1"],
             stream=self.STREAM,
@@ -2367,7 +2347,7 @@ class TestSuite_030_MPLS_CoS_NHLFE_TC1(unittest.TestCase):
         )
 
     # # update label 32220-32224 - Swap/ Pop and Forward
-    def test_012_ilm_update(self):
+    def test_010_ilm_update(self):
         client.ilm_update(
             self.ilm_entry["cos_nhlfe_2"],
             stream=self.STREAM,
@@ -2376,7 +2356,7 @@ class TestSuite_030_MPLS_CoS_NHLFE_TC1(unittest.TestCase):
         )
 
     # # update label 32220 - 32224 - Pop and Lookup
-    def test_013_ilm_update(self):
+    def test_011_ilm_update(self):
         client.ilm_update(
             self.ilm_entry["cos_nhlfe_1"],
             stream=self.STREAM,
@@ -2394,7 +2374,7 @@ class TestSuite_030_MPLS_CoS_NHLFE_TC1(unittest.TestCase):
         )
 
     # # update label 32220-32224, change path priority
-    def test_014_ilm_update(self):
+    def test_013_ilm_update(self):
         client.ilm_update(
             self.ilm_entry["cos_nhlfe_3"],
             stream=self.STREAM,
@@ -2403,7 +2383,7 @@ class TestSuite_030_MPLS_CoS_NHLFE_TC1(unittest.TestCase):
         )
 
     # # update label 32220 - 32224 - Pop and Lookup
-    def test_015_ilm_update(self):
+    def test_014_ilm_update(self):
         client.ilm_update(
             self.ilm_entry["cos_nhlfe_1"],
             stream=self.STREAM,
@@ -2412,7 +2392,7 @@ class TestSuite_030_MPLS_CoS_NHLFE_TC1(unittest.TestCase):
         )
 
     #  # delete label 32220-32224
-    def test_016_ilm_delete(self):
+    def test_015_ilm_delete(self):
         client.ilm_delete(
             self.ilm_entry_del["cos_nhlfe_del_default"],
             stream=self.STREAM,
@@ -2420,10 +2400,10 @@ class TestSuite_030_MPLS_CoS_NHLFE_TC1(unittest.TestCase):
             **self.path_info
         )
 
-    def test_017_mpls_eof(self):
+    def test_016_mpls_eof(self):
         client.mpls_eof()
 
-    def test_018_mpls_unregister(self):
+    def test_017_mpls_unregister(self):
         client.mpls_unregister()
 
 
@@ -2497,7 +2477,7 @@ class TestSuite_036_MPLS_PRIMARY_BACKUP_TC1(unittest.TestCase):
             self.ilm_entry["cos_nhlfe_5"],
             stream=self.STREAM,
             af=self.AF,
-            xfail=True,
+            xfail=False,
             **self.path_info
         )
 
@@ -2516,7 +2496,7 @@ class TestSuite_036_MPLS_PRIMARY_BACKUP_TC1(unittest.TestCase):
             self.ilm_entry["cos_nhlfe_6"],
             stream=self.STREAM,
             af=self.AF,
-            xfail=True,
+            xfail=False,
             **self.path_info
         )
 
