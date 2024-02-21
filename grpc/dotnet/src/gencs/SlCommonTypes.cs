@@ -1777,15 +1777,15 @@ namespace ServiceLayer {
         [pbr::OriginalName("SL_NEXT_HOP_RIB_ADD_FAILED")] SlNextHopRibAddFailed = 90119,
         /// <summary>
         /// Offset for Hardware Ack errors. 0x17000
-        /// The operation is successfully program in hardware
+        /// The operation is successfully program in hardware. 0x17000
         /// </summary>
         [pbr::OriginalName("SL_FIB_SUCCESS")] SlFibSuccess = 94208,
         /// <summary>
-        /// There is a generic failure in hardware programming of operation
+        /// There is a generic failure in hardware programming of operation. 0x17001
         /// </summary>
         [pbr::OriginalName("SL_FIB_FAILED")] SlFibFailed = 94209,
         /// <summary>
-        /// The operation is not viable to be programmed in hardware at this time
+        /// The operation is not viable to be programmed in hardware at this time. 0x17002
         /// </summary>
         [pbr::OriginalName("SL_FIB_INELIGIBLE")] SlFibIneligible = 94210,
         /// <summary>
