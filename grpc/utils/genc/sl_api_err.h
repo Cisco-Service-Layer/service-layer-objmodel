@@ -646,7 +646,7 @@
     /* Offset for Hardware Ack errors. 0x17000 */\
     /* The operation is successfully program in hardware. 0x17000 */\
     SL_FIB_SUCCESS = 0x17000,\
-    /* There is a generic failure in hardware programming of operation. 0x17001 */\
+    /* FIB programming failure. 0x17001 */\
     SL_FIB_FAILED = 0x17001,\
     /* The operation is not viable to be programmed in hardware at this time. 0x17002 */\
     SL_FIB_INELIGIBLE = 0x17002,\
@@ -1541,7 +1541,7 @@
         " The operation is successfully program in hardware.  "\
         },\
     {SL_FIB_FAILED ,\
-        " There is a generic failure in hardware programming of operation.  "\
+        " FIB programming failure.  "\
         },\
     {SL_FIB_INELIGIBLE ,\
         " The operation is not viable to be programmed in hardware at this time.  "\

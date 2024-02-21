@@ -1050,7 +1050,7 @@ const (
 	// Offset for Hardware Ack errors. 0x17000
 	// The operation is successfully program in hardware. 0x17000
 	SLErrorStatus_SL_FIB_SUCCESS SLErrorStatus_SLErrno = 94208
-	// There is a generic failure in hardware programming of operation. 0x17001
+	// FIB programming failure. 0x17001
 	SLErrorStatus_SL_FIB_FAILED SLErrorStatus_SLErrno = 94209
 	// The operation is not viable to be programmed in hardware at this time. 0x17002
 	SLErrorStatus_SL_FIB_INELIGIBLE SLErrorStatus_SLErrno = 94210
