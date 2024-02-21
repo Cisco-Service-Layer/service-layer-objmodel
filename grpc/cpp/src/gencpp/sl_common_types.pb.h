@@ -347,6 +347,7 @@ enum SLErrorStatus_SLErrno : int {
   SLErrorStatus_SLErrno_SL_PG_VRF_NO_VRFID = 86018,
   SLErrorStatus_SLErrno_SL_PG_STR_KEY_TOOLONG = 86019,
   SLErrorStatus_SLErrno_SL_PG_TARGET_VRF_NO_VRFID = 86020,
+  SLErrorStatus_SLErrno_SL_NEXT_HOP_START_OFFSET = 90112,
   SLErrorStatus_SLErrno_SL_NEXT_HOP_INVALID_PREFIX_LEN = 90113,
   SLErrorStatus_SLErrno_SL_NEXT_HOP_HOST_BITS_SET = 90114,
   SLErrorStatus_SLErrno_SL_NEXT_HOP_INVALID_PREFIX_MCAST = 90115,
@@ -354,9 +355,10 @@ enum SLErrorStatus_SLErrno : int {
   SLErrorStatus_SLErrno_SL_NEXT_HOP_INVALID_NEXT_HOP_ADDR = 90117,
   SLErrorStatus_SLErrno_SL_NEXT_HOP_INVALID_PREFIX_SZ = 90118,
   SLErrorStatus_SLErrno_SL_NEXT_HOP_RIB_ADD_FAILED = 90119,
-  SLErrorStatus_SLErrno_SL_FIB_SUCCESS = 94208,
-  SLErrorStatus_SLErrno_SL_FIB_FAILED = 94209,
-  SLErrorStatus_SLErrno_SL_FIB_INELIGIBLE = 94210,
+  SLErrorStatus_SLErrno_SL_FIB_START_OFFSET = 94208,
+  SLErrorStatus_SLErrno_SL_FIB_SUCCESS = 94209,
+  SLErrorStatus_SLErrno_SL_FIB_FAILED = 94210,
+  SLErrorStatus_SLErrno_SL_FIB_INELIGIBLE = 94211,
   SLErrorStatus_SLErrno_SL_INTERNAL_START_OFFSET = 1048576,
   SLErrorStatus_SLErrno_SLErrorStatus_SLErrno_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::min(),
   SLErrorStatus_SLErrno_SLErrorStatus_SLErrno_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::max()
@@ -1221,6 +1223,8 @@ class SLErrorStatus final :
     SLErrorStatus_SLErrno_SL_PG_STR_KEY_TOOLONG;
   static constexpr SLErrno SL_PG_TARGET_VRF_NO_VRFID =
     SLErrorStatus_SLErrno_SL_PG_TARGET_VRF_NO_VRFID;
+  static constexpr SLErrno SL_NEXT_HOP_START_OFFSET =
+    SLErrorStatus_SLErrno_SL_NEXT_HOP_START_OFFSET;
   static constexpr SLErrno SL_NEXT_HOP_INVALID_PREFIX_LEN =
     SLErrorStatus_SLErrno_SL_NEXT_HOP_INVALID_PREFIX_LEN;
   static constexpr SLErrno SL_NEXT_HOP_HOST_BITS_SET =
@@ -1235,6 +1239,8 @@ class SLErrorStatus final :
     SLErrorStatus_SLErrno_SL_NEXT_HOP_INVALID_PREFIX_SZ;
   static constexpr SLErrno SL_NEXT_HOP_RIB_ADD_FAILED =
     SLErrorStatus_SLErrno_SL_NEXT_HOP_RIB_ADD_FAILED;
+  static constexpr SLErrno SL_FIB_START_OFFSET =
+    SLErrorStatus_SLErrno_SL_FIB_START_OFFSET;
   static constexpr SLErrno SL_FIB_SUCCESS =
     SLErrorStatus_SLErrno_SL_FIB_SUCCESS;
   static constexpr SLErrno SL_FIB_FAILED =

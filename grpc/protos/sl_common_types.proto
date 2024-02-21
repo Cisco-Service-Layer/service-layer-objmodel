@@ -692,6 +692,7 @@ message SLErrorStatus {
         // !!! Error codes for Nexthop request objects.
 
         // Offset for Nexthop request errors. 0x16000
+        SL_NEXT_HOP_START_OFFSET = 0x16000;
         // Nexthop prefix length is invalid. 0x16001
         SL_NEXT_HOP_INVALID_PREFIX_LEN = 0x16001;
         // Nexthop prefix has host bits set. 0x16002
@@ -708,12 +709,13 @@ message SLErrorStatus {
         SL_NEXT_HOP_RIB_ADD_FAILED = 0x16007;
 
         // Offset for Hardware Ack errors. 0x17000
-        // The operation is successfully program in hardware. 0x17000
-        SL_FIB_SUCCESS = 0x17000;
-        // FIB programming failure. 0x17001
-        SL_FIB_FAILED = 0x17001;
-        // The operation is not viable to be programmed in hardware at this time. 0x17002
-        SL_FIB_INELIGIBLE = 0x17002;
+        SL_FIB_START_OFFSET = 0x17000;
+        // The operation is successfully program in hardware. 0x17001
+        SL_FIB_SUCCESS = 0x17001;
+        // FIB programming failure. 0x17002
+        SL_FIB_FAILED = 0x17002;
+        // The operation is not viable to be programmed in hardware at this time. 0x17003
+        SL_FIB_INELIGIBLE = 0x17003;
 
         // !!! Error codes Reserved for internal errors.
 

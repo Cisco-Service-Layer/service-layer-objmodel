@@ -24,9 +24,9 @@ namespace ServiceLayer {
     static SlCommonTypesReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChVzbF9jb21tb25fdHlwZXMucHJvdG8SDXNlcnZpY2VfbGF5ZXIis0kKDVNM",
+            "ChVzbF9jb21tb25fdHlwZXMucHJvdG8SDXNlcnZpY2VfbGF5ZXIi7kkKDVNM",
             "RXJyb3JTdGF0dXMSNAoGU3RhdHVzGAEgASgOMiQuc2VydmljZV9sYXllci5T",
-            "TEVycm9yU3RhdHVzLlNMRXJybm8i60gKB1NMRXJybm8SDgoKU0xfU1VDQ0VT",
+            "TEVycm9yU3RhdHVzLlNMRXJybm8ipkkKB1NMRXJybm8SDgoKU0xfU1VDQ0VT",
             "UxAAEhQKEFNMX05PVF9DT05ORUNURUQQARINCglTTF9FQUdBSU4QAhINCglT",
             "TF9FTk9NRU0QAxIMCghTTF9FQlVTWRAEEg0KCVNMX0VJTlZBTBAFEhYKElNM",
             "X1VOU1VQUE9SVEVEX1ZFUhAGEhQKEFNMX05PVF9BVkFJTEFCTEUQBxIbChdT",
@@ -225,38 +225,40 @@ namespace ServiceLayer {
             "X0JEX05BTUVfVE9PTE9ORxCIgAUSIgocU0xfUlBDX0wyX05PVElGX0JEX05P",
             "VF9GT1VORBCJgAUSFwoRU0xfUEdfVlJGX0FERF9FUlIQgaAFEhgKElNMX1BH",
             "X1ZSRl9OT19WUkZJRBCCoAUSGwoVU0xfUEdfU1RSX0tFWV9UT09MT05HEIOg",
-            "BRIfChlTTF9QR19UQVJHRVRfVlJGX05PX1ZSRklEEISgBRIkCh5TTF9ORVhU",
-            "X0hPUF9JTlZBTElEX1BSRUZJWF9MRU4QgcAFEh8KGVNMX05FWFRfSE9QX0hP",
-            "U1RfQklUU19TRVQQgsAFEiYKIFNMX05FWFRfSE9QX0lOVkFMSURfUFJFRklY",
-            "X01DQVNUEIPABRIgChpTTF9ORVhUX0hPUF9JTlZBTElEX1BSRUZJWBCEwAUS",
-            "JwohU0xfTkVYVF9IT1BfSU5WQUxJRF9ORVhUX0hPUF9BRERSEIXABRIjCh1T",
-            "TF9ORVhUX0hPUF9JTlZBTElEX1BSRUZJWF9TWhCGwAUSIAoaU0xfTkVYVF9I",
-            "T1BfUklCX0FERF9GQUlMRUQQh8AFEhQKDlNMX0ZJQl9TVUNDRVNTEIDgBRIT",
-            "Cg1TTF9GSUJfRkFJTEVEEIHgBRIXChFTTF9GSUJfSU5FTElHSUJMRRCC4AUS",
-            "HgoYU0xfSU5URVJOQUxfU1RBUlRfT0ZGU0VUEICAQCI8CgtTTEludGVyZmFj",
-            "ZRIOCgROYW1lGAEgASgJSAASEAoGSGFuZGxlGAIgASgNSABCCwoJSW50ZXJm",
-            "YWNlIkIKC1NMSXBBZGRyZXNzEhMKCVY0QWRkcmVzcxgBIAEoDUgAEhMKCVY2",
-            "QWRkcmVzcxgCIAEoDEgAQgkKB0FkZHJlc3MiJQoKU0xPYmplY3RJZBIOCgRO",
-            "YW1lGAEgASgJSABCBwoFZW50cnkiVAoRU0xQYXRoR3JvdXBSZWZLZXkSDwoH",
-            "VnJmTmFtZRgBIAEoCRIuCgtQYXRoR3JvdXBJZBgCIAEoCzIZLnNlcnZpY2Vf",
-            "bGF5ZXIuU0xPYmplY3RJZCpiCgdTTFJlZ09wEhUKEVNMX1JFR09QX1JFU0VS",
-            "VkVEEAASFQoRU0xfUkVHT1BfUkVHSVNURVIQARIXChNTTF9SRUdPUF9VTlJF",
-            "R0lTVEVSEAISEAoMU0xfUkVHT1BfRU9GEAMqXwoKU0xPYmplY3RPcBIVChFT",
-            "TF9PQkpPUF9SRVNFUlZFRBAAEhAKDFNMX09CSk9QX0FERBABEhMKD1NMX09C",
-            "Sk9QX1VQREFURRACEhMKD1NMX09CSk9QX0RFTEVURRADKlMKCVNMTm90aWZP",
-            "cBIXChNTTF9OT1RJRk9QX1JFU0VSVkVEEAASFQoRU0xfTk9USUZPUF9FTkFC",
-            "TEUQARIWChJTTF9OT1RJRk9QX0RJU0FCTEUQAiqJAQoQU0xVcGRhdGVQcmlv",
-            "cml0eRIYChRTTF9QUklPUklUWV9SRVNFUlZFRBAAEhgKFFNMX1BSSU9SSVRZ",
-            "X0NSSVRJQ0FMEAQSFAoQU0xfUFJJT1JJVFlfSElHSBAIEhYKElNMX1BSSU9S",
-            "SVRZX01FRElVTRAMEhMKD1NMX1BSSU9SSVRZX0xPVxAQKksKC1NMRW5jYXBU",
-            "eXBlEhUKEVNMX0VOQ0FQX1JFU0VSVkVEEAASEgoOU0xfRU5DQVBfVlhMQU4Q",
-            "ARIRCg1TTF9FTkNBUF9NUExTEAIqjQEKC1NMVGFibGVUeXBlEhoKFlNMX1RB",
-            "QkxFX1RZUEVfUkVTRVJWRUQQABIXChNTTF9JUHY0X1JPVVRFX1RBQkxFEAES",
-            "FwoTU0xfSVB2Nl9ST1VURV9UQUJMRRACEhcKE1NMX01QTFNfTEFCRUxfVEFC",
-            "TEUQAxIXChNTTF9QQVRIX0dST1VQX1RBQkxFEAQqMAoMU0xSc3BBQ0tUeXBl",
-            "EgsKB1JJQl9BQ0sQABITCg9SSUJfQU5EX0ZJQl9BQ0sQAUJRWk9naXRodWIu",
-            "Y29tL0Npc2NvLXNlcnZpY2UtbGF5ZXIvc2VydmljZS1sYXllci1vYmptb2Rl",
-            "bC9ncnBjL3Byb3RvcztzZXJ2aWNlX2xheWVyYgZwcm90bzM="));
+            "BRIfChlTTF9QR19UQVJHRVRfVlJGX05PX1ZSRklEEISgBRIeChhTTF9ORVhU",
+            "X0hPUF9TVEFSVF9PRkZTRVQQgMAFEiQKHlNMX05FWFRfSE9QX0lOVkFMSURf",
+            "UFJFRklYX0xFThCBwAUSHwoZU0xfTkVYVF9IT1BfSE9TVF9CSVRTX1NFVBCC",
+            "wAUSJgogU0xfTkVYVF9IT1BfSU5WQUxJRF9QUkVGSVhfTUNBU1QQg8AFEiAK",
+            "GlNMX05FWFRfSE9QX0lOVkFMSURfUFJFRklYEITABRInCiFTTF9ORVhUX0hP",
+            "UF9JTlZBTElEX05FWFRfSE9QX0FERFIQhcAFEiMKHVNMX05FWFRfSE9QX0lO",
+            "VkFMSURfUFJFRklYX1NaEIbABRIgChpTTF9ORVhUX0hPUF9SSUJfQUREX0ZB",
+            "SUxFRBCHwAUSGQoTU0xfRklCX1NUQVJUX09GRlNFVBCA4AUSFAoOU0xfRklC",
+            "X1NVQ0NFU1MQgeAFEhMKDVNMX0ZJQl9GQUlMRUQQguAFEhcKEVNMX0ZJQl9J",
+            "TkVMSUdJQkxFEIPgBRIeChhTTF9JTlRFUk5BTF9TVEFSVF9PRkZTRVQQgIBA",
+            "IjwKC1NMSW50ZXJmYWNlEg4KBE5hbWUYASABKAlIABIQCgZIYW5kbGUYAiAB",
+            "KA1IAEILCglJbnRlcmZhY2UiQgoLU0xJcEFkZHJlc3MSEwoJVjRBZGRyZXNz",
+            "GAEgASgNSAASEwoJVjZBZGRyZXNzGAIgASgMSABCCQoHQWRkcmVzcyIlCgpT",
+            "TE9iamVjdElkEg4KBE5hbWUYASABKAlIAEIHCgVlbnRyeSJUChFTTFBhdGhH",
+            "cm91cFJlZktleRIPCgdWcmZOYW1lGAEgASgJEi4KC1BhdGhHcm91cElkGAIg",
+            "ASgLMhkuc2VydmljZV9sYXllci5TTE9iamVjdElkKmIKB1NMUmVnT3ASFQoR",
+            "U0xfUkVHT1BfUkVTRVJWRUQQABIVChFTTF9SRUdPUF9SRUdJU1RFUhABEhcK",
+            "E1NMX1JFR09QX1VOUkVHSVNURVIQAhIQCgxTTF9SRUdPUF9FT0YQAypfCgpT",
+            "TE9iamVjdE9wEhUKEVNMX09CSk9QX1JFU0VSVkVEEAASEAoMU0xfT0JKT1Bf",
+            "QUREEAESEwoPU0xfT0JKT1BfVVBEQVRFEAISEwoPU0xfT0JKT1BfREVMRVRF",
+            "EAMqUwoJU0xOb3RpZk9wEhcKE1NMX05PVElGT1BfUkVTRVJWRUQQABIVChFT",
+            "TF9OT1RJRk9QX0VOQUJMRRABEhYKElNMX05PVElGT1BfRElTQUJMRRACKokB",
+            "ChBTTFVwZGF0ZVByaW9yaXR5EhgKFFNMX1BSSU9SSVRZX1JFU0VSVkVEEAAS",
+            "GAoUU0xfUFJJT1JJVFlfQ1JJVElDQUwQBBIUChBTTF9QUklPUklUWV9ISUdI",
+            "EAgSFgoSU0xfUFJJT1JJVFlfTUVESVVNEAwSEwoPU0xfUFJJT1JJVFlfTE9X",
+            "EBAqSwoLU0xFbmNhcFR5cGUSFQoRU0xfRU5DQVBfUkVTRVJWRUQQABISCg5T",
+            "TF9FTkNBUF9WWExBThABEhEKDVNMX0VOQ0FQX01QTFMQAiqNAQoLU0xUYWJs",
+            "ZVR5cGUSGgoWU0xfVEFCTEVfVFlQRV9SRVNFUlZFRBAAEhcKE1NMX0lQdjRf",
+            "Uk9VVEVfVEFCTEUQARIXChNTTF9JUHY2X1JPVVRFX1RBQkxFEAISFwoTU0xf",
+            "TVBMU19MQUJFTF9UQUJMRRADEhcKE1NMX1BBVEhfR1JPVVBfVEFCTEUQBCow",
+            "CgxTTFJzcEFDS1R5cGUSCwoHUklCX0FDSxAAEhMKD1JJQl9BTkRfRklCX0FD",
+            "SxABQlFaT2dpdGh1Yi5jb20vQ2lzY28tc2VydmljZS1sYXllci9zZXJ2aWNl",
+            "LWxheWVyLW9iam1vZGVsL2dycGMvcHJvdG9zO3NlcnZpY2VfbGF5ZXJiBnBy",
+            "b3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::ServiceLayer.SLRegOp), typeof(global::ServiceLayer.SLObjectOp), typeof(global::ServiceLayer.SLNotifOp), typeof(global::ServiceLayer.SLUpdatePriority), typeof(global::ServiceLayer.SLEncapType), typeof(global::ServiceLayer.SLTableType), typeof(global::ServiceLayer.SLRspACKType), }, null, new pbr::GeneratedClrTypeInfo[] {
@@ -1748,6 +1750,9 @@ namespace ServiceLayer {
         [pbr::OriginalName("SL_PG_TARGET_VRF_NO_VRFID")] SlPgTargetVrfNoVrfid = 86020,
         /// <summary>
         /// Offset for Nexthop request errors. 0x16000
+        /// </summary>
+        [pbr::OriginalName("SL_NEXT_HOP_START_OFFSET")] SlNextHopStartOffset = 90112,
+        /// <summary>
         /// Nexthop prefix length is invalid. 0x16001
         /// </summary>
         [pbr::OriginalName("SL_NEXT_HOP_INVALID_PREFIX_LEN")] SlNextHopInvalidPrefixLen = 90113,
@@ -1777,17 +1782,20 @@ namespace ServiceLayer {
         [pbr::OriginalName("SL_NEXT_HOP_RIB_ADD_FAILED")] SlNextHopRibAddFailed = 90119,
         /// <summary>
         /// Offset for Hardware Ack errors. 0x17000
-        /// The operation is successfully program in hardware. 0x17000
         /// </summary>
-        [pbr::OriginalName("SL_FIB_SUCCESS")] SlFibSuccess = 94208,
+        [pbr::OriginalName("SL_FIB_START_OFFSET")] SlFibStartOffset = 94208,
         /// <summary>
-        /// FIB programming failure. 0x17001
+        /// The operation is successfully program in hardware. 0x17001
         /// </summary>
-        [pbr::OriginalName("SL_FIB_FAILED")] SlFibFailed = 94209,
+        [pbr::OriginalName("SL_FIB_SUCCESS")] SlFibSuccess = 94209,
         /// <summary>
-        /// The operation is not viable to be programmed in hardware at this time. 0x17002
+        /// FIB programming failure. 0x17002
         /// </summary>
-        [pbr::OriginalName("SL_FIB_INELIGIBLE")] SlFibIneligible = 94210,
+        [pbr::OriginalName("SL_FIB_FAILED")] SlFibFailed = 94210,
+        /// <summary>
+        /// The operation is not viable to be programmed in hardware at this time. 0x17003
+        /// </summary>
+        [pbr::OriginalName("SL_FIB_INELIGIBLE")] SlFibIneligible = 94211,
         /// <summary>
         /// Offset for Internal errors. 0x100000
         /// </summary>
