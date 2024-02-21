@@ -644,14 +644,12 @@
     /* Unable to program NH tracking registration to RIB. 0x16007 */\
     SL_NEXT_HOP_RIB_ADD_FAILED = 0x16007,\
     /* Offset for Hardware Ack errors. 0x17000 */\
-    /* The operation is successfully program in hardware */\
+    /* The operation is successfully program in hardware. 0x17000 */\
     SL_FIB_SUCCESS = 0x17000,\
-    /* There is a generic failure in hardware programming of operation */\
+    /* There is a generic failure in hardware programming of operation. 0x17001 */\
     SL_FIB_FAILED = 0x17001,\
-    /* The operation is not viable to be programmed in hardware at this time */\
+    /* The operation is not viable to be programmed in hardware at this time. 0x17002 */\
     SL_FIB_INELIGIBLE = 0x17002,\
-    /* The status of hardware programming is not available at this time. */\
-    SL_FIB_NA = 0x17003,\
     /* !!! Error codes Reserved for internal errors. */\
     /* Offset for Internal errors. 0x100000 */\
     SL_INTERNAL_START_OFFSET = 0x100000,\
@@ -1540,16 +1538,13 @@
         },\
     {SL_FIB_SUCCESS ,\
         " Offset for Hardware Ack errors.  "\
-        " The operation is successfully program in hardware "\
+        " The operation is successfully program in hardware.  "\
         },\
     {SL_FIB_FAILED ,\
-        " There is a generic failure in hardware programming of operation "\
+        " There is a generic failure in hardware programming of operation.  "\
         },\
     {SL_FIB_INELIGIBLE ,\
-        " The operation is not viable to be programmed in hardware at this time "\
-        },\
-    {SL_FIB_NA ,\
-        " The status of hardware programming is not available at this time. "\
+        " The operation is not viable to be programmed in hardware at this time.  "\
         },\
     {SL_INTERNAL_START_OFFSET ,\
         " Offset for Internal errors.  "\
