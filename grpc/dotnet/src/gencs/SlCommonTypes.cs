@@ -1781,7 +1781,7 @@ namespace ServiceLayer {
         /// </summary>
         [pbr::OriginalName("SL_FIB_SUCCESS")] SlFibSuccess = 94208,
         /// <summary>
-        /// There is a generic failure in hardware programming of operation. 0x17001
+        /// FIB programming failure. 0x17001
         /// </summary>
         [pbr::OriginalName("SL_FIB_FAILED")] SlFibFailed = 94209,
         /// <summary>
