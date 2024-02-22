@@ -799,6 +799,13 @@ message SLErrorStatus {
         SL_POLICY_PRIORITY_STR_TOO_LONG = 0x18021;
         // Max interfaces limit in policy reached. 0x18022
         SL_POLICY_MAX_INTF_LIMIT_REACHED = 0x18022;
+        // Rule delete operation requested but no rules were provided. 0x180023
+        SL_POLICY_RULE_DELETE_NO_RULES = 0x180023;
+        // Policy apply requested but no interfaces were provided. 0x180024
+        SL_POLICY_APPLY_NO_INTFS = 0x180024;
+        // Policy unapply requested but no interfaces were provided. 0x180025
+        SL_POLICY_UNAPPLY_NO_INTFS = 0x180025;
+
  
         // !!! Error codes Reserved for internal errors.
 

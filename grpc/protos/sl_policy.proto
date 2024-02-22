@@ -92,6 +92,13 @@ service SLPolicy {
      // verified and used, other attributes are ignored.
      // 
 
+     // The device can be programmed by only one active instance of 
+     // this RPC.
+
+     // On client restart or RPC disconnects, the client has the
+     // to reconcile its new state with the state on the device
+     // by replaying the difference.
+     // 
      rpc SLPolicyOp(SLPolicyOpMsg) returns (SLPolicyOpRsp);
 
      // Retrieve all Policies and its rules and the interfaces where the  
@@ -99,7 +106,7 @@ service SLPolicy {
      rpc SLPolicyGet(SLPolicyGetMsg) returns (stream SLPolicyGetMsgRsp);
  
      // Retrieve Global Policy capabilities 
-     rpc SLPolicyGlobalsGet(SLPolicyGlobalCapGetMsg) returns (SLPolicyGlobalsGetMsgRsp);
+     rpc SLPolicyGlobalGet(SLPolicyGlobalGetMsg) returns (SLPolicyGlobalGetMsgRsp);
      //@} 
 }
  
@@ -114,8 +121,8 @@ message SLPolicyOpMsg {
      // the life of the client.
      uint64 OperationID = 2;
          
-     // List of policy configurations
-     repeated SLPolicyCfg ConfigList = 3;
+     // List of policy entries
+     repeated SLPolicyEntry Policies = 3;
 }
 
 // Policy Object Operations.
@@ -145,8 +152,8 @@ enum SLPolicyObjectOp {
 }
  
  
-// Policy-map config object
-message SLPolicyCfg {
+// Policy-map object
+message SLPolicyEntry {
       // Policy unique key identifier
       SLPolicyKey Key = 1;
 
@@ -187,13 +194,14 @@ enum SLPolicyType {
 // Each rule in a policy is associated with a
 // Rule name - that identifies a rule 
 // Priority - priority of the rule within the policy
-// One or more matches - Rules to match. Packet is a
-// match if ALL the fields in the packet match the 
-// criteria. Atleast one rule MUST be present for 
+// Match - Contains one or more match criteria. Packet 
+// is a match if ALL the fields in the packet match  
+// the criteria. Atleast one rule MUST be present for 
 // the packet to match.
-// One or more actions - Action applied on the packet
-// that matches the rule. Atleast one action MUST be 
-// present for the matches under a rule.  
+// Action - Contains one or more action. Action applied 
+// on the packet that matches the rule. Atleast one 
+// action MUST be present for the match criteria
+// under a rule.  
 message SLPolicyRule {
     // Name of the rule referenced in the policy object 
     string RuleName = 1;
@@ -201,11 +209,11 @@ message SLPolicyRule {
     // Priority of the rule within the policy
     string PriorityStr = 2;
  
-    // Defines the matches under this rule
-    SLRuleMatch Matches = 3;
+    // Defines the match criteria under this rule
+    SLRuleMatch Match = 3;
  
-    // Actions associated with this rule 
-    SLRuleAction Actions = 4;
+    // Action associated with this rule 
+    SLRuleAction Action = 4;
 }
  
 // Attributes to match within a rule in a policy.
@@ -215,11 +223,11 @@ message SLPolicyRule {
 message SLRuleMatch {
  
     // Encapsulate all different values of dscp supported
-    optional SLDscpMatch Dscp = 1;
+    SLDscpMatch Dscp = 1;
  
     // Match on PathGroup Identifier
     // The path group belongs to the same VRF as the policy entry.
-    optional SLPathGroupRefKey PathGroup = 2;
+    SLPathGroupRefKey PathGroup = 2;
 }
 
 // Dscp match type
@@ -237,10 +245,10 @@ message SLRuleAction {
  
     // PathGroup where packet will be forwarded.
     // The path group belongs to the same VRF as the policy entry.
-    optional SLPathGroupRefKey PathGroup = 1;
+    SLPathGroupRefKey PathGroup = 1;
 
     // Enable Stats counter 
-    optional  bool  EnableStatsCounter = 2;
+    bool  EnableStatsCounter = 2;
  
 }
 
@@ -337,12 +345,12 @@ message SLPolicyGetMsgRsp {
 }
  
 // Policy Global Get Capabilities Message
-message SLPolicyGlobalCapGetMsg {
+message SLPolicyGlobalGetMsg {
  
 }
  
 // Policy Global Get Capabilities Message Response
-message SLPolicyGlobalsGetMsgRsp {
+message SLPolicyGlobalGetMsgRsp {
      // Corresponding error code
      SLErrorStatus ErrStatus = 1;
  
