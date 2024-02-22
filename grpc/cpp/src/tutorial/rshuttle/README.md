@@ -71,12 +71,6 @@ following example command (this is assuming you are in bash shell):
 
 The above assumes that the IP address of the node is 192.168.122.192.
 
-Only for this Cpp Tutorial you need to link all library's (specifically libglog) before running the cpp tutorial.
-To do so you need to perform:
-
-    $ ldconfig
-
-
 This completes all the setup needed to start writing some code! Hop into
 your cpp interpreter and try out some of the commands to get familiar
 with the API.
@@ -140,10 +134,6 @@ Bash-Prompt:sl$ make cpp-tutorial
 Once in bash, navigate to the tutorial directory:
 
 root@f6179b5127f5:/slapi# cd grpc/cpp/src/tutorial/rshuttle
-
-Once in rshuttle, you need to link all library's (specifically libglog). To do so you need to perform:
-
-root@f6179b5127f5:/slapi# ldconfig
 
 #### How to Run
 
