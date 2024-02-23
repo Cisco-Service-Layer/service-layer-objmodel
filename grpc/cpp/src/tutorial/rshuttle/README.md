@@ -8,6 +8,7 @@
 - [Register the VRF](#vrf)
 - [Add a Batch of Routes](#route)
 
+NOTE: If you only want to be able to run the code then you only need to follow the Server Setup and Running the tutorial sections.
 #### <a name='server'></a>Server Setup
 
 On the server side, we need to configure GRPC and enable the service layer through the following CLI configuration:
@@ -24,7 +25,6 @@ On the server side, we need to configure GRPC and enable the service layer throu
     grpc service-layer
     commit
     end
-
 
 We also need to configure a server IP address. To configure an IP address on the management interface, one can use dhcp as follows:
 
@@ -135,7 +135,7 @@ Once in bash, navigate to the tutorial directory:
 
 root@f6179b5127f5:/slapi# cd grpc/cpp/src/tutorial/rshuttle
 
-#### How to Run
+#### How to Run in container (normal)
 
 Default Example (This runs ipv4):
     $ ./servicelayermain -u cisco -p cisco123
@@ -152,6 +152,74 @@ MPLS Example:
     $ export route_op=2
     $ export start_label=12000
     $ ./servicelayermain -u cisco -p cisco123
+
+
+#### How to Run if using Sandbox on Server
+
+Once you follow the How to Build section, you need to exit the container:
+
+root@f6179b5127f5:/slapi# exit
+
+Navigate to rshuttle directory:
+
+Bash-Prompt:sl$ cd grpc/cpp/src/tutorial/rshuttle
+
+From here you need to run the create_giso.sh script into to create a giso image
+Example:
+
+Bash-Prompt:sl$ ./create_giso.sh -p /nobackup/habassi/rpmtest/ -b servicelayermain -v 1.0.0 -n servicelayermain -x 1 -i /auto/prod_weekly_archive2/bin/24.2.1.21I.DT_IMAGE/8000/8000-x64-24.2.1.21I.iso -s /auto/prod_weekly_archive2/bin/24.2.1.21I.DT_IMAGE/8000/optional-rpms/sandbox/
+
+This will create a folder output_gisobuild/giso which contains the giso image. You need to get it onto your server and store it under /misc/disk1:
+
+Example:
+EX: scp -P PORT_NUMBER 8000-golden-x86_64-24.2.1.21I-sandbox.iso USERNAME@IP_ADDRESS:/misc/disk1/
+
+You now need to log-on to the server. You need to enable sandbox and a local-connection. Once there you will need to perform install replace, commit, and a reload. replace usually takes a couple of minutes to finish, commit takes about a minute and reload takes a bit longer. Wait for each to finish before doing the next. To check of their status, use 'show install log' command
+
+Example:
+
+    ! Configure Sandbox
+    configure
+    sandbox
+    enable
+    commit
+    end
+
+    ! Configure GRPC local-connection
+    configure
+    grpc
+    local-conection
+    commit
+    end
+
+    ! Rebooting with new image
+    install replace /misc/disk1/8000-golden-x86_64-24.2.1.21I-sandbox.iso
+    install commit
+    reload
+
+Once the reload is finished you can check if your rpms are installed on the server
+
+Example:
+
+    show sandbox rpms installed
+LIST OF INSTALLED RPMs
+----------------------------------------------------------------------------------
+1  servicelayermain.x86_64                 1.0.0-1.el8                             
+----------------------------------------------------------------------------------
+
+Now to get into run sandbox on server:
+    bash sandbox
+
+You need to specify the variables SERVER_IP and SERVER_PORT on Sandbox. We are using unix sockets here so you and that is what the local-connection was for. set SERVER_IP=unix and SERVER_PORT=/ems/grpc.sock:
+    [root@ios /]# export SERVER_IP=unix
+    [root@ios /]# export SERVER_PORT=/ems/grpc.sock
+
+All that is left is to run the application:
+Default Example (This runs ipv4):
+    $ ./servicelayermain
+
+Note: you don't need to give username or password since grpc is established to unix sockets, unlike running in container
+
 
 The following sections explain the details of the above example tutorial and are similar to the Python quick start tutorial.
 The rest of these section is extra information and not required to run the tutorial above.
