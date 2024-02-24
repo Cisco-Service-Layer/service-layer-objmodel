@@ -164,19 +164,22 @@ Navigate to rshuttle directory:
 
 Bash-Prompt:sl$ cd grpc/cpp/src/tutorial/rshuttle
 
-From here you need to run the create_giso.sh script into to create a giso image
+From here you need to run the create_giso.sh script into to create a giso image. Each argument requires full path.
 Example:
 
-Bash-Prompt:sl$ ./create_giso.sh -p /nobackup/habassi/rpmtest/ -b servicelayermain -v 1.0.0 -n servicelayermain -x 1 -i /auto/prod_weekly_archive2/bin/24.2.1.21I.DT_IMAGE/8000/8000-x64-24.2.1.21I.iso -s /auto/prod_weekly_archive2/bin/24.2.1.21I.DT_IMAGE/8000/optional-rpms/sandbox/
+Bash-Prompt:sl$ ./create_giso.sh -p /nobackup/habassi/rpmtest/ -b /nobackup/habassi/service-layer-objmodel/grpc/cpp/src/tutorial/rshuttle/servicelayermain -v 1.0.0 -n servicelayermain -x 1 -i /auto/prod_weekly_archive2/bin/24.2.1.21I.DT_IMAGE/8000/8000-x64-24.2.1.21I.iso -s /auto/prod_weekly_archive2/bin/24.2.1.21I.DT_IMAGE/8000/optional-rpms/sandbox/
 
 This will create a folder output_gisobuild/giso which contains the giso image. You need to get it onto your server and store it under /misc/disk1:
 
 Example:
 EX: scp -P PORT_NUMBER 8000-golden-x86_64-24.2.1.21I-sandbox.iso USERNAME@IP_ADDRESS:/misc/disk1/
 
-You now need to log-on to the server. You need to enable sandbox and a local-connection. Once there you will need to perform install replace, commit, and a reload. replace usually takes a couple of minutes to finish, commit takes about a minute and reload takes a bit longer. Wait for each to finish before doing the next. To check of their status, use 'show install log' command
+You now need to log-on to the server. Once there you will need to perform install replace. Replace usually takes a couple of minutes to finish. To check of the status, use 'show install log' command. Then Sandbox and a local-connection needs to be enabled. Before committing, test if sandbox is ready. You can do this with 'bash sandbox'. Then you need to install commit. Commit takes about a minute. Use 'show install log' to see when the commit is done. After that a reload needs to be performed.
 
 Example:
+
+    ! Replacing with your giso image
+    install replace /misc/disk1/8000-golden-x86_64-24.2.1.21I-sandbox.iso
 
     ! Configure Sandbox
     configure
@@ -192,8 +195,7 @@ Example:
     commit
     end
 
-    ! Rebooting with new image
-    install replace /misc/disk1/8000-golden-x86_64-24.2.1.21I-sandbox.iso
+    ! Commit and Perform reload
     install commit
     reload
 
@@ -201,11 +203,13 @@ Once the reload is finished you can check if your rpms are installed on the serv
 
 Example:
 
-    show sandbox rpms installed
+    show sandbox rpms install
 LIST OF INSTALLED RPMs
 ----------------------------------------------------------------------------------
 1  servicelayermain.x86_64                 1.0.0-1.el8                             
 ----------------------------------------------------------------------------------
+
+Note: If you do not see your rpm's installed here when running the "show sandbox rpms install" then you might need to do the install replace, commit and reload again.
 
 Now to get into run sandbox on server:
     bash sandbox
