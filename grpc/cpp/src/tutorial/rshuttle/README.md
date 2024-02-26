@@ -54,7 +54,9 @@ To check the IP address assigned:
 
     show ip interface brief
 
-On the client side, the very first thing we need to do is set the server IP address and gRPC port. You can check your port number by running the following CLI command on the IOS-XR server box (should be the same as the one configured):
+On the client side, the very first thing we need to do is set the server IP address and gRPC port. 
+You can check your port number by running the following CLI command on the IOS-XR 
+server box (should be the same as the one configured):
 
     # show run grpc
 
@@ -90,7 +92,7 @@ For now, if you already have passed this setup step, follow this example:
 
 | Environment Variable | Description |
 | --- | --- |
-| export route_op                   | Specify whether to do ipv4(value = 0), ipv6(value = 1) or mpls(value = 2) operation (default 0) |
+| export table_type                 | Specify whether to do ipv4(value = 0), ipv6(value = 1) or mpls(value = 2) operation (default 0) |
 | export batch_size                 | Configure the number of ipv4 routes or ILM entires for MPLS to be added to a batch (default 1024) |
 | export batch_num                  | Configure the number of batches (default 98) |
 
@@ -167,14 +169,21 @@ Bash-Prompt:sl$ cd grpc/cpp/src/tutorial/rshuttle
 From here you need to run the create_giso.sh script into to create a giso image. Each argument requires full path.
 Example:
 
-Bash-Prompt:sl$ ./create_giso.sh -p /nobackup/habassi/rpmtest/ -b /nobackup/habassi/service-layer-objmodel/grpc/cpp/src/tutorial/rshuttle/servicelayermain -v 1.0.0 -n servicelayermain -x 1 -i /auto/prod_weekly_archive2/bin/24.2.1.21I.DT_IMAGE/8000/8000-x64-24.2.1.21I.iso -s /auto/prod_weekly_archive2/bin/24.2.1.21I.DT_IMAGE/8000/optional-rpms/sandbox/
+Bash-Prompt:sl$ ./create_giso.sh -p /nobackup/habassi/rpmtest/
+ -b /nobackup/habassi/service-layer-objmodel/grpc/cpp/src/tutorial/rshuttle/servicelayermain -v 1.0.0
+ -n servicelayermain -x 1 -i /auto/prod_weekly_archive2/bin/24.2.1.21I.DT_IMAGE/8000/8000-x64-24.2.1.21I.iso 
+ -s /auto/prod_weekly_archive2/bin/24.2.1.21I.DT_IMAGE/8000/optional-rpms/sandbox/
 
 This will create a folder output_gisobuild/giso which contains the giso image. You need to get it onto your server and store it under /misc/disk1:
 
 Example:
 EX: scp -P PORT_NUMBER 8000-golden-x86_64-24.2.1.21I-sandbox.iso USERNAME@IP_ADDRESS:/misc/disk1/
 
-You now need to log-on to the server. Once there you will need to perform install replace. Replace usually takes a couple of minutes to finish. To check of the status, use 'show install log' command. Then Sandbox and a local-connection needs to be enabled. Before committing, test if sandbox is ready. You can do this with 'bash sandbox'. Then you need to install commit. Commit takes about a minute. Use 'show install log' to see when the commit is done. After that a reload needs to be performed.
+You now need to log-on to the server. Once there you will need to perform install replace. 
+Replace usually takes a couple of minutes to finish. To check of the status, use 'show install log' command. 
+Then Sandbox and a local-connection needs to be enabled. Before committing, test if sandbox is ready. 
+You can do this with 'bash sandbox'. Then you need to install commit. Commit takes about a minute. 
+Use 'show install log' to see when the commit is done. After that a reload needs to be performed.
 
 Example:
 
@@ -209,12 +218,16 @@ LIST OF INSTALLED RPMs
 1  servicelayermain.x86_64                 1.0.0-1.el8                             
 ----------------------------------------------------------------------------------
 
-Note: If you do not see your rpm's installed here when running the "show sandbox rpms install" then you might need to do the install replace, commit and reload again.
+Note: If you do not see your rpm's installed here when running the "show sandbox rpms install" 
+then you might need to do the install replace, commit and reload again.
 
 Now to get into run sandbox on server:
     bash sandbox
 
-You need to specify the variables SERVER_IP and SERVER_PORT on Sandbox. We are using unix sockets here so you and that is what the local-connection was for. set SERVER_IP=unix and SERVER_PORT=/ems/grpc.sock:
+You need to specify the variables SERVER_IP and SERVER_PORT on Sandbox. 
+We are using unix sockets here so you and that is what the local-connection was for. 
+Set SERVER_IP=unix and SERVER_PORT=/ems/grpc.sock:
+
     [root@ios /]# export SERVER_IP=unix
     [root@ios /]# export SERVER_PORT=/ems/grpc.sock
 
