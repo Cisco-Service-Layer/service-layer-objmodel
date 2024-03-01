@@ -354,6 +354,7 @@ enum SLErrorStatus_SLErrno : int {
   SLErrorStatus_SLErrno_SL_NEXT_HOP_INVALID_NEXT_HOP_ADDR = 90117,
   SLErrorStatus_SLErrno_SL_NEXT_HOP_INVALID_PREFIX_SZ = 90118,
   SLErrorStatus_SLErrno_SL_NEXT_HOP_RIB_ADD_FAILED = 90119,
+  SLErrorStatus_SLErrno_SL_ROUTE_REDIST_RIB_ADD_FAILED = 90120,
   SLErrorStatus_SLErrno_SL_FIB_SUCCESS = 94208,
   SLErrorStatus_SLErrno_SL_FIB_FAILED = 94209,
   SLErrorStatus_SLErrno_SL_FIB_INELIGIBLE = 94210,
@@ -1236,6 +1237,8 @@ class SLErrorStatus final :
     SLErrorStatus_SLErrno_SL_NEXT_HOP_INVALID_PREFIX_SZ;
   static constexpr SLErrno SL_NEXT_HOP_RIB_ADD_FAILED =
     SLErrorStatus_SLErrno_SL_NEXT_HOP_RIB_ADD_FAILED;
+  static constexpr SLErrno SL_ROUTE_REDIST_RIB_ADD_FAILED =
+    SLErrorStatus_SLErrno_SL_ROUTE_REDIST_RIB_ADD_FAILED;
   static constexpr SLErrno SL_FIB_SUCCESS =
     SLErrorStatus_SLErrno_SL_FIB_SUCCESS;
   static constexpr SLErrno SL_FIB_FAILED =

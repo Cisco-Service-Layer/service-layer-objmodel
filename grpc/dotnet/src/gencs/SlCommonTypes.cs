@@ -24,9 +24,9 @@ namespace ServiceLayer {
     static SlCommonTypesReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChVzbF9jb21tb25fdHlwZXMucHJvdG8SDXNlcnZpY2VfbGF5ZXIixEkKDVNM",
+            "ChVzbF9jb21tb25fdHlwZXMucHJvdG8SDXNlcnZpY2VfbGF5ZXIi6kkKDVNM",
             "RXJyb3JTdGF0dXMSNAoGU3RhdHVzGAEgASgOMiQuc2VydmljZV9sYXllci5T",
-            "TEVycm9yU3RhdHVzLlNMRXJybm8i/EgKB1NMRXJybm8SDgoKU0xfU1VDQ0VT",
+            "TEVycm9yU3RhdHVzLlNMRXJybm8iokkKB1NMRXJybm8SDgoKU0xfU1VDQ0VT",
             "UxAAEhQKEFNMX05PVF9DT05ORUNURUQQARINCglTTF9FQUdBSU4QAhINCglT",
             "TF9FTk9NRU0QAxIMCghTTF9FQlVTWRAEEg0KCVNMX0VJTlZBTBAFEhYKElNM",
             "X1VOU1VQUE9SVEVEX1ZFUhAGEhQKEFNMX05PVF9BVkFJTEFCTEUQBxIbChdT",
@@ -231,33 +231,33 @@ namespace ServiceLayer {
             "X01DQVNUEIPABRIgChpTTF9ORVhUX0hPUF9JTlZBTElEX1BSRUZJWBCEwAUS",
             "JwohU0xfTkVYVF9IT1BfSU5WQUxJRF9ORVhUX0hPUF9BRERSEIXABRIjCh1T",
             "TF9ORVhUX0hPUF9JTlZBTElEX1BSRUZJWF9TWhCGwAUSIAoaU0xfTkVYVF9I",
-            "T1BfUklCX0FERF9GQUlMRUQQh8AFEhQKDlNMX0ZJQl9TVUNDRVNTEIDgBRIT",
-            "Cg1TTF9GSUJfRkFJTEVEEIHgBRIXChFTTF9GSUJfSU5FTElHSUJMRRCC4AUS",
-            "DwoJU0xfRklCX05BEIPgBRIeChhTTF9JTlRFUk5BTF9TVEFSVF9PRkZTRVQQ",
-            "gIBAIjwKC1NMSW50ZXJmYWNlEg4KBE5hbWUYASABKAlIABIQCgZIYW5kbGUY",
-            "AiABKA1IAEILCglJbnRlcmZhY2UiQgoLU0xJcEFkZHJlc3MSEwoJVjRBZGRy",
-            "ZXNzGAEgASgNSAASEwoJVjZBZGRyZXNzGAIgASgMSABCCQoHQWRkcmVzcyIl",
-            "CgpTTE9iamVjdElkEg4KBE5hbWUYASABKAlIAEIHCgVlbnRyeSJUChFTTFBh",
-            "dGhHcm91cFJlZktleRIPCgdWcmZOYW1lGAEgASgJEi4KC1BhdGhHcm91cElk",
-            "GAIgASgLMhkuc2VydmljZV9sYXllci5TTE9iamVjdElkKmIKB1NMUmVnT3AS",
-            "FQoRU0xfUkVHT1BfUkVTRVJWRUQQABIVChFTTF9SRUdPUF9SRUdJU1RFUhAB",
-            "EhcKE1NMX1JFR09QX1VOUkVHSVNURVIQAhIQCgxTTF9SRUdPUF9FT0YQAypf",
-            "CgpTTE9iamVjdE9wEhUKEVNMX09CSk9QX1JFU0VSVkVEEAASEAoMU0xfT0JK",
-            "T1BfQUREEAESEwoPU0xfT0JKT1BfVVBEQVRFEAISEwoPU0xfT0JKT1BfREVM",
-            "RVRFEAMqUwoJU0xOb3RpZk9wEhcKE1NMX05PVElGT1BfUkVTRVJWRUQQABIV",
-            "ChFTTF9OT1RJRk9QX0VOQUJMRRABEhYKElNMX05PVElGT1BfRElTQUJMRRAC",
-            "KokBChBTTFVwZGF0ZVByaW9yaXR5EhgKFFNMX1BSSU9SSVRZX1JFU0VSVkVE",
-            "EAASGAoUU0xfUFJJT1JJVFlfQ1JJVElDQUwQBBIUChBTTF9QUklPUklUWV9I",
-            "SUdIEAgSFgoSU0xfUFJJT1JJVFlfTUVESVVNEAwSEwoPU0xfUFJJT1JJVFlf",
-            "TE9XEBAqSwoLU0xFbmNhcFR5cGUSFQoRU0xfRU5DQVBfUkVTRVJWRUQQABIS",
-            "Cg5TTF9FTkNBUF9WWExBThABEhEKDVNMX0VOQ0FQX01QTFMQAiqNAQoLU0xU",
-            "YWJsZVR5cGUSGgoWU0xfVEFCTEVfVFlQRV9SRVNFUlZFRBAAEhcKE1NMX0lQ",
-            "djRfUk9VVEVfVEFCTEUQARIXChNTTF9JUHY2X1JPVVRFX1RBQkxFEAISFwoT",
-            "U0xfTVBMU19MQUJFTF9UQUJMRRADEhcKE1NMX1BBVEhfR1JPVVBfVEFCTEUQ",
-            "BCowCgxTTFJzcEFDS1R5cGUSCwoHUklCX0FDSxAAEhMKD1JJQl9BTkRfRklC",
-            "X0FDSxABQlFaT2dpdGh1Yi5jb20vQ2lzY28tc2VydmljZS1sYXllci9zZXJ2",
-            "aWNlLWxheWVyLW9iam1vZGVsL2dycGMvcHJvdG9zO3NlcnZpY2VfbGF5ZXJi",
-            "BnByb3RvMw=="));
+            "T1BfUklCX0FERF9GQUlMRUQQh8AFEiQKHlNMX1JPVVRFX1JFRElTVF9SSUJf",
+            "QUREX0ZBSUxFRBCIwAUSFAoOU0xfRklCX1NVQ0NFU1MQgOAFEhMKDVNMX0ZJ",
+            "Ql9GQUlMRUQQgeAFEhcKEVNMX0ZJQl9JTkVMSUdJQkxFEILgBRIPCglTTF9G",
+            "SUJfTkEQg+AFEh4KGFNMX0lOVEVSTkFMX1NUQVJUX09GRlNFVBCAgEAiPAoL",
+            "U0xJbnRlcmZhY2USDgoETmFtZRgBIAEoCUgAEhAKBkhhbmRsZRgCIAEoDUgA",
+            "QgsKCUludGVyZmFjZSJCCgtTTElwQWRkcmVzcxITCglWNEFkZHJlc3MYASAB",
+            "KA1IABITCglWNkFkZHJlc3MYAiABKAxIAEIJCgdBZGRyZXNzIiUKClNMT2Jq",
+            "ZWN0SWQSDgoETmFtZRgBIAEoCUgAQgcKBWVudHJ5IlQKEVNMUGF0aEdyb3Vw",
+            "UmVmS2V5Eg8KB1ZyZk5hbWUYASABKAkSLgoLUGF0aEdyb3VwSWQYAiABKAsy",
+            "GS5zZXJ2aWNlX2xheWVyLlNMT2JqZWN0SWQqYgoHU0xSZWdPcBIVChFTTF9S",
+            "RUdPUF9SRVNFUlZFRBAAEhUKEVNMX1JFR09QX1JFR0lTVEVSEAESFwoTU0xf",
+            "UkVHT1BfVU5SRUdJU1RFUhACEhAKDFNMX1JFR09QX0VPRhADKl8KClNMT2Jq",
+            "ZWN0T3ASFQoRU0xfT0JKT1BfUkVTRVJWRUQQABIQCgxTTF9PQkpPUF9BREQQ",
+            "ARITCg9TTF9PQkpPUF9VUERBVEUQAhITCg9TTF9PQkpPUF9ERUxFVEUQAypT",
+            "CglTTE5vdGlmT3ASFwoTU0xfTk9USUZPUF9SRVNFUlZFRBAAEhUKEVNMX05P",
+            "VElGT1BfRU5BQkxFEAESFgoSU0xfTk9USUZPUF9ESVNBQkxFEAIqiQEKEFNM",
+            "VXBkYXRlUHJpb3JpdHkSGAoUU0xfUFJJT1JJVFlfUkVTRVJWRUQQABIYChRT",
+            "TF9QUklPUklUWV9DUklUSUNBTBAEEhQKEFNMX1BSSU9SSVRZX0hJR0gQCBIW",
+            "ChJTTF9QUklPUklUWV9NRURJVU0QDBITCg9TTF9QUklPUklUWV9MT1cQECpL",
+            "CgtTTEVuY2FwVHlwZRIVChFTTF9FTkNBUF9SRVNFUlZFRBAAEhIKDlNMX0VO",
+            "Q0FQX1ZYTEFOEAESEQoNU0xfRU5DQVBfTVBMUxACKo0BCgtTTFRhYmxlVHlw",
+            "ZRIaChZTTF9UQUJMRV9UWVBFX1JFU0VSVkVEEAASFwoTU0xfSVB2NF9ST1VU",
+            "RV9UQUJMRRABEhcKE1NMX0lQdjZfUk9VVEVfVEFCTEUQAhIXChNTTF9NUExT",
+            "X0xBQkVMX1RBQkxFEAMSFwoTU0xfUEFUSF9HUk9VUF9UQUJMRRAEKjAKDFNM",
+            "UnNwQUNLVHlwZRILCgdSSUJfQUNLEAASEwoPUklCX0FORF9GSUJfQUNLEAFC",
+            "UVpPZ2l0aHViLmNvbS9DaXNjby1zZXJ2aWNlLWxheWVyL3NlcnZpY2UtbGF5",
+            "ZXItb2JqbW9kZWwvZ3JwYy9wcm90b3M7c2VydmljZV9sYXllcmIGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::ServiceLayer.SLRegOp), typeof(global::ServiceLayer.SLObjectOp), typeof(global::ServiceLayer.SLNotifOp), typeof(global::ServiceLayer.SLUpdatePriority), typeof(global::ServiceLayer.SLEncapType), typeof(global::ServiceLayer.SLTableType), typeof(global::ServiceLayer.SLRspACKType), }, null, new pbr::GeneratedClrTypeInfo[] {
@@ -1776,6 +1776,10 @@ namespace ServiceLayer {
         /// Unable to program NH tracking registration to RIB. 0x16007
         /// </summary>
         [pbr::OriginalName("SL_NEXT_HOP_RIB_ADD_FAILED")] SlNextHopRibAddFailed = 90119,
+        /// <summary>
+        /// Unable to program route redist registration to RIB. 0x16008
+        /// </summary>
+        [pbr::OriginalName("SL_ROUTE_REDIST_RIB_ADD_FAILED")] SlRouteRedistRibAddFailed = 90120,
         /// <summary>
         /// Offset for Hardware Ack errors. 0x17000
         /// The operation is successfully program in hardware
