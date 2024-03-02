@@ -529,6 +529,12 @@ message SLAFNextHopRegKey {
     }
 }
 
+// Next hop change registration message.
+message SLAFNextHopRegMsg {
+    // Next hop registration key.
+    SLAFNextHopRegKey NextHopKey = 1;
+}
+
 // Notification request message for a single item.
 message SLAFNotifRegReq {
     oneof request {
@@ -564,8 +570,8 @@ message SLAFNotifReq {
     // Vrf that the client is interested in.
     string VrfName = 2;
 
-    // Notification registeration request.
-    repeated SLAFNotifRegReq Request = 3;
+    // Notification request.
+    repeated SLAFNotifRegReq NotifReq = 3;
 }
 
 // Notification response message for a single item.
@@ -577,12 +583,6 @@ message SLAFNotifRsp {
     // SL_SUCCESS: signifies that the notification request was successful
     // SL_XXX: signifies an error in setting up a notification for the Vrf.
     SLErrorStatus NotifStatus = 2;
-}
-
-// Next hop change registration message.
-message SLAFNextHopRegMsg {
-    // Next hop registration key.
-    SLAFNextHopRegKey NextHopKey = 1;
 }
 
 // Next hop Change Notification
@@ -620,7 +620,7 @@ message SLNextHop {
 message SLAFNotif {
     oneof Event {
         // This field carries the status of the SLAFNotifReq message.
-        SLAFNotifRsp RequestResult = 1;
+        SLAFNotifRsp NotifStatus = 1;
 
         // Route redistribution notification.
         SLAFObject RedistObject = 4;
@@ -634,9 +634,6 @@ message SLAFNotif {
 message SLAFNotifMsg {
     // VRF name.
     string VrfName = 1;
-
-    // Table type.
-    SLTableType Table = 2;
 
     // Notifications.
     repeated SLAFNotif AFNotifs = 3;
