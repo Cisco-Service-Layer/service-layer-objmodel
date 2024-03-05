@@ -5789,7 +5789,7 @@ namespace ServiceLayer {
   }
 
   /// <summary>
-  /// Next hop change registration request key.
+  /// Next hop registration request key.
   /// </summary>
   public sealed partial class SLAFNextHopRegKey : pb::IMessage<SLAFNextHopRegKey>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
@@ -6398,7 +6398,7 @@ namespace ServiceLayer {
   }
 
   /// <summary>
-  /// Next hop change registration message.
+  /// Next hop registration message.
   /// </summary>
   public sealed partial class SLAFNextHopRegMsg : pb::IMessage<SLAFNextHopRegMsg>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
@@ -6675,7 +6675,7 @@ namespace ServiceLayer {
     /// <summary>Field number for the "NextHopReq" field.</summary>
     public const int NextHopReqFieldNumber = 2;
     /// <summary>
-    /// Next hop change notification request.
+    /// Next hop notification request.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -7468,7 +7468,7 @@ namespace ServiceLayer {
   }
 
   /// <summary>
-  /// Next hop Change Notification
+  /// Next hop Notification
   /// </summary>
   public sealed partial class SLNextHop : pb::IMessage<SLNextHop>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE

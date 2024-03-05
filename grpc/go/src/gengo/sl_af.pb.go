@@ -1394,7 +1394,7 @@ func (x *SLAFRedistRegMsg) GetTable() SLTableType {
 	return SLTableType_SL_TABLE_TYPE_RESERVED
 }
 
-// Next hop change registration request key.
+// Next hop registration request key.
 type SLAFNextHopRegKey struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
@@ -1465,7 +1465,7 @@ type SLAFNextHopRegKey_NextHop struct {
 
 func (*SLAFNextHopRegKey_NextHop) isSLAFNextHopRegKey_Nexthopkey() {}
 
-// Next hop change registration message.
+// Next hop registration message.
 type SLAFNextHopRegMsg struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
@@ -1606,7 +1606,7 @@ type SLAFNotifRegReq_RedistReq struct {
 }
 
 type SLAFNotifRegReq_NextHopReq struct {
-	// Next hop change notification request.
+	// Next hop notification request.
 	NextHopReq *SLAFNextHopRegMsg `protobuf:"bytes,2,opt,name=NextHopReq,proto3,oneof"`
 }
 
@@ -1750,7 +1750,7 @@ func (x *SLAFNotifRsp) GetNotifStatus() *SLErrorStatus {
 	return nil
 }
 
-// Next hop Change Notification
+// Next hop Notification
 type SLNextHop struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache

@@ -501,7 +501,7 @@ message SLAFRedistRegMsg {
     SLTableType Table = 3;
 }
 
-// Next hop change registration request key.
+// Next hop registration request key.
 message SLAFNextHopRegKey {
     message SLNextHopKey {
         // Next Hop IP to resolve
@@ -529,7 +529,7 @@ message SLAFNextHopRegKey {
     }
 }
 
-// Next hop change registration message.
+// Next hop registration message.
 message SLAFNextHopRegMsg {
     // Next hop registration key.
     SLAFNextHopRegKey NextHopKey = 1;
@@ -541,7 +541,7 @@ message SLAFNotifRegReq {
         // Route redistribution request.
         SLAFRedistRegMsg RedistReq = 1;
 
-        // Next hop change notification request.
+        // Next hop notification request.
         SLAFNextHopRegMsg NextHopReq = 2;
     }
 
@@ -585,7 +585,7 @@ message SLAFNotifRsp {
     SLErrorStatus NotifStatus = 2;
 }
 
-// Next hop Change Notification
+// Next hop Notification
 message SLNextHop {
     // Next hop registration key.
     SLAFNextHopRegKey NextHopKey = 1;
