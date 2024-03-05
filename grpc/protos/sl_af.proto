@@ -126,6 +126,9 @@ service SLAF {
     //
     rpc SLAFVrfRegOp(SLAFVrfRegMsg) returns (SLAFVrfRegMsgRsp);
 
+    // VRF get. Used to retrieve VRF attributes from the server.
+    rpc SLAFVrfRegGet(SLAFVrfRegGetMsg) returns (stream SLAFVrfRegGetMsgRsp);
+
     //
     // Route, MPLS label and Path operations.
     //
@@ -239,6 +242,31 @@ message SLAFVrfRegMsgRsp {
     repeated SLAFVrfRegMsgRes Results = 2;
 }
 
+// VRF Reg Get Request Message.
+// Returns the VRF registrations done for all table types
+message SLAFVrfRegGetMsg {
+    // If true,  returns VRF registrations for all clients.
+    // If false, returns VRF registrations for this client as identified by the gRPC metadata
+    bool GetAll = 1;
+}
+
+// VRF Reg Get Message Response
+message SLAFVrfRegGetMsgRsp {
+    // Status of the Get operation
+    SLErrorStatus ErrStatus = 1;
+
+    // Client that performed this registration
+    uint64 ClientID = 2;
+
+    // if ErrStatus is SL_SUCCESS, Table and Entries
+    // contain the table in which the VRF registration
+    // operation was previously applied.
+    SLTableType Table = 3;
+
+    // VRF registration operation
+    repeated SLVrfReg Entries = 4;
+}
+
 // Path Group definition.
 message SLPathGroup {
     message SLPath {
@@ -329,6 +357,10 @@ message SLAFOp {
     // use operation ID to correlate the response for the operation on the object.
     // Operation Id should be monotonically increasing for the life of the client.
     uint64 OperationID = 2;
+
+    // The type of Acknowledgment that the controller or agent expects from
+    // the network element.
+    SLRspACKType AckType = 3;
 }
 
 // Used to retrieve objects in a VRF table.
@@ -348,23 +380,39 @@ message SLAFGetMsg {
     // metadata.
     bool GetAllClients = 3;
 
-    // Filter based on name for objects with string names as keys such
-    // as PathGroups. Only objects that match the regular expression
-    // defined by MatchRegex are returned.
-    // If specified, this is applied only to PGs. If specified with other table
-    // types, the regex is ignored. Specifying this does not control the scope
-    // of the table type.
-    // control the scope of the table types.
-    // Constructs defined by RE2 are supported for regular expression.
-    // Refer https://github.com/google/re2/wiki/Syntax for supported regex
-    // syntax
-    string MatchRegex = 4;
+}
+
+message SLAFFibStatus {
+    //Error code associated with hardware programming
+    SLErrorStatus ErrorCode = 1;
+
+    // Operation ID associated with hardware programming.
+    uint64 OperationID = 2;
+
+    // Version associated with hardware programming. A valid version is
+    // a non-zero positive number
+    uint64 Version = 3;
+
+    // Descriptive string describing error if any, on the hardware programming
+    string ErrorString = 4;
+
+    // DepResult is the result of any operation that this operation depends on.
+    // For example: if this OperationID is about programming an ipv4 or ipv6
+    // route that is pointing to a Path Group, then DepResult will carry
+    // the Result of operation that programmed that Path Group.
+    // *NOTE*: DepResult is not supported on Get Operations
+    repeated SLAFFibStatus DepResult = 5;
 }
 
 // Object and its programming status returned on Get.
-message SLAFEntry {
+message SLAFGetMsgRspEntry {
     // Object
     SLAFOp AFOp = 1;
+
+    // if the operation was programmed with ACK type set to RIB_AND_FIB_ACK,
+    // then FIBStatus indicates status of hardware programming of the
+    // operation
+    SLAFFibStatus FIBStatus = 2;
 }
 
 // Get AF message response. The objects can be returned in
@@ -385,7 +433,7 @@ message SLAFGetMsgRsp {
     // Returned entries as requested in the Get operation.
     // if ErrStatus is SL_SUCCESS, entry contains the list
     // of objects from the specified Table.
-    repeated SLAFEntry AFList = 4;
+    repeated SLAFGetMsgRspEntry AFList = 4;
 }
 
 // Operation on the address family. The objects are programmed
@@ -399,17 +447,22 @@ message SLAFMsg {
 
     // List of operations.
     repeated SLAFOp OpList = 3;
+
 }
 
 // Result of an operation on the object.
 message SLAFRes {
-    // Corresponding error code
+    // Error code
     SLErrorStatus ErrStatus = 1;
 
-    // The operation ID and object are returned.
-    // Only attributes describing an object's key
-    // are returned.
+    // The operation, expected to carry only the part that is considered
+    // the key to uniquely identify the object that is programmed
     SLAFOp Operation = 2;
+
+    // if the operation was programmed with ACK type set to RIB_AND_FIB_ACK,
+    // then FIBStatus indicates status of hardware programming of the
+    // operation
+    SLAFFibStatus FIBStatus = 3;
 }
 
 // Route operations result status
@@ -448,11 +501,50 @@ message SLAFRedistRegMsg {
     SLTableType Table = 3;
 }
 
+// Next hop registration request key.
+message SLAFNextHopRegKey {
+    message SLNextHopKey {
+        // Next Hop IP to resolve
+        SLIpAddress NextHop = 1;
+
+        // Length of Next Hop IP address to use for resolution
+        uint32 NextHopLen = 2;
+
+        // Chose exact vs. best match
+        bool ExactMatch = 3;
+
+        // Allow default route to be returned
+        bool AllowDefault = 4;
+
+        // If this flag is not set or set to False, only the immediate
+        // viable path list is returned. If set to True, recursively resolve
+        // the next hop’s paths and return the flattened path list.
+        // If the list exceeds MaxPathsInNexthopNotif, then only the
+        // first MaxPathsInNexthopNotif will be returned.
+        bool Recurse = 5;
+    }
+
+    // Notification request key.
+    oneof nexthopkey {
+        // A next hop IP address.
+        SLNextHopKey NextHop = 1;
+    }
+}
+
+// Next hop registration message.
+message SLAFNextHopRegMsg {
+    // Next hop registration key.
+    SLAFNextHopRegKey NextHopKey = 1;
+}
+
 // Notification request message for a single item.
 message SLAFNotifRegReq {
     oneof request {
         // Route redistribution request.
         SLAFRedistRegMsg RedistReq = 1;
+
+        // Next hop notification request.
+        SLAFNextHopRegMsg NextHopReq = 2;
     }
 
     // Unique OperationID sent by the client to correlate the
@@ -495,6 +587,37 @@ message SLAFNotifRsp {
     SLErrorStatus NotifStatus = 2;
 }
 
+// Next hop Notification
+message SLNextHop {
+    // Next hop registration key.
+    SLAFNextHopRegKey NextHopKey = 1;
+
+    // Prefix of the route resolving the nexthop
+    SLIpAddress ResolvingRoute = 2;
+
+    // Resolving route's prefix length
+    uint32 ResolvingRouteLen = 3;
+
+    // Source Protocol.
+    // Contact Cisco for supported protocol string names.
+    string SrcProto = 4;
+
+    // Nexthop route distance
+    uint32 admin_distance = 5;
+
+    // Nexthop route metric
+    uint32 metric = 6;
+
+    // Nexthop's path list. Paths indicate paths available
+    // for the next hop. In case of recursive next hop resolution,
+    // the returned path list consists of flattened directly connected
+    // paths.
+    //
+    // If this field is not present,
+    // then no viable path to the next hop exist.
+    repeated SLRoutePath Paths = 7;
+}
+
 // AF Notification message.
 message SLAFNotif {
     oneof Event {
@@ -503,6 +626,9 @@ message SLAFNotif {
 
         // Route redistribution notification.
         SLAFObject RedistObject = 4;
+
+        // Next hop change notification.
+        SLNextHop NextHop = 5;
     }
 }
 
@@ -510,9 +636,6 @@ message SLAFNotif {
 message SLAFNotifMsg {
     // VRF name.
     string VrfName = 1;
-
-    // Table type.
-    SLTableType Table = 2;
 
     // Notifications.
     repeated SLAFNotif AFNotifs = 3;

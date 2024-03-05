@@ -629,6 +629,7 @@
     SL_PG_TARGET_VRF_NO_VRFID = 0x15004,\
     /* !!! Error codes for Nexthop request objects. */\
     /* Offset for Nexthop request errors. 0x16000 */\
+    SL_NEXT_HOP_START_OFFSET = 0x16000,\
     /* Nexthop prefix length is invalid. 0x16001 */\
     SL_NEXT_HOP_INVALID_PREFIX_LEN = 0x16001,\
     /* Nexthop prefix has host bits set. 0x16002 */\
@@ -641,6 +642,18 @@
     SL_NEXT_HOP_INVALID_NEXT_HOP_ADDR = 0x16005,\
     /* Size of IPv6 prefix is invalid. 0x16006 */\
     SL_NEXT_HOP_INVALID_PREFIX_SZ = 0x16006,\
+    /* Unable to program NH tracking registration to RIB. 0x16007 */\
+    SL_NEXT_HOP_RIB_ADD_FAILED = 0x16007,\
+    /* Unable to program route redist registration to RIB. 0x16008 */\
+    SL_ROUTE_REDIST_RIB_ADD_FAILED = 0x16008,\
+    /* Offset for Hardware Ack errors. 0x17000 */\
+    SL_FIB_START_OFFSET = 0x17000,\
+    /* The operation is successfully program in hardware. 0x17001 */\
+    SL_FIB_SUCCESS = 0x17001,\
+    /* FIB programming failure. 0x17002 */\
+    SL_FIB_FAILED = 0x17002,\
+    /* The operation is not viable to be programmed in hardware at this time. 0x17003 */\
+    SL_FIB_INELIGIBLE = 0x17003,\
     /* !!! Error codes Reserved for internal errors. */\
     /* Offset for Internal errors. 0x100000 */\
     SL_INTERNAL_START_OFFSET = 0x100000,\
@@ -1505,8 +1518,10 @@
     {SL_PG_TARGET_VRF_NO_VRFID ,\
         " ID of a next hop VRF in a path in the PathGroup cannot be determined.  "\
         },\
-    {SL_NEXT_HOP_INVALID_PREFIX_LEN ,\
+    {SL_NEXT_HOP_START_OFFSET ,\
         " Offset for Nexthop request errors.  "\
+        },\
+    {SL_NEXT_HOP_INVALID_PREFIX_LEN ,\
         " Nexthop prefix length is invalid.  "\
         },\
     {SL_NEXT_HOP_HOST_BITS_SET ,\
@@ -1523,6 +1538,24 @@
         },\
     {SL_NEXT_HOP_INVALID_PREFIX_SZ ,\
         " Size of IPv6 prefix is invalid.  "\
+        },\
+    {SL_NEXT_HOP_RIB_ADD_FAILED ,\
+        " Unable to program NH tracking registration to RIB.  "\
+        },\
+    {SL_ROUTE_REDIST_RIB_ADD_FAILED ,\
+        " Unable to program route redist registration to RIB.  "\
+        },\
+    {SL_FIB_START_OFFSET ,\
+        " Offset for Hardware Ack errors.  "\
+        },\
+    {SL_FIB_SUCCESS ,\
+        " The operation is successfully program in hardware.  "\
+        },\
+    {SL_FIB_FAILED ,\
+        " FIB programming failure.  "\
+        },\
+    {SL_FIB_INELIGIBLE ,\
+        " The operation is not viable to be programmed in hardware at this time.  "\
         },\
     {SL_INTERNAL_START_OFFSET ,\
         " Offset for Internal errors.  "\

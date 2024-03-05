@@ -692,6 +692,7 @@ message SLErrorStatus {
         // !!! Error codes for Nexthop request objects.
 
         // Offset for Nexthop request errors. 0x16000
+        SL_NEXT_HOP_START_OFFSET = 0x16000;
         // Nexthop prefix length is invalid. 0x16001
         SL_NEXT_HOP_INVALID_PREFIX_LEN = 0x16001;
         // Nexthop prefix has host bits set. 0x16002
@@ -704,6 +705,19 @@ message SLErrorStatus {
         SL_NEXT_HOP_INVALID_NEXT_HOP_ADDR = 0x16005;
         // Size of IPv6 prefix is invalid. 0x16006
         SL_NEXT_HOP_INVALID_PREFIX_SZ = 0x16006;
+        // Unable to program NH tracking registration to RIB. 0x16007
+        SL_NEXT_HOP_RIB_ADD_FAILED = 0x16007;
+        // Unable to program route redist registration to RIB. 0x16008
+        SL_ROUTE_REDIST_RIB_ADD_FAILED = 0x16008;
+
+        // Offset for Hardware Ack errors. 0x17000
+        SL_FIB_START_OFFSET = 0x17000;
+        // The operation is successfully program in hardware. 0x17001
+        SL_FIB_SUCCESS = 0x17001;
+        // FIB programming failure. 0x17002
+        SL_FIB_FAILED = 0x17002;
+        // The operation is not viable to be programmed in hardware at this time. 0x17003
+        SL_FIB_INELIGIBLE = 0x17003;
 
         // !!! Error codes Reserved for internal errors.
 
@@ -820,11 +834,16 @@ enum SLRspACKType {
   // on a successful update of the object to the RIB database.
   //
   // The operation is considered complete once result of RIB programming
-  // is sent to the client.
+  // is sent back to the client.
   //
-  // By default, ack type is assumed to be RIB_ACK.
+  // By default, ACK type is assumed to be RIB_ACK.
   RIB_ACK = 0;
 
+  // If ACK type requested is RIB_AND_FIB_ACK, then along with RIB ack
+  // the network element will also return one or more FIB acks which is
+  // the status of hardware programming of the operation.
+  // *NOTE*: RIB_AND_FIB_ACK is supported only in streaming service
+  RIB_AND_FIB_ACK = 1;
 }
 
 // Common Object Identifier.

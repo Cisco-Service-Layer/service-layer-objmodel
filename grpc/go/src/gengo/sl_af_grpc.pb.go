@@ -66,6 +66,8 @@ type SLAFClient interface {
 	// the client has the responsibility to reconcile its new state
 	// with the state on the device by replaying the difference.
 	SLAFVrfRegOp(ctx context.Context, in *SLAFVrfRegMsg, opts ...grpc.CallOption) (*SLAFVrfRegMsgRsp, error)
+	// VRF get. Used to retrieve VRF attributes from the server.
+	SLAFVrfRegGet(ctx context.Context, in *SLAFVrfRegGetMsg, opts ...grpc.CallOption) (SLAF_SLAFVrfRegGetClient, error)
 	// SLAFMsg.Oper = SL_OBJOP_ADD:
 	//
 	//	Object add. Fails if the object already exists and is not stale.
@@ -121,6 +123,38 @@ func (c *sLAFClient) SLAFVrfRegOp(ctx context.Context, in *SLAFVrfRegMsg, opts .
 	return out, nil
 }
 
+func (c *sLAFClient) SLAFVrfRegGet(ctx context.Context, in *SLAFVrfRegGetMsg, opts ...grpc.CallOption) (SLAF_SLAFVrfRegGetClient, error) {
+	stream, err := c.cc.NewStream(ctx, &SLAF_ServiceDesc.Streams[0], "/service_layer.SLAF/SLAFVrfRegGet", opts...)
+	if err != nil {
+		return nil, err
+	}
+	x := &sLAFSLAFVrfRegGetClient{stream}
+	if err := x.ClientStream.SendMsg(in); err != nil {
+		return nil, err
+	}
+	if err := x.ClientStream.CloseSend(); err != nil {
+		return nil, err
+	}
+	return x, nil
+}
+
+type SLAF_SLAFVrfRegGetClient interface {
+	Recv() (*SLAFVrfRegGetMsgRsp, error)
+	grpc.ClientStream
+}
+
+type sLAFSLAFVrfRegGetClient struct {
+	grpc.ClientStream
+}
+
+func (x *sLAFSLAFVrfRegGetClient) Recv() (*SLAFVrfRegGetMsgRsp, error) {
+	m := new(SLAFVrfRegGetMsgRsp)
+	if err := x.ClientStream.RecvMsg(m); err != nil {
+		return nil, err
+	}
+	return m, nil
+}
+
 func (c *sLAFClient) SLAFOp(ctx context.Context, in *SLAFMsg, opts ...grpc.CallOption) (*SLAFMsgRsp, error) {
 	out := new(SLAFMsgRsp)
 	err := c.cc.Invoke(ctx, "/service_layer.SLAF/SLAFOp", in, out, opts...)
@@ -131,7 +165,7 @@ func (c *sLAFClient) SLAFOp(ctx context.Context, in *SLAFMsg, opts ...grpc.CallO
 }
 
 func (c *sLAFClient) SLAFOpStream(ctx context.Context, opts ...grpc.CallOption) (SLAF_SLAFOpStreamClient, error) {
-	stream, err := c.cc.NewStream(ctx, &SLAF_ServiceDesc.Streams[0], "/service_layer.SLAF/SLAFOpStream", opts...)
+	stream, err := c.cc.NewStream(ctx, &SLAF_ServiceDesc.Streams[1], "/service_layer.SLAF/SLAFOpStream", opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -162,7 +196,7 @@ func (x *sLAFSLAFOpStreamClient) Recv() (*SLAFMsgRsp, error) {
 }
 
 func (c *sLAFClient) SLAFGet(ctx context.Context, in *SLAFGetMsg, opts ...grpc.CallOption) (SLAF_SLAFGetClient, error) {
-	stream, err := c.cc.NewStream(ctx, &SLAF_ServiceDesc.Streams[1], "/service_layer.SLAF/SLAFGet", opts...)
+	stream, err := c.cc.NewStream(ctx, &SLAF_ServiceDesc.Streams[2], "/service_layer.SLAF/SLAFGet", opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -194,7 +228,7 @@ func (x *sLAFSLAFGetClient) Recv() (*SLAFGetMsgRsp, error) {
 }
 
 func (c *sLAFClient) SLAFNotifStream(ctx context.Context, opts ...grpc.CallOption) (SLAF_SLAFNotifStreamClient, error) {
-	stream, err := c.cc.NewStream(ctx, &SLAF_ServiceDesc.Streams[2], "/service_layer.SLAF/SLAFNotifStream", opts...)
+	stream, err := c.cc.NewStream(ctx, &SLAF_ServiceDesc.Streams[3], "/service_layer.SLAF/SLAFNotifStream", opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -272,6 +306,8 @@ type SLAFServer interface {
 	// the client has the responsibility to reconcile its new state
 	// with the state on the device by replaying the difference.
 	SLAFVrfRegOp(context.Context, *SLAFVrfRegMsg) (*SLAFVrfRegMsgRsp, error)
+	// VRF get. Used to retrieve VRF attributes from the server.
+	SLAFVrfRegGet(*SLAFVrfRegGetMsg, SLAF_SLAFVrfRegGetServer) error
 	// SLAFMsg.Oper = SL_OBJOP_ADD:
 	//
 	//	Object add. Fails if the object already exists and is not stale.
@@ -318,6 +354,9 @@ type UnimplementedSLAFServer struct {
 func (UnimplementedSLAFServer) SLAFVrfRegOp(context.Context, *SLAFVrfRegMsg) (*SLAFVrfRegMsgRsp, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method SLAFVrfRegOp not implemented")
 }
+func (UnimplementedSLAFServer) SLAFVrfRegGet(*SLAFVrfRegGetMsg, SLAF_SLAFVrfRegGetServer) error {
+	return status.Errorf(codes.Unimplemented, "method SLAFVrfRegGet not implemented")
+}
 func (UnimplementedSLAFServer) SLAFOp(context.Context, *SLAFMsg) (*SLAFMsgRsp, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method SLAFOp not implemented")
 }
@@ -359,6 +398,27 @@ func _SLAF_SLAFVrfRegOp_Handler(srv interface{}, ctx context.Context, dec func(i
 		return srv.(SLAFServer).SLAFVrfRegOp(ctx, req.(*SLAFVrfRegMsg))
 	}
 	return interceptor(ctx, in, info, handler)
+}
+
+func _SLAF_SLAFVrfRegGet_Handler(srv interface{}, stream grpc.ServerStream) error {
+	m := new(SLAFVrfRegGetMsg)
+	if err := stream.RecvMsg(m); err != nil {
+		return err
+	}
+	return srv.(SLAFServer).SLAFVrfRegGet(m, &sLAFSLAFVrfRegGetServer{stream})
+}
+
+type SLAF_SLAFVrfRegGetServer interface {
+	Send(*SLAFVrfRegGetMsgRsp) error
+	grpc.ServerStream
+}
+
+type sLAFSLAFVrfRegGetServer struct {
+	grpc.ServerStream
+}
+
+func (x *sLAFSLAFVrfRegGetServer) Send(m *SLAFVrfRegGetMsgRsp) error {
+	return x.ServerStream.SendMsg(m)
 }
 
 func _SLAF_SLAFOp_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
@@ -469,6 +529,11 @@ var SLAF_ServiceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams: []grpc.StreamDesc{
+		{
+			StreamName:    "SLAFVrfRegGet",
+			Handler:       _SLAF_SLAFVrfRegGet_Handler,
+			ServerStreams: true,
+		},
 		{
 			StreamName:    "SLAFOpStream",
 			Handler:       _SLAF_SLAFOpStream_Handler,

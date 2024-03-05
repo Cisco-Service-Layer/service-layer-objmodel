@@ -22,12 +22,13 @@ git checkout 6.6.3
 The Service Layer API is currently organized in a set of files that expose certain verticals e.g. IPv4 RIB functionality, or MPLS functionality, etc.
 In the initial releases, the focus is to provide the following verticals:
 
-* Initialization: This mainly handles global initialization, and sets up an event notification channel based on GRPC streaming mechanism.
+* Initialization: This optional RPC sets up a heartbeat channel based on GRPC streaming mechanism. It can also be used to determine the API version implemented by the server.
 * IPv4, IPv6 Route: This mainly handles any IPv4 or IPv6 route additions into the node based on a certain VRF.
 * MPLS Incoming Label Maps (ILMs): This mainly handles any incoming MPLS label mapping to a forwarding function.
 * IPv4, IPv6 BFD: This mainly handles managing BFD sessions, and getting corresponding BFD session state notifications.
 * Interfaces: This mainly allows registered clients to get interface state event notifications.
 * L2: This mainly handles L2 route changes and Bridge-Domain (BD) registrations. 
+* AF: This vertical provides a simplified set of RPCs to program IPv4 Route, IPv6 Route, MPLS Incoming Label Maps and PathGroups. The RPC also supports advanced features such as reprogramming on viability change, and FIB acknowledgement for programming operations.
 * More functions may be added in the future.
 
 ### Vertical RPC functions
@@ -55,14 +56,21 @@ The user of the API can use Doxygen to render his/her own local documentation, r
 ## SL API Version
 The SL API version is stored in the file grpc/protos/sl_version.proto. Comprised of a major version, minor version, and subversion.  Represents the current version of SL-API as defined by the proto files.
 
-The SL API version is meaningless across releases. It is only used to determine compatibility between a client and server running on the same IOS-XR release, such as 7.0.1.
+| API Version   | Feature Set |
+| ------------- | ------------- |
+| 0.1.0  | Routing, MPLS, Interface and BFD RPCs  |
+| 0.2.0  | L2RIB RPCs |
+| 0.3.0  | MPLS Class Based Forwarding |
+| 0.6.0  | Service-Layer and SR merge, Primary/backup (aka Path Priority) for MPLS CBF, Route download priority |
+| 0.7.0  | VxLAN encapsulation for IP routes |
+| 0.9.0  | Service-Layer AF common RPCs |
 
 ## Release Branches
 
 You must checkout the branch corresponding to your IOS-XR release. This branch will contain:
 - The proto files with the correct SL API Version for that IOS-XR release
 - A Dockerfile with the correct toolchain versions.
-- Generated bindings for python, golang, and C++.
+- Generated bindings for Python, Golang, C++ and DotNet.
 
 These bindings have been generated using the same toolchain versions as the gRPC server running on the corresponding IOS-XR release. You may directly use these bindings or generate them yourself.
 
@@ -106,6 +114,8 @@ The tags are named
 
 Eg. 6.6.3/v1.2.3_1
 ```
+
+or,
 
 # Checking Out Commit Hashes
 If required the hash at which the gRPC server bindings were comitted to Github can be retrieved by running the following command on a router.

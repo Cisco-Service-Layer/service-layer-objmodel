@@ -60,9 +60,7 @@ with the API.
 ## <a name='python'></a>Setting up Python Environment
 
 To install dependencies first create a virtual env:
-
-    pip install virtualenv
-    virtualenv sl-env --python=python3.6
+    python3.11  -m venv sl-env
     source sl-env/bin/activate
     pip install -r grpc/python/requirements.txt
 
@@ -72,8 +70,9 @@ The following basic tutorial will walk you through getting started with the Serv
 This may require some initial python and GRPC setup, which will be explained below. For now, if you already have passed this setup step, run the example:
 
     cd grpc/python/src
-    python3 tutorial/quickstart.py
-
+    python3.11 tutorial/quickstart.py -u <username> -p <password> 
+each of the individual tests also can be run in similar way.(vrf.py, riute.py,client_init.py)
+ 
 The following sections explain the details of the above example tutorial.
 
 #### <a name='gen'></a>Generate gRPC Code (optional in this example)

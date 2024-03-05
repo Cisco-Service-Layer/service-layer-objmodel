@@ -7,6 +7,7 @@
 import ipaddress
 import os
 import sys
+import argparse
 
 # Add the generated python bindings directory to the path
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.realpath(__file__))))
@@ -118,7 +119,7 @@ def route_operation(channel, oper):
     #
     Timeout = 10 # Seconds
     rtMsg.Oper = oper # Desired ADD, UPDATE, DELETE operation
-    response = stub.SLRoutev4Op(rtMsg, Timeout)
+    response = stub.SLRoutev4Op(rtMsg, Timeout, metadata = metadata)
 
     #
     # Check the received result from the Server
@@ -144,26 +145,55 @@ def route_operation(channel, oper):
         os._exit(0)
 
 #
+# Get the GRPC Server IP address and port number
+#
+def get_server_ip_port():
+    # Get GRPC Server's IP from the environment
+    if 'SERVER_IP' not in os.environ.keys():
+        print("Need to set the SERVER_IP env variable e.g.")
+        print("export SERVER_IP='10.30.110.214'")
+        os._exit(0)
+
+    # Get GRPC Server's Port from the environment
+    if 'SERVER_PORT' not in os.environ.keys():
+        print("Need to set the SERVER_PORT env variable e.g.")
+        print("export SERVER_PORT='57777'")
+        os._exit(0)
+
+    return (os.environ['SERVER_IP'], int(os.environ['SERVER_PORT']))
+
+#
 # Setup the GRPC channel with the server, and issue RPCs
 #
 if __name__ == '__main__':
-    from util import util
-    server_ip, server_port = util.get_server_ip_port()
+
+    parser = argparse.ArgumentParser(description ='The full tutorial example')
+    parser.add_argument('-u', '--username', help='Specify username')
+    parser.add_argument('-p', '--password', help='Specify password')
+    args = parser.parse_args()
+
+    server_ip, server_port = get_server_ip_port()
 
     print("Using GRPC Server IP(%s) Port(%s)" %(server_ip, server_port))
 
     # Create the channel for gRPC.
     channel = grpc.insecure_channel(str(server_ip) + ":" + str(server_port))
+    global metadata 
+
+    metadata = [
+                    ("username", args.username),
+                    ("password", args.password)
+                    ]
 
     # Spawn a thread to Initialize the client and listen on notifications
     # The thread will run in the background
-    client_init.global_init(channel)
+    client_init.global_init(channel, metadata)
 
     # Send an RPC for VRF registrations
-    vrf.vrf_operation(channel, sl_common_types_pb2.SL_REGOP_REGISTER)
+    vrf.vrf_operation(channel, sl_common_types_pb2.SL_REGOP_REGISTER, metadata)
 
     # RPC EOF to cleanup any previous stale routes
-    vrf.vrf_operation(channel, sl_common_types_pb2.SL_REGOP_EOF)
+    vrf.vrf_operation(channel, sl_common_types_pb2.SL_REGOP_EOF, metadata)
 
     # RPC route operations
     #    for add: sl_common_types_pb2.SL_OBJOP_ADD

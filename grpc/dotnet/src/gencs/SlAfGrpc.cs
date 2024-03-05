@@ -74,6 +74,10 @@ namespace ServiceLayer {
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Marshaller<global::ServiceLayer.SLAFVrfRegMsgRsp> __Marshaller_service_layer_SLAFVrfRegMsgRsp = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::ServiceLayer.SLAFVrfRegMsgRsp.Parser));
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::ServiceLayer.SLAFVrfRegGetMsg> __Marshaller_service_layer_SLAFVrfRegGetMsg = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::ServiceLayer.SLAFVrfRegGetMsg.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::ServiceLayer.SLAFVrfRegGetMsgRsp> __Marshaller_service_layer_SLAFVrfRegGetMsgRsp = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::ServiceLayer.SLAFVrfRegGetMsgRsp.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Marshaller<global::ServiceLayer.SLAFMsg> __Marshaller_service_layer_SLAFMsg = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::ServiceLayer.SLAFMsg.Parser));
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Marshaller<global::ServiceLayer.SLAFMsgRsp> __Marshaller_service_layer_SLAFMsgRsp = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::ServiceLayer.SLAFMsgRsp.Parser));
@@ -93,6 +97,14 @@ namespace ServiceLayer {
         "SLAFVrfRegOp",
         __Marshaller_service_layer_SLAFVrfRegMsg,
         __Marshaller_service_layer_SLAFVrfRegMsgRsp);
+
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Method<global::ServiceLayer.SLAFVrfRegGetMsg, global::ServiceLayer.SLAFVrfRegGetMsgRsp> __Method_SLAFVrfRegGet = new grpc::Method<global::ServiceLayer.SLAFVrfRegGetMsg, global::ServiceLayer.SLAFVrfRegGetMsgRsp>(
+        grpc::MethodType.ServerStreaming,
+        __ServiceName,
+        "SLAFVrfRegGet",
+        __Marshaller_service_layer_SLAFVrfRegGetMsg,
+        __Marshaller_service_layer_SLAFVrfRegGetMsgRsp);
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Method<global::ServiceLayer.SLAFMsg, global::ServiceLayer.SLAFMsgRsp> __Method_SLAFOp = new grpc::Method<global::ServiceLayer.SLAFMsg, global::ServiceLayer.SLAFMsgRsp>(
@@ -184,6 +196,19 @@ namespace ServiceLayer {
       /// <returns>The response to send back to the client (wrapped by a task).</returns>
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       public virtual global::System.Threading.Tasks.Task<global::ServiceLayer.SLAFVrfRegMsgRsp> SLAFVrfRegOp(global::ServiceLayer.SLAFVrfRegMsg request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      /// <summary>
+      /// VRF get. Used to retrieve VRF attributes from the server.
+      /// </summary>
+      /// <param name="request">The request received from the client.</param>
+      /// <param name="responseStream">Used for sending responses back to the client.</param>
+      /// <param name="context">The context of the server-side call handler being invoked.</param>
+      /// <returns>A task indicating completion of the handler.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::System.Threading.Tasks.Task SLAFVrfRegGet(global::ServiceLayer.SLAFVrfRegGetMsg request, grpc::IServerStreamWriter<global::ServiceLayer.SLAFVrfRegGetMsgRsp> responseStream, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
@@ -493,6 +518,30 @@ namespace ServiceLayer {
         return CallInvoker.AsyncUnaryCall(__Method_SLAFVrfRegOp, null, options, request);
       }
       /// <summary>
+      /// VRF get. Used to retrieve VRF attributes from the server.
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
+      /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
+      /// <param name="cancellationToken">An optional token for canceling the call.</param>
+      /// <returns>The call object.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncServerStreamingCall<global::ServiceLayer.SLAFVrfRegGetMsgRsp> SLAFVrfRegGet(global::ServiceLayer.SLAFVrfRegGetMsg request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return SLAFVrfRegGet(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      /// <summary>
+      /// VRF get. Used to retrieve VRF attributes from the server.
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="options">The options for the call.</param>
+      /// <returns>The call object.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncServerStreamingCall<global::ServiceLayer.SLAFVrfRegGetMsgRsp> SLAFVrfRegGet(global::ServiceLayer.SLAFVrfRegGetMsg request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncServerStreamingCall(__Method_SLAFVrfRegGet, null, options, request);
+      }
+      /// <summary>
       /// SLAFMsg.Oper = SL_OBJOP_ADD:
       ///     Object add. Fails if the object already exists and is not stale.
       ///     First ADD operation on a stale object is treated as implicit update
@@ -683,6 +732,7 @@ namespace ServiceLayer {
     {
       return grpc::ServerServiceDefinition.CreateBuilder()
           .AddMethod(__Method_SLAFVrfRegOp, serviceImpl.SLAFVrfRegOp)
+          .AddMethod(__Method_SLAFVrfRegGet, serviceImpl.SLAFVrfRegGet)
           .AddMethod(__Method_SLAFOp, serviceImpl.SLAFOp)
           .AddMethod(__Method_SLAFOpStream, serviceImpl.SLAFOpStream)
           .AddMethod(__Method_SLAFGet, serviceImpl.SLAFGet)
@@ -697,6 +747,7 @@ namespace ServiceLayer {
     public static void BindService(grpc::ServiceBinderBase serviceBinder, SLAFBase serviceImpl)
     {
       serviceBinder.AddMethod(__Method_SLAFVrfRegOp, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::ServiceLayer.SLAFVrfRegMsg, global::ServiceLayer.SLAFVrfRegMsgRsp>(serviceImpl.SLAFVrfRegOp));
+      serviceBinder.AddMethod(__Method_SLAFVrfRegGet, serviceImpl == null ? null : new grpc::ServerStreamingServerMethod<global::ServiceLayer.SLAFVrfRegGetMsg, global::ServiceLayer.SLAFVrfRegGetMsgRsp>(serviceImpl.SLAFVrfRegGet));
       serviceBinder.AddMethod(__Method_SLAFOp, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::ServiceLayer.SLAFMsg, global::ServiceLayer.SLAFMsgRsp>(serviceImpl.SLAFOp));
       serviceBinder.AddMethod(__Method_SLAFOpStream, serviceImpl == null ? null : new grpc::DuplexStreamingServerMethod<global::ServiceLayer.SLAFMsg, global::ServiceLayer.SLAFMsgRsp>(serviceImpl.SLAFOpStream));
       serviceBinder.AddMethod(__Method_SLAFGet, serviceImpl == null ? null : new grpc::ServerStreamingServerMethod<global::ServiceLayer.SLAFGetMsg, global::ServiceLayer.SLAFGetMsgRsp>(serviceImpl.SLAFGet));
