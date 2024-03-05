@@ -1082,6 +1082,7 @@ class SLGlobalsGetMsgRsp final :
     kMaxL2BdNameLengthFieldNumber = 13,
     kMaxL2PmsiTunnelIdLengthFieldNumber = 14,
     kMaxLabelBlockClientNameLengthFieldNumber = 15,
+    kMaxPathsInNexthopNotifFieldNumber = 16,
   };
   // .service_layer.SLErrorStatus ErrStatus = 1;
   bool has_errstatus() const;
@@ -1227,6 +1228,15 @@ class SLGlobalsGetMsgRsp final :
   void _internal_set_maxlabelblockclientnamelength(uint32_t value);
   public:
 
+  // uint32 MaxPathsInNexthopNotif = 16;
+  void clear_maxpathsinnexthopnotif();
+  uint32_t maxpathsinnexthopnotif() const;
+  void set_maxpathsinnexthopnotif(uint32_t value);
+  private:
+  uint32_t _internal_maxpathsinnexthopnotif() const;
+  void _internal_set_maxpathsinnexthopnotif(uint32_t value);
+  public:
+
   // @@protoc_insertion_point(class_scope:service_layer.SLGlobalsGetMsgRsp)
  private:
   class _Internal;
@@ -1249,6 +1259,7 @@ class SLGlobalsGetMsgRsp final :
   uint32_t maxl2bdnamelength_;
   uint32_t maxl2pmsitunnelidlength_;
   uint32_t maxlabelblockclientnamelength_;
+  uint32_t maxpathsinnexthopnotif_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_sl_5fglobal_2eproto;
 };
@@ -2081,6 +2092,26 @@ inline void SLGlobalsGetMsgRsp::_internal_set_maxlabelblockclientnamelength(uint
 inline void SLGlobalsGetMsgRsp::set_maxlabelblockclientnamelength(uint32_t value) {
   _internal_set_maxlabelblockclientnamelength(value);
   // @@protoc_insertion_point(field_set:service_layer.SLGlobalsGetMsgRsp.MaxLabelBlockClientNameLength)
+}
+
+// uint32 MaxPathsInNexthopNotif = 16;
+inline void SLGlobalsGetMsgRsp::clear_maxpathsinnexthopnotif() {
+  maxpathsinnexthopnotif_ = 0u;
+}
+inline uint32_t SLGlobalsGetMsgRsp::_internal_maxpathsinnexthopnotif() const {
+  return maxpathsinnexthopnotif_;
+}
+inline uint32_t SLGlobalsGetMsgRsp::maxpathsinnexthopnotif() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLGlobalsGetMsgRsp.MaxPathsInNexthopNotif)
+  return _internal_maxpathsinnexthopnotif();
+}
+inline void SLGlobalsGetMsgRsp::_internal_set_maxpathsinnexthopnotif(uint32_t value) {
+  
+  maxpathsinnexthopnotif_ = value;
+}
+inline void SLGlobalsGetMsgRsp::set_maxpathsinnexthopnotif(uint32_t value) {
+  _internal_set_maxpathsinnexthopnotif(value);
+  // @@protoc_insertion_point(field_set:service_layer.SLGlobalsGetMsgRsp.MaxPathsInNexthopNotif)
 }
 
 #ifdef __GNUC__

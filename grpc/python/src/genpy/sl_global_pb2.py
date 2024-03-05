@@ -15,7 +15,7 @@ _sym_db = _symbol_database.Default()
 from . import sl_common_types_pb2 as sl__common__types__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x0fsl_global.proto\x12\rservice_layer\x1a\x15sl_common_types.proto\"?\n\tSLInitMsg\x12\x10\n\x08MajorVer\x18\x01 \x01(\r\x12\x10\n\x08MinorVer\x18\x02 \x01(\r\x12\x0e\n\x06SubVer\x18\x03 \x01(\r\"B\n\x0cSLInitMsgRsp\x12\x10\n\x08MajorVer\x18\x01 \x01(\r\x12\x10\n\x08MinorVer\x18\x02 \x01(\r\x12\x0e\n\x06SubVer\x18\x03 \x01(\r\"-\n\x1aSLVrfRouteReplayErrorNotif\x12\x0f\n\x07VrfName\x18\x01 \x01(\t\"\xff\x01\n\rSLGlobalNotif\x12\x33\n\tEventType\x18\x01 \x01(\x0e\x32 .service_layer.SLGlobalNotifType\x12/\n\tErrStatus\x18\x02 \x01(\x0b\x32\x1c.service_layer.SLErrorStatus\x12\x31\n\nInitRspMsg\x18\x03 \x01(\x0b\x32\x1b.service_layer.SLInitMsgRspH\x00\x12L\n\x13VrfReplayErrorNotif\x18\x04 \x01(\x0b\x32).service_layer.SLVrfRouteReplayErrorNotifB\x02\x18\x01H\x00\x42\x07\n\x05\x45vent\"\x11\n\x0fSLGlobalsGetMsg\"\xe8\x03\n\x12SLGlobalsGetMsgRsp\x12/\n\tErrStatus\x18\x01 \x01(\x0b\x32\x1c.service_layer.SLErrorStatus\x12\x18\n\x10MaxVrfNameLength\x18\x02 \x01(\r\x12\x1e\n\x16MaxInterfaceNameLength\x18\x03 \x01(\r\x12\x18\n\x10MaxPathsPerEntry\x18\x04 \x01(\r\x12\x1e\n\x16MaxPrimaryPathPerEntry\x18\x05 \x01(\r\x12\x1d\n\x15MaxBackupPathPerEntry\x18\x06 \x01(\r\x12\x1c\n\x14MaxMplsLabelsPerPath\x18\x07 \x01(\r\x12\x1b\n\x13MinPrimaryPathIdNum\x18\x08 \x01(\r\x12\x1b\n\x13MaxPrimaryPathIdNum\x18\t \x01(\r\x12\x1a\n\x12MinBackupPathIdNum\x18\n \x01(\r\x12\x1a\n\x12MaxBackupPathIdNum\x18\x0b \x01(\r\x12\x1b\n\x13MaxRemoteAddressNum\x18\x0c \x01(\r\x12\x19\n\x11MaxL2BdNameLength\x18\r \x01(\r\x12\x1f\n\x17MaxL2PmsiTunnelIdLength\x18\x0e \x01(\r\x12%\n\x1dMaxLabelBlockClientNameLength\x18\x0f \x01(\r*\x9c\x01\n\x11SLGlobalNotifType\x12!\n\x1dSL_GLOBAL_EVENT_TYPE_RESERVED\x10\x00\x12\x1e\n\x1aSL_GLOBAL_EVENT_TYPE_ERROR\x10\x01\x12\"\n\x1eSL_GLOBAL_EVENT_TYPE_HEARTBEAT\x10\x02\x12 \n\x1cSL_GLOBAL_EVENT_TYPE_VERSION\x10\x03\x32\xac\x01\n\x08SLGlobal\x12M\n\x11SLGlobalInitNotif\x12\x18.service_layer.SLInitMsg\x1a\x1c.service_layer.SLGlobalNotif0\x01\x12Q\n\x0cSLGlobalsGet\x12\x1e.service_layer.SLGlobalsGetMsg\x1a!.service_layer.SLGlobalsGetMsgRspBQZOgithub.com/Cisco-service-layer/service-layer-objmodel/grpc/protos;service_layerb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x0fsl_global.proto\x12\rservice_layer\x1a\x15sl_common_types.proto\"?\n\tSLInitMsg\x12\x10\n\x08MajorVer\x18\x01 \x01(\r\x12\x10\n\x08MinorVer\x18\x02 \x01(\r\x12\x0e\n\x06SubVer\x18\x03 \x01(\r\"B\n\x0cSLInitMsgRsp\x12\x10\n\x08MajorVer\x18\x01 \x01(\r\x12\x10\n\x08MinorVer\x18\x02 \x01(\r\x12\x0e\n\x06SubVer\x18\x03 \x01(\r\"-\n\x1aSLVrfRouteReplayErrorNotif\x12\x0f\n\x07VrfName\x18\x01 \x01(\t\"\xff\x01\n\rSLGlobalNotif\x12\x33\n\tEventType\x18\x01 \x01(\x0e\x32 .service_layer.SLGlobalNotifType\x12/\n\tErrStatus\x18\x02 \x01(\x0b\x32\x1c.service_layer.SLErrorStatus\x12\x31\n\nInitRspMsg\x18\x03 \x01(\x0b\x32\x1b.service_layer.SLInitMsgRspH\x00\x12L\n\x13VrfReplayErrorNotif\x18\x04 \x01(\x0b\x32).service_layer.SLVrfRouteReplayErrorNotifB\x02\x18\x01H\x00\x42\x07\n\x05\x45vent\"\x11\n\x0fSLGlobalsGetMsg\"\x88\x04\n\x12SLGlobalsGetMsgRsp\x12/\n\tErrStatus\x18\x01 \x01(\x0b\x32\x1c.service_layer.SLErrorStatus\x12\x18\n\x10MaxVrfNameLength\x18\x02 \x01(\r\x12\x1e\n\x16MaxInterfaceNameLength\x18\x03 \x01(\r\x12\x18\n\x10MaxPathsPerEntry\x18\x04 \x01(\r\x12\x1e\n\x16MaxPrimaryPathPerEntry\x18\x05 \x01(\r\x12\x1d\n\x15MaxBackupPathPerEntry\x18\x06 \x01(\r\x12\x1c\n\x14MaxMplsLabelsPerPath\x18\x07 \x01(\r\x12\x1b\n\x13MinPrimaryPathIdNum\x18\x08 \x01(\r\x12\x1b\n\x13MaxPrimaryPathIdNum\x18\t \x01(\r\x12\x1a\n\x12MinBackupPathIdNum\x18\n \x01(\r\x12\x1a\n\x12MaxBackupPathIdNum\x18\x0b \x01(\r\x12\x1b\n\x13MaxRemoteAddressNum\x18\x0c \x01(\r\x12\x19\n\x11MaxL2BdNameLength\x18\r \x01(\r\x12\x1f\n\x17MaxL2PmsiTunnelIdLength\x18\x0e \x01(\r\x12%\n\x1dMaxLabelBlockClientNameLength\x18\x0f \x01(\r\x12\x1e\n\x16MaxPathsInNexthopNotif\x18\x10 \x01(\r*\x9c\x01\n\x11SLGlobalNotifType\x12!\n\x1dSL_GLOBAL_EVENT_TYPE_RESERVED\x10\x00\x12\x1e\n\x1aSL_GLOBAL_EVENT_TYPE_ERROR\x10\x01\x12\"\n\x1eSL_GLOBAL_EVENT_TYPE_HEARTBEAT\x10\x02\x12 \n\x1cSL_GLOBAL_EVENT_TYPE_VERSION\x10\x03\x32\xac\x01\n\x08SLGlobal\x12M\n\x11SLGlobalInitNotif\x12\x18.service_layer.SLInitMsg\x1a\x1c.service_layer.SLGlobalNotif0\x01\x12Q\n\x0cSLGlobalsGet\x12\x1e.service_layer.SLGlobalsGetMsg\x1a!.service_layer.SLGlobalsGetMsgRspBQZOgithub.com/Cisco-service-layer/service-layer-objmodel/grpc/protos;service_layerb\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -25,8 +25,8 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _globals['DESCRIPTOR']._serialized_options = b'ZOgithub.com/Cisco-service-layer/service-layer-objmodel/grpc/protos;service_layer'
   _globals['_SLGLOBALNOTIF'].fields_by_name['VrfReplayErrorNotif']._options = None
   _globals['_SLGLOBALNOTIF'].fields_by_name['VrfReplayErrorNotif']._serialized_options = b'\030\001'
-  _globals['_SLGLOBALNOTIFTYPE']._serialized_start=1006
-  _globals['_SLGLOBALNOTIFTYPE']._serialized_end=1162
+  _globals['_SLGLOBALNOTIFTYPE']._serialized_start=1038
+  _globals['_SLGLOBALNOTIFTYPE']._serialized_end=1194
   _globals['_SLINITMSG']._serialized_start=57
   _globals['_SLINITMSG']._serialized_end=120
   _globals['_SLINITMSGRSP']._serialized_start=122
@@ -38,7 +38,7 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _globals['_SLGLOBALSGETMSG']._serialized_start=495
   _globals['_SLGLOBALSGETMSG']._serialized_end=512
   _globals['_SLGLOBALSGETMSGRSP']._serialized_start=515
-  _globals['_SLGLOBALSGETMSGRSP']._serialized_end=1003
-  _globals['_SLGLOBAL']._serialized_start=1165
-  _globals['_SLGLOBAL']._serialized_end=1337
+  _globals['_SLGLOBALSGETMSGRSP']._serialized_end=1035
+  _globals['_SLGLOBAL']._serialized_start=1197
+  _globals['_SLGLOBAL']._serialized_end=1369
 # @@protoc_insertion_point(module_scope)

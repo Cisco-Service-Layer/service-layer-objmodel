@@ -644,6 +644,8 @@
     SL_NEXT_HOP_INVALID_PREFIX_SZ = 0x16006,\
     /* Unable to program NH tracking registration to RIB. 0x16007 */\
     SL_NEXT_HOP_RIB_ADD_FAILED = 0x16007,\
+    /* Unable to program route redist registration to RIB. 0x16008 */\
+    SL_ROUTE_REDIST_RIB_ADD_FAILED = 0x16008,\
     /* Offset for Hardware Ack errors. 0x17000 */\
     SL_FIB_START_OFFSET = 0x17000,\
     /* The operation is successfully program in hardware. 0x17001 */\
@@ -1539,6 +1541,9 @@
         },\
     {SL_NEXT_HOP_RIB_ADD_FAILED ,\
         " Unable to program NH tracking registration to RIB.  "\
+        },\
+    {SL_ROUTE_REDIST_RIB_ADD_FAILED ,\
+        " Unable to program route redist registration to RIB.  "\
         },\
     {SL_FIB_START_OFFSET ,\
         " Offset for Hardware Ack errors.  "\
