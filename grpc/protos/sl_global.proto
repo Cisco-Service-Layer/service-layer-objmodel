@@ -199,6 +199,9 @@ message SLGlobalsGetMsgRsp {
 
     // Maximum label block client name length.
     uint32 MaxLabelBlockClientNameLength = 15;
+
+    // Maximum paths returned by the network element for a next hop notification.
+    uint32 MaxPathsInNexthopNotif = 16;
 }
 
 // @}

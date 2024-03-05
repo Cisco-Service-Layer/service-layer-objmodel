@@ -35,7 +35,7 @@ namespace ServiceLayer {
             "bml0UnNwTXNnGAMgASgLMhsuc2VydmljZV9sYXllci5TTEluaXRNc2dSc3BI",
             "ABJMChNWcmZSZXBsYXlFcnJvck5vdGlmGAQgASgLMikuc2VydmljZV9sYXll",
             "ci5TTFZyZlJvdXRlUmVwbGF5RXJyb3JOb3RpZkICGAFIAEIHCgVFdmVudCIR",
-            "Cg9TTEdsb2JhbHNHZXRNc2ci6AMKElNMR2xvYmFsc0dldE1zZ1JzcBIvCglF",
+            "Cg9TTEdsb2JhbHNHZXRNc2ciiAQKElNMR2xvYmFsc0dldE1zZ1JzcBIvCglF",
             "cnJTdGF0dXMYASABKAsyHC5zZXJ2aWNlX2xheWVyLlNMRXJyb3JTdGF0dXMS",
             "GAoQTWF4VnJmTmFtZUxlbmd0aBgCIAEoDRIeChZNYXhJbnRlcmZhY2VOYW1l",
             "TGVuZ3RoGAMgASgNEhgKEE1heFBhdGhzUGVyRW50cnkYBCABKA0SHgoWTWF4",
@@ -46,16 +46,17 @@ namespace ServiceLayer {
             "YWNrdXBQYXRoSWROdW0YCyABKA0SGwoTTWF4UmVtb3RlQWRkcmVzc051bRgM",
             "IAEoDRIZChFNYXhMMkJkTmFtZUxlbmd0aBgNIAEoDRIfChdNYXhMMlBtc2lU",
             "dW5uZWxJZExlbmd0aBgOIAEoDRIlCh1NYXhMYWJlbEJsb2NrQ2xpZW50TmFt",
-            "ZUxlbmd0aBgPIAEoDSqcAQoRU0xHbG9iYWxOb3RpZlR5cGUSIQodU0xfR0xP",
-            "QkFMX0VWRU5UX1RZUEVfUkVTRVJWRUQQABIeChpTTF9HTE9CQUxfRVZFTlRf",
-            "VFlQRV9FUlJPUhABEiIKHlNMX0dMT0JBTF9FVkVOVF9UWVBFX0hFQVJUQkVB",
-            "VBACEiAKHFNMX0dMT0JBTF9FVkVOVF9UWVBFX1ZFUlNJT04QAzKsAQoIU0xH",
-            "bG9iYWwSTQoRU0xHbG9iYWxJbml0Tm90aWYSGC5zZXJ2aWNlX2xheWVyLlNM",
-            "SW5pdE1zZxocLnNlcnZpY2VfbGF5ZXIuU0xHbG9iYWxOb3RpZjABElEKDFNM",
-            "R2xvYmFsc0dldBIeLnNlcnZpY2VfbGF5ZXIuU0xHbG9iYWxzR2V0TXNnGiEu",
-            "c2VydmljZV9sYXllci5TTEdsb2JhbHNHZXRNc2dSc3BCUVpPZ2l0aHViLmNv",
-            "bS9DaXNjby1zZXJ2aWNlLWxheWVyL3NlcnZpY2UtbGF5ZXItb2JqbW9kZWwv",
-            "Z3JwYy9wcm90b3M7c2VydmljZV9sYXllcmIGcHJvdG8z"));
+            "ZUxlbmd0aBgPIAEoDRIeChZNYXhQYXRoc0luTmV4dGhvcE5vdGlmGBAgASgN",
+            "KpwBChFTTEdsb2JhbE5vdGlmVHlwZRIhCh1TTF9HTE9CQUxfRVZFTlRfVFlQ",
+            "RV9SRVNFUlZFRBAAEh4KGlNMX0dMT0JBTF9FVkVOVF9UWVBFX0VSUk9SEAES",
+            "IgoeU0xfR0xPQkFMX0VWRU5UX1RZUEVfSEVBUlRCRUFUEAISIAocU0xfR0xP",
+            "QkFMX0VWRU5UX1RZUEVfVkVSU0lPThADMqwBCghTTEdsb2JhbBJNChFTTEds",
+            "b2JhbEluaXROb3RpZhIYLnNlcnZpY2VfbGF5ZXIuU0xJbml0TXNnGhwuc2Vy",
+            "dmljZV9sYXllci5TTEdsb2JhbE5vdGlmMAESUQoMU0xHbG9iYWxzR2V0Eh4u",
+            "c2VydmljZV9sYXllci5TTEdsb2JhbHNHZXRNc2caIS5zZXJ2aWNlX2xheWVy",
+            "LlNMR2xvYmFsc0dldE1zZ1JzcEJRWk9naXRodWIuY29tL0Npc2NvLXNlcnZp",
+            "Y2UtbGF5ZXIvc2VydmljZS1sYXllci1vYmptb2RlbC9ncnBjL3Byb3Rvcztz",
+            "ZXJ2aWNlX2xheWVyYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::ServiceLayer.SlCommonTypesReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::ServiceLayer.SLGlobalNotifType), }, null, new pbr::GeneratedClrTypeInfo[] {
@@ -64,7 +65,7 @@ namespace ServiceLayer {
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLVrfRouteReplayErrorNotif), global::ServiceLayer.SLVrfRouteReplayErrorNotif.Parser, new[]{ "VrfName" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLGlobalNotif), global::ServiceLayer.SLGlobalNotif.Parser, new[]{ "EventType", "ErrStatus", "InitRspMsg", "VrfReplayErrorNotif" }, new[]{ "Event" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLGlobalsGetMsg), global::ServiceLayer.SLGlobalsGetMsg.Parser, null, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLGlobalsGetMsgRsp), global::ServiceLayer.SLGlobalsGetMsgRsp.Parser, new[]{ "ErrStatus", "MaxVrfNameLength", "MaxInterfaceNameLength", "MaxPathsPerEntry", "MaxPrimaryPathPerEntry", "MaxBackupPathPerEntry", "MaxMplsLabelsPerPath", "MinPrimaryPathIdNum", "MaxPrimaryPathIdNum", "MinBackupPathIdNum", "MaxBackupPathIdNum", "MaxRemoteAddressNum", "MaxL2BdNameLength", "MaxL2PmsiTunnelIdLength", "MaxLabelBlockClientNameLength" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLGlobalsGetMsgRsp), global::ServiceLayer.SLGlobalsGetMsgRsp.Parser, new[]{ "ErrStatus", "MaxVrfNameLength", "MaxInterfaceNameLength", "MaxPathsPerEntry", "MaxPrimaryPathPerEntry", "MaxBackupPathPerEntry", "MaxMplsLabelsPerPath", "MinPrimaryPathIdNum", "MaxPrimaryPathIdNum", "MinBackupPathIdNum", "MaxBackupPathIdNum", "MaxRemoteAddressNum", "MaxL2BdNameLength", "MaxL2PmsiTunnelIdLength", "MaxLabelBlockClientNameLength", "MaxPathsInNexthopNotif" }, null, null, null, null)
           }));
     }
     #endregion
@@ -1470,6 +1471,7 @@ namespace ServiceLayer {
       maxL2BdNameLength_ = other.maxL2BdNameLength_;
       maxL2PmsiTunnelIdLength_ = other.maxL2PmsiTunnelIdLength_;
       maxLabelBlockClientNameLength_ = other.maxLabelBlockClientNameLength_;
+      maxPathsInNexthopNotif_ = other.maxPathsInNexthopNotif_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -1705,6 +1707,21 @@ namespace ServiceLayer {
       }
     }
 
+    /// <summary>Field number for the "MaxPathsInNexthopNotif" field.</summary>
+    public const int MaxPathsInNexthopNotifFieldNumber = 16;
+    private uint maxPathsInNexthopNotif_;
+    /// <summary>
+    /// Maximum paths returned by the network element for a next hop notification.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint MaxPathsInNexthopNotif {
+      get { return maxPathsInNexthopNotif_; }
+      set {
+        maxPathsInNexthopNotif_ = value;
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -1735,6 +1752,7 @@ namespace ServiceLayer {
       if (MaxL2BdNameLength != other.MaxL2BdNameLength) return false;
       if (MaxL2PmsiTunnelIdLength != other.MaxL2PmsiTunnelIdLength) return false;
       if (MaxLabelBlockClientNameLength != other.MaxLabelBlockClientNameLength) return false;
+      if (MaxPathsInNexthopNotif != other.MaxPathsInNexthopNotif) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -1757,6 +1775,7 @@ namespace ServiceLayer {
       if (MaxL2BdNameLength != 0) hash ^= MaxL2BdNameLength.GetHashCode();
       if (MaxL2PmsiTunnelIdLength != 0) hash ^= MaxL2PmsiTunnelIdLength.GetHashCode();
       if (MaxLabelBlockClientNameLength != 0) hash ^= MaxLabelBlockClientNameLength.GetHashCode();
+      if (MaxPathsInNexthopNotif != 0) hash ^= MaxPathsInNexthopNotif.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -1835,6 +1854,10 @@ namespace ServiceLayer {
         output.WriteRawTag(120);
         output.WriteUInt32(MaxLabelBlockClientNameLength);
       }
+      if (MaxPathsInNexthopNotif != 0) {
+        output.WriteRawTag(128, 1);
+        output.WriteUInt32(MaxPathsInNexthopNotif);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -1905,6 +1928,10 @@ namespace ServiceLayer {
         output.WriteRawTag(120);
         output.WriteUInt32(MaxLabelBlockClientNameLength);
       }
+      if (MaxPathsInNexthopNotif != 0) {
+        output.WriteRawTag(128, 1);
+        output.WriteUInt32(MaxPathsInNexthopNotif);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -1959,6 +1986,9 @@ namespace ServiceLayer {
       }
       if (MaxLabelBlockClientNameLength != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(MaxLabelBlockClientNameLength);
+      }
+      if (MaxPathsInNexthopNotif != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeUInt32Size(MaxPathsInNexthopNotif);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -2019,6 +2049,9 @@ namespace ServiceLayer {
       }
       if (other.MaxLabelBlockClientNameLength != 0) {
         MaxLabelBlockClientNameLength = other.MaxLabelBlockClientNameLength;
+      }
+      if (other.MaxPathsInNexthopNotif != 0) {
+        MaxPathsInNexthopNotif = other.MaxPathsInNexthopNotif;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -2098,6 +2131,10 @@ namespace ServiceLayer {
             MaxLabelBlockClientNameLength = input.ReadUInt32();
             break;
           }
+          case 128: {
+            MaxPathsInNexthopNotif = input.ReadUInt32();
+            break;
+          }
         }
       }
     #endif
@@ -2174,6 +2211,10 @@ namespace ServiceLayer {
           }
           case 120: {
             MaxLabelBlockClientNameLength = input.ReadUInt32();
+            break;
+          }
+          case 128: {
+            MaxPathsInNexthopNotif = input.ReadUInt32();
             break;
           }
         }

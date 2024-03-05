@@ -2129,6 +2129,8 @@ type SLAFNextHopRegKey_SLNextHopKey struct {
 	// If this flag is not set or set to False, only the immediate
 	// viable path list is returned. If set to True, recursively resolve
 	// the next hop’s paths and return the flattened path list.
+	// If the list exceeds MaxPathsInNexthopNotif, then only the
+	// first MaxPathsInNexthopNotif will be returned.
 	Recurse bool `protobuf:"varint,5,opt,name=Recurse,proto3" json:"Recurse,omitempty"`
 }
 
