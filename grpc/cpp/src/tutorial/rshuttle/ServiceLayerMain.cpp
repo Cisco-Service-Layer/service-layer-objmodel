@@ -1,5 +1,6 @@
 // #include "ServiceLayerRoute.h"
 #include "ServiceLayerRoutev2.h"
+#include <getopt.h>
 #include <string>
 #include <csignal>
 
@@ -20,28 +21,28 @@ class testingData
 {
 public:
     // table_type is used to determine if we are doing ipv4(value = 0) ipv6(value = 1), or mpls(value = 2)
-    unsigned int table_type;
-    unsigned int batch_size;
-    unsigned int batch_num;
+    unsigned int table_type = 0;
+    unsigned int batch_size = 1024;
+    unsigned int batch_num = 98;
 
     // For Ipv4
-    std::string first_prefix_ipv4;
-    unsigned int prefix_len_ipv4;
-    std::string next_hop_interface_ipv4;
-    std::string next_hop_ip_ipv4;
+    std::string first_prefix_ipv4 = "40.0.0.0";
+    unsigned int prefix_len_ipv4 = 24;
+    std::string next_hop_interface_ipv4 = "Bundle-Ether1";
+    std::string next_hop_ip_ipv4 = "14.1.1.10";
 
     // For Ipv6
-    std::string first_prefix_ipv6;
-    unsigned int prefix_len_ipv6;
-    std::string next_hop_interface_ipv6;
-    std::string next_hop_ip_ipv6;
+    std::string first_prefix_ipv6 = "2002:aa::0";
+    unsigned int prefix_len_ipv6 = 64;
+    std::string next_hop_interface_ipv6 = "Bundle-Ether1";
+    std::string next_hop_ip_ipv6 = "2002:ae::3";
 
     // For MPLS
-    std::string first_prefix_mpls;
-    std::string next_hop_interface_mpls;
-    unsigned int start_label;
-    unsigned int num_label;
-    unsigned int num_paths;
+    std::string first_prefix_mpls = "11.0.0.1";
+    std::string next_hop_interface_mpls = "FourHundredGigE0/0/0/0";
+    unsigned int start_label = 20000;
+    unsigned int num_label = 1000;
+    unsigned int num_paths = 1;
 };
 int table_type_operation;
 
@@ -264,9 +265,14 @@ void run_v2(SLAFVrf* af_vrf_handler, unsigned int addr_family){
 int main(int argc, char** argv) {
 
     int option_char;
+    int option_long;
 
     auto server_ip = getEnvVar("SERVER_IP");
     auto server_port = getEnvVar("SERVER_PORT");
+
+    // This is for demo purposes:
+    server_ip = "unix";
+    server_port = "/ems/grpc.sock";
 
     if (server_ip == "" || server_port == "") {
         if (server_ip == "") {
@@ -278,43 +284,160 @@ int main(int argc, char** argv) {
         return 1;
     }
 
-    while ((option_char = getopt(argc, argv, "u:p:")) != -1) {
-        switch (option_char) {
+    testingData env_data;
+
+    const struct option longopts[] = {
+        {"table_type", required_argument, nullptr, 'a'},
+        {"batch_size", required_argument, nullptr, 'b'},
+        {"batch_num", required_argument, nullptr, 'c'},
+        {"first_prefix_ipv4", required_argument, nullptr, 'd'},
+        {"prefix_len_ipv4", required_argument, nullptr, 'e'},
+        {"next_hop_interface_ipv4", required_argument, nullptr, 'f'},
+        {"next_hop_ip_ipv4", required_argument, nullptr, 'g'},
+        {"first_prefix_ipv6", required_argument, nullptr, 'i'},
+        {"prefix_len_ipv6", required_argument, nullptr, 'j'},
+        {"next_hop_interface_ipv6", required_argument, nullptr, 'k'},
+        {"next_hop_ip_ipv6", required_argument, nullptr, 'l'},
+        {"first_prefix_mpls", required_argument, nullptr, 'm'},
+        {"next_hop_interface_mpls", required_argument, nullptr, 'n'},
+        {"start_label", required_argument, nullptr, 'o'},
+        {"num_label", required_argument, nullptr, 'q'},
+        {"num_paths", required_argument, nullptr, 'r'},
+
+        {"help", no_argument, nullptr, 'h'},
+        {"username", required_argument, nullptr, 'u'},
+        {"password", required_argument, nullptr, 'p'},
+
+        {nullptr,0,nullptr,0}
+    };
+
+    while ((option_long = getopt_long_only(argc, argv, "a:b:c:d:e:f:g:i:j:k:l:m:n:o:q:r:hu:p:",longopts,nullptr)) != -1) {
+        switch (option_long) {
+            case 'a':
+                env_data.table_type = std::stoi(optarg);
+                break;
+            case 'b':
+                env_data.batch_size = std::stoi(optarg);
+                break;
+            case 'c':
+                env_data.batch_num = std::stoi(optarg);
+                break;
+            case 'd':
+                env_data.first_prefix_ipv4 = optarg;
+                break;
+            case 'e':
+                env_data.prefix_len_ipv4 = std::stoi(optarg);
+                break;
+            case 'f':
+                env_data.next_hop_interface_ipv4 = optarg;
+                break;
+            case 'g':
+                env_data.next_hop_ip_ipv4 = optarg;
+                break;
+            case 'i':
+                env_data.first_prefix_ipv6 = optarg;
+                break;
+            case 'j':
+                env_data.prefix_len_ipv6 = std::stoi(optarg);
+                break;
+            case 'k':
+                env_data.next_hop_interface_ipv6 = optarg;
+                break;
+            case 'l':
+                env_data.next_hop_ip_ipv6 = optarg;
+                break;
+            case 'm':
+                env_data.first_prefix_mpls = optarg;
+                break;
+            case 'n':
+                env_data.next_hop_interface_mpls = optarg;
+                break;
+            case 'o':
+                env_data.start_label = std::stoi(optarg);
+                break;
+            case 'q':
+                env_data.num_label = std::stoi(optarg);
+                break;
+            case 'r':
+                env_data.num_paths = std::stoi(optarg);
+                break;
+
+            case 'h':
+                LOG(INFO) <<"Usage:";
+                LOG(INFO) <<"| -u/--username                    | Username |";
+                LOG(INFO) <<"| -p/--password                    | Password |";
+                LOG(INFO) <<"| -a/--table_type                  | Specify whether to do ipv4(value = 0), ipv6(value = 1) or mpls(value = 2) operation (default 0) |";
+                LOG(INFO) << "Optional arguments you can set in environment:";
+                LOG(INFO) << "| -h/--help                       | Help |";
+                LOG(INFO) << "| -b/--batch_size                 | Configure the number of ipv4 routes or ILM entires for MPLS to be added to a batch (default 1024) |";
+                LOG(INFO) << "| -c/--batch_num                  | Configure the number of batches (default 98) | \n";
+                LOG(INFO) << "IPv4 Testing";
+                LOG(INFO) << "| -d/--first_prefix_ipv4          | Configure the starting address for this test for IPV4 (default 40.0.0.0) |";
+                LOG(INFO) << "| -e/--prefix_len_ipv4            | Configure the prefix length for this test for IPV4 address (default 24) |";
+                LOG(INFO) << "| -f/--next_hop_interface_ipv4    | Configure the next hop interface for IPV4 (default Bundle-Ether1) |";
+                LOG(INFO) << "| -g/--next_hop_ip_ipv4           | Configure the next hop ip address for IPV4 (default 14.1.1.10) | \n";
+                LOG(INFO) << "IPv6 Testing";
+                LOG(INFO) << "| -i/--first_prefix_ipv6          | Configure the starting address for this test for IPV6 (default 2002:aa::0) |";
+                LOG(INFO) << "| -j/--prefix_len_ipv6            | Configure the prefix length for this test for IPV6 address (default 64) |";
+                LOG(INFO) << "| -k/--next_hop_interface_ipv6    | Configure the next hop interface for IPV6 (default Bundle-Ether1) |";
+                LOG(INFO) << "| -l/--next_hop_ip_ipv6           | Configure the next hop ip address for IPV6 (default 2002:ae::3) | \n";
+                LOG(INFO) << "MPLS Testing";
+                LOG(INFO) << "| -m/--first_prefix_mpls          | Configure the starting address for this test for MPLS (default 11.0.0.1) |";
+                LOG(INFO) << "| -n/--next_hop_interface_mpls    | Configure the next hop interface for MPLS (default FourHundredGigE0/0/0/0) |";
+                LOG(INFO) << "| -o/--start_label                | Configure the starting label for this test for MPLS (default 20000) |";
+                LOG(INFO) << "| -q/--num_label                  | Configure the number of labels to be allocated for MPLS (default 1000) |";
+                LOG(INFO) << "| -r/--num_paths                  | Configure the number of paths for MPLS labels (default 1)";
+                return 1;
             case 'u':
-                username = optarg;
+                LOG(INFO) << " u";
+                password = optarg;
                 break;
             case 'p':
+                LOG(INFO) << " p";
                 password = optarg;
                 break;
             default:
-                fprintf (stderr, "usage: %s -u username -p password\n", argv[0]);
+                fprintf (stderr, "usage: %s --username --password\n", argv[0]);
                 return 1;
         }
     }
 
-    testingData env_data;
-    env_data.table_type = (getEnvVar("table_type") != "")?stoi(getEnvVar("table_type")):0;
-    env_data.batch_size = (getEnvVar("batch_size") != "")?stoi(getEnvVar("batch_size")):1024;
-    env_data.batch_num = (getEnvVar("batch_num") != "")?stoi(getEnvVar("batch_num")):98;
+    // while ((option_char = getopt(argc, argv, "u:p:")) != -1) {
+    //     switch (option_char) {
+    //         case 'u':
+    //             username = optarg;
+    //             break;
+    //         case 'p':
+    //             password = optarg;
+    //             break;
+    //         default:
+    //             fprintf (stderr, "usage: %s -u username -p password\n", argv[0]);
+    //             return 1;
+    //     }
+    // }
 
-    // For Ipv4
-    env_data.first_prefix_ipv4 = (getEnvVar("first_prefix_ipv4") != "")?getEnvVar("first_prefix_ipv4"):"40.0.0.0";
-    env_data.prefix_len_ipv4 = (getEnvVar("prefix_len_ipv4") != "")?stoi(getEnvVar("prefix_len_ipv4")):24;
-    env_data.next_hop_interface_ipv4 = (getEnvVar("next_hop_interface_ipv4") != "")?getEnvVar("next_hop_interface_ipv4"):"Bundle-Ether1";
-    env_data.next_hop_ip_ipv4 = (getEnvVar("next_hop_ip_ipv4") != "")?getEnvVar("next_hop_ip_ipv4"):"14.1.1.10";
+    // env_data.table_type = (getEnvVar("table_type") != "")?stoi(getEnvVar("table_type")):0;
+    // env_data.batch_size = (getEnvVar("batch_size") != "")?stoi(getEnvVar("batch_size")):1024;
+    // env_data.batch_num = (getEnvVar("batch_num") != "")?stoi(getEnvVar("batch_num")):98;
 
-    // For Ipv6
-    env_data.first_prefix_ipv6 = (getEnvVar("first_prefix_ipv6") != "")?getEnvVar("first_prefix_ipv6"):"2002:aa::0";
-    env_data.prefix_len_ipv6 = (getEnvVar("prefix_len_ipv6") != "")?stoi(getEnvVar("prefix_len_ipv6")):64;
-    env_data.next_hop_interface_ipv6 = (getEnvVar("next_hop_interface_ipv6") != "")?getEnvVar("next_hop_interface_ipv6"):"Bundle-Ether1";
-    env_data.next_hop_ip_ipv6 = (getEnvVar("next_hop_ip_ipv6") != "")?getEnvVar("next_hop_ip_ipv6"):"2002:ae::3";
+    // // For Ipv4
+    // env_data.first_prefix_ipv4 = (getEnvVar("first_prefix_ipv4") != "")?getEnvVar("first_prefix_ipv4"):"40.0.0.0";
+    // env_data.prefix_len_ipv4 = (getEnvVar("prefix_len_ipv4") != "")?stoi(getEnvVar("prefix_len_ipv4")):24;
+    // env_data.next_hop_interface_ipv4 = (getEnvVar("next_hop_interface_ipv4") != "")?getEnvVar("next_hop_interface_ipv4"):"Bundle-Ether1";
+    // env_data.next_hop_ip_ipv4 = (getEnvVar("next_hop_ip_ipv4") != "")?getEnvVar("next_hop_ip_ipv4"):"14.1.1.10";
 
-    // For MPLS
-    env_data.first_prefix_mpls = (getEnvVar("first_prefix_mpls") != "")?getEnvVar("first_prefix_mpls"):"11.0.0.1";
-    env_data.next_hop_interface_mpls = (getEnvVar("next_hop_interface_mpls") != "")?getEnvVar("next_hop_interface_mpls"):"FourHundredGigE0/0/0/0";
-    env_data.start_label = (getEnvVar("start_label") != "")?stoi(getEnvVar("start_label")):20000;
-    env_data.num_label = (getEnvVar("num_label") != "")?stoi(getEnvVar("num_label")):1000;
-    env_data.num_paths = (getEnvVar("num_paths") != "")?stoi(getEnvVar("num_paths")):1;
+    // // For Ipv6
+    // env_data.first_prefix_ipv6 = (getEnvVar("first_prefix_ipv6") != "")?getEnvVar("first_prefix_ipv6"):"2002:aa::0";
+    // env_data.prefix_len_ipv6 = (getEnvVar("prefix_len_ipv6") != "")?stoi(getEnvVar("prefix_len_ipv6")):64;
+    // env_data.next_hop_interface_ipv6 = (getEnvVar("next_hop_interface_ipv6") != "")?getEnvVar("next_hop_interface_ipv6"):"Bundle-Ether1";
+    // env_data.next_hop_ip_ipv6 = (getEnvVar("next_hop_ip_ipv6") != "")?getEnvVar("next_hop_ip_ipv6"):"2002:ae::3";
+
+    // // For MPLS
+    // env_data.first_prefix_mpls = (getEnvVar("first_prefix_mpls") != "")?getEnvVar("first_prefix_mpls"):"11.0.0.1";
+    // env_data.next_hop_interface_mpls = (getEnvVar("next_hop_interface_mpls") != "")?getEnvVar("next_hop_interface_mpls"):"FourHundredGigE0/0/0/0";
+    // env_data.start_label = (getEnvVar("start_label") != "")?stoi(getEnvVar("start_label")):20000;
+    // env_data.num_label = (getEnvVar("num_label") != "")?stoi(getEnvVar("num_label")):1000;
+    // env_data.num_paths = (getEnvVar("num_paths") != "")?stoi(getEnvVar("num_paths")):1;
 
     std::string grpc_server = server_ip + ":" + server_port;
 

@@ -85,44 +85,45 @@ For now, if you already have passed this setup step, follow this example:
 
 | Required Argument | Description |
 | --- | --- |
-| -u                                | Username |
-| -p                                | Password |
+| -u/--username                                | Username |
+| -p/--password                                | Password |
+| -a/--table_type                              | Specify whether to do ipv4(value = 0), ipv6(value = 1) or mpls(value = 2) operation (default 0) |
 
 ##### Optional arguments you can set in environment:
 
 | Environment Variable | Description |
 | --- | --- |
-| export table_type                 | Specify whether to do ipv4(value = 0), ipv6(value = 1) or mpls(value = 2) operation (default 0) |
-| export batch_size                 | Configure the number of ipv4 routes or ILM entires for MPLS to be added to a batch (default 1024) |
-| export batch_num                  | Configure the number of batches (default 98) |
+| -h/--help                       | Help |
+| -b/--batch_size                 | Configure the number of ipv4 routes or ILM entires for MPLS to be added to a batch (default 1024) |
+| -c/--batch_num                  | Configure the number of batches (default 98) |
 
 ##### IPv4 Testing
 
 | Argument | Description |
 | --- | --- |
-| export first_prefix_ipv4          | Configure the starting address for this test for IPV4 (default "40.0.0.0") |
-| export prefix_len_ipv4            | Configure the prefix length for this test for IPV4 address (default 24) |
-| export next_hop_interface_ipv4    | Configure the next hop interface for IPV4 (default "Bundle-Ether1") |
-| export next_hop_ip_ipv4           | Configure the next hop ip address for IPV4 (default "14.1.1.10") |
+| -d/--first_prefix_ipv4          | Configure the starting address for this test for IPV4 (default "40.0.0.0") |
+| -e/--prefix_len_ipv4            | Configure the prefix length for this test for IPV4 address (default 24) |
+| -f/--next_hop_interface_ipv4    | Configure the next hop interface for IPV4 (default "Bundle-Ether1") |
+| -g/--next_hop_ip_ipv4           | Configure the next hop ip address for IPV4 (default "14.1.1.10") |
 
 ##### IPv6 Testing
 
 | Argument | Description |
 | --- | --- |
-| export first_prefix_ipv6          | Configure the starting address for this test for IPV6 (default "2002:aa::0") |
-| export prefix_len_ipv6            | Configure the prefix length for this test for IPV6 address (default 64) |
-| export next_hop_interface_ipv6    | Configure the next hop interface for IPV6 (default "Bundle-Ether1") |
-| export next_hop_ip_ipv6           | Configure the next hop ip address for IPV6 (default "2002:ae::3") |
+| -i/--first_prefix_ipv6          | Configure the starting address for this test for IPV6 (default "2002:aa::0") |
+| -j/--prefix_len_ipv6            | Configure the prefix length for this test for IPV6 address (default 64) |
+| -k/--next_hop_interface_ipv6    | Configure the next hop interface for IPV6 (default "Bundle-Ether1") |
+| -l/--next_hop_ip_ipv6           | Configure the next hop ip address for IPV6 (default "2002:ae::3") |
 
 ##### MPLS Testing
 
 | Argument | Description |
 | --- | --- |
-| export first_prefix_mpls          | Configure the starting address for this test for MPLS (default "11.0.0.1") |
-| export next_hop_interface_mpls    | Configure the next hop interface for MPLS (default "FourHundredGigE0/0/0/0") |
-| export start_label                | Configure the starting label for this test for MPLS (default 20000) |
-| export num_label                  | Configure the number of labels to be allocated for MPLS (default 1000) |
-| export num_paths                  | Configure the number of paths for MPLS labels (default 1) |
+| -m/--first_prefix_mpls          | Configure the starting address for this test for MPLS (default "11.0.0.1") |
+| -n/--next_hop_interface_mpls    | Configure the next hop interface for MPLS (default "FourHundredGigE0/0/0/0") |
+| -o/--start_label                | Configure the starting label for this test for MPLS (default 20000) |
+| -q/--num_label                  | Configure the number of labels to be allocated for MPLS (default 1000) |
+| -r/--num_paths                  | Configure the number of paths for MPLS labels (default 1) |
 
 
 ##### How to Build
@@ -143,17 +144,14 @@ Default Example (This runs ipv4):
     $ ./servicelayermain -u cisco -p cisco123
 
 IPV4 Example:
-    $ export route_op=0
-    $ ./servicelayermain -u cisco -p cisco123
+    $ ./servicelayermain -u cisco -p cisco123 --table_type 0
 
 IPV6 Example:
-    $ export route_op=1
-    $ ./servicelayermain -u cisco -p cisco123
+    $ ./servicelayermain -u cisco -p cisco123 --table_type 1
 
 MPLS Example:
-    $ export route_op=2
-    $ export start_label=12000
-    $ ./servicelayermain -u cisco -p cisco123
+    $ ./servicelayermain -u cisco -p cisco123 --table_type 2 --start_label 12000
+    $ ./servicelayermain -u cisco -p cisco123 --table_type 2 -o 12000 (same as above example)
 
 
 #### How to Run if using Sandbox on Server
@@ -166,13 +164,8 @@ Navigate to rshuttle directory:
 
 Bash-Prompt:sl$ cd grpc/cpp/src/tutorial/rshuttle
 
-From here you need to run the create_giso.sh script into to create a giso image. Each argument requires full path.
-Example:
-
-Bash-Prompt:sl$ ./create_giso.sh -p /nobackup/habassi/rpmtest/
- -b /nobackup/habassi/service-layer-objmodel/grpc/cpp/src/tutorial/rshuttle/servicelayermain -v 1.0.0
- -n servicelayermain -x 1 -i /auto/prod_weekly_archive2/bin/24.2.1.21I.DT_IMAGE/8000/8000-x64-24.2.1.21I.iso 
- -s /auto/prod_weekly_archive2/bin/24.2.1.21I.DT_IMAGE/8000/optional-rpms/sandbox/
+From here you need to package the servicelayermain into an rpm, package that rpm into an xr-rpm and then create a giso image.
+This can be done by following the demo here: https://app.vidcast.io/share/6d214082-74f1-4ee9-9bf2-647bf5a0e483
 
 This will create a folder output_gisobuild/giso which contains the giso image. You need to get it onto your server and store it under /misc/disk1:
 
