@@ -581,20 +581,22 @@ const char descriptor_table_protodef_sl_5froute_5fcommon_2eproto[] PROTOBUF_SECT
   "\022\030\n\024SL_EVENT_TYPE_STATUS\020\002\022\027\n\023SL_EVENT_T"
   "YPE_ROUTE\020\003\022\036\n\032SL_EVENT_TYPE_START_MARKE"
   "R\020\004\022\034\n\030SL_EVENT_TYPE_END_MARKER\020\005\022\025\n\021SL_"
-  "EVENT_TYPE_VRF\020\006*M\n\014SLRouteFlags\022\032\n\026SL_R"
-  "OUTE_FLAG_RESERVED\020\000\022!\n\035SL_ROUTE_FLAG_PR"
-  "EFER_OVER_LDP\020\001*J\n\013SLPathFlags\022\031\n\025SL_PAT"
-  "H_FLAG_RESERVED\020\000\022 \n\034SL_PATH_FLAG_SINGLE"
-  "_PATH_OPT\020\001BQZOgithub.com/Cisco-service-"
-  "layer/service-layer-objmodel/grpc/protos"
-  ";service_layerb\006proto3"
+  "EVENT_TYPE_VRF\020\006*\233\001\n\014SLRouteFlags\022\032\n\026SL_"
+  "ROUTE_FLAG_RESERVED\020\000\022!\n\035SL_ROUTE_FLAG_P"
+  "REFER_OVER_LDP\020\001\022#\n\037SL_ROUTE_FLAG_VIABLE"
+  "_PATHS_ONLY\020\004\022\'\n#SL_ROUTE_FLAG_ACTIVE_ON"
+  "_VIABLE_PATH\020\010*J\n\013SLPathFlags\022\031\n\025SL_PATH"
+  "_FLAG_RESERVED\020\000\022 \n\034SL_PATH_FLAG_SINGLE_"
+  "PATH_OPT\020\001BQZOgithub.com/Cisco-service-l"
+  "ayer/service-layer-objmodel/grpc/protos;"
+  "service_layerb\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_sl_5froute_5fcommon_2eproto_deps[1] = {
   &::descriptor_table_sl_5fcommon_5ftypes_2eproto,
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_sl_5froute_5fcommon_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_sl_5froute_5fcommon_2eproto = {
-  false, false, 2702, descriptor_table_protodef_sl_5froute_5fcommon_2eproto, "sl_route_common.proto", 
+  false, false, 2781, descriptor_table_protodef_sl_5froute_5fcommon_2eproto, "sl_route_common.proto", 
   &descriptor_table_sl_5froute_5fcommon_2eproto_once, descriptor_table_sl_5froute_5fcommon_2eproto_deps, 1, 19,
   schemas, file_default_instances, TableStruct_sl_5froute_5fcommon_2eproto::offsets,
   file_level_metadata_sl_5froute_5fcommon_2eproto, file_level_enum_descriptors_sl_5froute_5fcommon_2eproto, file_level_service_descriptors_sl_5froute_5fcommon_2eproto,
@@ -633,6 +635,8 @@ bool SLRouteFlags_IsValid(int value) {
   switch (value) {
     case 0:
     case 1:
+    case 4:
+    case 8:
       return true;
     default:
       return false;

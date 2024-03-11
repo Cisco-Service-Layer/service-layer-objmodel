@@ -78,13 +78,14 @@ namespace ServiceLayer {
             "EhcKE1NMX0VWRU5UX1RZUEVfRVJST1IQARIYChRTTF9FVkVOVF9UWVBFX1NU",
             "QVRVUxACEhcKE1NMX0VWRU5UX1RZUEVfUk9VVEUQAxIeChpTTF9FVkVOVF9U",
             "WVBFX1NUQVJUX01BUktFUhAEEhwKGFNMX0VWRU5UX1RZUEVfRU5EX01BUktF",
-            "UhAFEhUKEVNMX0VWRU5UX1RZUEVfVlJGEAYqTQoMU0xSb3V0ZUZsYWdzEhoK",
-            "FlNMX1JPVVRFX0ZMQUdfUkVTRVJWRUQQABIhCh1TTF9ST1VURV9GTEFHX1BS",
-            "RUZFUl9PVkVSX0xEUBABKkoKC1NMUGF0aEZsYWdzEhkKFVNMX1BBVEhfRkxB",
-            "R19SRVNFUlZFRBAAEiAKHFNMX1BBVEhfRkxBR19TSU5HTEVfUEFUSF9PUFQQ",
-            "AUJRWk9naXRodWIuY29tL0Npc2NvLXNlcnZpY2UtbGF5ZXIvc2VydmljZS1s",
-            "YXllci1vYmptb2RlbC9ncnBjL3Byb3RvcztzZXJ2aWNlX2xheWVyYgZwcm90",
-            "bzM="));
+            "UhAFEhUKEVNMX0VWRU5UX1RZUEVfVlJGEAYqmwEKDFNMUm91dGVGbGFncxIa",
+            "ChZTTF9ST1VURV9GTEFHX1JFU0VSVkVEEAASIQodU0xfUk9VVEVfRkxBR19Q",
+            "UkVGRVJfT1ZFUl9MRFAQARIjCh9TTF9ST1VURV9GTEFHX1ZJQUJMRV9QQVRI",
+            "U19PTkxZEAQSJwojU0xfUk9VVEVfRkxBR19BQ1RJVkVfT05fVklBQkxFX1BB",
+            "VEgQCCpKCgtTTFBhdGhGbGFncxIZChVTTF9QQVRIX0ZMQUdfUkVTRVJWRUQQ",
+            "ABIgChxTTF9QQVRIX0ZMQUdfU0lOR0xFX1BBVEhfT1BUEAFCUVpPZ2l0aHVi",
+            "LmNvbS9DaXNjby1zZXJ2aWNlLWxheWVyL3NlcnZpY2UtbGF5ZXItb2JqbW9k",
+            "ZWwvZ3JwYy9wcm90b3M7c2VydmljZV9sYXllcmIGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::ServiceLayer.SlCommonTypesReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::ServiceLayer.SLNotifType), typeof(global::ServiceLayer.SLRouteFlags), typeof(global::ServiceLayer.SLPathFlags), }, null, new pbr::GeneratedClrTypeInfo[] {
@@ -168,6 +169,22 @@ namespace ServiceLayer {
     /// learnt by LDP.
     /// </summary>
     [pbr::OriginalName("SL_ROUTE_FLAG_PREFER_OVER_LDP")] SlRouteFlagPreferOverLdp = 1,
+    /// <summary>
+    /// This flag is applicable only on the routes that contain the PathList. 
+    /// If the flag is set, the network element only installs viable paths from 
+    /// the PathList in the load balance group. 
+    /// This flag is ignored if the route refers to the PathGroup.
+    /// </summary>
+    [pbr::OriginalName("SL_ROUTE_FLAG_VIABLE_PATHS_ONLY")] SlRouteFlagViablePathsOnly = 4,
+    /// <summary>
+    /// This flag is supported only for routes that contain the PathList.
+    /// Entries with this flag are included in best route calculations only if 
+    /// at least one path in the PathList is viable. 
+    /// If the route refers to the PathGroup, then this flag on the route is ignored. 
+    /// Instead, the corresponding setting on PathGroup dictates whether this
+    /// route should be considered in best route calculations.
+    /// </summary>
+    [pbr::OriginalName("SL_ROUTE_FLAG_ACTIVE_ON_VIABLE_PATH")] SlRouteFlagActiveOnViablePath = 8,
   }
 
   /// <summary>
@@ -1158,6 +1175,9 @@ namespace ServiceLayer {
     ///    1. Re-registers (VRF)
     ///    2. Replay all routes
     ///    3. And send EOF, before the purge timeout
+    ///
+    /// AdminDistance and VrfPurgeIntervalSeconds value set here is ignored
+    /// for Path group route objects
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -4272,7 +4292,7 @@ namespace ServiceLayer {
     /// RIB uses this field to break the tie when multiple
     /// sources install the same route.
     /// Lower distance is preferred over higher distance.
-    /// The per route object admin distance overrides the default's admin
+    /// The per route object admin distance overrides the default admin
     /// distance set at VRF registration. see SLVrfReg
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -4366,8 +4386,8 @@ namespace ServiceLayer {
     /// <summary>
     /// Route Flags.
     /// Flags to control programming of the route to Routing Information Base.
-    /// Each flag is indicated as a bit field. Supported values are:
-    /// 0x1 - This route takes precedence over a route learnt by LDP.
+    /// Each flag is indicated as a bit field. 
+    /// See SLRouteFlags for flag enumerations.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]

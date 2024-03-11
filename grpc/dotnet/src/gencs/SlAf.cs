@@ -1737,11 +1737,11 @@ namespace ServiceLayer {
     public const int AdminDistanceFieldNumber = 2;
     private uint adminDistance_;
     /// <summary>
-    /// Adminstrative distance of the Path Group. [0-255].
+    /// Administrative distance of the Path Group. [0-255].
     /// RIB uses this field to break the tie when multiple
     /// sources install the same Path Group.
     /// Lower distance is preferred over higher distance.
-    /// The per path group object admin distance overrides the default's admin
+    /// The per path group object admin distance overrides the default admin
     /// distance set at VRF registration. see SLVrfReg
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2506,7 +2506,7 @@ namespace ServiceLayer {
     /// Administrative distance of the MPLS label. [0-255]. RIB uses this field
     /// to break the tie when multiple sources install the same incoming MPLS
     /// label. Lower distance is preferred over higher distance. The per MPLS
-    /// label object admin distance overrides the default's admin distance set
+    /// label object admin distance overrides the default admin distance set
     /// at VRF registration. see SLVrfReg
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]

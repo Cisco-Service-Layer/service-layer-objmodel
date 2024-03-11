@@ -425,11 +425,11 @@ type SLPathGroup struct {
 
 	// Path Group ID
 	PathGroupId *SLObjectId `protobuf:"bytes,1,opt,name=PathGroupId,proto3" json:"PathGroupId,omitempty"`
-	// Adminstrative distance of the Path Group. [0-255].
+	// Administrative distance of the Path Group. [0-255].
 	// RIB uses this field to break the tie when multiple
 	// sources install the same Path Group.
 	// Lower distance is preferred over higher distance.
-	// The per path group object admin distance overrides the default's admin
+	// The per path group object admin distance overrides the default admin
 	// distance set at VRF registration. see SLVrfReg
 	AdminDistance uint32 `protobuf:"varint,2,opt,name=AdminDistance,proto3" json:"AdminDistance,omitempty"`
 	// Description of paths in the PathGroup.
@@ -535,7 +535,7 @@ type SLMplsEntry struct {
 	// Administrative distance of the MPLS label. [0-255]. RIB uses this field
 	// to break the tie when multiple sources install the same incoming MPLS
 	// label. Lower distance is preferred over higher distance. The per MPLS
-	// label object admin distance overrides the default's admin distance set
+	// label object admin distance overrides the default admin distance set
 	// at VRF registration. see SLVrfReg
 	AdminDistance uint32 `protobuf:"varint,2,opt,name=AdminDistance,proto3" json:"AdminDistance,omitempty"`
 	// List of paths for this MPLS label entry.
