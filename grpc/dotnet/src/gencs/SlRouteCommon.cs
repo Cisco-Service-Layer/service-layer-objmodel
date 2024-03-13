@@ -4393,6 +4393,11 @@ namespace ServiceLayer {
     /// SL_ROUTE_FLAG_PREFER_OVER_LDP - This route takes precedence
     /// over a route learnt by LDP.
     ///
+    /// SL_ROUTE_FLAG_DISABLE_LABEL_MERGE
+    /// If this route is preferred over any other producer of the same prefix
+    /// and the latter is programmed with a SR label as well, do not merge
+    /// that label's programming this route.
+    ///
     /// SL_ROUTE_FLAG_VIABLE_PATHS_ONLY - This flag on the route
     /// is applicable only if the route contains the PathList.
     ///

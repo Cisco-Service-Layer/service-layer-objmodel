@@ -332,7 +332,7 @@ message SLPathGroup {
     //   PathGroup to be viable. The network element automatically promotes or 
     //   demotes the routes and MPLS entries as viability of the PathGroup changes.
     //
-	// Others – Reserved. 
+    // Others – Reserved. 
     uint32 Flags = 4;
 }
 
@@ -405,7 +405,7 @@ message SLMplsEntry {
     //   corresponding setting on PathGroup dictates whether this
     //   route should be considered in best route calculations.
     //
-	// Others – Reserved. 
+    // Others – Reserved. 
     uint32 Flags = 5;
 }
 
