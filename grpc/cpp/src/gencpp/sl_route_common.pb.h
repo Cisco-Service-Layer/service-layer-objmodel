@@ -171,6 +171,7 @@ inline bool SLNotifType_Parse(
 enum SLRouteFlags : int {
   SL_ROUTE_FLAG_RESERVED = 0,
   SL_ROUTE_FLAG_PREFER_OVER_LDP = 1,
+  SL_ROUTE_FLAG_DISABLE_LABEL_MERGE = 2,
   SL_ROUTE_FLAG_VIABLE_PATHS_ONLY = 4,
   SL_ROUTE_FLAG_ACTIVE_ON_VIABLE_PATH = 8,
   SLRouteFlags_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::min(),

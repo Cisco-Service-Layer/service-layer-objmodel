@@ -78,14 +78,15 @@ namespace ServiceLayer {
             "EhcKE1NMX0VWRU5UX1RZUEVfRVJST1IQARIYChRTTF9FVkVOVF9UWVBFX1NU",
             "QVRVUxACEhcKE1NMX0VWRU5UX1RZUEVfUk9VVEUQAxIeChpTTF9FVkVOVF9U",
             "WVBFX1NUQVJUX01BUktFUhAEEhwKGFNMX0VWRU5UX1RZUEVfRU5EX01BUktF",
-            "UhAFEhUKEVNMX0VWRU5UX1RZUEVfVlJGEAYqmwEKDFNMUm91dGVGbGFncxIa",
+            "UhAFEhUKEVNMX0VWRU5UX1RZUEVfVlJGEAYqwgEKDFNMUm91dGVGbGFncxIa",
             "ChZTTF9ST1VURV9GTEFHX1JFU0VSVkVEEAASIQodU0xfUk9VVEVfRkxBR19Q",
-            "UkVGRVJfT1ZFUl9MRFAQARIjCh9TTF9ST1VURV9GTEFHX1ZJQUJMRV9QQVRI",
-            "U19PTkxZEAQSJwojU0xfUk9VVEVfRkxBR19BQ1RJVkVfT05fVklBQkxFX1BB",
-            "VEgQCCpKCgtTTFBhdGhGbGFncxIZChVTTF9QQVRIX0ZMQUdfUkVTRVJWRUQQ",
-            "ABIgChxTTF9QQVRIX0ZMQUdfU0lOR0xFX1BBVEhfT1BUEAFCUVpPZ2l0aHVi",
-            "LmNvbS9DaXNjby1zZXJ2aWNlLWxheWVyL3NlcnZpY2UtbGF5ZXItb2JqbW9k",
-            "ZWwvZ3JwYy9wcm90b3M7c2VydmljZV9sYXllcmIGcHJvdG8z"));
+            "UkVGRVJfT1ZFUl9MRFAQARIlCiFTTF9ST1VURV9GTEFHX0RJU0FCTEVfTEFC",
+            "RUxfTUVSR0UQAhIjCh9TTF9ST1VURV9GTEFHX1ZJQUJMRV9QQVRIU19PTkxZ",
+            "EAQSJwojU0xfUk9VVEVfRkxBR19BQ1RJVkVfT05fVklBQkxFX1BBVEgQCCpK",
+            "CgtTTFBhdGhGbGFncxIZChVTTF9QQVRIX0ZMQUdfUkVTRVJWRUQQABIgChxT",
+            "TF9QQVRIX0ZMQUdfU0lOR0xFX1BBVEhfT1BUEAFCUVpPZ2l0aHViLmNvbS9D",
+            "aXNjby1zZXJ2aWNlLWxheWVyL3NlcnZpY2UtbGF5ZXItb2JqbW9kZWwvZ3Jw",
+            "Yy9wcm90b3M7c2VydmljZV9sYXllcmIGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::ServiceLayer.SlCommonTypesReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::ServiceLayer.SLNotifType), typeof(global::ServiceLayer.SLRouteFlags), typeof(global::ServiceLayer.SLPathFlags), }, null, new pbr::GeneratedClrTypeInfo[] {
@@ -170,19 +171,18 @@ namespace ServiceLayer {
     /// </summary>
     [pbr::OriginalName("SL_ROUTE_FLAG_PREFER_OVER_LDP")] SlRouteFlagPreferOverLdp = 1,
     /// <summary>
-    /// This flag is applicable only on the routes that contain the PathList. 
-    /// If the flag is set, the network element only installs viable paths from 
-    /// the PathList in the load balance group. 
-    /// This flag is ignored if the route refers to the PathGroup.
+    /// If this route is preferred over any other producer of the same prefix
+    /// and the latter is programmed with a SR label as well, do not merge
+    /// that label's programming this route.
+    /// </summary>
+    [pbr::OriginalName("SL_ROUTE_FLAG_DISABLE_LABEL_MERGE")] SlRouteFlagDisableLabelMerge = 2,
+    /// <summary>
+    /// Install viable paths only. See text in SLRoutecommon/PathGroup for more details
     /// </summary>
     [pbr::OriginalName("SL_ROUTE_FLAG_VIABLE_PATHS_ONLY")] SlRouteFlagViablePathsOnly = 4,
     /// <summary>
-    /// This flag is supported only for routes that contain the PathList.
-    /// Entries with this flag are included in best route calculations only if 
-    /// at least one path in the PathList is viable. 
-    /// If the route refers to the PathGroup, then this flag on the route is ignored. 
-    /// Instead, the corresponding setting on PathGroup dictates whether this
-    /// route should be considered in best route calculations.
+    /// Route is considered active if there is atleast one viable path. 
+    /// See text in SLRoutecommon/PathGroup for more details.
     /// </summary>
     [pbr::OriginalName("SL_ROUTE_FLAG_ACTIVE_ON_VIABLE_PATH")] SlRouteFlagActiveOnViablePath = 8,
   }
@@ -1176,8 +1176,8 @@ namespace ServiceLayer {
     ///    2. Replay all routes
     ///    3. And send EOF, before the purge timeout
     ///
-    /// AdminDistance and VrfPurgeIntervalSeconds value set here is ignored
-    /// for Path group route objects
+    /// AdminDistance and VrfPurgeIntervalSeconds values are ignored
+    /// for SL_PATH_GROUP_TABLE type registration
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -4388,6 +4388,51 @@ namespace ServiceLayer {
     /// Flags to control programming of the route to Routing Information Base.
     /// Each flag is indicated as a bit field. 
     /// See SLRouteFlags for flag enumerations.
+    /// Supported values are:
+    ///
+    /// SL_ROUTE_FLAG_PREFER_OVER_LDP - This route takes precedence
+    /// over a route learnt by LDP.
+    ///
+    /// SL_ROUTE_FLAG_VIABLE_PATHS_ONLY - This flag on the route
+    /// is applicable only if the route contains the PathList.
+    ///
+    /// - If the flag is not set, all paths in the PathList are installed in
+    ///   the route’s load balance group, even if paths are unviable. The 
+    ///   Network element does not automatically update the route’s load balance
+    ///   group when path viability changes and expects the client to take
+    ///   corrective action.
+    ///
+    /// - If the flag is set, the network element only installs viable
+    ///   paths from the PathList in the route’s load balance group.
+    ///   The Network element also automatically updates the route’s
+    ///   load balance group when path viability changes.
+    ///
+    /// - This flag is ignored if the route refers to the PathGroup and the
+    ///   corresponding setting on the PathGroup dictates path programming.
+    ///
+    /// SL_ROUTE_FLAG_ACTIVE_ON_VIABLE_PATH - This flag is supported only for
+    /// routes that contain the PathList.
+    ///
+    /// - If this flag is not set, the route is active if it is preferred
+    ///   based on administrative distance. Viability of the paths in
+    ///   the PathList is not used as a criterion to determine
+    ///   route’s activeness.
+    ///   If the route is active, the PathList programming is dictated by
+    ///   SL_ROUTE_FLAG_VIABLE_PATHS_ONLY.
+    ///
+    /// - If this flag is set, SL_ROUTE_FLAG_VIABLE_PATHS_ONLY must also
+    ///   be set. The route is considered as active if it is preferred based
+    ///   on administrative distance AND at least one path in the PathList
+    ///   is viable. The Network element also automatically promotes or demotes
+    ///   the route when the first path becomes viable or none of the paths
+    ///   are no longer viable.
+    ///
+    /// - If the route refers to the PathGroup,
+    ///   then this flag on the route is ignored. Instead, the
+    ///   corresponding setting on PathGroup dictates whether this
+    ///   route should be considered in best route calculations.
+    ///
+    /// All others are reserved.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
