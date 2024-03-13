@@ -147,6 +147,10 @@
     SL_RPC_ROUTE_NOTIF_SRC_PROTO_TOOLONG = 0x3009,\
     /* Operation rejected as the request's SrcProtoTag is too long. 0x300a */\
     SL_RPC_ROUTE_NOTIF_SRC_PROTO_TAG_TOOLONG = 0x300a,\
+    /* Operation rejected as the filter is invalid. 0x300b */\
+    SL_RPC_ROUTE_GET_FILTER_INVALID = 0x300b,\
+    /* Operation rejected as the filter is not supported. 0x300c */\
+    SL_RPC_ROUTE_GET_FILTER_NOTSUP = 0x300c,\
     /* !!! Error codes for Route objects. */\
     /* Offset for route errors. 0x4000 */\
     SL_ROUTE_START_OFFSET = 0x4000,\
@@ -841,6 +845,12 @@
         },\
     {SL_RPC_ROUTE_NOTIF_SRC_PROTO_TAG_TOOLONG ,\
         " Operation rejected as the request's SrcProtoTag is too long.  "\
+        },\
+    {SL_RPC_ROUTE_GET_FILTER_INVALID ,\
+        " Operation rejected as the filter is invalid.  "\
+        },\
+    {SL_RPC_ROUTE_GET_FILTER_NOTSUP ,\
+        " Operation rejected as the filter is not supported.  "\
         },\
     {SL_ROUTE_START_OFFSET ,\
         " Offset for route errors.  "\

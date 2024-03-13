@@ -451,6 +451,11 @@ message SLAFGetMsg {
     // metadata.
     bool GetAllClients = 3;
 
+    // Get objects that  match the filter. Filter can be one of PathGroup
+    // name or Vxlan Vni. Specify a regular expression to filter
+    // PathGroup and a numerical value to filter Vxlan Vni.
+    repeated SLRouteGetFilter MatchFilter = 4;
+
 }
 
 message SLAFFibStatus {

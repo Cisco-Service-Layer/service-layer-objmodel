@@ -306,6 +306,14 @@ message SLVrfNotif {
     SLObjectOp Status = 2;
 }
 
+// Filter the routes based on  one of below entries.
+message SLRouteGetFilter {
+    oneof entry {
+         string MatchPathGroupRegex = 1;
+         uint32 MatchVxlanVniId = 2;
+    }
+}
+
 // Common IPv4/IPv6 route attributes.
 message SLRouteCommon {
     // Adminstrative distance of the route. [0-255].

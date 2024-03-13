@@ -233,6 +233,18 @@ struct SLVrfNotifDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT SLVrfNotifDefaultTypeInternal _SLVrfNotif_default_instance_;
+constexpr SLRouteGetFilter::SLRouteGetFilter(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : _oneof_case_{}{}
+struct SLRouteGetFilterDefaultTypeInternal {
+  constexpr SLRouteGetFilterDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~SLRouteGetFilterDefaultTypeInternal() {}
+  union {
+    SLRouteGetFilter _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT SLRouteGetFilterDefaultTypeInternal _SLRouteGetFilter_default_instance_;
 constexpr SLRouteCommon::SLRouteCommon(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
   : srcproto_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
@@ -294,7 +306,7 @@ struct SLRoutePathDefaultTypeInternal {
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT SLRoutePathDefaultTypeInternal _SLRoutePath_default_instance_;
 }  // namespace service_layer
-static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_sl_5froute_5fcommon_2eproto[19];
+static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_sl_5froute_5fcommon_2eproto[20];
 static const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* file_level_enum_descriptors_sl_5froute_5fcommon_2eproto[3];
 static constexpr ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor const** file_level_service_descriptors_sl_5froute_5fcommon_2eproto = nullptr;
 
@@ -433,6 +445,15 @@ const uint32_t TableStruct_sl_5froute_5fcommon_2eproto::offsets[] PROTOBUF_SECTI
   PROTOBUF_FIELD_OFFSET(::service_layer::SLVrfNotif, vrfname_),
   PROTOBUF_FIELD_OFFSET(::service_layer::SLVrfNotif, status_),
   ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::service_layer::SLRouteGetFilter, _internal_metadata_),
+  ~0u,  // no _extensions_
+  PROTOBUF_FIELD_OFFSET(::service_layer::SLRouteGetFilter, _oneof_case_[0]),
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
+  ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
+  PROTOBUF_FIELD_OFFSET(::service_layer::SLRouteGetFilter, entry_),
+  ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::service_layer::SLRouteCommon, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
@@ -492,9 +513,10 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOB
   { 109, -1, -1, sizeof(::service_layer::SLRouteNotifStatus)},
   { 118, -1, -1, sizeof(::service_layer::SLRouteNotifMarker)},
   { 125, -1, -1, sizeof(::service_layer::SLVrfNotif)},
-  { 133, -1, -1, sizeof(::service_layer::SLRouteCommon)},
-  { 145, -1, -1, sizeof(::service_layer::SLVxLANPath)},
-  { 156, -1, -1, sizeof(::service_layer::SLRoutePath)},
+  { 133, -1, -1, sizeof(::service_layer::SLRouteGetFilter)},
+  { 142, -1, -1, sizeof(::service_layer::SLRouteCommon)},
+  { 154, -1, -1, sizeof(::service_layer::SLVxLANPath)},
+  { 165, -1, -1, sizeof(::service_layer::SLRoutePath)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -514,6 +536,7 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::service_layer::_SLRouteNotifStatus_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::service_layer::_SLRouteNotifMarker_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::service_layer::_SLVrfNotif_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::service_layer::_SLRouteGetFilter_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::service_layer::_SLRouteCommon_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::service_layer::_SLVxLANPath_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::service_layer::_SLRoutePath_default_instance_),
@@ -557,48 +580,50 @@ const char descriptor_table_protodef_sl_5froute_5fcommon_2eproto[] PROTOBUF_SECT
   "tatus\030\003 \001(\0132\034.service_layer.SLErrorStatu"
   "s\"%\n\022SLRouteNotifMarker\022\017\n\007VrfName\030\001 \001(\t"
   "\"H\n\nSLVrfNotif\022\017\n\007VrfName\030\001 \001(\t\022)\n\006Statu"
-  "s\030\002 \001(\0162\031.service_layer.SLObjectOp\"}\n\rSL"
-  "RouteCommon\022\025\n\rAdminDistance\030\001 \001(\r\022\022\n\nLo"
-  "calLabel\030\002 \001(\r\022\013\n\003Tag\030\003 \001(\r\022\020\n\010SrcProto\030"
-  "\004 \001(\t\022\023\n\013SrcProtoTag\030\005 \001(\t\022\r\n\005Flags\030\006 \001("
-  "\r\"\261\001\n\013SLVxLANPath\022\013\n\003VNI\030\001 \001(\r\022\030\n\020Source"
-  "MacAddress\030\002 \001(\014\022\026\n\016DestMacAddress\030\003 \001(\014"
-  "\0220\n\014SrcIpAddress\030\004 \001(\0132\032.service_layer.S"
-  "LIpAddress\0221\n\rDestIpAddress\030\005 \001(\0132\032.serv"
-  "ice_layer.SLIpAddress\"\253\003\n\013SLRoutePath\0222\n"
-  "\016NexthopAddress\030\001 \001(\0132\032.service_layer.SL"
-  "IpAddress\0224\n\020NexthopInterface\030\002 \001(\0132\032.se"
-  "rvice_layer.SLInterface\022\022\n\nLoadMetric\030\003 "
-  "\001(\r\022\017\n\007VrfName\030\004 \001(\t\022\016\n\006Metric\030\005 \001(\r\022\016\n\006"
-  "PathId\030\006 \001(\r\022\033\n\023ProtectedPathBitmap\030\007 \003("
-  "\004\022\022\n\nLabelStack\030\010 \003(\r\0221\n\rRemoteAddress\030\t"
-  " \003(\0132\032.service_layer.SLIpAddress\022-\n\tEnca"
-  "pType\030\n \001(\0162\032.service_layer.SLEncapType\022"
-  "\034\n\024VtepRouterMacAddress\030\013 \001(\014\022-\n\tVxLANPa"
-  "th\030\014 \001(\0132\032.service_layer.SLVxLANPath\022\r\n\005"
-  "Flags\030\r \001(\r*\312\001\n\013SLNotifType\022\032\n\026SL_EVENT_"
-  "TYPE_RESERVED\020\000\022\027\n\023SL_EVENT_TYPE_ERROR\020\001"
-  "\022\030\n\024SL_EVENT_TYPE_STATUS\020\002\022\027\n\023SL_EVENT_T"
-  "YPE_ROUTE\020\003\022\036\n\032SL_EVENT_TYPE_START_MARKE"
-  "R\020\004\022\034\n\030SL_EVENT_TYPE_END_MARKER\020\005\022\025\n\021SL_"
-  "EVENT_TYPE_VRF\020\006*\302\001\n\014SLRouteFlags\022\032\n\026SL_"
-  "ROUTE_FLAG_RESERVED\020\000\022!\n\035SL_ROUTE_FLAG_P"
-  "REFER_OVER_LDP\020\001\022%\n!SL_ROUTE_FLAG_DISABL"
-  "E_LABEL_MERGE\020\002\022#\n\037SL_ROUTE_FLAG_VIABLE_"
-  "PATHS_ONLY\020\004\022\'\n#SL_ROUTE_FLAG_ACTIVE_ON_"
-  "VIABLE_PATH\020\010*J\n\013SLPathFlags\022\031\n\025SL_PATH_"
-  "FLAG_RESERVED\020\000\022 \n\034SL_PATH_FLAG_SINGLE_P"
-  "ATH_OPT\020\001BQZOgithub.com/Cisco-service-la"
-  "yer/service-layer-objmodel/grpc/protos;s"
-  "ervice_layerb\006proto3"
+  "s\030\002 \001(\0162\031.service_layer.SLObjectOp\"U\n\020SL"
+  "RouteGetFilter\022\035\n\023MatchPathGroupRegex\030\001 "
+  "\001(\tH\000\022\031\n\017MatchVxlanVniId\030\002 \001(\rH\000B\007\n\005entr"
+  "y\"}\n\rSLRouteCommon\022\025\n\rAdminDistance\030\001 \001("
+  "\r\022\022\n\nLocalLabel\030\002 \001(\r\022\013\n\003Tag\030\003 \001(\r\022\020\n\010Sr"
+  "cProto\030\004 \001(\t\022\023\n\013SrcProtoTag\030\005 \001(\t\022\r\n\005Fla"
+  "gs\030\006 \001(\r\"\261\001\n\013SLVxLANPath\022\013\n\003VNI\030\001 \001(\r\022\030\n"
+  "\020SourceMacAddress\030\002 \001(\014\022\026\n\016DestMacAddres"
+  "s\030\003 \001(\014\0220\n\014SrcIpAddress\030\004 \001(\0132\032.service_"
+  "layer.SLIpAddress\0221\n\rDestIpAddress\030\005 \001(\013"
+  "2\032.service_layer.SLIpAddress\"\253\003\n\013SLRoute"
+  "Path\0222\n\016NexthopAddress\030\001 \001(\0132\032.service_l"
+  "ayer.SLIpAddress\0224\n\020NexthopInterface\030\002 \001"
+  "(\0132\032.service_layer.SLInterface\022\022\n\nLoadMe"
+  "tric\030\003 \001(\r\022\017\n\007VrfName\030\004 \001(\t\022\016\n\006Metric\030\005 "
+  "\001(\r\022\016\n\006PathId\030\006 \001(\r\022\033\n\023ProtectedPathBitm"
+  "ap\030\007 \003(\004\022\022\n\nLabelStack\030\010 \003(\r\0221\n\rRemoteAd"
+  "dress\030\t \003(\0132\032.service_layer.SLIpAddress\022"
+  "-\n\tEncapType\030\n \001(\0162\032.service_layer.SLEnc"
+  "apType\022\034\n\024VtepRouterMacAddress\030\013 \001(\014\022-\n\t"
+  "VxLANPath\030\014 \001(\0132\032.service_layer.SLVxLANP"
+  "ath\022\r\n\005Flags\030\r \001(\r*\312\001\n\013SLNotifType\022\032\n\026SL"
+  "_EVENT_TYPE_RESERVED\020\000\022\027\n\023SL_EVENT_TYPE_"
+  "ERROR\020\001\022\030\n\024SL_EVENT_TYPE_STATUS\020\002\022\027\n\023SL_"
+  "EVENT_TYPE_ROUTE\020\003\022\036\n\032SL_EVENT_TYPE_STAR"
+  "T_MARKER\020\004\022\034\n\030SL_EVENT_TYPE_END_MARKER\020\005"
+  "\022\025\n\021SL_EVENT_TYPE_VRF\020\006*\302\001\n\014SLRouteFlags"
+  "\022\032\n\026SL_ROUTE_FLAG_RESERVED\020\000\022!\n\035SL_ROUTE"
+  "_FLAG_PREFER_OVER_LDP\020\001\022%\n!SL_ROUTE_FLAG"
+  "_DISABLE_LABEL_MERGE\020\002\022#\n\037SL_ROUTE_FLAG_"
+  "VIABLE_PATHS_ONLY\020\004\022\'\n#SL_ROUTE_FLAG_ACT"
+  "IVE_ON_VIABLE_PATH\020\010*J\n\013SLPathFlags\022\031\n\025S"
+  "L_PATH_FLAG_RESERVED\020\000\022 \n\034SL_PATH_FLAG_S"
+  "INGLE_PATH_OPT\020\001BQZOgithub.com/Cisco-ser"
+  "vice-layer/service-layer-objmodel/grpc/p"
+  "rotos;service_layerb\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_sl_5froute_5fcommon_2eproto_deps[1] = {
   &::descriptor_table_sl_5fcommon_5ftypes_2eproto,
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_sl_5froute_5fcommon_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_sl_5froute_5fcommon_2eproto = {
-  false, false, 2820, descriptor_table_protodef_sl_5froute_5fcommon_2eproto, "sl_route_common.proto", 
-  &descriptor_table_sl_5froute_5fcommon_2eproto_once, descriptor_table_sl_5froute_5fcommon_2eproto_deps, 1, 19,
+  false, false, 2907, descriptor_table_protodef_sl_5froute_5fcommon_2eproto, "sl_route_common.proto", 
+  &descriptor_table_sl_5froute_5fcommon_2eproto_once, descriptor_table_sl_5froute_5fcommon_2eproto_deps, 1, 20,
   schemas, file_default_instances, TableStruct_sl_5froute_5fcommon_2eproto::offsets,
   file_level_metadata_sl_5froute_5fcommon_2eproto, file_level_enum_descriptors_sl_5froute_5fcommon_2eproto, file_level_service_descriptors_sl_5froute_5fcommon_2eproto,
 };
@@ -4328,6 +4353,262 @@ void SLVrfNotif::InternalSwap(SLVrfNotif* other) {
 
 // ===================================================================
 
+class SLRouteGetFilter::_Internal {
+ public:
+};
+
+SLRouteGetFilter::SLRouteGetFilter(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor();
+  if (!is_message_owned) {
+    RegisterArenaDtor(arena);
+  }
+  // @@protoc_insertion_point(arena_constructor:service_layer.SLRouteGetFilter)
+}
+SLRouteGetFilter::SLRouteGetFilter(const SLRouteGetFilter& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  clear_has_entry();
+  switch (from.entry_case()) {
+    case kMatchPathGroupRegex: {
+      _internal_set_matchpathgroupregex(from._internal_matchpathgroupregex());
+      break;
+    }
+    case kMatchVxlanVniId: {
+      _internal_set_matchvxlanvniid(from._internal_matchvxlanvniid());
+      break;
+    }
+    case ENTRY_NOT_SET: {
+      break;
+    }
+  }
+  // @@protoc_insertion_point(copy_constructor:service_layer.SLRouteGetFilter)
+}
+
+inline void SLRouteGetFilter::SharedCtor() {
+clear_has_entry();
+}
+
+SLRouteGetFilter::~SLRouteGetFilter() {
+  // @@protoc_insertion_point(destructor:service_layer.SLRouteGetFilter)
+  if (GetArenaForAllocation() != nullptr) return;
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+inline void SLRouteGetFilter::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  if (has_entry()) {
+    clear_entry();
+  }
+}
+
+void SLRouteGetFilter::ArenaDtor(void* object) {
+  SLRouteGetFilter* _this = reinterpret_cast< SLRouteGetFilter* >(object);
+  (void)_this;
+}
+void SLRouteGetFilter::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void SLRouteGetFilter::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void SLRouteGetFilter::clear_entry() {
+// @@protoc_insertion_point(one_of_clear_start:service_layer.SLRouteGetFilter)
+  switch (entry_case()) {
+    case kMatchPathGroupRegex: {
+      entry_.matchpathgroupregex_.Destroy(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
+      break;
+    }
+    case kMatchVxlanVniId: {
+      // No need to clear
+      break;
+    }
+    case ENTRY_NOT_SET: {
+      break;
+    }
+  }
+  _oneof_case_[0] = ENTRY_NOT_SET;
+}
+
+
+void SLRouteGetFilter::Clear() {
+// @@protoc_insertion_point(message_clear_start:service_layer.SLRouteGetFilter)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  clear_entry();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* SLRouteGetFilter::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // string MatchPathGroupRegex = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
+          auto str = _internal_mutable_matchpathgroupregex();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "service_layer.SLRouteGetFilter.MatchPathGroupRegex"));
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // uint32 MatchVxlanVniId = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
+          _internal_set_matchvxlanvniid(::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr));
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* SLRouteGetFilter::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:service_layer.SLRouteGetFilter)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // string MatchPathGroupRegex = 1;
+  if (_internal_has_matchpathgroupregex()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_matchpathgroupregex().data(), static_cast<int>(this->_internal_matchpathgroupregex().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "service_layer.SLRouteGetFilter.MatchPathGroupRegex");
+    target = stream->WriteStringMaybeAliased(
+        1, this->_internal_matchpathgroupregex(), target);
+  }
+
+  // uint32 MatchVxlanVniId = 2;
+  if (_internal_has_matchvxlanvniid()) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_matchvxlanvniid(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:service_layer.SLRouteGetFilter)
+  return target;
+}
+
+size_t SLRouteGetFilter::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:service_layer.SLRouteGetFilter)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  switch (entry_case()) {
+    // string MatchPathGroupRegex = 1;
+    case kMatchPathGroupRegex: {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+          this->_internal_matchpathgroupregex());
+      break;
+    }
+    // uint32 MatchVxlanVniId = 2;
+    case kMatchVxlanVniId: {
+      total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_matchvxlanvniid());
+      break;
+    }
+    case ENTRY_NOT_SET: {
+      break;
+    }
+  }
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData SLRouteGetFilter::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    SLRouteGetFilter::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*SLRouteGetFilter::GetClassData() const { return &_class_data_; }
+
+void SLRouteGetFilter::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<SLRouteGetFilter *>(to)->MergeFrom(
+      static_cast<const SLRouteGetFilter &>(from));
+}
+
+
+void SLRouteGetFilter::MergeFrom(const SLRouteGetFilter& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:service_layer.SLRouteGetFilter)
+  GOOGLE_DCHECK_NE(&from, this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  switch (from.entry_case()) {
+    case kMatchPathGroupRegex: {
+      _internal_set_matchpathgroupregex(from._internal_matchpathgroupregex());
+      break;
+    }
+    case kMatchVxlanVniId: {
+      _internal_set_matchvxlanvniid(from._internal_matchvxlanvniid());
+      break;
+    }
+    case ENTRY_NOT_SET: {
+      break;
+    }
+  }
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void SLRouteGetFilter::CopyFrom(const SLRouteGetFilter& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:service_layer.SLRouteGetFilter)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool SLRouteGetFilter::IsInitialized() const {
+  return true;
+}
+
+void SLRouteGetFilter::InternalSwap(SLRouteGetFilter* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(entry_, other->entry_);
+  swap(_oneof_case_[0], other->_oneof_case_[0]);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata SLRouteGetFilter::GetMetadata() const {
+  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
+      &descriptor_table_sl_5froute_5fcommon_2eproto_getter, &descriptor_table_sl_5froute_5fcommon_2eproto_once,
+      file_level_metadata_sl_5froute_5fcommon_2eproto[16]);
+}
+
+// ===================================================================
+
 class SLRouteCommon::_Internal {
  public:
 };
@@ -4679,7 +4960,7 @@ void SLRouteCommon::InternalSwap(SLRouteCommon* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata SLRouteCommon::GetMetadata() const {
   return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_sl_5froute_5fcommon_2eproto_getter, &descriptor_table_sl_5froute_5fcommon_2eproto_once,
-      file_level_metadata_sl_5froute_5fcommon_2eproto[16]);
+      file_level_metadata_sl_5froute_5fcommon_2eproto[17]);
 }
 
 // ===================================================================
@@ -5049,7 +5330,7 @@ void SLVxLANPath::InternalSwap(SLVxLANPath* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata SLVxLANPath::GetMetadata() const {
   return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_sl_5froute_5fcommon_2eproto_getter, &descriptor_table_sl_5froute_5fcommon_2eproto_once,
-      file_level_metadata_sl_5froute_5fcommon_2eproto[17]);
+      file_level_metadata_sl_5froute_5fcommon_2eproto[18]);
 }
 
 // ===================================================================
@@ -5676,7 +5957,7 @@ void SLRoutePath::InternalSwap(SLRoutePath* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata SLRoutePath::GetMetadata() const {
   return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_sl_5froute_5fcommon_2eproto_getter, &descriptor_table_sl_5froute_5fcommon_2eproto_once,
-      file_level_metadata_sl_5froute_5fcommon_2eproto[18]);
+      file_level_metadata_sl_5froute_5fcommon_2eproto[19]);
 }
 
 // @@protoc_insertion_point(namespace_scope)
@@ -5729,6 +6010,9 @@ template<> PROTOBUF_NOINLINE ::service_layer::SLRouteNotifMarker* Arena::CreateM
 }
 template<> PROTOBUF_NOINLINE ::service_layer::SLVrfNotif* Arena::CreateMaybeMessage< ::service_layer::SLVrfNotif >(Arena* arena) {
   return Arena::CreateMessageInternal< ::service_layer::SLVrfNotif >(arena);
+}
+template<> PROTOBUF_NOINLINE ::service_layer::SLRouteGetFilter* Arena::CreateMaybeMessage< ::service_layer::SLRouteGetFilter >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::service_layer::SLRouteGetFilter >(arena);
 }
 template<> PROTOBUF_NOINLINE ::service_layer::SLRouteCommon* Arena::CreateMaybeMessage< ::service_layer::SLRouteCommon >(Arena* arena) {
   return Arena::CreateMessageInternal< ::service_layer::SLRouteCommon >(arena);

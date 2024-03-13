@@ -2502,10 +2502,29 @@ class SLAFGetMsg final :
   // accessors -------------------------------------------------------
 
   enum : int {
+    kMatchFilterFieldNumber = 4,
     kVrfNameFieldNumber = 1,
     kTableFieldNumber = 2,
     kGetAllClientsFieldNumber = 3,
   };
+  // repeated .service_layer.SLRouteGetFilter MatchFilter = 4;
+  int matchfilter_size() const;
+  private:
+  int _internal_matchfilter_size() const;
+  public:
+  void clear_matchfilter();
+  ::service_layer::SLRouteGetFilter* mutable_matchfilter(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::service_layer::SLRouteGetFilter >*
+      mutable_matchfilter();
+  private:
+  const ::service_layer::SLRouteGetFilter& _internal_matchfilter(int index) const;
+  ::service_layer::SLRouteGetFilter* _internal_add_matchfilter();
+  public:
+  const ::service_layer::SLRouteGetFilter& matchfilter(int index) const;
+  ::service_layer::SLRouteGetFilter* add_matchfilter();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::service_layer::SLRouteGetFilter >&
+      matchfilter() const;
+
   // string VrfName = 1;
   void clear_vrfname();
   const std::string& vrfname() const;
@@ -2545,6 +2564,7 @@ class SLAFGetMsg final :
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::service_layer::SLRouteGetFilter > matchfilter_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr vrfname_;
   int table_;
   bool getallclients_;
@@ -7294,6 +7314,43 @@ inline void SLAFGetMsg::_internal_set_getallclients(bool value) {
 inline void SLAFGetMsg::set_getallclients(bool value) {
   _internal_set_getallclients(value);
   // @@protoc_insertion_point(field_set:service_layer.SLAFGetMsg.GetAllClients)
+}
+
+// repeated .service_layer.SLRouteGetFilter MatchFilter = 4;
+inline int SLAFGetMsg::_internal_matchfilter_size() const {
+  return matchfilter_.size();
+}
+inline int SLAFGetMsg::matchfilter_size() const {
+  return _internal_matchfilter_size();
+}
+inline ::service_layer::SLRouteGetFilter* SLAFGetMsg::mutable_matchfilter(int index) {
+  // @@protoc_insertion_point(field_mutable:service_layer.SLAFGetMsg.MatchFilter)
+  return matchfilter_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::service_layer::SLRouteGetFilter >*
+SLAFGetMsg::mutable_matchfilter() {
+  // @@protoc_insertion_point(field_mutable_list:service_layer.SLAFGetMsg.MatchFilter)
+  return &matchfilter_;
+}
+inline const ::service_layer::SLRouteGetFilter& SLAFGetMsg::_internal_matchfilter(int index) const {
+  return matchfilter_.Get(index);
+}
+inline const ::service_layer::SLRouteGetFilter& SLAFGetMsg::matchfilter(int index) const {
+  // @@protoc_insertion_point(field_get:service_layer.SLAFGetMsg.MatchFilter)
+  return _internal_matchfilter(index);
+}
+inline ::service_layer::SLRouteGetFilter* SLAFGetMsg::_internal_add_matchfilter() {
+  return matchfilter_.Add();
+}
+inline ::service_layer::SLRouteGetFilter* SLAFGetMsg::add_matchfilter() {
+  ::service_layer::SLRouteGetFilter* _add = _internal_add_matchfilter();
+  // @@protoc_insertion_point(field_add:service_layer.SLAFGetMsg.MatchFilter)
+  return _add;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::service_layer::SLRouteGetFilter >&
+SLAFGetMsg::matchfilter() const {
+  // @@protoc_insertion_point(field_list:service_layer.SLAFGetMsg.MatchFilter)
+  return matchfilter_;
 }
 
 // -------------------------------------------------------------------
