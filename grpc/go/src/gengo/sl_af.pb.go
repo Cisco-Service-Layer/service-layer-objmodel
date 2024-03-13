@@ -425,11 +425,11 @@ type SLPathGroup struct {
 
 	// Path Group ID
 	PathGroupId *SLObjectId `protobuf:"bytes,1,opt,name=PathGroupId,proto3" json:"PathGroupId,omitempty"`
-	// Adminstrative distance of the Path Group. [0-255].
+	// Administrative distance of the Path Group. [0-255].
 	// RIB uses this field to break the tie when multiple
 	// sources install the same Path Group.
 	// Lower distance is preferred over higher distance.
-	// The per path group object admin distance overrides the default's admin
+	// The per path group object admin distance overrides the default admin
 	// distance set at VRF registration. see SLVrfReg
 	AdminDistance uint32 `protobuf:"varint,2,opt,name=AdminDistance,proto3" json:"AdminDistance,omitempty"`
 	// Description of paths in the PathGroup.
@@ -442,6 +442,38 @@ type SLPathGroup struct {
 	// Flags to control programming of the PathGroup to Routing
 	// Information Base. Each flag is indicated as a bit field.
 	// See SLRouteFlags for flag enumerations.
+	// Supported values are:
+	//
+	// SL_ROUTE_FLAG_VIABLE_PATHS_ONLY.
+	//   - If the flag is not set, all paths in the PathList are installed in
+	//     the PathGroup’s load balance group, even if paths are unviable.
+	//     The Network element does not automatically update the PathGroup’s
+	//     load balance group when path viability changes and
+	//     expects the client to take corrective action.
+	//
+	//   - If the flag is set, the network element only installs viable
+	//     paths from the PathList in the PathGroup’s load balance group.
+	//     The Network element also automatically updates the PathGroup’s
+	//     load balance group when path viability changes.
+	//
+	// SL_ROUTE_FLAG_ACTIVE_ON_VIABLE_PATH.
+	//   - If this flag is not set, routes and MPLS entries referencing
+	//     this PathGroup are considered active if they are preferred
+	//     based on their administrative distance. PathGroup’s viability
+	//     is not considered as a criterion to determine the routes’ and
+	//     MPLS entries’ activeness. The network element does not automatically
+	//     promote or demote the routes and MPLS entries as viability of the
+	//     PathGroup changes.
+	//
+	//   - If this flag is set, SL_ROUTE_FLAG_VIABLE_PATHS_ONLY must also
+	//     be set. The routes and MPLS entries referencing this PathGroup are
+	//     considered active if they are preferred based
+	//     on their administrative distance AND viability of the PathGroup.
+	//     At least one path in the PathGroup must be viable for the
+	//     PathGroup to be viable. The network element automatically promotes or
+	//     demotes the routes and MPLS entries as viability of the PathGroup changes.
+	//
+	// Others – Reserved.
 	Flags uint32 `protobuf:"varint,4,opt,name=Flags,proto3" json:"Flags,omitempty"`
 }
 
@@ -535,7 +567,7 @@ type SLMplsEntry struct {
 	// Administrative distance of the MPLS label. [0-255]. RIB uses this field
 	// to break the tie when multiple sources install the same incoming MPLS
 	// label. Lower distance is preferred over higher distance. The per MPLS
-	// label object admin distance overrides the default's admin distance set
+	// label object admin distance overrides the default admin distance set
 	// at VRF registration. see SLVrfReg
 	AdminDistance uint32 `protobuf:"varint,2,opt,name=AdminDistance,proto3" json:"AdminDistance,omitempty"`
 	// List of paths for this MPLS label entry.
@@ -551,6 +583,45 @@ type SLMplsEntry struct {
 	// Flags to control programming of the MPLS Entry to Routing
 	// Information Base. Each flag is indicated as a bit field.
 	// See SLRouteFlags for flag enumerations.
+	// Supported values are:
+	//
+	// SL_ROUTE_FLAG_VIABLE_PATHS_ONLY - This flag on the MPLS Entry
+	// is applicable only if the MPLS Entry contains the PathList.
+	//
+	//   - If the flag is not set, all paths in the PathList are installed in
+	//     the MPLS Entry’s load balance group, even if paths are unviable.
+	//     The Network element does not automatically update the MPLS Entry’s
+	//     load balance group when path viability changes and
+	//     expects the client to take corrective action.
+	//
+	//   - If the flag is set, the network element only installs viable
+	//     paths from the PathList in the MPLS Entry’s load balance group.
+	//     The Network element also automatically updates the MPLS Entry’s
+	//     load balance group when path viability changes.
+	//
+	// SL_ROUTE_FLAG_ACTIVE_ON_VIABLE_PATH - This flag is supported only for
+	// MPLS Entries that contain the PathList.
+	//
+	//   - If this flag is not set, the MPLS entry is active if it is preferred
+	//     based on administrative distance. Viability of the paths in
+	//     the PathList is not used as a criterion to determine the
+	//     MPLS Entry's activeness.
+	//     If the MPLS Entry is active, the PathList programming is dictated by
+	//     SL_ROUTE_FLAG_VIABLE_PATHS_ONLY.
+	//
+	//   - If this flag is set, SL_ROUTE_FLAG_VIABLE_PATHS_ONLY must also
+	//     be set. The MPLS Entry is considered as active if it is preferred based
+	//     on administrative distance AND at least one path in the PathList
+	//     is viable. The Network element also automatically promotes or demotes
+	//     the MPLS Entry when the first path becomes viable or none of the paths
+	//     are no longer viable.
+	//
+	//   - If the MPLS Entry refers to the PathGroup,
+	//     then this flag on the route is ignored. Instead, the
+	//     corresponding setting on PathGroup dictates whether this
+	//     route should be considered in best route calculations.
+	//
+	// Others – Reserved.
 	Flags uint32 `protobuf:"varint,5,opt,name=Flags,proto3" json:"Flags,omitempty"`
 }
 
