@@ -172,10 +172,10 @@ message SLErrorStatus {
         SL_RPC_ROUTE_NOTIF_SRC_PROTO_TOOLONG = 0x3009;
         // Operation rejected as the request's SrcProtoTag is too long. 0x300a
         SL_RPC_ROUTE_NOTIF_SRC_PROTO_TAG_TOOLONG = 0x300a;
-        // Operation rejected as the filter is invalid. 0x300b
-        SL_RPC_ROUTE_GET_FILTER_INVALID = 0x300b;
-        // Operation rejected as the filter is not supported. 0x300c
-        SL_RPC_ROUTE_GET_FILTER_NOTSUP = 0x300c;
+        // Operation rejected as the requested match value is invalid. 0x300b
+        SL_RPC_ROUTE_GET_MATCH_INVALID = 0x300b;
+        // Operation rejected as the requested match value is not supported. 0x300c
+        SL_RPC_ROUTE_GET_MATCH_NOTSUP = 0x300c;
 
         // !!! Error codes for Route objects.
 
