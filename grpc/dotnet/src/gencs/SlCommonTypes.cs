@@ -857,11 +857,11 @@ namespace ServiceLayer {
         /// </summary>
         [pbr::OriginalName("SL_RPC_ROUTE_NOTIF_SRC_PROTO_TAG_TOOLONG")] SlRpcRouteNotifSrcProtoTagToolong = 12298,
         /// <summary>
-        /// Operation rejected as the requested match value is invalid. 0x300b
+        /// Operation rejected as the requested match value/values/criteria is invalid. 0x300b
         /// </summary>
         [pbr::OriginalName("SL_RPC_ROUTE_GET_MATCH_INVALID")] SlRpcRouteGetMatchInvalid = 12299,
         /// <summary>
-        /// Operation rejected as the requested match value is not supported. 0x300c
+        /// Operation rejected as the requested match value/values/criteria is not supported. 0x300c
         /// </summary>
         [pbr::OriginalName("SL_RPC_ROUTE_GET_MATCH_NOTSUP")] SlRpcRouteGetMatchNotsup = 12300,
         /// <summary>

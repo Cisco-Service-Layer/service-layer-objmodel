@@ -1249,7 +1249,7 @@ func (x *SLVrfNotif) GetStatus() SLObjectOp {
 	return SLObjectOp_SL_OBJOP_RESERVED
 }
 
-// Get routes whose attibutes match one of below entries.
+// Get objects whose attibutes match one of below entries.
 // Specify a regular expression for PathGroup name
 // or a numerical value for Vxlan VNI.
 type SLRouteGetMatch struct {

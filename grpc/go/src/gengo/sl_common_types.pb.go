@@ -570,9 +570,9 @@ const (
 	SLErrorStatus_SL_RPC_ROUTE_NOTIF_SRC_PROTO_TOOLONG SLErrorStatus_SLErrno = 12297
 	// Operation rejected as the request's SrcProtoTag is too long. 0x300a
 	SLErrorStatus_SL_RPC_ROUTE_NOTIF_SRC_PROTO_TAG_TOOLONG SLErrorStatus_SLErrno = 12298
-	// Operation rejected as the requested match value is invalid. 0x300b
+	// Operation rejected as the requested match value/values/criteria is invalid. 0x300b
 	SLErrorStatus_SL_RPC_ROUTE_GET_MATCH_INVALID SLErrorStatus_SLErrno = 12299
-	// Operation rejected as the requested match value is not supported. 0x300c
+	// Operation rejected as the requested match value/values/criteria is not supported. 0x300c
 	SLErrorStatus_SL_RPC_ROUTE_GET_MATCH_NOTSUP SLErrorStatus_SLErrno = 12300
 	// Offset for route errors. 0x4000
 	SLErrorStatus_SL_ROUTE_START_OFFSET SLErrorStatus_SLErrno = 16384
