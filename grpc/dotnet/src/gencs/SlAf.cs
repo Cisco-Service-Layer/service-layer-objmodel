@@ -59,69 +59,69 @@ namespace ServiceLayer {
             "X2xheWVyLlNMUGF0aEdyb3VwSABCBwoFZW50cnkieAoGU0xBRk9wEisKCEFG",
             "T2JqZWN0GAEgASgLMhkuc2VydmljZV9sYXllci5TTEFGT2JqZWN0EhMKC09w",
             "ZXJhdGlvbklEGAIgASgEEiwKB0Fja1R5cGUYAyABKA4yGy5zZXJ2aWNlX2xh",
-            "eWVyLlNMUnNwQUNLVHlwZSKVAQoKU0xBRkdldE1zZxIPCgdWcmZOYW1lGAEg",
+            "eWVyLlNMUnNwQUNLVHlwZSKTAQoKU0xBRkdldE1zZxIPCgdWcmZOYW1lGAEg",
             "ASgJEikKBVRhYmxlGAIgASgOMhouc2VydmljZV9sYXllci5TTFRhYmxlVHlw",
-            "ZRIVCg1HZXRBbGxDbGllbnRzGAMgASgIEjQKC01hdGNoRmlsdGVyGAQgAygL",
-            "Mh8uc2VydmljZV9sYXllci5TTFJvdXRlR2V0RmlsdGVyIqwBCg1TTEFGRmli",
-            "U3RhdHVzEi8KCUVycm9yQ29kZRgBIAEoCzIcLnNlcnZpY2VfbGF5ZXIuU0xF",
-            "cnJvclN0YXR1cxITCgtPcGVyYXRpb25JRBgCIAEoBBIPCgdWZXJzaW9uGAMg",
-            "ASgEEhMKC0Vycm9yU3RyaW5nGAQgASgJEi8KCURlcFJlc3VsdBgFIAMoCzIc",
-            "LnNlcnZpY2VfbGF5ZXIuU0xBRkZpYlN0YXR1cyJqChJTTEFGR2V0TXNnUnNw",
-            "RW50cnkSIwoEQUZPcBgBIAEoCzIVLnNlcnZpY2VfbGF5ZXIuU0xBRk9wEi8K",
-            "CUZJQlN0YXR1cxgCIAEoCzIcLnNlcnZpY2VfbGF5ZXIuU0xBRkZpYlN0YXR1",
-            "cyKWAQoNU0xBRkdldE1zZ1JzcBIvCglFcnJTdGF0dXMYASABKAsyHC5zZXJ2",
-            "aWNlX2xheWVyLlNMRXJyb3JTdGF0dXMSDwoHVnJmTmFtZRgCIAEoCRIQCghD",
-            "bGllbnRJRBgDIAEoBBIxCgZBRkxpc3QYBCADKAsyIS5zZXJ2aWNlX2xheWVy",
-            "LlNMQUZHZXRNc2dSc3BFbnRyeSJqCgdTTEFGTXNnEicKBE9wZXIYASABKA4y",
-            "GS5zZXJ2aWNlX2xheWVyLlNMT2JqZWN0T3ASDwoHVnJmTmFtZRgCIAEoCRIl",
-            "CgZPcExpc3QYAyADKAsyFS5zZXJ2aWNlX2xheWVyLlNMQUZPcCKVAQoHU0xB",
-            "RlJlcxIvCglFcnJTdGF0dXMYASABKAsyHC5zZXJ2aWNlX2xheWVyLlNMRXJy",
-            "b3JTdGF0dXMSKAoJT3BlcmF0aW9uGAIgASgLMhUuc2VydmljZV9sYXllci5T",
-            "TEFGT3ASLwoJRklCU3RhdHVzGAMgASgLMhwuc2VydmljZV9sYXllci5TTEFG",
-            "RmliU3RhdHVzIkYKClNMQUZNc2dSc3ASDwoHVnJmTmFtZRgBIAEoCRInCgdS",
-            "ZXN1bHRzGAIgAygLMhYuc2VydmljZV9sYXllci5TTEFGUmVzImQKEFNMQUZS",
-            "ZWRpc3RSZWdNc2cSEAoIU3JjUHJvdG8YASABKAkSEwoLU3JjUHJvdG9UYWcY",
-            "AiABKAkSKQoFVGFibGUYAyABKA4yGi5zZXJ2aWNlX2xheWVyLlNMVGFibGVU",
-            "eXBlIvABChFTTEFGTmV4dEhvcFJlZ0tleRJACgdOZXh0SG9wGAEgASgLMi0u",
-            "c2VydmljZV9sYXllci5TTEFGTmV4dEhvcFJlZ0tleS5TTE5leHRIb3BLZXlI",
-            "ABqKAQoMU0xOZXh0SG9wS2V5EisKB05leHRIb3AYASABKAsyGi5zZXJ2aWNl",
-            "X2xheWVyLlNMSXBBZGRyZXNzEhIKCk5leHRIb3BMZW4YAiABKA0SEgoKRXhh",
-            "Y3RNYXRjaBgDIAEoCBIUCgxBbGxvd0RlZmF1bHQYBCABKAgSDwoHUmVjdXJz",
-            "ZRgFIAEoCEIMCgpuZXh0aG9wa2V5IkkKEVNMQUZOZXh0SG9wUmVnTXNnEjQK",
-            "Ck5leHRIb3BLZXkYASABKAsyIC5zZXJ2aWNlX2xheWVyLlNMQUZOZXh0SG9w",
-            "UmVnS2V5Ip8BCg9TTEFGTm90aWZSZWdSZXESNAoJUmVkaXN0UmVxGAEgASgL",
-            "Mh8uc2VydmljZV9sYXllci5TTEFGUmVkaXN0UmVnTXNnSAASNgoKTmV4dEhv",
-            "cFJlcRgCIAEoCzIgLnNlcnZpY2VfbGF5ZXIuU0xBRk5leHRIb3BSZWdNc2dI",
-            "ABITCgtPcGVyYXRpb25JRBgDIAEoBEIJCgdyZXF1ZXN0InkKDFNMQUZOb3Rp",
-            "ZlJlcRImCgRPcGVyGAEgASgOMhguc2VydmljZV9sYXllci5TTE5vdGlmT3AS",
-            "DwoHVnJmTmFtZRgCIAEoCRIwCghOb3RpZlJlcRgDIAMoCzIeLnNlcnZpY2Vf",
-            "bGF5ZXIuU0xBRk5vdGlmUmVnUmVxInMKDFNMQUZOb3RpZlJzcBIwCghOb3Rp",
-            "ZlJlcRgBIAEoCzIeLnNlcnZpY2VfbGF5ZXIuU0xBRk5vdGlmUmVnUmVxEjEK",
-            "C05vdGlmU3RhdHVzGAIgASgLMhwuc2VydmljZV9sYXllci5TTEVycm9yU3Rh",
-            "dHVzIvUBCglTTE5leHRIb3ASNAoKTmV4dEhvcEtleRgBIAEoCzIgLnNlcnZp",
-            "Y2VfbGF5ZXIuU0xBRk5leHRIb3BSZWdLZXkSMgoOUmVzb2x2aW5nUm91dGUY",
-            "AiABKAsyGi5zZXJ2aWNlX2xheWVyLlNMSXBBZGRyZXNzEhkKEVJlc29sdmlu",
-            "Z1JvdXRlTGVuGAMgASgNEhAKCFNyY1Byb3RvGAQgASgJEhYKDmFkbWluX2Rp",
-            "c3RhbmNlGAUgASgNEg4KBm1ldHJpYxgGIAEoDRIpCgVQYXRocxgHIAMoCzIa",
-            "LnNlcnZpY2VfbGF5ZXIuU0xSb3V0ZVBhdGgiqAEKCVNMQUZOb3RpZhIyCgtO",
-            "b3RpZlN0YXR1cxgBIAEoCzIbLnNlcnZpY2VfbGF5ZXIuU0xBRk5vdGlmUnNw",
-            "SAASMQoMUmVkaXN0T2JqZWN0GAQgASgLMhkuc2VydmljZV9sYXllci5TTEFG",
-            "T2JqZWN0SAASKwoHTmV4dEhvcBgFIAEoCzIYLnNlcnZpY2VfbGF5ZXIuU0xO",
-            "ZXh0SG9wSABCBwoFRXZlbnQiSwoMU0xBRk5vdGlmTXNnEg8KB1ZyZk5hbWUY",
-            "ASABKAkSKgoIQUZOb3RpZnMYAyADKAsyGC5zZXJ2aWNlX2xheWVyLlNMQUZO",
-            "b3RpZjLIAwoEU0xBRhJNCgxTTEFGVnJmUmVnT3ASHC5zZXJ2aWNlX2xheWVy",
-            "LlNMQUZWcmZSZWdNc2caHy5zZXJ2aWNlX2xheWVyLlNMQUZWcmZSZWdNc2dS",
-            "c3ASVgoNU0xBRlZyZlJlZ0dldBIfLnNlcnZpY2VfbGF5ZXIuU0xBRlZyZlJl",
-            "Z0dldE1zZxoiLnNlcnZpY2VfbGF5ZXIuU0xBRlZyZlJlZ0dldE1zZ1JzcDAB",
-            "EjsKBlNMQUZPcBIWLnNlcnZpY2VfbGF5ZXIuU0xBRk1zZxoZLnNlcnZpY2Vf",
-            "bGF5ZXIuU0xBRk1zZ1JzcBJFCgxTTEFGT3BTdHJlYW0SFi5zZXJ2aWNlX2xh",
-            "eWVyLlNMQUZNc2caGS5zZXJ2aWNlX2xheWVyLlNMQUZNc2dSc3AoATABEkQK",
-            "B1NMQUZHZXQSGS5zZXJ2aWNlX2xheWVyLlNMQUZHZXRNc2caHC5zZXJ2aWNl",
-            "X2xheWVyLlNMQUZHZXRNc2dSc3AwARJPCg9TTEFGTm90aWZTdHJlYW0SGy5z",
-            "ZXJ2aWNlX2xheWVyLlNMQUZOb3RpZlJlcRobLnNlcnZpY2VfbGF5ZXIuU0xB",
-            "Rk5vdGlmTXNnKAEwAUJRWk9naXRodWIuY29tL0Npc2NvLXNlcnZpY2UtbGF5",
-            "ZXIvc2VydmljZS1sYXllci1vYmptb2RlbC9ncnBjL3Byb3RvcztzZXJ2aWNl",
-            "X2xheWVyYgZwcm90bzM="));
+            "ZRIVCg1HZXRBbGxDbGllbnRzGAMgASgIEjIKClJvdXRlTWF0Y2gYBCADKAsy",
+            "Hi5zZXJ2aWNlX2xheWVyLlNMUm91dGVHZXRNYXRjaCKsAQoNU0xBRkZpYlN0",
+            "YXR1cxIvCglFcnJvckNvZGUYASABKAsyHC5zZXJ2aWNlX2xheWVyLlNMRXJy",
+            "b3JTdGF0dXMSEwoLT3BlcmF0aW9uSUQYAiABKAQSDwoHVmVyc2lvbhgDIAEo",
+            "BBITCgtFcnJvclN0cmluZxgEIAEoCRIvCglEZXBSZXN1bHQYBSADKAsyHC5z",
+            "ZXJ2aWNlX2xheWVyLlNMQUZGaWJTdGF0dXMiagoSU0xBRkdldE1zZ1JzcEVu",
+            "dHJ5EiMKBEFGT3AYASABKAsyFS5zZXJ2aWNlX2xheWVyLlNMQUZPcBIvCglG",
+            "SUJTdGF0dXMYAiABKAsyHC5zZXJ2aWNlX2xheWVyLlNMQUZGaWJTdGF0dXMi",
+            "lgEKDVNMQUZHZXRNc2dSc3ASLwoJRXJyU3RhdHVzGAEgASgLMhwuc2Vydmlj",
+            "ZV9sYXllci5TTEVycm9yU3RhdHVzEg8KB1ZyZk5hbWUYAiABKAkSEAoIQ2xp",
+            "ZW50SUQYAyABKAQSMQoGQUZMaXN0GAQgAygLMiEuc2VydmljZV9sYXllci5T",
+            "TEFGR2V0TXNnUnNwRW50cnkiagoHU0xBRk1zZxInCgRPcGVyGAEgASgOMhku",
+            "c2VydmljZV9sYXllci5TTE9iamVjdE9wEg8KB1ZyZk5hbWUYAiABKAkSJQoG",
+            "T3BMaXN0GAMgAygLMhUuc2VydmljZV9sYXllci5TTEFGT3AilQEKB1NMQUZS",
+            "ZXMSLwoJRXJyU3RhdHVzGAEgASgLMhwuc2VydmljZV9sYXllci5TTEVycm9y",
+            "U3RhdHVzEigKCU9wZXJhdGlvbhgCIAEoCzIVLnNlcnZpY2VfbGF5ZXIuU0xB",
+            "Rk9wEi8KCUZJQlN0YXR1cxgDIAEoCzIcLnNlcnZpY2VfbGF5ZXIuU0xBRkZp",
+            "YlN0YXR1cyJGCgpTTEFGTXNnUnNwEg8KB1ZyZk5hbWUYASABKAkSJwoHUmVz",
+            "dWx0cxgCIAMoCzIWLnNlcnZpY2VfbGF5ZXIuU0xBRlJlcyJkChBTTEFGUmVk",
+            "aXN0UmVnTXNnEhAKCFNyY1Byb3RvGAEgASgJEhMKC1NyY1Byb3RvVGFnGAIg",
+            "ASgJEikKBVRhYmxlGAMgASgOMhouc2VydmljZV9sYXllci5TTFRhYmxlVHlw",
+            "ZSLwAQoRU0xBRk5leHRIb3BSZWdLZXkSQAoHTmV4dEhvcBgBIAEoCzItLnNl",
+            "cnZpY2VfbGF5ZXIuU0xBRk5leHRIb3BSZWdLZXkuU0xOZXh0SG9wS2V5SAAa",
+            "igEKDFNMTmV4dEhvcEtleRIrCgdOZXh0SG9wGAEgASgLMhouc2VydmljZV9s",
+            "YXllci5TTElwQWRkcmVzcxISCgpOZXh0SG9wTGVuGAIgASgNEhIKCkV4YWN0",
+            "TWF0Y2gYAyABKAgSFAoMQWxsb3dEZWZhdWx0GAQgASgIEg8KB1JlY3Vyc2UY",
+            "BSABKAhCDAoKbmV4dGhvcGtleSJJChFTTEFGTmV4dEhvcFJlZ01zZxI0CgpO",
+            "ZXh0SG9wS2V5GAEgASgLMiAuc2VydmljZV9sYXllci5TTEFGTmV4dEhvcFJl",
+            "Z0tleSKfAQoPU0xBRk5vdGlmUmVnUmVxEjQKCVJlZGlzdFJlcRgBIAEoCzIf",
+            "LnNlcnZpY2VfbGF5ZXIuU0xBRlJlZGlzdFJlZ01zZ0gAEjYKCk5leHRIb3BS",
+            "ZXEYAiABKAsyIC5zZXJ2aWNlX2xheWVyLlNMQUZOZXh0SG9wUmVnTXNnSAAS",
+            "EwoLT3BlcmF0aW9uSUQYAyABKARCCQoHcmVxdWVzdCJ5CgxTTEFGTm90aWZS",
+            "ZXESJgoET3BlchgBIAEoDjIYLnNlcnZpY2VfbGF5ZXIuU0xOb3RpZk9wEg8K",
+            "B1ZyZk5hbWUYAiABKAkSMAoITm90aWZSZXEYAyADKAsyHi5zZXJ2aWNlX2xh",
+            "eWVyLlNMQUZOb3RpZlJlZ1JlcSJzCgxTTEFGTm90aWZSc3ASMAoITm90aWZS",
+            "ZXEYASABKAsyHi5zZXJ2aWNlX2xheWVyLlNMQUZOb3RpZlJlZ1JlcRIxCgtO",
+            "b3RpZlN0YXR1cxgCIAEoCzIcLnNlcnZpY2VfbGF5ZXIuU0xFcnJvclN0YXR1",
+            "cyL1AQoJU0xOZXh0SG9wEjQKCk5leHRIb3BLZXkYASABKAsyIC5zZXJ2aWNl",
+            "X2xheWVyLlNMQUZOZXh0SG9wUmVnS2V5EjIKDlJlc29sdmluZ1JvdXRlGAIg",
+            "ASgLMhouc2VydmljZV9sYXllci5TTElwQWRkcmVzcxIZChFSZXNvbHZpbmdS",
+            "b3V0ZUxlbhgDIAEoDRIQCghTcmNQcm90bxgEIAEoCRIWCg5hZG1pbl9kaXN0",
+            "YW5jZRgFIAEoDRIOCgZtZXRyaWMYBiABKA0SKQoFUGF0aHMYByADKAsyGi5z",
+            "ZXJ2aWNlX2xheWVyLlNMUm91dGVQYXRoIqgBCglTTEFGTm90aWYSMgoLTm90",
+            "aWZTdGF0dXMYASABKAsyGy5zZXJ2aWNlX2xheWVyLlNMQUZOb3RpZlJzcEgA",
+            "EjEKDFJlZGlzdE9iamVjdBgEIAEoCzIZLnNlcnZpY2VfbGF5ZXIuU0xBRk9i",
+            "amVjdEgAEisKB05leHRIb3AYBSABKAsyGC5zZXJ2aWNlX2xheWVyLlNMTmV4",
+            "dEhvcEgAQgcKBUV2ZW50IksKDFNMQUZOb3RpZk1zZxIPCgdWcmZOYW1lGAEg",
+            "ASgJEioKCEFGTm90aWZzGAMgAygLMhguc2VydmljZV9sYXllci5TTEFGTm90",
+            "aWYyyAMKBFNMQUYSTQoMU0xBRlZyZlJlZ09wEhwuc2VydmljZV9sYXllci5T",
+            "TEFGVnJmUmVnTXNnGh8uc2VydmljZV9sYXllci5TTEFGVnJmUmVnTXNnUnNw",
+            "ElYKDVNMQUZWcmZSZWdHZXQSHy5zZXJ2aWNlX2xheWVyLlNMQUZWcmZSZWdH",
+            "ZXRNc2caIi5zZXJ2aWNlX2xheWVyLlNMQUZWcmZSZWdHZXRNc2dSc3AwARI7",
+            "CgZTTEFGT3ASFi5zZXJ2aWNlX2xheWVyLlNMQUZNc2caGS5zZXJ2aWNlX2xh",
+            "eWVyLlNMQUZNc2dSc3ASRQoMU0xBRk9wU3RyZWFtEhYuc2VydmljZV9sYXll",
+            "ci5TTEFGTXNnGhkuc2VydmljZV9sYXllci5TTEFGTXNnUnNwKAEwARJECgdT",
+            "TEFGR2V0Ehkuc2VydmljZV9sYXllci5TTEFGR2V0TXNnGhwuc2VydmljZV9s",
+            "YXllci5TTEFGR2V0TXNnUnNwMAESTwoPU0xBRk5vdGlmU3RyZWFtEhsuc2Vy",
+            "dmljZV9sYXllci5TTEFGTm90aWZSZXEaGy5zZXJ2aWNlX2xheWVyLlNMQUZO",
+            "b3RpZk1zZygBMAFCUVpPZ2l0aHViLmNvbS9DaXNjby1zZXJ2aWNlLWxheWVy",
+            "L3NlcnZpY2UtbGF5ZXItb2JqbW9kZWwvZ3JwYy9wcm90b3M7c2VydmljZV9s",
+            "YXllcmIGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::ServiceLayer.SlCommonTypesReflection.Descriptor, global::ServiceLayer.SlRouteCommonReflection.Descriptor, global::ServiceLayer.SlRouteIpv4Reflection.Descriptor, global::ServiceLayer.SlRouteIpv6Reflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
@@ -136,7 +136,7 @@ namespace ServiceLayer {
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLMplsEntry), global::ServiceLayer.SLMplsEntry.Parser, new[]{ "LocalLabel", "AdminDistance", "PathList", "PathGroupKey", "Flags" }, new[]{ "Entry" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLAFObject), global::ServiceLayer.SLAFObject.Parser, new[]{ "IPv4Route", "IPv6Route", "MplsLabel", "PathGroup" }, new[]{ "Entry" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLAFOp), global::ServiceLayer.SLAFOp.Parser, new[]{ "AFObject", "OperationID", "AckType" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLAFGetMsg), global::ServiceLayer.SLAFGetMsg.Parser, new[]{ "VrfName", "Table", "GetAllClients", "MatchFilter" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLAFGetMsg), global::ServiceLayer.SLAFGetMsg.Parser, new[]{ "VrfName", "Table", "GetAllClients", "RouteMatch" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLAFFibStatus), global::ServiceLayer.SLAFFibStatus.Parser, new[]{ "ErrorCode", "OperationID", "Version", "ErrorString", "DepResult" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLAFGetMsgRspEntry), global::ServiceLayer.SLAFGetMsgRspEntry.Parser, new[]{ "AFOp", "FIBStatus" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLAFGetMsgRsp), global::ServiceLayer.SLAFGetMsgRsp.Parser, new[]{ "ErrStatus", "VrfName", "ClientID", "AFList" }, null, null, null, null),
@@ -3616,7 +3616,7 @@ namespace ServiceLayer {
       vrfName_ = other.vrfName_;
       table_ = other.table_;
       getAllClients_ = other.getAllClients_;
-      matchFilter_ = other.matchFilter_.Clone();
+      routeMatch_ = other.routeMatch_.Clone();
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -3674,20 +3674,18 @@ namespace ServiceLayer {
       }
     }
 
-    /// <summary>Field number for the "MatchFilter" field.</summary>
-    public const int MatchFilterFieldNumber = 4;
-    private static readonly pb::FieldCodec<global::ServiceLayer.SLRouteGetFilter> _repeated_matchFilter_codec
-        = pb::FieldCodec.ForMessage(34, global::ServiceLayer.SLRouteGetFilter.Parser);
-    private readonly pbc::RepeatedField<global::ServiceLayer.SLRouteGetFilter> matchFilter_ = new pbc::RepeatedField<global::ServiceLayer.SLRouteGetFilter>();
+    /// <summary>Field number for the "RouteMatch" field.</summary>
+    public const int RouteMatchFieldNumber = 4;
+    private static readonly pb::FieldCodec<global::ServiceLayer.SLRouteGetMatch> _repeated_routeMatch_codec
+        = pb::FieldCodec.ForMessage(34, global::ServiceLayer.SLRouteGetMatch.Parser);
+    private readonly pbc::RepeatedField<global::ServiceLayer.SLRouteGetMatch> routeMatch_ = new pbc::RepeatedField<global::ServiceLayer.SLRouteGetMatch>();
     /// <summary>
-    /// Get objects that  match the filter. Filter can be one of PathGroup
-    /// name or Vxlan Vni. Specify a regular expression to filter
-    /// PathGroup and a numerical value to filter Vxlan Vni.
+    /// Get objects that  match the value. 
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pbc::RepeatedField<global::ServiceLayer.SLRouteGetFilter> MatchFilter {
-      get { return matchFilter_; }
+    public pbc::RepeatedField<global::ServiceLayer.SLRouteGetMatch> RouteMatch {
+      get { return routeMatch_; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3708,7 +3706,7 @@ namespace ServiceLayer {
       if (VrfName != other.VrfName) return false;
       if (Table != other.Table) return false;
       if (GetAllClients != other.GetAllClients) return false;
-      if(!matchFilter_.Equals(other.matchFilter_)) return false;
+      if(!routeMatch_.Equals(other.routeMatch_)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -3719,7 +3717,7 @@ namespace ServiceLayer {
       if (VrfName.Length != 0) hash ^= VrfName.GetHashCode();
       if (Table != global::ServiceLayer.SLTableType.Reserved) hash ^= Table.GetHashCode();
       if (GetAllClients != false) hash ^= GetAllClients.GetHashCode();
-      hash ^= matchFilter_.GetHashCode();
+      hash ^= routeMatch_.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -3750,7 +3748,7 @@ namespace ServiceLayer {
         output.WriteRawTag(24);
         output.WriteBool(GetAllClients);
       }
-      matchFilter_.WriteTo(output, _repeated_matchFilter_codec);
+      routeMatch_.WriteTo(output, _repeated_routeMatch_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -3773,7 +3771,7 @@ namespace ServiceLayer {
         output.WriteRawTag(24);
         output.WriteBool(GetAllClients);
       }
-      matchFilter_.WriteTo(ref output, _repeated_matchFilter_codec);
+      routeMatch_.WriteTo(ref output, _repeated_routeMatch_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -3793,7 +3791,7 @@ namespace ServiceLayer {
       if (GetAllClients != false) {
         size += 1 + 1;
       }
-      size += matchFilter_.CalculateSize(_repeated_matchFilter_codec);
+      size += routeMatch_.CalculateSize(_repeated_routeMatch_codec);
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -3815,7 +3813,7 @@ namespace ServiceLayer {
       if (other.GetAllClients != false) {
         GetAllClients = other.GetAllClients;
       }
-      matchFilter_.Add(other.matchFilter_);
+      routeMatch_.Add(other.routeMatch_);
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -3844,7 +3842,7 @@ namespace ServiceLayer {
             break;
           }
           case 34: {
-            matchFilter_.AddEntriesFrom(input, _repeated_matchFilter_codec);
+            routeMatch_.AddEntriesFrom(input, _repeated_routeMatch_codec);
             break;
           }
         }
@@ -3875,7 +3873,7 @@ namespace ServiceLayer {
             break;
           }
           case 34: {
-            matchFilter_.AddEntriesFrom(ref input, _repeated_matchFilter_codec);
+            routeMatch_.AddEntriesFrom(ref input, _repeated_routeMatch_codec);
             break;
           }
         }

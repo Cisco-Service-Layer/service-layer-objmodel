@@ -306,11 +306,13 @@ message SLVrfNotif {
     SLObjectOp Status = 2;
 }
 
-// Filter the routes based on  one of below entries.
-message SLRouteGetFilter {
+// Get routes whose attibutes match one of below entries.
+// Specify a regular expression for PathGroup name
+// or a numerical value for Vxlan VNI.
+message SLRouteGetMatch {
     oneof entry {
-         string MatchPathGroupRegex = 1;
-         uint32 MatchVxlanVniId = 2;
+         string PathGroupRegex = 1;
+         uint32 VxlanVniId = 2;
     }
 }
 
