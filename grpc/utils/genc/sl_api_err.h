@@ -194,6 +194,8 @@
     SL_ROUTE_DB_NOMEM = 0x4012,\
     /* The route has an invalid local label. 0x4013 */\
     SL_ROUTE_INVALID_LOCAL_LABEL = 0x4013,\
+    /* Invalid route flags. 0x4014 */\
+    SL_ROUTE_INVALID_FLAGS = 0x4014,\
     /* !!! Error codes for route path objects. */\
     /* Offset for route path errors. 0x5000 */\
     SL_PATH_START_OFFSET = 0x5000,\
@@ -631,6 +633,8 @@
     SL_PG_STR_KEY_TOOLONG = 0x15003,\
     /* ID of a next hop VRF in a path in the PathGroup cannot be determined. 0x15004 */\
     SL_PG_TARGET_VRF_NO_VRFID = 0x15004,\
+    /* PathGroup's string key contains invalid characters. 0x15005 */\
+    SL_PG_STR_KEY_INVALID = 0x15005,\
     /* !!! Error codes for Nexthop request objects. */\
     /* Offset for Nexthop request errors. 0x16000 */\
     SL_NEXT_HOP_START_OFFSET = 0x16000,\
@@ -913,6 +917,9 @@
         },\
     {SL_ROUTE_INVALID_LOCAL_LABEL ,\
         " The route has an invalid local label.  "\
+        },\
+    {SL_ROUTE_INVALID_FLAGS ,\
+        " Invalid route flags.  "\
         },\
     {SL_PATH_START_OFFSET ,\
         " Offset for route path errors.  "\
@@ -1527,6 +1534,9 @@
         },\
     {SL_PG_TARGET_VRF_NO_VRFID ,\
         " ID of a next hop VRF in a path in the PathGroup cannot be determined.  "\
+        },\
+    {SL_PG_STR_KEY_INVALID ,\
+        " PathGroup's string key contains invalid characters.  "\
         },\
     {SL_NEXT_HOP_START_OFFSET ,\
         " Offset for Nexthop request errors.  "\

@@ -221,6 +221,8 @@ message SLErrorStatus {
         SL_ROUTE_DB_NOMEM = 0x4012;
         // The route has an invalid local label. 0x4013
         SL_ROUTE_INVALID_LOCAL_LABEL = 0x4013;
+        // Invalid route flags. 0x4014
+        SL_ROUTE_INVALID_FLAGS = 0x4014;
 
         // !!! Error codes for route path objects.
 
@@ -692,6 +694,8 @@ message SLErrorStatus {
         SL_PG_STR_KEY_TOOLONG = 0x15003;
         // ID of a next hop VRF in a path in the PathGroup cannot be determined. 0x15004
         SL_PG_TARGET_VRF_NO_VRFID = 0x15004;
+        // PathGroup's string key contains invalid characters. 0x15005
+        SL_PG_STR_KEY_INVALID = 0x15005;
 
         // !!! Error codes for Nexthop request objects.
 
@@ -855,6 +859,7 @@ message SLObjectId {
     // One of Object name or handle
     oneof entry {
       // Name of object.
+      // The string can contain only non white space printable ASCII characters.
       string Name = 1;
 
     }
