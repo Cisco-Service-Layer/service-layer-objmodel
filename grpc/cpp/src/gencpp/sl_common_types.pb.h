@@ -153,6 +153,7 @@ enum SLErrorStatus_SLErrno : int {
   SLErrorStatus_SLErrno_SL_ROUTE_TOOMANY_BACKUP_PATHS = 16401,
   SLErrorStatus_SLErrno_SL_ROUTE_DB_NOMEM = 16402,
   SLErrorStatus_SLErrno_SL_ROUTE_INVALID_LOCAL_LABEL = 16403,
+  SLErrorStatus_SLErrno_SL_ROUTE_INVALID_FLAGS = 16404,
   SLErrorStatus_SLErrno_SL_PATH_START_OFFSET = 20480,
   SLErrorStatus_SLErrno_SL_PATH_NH_NO_TABLE = 20481,
   SLErrorStatus_SLErrno_SL_PATH_NH_INTF_NOT_FOUND = 20482,
@@ -349,6 +350,7 @@ enum SLErrorStatus_SLErrno : int {
   SLErrorStatus_SLErrno_SL_PG_VRF_NO_VRFID = 86018,
   SLErrorStatus_SLErrno_SL_PG_STR_KEY_TOOLONG = 86019,
   SLErrorStatus_SLErrno_SL_PG_TARGET_VRF_NO_VRFID = 86020,
+  SLErrorStatus_SLErrno_SL_PG_STR_KEY_INVALID = 86021,
   SLErrorStatus_SLErrno_SL_NEXT_HOP_START_OFFSET = 90112,
   SLErrorStatus_SLErrno_SL_NEXT_HOP_INVALID_PREFIX_LEN = 90113,
   SLErrorStatus_SLErrno_SL_NEXT_HOP_HOST_BITS_SET = 90114,
@@ -838,6 +840,8 @@ class SLErrorStatus final :
     SLErrorStatus_SLErrno_SL_ROUTE_DB_NOMEM;
   static constexpr SLErrno SL_ROUTE_INVALID_LOCAL_LABEL =
     SLErrorStatus_SLErrno_SL_ROUTE_INVALID_LOCAL_LABEL;
+  static constexpr SLErrno SL_ROUTE_INVALID_FLAGS =
+    SLErrorStatus_SLErrno_SL_ROUTE_INVALID_FLAGS;
   static constexpr SLErrno SL_PATH_START_OFFSET =
     SLErrorStatus_SLErrno_SL_PATH_START_OFFSET;
   static constexpr SLErrno SL_PATH_NH_NO_TABLE =
@@ -1230,6 +1234,8 @@ class SLErrorStatus final :
     SLErrorStatus_SLErrno_SL_PG_STR_KEY_TOOLONG;
   static constexpr SLErrno SL_PG_TARGET_VRF_NO_VRFID =
     SLErrorStatus_SLErrno_SL_PG_TARGET_VRF_NO_VRFID;
+  static constexpr SLErrno SL_PG_STR_KEY_INVALID =
+    SLErrorStatus_SLErrno_SL_PG_STR_KEY_INVALID;
   static constexpr SLErrno SL_NEXT_HOP_START_OFFSET =
     SLErrorStatus_SLErrno_SL_NEXT_HOP_START_OFFSET;
   static constexpr SLErrno SL_NEXT_HOP_INVALID_PREFIX_LEN =
