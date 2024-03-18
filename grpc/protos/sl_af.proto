@@ -451,6 +451,8 @@ message SLAFGetMsg {
     // metadata.
     bool GetAllClients = 3;
 
+    // Get objects that  match the value. 
+    repeated SLRouteGetMatch RouteMatch = 4;
 }
 
 message SLAFFibStatus {
