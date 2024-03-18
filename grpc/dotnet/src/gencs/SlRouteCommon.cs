@@ -4294,6 +4294,9 @@ namespace ServiceLayer {
 
     /// <summary>Field number for the "PathGroupRegex" field.</summary>
     public const int PathGroupRegexFieldNumber = 1;
+    /// <summary>
+    /// SLAFGetMsgRsp.AFList.AFOp.AFObject.entry.PathGroupKey.PathGroupId.Name
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public string PathGroupRegex {
@@ -4306,6 +4309,9 @@ namespace ServiceLayer {
 
     /// <summary>Field number for the "VxlanVniId" field.</summary>
     public const int VxlanVniIdFieldNumber = 2;
+    /// <summary>
+    /// SLAFGetMsgRsp.AFList.AFOp.AFObject.PathList.VxLANPath.VNI
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public uint VxlanVniId {

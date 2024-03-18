@@ -1322,10 +1322,12 @@ type isSLRouteGetMatch_Entry interface {
 }
 
 type SLRouteGetMatch_PathGroupRegex struct {
+	// SLAFGetMsgRsp.AFList.AFOp.AFObject.entry.PathGroupKey.PathGroupId.Name
 	PathGroupRegex string `protobuf:"bytes,1,opt,name=PathGroupRegex,proto3,oneof"`
 }
 
 type SLRouteGetMatch_VxlanVniId struct {
+	// SLAFGetMsgRsp.AFList.AFOp.AFObject.PathList.VxLANPath.VNI
 	VxlanVniId uint32 `protobuf:"varint,2,opt,name=VxlanVniId,proto3,oneof"`
 }
 

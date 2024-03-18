@@ -311,8 +311,10 @@ message SLVrfNotif {
 // or a numerical value for Vxlan VNI.
 message SLRouteGetMatch {
     oneof entry {
-         string PathGroupRegex = 1;
-         uint32 VxlanVniId = 2;
+        // SLAFGetMsgRsp.AFList.AFOp.AFObject.entry.PathGroupKey.PathGroupId.Name
+        string PathGroupRegex = 1;
+        // SLAFGetMsgRsp.AFList.AFOp.AFObject.PathList.VxLANPath.VNI
+        uint32 VxlanVniId = 2;
     }
 }
 
