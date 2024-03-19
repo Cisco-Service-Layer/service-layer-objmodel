@@ -1,5 +1,5 @@
 // @file
-// @brief RPC proto file for BGPLS Topology Service.
+// @brief RPC proto file for BGP-LS Topology Subscription Service.
 //
 // ----------------------------------------------------------------
 //  Copyright (c) 2024 by Cisco Systems, Inc.
@@ -8,1032 +8,895 @@
 //
 //
 
-//@defgroup BGPLS Topology
-//@brief BGPLS Topology service definitions.
+//@defgroup BGP-LS Topology Subscription
+//@brief BGP-LS Topology Subscription service definitions.
 
 syntax = "proto3";
-
 package service_layer;
 
-option go_package="github.com/Cisco-service-layer/service-layer-objmodel/grpc/protos;service_layer";
+option go_package = "../go/src/gengo";
 
-import "sl_common_types.proto";
+//===================================================================================================//
+//                                          RPC Section                                              //
+//===================================================================================================//
 
-// @defgroup SLBGPLSTopologyOper
-// Defines RPC calls for receiving notifications on BGPLS Topology Information.
+// @defgroup SLBgplsTopoSubscription
+// Defines RPC calls for subscribing to BGP-LS Topology updates.
 // @{
-service SLBGPLSTopologyOper {
-    //@addtogroup SLBGPLSTopologyOper
+service SLBgplsTopoSubscription {
+    //@addtogroup SLBgplsTopoSubscription
     //@{
     //;
 
     //
-    // BGPLS Topology Operations
+    // BGP-LS Topology Subscription
     //
 
-    // This call is used to get a stream of BGPLS topology notifications.
-    // It can be used to get "push" notifications for BGPLS
+    // This call is used to get a stream of BGP-LS Topology updates.
+    // It can be used to get "push" information for BGP-LS
     // adds/updates/deletes.
+    //
     // The caller must maintain the GRPC channel as long as there is
-    // interest in BGPLS topology notifications.
+    // interest in BGP-LS Topology information.
     //
-    // The call takes a stream of per-VRF notification requests.
-    // The success/failure of the notification request is relayed in the
-    // BGPLSTopologyNotifStatus followed by a Start marker, any BGPLS Topology if present,
-    // and an End Marker.
+    // The call takes a stream of requests to get updates, with the information on filter
+    // to be applied while sending updates passed in the first request. The request stream
+    // is then only maintained to indicate the interest in BGP-LS Topology information.
     //
-    rpc SLBGPLSTopologyGetNotifStream(stream SLBGPLSTopologyGetNotifMsg) returns (stream SLBGPLSTopologyNotif);
+    // The success/failure of the request is relayed in the response as error status.
+    // If the request was successful, then the initial set of BGP-LS Topology information is sent
+    // as a stream containing a Start marker, any BGP-LS Topology if present, and an End Marker.
+    // The response stream will then be maintained to send subsequent updates and terminated only
+    // when the request stream is terminated.
+    //
+    rpc SLBgplsTopoGetUpdStream(stream SLBgplsTopoGetUpdMsg) returns (stream SLBgplsTopoUpdMsg);
     //
     //@}
 }
 
-message SLBGPLSTopologyIPv4Address {
-    uint32 IPv4Address = 1;
+// BGP-LS Topology Get Update message
+message SLBgplsTopoGetUpdMsg {
+    // Filters for BGP-LS Topology Entries
+    // TODO: Add description on how filters will be used.
+    repeated SLBgplsTopoNlriFilter Filter = 1;
 }
 
-message SLBGPLSTopologyIPv6Address {
-    bytes IPv6Address = 1;
-}
-
-message SLBGPLSTopologyName {
-    string Name = 1;
-}
-
-message SLBGPLSTopologyInstanceID {
-    uint64 Identifier = 1;
-}
-
-message SLBGPLSTopologyASN {
-    uint32 ASN = 1;
-}
-
-message SLBGPLSTopologyOSPFAreaID {
-    uint32 AreaID = 1;
-}
-
-message SLBGPLSTopologyRouterID {
-    uint32 RouterID = 1;
-}
-
-message SLBGPLSTopologyISISSystemID {
-    bytes SystemID = 1;
-}
-
-message SLBGPLSTopologyISISPSNID {
-    bytes PSNID = 1;
-}
-
-message SLBGPLSTopologyLinkID {
-    uint32 LinkID = 1;
-}
-
-message SLBGPLSTopologyMTID {
-    bytes MTID = 1;
-}
-
-message SLBGPLSTopologyAffinity {
-    repeated uint32 Affinity = 1;
-}
-
-message SLBGPLSTopologySRLG {
-    repeated uint32 SRLG = 1;
-}
-
-message SLBGPLSTopologyOSPFNodeID {
-    // Area identifier identifying the area to which the NLRI belongs.
-    // OSPF Area-ID. TLV 514.
-    // Section 5.2.1 of RFC 9552: Distribution of Link-State and Traffic Engineering Information Using BGP
-    SLBGPLSTopologyOSPFAreaID OSPFAreaID = 1;
-
-    // Router ID.
-    // IGP Router-ID. TLV 515.
-    // Section 5.2.1 of RFC 9552: Distribution of Link-State and Traffic Engineering Information Using BGP
-    SLBGPLSTopologyRouterID RouterID = 2;
-
-    // IPv4 address of the DR's interface to the LAN.
-    // IGP Router-ID. TLV 515.
-    // Section 5.2.1 of RFC 9552: Distribution of Link-State and Traffic Engineering Information Using BGP
-    SLBGPLSTopologyIPv4Address DRIdentifier = 3;
-}
-
-message SLBGPLSTopologyOSPFv3NodeID {
-    // Area identifier identifying the area to which the NLRI belongs.
-    // OSPF Area-ID. TLV 514.
-    // Section 5.2.1 of RFC 9552: Distribution of Link-State and Traffic Engineering Information Using BGP
-    SLBGPLSTopologyOSPFAreaID OSPFAreaID = 1;
-
-    // Router ID.
-    // IGP Router-ID. TLV 515.
-    // Section 5.2.1 of RFC 9552: Distribution of Link-State and Traffic Engineering Information Using BGP
-    SLBGPLSTopologyRouterID RouterID = 2;
-
-    // Interface identifier of the DR's interface to the LAN.
-    // IGP Router-ID. TLV 515.
-    // Section 5.2.1 of RFC 9552: Distribution of Link-State and Traffic Engineering Information Using BGP
-    SLBGPLSTopologyLinkID DRIdentifier = 3;
-}
-
-message SLBGPLSTopologyISISNodeID {
-    // System ID.
-    // IGP Router-ID. TLV 515.
-    // Section 5.2.1 of RFC 9552: Distribution of Link-State and Traffic Engineering Information Using BGP
-    SLBGPLSTopologyISISSystemID SystemID = 1;
-
-    // Pseudo Node Identifier (PSN ID).
-    // IGP Router-ID. TLV 515.
-    // Section 5.2.1 of RFC 9552: Distribution of Link-State and Traffic Engineering Information Using BGP
-    SLBGPLSTopologyISISPSNID PSNID = 2;
-}
-
-message SLBGPLSTopologyBGPNodeID {
-    // Router ID.
-    // BGP Router-ID. TLV 516. Section 4.2 of [RFC9086]
-    SLBGPLSTopologyRouterID RouterID = 1;
-
-    // ASN of the confederation member
-    // Member-ASN. TLV 517. Section 4.2 of [RFC9086]
-    SLBGPLSTopologyASN MemberASN = 2;
-}
-
-message SLBGPLSTopologyNodeDescriptor {
-    // AS Number associated with the BGP process originating the link-state information.
-    // Autonomous System Number. TLV 512.
-    // Section 5.2.1 of RFC 9552: Distribution of Link-State and Traffic Engineering Information Using BGP
-    SLBGPLSTopologyASN ASN = 1;
-
-    oneof NodeID {
-        SLBGPLSTopologyOSPFNodeID OSPFNodeID = 2;
-        SLBGPLSTopologyOSPFv3NodeID OSPFv3NodeID = 3;
-        SLBGPLSTopologyISISNodeID ISISNodeID = 4;
-        SLBGPLSTopologyBGPNodeID BGPNodeID = 5;
-    }
-
-    // Auxiliary TE Router-ID.
-    // IPv4 Router-ID. TLV 1028.
-    // Section 5.2.1 of RFC 9552: Distribution of Link-State and Traffic Engineering Information Using BGP
-    SLBGPLSTopologyIPv4Address IPv4RouterID = 6;
-
-    // Auxiliary TE Router-ID.
-    // IPv6 Router-ID. TLV 1029.
-    // Section 5.2.1 of RFC 9552: Distribution of Link-State and Traffic Engineering Information Using BGP
-    SLBGPLSTopologyIPv6Address IPv6RouterID = 7;
-}
-
-message SLBGPLSTopologyLinkDescriptor {
-    // Local Identifier of a link.
-    // Link Local/Remote Identifier. TLV 258.
-    // Section 5.2.2 of RFC 9552: Distribution of Link-State and Traffic Engineering Information Using BGP
-    SLBGPLSTopologyLinkID LocalID = 1;
-
-    // Remote Identifier of a link.
-    // Link Local/Remote Identifier. TLV 258.
-    // Section 5.2.2 of RFC 9552: Distribution of Link-State and Traffic Engineering Information Using BGP
-    SLBGPLSTopologyLinkID RemoteID = 2;
-
-    // Local IPv4 address of a link.
-    // IPv4 interface address. TLV 259.
-    // Section 5.2.2 of RFC 9552: Distribution of Link-State and Traffic Engineering Information Using BGP
-    SLBGPLSTopologyIPv4Address LocalIPv4 = 3;           
-
-    // Remote IPv4 address of a link.
-    // IPv4 neighbor address. TLV 260.
-    // Section 5.2.2 of RFC 9552: Distribution of Link-State and Traffic Engineering Information Using BGP
-    SLBGPLSTopologyIPv4Address RemoteIPv4 = 4;          
-
-    // Local IPv6 address of a link.
-    // IPv6 interface address. TLV 261.
-    // Section 5.2.2 of RFC 9552: Distribution of Link-State and Traffic Engineering Information Using BGP
-    SLBGPLSTopologyIPv6Address LocalIPv6 = 5;           
-
-    // Remote IPv6 address of a link.
-    // IPv6 neighbor address. TLV 262.
-    // Section 5.2.2 of RFC 9552: Distribution of Link-State and Traffic Engineering Information Using BGP
-    SLBGPLSTopologyIPv6Address RemoteIPv6 = 6;          
-
-    // Multi Topology Identifier (MTID) of a link.
-    // Multi-Topology Identifier. TLV 263.
-    // Section 5.2.2.1 of RFC 9552: Distribution of Link-State and Traffic Engineering Information Using BGP
-    SLBGPLSTopologyMTID MTID = 7;                       
-}
-
-enum SLBGPLSTopologyOSPFRouteType {
-    SL_BGPLS_TOPOLOGY_OSPF_ROUTE_TYPE_RESERVED = 0;
-    SL_BGPLS_TOPOLOGY_OSPF_ROUTE_TYPE_INTRA_AREA = 1;
-    SL_BGPLS_TOPOLOGY_OSPF_ROUTE_TYPE_INTER_AREA = 2;
-    SL_BGPLS_TOPOLOGY_OSPF_ROUTE_TYPE_EXTERN_1 = 3;
-    SL_BGPLS_TOPOLOGY_OSPF_ROUTE_TYPE_EXTERN_2 = 4;
-    SL_BGPLS_TOPOLOGY_OSPF_ROUTE_TYPE_NSSA_1 = 5;
-    SL_BGPLS_TOPOLOGY_OSPF_ROUTE_TYPE_NSSA_2 = 6;
-}
-
-message SLBGPLSTopologyAddressPrefix {
-    bytes PrefixLength = 3;
-    bytes Prefix = 4;
-}
-
-message SLBGPLSTopologyPrefixDescriptor {
-    // Multi Topology Identifier (MTID) of a prefix.
-    // Multi-Topology Identifier. TLV 263.
-    // Section 5.2.2.1 of RFC 9552: Distribution of Link-State and Traffic Engineering Information Using BGP
-    SLBGPLSTopologyMTID MTID = 1;                       
-
-    // OSPF Route type of a prefix.
-    // OSPF Route Type. TLV 264.
-    // Section 5.2.3.1 of RFC 9552: Distribution of Link-State and Traffic Engineering Information Using BGP
-    SLBGPLSTopologyOSPFRouteType OSPFRouteType = 2;    
-
-    // IP address prefix (IPv4 or IPv6) advertised in the IGP topology.
-    // IP Reachability Information. TLV 265.
-    // Section 5.2.3.2 of RFC 9552: Distribution of Link-State and Traffic Engineering Information Using BGP
-    SLBGPLSTopologyAddressPrefix Prefix = 3;                   
-}
-
-message SLBGPLSTopologySRv6SIDDescriptor {
-    // Multi Topology Identifier (MTID) of an SRv6 SID.
-    // Multi-Topology Identifier. TLV 263.
-    // Section 5.2.2.1 of RFC 9552: Distribution of Link-State and Traffic Engineering Information Using BGP
-    SLBGPLSTopologyMTID MTID = 1;              
-
-    // An SRv6 SID that is associated with the node.
-    // SRv6 SID Information. TLV 518. Section 6.1 of [RFC9514]
-    SLBGPLSTopologyIPv6Address SRv6SID = 2;                            
-}
-
-enum SLBGPLSTopologySRPolicyProtocolOrigin {
-    SL_BGPLS_TOPOLOGY_SR_POLICY_PROTOCOL_ORIGIN_RESERVED = 0;
-    SL_BGPLS_TOPOLOGY_SR_POLICY_PROTOCOL_ORIGIN_PCEP = 1;
-    SL_BGPLS_TOPOLOGY_SR_POLICY_PROTOCOL_ORIGIN_BGP_SR_POLICY = 2;
-    SL_BGPLS_TOPOLOGY_SR_POLICY_PROTOCOL_ORIGIN_CONFIG = 3;
-    SL_BGPLS_TOPOLOGY_SR_POLICY_PROTOCOL_ORIGIN_PCEP_VIA_PCE = 10;
-    SL_BGPLS_TOPOLOGY_SR_POLICY_PROTOCOL_ORIGIN_BGP_SR_POLICY_VIA_PCE = 20;
-    SL_BGPLS_TOPOLOGY_SR_POLICY_PROTOCOL_ORIGIN_CONFIG_VIA_PCE = 30;
-
-}
-
-message SLBGPLSTopologySRPolicyFlags {
-    // Bit-0: E-Flag: Indicates the encoding of endpoint as IPv6 address when
-    // set and IPv4 address when clear
-    // 
-    // Bit-1: O-Flag: Indicates the encoding of originator address as IPv6
-    // address when set and IPv4 address when clear
-    bytes Flags = 1;
-}
-
-message SLBGPLSTopologySRPolicyColor {
-    uint32 Flags = 1;
-}
-
-message SLBGPLSTopologySRPolicyDiscriminator {
-    uint32 Discriminator = 1;
-}
-
-message SLBGPLSTopologySRPolicyDescriptor {
-    // Protocol instantiating the SR policy.
-    // Protocol-origin. TLV 554.
-    // Section 4 of draft-ietf-idr-bgp-ls-sr-policy
-    SLBGPLSTopologySRPolicyProtocolOrigin ProtoOrigin = 1;
-
-    // Flags associated with the SR policy.
-    // Flags. TLV 554.
-    // Section 4 of draft-ietf-idr-bgp-ls-sr-policy
-    SLBGPLSTopologySRPolicyFlags Flags = 2;
-
-    // Address of the endpoint of the SR Policy.
-    // Endpoint. TLV 554.
-    // Section 4 of draft-ietf-idr-bgp-ls-sr-policy
-    oneof EndpointAddress {
-        SLBGPLSTopologyIPv4Address IPv4EndpointAddress = 3;
-        SLBGPLSTopologyIPv6Address IPv6EndpointAddress = 4;
-    }
-
-    // Color of the SR Policy.
-    // Policy Color. TLV 554.
-    // Section 4 of draft-ietf-idr-bgp-ls-sr-policy
-    SLBGPLSTopologySRPolicyColor Color = 5;
-
-    // 4-byte encoding of the ASN of the originator.
-    // Originator AS Number. TLV 554.
-    // Section 4 of draft-ietf-idr-bgp-ls-sr-policy
-    SLBGPLSTopologyASN OriginASN = 6;
-
-    // Address of the originator.
-    // Originator Address. TLV 554.
-    // Section 4 of draft-ietf-idr-bgp-ls-sr-policy
-    oneof OriginatorAddress {
-        SLBGPLSTopologyIPv4Address IPv4OriginatorAddress = 7;
-        SLBGPLSTopologyIPv6Address IPv6OriginatorAddress = 8;
-    }
-
-    // Discriminator of the path.
-    // Discriminator. TLV 554.
-    // Section 4 of draft-ietf-idr-bgp-ls-sr-policy
-    SLBGPLSTopologySRPolicyDiscriminator Discriminator = 9;
-}
-
-message SLBGPLSTopologyNode {
-    // Node Descriptors for a node.
-    // Local Node Descriptors. TLV 256.
-    // Section 5.2.1.2 of RFC 9552: Distribution of Link-State and Traffic Engineering Information Using BGP
-    SLBGPLSTopologyNodeDescriptor Node = 1;             
-}
-
-message SLBGPLSTopologyLink {
-    // Node Descriptors for the node anchoring the local end of the link.
-    // Local Node Descriptors. TLV 256.
-    // Section 5.2.1.2 of RFC 9552: Distribution of Link-State and Traffic Engineering Information Using BGP
-    SLBGPLSTopologyNodeDescriptor LocalNode = 1;  
-
-    // Node Descriptors for the node anchoring the remote end of the link.
-    // Remote Node Descriptors. TLV 257.
-    // Section 5.2.1.3 of RFC 9552: Distribution of Link-State and Traffic Engineering Information Using BGP      
-    SLBGPLSTopologyNodeDescriptor RemoteNode = 2;       
-
-    // The Link Descriptor TLVs uniquely identify a link among multiple parallel 
-    // links between a pair of anchor routers.
-    // Section 5.2.2 of RFC 9552: Distribution of Link-State and Traffic Engineering Information Using BGP
-    SLBGPLSTopologyLinkDescriptor Link = 3;
-}
-
-message SLBGPLSTopologyPrefix {
-    // Node Descriptors for the node originating the prefix.
-    // Local Node Descriptors. TLV 256.
-    // Section 5.2.1.2 of RFC 9552: Distribution of Link-State and Traffic Engineering Information Using BGP
-    SLBGPLSTopologyNodeDescriptor Node = 1;          
-
-    // Prefix Descriptor TLVs uniquely identify an IPv4 or IPv6 prefix
-    // originated by a node.
-    // Section 5.2.3 of RFC 9552: Distribution of Link-State and Traffic Engineering Information Using BGP
-    SLBGPLSTopologyPrefixDescriptor Prefix = 2;
-}
-
-message SLBGPLSTopologySRv6SID {
-    // Node Descriptors for the node originating the SRv6 SID.
-    // Local Node Descriptors. TLV 256.
-    // Section 5.2.1.2 of RFC 9552: Distribution of Link-State and Traffic Engineering Information Using BGP
-    SLBGPLSTopologyNodeDescriptor Node = 1;             
-
-    SLBGPLSTopologySRv6SIDDescriptor SRv6SID = 2;
-}
-
-message SLBGPLSTopologySRPolicy {
-    // Node Descriptors for the node originating the SR policy.
-    // Local Node Descriptors. TLV 256.
-    // Section 5.2.1.2 of RFC 9552: Distribution of Link-State and Traffic Engineering Information Using BGP
-    SLBGPLSTopologyNodeDescriptor Node = 1;             
-
-    // A Segment Routing Policy Candidate Path.
-    // SR Policy Candidate Path Descriptor. TLV 554.
-    // Section 4 of draft-ietf-idr-bgp-ls-sr-policy
-    SLBGPLSTopologySRPolicyDescriptor SRPolicy = 2;     
-}
-
-enum SLBGPLSTopologyProtocol {
-    SL_BGPLS_TOPOLOGY_PROTOCOL_RESERVED = 0;
-    SL_BGPLS_TOPOLOGY_PROTOCOL_ISIS_L1 = 1;
-    SL_BGPLS_TOPOLOGY_PROTOCOL_ISIS_L2 = 2;
-    SL_BGPLS_TOPOLOGY_PROTOCOL_OSPFv2 = 3;
-    SL_BGPLS_TOPOLOGY_PROTOCOL_DIRECT = 4;
-    SL_BGPLS_TOPOLOGY_PROTOCOL_STATIC = 5;
-    SL_BGPLS_TOPOLOGY_PROTOCOL_OSPFv3 = 6;
-    SL_BGPLS_TOPOLOGY_PROTOCOL_BGP = 7;
-}
-
-enum SLBGPLSTopologyNLRIType {
-    SL_BGPLS_TOPOLOGY_NLRI_TYPE_RESERVED = 0;
-    SL_BGPLS_TOPOLOGY_NLRI_TYPE_NODE = 1;
-    SL_BGPLS_TOPOLOGY_NLRI_TYPE_LINK = 2;
-    SL_BGPLS_TOPOLOGY_NLRI_TYPE_IPV4_PREFIX = 3;
-    SL_BGPLS_TOPOLOGY_NLRI_TYPE_IPV6_PREFIX = 4;
-    SL_BGPLS_TOPOLOGY_NLRI_TYPE_SR_POLICY_CANDIDATE_PATH = 5;
-    SL_BGPLS_TOPOLOGY_NLRI_TYPE_SRV6_SID = 6;
-}
-
-message SLBGPLSTopologyNLRI {
+message SLBgplsTopoNlriFilter {
     // Type of Link-State NLRI
     // NLRI Type.
-    // Section 5.2 of RFC 9552: Distribution of Link-State and Traffic Engineering Information Using BGP
-    SLBGPLSTopologyNLRIType NLRIType = 1;
+    // Section 5.2 of [RFC 9552]
+    SLBgplsTopoNlriType NlriType = 1;
 
     // Protocol originating the Link-State NLRI
     // Protocol-ID.
-    // Section 5.2 of RFC 9552: Distribution of Link-State and Traffic Engineering Information Using BGP
-    SLBGPLSTopologyProtocol Protocol = 2;
-
+    // Section 5.2 of [RFC 9552]
+    SLBgplsTopoProtocol Protocol = 2;  
+    
     // IGP routing domain to which the Link-State NLRI belongs.
     // Identifier.
-    // Section 5.2 of RFC 9552: Distribution of Link-State and Traffic Engineering Information Using BGP
-    SLBGPLSTopologyInstanceID Identifier = 3;
+    // Section 5.2 of [RFC 9552]
+    uint64 Identifier = 3;
+}
 
-    oneof NLRIObj {
-        SLBGPLSTopologyNode Node = 4;
-        SLBGPLSTopologyLink Link = 5;
-        SLBGPLSTopologyPrefix Prefix = 6;
-        SLBGPLSTopologySRv6SID SRv6SID = 7;
-        SLBGPLSTopologySRPolicy SRPolicy = 8;
+// TODO: Check with Ketan. Isnt this better? Compare with DBD which contains the LSA header in OSPF with an additional feature
+// that we need not specify all the fields.
+// message SLBgplsTopoGetUpdMsg {
+//     // Filters for BGP-LS Topology Entries
+//     repeated SLBgplsTopoNlri Nlri = 1;
+// }
+
+// BGP-LS Topology Update message
+message SLBgplsTopoUpdMsg {
+    // Update Type
+    SLBgplsTopoUpdType UpdType = 1;
+
+    // Further info based on UpdType
+    oneof Update {
+        // case UpdType == SL_BGPLS_TOPO_UPD_TYPE_ERROR:
+        //    => This field carries error info, if any error occurs during
+        //       stream setup.
+        SLBgplsTopoErrorStatus ErrStatus = 2;
+
+        // case UpdType == SL_BGPLS_TOPO_UPD_TYPE_DATA:
+        //    => This field carries the BGP-LS Topology data
+        SLBgplsTopoUpd Data = 3;
     }
 }
 
-enum SLBGPLSTopologyOperation {
-    SL_BGPLS_TOPOLOGUY_OPERATION_RESERVED = 0;
-    SL_BGPLS_TOPOLOGUY_OPERATION_UPDATE = 1;
-    SL_BGPLS_TOPOLOGY_OPERATION_DELETE = 2;
-}
-
-message SLBGPLSTopologyNodeFlagBits {
-    // Bit-0: Overload Bit
-    // 
-    // Bit-1: Attached Bit
-    // 
-    // Bit-2: External Bit    
-    // 
-    // Bit-3: ABR Bit    
-    // 
-    // Bit-4: Router Bit 
-    // 
-    // Bit-5: v6 Bit           
-    bytes Flags = 1;
-}
-
-message SLBGPLSTopologyOpaqueAttr {
-    bytes OpaqueAttrs = 1;
-}
-
-message SLBGPLSTopologyISISAreaID {
-    bytes AreaID = 1;
-}
-
-message SLBGPLSTopologySRGB {
-    uint32 StartLabel = 1;
-    uint32 RangeSize = 2;
-}
-
-message SLBGPLSTopologySRGBISISFlags {
-    // ISIS flags as defined in Section 3.1 of [RFC8667] for IS-IS
-    bytes Flags = 1;
-}
-
-message SLBGPLSTopologySRLB {
-    uint32 StartLabel = 1;
-    uint32 RangeSize = 2;
-}
-
-message SLBGPLSTopologySRAlgorithm {
-    bytes Algorithms = 1;
-}
-
-message SLBGPLSTopologyMSD {
-    bytes MSDTypes = 1;
-    bytes MSDValues = 2;
-}
-
-message SLBGPLSTopologyFADFlags {
-    // The flags are derived from the IS-IS and OSPF protocol-specific Flexible Algorithm Definition Flags sub-TLV,
-    // as defined in [RFC9350].    
-    repeated uint32 Flags = 1;
-}
-
-message SLBGPLSTopologyFADUnsupportedTLVs {
-    SLBGPLSTopologyProtocol Protocol = 1;
-    repeated bytes Types = 2;
-}
-
-message SLBGPLSTopologyFAD {
-    // Flexible Algorithm number between 128 and 255 inclusive.
-    // Flexible Algorithm.
-    // Section 3 of RFC 9351: Border Gateway Protocol - Link State (BGP-LS) Extensions for Flexible Algorithm Advertisement    
-    bytes Algorithm = 11;
-
-    // Metric type.
-    // Metric-Type.
-    // Section 3 of RFC 9351: Border Gateway Protocol - Link State (BGP-LS) Extensions for Flexible Algorithm Advertisement
-    bytes MetricType = 12;
-
-    // Calculation type.
-    // Calc-Type.
-    // Section 3 of RFC 9351: Border Gateway Protocol - Link State (BGP-LS) Extensions for Flexible Algorithm Advertisement
-    bytes CalcType = 13;
-
-    // Priority of the FAD advertisement.
-    // Priority.
-    // Section 3 of RFC 9351: Border Gateway Protocol - Link State (BGP-LS) Extensions for Flexible Algorithm Advertisement
-    bytes Priority = 14;
-
-    // Affinity constraints associated with the FAD that enables the exclusion of links carrying any of the
-    // specified affinities from the computation of the specific algorithm.
-    // Flexible Algorithm Exclude-Any Affinity. TLV 1040.
-    // Section 3 of RFC 9351: Border Gateway Protocol - Link State (BGP-LS) Extensions for Flexible Algorithm Advertisement
-    SLBGPLSTopologyAffinity ExcludeAnyAffinity = 1;     
-
-    // Affinity constraints associated with the FAD that enables the inclusion of links carrying any of the
-    // specified affinities in the computation of the specific algorithm.
-    // Flexible Algorithm Include-Any Affinity. TLV 1041.
-    // Section 3 of RFC 9351: Border Gateway Protocol - Link State (BGP-LS) Extensions for Flexible Algorithm Advertisement
-    SLBGPLSTopologyAffinity IncludeAnyAffinity= 2;     
-
-    // Affinity constraints associated with the FAD that enables the inclusion of links carrying all of the
-    // specified affinities in the computation of the specific algorithm.
-    // Flexible Algorithm Include-All Affinity. TLV 1042.
-    // Section 3 of RFC 9351: Border Gateway Protocol - Link State (BGP-LS) Extensions for Flexible Algorithm Advertisement
-    SLBGPLSTopologyAffinity IncludeAllAffinity = 3;    
-
-    // Flags associated with the FAD that are used in the computation of the specific algorithm.
-    // Flexible Algorithm Definition Flags. TLV 1043.
-    // Section 3 of RFC 9351: Border Gateway Protocol - Link State (BGP-LS) Extensions for Flexible Algorithm Advertisement
-    SLBGPLSTopologyFADFlags Flags = 4;          
-
-    // Shared Risk Link Group (SRLG) information associated with the FAD that enables the exclusion of links that are
-    // associated with any of the specified SRLG in the computation of the specific algorithm.
-    // Flexible Algorithm Exclude SRLG. TLV 1045.
-    // Section 3 of RFC 9351: Border Gateway Protocol - Link State (BGP-LS) Extensions for Flexible Algorithm Advertisement
-    SLBGPLSTopologySRLG ExcludeSRLG = 5;       
-
-    // Affinity constraints associated with the FAD that enables the exclusion of links carrying any of the 
-    // specified affinities in the reverse direction from the computation of the specific algorithm.
-    // Flexible Algorithm Exclude-Any Reverse Affinity. TLV 1053.
-    // RFC TBD
-    SLBGPLSTopologyAffinity ExcludeAnyReverseAffinity = 6;  
-
-    // Affinity constraints associated with the FAD that enables the inclusion of links carrying any of the 
-    // specified affinities in the reverse direction from the computation of the specific algorithm.
-    // Flexible Algorithm Include-Any Reverse Affinity. TLV 1054.
-    // RFC TBD
-    SLBGPLSTopologyAffinity IncludeAnyReverseAffinity = 7;  
-
-    // Affinity constraints associated with the FAD that enables the inclusion of links carrying all of the 
-    // specified affinities in the reverse direction from the computation of the specific algorithm.
-    // Flexible Algorithm Include-All Reverse Affinity. TLV 1055.
-    // RFC TBD
-    SLBGPLSTopologyAffinity IncludeAllReverseAffinity = 8;  
-
-    // Enables the exclusion of links having delay above a maximum specified delay from the computation of the specific algorithm
-    // Flexible Algorithm Exclude Maximum Delay. TLV 1050
-    // RFC TBD
-    uint32 ExcludeMaximumDelay = 9;            
-    
-    // Enables the exclusion of links having bandwidth below a minimum specified bandwidth from the computation of the specific algorithm
-    // Flexible Algorithm Exclude Minimum Bandwidth. TLV 1049
-    // RFC TBD
-    bytes ExcludeMinimumBw = 10;  
-    
-    // Indicate the presence of unsupported FAD sub-TLVs.
-    // Flexible Algorithm Unsupported. TLV 1046.
-    // Section 3 of RFC 9351: Border Gateway Protocol - Link State (BGP-LS) Extensions for Flexible Algorithm Advertisement
-    SLBGPLSTopologyFADUnsupportedTLVs UnsupportedTLVs = 15;
-}
-
-message SLBGPLSTopologyNodeAttributes {
-    // Multi Topology Identifiers (MTIDs) of a node.
-    // Multi-Topology Identifier. TLV 263.
-    // Section 5.2.2.1 of RFC 9552: Distribution of Link-State and Traffic Engineering Information Using BGP
-    SLBGPLSTopologyMTID MTIDs = 1;                
-
-    // Bitmask describing node attributes.
-    // Node Flag Bits. TLV 1024.
-    // Section 5.3.1.1 of RFC 9552: Distribution of Link-State and Traffic Engineering Information Using BGP
-    SLBGPLSTopologyNodeFlagBits NodeFlagBits = 2;   
-
-    // Optional Node Attribute TLVs advertised by a router.
-    // Opaque Node Attribute. TLV 1025.
-    // Section 5.3.1.5 of RFC 9552: Distribution of Link-State and Traffic Engineering Information Using BGP
-    SLBGPLSTopologyOpaqueAttr OpaqueNodeAttr = 3;      
-
-    // Symbolic name of the router node.
-    // Node Name. TLV 1026.
-    // Section 5.3.1.3 of RFC 9552: Distribution of Link-State and Traffic Engineering Information Using BGP
-    SLBGPLSTopologyName NodeName = 4;           
-
-    // ISIS area addresses. 
-    // IS-IS Area Identifier. TLV 1027.
-    // Section 5.3.1.2 of RFC 9552: Distribution of Link-State and Traffic Engineering Information Using BGP
-    repeated SLBGPLSTopologyISISAreaID ISISAreaIDs = 5;          
-
-    // Auxiliary TE Router-ID.
-    // Local IPv4/IPv6 Router-ID. TLV 1028.
-    // Section 5.3.1.4 of RFC 9552: Distribution of Link-State and Traffic Engineering Information Using BGP
-    SLBGPLSTopologyIPv4Address IPv4RouterID = 6;
-
-    // Auxiliary TE Router-ID.
-    // Local IPv4/IPv6 Router-ID. TLV 1029.
-    // Section 5.3.1.4 of RFC 9552: Distribution of Link-State and Traffic Engineering Information Using BGP
-    SLBGPLSTopologyIPv6Address IPv6RouterID = 7;
-
-    // Flags.
-    // SR Capabilities. TLV 1034.
-    // Section 2.1.2 of RFC 9085: Border Gateway Protocol - Link State (BGP-LS) Extensions for Segment Routing.
-    SLBGPLSTopologySRGBISISFlags SRGBISISFlags = 8;       
-
-    // Segment Routing Global Blocks (SRGBs) of a node.
-    // SR Capabilities. TLV 1034.
-    // Section 2.1.2 of RFC 9085: Border Gateway Protocol - Link State (BGP-LS) Extensions for Segment Routing.
-    repeated SLBGPLSTopologySRGB SRGBs = 9;        
-
-    // Segment Routing (SR) algorithms supported by the node.
-    // SR-Algorithm. TLV 1035.
-    // Section 2.1.3 of RFC 9085: Border Gateway Protocol - Link State (BGP-LS) Extensions for Segment Routing.
-    SLBGPLSTopologySRAlgorithm SRAlgorithms = 10; 
-
-    // Segment Routing Local Blocks (SRGBs) of a node.
-    // SR Local Block. TLV 1036.
-    // Section 2.1.4 of RFC 9085: Border Gateway Protocol - Link State (BGP-LS) Extensions for Segment Routing.    
-    repeated SLBGPLSTopologySRLB SRLBs = 11;   
-
-    // Node Maximum SID Depth (MSD).
-    // Node MSD. TLV 266. 
-    // Section 3 of RFC 8814: Signaling Maximum SID Depth (MSD) Using the Border Gateway Protocol - Link State
-    SLBGPLSTopologyMSD NodeMSDs = 12;                               
-
-    // Definitions of Flexible Algorithms supported by the node
-    // Flexible Algorithm Definition. TLV 1039.
-    // Section 3 of RFC 9351: Border Gateway Protocol - Link State (BGP-LS) Extensions for Flexible Algorithm Advertisement
-    repeated SLBGPLSTopologyFAD FADs = 13;                               
-
-}
-
-enum AdjacencySIDFormat {
-    ADJACENCY_SID_FORMAT_RESERVED = 0;
-    ADJACENCY_SID_FORMAT_LABEL = 1;
-    ADJACENCY_SID_FORMAT_INDEX = 2;
-}
-
-enum AdjacencySIDType {
-    ADJACENCY_SID_TYPE_RESERVED = 0;
-    ADJACENCY_SID_TYPE_ADJ = 1;
-    ADJACENCY_SID_TYPE_OSPF_LAN_ADJ = 2;
-    ADJACENCY_SID_TYPE_ISIS_LAN_ADJ = 3;
-}
-
-message AdjacencySID {
-    .google.protobuf.UInt32Value LabelIndex = 1;
-    AdjacencySIDType Type = 2;
-    AdjacencySIDFormat Format = 3;
-    .google.protobuf.BytesValue Flags = 4;
-    .google.protobuf.BytesValue Weight = 5;
-    oneof NeighborId {
-        SLBGPLSTopologyIPv4Address OSPF = 6;
-        .google.protobuf.BytesValue ISIS = 7;
-    }
-}
-
-enum BGPSIDFormat {
-    BGP_SID_FORMAT_RESERVED = 0;
-    BGP_SID_FORMAT_LABEL = 1;
-    BGP_SID_FORMAT_INDEX = 2;
-}
-
-enum BGPSIDType {
-    BGP_SID_TYPE_RESERVED = 0;
-    BGP_SID_TYPE_PEER = 1;
-    BGP_SID_TYPE_PEER_SET = 2;
-    BGP_SID_TYPE_PEER_ADJ = 3;
-}
-
-message BGPSID {
-    BGPSIDType Type = 1;
-    BGPSIDFormat Format = 2;
-    .google.protobuf.BytesValue Flags = 3;
-    .google.protobuf.BytesValue Weight = 4;
-    oneof BGPSID {
-        SLBGPLSTopologyIPv6Address IPv6Address = 5;
-        .google.protobuf.UInt32Value SID = 6;
-    }
-}
-
-message ASLA {
-    repeated .google.protobuf.UInt32Value SABM = 1;
-    repeated .google.protobuf.UInt32Value UDABM = 2;
-    repeated .google.protobuf.UInt32Value SRLG = 3;            // TLV 1096
-    repeated .google.protobuf.UInt32Value ExtAff = 4;          // TLV 1088 TLV 1173
-    .google.protobuf.UInt32Value TEMetric = 5;                 // TLV 1092
-    .google.protobuf.UInt32Value UnidirLinkDelay = 6;          // TLV 1114
-    .google.protobuf.BoolValue UnidirLinkDelayAnom = 7;        // TLV 1114
-    .google.protobuf.UInt32Value UnidirMinLinkDelay = 8;       // TLV 1115
-    .google.protobuf.UInt32Value UnidirMaxLinkDelay = 9;       // TLV 1115
-    .google.protobuf.BoolValue UnidirMinMaxLinkDelayAnom = 10; // TLV 1115
-    .google.protobuf.UInt32Value UnidirDelayVariation = 11;    // TLV 1116
-    .google.protobuf.UInt32Value UnidirLinkLoss = 12;          // TLV 1117
-    .google.protobuf.BoolValue UnidirLinkLossAnom = 13;        // TLV 1117
-    .google.protobuf.FloatValue UnidirResidualBW = 14;         // TLV 1118
-    .google.protobuf.FloatValue UnidirAvailableBW = 15;        // TLV 1119
-    .google.protobuf.FloatValue UnidirUtilizedBW = 16;         // TLV 1120
-}
-
-message SRv6SIDStructure {
-    .google.protobuf.BytesValue LocBlockLen = 1;
-    .google.protobuf.BytesValue LocNodeLen = 2;
-    .google.protobuf.BytesValue FuncLen = 3;
-    .google.protobuf.BytesValue ArgLen = 4;
-}
-
-enum SRv6AdjacencySIDType {
-    SRV6_ADJACENCY_SID_TYPE_RESERVED = 0;
-    SRV6_ADJACENCY_SID_TYPE_ENDX = 1;
-    SRV6_ADJACENCY_SID_TYPE_OSPF_LAN_ENDX = 2;
-    SRV6_ADJACENCY_SID_TYPE_ISIS_LAN_ENDX = 3;
-}
-
-message SRv6AdjacencySID {
-    SLBGPLSTopologyIPv6Address SID = 1;
-    SRv6AdjacencySIDType Type = 2;
-    .google.protobuf.BytesValue Algo = 3;
-    .google.protobuf.BytesValue Flags = 4;
-    .google.protobuf.BytesValue Weight = 5;
-    .google.protobuf.BytesValue EndpointFunction = 6;
-    oneof NeighborId {
-        SLBGPLSTopologyIPv4Address OSPF = 7;
-        .google.protobuf.BytesValue ISIS = 8;
-    }
-    SRv6SIDStructure SIDStruct = 9;
-}
-
-message L2BundleMember {
-    .google.protobuf.UInt32Value MemberDesc = 1;
-    .google.protobuf.FloatValue MaxBW = 2;                    // TLV 1089
-    .google.protobuf.FloatValue MaxResvBW = 3;                // TLV 1090
-    repeated .google.protobuf.FloatValue UnresvBW = 4;        // TLV 1091
-    .google.protobuf.UInt32Value TEMetric = 5;                // TLV 1092
-    .google.protobuf.UInt32Value ProtectType = 6;             // TLV 1093
-    repeated AdjacencySID AdjSID = 7;                         // TLV 1099
-    repeated AdjacencySID LANAdjSID = 8;                      // TLV 1100
-    .google.protobuf.UInt32Value UnidirLinkDelay = 9;         // TLV 1114
-    .google.protobuf.BoolValue UnidirLinkDelayAnom = 10;      // TLV 1114
-    .google.protobuf.UInt32Value UnidirMinLinkDelay = 11;     // TLV 1115
-    .google.protobuf.UInt32Value UnidirMaxLinkDelay = 12;     // TLV 1115
-    .google.protobuf.BoolValue UnidirMinMaxLinkDelayAnom = 13;// TLV 1115
-    .google.protobuf.UInt32Value UnidirDelayVariation = 14;   // TLV 1116
-    .google.protobuf.UInt32Value UnidirLinkLoss = 15;         // TLV 1117
-    .google.protobuf.BoolValue UnidirLinkLossAnom = 16;       // TLV 1117
-    .google.protobuf.FloatValue UnidirResidualBW = 17;        // TLV 1118
-    .google.protobuf.FloatValue UnidirAvailableBW = 18;       // TLV 1119
-    .google.protobuf.FloatValue UnidirUtilizedBW = 19;        // TLV 1120
-    repeated .google.protobuf.UInt32Value ExtAff = 20;        // TLV 1088 TLV 1173
-}
-
-message SLBGPLSTopologyLinkAttributes {
-    .google.protobuf.UInt32Value IPv4LocalRouterID = 1;        // TLV 1028
-    .google.protobuf.BytesValue IPv6LocalRouterID = 2;         // TLV 1029
-    .google.protobuf.UInt32Value IPv4RemoteRouterID = 3;       // TLV 1030
-    .google.protobuf.BytesValue IPv6RemoteRouterID = 4;        // TLV 1031
-    repeated .google.protobuf.UInt32Value ExtAff = 5;          // TLV 1088 TLV 1173
-    .google.protobuf.FloatValue MaxBW = 6;                     // TLV 1089
-    .google.protobuf.FloatValue MaxResvBW = 7;                 // TLV 1090
-    repeated .google.protobuf.FloatValue UnresvBW = 8;         // TLV 1091
-    .google.protobuf.UInt32Value TEMetric = 9;                 // TLV 1092
-    .google.protobuf.UInt32Value ProtectType = 10;             // TLV 1093
-    .google.protobuf.BytesValue MPLSProtoMask = 11;            // TLV 1094
-    .google.protobuf.UInt32Value Metric = 12;                  // TLV 1095
-    repeated .google.protobuf.UInt32Value SRLG = 13;           // TLV 1096
-    .google.protobuf.BytesValue LinkOpaqueAttr = 14;           // TLV 1097
-    repeated AdjacencySID AdjSID = 15;                         // TLV 1099
-    repeated AdjacencySID LANAdjSID = 16;                      // TLV 1100
-    repeated BGPSID BGPSID = 17;                               // TLV 1101
-    repeated BGPSID BGPPeerAdjSID= 18;                         // TLV 1102
-    repeated BGPSID BGPPeerSetAdjSID = 19;                     // TLV 1103
-    repeated MSD MSD = 20;                                     // TLV 267
-    .google.protobuf.UInt32Value UnidirLinkDelay = 21;         // TLV 1114
-    .google.protobuf.BoolValue UnidirLinkDelayAnom = 22;       // TLV 1114
-    .google.protobuf.UInt32Value UnidirMinLinkDelay = 23;      // TLV 1115
-    .google.protobuf.UInt32Value UnidirMaxLinkDelay = 24;      // TLV 1115
-    .google.protobuf.BoolValue UnidirMinMaxLinkDelayAnom = 25; // TLV 1115
-    .google.protobuf.UInt32Value UnidirDelayVariation = 26;    // TLV 1116
-    .google.protobuf.UInt32Value UnidirLinkLoss = 27;          // TLV 1117
-    .google.protobuf.BoolValue UnidirLinkLossAnom = 28;        // TLV 1117
-    .google.protobuf.FloatValue UnidirResidualBW = 29;         // TLV 1118
-    .google.protobuf.FloatValue UnidirAvailableBW = 30;        // TLV 1119
-    .google.protobuf.FloatValue UnidirUtilizedBW = 31;         // TLV 1120
-    repeated ASLA ASLA = 32;                  // TLV 1122
-    .google.protobuf.UInt32Value LocalID = 33;                 // TLV 258
-    .google.protobuf.UInt32Value RemoteID = 34;                // TLV 258
-    repeated SRv6AdjacencySID SRv6AdjSID = 35;                 // TLV 1106
-    repeated SRv6AdjacencySID SRv6ISISLANAdjSID = 36;          // TLV 1107
-    repeated SRv6AdjacencySID SRv6OSPFLANAdjSID = 37;          // TLV 1108
-    repeated L2BundleMember L2BundleMember = 38;               // TLV 1172
-}
-
-message FlexAlgoPrefixMetric {
-    .google.protobuf.UInt32Value Metric = 1;
-    .google.protobuf.BytesValue Algo = 2;
-}
-
-enum PrefixSIDFormat {
-    PREFIX_SID_FORMAT_RESERVED = 0;
-    PREFIX_SID_FORMAT_LABEL = 1;
-    PREFIX_SID_FORMAT_INDEX = 2;
-}
-
-message PrefixSID {
-    .google.protobuf.UInt32Value LabelIndex = 1;
-    PrefixSIDFormat Format = 2;
-    .google.protobuf.BytesValue Flags = 3;
-    .google.protobuf.BytesValue Algo = 4;
-}
-
-message PrefixSRMSRange {
-    .google.protobuf.UInt32Value Index = 1;
-    .google.protobuf.BytesValue Range = 2;
-    .google.protobuf.BytesValue Flags = 3;
-    .google.protobuf.BytesValue Algo = 4;
-    .google.protobuf.BytesValue SIDFlags = 5;
-}
-
-message SRv6Locator {
-    .google.protobuf.BytesValue Flags = 1;
-    .google.protobuf.BytesValue Algo = 2;
-    .google.protobuf.UInt32Value Metric = 3;
-}
-
-message SLBGPLSTopologyPrefixAttributes {
-    repeated FlexAlgoPrefixMetric FAPM = 1;                      // TLV 1044
-    .google.protobuf.BytesValue IGPFlags = 2;                    // TLV 1152
-    repeated .google.protobuf.UInt32Value RouteTag = 3;          // TLV 1153
-    repeated .google.protobuf.UInt32Value ExtendedRouteTag = 4;  // TLV 1154
-    .google.protobuf.UInt32Value PrefixMetric = 5;               // TLV 1155
-    oneof OSPFForwardingAddress {                                // TLV 1156
-        SLBGPLSTopologyIPv4Address IPv4ForwAddr = 6;
-        SLBGPLSTopologyIPv6Address IPv6ForwAddr = 7;
-    }
-    .google.protobuf.BytesValue PrefixOpaqueAttr = 8;            // TLV 1157
-    repeated PrefixSID PrefixSID = 9;                            // TLV 1158
-    PrefixSRMSRange PrefixSRMS = 10;                             // TLV 1159
-    .google.protobuf.BytesValue ExtendedIGPFlags = 11;           // TLV 1170
-    oneof SourceRouterID {                                       // TLV 1171
-        SLBGPLSTopologyIPv4Address IPv4SrcAddr = 12;
-        SLBGPLSTopologyIPv6Address IPv6SrcAddr = 13;
-    }
-    SRv6Locator SRv6Locator = 14;                                // TLV 1162
-}
-
-message SRv6EndPointFunction {
-    .google.protobuf.BytesValue EndpointFunction = 1;
-    .google.protobuf.BytesValue Flags = 2;
-    .google.protobuf.BytesValue Algo = 3;
-}
-
-message SLBGPLSTopologySRv6SIDAttributes {
-    SRv6EndPointFunction EndpointFunction = 1;                   // TLV 1250
-    SRv6SIDStructure SIDStruct = 2;                              // TLV 1252
-}
-
-message SLBGPLSTopologySRPolicyAttributes {
-
-}
-
-message SLBGPLSTopologyAttributes {
-    oneof AttributesObj {
-        SLBGPLSTopologyNodeAttributes NodeAttr = 1;
-        SLBGPLSTopologyLinkAttributes LinkAttr = 2;
-        SLBGPLSTopologyPrefixAttributes PrefixAttr = 3;
-        SLBGPLSTopologySRv6SIDAttributes SRv6SIDAttr = 4;
-        SLBGPLSTopologySRPolicyAttributes SRPolicyAttr = 5;
-    }
-}
-
-message SLBGPLSTopologyGetNotifMsg {
-    // VRF name.
-    SLBGPLSTopologyName VRFName = 1;
-
-    // Filter for BGPLS Topology Entries
-    repeated SLBGPLSTopologyNLRI NLRI = 1;
-}
-
-// BGPLS Topology Entry
-message SLBGPLSTopologyEntry {
-    SLBGPLSTopologyNLRI NLRI = 1;
-    SLBGPLSTopologyOperation Operation = 2;
-    SLBGPLSTopologyAttributes Attributes = 3;
-}
-
-// BGPLS Topology notification
-message SLBGPLSTopologyNotifData {
-    // VRF name.
-    SLBGPLSTopologyName VRFName = 1;
-
-    // BGPLS Topology Entries
-    repeated SLBGPLSTopologyEntry Entries = 2;
-}
-
-// BGPLS Topology Event Notification types
-enum SLBGPLSTopologyNotifType {
+// BGP-LS Topology Update types
+enum SLBgplsTopoUpdType {
     // Reserved. 0x0
-    SL_BGPLS_TOPOLOGY_EVENT_TYPE_RESERVED = 0x0;
+    SL_BGPLS_TOPO_UPD_TYPE_RESERVED = 0x0;
 
     // Error - ErrStatus field elaborates on the error.
     // The client can decide to close the stream based on the error. 0x1
-    SL_BGPLS_TOPOLOGY_EVENT_TYPE_ERROR = 0x1;
+    SL_BGPLS_TOPO_UPD_TYPE_ERROR = 0x1;
 
-    // BGPLS Topology data. 0x2
-    SL_BGPLS_TOPOLOGY_EVENT_TYPE_DATA = 0x2;
+    // BGP-LS Topology data. 0x2
+    SL_BGPLS_TOPO_UPD_TYPE_DATA = 0x2;
 
-    // Start marker per VRF - sent before any DATA notification is sent.
+    // Start marker - sent before any DATA is sent.
     // This is an indication to stale any objects received until now. 0x3
-    SL_BGPLS_TOPOLOGY_EVENT_TYPE_START_MARKER = 0x3;
+    SL_BGPLS_TOPO_UPD_TYPE_START_MARKER = 0x3;
 
-    // End marker per VRF - sent after all DATA notifications are sent.
+    // End marker - sent after all DATA are sent.
     // This is an indication to sweep any stale objects, if present. 0x4
-    SL_BGPLS_TOPOLOGY_EVENT_TYPE_END_MARKER = 0x4;
+    SL_BGPLS_TOPO_UPD_TYPE_END_MARKER = 0x4;
 }
 
+// TODO: Check with SL API team. Can we use SL API errors?
 // Status codes, including errors and success codes.
-// All BGPLS Topology errors are defined below.
-message SLBGPLSTopologyErrorStatus {
-    enum SLBGPLSTopologyErrno {
+// All BGP-LS Topology errors are defined below.
+message SLBgplsTopoErrorStatus {
+    enum SLBgplsTopoErrno {
 
         // TODO: Remove unused at the end
 
         // !!! Common error codes for all RPCs and objects
 
         // Success, no errors detected. 0x0.
-        SL_BGPLS_TOPOLOGY_SUCCESS = 0x0;
+        SL_BGPLS_TOPO_SUCCESS = 0x0;
         // Client is not connected.
         // The client is expected to remain connected after init and version
         // validation, RPC calls can fail with this error code otherwise.
         // Refer to RPC SLGlobalInitNotif. 0x1
-        SL_BGPLS_TOPOLOGY_NOT_CONNECTED = 0x1;
+        SL_BGPLS_TOPO_NOT_CONNECTED = 0x1;
         // Operation must be retried. 0x2
-        SL_BGPLS_TOPOLOGY_EAGAIN = 0x2;
+        SL_BGPLS_TOPO_EAGAIN = 0x2;
         // One or more components does not have sufficient memory. 0x3
-        SL_BGPLS_TOPOLOGY_ENOMEM = 0x3;
+        SL_BGPLS_TOPO_ENOMEM = 0x3;
         // Too many outstanding requests. 0x4
-        SL_BGPLS_TOPOLOGY_EBUSY = 0x4;
+        SL_BGPLS_TOPO_EBUSY = 0x4;
         // One or more arguments are invalid. 0x5
-        SL_BGPLS_TOPOLOGY_EINVAL = 0x5;
+        SL_BGPLS_TOPO_EINVAL = 0x5;
         // Unsupported version. 0x6
-        SL_BGPLS_TOPOLOGY_UNSUPPORTED_VER = 0x6;
+        SL_BGPLS_TOPO_UNSUPPORTED_VER = 0x6;
         // Not Available. 0x7
-        SL_BGPLS_TOPOLOGY_NOT_AVAILABLE = 0x7;
+        SL_BGPLS_TOPO_NOT_AVAILABLE = 0x7;
         // Stream mode not supported. 0x8
-        SL_BGPLS_TOPOLOGY_STREAM_NOT_SUPPORTED = 0x8;
+        SL_BGPLS_TOPO_STREAM_NOT_SUPPORTED = 0x8;
         // Operation not supported. 0x9
-        SL_BGPLS_TOPOLOGY_ENOTSUP = 0x9;
+        SL_BGPLS_TOPO_ENOTSUP = 0x9;
         // One or more objects is errored:
         // Each object must be individually examined. 0xa
-        SL_BGPLS_TOPOLOGY_SOME_ERR = 0xa;
+        SL_BGPLS_TOPO_SOME_ERR = 0xa;
         // Operation Timed out.
         // The result of the operation is undeterministic (success or fail). 0xb
-        SL_BGPLS_TOPOLOGY_TIMEOUT = 0xb;
-        // Due to some event, the client will no longer receive notification
-        // events on this channel. 0xc
+        SL_BGPLS_TOPO_TIMEOUT = 0xb;
+        // Due to some event, the client will no longer receive updates
+        // on this channel. 0xc
         // Such events include:
-        // - Notification Session was hijacked by another client.
-        SL_BGPLS_TOPOLOGY_NOTIF_TERM = 0xc;
+        // - Session was hijacked by another client.
+        SL_BGPLS_TOPO_NOTIF_TERM = 0xc;
 
         // Authentication failure.
         // Incorrect credentials passed in by RPC. 0xd
-        SL_BGPLS_TOPOLOGY_AUTH_FAIL = 0xd;
+        SL_BGPLS_TOPO_AUTH_FAIL = 0xd;
 
         // !!! Error codes for Client INIT operations.
 
         // Offset for INIT errors. 0x500
-        SL_BGPLS_TOPOLOGY_INIT_START_OFFSET = 0x500;
+        SL_BGPLS_TOPO_INIT_START_OFFSET = 0x500;
         // Success, no errors detected - clear state.
         // This error is returned on the first-ever initialization, or,
         // when a fatal event has occured and all previous state was lost. 0x501
-        SL_BGPLS_TOPOLOGY_INIT_STATE_CLEAR = 0x501;
+        SL_BGPLS_TOPO_INIT_STATE_CLEAR = 0x501;
         // Success, no errors detected - previous state is recovered.
         // This error is returned on a client re-initialization with
         // successful recovery of state. Note that any unacknowledged
         // data previously sent should be considered lost. 0x502
-        SL_BGPLS_TOPOLOGY_INIT_STATE_READY = 0x502;
+        SL_BGPLS_TOPO_INIT_STATE_READY = 0x502;
         // Server software incompatible with client software version. 0x503
-        SL_BGPLS_TOPOLOGY_INIT_UNSUPPORTED_VER = 0x503;
+        SL_BGPLS_TOPO_INIT_UNSUPPORTED_VER = 0x503;
         // Initialization request received while server is not ready. 0x504
-        SL_BGPLS_TOPOLOGY_INIT_SERVER_NOT_INITIALIZED = 0x504;
+        SL_BGPLS_TOPO_INIT_SERVER_NOT_INITIALIZED = 0x504;
         // Server operational mode change from stream to non-stream
         // or vice-versa failed. 0x505
-        SL_BGPLS_TOPOLOGY_INIT_SERVER_MODE_CHANGE_FAILED = 0x505;
+        SL_BGPLS_TOPO_INIT_SERVER_MODE_CHANGE_FAILED = 0x505;
 
         // !!! Error codes Reserved for internal errors.
 
         // Offset for Internal errors. 0x100000
-        SL_BGPLS_TOPOLOGY_INTERNAL_START_OFFSET = 0x100000;
+        SL_BGPLS_TOPO_INTERNAL_START_OFFSET = 0x100000;
     }
-    SLBGPLSTopologyErrno Status = 1;
+    SLBgplsTopoErrno Status = 1;
 }
 
-// Common Marker Notification message
-message SLBGPLSTopologyNotifMarker {
-    // Vrf that this notification message applies to.
-    SLBGPLSTopologyName VRFName = 1;
+// BGP-LS Topology Updates
+message SLBgplsTopoUpd {
+    // BGP-LS Topology Entries
+    repeated SLBgplsTopoEntry Entries = 1;
 }
 
-// BGPLS Topology notification message
-message SLBGPLSTopologyNotif {
-    // Event Type
-    SLBGPLSTopologyNotifType EventType = 1;
+// BGP-LS Topology Entry
+message SLBgplsTopoEntry {
+    SLBgplsTopoOperation Operation = 1;
+    SLBgplsTopoNlri Nlri = 2;
+    SLBgplsTopoAttr Attr = 3;
+}
 
-    // Further info based on EventType
-    oneof Event {
-        // case EventType == SL_BGPLS_TOPOLOGY_EVENT_TYPE_ERROR:
-        //    => This field carries error info, if any error occurs during
-        //       notification stream setup.
-        SLBGPLSTopologyErrorStatus ErrStatus = 2;
+// BGP-LS Topology Operation
+enum SLBgplsTopoOperation {
+    SL_BGPLS_TOPO_OPERATION_RESERVED = 0;
+    SL_BGPLS_TOPO_OPERATION_UPDATE = 1;
+    SL_BGPLS_TOPO_OPERATION_DELETE = 2;
+}
 
-        // case EventType == SL_BGPLS_TOPOLOGY_EVENT_TYPE_DATA:
-        //    => This field carries the BGPLS Topology data
-        SLBGPLSTopologyNotifData Data = 3;
+//===================================================================================================//
+//                                             NLRI Section                                          //
+//===================================================================================================//
 
-        // case EventType == SL_BGPLS_TOPOLOGY_EVENT_TYPE_START_MARKER:
-        // case EventType == SL_BGPLS_TOPOLOGY_EVENT_TYPE_END_MARKER:
-        //    => This field carries the start marker and end marker per-VRF.
-        SLBGPLSTopologyNotifMarker Marker = 4;
+// NLRI
+message SLBgplsTopoNlri {
+    // Type of Link-State NLRI
+    // NLRI Type.
+    // Section 5.2 of [RFC 9552]
+    SLBgplsTopoNlriType NlriType = 1;
+
+    // Protocol originating the Link-State NLRI
+    // Protocol-ID.
+    // Section 5.2 of [RFC 9552]
+    SLBgplsTopoProtocol Protocol = 2;
+
+    // IGP routing domain to which the Link-State NLRI belongs.
+    // Identifier.
+    // Section 5.2 of [RFC 9552]
+    uint64 Identifier = 3;
+
+    // NLRI
+    oneof Nlri {
+        SLBgplsTopoNode Node = 4;
+        SLBgplsTopoLink Link = 5;
+        SLBgplsTopoPrefix Prefix = 6;
+        SLBgplsTopoSrv6Sid Srv6Sid = 7;
+        SLBgplsTopoSrPolicy SrPolicy = 8;
     }
 }
+
+// NLRI type
+enum SLBgplsTopoNlriType {
+    SL_BGPLS_TOPO_NLRI_TYPE_RESERVED = 0;
+    SL_BGPLS_TOPO_NLRI_TYPE_NODE = 1;
+    SL_BGPLS_TOPO_NLRI_TYPE_LINK = 2;
+    SL_BGPLS_TOPO_NLRI_TYPE_IPV4_PREFIX = 3;
+    SL_BGPLS_TOPO_NLRI_TYPE_IPV6_PREFIX = 4;
+    SL_BGPLS_TOPO_NLRI_TYPE_SR_POLICY_CANDIDATE_PATH = 5;
+    SL_BGPLS_TOPO_NLRI_TYPE_SRV6_SID = 6;
+}
+
+// Protocols
+enum SLBgplsTopoProtocol {
+    SL_BGPLS_TOPO_PROTOCOL_RESERVED = 0;
+    SL_BGPLS_TOPO_PROTOCOL_ISIS_L1 = 1;
+    SL_BGPLS_TOPO_PROTOCOL_ISIS_L2 = 2;
+    SL_BGPLS_TOPO_PROTOCOL_OSPFv2 = 3;
+    SL_BGPLS_TOPO_PROTOCOL_DIRECT = 4;
+    SL_BGPLS_TOPO_PROTOCOL_STATIC = 5;
+    SL_BGPLS_TOPO_PROTOCOL_OSPFv3 = 6;
+    SL_BGPLS_TOPO_PROTOCOL_BGP = 7;
+    SL_BGPLS_TOPO_PROTOCOL_RSVP_TE = 8;
+    SL_BGPLS_TOPO_PROTOCOL_SR = 9;
+}
+
+//======================================= NLRI Objects ==============================================//
+
+// Node
+message SLBgplsTopoNode {
+    // Node Descriptors for a node.
+    // Local Node Descriptors. TLV 256.
+    // Section 5.2.1.2 of [RFC 9552]
+    SLBgplsTopoNodeDescr Node = 1;
+}
+
+// Link
+message SLBgplsTopoLink {
+    // Node Descriptors for the node anchoring the local end of the link.
+    // Local Node Descriptors. TLV 256.
+    // Section 5.2.1.2 of [RFC 9552]
+    SLBgplsTopoNodeDescr LocalNode = 1;
+
+    // Node Descriptors for the node anchoring the remote end of the link.
+    // Remote Node Descriptors. TLV 257.
+    // Section 5.2.1.3 of [RFC 9552]
+    SLBgplsTopoNodeDescr RemoteNode = 2;
+
+    // The Link Descriptor TLVs uniquely identify a link among multiple parallel
+    // links between a pair of anchor routers.
+    // Section 5.2.2 of [RFC 9552]
+    SLBgplsTopoLinkDescr Link = 3;
+}
+
+// Prefix
+message SLBgplsTopoPrefix {
+    // Node Descriptors for the node originating the prefix.
+    // Local Node Descriptors. TLV 256.
+    // Section 5.2.1.2 of [RFC 9552]
+    SLBgplsTopoNodeDescr Node = 1;
+
+    // Prefix Descriptor TLVs uniquely identify an IPv4 or IPv6 prefix
+    // originated by a node.
+    // Section 5.2.3 of [RFC 9552]
+    SLBgplsTopoPrefixDescr Prefix = 2;
+}
+
+// SRv6 SID
+message SLBgplsTopoSrv6Sid {
+    // Node Descriptors for the node originating the SRv6 SID.
+    // Local Node Descriptors. TLV 256.
+    // Section 5.2.1.2 of [RFC 9552]
+    SLBgplsTopoNodeDescr Node = 1;
+
+    SLBgplsTopoSrv6SidDescr Srv6Sid = 2;
+}
+
+// SR Policy
+message SLBgplsTopoSrPolicy {
+    // Node Descriptors for the node originating the SR policy.
+    // Local Node Descriptors. TLV 256.
+    // Section 5.2.1.2 of [RFC 9552]
+    SLBgplsTopoNodeDescr Node = 1;
+
+    // A Segment Routing Policy Candidate Path.
+    // SR Policy Candidate Path Descriptor. TLV 554.
+    // Section 4 of [draft-ietf-idr-bgp-ls-sr-policy]
+    SLBgplsTopoSrPolicyDescr SrPolicy = 2;
+}
+
+//========================================= Descriptors =============================================//
+
+// Node descriptor
+message SLBgplsTopoNodeDescr {
+    // AS Number associated with the BGP process originating the link-state information.
+    // Autonomous System Number. TLV 512.
+    // Section 5.2.1 of [RFC 9552]
+    uint32 Asn = 1;
+
+    // Node Identifier
+    // Actual type can be determined based on Protocol in SLBgplsTopoNlri.
+    oneof NodeId {
+        SLBgplsTopoOspfNodeId OspfNodeId = 2;
+        SLBgplsTopoOspfv3NodeId Ospfv3NodeId = 3;
+        SLBgplsTopoIsisNodeId IsisNodeId = 4;
+        SLBgplsTopoBgpNodeId BgpNodeId = 5;
+        SLBgplsTopoSrPolicyNodeId SrPolicyNodeId = 6;        
+    }
+}
+
+// Link descriptor
+message SLBgplsTopoLinkDescr {
+    // Local Identifier of a link.
+    // Link Local/Remote Identifier. TLV 258.
+    // Section 5.2.2 of [RFC 9552]
+    uint32 LocalId = 1;
+
+    // Remote Identifier of a link.
+    // Link Local/Remote Identifier. TLV 258.
+    // Section 5.2.2 of [RFC 9552]
+    uint32 RemoteId = 2;
+
+    // Local IPv4 address of a link.
+    // IPv4 interface address. TLV 259.
+    // Section 5.2.2 of [RFC 9552]
+    uint32 LocalIpv4 = 3;
+
+    // Remote IPv4 address of a link.
+    // IPv4 neighbor address. TLV 260.
+    // Section 5.2.2 of [RFC 9552]
+    uint32 RemoteIpv4 = 4;
+
+    // Local IPv6 address of a link.
+    // IPv6 interface address. TLV 261.
+    // Section 5.2.2 of [RFC 9552]
+    bytes LocalIpv6 = 5;
+
+    // Remote IPv6 address of a link.
+    // IPv6 neighbor address. TLV 262.
+    // Section 5.2.2 of [RFC 9552]
+    bytes RemoteIpv6 = 6;
+
+    // Multi Topology Identifier (MTID) of a link.
+    // Multi-Topology Identifier. TLV 263.
+    // Section 5.2.2.1 of [RFC 9552]
+    uint32 MtId = 7;
+}
+
+// Prefix descriptor
+message SLBgplsTopoPrefixDescr {
+    // Multi Topology Identifier (MTID) of a prefix.
+    // Multi-Topology Identifier. TLV 263.
+    // Section 5.2.2.1 of [RFC 9552]
+    uint32 MtId = 1;
+
+    // OSPF Route type of a prefix.
+    // OSPF Route Type. TLV 264.
+    // Section 5.2.3.1 of [RFC 9552]
+    SLBgplsTopoOspfRouteType OspfRouteType = 2;
+
+    // IP address prefix (IPv4 or IPv6) advertised in the IGP topology.
+    // IP Reachability Information. TLV 265.
+    // Section 5.2.3.2 of [RFC 9552]
+    bytes PrefixLength = 3;
+
+    // IP address prefix (IPv4 or IPv6) advertised in the IGP topology.
+    // IP Reachability Information. TLV 265.
+    // Section 5.2.3.2 of [RFC 9552]
+    bytes Prefix = 4;
+}
+
+// SRv6 SID descriptor
+message SLBgplsTopoSrv6SidDescr {
+    // Multi Topology Identifier (MTID) of an SRv6 SID.
+    // Multi-Topology Identifier. TLV 263.
+    // Section 5.2.2.1 of [RFC 9552]
+    uint32 MtId = 1;
+
+    // An SRv6 SID that is associated with the node.
+    // SRv6 SID Information. TLV 518. Section 6.1 of [RFC9514]
+    bytes Srv6Sid = 2;
+}
+
+// SR Policy descriptor
+message SLBgplsTopoSrPolicyDescr {
+    // Protocol instantiating the SR policy.
+    // Protocol-origin. TLV 554.
+    // Section 4 of [draft-ietf-idr-bgp-ls-sr-policy]
+    SLBgplsTopoSrPolicyProtocolOrigin ProtoOrigin = 1;
+
+    // Flags associated with the SR policy.
+    // Flags. TLV 554.
+    // Section 4 of [draft-ietf-idr-bgp-ls-sr-policy]
+    SLBgplsTopoSrPolicyFlags Flags = 2;
+
+    // Address of the endpoint of the SR Policy.
+    // Endpoint. TLV 554.
+    // Section 4 of [draft-ietf-idr-bgp-ls-sr-policy]
+    oneof EndpointAddress {
+        uint32 Ipv4EndpointAddress = 3;
+        bytes Ipv6EndpointAddress = 4;
+    }
+
+    // Specifies whether the endpoint address is IPv6 or not.
+    uint32 IsEndpointAddressIpv6 = 5;
+    
+    // Color of the SR Policy.
+    // Policy Color. TLV 554.
+    // Section 4 of [draft-ietf-idr-bgp-ls-sr-policy]
+    uint32 Color = 6;
+
+    // 4-byte encoding of the ASN of the originator.
+    // Originator AS Number. TLV 554.
+    // Section 4 of [draft-ietf-idr-bgp-ls-sr-policy]
+    uint32 OriginAsn = 7;
+
+    // Address of the originator.
+    // Originator Address. TLV 554.
+    // Section 4 of [draft-ietf-idr-bgp-ls-sr-policy]
+    oneof OriginatorAddress {
+        uint32 Ipv4OriginatorAddress = 8;
+        bytes Ipv6OriginatorAddress = 9;
+    }
+
+    // Specifies whether the originator address is IPv6 or not.
+    uint32 IsOriginatorAddressIpv6 = 10;
+
+    // Discriminator of the path.
+    // Discriminator. TLV 554.
+    // Section 4 of [draft-ietf-idr-bgp-ls-sr-policy]
+    uint32 Discriminator = 11;
+}
+
+//======================================= Node Identifiers ==========================================//
+
+// OSPF Node ID
+message SLBgplsTopoOspfNodeId {
+    // Area identifier identifying the area to which the NLRI belongs.
+    // OSPF Area-ID. TLV 514.
+    // Section 5.2.1 of [RFC 9552]
+    uint32 AreaId = 1;
+
+    // Specifies whether the area identifier is set or not.
+    // Area identifier will not be set for AS scoped prefixes.
+    uint32 IsAsScoped = 2;
+
+    // Router ID.
+    // IGP Router-ID. TLV 515.
+    // Section 5.2.1 of [RFC 9552]
+    uint32 RouterId = 3;
+
+    // IPv4 address of the DR's interface to the LAN.
+    // IGP Router-ID. TLV 515.
+    // Section 5.2.1 of [RFC 9552]
+    uint32 DrIdentifier = 4;
+}
+
+// OSPFv3 Node ID
+message SLBgplsTopoOspfv3NodeId {
+    // Area identifier identifying the area to which the NLRI belongs.
+    // OSPF Area-ID. TLV 514.
+    // Section 5.2.1 of [RFC 9552]
+    uint32 AreaId = 1;
+
+    // Specifies whether the area identifier is set or not.
+    // Area identifier will not be set for AS scoped prefixes.
+    uint32 AsScoped = 2;
+
+    // Router ID.
+    // IGP Router-ID. TLV 515.
+    // Section 5.2.1 of [RFC 9552]
+    uint32 RouterId = 3;
+
+    // Interface identifier of the DR's interface to the LAN.
+    // IGP Router-ID. TLV 515.
+    // Section 5.2.1 of [RFC 9552]
+    uint32 DrIdentifier = 4;
+}
+
+// ISIS Node ID
+message SLBgplsTopoIsisNodeId {
+    // System ID.
+    // IGP Router-ID. TLV 515.
+    // Section 5.2.1 of [RFC 9552]
+    bytes SystemId = 1;
+
+    // Pseudo Node Identifier (PSN ID).
+    // IGP Router-ID. TLV 515.
+    // Section 5.2.1 of [RFC 9552]
+    bytes PsnId = 2;
+}
+
+// BGP Node ID
+message SLBgplsTopoBgpNodeId {
+    // Router ID.
+    // BGP Router-ID. TLV 516.
+    // Section 4.2 of [RFC9086]
+    uint32 RouterId = 1;
+
+    // ASN of the confederation member
+    // Member-ASN. TLV 517.
+    // Section 4.2 of [RFC9086]
+    uint32 MemberAsn = 2;
+}
+
+// SR Policy Node ID
+// TODO: Confirm with Ketan
+message SLBgplsTopoSrPolicyNodeId {
+    // Router ID.
+    // BGP Router-ID. TLV 516.
+    // Section 4.2 of [RFC9086]
+    uint32 RouterId = 1;
+
+    // ASN of the confederation member
+    // Member-ASN. TLV 517.
+    // Section 4.2 of [RFC9086]
+    uint32 MemberAsn = 2;
+
+    // Auxiliary TE Router-ID.
+    // IPv4 Router-ID. TLV 1028.
+    // Section 5.2.1 of [RFC 9552]
+    uint32 Ipv4RouterId = 3;
+
+    // Auxiliary TE Router-ID.
+    // IPv6 Router-ID. TLV 1029.
+    // Section 5.2.1 of [RFC 9552]
+    bytes Ipv6RouterId = 4;    
+}
+
+// OSPF Route types
+enum SLBgplsTopoOspfRouteType {
+    SL_BGPLS_TOPO_OSPF_ROUTE_TYPE_RESERVED = 0;
+    SL_BGPLS_TOPO_OSPF_ROUTE_TYPE_INTRA_AREA = 1;
+    SL_BGPLS_TOPO_OSPF_ROUTE_TYPE_INTER_AREA = 2;
+    SL_BGPLS_TOPO_OSPF_ROUTE_TYPE_EXTERN_1 = 3;
+    SL_BGPLS_TOPO_OSPF_ROUTE_TYPE_EXTERN_2 = 4;
+    SL_BGPLS_TOPO_OSPF_ROUTE_TYPE_NSSA_1 = 5;
+    SL_BGPLS_TOPO_OSPF_ROUTE_TYPE_NSSA_2 = 6;
+}
+
+// Protocol Originating SR Policy
+enum SLBgplsTopoSrPolicyProtocolOrigin {
+    SL_BGPLS_TOPO_SR_POLICY_PROTOCOL_ORIGIN_RESERVED = 0;
+    SL_BGPLS_TOPO_SR_POLICY_PROTOCOL_ORIGIN_PCEP = 1;
+    SL_BGPLS_TOPO_SR_POLICY_PROTOCOL_ORIGIN_BGP_SR_POLICY = 2;
+    SL_BGPLS_TOPO_SR_POLICY_PROTOCOL_ORIGIN_CONFIG = 3;
+    SL_BGPLS_TOPO_SR_POLICY_PROTOCOL_ORIGIN_PCEP_VIA_PCE = 10;
+    SL_BGPLS_TOPO_SR_POLICY_PROTOCOL_ORIGIN_BGP_SR_POLICY_VIA_PCE = 20;
+    SL_BGPLS_TOPO_SR_POLICY_PROTOCOL_ORIGIN_CONFIG_VIA_PCE = 30;
+
+}
+
+// SR Policy flags
+message SLBgplsTopoSrPolicyFlags {
+    // Bit-0: E-Flag: Indicates the encoding of endpoint as IPv6 address when
+    // set and IPv4 address when clear
+    //
+    // Bit-1: O-Flag: Indicates the encoding of originator address as IPv6
+    // address when set and IPv4 address when clear
+    bytes Flags = 1;
+}
+
+//===================================================================================================//
+//                                          Attributes Section                                       //
+//===================================================================================================//
+
+// Attributes
+message SLBgplsTopoAttr {
+    // Attributes
+    // Actual type can be determined based on NlriType in SLBgplsTopoNlri.
+    oneof Attr {
+        SLBgplsTopoNodeAttr NodeAttr = 1;
+        SLBgplsTopoLinkAttr LinkAttr = 2;
+        SLBgplsTopoPrefixAttr PrefixAttr = 3;
+        SLBgplsTopoSrv6SidAttr Srv6SidAttr = 4;
+        SLBgplsTopoSrPolicyAttr SrPolicyAttr = 5;
+    }
+
+}
+
+// Node Attributes
+message SLBgplsTopoNodeAttr {
+    // Multi Topology Identifiers (MTIDs) of a node.
+    // Multi-Topology Identifier. TLV 263.
+    // Section 5.2.2.1 of [RFC 9552]
+    repeated SLBgplsTopoMtId MtId = 1;
+
+    // Bitmask describing node attributes.
+    // Node Flag Bits. TLV 1024.
+    // Section 5.3.1.1 of [RFC 9552]
+    SLBgplsTopoNodeFlagBits NodeFlagBits = 2;
+
+    // Optional Node Attribute TLVs advertised by a router.
+    // Opaque Node Attribute. TLV 1025.
+    // Section 5.3.1.5 of [RFC 9552]
+    SLBgplsTopoNodeOpaqueAttr OpaqueNodeAttr = 3;
+
+    // Symbolic name of the router node.
+    // Node Name. TLV 1026.
+    // Section 5.3.1.3 of [RFC 9552]
+    SLBgplsNodeName NodeName = 4;
+
+    // ISIS area addresses.
+    // IS-IS Area Identifier. TLV 1027.
+    // Section 5.3.1.2 of [RFC 9552]
+    repeated SLBgplsTopoIsisAreaId IsisAreaId = 5;
+
+    // Auxiliary TE Router-IDs.
+    // Local IPv4/IPv6 Router-ID. TLV 1028.
+    // Section 5.3.1.4 of [RFC 9552]
+    repeated SLBgplsTopoLocalIpv4RouterId LocalIpv4 = 6;
+
+    // Auxiliary TE Router-IDs.
+    // Local IPv4/IPv6 Router-ID. TLV 1029.
+    // Section 5.3.1.4 of [RFC 9552]
+    repeated SLBgplsTopoLocalIpv6RouterId LocalIpv6 = 7;
+
+    // Flags.
+    // SR Capabilities. TLV 1034.
+    // Section 2.1.2 of [RFC 9085]
+    SLBgplsTopoSrgbIsisFlags SrgbIsisFlags = 8;
+
+    // Segment Routing Global Blocks (SRGBs) of a node.
+    // SR Capabilities. TLV 1034.
+    // Section 2.1.2 of [RFC 9085]
+    repeated SLBgplsTopoSrgb Srgb = 9;
+
+    // Segment Routing (SR) algorithms supported by the node.
+    // SR-Algorithm. TLV 1035.
+    // Section 2.1.3 of [RFC 9085]
+    SLBgplsTopoSrAlgorithm SrAlgorithm = 10;
+
+    // Segment Routing Local Blocks (SRLBs) of a node.
+    // SR Local Block. TLV 1036.
+    // Section 2.1.4 of [RFC 9085]
+    repeated SLBgplsTopoSrlb Srlb = 11;
+
+    // Node Maximum SID Depth (MSD).
+    // Node MSD. TLV 266.
+    // Section 3 of RFC 8814: Signaling Maximum SID Depth (MSD) Using the Border Gateway Protocol - Link State
+    repeated SLBgplsTopoNodeMsd NodeMsd = 12;
+
+    // Definitions of Flexible Algorithms supported by the node
+    // Flexible Algorithm Definition. TLV 1039.
+    // Section 3 of [RFC 9351]
+    repeated SLBgplsTopoFad Fad = 13;
+}
+
+// Link Attributes
+message SLBgplsTopoLinkAttr {
+}
+
+// Prefix Attributes
+message SLBgplsTopoPrefixAttr {
+}
+
+// SRv6 SID Attributes
+message SLBgplsTopoSrv6SidAttr {
+}
+
+// SR Policy Attributes
+message SLBgplsTopoSrPolicyAttr {
+}
+
+//=========================== Attribute definitions sorted by TLV code point ========================//
+
+// Multi-Topology Identifier. TLV 263.
+// Section 5.2.2.1 of [RFC 9552]
+message SLBgplsTopoMtId {
+    uint32 MtId = 1;
+}
+
+// Node MSD. TLV 266.
+// Section 3 of RFC 8814: Signaling Maximum SID Depth (MSD) Using the Border Gateway Protocol - Link State
+message SLBgplsTopoNodeMsd {
+    uint32 Type = 1;
+    uint32 Value = 2;
+}
+
+// Node Flag Bits. TLV 1024.
+// Section 5.3.1.1 of [RFC 9552]
+message SLBgplsTopoNodeFlagBits {
+    // Bit-0: Overload Bit
+    //
+    // Bit-1: Attached Bit
+    //
+    // Bit-2: External Bit
+    //
+    // Bit-3: ABR Bit
+    //
+    // Bit-4: Router Bit
+    //
+    // Bit-5: v6 Bit
+    bytes Flags = 1;
+}
+
+// Opaque Node Attribute. TLV 1025.
+// Section 5.3.1.5 of [RFC 9552]
+message SLBgplsTopoNodeOpaqueAttr {
+    bytes OpaqueAttr = 1;
+}
+
+// Node Name. TLV 1026.
+// Section 5.3.1.3 of [RFC 9552]
+message SLBgplsNodeName {
+    string Name = 1;
+}
+
+// IS-IS Area Identifier. TLV 1027.
+// Section 5.3.1.2 of [RFC 9552]
+message SLBgplsTopoIsisAreaId {
+    bytes AreaId = 1;
+}
+
+// Local IPv4/IPv6 Router-ID. TLV 1028.
+// Section 5.3.1.4 of [RFC 9552]
+message SLBgplsTopoLocalIpv4RouterId {
+    uint32 RouterId = 1;
+}
+
+// Local IPv4/IPv6 Router-ID. TLV 1029.
+// Section 5.3.1.4 of [RFC 9552]
+message SLBgplsTopoLocalIpv6RouterId {
+    bytes RouterId = 1;
+}
+
+// SR Capabilities. TLV 1034.
+// Section 2.1.2 of [RFC 9085]
+
+// Segment Routing Global Block (SRGB)
+message SLBgplsTopoSrgb {
+    uint32 StartLabel = 1;
+    uint32 RangeSize = 2;
+}
+
+// Segment Routing Global Block (SRGB) ISIS flags
+message SLBgplsTopoSrgbIsisFlags {
+    // ISIS flags as defined in Section 3.1 of [RFC8667] for IS-IS
+    bytes Flags = 1;
+}
+
+// SR-Algorithm. TLV 1035.
+// Section 2.1.3 of [RFC 9085]
+message SLBgplsTopoSrAlgorithm {
+    bytes Algorithms = 1;
+}
+
+// SR Local Block. TLV 1036.
+// Section 2.1.4 of [RFC 9085]
+message SLBgplsTopoSrlb {
+    uint32 StartLabel = 1;
+    uint32 RangeSize = 2;
+}
+
+// Flexible Algorithm Definition. TLV 1039.
+// Section 3 of [RFC 9351]
+message SLBgplsTopoFad {
+    // Flexible Algorithm number between 128 and 255 inclusive.
+    // Flexible Algorithm.
+    // Section 3 of [RFC 9351]
+    bytes Algorithm = 1;
+
+    // Metric type.
+    // Metric-Type.
+    // Section 3 of [RFC 9351]
+    bytes MetricType = 2;
+
+    // Calculation type.
+    // Calc-Type.
+    // Section 3 of [RFC 9351]
+    bytes CalcType = 3;
+
+    // Priority of the FAD advertisement.
+    // Priority.
+    // Section 3 of [RFC 9351]
+    bytes Priority = 4;
+
+    // TODO: Check with Ketan. Do we need to define messages for sub TLV's like these also?
+    // Affinity constraints associated with the FAD that enables the exclusion of links carrying any of the
+    // specified affinities from the computation of the specific algorithm.
+    // Flexible Algorithm Exclude-Any Affinity. TLV 1040.
+    // Section 3 of [RFC 9351]
+    repeated uint32 ExcAnyAff = 5;
+
+    // Affinity constraints associated with the FAD that enables the inclusion of links carrying any of the
+    // specified affinities in the computation of the specific algorithm.
+    // Flexible Algorithm Include-Any Affinity. TLV 1041.
+    // Section 3 of [RFC 9351]
+    repeated uint32 IncAnyAff= 6;
+
+    // Affinity constraints associated with the FAD that enables the inclusion of links carrying all of the
+    // specified affinities in the computation of the specific algorithm.
+    // Flexible Algorithm Include-All Affinity. TLV 1042.
+    // Section 3 of [RFC 9351]
+    repeated uint32 IncAllAff = 7;
+
+    // Flags associated with the FAD that are used in the computation of the specific algorithm.
+    // Flexible Algorithm Definition Flags. TLV 1043.
+    // Section 3 of [RFC 9351]
+    repeated uint32 Flags = 8;
+
+    // Shared Risk Link Group (SRLG) information associated with the FAD that enables the exclusion of links that are
+    // associated with any of the specified SRLG in the computation of the specific algorithm.
+    // Flexible Algorithm Exclude SRLG. TLV 1045.
+    // Section 3 of [RFC 9351]
+    repeated uint32 ExcSrlg = 9;
+
+    // Affinity constraints associated with the FAD that enables the exclusion of links carrying any of the
+    // specified affinities in the reverse direction from the computation of the specific algorithm.
+    // Flexible Algorithm Exclude-Any Reverse Affinity. TLV 1053.
+    // RFC TBD
+    repeated uint32 ExcAnyRevAff = 10;
+
+    // Affinity constraints associated with the FAD that enables the inclusion of links carrying any of the
+    // specified affinities in the reverse direction from the computation of the specific algorithm.
+    // Flexible Algorithm Include-Any Reverse Affinity. TLV 1054.
+    // RFC TBD
+    repeated uint32 IncAnyRevAff = 11;
+
+    // Affinity constraints associated with the FAD that enables the inclusion of links carrying all of the
+    // specified affinities in the reverse direction from the computation of the specific algorithm.
+    // Flexible Algorithm Include-All Reverse Affinity. TLV 1055.
+    // RFC TBD
+    repeated uint32 IncAllRevAff = 12;
+
+    // Enables the exclusion of links having delay above a maximum specified delay from the computation of the specific algorithm
+    // Flexible Algorithm Exclude Maximum Delay. TLV 1050
+    // RFC TBD
+    uint32 ExcMaxDelay = 13;
+
+    // Enables the exclusion of links having bandwidth below a minimum specified bandwidth from the computation of the specific algorithm
+    // Flexible Algorithm Exclude Minimum Bandwidth. TLV 1049
+    // RFC TBD
+    bytes ExcMinBw = 14;
+
+    // Indicate the presence of unsupported FAD sub-TLVs.
+    // Flexible Algorithm Unsupported. TLV 1046.
+    // Section 3 of [RFC 9351]
+    SLBgplsTopoFadUnsuppTlv UnsuppTlv = 15;
+}
+
+// Unsupported Flexible Algorithm Definition (FAD) TLVs
+message SLBgplsTopoFadUnsuppTlv {
+    SLBgplsTopoProtocol Protocol = 1;
+    bytes Types = 2;
+}
+
+//@}
