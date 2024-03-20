@@ -98,30 +98,30 @@ namespace ServiceLayer {
             "eWVyLlNMQUZOb3RpZlJlZ1JlcSJzCgxTTEFGTm90aWZSc3ASMAoITm90aWZS",
             "ZXEYASABKAsyHi5zZXJ2aWNlX2xheWVyLlNMQUZOb3RpZlJlZ1JlcRIxCgtO",
             "b3RpZlN0YXR1cxgCIAEoCzIcLnNlcnZpY2VfbGF5ZXIuU0xFcnJvclN0YXR1",
-            "cyL1AQoJU0xOZXh0SG9wEjQKCk5leHRIb3BLZXkYASABKAsyIC5zZXJ2aWNl",
+            "cyL0AQoJU0xOZXh0SG9wEjQKCk5leHRIb3BLZXkYASABKAsyIC5zZXJ2aWNl",
             "X2xheWVyLlNMQUZOZXh0SG9wUmVnS2V5EjIKDlJlc29sdmluZ1JvdXRlGAIg",
             "ASgLMhouc2VydmljZV9sYXllci5TTElwQWRkcmVzcxIZChFSZXNvbHZpbmdS",
-            "b3V0ZUxlbhgDIAEoDRIQCghTcmNQcm90bxgEIAEoCRIWCg5hZG1pbl9kaXN0",
-            "YW5jZRgFIAEoDRIOCgZtZXRyaWMYBiABKA0SKQoFUGF0aHMYByADKAsyGi5z",
-            "ZXJ2aWNlX2xheWVyLlNMUm91dGVQYXRoIqgBCglTTEFGTm90aWYSMgoLTm90",
-            "aWZTdGF0dXMYASABKAsyGy5zZXJ2aWNlX2xheWVyLlNMQUZOb3RpZlJzcEgA",
-            "EjEKDFJlZGlzdE9iamVjdBgEIAEoCzIZLnNlcnZpY2VfbGF5ZXIuU0xBRk9i",
-            "amVjdEgAEisKB05leHRIb3AYBSABKAsyGC5zZXJ2aWNlX2xheWVyLlNMTmV4",
-            "dEhvcEgAQgcKBUV2ZW50IksKDFNMQUZOb3RpZk1zZxIPCgdWcmZOYW1lGAEg",
-            "ASgJEioKCEFGTm90aWZzGAMgAygLMhguc2VydmljZV9sYXllci5TTEFGTm90",
-            "aWYyyAMKBFNMQUYSTQoMU0xBRlZyZlJlZ09wEhwuc2VydmljZV9sYXllci5T",
-            "TEFGVnJmUmVnTXNnGh8uc2VydmljZV9sYXllci5TTEFGVnJmUmVnTXNnUnNw",
-            "ElYKDVNMQUZWcmZSZWdHZXQSHy5zZXJ2aWNlX2xheWVyLlNMQUZWcmZSZWdH",
-            "ZXRNc2caIi5zZXJ2aWNlX2xheWVyLlNMQUZWcmZSZWdHZXRNc2dSc3AwARI7",
-            "CgZTTEFGT3ASFi5zZXJ2aWNlX2xheWVyLlNMQUZNc2caGS5zZXJ2aWNlX2xh",
-            "eWVyLlNMQUZNc2dSc3ASRQoMU0xBRk9wU3RyZWFtEhYuc2VydmljZV9sYXll",
-            "ci5TTEFGTXNnGhkuc2VydmljZV9sYXllci5TTEFGTXNnUnNwKAEwARJECgdT",
-            "TEFGR2V0Ehkuc2VydmljZV9sYXllci5TTEFGR2V0TXNnGhwuc2VydmljZV9s",
-            "YXllci5TTEFGR2V0TXNnUnNwMAESTwoPU0xBRk5vdGlmU3RyZWFtEhsuc2Vy",
-            "dmljZV9sYXllci5TTEFGTm90aWZSZXEaGy5zZXJ2aWNlX2xheWVyLlNMQUZO",
-            "b3RpZk1zZygBMAFCUVpPZ2l0aHViLmNvbS9DaXNjby1zZXJ2aWNlLWxheWVy",
-            "L3NlcnZpY2UtbGF5ZXItb2JqbW9kZWwvZ3JwYy9wcm90b3M7c2VydmljZV9s",
-            "YXllcmIGcHJvdG8z"));
+            "b3V0ZUxlbhgDIAEoDRIQCghTcmNQcm90bxgEIAEoCRIVCg1BZG1pbkRpc3Rh",
+            "bmNlGAUgASgNEg4KBk1ldHJpYxgGIAEoDRIpCgVQYXRocxgHIAMoCzIaLnNl",
+            "cnZpY2VfbGF5ZXIuU0xSb3V0ZVBhdGgiqAEKCVNMQUZOb3RpZhIyCgtOb3Rp",
+            "ZlN0YXR1cxgBIAEoCzIbLnNlcnZpY2VfbGF5ZXIuU0xBRk5vdGlmUnNwSAAS",
+            "MQoMUmVkaXN0T2JqZWN0GAQgASgLMhkuc2VydmljZV9sYXllci5TTEFGT2Jq",
+            "ZWN0SAASKwoHTmV4dEhvcBgFIAEoCzIYLnNlcnZpY2VfbGF5ZXIuU0xOZXh0",
+            "SG9wSABCBwoFRXZlbnQiSwoMU0xBRk5vdGlmTXNnEg8KB1ZyZk5hbWUYASAB",
+            "KAkSKgoIQUZOb3RpZnMYAyADKAsyGC5zZXJ2aWNlX2xheWVyLlNMQUZOb3Rp",
+            "ZjLIAwoEU0xBRhJNCgxTTEFGVnJmUmVnT3ASHC5zZXJ2aWNlX2xheWVyLlNM",
+            "QUZWcmZSZWdNc2caHy5zZXJ2aWNlX2xheWVyLlNMQUZWcmZSZWdNc2dSc3AS",
+            "VgoNU0xBRlZyZlJlZ0dldBIfLnNlcnZpY2VfbGF5ZXIuU0xBRlZyZlJlZ0dl",
+            "dE1zZxoiLnNlcnZpY2VfbGF5ZXIuU0xBRlZyZlJlZ0dldE1zZ1JzcDABEjsK",
+            "BlNMQUZPcBIWLnNlcnZpY2VfbGF5ZXIuU0xBRk1zZxoZLnNlcnZpY2VfbGF5",
+            "ZXIuU0xBRk1zZ1JzcBJFCgxTTEFGT3BTdHJlYW0SFi5zZXJ2aWNlX2xheWVy",
+            "LlNMQUZNc2caGS5zZXJ2aWNlX2xheWVyLlNMQUZNc2dSc3AoATABEkQKB1NM",
+            "QUZHZXQSGS5zZXJ2aWNlX2xheWVyLlNMQUZHZXRNc2caHC5zZXJ2aWNlX2xh",
+            "eWVyLlNMQUZHZXRNc2dSc3AwARJPCg9TTEFGTm90aWZTdHJlYW0SGy5zZXJ2",
+            "aWNlX2xheWVyLlNMQUZOb3RpZlJlcRobLnNlcnZpY2VfbGF5ZXIuU0xBRk5v",
+            "dGlmTXNnKAEwAUJRWk9naXRodWIuY29tL0Npc2NvLXNlcnZpY2UtbGF5ZXIv",
+            "c2VydmljZS1sYXllci1vYmptb2RlbC9ncnBjL3Byb3RvcztzZXJ2aWNlX2xh",
+            "eWVyYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::ServiceLayer.SlCommonTypesReflection.Descriptor, global::ServiceLayer.SlRouteCommonReflection.Descriptor, global::ServiceLayer.SlRouteIpv4Reflection.Descriptor, global::ServiceLayer.SlRouteIpv6Reflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
@@ -7572,6 +7572,8 @@ namespace ServiceLayer {
 
   /// <summary>
   /// Next hop Notification
+  /// If there are no viable paths to the Next hop, ResolvingRoute and ResolvingRouteLen
+  /// are not set, AdminDistance/Metric are set to UINT32_MAX.
   /// </summary>
   public sealed partial class SLNextHop : pb::IMessage<SLNextHop>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
@@ -7684,7 +7686,7 @@ namespace ServiceLayer {
       }
     }
 
-    /// <summary>Field number for the "admin_distance" field.</summary>
+    /// <summary>Field number for the "AdminDistance" field.</summary>
     public const int AdminDistanceFieldNumber = 5;
     private uint adminDistance_;
     /// <summary>
@@ -7699,7 +7701,7 @@ namespace ServiceLayer {
       }
     }
 
-    /// <summary>Field number for the "metric" field.</summary>
+    /// <summary>Field number for the "Metric" field.</summary>
     public const int MetricFieldNumber = 6;
     private uint metric_;
     /// <summary>
@@ -7723,13 +7725,10 @@ namespace ServiceLayer {
     /// Nexthop's path list. Paths indicate paths available
     /// for the next hop. In case of recursive next hop resolution,
     /// the returned path list consists of flattened directly connected
-    /// paths. Path attributes include tableid, interface name, vrf name
-    /// nexthop IP addr, nexthop AFI.
+    /// paths. Path attributes include NexthopAddress, NexthopInterface, VrfName
     ///
     /// If this field is not present,
     /// then no viable path to the next hop exist.
-    /// ResolvingRoute will not be present, ResolvingRouteLen is set to 0,
-    /// SrcProto is set to nil, admin_distance and metric are set to UINT32_MAX
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
