@@ -24,9 +24,9 @@ namespace ServiceLayer {
     static SlCommonTypesReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChVzbF9jb21tb25fdHlwZXMucHJvdG8SDXNlcnZpY2VfbGF5ZXIimEsKDVNM",
+            "ChVzbF9jb21tb25fdHlwZXMucHJvdG8SDXNlcnZpY2VfbGF5ZXIisFUKDVNM",
             "RXJyb3JTdGF0dXMSNAoGU3RhdHVzGAEgASgOMiQuc2VydmljZV9sYXllci5T",
-            "TEVycm9yU3RhdHVzLlNMRXJybm8i0EoKB1NMRXJybm8SDgoKU0xfU1VDQ0VT",
+            "TEVycm9yU3RhdHVzLlNMRXJybm8i6FQKB1NMRXJybm8SDgoKU0xfU1VDQ0VT",
             "UxAAEhQKEFNMX05PVF9DT05ORUNURUQQARINCglTTF9FQUdBSU4QAhINCglT",
             "TF9FTk9NRU0QAxIMCghTTF9FQlVTWRAEEg0KCVNMX0VJTlZBTBAFEhYKElNM",
             "X1VOU1VQUE9SVEVEX1ZFUhAGEhQKEFNMX05PVF9BVkFJTEFCTEUQBxIbChdT",
@@ -238,30 +238,59 @@ namespace ServiceLayer {
             "RBCHwAUSJAoeU0xfUk9VVEVfUkVESVNUX1JJQl9BRERfRkFJTEVEEIjABRIZ",
             "ChNTTF9GSUJfU1RBUlRfT0ZGU0VUEIDgBRIUCg5TTF9GSUJfU1VDQ0VTUxCB",
             "4AUSEwoNU0xfRklCX0ZBSUxFRBCC4AUSFwoRU0xfRklCX0lORUxJR0lCTEUQ",
-            "g+AFEh4KGFNMX0lOVEVSTkFMX1NUQVJUX09GRlNFVBCAgEAiPAoLU0xJbnRl",
-            "cmZhY2USDgoETmFtZRgBIAEoCUgAEhAKBkhhbmRsZRgCIAEoDUgAQgsKCUlu",
-            "dGVyZmFjZSJCCgtTTElwQWRkcmVzcxITCglWNEFkZHJlc3MYASABKA1IABIT",
-            "CglWNkFkZHJlc3MYAiABKAxIAEIJCgdBZGRyZXNzIiUKClNMT2JqZWN0SWQS",
-            "DgoETmFtZRgBIAEoCUgAQgcKBWVudHJ5IlQKEVNMUGF0aEdyb3VwUmVmS2V5",
-            "Eg8KB1ZyZk5hbWUYASABKAkSLgoLUGF0aEdyb3VwSWQYAiABKAsyGS5zZXJ2",
-            "aWNlX2xheWVyLlNMT2JqZWN0SWQqYgoHU0xSZWdPcBIVChFTTF9SRUdPUF9S",
-            "RVNFUlZFRBAAEhUKEVNMX1JFR09QX1JFR0lTVEVSEAESFwoTU0xfUkVHT1Bf",
-            "VU5SRUdJU1RFUhACEhAKDFNMX1JFR09QX0VPRhADKl8KClNMT2JqZWN0T3AS",
-            "FQoRU0xfT0JKT1BfUkVTRVJWRUQQABIQCgxTTF9PQkpPUF9BREQQARITCg9T",
-            "TF9PQkpPUF9VUERBVEUQAhITCg9TTF9PQkpPUF9ERUxFVEUQAypTCglTTE5v",
-            "dGlmT3ASFwoTU0xfTk9USUZPUF9SRVNFUlZFRBAAEhUKEVNMX05PVElGT1Bf",
-            "RU5BQkxFEAESFgoSU0xfTk9USUZPUF9ESVNBQkxFEAIqiQEKEFNMVXBkYXRl",
-            "UHJpb3JpdHkSGAoUU0xfUFJJT1JJVFlfUkVTRVJWRUQQABIYChRTTF9QUklP",
-            "UklUWV9DUklUSUNBTBAEEhQKEFNMX1BSSU9SSVRZX0hJR0gQCBIWChJTTF9Q",
-            "UklPUklUWV9NRURJVU0QDBITCg9TTF9QUklPUklUWV9MT1cQECpLCgtTTEVu",
-            "Y2FwVHlwZRIVChFTTF9FTkNBUF9SRVNFUlZFRBAAEhIKDlNMX0VOQ0FQX1ZY",
-            "TEFOEAESEQoNU0xfRU5DQVBfTVBMUxACKo0BCgtTTFRhYmxlVHlwZRIaChZT",
-            "TF9UQUJMRV9UWVBFX1JFU0VSVkVEEAASFwoTU0xfSVB2NF9ST1VURV9UQUJM",
-            "RRABEhcKE1NMX0lQdjZfUk9VVEVfVEFCTEUQAhIXChNTTF9NUExTX0xBQkVM",
-            "X1RBQkxFEAMSFwoTU0xfUEFUSF9HUk9VUF9UQUJMRRAEKjAKDFNMUnNwQUNL",
-            "VHlwZRILCgdSSUJfQUNLEAASEwoPUklCX0FORF9GSUJfQUNLEAFCUVpPZ2l0",
-            "aHViLmNvbS9DaXNjby1zZXJ2aWNlLWxheWVyL3NlcnZpY2UtbGF5ZXItb2Jq",
-            "bW9kZWwvZ3JwYy9wcm90b3M7c2VydmljZV9sYXllcmIGcHJvdG8z"));
+            "g+AFEhwKFlNMX1BPTElDWV9TVEFSVF9PRkZTRVQQgIAGEhcKEVNMX1BPTElD",
+            "WV9BRERfRVJSEIGABhIaChRTTF9QT0xJQ1lfRVhJU1RTX0VSUhCCgAYSGgoU",
+            "U0xfUE9MSUNZX0RFTEVURV9FUlIQg4AGEhwKFlNMX1BPTElDWV9SVUxFX0FE",
+            "RF9FUlIQhIAGEh8KGVNMX1BPTElDWV9SVUxFX0VYSVNUU19FUlIQhYAGEh8K",
+            "GVNMX1BPTElDWV9SVUxFX0RFTEVURV9FUlIQhoAGEhkKE1NMX1BPTElDWV9B",
+            "UFBMWV9FUlIQh4AGEhsKFVNMX1BPTElDWV9VTkFQUExZX0VSUhCIgAYSIQob",
+            "U0xfUE9MSUNZX1RPT19NQU5ZX1BPTElDSUVTEImABhIdChdTTF9QT0xJQ1lf",
+            "TkFNRV9UT09fTE9ORxCKgAYSIgocU0xfUE9MSUNZX1JVTEVfTkFNRV9UT09f",
+            "TE9ORxCLgAYSKgokU0xfUE9MSUNZX0RVUExJQ0FURV9QUklPUklUWV9JTl9S",
+            "VUxFEIyABhIkCh5TTF9QT0xJQ1lfUlVMRV9NT0RfTk9UX0FMTE9XRUQQjYAG",
+            "EhwKFlNMX1BPTElDWV9JTlZBTElEX1JVTEUQjoAGEiEKG1NMX1BPTElDWV9S",
+            "VUxFX0FERF9OT19SVUxFUxCPgAYSKwolU0xfUE9MSUNZX0lOVkFMSURfTUFU",
+            "Q0hfQ09VTlRfSU5fUlVMRRCQgAYSLAomU0xfUE9MSUNZX0lOVkFMSURfQUNU",
+            "SU9OX0NPVU5UX0lOX1JVTEUQkYAGEhkKE1NMX1BPTElDWV9OT1RfRk9VTkQQ",
+            "koAGEhcKEVNMX1BPTElDWV9JTlZBTElEEJOABhIcChZTTF9QT0xJQ1lfTkFN",
+            "RV9NSVNTSU5HEJSABhIhChtTTF9QT0xJQ1lfUlVMRV9OQU1FX01JU1NJTkcQ",
+            "lYAGEigKIlNMX1BPTElDWV9QUklPUklUWV9NSVNTSU5HX0lOX1JVTEUQloAG",
+            "EhwKFlNMX1BPTElDWV9UWVBFX0lOVkFMSUQQl4AGEiEKG1NMX1BPTElDWV9J",
+            "TlZBTElEX0RJUkVDVElPThCYgAYSIQobU0xfUE9MSUNZX0lOVEZfTkFNRV9U",
+            "T09MT05HEJmABhIhChtTTF9QT0xJQ1lfSU5URl9OQU1FX01JU1NJTkcQmoAG",
+            "EiYKIFNMX1BPTElDWV9NQVhfUlVMRV9MSU1JVF9SRUFDSEVEEJuABhIhChtT",
+            "TF9QT0xJQ1lfVlJGX05BTUVfVE9PX0xPTkcQnIAGEiAKGlNMX1BPTElDWV9W",
+            "UkZfTkFNRV9NSVNTSU5HEJ2ABhImCiBTTF9QT0xJQ1lfUEFUSF9HUlBfTkFN",
+            "RV9UT09fTE9ORxCegAYSJQofU0xfUE9MSUNZX1BBVEhfR1JQX05BTUVfTUlT",
+            "U0lORxCfgAYSIgocU0xfUE9MSUNZX0lOVkFMSURfRFNDUF9WQUxVRRCggAYS",
+            "JQofU0xfUE9MSUNZX1BSSU9SSVRZX1NUUl9UT09fTE9ORxChgAYSJgogU0xf",
+            "UE9MSUNZX01BWF9JTlRGX0xJTUlUX1JFQUNIRUQQooAGEiQKHlNMX1BPTElD",
+            "WV9SVUxFX0RFTEVURV9OT19SVUxFUxCjgAYSHgoYU0xfUE9MSUNZX0FQUExZ",
+            "X05PX0lOVEZTEKSABhIgChpTTF9QT0xJQ1lfVU5BUFBMWV9OT19JTlRGUxCl",
+            "gAYSHgoYU0xfSU5URVJOQUxfU1RBUlRfT0ZGU0VUEICAQCI8CgtTTEludGVy",
+            "ZmFjZRIOCgROYW1lGAEgASgJSAASEAoGSGFuZGxlGAIgASgNSABCCwoJSW50",
+            "ZXJmYWNlIkIKC1NMSXBBZGRyZXNzEhMKCVY0QWRkcmVzcxgBIAEoDUgAEhMK",
+            "CVY2QWRkcmVzcxgCIAEoDEgAQgkKB0FkZHJlc3MiJQoKU0xPYmplY3RJZBIO",
+            "CgROYW1lGAEgASgJSABCBwoFZW50cnkiVAoRU0xQYXRoR3JvdXBSZWZLZXkS",
+            "DwoHVnJmTmFtZRgBIAEoCRIuCgtQYXRoR3JvdXBJZBgCIAEoCzIZLnNlcnZp",
+            "Y2VfbGF5ZXIuU0xPYmplY3RJZCpiCgdTTFJlZ09wEhUKEVNMX1JFR09QX1JF",
+            "U0VSVkVEEAASFQoRU0xfUkVHT1BfUkVHSVNURVIQARIXChNTTF9SRUdPUF9V",
+            "TlJFR0lTVEVSEAISEAoMU0xfUkVHT1BfRU9GEAMqXwoKU0xPYmplY3RPcBIV",
+            "ChFTTF9PQkpPUF9SRVNFUlZFRBAAEhAKDFNMX09CSk9QX0FERBABEhMKD1NM",
+            "X09CSk9QX1VQREFURRACEhMKD1NMX09CSk9QX0RFTEVURRADKlMKCVNMTm90",
+            "aWZPcBIXChNTTF9OT1RJRk9QX1JFU0VSVkVEEAASFQoRU0xfTk9USUZPUF9F",
+            "TkFCTEUQARIWChJTTF9OT1RJRk9QX0RJU0FCTEUQAiqJAQoQU0xVcGRhdGVQ",
+            "cmlvcml0eRIYChRTTF9QUklPUklUWV9SRVNFUlZFRBAAEhgKFFNMX1BSSU9S",
+            "SVRZX0NSSVRJQ0FMEAQSFAoQU0xfUFJJT1JJVFlfSElHSBAIEhYKElNMX1BS",
+            "SU9SSVRZX01FRElVTRAMEhMKD1NMX1BSSU9SSVRZX0xPVxAQKksKC1NMRW5j",
+            "YXBUeXBlEhUKEVNMX0VOQ0FQX1JFU0VSVkVEEAASEgoOU0xfRU5DQVBfVlhM",
+            "QU4QARIRCg1TTF9FTkNBUF9NUExTEAIqjQEKC1NMVGFibGVUeXBlEhoKFlNM",
+            "X1RBQkxFX1RZUEVfUkVTRVJWRUQQABIXChNTTF9JUHY0X1JPVVRFX1RBQkxF",
+            "EAESFwoTU0xfSVB2Nl9ST1VURV9UQUJMRRACEhcKE1NMX01QTFNfTEFCRUxf",
+            "VEFCTEUQAxIXChNTTF9QQVRIX0dST1VQX1RBQkxFEAQqMAoMU0xSc3BBQ0tU",
+            "eXBlEgsKB1JJQl9BQ0sQABITCg9SSUJfQU5EX0ZJQl9BQ0sQAUJRWk9naXRo",
+            "dWIuY29tL0Npc2NvLXNlcnZpY2UtbGF5ZXIvc2VydmljZS1sYXllci1vYmpt",
+            "b2RlbC9ncnBjL3Byb3RvcztzZXJ2aWNlX2xheWVyYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::ServiceLayer.SLRegOp), typeof(global::ServiceLayer.SLObjectOp), typeof(global::ServiceLayer.SLNotifOp), typeof(global::ServiceLayer.SLUpdatePriority), typeof(global::ServiceLayer.SLEncapType), typeof(global::ServiceLayer.SLTableType), typeof(global::ServiceLayer.SLRspACKType), }, null, new pbr::GeneratedClrTypeInfo[] {
@@ -1819,6 +1848,158 @@ namespace ServiceLayer {
         /// The operation is not viable to be programmed in hardware at this time. 0x17003
         /// </summary>
         [pbr::OriginalName("SL_FIB_INELIGIBLE")] SlFibIneligible = 94211,
+        /// <summary>
+        /// Offset for policy object operations. 0x18000
+        /// </summary>
+        [pbr::OriginalName("SL_POLICY_START_OFFSET")] SlPolicyStartOffset = 98304,
+        /// <summary>
+        /// Policy object could not be created. 0x18001  
+        /// </summary>
+        [pbr::OriginalName("SL_POLICY_ADD_ERR")] SlPolicyAddErr = 98305,
+        /// <summary>
+        /// Policy object already exists. 0x18002
+        /// </summary>
+        [pbr::OriginalName("SL_POLICY_EXISTS_ERR")] SlPolicyExistsErr = 98306,
+        /// <summary>
+        /// Policy object delete failed. 0x18003
+        /// </summary>
+        [pbr::OriginalName("SL_POLICY_DELETE_ERR")] SlPolicyDeleteErr = 98307,
+        /// <summary>
+        /// Rule could not be created. 0x18004
+        /// </summary>
+        [pbr::OriginalName("SL_POLICY_RULE_ADD_ERR")] SlPolicyRuleAddErr = 98308,
+        /// <summary>
+        /// Rule already exists. 0x18005
+        /// </summary>
+        [pbr::OriginalName("SL_POLICY_RULE_EXISTS_ERR")] SlPolicyRuleExistsErr = 98309,
+        /// <summary>
+        /// Rule delete error. 0x18006
+        /// </summary>
+        [pbr::OriginalName("SL_POLICY_RULE_DELETE_ERR")] SlPolicyRuleDeleteErr = 98310,
+        /// <summary>
+        /// Policy object apply error. 0x18007
+        /// </summary>
+        [pbr::OriginalName("SL_POLICY_APPLY_ERR")] SlPolicyApplyErr = 98311,
+        /// <summary>
+        /// Policy object unapply error. 0x18008
+        /// </summary>
+        [pbr::OriginalName("SL_POLICY_UNAPPLY_ERR")] SlPolicyUnapplyErr = 98312,
+        /// <summary>
+        /// Operation rejected due to too many policies in the request. 0x18009
+        /// </summary>
+        [pbr::OriginalName("SL_POLICY_TOO_MANY_POLICIES")] SlPolicyTooManyPolicies = 98313,
+        /// <summary>
+        /// Policy name is too long. 0x1800a
+        /// </summary>
+        [pbr::OriginalName("SL_POLICY_NAME_TOO_LONG")] SlPolicyNameTooLong = 98314,
+        /// <summary>
+        /// Rule name is too long. 0x1800b
+        /// </summary>
+        [pbr::OriginalName("SL_POLICY_RULE_NAME_TOO_LONG")] SlPolicyRuleNameTooLong = 98315,
+        /// <summary>
+        /// Duplicate priority for the rule in the same policy. 0x1800c
+        /// </summary>
+        [pbr::OriginalName("SL_POLICY_DUPLICATE_PRIORITY_IN_RULE")] SlPolicyDuplicatePriorityInRule = 98316,
+        /// <summary>
+        /// Rule modification not allowed. 0x1800d
+        /// </summary>
+        [pbr::OriginalName("SL_POLICY_RULE_MOD_NOT_ALLOWED")] SlPolicyRuleModNotAllowed = 98317,
+        /// <summary>
+        /// Rule belongs to a different policy. 0x1800e
+        /// </summary>
+        [pbr::OriginalName("SL_POLICY_INVALID_RULE")] SlPolicyInvalidRule = 98318,
+        /// <summary>
+        /// Rule add operation requested but no rules were provided. 0x1800f
+        /// </summary>
+        [pbr::OriginalName("SL_POLICY_RULE_ADD_NO_RULES")] SlPolicyRuleAddNoRules = 98319,
+        /// <summary>
+        /// Rule add operation requested but no matches were provided. 0x18010
+        /// </summary>
+        [pbr::OriginalName("SL_POLICY_INVALID_MATCH_COUNT_IN_RULE")] SlPolicyInvalidMatchCountInRule = 98320,
+        /// <summary>
+        /// Rule add operation requested but no actions were provided. 0x18011
+        /// </summary>
+        [pbr::OriginalName("SL_POLICY_INVALID_ACTION_COUNT_IN_RULE")] SlPolicyInvalidActionCountInRule = 98321,
+        /// <summary>
+        /// Policy not found.0x18012
+        /// </summary>
+        [pbr::OriginalName("SL_POLICY_NOT_FOUND")] SlPolicyNotFound = 98322,
+        /// <summary>
+        /// Policy invalid. 0x18013
+        /// </summary>
+        [pbr::OriginalName("SL_POLICY_INVALID")] SlPolicyInvalid = 98323,
+        /// <summary>
+        /// Policy name missing. 0x18014
+        /// </summary>
+        [pbr::OriginalName("SL_POLICY_NAME_MISSING")] SlPolicyNameMissing = 98324,
+        /// <summary>
+        /// Rule name missing. 0x18015 
+        /// </summary>
+        [pbr::OriginalName("SL_POLICY_RULE_NAME_MISSING")] SlPolicyRuleNameMissing = 98325,
+        /// <summary>
+        /// Priority missing in rule. 0x18016
+        /// </summary>
+        [pbr::OriginalName("SL_POLICY_PRIORITY_MISSING_IN_RULE")] SlPolicyPriorityMissingInRule = 98326,
+        /// <summary>
+        /// Invalid policy type. 0x18017 
+        /// </summary>
+        [pbr::OriginalName("SL_POLICY_TYPE_INVALID")] SlPolicyTypeInvalid = 98327,
+        /// <summary>
+        /// Invalid policy direction. 0x18018
+        /// </summary>
+        [pbr::OriginalName("SL_POLICY_INVALID_DIRECTION")] SlPolicyInvalidDirection = 98328,
+        /// <summary>
+        /// Policy object's interface name exceeds supported length. 0x18019
+        /// </summary>
+        [pbr::OriginalName("SL_POLICY_INTF_NAME_TOOLONG")] SlPolicyIntfNameToolong = 98329,
+        /// <summary>
+        /// Policy object's interface name is missing. 0x1801a 
+        /// </summary>
+        [pbr::OriginalName("SL_POLICY_INTF_NAME_MISSING")] SlPolicyIntfNameMissing = 98330,
+        /// <summary>
+        /// Max rule limit within a policy is reached. 0x1801b
+        /// </summary>
+        [pbr::OriginalName("SL_POLICY_MAX_RULE_LIMIT_REACHED")] SlPolicyMaxRuleLimitReached = 98331,
+        /// <summary>
+        /// Vrf name in policy object is too long. 0x1801c
+        /// </summary>
+        [pbr::OriginalName("SL_POLICY_VRF_NAME_TOO_LONG")] SlPolicyVrfNameTooLong = 98332,
+        /// <summary>
+        /// Vrf name missing in policy object. 0x1801d
+        /// </summary>
+        [pbr::OriginalName("SL_POLICY_VRF_NAME_MISSING")] SlPolicyVrfNameMissing = 98333,
+        /// <summary>
+        /// Path Group name in policy object too long. 0x1801e
+        /// </summary>
+        [pbr::OriginalName("SL_POLICY_PATH_GRP_NAME_TOO_LONG")] SlPolicyPathGrpNameTooLong = 98334,
+        /// <summary>
+        /// Path Group name missing in policy object. 0x1801f
+        /// </summary>
+        [pbr::OriginalName("SL_POLICY_PATH_GRP_NAME_MISSING")] SlPolicyPathGrpNameMissing = 98335,
+        /// <summary>
+        /// Invalid Dscp Value. 0x18020
+        /// </summary>
+        [pbr::OriginalName("SL_POLICY_INVALID_DSCP_VALUE")] SlPolicyInvalidDscpValue = 98336,
+        /// <summary>
+        /// Priority string too long. 0x18021 
+        /// </summary>
+        [pbr::OriginalName("SL_POLICY_PRIORITY_STR_TOO_LONG")] SlPolicyPriorityStrTooLong = 98337,
+        /// <summary>
+        /// Max interfaces limit in policy reached. 0x18022
+        /// </summary>
+        [pbr::OriginalName("SL_POLICY_MAX_INTF_LIMIT_REACHED")] SlPolicyMaxIntfLimitReached = 98338,
+        /// <summary>
+        /// Rule delete operation requested but no rules were provided. 0x18023
+        /// </summary>
+        [pbr::OriginalName("SL_POLICY_RULE_DELETE_NO_RULES")] SlPolicyRuleDeleteNoRules = 98339,
+        /// <summary>
+        /// Policy apply requested but no interfaces were provided. 0x18024
+        /// </summary>
+        [pbr::OriginalName("SL_POLICY_APPLY_NO_INTFS")] SlPolicyApplyNoIntfs = 98340,
+        /// <summary>
+        /// Policy unapply requested but no interfaces were provided. 0x18025
+        /// </summary>
+        [pbr::OriginalName("SL_POLICY_UNAPPLY_NO_INTFS")] SlPolicyUnapplyNoIntfs = 98341,
         /// <summary>
         /// Offset for Internal errors. 0x100000
         /// </summary>

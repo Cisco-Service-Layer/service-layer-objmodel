@@ -4,7 +4,7 @@
 // and apply, unapply policies from interfaces.
 //
 // ----------------------------------------------------------------
-//  Copyright (c) 2023 by Cisco Systems, Inc.
+//  Copyright (c) 2024 by Cisco Systems, Inc.
 //  All rights reserved.
 // -----------------------------------------------------------------
 //
@@ -208,7 +208,7 @@ type SLPolicyOpMsg struct {
 	// Policy object operation
 	Oper SLPolicyObjectOp `protobuf:"varint,1,opt,name=Oper,proto3,enum=service_layer.SLPolicyObjectOp" json:"Oper,omitempty"`
 	// Unique OperationID sent by the client
-	// to corelate the responses. Operation Id
+	// to correlate the responses. Operation Id
 	// should be monotonically increasing for
 	// the life of the client.
 	OperationID uint64 `protobuf:"varint,2,opt,name=OperationID,proto3" json:"OperationID,omitempty"`
@@ -516,13 +516,13 @@ func (x *SLPolicyKey) GetType() SLPolicyType {
 // Each rule in a policy is associated with a
 // Rule name - that identifies a rule
 // Priority - priority of the rule within the policy
-// Match - Contains one or more match criteria. Packet
-// is a match if ALL the fields in the packet match
+// Match - Contains at least one or more match criteria.
+// Packet is a match if ALL the fields in the packet match
 // the criteria. Atleast one rule MUST be present for
 // the packet to match.
-// Action - Contains one or more action. Action applied
-// on the packet that matches the rule. Atleast one
-// action MUST be present for the match criteria
+// Action - Contains at least one or more action. Action
+// applied on the packet that matches the rule. Atleast
+// one action MUST be present for the match criteria
 // under a rule.
 type SLPolicyRule struct {
 	state         protoimpl.MessageState
