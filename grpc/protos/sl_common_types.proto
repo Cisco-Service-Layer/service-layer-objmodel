@@ -2,7 +2,7 @@
 // @brief Common definitions for all of the service layer proto files. 
 //
 //---------------------------------------------------------------------
-// Copyright (c) 2019, 2023 by Cisco Systems, Inc.
+// Copyright (c) 2019, 2024 by Cisco Systems, Inc.
 // All rights reserved.
 //---------------------------------------------------------------------
 //
@@ -727,6 +727,86 @@ message SLErrorStatus {
         // The operation is not viable to be programmed in hardware at this time. 0x17003
         SL_FIB_INELIGIBLE = 0x17003;
 
+        // !!! Error codes for operations on policy objects.
+
+        // Offset for policy object operations. 0x18000
+        SL_POLICY_START_OFFSET = 0x18000;
+        // Policy object could not be created. 0x18001  
+        SL_POLICY_ADD_ERR = 0x18001;
+        // Policy object already exists. 0x18002
+        SL_POLICY_EXISTS_ERR = 0x18002;
+        // Policy object delete failed. 0x18003
+        SL_POLICY_DELETE_ERR = 0x18003;
+        // Rule could not be created. 0x18004
+        SL_POLICY_RULE_ADD_ERR = 0x18004;
+        // Rule already exists. 0x18005
+        SL_POLICY_RULE_EXISTS_ERR = 0x18005;
+        // Rule delete error. 0x18006
+        SL_POLICY_RULE_DELETE_ERR = 0x18006;
+        // Policy object apply error. 0x18007
+        SL_POLICY_APPLY_ERR = 0x18007;
+        // Policy object unapply error. 0x18008
+        SL_POLICY_UNAPPLY_ERR = 0x18008;
+        // Operation rejected due to too many policies in the request. 0x18009
+        SL_POLICY_TOO_MANY_POLICIES = 0x18009;
+        // Policy name is too long. 0x1800a
+        SL_POLICY_NAME_TOO_LONG = 0x1800a;
+        // Rule name is too long. 0x1800b
+        SL_POLICY_RULE_NAME_TOO_LONG = 0x1800b;
+        // Duplicate priority for the rule in the same policy. 0x1800c
+        SL_POLICY_DUPLICATE_PRIORITY_IN_RULE = 0x1800c;
+        // Rule modification not allowed. 0x1800d
+        SL_POLICY_RULE_MOD_NOT_ALLOWED = 0x1800d;
+        // Rule belongs to a different policy. 0x1800e
+        SL_POLICY_INVALID_RULE = 0x1800e;
+        // Rule add operation requested but no rules were provided. 0x1800f
+        SL_POLICY_RULE_ADD_NO_RULES = 0x1800f; 
+        // Rule add operation requested but no matches were provided. 0x18010
+        SL_POLICY_INVALID_MATCH_COUNT_IN_RULE = 0x18010;
+        // Rule add operation requested but no actions were provided. 0x18011
+        SL_POLICY_INVALID_ACTION_COUNT_IN_RULE = 0x18011;
+        // Policy not found.0x18012
+        SL_POLICY_NOT_FOUND = 0x18012;
+        // Policy invalid. 0x18013
+        SL_POLICY_INVALID = 0x18013;
+        // Policy name missing. 0x18014
+        SL_POLICY_NAME_MISSING = 0x18014;
+        // Rule name missing. 0x18015 
+        SL_POLICY_RULE_NAME_MISSING = 0x18015;
+        // Priority missing in rule. 0x18016
+        SL_POLICY_PRIORITY_MISSING_IN_RULE = 0x18016;
+        // Invalid policy type. 0x18017 
+        SL_POLICY_TYPE_INVALID = 0x18017;
+        // Invalid policy direction. 0x18018
+        SL_POLICY_INVALID_DIRECTION = 0x18018;
+        // Policy object's interface name exceeds supported length. 0x18019
+        SL_POLICY_INTF_NAME_TOOLONG = 0x18019;
+        // Policy object's interface name is missing. 0x1801a 
+        SL_POLICY_INTF_NAME_MISSING = 0x1801a;
+        // Max rule limit within a policy is reached. 0x1801b
+        SL_POLICY_MAX_RULE_LIMIT_REACHED = 0x1801b;
+        // Vrf name in policy object is too long. 0x1801c
+        SL_POLICY_VRF_NAME_TOO_LONG = 0x1801c;
+        // Vrf name missing in policy object. 0x1801d
+        SL_POLICY_VRF_NAME_MISSING = 0x1801d;
+        // Path Group name in policy object too long. 0x1801e
+        SL_POLICY_PATH_GRP_NAME_TOO_LONG = 0x1801e;
+        // Path Group name missing in policy object. 0x1801f
+        SL_POLICY_PATH_GRP_NAME_MISSING = 0x1801f;
+        // Invalid Dscp Value. 0x18020
+        SL_POLICY_INVALID_DSCP_VALUE = 0x18020;
+        // Priority string too long. 0x18021 
+        SL_POLICY_PRIORITY_STR_TOO_LONG = 0x18021;
+        // Max interfaces limit in policy reached. 0x18022
+        SL_POLICY_MAX_INTF_LIMIT_REACHED = 0x18022;
+        // Rule delete operation requested but no rules were provided. 0x18023
+        SL_POLICY_RULE_DELETE_NO_RULES = 0x18023;
+        // Policy apply requested but no interfaces were provided. 0x18024
+        SL_POLICY_APPLY_NO_INTFS = 0x18024;
+        // Policy unapply requested but no interfaces were provided. 0x18025
+        SL_POLICY_UNAPPLY_NO_INTFS = 0x18025;
+
+ 
         // !!! Error codes Reserved for internal errors.
 
         // Offset for Internal errors. 0x100000
