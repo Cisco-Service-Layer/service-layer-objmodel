@@ -364,6 +364,44 @@ enum SLErrorStatus_SLErrno : int {
   SLErrorStatus_SLErrno_SL_FIB_SUCCESS = 94209,
   SLErrorStatus_SLErrno_SL_FIB_FAILED = 94210,
   SLErrorStatus_SLErrno_SL_FIB_INELIGIBLE = 94211,
+  SLErrorStatus_SLErrno_SL_POLICY_START_OFFSET = 98304,
+  SLErrorStatus_SLErrno_SL_POLICY_ADD_ERR = 98305,
+  SLErrorStatus_SLErrno_SL_POLICY_EXISTS_ERR = 98306,
+  SLErrorStatus_SLErrno_SL_POLICY_DELETE_ERR = 98307,
+  SLErrorStatus_SLErrno_SL_POLICY_RULE_ADD_ERR = 98308,
+  SLErrorStatus_SLErrno_SL_POLICY_RULE_EXISTS_ERR = 98309,
+  SLErrorStatus_SLErrno_SL_POLICY_RULE_DELETE_ERR = 98310,
+  SLErrorStatus_SLErrno_SL_POLICY_APPLY_ERR = 98311,
+  SLErrorStatus_SLErrno_SL_POLICY_UNAPPLY_ERR = 98312,
+  SLErrorStatus_SLErrno_SL_POLICY_TOO_MANY_POLICIES = 98313,
+  SLErrorStatus_SLErrno_SL_POLICY_NAME_TOO_LONG = 98314,
+  SLErrorStatus_SLErrno_SL_POLICY_RULE_NAME_TOO_LONG = 98315,
+  SLErrorStatus_SLErrno_SL_POLICY_DUPLICATE_PRIORITY_IN_RULE = 98316,
+  SLErrorStatus_SLErrno_SL_POLICY_RULE_MOD_NOT_ALLOWED = 98317,
+  SLErrorStatus_SLErrno_SL_POLICY_INVALID_RULE = 98318,
+  SLErrorStatus_SLErrno_SL_POLICY_RULE_ADD_NO_RULES = 98319,
+  SLErrorStatus_SLErrno_SL_POLICY_INVALID_MATCH_COUNT_IN_RULE = 98320,
+  SLErrorStatus_SLErrno_SL_POLICY_INVALID_ACTION_COUNT_IN_RULE = 98321,
+  SLErrorStatus_SLErrno_SL_POLICY_NOT_FOUND = 98322,
+  SLErrorStatus_SLErrno_SL_POLICY_INVALID = 98323,
+  SLErrorStatus_SLErrno_SL_POLICY_NAME_MISSING = 98324,
+  SLErrorStatus_SLErrno_SL_POLICY_RULE_NAME_MISSING = 98325,
+  SLErrorStatus_SLErrno_SL_POLICY_PRIORITY_MISSING_IN_RULE = 98326,
+  SLErrorStatus_SLErrno_SL_POLICY_TYPE_INVALID = 98327,
+  SLErrorStatus_SLErrno_SL_POLICY_INVALID_DIRECTION = 98328,
+  SLErrorStatus_SLErrno_SL_POLICY_INTF_NAME_TOOLONG = 98329,
+  SLErrorStatus_SLErrno_SL_POLICY_INTF_NAME_MISSING = 98330,
+  SLErrorStatus_SLErrno_SL_POLICY_MAX_RULE_LIMIT_REACHED = 98331,
+  SLErrorStatus_SLErrno_SL_POLICY_VRF_NAME_TOO_LONG = 98332,
+  SLErrorStatus_SLErrno_SL_POLICY_VRF_NAME_MISSING = 98333,
+  SLErrorStatus_SLErrno_SL_POLICY_PATH_GRP_NAME_TOO_LONG = 98334,
+  SLErrorStatus_SLErrno_SL_POLICY_PATH_GRP_NAME_MISSING = 98335,
+  SLErrorStatus_SLErrno_SL_POLICY_INVALID_DSCP_VALUE = 98336,
+  SLErrorStatus_SLErrno_SL_POLICY_PRIORITY_STR_TOO_LONG = 98337,
+  SLErrorStatus_SLErrno_SL_POLICY_MAX_INTF_LIMIT_REACHED = 98338,
+  SLErrorStatus_SLErrno_SL_POLICY_RULE_DELETE_NO_RULES = 98339,
+  SLErrorStatus_SLErrno_SL_POLICY_APPLY_NO_INTFS = 98340,
+  SLErrorStatus_SLErrno_SL_POLICY_UNAPPLY_NO_INTFS = 98341,
   SLErrorStatus_SLErrno_SL_INTERNAL_START_OFFSET = 1048576,
   SLErrorStatus_SLErrno_SLErrorStatus_SLErrno_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::min(),
   SLErrorStatus_SLErrno_SLErrorStatus_SLErrno_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::max()
@@ -1262,6 +1300,82 @@ class SLErrorStatus final :
     SLErrorStatus_SLErrno_SL_FIB_FAILED;
   static constexpr SLErrno SL_FIB_INELIGIBLE =
     SLErrorStatus_SLErrno_SL_FIB_INELIGIBLE;
+  static constexpr SLErrno SL_POLICY_START_OFFSET =
+    SLErrorStatus_SLErrno_SL_POLICY_START_OFFSET;
+  static constexpr SLErrno SL_POLICY_ADD_ERR =
+    SLErrorStatus_SLErrno_SL_POLICY_ADD_ERR;
+  static constexpr SLErrno SL_POLICY_EXISTS_ERR =
+    SLErrorStatus_SLErrno_SL_POLICY_EXISTS_ERR;
+  static constexpr SLErrno SL_POLICY_DELETE_ERR =
+    SLErrorStatus_SLErrno_SL_POLICY_DELETE_ERR;
+  static constexpr SLErrno SL_POLICY_RULE_ADD_ERR =
+    SLErrorStatus_SLErrno_SL_POLICY_RULE_ADD_ERR;
+  static constexpr SLErrno SL_POLICY_RULE_EXISTS_ERR =
+    SLErrorStatus_SLErrno_SL_POLICY_RULE_EXISTS_ERR;
+  static constexpr SLErrno SL_POLICY_RULE_DELETE_ERR =
+    SLErrorStatus_SLErrno_SL_POLICY_RULE_DELETE_ERR;
+  static constexpr SLErrno SL_POLICY_APPLY_ERR =
+    SLErrorStatus_SLErrno_SL_POLICY_APPLY_ERR;
+  static constexpr SLErrno SL_POLICY_UNAPPLY_ERR =
+    SLErrorStatus_SLErrno_SL_POLICY_UNAPPLY_ERR;
+  static constexpr SLErrno SL_POLICY_TOO_MANY_POLICIES =
+    SLErrorStatus_SLErrno_SL_POLICY_TOO_MANY_POLICIES;
+  static constexpr SLErrno SL_POLICY_NAME_TOO_LONG =
+    SLErrorStatus_SLErrno_SL_POLICY_NAME_TOO_LONG;
+  static constexpr SLErrno SL_POLICY_RULE_NAME_TOO_LONG =
+    SLErrorStatus_SLErrno_SL_POLICY_RULE_NAME_TOO_LONG;
+  static constexpr SLErrno SL_POLICY_DUPLICATE_PRIORITY_IN_RULE =
+    SLErrorStatus_SLErrno_SL_POLICY_DUPLICATE_PRIORITY_IN_RULE;
+  static constexpr SLErrno SL_POLICY_RULE_MOD_NOT_ALLOWED =
+    SLErrorStatus_SLErrno_SL_POLICY_RULE_MOD_NOT_ALLOWED;
+  static constexpr SLErrno SL_POLICY_INVALID_RULE =
+    SLErrorStatus_SLErrno_SL_POLICY_INVALID_RULE;
+  static constexpr SLErrno SL_POLICY_RULE_ADD_NO_RULES =
+    SLErrorStatus_SLErrno_SL_POLICY_RULE_ADD_NO_RULES;
+  static constexpr SLErrno SL_POLICY_INVALID_MATCH_COUNT_IN_RULE =
+    SLErrorStatus_SLErrno_SL_POLICY_INVALID_MATCH_COUNT_IN_RULE;
+  static constexpr SLErrno SL_POLICY_INVALID_ACTION_COUNT_IN_RULE =
+    SLErrorStatus_SLErrno_SL_POLICY_INVALID_ACTION_COUNT_IN_RULE;
+  static constexpr SLErrno SL_POLICY_NOT_FOUND =
+    SLErrorStatus_SLErrno_SL_POLICY_NOT_FOUND;
+  static constexpr SLErrno SL_POLICY_INVALID =
+    SLErrorStatus_SLErrno_SL_POLICY_INVALID;
+  static constexpr SLErrno SL_POLICY_NAME_MISSING =
+    SLErrorStatus_SLErrno_SL_POLICY_NAME_MISSING;
+  static constexpr SLErrno SL_POLICY_RULE_NAME_MISSING =
+    SLErrorStatus_SLErrno_SL_POLICY_RULE_NAME_MISSING;
+  static constexpr SLErrno SL_POLICY_PRIORITY_MISSING_IN_RULE =
+    SLErrorStatus_SLErrno_SL_POLICY_PRIORITY_MISSING_IN_RULE;
+  static constexpr SLErrno SL_POLICY_TYPE_INVALID =
+    SLErrorStatus_SLErrno_SL_POLICY_TYPE_INVALID;
+  static constexpr SLErrno SL_POLICY_INVALID_DIRECTION =
+    SLErrorStatus_SLErrno_SL_POLICY_INVALID_DIRECTION;
+  static constexpr SLErrno SL_POLICY_INTF_NAME_TOOLONG =
+    SLErrorStatus_SLErrno_SL_POLICY_INTF_NAME_TOOLONG;
+  static constexpr SLErrno SL_POLICY_INTF_NAME_MISSING =
+    SLErrorStatus_SLErrno_SL_POLICY_INTF_NAME_MISSING;
+  static constexpr SLErrno SL_POLICY_MAX_RULE_LIMIT_REACHED =
+    SLErrorStatus_SLErrno_SL_POLICY_MAX_RULE_LIMIT_REACHED;
+  static constexpr SLErrno SL_POLICY_VRF_NAME_TOO_LONG =
+    SLErrorStatus_SLErrno_SL_POLICY_VRF_NAME_TOO_LONG;
+  static constexpr SLErrno SL_POLICY_VRF_NAME_MISSING =
+    SLErrorStatus_SLErrno_SL_POLICY_VRF_NAME_MISSING;
+  static constexpr SLErrno SL_POLICY_PATH_GRP_NAME_TOO_LONG =
+    SLErrorStatus_SLErrno_SL_POLICY_PATH_GRP_NAME_TOO_LONG;
+  static constexpr SLErrno SL_POLICY_PATH_GRP_NAME_MISSING =
+    SLErrorStatus_SLErrno_SL_POLICY_PATH_GRP_NAME_MISSING;
+  static constexpr SLErrno SL_POLICY_INVALID_DSCP_VALUE =
+    SLErrorStatus_SLErrno_SL_POLICY_INVALID_DSCP_VALUE;
+  static constexpr SLErrno SL_POLICY_PRIORITY_STR_TOO_LONG =
+    SLErrorStatus_SLErrno_SL_POLICY_PRIORITY_STR_TOO_LONG;
+  static constexpr SLErrno SL_POLICY_MAX_INTF_LIMIT_REACHED =
+    SLErrorStatus_SLErrno_SL_POLICY_MAX_INTF_LIMIT_REACHED;
+  static constexpr SLErrno SL_POLICY_RULE_DELETE_NO_RULES =
+    SLErrorStatus_SLErrno_SL_POLICY_RULE_DELETE_NO_RULES;
+  static constexpr SLErrno SL_POLICY_APPLY_NO_INTFS =
+    SLErrorStatus_SLErrno_SL_POLICY_APPLY_NO_INTFS;
+  static constexpr SLErrno SL_POLICY_UNAPPLY_NO_INTFS =
+    SLErrorStatus_SLErrno_SL_POLICY_UNAPPLY_NO_INTFS;
   static constexpr SLErrno SL_INTERNAL_START_OFFSET =
     SLErrorStatus_SLErrno_SL_INTERNAL_START_OFFSET;
   static inline bool SLErrno_IsValid(int value) {
