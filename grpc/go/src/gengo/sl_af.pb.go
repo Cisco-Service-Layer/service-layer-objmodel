@@ -1852,10 +1852,13 @@ type SLNextHop struct {
 	// Nexthop's path list. Paths indicate paths available
 	// for the next hop. In case of recursive next hop resolution,
 	// the returned path list consists of flattened directly connected
-	// paths.
+	// paths. Path attributes include tableid, interface name, vrf name
+	// nexthop IP addr, nexthop AFI.
 	//
 	// If this field is not present,
 	// then no viable path to the next hop exist.
+	// ResolvingRoute will not be present, ResolvingRouteLen is set to 0,
+	// SrcProto is set to nil, admin_distance and metric are set to UINT32_MAX
 	Paths []*SLRoutePath `protobuf:"bytes,7,rep,name=Paths,proto3" json:"Paths,omitempty"`
 }
 
