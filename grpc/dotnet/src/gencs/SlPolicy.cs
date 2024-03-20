@@ -252,7 +252,7 @@ namespace ServiceLayer {
     private ulong operationID_;
     /// <summary>
     /// Unique OperationID sent by the client
-    /// to corelate the responses. Operation Id 
+    /// to correlate the responses. Operation Id 
     /// should be monotonically increasing for 
     /// the life of the client.
     /// </summary>
@@ -1385,13 +1385,13 @@ namespace ServiceLayer {
   /// Each rule in a policy is associated with a
   /// Rule name - that identifies a rule 
   /// Priority - priority of the rule within the policy
-  /// Match - Contains one or more match criteria. Packet 
-  /// is a match if ALL the fields in the packet match  
+  /// Match - Contains at least one or more match criteria.  
+  /// Packet is a match if ALL the fields in the packet match  
   /// the criteria. Atleast one rule MUST be present for 
   /// the packet to match.
-  /// Action - Contains one or more action. Action applied 
-  /// on the packet that matches the rule. Atleast one 
-  /// action MUST be present for the match criteria
+  /// Action - Contains at least one or more action. Action  
+  /// applied on the packet that matches the rule. Atleast 
+  /// one action MUST be present for the match criteria
   /// under a rule.  
   /// </summary>
   public sealed partial class SLPolicyRule : pb::IMessage<SLPolicyRule>
