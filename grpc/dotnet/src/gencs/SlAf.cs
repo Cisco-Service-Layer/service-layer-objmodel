@@ -7727,7 +7727,7 @@ namespace ServiceLayer {
     /// for the next hop. In case of recursive next hop resolution,
     /// the returned path list consists of flattened directly connected
     /// paths.
-    /// Path attributes include NexthopAddress, NexthopInterface, VrfName.
+    /// Returned attributes in Path are NexthopAddress, NexthopInterface, VrfName.
     ///
     /// If this field is not present,
     /// then no viable path to the next hop exist.
