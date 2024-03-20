@@ -1831,8 +1831,9 @@ func (x *SLAFNotifRsp) GetNotifStatus() *SLErrorStatus {
 }
 
 // Next hop Notification
-// If there are no viable paths to the Next hop, ResolvingRoute and ResolvingRouteLen
-// are not set, AdminDistance/Metric are set to UINT32_MAX.
+// If there are no viable paths to the next hop, ResolvingRoute,
+// ResolvingRouteLen, SrcProto are not set, AdminDistance/Metric are set to
+// UINT32_MAX.
 type SLNextHop struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
@@ -1854,7 +1855,8 @@ type SLNextHop struct {
 	// Nexthop's path list. Paths indicate paths available
 	// for the next hop. In case of recursive next hop resolution,
 	// the returned path list consists of flattened directly connected
-	// paths. Path attributes include NexthopAddress, NexthopInterface, VrfName
+	// paths.
+	// Path attributes include NexthopAddress, NexthopInterface, VrfName.
 	//
 	// If this field is not present,
 	// then no viable path to the next hop exist.
