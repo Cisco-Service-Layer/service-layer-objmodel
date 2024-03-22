@@ -661,6 +661,9 @@ message SLAFNotifRsp {
 }
 
 // Next hop Notification
+// If there are no viable paths to the next hop, ResolvingRoute, 
+// ResolvingRouteLen, SrcProto are not set, AdminDistance/Metric are set to 
+// UINT32_MAX.
 message SLNextHop {
     // Next hop registration key.
     SLAFNextHopRegKey NextHopKey = 1;
@@ -676,15 +679,16 @@ message SLNextHop {
     string SrcProto = 4;
 
     // Nexthop route distance
-    uint32 admin_distance = 5;
+    uint32 AdminDistance = 5;
 
     // Nexthop route metric
-    uint32 metric = 6;
+    uint32 Metric = 6;
 
     // Nexthop's path list. Paths indicate paths available
     // for the next hop. In case of recursive next hop resolution,
     // the returned path list consists of flattened directly connected
     // paths.
+    // Returned attributes in Path are NexthopAddress, NexthopInterface, VrfName.
     //
     // If this field is not present,
     // then no viable path to the next hop exist.

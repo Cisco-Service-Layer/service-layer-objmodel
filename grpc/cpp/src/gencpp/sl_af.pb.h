@@ -5186,16 +5186,16 @@ class SLNextHop final :
   void _internal_set_resolvingroutelen(uint32_t value);
   public:
 
-  // uint32 admin_distance = 5;
-  void clear_admin_distance();
-  uint32_t admin_distance() const;
-  void set_admin_distance(uint32_t value);
+  // uint32 AdminDistance = 5;
+  void clear_admindistance();
+  uint32_t admindistance() const;
+  void set_admindistance(uint32_t value);
   private:
-  uint32_t _internal_admin_distance() const;
-  void _internal_set_admin_distance(uint32_t value);
+  uint32_t _internal_admindistance() const;
+  void _internal_set_admindistance(uint32_t value);
   public:
 
-  // uint32 metric = 6;
+  // uint32 Metric = 6;
   void clear_metric();
   uint32_t metric() const;
   void set_metric(uint32_t value);
@@ -5216,7 +5216,7 @@ class SLNextHop final :
   ::service_layer::SLAFNextHopRegKey* nexthopkey_;
   ::service_layer::SLIpAddress* resolvingroute_;
   uint32_t resolvingroutelen_;
-  uint32_t admin_distance_;
+  uint32_t admindistance_;
   uint32_t metric_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_sl_5faf_2eproto;
@@ -9643,27 +9643,27 @@ inline void SLNextHop::set_allocated_srcproto(std::string* srcproto) {
   // @@protoc_insertion_point(field_set_allocated:service_layer.SLNextHop.SrcProto)
 }
 
-// uint32 admin_distance = 5;
-inline void SLNextHop::clear_admin_distance() {
-  admin_distance_ = 0u;
+// uint32 AdminDistance = 5;
+inline void SLNextHop::clear_admindistance() {
+  admindistance_ = 0u;
 }
-inline uint32_t SLNextHop::_internal_admin_distance() const {
-  return admin_distance_;
+inline uint32_t SLNextHop::_internal_admindistance() const {
+  return admindistance_;
 }
-inline uint32_t SLNextHop::admin_distance() const {
-  // @@protoc_insertion_point(field_get:service_layer.SLNextHop.admin_distance)
-  return _internal_admin_distance();
+inline uint32_t SLNextHop::admindistance() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLNextHop.AdminDistance)
+  return _internal_admindistance();
 }
-inline void SLNextHop::_internal_set_admin_distance(uint32_t value) {
+inline void SLNextHop::_internal_set_admindistance(uint32_t value) {
   
-  admin_distance_ = value;
+  admindistance_ = value;
 }
-inline void SLNextHop::set_admin_distance(uint32_t value) {
-  _internal_set_admin_distance(value);
-  // @@protoc_insertion_point(field_set:service_layer.SLNextHop.admin_distance)
+inline void SLNextHop::set_admindistance(uint32_t value) {
+  _internal_set_admindistance(value);
+  // @@protoc_insertion_point(field_set:service_layer.SLNextHop.AdminDistance)
 }
 
-// uint32 metric = 6;
+// uint32 Metric = 6;
 inline void SLNextHop::clear_metric() {
   metric_ = 0u;
 }
@@ -9671,7 +9671,7 @@ inline uint32_t SLNextHop::_internal_metric() const {
   return metric_;
 }
 inline uint32_t SLNextHop::metric() const {
-  // @@protoc_insertion_point(field_get:service_layer.SLNextHop.metric)
+  // @@protoc_insertion_point(field_get:service_layer.SLNextHop.Metric)
   return _internal_metric();
 }
 inline void SLNextHop::_internal_set_metric(uint32_t value) {
@@ -9680,7 +9680,7 @@ inline void SLNextHop::_internal_set_metric(uint32_t value) {
 }
 inline void SLNextHop::set_metric(uint32_t value) {
   _internal_set_metric(value);
-  // @@protoc_insertion_point(field_set:service_layer.SLNextHop.metric)
+  // @@protoc_insertion_point(field_set:service_layer.SLNextHop.Metric)
 }
 
 // repeated .service_layer.SLRoutePath Paths = 7;

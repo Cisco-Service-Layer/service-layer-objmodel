@@ -388,7 +388,7 @@ constexpr SLNextHop::SLNextHop(
   , nexthopkey_(nullptr)
   , resolvingroute_(nullptr)
   , resolvingroutelen_(0u)
-  , admin_distance_(0u)
+  , admindistance_(0u)
   , metric_(0u){}
 struct SLNextHopDefaultTypeInternal {
   constexpr SLNextHopDefaultTypeInternal()
@@ -674,7 +674,7 @@ const uint32_t TableStruct_sl_5faf_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(
   PROTOBUF_FIELD_OFFSET(::service_layer::SLNextHop, resolvingroute_),
   PROTOBUF_FIELD_OFFSET(::service_layer::SLNextHop, resolvingroutelen_),
   PROTOBUF_FIELD_OFFSET(::service_layer::SLNextHop, srcproto_),
-  PROTOBUF_FIELD_OFFSET(::service_layer::SLNextHop, admin_distance_),
+  PROTOBUF_FIELD_OFFSET(::service_layer::SLNextHop, admindistance_),
   PROTOBUF_FIELD_OFFSET(::service_layer::SLNextHop, metric_),
   PROTOBUF_FIELD_OFFSET(::service_layer::SLNextHop, paths_),
   ~0u,  // no _has_bits_
@@ -844,33 +844,33 @@ const char descriptor_table_protodef_sl_5faf_2eproto[] PROTOBUF_SECTION_VARIABLE
   "LAFNotifRegReq\"s\n\014SLAFNotifRsp\0220\n\010NotifR"
   "eq\030\001 \001(\0132\036.service_layer.SLAFNotifRegReq"
   "\0221\n\013NotifStatus\030\002 \001(\0132\034.service_layer.SL"
-  "ErrorStatus\"\365\001\n\tSLNextHop\0224\n\nNextHopKey\030"
+  "ErrorStatus\"\364\001\n\tSLNextHop\0224\n\nNextHopKey\030"
   "\001 \001(\0132 .service_layer.SLAFNextHopRegKey\022"
   "2\n\016ResolvingRoute\030\002 \001(\0132\032.service_layer."
   "SLIpAddress\022\031\n\021ResolvingRouteLen\030\003 \001(\r\022\020"
-  "\n\010SrcProto\030\004 \001(\t\022\026\n\016admin_distance\030\005 \001(\r"
-  "\022\016\n\006metric\030\006 \001(\r\022)\n\005Paths\030\007 \003(\0132\032.servic"
-  "e_layer.SLRoutePath\"\250\001\n\tSLAFNotif\0222\n\013Not"
-  "ifStatus\030\001 \001(\0132\033.service_layer.SLAFNotif"
-  "RspH\000\0221\n\014RedistObject\030\004 \001(\0132\031.service_la"
-  "yer.SLAFObjectH\000\022+\n\007NextHop\030\005 \001(\0132\030.serv"
-  "ice_layer.SLNextHopH\000B\007\n\005Event\"K\n\014SLAFNo"
-  "tifMsg\022\017\n\007VrfName\030\001 \001(\t\022*\n\010AFNotifs\030\003 \003("
-  "\0132\030.service_layer.SLAFNotif2\310\003\n\004SLAF\022M\n\014"
-  "SLAFVrfRegOp\022\034.service_layer.SLAFVrfRegM"
-  "sg\032\037.service_layer.SLAFVrfRegMsgRsp\022V\n\rS"
-  "LAFVrfRegGet\022\037.service_layer.SLAFVrfRegG"
-  "etMsg\032\".service_layer.SLAFVrfRegGetMsgRs"
-  "p0\001\022;\n\006SLAFOp\022\026.service_layer.SLAFMsg\032\031."
-  "service_layer.SLAFMsgRsp\022E\n\014SLAFOpStream"
-  "\022\026.service_layer.SLAFMsg\032\031.service_layer"
-  ".SLAFMsgRsp(\0010\001\022D\n\007SLAFGet\022\031.service_lay"
-  "er.SLAFGetMsg\032\034.service_layer.SLAFGetMsg"
-  "Rsp0\001\022O\n\017SLAFNotifStream\022\033.service_layer"
-  ".SLAFNotifReq\032\033.service_layer.SLAFNotifM"
-  "sg(\0010\001BQZOgithub.com/Cisco-service-layer"
-  "/service-layer-objmodel/grpc/protos;serv"
-  "ice_layerb\006proto3"
+  "\n\010SrcProto\030\004 \001(\t\022\025\n\rAdminDistance\030\005 \001(\r\022"
+  "\016\n\006Metric\030\006 \001(\r\022)\n\005Paths\030\007 \003(\0132\032.service"
+  "_layer.SLRoutePath\"\250\001\n\tSLAFNotif\0222\n\013Noti"
+  "fStatus\030\001 \001(\0132\033.service_layer.SLAFNotifR"
+  "spH\000\0221\n\014RedistObject\030\004 \001(\0132\031.service_lay"
+  "er.SLAFObjectH\000\022+\n\007NextHop\030\005 \001(\0132\030.servi"
+  "ce_layer.SLNextHopH\000B\007\n\005Event\"K\n\014SLAFNot"
+  "ifMsg\022\017\n\007VrfName\030\001 \001(\t\022*\n\010AFNotifs\030\003 \003(\013"
+  "2\030.service_layer.SLAFNotif2\310\003\n\004SLAF\022M\n\014S"
+  "LAFVrfRegOp\022\034.service_layer.SLAFVrfRegMs"
+  "g\032\037.service_layer.SLAFVrfRegMsgRsp\022V\n\rSL"
+  "AFVrfRegGet\022\037.service_layer.SLAFVrfRegGe"
+  "tMsg\032\".service_layer.SLAFVrfRegGetMsgRsp"
+  "0\001\022;\n\006SLAFOp\022\026.service_layer.SLAFMsg\032\031.s"
+  "ervice_layer.SLAFMsgRsp\022E\n\014SLAFOpStream\022"
+  "\026.service_layer.SLAFMsg\032\031.service_layer."
+  "SLAFMsgRsp(\0010\001\022D\n\007SLAFGet\022\031.service_laye"
+  "r.SLAFGetMsg\032\034.service_layer.SLAFGetMsgR"
+  "sp0\001\022O\n\017SLAFNotifStream\022\033.service_layer."
+  "SLAFNotifReq\032\033.service_layer.SLAFNotifMs"
+  "g(\0010\001BQZOgithub.com/Cisco-service-layer/"
+  "service-layer-objmodel/grpc/protos;servi"
+  "ce_layerb\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_sl_5faf_2eproto_deps[4] = {
   &::descriptor_table_sl_5fcommon_5ftypes_2eproto,
@@ -880,7 +880,7 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_sl_5faf_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_sl_5faf_2eproto = {
-  false, false, 4377, descriptor_table_protodef_sl_5faf_2eproto, "sl_af.proto", 
+  false, false, 4376, descriptor_table_protodef_sl_5faf_2eproto, "sl_af.proto", 
   &descriptor_table_sl_5faf_2eproto_once, descriptor_table_sl_5faf_2eproto_deps, 4, 29,
   schemas, file_default_instances, TableStruct_sl_5faf_2eproto::offsets,
   file_level_metadata_sl_5faf_2eproto, file_level_enum_descriptors_sl_5faf_2eproto, file_level_service_descriptors_sl_5faf_2eproto,
@@ -8158,15 +8158,15 @@ const char* SLNextHop::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::
         } else
           goto handle_unusual;
         continue;
-      // uint32 admin_distance = 5;
+      // uint32 AdminDistance = 5;
       case 5:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 40)) {
-          admin_distance_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          admindistance_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
         continue;
-      // uint32 metric = 6;
+      // uint32 Metric = 6;
       case 6:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 48)) {
           metric_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
@@ -8248,13 +8248,13 @@ uint8_t* SLNextHop::_InternalSerialize(
         4, this->_internal_srcproto(), target);
   }
 
-  // uint32 admin_distance = 5;
-  if (this->_internal_admin_distance() != 0) {
+  // uint32 AdminDistance = 5;
+  if (this->_internal_admindistance() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(5, this->_internal_admin_distance(), target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(5, this->_internal_admindistance(), target);
   }
 
-  // uint32 metric = 6;
+  // uint32 Metric = 6;
   if (this->_internal_metric() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(6, this->_internal_metric(), target);
@@ -8317,12 +8317,12 @@ size_t SLNextHop::ByteSizeLong() const {
     total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_resolvingroutelen());
   }
 
-  // uint32 admin_distance = 5;
-  if (this->_internal_admin_distance() != 0) {
-    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_admin_distance());
+  // uint32 AdminDistance = 5;
+  if (this->_internal_admindistance() != 0) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_admindistance());
   }
 
-  // uint32 metric = 6;
+  // uint32 Metric = 6;
   if (this->_internal_metric() != 0) {
     total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_metric());
   }
@@ -8362,8 +8362,8 @@ void SLNextHop::MergeFrom(const SLNextHop& from) {
   if (from._internal_resolvingroutelen() != 0) {
     _internal_set_resolvingroutelen(from._internal_resolvingroutelen());
   }
-  if (from._internal_admin_distance() != 0) {
-    _internal_set_admin_distance(from._internal_admin_distance());
+  if (from._internal_admindistance() != 0) {
+    _internal_set_admindistance(from._internal_admindistance());
   }
   if (from._internal_metric() != 0) {
     _internal_set_metric(from._internal_metric());
