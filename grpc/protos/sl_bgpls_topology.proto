@@ -936,6 +936,24 @@ message SLBgplsTopoPrefixAttr {
 
 // SRv6 SID Attributes
 message SLBgplsTopoSrv6SidAttr {
+    // The Segment Routing over IPv6 (SRv6)
+    //    SRv6 SID associated with BGP peer node or peer set.
+    // SRv6 BGP Peer Node SID. TLV 1251
+    // Section 7.2 of [RFC9514]
+    repeated SLBgplsTopoSrv6BgpPeerNodeSid BgpPeerNodeSid = 1;
+
+    // The Segment Routing over IPv6 (SRv6)
+    //    endpoint behavior bound to a SRv6 SID.
+    // SRv6 End Point Behavior. TLV 1250
+    // Section 7.1 of [RFC9514]
+    SLBgplsTopoSrv6EndPointBehavior EndPointBehavior = 2;
+
+    // The Segment Routing over IPv6 (SRv6)
+    //    Segment Identifier (SID) structure information associated with a
+    //    SRv6 SID.
+    // SRv6 SID Structure Attribute. TLV 1252
+    // Section 8 of [RFC9514]
+    SLBgplsTopoSrv6SidStructAttr SidStructAttr = 3;
 }
 
 // SR Policy Attributes
@@ -1268,15 +1286,6 @@ message SLBgplsTopoLanAdjSid {
      SLBgplsTopoAdjSid AdjSid = 2;
 }
 
-// SRv6 SID Structure Attribute. TLV
-// Section of [RFC]
-message SLBgplsTopoSrv6SidStructAttr {
-    uint32 LocatorBlockLen = 1;
-    uint32 LocatorNodeLen = 2;
-    uint32 FunctionLen = 3;
-    uint32 ArgLen = 4;
-}
-
 // SRv6 End X SID. TLV 1106
 // Section 4.1 of [RFC9514]
 message SLBgplsTopoSrv6EndXSid {
@@ -1491,5 +1500,37 @@ message SLBgplsTopoAslaAttr {
         SLBgplsTopoUniAvailBandwidth UniAvailBandwidth = 9;
         SLBgplsTopoUniUtilBandwidth UniUtilBandwidth = 10;
     }
+}
+
+// SRv6 End Point Behavior. TLV 1250
+// Section 7.1 of [RFC9514]
+message SLBgplsTopoSrv6EndPointBehavior {
+    uint32 EndPointBehavior = 1;
+
+    // Bit-0: Flags associated with the SID. Section 8 of [RFC9513]
+    //      for OSPFv3, and Section 7.2 of [RFC9352] for IS-IS.
+    bytes Flags = 2;
+    uint32 Algorithm = 3;
+}
+
+// SRv6 BGP Peer Node SID. TLV 1251
+// Section 7.2 of [RFC9514]
+message SLBgplsTopoSrv6BgpPeerNodeSid {
+    // Bit-0: Backup Flag associated with the SID.
+    // Bit-1: Set Flag associated with the SID.
+    // Bit-2: Persistent Flag associated with the SID.
+    bytes Flags = 1;
+    uint32 Weight = 2;
+    uint32 PeerAS = 3;
+    uint32 PeerBgpId = 4;
+}
+
+// SRv6 SID Structure Attribute. TLV 1252
+// Section 8 of [RFC9514]
+message SLBgplsTopoSrv6SidStructAttr {
+    uint32 LocatorBlockLen = 1;
+    uint32 LocatorNodeLen = 2;
+    uint32 FunctionLen = 3;
+    uint32 ArgLen = 4;
 }
 //@}
