@@ -144,9 +144,9 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
 };
 
 const char descriptor_table_protodef_sl_5fcommon_5ftypes_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
-  "\n\025sl_common_types.proto\022\rservice_layer\"\230"
-  "K\n\rSLErrorStatus\0224\n\006Status\030\001 \001(\0162$.servi"
-  "ce_layer.SLErrorStatus.SLErrno\"\320J\n\007SLErr"
+  "\n\025sl_common_types.proto\022\rservice_layer\"\260"
+  "U\n\rSLErrorStatus\0224\n\006Status\030\001 \001(\0162$.servi"
+  "ce_layer.SLErrorStatus.SLErrno\"\350T\n\007SLErr"
   "no\022\016\n\nSL_SUCCESS\020\000\022\024\n\020SL_NOT_CONNECTED\020\001"
   "\022\r\n\tSL_EAGAIN\020\002\022\r\n\tSL_ENOMEM\020\003\022\014\n\010SL_EBU"
   "SY\020\004\022\r\n\tSL_EINVAL\020\005\022\026\n\022SL_UNSUPPORTED_VE"
@@ -384,38 +384,71 @@ const char descriptor_table_protodef_sl_5fcommon_5ftypes_2eproto[] PROTOBUF_SECT
   "P_RIB_ADD_FAILED\020\207\300\005\022$\n\036SL_ROUTE_REDIST_"
   "RIB_ADD_FAILED\020\210\300\005\022\031\n\023SL_FIB_START_OFFSE"
   "T\020\200\340\005\022\024\n\016SL_FIB_SUCCESS\020\201\340\005\022\023\n\rSL_FIB_FA"
-  "ILED\020\202\340\005\022\027\n\021SL_FIB_INELIGIBLE\020\203\340\005\022\036\n\030SL_"
-  "INTERNAL_START_OFFSET\020\200\200@\"<\n\013SLInterface"
-  "\022\016\n\004Name\030\001 \001(\tH\000\022\020\n\006Handle\030\002 \001(\rH\000B\013\n\tIn"
-  "terface\"B\n\013SLIpAddress\022\023\n\tV4Address\030\001 \001("
-  "\rH\000\022\023\n\tV6Address\030\002 \001(\014H\000B\t\n\007Address\"%\n\nS"
-  "LObjectId\022\016\n\004Name\030\001 \001(\tH\000B\007\n\005entry\"T\n\021SL"
-  "PathGroupRefKey\022\017\n\007VrfName\030\001 \001(\t\022.\n\013Path"
-  "GroupId\030\002 \001(\0132\031.service_layer.SLObjectId"
-  "*b\n\007SLRegOp\022\025\n\021SL_REGOP_RESERVED\020\000\022\025\n\021SL"
-  "_REGOP_REGISTER\020\001\022\027\n\023SL_REGOP_UNREGISTER"
-  "\020\002\022\020\n\014SL_REGOP_EOF\020\003*_\n\nSLObjectOp\022\025\n\021SL"
-  "_OBJOP_RESERVED\020\000\022\020\n\014SL_OBJOP_ADD\020\001\022\023\n\017S"
-  "L_OBJOP_UPDATE\020\002\022\023\n\017SL_OBJOP_DELETE\020\003*S\n"
-  "\tSLNotifOp\022\027\n\023SL_NOTIFOP_RESERVED\020\000\022\025\n\021S"
-  "L_NOTIFOP_ENABLE\020\001\022\026\n\022SL_NOTIFOP_DISABLE"
-  "\020\002*\211\001\n\020SLUpdatePriority\022\030\n\024SL_PRIORITY_R"
-  "ESERVED\020\000\022\030\n\024SL_PRIORITY_CRITICAL\020\004\022\024\n\020S"
-  "L_PRIORITY_HIGH\020\010\022\026\n\022SL_PRIORITY_MEDIUM\020"
-  "\014\022\023\n\017SL_PRIORITY_LOW\020\020*K\n\013SLEncapType\022\025\n"
-  "\021SL_ENCAP_RESERVED\020\000\022\022\n\016SL_ENCAP_VXLAN\020\001"
-  "\022\021\n\rSL_ENCAP_MPLS\020\002*\215\001\n\013SLTableType\022\032\n\026S"
-  "L_TABLE_TYPE_RESERVED\020\000\022\027\n\023SL_IPv4_ROUTE"
-  "_TABLE\020\001\022\027\n\023SL_IPv6_ROUTE_TABLE\020\002\022\027\n\023SL_"
-  "MPLS_LABEL_TABLE\020\003\022\027\n\023SL_PATH_GROUP_TABL"
-  "E\020\004*0\n\014SLRspACKType\022\013\n\007RIB_ACK\020\000\022\023\n\017RIB_"
-  "AND_FIB_ACK\020\001BQZOgithub.com/Cisco-servic"
-  "e-layer/service-layer-objmodel/grpc/prot"
-  "os;service_layerb\006proto3"
+  "ILED\020\202\340\005\022\027\n\021SL_FIB_INELIGIBLE\020\203\340\005\022\034\n\026SL_"
+  "POLICY_START_OFFSET\020\200\200\006\022\027\n\021SL_POLICY_ADD"
+  "_ERR\020\201\200\006\022\032\n\024SL_POLICY_EXISTS_ERR\020\202\200\006\022\032\n\024"
+  "SL_POLICY_DELETE_ERR\020\203\200\006\022\034\n\026SL_POLICY_RU"
+  "LE_ADD_ERR\020\204\200\006\022\037\n\031SL_POLICY_RULE_EXISTS_"
+  "ERR\020\205\200\006\022\037\n\031SL_POLICY_RULE_DELETE_ERR\020\206\200\006"
+  "\022\031\n\023SL_POLICY_APPLY_ERR\020\207\200\006\022\033\n\025SL_POLICY"
+  "_UNAPPLY_ERR\020\210\200\006\022!\n\033SL_POLICY_TOO_MANY_P"
+  "OLICIES\020\211\200\006\022\035\n\027SL_POLICY_NAME_TOO_LONG\020\212"
+  "\200\006\022\"\n\034SL_POLICY_RULE_NAME_TOO_LONG\020\213\200\006\022*"
+  "\n$SL_POLICY_DUPLICATE_PRIORITY_IN_RULE\020\214"
+  "\200\006\022$\n\036SL_POLICY_RULE_MOD_NOT_ALLOWED\020\215\200\006"
+  "\022\034\n\026SL_POLICY_INVALID_RULE\020\216\200\006\022!\n\033SL_POL"
+  "ICY_RULE_ADD_NO_RULES\020\217\200\006\022+\n%SL_POLICY_I"
+  "NVALID_MATCH_COUNT_IN_RULE\020\220\200\006\022,\n&SL_POL"
+  "ICY_INVALID_ACTION_COUNT_IN_RULE\020\221\200\006\022\031\n\023"
+  "SL_POLICY_NOT_FOUND\020\222\200\006\022\027\n\021SL_POLICY_INV"
+  "ALID\020\223\200\006\022\034\n\026SL_POLICY_NAME_MISSING\020\224\200\006\022!"
+  "\n\033SL_POLICY_RULE_NAME_MISSING\020\225\200\006\022(\n\"SL_"
+  "POLICY_PRIORITY_MISSING_IN_RULE\020\226\200\006\022\034\n\026S"
+  "L_POLICY_TYPE_INVALID\020\227\200\006\022!\n\033SL_POLICY_I"
+  "NVALID_DIRECTION\020\230\200\006\022!\n\033SL_POLICY_INTF_N"
+  "AME_TOOLONG\020\231\200\006\022!\n\033SL_POLICY_INTF_NAME_M"
+  "ISSING\020\232\200\006\022&\n SL_POLICY_MAX_RULE_LIMIT_R"
+  "EACHED\020\233\200\006\022!\n\033SL_POLICY_VRF_NAME_TOO_LON"
+  "G\020\234\200\006\022 \n\032SL_POLICY_VRF_NAME_MISSING\020\235\200\006\022"
+  "&\n SL_POLICY_PATH_GRP_NAME_TOO_LONG\020\236\200\006\022"
+  "%\n\037SL_POLICY_PATH_GRP_NAME_MISSING\020\237\200\006\022\""
+  "\n\034SL_POLICY_INVALID_DSCP_VALUE\020\240\200\006\022%\n\037SL"
+  "_POLICY_PRIORITY_STR_TOO_LONG\020\241\200\006\022&\n SL_"
+  "POLICY_MAX_INTF_LIMIT_REACHED\020\242\200\006\022$\n\036SL_"
+  "POLICY_RULE_DELETE_NO_RULES\020\243\200\006\022\036\n\030SL_PO"
+  "LICY_APPLY_NO_INTFS\020\244\200\006\022 \n\032SL_POLICY_UNA"
+  "PPLY_NO_INTFS\020\245\200\006\022\036\n\030SL_INTERNAL_START_O"
+  "FFSET\020\200\200@\"<\n\013SLInterface\022\016\n\004Name\030\001 \001(\tH\000"
+  "\022\020\n\006Handle\030\002 \001(\rH\000B\013\n\tInterface\"B\n\013SLIpA"
+  "ddress\022\023\n\tV4Address\030\001 \001(\rH\000\022\023\n\tV6Address"
+  "\030\002 \001(\014H\000B\t\n\007Address\"%\n\nSLObjectId\022\016\n\004Nam"
+  "e\030\001 \001(\tH\000B\007\n\005entry\"T\n\021SLPathGroupRefKey\022"
+  "\017\n\007VrfName\030\001 \001(\t\022.\n\013PathGroupId\030\002 \001(\0132\031."
+  "service_layer.SLObjectId*b\n\007SLRegOp\022\025\n\021S"
+  "L_REGOP_RESERVED\020\000\022\025\n\021SL_REGOP_REGISTER\020"
+  "\001\022\027\n\023SL_REGOP_UNREGISTER\020\002\022\020\n\014SL_REGOP_E"
+  "OF\020\003*_\n\nSLObjectOp\022\025\n\021SL_OBJOP_RESERVED\020"
+  "\000\022\020\n\014SL_OBJOP_ADD\020\001\022\023\n\017SL_OBJOP_UPDATE\020\002"
+  "\022\023\n\017SL_OBJOP_DELETE\020\003*S\n\tSLNotifOp\022\027\n\023SL"
+  "_NOTIFOP_RESERVED\020\000\022\025\n\021SL_NOTIFOP_ENABLE"
+  "\020\001\022\026\n\022SL_NOTIFOP_DISABLE\020\002*\211\001\n\020SLUpdateP"
+  "riority\022\030\n\024SL_PRIORITY_RESERVED\020\000\022\030\n\024SL_"
+  "PRIORITY_CRITICAL\020\004\022\024\n\020SL_PRIORITY_HIGH\020"
+  "\010\022\026\n\022SL_PRIORITY_MEDIUM\020\014\022\023\n\017SL_PRIORITY"
+  "_LOW\020\020*K\n\013SLEncapType\022\025\n\021SL_ENCAP_RESERV"
+  "ED\020\000\022\022\n\016SL_ENCAP_VXLAN\020\001\022\021\n\rSL_ENCAP_MPL"
+  "S\020\002*\215\001\n\013SLTableType\022\032\n\026SL_TABLE_TYPE_RES"
+  "ERVED\020\000\022\027\n\023SL_IPv4_ROUTE_TABLE\020\001\022\027\n\023SL_I"
+  "Pv6_ROUTE_TABLE\020\002\022\027\n\023SL_MPLS_LABEL_TABLE"
+  "\020\003\022\027\n\023SL_PATH_GROUP_TABLE\020\004*0\n\014SLRspACKT"
+  "ype\022\013\n\007RIB_ACK\020\000\022\023\n\017RIB_AND_FIB_ACK\020\001BQZ"
+  "Ogithub.com/Cisco-service-layer/service-"
+  "layer-objmodel/grpc/protos;service_layer"
+  "b\006proto3"
   ;
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_sl_5fcommon_5ftypes_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_sl_5fcommon_5ftypes_2eproto = {
-  false, false, 10704, descriptor_table_protodef_sl_5fcommon_5ftypes_2eproto, "sl_common_types.proto", 
+  false, false, 12008, descriptor_table_protodef_sl_5fcommon_5ftypes_2eproto, "sl_common_types.proto", 
   &descriptor_table_sl_5fcommon_5ftypes_2eproto_once, nullptr, 0, 5,
   schemas, file_default_instances, TableStruct_sl_5fcommon_5ftypes_2eproto::offsets,
   file_level_metadata_sl_5fcommon_5ftypes_2eproto, file_level_enum_descriptors_sl_5fcommon_5ftypes_2eproto, file_level_service_descriptors_sl_5fcommon_5ftypes_2eproto,
@@ -716,6 +749,44 @@ bool SLErrorStatus_SLErrno_IsValid(int value) {
     case 94209:
     case 94210:
     case 94211:
+    case 98304:
+    case 98305:
+    case 98306:
+    case 98307:
+    case 98308:
+    case 98309:
+    case 98310:
+    case 98311:
+    case 98312:
+    case 98313:
+    case 98314:
+    case 98315:
+    case 98316:
+    case 98317:
+    case 98318:
+    case 98319:
+    case 98320:
+    case 98321:
+    case 98322:
+    case 98323:
+    case 98324:
+    case 98325:
+    case 98326:
+    case 98327:
+    case 98328:
+    case 98329:
+    case 98330:
+    case 98331:
+    case 98332:
+    case 98333:
+    case 98334:
+    case 98335:
+    case 98336:
+    case 98337:
+    case 98338:
+    case 98339:
+    case 98340:
+    case 98341:
     case 1048576:
       return true;
     default:
@@ -1007,6 +1078,44 @@ constexpr SLErrorStatus_SLErrno SLErrorStatus::SL_FIB_START_OFFSET;
 constexpr SLErrorStatus_SLErrno SLErrorStatus::SL_FIB_SUCCESS;
 constexpr SLErrorStatus_SLErrno SLErrorStatus::SL_FIB_FAILED;
 constexpr SLErrorStatus_SLErrno SLErrorStatus::SL_FIB_INELIGIBLE;
+constexpr SLErrorStatus_SLErrno SLErrorStatus::SL_POLICY_START_OFFSET;
+constexpr SLErrorStatus_SLErrno SLErrorStatus::SL_POLICY_ADD_ERR;
+constexpr SLErrorStatus_SLErrno SLErrorStatus::SL_POLICY_EXISTS_ERR;
+constexpr SLErrorStatus_SLErrno SLErrorStatus::SL_POLICY_DELETE_ERR;
+constexpr SLErrorStatus_SLErrno SLErrorStatus::SL_POLICY_RULE_ADD_ERR;
+constexpr SLErrorStatus_SLErrno SLErrorStatus::SL_POLICY_RULE_EXISTS_ERR;
+constexpr SLErrorStatus_SLErrno SLErrorStatus::SL_POLICY_RULE_DELETE_ERR;
+constexpr SLErrorStatus_SLErrno SLErrorStatus::SL_POLICY_APPLY_ERR;
+constexpr SLErrorStatus_SLErrno SLErrorStatus::SL_POLICY_UNAPPLY_ERR;
+constexpr SLErrorStatus_SLErrno SLErrorStatus::SL_POLICY_TOO_MANY_POLICIES;
+constexpr SLErrorStatus_SLErrno SLErrorStatus::SL_POLICY_NAME_TOO_LONG;
+constexpr SLErrorStatus_SLErrno SLErrorStatus::SL_POLICY_RULE_NAME_TOO_LONG;
+constexpr SLErrorStatus_SLErrno SLErrorStatus::SL_POLICY_DUPLICATE_PRIORITY_IN_RULE;
+constexpr SLErrorStatus_SLErrno SLErrorStatus::SL_POLICY_RULE_MOD_NOT_ALLOWED;
+constexpr SLErrorStatus_SLErrno SLErrorStatus::SL_POLICY_INVALID_RULE;
+constexpr SLErrorStatus_SLErrno SLErrorStatus::SL_POLICY_RULE_ADD_NO_RULES;
+constexpr SLErrorStatus_SLErrno SLErrorStatus::SL_POLICY_INVALID_MATCH_COUNT_IN_RULE;
+constexpr SLErrorStatus_SLErrno SLErrorStatus::SL_POLICY_INVALID_ACTION_COUNT_IN_RULE;
+constexpr SLErrorStatus_SLErrno SLErrorStatus::SL_POLICY_NOT_FOUND;
+constexpr SLErrorStatus_SLErrno SLErrorStatus::SL_POLICY_INVALID;
+constexpr SLErrorStatus_SLErrno SLErrorStatus::SL_POLICY_NAME_MISSING;
+constexpr SLErrorStatus_SLErrno SLErrorStatus::SL_POLICY_RULE_NAME_MISSING;
+constexpr SLErrorStatus_SLErrno SLErrorStatus::SL_POLICY_PRIORITY_MISSING_IN_RULE;
+constexpr SLErrorStatus_SLErrno SLErrorStatus::SL_POLICY_TYPE_INVALID;
+constexpr SLErrorStatus_SLErrno SLErrorStatus::SL_POLICY_INVALID_DIRECTION;
+constexpr SLErrorStatus_SLErrno SLErrorStatus::SL_POLICY_INTF_NAME_TOOLONG;
+constexpr SLErrorStatus_SLErrno SLErrorStatus::SL_POLICY_INTF_NAME_MISSING;
+constexpr SLErrorStatus_SLErrno SLErrorStatus::SL_POLICY_MAX_RULE_LIMIT_REACHED;
+constexpr SLErrorStatus_SLErrno SLErrorStatus::SL_POLICY_VRF_NAME_TOO_LONG;
+constexpr SLErrorStatus_SLErrno SLErrorStatus::SL_POLICY_VRF_NAME_MISSING;
+constexpr SLErrorStatus_SLErrno SLErrorStatus::SL_POLICY_PATH_GRP_NAME_TOO_LONG;
+constexpr SLErrorStatus_SLErrno SLErrorStatus::SL_POLICY_PATH_GRP_NAME_MISSING;
+constexpr SLErrorStatus_SLErrno SLErrorStatus::SL_POLICY_INVALID_DSCP_VALUE;
+constexpr SLErrorStatus_SLErrno SLErrorStatus::SL_POLICY_PRIORITY_STR_TOO_LONG;
+constexpr SLErrorStatus_SLErrno SLErrorStatus::SL_POLICY_MAX_INTF_LIMIT_REACHED;
+constexpr SLErrorStatus_SLErrno SLErrorStatus::SL_POLICY_RULE_DELETE_NO_RULES;
+constexpr SLErrorStatus_SLErrno SLErrorStatus::SL_POLICY_APPLY_NO_INTFS;
+constexpr SLErrorStatus_SLErrno SLErrorStatus::SL_POLICY_UNAPPLY_NO_INTFS;
 constexpr SLErrorStatus_SLErrno SLErrorStatus::SL_INTERNAL_START_OFFSET;
 constexpr SLErrorStatus_SLErrno SLErrorStatus::SLErrno_MIN;
 constexpr SLErrorStatus_SLErrno SLErrorStatus::SLErrno_MAX;
