@@ -958,6 +958,47 @@ message SLBgplsTopoSrv6SidAttr {
 
 // SR Policy Attributes
 message SLBgplsTopoSrPolicyAttr {
+    // SR Candidate Path (CP) State TLV provides the operational status
+    //     and attributes of the SR Policy at the CP level.
+    // SR Candidate Path State. TLV 1202
+    // Section 5.3 of [draft-ietf-idr-bgp-ls-sr-policy]
+    SLBgplsTopoSrCpState CpState = 1;
+
+    // SR Candidate Path Name carries the symbolic name associated with
+    //     the candidate path.
+    // SR Candidate Path Name. TLV 1203
+    // Section 5.5 of [draft-ietf-idr-bgp-ls-sr-policy]
+    SLBgplsTopoSrCpName CpName = 2;
+
+    // SR Policy Name carries symbolic name associated with the SR Policy.
+    // SR Policy Name. TLV 1213
+    // Section 5.4 of [draft-ietf-idr-bgp-ls-sr-policy]
+    SLBgplsTopoSrPolicyName SrPolicyName = 3;
+
+    // SR Binding SID (BSID) is used to report the BSID and its attributes
+    //     for the SR Policy CP.
+    // SR Binding SID. TLV 1201
+    // Section 5.1 of [draft-ietf-idr-bgp-ls-sr-policy]
+    SLBgplsTopoSrBindingSid SrBsid = 4;
+
+    // SRv6 Binding SID (BSID) is used to report
+    //     the SRv6 BSID and its attributes for the SR Policy CP.
+    // SRv6 Binding SID. TLV 1212
+    // Section 5.2 of [draft-ietf-idr-bgp-ls-sr-policy]
+    SLBgplsTopoSrv6BindingSid Srv6Bsid = 5;
+
+    // SR Candidate Path Constraints is used
+    //     to report the constraints associated with the candidate path.
+    // SR Candidate Path Constraints. TLV 1204
+    // Section 5.6 of [draft-ietf-idr-bgp-ls-sr-policy]
+    SLBgplsTopoSrCpConstraints CpConstraints = 6;
+
+    // SR Segment List TLV is used to report a single SID-List of a CP.
+    //     Multiple instances of this TLV may be used to report multiple SID-
+    //     Lists of a CP.
+    // SR Segment List. TLV 1205
+    // Section 5.7 of [draft-ietf-idr-bgp-ls-sr-policy]
+    repeated SLBgplsTopoSrSegList SegLists = 7;
 }
 
 //=========================== Attribute definitions sorted by TLV code point ========================//
@@ -1461,8 +1502,8 @@ message SLBgplsTopoL2BundleMemberAttr {
 message SLBgplsTopoBundleMemberAttr {
     oneof MemberAttr {
         SLBgplsTopoLinkMaxBandwidth MaxBandwidth = 1;
-        SLBgplsTopoLinkMaxResvBandwidth MaxResvBandiwdth = 2;
-        SLBgplsTopoLinkUnresvBandwidth UnresvBandiwdths = 3;
+        SLBgplsTopoLinkMaxResvBandwidth MaxResvBandwidth = 2;
+        SLBgplsTopoLinkUnresvBandwidth UnresvBandwidths = 3;
         SLBgplsTopoLinkProtecionType ProtectionType = 4;
         SLBgplsTopoAdjSid AdjSid = 5;
         SLBgplsTopoLanAdjSid LanAdjSid = 6;
@@ -1502,6 +1543,400 @@ message SLBgplsTopoAslaAttr {
     }
 }
 
+
+// SR Binding SID. TLV 1201
+// Section 5.1 of [draft-ietf-idr-bgp-ls-sr-policy]
+message SlBgplsTopoSrBsid {
+    oneof BindingSid {
+        uint32 MplsBsid = 1;
+        bytes Srv6Bsid = 2;
+    }
+}
+
+message SLBgplsTopoSrBindingSid {
+    // Bit-0: Indicates the dataplane for the BSIDs and if they are
+    //            16 octet SRv6 SID when set and are 4 octet SR/MPLS label value
+    //            when clear.
+    // Bit-1: Indicates the allocation of the value in the BSID field
+    //            when set and indicates that BSID is not allocated when clear.
+    // Bit-2: Indicates the specified BSID value is unavailable when set.
+    // Bit-3: Indicates the BSID value is from the Segment Routing
+    //            Local Block (SRLB) of the headend node when set and is from the
+    //            local dynamic label pool when clear.
+    // Bit-4: Indicates the BSID value is one allocated from dynamic
+    //            label pool due to fallback (e.g. when specified BSID is
+    //            unavailable) when set.
+    bytes BsidFlags = 1;
+    SlBgplsTopoSrBsid Bsid = 2;
+    SlBgplsTopoSrBsid SpecifiedBsid = 3;
+}
+
+// SR Candidate Path State. TLV 1202
+// Section 5.3 of [draft-ietf-idr-bgp-ls-sr-policy]
+message SLBgplsTopoSrCpState {
+    uint32 Priority = 1;
+
+    // Bit-0: Indicates the CP is in an administrative shut state when set
+    // Bit-1: Indicates the CP is the active path (i.e. one
+    //            provisioned in the forwarding plane) for the SR Policy when set
+    // Bit-2: Indicates the CP is the backup path (i.e. one
+    //            identified for path protection of the active path) for the SR
+    //            Policy when set
+    // Bit-3: Indicates that the CP has been evaluated for validity
+    //            (e.g. headend may evaluate CPs based on their preferences) when
+    //            set
+    // Bit-4: Indicates the CP has at least one valid SID-List when
+    //            set.  When the E-Flag is clear (i.e. the CP has not been
+    //            evaluated), then this flag MUST be set to 0 by the originator
+    //            and ignored by the receiver.
+    // Bit-5: Indicates the CP was instantiated by the headend due to
+    //            an on-demand nexthop trigger based on a local template when
+    //            set.  Refer to section 8.5 of [RFC9256] for details.
+    // Bit-6: Indicates the CP was delegated for computation to a
+    //            PCE/controller when set
+    // Bit-7: Indicates the CP was provisioned by a PCE/controller when set
+    // Bit-8: Indicates the CP is to perform the "drop upon invalid"
+    //            behavior when no other valid CP is available for this SR
+    //            Policy.  Refer to section 8.2 of [RFC9256] for details.
+    // Bit-9: Indicates the CP has been marked as eligible for use as
+    //            Transit Policy on the headend when set.  Refer to section 8.3
+    //            of [RFC9256].
+    //Bit-10: Indicates that this CP is reported as active and is
+    //            dropping traffic as a result of the "drop upon invalid"
+    //            behavior being activated for the SR Policy.
+    bytes Flags = 2;
+
+    uint32 Preference = 3;
+}
+
+// SR Candidate Path Name. TLV 1203
+// Section 5.5 of [draft-ietf-idr-bgp-ls-sr-policy]
+message SLBgplsTopoSrCpName {
+    String CpName = 1;
+}
+
+// SR Candidate Path Constraints. TLV 1204
+// Section 5.6 of [draft-ietf-idr-bgp-ls-sr-policy]
+message SLBgplsTopoSrCpConstraints {
+    // Bit-0: Indicates that the CP uses SRv6 dataplane when set and
+    //            SR/MPLS dataplane when clear
+    // Bit-1: Indicates that the CP prefers the use of only protected
+    //            SIDs when set.  This flag is mutually exclusive with the
+    //            Bit-2.
+    // Bit-2: Indicates that the CP prefers the use of only
+    //            unprotected SIDs when set.  This flag is mutually exclusive
+    //            with the Bit-1.
+    // Bit-3: Indicates that the CP uses only the SIDs belonging to
+    //            the specified SR Algorithm when set
+    // Bit-4: Indicates that the CP uses only the SIDs belonging to
+    //            the specified topology when set
+    // Bit-5: Indicates that the use of protected (P-Flag) or
+    //            unprotected (U-Flag) SIDs becomes a strict constraint instead
+    //            of a preference when set
+    // Bit-6: Indicates that the CP is fixed once computed and not
+    //            modified except on operator intervention.
+    // Bit-7: Indicates that the CP uses only adjacency SIDs and
+    //            traverses hop-by-hop over the links corresponding to those
+    //            adjacency SIDs when set
+    byte Flags = 1;
+
+    uint32 Mtid = 2;
+    uint32 Algorithm = 3;
+
+    // SR Bandwidth Constraint. TLV 1210
+    // Section 5.6.3 of [draft-ietf-idr-bgp-ls-sr-policy]
+    SLBgplsTopoSrBandwidthConstraint BandwidthConstraints = 4;
+
+    // SR Affinity Constraints. TLV 1208
+    // Section 5.6.1 of [draft-ietf-idr-bgp-ls-sr-policy]
+    SLBgplsTopoSrAffinityConstraints AffinityConstraints = 5;
+
+    // SR SRLG Constraints. TLV 1209
+    // Section 5.6.2 of [draft-ietf-idr-bgp-ls-sr-policy]
+    SLBgplsTopoSrSrlgConstraints SrlgConstraints = 6;
+
+    // SR Disjoint Group Constraint. TLV 1211
+    // Section 5.6.4 of [draft-ietf-idr-bgp-ls-sr-policy]
+    SLBgplsTopoSrDisjointGroupConstraint DisjointConstraints = 7;
+
+    // SR Bidirectional Group Contraint. TLV 1214
+    // Section 5.6.5 of [draft-ietf-idr-bgp-ls-sr-policy]
+    SLBgplsTopoSrBidirGroupConstraint BidirGroupConstraints = 8;
+
+    // SR Metric Contraint. TLV 1215
+    // Section 5.6.6 of [draft-ietf-idr-bgp-ls-sr-policy]
+    repeated SLBgplsTopoSrMetricConstraint MetricConstraints = 9;
+}
+
+// SR Segment List. TLV 1205
+// Section 5.7 of [draft-ietf-idr-bgp-ls-sr-policy]
+message SLBgplsTopoSrSegList {
+    // Bit-0: Indicates the SID-List is comprised of SRv6 SIDs when
+    //            set and indicates it is comprised of SR/MPLS labels when clear.
+    // Bit-1: Indicates that SID-List is associated with an explicit
+    //            candidate path when set and with a dynamic candidate path when
+    //            clear.  All segment lists of a given candidate path MUST be
+    //            either explicit or dynamic and in case of inconsistency, the
+    //            receiver MAY consider them all to be dynamic.
+    // Bit-2: Indicates that SID-List has been computed for a dynamic
+    //            path when set.  It is always reported as set for explicit
+    //            paths.
+    // Bit-3: Indicates the SID-List has passed verification or its
+    //            verification was not required when set and failed verification
+    //            when clear.
+    // Bit-4: Indicates that the first Segment has been resolved when
+    //            set and failed resolution when clear.
+    // Bit-5: Indicates that the computation for the dynamic path
+    //            failed when set and succeeded (or not required in case of
+    //            explicit path) when clear
+    // Bit-6: Indicates that all the SIDs in the SID-List belong to
+    //            the specified algorithm when set.
+    // Bit-7: Indicates that all the SIDs in the SID-List belong to
+    //            the specified topology (identified by the multi-topology ID)
+    //            when set.
+    // Bit-8: Indicates that the SID-list has been removed from the
+    //            forwarding plane due to fault detection by a monitoring
+    //            mechanism (e.g.  BFD) when set and indicates no fault detected
+    //            or monitoring is not being done when clear.
+    bytes Flags = 1;
+
+    uint32 Mtid = 2;
+    uint32 Algorithm = 3;
+    uint32 Weight = 4;
+
+    // SR Segment. TLV 1206
+    // Section 5.8 of [draft-ietf-idr-bgp-ls-sr-policy]
+    repeated SLBgplsTopoSrSegment Segments = 5;
+}
+
+// SR Segment Type
+enum SLBgplsTopoSrSegmentType {
+    // Reserved. 0
+    SL_BGPLS_TOPO_SR_SEG_TYPE_RESV = 0;
+
+    // (Type A) SR-MPLS Label. 1
+    SL_BGPLS_TOPO_SR_SEG_TYPE_MPLS_LABEL = 1;
+
+    // (Type B) SRv6 SID as IPv6 address. 2
+    SL_BGPLS_TOPO_SR_SEG_TYPE_SRV6_SID_V6 = 2;
+
+    // (Type C) SR-MPLS Prefix SID as IPv4 Node Address. 3
+    SL_BGPLS_TOPO_SR_SEG_TYPE_MPLS_PFX_SID_V4 = 3;
+
+    // (Type D) SR-MPLS Prefix SID as IPv6 Node Global Address. 4
+    SL_BGPLS_TOPO_SR_SEG_TYPE_MPLS_PFX_SID_V6 = 4;
+
+    // (Type E) SR-MPLS Adjacency SID as IPv4 Node Address
+    // & Local Interface ID. 5
+    SL_BGPLS_TOPO_SR_SEG_TYPE_MPLS_ADJ_SID_V4_NODE_ADDR_LOC_ID = 5;
+
+    // (Type F) SR-MPLS Adjacency SID as IPv4 Local
+    // & Remote Interface Addresses. 6
+    SL_BGPLS_TOPO_SR_SEG_TYPE_MPLS_ADJ_SID_V4_LOC_REM_ADDR = 6;
+
+    // (Type G) SR-MPLS Adjacency SID as pair of IPv6 Global Address
+    // & Interface ID for Local & Remote nodes. 7
+    SL_BGPLS_TOPO_SR_SEG_TYPE_MPLS_ADJ_SID_V6_LOC_REM_ADDR_AND_ID = 7;
+
+    // (Type H) SR-MPLS Adjacency SID as pair of IPv6 Global Addresses
+    // for the Local & Remote Interface. 8
+    SL_BGPLS_TOPO_SR_SEG_TYPE_MPLS_ADJ_SID_V6_LOC_REM_ADDR = 8;
+
+    // (Type I) SRv6 END SID as IPv6 Node Global Address. 9
+    SL_BGPLS_TOPO_SR_SEG_TYPE_SRV6_END_SID_V6_NODE_ADDR = 9;
+
+    // (Type J) SRv6 END.X SID as pair of IPv6 Global Address
+    // & Interface ID for Local & Remote nodes. 10
+    SL_BGPLS_TOPO_SR_SEG_TYPE_SRV6_END_SID_V6_LOC_REM_ADDR_AND_ID = 10;
+
+    // (Type K) SRv6 END.X SID as pair of IPv6 Global Addresses for
+    // the Local & Remote Interface. 11
+    SL_BGPLS_TOPO_SR_SEG_TYPE_SRV6_END_SID_V6_LOC_REM_ADDR = 11;
+}
+
+// SR Segment Descriptors
+message SLBgplsTopoSrSegmentDesc {
+    uint32 Algorithm = 1;
+    oneof LocalNodeAddr {
+        uint32 LocalNodeAddrV4 = 2;
+        bytes LocalNodeAddrV6 = 3;
+    }
+    oneof RemoteNodeAddr {
+        uint32 RemoteNodeAddrV4 = 4;
+        bytes RemoteNodeAddrV6 = 5;
+    }
+    bytes LocalNodeGlobalAddrV6 = 6;
+    bytes RemoteNodeGlobalAddrV6 = 7;
+    uint32 LocalNodeIntfId = 8;
+    uint32 RemoteNodeIntfId = 9;
+}
+
+// SR Segment. TLV 1206
+// Section 5.8 of [draft-ietf-idr-bgp-ls-sr-policy]
+message SLBgplsTopoSrSegment {
+    SLBgplsTopoSrSegmentType SegmentType = 1;
+
+    // Bit-0: Indicates the presence of SID value in the SID field
+    //            when set and that no value is indicated when clear.
+    // Bit-1: Indicates the SID value is explicitly provisioned value
+    //            (locally on headend or via controller/PCE) when set and is a
+    //            dynamically resolved value by headend when clear
+    // Bit-2: Indicates the SID has passed verification or did not
+    //            require verification when set and failed verification when
+    //            clear.
+    // Bit-3: Indicates the SID has been resolved or did not require
+    //            resolution (e.g. because it is not the first SID) when set and
+    //            failed resolution when clear.
+    // Bt-4: Indicates that the Algorithm indicated in the Segment
+    //            descriptor is valid when set.  When clear, it indicates that
+    //            the headend is unable to determine the algorithm of the SID.
+    bytes Flags = 2;
+
+    oneof Sid {
+        uint32 MplsLabel = 3;
+        bytes Srv6Sid = 4;
+    }
+    SLBgplsTopoSrSegmentDesc SegmentDesc = 5;
+    SLBgplsTopoSrv6EndPointBehavior EndPointBehaviour = 6;
+    SLBgplsTopoSrv6SidStructAttr SidStructAttr = 7;
+}
+
+// SR Segment List Metric. TLV 1207
+// Section 5.9 of [draft-ietf-idr-bgp-ls-sr-policy]
+message SLBgplsSrSegListMetric {
+    uint32 MetricType = 1;
+
+    // Bit-0: The metric margin allowed for this path
+    //            computation is specified when set.
+    // Bit-1: The metric margin is specified as an
+    //            absolute value when set and is expressed as a percentage of the
+    //            minimum metric when clear.
+    // Bit-2: The metric bound allowed for the path is
+    // .          specified when set.
+    // Bit-3: The metric value computed is being
+    //            reported when set.
+    bytes Flags = 2;
+
+    uint32 MetricMargin = 3;
+    uint32 MetricBound = 4;
+    uint32 MetricValue = 5;
+}
+
+// SR Affinity Constraints. TLV 1208
+// Section 5.6.1 of [draft-ietf-idr-bgp-ls-sr-policy]
+message SLBgplsTopoSrAffinityConstraints {
+    repeated uint32 ExclAnyEag = 1;
+    repeated uint32 InclAnyEag = 2;
+    repeated uint32 InclAllEag = 3;
+}
+
+// SR SRLG Constraints. TLV 1209
+// Section 5.6.2 of [draft-ietf-idr-bgp-ls-sr-policy]
+message SLBgplsTopoSrSrlgConstraints {
+    repeated uint32 SrlgValues = 1;
+}
+
+// SR Bandwidth Constraint. TLV 1210
+// Section 5.6.3 of [draft-ietf-idr-bgp-ls-sr-policy]
+message SLBgplsTopoSrBandwidthConstraint {
+    uint32 Bandwidth = 1;
+}
+
+// SR Disjoint Group Constraint. TLV 1211
+// Section 5.6.4 of [draft-ietf-idr-bgp-ls-sr-policy]
+message SLBgplsTopoSrDisjointGroupConstraint {
+    // Bit-0: SRLG disjointness is requested when set.
+    // Bit-1: Node disjointness is requested when set.
+    // Bit-2: Link disjointness is requested when set.
+    // Bit-3: The computation may fallback to a lower
+    //           level of disjointness amongst the ones requested when all
+    //           cannot be achieved when set.
+    // Bit-4: The computation may fallback to the
+    //           default best path (e.g.  IGP path) in case of none of the
+    //           desired disjointness can be achieved when set.
+    bytes RequestFlags = 1;
+
+    // Bit-0: SRLG disjointness is achieved when set.
+    // Bit-1: Node disjointness is achieved when set.
+    // Bit-2: Link disjointness is achieved when set.
+    // Bit-3: The computation has fallen back to a
+    //            lower level of disjointness than requested when set.
+    // Bit-4: The computation has fallen back to the
+    //            best path (e.g.  IGP path) and disjointness has not been
+    //            achieved when set.
+    // Bit-5: The disjointness constraint could not
+    //            be achieved and hence path has been invalidated when set.
+    bytes StatusFlags = 2;
+
+    uint32 DisjointGroupId = 3;
+}
+
+// SRv6 Binding SID. TLV 1212
+// Section 5.2 of [draft-ietf-idr-bgp-ls-sr-policy]
+message SLBgplsTopoSrv6BindingSid {
+    // Bit-0: Indicates the allocation of the value in the BSID field
+    //            when set and indicates that BSID is not allocated when clear.
+    // Bit-1: Indicates the specified BSID value is unavailable when set.
+    // Bit-2: Indicates the BSID value is one allocated from dynamic
+    //            label pool due to fallback (e.g. when specified BSID is
+    //            unavailable) when set.
+    bytes BsidFlags = 1;
+
+    SlBgplsTopoSrBsid Bsid = 2;
+    SlBgplsTopoSrBsid SpecifiedBsid = 3;
+    SLBgplsTopoSrv6EndPointBehavior EndPointBehaviour = 4;
+    SLBgplsTopoSrv6SidStructAttr SidStructAttr = 5;
+}
+
+// SR Policy Name. TLV 1213
+// Section 5.4 of [draft-ietf-idr-bgp-ls-sr-policy]
+message SLBgplsTopoSrPolicyName {
+    string PolicyName = 1;
+}
+
+// SR Bidirectional Group Contraint. TLV 1214
+// Section 5.6.5 of [draft-ietf-idr-bgp-ls-sr-policy]
+message SLBgplsTopoSrBidirGroupConstraint {
+    // Bit-0: This CP of the SR Policy forms the
+    //            reverse path when set and otherwise it is the forward path when clear.
+    // Bit-1: The bidirectional path is co-routed when set.
+    bytes Flags = 1;
+    uint32 BidirGroupId = 2;
+}
+
+// SR Metric Contraint. TLV 1215
+// Section 5.6.6 of [draft-ietf-idr-bgp-ls-sr-policy]
+message SLBgplsTopoSrMetricConstraint {
+    uint32 MetricType = 1;
+
+    // Bit-0: The optimization metric being
+    //           reported for a dynamic CP when set.  This bit MUST NOT be set
+    //           in more than one instance of this TLV for a given CP
+    //           advertisement.
+    // Bit-1: The metric margin allowed is specified when set.
+    // Bit-2: The metric margin is specified as an
+    //           absolute value when set and is expressed as a percentage of the
+    //           minimum metric when clear.
+    // Bit-3: The metric bound allowed for the path is
+    //           specified when set.
+    bytes Flags = 2;
+
+    uint32 MetricMargin = 3;
+    uint32 MetricBound = 4;
+}
+
+// SR Segment List Bandwidth. TLV 1216
+// Section 5.10 of [draft-ietf-idr-bgp-ls-sr-policy]
+message SLBgplsTopoSrCpSegListBandwidthState {
+    uint32 Bandwidth = 1;
+}
+
+// SR Segment List Identifier. TLV 1217
+// Section 5.11 of [draft-ietf-idr-bgp-ls-sr-policy]
+message SLBgplsTopoSrSegListId {
+    uint32 SegListId = 1;
+}
+
 // SRv6 End Point Behavior. TLV 1250
 // Section 7.1 of [RFC9514]
 message SLBgplsTopoSrv6EndPointBehavior {
@@ -1510,6 +1945,7 @@ message SLBgplsTopoSrv6EndPointBehavior {
     // Bit-0: Flags associated with the SID. Section 8 of [RFC9513]
     //      for OSPFv3, and Section 7.2 of [RFC9352] for IS-IS.
     bytes Flags = 2;
+
     uint32 Algorithm = 3;
 }
 
@@ -1520,6 +1956,7 @@ message SLBgplsTopoSrv6BgpPeerNodeSid {
     // Bit-1: Set Flag associated with the SID.
     // Bit-2: Persistent Flag associated with the SID.
     bytes Flags = 1;
+
     uint32 Weight = 2;
     uint32 PeerAS = 3;
     uint32 PeerBgpId = 4;
