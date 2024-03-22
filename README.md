@@ -63,8 +63,7 @@ The SL API version is stored in the file grpc/protos/sl_version.proto. Comprised
 | 0.3.0  | MPLS Class Based Forwarding |
 | 0.6.0  | Service-Layer and SR merge, Primary/backup (aka Path Priority) for MPLS CBF, Route download priority |
 | 0.7.0  | VxLAN encapsulation for IP routes |
-| 0.9.0  | Service-Layer AF common RPCs |
-         | The API contains forward looking SLAFNotif(), match criteria for SLAFGet(), viability flags and FIB ACK that are work in progress |
+| 0.9.0  | Service-Layer AF common RPCs. The API contains forward looking SLAFNotif(), match criteria for SLAFGet(), viability flags and FIB ACK that are work in progress |
 
 ## Release Branches
 
