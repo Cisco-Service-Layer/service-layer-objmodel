@@ -1299,9 +1299,13 @@ message SLBgplsTopoLinkName {
 
 // BGP-LS Topology Adjacency Types
 enum SLBgplsTopoAdjSidType {
+    // Unknown SID Type
+    SL_BGPLS_TOPO_ADJ_SID_TYPE_UNKNOWN = 0;
+
     // Adjacency SID Type Label
     SL_BGPLS_TOPO_ADJ_SID_TYPE_LABEL = 1;
 
+    // Adjacency SID Type Index
     SL_BGPLS_TOPO_ADJ_SID_TYPE_INDEX = 2;
 }
 
@@ -1369,7 +1373,7 @@ message SLBgplsTopoMinMaxUniLinkDelay {
     uint32 MaxDelay = 2;
 
     // Bit-0: Set if anamolous.
-   bytes AnamolousFlag = 2;
+   bytes AnamolousFlag = 3;
 }
 
 // Unidirectional Delay Variation. TLV 1116
@@ -1508,7 +1512,7 @@ message SLBgplsTopoBundleMemberAttr {
         SLBgplsTopoAdjSid AdjSid = 5;
         SLBgplsTopoLanAdjSid LanAdjSid = 6;
         SLBgplsTopoAslaAttr AslaAttr = 7;
-        SLBgplsTopoAdminGroup ExtAdminGroup = 8;
+        SLBgplsTopoExtAdminGroup ExtAdminGroup = 8;
         SLBgplsTopoLinkTEDeafultMetric TEDefMetric = 9;
         SLBgplsTopoUniLinkDelay UniLinkDelay = 10;
         SLBgplsTopoMinMaxUniLinkDelay MinMaxLinkDelay = 11;
@@ -1531,7 +1535,7 @@ message SLBgplsTopoLinkAslaAttr {
 message SLBgplsTopoAslaAttr {
     oneof AslaAttr {
         SLBgplsTopoLinkSrlg Srlg = 1;
-        SLBgplsTopoAdminGroup ExtAdminGroup = 2;
+        SLBgplsTopoExtAdminGroup ExtAdminGroup = 2;
         SLBgplsTopoLinkTEDeafultMetric TEDefMetric = 3;
         SLBgplsTopoUniLinkDelay UniLinkDelay = 4;
         SLBgplsTopoMinMaxUniLinkDelay MinMaxLinkDelay = 5;
@@ -1612,7 +1616,7 @@ message SLBgplsTopoSrCpState {
 // SR Candidate Path Name. TLV 1203
 // Section 5.5 of [draft-ietf-idr-bgp-ls-sr-policy]
 message SLBgplsTopoSrCpName {
-    String CpName = 1;
+    string CpName = 1;
 }
 
 // SR Candidate Path Constraints. TLV 1204
@@ -1638,7 +1642,7 @@ message SLBgplsTopoSrCpConstraints {
     // Bit-7: Indicates that the CP uses only adjacency SIDs and
     //            traverses hop-by-hop over the links corresponding to those
     //            adjacency SIDs when set
-    byte Flags = 1;
+    bytes Flags = 1;
 
     uint32 Mtid = 2;
     uint32 Algorithm = 3;
