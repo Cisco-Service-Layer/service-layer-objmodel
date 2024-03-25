@@ -804,7 +804,7 @@ message SLBgplsTopoLinkAttr {
     // by the network administrator.
     // Extended Administrative Group. TLV 1088
     // Section 5.3.2 of [RFC9552]
-    SLBgplsTopoExtAdminGroup ExtAdminGroup = 7;
+    repeated SLBgplsTopoExtAdminGroup ExtAdminGroup = 7;
 
     // The maximum bandwidth that can be used on a link.
     // Maximum Link Bandwidth. TLV 1089
@@ -954,12 +954,12 @@ message SLBgplsTopoPrefixAttr {
     // IGP Route Tags of a prefix.
     // IGP Route Tag. TLV 1153
     // Section 5.3.3.2 of [RFC9552]
-    SLBgplsTopoPrefixIgpRouteTag IgpRouteTag = 3;
+    repeated SLBgplsTopoPrefixIgpRouteTag IgpRouteTag = 3;
 
     // IGP Extended Route Tags of a prefix.
     // IGP Extended Route Tag. TLV 1154
     // Section 5.3.3.3 of [RFC9552]
-    SLBgplsTopoPrefixIgpExtRouteTag IgpExtRouteTag = 4;
+    repeated SLBgplsTopoPrefixIgpExtRouteTag IgpExtRouteTag = 4;
 
     // The Metric of a prefix.
     // Prefix Metric. TLV 1155
@@ -973,7 +973,7 @@ message SLBgplsTopoPrefixAttr {
     SLBgplsTopoPrefixOspfFwdAddr OspfFwdAddr = 6;
 
     // An envelope that transparently carries optional Prefix Attribute TLVs
-    // advertised by a route.
+    // advertised by a router.
     // Opaque Prefix Attribute. TLV 1157
     // Section 5.3.3.6 of [RFC9552]
     SLBgplsTopoPrefixOpaqueAttr OpaqueAttr = 7;
@@ -983,7 +983,7 @@ message SLBgplsTopoPrefixAttr {
     // Section 2.3.1 of [RFC9085]
     SLBgplsTopoPrefixSid Sid = 8;
 
-    // The number of prefixes covered by the advertisement.
+    // Range of prefix-to-SID mappings.
     // Prefix Range. TLV 1159
     // Section 2.3.5 of [RFC9085]
     SLBgplsTopoPrefixRange Range = 9;
@@ -1023,7 +1023,7 @@ message SLBgplsTopoSrv6SidAttr {
     // structure information associated with a SRv6 SID.
     // SRv6 SID Structure Attribute. TLV 1252
     // Section 8 of [RFC9514]
-    SLBgplsTopoSrv6SidStructAttr SidStructAttr = 3;
+    SLBgplsTopoSrv6SidStruct SidStruct = 3;
 }
 
 // SR Policy Attributes
@@ -1088,30 +1088,39 @@ enum SLBgplsTopoAttrType {
 // Section 5.2.2 of [RFC9552]
 message SLBplsTopoLinkLocRemId {
     // TODO: Add description for each field in attributes
+    // Link Local Identifier
     uint32 LocalId = 1;
 
+    // Link Remote Identifier
     uint32 RemoteId = 2;
 }
 
 // Multi-Topology Identifier. TLV 263.
 // Section 5.2.2.1 of [RFC9552]
 message SLBgplsTopoMtId {
+    // Multi-Topology ID. A number in the range of 0-255
     uint32 MtId = 1;
 }
 
 // Node MSD. TLV 266.
 // Section 3 of [RFC8814]
 message SLBgplsTopoNodeMsd {
+    // MSD type. One of the values defined in the 'IGP MSD-Types' registry
+    // defined in [RFC8491]
     uint32 Type = 1;
 
+    // MSD value. A number in the range of 0-255
     uint32 Value = 2;
 }
 
 // Link MSD. TLV 267.
 // Section 4 of [RFC8814]
 message SLBgplsTopoLinkMsd {
+    // MSD type. One of the values defined in the 'IGP MSD-Types' registry
+    // defined in [RFC8491]
     uint32 Type = 1;
 
+    // MSD value. A number in the range of 0-255
     uint32 Value = 2;
 }
 
@@ -1135,42 +1144,49 @@ message SLBgplsTopoNodeFlagBits {
 // Opaque Node Attribute. TLV 1025.
 // Section 5.3.1.5 of [RFC9552]
 message SLBgplsTopoNodeOpaqueAttr {
+    // Opaque attribute
     bytes OpaqueAttr = 1;
 }
 
 // Node Name. TLV 1026.
 // Section 5.3.1.3 of [RFC9552]
 message SLBgplsNodeName {
+    // Node name
     string Name = 1;
 }
 
 // IS-IS Area Identifier. TLV 1027.
 // Section 5.3.1.2 of [RFC9552]
 message SLBgplsTopoIsisAreaId {
+    // ISIS area address
     bytes AreaId = 1;
 }
 
 // Local IPv4/IPv6 Router-ID. TLV 1028.
 // Section 5.3.1.4 of [RFC9552]
 message SLBgplsTopoLocalIpv4RouterId {
+    // IPv4 Router ID
     uint32 RouterId = 1;
 }
 
 // Local IPv4/IPv6 Router-ID. TLV 1029.
 // Section 5.3.1.4 of [RFC9552]
 message SLBgplsTopoLocalIpv6RouterId {
+    // IPv6 Router ID
     bytes RouterId = 1;
 }
 
 // Remote IPv4/IPv6 Router-ID. TLV 1030.
 // Section 5.3.2.1 of [RFC9552]
 message SLBgplsTopoRemoteIpv4RouterId {
+    // IPv4 Router ID
     uint32 RouterId = 1;
 }
 
 // Remote IPv4/IPv6 Router-ID. TLV 1031.
 // Section 5.3.2.1 of [RFC9552]
 message SLBgplsTopoRemoteIpv6RouterId {
+    // IPv6 Router ID
     bytes RouterId = 1;
 }
 
@@ -1179,8 +1195,10 @@ message SLBgplsTopoRemoteIpv6RouterId {
 
 // Segment Routing Global Block (SRGB)
 message SLBgplsTopoSrgb {
+    // First label in the range
     uint32 StartLabel = 1;
 
+    // Number of labels in the range
     uint32 RangeSize = 2;
 }
 
@@ -1193,14 +1211,17 @@ message SLBgplsTopoSrgbIsisFlags {
 // SR-Algorithm. TLV 1035.
 // Section 2.1.3 of [RFC9085]
 message SLBgplsTopoSrAlgorithm {
+    // SR algorithms
     bytes Algorithms = 1;
 }
 
 // SR Local Block. TLV 1036.
 // Section 2.1.4 of [RFC9085]
 message SLBgplsTopoSrlb {
+    // First label in the range
     uint32 StartLabel = 1;
 
+    //  Number of labels in the range
     uint32 RangeSize = 2;
 }
 
@@ -1295,17 +1316,23 @@ message SLBgplsTopoFad {
 // Flexible Algorithm Prefix metric. TLV 1044
 // Section 4 of [RFC9351]
 message SLBgplsTopoPrefixFAPM {
+    // Flexible Algorithm (128 to 255). 
     uint32 FlexAlgo = 1;
 
+    // Flags associated with the Flexible Algorithm prefix metric as
+    // defined in [RFC9350] for OSPFv2
     bytes Flags = 2;
 
+    // Flexible Algorithm prefix metric
     uint32 Metric = 3;
 }
 
 // Unsupported Flexible Algorithm Definition (FAD) TLVs. TLV 1046
 message SLBgplsTopoFadUnsuppTlv {
+    // BGPLS protocol advertising the FAD
     SLBgplsTopoProtocol Protocol = 1;
 
+    // Unsupported TLV types
     bytes Types = 2;
 }
 
@@ -1317,8 +1344,7 @@ message SLBgplsTopoExtAdminGroup {
     // administrative group assigned to the interface. By convention, the
     // least significant bit is referred to as group 0, and the
     // most significant bit is referred to as group 31.
-    // TODO: Check type
-    bytes Mask = 1;
+    uint32 Group = 1;
 }
 
 // Maximum Link Bandwidth. TLV 1089
@@ -1387,16 +1413,18 @@ message SLBgplsTopoLinkSrlg {
 // Opaque Link Attribute. TLV 1097
 // Section 5.3.2.6 of [RFC9552]
 message SLBgplsTopoLinkOpaqueAttr {
+    // Opaque attribute
     bytes OpaqueAttr = 1;
 }
 
 // Link Name. TLV 1098.
 // Section 5.3.2.7 of [RFC9552]
 message SLBgplsTopoLinkName {
+    // Link name
     string Name = 1;
 }
 
-// BGP-LS Topology Adjacency Formats
+// BGP-LS Topology Adjacency SID Formats
 enum SLBgplsTopoAdjSidFormat {
     // Reserved SID Type
     SL_BGPLS_TOPO_ADJ_SID_FORMAT_RESERVED = 0;
@@ -1453,17 +1481,29 @@ message SLBgplsTopoLanAdjSid {
 // Section 4.1 of [RFC9514]
 message SLBgplsTopoSrv6EndXSid {
     // SRv6 SID as 128 bit value
-    bytes sid = 1;
+    bytes Sid = 1;
 
+    // Algorithm associated with the SID
     uint32 Algorithm = 2;
 
+    // Flags associated with the SID. The flags are copied from the IS-IS SRv6
+    // End.X SID sub-TLV (Section 8.1 of [RFC9352]) or the OSPFv3 SRv6
+    // End.X SID sub-TLV (Section 9.1 of [RFC9513]) in the case of IS-IS
+    // or OSPFv3, respectively.  In the case of the BGP EPE Peer
+    // Adjacency SID, the flags are as defined in Section 7.2 of [RFC9514]
     bytes Flags = 3;
 
+    // Weight associated with the SID for load balancing purpose
     uint32 Weight = 4;
 
+    // Endpoint behavior of the SID
     uint32 EndPointBehavior = 5;
 
-    SLBgplsTopoSrv6SidStructAttr SidStruct = 6;
+    // The Segment Routing over IPv6 (SRv6) Segment Identifier (SID) 
+    // structure information associated with a SRv6 SID.
+    // SRv6 SID Structure Attribute. TLV 1252
+    // Section 8 of [RFC9514]
+    SLBgplsTopoSrv6SidStruct SidStruct = 6;
 }
 
 // Neighbor ID used in Adjacency SID and SRv6 EndX SID
@@ -1485,9 +1525,33 @@ message SLBgpLsTopoNeighborId {
 // SRv6 LAN End X SID. TLV 1107/1108
 // Section 4.1 of [RFC9514]
 message SLBgplsTopoSrv6LanEndXSid {
+    // Neighbor ID
     SLBgpLsTopoNeighborId Neighbor = 1;
 
-    SLBgplsTopoSrv6EndXSid EndXSid = 2;
+    // SRv6 SID as 128 bit value
+    bytes Sid = 2;
+
+    // Algorithm associated with the SID
+    uint32 Algorithm = 3;
+
+    // Flags associated with the SID. The flags are copied from the IS-IS SRv6
+    // End.X SID sub-TLV (Section 8.1 of [RFC9352]) or the OSPFv3 SRv6
+    // End.X SID sub-TLV (Section 9.1 of [RFC9513]) in the case of IS-IS
+    // or OSPFv3, respectively.  In the case of the BGP EPE Peer
+    // Adjacency SID, the flags are as defined in Section 7.2 of [RFC9514]
+    bytes Flags = 4;
+
+    // Weight associated with the SID for load balancing purpose
+    uint32 Weight = 5;
+
+    // Endpoint behavior of the SID
+    uint32 EndPointBehavior = 6;
+
+    // The Segment Routing over IPv6 (SRv6) Segment Identifier (SID) 
+    // structure information associated with a SRv6 SID.
+    // SRv6 SID Structure Attribute. TLV 1252
+    // Section 8 of [RFC9514]
+    SLBgplsTopoSrv6SidStruct SidStruct = 7;
 }
 
 // Unidirectional Link Delay. TLV 1114
@@ -1559,24 +1623,31 @@ message SLBgplsTopoUniUtilBandwidth {
 // IGP Flags. TLV 1152
 // Section 5.3.3.1 of [RFC9552]
 message SLBgplsTopoPrefixIgpFlags {
+    // Bit-0: 'D' bit. IS-IS Up/Down Bit. [RFC5305]
+    // Bit-1: 'N' bit. OSPF "no unicast" Bit. [RFC5340]
+    // Bit-2: 'L' bit. OSPF "local address" Bit. [RFC5340]
+    // Bit-3: 'P' bit. OSPF "propagate NSSA" Bit. [RFC5340]
     bytes Flags = 1;
 }
 
 // IGP Route Tag. TLV 1153
 // Section 5.3.3.2 of [RFC9552]
 message SLBgplsTopoPrefixIgpRouteTag {
-    repeated uint32 Tags = 1;
+    // IGP route tag
+    uint32 Tag = 1;
 }
 
 // IGP Extended Route Tag. TLV 1154
 // Section 5.3.3.3 of [RFC9552]
 message SLBgplsTopoPrefixIgpExtRouteTag {
-    repeated uint32 ExtTags = 1;
+    // IGP extended route tag
+    uint32 Tag = 1;
 }
 
 // Prefix Metric. TLV 1155
 // Section 5.3.3.4 of [RFC9552]
 message SLBgplsTopoPrefixMetric {
+    // Prefix metric
     uint32 Metric = 1;
 }
 
@@ -1600,46 +1671,88 @@ message SLBgplsTopoPrefixOspfFwdAddr {
 // Opaque Prefix Attribute. TLV 1157
 // Section 5.3.3.6 of [RFC9552]
 message SLBgplsTopoPrefixOpaqueAttr {
+    // Opaque attribute
     bytes OpaqueAttr = 1;
+}
+
+
+// BGP-LS Topology Prefix SID Formats
+enum SLBgplsTopoPrefixSidFormat {
+    // Reserved SID Type
+    SL_BGPLS_TOPO_PREFIX_SID_FORMAT_RESERVED = 0;
+
+    // Prefix SID Type Label
+    SL_BGPLS_TOPO_PREFIX_SID_FORMAT_LABEL = 1;
+
+    // Prefix SID Type Index
+    SL_BGPLS_TOPO_PREFIX_SID_FORMAT_INDEX = 2;
 }
 
 // Prefix SID. TLV 1158
 // Section 2.3.1 of [RFC9085]
 message SLBgplsTopoPrefixSid {
+    // Flags as defined in Section 2.1.1 of [RFC8667] for ISIS,
+    // Section 5 of [RFC8665] for OSPFv2 and Section 6 of [RFC8665]
+    // for OSPFv3.
     bytes Flags = 1;
 
+    // Algorithm
     uint32 Algorithm = 2;
 
-    bytes Sid = 3;
+    // Label or index
+    uint32 LabelIndex = 3;
+
+    // Specifies whether the prefix SID is a label or index
+    SLBgplsTopoPrefixSidFormat PrefixSidFormat = 4;
 }
 
 // Prefix Range. TLV 1159
 // Section 2.3.5 of [RFC9085]
 message SLBgplsTopoPrefixRange {
+    // Flags associated with the range taken from IS-IS SID/Label
+    // Binding TLV flags as defined in Section 2.4.1 of [RFC8667] for
+    // ISIS, OSPFv2 OSPF Extended Prefix Range TLV flags as defined in
+    // Section 4 of [RFC8665] for OSPFv2 and OSPFv3 Extended Prefix Range
+    // TLV flags as defined in Section 5 of [RFC8666] for OSPFv3.
     bytes Flags = 1;
 
+    // Number of prefixes covered by the advertisement
     uint32 RangeSize = 2;
 
+    // Algorithm
     uint32 Algorithm = 3;
 
+    // Starting index of the range
     uint32 Index = 4;
 
+    // Flags associated with the SID as defined in
+    // Section 2.1.1 of [RFC8667] for ISIS,
+    // Section 5 of [RFC8665] for OSPFv2 and
+    // Section 6 of [RFC8665] for OSPFv3.
     bytes SidFlags = 5;
 }
 
 // SRv6 Locator. TLV 1162
 // Section 5.1 of [RFC9514]
 message SLBgplsTopoPrefixSrv6Loc {
+    // Flags associated with the locator, copied from the
+    // IS-IS SRv6 Locator TLV (Section 7.1 of [RFC9352]) for ISIS or the
+    // OSPFv3 SRv6 Locator TLV (Section 7.1 of [RFC9513]) for OSPFv3
     bytes Flags = 1;
 
+    // Algorithm associated with the locator
     uint32 Algorithm = 2;
 
+    // Flex algo prefix metric
     uint32 Metric = 3;
 }
 
 // Prefix Attribute Flags. TLV 1170
 // Section 2.3.2 of [RFC9085]
 message SLBgplsTopoPrefixAttrFlags {
+    // Prefix attribute flags as defined in Section 2.1 of [RFC7684]
+    // for OSPFv2, Appendix A.4.1.1 of [RFC5340] for OSPFv3, and
+    // Section 2.1 of [RFC7794] for IS-IS
     bytes Flags = 1;
 }
 
@@ -1671,92 +1784,92 @@ message SLBgplsTopoL2BundleMemberAttr {
     // Section 5.3.2 of [RFC9552]
     SLBgplsTopoLinkMaxBandwidth MaxBandwidth = 2;
 
+    // The bit mask of administrative groups assigned
+    // by the network administrator.
+    // Extended Administrative Group. TLV 1088
+    // Section 5.3.2 of [RFC9552]
+    SLBgplsTopoExtAdminGroup ExtAdminGroup = 3;
+
     // The maximum bandwidth that can be reserved on a link.
     // Maximum Reservable Link Bandwidth. TLV 1090
     // Section 5.3.2 of [RFC9552]
-    SLBgplsTopoLinkMaxResvBandwidth MaxResvBandwidth = 3;
+    SLBgplsTopoLinkMaxResvBandwidth MaxResvBandwidth = 4;
 
     // The bandwidth reservable on a link on a
     // per priority basis.
     // Unreserved Link Bandwidth. TLV 1091
     // Section 5.3.2 of [RFC9552]
-    repeated SLBgplsTopoLinkUnresvBandwidth UnresvBandwidth = 4;
+    repeated SLBgplsTopoLinkUnresvBandwidth UnresvBandwidth = 5;
+
+    // The Traffic Engineering (TE) metric of a link.
+    // TE Default Metric. TLV 1092
+    // Section  5.3.2.3 of [RFC9552]
+    SLBgplsTopoLinkTeDefaultMetric TeDefMetric = 6;
 
     // The protection capabilities of a link.
     // Link Protection Type. TLV 1093
     // Section 5.3.2 of [RFC9552]
-    SLBgplsTopoLinkProtecionType ProtectionType = 5;
+    SLBgplsTopoLinkProtecionType ProtectionType = 7;
 
     // The Adjacency Segment Identifiers (SIDs) of an
     // adjacency.
     // Adjacency SID. TLV 1099
     // Section 2.2.1 of [RFC9085]
-    repeated SLBgplsTopoAdjSid AdjSid = 6;
+    repeated SLBgplsTopoAdjSid AdjSid = 8;
 
     // The Adjacency Segment Identifiers (SIDs) of an
     // adjacency to any node in a LAN other than the pseudonode
     // LAN Adjacency SID. TLV 1100
     // Section 2.2.1 of [RFC9085]
-    repeated SLBgplsTopoLanAdjSid LanAdjSid = 7;
-
-    // The container for certain existing and future
-    // link attributes that require application-specific definition.
-    // ASLA Attributes. TLV 1122
-    // Section 2 of [RFC9294]
-    repeated SLBgplsTopoAslaAttr Asla = 8;
-
-    // The bit mask of administrative groups assigned
-    // by the network administrator.
-    // Extended Administrative Group. TLV 1088
-    // Section 5.3.2 of [RFC9552]
-    SLBgplsTopoExtAdminGroup ExtAdminGroup = 9;
-
-    // The Traffic Engineering (TE) metric of a link.
-    // TE Default Metric. TLV 1092
-    // Section  5.3.2.3 of [RFC9552]
-    SLBgplsTopoLinkTeDefaultMetric TeDefMetric = 10;
+    repeated SLBgplsTopoLanAdjSid LanAdjSid = 9;
 
     // The average link delay between two
     // directly connected IGP link-state neighbors.
     // Unidirectional Link Delay. TLV 1114
     // Section 2.1 of [RFC8571]
-    SLBgplsTopoUniLinkDelay UniLinkDelay = 11;
+    SLBgplsTopoUniLinkDelay UniLinkDelay = 10;
 
     // The minimum and maximum link delay between two
     // directly connected IGP link-state neighbors.
     // Min/Max Unidirectional Link Delay. TLV 1115
     // Section 2.2 of [RFC8571]
-    SLBgplsTopoMinMaxUniLinkDelay MinMaxLinkDelay = 12;
+    SLBgplsTopoMinMaxUniLinkDelay MinMaxLinkDelay = 11;
 
     // The average link delay variation between two
     // directly connected IGP link-state neighbors.
     // Unidirectional Delay Variation. TLV 1116
     // Section 2.3 of [RFC8571]
-    SLBgplsTopoUniDelayVar UniDelayVariation = 13;
+    SLBgplsTopoUniDelayVar UniDelayVariation = 12;
 
     // The loss (as a packet percentage) between two
     // directly connected IGP link-state neighbors.
     // Unidirectional Link Loss. TLV 1117
     // Section 2.4 of [RFC8571]
-    SLBgplsTopoUniLinkLoss UniLinkLoss = 14;
+    SLBgplsTopoUniLinkLoss UniLinkLoss = 13;
 
     // The residual bandwidth between two
     // directly connected IGP link-state neighbors.
     // Unidirectional Residual Bandwidth. TLV 1118
     // Section 2.5 of [RFC8571]
-    SLBgplsTopoUniResBandwidth UniResBandwidth = 15;
+    SLBgplsTopoUniResBandwidth UniResBandwidth = 14;
 
     // The available bandwidth between two
     // directly connected IGP link-state neighbors.
     // Unidirectional Available Bandwidth. TLV 1119
     // Section 2.6 of [RFC8571]
-    SLBgplsTopoUniAvailBandwidth UniAvailBandwidth = 16;
+    SLBgplsTopoUniAvailBandwidth UniAvailBandwidth = 15;
 
-    // The available bandwidth between two
+    // The utilized bandwidth between two
     // directly connected IGP link-state neighbors.
-    // Unidirectional Available Bandwidth. TLV 1119
-    // Section 2.6 of [RFC8571]
-    SLBgplsTopoUniUtilBandwidth UniUtilBandwidth = 17;
+    // Unidirectional Utilized Bandwidth. TLV 1120
+    // Section 2.7 of [RFC8571]
+    SLBgplsTopoUniUtilBandwidth UniUtilBandwidth = 16;
+
+    // The container for certain existing and future
+    // link attributes that require application-specific definition.
+    // ASLA Attributes. TLV 1122
+    // Section 2 of [RFC9294]
+    repeated SLBgplsTopoAslaAttr Asla = 17;
 }
 
 // ASLA Attributes. TLV 1122
@@ -1770,21 +1883,21 @@ message SLBgplsTopoAslaAttr {
     // represents a single user-defined application
     bytes Udabm = 2;
 
-    // The Shared Link Risk Groups (SRLGs) of a link.
-    // Shared Risk Link Group. TLV 1096
-    // Section 5.3.2.5 of [RFC9552]
-    SLBgplsTopoLinkSrlg Srlg = 3;
-
     // The bit mask of administrative groups assigned
     // by the network administrator.
     // Extended Administrative Group. TLV 1088
     // Section 5.3.2 of [RFC9552]
-    SLBgplsTopoExtAdminGroup ExtAdminGroup = 4;
+    SLBgplsTopoExtAdminGroup ExtAdminGroup = 3;
 
     // The Traffic Engineering (TE) metric of a link.
     // TE Default Metric. TLV 1092
     // Section  5.3.2.3 of [RFC9552]
-    SLBgplsTopoLinkTeDefaultMetric TeDefMetric = 5;
+    SLBgplsTopoLinkTeDefaultMetric TeDefMetric = 4;
+
+    // The Shared Link Risk Groups (SRLGs) of a link.
+    // Shared Risk Link Group. TLV 1096
+    // Section 5.3.2.5 of [RFC9552]
+    SLBgplsTopoLinkSrlg Srlg = 5;
 
     // The average link delay between two
     // directly connected IGP link-state neighbors.
@@ -1822,10 +1935,10 @@ message SLBgplsTopoAslaAttr {
     // Section 2.6 of [RFC8571]
     SLBgplsTopoUniAvailBandwidth UniAvailBandwidth = 11;
 
-    // The available bandwidth between two
+    // The utilized bandwidth between two
     // directly connected IGP link-state neighbors.
-    // Unidirectional Available Bandwidth. TLV 1119
-    // Section 2.6 of [RFC8571]
+    // Unidirectional Utilized Bandwidth. TLV 1120
+    // Section 2.7 of [RFC8571]
     SLBgplsTopoUniUtilBandwidth UniUtilBandwidth = 12;
 }
 
@@ -2114,22 +2227,22 @@ message SLBgplsTopoSrSegment {
 
     oneof Sid {
         // case IsSidMpls == 1:
-        //    => This field carries info about an MPLS SID.          
+        //    => This field carries info about an MPLS SID.
         uint32 MplsLabel = 3;
 
         // case IsSidMpls == 0:
-        //    => This field carries info about an SRv6 SID.          
+        //    => This field carries info about an SRv6 SID.
         bytes Srv6Sid = 4;
     }
 
     // Specifies whether the SID is MPLS or not.
-    uint32 IsSidMpls = 5; 
+    uint32 IsSidMpls = 5;
 
     SLBgplsTopoSrSegmentDesc SegmentDesc = 6;
 
     SLBgplsTopoSrv6EndPointBehavior EndPointBehaviour = 7;
 
-    SLBgplsTopoSrv6SidStructAttr SidStructAttr = 8;
+    SLBgplsTopoSrv6SidStruct SidStruct = 8;
 }
 
 // SR Segment List Metric. TLV 1207
@@ -2223,7 +2336,7 @@ message SLBgplsTopoSrv6BindingSid {
 
     SLBgplsTopoSrv6EndPointBehavior EndPointBehaviour = 4;
 
-    SLBgplsTopoSrv6SidStructAttr SidStructAttr = 5;
+    SLBgplsTopoSrv6SidStruct SidStruct = 5;
 }
 
 // SR Policy Name. TLV 1213
@@ -2280,12 +2393,14 @@ message SLBgplsTopoSrSegListId {
 // SRv6 End Point Behavior. TLV 1250
 // Section 7.1 of [RFC9514]
 message SLBgplsTopoSrv6EndPointBehavior {
+    // Endpoint behavior of the SID
     uint32 EndPointBehavior = 1;
 
-    // Bit-0: Flags associated with the SID. Section 8 of [RFC9513]
-    //      for OSPFv3, and Section 7.2 of [RFC9352] for IS-IS.
+    // Flags associated with the SID. Section 8 of [RFC9513]
+    // for OSPFv3, and Section 7.2 of [RFC9352] for IS-IS.
     bytes Flags = 2;
 
+    // Algorithm associated with the SID
     uint32 Algorithm = 3;
 }
 
@@ -2297,22 +2412,29 @@ message SLBgplsTopoSrv6BgpPeerNodeSid {
     // Bit-2: Persistent Flag associated with the SID.
     bytes Flags = 1;
 
+    // Weight used for load balancing purposes
     uint32 Weight = 2;
 
+    // Autonomous system of peer
     uint32 PeerAS = 3;
 
+    // BGP Router ID of peer
     uint32 PeerBgpId = 4;
 }
 
 // SRv6 SID Structure Attribute. TLV 1252
 // Section 8 of [RFC9514]
-message SLBgplsTopoSrv6SidStructAttr {
+message SLBgplsTopoSrv6SidStruct {
+    // Locator block length in bits
     uint32 LocatorBlockLen = 1;
 
+    // Locator node length in bits
     uint32 LocatorNodeLen = 2;
 
+    // Function length in bits
     uint32 FunctionLen = 3;
 
+    // Argument length in bits
     uint32 ArgLen = 4;
 }
 //@}
