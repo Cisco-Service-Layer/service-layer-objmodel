@@ -1316,7 +1316,7 @@ message SLBgplsTopoFad {
 // Flexible Algorithm Prefix metric. TLV 1044
 // Section 4 of [RFC9351]
 message SLBgplsTopoPrefixFAPM {
-    // Flexible Algorithm (128 to 255). 
+    // Flexible Algorithm (128 to 255).
     uint32 FlexAlgo = 1;
 
     // Flags associated with the Flexible Algorithm prefix metric as
@@ -1499,7 +1499,7 @@ message SLBgplsTopoSrv6EndXSid {
     // Endpoint behavior of the SID
     uint32 EndPointBehavior = 5;
 
-    // The Segment Routing over IPv6 (SRv6) Segment Identifier (SID) 
+    // The Segment Routing over IPv6 (SRv6) Segment Identifier (SID)
     // structure information associated with a SRv6 SID.
     // SRv6 SID Structure Attribute. TLV 1252
     // Section 8 of [RFC9514]
@@ -1547,7 +1547,7 @@ message SLBgplsTopoSrv6LanEndXSid {
     // Endpoint behavior of the SID
     uint32 EndPointBehavior = 6;
 
-    // The Segment Routing over IPv6 (SRv6) Segment Identifier (SID) 
+    // The Segment Routing over IPv6 (SRv6) Segment Identifier (SID)
     // structure information associated with a SRv6 SID.
     // SRv6 SID Structure Attribute. TLV 1252
     // Section 8 of [RFC9514]
