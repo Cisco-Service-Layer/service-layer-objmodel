@@ -78,13 +78,6 @@ message SLBgplsTopoNlriFilter {
     SLBgplsTopoNlriType NlriType = 3;
 }
 
-// TODO: Check with Ketan. Isnt this better? Compare with DBD which contains the LSA header in OSPF with an additional feature
-// that we need not specify all the fields.
-// message SLBgplsTopoGetUpdMsg {
-//     // Filters for BGP-LS Topology Entries
-//     repeated SLBgplsTopoNlri Nlri = 1;
-// }
-
 // BGP-LS Topology Update message
 message SLBgplsTopoUpdMsg {
     // Update Type
@@ -600,7 +593,6 @@ message SLBgplsTopoBgpNodeId {
 }
 
 // SR Policy Node ID
-// TODO: Confirm with Ketan
 message SLBgplsTopoSrPolicyNodeId {
     // Router ID.
     // BGP Router-ID. TLV 516.
@@ -658,10 +650,10 @@ enum SLBgplsTopoSrPolicyProtocolOrigin {
 
 // SR Policy flags
 message SLBgplsTopoSrPolicyFlags {
-    // Bit-0: Indicates the encoding of endpoint as IPv6 address when
+    // Bit-0: E-Flag: Indicates the encoding of endpoint as IPv6 address when
     // set and IPv4 address when clear
     //
-    // Bit-1: Indicates the encoding of originator address as IPv6
+    // Bit-1: O-Flag: Indicates the encoding of originator address as IPv6
     // address when set and IPv4 address when clear
     bytes Flags = 1;
 }
@@ -854,7 +846,7 @@ message SLBgplsTopoLinkAttr {
     // Section 5.3.2.6 of [RFC9552]
     SLBgplsTopoLinkOpaqueAttr OpaqueAttr = 16;
 
-    // The name of a link.
+    // The symbolic name of a link.
     // Link Name. TLV 1098.
     // Section 5.3.2.7 of [RFC9552]
     SLBgplsTopoLinkName LinkName = 17;
@@ -1127,17 +1119,17 @@ message SLBgplsTopoLinkMsd {
 // Node Flag Bits. TLV 1024.
 // Section 5.3.1.1 of [RFC9552]
 message SLBgplsTopoNodeFlagBits {
-    // Bit-0: Overload Bit
+    // Bit-0: O-Flag: Overload Bit
     //
-    // Bit-1: Attached Bit
+    // Bit-1: A-Flag: Attached Bit
     //
-    // Bit-2: External Bit
+    // Bit-2: E-Flag: External Bit
     //
-    // Bit-3: ABR Bit
+    // Bit-3: B-Flag: ABR Bit
     //
-    // Bit-4: Router Bit
+    // Bit-4: R-Flag: Router Bit
     //
-    // Bit-5: v6 Bit
+    // Bit-5: V-Flag: v6 Bit
     bytes Flags = 1;
 }
 
@@ -1151,7 +1143,9 @@ message SLBgplsTopoNodeOpaqueAttr {
 // Node Name. TLV 1026.
 // Section 5.3.1.3 of [RFC9552]
 message SLBgplsNodeName {
-    // Node name
+    // Symbolic name of the node without a NULL terminator. It is
+    // RECOMMENDED that the size of the symbolic name be limited to
+    // 255 characters.
     string Name = 1;
 }
 
@@ -1248,69 +1242,74 @@ message SLBgplsTopoFad {
     // Section 3 of [RFC9351]
     bytes Priority = 4;
 
-    // TODO: Check with Ketan. Do we need to define messages for sub TLV's like these also?
-    // TODO: Can we use SLBgplsTopoExtAdminGroup? Applies to other affinities
     // Affinity constraints associated with the FAD that enables the exclusion of links carrying any of the
-    // specified affinities from the computation of the specific algorithm.
+    // specified affinities from the computation of the specific algorithm. Each affinity bitmask
+    // is represented in multiple of 4 bytes.
     // Flexible Algorithm Exclude-Any Affinity. TLV 1040.
-    // Section 3 of [RFC9351]
+    // Section 3.1 of [RFC9351]
     repeated uint32 ExcAnyAff = 5;
 
     // Affinity constraints associated with the FAD that enables the inclusion of links carrying any of the
-    // specified affinities in the computation of the specific algorithm.
+    // specified affinities in the computation of the specific algorithm. Each affinity bitmask
+    // is represented in multiple of 4 bytes.
     // Flexible Algorithm Include-Any Affinity. TLV 1041.
-    // Section 3 of [RFC9351]
+    // Section 3.2 of [RFC9351]
     repeated uint32 IncAnyAff= 6;
 
     // Affinity constraints associated with the FAD that enables the inclusion of links carrying all of the
-    // specified affinities in the computation of the specific algorithm.
+    // specified affinities in the computation of the specific algorithm. Each affinity bitmask
+    // is represented in multiple of 4 bytes.
     // Flexible Algorithm Include-All Affinity. TLV 1042.
-    // Section 3 of [RFC9351]
+    // Section 3.3 of [RFC9351]
     repeated uint32 IncAllAff = 7;
 
     // Flags associated with the FAD that are used in the computation of the specific algorithm.
+    // The value in the Flags must be a multiple of 4.
     // Flexible Algorithm Definition Flags. TLV 1043.
-    // Section 3 of [RFC9351]
-    repeated uint32 Flags = 8;
+    // Section 3.4 of [RFC9351]
+    bytes Flags = 8;
 
     // Shared Risk Link Group (SRLG) information associated with the FAD that enables the exclusion of links that are
     // associated with any of the specified SRLG in the computation of the specific algorithm.
     // Flexible Algorithm Exclude SRLG. TLV 1045.
-    // Section 3 of [RFC9351]
+    // Section 3.5 of [RFC9351]
     repeated uint32 ExcSrlg = 9;
 
-    // Affinity constraints associated with the FAD that enables the exclusion of links carrying any of the
-    // specified affinities in the reverse direction from the computation of the specific algorithm.
-    // Flexible Algorithm Exclude-Any Reverse Affinity. TLV 1053.
-    // RFC TBD
-    repeated uint32 ExcAnyRevAff = 10;
-
-    // Affinity constraints associated with the FAD that enables the inclusion of links carrying any of the
-    // specified affinities in the reverse direction from the computation of the specific algorithm.
-    // Flexible Algorithm Include-Any Reverse Affinity. TLV 1054.
-    // RFC TBD
-    repeated uint32 IncAnyRevAff = 11;
-
-    // Affinity constraints associated with the FAD that enables the inclusion of links carrying all of the
-    // specified affinities in the reverse direction from the computation of the specific algorithm.
-    // Flexible Algorithm Include-All Reverse Affinity. TLV 1055.
-    // RFC TBD
-    repeated uint32 IncAllRevAff = 12;
-
-    // Enables the exclusion of links having delay above a maximum specified delay from the computation of the specific algorithm
-    // Flexible Algorithm Exclude Maximum Delay. TLV 1050
-    // RFC TBD
-    uint32 ExcMaxDelay = 13;
+    // Indicate the presence of unsupported FAD sub-TLVs.
+    // Flexible Algorithm Unsupported. TLV 1046.
+    // Section 3.6 of [RFC9351]
+    SLBgplsTopoFadUnsuppTlv UnsuppTlv = 15;
 
     // Enables the exclusion of links having bandwidth below a minimum specified bandwidth from the computation of the specific algorithm
     // Flexible Algorithm Exclude Minimum Bandwidth. TLV 1049
     // RFC TBD
     bytes ExcMinBw = 14;
 
-    // Indicate the presence of unsupported FAD sub-TLVs.
-    // Flexible Algorithm Unsupported. TLV 1046.
-    // Section 3 of [RFC9351]
-    SLBgplsTopoFadUnsuppTlv UnsuppTlv = 15;
+    // Enables the exclusion of links having delay above a maximum specified delay from the computation of the specific algorithm
+    // Flexible Algorithm Exclude Maximum Delay. TLV 1050
+    // RFC TBD
+    uint32 ExcMaxDelay = 13;
+
+    // Affinity constraints associated with the FAD that enables the exclusion of links carrying any of the
+    // specified affinities in the reverse direction from the computation of the specific algorithm.
+    // Each affinity bitmask is represented in multiple of 4 bytes.
+    // Flexible Algorithm Exclude-Any Reverse Affinity. TLV 1053.
+    // RFC TBD
+    repeated uint32 ExcAnyRevAff = 10;
+
+    // Affinity constraints associated with the FAD that enables the inclusion of links carrying any of the
+    // specified affinities in the reverse direction from the computation of the specific algorithm.
+    // Each affinity bitmask is represented in multiple of 4 bytes.
+    // Flexible Algorithm Include-Any Reverse Affinity. TLV 1054.
+    // RFC TBD
+    repeated uint32 IncAnyRevAff = 11;
+
+    // Affinity constraints associated with the FAD that enables the inclusion of links carrying all of the
+    // specified affinities in the reverse direction from the computation of the specific algorithm.
+    // Each affinity bitmask is represented in multiple of 4 bytes.
+    // Flexible Algorithm Include-All Reverse Affinity. TLV 1055.
+    // RFC TBD
+    repeated uint32 IncAllRevAff = 12;
 }
 
 // Flexible Algorithm Prefix metric. TLV 1044
@@ -1343,7 +1342,8 @@ message SLBgplsTopoExtAdminGroup {
     // network administrator. Each set bit corresponds to one
     // administrative group assigned to the interface. By convention, the
     // least significant bit is referred to as group 0, and the
-    // most significant bit is referred to as group 31.
+    // most significant bit is referred to as group 31. Each EAG bitmask
+    // is represented in multiple of 4 bytes.
     uint32 Group = 1;
 }
 
@@ -1420,7 +1420,9 @@ message SLBgplsTopoLinkOpaqueAttr {
 // Link Name. TLV 1098.
 // Section 5.3.2.7 of [RFC9552]
 message SLBgplsTopoLinkName {
-    // Link name
+    // Symbolic name of the link without a NULL terminator. It is
+    // RECOMMENDED that the size of the symbolic name be limited to
+    // 255 characters.
     string Name = 1;
 }
 
@@ -1560,7 +1562,7 @@ message SLBgplsTopoUniLinkDelay {
     // Delay in microseconds
     uint32 Delay = 1;
 
-    // Bit-0: Set if anamolous.
+    // Bit-0: A-Flag: Set if anamolous.
    bytes Flags = 2;
 }
 
@@ -1573,7 +1575,7 @@ message SLBgplsTopoMinMaxUniLinkDelay {
     // Maximum delay in microseconds
     uint32 Max = 2;
 
-    // Bit-0: Set if anamolous.
+    // Bit-0: A-Flag: Set if anamolous.
    bytes Flags = 3;
 }
 
@@ -1583,7 +1585,7 @@ message SLBgplsTopoUniDelayVar {
     // Delay variation in microseconds
     uint32 Variation = 1;
 
-    // Bit-0: Set if anamolous.
+    // Bit-0: A-Flag: Set if anamolous.
    bytes Flags = 2;
 }
 
@@ -1595,7 +1597,7 @@ message SLBgplsTopoUniLinkLoss {
     // is 50.331642%.
     uint32 Loss = 1;
 
-    // Bit-0: Set if anamolous.
+    // Bit-0: A-Flag: Set if anamolous.
    bytes Flags = 2;
 }
 
@@ -1603,33 +1605,33 @@ message SLBgplsTopoUniLinkLoss {
 // Section 2.5 of [RFC8571]
 message SLBgplsTopoUniResBandwidth {
     // Bandwidth in bytes per second
-    uint32 Bandwidth = 1;
+    bytes Bandwidth = 1;
 }
 
 // Unidirectional Available Bandwidth. TLV 1119
 // Section 2.6 of [RFC8571]
 message SLBgplsTopoUniAvailBandwidth {
     // Bandwidth in bytes per second
-    uint32 Bandwidth = 1;
+    bytes Bandwidth = 1;
 }
 
 // Unidirectional Utilized Bandwidth. TLV 1120
 // Section 2.7 of [RFC8571]
 message SLBgplsTopoUniUtilBandwidth {
     // Bandwidth in bytes per second
-    uint32 Bandwidth = 1;
+    bytes Bandwidth = 1;
 }
 
 // IGP Flags. TLV 1152
 // Section 5.3.3.1 of [RFC9552]
 message SLBgplsTopoPrefixIgpFlags {
-    // Bit-0: 'D' bit. IS-IS Up/Down Bit. [RFC5305]
+    // Bit-0: D-Flag: IS-IS Up/Down Bit. [RFC5305]
     //
-    // Bit-1: 'N' bit. OSPF "no unicast" Bit. [RFC5340]
+    // Bit-1: N-Flag: OSPF "no unicast" Bit. [RFC5340]
     //
-    // Bit-2: 'L' bit. OSPF "local address" Bit. [RFC5340]
+    // Bit-2: L-Flag: OSPF "local address" Bit. [RFC5340]
     //
-    // Bit-3: 'P' bit. OSPF "propagate NSSA" Bit. [RFC5340]
+    // Bit-3: P-Flag: OSPF "propagate NSSA" Bit. [RFC5340]
     bytes Flags = 1;
 }
 
@@ -1782,16 +1784,16 @@ message SLBgplsTopoL2BundleMemberAttr {
     // Link local identifier
     uint32 MemberDesc = 1;
 
-    // The maximum bandwidth that can be used on a link.
-    // Maximum Link Bandwidth. TLV 1089
-    // Section 5.3.2 of [RFC9552]
-    SLBgplsTopoLinkMaxBandwidth MaxBandwidth = 2;
-
     // The bit mask of administrative groups assigned
     // by the network administrator.
     // Extended Administrative Group. TLV 1088
     // Section 5.3.2 of [RFC9552]
-    SLBgplsTopoExtAdminGroup ExtAdminGroup = 3;
+    repeated SLBgplsTopoExtAdminGroup ExtAdminGroup = 3;
+
+    // The maximum bandwidth that can be used on a link.
+    // Maximum Link Bandwidth. TLV 1089
+    // Section 5.3.2 of [RFC9552]
+    SLBgplsTopoLinkMaxBandwidth MaxBandwidth = 2;
 
     // The maximum bandwidth that can be reserved on a link.
     // Maximum Reservable Link Bandwidth. TLV 1090
@@ -1890,7 +1892,7 @@ message SLBgplsTopoAslaAttr {
     // by the network administrator.
     // Extended Administrative Group. TLV 1088
     // Section 5.3.2 of [RFC9552]
-    SLBgplsTopoExtAdminGroup ExtAdminGroup = 3;
+    repeated SLBgplsTopoExtAdminGroup ExtAdminGroup = 3;
 
     // The Traffic Engineering (TE) metric of a link.
     // TE Default Metric. TLV 1092
@@ -1963,20 +1965,20 @@ message SlBgplsTopoSrBsid {
 }
 
 message SLBgplsTopoSrBindingSid {
-    // Bit-0: Indicates the dataplane for the BSIDs and if they are
+    // Bit-0: D-Flag: Indicates the dataplane for the BSIDs and if they are
     // 16 octet SRv6 SID when set and are 4 octet SR/MPLS label value
     // when clear.
     //
-    // Bit-1: Indicates the allocation of the value in the BSID field
+    // Bit-1: B-Flag: Indicates the allocation of the value in the BSID field
     // when set and indicates that BSID is not allocated when clear.
     //
-    // Bit-2: Indicates the specified BSID value is unavailable when set.
+    // Bit-2: U-Flag: Indicates the specified BSID value is unavailable when set.
     //
-    // Bit-3: Indicates the BSID value is from the Segment Routing
+    // Bit-3: L-Flag: Indicates the BSID value is from the Segment Routing
     // Local Block (SRLB) of the headend node when set and is from the
     // local dynamic label pool when clear.
     //
-    // Bit-4: Indicates the BSID value is one allocated from dynamic
+    // Bit-4: F-Flag: Indicates the BSID value is one allocated from dynamic
     // label pool due to fallback (e.g. when specified BSID is
     // unavailable) when set.
     bytes BsidFlags = 1;
@@ -1991,43 +1993,44 @@ message SLBgplsTopoSrBindingSid {
 // SR Candidate Path State. TLV 1202
 // Section 5.3 of [draft-ietf-idr-bgp-ls-sr-policy]
 message SLBgplsTopoSrCpState {
+    // The priority of the candiate path.
     uint32 Priority = 1;
 
-    // Bit-0: Indicates the CP is in an administrative shut state when set.
+    // Bit-0: S-Flag: Indicates the CP is in an administrative shut state when set.
     //
-    // Bit-1: Indicates the CP is the active path (i.e. one
+    // Bit-1: A-Flag: Indicates the CP is the active path (i.e. one
     // provisioned in the forwarding plane) for the SR Policy when set.
     //
-    // Bit-2: Indicates the CP is the backup path (i.e. one
+    // Bit-2: B-Flag: Indicates the CP is the backup path (i.e. one
     // identified for path protection of the active path) for the SR
     // Policy when set.
     //
-    // Bit-3: Indicates that the CP has been evaluated for validity
+    // Bit-3: E-Flag: Indicates that the CP has been evaluated for validity
     // (e.g. headend may evaluate CPs based on their preferences) when set.
     //
-    // Bit-4: Indicates the CP has at least one valid SID-List when
+    // Bit-4: V-Flag: Indicates the CP has at least one valid SID-List when
     // set.  When the E-Flag is clear (i.e. the CP has not been
     // evaluated), then this flag MUST be set to 0 by the originator
     // and ignored by the receiver.
     //
-    // Bit-5: Indicates the CP was instantiated by the headend due to
+    // Bit-5: O-Flag: Indicates the CP was instantiated by the headend due to
     // an on-demand nexthop trigger based on a local template when
     // set.  Refer to section 8.5 of [RFC9256] for details.
     //
-    // Bit-6: Indicates the CP was delegated for computation to a
+    // Bit-6: D-Flag: Indicates the CP was delegated for computation to a
     // PCE/controller when set.
     //
-    // Bit-7: Indicates the CP was provisioned by a PCE/controller when set.
+    // Bit-7: C-Flag: Indicates the CP was provisioned by a PCE/controller when set.
     //
-    // Bit-8: Indicates the CP is to perform the "drop upon invalid"
+    // Bit-8: I-Flag: Indicates the CP is to perform the "drop upon invalid"
     // behavior when no other valid CP is available for this SR
     // Policy.  Refer to section 8.2 of [RFC9256] for details.
     //
-    // Bit-9: Indicates the CP has been marked as eligible for use as
+    // Bit-9: T-Flag: Indicates the CP has been marked as eligible for use as
     // Transit Policy on the headend when set.  Refer to section 8.3
     // of [RFC9256].
     //
-    // Bit-10: Indicates that this CP is reported as active and is
+    // Bit-10: U-Flag: Indicates that this CP is reported as active and is
     // dropping traffic as a result of the "drop upon invalid"
     // behavior being activated for the SR Policy.
     bytes Flags = 2;
@@ -2039,39 +2042,40 @@ message SLBgplsTopoSrCpState {
 // SR Candidate Path Name. TLV 1203
 // Section 5.5 of [draft-ietf-idr-bgp-ls-sr-policy]
 message SLBgplsTopoSrCpName {
-    // Symbolic name for the SR Policy candidate path. It is RECOMMENDED that
-    // the size of the symbolic name be limited to 255 characters.
+    // Symbolic name for the SR Policy candidate path without a NULL
+    // terminator. It is RECOMMENDED that the size of the symbolic name
+    // be limited to 255 characters.
     string Name = 1;
 }
 
 // SR Candidate Path Constraints. TLV 1204
 // Section 5.6 of [draft-ietf-idr-bgp-ls-sr-policy]
 message SLBgplsTopoSrCpConstraints {
-    // Bit-0: Indicates that the CP uses SRv6 dataplane when set and
+    // Bit-0: D-Flag: Indicates that the CP uses SRv6 dataplane when set and
     // SR/MPLS dataplane when clear.
     //
-    // Bit-1: Indicates that the CP prefers the use of only protected
+    // Bit-1: P-Flag: Indicates that the CP prefers the use of only protected
     // SIDs when set.  This flag is mutually exclusive with the
     // Bit-2.
     //
-    // Bit-2: Indicates that the CP prefers the use of only
+    // Bit-2: U-Flag: Indicates that the CP prefers the use of only
     // unprotected SIDs when set.  This flag is mutually exclusive
     // with the Bit-1.
     //
-    // Bit-3: Indicates that the CP uses only the SIDs belonging to
+    // Bit-3: A-Flag: Indicates that the CP uses only the SIDs belonging to
     // the specified SR Algorithm when set.
     //
-    // Bit-4: Indicates that the CP uses only the SIDs belonging to
+    // Bit-4: T-Flag: Indicates that the CP uses only the SIDs belonging to
     // the specified topology when set.
     //
-    // Bit-5: Indicates that the use of protected (P-Flag) or
+    // Bit-5: S-Flag: Indicates that the use of protected (P-Flag) or
     // unprotected (U-Flag) SIDs becomes a strict constraint instead
     // of a preference when set.
     //
-    // Bit-6: Indicates that the CP is fixed once computed and not
+    // Bit-6: F-Flag: Indicates that the CP is fixed once computed and not
     // modified except on operator intervention.
     //
-    // Bit-7: Indicates that the CP uses only adjacency SIDs and
+    // Bit-7: H-Flag: Indicates that the CP uses only adjacency SIDs and
     // traverses hop-by-hop over the links corresponding to those
     // adjacency SIDs when set.
     bytes Flags = 1;
@@ -2084,26 +2088,38 @@ message SLBgplsTopoSrCpConstraints {
     // when the path is set up.
     uint32 Algorithm = 3;
 
-    // SR Bandwidth Constraint. TLV 1210
-    // Section 5.6.3 of [draft-ietf-idr-bgp-ls-sr-policy]
-    SLBgplsTopoSrBandwidthConstraint Bandwidth = 4;
-
+    // SR Affinity constraint is used to carry the affinity constraints
+    // associated with the candidate path.
     // SR Affinity Constraints. TLV 1208
     // Section 5.6.1 of [draft-ietf-idr-bgp-ls-sr-policy]
     SLBgplsTopoSrAffinityConstraints Affinity = 5;
 
+    // SR SRLG constraint is used to carry the Shared Risk Link Group (SRLG)
+    // values that have been excluded from the candidate path.
     // SR SRLG Constraints. TLV 1209
     // Section 5.6.2 of [draft-ietf-idr-bgp-ls-sr-policy]
     SLBgplsTopoSrSrlgConstraints Srlg = 6;
 
+    // SR Bandwidth constraint is used to indicate the bandwidth that has
+    // been requested for the candidate path.
+    // SR Bandwidth Constraint. TLV 1210
+    // Section 5.6.3 of [draft-ietf-idr-bgp-ls-sr-policy]
+    SLBgplsTopoSrBandwidthConstraint Bandwidth = 4;
+
+    // SR Disjoint constraint is used to carry the disjointness
+    // constraint associated with the candidate path.
     // SR Disjoint Group Constraint. TLV 1211
     // Section 5.6.4 of [draft-ietf-idr-bgp-ls-sr-policy]
     SLBgplsTopoSrDisjointGroupConstraint Disjoint = 7;
 
+    // SR Bidirectional Group constraint is used to carry the bidirectional
+    // constraint associated with the candidate path.
     // SR Bidirectional Group Contraint. TLV 1214
     // Section 5.6.5 of [draft-ietf-idr-bgp-ls-sr-policy]
     SLBgplsTopoSrBidirGroupConstraint BidirGroup = 8;
 
+    // SR Metric constraint is used to report the optimization metric of the
+    // candidate path.
     // SR Metric Contraint. TLV 1215
     // Section 5.6.6 of [draft-ietf-idr-bgp-ls-sr-policy]
     repeated SLBgplsTopoSrMetricConstraint Metric = 9;
@@ -2112,38 +2128,38 @@ message SLBgplsTopoSrCpConstraints {
 // SR Segment List. TLV 1205
 // Section 5.7 of [draft-ietf-idr-bgp-ls-sr-policy]
 message SLBgplsTopoSrSegList {
-    // Bit-0: Indicates the SID-List is comprised of SRv6 SIDs when
+    // Bit-0: D-Flag: Indicates the SID-List is comprised of SRv6 SIDs when
     // set and indicates it is comprised of SR/MPLS labels when clear.
     //
-    // Bit-1: Indicates that SID-List is associated with an explicit
+    // Bit-1: E-Flag: Indicates that SID-List is associated with an explicit
     // candidate path when set and with a dynamic candidate path when
     // clear.  All segment lists of a given candidate path MUST be
     // either explicit or dynamic and in case of inconsistency, the
     // receiver MAY consider them all to be dynamic.
     //
-    // Bit-2: Indicates that SID-List has been computed for a dynamic
+    // Bit-2: C-Flag: Indicates that SID-List has been computed for a dynamic
     // path when set.  It is always reported as set for explicit
     // paths.
     //
-    // Bit-3: Indicates the SID-List has passed verification or its
+    // Bit-3: V-Flag: Indicates the SID-List has passed verification or its
     // verification was not required when set and failed verification
     // when clear.
     //
-    // Bit-4: Indicates that the first Segment has been resolved when
+    // Bit-4: R-Flag: Indicates that the first Segment has been resolved when
     // set and failed resolution when clear.
     //
-    // Bit-5: Indicates that the computation for the dynamic path
+    // Bit-5: F-Flag: Indicates that the computation for the dynamic path
     // failed when set and succeeded (or not required in case of
     // explicit path) when clear.
     //
-    // Bit-6: Indicates that all the SIDs in the SID-List belong to
+    // Bit-6: A-Flag: Indicates that all the SIDs in the SID-List belong to
     // the specified algorithm when set.
     //
-    // Bit-7: Indicates that all the SIDs in the SID-List belong to
+    // Bit-7: T-Flag: Indicates that all the SIDs in the SID-List belong to
     // the specified topology (identified by the multi-topology ID)
     // when set.
     //
-    // Bit-8: Indicates that the SID-list has been removed from the
+    // Bit-8: M-Flag: Indicates that the SID-list has been removed from the
     // forwarding plane due to fault detection by a monitoring
     // mechanism (e.g.  BFD) when set and indicates no fault detected
     // or monitoring is not being done when clear.
@@ -2169,7 +2185,7 @@ message SLBgplsTopoSrSegList {
 // SR Segment Type
 enum SLBgplsTopoSrSegmentType {
     // Reserved. 0
-    SL_BGPLS_TOPO_SR_SEG_TYPE_RESV = 0;
+    SL_BGPLS_TOPO_SR_SEG_TYPE_RESERVED = 0;
 
     // (Type A) SR-MPLS Label. 1
     SL_BGPLS_TOPO_SR_SEG_TYPE_MPLS_LABEL = 1;
@@ -2242,16 +2258,17 @@ message SLBgplsTopoSrSegmentDesc {
     uint32 IsRemoteNodeAddrIpv4 = 7;
 
     // Carries info about IPv6 local node global address.
-    bytes LocalNodeGlobalAddrV6 = 8;
+    bytes Ipv6LocalNodeGlobalAddr = 8;
 
     // Carries info about IPv6 remote node global address.
-    bytes RemoteNodeGlobalAddrV6 = 9;
+    bytes Ipv6RemoteNodeGlobalAddr = 9;
 
     // Carries the interface ID of the local node identified by the local node
     // address.
     uint32 LocalNodeIntfId = 10;
 
-    // Carries the IPv6 global address associated with the remote node.
+    // Carries the interface ID of the remote node identified by the remote
+    // node address.
     uint32 RemoteNodeIntfId = 11;
 }
 
@@ -2260,22 +2277,22 @@ message SLBgplsTopoSrSegmentDesc {
 message SLBgplsTopoSrSegment {
     SLBgplsTopoSrSegmentType Type = 1;
 
-    // Bit-0: Indicates the presence of SID value in the SID field
+    // Bit-0: S-Flag: Indicates the presence of SID value in the SID field
     // when set and that no value is indicated when clear.
     //
-    // Bit-1: Indicates the SID value is explicitly provisioned value
+    // Bit-1: E-Flag: Indicates the SID value is explicitly provisioned value
     // (locally on headend or via controller/PCE) when set and is a
     // dynamically resolved value by headend when clear.
     //
-    // Bit-2: Indicates the SID has passed verification or did not
+    // Bit-2: V-Flag: Indicates the SID has passed verification or did not
     // require verification when set and failed verification when
     // clear.
     //
-    // Bit-3: Indicates the SID has been resolved or did not require
+    // Bit-3: R-Flag: Indicates the SID has been resolved or did not require
     // resolution (e.g. because it is not the first SID) when set and
     // failed resolution when clear.
     //
-    // Bit-4: Indicates that the Algorithm indicated in the Segment
+    // Bit-4: A-Flag: Indicates that the Algorithm indicated in the Segment
     // descriptor is valid when set.  When clear, it indicates that
     // the headend is unable to determine the algorithm of the SID.
     bytes Flags = 2;
@@ -2311,16 +2328,16 @@ message SLBgplsSrSegListMetric {
     // Identifies the type of metric.
     uint32 Type = 1;
 
-    // Bit-0: The metric margin allowed for this path
+    // Bit-0: M-Flag: The metric margin allowed for this path
     // computation is specified when set.
     //
-    // Bit-1: The metric margin is specified as an
+    // Bit-1: A-Flag: The metric margin is specified as an
     // absolute value when set and is expressed as a percentage of the
     // minimum metric when clear.
     //
-    // Bit-2: The metric bound allowed for the path is specified when set.
+    // Bit-2: B-Flag: The metric bound allowed for the path is specified when set.
     //
-    // Bit-3: The metric value computed is being reported when set.
+    // Bit-3: V-Flag: The metric value computed is being reported when set.
     bytes Flags = 2;
 
     // Indicates the metric margin value when the Bit-0 is set.
@@ -2340,15 +2357,18 @@ message SLBgplsSrSegListMetric {
 // Section 5.6.1 of [draft-ietf-idr-bgp-ls-sr-policy]
 message SLBgplsTopoSrAffinityConstraints {
     // The bitmask used to represent the affinities that
-    //  have been excluded from the path.
+    // have been excluded from the path. Each EAG bitmask
+    // is represented in multiple of 4 bytes.
     repeated uint32 ExclAnyEag = 1;
 
     // The bitmask used to represent the affinities that
-    // have been included in the path.
+    // have been included in the path. Each EAG bitmask
+    // is represented in multiple of 4 bytes.
     repeated uint32 InclAnyEag = 2;
 
     // The bitmask used to represent all the affinities
-    // that have been included in the path.
+    // that have been included in the path. Each EAG bitmask
+    // is represented in multiple of 4 bytes.
     repeated uint32 InclAllEag = 3;
 }
 
@@ -2364,41 +2384,41 @@ message SLBgplsTopoSrSrlgConstraints {
 message SLBgplsTopoSrBandwidthConstraint {
     // Specify the desired bandwidth in unit of
     //  bytes per second in IEEE floating point format.
-    uint32 Bandwidth = 1;
+    bytes Bandwidth = 1;
 }
 
 // SR Disjoint Group Constraint. TLV 1211
 // Section 5.6.4 of [draft-ietf-idr-bgp-ls-sr-policy]
 message SLBgplsTopoSrDisjointGroupConstraint {
-    // Bit-0: SRLG disjointness is requested when set.
+    // Bit-0: S-Flag: SRLG disjointness is requested when set.
     //
-    // Bit-1: Node disjointness is requested when set.
+    // Bit-1: N-Flag: Node disjointness is requested when set.
     //
-    // Bit-2: Link disjointness is requested when set.
+    // Bit-2: L-Flag: Link disjointness is requested when set.
     //
-    // Bit-3: The computation may fallback to a lower
+    // Bit-3: F-Flag: The computation may fallback to a lower
     // level of disjointness amongst the ones requested when all
     // cannot be achieved when set.
     //
-    // Bit-4: The computation may fallback to the
+    // Bit-4: I-Flag: The computation may fallback to the
     // default best path (e.g.  IGP path) in case of none of the
     // desired disjointness can be achieved when set.
     bytes RequestFlags = 1;
 
-    // Bit-0: SRLG disjointness is achieved when set.
+    // Bit-0: S-Flag: SRLG disjointness is achieved when set.
     //
-    // Bit-1: Node disjointness is achieved when set.
+    // Bit-1: N-Flag: Node disjointness is achieved when set.
     //
-    // Bit-2: Link disjointness is achieved when set.
+    // Bit-2: L-Flag: Link disjointness is achieved when set.
     //
-    // Bit-3: The computation has fallen back to a
+    // Bit-3: F-Flag: The computation has fallen back to a
     // lower level of disjointness than requested when set.
     //
-    // Bit-4: The computation has fallen back to the
+    // Bit-4: I-Flag: The computation has fallen back to the
     // best path (e.g.  IGP path) and disjointness has not been
     // achieved when set.
     //
-    // Bit-5: The disjointness constraint could not
+    // Bit-5: X-Flag: The disjointness constraint could not
     // be achieved and hence path has been invalidated when set.
     bytes StatusFlags = 2;
 
@@ -2409,12 +2429,12 @@ message SLBgplsTopoSrDisjointGroupConstraint {
 // SRv6 Binding SID. TLV 1212
 // Section 5.2 of [draft-ietf-idr-bgp-ls-sr-policy]
 message SLBgplsTopoSrv6BindingSid {
-    // Bit-0: Indicates the allocation of the value in the BSID field
+    // Bit-0: B-Flag: Indicates the allocation of the value in the BSID field
     // when set and indicates that BSID is not allocated when clear.
     //
-    // Bit-1: Indicates the specified BSID value is unavailable when set.
+    // Bit-1: U-Flag: Indicates the specified BSID value is unavailable when set.
     //
-    // Bit-2: Indicates the BSID value is one allocated from dynamic
+    // Bit-2: F-Flag: Indicates the BSID value is one allocated from dynamic
     // label pool due to fallback (e.g. when specified BSID is
     // unavailable) when set.
     bytes Flags = 1;
@@ -2437,18 +2457,19 @@ message SLBgplsTopoSrv6BindingSid {
 // SR Policy Name. TLV 1213
 // Section 5.4 of [draft-ietf-idr-bgp-ls-sr-policy]
 message SLBgplsTopoSrPolicyName {
-    // Symbolic name for the SR Policy. It is RECOMMENDED that the size of the
-    // symbolic name be limited to 255 characters.
+    // Symbolic name for the SR Policy without a NULL terminator. It is
+    // RECOMMENDED that the size of the symbolic name be limited to
+    // 255 characters.
     string Name = 1;
 }
 
 // SR Bidirectional Group Contraint. TLV 1214
 // Section 5.6.5 of [draft-ietf-idr-bgp-ls-sr-policy]
 message SLBgplsTopoSrBidirGroupConstraint {
-    // Bit-0: This CP of the SR Policy forms the
+    // Bit-0: R-Flag: This CP of the SR Policy forms the
     // reverse path when set and otherwise it is the forward path when clear.
     //
-    // Bit-1: The bidirectional path is co-routed when set.
+    // Bit-1: C-Flag: The bidirectional path is co-routed when set.
     bytes Flags = 1;
 
     // The group identifier for a set of bidirectional paths.
@@ -2461,18 +2482,18 @@ message SLBgplsTopoSrMetricConstraint {
     // Identifies the type of the metric being used.
     uint32 Type = 1;
 
-    // Bit-0: The optimization metric being
+    // Bit-0: O-Flag: The optimization metric being
     // reported for a dynamic CP when set.  This bit MUST NOT be set
     // in more than one instance of this TLV for a given CP
     // advertisement.
     //
-    // Bit-1: The metric margin allowed is specified when set.
+    // Bit-1: M-Flag: The metric margin allowed is specified when set.
     //
-    // Bit-2: The metric margin is specified as an
+    // Bit-2: A-Flag: The metric margin is specified as an
     // absolute value when set and is expressed as a percentage of the
     // minimum metric when clear.
     //
-    // Bit-3: The metric bound allowed for the path is
+    // Bit-3: B-Flag: The metric bound allowed for the path is
     // specified when set.
     bytes Flags = 2;
 
@@ -2493,7 +2514,7 @@ message SLBgplsTopoSrMetricConstraint {
 message SLBgplsTopoSrCpSegListBandwidthState {
     // The allocated bandwidth in unit
     // of bytes per second in IEEE floating point format.
-    uint32 Bandwidth = 1;
+    bytes Bandwidth = 1;
 }
 
 // SR Segment List Identifier. TLV 1217
@@ -2520,11 +2541,11 @@ message SLBgplsTopoSrv6EndPointBehavior {
 // SRv6 BGP Peer Node SID. TLV 1251
 // Section 7.2 of [RFC9514]
 message SLBgplsTopoSrv6BgpPeerNodeSid {
-    // Bit-0: Backup Flag associated with the SID.
+    // Bit-0: B-Flag: Backup Flag associated with the SID.
     //
-    // Bit-1: Set Flag associated with the SID.
+    // Bit-1: S-Flag: Set Flag associated with the SID.
     //
-    // Bit-2: Persistent Flag associated with the SID.
+    // Bit-2: P-Flag: Persistent Flag associated with the SID.
     bytes Flags = 1;
 
     // Weight used for load balancing purposes
