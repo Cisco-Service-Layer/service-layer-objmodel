@@ -1712,8 +1712,15 @@ type SLAFNotifReq struct {
 	//	the next hop change notification.
 	Oper SLNotifOp `protobuf:"varint,1,opt,name=Oper,proto3,enum=service_layer.SLNotifOp" json:"Oper,omitempty"`
 	// Vrf that the client is interested in.
+	// If this is not set, each req in NotifReq
+	// is errored and sent to client.
+	// RPC will then wait for next message on stream.
 	VrfName string `protobuf:"bytes,2,opt,name=VrfName,proto3" json:"VrfName,omitempty"`
 	// Notification request.
+	// If the number of req > 1024, RPC will exit with error.
+	// If the number of req == 0 , RPC will send empty response
+	// to client with only VRF populated.
+	// RPC will then wait for next message on stream.
 	NotifReq []*SLAFNotifRegReq `protobuf:"bytes,3,rep,name=NotifReq,proto3" json:"NotifReq,omitempty"`
 }
 

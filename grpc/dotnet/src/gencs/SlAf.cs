@@ -7120,6 +7120,9 @@ namespace ServiceLayer {
     private string vrfName_ = "";
     /// <summary>
     /// Vrf that the client is interested in.
+    /// If this is not set, each req in NotifReq
+    /// is errored and sent to client.
+    /// RPC will then wait for next message on stream.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -7137,6 +7140,10 @@ namespace ServiceLayer {
     private readonly pbc::RepeatedField<global::ServiceLayer.SLAFNotifRegReq> notifReq_ = new pbc::RepeatedField<global::ServiceLayer.SLAFNotifRegReq>();
     /// <summary>
     /// Notification request.
+    /// If the number of req > 1024, RPC will exit with error.
+    /// If the number of req == 0 , RPC will send empty response
+    /// to client with only VRF populated.
+    /// RPC will then wait for next message on stream.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
