@@ -643,9 +643,16 @@ message SLAFNotifReq {
     SLNotifOp Oper = 1;
 
     // Vrf that the client is interested in.
+    // If this is not set, each req in NotifReq
+    // is errored and sent to client.
+    // RPC will then wait for next message on stream.
     string VrfName = 2;
 
     // Notification request.
+    // If the number of req > 1024, RPC will exit with error.
+    // If the number of req == 0 , RPC will send empty response
+    // to client with only VRF populated.
+    // RPC will then wait for next message on stream.
     repeated SLAFNotifRegReq NotifReq = 3;
 }
 
