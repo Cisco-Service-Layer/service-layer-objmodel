@@ -14,7 +14,7 @@
 syntax = "proto3";
 package service_layer;
 
-option go_package = "../go/src/gengo";
+option go_package="github.com/Cisco-service-layer/service-layer-objmodel/grpc/protos;service_layer";
 
 //===================================================================================================//
 //                                          RPC Section                                              //

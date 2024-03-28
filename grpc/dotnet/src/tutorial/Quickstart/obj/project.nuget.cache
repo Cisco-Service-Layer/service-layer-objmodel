@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "rEhx5CypLp4x/md9ikzQRUQqoY36W0HEyZl6KlAMoX63yVsUexYWfDt457B502tYAx9cT5uji5WIWbK+/pdEsA==",
+  "dgSpecHash": "hObz31MFDskb++kAKWEDp1O37714z56Kw4949cWQEWz4l3TNja/jEl29qSag/32QlV0hgKhxyhjvd1+tXFcamQ==",
   "success": true,
   "projectFilePath": "/slapi/grpc/dotnet/src/tutorial/Quickstart/Quickstart.csproj",
   "expectedPackageFiles": [
