@@ -37,10 +37,10 @@ message SLRouteGlobalsGetMsgRsp {
     SLErrorStatus ErrStatus = 1;
 
     // Max VrfReg objects within a single VrfRegMsg message.
-    uint32 MaxVrfregPerVrfregmsg = 2;
+    uint32 MaxVrfRegPerMsg = 2;
 
     // Max Route objects within a single RouteMsg message.
-    uint32 MaxRoutePerRoutemsg = 3;
+    uint32 MaxAFOpsPerMsg = 3;
 }
 
 // Route Global Stats Get Message

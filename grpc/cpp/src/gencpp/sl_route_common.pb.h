@@ -468,8 +468,8 @@ class SLRouteGlobalsGetMsgRsp final :
 
   enum : int {
     kErrStatusFieldNumber = 1,
-    kMaxVrfregPerVrfregmsgFieldNumber = 2,
-    kMaxRoutePerRoutemsgFieldNumber = 3,
+    kMaxVrfRegPerMsgFieldNumber = 2,
+    kMaxAFOpsPerMsgFieldNumber = 3,
   };
   // .service_layer.SLErrorStatus ErrStatus = 1;
   bool has_errstatus() const;
@@ -489,22 +489,22 @@ class SLRouteGlobalsGetMsgRsp final :
       ::service_layer::SLErrorStatus* errstatus);
   ::service_layer::SLErrorStatus* unsafe_arena_release_errstatus();
 
-  // uint32 MaxVrfregPerVrfregmsg = 2;
-  void clear_maxvrfregpervrfregmsg();
-  uint32_t maxvrfregpervrfregmsg() const;
-  void set_maxvrfregpervrfregmsg(uint32_t value);
+  // uint32 MaxVrfRegPerMsg = 2;
+  void clear_maxvrfregpermsg();
+  uint32_t maxvrfregpermsg() const;
+  void set_maxvrfregpermsg(uint32_t value);
   private:
-  uint32_t _internal_maxvrfregpervrfregmsg() const;
-  void _internal_set_maxvrfregpervrfregmsg(uint32_t value);
+  uint32_t _internal_maxvrfregpermsg() const;
+  void _internal_set_maxvrfregpermsg(uint32_t value);
   public:
 
-  // uint32 MaxRoutePerRoutemsg = 3;
-  void clear_maxrouteperroutemsg();
-  uint32_t maxrouteperroutemsg() const;
-  void set_maxrouteperroutemsg(uint32_t value);
+  // uint32 MaxAFOpsPerMsg = 3;
+  void clear_maxafopspermsg();
+  uint32_t maxafopspermsg() const;
+  void set_maxafopspermsg(uint32_t value);
   private:
-  uint32_t _internal_maxrouteperroutemsg() const;
-  void _internal_set_maxrouteperroutemsg(uint32_t value);
+  uint32_t _internal_maxafopspermsg() const;
+  void _internal_set_maxafopspermsg(uint32_t value);
   public:
 
   // @@protoc_insertion_point(class_scope:service_layer.SLRouteGlobalsGetMsgRsp)
@@ -515,8 +515,8 @@ class SLRouteGlobalsGetMsgRsp final :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   ::service_layer::SLErrorStatus* errstatus_;
-  uint32_t maxvrfregpervrfregmsg_;
-  uint32_t maxrouteperroutemsg_;
+  uint32_t maxvrfregpermsg_;
+  uint32_t maxafopspermsg_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_sl_5froute_5fcommon_2eproto;
 };
@@ -3978,44 +3978,44 @@ inline void SLRouteGlobalsGetMsgRsp::set_allocated_errstatus(::service_layer::SL
   // @@protoc_insertion_point(field_set_allocated:service_layer.SLRouteGlobalsGetMsgRsp.ErrStatus)
 }
 
-// uint32 MaxVrfregPerVrfregmsg = 2;
-inline void SLRouteGlobalsGetMsgRsp::clear_maxvrfregpervrfregmsg() {
-  maxvrfregpervrfregmsg_ = 0u;
+// uint32 MaxVrfRegPerMsg = 2;
+inline void SLRouteGlobalsGetMsgRsp::clear_maxvrfregpermsg() {
+  maxvrfregpermsg_ = 0u;
 }
-inline uint32_t SLRouteGlobalsGetMsgRsp::_internal_maxvrfregpervrfregmsg() const {
-  return maxvrfregpervrfregmsg_;
+inline uint32_t SLRouteGlobalsGetMsgRsp::_internal_maxvrfregpermsg() const {
+  return maxvrfregpermsg_;
 }
-inline uint32_t SLRouteGlobalsGetMsgRsp::maxvrfregpervrfregmsg() const {
-  // @@protoc_insertion_point(field_get:service_layer.SLRouteGlobalsGetMsgRsp.MaxVrfregPerVrfregmsg)
-  return _internal_maxvrfregpervrfregmsg();
+inline uint32_t SLRouteGlobalsGetMsgRsp::maxvrfregpermsg() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLRouteGlobalsGetMsgRsp.MaxVrfRegPerMsg)
+  return _internal_maxvrfregpermsg();
 }
-inline void SLRouteGlobalsGetMsgRsp::_internal_set_maxvrfregpervrfregmsg(uint32_t value) {
+inline void SLRouteGlobalsGetMsgRsp::_internal_set_maxvrfregpermsg(uint32_t value) {
   
-  maxvrfregpervrfregmsg_ = value;
+  maxvrfregpermsg_ = value;
 }
-inline void SLRouteGlobalsGetMsgRsp::set_maxvrfregpervrfregmsg(uint32_t value) {
-  _internal_set_maxvrfregpervrfregmsg(value);
-  // @@protoc_insertion_point(field_set:service_layer.SLRouteGlobalsGetMsgRsp.MaxVrfregPerVrfregmsg)
+inline void SLRouteGlobalsGetMsgRsp::set_maxvrfregpermsg(uint32_t value) {
+  _internal_set_maxvrfregpermsg(value);
+  // @@protoc_insertion_point(field_set:service_layer.SLRouteGlobalsGetMsgRsp.MaxVrfRegPerMsg)
 }
 
-// uint32 MaxRoutePerRoutemsg = 3;
-inline void SLRouteGlobalsGetMsgRsp::clear_maxrouteperroutemsg() {
-  maxrouteperroutemsg_ = 0u;
+// uint32 MaxAFOpsPerMsg = 3;
+inline void SLRouteGlobalsGetMsgRsp::clear_maxafopspermsg() {
+  maxafopspermsg_ = 0u;
 }
-inline uint32_t SLRouteGlobalsGetMsgRsp::_internal_maxrouteperroutemsg() const {
-  return maxrouteperroutemsg_;
+inline uint32_t SLRouteGlobalsGetMsgRsp::_internal_maxafopspermsg() const {
+  return maxafopspermsg_;
 }
-inline uint32_t SLRouteGlobalsGetMsgRsp::maxrouteperroutemsg() const {
-  // @@protoc_insertion_point(field_get:service_layer.SLRouteGlobalsGetMsgRsp.MaxRoutePerRoutemsg)
-  return _internal_maxrouteperroutemsg();
+inline uint32_t SLRouteGlobalsGetMsgRsp::maxafopspermsg() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLRouteGlobalsGetMsgRsp.MaxAFOpsPerMsg)
+  return _internal_maxafopspermsg();
 }
-inline void SLRouteGlobalsGetMsgRsp::_internal_set_maxrouteperroutemsg(uint32_t value) {
+inline void SLRouteGlobalsGetMsgRsp::_internal_set_maxafopspermsg(uint32_t value) {
   
-  maxrouteperroutemsg_ = value;
+  maxafopspermsg_ = value;
 }
-inline void SLRouteGlobalsGetMsgRsp::set_maxrouteperroutemsg(uint32_t value) {
-  _internal_set_maxrouteperroutemsg(value);
-  // @@protoc_insertion_point(field_set:service_layer.SLRouteGlobalsGetMsgRsp.MaxRoutePerRoutemsg)
+inline void SLRouteGlobalsGetMsgRsp::set_maxafopspermsg(uint32_t value) {
+  _internal_set_maxafopspermsg(value);
+  // @@protoc_insertion_point(field_set:service_layer.SLRouteGlobalsGetMsgRsp.MaxAFOpsPerMsg)
 }
 
 // -------------------------------------------------------------------

@@ -35,7 +35,7 @@ namespace ServiceLayer {
             "bml0UnNwTXNnGAMgASgLMhsuc2VydmljZV9sYXllci5TTEluaXRNc2dSc3BI",
             "ABJMChNWcmZSZXBsYXlFcnJvck5vdGlmGAQgASgLMikuc2VydmljZV9sYXll",
             "ci5TTFZyZlJvdXRlUmVwbGF5RXJyb3JOb3RpZkICGAFIAEIHCgVFdmVudCIR",
-            "Cg9TTEdsb2JhbHNHZXRNc2ciiAQKElNMR2xvYmFsc0dldE1zZ1JzcBIvCglF",
+            "Cg9TTEdsb2JhbHNHZXRNc2ci3QQKElNMR2xvYmFsc0dldE1zZ1JzcBIvCglF",
             "cnJTdGF0dXMYASABKAsyHC5zZXJ2aWNlX2xheWVyLlNMRXJyb3JTdGF0dXMS",
             "GAoQTWF4VnJmTmFtZUxlbmd0aBgCIAEoDRIeChZNYXhJbnRlcmZhY2VOYW1l",
             "TGVuZ3RoGAMgASgNEhgKEE1heFBhdGhzUGVyRW50cnkYBCABKA0SHgoWTWF4",
@@ -47,16 +47,18 @@ namespace ServiceLayer {
             "IAEoDRIZChFNYXhMMkJkTmFtZUxlbmd0aBgNIAEoDRIfChdNYXhMMlBtc2lU",
             "dW5uZWxJZExlbmd0aBgOIAEoDRIlCh1NYXhMYWJlbEJsb2NrQ2xpZW50TmFt",
             "ZUxlbmd0aBgPIAEoDRIeChZNYXhQYXRoc0luTmV4dGhvcE5vdGlmGBAgASgN",
-            "KpwBChFTTEdsb2JhbE5vdGlmVHlwZRIhCh1TTF9HTE9CQUxfRVZFTlRfVFlQ",
-            "RV9SRVNFUlZFRBAAEh4KGlNMX0dMT0JBTF9FVkVOVF9UWVBFX0VSUk9SEAES",
-            "IgoeU0xfR0xPQkFMX0VWRU5UX1RZUEVfSEVBUlRCRUFUEAISIAocU0xfR0xP",
-            "QkFMX0VWRU5UX1RZUEVfVkVSU0lPThADMqwBCghTTEdsb2JhbBJNChFTTEds",
-            "b2JhbEluaXROb3RpZhIYLnNlcnZpY2VfbGF5ZXIuU0xJbml0TXNnGhwuc2Vy",
-            "dmljZV9sYXllci5TTEdsb2JhbE5vdGlmMAESUQoMU0xHbG9iYWxzR2V0Eh4u",
-            "c2VydmljZV9sYXllci5TTEdsb2JhbHNHZXRNc2caIS5zZXJ2aWNlX2xheWVy",
-            "LlNMR2xvYmFsc0dldE1zZ1JzcEJRWk9naXRodWIuY29tL0Npc2NvLXNlcnZp",
-            "Y2UtbGF5ZXIvc2VydmljZS1sYXllci1vYmptb2RlbC9ncnBjL3Byb3Rvcztz",
-            "ZXJ2aWNlX2xheWVyYgZwcm90bzM="));
+            "EhcKD01heFZyZlJlZ1Blck1zZxgRIAEoDRIWCg5NYXhBRk9wc1Blck1zZxgS",
+            "IAEoDRIiChpNYXhOb3RpZlJlcVBlclNMQUZOb3RpZlJlcRgTIAEoDSqcAQoR",
+            "U0xHbG9iYWxOb3RpZlR5cGUSIQodU0xfR0xPQkFMX0VWRU5UX1RZUEVfUkVT",
+            "RVJWRUQQABIeChpTTF9HTE9CQUxfRVZFTlRfVFlQRV9FUlJPUhABEiIKHlNM",
+            "X0dMT0JBTF9FVkVOVF9UWVBFX0hFQVJUQkVBVBACEiAKHFNMX0dMT0JBTF9F",
+            "VkVOVF9UWVBFX1ZFUlNJT04QAzKsAQoIU0xHbG9iYWwSTQoRU0xHbG9iYWxJ",
+            "bml0Tm90aWYSGC5zZXJ2aWNlX2xheWVyLlNMSW5pdE1zZxocLnNlcnZpY2Vf",
+            "bGF5ZXIuU0xHbG9iYWxOb3RpZjABElEKDFNMR2xvYmFsc0dldBIeLnNlcnZp",
+            "Y2VfbGF5ZXIuU0xHbG9iYWxzR2V0TXNnGiEuc2VydmljZV9sYXllci5TTEds",
+            "b2JhbHNHZXRNc2dSc3BCUVpPZ2l0aHViLmNvbS9DaXNjby1zZXJ2aWNlLWxh",
+            "eWVyL3NlcnZpY2UtbGF5ZXItb2JqbW9kZWwvZ3JwYy9wcm90b3M7c2Vydmlj",
+            "ZV9sYXllcmIGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::ServiceLayer.SlCommonTypesReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::ServiceLayer.SLGlobalNotifType), }, null, new pbr::GeneratedClrTypeInfo[] {
@@ -65,7 +67,7 @@ namespace ServiceLayer {
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLVrfRouteReplayErrorNotif), global::ServiceLayer.SLVrfRouteReplayErrorNotif.Parser, new[]{ "VrfName" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLGlobalNotif), global::ServiceLayer.SLGlobalNotif.Parser, new[]{ "EventType", "ErrStatus", "InitRspMsg", "VrfReplayErrorNotif" }, new[]{ "Event" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLGlobalsGetMsg), global::ServiceLayer.SLGlobalsGetMsg.Parser, null, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLGlobalsGetMsgRsp), global::ServiceLayer.SLGlobalsGetMsgRsp.Parser, new[]{ "ErrStatus", "MaxVrfNameLength", "MaxInterfaceNameLength", "MaxPathsPerEntry", "MaxPrimaryPathPerEntry", "MaxBackupPathPerEntry", "MaxMplsLabelsPerPath", "MinPrimaryPathIdNum", "MaxPrimaryPathIdNum", "MinBackupPathIdNum", "MaxBackupPathIdNum", "MaxRemoteAddressNum", "MaxL2BdNameLength", "MaxL2PmsiTunnelIdLength", "MaxLabelBlockClientNameLength", "MaxPathsInNexthopNotif" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLGlobalsGetMsgRsp), global::ServiceLayer.SLGlobalsGetMsgRsp.Parser, new[]{ "ErrStatus", "MaxVrfNameLength", "MaxInterfaceNameLength", "MaxPathsPerEntry", "MaxPrimaryPathPerEntry", "MaxBackupPathPerEntry", "MaxMplsLabelsPerPath", "MinPrimaryPathIdNum", "MaxPrimaryPathIdNum", "MinBackupPathIdNum", "MaxBackupPathIdNum", "MaxRemoteAddressNum", "MaxL2BdNameLength", "MaxL2PmsiTunnelIdLength", "MaxLabelBlockClientNameLength", "MaxPathsInNexthopNotif", "MaxVrfRegPerMsg", "MaxAFOpsPerMsg", "MaxNotifReqPerSLAFNotifReq" }, null, null, null, null)
           }));
     }
     #endregion
@@ -1472,6 +1474,9 @@ namespace ServiceLayer {
       maxL2PmsiTunnelIdLength_ = other.maxL2PmsiTunnelIdLength_;
       maxLabelBlockClientNameLength_ = other.maxLabelBlockClientNameLength_;
       maxPathsInNexthopNotif_ = other.maxPathsInNexthopNotif_;
+      maxVrfRegPerMsg_ = other.maxVrfRegPerMsg_;
+      maxAFOpsPerMsg_ = other.maxAFOpsPerMsg_;
+      maxNotifReqPerSLAFNotifReq_ = other.maxNotifReqPerSLAFNotifReq_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -1722,6 +1727,51 @@ namespace ServiceLayer {
       }
     }
 
+    /// <summary>Field number for the "MaxVrfRegPerMsg" field.</summary>
+    public const int MaxVrfRegPerMsgFieldNumber = 17;
+    private uint maxVrfRegPerMsg_;
+    /// <summary>
+    /// Max VrfReg objects within a single VrfRegMsg message.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint MaxVrfRegPerMsg {
+      get { return maxVrfRegPerMsg_; }
+      set {
+        maxVrfRegPerMsg_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "MaxAFOpsPerMsg" field.</summary>
+    public const int MaxAFOpsPerMsgFieldNumber = 18;
+    private uint maxAFOpsPerMsg_;
+    /// <summary>
+    /// Max Route objects within a single RouteMsg message.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint MaxAFOpsPerMsg {
+      get { return maxAFOpsPerMsg_; }
+      set {
+        maxAFOpsPerMsg_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "MaxNotifReqPerSLAFNotifReq" field.</summary>
+    public const int MaxNotifReqPerSLAFNotifReqFieldNumber = 19;
+    private uint maxNotifReqPerSLAFNotifReq_;
+    /// <summary>
+    /// Max Notif Requests in SLAFNotifReq.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint MaxNotifReqPerSLAFNotifReq {
+      get { return maxNotifReqPerSLAFNotifReq_; }
+      set {
+        maxNotifReqPerSLAFNotifReq_ = value;
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -1753,6 +1803,9 @@ namespace ServiceLayer {
       if (MaxL2PmsiTunnelIdLength != other.MaxL2PmsiTunnelIdLength) return false;
       if (MaxLabelBlockClientNameLength != other.MaxLabelBlockClientNameLength) return false;
       if (MaxPathsInNexthopNotif != other.MaxPathsInNexthopNotif) return false;
+      if (MaxVrfRegPerMsg != other.MaxVrfRegPerMsg) return false;
+      if (MaxAFOpsPerMsg != other.MaxAFOpsPerMsg) return false;
+      if (MaxNotifReqPerSLAFNotifReq != other.MaxNotifReqPerSLAFNotifReq) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -1776,6 +1829,9 @@ namespace ServiceLayer {
       if (MaxL2PmsiTunnelIdLength != 0) hash ^= MaxL2PmsiTunnelIdLength.GetHashCode();
       if (MaxLabelBlockClientNameLength != 0) hash ^= MaxLabelBlockClientNameLength.GetHashCode();
       if (MaxPathsInNexthopNotif != 0) hash ^= MaxPathsInNexthopNotif.GetHashCode();
+      if (MaxVrfRegPerMsg != 0) hash ^= MaxVrfRegPerMsg.GetHashCode();
+      if (MaxAFOpsPerMsg != 0) hash ^= MaxAFOpsPerMsg.GetHashCode();
+      if (MaxNotifReqPerSLAFNotifReq != 0) hash ^= MaxNotifReqPerSLAFNotifReq.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -1858,6 +1914,18 @@ namespace ServiceLayer {
         output.WriteRawTag(128, 1);
         output.WriteUInt32(MaxPathsInNexthopNotif);
       }
+      if (MaxVrfRegPerMsg != 0) {
+        output.WriteRawTag(136, 1);
+        output.WriteUInt32(MaxVrfRegPerMsg);
+      }
+      if (MaxAFOpsPerMsg != 0) {
+        output.WriteRawTag(144, 1);
+        output.WriteUInt32(MaxAFOpsPerMsg);
+      }
+      if (MaxNotifReqPerSLAFNotifReq != 0) {
+        output.WriteRawTag(152, 1);
+        output.WriteUInt32(MaxNotifReqPerSLAFNotifReq);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -1932,6 +2000,18 @@ namespace ServiceLayer {
         output.WriteRawTag(128, 1);
         output.WriteUInt32(MaxPathsInNexthopNotif);
       }
+      if (MaxVrfRegPerMsg != 0) {
+        output.WriteRawTag(136, 1);
+        output.WriteUInt32(MaxVrfRegPerMsg);
+      }
+      if (MaxAFOpsPerMsg != 0) {
+        output.WriteRawTag(144, 1);
+        output.WriteUInt32(MaxAFOpsPerMsg);
+      }
+      if (MaxNotifReqPerSLAFNotifReq != 0) {
+        output.WriteRawTag(152, 1);
+        output.WriteUInt32(MaxNotifReqPerSLAFNotifReq);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -1989,6 +2069,15 @@ namespace ServiceLayer {
       }
       if (MaxPathsInNexthopNotif != 0) {
         size += 2 + pb::CodedOutputStream.ComputeUInt32Size(MaxPathsInNexthopNotif);
+      }
+      if (MaxVrfRegPerMsg != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeUInt32Size(MaxVrfRegPerMsg);
+      }
+      if (MaxAFOpsPerMsg != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeUInt32Size(MaxAFOpsPerMsg);
+      }
+      if (MaxNotifReqPerSLAFNotifReq != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeUInt32Size(MaxNotifReqPerSLAFNotifReq);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -2052,6 +2141,15 @@ namespace ServiceLayer {
       }
       if (other.MaxPathsInNexthopNotif != 0) {
         MaxPathsInNexthopNotif = other.MaxPathsInNexthopNotif;
+      }
+      if (other.MaxVrfRegPerMsg != 0) {
+        MaxVrfRegPerMsg = other.MaxVrfRegPerMsg;
+      }
+      if (other.MaxAFOpsPerMsg != 0) {
+        MaxAFOpsPerMsg = other.MaxAFOpsPerMsg;
+      }
+      if (other.MaxNotifReqPerSLAFNotifReq != 0) {
+        MaxNotifReqPerSLAFNotifReq = other.MaxNotifReqPerSLAFNotifReq;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -2135,6 +2233,18 @@ namespace ServiceLayer {
             MaxPathsInNexthopNotif = input.ReadUInt32();
             break;
           }
+          case 136: {
+            MaxVrfRegPerMsg = input.ReadUInt32();
+            break;
+          }
+          case 144: {
+            MaxAFOpsPerMsg = input.ReadUInt32();
+            break;
+          }
+          case 152: {
+            MaxNotifReqPerSLAFNotifReq = input.ReadUInt32();
+            break;
+          }
         }
       }
     #endif
@@ -2215,6 +2325,18 @@ namespace ServiceLayer {
           }
           case 128: {
             MaxPathsInNexthopNotif = input.ReadUInt32();
+            break;
+          }
+          case 136: {
+            MaxVrfRegPerMsg = input.ReadUInt32();
+            break;
+          }
+          case 144: {
+            MaxAFOpsPerMsg = input.ReadUInt32();
+            break;
+          }
+          case 152: {
+            MaxNotifReqPerSLAFNotifReq = input.ReadUInt32();
             break;
           }
         }
