@@ -41,10 +41,6 @@
 
 namespace service_layer {
 
-// ===================================================================================================//
-//                                          RPC Section                                              //
-// ===================================================================================================//
-//
 // @defgroup SLBgplsTopoSubscription
 // Defines RPC calls for subscribing to BGP-LS Topology updates.
 // @{

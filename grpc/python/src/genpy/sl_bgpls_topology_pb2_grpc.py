@@ -6,11 +6,7 @@ from . import sl_bgpls_topology_pb2 as sl__bgpls__topology__pb2
 
 
 class SLBgplsTopoSubscriptionStub(object):
-    """===================================================================================================//
-    RPC Section                                              //
-    ===================================================================================================//
-
-    @defgroup SLBgplsTopoSubscription
+    """@defgroup SLBgplsTopoSubscription
     Defines RPC calls for subscribing to BGP-LS Topology updates.
     @{
     @addtogroup SLBgplsTopoSubscription
@@ -32,11 +28,7 @@ class SLBgplsTopoSubscriptionStub(object):
 
 
 class SLBgplsTopoSubscriptionServicer(object):
-    """===================================================================================================//
-    RPC Section                                              //
-    ===================================================================================================//
-
-    @defgroup SLBgplsTopoSubscription
+    """@defgroup SLBgplsTopoSubscription
     Defines RPC calls for subscribing to BGP-LS Topology updates.
     @{
     @addtogroup SLBgplsTopoSubscription
@@ -89,11 +81,7 @@ def add_SLBgplsTopoSubscriptionServicer_to_server(servicer, server):
 
  # This class is part of an EXPERIMENTAL API.
 class SLBgplsTopoSubscription(object):
-    """===================================================================================================//
-    RPC Section                                              //
-    ===================================================================================================//
-
-    @defgroup SLBgplsTopoSubscription
+    """@defgroup SLBgplsTopoSubscription
     Defines RPC calls for subscribing to BGP-LS Topology updates.
     @{
     @addtogroup SLBgplsTopoSubscription

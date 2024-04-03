@@ -23,6 +23,7 @@
 #include <google/protobuf/io/coded_stream.h>
 #include <google/protobuf/arena.h>
 #include <google/protobuf/arenastring.h>
+#include <google/protobuf/generated_message_bases.h>
 #include <google/protobuf/generated_message_table_driven.h>
 #include <google/protobuf/generated_message_util.h>
 #include <google/protobuf/metadata_lite.h>
@@ -32,6 +33,8 @@
 #include <google/protobuf/extension_set.h>  // IWYU pragma: export
 #include <google/protobuf/generated_enum_reflection.h>
 #include <google/protobuf/unknown_field_set.h>
+#include "sl_common_types.pb.h"
+#include "sl_protocols.pb.h"
 // @@protoc_insertion_point(includes)
 #include <google/protobuf/port_def.inc>
 #define PROTOBUF_INTERNAL_EXPORT_sl_5fbgpls_5ftopology_2eproto
@@ -76,12 +79,12 @@ extern SLBgplsTopoAttrDefaultTypeInternal _SLBgplsTopoAttr_default_instance_;
 class SLBgplsTopoBgpNodeId;
 struct SLBgplsTopoBgpNodeIdDefaultTypeInternal;
 extern SLBgplsTopoBgpNodeIdDefaultTypeInternal _SLBgplsTopoBgpNodeId_default_instance_;
+class SLBgplsTopoEndMarker;
+struct SLBgplsTopoEndMarkerDefaultTypeInternal;
+extern SLBgplsTopoEndMarkerDefaultTypeInternal _SLBgplsTopoEndMarker_default_instance_;
 class SLBgplsTopoEntry;
 struct SLBgplsTopoEntryDefaultTypeInternal;
 extern SLBgplsTopoEntryDefaultTypeInternal _SLBgplsTopoEntry_default_instance_;
-class SLBgplsTopoErrorStatus;
-struct SLBgplsTopoErrorStatusDefaultTypeInternal;
-extern SLBgplsTopoErrorStatusDefaultTypeInternal _SLBgplsTopoErrorStatus_default_instance_;
 class SLBgplsTopoExtAdminGroup;
 struct SLBgplsTopoExtAdminGroupDefaultTypeInternal;
 extern SLBgplsTopoExtAdminGroupDefaultTypeInternal _SLBgplsTopoExtAdminGroup_default_instance_;
@@ -163,18 +166,15 @@ extern SLBgplsTopoMtIdDefaultTypeInternal _SLBgplsTopoMtId_default_instance_;
 class SLBgplsTopoNlri;
 struct SLBgplsTopoNlriDefaultTypeInternal;
 extern SLBgplsTopoNlriDefaultTypeInternal _SLBgplsTopoNlri_default_instance_;
-class SLBgplsTopoNlriFilter;
-struct SLBgplsTopoNlriFilterDefaultTypeInternal;
-extern SLBgplsTopoNlriFilterDefaultTypeInternal _SLBgplsTopoNlriFilter_default_instance_;
+class SLBgplsTopoNlriMatch;
+struct SLBgplsTopoNlriMatchDefaultTypeInternal;
+extern SLBgplsTopoNlriMatchDefaultTypeInternal _SLBgplsTopoNlriMatch_default_instance_;
 class SLBgplsTopoNode;
 struct SLBgplsTopoNodeDefaultTypeInternal;
 extern SLBgplsTopoNodeDefaultTypeInternal _SLBgplsTopoNode_default_instance_;
 class SLBgplsTopoNodeAttr;
 struct SLBgplsTopoNodeAttrDefaultTypeInternal;
 extern SLBgplsTopoNodeAttrDefaultTypeInternal _SLBgplsTopoNodeAttr_default_instance_;
-class SLBgplsTopoNodeDescr;
-struct SLBgplsTopoNodeDescrDefaultTypeInternal;
-extern SLBgplsTopoNodeDescrDefaultTypeInternal _SLBgplsTopoNodeDescr_default_instance_;
 class SLBgplsTopoNodeFlagBits;
 struct SLBgplsTopoNodeFlagBitsDefaultTypeInternal;
 extern SLBgplsTopoNodeFlagBitsDefaultTypeInternal _SLBgplsTopoNodeFlagBits_default_instance_;
@@ -343,6 +343,9 @@ extern SLBgplsTopoSrv6SidDescrDefaultTypeInternal _SLBgplsTopoSrv6SidDescr_defau
 class SLBgplsTopoSrv6SidStruct;
 struct SLBgplsTopoSrv6SidStructDefaultTypeInternal;
 extern SLBgplsTopoSrv6SidStructDefaultTypeInternal _SLBgplsTopoSrv6SidStruct_default_instance_;
+class SLBgplsTopoStartMarker;
+struct SLBgplsTopoStartMarkerDefaultTypeInternal;
+extern SLBgplsTopoStartMarkerDefaultTypeInternal _SLBgplsTopoStartMarker_default_instance_;
 class SLBgplsTopoUniAvailBandwidth;
 struct SLBgplsTopoUniAvailBandwidthDefaultTypeInternal;
 extern SLBgplsTopoUniAvailBandwidthDefaultTypeInternal _SLBgplsTopoUniAvailBandwidth_default_instance_;
@@ -382,8 +385,8 @@ template<> ::service_layer::SLBgplsTopoAdjSid* Arena::CreateMaybeMessage<::servi
 template<> ::service_layer::SLBgplsTopoAslaAttr* Arena::CreateMaybeMessage<::service_layer::SLBgplsTopoAslaAttr>(Arena*);
 template<> ::service_layer::SLBgplsTopoAttr* Arena::CreateMaybeMessage<::service_layer::SLBgplsTopoAttr>(Arena*);
 template<> ::service_layer::SLBgplsTopoBgpNodeId* Arena::CreateMaybeMessage<::service_layer::SLBgplsTopoBgpNodeId>(Arena*);
+template<> ::service_layer::SLBgplsTopoEndMarker* Arena::CreateMaybeMessage<::service_layer::SLBgplsTopoEndMarker>(Arena*);
 template<> ::service_layer::SLBgplsTopoEntry* Arena::CreateMaybeMessage<::service_layer::SLBgplsTopoEntry>(Arena*);
-template<> ::service_layer::SLBgplsTopoErrorStatus* Arena::CreateMaybeMessage<::service_layer::SLBgplsTopoErrorStatus>(Arena*);
 template<> ::service_layer::SLBgplsTopoExtAdminGroup* Arena::CreateMaybeMessage<::service_layer::SLBgplsTopoExtAdminGroup>(Arena*);
 template<> ::service_layer::SLBgplsTopoFad* Arena::CreateMaybeMessage<::service_layer::SLBgplsTopoFad>(Arena*);
 template<> ::service_layer::SLBgplsTopoFadUnsuppTlv* Arena::CreateMaybeMessage<::service_layer::SLBgplsTopoFadUnsuppTlv>(Arena*);
@@ -411,10 +414,9 @@ template<> ::service_layer::SLBgplsTopoLocalIpv6RouterId* Arena::CreateMaybeMess
 template<> ::service_layer::SLBgplsTopoMinMaxUniLinkDelay* Arena::CreateMaybeMessage<::service_layer::SLBgplsTopoMinMaxUniLinkDelay>(Arena*);
 template<> ::service_layer::SLBgplsTopoMtId* Arena::CreateMaybeMessage<::service_layer::SLBgplsTopoMtId>(Arena*);
 template<> ::service_layer::SLBgplsTopoNlri* Arena::CreateMaybeMessage<::service_layer::SLBgplsTopoNlri>(Arena*);
-template<> ::service_layer::SLBgplsTopoNlriFilter* Arena::CreateMaybeMessage<::service_layer::SLBgplsTopoNlriFilter>(Arena*);
+template<> ::service_layer::SLBgplsTopoNlriMatch* Arena::CreateMaybeMessage<::service_layer::SLBgplsTopoNlriMatch>(Arena*);
 template<> ::service_layer::SLBgplsTopoNode* Arena::CreateMaybeMessage<::service_layer::SLBgplsTopoNode>(Arena*);
 template<> ::service_layer::SLBgplsTopoNodeAttr* Arena::CreateMaybeMessage<::service_layer::SLBgplsTopoNodeAttr>(Arena*);
-template<> ::service_layer::SLBgplsTopoNodeDescr* Arena::CreateMaybeMessage<::service_layer::SLBgplsTopoNodeDescr>(Arena*);
 template<> ::service_layer::SLBgplsTopoNodeFlagBits* Arena::CreateMaybeMessage<::service_layer::SLBgplsTopoNodeFlagBits>(Arena*);
 template<> ::service_layer::SLBgplsTopoNodeMsd* Arena::CreateMaybeMessage<::service_layer::SLBgplsTopoNodeMsd>(Arena*);
 template<> ::service_layer::SLBgplsTopoNodeOpaqueAttr* Arena::CreateMaybeMessage<::service_layer::SLBgplsTopoNodeOpaqueAttr>(Arena*);
@@ -471,6 +473,7 @@ template<> ::service_layer::SLBgplsTopoSrv6Sid* Arena::CreateMaybeMessage<::serv
 template<> ::service_layer::SLBgplsTopoSrv6SidAttr* Arena::CreateMaybeMessage<::service_layer::SLBgplsTopoSrv6SidAttr>(Arena*);
 template<> ::service_layer::SLBgplsTopoSrv6SidDescr* Arena::CreateMaybeMessage<::service_layer::SLBgplsTopoSrv6SidDescr>(Arena*);
 template<> ::service_layer::SLBgplsTopoSrv6SidStruct* Arena::CreateMaybeMessage<::service_layer::SLBgplsTopoSrv6SidStruct>(Arena*);
+template<> ::service_layer::SLBgplsTopoStartMarker* Arena::CreateMaybeMessage<::service_layer::SLBgplsTopoStartMarker>(Arena*);
 template<> ::service_layer::SLBgplsTopoUniAvailBandwidth* Arena::CreateMaybeMessage<::service_layer::SLBgplsTopoUniAvailBandwidth>(Arena*);
 template<> ::service_layer::SLBgplsTopoUniDelayVar* Arena::CreateMaybeMessage<::service_layer::SLBgplsTopoUniDelayVar>(Arena*);
 template<> ::service_layer::SLBgplsTopoUniLinkDelay* Arena::CreateMaybeMessage<::service_layer::SLBgplsTopoUniLinkDelay>(Arena*);
@@ -484,78 +487,6 @@ template<> ::service_layer::SlBgplsTopoSrBsid* Arena::CreateMaybeMessage<::servi
 PROTOBUF_NAMESPACE_CLOSE
 namespace service_layer {
 
-enum SLBgplsTopoErrorStatus_SLBgplsTopoErrno : int {
-  SLBgplsTopoErrorStatus_SLBgplsTopoErrno_SL_BGPLS_TOPO_SUCCESS = 0,
-  SLBgplsTopoErrorStatus_SLBgplsTopoErrno_SL_BGPLS_TOPO_NOT_CONNECTED = 1,
-  SLBgplsTopoErrorStatus_SLBgplsTopoErrno_SL_BGPLS_TOPO_EAGAIN = 2,
-  SLBgplsTopoErrorStatus_SLBgplsTopoErrno_SL_BGPLS_TOPO_ENOMEM = 3,
-  SLBgplsTopoErrorStatus_SLBgplsTopoErrno_SL_BGPLS_TOPO_EBUSY = 4,
-  SLBgplsTopoErrorStatus_SLBgplsTopoErrno_SL_BGPLS_TOPO_EINVAL = 5,
-  SLBgplsTopoErrorStatus_SLBgplsTopoErrno_SL_BGPLS_TOPO_UNSUPPORTED_VER = 6,
-  SLBgplsTopoErrorStatus_SLBgplsTopoErrno_SL_BGPLS_TOPO_NOT_AVAILABLE = 7,
-  SLBgplsTopoErrorStatus_SLBgplsTopoErrno_SL_BGPLS_TOPO_STREAM_NOT_SUPPORTED = 8,
-  SLBgplsTopoErrorStatus_SLBgplsTopoErrno_SL_BGPLS_TOPO_ENOTSUP = 9,
-  SLBgplsTopoErrorStatus_SLBgplsTopoErrno_SL_BGPLS_TOPO_SOME_ERR = 10,
-  SLBgplsTopoErrorStatus_SLBgplsTopoErrno_SL_BGPLS_TOPO_TIMEOUT = 11,
-  SLBgplsTopoErrorStatus_SLBgplsTopoErrno_SL_BGPLS_TOPO_NOTIF_TERM = 12,
-  SLBgplsTopoErrorStatus_SLBgplsTopoErrno_SL_BGPLS_TOPO_AUTH_FAIL = 13,
-  SLBgplsTopoErrorStatus_SLBgplsTopoErrno_SL_BGPLS_TOPO_INIT_START_OFFSET = 1280,
-  SLBgplsTopoErrorStatus_SLBgplsTopoErrno_SL_BGPLS_TOPO_INIT_STATE_CLEAR = 1281,
-  SLBgplsTopoErrorStatus_SLBgplsTopoErrno_SL_BGPLS_TOPO_INIT_STATE_READY = 1282,
-  SLBgplsTopoErrorStatus_SLBgplsTopoErrno_SL_BGPLS_TOPO_INIT_UNSUPPORTED_VER = 1283,
-  SLBgplsTopoErrorStatus_SLBgplsTopoErrno_SL_BGPLS_TOPO_INIT_SERVER_NOT_INITIALIZED = 1284,
-  SLBgplsTopoErrorStatus_SLBgplsTopoErrno_SL_BGPLS_TOPO_INIT_SERVER_MODE_CHANGE_FAILED = 1285,
-  SLBgplsTopoErrorStatus_SLBgplsTopoErrno_SL_BGPLS_TOPO_INTERNAL_START_OFFSET = 1048576,
-  SLBgplsTopoErrorStatus_SLBgplsTopoErrno_SLBgplsTopoErrorStatus_SLBgplsTopoErrno_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::min(),
-  SLBgplsTopoErrorStatus_SLBgplsTopoErrno_SLBgplsTopoErrorStatus_SLBgplsTopoErrno_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::max()
-};
-bool SLBgplsTopoErrorStatus_SLBgplsTopoErrno_IsValid(int value);
-constexpr SLBgplsTopoErrorStatus_SLBgplsTopoErrno SLBgplsTopoErrorStatus_SLBgplsTopoErrno_SLBgplsTopoErrno_MIN = SLBgplsTopoErrorStatus_SLBgplsTopoErrno_SL_BGPLS_TOPO_SUCCESS;
-constexpr SLBgplsTopoErrorStatus_SLBgplsTopoErrno SLBgplsTopoErrorStatus_SLBgplsTopoErrno_SLBgplsTopoErrno_MAX = SLBgplsTopoErrorStatus_SLBgplsTopoErrno_SL_BGPLS_TOPO_INTERNAL_START_OFFSET;
-constexpr int SLBgplsTopoErrorStatus_SLBgplsTopoErrno_SLBgplsTopoErrno_ARRAYSIZE = SLBgplsTopoErrorStatus_SLBgplsTopoErrno_SLBgplsTopoErrno_MAX + 1;
-
-const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* SLBgplsTopoErrorStatus_SLBgplsTopoErrno_descriptor();
-template<typename T>
-inline const std::string& SLBgplsTopoErrorStatus_SLBgplsTopoErrno_Name(T enum_t_value) {
-  static_assert(::std::is_same<T, SLBgplsTopoErrorStatus_SLBgplsTopoErrno>::value ||
-    ::std::is_integral<T>::value,
-    "Incorrect type passed to function SLBgplsTopoErrorStatus_SLBgplsTopoErrno_Name.");
-  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
-    SLBgplsTopoErrorStatus_SLBgplsTopoErrno_descriptor(), enum_t_value);
-}
-inline bool SLBgplsTopoErrorStatus_SLBgplsTopoErrno_Parse(
-    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, SLBgplsTopoErrorStatus_SLBgplsTopoErrno* value) {
-  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<SLBgplsTopoErrorStatus_SLBgplsTopoErrno>(
-    SLBgplsTopoErrorStatus_SLBgplsTopoErrno_descriptor(), name, value);
-}
-enum SLBgplsTopoUpdType : int {
-  SL_BGPLS_TOPO_UPD_TYPE_RESERVED = 0,
-  SL_BGPLS_TOPO_UPD_TYPE_ERROR = 1,
-  SL_BGPLS_TOPO_UPD_TYPE_DATA = 2,
-  SL_BGPLS_TOPO_UPD_TYPE_START_MARKER = 3,
-  SL_BGPLS_TOPO_UPD_TYPE_END_MARKER = 4,
-  SLBgplsTopoUpdType_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::min(),
-  SLBgplsTopoUpdType_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::max()
-};
-bool SLBgplsTopoUpdType_IsValid(int value);
-constexpr SLBgplsTopoUpdType SLBgplsTopoUpdType_MIN = SL_BGPLS_TOPO_UPD_TYPE_RESERVED;
-constexpr SLBgplsTopoUpdType SLBgplsTopoUpdType_MAX = SL_BGPLS_TOPO_UPD_TYPE_END_MARKER;
-constexpr int SLBgplsTopoUpdType_ARRAYSIZE = SLBgplsTopoUpdType_MAX + 1;
-
-const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* SLBgplsTopoUpdType_descriptor();
-template<typename T>
-inline const std::string& SLBgplsTopoUpdType_Name(T enum_t_value) {
-  static_assert(::std::is_same<T, SLBgplsTopoUpdType>::value ||
-    ::std::is_integral<T>::value,
-    "Incorrect type passed to function SLBgplsTopoUpdType_Name.");
-  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
-    SLBgplsTopoUpdType_descriptor(), enum_t_value);
-}
-inline bool SLBgplsTopoUpdType_Parse(
-    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, SLBgplsTopoUpdType* value) {
-  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<SLBgplsTopoUpdType>(
-    SLBgplsTopoUpdType_descriptor(), name, value);
-}
 enum SLBgplsTopoOperation : int {
   SL_BGPLS_TOPO_OPERATION_RESERVED = 0,
   SL_BGPLS_TOPO_OPERATION_UPDATE = 1,
@@ -581,188 +512,6 @@ inline bool SLBgplsTopoOperation_Parse(
     ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, SLBgplsTopoOperation* value) {
   return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<SLBgplsTopoOperation>(
     SLBgplsTopoOperation_descriptor(), name, value);
-}
-enum SLBgplsTopoNlriType : int {
-  SL_BGPLS_TOPO_NLRI_TYPE_RESERVED = 0,
-  SL_BGPLS_TOPO_NLRI_TYPE_NODE = 1,
-  SL_BGPLS_TOPO_NLRI_TYPE_LINK = 2,
-  SL_BGPLS_TOPO_NLRI_TYPE_IPV4_PREFIX = 3,
-  SL_BGPLS_TOPO_NLRI_TYPE_IPV6_PREFIX = 4,
-  SL_BGPLS_TOPO_NLRI_TYPE_SR_POLICY_CANDIDATE_PATH = 5,
-  SL_BGPLS_TOPO_NLRI_TYPE_SRV6_SID = 6,
-  SLBgplsTopoNlriType_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::min(),
-  SLBgplsTopoNlriType_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::max()
-};
-bool SLBgplsTopoNlriType_IsValid(int value);
-constexpr SLBgplsTopoNlriType SLBgplsTopoNlriType_MIN = SL_BGPLS_TOPO_NLRI_TYPE_RESERVED;
-constexpr SLBgplsTopoNlriType SLBgplsTopoNlriType_MAX = SL_BGPLS_TOPO_NLRI_TYPE_SRV6_SID;
-constexpr int SLBgplsTopoNlriType_ARRAYSIZE = SLBgplsTopoNlriType_MAX + 1;
-
-const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* SLBgplsTopoNlriType_descriptor();
-template<typename T>
-inline const std::string& SLBgplsTopoNlriType_Name(T enum_t_value) {
-  static_assert(::std::is_same<T, SLBgplsTopoNlriType>::value ||
-    ::std::is_integral<T>::value,
-    "Incorrect type passed to function SLBgplsTopoNlriType_Name.");
-  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
-    SLBgplsTopoNlriType_descriptor(), enum_t_value);
-}
-inline bool SLBgplsTopoNlriType_Parse(
-    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, SLBgplsTopoNlriType* value) {
-  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<SLBgplsTopoNlriType>(
-    SLBgplsTopoNlriType_descriptor(), name, value);
-}
-enum SLBgplsTopoProtocol : int {
-  SL_BGPLS_TOPO_PROTOCOL_RESERVED = 0,
-  SL_BGPLS_TOPO_PROTOCOL_ISIS_L1 = 1,
-  SL_BGPLS_TOPO_PROTOCOL_ISIS_L2 = 2,
-  SL_BGPLS_TOPO_PROTOCOL_OSPFv2 = 3,
-  SL_BGPLS_TOPO_PROTOCOL_DIRECT = 4,
-  SL_BGPLS_TOPO_PROTOCOL_STATIC = 5,
-  SL_BGPLS_TOPO_PROTOCOL_OSPFv3 = 6,
-  SL_BGPLS_TOPO_PROTOCOL_BGP = 7,
-  SL_BGPLS_TOPO_PROTOCOL_RSVP_TE = 8,
-  SL_BGPLS_TOPO_PROTOCOL_SR = 9,
-  SLBgplsTopoProtocol_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::min(),
-  SLBgplsTopoProtocol_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::max()
-};
-bool SLBgplsTopoProtocol_IsValid(int value);
-constexpr SLBgplsTopoProtocol SLBgplsTopoProtocol_MIN = SL_BGPLS_TOPO_PROTOCOL_RESERVED;
-constexpr SLBgplsTopoProtocol SLBgplsTopoProtocol_MAX = SL_BGPLS_TOPO_PROTOCOL_SR;
-constexpr int SLBgplsTopoProtocol_ARRAYSIZE = SLBgplsTopoProtocol_MAX + 1;
-
-const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* SLBgplsTopoProtocol_descriptor();
-template<typename T>
-inline const std::string& SLBgplsTopoProtocol_Name(T enum_t_value) {
-  static_assert(::std::is_same<T, SLBgplsTopoProtocol>::value ||
-    ::std::is_integral<T>::value,
-    "Incorrect type passed to function SLBgplsTopoProtocol_Name.");
-  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
-    SLBgplsTopoProtocol_descriptor(), enum_t_value);
-}
-inline bool SLBgplsTopoProtocol_Parse(
-    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, SLBgplsTopoProtocol* value) {
-  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<SLBgplsTopoProtocol>(
-    SLBgplsTopoProtocol_descriptor(), name, value);
-}
-enum SLBgplsTopoNodeIdType : int {
-  SL_BGPLS_TOPO_NODE_ID_TYPE_RESERVED = 0,
-  SL_BGPLS_TOPO_NODE_ID_TYPE_ISIS = 1,
-  SL_BGPLS_TOPO_NODE_ID_TYPE_OSPFv2 = 2,
-  SL_BGPLS_TOPO_NODE_ID_TYPE_OSPFv3 = 3,
-  SL_BGPLS_TOPO_NODE_ID_TYPE_BGP = 4,
-  SL_BGPLS_TOPO_NODE_ID_TYPE_SR = 5,
-  SLBgplsTopoNodeIdType_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::min(),
-  SLBgplsTopoNodeIdType_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::max()
-};
-bool SLBgplsTopoNodeIdType_IsValid(int value);
-constexpr SLBgplsTopoNodeIdType SLBgplsTopoNodeIdType_MIN = SL_BGPLS_TOPO_NODE_ID_TYPE_RESERVED;
-constexpr SLBgplsTopoNodeIdType SLBgplsTopoNodeIdType_MAX = SL_BGPLS_TOPO_NODE_ID_TYPE_SR;
-constexpr int SLBgplsTopoNodeIdType_ARRAYSIZE = SLBgplsTopoNodeIdType_MAX + 1;
-
-const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* SLBgplsTopoNodeIdType_descriptor();
-template<typename T>
-inline const std::string& SLBgplsTopoNodeIdType_Name(T enum_t_value) {
-  static_assert(::std::is_same<T, SLBgplsTopoNodeIdType>::value ||
-    ::std::is_integral<T>::value,
-    "Incorrect type passed to function SLBgplsTopoNodeIdType_Name.");
-  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
-    SLBgplsTopoNodeIdType_descriptor(), enum_t_value);
-}
-inline bool SLBgplsTopoNodeIdType_Parse(
-    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, SLBgplsTopoNodeIdType* value) {
-  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<SLBgplsTopoNodeIdType>(
-    SLBgplsTopoNodeIdType_descriptor(), name, value);
-}
-enum SLBgplsTopoOspfRouteType : int {
-  SL_BGPLS_TOPO_OSPF_ROUTE_TYPE_RESERVED = 0,
-  SL_BGPLS_TOPO_OSPF_ROUTE_TYPE_INTRA_AREA = 1,
-  SL_BGPLS_TOPO_OSPF_ROUTE_TYPE_INTER_AREA = 2,
-  SL_BGPLS_TOPO_OSPF_ROUTE_TYPE_EXTERN_1 = 3,
-  SL_BGPLS_TOPO_OSPF_ROUTE_TYPE_EXTERN_2 = 4,
-  SL_BGPLS_TOPO_OSPF_ROUTE_TYPE_NSSA_1 = 5,
-  SL_BGPLS_TOPO_OSPF_ROUTE_TYPE_NSSA_2 = 6,
-  SLBgplsTopoOspfRouteType_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::min(),
-  SLBgplsTopoOspfRouteType_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::max()
-};
-bool SLBgplsTopoOspfRouteType_IsValid(int value);
-constexpr SLBgplsTopoOspfRouteType SLBgplsTopoOspfRouteType_MIN = SL_BGPLS_TOPO_OSPF_ROUTE_TYPE_RESERVED;
-constexpr SLBgplsTopoOspfRouteType SLBgplsTopoOspfRouteType_MAX = SL_BGPLS_TOPO_OSPF_ROUTE_TYPE_NSSA_2;
-constexpr int SLBgplsTopoOspfRouteType_ARRAYSIZE = SLBgplsTopoOspfRouteType_MAX + 1;
-
-const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* SLBgplsTopoOspfRouteType_descriptor();
-template<typename T>
-inline const std::string& SLBgplsTopoOspfRouteType_Name(T enum_t_value) {
-  static_assert(::std::is_same<T, SLBgplsTopoOspfRouteType>::value ||
-    ::std::is_integral<T>::value,
-    "Incorrect type passed to function SLBgplsTopoOspfRouteType_Name.");
-  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
-    SLBgplsTopoOspfRouteType_descriptor(), enum_t_value);
-}
-inline bool SLBgplsTopoOspfRouteType_Parse(
-    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, SLBgplsTopoOspfRouteType* value) {
-  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<SLBgplsTopoOspfRouteType>(
-    SLBgplsTopoOspfRouteType_descriptor(), name, value);
-}
-enum SLBgplsTopoSrPolicyProtocolOrigin : int {
-  SL_BGPLS_TOPO_SR_POLICY_PROTOCOL_ORIGIN_RESERVED = 0,
-  SL_BGPLS_TOPO_SR_POLICY_PROTOCOL_ORIGIN_PCEP = 1,
-  SL_BGPLS_TOPO_SR_POLICY_PROTOCOL_ORIGIN_BGP_SR_POLICY = 2,
-  SL_BGPLS_TOPO_SR_POLICY_PROTOCOL_ORIGIN_CONFIG = 3,
-  SL_BGPLS_TOPO_SR_POLICY_PROTOCOL_ORIGIN_PCEP_VIA_PCE = 10,
-  SL_BGPLS_TOPO_SR_POLICY_PROTOCOL_ORIGIN_BGP_SR_POLICY_VIA_PCE = 20,
-  SL_BGPLS_TOPO_SR_POLICY_PROTOCOL_ORIGIN_CONFIG_VIA_PCE = 30,
-  SLBgplsTopoSrPolicyProtocolOrigin_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::min(),
-  SLBgplsTopoSrPolicyProtocolOrigin_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::max()
-};
-bool SLBgplsTopoSrPolicyProtocolOrigin_IsValid(int value);
-constexpr SLBgplsTopoSrPolicyProtocolOrigin SLBgplsTopoSrPolicyProtocolOrigin_MIN = SL_BGPLS_TOPO_SR_POLICY_PROTOCOL_ORIGIN_RESERVED;
-constexpr SLBgplsTopoSrPolicyProtocolOrigin SLBgplsTopoSrPolicyProtocolOrigin_MAX = SL_BGPLS_TOPO_SR_POLICY_PROTOCOL_ORIGIN_CONFIG_VIA_PCE;
-constexpr int SLBgplsTopoSrPolicyProtocolOrigin_ARRAYSIZE = SLBgplsTopoSrPolicyProtocolOrigin_MAX + 1;
-
-const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* SLBgplsTopoSrPolicyProtocolOrigin_descriptor();
-template<typename T>
-inline const std::string& SLBgplsTopoSrPolicyProtocolOrigin_Name(T enum_t_value) {
-  static_assert(::std::is_same<T, SLBgplsTopoSrPolicyProtocolOrigin>::value ||
-    ::std::is_integral<T>::value,
-    "Incorrect type passed to function SLBgplsTopoSrPolicyProtocolOrigin_Name.");
-  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
-    SLBgplsTopoSrPolicyProtocolOrigin_descriptor(), enum_t_value);
-}
-inline bool SLBgplsTopoSrPolicyProtocolOrigin_Parse(
-    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, SLBgplsTopoSrPolicyProtocolOrigin* value) {
-  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<SLBgplsTopoSrPolicyProtocolOrigin>(
-    SLBgplsTopoSrPolicyProtocolOrigin_descriptor(), name, value);
-}
-enum SLBgplsTopoAttrType : int {
-  SL_BGPLS_TOPO_ATTR_TYPE_RESERVED = 0,
-  SL_BGPLS_TOPO_ATTR_TYPE_NODE = 1,
-  SL_BGPLS_TOPO_ATTR_TYPE_LINK = 2,
-  SL_BGPLS_TOPO_ATTR_TYPE_IPV4_PREFIX = 3,
-  SL_BGPLS_TOPO_ATTR_TYPE_IPV6_PREFIX = 4,
-  SL_BGPLS_TOPO_ATTR_TYPE_SR_POLICY_CANDIDATE_PATH = 5,
-  SL_BGPLS_TOPO_ATTR_TYPE_SRV6_SID = 6,
-  SLBgplsTopoAttrType_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::min(),
-  SLBgplsTopoAttrType_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::max()
-};
-bool SLBgplsTopoAttrType_IsValid(int value);
-constexpr SLBgplsTopoAttrType SLBgplsTopoAttrType_MIN = SL_BGPLS_TOPO_ATTR_TYPE_RESERVED;
-constexpr SLBgplsTopoAttrType SLBgplsTopoAttrType_MAX = SL_BGPLS_TOPO_ATTR_TYPE_SRV6_SID;
-constexpr int SLBgplsTopoAttrType_ARRAYSIZE = SLBgplsTopoAttrType_MAX + 1;
-
-const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* SLBgplsTopoAttrType_descriptor();
-template<typename T>
-inline const std::string& SLBgplsTopoAttrType_Name(T enum_t_value) {
-  static_assert(::std::is_same<T, SLBgplsTopoAttrType>::value ||
-    ::std::is_integral<T>::value,
-    "Incorrect type passed to function SLBgplsTopoAttrType_Name.");
-  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
-    SLBgplsTopoAttrType_descriptor(), enum_t_value);
-}
-inline bool SLBgplsTopoAttrType_Parse(
-    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, SLBgplsTopoAttrType* value) {
-  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<SLBgplsTopoAttrType>(
-    SLBgplsTopoAttrType_descriptor(), name, value);
 }
 enum SLBgplsTopoAdjSidFormat : int {
   SL_BGPLS_TOPO_ADJ_SID_FORMAT_RESERVED = 0,
@@ -975,25 +724,25 @@ class SLBgplsTopoGetUpdMsg final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kFilterFieldNumber = 1,
+    kMatchFieldNumber = 1,
   };
-  // repeated .service_layer.SLBgplsTopoNlriFilter Filter = 1;
-  int filter_size() const;
+  // repeated .service_layer.SLBgplsTopoNlriMatch Match = 1;
+  int match_size() const;
   private:
-  int _internal_filter_size() const;
+  int _internal_match_size() const;
   public:
-  void clear_filter();
-  ::service_layer::SLBgplsTopoNlriFilter* mutable_filter(int index);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::service_layer::SLBgplsTopoNlriFilter >*
-      mutable_filter();
+  void clear_match();
+  ::service_layer::SLBgplsTopoNlriMatch* mutable_match(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::service_layer::SLBgplsTopoNlriMatch >*
+      mutable_match();
   private:
-  const ::service_layer::SLBgplsTopoNlriFilter& _internal_filter(int index) const;
-  ::service_layer::SLBgplsTopoNlriFilter* _internal_add_filter();
+  const ::service_layer::SLBgplsTopoNlriMatch& _internal_match(int index) const;
+  ::service_layer::SLBgplsTopoNlriMatch* _internal_add_match();
   public:
-  const ::service_layer::SLBgplsTopoNlriFilter& filter(int index) const;
-  ::service_layer::SLBgplsTopoNlriFilter* add_filter();
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::service_layer::SLBgplsTopoNlriFilter >&
-      filter() const;
+  const ::service_layer::SLBgplsTopoNlriMatch& match(int index) const;
+  ::service_layer::SLBgplsTopoNlriMatch* add_match();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::service_layer::SLBgplsTopoNlriMatch >&
+      match() const;
 
   // @@protoc_insertion_point(class_scope:service_layer.SLBgplsTopoGetUpdMsg)
  private:
@@ -1002,30 +751,30 @@ class SLBgplsTopoGetUpdMsg final :
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::service_layer::SLBgplsTopoNlriFilter > filter_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::service_layer::SLBgplsTopoNlriMatch > match_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_sl_5fbgpls_5ftopology_2eproto;
 };
 // -------------------------------------------------------------------
 
-class SLBgplsTopoNlriFilter final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:service_layer.SLBgplsTopoNlriFilter) */ {
+class SLBgplsTopoNlriMatch final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:service_layer.SLBgplsTopoNlriMatch) */ {
  public:
-  inline SLBgplsTopoNlriFilter() : SLBgplsTopoNlriFilter(nullptr) {}
-  ~SLBgplsTopoNlriFilter() override;
-  explicit constexpr SLBgplsTopoNlriFilter(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+  inline SLBgplsTopoNlriMatch() : SLBgplsTopoNlriMatch(nullptr) {}
+  ~SLBgplsTopoNlriMatch() override;
+  explicit constexpr SLBgplsTopoNlriMatch(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
 
-  SLBgplsTopoNlriFilter(const SLBgplsTopoNlriFilter& from);
-  SLBgplsTopoNlriFilter(SLBgplsTopoNlriFilter&& from) noexcept
-    : SLBgplsTopoNlriFilter() {
+  SLBgplsTopoNlriMatch(const SLBgplsTopoNlriMatch& from);
+  SLBgplsTopoNlriMatch(SLBgplsTopoNlriMatch&& from) noexcept
+    : SLBgplsTopoNlriMatch() {
     *this = ::std::move(from);
   }
 
-  inline SLBgplsTopoNlriFilter& operator=(const SLBgplsTopoNlriFilter& from) {
+  inline SLBgplsTopoNlriMatch& operator=(const SLBgplsTopoNlriMatch& from) {
     CopyFrom(from);
     return *this;
   }
-  inline SLBgplsTopoNlriFilter& operator=(SLBgplsTopoNlriFilter&& from) noexcept {
+  inline SLBgplsTopoNlriMatch& operator=(SLBgplsTopoNlriMatch&& from) noexcept {
     if (this == &from) return *this;
     if (GetOwningArena() == from.GetOwningArena()
   #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
@@ -1048,20 +797,20 @@ class SLBgplsTopoNlriFilter final :
   static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
-  static const SLBgplsTopoNlriFilter& default_instance() {
+  static const SLBgplsTopoNlriMatch& default_instance() {
     return *internal_default_instance();
   }
-  static inline const SLBgplsTopoNlriFilter* internal_default_instance() {
-    return reinterpret_cast<const SLBgplsTopoNlriFilter*>(
-               &_SLBgplsTopoNlriFilter_default_instance_);
+  static inline const SLBgplsTopoNlriMatch* internal_default_instance() {
+    return reinterpret_cast<const SLBgplsTopoNlriMatch*>(
+               &_SLBgplsTopoNlriMatch_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
     1;
 
-  friend void swap(SLBgplsTopoNlriFilter& a, SLBgplsTopoNlriFilter& b) {
+  friend void swap(SLBgplsTopoNlriMatch& a, SLBgplsTopoNlriMatch& b) {
     a.Swap(&b);
   }
-  inline void Swap(SLBgplsTopoNlriFilter* other) {
+  inline void Swap(SLBgplsTopoNlriMatch* other) {
     if (other == this) return;
   #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
     if (GetOwningArena() != nullptr &&
@@ -1074,7 +823,7 @@ class SLBgplsTopoNlriFilter final :
       ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
     }
   }
-  void UnsafeArenaSwap(SLBgplsTopoNlriFilter* other) {
+  void UnsafeArenaSwap(SLBgplsTopoNlriMatch* other) {
     if (other == this) return;
     GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
     InternalSwap(other);
@@ -1082,13 +831,13 @@ class SLBgplsTopoNlriFilter final :
 
   // implements Message ----------------------------------------------
 
-  SLBgplsTopoNlriFilter* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
-    return CreateMaybeMessage<SLBgplsTopoNlriFilter>(arena);
+  SLBgplsTopoNlriMatch* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<SLBgplsTopoNlriMatch>(arena);
   }
   using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const SLBgplsTopoNlriFilter& from);
+  void CopyFrom(const SLBgplsTopoNlriMatch& from);
   using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom(const SLBgplsTopoNlriFilter& from);
+  void MergeFrom(const SLBgplsTopoNlriMatch& from);
   private:
   static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to, const ::PROTOBUF_NAMESPACE_ID::Message& from);
   public:
@@ -1105,15 +854,15 @@ class SLBgplsTopoNlriFilter final :
   void SharedCtor();
   void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(SLBgplsTopoNlriFilter* other);
+  void InternalSwap(SLBgplsTopoNlriMatch* other);
 
   private:
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "service_layer.SLBgplsTopoNlriFilter";
+    return "service_layer.SLBgplsTopoNlriMatch";
   }
   protected:
-  explicit SLBgplsTopoNlriFilter(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+  explicit SLBgplsTopoNlriMatch(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                        bool is_message_owned = false);
   private:
   static void ArenaDtor(void* object);
@@ -1161,7 +910,7 @@ class SLBgplsTopoNlriFilter final :
   void _internal_set_nlritype(::service_layer::SLBgplsTopoNlriType value);
   public:
 
-  // @@protoc_insertion_point(class_scope:service_layer.SLBgplsTopoNlriFilter)
+  // @@protoc_insertion_point(class_scope:service_layer.SLBgplsTopoNlriMatch)
  private:
   class _Internal;
 
@@ -1220,8 +969,10 @@ class SLBgplsTopoUpdMsg final :
     return *internal_default_instance();
   }
   enum UpdateCase {
-    kErrStatus = 2,
-    kData = 3,
+    kErrStatus = 1,
+    kData = 2,
+    kStart = 3,
+    kEnd = 4,
     UPDATE_NOT_SET = 0,
   };
 
@@ -1304,38 +1055,30 @@ class SLBgplsTopoUpdMsg final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kUpdTypeFieldNumber = 1,
-    kErrStatusFieldNumber = 2,
-    kDataFieldNumber = 3,
+    kErrStatusFieldNumber = 1,
+    kDataFieldNumber = 2,
+    kStartFieldNumber = 3,
+    kEndFieldNumber = 4,
   };
-  // .service_layer.SLBgplsTopoUpdType UpdType = 1;
-  void clear_updtype();
-  ::service_layer::SLBgplsTopoUpdType updtype() const;
-  void set_updtype(::service_layer::SLBgplsTopoUpdType value);
-  private:
-  ::service_layer::SLBgplsTopoUpdType _internal_updtype() const;
-  void _internal_set_updtype(::service_layer::SLBgplsTopoUpdType value);
-  public:
-
-  // .service_layer.SLBgplsTopoErrorStatus ErrStatus = 2;
+  // .service_layer.SLErrorStatus ErrStatus = 1;
   bool has_errstatus() const;
   private:
   bool _internal_has_errstatus() const;
   public:
   void clear_errstatus();
-  const ::service_layer::SLBgplsTopoErrorStatus& errstatus() const;
-  PROTOBUF_NODISCARD ::service_layer::SLBgplsTopoErrorStatus* release_errstatus();
-  ::service_layer::SLBgplsTopoErrorStatus* mutable_errstatus();
-  void set_allocated_errstatus(::service_layer::SLBgplsTopoErrorStatus* errstatus);
+  const ::service_layer::SLErrorStatus& errstatus() const;
+  PROTOBUF_NODISCARD ::service_layer::SLErrorStatus* release_errstatus();
+  ::service_layer::SLErrorStatus* mutable_errstatus();
+  void set_allocated_errstatus(::service_layer::SLErrorStatus* errstatus);
   private:
-  const ::service_layer::SLBgplsTopoErrorStatus& _internal_errstatus() const;
-  ::service_layer::SLBgplsTopoErrorStatus* _internal_mutable_errstatus();
+  const ::service_layer::SLErrorStatus& _internal_errstatus() const;
+  ::service_layer::SLErrorStatus* _internal_mutable_errstatus();
   public:
   void unsafe_arena_set_allocated_errstatus(
-      ::service_layer::SLBgplsTopoErrorStatus* errstatus);
-  ::service_layer::SLBgplsTopoErrorStatus* unsafe_arena_release_errstatus();
+      ::service_layer::SLErrorStatus* errstatus);
+  ::service_layer::SLErrorStatus* unsafe_arena_release_errstatus();
 
-  // .service_layer.SLBgplsTopoUpd Data = 3;
+  // .service_layer.SLBgplsTopoUpd Data = 2;
   bool has_data() const;
   private:
   bool _internal_has_data() const;
@@ -1353,6 +1096,42 @@ class SLBgplsTopoUpdMsg final :
       ::service_layer::SLBgplsTopoUpd* data);
   ::service_layer::SLBgplsTopoUpd* unsafe_arena_release_data();
 
+  // .service_layer.SLBgplsTopoStartMarker Start = 3;
+  bool has_start() const;
+  private:
+  bool _internal_has_start() const;
+  public:
+  void clear_start();
+  const ::service_layer::SLBgplsTopoStartMarker& start() const;
+  PROTOBUF_NODISCARD ::service_layer::SLBgplsTopoStartMarker* release_start();
+  ::service_layer::SLBgplsTopoStartMarker* mutable_start();
+  void set_allocated_start(::service_layer::SLBgplsTopoStartMarker* start);
+  private:
+  const ::service_layer::SLBgplsTopoStartMarker& _internal_start() const;
+  ::service_layer::SLBgplsTopoStartMarker* _internal_mutable_start();
+  public:
+  void unsafe_arena_set_allocated_start(
+      ::service_layer::SLBgplsTopoStartMarker* start);
+  ::service_layer::SLBgplsTopoStartMarker* unsafe_arena_release_start();
+
+  // .service_layer.SLBgplsTopoEndMarker End = 4;
+  bool has_end() const;
+  private:
+  bool _internal_has_end() const;
+  public:
+  void clear_end();
+  const ::service_layer::SLBgplsTopoEndMarker& end() const;
+  PROTOBUF_NODISCARD ::service_layer::SLBgplsTopoEndMarker* release_end();
+  ::service_layer::SLBgplsTopoEndMarker* mutable_end();
+  void set_allocated_end(::service_layer::SLBgplsTopoEndMarker* end);
+  private:
+  const ::service_layer::SLBgplsTopoEndMarker& _internal_end() const;
+  ::service_layer::SLBgplsTopoEndMarker* _internal_mutable_end();
+  public:
+  void unsafe_arena_set_allocated_end(
+      ::service_layer::SLBgplsTopoEndMarker* end);
+  ::service_layer::SLBgplsTopoEndMarker* unsafe_arena_release_end();
+
   void clear_Update();
   UpdateCase Update_case() const;
   // @@protoc_insertion_point(class_scope:service_layer.SLBgplsTopoUpdMsg)
@@ -1360,6 +1139,8 @@ class SLBgplsTopoUpdMsg final :
   class _Internal;
   void set_has_errstatus();
   void set_has_data();
+  void set_has_start();
+  void set_has_end();
 
   inline bool has_Update() const;
   inline void clear_has_Update();
@@ -1367,12 +1148,13 @@ class SLBgplsTopoUpdMsg final :
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  int updtype_;
   union UpdateUnion {
     constexpr UpdateUnion() : _constinit_{} {}
       ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized _constinit_;
-    ::service_layer::SLBgplsTopoErrorStatus* errstatus_;
+    ::service_layer::SLErrorStatus* errstatus_;
     ::service_layer::SLBgplsTopoUpd* data_;
+    ::service_layer::SLBgplsTopoStartMarker* start_;
+    ::service_layer::SLBgplsTopoEndMarker* end_;
   } Update_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   uint32_t _oneof_case_[1];
@@ -1381,24 +1163,23 @@ class SLBgplsTopoUpdMsg final :
 };
 // -------------------------------------------------------------------
 
-class SLBgplsTopoErrorStatus final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:service_layer.SLBgplsTopoErrorStatus) */ {
+class SLBgplsTopoStartMarker final :
+    public ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase /* @@protoc_insertion_point(class_definition:service_layer.SLBgplsTopoStartMarker) */ {
  public:
-  inline SLBgplsTopoErrorStatus() : SLBgplsTopoErrorStatus(nullptr) {}
-  ~SLBgplsTopoErrorStatus() override;
-  explicit constexpr SLBgplsTopoErrorStatus(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+  inline SLBgplsTopoStartMarker() : SLBgplsTopoStartMarker(nullptr) {}
+  explicit constexpr SLBgplsTopoStartMarker(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
 
-  SLBgplsTopoErrorStatus(const SLBgplsTopoErrorStatus& from);
-  SLBgplsTopoErrorStatus(SLBgplsTopoErrorStatus&& from) noexcept
-    : SLBgplsTopoErrorStatus() {
+  SLBgplsTopoStartMarker(const SLBgplsTopoStartMarker& from);
+  SLBgplsTopoStartMarker(SLBgplsTopoStartMarker&& from) noexcept
+    : SLBgplsTopoStartMarker() {
     *this = ::std::move(from);
   }
 
-  inline SLBgplsTopoErrorStatus& operator=(const SLBgplsTopoErrorStatus& from) {
+  inline SLBgplsTopoStartMarker& operator=(const SLBgplsTopoStartMarker& from) {
     CopyFrom(from);
     return *this;
   }
-  inline SLBgplsTopoErrorStatus& operator=(SLBgplsTopoErrorStatus&& from) noexcept {
+  inline SLBgplsTopoStartMarker& operator=(SLBgplsTopoStartMarker&& from) noexcept {
     if (this == &from) return *this;
     if (GetOwningArena() == from.GetOwningArena()
   #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
@@ -1421,20 +1202,20 @@ class SLBgplsTopoErrorStatus final :
   static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
-  static const SLBgplsTopoErrorStatus& default_instance() {
+  static const SLBgplsTopoStartMarker& default_instance() {
     return *internal_default_instance();
   }
-  static inline const SLBgplsTopoErrorStatus* internal_default_instance() {
-    return reinterpret_cast<const SLBgplsTopoErrorStatus*>(
-               &_SLBgplsTopoErrorStatus_default_instance_);
+  static inline const SLBgplsTopoStartMarker* internal_default_instance() {
+    return reinterpret_cast<const SLBgplsTopoStartMarker*>(
+               &_SLBgplsTopoStartMarker_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
     3;
 
-  friend void swap(SLBgplsTopoErrorStatus& a, SLBgplsTopoErrorStatus& b) {
+  friend void swap(SLBgplsTopoStartMarker& a, SLBgplsTopoStartMarker& b) {
     a.Swap(&b);
   }
-  inline void Swap(SLBgplsTopoErrorStatus* other) {
+  inline void Swap(SLBgplsTopoStartMarker* other) {
     if (other == this) return;
   #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
     if (GetOwningArena() != nullptr &&
@@ -1447,7 +1228,7 @@ class SLBgplsTopoErrorStatus final :
       ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
     }
   }
-  void UnsafeArenaSwap(SLBgplsTopoErrorStatus* other) {
+  void UnsafeArenaSwap(SLBgplsTopoStartMarker* other) {
     if (other == this) return;
     GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
     InternalSwap(other);
@@ -1455,42 +1236,28 @@ class SLBgplsTopoErrorStatus final :
 
   // implements Message ----------------------------------------------
 
-  SLBgplsTopoErrorStatus* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
-    return CreateMaybeMessage<SLBgplsTopoErrorStatus>(arena);
+  SLBgplsTopoStartMarker* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<SLBgplsTopoStartMarker>(arena);
   }
-  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const SLBgplsTopoErrorStatus& from);
-  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom(const SLBgplsTopoErrorStatus& from);
-  private:
-  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to, const ::PROTOBUF_NAMESPACE_ID::Message& from);
+  using ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::CopyFrom;
+  inline void CopyFrom(const SLBgplsTopoStartMarker& from) {
+    ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::CopyImpl(this, from);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::MergeFrom;
+  void MergeFrom(const SLBgplsTopoStartMarker& from) {
+    ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::MergeImpl(this, from);
+  }
   public:
-  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
-  bool IsInitialized() const final;
-
-  size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  uint8_t* _InternalSerialize(
-      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
-  int GetCachedSize() const final { return _cached_size_.Get(); }
-
-  private:
-  void SharedCtor();
-  void SharedDtor();
-  void SetCachedSize(int size) const final;
-  void InternalSwap(SLBgplsTopoErrorStatus* other);
 
   private:
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "service_layer.SLBgplsTopoErrorStatus";
+    return "service_layer.SLBgplsTopoStartMarker";
   }
   protected:
-  explicit SLBgplsTopoErrorStatus(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+  explicit SLBgplsTopoStartMarker(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                        bool is_message_owned = false);
   private:
-  static void ArenaDtor(void* object);
-  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
   public:
 
   static const ClassData _class_data_;
@@ -1500,96 +1267,133 @@ class SLBgplsTopoErrorStatus final :
 
   // nested types ----------------------------------------------------
 
-  typedef SLBgplsTopoErrorStatus_SLBgplsTopoErrno SLBgplsTopoErrno;
-  static constexpr SLBgplsTopoErrno SL_BGPLS_TOPO_SUCCESS =
-    SLBgplsTopoErrorStatus_SLBgplsTopoErrno_SL_BGPLS_TOPO_SUCCESS;
-  static constexpr SLBgplsTopoErrno SL_BGPLS_TOPO_NOT_CONNECTED =
-    SLBgplsTopoErrorStatus_SLBgplsTopoErrno_SL_BGPLS_TOPO_NOT_CONNECTED;
-  static constexpr SLBgplsTopoErrno SL_BGPLS_TOPO_EAGAIN =
-    SLBgplsTopoErrorStatus_SLBgplsTopoErrno_SL_BGPLS_TOPO_EAGAIN;
-  static constexpr SLBgplsTopoErrno SL_BGPLS_TOPO_ENOMEM =
-    SLBgplsTopoErrorStatus_SLBgplsTopoErrno_SL_BGPLS_TOPO_ENOMEM;
-  static constexpr SLBgplsTopoErrno SL_BGPLS_TOPO_EBUSY =
-    SLBgplsTopoErrorStatus_SLBgplsTopoErrno_SL_BGPLS_TOPO_EBUSY;
-  static constexpr SLBgplsTopoErrno SL_BGPLS_TOPO_EINVAL =
-    SLBgplsTopoErrorStatus_SLBgplsTopoErrno_SL_BGPLS_TOPO_EINVAL;
-  static constexpr SLBgplsTopoErrno SL_BGPLS_TOPO_UNSUPPORTED_VER =
-    SLBgplsTopoErrorStatus_SLBgplsTopoErrno_SL_BGPLS_TOPO_UNSUPPORTED_VER;
-  static constexpr SLBgplsTopoErrno SL_BGPLS_TOPO_NOT_AVAILABLE =
-    SLBgplsTopoErrorStatus_SLBgplsTopoErrno_SL_BGPLS_TOPO_NOT_AVAILABLE;
-  static constexpr SLBgplsTopoErrno SL_BGPLS_TOPO_STREAM_NOT_SUPPORTED =
-    SLBgplsTopoErrorStatus_SLBgplsTopoErrno_SL_BGPLS_TOPO_STREAM_NOT_SUPPORTED;
-  static constexpr SLBgplsTopoErrno SL_BGPLS_TOPO_ENOTSUP =
-    SLBgplsTopoErrorStatus_SLBgplsTopoErrno_SL_BGPLS_TOPO_ENOTSUP;
-  static constexpr SLBgplsTopoErrno SL_BGPLS_TOPO_SOME_ERR =
-    SLBgplsTopoErrorStatus_SLBgplsTopoErrno_SL_BGPLS_TOPO_SOME_ERR;
-  static constexpr SLBgplsTopoErrno SL_BGPLS_TOPO_TIMEOUT =
-    SLBgplsTopoErrorStatus_SLBgplsTopoErrno_SL_BGPLS_TOPO_TIMEOUT;
-  static constexpr SLBgplsTopoErrno SL_BGPLS_TOPO_NOTIF_TERM =
-    SLBgplsTopoErrorStatus_SLBgplsTopoErrno_SL_BGPLS_TOPO_NOTIF_TERM;
-  static constexpr SLBgplsTopoErrno SL_BGPLS_TOPO_AUTH_FAIL =
-    SLBgplsTopoErrorStatus_SLBgplsTopoErrno_SL_BGPLS_TOPO_AUTH_FAIL;
-  static constexpr SLBgplsTopoErrno SL_BGPLS_TOPO_INIT_START_OFFSET =
-    SLBgplsTopoErrorStatus_SLBgplsTopoErrno_SL_BGPLS_TOPO_INIT_START_OFFSET;
-  static constexpr SLBgplsTopoErrno SL_BGPLS_TOPO_INIT_STATE_CLEAR =
-    SLBgplsTopoErrorStatus_SLBgplsTopoErrno_SL_BGPLS_TOPO_INIT_STATE_CLEAR;
-  static constexpr SLBgplsTopoErrno SL_BGPLS_TOPO_INIT_STATE_READY =
-    SLBgplsTopoErrorStatus_SLBgplsTopoErrno_SL_BGPLS_TOPO_INIT_STATE_READY;
-  static constexpr SLBgplsTopoErrno SL_BGPLS_TOPO_INIT_UNSUPPORTED_VER =
-    SLBgplsTopoErrorStatus_SLBgplsTopoErrno_SL_BGPLS_TOPO_INIT_UNSUPPORTED_VER;
-  static constexpr SLBgplsTopoErrno SL_BGPLS_TOPO_INIT_SERVER_NOT_INITIALIZED =
-    SLBgplsTopoErrorStatus_SLBgplsTopoErrno_SL_BGPLS_TOPO_INIT_SERVER_NOT_INITIALIZED;
-  static constexpr SLBgplsTopoErrno SL_BGPLS_TOPO_INIT_SERVER_MODE_CHANGE_FAILED =
-    SLBgplsTopoErrorStatus_SLBgplsTopoErrno_SL_BGPLS_TOPO_INIT_SERVER_MODE_CHANGE_FAILED;
-  static constexpr SLBgplsTopoErrno SL_BGPLS_TOPO_INTERNAL_START_OFFSET =
-    SLBgplsTopoErrorStatus_SLBgplsTopoErrno_SL_BGPLS_TOPO_INTERNAL_START_OFFSET;
-  static inline bool SLBgplsTopoErrno_IsValid(int value) {
-    return SLBgplsTopoErrorStatus_SLBgplsTopoErrno_IsValid(value);
-  }
-  static constexpr SLBgplsTopoErrno SLBgplsTopoErrno_MIN =
-    SLBgplsTopoErrorStatus_SLBgplsTopoErrno_SLBgplsTopoErrno_MIN;
-  static constexpr SLBgplsTopoErrno SLBgplsTopoErrno_MAX =
-    SLBgplsTopoErrorStatus_SLBgplsTopoErrno_SLBgplsTopoErrno_MAX;
-  static constexpr int SLBgplsTopoErrno_ARRAYSIZE =
-    SLBgplsTopoErrorStatus_SLBgplsTopoErrno_SLBgplsTopoErrno_ARRAYSIZE;
-  static inline const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor*
-  SLBgplsTopoErrno_descriptor() {
-    return SLBgplsTopoErrorStatus_SLBgplsTopoErrno_descriptor();
-  }
-  template<typename T>
-  static inline const std::string& SLBgplsTopoErrno_Name(T enum_t_value) {
-    static_assert(::std::is_same<T, SLBgplsTopoErrno>::value ||
-      ::std::is_integral<T>::value,
-      "Incorrect type passed to function SLBgplsTopoErrno_Name.");
-    return SLBgplsTopoErrorStatus_SLBgplsTopoErrno_Name(enum_t_value);
-  }
-  static inline bool SLBgplsTopoErrno_Parse(::PROTOBUF_NAMESPACE_ID::ConstStringParam name,
-      SLBgplsTopoErrno* value) {
-    return SLBgplsTopoErrorStatus_SLBgplsTopoErrno_Parse(name, value);
-  }
-
   // accessors -------------------------------------------------------
 
-  enum : int {
-    kStatusFieldNumber = 1,
-  };
-  // .service_layer.SLBgplsTopoErrorStatus.SLBgplsTopoErrno Status = 1;
-  void clear_status();
-  ::service_layer::SLBgplsTopoErrorStatus_SLBgplsTopoErrno status() const;
-  void set_status(::service_layer::SLBgplsTopoErrorStatus_SLBgplsTopoErrno value);
-  private:
-  ::service_layer::SLBgplsTopoErrorStatus_SLBgplsTopoErrno _internal_status() const;
-  void _internal_set_status(::service_layer::SLBgplsTopoErrorStatus_SLBgplsTopoErrno value);
-  public:
-
-  // @@protoc_insertion_point(class_scope:service_layer.SLBgplsTopoErrorStatus)
+  // @@protoc_insertion_point(class_scope:service_layer.SLBgplsTopoStartMarker)
  private:
   class _Internal;
 
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  int status_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_sl_5fbgpls_5ftopology_2eproto;
+};
+// -------------------------------------------------------------------
+
+class SLBgplsTopoEndMarker final :
+    public ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase /* @@protoc_insertion_point(class_definition:service_layer.SLBgplsTopoEndMarker) */ {
+ public:
+  inline SLBgplsTopoEndMarker() : SLBgplsTopoEndMarker(nullptr) {}
+  explicit constexpr SLBgplsTopoEndMarker(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  SLBgplsTopoEndMarker(const SLBgplsTopoEndMarker& from);
+  SLBgplsTopoEndMarker(SLBgplsTopoEndMarker&& from) noexcept
+    : SLBgplsTopoEndMarker() {
+    *this = ::std::move(from);
+  }
+
+  inline SLBgplsTopoEndMarker& operator=(const SLBgplsTopoEndMarker& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline SLBgplsTopoEndMarker& operator=(SLBgplsTopoEndMarker&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const SLBgplsTopoEndMarker& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const SLBgplsTopoEndMarker* internal_default_instance() {
+    return reinterpret_cast<const SLBgplsTopoEndMarker*>(
+               &_SLBgplsTopoEndMarker_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    4;
+
+  friend void swap(SLBgplsTopoEndMarker& a, SLBgplsTopoEndMarker& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(SLBgplsTopoEndMarker* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(SLBgplsTopoEndMarker* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  SLBgplsTopoEndMarker* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<SLBgplsTopoEndMarker>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::CopyFrom;
+  inline void CopyFrom(const SLBgplsTopoEndMarker& from) {
+    ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::CopyImpl(this, from);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::MergeFrom;
+  void MergeFrom(const SLBgplsTopoEndMarker& from) {
+    ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::MergeImpl(this, from);
+  }
+  public:
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "service_layer.SLBgplsTopoEndMarker";
+  }
+  protected:
+  explicit SLBgplsTopoEndMarker(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  private:
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // @@protoc_insertion_point(class_scope:service_layer.SLBgplsTopoEndMarker)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_sl_5fbgpls_5ftopology_2eproto;
 };
@@ -1643,7 +1447,7 @@ class SLBgplsTopoUpd final :
                &_SLBgplsTopoUpd_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    4;
+    5;
 
   friend void swap(SLBgplsTopoUpd& a, SLBgplsTopoUpd& b) {
     a.Swap(&b);
@@ -1798,7 +1602,7 @@ class SLBgplsTopoEntry final :
                &_SLBgplsTopoEntry_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    5;
+    6;
 
   friend void swap(SLBgplsTopoEntry& a, SLBgplsTopoEntry& b) {
     a.Swap(&b);
@@ -1993,7 +1797,7 @@ class SLBgplsTopoNlri final :
                &_SLBgplsTopoNlri_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    6;
+    7;
 
   friend void swap(SLBgplsTopoNlri& a, SLBgplsTopoNlri& b) {
     a.Swap(&b);
@@ -2272,12 +2076,21 @@ class SLBgplsTopoNode final :
   static const SLBgplsTopoNode& default_instance() {
     return *internal_default_instance();
   }
+  enum NodeIdCase {
+    kOspfNodeId = 2,
+    kOspfv3NodeId = 3,
+    kIsisNodeId = 4,
+    kBgpNodeId = 5,
+    kSrPolicyNodeId = 6,
+    NODEID_NOT_SET = 0,
+  };
+
   static inline const SLBgplsTopoNode* internal_default_instance() {
     return reinterpret_cast<const SLBgplsTopoNode*>(
                &_SLBgplsTopoNode_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    7;
+    8;
 
   friend void swap(SLBgplsTopoNode& a, SLBgplsTopoNode& b) {
     a.Swap(&b);
@@ -2351,892 +2164,7 @@ class SLBgplsTopoNode final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kNodeDescrFieldNumber = 1,
-  };
-  // .service_layer.SLBgplsTopoNodeDescr NodeDescr = 1;
-  bool has_nodedescr() const;
-  private:
-  bool _internal_has_nodedescr() const;
-  public:
-  void clear_nodedescr();
-  const ::service_layer::SLBgplsTopoNodeDescr& nodedescr() const;
-  PROTOBUF_NODISCARD ::service_layer::SLBgplsTopoNodeDescr* release_nodedescr();
-  ::service_layer::SLBgplsTopoNodeDescr* mutable_nodedescr();
-  void set_allocated_nodedescr(::service_layer::SLBgplsTopoNodeDescr* nodedescr);
-  private:
-  const ::service_layer::SLBgplsTopoNodeDescr& _internal_nodedescr() const;
-  ::service_layer::SLBgplsTopoNodeDescr* _internal_mutable_nodedescr();
-  public:
-  void unsafe_arena_set_allocated_nodedescr(
-      ::service_layer::SLBgplsTopoNodeDescr* nodedescr);
-  ::service_layer::SLBgplsTopoNodeDescr* unsafe_arena_release_nodedescr();
-
-  // @@protoc_insertion_point(class_scope:service_layer.SLBgplsTopoNode)
- private:
-  class _Internal;
-
-  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
-  typedef void InternalArenaConstructable_;
-  typedef void DestructorSkippable_;
-  ::service_layer::SLBgplsTopoNodeDescr* nodedescr_;
-  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-  friend struct ::TableStruct_sl_5fbgpls_5ftopology_2eproto;
-};
-// -------------------------------------------------------------------
-
-class SLBgplsTopoLink final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:service_layer.SLBgplsTopoLink) */ {
- public:
-  inline SLBgplsTopoLink() : SLBgplsTopoLink(nullptr) {}
-  ~SLBgplsTopoLink() override;
-  explicit constexpr SLBgplsTopoLink(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
-
-  SLBgplsTopoLink(const SLBgplsTopoLink& from);
-  SLBgplsTopoLink(SLBgplsTopoLink&& from) noexcept
-    : SLBgplsTopoLink() {
-    *this = ::std::move(from);
-  }
-
-  inline SLBgplsTopoLink& operator=(const SLBgplsTopoLink& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline SLBgplsTopoLink& operator=(SLBgplsTopoLink&& from) noexcept {
-    if (this == &from) return *this;
-    if (GetOwningArena() == from.GetOwningArena()
-  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
-        && GetOwningArena() != nullptr
-  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
-    ) {
-      InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
-    return default_instance().GetMetadata().descriptor;
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
-    return default_instance().GetMetadata().reflection;
-  }
-  static const SLBgplsTopoLink& default_instance() {
-    return *internal_default_instance();
-  }
-  static inline const SLBgplsTopoLink* internal_default_instance() {
-    return reinterpret_cast<const SLBgplsTopoLink*>(
-               &_SLBgplsTopoLink_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    8;
-
-  friend void swap(SLBgplsTopoLink& a, SLBgplsTopoLink& b) {
-    a.Swap(&b);
-  }
-  inline void Swap(SLBgplsTopoLink* other) {
-    if (other == this) return;
-  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetOwningArena() != nullptr &&
-        GetOwningArena() == other->GetOwningArena()) {
-   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetOwningArena() == other->GetOwningArena()) {
-  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
-      InternalSwap(other);
-    } else {
-      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
-    }
-  }
-  void UnsafeArenaSwap(SLBgplsTopoLink* other) {
-    if (other == this) return;
-    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  SLBgplsTopoLink* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
-    return CreateMaybeMessage<SLBgplsTopoLink>(arena);
-  }
-  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const SLBgplsTopoLink& from);
-  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom(const SLBgplsTopoLink& from);
-  private:
-  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to, const ::PROTOBUF_NAMESPACE_ID::Message& from);
-  public:
-  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
-  bool IsInitialized() const final;
-
-  size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  uint8_t* _InternalSerialize(
-      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
-  int GetCachedSize() const final { return _cached_size_.Get(); }
-
-  private:
-  void SharedCtor();
-  void SharedDtor();
-  void SetCachedSize(int size) const final;
-  void InternalSwap(SLBgplsTopoLink* other);
-
-  private:
-  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
-  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "service_layer.SLBgplsTopoLink";
-  }
-  protected:
-  explicit SLBgplsTopoLink(::PROTOBUF_NAMESPACE_ID::Arena* arena,
-                       bool is_message_owned = false);
-  private:
-  static void ArenaDtor(void* object);
-  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
-  public:
-
-  static const ClassData _class_data_;
-  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
-
-  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  enum : int {
-    kLocalNodeDescrFieldNumber = 1,
-    kRemoteNodeDescrFieldNumber = 2,
-    kLinkDescrFieldNumber = 3,
-  };
-  // .service_layer.SLBgplsTopoNodeDescr LocalNodeDescr = 1;
-  bool has_localnodedescr() const;
-  private:
-  bool _internal_has_localnodedescr() const;
-  public:
-  void clear_localnodedescr();
-  const ::service_layer::SLBgplsTopoNodeDescr& localnodedescr() const;
-  PROTOBUF_NODISCARD ::service_layer::SLBgplsTopoNodeDescr* release_localnodedescr();
-  ::service_layer::SLBgplsTopoNodeDescr* mutable_localnodedescr();
-  void set_allocated_localnodedescr(::service_layer::SLBgplsTopoNodeDescr* localnodedescr);
-  private:
-  const ::service_layer::SLBgplsTopoNodeDescr& _internal_localnodedescr() const;
-  ::service_layer::SLBgplsTopoNodeDescr* _internal_mutable_localnodedescr();
-  public:
-  void unsafe_arena_set_allocated_localnodedescr(
-      ::service_layer::SLBgplsTopoNodeDescr* localnodedescr);
-  ::service_layer::SLBgplsTopoNodeDescr* unsafe_arena_release_localnodedescr();
-
-  // .service_layer.SLBgplsTopoNodeDescr RemoteNodeDescr = 2;
-  bool has_remotenodedescr() const;
-  private:
-  bool _internal_has_remotenodedescr() const;
-  public:
-  void clear_remotenodedescr();
-  const ::service_layer::SLBgplsTopoNodeDescr& remotenodedescr() const;
-  PROTOBUF_NODISCARD ::service_layer::SLBgplsTopoNodeDescr* release_remotenodedescr();
-  ::service_layer::SLBgplsTopoNodeDescr* mutable_remotenodedescr();
-  void set_allocated_remotenodedescr(::service_layer::SLBgplsTopoNodeDescr* remotenodedescr);
-  private:
-  const ::service_layer::SLBgplsTopoNodeDescr& _internal_remotenodedescr() const;
-  ::service_layer::SLBgplsTopoNodeDescr* _internal_mutable_remotenodedescr();
-  public:
-  void unsafe_arena_set_allocated_remotenodedescr(
-      ::service_layer::SLBgplsTopoNodeDescr* remotenodedescr);
-  ::service_layer::SLBgplsTopoNodeDescr* unsafe_arena_release_remotenodedescr();
-
-  // .service_layer.SLBgplsTopoLinkDescr LinkDescr = 3;
-  bool has_linkdescr() const;
-  private:
-  bool _internal_has_linkdescr() const;
-  public:
-  void clear_linkdescr();
-  const ::service_layer::SLBgplsTopoLinkDescr& linkdescr() const;
-  PROTOBUF_NODISCARD ::service_layer::SLBgplsTopoLinkDescr* release_linkdescr();
-  ::service_layer::SLBgplsTopoLinkDescr* mutable_linkdescr();
-  void set_allocated_linkdescr(::service_layer::SLBgplsTopoLinkDescr* linkdescr);
-  private:
-  const ::service_layer::SLBgplsTopoLinkDescr& _internal_linkdescr() const;
-  ::service_layer::SLBgplsTopoLinkDescr* _internal_mutable_linkdescr();
-  public:
-  void unsafe_arena_set_allocated_linkdescr(
-      ::service_layer::SLBgplsTopoLinkDescr* linkdescr);
-  ::service_layer::SLBgplsTopoLinkDescr* unsafe_arena_release_linkdescr();
-
-  // @@protoc_insertion_point(class_scope:service_layer.SLBgplsTopoLink)
- private:
-  class _Internal;
-
-  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
-  typedef void InternalArenaConstructable_;
-  typedef void DestructorSkippable_;
-  ::service_layer::SLBgplsTopoNodeDescr* localnodedescr_;
-  ::service_layer::SLBgplsTopoNodeDescr* remotenodedescr_;
-  ::service_layer::SLBgplsTopoLinkDescr* linkdescr_;
-  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-  friend struct ::TableStruct_sl_5fbgpls_5ftopology_2eproto;
-};
-// -------------------------------------------------------------------
-
-class SLBgplsTopoPrefix final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:service_layer.SLBgplsTopoPrefix) */ {
- public:
-  inline SLBgplsTopoPrefix() : SLBgplsTopoPrefix(nullptr) {}
-  ~SLBgplsTopoPrefix() override;
-  explicit constexpr SLBgplsTopoPrefix(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
-
-  SLBgplsTopoPrefix(const SLBgplsTopoPrefix& from);
-  SLBgplsTopoPrefix(SLBgplsTopoPrefix&& from) noexcept
-    : SLBgplsTopoPrefix() {
-    *this = ::std::move(from);
-  }
-
-  inline SLBgplsTopoPrefix& operator=(const SLBgplsTopoPrefix& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline SLBgplsTopoPrefix& operator=(SLBgplsTopoPrefix&& from) noexcept {
-    if (this == &from) return *this;
-    if (GetOwningArena() == from.GetOwningArena()
-  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
-        && GetOwningArena() != nullptr
-  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
-    ) {
-      InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
-    return default_instance().GetMetadata().descriptor;
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
-    return default_instance().GetMetadata().reflection;
-  }
-  static const SLBgplsTopoPrefix& default_instance() {
-    return *internal_default_instance();
-  }
-  static inline const SLBgplsTopoPrefix* internal_default_instance() {
-    return reinterpret_cast<const SLBgplsTopoPrefix*>(
-               &_SLBgplsTopoPrefix_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    9;
-
-  friend void swap(SLBgplsTopoPrefix& a, SLBgplsTopoPrefix& b) {
-    a.Swap(&b);
-  }
-  inline void Swap(SLBgplsTopoPrefix* other) {
-    if (other == this) return;
-  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetOwningArena() != nullptr &&
-        GetOwningArena() == other->GetOwningArena()) {
-   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetOwningArena() == other->GetOwningArena()) {
-  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
-      InternalSwap(other);
-    } else {
-      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
-    }
-  }
-  void UnsafeArenaSwap(SLBgplsTopoPrefix* other) {
-    if (other == this) return;
-    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  SLBgplsTopoPrefix* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
-    return CreateMaybeMessage<SLBgplsTopoPrefix>(arena);
-  }
-  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const SLBgplsTopoPrefix& from);
-  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom(const SLBgplsTopoPrefix& from);
-  private:
-  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to, const ::PROTOBUF_NAMESPACE_ID::Message& from);
-  public:
-  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
-  bool IsInitialized() const final;
-
-  size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  uint8_t* _InternalSerialize(
-      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
-  int GetCachedSize() const final { return _cached_size_.Get(); }
-
-  private:
-  void SharedCtor();
-  void SharedDtor();
-  void SetCachedSize(int size) const final;
-  void InternalSwap(SLBgplsTopoPrefix* other);
-
-  private:
-  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
-  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "service_layer.SLBgplsTopoPrefix";
-  }
-  protected:
-  explicit SLBgplsTopoPrefix(::PROTOBUF_NAMESPACE_ID::Arena* arena,
-                       bool is_message_owned = false);
-  private:
-  static void ArenaDtor(void* object);
-  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
-  public:
-
-  static const ClassData _class_data_;
-  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
-
-  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  enum : int {
-    kNodeDescrFieldNumber = 1,
-    kPrefixDescrFieldNumber = 2,
-  };
-  // .service_layer.SLBgplsTopoNodeDescr NodeDescr = 1;
-  bool has_nodedescr() const;
-  private:
-  bool _internal_has_nodedescr() const;
-  public:
-  void clear_nodedescr();
-  const ::service_layer::SLBgplsTopoNodeDescr& nodedescr() const;
-  PROTOBUF_NODISCARD ::service_layer::SLBgplsTopoNodeDescr* release_nodedescr();
-  ::service_layer::SLBgplsTopoNodeDescr* mutable_nodedescr();
-  void set_allocated_nodedescr(::service_layer::SLBgplsTopoNodeDescr* nodedescr);
-  private:
-  const ::service_layer::SLBgplsTopoNodeDescr& _internal_nodedescr() const;
-  ::service_layer::SLBgplsTopoNodeDescr* _internal_mutable_nodedescr();
-  public:
-  void unsafe_arena_set_allocated_nodedescr(
-      ::service_layer::SLBgplsTopoNodeDescr* nodedescr);
-  ::service_layer::SLBgplsTopoNodeDescr* unsafe_arena_release_nodedescr();
-
-  // .service_layer.SLBgplsTopoPrefixDescr PrefixDescr = 2;
-  bool has_prefixdescr() const;
-  private:
-  bool _internal_has_prefixdescr() const;
-  public:
-  void clear_prefixdescr();
-  const ::service_layer::SLBgplsTopoPrefixDescr& prefixdescr() const;
-  PROTOBUF_NODISCARD ::service_layer::SLBgplsTopoPrefixDescr* release_prefixdescr();
-  ::service_layer::SLBgplsTopoPrefixDescr* mutable_prefixdescr();
-  void set_allocated_prefixdescr(::service_layer::SLBgplsTopoPrefixDescr* prefixdescr);
-  private:
-  const ::service_layer::SLBgplsTopoPrefixDescr& _internal_prefixdescr() const;
-  ::service_layer::SLBgplsTopoPrefixDescr* _internal_mutable_prefixdescr();
-  public:
-  void unsafe_arena_set_allocated_prefixdescr(
-      ::service_layer::SLBgplsTopoPrefixDescr* prefixdescr);
-  ::service_layer::SLBgplsTopoPrefixDescr* unsafe_arena_release_prefixdescr();
-
-  // @@protoc_insertion_point(class_scope:service_layer.SLBgplsTopoPrefix)
- private:
-  class _Internal;
-
-  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
-  typedef void InternalArenaConstructable_;
-  typedef void DestructorSkippable_;
-  ::service_layer::SLBgplsTopoNodeDescr* nodedescr_;
-  ::service_layer::SLBgplsTopoPrefixDescr* prefixdescr_;
-  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-  friend struct ::TableStruct_sl_5fbgpls_5ftopology_2eproto;
-};
-// -------------------------------------------------------------------
-
-class SLBgplsTopoSrv6Sid final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:service_layer.SLBgplsTopoSrv6Sid) */ {
- public:
-  inline SLBgplsTopoSrv6Sid() : SLBgplsTopoSrv6Sid(nullptr) {}
-  ~SLBgplsTopoSrv6Sid() override;
-  explicit constexpr SLBgplsTopoSrv6Sid(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
-
-  SLBgplsTopoSrv6Sid(const SLBgplsTopoSrv6Sid& from);
-  SLBgplsTopoSrv6Sid(SLBgplsTopoSrv6Sid&& from) noexcept
-    : SLBgplsTopoSrv6Sid() {
-    *this = ::std::move(from);
-  }
-
-  inline SLBgplsTopoSrv6Sid& operator=(const SLBgplsTopoSrv6Sid& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline SLBgplsTopoSrv6Sid& operator=(SLBgplsTopoSrv6Sid&& from) noexcept {
-    if (this == &from) return *this;
-    if (GetOwningArena() == from.GetOwningArena()
-  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
-        && GetOwningArena() != nullptr
-  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
-    ) {
-      InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
-    return default_instance().GetMetadata().descriptor;
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
-    return default_instance().GetMetadata().reflection;
-  }
-  static const SLBgplsTopoSrv6Sid& default_instance() {
-    return *internal_default_instance();
-  }
-  static inline const SLBgplsTopoSrv6Sid* internal_default_instance() {
-    return reinterpret_cast<const SLBgplsTopoSrv6Sid*>(
-               &_SLBgplsTopoSrv6Sid_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    10;
-
-  friend void swap(SLBgplsTopoSrv6Sid& a, SLBgplsTopoSrv6Sid& b) {
-    a.Swap(&b);
-  }
-  inline void Swap(SLBgplsTopoSrv6Sid* other) {
-    if (other == this) return;
-  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetOwningArena() != nullptr &&
-        GetOwningArena() == other->GetOwningArena()) {
-   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetOwningArena() == other->GetOwningArena()) {
-  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
-      InternalSwap(other);
-    } else {
-      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
-    }
-  }
-  void UnsafeArenaSwap(SLBgplsTopoSrv6Sid* other) {
-    if (other == this) return;
-    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  SLBgplsTopoSrv6Sid* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
-    return CreateMaybeMessage<SLBgplsTopoSrv6Sid>(arena);
-  }
-  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const SLBgplsTopoSrv6Sid& from);
-  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom(const SLBgplsTopoSrv6Sid& from);
-  private:
-  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to, const ::PROTOBUF_NAMESPACE_ID::Message& from);
-  public:
-  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
-  bool IsInitialized() const final;
-
-  size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  uint8_t* _InternalSerialize(
-      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
-  int GetCachedSize() const final { return _cached_size_.Get(); }
-
-  private:
-  void SharedCtor();
-  void SharedDtor();
-  void SetCachedSize(int size) const final;
-  void InternalSwap(SLBgplsTopoSrv6Sid* other);
-
-  private:
-  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
-  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "service_layer.SLBgplsTopoSrv6Sid";
-  }
-  protected:
-  explicit SLBgplsTopoSrv6Sid(::PROTOBUF_NAMESPACE_ID::Arena* arena,
-                       bool is_message_owned = false);
-  private:
-  static void ArenaDtor(void* object);
-  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
-  public:
-
-  static const ClassData _class_data_;
-  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
-
-  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  enum : int {
-    kNodeDescrFieldNumber = 1,
-    kSrv6SidDescrFieldNumber = 2,
-  };
-  // .service_layer.SLBgplsTopoNodeDescr NodeDescr = 1;
-  bool has_nodedescr() const;
-  private:
-  bool _internal_has_nodedescr() const;
-  public:
-  void clear_nodedescr();
-  const ::service_layer::SLBgplsTopoNodeDescr& nodedescr() const;
-  PROTOBUF_NODISCARD ::service_layer::SLBgplsTopoNodeDescr* release_nodedescr();
-  ::service_layer::SLBgplsTopoNodeDescr* mutable_nodedescr();
-  void set_allocated_nodedescr(::service_layer::SLBgplsTopoNodeDescr* nodedescr);
-  private:
-  const ::service_layer::SLBgplsTopoNodeDescr& _internal_nodedescr() const;
-  ::service_layer::SLBgplsTopoNodeDescr* _internal_mutable_nodedescr();
-  public:
-  void unsafe_arena_set_allocated_nodedescr(
-      ::service_layer::SLBgplsTopoNodeDescr* nodedescr);
-  ::service_layer::SLBgplsTopoNodeDescr* unsafe_arena_release_nodedescr();
-
-  // .service_layer.SLBgplsTopoSrv6SidDescr Srv6SidDescr = 2;
-  bool has_srv6siddescr() const;
-  private:
-  bool _internal_has_srv6siddescr() const;
-  public:
-  void clear_srv6siddescr();
-  const ::service_layer::SLBgplsTopoSrv6SidDescr& srv6siddescr() const;
-  PROTOBUF_NODISCARD ::service_layer::SLBgplsTopoSrv6SidDescr* release_srv6siddescr();
-  ::service_layer::SLBgplsTopoSrv6SidDescr* mutable_srv6siddescr();
-  void set_allocated_srv6siddescr(::service_layer::SLBgplsTopoSrv6SidDescr* srv6siddescr);
-  private:
-  const ::service_layer::SLBgplsTopoSrv6SidDescr& _internal_srv6siddescr() const;
-  ::service_layer::SLBgplsTopoSrv6SidDescr* _internal_mutable_srv6siddescr();
-  public:
-  void unsafe_arena_set_allocated_srv6siddescr(
-      ::service_layer::SLBgplsTopoSrv6SidDescr* srv6siddescr);
-  ::service_layer::SLBgplsTopoSrv6SidDescr* unsafe_arena_release_srv6siddescr();
-
-  // @@protoc_insertion_point(class_scope:service_layer.SLBgplsTopoSrv6Sid)
- private:
-  class _Internal;
-
-  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
-  typedef void InternalArenaConstructable_;
-  typedef void DestructorSkippable_;
-  ::service_layer::SLBgplsTopoNodeDescr* nodedescr_;
-  ::service_layer::SLBgplsTopoSrv6SidDescr* srv6siddescr_;
-  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-  friend struct ::TableStruct_sl_5fbgpls_5ftopology_2eproto;
-};
-// -------------------------------------------------------------------
-
-class SLBgplsTopoSrPolicy final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:service_layer.SLBgplsTopoSrPolicy) */ {
- public:
-  inline SLBgplsTopoSrPolicy() : SLBgplsTopoSrPolicy(nullptr) {}
-  ~SLBgplsTopoSrPolicy() override;
-  explicit constexpr SLBgplsTopoSrPolicy(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
-
-  SLBgplsTopoSrPolicy(const SLBgplsTopoSrPolicy& from);
-  SLBgplsTopoSrPolicy(SLBgplsTopoSrPolicy&& from) noexcept
-    : SLBgplsTopoSrPolicy() {
-    *this = ::std::move(from);
-  }
-
-  inline SLBgplsTopoSrPolicy& operator=(const SLBgplsTopoSrPolicy& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline SLBgplsTopoSrPolicy& operator=(SLBgplsTopoSrPolicy&& from) noexcept {
-    if (this == &from) return *this;
-    if (GetOwningArena() == from.GetOwningArena()
-  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
-        && GetOwningArena() != nullptr
-  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
-    ) {
-      InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
-    return default_instance().GetMetadata().descriptor;
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
-    return default_instance().GetMetadata().reflection;
-  }
-  static const SLBgplsTopoSrPolicy& default_instance() {
-    return *internal_default_instance();
-  }
-  static inline const SLBgplsTopoSrPolicy* internal_default_instance() {
-    return reinterpret_cast<const SLBgplsTopoSrPolicy*>(
-               &_SLBgplsTopoSrPolicy_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    11;
-
-  friend void swap(SLBgplsTopoSrPolicy& a, SLBgplsTopoSrPolicy& b) {
-    a.Swap(&b);
-  }
-  inline void Swap(SLBgplsTopoSrPolicy* other) {
-    if (other == this) return;
-  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetOwningArena() != nullptr &&
-        GetOwningArena() == other->GetOwningArena()) {
-   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetOwningArena() == other->GetOwningArena()) {
-  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
-      InternalSwap(other);
-    } else {
-      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
-    }
-  }
-  void UnsafeArenaSwap(SLBgplsTopoSrPolicy* other) {
-    if (other == this) return;
-    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  SLBgplsTopoSrPolicy* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
-    return CreateMaybeMessage<SLBgplsTopoSrPolicy>(arena);
-  }
-  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const SLBgplsTopoSrPolicy& from);
-  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom(const SLBgplsTopoSrPolicy& from);
-  private:
-  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to, const ::PROTOBUF_NAMESPACE_ID::Message& from);
-  public:
-  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
-  bool IsInitialized() const final;
-
-  size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  uint8_t* _InternalSerialize(
-      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
-  int GetCachedSize() const final { return _cached_size_.Get(); }
-
-  private:
-  void SharedCtor();
-  void SharedDtor();
-  void SetCachedSize(int size) const final;
-  void InternalSwap(SLBgplsTopoSrPolicy* other);
-
-  private:
-  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
-  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "service_layer.SLBgplsTopoSrPolicy";
-  }
-  protected:
-  explicit SLBgplsTopoSrPolicy(::PROTOBUF_NAMESPACE_ID::Arena* arena,
-                       bool is_message_owned = false);
-  private:
-  static void ArenaDtor(void* object);
-  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
-  public:
-
-  static const ClassData _class_data_;
-  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
-
-  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  enum : int {
-    kNodeDescrFieldNumber = 1,
-    kSrPolicyDescrFieldNumber = 2,
-  };
-  // .service_layer.SLBgplsTopoNodeDescr NodeDescr = 1;
-  bool has_nodedescr() const;
-  private:
-  bool _internal_has_nodedescr() const;
-  public:
-  void clear_nodedescr();
-  const ::service_layer::SLBgplsTopoNodeDescr& nodedescr() const;
-  PROTOBUF_NODISCARD ::service_layer::SLBgplsTopoNodeDescr* release_nodedescr();
-  ::service_layer::SLBgplsTopoNodeDescr* mutable_nodedescr();
-  void set_allocated_nodedescr(::service_layer::SLBgplsTopoNodeDescr* nodedescr);
-  private:
-  const ::service_layer::SLBgplsTopoNodeDescr& _internal_nodedescr() const;
-  ::service_layer::SLBgplsTopoNodeDescr* _internal_mutable_nodedescr();
-  public:
-  void unsafe_arena_set_allocated_nodedescr(
-      ::service_layer::SLBgplsTopoNodeDescr* nodedescr);
-  ::service_layer::SLBgplsTopoNodeDescr* unsafe_arena_release_nodedescr();
-
-  // .service_layer.SLBgplsTopoSrPolicyDescr SrPolicyDescr = 2;
-  bool has_srpolicydescr() const;
-  private:
-  bool _internal_has_srpolicydescr() const;
-  public:
-  void clear_srpolicydescr();
-  const ::service_layer::SLBgplsTopoSrPolicyDescr& srpolicydescr() const;
-  PROTOBUF_NODISCARD ::service_layer::SLBgplsTopoSrPolicyDescr* release_srpolicydescr();
-  ::service_layer::SLBgplsTopoSrPolicyDescr* mutable_srpolicydescr();
-  void set_allocated_srpolicydescr(::service_layer::SLBgplsTopoSrPolicyDescr* srpolicydescr);
-  private:
-  const ::service_layer::SLBgplsTopoSrPolicyDescr& _internal_srpolicydescr() const;
-  ::service_layer::SLBgplsTopoSrPolicyDescr* _internal_mutable_srpolicydescr();
-  public:
-  void unsafe_arena_set_allocated_srpolicydescr(
-      ::service_layer::SLBgplsTopoSrPolicyDescr* srpolicydescr);
-  ::service_layer::SLBgplsTopoSrPolicyDescr* unsafe_arena_release_srpolicydescr();
-
-  // @@protoc_insertion_point(class_scope:service_layer.SLBgplsTopoSrPolicy)
- private:
-  class _Internal;
-
-  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
-  typedef void InternalArenaConstructable_;
-  typedef void DestructorSkippable_;
-  ::service_layer::SLBgplsTopoNodeDescr* nodedescr_;
-  ::service_layer::SLBgplsTopoSrPolicyDescr* srpolicydescr_;
-  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-  friend struct ::TableStruct_sl_5fbgpls_5ftopology_2eproto;
-};
-// -------------------------------------------------------------------
-
-class SLBgplsTopoNodeDescr final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:service_layer.SLBgplsTopoNodeDescr) */ {
- public:
-  inline SLBgplsTopoNodeDescr() : SLBgplsTopoNodeDescr(nullptr) {}
-  ~SLBgplsTopoNodeDescr() override;
-  explicit constexpr SLBgplsTopoNodeDescr(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
-
-  SLBgplsTopoNodeDescr(const SLBgplsTopoNodeDescr& from);
-  SLBgplsTopoNodeDescr(SLBgplsTopoNodeDescr&& from) noexcept
-    : SLBgplsTopoNodeDescr() {
-    *this = ::std::move(from);
-  }
-
-  inline SLBgplsTopoNodeDescr& operator=(const SLBgplsTopoNodeDescr& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline SLBgplsTopoNodeDescr& operator=(SLBgplsTopoNodeDescr&& from) noexcept {
-    if (this == &from) return *this;
-    if (GetOwningArena() == from.GetOwningArena()
-  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
-        && GetOwningArena() != nullptr
-  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
-    ) {
-      InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
-    return default_instance().GetMetadata().descriptor;
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
-    return default_instance().GetMetadata().reflection;
-  }
-  static const SLBgplsTopoNodeDescr& default_instance() {
-    return *internal_default_instance();
-  }
-  enum NodeIdCase {
-    kOspfNodeId = 2,
-    kOspfv3NodeId = 3,
-    kIsisNodeId = 4,
-    kBgpNodeId = 5,
-    kSrPolicyNodeId = 6,
-    NODEID_NOT_SET = 0,
-  };
-
-  static inline const SLBgplsTopoNodeDescr* internal_default_instance() {
-    return reinterpret_cast<const SLBgplsTopoNodeDescr*>(
-               &_SLBgplsTopoNodeDescr_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    12;
-
-  friend void swap(SLBgplsTopoNodeDescr& a, SLBgplsTopoNodeDescr& b) {
-    a.Swap(&b);
-  }
-  inline void Swap(SLBgplsTopoNodeDescr* other) {
-    if (other == this) return;
-  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetOwningArena() != nullptr &&
-        GetOwningArena() == other->GetOwningArena()) {
-   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetOwningArena() == other->GetOwningArena()) {
-  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
-      InternalSwap(other);
-    } else {
-      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
-    }
-  }
-  void UnsafeArenaSwap(SLBgplsTopoNodeDescr* other) {
-    if (other == this) return;
-    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  SLBgplsTopoNodeDescr* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
-    return CreateMaybeMessage<SLBgplsTopoNodeDescr>(arena);
-  }
-  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const SLBgplsTopoNodeDescr& from);
-  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom(const SLBgplsTopoNodeDescr& from);
-  private:
-  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to, const ::PROTOBUF_NAMESPACE_ID::Message& from);
-  public:
-  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
-  bool IsInitialized() const final;
-
-  size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  uint8_t* _InternalSerialize(
-      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
-  int GetCachedSize() const final { return _cached_size_.Get(); }
-
-  private:
-  void SharedCtor();
-  void SharedDtor();
-  void SetCachedSize(int size) const final;
-  void InternalSwap(SLBgplsTopoNodeDescr* other);
-
-  private:
-  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
-  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "service_layer.SLBgplsTopoNodeDescr";
-  }
-  protected:
-  explicit SLBgplsTopoNodeDescr(::PROTOBUF_NAMESPACE_ID::Arena* arena,
-                       bool is_message_owned = false);
-  private:
-  static void ArenaDtor(void* object);
-  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
-  public:
-
-  static const ClassData _class_data_;
-  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
-
-  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  enum : int {
     kAsnFieldNumber = 1,
-    kNodeIdTypeFieldNumber = 7,
     kOspfNodeIdFieldNumber = 2,
     kOspfv3NodeIdFieldNumber = 3,
     kIsisNodeIdFieldNumber = 4,
@@ -3250,15 +2178,6 @@ class SLBgplsTopoNodeDescr final :
   private:
   uint32_t _internal_asn() const;
   void _internal_set_asn(uint32_t value);
-  public:
-
-  // .service_layer.SLBgplsTopoNodeIdType NodeIdType = 7;
-  void clear_nodeidtype();
-  ::service_layer::SLBgplsTopoNodeIdType nodeidtype() const;
-  void set_nodeidtype(::service_layer::SLBgplsTopoNodeIdType value);
-  private:
-  ::service_layer::SLBgplsTopoNodeIdType _internal_nodeidtype() const;
-  void _internal_set_nodeidtype(::service_layer::SLBgplsTopoNodeIdType value);
   public:
 
   // .service_layer.SLBgplsTopoOspfNodeId OspfNodeId = 2;
@@ -3353,7 +2272,7 @@ class SLBgplsTopoNodeDescr final :
 
   void clear_NodeId();
   NodeIdCase NodeId_case() const;
-  // @@protoc_insertion_point(class_scope:service_layer.SLBgplsTopoNodeDescr)
+  // @@protoc_insertion_point(class_scope:service_layer.SLBgplsTopoNode)
  private:
   class _Internal;
   void set_has_ospfnodeid();
@@ -3369,7 +2288,6 @@ class SLBgplsTopoNodeDescr final :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   uint32_t asn_;
-  int nodeidtype_;
   union NodeIdUnion {
     constexpr NodeIdUnion() : _constinit_{} {}
       ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized _constinit_;
@@ -3382,6 +2300,726 @@ class SLBgplsTopoNodeDescr final :
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   uint32_t _oneof_case_[1];
 
+  friend struct ::TableStruct_sl_5fbgpls_5ftopology_2eproto;
+};
+// -------------------------------------------------------------------
+
+class SLBgplsTopoLink final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:service_layer.SLBgplsTopoLink) */ {
+ public:
+  inline SLBgplsTopoLink() : SLBgplsTopoLink(nullptr) {}
+  ~SLBgplsTopoLink() override;
+  explicit constexpr SLBgplsTopoLink(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  SLBgplsTopoLink(const SLBgplsTopoLink& from);
+  SLBgplsTopoLink(SLBgplsTopoLink&& from) noexcept
+    : SLBgplsTopoLink() {
+    *this = ::std::move(from);
+  }
+
+  inline SLBgplsTopoLink& operator=(const SLBgplsTopoLink& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline SLBgplsTopoLink& operator=(SLBgplsTopoLink&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const SLBgplsTopoLink& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const SLBgplsTopoLink* internal_default_instance() {
+    return reinterpret_cast<const SLBgplsTopoLink*>(
+               &_SLBgplsTopoLink_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    9;
+
+  friend void swap(SLBgplsTopoLink& a, SLBgplsTopoLink& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(SLBgplsTopoLink* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(SLBgplsTopoLink* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  SLBgplsTopoLink* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<SLBgplsTopoLink>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const SLBgplsTopoLink& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom(const SLBgplsTopoLink& from);
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to, const ::PROTOBUF_NAMESPACE_ID::Message& from);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(SLBgplsTopoLink* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "service_layer.SLBgplsTopoLink";
+  }
+  protected:
+  explicit SLBgplsTopoLink(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kLocalNodeDescrFieldNumber = 1,
+    kRemoteNodeDescrFieldNumber = 2,
+    kLinkDescrFieldNumber = 3,
+  };
+  // .service_layer.SLBgplsTopoNode LocalNodeDescr = 1;
+  bool has_localnodedescr() const;
+  private:
+  bool _internal_has_localnodedescr() const;
+  public:
+  void clear_localnodedescr();
+  const ::service_layer::SLBgplsTopoNode& localnodedescr() const;
+  PROTOBUF_NODISCARD ::service_layer::SLBgplsTopoNode* release_localnodedescr();
+  ::service_layer::SLBgplsTopoNode* mutable_localnodedescr();
+  void set_allocated_localnodedescr(::service_layer::SLBgplsTopoNode* localnodedescr);
+  private:
+  const ::service_layer::SLBgplsTopoNode& _internal_localnodedescr() const;
+  ::service_layer::SLBgplsTopoNode* _internal_mutable_localnodedescr();
+  public:
+  void unsafe_arena_set_allocated_localnodedescr(
+      ::service_layer::SLBgplsTopoNode* localnodedescr);
+  ::service_layer::SLBgplsTopoNode* unsafe_arena_release_localnodedescr();
+
+  // .service_layer.SLBgplsTopoNode RemoteNodeDescr = 2;
+  bool has_remotenodedescr() const;
+  private:
+  bool _internal_has_remotenodedescr() const;
+  public:
+  void clear_remotenodedescr();
+  const ::service_layer::SLBgplsTopoNode& remotenodedescr() const;
+  PROTOBUF_NODISCARD ::service_layer::SLBgplsTopoNode* release_remotenodedescr();
+  ::service_layer::SLBgplsTopoNode* mutable_remotenodedescr();
+  void set_allocated_remotenodedescr(::service_layer::SLBgplsTopoNode* remotenodedescr);
+  private:
+  const ::service_layer::SLBgplsTopoNode& _internal_remotenodedescr() const;
+  ::service_layer::SLBgplsTopoNode* _internal_mutable_remotenodedescr();
+  public:
+  void unsafe_arena_set_allocated_remotenodedescr(
+      ::service_layer::SLBgplsTopoNode* remotenodedescr);
+  ::service_layer::SLBgplsTopoNode* unsafe_arena_release_remotenodedescr();
+
+  // .service_layer.SLBgplsTopoLinkDescr LinkDescr = 3;
+  bool has_linkdescr() const;
+  private:
+  bool _internal_has_linkdescr() const;
+  public:
+  void clear_linkdescr();
+  const ::service_layer::SLBgplsTopoLinkDescr& linkdescr() const;
+  PROTOBUF_NODISCARD ::service_layer::SLBgplsTopoLinkDescr* release_linkdescr();
+  ::service_layer::SLBgplsTopoLinkDescr* mutable_linkdescr();
+  void set_allocated_linkdescr(::service_layer::SLBgplsTopoLinkDescr* linkdescr);
+  private:
+  const ::service_layer::SLBgplsTopoLinkDescr& _internal_linkdescr() const;
+  ::service_layer::SLBgplsTopoLinkDescr* _internal_mutable_linkdescr();
+  public:
+  void unsafe_arena_set_allocated_linkdescr(
+      ::service_layer::SLBgplsTopoLinkDescr* linkdescr);
+  ::service_layer::SLBgplsTopoLinkDescr* unsafe_arena_release_linkdescr();
+
+  // @@protoc_insertion_point(class_scope:service_layer.SLBgplsTopoLink)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::service_layer::SLBgplsTopoNode* localnodedescr_;
+  ::service_layer::SLBgplsTopoNode* remotenodedescr_;
+  ::service_layer::SLBgplsTopoLinkDescr* linkdescr_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_sl_5fbgpls_5ftopology_2eproto;
+};
+// -------------------------------------------------------------------
+
+class SLBgplsTopoPrefix final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:service_layer.SLBgplsTopoPrefix) */ {
+ public:
+  inline SLBgplsTopoPrefix() : SLBgplsTopoPrefix(nullptr) {}
+  ~SLBgplsTopoPrefix() override;
+  explicit constexpr SLBgplsTopoPrefix(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  SLBgplsTopoPrefix(const SLBgplsTopoPrefix& from);
+  SLBgplsTopoPrefix(SLBgplsTopoPrefix&& from) noexcept
+    : SLBgplsTopoPrefix() {
+    *this = ::std::move(from);
+  }
+
+  inline SLBgplsTopoPrefix& operator=(const SLBgplsTopoPrefix& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline SLBgplsTopoPrefix& operator=(SLBgplsTopoPrefix&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const SLBgplsTopoPrefix& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const SLBgplsTopoPrefix* internal_default_instance() {
+    return reinterpret_cast<const SLBgplsTopoPrefix*>(
+               &_SLBgplsTopoPrefix_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    10;
+
+  friend void swap(SLBgplsTopoPrefix& a, SLBgplsTopoPrefix& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(SLBgplsTopoPrefix* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(SLBgplsTopoPrefix* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  SLBgplsTopoPrefix* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<SLBgplsTopoPrefix>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const SLBgplsTopoPrefix& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom(const SLBgplsTopoPrefix& from);
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to, const ::PROTOBUF_NAMESPACE_ID::Message& from);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(SLBgplsTopoPrefix* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "service_layer.SLBgplsTopoPrefix";
+  }
+  protected:
+  explicit SLBgplsTopoPrefix(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kNodeDescrFieldNumber = 1,
+    kPrefixDescrFieldNumber = 2,
+  };
+  // .service_layer.SLBgplsTopoNode NodeDescr = 1;
+  bool has_nodedescr() const;
+  private:
+  bool _internal_has_nodedescr() const;
+  public:
+  void clear_nodedescr();
+  const ::service_layer::SLBgplsTopoNode& nodedescr() const;
+  PROTOBUF_NODISCARD ::service_layer::SLBgplsTopoNode* release_nodedescr();
+  ::service_layer::SLBgplsTopoNode* mutable_nodedescr();
+  void set_allocated_nodedescr(::service_layer::SLBgplsTopoNode* nodedescr);
+  private:
+  const ::service_layer::SLBgplsTopoNode& _internal_nodedescr() const;
+  ::service_layer::SLBgplsTopoNode* _internal_mutable_nodedescr();
+  public:
+  void unsafe_arena_set_allocated_nodedescr(
+      ::service_layer::SLBgplsTopoNode* nodedescr);
+  ::service_layer::SLBgplsTopoNode* unsafe_arena_release_nodedescr();
+
+  // .service_layer.SLBgplsTopoPrefixDescr PrefixDescr = 2;
+  bool has_prefixdescr() const;
+  private:
+  bool _internal_has_prefixdescr() const;
+  public:
+  void clear_prefixdescr();
+  const ::service_layer::SLBgplsTopoPrefixDescr& prefixdescr() const;
+  PROTOBUF_NODISCARD ::service_layer::SLBgplsTopoPrefixDescr* release_prefixdescr();
+  ::service_layer::SLBgplsTopoPrefixDescr* mutable_prefixdescr();
+  void set_allocated_prefixdescr(::service_layer::SLBgplsTopoPrefixDescr* prefixdescr);
+  private:
+  const ::service_layer::SLBgplsTopoPrefixDescr& _internal_prefixdescr() const;
+  ::service_layer::SLBgplsTopoPrefixDescr* _internal_mutable_prefixdescr();
+  public:
+  void unsafe_arena_set_allocated_prefixdescr(
+      ::service_layer::SLBgplsTopoPrefixDescr* prefixdescr);
+  ::service_layer::SLBgplsTopoPrefixDescr* unsafe_arena_release_prefixdescr();
+
+  // @@protoc_insertion_point(class_scope:service_layer.SLBgplsTopoPrefix)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::service_layer::SLBgplsTopoNode* nodedescr_;
+  ::service_layer::SLBgplsTopoPrefixDescr* prefixdescr_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_sl_5fbgpls_5ftopology_2eproto;
+};
+// -------------------------------------------------------------------
+
+class SLBgplsTopoSrv6Sid final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:service_layer.SLBgplsTopoSrv6Sid) */ {
+ public:
+  inline SLBgplsTopoSrv6Sid() : SLBgplsTopoSrv6Sid(nullptr) {}
+  ~SLBgplsTopoSrv6Sid() override;
+  explicit constexpr SLBgplsTopoSrv6Sid(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  SLBgplsTopoSrv6Sid(const SLBgplsTopoSrv6Sid& from);
+  SLBgplsTopoSrv6Sid(SLBgplsTopoSrv6Sid&& from) noexcept
+    : SLBgplsTopoSrv6Sid() {
+    *this = ::std::move(from);
+  }
+
+  inline SLBgplsTopoSrv6Sid& operator=(const SLBgplsTopoSrv6Sid& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline SLBgplsTopoSrv6Sid& operator=(SLBgplsTopoSrv6Sid&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const SLBgplsTopoSrv6Sid& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const SLBgplsTopoSrv6Sid* internal_default_instance() {
+    return reinterpret_cast<const SLBgplsTopoSrv6Sid*>(
+               &_SLBgplsTopoSrv6Sid_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    11;
+
+  friend void swap(SLBgplsTopoSrv6Sid& a, SLBgplsTopoSrv6Sid& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(SLBgplsTopoSrv6Sid* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(SLBgplsTopoSrv6Sid* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  SLBgplsTopoSrv6Sid* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<SLBgplsTopoSrv6Sid>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const SLBgplsTopoSrv6Sid& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom(const SLBgplsTopoSrv6Sid& from);
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to, const ::PROTOBUF_NAMESPACE_ID::Message& from);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(SLBgplsTopoSrv6Sid* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "service_layer.SLBgplsTopoSrv6Sid";
+  }
+  protected:
+  explicit SLBgplsTopoSrv6Sid(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kNodeDescrFieldNumber = 1,
+    kSrv6SidDescrFieldNumber = 2,
+  };
+  // .service_layer.SLBgplsTopoNode NodeDescr = 1;
+  bool has_nodedescr() const;
+  private:
+  bool _internal_has_nodedescr() const;
+  public:
+  void clear_nodedescr();
+  const ::service_layer::SLBgplsTopoNode& nodedescr() const;
+  PROTOBUF_NODISCARD ::service_layer::SLBgplsTopoNode* release_nodedescr();
+  ::service_layer::SLBgplsTopoNode* mutable_nodedescr();
+  void set_allocated_nodedescr(::service_layer::SLBgplsTopoNode* nodedescr);
+  private:
+  const ::service_layer::SLBgplsTopoNode& _internal_nodedescr() const;
+  ::service_layer::SLBgplsTopoNode* _internal_mutable_nodedescr();
+  public:
+  void unsafe_arena_set_allocated_nodedescr(
+      ::service_layer::SLBgplsTopoNode* nodedescr);
+  ::service_layer::SLBgplsTopoNode* unsafe_arena_release_nodedescr();
+
+  // .service_layer.SLBgplsTopoSrv6SidDescr Srv6SidDescr = 2;
+  bool has_srv6siddescr() const;
+  private:
+  bool _internal_has_srv6siddescr() const;
+  public:
+  void clear_srv6siddescr();
+  const ::service_layer::SLBgplsTopoSrv6SidDescr& srv6siddescr() const;
+  PROTOBUF_NODISCARD ::service_layer::SLBgplsTopoSrv6SidDescr* release_srv6siddescr();
+  ::service_layer::SLBgplsTopoSrv6SidDescr* mutable_srv6siddescr();
+  void set_allocated_srv6siddescr(::service_layer::SLBgplsTopoSrv6SidDescr* srv6siddescr);
+  private:
+  const ::service_layer::SLBgplsTopoSrv6SidDescr& _internal_srv6siddescr() const;
+  ::service_layer::SLBgplsTopoSrv6SidDescr* _internal_mutable_srv6siddescr();
+  public:
+  void unsafe_arena_set_allocated_srv6siddescr(
+      ::service_layer::SLBgplsTopoSrv6SidDescr* srv6siddescr);
+  ::service_layer::SLBgplsTopoSrv6SidDescr* unsafe_arena_release_srv6siddescr();
+
+  // @@protoc_insertion_point(class_scope:service_layer.SLBgplsTopoSrv6Sid)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::service_layer::SLBgplsTopoNode* nodedescr_;
+  ::service_layer::SLBgplsTopoSrv6SidDescr* srv6siddescr_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_sl_5fbgpls_5ftopology_2eproto;
+};
+// -------------------------------------------------------------------
+
+class SLBgplsTopoSrPolicy final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:service_layer.SLBgplsTopoSrPolicy) */ {
+ public:
+  inline SLBgplsTopoSrPolicy() : SLBgplsTopoSrPolicy(nullptr) {}
+  ~SLBgplsTopoSrPolicy() override;
+  explicit constexpr SLBgplsTopoSrPolicy(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  SLBgplsTopoSrPolicy(const SLBgplsTopoSrPolicy& from);
+  SLBgplsTopoSrPolicy(SLBgplsTopoSrPolicy&& from) noexcept
+    : SLBgplsTopoSrPolicy() {
+    *this = ::std::move(from);
+  }
+
+  inline SLBgplsTopoSrPolicy& operator=(const SLBgplsTopoSrPolicy& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline SLBgplsTopoSrPolicy& operator=(SLBgplsTopoSrPolicy&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const SLBgplsTopoSrPolicy& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const SLBgplsTopoSrPolicy* internal_default_instance() {
+    return reinterpret_cast<const SLBgplsTopoSrPolicy*>(
+               &_SLBgplsTopoSrPolicy_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    12;
+
+  friend void swap(SLBgplsTopoSrPolicy& a, SLBgplsTopoSrPolicy& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(SLBgplsTopoSrPolicy* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(SLBgplsTopoSrPolicy* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  SLBgplsTopoSrPolicy* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<SLBgplsTopoSrPolicy>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const SLBgplsTopoSrPolicy& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom(const SLBgplsTopoSrPolicy& from);
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to, const ::PROTOBUF_NAMESPACE_ID::Message& from);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(SLBgplsTopoSrPolicy* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "service_layer.SLBgplsTopoSrPolicy";
+  }
+  protected:
+  explicit SLBgplsTopoSrPolicy(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kNodeDescrFieldNumber = 1,
+    kSrPolicyDescrFieldNumber = 2,
+  };
+  // .service_layer.SLBgplsTopoNode NodeDescr = 1;
+  bool has_nodedescr() const;
+  private:
+  bool _internal_has_nodedescr() const;
+  public:
+  void clear_nodedescr();
+  const ::service_layer::SLBgplsTopoNode& nodedescr() const;
+  PROTOBUF_NODISCARD ::service_layer::SLBgplsTopoNode* release_nodedescr();
+  ::service_layer::SLBgplsTopoNode* mutable_nodedescr();
+  void set_allocated_nodedescr(::service_layer::SLBgplsTopoNode* nodedescr);
+  private:
+  const ::service_layer::SLBgplsTopoNode& _internal_nodedescr() const;
+  ::service_layer::SLBgplsTopoNode* _internal_mutable_nodedescr();
+  public:
+  void unsafe_arena_set_allocated_nodedescr(
+      ::service_layer::SLBgplsTopoNode* nodedescr);
+  ::service_layer::SLBgplsTopoNode* unsafe_arena_release_nodedescr();
+
+  // .service_layer.SLBgplsTopoSrPolicyDescr SrPolicyDescr = 2;
+  bool has_srpolicydescr() const;
+  private:
+  bool _internal_has_srpolicydescr() const;
+  public:
+  void clear_srpolicydescr();
+  const ::service_layer::SLBgplsTopoSrPolicyDescr& srpolicydescr() const;
+  PROTOBUF_NODISCARD ::service_layer::SLBgplsTopoSrPolicyDescr* release_srpolicydescr();
+  ::service_layer::SLBgplsTopoSrPolicyDescr* mutable_srpolicydescr();
+  void set_allocated_srpolicydescr(::service_layer::SLBgplsTopoSrPolicyDescr* srpolicydescr);
+  private:
+  const ::service_layer::SLBgplsTopoSrPolicyDescr& _internal_srpolicydescr() const;
+  ::service_layer::SLBgplsTopoSrPolicyDescr* _internal_mutable_srpolicydescr();
+  public:
+  void unsafe_arena_set_allocated_srpolicydescr(
+      ::service_layer::SLBgplsTopoSrPolicyDescr* srpolicydescr);
+  ::service_layer::SLBgplsTopoSrPolicyDescr* unsafe_arena_release_srpolicydescr();
+
+  // @@protoc_insertion_point(class_scope:service_layer.SLBgplsTopoSrPolicy)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::service_layer::SLBgplsTopoNode* nodedescr_;
+  ::service_layer::SLBgplsTopoSrPolicyDescr* srpolicydescr_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_sl_5fbgpls_5ftopology_2eproto;
 };
 // -------------------------------------------------------------------
@@ -4030,14 +3668,14 @@ class SLBgplsTopoSrPolicyDescr final :
     return *internal_default_instance();
   }
   enum EndpointAddressCase {
-    kIpv4EndpointAddress = 3,
-    kIpv6EndpointAddress = 4,
+    kIpv4EndAddr = 3,
+    kIpv6EndAddr = 4,
     ENDPOINTADDRESS_NOT_SET = 0,
   };
 
   enum OriginatorAddressCase {
-    kIpv4OriginatorAddress = 8,
-    kIpv6OriginatorAddress = 9,
+    kIpv4OrigAddr = 7,
+    kIpv6OrigAddr = 8,
     ORIGINATORADDRESS_NOT_SET = 0,
   };
 
@@ -4122,15 +3760,13 @@ class SLBgplsTopoSrPolicyDescr final :
   enum : int {
     kFlagsFieldNumber = 2,
     kProtoOriginFieldNumber = 1,
-    kIsEndpointAddressIpv6FieldNumber = 5,
-    kColorFieldNumber = 6,
-    kOriginAsnFieldNumber = 7,
-    kIsOriginatorAddressIpv6FieldNumber = 10,
-    kDiscriminatorFieldNumber = 11,
-    kIpv4EndpointAddressFieldNumber = 3,
-    kIpv6EndpointAddressFieldNumber = 4,
-    kIpv4OriginatorAddressFieldNumber = 8,
-    kIpv6OriginatorAddressFieldNumber = 9,
+    kColorFieldNumber = 5,
+    kOriginAsnFieldNumber = 6,
+    kDiscriminatorFieldNumber = 9,
+    kIpv4EndAddrFieldNumber = 3,
+    kIpv6EndAddrFieldNumber = 4,
+    kIpv4OrigAddrFieldNumber = 7,
+    kIpv6OrigAddrFieldNumber = 8,
   };
   // .service_layer.SLBgplsTopoSrPolicyFlags Flags = 2;
   bool has_flags() const;
@@ -4159,16 +3795,7 @@ class SLBgplsTopoSrPolicyDescr final :
   void _internal_set_protoorigin(::service_layer::SLBgplsTopoSrPolicyProtocolOrigin value);
   public:
 
-  // uint32 IsEndpointAddressIpv6 = 5;
-  void clear_isendpointaddressipv6();
-  uint32_t isendpointaddressipv6() const;
-  void set_isendpointaddressipv6(uint32_t value);
-  private:
-  uint32_t _internal_isendpointaddressipv6() const;
-  void _internal_set_isendpointaddressipv6(uint32_t value);
-  public:
-
-  // uint32 Color = 6;
+  // uint32 Color = 5;
   void clear_color();
   uint32_t color() const;
   void set_color(uint32_t value);
@@ -4177,7 +3804,7 @@ class SLBgplsTopoSrPolicyDescr final :
   void _internal_set_color(uint32_t value);
   public:
 
-  // uint32 OriginAsn = 7;
+  // uint32 OriginAsn = 6;
   void clear_originasn();
   uint32_t originasn() const;
   void set_originasn(uint32_t value);
@@ -4186,16 +3813,7 @@ class SLBgplsTopoSrPolicyDescr final :
   void _internal_set_originasn(uint32_t value);
   public:
 
-  // uint32 IsOriginatorAddressIpv6 = 10;
-  void clear_isoriginatoraddressipv6();
-  uint32_t isoriginatoraddressipv6() const;
-  void set_isoriginatoraddressipv6(uint32_t value);
-  private:
-  uint32_t _internal_isoriginatoraddressipv6() const;
-  void _internal_set_isoriginatoraddressipv6(uint32_t value);
-  public:
-
-  // uint32 Discriminator = 11;
+  // uint32 Discriminator = 9;
   void clear_discriminator();
   uint32_t discriminator() const;
   void set_discriminator(uint32_t value);
@@ -4204,66 +3822,66 @@ class SLBgplsTopoSrPolicyDescr final :
   void _internal_set_discriminator(uint32_t value);
   public:
 
-  // uint32 Ipv4EndpointAddress = 3;
-  bool has_ipv4endpointaddress() const;
+  // uint32 Ipv4EndAddr = 3;
+  bool has_ipv4endaddr() const;
   private:
-  bool _internal_has_ipv4endpointaddress() const;
+  bool _internal_has_ipv4endaddr() const;
   public:
-  void clear_ipv4endpointaddress();
-  uint32_t ipv4endpointaddress() const;
-  void set_ipv4endpointaddress(uint32_t value);
+  void clear_ipv4endaddr();
+  uint32_t ipv4endaddr() const;
+  void set_ipv4endaddr(uint32_t value);
   private:
-  uint32_t _internal_ipv4endpointaddress() const;
-  void _internal_set_ipv4endpointaddress(uint32_t value);
+  uint32_t _internal_ipv4endaddr() const;
+  void _internal_set_ipv4endaddr(uint32_t value);
   public:
 
-  // bytes Ipv6EndpointAddress = 4;
-  bool has_ipv6endpointaddress() const;
+  // bytes Ipv6EndAddr = 4;
+  bool has_ipv6endaddr() const;
   private:
-  bool _internal_has_ipv6endpointaddress() const;
+  bool _internal_has_ipv6endaddr() const;
   public:
-  void clear_ipv6endpointaddress();
-  const std::string& ipv6endpointaddress() const;
+  void clear_ipv6endaddr();
+  const std::string& ipv6endaddr() const;
   template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_ipv6endpointaddress(ArgT0&& arg0, ArgT... args);
-  std::string* mutable_ipv6endpointaddress();
-  PROTOBUF_NODISCARD std::string* release_ipv6endpointaddress();
-  void set_allocated_ipv6endpointaddress(std::string* ipv6endpointaddress);
+  void set_ipv6endaddr(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_ipv6endaddr();
+  PROTOBUF_NODISCARD std::string* release_ipv6endaddr();
+  void set_allocated_ipv6endaddr(std::string* ipv6endaddr);
   private:
-  const std::string& _internal_ipv6endpointaddress() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_ipv6endpointaddress(const std::string& value);
-  std::string* _internal_mutable_ipv6endpointaddress();
+  const std::string& _internal_ipv6endaddr() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_ipv6endaddr(const std::string& value);
+  std::string* _internal_mutable_ipv6endaddr();
   public:
 
-  // uint32 Ipv4OriginatorAddress = 8;
-  bool has_ipv4originatoraddress() const;
+  // uint32 Ipv4OrigAddr = 7;
+  bool has_ipv4origaddr() const;
   private:
-  bool _internal_has_ipv4originatoraddress() const;
+  bool _internal_has_ipv4origaddr() const;
   public:
-  void clear_ipv4originatoraddress();
-  uint32_t ipv4originatoraddress() const;
-  void set_ipv4originatoraddress(uint32_t value);
+  void clear_ipv4origaddr();
+  uint32_t ipv4origaddr() const;
+  void set_ipv4origaddr(uint32_t value);
   private:
-  uint32_t _internal_ipv4originatoraddress() const;
-  void _internal_set_ipv4originatoraddress(uint32_t value);
+  uint32_t _internal_ipv4origaddr() const;
+  void _internal_set_ipv4origaddr(uint32_t value);
   public:
 
-  // bytes Ipv6OriginatorAddress = 9;
-  bool has_ipv6originatoraddress() const;
+  // bytes Ipv6OrigAddr = 8;
+  bool has_ipv6origaddr() const;
   private:
-  bool _internal_has_ipv6originatoraddress() const;
+  bool _internal_has_ipv6origaddr() const;
   public:
-  void clear_ipv6originatoraddress();
-  const std::string& ipv6originatoraddress() const;
+  void clear_ipv6origaddr();
+  const std::string& ipv6origaddr() const;
   template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_ipv6originatoraddress(ArgT0&& arg0, ArgT... args);
-  std::string* mutable_ipv6originatoraddress();
-  PROTOBUF_NODISCARD std::string* release_ipv6originatoraddress();
-  void set_allocated_ipv6originatoraddress(std::string* ipv6originatoraddress);
+  void set_ipv6origaddr(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_ipv6origaddr();
+  PROTOBUF_NODISCARD std::string* release_ipv6origaddr();
+  void set_allocated_ipv6origaddr(std::string* ipv6origaddr);
   private:
-  const std::string& _internal_ipv6originatoraddress() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_ipv6originatoraddress(const std::string& value);
-  std::string* _internal_mutable_ipv6originatoraddress();
+  const std::string& _internal_ipv6origaddr() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_ipv6origaddr(const std::string& value);
+  std::string* _internal_mutable_ipv6origaddr();
   public:
 
   void clear_EndpointAddress();
@@ -4273,10 +3891,10 @@ class SLBgplsTopoSrPolicyDescr final :
   // @@protoc_insertion_point(class_scope:service_layer.SLBgplsTopoSrPolicyDescr)
  private:
   class _Internal;
-  void set_has_ipv4endpointaddress();
-  void set_has_ipv6endpointaddress();
-  void set_has_ipv4originatoraddress();
-  void set_has_ipv6originatoraddress();
+  void set_has_ipv4endaddr();
+  void set_has_ipv6endaddr();
+  void set_has_ipv4origaddr();
+  void set_has_ipv6origaddr();
 
   inline bool has_EndpointAddress() const;
   inline void clear_has_EndpointAddress();
@@ -4289,22 +3907,20 @@ class SLBgplsTopoSrPolicyDescr final :
   typedef void DestructorSkippable_;
   ::service_layer::SLBgplsTopoSrPolicyFlags* flags_;
   int protoorigin_;
-  uint32_t isendpointaddressipv6_;
   uint32_t color_;
   uint32_t originasn_;
-  uint32_t isoriginatoraddressipv6_;
   uint32_t discriminator_;
   union EndpointAddressUnion {
     constexpr EndpointAddressUnion() : _constinit_{} {}
       ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized _constinit_;
-    uint32_t ipv4endpointaddress_;
-    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr ipv6endpointaddress_;
+    uint32_t ipv4endaddr_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr ipv6endaddr_;
   } EndpointAddress_;
   union OriginatorAddressUnion {
     constexpr OriginatorAddressUnion() : _constinit_{} {}
       ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized _constinit_;
-    uint32_t ipv4originatoraddress_;
-    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr ipv6originatoraddress_;
+    uint32_t ipv4origaddr_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr ipv6origaddr_;
   } OriginatorAddress_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   uint32_t _oneof_case_[2];
@@ -5461,22 +5077,12 @@ class SLBgplsTopoAttr final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kAttrTypeFieldNumber = 6,
     kNodeAttrFieldNumber = 1,
     kLinkAttrFieldNumber = 2,
     kPrefixAttrFieldNumber = 3,
     kSrv6SidAttrFieldNumber = 4,
     kSrPolicyAttrFieldNumber = 5,
   };
-  // .service_layer.SLBgplsTopoAttrType AttrType = 6;
-  void clear_attrtype();
-  ::service_layer::SLBgplsTopoAttrType attrtype() const;
-  void set_attrtype(::service_layer::SLBgplsTopoAttrType value);
-  private:
-  ::service_layer::SLBgplsTopoAttrType _internal_attrtype() const;
-  void _internal_set_attrtype(::service_layer::SLBgplsTopoAttrType value);
-  public:
-
   // .service_layer.SLBgplsTopoNodeAttr NodeAttr = 1;
   bool has_nodeattr() const;
   private:
@@ -5584,7 +5190,6 @@ class SLBgplsTopoAttr final :
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  int attrtype_;
   union AttrUnion {
     constexpr AttrUnion() : _constinit_{} {}
       ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized _constinit_;
@@ -13167,19 +12772,9 @@ class SLBgpLsTopoNeighborId final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kIsNeighborIdIpv4FieldNumber = 3,
     kIpv4AddrFieldNumber = 1,
     kSystemIdFieldNumber = 2,
   };
-  // uint32 IsNeighborIdIpv4 = 3;
-  void clear_isneighboridipv4();
-  uint32_t isneighboridipv4() const;
-  void set_isneighboridipv4(uint32_t value);
-  private:
-  uint32_t _internal_isneighboridipv4() const;
-  void _internal_set_isneighboridipv4(uint32_t value);
-  public:
-
   // uint32 Ipv4Addr = 1;
   bool has_ipv4addr() const;
   private:
@@ -13225,7 +12820,6 @@ class SLBgpLsTopoNeighborId final :
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  uint32_t isneighboridipv4_;
   union NeighborIdUnion {
     constexpr NeighborIdUnion() : _constinit_{} {}
       ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized _constinit_;
@@ -15308,19 +14902,9 @@ class SLBgplsTopoPrefixOspfFwdAddr final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kIsOspfFwdAddrdIpv4FieldNumber = 3,
     kIpv4AddrFieldNumber = 1,
     kIpv6AddrFieldNumber = 2,
   };
-  // uint32 IsOspfFwdAddrdIpv4 = 3;
-  void clear_isospffwdaddrdipv4();
-  uint32_t isospffwdaddrdipv4() const;
-  void set_isospffwdaddrdipv4(uint32_t value);
-  private:
-  uint32_t _internal_isospffwdaddrdipv4() const;
-  void _internal_set_isospffwdaddrdipv4(uint32_t value);
-  public:
-
   // uint32 Ipv4Addr = 1;
   bool has_ipv4addr() const;
   private:
@@ -15366,7 +14950,6 @@ class SLBgplsTopoPrefixOspfFwdAddr final :
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  uint32_t isospffwdaddrdipv4_;
   union OspfFwdAddrUnion {
     constexpr OspfFwdAddrUnion() : _constinit_{} {}
       ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized _constinit_;
@@ -16367,19 +15950,9 @@ class SLBgplsTopoPrefixSrcRouterId final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kIsSrcRouterIdIpv4FieldNumber = 3,
     kIpv4AddrFieldNumber = 1,
     kIpv6AddrFieldNumber = 2,
   };
-  // uint32 IsSrcRouterIdIpv4 = 3;
-  void clear_issrcrouteridipv4();
-  uint32_t issrcrouteridipv4() const;
-  void set_issrcrouteridipv4(uint32_t value);
-  private:
-  uint32_t _internal_issrcrouteridipv4() const;
-  void _internal_set_issrcrouteridipv4(uint32_t value);
-  public:
-
   // uint32 Ipv4Addr = 1;
   bool has_ipv4addr() const;
   private:
@@ -16425,7 +15998,6 @@ class SLBgplsTopoPrefixSrcRouterId final :
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  uint32_t issrcrouteridipv4_;
   union SrcRouterIdUnion {
     constexpr SrcRouterIdUnion() : _constinit_{} {}
       ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized _constinit_;
@@ -17400,19 +16972,9 @@ class SlBgplsTopoSrBsid final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kIsBindingSidMplsFieldNumber = 3,
     kMplsBsidFieldNumber = 1,
     kSrv6BsidFieldNumber = 2,
   };
-  // uint32 IsBindingSidMpls = 3;
-  void clear_isbindingsidmpls();
-  uint32_t isbindingsidmpls() const;
-  void set_isbindingsidmpls(uint32_t value);
-  private:
-  uint32_t _internal_isbindingsidmpls() const;
-  void _internal_set_isbindingsidmpls(uint32_t value);
-  public:
-
   // uint32 MplsBsid = 1;
   bool has_mplsbsid() const;
   private:
@@ -17458,7 +17020,6 @@ class SlBgplsTopoSrBsid final :
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  uint32_t isbindingsidmpls_;
   union BindingSidUnion {
     constexpr BindingSidUnion() : _constinit_{} {}
       ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized _constinit_;
@@ -18528,14 +18089,14 @@ class SLBgplsTopoSrSegmentDesc final :
     return *internal_default_instance();
   }
   enum LocalNodeAddrCase {
-    kIpv4LocalNodeAddr = 2,
-    kIpv6LocalNodeAddr = 3,
+    kIpv4LocAddr = 2,
+    kIpv6LocAddr = 3,
     LOCALNODEADDR_NOT_SET = 0,
   };
 
   enum RemoteNodeAddrCase {
-    kIpv4RemoteNodeAddr = 5,
-    kIpv6RemoteNodeAddr = 6,
+    kIpv4RemAddr = 4,
+    kIpv6RemAddr = 5,
     REMOTENODEADDR_NOT_SET = 0,
   };
 
@@ -18618,19 +18179,17 @@ class SLBgplsTopoSrSegmentDesc final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kIpv6LocalNodeGlobalAddrFieldNumber = 8,
-    kIpv6RemoteNodeGlobalAddrFieldNumber = 9,
+    kIpv6LocalNodeGlobalAddrFieldNumber = 6,
+    kIpv6RemoteNodeGlobalAddrFieldNumber = 7,
     kAlgorithmFieldNumber = 1,
-    kIsLocalNodeAddrIpv4FieldNumber = 4,
-    kRemoteNodeIntfIdFieldNumber = 11,
-    kIsRemoteNodeAddrIpv4FieldNumber = 7,
-    kLocalNodeIntfIdFieldNumber = 10,
-    kIpv4LocalNodeAddrFieldNumber = 2,
-    kIpv6LocalNodeAddrFieldNumber = 3,
-    kIpv4RemoteNodeAddrFieldNumber = 5,
-    kIpv6RemoteNodeAddrFieldNumber = 6,
+    kLocalNodeIntfIdFieldNumber = 8,
+    kRemoteNodeIntfIdFieldNumber = 9,
+    kIpv4LocAddrFieldNumber = 2,
+    kIpv6LocAddrFieldNumber = 3,
+    kIpv4RemAddrFieldNumber = 4,
+    kIpv6RemAddrFieldNumber = 5,
   };
-  // bytes Ipv6LocalNodeGlobalAddr = 8;
+  // bytes Ipv6LocalNodeGlobalAddr = 6;
   void clear_ipv6localnodeglobaladdr();
   const std::string& ipv6localnodeglobaladdr() const;
   template <typename ArgT0 = const std::string&, typename... ArgT>
@@ -18644,7 +18203,7 @@ class SLBgplsTopoSrSegmentDesc final :
   std::string* _internal_mutable_ipv6localnodeglobaladdr();
   public:
 
-  // bytes Ipv6RemoteNodeGlobalAddr = 9;
+  // bytes Ipv6RemoteNodeGlobalAddr = 7;
   void clear_ipv6remotenodeglobaladdr();
   const std::string& ipv6remotenodeglobaladdr() const;
   template <typename ArgT0 = const std::string&, typename... ArgT>
@@ -18667,34 +18226,7 @@ class SLBgplsTopoSrSegmentDesc final :
   void _internal_set_algorithm(uint32_t value);
   public:
 
-  // uint32 IsLocalNodeAddrIpv4 = 4;
-  void clear_islocalnodeaddripv4();
-  uint32_t islocalnodeaddripv4() const;
-  void set_islocalnodeaddripv4(uint32_t value);
-  private:
-  uint32_t _internal_islocalnodeaddripv4() const;
-  void _internal_set_islocalnodeaddripv4(uint32_t value);
-  public:
-
-  // uint32 RemoteNodeIntfId = 11;
-  void clear_remotenodeintfid();
-  uint32_t remotenodeintfid() const;
-  void set_remotenodeintfid(uint32_t value);
-  private:
-  uint32_t _internal_remotenodeintfid() const;
-  void _internal_set_remotenodeintfid(uint32_t value);
-  public:
-
-  // uint32 IsRemoteNodeAddrIpv4 = 7;
-  void clear_isremotenodeaddripv4();
-  uint32_t isremotenodeaddripv4() const;
-  void set_isremotenodeaddripv4(uint32_t value);
-  private:
-  uint32_t _internal_isremotenodeaddripv4() const;
-  void _internal_set_isremotenodeaddripv4(uint32_t value);
-  public:
-
-  // uint32 LocalNodeIntfId = 10;
+  // uint32 LocalNodeIntfId = 8;
   void clear_localnodeintfid();
   uint32_t localnodeintfid() const;
   void set_localnodeintfid(uint32_t value);
@@ -18703,66 +18235,75 @@ class SLBgplsTopoSrSegmentDesc final :
   void _internal_set_localnodeintfid(uint32_t value);
   public:
 
-  // uint32 Ipv4LocalNodeAddr = 2;
-  bool has_ipv4localnodeaddr() const;
+  // uint32 RemoteNodeIntfId = 9;
+  void clear_remotenodeintfid();
+  uint32_t remotenodeintfid() const;
+  void set_remotenodeintfid(uint32_t value);
   private:
-  bool _internal_has_ipv4localnodeaddr() const;
-  public:
-  void clear_ipv4localnodeaddr();
-  uint32_t ipv4localnodeaddr() const;
-  void set_ipv4localnodeaddr(uint32_t value);
-  private:
-  uint32_t _internal_ipv4localnodeaddr() const;
-  void _internal_set_ipv4localnodeaddr(uint32_t value);
+  uint32_t _internal_remotenodeintfid() const;
+  void _internal_set_remotenodeintfid(uint32_t value);
   public:
 
-  // bytes Ipv6LocalNodeAddr = 3;
-  bool has_ipv6localnodeaddr() const;
+  // uint32 Ipv4LocAddr = 2;
+  bool has_ipv4locaddr() const;
   private:
-  bool _internal_has_ipv6localnodeaddr() const;
+  bool _internal_has_ipv4locaddr() const;
   public:
-  void clear_ipv6localnodeaddr();
-  const std::string& ipv6localnodeaddr() const;
+  void clear_ipv4locaddr();
+  uint32_t ipv4locaddr() const;
+  void set_ipv4locaddr(uint32_t value);
+  private:
+  uint32_t _internal_ipv4locaddr() const;
+  void _internal_set_ipv4locaddr(uint32_t value);
+  public:
+
+  // bytes Ipv6LocAddr = 3;
+  bool has_ipv6locaddr() const;
+  private:
+  bool _internal_has_ipv6locaddr() const;
+  public:
+  void clear_ipv6locaddr();
+  const std::string& ipv6locaddr() const;
   template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_ipv6localnodeaddr(ArgT0&& arg0, ArgT... args);
-  std::string* mutable_ipv6localnodeaddr();
-  PROTOBUF_NODISCARD std::string* release_ipv6localnodeaddr();
-  void set_allocated_ipv6localnodeaddr(std::string* ipv6localnodeaddr);
+  void set_ipv6locaddr(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_ipv6locaddr();
+  PROTOBUF_NODISCARD std::string* release_ipv6locaddr();
+  void set_allocated_ipv6locaddr(std::string* ipv6locaddr);
   private:
-  const std::string& _internal_ipv6localnodeaddr() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_ipv6localnodeaddr(const std::string& value);
-  std::string* _internal_mutable_ipv6localnodeaddr();
+  const std::string& _internal_ipv6locaddr() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_ipv6locaddr(const std::string& value);
+  std::string* _internal_mutable_ipv6locaddr();
   public:
 
-  // uint32 Ipv4RemoteNodeAddr = 5;
-  bool has_ipv4remotenodeaddr() const;
+  // uint32 Ipv4RemAddr = 4;
+  bool has_ipv4remaddr() const;
   private:
-  bool _internal_has_ipv4remotenodeaddr() const;
+  bool _internal_has_ipv4remaddr() const;
   public:
-  void clear_ipv4remotenodeaddr();
-  uint32_t ipv4remotenodeaddr() const;
-  void set_ipv4remotenodeaddr(uint32_t value);
+  void clear_ipv4remaddr();
+  uint32_t ipv4remaddr() const;
+  void set_ipv4remaddr(uint32_t value);
   private:
-  uint32_t _internal_ipv4remotenodeaddr() const;
-  void _internal_set_ipv4remotenodeaddr(uint32_t value);
+  uint32_t _internal_ipv4remaddr() const;
+  void _internal_set_ipv4remaddr(uint32_t value);
   public:
 
-  // bytes Ipv6RemoteNodeAddr = 6;
-  bool has_ipv6remotenodeaddr() const;
+  // bytes Ipv6RemAddr = 5;
+  bool has_ipv6remaddr() const;
   private:
-  bool _internal_has_ipv6remotenodeaddr() const;
+  bool _internal_has_ipv6remaddr() const;
   public:
-  void clear_ipv6remotenodeaddr();
-  const std::string& ipv6remotenodeaddr() const;
+  void clear_ipv6remaddr();
+  const std::string& ipv6remaddr() const;
   template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_ipv6remotenodeaddr(ArgT0&& arg0, ArgT... args);
-  std::string* mutable_ipv6remotenodeaddr();
-  PROTOBUF_NODISCARD std::string* release_ipv6remotenodeaddr();
-  void set_allocated_ipv6remotenodeaddr(std::string* ipv6remotenodeaddr);
+  void set_ipv6remaddr(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_ipv6remaddr();
+  PROTOBUF_NODISCARD std::string* release_ipv6remaddr();
+  void set_allocated_ipv6remaddr(std::string* ipv6remaddr);
   private:
-  const std::string& _internal_ipv6remotenodeaddr() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_ipv6remotenodeaddr(const std::string& value);
-  std::string* _internal_mutable_ipv6remotenodeaddr();
+  const std::string& _internal_ipv6remaddr() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_ipv6remaddr(const std::string& value);
+  std::string* _internal_mutable_ipv6remaddr();
   public:
 
   void clear_LocalNodeAddr();
@@ -18772,10 +18313,10 @@ class SLBgplsTopoSrSegmentDesc final :
   // @@protoc_insertion_point(class_scope:service_layer.SLBgplsTopoSrSegmentDesc)
  private:
   class _Internal;
-  void set_has_ipv4localnodeaddr();
-  void set_has_ipv6localnodeaddr();
-  void set_has_ipv4remotenodeaddr();
-  void set_has_ipv6remotenodeaddr();
+  void set_has_ipv4locaddr();
+  void set_has_ipv6locaddr();
+  void set_has_ipv4remaddr();
+  void set_has_ipv6remaddr();
 
   inline bool has_LocalNodeAddr() const;
   inline void clear_has_LocalNodeAddr();
@@ -18789,21 +18330,19 @@ class SLBgplsTopoSrSegmentDesc final :
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr ipv6localnodeglobaladdr_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr ipv6remotenodeglobaladdr_;
   uint32_t algorithm_;
-  uint32_t islocalnodeaddripv4_;
-  uint32_t remotenodeintfid_;
-  uint32_t isremotenodeaddripv4_;
   uint32_t localnodeintfid_;
+  uint32_t remotenodeintfid_;
   union LocalNodeAddrUnion {
     constexpr LocalNodeAddrUnion() : _constinit_{} {}
       ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized _constinit_;
-    uint32_t ipv4localnodeaddr_;
-    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr ipv6localnodeaddr_;
+    uint32_t ipv4locaddr_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr ipv6locaddr_;
   } LocalNodeAddr_;
   union RemoteNodeAddrUnion {
     constexpr RemoteNodeAddrUnion() : _constinit_{} {}
       ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized _constinit_;
-    uint32_t ipv4remotenodeaddr_;
-    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr ipv6remotenodeaddr_;
+    uint32_t ipv4remaddr_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr ipv6remaddr_;
   } RemoteNodeAddr_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   uint32_t _oneof_case_[2];
@@ -18941,11 +18480,10 @@ class SLBgplsTopoSrSegment final :
 
   enum : int {
     kFlagsFieldNumber = 2,
-    kSegmentDescFieldNumber = 6,
-    kEndPointBehaviourFieldNumber = 7,
-    kSidStructFieldNumber = 8,
+    kSegmentDescFieldNumber = 5,
+    kEndPointBehaviourFieldNumber = 6,
+    kSidStructFieldNumber = 7,
     kTypeFieldNumber = 1,
-    kIsSidMplsFieldNumber = 5,
     kMplsLabelFieldNumber = 3,
     kSrv6SidFieldNumber = 4,
   };
@@ -18963,7 +18501,7 @@ class SLBgplsTopoSrSegment final :
   std::string* _internal_mutable_flags();
   public:
 
-  // .service_layer.SLBgplsTopoSrSegmentDesc SegmentDesc = 6;
+  // .service_layer.SLBgplsTopoSrSegmentDesc SegmentDesc = 5;
   bool has_segmentdesc() const;
   private:
   bool _internal_has_segmentdesc() const;
@@ -18981,7 +18519,7 @@ class SLBgplsTopoSrSegment final :
       ::service_layer::SLBgplsTopoSrSegmentDesc* segmentdesc);
   ::service_layer::SLBgplsTopoSrSegmentDesc* unsafe_arena_release_segmentdesc();
 
-  // .service_layer.SLBgplsTopoSrv6EndPointBehavior EndPointBehaviour = 7;
+  // .service_layer.SLBgplsTopoSrv6EndPointBehavior EndPointBehaviour = 6;
   bool has_endpointbehaviour() const;
   private:
   bool _internal_has_endpointbehaviour() const;
@@ -18999,7 +18537,7 @@ class SLBgplsTopoSrSegment final :
       ::service_layer::SLBgplsTopoSrv6EndPointBehavior* endpointbehaviour);
   ::service_layer::SLBgplsTopoSrv6EndPointBehavior* unsafe_arena_release_endpointbehaviour();
 
-  // .service_layer.SLBgplsTopoSrv6SidStruct SidStruct = 8;
+  // .service_layer.SLBgplsTopoSrv6SidStruct SidStruct = 7;
   bool has_sidstruct() const;
   private:
   bool _internal_has_sidstruct() const;
@@ -19024,15 +18562,6 @@ class SLBgplsTopoSrSegment final :
   private:
   ::service_layer::SLBgplsTopoSrSegmentType _internal_type() const;
   void _internal_set_type(::service_layer::SLBgplsTopoSrSegmentType value);
-  public:
-
-  // uint32 IsSidMpls = 5;
-  void clear_issidmpls();
-  uint32_t issidmpls() const;
-  void set_issidmpls(uint32_t value);
-  private:
-  uint32_t _internal_issidmpls() const;
-  void _internal_set_issidmpls(uint32_t value);
   public:
 
   // uint32 MplsLabel = 3;
@@ -19085,7 +18614,6 @@ class SLBgplsTopoSrSegment final :
   ::service_layer::SLBgplsTopoSrv6EndPointBehavior* endpointbehaviour_;
   ::service_layer::SLBgplsTopoSrv6SidStruct* sidstruct_;
   int type_;
-  uint32_t issidmpls_;
   union SidUnion {
     constexpr SidUnion() : _constinit_{} {}
       ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized _constinit_;
@@ -21563,135 +21091,115 @@ class SLBgplsTopoSrv6SidStruct final :
 #endif  // __GNUC__
 // SLBgplsTopoGetUpdMsg
 
-// repeated .service_layer.SLBgplsTopoNlriFilter Filter = 1;
-inline int SLBgplsTopoGetUpdMsg::_internal_filter_size() const {
-  return filter_.size();
+// repeated .service_layer.SLBgplsTopoNlriMatch Match = 1;
+inline int SLBgplsTopoGetUpdMsg::_internal_match_size() const {
+  return match_.size();
 }
-inline int SLBgplsTopoGetUpdMsg::filter_size() const {
-  return _internal_filter_size();
+inline int SLBgplsTopoGetUpdMsg::match_size() const {
+  return _internal_match_size();
 }
-inline void SLBgplsTopoGetUpdMsg::clear_filter() {
-  filter_.Clear();
+inline void SLBgplsTopoGetUpdMsg::clear_match() {
+  match_.Clear();
 }
-inline ::service_layer::SLBgplsTopoNlriFilter* SLBgplsTopoGetUpdMsg::mutable_filter(int index) {
-  // @@protoc_insertion_point(field_mutable:service_layer.SLBgplsTopoGetUpdMsg.Filter)
-  return filter_.Mutable(index);
+inline ::service_layer::SLBgplsTopoNlriMatch* SLBgplsTopoGetUpdMsg::mutable_match(int index) {
+  // @@protoc_insertion_point(field_mutable:service_layer.SLBgplsTopoGetUpdMsg.Match)
+  return match_.Mutable(index);
 }
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::service_layer::SLBgplsTopoNlriFilter >*
-SLBgplsTopoGetUpdMsg::mutable_filter() {
-  // @@protoc_insertion_point(field_mutable_list:service_layer.SLBgplsTopoGetUpdMsg.Filter)
-  return &filter_;
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::service_layer::SLBgplsTopoNlriMatch >*
+SLBgplsTopoGetUpdMsg::mutable_match() {
+  // @@protoc_insertion_point(field_mutable_list:service_layer.SLBgplsTopoGetUpdMsg.Match)
+  return &match_;
 }
-inline const ::service_layer::SLBgplsTopoNlriFilter& SLBgplsTopoGetUpdMsg::_internal_filter(int index) const {
-  return filter_.Get(index);
+inline const ::service_layer::SLBgplsTopoNlriMatch& SLBgplsTopoGetUpdMsg::_internal_match(int index) const {
+  return match_.Get(index);
 }
-inline const ::service_layer::SLBgplsTopoNlriFilter& SLBgplsTopoGetUpdMsg::filter(int index) const {
-  // @@protoc_insertion_point(field_get:service_layer.SLBgplsTopoGetUpdMsg.Filter)
-  return _internal_filter(index);
+inline const ::service_layer::SLBgplsTopoNlriMatch& SLBgplsTopoGetUpdMsg::match(int index) const {
+  // @@protoc_insertion_point(field_get:service_layer.SLBgplsTopoGetUpdMsg.Match)
+  return _internal_match(index);
 }
-inline ::service_layer::SLBgplsTopoNlriFilter* SLBgplsTopoGetUpdMsg::_internal_add_filter() {
-  return filter_.Add();
+inline ::service_layer::SLBgplsTopoNlriMatch* SLBgplsTopoGetUpdMsg::_internal_add_match() {
+  return match_.Add();
 }
-inline ::service_layer::SLBgplsTopoNlriFilter* SLBgplsTopoGetUpdMsg::add_filter() {
-  ::service_layer::SLBgplsTopoNlriFilter* _add = _internal_add_filter();
-  // @@protoc_insertion_point(field_add:service_layer.SLBgplsTopoGetUpdMsg.Filter)
+inline ::service_layer::SLBgplsTopoNlriMatch* SLBgplsTopoGetUpdMsg::add_match() {
+  ::service_layer::SLBgplsTopoNlriMatch* _add = _internal_add_match();
+  // @@protoc_insertion_point(field_add:service_layer.SLBgplsTopoGetUpdMsg.Match)
   return _add;
 }
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::service_layer::SLBgplsTopoNlriFilter >&
-SLBgplsTopoGetUpdMsg::filter() const {
-  // @@protoc_insertion_point(field_list:service_layer.SLBgplsTopoGetUpdMsg.Filter)
-  return filter_;
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::service_layer::SLBgplsTopoNlriMatch >&
+SLBgplsTopoGetUpdMsg::match() const {
+  // @@protoc_insertion_point(field_list:service_layer.SLBgplsTopoGetUpdMsg.Match)
+  return match_;
 }
 
 // -------------------------------------------------------------------
 
-// SLBgplsTopoNlriFilter
+// SLBgplsTopoNlriMatch
 
 // uint64 Identifier = 1;
-inline void SLBgplsTopoNlriFilter::clear_identifier() {
+inline void SLBgplsTopoNlriMatch::clear_identifier() {
   identifier_ = uint64_t{0u};
 }
-inline uint64_t SLBgplsTopoNlriFilter::_internal_identifier() const {
+inline uint64_t SLBgplsTopoNlriMatch::_internal_identifier() const {
   return identifier_;
 }
-inline uint64_t SLBgplsTopoNlriFilter::identifier() const {
-  // @@protoc_insertion_point(field_get:service_layer.SLBgplsTopoNlriFilter.Identifier)
+inline uint64_t SLBgplsTopoNlriMatch::identifier() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLBgplsTopoNlriMatch.Identifier)
   return _internal_identifier();
 }
-inline void SLBgplsTopoNlriFilter::_internal_set_identifier(uint64_t value) {
+inline void SLBgplsTopoNlriMatch::_internal_set_identifier(uint64_t value) {
   
   identifier_ = value;
 }
-inline void SLBgplsTopoNlriFilter::set_identifier(uint64_t value) {
+inline void SLBgplsTopoNlriMatch::set_identifier(uint64_t value) {
   _internal_set_identifier(value);
-  // @@protoc_insertion_point(field_set:service_layer.SLBgplsTopoNlriFilter.Identifier)
+  // @@protoc_insertion_point(field_set:service_layer.SLBgplsTopoNlriMatch.Identifier)
 }
 
 // .service_layer.SLBgplsTopoProtocol Protocol = 2;
-inline void SLBgplsTopoNlriFilter::clear_protocol() {
+inline void SLBgplsTopoNlriMatch::clear_protocol() {
   protocol_ = 0;
 }
-inline ::service_layer::SLBgplsTopoProtocol SLBgplsTopoNlriFilter::_internal_protocol() const {
+inline ::service_layer::SLBgplsTopoProtocol SLBgplsTopoNlriMatch::_internal_protocol() const {
   return static_cast< ::service_layer::SLBgplsTopoProtocol >(protocol_);
 }
-inline ::service_layer::SLBgplsTopoProtocol SLBgplsTopoNlriFilter::protocol() const {
-  // @@protoc_insertion_point(field_get:service_layer.SLBgplsTopoNlriFilter.Protocol)
+inline ::service_layer::SLBgplsTopoProtocol SLBgplsTopoNlriMatch::protocol() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLBgplsTopoNlriMatch.Protocol)
   return _internal_protocol();
 }
-inline void SLBgplsTopoNlriFilter::_internal_set_protocol(::service_layer::SLBgplsTopoProtocol value) {
+inline void SLBgplsTopoNlriMatch::_internal_set_protocol(::service_layer::SLBgplsTopoProtocol value) {
   
   protocol_ = value;
 }
-inline void SLBgplsTopoNlriFilter::set_protocol(::service_layer::SLBgplsTopoProtocol value) {
+inline void SLBgplsTopoNlriMatch::set_protocol(::service_layer::SLBgplsTopoProtocol value) {
   _internal_set_protocol(value);
-  // @@protoc_insertion_point(field_set:service_layer.SLBgplsTopoNlriFilter.Protocol)
+  // @@protoc_insertion_point(field_set:service_layer.SLBgplsTopoNlriMatch.Protocol)
 }
 
 // .service_layer.SLBgplsTopoNlriType NlriType = 3;
-inline void SLBgplsTopoNlriFilter::clear_nlritype() {
+inline void SLBgplsTopoNlriMatch::clear_nlritype() {
   nlritype_ = 0;
 }
-inline ::service_layer::SLBgplsTopoNlriType SLBgplsTopoNlriFilter::_internal_nlritype() const {
+inline ::service_layer::SLBgplsTopoNlriType SLBgplsTopoNlriMatch::_internal_nlritype() const {
   return static_cast< ::service_layer::SLBgplsTopoNlriType >(nlritype_);
 }
-inline ::service_layer::SLBgplsTopoNlriType SLBgplsTopoNlriFilter::nlritype() const {
-  // @@protoc_insertion_point(field_get:service_layer.SLBgplsTopoNlriFilter.NlriType)
+inline ::service_layer::SLBgplsTopoNlriType SLBgplsTopoNlriMatch::nlritype() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLBgplsTopoNlriMatch.NlriType)
   return _internal_nlritype();
 }
-inline void SLBgplsTopoNlriFilter::_internal_set_nlritype(::service_layer::SLBgplsTopoNlriType value) {
+inline void SLBgplsTopoNlriMatch::_internal_set_nlritype(::service_layer::SLBgplsTopoNlriType value) {
   
   nlritype_ = value;
 }
-inline void SLBgplsTopoNlriFilter::set_nlritype(::service_layer::SLBgplsTopoNlriType value) {
+inline void SLBgplsTopoNlriMatch::set_nlritype(::service_layer::SLBgplsTopoNlriType value) {
   _internal_set_nlritype(value);
-  // @@protoc_insertion_point(field_set:service_layer.SLBgplsTopoNlriFilter.NlriType)
+  // @@protoc_insertion_point(field_set:service_layer.SLBgplsTopoNlriMatch.NlriType)
 }
 
 // -------------------------------------------------------------------
 
 // SLBgplsTopoUpdMsg
 
-// .service_layer.SLBgplsTopoUpdType UpdType = 1;
-inline void SLBgplsTopoUpdMsg::clear_updtype() {
-  updtype_ = 0;
-}
-inline ::service_layer::SLBgplsTopoUpdType SLBgplsTopoUpdMsg::_internal_updtype() const {
-  return static_cast< ::service_layer::SLBgplsTopoUpdType >(updtype_);
-}
-inline ::service_layer::SLBgplsTopoUpdType SLBgplsTopoUpdMsg::updtype() const {
-  // @@protoc_insertion_point(field_get:service_layer.SLBgplsTopoUpdMsg.UpdType)
-  return _internal_updtype();
-}
-inline void SLBgplsTopoUpdMsg::_internal_set_updtype(::service_layer::SLBgplsTopoUpdType value) {
-  
-  updtype_ = value;
-}
-inline void SLBgplsTopoUpdMsg::set_updtype(::service_layer::SLBgplsTopoUpdType value) {
-  _internal_set_updtype(value);
-  // @@protoc_insertion_point(field_set:service_layer.SLBgplsTopoUpdMsg.UpdType)
-}
-
-// .service_layer.SLBgplsTopoErrorStatus ErrStatus = 2;
+// .service_layer.SLErrorStatus ErrStatus = 1;
 inline bool SLBgplsTopoUpdMsg::_internal_has_errstatus() const {
   return Update_case() == kErrStatus;
 }
@@ -21701,19 +21209,11 @@ inline bool SLBgplsTopoUpdMsg::has_errstatus() const {
 inline void SLBgplsTopoUpdMsg::set_has_errstatus() {
   _oneof_case_[0] = kErrStatus;
 }
-inline void SLBgplsTopoUpdMsg::clear_errstatus() {
-  if (_internal_has_errstatus()) {
-    if (GetArenaForAllocation() == nullptr) {
-      delete Update_.errstatus_;
-    }
-    clear_has_Update();
-  }
-}
-inline ::service_layer::SLBgplsTopoErrorStatus* SLBgplsTopoUpdMsg::release_errstatus() {
+inline ::service_layer::SLErrorStatus* SLBgplsTopoUpdMsg::release_errstatus() {
   // @@protoc_insertion_point(field_release:service_layer.SLBgplsTopoUpdMsg.ErrStatus)
   if (_internal_has_errstatus()) {
     clear_has_Update();
-      ::service_layer::SLBgplsTopoErrorStatus* temp = Update_.errstatus_;
+      ::service_layer::SLErrorStatus* temp = Update_.errstatus_;
     if (GetArenaForAllocation() != nullptr) {
       temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
     }
@@ -21723,27 +21223,27 @@ inline ::service_layer::SLBgplsTopoErrorStatus* SLBgplsTopoUpdMsg::release_errst
     return nullptr;
   }
 }
-inline const ::service_layer::SLBgplsTopoErrorStatus& SLBgplsTopoUpdMsg::_internal_errstatus() const {
+inline const ::service_layer::SLErrorStatus& SLBgplsTopoUpdMsg::_internal_errstatus() const {
   return _internal_has_errstatus()
       ? *Update_.errstatus_
-      : reinterpret_cast< ::service_layer::SLBgplsTopoErrorStatus&>(::service_layer::_SLBgplsTopoErrorStatus_default_instance_);
+      : reinterpret_cast< ::service_layer::SLErrorStatus&>(::service_layer::_SLErrorStatus_default_instance_);
 }
-inline const ::service_layer::SLBgplsTopoErrorStatus& SLBgplsTopoUpdMsg::errstatus() const {
+inline const ::service_layer::SLErrorStatus& SLBgplsTopoUpdMsg::errstatus() const {
   // @@protoc_insertion_point(field_get:service_layer.SLBgplsTopoUpdMsg.ErrStatus)
   return _internal_errstatus();
 }
-inline ::service_layer::SLBgplsTopoErrorStatus* SLBgplsTopoUpdMsg::unsafe_arena_release_errstatus() {
+inline ::service_layer::SLErrorStatus* SLBgplsTopoUpdMsg::unsafe_arena_release_errstatus() {
   // @@protoc_insertion_point(field_unsafe_arena_release:service_layer.SLBgplsTopoUpdMsg.ErrStatus)
   if (_internal_has_errstatus()) {
     clear_has_Update();
-    ::service_layer::SLBgplsTopoErrorStatus* temp = Update_.errstatus_;
+    ::service_layer::SLErrorStatus* temp = Update_.errstatus_;
     Update_.errstatus_ = nullptr;
     return temp;
   } else {
     return nullptr;
   }
 }
-inline void SLBgplsTopoUpdMsg::unsafe_arena_set_allocated_errstatus(::service_layer::SLBgplsTopoErrorStatus* errstatus) {
+inline void SLBgplsTopoUpdMsg::unsafe_arena_set_allocated_errstatus(::service_layer::SLErrorStatus* errstatus) {
   clear_Update();
   if (errstatus) {
     set_has_errstatus();
@@ -21751,21 +21251,21 @@ inline void SLBgplsTopoUpdMsg::unsafe_arena_set_allocated_errstatus(::service_la
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:service_layer.SLBgplsTopoUpdMsg.ErrStatus)
 }
-inline ::service_layer::SLBgplsTopoErrorStatus* SLBgplsTopoUpdMsg::_internal_mutable_errstatus() {
+inline ::service_layer::SLErrorStatus* SLBgplsTopoUpdMsg::_internal_mutable_errstatus() {
   if (!_internal_has_errstatus()) {
     clear_Update();
     set_has_errstatus();
-    Update_.errstatus_ = CreateMaybeMessage< ::service_layer::SLBgplsTopoErrorStatus >(GetArenaForAllocation());
+    Update_.errstatus_ = CreateMaybeMessage< ::service_layer::SLErrorStatus >(GetArenaForAllocation());
   }
   return Update_.errstatus_;
 }
-inline ::service_layer::SLBgplsTopoErrorStatus* SLBgplsTopoUpdMsg::mutable_errstatus() {
-  ::service_layer::SLBgplsTopoErrorStatus* _msg = _internal_mutable_errstatus();
+inline ::service_layer::SLErrorStatus* SLBgplsTopoUpdMsg::mutable_errstatus() {
+  ::service_layer::SLErrorStatus* _msg = _internal_mutable_errstatus();
   // @@protoc_insertion_point(field_mutable:service_layer.SLBgplsTopoUpdMsg.ErrStatus)
   return _msg;
 }
 
-// .service_layer.SLBgplsTopoUpd Data = 3;
+// .service_layer.SLBgplsTopoUpd Data = 2;
 inline bool SLBgplsTopoUpdMsg::_internal_has_data() const {
   return Update_case() == kData;
 }
@@ -21839,6 +21339,154 @@ inline ::service_layer::SLBgplsTopoUpd* SLBgplsTopoUpdMsg::mutable_data() {
   return _msg;
 }
 
+// .service_layer.SLBgplsTopoStartMarker Start = 3;
+inline bool SLBgplsTopoUpdMsg::_internal_has_start() const {
+  return Update_case() == kStart;
+}
+inline bool SLBgplsTopoUpdMsg::has_start() const {
+  return _internal_has_start();
+}
+inline void SLBgplsTopoUpdMsg::set_has_start() {
+  _oneof_case_[0] = kStart;
+}
+inline void SLBgplsTopoUpdMsg::clear_start() {
+  if (_internal_has_start()) {
+    if (GetArenaForAllocation() == nullptr) {
+      delete Update_.start_;
+    }
+    clear_has_Update();
+  }
+}
+inline ::service_layer::SLBgplsTopoStartMarker* SLBgplsTopoUpdMsg::release_start() {
+  // @@protoc_insertion_point(field_release:service_layer.SLBgplsTopoUpdMsg.Start)
+  if (_internal_has_start()) {
+    clear_has_Update();
+      ::service_layer::SLBgplsTopoStartMarker* temp = Update_.start_;
+    if (GetArenaForAllocation() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    Update_.start_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::service_layer::SLBgplsTopoStartMarker& SLBgplsTopoUpdMsg::_internal_start() const {
+  return _internal_has_start()
+      ? *Update_.start_
+      : reinterpret_cast< ::service_layer::SLBgplsTopoStartMarker&>(::service_layer::_SLBgplsTopoStartMarker_default_instance_);
+}
+inline const ::service_layer::SLBgplsTopoStartMarker& SLBgplsTopoUpdMsg::start() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLBgplsTopoUpdMsg.Start)
+  return _internal_start();
+}
+inline ::service_layer::SLBgplsTopoStartMarker* SLBgplsTopoUpdMsg::unsafe_arena_release_start() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:service_layer.SLBgplsTopoUpdMsg.Start)
+  if (_internal_has_start()) {
+    clear_has_Update();
+    ::service_layer::SLBgplsTopoStartMarker* temp = Update_.start_;
+    Update_.start_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void SLBgplsTopoUpdMsg::unsafe_arena_set_allocated_start(::service_layer::SLBgplsTopoStartMarker* start) {
+  clear_Update();
+  if (start) {
+    set_has_start();
+    Update_.start_ = start;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:service_layer.SLBgplsTopoUpdMsg.Start)
+}
+inline ::service_layer::SLBgplsTopoStartMarker* SLBgplsTopoUpdMsg::_internal_mutable_start() {
+  if (!_internal_has_start()) {
+    clear_Update();
+    set_has_start();
+    Update_.start_ = CreateMaybeMessage< ::service_layer::SLBgplsTopoStartMarker >(GetArenaForAllocation());
+  }
+  return Update_.start_;
+}
+inline ::service_layer::SLBgplsTopoStartMarker* SLBgplsTopoUpdMsg::mutable_start() {
+  ::service_layer::SLBgplsTopoStartMarker* _msg = _internal_mutable_start();
+  // @@protoc_insertion_point(field_mutable:service_layer.SLBgplsTopoUpdMsg.Start)
+  return _msg;
+}
+
+// .service_layer.SLBgplsTopoEndMarker End = 4;
+inline bool SLBgplsTopoUpdMsg::_internal_has_end() const {
+  return Update_case() == kEnd;
+}
+inline bool SLBgplsTopoUpdMsg::has_end() const {
+  return _internal_has_end();
+}
+inline void SLBgplsTopoUpdMsg::set_has_end() {
+  _oneof_case_[0] = kEnd;
+}
+inline void SLBgplsTopoUpdMsg::clear_end() {
+  if (_internal_has_end()) {
+    if (GetArenaForAllocation() == nullptr) {
+      delete Update_.end_;
+    }
+    clear_has_Update();
+  }
+}
+inline ::service_layer::SLBgplsTopoEndMarker* SLBgplsTopoUpdMsg::release_end() {
+  // @@protoc_insertion_point(field_release:service_layer.SLBgplsTopoUpdMsg.End)
+  if (_internal_has_end()) {
+    clear_has_Update();
+      ::service_layer::SLBgplsTopoEndMarker* temp = Update_.end_;
+    if (GetArenaForAllocation() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    Update_.end_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::service_layer::SLBgplsTopoEndMarker& SLBgplsTopoUpdMsg::_internal_end() const {
+  return _internal_has_end()
+      ? *Update_.end_
+      : reinterpret_cast< ::service_layer::SLBgplsTopoEndMarker&>(::service_layer::_SLBgplsTopoEndMarker_default_instance_);
+}
+inline const ::service_layer::SLBgplsTopoEndMarker& SLBgplsTopoUpdMsg::end() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLBgplsTopoUpdMsg.End)
+  return _internal_end();
+}
+inline ::service_layer::SLBgplsTopoEndMarker* SLBgplsTopoUpdMsg::unsafe_arena_release_end() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:service_layer.SLBgplsTopoUpdMsg.End)
+  if (_internal_has_end()) {
+    clear_has_Update();
+    ::service_layer::SLBgplsTopoEndMarker* temp = Update_.end_;
+    Update_.end_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void SLBgplsTopoUpdMsg::unsafe_arena_set_allocated_end(::service_layer::SLBgplsTopoEndMarker* end) {
+  clear_Update();
+  if (end) {
+    set_has_end();
+    Update_.end_ = end;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:service_layer.SLBgplsTopoUpdMsg.End)
+}
+inline ::service_layer::SLBgplsTopoEndMarker* SLBgplsTopoUpdMsg::_internal_mutable_end() {
+  if (!_internal_has_end()) {
+    clear_Update();
+    set_has_end();
+    Update_.end_ = CreateMaybeMessage< ::service_layer::SLBgplsTopoEndMarker >(GetArenaForAllocation());
+  }
+  return Update_.end_;
+}
+inline ::service_layer::SLBgplsTopoEndMarker* SLBgplsTopoUpdMsg::mutable_end() {
+  ::service_layer::SLBgplsTopoEndMarker* _msg = _internal_mutable_end();
+  // @@protoc_insertion_point(field_mutable:service_layer.SLBgplsTopoUpdMsg.End)
+  return _msg;
+}
+
 inline bool SLBgplsTopoUpdMsg::has_Update() const {
   return Update_case() != UPDATE_NOT_SET;
 }
@@ -21850,27 +21498,11 @@ inline SLBgplsTopoUpdMsg::UpdateCase SLBgplsTopoUpdMsg::Update_case() const {
 }
 // -------------------------------------------------------------------
 
-// SLBgplsTopoErrorStatus
+// SLBgplsTopoStartMarker
 
-// .service_layer.SLBgplsTopoErrorStatus.SLBgplsTopoErrno Status = 1;
-inline void SLBgplsTopoErrorStatus::clear_status() {
-  status_ = 0;
-}
-inline ::service_layer::SLBgplsTopoErrorStatus_SLBgplsTopoErrno SLBgplsTopoErrorStatus::_internal_status() const {
-  return static_cast< ::service_layer::SLBgplsTopoErrorStatus_SLBgplsTopoErrno >(status_);
-}
-inline ::service_layer::SLBgplsTopoErrorStatus_SLBgplsTopoErrno SLBgplsTopoErrorStatus::status() const {
-  // @@protoc_insertion_point(field_get:service_layer.SLBgplsTopoErrorStatus.Status)
-  return _internal_status();
-}
-inline void SLBgplsTopoErrorStatus::_internal_set_status(::service_layer::SLBgplsTopoErrorStatus_SLBgplsTopoErrno value) {
-  
-  status_ = value;
-}
-inline void SLBgplsTopoErrorStatus::set_status(::service_layer::SLBgplsTopoErrorStatus_SLBgplsTopoErrno value) {
-  _internal_set_status(value);
-  // @@protoc_insertion_point(field_set:service_layer.SLBgplsTopoErrorStatus.Status)
-}
+// -------------------------------------------------------------------
+
+// SLBgplsTopoEndMarker
 
 // -------------------------------------------------------------------
 
@@ -22567,101 +22199,410 @@ inline SLBgplsTopoNlri::NlriCase SLBgplsTopoNlri::Nlri_case() const {
 
 // SLBgplsTopoNode
 
-// .service_layer.SLBgplsTopoNodeDescr NodeDescr = 1;
-inline bool SLBgplsTopoNode::_internal_has_nodedescr() const {
-  return this != internal_default_instance() && nodedescr_ != nullptr;
+// uint32 Asn = 1;
+inline void SLBgplsTopoNode::clear_asn() {
+  asn_ = 0u;
 }
-inline bool SLBgplsTopoNode::has_nodedescr() const {
-  return _internal_has_nodedescr();
+inline uint32_t SLBgplsTopoNode::_internal_asn() const {
+  return asn_;
 }
-inline void SLBgplsTopoNode::clear_nodedescr() {
-  if (GetArenaForAllocation() == nullptr && nodedescr_ != nullptr) {
-    delete nodedescr_;
-  }
-  nodedescr_ = nullptr;
+inline uint32_t SLBgplsTopoNode::asn() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLBgplsTopoNode.Asn)
+  return _internal_asn();
 }
-inline const ::service_layer::SLBgplsTopoNodeDescr& SLBgplsTopoNode::_internal_nodedescr() const {
-  const ::service_layer::SLBgplsTopoNodeDescr* p = nodedescr_;
-  return p != nullptr ? *p : reinterpret_cast<const ::service_layer::SLBgplsTopoNodeDescr&>(
-      ::service_layer::_SLBgplsTopoNodeDescr_default_instance_);
-}
-inline const ::service_layer::SLBgplsTopoNodeDescr& SLBgplsTopoNode::nodedescr() const {
-  // @@protoc_insertion_point(field_get:service_layer.SLBgplsTopoNode.NodeDescr)
-  return _internal_nodedescr();
-}
-inline void SLBgplsTopoNode::unsafe_arena_set_allocated_nodedescr(
-    ::service_layer::SLBgplsTopoNodeDescr* nodedescr) {
-  if (GetArenaForAllocation() == nullptr) {
-    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(nodedescr_);
-  }
-  nodedescr_ = nodedescr;
-  if (nodedescr) {
-    
-  } else {
-    
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:service_layer.SLBgplsTopoNode.NodeDescr)
-}
-inline ::service_layer::SLBgplsTopoNodeDescr* SLBgplsTopoNode::release_nodedescr() {
+inline void SLBgplsTopoNode::_internal_set_asn(uint32_t value) {
   
-  ::service_layer::SLBgplsTopoNodeDescr* temp = nodedescr_;
-  nodedescr_ = nullptr;
-#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
-  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
-  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-  if (GetArenaForAllocation() == nullptr) { delete old; }
-#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
-  if (GetArenaForAllocation() != nullptr) {
-    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-  }
-#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
-  return temp;
+  asn_ = value;
 }
-inline ::service_layer::SLBgplsTopoNodeDescr* SLBgplsTopoNode::unsafe_arena_release_nodedescr() {
-  // @@protoc_insertion_point(field_release:service_layer.SLBgplsTopoNode.NodeDescr)
-  
-  ::service_layer::SLBgplsTopoNodeDescr* temp = nodedescr_;
-  nodedescr_ = nullptr;
-  return temp;
-}
-inline ::service_layer::SLBgplsTopoNodeDescr* SLBgplsTopoNode::_internal_mutable_nodedescr() {
-  
-  if (nodedescr_ == nullptr) {
-    auto* p = CreateMaybeMessage<::service_layer::SLBgplsTopoNodeDescr>(GetArenaForAllocation());
-    nodedescr_ = p;
-  }
-  return nodedescr_;
-}
-inline ::service_layer::SLBgplsTopoNodeDescr* SLBgplsTopoNode::mutable_nodedescr() {
-  ::service_layer::SLBgplsTopoNodeDescr* _msg = _internal_mutable_nodedescr();
-  // @@protoc_insertion_point(field_mutable:service_layer.SLBgplsTopoNode.NodeDescr)
-  return _msg;
-}
-inline void SLBgplsTopoNode::set_allocated_nodedescr(::service_layer::SLBgplsTopoNodeDescr* nodedescr) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
-  if (message_arena == nullptr) {
-    delete nodedescr_;
-  }
-  if (nodedescr) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-        ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper<::service_layer::SLBgplsTopoNodeDescr>::GetOwningArena(nodedescr);
-    if (message_arena != submessage_arena) {
-      nodedescr = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, nodedescr, submessage_arena);
-    }
-    
-  } else {
-    
-  }
-  nodedescr_ = nodedescr;
-  // @@protoc_insertion_point(field_set_allocated:service_layer.SLBgplsTopoNode.NodeDescr)
+inline void SLBgplsTopoNode::set_asn(uint32_t value) {
+  _internal_set_asn(value);
+  // @@protoc_insertion_point(field_set:service_layer.SLBgplsTopoNode.Asn)
 }
 
+// .service_layer.SLBgplsTopoOspfNodeId OspfNodeId = 2;
+inline bool SLBgplsTopoNode::_internal_has_ospfnodeid() const {
+  return NodeId_case() == kOspfNodeId;
+}
+inline bool SLBgplsTopoNode::has_ospfnodeid() const {
+  return _internal_has_ospfnodeid();
+}
+inline void SLBgplsTopoNode::set_has_ospfnodeid() {
+  _oneof_case_[0] = kOspfNodeId;
+}
+inline void SLBgplsTopoNode::clear_ospfnodeid() {
+  if (_internal_has_ospfnodeid()) {
+    if (GetArenaForAllocation() == nullptr) {
+      delete NodeId_.ospfnodeid_;
+    }
+    clear_has_NodeId();
+  }
+}
+inline ::service_layer::SLBgplsTopoOspfNodeId* SLBgplsTopoNode::release_ospfnodeid() {
+  // @@protoc_insertion_point(field_release:service_layer.SLBgplsTopoNode.OspfNodeId)
+  if (_internal_has_ospfnodeid()) {
+    clear_has_NodeId();
+      ::service_layer::SLBgplsTopoOspfNodeId* temp = NodeId_.ospfnodeid_;
+    if (GetArenaForAllocation() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    NodeId_.ospfnodeid_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::service_layer::SLBgplsTopoOspfNodeId& SLBgplsTopoNode::_internal_ospfnodeid() const {
+  return _internal_has_ospfnodeid()
+      ? *NodeId_.ospfnodeid_
+      : reinterpret_cast< ::service_layer::SLBgplsTopoOspfNodeId&>(::service_layer::_SLBgplsTopoOspfNodeId_default_instance_);
+}
+inline const ::service_layer::SLBgplsTopoOspfNodeId& SLBgplsTopoNode::ospfnodeid() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLBgplsTopoNode.OspfNodeId)
+  return _internal_ospfnodeid();
+}
+inline ::service_layer::SLBgplsTopoOspfNodeId* SLBgplsTopoNode::unsafe_arena_release_ospfnodeid() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:service_layer.SLBgplsTopoNode.OspfNodeId)
+  if (_internal_has_ospfnodeid()) {
+    clear_has_NodeId();
+    ::service_layer::SLBgplsTopoOspfNodeId* temp = NodeId_.ospfnodeid_;
+    NodeId_.ospfnodeid_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void SLBgplsTopoNode::unsafe_arena_set_allocated_ospfnodeid(::service_layer::SLBgplsTopoOspfNodeId* ospfnodeid) {
+  clear_NodeId();
+  if (ospfnodeid) {
+    set_has_ospfnodeid();
+    NodeId_.ospfnodeid_ = ospfnodeid;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:service_layer.SLBgplsTopoNode.OspfNodeId)
+}
+inline ::service_layer::SLBgplsTopoOspfNodeId* SLBgplsTopoNode::_internal_mutable_ospfnodeid() {
+  if (!_internal_has_ospfnodeid()) {
+    clear_NodeId();
+    set_has_ospfnodeid();
+    NodeId_.ospfnodeid_ = CreateMaybeMessage< ::service_layer::SLBgplsTopoOspfNodeId >(GetArenaForAllocation());
+  }
+  return NodeId_.ospfnodeid_;
+}
+inline ::service_layer::SLBgplsTopoOspfNodeId* SLBgplsTopoNode::mutable_ospfnodeid() {
+  ::service_layer::SLBgplsTopoOspfNodeId* _msg = _internal_mutable_ospfnodeid();
+  // @@protoc_insertion_point(field_mutable:service_layer.SLBgplsTopoNode.OspfNodeId)
+  return _msg;
+}
+
+// .service_layer.SLBgplsTopoOspfv3NodeId Ospfv3NodeId = 3;
+inline bool SLBgplsTopoNode::_internal_has_ospfv3nodeid() const {
+  return NodeId_case() == kOspfv3NodeId;
+}
+inline bool SLBgplsTopoNode::has_ospfv3nodeid() const {
+  return _internal_has_ospfv3nodeid();
+}
+inline void SLBgplsTopoNode::set_has_ospfv3nodeid() {
+  _oneof_case_[0] = kOspfv3NodeId;
+}
+inline void SLBgplsTopoNode::clear_ospfv3nodeid() {
+  if (_internal_has_ospfv3nodeid()) {
+    if (GetArenaForAllocation() == nullptr) {
+      delete NodeId_.ospfv3nodeid_;
+    }
+    clear_has_NodeId();
+  }
+}
+inline ::service_layer::SLBgplsTopoOspfv3NodeId* SLBgplsTopoNode::release_ospfv3nodeid() {
+  // @@protoc_insertion_point(field_release:service_layer.SLBgplsTopoNode.Ospfv3NodeId)
+  if (_internal_has_ospfv3nodeid()) {
+    clear_has_NodeId();
+      ::service_layer::SLBgplsTopoOspfv3NodeId* temp = NodeId_.ospfv3nodeid_;
+    if (GetArenaForAllocation() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    NodeId_.ospfv3nodeid_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::service_layer::SLBgplsTopoOspfv3NodeId& SLBgplsTopoNode::_internal_ospfv3nodeid() const {
+  return _internal_has_ospfv3nodeid()
+      ? *NodeId_.ospfv3nodeid_
+      : reinterpret_cast< ::service_layer::SLBgplsTopoOspfv3NodeId&>(::service_layer::_SLBgplsTopoOspfv3NodeId_default_instance_);
+}
+inline const ::service_layer::SLBgplsTopoOspfv3NodeId& SLBgplsTopoNode::ospfv3nodeid() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLBgplsTopoNode.Ospfv3NodeId)
+  return _internal_ospfv3nodeid();
+}
+inline ::service_layer::SLBgplsTopoOspfv3NodeId* SLBgplsTopoNode::unsafe_arena_release_ospfv3nodeid() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:service_layer.SLBgplsTopoNode.Ospfv3NodeId)
+  if (_internal_has_ospfv3nodeid()) {
+    clear_has_NodeId();
+    ::service_layer::SLBgplsTopoOspfv3NodeId* temp = NodeId_.ospfv3nodeid_;
+    NodeId_.ospfv3nodeid_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void SLBgplsTopoNode::unsafe_arena_set_allocated_ospfv3nodeid(::service_layer::SLBgplsTopoOspfv3NodeId* ospfv3nodeid) {
+  clear_NodeId();
+  if (ospfv3nodeid) {
+    set_has_ospfv3nodeid();
+    NodeId_.ospfv3nodeid_ = ospfv3nodeid;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:service_layer.SLBgplsTopoNode.Ospfv3NodeId)
+}
+inline ::service_layer::SLBgplsTopoOspfv3NodeId* SLBgplsTopoNode::_internal_mutable_ospfv3nodeid() {
+  if (!_internal_has_ospfv3nodeid()) {
+    clear_NodeId();
+    set_has_ospfv3nodeid();
+    NodeId_.ospfv3nodeid_ = CreateMaybeMessage< ::service_layer::SLBgplsTopoOspfv3NodeId >(GetArenaForAllocation());
+  }
+  return NodeId_.ospfv3nodeid_;
+}
+inline ::service_layer::SLBgplsTopoOspfv3NodeId* SLBgplsTopoNode::mutable_ospfv3nodeid() {
+  ::service_layer::SLBgplsTopoOspfv3NodeId* _msg = _internal_mutable_ospfv3nodeid();
+  // @@protoc_insertion_point(field_mutable:service_layer.SLBgplsTopoNode.Ospfv3NodeId)
+  return _msg;
+}
+
+// .service_layer.SLBgplsTopoIsisNodeId IsisNodeId = 4;
+inline bool SLBgplsTopoNode::_internal_has_isisnodeid() const {
+  return NodeId_case() == kIsisNodeId;
+}
+inline bool SLBgplsTopoNode::has_isisnodeid() const {
+  return _internal_has_isisnodeid();
+}
+inline void SLBgplsTopoNode::set_has_isisnodeid() {
+  _oneof_case_[0] = kIsisNodeId;
+}
+inline void SLBgplsTopoNode::clear_isisnodeid() {
+  if (_internal_has_isisnodeid()) {
+    if (GetArenaForAllocation() == nullptr) {
+      delete NodeId_.isisnodeid_;
+    }
+    clear_has_NodeId();
+  }
+}
+inline ::service_layer::SLBgplsTopoIsisNodeId* SLBgplsTopoNode::release_isisnodeid() {
+  // @@protoc_insertion_point(field_release:service_layer.SLBgplsTopoNode.IsisNodeId)
+  if (_internal_has_isisnodeid()) {
+    clear_has_NodeId();
+      ::service_layer::SLBgplsTopoIsisNodeId* temp = NodeId_.isisnodeid_;
+    if (GetArenaForAllocation() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    NodeId_.isisnodeid_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::service_layer::SLBgplsTopoIsisNodeId& SLBgplsTopoNode::_internal_isisnodeid() const {
+  return _internal_has_isisnodeid()
+      ? *NodeId_.isisnodeid_
+      : reinterpret_cast< ::service_layer::SLBgplsTopoIsisNodeId&>(::service_layer::_SLBgplsTopoIsisNodeId_default_instance_);
+}
+inline const ::service_layer::SLBgplsTopoIsisNodeId& SLBgplsTopoNode::isisnodeid() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLBgplsTopoNode.IsisNodeId)
+  return _internal_isisnodeid();
+}
+inline ::service_layer::SLBgplsTopoIsisNodeId* SLBgplsTopoNode::unsafe_arena_release_isisnodeid() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:service_layer.SLBgplsTopoNode.IsisNodeId)
+  if (_internal_has_isisnodeid()) {
+    clear_has_NodeId();
+    ::service_layer::SLBgplsTopoIsisNodeId* temp = NodeId_.isisnodeid_;
+    NodeId_.isisnodeid_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void SLBgplsTopoNode::unsafe_arena_set_allocated_isisnodeid(::service_layer::SLBgplsTopoIsisNodeId* isisnodeid) {
+  clear_NodeId();
+  if (isisnodeid) {
+    set_has_isisnodeid();
+    NodeId_.isisnodeid_ = isisnodeid;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:service_layer.SLBgplsTopoNode.IsisNodeId)
+}
+inline ::service_layer::SLBgplsTopoIsisNodeId* SLBgplsTopoNode::_internal_mutable_isisnodeid() {
+  if (!_internal_has_isisnodeid()) {
+    clear_NodeId();
+    set_has_isisnodeid();
+    NodeId_.isisnodeid_ = CreateMaybeMessage< ::service_layer::SLBgplsTopoIsisNodeId >(GetArenaForAllocation());
+  }
+  return NodeId_.isisnodeid_;
+}
+inline ::service_layer::SLBgplsTopoIsisNodeId* SLBgplsTopoNode::mutable_isisnodeid() {
+  ::service_layer::SLBgplsTopoIsisNodeId* _msg = _internal_mutable_isisnodeid();
+  // @@protoc_insertion_point(field_mutable:service_layer.SLBgplsTopoNode.IsisNodeId)
+  return _msg;
+}
+
+// .service_layer.SLBgplsTopoBgpNodeId BgpNodeId = 5;
+inline bool SLBgplsTopoNode::_internal_has_bgpnodeid() const {
+  return NodeId_case() == kBgpNodeId;
+}
+inline bool SLBgplsTopoNode::has_bgpnodeid() const {
+  return _internal_has_bgpnodeid();
+}
+inline void SLBgplsTopoNode::set_has_bgpnodeid() {
+  _oneof_case_[0] = kBgpNodeId;
+}
+inline void SLBgplsTopoNode::clear_bgpnodeid() {
+  if (_internal_has_bgpnodeid()) {
+    if (GetArenaForAllocation() == nullptr) {
+      delete NodeId_.bgpnodeid_;
+    }
+    clear_has_NodeId();
+  }
+}
+inline ::service_layer::SLBgplsTopoBgpNodeId* SLBgplsTopoNode::release_bgpnodeid() {
+  // @@protoc_insertion_point(field_release:service_layer.SLBgplsTopoNode.BgpNodeId)
+  if (_internal_has_bgpnodeid()) {
+    clear_has_NodeId();
+      ::service_layer::SLBgplsTopoBgpNodeId* temp = NodeId_.bgpnodeid_;
+    if (GetArenaForAllocation() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    NodeId_.bgpnodeid_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::service_layer::SLBgplsTopoBgpNodeId& SLBgplsTopoNode::_internal_bgpnodeid() const {
+  return _internal_has_bgpnodeid()
+      ? *NodeId_.bgpnodeid_
+      : reinterpret_cast< ::service_layer::SLBgplsTopoBgpNodeId&>(::service_layer::_SLBgplsTopoBgpNodeId_default_instance_);
+}
+inline const ::service_layer::SLBgplsTopoBgpNodeId& SLBgplsTopoNode::bgpnodeid() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLBgplsTopoNode.BgpNodeId)
+  return _internal_bgpnodeid();
+}
+inline ::service_layer::SLBgplsTopoBgpNodeId* SLBgplsTopoNode::unsafe_arena_release_bgpnodeid() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:service_layer.SLBgplsTopoNode.BgpNodeId)
+  if (_internal_has_bgpnodeid()) {
+    clear_has_NodeId();
+    ::service_layer::SLBgplsTopoBgpNodeId* temp = NodeId_.bgpnodeid_;
+    NodeId_.bgpnodeid_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void SLBgplsTopoNode::unsafe_arena_set_allocated_bgpnodeid(::service_layer::SLBgplsTopoBgpNodeId* bgpnodeid) {
+  clear_NodeId();
+  if (bgpnodeid) {
+    set_has_bgpnodeid();
+    NodeId_.bgpnodeid_ = bgpnodeid;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:service_layer.SLBgplsTopoNode.BgpNodeId)
+}
+inline ::service_layer::SLBgplsTopoBgpNodeId* SLBgplsTopoNode::_internal_mutable_bgpnodeid() {
+  if (!_internal_has_bgpnodeid()) {
+    clear_NodeId();
+    set_has_bgpnodeid();
+    NodeId_.bgpnodeid_ = CreateMaybeMessage< ::service_layer::SLBgplsTopoBgpNodeId >(GetArenaForAllocation());
+  }
+  return NodeId_.bgpnodeid_;
+}
+inline ::service_layer::SLBgplsTopoBgpNodeId* SLBgplsTopoNode::mutable_bgpnodeid() {
+  ::service_layer::SLBgplsTopoBgpNodeId* _msg = _internal_mutable_bgpnodeid();
+  // @@protoc_insertion_point(field_mutable:service_layer.SLBgplsTopoNode.BgpNodeId)
+  return _msg;
+}
+
+// .service_layer.SLBgplsTopoSrPolicyNodeId SrPolicyNodeId = 6;
+inline bool SLBgplsTopoNode::_internal_has_srpolicynodeid() const {
+  return NodeId_case() == kSrPolicyNodeId;
+}
+inline bool SLBgplsTopoNode::has_srpolicynodeid() const {
+  return _internal_has_srpolicynodeid();
+}
+inline void SLBgplsTopoNode::set_has_srpolicynodeid() {
+  _oneof_case_[0] = kSrPolicyNodeId;
+}
+inline void SLBgplsTopoNode::clear_srpolicynodeid() {
+  if (_internal_has_srpolicynodeid()) {
+    if (GetArenaForAllocation() == nullptr) {
+      delete NodeId_.srpolicynodeid_;
+    }
+    clear_has_NodeId();
+  }
+}
+inline ::service_layer::SLBgplsTopoSrPolicyNodeId* SLBgplsTopoNode::release_srpolicynodeid() {
+  // @@protoc_insertion_point(field_release:service_layer.SLBgplsTopoNode.SrPolicyNodeId)
+  if (_internal_has_srpolicynodeid()) {
+    clear_has_NodeId();
+      ::service_layer::SLBgplsTopoSrPolicyNodeId* temp = NodeId_.srpolicynodeid_;
+    if (GetArenaForAllocation() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    NodeId_.srpolicynodeid_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::service_layer::SLBgplsTopoSrPolicyNodeId& SLBgplsTopoNode::_internal_srpolicynodeid() const {
+  return _internal_has_srpolicynodeid()
+      ? *NodeId_.srpolicynodeid_
+      : reinterpret_cast< ::service_layer::SLBgplsTopoSrPolicyNodeId&>(::service_layer::_SLBgplsTopoSrPolicyNodeId_default_instance_);
+}
+inline const ::service_layer::SLBgplsTopoSrPolicyNodeId& SLBgplsTopoNode::srpolicynodeid() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLBgplsTopoNode.SrPolicyNodeId)
+  return _internal_srpolicynodeid();
+}
+inline ::service_layer::SLBgplsTopoSrPolicyNodeId* SLBgplsTopoNode::unsafe_arena_release_srpolicynodeid() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:service_layer.SLBgplsTopoNode.SrPolicyNodeId)
+  if (_internal_has_srpolicynodeid()) {
+    clear_has_NodeId();
+    ::service_layer::SLBgplsTopoSrPolicyNodeId* temp = NodeId_.srpolicynodeid_;
+    NodeId_.srpolicynodeid_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void SLBgplsTopoNode::unsafe_arena_set_allocated_srpolicynodeid(::service_layer::SLBgplsTopoSrPolicyNodeId* srpolicynodeid) {
+  clear_NodeId();
+  if (srpolicynodeid) {
+    set_has_srpolicynodeid();
+    NodeId_.srpolicynodeid_ = srpolicynodeid;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:service_layer.SLBgplsTopoNode.SrPolicyNodeId)
+}
+inline ::service_layer::SLBgplsTopoSrPolicyNodeId* SLBgplsTopoNode::_internal_mutable_srpolicynodeid() {
+  if (!_internal_has_srpolicynodeid()) {
+    clear_NodeId();
+    set_has_srpolicynodeid();
+    NodeId_.srpolicynodeid_ = CreateMaybeMessage< ::service_layer::SLBgplsTopoSrPolicyNodeId >(GetArenaForAllocation());
+  }
+  return NodeId_.srpolicynodeid_;
+}
+inline ::service_layer::SLBgplsTopoSrPolicyNodeId* SLBgplsTopoNode::mutable_srpolicynodeid() {
+  ::service_layer::SLBgplsTopoSrPolicyNodeId* _msg = _internal_mutable_srpolicynodeid();
+  // @@protoc_insertion_point(field_mutable:service_layer.SLBgplsTopoNode.SrPolicyNodeId)
+  return _msg;
+}
+
+inline bool SLBgplsTopoNode::has_NodeId() const {
+  return NodeId_case() != NODEID_NOT_SET;
+}
+inline void SLBgplsTopoNode::clear_has_NodeId() {
+  _oneof_case_[0] = NODEID_NOT_SET;
+}
+inline SLBgplsTopoNode::NodeIdCase SLBgplsTopoNode::NodeId_case() const {
+  return SLBgplsTopoNode::NodeIdCase(_oneof_case_[0]);
+}
 // -------------------------------------------------------------------
 
 // SLBgplsTopoLink
 
-// .service_layer.SLBgplsTopoNodeDescr LocalNodeDescr = 1;
+// .service_layer.SLBgplsTopoNode LocalNodeDescr = 1;
 inline bool SLBgplsTopoLink::_internal_has_localnodedescr() const {
   return this != internal_default_instance() && localnodedescr_ != nullptr;
 }
@@ -22674,17 +22615,17 @@ inline void SLBgplsTopoLink::clear_localnodedescr() {
   }
   localnodedescr_ = nullptr;
 }
-inline const ::service_layer::SLBgplsTopoNodeDescr& SLBgplsTopoLink::_internal_localnodedescr() const {
-  const ::service_layer::SLBgplsTopoNodeDescr* p = localnodedescr_;
-  return p != nullptr ? *p : reinterpret_cast<const ::service_layer::SLBgplsTopoNodeDescr&>(
-      ::service_layer::_SLBgplsTopoNodeDescr_default_instance_);
+inline const ::service_layer::SLBgplsTopoNode& SLBgplsTopoLink::_internal_localnodedescr() const {
+  const ::service_layer::SLBgplsTopoNode* p = localnodedescr_;
+  return p != nullptr ? *p : reinterpret_cast<const ::service_layer::SLBgplsTopoNode&>(
+      ::service_layer::_SLBgplsTopoNode_default_instance_);
 }
-inline const ::service_layer::SLBgplsTopoNodeDescr& SLBgplsTopoLink::localnodedescr() const {
+inline const ::service_layer::SLBgplsTopoNode& SLBgplsTopoLink::localnodedescr() const {
   // @@protoc_insertion_point(field_get:service_layer.SLBgplsTopoLink.LocalNodeDescr)
   return _internal_localnodedescr();
 }
 inline void SLBgplsTopoLink::unsafe_arena_set_allocated_localnodedescr(
-    ::service_layer::SLBgplsTopoNodeDescr* localnodedescr) {
+    ::service_layer::SLBgplsTopoNode* localnodedescr) {
   if (GetArenaForAllocation() == nullptr) {
     delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(localnodedescr_);
   }
@@ -22696,9 +22637,9 @@ inline void SLBgplsTopoLink::unsafe_arena_set_allocated_localnodedescr(
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:service_layer.SLBgplsTopoLink.LocalNodeDescr)
 }
-inline ::service_layer::SLBgplsTopoNodeDescr* SLBgplsTopoLink::release_localnodedescr() {
+inline ::service_layer::SLBgplsTopoNode* SLBgplsTopoLink::release_localnodedescr() {
   
-  ::service_layer::SLBgplsTopoNodeDescr* temp = localnodedescr_;
+  ::service_layer::SLBgplsTopoNode* temp = localnodedescr_;
   localnodedescr_ = nullptr;
 #ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
   auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
@@ -22711,34 +22652,34 @@ inline ::service_layer::SLBgplsTopoNodeDescr* SLBgplsTopoLink::release_localnode
 #endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
   return temp;
 }
-inline ::service_layer::SLBgplsTopoNodeDescr* SLBgplsTopoLink::unsafe_arena_release_localnodedescr() {
+inline ::service_layer::SLBgplsTopoNode* SLBgplsTopoLink::unsafe_arena_release_localnodedescr() {
   // @@protoc_insertion_point(field_release:service_layer.SLBgplsTopoLink.LocalNodeDescr)
   
-  ::service_layer::SLBgplsTopoNodeDescr* temp = localnodedescr_;
+  ::service_layer::SLBgplsTopoNode* temp = localnodedescr_;
   localnodedescr_ = nullptr;
   return temp;
 }
-inline ::service_layer::SLBgplsTopoNodeDescr* SLBgplsTopoLink::_internal_mutable_localnodedescr() {
+inline ::service_layer::SLBgplsTopoNode* SLBgplsTopoLink::_internal_mutable_localnodedescr() {
   
   if (localnodedescr_ == nullptr) {
-    auto* p = CreateMaybeMessage<::service_layer::SLBgplsTopoNodeDescr>(GetArenaForAllocation());
+    auto* p = CreateMaybeMessage<::service_layer::SLBgplsTopoNode>(GetArenaForAllocation());
     localnodedescr_ = p;
   }
   return localnodedescr_;
 }
-inline ::service_layer::SLBgplsTopoNodeDescr* SLBgplsTopoLink::mutable_localnodedescr() {
-  ::service_layer::SLBgplsTopoNodeDescr* _msg = _internal_mutable_localnodedescr();
+inline ::service_layer::SLBgplsTopoNode* SLBgplsTopoLink::mutable_localnodedescr() {
+  ::service_layer::SLBgplsTopoNode* _msg = _internal_mutable_localnodedescr();
   // @@protoc_insertion_point(field_mutable:service_layer.SLBgplsTopoLink.LocalNodeDescr)
   return _msg;
 }
-inline void SLBgplsTopoLink::set_allocated_localnodedescr(::service_layer::SLBgplsTopoNodeDescr* localnodedescr) {
+inline void SLBgplsTopoLink::set_allocated_localnodedescr(::service_layer::SLBgplsTopoNode* localnodedescr) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
   if (message_arena == nullptr) {
     delete localnodedescr_;
   }
   if (localnodedescr) {
     ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-        ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper<::service_layer::SLBgplsTopoNodeDescr>::GetOwningArena(localnodedescr);
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper<::service_layer::SLBgplsTopoNode>::GetOwningArena(localnodedescr);
     if (message_arena != submessage_arena) {
       localnodedescr = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
           message_arena, localnodedescr, submessage_arena);
@@ -22751,7 +22692,7 @@ inline void SLBgplsTopoLink::set_allocated_localnodedescr(::service_layer::SLBgp
   // @@protoc_insertion_point(field_set_allocated:service_layer.SLBgplsTopoLink.LocalNodeDescr)
 }
 
-// .service_layer.SLBgplsTopoNodeDescr RemoteNodeDescr = 2;
+// .service_layer.SLBgplsTopoNode RemoteNodeDescr = 2;
 inline bool SLBgplsTopoLink::_internal_has_remotenodedescr() const {
   return this != internal_default_instance() && remotenodedescr_ != nullptr;
 }
@@ -22764,17 +22705,17 @@ inline void SLBgplsTopoLink::clear_remotenodedescr() {
   }
   remotenodedescr_ = nullptr;
 }
-inline const ::service_layer::SLBgplsTopoNodeDescr& SLBgplsTopoLink::_internal_remotenodedescr() const {
-  const ::service_layer::SLBgplsTopoNodeDescr* p = remotenodedescr_;
-  return p != nullptr ? *p : reinterpret_cast<const ::service_layer::SLBgplsTopoNodeDescr&>(
-      ::service_layer::_SLBgplsTopoNodeDescr_default_instance_);
+inline const ::service_layer::SLBgplsTopoNode& SLBgplsTopoLink::_internal_remotenodedescr() const {
+  const ::service_layer::SLBgplsTopoNode* p = remotenodedescr_;
+  return p != nullptr ? *p : reinterpret_cast<const ::service_layer::SLBgplsTopoNode&>(
+      ::service_layer::_SLBgplsTopoNode_default_instance_);
 }
-inline const ::service_layer::SLBgplsTopoNodeDescr& SLBgplsTopoLink::remotenodedescr() const {
+inline const ::service_layer::SLBgplsTopoNode& SLBgplsTopoLink::remotenodedescr() const {
   // @@protoc_insertion_point(field_get:service_layer.SLBgplsTopoLink.RemoteNodeDescr)
   return _internal_remotenodedescr();
 }
 inline void SLBgplsTopoLink::unsafe_arena_set_allocated_remotenodedescr(
-    ::service_layer::SLBgplsTopoNodeDescr* remotenodedescr) {
+    ::service_layer::SLBgplsTopoNode* remotenodedescr) {
   if (GetArenaForAllocation() == nullptr) {
     delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(remotenodedescr_);
   }
@@ -22786,9 +22727,9 @@ inline void SLBgplsTopoLink::unsafe_arena_set_allocated_remotenodedescr(
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:service_layer.SLBgplsTopoLink.RemoteNodeDescr)
 }
-inline ::service_layer::SLBgplsTopoNodeDescr* SLBgplsTopoLink::release_remotenodedescr() {
+inline ::service_layer::SLBgplsTopoNode* SLBgplsTopoLink::release_remotenodedescr() {
   
-  ::service_layer::SLBgplsTopoNodeDescr* temp = remotenodedescr_;
+  ::service_layer::SLBgplsTopoNode* temp = remotenodedescr_;
   remotenodedescr_ = nullptr;
 #ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
   auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
@@ -22801,34 +22742,34 @@ inline ::service_layer::SLBgplsTopoNodeDescr* SLBgplsTopoLink::release_remotenod
 #endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
   return temp;
 }
-inline ::service_layer::SLBgplsTopoNodeDescr* SLBgplsTopoLink::unsafe_arena_release_remotenodedescr() {
+inline ::service_layer::SLBgplsTopoNode* SLBgplsTopoLink::unsafe_arena_release_remotenodedescr() {
   // @@protoc_insertion_point(field_release:service_layer.SLBgplsTopoLink.RemoteNodeDescr)
   
-  ::service_layer::SLBgplsTopoNodeDescr* temp = remotenodedescr_;
+  ::service_layer::SLBgplsTopoNode* temp = remotenodedescr_;
   remotenodedescr_ = nullptr;
   return temp;
 }
-inline ::service_layer::SLBgplsTopoNodeDescr* SLBgplsTopoLink::_internal_mutable_remotenodedescr() {
+inline ::service_layer::SLBgplsTopoNode* SLBgplsTopoLink::_internal_mutable_remotenodedescr() {
   
   if (remotenodedescr_ == nullptr) {
-    auto* p = CreateMaybeMessage<::service_layer::SLBgplsTopoNodeDescr>(GetArenaForAllocation());
+    auto* p = CreateMaybeMessage<::service_layer::SLBgplsTopoNode>(GetArenaForAllocation());
     remotenodedescr_ = p;
   }
   return remotenodedescr_;
 }
-inline ::service_layer::SLBgplsTopoNodeDescr* SLBgplsTopoLink::mutable_remotenodedescr() {
-  ::service_layer::SLBgplsTopoNodeDescr* _msg = _internal_mutable_remotenodedescr();
+inline ::service_layer::SLBgplsTopoNode* SLBgplsTopoLink::mutable_remotenodedescr() {
+  ::service_layer::SLBgplsTopoNode* _msg = _internal_mutable_remotenodedescr();
   // @@protoc_insertion_point(field_mutable:service_layer.SLBgplsTopoLink.RemoteNodeDescr)
   return _msg;
 }
-inline void SLBgplsTopoLink::set_allocated_remotenodedescr(::service_layer::SLBgplsTopoNodeDescr* remotenodedescr) {
+inline void SLBgplsTopoLink::set_allocated_remotenodedescr(::service_layer::SLBgplsTopoNode* remotenodedescr) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
   if (message_arena == nullptr) {
     delete remotenodedescr_;
   }
   if (remotenodedescr) {
     ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-        ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper<::service_layer::SLBgplsTopoNodeDescr>::GetOwningArena(remotenodedescr);
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper<::service_layer::SLBgplsTopoNode>::GetOwningArena(remotenodedescr);
     if (message_arena != submessage_arena) {
       remotenodedescr = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
           message_arena, remotenodedescr, submessage_arena);
@@ -22935,7 +22876,7 @@ inline void SLBgplsTopoLink::set_allocated_linkdescr(::service_layer::SLBgplsTop
 
 // SLBgplsTopoPrefix
 
-// .service_layer.SLBgplsTopoNodeDescr NodeDescr = 1;
+// .service_layer.SLBgplsTopoNode NodeDescr = 1;
 inline bool SLBgplsTopoPrefix::_internal_has_nodedescr() const {
   return this != internal_default_instance() && nodedescr_ != nullptr;
 }
@@ -22948,17 +22889,17 @@ inline void SLBgplsTopoPrefix::clear_nodedescr() {
   }
   nodedescr_ = nullptr;
 }
-inline const ::service_layer::SLBgplsTopoNodeDescr& SLBgplsTopoPrefix::_internal_nodedescr() const {
-  const ::service_layer::SLBgplsTopoNodeDescr* p = nodedescr_;
-  return p != nullptr ? *p : reinterpret_cast<const ::service_layer::SLBgplsTopoNodeDescr&>(
-      ::service_layer::_SLBgplsTopoNodeDescr_default_instance_);
+inline const ::service_layer::SLBgplsTopoNode& SLBgplsTopoPrefix::_internal_nodedescr() const {
+  const ::service_layer::SLBgplsTopoNode* p = nodedescr_;
+  return p != nullptr ? *p : reinterpret_cast<const ::service_layer::SLBgplsTopoNode&>(
+      ::service_layer::_SLBgplsTopoNode_default_instance_);
 }
-inline const ::service_layer::SLBgplsTopoNodeDescr& SLBgplsTopoPrefix::nodedescr() const {
+inline const ::service_layer::SLBgplsTopoNode& SLBgplsTopoPrefix::nodedescr() const {
   // @@protoc_insertion_point(field_get:service_layer.SLBgplsTopoPrefix.NodeDescr)
   return _internal_nodedescr();
 }
 inline void SLBgplsTopoPrefix::unsafe_arena_set_allocated_nodedescr(
-    ::service_layer::SLBgplsTopoNodeDescr* nodedescr) {
+    ::service_layer::SLBgplsTopoNode* nodedescr) {
   if (GetArenaForAllocation() == nullptr) {
     delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(nodedescr_);
   }
@@ -22970,9 +22911,9 @@ inline void SLBgplsTopoPrefix::unsafe_arena_set_allocated_nodedescr(
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:service_layer.SLBgplsTopoPrefix.NodeDescr)
 }
-inline ::service_layer::SLBgplsTopoNodeDescr* SLBgplsTopoPrefix::release_nodedescr() {
+inline ::service_layer::SLBgplsTopoNode* SLBgplsTopoPrefix::release_nodedescr() {
   
-  ::service_layer::SLBgplsTopoNodeDescr* temp = nodedescr_;
+  ::service_layer::SLBgplsTopoNode* temp = nodedescr_;
   nodedescr_ = nullptr;
 #ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
   auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
@@ -22985,34 +22926,34 @@ inline ::service_layer::SLBgplsTopoNodeDescr* SLBgplsTopoPrefix::release_nodedes
 #endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
   return temp;
 }
-inline ::service_layer::SLBgplsTopoNodeDescr* SLBgplsTopoPrefix::unsafe_arena_release_nodedescr() {
+inline ::service_layer::SLBgplsTopoNode* SLBgplsTopoPrefix::unsafe_arena_release_nodedescr() {
   // @@protoc_insertion_point(field_release:service_layer.SLBgplsTopoPrefix.NodeDescr)
   
-  ::service_layer::SLBgplsTopoNodeDescr* temp = nodedescr_;
+  ::service_layer::SLBgplsTopoNode* temp = nodedescr_;
   nodedescr_ = nullptr;
   return temp;
 }
-inline ::service_layer::SLBgplsTopoNodeDescr* SLBgplsTopoPrefix::_internal_mutable_nodedescr() {
+inline ::service_layer::SLBgplsTopoNode* SLBgplsTopoPrefix::_internal_mutable_nodedescr() {
   
   if (nodedescr_ == nullptr) {
-    auto* p = CreateMaybeMessage<::service_layer::SLBgplsTopoNodeDescr>(GetArenaForAllocation());
+    auto* p = CreateMaybeMessage<::service_layer::SLBgplsTopoNode>(GetArenaForAllocation());
     nodedescr_ = p;
   }
   return nodedescr_;
 }
-inline ::service_layer::SLBgplsTopoNodeDescr* SLBgplsTopoPrefix::mutable_nodedescr() {
-  ::service_layer::SLBgplsTopoNodeDescr* _msg = _internal_mutable_nodedescr();
+inline ::service_layer::SLBgplsTopoNode* SLBgplsTopoPrefix::mutable_nodedescr() {
+  ::service_layer::SLBgplsTopoNode* _msg = _internal_mutable_nodedescr();
   // @@protoc_insertion_point(field_mutable:service_layer.SLBgplsTopoPrefix.NodeDescr)
   return _msg;
 }
-inline void SLBgplsTopoPrefix::set_allocated_nodedescr(::service_layer::SLBgplsTopoNodeDescr* nodedescr) {
+inline void SLBgplsTopoPrefix::set_allocated_nodedescr(::service_layer::SLBgplsTopoNode* nodedescr) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
   if (message_arena == nullptr) {
     delete nodedescr_;
   }
   if (nodedescr) {
     ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-        ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper<::service_layer::SLBgplsTopoNodeDescr>::GetOwningArena(nodedescr);
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper<::service_layer::SLBgplsTopoNode>::GetOwningArena(nodedescr);
     if (message_arena != submessage_arena) {
       nodedescr = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
           message_arena, nodedescr, submessage_arena);
@@ -23119,7 +23060,7 @@ inline void SLBgplsTopoPrefix::set_allocated_prefixdescr(::service_layer::SLBgpl
 
 // SLBgplsTopoSrv6Sid
 
-// .service_layer.SLBgplsTopoNodeDescr NodeDescr = 1;
+// .service_layer.SLBgplsTopoNode NodeDescr = 1;
 inline bool SLBgplsTopoSrv6Sid::_internal_has_nodedescr() const {
   return this != internal_default_instance() && nodedescr_ != nullptr;
 }
@@ -23132,17 +23073,17 @@ inline void SLBgplsTopoSrv6Sid::clear_nodedescr() {
   }
   nodedescr_ = nullptr;
 }
-inline const ::service_layer::SLBgplsTopoNodeDescr& SLBgplsTopoSrv6Sid::_internal_nodedescr() const {
-  const ::service_layer::SLBgplsTopoNodeDescr* p = nodedescr_;
-  return p != nullptr ? *p : reinterpret_cast<const ::service_layer::SLBgplsTopoNodeDescr&>(
-      ::service_layer::_SLBgplsTopoNodeDescr_default_instance_);
+inline const ::service_layer::SLBgplsTopoNode& SLBgplsTopoSrv6Sid::_internal_nodedescr() const {
+  const ::service_layer::SLBgplsTopoNode* p = nodedescr_;
+  return p != nullptr ? *p : reinterpret_cast<const ::service_layer::SLBgplsTopoNode&>(
+      ::service_layer::_SLBgplsTopoNode_default_instance_);
 }
-inline const ::service_layer::SLBgplsTopoNodeDescr& SLBgplsTopoSrv6Sid::nodedescr() const {
+inline const ::service_layer::SLBgplsTopoNode& SLBgplsTopoSrv6Sid::nodedescr() const {
   // @@protoc_insertion_point(field_get:service_layer.SLBgplsTopoSrv6Sid.NodeDescr)
   return _internal_nodedescr();
 }
 inline void SLBgplsTopoSrv6Sid::unsafe_arena_set_allocated_nodedescr(
-    ::service_layer::SLBgplsTopoNodeDescr* nodedescr) {
+    ::service_layer::SLBgplsTopoNode* nodedescr) {
   if (GetArenaForAllocation() == nullptr) {
     delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(nodedescr_);
   }
@@ -23154,9 +23095,9 @@ inline void SLBgplsTopoSrv6Sid::unsafe_arena_set_allocated_nodedescr(
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:service_layer.SLBgplsTopoSrv6Sid.NodeDescr)
 }
-inline ::service_layer::SLBgplsTopoNodeDescr* SLBgplsTopoSrv6Sid::release_nodedescr() {
+inline ::service_layer::SLBgplsTopoNode* SLBgplsTopoSrv6Sid::release_nodedescr() {
   
-  ::service_layer::SLBgplsTopoNodeDescr* temp = nodedescr_;
+  ::service_layer::SLBgplsTopoNode* temp = nodedescr_;
   nodedescr_ = nullptr;
 #ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
   auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
@@ -23169,34 +23110,34 @@ inline ::service_layer::SLBgplsTopoNodeDescr* SLBgplsTopoSrv6Sid::release_nodede
 #endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
   return temp;
 }
-inline ::service_layer::SLBgplsTopoNodeDescr* SLBgplsTopoSrv6Sid::unsafe_arena_release_nodedescr() {
+inline ::service_layer::SLBgplsTopoNode* SLBgplsTopoSrv6Sid::unsafe_arena_release_nodedescr() {
   // @@protoc_insertion_point(field_release:service_layer.SLBgplsTopoSrv6Sid.NodeDescr)
   
-  ::service_layer::SLBgplsTopoNodeDescr* temp = nodedescr_;
+  ::service_layer::SLBgplsTopoNode* temp = nodedescr_;
   nodedescr_ = nullptr;
   return temp;
 }
-inline ::service_layer::SLBgplsTopoNodeDescr* SLBgplsTopoSrv6Sid::_internal_mutable_nodedescr() {
+inline ::service_layer::SLBgplsTopoNode* SLBgplsTopoSrv6Sid::_internal_mutable_nodedescr() {
   
   if (nodedescr_ == nullptr) {
-    auto* p = CreateMaybeMessage<::service_layer::SLBgplsTopoNodeDescr>(GetArenaForAllocation());
+    auto* p = CreateMaybeMessage<::service_layer::SLBgplsTopoNode>(GetArenaForAllocation());
     nodedescr_ = p;
   }
   return nodedescr_;
 }
-inline ::service_layer::SLBgplsTopoNodeDescr* SLBgplsTopoSrv6Sid::mutable_nodedescr() {
-  ::service_layer::SLBgplsTopoNodeDescr* _msg = _internal_mutable_nodedescr();
+inline ::service_layer::SLBgplsTopoNode* SLBgplsTopoSrv6Sid::mutable_nodedescr() {
+  ::service_layer::SLBgplsTopoNode* _msg = _internal_mutable_nodedescr();
   // @@protoc_insertion_point(field_mutable:service_layer.SLBgplsTopoSrv6Sid.NodeDescr)
   return _msg;
 }
-inline void SLBgplsTopoSrv6Sid::set_allocated_nodedescr(::service_layer::SLBgplsTopoNodeDescr* nodedescr) {
+inline void SLBgplsTopoSrv6Sid::set_allocated_nodedescr(::service_layer::SLBgplsTopoNode* nodedescr) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
   if (message_arena == nullptr) {
     delete nodedescr_;
   }
   if (nodedescr) {
     ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-        ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper<::service_layer::SLBgplsTopoNodeDescr>::GetOwningArena(nodedescr);
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper<::service_layer::SLBgplsTopoNode>::GetOwningArena(nodedescr);
     if (message_arena != submessage_arena) {
       nodedescr = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
           message_arena, nodedescr, submessage_arena);
@@ -23303,7 +23244,7 @@ inline void SLBgplsTopoSrv6Sid::set_allocated_srv6siddescr(::service_layer::SLBg
 
 // SLBgplsTopoSrPolicy
 
-// .service_layer.SLBgplsTopoNodeDescr NodeDescr = 1;
+// .service_layer.SLBgplsTopoNode NodeDescr = 1;
 inline bool SLBgplsTopoSrPolicy::_internal_has_nodedescr() const {
   return this != internal_default_instance() && nodedescr_ != nullptr;
 }
@@ -23316,17 +23257,17 @@ inline void SLBgplsTopoSrPolicy::clear_nodedescr() {
   }
   nodedescr_ = nullptr;
 }
-inline const ::service_layer::SLBgplsTopoNodeDescr& SLBgplsTopoSrPolicy::_internal_nodedescr() const {
-  const ::service_layer::SLBgplsTopoNodeDescr* p = nodedescr_;
-  return p != nullptr ? *p : reinterpret_cast<const ::service_layer::SLBgplsTopoNodeDescr&>(
-      ::service_layer::_SLBgplsTopoNodeDescr_default_instance_);
+inline const ::service_layer::SLBgplsTopoNode& SLBgplsTopoSrPolicy::_internal_nodedescr() const {
+  const ::service_layer::SLBgplsTopoNode* p = nodedescr_;
+  return p != nullptr ? *p : reinterpret_cast<const ::service_layer::SLBgplsTopoNode&>(
+      ::service_layer::_SLBgplsTopoNode_default_instance_);
 }
-inline const ::service_layer::SLBgplsTopoNodeDescr& SLBgplsTopoSrPolicy::nodedescr() const {
+inline const ::service_layer::SLBgplsTopoNode& SLBgplsTopoSrPolicy::nodedescr() const {
   // @@protoc_insertion_point(field_get:service_layer.SLBgplsTopoSrPolicy.NodeDescr)
   return _internal_nodedescr();
 }
 inline void SLBgplsTopoSrPolicy::unsafe_arena_set_allocated_nodedescr(
-    ::service_layer::SLBgplsTopoNodeDescr* nodedescr) {
+    ::service_layer::SLBgplsTopoNode* nodedescr) {
   if (GetArenaForAllocation() == nullptr) {
     delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(nodedescr_);
   }
@@ -23338,9 +23279,9 @@ inline void SLBgplsTopoSrPolicy::unsafe_arena_set_allocated_nodedescr(
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:service_layer.SLBgplsTopoSrPolicy.NodeDescr)
 }
-inline ::service_layer::SLBgplsTopoNodeDescr* SLBgplsTopoSrPolicy::release_nodedescr() {
+inline ::service_layer::SLBgplsTopoNode* SLBgplsTopoSrPolicy::release_nodedescr() {
   
-  ::service_layer::SLBgplsTopoNodeDescr* temp = nodedescr_;
+  ::service_layer::SLBgplsTopoNode* temp = nodedescr_;
   nodedescr_ = nullptr;
 #ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
   auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
@@ -23353,34 +23294,34 @@ inline ::service_layer::SLBgplsTopoNodeDescr* SLBgplsTopoSrPolicy::release_noded
 #endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
   return temp;
 }
-inline ::service_layer::SLBgplsTopoNodeDescr* SLBgplsTopoSrPolicy::unsafe_arena_release_nodedescr() {
+inline ::service_layer::SLBgplsTopoNode* SLBgplsTopoSrPolicy::unsafe_arena_release_nodedescr() {
   // @@protoc_insertion_point(field_release:service_layer.SLBgplsTopoSrPolicy.NodeDescr)
   
-  ::service_layer::SLBgplsTopoNodeDescr* temp = nodedescr_;
+  ::service_layer::SLBgplsTopoNode* temp = nodedescr_;
   nodedescr_ = nullptr;
   return temp;
 }
-inline ::service_layer::SLBgplsTopoNodeDescr* SLBgplsTopoSrPolicy::_internal_mutable_nodedescr() {
+inline ::service_layer::SLBgplsTopoNode* SLBgplsTopoSrPolicy::_internal_mutable_nodedescr() {
   
   if (nodedescr_ == nullptr) {
-    auto* p = CreateMaybeMessage<::service_layer::SLBgplsTopoNodeDescr>(GetArenaForAllocation());
+    auto* p = CreateMaybeMessage<::service_layer::SLBgplsTopoNode>(GetArenaForAllocation());
     nodedescr_ = p;
   }
   return nodedescr_;
 }
-inline ::service_layer::SLBgplsTopoNodeDescr* SLBgplsTopoSrPolicy::mutable_nodedescr() {
-  ::service_layer::SLBgplsTopoNodeDescr* _msg = _internal_mutable_nodedescr();
+inline ::service_layer::SLBgplsTopoNode* SLBgplsTopoSrPolicy::mutable_nodedescr() {
+  ::service_layer::SLBgplsTopoNode* _msg = _internal_mutable_nodedescr();
   // @@protoc_insertion_point(field_mutable:service_layer.SLBgplsTopoSrPolicy.NodeDescr)
   return _msg;
 }
-inline void SLBgplsTopoSrPolicy::set_allocated_nodedescr(::service_layer::SLBgplsTopoNodeDescr* nodedescr) {
+inline void SLBgplsTopoSrPolicy::set_allocated_nodedescr(::service_layer::SLBgplsTopoNode* nodedescr) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
   if (message_arena == nullptr) {
     delete nodedescr_;
   }
   if (nodedescr) {
     ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-        ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper<::service_layer::SLBgplsTopoNodeDescr>::GetOwningArena(nodedescr);
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper<::service_layer::SLBgplsTopoNode>::GetOwningArena(nodedescr);
     if (message_arena != submessage_arena) {
       nodedescr = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
           message_arena, nodedescr, submessage_arena);
@@ -23483,429 +23424,6 @@ inline void SLBgplsTopoSrPolicy::set_allocated_srpolicydescr(::service_layer::SL
   // @@protoc_insertion_point(field_set_allocated:service_layer.SLBgplsTopoSrPolicy.SrPolicyDescr)
 }
 
-// -------------------------------------------------------------------
-
-// SLBgplsTopoNodeDescr
-
-// uint32 Asn = 1;
-inline void SLBgplsTopoNodeDescr::clear_asn() {
-  asn_ = 0u;
-}
-inline uint32_t SLBgplsTopoNodeDescr::_internal_asn() const {
-  return asn_;
-}
-inline uint32_t SLBgplsTopoNodeDescr::asn() const {
-  // @@protoc_insertion_point(field_get:service_layer.SLBgplsTopoNodeDescr.Asn)
-  return _internal_asn();
-}
-inline void SLBgplsTopoNodeDescr::_internal_set_asn(uint32_t value) {
-  
-  asn_ = value;
-}
-inline void SLBgplsTopoNodeDescr::set_asn(uint32_t value) {
-  _internal_set_asn(value);
-  // @@protoc_insertion_point(field_set:service_layer.SLBgplsTopoNodeDescr.Asn)
-}
-
-// .service_layer.SLBgplsTopoOspfNodeId OspfNodeId = 2;
-inline bool SLBgplsTopoNodeDescr::_internal_has_ospfnodeid() const {
-  return NodeId_case() == kOspfNodeId;
-}
-inline bool SLBgplsTopoNodeDescr::has_ospfnodeid() const {
-  return _internal_has_ospfnodeid();
-}
-inline void SLBgplsTopoNodeDescr::set_has_ospfnodeid() {
-  _oneof_case_[0] = kOspfNodeId;
-}
-inline void SLBgplsTopoNodeDescr::clear_ospfnodeid() {
-  if (_internal_has_ospfnodeid()) {
-    if (GetArenaForAllocation() == nullptr) {
-      delete NodeId_.ospfnodeid_;
-    }
-    clear_has_NodeId();
-  }
-}
-inline ::service_layer::SLBgplsTopoOspfNodeId* SLBgplsTopoNodeDescr::release_ospfnodeid() {
-  // @@protoc_insertion_point(field_release:service_layer.SLBgplsTopoNodeDescr.OspfNodeId)
-  if (_internal_has_ospfnodeid()) {
-    clear_has_NodeId();
-      ::service_layer::SLBgplsTopoOspfNodeId* temp = NodeId_.ospfnodeid_;
-    if (GetArenaForAllocation() != nullptr) {
-      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-    }
-    NodeId_.ospfnodeid_ = nullptr;
-    return temp;
-  } else {
-    return nullptr;
-  }
-}
-inline const ::service_layer::SLBgplsTopoOspfNodeId& SLBgplsTopoNodeDescr::_internal_ospfnodeid() const {
-  return _internal_has_ospfnodeid()
-      ? *NodeId_.ospfnodeid_
-      : reinterpret_cast< ::service_layer::SLBgplsTopoOspfNodeId&>(::service_layer::_SLBgplsTopoOspfNodeId_default_instance_);
-}
-inline const ::service_layer::SLBgplsTopoOspfNodeId& SLBgplsTopoNodeDescr::ospfnodeid() const {
-  // @@protoc_insertion_point(field_get:service_layer.SLBgplsTopoNodeDescr.OspfNodeId)
-  return _internal_ospfnodeid();
-}
-inline ::service_layer::SLBgplsTopoOspfNodeId* SLBgplsTopoNodeDescr::unsafe_arena_release_ospfnodeid() {
-  // @@protoc_insertion_point(field_unsafe_arena_release:service_layer.SLBgplsTopoNodeDescr.OspfNodeId)
-  if (_internal_has_ospfnodeid()) {
-    clear_has_NodeId();
-    ::service_layer::SLBgplsTopoOspfNodeId* temp = NodeId_.ospfnodeid_;
-    NodeId_.ospfnodeid_ = nullptr;
-    return temp;
-  } else {
-    return nullptr;
-  }
-}
-inline void SLBgplsTopoNodeDescr::unsafe_arena_set_allocated_ospfnodeid(::service_layer::SLBgplsTopoOspfNodeId* ospfnodeid) {
-  clear_NodeId();
-  if (ospfnodeid) {
-    set_has_ospfnodeid();
-    NodeId_.ospfnodeid_ = ospfnodeid;
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:service_layer.SLBgplsTopoNodeDescr.OspfNodeId)
-}
-inline ::service_layer::SLBgplsTopoOspfNodeId* SLBgplsTopoNodeDescr::_internal_mutable_ospfnodeid() {
-  if (!_internal_has_ospfnodeid()) {
-    clear_NodeId();
-    set_has_ospfnodeid();
-    NodeId_.ospfnodeid_ = CreateMaybeMessage< ::service_layer::SLBgplsTopoOspfNodeId >(GetArenaForAllocation());
-  }
-  return NodeId_.ospfnodeid_;
-}
-inline ::service_layer::SLBgplsTopoOspfNodeId* SLBgplsTopoNodeDescr::mutable_ospfnodeid() {
-  ::service_layer::SLBgplsTopoOspfNodeId* _msg = _internal_mutable_ospfnodeid();
-  // @@protoc_insertion_point(field_mutable:service_layer.SLBgplsTopoNodeDescr.OspfNodeId)
-  return _msg;
-}
-
-// .service_layer.SLBgplsTopoOspfv3NodeId Ospfv3NodeId = 3;
-inline bool SLBgplsTopoNodeDescr::_internal_has_ospfv3nodeid() const {
-  return NodeId_case() == kOspfv3NodeId;
-}
-inline bool SLBgplsTopoNodeDescr::has_ospfv3nodeid() const {
-  return _internal_has_ospfv3nodeid();
-}
-inline void SLBgplsTopoNodeDescr::set_has_ospfv3nodeid() {
-  _oneof_case_[0] = kOspfv3NodeId;
-}
-inline void SLBgplsTopoNodeDescr::clear_ospfv3nodeid() {
-  if (_internal_has_ospfv3nodeid()) {
-    if (GetArenaForAllocation() == nullptr) {
-      delete NodeId_.ospfv3nodeid_;
-    }
-    clear_has_NodeId();
-  }
-}
-inline ::service_layer::SLBgplsTopoOspfv3NodeId* SLBgplsTopoNodeDescr::release_ospfv3nodeid() {
-  // @@protoc_insertion_point(field_release:service_layer.SLBgplsTopoNodeDescr.Ospfv3NodeId)
-  if (_internal_has_ospfv3nodeid()) {
-    clear_has_NodeId();
-      ::service_layer::SLBgplsTopoOspfv3NodeId* temp = NodeId_.ospfv3nodeid_;
-    if (GetArenaForAllocation() != nullptr) {
-      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-    }
-    NodeId_.ospfv3nodeid_ = nullptr;
-    return temp;
-  } else {
-    return nullptr;
-  }
-}
-inline const ::service_layer::SLBgplsTopoOspfv3NodeId& SLBgplsTopoNodeDescr::_internal_ospfv3nodeid() const {
-  return _internal_has_ospfv3nodeid()
-      ? *NodeId_.ospfv3nodeid_
-      : reinterpret_cast< ::service_layer::SLBgplsTopoOspfv3NodeId&>(::service_layer::_SLBgplsTopoOspfv3NodeId_default_instance_);
-}
-inline const ::service_layer::SLBgplsTopoOspfv3NodeId& SLBgplsTopoNodeDescr::ospfv3nodeid() const {
-  // @@protoc_insertion_point(field_get:service_layer.SLBgplsTopoNodeDescr.Ospfv3NodeId)
-  return _internal_ospfv3nodeid();
-}
-inline ::service_layer::SLBgplsTopoOspfv3NodeId* SLBgplsTopoNodeDescr::unsafe_arena_release_ospfv3nodeid() {
-  // @@protoc_insertion_point(field_unsafe_arena_release:service_layer.SLBgplsTopoNodeDescr.Ospfv3NodeId)
-  if (_internal_has_ospfv3nodeid()) {
-    clear_has_NodeId();
-    ::service_layer::SLBgplsTopoOspfv3NodeId* temp = NodeId_.ospfv3nodeid_;
-    NodeId_.ospfv3nodeid_ = nullptr;
-    return temp;
-  } else {
-    return nullptr;
-  }
-}
-inline void SLBgplsTopoNodeDescr::unsafe_arena_set_allocated_ospfv3nodeid(::service_layer::SLBgplsTopoOspfv3NodeId* ospfv3nodeid) {
-  clear_NodeId();
-  if (ospfv3nodeid) {
-    set_has_ospfv3nodeid();
-    NodeId_.ospfv3nodeid_ = ospfv3nodeid;
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:service_layer.SLBgplsTopoNodeDescr.Ospfv3NodeId)
-}
-inline ::service_layer::SLBgplsTopoOspfv3NodeId* SLBgplsTopoNodeDescr::_internal_mutable_ospfv3nodeid() {
-  if (!_internal_has_ospfv3nodeid()) {
-    clear_NodeId();
-    set_has_ospfv3nodeid();
-    NodeId_.ospfv3nodeid_ = CreateMaybeMessage< ::service_layer::SLBgplsTopoOspfv3NodeId >(GetArenaForAllocation());
-  }
-  return NodeId_.ospfv3nodeid_;
-}
-inline ::service_layer::SLBgplsTopoOspfv3NodeId* SLBgplsTopoNodeDescr::mutable_ospfv3nodeid() {
-  ::service_layer::SLBgplsTopoOspfv3NodeId* _msg = _internal_mutable_ospfv3nodeid();
-  // @@protoc_insertion_point(field_mutable:service_layer.SLBgplsTopoNodeDescr.Ospfv3NodeId)
-  return _msg;
-}
-
-// .service_layer.SLBgplsTopoIsisNodeId IsisNodeId = 4;
-inline bool SLBgplsTopoNodeDescr::_internal_has_isisnodeid() const {
-  return NodeId_case() == kIsisNodeId;
-}
-inline bool SLBgplsTopoNodeDescr::has_isisnodeid() const {
-  return _internal_has_isisnodeid();
-}
-inline void SLBgplsTopoNodeDescr::set_has_isisnodeid() {
-  _oneof_case_[0] = kIsisNodeId;
-}
-inline void SLBgplsTopoNodeDescr::clear_isisnodeid() {
-  if (_internal_has_isisnodeid()) {
-    if (GetArenaForAllocation() == nullptr) {
-      delete NodeId_.isisnodeid_;
-    }
-    clear_has_NodeId();
-  }
-}
-inline ::service_layer::SLBgplsTopoIsisNodeId* SLBgplsTopoNodeDescr::release_isisnodeid() {
-  // @@protoc_insertion_point(field_release:service_layer.SLBgplsTopoNodeDescr.IsisNodeId)
-  if (_internal_has_isisnodeid()) {
-    clear_has_NodeId();
-      ::service_layer::SLBgplsTopoIsisNodeId* temp = NodeId_.isisnodeid_;
-    if (GetArenaForAllocation() != nullptr) {
-      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-    }
-    NodeId_.isisnodeid_ = nullptr;
-    return temp;
-  } else {
-    return nullptr;
-  }
-}
-inline const ::service_layer::SLBgplsTopoIsisNodeId& SLBgplsTopoNodeDescr::_internal_isisnodeid() const {
-  return _internal_has_isisnodeid()
-      ? *NodeId_.isisnodeid_
-      : reinterpret_cast< ::service_layer::SLBgplsTopoIsisNodeId&>(::service_layer::_SLBgplsTopoIsisNodeId_default_instance_);
-}
-inline const ::service_layer::SLBgplsTopoIsisNodeId& SLBgplsTopoNodeDescr::isisnodeid() const {
-  // @@protoc_insertion_point(field_get:service_layer.SLBgplsTopoNodeDescr.IsisNodeId)
-  return _internal_isisnodeid();
-}
-inline ::service_layer::SLBgplsTopoIsisNodeId* SLBgplsTopoNodeDescr::unsafe_arena_release_isisnodeid() {
-  // @@protoc_insertion_point(field_unsafe_arena_release:service_layer.SLBgplsTopoNodeDescr.IsisNodeId)
-  if (_internal_has_isisnodeid()) {
-    clear_has_NodeId();
-    ::service_layer::SLBgplsTopoIsisNodeId* temp = NodeId_.isisnodeid_;
-    NodeId_.isisnodeid_ = nullptr;
-    return temp;
-  } else {
-    return nullptr;
-  }
-}
-inline void SLBgplsTopoNodeDescr::unsafe_arena_set_allocated_isisnodeid(::service_layer::SLBgplsTopoIsisNodeId* isisnodeid) {
-  clear_NodeId();
-  if (isisnodeid) {
-    set_has_isisnodeid();
-    NodeId_.isisnodeid_ = isisnodeid;
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:service_layer.SLBgplsTopoNodeDescr.IsisNodeId)
-}
-inline ::service_layer::SLBgplsTopoIsisNodeId* SLBgplsTopoNodeDescr::_internal_mutable_isisnodeid() {
-  if (!_internal_has_isisnodeid()) {
-    clear_NodeId();
-    set_has_isisnodeid();
-    NodeId_.isisnodeid_ = CreateMaybeMessage< ::service_layer::SLBgplsTopoIsisNodeId >(GetArenaForAllocation());
-  }
-  return NodeId_.isisnodeid_;
-}
-inline ::service_layer::SLBgplsTopoIsisNodeId* SLBgplsTopoNodeDescr::mutable_isisnodeid() {
-  ::service_layer::SLBgplsTopoIsisNodeId* _msg = _internal_mutable_isisnodeid();
-  // @@protoc_insertion_point(field_mutable:service_layer.SLBgplsTopoNodeDescr.IsisNodeId)
-  return _msg;
-}
-
-// .service_layer.SLBgplsTopoBgpNodeId BgpNodeId = 5;
-inline bool SLBgplsTopoNodeDescr::_internal_has_bgpnodeid() const {
-  return NodeId_case() == kBgpNodeId;
-}
-inline bool SLBgplsTopoNodeDescr::has_bgpnodeid() const {
-  return _internal_has_bgpnodeid();
-}
-inline void SLBgplsTopoNodeDescr::set_has_bgpnodeid() {
-  _oneof_case_[0] = kBgpNodeId;
-}
-inline void SLBgplsTopoNodeDescr::clear_bgpnodeid() {
-  if (_internal_has_bgpnodeid()) {
-    if (GetArenaForAllocation() == nullptr) {
-      delete NodeId_.bgpnodeid_;
-    }
-    clear_has_NodeId();
-  }
-}
-inline ::service_layer::SLBgplsTopoBgpNodeId* SLBgplsTopoNodeDescr::release_bgpnodeid() {
-  // @@protoc_insertion_point(field_release:service_layer.SLBgplsTopoNodeDescr.BgpNodeId)
-  if (_internal_has_bgpnodeid()) {
-    clear_has_NodeId();
-      ::service_layer::SLBgplsTopoBgpNodeId* temp = NodeId_.bgpnodeid_;
-    if (GetArenaForAllocation() != nullptr) {
-      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-    }
-    NodeId_.bgpnodeid_ = nullptr;
-    return temp;
-  } else {
-    return nullptr;
-  }
-}
-inline const ::service_layer::SLBgplsTopoBgpNodeId& SLBgplsTopoNodeDescr::_internal_bgpnodeid() const {
-  return _internal_has_bgpnodeid()
-      ? *NodeId_.bgpnodeid_
-      : reinterpret_cast< ::service_layer::SLBgplsTopoBgpNodeId&>(::service_layer::_SLBgplsTopoBgpNodeId_default_instance_);
-}
-inline const ::service_layer::SLBgplsTopoBgpNodeId& SLBgplsTopoNodeDescr::bgpnodeid() const {
-  // @@protoc_insertion_point(field_get:service_layer.SLBgplsTopoNodeDescr.BgpNodeId)
-  return _internal_bgpnodeid();
-}
-inline ::service_layer::SLBgplsTopoBgpNodeId* SLBgplsTopoNodeDescr::unsafe_arena_release_bgpnodeid() {
-  // @@protoc_insertion_point(field_unsafe_arena_release:service_layer.SLBgplsTopoNodeDescr.BgpNodeId)
-  if (_internal_has_bgpnodeid()) {
-    clear_has_NodeId();
-    ::service_layer::SLBgplsTopoBgpNodeId* temp = NodeId_.bgpnodeid_;
-    NodeId_.bgpnodeid_ = nullptr;
-    return temp;
-  } else {
-    return nullptr;
-  }
-}
-inline void SLBgplsTopoNodeDescr::unsafe_arena_set_allocated_bgpnodeid(::service_layer::SLBgplsTopoBgpNodeId* bgpnodeid) {
-  clear_NodeId();
-  if (bgpnodeid) {
-    set_has_bgpnodeid();
-    NodeId_.bgpnodeid_ = bgpnodeid;
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:service_layer.SLBgplsTopoNodeDescr.BgpNodeId)
-}
-inline ::service_layer::SLBgplsTopoBgpNodeId* SLBgplsTopoNodeDescr::_internal_mutable_bgpnodeid() {
-  if (!_internal_has_bgpnodeid()) {
-    clear_NodeId();
-    set_has_bgpnodeid();
-    NodeId_.bgpnodeid_ = CreateMaybeMessage< ::service_layer::SLBgplsTopoBgpNodeId >(GetArenaForAllocation());
-  }
-  return NodeId_.bgpnodeid_;
-}
-inline ::service_layer::SLBgplsTopoBgpNodeId* SLBgplsTopoNodeDescr::mutable_bgpnodeid() {
-  ::service_layer::SLBgplsTopoBgpNodeId* _msg = _internal_mutable_bgpnodeid();
-  // @@protoc_insertion_point(field_mutable:service_layer.SLBgplsTopoNodeDescr.BgpNodeId)
-  return _msg;
-}
-
-// .service_layer.SLBgplsTopoSrPolicyNodeId SrPolicyNodeId = 6;
-inline bool SLBgplsTopoNodeDescr::_internal_has_srpolicynodeid() const {
-  return NodeId_case() == kSrPolicyNodeId;
-}
-inline bool SLBgplsTopoNodeDescr::has_srpolicynodeid() const {
-  return _internal_has_srpolicynodeid();
-}
-inline void SLBgplsTopoNodeDescr::set_has_srpolicynodeid() {
-  _oneof_case_[0] = kSrPolicyNodeId;
-}
-inline void SLBgplsTopoNodeDescr::clear_srpolicynodeid() {
-  if (_internal_has_srpolicynodeid()) {
-    if (GetArenaForAllocation() == nullptr) {
-      delete NodeId_.srpolicynodeid_;
-    }
-    clear_has_NodeId();
-  }
-}
-inline ::service_layer::SLBgplsTopoSrPolicyNodeId* SLBgplsTopoNodeDescr::release_srpolicynodeid() {
-  // @@protoc_insertion_point(field_release:service_layer.SLBgplsTopoNodeDescr.SrPolicyNodeId)
-  if (_internal_has_srpolicynodeid()) {
-    clear_has_NodeId();
-      ::service_layer::SLBgplsTopoSrPolicyNodeId* temp = NodeId_.srpolicynodeid_;
-    if (GetArenaForAllocation() != nullptr) {
-      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-    }
-    NodeId_.srpolicynodeid_ = nullptr;
-    return temp;
-  } else {
-    return nullptr;
-  }
-}
-inline const ::service_layer::SLBgplsTopoSrPolicyNodeId& SLBgplsTopoNodeDescr::_internal_srpolicynodeid() const {
-  return _internal_has_srpolicynodeid()
-      ? *NodeId_.srpolicynodeid_
-      : reinterpret_cast< ::service_layer::SLBgplsTopoSrPolicyNodeId&>(::service_layer::_SLBgplsTopoSrPolicyNodeId_default_instance_);
-}
-inline const ::service_layer::SLBgplsTopoSrPolicyNodeId& SLBgplsTopoNodeDescr::srpolicynodeid() const {
-  // @@protoc_insertion_point(field_get:service_layer.SLBgplsTopoNodeDescr.SrPolicyNodeId)
-  return _internal_srpolicynodeid();
-}
-inline ::service_layer::SLBgplsTopoSrPolicyNodeId* SLBgplsTopoNodeDescr::unsafe_arena_release_srpolicynodeid() {
-  // @@protoc_insertion_point(field_unsafe_arena_release:service_layer.SLBgplsTopoNodeDescr.SrPolicyNodeId)
-  if (_internal_has_srpolicynodeid()) {
-    clear_has_NodeId();
-    ::service_layer::SLBgplsTopoSrPolicyNodeId* temp = NodeId_.srpolicynodeid_;
-    NodeId_.srpolicynodeid_ = nullptr;
-    return temp;
-  } else {
-    return nullptr;
-  }
-}
-inline void SLBgplsTopoNodeDescr::unsafe_arena_set_allocated_srpolicynodeid(::service_layer::SLBgplsTopoSrPolicyNodeId* srpolicynodeid) {
-  clear_NodeId();
-  if (srpolicynodeid) {
-    set_has_srpolicynodeid();
-    NodeId_.srpolicynodeid_ = srpolicynodeid;
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:service_layer.SLBgplsTopoNodeDescr.SrPolicyNodeId)
-}
-inline ::service_layer::SLBgplsTopoSrPolicyNodeId* SLBgplsTopoNodeDescr::_internal_mutable_srpolicynodeid() {
-  if (!_internal_has_srpolicynodeid()) {
-    clear_NodeId();
-    set_has_srpolicynodeid();
-    NodeId_.srpolicynodeid_ = CreateMaybeMessage< ::service_layer::SLBgplsTopoSrPolicyNodeId >(GetArenaForAllocation());
-  }
-  return NodeId_.srpolicynodeid_;
-}
-inline ::service_layer::SLBgplsTopoSrPolicyNodeId* SLBgplsTopoNodeDescr::mutable_srpolicynodeid() {
-  ::service_layer::SLBgplsTopoSrPolicyNodeId* _msg = _internal_mutable_srpolicynodeid();
-  // @@protoc_insertion_point(field_mutable:service_layer.SLBgplsTopoNodeDescr.SrPolicyNodeId)
-  return _msg;
-}
-
-// .service_layer.SLBgplsTopoNodeIdType NodeIdType = 7;
-inline void SLBgplsTopoNodeDescr::clear_nodeidtype() {
-  nodeidtype_ = 0;
-}
-inline ::service_layer::SLBgplsTopoNodeIdType SLBgplsTopoNodeDescr::_internal_nodeidtype() const {
-  return static_cast< ::service_layer::SLBgplsTopoNodeIdType >(nodeidtype_);
-}
-inline ::service_layer::SLBgplsTopoNodeIdType SLBgplsTopoNodeDescr::nodeidtype() const {
-  // @@protoc_insertion_point(field_get:service_layer.SLBgplsTopoNodeDescr.NodeIdType)
-  return _internal_nodeidtype();
-}
-inline void SLBgplsTopoNodeDescr::_internal_set_nodeidtype(::service_layer::SLBgplsTopoNodeIdType value) {
-  
-  nodeidtype_ = value;
-}
-inline void SLBgplsTopoNodeDescr::set_nodeidtype(::service_layer::SLBgplsTopoNodeIdType value) {
-  _internal_set_nodeidtype(value);
-  // @@protoc_insertion_point(field_set:service_layer.SLBgplsTopoNodeDescr.NodeIdType)
-}
-
-inline bool SLBgplsTopoNodeDescr::has_NodeId() const {
-  return NodeId_case() != NODEID_NOT_SET;
-}
-inline void SLBgplsTopoNodeDescr::clear_has_NodeId() {
-  _oneof_case_[0] = NODEID_NOT_SET;
-}
-inline SLBgplsTopoNodeDescr::NodeIdCase SLBgplsTopoNodeDescr::NodeId_case() const {
-  return SLBgplsTopoNodeDescr::NodeIdCase(_oneof_case_[0]);
-}
 // -------------------------------------------------------------------
 
 // SLBgplsTopoLinkDescr
@@ -24657,147 +24175,127 @@ inline void SLBgplsTopoSrPolicyDescr::set_allocated_flags(::service_layer::SLBgp
   // @@protoc_insertion_point(field_set_allocated:service_layer.SLBgplsTopoSrPolicyDescr.Flags)
 }
 
-// uint32 Ipv4EndpointAddress = 3;
-inline bool SLBgplsTopoSrPolicyDescr::_internal_has_ipv4endpointaddress() const {
-  return EndpointAddress_case() == kIpv4EndpointAddress;
+// uint32 Ipv4EndAddr = 3;
+inline bool SLBgplsTopoSrPolicyDescr::_internal_has_ipv4endaddr() const {
+  return EndpointAddress_case() == kIpv4EndAddr;
 }
-inline bool SLBgplsTopoSrPolicyDescr::has_ipv4endpointaddress() const {
-  return _internal_has_ipv4endpointaddress();
+inline bool SLBgplsTopoSrPolicyDescr::has_ipv4endaddr() const {
+  return _internal_has_ipv4endaddr();
 }
-inline void SLBgplsTopoSrPolicyDescr::set_has_ipv4endpointaddress() {
-  _oneof_case_[0] = kIpv4EndpointAddress;
+inline void SLBgplsTopoSrPolicyDescr::set_has_ipv4endaddr() {
+  _oneof_case_[0] = kIpv4EndAddr;
 }
-inline void SLBgplsTopoSrPolicyDescr::clear_ipv4endpointaddress() {
-  if (_internal_has_ipv4endpointaddress()) {
-    EndpointAddress_.ipv4endpointaddress_ = 0u;
+inline void SLBgplsTopoSrPolicyDescr::clear_ipv4endaddr() {
+  if (_internal_has_ipv4endaddr()) {
+    EndpointAddress_.ipv4endaddr_ = 0u;
     clear_has_EndpointAddress();
   }
 }
-inline uint32_t SLBgplsTopoSrPolicyDescr::_internal_ipv4endpointaddress() const {
-  if (_internal_has_ipv4endpointaddress()) {
-    return EndpointAddress_.ipv4endpointaddress_;
+inline uint32_t SLBgplsTopoSrPolicyDescr::_internal_ipv4endaddr() const {
+  if (_internal_has_ipv4endaddr()) {
+    return EndpointAddress_.ipv4endaddr_;
   }
   return 0u;
 }
-inline void SLBgplsTopoSrPolicyDescr::_internal_set_ipv4endpointaddress(uint32_t value) {
-  if (!_internal_has_ipv4endpointaddress()) {
+inline void SLBgplsTopoSrPolicyDescr::_internal_set_ipv4endaddr(uint32_t value) {
+  if (!_internal_has_ipv4endaddr()) {
     clear_EndpointAddress();
-    set_has_ipv4endpointaddress();
+    set_has_ipv4endaddr();
   }
-  EndpointAddress_.ipv4endpointaddress_ = value;
+  EndpointAddress_.ipv4endaddr_ = value;
 }
-inline uint32_t SLBgplsTopoSrPolicyDescr::ipv4endpointaddress() const {
-  // @@protoc_insertion_point(field_get:service_layer.SLBgplsTopoSrPolicyDescr.Ipv4EndpointAddress)
-  return _internal_ipv4endpointaddress();
+inline uint32_t SLBgplsTopoSrPolicyDescr::ipv4endaddr() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLBgplsTopoSrPolicyDescr.Ipv4EndAddr)
+  return _internal_ipv4endaddr();
 }
-inline void SLBgplsTopoSrPolicyDescr::set_ipv4endpointaddress(uint32_t value) {
-  _internal_set_ipv4endpointaddress(value);
-  // @@protoc_insertion_point(field_set:service_layer.SLBgplsTopoSrPolicyDescr.Ipv4EndpointAddress)
+inline void SLBgplsTopoSrPolicyDescr::set_ipv4endaddr(uint32_t value) {
+  _internal_set_ipv4endaddr(value);
+  // @@protoc_insertion_point(field_set:service_layer.SLBgplsTopoSrPolicyDescr.Ipv4EndAddr)
 }
 
-// bytes Ipv6EndpointAddress = 4;
-inline bool SLBgplsTopoSrPolicyDescr::_internal_has_ipv6endpointaddress() const {
-  return EndpointAddress_case() == kIpv6EndpointAddress;
+// bytes Ipv6EndAddr = 4;
+inline bool SLBgplsTopoSrPolicyDescr::_internal_has_ipv6endaddr() const {
+  return EndpointAddress_case() == kIpv6EndAddr;
 }
-inline bool SLBgplsTopoSrPolicyDescr::has_ipv6endpointaddress() const {
-  return _internal_has_ipv6endpointaddress();
+inline bool SLBgplsTopoSrPolicyDescr::has_ipv6endaddr() const {
+  return _internal_has_ipv6endaddr();
 }
-inline void SLBgplsTopoSrPolicyDescr::set_has_ipv6endpointaddress() {
-  _oneof_case_[0] = kIpv6EndpointAddress;
+inline void SLBgplsTopoSrPolicyDescr::set_has_ipv6endaddr() {
+  _oneof_case_[0] = kIpv6EndAddr;
 }
-inline void SLBgplsTopoSrPolicyDescr::clear_ipv6endpointaddress() {
-  if (_internal_has_ipv6endpointaddress()) {
-    EndpointAddress_.ipv6endpointaddress_.Destroy(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
+inline void SLBgplsTopoSrPolicyDescr::clear_ipv6endaddr() {
+  if (_internal_has_ipv6endaddr()) {
+    EndpointAddress_.ipv6endaddr_.Destroy(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
     clear_has_EndpointAddress();
   }
 }
-inline const std::string& SLBgplsTopoSrPolicyDescr::ipv6endpointaddress() const {
-  // @@protoc_insertion_point(field_get:service_layer.SLBgplsTopoSrPolicyDescr.Ipv6EndpointAddress)
-  return _internal_ipv6endpointaddress();
+inline const std::string& SLBgplsTopoSrPolicyDescr::ipv6endaddr() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLBgplsTopoSrPolicyDescr.Ipv6EndAddr)
+  return _internal_ipv6endaddr();
 }
 template <typename ArgT0, typename... ArgT>
-inline void SLBgplsTopoSrPolicyDescr::set_ipv6endpointaddress(ArgT0&& arg0, ArgT... args) {
-  if (!_internal_has_ipv6endpointaddress()) {
+inline void SLBgplsTopoSrPolicyDescr::set_ipv6endaddr(ArgT0&& arg0, ArgT... args) {
+  if (!_internal_has_ipv6endaddr()) {
     clear_EndpointAddress();
-    set_has_ipv6endpointaddress();
-    EndpointAddress_.ipv6endpointaddress_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+    set_has_ipv6endaddr();
+    EndpointAddress_.ipv6endaddr_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   }
-  EndpointAddress_.ipv6endpointaddress_.SetBytes(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
-  // @@protoc_insertion_point(field_set:service_layer.SLBgplsTopoSrPolicyDescr.Ipv6EndpointAddress)
+  EndpointAddress_.ipv6endaddr_.SetBytes(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:service_layer.SLBgplsTopoSrPolicyDescr.Ipv6EndAddr)
 }
-inline std::string* SLBgplsTopoSrPolicyDescr::mutable_ipv6endpointaddress() {
-  std::string* _s = _internal_mutable_ipv6endpointaddress();
-  // @@protoc_insertion_point(field_mutable:service_layer.SLBgplsTopoSrPolicyDescr.Ipv6EndpointAddress)
+inline std::string* SLBgplsTopoSrPolicyDescr::mutable_ipv6endaddr() {
+  std::string* _s = _internal_mutable_ipv6endaddr();
+  // @@protoc_insertion_point(field_mutable:service_layer.SLBgplsTopoSrPolicyDescr.Ipv6EndAddr)
   return _s;
 }
-inline const std::string& SLBgplsTopoSrPolicyDescr::_internal_ipv6endpointaddress() const {
-  if (_internal_has_ipv6endpointaddress()) {
-    return EndpointAddress_.ipv6endpointaddress_.Get();
+inline const std::string& SLBgplsTopoSrPolicyDescr::_internal_ipv6endaddr() const {
+  if (_internal_has_ipv6endaddr()) {
+    return EndpointAddress_.ipv6endaddr_.Get();
   }
   return ::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited();
 }
-inline void SLBgplsTopoSrPolicyDescr::_internal_set_ipv6endpointaddress(const std::string& value) {
-  if (!_internal_has_ipv6endpointaddress()) {
+inline void SLBgplsTopoSrPolicyDescr::_internal_set_ipv6endaddr(const std::string& value) {
+  if (!_internal_has_ipv6endaddr()) {
     clear_EndpointAddress();
-    set_has_ipv6endpointaddress();
-    EndpointAddress_.ipv6endpointaddress_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+    set_has_ipv6endaddr();
+    EndpointAddress_.ipv6endaddr_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   }
-  EndpointAddress_.ipv6endpointaddress_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArenaForAllocation());
+  EndpointAddress_.ipv6endaddr_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArenaForAllocation());
 }
-inline std::string* SLBgplsTopoSrPolicyDescr::_internal_mutable_ipv6endpointaddress() {
-  if (!_internal_has_ipv6endpointaddress()) {
+inline std::string* SLBgplsTopoSrPolicyDescr::_internal_mutable_ipv6endaddr() {
+  if (!_internal_has_ipv6endaddr()) {
     clear_EndpointAddress();
-    set_has_ipv6endpointaddress();
-    EndpointAddress_.ipv6endpointaddress_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+    set_has_ipv6endaddr();
+    EndpointAddress_.ipv6endaddr_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   }
-  return EndpointAddress_.ipv6endpointaddress_.Mutable(
+  return EndpointAddress_.ipv6endaddr_.Mutable(
       ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
 }
-inline std::string* SLBgplsTopoSrPolicyDescr::release_ipv6endpointaddress() {
-  // @@protoc_insertion_point(field_release:service_layer.SLBgplsTopoSrPolicyDescr.Ipv6EndpointAddress)
-  if (_internal_has_ipv6endpointaddress()) {
+inline std::string* SLBgplsTopoSrPolicyDescr::release_ipv6endaddr() {
+  // @@protoc_insertion_point(field_release:service_layer.SLBgplsTopoSrPolicyDescr.Ipv6EndAddr)
+  if (_internal_has_ipv6endaddr()) {
     clear_has_EndpointAddress();
-    return EndpointAddress_.ipv6endpointaddress_.ReleaseNonDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArenaForAllocation());
+    return EndpointAddress_.ipv6endaddr_.ReleaseNonDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArenaForAllocation());
   } else {
     return nullptr;
   }
 }
-inline void SLBgplsTopoSrPolicyDescr::set_allocated_ipv6endpointaddress(std::string* ipv6endpointaddress) {
+inline void SLBgplsTopoSrPolicyDescr::set_allocated_ipv6endaddr(std::string* ipv6endaddr) {
   if (has_EndpointAddress()) {
     clear_EndpointAddress();
   }
-  if (ipv6endpointaddress != nullptr) {
-    set_has_ipv6endpointaddress();
-    EndpointAddress_.ipv6endpointaddress_.UnsafeSetDefault(ipv6endpointaddress);
+  if (ipv6endaddr != nullptr) {
+    set_has_ipv6endaddr();
+    EndpointAddress_.ipv6endaddr_.UnsafeSetDefault(ipv6endaddr);
     ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArenaForAllocation();
     if (arena != nullptr) {
-      arena->Own(ipv6endpointaddress);
+      arena->Own(ipv6endaddr);
     }
   }
-  // @@protoc_insertion_point(field_set_allocated:service_layer.SLBgplsTopoSrPolicyDescr.Ipv6EndpointAddress)
+  // @@protoc_insertion_point(field_set_allocated:service_layer.SLBgplsTopoSrPolicyDescr.Ipv6EndAddr)
 }
 
-// uint32 IsEndpointAddressIpv6 = 5;
-inline void SLBgplsTopoSrPolicyDescr::clear_isendpointaddressipv6() {
-  isendpointaddressipv6_ = 0u;
-}
-inline uint32_t SLBgplsTopoSrPolicyDescr::_internal_isendpointaddressipv6() const {
-  return isendpointaddressipv6_;
-}
-inline uint32_t SLBgplsTopoSrPolicyDescr::isendpointaddressipv6() const {
-  // @@protoc_insertion_point(field_get:service_layer.SLBgplsTopoSrPolicyDescr.IsEndpointAddressIpv6)
-  return _internal_isendpointaddressipv6();
-}
-inline void SLBgplsTopoSrPolicyDescr::_internal_set_isendpointaddressipv6(uint32_t value) {
-  
-  isendpointaddressipv6_ = value;
-}
-inline void SLBgplsTopoSrPolicyDescr::set_isendpointaddressipv6(uint32_t value) {
-  _internal_set_isendpointaddressipv6(value);
-  // @@protoc_insertion_point(field_set:service_layer.SLBgplsTopoSrPolicyDescr.IsEndpointAddressIpv6)
-}
-
-// uint32 Color = 6;
+// uint32 Color = 5;
 inline void SLBgplsTopoSrPolicyDescr::clear_color() {
   color_ = 0u;
 }
@@ -24817,7 +24315,7 @@ inline void SLBgplsTopoSrPolicyDescr::set_color(uint32_t value) {
   // @@protoc_insertion_point(field_set:service_layer.SLBgplsTopoSrPolicyDescr.Color)
 }
 
-// uint32 OriginAsn = 7;
+// uint32 OriginAsn = 6;
 inline void SLBgplsTopoSrPolicyDescr::clear_originasn() {
   originasn_ = 0u;
 }
@@ -24837,147 +24335,127 @@ inline void SLBgplsTopoSrPolicyDescr::set_originasn(uint32_t value) {
   // @@protoc_insertion_point(field_set:service_layer.SLBgplsTopoSrPolicyDescr.OriginAsn)
 }
 
-// uint32 Ipv4OriginatorAddress = 8;
-inline bool SLBgplsTopoSrPolicyDescr::_internal_has_ipv4originatoraddress() const {
-  return OriginatorAddress_case() == kIpv4OriginatorAddress;
+// uint32 Ipv4OrigAddr = 7;
+inline bool SLBgplsTopoSrPolicyDescr::_internal_has_ipv4origaddr() const {
+  return OriginatorAddress_case() == kIpv4OrigAddr;
 }
-inline bool SLBgplsTopoSrPolicyDescr::has_ipv4originatoraddress() const {
-  return _internal_has_ipv4originatoraddress();
+inline bool SLBgplsTopoSrPolicyDescr::has_ipv4origaddr() const {
+  return _internal_has_ipv4origaddr();
 }
-inline void SLBgplsTopoSrPolicyDescr::set_has_ipv4originatoraddress() {
-  _oneof_case_[1] = kIpv4OriginatorAddress;
+inline void SLBgplsTopoSrPolicyDescr::set_has_ipv4origaddr() {
+  _oneof_case_[1] = kIpv4OrigAddr;
 }
-inline void SLBgplsTopoSrPolicyDescr::clear_ipv4originatoraddress() {
-  if (_internal_has_ipv4originatoraddress()) {
-    OriginatorAddress_.ipv4originatoraddress_ = 0u;
+inline void SLBgplsTopoSrPolicyDescr::clear_ipv4origaddr() {
+  if (_internal_has_ipv4origaddr()) {
+    OriginatorAddress_.ipv4origaddr_ = 0u;
     clear_has_OriginatorAddress();
   }
 }
-inline uint32_t SLBgplsTopoSrPolicyDescr::_internal_ipv4originatoraddress() const {
-  if (_internal_has_ipv4originatoraddress()) {
-    return OriginatorAddress_.ipv4originatoraddress_;
+inline uint32_t SLBgplsTopoSrPolicyDescr::_internal_ipv4origaddr() const {
+  if (_internal_has_ipv4origaddr()) {
+    return OriginatorAddress_.ipv4origaddr_;
   }
   return 0u;
 }
-inline void SLBgplsTopoSrPolicyDescr::_internal_set_ipv4originatoraddress(uint32_t value) {
-  if (!_internal_has_ipv4originatoraddress()) {
+inline void SLBgplsTopoSrPolicyDescr::_internal_set_ipv4origaddr(uint32_t value) {
+  if (!_internal_has_ipv4origaddr()) {
     clear_OriginatorAddress();
-    set_has_ipv4originatoraddress();
+    set_has_ipv4origaddr();
   }
-  OriginatorAddress_.ipv4originatoraddress_ = value;
+  OriginatorAddress_.ipv4origaddr_ = value;
 }
-inline uint32_t SLBgplsTopoSrPolicyDescr::ipv4originatoraddress() const {
-  // @@protoc_insertion_point(field_get:service_layer.SLBgplsTopoSrPolicyDescr.Ipv4OriginatorAddress)
-  return _internal_ipv4originatoraddress();
+inline uint32_t SLBgplsTopoSrPolicyDescr::ipv4origaddr() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLBgplsTopoSrPolicyDescr.Ipv4OrigAddr)
+  return _internal_ipv4origaddr();
 }
-inline void SLBgplsTopoSrPolicyDescr::set_ipv4originatoraddress(uint32_t value) {
-  _internal_set_ipv4originatoraddress(value);
-  // @@protoc_insertion_point(field_set:service_layer.SLBgplsTopoSrPolicyDescr.Ipv4OriginatorAddress)
+inline void SLBgplsTopoSrPolicyDescr::set_ipv4origaddr(uint32_t value) {
+  _internal_set_ipv4origaddr(value);
+  // @@protoc_insertion_point(field_set:service_layer.SLBgplsTopoSrPolicyDescr.Ipv4OrigAddr)
 }
 
-// bytes Ipv6OriginatorAddress = 9;
-inline bool SLBgplsTopoSrPolicyDescr::_internal_has_ipv6originatoraddress() const {
-  return OriginatorAddress_case() == kIpv6OriginatorAddress;
+// bytes Ipv6OrigAddr = 8;
+inline bool SLBgplsTopoSrPolicyDescr::_internal_has_ipv6origaddr() const {
+  return OriginatorAddress_case() == kIpv6OrigAddr;
 }
-inline bool SLBgplsTopoSrPolicyDescr::has_ipv6originatoraddress() const {
-  return _internal_has_ipv6originatoraddress();
+inline bool SLBgplsTopoSrPolicyDescr::has_ipv6origaddr() const {
+  return _internal_has_ipv6origaddr();
 }
-inline void SLBgplsTopoSrPolicyDescr::set_has_ipv6originatoraddress() {
-  _oneof_case_[1] = kIpv6OriginatorAddress;
+inline void SLBgplsTopoSrPolicyDescr::set_has_ipv6origaddr() {
+  _oneof_case_[1] = kIpv6OrigAddr;
 }
-inline void SLBgplsTopoSrPolicyDescr::clear_ipv6originatoraddress() {
-  if (_internal_has_ipv6originatoraddress()) {
-    OriginatorAddress_.ipv6originatoraddress_.Destroy(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
+inline void SLBgplsTopoSrPolicyDescr::clear_ipv6origaddr() {
+  if (_internal_has_ipv6origaddr()) {
+    OriginatorAddress_.ipv6origaddr_.Destroy(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
     clear_has_OriginatorAddress();
   }
 }
-inline const std::string& SLBgplsTopoSrPolicyDescr::ipv6originatoraddress() const {
-  // @@protoc_insertion_point(field_get:service_layer.SLBgplsTopoSrPolicyDescr.Ipv6OriginatorAddress)
-  return _internal_ipv6originatoraddress();
+inline const std::string& SLBgplsTopoSrPolicyDescr::ipv6origaddr() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLBgplsTopoSrPolicyDescr.Ipv6OrigAddr)
+  return _internal_ipv6origaddr();
 }
 template <typename ArgT0, typename... ArgT>
-inline void SLBgplsTopoSrPolicyDescr::set_ipv6originatoraddress(ArgT0&& arg0, ArgT... args) {
-  if (!_internal_has_ipv6originatoraddress()) {
+inline void SLBgplsTopoSrPolicyDescr::set_ipv6origaddr(ArgT0&& arg0, ArgT... args) {
+  if (!_internal_has_ipv6origaddr()) {
     clear_OriginatorAddress();
-    set_has_ipv6originatoraddress();
-    OriginatorAddress_.ipv6originatoraddress_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+    set_has_ipv6origaddr();
+    OriginatorAddress_.ipv6origaddr_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   }
-  OriginatorAddress_.ipv6originatoraddress_.SetBytes(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
-  // @@protoc_insertion_point(field_set:service_layer.SLBgplsTopoSrPolicyDescr.Ipv6OriginatorAddress)
+  OriginatorAddress_.ipv6origaddr_.SetBytes(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:service_layer.SLBgplsTopoSrPolicyDescr.Ipv6OrigAddr)
 }
-inline std::string* SLBgplsTopoSrPolicyDescr::mutable_ipv6originatoraddress() {
-  std::string* _s = _internal_mutable_ipv6originatoraddress();
-  // @@protoc_insertion_point(field_mutable:service_layer.SLBgplsTopoSrPolicyDescr.Ipv6OriginatorAddress)
+inline std::string* SLBgplsTopoSrPolicyDescr::mutable_ipv6origaddr() {
+  std::string* _s = _internal_mutable_ipv6origaddr();
+  // @@protoc_insertion_point(field_mutable:service_layer.SLBgplsTopoSrPolicyDescr.Ipv6OrigAddr)
   return _s;
 }
-inline const std::string& SLBgplsTopoSrPolicyDescr::_internal_ipv6originatoraddress() const {
-  if (_internal_has_ipv6originatoraddress()) {
-    return OriginatorAddress_.ipv6originatoraddress_.Get();
+inline const std::string& SLBgplsTopoSrPolicyDescr::_internal_ipv6origaddr() const {
+  if (_internal_has_ipv6origaddr()) {
+    return OriginatorAddress_.ipv6origaddr_.Get();
   }
   return ::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited();
 }
-inline void SLBgplsTopoSrPolicyDescr::_internal_set_ipv6originatoraddress(const std::string& value) {
-  if (!_internal_has_ipv6originatoraddress()) {
+inline void SLBgplsTopoSrPolicyDescr::_internal_set_ipv6origaddr(const std::string& value) {
+  if (!_internal_has_ipv6origaddr()) {
     clear_OriginatorAddress();
-    set_has_ipv6originatoraddress();
-    OriginatorAddress_.ipv6originatoraddress_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+    set_has_ipv6origaddr();
+    OriginatorAddress_.ipv6origaddr_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   }
-  OriginatorAddress_.ipv6originatoraddress_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArenaForAllocation());
+  OriginatorAddress_.ipv6origaddr_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArenaForAllocation());
 }
-inline std::string* SLBgplsTopoSrPolicyDescr::_internal_mutable_ipv6originatoraddress() {
-  if (!_internal_has_ipv6originatoraddress()) {
+inline std::string* SLBgplsTopoSrPolicyDescr::_internal_mutable_ipv6origaddr() {
+  if (!_internal_has_ipv6origaddr()) {
     clear_OriginatorAddress();
-    set_has_ipv6originatoraddress();
-    OriginatorAddress_.ipv6originatoraddress_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+    set_has_ipv6origaddr();
+    OriginatorAddress_.ipv6origaddr_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   }
-  return OriginatorAddress_.ipv6originatoraddress_.Mutable(
+  return OriginatorAddress_.ipv6origaddr_.Mutable(
       ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
 }
-inline std::string* SLBgplsTopoSrPolicyDescr::release_ipv6originatoraddress() {
-  // @@protoc_insertion_point(field_release:service_layer.SLBgplsTopoSrPolicyDescr.Ipv6OriginatorAddress)
-  if (_internal_has_ipv6originatoraddress()) {
+inline std::string* SLBgplsTopoSrPolicyDescr::release_ipv6origaddr() {
+  // @@protoc_insertion_point(field_release:service_layer.SLBgplsTopoSrPolicyDescr.Ipv6OrigAddr)
+  if (_internal_has_ipv6origaddr()) {
     clear_has_OriginatorAddress();
-    return OriginatorAddress_.ipv6originatoraddress_.ReleaseNonDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArenaForAllocation());
+    return OriginatorAddress_.ipv6origaddr_.ReleaseNonDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArenaForAllocation());
   } else {
     return nullptr;
   }
 }
-inline void SLBgplsTopoSrPolicyDescr::set_allocated_ipv6originatoraddress(std::string* ipv6originatoraddress) {
+inline void SLBgplsTopoSrPolicyDescr::set_allocated_ipv6origaddr(std::string* ipv6origaddr) {
   if (has_OriginatorAddress()) {
     clear_OriginatorAddress();
   }
-  if (ipv6originatoraddress != nullptr) {
-    set_has_ipv6originatoraddress();
-    OriginatorAddress_.ipv6originatoraddress_.UnsafeSetDefault(ipv6originatoraddress);
+  if (ipv6origaddr != nullptr) {
+    set_has_ipv6origaddr();
+    OriginatorAddress_.ipv6origaddr_.UnsafeSetDefault(ipv6origaddr);
     ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArenaForAllocation();
     if (arena != nullptr) {
-      arena->Own(ipv6originatoraddress);
+      arena->Own(ipv6origaddr);
     }
   }
-  // @@protoc_insertion_point(field_set_allocated:service_layer.SLBgplsTopoSrPolicyDescr.Ipv6OriginatorAddress)
+  // @@protoc_insertion_point(field_set_allocated:service_layer.SLBgplsTopoSrPolicyDescr.Ipv6OrigAddr)
 }
 
-// uint32 IsOriginatorAddressIpv6 = 10;
-inline void SLBgplsTopoSrPolicyDescr::clear_isoriginatoraddressipv6() {
-  isoriginatoraddressipv6_ = 0u;
-}
-inline uint32_t SLBgplsTopoSrPolicyDescr::_internal_isoriginatoraddressipv6() const {
-  return isoriginatoraddressipv6_;
-}
-inline uint32_t SLBgplsTopoSrPolicyDescr::isoriginatoraddressipv6() const {
-  // @@protoc_insertion_point(field_get:service_layer.SLBgplsTopoSrPolicyDescr.IsOriginatorAddressIpv6)
-  return _internal_isoriginatoraddressipv6();
-}
-inline void SLBgplsTopoSrPolicyDescr::_internal_set_isoriginatoraddressipv6(uint32_t value) {
-  
-  isoriginatoraddressipv6_ = value;
-}
-inline void SLBgplsTopoSrPolicyDescr::set_isoriginatoraddressipv6(uint32_t value) {
-  _internal_set_isoriginatoraddressipv6(value);
-  // @@protoc_insertion_point(field_set:service_layer.SLBgplsTopoSrPolicyDescr.IsOriginatorAddressIpv6)
-}
-
-// uint32 Discriminator = 11;
+// uint32 Discriminator = 9;
 inline void SLBgplsTopoSrPolicyDescr::clear_discriminator() {
   discriminator_ = 0u;
 }
@@ -25875,26 +25353,6 @@ inline ::service_layer::SLBgplsTopoSrPolicyAttr* SLBgplsTopoAttr::mutable_srpoli
   ::service_layer::SLBgplsTopoSrPolicyAttr* _msg = _internal_mutable_srpolicyattr();
   // @@protoc_insertion_point(field_mutable:service_layer.SLBgplsTopoAttr.SrPolicyAttr)
   return _msg;
-}
-
-// .service_layer.SLBgplsTopoAttrType AttrType = 6;
-inline void SLBgplsTopoAttr::clear_attrtype() {
-  attrtype_ = 0;
-}
-inline ::service_layer::SLBgplsTopoAttrType SLBgplsTopoAttr::_internal_attrtype() const {
-  return static_cast< ::service_layer::SLBgplsTopoAttrType >(attrtype_);
-}
-inline ::service_layer::SLBgplsTopoAttrType SLBgplsTopoAttr::attrtype() const {
-  // @@protoc_insertion_point(field_get:service_layer.SLBgplsTopoAttr.AttrType)
-  return _internal_attrtype();
-}
-inline void SLBgplsTopoAttr::_internal_set_attrtype(::service_layer::SLBgplsTopoAttrType value) {
-  
-  attrtype_ = value;
-}
-inline void SLBgplsTopoAttr::set_attrtype(::service_layer::SLBgplsTopoAttrType value) {
-  _internal_set_attrtype(value);
-  // @@protoc_insertion_point(field_set:service_layer.SLBgplsTopoAttr.AttrType)
 }
 
 inline bool SLBgplsTopoAttr::has_Attr() const {
@@ -33328,26 +32786,6 @@ inline void SLBgpLsTopoNeighborId::set_allocated_systemid(std::string* systemid)
   // @@protoc_insertion_point(field_set_allocated:service_layer.SLBgpLsTopoNeighborId.SystemId)
 }
 
-// uint32 IsNeighborIdIpv4 = 3;
-inline void SLBgpLsTopoNeighborId::clear_isneighboridipv4() {
-  isneighboridipv4_ = 0u;
-}
-inline uint32_t SLBgpLsTopoNeighborId::_internal_isneighboridipv4() const {
-  return isneighboridipv4_;
-}
-inline uint32_t SLBgpLsTopoNeighborId::isneighboridipv4() const {
-  // @@protoc_insertion_point(field_get:service_layer.SLBgpLsTopoNeighborId.IsNeighborIdIpv4)
-  return _internal_isneighboridipv4();
-}
-inline void SLBgpLsTopoNeighborId::_internal_set_isneighboridipv4(uint32_t value) {
-  
-  isneighboridipv4_ = value;
-}
-inline void SLBgpLsTopoNeighborId::set_isneighboridipv4(uint32_t value) {
-  _internal_set_isneighboridipv4(value);
-  // @@protoc_insertion_point(field_set:service_layer.SLBgpLsTopoNeighborId.IsNeighborIdIpv4)
-}
-
 inline bool SLBgpLsTopoNeighborId::has_NeighborId() const {
   return NeighborId_case() != NEIGHBORID_NOT_SET;
 }
@@ -34439,26 +33877,6 @@ inline void SLBgplsTopoPrefixOspfFwdAddr::set_allocated_ipv6addr(std::string* ip
   // @@protoc_insertion_point(field_set_allocated:service_layer.SLBgplsTopoPrefixOspfFwdAddr.Ipv6Addr)
 }
 
-// uint32 IsOspfFwdAddrdIpv4 = 3;
-inline void SLBgplsTopoPrefixOspfFwdAddr::clear_isospffwdaddrdipv4() {
-  isospffwdaddrdipv4_ = 0u;
-}
-inline uint32_t SLBgplsTopoPrefixOspfFwdAddr::_internal_isospffwdaddrdipv4() const {
-  return isospffwdaddrdipv4_;
-}
-inline uint32_t SLBgplsTopoPrefixOspfFwdAddr::isospffwdaddrdipv4() const {
-  // @@protoc_insertion_point(field_get:service_layer.SLBgplsTopoPrefixOspfFwdAddr.IsOspfFwdAddrdIpv4)
-  return _internal_isospffwdaddrdipv4();
-}
-inline void SLBgplsTopoPrefixOspfFwdAddr::_internal_set_isospffwdaddrdipv4(uint32_t value) {
-  
-  isospffwdaddrdipv4_ = value;
-}
-inline void SLBgplsTopoPrefixOspfFwdAddr::set_isospffwdaddrdipv4(uint32_t value) {
-  _internal_set_isospffwdaddrdipv4(value);
-  // @@protoc_insertion_point(field_set:service_layer.SLBgplsTopoPrefixOspfFwdAddr.IsOspfFwdAddrdIpv4)
-}
-
 inline bool SLBgplsTopoPrefixOspfFwdAddr::has_OspfFwdAddr() const {
   return OspfFwdAddr_case() != OSPFFWDADDR_NOT_SET;
 }
@@ -35076,26 +34494,6 @@ inline void SLBgplsTopoPrefixSrcRouterId::set_allocated_ipv6addr(std::string* ip
     }
   }
   // @@protoc_insertion_point(field_set_allocated:service_layer.SLBgplsTopoPrefixSrcRouterId.Ipv6Addr)
-}
-
-// uint32 IsSrcRouterIdIpv4 = 3;
-inline void SLBgplsTopoPrefixSrcRouterId::clear_issrcrouteridipv4() {
-  issrcrouteridipv4_ = 0u;
-}
-inline uint32_t SLBgplsTopoPrefixSrcRouterId::_internal_issrcrouteridipv4() const {
-  return issrcrouteridipv4_;
-}
-inline uint32_t SLBgplsTopoPrefixSrcRouterId::issrcrouteridipv4() const {
-  // @@protoc_insertion_point(field_get:service_layer.SLBgplsTopoPrefixSrcRouterId.IsSrcRouterIdIpv4)
-  return _internal_issrcrouteridipv4();
-}
-inline void SLBgplsTopoPrefixSrcRouterId::_internal_set_issrcrouteridipv4(uint32_t value) {
-  
-  issrcrouteridipv4_ = value;
-}
-inline void SLBgplsTopoPrefixSrcRouterId::set_issrcrouteridipv4(uint32_t value) {
-  _internal_set_issrcrouteridipv4(value);
-  // @@protoc_insertion_point(field_set:service_layer.SLBgplsTopoPrefixSrcRouterId.IsSrcRouterIdIpv4)
 }
 
 inline bool SLBgplsTopoPrefixSrcRouterId::has_SrcRouterId() const {
@@ -37401,26 +36799,6 @@ inline void SlBgplsTopoSrBsid::set_allocated_srv6bsid(std::string* srv6bsid) {
   // @@protoc_insertion_point(field_set_allocated:service_layer.SlBgplsTopoSrBsid.Srv6Bsid)
 }
 
-// uint32 IsBindingSidMpls = 3;
-inline void SlBgplsTopoSrBsid::clear_isbindingsidmpls() {
-  isbindingsidmpls_ = 0u;
-}
-inline uint32_t SlBgplsTopoSrBsid::_internal_isbindingsidmpls() const {
-  return isbindingsidmpls_;
-}
-inline uint32_t SlBgplsTopoSrBsid::isbindingsidmpls() const {
-  // @@protoc_insertion_point(field_get:service_layer.SlBgplsTopoSrBsid.IsBindingSidMpls)
-  return _internal_isbindingsidmpls();
-}
-inline void SlBgplsTopoSrBsid::_internal_set_isbindingsidmpls(uint32_t value) {
-  
-  isbindingsidmpls_ = value;
-}
-inline void SlBgplsTopoSrBsid::set_isbindingsidmpls(uint32_t value) {
-  _internal_set_isbindingsidmpls(value);
-  // @@protoc_insertion_point(field_set:service_layer.SlBgplsTopoSrBsid.IsBindingSidMpls)
-}
-
 inline bool SlBgplsTopoSrBsid::has_BindingSid() const {
   return BindingSid_case() != BINDINGSID_NOT_SET;
 }
@@ -38579,287 +37957,247 @@ inline void SLBgplsTopoSrSegmentDesc::set_algorithm(uint32_t value) {
   // @@protoc_insertion_point(field_set:service_layer.SLBgplsTopoSrSegmentDesc.Algorithm)
 }
 
-// uint32 Ipv4LocalNodeAddr = 2;
-inline bool SLBgplsTopoSrSegmentDesc::_internal_has_ipv4localnodeaddr() const {
-  return LocalNodeAddr_case() == kIpv4LocalNodeAddr;
+// uint32 Ipv4LocAddr = 2;
+inline bool SLBgplsTopoSrSegmentDesc::_internal_has_ipv4locaddr() const {
+  return LocalNodeAddr_case() == kIpv4LocAddr;
 }
-inline bool SLBgplsTopoSrSegmentDesc::has_ipv4localnodeaddr() const {
-  return _internal_has_ipv4localnodeaddr();
+inline bool SLBgplsTopoSrSegmentDesc::has_ipv4locaddr() const {
+  return _internal_has_ipv4locaddr();
 }
-inline void SLBgplsTopoSrSegmentDesc::set_has_ipv4localnodeaddr() {
-  _oneof_case_[0] = kIpv4LocalNodeAddr;
+inline void SLBgplsTopoSrSegmentDesc::set_has_ipv4locaddr() {
+  _oneof_case_[0] = kIpv4LocAddr;
 }
-inline void SLBgplsTopoSrSegmentDesc::clear_ipv4localnodeaddr() {
-  if (_internal_has_ipv4localnodeaddr()) {
-    LocalNodeAddr_.ipv4localnodeaddr_ = 0u;
+inline void SLBgplsTopoSrSegmentDesc::clear_ipv4locaddr() {
+  if (_internal_has_ipv4locaddr()) {
+    LocalNodeAddr_.ipv4locaddr_ = 0u;
     clear_has_LocalNodeAddr();
   }
 }
-inline uint32_t SLBgplsTopoSrSegmentDesc::_internal_ipv4localnodeaddr() const {
-  if (_internal_has_ipv4localnodeaddr()) {
-    return LocalNodeAddr_.ipv4localnodeaddr_;
+inline uint32_t SLBgplsTopoSrSegmentDesc::_internal_ipv4locaddr() const {
+  if (_internal_has_ipv4locaddr()) {
+    return LocalNodeAddr_.ipv4locaddr_;
   }
   return 0u;
 }
-inline void SLBgplsTopoSrSegmentDesc::_internal_set_ipv4localnodeaddr(uint32_t value) {
-  if (!_internal_has_ipv4localnodeaddr()) {
+inline void SLBgplsTopoSrSegmentDesc::_internal_set_ipv4locaddr(uint32_t value) {
+  if (!_internal_has_ipv4locaddr()) {
     clear_LocalNodeAddr();
-    set_has_ipv4localnodeaddr();
+    set_has_ipv4locaddr();
   }
-  LocalNodeAddr_.ipv4localnodeaddr_ = value;
+  LocalNodeAddr_.ipv4locaddr_ = value;
 }
-inline uint32_t SLBgplsTopoSrSegmentDesc::ipv4localnodeaddr() const {
-  // @@protoc_insertion_point(field_get:service_layer.SLBgplsTopoSrSegmentDesc.Ipv4LocalNodeAddr)
-  return _internal_ipv4localnodeaddr();
+inline uint32_t SLBgplsTopoSrSegmentDesc::ipv4locaddr() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLBgplsTopoSrSegmentDesc.Ipv4LocAddr)
+  return _internal_ipv4locaddr();
 }
-inline void SLBgplsTopoSrSegmentDesc::set_ipv4localnodeaddr(uint32_t value) {
-  _internal_set_ipv4localnodeaddr(value);
-  // @@protoc_insertion_point(field_set:service_layer.SLBgplsTopoSrSegmentDesc.Ipv4LocalNodeAddr)
+inline void SLBgplsTopoSrSegmentDesc::set_ipv4locaddr(uint32_t value) {
+  _internal_set_ipv4locaddr(value);
+  // @@protoc_insertion_point(field_set:service_layer.SLBgplsTopoSrSegmentDesc.Ipv4LocAddr)
 }
 
-// bytes Ipv6LocalNodeAddr = 3;
-inline bool SLBgplsTopoSrSegmentDesc::_internal_has_ipv6localnodeaddr() const {
-  return LocalNodeAddr_case() == kIpv6LocalNodeAddr;
+// bytes Ipv6LocAddr = 3;
+inline bool SLBgplsTopoSrSegmentDesc::_internal_has_ipv6locaddr() const {
+  return LocalNodeAddr_case() == kIpv6LocAddr;
 }
-inline bool SLBgplsTopoSrSegmentDesc::has_ipv6localnodeaddr() const {
-  return _internal_has_ipv6localnodeaddr();
+inline bool SLBgplsTopoSrSegmentDesc::has_ipv6locaddr() const {
+  return _internal_has_ipv6locaddr();
 }
-inline void SLBgplsTopoSrSegmentDesc::set_has_ipv6localnodeaddr() {
-  _oneof_case_[0] = kIpv6LocalNodeAddr;
+inline void SLBgplsTopoSrSegmentDesc::set_has_ipv6locaddr() {
+  _oneof_case_[0] = kIpv6LocAddr;
 }
-inline void SLBgplsTopoSrSegmentDesc::clear_ipv6localnodeaddr() {
-  if (_internal_has_ipv6localnodeaddr()) {
-    LocalNodeAddr_.ipv6localnodeaddr_.Destroy(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
+inline void SLBgplsTopoSrSegmentDesc::clear_ipv6locaddr() {
+  if (_internal_has_ipv6locaddr()) {
+    LocalNodeAddr_.ipv6locaddr_.Destroy(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
     clear_has_LocalNodeAddr();
   }
 }
-inline const std::string& SLBgplsTopoSrSegmentDesc::ipv6localnodeaddr() const {
-  // @@protoc_insertion_point(field_get:service_layer.SLBgplsTopoSrSegmentDesc.Ipv6LocalNodeAddr)
-  return _internal_ipv6localnodeaddr();
+inline const std::string& SLBgplsTopoSrSegmentDesc::ipv6locaddr() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLBgplsTopoSrSegmentDesc.Ipv6LocAddr)
+  return _internal_ipv6locaddr();
 }
 template <typename ArgT0, typename... ArgT>
-inline void SLBgplsTopoSrSegmentDesc::set_ipv6localnodeaddr(ArgT0&& arg0, ArgT... args) {
-  if (!_internal_has_ipv6localnodeaddr()) {
+inline void SLBgplsTopoSrSegmentDesc::set_ipv6locaddr(ArgT0&& arg0, ArgT... args) {
+  if (!_internal_has_ipv6locaddr()) {
     clear_LocalNodeAddr();
-    set_has_ipv6localnodeaddr();
-    LocalNodeAddr_.ipv6localnodeaddr_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+    set_has_ipv6locaddr();
+    LocalNodeAddr_.ipv6locaddr_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   }
-  LocalNodeAddr_.ipv6localnodeaddr_.SetBytes(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
-  // @@protoc_insertion_point(field_set:service_layer.SLBgplsTopoSrSegmentDesc.Ipv6LocalNodeAddr)
+  LocalNodeAddr_.ipv6locaddr_.SetBytes(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:service_layer.SLBgplsTopoSrSegmentDesc.Ipv6LocAddr)
 }
-inline std::string* SLBgplsTopoSrSegmentDesc::mutable_ipv6localnodeaddr() {
-  std::string* _s = _internal_mutable_ipv6localnodeaddr();
-  // @@protoc_insertion_point(field_mutable:service_layer.SLBgplsTopoSrSegmentDesc.Ipv6LocalNodeAddr)
+inline std::string* SLBgplsTopoSrSegmentDesc::mutable_ipv6locaddr() {
+  std::string* _s = _internal_mutable_ipv6locaddr();
+  // @@protoc_insertion_point(field_mutable:service_layer.SLBgplsTopoSrSegmentDesc.Ipv6LocAddr)
   return _s;
 }
-inline const std::string& SLBgplsTopoSrSegmentDesc::_internal_ipv6localnodeaddr() const {
-  if (_internal_has_ipv6localnodeaddr()) {
-    return LocalNodeAddr_.ipv6localnodeaddr_.Get();
+inline const std::string& SLBgplsTopoSrSegmentDesc::_internal_ipv6locaddr() const {
+  if (_internal_has_ipv6locaddr()) {
+    return LocalNodeAddr_.ipv6locaddr_.Get();
   }
   return ::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited();
 }
-inline void SLBgplsTopoSrSegmentDesc::_internal_set_ipv6localnodeaddr(const std::string& value) {
-  if (!_internal_has_ipv6localnodeaddr()) {
+inline void SLBgplsTopoSrSegmentDesc::_internal_set_ipv6locaddr(const std::string& value) {
+  if (!_internal_has_ipv6locaddr()) {
     clear_LocalNodeAddr();
-    set_has_ipv6localnodeaddr();
-    LocalNodeAddr_.ipv6localnodeaddr_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+    set_has_ipv6locaddr();
+    LocalNodeAddr_.ipv6locaddr_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   }
-  LocalNodeAddr_.ipv6localnodeaddr_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArenaForAllocation());
+  LocalNodeAddr_.ipv6locaddr_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArenaForAllocation());
 }
-inline std::string* SLBgplsTopoSrSegmentDesc::_internal_mutable_ipv6localnodeaddr() {
-  if (!_internal_has_ipv6localnodeaddr()) {
+inline std::string* SLBgplsTopoSrSegmentDesc::_internal_mutable_ipv6locaddr() {
+  if (!_internal_has_ipv6locaddr()) {
     clear_LocalNodeAddr();
-    set_has_ipv6localnodeaddr();
-    LocalNodeAddr_.ipv6localnodeaddr_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+    set_has_ipv6locaddr();
+    LocalNodeAddr_.ipv6locaddr_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   }
-  return LocalNodeAddr_.ipv6localnodeaddr_.Mutable(
+  return LocalNodeAddr_.ipv6locaddr_.Mutable(
       ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
 }
-inline std::string* SLBgplsTopoSrSegmentDesc::release_ipv6localnodeaddr() {
-  // @@protoc_insertion_point(field_release:service_layer.SLBgplsTopoSrSegmentDesc.Ipv6LocalNodeAddr)
-  if (_internal_has_ipv6localnodeaddr()) {
+inline std::string* SLBgplsTopoSrSegmentDesc::release_ipv6locaddr() {
+  // @@protoc_insertion_point(field_release:service_layer.SLBgplsTopoSrSegmentDesc.Ipv6LocAddr)
+  if (_internal_has_ipv6locaddr()) {
     clear_has_LocalNodeAddr();
-    return LocalNodeAddr_.ipv6localnodeaddr_.ReleaseNonDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArenaForAllocation());
+    return LocalNodeAddr_.ipv6locaddr_.ReleaseNonDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArenaForAllocation());
   } else {
     return nullptr;
   }
 }
-inline void SLBgplsTopoSrSegmentDesc::set_allocated_ipv6localnodeaddr(std::string* ipv6localnodeaddr) {
+inline void SLBgplsTopoSrSegmentDesc::set_allocated_ipv6locaddr(std::string* ipv6locaddr) {
   if (has_LocalNodeAddr()) {
     clear_LocalNodeAddr();
   }
-  if (ipv6localnodeaddr != nullptr) {
-    set_has_ipv6localnodeaddr();
-    LocalNodeAddr_.ipv6localnodeaddr_.UnsafeSetDefault(ipv6localnodeaddr);
+  if (ipv6locaddr != nullptr) {
+    set_has_ipv6locaddr();
+    LocalNodeAddr_.ipv6locaddr_.UnsafeSetDefault(ipv6locaddr);
     ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArenaForAllocation();
     if (arena != nullptr) {
-      arena->Own(ipv6localnodeaddr);
+      arena->Own(ipv6locaddr);
     }
   }
-  // @@protoc_insertion_point(field_set_allocated:service_layer.SLBgplsTopoSrSegmentDesc.Ipv6LocalNodeAddr)
+  // @@protoc_insertion_point(field_set_allocated:service_layer.SLBgplsTopoSrSegmentDesc.Ipv6LocAddr)
 }
 
-// uint32 IsLocalNodeAddrIpv4 = 4;
-inline void SLBgplsTopoSrSegmentDesc::clear_islocalnodeaddripv4() {
-  islocalnodeaddripv4_ = 0u;
+// uint32 Ipv4RemAddr = 4;
+inline bool SLBgplsTopoSrSegmentDesc::_internal_has_ipv4remaddr() const {
+  return RemoteNodeAddr_case() == kIpv4RemAddr;
 }
-inline uint32_t SLBgplsTopoSrSegmentDesc::_internal_islocalnodeaddripv4() const {
-  return islocalnodeaddripv4_;
+inline bool SLBgplsTopoSrSegmentDesc::has_ipv4remaddr() const {
+  return _internal_has_ipv4remaddr();
 }
-inline uint32_t SLBgplsTopoSrSegmentDesc::islocalnodeaddripv4() const {
-  // @@protoc_insertion_point(field_get:service_layer.SLBgplsTopoSrSegmentDesc.IsLocalNodeAddrIpv4)
-  return _internal_islocalnodeaddripv4();
+inline void SLBgplsTopoSrSegmentDesc::set_has_ipv4remaddr() {
+  _oneof_case_[1] = kIpv4RemAddr;
 }
-inline void SLBgplsTopoSrSegmentDesc::_internal_set_islocalnodeaddripv4(uint32_t value) {
-  
-  islocalnodeaddripv4_ = value;
-}
-inline void SLBgplsTopoSrSegmentDesc::set_islocalnodeaddripv4(uint32_t value) {
-  _internal_set_islocalnodeaddripv4(value);
-  // @@protoc_insertion_point(field_set:service_layer.SLBgplsTopoSrSegmentDesc.IsLocalNodeAddrIpv4)
-}
-
-// uint32 Ipv4RemoteNodeAddr = 5;
-inline bool SLBgplsTopoSrSegmentDesc::_internal_has_ipv4remotenodeaddr() const {
-  return RemoteNodeAddr_case() == kIpv4RemoteNodeAddr;
-}
-inline bool SLBgplsTopoSrSegmentDesc::has_ipv4remotenodeaddr() const {
-  return _internal_has_ipv4remotenodeaddr();
-}
-inline void SLBgplsTopoSrSegmentDesc::set_has_ipv4remotenodeaddr() {
-  _oneof_case_[1] = kIpv4RemoteNodeAddr;
-}
-inline void SLBgplsTopoSrSegmentDesc::clear_ipv4remotenodeaddr() {
-  if (_internal_has_ipv4remotenodeaddr()) {
-    RemoteNodeAddr_.ipv4remotenodeaddr_ = 0u;
+inline void SLBgplsTopoSrSegmentDesc::clear_ipv4remaddr() {
+  if (_internal_has_ipv4remaddr()) {
+    RemoteNodeAddr_.ipv4remaddr_ = 0u;
     clear_has_RemoteNodeAddr();
   }
 }
-inline uint32_t SLBgplsTopoSrSegmentDesc::_internal_ipv4remotenodeaddr() const {
-  if (_internal_has_ipv4remotenodeaddr()) {
-    return RemoteNodeAddr_.ipv4remotenodeaddr_;
+inline uint32_t SLBgplsTopoSrSegmentDesc::_internal_ipv4remaddr() const {
+  if (_internal_has_ipv4remaddr()) {
+    return RemoteNodeAddr_.ipv4remaddr_;
   }
   return 0u;
 }
-inline void SLBgplsTopoSrSegmentDesc::_internal_set_ipv4remotenodeaddr(uint32_t value) {
-  if (!_internal_has_ipv4remotenodeaddr()) {
+inline void SLBgplsTopoSrSegmentDesc::_internal_set_ipv4remaddr(uint32_t value) {
+  if (!_internal_has_ipv4remaddr()) {
     clear_RemoteNodeAddr();
-    set_has_ipv4remotenodeaddr();
+    set_has_ipv4remaddr();
   }
-  RemoteNodeAddr_.ipv4remotenodeaddr_ = value;
+  RemoteNodeAddr_.ipv4remaddr_ = value;
 }
-inline uint32_t SLBgplsTopoSrSegmentDesc::ipv4remotenodeaddr() const {
-  // @@protoc_insertion_point(field_get:service_layer.SLBgplsTopoSrSegmentDesc.Ipv4RemoteNodeAddr)
-  return _internal_ipv4remotenodeaddr();
+inline uint32_t SLBgplsTopoSrSegmentDesc::ipv4remaddr() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLBgplsTopoSrSegmentDesc.Ipv4RemAddr)
+  return _internal_ipv4remaddr();
 }
-inline void SLBgplsTopoSrSegmentDesc::set_ipv4remotenodeaddr(uint32_t value) {
-  _internal_set_ipv4remotenodeaddr(value);
-  // @@protoc_insertion_point(field_set:service_layer.SLBgplsTopoSrSegmentDesc.Ipv4RemoteNodeAddr)
+inline void SLBgplsTopoSrSegmentDesc::set_ipv4remaddr(uint32_t value) {
+  _internal_set_ipv4remaddr(value);
+  // @@protoc_insertion_point(field_set:service_layer.SLBgplsTopoSrSegmentDesc.Ipv4RemAddr)
 }
 
-// bytes Ipv6RemoteNodeAddr = 6;
-inline bool SLBgplsTopoSrSegmentDesc::_internal_has_ipv6remotenodeaddr() const {
-  return RemoteNodeAddr_case() == kIpv6RemoteNodeAddr;
+// bytes Ipv6RemAddr = 5;
+inline bool SLBgplsTopoSrSegmentDesc::_internal_has_ipv6remaddr() const {
+  return RemoteNodeAddr_case() == kIpv6RemAddr;
 }
-inline bool SLBgplsTopoSrSegmentDesc::has_ipv6remotenodeaddr() const {
-  return _internal_has_ipv6remotenodeaddr();
+inline bool SLBgplsTopoSrSegmentDesc::has_ipv6remaddr() const {
+  return _internal_has_ipv6remaddr();
 }
-inline void SLBgplsTopoSrSegmentDesc::set_has_ipv6remotenodeaddr() {
-  _oneof_case_[1] = kIpv6RemoteNodeAddr;
+inline void SLBgplsTopoSrSegmentDesc::set_has_ipv6remaddr() {
+  _oneof_case_[1] = kIpv6RemAddr;
 }
-inline void SLBgplsTopoSrSegmentDesc::clear_ipv6remotenodeaddr() {
-  if (_internal_has_ipv6remotenodeaddr()) {
-    RemoteNodeAddr_.ipv6remotenodeaddr_.Destroy(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
+inline void SLBgplsTopoSrSegmentDesc::clear_ipv6remaddr() {
+  if (_internal_has_ipv6remaddr()) {
+    RemoteNodeAddr_.ipv6remaddr_.Destroy(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
     clear_has_RemoteNodeAddr();
   }
 }
-inline const std::string& SLBgplsTopoSrSegmentDesc::ipv6remotenodeaddr() const {
-  // @@protoc_insertion_point(field_get:service_layer.SLBgplsTopoSrSegmentDesc.Ipv6RemoteNodeAddr)
-  return _internal_ipv6remotenodeaddr();
+inline const std::string& SLBgplsTopoSrSegmentDesc::ipv6remaddr() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLBgplsTopoSrSegmentDesc.Ipv6RemAddr)
+  return _internal_ipv6remaddr();
 }
 template <typename ArgT0, typename... ArgT>
-inline void SLBgplsTopoSrSegmentDesc::set_ipv6remotenodeaddr(ArgT0&& arg0, ArgT... args) {
-  if (!_internal_has_ipv6remotenodeaddr()) {
+inline void SLBgplsTopoSrSegmentDesc::set_ipv6remaddr(ArgT0&& arg0, ArgT... args) {
+  if (!_internal_has_ipv6remaddr()) {
     clear_RemoteNodeAddr();
-    set_has_ipv6remotenodeaddr();
-    RemoteNodeAddr_.ipv6remotenodeaddr_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+    set_has_ipv6remaddr();
+    RemoteNodeAddr_.ipv6remaddr_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   }
-  RemoteNodeAddr_.ipv6remotenodeaddr_.SetBytes(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
-  // @@protoc_insertion_point(field_set:service_layer.SLBgplsTopoSrSegmentDesc.Ipv6RemoteNodeAddr)
+  RemoteNodeAddr_.ipv6remaddr_.SetBytes(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:service_layer.SLBgplsTopoSrSegmentDesc.Ipv6RemAddr)
 }
-inline std::string* SLBgplsTopoSrSegmentDesc::mutable_ipv6remotenodeaddr() {
-  std::string* _s = _internal_mutable_ipv6remotenodeaddr();
-  // @@protoc_insertion_point(field_mutable:service_layer.SLBgplsTopoSrSegmentDesc.Ipv6RemoteNodeAddr)
+inline std::string* SLBgplsTopoSrSegmentDesc::mutable_ipv6remaddr() {
+  std::string* _s = _internal_mutable_ipv6remaddr();
+  // @@protoc_insertion_point(field_mutable:service_layer.SLBgplsTopoSrSegmentDesc.Ipv6RemAddr)
   return _s;
 }
-inline const std::string& SLBgplsTopoSrSegmentDesc::_internal_ipv6remotenodeaddr() const {
-  if (_internal_has_ipv6remotenodeaddr()) {
-    return RemoteNodeAddr_.ipv6remotenodeaddr_.Get();
+inline const std::string& SLBgplsTopoSrSegmentDesc::_internal_ipv6remaddr() const {
+  if (_internal_has_ipv6remaddr()) {
+    return RemoteNodeAddr_.ipv6remaddr_.Get();
   }
   return ::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited();
 }
-inline void SLBgplsTopoSrSegmentDesc::_internal_set_ipv6remotenodeaddr(const std::string& value) {
-  if (!_internal_has_ipv6remotenodeaddr()) {
+inline void SLBgplsTopoSrSegmentDesc::_internal_set_ipv6remaddr(const std::string& value) {
+  if (!_internal_has_ipv6remaddr()) {
     clear_RemoteNodeAddr();
-    set_has_ipv6remotenodeaddr();
-    RemoteNodeAddr_.ipv6remotenodeaddr_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+    set_has_ipv6remaddr();
+    RemoteNodeAddr_.ipv6remaddr_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   }
-  RemoteNodeAddr_.ipv6remotenodeaddr_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArenaForAllocation());
+  RemoteNodeAddr_.ipv6remaddr_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArenaForAllocation());
 }
-inline std::string* SLBgplsTopoSrSegmentDesc::_internal_mutable_ipv6remotenodeaddr() {
-  if (!_internal_has_ipv6remotenodeaddr()) {
+inline std::string* SLBgplsTopoSrSegmentDesc::_internal_mutable_ipv6remaddr() {
+  if (!_internal_has_ipv6remaddr()) {
     clear_RemoteNodeAddr();
-    set_has_ipv6remotenodeaddr();
-    RemoteNodeAddr_.ipv6remotenodeaddr_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+    set_has_ipv6remaddr();
+    RemoteNodeAddr_.ipv6remaddr_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   }
-  return RemoteNodeAddr_.ipv6remotenodeaddr_.Mutable(
+  return RemoteNodeAddr_.ipv6remaddr_.Mutable(
       ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
 }
-inline std::string* SLBgplsTopoSrSegmentDesc::release_ipv6remotenodeaddr() {
-  // @@protoc_insertion_point(field_release:service_layer.SLBgplsTopoSrSegmentDesc.Ipv6RemoteNodeAddr)
-  if (_internal_has_ipv6remotenodeaddr()) {
+inline std::string* SLBgplsTopoSrSegmentDesc::release_ipv6remaddr() {
+  // @@protoc_insertion_point(field_release:service_layer.SLBgplsTopoSrSegmentDesc.Ipv6RemAddr)
+  if (_internal_has_ipv6remaddr()) {
     clear_has_RemoteNodeAddr();
-    return RemoteNodeAddr_.ipv6remotenodeaddr_.ReleaseNonDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArenaForAllocation());
+    return RemoteNodeAddr_.ipv6remaddr_.ReleaseNonDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArenaForAllocation());
   } else {
     return nullptr;
   }
 }
-inline void SLBgplsTopoSrSegmentDesc::set_allocated_ipv6remotenodeaddr(std::string* ipv6remotenodeaddr) {
+inline void SLBgplsTopoSrSegmentDesc::set_allocated_ipv6remaddr(std::string* ipv6remaddr) {
   if (has_RemoteNodeAddr()) {
     clear_RemoteNodeAddr();
   }
-  if (ipv6remotenodeaddr != nullptr) {
-    set_has_ipv6remotenodeaddr();
-    RemoteNodeAddr_.ipv6remotenodeaddr_.UnsafeSetDefault(ipv6remotenodeaddr);
+  if (ipv6remaddr != nullptr) {
+    set_has_ipv6remaddr();
+    RemoteNodeAddr_.ipv6remaddr_.UnsafeSetDefault(ipv6remaddr);
     ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArenaForAllocation();
     if (arena != nullptr) {
-      arena->Own(ipv6remotenodeaddr);
+      arena->Own(ipv6remaddr);
     }
   }
-  // @@protoc_insertion_point(field_set_allocated:service_layer.SLBgplsTopoSrSegmentDesc.Ipv6RemoteNodeAddr)
+  // @@protoc_insertion_point(field_set_allocated:service_layer.SLBgplsTopoSrSegmentDesc.Ipv6RemAddr)
 }
 
-// uint32 IsRemoteNodeAddrIpv4 = 7;
-inline void SLBgplsTopoSrSegmentDesc::clear_isremotenodeaddripv4() {
-  isremotenodeaddripv4_ = 0u;
-}
-inline uint32_t SLBgplsTopoSrSegmentDesc::_internal_isremotenodeaddripv4() const {
-  return isremotenodeaddripv4_;
-}
-inline uint32_t SLBgplsTopoSrSegmentDesc::isremotenodeaddripv4() const {
-  // @@protoc_insertion_point(field_get:service_layer.SLBgplsTopoSrSegmentDesc.IsRemoteNodeAddrIpv4)
-  return _internal_isremotenodeaddripv4();
-}
-inline void SLBgplsTopoSrSegmentDesc::_internal_set_isremotenodeaddripv4(uint32_t value) {
-  
-  isremotenodeaddripv4_ = value;
-}
-inline void SLBgplsTopoSrSegmentDesc::set_isremotenodeaddripv4(uint32_t value) {
-  _internal_set_isremotenodeaddripv4(value);
-  // @@protoc_insertion_point(field_set:service_layer.SLBgplsTopoSrSegmentDesc.IsRemoteNodeAddrIpv4)
-}
-
-// bytes Ipv6LocalNodeGlobalAddr = 8;
+// bytes Ipv6LocalNodeGlobalAddr = 6;
 inline void SLBgplsTopoSrSegmentDesc::clear_ipv6localnodeglobaladdr() {
   ipv6localnodeglobaladdr_.ClearToEmpty();
 }
@@ -38910,7 +38248,7 @@ inline void SLBgplsTopoSrSegmentDesc::set_allocated_ipv6localnodeglobaladdr(std:
   // @@protoc_insertion_point(field_set_allocated:service_layer.SLBgplsTopoSrSegmentDesc.Ipv6LocalNodeGlobalAddr)
 }
 
-// bytes Ipv6RemoteNodeGlobalAddr = 9;
+// bytes Ipv6RemoteNodeGlobalAddr = 7;
 inline void SLBgplsTopoSrSegmentDesc::clear_ipv6remotenodeglobaladdr() {
   ipv6remotenodeglobaladdr_.ClearToEmpty();
 }
@@ -38961,7 +38299,7 @@ inline void SLBgplsTopoSrSegmentDesc::set_allocated_ipv6remotenodeglobaladdr(std
   // @@protoc_insertion_point(field_set_allocated:service_layer.SLBgplsTopoSrSegmentDesc.Ipv6RemoteNodeGlobalAddr)
 }
 
-// uint32 LocalNodeIntfId = 10;
+// uint32 LocalNodeIntfId = 8;
 inline void SLBgplsTopoSrSegmentDesc::clear_localnodeintfid() {
   localnodeintfid_ = 0u;
 }
@@ -38981,7 +38319,7 @@ inline void SLBgplsTopoSrSegmentDesc::set_localnodeintfid(uint32_t value) {
   // @@protoc_insertion_point(field_set:service_layer.SLBgplsTopoSrSegmentDesc.LocalNodeIntfId)
 }
 
-// uint32 RemoteNodeIntfId = 11;
+// uint32 RemoteNodeIntfId = 9;
 inline void SLBgplsTopoSrSegmentDesc::clear_remotenodeintfid() {
   remotenodeintfid_ = 0u;
 }
@@ -39214,27 +38552,7 @@ inline void SLBgplsTopoSrSegment::set_allocated_srv6sid(std::string* srv6sid) {
   // @@protoc_insertion_point(field_set_allocated:service_layer.SLBgplsTopoSrSegment.Srv6Sid)
 }
 
-// uint32 IsSidMpls = 5;
-inline void SLBgplsTopoSrSegment::clear_issidmpls() {
-  issidmpls_ = 0u;
-}
-inline uint32_t SLBgplsTopoSrSegment::_internal_issidmpls() const {
-  return issidmpls_;
-}
-inline uint32_t SLBgplsTopoSrSegment::issidmpls() const {
-  // @@protoc_insertion_point(field_get:service_layer.SLBgplsTopoSrSegment.IsSidMpls)
-  return _internal_issidmpls();
-}
-inline void SLBgplsTopoSrSegment::_internal_set_issidmpls(uint32_t value) {
-  
-  issidmpls_ = value;
-}
-inline void SLBgplsTopoSrSegment::set_issidmpls(uint32_t value) {
-  _internal_set_issidmpls(value);
-  // @@protoc_insertion_point(field_set:service_layer.SLBgplsTopoSrSegment.IsSidMpls)
-}
-
-// .service_layer.SLBgplsTopoSrSegmentDesc SegmentDesc = 6;
+// .service_layer.SLBgplsTopoSrSegmentDesc SegmentDesc = 5;
 inline bool SLBgplsTopoSrSegment::_internal_has_segmentdesc() const {
   return this != internal_default_instance() && segmentdesc_ != nullptr;
 }
@@ -39324,7 +38642,7 @@ inline void SLBgplsTopoSrSegment::set_allocated_segmentdesc(::service_layer::SLB
   // @@protoc_insertion_point(field_set_allocated:service_layer.SLBgplsTopoSrSegment.SegmentDesc)
 }
 
-// .service_layer.SLBgplsTopoSrv6EndPointBehavior EndPointBehaviour = 7;
+// .service_layer.SLBgplsTopoSrv6EndPointBehavior EndPointBehaviour = 6;
 inline bool SLBgplsTopoSrSegment::_internal_has_endpointbehaviour() const {
   return this != internal_default_instance() && endpointbehaviour_ != nullptr;
 }
@@ -39414,7 +38732,7 @@ inline void SLBgplsTopoSrSegment::set_allocated_endpointbehaviour(::service_laye
   // @@protoc_insertion_point(field_set_allocated:service_layer.SLBgplsTopoSrSegment.EndPointBehaviour)
 }
 
-// .service_layer.SLBgplsTopoSrv6SidStruct SidStruct = 8;
+// .service_layer.SLBgplsTopoSrv6SidStruct SidStruct = 7;
 inline bool SLBgplsTopoSrSegment::_internal_has_sidstruct() const {
   return this != internal_default_instance() && sidstruct_ != nullptr;
 }
@@ -41278,50 +40596,10 @@ inline void SLBgplsTopoSrv6SidStruct::set_arglen(uint32_t value) {
 
 PROTOBUF_NAMESPACE_OPEN
 
-template <> struct is_proto_enum< ::service_layer::SLBgplsTopoErrorStatus_SLBgplsTopoErrno> : ::std::true_type {};
-template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::service_layer::SLBgplsTopoErrorStatus_SLBgplsTopoErrno>() {
-  return ::service_layer::SLBgplsTopoErrorStatus_SLBgplsTopoErrno_descriptor();
-}
-template <> struct is_proto_enum< ::service_layer::SLBgplsTopoUpdType> : ::std::true_type {};
-template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::service_layer::SLBgplsTopoUpdType>() {
-  return ::service_layer::SLBgplsTopoUpdType_descriptor();
-}
 template <> struct is_proto_enum< ::service_layer::SLBgplsTopoOperation> : ::std::true_type {};
 template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::service_layer::SLBgplsTopoOperation>() {
   return ::service_layer::SLBgplsTopoOperation_descriptor();
-}
-template <> struct is_proto_enum< ::service_layer::SLBgplsTopoNlriType> : ::std::true_type {};
-template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::service_layer::SLBgplsTopoNlriType>() {
-  return ::service_layer::SLBgplsTopoNlriType_descriptor();
-}
-template <> struct is_proto_enum< ::service_layer::SLBgplsTopoProtocol> : ::std::true_type {};
-template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::service_layer::SLBgplsTopoProtocol>() {
-  return ::service_layer::SLBgplsTopoProtocol_descriptor();
-}
-template <> struct is_proto_enum< ::service_layer::SLBgplsTopoNodeIdType> : ::std::true_type {};
-template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::service_layer::SLBgplsTopoNodeIdType>() {
-  return ::service_layer::SLBgplsTopoNodeIdType_descriptor();
-}
-template <> struct is_proto_enum< ::service_layer::SLBgplsTopoOspfRouteType> : ::std::true_type {};
-template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::service_layer::SLBgplsTopoOspfRouteType>() {
-  return ::service_layer::SLBgplsTopoOspfRouteType_descriptor();
-}
-template <> struct is_proto_enum< ::service_layer::SLBgplsTopoSrPolicyProtocolOrigin> : ::std::true_type {};
-template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::service_layer::SLBgplsTopoSrPolicyProtocolOrigin>() {
-  return ::service_layer::SLBgplsTopoSrPolicyProtocolOrigin_descriptor();
-}
-template <> struct is_proto_enum< ::service_layer::SLBgplsTopoAttrType> : ::std::true_type {};
-template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::service_layer::SLBgplsTopoAttrType>() {
-  return ::service_layer::SLBgplsTopoAttrType_descriptor();
 }
 template <> struct is_proto_enum< ::service_layer::SLBgplsTopoAdjSidFormat> : ::std::true_type {};
 template <>

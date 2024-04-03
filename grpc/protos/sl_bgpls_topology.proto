@@ -14,11 +14,10 @@
 syntax = "proto3";
 package service_layer;
 
+import "sl_common_types.proto";
+import "sl_protocols.proto";
+ 
 option go_package="github.com/Cisco-service-layer/service-layer-objmodel/grpc/protos;service_layer";
-
-//===================================================================================================//
-//                                          RPC Section                                              //
-//===================================================================================================//
 
 // @defgroup SLBgplsTopoSubscription
 // Defines RPC calls for subscribing to BGP-LS Topology updates.
@@ -56,12 +55,12 @@ service SLBgplsTopoSubscription {
 
 // BGP-LS Topology Get Update message
 message SLBgplsTopoGetUpdMsg {
-    // Filters for BGP-LS Topology Entries
-    // TODO: Add description on how filters will be used.
-    repeated SLBgplsTopoNlriFilter Filter = 1;
+    // Matches for BGP-LS Topology Entries
+    // TODO: Add description on how matches will be used.
+    repeated SLBgplsTopoNlriMatch Match = 1;
 }
 
-message SLBgplsTopoNlriFilter {
+message SLBgplsTopoNlriMatch {
     // IGP routing domain to which the Link-State NLRI belongs.
     // Identifier.
     // Section 5.2 of [RFC9552]
@@ -80,119 +79,33 @@ message SLBgplsTopoNlriFilter {
 
 // BGP-LS Topology Update message
 message SLBgplsTopoUpdMsg {
-    // Update Type
-    SLBgplsTopoUpdType UpdType = 1;
-
-    // Further info based on UpdType
     oneof Update {
-        // case UpdType == SL_BGPLS_TOPO_UPD_TYPE_ERROR:
-        //    => This field carries error info, if any error occurs during
-        //       stream setup.
-        SLBgplsTopoErrorStatus ErrStatus = 2;
+        // This field carries error info, if any error occurs during stream setup.
+        // SL_SUCCESS: signifies that the update request was successful
+        // SL_XXX: signifies an error in setting up a update request.
+        SLErrorStatus ErrStatus = 1;
 
-        // case UpdType == SL_BGPLS_TOPO_UPD_TYPE_DATA:
-        //    => This field carries the BGP-LS Topology data
-        SLBgplsTopoUpd Data = 3;
+        // This field carries the BGP-LS Topology data
+        SLBgplsTopoUpd Data = 2;
+
+        // This field carries the Start Marker
+        SLBgplsTopoStartMarker Start = 3;
+
+        // This filed carries the end marker
+        SLBgplsTopoEndMarker End = 4;
     }
 }
 
-// BGP-LS Topology Update types
-enum SLBgplsTopoUpdType {
-    // Reserved. 0x0
-    SL_BGPLS_TOPO_UPD_TYPE_RESERVED = 0x0;
-
-    // Error - ErrStatus field elaborates on the error.
-    // The client can decide to close the stream based on the error. 0x1
-    SL_BGPLS_TOPO_UPD_TYPE_ERROR = 0x1;
-
-    // BGP-LS Topology data. 0x2
-    SL_BGPLS_TOPO_UPD_TYPE_DATA = 0x2;
-
-    // Start marker - sent before any DATA is sent.
-    // This is an indication to stale any objects received until now. 0x3
-    SL_BGPLS_TOPO_UPD_TYPE_START_MARKER = 0x3;
-
-    // End marker - sent after all DATA are sent.
-    // This is an indication to sweep any stale objects, if present. 0x4
-    SL_BGPLS_TOPO_UPD_TYPE_END_MARKER = 0x4;
+// Start marker - sent before any DATA is sent.
+// This is an indication to stale any objects received until now.
+// Intentionally added as empty message
+message SLBgplsTopoStartMarker {
 }
 
-// TODO: Check with SL API team. Can we use SL API errors?
-// Status codes, including errors and success codes.
-// All BGP-LS Topology errors are defined below.
-message SLBgplsTopoErrorStatus {
-    enum SLBgplsTopoErrno {
-
-        // TODO: Remove unused at the end
-
-        // !!! Common error codes for all RPCs and objects
-
-        // Success, no errors detected. 0x0.
-        SL_BGPLS_TOPO_SUCCESS = 0x0;
-        // Client is not connected.
-        // The client is expected to remain connected after init and version
-        // validation, RPC calls can fail with this error code otherwise.
-        // Refer to RPC SLGlobalInitNotif. 0x1
-        SL_BGPLS_TOPO_NOT_CONNECTED = 0x1;
-        // Operation must be retried. 0x2
-        SL_BGPLS_TOPO_EAGAIN = 0x2;
-        // One or more components does not have sufficient memory. 0x3
-        SL_BGPLS_TOPO_ENOMEM = 0x3;
-        // Too many outstanding requests. 0x4
-        SL_BGPLS_TOPO_EBUSY = 0x4;
-        // One or more arguments are invalid. 0x5
-        SL_BGPLS_TOPO_EINVAL = 0x5;
-        // Unsupported version. 0x6
-        SL_BGPLS_TOPO_UNSUPPORTED_VER = 0x6;
-        // Not Available. 0x7
-        SL_BGPLS_TOPO_NOT_AVAILABLE = 0x7;
-        // Stream mode not supported. 0x8
-        SL_BGPLS_TOPO_STREAM_NOT_SUPPORTED = 0x8;
-        // Operation not supported. 0x9
-        SL_BGPLS_TOPO_ENOTSUP = 0x9;
-        // One or more objects is errored:
-        // Each object must be individually examined. 0xa
-        SL_BGPLS_TOPO_SOME_ERR = 0xa;
-        // Operation Timed out.
-        // The result of the operation is undeterministic (success or fail). 0xb
-        SL_BGPLS_TOPO_TIMEOUT = 0xb;
-        // Due to some event, the client will no longer receive updates
-        // on this channel. 0xc
-        // Such events include:
-        // - Session was hijacked by another client.
-        SL_BGPLS_TOPO_NOTIF_TERM = 0xc;
-
-        // Authentication failure.
-        // Incorrect credentials passed in by RPC. 0xd
-        SL_BGPLS_TOPO_AUTH_FAIL = 0xd;
-
-        // !!! Error codes for Client INIT operations.
-
-        // Offset for INIT errors. 0x500
-        SL_BGPLS_TOPO_INIT_START_OFFSET = 0x500;
-        // Success, no errors detected - clear state.
-        // This error is returned on the first-ever initialization, or,
-        // when a fatal event has occured and all previous state was lost. 0x501
-        SL_BGPLS_TOPO_INIT_STATE_CLEAR = 0x501;
-        // Success, no errors detected - previous state is recovered.
-        // This error is returned on a client re-initialization with
-        // successful recovery of state. Note that any unacknowledged
-        // data previously sent should be considered lost. 0x502
-        SL_BGPLS_TOPO_INIT_STATE_READY = 0x502;
-        // Server software incompatible with client software version. 0x503
-        SL_BGPLS_TOPO_INIT_UNSUPPORTED_VER = 0x503;
-        // Initialization request received while server is not ready. 0x504
-        SL_BGPLS_TOPO_INIT_SERVER_NOT_INITIALIZED = 0x504;
-        // Server operational mode change from stream to non-stream
-        // or vice-versa failed. 0x505
-        SL_BGPLS_TOPO_INIT_SERVER_MODE_CHANGE_FAILED = 0x505;
-
-        // !!! Error codes Reserved for internal errors.
-
-        // Offset for Internal errors. 0x100000
-        SL_BGPLS_TOPO_INTERNAL_START_OFFSET = 0x100000;
-    }
-    SLBgplsTopoErrno Status = 1;
+// End marker - sent after all DATA are sent.
+// This is an indication to sweep any stale objects, if present.
+// Intentionally added as empty message
+message SLBgplsTopoEndMarker {
 }
 
 // BGP-LS Topology Updates
@@ -215,9 +128,9 @@ enum SLBgplsTopoOperation {
     SL_BGPLS_TOPO_OPERATION_DELETE = 2;
 }
 
-//===================================================================================================//
-//                                             NLRI Section                                          //
-//===================================================================================================//
+//
+// Messages for NLRI
+//
 
 // NLRI
 message SLBgplsTopoNlri {
@@ -238,62 +151,53 @@ message SLBgplsTopoNlri {
 
     // NLRI
     oneof Nlri {
-        // case NlriType == SL_BGPLS_TOPO_NLRI_TYPE_NODE:
-        //    => This field carries info about a node NLRI.
+        // This field carries info about a node NLRI.
         SLBgplsTopoNode Node = 4;
 
-        // case NlriType == SL_BGPLS_TOPO_NLRI_TYPE_LINK:
-        //    => This field carries info about a link NLRI.
+        // This field carries info about a link NLRI.
         SLBgplsTopoLink Link = 5;
 
-        // case NlriType == SL_BGPLS_TOPO_NLRI_TYPE_IPV4_PREFIX:
-        // case NlriType == SL_BGPLS_TOPO_NLRI_TYPE_IPV6_PREFIX:
-        //    => This field carries info about a prefix NLRI.
+        // This field carries info about a prefix NLRI.
         SLBgplsTopoPrefix Prefix = 6;
 
-        // case NlriType == SL_BGPLS_TOPO_NLRI_TYPE_SRV6_SID:
-        //    => This field carries info about a SRv6 SID NLRI.
+        // This field carries info about a SRv6 SID NLRI.
         SLBgplsTopoSrv6Sid Srv6Sid = 7;
 
-        // case NlriType == SL_BGPLS_TOPO_NLRI_TYPE_SR_POLICY_CANDIDATE_PATH:
-        //    => This field carries info about a SR policy NLRI.
+        // This field carries info about a SR policy NLRI.
         SLBgplsTopoSrPolicy SrPolicy = 8;
     }
 }
 
-// NLRI type
-enum SLBgplsTopoNlriType {
-    SL_BGPLS_TOPO_NLRI_TYPE_RESERVED = 0;
-    SL_BGPLS_TOPO_NLRI_TYPE_NODE = 1;
-    SL_BGPLS_TOPO_NLRI_TYPE_LINK = 2;
-    SL_BGPLS_TOPO_NLRI_TYPE_IPV4_PREFIX = 3;
-    SL_BGPLS_TOPO_NLRI_TYPE_IPV6_PREFIX = 4;
-    SL_BGPLS_TOPO_NLRI_TYPE_SR_POLICY_CANDIDATE_PATH = 5;
-    SL_BGPLS_TOPO_NLRI_TYPE_SRV6_SID = 6;
-}
 
-// Protocols
-enum SLBgplsTopoProtocol {
-    SL_BGPLS_TOPO_PROTOCOL_RESERVED = 0;
-    SL_BGPLS_TOPO_PROTOCOL_ISIS_L1 = 1;
-    SL_BGPLS_TOPO_PROTOCOL_ISIS_L2 = 2;
-    SL_BGPLS_TOPO_PROTOCOL_OSPFv2 = 3;
-    SL_BGPLS_TOPO_PROTOCOL_DIRECT = 4;
-    SL_BGPLS_TOPO_PROTOCOL_STATIC = 5;
-    SL_BGPLS_TOPO_PROTOCOL_OSPFv3 = 6;
-    SL_BGPLS_TOPO_PROTOCOL_BGP = 7;
-    SL_BGPLS_TOPO_PROTOCOL_RSVP_TE = 8;
-    SL_BGPLS_TOPO_PROTOCOL_SR = 9;
-}
-
-//======================================= NLRI Objects ==============================================//
+//
+// Messages for NLRI Objects
+//
 
 // Node
 message SLBgplsTopoNode {
-    // Node Descriptors for a node.
-    // Local Node Descriptors. TLV 256.
-    // Section 5.2.1.2 of [RFC9552]
-    SLBgplsTopoNodeDescr NodeDescr = 1;
+    // AS Number associated with the BGP process originating the link-state information.
+    // Autonomous System Number. TLV 512.
+    // Section 5.2.1 of [RFC9552]
+    uint32 Asn = 1;
+
+    // Node Identifier
+    // Actual type can be determined based on Protocol in SLBgplsTopoNlri.
+    oneof NodeId {
+        // This field carries info about an OSPFv2 node ID.
+        SLBgplsTopoOspfNodeId OspfNodeId = 2;
+
+        // This field carries info about an OSPFv3 node ID.
+        SLBgplsTopoOspfv3NodeId Ospfv3NodeId = 3;
+
+        // This field carries info about an ISIS node ID.
+        SLBgplsTopoIsisNodeId IsisNodeId = 4;
+    
+        // This field carries info about a BGP node ID.
+        SLBgplsTopoBgpNodeId BgpNodeId = 5;
+
+        // This field carries info about an SR policy node ID.
+        SLBgplsTopoSrPolicyNodeId SrPolicyNodeId = 6;
+    }
 }
 
 // Link
@@ -301,12 +205,12 @@ message SLBgplsTopoLink {
     // Node Descriptors for the node anchoring the local end of the link.
     // Local Node Descriptors. TLV 256.
     // Section 5.2.1.2 of [RFC9552]
-    SLBgplsTopoNodeDescr LocalNodeDescr = 1;
+    SLBgplsTopoNode LocalNodeDescr = 1;
 
     // Node Descriptors for the node anchoring the remote end of the link.
     // Remote Node Descriptors. TLV 257.
     // Section 5.2.1.3 of [RFC9552]
-    SLBgplsTopoNodeDescr RemoteNodeDescr = 2;
+    SLBgplsTopoNode RemoteNodeDescr = 2;
 
     // The Link Descriptor TLVs uniquely identify a link among multiple parallel
     // links between a pair of anchor routers.
@@ -319,7 +223,7 @@ message SLBgplsTopoPrefix {
     // Node Descriptors for the node originating the prefix.
     // Local Node Descriptors. TLV 256.
     // Section 5.2.1.2 of [RFC9552]
-    SLBgplsTopoNodeDescr NodeDescr = 1;
+    SLBgplsTopoNode NodeDescr = 1;
 
     // Prefix Descriptor TLVs uniquely identify an IPv4 or IPv6 prefix
     // originated by a node.
@@ -332,7 +236,7 @@ message SLBgplsTopoSrv6Sid {
     // Node Descriptors for the node originating the SRv6 SID.
     // Local Node Descriptors. TLV 256.
     // Section 5.2.1.2 of [RFC9552]
-    SLBgplsTopoNodeDescr NodeDescr = 1;
+    SLBgplsTopoNode NodeDescr = 1;
 
     SLBgplsTopoSrv6SidDescr Srv6SidDescr = 2;
 }
@@ -342,7 +246,7 @@ message SLBgplsTopoSrPolicy {
     // Node Descriptors for the node originating the SR policy.
     // Local Node Descriptors. TLV 256.
     // Section 5.2.1.2 of [RFC9552]
-    SLBgplsTopoNodeDescr NodeDescr = 1;
+    SLBgplsTopoNode NodeDescr = 1;
 
     // A Segment Routing Policy Candidate Path.
     // SR Policy Candidate Path Descriptor. TLV 554.
@@ -350,42 +254,9 @@ message SLBgplsTopoSrPolicy {
     SLBgplsTopoSrPolicyDescr SrPolicyDescr = 2;
 }
 
-//========================================= Descriptors =============================================//
-
-// Node descriptor
-message SLBgplsTopoNodeDescr {
-    // AS Number associated with the BGP process originating the link-state information.
-    // Autonomous System Number. TLV 512.
-    // Section 5.2.1 of [RFC9552]
-    uint32 Asn = 1;
-
-    // Node Identifier
-    // Actual type can be determined based on Protocol in SLBgplsTopoNlri.
-    oneof NodeId {
-        // case NodeIdType == SL_BGPLS_TOPO_NODE_ID_TYPE_OSPFv2:
-        //    => This field carries info about an OSPFv2 node ID.
-        SLBgplsTopoOspfNodeId OspfNodeId = 2;
-
-        // case NodeIdType == SL_BGPLS_TOPO_NODE_ID_TYPE_OSPFv3:
-        //    => This field carries info about an OSPFv3 node ID.
-        SLBgplsTopoOspfv3NodeId Ospfv3NodeId = 3;
-
-        // case NodeIdType == SL_BGPLS_TOPO_NODE_ID_TYPE_ISIS:
-        //    => This field carries info about an ISIS node ID.
-        SLBgplsTopoIsisNodeId IsisNodeId = 4;
-
-        // case NodeIdType == SL_BGPLS_TOPO_NODE_ID_TYPE_BGP:
-        //    => This field carries info about a BGP node ID.
-        SLBgplsTopoBgpNodeId BgpNodeId = 5;
-
-        // case NodeIdType == SL_BGPLS_TOPO_NODE_ID_TYPE_SR:
-        //    => This field carries info about an SR policy node ID.
-        SLBgplsTopoSrPolicyNodeId SrPolicyNodeId = 6;
-    }
-
-    // Specifies the type of node ID
-    SLBgplsTopoNodeIdType NodeIdType = 7;
-}
+//
+// Messages for NLRI Descriptors
+//
 
 // Link descriptor
 message SLBgplsTopoLinkDescr {
@@ -476,51 +347,43 @@ message SLBgplsTopoSrPolicyDescr {
     // Endpoint. TLV 554.
     // Section 4 of [draft-ietf-idr-bgp-ls-sr-policy]
     oneof EndpointAddress {
-        // case IsEndpointAddressIpv6 == 0:
-        //    => This field carries info about an IPv4 endpoint address.
-        uint32 Ipv4EndpointAddress = 3;
+        // This field carries info about an IPv4 endpoint address.
+        uint32 Ipv4EndAddr = 3;
 
-        // case IsEndpointAddressIpv6 == 1:
-        //    => This field carries info about an IPv6 endpoint address.
-        bytes Ipv6EndpointAddress = 4;
+        // This field carries info about an IPv6 endpoint address.
+        bytes Ipv6EndAddr = 4;
     }
-
-    // Specifies whether the endpoint address is IPv6 or not.
-    uint32 IsEndpointAddressIpv6 = 5;
 
     // Color of the SR Policy.
     // Policy Color. TLV 554.
     // Section 4 of [draft-ietf-idr-bgp-ls-sr-policy]
-    uint32 Color = 6;
+    uint32 Color = 5;
 
     // 4-byte encoding of the ASN of the originator.
     // Originator AS Number. TLV 554.
     // Section 4 of [draft-ietf-idr-bgp-ls-sr-policy]
-    uint32 OriginAsn = 7;
+    uint32 OriginAsn = 6;
 
     // Address of the originator.
     // Originator Address. TLV 554.
     // Section 4 of [draft-ietf-idr-bgp-ls-sr-policy]
     oneof OriginatorAddress {
-        // case IsOriginatorAddressIpv6 == 0:
-        //    => This field carries info about an IPv4 originator address.
-        uint32 Ipv4OriginatorAddress = 8;
+        // This field carries info about an IPv4 originator address.
+        uint32 Ipv4OrigAddr = 7;
 
-        // case IsOriginatorAddressIpv6 == 1:
-        //    => This field carries info about an IPv6 originator address.
-        bytes Ipv6OriginatorAddress = 9;
+        // This field carries info about an IPv6 originator address.
+        bytes Ipv6OrigAddr = 8;
     }
-
-    // Specifies whether the originator address is IPv6 or not.
-    uint32 IsOriginatorAddressIpv6 = 10;
 
     // Discriminator of the path.
     // Discriminator. TLV 554.
     // Section 4 of [draft-ietf-idr-bgp-ls-sr-policy]
-    uint32 Discriminator = 11;
+    uint32 Discriminator = 9;
 }
 
-//======================================= Node Identifiers ==========================================//
+//
+// Messages of Node Identifiers
+//
 
 // OSPF Node ID
 message SLBgplsTopoOspfNodeId {
@@ -615,39 +478,6 @@ message SLBgplsTopoSrPolicyNodeId {
     bytes Ipv6RouterId = 4;
 }
 
-// NodeIdType
-enum SLBgplsTopoNodeIdType {
-    SL_BGPLS_TOPO_NODE_ID_TYPE_RESERVED = 0;
-    SL_BGPLS_TOPO_NODE_ID_TYPE_ISIS = 1;
-    SL_BGPLS_TOPO_NODE_ID_TYPE_OSPFv2 = 2;
-    SL_BGPLS_TOPO_NODE_ID_TYPE_OSPFv3 = 3;
-    SL_BGPLS_TOPO_NODE_ID_TYPE_BGP = 4;
-    SL_BGPLS_TOPO_NODE_ID_TYPE_SR = 5;
-}
-
-// OSPF Route types
-enum SLBgplsTopoOspfRouteType {
-    SL_BGPLS_TOPO_OSPF_ROUTE_TYPE_RESERVED = 0;
-    SL_BGPLS_TOPO_OSPF_ROUTE_TYPE_INTRA_AREA = 1;
-    SL_BGPLS_TOPO_OSPF_ROUTE_TYPE_INTER_AREA = 2;
-    SL_BGPLS_TOPO_OSPF_ROUTE_TYPE_EXTERN_1 = 3;
-    SL_BGPLS_TOPO_OSPF_ROUTE_TYPE_EXTERN_2 = 4;
-    SL_BGPLS_TOPO_OSPF_ROUTE_TYPE_NSSA_1 = 5;
-    SL_BGPLS_TOPO_OSPF_ROUTE_TYPE_NSSA_2 = 6;
-}
-
-// Protocol Originating SR Policy
-enum SLBgplsTopoSrPolicyProtocolOrigin {
-    SL_BGPLS_TOPO_SR_POLICY_PROTOCOL_ORIGIN_RESERVED = 0;
-    SL_BGPLS_TOPO_SR_POLICY_PROTOCOL_ORIGIN_PCEP = 1;
-    SL_BGPLS_TOPO_SR_POLICY_PROTOCOL_ORIGIN_BGP_SR_POLICY = 2;
-    SL_BGPLS_TOPO_SR_POLICY_PROTOCOL_ORIGIN_CONFIG = 3;
-    SL_BGPLS_TOPO_SR_POLICY_PROTOCOL_ORIGIN_PCEP_VIA_PCE = 10;
-    SL_BGPLS_TOPO_SR_POLICY_PROTOCOL_ORIGIN_BGP_SR_POLICY_VIA_PCE = 20;
-    SL_BGPLS_TOPO_SR_POLICY_PROTOCOL_ORIGIN_CONFIG_VIA_PCE = 30;
-
-}
-
 // SR Policy flags
 message SLBgplsTopoSrPolicyFlags {
     // Bit-0: E-Flag: Indicates the encoding of endpoint as IPv6 address when
@@ -658,38 +488,30 @@ message SLBgplsTopoSrPolicyFlags {
     bytes Flags = 1;
 }
 
-//===================================================================================================//
-//                                          Attributes Section                                       //
-//===================================================================================================//
+//
+// Messages of Attributes
+//
 
 // Attributes
 message SLBgplsTopoAttr {
     // Attributes
     // Actual type can be determined based on NlriType in SLBgplsTopoNlri.
     oneof Attr {
-        // case AttrType == SL_BGPLS_TOPO_ATTR_TYPE_NODE:
-        //    => This field carries info about node attributes.
+        // This field carries info about node attributes.
         SLBgplsTopoNodeAttr NodeAttr = 1;
 
-        // case AttrType == SL_BGPLS_TOPO_ATTR_TYPE_LINK:
-        //    => This field carries info about link attributes.
+        // This field carries info about link attributes.
         SLBgplsTopoLinkAttr LinkAttr = 2;
 
-        // case AttrType == SL_BGPLS_TOPO_ATTR_TYPE_PREFIX:
-        //    => This field carries info about prefix attributes.
+        // This field carries info about prefix attributes.
         SLBgplsTopoPrefixAttr PrefixAttr = 3;
 
-        // case AttrType == SL_BGPLS_TOPO_ATTR_TYPE_SRV6_SID:
-        //    => This field carries info about SRv6 SID attributes.
+        // This field carries info about SRv6 SID attributes.
         SLBgplsTopoSrv6SidAttr Srv6SidAttr = 4;
 
-        // case AttrType == SL_BGPLS_TOPO_ATTR_TYPE_SR_POLICY_CANDIDATE_PATH:
-        //    => This field carries info about SR policy attributes.
+        // This field carries info about SR policy attributes.
         SLBgplsTopoSrPolicyAttr SrPolicyAttr = 5;
     }
-
-    // Specifies the type of attribute
-    SLBgplsTopoAttrType AttrType = 6;
 }
 
 // Node Attributes
@@ -1063,18 +885,8 @@ message SLBgplsTopoSrPolicyAttr {
     SLBgplsTopoSrPolicyName SrPolicyName = 7;
 }
 
-// Attribute type
-enum SLBgplsTopoAttrType {
-    SL_BGPLS_TOPO_ATTR_TYPE_RESERVED = 0;
-    SL_BGPLS_TOPO_ATTR_TYPE_NODE = 1;
-    SL_BGPLS_TOPO_ATTR_TYPE_LINK = 2;
-    SL_BGPLS_TOPO_ATTR_TYPE_IPV4_PREFIX = 3;
-    SL_BGPLS_TOPO_ATTR_TYPE_IPV6_PREFIX = 4;
-    SL_BGPLS_TOPO_ATTR_TYPE_SR_POLICY_CANDIDATE_PATH = 5;
-    SL_BGPLS_TOPO_ATTR_TYPE_SRV6_SID = 6;
-}
-
-//=========================== Attribute definitions sorted by TLV code point ========================//
+// Messages for Attribute definitions sorted by TLV code point
+//
 
 // Link Local Remote Identifiers. TLV 258.
 // Section 5.2.2 of [RFC9552]
@@ -1511,17 +1323,12 @@ message SLBgplsTopoSrv6EndXSid {
 // Neighbor ID used in Adjacency SID and SRv6 EndX SID
 message SLBgpLsTopoNeighborId {
     oneof NeighborId {
-        // case IsNeighborIdIpv4 == 1:
-        //    => This field carries info about an IPv4 neighbor ID.
+        // This field carries info about an IPv4 neighbor ID.
         uint32 Ipv4Addr = 1;
 
-        // case IsNeighborIdIpv4 == 0:
-        //    => This field carries info about an system ID neighbor ID.
+        // This field carries info about an system ID neighbor ID.
         bytes SystemId = 2;
     }
-
-    // Specifies whether the neighbor ID is IPv4 or not.
-    uint32 IsNeighborIdIpv4 = 3;
 }
 
 // SRv6 LAN End X SID. TLV 1107/1108
@@ -1660,17 +1467,12 @@ message SLBgplsTopoPrefixMetric {
 // Section 5.3.3.5 of [RFC9552]
 message SLBgplsTopoPrefixOspfFwdAddr {
     oneof OspfFwdAddr {
-        // case IsOspfFwdAddrdIpv4 == 1:
-        //    => This field carries info about an IPv4 OSPF forwarding address.
+        // This field carries info about an IPv4 OSPF forwarding address.
         uint32 Ipv4Addr = 1;
 
-        // case IsOspfFwdAddrdIpv4 == 0:
-        //    => This field carries info about an IPv6 OSPF forwarding address.
+        // This field carries info about an IPv6 OSPF forwarding address.
         bytes Ipv6Addr = 2;
     }
-
-    // Specifies whether the OSPF forwarding address is IPv4 or not.
-    uint32 IsOspfFwdAddrdIpv4 = 3;
 }
 
 // Opaque Prefix Attribute. TLV 1157
@@ -1765,17 +1567,12 @@ message SLBgplsTopoPrefixAttrFlags {
 // Section 2.3.3 of [RFC9085]
 message SLBgplsTopoPrefixSrcRouterId {
     oneof SrcRouterId {
-        // case IsSrcRouterIdIpv4 == 1:
-        //    => This field carries info about an IPv4 source router ID.
+        // This field carries info about an IPv4 source router ID.
         uint32 Ipv4Addr = 1;
 
-        // case IsSrcRouterIdIpv4 == 0:
-        //    => This field carries info about an IPv6 source router ID.
+        // This field carries info about an IPv6 source router ID.
         bytes Ipv6Addr = 2;
     }
-
-    // Specifies whether the source router ID is IPv4 or not.
-    uint32 IsSrcRouterIdIpv4 = 3;
 }
 
 // L2 Bundle Member Attribute. TLV 1172
@@ -1951,17 +1748,12 @@ message SLBgplsTopoAslaAttr {
 // Section 5.1 of [draft-ietf-idr-bgp-ls-sr-policy]
 message SlBgplsTopoSrBsid {
     oneof BindingSid {
-        // case IsBindingSidMpls == 1:
-        //    => This field carries info about an MPLS binding SID.
+        // This field carries info about an MPLS binding SID.
         uint32 MplsBsid = 1;
 
-        // case IsBindingSidMpls == 0:
-        //    => This field carries info about an SRv6 binding SID.
+        // This field carries info about an SRv6 binding SID.
         bytes Srv6Bsid = 2;
     }
-
-    // Specifies whether the binding SID is MPLS or not.
-    uint32 IsBindingSidMpls = 3;
 }
 
 message SLBgplsTopoSrBindingSid {
@@ -2232,44 +2024,34 @@ message SLBgplsTopoSrSegmentDesc {
     uint32 Algorithm = 1;
 
     oneof LocalNodeAddr {
-        // case IsLocalNodeAddrIpv4 == 1:
-        //    => This field carries info about an IPv4 local node address.
-        uint32 Ipv4LocalNodeAddr = 2;
+        // This field carries info about an IPv4 local node address.
+        uint32 Ipv4LocAddr = 2;
 
-        // case IsLocalNodeAddrIpv4 == 0:
-        //    => This field carries info about an IPv6 local node address.
-        bytes Ipv6LocalNodeAddr = 3;
+        // This field carries info about an IPv6 local node address.
+        bytes Ipv6LocAddr = 3;
     }
-
-    // Specifies whether the local node address is IPv4 or not.
-    uint32 IsLocalNodeAddrIpv4 = 4;
 
     oneof RemoteNodeAddr {
-        // case IsRemoteNodeAddrIpv4 == 1:
-        //    => This field carries info about an IPv4 remote node address.
-        uint32 Ipv4RemoteNodeAddr = 5;
+        // This field carries info about an IPv4 remote node address.
+        uint32 Ipv4RemAddr = 4;
 
-        // case IsRemoteNodeAddrIpv4 == 0:
-        //    => This field carries info about an IPv6 remote node address.
-        bytes Ipv6RemoteNodeAddr = 6;
+        // This field carries info about an IPv6 remote node address.
+        bytes Ipv6RemAddr = 5;
     }
 
-    // Specifies whether the remote node address is IPv4 or not.
-    uint32 IsRemoteNodeAddrIpv4 = 7;
-
     // Carries info about IPv6 local node global address.
-    bytes Ipv6LocalNodeGlobalAddr = 8;
+    bytes Ipv6LocalNodeGlobalAddr = 6;
 
     // Carries info about IPv6 remote node global address.
-    bytes Ipv6RemoteNodeGlobalAddr = 9;
+    bytes Ipv6RemoteNodeGlobalAddr = 7;
 
     // Carries the interface ID of the local node identified by the local node
     // address.
-    uint32 LocalNodeIntfId = 10;
+    uint32 LocalNodeIntfId = 8;
 
     // Carries the interface ID of the remote node identified by the remote
     // node address.
-    uint32 RemoteNodeIntfId = 11;
+    uint32 RemoteNodeIntfId = 9;
 }
 
 // SR Segment. TLV 1206
@@ -2298,28 +2080,23 @@ message SLBgplsTopoSrSegment {
     bytes Flags = 2;
 
     oneof Sid {
-        // case IsSidMpls == 1:
-        //    => This field carries info about an MPLS SID.
+        // This field carries info about an MPLS SID.
         uint32 MplsLabel = 3;
 
-        // case IsSidMpls == 0:
-        //    => This field carries info about an SRv6 SID.
+        // This field carries info about an SRv6 SID.
         bytes Srv6Sid = 4;
     }
 
-    // Specifies whether the SID is MPLS or not.
-    uint32 IsSidMpls = 5;
-
     // Variable size Segment descriptor based on the type of segment
-    SLBgplsTopoSrSegmentDesc SegmentDesc = 6;
+    SLBgplsTopoSrSegmentDesc SegmentDesc = 5;
 
     // SRv6 End Point Behavior. TLV 1250
     // Section 7.1 of [RFC9514]
-    SLBgplsTopoSrv6EndPointBehavior EndPointBehaviour = 7;
+    SLBgplsTopoSrv6EndPointBehavior EndPointBehaviour = 6;
 
     // SRv6 SID Structure Attribute. TLV 1252
     // Section 8 of [RFC9514]
-    SLBgplsTopoSrv6SidStruct SidStruct = 8;
+    SLBgplsTopoSrv6SidStruct SidStruct = 7;
 }
 
 // SR Segment List Metric. TLV 1207

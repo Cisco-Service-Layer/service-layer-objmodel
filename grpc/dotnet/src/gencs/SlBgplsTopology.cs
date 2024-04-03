@@ -24,505 +24,429 @@ namespace ServiceLayer {
     static SlBgplsTopologyReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChdzbF9iZ3Bsc190b3BvbG9neS5wcm90bxINc2VydmljZV9sYXllciJMChRT",
-            "TEJncGxzVG9wb0dldFVwZE1zZxI0CgZGaWx0ZXIYASADKAsyJC5zZXJ2aWNl",
-            "X2xheWVyLlNMQmdwbHNUb3BvTmxyaUZpbHRlciKXAQoVU0xCZ3Bsc1RvcG9O",
-            "bHJpRmlsdGVyEhIKCklkZW50aWZpZXIYASABKAQSNAoIUHJvdG9jb2wYAiAB",
-            "KA4yIi5zZXJ2aWNlX2xheWVyLlNMQmdwbHNUb3BvUHJvdG9jb2wSNAoITmxy",
-            "aVR5cGUYAyABKA4yIi5zZXJ2aWNlX2xheWVyLlNMQmdwbHNUb3BvTmxyaVR5",
-            "cGUivAEKEVNMQmdwbHNUb3BvVXBkTXNnEjIKB1VwZFR5cGUYASABKA4yIS5z",
-            "ZXJ2aWNlX2xheWVyLlNMQmdwbHNUb3BvVXBkVHlwZRI6CglFcnJTdGF0dXMY",
-            "AiABKAsyJS5zZXJ2aWNlX2xheWVyLlNMQmdwbHNUb3BvRXJyb3JTdGF0dXNI",
-            "ABItCgREYXRhGAMgASgLMh0uc2VydmljZV9sYXllci5TTEJncGxzVG9wb1Vw",
-            "ZEgAQggKBlVwZGF0ZSK4BgoWU0xCZ3Bsc1RvcG9FcnJvclN0YXR1cxJGCgZT",
-            "dGF0dXMYASABKA4yNi5zZXJ2aWNlX2xheWVyLlNMQmdwbHNUb3BvRXJyb3JT",
-            "dGF0dXMuU0xCZ3Bsc1RvcG9FcnJubyLVBQoQU0xCZ3Bsc1RvcG9FcnJubxIZ",
-            "ChVTTF9CR1BMU19UT1BPX1NVQ0NFU1MQABIfChtTTF9CR1BMU19UT1BPX05P",
-            "VF9DT05ORUNURUQQARIYChRTTF9CR1BMU19UT1BPX0VBR0FJThACEhgKFFNM",
-            "X0JHUExTX1RPUE9fRU5PTUVNEAMSFwoTU0xfQkdQTFNfVE9QT19FQlVTWRAE",
-            "EhgKFFNMX0JHUExTX1RPUE9fRUlOVkFMEAUSIQodU0xfQkdQTFNfVE9QT19V",
-            "TlNVUFBPUlRFRF9WRVIQBhIfChtTTF9CR1BMU19UT1BPX05PVF9BVkFJTEFC",
-            "TEUQBxImCiJTTF9CR1BMU19UT1BPX1NUUkVBTV9OT1RfU1VQUE9SVEVEEAgS",
-            "GQoVU0xfQkdQTFNfVE9QT19FTk9UU1VQEAkSGgoWU0xfQkdQTFNfVE9QT19T",
-            "T01FX0VSUhAKEhkKFVNMX0JHUExTX1RPUE9fVElNRU9VVBALEhwKGFNMX0JH",
-            "UExTX1RPUE9fTk9USUZfVEVSTRAMEhsKF1NMX0JHUExTX1RPUE9fQVVUSF9G",
-            "QUlMEA0SJAofU0xfQkdQTFNfVE9QT19JTklUX1NUQVJUX09GRlNFVBCAChIj",
-            "Ch5TTF9CR1BMU19UT1BPX0lOSVRfU1RBVEVfQ0xFQVIQgQoSIwoeU0xfQkdQ",
-            "TFNfVE9QT19JTklUX1NUQVRFX1JFQURZEIIKEicKIlNMX0JHUExTX1RPUE9f",
-            "SU5JVF9VTlNVUFBPUlRFRF9WRVIQgwoSLgopU0xfQkdQTFNfVE9QT19JTklU",
-            "X1NFUlZFUl9OT1RfSU5JVElBTElaRUQQhAoSMQosU0xfQkdQTFNfVE9QT19J",
-            "TklUX1NFUlZFUl9NT0RFX0NIQU5HRV9GQUlMRUQQhQoSKQojU0xfQkdQTFNf",
-            "VE9QT19JTlRFUk5BTF9TVEFSVF9PRkZTRVQQgIBAIkIKDlNMQmdwbHNUb3Bv",
-            "VXBkEjAKB0VudHJpZXMYASADKAsyHy5zZXJ2aWNlX2xheWVyLlNMQmdwbHNU",
-            "b3BvRW50cnkipgEKEFNMQmdwbHNUb3BvRW50cnkSNgoJT3BlcmF0aW9uGAEg",
-            "ASgOMiMuc2VydmljZV9sYXllci5TTEJncGxzVG9wb09wZXJhdGlvbhIsCgRO",
-            "bHJpGAIgASgLMh4uc2VydmljZV9sYXllci5TTEJncGxzVG9wb05scmkSLAoE",
-            "QXR0chgDIAEoCzIeLnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9BdHRyIpsD",
-            "Cg9TTEJncGxzVG9wb05scmkSEgoKSWRlbnRpZmllchgBIAEoBBI0CghQcm90",
-            "b2NvbBgCIAEoDjIiLnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9Qcm90b2Nv",
-            "bBI0CghObHJpVHlwZRgDIAEoDjIiLnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc1Rv",
-            "cG9ObHJpVHlwZRIuCgROb2RlGAQgASgLMh4uc2VydmljZV9sYXllci5TTEJn",
-            "cGxzVG9wb05vZGVIABIuCgRMaW5rGAUgASgLMh4uc2VydmljZV9sYXllci5T",
-            "TEJncGxzVG9wb0xpbmtIABIyCgZQcmVmaXgYBiABKAsyIC5zZXJ2aWNlX2xh",
-            "eWVyLlNMQmdwbHNUb3BvUHJlZml4SAASNAoHU3J2NlNpZBgHIAEoCzIhLnNl",
-            "cnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9TcnY2U2lkSAASNgoIU3JQb2xpY3kY",
-            "CCABKAsyIi5zZXJ2aWNlX2xheWVyLlNMQmdwbHNUb3BvU3JQb2xpY3lIAEIG",
-            "CgRObHJpIkkKD1NMQmdwbHNUb3BvTm9kZRI2CglOb2RlRGVzY3IYASABKAsy",
-            "Iy5zZXJ2aWNlX2xheWVyLlNMQmdwbHNUb3BvTm9kZURlc2NyIsQBCg9TTEJn",
-            "cGxzVG9wb0xpbmsSOwoOTG9jYWxOb2RlRGVzY3IYASABKAsyIy5zZXJ2aWNl",
-            "X2xheWVyLlNMQmdwbHNUb3BvTm9kZURlc2NyEjwKD1JlbW90ZU5vZGVEZXNj",
-            "chgCIAEoCzIjLnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9Ob2RlRGVzY3IS",
-            "NgoJTGlua0Rlc2NyGAMgASgLMiMuc2VydmljZV9sYXllci5TTEJncGxzVG9w",
-            "b0xpbmtEZXNjciKHAQoRU0xCZ3Bsc1RvcG9QcmVmaXgSNgoJTm9kZURlc2Ny",
-            "GAEgASgLMiMuc2VydmljZV9sYXllci5TTEJncGxzVG9wb05vZGVEZXNjchI6",
-            "CgtQcmVmaXhEZXNjchgCIAEoCzIlLnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc1Rv",
-            "cG9QcmVmaXhEZXNjciKKAQoSU0xCZ3Bsc1RvcG9TcnY2U2lkEjYKCU5vZGVE",
-            "ZXNjchgBIAEoCzIjLnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9Ob2RlRGVz",
-            "Y3ISPAoMU3J2NlNpZERlc2NyGAIgASgLMiYuc2VydmljZV9sYXllci5TTEJn",
-            "cGxzVG9wb1NydjZTaWREZXNjciKNAQoTU0xCZ3Bsc1RvcG9TclBvbGljeRI2",
-            "CglOb2RlRGVzY3IYASABKAsyIy5zZXJ2aWNlX2xheWVyLlNMQmdwbHNUb3Bv",
-            "Tm9kZURlc2NyEj4KDVNyUG9saWN5RGVzY3IYAiABKAsyJy5zZXJ2aWNlX2xh",
-            "eWVyLlNMQmdwbHNUb3BvU3JQb2xpY3lEZXNjciKdAwoUU0xCZ3Bsc1RvcG9O",
-            "b2RlRGVzY3ISCwoDQXNuGAEgASgNEjoKCk9zcGZOb2RlSWQYAiABKAsyJC5z",
-            "ZXJ2aWNlX2xheWVyLlNMQmdwbHNUb3BvT3NwZk5vZGVJZEgAEj4KDE9zcGZ2",
-            "M05vZGVJZBgDIAEoCzImLnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9Pc3Bm",
-            "djNOb2RlSWRIABI6CgpJc2lzTm9kZUlkGAQgASgLMiQuc2VydmljZV9sYXll",
-            "ci5TTEJncGxzVG9wb0lzaXNOb2RlSWRIABI4CglCZ3BOb2RlSWQYBSABKAsy",
-            "Iy5zZXJ2aWNlX2xheWVyLlNMQmdwbHNUb3BvQmdwTm9kZUlkSAASQgoOU3JQ",
-            "b2xpY3lOb2RlSWQYBiABKAsyKC5zZXJ2aWNlX2xheWVyLlNMQmdwbHNUb3Bv",
-            "U3JQb2xpY3lOb2RlSWRIABI4CgpOb2RlSWRUeXBlGAcgASgOMiQuc2Vydmlj",
-            "ZV9sYXllci5TTEJncGxzVG9wb05vZGVJZFR5cGVCCAoGTm9kZUlkIrUBChRT",
-            "TEJncGxzVG9wb0xpbmtEZXNjchIPCgdMb2NhbElkGAEgASgNEhAKCFJlbW90",
-            "ZUlkGAIgASgNEhEKCUxvY2FsSXB2NBgDIAEoDRISCgpSZW1vdGVJcHY0GAQg",
-            "ASgNEhEKCUxvY2FsSXB2NhgFIAEoDBISCgpSZW1vdGVJcHY2GAYgASgMEiwK",
-            "BE10SWQYByABKAsyHi5zZXJ2aWNlX2xheWVyLlNMQmdwbHNUb3BvTXRJZCKs",
-            "AQoWU0xCZ3Bsc1RvcG9QcmVmaXhEZXNjchIsCgRNdElkGAEgASgLMh4uc2Vy",
-            "dmljZV9sYXllci5TTEJncGxzVG9wb010SWQSPgoNT3NwZlJvdXRlVHlwZRgC",
-            "IAEoDjInLnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9Pc3BmUm91dGVUeXBl",
-            "EhQKDFByZWZpeExlbmd0aBgDIAEoDBIOCgZQcmVmaXgYBCABKAwiWAoXU0xC",
-            "Z3Bsc1RvcG9TcnY2U2lkRGVzY3ISLAoETXRJZBgBIAEoCzIeLnNlcnZpY2Vf",
-            "bGF5ZXIuU0xCZ3Bsc1RvcG9NdElkEg8KB1NydjZTaWQYAiABKAwiugMKGFNM",
-            "QmdwbHNUb3BvU3JQb2xpY3lEZXNjchJFCgtQcm90b09yaWdpbhgBIAEoDjIw",
-            "LnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9TclBvbGljeVByb3RvY29sT3Jp",
-            "Z2luEjYKBUZsYWdzGAIgASgLMicuc2VydmljZV9sYXllci5TTEJncGxzVG9w",
-            "b1NyUG9saWN5RmxhZ3MSHQoTSXB2NEVuZHBvaW50QWRkcmVzcxgDIAEoDUgA",
-            "Eh0KE0lwdjZFbmRwb2ludEFkZHJlc3MYBCABKAxIABIdChVJc0VuZHBvaW50",
-            "QWRkcmVzc0lwdjYYBSABKA0SDQoFQ29sb3IYBiABKA0SEQoJT3JpZ2luQXNu",
-            "GAcgASgNEh8KFUlwdjRPcmlnaW5hdG9yQWRkcmVzcxgIIAEoDUgBEh8KFUlw",
-            "djZPcmlnaW5hdG9yQWRkcmVzcxgJIAEoDEgBEh8KF0lzT3JpZ2luYXRvckFk",
-            "ZHJlc3NJcHY2GAogASgNEhUKDURpc2NyaW1pbmF0b3IYCyABKA1CEQoPRW5k",
-            "cG9pbnRBZGRyZXNzQhMKEU9yaWdpbmF0b3JBZGRyZXNzImMKFVNMQmdwbHNU",
-            "b3BvT3NwZk5vZGVJZBIOCgZBcmVhSWQYASABKA0SEgoKSXNBc1Njb3BlZBgC",
-            "IAEoDRIQCghSb3V0ZXJJZBgDIAEoDRIUCgxEcklkZW50aWZpZXIYBCABKA0i",
-            "YwoXU0xCZ3Bsc1RvcG9Pc3BmdjNOb2RlSWQSDgoGQXJlYUlkGAEgASgNEhAK",
-            "CEFzU2NvcGVkGAIgASgNEhAKCFJvdXRlcklkGAMgASgNEhQKDERySWRlbnRp",
-            "ZmllchgEIAEoDSI4ChVTTEJncGxzVG9wb0lzaXNOb2RlSWQSEAoIU3lzdGVt",
-            "SWQYASABKAwSDQoFUHNuSWQYAiABKAwiOwoUU0xCZ3Bsc1RvcG9CZ3BOb2Rl",
-            "SWQSEAoIUm91dGVySWQYASABKA0SEQoJTWVtYmVyQXNuGAIgASgNImwKGVNM",
-            "QmdwbHNUb3BvU3JQb2xpY3lOb2RlSWQSEAoIUm91dGVySWQYASABKA0SEQoJ",
-            "TWVtYmVyQXNuGAIgASgNEhQKDElwdjRSb3V0ZXJJZBgDIAEoDRIUCgxJcHY2",
-            "Um91dGVySWQYBCABKAwiKQoYU0xCZ3Bsc1RvcG9TclBvbGljeUZsYWdzEg0K",
-            "BUZsYWdzGAEgASgMIvkCCg9TTEJncGxzVG9wb0F0dHISNgoITm9kZUF0dHIY",
-            "ASABKAsyIi5zZXJ2aWNlX2xheWVyLlNMQmdwbHNUb3BvTm9kZUF0dHJIABI2",
-            "CghMaW5rQXR0chgCIAEoCzIiLnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9M",
-            "aW5rQXR0ckgAEjoKClByZWZpeEF0dHIYAyABKAsyJC5zZXJ2aWNlX2xheWVy",
-            "LlNMQmdwbHNUb3BvUHJlZml4QXR0ckgAEjwKC1NydjZTaWRBdHRyGAQgASgL",
-            "MiUuc2VydmljZV9sYXllci5TTEJncGxzVG9wb1NydjZTaWRBdHRySAASPgoM",
-            "U3JQb2xpY3lBdHRyGAUgASgLMiYuc2VydmljZV9sYXllci5TTEJncGxzVG9w",
-            "b1NyUG9saWN5QXR0ckgAEjQKCEF0dHJUeXBlGAYgASgOMiIuc2VydmljZV9s",
-            "YXllci5TTEJncGxzVG9wb0F0dHJUeXBlQgYKBEF0dHIi5wUKE1NMQmdwbHNU",
-            "b3BvTm9kZUF0dHISLAoETXRJZBgBIAMoCzIeLnNlcnZpY2VfbGF5ZXIuU0xC",
-            "Z3Bsc1RvcG9NdElkEjIKB05vZGVNc2QYAiADKAsyIS5zZXJ2aWNlX2xheWVy",
-            "LlNMQmdwbHNUb3BvTm9kZU1zZBI8CgxOb2RlRmxhZ0JpdHMYAyABKAsyJi5z",
-            "ZXJ2aWNlX2xheWVyLlNMQmdwbHNUb3BvTm9kZUZsYWdCaXRzEkAKDk9wYXF1",
-            "ZU5vZGVBdHRyGAQgASgLMiguc2VydmljZV9sYXllci5TTEJncGxzVG9wb05v",
-            "ZGVPcGFxdWVBdHRyEjAKCE5vZGVOYW1lGAUgASgLMh4uc2VydmljZV9sYXll",
-            "ci5TTEJncGxzTm9kZU5hbWUSOAoKSXNpc0FyZWFJZBgGIAMoCzIkLnNlcnZp",
-            "Y2VfbGF5ZXIuU0xCZ3Bsc1RvcG9Jc2lzQXJlYUlkEj4KCUxvY2FsSXB2NBgH",
-            "IAMoCzIrLnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9Mb2NhbElwdjRSb3V0",
-            "ZXJJZBI+CglMb2NhbElwdjYYCCADKAsyKy5zZXJ2aWNlX2xheWVyLlNMQmdw",
-            "bHNUb3BvTG9jYWxJcHY2Um91dGVySWQSPgoNU3JnYklzaXNGbGFncxgJIAEo",
-            "CzInLnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9TcmdiSXNpc0ZsYWdzEiwK",
-            "BFNyZ2IYCiADKAsyHi5zZXJ2aWNlX2xheWVyLlNMQmdwbHNUb3BvU3JnYhI6",
-            "CgtTckFsZ29yaXRobRgLIAEoCzIlLnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc1Rv",
-            "cG9TckFsZ29yaXRobRIsCgRTcmxiGAwgAygLMh4uc2VydmljZV9sYXllci5T",
-            "TEJncGxzVG9wb1NybGISKgoDRmFkGA0gAygLMh0uc2VydmljZV9sYXllci5T",
-            "TEJncGxzVG9wb0ZhZCKjDwoTU0xCZ3Bsc1RvcG9MaW5rQXR0chI7CgxMaW5r",
-            "TG9jUmVtSWQYASABKAsyJS5zZXJ2aWNlX2xheWVyLlNMQnBsc1RvcG9MaW5r",
-            "TG9jUmVtSWQSMgoHTGlua01zZBgCIAMoCzIhLnNlcnZpY2VfbGF5ZXIuU0xC",
-            "Z3Bsc1RvcG9MaW5rTXNkEkYKEUxvY2FsSXB2NFJvdXRlcklkGAMgAygLMisu",
-            "c2VydmljZV9sYXllci5TTEJncGxzVG9wb0xvY2FsSXB2NFJvdXRlcklkEkYK",
-            "EUxvY2FsSXB2NlJvdXRlcklkGAQgAygLMisuc2VydmljZV9sYXllci5TTEJn",
-            "cGxzVG9wb0xvY2FsSXB2NlJvdXRlcklkEkgKElJlbW90ZUlwdjRSb3V0ZXJJ",
-            "ZBgFIAMoCzIsLnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9SZW1vdGVJcHY0",
-            "Um91dGVySWQSSAoSUmVtb3RlSXB2NlJvdXRlcklkGAYgAygLMiwuc2Vydmlj",
-            "ZV9sYXllci5TTEJncGxzVG9wb1JlbW90ZUlwdjZSb3V0ZXJJZBI+Cg1FeHRB",
-            "ZG1pbkdyb3VwGAcgAygLMicuc2VydmljZV9sYXllci5TTEJncGxzVG9wb0V4",
-            "dEFkbWluR3JvdXASQAoMTWF4QmFuZHdpZHRoGAggASgLMiouc2VydmljZV9s",
-            "YXllci5TTEJncGxzVG9wb0xpbmtNYXhCYW5kd2lkdGgSSAoQTWF4UmVzdkJh",
-            "bmR3aWR0aBgJIAEoCzIuLnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9MaW5r",
-            "TWF4UmVzdkJhbmR3aWR0aBJGCg9VbnJlc3ZCYW5kd2lkdGgYCiADKAsyLS5z",
-            "ZXJ2aWNlX2xheWVyLlNMQmdwbHNUb3BvTGlua1VucmVzdkJhbmR3aWR0aBJC",
-            "CgtUZURlZk1ldHJpYxgLIAEoCzItLnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc1Rv",
-            "cG9MaW5rVGVEZWZhdWx0TWV0cmljEkMKDlByb3RlY3Rpb25UeXBlGAwgASgL",
-            "Misuc2VydmljZV9sYXllci5TTEJncGxzVG9wb0xpbmtQcm90ZWNpb25UeXBl",
-            "EkIKDU1wbHNQcm90b01hc2sYDSABKAsyKy5zZXJ2aWNlX2xheWVyLlNMQmdw",
-            "bHNUb3BvTGlua01wbHNQcm90b01hc2sSOgoJSWdwTWV0cmljGA4gASgLMicu",
-            "c2VydmljZV9sYXllci5TTEJncGxzVG9wb0xpbmtJZ3BNZXRyaWMSMAoEU3Js",
-            "ZxgPIAMoCzIiLnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9MaW5rU3JsZxI8",
-            "CgpPcGFxdWVBdHRyGBAgASgLMiguc2VydmljZV9sYXllci5TTEJncGxzVG9w",
-            "b0xpbmtPcGFxdWVBdHRyEjQKCExpbmtOYW1lGBEgASgLMiIuc2VydmljZV9s",
-            "YXllci5TTEJncGxzVG9wb0xpbmtOYW1lEjAKBkFkalNpZBgSIAMoCzIgLnNl",
-            "cnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9BZGpTaWQSNgoJTGFuQWRqU2lkGBMg",
-            "AygLMiMuc2VydmljZV9sYXllci5TTEJncGxzVG9wb0xhbkFkalNpZBI6CgtT",
-            "cnY2RW5kWFNpZBgUIAMoCzIlLnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9T",
-            "cnY2RW5kWFNpZBJACg5TcnY2TGFuRW5kWFNpZBgVIAMoCzIoLnNlcnZpY2Vf",
-            "bGF5ZXIuU0xCZ3Bsc1RvcG9TcnY2TGFuRW5kWFNpZBI8CgxVbmlMaW5rRGVs",
-            "YXkYFiABKAsyJi5zZXJ2aWNlX2xheWVyLlNMQmdwbHNUb3BvVW5pTGlua0Rl",
-            "bGF5EkgKEk1pbk1heFVuaUxpbmtEZWxheRgXIAEoCzIsLnNlcnZpY2VfbGF5",
-            "ZXIuU0xCZ3Bsc1RvcG9NaW5NYXhVbmlMaW5rRGVsYXkSOgoLVW5pRGVsYXlW",
-            "YXIYGCABKAsyJS5zZXJ2aWNlX2xheWVyLlNMQmdwbHNUb3BvVW5pRGVsYXlW",
-            "YXISOgoLVW5pTGlua0xvc3MYGSABKAsyJS5zZXJ2aWNlX2xheWVyLlNMQmdw",
-            "bHNUb3BvVW5pTGlua0xvc3MSQgoPVW5pUmVzQmFuZHdpZHRoGBogASgLMiku",
-            "c2VydmljZV9sYXllci5TTEJncGxzVG9wb1VuaVJlc0JhbmR3aWR0aBJGChFV",
-            "bmlBdmFpbEJhbmR3aWR0aBgbIAEoCzIrLnNlcnZpY2VfbGF5ZXIuU0xCZ3Bs",
-            "c1RvcG9VbmlBdmFpbEJhbmR3aWR0aBJEChBVbmlVdGlsQmFuZHdpZHRoGBwg",
-            "ASgLMiouc2VydmljZV9sYXllci5TTEJncGxzVG9wb1VuaVV0aWxCYW5kd2lk",
-            "dGgSMAoEQXNsYRgdIAMoCzIiLnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9B",
-            "c2xhQXR0chJIChJMMkJ1bmRsZU1lbWJlckF0dHIYHiADKAsyLC5zZXJ2aWNl",
-            "X2xheWVyLlNMQmdwbHNUb3BvTDJCdW5kbGVNZW1iZXJBdHRyIu0FChVTTEJn",
-            "cGxzVG9wb1ByZWZpeEF0dHISMgoERmFwbRgBIAEoCzIkLnNlcnZpY2VfbGF5",
-            "ZXIuU0xCZ3Bsc1RvcG9QcmVmaXhGQVBNEjoKCElncEZsYWdzGAIgASgLMigu",
-            "c2VydmljZV9sYXllci5TTEJncGxzVG9wb1ByZWZpeElncEZsYWdzEkAKC0ln",
-            "cFJvdXRlVGFnGAMgAygLMisuc2VydmljZV9sYXllci5TTEJncGxzVG9wb1By",
-            "ZWZpeElncFJvdXRlVGFnEkYKDklncEV4dFJvdXRlVGFnGAQgAygLMi4uc2Vy",
-            "dmljZV9sYXllci5TTEJncGxzVG9wb1ByZWZpeElncEV4dFJvdXRlVGFnEjYK",
-            "Bk1ldHJpYxgFIAEoCzImLnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9QcmVm",
-            "aXhNZXRyaWMSQAoLT3NwZkZ3ZEFkZHIYBiABKAsyKy5zZXJ2aWNlX2xheWVy",
-            "LlNMQmdwbHNUb3BvUHJlZml4T3NwZkZ3ZEFkZHISPgoKT3BhcXVlQXR0chgH",
-            "IAEoCzIqLnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9QcmVmaXhPcGFxdWVB",
-            "dHRyEjAKA1NpZBgIIAEoCzIjLnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9Q",
-            "cmVmaXhTaWQSNAoFUmFuZ2UYCSABKAsyJS5zZXJ2aWNlX2xheWVyLlNMQmdw",
-            "bHNUb3BvUHJlZml4UmFuZ2USOAoHU3J2NkxvYxgKIAEoCzInLnNlcnZpY2Vf",
-            "bGF5ZXIuU0xCZ3Bsc1RvcG9QcmVmaXhTcnY2TG9jEjwKCUF0dHJGbGFncxgL",
-            "IAEoCzIpLnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9QcmVmaXhBdHRyRmxh",
-            "Z3MSQAoLU3JjUm91dGVySWQYDCABKAsyKy5zZXJ2aWNlX2xheWVyLlNMQmdw",
-            "bHNUb3BvUHJlZml4U3JjUm91dGVySWQi5AEKFlNMQmdwbHNUb3BvU3J2NlNp",
-            "ZEF0dHISSAoQRW5kUG9pbnRCZWhhdmlvchgBIAEoCzIuLnNlcnZpY2VfbGF5",
-            "ZXIuU0xCZ3Bsc1RvcG9TcnY2RW5kUG9pbnRCZWhhdmlvchJECg5CZ3BQZWVy",
-            "Tm9kZVNpZBgCIAMoCzIsLnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9TcnY2",
-            "QmdwUGVlck5vZGVTaWQSOgoJU2lkU3RydWN0GAMgASgLMicuc2VydmljZV9s",
-            "YXllci5TTEJncGxzVG9wb1NydjZTaWRTdHJ1Y3QirgMKF1NMQmdwbHNUb3Bv",
-            "U3JQb2xpY3lBdHRyEjYKBlNyQnNpZBgBIAEoCzImLnNlcnZpY2VfbGF5ZXIu",
-            "U0xCZ3Bsc1RvcG9TckJpbmRpbmdTaWQSNAoHQ3BTdGF0ZRgCIAEoCzIjLnNl",
-            "cnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9TckNwU3RhdGUSMgoGQ3BOYW1lGAMg",
-            "ASgLMiIuc2VydmljZV9sYXllci5TTEJncGxzVG9wb1NyQ3BOYW1lEkAKDUNw",
-            "Q29uc3RyYWludHMYBCABKAsyKS5zZXJ2aWNlX2xheWVyLlNMQmdwbHNUb3Bv",
-            "U3JDcENvbnN0cmFpbnRzEjUKCFNlZ0xpc3RzGAUgAygLMiMuc2VydmljZV9s",
-            "YXllci5TTEJncGxzVG9wb1NyU2VnTGlzdBI6CghTcnY2QnNpZBgGIAEoCzIo",
-            "LnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9TcnY2QmluZGluZ1NpZBI8CgxT",
-            "clBvbGljeU5hbWUYByABKAsyJi5zZXJ2aWNlX2xheWVyLlNMQmdwbHNUb3Bv",
-            "U3JQb2xpY3lOYW1lIjsKFlNMQnBsc1RvcG9MaW5rTG9jUmVtSWQSDwoHTG9j",
-            "YWxJZBgBIAEoDRIQCghSZW1vdGVJZBgCIAEoDSIfCg9TTEJncGxzVG9wb010",
-            "SWQSDAoETXRJZBgBIAEoDSIxChJTTEJncGxzVG9wb05vZGVNc2QSDAoEVHlw",
-            "ZRgBIAEoDRINCgVWYWx1ZRgCIAEoDSIxChJTTEJncGxzVG9wb0xpbmtNc2QS",
-            "DAoEVHlwZRgBIAEoDRINCgVWYWx1ZRgCIAEoDSIoChdTTEJncGxzVG9wb05v",
-            "ZGVGbGFnQml0cxINCgVGbGFncxgBIAEoDCIvChlTTEJncGxzVG9wb05vZGVP",
-            "cGFxdWVBdHRyEhIKCk9wYXF1ZUF0dHIYASABKAwiHwoPU0xCZ3Bsc05vZGVO",
-            "YW1lEgwKBE5hbWUYASABKAkiJwoVU0xCZ3Bsc1RvcG9Jc2lzQXJlYUlkEg4K",
-            "BkFyZWFJZBgBIAEoDCIwChxTTEJncGxzVG9wb0xvY2FsSXB2NFJvdXRlcklk",
-            "EhAKCFJvdXRlcklkGAEgASgNIjAKHFNMQmdwbHNUb3BvTG9jYWxJcHY2Um91",
-            "dGVySWQSEAoIUm91dGVySWQYASABKAwiMQodU0xCZ3Bsc1RvcG9SZW1vdGVJ",
-            "cHY0Um91dGVySWQSEAoIUm91dGVySWQYASABKA0iMQodU0xCZ3Bsc1RvcG9S",
-            "ZW1vdGVJcHY2Um91dGVySWQSEAoIUm91dGVySWQYASABKAwiOAoPU0xCZ3Bs",
-            "c1RvcG9TcmdiEhIKClN0YXJ0TGFiZWwYASABKA0SEQoJUmFuZ2VTaXplGAIg",
-            "ASgNIikKGFNMQmdwbHNUb3BvU3JnYklzaXNGbGFncxINCgVGbGFncxgBIAEo",
-            "DCIsChZTTEJncGxzVG9wb1NyQWxnb3JpdGhtEhIKCkFsZ29yaXRobXMYASAB",
-            "KAwiOAoPU0xCZ3Bsc1RvcG9TcmxiEhIKClN0YXJ0TGFiZWwYASABKA0SEQoJ",
-            "UmFuZ2VTaXplGAIgASgNItgCCg5TTEJncGxzVG9wb0ZhZBIRCglBbGdvcml0",
-            "aG0YASABKAwSEgoKTWV0cmljVHlwZRgCIAEoDBIQCghDYWxjVHlwZRgDIAEo",
-            "DBIQCghQcmlvcml0eRgEIAEoDBIRCglFeGNBbnlBZmYYBSADKA0SEQoJSW5j",
-            "QW55QWZmGAYgAygNEhEKCUluY0FsbEFmZhgHIAMoDRINCgVGbGFncxgIIAEo",
-            "DBIPCgdFeGNTcmxnGAkgAygNEjkKCVVuc3VwcFRsdhgPIAEoCzImLnNlcnZp",
-            "Y2VfbGF5ZXIuU0xCZ3Bsc1RvcG9GYWRVbnN1cHBUbHYSEAoIRXhjTWluQncY",
-            "DiABKAwSEwoLRXhjTWF4RGVsYXkYDSABKA0SFAoMRXhjQW55UmV2QWZmGAog",
-            "AygNEhQKDEluY0FueVJldkFmZhgLIAMoDRIUCgxJbmNBbGxSZXZBZmYYDCAD",
-            "KA0iSAoVU0xCZ3Bsc1RvcG9QcmVmaXhGQVBNEhAKCEZsZXhBbGdvGAEgASgN",
-            "Eg0KBUZsYWdzGAIgASgMEg4KBk1ldHJpYxgDIAEoDSJeChdTTEJncGxzVG9w",
-            "b0ZhZFVuc3VwcFRsdhI0CghQcm90b2NvbBgBIAEoDjIiLnNlcnZpY2VfbGF5",
-            "ZXIuU0xCZ3Bsc1RvcG9Qcm90b2NvbBINCgVUeXBlcxgCIAEoDCIpChhTTEJn",
-            "cGxzVG9wb0V4dEFkbWluR3JvdXASDQoFR3JvdXAYASABKA0iMAobU0xCZ3Bs",
-            "c1RvcG9MaW5rTWF4QmFuZHdpZHRoEhEKCUJhbmR3aWR0aBgBIAEoDCI0Ch9T",
-            "TEJncGxzVG9wb0xpbmtNYXhSZXN2QmFuZHdpZHRoEhEKCUJhbmR3aWR0aBgB",
-            "IAEoDCJFCh5TTEJncGxzVG9wb0xpbmtVbnJlc3ZCYW5kd2lkdGgSEAoIUHJp",
-            "b3JpdHkYASABKA0SEQoJQmFuZHdpZHRoGAIgASgMIjAKHlNMQmdwbHNUb3Bv",
-            "TGlua1RlRGVmYXVsdE1ldHJpYxIOCgZNZXRyaWMYASABKA0iLAocU0xCZ3Bs",
-            "c1RvcG9MaW5rUHJvdGVjaW9uVHlwZRIMCgRNYXNrGAEgASgNIiwKHFNMQmdw",
-            "bHNUb3BvTGlua01wbHNQcm90b01hc2sSDAoETWFzaxgBIAEoDCIqChhTTEJn",
-            "cGxzVG9wb0xpbmtJZ3BNZXRyaWMSDgoGTWV0cmljGAEgASgMIiYKE1NMQmdw",
-            "bHNUb3BvTGlua1NybGcSDwoHU3JsZ1ZhbBgBIAEoDSIvChlTTEJncGxzVG9w",
-            "b0xpbmtPcGFxdWVBdHRyEhIKCk9wYXF1ZUF0dHIYASABKAwiIwoTU0xCZ3Bs",
-            "c1RvcG9MaW5rTmFtZRIMCgROYW1lGAEgASgJIoQBChFTTEJncGxzVG9wb0Fk",
-            "alNpZBISCgpMYWJlbEluZGV4GAEgASgNEjwKDEFkalNpZEZvcm1hdBgCIAEo",
-            "DjImLnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9BZGpTaWRGb3JtYXQSDQoF",
-            "RmxhZ3MYAyABKAwSDgoGV2VpZ2h0GAQgASgNIr8BChRTTEJncGxzVG9wb0xh",
-            "bkFkalNpZBI2CghOZWlnaGJvchgBIAEoCzIkLnNlcnZpY2VfbGF5ZXIuU0xC",
-            "Z3BMc1RvcG9OZWlnaGJvcklkEhIKCkxhYmVsSW5kZXgYAiABKA0SPAoMQWRq",
-            "U2lkRm9ybWF0GAMgASgOMiYuc2VydmljZV9sYXllci5TTEJncGxzVG9wb0Fk",
-            "alNpZEZvcm1hdBINCgVGbGFncxgEIAEoDBIOCgZXZWlnaHQYBSABKA0irQEK",
-            "FlNMQmdwbHNUb3BvU3J2NkVuZFhTaWQSCwoDU2lkGAEgASgMEhEKCUFsZ29y",
-            "aXRobRgCIAEoDRINCgVGbGFncxgDIAEoDBIOCgZXZWlnaHQYBCABKA0SGAoQ",
-            "RW5kUG9pbnRCZWhhdmlvchgFIAEoDRI6CglTaWRTdHJ1Y3QYBiABKAsyJy5z",
-            "ZXJ2aWNlX2xheWVyLlNMQmdwbHNUb3BvU3J2NlNpZFN0cnVjdCJnChVTTEJn",
-            "cExzVG9wb05laWdoYm9ySWQSEgoISXB2NEFkZHIYASABKA1IABISCghTeXN0",
-            "ZW1JZBgCIAEoDEgAEhgKEElzTmVpZ2hib3JJZElwdjQYAyABKA1CDAoKTmVp",
-            "Z2hib3JJZCLoAQoZU0xCZ3Bsc1RvcG9TcnY2TGFuRW5kWFNpZBI2CghOZWln",
+            "ChdzbF9iZ3Bsc190b3BvbG9neS5wcm90bxINc2VydmljZV9sYXllchoVc2xf",
+            "Y29tbW9uX3R5cGVzLnByb3RvGhJzbF9wcm90b2NvbHMucHJvdG8iSgoUU0xC",
+            "Z3Bsc1RvcG9HZXRVcGRNc2cSMgoFTWF0Y2gYASADKAsyIy5zZXJ2aWNlX2xh",
+            "eWVyLlNMQmdwbHNUb3BvTmxyaU1hdGNoIpYBChRTTEJncGxzVG9wb05scmlN",
+            "YXRjaBISCgpJZGVudGlmaWVyGAEgASgEEjQKCFByb3RvY29sGAIgASgOMiIu",
+            "c2VydmljZV9sYXllci5TTEJncGxzVG9wb1Byb3RvY29sEjQKCE5scmlUeXBl",
+            "GAMgASgOMiIuc2VydmljZV9sYXllci5TTEJncGxzVG9wb05scmlUeXBlIusB",
+            "ChFTTEJncGxzVG9wb1VwZE1zZxIxCglFcnJTdGF0dXMYASABKAsyHC5zZXJ2",
+            "aWNlX2xheWVyLlNMRXJyb3JTdGF0dXNIABItCgREYXRhGAIgASgLMh0uc2Vy",
+            "dmljZV9sYXllci5TTEJncGxzVG9wb1VwZEgAEjYKBVN0YXJ0GAMgASgLMiUu",
+            "c2VydmljZV9sYXllci5TTEJncGxzVG9wb1N0YXJ0TWFya2VySAASMgoDRW5k",
+            "GAQgASgLMiMuc2VydmljZV9sYXllci5TTEJncGxzVG9wb0VuZE1hcmtlckgA",
+            "QggKBlVwZGF0ZSIYChZTTEJncGxzVG9wb1N0YXJ0TWFya2VyIhYKFFNMQmdw",
+            "bHNUb3BvRW5kTWFya2VyIkIKDlNMQmdwbHNUb3BvVXBkEjAKB0VudHJpZXMY",
+            "ASADKAsyHy5zZXJ2aWNlX2xheWVyLlNMQmdwbHNUb3BvRW50cnkipgEKEFNM",
+            "QmdwbHNUb3BvRW50cnkSNgoJT3BlcmF0aW9uGAEgASgOMiMuc2VydmljZV9s",
+            "YXllci5TTEJncGxzVG9wb09wZXJhdGlvbhIsCgRObHJpGAIgASgLMh4uc2Vy",
+            "dmljZV9sYXllci5TTEJncGxzVG9wb05scmkSLAoEQXR0chgDIAEoCzIeLnNl",
+            "cnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9BdHRyIpsDCg9TTEJncGxzVG9wb05s",
+            "cmkSEgoKSWRlbnRpZmllchgBIAEoBBI0CghQcm90b2NvbBgCIAEoDjIiLnNl",
+            "cnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9Qcm90b2NvbBI0CghObHJpVHlwZRgD",
+            "IAEoDjIiLnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9ObHJpVHlwZRIuCgRO",
+            "b2RlGAQgASgLMh4uc2VydmljZV9sYXllci5TTEJncGxzVG9wb05vZGVIABIu",
+            "CgRMaW5rGAUgASgLMh4uc2VydmljZV9sYXllci5TTEJncGxzVG9wb0xpbmtI",
+            "ABIyCgZQcmVmaXgYBiABKAsyIC5zZXJ2aWNlX2xheWVyLlNMQmdwbHNUb3Bv",
+            "UHJlZml4SAASNAoHU3J2NlNpZBgHIAEoCzIhLnNlcnZpY2VfbGF5ZXIuU0xC",
+            "Z3Bsc1RvcG9TcnY2U2lkSAASNgoIU3JQb2xpY3kYCCABKAsyIi5zZXJ2aWNl",
+            "X2xheWVyLlNMQmdwbHNUb3BvU3JQb2xpY3lIAEIGCgRObHJpIt4CCg9TTEJn",
+            "cGxzVG9wb05vZGUSCwoDQXNuGAEgASgNEjoKCk9zcGZOb2RlSWQYAiABKAsy",
+            "JC5zZXJ2aWNlX2xheWVyLlNMQmdwbHNUb3BvT3NwZk5vZGVJZEgAEj4KDE9z",
+            "cGZ2M05vZGVJZBgDIAEoCzImLnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9P",
+            "c3BmdjNOb2RlSWRIABI6CgpJc2lzTm9kZUlkGAQgASgLMiQuc2VydmljZV9s",
+            "YXllci5TTEJncGxzVG9wb0lzaXNOb2RlSWRIABI4CglCZ3BOb2RlSWQYBSAB",
+            "KAsyIy5zZXJ2aWNlX2xheWVyLlNMQmdwbHNUb3BvQmdwTm9kZUlkSAASQgoO",
+            "U3JQb2xpY3lOb2RlSWQYBiABKAsyKC5zZXJ2aWNlX2xheWVyLlNMQmdwbHNU",
+            "b3BvU3JQb2xpY3lOb2RlSWRIAEIICgZOb2RlSWQiugEKD1NMQmdwbHNUb3Bv",
+            "TGluaxI2Cg5Mb2NhbE5vZGVEZXNjchgBIAEoCzIeLnNlcnZpY2VfbGF5ZXIu",
+            "U0xCZ3Bsc1RvcG9Ob2RlEjcKD1JlbW90ZU5vZGVEZXNjchgCIAEoCzIeLnNl",
+            "cnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9Ob2RlEjYKCUxpbmtEZXNjchgDIAEo",
+            "CzIjLnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9MaW5rRGVzY3IiggEKEVNM",
+            "QmdwbHNUb3BvUHJlZml4EjEKCU5vZGVEZXNjchgBIAEoCzIeLnNlcnZpY2Vf",
+            "bGF5ZXIuU0xCZ3Bsc1RvcG9Ob2RlEjoKC1ByZWZpeERlc2NyGAIgASgLMiUu",
+            "c2VydmljZV9sYXllci5TTEJncGxzVG9wb1ByZWZpeERlc2NyIoUBChJTTEJn",
+            "cGxzVG9wb1NydjZTaWQSMQoJTm9kZURlc2NyGAEgASgLMh4uc2VydmljZV9s",
+            "YXllci5TTEJncGxzVG9wb05vZGUSPAoMU3J2NlNpZERlc2NyGAIgASgLMiYu",
+            "c2VydmljZV9sYXllci5TTEJncGxzVG9wb1NydjZTaWREZXNjciKIAQoTU0xC",
+            "Z3Bsc1RvcG9TclBvbGljeRIxCglOb2RlRGVzY3IYASABKAsyHi5zZXJ2aWNl",
+            "X2xheWVyLlNMQmdwbHNUb3BvTm9kZRI+Cg1TclBvbGljeURlc2NyGAIgASgL",
+            "Micuc2VydmljZV9sYXllci5TTEJncGxzVG9wb1NyUG9saWN5RGVzY3IitQEK",
+            "FFNMQmdwbHNUb3BvTGlua0Rlc2NyEg8KB0xvY2FsSWQYASABKA0SEAoIUmVt",
+            "b3RlSWQYAiABKA0SEQoJTG9jYWxJcHY0GAMgASgNEhIKClJlbW90ZUlwdjQY",
+            "BCABKA0SEQoJTG9jYWxJcHY2GAUgASgMEhIKClJlbW90ZUlwdjYYBiABKAwS",
+            "LAoETXRJZBgHIAEoCzIeLnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9NdElk",
+            "IqwBChZTTEJncGxzVG9wb1ByZWZpeERlc2NyEiwKBE10SWQYASABKAsyHi5z",
+            "ZXJ2aWNlX2xheWVyLlNMQmdwbHNUb3BvTXRJZBI+Cg1Pc3BmUm91dGVUeXBl",
+            "GAIgASgOMicuc2VydmljZV9sYXllci5TTEJncGxzVG9wb09zcGZSb3V0ZVR5",
+            "cGUSFAoMUHJlZml4TGVuZ3RoGAMgASgMEg4KBlByZWZpeBgEIAEoDCJYChdT",
+            "TEJncGxzVG9wb1NydjZTaWREZXNjchIsCgRNdElkGAEgASgLMh4uc2Vydmlj",
+            "ZV9sYXllci5TTEJncGxzVG9wb010SWQSDwoHU3J2NlNpZBgCIAEoDCLYAgoY",
+            "U0xCZ3Bsc1RvcG9TclBvbGljeURlc2NyEkUKC1Byb3RvT3JpZ2luGAEgASgO",
+            "MjAuc2VydmljZV9sYXllci5TTEJncGxzVG9wb1NyUG9saWN5UHJvdG9jb2xP",
+            "cmlnaW4SNgoFRmxhZ3MYAiABKAsyJy5zZXJ2aWNlX2xheWVyLlNMQmdwbHNU",
+            "b3BvU3JQb2xpY3lGbGFncxIVCgtJcHY0RW5kQWRkchgDIAEoDUgAEhUKC0lw",
+            "djZFbmRBZGRyGAQgASgMSAASDQoFQ29sb3IYBSABKA0SEQoJT3JpZ2luQXNu",
+            "GAYgASgNEhYKDElwdjRPcmlnQWRkchgHIAEoDUgBEhYKDElwdjZPcmlnQWRk",
+            "chgIIAEoDEgBEhUKDURpc2NyaW1pbmF0b3IYCSABKA1CEQoPRW5kcG9pbnRB",
+            "ZGRyZXNzQhMKEU9yaWdpbmF0b3JBZGRyZXNzImMKFVNMQmdwbHNUb3BvT3Nw",
+            "Zk5vZGVJZBIOCgZBcmVhSWQYASABKA0SEgoKSXNBc1Njb3BlZBgCIAEoDRIQ",
+            "CghSb3V0ZXJJZBgDIAEoDRIUCgxEcklkZW50aWZpZXIYBCABKA0iYwoXU0xC",
+            "Z3Bsc1RvcG9Pc3BmdjNOb2RlSWQSDgoGQXJlYUlkGAEgASgNEhAKCEFzU2Nv",
+            "cGVkGAIgASgNEhAKCFJvdXRlcklkGAMgASgNEhQKDERySWRlbnRpZmllchgE",
+            "IAEoDSI4ChVTTEJncGxzVG9wb0lzaXNOb2RlSWQSEAoIU3lzdGVtSWQYASAB",
+            "KAwSDQoFUHNuSWQYAiABKAwiOwoUU0xCZ3Bsc1RvcG9CZ3BOb2RlSWQSEAoI",
+            "Um91dGVySWQYASABKA0SEQoJTWVtYmVyQXNuGAIgASgNImwKGVNMQmdwbHNU",
+            "b3BvU3JQb2xpY3lOb2RlSWQSEAoIUm91dGVySWQYASABKA0SEQoJTWVtYmVy",
+            "QXNuGAIgASgNEhQKDElwdjRSb3V0ZXJJZBgDIAEoDRIUCgxJcHY2Um91dGVy",
+            "SWQYBCABKAwiKQoYU0xCZ3Bsc1RvcG9TclBvbGljeUZsYWdzEg0KBUZsYWdz",
+            "GAEgASgMIsMCCg9TTEJncGxzVG9wb0F0dHISNgoITm9kZUF0dHIYASABKAsy",
+            "Ii5zZXJ2aWNlX2xheWVyLlNMQmdwbHNUb3BvTm9kZUF0dHJIABI2CghMaW5r",
+            "QXR0chgCIAEoCzIiLnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9MaW5rQXR0",
+            "ckgAEjoKClByZWZpeEF0dHIYAyABKAsyJC5zZXJ2aWNlX2xheWVyLlNMQmdw",
+            "bHNUb3BvUHJlZml4QXR0ckgAEjwKC1NydjZTaWRBdHRyGAQgASgLMiUuc2Vy",
+            "dmljZV9sYXllci5TTEJncGxzVG9wb1NydjZTaWRBdHRySAASPgoMU3JQb2xp",
+            "Y3lBdHRyGAUgASgLMiYuc2VydmljZV9sYXllci5TTEJncGxzVG9wb1NyUG9s",
+            "aWN5QXR0ckgAQgYKBEF0dHIi5wUKE1NMQmdwbHNUb3BvTm9kZUF0dHISLAoE",
+            "TXRJZBgBIAMoCzIeLnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9NdElkEjIK",
+            "B05vZGVNc2QYAiADKAsyIS5zZXJ2aWNlX2xheWVyLlNMQmdwbHNUb3BvTm9k",
+            "ZU1zZBI8CgxOb2RlRmxhZ0JpdHMYAyABKAsyJi5zZXJ2aWNlX2xheWVyLlNM",
+            "QmdwbHNUb3BvTm9kZUZsYWdCaXRzEkAKDk9wYXF1ZU5vZGVBdHRyGAQgASgL",
+            "Miguc2VydmljZV9sYXllci5TTEJncGxzVG9wb05vZGVPcGFxdWVBdHRyEjAK",
+            "CE5vZGVOYW1lGAUgASgLMh4uc2VydmljZV9sYXllci5TTEJncGxzTm9kZU5h",
+            "bWUSOAoKSXNpc0FyZWFJZBgGIAMoCzIkLnNlcnZpY2VfbGF5ZXIuU0xCZ3Bs",
+            "c1RvcG9Jc2lzQXJlYUlkEj4KCUxvY2FsSXB2NBgHIAMoCzIrLnNlcnZpY2Vf",
+            "bGF5ZXIuU0xCZ3Bsc1RvcG9Mb2NhbElwdjRSb3V0ZXJJZBI+CglMb2NhbElw",
+            "djYYCCADKAsyKy5zZXJ2aWNlX2xheWVyLlNMQmdwbHNUb3BvTG9jYWxJcHY2",
+            "Um91dGVySWQSPgoNU3JnYklzaXNGbGFncxgJIAEoCzInLnNlcnZpY2VfbGF5",
+            "ZXIuU0xCZ3Bsc1RvcG9TcmdiSXNpc0ZsYWdzEiwKBFNyZ2IYCiADKAsyHi5z",
+            "ZXJ2aWNlX2xheWVyLlNMQmdwbHNUb3BvU3JnYhI6CgtTckFsZ29yaXRobRgL",
+            "IAEoCzIlLnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9TckFsZ29yaXRobRIs",
+            "CgRTcmxiGAwgAygLMh4uc2VydmljZV9sYXllci5TTEJncGxzVG9wb1NybGIS",
+            "KgoDRmFkGA0gAygLMh0uc2VydmljZV9sYXllci5TTEJncGxzVG9wb0ZhZCKj",
+            "DwoTU0xCZ3Bsc1RvcG9MaW5rQXR0chI7CgxMaW5rTG9jUmVtSWQYASABKAsy",
+            "JS5zZXJ2aWNlX2xheWVyLlNMQnBsc1RvcG9MaW5rTG9jUmVtSWQSMgoHTGlu",
+            "a01zZBgCIAMoCzIhLnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9MaW5rTXNk",
+            "EkYKEUxvY2FsSXB2NFJvdXRlcklkGAMgAygLMisuc2VydmljZV9sYXllci5T",
+            "TEJncGxzVG9wb0xvY2FsSXB2NFJvdXRlcklkEkYKEUxvY2FsSXB2NlJvdXRl",
+            "cklkGAQgAygLMisuc2VydmljZV9sYXllci5TTEJncGxzVG9wb0xvY2FsSXB2",
+            "NlJvdXRlcklkEkgKElJlbW90ZUlwdjRSb3V0ZXJJZBgFIAMoCzIsLnNlcnZp",
+            "Y2VfbGF5ZXIuU0xCZ3Bsc1RvcG9SZW1vdGVJcHY0Um91dGVySWQSSAoSUmVt",
+            "b3RlSXB2NlJvdXRlcklkGAYgAygLMiwuc2VydmljZV9sYXllci5TTEJncGxz",
+            "VG9wb1JlbW90ZUlwdjZSb3V0ZXJJZBI+Cg1FeHRBZG1pbkdyb3VwGAcgAygL",
+            "Micuc2VydmljZV9sYXllci5TTEJncGxzVG9wb0V4dEFkbWluR3JvdXASQAoM",
+            "TWF4QmFuZHdpZHRoGAggASgLMiouc2VydmljZV9sYXllci5TTEJncGxzVG9w",
+            "b0xpbmtNYXhCYW5kd2lkdGgSSAoQTWF4UmVzdkJhbmR3aWR0aBgJIAEoCzIu",
+            "LnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9MaW5rTWF4UmVzdkJhbmR3aWR0",
+            "aBJGCg9VbnJlc3ZCYW5kd2lkdGgYCiADKAsyLS5zZXJ2aWNlX2xheWVyLlNM",
+            "QmdwbHNUb3BvTGlua1VucmVzdkJhbmR3aWR0aBJCCgtUZURlZk1ldHJpYxgL",
+            "IAEoCzItLnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9MaW5rVGVEZWZhdWx0",
+            "TWV0cmljEkMKDlByb3RlY3Rpb25UeXBlGAwgASgLMisuc2VydmljZV9sYXll",
+            "ci5TTEJncGxzVG9wb0xpbmtQcm90ZWNpb25UeXBlEkIKDU1wbHNQcm90b01h",
+            "c2sYDSABKAsyKy5zZXJ2aWNlX2xheWVyLlNMQmdwbHNUb3BvTGlua01wbHNQ",
+            "cm90b01hc2sSOgoJSWdwTWV0cmljGA4gASgLMicuc2VydmljZV9sYXllci5T",
+            "TEJncGxzVG9wb0xpbmtJZ3BNZXRyaWMSMAoEU3JsZxgPIAMoCzIiLnNlcnZp",
+            "Y2VfbGF5ZXIuU0xCZ3Bsc1RvcG9MaW5rU3JsZxI8CgpPcGFxdWVBdHRyGBAg",
+            "ASgLMiguc2VydmljZV9sYXllci5TTEJncGxzVG9wb0xpbmtPcGFxdWVBdHRy",
+            "EjQKCExpbmtOYW1lGBEgASgLMiIuc2VydmljZV9sYXllci5TTEJncGxzVG9w",
+            "b0xpbmtOYW1lEjAKBkFkalNpZBgSIAMoCzIgLnNlcnZpY2VfbGF5ZXIuU0xC",
+            "Z3Bsc1RvcG9BZGpTaWQSNgoJTGFuQWRqU2lkGBMgAygLMiMuc2VydmljZV9s",
+            "YXllci5TTEJncGxzVG9wb0xhbkFkalNpZBI6CgtTcnY2RW5kWFNpZBgUIAMo",
+            "CzIlLnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9TcnY2RW5kWFNpZBJACg5T",
+            "cnY2TGFuRW5kWFNpZBgVIAMoCzIoLnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc1Rv",
+            "cG9TcnY2TGFuRW5kWFNpZBI8CgxVbmlMaW5rRGVsYXkYFiABKAsyJi5zZXJ2",
+            "aWNlX2xheWVyLlNMQmdwbHNUb3BvVW5pTGlua0RlbGF5EkgKEk1pbk1heFVu",
+            "aUxpbmtEZWxheRgXIAEoCzIsLnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9N",
+            "aW5NYXhVbmlMaW5rRGVsYXkSOgoLVW5pRGVsYXlWYXIYGCABKAsyJS5zZXJ2",
+            "aWNlX2xheWVyLlNMQmdwbHNUb3BvVW5pRGVsYXlWYXISOgoLVW5pTGlua0xv",
+            "c3MYGSABKAsyJS5zZXJ2aWNlX2xheWVyLlNMQmdwbHNUb3BvVW5pTGlua0xv",
+            "c3MSQgoPVW5pUmVzQmFuZHdpZHRoGBogASgLMikuc2VydmljZV9sYXllci5T",
+            "TEJncGxzVG9wb1VuaVJlc0JhbmR3aWR0aBJGChFVbmlBdmFpbEJhbmR3aWR0",
+            "aBgbIAEoCzIrLnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9VbmlBdmFpbEJh",
+            "bmR3aWR0aBJEChBVbmlVdGlsQmFuZHdpZHRoGBwgASgLMiouc2VydmljZV9s",
+            "YXllci5TTEJncGxzVG9wb1VuaVV0aWxCYW5kd2lkdGgSMAoEQXNsYRgdIAMo",
+            "CzIiLnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9Bc2xhQXR0chJIChJMMkJ1",
+            "bmRsZU1lbWJlckF0dHIYHiADKAsyLC5zZXJ2aWNlX2xheWVyLlNMQmdwbHNU",
+            "b3BvTDJCdW5kbGVNZW1iZXJBdHRyIu0FChVTTEJncGxzVG9wb1ByZWZpeEF0",
+            "dHISMgoERmFwbRgBIAEoCzIkLnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9Q",
+            "cmVmaXhGQVBNEjoKCElncEZsYWdzGAIgASgLMiguc2VydmljZV9sYXllci5T",
+            "TEJncGxzVG9wb1ByZWZpeElncEZsYWdzEkAKC0lncFJvdXRlVGFnGAMgAygL",
+            "Misuc2VydmljZV9sYXllci5TTEJncGxzVG9wb1ByZWZpeElncFJvdXRlVGFn",
+            "EkYKDklncEV4dFJvdXRlVGFnGAQgAygLMi4uc2VydmljZV9sYXllci5TTEJn",
+            "cGxzVG9wb1ByZWZpeElncEV4dFJvdXRlVGFnEjYKBk1ldHJpYxgFIAEoCzIm",
+            "LnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9QcmVmaXhNZXRyaWMSQAoLT3Nw",
+            "ZkZ3ZEFkZHIYBiABKAsyKy5zZXJ2aWNlX2xheWVyLlNMQmdwbHNUb3BvUHJl",
+            "Zml4T3NwZkZ3ZEFkZHISPgoKT3BhcXVlQXR0chgHIAEoCzIqLnNlcnZpY2Vf",
+            "bGF5ZXIuU0xCZ3Bsc1RvcG9QcmVmaXhPcGFxdWVBdHRyEjAKA1NpZBgIIAEo",
+            "CzIjLnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9QcmVmaXhTaWQSNAoFUmFu",
+            "Z2UYCSABKAsyJS5zZXJ2aWNlX2xheWVyLlNMQmdwbHNUb3BvUHJlZml4UmFu",
+            "Z2USOAoHU3J2NkxvYxgKIAEoCzInLnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc1Rv",
+            "cG9QcmVmaXhTcnY2TG9jEjwKCUF0dHJGbGFncxgLIAEoCzIpLnNlcnZpY2Vf",
+            "bGF5ZXIuU0xCZ3Bsc1RvcG9QcmVmaXhBdHRyRmxhZ3MSQAoLU3JjUm91dGVy",
+            "SWQYDCABKAsyKy5zZXJ2aWNlX2xheWVyLlNMQmdwbHNUb3BvUHJlZml4U3Jj",
+            "Um91dGVySWQi5AEKFlNMQmdwbHNUb3BvU3J2NlNpZEF0dHISSAoQRW5kUG9p",
+            "bnRCZWhhdmlvchgBIAEoCzIuLnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9T",
+            "cnY2RW5kUG9pbnRCZWhhdmlvchJECg5CZ3BQZWVyTm9kZVNpZBgCIAMoCzIs",
+            "LnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9TcnY2QmdwUGVlck5vZGVTaWQS",
+            "OgoJU2lkU3RydWN0GAMgASgLMicuc2VydmljZV9sYXllci5TTEJncGxzVG9w",
+            "b1NydjZTaWRTdHJ1Y3QirgMKF1NMQmdwbHNUb3BvU3JQb2xpY3lBdHRyEjYK",
+            "BlNyQnNpZBgBIAEoCzImLnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9TckJp",
+            "bmRpbmdTaWQSNAoHQ3BTdGF0ZRgCIAEoCzIjLnNlcnZpY2VfbGF5ZXIuU0xC",
+            "Z3Bsc1RvcG9TckNwU3RhdGUSMgoGQ3BOYW1lGAMgASgLMiIuc2VydmljZV9s",
+            "YXllci5TTEJncGxzVG9wb1NyQ3BOYW1lEkAKDUNwQ29uc3RyYWludHMYBCAB",
+            "KAsyKS5zZXJ2aWNlX2xheWVyLlNMQmdwbHNUb3BvU3JDcENvbnN0cmFpbnRz",
+            "EjUKCFNlZ0xpc3RzGAUgAygLMiMuc2VydmljZV9sYXllci5TTEJncGxzVG9w",
+            "b1NyU2VnTGlzdBI6CghTcnY2QnNpZBgGIAEoCzIoLnNlcnZpY2VfbGF5ZXIu",
+            "U0xCZ3Bsc1RvcG9TcnY2QmluZGluZ1NpZBI8CgxTclBvbGljeU5hbWUYByAB",
+            "KAsyJi5zZXJ2aWNlX2xheWVyLlNMQmdwbHNUb3BvU3JQb2xpY3lOYW1lIjsK",
+            "FlNMQnBsc1RvcG9MaW5rTG9jUmVtSWQSDwoHTG9jYWxJZBgBIAEoDRIQCghS",
+            "ZW1vdGVJZBgCIAEoDSIfCg9TTEJncGxzVG9wb010SWQSDAoETXRJZBgBIAEo",
+            "DSIxChJTTEJncGxzVG9wb05vZGVNc2QSDAoEVHlwZRgBIAEoDRINCgVWYWx1",
+            "ZRgCIAEoDSIxChJTTEJncGxzVG9wb0xpbmtNc2QSDAoEVHlwZRgBIAEoDRIN",
+            "CgVWYWx1ZRgCIAEoDSIoChdTTEJncGxzVG9wb05vZGVGbGFnQml0cxINCgVG",
+            "bGFncxgBIAEoDCIvChlTTEJncGxzVG9wb05vZGVPcGFxdWVBdHRyEhIKCk9w",
+            "YXF1ZUF0dHIYASABKAwiHwoPU0xCZ3Bsc05vZGVOYW1lEgwKBE5hbWUYASAB",
+            "KAkiJwoVU0xCZ3Bsc1RvcG9Jc2lzQXJlYUlkEg4KBkFyZWFJZBgBIAEoDCIw",
+            "ChxTTEJncGxzVG9wb0xvY2FsSXB2NFJvdXRlcklkEhAKCFJvdXRlcklkGAEg",
+            "ASgNIjAKHFNMQmdwbHNUb3BvTG9jYWxJcHY2Um91dGVySWQSEAoIUm91dGVy",
+            "SWQYASABKAwiMQodU0xCZ3Bsc1RvcG9SZW1vdGVJcHY0Um91dGVySWQSEAoI",
+            "Um91dGVySWQYASABKA0iMQodU0xCZ3Bsc1RvcG9SZW1vdGVJcHY2Um91dGVy",
+            "SWQSEAoIUm91dGVySWQYASABKAwiOAoPU0xCZ3Bsc1RvcG9TcmdiEhIKClN0",
+            "YXJ0TGFiZWwYASABKA0SEQoJUmFuZ2VTaXplGAIgASgNIikKGFNMQmdwbHNU",
+            "b3BvU3JnYklzaXNGbGFncxINCgVGbGFncxgBIAEoDCIsChZTTEJncGxzVG9w",
+            "b1NyQWxnb3JpdGhtEhIKCkFsZ29yaXRobXMYASABKAwiOAoPU0xCZ3Bsc1Rv",
+            "cG9TcmxiEhIKClN0YXJ0TGFiZWwYASABKA0SEQoJUmFuZ2VTaXplGAIgASgN",
+            "ItgCCg5TTEJncGxzVG9wb0ZhZBIRCglBbGdvcml0aG0YASABKAwSEgoKTWV0",
+            "cmljVHlwZRgCIAEoDBIQCghDYWxjVHlwZRgDIAEoDBIQCghQcmlvcml0eRgE",
+            "IAEoDBIRCglFeGNBbnlBZmYYBSADKA0SEQoJSW5jQW55QWZmGAYgAygNEhEK",
+            "CUluY0FsbEFmZhgHIAMoDRINCgVGbGFncxgIIAEoDBIPCgdFeGNTcmxnGAkg",
+            "AygNEjkKCVVuc3VwcFRsdhgPIAEoCzImLnNlcnZpY2VfbGF5ZXIuU0xCZ3Bs",
+            "c1RvcG9GYWRVbnN1cHBUbHYSEAoIRXhjTWluQncYDiABKAwSEwoLRXhjTWF4",
+            "RGVsYXkYDSABKA0SFAoMRXhjQW55UmV2QWZmGAogAygNEhQKDEluY0FueVJl",
+            "dkFmZhgLIAMoDRIUCgxJbmNBbGxSZXZBZmYYDCADKA0iSAoVU0xCZ3Bsc1Rv",
+            "cG9QcmVmaXhGQVBNEhAKCEZsZXhBbGdvGAEgASgNEg0KBUZsYWdzGAIgASgM",
+            "Eg4KBk1ldHJpYxgDIAEoDSJeChdTTEJncGxzVG9wb0ZhZFVuc3VwcFRsdhI0",
+            "CghQcm90b2NvbBgBIAEoDjIiLnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9Q",
+            "cm90b2NvbBINCgVUeXBlcxgCIAEoDCIpChhTTEJncGxzVG9wb0V4dEFkbWlu",
+            "R3JvdXASDQoFR3JvdXAYASABKA0iMAobU0xCZ3Bsc1RvcG9MaW5rTWF4QmFu",
+            "ZHdpZHRoEhEKCUJhbmR3aWR0aBgBIAEoDCI0Ch9TTEJncGxzVG9wb0xpbmtN",
+            "YXhSZXN2QmFuZHdpZHRoEhEKCUJhbmR3aWR0aBgBIAEoDCJFCh5TTEJncGxz",
+            "VG9wb0xpbmtVbnJlc3ZCYW5kd2lkdGgSEAoIUHJpb3JpdHkYASABKA0SEQoJ",
+            "QmFuZHdpZHRoGAIgASgMIjAKHlNMQmdwbHNUb3BvTGlua1RlRGVmYXVsdE1l",
+            "dHJpYxIOCgZNZXRyaWMYASABKA0iLAocU0xCZ3Bsc1RvcG9MaW5rUHJvdGVj",
+            "aW9uVHlwZRIMCgRNYXNrGAEgASgNIiwKHFNMQmdwbHNUb3BvTGlua01wbHNQ",
+            "cm90b01hc2sSDAoETWFzaxgBIAEoDCIqChhTTEJncGxzVG9wb0xpbmtJZ3BN",
+            "ZXRyaWMSDgoGTWV0cmljGAEgASgMIiYKE1NMQmdwbHNUb3BvTGlua1NybGcS",
+            "DwoHU3JsZ1ZhbBgBIAEoDSIvChlTTEJncGxzVG9wb0xpbmtPcGFxdWVBdHRy",
+            "EhIKCk9wYXF1ZUF0dHIYASABKAwiIwoTU0xCZ3Bsc1RvcG9MaW5rTmFtZRIM",
+            "CgROYW1lGAEgASgJIoQBChFTTEJncGxzVG9wb0FkalNpZBISCgpMYWJlbElu",
+            "ZGV4GAEgASgNEjwKDEFkalNpZEZvcm1hdBgCIAEoDjImLnNlcnZpY2VfbGF5",
+            "ZXIuU0xCZ3Bsc1RvcG9BZGpTaWRGb3JtYXQSDQoFRmxhZ3MYAyABKAwSDgoG",
+            "V2VpZ2h0GAQgASgNIr8BChRTTEJncGxzVG9wb0xhbkFkalNpZBI2CghOZWln",
             "aGJvchgBIAEoCzIkLnNlcnZpY2VfbGF5ZXIuU0xCZ3BMc1RvcG9OZWlnaGJv",
-            "cklkEgsKA1NpZBgCIAEoDBIRCglBbGdvcml0aG0YAyABKA0SDQoFRmxhZ3MY",
-            "BCABKAwSDgoGV2VpZ2h0GAUgASgNEhgKEEVuZFBvaW50QmVoYXZpb3IYBiAB",
-            "KA0SOgoJU2lkU3RydWN0GAcgASgLMicuc2VydmljZV9sYXllci5TTEJncGxz",
-            "VG9wb1NydjZTaWRTdHJ1Y3QiNwoXU0xCZ3Bsc1RvcG9VbmlMaW5rRGVsYXkS",
-            "DQoFRGVsYXkYASABKA0SDQoFRmxhZ3MYAiABKAwiSAodU0xCZ3Bsc1RvcG9N",
-            "aW5NYXhVbmlMaW5rRGVsYXkSCwoDTWluGAEgASgNEgsKA01heBgCIAEoDRIN",
-            "CgVGbGFncxgDIAEoDCI6ChZTTEJncGxzVG9wb1VuaURlbGF5VmFyEhEKCVZh",
-            "cmlhdGlvbhgBIAEoDRINCgVGbGFncxgCIAEoDCI1ChZTTEJncGxzVG9wb1Vu",
-            "aUxpbmtMb3NzEgwKBExvc3MYASABKA0SDQoFRmxhZ3MYAiABKAwiLwoaU0xC",
-            "Z3Bsc1RvcG9VbmlSZXNCYW5kd2lkdGgSEQoJQmFuZHdpZHRoGAEgASgMIjEK",
-            "HFNMQmdwbHNUb3BvVW5pQXZhaWxCYW5kd2lkdGgSEQoJQmFuZHdpZHRoGAEg",
-            "ASgMIjAKG1NMQmdwbHNUb3BvVW5pVXRpbEJhbmR3aWR0aBIRCglCYW5kd2lk",
-            "dGgYASABKAwiKgoZU0xCZ3Bsc1RvcG9QcmVmaXhJZ3BGbGFncxINCgVGbGFn",
-            "cxgBIAEoDCIrChxTTEJncGxzVG9wb1ByZWZpeElncFJvdXRlVGFnEgsKA1Rh",
-            "ZxgBIAEoDSIuCh9TTEJncGxzVG9wb1ByZWZpeElncEV4dFJvdXRlVGFnEgsK",
-            "A1RhZxgBIAEoDSIpChdTTEJncGxzVG9wb1ByZWZpeE1ldHJpYxIOCgZNZXRy",
-            "aWMYASABKA0icQocU0xCZ3Bsc1RvcG9QcmVmaXhPc3BmRndkQWRkchISCghJ",
-            "cHY0QWRkchgBIAEoDUgAEhIKCElwdjZBZGRyGAIgASgMSAASGgoSSXNPc3Bm",
-            "RndkQWRkcmRJcHY0GAMgASgNQg0KC09zcGZGd2RBZGRyIjEKG1NMQmdwbHNU",
-            "b3BvUHJlZml4T3BhcXVlQXR0chISCgpPcGFxdWVBdHRyGAEgASgMIpABChRT",
-            "TEJncGxzVG9wb1ByZWZpeFNpZBINCgVGbGFncxgBIAEoDBIRCglBbGdvcml0",
-            "aG0YAiABKA0SEgoKTGFiZWxJbmRleBgDIAEoDRJCCg9QcmVmaXhTaWRGb3Jt",
-            "YXQYBCABKA4yKS5zZXJ2aWNlX2xheWVyLlNMQmdwbHNUb3BvUHJlZml4U2lk",
-            "Rm9ybWF0Im4KFlNMQmdwbHNUb3BvUHJlZml4UmFuZ2USDQoFRmxhZ3MYASAB",
-            "KAwSEQoJUmFuZ2VTaXplGAIgASgNEhEKCUFsZ29yaXRobRgDIAEoDRINCgVJ",
-            "bmRleBgEIAEoDRIQCghTaWRGbGFncxgFIAEoDCJMChhTTEJncGxzVG9wb1By",
-            "ZWZpeFNydjZMb2MSDQoFRmxhZ3MYASABKAwSEQoJQWxnb3JpdGhtGAIgASgN",
-            "Eg4KBk1ldHJpYxgDIAEoDSIrChpTTEJncGxzVG9wb1ByZWZpeEF0dHJGbGFn",
-            "cxINCgVGbGFncxgBIAEoDCJwChxTTEJncGxzVG9wb1ByZWZpeFNyY1JvdXRl",
-            "cklkEhIKCElwdjRBZGRyGAEgASgNSAASEgoISXB2NkFkZHIYAiABKAxIABIZ",
-            "ChFJc1NyY1JvdXRlcklkSXB2NBgDIAEoDUINCgtTcmNSb3V0ZXJJZCLBCAod",
-            "U0xCZ3Bsc1RvcG9MMkJ1bmRsZU1lbWJlckF0dHISEgoKTWVtYmVyRGVzYxgB",
-            "IAEoDRI+Cg1FeHRBZG1pbkdyb3VwGAMgAygLMicuc2VydmljZV9sYXllci5T",
-            "TEJncGxzVG9wb0V4dEFkbWluR3JvdXASQAoMTWF4QmFuZHdpZHRoGAIgASgL",
-            "Miouc2VydmljZV9sYXllci5TTEJncGxzVG9wb0xpbmtNYXhCYW5kd2lkdGgS",
-            "SAoQTWF4UmVzdkJhbmR3aWR0aBgEIAEoCzIuLnNlcnZpY2VfbGF5ZXIuU0xC",
-            "Z3Bsc1RvcG9MaW5rTWF4UmVzdkJhbmR3aWR0aBJGCg9VbnJlc3ZCYW5kd2lk",
-            "dGgYBSADKAsyLS5zZXJ2aWNlX2xheWVyLlNMQmdwbHNUb3BvTGlua1VucmVz",
-            "dkJhbmR3aWR0aBJCCgtUZURlZk1ldHJpYxgGIAEoCzItLnNlcnZpY2VfbGF5",
-            "ZXIuU0xCZ3Bsc1RvcG9MaW5rVGVEZWZhdWx0TWV0cmljEkMKDlByb3RlY3Rp",
-            "b25UeXBlGAcgASgLMisuc2VydmljZV9sYXllci5TTEJncGxzVG9wb0xpbmtQ",
-            "cm90ZWNpb25UeXBlEjAKBkFkalNpZBgIIAMoCzIgLnNlcnZpY2VfbGF5ZXIu",
-            "U0xCZ3Bsc1RvcG9BZGpTaWQSNgoJTGFuQWRqU2lkGAkgAygLMiMuc2Vydmlj",
-            "ZV9sYXllci5TTEJncGxzVG9wb0xhbkFkalNpZBI8CgxVbmlMaW5rRGVsYXkY",
-            "CiABKAsyJi5zZXJ2aWNlX2xheWVyLlNMQmdwbHNUb3BvVW5pTGlua0RlbGF5",
-            "EkUKD01pbk1heExpbmtEZWxheRgLIAEoCzIsLnNlcnZpY2VfbGF5ZXIuU0xC",
-            "Z3Bsc1RvcG9NaW5NYXhVbmlMaW5rRGVsYXkSQAoRVW5pRGVsYXlWYXJpYXRp",
-            "b24YDCABKAsyJS5zZXJ2aWNlX2xheWVyLlNMQmdwbHNUb3BvVW5pRGVsYXlW",
-            "YXISOgoLVW5pTGlua0xvc3MYDSABKAsyJS5zZXJ2aWNlX2xheWVyLlNMQmdw",
-            "bHNUb3BvVW5pTGlua0xvc3MSQgoPVW5pUmVzQmFuZHdpZHRoGA4gASgLMiku",
-            "c2VydmljZV9sYXllci5TTEJncGxzVG9wb1VuaVJlc0JhbmR3aWR0aBJGChFV",
-            "bmlBdmFpbEJhbmR3aWR0aBgPIAEoCzIrLnNlcnZpY2VfbGF5ZXIuU0xCZ3Bs",
-            "c1RvcG9VbmlBdmFpbEJhbmR3aWR0aBJEChBVbmlVdGlsQmFuZHdpZHRoGBAg",
-            "ASgLMiouc2VydmljZV9sYXllci5TTEJncGxzVG9wb1VuaVV0aWxCYW5kd2lk",
-            "dGgSMAoEQXNsYRgRIAMoCzIiLnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9B",
-            "c2xhQXR0ciK9BQoTU0xCZ3Bsc1RvcG9Bc2xhQXR0chIMCgRTYWJtGAEgASgM",
-            "Eg0KBVVkYWJtGAIgASgMEj4KDUV4dEFkbWluR3JvdXAYAyADKAsyJy5zZXJ2",
-            "aWNlX2xheWVyLlNMQmdwbHNUb3BvRXh0QWRtaW5Hcm91cBJCCgtUZURlZk1l",
-            "dHJpYxgEIAEoCzItLnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9MaW5rVGVE",
-            "ZWZhdWx0TWV0cmljEjAKBFNybGcYBSABKAsyIi5zZXJ2aWNlX2xheWVyLlNM",
-            "QmdwbHNUb3BvTGlua1NybGcSPAoMVW5pTGlua0RlbGF5GAYgASgLMiYuc2Vy",
-            "dmljZV9sYXllci5TTEJncGxzVG9wb1VuaUxpbmtEZWxheRJFCg9NaW5NYXhM",
-            "aW5rRGVsYXkYByABKAsyLC5zZXJ2aWNlX2xheWVyLlNMQmdwbHNUb3BvTWlu",
-            "TWF4VW5pTGlua0RlbGF5EkAKEVVuaURlbGF5VmFyaWF0aW9uGAggASgLMiUu",
-            "c2VydmljZV9sYXllci5TTEJncGxzVG9wb1VuaURlbGF5VmFyEjoKC1VuaUxp",
-            "bmtMb3NzGAkgASgLMiUuc2VydmljZV9sYXllci5TTEJncGxzVG9wb1VuaUxp",
-            "bmtMb3NzEkIKD1VuaVJlc0JhbmR3aWR0aBgKIAEoCzIpLnNlcnZpY2VfbGF5",
-            "ZXIuU0xCZ3Bsc1RvcG9VbmlSZXNCYW5kd2lkdGgSRgoRVW5pQXZhaWxCYW5k",
-            "d2lkdGgYCyABKAsyKy5zZXJ2aWNlX2xheWVyLlNMQmdwbHNUb3BvVW5pQXZh",
-            "aWxCYW5kd2lkdGgSRAoQVW5pVXRpbEJhbmR3aWR0aBgMIAEoCzIqLnNlcnZp",
-            "Y2VfbGF5ZXIuU0xCZ3Bsc1RvcG9VbmlVdGlsQmFuZHdpZHRoImMKEVNsQmdw",
-            "bHNUb3BvU3JCc2lkEhIKCE1wbHNCc2lkGAEgASgNSAASEgoIU3J2NkJzaWQY",
-            "AiABKAxIABIYChBJc0JpbmRpbmdTaWRNcGxzGAMgASgNQgwKCkJpbmRpbmdT",
-            "aWQilQEKF1NMQmdwbHNUb3BvU3JCaW5kaW5nU2lkEhEKCUJzaWRGbGFncxgB",
-            "IAEoDBIuCgRCc2lkGAIgASgLMiAuc2VydmljZV9sYXllci5TbEJncGxzVG9w",
-            "b1NyQnNpZBI3Cg1TcGVjaWZpZWRCc2lkGAMgASgLMiAuc2VydmljZV9sYXll",
-            "ci5TbEJncGxzVG9wb1NyQnNpZCJLChRTTEJncGxzVG9wb1NyQ3BTdGF0ZRIQ",
-            "CghQcmlvcml0eRgBIAEoDRINCgVGbGFncxgCIAEoDBISCgpQcmVmZXJlbmNl",
-            "GAMgASgNIiMKE1NMQmdwbHNUb3BvU3JDcE5hbWUSDAoETmFtZRgBIAEoCSLZ",
-            "AwoaU0xCZ3Bsc1RvcG9TckNwQ29uc3RyYWludHMSDQoFRmxhZ3MYASABKAwS",
-            "DAoETXRpZBgCIAEoDRIRCglBbGdvcml0aG0YAyABKA0SQQoIQWZmaW5pdHkY",
-            "BSABKAsyLy5zZXJ2aWNlX2xheWVyLlNMQmdwbHNUb3BvU3JBZmZpbml0eUNv",
-            "bnN0cmFpbnRzEjkKBFNybGcYBiABKAsyKy5zZXJ2aWNlX2xheWVyLlNMQmdw",
-            "bHNUb3BvU3JTcmxnQ29uc3RyYWludHMSQgoJQmFuZHdpZHRoGAQgASgLMi8u",
-            "c2VydmljZV9sYXllci5TTEJncGxzVG9wb1NyQmFuZHdpZHRoQ29uc3RyYWlu",
-            "dBJFCghEaXNqb2ludBgHIAEoCzIzLnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc1Rv",
-            "cG9TckRpc2pvaW50R3JvdXBDb25zdHJhaW50EkQKCkJpZGlyR3JvdXAYCCAB",
-            "KAsyMC5zZXJ2aWNlX2xheWVyLlNMQmdwbHNUb3BvU3JCaWRpckdyb3VwQ29u",
-            "c3RyYWludBI8CgZNZXRyaWMYCSADKAsyLC5zZXJ2aWNlX2xheWVyLlNMQmdw",
-            "bHNUb3BvU3JNZXRyaWNDb25zdHJhaW50Io0BChRTTEJncGxzVG9wb1NyU2Vn",
-            "TGlzdBINCgVGbGFncxgBIAEoDBIMCgRNdGlkGAIgASgNEhEKCUFsZ29yaXRo",
-            "bRgDIAEoDRIOCgZXZWlnaHQYBCABKA0SNQoIU2VnbWVudHMYBSADKAsyIy5z",
-            "ZXJ2aWNlX2xheWVyLlNMQmdwbHNUb3BvU3JTZWdtZW50IvcCChhTTEJncGxz",
-            "VG9wb1NyU2VnbWVudERlc2MSEQoJQWxnb3JpdGhtGAEgASgNEhsKEUlwdjRM",
-            "b2NhbE5vZGVBZGRyGAIgASgNSAASGwoRSXB2NkxvY2FsTm9kZUFkZHIYAyAB",
-            "KAxIABIbChNJc0xvY2FsTm9kZUFkZHJJcHY0GAQgASgNEhwKEklwdjRSZW1v",
-            "dGVOb2RlQWRkchgFIAEoDUgBEhwKEklwdjZSZW1vdGVOb2RlQWRkchgGIAEo",
-            "DEgBEhwKFElzUmVtb3RlTm9kZUFkZHJJcHY0GAcgASgNEh8KF0lwdjZMb2Nh",
-            "bE5vZGVHbG9iYWxBZGRyGAggASgMEiAKGElwdjZSZW1vdGVOb2RlR2xvYmFs",
-            "QWRkchgJIAEoDBIXCg9Mb2NhbE5vZGVJbnRmSWQYCiABKA0SGAoQUmVtb3Rl",
-            "Tm9kZUludGZJZBgLIAEoDUIPCg1Mb2NhbE5vZGVBZGRyQhAKDlJlbW90ZU5v",
-            "ZGVBZGRyIuMCChRTTEJncGxzVG9wb1NyU2VnbWVudBI1CgRUeXBlGAEgASgO",
-            "Micuc2VydmljZV9sYXllci5TTEJncGxzVG9wb1NyU2VnbWVudFR5cGUSDQoF",
-            "RmxhZ3MYAiABKAwSEwoJTXBsc0xhYmVsGAMgASgNSAASEQoHU3J2NlNpZBgE",
-            "IAEoDEgAEhEKCUlzU2lkTXBscxgFIAEoDRI8CgtTZWdtZW50RGVzYxgGIAEo",
-            "CzInLnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9TclNlZ21lbnREZXNjEkkK",
-            "EUVuZFBvaW50QmVoYXZpb3VyGAcgASgLMi4uc2VydmljZV9sYXllci5TTEJn",
-            "cGxzVG9wb1NydjZFbmRQb2ludEJlaGF2aW9yEjoKCVNpZFN0cnVjdBgIIAEo",
-            "CzInLnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9TcnY2U2lkU3RydWN0QgUK",
-            "A1NpZCJjChZTTEJncGxzU3JTZWdMaXN0TWV0cmljEgwKBFR5cGUYASABKA0S",
-            "DQoFRmxhZ3MYAiABKAwSDgoGTWFyZ2luGAMgASgNEg0KBUJvdW5kGAQgASgN",
-            "Eg0KBVZhbHVlGAUgASgNIl4KIFNMQmdwbHNUb3BvU3JBZmZpbml0eUNvbnN0",
-            "cmFpbnRzEhIKCkV4Y2xBbnlFYWcYASADKA0SEgoKSW5jbEFueUVhZxgCIAMo",
-            "DRISCgpJbmNsQWxsRWFnGAMgAygNIjIKHFNMQmdwbHNUb3BvU3JTcmxnQ29u",
-            "c3RyYWludHMSEgoKU3JsZ1ZhbHVlcxgBIAMoDSI1CiBTTEJncGxzVG9wb1Ny",
-            "QmFuZHdpZHRoQ29uc3RyYWludBIRCglCYW5kd2lkdGgYASABKAwiYgokU0xC",
-            "Z3Bsc1RvcG9TckRpc2pvaW50R3JvdXBDb25zdHJhaW50EhQKDFJlcXVlc3RG",
-            "bGFncxgBIAEoDBITCgtTdGF0dXNGbGFncxgCIAEoDBIPCgdHcm91cElkGAMg",
-            "ASgNIpoCChlTTEJncGxzVG9wb1NydjZCaW5kaW5nU2lkEg0KBUZsYWdzGAEg",
-            "ASgMEi4KBEJzaWQYAiABKAsyIC5zZXJ2aWNlX2xheWVyLlNsQmdwbHNUb3Bv",
-            "U3JCc2lkEjcKDVNwZWNpZmllZEJzaWQYAyABKAsyIC5zZXJ2aWNlX2xheWVy",
-            "LlNsQmdwbHNUb3BvU3JCc2lkEkkKEUVuZFBvaW50QmVoYXZpb3VyGAQgASgL",
-            "Mi4uc2VydmljZV9sYXllci5TTEJncGxzVG9wb1NydjZFbmRQb2ludEJlaGF2",
-            "aW9yEjoKCVNpZFN0cnVjdBgFIAEoCzInLnNlcnZpY2VfbGF5ZXIuU0xCZ3Bs",
-            "c1RvcG9TcnY2U2lkU3RydWN0IicKF1NMQmdwbHNUb3BvU3JQb2xpY3lOYW1l",
-            "EgwKBE5hbWUYASABKAkiQwohU0xCZ3Bsc1RvcG9TckJpZGlyR3JvdXBDb25z",
-            "dHJhaW50Eg0KBUZsYWdzGAEgASgMEg8KB0dyb3VwSWQYAiABKA0iWwodU0xC",
-            "Z3Bsc1RvcG9Tck1ldHJpY0NvbnN0cmFpbnQSDAoEVHlwZRgBIAEoDRINCgVG",
-            "bGFncxgCIAEoDBIOCgZNYXJnaW4YAyABKA0SDQoFQm91bmQYBCABKA0iOQok",
-            "U0xCZ3Bsc1RvcG9TckNwU2VnTGlzdEJhbmR3aWR0aFN0YXRlEhEKCUJhbmR3",
-            "aWR0aBgBIAEoDCIrChZTTEJncGxzVG9wb1NyU2VnTGlzdElkEhEKCVNlZ0xp",
-            "c3RJZBgBIAEoDSJdCh9TTEJncGxzVG9wb1NydjZFbmRQb2ludEJlaGF2aW9y",
-            "EhgKEEVuZFBvaW50QmVoYXZpb3IYASABKA0SDQoFRmxhZ3MYAiABKAwSEQoJ",
-            "QWxnb3JpdGhtGAMgASgNImEKHVNMQmdwbHNUb3BvU3J2NkJncFBlZXJOb2Rl",
-            "U2lkEg0KBUZsYWdzGAEgASgMEg4KBldlaWdodBgCIAEoDRIOCgZQZWVyQVMY",
-            "AyABKA0SEQoJUGVlckJncElkGAQgASgNInAKGFNMQmdwbHNUb3BvU3J2NlNp",
-            "ZFN0cnVjdBIXCg9Mb2NhdG9yQmxvY2tMZW4YASABKA0SFgoOTG9jYXRvck5v",
-            "ZGVMZW4YAiABKA0SEwoLRnVuY3Rpb25MZW4YAyABKA0SDgoGQXJnTGVuGAQg",
-            "ASgNKswBChJTTEJncGxzVG9wb1VwZFR5cGUSIwofU0xfQkdQTFNfVE9QT19V",
-            "UERfVFlQRV9SRVNFUlZFRBAAEiAKHFNMX0JHUExTX1RPUE9fVVBEX1RZUEVf",
-            "RVJST1IQARIfChtTTF9CR1BMU19UT1BPX1VQRF9UWVBFX0RBVEEQAhInCiNT",
-            "TF9CR1BMU19UT1BPX1VQRF9UWVBFX1NUQVJUX01BUktFUhADEiUKIVNMX0JH",
-            "UExTX1RPUE9fVVBEX1RZUEVfRU5EX01BUktFUhAEKoQBChRTTEJncGxzVG9w",
-            "b09wZXJhdGlvbhIkCiBTTF9CR1BMU19UT1BPX09QRVJBVElPTl9SRVNFUlZF",
-            "RBAAEiIKHlNMX0JHUExTX1RPUE9fT1BFUkFUSU9OX1VQREFURRABEiIKHlNM",
-            "X0JHUExTX1RPUE9fT1BFUkFUSU9OX0RFTEVURRACKq0CChNTTEJncGxzVG9w",
-            "b05scmlUeXBlEiQKIFNMX0JHUExTX1RPUE9fTkxSSV9UWVBFX1JFU0VSVkVE",
-            "EAASIAocU0xfQkdQTFNfVE9QT19OTFJJX1RZUEVfTk9ERRABEiAKHFNMX0JH",
-            "UExTX1RPUE9fTkxSSV9UWVBFX0xJTksQAhInCiNTTF9CR1BMU19UT1BPX05M",
-            "UklfVFlQRV9JUFY0X1BSRUZJWBADEicKI1NMX0JHUExTX1RPUE9fTkxSSV9U",
-            "WVBFX0lQVjZfUFJFRklYEAQSNAowU0xfQkdQTFNfVE9QT19OTFJJX1RZUEVf",
-            "U1JfUE9MSUNZX0NBTkRJREFURV9QQVRIEAUSJAogU0xfQkdQTFNfVE9QT19O",
-            "TFJJX1RZUEVfU1JWNl9TSUQQBirxAgoTU0xCZ3Bsc1RvcG9Qcm90b2NvbBIj",
-            "Ch9TTF9CR1BMU19UT1BPX1BST1RPQ09MX1JFU0VSVkVEEAASIgoeU0xfQkdQ",
-            "TFNfVE9QT19QUk9UT0NPTF9JU0lTX0wxEAESIgoeU0xfQkdQTFNfVE9QT19Q",
-            "Uk9UT0NPTF9JU0lTX0wyEAISIQodU0xfQkdQTFNfVE9QT19QUk9UT0NPTF9P",
-            "U1BGdjIQAxIhCh1TTF9CR1BMU19UT1BPX1BST1RPQ09MX0RJUkVDVBAEEiEK",
-            "HVNMX0JHUExTX1RPUE9fUFJPVE9DT0xfU1RBVElDEAUSIQodU0xfQkdQTFNf",
-            "VE9QT19QUk9UT0NPTF9PU1BGdjMQBhIeChpTTF9CR1BMU19UT1BPX1BST1RP",
-            "Q09MX0JHUBAHEiIKHlNMX0JHUExTX1RPUE9fUFJPVE9DT0xfUlNWUF9URRAI",
-            "Eh0KGVNMX0JHUExTX1RPUE9fUFJPVE9DT0xfU1IQCSr6AQoVU0xCZ3Bsc1Rv",
-            "cG9Ob2RlSWRUeXBlEicKI1NMX0JHUExTX1RPUE9fTk9ERV9JRF9UWVBFX1JF",
-            "U0VSVkVEEAASIwofU0xfQkdQTFNfVE9QT19OT0RFX0lEX1RZUEVfSVNJUxAB",
-            "EiUKIVNMX0JHUExTX1RPUE9fTk9ERV9JRF9UWVBFX09TUEZ2MhACEiUKIVNM",
-            "X0JHUExTX1RPUE9fTk9ERV9JRF9UWVBFX09TUEZ2MxADEiIKHlNMX0JHUExT",
-            "X1RPUE9fTk9ERV9JRF9UWVBFX0JHUBAEEiEKHVNMX0JHUExTX1RPUE9fTk9E",
-            "RV9JRF9UWVBFX1NSEAUqzgIKGFNMQmdwbHNUb3BvT3NwZlJvdXRlVHlwZRIq",
-            "CiZTTF9CR1BMU19UT1BPX09TUEZfUk9VVEVfVFlQRV9SRVNFUlZFRBAAEiwK",
-            "KFNMX0JHUExTX1RPUE9fT1NQRl9ST1VURV9UWVBFX0lOVFJBX0FSRUEQARIs",
-            "CihTTF9CR1BMU19UT1BPX09TUEZfUk9VVEVfVFlQRV9JTlRFUl9BUkVBEAIS",
-            "KgomU0xfQkdQTFNfVE9QT19PU1BGX1JPVVRFX1RZUEVfRVhURVJOXzEQAxIq",
-            "CiZTTF9CR1BMU19UT1BPX09TUEZfUk9VVEVfVFlQRV9FWFRFUk5fMhAEEigK",
-            "JFNMX0JHUExTX1RPUE9fT1NQRl9ST1VURV9UWVBFX05TU0FfMRAFEigKJFNM",
-            "X0JHUExTX1RPUE9fT1NQRl9ST1VURV9UWVBFX05TU0FfMhAGKrMDCiFTTEJn",
-            "cGxzVG9wb1NyUG9saWN5UHJvdG9jb2xPcmlnaW4SNAowU0xfQkdQTFNfVE9Q",
-            "T19TUl9QT0xJQ1lfUFJPVE9DT0xfT1JJR0lOX1JFU0VSVkVEEAASMAosU0xf",
-            "QkdQTFNfVE9QT19TUl9QT0xJQ1lfUFJPVE9DT0xfT1JJR0lOX1BDRVAQARI5",
-            "CjVTTF9CR1BMU19UT1BPX1NSX1BPTElDWV9QUk9UT0NPTF9PUklHSU5fQkdQ",
-            "X1NSX1BPTElDWRACEjIKLlNMX0JHUExTX1RPUE9fU1JfUE9MSUNZX1BST1RP",
-            "Q09MX09SSUdJTl9DT05GSUcQAxI4CjRTTF9CR1BMU19UT1BPX1NSX1BPTElD",
-            "WV9QUk9UT0NPTF9PUklHSU5fUENFUF9WSUFfUENFEAoSQQo9U0xfQkdQTFNf",
-            "VE9QT19TUl9QT0xJQ1lfUFJPVE9DT0xfT1JJR0lOX0JHUF9TUl9QT0xJQ1lf",
-            "VklBX1BDRRAUEjoKNlNMX0JHUExTX1RPUE9fU1JfUE9MSUNZX1BST1RPQ09M",
-            "X09SSUdJTl9DT05GSUdfVklBX1BDRRAeKq0CChNTTEJncGxzVG9wb0F0dHJU",
-            "eXBlEiQKIFNMX0JHUExTX1RPUE9fQVRUUl9UWVBFX1JFU0VSVkVEEAASIAoc",
-            "U0xfQkdQTFNfVE9QT19BVFRSX1RZUEVfTk9ERRABEiAKHFNMX0JHUExTX1RP",
-            "UE9fQVRUUl9UWVBFX0xJTksQAhInCiNTTF9CR1BMU19UT1BPX0FUVFJfVFlQ",
-            "RV9JUFY0X1BSRUZJWBADEicKI1NMX0JHUExTX1RPUE9fQVRUUl9UWVBFX0lQ",
-            "VjZfUFJFRklYEAQSNAowU0xfQkdQTFNfVE9QT19BVFRSX1RZUEVfU1JfUE9M",
-            "SUNZX0NBTkRJREFURV9QQVRIEAUSJAogU0xfQkdQTFNfVE9QT19BVFRSX1RZ",
-            "UEVfU1JWNl9TSUQQBiqUAQoXU0xCZ3Bsc1RvcG9BZGpTaWRGb3JtYXQSKQol",
-            "U0xfQkdQTFNfVE9QT19BREpfU0lEX0ZPUk1BVF9SRVNFUlZFRBAAEiYKIlNM",
-            "X0JHUExTX1RPUE9fQURKX1NJRF9GT1JNQVRfTEFCRUwQARImCiJTTF9CR1BM",
-            "U19UT1BPX0FESl9TSURfRk9STUFUX0lOREVYEAIqoAEKGlNMQmdwbHNUb3Bv",
-            "UHJlZml4U2lkRm9ybWF0EiwKKFNMX0JHUExTX1RPUE9fUFJFRklYX1NJRF9G",
-            "T1JNQVRfUkVTRVJWRUQQABIpCiVTTF9CR1BMU19UT1BPX1BSRUZJWF9TSURf",
-            "Rk9STUFUX0xBQkVMEAESKQolU0xfQkdQTFNfVE9QT19QUkVGSVhfU0lEX0ZP",
-            "Uk1BVF9JTkRFWBACKqgFChhTTEJncGxzVG9wb1NyU2VnbWVudFR5cGUSJgoi",
-            "U0xfQkdQTFNfVE9QT19TUl9TRUdfVFlQRV9SRVNFUlZFRBAAEigKJFNMX0JH",
-            "UExTX1RPUE9fU1JfU0VHX1RZUEVfTVBMU19MQUJFTBABEikKJVNMX0JHUExT",
-            "X1RPUE9fU1JfU0VHX1RZUEVfU1JWNl9TSURfVjYQAhItCilTTF9CR1BMU19U",
-            "T1BPX1NSX1NFR19UWVBFX01QTFNfUEZYX1NJRF9WNBADEi0KKVNMX0JHUExT",
-            "X1RPUE9fU1JfU0VHX1RZUEVfTVBMU19QRlhfU0lEX1Y2EAQSPgo6U0xfQkdQ",
-            "TFNfVE9QT19TUl9TRUdfVFlQRV9NUExTX0FESl9TSURfVjRfTk9ERV9BRERS",
-            "X0xPQ19JRBAFEjoKNlNMX0JHUExTX1RPUE9fU1JfU0VHX1RZUEVfTVBMU19B",
-            "REpfU0lEX1Y0X0xPQ19SRU1fQUREUhAGEkEKPVNMX0JHUExTX1RPUE9fU1Jf",
-            "U0VHX1RZUEVfTVBMU19BREpfU0lEX1Y2X0xPQ19SRU1fQUREUl9BTkRfSUQQ",
-            "BxI6CjZTTF9CR1BMU19UT1BPX1NSX1NFR19UWVBFX01QTFNfQURKX1NJRF9W",
-            "Nl9MT0NfUkVNX0FERFIQCBI3CjNTTF9CR1BMU19UT1BPX1NSX1NFR19UWVBF",
-            "X1NSVjZfRU5EX1NJRF9WNl9OT0RFX0FERFIQCRJBCj1TTF9CR1BMU19UT1BP",
-            "X1NSX1NFR19UWVBFX1NSVjZfRU5EX1NJRF9WNl9MT0NfUkVNX0FERFJfQU5E",
-            "X0lEEAoSOgo2U0xfQkdQTFNfVE9QT19TUl9TRUdfVFlQRV9TUlY2X0VORF9T",
-            "SURfVjZfTE9DX1JFTV9BRERSEAsyfwoXU0xCZ3Bsc1RvcG9TdWJzY3JpcHRp",
-            "b24SZAoXU0xCZ3Bsc1RvcG9HZXRVcGRTdHJlYW0SIy5zZXJ2aWNlX2xheWVy",
-            "LlNMQmdwbHNUb3BvR2V0VXBkTXNnGiAuc2VydmljZV9sYXllci5TTEJncGxz",
-            "VG9wb1VwZE1zZygBMAFCUVpPZ2l0aHViLmNvbS9DaXNjby1zZXJ2aWNlLWxh",
-            "eWVyL3NlcnZpY2UtbGF5ZXItb2JqbW9kZWwvZ3JwYy9wcm90b3M7c2Vydmlj",
-            "ZV9sYXllcmIGcHJvdG8z"));
+            "cklkEhIKCkxhYmVsSW5kZXgYAiABKA0SPAoMQWRqU2lkRm9ybWF0GAMgASgO",
+            "MiYuc2VydmljZV9sYXllci5TTEJncGxzVG9wb0FkalNpZEZvcm1hdBINCgVG",
+            "bGFncxgEIAEoDBIOCgZXZWlnaHQYBSABKA0irQEKFlNMQmdwbHNUb3BvU3J2",
+            "NkVuZFhTaWQSCwoDU2lkGAEgASgMEhEKCUFsZ29yaXRobRgCIAEoDRINCgVG",
+            "bGFncxgDIAEoDBIOCgZXZWlnaHQYBCABKA0SGAoQRW5kUG9pbnRCZWhhdmlv",
+            "chgFIAEoDRI6CglTaWRTdHJ1Y3QYBiABKAsyJy5zZXJ2aWNlX2xheWVyLlNM",
+            "QmdwbHNUb3BvU3J2NlNpZFN0cnVjdCJNChVTTEJncExzVG9wb05laWdoYm9y",
+            "SWQSEgoISXB2NEFkZHIYASABKA1IABISCghTeXN0ZW1JZBgCIAEoDEgAQgwK",
+            "Ck5laWdoYm9ySWQi6AEKGVNMQmdwbHNUb3BvU3J2NkxhbkVuZFhTaWQSNgoI",
+            "TmVpZ2hib3IYASABKAsyJC5zZXJ2aWNlX2xheWVyLlNMQmdwTHNUb3BvTmVp",
+            "Z2hib3JJZBILCgNTaWQYAiABKAwSEQoJQWxnb3JpdGhtGAMgASgNEg0KBUZs",
+            "YWdzGAQgASgMEg4KBldlaWdodBgFIAEoDRIYChBFbmRQb2ludEJlaGF2aW9y",
+            "GAYgASgNEjoKCVNpZFN0cnVjdBgHIAEoCzInLnNlcnZpY2VfbGF5ZXIuU0xC",
+            "Z3Bsc1RvcG9TcnY2U2lkU3RydWN0IjcKF1NMQmdwbHNUb3BvVW5pTGlua0Rl",
+            "bGF5Eg0KBURlbGF5GAEgASgNEg0KBUZsYWdzGAIgASgMIkgKHVNMQmdwbHNU",
+            "b3BvTWluTWF4VW5pTGlua0RlbGF5EgsKA01pbhgBIAEoDRILCgNNYXgYAiAB",
+            "KA0SDQoFRmxhZ3MYAyABKAwiOgoWU0xCZ3Bsc1RvcG9VbmlEZWxheVZhchIR",
+            "CglWYXJpYXRpb24YASABKA0SDQoFRmxhZ3MYAiABKAwiNQoWU0xCZ3Bsc1Rv",
+            "cG9VbmlMaW5rTG9zcxIMCgRMb3NzGAEgASgNEg0KBUZsYWdzGAIgASgMIi8K",
+            "GlNMQmdwbHNUb3BvVW5pUmVzQmFuZHdpZHRoEhEKCUJhbmR3aWR0aBgBIAEo",
+            "DCIxChxTTEJncGxzVG9wb1VuaUF2YWlsQmFuZHdpZHRoEhEKCUJhbmR3aWR0",
+            "aBgBIAEoDCIwChtTTEJncGxzVG9wb1VuaVV0aWxCYW5kd2lkdGgSEQoJQmFu",
+            "ZHdpZHRoGAEgASgMIioKGVNMQmdwbHNUb3BvUHJlZml4SWdwRmxhZ3MSDQoF",
+            "RmxhZ3MYASABKAwiKwocU0xCZ3Bsc1RvcG9QcmVmaXhJZ3BSb3V0ZVRhZxIL",
+            "CgNUYWcYASABKA0iLgofU0xCZ3Bsc1RvcG9QcmVmaXhJZ3BFeHRSb3V0ZVRh",
+            "ZxILCgNUYWcYASABKA0iKQoXU0xCZ3Bsc1RvcG9QcmVmaXhNZXRyaWMSDgoG",
+            "TWV0cmljGAEgASgNIlUKHFNMQmdwbHNUb3BvUHJlZml4T3NwZkZ3ZEFkZHIS",
+            "EgoISXB2NEFkZHIYASABKA1IABISCghJcHY2QWRkchgCIAEoDEgAQg0KC09z",
+            "cGZGd2RBZGRyIjEKG1NMQmdwbHNUb3BvUHJlZml4T3BhcXVlQXR0chISCgpP",
+            "cGFxdWVBdHRyGAEgASgMIpABChRTTEJncGxzVG9wb1ByZWZpeFNpZBINCgVG",
+            "bGFncxgBIAEoDBIRCglBbGdvcml0aG0YAiABKA0SEgoKTGFiZWxJbmRleBgD",
+            "IAEoDRJCCg9QcmVmaXhTaWRGb3JtYXQYBCABKA4yKS5zZXJ2aWNlX2xheWVy",
+            "LlNMQmdwbHNUb3BvUHJlZml4U2lkRm9ybWF0Im4KFlNMQmdwbHNUb3BvUHJl",
+            "Zml4UmFuZ2USDQoFRmxhZ3MYASABKAwSEQoJUmFuZ2VTaXplGAIgASgNEhEK",
+            "CUFsZ29yaXRobRgDIAEoDRINCgVJbmRleBgEIAEoDRIQCghTaWRGbGFncxgF",
+            "IAEoDCJMChhTTEJncGxzVG9wb1ByZWZpeFNydjZMb2MSDQoFRmxhZ3MYASAB",
+            "KAwSEQoJQWxnb3JpdGhtGAIgASgNEg4KBk1ldHJpYxgDIAEoDSIrChpTTEJn",
+            "cGxzVG9wb1ByZWZpeEF0dHJGbGFncxINCgVGbGFncxgBIAEoDCJVChxTTEJn",
+            "cGxzVG9wb1ByZWZpeFNyY1JvdXRlcklkEhIKCElwdjRBZGRyGAEgASgNSAAS",
+            "EgoISXB2NkFkZHIYAiABKAxIAEINCgtTcmNSb3V0ZXJJZCLBCAodU0xCZ3Bs",
+            "c1RvcG9MMkJ1bmRsZU1lbWJlckF0dHISEgoKTWVtYmVyRGVzYxgBIAEoDRI+",
+            "Cg1FeHRBZG1pbkdyb3VwGAMgAygLMicuc2VydmljZV9sYXllci5TTEJncGxz",
+            "VG9wb0V4dEFkbWluR3JvdXASQAoMTWF4QmFuZHdpZHRoGAIgASgLMiouc2Vy",
+            "dmljZV9sYXllci5TTEJncGxzVG9wb0xpbmtNYXhCYW5kd2lkdGgSSAoQTWF4",
+            "UmVzdkJhbmR3aWR0aBgEIAEoCzIuLnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc1Rv",
+            "cG9MaW5rTWF4UmVzdkJhbmR3aWR0aBJGCg9VbnJlc3ZCYW5kd2lkdGgYBSAD",
+            "KAsyLS5zZXJ2aWNlX2xheWVyLlNMQmdwbHNUb3BvTGlua1VucmVzdkJhbmR3",
+            "aWR0aBJCCgtUZURlZk1ldHJpYxgGIAEoCzItLnNlcnZpY2VfbGF5ZXIuU0xC",
+            "Z3Bsc1RvcG9MaW5rVGVEZWZhdWx0TWV0cmljEkMKDlByb3RlY3Rpb25UeXBl",
+            "GAcgASgLMisuc2VydmljZV9sYXllci5TTEJncGxzVG9wb0xpbmtQcm90ZWNp",
+            "b25UeXBlEjAKBkFkalNpZBgIIAMoCzIgLnNlcnZpY2VfbGF5ZXIuU0xCZ3Bs",
+            "c1RvcG9BZGpTaWQSNgoJTGFuQWRqU2lkGAkgAygLMiMuc2VydmljZV9sYXll",
+            "ci5TTEJncGxzVG9wb0xhbkFkalNpZBI8CgxVbmlMaW5rRGVsYXkYCiABKAsy",
+            "Ji5zZXJ2aWNlX2xheWVyLlNMQmdwbHNUb3BvVW5pTGlua0RlbGF5EkUKD01p",
+            "bk1heExpbmtEZWxheRgLIAEoCzIsLnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc1Rv",
+            "cG9NaW5NYXhVbmlMaW5rRGVsYXkSQAoRVW5pRGVsYXlWYXJpYXRpb24YDCAB",
+            "KAsyJS5zZXJ2aWNlX2xheWVyLlNMQmdwbHNUb3BvVW5pRGVsYXlWYXISOgoL",
+            "VW5pTGlua0xvc3MYDSABKAsyJS5zZXJ2aWNlX2xheWVyLlNMQmdwbHNUb3Bv",
+            "VW5pTGlua0xvc3MSQgoPVW5pUmVzQmFuZHdpZHRoGA4gASgLMikuc2Vydmlj",
+            "ZV9sYXllci5TTEJncGxzVG9wb1VuaVJlc0JhbmR3aWR0aBJGChFVbmlBdmFp",
+            "bEJhbmR3aWR0aBgPIAEoCzIrLnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9V",
+            "bmlBdmFpbEJhbmR3aWR0aBJEChBVbmlVdGlsQmFuZHdpZHRoGBAgASgLMiou",
+            "c2VydmljZV9sYXllci5TTEJncGxzVG9wb1VuaVV0aWxCYW5kd2lkdGgSMAoE",
+            "QXNsYRgRIAMoCzIiLnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9Bc2xhQXR0",
+            "ciK9BQoTU0xCZ3Bsc1RvcG9Bc2xhQXR0chIMCgRTYWJtGAEgASgMEg0KBVVk",
+            "YWJtGAIgASgMEj4KDUV4dEFkbWluR3JvdXAYAyADKAsyJy5zZXJ2aWNlX2xh",
+            "eWVyLlNMQmdwbHNUb3BvRXh0QWRtaW5Hcm91cBJCCgtUZURlZk1ldHJpYxgE",
+            "IAEoCzItLnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9MaW5rVGVEZWZhdWx0",
+            "TWV0cmljEjAKBFNybGcYBSABKAsyIi5zZXJ2aWNlX2xheWVyLlNMQmdwbHNU",
+            "b3BvTGlua1NybGcSPAoMVW5pTGlua0RlbGF5GAYgASgLMiYuc2VydmljZV9s",
+            "YXllci5TTEJncGxzVG9wb1VuaUxpbmtEZWxheRJFCg9NaW5NYXhMaW5rRGVs",
+            "YXkYByABKAsyLC5zZXJ2aWNlX2xheWVyLlNMQmdwbHNUb3BvTWluTWF4VW5p",
+            "TGlua0RlbGF5EkAKEVVuaURlbGF5VmFyaWF0aW9uGAggASgLMiUuc2Vydmlj",
+            "ZV9sYXllci5TTEJncGxzVG9wb1VuaURlbGF5VmFyEjoKC1VuaUxpbmtMb3Nz",
+            "GAkgASgLMiUuc2VydmljZV9sYXllci5TTEJncGxzVG9wb1VuaUxpbmtMb3Nz",
+            "EkIKD1VuaVJlc0JhbmR3aWR0aBgKIAEoCzIpLnNlcnZpY2VfbGF5ZXIuU0xC",
+            "Z3Bsc1RvcG9VbmlSZXNCYW5kd2lkdGgSRgoRVW5pQXZhaWxCYW5kd2lkdGgY",
+            "CyABKAsyKy5zZXJ2aWNlX2xheWVyLlNMQmdwbHNUb3BvVW5pQXZhaWxCYW5k",
+            "d2lkdGgSRAoQVW5pVXRpbEJhbmR3aWR0aBgMIAEoCzIqLnNlcnZpY2VfbGF5",
+            "ZXIuU0xCZ3Bsc1RvcG9VbmlVdGlsQmFuZHdpZHRoIkkKEVNsQmdwbHNUb3Bv",
+            "U3JCc2lkEhIKCE1wbHNCc2lkGAEgASgNSAASEgoIU3J2NkJzaWQYAiABKAxI",
+            "AEIMCgpCaW5kaW5nU2lkIpUBChdTTEJncGxzVG9wb1NyQmluZGluZ1NpZBIR",
+            "CglCc2lkRmxhZ3MYASABKAwSLgoEQnNpZBgCIAEoCzIgLnNlcnZpY2VfbGF5",
+            "ZXIuU2xCZ3Bsc1RvcG9TckJzaWQSNwoNU3BlY2lmaWVkQnNpZBgDIAEoCzIg",
+            "LnNlcnZpY2VfbGF5ZXIuU2xCZ3Bsc1RvcG9TckJzaWQiSwoUU0xCZ3Bsc1Rv",
+            "cG9TckNwU3RhdGUSEAoIUHJpb3JpdHkYASABKA0SDQoFRmxhZ3MYAiABKAwS",
+            "EgoKUHJlZmVyZW5jZRgDIAEoDSIjChNTTEJncGxzVG9wb1NyQ3BOYW1lEgwK",
+            "BE5hbWUYASABKAki2QMKGlNMQmdwbHNUb3BvU3JDcENvbnN0cmFpbnRzEg0K",
+            "BUZsYWdzGAEgASgMEgwKBE10aWQYAiABKA0SEQoJQWxnb3JpdGhtGAMgASgN",
+            "EkEKCEFmZmluaXR5GAUgASgLMi8uc2VydmljZV9sYXllci5TTEJncGxzVG9w",
+            "b1NyQWZmaW5pdHlDb25zdHJhaW50cxI5CgRTcmxnGAYgASgLMisuc2Vydmlj",
+            "ZV9sYXllci5TTEJncGxzVG9wb1NyU3JsZ0NvbnN0cmFpbnRzEkIKCUJhbmR3",
+            "aWR0aBgEIAEoCzIvLnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9TckJhbmR3",
+            "aWR0aENvbnN0cmFpbnQSRQoIRGlzam9pbnQYByABKAsyMy5zZXJ2aWNlX2xh",
+            "eWVyLlNMQmdwbHNUb3BvU3JEaXNqb2ludEdyb3VwQ29uc3RyYWludBJECgpC",
+            "aWRpckdyb3VwGAggASgLMjAuc2VydmljZV9sYXllci5TTEJncGxzVG9wb1Ny",
+            "QmlkaXJHcm91cENvbnN0cmFpbnQSPAoGTWV0cmljGAkgAygLMiwuc2Vydmlj",
+            "ZV9sYXllci5TTEJncGxzVG9wb1NyTWV0cmljQ29uc3RyYWludCKNAQoUU0xC",
+            "Z3Bsc1RvcG9TclNlZ0xpc3QSDQoFRmxhZ3MYASABKAwSDAoETXRpZBgCIAEo",
+            "DRIRCglBbGdvcml0aG0YAyABKA0SDgoGV2VpZ2h0GAQgASgNEjUKCFNlZ21l",
+            "bnRzGAUgAygLMiMuc2VydmljZV9sYXllci5TTEJncGxzVG9wb1NyU2VnbWVu",
+            "dCKiAgoYU0xCZ3Bsc1RvcG9TclNlZ21lbnREZXNjEhEKCUFsZ29yaXRobRgB",
+            "IAEoDRIVCgtJcHY0TG9jQWRkchgCIAEoDUgAEhUKC0lwdjZMb2NBZGRyGAMg",
+            "ASgMSAASFQoLSXB2NFJlbUFkZHIYBCABKA1IARIVCgtJcHY2UmVtQWRkchgF",
+            "IAEoDEgBEh8KF0lwdjZMb2NhbE5vZGVHbG9iYWxBZGRyGAYgASgMEiAKGElw",
+            "djZSZW1vdGVOb2RlR2xvYmFsQWRkchgHIAEoDBIXCg9Mb2NhbE5vZGVJbnRm",
+            "SWQYCCABKA0SGAoQUmVtb3RlTm9kZUludGZJZBgJIAEoDUIPCg1Mb2NhbE5v",
+            "ZGVBZGRyQhAKDlJlbW90ZU5vZGVBZGRyItACChRTTEJncGxzVG9wb1NyU2Vn",
+            "bWVudBI1CgRUeXBlGAEgASgOMicuc2VydmljZV9sYXllci5TTEJncGxzVG9w",
+            "b1NyU2VnbWVudFR5cGUSDQoFRmxhZ3MYAiABKAwSEwoJTXBsc0xhYmVsGAMg",
+            "ASgNSAASEQoHU3J2NlNpZBgEIAEoDEgAEjwKC1NlZ21lbnREZXNjGAUgASgL",
+            "Micuc2VydmljZV9sYXllci5TTEJncGxzVG9wb1NyU2VnbWVudERlc2MSSQoR",
+            "RW5kUG9pbnRCZWhhdmlvdXIYBiABKAsyLi5zZXJ2aWNlX2xheWVyLlNMQmdw",
+            "bHNUb3BvU3J2NkVuZFBvaW50QmVoYXZpb3ISOgoJU2lkU3RydWN0GAcgASgL",
+            "Micuc2VydmljZV9sYXllci5TTEJncGxzVG9wb1NydjZTaWRTdHJ1Y3RCBQoD",
+            "U2lkImMKFlNMQmdwbHNTclNlZ0xpc3RNZXRyaWMSDAoEVHlwZRgBIAEoDRIN",
+            "CgVGbGFncxgCIAEoDBIOCgZNYXJnaW4YAyABKA0SDQoFQm91bmQYBCABKA0S",
+            "DQoFVmFsdWUYBSABKA0iXgogU0xCZ3Bsc1RvcG9TckFmZmluaXR5Q29uc3Ry",
+            "YWludHMSEgoKRXhjbEFueUVhZxgBIAMoDRISCgpJbmNsQW55RWFnGAIgAygN",
+            "EhIKCkluY2xBbGxFYWcYAyADKA0iMgocU0xCZ3Bsc1RvcG9TclNybGdDb25z",
+            "dHJhaW50cxISCgpTcmxnVmFsdWVzGAEgAygNIjUKIFNMQmdwbHNUb3BvU3JC",
+            "YW5kd2lkdGhDb25zdHJhaW50EhEKCUJhbmR3aWR0aBgBIAEoDCJiCiRTTEJn",
+            "cGxzVG9wb1NyRGlzam9pbnRHcm91cENvbnN0cmFpbnQSFAoMUmVxdWVzdEZs",
+            "YWdzGAEgASgMEhMKC1N0YXR1c0ZsYWdzGAIgASgMEg8KB0dyb3VwSWQYAyAB",
+            "KA0imgIKGVNMQmdwbHNUb3BvU3J2NkJpbmRpbmdTaWQSDQoFRmxhZ3MYASAB",
+            "KAwSLgoEQnNpZBgCIAEoCzIgLnNlcnZpY2VfbGF5ZXIuU2xCZ3Bsc1RvcG9T",
+            "ckJzaWQSNwoNU3BlY2lmaWVkQnNpZBgDIAEoCzIgLnNlcnZpY2VfbGF5ZXIu",
+            "U2xCZ3Bsc1RvcG9TckJzaWQSSQoRRW5kUG9pbnRCZWhhdmlvdXIYBCABKAsy",
+            "Li5zZXJ2aWNlX2xheWVyLlNMQmdwbHNUb3BvU3J2NkVuZFBvaW50QmVoYXZp",
+            "b3ISOgoJU2lkU3RydWN0GAUgASgLMicuc2VydmljZV9sYXllci5TTEJncGxz",
+            "VG9wb1NydjZTaWRTdHJ1Y3QiJwoXU0xCZ3Bsc1RvcG9TclBvbGljeU5hbWUS",
+            "DAoETmFtZRgBIAEoCSJDCiFTTEJncGxzVG9wb1NyQmlkaXJHcm91cENvbnN0",
+            "cmFpbnQSDQoFRmxhZ3MYASABKAwSDwoHR3JvdXBJZBgCIAEoDSJbCh1TTEJn",
+            "cGxzVG9wb1NyTWV0cmljQ29uc3RyYWludBIMCgRUeXBlGAEgASgNEg0KBUZs",
+            "YWdzGAIgASgMEg4KBk1hcmdpbhgDIAEoDRINCgVCb3VuZBgEIAEoDSI5CiRT",
+            "TEJncGxzVG9wb1NyQ3BTZWdMaXN0QmFuZHdpZHRoU3RhdGUSEQoJQmFuZHdp",
+            "ZHRoGAEgASgMIisKFlNMQmdwbHNUb3BvU3JTZWdMaXN0SWQSEQoJU2VnTGlz",
+            "dElkGAEgASgNIl0KH1NMQmdwbHNUb3BvU3J2NkVuZFBvaW50QmVoYXZpb3IS",
+            "GAoQRW5kUG9pbnRCZWhhdmlvchgBIAEoDRINCgVGbGFncxgCIAEoDBIRCglB",
+            "bGdvcml0aG0YAyABKA0iYQodU0xCZ3Bsc1RvcG9TcnY2QmdwUGVlck5vZGVT",
+            "aWQSDQoFRmxhZ3MYASABKAwSDgoGV2VpZ2h0GAIgASgNEg4KBlBlZXJBUxgD",
+            "IAEoDRIRCglQZWVyQmdwSWQYBCABKA0icAoYU0xCZ3Bsc1RvcG9TcnY2U2lk",
+            "U3RydWN0EhcKD0xvY2F0b3JCbG9ja0xlbhgBIAEoDRIWCg5Mb2NhdG9yTm9k",
+            "ZUxlbhgCIAEoDRITCgtGdW5jdGlvbkxlbhgDIAEoDRIOCgZBcmdMZW4YBCAB",
+            "KA0qhAEKFFNMQmdwbHNUb3BvT3BlcmF0aW9uEiQKIFNMX0JHUExTX1RPUE9f",
+            "T1BFUkFUSU9OX1JFU0VSVkVEEAASIgoeU0xfQkdQTFNfVE9QT19PUEVSQVRJ",
+            "T05fVVBEQVRFEAESIgoeU0xfQkdQTFNfVE9QT19PUEVSQVRJT05fREVMRVRF",
+            "EAIqlAEKF1NMQmdwbHNUb3BvQWRqU2lkRm9ybWF0EikKJVNMX0JHUExTX1RP",
+            "UE9fQURKX1NJRF9GT1JNQVRfUkVTRVJWRUQQABImCiJTTF9CR1BMU19UT1BP",
+            "X0FESl9TSURfRk9STUFUX0xBQkVMEAESJgoiU0xfQkdQTFNfVE9QT19BREpf",
+            "U0lEX0ZPUk1BVF9JTkRFWBACKqABChpTTEJncGxzVG9wb1ByZWZpeFNpZEZv",
+            "cm1hdBIsCihTTF9CR1BMU19UT1BPX1BSRUZJWF9TSURfRk9STUFUX1JFU0VS",
+            "VkVEEAASKQolU0xfQkdQTFNfVE9QT19QUkVGSVhfU0lEX0ZPUk1BVF9MQUJF",
+            "TBABEikKJVNMX0JHUExTX1RPUE9fUFJFRklYX1NJRF9GT1JNQVRfSU5ERVgQ",
+            "AiqoBQoYU0xCZ3Bsc1RvcG9TclNlZ21lbnRUeXBlEiYKIlNMX0JHUExTX1RP",
+            "UE9fU1JfU0VHX1RZUEVfUkVTRVJWRUQQABIoCiRTTF9CR1BMU19UT1BPX1NS",
+            "X1NFR19UWVBFX01QTFNfTEFCRUwQARIpCiVTTF9CR1BMU19UT1BPX1NSX1NF",
+            "R19UWVBFX1NSVjZfU0lEX1Y2EAISLQopU0xfQkdQTFNfVE9QT19TUl9TRUdf",
+            "VFlQRV9NUExTX1BGWF9TSURfVjQQAxItCilTTF9CR1BMU19UT1BPX1NSX1NF",
+            "R19UWVBFX01QTFNfUEZYX1NJRF9WNhAEEj4KOlNMX0JHUExTX1RPUE9fU1Jf",
+            "U0VHX1RZUEVfTVBMU19BREpfU0lEX1Y0X05PREVfQUREUl9MT0NfSUQQBRI6",
+            "CjZTTF9CR1BMU19UT1BPX1NSX1NFR19UWVBFX01QTFNfQURKX1NJRF9WNF9M",
+            "T0NfUkVNX0FERFIQBhJBCj1TTF9CR1BMU19UT1BPX1NSX1NFR19UWVBFX01Q",
+            "TFNfQURKX1NJRF9WNl9MT0NfUkVNX0FERFJfQU5EX0lEEAcSOgo2U0xfQkdQ",
+            "TFNfVE9QT19TUl9TRUdfVFlQRV9NUExTX0FESl9TSURfVjZfTE9DX1JFTV9B",
+            "RERSEAgSNwozU0xfQkdQTFNfVE9QT19TUl9TRUdfVFlQRV9TUlY2X0VORF9T",
+            "SURfVjZfTk9ERV9BRERSEAkSQQo9U0xfQkdQTFNfVE9QT19TUl9TRUdfVFlQ",
+            "RV9TUlY2X0VORF9TSURfVjZfTE9DX1JFTV9BRERSX0FORF9JRBAKEjoKNlNM",
+            "X0JHUExTX1RPUE9fU1JfU0VHX1RZUEVfU1JWNl9FTkRfU0lEX1Y2X0xPQ19S",
+            "RU1fQUREUhALMn8KF1NMQmdwbHNUb3BvU3Vic2NyaXB0aW9uEmQKF1NMQmdw",
+            "bHNUb3BvR2V0VXBkU3RyZWFtEiMuc2VydmljZV9sYXllci5TTEJncGxzVG9w",
+            "b0dldFVwZE1zZxogLnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9VcGRNc2co",
+            "ATABQlFaT2dpdGh1Yi5jb20vQ2lzY28tc2VydmljZS1sYXllci9zZXJ2aWNl",
+            "LWxheWVyLW9iam1vZGVsL2dycGMvcHJvdG9zO3NlcnZpY2VfbGF5ZXJiBnBy",
+            "b3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { },
-          new pbr::GeneratedClrTypeInfo(new[] {typeof(global::ServiceLayer.SLBgplsTopoUpdType), typeof(global::ServiceLayer.SLBgplsTopoOperation), typeof(global::ServiceLayer.SLBgplsTopoNlriType), typeof(global::ServiceLayer.SLBgplsTopoProtocol), typeof(global::ServiceLayer.SLBgplsTopoNodeIdType), typeof(global::ServiceLayer.SLBgplsTopoOspfRouteType), typeof(global::ServiceLayer.SLBgplsTopoSrPolicyProtocolOrigin), typeof(global::ServiceLayer.SLBgplsTopoAttrType), typeof(global::ServiceLayer.SLBgplsTopoAdjSidFormat), typeof(global::ServiceLayer.SLBgplsTopoPrefixSidFormat), typeof(global::ServiceLayer.SLBgplsTopoSrSegmentType), }, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgplsTopoGetUpdMsg), global::ServiceLayer.SLBgplsTopoGetUpdMsg.Parser, new[]{ "Filter" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgplsTopoNlriFilter), global::ServiceLayer.SLBgplsTopoNlriFilter.Parser, new[]{ "Identifier", "Protocol", "NlriType" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgplsTopoUpdMsg), global::ServiceLayer.SLBgplsTopoUpdMsg.Parser, new[]{ "UpdType", "ErrStatus", "Data" }, new[]{ "Update" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgplsTopoErrorStatus), global::ServiceLayer.SLBgplsTopoErrorStatus.Parser, new[]{ "Status" }, null, new[]{ typeof(global::ServiceLayer.SLBgplsTopoErrorStatus.Types.SLBgplsTopoErrno) }, null, null),
+          new pbr::FileDescriptor[] { global::ServiceLayer.SlCommonTypesReflection.Descriptor, global::ServiceLayer.SlProtocolsReflection.Descriptor, },
+          new pbr::GeneratedClrTypeInfo(new[] {typeof(global::ServiceLayer.SLBgplsTopoOperation), typeof(global::ServiceLayer.SLBgplsTopoAdjSidFormat), typeof(global::ServiceLayer.SLBgplsTopoPrefixSidFormat), typeof(global::ServiceLayer.SLBgplsTopoSrSegmentType), }, null, new pbr::GeneratedClrTypeInfo[] {
+            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgplsTopoGetUpdMsg), global::ServiceLayer.SLBgplsTopoGetUpdMsg.Parser, new[]{ "Match" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgplsTopoNlriMatch), global::ServiceLayer.SLBgplsTopoNlriMatch.Parser, new[]{ "Identifier", "Protocol", "NlriType" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgplsTopoUpdMsg), global::ServiceLayer.SLBgplsTopoUpdMsg.Parser, new[]{ "ErrStatus", "Data", "Start", "End" }, new[]{ "Update" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgplsTopoStartMarker), global::ServiceLayer.SLBgplsTopoStartMarker.Parser, null, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgplsTopoEndMarker), global::ServiceLayer.SLBgplsTopoEndMarker.Parser, null, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgplsTopoUpd), global::ServiceLayer.SLBgplsTopoUpd.Parser, new[]{ "Entries" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgplsTopoEntry), global::ServiceLayer.SLBgplsTopoEntry.Parser, new[]{ "Operation", "Nlri", "Attr" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgplsTopoNlri), global::ServiceLayer.SLBgplsTopoNlri.Parser, new[]{ "Identifier", "Protocol", "NlriType", "Node", "Link", "Prefix", "Srv6Sid", "SrPolicy" }, new[]{ "Nlri" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgplsTopoNode), global::ServiceLayer.SLBgplsTopoNode.Parser, new[]{ "NodeDescr" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgplsTopoNode), global::ServiceLayer.SLBgplsTopoNode.Parser, new[]{ "Asn", "OspfNodeId", "Ospfv3NodeId", "IsisNodeId", "BgpNodeId", "SrPolicyNodeId" }, new[]{ "NodeId" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgplsTopoLink), global::ServiceLayer.SLBgplsTopoLink.Parser, new[]{ "LocalNodeDescr", "RemoteNodeDescr", "LinkDescr" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgplsTopoPrefix), global::ServiceLayer.SLBgplsTopoPrefix.Parser, new[]{ "NodeDescr", "PrefixDescr" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgplsTopoSrv6Sid), global::ServiceLayer.SLBgplsTopoSrv6Sid.Parser, new[]{ "NodeDescr", "Srv6SidDescr" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgplsTopoSrPolicy), global::ServiceLayer.SLBgplsTopoSrPolicy.Parser, new[]{ "NodeDescr", "SrPolicyDescr" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgplsTopoNodeDescr), global::ServiceLayer.SLBgplsTopoNodeDescr.Parser, new[]{ "Asn", "OspfNodeId", "Ospfv3NodeId", "IsisNodeId", "BgpNodeId", "SrPolicyNodeId", "NodeIdType" }, new[]{ "NodeId" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgplsTopoLinkDescr), global::ServiceLayer.SLBgplsTopoLinkDescr.Parser, new[]{ "LocalId", "RemoteId", "LocalIpv4", "RemoteIpv4", "LocalIpv6", "RemoteIpv6", "MtId" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgplsTopoPrefixDescr), global::ServiceLayer.SLBgplsTopoPrefixDescr.Parser, new[]{ "MtId", "OspfRouteType", "PrefixLength", "Prefix" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgplsTopoSrv6SidDescr), global::ServiceLayer.SLBgplsTopoSrv6SidDescr.Parser, new[]{ "MtId", "Srv6Sid" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgplsTopoSrPolicyDescr), global::ServiceLayer.SLBgplsTopoSrPolicyDescr.Parser, new[]{ "ProtoOrigin", "Flags", "Ipv4EndpointAddress", "Ipv6EndpointAddress", "IsEndpointAddressIpv6", "Color", "OriginAsn", "Ipv4OriginatorAddress", "Ipv6OriginatorAddress", "IsOriginatorAddressIpv6", "Discriminator" }, new[]{ "EndpointAddress", "OriginatorAddress" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgplsTopoSrPolicyDescr), global::ServiceLayer.SLBgplsTopoSrPolicyDescr.Parser, new[]{ "ProtoOrigin", "Flags", "Ipv4EndAddr", "Ipv6EndAddr", "Color", "OriginAsn", "Ipv4OrigAddr", "Ipv6OrigAddr", "Discriminator" }, new[]{ "EndpointAddress", "OriginatorAddress" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgplsTopoOspfNodeId), global::ServiceLayer.SLBgplsTopoOspfNodeId.Parser, new[]{ "AreaId", "IsAsScoped", "RouterId", "DrIdentifier" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgplsTopoOspfv3NodeId), global::ServiceLayer.SLBgplsTopoOspfv3NodeId.Parser, new[]{ "AreaId", "AsScoped", "RouterId", "DrIdentifier" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgplsTopoIsisNodeId), global::ServiceLayer.SLBgplsTopoIsisNodeId.Parser, new[]{ "SystemId", "PsnId" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgplsTopoBgpNodeId), global::ServiceLayer.SLBgplsTopoBgpNodeId.Parser, new[]{ "RouterId", "MemberAsn" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgplsTopoSrPolicyNodeId), global::ServiceLayer.SLBgplsTopoSrPolicyNodeId.Parser, new[]{ "RouterId", "MemberAsn", "Ipv4RouterId", "Ipv6RouterId" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgplsTopoSrPolicyFlags), global::ServiceLayer.SLBgplsTopoSrPolicyFlags.Parser, new[]{ "Flags" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgplsTopoAttr), global::ServiceLayer.SLBgplsTopoAttr.Parser, new[]{ "NodeAttr", "LinkAttr", "PrefixAttr", "Srv6SidAttr", "SrPolicyAttr", "AttrType" }, new[]{ "Attr" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgplsTopoAttr), global::ServiceLayer.SLBgplsTopoAttr.Parser, new[]{ "NodeAttr", "LinkAttr", "PrefixAttr", "Srv6SidAttr", "SrPolicyAttr" }, new[]{ "Attr" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgplsTopoNodeAttr), global::ServiceLayer.SLBgplsTopoNodeAttr.Parser, new[]{ "MtId", "NodeMsd", "NodeFlagBits", "OpaqueNodeAttr", "NodeName", "IsisAreaId", "LocalIpv4", "LocalIpv6", "SrgbIsisFlags", "Srgb", "SrAlgorithm", "Srlb", "Fad" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgplsTopoLinkAttr), global::ServiceLayer.SLBgplsTopoLinkAttr.Parser, new[]{ "LinkLocRemId", "LinkMsd", "LocalIpv4RouterId", "LocalIpv6RouterId", "RemoteIpv4RouterId", "RemoteIpv6RouterId", "ExtAdminGroup", "MaxBandwidth", "MaxResvBandwidth", "UnresvBandwidth", "TeDefMetric", "ProtectionType", "MplsProtoMask", "IgpMetric", "Srlg", "OpaqueAttr", "LinkName", "AdjSid", "LanAdjSid", "Srv6EndXSid", "Srv6LanEndXSid", "UniLinkDelay", "MinMaxUniLinkDelay", "UniDelayVar", "UniLinkLoss", "UniResBandwidth", "UniAvailBandwidth", "UniUtilBandwidth", "Asla", "L2BundleMemberAttr" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgplsTopoPrefixAttr), global::ServiceLayer.SLBgplsTopoPrefixAttr.Parser, new[]{ "Fapm", "IgpFlags", "IgpRouteTag", "IgpExtRouteTag", "Metric", "OspfFwdAddr", "OpaqueAttr", "Sid", "Range", "Srv6Loc", "AttrFlags", "SrcRouterId" }, null, null, null, null),
@@ -561,7 +485,7 @@ namespace ServiceLayer {
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgplsTopoAdjSid), global::ServiceLayer.SLBgplsTopoAdjSid.Parser, new[]{ "LabelIndex", "AdjSidFormat", "Flags", "Weight" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgplsTopoLanAdjSid), global::ServiceLayer.SLBgplsTopoLanAdjSid.Parser, new[]{ "Neighbor", "LabelIndex", "AdjSidFormat", "Flags", "Weight" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgplsTopoSrv6EndXSid), global::ServiceLayer.SLBgplsTopoSrv6EndXSid.Parser, new[]{ "Sid", "Algorithm", "Flags", "Weight", "EndPointBehavior", "SidStruct" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgpLsTopoNeighborId), global::ServiceLayer.SLBgpLsTopoNeighborId.Parser, new[]{ "Ipv4Addr", "SystemId", "IsNeighborIdIpv4" }, new[]{ "NeighborId" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgpLsTopoNeighborId), global::ServiceLayer.SLBgpLsTopoNeighborId.Parser, new[]{ "Ipv4Addr", "SystemId" }, new[]{ "NeighborId" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgplsTopoSrv6LanEndXSid), global::ServiceLayer.SLBgplsTopoSrv6LanEndXSid.Parser, new[]{ "Neighbor", "Sid", "Algorithm", "Flags", "Weight", "EndPointBehavior", "SidStruct" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgplsTopoUniLinkDelay), global::ServiceLayer.SLBgplsTopoUniLinkDelay.Parser, new[]{ "Delay", "Flags" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgplsTopoMinMaxUniLinkDelay), global::ServiceLayer.SLBgplsTopoMinMaxUniLinkDelay.Parser, new[]{ "Min", "Max", "Flags" }, null, null, null, null),
@@ -574,23 +498,23 @@ namespace ServiceLayer {
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgplsTopoPrefixIgpRouteTag), global::ServiceLayer.SLBgplsTopoPrefixIgpRouteTag.Parser, new[]{ "Tag" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgplsTopoPrefixIgpExtRouteTag), global::ServiceLayer.SLBgplsTopoPrefixIgpExtRouteTag.Parser, new[]{ "Tag" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgplsTopoPrefixMetric), global::ServiceLayer.SLBgplsTopoPrefixMetric.Parser, new[]{ "Metric" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgplsTopoPrefixOspfFwdAddr), global::ServiceLayer.SLBgplsTopoPrefixOspfFwdAddr.Parser, new[]{ "Ipv4Addr", "Ipv6Addr", "IsOspfFwdAddrdIpv4" }, new[]{ "OspfFwdAddr" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgplsTopoPrefixOspfFwdAddr), global::ServiceLayer.SLBgplsTopoPrefixOspfFwdAddr.Parser, new[]{ "Ipv4Addr", "Ipv6Addr" }, new[]{ "OspfFwdAddr" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgplsTopoPrefixOpaqueAttr), global::ServiceLayer.SLBgplsTopoPrefixOpaqueAttr.Parser, new[]{ "OpaqueAttr" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgplsTopoPrefixSid), global::ServiceLayer.SLBgplsTopoPrefixSid.Parser, new[]{ "Flags", "Algorithm", "LabelIndex", "PrefixSidFormat" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgplsTopoPrefixRange), global::ServiceLayer.SLBgplsTopoPrefixRange.Parser, new[]{ "Flags", "RangeSize", "Algorithm", "Index", "SidFlags" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgplsTopoPrefixSrv6Loc), global::ServiceLayer.SLBgplsTopoPrefixSrv6Loc.Parser, new[]{ "Flags", "Algorithm", "Metric" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgplsTopoPrefixAttrFlags), global::ServiceLayer.SLBgplsTopoPrefixAttrFlags.Parser, new[]{ "Flags" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgplsTopoPrefixSrcRouterId), global::ServiceLayer.SLBgplsTopoPrefixSrcRouterId.Parser, new[]{ "Ipv4Addr", "Ipv6Addr", "IsSrcRouterIdIpv4" }, new[]{ "SrcRouterId" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgplsTopoPrefixSrcRouterId), global::ServiceLayer.SLBgplsTopoPrefixSrcRouterId.Parser, new[]{ "Ipv4Addr", "Ipv6Addr" }, new[]{ "SrcRouterId" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgplsTopoL2BundleMemberAttr), global::ServiceLayer.SLBgplsTopoL2BundleMemberAttr.Parser, new[]{ "MemberDesc", "ExtAdminGroup", "MaxBandwidth", "MaxResvBandwidth", "UnresvBandwidth", "TeDefMetric", "ProtectionType", "AdjSid", "LanAdjSid", "UniLinkDelay", "MinMaxLinkDelay", "UniDelayVariation", "UniLinkLoss", "UniResBandwidth", "UniAvailBandwidth", "UniUtilBandwidth", "Asla" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgplsTopoAslaAttr), global::ServiceLayer.SLBgplsTopoAslaAttr.Parser, new[]{ "Sabm", "Udabm", "ExtAdminGroup", "TeDefMetric", "Srlg", "UniLinkDelay", "MinMaxLinkDelay", "UniDelayVariation", "UniLinkLoss", "UniResBandwidth", "UniAvailBandwidth", "UniUtilBandwidth" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SlBgplsTopoSrBsid), global::ServiceLayer.SlBgplsTopoSrBsid.Parser, new[]{ "MplsBsid", "Srv6Bsid", "IsBindingSidMpls" }, new[]{ "BindingSid" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SlBgplsTopoSrBsid), global::ServiceLayer.SlBgplsTopoSrBsid.Parser, new[]{ "MplsBsid", "Srv6Bsid" }, new[]{ "BindingSid" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgplsTopoSrBindingSid), global::ServiceLayer.SLBgplsTopoSrBindingSid.Parser, new[]{ "BsidFlags", "Bsid", "SpecifiedBsid" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgplsTopoSrCpState), global::ServiceLayer.SLBgplsTopoSrCpState.Parser, new[]{ "Priority", "Flags", "Preference" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgplsTopoSrCpName), global::ServiceLayer.SLBgplsTopoSrCpName.Parser, new[]{ "Name" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgplsTopoSrCpConstraints), global::ServiceLayer.SLBgplsTopoSrCpConstraints.Parser, new[]{ "Flags", "Mtid", "Algorithm", "Affinity", "Srlg", "Bandwidth", "Disjoint", "BidirGroup", "Metric" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgplsTopoSrSegList), global::ServiceLayer.SLBgplsTopoSrSegList.Parser, new[]{ "Flags", "Mtid", "Algorithm", "Weight", "Segments" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgplsTopoSrSegmentDesc), global::ServiceLayer.SLBgplsTopoSrSegmentDesc.Parser, new[]{ "Algorithm", "Ipv4LocalNodeAddr", "Ipv6LocalNodeAddr", "IsLocalNodeAddrIpv4", "Ipv4RemoteNodeAddr", "Ipv6RemoteNodeAddr", "IsRemoteNodeAddrIpv4", "Ipv6LocalNodeGlobalAddr", "Ipv6RemoteNodeGlobalAddr", "LocalNodeIntfId", "RemoteNodeIntfId" }, new[]{ "LocalNodeAddr", "RemoteNodeAddr" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgplsTopoSrSegment), global::ServiceLayer.SLBgplsTopoSrSegment.Parser, new[]{ "Type", "Flags", "MplsLabel", "Srv6Sid", "IsSidMpls", "SegmentDesc", "EndPointBehaviour", "SidStruct" }, new[]{ "Sid" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgplsTopoSrSegmentDesc), global::ServiceLayer.SLBgplsTopoSrSegmentDesc.Parser, new[]{ "Algorithm", "Ipv4LocAddr", "Ipv6LocAddr", "Ipv4RemAddr", "Ipv6RemAddr", "Ipv6LocalNodeGlobalAddr", "Ipv6RemoteNodeGlobalAddr", "LocalNodeIntfId", "RemoteNodeIntfId" }, new[]{ "LocalNodeAddr", "RemoteNodeAddr" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgplsTopoSrSegment), global::ServiceLayer.SLBgplsTopoSrSegment.Parser, new[]{ "Type", "Flags", "MplsLabel", "Srv6Sid", "SegmentDesc", "EndPointBehaviour", "SidStruct" }, new[]{ "Sid" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgplsSrSegListMetric), global::ServiceLayer.SLBgplsSrSegListMetric.Parser, new[]{ "Type", "Flags", "Margin", "Bound", "Value" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgplsTopoSrAffinityConstraints), global::ServiceLayer.SLBgplsTopoSrAffinityConstraints.Parser, new[]{ "ExclAnyEag", "InclAnyEag", "InclAllEag" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgplsTopoSrSrlgConstraints), global::ServiceLayer.SLBgplsTopoSrSrlgConstraints.Parser, new[]{ "SrlgValues" }, null, null, null, null),
@@ -612,121 +536,12 @@ namespace ServiceLayer {
   }
   #region Enums
   /// <summary>
-  /// BGP-LS Topology Update types
-  /// </summary>
-  public enum SLBgplsTopoUpdType {
-    /// <summary>
-    /// Reserved. 0x0
-    /// </summary>
-    [pbr::OriginalName("SL_BGPLS_TOPO_UPD_TYPE_RESERVED")] Reserved = 0,
-    /// <summary>
-    /// Error - ErrStatus field elaborates on the error.
-    /// The client can decide to close the stream based on the error. 0x1
-    /// </summary>
-    [pbr::OriginalName("SL_BGPLS_TOPO_UPD_TYPE_ERROR")] Error = 1,
-    /// <summary>
-    /// BGP-LS Topology data. 0x2
-    /// </summary>
-    [pbr::OriginalName("SL_BGPLS_TOPO_UPD_TYPE_DATA")] Data = 2,
-    /// <summary>
-    /// Start marker - sent before any DATA is sent.
-    /// This is an indication to stale any objects received until now. 0x3
-    /// </summary>
-    [pbr::OriginalName("SL_BGPLS_TOPO_UPD_TYPE_START_MARKER")] StartMarker = 3,
-    /// <summary>
-    /// End marker - sent after all DATA are sent.
-    /// This is an indication to sweep any stale objects, if present. 0x4
-    /// </summary>
-    [pbr::OriginalName("SL_BGPLS_TOPO_UPD_TYPE_END_MARKER")] EndMarker = 4,
-  }
-
-  /// <summary>
   /// BGP-LS Topology Operation
   /// </summary>
   public enum SLBgplsTopoOperation {
     [pbr::OriginalName("SL_BGPLS_TOPO_OPERATION_RESERVED")] Reserved = 0,
     [pbr::OriginalName("SL_BGPLS_TOPO_OPERATION_UPDATE")] Update = 1,
     [pbr::OriginalName("SL_BGPLS_TOPO_OPERATION_DELETE")] Delete = 2,
-  }
-
-  /// <summary>
-  /// NLRI type
-  /// </summary>
-  public enum SLBgplsTopoNlriType {
-    [pbr::OriginalName("SL_BGPLS_TOPO_NLRI_TYPE_RESERVED")] Reserved = 0,
-    [pbr::OriginalName("SL_BGPLS_TOPO_NLRI_TYPE_NODE")] Node = 1,
-    [pbr::OriginalName("SL_BGPLS_TOPO_NLRI_TYPE_LINK")] Link = 2,
-    [pbr::OriginalName("SL_BGPLS_TOPO_NLRI_TYPE_IPV4_PREFIX")] Ipv4Prefix = 3,
-    [pbr::OriginalName("SL_BGPLS_TOPO_NLRI_TYPE_IPV6_PREFIX")] Ipv6Prefix = 4,
-    [pbr::OriginalName("SL_BGPLS_TOPO_NLRI_TYPE_SR_POLICY_CANDIDATE_PATH")] SrPolicyCandidatePath = 5,
-    [pbr::OriginalName("SL_BGPLS_TOPO_NLRI_TYPE_SRV6_SID")] Srv6Sid = 6,
-  }
-
-  /// <summary>
-  /// Protocols
-  /// </summary>
-  public enum SLBgplsTopoProtocol {
-    [pbr::OriginalName("SL_BGPLS_TOPO_PROTOCOL_RESERVED")] Reserved = 0,
-    [pbr::OriginalName("SL_BGPLS_TOPO_PROTOCOL_ISIS_L1")] IsisL1 = 1,
-    [pbr::OriginalName("SL_BGPLS_TOPO_PROTOCOL_ISIS_L2")] IsisL2 = 2,
-    [pbr::OriginalName("SL_BGPLS_TOPO_PROTOCOL_OSPFv2")] Ospfv2 = 3,
-    [pbr::OriginalName("SL_BGPLS_TOPO_PROTOCOL_DIRECT")] Direct = 4,
-    [pbr::OriginalName("SL_BGPLS_TOPO_PROTOCOL_STATIC")] Static = 5,
-    [pbr::OriginalName("SL_BGPLS_TOPO_PROTOCOL_OSPFv3")] Ospfv3 = 6,
-    [pbr::OriginalName("SL_BGPLS_TOPO_PROTOCOL_BGP")] Bgp = 7,
-    [pbr::OriginalName("SL_BGPLS_TOPO_PROTOCOL_RSVP_TE")] RsvpTe = 8,
-    [pbr::OriginalName("SL_BGPLS_TOPO_PROTOCOL_SR")] Sr = 9,
-  }
-
-  /// <summary>
-  /// NodeIdType
-  /// </summary>
-  public enum SLBgplsTopoNodeIdType {
-    [pbr::OriginalName("SL_BGPLS_TOPO_NODE_ID_TYPE_RESERVED")] Reserved = 0,
-    [pbr::OriginalName("SL_BGPLS_TOPO_NODE_ID_TYPE_ISIS")] Isis = 1,
-    [pbr::OriginalName("SL_BGPLS_TOPO_NODE_ID_TYPE_OSPFv2")] Ospfv2 = 2,
-    [pbr::OriginalName("SL_BGPLS_TOPO_NODE_ID_TYPE_OSPFv3")] Ospfv3 = 3,
-    [pbr::OriginalName("SL_BGPLS_TOPO_NODE_ID_TYPE_BGP")] Bgp = 4,
-    [pbr::OriginalName("SL_BGPLS_TOPO_NODE_ID_TYPE_SR")] Sr = 5,
-  }
-
-  /// <summary>
-  /// OSPF Route types
-  /// </summary>
-  public enum SLBgplsTopoOspfRouteType {
-    [pbr::OriginalName("SL_BGPLS_TOPO_OSPF_ROUTE_TYPE_RESERVED")] Reserved = 0,
-    [pbr::OriginalName("SL_BGPLS_TOPO_OSPF_ROUTE_TYPE_INTRA_AREA")] IntraArea = 1,
-    [pbr::OriginalName("SL_BGPLS_TOPO_OSPF_ROUTE_TYPE_INTER_AREA")] InterArea = 2,
-    [pbr::OriginalName("SL_BGPLS_TOPO_OSPF_ROUTE_TYPE_EXTERN_1")] Extern1 = 3,
-    [pbr::OriginalName("SL_BGPLS_TOPO_OSPF_ROUTE_TYPE_EXTERN_2")] Extern2 = 4,
-    [pbr::OriginalName("SL_BGPLS_TOPO_OSPF_ROUTE_TYPE_NSSA_1")] Nssa1 = 5,
-    [pbr::OriginalName("SL_BGPLS_TOPO_OSPF_ROUTE_TYPE_NSSA_2")] Nssa2 = 6,
-  }
-
-  /// <summary>
-  /// Protocol Originating SR Policy
-  /// </summary>
-  public enum SLBgplsTopoSrPolicyProtocolOrigin {
-    [pbr::OriginalName("SL_BGPLS_TOPO_SR_POLICY_PROTOCOL_ORIGIN_RESERVED")] Reserved = 0,
-    [pbr::OriginalName("SL_BGPLS_TOPO_SR_POLICY_PROTOCOL_ORIGIN_PCEP")] Pcep = 1,
-    [pbr::OriginalName("SL_BGPLS_TOPO_SR_POLICY_PROTOCOL_ORIGIN_BGP_SR_POLICY")] BgpSrPolicy = 2,
-    [pbr::OriginalName("SL_BGPLS_TOPO_SR_POLICY_PROTOCOL_ORIGIN_CONFIG")] Config = 3,
-    [pbr::OriginalName("SL_BGPLS_TOPO_SR_POLICY_PROTOCOL_ORIGIN_PCEP_VIA_PCE")] PcepViaPce = 10,
-    [pbr::OriginalName("SL_BGPLS_TOPO_SR_POLICY_PROTOCOL_ORIGIN_BGP_SR_POLICY_VIA_PCE")] BgpSrPolicyViaPce = 20,
-    [pbr::OriginalName("SL_BGPLS_TOPO_SR_POLICY_PROTOCOL_ORIGIN_CONFIG_VIA_PCE")] ConfigViaPce = 30,
-  }
-
-  /// <summary>
-  /// Attribute type
-  /// </summary>
-  public enum SLBgplsTopoAttrType {
-    [pbr::OriginalName("SL_BGPLS_TOPO_ATTR_TYPE_RESERVED")] Reserved = 0,
-    [pbr::OriginalName("SL_BGPLS_TOPO_ATTR_TYPE_NODE")] Node = 1,
-    [pbr::OriginalName("SL_BGPLS_TOPO_ATTR_TYPE_LINK")] Link = 2,
-    [pbr::OriginalName("SL_BGPLS_TOPO_ATTR_TYPE_IPV4_PREFIX")] Ipv4Prefix = 3,
-    [pbr::OriginalName("SL_BGPLS_TOPO_ATTR_TYPE_IPV6_PREFIX")] Ipv6Prefix = 4,
-    [pbr::OriginalName("SL_BGPLS_TOPO_ATTR_TYPE_SR_POLICY_CANDIDATE_PATH")] SrPolicyCandidatePath = 5,
-    [pbr::OriginalName("SL_BGPLS_TOPO_ATTR_TYPE_SRV6_SID")] Srv6Sid = 6,
   }
 
   /// <summary>
@@ -865,7 +680,7 @@ namespace ServiceLayer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public SLBgplsTopoGetUpdMsg(SLBgplsTopoGetUpdMsg other) : this() {
-      filter_ = other.filter_.Clone();
+      match_ = other.match_.Clone();
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -875,19 +690,19 @@ namespace ServiceLayer {
       return new SLBgplsTopoGetUpdMsg(this);
     }
 
-    /// <summary>Field number for the "Filter" field.</summary>
-    public const int FilterFieldNumber = 1;
-    private static readonly pb::FieldCodec<global::ServiceLayer.SLBgplsTopoNlriFilter> _repeated_filter_codec
-        = pb::FieldCodec.ForMessage(10, global::ServiceLayer.SLBgplsTopoNlriFilter.Parser);
-    private readonly pbc::RepeatedField<global::ServiceLayer.SLBgplsTopoNlriFilter> filter_ = new pbc::RepeatedField<global::ServiceLayer.SLBgplsTopoNlriFilter>();
+    /// <summary>Field number for the "Match" field.</summary>
+    public const int MatchFieldNumber = 1;
+    private static readonly pb::FieldCodec<global::ServiceLayer.SLBgplsTopoNlriMatch> _repeated_match_codec
+        = pb::FieldCodec.ForMessage(10, global::ServiceLayer.SLBgplsTopoNlriMatch.Parser);
+    private readonly pbc::RepeatedField<global::ServiceLayer.SLBgplsTopoNlriMatch> match_ = new pbc::RepeatedField<global::ServiceLayer.SLBgplsTopoNlriMatch>();
     /// <summary>
-    /// Filters for BGP-LS Topology Entries
-    /// TODO: Add description on how filters will be used.
+    /// Matches for BGP-LS Topology Entries
+    /// TODO: Add description on how matches will be used.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pbc::RepeatedField<global::ServiceLayer.SLBgplsTopoNlriFilter> Filter {
-      get { return filter_; }
+    public pbc::RepeatedField<global::ServiceLayer.SLBgplsTopoNlriMatch> Match {
+      get { return match_; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -905,7 +720,7 @@ namespace ServiceLayer {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if(!filter_.Equals(other.filter_)) return false;
+      if(!match_.Equals(other.match_)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -913,7 +728,7 @@ namespace ServiceLayer {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      hash ^= filter_.GetHashCode();
+      hash ^= match_.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -932,7 +747,7 @@ namespace ServiceLayer {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      filter_.WriteTo(output, _repeated_filter_codec);
+      match_.WriteTo(output, _repeated_match_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -943,7 +758,7 @@ namespace ServiceLayer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      filter_.WriteTo(ref output, _repeated_filter_codec);
+      match_.WriteTo(ref output, _repeated_match_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -954,7 +769,7 @@ namespace ServiceLayer {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      size += filter_.CalculateSize(_repeated_filter_codec);
+      size += match_.CalculateSize(_repeated_match_codec);
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -967,7 +782,7 @@ namespace ServiceLayer {
       if (other == null) {
         return;
       }
-      filter_.Add(other.filter_);
+      match_.Add(other.match_);
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -984,7 +799,7 @@ namespace ServiceLayer {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 10: {
-            filter_.AddEntriesFrom(input, _repeated_filter_codec);
+            match_.AddEntriesFrom(input, _repeated_match_codec);
             break;
           }
         }
@@ -1003,7 +818,7 @@ namespace ServiceLayer {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
           case 10: {
-            filter_.AddEntriesFrom(ref input, _repeated_filter_codec);
+            match_.AddEntriesFrom(ref input, _repeated_match_codec);
             break;
           }
         }
@@ -1013,16 +828,16 @@ namespace ServiceLayer {
 
   }
 
-  public sealed partial class SLBgplsTopoNlriFilter : pb::IMessage<SLBgplsTopoNlriFilter>
+  public sealed partial class SLBgplsTopoNlriMatch : pb::IMessage<SLBgplsTopoNlriMatch>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
   #endif
   {
-    private static readonly pb::MessageParser<SLBgplsTopoNlriFilter> _parser = new pb::MessageParser<SLBgplsTopoNlriFilter>(() => new SLBgplsTopoNlriFilter());
+    private static readonly pb::MessageParser<SLBgplsTopoNlriMatch> _parser = new pb::MessageParser<SLBgplsTopoNlriMatch>(() => new SLBgplsTopoNlriMatch());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pb::MessageParser<SLBgplsTopoNlriFilter> Parser { get { return _parser; } }
+    public static pb::MessageParser<SLBgplsTopoNlriMatch> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -1038,7 +853,7 @@ namespace ServiceLayer {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public SLBgplsTopoNlriFilter() {
+    public SLBgplsTopoNlriMatch() {
       OnConstruction();
     }
 
@@ -1046,7 +861,7 @@ namespace ServiceLayer {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public SLBgplsTopoNlriFilter(SLBgplsTopoNlriFilter other) : this() {
+    public SLBgplsTopoNlriMatch(SLBgplsTopoNlriMatch other) : this() {
       identifier_ = other.identifier_;
       protocol_ = other.protocol_;
       nlriType_ = other.nlriType_;
@@ -1055,8 +870,8 @@ namespace ServiceLayer {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public SLBgplsTopoNlriFilter Clone() {
-      return new SLBgplsTopoNlriFilter(this);
+    public SLBgplsTopoNlriMatch Clone() {
+      return new SLBgplsTopoNlriMatch(this);
     }
 
     /// <summary>Field number for the "Identifier" field.</summary>
@@ -1113,12 +928,12 @@ namespace ServiceLayer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
-      return Equals(other as SLBgplsTopoNlriFilter);
+      return Equals(other as SLBgplsTopoNlriMatch);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool Equals(SLBgplsTopoNlriFilter other) {
+    public bool Equals(SLBgplsTopoNlriMatch other) {
       if (ReferenceEquals(other, null)) {
         return false;
       }
@@ -1217,7 +1032,7 @@ namespace ServiceLayer {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(SLBgplsTopoNlriFilter other) {
+    public void MergeFrom(SLBgplsTopoNlriMatch other) {
       if (other == null) {
         return;
       }
@@ -1328,13 +1143,18 @@ namespace ServiceLayer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public SLBgplsTopoUpdMsg(SLBgplsTopoUpdMsg other) : this() {
-      updType_ = other.updType_;
       switch (other.UpdateCase) {
         case UpdateOneofCase.ErrStatus:
           ErrStatus = other.ErrStatus.Clone();
           break;
         case UpdateOneofCase.Data:
           Data = other.Data.Clone();
+          break;
+        case UpdateOneofCase.Start:
+          Start = other.Start.Clone();
+          break;
+        case UpdateOneofCase.End:
+          End = other.End.Clone();
           break;
       }
 
@@ -1347,32 +1167,17 @@ namespace ServiceLayer {
       return new SLBgplsTopoUpdMsg(this);
     }
 
-    /// <summary>Field number for the "UpdType" field.</summary>
-    public const int UpdTypeFieldNumber = 1;
-    private global::ServiceLayer.SLBgplsTopoUpdType updType_ = global::ServiceLayer.SLBgplsTopoUpdType.Reserved;
-    /// <summary>
-    /// Update Type
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::ServiceLayer.SLBgplsTopoUpdType UpdType {
-      get { return updType_; }
-      set {
-        updType_ = value;
-      }
-    }
-
     /// <summary>Field number for the "ErrStatus" field.</summary>
-    public const int ErrStatusFieldNumber = 2;
+    public const int ErrStatusFieldNumber = 1;
     /// <summary>
-    /// case UpdType == SL_BGPLS_TOPO_UPD_TYPE_ERROR:
-    ///    => This field carries error info, if any error occurs during
-    ///       stream setup.
+    /// This field carries error info, if any error occurs during stream setup.
+    /// SL_SUCCESS: signifies that the update request was successful
+    /// SL_XXX: signifies an error in setting up a update request.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::ServiceLayer.SLBgplsTopoErrorStatus ErrStatus {
-      get { return updateCase_ == UpdateOneofCase.ErrStatus ? (global::ServiceLayer.SLBgplsTopoErrorStatus) update_ : null; }
+    public global::ServiceLayer.SLErrorStatus ErrStatus {
+      get { return updateCase_ == UpdateOneofCase.ErrStatus ? (global::ServiceLayer.SLErrorStatus) update_ : null; }
       set {
         update_ = value;
         updateCase_ = value == null ? UpdateOneofCase.None : UpdateOneofCase.ErrStatus;
@@ -1380,10 +1185,9 @@ namespace ServiceLayer {
     }
 
     /// <summary>Field number for the "Data" field.</summary>
-    public const int DataFieldNumber = 3;
+    public const int DataFieldNumber = 2;
     /// <summary>
-    /// case UpdType == SL_BGPLS_TOPO_UPD_TYPE_DATA:
-    ///    => This field carries the BGP-LS Topology data
+    /// This field carries the BGP-LS Topology data
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -1395,12 +1199,44 @@ namespace ServiceLayer {
       }
     }
 
+    /// <summary>Field number for the "Start" field.</summary>
+    public const int StartFieldNumber = 3;
+    /// <summary>
+    /// This field carries the Start Marker
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::ServiceLayer.SLBgplsTopoStartMarker Start {
+      get { return updateCase_ == UpdateOneofCase.Start ? (global::ServiceLayer.SLBgplsTopoStartMarker) update_ : null; }
+      set {
+        update_ = value;
+        updateCase_ = value == null ? UpdateOneofCase.None : UpdateOneofCase.Start;
+      }
+    }
+
+    /// <summary>Field number for the "End" field.</summary>
+    public const int EndFieldNumber = 4;
+    /// <summary>
+    /// This filed carries the end marker
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::ServiceLayer.SLBgplsTopoEndMarker End {
+      get { return updateCase_ == UpdateOneofCase.End ? (global::ServiceLayer.SLBgplsTopoEndMarker) update_ : null; }
+      set {
+        update_ = value;
+        updateCase_ = value == null ? UpdateOneofCase.None : UpdateOneofCase.End;
+      }
+    }
+
     private object update_;
     /// <summary>Enum of possible cases for the "Update" oneof.</summary>
     public enum UpdateOneofCase {
       None = 0,
-      ErrStatus = 2,
-      Data = 3,
+      ErrStatus = 1,
+      Data = 2,
+      Start = 3,
+      End = 4,
     }
     private UpdateOneofCase updateCase_ = UpdateOneofCase.None;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1431,9 +1267,10 @@ namespace ServiceLayer {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (UpdType != other.UpdType) return false;
       if (!object.Equals(ErrStatus, other.ErrStatus)) return false;
       if (!object.Equals(Data, other.Data)) return false;
+      if (!object.Equals(Start, other.Start)) return false;
+      if (!object.Equals(End, other.End)) return false;
       if (UpdateCase != other.UpdateCase) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
@@ -1442,9 +1279,10 @@ namespace ServiceLayer {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (UpdType != global::ServiceLayer.SLBgplsTopoUpdType.Reserved) hash ^= UpdType.GetHashCode();
       if (updateCase_ == UpdateOneofCase.ErrStatus) hash ^= ErrStatus.GetHashCode();
       if (updateCase_ == UpdateOneofCase.Data) hash ^= Data.GetHashCode();
+      if (updateCase_ == UpdateOneofCase.Start) hash ^= Start.GetHashCode();
+      if (updateCase_ == UpdateOneofCase.End) hash ^= End.GetHashCode();
       hash ^= (int) updateCase_;
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
@@ -1464,17 +1302,21 @@ namespace ServiceLayer {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (UpdType != global::ServiceLayer.SLBgplsTopoUpdType.Reserved) {
-        output.WriteRawTag(8);
-        output.WriteEnum((int) UpdType);
-      }
       if (updateCase_ == UpdateOneofCase.ErrStatus) {
-        output.WriteRawTag(18);
+        output.WriteRawTag(10);
         output.WriteMessage(ErrStatus);
       }
       if (updateCase_ == UpdateOneofCase.Data) {
-        output.WriteRawTag(26);
+        output.WriteRawTag(18);
         output.WriteMessage(Data);
+      }
+      if (updateCase_ == UpdateOneofCase.Start) {
+        output.WriteRawTag(26);
+        output.WriteMessage(Start);
+      }
+      if (updateCase_ == UpdateOneofCase.End) {
+        output.WriteRawTag(34);
+        output.WriteMessage(End);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -1486,17 +1328,21 @@ namespace ServiceLayer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (UpdType != global::ServiceLayer.SLBgplsTopoUpdType.Reserved) {
-        output.WriteRawTag(8);
-        output.WriteEnum((int) UpdType);
-      }
       if (updateCase_ == UpdateOneofCase.ErrStatus) {
-        output.WriteRawTag(18);
+        output.WriteRawTag(10);
         output.WriteMessage(ErrStatus);
       }
       if (updateCase_ == UpdateOneofCase.Data) {
-        output.WriteRawTag(26);
+        output.WriteRawTag(18);
         output.WriteMessage(Data);
+      }
+      if (updateCase_ == UpdateOneofCase.Start) {
+        output.WriteRawTag(26);
+        output.WriteMessage(Start);
+      }
+      if (updateCase_ == UpdateOneofCase.End) {
+        output.WriteRawTag(34);
+        output.WriteMessage(End);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -1508,14 +1354,17 @@ namespace ServiceLayer {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (UpdType != global::ServiceLayer.SLBgplsTopoUpdType.Reserved) {
-        size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) UpdType);
-      }
       if (updateCase_ == UpdateOneofCase.ErrStatus) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(ErrStatus);
       }
       if (updateCase_ == UpdateOneofCase.Data) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(Data);
+      }
+      if (updateCase_ == UpdateOneofCase.Start) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Start);
+      }
+      if (updateCase_ == UpdateOneofCase.End) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(End);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -1529,13 +1378,10 @@ namespace ServiceLayer {
       if (other == null) {
         return;
       }
-      if (other.UpdType != global::ServiceLayer.SLBgplsTopoUpdType.Reserved) {
-        UpdType = other.UpdType;
-      }
       switch (other.UpdateCase) {
         case UpdateOneofCase.ErrStatus:
           if (ErrStatus == null) {
-            ErrStatus = new global::ServiceLayer.SLBgplsTopoErrorStatus();
+            ErrStatus = new global::ServiceLayer.SLErrorStatus();
           }
           ErrStatus.MergeFrom(other.ErrStatus);
           break;
@@ -1544,6 +1390,18 @@ namespace ServiceLayer {
             Data = new global::ServiceLayer.SLBgplsTopoUpd();
           }
           Data.MergeFrom(other.Data);
+          break;
+        case UpdateOneofCase.Start:
+          if (Start == null) {
+            Start = new global::ServiceLayer.SLBgplsTopoStartMarker();
+          }
+          Start.MergeFrom(other.Start);
+          break;
+        case UpdateOneofCase.End:
+          if (End == null) {
+            End = new global::ServiceLayer.SLBgplsTopoEndMarker();
+          }
+          End.MergeFrom(other.End);
           break;
       }
 
@@ -1562,12 +1420,8 @@ namespace ServiceLayer {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 8: {
-            UpdType = (global::ServiceLayer.SLBgplsTopoUpdType) input.ReadEnum();
-            break;
-          }
-          case 18: {
-            global::ServiceLayer.SLBgplsTopoErrorStatus subBuilder = new global::ServiceLayer.SLBgplsTopoErrorStatus();
+          case 10: {
+            global::ServiceLayer.SLErrorStatus subBuilder = new global::ServiceLayer.SLErrorStatus();
             if (updateCase_ == UpdateOneofCase.ErrStatus) {
               subBuilder.MergeFrom(ErrStatus);
             }
@@ -1575,13 +1429,31 @@ namespace ServiceLayer {
             ErrStatus = subBuilder;
             break;
           }
-          case 26: {
+          case 18: {
             global::ServiceLayer.SLBgplsTopoUpd subBuilder = new global::ServiceLayer.SLBgplsTopoUpd();
             if (updateCase_ == UpdateOneofCase.Data) {
               subBuilder.MergeFrom(Data);
             }
             input.ReadMessage(subBuilder);
             Data = subBuilder;
+            break;
+          }
+          case 26: {
+            global::ServiceLayer.SLBgplsTopoStartMarker subBuilder = new global::ServiceLayer.SLBgplsTopoStartMarker();
+            if (updateCase_ == UpdateOneofCase.Start) {
+              subBuilder.MergeFrom(Start);
+            }
+            input.ReadMessage(subBuilder);
+            Start = subBuilder;
+            break;
+          }
+          case 34: {
+            global::ServiceLayer.SLBgplsTopoEndMarker subBuilder = new global::ServiceLayer.SLBgplsTopoEndMarker();
+            if (updateCase_ == UpdateOneofCase.End) {
+              subBuilder.MergeFrom(End);
+            }
+            input.ReadMessage(subBuilder);
+            End = subBuilder;
             break;
           }
         }
@@ -1599,12 +1471,8 @@ namespace ServiceLayer {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
-          case 8: {
-            UpdType = (global::ServiceLayer.SLBgplsTopoUpdType) input.ReadEnum();
-            break;
-          }
-          case 18: {
-            global::ServiceLayer.SLBgplsTopoErrorStatus subBuilder = new global::ServiceLayer.SLBgplsTopoErrorStatus();
+          case 10: {
+            global::ServiceLayer.SLErrorStatus subBuilder = new global::ServiceLayer.SLErrorStatus();
             if (updateCase_ == UpdateOneofCase.ErrStatus) {
               subBuilder.MergeFrom(ErrStatus);
             }
@@ -1612,13 +1480,31 @@ namespace ServiceLayer {
             ErrStatus = subBuilder;
             break;
           }
-          case 26: {
+          case 18: {
             global::ServiceLayer.SLBgplsTopoUpd subBuilder = new global::ServiceLayer.SLBgplsTopoUpd();
             if (updateCase_ == UpdateOneofCase.Data) {
               subBuilder.MergeFrom(Data);
             }
             input.ReadMessage(subBuilder);
             Data = subBuilder;
+            break;
+          }
+          case 26: {
+            global::ServiceLayer.SLBgplsTopoStartMarker subBuilder = new global::ServiceLayer.SLBgplsTopoStartMarker();
+            if (updateCase_ == UpdateOneofCase.Start) {
+              subBuilder.MergeFrom(Start);
+            }
+            input.ReadMessage(subBuilder);
+            Start = subBuilder;
+            break;
+          }
+          case 34: {
+            global::ServiceLayer.SLBgplsTopoEndMarker subBuilder = new global::ServiceLayer.SLBgplsTopoEndMarker();
+            if (updateCase_ == UpdateOneofCase.End) {
+              subBuilder.MergeFrom(End);
+            }
+            input.ReadMessage(subBuilder);
+            End = subBuilder;
             break;
           }
         }
@@ -1629,20 +1515,20 @@ namespace ServiceLayer {
   }
 
   /// <summary>
-  /// TODO: Check with SL API team. Can we use SL API errors?
-  /// Status codes, including errors and success codes.
-  /// All BGP-LS Topology errors are defined below.
+  /// Start marker - sent before any DATA is sent.
+  /// This is an indication to stale any objects received until now.
+  /// Intentionally added as empty message
   /// </summary>
-  public sealed partial class SLBgplsTopoErrorStatus : pb::IMessage<SLBgplsTopoErrorStatus>
+  public sealed partial class SLBgplsTopoStartMarker : pb::IMessage<SLBgplsTopoStartMarker>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
   #endif
   {
-    private static readonly pb::MessageParser<SLBgplsTopoErrorStatus> _parser = new pb::MessageParser<SLBgplsTopoErrorStatus>(() => new SLBgplsTopoErrorStatus());
+    private static readonly pb::MessageParser<SLBgplsTopoStartMarker> _parser = new pb::MessageParser<SLBgplsTopoStartMarker>(() => new SLBgplsTopoStartMarker());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pb::MessageParser<SLBgplsTopoErrorStatus> Parser { get { return _parser; } }
+    public static pb::MessageParser<SLBgplsTopoStartMarker> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -1658,7 +1544,7 @@ namespace ServiceLayer {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public SLBgplsTopoErrorStatus() {
+    public SLBgplsTopoStartMarker() {
       OnConstruction();
     }
 
@@ -1666,45 +1552,31 @@ namespace ServiceLayer {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public SLBgplsTopoErrorStatus(SLBgplsTopoErrorStatus other) : this() {
-      status_ = other.status_;
+    public SLBgplsTopoStartMarker(SLBgplsTopoStartMarker other) : this() {
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public SLBgplsTopoErrorStatus Clone() {
-      return new SLBgplsTopoErrorStatus(this);
-    }
-
-    /// <summary>Field number for the "Status" field.</summary>
-    public const int StatusFieldNumber = 1;
-    private global::ServiceLayer.SLBgplsTopoErrorStatus.Types.SLBgplsTopoErrno status_ = global::ServiceLayer.SLBgplsTopoErrorStatus.Types.SLBgplsTopoErrno.SlBgplsTopoSuccess;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::ServiceLayer.SLBgplsTopoErrorStatus.Types.SLBgplsTopoErrno Status {
-      get { return status_; }
-      set {
-        status_ = value;
-      }
+    public SLBgplsTopoStartMarker Clone() {
+      return new SLBgplsTopoStartMarker(this);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
-      return Equals(other as SLBgplsTopoErrorStatus);
+      return Equals(other as SLBgplsTopoStartMarker);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool Equals(SLBgplsTopoErrorStatus other) {
+    public bool Equals(SLBgplsTopoStartMarker other) {
       if (ReferenceEquals(other, null)) {
         return false;
       }
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (Status != other.Status) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -1712,7 +1584,6 @@ namespace ServiceLayer {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (Status != global::ServiceLayer.SLBgplsTopoErrorStatus.Types.SLBgplsTopoErrno.SlBgplsTopoSuccess) hash ^= Status.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -1731,10 +1602,6 @@ namespace ServiceLayer {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (Status != global::ServiceLayer.SLBgplsTopoErrorStatus.Types.SLBgplsTopoErrno.SlBgplsTopoSuccess) {
-        output.WriteRawTag(8);
-        output.WriteEnum((int) Status);
-      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -1745,10 +1612,6 @@ namespace ServiceLayer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (Status != global::ServiceLayer.SLBgplsTopoErrorStatus.Types.SLBgplsTopoErrno.SlBgplsTopoSuccess) {
-        output.WriteRawTag(8);
-        output.WriteEnum((int) Status);
-      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -1759,9 +1622,6 @@ namespace ServiceLayer {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (Status != global::ServiceLayer.SLBgplsTopoErrorStatus.Types.SLBgplsTopoErrno.SlBgplsTopoSuccess) {
-        size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Status);
-      }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -1770,12 +1630,9 @@ namespace ServiceLayer {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(SLBgplsTopoErrorStatus other) {
+    public void MergeFrom(SLBgplsTopoStartMarker other) {
       if (other == null) {
         return;
-      }
-      if (other.Status != global::ServiceLayer.SLBgplsTopoErrorStatus.Types.SLBgplsTopoErrno.SlBgplsTopoSuccess) {
-        Status = other.Status;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -1792,10 +1649,6 @@ namespace ServiceLayer {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 8: {
-            Status = (global::ServiceLayer.SLBgplsTopoErrorStatus.Types.SLBgplsTopoErrno) input.ReadEnum();
-            break;
-          }
         }
       }
     #endif
@@ -1811,124 +1664,167 @@ namespace ServiceLayer {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
-          case 8: {
-            Status = (global::ServiceLayer.SLBgplsTopoErrorStatus.Types.SLBgplsTopoErrno) input.ReadEnum();
-            break;
-          }
         }
       }
     }
     #endif
 
-    #region Nested types
-    /// <summary>Container for nested types declared in the SLBgplsTopoErrorStatus message type.</summary>
+  }
+
+  /// <summary>
+  /// End marker - sent after all DATA are sent.
+  /// This is an indication to sweep any stale objects, if present.
+  /// Intentionally added as empty message
+  /// </summary>
+  public sealed partial class SLBgplsTopoEndMarker : pb::IMessage<SLBgplsTopoEndMarker>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<SLBgplsTopoEndMarker> _parser = new pb::MessageParser<SLBgplsTopoEndMarker>(() => new SLBgplsTopoEndMarker());
+    private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static partial class Types {
-      public enum SLBgplsTopoErrno {
-        /// <summary>
-        /// Success, no errors detected. 0x0.
-        /// </summary>
-        [pbr::OriginalName("SL_BGPLS_TOPO_SUCCESS")] SlBgplsTopoSuccess = 0,
-        /// <summary>
-        /// Client is not connected.
-        /// The client is expected to remain connected after init and version
-        /// validation, RPC calls can fail with this error code otherwise.
-        /// Refer to RPC SLGlobalInitNotif. 0x1
-        /// </summary>
-        [pbr::OriginalName("SL_BGPLS_TOPO_NOT_CONNECTED")] SlBgplsTopoNotConnected = 1,
-        /// <summary>
-        /// Operation must be retried. 0x2
-        /// </summary>
-        [pbr::OriginalName("SL_BGPLS_TOPO_EAGAIN")] SlBgplsTopoEagain = 2,
-        /// <summary>
-        /// One or more components does not have sufficient memory. 0x3
-        /// </summary>
-        [pbr::OriginalName("SL_BGPLS_TOPO_ENOMEM")] SlBgplsTopoEnomem = 3,
-        /// <summary>
-        /// Too many outstanding requests. 0x4
-        /// </summary>
-        [pbr::OriginalName("SL_BGPLS_TOPO_EBUSY")] SlBgplsTopoEbusy = 4,
-        /// <summary>
-        /// One or more arguments are invalid. 0x5
-        /// </summary>
-        [pbr::OriginalName("SL_BGPLS_TOPO_EINVAL")] SlBgplsTopoEinval = 5,
-        /// <summary>
-        /// Unsupported version. 0x6
-        /// </summary>
-        [pbr::OriginalName("SL_BGPLS_TOPO_UNSUPPORTED_VER")] SlBgplsTopoUnsupportedVer = 6,
-        /// <summary>
-        /// Not Available. 0x7
-        /// </summary>
-        [pbr::OriginalName("SL_BGPLS_TOPO_NOT_AVAILABLE")] SlBgplsTopoNotAvailable = 7,
-        /// <summary>
-        /// Stream mode not supported. 0x8
-        /// </summary>
-        [pbr::OriginalName("SL_BGPLS_TOPO_STREAM_NOT_SUPPORTED")] SlBgplsTopoStreamNotSupported = 8,
-        /// <summary>
-        /// Operation not supported. 0x9
-        /// </summary>
-        [pbr::OriginalName("SL_BGPLS_TOPO_ENOTSUP")] SlBgplsTopoEnotsup = 9,
-        /// <summary>
-        /// One or more objects is errored:
-        /// Each object must be individually examined. 0xa
-        /// </summary>
-        [pbr::OriginalName("SL_BGPLS_TOPO_SOME_ERR")] SlBgplsTopoSomeErr = 10,
-        /// <summary>
-        /// Operation Timed out.
-        /// The result of the operation is undeterministic (success or fail). 0xb
-        /// </summary>
-        [pbr::OriginalName("SL_BGPLS_TOPO_TIMEOUT")] SlBgplsTopoTimeout = 11,
-        /// <summary>
-        /// Due to some event, the client will no longer receive updates
-        /// on this channel. 0xc
-        /// Such events include:
-        /// - Session was hijacked by another client.
-        /// </summary>
-        [pbr::OriginalName("SL_BGPLS_TOPO_NOTIF_TERM")] SlBgplsTopoNotifTerm = 12,
-        /// <summary>
-        /// Authentication failure.
-        /// Incorrect credentials passed in by RPC. 0xd
-        /// </summary>
-        [pbr::OriginalName("SL_BGPLS_TOPO_AUTH_FAIL")] SlBgplsTopoAuthFail = 13,
-        /// <summary>
-        /// Offset for INIT errors. 0x500
-        /// </summary>
-        [pbr::OriginalName("SL_BGPLS_TOPO_INIT_START_OFFSET")] SlBgplsTopoInitStartOffset = 1280,
-        /// <summary>
-        /// Success, no errors detected - clear state.
-        /// This error is returned on the first-ever initialization, or,
-        /// when a fatal event has occured and all previous state was lost. 0x501
-        /// </summary>
-        [pbr::OriginalName("SL_BGPLS_TOPO_INIT_STATE_CLEAR")] SlBgplsTopoInitStateClear = 1281,
-        /// <summary>
-        /// Success, no errors detected - previous state is recovered.
-        /// This error is returned on a client re-initialization with
-        /// successful recovery of state. Note that any unacknowledged
-        /// data previously sent should be considered lost. 0x502
-        /// </summary>
-        [pbr::OriginalName("SL_BGPLS_TOPO_INIT_STATE_READY")] SlBgplsTopoInitStateReady = 1282,
-        /// <summary>
-        /// Server software incompatible with client software version. 0x503
-        /// </summary>
-        [pbr::OriginalName("SL_BGPLS_TOPO_INIT_UNSUPPORTED_VER")] SlBgplsTopoInitUnsupportedVer = 1283,
-        /// <summary>
-        /// Initialization request received while server is not ready. 0x504
-        /// </summary>
-        [pbr::OriginalName("SL_BGPLS_TOPO_INIT_SERVER_NOT_INITIALIZED")] SlBgplsTopoInitServerNotInitialized = 1284,
-        /// <summary>
-        /// Server operational mode change from stream to non-stream
-        /// or vice-versa failed. 0x505
-        /// </summary>
-        [pbr::OriginalName("SL_BGPLS_TOPO_INIT_SERVER_MODE_CHANGE_FAILED")] SlBgplsTopoInitServerModeChangeFailed = 1285,
-        /// <summary>
-        /// Offset for Internal errors. 0x100000
-        /// </summary>
-        [pbr::OriginalName("SL_BGPLS_TOPO_INTERNAL_START_OFFSET")] SlBgplsTopoInternalStartOffset = 1048576,
-      }
+    public static pb::MessageParser<SLBgplsTopoEndMarker> Parser { get { return _parser; } }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[4]; }
     }
-    #endregion
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SLBgplsTopoEndMarker() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SLBgplsTopoEndMarker(SLBgplsTopoEndMarker other) : this() {
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SLBgplsTopoEndMarker Clone() {
+      return new SLBgplsTopoEndMarker(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as SLBgplsTopoEndMarker);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(SLBgplsTopoEndMarker other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(SLBgplsTopoEndMarker other) {
+      if (other == null) {
+        return;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+        }
+      }
+    }
+    #endif
 
   }
 
@@ -1949,7 +1845,7 @@ namespace ServiceLayer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[4]; }
+      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[5]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2133,7 +2029,7 @@ namespace ServiceLayer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[5]; }
+      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[6]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2417,7 +2313,7 @@ namespace ServiceLayer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[6]; }
+      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[7]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2521,8 +2417,7 @@ namespace ServiceLayer {
     /// <summary>Field number for the "Node" field.</summary>
     public const int NodeFieldNumber = 4;
     /// <summary>
-    /// case NlriType == SL_BGPLS_TOPO_NLRI_TYPE_NODE:
-    ///    => This field carries info about a node NLRI.
+    /// This field carries info about a node NLRI.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -2537,8 +2432,7 @@ namespace ServiceLayer {
     /// <summary>Field number for the "Link" field.</summary>
     public const int LinkFieldNumber = 5;
     /// <summary>
-    /// case NlriType == SL_BGPLS_TOPO_NLRI_TYPE_LINK:
-    ///    => This field carries info about a link NLRI.
+    /// This field carries info about a link NLRI.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -2553,9 +2447,7 @@ namespace ServiceLayer {
     /// <summary>Field number for the "Prefix" field.</summary>
     public const int PrefixFieldNumber = 6;
     /// <summary>
-    /// case NlriType == SL_BGPLS_TOPO_NLRI_TYPE_IPV4_PREFIX:
-    /// case NlriType == SL_BGPLS_TOPO_NLRI_TYPE_IPV6_PREFIX:
-    ///    => This field carries info about a prefix NLRI.
+    /// This field carries info about a prefix NLRI.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -2570,8 +2462,7 @@ namespace ServiceLayer {
     /// <summary>Field number for the "Srv6Sid" field.</summary>
     public const int Srv6SidFieldNumber = 7;
     /// <summary>
-    /// case NlriType == SL_BGPLS_TOPO_NLRI_TYPE_SRV6_SID:
-    ///    => This field carries info about a SRv6 SID NLRI.
+    /// This field carries info about a SRv6 SID NLRI.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -2586,8 +2477,7 @@ namespace ServiceLayer {
     /// <summary>Field number for the "SrPolicy" field.</summary>
     public const int SrPolicyFieldNumber = 8;
     /// <summary>
-    /// case NlriType == SL_BGPLS_TOPO_NLRI_TYPE_SR_POLICY_CANDIDATE_PATH:
-    ///    => This field carries info about a SR policy NLRI.
+    /// This field carries info about a SR policy NLRI.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -3011,7 +2901,7 @@ namespace ServiceLayer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[7]; }
+      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[8]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3031,7 +2921,25 @@ namespace ServiceLayer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public SLBgplsTopoNode(SLBgplsTopoNode other) : this() {
-      nodeDescr_ = other.nodeDescr_ != null ? other.nodeDescr_.Clone() : null;
+      asn_ = other.asn_;
+      switch (other.NodeIdCase) {
+        case NodeIdOneofCase.OspfNodeId:
+          OspfNodeId = other.OspfNodeId.Clone();
+          break;
+        case NodeIdOneofCase.Ospfv3NodeId:
+          Ospfv3NodeId = other.Ospfv3NodeId.Clone();
+          break;
+        case NodeIdOneofCase.IsisNodeId:
+          IsisNodeId = other.IsisNodeId.Clone();
+          break;
+        case NodeIdOneofCase.BgpNodeId:
+          BgpNodeId = other.BgpNodeId.Clone();
+          break;
+        case NodeIdOneofCase.SrPolicyNodeId:
+          SrPolicyNodeId = other.SrPolicyNodeId.Clone();
+          break;
+      }
+
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -3041,21 +2949,120 @@ namespace ServiceLayer {
       return new SLBgplsTopoNode(this);
     }
 
-    /// <summary>Field number for the "NodeDescr" field.</summary>
-    public const int NodeDescrFieldNumber = 1;
-    private global::ServiceLayer.SLBgplsTopoNodeDescr nodeDescr_;
+    /// <summary>Field number for the "Asn" field.</summary>
+    public const int AsnFieldNumber = 1;
+    private uint asn_;
     /// <summary>
-    /// Node Descriptors for a node.
-    /// Local Node Descriptors. TLV 256.
-    /// Section 5.2.1.2 of [RFC9552]
+    /// AS Number associated with the BGP process originating the link-state information.
+    /// Autonomous System Number. TLV 512.
+    /// Section 5.2.1 of [RFC9552]
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::ServiceLayer.SLBgplsTopoNodeDescr NodeDescr {
-      get { return nodeDescr_; }
+    public uint Asn {
+      get { return asn_; }
       set {
-        nodeDescr_ = value;
+        asn_ = value;
       }
+    }
+
+    /// <summary>Field number for the "OspfNodeId" field.</summary>
+    public const int OspfNodeIdFieldNumber = 2;
+    /// <summary>
+    /// This field carries info about an OSPFv2 node ID.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::ServiceLayer.SLBgplsTopoOspfNodeId OspfNodeId {
+      get { return nodeIdCase_ == NodeIdOneofCase.OspfNodeId ? (global::ServiceLayer.SLBgplsTopoOspfNodeId) nodeId_ : null; }
+      set {
+        nodeId_ = value;
+        nodeIdCase_ = value == null ? NodeIdOneofCase.None : NodeIdOneofCase.OspfNodeId;
+      }
+    }
+
+    /// <summary>Field number for the "Ospfv3NodeId" field.</summary>
+    public const int Ospfv3NodeIdFieldNumber = 3;
+    /// <summary>
+    /// This field carries info about an OSPFv3 node ID.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::ServiceLayer.SLBgplsTopoOspfv3NodeId Ospfv3NodeId {
+      get { return nodeIdCase_ == NodeIdOneofCase.Ospfv3NodeId ? (global::ServiceLayer.SLBgplsTopoOspfv3NodeId) nodeId_ : null; }
+      set {
+        nodeId_ = value;
+        nodeIdCase_ = value == null ? NodeIdOneofCase.None : NodeIdOneofCase.Ospfv3NodeId;
+      }
+    }
+
+    /// <summary>Field number for the "IsisNodeId" field.</summary>
+    public const int IsisNodeIdFieldNumber = 4;
+    /// <summary>
+    /// This field carries info about an ISIS node ID.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::ServiceLayer.SLBgplsTopoIsisNodeId IsisNodeId {
+      get { return nodeIdCase_ == NodeIdOneofCase.IsisNodeId ? (global::ServiceLayer.SLBgplsTopoIsisNodeId) nodeId_ : null; }
+      set {
+        nodeId_ = value;
+        nodeIdCase_ = value == null ? NodeIdOneofCase.None : NodeIdOneofCase.IsisNodeId;
+      }
+    }
+
+    /// <summary>Field number for the "BgpNodeId" field.</summary>
+    public const int BgpNodeIdFieldNumber = 5;
+    /// <summary>
+    /// This field carries info about a BGP node ID.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::ServiceLayer.SLBgplsTopoBgpNodeId BgpNodeId {
+      get { return nodeIdCase_ == NodeIdOneofCase.BgpNodeId ? (global::ServiceLayer.SLBgplsTopoBgpNodeId) nodeId_ : null; }
+      set {
+        nodeId_ = value;
+        nodeIdCase_ = value == null ? NodeIdOneofCase.None : NodeIdOneofCase.BgpNodeId;
+      }
+    }
+
+    /// <summary>Field number for the "SrPolicyNodeId" field.</summary>
+    public const int SrPolicyNodeIdFieldNumber = 6;
+    /// <summary>
+    /// This field carries info about an SR policy node ID.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::ServiceLayer.SLBgplsTopoSrPolicyNodeId SrPolicyNodeId {
+      get { return nodeIdCase_ == NodeIdOneofCase.SrPolicyNodeId ? (global::ServiceLayer.SLBgplsTopoSrPolicyNodeId) nodeId_ : null; }
+      set {
+        nodeId_ = value;
+        nodeIdCase_ = value == null ? NodeIdOneofCase.None : NodeIdOneofCase.SrPolicyNodeId;
+      }
+    }
+
+    private object nodeId_;
+    /// <summary>Enum of possible cases for the "NodeId" oneof.</summary>
+    public enum NodeIdOneofCase {
+      None = 0,
+      OspfNodeId = 2,
+      Ospfv3NodeId = 3,
+      IsisNodeId = 4,
+      BgpNodeId = 5,
+      SrPolicyNodeId = 6,
+    }
+    private NodeIdOneofCase nodeIdCase_ = NodeIdOneofCase.None;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public NodeIdOneofCase NodeIdCase {
+      get { return nodeIdCase_; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearNodeId() {
+      nodeIdCase_ = NodeIdOneofCase.None;
+      nodeId_ = null;
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3073,7 +3080,13 @@ namespace ServiceLayer {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (!object.Equals(NodeDescr, other.NodeDescr)) return false;
+      if (Asn != other.Asn) return false;
+      if (!object.Equals(OspfNodeId, other.OspfNodeId)) return false;
+      if (!object.Equals(Ospfv3NodeId, other.Ospfv3NodeId)) return false;
+      if (!object.Equals(IsisNodeId, other.IsisNodeId)) return false;
+      if (!object.Equals(BgpNodeId, other.BgpNodeId)) return false;
+      if (!object.Equals(SrPolicyNodeId, other.SrPolicyNodeId)) return false;
+      if (NodeIdCase != other.NodeIdCase) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -3081,7 +3094,13 @@ namespace ServiceLayer {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (nodeDescr_ != null) hash ^= NodeDescr.GetHashCode();
+      if (Asn != 0) hash ^= Asn.GetHashCode();
+      if (nodeIdCase_ == NodeIdOneofCase.OspfNodeId) hash ^= OspfNodeId.GetHashCode();
+      if (nodeIdCase_ == NodeIdOneofCase.Ospfv3NodeId) hash ^= Ospfv3NodeId.GetHashCode();
+      if (nodeIdCase_ == NodeIdOneofCase.IsisNodeId) hash ^= IsisNodeId.GetHashCode();
+      if (nodeIdCase_ == NodeIdOneofCase.BgpNodeId) hash ^= BgpNodeId.GetHashCode();
+      if (nodeIdCase_ == NodeIdOneofCase.SrPolicyNodeId) hash ^= SrPolicyNodeId.GetHashCode();
+      hash ^= (int) nodeIdCase_;
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -3100,9 +3119,29 @@ namespace ServiceLayer {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (nodeDescr_ != null) {
-        output.WriteRawTag(10);
-        output.WriteMessage(NodeDescr);
+      if (Asn != 0) {
+        output.WriteRawTag(8);
+        output.WriteUInt32(Asn);
+      }
+      if (nodeIdCase_ == NodeIdOneofCase.OspfNodeId) {
+        output.WriteRawTag(18);
+        output.WriteMessage(OspfNodeId);
+      }
+      if (nodeIdCase_ == NodeIdOneofCase.Ospfv3NodeId) {
+        output.WriteRawTag(26);
+        output.WriteMessage(Ospfv3NodeId);
+      }
+      if (nodeIdCase_ == NodeIdOneofCase.IsisNodeId) {
+        output.WriteRawTag(34);
+        output.WriteMessage(IsisNodeId);
+      }
+      if (nodeIdCase_ == NodeIdOneofCase.BgpNodeId) {
+        output.WriteRawTag(42);
+        output.WriteMessage(BgpNodeId);
+      }
+      if (nodeIdCase_ == NodeIdOneofCase.SrPolicyNodeId) {
+        output.WriteRawTag(50);
+        output.WriteMessage(SrPolicyNodeId);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -3114,9 +3153,29 @@ namespace ServiceLayer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (nodeDescr_ != null) {
-        output.WriteRawTag(10);
-        output.WriteMessage(NodeDescr);
+      if (Asn != 0) {
+        output.WriteRawTag(8);
+        output.WriteUInt32(Asn);
+      }
+      if (nodeIdCase_ == NodeIdOneofCase.OspfNodeId) {
+        output.WriteRawTag(18);
+        output.WriteMessage(OspfNodeId);
+      }
+      if (nodeIdCase_ == NodeIdOneofCase.Ospfv3NodeId) {
+        output.WriteRawTag(26);
+        output.WriteMessage(Ospfv3NodeId);
+      }
+      if (nodeIdCase_ == NodeIdOneofCase.IsisNodeId) {
+        output.WriteRawTag(34);
+        output.WriteMessage(IsisNodeId);
+      }
+      if (nodeIdCase_ == NodeIdOneofCase.BgpNodeId) {
+        output.WriteRawTag(42);
+        output.WriteMessage(BgpNodeId);
+      }
+      if (nodeIdCase_ == NodeIdOneofCase.SrPolicyNodeId) {
+        output.WriteRawTag(50);
+        output.WriteMessage(SrPolicyNodeId);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -3128,8 +3187,23 @@ namespace ServiceLayer {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (nodeDescr_ != null) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(NodeDescr);
+      if (Asn != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Asn);
+      }
+      if (nodeIdCase_ == NodeIdOneofCase.OspfNodeId) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(OspfNodeId);
+      }
+      if (nodeIdCase_ == NodeIdOneofCase.Ospfv3NodeId) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Ospfv3NodeId);
+      }
+      if (nodeIdCase_ == NodeIdOneofCase.IsisNodeId) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(IsisNodeId);
+      }
+      if (nodeIdCase_ == NodeIdOneofCase.BgpNodeId) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(BgpNodeId);
+      }
+      if (nodeIdCase_ == NodeIdOneofCase.SrPolicyNodeId) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(SrPolicyNodeId);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -3143,12 +3217,42 @@ namespace ServiceLayer {
       if (other == null) {
         return;
       }
-      if (other.nodeDescr_ != null) {
-        if (nodeDescr_ == null) {
-          NodeDescr = new global::ServiceLayer.SLBgplsTopoNodeDescr();
-        }
-        NodeDescr.MergeFrom(other.NodeDescr);
+      if (other.Asn != 0) {
+        Asn = other.Asn;
       }
+      switch (other.NodeIdCase) {
+        case NodeIdOneofCase.OspfNodeId:
+          if (OspfNodeId == null) {
+            OspfNodeId = new global::ServiceLayer.SLBgplsTopoOspfNodeId();
+          }
+          OspfNodeId.MergeFrom(other.OspfNodeId);
+          break;
+        case NodeIdOneofCase.Ospfv3NodeId:
+          if (Ospfv3NodeId == null) {
+            Ospfv3NodeId = new global::ServiceLayer.SLBgplsTopoOspfv3NodeId();
+          }
+          Ospfv3NodeId.MergeFrom(other.Ospfv3NodeId);
+          break;
+        case NodeIdOneofCase.IsisNodeId:
+          if (IsisNodeId == null) {
+            IsisNodeId = new global::ServiceLayer.SLBgplsTopoIsisNodeId();
+          }
+          IsisNodeId.MergeFrom(other.IsisNodeId);
+          break;
+        case NodeIdOneofCase.BgpNodeId:
+          if (BgpNodeId == null) {
+            BgpNodeId = new global::ServiceLayer.SLBgplsTopoBgpNodeId();
+          }
+          BgpNodeId.MergeFrom(other.BgpNodeId);
+          break;
+        case NodeIdOneofCase.SrPolicyNodeId:
+          if (SrPolicyNodeId == null) {
+            SrPolicyNodeId = new global::ServiceLayer.SLBgplsTopoSrPolicyNodeId();
+          }
+          SrPolicyNodeId.MergeFrom(other.SrPolicyNodeId);
+          break;
+      }
+
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -3164,11 +3268,53 @@ namespace ServiceLayer {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
-            if (nodeDescr_ == null) {
-              NodeDescr = new global::ServiceLayer.SLBgplsTopoNodeDescr();
+          case 8: {
+            Asn = input.ReadUInt32();
+            break;
+          }
+          case 18: {
+            global::ServiceLayer.SLBgplsTopoOspfNodeId subBuilder = new global::ServiceLayer.SLBgplsTopoOspfNodeId();
+            if (nodeIdCase_ == NodeIdOneofCase.OspfNodeId) {
+              subBuilder.MergeFrom(OspfNodeId);
             }
-            input.ReadMessage(NodeDescr);
+            input.ReadMessage(subBuilder);
+            OspfNodeId = subBuilder;
+            break;
+          }
+          case 26: {
+            global::ServiceLayer.SLBgplsTopoOspfv3NodeId subBuilder = new global::ServiceLayer.SLBgplsTopoOspfv3NodeId();
+            if (nodeIdCase_ == NodeIdOneofCase.Ospfv3NodeId) {
+              subBuilder.MergeFrom(Ospfv3NodeId);
+            }
+            input.ReadMessage(subBuilder);
+            Ospfv3NodeId = subBuilder;
+            break;
+          }
+          case 34: {
+            global::ServiceLayer.SLBgplsTopoIsisNodeId subBuilder = new global::ServiceLayer.SLBgplsTopoIsisNodeId();
+            if (nodeIdCase_ == NodeIdOneofCase.IsisNodeId) {
+              subBuilder.MergeFrom(IsisNodeId);
+            }
+            input.ReadMessage(subBuilder);
+            IsisNodeId = subBuilder;
+            break;
+          }
+          case 42: {
+            global::ServiceLayer.SLBgplsTopoBgpNodeId subBuilder = new global::ServiceLayer.SLBgplsTopoBgpNodeId();
+            if (nodeIdCase_ == NodeIdOneofCase.BgpNodeId) {
+              subBuilder.MergeFrom(BgpNodeId);
+            }
+            input.ReadMessage(subBuilder);
+            BgpNodeId = subBuilder;
+            break;
+          }
+          case 50: {
+            global::ServiceLayer.SLBgplsTopoSrPolicyNodeId subBuilder = new global::ServiceLayer.SLBgplsTopoSrPolicyNodeId();
+            if (nodeIdCase_ == NodeIdOneofCase.SrPolicyNodeId) {
+              subBuilder.MergeFrom(SrPolicyNodeId);
+            }
+            input.ReadMessage(subBuilder);
+            SrPolicyNodeId = subBuilder;
             break;
           }
         }
@@ -3186,11 +3332,53 @@ namespace ServiceLayer {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
-          case 10: {
-            if (nodeDescr_ == null) {
-              NodeDescr = new global::ServiceLayer.SLBgplsTopoNodeDescr();
+          case 8: {
+            Asn = input.ReadUInt32();
+            break;
+          }
+          case 18: {
+            global::ServiceLayer.SLBgplsTopoOspfNodeId subBuilder = new global::ServiceLayer.SLBgplsTopoOspfNodeId();
+            if (nodeIdCase_ == NodeIdOneofCase.OspfNodeId) {
+              subBuilder.MergeFrom(OspfNodeId);
             }
-            input.ReadMessage(NodeDescr);
+            input.ReadMessage(subBuilder);
+            OspfNodeId = subBuilder;
+            break;
+          }
+          case 26: {
+            global::ServiceLayer.SLBgplsTopoOspfv3NodeId subBuilder = new global::ServiceLayer.SLBgplsTopoOspfv3NodeId();
+            if (nodeIdCase_ == NodeIdOneofCase.Ospfv3NodeId) {
+              subBuilder.MergeFrom(Ospfv3NodeId);
+            }
+            input.ReadMessage(subBuilder);
+            Ospfv3NodeId = subBuilder;
+            break;
+          }
+          case 34: {
+            global::ServiceLayer.SLBgplsTopoIsisNodeId subBuilder = new global::ServiceLayer.SLBgplsTopoIsisNodeId();
+            if (nodeIdCase_ == NodeIdOneofCase.IsisNodeId) {
+              subBuilder.MergeFrom(IsisNodeId);
+            }
+            input.ReadMessage(subBuilder);
+            IsisNodeId = subBuilder;
+            break;
+          }
+          case 42: {
+            global::ServiceLayer.SLBgplsTopoBgpNodeId subBuilder = new global::ServiceLayer.SLBgplsTopoBgpNodeId();
+            if (nodeIdCase_ == NodeIdOneofCase.BgpNodeId) {
+              subBuilder.MergeFrom(BgpNodeId);
+            }
+            input.ReadMessage(subBuilder);
+            BgpNodeId = subBuilder;
+            break;
+          }
+          case 50: {
+            global::ServiceLayer.SLBgplsTopoSrPolicyNodeId subBuilder = new global::ServiceLayer.SLBgplsTopoSrPolicyNodeId();
+            if (nodeIdCase_ == NodeIdOneofCase.SrPolicyNodeId) {
+              subBuilder.MergeFrom(SrPolicyNodeId);
+            }
+            input.ReadMessage(subBuilder);
+            SrPolicyNodeId = subBuilder;
             break;
           }
         }
@@ -3217,7 +3405,7 @@ namespace ServiceLayer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[8]; }
+      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[9]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3251,7 +3439,7 @@ namespace ServiceLayer {
 
     /// <summary>Field number for the "LocalNodeDescr" field.</summary>
     public const int LocalNodeDescrFieldNumber = 1;
-    private global::ServiceLayer.SLBgplsTopoNodeDescr localNodeDescr_;
+    private global::ServiceLayer.SLBgplsTopoNode localNodeDescr_;
     /// <summary>
     /// Node Descriptors for the node anchoring the local end of the link.
     /// Local Node Descriptors. TLV 256.
@@ -3259,7 +3447,7 @@ namespace ServiceLayer {
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::ServiceLayer.SLBgplsTopoNodeDescr LocalNodeDescr {
+    public global::ServiceLayer.SLBgplsTopoNode LocalNodeDescr {
       get { return localNodeDescr_; }
       set {
         localNodeDescr_ = value;
@@ -3268,7 +3456,7 @@ namespace ServiceLayer {
 
     /// <summary>Field number for the "RemoteNodeDescr" field.</summary>
     public const int RemoteNodeDescrFieldNumber = 2;
-    private global::ServiceLayer.SLBgplsTopoNodeDescr remoteNodeDescr_;
+    private global::ServiceLayer.SLBgplsTopoNode remoteNodeDescr_;
     /// <summary>
     /// Node Descriptors for the node anchoring the remote end of the link.
     /// Remote Node Descriptors. TLV 257.
@@ -3276,7 +3464,7 @@ namespace ServiceLayer {
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::ServiceLayer.SLBgplsTopoNodeDescr RemoteNodeDescr {
+    public global::ServiceLayer.SLBgplsTopoNode RemoteNodeDescr {
       get { return remoteNodeDescr_; }
       set {
         remoteNodeDescr_ = value;
@@ -3413,13 +3601,13 @@ namespace ServiceLayer {
       }
       if (other.localNodeDescr_ != null) {
         if (localNodeDescr_ == null) {
-          LocalNodeDescr = new global::ServiceLayer.SLBgplsTopoNodeDescr();
+          LocalNodeDescr = new global::ServiceLayer.SLBgplsTopoNode();
         }
         LocalNodeDescr.MergeFrom(other.LocalNodeDescr);
       }
       if (other.remoteNodeDescr_ != null) {
         if (remoteNodeDescr_ == null) {
-          RemoteNodeDescr = new global::ServiceLayer.SLBgplsTopoNodeDescr();
+          RemoteNodeDescr = new global::ServiceLayer.SLBgplsTopoNode();
         }
         RemoteNodeDescr.MergeFrom(other.RemoteNodeDescr);
       }
@@ -3446,14 +3634,14 @@ namespace ServiceLayer {
             break;
           case 10: {
             if (localNodeDescr_ == null) {
-              LocalNodeDescr = new global::ServiceLayer.SLBgplsTopoNodeDescr();
+              LocalNodeDescr = new global::ServiceLayer.SLBgplsTopoNode();
             }
             input.ReadMessage(LocalNodeDescr);
             break;
           }
           case 18: {
             if (remoteNodeDescr_ == null) {
-              RemoteNodeDescr = new global::ServiceLayer.SLBgplsTopoNodeDescr();
+              RemoteNodeDescr = new global::ServiceLayer.SLBgplsTopoNode();
             }
             input.ReadMessage(RemoteNodeDescr);
             break;
@@ -3482,14 +3670,14 @@ namespace ServiceLayer {
             break;
           case 10: {
             if (localNodeDescr_ == null) {
-              LocalNodeDescr = new global::ServiceLayer.SLBgplsTopoNodeDescr();
+              LocalNodeDescr = new global::ServiceLayer.SLBgplsTopoNode();
             }
             input.ReadMessage(LocalNodeDescr);
             break;
           }
           case 18: {
             if (remoteNodeDescr_ == null) {
-              RemoteNodeDescr = new global::ServiceLayer.SLBgplsTopoNodeDescr();
+              RemoteNodeDescr = new global::ServiceLayer.SLBgplsTopoNode();
             }
             input.ReadMessage(RemoteNodeDescr);
             break;
@@ -3525,7 +3713,7 @@ namespace ServiceLayer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[9]; }
+      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[10]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3558,7 +3746,7 @@ namespace ServiceLayer {
 
     /// <summary>Field number for the "NodeDescr" field.</summary>
     public const int NodeDescrFieldNumber = 1;
-    private global::ServiceLayer.SLBgplsTopoNodeDescr nodeDescr_;
+    private global::ServiceLayer.SLBgplsTopoNode nodeDescr_;
     /// <summary>
     /// Node Descriptors for the node originating the prefix.
     /// Local Node Descriptors. TLV 256.
@@ -3566,7 +3754,7 @@ namespace ServiceLayer {
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::ServiceLayer.SLBgplsTopoNodeDescr NodeDescr {
+    public global::ServiceLayer.SLBgplsTopoNode NodeDescr {
       get { return nodeDescr_; }
       set {
         nodeDescr_ = value;
@@ -3690,7 +3878,7 @@ namespace ServiceLayer {
       }
       if (other.nodeDescr_ != null) {
         if (nodeDescr_ == null) {
-          NodeDescr = new global::ServiceLayer.SLBgplsTopoNodeDescr();
+          NodeDescr = new global::ServiceLayer.SLBgplsTopoNode();
         }
         NodeDescr.MergeFrom(other.NodeDescr);
       }
@@ -3717,7 +3905,7 @@ namespace ServiceLayer {
             break;
           case 10: {
             if (nodeDescr_ == null) {
-              NodeDescr = new global::ServiceLayer.SLBgplsTopoNodeDescr();
+              NodeDescr = new global::ServiceLayer.SLBgplsTopoNode();
             }
             input.ReadMessage(NodeDescr);
             break;
@@ -3746,7 +3934,7 @@ namespace ServiceLayer {
             break;
           case 10: {
             if (nodeDescr_ == null) {
-              NodeDescr = new global::ServiceLayer.SLBgplsTopoNodeDescr();
+              NodeDescr = new global::ServiceLayer.SLBgplsTopoNode();
             }
             input.ReadMessage(NodeDescr);
             break;
@@ -3782,7 +3970,7 @@ namespace ServiceLayer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[10]; }
+      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[11]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3815,7 +4003,7 @@ namespace ServiceLayer {
 
     /// <summary>Field number for the "NodeDescr" field.</summary>
     public const int NodeDescrFieldNumber = 1;
-    private global::ServiceLayer.SLBgplsTopoNodeDescr nodeDescr_;
+    private global::ServiceLayer.SLBgplsTopoNode nodeDescr_;
     /// <summary>
     /// Node Descriptors for the node originating the SRv6 SID.
     /// Local Node Descriptors. TLV 256.
@@ -3823,7 +4011,7 @@ namespace ServiceLayer {
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::ServiceLayer.SLBgplsTopoNodeDescr NodeDescr {
+    public global::ServiceLayer.SLBgplsTopoNode NodeDescr {
       get { return nodeDescr_; }
       set {
         nodeDescr_ = value;
@@ -3942,7 +4130,7 @@ namespace ServiceLayer {
       }
       if (other.nodeDescr_ != null) {
         if (nodeDescr_ == null) {
-          NodeDescr = new global::ServiceLayer.SLBgplsTopoNodeDescr();
+          NodeDescr = new global::ServiceLayer.SLBgplsTopoNode();
         }
         NodeDescr.MergeFrom(other.NodeDescr);
       }
@@ -3969,7 +4157,7 @@ namespace ServiceLayer {
             break;
           case 10: {
             if (nodeDescr_ == null) {
-              NodeDescr = new global::ServiceLayer.SLBgplsTopoNodeDescr();
+              NodeDescr = new global::ServiceLayer.SLBgplsTopoNode();
             }
             input.ReadMessage(NodeDescr);
             break;
@@ -3998,7 +4186,7 @@ namespace ServiceLayer {
             break;
           case 10: {
             if (nodeDescr_ == null) {
-              NodeDescr = new global::ServiceLayer.SLBgplsTopoNodeDescr();
+              NodeDescr = new global::ServiceLayer.SLBgplsTopoNode();
             }
             input.ReadMessage(NodeDescr);
             break;
@@ -4034,7 +4222,7 @@ namespace ServiceLayer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[11]; }
+      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[12]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -4067,7 +4255,7 @@ namespace ServiceLayer {
 
     /// <summary>Field number for the "NodeDescr" field.</summary>
     public const int NodeDescrFieldNumber = 1;
-    private global::ServiceLayer.SLBgplsTopoNodeDescr nodeDescr_;
+    private global::ServiceLayer.SLBgplsTopoNode nodeDescr_;
     /// <summary>
     /// Node Descriptors for the node originating the SR policy.
     /// Local Node Descriptors. TLV 256.
@@ -4075,7 +4263,7 @@ namespace ServiceLayer {
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::ServiceLayer.SLBgplsTopoNodeDescr NodeDescr {
+    public global::ServiceLayer.SLBgplsTopoNode NodeDescr {
       get { return nodeDescr_; }
       set {
         nodeDescr_ = value;
@@ -4199,7 +4387,7 @@ namespace ServiceLayer {
       }
       if (other.nodeDescr_ != null) {
         if (nodeDescr_ == null) {
-          NodeDescr = new global::ServiceLayer.SLBgplsTopoNodeDescr();
+          NodeDescr = new global::ServiceLayer.SLBgplsTopoNode();
         }
         NodeDescr.MergeFrom(other.NodeDescr);
       }
@@ -4226,7 +4414,7 @@ namespace ServiceLayer {
             break;
           case 10: {
             if (nodeDescr_ == null) {
-              NodeDescr = new global::ServiceLayer.SLBgplsTopoNodeDescr();
+              NodeDescr = new global::ServiceLayer.SLBgplsTopoNode();
             }
             input.ReadMessage(NodeDescr);
             break;
@@ -4255,7 +4443,7 @@ namespace ServiceLayer {
             break;
           case 10: {
             if (nodeDescr_ == null) {
-              NodeDescr = new global::ServiceLayer.SLBgplsTopoNodeDescr();
+              NodeDescr = new global::ServiceLayer.SLBgplsTopoNode();
             }
             input.ReadMessage(NodeDescr);
             break;
@@ -4265,555 +4453,6 @@ namespace ServiceLayer {
               SrPolicyDescr = new global::ServiceLayer.SLBgplsTopoSrPolicyDescr();
             }
             input.ReadMessage(SrPolicyDescr);
-            break;
-          }
-        }
-      }
-    }
-    #endif
-
-  }
-
-  /// <summary>
-  /// Node descriptor
-  /// </summary>
-  public sealed partial class SLBgplsTopoNodeDescr : pb::IMessage<SLBgplsTopoNodeDescr>
-  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      , pb::IBufferMessage
-  #endif
-  {
-    private static readonly pb::MessageParser<SLBgplsTopoNodeDescr> _parser = new pb::MessageParser<SLBgplsTopoNodeDescr>(() => new SLBgplsTopoNodeDescr());
-    private pb::UnknownFieldSet _unknownFields;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pb::MessageParser<SLBgplsTopoNodeDescr> Parser { get { return _parser; } }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pbr::MessageDescriptor Descriptor {
-      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[12]; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    pbr::MessageDescriptor pb::IMessage.Descriptor {
-      get { return Descriptor; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public SLBgplsTopoNodeDescr() {
-      OnConstruction();
-    }
-
-    partial void OnConstruction();
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public SLBgplsTopoNodeDescr(SLBgplsTopoNodeDescr other) : this() {
-      asn_ = other.asn_;
-      nodeIdType_ = other.nodeIdType_;
-      switch (other.NodeIdCase) {
-        case NodeIdOneofCase.OspfNodeId:
-          OspfNodeId = other.OspfNodeId.Clone();
-          break;
-        case NodeIdOneofCase.Ospfv3NodeId:
-          Ospfv3NodeId = other.Ospfv3NodeId.Clone();
-          break;
-        case NodeIdOneofCase.IsisNodeId:
-          IsisNodeId = other.IsisNodeId.Clone();
-          break;
-        case NodeIdOneofCase.BgpNodeId:
-          BgpNodeId = other.BgpNodeId.Clone();
-          break;
-        case NodeIdOneofCase.SrPolicyNodeId:
-          SrPolicyNodeId = other.SrPolicyNodeId.Clone();
-          break;
-      }
-
-      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public SLBgplsTopoNodeDescr Clone() {
-      return new SLBgplsTopoNodeDescr(this);
-    }
-
-    /// <summary>Field number for the "Asn" field.</summary>
-    public const int AsnFieldNumber = 1;
-    private uint asn_;
-    /// <summary>
-    /// AS Number associated with the BGP process originating the link-state information.
-    /// Autonomous System Number. TLV 512.
-    /// Section 5.2.1 of [RFC9552]
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public uint Asn {
-      get { return asn_; }
-      set {
-        asn_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "OspfNodeId" field.</summary>
-    public const int OspfNodeIdFieldNumber = 2;
-    /// <summary>
-    /// case NodeIdType == SL_BGPLS_TOPO_NODE_ID_TYPE_OSPFv2:
-    ///    => This field carries info about an OSPFv2 node ID.
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::ServiceLayer.SLBgplsTopoOspfNodeId OspfNodeId {
-      get { return nodeIdCase_ == NodeIdOneofCase.OspfNodeId ? (global::ServiceLayer.SLBgplsTopoOspfNodeId) nodeId_ : null; }
-      set {
-        nodeId_ = value;
-        nodeIdCase_ = value == null ? NodeIdOneofCase.None : NodeIdOneofCase.OspfNodeId;
-      }
-    }
-
-    /// <summary>Field number for the "Ospfv3NodeId" field.</summary>
-    public const int Ospfv3NodeIdFieldNumber = 3;
-    /// <summary>
-    /// case NodeIdType == SL_BGPLS_TOPO_NODE_ID_TYPE_OSPFv3:
-    ///    => This field carries info about an OSPFv3 node ID.
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::ServiceLayer.SLBgplsTopoOspfv3NodeId Ospfv3NodeId {
-      get { return nodeIdCase_ == NodeIdOneofCase.Ospfv3NodeId ? (global::ServiceLayer.SLBgplsTopoOspfv3NodeId) nodeId_ : null; }
-      set {
-        nodeId_ = value;
-        nodeIdCase_ = value == null ? NodeIdOneofCase.None : NodeIdOneofCase.Ospfv3NodeId;
-      }
-    }
-
-    /// <summary>Field number for the "IsisNodeId" field.</summary>
-    public const int IsisNodeIdFieldNumber = 4;
-    /// <summary>
-    /// case NodeIdType == SL_BGPLS_TOPO_NODE_ID_TYPE_ISIS:
-    ///    => This field carries info about an ISIS node ID.
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::ServiceLayer.SLBgplsTopoIsisNodeId IsisNodeId {
-      get { return nodeIdCase_ == NodeIdOneofCase.IsisNodeId ? (global::ServiceLayer.SLBgplsTopoIsisNodeId) nodeId_ : null; }
-      set {
-        nodeId_ = value;
-        nodeIdCase_ = value == null ? NodeIdOneofCase.None : NodeIdOneofCase.IsisNodeId;
-      }
-    }
-
-    /// <summary>Field number for the "BgpNodeId" field.</summary>
-    public const int BgpNodeIdFieldNumber = 5;
-    /// <summary>
-    /// case NodeIdType == SL_BGPLS_TOPO_NODE_ID_TYPE_BGP:
-    ///    => This field carries info about a BGP node ID.
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::ServiceLayer.SLBgplsTopoBgpNodeId BgpNodeId {
-      get { return nodeIdCase_ == NodeIdOneofCase.BgpNodeId ? (global::ServiceLayer.SLBgplsTopoBgpNodeId) nodeId_ : null; }
-      set {
-        nodeId_ = value;
-        nodeIdCase_ = value == null ? NodeIdOneofCase.None : NodeIdOneofCase.BgpNodeId;
-      }
-    }
-
-    /// <summary>Field number for the "SrPolicyNodeId" field.</summary>
-    public const int SrPolicyNodeIdFieldNumber = 6;
-    /// <summary>
-    /// case NodeIdType == SL_BGPLS_TOPO_NODE_ID_TYPE_SR:
-    ///    => This field carries info about an SR policy node ID.
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::ServiceLayer.SLBgplsTopoSrPolicyNodeId SrPolicyNodeId {
-      get { return nodeIdCase_ == NodeIdOneofCase.SrPolicyNodeId ? (global::ServiceLayer.SLBgplsTopoSrPolicyNodeId) nodeId_ : null; }
-      set {
-        nodeId_ = value;
-        nodeIdCase_ = value == null ? NodeIdOneofCase.None : NodeIdOneofCase.SrPolicyNodeId;
-      }
-    }
-
-    /// <summary>Field number for the "NodeIdType" field.</summary>
-    public const int NodeIdTypeFieldNumber = 7;
-    private global::ServiceLayer.SLBgplsTopoNodeIdType nodeIdType_ = global::ServiceLayer.SLBgplsTopoNodeIdType.Reserved;
-    /// <summary>
-    /// Specifies the type of node ID
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::ServiceLayer.SLBgplsTopoNodeIdType NodeIdType {
-      get { return nodeIdType_; }
-      set {
-        nodeIdType_ = value;
-      }
-    }
-
-    private object nodeId_;
-    /// <summary>Enum of possible cases for the "NodeId" oneof.</summary>
-    public enum NodeIdOneofCase {
-      None = 0,
-      OspfNodeId = 2,
-      Ospfv3NodeId = 3,
-      IsisNodeId = 4,
-      BgpNodeId = 5,
-      SrPolicyNodeId = 6,
-    }
-    private NodeIdOneofCase nodeIdCase_ = NodeIdOneofCase.None;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public NodeIdOneofCase NodeIdCase {
-      get { return nodeIdCase_; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void ClearNodeId() {
-      nodeIdCase_ = NodeIdOneofCase.None;
-      nodeId_ = null;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public override bool Equals(object other) {
-      return Equals(other as SLBgplsTopoNodeDescr);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool Equals(SLBgplsTopoNodeDescr other) {
-      if (ReferenceEquals(other, null)) {
-        return false;
-      }
-      if (ReferenceEquals(other, this)) {
-        return true;
-      }
-      if (Asn != other.Asn) return false;
-      if (!object.Equals(OspfNodeId, other.OspfNodeId)) return false;
-      if (!object.Equals(Ospfv3NodeId, other.Ospfv3NodeId)) return false;
-      if (!object.Equals(IsisNodeId, other.IsisNodeId)) return false;
-      if (!object.Equals(BgpNodeId, other.BgpNodeId)) return false;
-      if (!object.Equals(SrPolicyNodeId, other.SrPolicyNodeId)) return false;
-      if (NodeIdType != other.NodeIdType) return false;
-      if (NodeIdCase != other.NodeIdCase) return false;
-      return Equals(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public override int GetHashCode() {
-      int hash = 1;
-      if (Asn != 0) hash ^= Asn.GetHashCode();
-      if (nodeIdCase_ == NodeIdOneofCase.OspfNodeId) hash ^= OspfNodeId.GetHashCode();
-      if (nodeIdCase_ == NodeIdOneofCase.Ospfv3NodeId) hash ^= Ospfv3NodeId.GetHashCode();
-      if (nodeIdCase_ == NodeIdOneofCase.IsisNodeId) hash ^= IsisNodeId.GetHashCode();
-      if (nodeIdCase_ == NodeIdOneofCase.BgpNodeId) hash ^= BgpNodeId.GetHashCode();
-      if (nodeIdCase_ == NodeIdOneofCase.SrPolicyNodeId) hash ^= SrPolicyNodeId.GetHashCode();
-      if (NodeIdType != global::ServiceLayer.SLBgplsTopoNodeIdType.Reserved) hash ^= NodeIdType.GetHashCode();
-      hash ^= (int) nodeIdCase_;
-      if (_unknownFields != null) {
-        hash ^= _unknownFields.GetHashCode();
-      }
-      return hash;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public override string ToString() {
-      return pb::JsonFormatter.ToDiagnosticString(this);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void WriteTo(pb::CodedOutputStream output) {
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      output.WriteRawMessage(this);
-    #else
-      if (Asn != 0) {
-        output.WriteRawTag(8);
-        output.WriteUInt32(Asn);
-      }
-      if (nodeIdCase_ == NodeIdOneofCase.OspfNodeId) {
-        output.WriteRawTag(18);
-        output.WriteMessage(OspfNodeId);
-      }
-      if (nodeIdCase_ == NodeIdOneofCase.Ospfv3NodeId) {
-        output.WriteRawTag(26);
-        output.WriteMessage(Ospfv3NodeId);
-      }
-      if (nodeIdCase_ == NodeIdOneofCase.IsisNodeId) {
-        output.WriteRawTag(34);
-        output.WriteMessage(IsisNodeId);
-      }
-      if (nodeIdCase_ == NodeIdOneofCase.BgpNodeId) {
-        output.WriteRawTag(42);
-        output.WriteMessage(BgpNodeId);
-      }
-      if (nodeIdCase_ == NodeIdOneofCase.SrPolicyNodeId) {
-        output.WriteRawTag(50);
-        output.WriteMessage(SrPolicyNodeId);
-      }
-      if (NodeIdType != global::ServiceLayer.SLBgplsTopoNodeIdType.Reserved) {
-        output.WriteRawTag(56);
-        output.WriteEnum((int) NodeIdType);
-      }
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(output);
-      }
-    #endif
-    }
-
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (Asn != 0) {
-        output.WriteRawTag(8);
-        output.WriteUInt32(Asn);
-      }
-      if (nodeIdCase_ == NodeIdOneofCase.OspfNodeId) {
-        output.WriteRawTag(18);
-        output.WriteMessage(OspfNodeId);
-      }
-      if (nodeIdCase_ == NodeIdOneofCase.Ospfv3NodeId) {
-        output.WriteRawTag(26);
-        output.WriteMessage(Ospfv3NodeId);
-      }
-      if (nodeIdCase_ == NodeIdOneofCase.IsisNodeId) {
-        output.WriteRawTag(34);
-        output.WriteMessage(IsisNodeId);
-      }
-      if (nodeIdCase_ == NodeIdOneofCase.BgpNodeId) {
-        output.WriteRawTag(42);
-        output.WriteMessage(BgpNodeId);
-      }
-      if (nodeIdCase_ == NodeIdOneofCase.SrPolicyNodeId) {
-        output.WriteRawTag(50);
-        output.WriteMessage(SrPolicyNodeId);
-      }
-      if (NodeIdType != global::ServiceLayer.SLBgplsTopoNodeIdType.Reserved) {
-        output.WriteRawTag(56);
-        output.WriteEnum((int) NodeIdType);
-      }
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(ref output);
-      }
-    }
-    #endif
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public int CalculateSize() {
-      int size = 0;
-      if (Asn != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Asn);
-      }
-      if (nodeIdCase_ == NodeIdOneofCase.OspfNodeId) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(OspfNodeId);
-      }
-      if (nodeIdCase_ == NodeIdOneofCase.Ospfv3NodeId) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Ospfv3NodeId);
-      }
-      if (nodeIdCase_ == NodeIdOneofCase.IsisNodeId) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(IsisNodeId);
-      }
-      if (nodeIdCase_ == NodeIdOneofCase.BgpNodeId) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(BgpNodeId);
-      }
-      if (nodeIdCase_ == NodeIdOneofCase.SrPolicyNodeId) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(SrPolicyNodeId);
-      }
-      if (NodeIdType != global::ServiceLayer.SLBgplsTopoNodeIdType.Reserved) {
-        size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) NodeIdType);
-      }
-      if (_unknownFields != null) {
-        size += _unknownFields.CalculateSize();
-      }
-      return size;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(SLBgplsTopoNodeDescr other) {
-      if (other == null) {
-        return;
-      }
-      if (other.Asn != 0) {
-        Asn = other.Asn;
-      }
-      if (other.NodeIdType != global::ServiceLayer.SLBgplsTopoNodeIdType.Reserved) {
-        NodeIdType = other.NodeIdType;
-      }
-      switch (other.NodeIdCase) {
-        case NodeIdOneofCase.OspfNodeId:
-          if (OspfNodeId == null) {
-            OspfNodeId = new global::ServiceLayer.SLBgplsTopoOspfNodeId();
-          }
-          OspfNodeId.MergeFrom(other.OspfNodeId);
-          break;
-        case NodeIdOneofCase.Ospfv3NodeId:
-          if (Ospfv3NodeId == null) {
-            Ospfv3NodeId = new global::ServiceLayer.SLBgplsTopoOspfv3NodeId();
-          }
-          Ospfv3NodeId.MergeFrom(other.Ospfv3NodeId);
-          break;
-        case NodeIdOneofCase.IsisNodeId:
-          if (IsisNodeId == null) {
-            IsisNodeId = new global::ServiceLayer.SLBgplsTopoIsisNodeId();
-          }
-          IsisNodeId.MergeFrom(other.IsisNodeId);
-          break;
-        case NodeIdOneofCase.BgpNodeId:
-          if (BgpNodeId == null) {
-            BgpNodeId = new global::ServiceLayer.SLBgplsTopoBgpNodeId();
-          }
-          BgpNodeId.MergeFrom(other.BgpNodeId);
-          break;
-        case NodeIdOneofCase.SrPolicyNodeId:
-          if (SrPolicyNodeId == null) {
-            SrPolicyNodeId = new global::ServiceLayer.SLBgplsTopoSrPolicyNodeId();
-          }
-          SrPolicyNodeId.MergeFrom(other.SrPolicyNodeId);
-          break;
-      }
-
-      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(pb::CodedInputStream input) {
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      input.ReadRawMessage(this);
-    #else
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
-            break;
-          case 8: {
-            Asn = input.ReadUInt32();
-            break;
-          }
-          case 18: {
-            global::ServiceLayer.SLBgplsTopoOspfNodeId subBuilder = new global::ServiceLayer.SLBgplsTopoOspfNodeId();
-            if (nodeIdCase_ == NodeIdOneofCase.OspfNodeId) {
-              subBuilder.MergeFrom(OspfNodeId);
-            }
-            input.ReadMessage(subBuilder);
-            OspfNodeId = subBuilder;
-            break;
-          }
-          case 26: {
-            global::ServiceLayer.SLBgplsTopoOspfv3NodeId subBuilder = new global::ServiceLayer.SLBgplsTopoOspfv3NodeId();
-            if (nodeIdCase_ == NodeIdOneofCase.Ospfv3NodeId) {
-              subBuilder.MergeFrom(Ospfv3NodeId);
-            }
-            input.ReadMessage(subBuilder);
-            Ospfv3NodeId = subBuilder;
-            break;
-          }
-          case 34: {
-            global::ServiceLayer.SLBgplsTopoIsisNodeId subBuilder = new global::ServiceLayer.SLBgplsTopoIsisNodeId();
-            if (nodeIdCase_ == NodeIdOneofCase.IsisNodeId) {
-              subBuilder.MergeFrom(IsisNodeId);
-            }
-            input.ReadMessage(subBuilder);
-            IsisNodeId = subBuilder;
-            break;
-          }
-          case 42: {
-            global::ServiceLayer.SLBgplsTopoBgpNodeId subBuilder = new global::ServiceLayer.SLBgplsTopoBgpNodeId();
-            if (nodeIdCase_ == NodeIdOneofCase.BgpNodeId) {
-              subBuilder.MergeFrom(BgpNodeId);
-            }
-            input.ReadMessage(subBuilder);
-            BgpNodeId = subBuilder;
-            break;
-          }
-          case 50: {
-            global::ServiceLayer.SLBgplsTopoSrPolicyNodeId subBuilder = new global::ServiceLayer.SLBgplsTopoSrPolicyNodeId();
-            if (nodeIdCase_ == NodeIdOneofCase.SrPolicyNodeId) {
-              subBuilder.MergeFrom(SrPolicyNodeId);
-            }
-            input.ReadMessage(subBuilder);
-            SrPolicyNodeId = subBuilder;
-            break;
-          }
-          case 56: {
-            NodeIdType = (global::ServiceLayer.SLBgplsTopoNodeIdType) input.ReadEnum();
-            break;
-          }
-        }
-      }
-    #endif
-    }
-
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
-            break;
-          case 8: {
-            Asn = input.ReadUInt32();
-            break;
-          }
-          case 18: {
-            global::ServiceLayer.SLBgplsTopoOspfNodeId subBuilder = new global::ServiceLayer.SLBgplsTopoOspfNodeId();
-            if (nodeIdCase_ == NodeIdOneofCase.OspfNodeId) {
-              subBuilder.MergeFrom(OspfNodeId);
-            }
-            input.ReadMessage(subBuilder);
-            OspfNodeId = subBuilder;
-            break;
-          }
-          case 26: {
-            global::ServiceLayer.SLBgplsTopoOspfv3NodeId subBuilder = new global::ServiceLayer.SLBgplsTopoOspfv3NodeId();
-            if (nodeIdCase_ == NodeIdOneofCase.Ospfv3NodeId) {
-              subBuilder.MergeFrom(Ospfv3NodeId);
-            }
-            input.ReadMessage(subBuilder);
-            Ospfv3NodeId = subBuilder;
-            break;
-          }
-          case 34: {
-            global::ServiceLayer.SLBgplsTopoIsisNodeId subBuilder = new global::ServiceLayer.SLBgplsTopoIsisNodeId();
-            if (nodeIdCase_ == NodeIdOneofCase.IsisNodeId) {
-              subBuilder.MergeFrom(IsisNodeId);
-            }
-            input.ReadMessage(subBuilder);
-            IsisNodeId = subBuilder;
-            break;
-          }
-          case 42: {
-            global::ServiceLayer.SLBgplsTopoBgpNodeId subBuilder = new global::ServiceLayer.SLBgplsTopoBgpNodeId();
-            if (nodeIdCase_ == NodeIdOneofCase.BgpNodeId) {
-              subBuilder.MergeFrom(BgpNodeId);
-            }
-            input.ReadMessage(subBuilder);
-            BgpNodeId = subBuilder;
-            break;
-          }
-          case 50: {
-            global::ServiceLayer.SLBgplsTopoSrPolicyNodeId subBuilder = new global::ServiceLayer.SLBgplsTopoSrPolicyNodeId();
-            if (nodeIdCase_ == NodeIdOneofCase.SrPolicyNodeId) {
-              subBuilder.MergeFrom(SrPolicyNodeId);
-            }
-            input.ReadMessage(subBuilder);
-            SrPolicyNodeId = subBuilder;
-            break;
-          }
-          case 56: {
-            NodeIdType = (global::ServiceLayer.SLBgplsTopoNodeIdType) input.ReadEnum();
             break;
           }
         }
@@ -5899,26 +5538,24 @@ namespace ServiceLayer {
     public SLBgplsTopoSrPolicyDescr(SLBgplsTopoSrPolicyDescr other) : this() {
       protoOrigin_ = other.protoOrigin_;
       flags_ = other.flags_ != null ? other.flags_.Clone() : null;
-      isEndpointAddressIpv6_ = other.isEndpointAddressIpv6_;
       color_ = other.color_;
       originAsn_ = other.originAsn_;
-      isOriginatorAddressIpv6_ = other.isOriginatorAddressIpv6_;
       discriminator_ = other.discriminator_;
       switch (other.EndpointAddressCase) {
-        case EndpointAddressOneofCase.Ipv4EndpointAddress:
-          Ipv4EndpointAddress = other.Ipv4EndpointAddress;
+        case EndpointAddressOneofCase.Ipv4EndAddr:
+          Ipv4EndAddr = other.Ipv4EndAddr;
           break;
-        case EndpointAddressOneofCase.Ipv6EndpointAddress:
-          Ipv6EndpointAddress = other.Ipv6EndpointAddress;
+        case EndpointAddressOneofCase.Ipv6EndAddr:
+          Ipv6EndAddr = other.Ipv6EndAddr;
           break;
       }
 
       switch (other.OriginatorAddressCase) {
-        case OriginatorAddressOneofCase.Ipv4OriginatorAddress:
-          Ipv4OriginatorAddress = other.Ipv4OriginatorAddress;
+        case OriginatorAddressOneofCase.Ipv4OrigAddr:
+          Ipv4OrigAddr = other.Ipv4OrigAddr;
           break;
-        case OriginatorAddressOneofCase.Ipv6OriginatorAddress:
-          Ipv6OriginatorAddress = other.Ipv6OriginatorAddress;
+        case OriginatorAddressOneofCase.Ipv6OrigAddr:
+          Ipv6OrigAddr = other.Ipv6OrigAddr;
           break;
       }
 
@@ -5965,55 +5602,38 @@ namespace ServiceLayer {
       }
     }
 
-    /// <summary>Field number for the "Ipv4EndpointAddress" field.</summary>
-    public const int Ipv4EndpointAddressFieldNumber = 3;
+    /// <summary>Field number for the "Ipv4EndAddr" field.</summary>
+    public const int Ipv4EndAddrFieldNumber = 3;
     /// <summary>
-    /// case IsEndpointAddressIpv6 == 0:
-    ///    => This field carries info about an IPv4 endpoint address.
+    /// This field carries info about an IPv4 endpoint address.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public uint Ipv4EndpointAddress {
-      get { return endpointAddressCase_ == EndpointAddressOneofCase.Ipv4EndpointAddress ? (uint) endpointAddress_ : 0; }
+    public uint Ipv4EndAddr {
+      get { return endpointAddressCase_ == EndpointAddressOneofCase.Ipv4EndAddr ? (uint) endpointAddress_ : 0; }
       set {
         endpointAddress_ = value;
-        endpointAddressCase_ = EndpointAddressOneofCase.Ipv4EndpointAddress;
+        endpointAddressCase_ = EndpointAddressOneofCase.Ipv4EndAddr;
       }
     }
 
-    /// <summary>Field number for the "Ipv6EndpointAddress" field.</summary>
-    public const int Ipv6EndpointAddressFieldNumber = 4;
+    /// <summary>Field number for the "Ipv6EndAddr" field.</summary>
+    public const int Ipv6EndAddrFieldNumber = 4;
     /// <summary>
-    /// case IsEndpointAddressIpv6 == 1:
-    ///    => This field carries info about an IPv6 endpoint address.
+    /// This field carries info about an IPv6 endpoint address.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pb::ByteString Ipv6EndpointAddress {
-      get { return endpointAddressCase_ == EndpointAddressOneofCase.Ipv6EndpointAddress ? (pb::ByteString) endpointAddress_ : pb::ByteString.Empty; }
+    public pb::ByteString Ipv6EndAddr {
+      get { return endpointAddressCase_ == EndpointAddressOneofCase.Ipv6EndAddr ? (pb::ByteString) endpointAddress_ : pb::ByteString.Empty; }
       set {
         endpointAddress_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-        endpointAddressCase_ = EndpointAddressOneofCase.Ipv6EndpointAddress;
-      }
-    }
-
-    /// <summary>Field number for the "IsEndpointAddressIpv6" field.</summary>
-    public const int IsEndpointAddressIpv6FieldNumber = 5;
-    private uint isEndpointAddressIpv6_;
-    /// <summary>
-    /// Specifies whether the endpoint address is IPv6 or not.
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public uint IsEndpointAddressIpv6 {
-      get { return isEndpointAddressIpv6_; }
-      set {
-        isEndpointAddressIpv6_ = value;
+        endpointAddressCase_ = EndpointAddressOneofCase.Ipv6EndAddr;
       }
     }
 
     /// <summary>Field number for the "Color" field.</summary>
-    public const int ColorFieldNumber = 6;
+    public const int ColorFieldNumber = 5;
     private uint color_;
     /// <summary>
     /// Color of the SR Policy.
@@ -6030,7 +5650,7 @@ namespace ServiceLayer {
     }
 
     /// <summary>Field number for the "OriginAsn" field.</summary>
-    public const int OriginAsnFieldNumber = 7;
+    public const int OriginAsnFieldNumber = 6;
     private uint originAsn_;
     /// <summary>
     /// 4-byte encoding of the ASN of the originator.
@@ -6046,55 +5666,38 @@ namespace ServiceLayer {
       }
     }
 
-    /// <summary>Field number for the "Ipv4OriginatorAddress" field.</summary>
-    public const int Ipv4OriginatorAddressFieldNumber = 8;
+    /// <summary>Field number for the "Ipv4OrigAddr" field.</summary>
+    public const int Ipv4OrigAddrFieldNumber = 7;
     /// <summary>
-    /// case IsOriginatorAddressIpv6 == 0:
-    ///    => This field carries info about an IPv4 originator address.
+    /// This field carries info about an IPv4 originator address.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public uint Ipv4OriginatorAddress {
-      get { return originatorAddressCase_ == OriginatorAddressOneofCase.Ipv4OriginatorAddress ? (uint) originatorAddress_ : 0; }
+    public uint Ipv4OrigAddr {
+      get { return originatorAddressCase_ == OriginatorAddressOneofCase.Ipv4OrigAddr ? (uint) originatorAddress_ : 0; }
       set {
         originatorAddress_ = value;
-        originatorAddressCase_ = OriginatorAddressOneofCase.Ipv4OriginatorAddress;
+        originatorAddressCase_ = OriginatorAddressOneofCase.Ipv4OrigAddr;
       }
     }
 
-    /// <summary>Field number for the "Ipv6OriginatorAddress" field.</summary>
-    public const int Ipv6OriginatorAddressFieldNumber = 9;
+    /// <summary>Field number for the "Ipv6OrigAddr" field.</summary>
+    public const int Ipv6OrigAddrFieldNumber = 8;
     /// <summary>
-    /// case IsOriginatorAddressIpv6 == 1:
-    ///    => This field carries info about an IPv6 originator address.
+    /// This field carries info about an IPv6 originator address.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pb::ByteString Ipv6OriginatorAddress {
-      get { return originatorAddressCase_ == OriginatorAddressOneofCase.Ipv6OriginatorAddress ? (pb::ByteString) originatorAddress_ : pb::ByteString.Empty; }
+    public pb::ByteString Ipv6OrigAddr {
+      get { return originatorAddressCase_ == OriginatorAddressOneofCase.Ipv6OrigAddr ? (pb::ByteString) originatorAddress_ : pb::ByteString.Empty; }
       set {
         originatorAddress_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-        originatorAddressCase_ = OriginatorAddressOneofCase.Ipv6OriginatorAddress;
-      }
-    }
-
-    /// <summary>Field number for the "IsOriginatorAddressIpv6" field.</summary>
-    public const int IsOriginatorAddressIpv6FieldNumber = 10;
-    private uint isOriginatorAddressIpv6_;
-    /// <summary>
-    /// Specifies whether the originator address is IPv6 or not.
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public uint IsOriginatorAddressIpv6 {
-      get { return isOriginatorAddressIpv6_; }
-      set {
-        isOriginatorAddressIpv6_ = value;
+        originatorAddressCase_ = OriginatorAddressOneofCase.Ipv6OrigAddr;
       }
     }
 
     /// <summary>Field number for the "Discriminator" field.</summary>
-    public const int DiscriminatorFieldNumber = 11;
+    public const int DiscriminatorFieldNumber = 9;
     private uint discriminator_;
     /// <summary>
     /// Discriminator of the path.
@@ -6114,8 +5717,8 @@ namespace ServiceLayer {
     /// <summary>Enum of possible cases for the "EndpointAddress" oneof.</summary>
     public enum EndpointAddressOneofCase {
       None = 0,
-      Ipv4EndpointAddress = 3,
-      Ipv6EndpointAddress = 4,
+      Ipv4EndAddr = 3,
+      Ipv6EndAddr = 4,
     }
     private EndpointAddressOneofCase endpointAddressCase_ = EndpointAddressOneofCase.None;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -6135,8 +5738,8 @@ namespace ServiceLayer {
     /// <summary>Enum of possible cases for the "OriginatorAddress" oneof.</summary>
     public enum OriginatorAddressOneofCase {
       None = 0,
-      Ipv4OriginatorAddress = 8,
-      Ipv6OriginatorAddress = 9,
+      Ipv4OrigAddr = 7,
+      Ipv6OrigAddr = 8,
     }
     private OriginatorAddressOneofCase originatorAddressCase_ = OriginatorAddressOneofCase.None;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -6169,14 +5772,12 @@ namespace ServiceLayer {
       }
       if (ProtoOrigin != other.ProtoOrigin) return false;
       if (!object.Equals(Flags, other.Flags)) return false;
-      if (Ipv4EndpointAddress != other.Ipv4EndpointAddress) return false;
-      if (Ipv6EndpointAddress != other.Ipv6EndpointAddress) return false;
-      if (IsEndpointAddressIpv6 != other.IsEndpointAddressIpv6) return false;
+      if (Ipv4EndAddr != other.Ipv4EndAddr) return false;
+      if (Ipv6EndAddr != other.Ipv6EndAddr) return false;
       if (Color != other.Color) return false;
       if (OriginAsn != other.OriginAsn) return false;
-      if (Ipv4OriginatorAddress != other.Ipv4OriginatorAddress) return false;
-      if (Ipv6OriginatorAddress != other.Ipv6OriginatorAddress) return false;
-      if (IsOriginatorAddressIpv6 != other.IsOriginatorAddressIpv6) return false;
+      if (Ipv4OrigAddr != other.Ipv4OrigAddr) return false;
+      if (Ipv6OrigAddr != other.Ipv6OrigAddr) return false;
       if (Discriminator != other.Discriminator) return false;
       if (EndpointAddressCase != other.EndpointAddressCase) return false;
       if (OriginatorAddressCase != other.OriginatorAddressCase) return false;
@@ -6189,14 +5790,12 @@ namespace ServiceLayer {
       int hash = 1;
       if (ProtoOrigin != global::ServiceLayer.SLBgplsTopoSrPolicyProtocolOrigin.Reserved) hash ^= ProtoOrigin.GetHashCode();
       if (flags_ != null) hash ^= Flags.GetHashCode();
-      if (endpointAddressCase_ == EndpointAddressOneofCase.Ipv4EndpointAddress) hash ^= Ipv4EndpointAddress.GetHashCode();
-      if (endpointAddressCase_ == EndpointAddressOneofCase.Ipv6EndpointAddress) hash ^= Ipv6EndpointAddress.GetHashCode();
-      if (IsEndpointAddressIpv6 != 0) hash ^= IsEndpointAddressIpv6.GetHashCode();
+      if (endpointAddressCase_ == EndpointAddressOneofCase.Ipv4EndAddr) hash ^= Ipv4EndAddr.GetHashCode();
+      if (endpointAddressCase_ == EndpointAddressOneofCase.Ipv6EndAddr) hash ^= Ipv6EndAddr.GetHashCode();
       if (Color != 0) hash ^= Color.GetHashCode();
       if (OriginAsn != 0) hash ^= OriginAsn.GetHashCode();
-      if (originatorAddressCase_ == OriginatorAddressOneofCase.Ipv4OriginatorAddress) hash ^= Ipv4OriginatorAddress.GetHashCode();
-      if (originatorAddressCase_ == OriginatorAddressOneofCase.Ipv6OriginatorAddress) hash ^= Ipv6OriginatorAddress.GetHashCode();
-      if (IsOriginatorAddressIpv6 != 0) hash ^= IsOriginatorAddressIpv6.GetHashCode();
+      if (originatorAddressCase_ == OriginatorAddressOneofCase.Ipv4OrigAddr) hash ^= Ipv4OrigAddr.GetHashCode();
+      if (originatorAddressCase_ == OriginatorAddressOneofCase.Ipv6OrigAddr) hash ^= Ipv6OrigAddr.GetHashCode();
       if (Discriminator != 0) hash ^= Discriminator.GetHashCode();
       hash ^= (int) endpointAddressCase_;
       hash ^= (int) originatorAddressCase_;
@@ -6226,40 +5825,32 @@ namespace ServiceLayer {
         output.WriteRawTag(18);
         output.WriteMessage(Flags);
       }
-      if (endpointAddressCase_ == EndpointAddressOneofCase.Ipv4EndpointAddress) {
+      if (endpointAddressCase_ == EndpointAddressOneofCase.Ipv4EndAddr) {
         output.WriteRawTag(24);
-        output.WriteUInt32(Ipv4EndpointAddress);
+        output.WriteUInt32(Ipv4EndAddr);
       }
-      if (endpointAddressCase_ == EndpointAddressOneofCase.Ipv6EndpointAddress) {
+      if (endpointAddressCase_ == EndpointAddressOneofCase.Ipv6EndAddr) {
         output.WriteRawTag(34);
-        output.WriteBytes(Ipv6EndpointAddress);
-      }
-      if (IsEndpointAddressIpv6 != 0) {
-        output.WriteRawTag(40);
-        output.WriteUInt32(IsEndpointAddressIpv6);
+        output.WriteBytes(Ipv6EndAddr);
       }
       if (Color != 0) {
-        output.WriteRawTag(48);
+        output.WriteRawTag(40);
         output.WriteUInt32(Color);
       }
       if (OriginAsn != 0) {
-        output.WriteRawTag(56);
+        output.WriteRawTag(48);
         output.WriteUInt32(OriginAsn);
       }
-      if (originatorAddressCase_ == OriginatorAddressOneofCase.Ipv4OriginatorAddress) {
-        output.WriteRawTag(64);
-        output.WriteUInt32(Ipv4OriginatorAddress);
+      if (originatorAddressCase_ == OriginatorAddressOneofCase.Ipv4OrigAddr) {
+        output.WriteRawTag(56);
+        output.WriteUInt32(Ipv4OrigAddr);
       }
-      if (originatorAddressCase_ == OriginatorAddressOneofCase.Ipv6OriginatorAddress) {
-        output.WriteRawTag(74);
-        output.WriteBytes(Ipv6OriginatorAddress);
-      }
-      if (IsOriginatorAddressIpv6 != 0) {
-        output.WriteRawTag(80);
-        output.WriteUInt32(IsOriginatorAddressIpv6);
+      if (originatorAddressCase_ == OriginatorAddressOneofCase.Ipv6OrigAddr) {
+        output.WriteRawTag(66);
+        output.WriteBytes(Ipv6OrigAddr);
       }
       if (Discriminator != 0) {
-        output.WriteRawTag(88);
+        output.WriteRawTag(72);
         output.WriteUInt32(Discriminator);
       }
       if (_unknownFields != null) {
@@ -6280,40 +5871,32 @@ namespace ServiceLayer {
         output.WriteRawTag(18);
         output.WriteMessage(Flags);
       }
-      if (endpointAddressCase_ == EndpointAddressOneofCase.Ipv4EndpointAddress) {
+      if (endpointAddressCase_ == EndpointAddressOneofCase.Ipv4EndAddr) {
         output.WriteRawTag(24);
-        output.WriteUInt32(Ipv4EndpointAddress);
+        output.WriteUInt32(Ipv4EndAddr);
       }
-      if (endpointAddressCase_ == EndpointAddressOneofCase.Ipv6EndpointAddress) {
+      if (endpointAddressCase_ == EndpointAddressOneofCase.Ipv6EndAddr) {
         output.WriteRawTag(34);
-        output.WriteBytes(Ipv6EndpointAddress);
-      }
-      if (IsEndpointAddressIpv6 != 0) {
-        output.WriteRawTag(40);
-        output.WriteUInt32(IsEndpointAddressIpv6);
+        output.WriteBytes(Ipv6EndAddr);
       }
       if (Color != 0) {
-        output.WriteRawTag(48);
+        output.WriteRawTag(40);
         output.WriteUInt32(Color);
       }
       if (OriginAsn != 0) {
-        output.WriteRawTag(56);
+        output.WriteRawTag(48);
         output.WriteUInt32(OriginAsn);
       }
-      if (originatorAddressCase_ == OriginatorAddressOneofCase.Ipv4OriginatorAddress) {
-        output.WriteRawTag(64);
-        output.WriteUInt32(Ipv4OriginatorAddress);
+      if (originatorAddressCase_ == OriginatorAddressOneofCase.Ipv4OrigAddr) {
+        output.WriteRawTag(56);
+        output.WriteUInt32(Ipv4OrigAddr);
       }
-      if (originatorAddressCase_ == OriginatorAddressOneofCase.Ipv6OriginatorAddress) {
-        output.WriteRawTag(74);
-        output.WriteBytes(Ipv6OriginatorAddress);
-      }
-      if (IsOriginatorAddressIpv6 != 0) {
-        output.WriteRawTag(80);
-        output.WriteUInt32(IsOriginatorAddressIpv6);
+      if (originatorAddressCase_ == OriginatorAddressOneofCase.Ipv6OrigAddr) {
+        output.WriteRawTag(66);
+        output.WriteBytes(Ipv6OrigAddr);
       }
       if (Discriminator != 0) {
-        output.WriteRawTag(88);
+        output.WriteRawTag(72);
         output.WriteUInt32(Discriminator);
       }
       if (_unknownFields != null) {
@@ -6332,14 +5915,11 @@ namespace ServiceLayer {
       if (flags_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(Flags);
       }
-      if (endpointAddressCase_ == EndpointAddressOneofCase.Ipv4EndpointAddress) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Ipv4EndpointAddress);
+      if (endpointAddressCase_ == EndpointAddressOneofCase.Ipv4EndAddr) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Ipv4EndAddr);
       }
-      if (endpointAddressCase_ == EndpointAddressOneofCase.Ipv6EndpointAddress) {
-        size += 1 + pb::CodedOutputStream.ComputeBytesSize(Ipv6EndpointAddress);
-      }
-      if (IsEndpointAddressIpv6 != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(IsEndpointAddressIpv6);
+      if (endpointAddressCase_ == EndpointAddressOneofCase.Ipv6EndAddr) {
+        size += 1 + pb::CodedOutputStream.ComputeBytesSize(Ipv6EndAddr);
       }
       if (Color != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Color);
@@ -6347,14 +5927,11 @@ namespace ServiceLayer {
       if (OriginAsn != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(OriginAsn);
       }
-      if (originatorAddressCase_ == OriginatorAddressOneofCase.Ipv4OriginatorAddress) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Ipv4OriginatorAddress);
+      if (originatorAddressCase_ == OriginatorAddressOneofCase.Ipv4OrigAddr) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Ipv4OrigAddr);
       }
-      if (originatorAddressCase_ == OriginatorAddressOneofCase.Ipv6OriginatorAddress) {
-        size += 1 + pb::CodedOutputStream.ComputeBytesSize(Ipv6OriginatorAddress);
-      }
-      if (IsOriginatorAddressIpv6 != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(IsOriginatorAddressIpv6);
+      if (originatorAddressCase_ == OriginatorAddressOneofCase.Ipv6OrigAddr) {
+        size += 1 + pb::CodedOutputStream.ComputeBytesSize(Ipv6OrigAddr);
       }
       if (Discriminator != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Discriminator);
@@ -6380,36 +5957,30 @@ namespace ServiceLayer {
         }
         Flags.MergeFrom(other.Flags);
       }
-      if (other.IsEndpointAddressIpv6 != 0) {
-        IsEndpointAddressIpv6 = other.IsEndpointAddressIpv6;
-      }
       if (other.Color != 0) {
         Color = other.Color;
       }
       if (other.OriginAsn != 0) {
         OriginAsn = other.OriginAsn;
       }
-      if (other.IsOriginatorAddressIpv6 != 0) {
-        IsOriginatorAddressIpv6 = other.IsOriginatorAddressIpv6;
-      }
       if (other.Discriminator != 0) {
         Discriminator = other.Discriminator;
       }
       switch (other.EndpointAddressCase) {
-        case EndpointAddressOneofCase.Ipv4EndpointAddress:
-          Ipv4EndpointAddress = other.Ipv4EndpointAddress;
+        case EndpointAddressOneofCase.Ipv4EndAddr:
+          Ipv4EndAddr = other.Ipv4EndAddr;
           break;
-        case EndpointAddressOneofCase.Ipv6EndpointAddress:
-          Ipv6EndpointAddress = other.Ipv6EndpointAddress;
+        case EndpointAddressOneofCase.Ipv6EndAddr:
+          Ipv6EndAddr = other.Ipv6EndAddr;
           break;
       }
 
       switch (other.OriginatorAddressCase) {
-        case OriginatorAddressOneofCase.Ipv4OriginatorAddress:
-          Ipv4OriginatorAddress = other.Ipv4OriginatorAddress;
+        case OriginatorAddressOneofCase.Ipv4OrigAddr:
+          Ipv4OrigAddr = other.Ipv4OrigAddr;
           break;
-        case OriginatorAddressOneofCase.Ipv6OriginatorAddress:
-          Ipv6OriginatorAddress = other.Ipv6OriginatorAddress;
+        case OriginatorAddressOneofCase.Ipv6OrigAddr:
+          Ipv6OrigAddr = other.Ipv6OrigAddr;
           break;
       }
 
@@ -6440,38 +6011,30 @@ namespace ServiceLayer {
             break;
           }
           case 24: {
-            Ipv4EndpointAddress = input.ReadUInt32();
+            Ipv4EndAddr = input.ReadUInt32();
             break;
           }
           case 34: {
-            Ipv6EndpointAddress = input.ReadBytes();
+            Ipv6EndAddr = input.ReadBytes();
             break;
           }
           case 40: {
-            IsEndpointAddressIpv6 = input.ReadUInt32();
-            break;
-          }
-          case 48: {
             Color = input.ReadUInt32();
             break;
           }
-          case 56: {
+          case 48: {
             OriginAsn = input.ReadUInt32();
             break;
           }
-          case 64: {
-            Ipv4OriginatorAddress = input.ReadUInt32();
+          case 56: {
+            Ipv4OrigAddr = input.ReadUInt32();
             break;
           }
-          case 74: {
-            Ipv6OriginatorAddress = input.ReadBytes();
+          case 66: {
+            Ipv6OrigAddr = input.ReadBytes();
             break;
           }
-          case 80: {
-            IsOriginatorAddressIpv6 = input.ReadUInt32();
-            break;
-          }
-          case 88: {
+          case 72: {
             Discriminator = input.ReadUInt32();
             break;
           }
@@ -6502,38 +6065,30 @@ namespace ServiceLayer {
             break;
           }
           case 24: {
-            Ipv4EndpointAddress = input.ReadUInt32();
+            Ipv4EndAddr = input.ReadUInt32();
             break;
           }
           case 34: {
-            Ipv6EndpointAddress = input.ReadBytes();
+            Ipv6EndAddr = input.ReadBytes();
             break;
           }
           case 40: {
-            IsEndpointAddressIpv6 = input.ReadUInt32();
-            break;
-          }
-          case 48: {
             Color = input.ReadUInt32();
             break;
           }
-          case 56: {
+          case 48: {
             OriginAsn = input.ReadUInt32();
             break;
           }
-          case 64: {
-            Ipv4OriginatorAddress = input.ReadUInt32();
+          case 56: {
+            Ipv4OrigAddr = input.ReadUInt32();
             break;
           }
-          case 74: {
-            Ipv6OriginatorAddress = input.ReadBytes();
+          case 66: {
+            Ipv6OrigAddr = input.ReadBytes();
             break;
           }
-          case 80: {
-            IsOriginatorAddressIpv6 = input.ReadUInt32();
-            break;
-          }
-          case 88: {
+          case 72: {
             Discriminator = input.ReadUInt32();
             break;
           }
@@ -8225,7 +7780,6 @@ namespace ServiceLayer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public SLBgplsTopoAttr(SLBgplsTopoAttr other) : this() {
-      attrType_ = other.attrType_;
       switch (other.AttrCase) {
         case AttrOneofCase.NodeAttr:
           NodeAttr = other.NodeAttr.Clone();
@@ -8256,8 +7810,7 @@ namespace ServiceLayer {
     /// <summary>Field number for the "NodeAttr" field.</summary>
     public const int NodeAttrFieldNumber = 1;
     /// <summary>
-    /// case AttrType == SL_BGPLS_TOPO_ATTR_TYPE_NODE:
-    ///    => This field carries info about node attributes.
+    /// This field carries info about node attributes.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -8272,8 +7825,7 @@ namespace ServiceLayer {
     /// <summary>Field number for the "LinkAttr" field.</summary>
     public const int LinkAttrFieldNumber = 2;
     /// <summary>
-    /// case AttrType == SL_BGPLS_TOPO_ATTR_TYPE_LINK:
-    ///    => This field carries info about link attributes.
+    /// This field carries info about link attributes.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -8288,8 +7840,7 @@ namespace ServiceLayer {
     /// <summary>Field number for the "PrefixAttr" field.</summary>
     public const int PrefixAttrFieldNumber = 3;
     /// <summary>
-    /// case AttrType == SL_BGPLS_TOPO_ATTR_TYPE_PREFIX:
-    ///    => This field carries info about prefix attributes.
+    /// This field carries info about prefix attributes.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -8304,8 +7855,7 @@ namespace ServiceLayer {
     /// <summary>Field number for the "Srv6SidAttr" field.</summary>
     public const int Srv6SidAttrFieldNumber = 4;
     /// <summary>
-    /// case AttrType == SL_BGPLS_TOPO_ATTR_TYPE_SRV6_SID:
-    ///    => This field carries info about SRv6 SID attributes.
+    /// This field carries info about SRv6 SID attributes.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -8320,8 +7870,7 @@ namespace ServiceLayer {
     /// <summary>Field number for the "SrPolicyAttr" field.</summary>
     public const int SrPolicyAttrFieldNumber = 5;
     /// <summary>
-    /// case AttrType == SL_BGPLS_TOPO_ATTR_TYPE_SR_POLICY_CANDIDATE_PATH:
-    ///    => This field carries info about SR policy attributes.
+    /// This field carries info about SR policy attributes.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -8330,21 +7879,6 @@ namespace ServiceLayer {
       set {
         attr_ = value;
         attrCase_ = value == null ? AttrOneofCase.None : AttrOneofCase.SrPolicyAttr;
-      }
-    }
-
-    /// <summary>Field number for the "AttrType" field.</summary>
-    public const int AttrTypeFieldNumber = 6;
-    private global::ServiceLayer.SLBgplsTopoAttrType attrType_ = global::ServiceLayer.SLBgplsTopoAttrType.Reserved;
-    /// <summary>
-    /// Specifies the type of attribute
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::ServiceLayer.SLBgplsTopoAttrType AttrType {
-      get { return attrType_; }
-      set {
-        attrType_ = value;
       }
     }
 
@@ -8392,7 +7926,6 @@ namespace ServiceLayer {
       if (!object.Equals(PrefixAttr, other.PrefixAttr)) return false;
       if (!object.Equals(Srv6SidAttr, other.Srv6SidAttr)) return false;
       if (!object.Equals(SrPolicyAttr, other.SrPolicyAttr)) return false;
-      if (AttrType != other.AttrType) return false;
       if (AttrCase != other.AttrCase) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
@@ -8406,7 +7939,6 @@ namespace ServiceLayer {
       if (attrCase_ == AttrOneofCase.PrefixAttr) hash ^= PrefixAttr.GetHashCode();
       if (attrCase_ == AttrOneofCase.Srv6SidAttr) hash ^= Srv6SidAttr.GetHashCode();
       if (attrCase_ == AttrOneofCase.SrPolicyAttr) hash ^= SrPolicyAttr.GetHashCode();
-      if (AttrType != global::ServiceLayer.SLBgplsTopoAttrType.Reserved) hash ^= AttrType.GetHashCode();
       hash ^= (int) attrCase_;
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
@@ -8446,10 +7978,6 @@ namespace ServiceLayer {
         output.WriteRawTag(42);
         output.WriteMessage(SrPolicyAttr);
       }
-      if (AttrType != global::ServiceLayer.SLBgplsTopoAttrType.Reserved) {
-        output.WriteRawTag(48);
-        output.WriteEnum((int) AttrType);
-      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -8480,10 +8008,6 @@ namespace ServiceLayer {
         output.WriteRawTag(42);
         output.WriteMessage(SrPolicyAttr);
       }
-      if (AttrType != global::ServiceLayer.SLBgplsTopoAttrType.Reserved) {
-        output.WriteRawTag(48);
-        output.WriteEnum((int) AttrType);
-      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -8509,9 +8033,6 @@ namespace ServiceLayer {
       if (attrCase_ == AttrOneofCase.SrPolicyAttr) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(SrPolicyAttr);
       }
-      if (AttrType != global::ServiceLayer.SLBgplsTopoAttrType.Reserved) {
-        size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) AttrType);
-      }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -8523,9 +8044,6 @@ namespace ServiceLayer {
     public void MergeFrom(SLBgplsTopoAttr other) {
       if (other == null) {
         return;
-      }
-      if (other.AttrType != global::ServiceLayer.SLBgplsTopoAttrType.Reserved) {
-        AttrType = other.AttrType;
       }
       switch (other.AttrCase) {
         case AttrOneofCase.NodeAttr:
@@ -8620,10 +8138,6 @@ namespace ServiceLayer {
             SrPolicyAttr = subBuilder;
             break;
           }
-          case 48: {
-            AttrType = (global::ServiceLayer.SLBgplsTopoAttrType) input.ReadEnum();
-            break;
-          }
         }
       }
     #endif
@@ -8682,10 +8196,6 @@ namespace ServiceLayer {
             }
             input.ReadMessage(subBuilder);
             SrPolicyAttr = subBuilder;
-            break;
-          }
-          case 48: {
-            AttrType = (global::ServiceLayer.SLBgplsTopoAttrType) input.ReadEnum();
             break;
           }
         }
@@ -20243,7 +19753,6 @@ namespace ServiceLayer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public SLBgpLsTopoNeighborId(SLBgpLsTopoNeighborId other) : this() {
-      isNeighborIdIpv4_ = other.isNeighborIdIpv4_;
       switch (other.NeighborIdCase) {
         case NeighborIdOneofCase.Ipv4Addr:
           Ipv4Addr = other.Ipv4Addr;
@@ -20265,8 +19774,7 @@ namespace ServiceLayer {
     /// <summary>Field number for the "Ipv4Addr" field.</summary>
     public const int Ipv4AddrFieldNumber = 1;
     /// <summary>
-    /// case IsNeighborIdIpv4 == 1:
-    ///    => This field carries info about an IPv4 neighbor ID.
+    /// This field carries info about an IPv4 neighbor ID.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -20281,8 +19789,7 @@ namespace ServiceLayer {
     /// <summary>Field number for the "SystemId" field.</summary>
     public const int SystemIdFieldNumber = 2;
     /// <summary>
-    /// case IsNeighborIdIpv4 == 0:
-    ///    => This field carries info about an system ID neighbor ID.
+    /// This field carries info about an system ID neighbor ID.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -20291,21 +19798,6 @@ namespace ServiceLayer {
       set {
         neighborId_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
         neighborIdCase_ = NeighborIdOneofCase.SystemId;
-      }
-    }
-
-    /// <summary>Field number for the "IsNeighborIdIpv4" field.</summary>
-    public const int IsNeighborIdIpv4FieldNumber = 3;
-    private uint isNeighborIdIpv4_;
-    /// <summary>
-    /// Specifies whether the neighbor ID is IPv4 or not.
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public uint IsNeighborIdIpv4 {
-      get { return isNeighborIdIpv4_; }
-      set {
-        isNeighborIdIpv4_ = value;
       }
     }
 
@@ -20347,7 +19839,6 @@ namespace ServiceLayer {
       }
       if (Ipv4Addr != other.Ipv4Addr) return false;
       if (SystemId != other.SystemId) return false;
-      if (IsNeighborIdIpv4 != other.IsNeighborIdIpv4) return false;
       if (NeighborIdCase != other.NeighborIdCase) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
@@ -20358,7 +19849,6 @@ namespace ServiceLayer {
       int hash = 1;
       if (neighborIdCase_ == NeighborIdOneofCase.Ipv4Addr) hash ^= Ipv4Addr.GetHashCode();
       if (neighborIdCase_ == NeighborIdOneofCase.SystemId) hash ^= SystemId.GetHashCode();
-      if (IsNeighborIdIpv4 != 0) hash ^= IsNeighborIdIpv4.GetHashCode();
       hash ^= (int) neighborIdCase_;
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
@@ -20386,10 +19876,6 @@ namespace ServiceLayer {
         output.WriteRawTag(18);
         output.WriteBytes(SystemId);
       }
-      if (IsNeighborIdIpv4 != 0) {
-        output.WriteRawTag(24);
-        output.WriteUInt32(IsNeighborIdIpv4);
-      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -20408,10 +19894,6 @@ namespace ServiceLayer {
         output.WriteRawTag(18);
         output.WriteBytes(SystemId);
       }
-      if (IsNeighborIdIpv4 != 0) {
-        output.WriteRawTag(24);
-        output.WriteUInt32(IsNeighborIdIpv4);
-      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -20428,9 +19910,6 @@ namespace ServiceLayer {
       if (neighborIdCase_ == NeighborIdOneofCase.SystemId) {
         size += 1 + pb::CodedOutputStream.ComputeBytesSize(SystemId);
       }
-      if (IsNeighborIdIpv4 != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(IsNeighborIdIpv4);
-      }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -20442,9 +19921,6 @@ namespace ServiceLayer {
     public void MergeFrom(SLBgpLsTopoNeighborId other) {
       if (other == null) {
         return;
-      }
-      if (other.IsNeighborIdIpv4 != 0) {
-        IsNeighborIdIpv4 = other.IsNeighborIdIpv4;
       }
       switch (other.NeighborIdCase) {
         case NeighborIdOneofCase.Ipv4Addr:
@@ -20478,10 +19954,6 @@ namespace ServiceLayer {
             SystemId = input.ReadBytes();
             break;
           }
-          case 24: {
-            IsNeighborIdIpv4 = input.ReadUInt32();
-            break;
-          }
         }
       }
     #endif
@@ -20503,10 +19975,6 @@ namespace ServiceLayer {
           }
           case 18: {
             SystemId = input.ReadBytes();
-            break;
-          }
-          case 24: {
-            IsNeighborIdIpv4 = input.ReadUInt32();
             break;
           }
         }
@@ -23379,7 +22847,6 @@ namespace ServiceLayer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public SLBgplsTopoPrefixOspfFwdAddr(SLBgplsTopoPrefixOspfFwdAddr other) : this() {
-      isOspfFwdAddrdIpv4_ = other.isOspfFwdAddrdIpv4_;
       switch (other.OspfFwdAddrCase) {
         case OspfFwdAddrOneofCase.Ipv4Addr:
           Ipv4Addr = other.Ipv4Addr;
@@ -23401,8 +22868,7 @@ namespace ServiceLayer {
     /// <summary>Field number for the "Ipv4Addr" field.</summary>
     public const int Ipv4AddrFieldNumber = 1;
     /// <summary>
-    /// case IsOspfFwdAddrdIpv4 == 1:
-    ///    => This field carries info about an IPv4 OSPF forwarding address.
+    /// This field carries info about an IPv4 OSPF forwarding address.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -23417,8 +22883,7 @@ namespace ServiceLayer {
     /// <summary>Field number for the "Ipv6Addr" field.</summary>
     public const int Ipv6AddrFieldNumber = 2;
     /// <summary>
-    /// case IsOspfFwdAddrdIpv4 == 0:
-    ///    => This field carries info about an IPv6 OSPF forwarding address.
+    /// This field carries info about an IPv6 OSPF forwarding address.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -23427,21 +22892,6 @@ namespace ServiceLayer {
       set {
         ospfFwdAddr_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
         ospfFwdAddrCase_ = OspfFwdAddrOneofCase.Ipv6Addr;
-      }
-    }
-
-    /// <summary>Field number for the "IsOspfFwdAddrdIpv4" field.</summary>
-    public const int IsOspfFwdAddrdIpv4FieldNumber = 3;
-    private uint isOspfFwdAddrdIpv4_;
-    /// <summary>
-    /// Specifies whether the OSPF forwarding address is IPv4 or not.
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public uint IsOspfFwdAddrdIpv4 {
-      get { return isOspfFwdAddrdIpv4_; }
-      set {
-        isOspfFwdAddrdIpv4_ = value;
       }
     }
 
@@ -23483,7 +22933,6 @@ namespace ServiceLayer {
       }
       if (Ipv4Addr != other.Ipv4Addr) return false;
       if (Ipv6Addr != other.Ipv6Addr) return false;
-      if (IsOspfFwdAddrdIpv4 != other.IsOspfFwdAddrdIpv4) return false;
       if (OspfFwdAddrCase != other.OspfFwdAddrCase) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
@@ -23494,7 +22943,6 @@ namespace ServiceLayer {
       int hash = 1;
       if (ospfFwdAddrCase_ == OspfFwdAddrOneofCase.Ipv4Addr) hash ^= Ipv4Addr.GetHashCode();
       if (ospfFwdAddrCase_ == OspfFwdAddrOneofCase.Ipv6Addr) hash ^= Ipv6Addr.GetHashCode();
-      if (IsOspfFwdAddrdIpv4 != 0) hash ^= IsOspfFwdAddrdIpv4.GetHashCode();
       hash ^= (int) ospfFwdAddrCase_;
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
@@ -23522,10 +22970,6 @@ namespace ServiceLayer {
         output.WriteRawTag(18);
         output.WriteBytes(Ipv6Addr);
       }
-      if (IsOspfFwdAddrdIpv4 != 0) {
-        output.WriteRawTag(24);
-        output.WriteUInt32(IsOspfFwdAddrdIpv4);
-      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -23544,10 +22988,6 @@ namespace ServiceLayer {
         output.WriteRawTag(18);
         output.WriteBytes(Ipv6Addr);
       }
-      if (IsOspfFwdAddrdIpv4 != 0) {
-        output.WriteRawTag(24);
-        output.WriteUInt32(IsOspfFwdAddrdIpv4);
-      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -23564,9 +23004,6 @@ namespace ServiceLayer {
       if (ospfFwdAddrCase_ == OspfFwdAddrOneofCase.Ipv6Addr) {
         size += 1 + pb::CodedOutputStream.ComputeBytesSize(Ipv6Addr);
       }
-      if (IsOspfFwdAddrdIpv4 != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(IsOspfFwdAddrdIpv4);
-      }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -23578,9 +23015,6 @@ namespace ServiceLayer {
     public void MergeFrom(SLBgplsTopoPrefixOspfFwdAddr other) {
       if (other == null) {
         return;
-      }
-      if (other.IsOspfFwdAddrdIpv4 != 0) {
-        IsOspfFwdAddrdIpv4 = other.IsOspfFwdAddrdIpv4;
       }
       switch (other.OspfFwdAddrCase) {
         case OspfFwdAddrOneofCase.Ipv4Addr:
@@ -23614,10 +23048,6 @@ namespace ServiceLayer {
             Ipv6Addr = input.ReadBytes();
             break;
           }
-          case 24: {
-            IsOspfFwdAddrdIpv4 = input.ReadUInt32();
-            break;
-          }
         }
       }
     #endif
@@ -23639,10 +23069,6 @@ namespace ServiceLayer {
           }
           case 18: {
             Ipv6Addr = input.ReadBytes();
-            break;
-          }
-          case 24: {
-            IsOspfFwdAddrdIpv4 = input.ReadUInt32();
             break;
           }
         }
@@ -25043,7 +24469,6 @@ namespace ServiceLayer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public SLBgplsTopoPrefixSrcRouterId(SLBgplsTopoPrefixSrcRouterId other) : this() {
-      isSrcRouterIdIpv4_ = other.isSrcRouterIdIpv4_;
       switch (other.SrcRouterIdCase) {
         case SrcRouterIdOneofCase.Ipv4Addr:
           Ipv4Addr = other.Ipv4Addr;
@@ -25065,8 +24490,7 @@ namespace ServiceLayer {
     /// <summary>Field number for the "Ipv4Addr" field.</summary>
     public const int Ipv4AddrFieldNumber = 1;
     /// <summary>
-    /// case IsSrcRouterIdIpv4 == 1:
-    ///    => This field carries info about an IPv4 source router ID.
+    /// This field carries info about an IPv4 source router ID.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -25081,8 +24505,7 @@ namespace ServiceLayer {
     /// <summary>Field number for the "Ipv6Addr" field.</summary>
     public const int Ipv6AddrFieldNumber = 2;
     /// <summary>
-    /// case IsSrcRouterIdIpv4 == 0:
-    ///    => This field carries info about an IPv6 source router ID.
+    /// This field carries info about an IPv6 source router ID.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -25091,21 +24514,6 @@ namespace ServiceLayer {
       set {
         srcRouterId_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
         srcRouterIdCase_ = SrcRouterIdOneofCase.Ipv6Addr;
-      }
-    }
-
-    /// <summary>Field number for the "IsSrcRouterIdIpv4" field.</summary>
-    public const int IsSrcRouterIdIpv4FieldNumber = 3;
-    private uint isSrcRouterIdIpv4_;
-    /// <summary>
-    /// Specifies whether the source router ID is IPv4 or not.
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public uint IsSrcRouterIdIpv4 {
-      get { return isSrcRouterIdIpv4_; }
-      set {
-        isSrcRouterIdIpv4_ = value;
       }
     }
 
@@ -25147,7 +24555,6 @@ namespace ServiceLayer {
       }
       if (Ipv4Addr != other.Ipv4Addr) return false;
       if (Ipv6Addr != other.Ipv6Addr) return false;
-      if (IsSrcRouterIdIpv4 != other.IsSrcRouterIdIpv4) return false;
       if (SrcRouterIdCase != other.SrcRouterIdCase) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
@@ -25158,7 +24565,6 @@ namespace ServiceLayer {
       int hash = 1;
       if (srcRouterIdCase_ == SrcRouterIdOneofCase.Ipv4Addr) hash ^= Ipv4Addr.GetHashCode();
       if (srcRouterIdCase_ == SrcRouterIdOneofCase.Ipv6Addr) hash ^= Ipv6Addr.GetHashCode();
-      if (IsSrcRouterIdIpv4 != 0) hash ^= IsSrcRouterIdIpv4.GetHashCode();
       hash ^= (int) srcRouterIdCase_;
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
@@ -25186,10 +24592,6 @@ namespace ServiceLayer {
         output.WriteRawTag(18);
         output.WriteBytes(Ipv6Addr);
       }
-      if (IsSrcRouterIdIpv4 != 0) {
-        output.WriteRawTag(24);
-        output.WriteUInt32(IsSrcRouterIdIpv4);
-      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -25208,10 +24610,6 @@ namespace ServiceLayer {
         output.WriteRawTag(18);
         output.WriteBytes(Ipv6Addr);
       }
-      if (IsSrcRouterIdIpv4 != 0) {
-        output.WriteRawTag(24);
-        output.WriteUInt32(IsSrcRouterIdIpv4);
-      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -25228,9 +24626,6 @@ namespace ServiceLayer {
       if (srcRouterIdCase_ == SrcRouterIdOneofCase.Ipv6Addr) {
         size += 1 + pb::CodedOutputStream.ComputeBytesSize(Ipv6Addr);
       }
-      if (IsSrcRouterIdIpv4 != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(IsSrcRouterIdIpv4);
-      }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -25242,9 +24637,6 @@ namespace ServiceLayer {
     public void MergeFrom(SLBgplsTopoPrefixSrcRouterId other) {
       if (other == null) {
         return;
-      }
-      if (other.IsSrcRouterIdIpv4 != 0) {
-        IsSrcRouterIdIpv4 = other.IsSrcRouterIdIpv4;
       }
       switch (other.SrcRouterIdCase) {
         case SrcRouterIdOneofCase.Ipv4Addr:
@@ -25278,10 +24670,6 @@ namespace ServiceLayer {
             Ipv6Addr = input.ReadBytes();
             break;
           }
-          case 24: {
-            IsSrcRouterIdIpv4 = input.ReadUInt32();
-            break;
-          }
         }
       }
     #endif
@@ -25303,10 +24691,6 @@ namespace ServiceLayer {
           }
           case 18: {
             Ipv6Addr = input.ReadBytes();
-            break;
-          }
-          case 24: {
-            IsSrcRouterIdIpv4 = input.ReadUInt32();
             break;
           }
         }
@@ -27014,7 +26398,6 @@ namespace ServiceLayer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public SlBgplsTopoSrBsid(SlBgplsTopoSrBsid other) : this() {
-      isBindingSidMpls_ = other.isBindingSidMpls_;
       switch (other.BindingSidCase) {
         case BindingSidOneofCase.MplsBsid:
           MplsBsid = other.MplsBsid;
@@ -27036,8 +26419,7 @@ namespace ServiceLayer {
     /// <summary>Field number for the "MplsBsid" field.</summary>
     public const int MplsBsidFieldNumber = 1;
     /// <summary>
-    /// case IsBindingSidMpls == 1:
-    ///    => This field carries info about an MPLS binding SID.
+    /// This field carries info about an MPLS binding SID.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -27052,8 +26434,7 @@ namespace ServiceLayer {
     /// <summary>Field number for the "Srv6Bsid" field.</summary>
     public const int Srv6BsidFieldNumber = 2;
     /// <summary>
-    /// case IsBindingSidMpls == 0:
-    ///    => This field carries info about an SRv6 binding SID.
+    /// This field carries info about an SRv6 binding SID.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -27062,21 +26443,6 @@ namespace ServiceLayer {
       set {
         bindingSid_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
         bindingSidCase_ = BindingSidOneofCase.Srv6Bsid;
-      }
-    }
-
-    /// <summary>Field number for the "IsBindingSidMpls" field.</summary>
-    public const int IsBindingSidMplsFieldNumber = 3;
-    private uint isBindingSidMpls_;
-    /// <summary>
-    /// Specifies whether the binding SID is MPLS or not.
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public uint IsBindingSidMpls {
-      get { return isBindingSidMpls_; }
-      set {
-        isBindingSidMpls_ = value;
       }
     }
 
@@ -27118,7 +26484,6 @@ namespace ServiceLayer {
       }
       if (MplsBsid != other.MplsBsid) return false;
       if (Srv6Bsid != other.Srv6Bsid) return false;
-      if (IsBindingSidMpls != other.IsBindingSidMpls) return false;
       if (BindingSidCase != other.BindingSidCase) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
@@ -27129,7 +26494,6 @@ namespace ServiceLayer {
       int hash = 1;
       if (bindingSidCase_ == BindingSidOneofCase.MplsBsid) hash ^= MplsBsid.GetHashCode();
       if (bindingSidCase_ == BindingSidOneofCase.Srv6Bsid) hash ^= Srv6Bsid.GetHashCode();
-      if (IsBindingSidMpls != 0) hash ^= IsBindingSidMpls.GetHashCode();
       hash ^= (int) bindingSidCase_;
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
@@ -27157,10 +26521,6 @@ namespace ServiceLayer {
         output.WriteRawTag(18);
         output.WriteBytes(Srv6Bsid);
       }
-      if (IsBindingSidMpls != 0) {
-        output.WriteRawTag(24);
-        output.WriteUInt32(IsBindingSidMpls);
-      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -27179,10 +26539,6 @@ namespace ServiceLayer {
         output.WriteRawTag(18);
         output.WriteBytes(Srv6Bsid);
       }
-      if (IsBindingSidMpls != 0) {
-        output.WriteRawTag(24);
-        output.WriteUInt32(IsBindingSidMpls);
-      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -27199,9 +26555,6 @@ namespace ServiceLayer {
       if (bindingSidCase_ == BindingSidOneofCase.Srv6Bsid) {
         size += 1 + pb::CodedOutputStream.ComputeBytesSize(Srv6Bsid);
       }
-      if (IsBindingSidMpls != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(IsBindingSidMpls);
-      }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -27213,9 +26566,6 @@ namespace ServiceLayer {
     public void MergeFrom(SlBgplsTopoSrBsid other) {
       if (other == null) {
         return;
-      }
-      if (other.IsBindingSidMpls != 0) {
-        IsBindingSidMpls = other.IsBindingSidMpls;
       }
       switch (other.BindingSidCase) {
         case BindingSidOneofCase.MplsBsid:
@@ -27249,10 +26599,6 @@ namespace ServiceLayer {
             Srv6Bsid = input.ReadBytes();
             break;
           }
-          case 24: {
-            IsBindingSidMpls = input.ReadUInt32();
-            break;
-          }
         }
       }
     #endif
@@ -27274,10 +26620,6 @@ namespace ServiceLayer {
           }
           case 18: {
             Srv6Bsid = input.ReadBytes();
-            break;
-          }
-          case 24: {
-            IsBindingSidMpls = input.ReadUInt32();
             break;
           }
         }
@@ -29119,27 +28461,25 @@ namespace ServiceLayer {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public SLBgplsTopoSrSegmentDesc(SLBgplsTopoSrSegmentDesc other) : this() {
       algorithm_ = other.algorithm_;
-      isLocalNodeAddrIpv4_ = other.isLocalNodeAddrIpv4_;
-      isRemoteNodeAddrIpv4_ = other.isRemoteNodeAddrIpv4_;
       ipv6LocalNodeGlobalAddr_ = other.ipv6LocalNodeGlobalAddr_;
       ipv6RemoteNodeGlobalAddr_ = other.ipv6RemoteNodeGlobalAddr_;
       localNodeIntfId_ = other.localNodeIntfId_;
       remoteNodeIntfId_ = other.remoteNodeIntfId_;
       switch (other.LocalNodeAddrCase) {
-        case LocalNodeAddrOneofCase.Ipv4LocalNodeAddr:
-          Ipv4LocalNodeAddr = other.Ipv4LocalNodeAddr;
+        case LocalNodeAddrOneofCase.Ipv4LocAddr:
+          Ipv4LocAddr = other.Ipv4LocAddr;
           break;
-        case LocalNodeAddrOneofCase.Ipv6LocalNodeAddr:
-          Ipv6LocalNodeAddr = other.Ipv6LocalNodeAddr;
+        case LocalNodeAddrOneofCase.Ipv6LocAddr:
+          Ipv6LocAddr = other.Ipv6LocAddr;
           break;
       }
 
       switch (other.RemoteNodeAddrCase) {
-        case RemoteNodeAddrOneofCase.Ipv4RemoteNodeAddr:
-          Ipv4RemoteNodeAddr = other.Ipv4RemoteNodeAddr;
+        case RemoteNodeAddrOneofCase.Ipv4RemAddr:
+          Ipv4RemAddr = other.Ipv4RemAddr;
           break;
-        case RemoteNodeAddrOneofCase.Ipv6RemoteNodeAddr:
-          Ipv6RemoteNodeAddr = other.Ipv6RemoteNodeAddr;
+        case RemoteNodeAddrOneofCase.Ipv6RemAddr:
+          Ipv6RemAddr = other.Ipv6RemAddr;
           break;
       }
 
@@ -29164,102 +28504,68 @@ namespace ServiceLayer {
       }
     }
 
-    /// <summary>Field number for the "Ipv4LocalNodeAddr" field.</summary>
-    public const int Ipv4LocalNodeAddrFieldNumber = 2;
+    /// <summary>Field number for the "Ipv4LocAddr" field.</summary>
+    public const int Ipv4LocAddrFieldNumber = 2;
     /// <summary>
-    /// case IsLocalNodeAddrIpv4 == 1:
-    ///    => This field carries info about an IPv4 local node address.
+    /// This field carries info about an IPv4 local node address.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public uint Ipv4LocalNodeAddr {
-      get { return localNodeAddrCase_ == LocalNodeAddrOneofCase.Ipv4LocalNodeAddr ? (uint) localNodeAddr_ : 0; }
+    public uint Ipv4LocAddr {
+      get { return localNodeAddrCase_ == LocalNodeAddrOneofCase.Ipv4LocAddr ? (uint) localNodeAddr_ : 0; }
       set {
         localNodeAddr_ = value;
-        localNodeAddrCase_ = LocalNodeAddrOneofCase.Ipv4LocalNodeAddr;
+        localNodeAddrCase_ = LocalNodeAddrOneofCase.Ipv4LocAddr;
       }
     }
 
-    /// <summary>Field number for the "Ipv6LocalNodeAddr" field.</summary>
-    public const int Ipv6LocalNodeAddrFieldNumber = 3;
+    /// <summary>Field number for the "Ipv6LocAddr" field.</summary>
+    public const int Ipv6LocAddrFieldNumber = 3;
     /// <summary>
-    /// case IsLocalNodeAddrIpv4 == 0:
-    ///    => This field carries info about an IPv6 local node address.
+    /// This field carries info about an IPv6 local node address.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pb::ByteString Ipv6LocalNodeAddr {
-      get { return localNodeAddrCase_ == LocalNodeAddrOneofCase.Ipv6LocalNodeAddr ? (pb::ByteString) localNodeAddr_ : pb::ByteString.Empty; }
+    public pb::ByteString Ipv6LocAddr {
+      get { return localNodeAddrCase_ == LocalNodeAddrOneofCase.Ipv6LocAddr ? (pb::ByteString) localNodeAddr_ : pb::ByteString.Empty; }
       set {
         localNodeAddr_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-        localNodeAddrCase_ = LocalNodeAddrOneofCase.Ipv6LocalNodeAddr;
+        localNodeAddrCase_ = LocalNodeAddrOneofCase.Ipv6LocAddr;
       }
     }
 
-    /// <summary>Field number for the "IsLocalNodeAddrIpv4" field.</summary>
-    public const int IsLocalNodeAddrIpv4FieldNumber = 4;
-    private uint isLocalNodeAddrIpv4_;
+    /// <summary>Field number for the "Ipv4RemAddr" field.</summary>
+    public const int Ipv4RemAddrFieldNumber = 4;
     /// <summary>
-    /// Specifies whether the local node address is IPv4 or not.
+    /// This field carries info about an IPv4 remote node address.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public uint IsLocalNodeAddrIpv4 {
-      get { return isLocalNodeAddrIpv4_; }
-      set {
-        isLocalNodeAddrIpv4_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "Ipv4RemoteNodeAddr" field.</summary>
-    public const int Ipv4RemoteNodeAddrFieldNumber = 5;
-    /// <summary>
-    /// case IsRemoteNodeAddrIpv4 == 1:
-    ///    => This field carries info about an IPv4 remote node address.
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public uint Ipv4RemoteNodeAddr {
-      get { return remoteNodeAddrCase_ == RemoteNodeAddrOneofCase.Ipv4RemoteNodeAddr ? (uint) remoteNodeAddr_ : 0; }
+    public uint Ipv4RemAddr {
+      get { return remoteNodeAddrCase_ == RemoteNodeAddrOneofCase.Ipv4RemAddr ? (uint) remoteNodeAddr_ : 0; }
       set {
         remoteNodeAddr_ = value;
-        remoteNodeAddrCase_ = RemoteNodeAddrOneofCase.Ipv4RemoteNodeAddr;
+        remoteNodeAddrCase_ = RemoteNodeAddrOneofCase.Ipv4RemAddr;
       }
     }
 
-    /// <summary>Field number for the "Ipv6RemoteNodeAddr" field.</summary>
-    public const int Ipv6RemoteNodeAddrFieldNumber = 6;
+    /// <summary>Field number for the "Ipv6RemAddr" field.</summary>
+    public const int Ipv6RemAddrFieldNumber = 5;
     /// <summary>
-    /// case IsRemoteNodeAddrIpv4 == 0:
-    ///    => This field carries info about an IPv6 remote node address.
+    /// This field carries info about an IPv6 remote node address.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pb::ByteString Ipv6RemoteNodeAddr {
-      get { return remoteNodeAddrCase_ == RemoteNodeAddrOneofCase.Ipv6RemoteNodeAddr ? (pb::ByteString) remoteNodeAddr_ : pb::ByteString.Empty; }
+    public pb::ByteString Ipv6RemAddr {
+      get { return remoteNodeAddrCase_ == RemoteNodeAddrOneofCase.Ipv6RemAddr ? (pb::ByteString) remoteNodeAddr_ : pb::ByteString.Empty; }
       set {
         remoteNodeAddr_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-        remoteNodeAddrCase_ = RemoteNodeAddrOneofCase.Ipv6RemoteNodeAddr;
-      }
-    }
-
-    /// <summary>Field number for the "IsRemoteNodeAddrIpv4" field.</summary>
-    public const int IsRemoteNodeAddrIpv4FieldNumber = 7;
-    private uint isRemoteNodeAddrIpv4_;
-    /// <summary>
-    /// Specifies whether the remote node address is IPv4 or not.
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public uint IsRemoteNodeAddrIpv4 {
-      get { return isRemoteNodeAddrIpv4_; }
-      set {
-        isRemoteNodeAddrIpv4_ = value;
+        remoteNodeAddrCase_ = RemoteNodeAddrOneofCase.Ipv6RemAddr;
       }
     }
 
     /// <summary>Field number for the "Ipv6LocalNodeGlobalAddr" field.</summary>
-    public const int Ipv6LocalNodeGlobalAddrFieldNumber = 8;
+    public const int Ipv6LocalNodeGlobalAddrFieldNumber = 6;
     private pb::ByteString ipv6LocalNodeGlobalAddr_ = pb::ByteString.Empty;
     /// <summary>
     /// Carries info about IPv6 local node global address.
@@ -29274,7 +28580,7 @@ namespace ServiceLayer {
     }
 
     /// <summary>Field number for the "Ipv6RemoteNodeGlobalAddr" field.</summary>
-    public const int Ipv6RemoteNodeGlobalAddrFieldNumber = 9;
+    public const int Ipv6RemoteNodeGlobalAddrFieldNumber = 7;
     private pb::ByteString ipv6RemoteNodeGlobalAddr_ = pb::ByteString.Empty;
     /// <summary>
     /// Carries info about IPv6 remote node global address.
@@ -29289,7 +28595,7 @@ namespace ServiceLayer {
     }
 
     /// <summary>Field number for the "LocalNodeIntfId" field.</summary>
-    public const int LocalNodeIntfIdFieldNumber = 10;
+    public const int LocalNodeIntfIdFieldNumber = 8;
     private uint localNodeIntfId_;
     /// <summary>
     /// Carries the interface ID of the local node identified by the local node
@@ -29305,7 +28611,7 @@ namespace ServiceLayer {
     }
 
     /// <summary>Field number for the "RemoteNodeIntfId" field.</summary>
-    public const int RemoteNodeIntfIdFieldNumber = 11;
+    public const int RemoteNodeIntfIdFieldNumber = 9;
     private uint remoteNodeIntfId_;
     /// <summary>
     /// Carries the interface ID of the remote node identified by the remote
@@ -29324,8 +28630,8 @@ namespace ServiceLayer {
     /// <summary>Enum of possible cases for the "LocalNodeAddr" oneof.</summary>
     public enum LocalNodeAddrOneofCase {
       None = 0,
-      Ipv4LocalNodeAddr = 2,
-      Ipv6LocalNodeAddr = 3,
+      Ipv4LocAddr = 2,
+      Ipv6LocAddr = 3,
     }
     private LocalNodeAddrOneofCase localNodeAddrCase_ = LocalNodeAddrOneofCase.None;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -29345,8 +28651,8 @@ namespace ServiceLayer {
     /// <summary>Enum of possible cases for the "RemoteNodeAddr" oneof.</summary>
     public enum RemoteNodeAddrOneofCase {
       None = 0,
-      Ipv4RemoteNodeAddr = 5,
-      Ipv6RemoteNodeAddr = 6,
+      Ipv4RemAddr = 4,
+      Ipv6RemAddr = 5,
     }
     private RemoteNodeAddrOneofCase remoteNodeAddrCase_ = RemoteNodeAddrOneofCase.None;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -29378,12 +28684,10 @@ namespace ServiceLayer {
         return true;
       }
       if (Algorithm != other.Algorithm) return false;
-      if (Ipv4LocalNodeAddr != other.Ipv4LocalNodeAddr) return false;
-      if (Ipv6LocalNodeAddr != other.Ipv6LocalNodeAddr) return false;
-      if (IsLocalNodeAddrIpv4 != other.IsLocalNodeAddrIpv4) return false;
-      if (Ipv4RemoteNodeAddr != other.Ipv4RemoteNodeAddr) return false;
-      if (Ipv6RemoteNodeAddr != other.Ipv6RemoteNodeAddr) return false;
-      if (IsRemoteNodeAddrIpv4 != other.IsRemoteNodeAddrIpv4) return false;
+      if (Ipv4LocAddr != other.Ipv4LocAddr) return false;
+      if (Ipv6LocAddr != other.Ipv6LocAddr) return false;
+      if (Ipv4RemAddr != other.Ipv4RemAddr) return false;
+      if (Ipv6RemAddr != other.Ipv6RemAddr) return false;
       if (Ipv6LocalNodeGlobalAddr != other.Ipv6LocalNodeGlobalAddr) return false;
       if (Ipv6RemoteNodeGlobalAddr != other.Ipv6RemoteNodeGlobalAddr) return false;
       if (LocalNodeIntfId != other.LocalNodeIntfId) return false;
@@ -29398,12 +28702,10 @@ namespace ServiceLayer {
     public override int GetHashCode() {
       int hash = 1;
       if (Algorithm != 0) hash ^= Algorithm.GetHashCode();
-      if (localNodeAddrCase_ == LocalNodeAddrOneofCase.Ipv4LocalNodeAddr) hash ^= Ipv4LocalNodeAddr.GetHashCode();
-      if (localNodeAddrCase_ == LocalNodeAddrOneofCase.Ipv6LocalNodeAddr) hash ^= Ipv6LocalNodeAddr.GetHashCode();
-      if (IsLocalNodeAddrIpv4 != 0) hash ^= IsLocalNodeAddrIpv4.GetHashCode();
-      if (remoteNodeAddrCase_ == RemoteNodeAddrOneofCase.Ipv4RemoteNodeAddr) hash ^= Ipv4RemoteNodeAddr.GetHashCode();
-      if (remoteNodeAddrCase_ == RemoteNodeAddrOneofCase.Ipv6RemoteNodeAddr) hash ^= Ipv6RemoteNodeAddr.GetHashCode();
-      if (IsRemoteNodeAddrIpv4 != 0) hash ^= IsRemoteNodeAddrIpv4.GetHashCode();
+      if (localNodeAddrCase_ == LocalNodeAddrOneofCase.Ipv4LocAddr) hash ^= Ipv4LocAddr.GetHashCode();
+      if (localNodeAddrCase_ == LocalNodeAddrOneofCase.Ipv6LocAddr) hash ^= Ipv6LocAddr.GetHashCode();
+      if (remoteNodeAddrCase_ == RemoteNodeAddrOneofCase.Ipv4RemAddr) hash ^= Ipv4RemAddr.GetHashCode();
+      if (remoteNodeAddrCase_ == RemoteNodeAddrOneofCase.Ipv6RemAddr) hash ^= Ipv6RemAddr.GetHashCode();
       if (Ipv6LocalNodeGlobalAddr.Length != 0) hash ^= Ipv6LocalNodeGlobalAddr.GetHashCode();
       if (Ipv6RemoteNodeGlobalAddr.Length != 0) hash ^= Ipv6RemoteNodeGlobalAddr.GetHashCode();
       if (LocalNodeIntfId != 0) hash ^= LocalNodeIntfId.GetHashCode();
@@ -29432,44 +28734,36 @@ namespace ServiceLayer {
         output.WriteRawTag(8);
         output.WriteUInt32(Algorithm);
       }
-      if (localNodeAddrCase_ == LocalNodeAddrOneofCase.Ipv4LocalNodeAddr) {
+      if (localNodeAddrCase_ == LocalNodeAddrOneofCase.Ipv4LocAddr) {
         output.WriteRawTag(16);
-        output.WriteUInt32(Ipv4LocalNodeAddr);
+        output.WriteUInt32(Ipv4LocAddr);
       }
-      if (localNodeAddrCase_ == LocalNodeAddrOneofCase.Ipv6LocalNodeAddr) {
+      if (localNodeAddrCase_ == LocalNodeAddrOneofCase.Ipv6LocAddr) {
         output.WriteRawTag(26);
-        output.WriteBytes(Ipv6LocalNodeAddr);
+        output.WriteBytes(Ipv6LocAddr);
       }
-      if (IsLocalNodeAddrIpv4 != 0) {
+      if (remoteNodeAddrCase_ == RemoteNodeAddrOneofCase.Ipv4RemAddr) {
         output.WriteRawTag(32);
-        output.WriteUInt32(IsLocalNodeAddrIpv4);
+        output.WriteUInt32(Ipv4RemAddr);
       }
-      if (remoteNodeAddrCase_ == RemoteNodeAddrOneofCase.Ipv4RemoteNodeAddr) {
-        output.WriteRawTag(40);
-        output.WriteUInt32(Ipv4RemoteNodeAddr);
-      }
-      if (remoteNodeAddrCase_ == RemoteNodeAddrOneofCase.Ipv6RemoteNodeAddr) {
-        output.WriteRawTag(50);
-        output.WriteBytes(Ipv6RemoteNodeAddr);
-      }
-      if (IsRemoteNodeAddrIpv4 != 0) {
-        output.WriteRawTag(56);
-        output.WriteUInt32(IsRemoteNodeAddrIpv4);
+      if (remoteNodeAddrCase_ == RemoteNodeAddrOneofCase.Ipv6RemAddr) {
+        output.WriteRawTag(42);
+        output.WriteBytes(Ipv6RemAddr);
       }
       if (Ipv6LocalNodeGlobalAddr.Length != 0) {
-        output.WriteRawTag(66);
+        output.WriteRawTag(50);
         output.WriteBytes(Ipv6LocalNodeGlobalAddr);
       }
       if (Ipv6RemoteNodeGlobalAddr.Length != 0) {
-        output.WriteRawTag(74);
+        output.WriteRawTag(58);
         output.WriteBytes(Ipv6RemoteNodeGlobalAddr);
       }
       if (LocalNodeIntfId != 0) {
-        output.WriteRawTag(80);
+        output.WriteRawTag(64);
         output.WriteUInt32(LocalNodeIntfId);
       }
       if (RemoteNodeIntfId != 0) {
-        output.WriteRawTag(88);
+        output.WriteRawTag(72);
         output.WriteUInt32(RemoteNodeIntfId);
       }
       if (_unknownFields != null) {
@@ -29486,44 +28780,36 @@ namespace ServiceLayer {
         output.WriteRawTag(8);
         output.WriteUInt32(Algorithm);
       }
-      if (localNodeAddrCase_ == LocalNodeAddrOneofCase.Ipv4LocalNodeAddr) {
+      if (localNodeAddrCase_ == LocalNodeAddrOneofCase.Ipv4LocAddr) {
         output.WriteRawTag(16);
-        output.WriteUInt32(Ipv4LocalNodeAddr);
+        output.WriteUInt32(Ipv4LocAddr);
       }
-      if (localNodeAddrCase_ == LocalNodeAddrOneofCase.Ipv6LocalNodeAddr) {
+      if (localNodeAddrCase_ == LocalNodeAddrOneofCase.Ipv6LocAddr) {
         output.WriteRawTag(26);
-        output.WriteBytes(Ipv6LocalNodeAddr);
+        output.WriteBytes(Ipv6LocAddr);
       }
-      if (IsLocalNodeAddrIpv4 != 0) {
+      if (remoteNodeAddrCase_ == RemoteNodeAddrOneofCase.Ipv4RemAddr) {
         output.WriteRawTag(32);
-        output.WriteUInt32(IsLocalNodeAddrIpv4);
+        output.WriteUInt32(Ipv4RemAddr);
       }
-      if (remoteNodeAddrCase_ == RemoteNodeAddrOneofCase.Ipv4RemoteNodeAddr) {
-        output.WriteRawTag(40);
-        output.WriteUInt32(Ipv4RemoteNodeAddr);
-      }
-      if (remoteNodeAddrCase_ == RemoteNodeAddrOneofCase.Ipv6RemoteNodeAddr) {
-        output.WriteRawTag(50);
-        output.WriteBytes(Ipv6RemoteNodeAddr);
-      }
-      if (IsRemoteNodeAddrIpv4 != 0) {
-        output.WriteRawTag(56);
-        output.WriteUInt32(IsRemoteNodeAddrIpv4);
+      if (remoteNodeAddrCase_ == RemoteNodeAddrOneofCase.Ipv6RemAddr) {
+        output.WriteRawTag(42);
+        output.WriteBytes(Ipv6RemAddr);
       }
       if (Ipv6LocalNodeGlobalAddr.Length != 0) {
-        output.WriteRawTag(66);
+        output.WriteRawTag(50);
         output.WriteBytes(Ipv6LocalNodeGlobalAddr);
       }
       if (Ipv6RemoteNodeGlobalAddr.Length != 0) {
-        output.WriteRawTag(74);
+        output.WriteRawTag(58);
         output.WriteBytes(Ipv6RemoteNodeGlobalAddr);
       }
       if (LocalNodeIntfId != 0) {
-        output.WriteRawTag(80);
+        output.WriteRawTag(64);
         output.WriteUInt32(LocalNodeIntfId);
       }
       if (RemoteNodeIntfId != 0) {
-        output.WriteRawTag(88);
+        output.WriteRawTag(72);
         output.WriteUInt32(RemoteNodeIntfId);
       }
       if (_unknownFields != null) {
@@ -29539,23 +28825,17 @@ namespace ServiceLayer {
       if (Algorithm != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Algorithm);
       }
-      if (localNodeAddrCase_ == LocalNodeAddrOneofCase.Ipv4LocalNodeAddr) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Ipv4LocalNodeAddr);
+      if (localNodeAddrCase_ == LocalNodeAddrOneofCase.Ipv4LocAddr) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Ipv4LocAddr);
       }
-      if (localNodeAddrCase_ == LocalNodeAddrOneofCase.Ipv6LocalNodeAddr) {
-        size += 1 + pb::CodedOutputStream.ComputeBytesSize(Ipv6LocalNodeAddr);
+      if (localNodeAddrCase_ == LocalNodeAddrOneofCase.Ipv6LocAddr) {
+        size += 1 + pb::CodedOutputStream.ComputeBytesSize(Ipv6LocAddr);
       }
-      if (IsLocalNodeAddrIpv4 != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(IsLocalNodeAddrIpv4);
+      if (remoteNodeAddrCase_ == RemoteNodeAddrOneofCase.Ipv4RemAddr) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Ipv4RemAddr);
       }
-      if (remoteNodeAddrCase_ == RemoteNodeAddrOneofCase.Ipv4RemoteNodeAddr) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Ipv4RemoteNodeAddr);
-      }
-      if (remoteNodeAddrCase_ == RemoteNodeAddrOneofCase.Ipv6RemoteNodeAddr) {
-        size += 1 + pb::CodedOutputStream.ComputeBytesSize(Ipv6RemoteNodeAddr);
-      }
-      if (IsRemoteNodeAddrIpv4 != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(IsRemoteNodeAddrIpv4);
+      if (remoteNodeAddrCase_ == RemoteNodeAddrOneofCase.Ipv6RemAddr) {
+        size += 1 + pb::CodedOutputStream.ComputeBytesSize(Ipv6RemAddr);
       }
       if (Ipv6LocalNodeGlobalAddr.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeBytesSize(Ipv6LocalNodeGlobalAddr);
@@ -29584,12 +28864,6 @@ namespace ServiceLayer {
       if (other.Algorithm != 0) {
         Algorithm = other.Algorithm;
       }
-      if (other.IsLocalNodeAddrIpv4 != 0) {
-        IsLocalNodeAddrIpv4 = other.IsLocalNodeAddrIpv4;
-      }
-      if (other.IsRemoteNodeAddrIpv4 != 0) {
-        IsRemoteNodeAddrIpv4 = other.IsRemoteNodeAddrIpv4;
-      }
       if (other.Ipv6LocalNodeGlobalAddr.Length != 0) {
         Ipv6LocalNodeGlobalAddr = other.Ipv6LocalNodeGlobalAddr;
       }
@@ -29603,20 +28877,20 @@ namespace ServiceLayer {
         RemoteNodeIntfId = other.RemoteNodeIntfId;
       }
       switch (other.LocalNodeAddrCase) {
-        case LocalNodeAddrOneofCase.Ipv4LocalNodeAddr:
-          Ipv4LocalNodeAddr = other.Ipv4LocalNodeAddr;
+        case LocalNodeAddrOneofCase.Ipv4LocAddr:
+          Ipv4LocAddr = other.Ipv4LocAddr;
           break;
-        case LocalNodeAddrOneofCase.Ipv6LocalNodeAddr:
-          Ipv6LocalNodeAddr = other.Ipv6LocalNodeAddr;
+        case LocalNodeAddrOneofCase.Ipv6LocAddr:
+          Ipv6LocAddr = other.Ipv6LocAddr;
           break;
       }
 
       switch (other.RemoteNodeAddrCase) {
-        case RemoteNodeAddrOneofCase.Ipv4RemoteNodeAddr:
-          Ipv4RemoteNodeAddr = other.Ipv4RemoteNodeAddr;
+        case RemoteNodeAddrOneofCase.Ipv4RemAddr:
+          Ipv4RemAddr = other.Ipv4RemAddr;
           break;
-        case RemoteNodeAddrOneofCase.Ipv6RemoteNodeAddr:
-          Ipv6RemoteNodeAddr = other.Ipv6RemoteNodeAddr;
+        case RemoteNodeAddrOneofCase.Ipv6RemAddr:
+          Ipv6RemAddr = other.Ipv6RemAddr;
           break;
       }
 
@@ -29640,42 +28914,34 @@ namespace ServiceLayer {
             break;
           }
           case 16: {
-            Ipv4LocalNodeAddr = input.ReadUInt32();
+            Ipv4LocAddr = input.ReadUInt32();
             break;
           }
           case 26: {
-            Ipv6LocalNodeAddr = input.ReadBytes();
+            Ipv6LocAddr = input.ReadBytes();
             break;
           }
           case 32: {
-            IsLocalNodeAddrIpv4 = input.ReadUInt32();
+            Ipv4RemAddr = input.ReadUInt32();
             break;
           }
-          case 40: {
-            Ipv4RemoteNodeAddr = input.ReadUInt32();
+          case 42: {
+            Ipv6RemAddr = input.ReadBytes();
             break;
           }
           case 50: {
-            Ipv6RemoteNodeAddr = input.ReadBytes();
-            break;
-          }
-          case 56: {
-            IsRemoteNodeAddrIpv4 = input.ReadUInt32();
-            break;
-          }
-          case 66: {
             Ipv6LocalNodeGlobalAddr = input.ReadBytes();
             break;
           }
-          case 74: {
+          case 58: {
             Ipv6RemoteNodeGlobalAddr = input.ReadBytes();
             break;
           }
-          case 80: {
+          case 64: {
             LocalNodeIntfId = input.ReadUInt32();
             break;
           }
-          case 88: {
+          case 72: {
             RemoteNodeIntfId = input.ReadUInt32();
             break;
           }
@@ -29699,42 +28965,34 @@ namespace ServiceLayer {
             break;
           }
           case 16: {
-            Ipv4LocalNodeAddr = input.ReadUInt32();
+            Ipv4LocAddr = input.ReadUInt32();
             break;
           }
           case 26: {
-            Ipv6LocalNodeAddr = input.ReadBytes();
+            Ipv6LocAddr = input.ReadBytes();
             break;
           }
           case 32: {
-            IsLocalNodeAddrIpv4 = input.ReadUInt32();
+            Ipv4RemAddr = input.ReadUInt32();
             break;
           }
-          case 40: {
-            Ipv4RemoteNodeAddr = input.ReadUInt32();
+          case 42: {
+            Ipv6RemAddr = input.ReadBytes();
             break;
           }
           case 50: {
-            Ipv6RemoteNodeAddr = input.ReadBytes();
-            break;
-          }
-          case 56: {
-            IsRemoteNodeAddrIpv4 = input.ReadUInt32();
-            break;
-          }
-          case 66: {
             Ipv6LocalNodeGlobalAddr = input.ReadBytes();
             break;
           }
-          case 74: {
+          case 58: {
             Ipv6RemoteNodeGlobalAddr = input.ReadBytes();
             break;
           }
-          case 80: {
+          case 64: {
             LocalNodeIntfId = input.ReadUInt32();
             break;
           }
-          case 88: {
+          case 72: {
             RemoteNodeIntfId = input.ReadUInt32();
             break;
           }
@@ -29785,7 +29043,6 @@ namespace ServiceLayer {
     public SLBgplsTopoSrSegment(SLBgplsTopoSrSegment other) : this() {
       type_ = other.type_;
       flags_ = other.flags_;
-      isSidMpls_ = other.isSidMpls_;
       segmentDesc_ = other.segmentDesc_ != null ? other.segmentDesc_.Clone() : null;
       endPointBehaviour_ = other.endPointBehaviour_ != null ? other.endPointBehaviour_.Clone() : null;
       sidStruct_ = other.sidStruct_ != null ? other.sidStruct_.Clone() : null;
@@ -29854,8 +29111,7 @@ namespace ServiceLayer {
     /// <summary>Field number for the "MplsLabel" field.</summary>
     public const int MplsLabelFieldNumber = 3;
     /// <summary>
-    /// case IsSidMpls == 1:
-    ///    => This field carries info about an MPLS SID.
+    /// This field carries info about an MPLS SID.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -29870,8 +29126,7 @@ namespace ServiceLayer {
     /// <summary>Field number for the "Srv6Sid" field.</summary>
     public const int Srv6SidFieldNumber = 4;
     /// <summary>
-    /// case IsSidMpls == 0:
-    ///    => This field carries info about an SRv6 SID.
+    /// This field carries info about an SRv6 SID.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -29883,23 +29138,8 @@ namespace ServiceLayer {
       }
     }
 
-    /// <summary>Field number for the "IsSidMpls" field.</summary>
-    public const int IsSidMplsFieldNumber = 5;
-    private uint isSidMpls_;
-    /// <summary>
-    /// Specifies whether the SID is MPLS or not.
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public uint IsSidMpls {
-      get { return isSidMpls_; }
-      set {
-        isSidMpls_ = value;
-      }
-    }
-
     /// <summary>Field number for the "SegmentDesc" field.</summary>
-    public const int SegmentDescFieldNumber = 6;
+    public const int SegmentDescFieldNumber = 5;
     private global::ServiceLayer.SLBgplsTopoSrSegmentDesc segmentDesc_;
     /// <summary>
     /// Variable size Segment descriptor based on the type of segment
@@ -29914,7 +29154,7 @@ namespace ServiceLayer {
     }
 
     /// <summary>Field number for the "EndPointBehaviour" field.</summary>
-    public const int EndPointBehaviourFieldNumber = 7;
+    public const int EndPointBehaviourFieldNumber = 6;
     private global::ServiceLayer.SLBgplsTopoSrv6EndPointBehavior endPointBehaviour_;
     /// <summary>
     /// SRv6 End Point Behavior. TLV 1250
@@ -29930,7 +29170,7 @@ namespace ServiceLayer {
     }
 
     /// <summary>Field number for the "SidStruct" field.</summary>
-    public const int SidStructFieldNumber = 8;
+    public const int SidStructFieldNumber = 7;
     private global::ServiceLayer.SLBgplsTopoSrv6SidStruct sidStruct_;
     /// <summary>
     /// SRv6 SID Structure Attribute. TLV 1252
@@ -29985,7 +29225,6 @@ namespace ServiceLayer {
       if (Flags != other.Flags) return false;
       if (MplsLabel != other.MplsLabel) return false;
       if (Srv6Sid != other.Srv6Sid) return false;
-      if (IsSidMpls != other.IsSidMpls) return false;
       if (!object.Equals(SegmentDesc, other.SegmentDesc)) return false;
       if (!object.Equals(EndPointBehaviour, other.EndPointBehaviour)) return false;
       if (!object.Equals(SidStruct, other.SidStruct)) return false;
@@ -30001,7 +29240,6 @@ namespace ServiceLayer {
       if (Flags.Length != 0) hash ^= Flags.GetHashCode();
       if (sidCase_ == SidOneofCase.MplsLabel) hash ^= MplsLabel.GetHashCode();
       if (sidCase_ == SidOneofCase.Srv6Sid) hash ^= Srv6Sid.GetHashCode();
-      if (IsSidMpls != 0) hash ^= IsSidMpls.GetHashCode();
       if (segmentDesc_ != null) hash ^= SegmentDesc.GetHashCode();
       if (endPointBehaviour_ != null) hash ^= EndPointBehaviour.GetHashCode();
       if (sidStruct_ != null) hash ^= SidStruct.GetHashCode();
@@ -30040,20 +29278,16 @@ namespace ServiceLayer {
         output.WriteRawTag(34);
         output.WriteBytes(Srv6Sid);
       }
-      if (IsSidMpls != 0) {
-        output.WriteRawTag(40);
-        output.WriteUInt32(IsSidMpls);
-      }
       if (segmentDesc_ != null) {
-        output.WriteRawTag(50);
+        output.WriteRawTag(42);
         output.WriteMessage(SegmentDesc);
       }
       if (endPointBehaviour_ != null) {
-        output.WriteRawTag(58);
+        output.WriteRawTag(50);
         output.WriteMessage(EndPointBehaviour);
       }
       if (sidStruct_ != null) {
-        output.WriteRawTag(66);
+        output.WriteRawTag(58);
         output.WriteMessage(SidStruct);
       }
       if (_unknownFields != null) {
@@ -30082,20 +29316,16 @@ namespace ServiceLayer {
         output.WriteRawTag(34);
         output.WriteBytes(Srv6Sid);
       }
-      if (IsSidMpls != 0) {
-        output.WriteRawTag(40);
-        output.WriteUInt32(IsSidMpls);
-      }
       if (segmentDesc_ != null) {
-        output.WriteRawTag(50);
+        output.WriteRawTag(42);
         output.WriteMessage(SegmentDesc);
       }
       if (endPointBehaviour_ != null) {
-        output.WriteRawTag(58);
+        output.WriteRawTag(50);
         output.WriteMessage(EndPointBehaviour);
       }
       if (sidStruct_ != null) {
-        output.WriteRawTag(66);
+        output.WriteRawTag(58);
         output.WriteMessage(SidStruct);
       }
       if (_unknownFields != null) {
@@ -30119,9 +29349,6 @@ namespace ServiceLayer {
       }
       if (sidCase_ == SidOneofCase.Srv6Sid) {
         size += 1 + pb::CodedOutputStream.ComputeBytesSize(Srv6Sid);
-      }
-      if (IsSidMpls != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(IsSidMpls);
       }
       if (segmentDesc_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(SegmentDesc);
@@ -30149,9 +29376,6 @@ namespace ServiceLayer {
       }
       if (other.Flags.Length != 0) {
         Flags = other.Flags;
-      }
-      if (other.IsSidMpls != 0) {
-        IsSidMpls = other.IsSidMpls;
       }
       if (other.segmentDesc_ != null) {
         if (segmentDesc_ == null) {
@@ -30211,25 +29435,21 @@ namespace ServiceLayer {
             Srv6Sid = input.ReadBytes();
             break;
           }
-          case 40: {
-            IsSidMpls = input.ReadUInt32();
-            break;
-          }
-          case 50: {
+          case 42: {
             if (segmentDesc_ == null) {
               SegmentDesc = new global::ServiceLayer.SLBgplsTopoSrSegmentDesc();
             }
             input.ReadMessage(SegmentDesc);
             break;
           }
-          case 58: {
+          case 50: {
             if (endPointBehaviour_ == null) {
               EndPointBehaviour = new global::ServiceLayer.SLBgplsTopoSrv6EndPointBehavior();
             }
             input.ReadMessage(EndPointBehaviour);
             break;
           }
-          case 66: {
+          case 58: {
             if (sidStruct_ == null) {
               SidStruct = new global::ServiceLayer.SLBgplsTopoSrv6SidStruct();
             }
@@ -30267,25 +29487,21 @@ namespace ServiceLayer {
             Srv6Sid = input.ReadBytes();
             break;
           }
-          case 40: {
-            IsSidMpls = input.ReadUInt32();
-            break;
-          }
-          case 50: {
+          case 42: {
             if (segmentDesc_ == null) {
               SegmentDesc = new global::ServiceLayer.SLBgplsTopoSrSegmentDesc();
             }
             input.ReadMessage(SegmentDesc);
             break;
           }
-          case 58: {
+          case 50: {
             if (endPointBehaviour_ == null) {
               EndPointBehaviour = new global::ServiceLayer.SLBgplsTopoSrv6EndPointBehavior();
             }
             input.ReadMessage(EndPointBehaviour);
             break;
           }
-          case 66: {
+          case 58: {
             if (sidStruct_ == null) {
               SidStruct = new global::ServiceLayer.SLBgplsTopoSrv6SidStruct();
             }
