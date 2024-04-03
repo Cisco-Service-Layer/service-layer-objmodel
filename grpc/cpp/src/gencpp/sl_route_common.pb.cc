@@ -31,8 +31,8 @@ PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT SLRouteGlobalsGetMsgDefaultType
 constexpr SLRouteGlobalsGetMsgRsp::SLRouteGlobalsGetMsgRsp(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
   : errstatus_(nullptr)
-  , maxvrfregpermsg_(0u)
-  , maxafopspermsg_(0u){}
+  , maxvrfregpervrfregmsg_(0u)
+  , maxrouteperroutemsg_(0u){}
 struct SLRouteGlobalsGetMsgRspDefaultTypeInternal {
   constexpr SLRouteGlobalsGetMsgRspDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
@@ -324,8 +324,8 @@ const uint32_t TableStruct_sl_5froute_5fcommon_2eproto::offsets[] PROTOBUF_SECTI
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::service_layer::SLRouteGlobalsGetMsgRsp, errstatus_),
-  PROTOBUF_FIELD_OFFSET(::service_layer::SLRouteGlobalsGetMsgRsp, maxvrfregpermsg_),
-  PROTOBUF_FIELD_OFFSET(::service_layer::SLRouteGlobalsGetMsgRsp, maxafopspermsg_),
+  PROTOBUF_FIELD_OFFSET(::service_layer::SLRouteGlobalsGetMsgRsp, maxvrfregpervrfregmsg_),
+  PROTOBUF_FIELD_OFFSET(::service_layer::SLRouteGlobalsGetMsgRsp, maxrouteperroutemsg_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::service_layer::SLRouteGlobalStatsGetMsg, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -545,84 +545,84 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
 const char descriptor_table_protodef_sl_5froute_5fcommon_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
   "\n\025sl_route_common.proto\022\rservice_layer\032\025"
   "sl_common_types.proto\"\026\n\024SLRouteGlobalsG"
-  "etMsg\"{\n\027SLRouteGlobalsGetMsgRsp\022/\n\tErrS"
-  "tatus\030\001 \001(\0132\034.service_layer.SLErrorStatu"
-  "s\022\027\n\017MaxVrfRegPerMsg\030\002 \001(\r\022\026\n\016MaxAFOpsPe"
-  "rMsg\030\003 \001(\r\"\032\n\030SLRouteGlobalStatsGetMsg\"t"
-  "\n\033SLRouteGlobalStatsGetMsgRsp\022/\n\tErrStat"
-  "us\030\001 \001(\0132\034.service_layer.SLErrorStatus\022\020"
-  "\n\010VrfCount\030\002 \001(\r\022\022\n\nRouteCount\030\003 \001(\r\"S\n\010"
-  "SLVrfReg\022\017\n\007VrfName\030\001 \001(\t\022\025\n\rAdminDistan"
-  "ce\030\002 \001(\r\022\037\n\027VrfPurgeIntervalSeconds\030\003 \001("
-  "\r\"`\n\013SLVrfRegMsg\022$\n\004Oper\030\001 \001(\0162\026.service"
-  "_layer.SLRegOp\022+\n\nVrfRegMsgs\030\002 \003(\0132\027.ser"
-  "vice_layer.SLVrfReg\"R\n\016SLVrfRegMsgRes\022/\n"
-  "\tErrStatus\030\001 \001(\0132\034.service_layer.SLError"
-  "Status\022\017\n\007VrfName\030\002 \001(\t\"u\n\016SLVrfRegMsgRs"
-  "p\0223\n\rStatusSummary\030\001 \001(\0132\034.service_layer"
-  ".SLErrorStatus\022.\n\007Results\030\002 \003(\0132\035.servic"
-  "e_layer.SLVrfRegMsgRes\"H\n\016SLVrfRegGetMsg"
-  "\022\017\n\007VrfName\030\001 \001(\t\022\024\n\014EntriesCount\030\002 \001(\r\022"
-  "\017\n\007GetNext\030\003 \001(\010\"{\n\021SLVrfRegGetMsgRsp\022\013\n"
+  "etMsg\"\206\001\n\027SLRouteGlobalsGetMsgRsp\022/\n\tErr"
+  "Status\030\001 \001(\0132\034.service_layer.SLErrorStat"
+  "us\022\035\n\025MaxVrfregPerVrfregmsg\030\002 \001(\r\022\033\n\023Max"
+  "RoutePerRoutemsg\030\003 \001(\r\"\032\n\030SLRouteGlobalS"
+  "tatsGetMsg\"t\n\033SLRouteGlobalStatsGetMsgRs"
+  "p\022/\n\tErrStatus\030\001 \001(\0132\034.service_layer.SLE"
+  "rrorStatus\022\020\n\010VrfCount\030\002 \001(\r\022\022\n\nRouteCou"
+  "nt\030\003 \001(\r\"S\n\010SLVrfReg\022\017\n\007VrfName\030\001 \001(\t\022\025\n"
+  "\rAdminDistance\030\002 \001(\r\022\037\n\027VrfPurgeInterval"
+  "Seconds\030\003 \001(\r\"`\n\013SLVrfRegMsg\022$\n\004Oper\030\001 \001"
+  "(\0162\026.service_layer.SLRegOp\022+\n\nVrfRegMsgs"
+  "\030\002 \003(\0132\027.service_layer.SLVrfReg\"R\n\016SLVrf"
+  "RegMsgRes\022/\n\tErrStatus\030\001 \001(\0132\034.service_l"
+  "ayer.SLErrorStatus\022\017\n\007VrfName\030\002 \001(\t\"u\n\016S"
+  "LVrfRegMsgRsp\0223\n\rStatusSummary\030\001 \001(\0132\034.s"
+  "ervice_layer.SLErrorStatus\022.\n\007Results\030\002 "
+  "\003(\0132\035.service_layer.SLVrfRegMsgRes\"H\n\016SL"
+  "VrfRegGetMsg\022\017\n\007VrfName\030\001 \001(\t\022\024\n\014Entries"
+  "Count\030\002 \001(\r\022\017\n\007GetNext\030\003 \001(\010\"{\n\021SLVrfReg"
+  "GetMsgRsp\022\013\n\003Eof\030\001 \001(\010\022/\n\tErrStatus\030\002 \001("
+  "\0132\034.service_layer.SLErrorStatus\022(\n\007Entri"
+  "es\030\003 \003(\0132\027.service_layer.SLVrfReg\":\n\023SLV"
+  "RFGetStatsMsgRes\022\017\n\007VrfName\030\001 \001(\t\022\022\n\nRou"
+  "teCount\030\002 \001(\r\"\210\001\n\023SLVRFGetStatsMsgRsp\022\013\n"
   "\003Eof\030\001 \001(\010\022/\n\tErrStatus\030\002 \001(\0132\034.service_"
-  "layer.SLErrorStatus\022(\n\007Entries\030\003 \003(\0132\027.s"
-  "ervice_layer.SLVrfReg\":\n\023SLVRFGetStatsMs"
-  "gRes\022\017\n\007VrfName\030\001 \001(\t\022\022\n\nRouteCount\030\002 \001("
-  "\r\"\210\001\n\023SLVRFGetStatsMsgRsp\022\013\n\003Eof\030\001 \001(\010\022/"
-  "\n\tErrStatus\030\002 \001(\0132\034.service_layer.SLErro"
-  "rStatus\0223\n\007Entries\030\003 \003(\0132\".service_layer"
-  ".SLVRFGetStatsMsgRes\"\210\001\n\022SLRouteGetNotif"
-  "Msg\022&\n\004Oper\030\001 \001(\0162\030.service_layer.SLNoti"
-  "fOp\022\022\n\nCorrelator\030\002 \001(\004\022\017\n\007VrfName\030\003 \001(\t"
-  "\022\020\n\010SrcProto\030\004 \001(\t\022\023\n\013SrcProtoTag\030\005 \001(\t\""
-  "l\n\022SLRouteNotifStatus\022\022\n\nCorrelator\030\001 \001("
-  "\004\022\017\n\007VrfName\030\002 \001(\t\0221\n\013NotifStatus\030\003 \001(\0132"
-  "\034.service_layer.SLErrorStatus\"%\n\022SLRoute"
-  "NotifMarker\022\017\n\007VrfName\030\001 \001(\t\"H\n\nSLVrfNot"
-  "if\022\017\n\007VrfName\030\001 \001(\t\022)\n\006Status\030\002 \001(\0162\031.se"
-  "rvice_layer.SLObjectOp\"J\n\017SLRouteGetMatc"
-  "h\022\030\n\016PathGroupRegex\030\001 \001(\tH\000\022\024\n\nVxlanVniI"
-  "d\030\002 \001(\rH\000B\007\n\005entry\"}\n\rSLRouteCommon\022\025\n\rA"
-  "dminDistance\030\001 \001(\r\022\022\n\nLocalLabel\030\002 \001(\r\022\013"
-  "\n\003Tag\030\003 \001(\r\022\020\n\010SrcProto\030\004 \001(\t\022\023\n\013SrcProt"
-  "oTag\030\005 \001(\t\022\r\n\005Flags\030\006 \001(\r\"\261\001\n\013SLVxLANPat"
-  "h\022\013\n\003VNI\030\001 \001(\r\022\030\n\020SourceMacAddress\030\002 \001(\014"
-  "\022\026\n\016DestMacAddress\030\003 \001(\014\0220\n\014SrcIpAddress"
-  "\030\004 \001(\0132\032.service_layer.SLIpAddress\0221\n\rDe"
-  "stIpAddress\030\005 \001(\0132\032.service_layer.SLIpAd"
-  "dress\"\253\003\n\013SLRoutePath\0222\n\016NexthopAddress\030"
-  "\001 \001(\0132\032.service_layer.SLIpAddress\0224\n\020Nex"
-  "thopInterface\030\002 \001(\0132\032.service_layer.SLIn"
-  "terface\022\022\n\nLoadMetric\030\003 \001(\r\022\017\n\007VrfName\030\004"
-  " \001(\t\022\016\n\006Metric\030\005 \001(\r\022\016\n\006PathId\030\006 \001(\r\022\033\n\023"
-  "ProtectedPathBitmap\030\007 \003(\004\022\022\n\nLabelStack\030"
-  "\010 \003(\r\0221\n\rRemoteAddress\030\t \003(\0132\032.service_l"
-  "ayer.SLIpAddress\022-\n\tEncapType\030\n \001(\0162\032.se"
-  "rvice_layer.SLEncapType\022\034\n\024VtepRouterMac"
-  "Address\030\013 \001(\014\022-\n\tVxLANPath\030\014 \001(\0132\032.servi"
-  "ce_layer.SLVxLANPath\022\r\n\005Flags\030\r \001(\r*\312\001\n\013"
-  "SLNotifType\022\032\n\026SL_EVENT_TYPE_RESERVED\020\000\022"
-  "\027\n\023SL_EVENT_TYPE_ERROR\020\001\022\030\n\024SL_EVENT_TYP"
-  "E_STATUS\020\002\022\027\n\023SL_EVENT_TYPE_ROUTE\020\003\022\036\n\032S"
-  "L_EVENT_TYPE_START_MARKER\020\004\022\034\n\030SL_EVENT_"
-  "TYPE_END_MARKER\020\005\022\025\n\021SL_EVENT_TYPE_VRF\020\006"
-  "*\302\001\n\014SLRouteFlags\022\032\n\026SL_ROUTE_FLAG_RESER"
-  "VED\020\000\022!\n\035SL_ROUTE_FLAG_PREFER_OVER_LDP\020\001"
-  "\022%\n!SL_ROUTE_FLAG_DISABLE_LABEL_MERGE\020\002\022"
-  "#\n\037SL_ROUTE_FLAG_VIABLE_PATHS_ONLY\020\004\022\'\n#"
-  "SL_ROUTE_FLAG_ACTIVE_ON_VIABLE_PATH\020\010*J\n"
-  "\013SLPathFlags\022\031\n\025SL_PATH_FLAG_RESERVED\020\000\022"
-  " \n\034SL_PATH_FLAG_SINGLE_PATH_OPT\020\001BQZOgit"
-  "hub.com/Cisco-service-layer/service-laye"
-  "r-objmodel/grpc/protos;service_layerb\006pr"
-  "oto3"
+  "layer.SLErrorStatus\0223\n\007Entries\030\003 \003(\0132\".s"
+  "ervice_layer.SLVRFGetStatsMsgRes\"\210\001\n\022SLR"
+  "outeGetNotifMsg\022&\n\004Oper\030\001 \001(\0162\030.service_"
+  "layer.SLNotifOp\022\022\n\nCorrelator\030\002 \001(\004\022\017\n\007V"
+  "rfName\030\003 \001(\t\022\020\n\010SrcProto\030\004 \001(\t\022\023\n\013SrcPro"
+  "toTag\030\005 \001(\t\"l\n\022SLRouteNotifStatus\022\022\n\nCor"
+  "relator\030\001 \001(\004\022\017\n\007VrfName\030\002 \001(\t\0221\n\013NotifS"
+  "tatus\030\003 \001(\0132\034.service_layer.SLErrorStatu"
+  "s\"%\n\022SLRouteNotifMarker\022\017\n\007VrfName\030\001 \001(\t"
+  "\"H\n\nSLVrfNotif\022\017\n\007VrfName\030\001 \001(\t\022)\n\006Statu"
+  "s\030\002 \001(\0162\031.service_layer.SLObjectOp\"J\n\017SL"
+  "RouteGetMatch\022\030\n\016PathGroupRegex\030\001 \001(\tH\000\022"
+  "\024\n\nVxlanVniId\030\002 \001(\rH\000B\007\n\005entry\"}\n\rSLRout"
+  "eCommon\022\025\n\rAdminDistance\030\001 \001(\r\022\022\n\nLocalL"
+  "abel\030\002 \001(\r\022\013\n\003Tag\030\003 \001(\r\022\020\n\010SrcProto\030\004 \001("
+  "\t\022\023\n\013SrcProtoTag\030\005 \001(\t\022\r\n\005Flags\030\006 \001(\r\"\261\001"
+  "\n\013SLVxLANPath\022\013\n\003VNI\030\001 \001(\r\022\030\n\020SourceMacA"
+  "ddress\030\002 \001(\014\022\026\n\016DestMacAddress\030\003 \001(\014\0220\n\014"
+  "SrcIpAddress\030\004 \001(\0132\032.service_layer.SLIpA"
+  "ddress\0221\n\rDestIpAddress\030\005 \001(\0132\032.service_"
+  "layer.SLIpAddress\"\253\003\n\013SLRoutePath\0222\n\016Nex"
+  "thopAddress\030\001 \001(\0132\032.service_layer.SLIpAd"
+  "dress\0224\n\020NexthopInterface\030\002 \001(\0132\032.servic"
+  "e_layer.SLInterface\022\022\n\nLoadMetric\030\003 \001(\r\022"
+  "\017\n\007VrfName\030\004 \001(\t\022\016\n\006Metric\030\005 \001(\r\022\016\n\006Path"
+  "Id\030\006 \001(\r\022\033\n\023ProtectedPathBitmap\030\007 \003(\004\022\022\n"
+  "\nLabelStack\030\010 \003(\r\0221\n\rRemoteAddress\030\t \003(\013"
+  "2\032.service_layer.SLIpAddress\022-\n\tEncapTyp"
+  "e\030\n \001(\0162\032.service_layer.SLEncapType\022\034\n\024V"
+  "tepRouterMacAddress\030\013 \001(\014\022-\n\tVxLANPath\030\014"
+  " \001(\0132\032.service_layer.SLVxLANPath\022\r\n\005Flag"
+  "s\030\r \001(\r*\312\001\n\013SLNotifType\022\032\n\026SL_EVENT_TYPE"
+  "_RESERVED\020\000\022\027\n\023SL_EVENT_TYPE_ERROR\020\001\022\030\n\024"
+  "SL_EVENT_TYPE_STATUS\020\002\022\027\n\023SL_EVENT_TYPE_"
+  "ROUTE\020\003\022\036\n\032SL_EVENT_TYPE_START_MARKER\020\004\022"
+  "\034\n\030SL_EVENT_TYPE_END_MARKER\020\005\022\025\n\021SL_EVEN"
+  "T_TYPE_VRF\020\006*\302\001\n\014SLRouteFlags\022\032\n\026SL_ROUT"
+  "E_FLAG_RESERVED\020\000\022!\n\035SL_ROUTE_FLAG_PREFE"
+  "R_OVER_LDP\020\001\022%\n!SL_ROUTE_FLAG_DISABLE_LA"
+  "BEL_MERGE\020\002\022#\n\037SL_ROUTE_FLAG_VIABLE_PATH"
+  "S_ONLY\020\004\022\'\n#SL_ROUTE_FLAG_ACTIVE_ON_VIAB"
+  "LE_PATH\020\010*J\n\013SLPathFlags\022\031\n\025SL_PATH_FLAG"
+  "_RESERVED\020\000\022 \n\034SL_PATH_FLAG_SINGLE_PATH_"
+  "OPT\020\001BQZOgithub.com/Cisco-service-layer/"
+  "service-layer-objmodel/grpc/protos;servi"
+  "ce_layerb\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_sl_5froute_5fcommon_2eproto_deps[1] = {
   &::descriptor_table_sl_5fcommon_5ftypes_2eproto,
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_sl_5froute_5fcommon_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_sl_5froute_5fcommon_2eproto = {
-  false, false, 2884, descriptor_table_protodef_sl_5froute_5fcommon_2eproto, "sl_route_common.proto", 
+  false, false, 2896, descriptor_table_protodef_sl_5froute_5fcommon_2eproto, "sl_route_common.proto", 
   &descriptor_table_sl_5froute_5fcommon_2eproto_once, descriptor_table_sl_5froute_5fcommon_2eproto_deps, 1, 20,
   schemas, file_default_instances, TableStruct_sl_5froute_5fcommon_2eproto::offsets,
   file_level_metadata_sl_5froute_5fcommon_2eproto, file_level_enum_descriptors_sl_5froute_5fcommon_2eproto, file_level_service_descriptors_sl_5froute_5fcommon_2eproto,
@@ -758,17 +758,17 @@ SLRouteGlobalsGetMsgRsp::SLRouteGlobalsGetMsgRsp(const SLRouteGlobalsGetMsgRsp& 
   } else {
     errstatus_ = nullptr;
   }
-  ::memcpy(&maxvrfregpermsg_, &from.maxvrfregpermsg_,
-    static_cast<size_t>(reinterpret_cast<char*>(&maxafopspermsg_) -
-    reinterpret_cast<char*>(&maxvrfregpermsg_)) + sizeof(maxafopspermsg_));
+  ::memcpy(&maxvrfregpervrfregmsg_, &from.maxvrfregpervrfregmsg_,
+    static_cast<size_t>(reinterpret_cast<char*>(&maxrouteperroutemsg_) -
+    reinterpret_cast<char*>(&maxvrfregpervrfregmsg_)) + sizeof(maxrouteperroutemsg_));
   // @@protoc_insertion_point(copy_constructor:service_layer.SLRouteGlobalsGetMsgRsp)
 }
 
 inline void SLRouteGlobalsGetMsgRsp::SharedCtor() {
 ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
     reinterpret_cast<char*>(&errstatus_) - reinterpret_cast<char*>(this)),
-    0, static_cast<size_t>(reinterpret_cast<char*>(&maxafopspermsg_) -
-    reinterpret_cast<char*>(&errstatus_)) + sizeof(maxafopspermsg_));
+    0, static_cast<size_t>(reinterpret_cast<char*>(&maxrouteperroutemsg_) -
+    reinterpret_cast<char*>(&errstatus_)) + sizeof(maxrouteperroutemsg_));
 }
 
 SLRouteGlobalsGetMsgRsp::~SLRouteGlobalsGetMsgRsp() {
@@ -803,9 +803,9 @@ void SLRouteGlobalsGetMsgRsp::Clear() {
     delete errstatus_;
   }
   errstatus_ = nullptr;
-  ::memset(&maxvrfregpermsg_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&maxafopspermsg_) -
-      reinterpret_cast<char*>(&maxvrfregpermsg_)) + sizeof(maxafopspermsg_));
+  ::memset(&maxvrfregpervrfregmsg_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&maxrouteperroutemsg_) -
+      reinterpret_cast<char*>(&maxvrfregpervrfregmsg_)) + sizeof(maxrouteperroutemsg_));
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -823,18 +823,18 @@ const char* SLRouteGlobalsGetMsgRsp::_InternalParse(const char* ptr, ::PROTOBUF_
         } else
           goto handle_unusual;
         continue;
-      // uint32 MaxVrfRegPerMsg = 2;
+      // uint32 MaxVrfregPerVrfregmsg = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
-          maxvrfregpermsg_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          maxvrfregpervrfregmsg_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
         continue;
-      // uint32 MaxAFOpsPerMsg = 3;
+      // uint32 MaxRoutePerRoutemsg = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
-          maxafopspermsg_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          maxrouteperroutemsg_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -876,16 +876,16 @@ uint8_t* SLRouteGlobalsGetMsgRsp::_InternalSerialize(
         1, _Internal::errstatus(this), target, stream);
   }
 
-  // uint32 MaxVrfRegPerMsg = 2;
-  if (this->_internal_maxvrfregpermsg() != 0) {
+  // uint32 MaxVrfregPerVrfregmsg = 2;
+  if (this->_internal_maxvrfregpervrfregmsg() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_maxvrfregpermsg(), target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_maxvrfregpervrfregmsg(), target);
   }
 
-  // uint32 MaxAFOpsPerMsg = 3;
-  if (this->_internal_maxafopspermsg() != 0) {
+  // uint32 MaxRoutePerRoutemsg = 3;
+  if (this->_internal_maxrouteperroutemsg() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(3, this->_internal_maxafopspermsg(), target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(3, this->_internal_maxrouteperroutemsg(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -911,14 +911,14 @@ size_t SLRouteGlobalsGetMsgRsp::ByteSizeLong() const {
         *errstatus_);
   }
 
-  // uint32 MaxVrfRegPerMsg = 2;
-  if (this->_internal_maxvrfregpermsg() != 0) {
-    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_maxvrfregpermsg());
+  // uint32 MaxVrfregPerVrfregmsg = 2;
+  if (this->_internal_maxvrfregpervrfregmsg() != 0) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_maxvrfregpervrfregmsg());
   }
 
-  // uint32 MaxAFOpsPerMsg = 3;
-  if (this->_internal_maxafopspermsg() != 0) {
-    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_maxafopspermsg());
+  // uint32 MaxRoutePerRoutemsg = 3;
+  if (this->_internal_maxrouteperroutemsg() != 0) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_maxrouteperroutemsg());
   }
 
   return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
@@ -946,11 +946,11 @@ void SLRouteGlobalsGetMsgRsp::MergeFrom(const SLRouteGlobalsGetMsgRsp& from) {
   if (from._internal_has_errstatus()) {
     _internal_mutable_errstatus()->::service_layer::SLErrorStatus::MergeFrom(from._internal_errstatus());
   }
-  if (from._internal_maxvrfregpermsg() != 0) {
-    _internal_set_maxvrfregpermsg(from._internal_maxvrfregpermsg());
+  if (from._internal_maxvrfregpervrfregmsg() != 0) {
+    _internal_set_maxvrfregpervrfregmsg(from._internal_maxvrfregpervrfregmsg());
   }
-  if (from._internal_maxafopspermsg() != 0) {
-    _internal_set_maxafopspermsg(from._internal_maxafopspermsg());
+  if (from._internal_maxrouteperroutemsg() != 0) {
+    _internal_set_maxrouteperroutemsg(from._internal_maxrouteperroutemsg());
   }
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
@@ -970,8 +970,8 @@ void SLRouteGlobalsGetMsgRsp::InternalSwap(SLRouteGlobalsGetMsgRsp* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(SLRouteGlobalsGetMsgRsp, maxafopspermsg_)
-      + sizeof(SLRouteGlobalsGetMsgRsp::maxafopspermsg_)
+      PROTOBUF_FIELD_OFFSET(SLRouteGlobalsGetMsgRsp, maxrouteperroutemsg_)
+      + sizeof(SLRouteGlobalsGetMsgRsp::maxrouteperroutemsg_)
       - PROTOBUF_FIELD_OFFSET(SLRouteGlobalsGetMsgRsp, errstatus_)>(
           reinterpret_cast<char*>(&errstatus_),
           reinterpret_cast<char*>(&other->errstatus_));

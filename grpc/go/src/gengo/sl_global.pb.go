@@ -496,9 +496,10 @@ type SLGlobalsGetMsgRsp struct {
 	MaxLabelBlockClientNameLength uint32 `protobuf:"varint,15,opt,name=MaxLabelBlockClientNameLength,proto3" json:"MaxLabelBlockClientNameLength,omitempty"`
 	// Maximum paths returned by the network element for a next hop notification.
 	MaxPathsInNexthopNotif uint32 `protobuf:"varint,16,opt,name=MaxPathsInNexthopNotif,proto3" json:"MaxPathsInNexthopNotif,omitempty"`
-	// Max VrfReg objects within a single VrfRegMsg message.
+	// Max VrfReg objects within a single VrfRegMsg or
+	// (the batch type used in AF Vrf reg).
 	MaxVrfRegPerMsg uint32 `protobuf:"varint,17,opt,name=MaxVrfRegPerMsg,proto3" json:"MaxVrfRegPerMsg,omitempty"`
-	// Max Route objects within a single RouteMsg message.
+	// Max Route objects within a single RouteMsg or (the batch type of AFOp).
 	MaxAFOpsPerMsg uint32 `protobuf:"varint,18,opt,name=MaxAFOpsPerMsg,proto3" json:"MaxAFOpsPerMsg,omitempty"`
 	// Max Notif Requests in SLAFNotifReq.
 	MaxNotifReqPerSLAFNotifReq uint32 `protobuf:"varint,19,opt,name=MaxNotifReqPerSLAFNotifReq,proto3" json:"MaxNotifReqPerSLAFNotifReq,omitempty"`

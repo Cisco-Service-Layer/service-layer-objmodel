@@ -25,75 +25,75 @@ namespace ServiceLayer {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "ChVzbF9yb3V0ZV9jb21tb24ucHJvdG8SDXNlcnZpY2VfbGF5ZXIaFXNsX2Nv",
-            "bW1vbl90eXBlcy5wcm90byIWChRTTFJvdXRlR2xvYmFsc0dldE1zZyJ7ChdT",
-            "TFJvdXRlR2xvYmFsc0dldE1zZ1JzcBIvCglFcnJTdGF0dXMYASABKAsyHC5z",
-            "ZXJ2aWNlX2xheWVyLlNMRXJyb3JTdGF0dXMSFwoPTWF4VnJmUmVnUGVyTXNn",
-            "GAIgASgNEhYKDk1heEFGT3BzUGVyTXNnGAMgASgNIhoKGFNMUm91dGVHbG9i",
-            "YWxTdGF0c0dldE1zZyJ0ChtTTFJvdXRlR2xvYmFsU3RhdHNHZXRNc2dSc3AS",
-            "LwoJRXJyU3RhdHVzGAEgASgLMhwuc2VydmljZV9sYXllci5TTEVycm9yU3Rh",
-            "dHVzEhAKCFZyZkNvdW50GAIgASgNEhIKClJvdXRlQ291bnQYAyABKA0iUwoI",
-            "U0xWcmZSZWcSDwoHVnJmTmFtZRgBIAEoCRIVCg1BZG1pbkRpc3RhbmNlGAIg",
-            "ASgNEh8KF1ZyZlB1cmdlSW50ZXJ2YWxTZWNvbmRzGAMgASgNImAKC1NMVnJm",
-            "UmVnTXNnEiQKBE9wZXIYASABKA4yFi5zZXJ2aWNlX2xheWVyLlNMUmVnT3AS",
-            "KwoKVnJmUmVnTXNncxgCIAMoCzIXLnNlcnZpY2VfbGF5ZXIuU0xWcmZSZWci",
-            "UgoOU0xWcmZSZWdNc2dSZXMSLwoJRXJyU3RhdHVzGAEgASgLMhwuc2Vydmlj",
-            "ZV9sYXllci5TTEVycm9yU3RhdHVzEg8KB1ZyZk5hbWUYAiABKAkidQoOU0xW",
-            "cmZSZWdNc2dSc3ASMwoNU3RhdHVzU3VtbWFyeRgBIAEoCzIcLnNlcnZpY2Vf",
-            "bGF5ZXIuU0xFcnJvclN0YXR1cxIuCgdSZXN1bHRzGAIgAygLMh0uc2Vydmlj",
-            "ZV9sYXllci5TTFZyZlJlZ01zZ1JlcyJICg5TTFZyZlJlZ0dldE1zZxIPCgdW",
-            "cmZOYW1lGAEgASgJEhQKDEVudHJpZXNDb3VudBgCIAEoDRIPCgdHZXROZXh0",
-            "GAMgASgIInsKEVNMVnJmUmVnR2V0TXNnUnNwEgsKA0VvZhgBIAEoCBIvCglF",
-            "cnJTdGF0dXMYAiABKAsyHC5zZXJ2aWNlX2xheWVyLlNMRXJyb3JTdGF0dXMS",
-            "KAoHRW50cmllcxgDIAMoCzIXLnNlcnZpY2VfbGF5ZXIuU0xWcmZSZWciOgoT",
-            "U0xWUkZHZXRTdGF0c01zZ1JlcxIPCgdWcmZOYW1lGAEgASgJEhIKClJvdXRl",
-            "Q291bnQYAiABKA0iiAEKE1NMVlJGR2V0U3RhdHNNc2dSc3ASCwoDRW9mGAEg",
-            "ASgIEi8KCUVyclN0YXR1cxgCIAEoCzIcLnNlcnZpY2VfbGF5ZXIuU0xFcnJv",
-            "clN0YXR1cxIzCgdFbnRyaWVzGAMgAygLMiIuc2VydmljZV9sYXllci5TTFZS",
-            "RkdldFN0YXRzTXNnUmVzIogBChJTTFJvdXRlR2V0Tm90aWZNc2cSJgoET3Bl",
-            "chgBIAEoDjIYLnNlcnZpY2VfbGF5ZXIuU0xOb3RpZk9wEhIKCkNvcnJlbGF0",
-            "b3IYAiABKAQSDwoHVnJmTmFtZRgDIAEoCRIQCghTcmNQcm90bxgEIAEoCRIT",
-            "CgtTcmNQcm90b1RhZxgFIAEoCSJsChJTTFJvdXRlTm90aWZTdGF0dXMSEgoK",
-            "Q29ycmVsYXRvchgBIAEoBBIPCgdWcmZOYW1lGAIgASgJEjEKC05vdGlmU3Rh",
-            "dHVzGAMgASgLMhwuc2VydmljZV9sYXllci5TTEVycm9yU3RhdHVzIiUKElNM",
-            "Um91dGVOb3RpZk1hcmtlchIPCgdWcmZOYW1lGAEgASgJIkgKClNMVnJmTm90",
-            "aWYSDwoHVnJmTmFtZRgBIAEoCRIpCgZTdGF0dXMYAiABKA4yGS5zZXJ2aWNl",
-            "X2xheWVyLlNMT2JqZWN0T3AiSgoPU0xSb3V0ZUdldE1hdGNoEhgKDlBhdGhH",
-            "cm91cFJlZ2V4GAEgASgJSAASFAoKVnhsYW5WbmlJZBgCIAEoDUgAQgcKBWVu",
-            "dHJ5In0KDVNMUm91dGVDb21tb24SFQoNQWRtaW5EaXN0YW5jZRgBIAEoDRIS",
-            "CgpMb2NhbExhYmVsGAIgASgNEgsKA1RhZxgDIAEoDRIQCghTcmNQcm90bxgE",
-            "IAEoCRITCgtTcmNQcm90b1RhZxgFIAEoCRINCgVGbGFncxgGIAEoDSKxAQoL",
-            "U0xWeExBTlBhdGgSCwoDVk5JGAEgASgNEhgKEFNvdXJjZU1hY0FkZHJlc3MY",
-            "AiABKAwSFgoORGVzdE1hY0FkZHJlc3MYAyABKAwSMAoMU3JjSXBBZGRyZXNz",
-            "GAQgASgLMhouc2VydmljZV9sYXllci5TTElwQWRkcmVzcxIxCg1EZXN0SXBB",
-            "ZGRyZXNzGAUgASgLMhouc2VydmljZV9sYXllci5TTElwQWRkcmVzcyKrAwoL",
-            "U0xSb3V0ZVBhdGgSMgoOTmV4dGhvcEFkZHJlc3MYASABKAsyGi5zZXJ2aWNl",
-            "X2xheWVyLlNMSXBBZGRyZXNzEjQKEE5leHRob3BJbnRlcmZhY2UYAiABKAsy",
-            "Gi5zZXJ2aWNlX2xheWVyLlNMSW50ZXJmYWNlEhIKCkxvYWRNZXRyaWMYAyAB",
-            "KA0SDwoHVnJmTmFtZRgEIAEoCRIOCgZNZXRyaWMYBSABKA0SDgoGUGF0aElk",
-            "GAYgASgNEhsKE1Byb3RlY3RlZFBhdGhCaXRtYXAYByADKAQSEgoKTGFiZWxT",
-            "dGFjaxgIIAMoDRIxCg1SZW1vdGVBZGRyZXNzGAkgAygLMhouc2VydmljZV9s",
-            "YXllci5TTElwQWRkcmVzcxItCglFbmNhcFR5cGUYCiABKA4yGi5zZXJ2aWNl",
-            "X2xheWVyLlNMRW5jYXBUeXBlEhwKFFZ0ZXBSb3V0ZXJNYWNBZGRyZXNzGAsg",
-            "ASgMEi0KCVZ4TEFOUGF0aBgMIAEoCzIaLnNlcnZpY2VfbGF5ZXIuU0xWeExB",
-            "TlBhdGgSDQoFRmxhZ3MYDSABKA0qygEKC1NMTm90aWZUeXBlEhoKFlNMX0VW",
-            "RU5UX1RZUEVfUkVTRVJWRUQQABIXChNTTF9FVkVOVF9UWVBFX0VSUk9SEAES",
-            "GAoUU0xfRVZFTlRfVFlQRV9TVEFUVVMQAhIXChNTTF9FVkVOVF9UWVBFX1JP",
-            "VVRFEAMSHgoaU0xfRVZFTlRfVFlQRV9TVEFSVF9NQVJLRVIQBBIcChhTTF9F",
-            "VkVOVF9UWVBFX0VORF9NQVJLRVIQBRIVChFTTF9FVkVOVF9UWVBFX1ZSRhAG",
-            "KsIBCgxTTFJvdXRlRmxhZ3MSGgoWU0xfUk9VVEVfRkxBR19SRVNFUlZFRBAA",
-            "EiEKHVNMX1JPVVRFX0ZMQUdfUFJFRkVSX09WRVJfTERQEAESJQohU0xfUk9V",
-            "VEVfRkxBR19ESVNBQkxFX0xBQkVMX01FUkdFEAISIwofU0xfUk9VVEVfRkxB",
-            "R19WSUFCTEVfUEFUSFNfT05MWRAEEicKI1NMX1JPVVRFX0ZMQUdfQUNUSVZF",
-            "X09OX1ZJQUJMRV9QQVRIEAgqSgoLU0xQYXRoRmxhZ3MSGQoVU0xfUEFUSF9G",
-            "TEFHX1JFU0VSVkVEEAASIAocU0xfUEFUSF9GTEFHX1NJTkdMRV9QQVRIX09Q",
-            "VBABQlFaT2dpdGh1Yi5jb20vQ2lzY28tc2VydmljZS1sYXllci9zZXJ2aWNl",
-            "LWxheWVyLW9iam1vZGVsL2dycGMvcHJvdG9zO3NlcnZpY2VfbGF5ZXJiBnBy",
-            "b3RvMw=="));
+            "bW1vbl90eXBlcy5wcm90byIWChRTTFJvdXRlR2xvYmFsc0dldE1zZyKGAQoX",
+            "U0xSb3V0ZUdsb2JhbHNHZXRNc2dSc3ASLwoJRXJyU3RhdHVzGAEgASgLMhwu",
+            "c2VydmljZV9sYXllci5TTEVycm9yU3RhdHVzEh0KFU1heFZyZnJlZ1BlclZy",
+            "ZnJlZ21zZxgCIAEoDRIbChNNYXhSb3V0ZVBlclJvdXRlbXNnGAMgASgNIhoK",
+            "GFNMUm91dGVHbG9iYWxTdGF0c0dldE1zZyJ0ChtTTFJvdXRlR2xvYmFsU3Rh",
+            "dHNHZXRNc2dSc3ASLwoJRXJyU3RhdHVzGAEgASgLMhwuc2VydmljZV9sYXll",
+            "ci5TTEVycm9yU3RhdHVzEhAKCFZyZkNvdW50GAIgASgNEhIKClJvdXRlQ291",
+            "bnQYAyABKA0iUwoIU0xWcmZSZWcSDwoHVnJmTmFtZRgBIAEoCRIVCg1BZG1p",
+            "bkRpc3RhbmNlGAIgASgNEh8KF1ZyZlB1cmdlSW50ZXJ2YWxTZWNvbmRzGAMg",
+            "ASgNImAKC1NMVnJmUmVnTXNnEiQKBE9wZXIYASABKA4yFi5zZXJ2aWNlX2xh",
+            "eWVyLlNMUmVnT3ASKwoKVnJmUmVnTXNncxgCIAMoCzIXLnNlcnZpY2VfbGF5",
+            "ZXIuU0xWcmZSZWciUgoOU0xWcmZSZWdNc2dSZXMSLwoJRXJyU3RhdHVzGAEg",
+            "ASgLMhwuc2VydmljZV9sYXllci5TTEVycm9yU3RhdHVzEg8KB1ZyZk5hbWUY",
+            "AiABKAkidQoOU0xWcmZSZWdNc2dSc3ASMwoNU3RhdHVzU3VtbWFyeRgBIAEo",
+            "CzIcLnNlcnZpY2VfbGF5ZXIuU0xFcnJvclN0YXR1cxIuCgdSZXN1bHRzGAIg",
+            "AygLMh0uc2VydmljZV9sYXllci5TTFZyZlJlZ01zZ1JlcyJICg5TTFZyZlJl",
+            "Z0dldE1zZxIPCgdWcmZOYW1lGAEgASgJEhQKDEVudHJpZXNDb3VudBgCIAEo",
+            "DRIPCgdHZXROZXh0GAMgASgIInsKEVNMVnJmUmVnR2V0TXNnUnNwEgsKA0Vv",
+            "ZhgBIAEoCBIvCglFcnJTdGF0dXMYAiABKAsyHC5zZXJ2aWNlX2xheWVyLlNM",
+            "RXJyb3JTdGF0dXMSKAoHRW50cmllcxgDIAMoCzIXLnNlcnZpY2VfbGF5ZXIu",
+            "U0xWcmZSZWciOgoTU0xWUkZHZXRTdGF0c01zZ1JlcxIPCgdWcmZOYW1lGAEg",
+            "ASgJEhIKClJvdXRlQ291bnQYAiABKA0iiAEKE1NMVlJGR2V0U3RhdHNNc2dS",
+            "c3ASCwoDRW9mGAEgASgIEi8KCUVyclN0YXR1cxgCIAEoCzIcLnNlcnZpY2Vf",
+            "bGF5ZXIuU0xFcnJvclN0YXR1cxIzCgdFbnRyaWVzGAMgAygLMiIuc2Vydmlj",
+            "ZV9sYXllci5TTFZSRkdldFN0YXRzTXNnUmVzIogBChJTTFJvdXRlR2V0Tm90",
+            "aWZNc2cSJgoET3BlchgBIAEoDjIYLnNlcnZpY2VfbGF5ZXIuU0xOb3RpZk9w",
+            "EhIKCkNvcnJlbGF0b3IYAiABKAQSDwoHVnJmTmFtZRgDIAEoCRIQCghTcmNQ",
+            "cm90bxgEIAEoCRITCgtTcmNQcm90b1RhZxgFIAEoCSJsChJTTFJvdXRlTm90",
+            "aWZTdGF0dXMSEgoKQ29ycmVsYXRvchgBIAEoBBIPCgdWcmZOYW1lGAIgASgJ",
+            "EjEKC05vdGlmU3RhdHVzGAMgASgLMhwuc2VydmljZV9sYXllci5TTEVycm9y",
+            "U3RhdHVzIiUKElNMUm91dGVOb3RpZk1hcmtlchIPCgdWcmZOYW1lGAEgASgJ",
+            "IkgKClNMVnJmTm90aWYSDwoHVnJmTmFtZRgBIAEoCRIpCgZTdGF0dXMYAiAB",
+            "KA4yGS5zZXJ2aWNlX2xheWVyLlNMT2JqZWN0T3AiSgoPU0xSb3V0ZUdldE1h",
+            "dGNoEhgKDlBhdGhHcm91cFJlZ2V4GAEgASgJSAASFAoKVnhsYW5WbmlJZBgC",
+            "IAEoDUgAQgcKBWVudHJ5In0KDVNMUm91dGVDb21tb24SFQoNQWRtaW5EaXN0",
+            "YW5jZRgBIAEoDRISCgpMb2NhbExhYmVsGAIgASgNEgsKA1RhZxgDIAEoDRIQ",
+            "CghTcmNQcm90bxgEIAEoCRITCgtTcmNQcm90b1RhZxgFIAEoCRINCgVGbGFn",
+            "cxgGIAEoDSKxAQoLU0xWeExBTlBhdGgSCwoDVk5JGAEgASgNEhgKEFNvdXJj",
+            "ZU1hY0FkZHJlc3MYAiABKAwSFgoORGVzdE1hY0FkZHJlc3MYAyABKAwSMAoM",
+            "U3JjSXBBZGRyZXNzGAQgASgLMhouc2VydmljZV9sYXllci5TTElwQWRkcmVz",
+            "cxIxCg1EZXN0SXBBZGRyZXNzGAUgASgLMhouc2VydmljZV9sYXllci5TTElw",
+            "QWRkcmVzcyKrAwoLU0xSb3V0ZVBhdGgSMgoOTmV4dGhvcEFkZHJlc3MYASAB",
+            "KAsyGi5zZXJ2aWNlX2xheWVyLlNMSXBBZGRyZXNzEjQKEE5leHRob3BJbnRl",
+            "cmZhY2UYAiABKAsyGi5zZXJ2aWNlX2xheWVyLlNMSW50ZXJmYWNlEhIKCkxv",
+            "YWRNZXRyaWMYAyABKA0SDwoHVnJmTmFtZRgEIAEoCRIOCgZNZXRyaWMYBSAB",
+            "KA0SDgoGUGF0aElkGAYgASgNEhsKE1Byb3RlY3RlZFBhdGhCaXRtYXAYByAD",
+            "KAQSEgoKTGFiZWxTdGFjaxgIIAMoDRIxCg1SZW1vdGVBZGRyZXNzGAkgAygL",
+            "Mhouc2VydmljZV9sYXllci5TTElwQWRkcmVzcxItCglFbmNhcFR5cGUYCiAB",
+            "KA4yGi5zZXJ2aWNlX2xheWVyLlNMRW5jYXBUeXBlEhwKFFZ0ZXBSb3V0ZXJN",
+            "YWNBZGRyZXNzGAsgASgMEi0KCVZ4TEFOUGF0aBgMIAEoCzIaLnNlcnZpY2Vf",
+            "bGF5ZXIuU0xWeExBTlBhdGgSDQoFRmxhZ3MYDSABKA0qygEKC1NMTm90aWZU",
+            "eXBlEhoKFlNMX0VWRU5UX1RZUEVfUkVTRVJWRUQQABIXChNTTF9FVkVOVF9U",
+            "WVBFX0VSUk9SEAESGAoUU0xfRVZFTlRfVFlQRV9TVEFUVVMQAhIXChNTTF9F",
+            "VkVOVF9UWVBFX1JPVVRFEAMSHgoaU0xfRVZFTlRfVFlQRV9TVEFSVF9NQVJL",
+            "RVIQBBIcChhTTF9FVkVOVF9UWVBFX0VORF9NQVJLRVIQBRIVChFTTF9FVkVO",
+            "VF9UWVBFX1ZSRhAGKsIBCgxTTFJvdXRlRmxhZ3MSGgoWU0xfUk9VVEVfRkxB",
+            "R19SRVNFUlZFRBAAEiEKHVNMX1JPVVRFX0ZMQUdfUFJFRkVSX09WRVJfTERQ",
+            "EAESJQohU0xfUk9VVEVfRkxBR19ESVNBQkxFX0xBQkVMX01FUkdFEAISIwof",
+            "U0xfUk9VVEVfRkxBR19WSUFCTEVfUEFUSFNfT05MWRAEEicKI1NMX1JPVVRF",
+            "X0ZMQUdfQUNUSVZFX09OX1ZJQUJMRV9QQVRIEAgqSgoLU0xQYXRoRmxhZ3MS",
+            "GQoVU0xfUEFUSF9GTEFHX1JFU0VSVkVEEAASIAocU0xfUEFUSF9GTEFHX1NJ",
+            "TkdMRV9QQVRIX09QVBABQlFaT2dpdGh1Yi5jb20vQ2lzY28tc2VydmljZS1s",
+            "YXllci9zZXJ2aWNlLWxheWVyLW9iam1vZGVsL2dycGMvcHJvdG9zO3NlcnZp",
+            "Y2VfbGF5ZXJiBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::ServiceLayer.SlCommonTypesReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::ServiceLayer.SLNotifType), typeof(global::ServiceLayer.SLRouteFlags), typeof(global::ServiceLayer.SLPathFlags), }, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLRouteGlobalsGetMsg), global::ServiceLayer.SLRouteGlobalsGetMsg.Parser, null, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLRouteGlobalsGetMsgRsp), global::ServiceLayer.SLRouteGlobalsGetMsgRsp.Parser, new[]{ "ErrStatus", "MaxVrfRegPerMsg", "MaxAFOpsPerMsg" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLRouteGlobalsGetMsgRsp), global::ServiceLayer.SLRouteGlobalsGetMsgRsp.Parser, new[]{ "ErrStatus", "MaxVrfregPerVrfregmsg", "MaxRoutePerRoutemsg" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLRouteGlobalStatsGetMsg), global::ServiceLayer.SLRouteGlobalStatsGetMsg.Parser, null, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLRouteGlobalStatsGetMsgRsp), global::ServiceLayer.SLRouteGlobalStatsGetMsgRsp.Parser, new[]{ "ErrStatus", "VrfCount", "RouteCount" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLVrfReg), global::ServiceLayer.SLVrfReg.Parser, new[]{ "VrfName", "AdminDistance", "VrfPurgeIntervalSeconds" }, null, null, null, null),
@@ -401,8 +401,8 @@ namespace ServiceLayer {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public SLRouteGlobalsGetMsgRsp(SLRouteGlobalsGetMsgRsp other) : this() {
       errStatus_ = other.errStatus_ != null ? other.errStatus_.Clone() : null;
-      maxVrfRegPerMsg_ = other.maxVrfRegPerMsg_;
-      maxAFOpsPerMsg_ = other.maxAFOpsPerMsg_;
+      maxVrfregPerVrfregmsg_ = other.maxVrfregPerVrfregmsg_;
+      maxRoutePerRoutemsg_ = other.maxRoutePerRoutemsg_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -427,33 +427,33 @@ namespace ServiceLayer {
       }
     }
 
-    /// <summary>Field number for the "MaxVrfRegPerMsg" field.</summary>
-    public const int MaxVrfRegPerMsgFieldNumber = 2;
-    private uint maxVrfRegPerMsg_;
+    /// <summary>Field number for the "MaxVrfregPerVrfregmsg" field.</summary>
+    public const int MaxVrfregPerVrfregmsgFieldNumber = 2;
+    private uint maxVrfregPerVrfregmsg_;
     /// <summary>
     /// Max VrfReg objects within a single VrfRegMsg message.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public uint MaxVrfRegPerMsg {
-      get { return maxVrfRegPerMsg_; }
+    public uint MaxVrfregPerVrfregmsg {
+      get { return maxVrfregPerVrfregmsg_; }
       set {
-        maxVrfRegPerMsg_ = value;
+        maxVrfregPerVrfregmsg_ = value;
       }
     }
 
-    /// <summary>Field number for the "MaxAFOpsPerMsg" field.</summary>
-    public const int MaxAFOpsPerMsgFieldNumber = 3;
-    private uint maxAFOpsPerMsg_;
+    /// <summary>Field number for the "MaxRoutePerRoutemsg" field.</summary>
+    public const int MaxRoutePerRoutemsgFieldNumber = 3;
+    private uint maxRoutePerRoutemsg_;
     /// <summary>
     /// Max Route objects within a single RouteMsg message.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public uint MaxAFOpsPerMsg {
-      get { return maxAFOpsPerMsg_; }
+    public uint MaxRoutePerRoutemsg {
+      get { return maxRoutePerRoutemsg_; }
       set {
-        maxAFOpsPerMsg_ = value;
+        maxRoutePerRoutemsg_ = value;
       }
     }
 
@@ -473,8 +473,8 @@ namespace ServiceLayer {
         return true;
       }
       if (!object.Equals(ErrStatus, other.ErrStatus)) return false;
-      if (MaxVrfRegPerMsg != other.MaxVrfRegPerMsg) return false;
-      if (MaxAFOpsPerMsg != other.MaxAFOpsPerMsg) return false;
+      if (MaxVrfregPerVrfregmsg != other.MaxVrfregPerVrfregmsg) return false;
+      if (MaxRoutePerRoutemsg != other.MaxRoutePerRoutemsg) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -483,8 +483,8 @@ namespace ServiceLayer {
     public override int GetHashCode() {
       int hash = 1;
       if (errStatus_ != null) hash ^= ErrStatus.GetHashCode();
-      if (MaxVrfRegPerMsg != 0) hash ^= MaxVrfRegPerMsg.GetHashCode();
-      if (MaxAFOpsPerMsg != 0) hash ^= MaxAFOpsPerMsg.GetHashCode();
+      if (MaxVrfregPerVrfregmsg != 0) hash ^= MaxVrfregPerVrfregmsg.GetHashCode();
+      if (MaxRoutePerRoutemsg != 0) hash ^= MaxRoutePerRoutemsg.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -507,13 +507,13 @@ namespace ServiceLayer {
         output.WriteRawTag(10);
         output.WriteMessage(ErrStatus);
       }
-      if (MaxVrfRegPerMsg != 0) {
+      if (MaxVrfregPerVrfregmsg != 0) {
         output.WriteRawTag(16);
-        output.WriteUInt32(MaxVrfRegPerMsg);
+        output.WriteUInt32(MaxVrfregPerVrfregmsg);
       }
-      if (MaxAFOpsPerMsg != 0) {
+      if (MaxRoutePerRoutemsg != 0) {
         output.WriteRawTag(24);
-        output.WriteUInt32(MaxAFOpsPerMsg);
+        output.WriteUInt32(MaxRoutePerRoutemsg);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -529,13 +529,13 @@ namespace ServiceLayer {
         output.WriteRawTag(10);
         output.WriteMessage(ErrStatus);
       }
-      if (MaxVrfRegPerMsg != 0) {
+      if (MaxVrfregPerVrfregmsg != 0) {
         output.WriteRawTag(16);
-        output.WriteUInt32(MaxVrfRegPerMsg);
+        output.WriteUInt32(MaxVrfregPerVrfregmsg);
       }
-      if (MaxAFOpsPerMsg != 0) {
+      if (MaxRoutePerRoutemsg != 0) {
         output.WriteRawTag(24);
-        output.WriteUInt32(MaxAFOpsPerMsg);
+        output.WriteUInt32(MaxRoutePerRoutemsg);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -550,11 +550,11 @@ namespace ServiceLayer {
       if (errStatus_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(ErrStatus);
       }
-      if (MaxVrfRegPerMsg != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(MaxVrfRegPerMsg);
+      if (MaxVrfregPerVrfregmsg != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(MaxVrfregPerVrfregmsg);
       }
-      if (MaxAFOpsPerMsg != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(MaxAFOpsPerMsg);
+      if (MaxRoutePerRoutemsg != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(MaxRoutePerRoutemsg);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -574,11 +574,11 @@ namespace ServiceLayer {
         }
         ErrStatus.MergeFrom(other.ErrStatus);
       }
-      if (other.MaxVrfRegPerMsg != 0) {
-        MaxVrfRegPerMsg = other.MaxVrfRegPerMsg;
+      if (other.MaxVrfregPerVrfregmsg != 0) {
+        MaxVrfregPerVrfregmsg = other.MaxVrfregPerVrfregmsg;
       }
-      if (other.MaxAFOpsPerMsg != 0) {
-        MaxAFOpsPerMsg = other.MaxAFOpsPerMsg;
+      if (other.MaxRoutePerRoutemsg != 0) {
+        MaxRoutePerRoutemsg = other.MaxRoutePerRoutemsg;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -603,11 +603,11 @@ namespace ServiceLayer {
             break;
           }
           case 16: {
-            MaxVrfRegPerMsg = input.ReadUInt32();
+            MaxVrfregPerVrfregmsg = input.ReadUInt32();
             break;
           }
           case 24: {
-            MaxAFOpsPerMsg = input.ReadUInt32();
+            MaxRoutePerRoutemsg = input.ReadUInt32();
             break;
           }
         }
@@ -633,11 +633,11 @@ namespace ServiceLayer {
             break;
           }
           case 16: {
-            MaxVrfRegPerMsg = input.ReadUInt32();
+            MaxVrfregPerVrfregmsg = input.ReadUInt32();
             break;
           }
           case 24: {
-            MaxAFOpsPerMsg = input.ReadUInt32();
+            MaxRoutePerRoutemsg = input.ReadUInt32();
             break;
           }
         }

@@ -1731,7 +1731,8 @@ namespace ServiceLayer {
     public const int MaxVrfRegPerMsgFieldNumber = 17;
     private uint maxVrfRegPerMsg_;
     /// <summary>
-    /// Max VrfReg objects within a single VrfRegMsg message.
+    /// Max VrfReg objects within a single VrfRegMsg or
+    /// (the batch type used in AF Vrf reg).
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -1746,7 +1747,7 @@ namespace ServiceLayer {
     public const int MaxAFOpsPerMsgFieldNumber = 18;
     private uint maxAFOpsPerMsg_;
     /// <summary>
-    /// Max Route objects within a single RouteMsg message.
+    /// Max Route objects within a single RouteMsg or (the batch type of AFOp).
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
