@@ -5354,7 +5354,7 @@ namespace ServiceLayer {
   /// paths with identical keys are coalesced and cannot be used
   /// as a mechanism to achieve unequal cost multi-path distribution.
   ///
-  /// Path key includes NextHopAdress, NextHopInterface, LabelStack and VrfName.
+  /// Path key includes NextHopAdress, NextHopInterface, and VrfName.
   ///
   /// FRR Note:
   /// Failover from primary to backup is based on the trigger used (e.g.
