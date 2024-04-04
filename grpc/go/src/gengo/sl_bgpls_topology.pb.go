@@ -290,8 +290,14 @@ type SLBgplsTopoGetUpdMsg struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	// Matches for BGP-LS Topology Entries
-	// TODO: Add description on how matches will be used.
+	// Match filters for BGP-LS Topology Entries
+	// BGP-LS Topology Get Update message takes one or many BGP-LS Topology
+	// Match filters. Each of the Match filter will have a set of Match
+	// conditions. A matching BGP-LS Topology entry must match all the Match
+	// conditions in one or more Match filters. OR operation is applied on
+	// each of the Match filters.
+	// Maximum number of Match filters is restricted using
+	// MaxMatchFilterInBgplsTopoUpd in SLGlobalsGet.
 	Match []*SLBgplsTopoNlriMatch `protobuf:"bytes,1,rep,name=Match,proto3" json:"Match,omitempty"`
 }
 

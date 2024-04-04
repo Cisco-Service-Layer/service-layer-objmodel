@@ -95,15 +95,26 @@ namespace ServiceLayer {
       /// The caller must maintain the GRPC channel as long as there is
       /// interest in BGP-LS Topology information.
       ///
-      /// The call takes a stream of requests to get updates, with the information on filter
-      /// to be applied while sending updates passed in the first request. The request stream
-      /// is then only maintained to indicate the interest in BGP-LS Topology information.
+      /// The call takes a stream of requests with the information on Match filters
+      /// to be applied while sending BGP-LS Topology updates in the response stream.
+      /// The Match filters on the first request of the stream only is honoured and
+      /// applied by the backend process. No further updates on Match filters will be
+      /// honoured on this request stream and an application error will be thrown.
+      /// The request stream is then only maintained to indicate the interest in
+      /// BGP-LS Topology information.
       ///
       /// The success/failure of the request is relayed in the response as error status.
-      /// If the request was successful, then the initial set of BGP-LS Topology information is sent
-      /// as a stream containing a Start marker, any BGP-LS Topology if present, and an End Marker.
-      /// The response stream will then be maintained to send subsequent updates and terminated only
-      /// when the request stream is terminated.
+      /// If the request was successful, then the initial set of BGP-LS Topology
+      /// information is sent as a stream containing a Start marker, any BGP-LS
+      /// Topology if present, and an End Marker. The response stream will then
+      /// be maintained to send subsequent updates and terminated only when the
+      /// request stream is terminated.
+      ///
+      /// When the backend process handling the BGP-LS Topology subscription goes
+      /// for a restart and when it comes up and ready again, the caller would
+      /// get a Start marker, any BGP-LS Topology if present, and an End Marker.
+      /// Upon receiving the Start marker, the caller must perform a mark and
+      /// sweep operation on the data it received from this subscription.
       /// </summary>
       /// <param name="requestStream">Used for reading requests from the client.</param>
       /// <param name="responseStream">Used for sending responses back to the client.</param>
@@ -152,15 +163,26 @@ namespace ServiceLayer {
       /// The caller must maintain the GRPC channel as long as there is
       /// interest in BGP-LS Topology information.
       ///
-      /// The call takes a stream of requests to get updates, with the information on filter
-      /// to be applied while sending updates passed in the first request. The request stream
-      /// is then only maintained to indicate the interest in BGP-LS Topology information.
+      /// The call takes a stream of requests with the information on Match filters
+      /// to be applied while sending BGP-LS Topology updates in the response stream.
+      /// The Match filters on the first request of the stream only is honoured and
+      /// applied by the backend process. No further updates on Match filters will be
+      /// honoured on this request stream and an application error will be thrown.
+      /// The request stream is then only maintained to indicate the interest in
+      /// BGP-LS Topology information.
       ///
       /// The success/failure of the request is relayed in the response as error status.
-      /// If the request was successful, then the initial set of BGP-LS Topology information is sent
-      /// as a stream containing a Start marker, any BGP-LS Topology if present, and an End Marker.
-      /// The response stream will then be maintained to send subsequent updates and terminated only
-      /// when the request stream is terminated.
+      /// If the request was successful, then the initial set of BGP-LS Topology
+      /// information is sent as a stream containing a Start marker, any BGP-LS
+      /// Topology if present, and an End Marker. The response stream will then
+      /// be maintained to send subsequent updates and terminated only when the
+      /// request stream is terminated.
+      ///
+      /// When the backend process handling the BGP-LS Topology subscription goes
+      /// for a restart and when it comes up and ready again, the caller would
+      /// get a Start marker, any BGP-LS Topology if present, and an End Marker.
+      /// Upon receiving the Start marker, the caller must perform a mark and
+      /// sweep operation on the data it received from this subscription.
       /// </summary>
       /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
       /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
@@ -179,15 +201,26 @@ namespace ServiceLayer {
       /// The caller must maintain the GRPC channel as long as there is
       /// interest in BGP-LS Topology information.
       ///
-      /// The call takes a stream of requests to get updates, with the information on filter
-      /// to be applied while sending updates passed in the first request. The request stream
-      /// is then only maintained to indicate the interest in BGP-LS Topology information.
+      /// The call takes a stream of requests with the information on Match filters
+      /// to be applied while sending BGP-LS Topology updates in the response stream.
+      /// The Match filters on the first request of the stream only is honoured and
+      /// applied by the backend process. No further updates on Match filters will be
+      /// honoured on this request stream and an application error will be thrown.
+      /// The request stream is then only maintained to indicate the interest in
+      /// BGP-LS Topology information.
       ///
       /// The success/failure of the request is relayed in the response as error status.
-      /// If the request was successful, then the initial set of BGP-LS Topology information is sent
-      /// as a stream containing a Start marker, any BGP-LS Topology if present, and an End Marker.
-      /// The response stream will then be maintained to send subsequent updates and terminated only
-      /// when the request stream is terminated.
+      /// If the request was successful, then the initial set of BGP-LS Topology
+      /// information is sent as a stream containing a Start marker, any BGP-LS
+      /// Topology if present, and an End Marker. The response stream will then
+      /// be maintained to send subsequent updates and terminated only when the
+      /// request stream is terminated.
+      ///
+      /// When the backend process handling the BGP-LS Topology subscription goes
+      /// for a restart and when it comes up and ready again, the caller would
+      /// get a Start marker, any BGP-LS Topology if present, and an End Marker.
+      /// Upon receiving the Start marker, the caller must perform a mark and
+      /// sweep operation on the data it received from this subscription.
       /// </summary>
       /// <param name="options">The options for the call.</param>
       /// <returns>The call object.</returns>

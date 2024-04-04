@@ -696,8 +696,14 @@ namespace ServiceLayer {
         = pb::FieldCodec.ForMessage(10, global::ServiceLayer.SLBgplsTopoNlriMatch.Parser);
     private readonly pbc::RepeatedField<global::ServiceLayer.SLBgplsTopoNlriMatch> match_ = new pbc::RepeatedField<global::ServiceLayer.SLBgplsTopoNlriMatch>();
     /// <summary>
-    /// Matches for BGP-LS Topology Entries
-    /// TODO: Add description on how matches will be used.
+    /// Match filters for BGP-LS Topology Entries
+    /// BGP-LS Topology Get Update message takes one or many BGP-LS Topology
+    /// Match filters. Each of the Match filter will have a set of Match
+    /// conditions. A matching BGP-LS Topology entry must match all the Match
+    /// conditions in one or more Match filters. OR operation is applied on
+    /// each of the Match filters.
+    /// Maximum number of Match filters is restricted using
+    /// MaxMatchFilterInBgplsTopoUpd in SLGlobalsGet.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -828,6 +834,11 @@ namespace ServiceLayer {
 
   }
 
+  /// <summary>
+  /// Each of the Match conditions below are optional.
+  /// SLBgplsTopoNlriMatch is equivalent to AND operation of all the Match
+  /// conditions.
+  /// </summary>
   public sealed partial class SLBgplsTopoNlriMatch : pb::IMessage<SLBgplsTopoNlriMatch>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
