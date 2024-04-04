@@ -206,7 +206,7 @@ message SLGlobalsGetMsgRsp {
     // Max SLVrfReg objects within a SLVrfRegMsg or SLAFVrfRegMsg.
     uint32 MaxVrfRegPerMsg = 17;
 
-    // Max Route objects within a single RouteMsg or SLAFMsg.
+    // Max Route or AF objects within a single RouteMsg or SLAFMsg.
     uint32 MaxAFOpsPerMsg = 18;
 
     // Max SLAFNotifRegReq requests in SLAFNotifReq.

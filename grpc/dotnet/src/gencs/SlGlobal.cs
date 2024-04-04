@@ -1746,7 +1746,7 @@ namespace ServiceLayer {
     public const int MaxAFOpsPerMsgFieldNumber = 18;
     private uint maxAFOpsPerMsg_;
     /// <summary>
-    /// Max Route objects within a single RouteMsg or SLAFMsg.
+    /// Max Route or AF objects within a single RouteMsg or SLAFMsg.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]

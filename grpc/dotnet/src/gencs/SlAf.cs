@@ -4815,16 +4815,6 @@ namespace ServiceLayer {
   /// <summary>
   /// Operation on the address family. The objects are programmed
   /// in the given VRF's corresponding table.
-  ///
-  /// If VrfName is not set, for both SLAFOpStream and SLAFOp RPC
-  /// SLAFOpStream:each op in OpList is errored and sent to client.
-  /// 		RPC will then wait for next message on stream.
-  /// SLAFOp: each op in OpList is errored and sent to client and RPC exits. 
-  ///
-  /// If the number of Op in OpList exceeds MaxAFOpsPerMsg,
-  /// SLAFOpStream: RPC will exit with error.
-  /// SLAFOp: each op in OpList is errored and sent to client
-  ///         and RPC exits.
   /// </summary>
   public sealed partial class SLAFMsg : pb::IMessage<SLAFMsg>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
@@ -7059,14 +7049,14 @@ namespace ServiceLayer {
   /// RPC Notification request - either a route redistribution
   /// request or a next hop change notification request.
   ///
+  /// If the number of NotifReq exceeds MaxNotifReqPerSLAFNotifReq,
+  /// RPC will exit with error.
+  ///
   /// If VrfName is not set, each req in NotifReq
   /// is errored and sent to client.
   /// RPC will then wait for next message on stream.
   ///
-  /// If the number of NotifReq exceeds MaxNotifReqPerSLAFNotifReq,
-  /// RPC will exit with error.
-  ///
-  /// If the number of NotifReq is zero , RPC will send empty response
+  /// If the number of NotifReq is zero, RPC will send empty response
   /// to client with only VRF populated.
   /// RPC will then wait for next message on stream.
   /// </summary>

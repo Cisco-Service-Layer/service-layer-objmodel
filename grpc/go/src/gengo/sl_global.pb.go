@@ -498,7 +498,7 @@ type SLGlobalsGetMsgRsp struct {
 	MaxPathsInNexthopNotif uint32 `protobuf:"varint,16,opt,name=MaxPathsInNexthopNotif,proto3" json:"MaxPathsInNexthopNotif,omitempty"`
 	// Max SLVrfReg objects within a SLVrfRegMsg or SLAFVrfRegMsg.
 	MaxVrfRegPerMsg uint32 `protobuf:"varint,17,opt,name=MaxVrfRegPerMsg,proto3" json:"MaxVrfRegPerMsg,omitempty"`
-	// Max Route objects within a single RouteMsg or SLAFMsg.
+	// Max Route or AF objects within a single RouteMsg or SLAFMsg.
 	MaxAFOpsPerMsg uint32 `protobuf:"varint,18,opt,name=MaxAFOpsPerMsg,proto3" json:"MaxAFOpsPerMsg,omitempty"`
 	// Max SLAFNotifRegReq requests in SLAFNotifReq.
 	MaxNotifReqPerSLAFNotifReq uint32 `protobuf:"varint,19,opt,name=MaxNotifReqPerSLAFNotifReq,proto3" json:"MaxNotifReqPerSLAFNotifReq,omitempty"`
