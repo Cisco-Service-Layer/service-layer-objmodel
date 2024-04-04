@@ -16,7 +16,7 @@ package service_layer;
 
 import "sl_common_types.proto";
 import "sl_protocols.proto";
- 
+
 option go_package="github.com/Cisco-service-layer/service-layer-objmodel/grpc/protos;service_layer";
 
 // @defgroup SLBgplsTopoSubscription
@@ -38,15 +38,26 @@ service SLBgplsTopoSubscription {
     // The caller must maintain the GRPC channel as long as there is
     // interest in BGP-LS Topology information.
     //
-    // The call takes a stream of requests to get updates, with the information on filter
-    // to be applied while sending updates passed in the first request. The request stream
-    // is then only maintained to indicate the interest in BGP-LS Topology information.
+    // The call takes a stream of requests with the information on Match filters
+    // to be applied while sending BGP-LS Topology updates in the response stream.
+    // The Match filters on the first request of the stream only is honoured and
+    // applied by the backend process. No further updates on Match filters will be
+    // honoured on this request stream and an application error will be thrown.
+    // The request stream is then only maintained to indicate the interest in
+    // BGP-LS Topology information.
     //
     // The success/failure of the request is relayed in the response as error status.
-    // If the request was successful, then the initial set of BGP-LS Topology information is sent
-    // as a stream containing a Start marker, any BGP-LS Topology if present, and an End Marker.
-    // The response stream will then be maintained to send subsequent updates and terminated only
-    // when the request stream is terminated.
+    // If the request was successful, then the initial set of BGP-LS Topology
+    // information is sent as a stream containing a Start marker, any BGP-LS
+    // Topology if present, and an End Marker. The response stream will then
+    // be maintained to send subsequent updates and terminated only when the
+    // request stream is terminated.
+    //
+    // When the backend process handling the BGP-LS Topology subscription goes
+    // for a restart and when it comes up and ready again, the caller would
+    // get a Start marker, any BGP-LS Topology if present, and an End Marker.
+    // Upon receiving the Start marker, the caller must perform a mark and
+    // sweep operation on the data it received from this subscription.
     //
     rpc SLBgplsTopoGetUpdStream(stream SLBgplsTopoGetUpdMsg) returns (stream SLBgplsTopoUpdMsg);
     //
@@ -55,12 +66,22 @@ service SLBgplsTopoSubscription {
 
 // BGP-LS Topology Get Update message
 message SLBgplsTopoGetUpdMsg {
-    // Matches for BGP-LS Topology Entries
-    // TODO: Add description on how matches will be used.
+    // Match filters for BGP-LS Topology Entries
+    // BGP-LS Topology Get Update message takes one or many BGP-LS Topology
+    // Match filters. Each of the Match filter will have a set of Match
+    // conditions. A matching BGP-LS Topology entry must match all the Match
+    // conditions in one or more Match filters. OR operation is applied on
+    // each of the Match filters.
+    // Maximum number of Match filters is restricted using
+    // MaxMatchFilterInBgplsTopoUpd in SLGlobalsGet.
     repeated SLBgplsTopoNlriMatch Match = 1;
 }
 
 message SLBgplsTopoNlriMatch {
+    // Each of the Match conditions below are optional.
+    // SLBgplsTopoNlriMatch is equivalent to AND operation of all the Match
+    // conditions.
+
     // IGP routing domain to which the Link-State NLRI belongs.
     // Identifier.
     // Section 5.2 of [RFC9552]
@@ -191,7 +212,7 @@ message SLBgplsTopoNode {
 
         // This field carries info about an ISIS node ID.
         SLBgplsTopoIsisNodeId IsisNodeId = 4;
-    
+
         // This field carries info about a BGP node ID.
         SLBgplsTopoBgpNodeId BgpNodeId = 5;
 
