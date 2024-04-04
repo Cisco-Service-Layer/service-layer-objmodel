@@ -512,7 +512,7 @@ message SLAFGetMsgRsp {
 // Operation on the address family. The objects are programmed
 // in the given VRF's corresponding table.
 //
-// If VrfName is not set, for both SLAFOpStream and SLAFOp RPC
+// If VrfName is not set,
 // SLAFOpStream:each op in OpList is errored and sent to client.
 // 		RPC will then wait for next message on stream.
 // SLAFOp: each op in OpList is errored and sent to client and RPC exits. 
