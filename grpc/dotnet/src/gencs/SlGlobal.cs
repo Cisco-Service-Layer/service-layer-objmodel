@@ -1731,8 +1731,7 @@ namespace ServiceLayer {
     public const int MaxVrfRegPerMsgFieldNumber = 17;
     private uint maxVrfRegPerMsg_;
     /// <summary>
-    /// Max VrfReg objects within a single VrfRegMsg or
-    /// (the batch type used in AF Vrf reg).
+    /// Max SLVrfReg objects within a SLVrfRegMsg or SLAFVrfRegMsg.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -1747,7 +1746,7 @@ namespace ServiceLayer {
     public const int MaxAFOpsPerMsgFieldNumber = 18;
     private uint maxAFOpsPerMsg_;
     /// <summary>
-    /// Max Route objects within a single RouteMsg or (the batch type of AFOp).
+    /// Max Route objects within a single RouteMsg or SLAFMsg.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -1762,7 +1761,7 @@ namespace ServiceLayer {
     public const int MaxNotifReqPerSLAFNotifReqFieldNumber = 19;
     private uint maxNotifReqPerSLAFNotifReq_;
     /// <summary>
-    /// Max Notif Requests in SLAFNotifReq.
+    /// Max SLAFNotifRegReq requests in SLAFNotifReq.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]

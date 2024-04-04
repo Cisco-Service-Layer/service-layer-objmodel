@@ -4815,6 +4815,16 @@ namespace ServiceLayer {
   /// <summary>
   /// Operation on the address family. The objects are programmed
   /// in the given VRF's corresponding table.
+  ///
+  /// If VrfName is not set, for both SLAFOpStream and SLAFOp RPC
+  /// SLAFOpStream:each op in OpList is errored and sent to client.
+  /// 		RPC will then wait for next message on stream.
+  /// SLAFOp: each op in OpList is errored and sent to client and RPC exits. 
+  ///
+  /// If the number of Op in OpList exceeds MaxAFOpsPerMsg,
+  /// SLAFOpStream: RPC will exit with error.
+  /// SLAFOp: each op in OpList is errored and sent to client
+  ///         and RPC exits.
   /// </summary>
   public sealed partial class SLAFMsg : pb::IMessage<SLAFMsg>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
@@ -7048,6 +7058,17 @@ namespace ServiceLayer {
   /// <summary>
   /// RPC Notification request - either a route redistribution
   /// request or a next hop change notification request.
+  ///
+  /// If VrfName is not set, each req in NotifReq
+  /// is errored and sent to client.
+  /// RPC will then wait for next message on stream.
+  ///
+  /// If the number of NotifReq exceeds MaxNotifReqPerSLAFNotifReq,
+  /// RPC will exit with error.
+  ///
+  /// If the number of NotifReq is zero , RPC will send empty response
+  /// to client with only VRF populated.
+  /// RPC will then wait for next message on stream.
   /// </summary>
   public sealed partial class SLAFNotifReq : pb::IMessage<SLAFNotifReq>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
@@ -7120,9 +7141,6 @@ namespace ServiceLayer {
     private string vrfName_ = "";
     /// <summary>
     /// Vrf that the client is interested in.
-    /// If this is not set, each req in NotifReq
-    /// is errored and sent to client.
-    /// RPC will then wait for next message on stream.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -7140,10 +7158,6 @@ namespace ServiceLayer {
     private readonly pbc::RepeatedField<global::ServiceLayer.SLAFNotifRegReq> notifReq_ = new pbc::RepeatedField<global::ServiceLayer.SLAFNotifRegReq>();
     /// <summary>
     /// Notification request.
-    /// If the number of req > 1024, RPC will exit with error.
-    /// If the number of req == 0 , RPC will send empty response
-    /// to client with only VRF populated.
-    /// RPC will then wait for next message on stream.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]

@@ -1205,6 +1205,19 @@ func (x *SLAFGetMsgRsp) GetAFList() []*SLAFGetMsgRspEntry {
 
 // Operation on the address family. The objects are programmed
 // in the given VRF's corresponding table.
+//
+// If VrfName is not set, for both SLAFOpStream and SLAFOp RPC
+// SLAFOpStream:each op in OpList is errored and sent to client.
+//
+//	RPC will then wait for next message on stream.
+//
+// SLAFOp: each op in OpList is errored and sent to client and RPC exits.
+//
+// If the number of Op in OpList exceeds MaxAFOpsPerMsg,
+// SLAFOpStream: RPC will exit with error.
+// SLAFOp: each op in OpList is errored and sent to client
+//
+//	and RPC exits.
 type SLAFMsg struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
@@ -1696,6 +1709,17 @@ func (*SLAFNotifRegReq_NextHopReq) isSLAFNotifRegReq_Request() {}
 
 // RPC Notification request - either a route redistribution
 // request or a next hop change notification request.
+//
+// If VrfName is not set, each req in NotifReq
+// is errored and sent to client.
+// RPC will then wait for next message on stream.
+//
+// If the number of NotifReq exceeds MaxNotifReqPerSLAFNotifReq,
+// RPC will exit with error.
+//
+// If the number of NotifReq is zero , RPC will send empty response
+// to client with only VRF populated.
+// RPC will then wait for next message on stream.
 type SLAFNotifReq struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
@@ -1712,15 +1736,8 @@ type SLAFNotifReq struct {
 	//	the next hop change notification.
 	Oper SLNotifOp `protobuf:"varint,1,opt,name=Oper,proto3,enum=service_layer.SLNotifOp" json:"Oper,omitempty"`
 	// Vrf that the client is interested in.
-	// If this is not set, each req in NotifReq
-	// is errored and sent to client.
-	// RPC will then wait for next message on stream.
 	VrfName string `protobuf:"bytes,2,opt,name=VrfName,proto3" json:"VrfName,omitempty"`
 	// Notification request.
-	// If the number of req > 1024, RPC will exit with error.
-	// If the number of req == 0 , RPC will send empty response
-	// to client with only VRF populated.
-	// RPC will then wait for next message on stream.
 	NotifReq []*SLAFNotifRegReq `protobuf:"bytes,3,rep,name=NotifReq,proto3" json:"NotifReq,omitempty"`
 }
 
