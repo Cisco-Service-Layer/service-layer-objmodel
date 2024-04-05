@@ -1083,6 +1083,9 @@ class SLGlobalsGetMsgRsp final :
     kMaxL2PmsiTunnelIdLengthFieldNumber = 14,
     kMaxLabelBlockClientNameLengthFieldNumber = 15,
     kMaxPathsInNexthopNotifFieldNumber = 16,
+    kMaxVrfRegPerMsgFieldNumber = 17,
+    kMaxAFOpsPerMsgFieldNumber = 18,
+    kMaxNotifReqPerSLAFNotifReqFieldNumber = 19,
   };
   // .service_layer.SLErrorStatus ErrStatus = 1;
   bool has_errstatus() const;
@@ -1237,6 +1240,33 @@ class SLGlobalsGetMsgRsp final :
   void _internal_set_maxpathsinnexthopnotif(uint32_t value);
   public:
 
+  // uint32 MaxVrfRegPerMsg = 17;
+  void clear_maxvrfregpermsg();
+  uint32_t maxvrfregpermsg() const;
+  void set_maxvrfregpermsg(uint32_t value);
+  private:
+  uint32_t _internal_maxvrfregpermsg() const;
+  void _internal_set_maxvrfregpermsg(uint32_t value);
+  public:
+
+  // uint32 MaxAFOpsPerMsg = 18;
+  void clear_maxafopspermsg();
+  uint32_t maxafopspermsg() const;
+  void set_maxafopspermsg(uint32_t value);
+  private:
+  uint32_t _internal_maxafopspermsg() const;
+  void _internal_set_maxafopspermsg(uint32_t value);
+  public:
+
+  // uint32 MaxNotifReqPerSLAFNotifReq = 19;
+  void clear_maxnotifreqperslafnotifreq();
+  uint32_t maxnotifreqperslafnotifreq() const;
+  void set_maxnotifreqperslafnotifreq(uint32_t value);
+  private:
+  uint32_t _internal_maxnotifreqperslafnotifreq() const;
+  void _internal_set_maxnotifreqperslafnotifreq(uint32_t value);
+  public:
+
   // @@protoc_insertion_point(class_scope:service_layer.SLGlobalsGetMsgRsp)
  private:
   class _Internal;
@@ -1260,6 +1290,9 @@ class SLGlobalsGetMsgRsp final :
   uint32_t maxl2pmsitunnelidlength_;
   uint32_t maxlabelblockclientnamelength_;
   uint32_t maxpathsinnexthopnotif_;
+  uint32_t maxvrfregpermsg_;
+  uint32_t maxafopspermsg_;
+  uint32_t maxnotifreqperslafnotifreq_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_sl_5fglobal_2eproto;
 };
@@ -2112,6 +2145,66 @@ inline void SLGlobalsGetMsgRsp::_internal_set_maxpathsinnexthopnotif(uint32_t va
 inline void SLGlobalsGetMsgRsp::set_maxpathsinnexthopnotif(uint32_t value) {
   _internal_set_maxpathsinnexthopnotif(value);
   // @@protoc_insertion_point(field_set:service_layer.SLGlobalsGetMsgRsp.MaxPathsInNexthopNotif)
+}
+
+// uint32 MaxVrfRegPerMsg = 17;
+inline void SLGlobalsGetMsgRsp::clear_maxvrfregpermsg() {
+  maxvrfregpermsg_ = 0u;
+}
+inline uint32_t SLGlobalsGetMsgRsp::_internal_maxvrfregpermsg() const {
+  return maxvrfregpermsg_;
+}
+inline uint32_t SLGlobalsGetMsgRsp::maxvrfregpermsg() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLGlobalsGetMsgRsp.MaxVrfRegPerMsg)
+  return _internal_maxvrfregpermsg();
+}
+inline void SLGlobalsGetMsgRsp::_internal_set_maxvrfregpermsg(uint32_t value) {
+  
+  maxvrfregpermsg_ = value;
+}
+inline void SLGlobalsGetMsgRsp::set_maxvrfregpermsg(uint32_t value) {
+  _internal_set_maxvrfregpermsg(value);
+  // @@protoc_insertion_point(field_set:service_layer.SLGlobalsGetMsgRsp.MaxVrfRegPerMsg)
+}
+
+// uint32 MaxAFOpsPerMsg = 18;
+inline void SLGlobalsGetMsgRsp::clear_maxafopspermsg() {
+  maxafopspermsg_ = 0u;
+}
+inline uint32_t SLGlobalsGetMsgRsp::_internal_maxafopspermsg() const {
+  return maxafopspermsg_;
+}
+inline uint32_t SLGlobalsGetMsgRsp::maxafopspermsg() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLGlobalsGetMsgRsp.MaxAFOpsPerMsg)
+  return _internal_maxafopspermsg();
+}
+inline void SLGlobalsGetMsgRsp::_internal_set_maxafopspermsg(uint32_t value) {
+  
+  maxafopspermsg_ = value;
+}
+inline void SLGlobalsGetMsgRsp::set_maxafopspermsg(uint32_t value) {
+  _internal_set_maxafopspermsg(value);
+  // @@protoc_insertion_point(field_set:service_layer.SLGlobalsGetMsgRsp.MaxAFOpsPerMsg)
+}
+
+// uint32 MaxNotifReqPerSLAFNotifReq = 19;
+inline void SLGlobalsGetMsgRsp::clear_maxnotifreqperslafnotifreq() {
+  maxnotifreqperslafnotifreq_ = 0u;
+}
+inline uint32_t SLGlobalsGetMsgRsp::_internal_maxnotifreqperslafnotifreq() const {
+  return maxnotifreqperslafnotifreq_;
+}
+inline uint32_t SLGlobalsGetMsgRsp::maxnotifreqperslafnotifreq() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLGlobalsGetMsgRsp.MaxNotifReqPerSLAFNotifReq)
+  return _internal_maxnotifreqperslafnotifreq();
+}
+inline void SLGlobalsGetMsgRsp::_internal_set_maxnotifreqperslafnotifreq(uint32_t value) {
+  
+  maxnotifreqperslafnotifreq_ = value;
+}
+inline void SLGlobalsGetMsgRsp::set_maxnotifreqperslafnotifreq(uint32_t value) {
+  _internal_set_maxnotifreqperslafnotifreq(value);
+  // @@protoc_insertion_point(field_set:service_layer.SLGlobalsGetMsgRsp.MaxNotifReqPerSLAFNotifReq)
 }
 
 #ifdef __GNUC__

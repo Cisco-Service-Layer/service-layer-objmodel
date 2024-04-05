@@ -7048,6 +7048,17 @@ namespace ServiceLayer {
   /// <summary>
   /// RPC Notification request - either a route redistribution
   /// request or a next hop change notification request.
+  ///
+  /// If the number of NotifReq exceeds MaxNotifReqPerSLAFNotifReq,
+  /// RPC will exit with error.
+  ///
+  /// If VrfName is not set, each req in NotifReq
+  /// is errored and sent to client.
+  /// RPC will then wait for next message on stream.
+  ///
+  /// If the number of NotifReq is zero, RPC will send empty response
+  /// to client with only VRF populated.
+  /// RPC will then wait for next message on stream.
   /// </summary>
   public sealed partial class SLAFNotifReq : pb::IMessage<SLAFNotifReq>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE

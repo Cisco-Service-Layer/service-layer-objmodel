@@ -1696,6 +1696,17 @@ func (*SLAFNotifRegReq_NextHopReq) isSLAFNotifRegReq_Request() {}
 
 // RPC Notification request - either a route redistribution
 // request or a next hop change notification request.
+//
+// If the number of NotifReq exceeds MaxNotifReqPerSLAFNotifReq,
+// RPC will exit with error.
+//
+// If VrfName is not set, each req in NotifReq
+// is errored and sent to client.
+// RPC will then wait for next message on stream.
+//
+// If the number of NotifReq is zero, RPC will send empty response
+// to client with only VRF populated.
+// RPC will then wait for next message on stream.
 type SLAFNotifReq struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache

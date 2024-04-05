@@ -100,7 +100,10 @@ constexpr SLGlobalsGetMsgRsp::SLGlobalsGetMsgRsp(
   , maxl2bdnamelength_(0u)
   , maxl2pmsitunnelidlength_(0u)
   , maxlabelblockclientnamelength_(0u)
-  , maxpathsinnexthopnotif_(0u){}
+  , maxpathsinnexthopnotif_(0u)
+  , maxvrfregpermsg_(0u)
+  , maxafopspermsg_(0u)
+  , maxnotifreqperslafnotifreq_(0u){}
 struct SLGlobalsGetMsgRspDefaultTypeInternal {
   constexpr SLGlobalsGetMsgRspDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
@@ -180,6 +183,9 @@ const uint32_t TableStruct_sl_5fglobal_2eproto::offsets[] PROTOBUF_SECTION_VARIA
   PROTOBUF_FIELD_OFFSET(::service_layer::SLGlobalsGetMsgRsp, maxl2pmsitunnelidlength_),
   PROTOBUF_FIELD_OFFSET(::service_layer::SLGlobalsGetMsgRsp, maxlabelblockclientnamelength_),
   PROTOBUF_FIELD_OFFSET(::service_layer::SLGlobalsGetMsgRsp, maxpathsinnexthopnotif_),
+  PROTOBUF_FIELD_OFFSET(::service_layer::SLGlobalsGetMsgRsp, maxvrfregpermsg_),
+  PROTOBUF_FIELD_OFFSET(::service_layer::SLGlobalsGetMsgRsp, maxafopspermsg_),
+  PROTOBUF_FIELD_OFFSET(::service_layer::SLGlobalsGetMsgRsp, maxnotifreqperslafnotifreq_),
 };
 static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, -1, sizeof(::service_layer::SLInitMsg)},
@@ -212,7 +218,7 @@ const char descriptor_table_protodef_sl_5fglobal_2eproto[] PROTOBUF_SECTION_VARI
   "nitRspMsg\030\003 \001(\0132\033.service_layer.SLInitMs"
   "gRspH\000\022L\n\023VrfReplayErrorNotif\030\004 \001(\0132).se"
   "rvice_layer.SLVrfRouteReplayErrorNotifB\002"
-  "\030\001H\000B\007\n\005Event\"\021\n\017SLGlobalsGetMsg\"\210\004\n\022SLG"
+  "\030\001H\000B\007\n\005Event\"\021\n\017SLGlobalsGetMsg\"\335\004\n\022SLG"
   "lobalsGetMsgRsp\022/\n\tErrStatus\030\001 \001(\0132\034.ser"
   "vice_layer.SLErrorStatus\022\030\n\020MaxVrfNameLe"
   "ngth\030\002 \001(\r\022\036\n\026MaxInterfaceNameLength\030\003 \001"
@@ -225,25 +231,27 @@ const char descriptor_table_protodef_sl_5fglobal_2eproto[] PROTOBUF_SECTION_VARI
   "axRemoteAddressNum\030\014 \001(\r\022\031\n\021MaxL2BdNameL"
   "ength\030\r \001(\r\022\037\n\027MaxL2PmsiTunnelIdLength\030\016"
   " \001(\r\022%\n\035MaxLabelBlockClientNameLength\030\017 "
-  "\001(\r\022\036\n\026MaxPathsInNexthopNotif\030\020 \001(\r*\234\001\n\021"
-  "SLGlobalNotifType\022!\n\035SL_GLOBAL_EVENT_TYP"
-  "E_RESERVED\020\000\022\036\n\032SL_GLOBAL_EVENT_TYPE_ERR"
-  "OR\020\001\022\"\n\036SL_GLOBAL_EVENT_TYPE_HEARTBEAT\020\002"
-  "\022 \n\034SL_GLOBAL_EVENT_TYPE_VERSION\020\0032\254\001\n\010S"
-  "LGlobal\022M\n\021SLGlobalInitNotif\022\030.service_l"
-  "ayer.SLInitMsg\032\034.service_layer.SLGlobalN"
-  "otif0\001\022Q\n\014SLGlobalsGet\022\036.service_layer.S"
-  "LGlobalsGetMsg\032!.service_layer.SLGlobals"
-  "GetMsgRspBQZOgithub.com/Cisco-service-la"
-  "yer/service-layer-objmodel/grpc/protos;s"
-  "ervice_layerb\006proto3"
+  "\001(\r\022\036\n\026MaxPathsInNexthopNotif\030\020 \001(\r\022\027\n\017M"
+  "axVrfRegPerMsg\030\021 \001(\r\022\026\n\016MaxAFOpsPerMsg\030\022"
+  " \001(\r\022\"\n\032MaxNotifReqPerSLAFNotifReq\030\023 \001(\r"
+  "*\234\001\n\021SLGlobalNotifType\022!\n\035SL_GLOBAL_EVEN"
+  "T_TYPE_RESERVED\020\000\022\036\n\032SL_GLOBAL_EVENT_TYP"
+  "E_ERROR\020\001\022\"\n\036SL_GLOBAL_EVENT_TYPE_HEARTB"
+  "EAT\020\002\022 \n\034SL_GLOBAL_EVENT_TYPE_VERSION\020\0032"
+  "\254\001\n\010SLGlobal\022M\n\021SLGlobalInitNotif\022\030.serv"
+  "ice_layer.SLInitMsg\032\034.service_layer.SLGl"
+  "obalNotif0\001\022Q\n\014SLGlobalsGet\022\036.service_la"
+  "yer.SLGlobalsGetMsg\032!.service_layer.SLGl"
+  "obalsGetMsgRspBQZOgithub.com/Cisco-servi"
+  "ce-layer/service-layer-objmodel/grpc/pro"
+  "tos;service_layerb\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_sl_5fglobal_2eproto_deps[1] = {
   &::descriptor_table_sl_5fcommon_5ftypes_2eproto,
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_sl_5fglobal_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_sl_5fglobal_2eproto = {
-  false, false, 1460, descriptor_table_protodef_sl_5fglobal_2eproto, "sl_global.proto", 
+  false, false, 1545, descriptor_table_protodef_sl_5fglobal_2eproto, "sl_global.proto", 
   &descriptor_table_sl_5fglobal_2eproto_once, descriptor_table_sl_5fglobal_2eproto_deps, 1, 6,
   schemas, file_default_instances, TableStruct_sl_5fglobal_2eproto::offsets,
   file_level_metadata_sl_5fglobal_2eproto, file_level_enum_descriptors_sl_5fglobal_2eproto, file_level_service_descriptors_sl_5fglobal_2eproto,
@@ -1401,16 +1409,16 @@ SLGlobalsGetMsgRsp::SLGlobalsGetMsgRsp(const SLGlobalsGetMsgRsp& from)
     errstatus_ = nullptr;
   }
   ::memcpy(&maxvrfnamelength_, &from.maxvrfnamelength_,
-    static_cast<size_t>(reinterpret_cast<char*>(&maxpathsinnexthopnotif_) -
-    reinterpret_cast<char*>(&maxvrfnamelength_)) + sizeof(maxpathsinnexthopnotif_));
+    static_cast<size_t>(reinterpret_cast<char*>(&maxnotifreqperslafnotifreq_) -
+    reinterpret_cast<char*>(&maxvrfnamelength_)) + sizeof(maxnotifreqperslafnotifreq_));
   // @@protoc_insertion_point(copy_constructor:service_layer.SLGlobalsGetMsgRsp)
 }
 
 inline void SLGlobalsGetMsgRsp::SharedCtor() {
 ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
     reinterpret_cast<char*>(&errstatus_) - reinterpret_cast<char*>(this)),
-    0, static_cast<size_t>(reinterpret_cast<char*>(&maxpathsinnexthopnotif_) -
-    reinterpret_cast<char*>(&errstatus_)) + sizeof(maxpathsinnexthopnotif_));
+    0, static_cast<size_t>(reinterpret_cast<char*>(&maxnotifreqperslafnotifreq_) -
+    reinterpret_cast<char*>(&errstatus_)) + sizeof(maxnotifreqperslafnotifreq_));
 }
 
 SLGlobalsGetMsgRsp::~SLGlobalsGetMsgRsp() {
@@ -1446,8 +1454,8 @@ void SLGlobalsGetMsgRsp::Clear() {
   }
   errstatus_ = nullptr;
   ::memset(&maxvrfnamelength_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&maxpathsinnexthopnotif_) -
-      reinterpret_cast<char*>(&maxvrfnamelength_)) + sizeof(maxpathsinnexthopnotif_));
+      reinterpret_cast<char*>(&maxnotifreqperslafnotifreq_) -
+      reinterpret_cast<char*>(&maxvrfnamelength_)) + sizeof(maxnotifreqperslafnotifreq_));
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -1585,6 +1593,30 @@ const char* SLGlobalsGetMsgRsp::_InternalParse(const char* ptr, ::PROTOBUF_NAMES
         } else
           goto handle_unusual;
         continue;
+      // uint32 MaxVrfRegPerMsg = 17;
+      case 17:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 136)) {
+          maxvrfregpermsg_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // uint32 MaxAFOpsPerMsg = 18;
+      case 18:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 144)) {
+          maxafopspermsg_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // uint32 MaxNotifReqPerSLAFNotifReq = 19;
+      case 19:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 152)) {
+          maxnotifreqperslafnotifreq_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
       default:
         goto handle_unusual;
     }  // switch
@@ -1712,6 +1744,24 @@ uint8_t* SLGlobalsGetMsgRsp::_InternalSerialize(
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(16, this->_internal_maxpathsinnexthopnotif(), target);
   }
 
+  // uint32 MaxVrfRegPerMsg = 17;
+  if (this->_internal_maxvrfregpermsg() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(17, this->_internal_maxvrfregpermsg(), target);
+  }
+
+  // uint32 MaxAFOpsPerMsg = 18;
+  if (this->_internal_maxafopspermsg() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(18, this->_internal_maxafopspermsg(), target);
+  }
+
+  // uint32 MaxNotifReqPerSLAFNotifReq = 19;
+  if (this->_internal_maxnotifreqperslafnotifreq() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(19, this->_internal_maxnotifreqperslafnotifreq(), target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -1812,6 +1862,27 @@ size_t SLGlobalsGetMsgRsp::ByteSizeLong() const {
         this->_internal_maxpathsinnexthopnotif());
   }
 
+  // uint32 MaxVrfRegPerMsg = 17;
+  if (this->_internal_maxvrfregpermsg() != 0) {
+    total_size += 2 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
+        this->_internal_maxvrfregpermsg());
+  }
+
+  // uint32 MaxAFOpsPerMsg = 18;
+  if (this->_internal_maxafopspermsg() != 0) {
+    total_size += 2 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
+        this->_internal_maxafopspermsg());
+  }
+
+  // uint32 MaxNotifReqPerSLAFNotifReq = 19;
+  if (this->_internal_maxnotifreqperslafnotifreq() != 0) {
+    total_size += 2 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
+        this->_internal_maxnotifreqperslafnotifreq());
+  }
+
   return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
 }
 
@@ -1882,6 +1953,15 @@ void SLGlobalsGetMsgRsp::MergeFrom(const SLGlobalsGetMsgRsp& from) {
   if (from._internal_maxpathsinnexthopnotif() != 0) {
     _internal_set_maxpathsinnexthopnotif(from._internal_maxpathsinnexthopnotif());
   }
+  if (from._internal_maxvrfregpermsg() != 0) {
+    _internal_set_maxvrfregpermsg(from._internal_maxvrfregpermsg());
+  }
+  if (from._internal_maxafopspermsg() != 0) {
+    _internal_set_maxafopspermsg(from._internal_maxafopspermsg());
+  }
+  if (from._internal_maxnotifreqperslafnotifreq() != 0) {
+    _internal_set_maxnotifreqperslafnotifreq(from._internal_maxnotifreqperslafnotifreq());
+  }
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
@@ -1900,8 +1980,8 @@ void SLGlobalsGetMsgRsp::InternalSwap(SLGlobalsGetMsgRsp* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(SLGlobalsGetMsgRsp, maxpathsinnexthopnotif_)
-      + sizeof(SLGlobalsGetMsgRsp::maxpathsinnexthopnotif_)
+      PROTOBUF_FIELD_OFFSET(SLGlobalsGetMsgRsp, maxnotifreqperslafnotifreq_)
+      + sizeof(SLGlobalsGetMsgRsp::maxnotifreqperslafnotifreq_)
       - PROTOBUF_FIELD_OFFSET(SLGlobalsGetMsgRsp, errstatus_)>(
           reinterpret_cast<char*>(&errstatus_),
           reinterpret_cast<char*>(&other->errstatus_));
