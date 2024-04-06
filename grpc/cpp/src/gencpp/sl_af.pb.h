@@ -5101,15 +5101,16 @@ class SLNextHop final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kPathsFieldNumber = 7,
+    kPathsFieldNumber = 8,
     kSrcProtoFieldNumber = 4,
+    kSrcProtoTagFieldNumber = 5,
     kNextHopKeyFieldNumber = 1,
     kResolvingRouteFieldNumber = 2,
     kResolvingRouteLenFieldNumber = 3,
-    kAdminDistanceFieldNumber = 5,
-    kMetricFieldNumber = 6,
+    kAdminDistanceFieldNumber = 6,
+    kMetricFieldNumber = 7,
   };
-  // repeated .service_layer.SLRoutePath Paths = 7;
+  // repeated .service_layer.SLRoutePath Paths = 8;
   int paths_size() const;
   private:
   int _internal_paths_size() const;
@@ -5139,6 +5140,20 @@ class SLNextHop final :
   const std::string& _internal_srcproto() const;
   inline PROTOBUF_ALWAYS_INLINE void _internal_set_srcproto(const std::string& value);
   std::string* _internal_mutable_srcproto();
+  public:
+
+  // string SrcProtoTag = 5;
+  void clear_srcprototag();
+  const std::string& srcprototag() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_srcprototag(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_srcprototag();
+  PROTOBUF_NODISCARD std::string* release_srcprototag();
+  void set_allocated_srcprototag(std::string* srcprototag);
+  private:
+  const std::string& _internal_srcprototag() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_srcprototag(const std::string& value);
+  std::string* _internal_mutable_srcprototag();
   public:
 
   // .service_layer.SLAFNextHopRegKey NextHopKey = 1;
@@ -5186,7 +5201,7 @@ class SLNextHop final :
   void _internal_set_resolvingroutelen(uint32_t value);
   public:
 
-  // uint32 AdminDistance = 5;
+  // uint32 AdminDistance = 6;
   void clear_admindistance();
   uint32_t admindistance() const;
   void set_admindistance(uint32_t value);
@@ -5195,7 +5210,7 @@ class SLNextHop final :
   void _internal_set_admindistance(uint32_t value);
   public:
 
-  // uint32 Metric = 6;
+  // uint32 Metric = 7;
   void clear_metric();
   uint32_t metric() const;
   void set_metric(uint32_t value);
@@ -5213,6 +5228,7 @@ class SLNextHop final :
   typedef void DestructorSkippable_;
   ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::service_layer::SLRoutePath > paths_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr srcproto_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr srcprototag_;
   ::service_layer::SLAFNextHopRegKey* nexthopkey_;
   ::service_layer::SLIpAddress* resolvingroute_;
   uint32_t resolvingroutelen_;
@@ -9643,7 +9659,58 @@ inline void SLNextHop::set_allocated_srcproto(std::string* srcproto) {
   // @@protoc_insertion_point(field_set_allocated:service_layer.SLNextHop.SrcProto)
 }
 
-// uint32 AdminDistance = 5;
+// string SrcProtoTag = 5;
+inline void SLNextHop::clear_srcprototag() {
+  srcprototag_.ClearToEmpty();
+}
+inline const std::string& SLNextHop::srcprototag() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLNextHop.SrcProtoTag)
+  return _internal_srcprototag();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void SLNextHop::set_srcprototag(ArgT0&& arg0, ArgT... args) {
+ 
+ srcprototag_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:service_layer.SLNextHop.SrcProtoTag)
+}
+inline std::string* SLNextHop::mutable_srcprototag() {
+  std::string* _s = _internal_mutable_srcprototag();
+  // @@protoc_insertion_point(field_mutable:service_layer.SLNextHop.SrcProtoTag)
+  return _s;
+}
+inline const std::string& SLNextHop::_internal_srcprototag() const {
+  return srcprototag_.Get();
+}
+inline void SLNextHop::_internal_set_srcprototag(const std::string& value) {
+  
+  srcprototag_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArenaForAllocation());
+}
+inline std::string* SLNextHop::_internal_mutable_srcprototag() {
+  
+  return srcprototag_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
+}
+inline std::string* SLNextHop::release_srcprototag() {
+  // @@protoc_insertion_point(field_release:service_layer.SLNextHop.SrcProtoTag)
+  return srcprototag_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArenaForAllocation());
+}
+inline void SLNextHop::set_allocated_srcprototag(std::string* srcprototag) {
+  if (srcprototag != nullptr) {
+    
+  } else {
+    
+  }
+  srcprototag_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), srcprototag,
+      GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (srcprototag_.IsDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited())) {
+    srcprototag_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:service_layer.SLNextHop.SrcProtoTag)
+}
+
+// uint32 AdminDistance = 6;
 inline void SLNextHop::clear_admindistance() {
   admindistance_ = 0u;
 }
@@ -9663,7 +9730,7 @@ inline void SLNextHop::set_admindistance(uint32_t value) {
   // @@protoc_insertion_point(field_set:service_layer.SLNextHop.AdminDistance)
 }
 
-// uint32 Metric = 6;
+// uint32 Metric = 7;
 inline void SLNextHop::clear_metric() {
   metric_ = 0u;
 }
@@ -9683,7 +9750,7 @@ inline void SLNextHop::set_metric(uint32_t value) {
   // @@protoc_insertion_point(field_set:service_layer.SLNextHop.Metric)
 }
 
-// repeated .service_layer.SLRoutePath Paths = 7;
+// repeated .service_layer.SLRoutePath Paths = 8;
 inline int SLNextHop::_internal_paths_size() const {
   return paths_.size();
 }
