@@ -203,6 +203,14 @@ message SLGlobalsGetMsgRsp {
     // Maximum paths returned by the network element for a next hop notification.
     uint32 MaxPathsInNexthopNotif = 16;
 
+    // Max SLVrfReg objects within a SLVrfRegMsg or SLAFVrfRegMsg.
+    uint32 MaxVrfRegPerMsg = 17;
+
+    // Max Route or AF objects within a single RouteMsg or SLAFMsg.
+    uint32 MaxAFOpsPerMsg = 18;
+
+    // Max SLAFNotifRegReq requests in SLAFNotifReq.
+    uint32 MaxNotifReqPerSLAFNotifReq = 19;
 }
 
 // @}

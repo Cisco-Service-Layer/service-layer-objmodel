@@ -98,30 +98,30 @@ namespace ServiceLayer {
             "eWVyLlNMQUZOb3RpZlJlZ1JlcSJzCgxTTEFGTm90aWZSc3ASMAoITm90aWZS",
             "ZXEYASABKAsyHi5zZXJ2aWNlX2xheWVyLlNMQUZOb3RpZlJlZ1JlcRIxCgtO",
             "b3RpZlN0YXR1cxgCIAEoCzIcLnNlcnZpY2VfbGF5ZXIuU0xFcnJvclN0YXR1",
-            "cyL0AQoJU0xOZXh0SG9wEjQKCk5leHRIb3BLZXkYASABKAsyIC5zZXJ2aWNl",
+            "cyKJAgoJU0xOZXh0SG9wEjQKCk5leHRIb3BLZXkYASABKAsyIC5zZXJ2aWNl",
             "X2xheWVyLlNMQUZOZXh0SG9wUmVnS2V5EjIKDlJlc29sdmluZ1JvdXRlGAIg",
             "ASgLMhouc2VydmljZV9sYXllci5TTElwQWRkcmVzcxIZChFSZXNvbHZpbmdS",
-            "b3V0ZUxlbhgDIAEoDRIQCghTcmNQcm90bxgEIAEoCRIVCg1BZG1pbkRpc3Rh",
-            "bmNlGAUgASgNEg4KBk1ldHJpYxgGIAEoDRIpCgVQYXRocxgHIAMoCzIaLnNl",
-            "cnZpY2VfbGF5ZXIuU0xSb3V0ZVBhdGgiqAEKCVNMQUZOb3RpZhIyCgtOb3Rp",
-            "ZlN0YXR1cxgBIAEoCzIbLnNlcnZpY2VfbGF5ZXIuU0xBRk5vdGlmUnNwSAAS",
-            "MQoMUmVkaXN0T2JqZWN0GAQgASgLMhkuc2VydmljZV9sYXllci5TTEFGT2Jq",
-            "ZWN0SAASKwoHTmV4dEhvcBgFIAEoCzIYLnNlcnZpY2VfbGF5ZXIuU0xOZXh0",
-            "SG9wSABCBwoFRXZlbnQiSwoMU0xBRk5vdGlmTXNnEg8KB1ZyZk5hbWUYASAB",
-            "KAkSKgoIQUZOb3RpZnMYAyADKAsyGC5zZXJ2aWNlX2xheWVyLlNMQUZOb3Rp",
-            "ZjLIAwoEU0xBRhJNCgxTTEFGVnJmUmVnT3ASHC5zZXJ2aWNlX2xheWVyLlNM",
-            "QUZWcmZSZWdNc2caHy5zZXJ2aWNlX2xheWVyLlNMQUZWcmZSZWdNc2dSc3AS",
-            "VgoNU0xBRlZyZlJlZ0dldBIfLnNlcnZpY2VfbGF5ZXIuU0xBRlZyZlJlZ0dl",
-            "dE1zZxoiLnNlcnZpY2VfbGF5ZXIuU0xBRlZyZlJlZ0dldE1zZ1JzcDABEjsK",
-            "BlNMQUZPcBIWLnNlcnZpY2VfbGF5ZXIuU0xBRk1zZxoZLnNlcnZpY2VfbGF5",
-            "ZXIuU0xBRk1zZ1JzcBJFCgxTTEFGT3BTdHJlYW0SFi5zZXJ2aWNlX2xheWVy",
-            "LlNMQUZNc2caGS5zZXJ2aWNlX2xheWVyLlNMQUZNc2dSc3AoATABEkQKB1NM",
-            "QUZHZXQSGS5zZXJ2aWNlX2xheWVyLlNMQUZHZXRNc2caHC5zZXJ2aWNlX2xh",
-            "eWVyLlNMQUZHZXRNc2dSc3AwARJPCg9TTEFGTm90aWZTdHJlYW0SGy5zZXJ2",
-            "aWNlX2xheWVyLlNMQUZOb3RpZlJlcRobLnNlcnZpY2VfbGF5ZXIuU0xBRk5v",
-            "dGlmTXNnKAEwAUJRWk9naXRodWIuY29tL0Npc2NvLXNlcnZpY2UtbGF5ZXIv",
-            "c2VydmljZS1sYXllci1vYmptb2RlbC9ncnBjL3Byb3RvcztzZXJ2aWNlX2xh",
-            "eWVyYgZwcm90bzM="));
+            "b3V0ZUxlbhgDIAEoDRIQCghTcmNQcm90bxgEIAEoCRITCgtTcmNQcm90b1Rh",
+            "ZxgFIAEoCRIVCg1BZG1pbkRpc3RhbmNlGAYgASgNEg4KBk1ldHJpYxgHIAEo",
+            "DRIpCgVQYXRocxgIIAMoCzIaLnNlcnZpY2VfbGF5ZXIuU0xSb3V0ZVBhdGgi",
+            "qAEKCVNMQUZOb3RpZhIyCgtOb3RpZlN0YXR1cxgBIAEoCzIbLnNlcnZpY2Vf",
+            "bGF5ZXIuU0xBRk5vdGlmUnNwSAASMQoMUmVkaXN0T2JqZWN0GAQgASgLMhku",
+            "c2VydmljZV9sYXllci5TTEFGT2JqZWN0SAASKwoHTmV4dEhvcBgFIAEoCzIY",
+            "LnNlcnZpY2VfbGF5ZXIuU0xOZXh0SG9wSABCBwoFRXZlbnQiSwoMU0xBRk5v",
+            "dGlmTXNnEg8KB1ZyZk5hbWUYASABKAkSKgoIQUZOb3RpZnMYAyADKAsyGC5z",
+            "ZXJ2aWNlX2xheWVyLlNMQUZOb3RpZjLIAwoEU0xBRhJNCgxTTEFGVnJmUmVn",
+            "T3ASHC5zZXJ2aWNlX2xheWVyLlNMQUZWcmZSZWdNc2caHy5zZXJ2aWNlX2xh",
+            "eWVyLlNMQUZWcmZSZWdNc2dSc3ASVgoNU0xBRlZyZlJlZ0dldBIfLnNlcnZp",
+            "Y2VfbGF5ZXIuU0xBRlZyZlJlZ0dldE1zZxoiLnNlcnZpY2VfbGF5ZXIuU0xB",
+            "RlZyZlJlZ0dldE1zZ1JzcDABEjsKBlNMQUZPcBIWLnNlcnZpY2VfbGF5ZXIu",
+            "U0xBRk1zZxoZLnNlcnZpY2VfbGF5ZXIuU0xBRk1zZ1JzcBJFCgxTTEFGT3BT",
+            "dHJlYW0SFi5zZXJ2aWNlX2xheWVyLlNMQUZNc2caGS5zZXJ2aWNlX2xheWVy",
+            "LlNMQUZNc2dSc3AoATABEkQKB1NMQUZHZXQSGS5zZXJ2aWNlX2xheWVyLlNM",
+            "QUZHZXRNc2caHC5zZXJ2aWNlX2xheWVyLlNMQUZHZXRNc2dSc3AwARJPCg9T",
+            "TEFGTm90aWZTdHJlYW0SGy5zZXJ2aWNlX2xheWVyLlNMQUZOb3RpZlJlcRob",
+            "LnNlcnZpY2VfbGF5ZXIuU0xBRk5vdGlmTXNnKAEwAUJRWk9naXRodWIuY29t",
+            "L0Npc2NvLXNlcnZpY2UtbGF5ZXIvc2VydmljZS1sYXllci1vYmptb2RlbC9n",
+            "cnBjL3Byb3RvcztzZXJ2aWNlX2xheWVyYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::ServiceLayer.SlCommonTypesReflection.Descriptor, global::ServiceLayer.SlRouteCommonReflection.Descriptor, global::ServiceLayer.SlRouteIpv4Reflection.Descriptor, global::ServiceLayer.SlRouteIpv6Reflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
@@ -149,7 +149,7 @@ namespace ServiceLayer {
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLAFNotifRegReq), global::ServiceLayer.SLAFNotifRegReq.Parser, new[]{ "RedistReq", "NextHopReq", "OperationID" }, new[]{ "Request" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLAFNotifReq), global::ServiceLayer.SLAFNotifReq.Parser, new[]{ "Oper", "VrfName", "NotifReq" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLAFNotifRsp), global::ServiceLayer.SLAFNotifRsp.Parser, new[]{ "NotifReq", "NotifStatus" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLNextHop), global::ServiceLayer.SLNextHop.Parser, new[]{ "NextHopKey", "ResolvingRoute", "ResolvingRouteLen", "SrcProto", "AdminDistance", "Metric", "Paths" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLNextHop), global::ServiceLayer.SLNextHop.Parser, new[]{ "NextHopKey", "ResolvingRoute", "ResolvingRouteLen", "SrcProto", "SrcProtoTag", "AdminDistance", "Metric", "Paths" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLAFNotif), global::ServiceLayer.SLAFNotif.Parser, new[]{ "NotifStatus", "RedistObject", "NextHop" }, new[]{ "Event" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLAFNotifMsg), global::ServiceLayer.SLAFNotifMsg.Parser, new[]{ "VrfName", "AFNotifs" }, null, null, null, null)
           }));
@@ -7048,6 +7048,17 @@ namespace ServiceLayer {
   /// <summary>
   /// RPC Notification request - either a route redistribution
   /// request or a next hop change notification request.
+  ///
+  /// If the number of NotifReq exceeds MaxNotifReqPerSLAFNotifReq,
+  /// RPC will exit with error.
+  ///
+  /// If VrfName is not set, each req in NotifReq
+  /// is errored and sent to client.
+  /// RPC will then wait for next message on stream.
+  ///
+  /// If the number of NotifReq is zero, RPC will send empty response
+  /// to client with only VRF populated.
+  /// RPC will then wait for next message on stream.
   /// </summary>
   public sealed partial class SLAFNotifReq : pb::IMessage<SLAFNotifReq>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
@@ -7614,6 +7625,7 @@ namespace ServiceLayer {
       resolvingRoute_ = other.resolvingRoute_ != null ? other.resolvingRoute_.Clone() : null;
       resolvingRouteLen_ = other.resolvingRouteLen_;
       srcProto_ = other.srcProto_;
+      srcProtoTag_ = other.srcProtoTag_;
       adminDistance_ = other.adminDistance_;
       metric_ = other.metric_;
       paths_ = other.paths_.Clone();
@@ -7687,8 +7699,25 @@ namespace ServiceLayer {
       }
     }
 
+    /// <summary>Field number for the "SrcProtoTag" field.</summary>
+    public const int SrcProtoTagFieldNumber = 5;
+    private string srcProtoTag_ = "";
+    /// <summary>
+    /// Source Protocol Tag. This can be empty if N/A.
+    /// Contact Cisco for supported protocol tags.
+    /// This field is optional.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string SrcProtoTag {
+      get { return srcProtoTag_; }
+      set {
+        srcProtoTag_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
     /// <summary>Field number for the "AdminDistance" field.</summary>
-    public const int AdminDistanceFieldNumber = 5;
+    public const int AdminDistanceFieldNumber = 6;
     private uint adminDistance_;
     /// <summary>
     /// Nexthop route distance
@@ -7703,7 +7732,7 @@ namespace ServiceLayer {
     }
 
     /// <summary>Field number for the "Metric" field.</summary>
-    public const int MetricFieldNumber = 6;
+    public const int MetricFieldNumber = 7;
     private uint metric_;
     /// <summary>
     /// Nexthop route metric
@@ -7718,9 +7747,9 @@ namespace ServiceLayer {
     }
 
     /// <summary>Field number for the "Paths" field.</summary>
-    public const int PathsFieldNumber = 7;
+    public const int PathsFieldNumber = 8;
     private static readonly pb::FieldCodec<global::ServiceLayer.SLRoutePath> _repeated_paths_codec
-        = pb::FieldCodec.ForMessage(58, global::ServiceLayer.SLRoutePath.Parser);
+        = pb::FieldCodec.ForMessage(66, global::ServiceLayer.SLRoutePath.Parser);
     private readonly pbc::RepeatedField<global::ServiceLayer.SLRoutePath> paths_ = new pbc::RepeatedField<global::ServiceLayer.SLRoutePath>();
     /// <summary>
     /// Nexthop's path list. Paths indicate paths available
@@ -7757,6 +7786,7 @@ namespace ServiceLayer {
       if (!object.Equals(ResolvingRoute, other.ResolvingRoute)) return false;
       if (ResolvingRouteLen != other.ResolvingRouteLen) return false;
       if (SrcProto != other.SrcProto) return false;
+      if (SrcProtoTag != other.SrcProtoTag) return false;
       if (AdminDistance != other.AdminDistance) return false;
       if (Metric != other.Metric) return false;
       if(!paths_.Equals(other.paths_)) return false;
@@ -7771,6 +7801,7 @@ namespace ServiceLayer {
       if (resolvingRoute_ != null) hash ^= ResolvingRoute.GetHashCode();
       if (ResolvingRouteLen != 0) hash ^= ResolvingRouteLen.GetHashCode();
       if (SrcProto.Length != 0) hash ^= SrcProto.GetHashCode();
+      if (SrcProtoTag.Length != 0) hash ^= SrcProtoTag.GetHashCode();
       if (AdminDistance != 0) hash ^= AdminDistance.GetHashCode();
       if (Metric != 0) hash ^= Metric.GetHashCode();
       hash ^= paths_.GetHashCode();
@@ -7808,12 +7839,16 @@ namespace ServiceLayer {
         output.WriteRawTag(34);
         output.WriteString(SrcProto);
       }
+      if (SrcProtoTag.Length != 0) {
+        output.WriteRawTag(42);
+        output.WriteString(SrcProtoTag);
+      }
       if (AdminDistance != 0) {
-        output.WriteRawTag(40);
+        output.WriteRawTag(48);
         output.WriteUInt32(AdminDistance);
       }
       if (Metric != 0) {
-        output.WriteRawTag(48);
+        output.WriteRawTag(56);
         output.WriteUInt32(Metric);
       }
       paths_.WriteTo(output, _repeated_paths_codec);
@@ -7843,12 +7878,16 @@ namespace ServiceLayer {
         output.WriteRawTag(34);
         output.WriteString(SrcProto);
       }
+      if (SrcProtoTag.Length != 0) {
+        output.WriteRawTag(42);
+        output.WriteString(SrcProtoTag);
+      }
       if (AdminDistance != 0) {
-        output.WriteRawTag(40);
+        output.WriteRawTag(48);
         output.WriteUInt32(AdminDistance);
       }
       if (Metric != 0) {
-        output.WriteRawTag(48);
+        output.WriteRawTag(56);
         output.WriteUInt32(Metric);
       }
       paths_.WriteTo(ref output, _repeated_paths_codec);
@@ -7873,6 +7912,9 @@ namespace ServiceLayer {
       }
       if (SrcProto.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(SrcProto);
+      }
+      if (SrcProtoTag.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(SrcProtoTag);
       }
       if (AdminDistance != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(AdminDistance);
@@ -7910,6 +7952,9 @@ namespace ServiceLayer {
       }
       if (other.SrcProto.Length != 0) {
         SrcProto = other.SrcProto;
+      }
+      if (other.SrcProtoTag.Length != 0) {
+        SrcProtoTag = other.SrcProtoTag;
       }
       if (other.AdminDistance != 0) {
         AdminDistance = other.AdminDistance;
@@ -7955,15 +8000,19 @@ namespace ServiceLayer {
             SrcProto = input.ReadString();
             break;
           }
-          case 40: {
-            AdminDistance = input.ReadUInt32();
+          case 42: {
+            SrcProtoTag = input.ReadString();
             break;
           }
           case 48: {
+            AdminDistance = input.ReadUInt32();
+            break;
+          }
+          case 56: {
             Metric = input.ReadUInt32();
             break;
           }
-          case 58: {
+          case 66: {
             paths_.AddEntriesFrom(input, _repeated_paths_codec);
             break;
           }
@@ -8004,15 +8053,19 @@ namespace ServiceLayer {
             SrcProto = input.ReadString();
             break;
           }
-          case 40: {
-            AdminDistance = input.ReadUInt32();
+          case 42: {
+            SrcProtoTag = input.ReadString();
             break;
           }
           case 48: {
+            AdminDistance = input.ReadUInt32();
+            break;
+          }
+          case 56: {
             Metric = input.ReadUInt32();
             break;
           }
-          case 58: {
+          case 66: {
             paths_.AddEntriesFrom(ref input, _repeated_paths_codec);
             break;
           }

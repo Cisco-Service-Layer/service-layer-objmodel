@@ -385,6 +385,7 @@ constexpr SLNextHop::SLNextHop(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
   : paths_()
   , srcproto_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
+  , srcprototag_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
   , nexthopkey_(nullptr)
   , resolvingroute_(nullptr)
   , resolvingroutelen_(0u)
@@ -674,6 +675,7 @@ const uint32_t TableStruct_sl_5faf_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(
   PROTOBUF_FIELD_OFFSET(::service_layer::SLNextHop, resolvingroute_),
   PROTOBUF_FIELD_OFFSET(::service_layer::SLNextHop, resolvingroutelen_),
   PROTOBUF_FIELD_OFFSET(::service_layer::SLNextHop, srcproto_),
+  PROTOBUF_FIELD_OFFSET(::service_layer::SLNextHop, srcprototag_),
   PROTOBUF_FIELD_OFFSET(::service_layer::SLNextHop, admindistance_),
   PROTOBUF_FIELD_OFFSET(::service_layer::SLNextHop, metric_),
   PROTOBUF_FIELD_OFFSET(::service_layer::SLNextHop, paths_),
@@ -724,8 +726,8 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOB
   { 217, -1, -1, sizeof(::service_layer::SLAFNotifReq)},
   { 226, -1, -1, sizeof(::service_layer::SLAFNotifRsp)},
   { 234, -1, -1, sizeof(::service_layer::SLNextHop)},
-  { 247, -1, -1, sizeof(::service_layer::SLAFNotif)},
-  { 257, -1, -1, sizeof(::service_layer::SLAFNotifMsg)},
+  { 248, -1, -1, sizeof(::service_layer::SLAFNotif)},
+  { 258, -1, -1, sizeof(::service_layer::SLAFNotifMsg)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -844,33 +846,33 @@ const char descriptor_table_protodef_sl_5faf_2eproto[] PROTOBUF_SECTION_VARIABLE
   "LAFNotifRegReq\"s\n\014SLAFNotifRsp\0220\n\010NotifR"
   "eq\030\001 \001(\0132\036.service_layer.SLAFNotifRegReq"
   "\0221\n\013NotifStatus\030\002 \001(\0132\034.service_layer.SL"
-  "ErrorStatus\"\364\001\n\tSLNextHop\0224\n\nNextHopKey\030"
+  "ErrorStatus\"\211\002\n\tSLNextHop\0224\n\nNextHopKey\030"
   "\001 \001(\0132 .service_layer.SLAFNextHopRegKey\022"
   "2\n\016ResolvingRoute\030\002 \001(\0132\032.service_layer."
   "SLIpAddress\022\031\n\021ResolvingRouteLen\030\003 \001(\r\022\020"
-  "\n\010SrcProto\030\004 \001(\t\022\025\n\rAdminDistance\030\005 \001(\r\022"
-  "\016\n\006Metric\030\006 \001(\r\022)\n\005Paths\030\007 \003(\0132\032.service"
-  "_layer.SLRoutePath\"\250\001\n\tSLAFNotif\0222\n\013Noti"
-  "fStatus\030\001 \001(\0132\033.service_layer.SLAFNotifR"
-  "spH\000\0221\n\014RedistObject\030\004 \001(\0132\031.service_lay"
-  "er.SLAFObjectH\000\022+\n\007NextHop\030\005 \001(\0132\030.servi"
-  "ce_layer.SLNextHopH\000B\007\n\005Event\"K\n\014SLAFNot"
-  "ifMsg\022\017\n\007VrfName\030\001 \001(\t\022*\n\010AFNotifs\030\003 \003(\013"
-  "2\030.service_layer.SLAFNotif2\310\003\n\004SLAF\022M\n\014S"
-  "LAFVrfRegOp\022\034.service_layer.SLAFVrfRegMs"
-  "g\032\037.service_layer.SLAFVrfRegMsgRsp\022V\n\rSL"
-  "AFVrfRegGet\022\037.service_layer.SLAFVrfRegGe"
-  "tMsg\032\".service_layer.SLAFVrfRegGetMsgRsp"
-  "0\001\022;\n\006SLAFOp\022\026.service_layer.SLAFMsg\032\031.s"
-  "ervice_layer.SLAFMsgRsp\022E\n\014SLAFOpStream\022"
-  "\026.service_layer.SLAFMsg\032\031.service_layer."
-  "SLAFMsgRsp(\0010\001\022D\n\007SLAFGet\022\031.service_laye"
-  "r.SLAFGetMsg\032\034.service_layer.SLAFGetMsgR"
-  "sp0\001\022O\n\017SLAFNotifStream\022\033.service_layer."
-  "SLAFNotifReq\032\033.service_layer.SLAFNotifMs"
-  "g(\0010\001BQZOgithub.com/Cisco-service-layer/"
-  "service-layer-objmodel/grpc/protos;servi"
-  "ce_layerb\006proto3"
+  "\n\010SrcProto\030\004 \001(\t\022\023\n\013SrcProtoTag\030\005 \001(\t\022\025\n"
+  "\rAdminDistance\030\006 \001(\r\022\016\n\006Metric\030\007 \001(\r\022)\n\005"
+  "Paths\030\010 \003(\0132\032.service_layer.SLRoutePath\""
+  "\250\001\n\tSLAFNotif\0222\n\013NotifStatus\030\001 \001(\0132\033.ser"
+  "vice_layer.SLAFNotifRspH\000\0221\n\014RedistObjec"
+  "t\030\004 \001(\0132\031.service_layer.SLAFObjectH\000\022+\n\007"
+  "NextHop\030\005 \001(\0132\030.service_layer.SLNextHopH"
+  "\000B\007\n\005Event\"K\n\014SLAFNotifMsg\022\017\n\007VrfName\030\001 "
+  "\001(\t\022*\n\010AFNotifs\030\003 \003(\0132\030.service_layer.SL"
+  "AFNotif2\310\003\n\004SLAF\022M\n\014SLAFVrfRegOp\022\034.servi"
+  "ce_layer.SLAFVrfRegMsg\032\037.service_layer.S"
+  "LAFVrfRegMsgRsp\022V\n\rSLAFVrfRegGet\022\037.servi"
+  "ce_layer.SLAFVrfRegGetMsg\032\".service_laye"
+  "r.SLAFVrfRegGetMsgRsp0\001\022;\n\006SLAFOp\022\026.serv"
+  "ice_layer.SLAFMsg\032\031.service_layer.SLAFMs"
+  "gRsp\022E\n\014SLAFOpStream\022\026.service_layer.SLA"
+  "FMsg\032\031.service_layer.SLAFMsgRsp(\0010\001\022D\n\007S"
+  "LAFGet\022\031.service_layer.SLAFGetMsg\032\034.serv"
+  "ice_layer.SLAFGetMsgRsp0\001\022O\n\017SLAFNotifSt"
+  "ream\022\033.service_layer.SLAFNotifReq\032\033.serv"
+  "ice_layer.SLAFNotifMsg(\0010\001BQZOgithub.com"
+  "/Cisco-service-layer/service-layer-objmo"
+  "del/grpc/protos;service_layerb\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_sl_5faf_2eproto_deps[4] = {
   &::descriptor_table_sl_5fcommon_5ftypes_2eproto,
@@ -880,7 +882,7 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_sl_5faf_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_sl_5faf_2eproto = {
-  false, false, 4376, descriptor_table_protodef_sl_5faf_2eproto, "sl_af.proto", 
+  false, false, 4397, descriptor_table_protodef_sl_5faf_2eproto, "sl_af.proto", 
   &descriptor_table_sl_5faf_2eproto_once, descriptor_table_sl_5faf_2eproto_deps, 4, 29,
   schemas, file_default_instances, TableStruct_sl_5faf_2eproto::offsets,
   file_level_metadata_sl_5faf_2eproto, file_level_enum_descriptors_sl_5faf_2eproto, file_level_service_descriptors_sl_5faf_2eproto,
@@ -8045,6 +8047,14 @@ SLNextHop::SLNextHop(const SLNextHop& from)
     srcproto_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_srcproto(), 
       GetArenaForAllocation());
   }
+  srcprototag_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    srcprototag_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_srcprototag().empty()) {
+    srcprototag_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_srcprototag(), 
+      GetArenaForAllocation());
+  }
   if (from._internal_has_nexthopkey()) {
     nexthopkey_ = new ::service_layer::SLAFNextHopRegKey(*from.nexthopkey_);
   } else {
@@ -8066,6 +8076,10 @@ srcproto_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlr
 #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
   srcproto_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
 #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+srcprototag_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  srcprototag_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
 ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
     reinterpret_cast<char*>(&nexthopkey_) - reinterpret_cast<char*>(this)),
     0, static_cast<size_t>(reinterpret_cast<char*>(&metric_) -
@@ -8082,6 +8096,7 @@ SLNextHop::~SLNextHop() {
 inline void SLNextHop::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
   srcproto_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  srcprototag_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (this != internal_default_instance()) delete nexthopkey_;
   if (this != internal_default_instance()) delete resolvingroute_;
 }
@@ -8104,6 +8119,7 @@ void SLNextHop::Clear() {
 
   paths_.Clear();
   srcproto_.ClearToEmpty();
+  srcprototag_.ClearToEmpty();
   if (GetArenaForAllocation() == nullptr && nexthopkey_ != nullptr) {
     delete nexthopkey_;
   }
@@ -8158,32 +8174,42 @@ const char* SLNextHop::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::
         } else
           goto handle_unusual;
         continue;
-      // uint32 AdminDistance = 5;
+      // string SrcProtoTag = 5;
       case 5:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 40)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 42)) {
+          auto str = _internal_mutable_srcprototag();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "service_layer.SLNextHop.SrcProtoTag"));
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // uint32 AdminDistance = 6;
+      case 6:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 48)) {
           admindistance_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
         continue;
-      // uint32 Metric = 6;
-      case 6:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 48)) {
+      // uint32 Metric = 7;
+      case 7:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 56)) {
           metric_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
         continue;
-      // repeated .service_layer.SLRoutePath Paths = 7;
-      case 7:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 58)) {
+      // repeated .service_layer.SLRoutePath Paths = 8;
+      case 8:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 66)) {
           ptr -= 1;
           do {
             ptr += 1;
             ptr = ctx->ParseMessage(_internal_add_paths(), ptr);
             CHK_(ptr);
             if (!ctx->DataAvailable(ptr)) break;
-          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<58>(ptr));
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<66>(ptr));
         } else
           goto handle_unusual;
         continue;
@@ -8248,24 +8274,34 @@ uint8_t* SLNextHop::_InternalSerialize(
         4, this->_internal_srcproto(), target);
   }
 
-  // uint32 AdminDistance = 5;
+  // string SrcProtoTag = 5;
+  if (!this->_internal_srcprototag().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_srcprototag().data(), static_cast<int>(this->_internal_srcprototag().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "service_layer.SLNextHop.SrcProtoTag");
+    target = stream->WriteStringMaybeAliased(
+        5, this->_internal_srcprototag(), target);
+  }
+
+  // uint32 AdminDistance = 6;
   if (this->_internal_admindistance() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(5, this->_internal_admindistance(), target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(6, this->_internal_admindistance(), target);
   }
 
-  // uint32 Metric = 6;
+  // uint32 Metric = 7;
   if (this->_internal_metric() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(6, this->_internal_metric(), target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(7, this->_internal_metric(), target);
   }
 
-  // repeated .service_layer.SLRoutePath Paths = 7;
+  // repeated .service_layer.SLRoutePath Paths = 8;
   for (unsigned int i = 0,
       n = static_cast<unsigned int>(this->_internal_paths_size()); i < n; i++) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(7, this->_internal_paths(i), target, stream);
+      InternalWriteMessage(8, this->_internal_paths(i), target, stream);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -8284,7 +8320,7 @@ size_t SLNextHop::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // repeated .service_layer.SLRoutePath Paths = 7;
+  // repeated .service_layer.SLRoutePath Paths = 8;
   total_size += 1UL * this->_internal_paths_size();
   for (const auto& msg : this->paths_) {
     total_size +=
@@ -8296,6 +8332,13 @@ size_t SLNextHop::ByteSizeLong() const {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
         this->_internal_srcproto());
+  }
+
+  // string SrcProtoTag = 5;
+  if (!this->_internal_srcprototag().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_srcprototag());
   }
 
   // .service_layer.SLAFNextHopRegKey NextHopKey = 1;
@@ -8317,12 +8360,12 @@ size_t SLNextHop::ByteSizeLong() const {
     total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_resolvingroutelen());
   }
 
-  // uint32 AdminDistance = 5;
+  // uint32 AdminDistance = 6;
   if (this->_internal_admindistance() != 0) {
     total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_admindistance());
   }
 
-  // uint32 Metric = 6;
+  // uint32 Metric = 7;
   if (this->_internal_metric() != 0) {
     total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_metric());
   }
@@ -8352,6 +8395,9 @@ void SLNextHop::MergeFrom(const SLNextHop& from) {
   paths_.MergeFrom(from.paths_);
   if (!from._internal_srcproto().empty()) {
     _internal_set_srcproto(from._internal_srcproto());
+  }
+  if (!from._internal_srcprototag().empty()) {
+    _internal_set_srcprototag(from._internal_srcprototag());
   }
   if (from._internal_has_nexthopkey()) {
     _internal_mutable_nexthopkey()->::service_layer::SLAFNextHopRegKey::MergeFrom(from._internal_nexthopkey());
@@ -8392,6 +8438,11 @@ void SLNextHop::InternalSwap(SLNextHop* other) {
       &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
       &srcproto_, lhs_arena,
       &other->srcproto_, rhs_arena
+  );
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+      &srcprototag_, lhs_arena,
+      &other->srcprototag_, rhs_arena
   );
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
       PROTOBUF_FIELD_OFFSET(SLNextHop, metric_)
