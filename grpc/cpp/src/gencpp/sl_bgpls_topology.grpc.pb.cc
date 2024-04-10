@@ -21,55 +21,56 @@
 #include <grpcpp/impl/codegen/sync_stream.h>
 namespace service_layer {
 
-static const char* SLBgplsTopoSubscription_method_names[] = {
-  "/service_layer.SLBgplsTopoSubscription/SLBgplsTopoGetUpdStream",
+static const char* SLBgplsTopo_method_names[] = {
+  "/service_layer.SLBgplsTopo/SLBgplsTopoNotifStream",
 };
 
-std::unique_ptr< SLBgplsTopoSubscription::Stub> SLBgplsTopoSubscription::NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options) {
+std::unique_ptr< SLBgplsTopo::Stub> SLBgplsTopo::NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options) {
   (void)options;
-  std::unique_ptr< SLBgplsTopoSubscription::Stub> stub(new SLBgplsTopoSubscription::Stub(channel, options));
+  std::unique_ptr< SLBgplsTopo::Stub> stub(new SLBgplsTopo::Stub(channel, options));
   return stub;
 }
 
-SLBgplsTopoSubscription::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options)
-  : channel_(channel), rpcmethod_SLBgplsTopoGetUpdStream_(SLBgplsTopoSubscription_method_names[0], options.suffix_for_stats(),::grpc::internal::RpcMethod::BIDI_STREAMING, channel)
+SLBgplsTopo::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options)
+  : channel_(channel), rpcmethod_SLBgplsTopoNotifStream_(SLBgplsTopo_method_names[0], options.suffix_for_stats(),::grpc::internal::RpcMethod::SERVER_STREAMING, channel)
   {}
 
-::grpc::ClientReaderWriter< ::service_layer::SLBgplsTopoGetUpdMsg, ::service_layer::SLBgplsTopoUpdMsg>* SLBgplsTopoSubscription::Stub::SLBgplsTopoGetUpdStreamRaw(::grpc::ClientContext* context) {
-  return ::grpc::internal::ClientReaderWriterFactory< ::service_layer::SLBgplsTopoGetUpdMsg, ::service_layer::SLBgplsTopoUpdMsg>::Create(channel_.get(), rpcmethod_SLBgplsTopoGetUpdStream_, context);
+::grpc::ClientReader< ::service_layer::SLBgplsTopoNotifMsg>* SLBgplsTopo::Stub::SLBgplsTopoNotifStreamRaw(::grpc::ClientContext* context, const ::service_layer::SLBgplsTopoNotifReqMsg& request) {
+  return ::grpc::internal::ClientReaderFactory< ::service_layer::SLBgplsTopoNotifMsg>::Create(channel_.get(), rpcmethod_SLBgplsTopoNotifStream_, context, request);
 }
 
-void SLBgplsTopoSubscription::Stub::async::SLBgplsTopoGetUpdStream(::grpc::ClientContext* context, ::grpc::ClientBidiReactor< ::service_layer::SLBgplsTopoGetUpdMsg,::service_layer::SLBgplsTopoUpdMsg>* reactor) {
-  ::grpc::internal::ClientCallbackReaderWriterFactory< ::service_layer::SLBgplsTopoGetUpdMsg,::service_layer::SLBgplsTopoUpdMsg>::Create(stub_->channel_.get(), stub_->rpcmethod_SLBgplsTopoGetUpdStream_, context, reactor);
+void SLBgplsTopo::Stub::async::SLBgplsTopoNotifStream(::grpc::ClientContext* context, const ::service_layer::SLBgplsTopoNotifReqMsg* request, ::grpc::ClientReadReactor< ::service_layer::SLBgplsTopoNotifMsg>* reactor) {
+  ::grpc::internal::ClientCallbackReaderFactory< ::service_layer::SLBgplsTopoNotifMsg>::Create(stub_->channel_.get(), stub_->rpcmethod_SLBgplsTopoNotifStream_, context, request, reactor);
 }
 
-::grpc::ClientAsyncReaderWriter< ::service_layer::SLBgplsTopoGetUpdMsg, ::service_layer::SLBgplsTopoUpdMsg>* SLBgplsTopoSubscription::Stub::AsyncSLBgplsTopoGetUpdStreamRaw(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq, void* tag) {
-  return ::grpc::internal::ClientAsyncReaderWriterFactory< ::service_layer::SLBgplsTopoGetUpdMsg, ::service_layer::SLBgplsTopoUpdMsg>::Create(channel_.get(), cq, rpcmethod_SLBgplsTopoGetUpdStream_, context, true, tag);
+::grpc::ClientAsyncReader< ::service_layer::SLBgplsTopoNotifMsg>* SLBgplsTopo::Stub::AsyncSLBgplsTopoNotifStreamRaw(::grpc::ClientContext* context, const ::service_layer::SLBgplsTopoNotifReqMsg& request, ::grpc::CompletionQueue* cq, void* tag) {
+  return ::grpc::internal::ClientAsyncReaderFactory< ::service_layer::SLBgplsTopoNotifMsg>::Create(channel_.get(), cq, rpcmethod_SLBgplsTopoNotifStream_, context, request, true, tag);
 }
 
-::grpc::ClientAsyncReaderWriter< ::service_layer::SLBgplsTopoGetUpdMsg, ::service_layer::SLBgplsTopoUpdMsg>* SLBgplsTopoSubscription::Stub::PrepareAsyncSLBgplsTopoGetUpdStreamRaw(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncReaderWriterFactory< ::service_layer::SLBgplsTopoGetUpdMsg, ::service_layer::SLBgplsTopoUpdMsg>::Create(channel_.get(), cq, rpcmethod_SLBgplsTopoGetUpdStream_, context, false, nullptr);
+::grpc::ClientAsyncReader< ::service_layer::SLBgplsTopoNotifMsg>* SLBgplsTopo::Stub::PrepareAsyncSLBgplsTopoNotifStreamRaw(::grpc::ClientContext* context, const ::service_layer::SLBgplsTopoNotifReqMsg& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncReaderFactory< ::service_layer::SLBgplsTopoNotifMsg>::Create(channel_.get(), cq, rpcmethod_SLBgplsTopoNotifStream_, context, request, false, nullptr);
 }
 
-SLBgplsTopoSubscription::Service::Service() {
+SLBgplsTopo::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
-      SLBgplsTopoSubscription_method_names[0],
-      ::grpc::internal::RpcMethod::BIDI_STREAMING,
-      new ::grpc::internal::BidiStreamingHandler< SLBgplsTopoSubscription::Service, ::service_layer::SLBgplsTopoGetUpdMsg, ::service_layer::SLBgplsTopoUpdMsg>(
-          [](SLBgplsTopoSubscription::Service* service,
+      SLBgplsTopo_method_names[0],
+      ::grpc::internal::RpcMethod::SERVER_STREAMING,
+      new ::grpc::internal::ServerStreamingHandler< SLBgplsTopo::Service, ::service_layer::SLBgplsTopoNotifReqMsg, ::service_layer::SLBgplsTopoNotifMsg>(
+          [](SLBgplsTopo::Service* service,
              ::grpc::ServerContext* ctx,
-             ::grpc::ServerReaderWriter<::service_layer::SLBgplsTopoUpdMsg,
-             ::service_layer::SLBgplsTopoGetUpdMsg>* stream) {
-               return service->SLBgplsTopoGetUpdStream(ctx, stream);
+             const ::service_layer::SLBgplsTopoNotifReqMsg* req,
+             ::grpc::ServerWriter<::service_layer::SLBgplsTopoNotifMsg>* writer) {
+               return service->SLBgplsTopoNotifStream(ctx, req, writer);
              }, this)));
 }
 
-SLBgplsTopoSubscription::Service::~Service() {
+SLBgplsTopo::Service::~Service() {
 }
 
-::grpc::Status SLBgplsTopoSubscription::Service::SLBgplsTopoGetUpdStream(::grpc::ServerContext* context, ::grpc::ServerReaderWriter< ::service_layer::SLBgplsTopoUpdMsg, ::service_layer::SLBgplsTopoGetUpdMsg>* stream) {
+::grpc::Status SLBgplsTopo::Service::SLBgplsTopoNotifStream(::grpc::ServerContext* context, const ::service_layer::SLBgplsTopoNotifReqMsg* request, ::grpc::ServerWriter< ::service_layer::SLBgplsTopoNotifMsg>* writer) {
   (void) context;
-  (void) stream;
+  (void) request;
+  (void) writer;
   return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
 }
 

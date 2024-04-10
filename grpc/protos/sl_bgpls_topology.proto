@@ -1,6 +1,9 @@
 // @file
 // @brief RPC proto file for BGP-LS Topology Subscription Service.
 //
+// The RPCs and messages defined here are experimental and subject to
+// change without notice and such changes can break backwards compatibility.
+//
 // ----------------------------------------------------------------
 //  Copyright (c) 2024 by Cisco Systems, Inc.
 //  All rights reserved.
@@ -8,22 +11,21 @@
 //
 //
 
-//@defgroup BGP-LS Topology Subscription
-//@brief BGP-LS Topology Subscription service definitions.
+//@defgroup BGP-LS Topology Service
+//@brief BGP-LS Topology Service definitions.
 
 syntax = "proto3";
 package service_layer;
 
 import "sl_common_types.proto";
-import "sl_protocols.proto";
 
 option go_package="github.com/Cisco-service-layer/service-layer-objmodel/grpc/protos;service_layer";
 
-// @defgroup SLBgplsTopoSubscription
-// Defines RPC calls for subscribing to BGP-LS Topology updates.
+// @defgroup SLBgplsTopo
+// Defines RPC calls for BGP-LS Topology updates.
 // @{
-service SLBgplsTopoSubscription {
-    //@addtogroup SLBgplsTopoSubscription
+service SLBgplsTopo {
+    //@addtogroup SLBgplsTopo
     //@{
     //;
 
@@ -35,23 +37,18 @@ service SLBgplsTopoSubscription {
     // It can be used to get "push" information for BGP-LS
     // adds/updates/deletes.
     //
-    // The caller must maintain the GRPC channel as long as there is
-    // interest in BGP-LS Topology information.
+    // The caller must close the response stream when it is no longer
+    // interested in BGP-LS Topology information.
     //
-    // The call takes a stream of requests with the information on Match filters
+    // The call takes a request message with the information on Match filters
     // to be applied while sending BGP-LS Topology updates in the response stream.
-    // The Match filters on the first request of the stream only is honoured and
-    // applied by the backend process. No further updates on Match filters will be
-    // honoured on this request stream and an application error will be thrown.
-    // The request stream is then only maintained to indicate the interest in
-    // BGP-LS Topology information.
     //
     // The success/failure of the request is relayed in the response as error status.
     // If the request was successful, then the initial set of BGP-LS Topology
     // information is sent as a stream containing a Start marker, any BGP-LS
     // Topology if present, and an End Marker. The response stream will then
     // be maintained to send subsequent updates and terminated only when the
-    // request stream is terminated.
+    // response stream is terminated by the caller.
     //
     // When the backend process handling the BGP-LS Topology subscription goes
     // for a restart and when it comes up and ready again, the caller would
@@ -59,15 +56,15 @@ service SLBgplsTopoSubscription {
     // Upon receiving the Start marker, the caller must perform a mark and
     // sweep operation on the data it received from this subscription.
     //
-    rpc SLBgplsTopoGetUpdStream(stream SLBgplsTopoGetUpdMsg) returns (stream SLBgplsTopoUpdMsg);
+    rpc SLBgplsTopoNotifStream(SLBgplsTopoNotifReqMsg) returns (stream SLBgplsTopoNotifMsg);
     //
     //@}
 }
 
 // BGP-LS Topology Get Update message
-message SLBgplsTopoGetUpdMsg {
+message SLBgplsTopoNotifReqMsg {
     // Match filters for BGP-LS Topology Entries
-    // BGP-LS Topology Get Update message takes one or many BGP-LS Topology
+    // BGP-LS Topology Notification request message takes one or many BGP-LS Topology
     // Match filters. Each of the Match filter will have a set of Match
     // conditions. A matching BGP-LS Topology entry must match all the Match
     // conditions in one or more Match filters. OR operation is applied on
@@ -99,7 +96,7 @@ message SLBgplsTopoNlriMatch {
 }
 
 // BGP-LS Topology Update message
-message SLBgplsTopoUpdMsg {
+message SLBgplsTopoNotifMsg {
     oneof Update {
         // This field carries error info, if any error occurs during stream setup.
         // SL_SUCCESS: signifies that the update request was successful
@@ -168,7 +165,7 @@ message SLBgplsTopoNlri {
     // Type of Link-State NLRI
     // NLRI Type.
     // Section 5.2 of [RFC9552]
-    SLBgplsTopoNlriType NlriType = 3;
+    //SLBgplsTopoNlriType NlriType = 3;
 
     // NLRI
     oneof Nlri {
@@ -189,6 +186,30 @@ message SLBgplsTopoNlri {
     }
 }
 
+// NLRI type
+enum SLBgplsTopoNlriType {
+    SL_BGPLS_TOPO_NLRI_TYPE_RESERVED = 0;
+    SL_BGPLS_TOPO_NLRI_TYPE_NODE = 1;
+    SL_BGPLS_TOPO_NLRI_TYPE_LINK = 2;
+    SL_BGPLS_TOPO_NLRI_TYPE_IPV4_PREFIX = 3;
+    SL_BGPLS_TOPO_NLRI_TYPE_IPV6_PREFIX = 4;
+    SL_BGPLS_TOPO_NLRI_TYPE_SR_POLICY_CANDIDATE_PATH = 5;
+    SL_BGPLS_TOPO_NLRI_TYPE_SRV6_SID = 6;
+}
+
+// Protocols
+enum SLBgplsTopoProtocol {
+    SL_BGPLS_TOPO_PROTOCOL_RESERVED = 0;
+    SL_BGPLS_TOPO_PROTOCOL_ISIS_L1 = 1;
+    SL_BGPLS_TOPO_PROTOCOL_ISIS_L2 = 2;
+    SL_BGPLS_TOPO_PROTOCOL_OSPFv2 = 3;
+    SL_BGPLS_TOPO_PROTOCOL_DIRECT = 4;
+    SL_BGPLS_TOPO_PROTOCOL_STATIC = 5;
+    SL_BGPLS_TOPO_PROTOCOL_OSPFv3 = 6;
+    SL_BGPLS_TOPO_PROTOCOL_BGP = 7;
+    SL_BGPLS_TOPO_PROTOCOL_RSVP_TE = 8;
+    SL_BGPLS_TOPO_PROTOCOL_SR = 9;
+}
 
 //
 // Messages for NLRI Objects
@@ -294,12 +315,12 @@ message SLBgplsTopoLinkDescr {
     // Local IPv4 address of a link.
     // IPv4 interface address. TLV 259.
     // Section 5.2.2 of [RFC9552]
-    uint32 LocalIpv4 = 3;
+    bytes LocalIpv4 = 3;
 
     // Remote IPv4 address of a link.
     // IPv4 neighbor address. TLV 260.
     // Section 5.2.2 of [RFC9552]
-    uint32 RemoteIpv4 = 4;
+    bytes RemoteIpv4 = 4;
 
     // Local IPv6 address of a link.
     // IPv6 interface address. TLV 261.
@@ -332,7 +353,7 @@ message SLBgplsTopoPrefixDescr {
     // IP address prefix (IPv4 or IPv6) advertised in the IGP topology.
     // IP Reachability Information. TLV 265.
     // Section 5.2.3.2 of [RFC9552]
-    bytes PrefixLength = 3;
+    uint32 PrefixLength = 3;
 
     // IP address prefix (IPv4 or IPv6) advertised in the IGP topology.
     // IP Reachability Information. TLV 265.
@@ -369,7 +390,7 @@ message SLBgplsTopoSrPolicyDescr {
     // Section 4 of [draft-ietf-idr-bgp-ls-sr-policy]
     oneof EndpointAddress {
         // This field carries info about an IPv4 endpoint address.
-        uint32 Ipv4EndAddr = 3;
+        bytes Ipv4EndAddr = 3;
 
         // This field carries info about an IPv6 endpoint address.
         bytes Ipv6EndAddr = 4;
@@ -390,7 +411,7 @@ message SLBgplsTopoSrPolicyDescr {
     // Section 4 of [draft-ietf-idr-bgp-ls-sr-policy]
     oneof OriginatorAddress {
         // This field carries info about an IPv4 originator address.
-        uint32 Ipv4OrigAddr = 7;
+        bytes Ipv4OrigAddr = 7;
 
         // This field carries info about an IPv6 originator address.
         bytes Ipv6OrigAddr = 8;
@@ -420,12 +441,12 @@ message SLBgplsTopoOspfNodeId {
     // Router ID.
     // IGP Router-ID. TLV 515.
     // Section 5.2.1 of [RFC9552]
-    uint32 RouterId = 3;
+    bytes RouterId = 3;
 
     // IPv4 address of the DR's interface to the LAN.
     // IGP Router-ID. TLV 515.
     // Section 5.2.1 of [RFC9552]
-    uint32 DrIdentifier = 4;
+    bytes DrIdentifier = 4;
 }
 
 // OSPFv3 Node ID
@@ -491,12 +512,35 @@ message SLBgplsTopoSrPolicyNodeId {
     // Auxiliary TE Router-ID.
     // IPv4 Router-ID. TLV 1028.
     // Section 3 of [draft-ietf-idr-bgp-ls-sr-policy]
-    uint32 Ipv4RouterId = 3;
+    bytes Ipv4RouterId = 3;
 
     // Auxiliary TE Router-ID.
     // IPv6 Router-ID. TLV 1029.
     // Section 3 of [draft-ietf-idr-bgp-ls-sr-policy]
     bytes Ipv6RouterId = 4;
+}
+
+// OSPF Route types
+enum SLBgplsTopoOspfRouteType {
+    SL_BGPLS_TOPO_OSPF_ROUTE_TYPE_RESERVED = 0;
+    SL_BGPLS_TOPO_OSPF_ROUTE_TYPE_INTRA_AREA = 1;
+    SL_BGPLS_TOPO_OSPF_ROUTE_TYPE_INTER_AREA = 2;
+    SL_BGPLS_TOPO_OSPF_ROUTE_TYPE_EXTERN_1 = 3;
+    SL_BGPLS_TOPO_OSPF_ROUTE_TYPE_EXTERN_2 = 4;
+    SL_BGPLS_TOPO_OSPF_ROUTE_TYPE_NSSA_1 = 5;
+    SL_BGPLS_TOPO_OSPF_ROUTE_TYPE_NSSA_2 = 6;
+}
+
+// Protocol Originating SR Policy
+enum SLBgplsTopoSrPolicyProtocolOrigin {
+    SL_BGPLS_TOPO_SR_POLICY_PROTOCOL_ORIGIN_RESERVED = 0;
+    SL_BGPLS_TOPO_SR_POLICY_PROTOCOL_ORIGIN_PCEP = 1;
+    SL_BGPLS_TOPO_SR_POLICY_PROTOCOL_ORIGIN_BGP_SR_POLICY = 2;
+    SL_BGPLS_TOPO_SR_POLICY_PROTOCOL_ORIGIN_CONFIG = 3;
+    SL_BGPLS_TOPO_SR_POLICY_PROTOCOL_ORIGIN_PCEP_VIA_PCE = 10;
+    SL_BGPLS_TOPO_SR_POLICY_PROTOCOL_ORIGIN_BGP_SR_POLICY_VIA_PCE = 20;
+    SL_BGPLS_TOPO_SR_POLICY_PROTOCOL_ORIGIN_CONFIG_VIA_PCE = 30;
+
 }
 
 // SR Policy flags
@@ -993,7 +1037,7 @@ message SLBgplsTopoIsisAreaId {
 // Section 5.3.1.4 of [RFC9552]
 message SLBgplsTopoLocalIpv4RouterId {
     // IPv4 Router ID
-    uint32 RouterId = 1;
+    bytes RouterId = 1;
 }
 
 // Local IPv4/IPv6 Router-ID. TLV 1029.
@@ -1007,7 +1051,7 @@ message SLBgplsTopoLocalIpv6RouterId {
 // Section 5.3.2.1 of [RFC9552]
 message SLBgplsTopoRemoteIpv4RouterId {
     // IPv4 Router ID
-    uint32 RouterId = 1;
+    bytes RouterId = 1;
 }
 
 // Remote IPv4/IPv6 Router-ID. TLV 1031.
@@ -1345,7 +1389,7 @@ message SLBgplsTopoSrv6EndXSid {
 message SLBgpLsTopoNeighborId {
     oneof NeighborId {
         // This field carries info about an IPv4 neighbor ID.
-        uint32 Ipv4Addr = 1;
+        bytes Ipv4Addr = 1;
 
         // This field carries info about an system ID neighbor ID.
         bytes SystemId = 2;
@@ -1489,7 +1533,7 @@ message SLBgplsTopoPrefixMetric {
 message SLBgplsTopoPrefixOspfFwdAddr {
     oneof OspfFwdAddr {
         // This field carries info about an IPv4 OSPF forwarding address.
-        uint32 Ipv4Addr = 1;
+        bytes Ipv4Addr = 1;
 
         // This field carries info about an IPv6 OSPF forwarding address.
         bytes Ipv6Addr = 2;
@@ -1589,7 +1633,7 @@ message SLBgplsTopoPrefixAttrFlags {
 message SLBgplsTopoPrefixSrcRouterId {
     oneof SrcRouterId {
         // This field carries info about an IPv4 source router ID.
-        uint32 Ipv4Addr = 1;
+        bytes Ipv4Addr = 1;
 
         // This field carries info about an IPv6 source router ID.
         bytes Ipv6Addr = 2;
@@ -2046,7 +2090,7 @@ message SLBgplsTopoSrSegmentDesc {
 
     oneof LocalNodeAddr {
         // This field carries info about an IPv4 local node address.
-        uint32 Ipv4LocAddr = 2;
+        bytes Ipv4LocAddr = 2;
 
         // This field carries info about an IPv6 local node address.
         bytes Ipv6LocAddr = 3;
@@ -2054,7 +2098,7 @@ message SLBgplsTopoSrSegmentDesc {
 
     oneof RemoteNodeAddr {
         // This field carries info about an IPv4 remote node address.
-        uint32 Ipv4RemAddr = 4;
+        bytes Ipv4RemAddr = 4;
 
         // This field carries info about an IPv6 remote node address.
         bytes Ipv6RemAddr = 5;

@@ -6,6 +6,9 @@
 // @file
 // @brief RPC proto file for BGP-LS Topology Subscription Service.
 //
+// The RPCs and messages defined here are experimental and subject to
+// change without notice and such changes can break backwards compatibility.
+//
 // ----------------------------------------------------------------
 //  Copyright (c) 2024 by Cisco Systems, Inc.
 //  All rights reserved.
@@ -13,8 +16,8 @@
 //
 //
 //
-// @defgroup BGP-LS Topology Subscription
-// @brief BGP-LS Topology Subscription service definitions.
+// @defgroup BGP-LS Topology Service
+// @brief BGP-LS Topology Service definitions.
 //
 #pragma warning disable 0414, 1591
 #region Designer generated code
@@ -23,13 +26,13 @@ using grpc = global::Grpc.Core;
 
 namespace ServiceLayer {
   /// <summary>
-  /// @defgroup SLBgplsTopoSubscription
-  /// Defines RPC calls for subscribing to BGP-LS Topology updates.
+  /// @defgroup SLBgplsTopo
+  /// Defines RPC calls for BGP-LS Topology updates.
   /// @{
   /// </summary>
-  public static partial class SLBgplsTopoSubscription
+  public static partial class SLBgplsTopo
   {
-    static readonly string __ServiceName = "service_layer.SLBgplsTopoSubscription";
+    static readonly string __ServiceName = "service_layer.SLBgplsTopo";
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static void __Helper_SerializeMessage(global::Google.Protobuf.IMessage message, grpc::SerializationContext context)
@@ -65,17 +68,17 @@ namespace ServiceLayer {
     }
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Marshaller<global::ServiceLayer.SLBgplsTopoGetUpdMsg> __Marshaller_service_layer_SLBgplsTopoGetUpdMsg = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::ServiceLayer.SLBgplsTopoGetUpdMsg.Parser));
+    static readonly grpc::Marshaller<global::ServiceLayer.SLBgplsTopoNotifReqMsg> __Marshaller_service_layer_SLBgplsTopoNotifReqMsg = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::ServiceLayer.SLBgplsTopoNotifReqMsg.Parser));
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Marshaller<global::ServiceLayer.SLBgplsTopoUpdMsg> __Marshaller_service_layer_SLBgplsTopoUpdMsg = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::ServiceLayer.SLBgplsTopoUpdMsg.Parser));
+    static readonly grpc::Marshaller<global::ServiceLayer.SLBgplsTopoNotifMsg> __Marshaller_service_layer_SLBgplsTopoNotifMsg = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::ServiceLayer.SLBgplsTopoNotifMsg.Parser));
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Method<global::ServiceLayer.SLBgplsTopoGetUpdMsg, global::ServiceLayer.SLBgplsTopoUpdMsg> __Method_SLBgplsTopoGetUpdStream = new grpc::Method<global::ServiceLayer.SLBgplsTopoGetUpdMsg, global::ServiceLayer.SLBgplsTopoUpdMsg>(
-        grpc::MethodType.DuplexStreaming,
+    static readonly grpc::Method<global::ServiceLayer.SLBgplsTopoNotifReqMsg, global::ServiceLayer.SLBgplsTopoNotifMsg> __Method_SLBgplsTopoNotifStream = new grpc::Method<global::ServiceLayer.SLBgplsTopoNotifReqMsg, global::ServiceLayer.SLBgplsTopoNotifMsg>(
+        grpc::MethodType.ServerStreaming,
         __ServiceName,
-        "SLBgplsTopoGetUpdStream",
-        __Marshaller_service_layer_SLBgplsTopoGetUpdMsg,
-        __Marshaller_service_layer_SLBgplsTopoUpdMsg);
+        "SLBgplsTopoNotifStream",
+        __Marshaller_service_layer_SLBgplsTopoNotifReqMsg,
+        __Marshaller_service_layer_SLBgplsTopoNotifMsg);
 
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
@@ -83,32 +86,27 @@ namespace ServiceLayer {
       get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.Services[0]; }
     }
 
-    /// <summary>Base class for server-side implementations of SLBgplsTopoSubscription</summary>
-    [grpc::BindServiceMethod(typeof(SLBgplsTopoSubscription), "BindService")]
-    public abstract partial class SLBgplsTopoSubscriptionBase
+    /// <summary>Base class for server-side implementations of SLBgplsTopo</summary>
+    [grpc::BindServiceMethod(typeof(SLBgplsTopo), "BindService")]
+    public abstract partial class SLBgplsTopoBase
     {
       /// <summary>
       /// This call is used to get a stream of BGP-LS Topology updates.
       /// It can be used to get "push" information for BGP-LS
       /// adds/updates/deletes.
       ///
-      /// The caller must maintain the GRPC channel as long as there is
-      /// interest in BGP-LS Topology information.
+      /// The caller must close the response stream when it is no longer
+      /// interested in BGP-LS Topology information.
       ///
-      /// The call takes a stream of requests with the information on Match filters
+      /// The call takes a request message with the information on Match filters
       /// to be applied while sending BGP-LS Topology updates in the response stream.
-      /// The Match filters on the first request of the stream only is honoured and
-      /// applied by the backend process. No further updates on Match filters will be
-      /// honoured on this request stream and an application error will be thrown.
-      /// The request stream is then only maintained to indicate the interest in
-      /// BGP-LS Topology information.
       ///
       /// The success/failure of the request is relayed in the response as error status.
       /// If the request was successful, then the initial set of BGP-LS Topology
       /// information is sent as a stream containing a Start marker, any BGP-LS
       /// Topology if present, and an End Marker. The response stream will then
       /// be maintained to send subsequent updates and terminated only when the
-      /// request stream is terminated.
+      /// response stream is terminated by the caller.
       ///
       /// When the backend process handling the BGP-LS Topology subscription goes
       /// for a restart and when it comes up and ready again, the caller would
@@ -116,42 +114,42 @@ namespace ServiceLayer {
       /// Upon receiving the Start marker, the caller must perform a mark and
       /// sweep operation on the data it received from this subscription.
       /// </summary>
-      /// <param name="requestStream">Used for reading requests from the client.</param>
+      /// <param name="request">The request received from the client.</param>
       /// <param name="responseStream">Used for sending responses back to the client.</param>
       /// <param name="context">The context of the server-side call handler being invoked.</param>
       /// <returns>A task indicating completion of the handler.</returns>
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::System.Threading.Tasks.Task SLBgplsTopoGetUpdStream(grpc::IAsyncStreamReader<global::ServiceLayer.SLBgplsTopoGetUpdMsg> requestStream, grpc::IServerStreamWriter<global::ServiceLayer.SLBgplsTopoUpdMsg> responseStream, grpc::ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task SLBgplsTopoNotifStream(global::ServiceLayer.SLBgplsTopoNotifReqMsg request, grpc::IServerStreamWriter<global::ServiceLayer.SLBgplsTopoNotifMsg> responseStream, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
 
     }
 
-    /// <summary>Client for SLBgplsTopoSubscription</summary>
-    public partial class SLBgplsTopoSubscriptionClient : grpc::ClientBase<SLBgplsTopoSubscriptionClient>
+    /// <summary>Client for SLBgplsTopo</summary>
+    public partial class SLBgplsTopoClient : grpc::ClientBase<SLBgplsTopoClient>
     {
-      /// <summary>Creates a new client for SLBgplsTopoSubscription</summary>
+      /// <summary>Creates a new client for SLBgplsTopo</summary>
       /// <param name="channel">The channel to use to make remote calls.</param>
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public SLBgplsTopoSubscriptionClient(grpc::ChannelBase channel) : base(channel)
+      public SLBgplsTopoClient(grpc::ChannelBase channel) : base(channel)
       {
       }
-      /// <summary>Creates a new client for SLBgplsTopoSubscription that uses a custom <c>CallInvoker</c>.</summary>
+      /// <summary>Creates a new client for SLBgplsTopo that uses a custom <c>CallInvoker</c>.</summary>
       /// <param name="callInvoker">The callInvoker to use to make remote calls.</param>
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public SLBgplsTopoSubscriptionClient(grpc::CallInvoker callInvoker) : base(callInvoker)
+      public SLBgplsTopoClient(grpc::CallInvoker callInvoker) : base(callInvoker)
       {
       }
       /// <summary>Protected parameterless constructor to allow creation of test doubles.</summary>
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      protected SLBgplsTopoSubscriptionClient() : base()
+      protected SLBgplsTopoClient() : base()
       {
       }
       /// <summary>Protected constructor to allow creation of configured clients.</summary>
       /// <param name="configuration">The client configuration.</param>
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      protected SLBgplsTopoSubscriptionClient(ClientBaseConfiguration configuration) : base(configuration)
+      protected SLBgplsTopoClient(ClientBaseConfiguration configuration) : base(configuration)
       {
       }
 
@@ -160,23 +158,18 @@ namespace ServiceLayer {
       /// It can be used to get "push" information for BGP-LS
       /// adds/updates/deletes.
       ///
-      /// The caller must maintain the GRPC channel as long as there is
-      /// interest in BGP-LS Topology information.
+      /// The caller must close the response stream when it is no longer
+      /// interested in BGP-LS Topology information.
       ///
-      /// The call takes a stream of requests with the information on Match filters
+      /// The call takes a request message with the information on Match filters
       /// to be applied while sending BGP-LS Topology updates in the response stream.
-      /// The Match filters on the first request of the stream only is honoured and
-      /// applied by the backend process. No further updates on Match filters will be
-      /// honoured on this request stream and an application error will be thrown.
-      /// The request stream is then only maintained to indicate the interest in
-      /// BGP-LS Topology information.
       ///
       /// The success/failure of the request is relayed in the response as error status.
       /// If the request was successful, then the initial set of BGP-LS Topology
       /// information is sent as a stream containing a Start marker, any BGP-LS
       /// Topology if present, and an End Marker. The response stream will then
       /// be maintained to send subsequent updates and terminated only when the
-      /// request stream is terminated.
+      /// response stream is terminated by the caller.
       ///
       /// When the backend process handling the BGP-LS Topology subscription goes
       /// for a restart and when it comes up and ready again, the caller would
@@ -184,37 +177,33 @@ namespace ServiceLayer {
       /// Upon receiving the Start marker, the caller must perform a mark and
       /// sweep operation on the data it received from this subscription.
       /// </summary>
+      /// <param name="request">The request to send to the server.</param>
       /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
       /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
       /// <param name="cancellationToken">An optional token for canceling the call.</param>
       /// <returns>The call object.</returns>
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual grpc::AsyncDuplexStreamingCall<global::ServiceLayer.SLBgplsTopoGetUpdMsg, global::ServiceLayer.SLBgplsTopoUpdMsg> SLBgplsTopoGetUpdStream(grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual grpc::AsyncServerStreamingCall<global::ServiceLayer.SLBgplsTopoNotifMsg> SLBgplsTopoNotifStream(global::ServiceLayer.SLBgplsTopoNotifReqMsg request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
-        return SLBgplsTopoGetUpdStream(new grpc::CallOptions(headers, deadline, cancellationToken));
+        return SLBgplsTopoNotifStream(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
       /// <summary>
       /// This call is used to get a stream of BGP-LS Topology updates.
       /// It can be used to get "push" information for BGP-LS
       /// adds/updates/deletes.
       ///
-      /// The caller must maintain the GRPC channel as long as there is
-      /// interest in BGP-LS Topology information.
+      /// The caller must close the response stream when it is no longer
+      /// interested in BGP-LS Topology information.
       ///
-      /// The call takes a stream of requests with the information on Match filters
+      /// The call takes a request message with the information on Match filters
       /// to be applied while sending BGP-LS Topology updates in the response stream.
-      /// The Match filters on the first request of the stream only is honoured and
-      /// applied by the backend process. No further updates on Match filters will be
-      /// honoured on this request stream and an application error will be thrown.
-      /// The request stream is then only maintained to indicate the interest in
-      /// BGP-LS Topology information.
       ///
       /// The success/failure of the request is relayed in the response as error status.
       /// If the request was successful, then the initial set of BGP-LS Topology
       /// information is sent as a stream containing a Start marker, any BGP-LS
       /// Topology if present, and an End Marker. The response stream will then
       /// be maintained to send subsequent updates and terminated only when the
-      /// request stream is terminated.
+      /// response stream is terminated by the caller.
       ///
       /// When the backend process handling the BGP-LS Topology subscription goes
       /// for a restart and when it comes up and ready again, the caller would
@@ -222,28 +211,29 @@ namespace ServiceLayer {
       /// Upon receiving the Start marker, the caller must perform a mark and
       /// sweep operation on the data it received from this subscription.
       /// </summary>
+      /// <param name="request">The request to send to the server.</param>
       /// <param name="options">The options for the call.</param>
       /// <returns>The call object.</returns>
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual grpc::AsyncDuplexStreamingCall<global::ServiceLayer.SLBgplsTopoGetUpdMsg, global::ServiceLayer.SLBgplsTopoUpdMsg> SLBgplsTopoGetUpdStream(grpc::CallOptions options)
+      public virtual grpc::AsyncServerStreamingCall<global::ServiceLayer.SLBgplsTopoNotifMsg> SLBgplsTopoNotifStream(global::ServiceLayer.SLBgplsTopoNotifReqMsg request, grpc::CallOptions options)
       {
-        return CallInvoker.AsyncDuplexStreamingCall(__Method_SLBgplsTopoGetUpdStream, null, options);
+        return CallInvoker.AsyncServerStreamingCall(__Method_SLBgplsTopoNotifStream, null, options, request);
       }
       /// <summary>Creates a new instance of client from given <c>ClientBaseConfiguration</c>.</summary>
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      protected override SLBgplsTopoSubscriptionClient NewInstance(ClientBaseConfiguration configuration)
+      protected override SLBgplsTopoClient NewInstance(ClientBaseConfiguration configuration)
       {
-        return new SLBgplsTopoSubscriptionClient(configuration);
+        return new SLBgplsTopoClient(configuration);
       }
     }
 
     /// <summary>Creates service definition that can be registered with a server</summary>
     /// <param name="serviceImpl">An object implementing the server-side handling logic.</param>
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    public static grpc::ServerServiceDefinition BindService(SLBgplsTopoSubscriptionBase serviceImpl)
+    public static grpc::ServerServiceDefinition BindService(SLBgplsTopoBase serviceImpl)
     {
       return grpc::ServerServiceDefinition.CreateBuilder()
-          .AddMethod(__Method_SLBgplsTopoGetUpdStream, serviceImpl.SLBgplsTopoGetUpdStream).Build();
+          .AddMethod(__Method_SLBgplsTopoNotifStream, serviceImpl.SLBgplsTopoNotifStream).Build();
     }
 
     /// <summary>Register service method with a service binder with or without implementation. Useful when customizing the service binding logic.
@@ -251,9 +241,9 @@ namespace ServiceLayer {
     /// <param name="serviceBinder">Service methods will be bound by calling <c>AddMethod</c> on this object.</param>
     /// <param name="serviceImpl">An object implementing the server-side handling logic.</param>
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    public static void BindService(grpc::ServiceBinderBase serviceBinder, SLBgplsTopoSubscriptionBase serviceImpl)
+    public static void BindService(grpc::ServiceBinderBase serviceBinder, SLBgplsTopoBase serviceImpl)
     {
-      serviceBinder.AddMethod(__Method_SLBgplsTopoGetUpdStream, serviceImpl == null ? null : new grpc::DuplexStreamingServerMethod<global::ServiceLayer.SLBgplsTopoGetUpdMsg, global::ServiceLayer.SLBgplsTopoUpdMsg>(serviceImpl.SLBgplsTopoGetUpdStream));
+      serviceBinder.AddMethod(__Method_SLBgplsTopoNotifStream, serviceImpl == null ? null : new grpc::ServerStreamingServerMethod<global::ServiceLayer.SLBgplsTopoNotifReqMsg, global::ServiceLayer.SLBgplsTopoNotifMsg>(serviceImpl.SLBgplsTopoNotifStream));
     }
 
   }

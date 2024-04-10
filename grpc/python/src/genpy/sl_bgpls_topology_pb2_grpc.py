@@ -5,11 +5,11 @@ import grpc
 from . import sl_bgpls_topology_pb2 as sl__bgpls__topology__pb2
 
 
-class SLBgplsTopoSubscriptionStub(object):
-    """@defgroup SLBgplsTopoSubscription
-    Defines RPC calls for subscribing to BGP-LS Topology updates.
+class SLBgplsTopoStub(object):
+    """@defgroup SLBgplsTopo
+    Defines RPC calls for BGP-LS Topology updates.
     @{
-    @addtogroup SLBgplsTopoSubscription
+    @addtogroup SLBgplsTopo
     @{
     ;
     """
@@ -20,23 +20,23 @@ class SLBgplsTopoSubscriptionStub(object):
         Args:
             channel: A grpc.Channel.
         """
-        self.SLBgplsTopoGetUpdStream = channel.stream_stream(
-                '/service_layer.SLBgplsTopoSubscription/SLBgplsTopoGetUpdStream',
-                request_serializer=sl__bgpls__topology__pb2.SLBgplsTopoGetUpdMsg.SerializeToString,
-                response_deserializer=sl__bgpls__topology__pb2.SLBgplsTopoUpdMsg.FromString,
+        self.SLBgplsTopoNotifStream = channel.unary_stream(
+                '/service_layer.SLBgplsTopo/SLBgplsTopoNotifStream',
+                request_serializer=sl__bgpls__topology__pb2.SLBgplsTopoNotifReqMsg.SerializeToString,
+                response_deserializer=sl__bgpls__topology__pb2.SLBgplsTopoNotifMsg.FromString,
                 )
 
 
-class SLBgplsTopoSubscriptionServicer(object):
-    """@defgroup SLBgplsTopoSubscription
-    Defines RPC calls for subscribing to BGP-LS Topology updates.
+class SLBgplsTopoServicer(object):
+    """@defgroup SLBgplsTopo
+    Defines RPC calls for BGP-LS Topology updates.
     @{
-    @addtogroup SLBgplsTopoSubscription
+    @addtogroup SLBgplsTopo
     @{
     ;
     """
 
-    def SLBgplsTopoGetUpdStream(self, request_iterator, context):
+    def SLBgplsTopoNotifStream(self, request, context):
         """
         BGP-LS Topology Subscription
 
@@ -45,23 +45,18 @@ class SLBgplsTopoSubscriptionServicer(object):
         It can be used to get "push" information for BGP-LS
         adds/updates/deletes.
 
-        The caller must maintain the GRPC channel as long as there is
-        interest in BGP-LS Topology information.
+        The caller must close the response stream when it is no longer
+        interested in BGP-LS Topology information.
 
-        The call takes a stream of requests with the information on Match filters
+        The call takes a request message with the information on Match filters
         to be applied while sending BGP-LS Topology updates in the response stream.
-        The Match filters on the first request of the stream only is honoured and
-        applied by the backend process. No further updates on Match filters will be
-        honoured on this request stream and an application error will be thrown.
-        The request stream is then only maintained to indicate the interest in
-        BGP-LS Topology information.
 
         The success/failure of the request is relayed in the response as error status.
         If the request was successful, then the initial set of BGP-LS Topology
         information is sent as a stream containing a Start marker, any BGP-LS
         Topology if present, and an End Marker. The response stream will then
         be maintained to send subsequent updates and terminated only when the
-        request stream is terminated.
+        response stream is terminated by the caller.
 
         When the backend process handling the BGP-LS Topology subscription goes
         for a restart and when it comes up and ready again, the caller would
@@ -77,31 +72,31 @@ class SLBgplsTopoSubscriptionServicer(object):
         raise NotImplementedError('Method not implemented!')
 
 
-def add_SLBgplsTopoSubscriptionServicer_to_server(servicer, server):
+def add_SLBgplsTopoServicer_to_server(servicer, server):
     rpc_method_handlers = {
-            'SLBgplsTopoGetUpdStream': grpc.stream_stream_rpc_method_handler(
-                    servicer.SLBgplsTopoGetUpdStream,
-                    request_deserializer=sl__bgpls__topology__pb2.SLBgplsTopoGetUpdMsg.FromString,
-                    response_serializer=sl__bgpls__topology__pb2.SLBgplsTopoUpdMsg.SerializeToString,
+            'SLBgplsTopoNotifStream': grpc.unary_stream_rpc_method_handler(
+                    servicer.SLBgplsTopoNotifStream,
+                    request_deserializer=sl__bgpls__topology__pb2.SLBgplsTopoNotifReqMsg.FromString,
+                    response_serializer=sl__bgpls__topology__pb2.SLBgplsTopoNotifMsg.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
-            'service_layer.SLBgplsTopoSubscription', rpc_method_handlers)
+            'service_layer.SLBgplsTopo', rpc_method_handlers)
     server.add_generic_rpc_handlers((generic_handler,))
 
 
  # This class is part of an EXPERIMENTAL API.
-class SLBgplsTopoSubscription(object):
-    """@defgroup SLBgplsTopoSubscription
-    Defines RPC calls for subscribing to BGP-LS Topology updates.
+class SLBgplsTopo(object):
+    """@defgroup SLBgplsTopo
+    Defines RPC calls for BGP-LS Topology updates.
     @{
-    @addtogroup SLBgplsTopoSubscription
+    @addtogroup SLBgplsTopo
     @{
     ;
     """
 
     @staticmethod
-    def SLBgplsTopoGetUpdStream(request_iterator,
+    def SLBgplsTopoNotifStream(request,
             target,
             options=(),
             channel_credentials=None,
@@ -111,8 +106,8 @@ class SLBgplsTopoSubscription(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.stream_stream(request_iterator, target, '/service_layer.SLBgplsTopoSubscription/SLBgplsTopoGetUpdStream',
-            sl__bgpls__topology__pb2.SLBgplsTopoGetUpdMsg.SerializeToString,
-            sl__bgpls__topology__pb2.SLBgplsTopoUpdMsg.FromString,
+        return grpc.experimental.unary_stream(request, target, '/service_layer.SLBgplsTopo/SLBgplsTopoNotifStream',
+            sl__bgpls__topology__pb2.SLBgplsTopoNotifReqMsg.SerializeToString,
+            sl__bgpls__topology__pb2.SLBgplsTopoNotifMsg.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

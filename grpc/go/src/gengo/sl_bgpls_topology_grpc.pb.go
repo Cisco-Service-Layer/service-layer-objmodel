@@ -18,174 +18,158 @@ import (
 // Requires gRPC-Go v1.32.0 or later.
 const _ = grpc.SupportPackageIsVersion7
 
-// SLBgplsTopoSubscriptionClient is the client API for SLBgplsTopoSubscription service.
+// SLBgplsTopoClient is the client API for SLBgplsTopo service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type SLBgplsTopoSubscriptionClient interface {
+type SLBgplsTopoClient interface {
 	// This call is used to get a stream of BGP-LS Topology updates.
 	// It can be used to get "push" information for BGP-LS
 	// adds/updates/deletes.
 	//
-	// The caller must maintain the GRPC channel as long as there is
-	// interest in BGP-LS Topology information.
+	// The caller must close the response stream when it is no longer
+	// interested in BGP-LS Topology information.
 	//
-	// The call takes a stream of requests with the information on Match filters
+	// The call takes a request message with the information on Match filters
 	// to be applied while sending BGP-LS Topology updates in the response stream.
-	// The Match filters on the first request of the stream only is honoured and
-	// applied by the backend process. No further updates on Match filters will be
-	// honoured on this request stream and an application error will be thrown.
-	// The request stream is then only maintained to indicate the interest in
-	// BGP-LS Topology information.
 	//
 	// The success/failure of the request is relayed in the response as error status.
 	// If the request was successful, then the initial set of BGP-LS Topology
 	// information is sent as a stream containing a Start marker, any BGP-LS
 	// Topology if present, and an End Marker. The response stream will then
 	// be maintained to send subsequent updates and terminated only when the
-	// request stream is terminated.
+	// response stream is terminated by the caller.
 	//
 	// When the backend process handling the BGP-LS Topology subscription goes
 	// for a restart and when it comes up and ready again, the caller would
 	// get a Start marker, any BGP-LS Topology if present, and an End Marker.
 	// Upon receiving the Start marker, the caller must perform a mark and
 	// sweep operation on the data it received from this subscription.
-	SLBgplsTopoGetUpdStream(ctx context.Context, opts ...grpc.CallOption) (SLBgplsTopoSubscription_SLBgplsTopoGetUpdStreamClient, error)
+	SLBgplsTopoNotifStream(ctx context.Context, in *SLBgplsTopoNotifReqMsg, opts ...grpc.CallOption) (SLBgplsTopo_SLBgplsTopoNotifStreamClient, error)
 }
 
-type sLBgplsTopoSubscriptionClient struct {
+type sLBgplsTopoClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewSLBgplsTopoSubscriptionClient(cc grpc.ClientConnInterface) SLBgplsTopoSubscriptionClient {
-	return &sLBgplsTopoSubscriptionClient{cc}
+func NewSLBgplsTopoClient(cc grpc.ClientConnInterface) SLBgplsTopoClient {
+	return &sLBgplsTopoClient{cc}
 }
 
-func (c *sLBgplsTopoSubscriptionClient) SLBgplsTopoGetUpdStream(ctx context.Context, opts ...grpc.CallOption) (SLBgplsTopoSubscription_SLBgplsTopoGetUpdStreamClient, error) {
-	stream, err := c.cc.NewStream(ctx, &SLBgplsTopoSubscription_ServiceDesc.Streams[0], "/service_layer.SLBgplsTopoSubscription/SLBgplsTopoGetUpdStream", opts...)
+func (c *sLBgplsTopoClient) SLBgplsTopoNotifStream(ctx context.Context, in *SLBgplsTopoNotifReqMsg, opts ...grpc.CallOption) (SLBgplsTopo_SLBgplsTopoNotifStreamClient, error) {
+	stream, err := c.cc.NewStream(ctx, &SLBgplsTopo_ServiceDesc.Streams[0], "/service_layer.SLBgplsTopo/SLBgplsTopoNotifStream", opts...)
 	if err != nil {
 		return nil, err
 	}
-	x := &sLBgplsTopoSubscriptionSLBgplsTopoGetUpdStreamClient{stream}
+	x := &sLBgplsTopoSLBgplsTopoNotifStreamClient{stream}
+	if err := x.ClientStream.SendMsg(in); err != nil {
+		return nil, err
+	}
+	if err := x.ClientStream.CloseSend(); err != nil {
+		return nil, err
+	}
 	return x, nil
 }
 
-type SLBgplsTopoSubscription_SLBgplsTopoGetUpdStreamClient interface {
-	Send(*SLBgplsTopoGetUpdMsg) error
-	Recv() (*SLBgplsTopoUpdMsg, error)
+type SLBgplsTopo_SLBgplsTopoNotifStreamClient interface {
+	Recv() (*SLBgplsTopoNotifMsg, error)
 	grpc.ClientStream
 }
 
-type sLBgplsTopoSubscriptionSLBgplsTopoGetUpdStreamClient struct {
+type sLBgplsTopoSLBgplsTopoNotifStreamClient struct {
 	grpc.ClientStream
 }
 
-func (x *sLBgplsTopoSubscriptionSLBgplsTopoGetUpdStreamClient) Send(m *SLBgplsTopoGetUpdMsg) error {
-	return x.ClientStream.SendMsg(m)
-}
-
-func (x *sLBgplsTopoSubscriptionSLBgplsTopoGetUpdStreamClient) Recv() (*SLBgplsTopoUpdMsg, error) {
-	m := new(SLBgplsTopoUpdMsg)
+func (x *sLBgplsTopoSLBgplsTopoNotifStreamClient) Recv() (*SLBgplsTopoNotifMsg, error) {
+	m := new(SLBgplsTopoNotifMsg)
 	if err := x.ClientStream.RecvMsg(m); err != nil {
 		return nil, err
 	}
 	return m, nil
 }
 
-// SLBgplsTopoSubscriptionServer is the server API for SLBgplsTopoSubscription service.
-// All implementations must embed UnimplementedSLBgplsTopoSubscriptionServer
+// SLBgplsTopoServer is the server API for SLBgplsTopo service.
+// All implementations must embed UnimplementedSLBgplsTopoServer
 // for forward compatibility
-type SLBgplsTopoSubscriptionServer interface {
+type SLBgplsTopoServer interface {
 	// This call is used to get a stream of BGP-LS Topology updates.
 	// It can be used to get "push" information for BGP-LS
 	// adds/updates/deletes.
 	//
-	// The caller must maintain the GRPC channel as long as there is
-	// interest in BGP-LS Topology information.
+	// The caller must close the response stream when it is no longer
+	// interested in BGP-LS Topology information.
 	//
-	// The call takes a stream of requests with the information on Match filters
+	// The call takes a request message with the information on Match filters
 	// to be applied while sending BGP-LS Topology updates in the response stream.
-	// The Match filters on the first request of the stream only is honoured and
-	// applied by the backend process. No further updates on Match filters will be
-	// honoured on this request stream and an application error will be thrown.
-	// The request stream is then only maintained to indicate the interest in
-	// BGP-LS Topology information.
 	//
 	// The success/failure of the request is relayed in the response as error status.
 	// If the request was successful, then the initial set of BGP-LS Topology
 	// information is sent as a stream containing a Start marker, any BGP-LS
 	// Topology if present, and an End Marker. The response stream will then
 	// be maintained to send subsequent updates and terminated only when the
-	// request stream is terminated.
+	// response stream is terminated by the caller.
 	//
 	// When the backend process handling the BGP-LS Topology subscription goes
 	// for a restart and when it comes up and ready again, the caller would
 	// get a Start marker, any BGP-LS Topology if present, and an End Marker.
 	// Upon receiving the Start marker, the caller must perform a mark and
 	// sweep operation on the data it received from this subscription.
-	SLBgplsTopoGetUpdStream(SLBgplsTopoSubscription_SLBgplsTopoGetUpdStreamServer) error
-	mustEmbedUnimplementedSLBgplsTopoSubscriptionServer()
+	SLBgplsTopoNotifStream(*SLBgplsTopoNotifReqMsg, SLBgplsTopo_SLBgplsTopoNotifStreamServer) error
+	mustEmbedUnimplementedSLBgplsTopoServer()
 }
 
-// UnimplementedSLBgplsTopoSubscriptionServer must be embedded to have forward compatible implementations.
-type UnimplementedSLBgplsTopoSubscriptionServer struct {
+// UnimplementedSLBgplsTopoServer must be embedded to have forward compatible implementations.
+type UnimplementedSLBgplsTopoServer struct {
 }
 
-func (UnimplementedSLBgplsTopoSubscriptionServer) SLBgplsTopoGetUpdStream(SLBgplsTopoSubscription_SLBgplsTopoGetUpdStreamServer) error {
-	return status.Errorf(codes.Unimplemented, "method SLBgplsTopoGetUpdStream not implemented")
+func (UnimplementedSLBgplsTopoServer) SLBgplsTopoNotifStream(*SLBgplsTopoNotifReqMsg, SLBgplsTopo_SLBgplsTopoNotifStreamServer) error {
+	return status.Errorf(codes.Unimplemented, "method SLBgplsTopoNotifStream not implemented")
 }
-func (UnimplementedSLBgplsTopoSubscriptionServer) mustEmbedUnimplementedSLBgplsTopoSubscriptionServer() {
-}
+func (UnimplementedSLBgplsTopoServer) mustEmbedUnimplementedSLBgplsTopoServer() {}
 
-// UnsafeSLBgplsTopoSubscriptionServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to SLBgplsTopoSubscriptionServer will
+// UnsafeSLBgplsTopoServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to SLBgplsTopoServer will
 // result in compilation errors.
-type UnsafeSLBgplsTopoSubscriptionServer interface {
-	mustEmbedUnimplementedSLBgplsTopoSubscriptionServer()
+type UnsafeSLBgplsTopoServer interface {
+	mustEmbedUnimplementedSLBgplsTopoServer()
 }
 
-func RegisterSLBgplsTopoSubscriptionServer(s grpc.ServiceRegistrar, srv SLBgplsTopoSubscriptionServer) {
-	s.RegisterService(&SLBgplsTopoSubscription_ServiceDesc, srv)
+func RegisterSLBgplsTopoServer(s grpc.ServiceRegistrar, srv SLBgplsTopoServer) {
+	s.RegisterService(&SLBgplsTopo_ServiceDesc, srv)
 }
 
-func _SLBgplsTopoSubscription_SLBgplsTopoGetUpdStream_Handler(srv interface{}, stream grpc.ServerStream) error {
-	return srv.(SLBgplsTopoSubscriptionServer).SLBgplsTopoGetUpdStream(&sLBgplsTopoSubscriptionSLBgplsTopoGetUpdStreamServer{stream})
+func _SLBgplsTopo_SLBgplsTopoNotifStream_Handler(srv interface{}, stream grpc.ServerStream) error {
+	m := new(SLBgplsTopoNotifReqMsg)
+	if err := stream.RecvMsg(m); err != nil {
+		return err
+	}
+	return srv.(SLBgplsTopoServer).SLBgplsTopoNotifStream(m, &sLBgplsTopoSLBgplsTopoNotifStreamServer{stream})
 }
 
-type SLBgplsTopoSubscription_SLBgplsTopoGetUpdStreamServer interface {
-	Send(*SLBgplsTopoUpdMsg) error
-	Recv() (*SLBgplsTopoGetUpdMsg, error)
+type SLBgplsTopo_SLBgplsTopoNotifStreamServer interface {
+	Send(*SLBgplsTopoNotifMsg) error
 	grpc.ServerStream
 }
 
-type sLBgplsTopoSubscriptionSLBgplsTopoGetUpdStreamServer struct {
+type sLBgplsTopoSLBgplsTopoNotifStreamServer struct {
 	grpc.ServerStream
 }
 
-func (x *sLBgplsTopoSubscriptionSLBgplsTopoGetUpdStreamServer) Send(m *SLBgplsTopoUpdMsg) error {
+func (x *sLBgplsTopoSLBgplsTopoNotifStreamServer) Send(m *SLBgplsTopoNotifMsg) error {
 	return x.ServerStream.SendMsg(m)
 }
 
-func (x *sLBgplsTopoSubscriptionSLBgplsTopoGetUpdStreamServer) Recv() (*SLBgplsTopoGetUpdMsg, error) {
-	m := new(SLBgplsTopoGetUpdMsg)
-	if err := x.ServerStream.RecvMsg(m); err != nil {
-		return nil, err
-	}
-	return m, nil
-}
-
-// SLBgplsTopoSubscription_ServiceDesc is the grpc.ServiceDesc for SLBgplsTopoSubscription service.
+// SLBgplsTopo_ServiceDesc is the grpc.ServiceDesc for SLBgplsTopo service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var SLBgplsTopoSubscription_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "service_layer.SLBgplsTopoSubscription",
-	HandlerType: (*SLBgplsTopoSubscriptionServer)(nil),
+var SLBgplsTopo_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "service_layer.SLBgplsTopo",
+	HandlerType: (*SLBgplsTopoServer)(nil),
 	Methods:     []grpc.MethodDesc{},
 	Streams: []grpc.StreamDesc{
 		{
-			StreamName:    "SLBgplsTopoGetUpdStream",
-			Handler:       _SLBgplsTopoSubscription_SLBgplsTopoGetUpdStream_Handler,
+			StreamName:    "SLBgplsTopoNotifStream",
+			Handler:       _SLBgplsTopo_SLBgplsTopoNotifStream_Handler,
 			ServerStreams: true,
-			ClientStreams: true,
 		},
 	},
 	Metadata: "sl_bgpls_topology.proto",

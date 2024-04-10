@@ -5,6 +5,9 @@
 // @file
 // @brief RPC proto file for BGP-LS Topology Subscription Service.
 //
+// The RPCs and messages defined here are experimental and subject to
+// change without notice and such changes can break backwards compatibility.
+//
 // ----------------------------------------------------------------
 //  Copyright (c) 2024 by Cisco Systems, Inc.
 //  All rights reserved.
@@ -12,8 +15,8 @@
 //
 //
 //
-// @defgroup BGP-LS Topology Subscription
-// @brief BGP-LS Topology Subscription service definitions.
+// @defgroup BGP-LS Topology Service
+// @brief BGP-LS Topology Service definitions.
 //
 #ifndef GRPC_sl_5fbgpls_5ftopology_2eproto__INCLUDED
 #define GRPC_sl_5fbgpls_5ftopology_2eproto__INCLUDED
@@ -41,13 +44,13 @@
 
 namespace service_layer {
 
-// @defgroup SLBgplsTopoSubscription
-// Defines RPC calls for subscribing to BGP-LS Topology updates.
+// @defgroup SLBgplsTopo
+// Defines RPC calls for BGP-LS Topology updates.
 // @{
-class SLBgplsTopoSubscription final {
+class SLBgplsTopo final {
  public:
   static constexpr char const* service_full_name() {
-    return "service_layer.SLBgplsTopoSubscription";
+    return "service_layer.SLBgplsTopo";
   }
   class StubInterface {
    public:
@@ -60,23 +63,18 @@ class SLBgplsTopoSubscription final {
     // It can be used to get "push" information for BGP-LS
     // adds/updates/deletes.
     //
-    // The caller must maintain the GRPC channel as long as there is
-    // interest in BGP-LS Topology information.
+    // The caller must close the response stream when it is no longer
+    // interested in BGP-LS Topology information.
     //
-    // The call takes a stream of requests with the information on Match filters
+    // The call takes a request message with the information on Match filters
     // to be applied while sending BGP-LS Topology updates in the response stream.
-    // The Match filters on the first request of the stream only is honoured and
-    // applied by the backend process. No further updates on Match filters will be
-    // honoured on this request stream and an application error will be thrown.
-    // The request stream is then only maintained to indicate the interest in
-    // BGP-LS Topology information.
     //
     // The success/failure of the request is relayed in the response as error status.
     // If the request was successful, then the initial set of BGP-LS Topology
     // information is sent as a stream containing a Start marker, any BGP-LS
     // Topology if present, and an End Marker. The response stream will then
     // be maintained to send subsequent updates and terminated only when the
-    // request stream is terminated.
+    // response stream is terminated by the caller.
     //
     // When the backend process handling the BGP-LS Topology subscription goes
     // for a restart and when it comes up and ready again, the caller would
@@ -84,14 +82,14 @@ class SLBgplsTopoSubscription final {
     // Upon receiving the Start marker, the caller must perform a mark and
     // sweep operation on the data it received from this subscription.
     //
-    std::unique_ptr< ::grpc::ClientReaderWriterInterface< ::service_layer::SLBgplsTopoGetUpdMsg, ::service_layer::SLBgplsTopoUpdMsg>> SLBgplsTopoGetUpdStream(::grpc::ClientContext* context) {
-      return std::unique_ptr< ::grpc::ClientReaderWriterInterface< ::service_layer::SLBgplsTopoGetUpdMsg, ::service_layer::SLBgplsTopoUpdMsg>>(SLBgplsTopoGetUpdStreamRaw(context));
+    std::unique_ptr< ::grpc::ClientReaderInterface< ::service_layer::SLBgplsTopoNotifMsg>> SLBgplsTopoNotifStream(::grpc::ClientContext* context, const ::service_layer::SLBgplsTopoNotifReqMsg& request) {
+      return std::unique_ptr< ::grpc::ClientReaderInterface< ::service_layer::SLBgplsTopoNotifMsg>>(SLBgplsTopoNotifStreamRaw(context, request));
     }
-    std::unique_ptr< ::grpc::ClientAsyncReaderWriterInterface< ::service_layer::SLBgplsTopoGetUpdMsg, ::service_layer::SLBgplsTopoUpdMsg>> AsyncSLBgplsTopoGetUpdStream(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq, void* tag) {
-      return std::unique_ptr< ::grpc::ClientAsyncReaderWriterInterface< ::service_layer::SLBgplsTopoGetUpdMsg, ::service_layer::SLBgplsTopoUpdMsg>>(AsyncSLBgplsTopoGetUpdStreamRaw(context, cq, tag));
+    std::unique_ptr< ::grpc::ClientAsyncReaderInterface< ::service_layer::SLBgplsTopoNotifMsg>> AsyncSLBgplsTopoNotifStream(::grpc::ClientContext* context, const ::service_layer::SLBgplsTopoNotifReqMsg& request, ::grpc::CompletionQueue* cq, void* tag) {
+      return std::unique_ptr< ::grpc::ClientAsyncReaderInterface< ::service_layer::SLBgplsTopoNotifMsg>>(AsyncSLBgplsTopoNotifStreamRaw(context, request, cq, tag));
     }
-    std::unique_ptr< ::grpc::ClientAsyncReaderWriterInterface< ::service_layer::SLBgplsTopoGetUpdMsg, ::service_layer::SLBgplsTopoUpdMsg>> PrepareAsyncSLBgplsTopoGetUpdStream(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncReaderWriterInterface< ::service_layer::SLBgplsTopoGetUpdMsg, ::service_layer::SLBgplsTopoUpdMsg>>(PrepareAsyncSLBgplsTopoGetUpdStreamRaw(context, cq));
+    std::unique_ptr< ::grpc::ClientAsyncReaderInterface< ::service_layer::SLBgplsTopoNotifMsg>> PrepareAsyncSLBgplsTopoNotifStream(::grpc::ClientContext* context, const ::service_layer::SLBgplsTopoNotifReqMsg& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncReaderInterface< ::service_layer::SLBgplsTopoNotifMsg>>(PrepareAsyncSLBgplsTopoNotifStreamRaw(context, request, cq));
     }
     //
     // @}
@@ -106,23 +104,18 @@ class SLBgplsTopoSubscription final {
       // It can be used to get "push" information for BGP-LS
       // adds/updates/deletes.
       //
-      // The caller must maintain the GRPC channel as long as there is
-      // interest in BGP-LS Topology information.
+      // The caller must close the response stream when it is no longer
+      // interested in BGP-LS Topology information.
       //
-      // The call takes a stream of requests with the information on Match filters
+      // The call takes a request message with the information on Match filters
       // to be applied while sending BGP-LS Topology updates in the response stream.
-      // The Match filters on the first request of the stream only is honoured and
-      // applied by the backend process. No further updates on Match filters will be
-      // honoured on this request stream and an application error will be thrown.
-      // The request stream is then only maintained to indicate the interest in
-      // BGP-LS Topology information.
       //
       // The success/failure of the request is relayed in the response as error status.
       // If the request was successful, then the initial set of BGP-LS Topology
       // information is sent as a stream containing a Start marker, any BGP-LS
       // Topology if present, and an End Marker. The response stream will then
       // be maintained to send subsequent updates and terminated only when the
-      // request stream is terminated.
+      // response stream is terminated by the caller.
       //
       // When the backend process handling the BGP-LS Topology subscription goes
       // for a restart and when it comes up and ready again, the caller would
@@ -130,7 +123,7 @@ class SLBgplsTopoSubscription final {
       // Upon receiving the Start marker, the caller must perform a mark and
       // sweep operation on the data it received from this subscription.
       //
-      virtual void SLBgplsTopoGetUpdStream(::grpc::ClientContext* context, ::grpc::ClientBidiReactor< ::service_layer::SLBgplsTopoGetUpdMsg,::service_layer::SLBgplsTopoUpdMsg>* reactor) = 0;
+      virtual void SLBgplsTopoNotifStream(::grpc::ClientContext* context, const ::service_layer::SLBgplsTopoNotifReqMsg* request, ::grpc::ClientReadReactor< ::service_layer::SLBgplsTopoNotifMsg>* reactor) = 0;
       //
       // @}
     };
@@ -138,26 +131,26 @@ class SLBgplsTopoSubscription final {
     virtual class async_interface* async() { return nullptr; }
     class async_interface* experimental_async() { return async(); }
    private:
-    virtual ::grpc::ClientReaderWriterInterface< ::service_layer::SLBgplsTopoGetUpdMsg, ::service_layer::SLBgplsTopoUpdMsg>* SLBgplsTopoGetUpdStreamRaw(::grpc::ClientContext* context) = 0;
-    virtual ::grpc::ClientAsyncReaderWriterInterface< ::service_layer::SLBgplsTopoGetUpdMsg, ::service_layer::SLBgplsTopoUpdMsg>* AsyncSLBgplsTopoGetUpdStreamRaw(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq, void* tag) = 0;
-    virtual ::grpc::ClientAsyncReaderWriterInterface< ::service_layer::SLBgplsTopoGetUpdMsg, ::service_layer::SLBgplsTopoUpdMsg>* PrepareAsyncSLBgplsTopoGetUpdStreamRaw(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientReaderInterface< ::service_layer::SLBgplsTopoNotifMsg>* SLBgplsTopoNotifStreamRaw(::grpc::ClientContext* context, const ::service_layer::SLBgplsTopoNotifReqMsg& request) = 0;
+    virtual ::grpc::ClientAsyncReaderInterface< ::service_layer::SLBgplsTopoNotifMsg>* AsyncSLBgplsTopoNotifStreamRaw(::grpc::ClientContext* context, const ::service_layer::SLBgplsTopoNotifReqMsg& request, ::grpc::CompletionQueue* cq, void* tag) = 0;
+    virtual ::grpc::ClientAsyncReaderInterface< ::service_layer::SLBgplsTopoNotifMsg>* PrepareAsyncSLBgplsTopoNotifStreamRaw(::grpc::ClientContext* context, const ::service_layer::SLBgplsTopoNotifReqMsg& request, ::grpc::CompletionQueue* cq) = 0;
   };
   class Stub final : public StubInterface {
    public:
     Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options = ::grpc::StubOptions());
-    std::unique_ptr< ::grpc::ClientReaderWriter< ::service_layer::SLBgplsTopoGetUpdMsg, ::service_layer::SLBgplsTopoUpdMsg>> SLBgplsTopoGetUpdStream(::grpc::ClientContext* context) {
-      return std::unique_ptr< ::grpc::ClientReaderWriter< ::service_layer::SLBgplsTopoGetUpdMsg, ::service_layer::SLBgplsTopoUpdMsg>>(SLBgplsTopoGetUpdStreamRaw(context));
+    std::unique_ptr< ::grpc::ClientReader< ::service_layer::SLBgplsTopoNotifMsg>> SLBgplsTopoNotifStream(::grpc::ClientContext* context, const ::service_layer::SLBgplsTopoNotifReqMsg& request) {
+      return std::unique_ptr< ::grpc::ClientReader< ::service_layer::SLBgplsTopoNotifMsg>>(SLBgplsTopoNotifStreamRaw(context, request));
     }
-    std::unique_ptr<  ::grpc::ClientAsyncReaderWriter< ::service_layer::SLBgplsTopoGetUpdMsg, ::service_layer::SLBgplsTopoUpdMsg>> AsyncSLBgplsTopoGetUpdStream(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq, void* tag) {
-      return std::unique_ptr< ::grpc::ClientAsyncReaderWriter< ::service_layer::SLBgplsTopoGetUpdMsg, ::service_layer::SLBgplsTopoUpdMsg>>(AsyncSLBgplsTopoGetUpdStreamRaw(context, cq, tag));
+    std::unique_ptr< ::grpc::ClientAsyncReader< ::service_layer::SLBgplsTopoNotifMsg>> AsyncSLBgplsTopoNotifStream(::grpc::ClientContext* context, const ::service_layer::SLBgplsTopoNotifReqMsg& request, ::grpc::CompletionQueue* cq, void* tag) {
+      return std::unique_ptr< ::grpc::ClientAsyncReader< ::service_layer::SLBgplsTopoNotifMsg>>(AsyncSLBgplsTopoNotifStreamRaw(context, request, cq, tag));
     }
-    std::unique_ptr<  ::grpc::ClientAsyncReaderWriter< ::service_layer::SLBgplsTopoGetUpdMsg, ::service_layer::SLBgplsTopoUpdMsg>> PrepareAsyncSLBgplsTopoGetUpdStream(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncReaderWriter< ::service_layer::SLBgplsTopoGetUpdMsg, ::service_layer::SLBgplsTopoUpdMsg>>(PrepareAsyncSLBgplsTopoGetUpdStreamRaw(context, cq));
+    std::unique_ptr< ::grpc::ClientAsyncReader< ::service_layer::SLBgplsTopoNotifMsg>> PrepareAsyncSLBgplsTopoNotifStream(::grpc::ClientContext* context, const ::service_layer::SLBgplsTopoNotifReqMsg& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncReader< ::service_layer::SLBgplsTopoNotifMsg>>(PrepareAsyncSLBgplsTopoNotifStreamRaw(context, request, cq));
     }
     class async final :
       public StubInterface::async_interface {
      public:
-      void SLBgplsTopoGetUpdStream(::grpc::ClientContext* context, ::grpc::ClientBidiReactor< ::service_layer::SLBgplsTopoGetUpdMsg,::service_layer::SLBgplsTopoUpdMsg>* reactor) override;
+      void SLBgplsTopoNotifStream(::grpc::ClientContext* context, const ::service_layer::SLBgplsTopoNotifReqMsg* request, ::grpc::ClientReadReactor< ::service_layer::SLBgplsTopoNotifMsg>* reactor) override;
      private:
       friend class Stub;
       explicit async(Stub* stub): stub_(stub) { }
@@ -169,10 +162,10 @@ class SLBgplsTopoSubscription final {
    private:
     std::shared_ptr< ::grpc::ChannelInterface> channel_;
     class async async_stub_{this};
-    ::grpc::ClientReaderWriter< ::service_layer::SLBgplsTopoGetUpdMsg, ::service_layer::SLBgplsTopoUpdMsg>* SLBgplsTopoGetUpdStreamRaw(::grpc::ClientContext* context) override;
-    ::grpc::ClientAsyncReaderWriter< ::service_layer::SLBgplsTopoGetUpdMsg, ::service_layer::SLBgplsTopoUpdMsg>* AsyncSLBgplsTopoGetUpdStreamRaw(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq, void* tag) override;
-    ::grpc::ClientAsyncReaderWriter< ::service_layer::SLBgplsTopoGetUpdMsg, ::service_layer::SLBgplsTopoUpdMsg>* PrepareAsyncSLBgplsTopoGetUpdStreamRaw(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq) override;
-    const ::grpc::internal::RpcMethod rpcmethod_SLBgplsTopoGetUpdStream_;
+    ::grpc::ClientReader< ::service_layer::SLBgplsTopoNotifMsg>* SLBgplsTopoNotifStreamRaw(::grpc::ClientContext* context, const ::service_layer::SLBgplsTopoNotifReqMsg& request) override;
+    ::grpc::ClientAsyncReader< ::service_layer::SLBgplsTopoNotifMsg>* AsyncSLBgplsTopoNotifStreamRaw(::grpc::ClientContext* context, const ::service_layer::SLBgplsTopoNotifReqMsg& request, ::grpc::CompletionQueue* cq, void* tag) override;
+    ::grpc::ClientAsyncReader< ::service_layer::SLBgplsTopoNotifMsg>* PrepareAsyncSLBgplsTopoNotifStreamRaw(::grpc::ClientContext* context, const ::service_layer::SLBgplsTopoNotifReqMsg& request, ::grpc::CompletionQueue* cq) override;
+    const ::grpc::internal::RpcMethod rpcmethod_SLBgplsTopoNotifStream_;
   };
   static std::unique_ptr<Stub> NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options = ::grpc::StubOptions());
 
@@ -188,23 +181,18 @@ class SLBgplsTopoSubscription final {
     // It can be used to get "push" information for BGP-LS
     // adds/updates/deletes.
     //
-    // The caller must maintain the GRPC channel as long as there is
-    // interest in BGP-LS Topology information.
+    // The caller must close the response stream when it is no longer
+    // interested in BGP-LS Topology information.
     //
-    // The call takes a stream of requests with the information on Match filters
+    // The call takes a request message with the information on Match filters
     // to be applied while sending BGP-LS Topology updates in the response stream.
-    // The Match filters on the first request of the stream only is honoured and
-    // applied by the backend process. No further updates on Match filters will be
-    // honoured on this request stream and an application error will be thrown.
-    // The request stream is then only maintained to indicate the interest in
-    // BGP-LS Topology information.
     //
     // The success/failure of the request is relayed in the response as error status.
     // If the request was successful, then the initial set of BGP-LS Topology
     // information is sent as a stream containing a Start marker, any BGP-LS
     // Topology if present, and an End Marker. The response stream will then
     // be maintained to send subsequent updates and terminated only when the
-    // request stream is terminated.
+    // response stream is terminated by the caller.
     //
     // When the backend process handling the BGP-LS Topology subscription goes
     // for a restart and when it comes up and ready again, the caller would
@@ -212,121 +200,146 @@ class SLBgplsTopoSubscription final {
     // Upon receiving the Start marker, the caller must perform a mark and
     // sweep operation on the data it received from this subscription.
     //
-    virtual ::grpc::Status SLBgplsTopoGetUpdStream(::grpc::ServerContext* context, ::grpc::ServerReaderWriter< ::service_layer::SLBgplsTopoUpdMsg, ::service_layer::SLBgplsTopoGetUpdMsg>* stream);
+    virtual ::grpc::Status SLBgplsTopoNotifStream(::grpc::ServerContext* context, const ::service_layer::SLBgplsTopoNotifReqMsg* request, ::grpc::ServerWriter< ::service_layer::SLBgplsTopoNotifMsg>* writer);
     //
     // @}
   };
   template <class BaseClass>
-  class WithAsyncMethod_SLBgplsTopoGetUpdStream : public BaseClass {
+  class WithAsyncMethod_SLBgplsTopoNotifStream : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithAsyncMethod_SLBgplsTopoGetUpdStream() {
+    WithAsyncMethod_SLBgplsTopoNotifStream() {
       ::grpc::Service::MarkMethodAsync(0);
     }
-    ~WithAsyncMethod_SLBgplsTopoGetUpdStream() override {
+    ~WithAsyncMethod_SLBgplsTopoNotifStream() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status SLBgplsTopoGetUpdStream(::grpc::ServerContext* /*context*/, ::grpc::ServerReaderWriter< ::service_layer::SLBgplsTopoUpdMsg, ::service_layer::SLBgplsTopoGetUpdMsg>* /*stream*/)  override {
+    ::grpc::Status SLBgplsTopoNotifStream(::grpc::ServerContext* /*context*/, const ::service_layer::SLBgplsTopoNotifReqMsg* /*request*/, ::grpc::ServerWriter< ::service_layer::SLBgplsTopoNotifMsg>* /*writer*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequestSLBgplsTopoGetUpdStream(::grpc::ServerContext* context, ::grpc::ServerAsyncReaderWriter< ::service_layer::SLBgplsTopoUpdMsg, ::service_layer::SLBgplsTopoGetUpdMsg>* stream, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncBidiStreaming(0, context, stream, new_call_cq, notification_cq, tag);
+    void RequestSLBgplsTopoNotifStream(::grpc::ServerContext* context, ::service_layer::SLBgplsTopoNotifReqMsg* request, ::grpc::ServerAsyncWriter< ::service_layer::SLBgplsTopoNotifMsg>* writer, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncServerStreaming(0, context, request, writer, new_call_cq, notification_cq, tag);
     }
   };
-  typedef WithAsyncMethod_SLBgplsTopoGetUpdStream<Service > AsyncService;
+  typedef WithAsyncMethod_SLBgplsTopoNotifStream<Service > AsyncService;
   template <class BaseClass>
-  class WithCallbackMethod_SLBgplsTopoGetUpdStream : public BaseClass {
+  class WithCallbackMethod_SLBgplsTopoNotifStream : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithCallbackMethod_SLBgplsTopoGetUpdStream() {
+    WithCallbackMethod_SLBgplsTopoNotifStream() {
       ::grpc::Service::MarkMethodCallback(0,
-          new ::grpc::internal::CallbackBidiHandler< ::service_layer::SLBgplsTopoGetUpdMsg, ::service_layer::SLBgplsTopoUpdMsg>(
+          new ::grpc::internal::CallbackServerStreamingHandler< ::service_layer::SLBgplsTopoNotifReqMsg, ::service_layer::SLBgplsTopoNotifMsg>(
             [this](
-                   ::grpc::CallbackServerContext* context) { return this->SLBgplsTopoGetUpdStream(context); }));
+                   ::grpc::CallbackServerContext* context, const ::service_layer::SLBgplsTopoNotifReqMsg* request) { return this->SLBgplsTopoNotifStream(context, request); }));
     }
-    ~WithCallbackMethod_SLBgplsTopoGetUpdStream() override {
+    ~WithCallbackMethod_SLBgplsTopoNotifStream() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status SLBgplsTopoGetUpdStream(::grpc::ServerContext* /*context*/, ::grpc::ServerReaderWriter< ::service_layer::SLBgplsTopoUpdMsg, ::service_layer::SLBgplsTopoGetUpdMsg>* /*stream*/)  override {
+    ::grpc::Status SLBgplsTopoNotifStream(::grpc::ServerContext* /*context*/, const ::service_layer::SLBgplsTopoNotifReqMsg* /*request*/, ::grpc::ServerWriter< ::service_layer::SLBgplsTopoNotifMsg>* /*writer*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    virtual ::grpc::ServerBidiReactor< ::service_layer::SLBgplsTopoGetUpdMsg, ::service_layer::SLBgplsTopoUpdMsg>* SLBgplsTopoGetUpdStream(
-      ::grpc::CallbackServerContext* /*context*/)
-      { return nullptr; }
+    virtual ::grpc::ServerWriteReactor< ::service_layer::SLBgplsTopoNotifMsg>* SLBgplsTopoNotifStream(
+      ::grpc::CallbackServerContext* /*context*/, const ::service_layer::SLBgplsTopoNotifReqMsg* /*request*/)  { return nullptr; }
   };
-  typedef WithCallbackMethod_SLBgplsTopoGetUpdStream<Service > CallbackService;
+  typedef WithCallbackMethod_SLBgplsTopoNotifStream<Service > CallbackService;
   typedef CallbackService ExperimentalCallbackService;
   template <class BaseClass>
-  class WithGenericMethod_SLBgplsTopoGetUpdStream : public BaseClass {
+  class WithGenericMethod_SLBgplsTopoNotifStream : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithGenericMethod_SLBgplsTopoGetUpdStream() {
+    WithGenericMethod_SLBgplsTopoNotifStream() {
       ::grpc::Service::MarkMethodGeneric(0);
     }
-    ~WithGenericMethod_SLBgplsTopoGetUpdStream() override {
+    ~WithGenericMethod_SLBgplsTopoNotifStream() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status SLBgplsTopoGetUpdStream(::grpc::ServerContext* /*context*/, ::grpc::ServerReaderWriter< ::service_layer::SLBgplsTopoUpdMsg, ::service_layer::SLBgplsTopoGetUpdMsg>* /*stream*/)  override {
+    ::grpc::Status SLBgplsTopoNotifStream(::grpc::ServerContext* /*context*/, const ::service_layer::SLBgplsTopoNotifReqMsg* /*request*/, ::grpc::ServerWriter< ::service_layer::SLBgplsTopoNotifMsg>* /*writer*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
   };
   template <class BaseClass>
-  class WithRawMethod_SLBgplsTopoGetUpdStream : public BaseClass {
+  class WithRawMethod_SLBgplsTopoNotifStream : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithRawMethod_SLBgplsTopoGetUpdStream() {
+    WithRawMethod_SLBgplsTopoNotifStream() {
       ::grpc::Service::MarkMethodRaw(0);
     }
-    ~WithRawMethod_SLBgplsTopoGetUpdStream() override {
+    ~WithRawMethod_SLBgplsTopoNotifStream() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status SLBgplsTopoGetUpdStream(::grpc::ServerContext* /*context*/, ::grpc::ServerReaderWriter< ::service_layer::SLBgplsTopoUpdMsg, ::service_layer::SLBgplsTopoGetUpdMsg>* /*stream*/)  override {
+    ::grpc::Status SLBgplsTopoNotifStream(::grpc::ServerContext* /*context*/, const ::service_layer::SLBgplsTopoNotifReqMsg* /*request*/, ::grpc::ServerWriter< ::service_layer::SLBgplsTopoNotifMsg>* /*writer*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequestSLBgplsTopoGetUpdStream(::grpc::ServerContext* context, ::grpc::ServerAsyncReaderWriter< ::grpc::ByteBuffer, ::grpc::ByteBuffer>* stream, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncBidiStreaming(0, context, stream, new_call_cq, notification_cq, tag);
+    void RequestSLBgplsTopoNotifStream(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncWriter< ::grpc::ByteBuffer>* writer, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncServerStreaming(0, context, request, writer, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
-  class WithRawCallbackMethod_SLBgplsTopoGetUpdStream : public BaseClass {
+  class WithRawCallbackMethod_SLBgplsTopoNotifStream : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithRawCallbackMethod_SLBgplsTopoGetUpdStream() {
+    WithRawCallbackMethod_SLBgplsTopoNotifStream() {
       ::grpc::Service::MarkMethodRawCallback(0,
-          new ::grpc::internal::CallbackBidiHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+          new ::grpc::internal::CallbackServerStreamingHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
-                   ::grpc::CallbackServerContext* context) { return this->SLBgplsTopoGetUpdStream(context); }));
+                   ::grpc::CallbackServerContext* context, const::grpc::ByteBuffer* request) { return this->SLBgplsTopoNotifStream(context, request); }));
     }
-    ~WithRawCallbackMethod_SLBgplsTopoGetUpdStream() override {
+    ~WithRawCallbackMethod_SLBgplsTopoNotifStream() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status SLBgplsTopoGetUpdStream(::grpc::ServerContext* /*context*/, ::grpc::ServerReaderWriter< ::service_layer::SLBgplsTopoUpdMsg, ::service_layer::SLBgplsTopoGetUpdMsg>* /*stream*/)  override {
+    ::grpc::Status SLBgplsTopoNotifStream(::grpc::ServerContext* /*context*/, const ::service_layer::SLBgplsTopoNotifReqMsg* /*request*/, ::grpc::ServerWriter< ::service_layer::SLBgplsTopoNotifMsg>* /*writer*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    virtual ::grpc::ServerBidiReactor< ::grpc::ByteBuffer, ::grpc::ByteBuffer>* SLBgplsTopoGetUpdStream(
-      ::grpc::CallbackServerContext* /*context*/)
-      { return nullptr; }
+    virtual ::grpc::ServerWriteReactor< ::grpc::ByteBuffer>* SLBgplsTopoNotifStream(
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/)  { return nullptr; }
   };
   typedef Service StreamedUnaryService;
-  typedef Service SplitStreamedService;
-  typedef Service StreamedService;
+  template <class BaseClass>
+  class WithSplitStreamingMethod_SLBgplsTopoNotifStream : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithSplitStreamingMethod_SLBgplsTopoNotifStream() {
+      ::grpc::Service::MarkMethodStreamed(0,
+        new ::grpc::internal::SplitServerStreamingHandler<
+          ::service_layer::SLBgplsTopoNotifReqMsg, ::service_layer::SLBgplsTopoNotifMsg>(
+            [this](::grpc::ServerContext* context,
+                   ::grpc::ServerSplitStreamer<
+                     ::service_layer::SLBgplsTopoNotifReqMsg, ::service_layer::SLBgplsTopoNotifMsg>* streamer) {
+                       return this->StreamedSLBgplsTopoNotifStream(context,
+                         streamer);
+                  }));
+    }
+    ~WithSplitStreamingMethod_SLBgplsTopoNotifStream() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable regular version of this method
+    ::grpc::Status SLBgplsTopoNotifStream(::grpc::ServerContext* /*context*/, const ::service_layer::SLBgplsTopoNotifReqMsg* /*request*/, ::grpc::ServerWriter< ::service_layer::SLBgplsTopoNotifMsg>* /*writer*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    // replace default version of method with split streamed
+    virtual ::grpc::Status StreamedSLBgplsTopoNotifStream(::grpc::ServerContext* context, ::grpc::ServerSplitStreamer< ::service_layer::SLBgplsTopoNotifReqMsg,::service_layer::SLBgplsTopoNotifMsg>* server_split_streamer) = 0;
+  };
+  typedef WithSplitStreamingMethod_SLBgplsTopoNotifStream<Service > SplitStreamedService;
+  typedef WithSplitStreamingMethod_SLBgplsTopoNotifStream<Service > StreamedService;
 };
-// @addtogroup SLBgplsTopoSubscription
+// @addtogroup SLBgplsTopo
 // @{
 // ;
 
