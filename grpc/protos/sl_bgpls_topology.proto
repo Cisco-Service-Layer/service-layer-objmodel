@@ -84,7 +84,7 @@ message SLBgplsTopoNlriMatch {
     // IGP routing domain to which the Link-State NLRI belongs.
     // Identifier.
     // Section 5.2 of [RFC9552]
-    uint64 Identifier = 1;
+    SLBgplsTopoInstanceId InstanceId = 1;
 
     // Protocol originating the Link-State NLRI
     // Protocol-ID.
@@ -137,8 +137,7 @@ message SLBgplsTopoNotif {
 // BGP-LS Topology Entry
 message SLBgplsTopoEntry {
     SLBgplsTopoOperation Operation = 1;
-    SLBgplsTopoNlri Nlri = 2;
-    SLBgplsTopoAttr Attr = 3;
+    SLBgplsTopoData Data = 2;
 }
 
 // BGP-LS Topology Operation
@@ -149,43 +148,45 @@ enum SLBgplsTopoOperation {
 }
 
 //
-// Messages for NLRI
+// Messages for BGP-LS Data
 //
 
-// NLRI
-message SLBgplsTopoNlri {
-    // IGP routing domain to which the Link-State NLRI belongs.
+// BGP-LS Topology Data
+message SLBgplsTopoData {
+    // IGP routing domain to which the Link-State data belongs.
     // Identifier.
     // Section 5.2 of [RFC9552]
-    uint64 Identifier = 1;
+    SLBgplsTopoInstanceId InstanceId = 1;
 
-    // Protocol originating the Link-State NLRI
+    // Protocol originating the Link-State data
     // Protocol-ID.
     // Section 5.2 of [RFC9552]
     SLBgplsTopoProtocol Protocol = 2;
 
-    // Type of Link-State NLRI
-    // NLRI Type.
-    // Section 5.2 of [RFC9552]
-    //SLBgplsTopoNlriType NlriType = 3;
+    // Data
+    oneof Data {
+        // This field carries info about a node data.
+        SLBgplsTopoNodeData Node = 3;
 
-    // NLRI
-    oneof Nlri {
-        // This field carries info about a node NLRI.
-        SLBgplsTopoNode Node = 4;
+        // This field carries info about a link data.
+        SLBgplsTopoLinkData Link = 4;
 
-        // This field carries info about a link NLRI.
-        SLBgplsTopoLink Link = 5;
+        // This field carries info about a prefix data.
+        SLBgplsTopoPrefixData Prefix = 5;
 
-        // This field carries info about a prefix NLRI.
-        SLBgplsTopoPrefix Prefix = 6;
+        // This field carries info about a SRv6 SID data.
+        SLBgplsTopoSrv6SidData Srv6Sid = 6;
 
-        // This field carries info about a SRv6 SID NLRI.
-        SLBgplsTopoSrv6Sid Srv6Sid = 7;
-
-        // This field carries info about a SR policy NLRI.
-        SLBgplsTopoSrPolicy SrPolicy = 8;
+        // This field carries info about a SR policy data.
+        SLBgplsTopoSrPolicyData SrPolicy = 7;
     }
+}
+
+message SLBgplsTopoInstanceId {
+    // IGP routing domain to which the Link-State data belongs.
+    // Identifier.
+    // Section 5.2 of [RFC9552]
+    uint64 Identifier = 1;
 }
 
 // NLRI type
@@ -211,6 +212,51 @@ enum SLBgplsTopoProtocol {
     SL_BGPLS_TOPO_PROTOCOL_BGP = 7;
     SL_BGPLS_TOPO_PROTOCOL_RSVP_TE = 8;
     SL_BGPLS_TOPO_PROTOCOL_SR = 9;
+}
+
+// Node Data
+message SLBgplsTopoNodeData {
+    // This field carries info about a node NLRI.
+    SLBgplsTopoNode Node = 1;
+
+    // This field carries info about node attributes.
+    SLBgplsTopoNodeAttr NodeAttr = 2;
+}
+
+// Link Data
+message SLBgplsTopoLinkData {
+    // This field carries info about a link NLRI.
+    SLBgplsTopoLink Link = 1;
+
+    // This field carries info about link attributes.
+    SLBgplsTopoLinkAttr LinkAttr = 2;
+}
+
+// Prefix Data
+message SLBgplsTopoPrefixData {
+    // This field carries info about a prefix NLRI.
+    SLBgplsTopoPrefix Prefix = 1;
+
+    // This field carries info about prefix attributes.
+    SLBgplsTopoPrefixAttr PrefixAttr = 2;
+}
+
+// SRv6 SID Data
+message SLBgplsTopoSrv6SidData {
+    // This field carries info about a SRv6 SID NLRI.
+    SLBgplsTopoSrv6Sid Srv6Sid = 1;
+
+    // This field carries info about SRv6 SID attributes.
+    SLBgplsTopoSrv6SidAttr Srv6SidAttr = 2;
+}
+
+// SR Policy Data
+message SLBgplsTopoSrPolicyData {
+    // This field carries info about a SR policy NLRI.
+    SLBgplsTopoSrPolicy SrPolicy = 1;
+
+    // This field carries info about SR policy attributes.
+    SLBgplsTopoSrPolicyAttr SrPolicyAttr = 2;
 }
 
 //
@@ -470,7 +516,7 @@ message SLBgplsTopoOspfv3NodeId {
     // Interface identifier of the DR's interface to the LAN.
     // IGP Router-ID. TLV 515.
     // Section 5.2.1 of [RFC9552]
-    bytes DrIdentifier = 4;
+    uint32 DrIdentifier = 4;
 }
 
 // ISIS Node ID
@@ -558,28 +604,6 @@ message SLBgplsTopoSrPolicyFlags {
 //
 // Messages of Attributes
 //
-
-// Attributes
-message SLBgplsTopoAttr {
-    // Attributes
-    // Actual type can be determined based on NlriType in SLBgplsTopoNlri.
-    oneof Attr {
-        // This field carries info about node attributes.
-        SLBgplsTopoNodeAttr NodeAttr = 1;
-
-        // This field carries info about link attributes.
-        SLBgplsTopoLinkAttr LinkAttr = 2;
-
-        // This field carries info about prefix attributes.
-        SLBgplsTopoPrefixAttr PrefixAttr = 3;
-
-        // This field carries info about SRv6 SID attributes.
-        SLBgplsTopoSrv6SidAttr Srv6SidAttr = 4;
-
-        // This field carries info about SR policy attributes.
-        SLBgplsTopoSrPolicyAttr SrPolicyAttr = 5;
-    }
-}
 
 // Node Attributes
 message SLBgplsTopoNodeAttr {
