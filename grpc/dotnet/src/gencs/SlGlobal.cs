@@ -35,7 +35,7 @@ namespace ServiceLayer {
             "bml0UnNwTXNnGAMgASgLMhsuc2VydmljZV9sYXllci5TTEluaXRNc2dSc3BI",
             "ABJMChNWcmZSZXBsYXlFcnJvck5vdGlmGAQgASgLMikuc2VydmljZV9sYXll",
             "ci5TTFZyZlJvdXRlUmVwbGF5RXJyb3JOb3RpZkICGAFIAEIHCgVFdmVudCIR",
-            "Cg9TTEdsb2JhbHNHZXRNc2cigwUKElNMR2xvYmFsc0dldE1zZ1JzcBIvCglF",
+            "Cg9TTEdsb2JhbHNHZXRNc2cihQUKElNMR2xvYmFsc0dldE1zZ1JzcBIvCglF",
             "cnJTdGF0dXMYASABKAsyHC5zZXJ2aWNlX2xheWVyLlNMRXJyb3JTdGF0dXMS",
             "GAoQTWF4VnJmTmFtZUxlbmd0aBgCIAEoDRIeChZNYXhJbnRlcmZhY2VOYW1l",
             "TGVuZ3RoGAMgASgNEhgKEE1heFBhdGhzUGVyRW50cnkYBCABKA0SHgoWTWF4",
@@ -48,18 +48,18 @@ namespace ServiceLayer {
             "dW5uZWxJZExlbmd0aBgOIAEoDRIlCh1NYXhMYWJlbEJsb2NrQ2xpZW50TmFt",
             "ZUxlbmd0aBgPIAEoDRIeChZNYXhQYXRoc0luTmV4dGhvcE5vdGlmGBAgASgN",
             "EhcKD01heFZyZlJlZ1Blck1zZxgRIAEoDRIWCg5NYXhBRk9wc1Blck1zZxgS",
-            "IAEoDRIiChpNYXhOb3RpZlJlcVBlclNMQUZOb3RpZlJlcRgTIAEoDRIkChxN",
-            "YXhNYXRjaEZpbHRlckluQmdwbHNUb3BvVXBkGBQgASgNKpwBChFTTEdsb2Jh",
-            "bE5vdGlmVHlwZRIhCh1TTF9HTE9CQUxfRVZFTlRfVFlQRV9SRVNFUlZFRBAA",
-            "Eh4KGlNMX0dMT0JBTF9FVkVOVF9UWVBFX0VSUk9SEAESIgoeU0xfR0xPQkFM",
-            "X0VWRU5UX1RZUEVfSEVBUlRCRUFUEAISIAocU0xfR0xPQkFMX0VWRU5UX1RZ",
-            "UEVfVkVSU0lPThADMqwBCghTTEdsb2JhbBJNChFTTEdsb2JhbEluaXROb3Rp",
-            "ZhIYLnNlcnZpY2VfbGF5ZXIuU0xJbml0TXNnGhwuc2VydmljZV9sYXllci5T",
-            "TEdsb2JhbE5vdGlmMAESUQoMU0xHbG9iYWxzR2V0Eh4uc2VydmljZV9sYXll",
-            "ci5TTEdsb2JhbHNHZXRNc2caIS5zZXJ2aWNlX2xheWVyLlNMR2xvYmFsc0dl",
-            "dE1zZ1JzcEJRWk9naXRodWIuY29tL0Npc2NvLXNlcnZpY2UtbGF5ZXIvc2Vy",
-            "dmljZS1sYXllci1vYmptb2RlbC9ncnBjL3Byb3RvcztzZXJ2aWNlX2xheWVy",
-            "YgZwcm90bzM="));
+            "IAEoDRIiChpNYXhOb3RpZlJlcVBlclNMQUZOb3RpZlJlcRgTIAEoDRImCh5N",
+            "YXhNYXRjaEZpbHRlckluQmdwbHNUb3BvTm90aWYYFCABKA0qnAEKEVNMR2xv",
+            "YmFsTm90aWZUeXBlEiEKHVNMX0dMT0JBTF9FVkVOVF9UWVBFX1JFU0VSVkVE",
+            "EAASHgoaU0xfR0xPQkFMX0VWRU5UX1RZUEVfRVJST1IQARIiCh5TTF9HTE9C",
+            "QUxfRVZFTlRfVFlQRV9IRUFSVEJFQVQQAhIgChxTTF9HTE9CQUxfRVZFTlRf",
+            "VFlQRV9WRVJTSU9OEAMyrAEKCFNMR2xvYmFsEk0KEVNMR2xvYmFsSW5pdE5v",
+            "dGlmEhguc2VydmljZV9sYXllci5TTEluaXRNc2caHC5zZXJ2aWNlX2xheWVy",
+            "LlNMR2xvYmFsTm90aWYwARJRCgxTTEdsb2JhbHNHZXQSHi5zZXJ2aWNlX2xh",
+            "eWVyLlNMR2xvYmFsc0dldE1zZxohLnNlcnZpY2VfbGF5ZXIuU0xHbG9iYWxz",
+            "R2V0TXNnUnNwQlFaT2dpdGh1Yi5jb20vQ2lzY28tc2VydmljZS1sYXllci9z",
+            "ZXJ2aWNlLWxheWVyLW9iam1vZGVsL2dycGMvcHJvdG9zO3NlcnZpY2VfbGF5",
+            "ZXJiBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::ServiceLayer.SlCommonTypesReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::ServiceLayer.SLGlobalNotifType), }, null, new pbr::GeneratedClrTypeInfo[] {
@@ -68,7 +68,7 @@ namespace ServiceLayer {
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLVrfRouteReplayErrorNotif), global::ServiceLayer.SLVrfRouteReplayErrorNotif.Parser, new[]{ "VrfName" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLGlobalNotif), global::ServiceLayer.SLGlobalNotif.Parser, new[]{ "EventType", "ErrStatus", "InitRspMsg", "VrfReplayErrorNotif" }, new[]{ "Event" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLGlobalsGetMsg), global::ServiceLayer.SLGlobalsGetMsg.Parser, null, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLGlobalsGetMsgRsp), global::ServiceLayer.SLGlobalsGetMsgRsp.Parser, new[]{ "ErrStatus", "MaxVrfNameLength", "MaxInterfaceNameLength", "MaxPathsPerEntry", "MaxPrimaryPathPerEntry", "MaxBackupPathPerEntry", "MaxMplsLabelsPerPath", "MinPrimaryPathIdNum", "MaxPrimaryPathIdNum", "MinBackupPathIdNum", "MaxBackupPathIdNum", "MaxRemoteAddressNum", "MaxL2BdNameLength", "MaxL2PmsiTunnelIdLength", "MaxLabelBlockClientNameLength", "MaxPathsInNexthopNotif", "MaxVrfRegPerMsg", "MaxAFOpsPerMsg", "MaxNotifReqPerSLAFNotifReq", "MaxMatchFilterInBgplsTopoUpd" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLGlobalsGetMsgRsp), global::ServiceLayer.SLGlobalsGetMsgRsp.Parser, new[]{ "ErrStatus", "MaxVrfNameLength", "MaxInterfaceNameLength", "MaxPathsPerEntry", "MaxPrimaryPathPerEntry", "MaxBackupPathPerEntry", "MaxMplsLabelsPerPath", "MinPrimaryPathIdNum", "MaxPrimaryPathIdNum", "MinBackupPathIdNum", "MaxBackupPathIdNum", "MaxRemoteAddressNum", "MaxL2BdNameLength", "MaxL2PmsiTunnelIdLength", "MaxLabelBlockClientNameLength", "MaxPathsInNexthopNotif", "MaxVrfRegPerMsg", "MaxAFOpsPerMsg", "MaxNotifReqPerSLAFNotifReq", "MaxMatchFilterInBgplsTopoNotif" }, null, null, null, null)
           }));
     }
     #endregion
@@ -1478,7 +1478,7 @@ namespace ServiceLayer {
       maxVrfRegPerMsg_ = other.maxVrfRegPerMsg_;
       maxAFOpsPerMsg_ = other.maxAFOpsPerMsg_;
       maxNotifReqPerSLAFNotifReq_ = other.maxNotifReqPerSLAFNotifReq_;
-      maxMatchFilterInBgplsTopoUpd_ = other.maxMatchFilterInBgplsTopoUpd_;
+      maxMatchFilterInBgplsTopoNotif_ = other.maxMatchFilterInBgplsTopoNotif_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -1774,19 +1774,19 @@ namespace ServiceLayer {
       }
     }
 
-    /// <summary>Field number for the "MaxMatchFilterInBgplsTopoUpd" field.</summary>
-    public const int MaxMatchFilterInBgplsTopoUpdFieldNumber = 20;
-    private uint maxMatchFilterInBgplsTopoUpd_;
+    /// <summary>Field number for the "MaxMatchFilterInBgplsTopoNotif" field.</summary>
+    public const int MaxMatchFilterInBgplsTopoNotifFieldNumber = 20;
+    private uint maxMatchFilterInBgplsTopoNotif_;
     /// <summary>
-    /// Maximum match filters that can be added to Bgpls Topology Service 
-    /// Update message.
+    /// Maximum match filters that can be added to Bgpls Topology Service
+    /// Notification message.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public uint MaxMatchFilterInBgplsTopoUpd {
-      get { return maxMatchFilterInBgplsTopoUpd_; }
+    public uint MaxMatchFilterInBgplsTopoNotif {
+      get { return maxMatchFilterInBgplsTopoNotif_; }
       set {
-        maxMatchFilterInBgplsTopoUpd_ = value;
+        maxMatchFilterInBgplsTopoNotif_ = value;
       }
     }
 
@@ -1824,7 +1824,7 @@ namespace ServiceLayer {
       if (MaxVrfRegPerMsg != other.MaxVrfRegPerMsg) return false;
       if (MaxAFOpsPerMsg != other.MaxAFOpsPerMsg) return false;
       if (MaxNotifReqPerSLAFNotifReq != other.MaxNotifReqPerSLAFNotifReq) return false;
-      if (MaxMatchFilterInBgplsTopoUpd != other.MaxMatchFilterInBgplsTopoUpd) return false;
+      if (MaxMatchFilterInBgplsTopoNotif != other.MaxMatchFilterInBgplsTopoNotif) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -1851,7 +1851,7 @@ namespace ServiceLayer {
       if (MaxVrfRegPerMsg != 0) hash ^= MaxVrfRegPerMsg.GetHashCode();
       if (MaxAFOpsPerMsg != 0) hash ^= MaxAFOpsPerMsg.GetHashCode();
       if (MaxNotifReqPerSLAFNotifReq != 0) hash ^= MaxNotifReqPerSLAFNotifReq.GetHashCode();
-      if (MaxMatchFilterInBgplsTopoUpd != 0) hash ^= MaxMatchFilterInBgplsTopoUpd.GetHashCode();
+      if (MaxMatchFilterInBgplsTopoNotif != 0) hash ^= MaxMatchFilterInBgplsTopoNotif.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -1946,9 +1946,9 @@ namespace ServiceLayer {
         output.WriteRawTag(152, 1);
         output.WriteUInt32(MaxNotifReqPerSLAFNotifReq);
       }
-      if (MaxMatchFilterInBgplsTopoUpd != 0) {
+      if (MaxMatchFilterInBgplsTopoNotif != 0) {
         output.WriteRawTag(160, 1);
-        output.WriteUInt32(MaxMatchFilterInBgplsTopoUpd);
+        output.WriteUInt32(MaxMatchFilterInBgplsTopoNotif);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -2036,9 +2036,9 @@ namespace ServiceLayer {
         output.WriteRawTag(152, 1);
         output.WriteUInt32(MaxNotifReqPerSLAFNotifReq);
       }
-      if (MaxMatchFilterInBgplsTopoUpd != 0) {
+      if (MaxMatchFilterInBgplsTopoNotif != 0) {
         output.WriteRawTag(160, 1);
-        output.WriteUInt32(MaxMatchFilterInBgplsTopoUpd);
+        output.WriteUInt32(MaxMatchFilterInBgplsTopoNotif);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -2107,8 +2107,8 @@ namespace ServiceLayer {
       if (MaxNotifReqPerSLAFNotifReq != 0) {
         size += 2 + pb::CodedOutputStream.ComputeUInt32Size(MaxNotifReqPerSLAFNotifReq);
       }
-      if (MaxMatchFilterInBgplsTopoUpd != 0) {
-        size += 2 + pb::CodedOutputStream.ComputeUInt32Size(MaxMatchFilterInBgplsTopoUpd);
+      if (MaxMatchFilterInBgplsTopoNotif != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeUInt32Size(MaxMatchFilterInBgplsTopoNotif);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -2182,8 +2182,8 @@ namespace ServiceLayer {
       if (other.MaxNotifReqPerSLAFNotifReq != 0) {
         MaxNotifReqPerSLAFNotifReq = other.MaxNotifReqPerSLAFNotifReq;
       }
-      if (other.MaxMatchFilterInBgplsTopoUpd != 0) {
-        MaxMatchFilterInBgplsTopoUpd = other.MaxMatchFilterInBgplsTopoUpd;
+      if (other.MaxMatchFilterInBgplsTopoNotif != 0) {
+        MaxMatchFilterInBgplsTopoNotif = other.MaxMatchFilterInBgplsTopoNotif;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -2280,7 +2280,7 @@ namespace ServiceLayer {
             break;
           }
           case 160: {
-            MaxMatchFilterInBgplsTopoUpd = input.ReadUInt32();
+            MaxMatchFilterInBgplsTopoNotif = input.ReadUInt32();
             break;
           }
         }
@@ -2378,7 +2378,7 @@ namespace ServiceLayer {
             break;
           }
           case 160: {
-            MaxMatchFilterInBgplsTopoUpd = input.ReadUInt32();
+            MaxMatchFilterInBgplsTopoNotif = input.ReadUInt32();
             break;
           }
         }

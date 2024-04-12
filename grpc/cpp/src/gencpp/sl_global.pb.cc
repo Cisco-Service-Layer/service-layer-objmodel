@@ -104,7 +104,7 @@ constexpr SLGlobalsGetMsgRsp::SLGlobalsGetMsgRsp(
   , maxvrfregpermsg_(0u)
   , maxafopspermsg_(0u)
   , maxnotifreqperslafnotifreq_(0u)
-  , maxmatchfilterinbgplstopoupd_(0u){}
+  , maxmatchfilterinbgplstoponotif_(0u){}
 struct SLGlobalsGetMsgRspDefaultTypeInternal {
   constexpr SLGlobalsGetMsgRspDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
@@ -187,7 +187,7 @@ const uint32_t TableStruct_sl_5fglobal_2eproto::offsets[] PROTOBUF_SECTION_VARIA
   PROTOBUF_FIELD_OFFSET(::service_layer::SLGlobalsGetMsgRsp, maxvrfregpermsg_),
   PROTOBUF_FIELD_OFFSET(::service_layer::SLGlobalsGetMsgRsp, maxafopspermsg_),
   PROTOBUF_FIELD_OFFSET(::service_layer::SLGlobalsGetMsgRsp, maxnotifreqperslafnotifreq_),
-  PROTOBUF_FIELD_OFFSET(::service_layer::SLGlobalsGetMsgRsp, maxmatchfilterinbgplstopoupd_),
+  PROTOBUF_FIELD_OFFSET(::service_layer::SLGlobalsGetMsgRsp, maxmatchfilterinbgplstoponotif_),
 };
 static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, -1, sizeof(::service_layer::SLInitMsg)},
@@ -220,7 +220,7 @@ const char descriptor_table_protodef_sl_5fglobal_2eproto[] PROTOBUF_SECTION_VARI
   "nitRspMsg\030\003 \001(\0132\033.service_layer.SLInitMs"
   "gRspH\000\022L\n\023VrfReplayErrorNotif\030\004 \001(\0132).se"
   "rvice_layer.SLVrfRouteReplayErrorNotifB\002"
-  "\030\001H\000B\007\n\005Event\"\021\n\017SLGlobalsGetMsg\"\203\005\n\022SLG"
+  "\030\001H\000B\007\n\005Event\"\021\n\017SLGlobalsGetMsg\"\205\005\n\022SLG"
   "lobalsGetMsgRsp\022/\n\tErrStatus\030\001 \001(\0132\034.ser"
   "vice_layer.SLErrorStatus\022\030\n\020MaxVrfNameLe"
   "ngth\030\002 \001(\r\022\036\n\026MaxInterfaceNameLength\030\003 \001"
@@ -236,25 +236,25 @@ const char descriptor_table_protodef_sl_5fglobal_2eproto[] PROTOBUF_SECTION_VARI
   "\001(\r\022\036\n\026MaxPathsInNexthopNotif\030\020 \001(\r\022\027\n\017M"
   "axVrfRegPerMsg\030\021 \001(\r\022\026\n\016MaxAFOpsPerMsg\030\022"
   " \001(\r\022\"\n\032MaxNotifReqPerSLAFNotifReq\030\023 \001(\r"
-  "\022$\n\034MaxMatchFilterInBgplsTopoUpd\030\024 \001(\r*\234"
-  "\001\n\021SLGlobalNotifType\022!\n\035SL_GLOBAL_EVENT_"
-  "TYPE_RESERVED\020\000\022\036\n\032SL_GLOBAL_EVENT_TYPE_"
-  "ERROR\020\001\022\"\n\036SL_GLOBAL_EVENT_TYPE_HEARTBEA"
-  "T\020\002\022 \n\034SL_GLOBAL_EVENT_TYPE_VERSION\020\0032\254\001"
-  "\n\010SLGlobal\022M\n\021SLGlobalInitNotif\022\030.servic"
-  "e_layer.SLInitMsg\032\034.service_layer.SLGlob"
-  "alNotif0\001\022Q\n\014SLGlobalsGet\022\036.service_laye"
-  "r.SLGlobalsGetMsg\032!.service_layer.SLGlob"
-  "alsGetMsgRspBQZOgithub.com/Cisco-service"
-  "-layer/service-layer-objmodel/grpc/proto"
-  "s;service_layerb\006proto3"
+  "\022&\n\036MaxMatchFilterInBgplsTopoNotif\030\024 \001(\r"
+  "*\234\001\n\021SLGlobalNotifType\022!\n\035SL_GLOBAL_EVEN"
+  "T_TYPE_RESERVED\020\000\022\036\n\032SL_GLOBAL_EVENT_TYP"
+  "E_ERROR\020\001\022\"\n\036SL_GLOBAL_EVENT_TYPE_HEARTB"
+  "EAT\020\002\022 \n\034SL_GLOBAL_EVENT_TYPE_VERSION\020\0032"
+  "\254\001\n\010SLGlobal\022M\n\021SLGlobalInitNotif\022\030.serv"
+  "ice_layer.SLInitMsg\032\034.service_layer.SLGl"
+  "obalNotif0\001\022Q\n\014SLGlobalsGet\022\036.service_la"
+  "yer.SLGlobalsGetMsg\032!.service_layer.SLGl"
+  "obalsGetMsgRspBQZOgithub.com/Cisco-servi"
+  "ce-layer/service-layer-objmodel/grpc/pro"
+  "tos;service_layerb\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_sl_5fglobal_2eproto_deps[1] = {
   &::descriptor_table_sl_5fcommon_5ftypes_2eproto,
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_sl_5fglobal_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_sl_5fglobal_2eproto = {
-  false, false, 1583, descriptor_table_protodef_sl_5fglobal_2eproto, "sl_global.proto", 
+  false, false, 1585, descriptor_table_protodef_sl_5fglobal_2eproto, "sl_global.proto", 
   &descriptor_table_sl_5fglobal_2eproto_once, descriptor_table_sl_5fglobal_2eproto_deps, 1, 6,
   schemas, file_default_instances, TableStruct_sl_5fglobal_2eproto::offsets,
   file_level_metadata_sl_5fglobal_2eproto, file_level_enum_descriptors_sl_5fglobal_2eproto, file_level_service_descriptors_sl_5fglobal_2eproto,
@@ -1412,16 +1412,16 @@ SLGlobalsGetMsgRsp::SLGlobalsGetMsgRsp(const SLGlobalsGetMsgRsp& from)
     errstatus_ = nullptr;
   }
   ::memcpy(&maxvrfnamelength_, &from.maxvrfnamelength_,
-    static_cast<size_t>(reinterpret_cast<char*>(&maxmatchfilterinbgplstopoupd_) -
-    reinterpret_cast<char*>(&maxvrfnamelength_)) + sizeof(maxmatchfilterinbgplstopoupd_));
+    static_cast<size_t>(reinterpret_cast<char*>(&maxmatchfilterinbgplstoponotif_) -
+    reinterpret_cast<char*>(&maxvrfnamelength_)) + sizeof(maxmatchfilterinbgplstoponotif_));
   // @@protoc_insertion_point(copy_constructor:service_layer.SLGlobalsGetMsgRsp)
 }
 
 inline void SLGlobalsGetMsgRsp::SharedCtor() {
 ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
     reinterpret_cast<char*>(&errstatus_) - reinterpret_cast<char*>(this)),
-    0, static_cast<size_t>(reinterpret_cast<char*>(&maxmatchfilterinbgplstopoupd_) -
-    reinterpret_cast<char*>(&errstatus_)) + sizeof(maxmatchfilterinbgplstopoupd_));
+    0, static_cast<size_t>(reinterpret_cast<char*>(&maxmatchfilterinbgplstoponotif_) -
+    reinterpret_cast<char*>(&errstatus_)) + sizeof(maxmatchfilterinbgplstoponotif_));
 }
 
 SLGlobalsGetMsgRsp::~SLGlobalsGetMsgRsp() {
@@ -1457,8 +1457,8 @@ void SLGlobalsGetMsgRsp::Clear() {
   }
   errstatus_ = nullptr;
   ::memset(&maxvrfnamelength_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&maxmatchfilterinbgplstopoupd_) -
-      reinterpret_cast<char*>(&maxvrfnamelength_)) + sizeof(maxmatchfilterinbgplstopoupd_));
+      reinterpret_cast<char*>(&maxmatchfilterinbgplstoponotif_) -
+      reinterpret_cast<char*>(&maxvrfnamelength_)) + sizeof(maxmatchfilterinbgplstoponotif_));
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -1620,10 +1620,10 @@ const char* SLGlobalsGetMsgRsp::_InternalParse(const char* ptr, ::PROTOBUF_NAMES
         } else
           goto handle_unusual;
         continue;
-      // uint32 MaxMatchFilterInBgplsTopoUpd = 20;
+      // uint32 MaxMatchFilterInBgplsTopoNotif = 20;
       case 20:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 160)) {
-          maxmatchfilterinbgplstopoupd_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          maxmatchfilterinbgplstoponotif_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -1773,10 +1773,10 @@ uint8_t* SLGlobalsGetMsgRsp::_InternalSerialize(
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(19, this->_internal_maxnotifreqperslafnotifreq(), target);
   }
 
-  // uint32 MaxMatchFilterInBgplsTopoUpd = 20;
-  if (this->_internal_maxmatchfilterinbgplstopoupd() != 0) {
+  // uint32 MaxMatchFilterInBgplsTopoNotif = 20;
+  if (this->_internal_maxmatchfilterinbgplstoponotif() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(20, this->_internal_maxmatchfilterinbgplstopoupd(), target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(20, this->_internal_maxmatchfilterinbgplstoponotif(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -1900,11 +1900,11 @@ size_t SLGlobalsGetMsgRsp::ByteSizeLong() const {
         this->_internal_maxnotifreqperslafnotifreq());
   }
 
-  // uint32 MaxMatchFilterInBgplsTopoUpd = 20;
-  if (this->_internal_maxmatchfilterinbgplstopoupd() != 0) {
+  // uint32 MaxMatchFilterInBgplsTopoNotif = 20;
+  if (this->_internal_maxmatchfilterinbgplstoponotif() != 0) {
     total_size += 2 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
-        this->_internal_maxmatchfilterinbgplstopoupd());
+        this->_internal_maxmatchfilterinbgplstoponotif());
   }
 
   return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
@@ -1986,8 +1986,8 @@ void SLGlobalsGetMsgRsp::MergeFrom(const SLGlobalsGetMsgRsp& from) {
   if (from._internal_maxnotifreqperslafnotifreq() != 0) {
     _internal_set_maxnotifreqperslafnotifreq(from._internal_maxnotifreqperslafnotifreq());
   }
-  if (from._internal_maxmatchfilterinbgplstopoupd() != 0) {
-    _internal_set_maxmatchfilterinbgplstopoupd(from._internal_maxmatchfilterinbgplstopoupd());
+  if (from._internal_maxmatchfilterinbgplstoponotif() != 0) {
+    _internal_set_maxmatchfilterinbgplstoponotif(from._internal_maxmatchfilterinbgplstoponotif());
   }
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
@@ -2007,8 +2007,8 @@ void SLGlobalsGetMsgRsp::InternalSwap(SLGlobalsGetMsgRsp* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(SLGlobalsGetMsgRsp, maxmatchfilterinbgplstopoupd_)
-      + sizeof(SLGlobalsGetMsgRsp::maxmatchfilterinbgplstopoupd_)
+      PROTOBUF_FIELD_OFFSET(SLGlobalsGetMsgRsp, maxmatchfilterinbgplstoponotif_)
+      + sizeof(SLGlobalsGetMsgRsp::maxmatchfilterinbgplstoponotif_)
       - PROTOBUF_FIELD_OFFSET(SLGlobalsGetMsgRsp, errstatus_)>(
           reinterpret_cast<char*>(&errstatus_),
           reinterpret_cast<char*>(&other->errstatus_));

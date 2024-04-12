@@ -1086,7 +1086,7 @@ class SLGlobalsGetMsgRsp final :
     kMaxVrfRegPerMsgFieldNumber = 17,
     kMaxAFOpsPerMsgFieldNumber = 18,
     kMaxNotifReqPerSLAFNotifReqFieldNumber = 19,
-    kMaxMatchFilterInBgplsTopoUpdFieldNumber = 20,
+    kMaxMatchFilterInBgplsTopoNotifFieldNumber = 20,
   };
   // .service_layer.SLErrorStatus ErrStatus = 1;
   bool has_errstatus() const;
@@ -1268,13 +1268,13 @@ class SLGlobalsGetMsgRsp final :
   void _internal_set_maxnotifreqperslafnotifreq(uint32_t value);
   public:
 
-  // uint32 MaxMatchFilterInBgplsTopoUpd = 20;
-  void clear_maxmatchfilterinbgplstopoupd();
-  uint32_t maxmatchfilterinbgplstopoupd() const;
-  void set_maxmatchfilterinbgplstopoupd(uint32_t value);
+  // uint32 MaxMatchFilterInBgplsTopoNotif = 20;
+  void clear_maxmatchfilterinbgplstoponotif();
+  uint32_t maxmatchfilterinbgplstoponotif() const;
+  void set_maxmatchfilterinbgplstoponotif(uint32_t value);
   private:
-  uint32_t _internal_maxmatchfilterinbgplstopoupd() const;
-  void _internal_set_maxmatchfilterinbgplstopoupd(uint32_t value);
+  uint32_t _internal_maxmatchfilterinbgplstoponotif() const;
+  void _internal_set_maxmatchfilterinbgplstoponotif(uint32_t value);
   public:
 
   // @@protoc_insertion_point(class_scope:service_layer.SLGlobalsGetMsgRsp)
@@ -1303,7 +1303,7 @@ class SLGlobalsGetMsgRsp final :
   uint32_t maxvrfregpermsg_;
   uint32_t maxafopspermsg_;
   uint32_t maxnotifreqperslafnotifreq_;
-  uint32_t maxmatchfilterinbgplstopoupd_;
+  uint32_t maxmatchfilterinbgplstoponotif_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_sl_5fglobal_2eproto;
 };
@@ -2218,24 +2218,24 @@ inline void SLGlobalsGetMsgRsp::set_maxnotifreqperslafnotifreq(uint32_t value) {
   // @@protoc_insertion_point(field_set:service_layer.SLGlobalsGetMsgRsp.MaxNotifReqPerSLAFNotifReq)
 }
 
-// uint32 MaxMatchFilterInBgplsTopoUpd = 20;
-inline void SLGlobalsGetMsgRsp::clear_maxmatchfilterinbgplstopoupd() {
-  maxmatchfilterinbgplstopoupd_ = 0u;
+// uint32 MaxMatchFilterInBgplsTopoNotif = 20;
+inline void SLGlobalsGetMsgRsp::clear_maxmatchfilterinbgplstoponotif() {
+  maxmatchfilterinbgplstoponotif_ = 0u;
 }
-inline uint32_t SLGlobalsGetMsgRsp::_internal_maxmatchfilterinbgplstopoupd() const {
-  return maxmatchfilterinbgplstopoupd_;
+inline uint32_t SLGlobalsGetMsgRsp::_internal_maxmatchfilterinbgplstoponotif() const {
+  return maxmatchfilterinbgplstoponotif_;
 }
-inline uint32_t SLGlobalsGetMsgRsp::maxmatchfilterinbgplstopoupd() const {
-  // @@protoc_insertion_point(field_get:service_layer.SLGlobalsGetMsgRsp.MaxMatchFilterInBgplsTopoUpd)
-  return _internal_maxmatchfilterinbgplstopoupd();
+inline uint32_t SLGlobalsGetMsgRsp::maxmatchfilterinbgplstoponotif() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLGlobalsGetMsgRsp.MaxMatchFilterInBgplsTopoNotif)
+  return _internal_maxmatchfilterinbgplstoponotif();
 }
-inline void SLGlobalsGetMsgRsp::_internal_set_maxmatchfilterinbgplstopoupd(uint32_t value) {
+inline void SLGlobalsGetMsgRsp::_internal_set_maxmatchfilterinbgplstoponotif(uint32_t value) {
   
-  maxmatchfilterinbgplstopoupd_ = value;
+  maxmatchfilterinbgplstoponotif_ = value;
 }
-inline void SLGlobalsGetMsgRsp::set_maxmatchfilterinbgplstopoupd(uint32_t value) {
-  _internal_set_maxmatchfilterinbgplstopoupd(value);
-  // @@protoc_insertion_point(field_set:service_layer.SLGlobalsGetMsgRsp.MaxMatchFilterInBgplsTopoUpd)
+inline void SLGlobalsGetMsgRsp::set_maxmatchfilterinbgplstoponotif(uint32_t value) {
+  _internal_set_maxmatchfilterinbgplstoponotif(value);
+  // @@protoc_insertion_point(field_set:service_layer.SLGlobalsGetMsgRsp.MaxMatchFilterInBgplsTopoNotif)
 }
 
 #ifdef __GNUC__

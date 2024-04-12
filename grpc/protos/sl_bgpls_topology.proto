@@ -61,16 +61,18 @@ service SLBgplsTopo {
     //@}
 }
 
-// BGP-LS Topology Get Update message
+// BGP-LS Topology Notification Request message
 message SLBgplsTopoNotifReqMsg {
-    // Match filters for BGP-LS Topology Entries
-    // BGP-LS Topology Notification request message takes one or many BGP-LS Topology
+    // Match filters for BGP-LS Topology Entries.
+    // This can be an empty message if the caller wants to subscribe to all the
+    // BGP-LS Topology Entries.
+    // BGP-LS Topology Notification request message takes zero or many BGP-LS Topology
     // Match filters. Each of the Match filter will have a set of Match
     // conditions. A matching BGP-LS Topology entry must match all the Match
     // conditions in one or more Match filters. OR operation is applied on
     // each of the Match filters.
     // Maximum number of Match filters is restricted using
-    // MaxMatchFilterInBgplsTopoUpd in SLGlobalsGet.
+    // MaxMatchFilterInBgplsTopoNotif in SLGlobalsGet.
     repeated SLBgplsTopoNlriMatch Match = 1;
 }
 
@@ -95,16 +97,16 @@ message SLBgplsTopoNlriMatch {
     SLBgplsTopoNlriType NlriType = 3;
 }
 
-// BGP-LS Topology Update message
+// BGP-LS Topology Notification message
 message SLBgplsTopoNotifMsg {
-    oneof Update {
+    oneof Event {
         // This field carries error info, if any error occurs during stream setup.
-        // SL_SUCCESS: signifies that the update request was successful
-        // SL_XXX: signifies an error in setting up a update request.
+        // SL_SUCCESS: signifies that the notification request was successful
+        // SL_XXX: signifies an error in setting up a notification request.
         SLErrorStatus ErrStatus = 1;
 
         // This field carries the BGP-LS Topology data
-        SLBgplsTopoUpd Data = 2;
+        SLBgplsTopoNotif Data = 2;
 
         // This field carries the Start Marker
         SLBgplsTopoStartMarker Start = 3;
@@ -127,7 +129,7 @@ message SLBgplsTopoEndMarker {
 }
 
 // BGP-LS Topology Updates
-message SLBgplsTopoUpd {
+message SLBgplsTopoNotif {
     // BGP-LS Topology Entries
     repeated SLBgplsTopoEntry Entries = 1;
 }
@@ -463,12 +465,12 @@ message SLBgplsTopoOspfv3NodeId {
     // Router ID.
     // IGP Router-ID. TLV 515.
     // Section 5.2.1 of [RFC9552]
-    uint32 RouterId = 3;
+    bytes RouterId = 3;
 
     // Interface identifier of the DR's interface to the LAN.
     // IGP Router-ID. TLV 515.
     // Section 5.2.1 of [RFC9552]
-    uint32 DrIdentifier = 4;
+    bytes DrIdentifier = 4;
 }
 
 // ISIS Node ID
@@ -489,7 +491,7 @@ message SLBgplsTopoBgpNodeId {
     // Router ID.
     // BGP Router-ID. TLV 516.
     // Section 4.2 of [RFC9086]
-    uint32 RouterId = 1;
+    bytes RouterId = 1;
 
     // ASN of the confederation member
     // Member-ASN. TLV 517.
@@ -645,6 +647,10 @@ message SLBgplsTopoNodeAttr {
     // Flexible Algorithm Definition. TLV 1039.
     // Section 3 of [RFC9351]
     repeated SLBgplsTopoFad Fad = 13;
+
+    // Unknown Node Attributes
+    // Unknown/unsupported by IOS-XR/BGPLS.
+    repeated SLBgplsTopoUnknownAttr UnknownAttr = 14;
 }
 
 // Link Attributes
@@ -709,7 +715,7 @@ message SLBgplsTopoLinkAttr {
     // The protection capabilities of a link.
     // Link Protection Type. TLV 1093
     // Section 5.3.2 of [RFC9552]
-    SLBgplsTopoLinkProtecionType ProtectionType = 12;
+    SLBgplsTopoLinkProtectionType ProtectionType = 12;
 
     // The bit mask describing MPLS signaling
     // protocols enabled.
@@ -816,6 +822,10 @@ message SLBgplsTopoLinkAttr {
     // L2 Bundle Member Attribute. TLV 1172
     // Section 2.2.3 of [RFC9085]
     repeated SLBgplsTopoL2BundleMemberAttr L2BundleMemberAttr = 30;
+
+    // Unknown Link Attributes
+    // Unknown/unsupported by IOS-XR/BGPLS.
+    repeated SLBgplsTopoUnknownAttr UnknownAttr = 31;
 }
 
 // Prefix Attributes
@@ -882,6 +892,10 @@ message SLBgplsTopoPrefixAttr {
     // Source Route Identifier. TLV 1171
     // Section 2.3.3 of [RFC9085]
     SLBgplsTopoPrefixSrcRouterId SrcRouterId = 12;
+
+    // Unknown Prefix Attributes
+    // Unknown/unsupported by IOS-XR/BGPLS.
+    repeated SLBgplsTopoUnknownAttr UnknownAttr = 13;
 }
 
 // SRv6 SID Attributes
@@ -903,6 +917,10 @@ message SLBgplsTopoSrv6SidAttr {
     // SRv6 SID Structure Attribute. TLV 1252
     // Section 8 of [RFC9514]
     SLBgplsTopoSrv6SidStruct SidStruct = 3;
+
+    // Unknown SRv6 SID Attributes
+    // Unknown/unsupported by IOS-XR/BGPLS.
+    repeated SLBgplsTopoUnknownAttr UnknownAttr = 4;
 }
 
 // SR Policy Attributes
@@ -948,6 +966,10 @@ message SLBgplsTopoSrPolicyAttr {
     // SR Policy Name. TLV 1213
     // Section 5.4 of [draft-ietf-idr-bgp-ls-sr-policy]
     SLBgplsTopoSrPolicyName SrPolicyName = 7;
+
+    // Unknown SR Policy Attributes
+    // Unknown/unsupported by IOS-XR/BGPLS.
+    repeated SLBgplsTopoUnknownAttr UnknownAttr = 8;
 }
 
 // Messages for Attribute definitions sorted by TLV code point
@@ -1257,7 +1279,7 @@ message SLBgplsTopoLinkTeDefaultMetric {
 
 // Link Protection Type. TLV 1093
 // Section 5.3.2 of [RFC9552]
-message SLBgplsTopoLinkProtecionType {
+message SLBgplsTopoLinkProtectionType {
     // Bit mask of protection capabilities
     uint32 Mask = 1;
 }
@@ -1435,7 +1457,7 @@ message SLBgplsTopoUniLinkDelay {
     uint32 Delay = 1;
 
     // Bit-0: A-Flag: Set if anamolous.
-   bytes Flags = 2;
+    bytes Flags = 2;
 }
 
 // Min/Max Unidirectional Link Delay. TLV 1115
@@ -1448,7 +1470,7 @@ message SLBgplsTopoMinMaxUniLinkDelay {
     uint32 Max = 2;
 
     // Bit-0: A-Flag: Set if anamolous.
-   bytes Flags = 3;
+    bytes Flags = 3;
 }
 
 // Unidirectional Delay Variation. TLV 1116
@@ -1458,7 +1480,7 @@ message SLBgplsTopoUniDelayVar {
     uint32 Variation = 1;
 
     // Bit-0: A-Flag: Set if anamolous.
-   bytes Flags = 2;
+    bytes Flags = 2;
 }
 
 // Unidirectional Link Loss. TLV 1117
@@ -1470,7 +1492,7 @@ message SLBgplsTopoUniLinkLoss {
     uint32 Loss = 1;
 
     // Bit-0: A-Flag: Set if anamolous.
-   bytes Flags = 2;
+    bytes Flags = 2;
 }
 
 // Unidirectional Residual Bandwidth. TLV 1118
@@ -1676,7 +1698,7 @@ message SLBgplsTopoL2BundleMemberAttr {
     // The protection capabilities of a link.
     // Link Protection Type. TLV 1093
     // Section 5.3.2 of [RFC9552]
-    SLBgplsTopoLinkProtecionType ProtectionType = 7;
+    SLBgplsTopoLinkProtectionType ProtectionType = 7;
 
     // The Adjacency Segment Identifiers (SIDs) of an
     // adjacency.
@@ -1737,6 +1759,10 @@ message SLBgplsTopoL2BundleMemberAttr {
     // ASLA Attributes. TLV 1122
     // Section 2 of [RFC9294]
     repeated SLBgplsTopoAslaAttr Asla = 17;
+
+    // Unknown L2 Bundle Member Attributes
+    // Unknown/unsupported by IOS-XR/BGPLS.
+    repeated SLBgplsTopoUnknownAttr UnknownAttr = 18;
 }
 
 // ASLA Attributes. TLV 1122
@@ -1764,7 +1790,7 @@ message SLBgplsTopoAslaAttr {
     // The Shared Link Risk Groups (SRLGs) of a link.
     // Shared Risk Link Group. TLV 1096
     // Section 5.3.2.5 of [RFC9552]
-    SLBgplsTopoLinkSrlg Srlg = 5;
+    repeated SLBgplsTopoLinkSrlg Srlg = 5;
 
     // The average link delay between two
     // directly connected IGP link-state neighbors.
@@ -1807,6 +1833,10 @@ message SLBgplsTopoAslaAttr {
     // Unidirectional Utilized Bandwidth. TLV 1120
     // Section 2.7 of [RFC8571]
     SLBgplsTopoUniUtilBandwidth UniUtilBandwidth = 12;
+
+    // Unknown ASLA Attributes
+    // Unknown/unsupported by IOS-XR/BGPLS.
+    repeated SLBgplsTopoUnknownAttr UnknownAttr = 13;
 }
 
 // SR Binding SID. TLV 1201
@@ -2397,7 +2427,7 @@ message SLBgplsTopoSrv6BgpPeerNodeSid {
     uint32 PeerAS = 3;
 
     // BGP Router ID of peer
-    uint32 PeerBgpId = 4;
+    bytes PeerBgpId = 4;
 }
 
 // SRv6 SID Structure Attribute. TLV 1252
@@ -2414,5 +2444,13 @@ message SLBgplsTopoSrv6SidStruct {
 
     // Argument length in bits
     uint32 ArgLen = 4;
+}
+
+// Unknown Attribute.
+// Added to hold any unknown/unsupported TLV by IOS-XR/BGPLS.
+message SLBgplsTopoUnknownAttr {
+    uint32 TlvType = 1;
+    uint32 TlvLen = 2;
+    bytes RawTlv = 3;
 }
 //@}
