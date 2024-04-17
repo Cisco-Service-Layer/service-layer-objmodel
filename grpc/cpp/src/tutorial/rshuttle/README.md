@@ -1,11 +1,11 @@
 # Cpp Quick Tutorial
 
 ## Table of Contents
-- [Server Setup](#server)\
+- [Server Setup](#server)
 - [Running the tutorial](#quick)
 - [Generate gRPC Code](#gen)
 - [Initialize the client server connection](#init)
-- [Register the VRF](#vrf)
+- [Optional: Register the VRF](#vrf)
 - [Add a Batch of Routes](#route)
 
 NOTE: If you only want to be able to run the code then you only need to follow the Server Setup and Running the tutorial sections.
@@ -60,8 +60,7 @@ server box (should be the same as the one configured):
 
     # show run grpc
 
-Go into the bash shell provided by running this command in the ../service-
-layer-objmodel path:
+Go into the bash shell provided by running this command in the root of your service-layer-objmodel:
 
     make slapi-bash
 
@@ -80,15 +79,15 @@ with the API.
 ## <a name='quick'></a>Running the tutorial
 
 The following basic tutorial will walk you through getting started with the Service Layer API. The program can be used to test 
-either IPV4, IPV6, or MPLS vertical. This may require some initial cpp and GRPC setup, which will be explained below. 
+either IPV4, IPV6, or MPLS vertical through the unary rpc. Currently PG is not supported. This may require some initial cpp and GRPC setup, which will be explained below. 
 For now, if you already have passed this setup step, follow this example:
 
 | Required Argument | Description |
 | --- | --- |
 | -u/--username                                | Username |
 | -p/--password                                | Password |
-| -a/--table_type                              | Specify whether to do ipv4(value = 0), ipv6(value = 1) or mpls(value = 2) operation (default 0) |
-| -v/--version2                                | Specify if you want to use version2 code or not. If not, only configurable options are batch_size and batch_num (default true ) |
+| -a/--table_type                              | Specify whether to do ipv4(value = 0), ipv6(value = 1) or mpls(value = 2) operation. PG is currently not supported (default 0) |
+| -v/--slaf                                    | Specify if you want to use proto RPCs to program objects or not. If not, only configurable options are batch_size and batch_num (default true ) |
 
 ##### Optional arguments you can set in environment:
 
@@ -139,7 +138,7 @@ Once in bash, navigate to the tutorial directory:
 
 root@f6179b5127f5:/slapi# cd grpc/cpp/src/tutorial/rshuttle
 
-#### How to Run in container (normal)
+##### How to Run in Docker container (external client workflow)
 
 Default Example (This runs ipv4):
     $ ./servicelayermain -u cisco -p cisco123
@@ -156,83 +155,6 @@ IPV6 Example:
 MPLS Example:
     $ ./servicelayermain -u cisco -p cisco123 --table_type 2 --start_label 12000
     $ ./servicelayermain -u cisco -p cisco123 --table_type 2 -o 12000 (same as above example)
-
-
-#### How to Run if using Sandbox on Server (Unsupported)
-
-Currently unsupported and Sandbox needs to update. Can ignore this section
-Note: This will not work unless you change the Ubuntu Version in the docker container to 18.04 or lower due to libc-dependencies. Then you will have to rebuild
-
-Once you follow the How to Build section, you need to exit the container:
-
-root@f6179b5127f5:/slapi# exit
-
-Navigate to rshuttle directory:
-
-Bash-Prompt:sl$ cd grpc/cpp/src/tutorial/rshuttle
-
-From here you need to package the servicelayermain into an rpm, package that rpm into an xr-rpm and then create a giso image.
-This can be done by following the demo here: https://app.vidcast.io/share/6d214082-74f1-4ee9-9bf2-647bf5a0e483
-
-This will create a folder output_gisobuild/giso which contains the giso image. You need to get it onto your server and store it under /misc/disk1:
-
-Example:
-EX: scp -P PORT_NUMBER 8000-golden-x86_64-24.2.1.21I-sandbox.iso USERNAME@IP_ADDRESS:/misc/disk1/
-
-You now need to log-on to the server. Once there you will need to perform install replace. 
-Replace usually takes a couple of minutes to finish. To check of the status, use 'show install log' command. 
-Then Sandbox and a local-connection needs to be enabled. Before committing, test if sandbox is ready. 
-You can do this with 'bash sandbox'. Then you need to install commit. Commit takes about a minute. 
-Use 'show install log' to see when the commit is done. After that a reload needs to be performed.
-
-Example:
-
-    ! Replacing with your giso image
-    install replace /misc/disk1/8000-golden-x86_64-24.2.1.21I-sandbox.iso
-
-    ! Configure Sandbox
-    configure
-    sandbox
-    enable
-    commit
-    end
-
-    ! Configure GRPC local-connection
-    configure
-    grpc
-    local-conection
-    commit
-    end
-
-Once the reload is finished you can check if your rpms are installed on the server
-
-Example:
-
-    show sandbox rpms install
-LIST OF INSTALLED RPMs
-----------------------------------------------------------------------------------
-1  servicelayermain.x86_64                 1.0.0-1.el8                             
-----------------------------------------------------------------------------------
-
-Note: If you do not see your rpm's installed here when running the "show sandbox rpms install" 
-then you might need to do the install replace, commit and reload again.
-
-Now to get into run sandbox on server:
-    bash sandbox
-
-You need to specify the variables SERVER_IP and SERVER_PORT on Sandbox. 
-We are using unix sockets here so you and that is what the local-connection was for. 
-Set SERVER_IP=unix and SERVER_PORT=/ems/grpc.sock:
-
-    [root@ios /]# export SERVER_IP=unix
-    [root@ios /]# export SERVER_PORT=/ems/grpc.sock
-
-All that is left is to run the application:
-Default Example (This runs ipv4):
-    $ ./servicelayermain
-
-Note: you don't need to give username or password since grpc is established to unix sockets, unlike running in container
-
 
 The following sections explain the details of the above example tutorial and are similar to the Python quick start tutorial.
 The rest of these section is extra information and not required to run the tutorial above.
@@ -266,17 +188,16 @@ As shown in ServiceLayerMain.cpp, the first thing to do is to setup the GRPC cha
 
     auto server_ip = getEnvVar("SERVER_IP");
     auto server_port = getEnvVar("SERVER_PORT");
-    auto channel = grpc::CreateChannel(
-                              grpc_server, grpc::InsecureChannelCredentials());
+    auto channel = grpc::CreateChannel(grpc_server, grpc::InsecureChannelCredentials());
 
-Once connected, we need to handshake the API version number with the server.
+##### GlobalInit RPC
+
+Once connected, client can choose to handshake the API version number with the server. This is optional step, not mandatory
 The same RPC call also sets up an asynchronous stream of notifications from the server. The first notification would be the response to our version number message i.e. SLInitMsg, as a SLGlobalNotif event with type SL_GLOBAL_EVENT_TYPE_VERSION. This can be done by calling:
 
     call.response_reader = stub_->AsyncSLGlobalInitNotif(&call.context, init_msg, &cq_, (void *)&call);
 
 The above function takes the client major, minor and sub version numbers and sends them to the Service Layer service to get a handshake on the API version number. More on this below.
-
-The following code snippets are copied from file ServiceLayerMain.cpp and ServiceLayerAsyncInit.cpp
 
     # Create SLInitMsg to handshake the version number with the server.
     # The Server will allow/deny access based on the version number.
@@ -361,7 +282,9 @@ Since the above SendInitMsg function would never return, it is best to spawn it 
         }
     }
 
-#### <a name='vrf'></a>Register the VRF
+#### <a name='vrf'></a>Optional: Register the VRF
+
+This is optional, user can configure grpc service-layer auto-register to avoid this registration requirement, and with auto-register, client owns the responsibility for reconciliation.
 
 In general, before we can use a vertical function like the route APIs, we have to register on that vertical. The SLAF API allows the user to register based on a per VRF basis.
 So, before any additions or modification of routes can be made we need to register with the proper VRF, which requires sending a VRF registration message and then an EOF message to clean up any stale routes that may be there from an older configuration (this will become handy on restart or recovery scenarios).
@@ -373,18 +296,19 @@ for creating necessary objects.
 
     auto af_vrf_handler = SLAFVrf(channel,username,password);
 
-The next steps are a rundown of what the runv2 and supporting functions called in
-runv2 do.
+The next steps are a rundown of what the run_slaf and supporting functions called in
+run_slaf do.
 
     // Need to specify ipv4 (default), ipv6(value = 1) or mpls(value = 2)
-    if (env_data.route_op == 1) {
-        route_operation = AF_INET6;
-    } else if (env_data.route_op == 2) {
-        route_operation = AF_MPLS;
+    // Note: PG is currently not supported
+    if (env_data.table_type == 1) {
+        table_type = AF_INET6;
+    } else if (env_data.table_type == 2) {
+        table_type = AF_MPLS;
     } else {
-        route_operation = AF_INET;
+        table_type = AF_INET;
     }
-    run_v2(&af_vrf_handler,route_operation);
+    run_slaf(&af_vrf_handler,route_operation);
 
 The following snippets are copied from file ServiceLayerRoutev2.cpp
 
@@ -513,10 +437,9 @@ to indicate how many routes you want to push. We also create a RShuttlev2 struct
 which simplifies the setting of route attributes. The route_operation is used
 to specify ipv4, ipv6 or mpls operation
 
-The following code snippets are copied from file ServiceLayerMain.cpp
 
     route_shuttlev2 = new RShuttlev2(af_vrf_handler.channel, username, password);
-    routepushv2(route_shuttlev2, batch_size, batch_num,route_operation);
+    routepush_slaf(route_shuttlev2, batch_size, batch_num,route_operation);
 
 This creates a `SLAFMsg` message.
 
@@ -542,7 +465,7 @@ We use a helper function called insertAddBatchv4 to set all attributes for the `
 
     route_shuttlev2->insertAddBatchV4(route_shuttlev2->longToIpv4(prefix), prefix_len, 99, "14.1.1.10", "Bundle-Ether1");
 
-The following code snippets are copied from file ServiceLayerRoutev2.cpp
+
 We will be following insertAddBatchV4 and helper functions, but only show the setting of the `SLAFMsg` attributes
 
 Obtain pointer to a new route object within route batch, by creating a `SLAFOp` , `SLAFObject` ,and `SLRoutev4` object.
@@ -578,12 +501,10 @@ Next hop interface name
     routev4PathPtr->mutable_nexthopinterface()->set_name(nextHopIf);
 
 We have finished the for loop and now need to make the RPC call. We do this with
-routev4Op() function called in routepushv2 in ServiceLayerMain.cpp
+routev4Op() function called in routepush_slaf in ServiceLayerMain.cpp
 
     route_shuttlev2->routev4Op(service_layer::SL_OBJOP_UPDATE);
 
-The following code snippets are copied from function route_shuttlev2->routev4Op from file ServiceLayerRoutev2.cpp
-similar to when we register the vrf message in earlier steps
 
     route_op = routeOp;
     route_msg.set_oper(route_op); // Desired ADD, UPDATE, DELETE operation
@@ -655,11 +576,3 @@ was added for an error message.
                     ipv4_error = true;
                 }
         }
-
-That's all for now! Remember some key takeaways:
-
-1. The VRF must be registered before adding, updating, or removing routes 
-from the RIB.
-
-2. All API operations are CRUD based (Create, Read, Update, Delete), and the initial setup of all calls to the same object will be (about) the same. 
-Note that in our implementation no delete is required. As soon as a signal interrupt is given, we delete anything we created or updated by sending a delete request to the server.

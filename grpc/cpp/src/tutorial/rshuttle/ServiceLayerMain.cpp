@@ -46,7 +46,7 @@ public:
     unsigned int num_label = 1000;
     unsigned int num_paths = 1;
 };
-int table_type_operation;
+int table_type;
 
 class Timer
 {
@@ -127,13 +127,13 @@ signalHandlerv2(int signum)
     afvrfhandler_signum->af_vrf_msg.clear_vrfregmsgs();
 
     // Create a fresh SLVrfRegMsg batch for cleanup
-    if(table_type_operation == AF_INET){
+    if(table_type == AF_INET){
         afvrfhandler_signum->afVrfRegMsgAdd("default",AF_INET);
         afvrfhandler_signum->unregisterAfVrf(AF_INET);
-    } else if (table_type_operation == AF_INET6){
+    } else if (table_type == AF_INET6){
         afvrfhandler_signum->afVrfRegMsgAdd("default",AF_INET6);
         afvrfhandler_signum->unregisterAfVrf(AF_INET6);
-    } else if(table_type_operation == AF_MPLS){
+    } else if(table_type == AF_MPLS){
         afvrfhandler_signum->afVrfRegMsgAdd("default",AF_MPLS);
         afvrfhandler_signum->unregisterAfVrf(AF_MPLS);
     }
@@ -184,7 +184,7 @@ void routepush(RShuttle* route_shuttle,
 
 }
 
-void routepushv2(SLAFRShuttle* slaf_route_shuttle,
+void routepush_slaf(SLAFRShuttle* slaf_route_shuttle,
                testingData env_data,
                unsigned int addr_family)
 
@@ -270,7 +270,7 @@ void routepushv2(SLAFRShuttle* slaf_route_shuttle,
 
 }
 
-void run_v2(SLAFVrf* af_vrf_handler, unsigned int addr_family){
+void run_slaf(SLAFVrf* af_vrf_handler, unsigned int addr_family){
 
     switch(addr_family){
         // Create a new SLAFVrfRegMsg batch and Register it
@@ -337,7 +337,7 @@ int main(int argc, char** argv) {
         {"help", no_argument, nullptr, 'h'},
         {"username", required_argument, nullptr, 'u'},
         {"password", required_argument, nullptr, 'p'},
-        {"version2", required_argument, nullptr, 'v'},
+        {"slaf", required_argument, nullptr, 'v'},
 
         {nullptr,0,nullptr,0}
     };
@@ -398,7 +398,7 @@ int main(int argc, char** argv) {
                 LOG(INFO) <<"| -u/--username                    | Username |";
                 LOG(INFO) <<"| -p/--password                    | Password |";
                 LOG(INFO) <<"| -a/--table_type                  | Specify whether to do ipv4(value = 0), ipv6(value = 1) or mpls(value = 2) operation (default 0) |";
-                LOG(INFO) <<"| -v/--version2                    | Specify if you want to use version2 code or not. If not, only configurable options are batch_size and batch_num (default true ) |";
+                LOG(INFO) <<"| -v/--slaf                        | Specify if you want to use proto RPCs to program objects or not. If not, only configurable options are batch_size and batch_num (default true ) |";
                 LOG(INFO) << "Optional arguments you can set in environment:";
                 LOG(INFO) << "| -h/--help                       | Help |";
                 LOG(INFO) << "| -b/--batch_size                 | Configure the number of ipv4 routes or ILM entires for MPLS to be added to a batch (default 1024) |";
@@ -484,16 +484,16 @@ int main(int argc, char** argv) {
 
         // Need to specify ipv4 (default), ipv6(value = 1) or mpls(value = 2)
         if (env_data.table_type == 1) {
-            table_type_operation = AF_INET6;
+            table_type = AF_INET6;
         } else if (env_data.table_type == 2) {
-            table_type_operation = AF_MPLS;
+            table_type = AF_MPLS;
         } else {
-            table_type_operation = AF_INET;
+            table_type = AF_INET;
         }
-        run_v2(&af_vrf_handler,table_type_operation);
+        run_slaf(&af_vrf_handler,table_type);
         slaf_route_shuttle = new SLAFRShuttle(af_vrf_handler.channel, username, password);
 
-        routepushv2(slaf_route_shuttle, env_data, table_type_operation);
+        routepush_slaf(slaf_route_shuttle, env_data, table_type);
 
         asynchandler_signum = &asynchandler;
         afvrfhandler_signum = &af_vrf_handler;
