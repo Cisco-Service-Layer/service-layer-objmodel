@@ -1,4 +1,4 @@
-ARG UBUNTU_VER=18.04
+ARG UBUNTU_VER=20.04
 FROM ubuntu:${UBUNTU_VER}
 # Here we define UBUNTU_VER again, so it can be used after FROM.
 ARG UBUNTU_VER

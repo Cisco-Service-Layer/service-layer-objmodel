@@ -148,7 +148,7 @@ public:
 
     bool unregisterAfVrf(unsigned int addrFamily);
 
-    bool afVrfOpAddFam(service_layer::SLRegOp);
+    bool afVrfOpAddFam(service_layer::SLRegOp, unsigned int addrFamily);
 
 };
 

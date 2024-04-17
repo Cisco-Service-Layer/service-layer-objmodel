@@ -88,6 +88,7 @@ For now, if you already have passed this setup step, follow this example:
 | -u/--username                                | Username |
 | -p/--password                                | Password |
 | -a/--table_type                              | Specify whether to do ipv4(value = 0), ipv6(value = 1) or mpls(value = 2) operation (default 0) |
+| -v/--version2                                | Specify if you want to use version2 code or not. If not, only configurable options are batch_size and batch_num (default true ) |
 
 ##### Optional arguments you can set in environment:
 
@@ -143,6 +144,9 @@ root@f6179b5127f5:/slapi# cd grpc/cpp/src/tutorial/rshuttle
 Default Example (This runs ipv4):
     $ ./servicelayermain -u cisco -p cisco123
 
+Version 1 Default Example (This runs ipv4 only):
+    $ ./servicelayermain -u cisco -p cisco123 -v false
+
 IPV4 Example:
     $ ./servicelayermain -u cisco -p cisco123 --table_type 0
 
@@ -154,7 +158,10 @@ MPLS Example:
     $ ./servicelayermain -u cisco -p cisco123 --table_type 2 -o 12000 (same as above example)
 
 
-#### How to Run if using Sandbox on Server
+#### How to Run if using Sandbox on Server (Unsupported)
+
+Currently unsupported and Sandbox needs to update. Can ignore this section
+Note: This will not work unless you change the Ubuntu Version in the docker container to 18.04 or lower due to libc-dependencies. Then you will have to rebuild
 
 Once you follow the How to Build section, you need to exit the container:
 
@@ -196,10 +203,6 @@ Example:
     local-conection
     commit
     end
-
-    ! Commit and Perform reload
-    install commit
-    reload
 
 Once the reload is finished you can check if your rpms are installed on the server
 
@@ -255,7 +258,7 @@ proto files they were generated from (example: sl_route_ipv4.pb.cc).
 
 In order to follow this quick tutorial, it is best to open the files in `grpc/cpp/src/tutorial/rshuttle/`
 
-    ServiceLayerMain.cpp        : The full tutorial example using version 2 (SLAF protos)
+    ServiceLayerMain.cpp        : The full tutorial example using version 2 (SLAF protos) (Includes version 1 example too but only default ipv4 route case exists for version 1)
     ServiceLayerAsyncInit.cpp   : Used to help setup the client-server connection
     ServiceLayerRoutev2.cpp     : Used to setup the Route Operations using version 2 (SLAF protos)
 

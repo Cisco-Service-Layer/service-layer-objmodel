@@ -14,6 +14,10 @@ using service_layer::SLGlobal;
 
 SLAFRShuttle* slaf_route_shuttle;
 
+// client id has to match for vrf registration (SLAFVrfRegOp) and the routes request (routeSLAFOp) and for unregistering (SLAFVrfRegOp) for ipv4 and ipv6.
+// client id (Multi-client) is not supported for MPLS
+std::string client_id = "521";
+
 bool 
 SLAFRShuttle::routeSLAFOp(service_layer::SLObjectOp routeOp,
                     unsigned int addrFamily,
@@ -46,10 +50,13 @@ SLAFRShuttle::routeSLAFOp(service_layer::SLObjectOp routeOp,
 
     if (addr_family == AF_INET) {
         address_family_str = "IPV4";
+        context.AddMetadata("iosxr-slapi-clientid", client_id);
     } else if (addr_family == AF_INET6){
         address_family_str = "IPV6";
+        context.AddMetadata("iosxr-slapi-clientid", client_id);
     } else if (addr_family == AF_MPLS){
         address_family_str = "MPLS";
+        // Multi-Client not supported in MPLS
     }
 
     //Issue the RPC         
@@ -346,7 +353,7 @@ service_layer::SLRoutev6*
 }
 
 
-// Overloaded method to Set V4 route without Admin Distance.
+// Overloaded method to Set V6 route without Admin Distance.
 // Used for DELETE Operation
 
 void 
@@ -359,7 +366,7 @@ SLAFRShuttle::routev6Set(service_layer::SLRoutev6* routev6Ptr,
 }
 
 
-// Overloaded method to Set V4 route without Admin Distance.
+// Overloaded method to Set V6 route without Admin Distance.
 // Used for ADD or UPDATE Operation
 
 void 
@@ -564,9 +571,9 @@ SLAFVrf::registerAfVrf(unsigned int addrFamily)
     switch(addrFamily) {
     case AF_INET:
         // Issue VRF Register RPC 
-        if (afVrfOpAddFam(service_layer::SL_REGOP_REGISTER)) {
+        if (afVrfOpAddFam(service_layer::SL_REGOP_REGISTER, addrFamily)) {
             // RPC EOF to cleanup any previous stale routes
-            if (afVrfOpAddFam(service_layer::SL_REGOP_EOF)) {
+            if (afVrfOpAddFam(service_layer::SL_REGOP_EOF, addrFamily)) {
                 return true;
             } else {
                 LOG(ERROR) << "Failed to send EOF RPC";
@@ -580,9 +587,9 @@ SLAFVrf::registerAfVrf(unsigned int addrFamily)
 
     case AF_INET6:
         // Issue VRF Register RPC
-        if (afVrfOpAddFam(service_layer::SL_REGOP_REGISTER)) {
+        if (afVrfOpAddFam(service_layer::SL_REGOP_REGISTER, addrFamily)) {
             // RPC EOF to cleanup any previous stale routes
-            if (afVrfOpAddFam(service_layer::SL_REGOP_EOF)) {
+            if (afVrfOpAddFam(service_layer::SL_REGOP_EOF, addrFamily)) {
                 return true;
             } else {
                 LOG(ERROR) << "Failed to send EOF RPC";
@@ -596,9 +603,9 @@ SLAFVrf::registerAfVrf(unsigned int addrFamily)
 
     case AF_MPLS:
         // Issue VRF Register RPC
-        if (afVrfOpAddFam(service_layer::SL_REGOP_REGISTER)) {
+        if (afVrfOpAddFam(service_layer::SL_REGOP_REGISTER, addrFamily)) {
             // RPC EOF to cleanup any previous stale routes
-            if (afVrfOpAddFam(service_layer::SL_REGOP_EOF)) {
+            if (afVrfOpAddFam(service_layer::SL_REGOP_EOF, addrFamily)) {
                 return true;
             } else {
                 LOG(ERROR) << "Failed to send EOF RPC";
@@ -626,15 +633,15 @@ SLAFVrf::unregisterAfVrf(unsigned int addrFamily)
 
     switch(addrFamily) {
     case AF_INET:
-        return afVrfOpAddFam(service_layer::SL_REGOP_UNREGISTER);
+        return afVrfOpAddFam(service_layer::SL_REGOP_UNREGISTER, addrFamily);
         break;
 
     case AF_INET6:
-        return afVrfOpAddFam(service_layer::SL_REGOP_UNREGISTER);
+        return afVrfOpAddFam(service_layer::SL_REGOP_UNREGISTER, addrFamily);
         break;
     
     case AF_MPLS:
-        return afVrfOpAddFam(service_layer::SL_REGOP_UNREGISTER);
+        return afVrfOpAddFam(service_layer::SL_REGOP_UNREGISTER, addrFamily);
         break;
 
     default:
@@ -645,7 +652,7 @@ SLAFVrf::unregisterAfVrf(unsigned int addrFamily)
 }
 
 bool 
-SLAFVrf::afVrfOpAddFam(service_layer::SLRegOp vrfOp)
+SLAFVrf::afVrfOpAddFam(service_layer::SLRegOp vrfOp, unsigned int addrFamily)
 {
     // Set up the SLAF Stub
     auto stub_ = service_layer::SLAF::NewStub(channel);
@@ -668,6 +675,14 @@ SLAFVrf::afVrfOpAddFam(service_layer::SLRegOp vrfOp)
     }
     if (password.length() > 0) {
         context.AddMetadata("password", password);
+    }
+
+    if (addrFamily == AF_INET) {
+        context.AddMetadata("iosxr-slapi-clientid", client_id);
+    } else if (addrFamily == AF_INET6) {
+        context.AddMetadata("iosxr-slapi-clientid", client_id);
+    } else if (addrFamily == AF_MPLS) {
+        // Multi-Client not supported in MPLS
     }
 
     // Set up afVrfRegMsg Operation

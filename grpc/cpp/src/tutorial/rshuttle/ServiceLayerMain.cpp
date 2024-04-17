@@ -1,4 +1,4 @@
-// #include "ServiceLayerRoute.h"
+#include "ServiceLayerRoute.h"
 #include "ServiceLayerRoutev2.h"
 #include <getopt.h>
 #include <string>
@@ -16,6 +16,8 @@ using service_layer::SLGlobal;
 
 std::string username = "";
 std::string password = "";
+
+bool version2;
 
 class testingData
 {
@@ -80,8 +82,8 @@ getEnvVar(std::string const & key)
 }
 
 
-// SLVrf* vrfhandler_signum;
-// RShuttle* rshuttle_signum;
+SLVrf* vrfhandler_signum;
+RShuttle* rshuttle_signum;
 SLAFVrf* afvrfhandler_signum;
 SLAFRShuttle* slaf_rshuttle_signum;
 AsyncNotifChannel* asynchandler_signum;
@@ -96,21 +98,15 @@ signalHandler(int signum)
        VLOG(1) << "Interrupt signal (" << signum << ") received.";
 
        // Clear out the last vrfRegMsg batch
-       afvrfhandler_signum->af_vrf_msg.clear_vrfregmsgs();
+       vrfhandler_signum->vrf_msg.clear_vrfregmsgs();
 
-        // Create a fresh SLVrfRegMsg batch for cleanup
-        if(table_type_operation == AF_INET){
-            afvrfhandler_signum->afVrfRegMsgAdd("default",AF_INET);
-            afvrfhandler_signum->unregisterAfVrf(AF_INET);
-        } else if (table_type_operation == AF_INET6){
-            afvrfhandler_signum->afVrfRegMsgAdd("default",AF_INET6);
-            afvrfhandler_signum->unregisterAfVrf(AF_INET6);
-        } else if(table_type_operation == AF_MPLS){
-            afvrfhandler_signum->afVrfRegMsgAdd("default",AF_MPLS);
-            afvrfhandler_signum->unregisterAfVrf(AF_MPLS);
-        }
+       // Create a fresh SLVrfRegMsg batch for cleanup
+       vrfhandler_signum->vrfRegMsgAdd("default");
 
-       delete slaf_rshuttle_signum;
+       vrfhandler_signum->unregisterVrf(AF_INET);
+       vrfhandler_signum->unregisterVrf(AF_INET6);
+
+       delete rshuttle_signum;
 
        // Shutdown the Async Notification Channel  
        asynchandler_signum->Shutdown();
@@ -120,42 +116,73 @@ signalHandler(int signum)
     } 
 }
 
+void 
+signalHandlerv2(int signum)
+{
+    if (!sighandle_initiated) {
+    sighandle_initiated = true;
+    VLOG(1) << "Interrupt signal (" << signum << ") received.";
 
-// void routepush(RShuttle* route_shuttle,
-//                unsigned int batchSize,
-//                unsigned int batchNum)
+    // Clear out the last vrfRegMsg batch
+    afvrfhandler_signum->af_vrf_msg.clear_vrfregmsgs();
 
-// {
+    // Create a fresh SLVrfRegMsg batch for cleanup
+    if(table_type_operation == AF_INET){
+        afvrfhandler_signum->afVrfRegMsgAdd("default",AF_INET);
+        afvrfhandler_signum->unregisterAfVrf(AF_INET);
+    } else if (table_type_operation == AF_INET6){
+        afvrfhandler_signum->afVrfRegMsgAdd("default",AF_INET6);
+        afvrfhandler_signum->unregisterAfVrf(AF_INET6);
+    } else if(table_type_operation == AF_MPLS){
+        afvrfhandler_signum->afVrfRegMsgAdd("default",AF_MPLS);
+        afvrfhandler_signum->unregisterAfVrf(AF_MPLS);
+    }
 
-//     route_shuttle->setVrfV4("default");
+    delete slaf_rshuttle_signum;
 
-//     LOG(INFO) << "Starting Route batch";
+    // Shutdown the Async Notification Channel  
+    asynchandler_signum->Shutdown();
 
-//     std::string prefix_str = "40.0.0.0";
-//     auto prefix = route_shuttle->ipv4ToLong(prefix_str.c_str());
-//     uint8_t prefix_len = 24;
+    //terminate program  
+    exit(signum);  
+    }  
+}
 
-//     Timer tmr;
-//     unsigned int totalroutes = 0;
+void routepush(RShuttle* route_shuttle,
+               unsigned int batchSize,
+               unsigned int batchNum)
 
-//     for (int batchindex = 0; batchindex < batchNum; batchindex++) {
-//         VLOG(1) << "Batch: " << (batchindex + 1) << "\n";
-//         VLOG(1) << tmr.elapsed();
-//         for (int routeindex = 0; routeindex < batchSize; routeindex++, prefix=incrementIpv4Pfx(prefix, prefix_len)) {
-//             route_shuttle->insertAddBatchV4(route_shuttle->longToIpv4(prefix), prefix_len, 99, "14.1.1.10", "Bundle-Ether1");
-//             totalroutes++;
-//         }
-//         route_shuttle->routev4Op(service_layer::SL_OBJOP_UPDATE);
-//     }
+{
 
-//     auto time_taken = tmr.elapsed();
+    route_shuttle->setVrfV4("default");
 
-//     LOG(INFO) << "\nTime taken to program "<< totalroutes << " routes\n " 
-//               << time_taken
-//               << "\nRoute programming rate\n"
-//               << float(totalroutes)/time_taken << " routes/sec\n";
+    LOG(INFO) << "Starting Route batch";
 
-// }
+    std::string prefix_str = "40.0.0.0";
+    auto prefix = route_shuttle->ipv4ToLong(prefix_str.c_str());
+    uint8_t prefix_len = 24;
+
+    Timer tmr;
+    unsigned int totalroutes = 0;
+
+    for (int batchindex = 0; batchindex < batchNum; batchindex++) {
+        VLOG(1) << "Batch: " << (batchindex + 1) << "\n";
+        VLOG(1) << tmr.elapsed();
+        for (int routeindex = 0; routeindex < batchSize; routeindex++, prefix=incrementIpv4Pfx(prefix, prefix_len)) {
+            route_shuttle->insertAddBatchV4(route_shuttle->longToIpv4(prefix), prefix_len, 99, "14.1.1.10", "Bundle-Ether1");
+            totalroutes++;
+        }
+        route_shuttle->routev4Op(service_layer::SL_OBJOP_UPDATE);
+    }
+
+    auto time_taken = tmr.elapsed();
+
+    LOG(INFO) << "\nTime taken to program "<< totalroutes << " routes\n " 
+              << time_taken
+              << "\nRoute programming rate\n"
+              << float(totalroutes)/time_taken << " routes/sec\n";
+
+}
 
 void routepushv2(SLAFRShuttle* slaf_route_shuttle,
                testingData env_data,
@@ -242,6 +269,7 @@ void routepushv2(SLAFRShuttle* slaf_route_shuttle,
               << float(totalroutes)/time_taken << " routes/sec\n";
 
 }
+
 void run_v2(SLAFVrf* af_vrf_handler, unsigned int addr_family){
 
     switch(addr_family){
@@ -269,10 +297,12 @@ int main(int argc, char** argv) {
 
     auto server_ip = getEnvVar("SERVER_IP");
     auto server_port = getEnvVar("SERVER_PORT");
+    std:: string ver2 = "";
+    version2 = true;
 
-    // This is for demo purposes:
-    server_ip = "unix";
-    server_port = "/ems/grpc.sock";
+    // Setting up GLOG (Google Logging)
+    FLAGS_logtostderr = 1;
+    google::InitGoogleLogging(argv[0]);
 
     if (server_ip == "" || server_port == "") {
         if (server_ip == "") {
@@ -307,11 +337,12 @@ int main(int argc, char** argv) {
         {"help", no_argument, nullptr, 'h'},
         {"username", required_argument, nullptr, 'u'},
         {"password", required_argument, nullptr, 'p'},
+        {"version2", required_argument, nullptr, 'v'},
 
         {nullptr,0,nullptr,0}
     };
 
-    while ((option_long = getopt_long_only(argc, argv, "a:b:c:d:e:f:g:i:j:k:l:m:n:o:q:r:hu:p:",longopts,nullptr)) != -1) {
+    while ((option_long = getopt_long_only(argc, argv, "a:b:c:d:e:f:g:i:j:k:l:m:n:o:q:r:hu:p:v:",longopts,nullptr)) != -1) {
         switch (option_long) {
             case 'a':
                 env_data.table_type = std::stoi(optarg);
@@ -367,6 +398,7 @@ int main(int argc, char** argv) {
                 LOG(INFO) <<"| -u/--username                    | Username |";
                 LOG(INFO) <<"| -p/--password                    | Password |";
                 LOG(INFO) <<"| -a/--table_type                  | Specify whether to do ipv4(value = 0), ipv6(value = 1) or mpls(value = 2) operation (default 0) |";
+                LOG(INFO) <<"| -v/--version2                    | Specify if you want to use version2 code or not. If not, only configurable options are batch_size and batch_num (default true ) |";
                 LOG(INFO) << "Optional arguments you can set in environment:";
                 LOG(INFO) << "| -h/--help                       | Help |";
                 LOG(INFO) << "| -b/--batch_size                 | Configure the number of ipv4 routes or ILM entires for MPLS to be added to a batch (default 1024) |";
@@ -390,54 +422,24 @@ int main(int argc, char** argv) {
                 return 1;
             case 'u':
                 LOG(INFO) << " u";
-                password = optarg;
+                username = optarg;
                 break;
             case 'p':
                 LOG(INFO) << " p";
                 password = optarg;
+                break;
+            case 'v':
+                LOG(INFO) << " v";
+                ver2 = optarg;
+                if(ver2 == "false") {
+                    version2 = false;
+                }
                 break;
             default:
                 fprintf (stderr, "usage: %s --username --password\n", argv[0]);
                 return 1;
         }
     }
-
-    // while ((option_char = getopt(argc, argv, "u:p:")) != -1) {
-    //     switch (option_char) {
-    //         case 'u':
-    //             username = optarg;
-    //             break;
-    //         case 'p':
-    //             password = optarg;
-    //             break;
-    //         default:
-    //             fprintf (stderr, "usage: %s -u username -p password\n", argv[0]);
-    //             return 1;
-    //     }
-    // }
-
-    // env_data.table_type = (getEnvVar("table_type") != "")?stoi(getEnvVar("table_type")):0;
-    // env_data.batch_size = (getEnvVar("batch_size") != "")?stoi(getEnvVar("batch_size")):1024;
-    // env_data.batch_num = (getEnvVar("batch_num") != "")?stoi(getEnvVar("batch_num")):98;
-
-    // // For Ipv4
-    // env_data.first_prefix_ipv4 = (getEnvVar("first_prefix_ipv4") != "")?getEnvVar("first_prefix_ipv4"):"40.0.0.0";
-    // env_data.prefix_len_ipv4 = (getEnvVar("prefix_len_ipv4") != "")?stoi(getEnvVar("prefix_len_ipv4")):24;
-    // env_data.next_hop_interface_ipv4 = (getEnvVar("next_hop_interface_ipv4") != "")?getEnvVar("next_hop_interface_ipv4"):"Bundle-Ether1";
-    // env_data.next_hop_ip_ipv4 = (getEnvVar("next_hop_ip_ipv4") != "")?getEnvVar("next_hop_ip_ipv4"):"14.1.1.10";
-
-    // // For Ipv6
-    // env_data.first_prefix_ipv6 = (getEnvVar("first_prefix_ipv6") != "")?getEnvVar("first_prefix_ipv6"):"2002:aa::0";
-    // env_data.prefix_len_ipv6 = (getEnvVar("prefix_len_ipv6") != "")?stoi(getEnvVar("prefix_len_ipv6")):64;
-    // env_data.next_hop_interface_ipv6 = (getEnvVar("next_hop_interface_ipv6") != "")?getEnvVar("next_hop_interface_ipv6"):"Bundle-Ether1";
-    // env_data.next_hop_ip_ipv6 = (getEnvVar("next_hop_ip_ipv6") != "")?getEnvVar("next_hop_ip_ipv6"):"2002:ae::3";
-
-    // // For MPLS
-    // env_data.first_prefix_mpls = (getEnvVar("first_prefix_mpls") != "")?getEnvVar("first_prefix_mpls"):"11.0.0.1";
-    // env_data.next_hop_interface_mpls = (getEnvVar("next_hop_interface_mpls") != "")?getEnvVar("next_hop_interface_mpls"):"FourHundredGigE0/0/0/0";
-    // env_data.start_label = (getEnvVar("start_label") != "")?stoi(getEnvVar("start_label")):20000;
-    // env_data.num_label = (getEnvVar("num_label") != "")?stoi(getEnvVar("num_label")):1000;
-    // env_data.num_paths = (getEnvVar("num_paths") != "")?stoi(getEnvVar("num_paths")):1;
 
     std::string grpc_server = server_ip + ":" + server_port;
 
@@ -476,57 +478,54 @@ int main(int argc, char** argv) {
     while (!init_success) {
         init_condVar.wait(initlock);
     }
+    if (version2 == true) {
 
-    auto af_vrf_handler = SLAFVrf(channel,username,password);
+        auto af_vrf_handler = SLAFVrf(channel,username,password);
 
-    // Need to specify ipv4 (default), ipv6(value = 1) or mpls(value = 2)
-    if (env_data.table_type == 1) {
-        table_type_operation = AF_INET6;
-    } else if (env_data.table_type == 2) {
-        table_type_operation = AF_MPLS;
+        // Need to specify ipv4 (default), ipv6(value = 1) or mpls(value = 2)
+        if (env_data.table_type == 1) {
+            table_type_operation = AF_INET6;
+        } else if (env_data.table_type == 2) {
+            table_type_operation = AF_MPLS;
+        } else {
+            table_type_operation = AF_INET;
+        }
+        run_v2(&af_vrf_handler,table_type_operation);
+        slaf_route_shuttle = new SLAFRShuttle(af_vrf_handler.channel, username, password);
+
+        routepushv2(slaf_route_shuttle, env_data, table_type_operation);
+
+        asynchandler_signum = &asynchandler;
+        afvrfhandler_signum = &af_vrf_handler;
+        slaf_rshuttle_signum = slaf_route_shuttle;
+
+        signal(SIGINT, signalHandlerv2);
+        LOG(INFO) << "Press control-c to quit";
+        thread_.join();
+
     } else {
-        table_type_operation = AF_INET;
+        auto vrfhandler = SLVrf(channel, username, password);
+
+        // Create a new SLVrfRegMsg batch
+        vrfhandler.vrfRegMsgAdd("default", 10, 500);
+
+        // Register the SLVrfRegMsg batch for v4 and v6
+        vrfhandler.registerVrf(AF_INET);
+        vrfhandler.registerVrf(AF_INET6);
+
+        route_shuttle = new RShuttle(vrfhandler.channel, username, password);
+        auto batch_size = env_data.batch_size;
+        auto batch_num = env_data.batch_num;
+        routepush(route_shuttle, batch_size, batch_num);
+
+        asynchandler_signum = &asynchandler;
+        vrfhandler_signum = &vrfhandler;
+        rshuttle_signum = route_shuttle;
+
+        signal(SIGINT, signalHandler);  
+        LOG(INFO) << "Press control-c to quit";
+        thread_.join();
     }
-    run_v2(&af_vrf_handler,table_type_operation);
-    slaf_route_shuttle = new SLAFRShuttle(af_vrf_handler.channel, username, password);
-
-    routepushv2(slaf_route_shuttle, env_data, table_type_operation);
-
-    asynchandler_signum = &asynchandler;
-    afvrfhandler_signum = &af_vrf_handler;
-    slaf_rshuttle_signum = slaf_route_shuttle;
-
-    signal(SIGINT, signalHandler);
-    LOG(INFO) << "Press control-c to quit";
-    thread_.join();
-
-    return 0;
-    /*
-
-    auto vrfhandler = SLVrf(channel, username, password);
-
-    // Create a new SLVrfRegMsg batch
-    vrfhandler.vrfRegMsgAdd("default", 10, 500);
-
-    // Register the SLVrfRegMsg batch for v4 and v6
-    vrfhandler.registerVrf(AF_INET);
-    vrfhandler.registerVrf(AF_INET6);
-
-    route_shuttle = new RShuttle(vrfhandler.channel, username, password);
-
-    routepush(route_shuttle, batch_size, batch_num);
-
-    asynchandler_signum = &asynchandler;
-    vrfhandler_signum = &vrfhandler;
-    rshuttle_signum = route_shuttle;
-    
-
-    signal(SIGINT, signalHandler);  
-    
-    LOG(INFO) << "Press control-c to quit";
-    thread_.join();
-    */
-
     return 0;
 }
 
