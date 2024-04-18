@@ -87,7 +87,7 @@ For now, if you already have passed this setup step, follow this example:
 | -u/--username                                | Username |
 | -p/--password                                | Password |
 | -a/--table_type                              | Specify whether to do ipv4(value = 0), ipv6(value = 1) or mpls(value = 2) operation. PG is currently not supported (default 0) |
-| -v/--slaf                                    | Specify if you want to use proto RPCs to program objects or not. If not, only configurable options are batch_size and batch_num (default true ) |
+| -v/--slaf                                    | Specify if you want to use slaf proto RPCs to program objects or not. If not, only configurable options are batch_size and batch_num (default true ) |
 
 ##### Optional arguments you can set in environment:
 

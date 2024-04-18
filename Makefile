@@ -44,7 +44,6 @@ cpp-tutorial: build bindings
 			make -C grpc/cpp/src install && \
 			make -C grpc/cpp/src/tutorial && \
 			make -C grpc/cpp/src/tutorial/rshuttle"
-	$(DOCKER_RUN) -t $(IMAGE_NAME):$(IMAGE_TAG) bash
 
 bindings: build
 	$(DOCKER_RUN) -t $(IMAGE_NAME):$(IMAGE_TAG) \
