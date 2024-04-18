@@ -405,7 +405,7 @@ int main(int argc, char** argv) {
                 LOG(INFO) <<"Usage:";
                 LOG(INFO) <<"| -u/--username                    | Username |";
                 LOG(INFO) <<"| -p/--password                    | Password |";
-                LOG(INFO) <<"| -a/--table_type                  | Specify whether to do ipv4(value = 0), ipv6(value = 1) or mpls(value = 2) operation (default 0) |";
+                LOG(INFO) <<"| -a/--table_type                  | Specify whether to do ipv4(value = 0), ipv6(value = 1) or mpls(value = 2) operation, PG is currently not supported (default 0) |";
                 LOG(INFO) <<"| -v/--slaf                        | Specify if you want to use proto RPCs to program objects or not. If not, only configurable options are batch_size and batch_num (default true ) |";
                 LOG(INFO) <<"| -s/--global_init_rpc             | Enable our Async Global Init RPC to handshake the API version number with the server. If enabled, then once exiting push routes/labels will be deleted. If disabled routes/labels pushed and stay (default false) |";
                 LOG(INFO) << "Optional arguments you can set in environment:";
