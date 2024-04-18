@@ -297,8 +297,9 @@ int main(int argc, char** argv) {
 
     auto server_ip = getEnvVar("SERVER_IP");
     auto server_port = getEnvVar("SERVER_PORT");
-    std:: string ver2 = "";
+    std:: string dummy = "";
     version2 = true;
+    bool global_init_rpc = false;
 
     // Setting up GLOG (Google Logging)
     FLAGS_logtostderr = 1;
@@ -338,11 +339,12 @@ int main(int argc, char** argv) {
         {"username", required_argument, nullptr, 'u'},
         {"password", required_argument, nullptr, 'p'},
         {"slaf", required_argument, nullptr, 'v'},
+        {"global_init_rpc", required_argument, nullptr, 's'},
 
         {nullptr,0,nullptr,0}
     };
 
-    while ((option_long = getopt_long_only(argc, argv, "a:b:c:d:e:f:g:i:j:k:l:m:n:o:q:r:hu:p:v:",longopts,nullptr)) != -1) {
+    while ((option_long = getopt_long_only(argc, argv, "a:b:c:d:e:f:g:i:j:k:l:m:n:o:q:r:s:hu:p:v:",longopts,nullptr)) != -1) {
         switch (option_long) {
             case 'a':
                 env_data.table_type = std::stoi(optarg);
@@ -392,6 +394,12 @@ int main(int argc, char** argv) {
             case 'r':
                 env_data.num_paths = std::stoi(optarg);
                 break;
+            case 's':
+                dummy = optarg;
+                if (dummy == "true") {
+                    global_init_rpc = true;
+                }
+                break;
 
             case 'h':
                 LOG(INFO) <<"Usage:";
@@ -399,6 +407,7 @@ int main(int argc, char** argv) {
                 LOG(INFO) <<"| -p/--password                    | Password |";
                 LOG(INFO) <<"| -a/--table_type                  | Specify whether to do ipv4(value = 0), ipv6(value = 1) or mpls(value = 2) operation (default 0) |";
                 LOG(INFO) <<"| -v/--slaf                        | Specify if you want to use proto RPCs to program objects or not. If not, only configurable options are batch_size and batch_num (default true ) |";
+                LOG(INFO) <<"| -s/--global_init_rpc             | Enable our Async Global Init RPC to handshake the API version number with the server. If enabled, then once exiting push routes/labels will be deleted. If disabled routes/labels pushed and stay (default false) |";
                 LOG(INFO) << "Optional arguments you can set in environment:";
                 LOG(INFO) << "| -h/--help                       | Help |";
                 LOG(INFO) << "| -b/--batch_size                 | Configure the number of ipv4 routes or ILM entires for MPLS to be added to a batch (default 1024) |";
@@ -430,8 +439,8 @@ int main(int argc, char** argv) {
                 break;
             case 'v':
                 LOG(INFO) << " v";
-                ver2 = optarg;
-                if(ver2 == "false") {
+                dummy = optarg;
+                if(dummy == "false") {
                     version2 = false;
                 }
                 break;
@@ -450,34 +459,37 @@ int main(int argc, char** argv) {
     auto channel = grpc::CreateChannel(
                               grpc_server, grpc::InsecureChannelCredentials());
 
-    
     AsyncNotifChannel asynchandler(channel);
+    std::thread thread_;
+    if (global_init_rpc) {
 
-    // Acquire the lock
-    std::unique_lock<std::mutex> initlock(init_mutex);
+        // Acquire the lock
+        std::unique_lock<std::mutex> initlock(init_mutex);
 
-    // Spawn reader thread that maintains our Notification Channel
-    std::thread thread_ = std::thread(&AsyncNotifChannel::AsyncCompleteRpc, &asynchandler);
+        // Spawn reader thread that maintains our Notification Channel
+        thread_ = std::thread(&AsyncNotifChannel::AsyncCompleteRpc, &asynchandler);
 
 
-    service_layer::SLInitMsg init_msg;
-    init_msg.set_majorver(service_layer::SL_MAJOR_VERSION);
-    init_msg.set_minorver(service_layer::SL_MINOR_VERSION);
-    init_msg.set_subver(service_layer::SL_SUB_VERSION);
+        service_layer::SLInitMsg init_msg;
+        init_msg.set_majorver(service_layer::SL_MAJOR_VERSION);
+        init_msg.set_minorver(service_layer::SL_MINOR_VERSION);
+        init_msg.set_subver(service_layer::SL_SUB_VERSION);
 
-    if (username.length() > 0) {
-        asynchandler.call.context.AddMetadata("username", username);
+        if (username.length() > 0) {
+            asynchandler.call.context.AddMetadata("username", username);
+        }
+        if (password.length() > 0) {
+            asynchandler.call.context.AddMetadata("password", password);
+        }
+
+        asynchandler.SendInitMsg(init_msg);
+
+        // Wait on the mutex lock
+        while (!init_success) {
+            init_condVar.wait(initlock);
+        }
     }
-    if (password.length() > 0) {
-        asynchandler.call.context.AddMetadata("password", password);
-    }
 
-    asynchandler.SendInitMsg(init_msg);
-
-    // Wait on the mutex lock
-    while (!init_success) {
-        init_condVar.wait(initlock);
-    }
     if (version2 == true) {
 
         auto af_vrf_handler = SLAFVrf(channel,username,password);
@@ -495,13 +507,17 @@ int main(int argc, char** argv) {
 
         routepush_slaf(slaf_route_shuttle, env_data, table_type);
 
-        asynchandler_signum = &asynchandler;
+        if (global_init_rpc) {
+            asynchandler_signum = &asynchandler;
+        }
         afvrfhandler_signum = &af_vrf_handler;
         slaf_rshuttle_signum = slaf_route_shuttle;
 
         signal(SIGINT, signalHandlerv2);
-        LOG(INFO) << "Press control-c to quit";
-        thread_.join();
+        if (global_init_rpc) {
+            LOG(INFO) << "Press control-c to quit";
+            thread_.join();
+        }
 
     } else {
         auto vrfhandler = SLVrf(channel, username, password);
@@ -518,13 +534,17 @@ int main(int argc, char** argv) {
         auto batch_num = env_data.batch_num;
         routepush(route_shuttle, batch_size, batch_num);
 
-        asynchandler_signum = &asynchandler;
+        if (global_init_rpc) {
+            asynchandler_signum = &asynchandler;
+        }
         vrfhandler_signum = &vrfhandler;
         rshuttle_signum = route_shuttle;
 
         signal(SIGINT, signalHandler);  
-        LOG(INFO) << "Press control-c to quit";
-        thread_.join();
+        if (global_init_rpc) {
+            LOG(INFO) << "Press control-c to quit";
+            thread_.join();
+        }
     }
     return 0;
 }

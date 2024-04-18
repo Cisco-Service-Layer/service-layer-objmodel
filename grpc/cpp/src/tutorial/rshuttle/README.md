@@ -96,6 +96,7 @@ For now, if you already have passed this setup step, follow this example:
 | -h/--help                       | Help |
 | -b/--batch_size                 | Configure the number of ipv4 routes or ILM entires for MPLS to be added to a batch (default 1024) |
 | -c/--batch_num                  | Configure the number of batches (default 98) |
+| -s/--global_init_rpc            | Enable our Async Global Init RPC to handshake the API version number with the server. If enabled routes, then once exiting push routes/labels will be deleted (default false) |
 
 ##### IPv4 Testing
 
@@ -190,7 +191,9 @@ As shown in ServiceLayerMain.cpp, the first thing to do is to setup the GRPC cha
     auto server_port = getEnvVar("SERVER_PORT");
     auto channel = grpc::CreateChannel(grpc_server, grpc::InsecureChannelCredentials());
 
-##### GlobalInit RPC
+##### Optional: GlobalInit RPC
+This represents the --global_init_rpc:
+If Enabled once user ctrl+c out of the application, then the pushed routes/labels will be deleted
 
 Once connected, client can choose to handshake the API version number with the server. This is optional step, not mandatory
 The same RPC call also sets up an asynchronous stream of notifications from the server. The first notification would be the response to our version number message i.e. SLInitMsg, as a SLGlobalNotif event with type SL_GLOBAL_EVENT_TYPE_VERSION. This can be done by calling:
