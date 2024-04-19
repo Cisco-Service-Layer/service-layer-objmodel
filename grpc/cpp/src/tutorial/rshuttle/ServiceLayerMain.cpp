@@ -18,6 +18,7 @@ std::string username = "";
 std::string password = "";
 
 bool version2;
+bool global_init_rpc = false;
 
 class testingData
 {
@@ -109,7 +110,9 @@ signalHandler(int signum)
        delete rshuttle_signum;
 
        // Shutdown the Async Notification Channel  
-       asynchandler_signum->Shutdown();
+       if (global_init_rpc) {
+            asynchandler_signum->Shutdown();
+       }
 
        //terminate program  
        exit(signum);  
@@ -141,7 +144,9 @@ signalHandlerv2(int signum)
     delete slaf_rshuttle_signum;
 
     // Shutdown the Async Notification Channel  
-    asynchandler_signum->Shutdown();
+    if (global_init_rpc) {
+        asynchandler_signum->Shutdown();
+    }
 
     //terminate program  
     exit(signum);  
@@ -208,10 +213,12 @@ void routepush_slaf(SLAFRShuttle* slaf_route_shuttle,
         auto prefix = slaf_route_shuttle->ipv4ToLong(env_data.first_prefix_ipv4.c_str());
         uint8_t prefix_len = env_data.prefix_len_ipv4;
 
+        // This will push batch_num*batch_size routes
         for (int batchindex = 0; batchindex < env_data.batch_num; batchindex++) {
             VLOG(1) << "Batch: " << (batchindex + 1) << "\n";
             VLOG(1) << tmr.elapsed();
             for (int routeindex = 0; routeindex < env_data.batch_size; routeindex++, prefix=incrementIpv4Pfx(prefix,prefix_len)) {
+                // Helper function to set all attributes for SLAFMsg
                 slaf_route_shuttle->insertAddBatchV4(slaf_route_shuttle->longToIpv4(prefix),
                                                   prefix_len,
                                                   99,
@@ -229,6 +236,7 @@ void routepush_slaf(SLAFRShuttle* slaf_route_shuttle,
         std::string prefix_str = env_data.first_prefix_ipv6;
         auto prefix = slaf_route_shuttle->ipv6ToByteArrayString(prefix_str.c_str());
         uint8_t prefix_len = env_data.prefix_len_ipv6;
+        // Helper function to set all attributes for SLAFMsg
         slaf_route_shuttle->insertAddBatchV6(slaf_route_shuttle->ByteArrayStringtoIpv6(prefix),
                                           prefix_len,
                                           99,
@@ -270,6 +278,7 @@ void routepush_slaf(SLAFRShuttle* slaf_route_shuttle,
 
 }
 
+// Handles VRF registration
 void run_slaf(SLAFVrf* af_vrf_handler, unsigned int addr_family){
 
     switch(addr_family){
@@ -299,7 +308,6 @@ int main(int argc, char** argv) {
     auto server_port = getEnvVar("SERVER_PORT");
     std:: string dummy = "";
     version2 = true;
-    bool global_init_rpc = false;
 
     // Setting up GLOG (Google Logging)
     FLAGS_logtostderr = 1;
@@ -339,7 +347,7 @@ int main(int argc, char** argv) {
         {"username", required_argument, nullptr, 'u'},
         {"password", required_argument, nullptr, 'p'},
         {"slaf", required_argument, nullptr, 'v'},
-        {"global_init_rpc", required_argument, nullptr, 's'},
+        {"global_init", required_argument, nullptr, 's'},
 
         {nullptr,0,nullptr,0}
     };
@@ -407,7 +415,7 @@ int main(int argc, char** argv) {
                 LOG(INFO) <<"| -p/--password                    | Password |";
                 LOG(INFO) <<"| -a/--table_type                  | Specify whether to do ipv4(value = 0), ipv6(value = 1) or mpls(value = 2) operation, PG is currently not supported (default 0) |";
                 LOG(INFO) <<"| -v/--slaf                        | Specify if you want to use proto RPCs to program objects or not. If not, only configurable options are batch_size and batch_num (default true ) |";
-                LOG(INFO) <<"| -s/--global_init_rpc             | Enable our Async Global Init RPC to handshake the API version number with the server. If enabled, then once exiting push routes/labels will be deleted. If disabled routes/labels pushed and stay (default false) |";
+                LOG(INFO) <<"| -s/--global_init                 | Enable our Async Global Init RPC to handshake the API version number with the server. If enabled, then once exiting push routes/labels will be deleted. If disabled routes/labels pushed and stay (default false) |";
                 LOG(INFO) << "Optional arguments you can set in environment:";
                 LOG(INFO) << "| -h/--help                       | Help |";
                 LOG(INFO) << "| -b/--batch_size                 | Configure the number of ipv4 routes or ILM entires for MPLS to be added to a batch (default 1024) |";
@@ -514,9 +522,13 @@ int main(int argc, char** argv) {
         slaf_rshuttle_signum = slaf_route_shuttle;
 
         signal(SIGINT, signalHandlerv2);
+        LOG(INFO) << "Press control-c to quit";
         if (global_init_rpc) {
-            LOG(INFO) << "Press control-c to quit";
             thread_.join();
+        } else {
+            // Run continuously until control-c
+            while (true) {
+            }
         }
 
     } else {
@@ -540,12 +552,17 @@ int main(int argc, char** argv) {
         vrfhandler_signum = &vrfhandler;
         rshuttle_signum = route_shuttle;
 
-        signal(SIGINT, signalHandler);  
+        signal(SIGINT, signalHandler);
+        LOG(INFO) << "Press control-c to quit";
         if (global_init_rpc) {
-            LOG(INFO) << "Press control-c to quit";
             thread_.join();
+        } else {
+            // run continuously until control-c
+            while (true) {
+            }
         }
     }
+
     return 0;
 }
 

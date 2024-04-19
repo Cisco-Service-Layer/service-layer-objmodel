@@ -46,7 +46,7 @@ We also need to configure a Bunder-Ether Interface for ipv4 and ipv6 tests:
 We also need to configure a FourHundredGigE0/0/0/0 Interface for mpls tests:
     configure
     interface FourHundredGigE0/0/0/0
-    mpls mtu 68
+    no shut
     commit
     end
 
@@ -96,7 +96,7 @@ For now, if you already have passed this setup step, follow this example:
 | -h/--help                       | Help |
 | -b/--batch_size                 | Configure the number of ipv4 routes or ILM entires for MPLS to be added to a batch (default 1024) |
 | -c/--batch_num                  | Configure the number of batches (default 98) |
-| -s/--global_init_rpc            | Enable our Async Global Init RPC to handshake the API version number with the server. If enabled routes, then once exiting push routes/labels will be deleted (default false) |
+| -s/--global_init                | Enable our Async Global Init RPC to handshake the API version number with the server. If enabled routes, then once exiting push routes/labels will be deleted (default false) |
 
 ##### IPv4 Testing
 
@@ -130,10 +130,11 @@ For now, if you already have passed this setup step, follow this example:
 ##### How to Build
 
 If you have a docker environment, you can run "make cpp-tutorial" from the service-layer-objmodel
-top level directory where you see a Dockerfile and a Makefile. This will take some time
-the first time but once it completes it should drop you into bash, like so:
+top level directory where you see a Dockerfile and a Makefile. This will take some time to build
+the first time, but once it completes you can run "make slapi-bash" to drop into bash, like so:
 
 Bash-Prompt:sl$ make cpp-tutorial
+Bash-Prompt:sl$ make slapi-bash
 
 Once in bash, navigate to the tutorial directory:
 
@@ -157,7 +158,7 @@ MPLS Example:
     $ ./servicelayermain -u cisco -p cisco123 --table_type 2 --start_label 12000
     $ ./servicelayermain -u cisco -p cisco123 --table_type 2 -o 12000 (same as above example)
 
-The following sections explain the details of the above example tutorial and are similar to the Python quick start tutorial.
+The following sections explain the details of the above example tutorial.
 The rest of these section is extra information and not required to run the tutorial above.
 
 #### <a name='gen'></a>Generate gRPC Code (optional in this example)
@@ -165,8 +166,8 @@ The rest of these section is extra information and not required to run the tutor
 If you are not familiar with gRPC, we recommend you refer to gRPC's
 documentation before beginning with our tutorial: [gRPC Docs](http://www.grpc.io/docs/)
 
-You should have received all of the Protobuf files required to run the Cisco
-Service Laye API. In order to generate the gRPC client side code stubs in cpp, run the following command (you may have to adjust the path to the proto files and the output according to your requirements):  
+All SL-API protobuf files can be found in grpc/protos/
+In order to generate the gRPC client side code stubs in cpp, run the following command (you may have to adjust the path to the proto files and the output according to your requirements):  
 
 **For convenience, these files are also committed in this repo under cd grpc/cpp/src/gencpp (so you can skip this step).**
 
@@ -193,7 +194,6 @@ As shown in ServiceLayerMain.cpp, the first thing to do is to setup the GRPC cha
 
 ##### Optional: GlobalInit RPC
 This represents the --global_init_rpc:
-If Enabled once user ctrl+c out of the application, then the pushed routes/labels will be deleted
 
 Once connected, client can choose to handshake the API version number with the server. This is optional step, not mandatory
 The same RPC call also sets up an asynchronous stream of notifications from the server. The first notification would be the response to our version number message i.e. SLInitMsg, as a SLGlobalNotif event with type SL_GLOBAL_EVENT_TYPE_VERSION. This can be done by calling:
@@ -287,295 +287,19 @@ Since the above SendInitMsg function would never return, it is best to spawn it 
 
 #### <a name='vrf'></a>Optional: Register the VRF
 
-This is optional, user can configure grpc service-layer auto-register to avoid this registration requirement, and with auto-register, client owns the responsibility for reconciliation.
+This is optional, user can configure "grpc service-layer auto-register" to avoid this registration requirement, and with auto-register, client owns the responsibility for reconciliation.
 
 In general, before we can use a vertical function like the route APIs, we have to register on that vertical. The SLAF API allows the user to register based on a per VRF basis.
-So, before any additions or modification of routes can be made we need to register with the proper VRF, which requires sending a VRF registration message and then an EOF message to clean up any stale routes that may be there from an older configuration (this will become handy on restart or recovery scenarios).
 
-The following snippets are copied from file ServiceLayerMain.cpp
+We provide an optional class and function that handles VRF registration:
+SLAFVrf(channel,username,password)
+run_slaf(SLAFVrf* af_vrf_handler, unsigned int addr_family)
 
-Time to fill in some variables! We first create a vrf handler which has appropriate functions
-for creating necessary objects.
-
-    auto af_vrf_handler = SLAFVrf(channel,username,password);
-
-The next steps are a rundown of what the run_slaf and supporting functions called in
-run_slaf do.
-
-    // Need to specify ipv4 (default), ipv6(value = 1) or mpls(value = 2)
-    // Note: PG is currently not supported
-    if (env_data.table_type == 1) {
-        table_type = AF_INET6;
-    } else if (env_data.table_type == 2) {
-        table_type = AF_MPLS;
-    } else {
-        table_type = AF_INET;
-    }
-    run_slaf(&af_vrf_handler,route_operation);
-
-The following snippets are copied from file ServiceLayerRoutev2.cpp
-
-Create the `SLAFVrfReg` object. Generating a `SLAFVrfReg` object allows us to
-access and set it's variables. The `SLAFVrfReg` object requires it's table to be set
-indicating which route operations are to be performed. Ipv4, Ipv6 or mpls.
-
-    #include <iosxrsl/sl_af.grpc.pb.h>
-    #include <iosxrsl/sl_af.pb.h>
-    service_layer::SLAFVrfReg* af_vrf_reg = af_vrf_msg.add_vrfregmsgs();
-    af_vrf_reg->set_table(service_layer::SL_IPv4_ROUTE_TABLE);
-
-The VRF registration message contains a set of VRF registration objects.
-
-Create an `SLVrfReg` object.
-
-    service_layer::SLVrfReg* vrf_reg = af_vrf_reg->mutable_vrfreg();
-
-Set the VRF registration object attributes:
-
-VRF name. The default VRF in IOS-XR is called "default":
-
-    vrf_reg->set_vrfname(vrfName);
-
-Administrative distance. The admin distance is used by RIB to make best path decisions.
-
-    vrf_reg->set_admindistance(adminDistance);
-
-VRF purge interval. This is useful on restart scenarios.
-
-    vrf_reg->set_vrfpurgeintervalseconds(vrfPurgeIntervalSeconds);
-
-Next up, create the stub instance using the channel. This stub will
-have the exact same methods that are available on the server. To do this,
-we need to import the stub code generated from our ProtoBuf files. Depending on
-what calls you want to make, different stubs will be used. We are going to be
-making changes to our IPv4 routes, but for all routes we use the SLAF stub.
-
-    #include <iosxrsl/sl_af.grpc.pb.h>
-    #include <iosxrsl/sl_af.pb.h>
-    auto stub_ = service_layer::SLAF::NewStub(channel);
-
-Make the RPC call.
-
-We are ready to make our call to the API. We'll send the
-`SLAFVrfRegMsg af_vrf_msg` and a timeout interval (in seconds) and any other context information for the gRPC
-server.
-
-    grpc::ClientContext context;
-    unsigned int timeout = 10;
-        // Set timeout for API
-    std::chrono::system_clock::time_point deadline =
-        std::chrono::system_clock::now() + std::chrono::seconds(timeout);
-
-    context.set_deadline(deadline);
-    if (username.length() > 0) {
-        context.AddMetadata("username", username);
-    }
-    if (password.length() > 0) {
-        context.AddMetadata("password", password);
-    }
-
-    // Set up afVrfRegMsg Operation
-    af_vrf_msg.set_oper(vrfOp);
-    if (google::protobuf::TextFormat::PrintToString(af_vrf_msg, &s)) {
-        VLOG(2) << "###########################" ;
-        VLOG(2) << "Transmitted message: IOSXR-SL VRF " << s;
-        VLOG(2) << "###########################" ;
-    } else {
-        VLOG(2) << "###########################" ;
-        VLOG(2) << "Message not valid (partial content: "
-                << af_vrf_msg.ShortDebugString() << ")";
-        VLOG(2) << "###########################" ;
-        return false;
-    }
-
-
-    //Issue the RPC
-
-    status = stub_->SLAFVrfRegOp(&context, af_vrf_msg, &af_vrf_msg_resp);
-
-Note that the af_vrf_msg has an Oper field that determines the operation type:
-
-    SL_REGOP_REGISTER  : used for registrations
-    SL_REGOP_EOF       : used for EOF signaling. Useful for restart scenarios
-    SL_REGOP_UNREGISTER: used to unregister, which would clean all previous roues added in that VRF.
-
-Finally, we can print our response from the server. Notice that, since we can add a batch of VRF registrations, we want to print a result code for each individual response.
-To do this, we check if the response is an error, and if it is we print the
-name of the vrf that caused the error as well as the hexadecimal error
-code.
-
-    if (af_vrf_msg_resp.statussummary().status() ==
-        service_layer::SLErrorStatus_SLErrno_SL_SUCCESS) {
-
-        VLOG(1) << "Vrf Operation:"<< vrfOp << " Successful";
-        return true;
-    } else {
-        LOG(ERROR) << "Error code for VRF Operation:" 
-                    << vrfOp 
-                    << " is 0x" << std::hex 
-                    << af_vrf_msg_resp.statussummary().status();
-
-        // Print Partial failures within the batch if applicable
-        if (af_vrf_msg_resp.statussummary().status() ==
-                service_layer::SLErrorStatus_SLErrno_SL_SOME_ERR) {
-            for (int result = 0; result < af_vrf_msg_resp.results_size(); result++) {
-                    auto slerr_status = 
-                    static_cast<int>(af_vrf_msg_resp.results(result).errstatus().status());
-                    LOG(ERROR) << "Error code for vrf " 
-                                << af_vrf_msg_resp.results(result).vrfname() 
-                                << " is 0x" << std::hex 
-                                << slerr_status;
-            }
-        }
-        return false;
-    }
 
 #### <a name='route'></a>Add a Batch of Routes
 
-Now that we have registered the VRF, we can start adding routes. We will show
-adding a batch of 100k routes to the RIB.
+Now that we have registered the VRF or use the auto-register, we can start adding routes. You can run through our ipv4 default example, as it shows
+adding a set of 100k routes to the RIB. The pushing of routes is handled through the function routepush_slaf.
 
-In our implementation you can call this function and provide the batch size and number of batches
-to indicate how many routes you want to push. We also create a RShuttlev2 struct
-which simplifies the setting of route attributes. The route_operation is used
-to specify ipv4, ipv6 or mpls operation
-
-
-    route_shuttlev2 = new RShuttlev2(af_vrf_handler.channel, username, password);
-    routepush_slaf(route_shuttlev2, batch_size, batch_num,route_operation);
-
-This creates a `SLAFMsg` message.
-
-Fill in the route attributes.
-
-VRF Name
-
-    route_shuttlev2->setVrfV4("default");
-
-What this actually does is this:
-
-    route_msg.set_vrfname(vrfName);
-
-Add a loop that will add 100k incrementing routes to the RIB table since batchSize passed is 1024
-and batchNum is 98.
-
-    for (int batchindex = 0; batchindex < batchNum; batchindex++) {
-            for (int routeindex = 0; routeindex < batchSize; routeindex++, prefix=incrementIpv4Pfx(prefix,prefix_len)) {
-            }
-        }
-
-We use a helper function called insertAddBatchv4 to set all attributes for the `SLAFMsg` Object:
-
-    route_shuttlev2->insertAddBatchV4(route_shuttlev2->longToIpv4(prefix), prefix_len, 99, "14.1.1.10", "Bundle-Ether1");
-
-
-We will be following insertAddBatchV4 and helper functions, but only show the setting of the `SLAFMsg` attributes
-
-Obtain pointer to a new route object within route batch, by creating a `SLAFOp` , `SLAFObject` ,and `SLRoutev4` object.
-
-    service_layer::SLAFOp* operation = route_msg.add_oplist();
-    service_layer::SLAFObject* af_object = operation->mutable_afobject();
-    service_layer::SLRoutev4* routev4Ptr = af_object->mutable_ipv4route();
-    return routev4Ptr;
-
-IP address we already passed in above, but we must set it now
-along with the Prefix Length
-
-    routev4Ptr->set_prefix(prefix);
-    routev4Ptr->set_prefixlen(prefixLen);
-
-Administrative distance (this can override the VRF registration admin distance)
-
-    routev4Ptr->mutable_routecommon()->set_admindistance(adminDistance);
-
-Set the route's paths.
-
-A route may have one or many paths.
-Create an `SLRoutePath` object.
-
-    auto routev4PathPtr = routev4Ptr->add_pathlist();
-
-Path next hop address
-
-    routev4PathPtr->mutable_nexthopaddress()->set_v4address(nextHopAddress);
-
-Next hop interface name
-
-    routev4PathPtr->mutable_nexthopinterface()->set_name(nextHopIf);
-
-We have finished the for loop and now need to make the RPC call. We do this with
-routev4Op() function called in routepush_slaf in ServiceLayerMain.cpp
-
-    route_shuttlev2->routev4Op(service_layer::SL_OBJOP_UPDATE);
-
-
-    route_op = routeOp;
-    route_msg.set_oper(route_op); // Desired ADD, UPDATE, DELETE operation
-    auto stub_ = service_layer::SLAF::NewStub(channel);
-
-Again, there are other route calls beyond just adding bulk routes.
-
-    # RPC route operations
-    #    for add: service_layer::SL_OBJOP_ADD
-    #    for update: service_layer::SL_OBJOP_UPDATE
-    #    for delete: service_layer::SL_OBJOP_DELETE
-    routev4Op(service_layer::SLObjectOp routeOp,
-                    unsigned int timeout)
-
-These calls show examples of bulk additions, updates, and deletes. Also Updates handle
-add operations as well
-
-We are ready to make our call to the API. We'll send then `SLAFMsg route_msg` and a
-timeout interval (in seconds) and any other context information for the gRPC server.
-
-    // Context for the client. It could be used to convey extra information to
-    // the server and/or tweak certain RPC behaviors.
-    grpc::ClientContext context;
-
-    // Storage for the status of the RPC upon completion.
-    grpc::Status status;
-
-    // Set timeout for RPC
-    std::chrono::system_clock::time_point deadline =
-        std::chrono::system_clock::now() + std::chrono::seconds(timeout);
-
-    context.set_deadline(deadline);
-    if (username.length() > 0) {
-        context.AddMetadata("username", username);
-    }
-    if (password.length() > 0) {
-        context.AddMetadata("password", password);
-    }
-
-    //Issue the RPC
-    std::string s;
-
-    if (google::protobuf::TextFormat::PrintToString(route_msg, &s)) {
-        VLOG(2) << "###########################" ;
-        VLOG(2) << "Transmitted message: IOSXR-SL Routev4 " << s;
-        VLOG(2) << "###########################" ;
-    } else {
-        VLOG(2) << "###########################" ;
-        VLOG(2) << "Message not valid (partial content: "
-                  << route_msg.ShortDebugString() << ")";
-        VLOG(2) << "###########################" ;
-        return false;
-    }
-
-    status = stub_->SLAFOp(&context, route_msg, &route_msg_resp);
-
-Check the server's response. Here again we can check each individual route that
-was added for an error message.
-
-    for (int result = 0; result < route_msg_resp.results_size(); result++) {
-                auto slerr_status = 
-                static_cast<int>(route_msg_resp.results(result).errstatus().status());
-                if(slerr_status != service_layer::SLErrorStatus_SLErrno_SL_SUCCESS){
-                    LOG(ERROR) << "Error code for prefix: " 
-                            << route_msg_resp.results(result).operation().afobject().ipv4route().prefix()
-                            << " prefixlen: " 
-                            << route_msg_resp.results(result).operation().afobject().ipv4route().prefixlen()
-                            <<" is 0x"<< std::hex << slerr_status;
-                    ipv4_error = true;
-                }
-        }
+To see the example output you would run the command:
+./servicelayermain -u username -p password

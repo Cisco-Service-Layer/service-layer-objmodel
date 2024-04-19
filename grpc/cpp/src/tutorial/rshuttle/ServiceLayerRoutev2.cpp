@@ -74,12 +74,13 @@ SLAFRShuttle::routeSLAFOp(service_layer::SLObjectOp routeOp,
         return false;
     }
 
+    // Perform the RPC
     status = stub_->SLAFOp(&context, route_msg, &route_msg_resp);
 
     if (status.ok()) {
         VLOG(1) << "RPC call was successful, checking response...";
 
-        // // Print Partial failures within the batch if applicable
+        // Print Partial failures within the batch if applicable for responses
         bool route_error = false;
         for (int result = 0; result < route_msg_resp.results_size(); result++) {
                 auto slerr_status = 
@@ -305,6 +306,7 @@ SLAFRShuttle::insertAddBatchV4(std::string prefix,
                              nextHopIf); 
 
     } else {
+        // no need to make a new route object as one already exists within this route batch
         auto operation = this->route_msg.mutable_oplist(prefix_map_v4[address]);
         auto af_object = operation->mutable_afobject();
         auto routev4_ptr = af_object->mutable_ipv4route();
@@ -423,6 +425,7 @@ SLAFRShuttle::insertAddBatchV6(std::string prefix,
                              nextHopIf);
 
     } else {
+        // no need to make a new route object as one already exists within this route batch
         auto operation = this->route_msg.mutable_oplist(prefix_map_v6[address]);
         auto af_object = operation->mutable_afobject();
         auto routev6_ptr = af_object->mutable_ipv6route();
@@ -483,9 +486,6 @@ SLAFRShuttle::insertAddBatchMPLS(unsigned int startLabel,
                 if (startLabel > 0) {
                     int out_label = startLabel;
                     nhlfe->add_labelstack(out_label);
-                } else {
-                    /* Need an out label for swap */
-                    LOG(ERROR) << "Invalid OutLabel \n";
                 }
             }
             sent_ilms = sent_ilms + num_ilms;
