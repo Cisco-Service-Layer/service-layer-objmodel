@@ -5421,8 +5421,8 @@ namespace ServiceLayer {
     public const int NexthopAddressFieldNumber = 1;
     private global::ServiceLayer.SLIpAddress nexthopAddress_;
     /// <summary>
-    /// One of IPv4 or IPv6 address
-    /// For ENCAP_VXLAN, this field is not supported and will be ignored
+    /// One of IPv4 or IPv6 address.
+    /// For ENCAP_VXLAN, this field is not supported and will be ignored.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -5438,7 +5438,7 @@ namespace ServiceLayer {
     private global::ServiceLayer.SLInterface nexthopInterface_;
     /// <summary>
     /// Outgoing interface name for the path.
-    /// For ENCAP_VXLAN, this field is not supported and will be ignored
+    /// For ENCAP_VXLAN, this field is not supported and will be ignored.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -5474,7 +5474,7 @@ namespace ServiceLayer {
     private string vrfName_ = "";
     /// <summary>
     /// Path VRF name. This field is used ONLY if the path is in a different
-    /// VRF than the route (e.g. VPN cases)
+    /// VRF than the route (e.g. VPN cases).
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -5609,7 +5609,7 @@ namespace ServiceLayer {
     public const int EncapTypeFieldNumber = 10;
     private global::ServiceLayer.SLEncapType encapType_ = global::ServiceLayer.SLEncapType.SlEncapReserved;
     /// <summary>
-    /// For VxLAN, Encapsulation type must be set to SL_ENCAP_VXLAN.
+    /// For VxLAN, Encapsulation type must be set to SL_ENCAP_VXLAN
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -5663,9 +5663,8 @@ namespace ServiceLayer {
     public const int FlagsFieldNumber = 13;
     private uint flags_;
     /// <summary>
-    /// Path Flags.
-    /// Each flag is indicated as a bit field. Supported values are:
-    /// 0x00000001 = SINGLE_PATH_OPT Enables hardware optimization for single path VxLAN tunnels
+    /// Path Flags. Each flag is indicated as a bit field. Supported values are:
+    /// - 0x00000001 = SINGLE_PATH_OPT Enables hardware optimization for single path VxLAN tunnels.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]

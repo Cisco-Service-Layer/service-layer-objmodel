@@ -38,15 +38,15 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-// AF VRF Registration message.
+// AF VRF Registration message
 type SLAFVrfReg struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	// Registration message is applied on VRF's identified table.
+	// Registration message is applied on VRF's identified table
 	Table SLTableType `protobuf:"varint,1,opt,name=Table,proto3,enum=service_layer.SLTableType" json:"Table,omitempty"`
-	// VRF registration attibutes.
+	// VRF registration attibutes
 	VrfReg *SLVrfReg `protobuf:"bytes,2,opt,name=VrfReg,proto3" json:"VrfReg,omitempty"`
 }
 
@@ -96,7 +96,7 @@ func (x *SLAFVrfReg) GetVrfReg() *SLVrfReg {
 	return nil
 }
 
-// AF VRF Registration messages.
+// AF VRF Registration messages
 type SLAFVrfRegMsg struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
@@ -221,7 +221,7 @@ func (x *SLAFVrfRegMsgRes) GetTable() SLTableType {
 	return SLTableType_SL_TABLE_TYPE_RESERVED
 }
 
-// VRF Registration message Response.
+// VRF Registration message Response
 type SLAFVrfRegMsgRsp struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
@@ -238,7 +238,7 @@ type SLAFVrfRegMsgRsp struct {
 	//     In this case, the Results list is empty.
 	StatusSummary *SLErrorStatus `protobuf:"bytes,1,opt,name=StatusSummary,proto3" json:"StatusSummary,omitempty"`
 	// In case of errors, this field indicates which entry in the bulk was
-	// erroneous.
+	// erroneous
 	Results []*SLAFVrfRegMsgRes `protobuf:"bytes,2,rep,name=Results,proto3" json:"Results,omitempty"`
 }
 
@@ -289,14 +289,14 @@ func (x *SLAFVrfRegMsgRsp) GetResults() []*SLAFVrfRegMsgRes {
 }
 
 // VRF Reg Get Request Message.
-// Returns the VRF registrations done for all table types
+// Returns the VRF registrations done for all table types.
 type SLAFVrfRegGetMsg struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
 	// If true,  returns VRF registrations for all clients.
-	// If false, returns VRF registrations for this client as identified by the gRPC metadata
+	// If false, returns VRF registrations for this client as identified by the gRPC metadata.
 	GetAll bool `protobuf:"varint,1,opt,name=GetAll,proto3" json:"GetAll,omitempty"`
 }
 
@@ -349,9 +349,9 @@ type SLAFVrfRegGetMsgRsp struct {
 	ErrStatus *SLErrorStatus `protobuf:"bytes,1,opt,name=ErrStatus,proto3" json:"ErrStatus,omitempty"`
 	// Client that performed this registration
 	ClientID uint64 `protobuf:"varint,2,opt,name=ClientID,proto3" json:"ClientID,omitempty"`
-	// if ErrStatus is SL_SUCCESS, Table and Entries
+	// If ErrStatus is SL_SUCCESS, Table and Entries
 	// contain the table in which the VRF registration
-	// operation was previously applied.
+	// operation was previously applied
 	Table SLTableType `protobuf:"varint,3,opt,name=Table,proto3,enum=service_layer.SLTableType" json:"Table,omitempty"`
 	// VRF registration operation
 	Entries []*SLVrfReg `protobuf:"bytes,4,rep,name=Entries,proto3" json:"Entries,omitempty"`
@@ -430,7 +430,7 @@ type SLPathGroup struct {
 	// sources install the same Path Group.
 	// Lower distance is preferred over higher distance.
 	// The per path group object admin distance overrides the default admin
-	// distance set at VRF registration. see SLVrfReg
+	// distance set at VRF registration. see SLVrfReg.
 	AdminDistance uint32 `protobuf:"varint,2,opt,name=AdminDistance,proto3" json:"AdminDistance,omitempty"`
 	// Description of paths in the PathGroup.
 	// Oneof is used here for future extensibility.
@@ -562,16 +562,16 @@ type SLMplsEntry struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	// Local Label.
+	// Local Label
 	LocalLabel uint32 `protobuf:"varint,1,opt,name=LocalLabel,proto3" json:"LocalLabel,omitempty"`
-	// Administrative distance of the MPLS label. [0-255]. RIB uses this field
-	// to break the tie when multiple sources install the same incoming MPLS
-	// label. Lower distance is preferred over higher distance. The per MPLS
-	// label object admin distance overrides the default admin distance set
-	// at VRF registration. see SLVrfReg
+	// Administrative distance of the MPLS label. Possible values
+	// are [0-255]. RIB uses this field to break the tie when multiple
+	// sources install the same incoming MPLS label. Lower distance is
+	// preferred over higher distance. The per MPLS label object admin distance
+	// overrides the default admin distance set at VRF registration. see SLVrfReg.
 	AdminDistance uint32 `protobuf:"varint,2,opt,name=AdminDistance,proto3" json:"AdminDistance,omitempty"`
 	// List of paths for this MPLS label entry.
-	// Specifying more than one path is allowed for ECMP/UCMP cases
+	// Specifying more than one path is allowed for ECMP/UCMP cases.
 	PathList []*SLRoutePath `protobuf:"bytes,3,rep,name=PathList,proto3" json:"PathList,omitempty"`
 	// Reference to the Path Group for this MPLS label entry.
 	// The attribute is oneof to allow for future extension.
@@ -833,7 +833,7 @@ type SLAFOp struct {
 	// Operation Id should be monotonically increasing for the life of the client.
 	OperationID uint64 `protobuf:"varint,2,opt,name=OperationID,proto3" json:"OperationID,omitempty"`
 	// The type of Acknowledgment that the controller or agent expects from
-	// the network element.
+	// the network element
 	AckType SLRspACKType `protobuf:"varint,3,opt,name=AckType,proto3,enum=service_layer.SLRspACKType" json:"AckType,omitempty"`
 }
 
@@ -903,12 +903,12 @@ type SLAFGetMsg struct {
 	// all VRFs.
 	VrfName string `protobuf:"bytes,1,opt,name=VrfName,proto3" json:"VrfName,omitempty"`
 	// If Table is set to SL_TABLE_TYPE_RESERVED, or is unset, objects from
-	// all tables for selected VRFs are returned.
+	// all tables for selected VRFs are returned
 	Table SLTableType `protobuf:"varint,2,opt,name=Table,proto3,enum=service_layer.SLTableType" json:"Table,omitempty"`
 	// Get objects programmed by all clients, ignoring any RPC ClientID
-	// metadata.
+	// metadata
 	GetAllClients bool `protobuf:"varint,3,opt,name=GetAllClients,proto3" json:"GetAllClients,omitempty"`
-	// Get objects that  match the value.
+	// Get objects that  match the value
 	RouteMatch []*SLRouteGetMatch `protobuf:"bytes,4,rep,name=RouteMatch,proto3" json:"RouteMatch,omitempty"`
 }
 
@@ -979,10 +979,10 @@ type SLAFFibStatus struct {
 
 	// Error code associated with hardware programming
 	ErrorCode *SLErrorStatus `protobuf:"bytes,1,opt,name=ErrorCode,proto3" json:"ErrorCode,omitempty"`
-	// Operation ID associated with hardware programming.
+	// Operation ID associated with hardware programming
 	OperationID uint64 `protobuf:"varint,2,opt,name=OperationID,proto3" json:"OperationID,omitempty"`
 	// Version associated with hardware programming. A valid version is
-	// a non-zero positive number
+	// a non-zero positive number.
 	Version uint64 `protobuf:"varint,3,opt,name=Version,proto3" json:"Version,omitempty"`
 	// Descriptive string describing error if any, on the hardware programming
 	ErrorString string `protobuf:"bytes,4,opt,name=ErrorString,proto3" json:"ErrorString,omitempty"`
@@ -990,7 +990,7 @@ type SLAFFibStatus struct {
 	// For example: if this OperationID is about programming an ipv4 or ipv6
 	// route that is pointing to a Path Group, then DepResult will carry
 	// the Result of operation that programmed that Path Group.
-	// *NOTE*: DepResult is not supported on Get Operations
+	// NOTE: DepResult is not supported on Get Operations.
 	DepResult []*SLAFFibStatus `protobuf:"bytes,5,rep,name=DepResult,proto3" json:"DepResult,omitempty"`
 }
 
@@ -1069,7 +1069,7 @@ type SLAFGetMsgRspEntry struct {
 
 	// Object
 	AFOp *SLAFOp `protobuf:"bytes,1,opt,name=AFOp,proto3" json:"AFOp,omitempty"`
-	// if the operation was programmed with ACK type set to RIB_AND_FIB_ACK,
+	// If the operation was programmed with ACK type set to RIB_AND_FIB_ACK,
 	// then FIBStatus indicates status of hardware programming of the
 	// operation
 	FIBStatus *SLAFFibStatus `protobuf:"bytes,2,opt,name=FIBStatus,proto3" json:"FIBStatus,omitempty"`
@@ -1130,7 +1130,7 @@ type SLAFGetMsgRsp struct {
 
 	// Status of the Get Stats operation
 	ErrStatus *SLErrorStatus `protobuf:"bytes,1,opt,name=ErrStatus,proto3" json:"ErrStatus,omitempty"`
-	// VRF name.
+	// VRF name
 	VrfName string `protobuf:"bytes,2,opt,name=VrfName,proto3" json:"VrfName,omitempty"`
 	// Client ID. If the client requested read of all clients' objects,
 	// the Client ID field can be used by the client to determine
@@ -1212,9 +1212,9 @@ type SLAFMsg struct {
 
 	// Route Object Operations
 	Oper SLObjectOp `protobuf:"varint,1,opt,name=Oper,proto3,enum=service_layer.SLObjectOp" json:"Oper,omitempty"`
-	// VRF name. VRF name is ignored for MPLS ILM operations.
+	// VRF name. VRF name is ignored for MPLS ILM operations
 	VrfName string `protobuf:"bytes,2,opt,name=VrfName,proto3" json:"VrfName,omitempty"`
-	// List of operations.
+	// List of operations
 	OpList []*SLAFOp `protobuf:"bytes,3,rep,name=OpList,proto3" json:"OpList,omitempty"`
 }
 
@@ -1271,7 +1271,7 @@ func (x *SLAFMsg) GetOpList() []*SLAFOp {
 	return nil
 }
 
-// Result of an operation on the object.
+// Result of an operation on the object
 type SLAFRes struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
@@ -1282,7 +1282,7 @@ type SLAFRes struct {
 	// The operation, expected to carry only the part that is considered
 	// the key to uniquely identify the object that is programmed
 	Operation *SLAFOp `protobuf:"bytes,2,opt,name=Operation,proto3" json:"Operation,omitempty"`
-	// if the operation was programmed with ACK type set to RIB_AND_FIB_ACK,
+	// If the operation was programmed with ACK type set to RIB_AND_FIB_ACK,
 	// then FIBStatus indicates status of hardware programming of the
 	// operation
 	FIBStatus *SLAFFibStatus `protobuf:"bytes,3,opt,name=FIBStatus,proto3" json:"FIBStatus,omitempty"`
@@ -1347,10 +1347,10 @@ type SLAFMsgRsp struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	// VRF name.
+	// VRF name
 	VrfName string `protobuf:"bytes,1,opt,name=VrfName,proto3" json:"VrfName,omitempty"`
 	// In case of errors, this field indicates which entry in the bulk was
-	// erroneous.
+	// erroneous
 	Results []*SLAFRes `protobuf:"bytes,2,rep,name=Results,proto3" json:"Results,omitempty"`
 }
 
@@ -1400,7 +1400,7 @@ func (x *SLAFMsgRsp) GetResults() []*SLAFRes {
 	return nil
 }
 
-// Request message for route redistribution registration.
+// Request message for route redistribution registration
 type SLAFRedistRegMsg struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
@@ -1474,13 +1474,13 @@ func (x *SLAFRedistRegMsg) GetTable() SLTableType {
 	return SLTableType_SL_TABLE_TYPE_RESERVED
 }
 
-// Next hop registration request key.
+// Next hop registration request key
 type SLAFNextHopRegKey struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	// Notification request key.
+	// Notification request key
 	//
 	// Types that are assignable to Nexthopkey:
 	//
@@ -1539,19 +1539,19 @@ type isSLAFNextHopRegKey_Nexthopkey interface {
 }
 
 type SLAFNextHopRegKey_NextHop struct {
-	// A next hop IP address.
+	// A next hop IP address
 	NextHop *SLAFNextHopRegKey_SLNextHopKey `protobuf:"bytes,1,opt,name=NextHop,proto3,oneof"`
 }
 
 func (*SLAFNextHopRegKey_NextHop) isSLAFNextHopRegKey_Nexthopkey() {}
 
-// Next hop registration message.
+// Next hop registration message
 type SLAFNextHopRegMsg struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	// Next hop registration key.
+	// Next hop registration key
 	NextHopKey *SLAFNextHopRegKey `protobuf:"bytes,1,opt,name=NextHopKey,proto3" json:"NextHopKey,omitempty"`
 }
 
@@ -1594,7 +1594,7 @@ func (x *SLAFNextHopRegMsg) GetNextHopKey() *SLAFNextHopRegKey {
 	return nil
 }
 
-// Notification request message for a single item.
+// Notification request message for a single item
 type SLAFNotifRegReq struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
@@ -1681,12 +1681,12 @@ type isSLAFNotifRegReq_Request interface {
 }
 
 type SLAFNotifRegReq_RedistReq struct {
-	// Route redistribution request.
+	// Route redistribution request
 	RedistReq *SLAFRedistRegMsg `protobuf:"bytes,1,opt,name=RedistReq,proto3,oneof"`
 }
 
 type SLAFNotifRegReq_NextHopReq struct {
-	// Next hop notification request.
+	// Next hop notification request
 	NextHopReq *SLAFNextHopRegMsg `protobuf:"bytes,2,opt,name=NextHopReq,proto3,oneof"`
 }
 
@@ -1715,16 +1715,16 @@ type SLAFNotifReq struct {
 	// Oper = SL_NOTIFOP_ENABLE
 	//
 	//	This is to enable route notifications in a VRF or
-	//	 the next hop change notification.
+	//	 the next hop change notification
 	//
 	// Oper = SL_NOTIFOP_DISABLE
 	//
 	//	This is to disable route notifications in a VRF or
-	//	the next hop change notification.
+	//	the next hop change notification
 	Oper SLNotifOp `protobuf:"varint,1,opt,name=Oper,proto3,enum=service_layer.SLNotifOp" json:"Oper,omitempty"`
-	// Vrf that the client is interested in.
+	// Vrf that the client is interested in
 	VrfName string `protobuf:"bytes,2,opt,name=VrfName,proto3" json:"VrfName,omitempty"`
-	// Notification request.
+	// Notification request
 	NotifReq []*SLAFNotifRegReq `protobuf:"bytes,3,rep,name=NotifReq,proto3" json:"NotifReq,omitempty"`
 }
 
@@ -1781,16 +1781,16 @@ func (x *SLAFNotifReq) GetNotifReq() []*SLAFNotifRegReq {
 	return nil
 }
 
-// Notification response message for a single item.
+// Notification response message for a single item
 type SLAFNotifRsp struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	// Corresponding request.
+	// Corresponding request
 	NotifReq *SLAFNotifRegReq `protobuf:"bytes,1,opt,name=NotifReq,proto3" json:"NotifReq,omitempty"`
 	// The NotifStatus implies one of 2 things:
-	// SL_SUCCESS: signifies that the notification request was successful
+	// SL_SUCCESS: signifies that the notification request was successful.
 	// SL_XXX: signifies an error in setting up a notification for the Vrf.
 	NotifStatus *SLErrorStatus `protobuf:"bytes,2,opt,name=NotifStatus,proto3" json:"NotifStatus,omitempty"`
 }
@@ -1841,7 +1841,7 @@ func (x *SLAFNotifRsp) GetNotifStatus() *SLErrorStatus {
 	return nil
 }
 
-// Next hop Notification
+// Next hop Notification.
 // If there are no viable paths to the next hop, ResolvingRoute,
 // ResolvingRouteLen, SrcProto are not set, AdminDistance/Metric are set to
 // UINT32_MAX.
@@ -1850,7 +1850,7 @@ type SLNextHop struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	// Next hop registration key.
+	// Next hop registration key
 	NextHopKey *SLAFNextHopRegKey `protobuf:"bytes,1,opt,name=NextHopKey,proto3" json:"NextHopKey,omitempty"`
 	// Prefix of the route resolving the nexthop
 	ResolvingRoute *SLIpAddress `protobuf:"bytes,2,opt,name=ResolvingRoute,proto3" json:"ResolvingRoute,omitempty"`
@@ -1966,7 +1966,7 @@ func (x *SLNextHop) GetPaths() []*SLRoutePath {
 	return nil
 }
 
-// AF Notification message.
+// AF Notification message
 type SLAFNotif struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
@@ -2045,17 +2045,17 @@ type isSLAFNotif_Event interface {
 }
 
 type SLAFNotif_NotifStatus struct {
-	// This field carries the status of the SLAFNotifReq message.
+	// This field carries the status of the SLAFNotifReq message
 	NotifStatus *SLAFNotifRsp `protobuf:"bytes,1,opt,name=NotifStatus,proto3,oneof"`
 }
 
 type SLAFNotif_RedistObject struct {
-	// Route redistribution notification.
+	// Route redistribution notification
 	RedistObject *SLAFObject `protobuf:"bytes,4,opt,name=RedistObject,proto3,oneof"`
 }
 
 type SLAFNotif_NextHop struct {
-	// Next hop change notification.
+	// Next hop change notification
 	NextHop *SLNextHop `protobuf:"bytes,5,opt,name=NextHop,proto3,oneof"`
 }
 
@@ -2065,15 +2065,15 @@ func (*SLAFNotif_RedistObject) isSLAFNotif_Event() {}
 
 func (*SLAFNotif_NextHop) isSLAFNotif_Event() {}
 
-// RPC Notification message.
+// RPC Notification message
 type SLAFNotifMsg struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	// VRF name.
+	// VRF name
 	VrfName string `protobuf:"bytes,1,opt,name=VrfName,proto3" json:"VrfName,omitempty"`
-	// Notifications.
+	// Notifications
 	AFNotifs []*SLAFNotif `protobuf:"bytes,3,rep,name=AFNotifs,proto3" json:"AFNotifs,omitempty"`
 }
 
@@ -2128,7 +2128,7 @@ type SLPathGroup_SLPath struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	// Primary path.
+	// Primary path
 	Path *SLRoutePath `protobuf:"bytes,1,opt,name=Path,proto3" json:"Path,omitempty"`
 }
 

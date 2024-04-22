@@ -1602,11 +1602,11 @@ type SLRoutePath struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	// One of IPv4 or IPv6 address
-	// For ENCAP_VXLAN, this field is not supported and will be ignored
+	// One of IPv4 or IPv6 address.
+	// For ENCAP_VXLAN, this field is not supported and will be ignored.
 	NexthopAddress *SLIpAddress `protobuf:"bytes,1,opt,name=NexthopAddress,proto3" json:"NexthopAddress,omitempty"`
 	// Outgoing interface name for the path.
-	// For ENCAP_VXLAN, this field is not supported and will be ignored
+	// For ENCAP_VXLAN, this field is not supported and will be ignored.
 	NexthopInterface *SLInterface `protobuf:"bytes,2,opt,name=NexthopInterface,proto3" json:"NexthopInterface,omitempty"`
 	// Load metric for this path.
 	// Used for equal/unequal cost load balancing of traffic distribution.
@@ -1616,7 +1616,7 @@ type SLRoutePath struct {
 	// otherwise system defaults to equal cost load balancing.
 	LoadMetric uint32 `protobuf:"varint,3,opt,name=LoadMetric,proto3" json:"LoadMetric,omitempty"`
 	// Path VRF name. This field is used ONLY if the path is in a different
-	// VRF than the route (e.g. VPN cases)
+	// VRF than the route (e.g. VPN cases).
 	VrfName string `protobuf:"bytes,4,opt,name=VrfName,proto3" json:"VrfName,omitempty"`
 	// Route Metric.
 	// The metric is typically based on information like load, hop count,
@@ -1678,7 +1678,7 @@ type SLRoutePath struct {
 	// This field is used only for backup MPLS path with more than one label
 	// For N+1 backup labels, N remote backup addresses must be specified.
 	RemoteAddress []*SLIpAddress `protobuf:"bytes,9,rep,name=RemoteAddress,proto3" json:"RemoteAddress,omitempty"`
-	// For VxLAN, Encapsulation type must be set to SL_ENCAP_VXLAN.
+	// For VxLAN, Encapsulation type must be set to SL_ENCAP_VXLAN
 	EncapType SLEncapType `protobuf:"varint,10,opt,name=EncapType,proto3,enum=service_layer.SLEncapType" json:"EncapType,omitempty"`
 	// VTEP (VxLAN tunnel end point) router MAC address.
 	// A unique system MAC address that other VTEPs can use for inter-VNI
@@ -1693,9 +1693,8 @@ type SLRoutePath struct {
 	// Create L3 VxLAN tunnel endpoint. Apply VxLAN encapsulation
 	// on the IP packet.
 	VxLANPath *SLVxLANPath `protobuf:"bytes,12,opt,name=VxLANPath,proto3" json:"VxLANPath,omitempty"`
-	// Path Flags.
-	// Each flag is indicated as a bit field. Supported values are:
-	// 0x00000001 = SINGLE_PATH_OPT Enables hardware optimization for single path VxLAN tunnels
+	// Path Flags. Each flag is indicated as a bit field. Supported values are:
+	// - 0x00000001 = SINGLE_PATH_OPT Enables hardware optimization for single path VxLAN tunnels.
 	Flags uint32 `protobuf:"varint,13,opt,name=Flags,proto3" json:"Flags,omitempty"`
 }
 

@@ -155,10 +155,9 @@ namespace ServiceLayer {
     public const int PrefixFieldNumber = 1;
     private uint prefix_;
     /// <summary>
-    /// IPv4 Prefix
-    /// Valid addresses:
-    ///     0.0.0.0
-    ///     1.0.0.0 - 223.255.255.255
+    /// IPv4 Prefix. Valid addresses:
+    /// - 0.0.0.0
+    /// - 1.0.0.0 - 223.255.255.255
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -206,7 +205,7 @@ namespace ServiceLayer {
     private readonly pbc::RepeatedField<global::ServiceLayer.SLRoutePath> pathList_ = new pbc::RepeatedField<global::ServiceLayer.SLRoutePath>();
     /// <summary>
     /// List of route paths for this route.
-    /// Specifying more than one path is allowed for ECMP/UCMP cases
+    /// Specifying more than one path is allowed for ECMP/UCMP cases.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]

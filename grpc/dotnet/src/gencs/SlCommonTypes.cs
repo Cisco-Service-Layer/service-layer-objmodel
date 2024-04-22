@@ -1682,7 +1682,7 @@ namespace ServiceLayer {
         /// </summary>
         [pbr::OriginalName("SL_L2_BD_UNREGISTRATION_ERR")] SlL2BdUnregistrationErr = 69634,
         /// <summary>
-        /// BD EOF Operation error. 0x11003;
+        /// BD EOF Operation error. 0x11003
         /// </summary>
         [pbr::OriginalName("SL_L2_BD_EOF_ERR")] SlL2BdEofErr = 69635,
         /// <summary>

@@ -68,6 +68,8 @@ type SLAFClient interface {
 	SLAFVrfRegOp(ctx context.Context, in *SLAFVrfRegMsg, opts ...grpc.CallOption) (*SLAFVrfRegMsgRsp, error)
 	// VRF get. Used to retrieve VRF attributes from the server.
 	SLAFVrfRegGet(ctx context.Context, in *SLAFVrfRegGetMsg, opts ...grpc.CallOption) (SLAF_SLAFVrfRegGetClient, error)
+	// Route, MPLS label and Path operations.
+	//
 	// SLAFMsg.Oper = SL_OBJOP_ADD:
 	//
 	//	Object add. Fails if the object already exists and is not stale.
@@ -82,10 +84,12 @@ type SLAFClient interface {
 	//
 	// SLAFMsg.Oper = SL_OBJOP_DELETE:
 	//
-	//	Object delete. The object's key is enough to delete the object;
-	//	other attributes if present are ignored.
+	//	Object delete. The object's key is enough to delete the object.
+	//	Other attributes if present are ignored.
 	//	Delete of a non-existant object is returned as success.
 	SLAFOp(ctx context.Context, in *SLAFMsg, opts ...grpc.CallOption) (*SLAFMsgRsp, error)
+	// Stream object operations
+	//
 	// SLAFMsg.Oper = SL_OBJOP_ADD:
 	//
 	//	Object add. Fails if the objects already exists and is not stale.
@@ -103,6 +107,27 @@ type SLAFClient interface {
 	SLAFOpStream(ctx context.Context, opts ...grpc.CallOption) (SLAF_SLAFOpStreamClient, error)
 	// Retrieves object attributes.
 	SLAFGet(ctx context.Context, in *SLAFGetMsg, opts ...grpc.CallOption) (SLAF_SLAFGetClient, error)
+	// The route redistribution and next hop tracking RPC.
+	//
+	// The notification request registrations and corresponding
+	// notifications are scoped to the RPC. On a RPC disconnection,
+	// the client should re-establish the RPC and re-program
+	// the notification requests.
+	// The caller MUST keep the RPC up as long as there is
+	// interest in the notifications.
+	//
+	// For route redistribution, this call is used to get a stream
+	// of route notifications. It can be used to get "push"
+	// notifications for route adds/updates/deletes.
+	//
+	// For next hop change notifications, this call can be used to get
+	// "push" notifications for nexthop adds/updates/deletes.
+	//
+	// The call takes a stream of per-VRF table notification requests.
+	// Each notification request is first responded to with the result
+	// of the registration operation itself, followed by any redistributed
+	// routes if requested and present, and any next hops if requested and present.
+	// From then on, any updates are notified as long as RPC is up.
 	SLAFNotifStream(ctx context.Context, opts ...grpc.CallOption) (SLAF_SLAFNotifStreamClient, error)
 }
 
@@ -308,6 +333,8 @@ type SLAFServer interface {
 	SLAFVrfRegOp(context.Context, *SLAFVrfRegMsg) (*SLAFVrfRegMsgRsp, error)
 	// VRF get. Used to retrieve VRF attributes from the server.
 	SLAFVrfRegGet(*SLAFVrfRegGetMsg, SLAF_SLAFVrfRegGetServer) error
+	// Route, MPLS label and Path operations.
+	//
 	// SLAFMsg.Oper = SL_OBJOP_ADD:
 	//
 	//	Object add. Fails if the object already exists and is not stale.
@@ -322,10 +349,12 @@ type SLAFServer interface {
 	//
 	// SLAFMsg.Oper = SL_OBJOP_DELETE:
 	//
-	//	Object delete. The object's key is enough to delete the object;
-	//	other attributes if present are ignored.
+	//	Object delete. The object's key is enough to delete the object.
+	//	Other attributes if present are ignored.
 	//	Delete of a non-existant object is returned as success.
 	SLAFOp(context.Context, *SLAFMsg) (*SLAFMsgRsp, error)
+	// Stream object operations
+	//
 	// SLAFMsg.Oper = SL_OBJOP_ADD:
 	//
 	//	Object add. Fails if the objects already exists and is not stale.
@@ -343,6 +372,27 @@ type SLAFServer interface {
 	SLAFOpStream(SLAF_SLAFOpStreamServer) error
 	// Retrieves object attributes.
 	SLAFGet(*SLAFGetMsg, SLAF_SLAFGetServer) error
+	// The route redistribution and next hop tracking RPC.
+	//
+	// The notification request registrations and corresponding
+	// notifications are scoped to the RPC. On a RPC disconnection,
+	// the client should re-establish the RPC and re-program
+	// the notification requests.
+	// The caller MUST keep the RPC up as long as there is
+	// interest in the notifications.
+	//
+	// For route redistribution, this call is used to get a stream
+	// of route notifications. It can be used to get "push"
+	// notifications for route adds/updates/deletes.
+	//
+	// For next hop change notifications, this call can be used to get
+	// "push" notifications for nexthop adds/updates/deletes.
+	//
+	// The call takes a stream of per-VRF table notification requests.
+	// Each notification request is first responded to with the result
+	// of the registration operation itself, followed by any redistributed
+	// routes if requested and present, and any next hops if requested and present.
+	// From then on, any updates are notified as long as RPC is up.
 	SLAFNotifStream(SLAF_SLAFNotifStreamServer) error
 	mustEmbedUnimplementedSLAFServer()
 }

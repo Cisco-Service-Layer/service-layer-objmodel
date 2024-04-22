@@ -176,8 +176,8 @@ class SLRoutev6OperServicer(object):
         attributes are replaced with values from the new message.
 
         SLRoutev6Msg.Oper = SL_OBJOP_DELETE:
-        Route delete. The route's key is enough to delete the object;
-        other attributes, if provided are ignored.
+        Route delete. The route's key is enough to delete the object.
+        Other attributes, if provided are ignored.
         Delete of a non-existant route is returned as success.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -207,8 +207,8 @@ class SLRoutev6OperServicer(object):
         attributes are replaced with values from the new message.
 
         SLRoutev6Msg.Oper = SL_OBJOP_DELETE:
-        Route delete. The route's key is enough to delete the object;
-        other attributes, if provided are ignored.
+        Route delete. The route's key is enough to delete the object.
+        Other attributes, if provided are ignored.
         Delete of a non-existant route is returned as success.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)

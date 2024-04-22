@@ -3683,7 +3683,7 @@ namespace ServiceLayer {
     private uint slMplsPathSetId_;
     /// <summary>
     /// Set the Path set-id,
-    /// Integer range [0 .. 7]; default = 0
+    /// Integer range [0 .. 7], default = 0
     /// Paths of an ILM should be associated with a SetID.
     /// SetID is used for grouping paths with the same SlMplsPathPriority value. 
     /// Paths with same SetID must have same SlMplsPathPriority value.
@@ -4486,8 +4486,8 @@ namespace ServiceLayer {
         private uint prefix_;
         /// <summary>
         /// IPv4 Prefix in host byte order.
-        ///     0.0.0.0
-        ///     1.0.0.0 - 223.255.255.255
+        /// - 0.0.0.0
+        /// - 1.0.0.0 - 223.255.255.255
         /// </summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]

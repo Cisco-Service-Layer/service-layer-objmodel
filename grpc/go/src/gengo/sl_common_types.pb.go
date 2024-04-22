@@ -979,7 +979,7 @@ const (
 	SLErrorStatus_SL_L2_BD_REGISTRATION_ERR SLErrorStatus_SLErrno = 69633
 	// BD cannot be unregistered with Layer-2 RIB. 0x11002
 	SLErrorStatus_SL_L2_BD_UNREGISTRATION_ERR SLErrorStatus_SLErrno = 69634
-	// BD EOF Operation error. 0x11003;
+	// BD EOF Operation error. 0x11003
 	SLErrorStatus_SL_L2_BD_EOF_ERR SLErrorStatus_SLErrno = 69635
 	// Name is too long in BD registration message. 0x11004
 	SLErrorStatus_SL_L2_BD_REG_NAME_TOO_LONG SLErrorStatus_SLErrno = 69636

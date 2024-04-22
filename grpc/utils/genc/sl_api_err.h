@@ -570,7 +570,7 @@
     SL_L2_BD_REGISTRATION_ERR = 0x11001,\
     /* BD cannot be unregistered with Layer-2 RIB. 0x11002 */\
     SL_L2_BD_UNREGISTRATION_ERR = 0x11002,\
-    /* BD EOF Operation error. 0x11003, */\
+    /* BD EOF Operation error. 0x11003 */\
     SL_L2_BD_EOF_ERR = 0x11003,\
     /* Name is too long in BD registration message. 0x11004 */\
     SL_L2_BD_REG_NAME_TOO_LONG = 0x11004,\
@@ -1529,7 +1529,9 @@
     {SL_L2_BD_UNREGISTRATION_ERR ,\
         " BD cannot be unregistered with Layer-2 RIB.  "\
         },\
- \
+    {SL_L2_BD_EOF_ERR ,\
+        " BD EOF Operation error.  "\
+        },\
     {SL_L2_BD_REG_NAME_TOO_LONG ,\
         " Name is too long in BD registration message.  "\
         },\

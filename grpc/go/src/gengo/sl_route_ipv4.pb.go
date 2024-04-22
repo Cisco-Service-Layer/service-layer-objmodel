@@ -36,18 +36,16 @@ type SLRoutev4 struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	// IPv4 Prefix
-	// Valid addresses:
-	//
-	//	0.0.0.0
-	//	1.0.0.0 - 223.255.255.255
+	// IPv4 Prefix. Valid addresses:
+	// - 0.0.0.0
+	// - 1.0.0.0 - 223.255.255.255
 	Prefix uint32 `protobuf:"varint,1,opt,name=Prefix,proto3" json:"Prefix,omitempty"`
 	// IPv4 prefix length, [0-32]
 	PrefixLen uint32 `protobuf:"varint,2,opt,name=PrefixLen,proto3" json:"PrefixLen,omitempty"`
 	// Common route attributes
 	RouteCommon *SLRouteCommon `protobuf:"bytes,3,opt,name=RouteCommon,proto3" json:"RouteCommon,omitempty"`
 	// List of route paths for this route.
-	// Specifying more than one path is allowed for ECMP/UCMP cases
+	// Specifying more than one path is allowed for ECMP/UCMP cases.
 	PathList []*SLRoutePath `protobuf:"bytes,4,rep,name=PathList,proto3" json:"PathList,omitempty"`
 	// Reference to the Path Group for this route. The attribute is oneof
 	// to allow for future extension.

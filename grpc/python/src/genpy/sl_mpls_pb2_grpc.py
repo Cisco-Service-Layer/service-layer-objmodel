@@ -205,7 +205,7 @@ class SLMplsOperServicer(object):
 
         SLMplsIlmMsg.Oper = SL_OBJOP_DELETE:
         Delete incoming label map entry. The entry's key is enough
-        to delete the object; other attributes if present are ignored.
+        to delete the object. Other attributes if present are ignored.
         Delete of a non-existant entry is considered a success.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)

@@ -1079,7 +1079,7 @@ type SLMplsPath struct {
 	// Everything else: Reserved.
 	SlMplsPathPriority uint32 `protobuf:"varint,11,opt,name=SlMplsPathPriority,proto3" json:"SlMplsPathPriority,omitempty"`
 	// Set the Path set-id,
-	// Integer range [0 .. 7]; default = 0
+	// Integer range [0 .. 7], default = 0
 	// Paths of an ILM should be associated with a SetID.
 	// SetID is used for grouping paths with the same SlMplsPathPriority value.
 	// Paths with same SetID must have same SlMplsPathPriority value.
@@ -1838,9 +1838,8 @@ type SLMplsIlmKey_IPv4PrefixKey struct {
 	unknownFields protoimpl.UnknownFields
 
 	// IPv4 Prefix in host byte order.
-	//
-	//	0.0.0.0
-	//	1.0.0.0 - 223.255.255.255
+	// - 0.0.0.0
+	// - 1.0.0.0 - 223.255.255.255
 	Prefix uint32 `protobuf:"varint,1,opt,name=Prefix,proto3" json:"Prefix,omitempty"`
 }
 

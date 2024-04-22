@@ -159,7 +159,7 @@ namespace ServiceLayer {
   }
   #region Messages
   /// <summary>
-  /// AF VRF Registration message.
+  /// AF VRF Registration message
   /// </summary>
   public sealed partial class SLAFVrfReg : pb::IMessage<SLAFVrfReg>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
@@ -210,7 +210,7 @@ namespace ServiceLayer {
     public const int TableFieldNumber = 1;
     private global::ServiceLayer.SLTableType table_ = global::ServiceLayer.SLTableType.Reserved;
     /// <summary>
-    /// Registration message is applied on VRF's identified table.
+    /// Registration message is applied on VRF's identified table
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -225,7 +225,7 @@ namespace ServiceLayer {
     public const int VrfRegFieldNumber = 2;
     private global::ServiceLayer.SLVrfReg vrfReg_;
     /// <summary>
-    /// VRF registration attibutes.
+    /// VRF registration attibutes
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -403,7 +403,7 @@ namespace ServiceLayer {
   }
 
   /// <summary>
-  /// AF VRF Registration messages.
+  /// AF VRF Registration messages
   /// </summary>
   public sealed partial class SLAFVrfRegMsg : pb::IMessage<SLAFVrfRegMsg>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
@@ -911,7 +911,7 @@ namespace ServiceLayer {
   }
 
   /// <summary>
-  /// VRF Registration message Response.
+  /// VRF Registration message Response
   /// </summary>
   public sealed partial class SLAFVrfRegMsgRsp : pb::IMessage<SLAFVrfRegMsgRsp>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
@@ -988,7 +988,7 @@ namespace ServiceLayer {
     private readonly pbc::RepeatedField<global::ServiceLayer.SLAFVrfRegMsgRes> results_ = new pbc::RepeatedField<global::ServiceLayer.SLAFVrfRegMsgRes>();
     /// <summary>
     /// In case of errors, this field indicates which entry in the bulk was
-    /// erroneous.
+    /// erroneous
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -1154,7 +1154,7 @@ namespace ServiceLayer {
 
   /// <summary>
   /// VRF Reg Get Request Message.
-  /// Returns the VRF registrations done for all table types
+  /// Returns the VRF registrations done for all table types.
   /// </summary>
   public sealed partial class SLAFVrfRegGetMsg : pb::IMessage<SLAFVrfRegGetMsg>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
@@ -1205,7 +1205,7 @@ namespace ServiceLayer {
     private bool getAll_;
     /// <summary>
     /// If true,  returns VRF registrations for all clients.
-    /// If false, returns VRF registrations for this client as identified by the gRPC metadata
+    /// If false, returns VRF registrations for this client as identified by the gRPC metadata.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -1433,9 +1433,9 @@ namespace ServiceLayer {
     public const int TableFieldNumber = 3;
     private global::ServiceLayer.SLTableType table_ = global::ServiceLayer.SLTableType.Reserved;
     /// <summary>
-    /// if ErrStatus is SL_SUCCESS, Table and Entries
+    /// If ErrStatus is SL_SUCCESS, Table and Entries
     /// contain the table in which the VRF registration
-    /// operation was previously applied.
+    /// operation was previously applied
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -1743,7 +1743,7 @@ namespace ServiceLayer {
     /// sources install the same Path Group.
     /// Lower distance is preferred over higher distance.
     /// The per path group object admin distance overrides the default admin
-    /// distance set at VRF registration. see SLVrfReg
+    /// distance set at VRF registration. see SLVrfReg.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -2121,7 +2121,7 @@ namespace ServiceLayer {
         public const int PathFieldNumber = 1;
         private global::ServiceLayer.SLRoutePath path_;
         /// <summary>
-        /// Primary path.
+        /// Primary path
         /// </summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -2521,7 +2521,7 @@ namespace ServiceLayer {
     public const int LocalLabelFieldNumber = 1;
     private uint localLabel_;
     /// <summary>
-    /// Local Label.
+    /// Local Label
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -2536,11 +2536,11 @@ namespace ServiceLayer {
     public const int AdminDistanceFieldNumber = 2;
     private uint adminDistance_;
     /// <summary>
-    /// Administrative distance of the MPLS label. [0-255]. RIB uses this field
-    /// to break the tie when multiple sources install the same incoming MPLS
-    /// label. Lower distance is preferred over higher distance. The per MPLS
-    /// label object admin distance overrides the default admin distance set
-    /// at VRF registration. see SLVrfReg
+    /// Administrative distance of the MPLS label. Possible values
+    /// are [0-255]. RIB uses this field to break the tie when multiple
+    /// sources install the same incoming MPLS label. Lower distance is
+    /// preferred over higher distance. The per MPLS label object admin distance
+    /// overrides the default admin distance set at VRF registration. see SLVrfReg.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -2558,7 +2558,7 @@ namespace ServiceLayer {
     private readonly pbc::RepeatedField<global::ServiceLayer.SLRoutePath> pathList_ = new pbc::RepeatedField<global::ServiceLayer.SLRoutePath>();
     /// <summary>
     /// List of paths for this MPLS label entry.
-    /// Specifying more than one path is allowed for ECMP/UCMP cases
+    /// Specifying more than one path is allowed for ECMP/UCMP cases.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -3372,7 +3372,7 @@ namespace ServiceLayer {
     private global::ServiceLayer.SLRspACKType ackType_ = global::ServiceLayer.SLRspACKType.RibAck;
     /// <summary>
     /// The type of Acknowledgment that the controller or agent expects from
-    /// the network element.
+    /// the network element
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -3647,7 +3647,7 @@ namespace ServiceLayer {
     private global::ServiceLayer.SLTableType table_ = global::ServiceLayer.SLTableType.Reserved;
     /// <summary>
     /// If Table is set to SL_TABLE_TYPE_RESERVED, or is unset, objects from
-    /// all tables for selected VRFs are returned.
+    /// all tables for selected VRFs are returned
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -3663,7 +3663,7 @@ namespace ServiceLayer {
     private bool getAllClients_;
     /// <summary>
     /// Get objects programmed by all clients, ignoring any RPC ClientID
-    /// metadata.
+    /// metadata
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -3680,7 +3680,7 @@ namespace ServiceLayer {
         = pb::FieldCodec.ForMessage(34, global::ServiceLayer.SLRouteGetMatch.Parser);
     private readonly pbc::RepeatedField<global::ServiceLayer.SLRouteGetMatch> routeMatch_ = new pbc::RepeatedField<global::ServiceLayer.SLRouteGetMatch>();
     /// <summary>
-    /// Get objects that  match the value. 
+    /// Get objects that  match the value
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -3950,7 +3950,7 @@ namespace ServiceLayer {
     public const int OperationIDFieldNumber = 2;
     private ulong operationID_;
     /// <summary>
-    /// Operation ID associated with hardware programming.
+    /// Operation ID associated with hardware programming
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -3966,7 +3966,7 @@ namespace ServiceLayer {
     private ulong version_;
     /// <summary>
     /// Version associated with hardware programming. A valid version is
-    /// a non-zero positive number
+    /// a non-zero positive number.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -4002,7 +4002,7 @@ namespace ServiceLayer {
     /// For example: if this OperationID is about programming an ipv4 or ipv6
     /// route that is pointing to a Path Group, then DepResult will carry
     /// the Result of operation that programmed that Path Group.
-    /// *NOTE*: DepResult is not supported on Get Operations
+    /// NOTE: DepResult is not supported on Get Operations.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -4305,7 +4305,7 @@ namespace ServiceLayer {
     public const int FIBStatusFieldNumber = 2;
     private global::ServiceLayer.SLAFFibStatus fIBStatus_;
     /// <summary>
-    /// if the operation was programmed with ACK type set to RIB_AND_FIB_ACK,
+    /// If the operation was programmed with ACK type set to RIB_AND_FIB_ACK,
     /// then FIBStatus indicates status of hardware programming of the
     /// operation
     /// </summary>
@@ -4563,7 +4563,7 @@ namespace ServiceLayer {
     public const int VrfNameFieldNumber = 2;
     private string vrfName_ = "";
     /// <summary>
-    /// VRF name.
+    /// VRF name
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -4881,7 +4881,7 @@ namespace ServiceLayer {
     public const int VrfNameFieldNumber = 2;
     private string vrfName_ = "";
     /// <summary>
-    /// VRF name. VRF name is ignored for MPLS ILM operations.
+    /// VRF name. VRF name is ignored for MPLS ILM operations
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -4898,7 +4898,7 @@ namespace ServiceLayer {
         = pb::FieldCodec.ForMessage(26, global::ServiceLayer.SLAFOp.Parser);
     private readonly pbc::RepeatedField<global::ServiceLayer.SLAFOp> opList_ = new pbc::RepeatedField<global::ServiceLayer.SLAFOp>();
     /// <summary>
-    /// List of operations.
+    /// List of operations
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -5078,7 +5078,7 @@ namespace ServiceLayer {
   }
 
   /// <summary>
-  /// Result of an operation on the object.
+  /// Result of an operation on the object
   /// </summary>
   public sealed partial class SLAFRes : pb::IMessage<SLAFRes>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
@@ -5161,7 +5161,7 @@ namespace ServiceLayer {
     public const int FIBStatusFieldNumber = 3;
     private global::ServiceLayer.SLAFFibStatus fIBStatus_;
     /// <summary>
-    /// if the operation was programmed with ACK type set to RIB_AND_FIB_ACK,
+    /// If the operation was programmed with ACK type set to RIB_AND_FIB_ACK,
     /// then FIBStatus indicates status of hardware programming of the
     /// operation
     /// </summary>
@@ -5434,7 +5434,7 @@ namespace ServiceLayer {
     public const int VrfNameFieldNumber = 1;
     private string vrfName_ = "";
     /// <summary>
-    /// VRF name.
+    /// VRF name
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -5452,7 +5452,7 @@ namespace ServiceLayer {
     private readonly pbc::RepeatedField<global::ServiceLayer.SLAFRes> results_ = new pbc::RepeatedField<global::ServiceLayer.SLAFRes>();
     /// <summary>
     /// In case of errors, this field indicates which entry in the bulk was
-    /// erroneous.
+    /// erroneous
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -5608,7 +5608,7 @@ namespace ServiceLayer {
   }
 
   /// <summary>
-  /// Request message for route redistribution registration.
+  /// Request message for route redistribution registration
   /// </summary>
   public sealed partial class SLAFRedistRegMsg : pb::IMessage<SLAFRedistRegMsg>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
@@ -5890,7 +5890,7 @@ namespace ServiceLayer {
   }
 
   /// <summary>
-  /// Next hop registration request key.
+  /// Next hop registration request key
   /// </summary>
   public sealed partial class SLAFNextHopRegKey : pb::IMessage<SLAFNextHopRegKey>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
@@ -5944,7 +5944,7 @@ namespace ServiceLayer {
     /// <summary>Field number for the "NextHop" field.</summary>
     public const int NextHopFieldNumber = 1;
     /// <summary>
-    /// A next hop IP address.
+    /// A next hop IP address
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -6501,7 +6501,7 @@ namespace ServiceLayer {
   }
 
   /// <summary>
-  /// Next hop registration message.
+  /// Next hop registration message
   /// </summary>
   public sealed partial class SLAFNextHopRegMsg : pb::IMessage<SLAFNextHopRegMsg>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
@@ -6551,7 +6551,7 @@ namespace ServiceLayer {
     public const int NextHopKeyFieldNumber = 1;
     private global::ServiceLayer.SLAFNextHopRegKey nextHopKey_;
     /// <summary>
-    /// Next hop registration key.
+    /// Next hop registration key
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -6705,7 +6705,7 @@ namespace ServiceLayer {
   }
 
   /// <summary>
-  /// Notification request message for a single item.
+  /// Notification request message for a single item
   /// </summary>
   public sealed partial class SLAFNotifRegReq : pb::IMessage<SLAFNotifRegReq>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
@@ -6763,7 +6763,7 @@ namespace ServiceLayer {
     /// <summary>Field number for the "RedistReq" field.</summary>
     public const int RedistReqFieldNumber = 1;
     /// <summary>
-    /// Route redistribution request.
+    /// Route redistribution request
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -6778,7 +6778,7 @@ namespace ServiceLayer {
     /// <summary>Field number for the "NextHopReq" field.</summary>
     public const int NextHopReqFieldNumber = 2;
     /// <summary>
-    /// Next hop notification request.
+    /// Next hop notification request
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -7112,10 +7112,10 @@ namespace ServiceLayer {
     /// <summary>
     /// Oper = SL_NOTIFOP_ENABLE
     ///   This is to enable route notifications in a VRF or
-    ///    the next hop change notification.
+    ///    the next hop change notification
     /// Oper = SL_NOTIFOP_DISABLE
     ///   This is to disable route notifications in a VRF or
-    ///   the next hop change notification.
+    ///   the next hop change notification
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -7130,7 +7130,7 @@ namespace ServiceLayer {
     public const int VrfNameFieldNumber = 2;
     private string vrfName_ = "";
     /// <summary>
-    /// Vrf that the client is interested in.
+    /// Vrf that the client is interested in
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -7147,7 +7147,7 @@ namespace ServiceLayer {
         = pb::FieldCodec.ForMessage(26, global::ServiceLayer.SLAFNotifRegReq.Parser);
     private readonly pbc::RepeatedField<global::ServiceLayer.SLAFNotifRegReq> notifReq_ = new pbc::RepeatedField<global::ServiceLayer.SLAFNotifRegReq>();
     /// <summary>
-    /// Notification request.
+    /// Notification request
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -7327,7 +7327,7 @@ namespace ServiceLayer {
   }
 
   /// <summary>
-  /// Notification response message for a single item.
+  /// Notification response message for a single item
   /// </summary>
   public sealed partial class SLAFNotifRsp : pb::IMessage<SLAFNotifRsp>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
@@ -7378,7 +7378,7 @@ namespace ServiceLayer {
     public const int NotifReqFieldNumber = 1;
     private global::ServiceLayer.SLAFNotifRegReq notifReq_;
     /// <summary>
-    /// Corresponding request.
+    /// Corresponding request
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -7394,7 +7394,7 @@ namespace ServiceLayer {
     private global::ServiceLayer.SLErrorStatus notifStatus_;
     /// <summary>
     /// The NotifStatus implies one of 2 things:
-    /// SL_SUCCESS: signifies that the notification request was successful
+    /// SL_SUCCESS: signifies that the notification request was successful.
     /// SL_XXX: signifies an error in setting up a notification for the Vrf.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -7582,7 +7582,7 @@ namespace ServiceLayer {
   }
 
   /// <summary>
-  /// Next hop Notification
+  /// Next hop Notification.
   /// If there are no viable paths to the next hop, ResolvingRoute, 
   /// ResolvingRouteLen, SrcProto are not set, AdminDistance/Metric are set to 
   /// UINT32_MAX.
@@ -7642,7 +7642,7 @@ namespace ServiceLayer {
     public const int NextHopKeyFieldNumber = 1;
     private global::ServiceLayer.SLAFNextHopRegKey nextHopKey_;
     /// <summary>
-    /// Next hop registration key.
+    /// Next hop registration key
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -8077,7 +8077,7 @@ namespace ServiceLayer {
   }
 
   /// <summary>
-  /// AF Notification message.
+  /// AF Notification message
   /// </summary>
   public sealed partial class SLAFNotif : pb::IMessage<SLAFNotif>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
@@ -8137,7 +8137,7 @@ namespace ServiceLayer {
     /// <summary>Field number for the "NotifStatus" field.</summary>
     public const int NotifStatusFieldNumber = 1;
     /// <summary>
-    /// This field carries the status of the SLAFNotifReq message.
+    /// This field carries the status of the SLAFNotifReq message
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -8152,7 +8152,7 @@ namespace ServiceLayer {
     /// <summary>Field number for the "RedistObject" field.</summary>
     public const int RedistObjectFieldNumber = 4;
     /// <summary>
-    /// Route redistribution notification.
+    /// Route redistribution notification
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -8167,7 +8167,7 @@ namespace ServiceLayer {
     /// <summary>Field number for the "NextHop" field.</summary>
     public const int NextHopFieldNumber = 5;
     /// <summary>
-    /// Next hop change notification.
+    /// Next hop change notification
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -8427,7 +8427,7 @@ namespace ServiceLayer {
   }
 
   /// <summary>
-  /// RPC Notification message.
+  /// RPC Notification message
   /// </summary>
   public sealed partial class SLAFNotifMsg : pb::IMessage<SLAFNotifMsg>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
@@ -8478,7 +8478,7 @@ namespace ServiceLayer {
     public const int VrfNameFieldNumber = 1;
     private string vrfName_ = "";
     /// <summary>
-    /// VRF name.
+    /// VRF name
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -8495,7 +8495,7 @@ namespace ServiceLayer {
         = pb::FieldCodec.ForMessage(26, global::ServiceLayer.SLAFNotif.Parser);
     private readonly pbc::RepeatedField<global::ServiceLayer.SLAFNotif> aFNotifs_ = new pbc::RepeatedField<global::ServiceLayer.SLAFNotif>();
     /// <summary>
-    /// Notifications.
+    /// Notifications
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
