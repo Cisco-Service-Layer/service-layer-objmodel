@@ -19,7 +19,7 @@
 //
 //
 // @defgroup AF
-// @brief Address family service definitions.
+// @brief Service definitions for programming and notifications of AF objects.
 //
 #pragma warning disable 0414, 1591
 #region Designer generated code

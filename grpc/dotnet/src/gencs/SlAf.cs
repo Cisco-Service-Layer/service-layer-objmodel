@@ -1780,34 +1780,34 @@ namespace ServiceLayer {
     ///
     /// SL_ROUTE_FLAG_VIABLE_PATHS_ONLY. 
     /// - If the flag is not set, all paths in the PathList are installed in
-    ///   the PathGroup’s load balance group, even if paths are unviable.
-    ///   The Network element does not automatically update the PathGroup’s
+    ///   the PathGroup's load balance group, even if paths are unviable.
+    ///   The Network element does not automatically update the PathGroup's
     ///   load balance group when path viability changes and
     ///   expects the client to take corrective action.
     ///
     /// - If the flag is set, the network element only installs viable
-    ///   paths from the PathList in the PathGroup’s load balance group.
-    ///   The Network element also automatically updates the PathGroup’s
+    ///   paths from the PathList in the PathGroup's load balance group.
+    ///   The Network element also automatically updates the PathGroup's
     ///   load balance group when path viability changes.
     ///
     /// SL_ROUTE_FLAG_ACTIVE_ON_VIABLE_PATH.
     /// - If this flag is not set, routes and MPLS entries referencing
     ///   this PathGroup are considered active if they are preferred
-    ///   based on their administrative distance. PathGroup’s viability
-    ///   is not considered as a criterion to determine the routes’ and 
-    ///   MPLS entries’ activeness. The network element does not automatically 
+    ///   based on their administrative distance. PathGroup's viability
+    ///   is not considered as a criterion to determine the routes' and
+    ///   MPLS entries' activeness. The network element does not automatically
     ///   promote or demote the routes and MPLS entries as viability of the 
     ///   PathGroup changes.
     ///
     /// - If this flag is set, SL_ROUTE_FLAG_VIABLE_PATHS_ONLY must also
-    ///   be set. The routes and MPLS entries referencing this PathGroup are 
+    ///   be set. The routes and MPLS entries referencing this PathGroup are
     ///   considered active if they are preferred based
     ///   on their administrative distance AND viability of the PathGroup.
     ///   At least one path in the PathGroup must be viable for the
-    ///   PathGroup to be viable. The network element automatically promotes or 
+    ///   PathGroup to be viable. The network element automatically promotes or
     ///   demotes the routes and MPLS entries as viability of the PathGroup changes.
     ///
-    /// Others – Reserved. 
+    /// Others - Reserved.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -2594,14 +2594,14 @@ namespace ServiceLayer {
     /// is applicable only if the MPLS Entry contains the PathList.
     ///
     /// - If the flag is not set, all paths in the PathList are installed in
-    ///   the MPLS Entry’s load balance group, even if paths are unviable.
-    ///   The Network element does not automatically update the MPLS Entry’s
+    ///   the MPLS Entry's load balance group, even if paths are unviable.
+    ///   The Network element does not automatically update the MPLS Entry's
     ///   load balance group when path viability changes and
     ///   expects the client to take corrective action.
     ///
     /// - If the flag is set, the network element only installs viable
-    ///   paths from the PathList in the MPLS Entry’s load balance group.
-    ///   The Network element also automatically updates the MPLS Entry’s
+    ///   paths from the PathList in the MPLS Entry's load balance group.
+    ///   The Network element also automatically updates the MPLS Entry's
     ///   load balance group when path viability changes.
     ///
     /// SL_ROUTE_FLAG_ACTIVE_ON_VIABLE_PATH - This flag is supported only for
@@ -2626,7 +2626,7 @@ namespace ServiceLayer {
     ///   corresponding setting on PathGroup dictates whether this
     ///   route should be considered in best route calculations.
     ///
-    /// Others – Reserved. 
+    /// Others - Reserved.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -3935,7 +3935,7 @@ namespace ServiceLayer {
     public const int ErrorCodeFieldNumber = 1;
     private global::ServiceLayer.SLErrorStatus errorCode_;
     /// <summary>
-    ///Error code associated with hardware programming
+    /// Error code associated with hardware programming
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -6244,7 +6244,7 @@ namespace ServiceLayer {
         /// <summary>
         /// If this flag is not set or set to False, only the immediate
         /// viable path list is returned. If set to True, recursively resolve
-        /// the next hop’s paths and return the flattened path list.
+        /// the next hop's paths and return the flattened path list.
         /// If the list exceeds MaxPathsInNexthopNotif, then only the
         /// first MaxPathsInNexthopNotif will be returned.
         /// </summary>

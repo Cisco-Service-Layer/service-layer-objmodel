@@ -21,11 +21,11 @@ using grpc = global::Grpc.Core;
 namespace ServiceLayer {
   /// <summary>
   /// @defgroup SLRouteIPv4Oper
-  /// @ingroup Route
+  /// @ingroup AF
   /// Defines RPC calls for IPv4 route changes and VRF registration.
   /// This service declares both the Vrf Registration, as well as adding, deleting
   /// and getting IPv4 routes.
-  /// All IPv4 prefixes are encoded in host byte order.
+  /// All IPv4 addresses are encoded in host byte order.
   /// @{
   /// </summary>
   public static partial class SLRoutev4Oper

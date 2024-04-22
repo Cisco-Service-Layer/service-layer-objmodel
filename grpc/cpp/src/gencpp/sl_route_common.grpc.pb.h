@@ -15,9 +15,6 @@
 //
 //
 //
-// @defgroup Route
-// @brief Route service definitions.
-//
 #ifndef GRPC_sl_5froute_5fcommon_2eproto__INCLUDED
 #define GRPC_sl_5froute_5fcommon_2eproto__INCLUDED
 

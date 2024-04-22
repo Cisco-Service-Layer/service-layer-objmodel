@@ -89,7 +89,14 @@ WORKDIR ${WS}/glog
 RUN cmake -S . -B build -G "Unix Makefiles"
 RUN cmake --build build
 RUN cmake --build build --target install
+WORKDIR ${WS}
 
-###########
+############
+
+# Clone doxygen repo to a specific version.
+RUN curl -LO https://sourceforge.net/projects/doxygen/files/rel-1.8.11/doxygen-1.8.11.linux.bin.tar.gz
+RUN tar xvf doxygen-1.8.11.linux.bin.tar.gz
+
+############
 # Adjust PATH so that binding scripts can execute out of the cwd.
 ENV PATH="${PATH}:."

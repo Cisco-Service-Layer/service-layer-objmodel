@@ -16,10 +16,11 @@ import "sl_route_common.proto";
 option go_package="github.com/Cisco-service-layer/service-layer-objmodel/grpc/protos;service_layer";
 
 // @defgroup SLRouteIPv6Oper
-// @ingroup Route
+// @ingroup AF
 // Defines RPC calls for IPv6 route changes and VRF registration.
 // This service declares both the Vrf Registration, as well as adding, deleting
 // and getting IPv6 routes.
+// All IPv6 addresses are encoded in network byte order.
 // @{
 service SLRoutev6Oper {
     //@addtogroup SLRouteIPv6Oper
@@ -91,8 +92,8 @@ service SLRoutev6Oper {
     //     attributes are replaced with values from the new message.
     //
     // SLRoutev6Msg.Oper = SL_OBJOP_DELETE:
-    //     Route delete. The route's key is enough to delete the object;
-    //     other attributes, if provided are ignored.
+    //     Route delete. The route's key is enough to delete the object.
+    //     Other attributes, if provided are ignored.
     //     Delete of a non-existant route is returned as success.
     rpc SLRoutev6Op(SLRoutev6Msg) returns (SLRoutev6MsgRsp);
 
@@ -114,8 +115,8 @@ service SLRoutev6Oper {
     //     attributes are replaced with values from the new message.
     //
     // SLRoutev6Msg.Oper = SL_OBJOP_DELETE:
-    //     Route delete. The route's key is enough to delete the object;
-    //     other attributes, if provided are ignored.
+    //     Route delete. The route's key is enough to delete the object.
+    //     Other attributes, if provided are ignored.
     //     Delete of a non-existant route is returned as success.
     rpc SLRoutev6OpStream(stream SLRoutev6Msg) returns (stream SLRoutev6MsgRsp);
 

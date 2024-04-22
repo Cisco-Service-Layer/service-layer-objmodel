@@ -1,7 +1,7 @@
 # Python Quick Tutorial
 
 ## Table of Contents
-- [Server Setup](#server)\
+- [Server Setup](#server)
 - [Python Setup](#python)
 - [Running the tutorial](#quick)
 - [Generate gRPC Code](#gen)
@@ -57,22 +57,22 @@ This completes all the setup needed to start writing some code! Hop into
 your python interpreter and try out some of the commands to get familiar
 with the API.
 
-## <a name='python'></a>Setting up Python Environment
+#### <a name='python'></a>Setting up Python Environment
 
 To install dependencies first create a virtual env:
     python3.11  -m venv sl-env
     source sl-env/bin/activate
     pip install -r grpc/python/requirements.txt
 
-## <a name='quick'></a>Running the tutorial
+#### <a name='quick'></a>Running the tutorial
 
 The following basic tutorial will walk you through getting started with the Service Layer API, in particular on how to add a route.
 This may require some initial python and GRPC setup, which will be explained below. For now, if you already have passed this setup step, run the example:
 
     cd grpc/python/src
-    python3.11 tutorial/quickstart.py -u <username> -p <password> 
+    python3.11 tutorial/quickstart.py -u <username> -p <password>
 each of the individual tests also can be run in similar way.(vrf.py, riute.py,client_init.py)
- 
+
 The following sections explain the details of the above example tutorial.
 
 #### <a name='gen'></a>Generate gRPC Code (optional in this example)
@@ -104,8 +104,8 @@ As shown in quickstart.py, the first thing to do is to setup the GRPC channel:
     server_ip, server_port = util.get_server_ip_port()
     channel = grpc.insecure_channel(server_ip, server_port)
 
-Once connected, we need to handshake the API version number with the server.
-The same RPC call also sets up an asynchronous stream of notifications from the server. The first notification would be the response to our version number message i.e. SLInitMsg, as a SLGlobalNotif event with type SL_GLOBAL_EVENT_TYPE_VERSION. This can be done by calling:
+Once connected, the client may optionally handshake the API version number with the server.
+The same RPC call also sets up an asynchronous stream of heartbeat notifications from the server. The first notification would be the response to our version number message i.e. SLInitMsg, as a SLGlobalNotif event with type SL_GLOBAL_EVENT_TYPE_VERSION. This can be done by calling:
 
     SLGlobalInitNotif(init_msg, Timeout)
 

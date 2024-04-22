@@ -39,10 +39,11 @@
 namespace service_layer {
 
 // @defgroup SLRouteIPv6Oper
-// @ingroup Route
+// @ingroup AF
 // Defines RPC calls for IPv6 route changes and VRF registration.
 // This service declares both the Vrf Registration, as well as adding, deleting
 // and getting IPv6 routes.
+// All IPv6 addresses are encoded in network byte order.
 // @{
 class SLRoutev6Oper final {
  public:

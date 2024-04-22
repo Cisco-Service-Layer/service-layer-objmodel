@@ -18,7 +18,7 @@
 //
 //
 // @defgroup AF
-// @brief Address family service definitions.
+// @brief Service definitions for programming and notifications of AF objects.
 //
 #ifndef GRPC_sl_5faf_2eproto__INCLUDED
 #define GRPC_sl_5faf_2eproto__INCLUDED
@@ -47,9 +47,8 @@
 namespace service_layer {
 
 // @defgroup SLAF
-// @ingroup Common
-// SL-API messages for a address family.
-// Defines SL-API operations service.
+// @ingroup AF
+// Combined RPCs and messages for programming and notifications of AF objects.
 // @{
 // ;
 //

@@ -8,11 +8,11 @@ from . import sl_route_ipv4_pb2 as sl__route__ipv4__pb2
 
 class SLRoutev4OperStub(object):
     """@defgroup SLRouteIPv4Oper
-    @ingroup Route
+    @ingroup AF
     Defines RPC calls for IPv4 route changes and VRF registration.
     This service declares both the Vrf Registration, as well as adding, deleting
     and getting IPv4 routes.
-    All IPv4 prefixes are encoded in host byte order.
+    All IPv4 addresses are encoded in host byte order.
     @{
     @addtogroup SLRouteIPv4Oper
     @{
@@ -79,11 +79,11 @@ class SLRoutev4OperStub(object):
 
 class SLRoutev4OperServicer(object):
     """@defgroup SLRouteIPv4Oper
-    @ingroup Route
+    @ingroup AF
     Defines RPC calls for IPv4 route changes and VRF registration.
     This service declares both the Vrf Registration, as well as adding, deleting
     and getting IPv4 routes.
-    All IPv4 prefixes are encoded in host byte order.
+    All IPv4 addresses are encoded in host byte order.
     @{
     @addtogroup SLRouteIPv4Oper
     @{
@@ -307,11 +307,11 @@ def add_SLRoutev4OperServicer_to_server(servicer, server):
  # This class is part of an EXPERIMENTAL API.
 class SLRoutev4Oper(object):
     """@defgroup SLRouteIPv4Oper
-    @ingroup Route
+    @ingroup AF
     Defines RPC calls for IPv4 route changes and VRF registration.
     This service declares both the Vrf Registration, as well as adding, deleting
     and getting IPv4 routes.
-    All IPv4 prefixes are encoded in host byte order.
+    All IPv4 addresses are encoded in host byte order.
     @{
     @addtogroup SLRouteIPv4Oper
     @{

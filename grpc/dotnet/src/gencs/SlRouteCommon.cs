@@ -4675,14 +4675,14 @@ namespace ServiceLayer {
     /// is applicable only if the route contains the PathList.
     ///
     /// - If the flag is not set, all paths in the PathList are installed in
-    ///   the route’s load balance group, even if paths are unviable. The 
-    ///   Network element does not automatically update the route’s load balance
+    ///   the route's load balance group, even if paths are unviable. The
+    ///   Network element does not automatically update the route's load balance
     ///   group when path viability changes and expects the client to take
     ///   corrective action.
     ///
     /// - If the flag is set, the network element only installs viable
-    ///   paths from the PathList in the route’s load balance group.
-    ///   The Network element also automatically updates the route’s
+    ///   paths from the PathList in the route's load balance group.
+    ///   The Network element also automatically updates the route's
     ///   load balance group when path viability changes.
     ///
     /// - This flag is ignored if the route refers to the PathGroup and the
@@ -4694,7 +4694,7 @@ namespace ServiceLayer {
     /// - If this flag is not set, the route is active if it is preferred
     ///   based on administrative distance. Viability of the paths in
     ///   the PathList is not used as a criterion to determine
-    ///   route’s activeness.
+    ///   route's activeness.
     ///   If the route is active, the PathList programming is dictated by
     ///   SL_ROUTE_FLAG_VIABLE_PATHS_ONLY.
     ///

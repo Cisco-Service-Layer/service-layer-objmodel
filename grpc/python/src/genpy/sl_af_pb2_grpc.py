@@ -7,9 +7,8 @@ from . import sl_af_pb2 as sl__af__pb2
 
 class SLAFStub(object):
     """@defgroup SLAF
-    @ingroup Common
-    SL-API messages for a address family.
-    Defines SL-API operations service.
+    @ingroup AF
+    Combined RPCs and messages for programming and notifications of AF objects.
     @{
     ;
 
@@ -91,9 +90,8 @@ class SLAFStub(object):
 
 class SLAFServicer(object):
     """@defgroup SLAF
-    @ingroup Common
-    SL-API messages for a address family.
-    Defines SL-API operations service.
+    @ingroup AF
+    Combined RPCs and messages for programming and notifications of AF objects.
     @{
     ;
 
@@ -321,9 +319,8 @@ def add_SLAFServicer_to_server(servicer, server):
  # This class is part of an EXPERIMENTAL API.
 class SLAF(object):
     """@defgroup SLAF
-    @ingroup Common
-    SL-API messages for a address family.
-    Defines SL-API operations service.
+    @ingroup AF
+    Combined RPCs and messages for programming and notifications of AF objects.
     @{
     ;
 

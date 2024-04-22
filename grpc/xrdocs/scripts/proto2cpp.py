@@ -44,6 +44,7 @@ import sys
 import re
 import fnmatch
 import inspect
+import pdb
 
 # Class for converting Google Protocol Buffers .proto files into C++ style output to enable Doxygen usage.
 ##
@@ -177,6 +178,11 @@ class proto2cpp:
             if matchMsg is not None and (matchComment is None or matchMsg.start() < matchComment.start()):
                 line = "struct" + \
                     line[:matchMsg.start()] + line[matchMsg.end():]
+
+            matchOneof = re.search("oneof", line)
+            if matchOneof is not None and (matchComment is None or matchOneof.start() < matchComment.start()):
+                line = line[:matchOneof.start()] + "union {\n"
+
             matchSrv = re.search("^service", line)
             if matchSrv is not None and (matchComment is None or matchSrv.start() < matchComment.start()):
                 line = "namespace" + \
