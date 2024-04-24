@@ -20,15 +20,18 @@ std::string client_id = "521";
 
 bool 
 SLAFRShuttle::routeSLAFOp(service_layer::SLObjectOp routeOp,
-                    unsigned int addrFamily,
+                    service_layer::SLTableType addrFamily,
                     unsigned int timeout)
 {
 
     service_layer::SLObjectOp route_op = routeOp;
+    if(route_op == service_layer::SL_OBJOP_ADD) {
+        routeOp = service_layer::SL_OBJOP_UPDATE;
+    }
     route_msg.set_oper(route_op);
     auto stub_ = service_layer::SLAF::NewStub(channel);
     std::string address_family_str = "";
-    unsigned int addr_family = addrFamily;
+    service_layer::SLTableType addr_family = addrFamily;
     // Context for the client. It could be used to convey extra information to
     // the server and/or tweak certain RPC behaviors.
     grpc::ClientContext context;
@@ -48,13 +51,13 @@ SLAFRShuttle::routeSLAFOp(service_layer::SLObjectOp routeOp,
         context.AddMetadata("password", password);
     }
 
-    if (addr_family == AF_INET) {
+    if (addr_family == service_layer::SL_IPv4_ROUTE_TABLE) {
         address_family_str = "IPV4";
         context.AddMetadata("iosxr-slapi-clientid", client_id);
-    } else if (addr_family == AF_INET6){
+    } else if (addr_family == service_layer::SL_IPv6_ROUTE_TABLE){
         address_family_str = "IPV6";
         context.AddMetadata("iosxr-slapi-clientid", client_id);
-    } else if (addr_family == AF_MPLS){
+    } else if (addr_family == service_layer::SL_MPLS_LABEL_TABLE){
         address_family_str = "MPLS";
         // Multi-Client not supported in MPLS
     }
@@ -86,19 +89,19 @@ SLAFRShuttle::routeSLAFOp(service_layer::SLObjectOp routeOp,
                 auto slerr_status = 
                 static_cast<int>(route_msg_resp.results(result).errstatus().status());
                 if (slerr_status != service_layer::SLErrorStatus_SLErrno_SL_SUCCESS) {
-                    if (addr_family == AF_INET) {
+                    if (addr_family == service_layer::SL_IPv4_ROUTE_TABLE) {
                         LOG(ERROR) << "Error code for prefix: " 
                             << route_msg_resp.results(result).operation().afobject().ipv4route().prefix()
                             << " prefixlen: " 
                             << route_msg_resp.results(result).operation().afobject().ipv4route().prefixlen()
                             <<" is 0x"<< std::hex << slerr_status;
-                    } else if (addr_family == AF_INET6) {
+                    } else if (addr_family == service_layer::SL_IPv6_ROUTE_TABLE) {
                         LOG(ERROR) << "Error code for prefix: " 
                             << route_msg_resp.results(result).operation().afobject().ipv6route().prefix()
                             << " prefixlen: " 
                             << route_msg_resp.results(result).operation().afobject().ipv6route().prefix()
                             <<" is 0x"<< std::hex << slerr_status;
-                    } else if (addr_family == AF_MPLS){
+                    } else if (addr_family == service_layer::SL_MPLS_LABEL_TABLE){
                         LOG(ERROR) << "Error code for label: " 
                             << route_msg_resp.results(result).operation().afobject().mplslabel().locallabel()
                             <<" is 0x"<< std::hex << slerr_status;
@@ -279,7 +282,8 @@ SLAFRShuttle::insertAddBatchV4(std::string prefix,
                            uint8_t prefixLen,
                            uint32_t adminDistance,
                            std::string nextHopAddress,
-                           std::string nextHopIf)
+                           std::string nextHopIf,
+                           service_layer::SLObjectOp routeOper)
 {
 
     auto address = prefix + "/" + std::to_string(prefixLen);
@@ -301,18 +305,24 @@ SLAFRShuttle::insertAddBatchV4(std::string prefix,
                          adminDistance);
         this->prefix_map_v4[address] = map_index;
 
-        this->routev4PathAdd(routev4_ptr, 
+         /* We dont need to setup the paths for DELETE*/
+        if (routeOper !=  service_layer::SL_OBJOP_DELETE) {
+            this->routev4PathAdd(routev4_ptr, 
                              ipv4ToLong(nextHopAddress.c_str()), 
                              nextHopIf); 
+        }
 
     } else {
         // no need to make a new route object as one already exists within this route batch
         auto operation = this->route_msg.mutable_oplist(prefix_map_v4[address]);
         auto af_object = operation->mutable_afobject();
         auto routev4_ptr = af_object->mutable_ipv4route();
-        this->routev4PathAdd(routev4_ptr,
-                             ipv4ToLong(nextHopAddress.c_str()),
-                             nextHopIf);  
+         /* We dont need to setup the paths for DELETE*/
+        if (routeOper !=  service_layer::SL_OBJOP_DELETE) {
+            this->routev4PathAdd(routev4_ptr, 
+                             ipv4ToLong(nextHopAddress.c_str()), 
+                             nextHopIf); 
+        }
     }
 
     return true;
@@ -399,7 +409,8 @@ SLAFRShuttle::insertAddBatchV6(std::string prefix,
                            uint8_t prefixLen,
                            uint32_t adminDistance,
                            std::string nextHopAddress,
-                           std::string nextHopIf)
+                           std::string nextHopIf,
+                           service_layer::SLObjectOp routeOper)
 {
     auto address = prefix + "/" + std::to_string(prefixLen);
     auto map_index = this->route_msg.oplist_size();
@@ -419,19 +430,24 @@ SLAFRShuttle::insertAddBatchV6(std::string prefix,
                          prefixLen, 
                          adminDistance);
         this->prefix_map_v6[address] = map_index;
-    
-        this->routev6PathAdd(routev6_ptr,
+
+         /* We dont need to setup the paths for DELETE*/
+        if (routeOper !=  service_layer::SL_OBJOP_DELETE) {
+            this->routev6PathAdd(routev6_ptr,
                              ipv6ToByteArrayString(nextHopAddress.c_str()),
                              nextHopIf);
-
+        }
     } else {
         // no need to make a new route object as one already exists within this route batch
         auto operation = this->route_msg.mutable_oplist(prefix_map_v6[address]);
         auto af_object = operation->mutable_afobject();
         auto routev6_ptr = af_object->mutable_ipv6route();
-        this->routev6PathAdd(routev6_ptr,
+         /* We dont need to setup the paths for DELETE*/
+        if (routeOper !=  service_layer::SL_OBJOP_DELETE) {
+            this->routev6PathAdd(routev6_ptr,
                              ipv6ToByteArrayString(nextHopAddress.c_str()),
                              nextHopIf);
+        }
     }
 
     return true;
@@ -443,29 +459,29 @@ SLAFRShuttle::insertAddBatchMPLS(unsigned int startLabel,
                             unsigned int numPaths,
                             unsigned int batchSize,
                             uint32_t nextHopAddress,
-                            std::string nextHopInterface
-                            )
+                            std::string nextHopInterface,
+                            service_layer::SLObjectOp routeOper)
 {
 
-    unsigned int sent_ilms = 0;
-    unsigned int ilms_in_batch = 0;
+    unsigned int sent_mpls_entries = 0;
+    unsigned int mpls_entries_in_batch = 0;
     unsigned int batch_index = 0;
     unsigned int label = startLabel;
-    unsigned int total_ilms = 0;
-    unsigned int num_ilms = 1;
+    unsigned int total_mpls_entries = 0;
+    unsigned int num_mpls_entries = 1;
     service_layer::SLAFOp* operation = NULL;
-    total_ilms = numLabel * num_ilms;
+    total_mpls_entries = numLabel * num_mpls_entries;
 
-    if (batchSize > total_ilms) {
-        batchSize = total_ilms;
+    if (batchSize > total_mpls_entries) {
+        batchSize = total_mpls_entries;
     }
 
     // Currently no support within proto for EXP entries
-    while(sent_ilms < total_ilms){
-            if (ilms_in_batch + num_ilms > batchSize || sent_ilms + num_ilms >= total_ilms)  {
+    while(sent_mpls_entries < total_mpls_entries){
+            if (mpls_entries_in_batch + num_mpls_entries > batchSize || sent_mpls_entries + num_mpls_entries >= total_mpls_entries)  {
                 batch_index++;
-                ilms_in_batch = 0;
-                slaf_route_shuttle->routeSLAFOp(service_layer::SL_OBJOP_UPDATE, AF_MPLS);
+                mpls_entries_in_batch = 0;
+                slaf_route_shuttle->routeSLAFOp(routeOper, service_layer::SL_MPLS_LABEL_TABLE);
             }
             /* Create a new ilm entry, and the only way to do that with the current proto file
              is to add a new oplist */
@@ -488,8 +504,8 @@ SLAFRShuttle::insertAddBatchMPLS(unsigned int startLabel,
                     nhlfe->add_labelstack(out_label);
                 }
             }
-            sent_ilms = sent_ilms + num_ilms;
-            ilms_in_batch += num_ilms;
+            sent_mpls_entries = sent_mpls_entries + num_mpls_entries;
+            mpls_entries_in_batch += num_mpls_entries;
             label++;
         }
 
@@ -507,22 +523,12 @@ SLAFVrf::SLAFVrf(std::shared_ptr<grpc::Channel> Channel, std::string Username, s
 
 void 
 SLAFVrf::afVrfRegMsgAdd(std::string vrfName,
-                        unsigned int addrFamily)
+                        service_layer::SLTableType addrFamily)
 {
 
     // Get a pointer to a new af_vrf_reg entry in af_vrf_msg
     service_layer::SLAFVrfReg* af_vrf_reg = af_vrf_msg.add_vrfregmsgs();
-    switch(addrFamily) {
-        case AF_INET:
-            af_vrf_reg->set_table(service_layer::SL_IPv4_ROUTE_TABLE);
-            break;
-        case AF_INET6:
-            af_vrf_reg->set_table(service_layer::SL_IPv6_ROUTE_TABLE);
-            break;
-        case AF_MPLS:
-            af_vrf_reg->set_table(service_layer::SL_MPLS_LABEL_TABLE);
-            break;
-    }
+    af_vrf_reg->set_table(addrFamily);
 
     // Get pointer to a new vrf_rg in af_vrf_reg
     service_layer::SLVrfReg* vrf_reg = af_vrf_reg->mutable_vrfreg();
@@ -537,21 +543,11 @@ void
 SLAFVrf::afVrfRegMsgAdd(std::string vrfName,
                     unsigned int adminDistance,
                     unsigned int vrfPurgeIntervalSeconds,
-                    unsigned int addrFamily)
+                    service_layer::SLTableType addrFamily)
 {
     // Get a pointer to a new af_vrf_reg entry in af_vrf_msg
     service_layer::SLAFVrfReg* af_vrf_reg = af_vrf_msg.add_vrfregmsgs();
-    switch(addrFamily) {
-        case AF_INET:
-            af_vrf_reg->set_table(service_layer::SL_IPv4_ROUTE_TABLE);
-            break;
-        case AF_INET6:
-            af_vrf_reg->set_table(service_layer::SL_IPv6_ROUTE_TABLE);
-            break;
-        case AF_MPLS:
-            af_vrf_reg->set_table(service_layer::SL_MPLS_LABEL_TABLE);
-            break;
-    }
+    af_vrf_reg->set_table(addrFamily);
 
     // Get pointer to a new vrf_rg in af_vrf_reg
     service_layer::SLVrfReg* vrf_reg = af_vrf_reg->mutable_vrfreg();
@@ -564,53 +560,35 @@ SLAFVrf::afVrfRegMsgAdd(std::string vrfName,
 
 
 bool 
-SLAFVrf::registerAfVrf(unsigned int addrFamily)
+SLAFVrf::registerAfVrf(service_layer::SLTableType addrFamily, service_layer::SLRegOp vrfRegOper)
 {
     // Send an RPC for VRF registrations
 
     switch(addrFamily) {
-    case AF_INET:
+    case service_layer::SL_IPv4_ROUTE_TABLE:
         // Issue VRF Register RPC 
-        if (afVrfOpAddFam(service_layer::SL_REGOP_REGISTER, addrFamily)) {
-            // RPC EOF to cleanup any previous stale routes
-            if (afVrfOpAddFam(service_layer::SL_REGOP_EOF, addrFamily)) {
-                return true;
-            } else {
-                LOG(ERROR) << "Failed to send EOF RPC";
-                return false;
-            }
+        if (afVrfOpAddFam(vrfRegOper, addrFamily)) {
+            return true;
         } else {
             LOG(ERROR) << "Failed to send Register RP";
             return false;
         } 
         break;
 
-    case AF_INET6:
+    case service_layer::SL_IPv6_ROUTE_TABLE:
         // Issue VRF Register RPC
-        if (afVrfOpAddFam(service_layer::SL_REGOP_REGISTER, addrFamily)) {
-            // RPC EOF to cleanup any previous stale routes
-            if (afVrfOpAddFam(service_layer::SL_REGOP_EOF, addrFamily)) {
-                return true;
-            } else {
-                LOG(ERROR) << "Failed to send EOF RPC";
-                return false;
-            }
+        if (afVrfOpAddFam(vrfRegOper, addrFamily)) {
+            return true;
         } else {
             LOG(ERROR) << "Failed to send Register RPC";
             return false;
         }
         break;
 
-    case AF_MPLS:
+    case service_layer::SL_MPLS_LABEL_TABLE:
         // Issue VRF Register RPC
         if (afVrfOpAddFam(service_layer::SL_REGOP_REGISTER, addrFamily)) {
-            // RPC EOF to cleanup any previous stale routes
-            if (afVrfOpAddFam(service_layer::SL_REGOP_EOF, addrFamily)) {
-                return true;
-            } else {
-                LOG(ERROR) << "Failed to send EOF RPC";
-                return false;
-            }
+            return true;
         } else {
             LOG(ERROR) << "Failed to send Register RPC";
             return false;
@@ -626,21 +604,21 @@ SLAFVrf::registerAfVrf(unsigned int addrFamily)
 }
 
 bool 
-SLAFVrf::unregisterAfVrf(unsigned int addrFamily)
+SLAFVrf::unregisterAfVrf(service_layer::SLTableType addrFamily)
 {
 
     //  When done with the VRFs, RPC Delete Registration
 
     switch(addrFamily) {
-    case AF_INET:
+    case service_layer::SL_IPv4_ROUTE_TABLE:
         return afVrfOpAddFam(service_layer::SL_REGOP_UNREGISTER, addrFamily);
         break;
 
-    case AF_INET6:
+    case service_layer::SL_IPv6_ROUTE_TABLE:
         return afVrfOpAddFam(service_layer::SL_REGOP_UNREGISTER, addrFamily);
         break;
     
-    case AF_MPLS:
+    case service_layer::SL_MPLS_LABEL_TABLE:
         return afVrfOpAddFam(service_layer::SL_REGOP_UNREGISTER, addrFamily);
         break;
 
@@ -652,7 +630,7 @@ SLAFVrf::unregisterAfVrf(unsigned int addrFamily)
 }
 
 bool 
-SLAFVrf::afVrfOpAddFam(service_layer::SLRegOp vrfOp, unsigned int addrFamily)
+SLAFVrf::afVrfOpAddFam(service_layer::SLRegOp vrfOp, service_layer::SLTableType addrFamily)
 {
     // Set up the SLAF Stub
     auto stub_ = service_layer::SLAF::NewStub(channel);
@@ -677,11 +655,11 @@ SLAFVrf::afVrfOpAddFam(service_layer::SLRegOp vrfOp, unsigned int addrFamily)
         context.AddMetadata("password", password);
     }
 
-    if (addrFamily == AF_INET) {
+    if (addrFamily == service_layer::SL_IPv4_ROUTE_TABLE) {
         context.AddMetadata("iosxr-slapi-clientid", client_id);
-    } else if (addrFamily == AF_INET6) {
+    } else if (addrFamily == service_layer::SL_IPv6_ROUTE_TABLE) {
         context.AddMetadata("iosxr-slapi-clientid", client_id);
-    } else if (addrFamily == AF_MPLS) {
+    } else if (addrFamily == service_layer::SL_MPLS_LABEL_TABLE) {
         // Multi-Client not supported in MPLS
     }
 

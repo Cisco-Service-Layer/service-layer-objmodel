@@ -6,7 +6,6 @@
 - [Generate gRPC Code](#gen)
 - [Initialize the client server connection](#init)
 - [Optional: Register the VRF](#vrf)
-- [Add a Batch of Routes](#route)
 
 NOTE: If you only want to be able to run the code then you only need to follow the Server Setup and Running the tutorial sections.
 #### <a name='server'></a>Server Setup
@@ -36,14 +35,14 @@ We also need to configure a server IP address. To configure an IP address on the
     commit
     end
 
-We also need to configure a Bunder-Ether Interface for ipv4 and ipv6 tests:
+We also need to configure a Bunder-Ether Interface (Or any interface user wants to use) for ipv4 and ipv6 tests:
     configure
     interface Bunder-Ether 1
     no shut
     commit
     end
 
-We also need to configure a FourHundredGigE0/0/0/0 Interface for mpls tests:
+We also need to configure a FourHundredGigE0/0/0/0 Interface (Or any interface user wants to use) for mpls tests:
     configure
     interface FourHundredGigE0/0/0/0
     no shut
@@ -84,19 +83,21 @@ For now, if you already have passed this setup step, follow this example:
 
 | Required Argument | Description |
 | --- | --- |
-| -u/--username                                | Username |
-| -p/--password                                | Password |
-| -a/--table_type                              | Specify whether to do ipv4(value = 0), ipv6(value = 1) or mpls(value = 2) operation. PG is currently not supported (default 0) |
-| -v/--slaf                                    | Specify if you want to use slaf proto RPCs to program objects or not. If not, only configurable options are batch_size and batch_num (default true ) |
+| -u/--username                                | Username (Required argument) |
+| -p/--password                                | Password (Required argument) |
+| -a/--route_oper                              | Route Operation: Add, Update, Delete (Required argument) |
+| -w/--vrf_reg_oper                            | VRF registration Operation: Register, Unregister, EOF. When Unregister, all existing pushed routes will be deleted and route pushing will not be performed. Remember to specific correct table_type when Unregistering (Required argument) |
 
 ##### Optional arguments you can set in environment:
 
 | Environment Variable | Description |
 | --- | --- |
-| -h/--help                       | Help |
-| -b/--batch_size                 | Configure the number of ipv4 routes or ILM entires for MPLS to be added to a batch (default 1024) |
-| -c/--batch_num                  | Configure the number of batches (default 98) |
-| -s/--global_init                | Enable our Async Global Init RPC to handshake the API version number with the server. If enabled routes, then once exiting push routes/labels will be deleted (default false) |
+| -h/--help                                    | Help |
+| -t/--table_type                              | Specify whether to do ipv4(value = 1), ipv6(value = 2) or mpls(value = 3) operation. PG is currently not supported (default 1) |
+| -v/--slaf                                    | Specify if you want to use slaf proto RPCs to program objects or not. If not, only configurable options are batch_size and batch_num (default true) |
+| -s/--global_init                             | Enable our Async Global Init RPC to handshake the API version number with the server (default false) |
+| -b/--batch_size                              | Configure the number of ipv4 routes or ILM entires for MPLS to be added to a batch (default 1024) |
+| -c/--batch_num                               | Configure the number of batches for ipv4 and MPLS (default 98) |
 
 ##### IPv4 Testing
 
@@ -120,7 +121,7 @@ For now, if you already have passed this setup step, follow this example:
 
 | Argument | Description |
 | --- | --- |
-| -m/--first_prefix_mpls          | Configure the starting address for this test for MPLS (default "11.0.0.1") |
+| -m/--first_mpls_path_nhip       | Configure the starting address for this test for MPLS (default "11.0.0.1") |
 | -n/--next_hop_interface_mpls    | Configure the next hop interface for MPLS (default "FourHundredGigE0/0/0/0") |
 | -o/--start_label                | Configure the starting label for this test for MPLS (default 20000) |
 | -q/--num_label                  | Configure the number of labels to be allocated for MPLS (default 1000) |
@@ -142,21 +143,36 @@ root@f6179b5127f5:/slapi# cd grpc/cpp/src/tutorial/rshuttle
 
 ##### How to Run in Docker container (external client workflow)
 
+Set SERVER_IP and SERVER_PORT Before Running:
+    $ export SERVER_IP=111.111.111.111
+    $ export SERVER_PORT=11111
+
 Default Example (This runs ipv4):
-    $ ./servicelayermain -u cisco -p cisco123
+    $ ./servicelayermain -u username -p password -a Add -w Register
 
 Version 1 Default Example (This runs ipv4 only):
-    $ ./servicelayermain -u cisco -p cisco123 -v false
+    $ ./servicelayermain -u username -p password -v false -a Add -w Register
 
-IPV4 Example:
-    $ ./servicelayermain -u cisco -p cisco123 --table_type 0
+IPV4 Examples:
+    Adding 500 routes:
+    $ ./servicelayermain -u username -p password --table_type 1 -a Add -w Register -b 100 -c 5
+    Delete 20 routes:
+    $ ./servicelayermain -u username -p password --table_type 1 -a Delete -w EOF --batch_size 10 --batch_num 2
+    Delete 50 routes:
+    $ ./servicelayermain -u username -p password --table_type 1 -a Delete -w Register --batch_size 10 --batch_num 5 --next_hop_ip_ipv4 14.1.1.21
 
 IPV6 Example:
-    $ ./servicelayermain -u cisco -p cisco123 --table_type 1
+    Adding two routes:
+    $ ./servicelayermain -u username -p password --table_type 2  -a Add -w Register
+    Deleting All Routes and Unregister Vrf:
+    $ ./servicelayermain -u username -p password --table_type 2  -w Unregister
 
 MPLS Example:
-    $ ./servicelayermain -u cisco -p cisco123 --table_type 2 --start_label 12000
-    $ ./servicelayermain -u cisco -p cisco123 --table_type 2 -o 12000 (same as above example)
+    Adding 1000 Labels:
+    $ ./servicelayermain -u username -p password  -a Add -w Register --table_type 3 --start_label 12000
+    $ ./servicelayermain -u username -p password  -a Add -w Register --table_type 3 -o 12000 (same as above example)
+    Deleting 35 labels:
+    $ ./servicelayermain -u username -p password -a Delete -w Register --table_type 3 --start_label 12010 --num_label 35
 
 The following sections explain the details of the above example tutorial.
 The rest of these section is extra information and not required to run the tutorial above.
@@ -295,11 +311,4 @@ We provide an optional class and function that handles VRF registration:
 SLAFVrf(channel,username,password)
 run_slaf(SLAFVrf* af_vrf_handler, unsigned int addr_family)
 
-
-#### <a name='route'></a>Add a Batch of Routes
-
-Now that we have registered the VRF or use the auto-register, we can start adding routes. You can run through our ipv4 default example, as it shows
-adding a set of 100k routes to the RIB. The pushing of routes is handled through the function routepush_slaf.
-
-To see the example output you would run the command:
-./servicelayermain -u username -p password
+This is using the -w/--vrf_reg_oper Register Option

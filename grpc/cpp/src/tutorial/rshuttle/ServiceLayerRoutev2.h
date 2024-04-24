@@ -37,7 +37,7 @@ public:
     std::map<std::string, int> prefix_map_v6;
 
     bool routeSLAFOp(service_layer::SLObjectOp routeOp,
-                    unsigned int addrFamily,
+                    service_layer::SLTableType addrFamily,
                     unsigned int timeout=10);
     
     void clearBatch();
@@ -79,7 +79,8 @@ public:
                           uint8_t prefixLen,
                           uint32_t adminDistance,
                           std::string nextHopAddress,
-                          std::string nextHopIf);
+                          std::string nextHopIf,
+                          service_layer::SLObjectOp routeOper);
 
     // IPv6 methods
 
@@ -111,7 +112,8 @@ public:
                           uint8_t prefixLen,
                           uint32_t adminDistance,
                           std::string nextHopAddress,
-                          std::string nextHopIf);
+                          std::string nextHopIf,
+                          service_layer::SLObjectOp routeOper);
 
     // MPLS methods
 
@@ -120,7 +122,8 @@ public:
                             unsigned int numPaths,
                             unsigned int batchSize,
                             uint32_t nextHopAddress,
-                            std::string nextHopInterface);
+                            std::string nextHopInterface,
+                            service_layer::SLObjectOp routeOper);
 
 };
 
@@ -137,18 +140,18 @@ public:
     service_layer::SLAFVrfRegMsgRsp af_vrf_msg_resp;
 
     void afVrfRegMsgAdd(std::string vrfName,
-                        unsigned int addrFamily);
+                        service_layer::SLTableType addrFamily);
 
     void afVrfRegMsgAdd(std::string vrfName,
                       unsigned int adminDistance,
                       unsigned int vrfPurgeIntervalSeconds,
-                      unsigned int addrFamily);
+                      service_layer::SLTableType addrFamily);
 
-    bool registerAfVrf(unsigned int addrFamily);
+    bool registerAfVrf(service_layer::SLTableType addrFamily, service_layer::SLRegOp vrfRegOper);
 
-    bool unregisterAfVrf(unsigned int addrFamily);
+    bool unregisterAfVrf(service_layer::SLTableType addrFamily);
 
-    bool afVrfOpAddFam(service_layer::SLRegOp, unsigned int addrFamily);
+    bool afVrfOpAddFam(service_layer::SLRegOp, service_layer::SLTableType addrFamily);
 
 };
 
