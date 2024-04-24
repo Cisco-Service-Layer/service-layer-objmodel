@@ -7,7 +7,7 @@
 // change without notice and such changes can break backwards compatibility.
 //
 // ----------------------------------------------------------------
-//  Copyright (c) 2023 by Cisco Systems, Inc.
+//  Copyright (c) 2023, 2024 by Cisco Systems, Inc.
 //  All rights reserved.
 // -----------------------------------------------------------------
 //
@@ -524,9 +524,6 @@ message SLAFGetMsgRsp {
 // and sent to client.
 // For stream, RPC will then wait for next message on stream.
 //
-// If there are any memory allocation failures, RPC will exit
-// with error.
-//
 message SLAFMsg {
     // Route Object Operations
     SLObjectOp Oper = 1;
@@ -653,9 +650,6 @@ message SLAFNotifRegReq {
 // If the number of NotifReq is zero, RPC will send empty response
 // to client with only VRF populated.
 // RPC will then wait for next message on stream.
-//
-// If there are any memory allocation failures, RPC will exit
-// with error.
 //
 message SLAFNotifReq {
     // Oper = SL_NOTIFOP_ENABLE
