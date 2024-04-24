@@ -7,7 +7,7 @@
 // change without notice and such changes can break backwards compatibility.
 //
 // ----------------------------------------------------------------
-//  Copyright (c) 2023 by Cisco Systems, Inc.
+//  Copyright (c) 2023, 2024 by Cisco Systems, Inc.
 //  All rights reserved.
 // -----------------------------------------------------------------
 //
@@ -1205,6 +1205,13 @@ func (x *SLAFGetMsgRsp) GetAFList() []*SLAFGetMsgRspEntry {
 
 // Operation on the address family. The objects are programmed
 // in the given VRF's corresponding table.
+//
+// If the number of routes exceeds MaxAFOpsPerMsg,
+// RPC will exit with error.
+//
+// If VrfName is not set, each request is errored and
+// and sent to client.
+// For stream, RPC will then wait for next message on stream.
 type SLAFMsg struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
