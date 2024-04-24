@@ -516,6 +516,17 @@ message SLAFGetMsgRsp {
 
 // Operation on the address family. The objects are programmed
 // in the given VRF's corresponding table.
+//
+// If the number of routes exceeds MaxAFOpsPerMsg,
+// RPC will exit with error.
+//
+// If VrfName is not set, each request is errored and
+// and sent to client.
+// For stream, RPC will then wait for next message on stream.
+//
+// If there are any memory allocation failures, RPC will exit
+// with error.
+//
 message SLAFMsg {
     // Route Object Operations
     SLObjectOp Oper = 1;
@@ -642,6 +653,10 @@ message SLAFNotifRegReq {
 // If the number of NotifReq is zero, RPC will send empty response
 // to client with only VRF populated.
 // RPC will then wait for next message on stream.
+//
+// If there are any memory allocation failures, RPC will exit
+// with error.
+//
 message SLAFNotifReq {
     // Oper = SL_NOTIFOP_ENABLE
     //   This is to enable route notifications in a VRF or
