@@ -216,8 +216,6 @@ public:
 
     bool registerVrf(service_layer::SLTableType addrFamily, service_layer::SLRegOp vrfRegOper);
 
-    bool unregisterVrf(service_layer::SLTableType addrFamily);
-
     bool vrfOpv4(service_layer::SLRegOp);
 
     bool vrfOpv6(service_layer::SLRegOp);

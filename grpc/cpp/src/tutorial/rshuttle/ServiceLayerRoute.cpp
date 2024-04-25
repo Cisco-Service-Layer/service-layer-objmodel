@@ -1343,28 +1343,6 @@ SLVrf::registerVrf(service_layer::SLTableType addrFamily, service_layer::SLRegOp
 }
 
 bool 
-SLVrf::unregisterVrf(service_layer::SLTableType addrFamily)
-{
-
-    //  When done with the VRFs, RPC Delete Registration
-
-    switch(addrFamily) {
-    case service_layer::SL_IPv4_ROUTE_TABLE:
-        return vrfOpv4(service_layer::SL_REGOP_UNREGISTER);
-        break;
-
-    case service_layer::SL_IPv6_ROUTE_TABLE:
-        return vrfOpv6(service_layer::SL_REGOP_UNREGISTER);
-        break;
-
-    default:
-        LOG(ERROR) << "Invalid Address family, skipping..";
-        return false;
-        break;
-    }
-}
-
-bool 
 SLVrf::vrfOpv4(service_layer::SLRegOp vrfOp)
 {
     // Set up the RouteV4Oper Stub

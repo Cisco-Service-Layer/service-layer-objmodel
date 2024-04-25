@@ -307,8 +307,5 @@ This is optional, user can configure "grpc service-layer auto-register" to avoid
 
 In general, before we can use a vertical function like the route APIs, we have to register on that vertical. The SLAF API allows the user to register based on a per VRF basis.
 
-We provide an optional class and function that handles VRF registration:
-SLAFVrf(channel,username,password)
+We provide an optional class and function that handles VRF registration, and unregistration:
 run_slaf(SLAFVrf* af_vrf_handler, unsigned int addr_family)
-
-This is using the -w/--vrf_reg_oper Register Option

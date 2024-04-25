@@ -107,8 +107,8 @@ signalHandler(int signum)
        // Create a fresh SLVrfRegMsg batch for cleanup
        vrfhandler_signum->vrfRegMsgAdd("default");
 
-       vrfhandler_signum->unregisterVrf(service_layer::SL_IPv4_ROUTE_TABLE);
-       vrfhandler_signum->unregisterVrf(service_layer::SL_IPv6_ROUTE_TABLE);
+       vrfhandler_signum->registerVrf(service_layer::SL_IPv4_ROUTE_TABLE, service_layer::SL_REGOP_UNREGISTER);
+       vrfhandler_signum->registerVrf(service_layer::SL_IPv6_ROUTE_TABLE, service_layer::SL_REGOP_UNREGISTER);
 
        delete rshuttle_signum;
 
@@ -135,13 +135,13 @@ signalHandlerSlaf(int signum)
     // Create a fresh SLVrfRegMsg batch for cleanup
     if(table_type == service_layer::SL_IPv4_ROUTE_TABLE){
         afvrfhandler_signum->afVrfRegMsgAdd("default",service_layer::SL_IPv4_ROUTE_TABLE);
-        afvrfhandler_signum->unregisterAfVrf(service_layer::SL_IPv4_ROUTE_TABLE);
+        afvrfhandler_signum->registerAfVrf(service_layer::SL_IPv4_ROUTE_TABLE, service_layer::SL_REGOP_UNREGISTER);
     } else if (table_type == service_layer::SL_IPv6_ROUTE_TABLE){
         afvrfhandler_signum->afVrfRegMsgAdd("default",service_layer::SL_IPv6_ROUTE_TABLE);
-        afvrfhandler_signum->unregisterAfVrf(service_layer::SL_IPv6_ROUTE_TABLE);
+        afvrfhandler_signum->registerAfVrf(service_layer::SL_IPv6_ROUTE_TABLE, service_layer::SL_REGOP_UNREGISTER);
     } else if(table_type == service_layer::SL_MPLS_LABEL_TABLE){
         afvrfhandler_signum->afVrfRegMsgAdd("default",service_layer::SL_MPLS_LABEL_TABLE);
-        afvrfhandler_signum->unregisterAfVrf(service_layer::SL_MPLS_LABEL_TABLE);
+        afvrfhandler_signum->registerAfVrf(service_layer::SL_MPLS_LABEL_TABLE, service_layer::SL_REGOP_UNREGISTER);
     }
 
     delete slaf_rshuttle_signum;

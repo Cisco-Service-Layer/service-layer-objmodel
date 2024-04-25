@@ -149,8 +149,6 @@ public:
 
     bool registerAfVrf(service_layer::SLTableType addrFamily, service_layer::SLRegOp vrfRegOper);
 
-    bool unregisterAfVrf(service_layer::SLTableType addrFamily);
-
     bool afVrfOpAddFam(service_layer::SLRegOp, service_layer::SLTableType addrFamily);
 
 };

@@ -587,7 +587,7 @@ SLAFVrf::registerAfVrf(service_layer::SLTableType addrFamily, service_layer::SLR
 
     case service_layer::SL_MPLS_LABEL_TABLE:
         // Issue VRF Register RPC
-        if (afVrfOpAddFam(service_layer::SL_REGOP_REGISTER, addrFamily)) {
+        if (afVrfOpAddFam(vrfRegOper, addrFamily)) {
             return true;
         } else {
             LOG(ERROR) << "Failed to send Register RPC";
@@ -601,32 +601,6 @@ SLAFVrf::registerAfVrf(service_layer::SLTableType addrFamily, service_layer::SLR
         break;
     }
 
-}
-
-bool 
-SLAFVrf::unregisterAfVrf(service_layer::SLTableType addrFamily)
-{
-
-    //  When done with the VRFs, RPC Delete Registration
-
-    switch(addrFamily) {
-    case service_layer::SL_IPv4_ROUTE_TABLE:
-        return afVrfOpAddFam(service_layer::SL_REGOP_UNREGISTER, addrFamily);
-        break;
-
-    case service_layer::SL_IPv6_ROUTE_TABLE:
-        return afVrfOpAddFam(service_layer::SL_REGOP_UNREGISTER, addrFamily);
-        break;
-    
-    case service_layer::SL_MPLS_LABEL_TABLE:
-        return afVrfOpAddFam(service_layer::SL_REGOP_UNREGISTER, addrFamily);
-        break;
-
-    default:
-        LOG(ERROR) << "Invalid Address family, skipping..";
-        return false;
-        break;
-    }
 }
 
 bool 
