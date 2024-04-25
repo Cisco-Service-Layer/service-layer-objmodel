@@ -4815,6 +4815,13 @@ namespace ServiceLayer {
   /// <summary>
   /// Operation on the address family. The objects are programmed
   /// in the given VRF's corresponding table.
+  ///
+  /// If the number of routes exceeds MaxAFOpsPerMsg,
+  /// RPC will exit with error.
+  ///
+  /// If VrfName is not set, each request is errored and
+  /// and sent to client.
+  /// For stream, RPC will then wait for next message on stream.
   /// </summary>
   public sealed partial class SLAFMsg : pb::IMessage<SLAFMsg>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
