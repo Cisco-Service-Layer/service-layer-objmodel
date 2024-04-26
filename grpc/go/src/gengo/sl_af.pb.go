@@ -2073,7 +2073,7 @@ type SLAFNotif_NotifStatus struct {
 }
 
 type SLAFNotif_StartMarker struct {
-	// This field carries the start marker per VRF name per Tabletype.
+	// This field carries the start marker per VRF per Tabletype.
 	// Server sends this event before any notifications are sent.
 	// This allows the client to stale any previous notifications in its
 	// database.
@@ -2081,7 +2081,7 @@ type SLAFNotif_StartMarker struct {
 }
 
 type SLAFNotif_EndMarker struct {
-	// This field carries the end marker per VRF name per Tabletype for
+	// This field carries the end marker per VRF per Tabletype for
 	// notifications and is an indication from the server that all
 	// notifications corresponding to the registered requests have been
 	// sent to the client. The client can now reconcile and

@@ -8169,7 +8169,7 @@ namespace ServiceLayer {
     /// <summary>Field number for the "StartMarker" field.</summary>
     public const int StartMarkerFieldNumber = 2;
     /// <summary>
-    /// This field carries the start marker per VRF name per Tabletype.
+    /// This field carries the start marker per VRF per Tabletype.
     /// Server sends this event before any notifications are sent.
     /// This allows the client to stale any previous notifications in its
     /// database.
@@ -8187,7 +8187,7 @@ namespace ServiceLayer {
     /// <summary>Field number for the "EndMarker" field.</summary>
     public const int EndMarkerFieldNumber = 3;
     /// <summary>
-    /// This field carries the end marker per VRF name per Tabletype for 
+    /// This field carries the end marker per VRF per Tabletype for 
     /// notifications and is an indication from the server that all 
     /// notifications corresponding to the registered requests have been
     /// sent to the client. The client can now reconcile and
