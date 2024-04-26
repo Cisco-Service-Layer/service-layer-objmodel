@@ -15,6 +15,7 @@ On the server side, we need to configure GRPC and enable the service layer throu
     ! Configure GRPC
     configure
     grpc port 57344
+    grpc no-tls
     grpc address-family ipv4
     commit
     end
@@ -25,7 +26,8 @@ On the server side, we need to configure GRPC and enable the service layer throu
     commit
     end
 
-We also need to configure a server IP address. To configure an IP address on the management interface, one can use dhcp as follows:
+We also need to configure a server IP address. We will use our MgmtEth 0/RP0/CPU0/0. 
+To configure an IP address on the management interface, one can use dhcp as follows:
 
     ! Configure the Mgmt Interface
     configure
@@ -35,14 +37,16 @@ We also need to configure a server IP address. To configure an IP address on the
     commit
     end
 
-We also need to configure a Bunder-Ether Interface (Or any interface user wants to use) for ipv4 and ipv6 tests:
+We also need to configure an any interface user wants to use for ipv4 and ipv6 tests.
+For our tests the interface is Bunder-Ether (as this is the default):
     configure
     interface Bunder-Ether 1
     no shut
     commit
     end
 
-We also need to configure a FourHundredGigE0/0/0/0 Interface (Or any interface user wants to use) for mpls tests:
+We also need to configure an Interface (Or any interface user wants to use) for mpls tests
+For our tests the interface is FourHundredGigE0/0/0/0 (as this is the default):
     configure
     interface FourHundredGigE0/0/0/0
     no shut
@@ -93,7 +97,7 @@ For now, if you already have passed this setup step, follow this example:
 | Environment Variable | Description |
 | --- | --- |
 | -h/--help                                    | Help |
-| -t/--table_type                              | Specify whether to do ipv4(value = 1), ipv6(value = 2) or mpls(value = 3) operation. PG is currently not supported (default 1) |
+| -t/--table_type                              | Specify whether to do ipv4, ipv6 or mpls operation, PG is currently not supported (default ipv4). |
 | -v/--slaf                                    | Specify if you want to use slaf proto RPCs to program objects or not. If not, only configurable options are batch_size and batch_num (default true) |
 | -s/--global_init                             | Enable our Async Global Init RPC to handshake the API version number with the server (default false) |
 | -b/--batch_size                              | Configure the number of ipv4 routes or ILM entires for MPLS to be added to a batch (default 1024) |
@@ -173,6 +177,9 @@ MPLS Example:
     $ ./servicelayermain -u username -p password  -a Add -w Register --table_type 3 -o 12000 (same as above example)
     Deleting 35 labels:
     $ ./servicelayermain -u username -p password -a Delete -w Register --table_type 3 --start_label 12010 --num_label 35
+
+Example using auto register (see section [Optional: Register the VRF](#vrf) for information on auto-register):
+    $ ./servicelayermain -u username -p password -a Add (Same as above examples, just omit -w option)
 
 The following sections explain the details of the above example tutorial.
 The rest of these section is extra information and not required to run the tutorial above.
@@ -303,7 +310,8 @@ Since the above SendInitMsg function would never return, it is best to spawn it 
 
 #### <a name='vrf'></a>Optional: Register the VRF
 
-This is optional, user can configure "grpc service-layer auto-register" to avoid this registration requirement, and with auto-register, client owns the responsibility for reconciliation.
+Registering the vrf is optional. User can configure "grpc service-layer auto-register" to avoid this registration requirement, and with auto-register, client owns the responsibility for reconciliation. Therefore, auto registration is preferred.
+If using auto registration then user should not use -w/--vrf_reg_oper cli option.
 
 In general, before we can use a vertical function like the route APIs, we have to register on that vertical. The SLAF API allows the user to register based on a per VRF basis.
 

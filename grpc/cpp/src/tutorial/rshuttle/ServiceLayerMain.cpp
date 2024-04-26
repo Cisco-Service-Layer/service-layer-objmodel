@@ -378,9 +378,9 @@ int main(int argc, char** argv) {
         switch (option_long) {
             case 't':
                 dummy = optarg;
-                if(dummy == "2") {
+                if(dummy == "ipv6") {
                     env_data.table_type = service_layer::SL_IPv6_ROUTE_TABLE;
-                } else if (dummy == "3") {
+                } else if (dummy == "mpls") {
                     env_data.table_type = service_layer::SL_MPLS_LABEL_TABLE;
                 } else {
                     env_data.table_type = service_layer::SL_IPv4_ROUTE_TABLE;
@@ -473,7 +473,7 @@ int main(int argc, char** argv) {
                 LOG(INFO) <<"| -a/--route_oper                  | Route Operation: Add, Update, Delete (Required argument) |";
                 LOG(INFO) <<"| -w/--vrf_reg_oper                | VRF registration Operation: Register, Unregister, EOF. When Unregister, all existing pushed routes will be deleted and route pushing will not be performed. Remember to specific correct table_type when Unregistering (Required argument) |";
                 LOG(INFO) << "Optional arguments you can set in environment:";
-                LOG(INFO) <<"| -t/--table_type                  | Specify whether to do ipv4(value = 1), ipv6(value = 2) or mpls(value = 3) operation, PG is currently not supported (default 1) |";
+                LOG(INFO) <<"| -t/--table_type                  | Specify whether to do ipv4, ipv6 or mpls operation, PG is currently not supported (default ipv4) |";
                 LOG(INFO) <<"| -v/--slaf                        | Specify if you want to use slaf proto RPCs to program objects or not. If not, only configurable options are batch_size and batch_num (default true) |";
                 LOG(INFO) <<"| -s/--global_init                 | Enable our Async Global Init RPC to handshake the API version number with the server (default false) |";
                 LOG(INFO) << "| -h/--help                       | Help |";
@@ -517,11 +517,9 @@ int main(int argc, char** argv) {
     if(username == "" || password == ""){
         LOG(INFO) << "Did not provide a Username and Password";
     }
-    if(env_data.vrf_reg_oper == service_layer::SL_REGOP_RESERVED || env_data.route_oper == service_layer::SL_OBJOP_RESERVED) {
-        if(env_data.vrf_reg_oper != service_layer::SL_REGOP_UNREGISTER) {
-            LOG(ERROR) << "Need to provide the route_oper and vrf_reg_oper type. Or set vrf_reg_oper to Unregister";
-            return 0;
-        }
+    if(env_data.route_oper == service_layer::SL_OBJOP_RESERVED && env_data.vrf_reg_oper != service_layer::SL_REGOP_UNREGISTER) {
+        LOG(ERROR) << "Need to provide the route_oper. Or set vrf_reg_oper to Unregister";
+        return 0;
     }
 
     std::string grpc_server = server_ip + ":" + server_port;
@@ -569,7 +567,10 @@ int main(int argc, char** argv) {
 
         // Need to specify ipv4 (default), ipv6(value = 1) or mpls(value = 2)
         table_type = env_data.table_type;
-        run_slaf(&af_vrf_handler,table_type, env_data.vrf_reg_oper);
+        // If vrf_rg_oper not set then we do not register vrf
+        if (env_data.vrf_reg_oper != service_layer::SL_REGOP_RESERVED) {
+            run_slaf(&af_vrf_handler,table_type, env_data.vrf_reg_oper);
+        }
 
         // If we Unregister, then we do not push routes
         if(env_data.vrf_reg_oper != service_layer::SL_REGOP_UNREGISTER) {
@@ -589,8 +590,11 @@ int main(int argc, char** argv) {
         // Create a new SLVrfRegMsg batch
         vrfhandler.vrfRegMsgAdd("default", 10, 500);
 
-        // Register the SLVrfRegMsg batch for v4
-        vrfhandler.registerVrf(service_layer::SL_IPv4_ROUTE_TABLE, env_data.vrf_reg_oper);
+        // If vrf_rg_oper not set then we do not register vrf
+        if (env_data.vrf_reg_oper != service_layer::SL_REGOP_RESERVED) {
+            // Register the SLVrfRegMsg batch for v4
+            vrfhandler.registerVrf(service_layer::SL_IPv4_ROUTE_TABLE, env_data.vrf_reg_oper);
+        }
 
         // If we Unregister, then we do not push routes
         if(env_data.vrf_reg_oper != service_layer::SL_REGOP_UNREGISTER) {
