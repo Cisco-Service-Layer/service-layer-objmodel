@@ -104,24 +104,28 @@ namespace ServiceLayer {
             "b3V0ZUxlbhgDIAEoDRIQCghTcmNQcm90bxgEIAEoCRITCgtTcmNQcm90b1Rh",
             "ZxgFIAEoCRIVCg1BZG1pbkRpc3RhbmNlGAYgASgNEg4KBk1ldHJpYxgHIAEo",
             "DRIpCgVQYXRocxgIIAMoCzIaLnNlcnZpY2VfbGF5ZXIuU0xSb3V0ZVBhdGgi",
-            "qAEKCVNMQUZOb3RpZhIyCgtOb3RpZlN0YXR1cxgBIAEoCzIbLnNlcnZpY2Vf",
-            "bGF5ZXIuU0xBRk5vdGlmUnNwSAASMQoMUmVkaXN0T2JqZWN0GAQgASgLMhku",
-            "c2VydmljZV9sYXllci5TTEFGT2JqZWN0SAASKwoHTmV4dEhvcBgFIAEoCzIY",
-            "LnNlcnZpY2VfbGF5ZXIuU0xOZXh0SG9wSABCBwoFRXZlbnQiSwoMU0xBRk5v",
-            "dGlmTXNnEg8KB1ZyZk5hbWUYASABKAkSKgoIQUZOb3RpZnMYAyADKAsyGC5z",
-            "ZXJ2aWNlX2xheWVyLlNMQUZOb3RpZjLIAwoEU0xBRhJNCgxTTEFGVnJmUmVn",
-            "T3ASHC5zZXJ2aWNlX2xheWVyLlNMQUZWcmZSZWdNc2caHy5zZXJ2aWNlX2xh",
-            "eWVyLlNMQUZWcmZSZWdNc2dSc3ASVgoNU0xBRlZyZlJlZ0dldBIfLnNlcnZp",
-            "Y2VfbGF5ZXIuU0xBRlZyZlJlZ0dldE1zZxoiLnNlcnZpY2VfbGF5ZXIuU0xB",
-            "RlZyZlJlZ0dldE1zZ1JzcDABEjsKBlNMQUZPcBIWLnNlcnZpY2VfbGF5ZXIu",
-            "U0xBRk1zZxoZLnNlcnZpY2VfbGF5ZXIuU0xBRk1zZ1JzcBJFCgxTTEFGT3BT",
-            "dHJlYW0SFi5zZXJ2aWNlX2xheWVyLlNMQUZNc2caGS5zZXJ2aWNlX2xheWVy",
-            "LlNMQUZNc2dSc3AoATABEkQKB1NMQUZHZXQSGS5zZXJ2aWNlX2xheWVyLlNM",
-            "QUZHZXRNc2caHC5zZXJ2aWNlX2xheWVyLlNMQUZHZXRNc2dSc3AwARJPCg9T",
-            "TEFGTm90aWZTdHJlYW0SGy5zZXJ2aWNlX2xheWVyLlNMQUZOb3RpZlJlcRob",
-            "LnNlcnZpY2VfbGF5ZXIuU0xBRk5vdGlmTXNnKAEwAUJRWk9naXRodWIuY29t",
-            "L0Npc2NvLXNlcnZpY2UtbGF5ZXIvc2VydmljZS1sYXllci1vYmptb2RlbC9n",
-            "cnBjL3Byb3RvcztzZXJ2aWNlX2xheWVyYgZwcm90bzM="));
+            "OwoOU0xSZWRpc3RNYXJrZXISKQoFVGFibGUYASABKA4yGi5zZXJ2aWNlX2xh",
+            "eWVyLlNMVGFibGVUeXBlIpICCglTTEFGTm90aWYSMgoLTm90aWZTdGF0dXMY",
+            "ASABKAsyGy5zZXJ2aWNlX2xheWVyLlNMQUZOb3RpZlJzcEgAEjQKC1N0YXJ0",
+            "TWFya2VyGAIgASgLMh0uc2VydmljZV9sYXllci5TTFJlZGlzdE1hcmtlckgA",
+            "EjIKCUVuZE1hcmtlchgDIAEoCzIdLnNlcnZpY2VfbGF5ZXIuU0xSZWRpc3RN",
+            "YXJrZXJIABIxCgxSZWRpc3RPYmplY3QYBCABKAsyGS5zZXJ2aWNlX2xheWVy",
+            "LlNMQUZPYmplY3RIABIrCgdOZXh0SG9wGAUgASgLMhguc2VydmljZV9sYXll",
+            "ci5TTE5leHRIb3BIAEIHCgVFdmVudCJLCgxTTEFGTm90aWZNc2cSDwoHVnJm",
+            "TmFtZRgBIAEoCRIqCghBRk5vdGlmcxgDIAMoCzIYLnNlcnZpY2VfbGF5ZXIu",
+            "U0xBRk5vdGlmMsgDCgRTTEFGEk0KDFNMQUZWcmZSZWdPcBIcLnNlcnZpY2Vf",
+            "bGF5ZXIuU0xBRlZyZlJlZ01zZxofLnNlcnZpY2VfbGF5ZXIuU0xBRlZyZlJl",
+            "Z01zZ1JzcBJWCg1TTEFGVnJmUmVnR2V0Eh8uc2VydmljZV9sYXllci5TTEFG",
+            "VnJmUmVnR2V0TXNnGiIuc2VydmljZV9sYXllci5TTEFGVnJmUmVnR2V0TXNn",
+            "UnNwMAESOwoGU0xBRk9wEhYuc2VydmljZV9sYXllci5TTEFGTXNnGhkuc2Vy",
+            "dmljZV9sYXllci5TTEFGTXNnUnNwEkUKDFNMQUZPcFN0cmVhbRIWLnNlcnZp",
+            "Y2VfbGF5ZXIuU0xBRk1zZxoZLnNlcnZpY2VfbGF5ZXIuU0xBRk1zZ1JzcCgB",
+            "MAESRAoHU0xBRkdldBIZLnNlcnZpY2VfbGF5ZXIuU0xBRkdldE1zZxocLnNl",
+            "cnZpY2VfbGF5ZXIuU0xBRkdldE1zZ1JzcDABEk8KD1NMQUZOb3RpZlN0cmVh",
+            "bRIbLnNlcnZpY2VfbGF5ZXIuU0xBRk5vdGlmUmVxGhsuc2VydmljZV9sYXll",
+            "ci5TTEFGTm90aWZNc2coATABQlFaT2dpdGh1Yi5jb20vQ2lzY28tc2Vydmlj",
+            "ZS1sYXllci9zZXJ2aWNlLWxheWVyLW9iam1vZGVsL2dycGMvcHJvdG9zO3Nl",
+            "cnZpY2VfbGF5ZXJiBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::ServiceLayer.SlCommonTypesReflection.Descriptor, global::ServiceLayer.SlRouteCommonReflection.Descriptor, global::ServiceLayer.SlRouteIpv4Reflection.Descriptor, global::ServiceLayer.SlRouteIpv6Reflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
@@ -150,7 +154,8 @@ namespace ServiceLayer {
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLAFNotifReq), global::ServiceLayer.SLAFNotifReq.Parser, new[]{ "Oper", "VrfName", "NotifReq" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLAFNotifRsp), global::ServiceLayer.SLAFNotifRsp.Parser, new[]{ "NotifReq", "NotifStatus" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLNextHop), global::ServiceLayer.SLNextHop.Parser, new[]{ "NextHopKey", "ResolvingRoute", "ResolvingRouteLen", "SrcProto", "SrcProtoTag", "AdminDistance", "Metric", "Paths" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLAFNotif), global::ServiceLayer.SLAFNotif.Parser, new[]{ "NotifStatus", "RedistObject", "NextHop" }, new[]{ "Event" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLRedistMarker), global::ServiceLayer.SLRedistMarker.Parser, new[]{ "Table" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLAFNotif), global::ServiceLayer.SLAFNotif.Parser, new[]{ "NotifStatus", "StartMarker", "EndMarker", "RedistObject", "NextHop" }, new[]{ "Event" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLAFNotifMsg), global::ServiceLayer.SLAFNotifMsg.Parser, new[]{ "VrfName", "AFNotifs" }, null, null, null, null)
           }));
     }
@@ -8084,6 +8089,201 @@ namespace ServiceLayer {
   }
 
   /// <summary>
+  /// Route redistribution marker
+  /// </summary>
+  public sealed partial class SLRedistMarker : pb::IMessage<SLRedistMarker>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<SLRedistMarker> _parser = new pb::MessageParser<SLRedistMarker>(() => new SLRedistMarker());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<SLRedistMarker> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::ServiceLayer.SlAfReflection.Descriptor.MessageTypes[24]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SLRedistMarker() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SLRedistMarker(SLRedistMarker other) : this() {
+      table_ = other.table_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SLRedistMarker Clone() {
+      return new SLRedistMarker(this);
+    }
+
+    /// <summary>Field number for the "Table" field.</summary>
+    public const int TableFieldNumber = 1;
+    private global::ServiceLayer.SLTableType table_ = global::ServiceLayer.SLTableType.Reserved;
+    /// <summary>
+    /// Table type for the Marker.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::ServiceLayer.SLTableType Table {
+      get { return table_; }
+      set {
+        table_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as SLRedistMarker);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(SLRedistMarker other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (Table != other.Table) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (Table != global::ServiceLayer.SLTableType.Reserved) hash ^= Table.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (Table != global::ServiceLayer.SLTableType.Reserved) {
+        output.WriteRawTag(8);
+        output.WriteEnum((int) Table);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (Table != global::ServiceLayer.SLTableType.Reserved) {
+        output.WriteRawTag(8);
+        output.WriteEnum((int) Table);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (Table != global::ServiceLayer.SLTableType.Reserved) {
+        size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Table);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(SLRedistMarker other) {
+      if (other == null) {
+        return;
+      }
+      if (other.Table != global::ServiceLayer.SLTableType.Reserved) {
+        Table = other.Table;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            Table = (global::ServiceLayer.SLTableType) input.ReadEnum();
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 8: {
+            Table = (global::ServiceLayer.SLTableType) input.ReadEnum();
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  /// <summary>
   /// AF Notification message
   /// </summary>
   public sealed partial class SLAFNotif : pb::IMessage<SLAFNotif>
@@ -8100,7 +8300,7 @@ namespace ServiceLayer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::ServiceLayer.SlAfReflection.Descriptor.MessageTypes[24]; }
+      get { return global::ServiceLayer.SlAfReflection.Descriptor.MessageTypes[25]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -8123,6 +8323,12 @@ namespace ServiceLayer {
       switch (other.EventCase) {
         case EventOneofCase.NotifStatus:
           NotifStatus = other.NotifStatus.Clone();
+          break;
+        case EventOneofCase.StartMarker:
+          StartMarker = other.StartMarker.Clone();
+          break;
+        case EventOneofCase.EndMarker:
+          EndMarker = other.EndMarker.Clone();
           break;
         case EventOneofCase.RedistObject:
           RedistObject = other.RedistObject.Clone();
@@ -8153,6 +8359,43 @@ namespace ServiceLayer {
       set {
         event_ = value;
         eventCase_ = value == null ? EventOneofCase.None : EventOneofCase.NotifStatus;
+      }
+    }
+
+    /// <summary>Field number for the "StartMarker" field.</summary>
+    public const int StartMarkerFieldNumber = 2;
+    /// <summary>
+    /// This field carries the start marker per Tabletype per VRF name.
+    /// Server sends this event before any notifications are sent.
+    /// This allows the client to stale any previous notifications in its
+    /// database.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::ServiceLayer.SLRedistMarker StartMarker {
+      get { return eventCase_ == EventOneofCase.StartMarker ? (global::ServiceLayer.SLRedistMarker) event_ : null; }
+      set {
+        event_ = value;
+        eventCase_ = value == null ? EventOneofCase.None : EventOneofCase.StartMarker;
+      }
+    }
+
+    /// <summary>Field number for the "EndMarker" field.</summary>
+    public const int EndMarkerFieldNumber = 3;
+    /// <summary>
+    /// This field carries the end marker per Tabl per VRF name for 
+    /// notifications and is an indication from the server that all 
+    /// notifications corresponding to the registered requests have been
+    /// sent to the client. The client can now reconcile and
+    /// sweep all stale notifications.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::ServiceLayer.SLRedistMarker EndMarker {
+      get { return eventCase_ == EventOneofCase.EndMarker ? (global::ServiceLayer.SLRedistMarker) event_ : null; }
+      set {
+        event_ = value;
+        eventCase_ = value == null ? EventOneofCase.None : EventOneofCase.EndMarker;
       }
     }
 
@@ -8191,6 +8434,8 @@ namespace ServiceLayer {
     public enum EventOneofCase {
       None = 0,
       NotifStatus = 1,
+      StartMarker = 2,
+      EndMarker = 3,
       RedistObject = 4,
       NextHop = 5,
     }
@@ -8224,6 +8469,8 @@ namespace ServiceLayer {
         return true;
       }
       if (!object.Equals(NotifStatus, other.NotifStatus)) return false;
+      if (!object.Equals(StartMarker, other.StartMarker)) return false;
+      if (!object.Equals(EndMarker, other.EndMarker)) return false;
       if (!object.Equals(RedistObject, other.RedistObject)) return false;
       if (!object.Equals(NextHop, other.NextHop)) return false;
       if (EventCase != other.EventCase) return false;
@@ -8235,6 +8482,8 @@ namespace ServiceLayer {
     public override int GetHashCode() {
       int hash = 1;
       if (eventCase_ == EventOneofCase.NotifStatus) hash ^= NotifStatus.GetHashCode();
+      if (eventCase_ == EventOneofCase.StartMarker) hash ^= StartMarker.GetHashCode();
+      if (eventCase_ == EventOneofCase.EndMarker) hash ^= EndMarker.GetHashCode();
       if (eventCase_ == EventOneofCase.RedistObject) hash ^= RedistObject.GetHashCode();
       if (eventCase_ == EventOneofCase.NextHop) hash ^= NextHop.GetHashCode();
       hash ^= (int) eventCase_;
@@ -8260,6 +8509,14 @@ namespace ServiceLayer {
         output.WriteRawTag(10);
         output.WriteMessage(NotifStatus);
       }
+      if (eventCase_ == EventOneofCase.StartMarker) {
+        output.WriteRawTag(18);
+        output.WriteMessage(StartMarker);
+      }
+      if (eventCase_ == EventOneofCase.EndMarker) {
+        output.WriteRawTag(26);
+        output.WriteMessage(EndMarker);
+      }
       if (eventCase_ == EventOneofCase.RedistObject) {
         output.WriteRawTag(34);
         output.WriteMessage(RedistObject);
@@ -8282,6 +8539,14 @@ namespace ServiceLayer {
         output.WriteRawTag(10);
         output.WriteMessage(NotifStatus);
       }
+      if (eventCase_ == EventOneofCase.StartMarker) {
+        output.WriteRawTag(18);
+        output.WriteMessage(StartMarker);
+      }
+      if (eventCase_ == EventOneofCase.EndMarker) {
+        output.WriteRawTag(26);
+        output.WriteMessage(EndMarker);
+      }
       if (eventCase_ == EventOneofCase.RedistObject) {
         output.WriteRawTag(34);
         output.WriteMessage(RedistObject);
@@ -8302,6 +8567,12 @@ namespace ServiceLayer {
       int size = 0;
       if (eventCase_ == EventOneofCase.NotifStatus) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(NotifStatus);
+      }
+      if (eventCase_ == EventOneofCase.StartMarker) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(StartMarker);
+      }
+      if (eventCase_ == EventOneofCase.EndMarker) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(EndMarker);
       }
       if (eventCase_ == EventOneofCase.RedistObject) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(RedistObject);
@@ -8327,6 +8598,18 @@ namespace ServiceLayer {
             NotifStatus = new global::ServiceLayer.SLAFNotifRsp();
           }
           NotifStatus.MergeFrom(other.NotifStatus);
+          break;
+        case EventOneofCase.StartMarker:
+          if (StartMarker == null) {
+            StartMarker = new global::ServiceLayer.SLRedistMarker();
+          }
+          StartMarker.MergeFrom(other.StartMarker);
+          break;
+        case EventOneofCase.EndMarker:
+          if (EndMarker == null) {
+            EndMarker = new global::ServiceLayer.SLRedistMarker();
+          }
+          EndMarker.MergeFrom(other.EndMarker);
           break;
         case EventOneofCase.RedistObject:
           if (RedistObject == null) {
@@ -8364,6 +8647,24 @@ namespace ServiceLayer {
             }
             input.ReadMessage(subBuilder);
             NotifStatus = subBuilder;
+            break;
+          }
+          case 18: {
+            global::ServiceLayer.SLRedistMarker subBuilder = new global::ServiceLayer.SLRedistMarker();
+            if (eventCase_ == EventOneofCase.StartMarker) {
+              subBuilder.MergeFrom(StartMarker);
+            }
+            input.ReadMessage(subBuilder);
+            StartMarker = subBuilder;
+            break;
+          }
+          case 26: {
+            global::ServiceLayer.SLRedistMarker subBuilder = new global::ServiceLayer.SLRedistMarker();
+            if (eventCase_ == EventOneofCase.EndMarker) {
+              subBuilder.MergeFrom(EndMarker);
+            }
+            input.ReadMessage(subBuilder);
+            EndMarker = subBuilder;
             break;
           }
           case 34: {
@@ -8408,6 +8709,24 @@ namespace ServiceLayer {
             NotifStatus = subBuilder;
             break;
           }
+          case 18: {
+            global::ServiceLayer.SLRedistMarker subBuilder = new global::ServiceLayer.SLRedistMarker();
+            if (eventCase_ == EventOneofCase.StartMarker) {
+              subBuilder.MergeFrom(StartMarker);
+            }
+            input.ReadMessage(subBuilder);
+            StartMarker = subBuilder;
+            break;
+          }
+          case 26: {
+            global::ServiceLayer.SLRedistMarker subBuilder = new global::ServiceLayer.SLRedistMarker();
+            if (eventCase_ == EventOneofCase.EndMarker) {
+              subBuilder.MergeFrom(EndMarker);
+            }
+            input.ReadMessage(subBuilder);
+            EndMarker = subBuilder;
+            break;
+          }
           case 34: {
             global::ServiceLayer.SLAFObject subBuilder = new global::ServiceLayer.SLAFObject();
             if (eventCase_ == EventOneofCase.RedistObject) {
@@ -8450,7 +8769,7 @@ namespace ServiceLayer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::ServiceLayer.SlAfReflection.Descriptor.MessageTypes[25]; }
+      get { return global::ServiceLayer.SlAfReflection.Descriptor.MessageTypes[26]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
