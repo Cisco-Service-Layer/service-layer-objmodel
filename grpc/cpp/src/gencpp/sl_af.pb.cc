@@ -400,19 +400,19 @@ struct SLNextHopDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT SLNextHopDefaultTypeInternal _SLNextHop_default_instance_;
-constexpr SLRedistMarker::SLRedistMarker(
+constexpr SLAFNotif_SLRedistMarker::SLAFNotif_SLRedistMarker(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
   : table_(0)
 {}
-struct SLRedistMarkerDefaultTypeInternal {
-  constexpr SLRedistMarkerDefaultTypeInternal()
+struct SLAFNotif_SLRedistMarkerDefaultTypeInternal {
+  constexpr SLAFNotif_SLRedistMarkerDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
-  ~SLRedistMarkerDefaultTypeInternal() {}
+  ~SLAFNotif_SLRedistMarkerDefaultTypeInternal() {}
   union {
-    SLRedistMarker _instance;
+    SLAFNotif_SLRedistMarker _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT SLRedistMarkerDefaultTypeInternal _SLRedistMarker_default_instance_;
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT SLAFNotif_SLRedistMarkerDefaultTypeInternal _SLAFNotif_SLRedistMarker_default_instance_;
 constexpr SLAFNotif::SLAFNotif(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
   : _oneof_case_{}{}
@@ -693,12 +693,12 @@ const uint32_t TableStruct_sl_5faf_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(
   PROTOBUF_FIELD_OFFSET(::service_layer::SLNextHop, metric_),
   PROTOBUF_FIELD_OFFSET(::service_layer::SLNextHop, paths_),
   ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::service_layer::SLRedistMarker, _internal_metadata_),
+  PROTOBUF_FIELD_OFFSET(::service_layer::SLAFNotif_SLRedistMarker, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::service_layer::SLRedistMarker, table_),
+  PROTOBUF_FIELD_OFFSET(::service_layer::SLAFNotif_SLRedistMarker, table_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::service_layer::SLAFNotif, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -748,7 +748,7 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOB
   { 217, -1, -1, sizeof(::service_layer::SLAFNotifReq)},
   { 226, -1, -1, sizeof(::service_layer::SLAFNotifRsp)},
   { 234, -1, -1, sizeof(::service_layer::SLNextHop)},
-  { 248, -1, -1, sizeof(::service_layer::SLRedistMarker)},
+  { 248, -1, -1, sizeof(::service_layer::SLAFNotif_SLRedistMarker)},
   { 255, -1, -1, sizeof(::service_layer::SLAFNotif)},
   { 267, -1, -1, sizeof(::service_layer::SLAFNotifMsg)},
 };
@@ -781,7 +781,7 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::service_layer::_SLAFNotifReq_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::service_layer::_SLAFNotifRsp_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::service_layer::_SLNextHop_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::service_layer::_SLRedistMarker_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::service_layer::_SLAFNotif_SLRedistMarker_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::service_layer::_SLAFNotif_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::service_layer::_SLAFNotifMsg_default_instance_),
 };
@@ -877,31 +877,31 @@ const char descriptor_table_protodef_sl_5faf_2eproto[] PROTOBUF_SECTION_VARIABLE
   "\n\010SrcProto\030\004 \001(\t\022\023\n\013SrcProtoTag\030\005 \001(\t\022\025\n"
   "\rAdminDistance\030\006 \001(\r\022\016\n\006Metric\030\007 \001(\r\022)\n\005"
   "Paths\030\010 \003(\0132\032.service_layer.SLRoutePath\""
-  ";\n\016SLRedistMarker\022)\n\005Table\030\001 \001(\0162\032.servi"
-  "ce_layer.SLTableType\"\222\002\n\tSLAFNotif\0222\n\013No"
-  "tifStatus\030\001 \001(\0132\033.service_layer.SLAFNoti"
-  "fRspH\000\0224\n\013StartMarker\030\002 \001(\0132\035.service_la"
-  "yer.SLRedistMarkerH\000\0222\n\tEndMarker\030\003 \001(\0132"
-  "\035.service_layer.SLRedistMarkerH\000\0221\n\014Redi"
-  "stObject\030\004 \001(\0132\031.service_layer.SLAFObjec"
-  "tH\000\022+\n\007NextHop\030\005 \001(\0132\030.service_layer.SLN"
-  "extHopH\000B\007\n\005Event\"K\n\014SLAFNotifMsg\022\017\n\007Vrf"
-  "Name\030\001 \001(\t\022*\n\010AFNotifs\030\003 \003(\0132\030.service_l"
-  "ayer.SLAFNotif2\310\003\n\004SLAF\022M\n\014SLAFVrfRegOp\022"
-  "\034.service_layer.SLAFVrfRegMsg\032\037.service_"
-  "layer.SLAFVrfRegMsgRsp\022V\n\rSLAFVrfRegGet\022"
-  "\037.service_layer.SLAFVrfRegGetMsg\032\".servi"
-  "ce_layer.SLAFVrfRegGetMsgRsp0\001\022;\n\006SLAFOp"
-  "\022\026.service_layer.SLAFMsg\032\031.service_layer"
-  ".SLAFMsgRsp\022E\n\014SLAFOpStream\022\026.service_la"
-  "yer.SLAFMsg\032\031.service_layer.SLAFMsgRsp(\001"
-  "0\001\022D\n\007SLAFGet\022\031.service_layer.SLAFGetMsg"
-  "\032\034.service_layer.SLAFGetMsgRsp0\001\022O\n\017SLAF"
-  "NotifStream\022\033.service_layer.SLAFNotifReq"
-  "\032\033.service_layer.SLAFNotifMsg(\0010\001BQZOgit"
-  "hub.com/Cisco-service-layer/service-laye"
-  "r-objmodel/grpc/protos;service_layerb\006pr"
-  "oto3"
+  "\343\002\n\tSLAFNotif\0222\n\013NotifStatus\030\001 \001(\0132\033.ser"
+  "vice_layer.SLAFNotifRspH\000\022>\n\013StartMarker"
+  "\030\002 \001(\0132\'.service_layer.SLAFNotif.SLRedis"
+  "tMarkerH\000\022<\n\tEndMarker\030\003 \001(\0132\'.service_l"
+  "ayer.SLAFNotif.SLRedistMarkerH\000\0221\n\014Redis"
+  "tObject\030\004 \001(\0132\031.service_layer.SLAFObject"
+  "H\000\022+\n\007NextHop\030\005 \001(\0132\030.service_layer.SLNe"
+  "xtHopH\000\032;\n\016SLRedistMarker\022)\n\005Table\030\001 \001(\016"
+  "2\032.service_layer.SLTableTypeB\007\n\005Event\"K\n"
+  "\014SLAFNotifMsg\022\017\n\007VrfName\030\001 \001(\t\022*\n\010AFNoti"
+  "fs\030\003 \003(\0132\030.service_layer.SLAFNotif2\310\003\n\004S"
+  "LAF\022M\n\014SLAFVrfRegOp\022\034.service_layer.SLAF"
+  "VrfRegMsg\032\037.service_layer.SLAFVrfRegMsgR"
+  "sp\022V\n\rSLAFVrfRegGet\022\037.service_layer.SLAF"
+  "VrfRegGetMsg\032\".service_layer.SLAFVrfRegG"
+  "etMsgRsp0\001\022;\n\006SLAFOp\022\026.service_layer.SLA"
+  "FMsg\032\031.service_layer.SLAFMsgRsp\022E\n\014SLAFO"
+  "pStream\022\026.service_layer.SLAFMsg\032\031.servic"
+  "e_layer.SLAFMsgRsp(\0010\001\022D\n\007SLAFGet\022\031.serv"
+  "ice_layer.SLAFGetMsg\032\034.service_layer.SLA"
+  "FGetMsgRsp0\001\022O\n\017SLAFNotifStream\022\033.servic"
+  "e_layer.SLAFNotifReq\032\033.service_layer.SLA"
+  "FNotifMsg(\0010\001BQZOgithub.com/Cisco-servic"
+  "e-layer/service-layer-objmodel/grpc/prot"
+  "os;service_layerb\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_sl_5faf_2eproto_deps[4] = {
   &::descriptor_table_sl_5fcommon_5ftypes_2eproto,
@@ -911,7 +911,7 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_sl_5faf_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_sl_5faf_2eproto = {
-  false, false, 4564, descriptor_table_protodef_sl_5faf_2eproto, "sl_af.proto", 
+  false, false, 4584, descriptor_table_protodef_sl_5faf_2eproto, "sl_af.proto", 
   &descriptor_table_sl_5faf_2eproto_once, descriptor_table_sl_5faf_2eproto_deps, 4, 30,
   schemas, file_default_instances, TableStruct_sl_5faf_2eproto::offsets,
   file_level_metadata_sl_5faf_2eproto, file_level_enum_descriptors_sl_5faf_2eproto, file_level_service_descriptors_sl_5faf_2eproto,
@@ -8489,53 +8489,53 @@ void SLNextHop::InternalSwap(SLNextHop* other) {
 
 // ===================================================================
 
-class SLRedistMarker::_Internal {
+class SLAFNotif_SLRedistMarker::_Internal {
  public:
 };
 
-SLRedistMarker::SLRedistMarker(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+SLAFNotif_SLRedistMarker::SLAFNotif_SLRedistMarker(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
   SharedCtor();
   if (!is_message_owned) {
     RegisterArenaDtor(arena);
   }
-  // @@protoc_insertion_point(arena_constructor:service_layer.SLRedistMarker)
+  // @@protoc_insertion_point(arena_constructor:service_layer.SLAFNotif.SLRedistMarker)
 }
-SLRedistMarker::SLRedistMarker(const SLRedistMarker& from)
+SLAFNotif_SLRedistMarker::SLAFNotif_SLRedistMarker(const SLAFNotif_SLRedistMarker& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   table_ = from.table_;
-  // @@protoc_insertion_point(copy_constructor:service_layer.SLRedistMarker)
+  // @@protoc_insertion_point(copy_constructor:service_layer.SLAFNotif.SLRedistMarker)
 }
 
-inline void SLRedistMarker::SharedCtor() {
+inline void SLAFNotif_SLRedistMarker::SharedCtor() {
 table_ = 0;
 }
 
-SLRedistMarker::~SLRedistMarker() {
-  // @@protoc_insertion_point(destructor:service_layer.SLRedistMarker)
+SLAFNotif_SLRedistMarker::~SLAFNotif_SLRedistMarker() {
+  // @@protoc_insertion_point(destructor:service_layer.SLAFNotif.SLRedistMarker)
   if (GetArenaForAllocation() != nullptr) return;
   SharedDtor();
   _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-inline void SLRedistMarker::SharedDtor() {
+inline void SLAFNotif_SLRedistMarker::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
 }
 
-void SLRedistMarker::ArenaDtor(void* object) {
-  SLRedistMarker* _this = reinterpret_cast< SLRedistMarker* >(object);
+void SLAFNotif_SLRedistMarker::ArenaDtor(void* object) {
+  SLAFNotif_SLRedistMarker* _this = reinterpret_cast< SLAFNotif_SLRedistMarker* >(object);
   (void)_this;
 }
-void SLRedistMarker::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+void SLAFNotif_SLRedistMarker::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
 }
-void SLRedistMarker::SetCachedSize(int size) const {
+void SLAFNotif_SLRedistMarker::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
 
-void SLRedistMarker::Clear() {
-// @@protoc_insertion_point(message_clear_start:service_layer.SLRedistMarker)
+void SLAFNotif_SLRedistMarker::Clear() {
+// @@protoc_insertion_point(message_clear_start:service_layer.SLAFNotif.SLRedistMarker)
   uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
@@ -8544,7 +8544,7 @@ void SLRedistMarker::Clear() {
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* SLRedistMarker::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* SLAFNotif_SLRedistMarker::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
     uint32_t tag;
@@ -8582,9 +8582,9 @@ failure:
 #undef CHK_
 }
 
-uint8_t* SLRedistMarker::_InternalSerialize(
+uint8_t* SLAFNotif_SLRedistMarker::_InternalSerialize(
     uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:service_layer.SLRedistMarker)
+  // @@protoc_insertion_point(serialize_to_array_start:service_layer.SLAFNotif.SLRedistMarker)
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
@@ -8599,12 +8599,12 @@ uint8_t* SLRedistMarker::_InternalSerialize(
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:service_layer.SLRedistMarker)
+  // @@protoc_insertion_point(serialize_to_array_end:service_layer.SLAFNotif.SLRedistMarker)
   return target;
 }
 
-size_t SLRedistMarker::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:service_layer.SLRedistMarker)
+size_t SLAFNotif_SLRedistMarker::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:service_layer.SLAFNotif.SLRedistMarker)
   size_t total_size = 0;
 
   uint32_t cached_has_bits = 0;
@@ -8620,21 +8620,21 @@ size_t SLRedistMarker::ByteSizeLong() const {
   return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
 }
 
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData SLRedistMarker::_class_data_ = {
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData SLAFNotif_SLRedistMarker::_class_data_ = {
     ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
-    SLRedistMarker::MergeImpl
+    SLAFNotif_SLRedistMarker::MergeImpl
 };
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*SLRedistMarker::GetClassData() const { return &_class_data_; }
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*SLAFNotif_SLRedistMarker::GetClassData() const { return &_class_data_; }
 
-void SLRedistMarker::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+void SLAFNotif_SLRedistMarker::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
                       const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-  static_cast<SLRedistMarker *>(to)->MergeFrom(
-      static_cast<const SLRedistMarker &>(from));
+  static_cast<SLAFNotif_SLRedistMarker *>(to)->MergeFrom(
+      static_cast<const SLAFNotif_SLRedistMarker &>(from));
 }
 
 
-void SLRedistMarker::MergeFrom(const SLRedistMarker& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:service_layer.SLRedistMarker)
+void SLAFNotif_SLRedistMarker::MergeFrom(const SLAFNotif_SLRedistMarker& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:service_layer.SLAFNotif.SLRedistMarker)
   GOOGLE_DCHECK_NE(&from, this);
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
@@ -8645,24 +8645,24 @@ void SLRedistMarker::MergeFrom(const SLRedistMarker& from) {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
-void SLRedistMarker::CopyFrom(const SLRedistMarker& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:service_layer.SLRedistMarker)
+void SLAFNotif_SLRedistMarker::CopyFrom(const SLAFNotif_SLRedistMarker& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:service_layer.SLAFNotif.SLRedistMarker)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool SLRedistMarker::IsInitialized() const {
+bool SLAFNotif_SLRedistMarker::IsInitialized() const {
   return true;
 }
 
-void SLRedistMarker::InternalSwap(SLRedistMarker* other) {
+void SLAFNotif_SLRedistMarker::InternalSwap(SLAFNotif_SLRedistMarker* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   swap(table_, other->table_);
 }
 
-::PROTOBUF_NAMESPACE_ID::Metadata SLRedistMarker::GetMetadata() const {
+::PROTOBUF_NAMESPACE_ID::Metadata SLAFNotif_SLRedistMarker::GetMetadata() const {
   return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_sl_5faf_2eproto_getter, &descriptor_table_sl_5faf_2eproto_once,
       file_level_metadata_sl_5faf_2eproto[27]);
@@ -8673,8 +8673,8 @@ void SLRedistMarker::InternalSwap(SLRedistMarker* other) {
 class SLAFNotif::_Internal {
  public:
   static const ::service_layer::SLAFNotifRsp& notifstatus(const SLAFNotif* msg);
-  static const ::service_layer::SLRedistMarker& startmarker(const SLAFNotif* msg);
-  static const ::service_layer::SLRedistMarker& endmarker(const SLAFNotif* msg);
+  static const ::service_layer::SLAFNotif_SLRedistMarker& startmarker(const SLAFNotif* msg);
+  static const ::service_layer::SLAFNotif_SLRedistMarker& endmarker(const SLAFNotif* msg);
   static const ::service_layer::SLAFObject& redistobject(const SLAFNotif* msg);
   static const ::service_layer::SLNextHop& nexthop(const SLAFNotif* msg);
 };
@@ -8683,11 +8683,11 @@ const ::service_layer::SLAFNotifRsp&
 SLAFNotif::_Internal::notifstatus(const SLAFNotif* msg) {
   return *msg->Event_.notifstatus_;
 }
-const ::service_layer::SLRedistMarker&
+const ::service_layer::SLAFNotif_SLRedistMarker&
 SLAFNotif::_Internal::startmarker(const SLAFNotif* msg) {
   return *msg->Event_.startmarker_;
 }
-const ::service_layer::SLRedistMarker&
+const ::service_layer::SLAFNotif_SLRedistMarker&
 SLAFNotif::_Internal::endmarker(const SLAFNotif* msg) {
   return *msg->Event_.endmarker_;
 }
@@ -8714,12 +8714,12 @@ void SLAFNotif::set_allocated_notifstatus(::service_layer::SLAFNotifRsp* notifst
   }
   // @@protoc_insertion_point(field_set_allocated:service_layer.SLAFNotif.NotifStatus)
 }
-void SLAFNotif::set_allocated_startmarker(::service_layer::SLRedistMarker* startmarker) {
+void SLAFNotif::set_allocated_startmarker(::service_layer::SLAFNotif_SLRedistMarker* startmarker) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
   clear_Event();
   if (startmarker) {
     ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-      ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper<::service_layer::SLRedistMarker>::GetOwningArena(startmarker);
+      ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper<::service_layer::SLAFNotif_SLRedistMarker>::GetOwningArena(startmarker);
     if (message_arena != submessage_arena) {
       startmarker = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
           message_arena, startmarker, submessage_arena);
@@ -8729,12 +8729,12 @@ void SLAFNotif::set_allocated_startmarker(::service_layer::SLRedistMarker* start
   }
   // @@protoc_insertion_point(field_set_allocated:service_layer.SLAFNotif.StartMarker)
 }
-void SLAFNotif::set_allocated_endmarker(::service_layer::SLRedistMarker* endmarker) {
+void SLAFNotif::set_allocated_endmarker(::service_layer::SLAFNotif_SLRedistMarker* endmarker) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
   clear_Event();
   if (endmarker) {
     ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-      ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper<::service_layer::SLRedistMarker>::GetOwningArena(endmarker);
+      ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper<::service_layer::SLAFNotif_SLRedistMarker>::GetOwningArena(endmarker);
     if (message_arena != submessage_arena) {
       endmarker = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
           message_arena, endmarker, submessage_arena);
@@ -8793,11 +8793,11 @@ SLAFNotif::SLAFNotif(const SLAFNotif& from)
       break;
     }
     case kStartMarker: {
-      _internal_mutable_startmarker()->::service_layer::SLRedistMarker::MergeFrom(from._internal_startmarker());
+      _internal_mutable_startmarker()->::service_layer::SLAFNotif_SLRedistMarker::MergeFrom(from._internal_startmarker());
       break;
     }
     case kEndMarker: {
-      _internal_mutable_endmarker()->::service_layer::SLRedistMarker::MergeFrom(from._internal_endmarker());
+      _internal_mutable_endmarker()->::service_layer::SLAFNotif_SLRedistMarker::MergeFrom(from._internal_endmarker());
       break;
     }
     case kRedistObject: {
@@ -8908,7 +8908,7 @@ const char* SLAFNotif::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::
         } else
           goto handle_unusual;
         continue;
-      // .service_layer.SLRedistMarker StartMarker = 2;
+      // .service_layer.SLAFNotif.SLRedistMarker StartMarker = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
           ptr = ctx->ParseMessage(_internal_mutable_startmarker(), ptr);
@@ -8916,7 +8916,7 @@ const char* SLAFNotif::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::
         } else
           goto handle_unusual;
         continue;
-      // .service_layer.SLRedistMarker EndMarker = 3;
+      // .service_layer.SLAFNotif.SLRedistMarker EndMarker = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 26)) {
           ptr = ctx->ParseMessage(_internal_mutable_endmarker(), ptr);
@@ -8977,7 +8977,7 @@ uint8_t* SLAFNotif::_InternalSerialize(
         1, _Internal::notifstatus(this), target, stream);
   }
 
-  // .service_layer.SLRedistMarker StartMarker = 2;
+  // .service_layer.SLAFNotif.SLRedistMarker StartMarker = 2;
   if (_internal_has_startmarker()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
@@ -8985,7 +8985,7 @@ uint8_t* SLAFNotif::_InternalSerialize(
         2, _Internal::startmarker(this), target, stream);
   }
 
-  // .service_layer.SLRedistMarker EndMarker = 3;
+  // .service_layer.SLAFNotif.SLRedistMarker EndMarker = 3;
   if (_internal_has_endmarker()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
@@ -9033,14 +9033,14 @@ size_t SLAFNotif::ByteSizeLong() const {
           *Event_.notifstatus_);
       break;
     }
-    // .service_layer.SLRedistMarker StartMarker = 2;
+    // .service_layer.SLAFNotif.SLRedistMarker StartMarker = 2;
     case kStartMarker: {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
           *Event_.startmarker_);
       break;
     }
-    // .service_layer.SLRedistMarker EndMarker = 3;
+    // .service_layer.SLAFNotif.SLRedistMarker EndMarker = 3;
     case kEndMarker: {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
@@ -9093,11 +9093,11 @@ void SLAFNotif::MergeFrom(const SLAFNotif& from) {
       break;
     }
     case kStartMarker: {
-      _internal_mutable_startmarker()->::service_layer::SLRedistMarker::MergeFrom(from._internal_startmarker());
+      _internal_mutable_startmarker()->::service_layer::SLAFNotif_SLRedistMarker::MergeFrom(from._internal_startmarker());
       break;
     }
     case kEndMarker: {
-      _internal_mutable_endmarker()->::service_layer::SLRedistMarker::MergeFrom(from._internal_endmarker());
+      _internal_mutable_endmarker()->::service_layer::SLAFNotif_SLRedistMarker::MergeFrom(from._internal_endmarker());
       break;
     }
     case kRedistObject: {
@@ -9459,8 +9459,8 @@ template<> PROTOBUF_NOINLINE ::service_layer::SLAFNotifRsp* Arena::CreateMaybeMe
 template<> PROTOBUF_NOINLINE ::service_layer::SLNextHop* Arena::CreateMaybeMessage< ::service_layer::SLNextHop >(Arena* arena) {
   return Arena::CreateMessageInternal< ::service_layer::SLNextHop >(arena);
 }
-template<> PROTOBUF_NOINLINE ::service_layer::SLRedistMarker* Arena::CreateMaybeMessage< ::service_layer::SLRedistMarker >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::service_layer::SLRedistMarker >(arena);
+template<> PROTOBUF_NOINLINE ::service_layer::SLAFNotif_SLRedistMarker* Arena::CreateMaybeMessage< ::service_layer::SLAFNotif_SLRedistMarker >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::service_layer::SLAFNotif_SLRedistMarker >(arena);
 }
 template<> PROTOBUF_NOINLINE ::service_layer::SLAFNotif* Arena::CreateMaybeMessage< ::service_layer::SLAFNotif >(Arena* arena) {
   return Arena::CreateMessageInternal< ::service_layer::SLAFNotif >(arena);

@@ -718,25 +718,25 @@ message SLNextHop {
     repeated SLRoutePath Paths = 8;
 }
 
-// Route redistribution marker
-message SLRedistMarker {
-    // Table type for the Marker.
-    SLTableType Table = 1;
-}
-
 // AF Notification message
 message SLAFNotif {
+    // Route redistribution marker
+    message SLRedistMarker {
+        // Table type for the Marker.
+        SLTableType Table = 1;
+    }
+    
     oneof Event {
         // This field carries the status of the SLAFNotifReq message
         SLAFNotifRsp NotifStatus = 1;
 
-        // This field carries the start marker per Tabletype per VRF name.
+        // This field carries the start marker per VRF name per Tabletype.
         // Server sends this event before any notifications are sent.
         // This allows the client to stale any previous notifications in its
         // database.
         SLRedistMarker StartMarker = 2;
 
-        // This field carries the end marker per Tabl per VRF name for 
+        // This field carries the end marker per VRF name per Tabletype for 
         // notifications and is an indication from the server that all 
         // notifications corresponding to the registered requests have been
         // sent to the client. The client can now reconcile and
