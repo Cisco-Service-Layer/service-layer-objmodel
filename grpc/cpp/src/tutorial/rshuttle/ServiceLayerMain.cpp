@@ -1,4 +1,6 @@
 #include "ServiceLayerRoute.h"
+#include "ServiceLayerRoutev2.h"
+#include <getopt.h>
 #include <string>
 #include <csignal>
 
@@ -14,6 +16,41 @@ using service_layer::SLGlobal;
 
 std::string username = "";
 std::string password = "";
+
+bool version2;
+bool global_init_rpc = false;
+
+class testingData
+{
+public:
+    // table_type is used to determine if we are doing ipv4(value = 0x1) ipv6(value = 0x2), or mpls(value = 0x3)
+    service_layer::SLTableType table_type = service_layer::SL_IPv4_ROUTE_TABLE;
+
+    service_layer::SLObjectOp route_oper = service_layer::SL_OBJOP_RESERVED;
+    service_layer::SLRegOp vrf_reg_oper = service_layer::SL_REGOP_RESERVED;
+    unsigned int batch_size = 1024;
+    unsigned int batch_num = 98;
+
+    // For Ipv4
+    std::string first_prefix_ipv4 = "40.0.0.0";
+    unsigned int prefix_len_ipv4 = 24;
+    std::string next_hop_interface_ipv4 = "Bundle-Ether1";
+    std::string next_hop_ip_ipv4 = "14.1.1.10";
+
+    // For Ipv6
+    std::string first_prefix_ipv6 = "2002:aa::0";
+    unsigned int prefix_len_ipv6 = 64;
+    std::string next_hop_interface_ipv6 = "Bundle-Ether1";
+    std::string next_hop_ip_ipv6 = "2002:ae::3";
+
+    // For MPLS
+    std::string first_mpls_path_nhip = "11.0.0.1";
+    std::string next_hop_interface_mpls = "FourHundredGigE0/0/0/0";
+    unsigned int start_label = 20000;
+    unsigned int num_label = 1000;
+    unsigned int num_paths = 1;
+};
+service_layer::SLTableType table_type;
 
 class Timer
 {
@@ -48,9 +85,11 @@ getEnvVar(std::string const & key)
     return val == NULL ? std::string("") : std::string(val);
 }
 
-
+// These signum are used with correspondence to signalHandler and signalHandlerSlaf
 SLVrf* vrfhandler_signum;
 RShuttle* rshuttle_signum;
+SLAFVrf* afvrfhandler_signum;
+SLAFRShuttle* slaf_rshuttle_signum;
 AsyncNotifChannel* asynchandler_signum;
 bool sighandle_initiated = false;
 
@@ -68,23 +107,59 @@ signalHandler(int signum)
        // Create a fresh SLVrfRegMsg batch for cleanup
        vrfhandler_signum->vrfRegMsgAdd("default");
 
-       vrfhandler_signum->unregisterVrf(AF_INET);
-       vrfhandler_signum->unregisterVrf(AF_INET6);
+       vrfhandler_signum->registerVrf(service_layer::SL_IPv4_ROUTE_TABLE, service_layer::SL_REGOP_UNREGISTER);
+       vrfhandler_signum->registerVrf(service_layer::SL_IPv6_ROUTE_TABLE, service_layer::SL_REGOP_UNREGISTER);
 
        delete rshuttle_signum;
 
        // Shutdown the Async Notification Channel  
-       asynchandler_signum->Shutdown();
+       if (global_init_rpc) {
+            asynchandler_signum->Shutdown();
+       }
 
        //terminate program  
        exit(signum);  
     } 
 }
 
+void 
+signalHandlerSlaf(int signum)
+{
+    if (!sighandle_initiated) {
+    sighandle_initiated = true;
+    VLOG(1) << "Interrupt signal (" << signum << ") received.";
+
+    // Clear out the last vrfRegMsg batch
+    afvrfhandler_signum->af_vrf_msg.clear_vrfregmsgs();
+
+    // Create a fresh SLVrfRegMsg batch for cleanup
+    if(table_type == service_layer::SL_IPv4_ROUTE_TABLE){
+        afvrfhandler_signum->afVrfRegMsgAdd("default",service_layer::SL_IPv4_ROUTE_TABLE);
+        afvrfhandler_signum->registerAfVrf(service_layer::SL_IPv4_ROUTE_TABLE, service_layer::SL_REGOP_UNREGISTER);
+    } else if (table_type == service_layer::SL_IPv6_ROUTE_TABLE){
+        afvrfhandler_signum->afVrfRegMsgAdd("default",service_layer::SL_IPv6_ROUTE_TABLE);
+        afvrfhandler_signum->registerAfVrf(service_layer::SL_IPv6_ROUTE_TABLE, service_layer::SL_REGOP_UNREGISTER);
+    } else if(table_type == service_layer::SL_MPLS_LABEL_TABLE){
+        afvrfhandler_signum->afVrfRegMsgAdd("default",service_layer::SL_MPLS_LABEL_TABLE);
+        afvrfhandler_signum->registerAfVrf(service_layer::SL_MPLS_LABEL_TABLE, service_layer::SL_REGOP_UNREGISTER);
+    }
+
+    delete slaf_rshuttle_signum;
+
+    // Shutdown the Async Notification Channel  
+    if (global_init_rpc) {
+        asynchandler_signum->Shutdown();
+    }
+
+    //terminate program  
+    exit(signum);  
+    }  
+}
 
 void routepush(RShuttle* route_shuttle,
                unsigned int batchSize,
-               unsigned int batchNum)
+               unsigned int batchNum,
+               service_layer::SLObjectOp route_oper)
 
 {
 
@@ -103,10 +178,10 @@ void routepush(RShuttle* route_shuttle,
         VLOG(1) << "Batch: " << (batchindex + 1) << "\n";
         VLOG(1) << tmr.elapsed();
         for (int routeindex = 0; routeindex < batchSize; routeindex++, prefix=incrementIpv4Pfx(prefix, prefix_len)) {
-            route_shuttle->insertAddBatchV4(route_shuttle->longToIpv4(prefix), prefix_len, 99, "14.1.1.10", "Bundle-Ether1");
+            route_shuttle->insertAddBatchV4(route_shuttle->longToIpv4(prefix), prefix_len, 99, "14.1.1.10", "Bundle-Ether1", route_oper);
             totalroutes++;
         }
-        route_shuttle->routev4Op(service_layer::SL_OBJOP_UPDATE);
+        route_shuttle->routev4Op(route_oper);
     }
 
     auto time_taken = tmr.elapsed();
@@ -118,13 +193,145 @@ void routepush(RShuttle* route_shuttle,
 
 }
 
+void routepush_slaf(SLAFRShuttle* slaf_route_shuttle,
+               testingData env_data,
+               service_layer::SLTableType addr_family)
+
+{
+    Timer tmr;
+    unsigned int totalroutes = 0;
+
+    if (addr_family == service_layer::SL_IPv4_ROUTE_TABLE) {
+        slaf_route_shuttle->setVrfV4("default");
+        LOG(INFO) << "Starting IPV4 Route batch";
+
+        if (env_data.batch_num == 0) {
+            LOG(ERROR) << "batch_num needs to be higher than 0";
+            return;
+        }
+
+        if (env_data.batch_num == 0) {
+            LOG(ERROR) << "batch_num needs to be higher than 0";
+            return;
+        }
+        auto prefix = slaf_route_shuttle->ipv4ToLong(env_data.first_prefix_ipv4.c_str());
+        uint8_t prefix_len = env_data.prefix_len_ipv4;
+
+        // This will push batch_num*batch_size routes
+        for (int batchindex = 0; batchindex < env_data.batch_num; batchindex++) {
+            VLOG(1) << "Batch: " << (batchindex + 1) << "\n";
+            VLOG(1) << tmr.elapsed();
+            for (int routeindex = 0; routeindex < env_data.batch_size; routeindex++, prefix=incrementIpv4Pfx(prefix,prefix_len)) {
+                // Helper function to set all attributes for SLAFMsg
+                slaf_route_shuttle->insertAddBatchV4(slaf_route_shuttle->longToIpv4(prefix),
+                                                  prefix_len,
+                                                  99,
+                                                  env_data.next_hop_ip_ipv4,
+                                                  env_data.next_hop_interface_ipv4,
+                                                  env_data.route_oper);
+                totalroutes++;
+            }
+            slaf_route_shuttle->routeSLAFOp(env_data.route_oper, addr_family);
+        }
+
+    } else if (addr_family == service_layer::SL_IPv6_ROUTE_TABLE) {
+        slaf_route_shuttle->setVrfV6("default");
+        LOG(INFO) << "Starting IPV6 Route batch";
+
+        std::string prefix_str = env_data.first_prefix_ipv6;
+        auto prefix = slaf_route_shuttle->ipv6ToByteArrayString(prefix_str.c_str());
+        uint8_t prefix_len = env_data.prefix_len_ipv6;
+        // Helper function to set all attributes for SLAFMsg
+        slaf_route_shuttle->insertAddBatchV6(slaf_route_shuttle->ByteArrayStringtoIpv6(prefix),
+                                          prefix_len,
+                                          99,
+                                          env_data.next_hop_ip_ipv6,
+                                          env_data.next_hop_interface_ipv6,
+                                          env_data.route_oper);
+        totalroutes++;
+
+        prefix_str = "2003:aa::0";
+        prefix = slaf_route_shuttle->ipv6ToByteArrayString(prefix_str.c_str());
+        slaf_route_shuttle->insertAddBatchV6(slaf_route_shuttle->ByteArrayStringtoIpv6(prefix),
+                                          prefix_len,
+                                          99,
+                                          env_data.next_hop_ip_ipv6,
+                                          env_data.next_hop_interface_ipv6,
+                                          env_data.route_oper);
+        totalroutes++;
+        slaf_route_shuttle->routeSLAFOp(env_data.route_oper, addr_family);
+
+    } else if (addr_family == service_layer::SL_MPLS_LABEL_TABLE) {
+        // Do not need to setvrf name as not needed for 
+        slaf_route_shuttle->setVrfV4("default");
+        LOG(INFO) << "Starting MPLS";
+        if (env_data.batch_size == 0) {
+            LOG(ERROR) << "batch_size needs to be higher than 0";
+            return;
+        }
+        auto next_hop_address = slaf_route_shuttle->ipv4ToLong(env_data.first_mpls_path_nhip.c_str());
+        totalroutes = slaf_route_shuttle->insertAddBatchMPLS(env_data.start_label,
+                                                          env_data.num_label,
+                                                          env_data.num_paths, env_data.batch_size,
+                                                          next_hop_address,
+                                                          env_data.next_hop_interface_mpls,
+                                                          env_data.route_oper);
+    }
+
+    auto time_taken = tmr.elapsed();
+    LOG(INFO) << "\nTime taken to program "<< totalroutes << " routes\n " 
+              << time_taken
+              << "\nRoute programming rate\n"
+              << float(totalroutes)/time_taken << " routes/sec\n";
+
+}
+
+// Handles VRF registration
+void run_slaf(SLAFVrf* af_vrf_handler, service_layer::SLTableType addr_family, service_layer::SLRegOp vrf_reg_oper){
+
+    std::string vrf_oper_str = "";
+    if(vrf_reg_oper == service_layer::SL_REGOP_REGISTER) {
+        vrf_oper_str = "SL_REGOP_REGISTER";
+    } else if (vrf_reg_oper == service_layer::SL_REGOP_UNREGISTER) {
+        vrf_oper_str = "SL_REGOP_UNREGISTER";
+    } else if (vrf_reg_oper == service_layer::SL_REGOP_EOF) {
+        vrf_oper_str = "SL_REGOP_EOF";
+    }
+    switch(addr_family){
+        // Create a new SLAFVrfRegMsg batch and Register it
+        case service_layer::SL_IPv4_ROUTE_TABLE:
+            LOG(INFO) << "Performing " << vrf_oper_str << " VRF for SL_IPv4_ROUTE_TABLE" ;
+            af_vrf_handler->afVrfRegMsgAdd("default", 10, 500, service_layer::SL_IPv4_ROUTE_TABLE);
+            af_vrf_handler->registerAfVrf(service_layer::SL_IPv4_ROUTE_TABLE, vrf_reg_oper);
+            break;
+        case service_layer::SL_IPv6_ROUTE_TABLE:
+            LOG(INFO) << "Performing " << vrf_oper_str << " VRF for SL_IPv6_ROUTE_TABLE" ;
+            af_vrf_handler->afVrfRegMsgAdd("default", 10, 500, service_layer::SL_IPv6_ROUTE_TABLE);
+            af_vrf_handler->registerAfVrf(service_layer::SL_IPv6_ROUTE_TABLE, vrf_reg_oper);
+            break;
+        case service_layer::SL_MPLS_LABEL_TABLE:
+            LOG(INFO) << "Performing " << vrf_oper_str << " VRF for SL_MPLS_LABEL_TABLE" ;
+            af_vrf_handler->afVrfRegMsgAdd("default", 10, 500, service_layer::SL_MPLS_LABEL_TABLE);
+            af_vrf_handler->registerAfVrf(service_layer::SL_MPLS_LABEL_TABLE, vrf_reg_oper);
+            break;
+    }
+    LOG(INFO) << vrf_oper_str << " VRF Successful";
+
+}
 
 int main(int argc, char** argv) {
 
     int option_char;
+    int option_long;
 
     auto server_ip = getEnvVar("SERVER_IP");
     auto server_port = getEnvVar("SERVER_PORT");
+    std:: string dummy = "";
+    version2 = true;
+
+    // Setting up GLOG (Google Logging)
+    FLAGS_logtostderr = 1;
+    google::InitGoogleLogging(argv[0]);
 
     if (server_ip == "" || server_port == "") {
         if (server_ip == "") {
@@ -136,22 +343,184 @@ int main(int argc, char** argv) {
         return 1;
     }
 
-    while ((option_char = getopt(argc, argv, "u:p:")) != -1) {
-        switch (option_char) {
+    testingData env_data;
+
+    const struct option longopts[] = {
+        {"table_type", required_argument, nullptr, 't'},
+        {"route_oper", required_argument, nullptr, 'a'},
+        {"vrf_reg_oper", required_argument, nullptr, 'w'},
+        {"batch_size", required_argument, nullptr, 'b'},
+        {"batch_num", required_argument, nullptr, 'c'},
+        {"first_prefix_ipv4", required_argument, nullptr, 'd'},
+        {"prefix_len_ipv4", required_argument, nullptr, 'e'},
+        {"next_hop_interface_ipv4", required_argument, nullptr, 'f'},
+        {"next_hop_ip_ipv4", required_argument, nullptr, 'g'},
+        {"first_prefix_ipv6", required_argument, nullptr, 'i'},
+        {"prefix_len_ipv6", required_argument, nullptr, 'j'},
+        {"next_hop_interface_ipv6", required_argument, nullptr, 'k'},
+        {"next_hop_ip_ipv6", required_argument, nullptr, 'l'},
+        {"first_mpls_path_nhip", required_argument, nullptr, 'm'},
+        {"next_hop_interface_mpls", required_argument, nullptr, 'n'},
+        {"start_label", required_argument, nullptr, 'o'},
+        {"num_label", required_argument, nullptr, 'q'},
+        {"num_paths", required_argument, nullptr, 'r'},
+
+        {"help", no_argument, nullptr, 'h'},
+        {"username", required_argument, nullptr, 'u'},
+        {"password", required_argument, nullptr, 'p'},
+        {"slaf", required_argument, nullptr, 'v'},
+        {"global_init", required_argument, nullptr, 's'},
+
+        {nullptr,0,nullptr,0}
+    };
+
+    while ((option_long = getopt_long_only(argc, argv, "t:a:w:b:c:d:e:f:g:i:j:k:l:m:n:o:q:r:s:hu:p:v:",longopts,nullptr)) != -1) {
+        switch (option_long) {
+            case 't':
+                dummy = optarg;
+                if(dummy == "ipv6") {
+                    env_data.table_type = service_layer::SL_IPv6_ROUTE_TABLE;
+                } else if (dummy == "mpls") {
+                    env_data.table_type = service_layer::SL_MPLS_LABEL_TABLE;
+                } else {
+                    env_data.table_type = service_layer::SL_IPv4_ROUTE_TABLE;
+                }
+                break;
+            case 'a':
+
+                dummy = optarg;
+                if (dummy == "Add") {
+                    env_data.route_oper = service_layer::SL_OBJOP_ADD;
+                } else if (dummy == "Update") {
+                    env_data.route_oper = service_layer::SL_OBJOP_UPDATE;
+                } else if (dummy == "Delete") {
+                    env_data.route_oper = service_layer::SL_OBJOP_DELETE;
+                } else {
+                    fprintf (stderr, "Requires: %s --route_oper (Add), (Update), (Delete) \n", argv[0]);
+                    return 1;
+                }
+                break;
+            case 'w':
+                dummy = optarg;
+                if (dummy == "Register") {
+                    env_data.vrf_reg_oper = service_layer::SL_REGOP_REGISTER;
+                } else if (dummy == "Unregister") {
+                    env_data.vrf_reg_oper = service_layer::SL_REGOP_UNREGISTER;
+                } else if (dummy == "EOF") {
+                    env_data.vrf_reg_oper = service_layer::SL_REGOP_EOF;
+                } else {
+                    fprintf (stderr, "Requires: %s --vrf_reg_oper (Register), (Unregister), (EOF) \n", argv[0]);
+                    return 1;
+                }
+                break;
+            case 'b':
+                env_data.batch_size = std::stoi(optarg);
+                break;
+            case 'c':
+                env_data.batch_num = std::stoi(optarg);
+                break;
+            case 'd':
+                env_data.first_prefix_ipv4 = optarg;
+                break;
+            case 'e':
+                env_data.prefix_len_ipv4 = std::stoi(optarg);
+                break;
+            case 'f':
+                env_data.next_hop_interface_ipv4 = optarg;
+                break;
+            case 'g':
+                env_data.next_hop_ip_ipv4 = optarg;
+                break;
+            case 'i':
+                env_data.first_prefix_ipv6 = optarg;
+                break;
+            case 'j':
+                env_data.prefix_len_ipv6 = std::stoi(optarg);
+                break;
+            case 'k':
+                env_data.next_hop_interface_ipv6 = optarg;
+                break;
+            case 'l':
+                env_data.next_hop_ip_ipv6 = optarg;
+                break;
+            case 'm':
+                env_data.first_mpls_path_nhip = optarg;
+                break;
+            case 'n':
+                env_data.next_hop_interface_mpls = optarg;
+                break;
+            case 'o':
+                env_data.start_label = std::stoi(optarg);
+                break;
+            case 'q':
+                env_data.num_label = std::stoi(optarg);
+                break;
+            case 'r':
+                env_data.num_paths = std::stoi(optarg);
+                break;
+            case 's':
+                dummy = optarg;
+                if (dummy == "true") {
+                    global_init_rpc = true;
+                }
+                break;
+
+            case 'h':
+                LOG(INFO) <<"Usage:";
+                LOG(INFO) <<"Required Arguments: ";
+                LOG(INFO) <<"| -u/--username                    | Username (Required argument) |";
+                LOG(INFO) <<"| -p/--password                    | Password (Required argument) |";
+                LOG(INFO) <<"| -a/--route_oper                  | Route Operation: Add, Update, Delete (Required argument) |";
+                LOG(INFO) <<"| -w/--vrf_reg_oper                | VRF registration Operation: Register, Unregister, EOF. When Unregister, all existing pushed routes will be deleted and route pushing will not be performed. Remember to specific correct table_type when Unregistering (Required argument) |";
+                LOG(INFO) << "Optional arguments you can set in environment:";
+                LOG(INFO) <<"| -t/--table_type                  | Specify whether to do ipv4, ipv6 or mpls operation, PG is currently not supported (default ipv4) |";
+                LOG(INFO) <<"| -v/--slaf                        | Specify if you want to use slaf proto RPCs to program objects or not. If not, only configurable options are batch_size and batch_num (default true) |";
+                LOG(INFO) <<"| -s/--global_init                 | Enable our Async Global Init RPC to handshake the API version number with the server (default false) |";
+                LOG(INFO) << "| -h/--help                       | Help |";
+                LOG(INFO) << "| -b/--batch_size                 | Configure the number of ipv4 routes or MPLS entires to be added to a batch (default 1024) |";
+                LOG(INFO) << "| -c/--batch_num                  | Configure the number of batches (default 98) | \n";
+                LOG(INFO) << "IPv4 Testing";
+                LOG(INFO) << "| -d/--first_prefix_ipv4          | Configure the starting address for this test for IPV4 (default 40.0.0.0) |";
+                LOG(INFO) << "| -e/--prefix_len_ipv4            | Configure the prefix length for this test for IPV4 address (default 24) |";
+                LOG(INFO) << "| -f/--next_hop_interface_ipv4    | Configure the next hop interface for IPV4 (default Bundle-Ether1) |";
+                LOG(INFO) << "| -g/--next_hop_ip_ipv4           | Configure the next hop ip address for IPV4 (default 14.1.1.10) | \n";
+                LOG(INFO) << "IPv6 Testing";
+                LOG(INFO) << "| -i/--first_prefix_ipv6          | Configure the starting address for this test for IPV6 (default 2002:aa::0) |";
+                LOG(INFO) << "| -j/--prefix_len_ipv6            | Configure the prefix length for this test for IPV6 address (default 64) |";
+                LOG(INFO) << "| -k/--next_hop_interface_ipv6    | Configure the next hop interface for IPV6 (default Bundle-Ether1) |";
+                LOG(INFO) << "| -l/--next_hop_ip_ipv6           | Configure the next hop ip address for IPV6 (default 2002:ae::3) | \n";
+                LOG(INFO) << "MPLS Testing";
+                LOG(INFO) << "| -m/--first_mpls_path_nhip       | Configure the starting address for this test for MPLS (default 11.0.0.1) |";
+                LOG(INFO) << "| -n/--next_hop_interface_mpls    | Configure the next hop interface for MPLS (default FourHundredGigE0/0/0/0) |";
+                LOG(INFO) << "| -o/--start_label                | Configure the starting label for this test for MPLS (default 20000) |";
+                LOG(INFO) << "| -q/--num_label                  | Configure the number of labels to be allocated for MPLS (default 1000) |";
+                LOG(INFO) << "| -r/--num_paths                  | Configure the number of paths for MPLS labels (default 1)";
+                return 1;
             case 'u':
                 username = optarg;
                 break;
             case 'p':
                 password = optarg;
                 break;
+            case 'v':
+                dummy = optarg;
+                if(dummy == "false") {
+                    version2 = false;
+                }
+                break;
             default:
-                fprintf (stderr, "usage: %s -u username -p password\n", argv[0]);
+                fprintf (stderr, "usage: %s --username --password --route_oper --vrf_reg_oper\n", argv[0]);
                 return 1;
         }
     }
 
-    auto batch_size = (getEnvVar("BATCH_SIZE") != "")?stoi(getEnvVar("BATCH_SIZE")):1024;
-    auto batch_num = (getEnvVar("BATCH_NUM") != "")?stoi(getEnvVar("BATCH_NUM")):98; 
+    if(username == "" || password == ""){
+        LOG(INFO) << "Did not provide a Username and Password";
+    }
+    if(env_data.route_oper == service_layer::SL_OBJOP_RESERVED && env_data.vrf_reg_oper != service_layer::SL_REGOP_UNREGISTER) {
+        LOG(ERROR) << "Need to provide the route_oper. Or set vrf_reg_oper to Unregister";
+        return 0;
+    }
 
     std::string grpc_server = server_ip + ":" + server_port;
 
@@ -162,55 +531,86 @@ int main(int argc, char** argv) {
     auto channel = grpc::CreateChannel(
                               grpc_server, grpc::InsecureChannelCredentials());
 
-    
     AsyncNotifChannel asynchandler(channel);
+    std::thread thread_;
+    if (global_init_rpc) {
 
-    // Acquire the lock
-    std::unique_lock<std::mutex> initlock(init_mutex);
+        // Acquire the lock
+        std::unique_lock<std::mutex> initlock(init_mutex);
 
-    // Spawn reader thread that maintains our Notification Channel
-    std::thread thread_ = std::thread(&AsyncNotifChannel::AsyncCompleteRpc, &asynchandler);
+        // Spawn reader thread that maintains our Notification Channel
+        thread_ = std::thread(&AsyncNotifChannel::AsyncCompleteRpc, &asynchandler);
 
 
-    service_layer::SLInitMsg init_msg;
-    init_msg.set_majorver(service_layer::SL_MAJOR_VERSION);
-    init_msg.set_minorver(service_layer::SL_MINOR_VERSION);
-    init_msg.set_subver(service_layer::SL_SUB_VERSION);
+        service_layer::SLInitMsg init_msg;
+        init_msg.set_majorver(service_layer::SL_MAJOR_VERSION);
+        init_msg.set_minorver(service_layer::SL_MINOR_VERSION);
+        init_msg.set_subver(service_layer::SL_SUB_VERSION);
 
-    if (username.length() > 0) {
-        asynchandler.call.context.AddMetadata("username", username);
+        if (username.length() > 0) {
+            asynchandler.call.context.AddMetadata("username", username);
+        }
+        if (password.length() > 0) {
+            asynchandler.call.context.AddMetadata("password", password);
+        }
+
+        asynchandler.SendInitMsg(init_msg);
+
+        // Wait on the mutex lock
+        while (!init_success) {
+            init_condVar.wait(initlock);
+        }
     }
-    if (password.length() > 0) {
-        asynchandler.call.context.AddMetadata("password", password);
+
+    if (version2 == true) {
+        auto af_vrf_handler = SLAFVrf(channel,username,password);
+
+        // Need to specify ipv4 (default), ipv6(value = 1) or mpls(value = 2)
+        table_type = env_data.table_type;
+        // If vrf_rg_oper not set then we do not register vrf
+        if (env_data.vrf_reg_oper != service_layer::SL_REGOP_RESERVED) {
+            run_slaf(&af_vrf_handler,table_type, env_data.vrf_reg_oper);
+        }
+
+        // If we Unregister, then we do not push routes
+        if(env_data.vrf_reg_oper != service_layer::SL_REGOP_UNREGISTER) {
+            slaf_route_shuttle = new SLAFRShuttle(af_vrf_handler.channel, username, password);
+            routepush_slaf(slaf_route_shuttle, env_data, table_type);
+            delete slaf_route_shuttle;
+        }
+
+        if (global_init_rpc) {
+            asynchandler.Shutdown();
+            thread_.join();
+        }
+
+    } else {
+        auto vrfhandler = SLVrf(channel, username, password);
+
+        // Create a new SLVrfRegMsg batch
+        vrfhandler.vrfRegMsgAdd("default", 10, 500);
+
+        // If vrf_rg_oper not set then we do not register vrf
+        if (env_data.vrf_reg_oper != service_layer::SL_REGOP_RESERVED) {
+            // Register the SLVrfRegMsg batch for v4
+            vrfhandler.registerVrf(service_layer::SL_IPv4_ROUTE_TABLE, env_data.vrf_reg_oper);
+        }
+
+        // If we Unregister, then we do not push routes
+        if(env_data.vrf_reg_oper != service_layer::SL_REGOP_UNREGISTER) {
+            route_shuttle = new RShuttle(vrfhandler.channel, username, password);
+            auto batch_size = env_data.batch_size;
+            auto batch_num = env_data.batch_num;
+            auto route_oper = env_data.route_oper;
+            routepush(route_shuttle, batch_size, batch_num, route_oper);
+            delete route_shuttle;
+        }
+
+        if (global_init_rpc) {
+            asynchandler.Shutdown();
+            thread_.join();
+        }
     }
-
-    asynchandler.SendInitMsg(init_msg);
-
-    // Wait on the mutex lock
-    while (!init_success) {
-        init_condVar.wait(initlock);
-    }
-
-    auto vrfhandler = SLVrf(channel, username, password);
-
-    // Create a new SLVrfRegMsg batch
-    vrfhandler.vrfRegMsgAdd("default", 10, 500);
-
-    // Register the SLVrfRegMsg batch for v4 and v6
-    vrfhandler.registerVrf(AF_INET);
-    vrfhandler.registerVrf(AF_INET6);
-
-    route_shuttle = new RShuttle(vrfhandler.channel, username, password);
-
-    routepush(route_shuttle, batch_size, batch_num);
-
-    asynchandler_signum = &asynchandler;
-    vrfhandler_signum = &vrfhandler;
-    rshuttle_signum = route_shuttle;
-
-    signal(SIGINT, signalHandler);  
-    LOG(INFO) << "Press control-c to quit";
-    thread_.join();
 
     return 0;
 }

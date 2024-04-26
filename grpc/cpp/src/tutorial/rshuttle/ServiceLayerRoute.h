@@ -78,7 +78,8 @@ public:
                           uint8_t prefixLen,
                           uint32_t adminDistance,
                           std::string nextHopAddress,
-                          std::string nextHopIf);
+                          std::string nextHopIf,
+                          service_layer::SLObjectOp routeOper);
 
     bool insertDeleteBatchV4(std::string prefix,
                              uint8_t prefixLen);
@@ -153,7 +154,8 @@ public:
                           uint8_t prefixLen,
                           uint32_t adminDistance,
                           std::string nextHopAddress,
-                          std::string nextHopIf);
+                          std::string nextHopIf,
+                          service_layer::SLObjectOp routeOper);
 
     bool insertDeleteBatchV6(std::string prefix,
                              uint8_t prefixLen);
@@ -212,9 +214,7 @@ public:
                       unsigned int adminDistance,
                       unsigned int vrfPurgeIntervalSeconds);
 
-    bool registerVrf(unsigned int addrFamily);
-
-    bool unregisterVrf(unsigned int addrFamily);
+    bool registerVrf(service_layer::SLTableType addrFamily, service_layer::SLRegOp vrfRegOper);
 
     bool vrfOpv4(service_layer::SLRegOp);
 

@@ -86,7 +86,8 @@ RUN git clone https://github.com/google/glog.git -b v0.6.0-rc2 glog
 WORKDIR ${WS}/glog
 
 # Configure build tree
-RUN cmake -S . -B build -G "Unix Makefiles"
+# Installs glog in the install directory so it can be linked
+RUN cmake -S . -B build -G "Unix Makefiles" -DBUILD_SHARED_LIBS=OFF -DCMAKE_INSTALL_PREFIX=${MY_INSTALL_DIR}
 RUN cmake --build build
 RUN cmake --build build --target install
 WORKDIR ${WS}
