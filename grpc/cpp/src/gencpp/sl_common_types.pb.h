@@ -309,6 +309,7 @@ enum SLErrorStatus_SLErrno : int {
   SLErrorStatus_SLErrno_SL_INTF_RECOVERY_ERROR = 57349,
   SLErrorStatus_SLErrno_SL_INTF_INTERFACE_EXISTS = 57350,
   SLErrorStatus_SLErrno_SL_INTF_INTERFACE_NOT_FOUND = 57351,
+  SLErrorStatus_SLErrno_SL_INTF_INTERFACE_STATE_NOT_SUPPORTED = 57352,
   SLErrorStatus_SLErrno_SL_L2_REG_START_OFFSET = 61440,
   SLErrorStatus_SLErrno_SL_L2_REGISTRATION_ERR = 61441,
   SLErrorStatus_SLErrno_SL_L2_UNREGISTRATION_ERR = 61442,
@@ -1190,6 +1191,8 @@ class SLErrorStatus final :
     SLErrorStatus_SLErrno_SL_INTF_INTERFACE_EXISTS;
   static constexpr SLErrno SL_INTF_INTERFACE_NOT_FOUND =
     SLErrorStatus_SLErrno_SL_INTF_INTERFACE_NOT_FOUND;
+  static constexpr SLErrno SL_INTF_INTERFACE_STATE_NOT_SUPPORTED =
+    SLErrorStatus_SLErrno_SL_INTF_INTERFACE_STATE_NOT_SUPPORTED;
   static constexpr SLErrno SL_L2_REG_START_OFFSET =
     SLErrorStatus_SLErrno_SL_L2_REG_START_OFFSET;
   static constexpr SLErrno SL_L2_REGISTRATION_ERR =

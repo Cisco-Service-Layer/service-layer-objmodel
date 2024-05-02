@@ -15,7 +15,7 @@ _sym_db = _symbol_database.Default()
 from . import sl_common_types_pb2 as sl__common__types__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x12sl_interface.proto\x12\rservice_layer\x1a\x15sl_common_types.proto\"@\n\x18SLInterfaceGlobalsRegMsg\x12$\n\x04Oper\x18\x01 \x01(\x0e\x32\x16.service_layer.SLRegOp\"N\n\x1bSLInterfaceGlobalsRegMsgRsp\x12/\n\tErrStatus\x18\x01 \x01(\x0b\x32\x1c.service_layer.SLErrorStatus\"\x1a\n\x18SLInterfaceGlobalsGetMsg\"m\n\x1bSLInterfaceGlobalsGetMsgRsp\x12/\n\tErrStatus\x18\x01 \x01(\x0b\x32\x1c.service_layer.SLErrorStatus\x12\x1d\n\x15MaxInterfacesPerBatch\x18\x02 \x01(\r\"\x80\x01\n SLInterfaceGlobalsGetStatsMsgRsp\x12/\n\tErrStatus\x18\x01 \x01(\x0b\x32\x1c.service_layer.SLErrorStatus\x12\x0e\n\x06SeqNum\x18\x02 \x01(\x04\x12\x1b\n\x13InterfaceNotifCount\x18\x03 \x01(\r\"c\n\x11SLInterfaceGetMsg\x12\'\n\x03Key\x18\x01 \x01(\x0b\x32\x1a.service_layer.SLInterface\x12\x14\n\x0c\x45ntriesCount\x18\x02 \x01(\r\x12\x0f\n\x07GetNext\x18\x03 \x01(\x08\"\x84\x01\n\x12SLInterfaceInfoMsg\x12,\n\x08SLIfInfo\x18\x01 \x01(\x0b\x32\x1a.service_layer.SLInterface\x12\x30\n\x07IfState\x18\x02 \x01(\x0e\x32\x1f.service_layer.SLInterfaceState\x12\x0e\n\x06SeqNum\x18\x03 \x01(\x04\"\x88\x01\n\x14SLInterfaceGetMsgRsp\x12\x0b\n\x03\x45of\x18\x01 \x01(\x08\x12/\n\tErrStatus\x18\x02 \x01(\x0b\x32\x1c.service_layer.SLErrorStatus\x12\x32\n\x07\x45ntries\x18\x03 \x03(\x0b\x32!.service_layer.SLInterfaceInfoMsg\"\x18\n\x16SLInterfaceGetNotifMsg\"\xb9\x01\n\x10SLInterfaceNotif\x12\x36\n\tEventType\x18\x01 \x01(\x0e\x32#.service_layer.SLInterfaceNotifType\x12\x31\n\tErrStatus\x18\x02 \x01(\x0b\x32\x1c.service_layer.SLErrorStatusH\x00\x12\x31\n\x04Info\x18\x03 \x01(\x0b\x32!.service_layer.SLInterfaceInfoMsgH\x00\x42\x07\n\x05\x45vent\"j\n\x13SLInterfaceNotifMsg\x12&\n\x04Oper\x18\x01 \x01(\x0e\x32\x18.service_layer.SLNotifOp\x12+\n\x07\x45ntries\x18\x02 \x03(\x0b\x32\x1a.service_layer.SLInterface\"r\n\x16SLInterfaceNotifMsgRes\x12/\n\tErrStatus\x18\x01 \x01(\x0b\x32\x1c.service_layer.SLErrorStatus\x12\'\n\x03Key\x18\x02 \x01(\x0b\x32\x1a.service_layer.SLInterface\"\x85\x01\n\x16SLInterfaceNotifMsgRsp\x12\x33\n\rStatusSummary\x18\x01 \x01(\x0b\x32\x1c.service_layer.SLErrorStatus\x12\x36\n\x07Results\x18\x02 \x03(\x0b\x32%.service_layer.SLInterfaceNotifMsgRes*U\n\x10SLInterfaceState\x12\x17\n\x13SL_IF_STATE_UNKNOWN\x10\x00\x12\x14\n\x10SL_IF_STATE_DOWN\x10\x01\x12\x12\n\x0eSL_IF_STATE_UP\x10\x02*\x8b\x01\n\x14SLInterfaceNotifType\x12$\n SL_INTERFACE_EVENT_TYPE_RESERVED\x10\x00\x12!\n\x1dSL_INTERFACE_EVENT_TYPE_ERROR\x10\x01\x12*\n&SL_INTERFACE_EVENT_TYPE_INTERFACE_INFO\x10\x02\x32\x88\x05\n\x0fSLInterfaceOper\x12n\n\x17SLInterfaceGlobalsRegOp\x12\'.service_layer.SLInterfaceGlobalsRegMsg\x1a*.service_layer.SLInterfaceGlobalsRegMsgRsp\x12l\n\x15SLInterfaceGlobalsGet\x12\'.service_layer.SLInterfaceGlobalsGetMsg\x1a*.service_layer.SLInterfaceGlobalsGetMsgRsp\x12v\n\x1aSLInterfaceGlobalsGetStats\x12\'.service_layer.SLInterfaceGlobalsGetMsg\x1a/.service_layer.SLInterfaceGlobalsGetStatsMsgRsp\x12W\n\x0eSLInterfaceGet\x12 .service_layer.SLInterfaceGetMsg\x1a#.service_layer.SLInterfaceGetMsgRsp\x12\x65\n\x19SLInterfaceGetNotifStream\x12%.service_layer.SLInterfaceGetNotifMsg\x1a\x1f.service_layer.SLInterfaceNotif0\x01\x12_\n\x12SLInterfaceNotifOp\x12\".service_layer.SLInterfaceNotifMsg\x1a%.service_layer.SLInterfaceNotifMsgRspBQZOgithub.com/Cisco-service-layer/service-layer-objmodel/grpc/protos;service_layerb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x12sl_interface.proto\x12\rservice_layer\x1a\x15sl_common_types.proto\"B\n\x14SLInterfaceInfoMsgBw\x12\x14\n\x0cNewBandwidth\x18\x01 \x01(\x04\x12\x14\n\x0cOldBandwidth\x18\x02 \x01(\x04\"\xc7\x01\n\x12SLInterfaceInfoMsg\x12,\n\x08SLIfInfo\x18\x01 \x01(\x0b\x32\x1a.service_layer.SLInterface\x12\x30\n\x07IfState\x18\x02 \x01(\x0e\x32\x1f.service_layer.SLInterfaceState\x12\x11\n\tTimestamp\x18\x03 \x01(\x03\x12\x35\n\x06\x42wInfo\x18\n \x01(\x0b\x32#.service_layer.SLInterfaceInfoMsgBwH\x00\x42\x07\n\x05Value\"\x9e\x01\n\x18SLInterfaceNotifMsgEntry\x12\x13\n\x0bOperationId\x18\x01 \x01(\x04\x12\r\n\x05Regex\x18\x02 \x01(\x08\x12-\n\tInterface\x18\x03 \x01(\x0b\x32\x1a.service_layer.SLInterface\x12/\n\x06States\x18\x04 \x03(\x0e\x32\x1f.service_layer.SLInterfaceState\"w\n\x13SLInterfaceNotifMsg\x12&\n\x04Oper\x18\x01 \x01(\x0e\x32\x18.service_layer.SLNotifOp\x12\x38\n\x07\x45ntries\x18\x02 \x03(\x0b\x32\'.service_layer.SLInterfaceNotifMsgEntry\"\x87\x01\n\x16SLInterfaceNotifMsgRes\x12\x13\n\x0bOperationId\x18\x01 \x01(\x04\x12/\n\tErrStatus\x18\x02 \x01(\x0b\x32\x1c.service_layer.SLErrorStatus\x12\'\n\x03Key\x18\x03 \x01(\x0b\x32\x1a.service_layer.SLInterface\"P\n\x16SLInterfaceNotifMsgErr\x12\x36\n\x07\x44\x65tails\x18\x01 \x03(\x0b\x32%.service_layer.SLInterfaceNotifMsgRes\"\x86\x01\n\x10SLInterfaceNotif\x12\x36\n\x05\x45rror\x18\x01 \x01(\x0b\x32%.service_layer.SLInterfaceNotifMsgErrH\x00\x12\x31\n\x04Info\x18\x02 \x01(\x0b\x32!.service_layer.SLInterfaceInfoMsgH\x00\x42\x07\n\x05\x45vent*\xa3\x01\n\x10SLInterfaceState\x12\x17\n\x13SL_IF_STATE_UNKNOWN\x10\x00\x12\x17\n\x13SL_IF_STATE_CREATED\x10\x01\x12\x14\n\x10SL_IF_STATE_DOWN\x10\x02\x12\x12\n\x0eSL_IF_STATE_UP\x10\x03\x12\x17\n\x13SL_IF_STATE_DELETED\x10\x04\x12\x1a\n\x16SL_IF_STATE_BW_CHANGED\x10\x05\x32t\n\x0fSLInterfaceOper\x12\x61\n\x16SLInterfaceNotifStream\x12\".service_layer.SLInterfaceNotifMsg\x1a\x1f.service_layer.SLInterfaceNotif(\x01\x30\x01\x42QZOgithub.com/Cisco-service-layer/service-layer-objmodel/grpc/protos;service_layerb\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -23,36 +23,22 @@ _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'sl_interface_pb2', _globals
 if _descriptor._USE_C_DESCRIPTORS == False:
   _globals['DESCRIPTOR']._options = None
   _globals['DESCRIPTOR']._serialized_options = b'ZOgithub.com/Cisco-service-layer/service-layer-objmodel/grpc/protos;service_layer'
-  _globals['_SLINTERFACESTATE']._serialized_start=1425
-  _globals['_SLINTERFACESTATE']._serialized_end=1510
-  _globals['_SLINTERFACENOTIFTYPE']._serialized_start=1513
-  _globals['_SLINTERFACENOTIFTYPE']._serialized_end=1652
-  _globals['_SLINTERFACEGLOBALSREGMSG']._serialized_start=60
-  _globals['_SLINTERFACEGLOBALSREGMSG']._serialized_end=124
-  _globals['_SLINTERFACEGLOBALSREGMSGRSP']._serialized_start=126
-  _globals['_SLINTERFACEGLOBALSREGMSGRSP']._serialized_end=204
-  _globals['_SLINTERFACEGLOBALSGETMSG']._serialized_start=206
-  _globals['_SLINTERFACEGLOBALSGETMSG']._serialized_end=232
-  _globals['_SLINTERFACEGLOBALSGETMSGRSP']._serialized_start=234
-  _globals['_SLINTERFACEGLOBALSGETMSGRSP']._serialized_end=343
-  _globals['_SLINTERFACEGLOBALSGETSTATSMSGRSP']._serialized_start=346
-  _globals['_SLINTERFACEGLOBALSGETSTATSMSGRSP']._serialized_end=474
-  _globals['_SLINTERFACEGETMSG']._serialized_start=476
-  _globals['_SLINTERFACEGETMSG']._serialized_end=575
-  _globals['_SLINTERFACEINFOMSG']._serialized_start=578
-  _globals['_SLINTERFACEINFOMSG']._serialized_end=710
-  _globals['_SLINTERFACEGETMSGRSP']._serialized_start=713
-  _globals['_SLINTERFACEGETMSGRSP']._serialized_end=849
-  _globals['_SLINTERFACEGETNOTIFMSG']._serialized_start=851
-  _globals['_SLINTERFACEGETNOTIFMSG']._serialized_end=875
-  _globals['_SLINTERFACENOTIF']._serialized_start=878
-  _globals['_SLINTERFACENOTIF']._serialized_end=1063
-  _globals['_SLINTERFACENOTIFMSG']._serialized_start=1065
-  _globals['_SLINTERFACENOTIFMSG']._serialized_end=1171
-  _globals['_SLINTERFACENOTIFMSGRES']._serialized_start=1173
-  _globals['_SLINTERFACENOTIFMSGRES']._serialized_end=1287
-  _globals['_SLINTERFACENOTIFMSGRSP']._serialized_start=1290
-  _globals['_SLINTERFACENOTIFMSGRSP']._serialized_end=1423
-  _globals['_SLINTERFACEOPER']._serialized_start=1655
-  _globals['_SLINTERFACEOPER']._serialized_end=2303
+  _globals['_SLINTERFACESTATE']._serialized_start=970
+  _globals['_SLINTERFACESTATE']._serialized_end=1133
+  _globals['_SLINTERFACEINFOMSGBW']._serialized_start=60
+  _globals['_SLINTERFACEINFOMSGBW']._serialized_end=126
+  _globals['_SLINTERFACEINFOMSG']._serialized_start=129
+  _globals['_SLINTERFACEINFOMSG']._serialized_end=328
+  _globals['_SLINTERFACENOTIFMSGENTRY']._serialized_start=331
+  _globals['_SLINTERFACENOTIFMSGENTRY']._serialized_end=489
+  _globals['_SLINTERFACENOTIFMSG']._serialized_start=491
+  _globals['_SLINTERFACENOTIFMSG']._serialized_end=610
+  _globals['_SLINTERFACENOTIFMSGRES']._serialized_start=613
+  _globals['_SLINTERFACENOTIFMSGRES']._serialized_end=748
+  _globals['_SLINTERFACENOTIFMSGERR']._serialized_start=750
+  _globals['_SLINTERFACENOTIFMSGERR']._serialized_end=830
+  _globals['_SLINTERFACENOTIF']._serialized_start=833
+  _globals['_SLINTERFACENOTIF']._serialized_end=967
+  _globals['_SLINTERFACEOPER']._serialized_start=1135
+  _globals['_SLINTERFACEOPER']._serialized_end=1251
 # @@protoc_insertion_point(module_scope)

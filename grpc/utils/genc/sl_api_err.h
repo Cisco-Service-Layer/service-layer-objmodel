@@ -534,6 +534,8 @@
     SL_INTF_INTERFACE_EXISTS = 0xe006,\
     /* Interface not found. 0xe007 */\
     SL_INTF_INTERFACE_NOT_FOUND = 0xe007,\
+    /* Interface State not supported. 0xe008 */\
+    SL_INTF_INTERFACE_STATE_NOT_SUPPORTED = 0xe008,\
     /* !!! Error codes for Global L2 operations. */\
     /* Offset for Global L2 operation errors. 0xf000 */\
     SL_L2_REG_START_OFFSET = 0xf000,\
@@ -1480,6 +1482,9 @@
         },\
     {SL_INTF_INTERFACE_NOT_FOUND ,\
         " Interface not found.  "\
+        },\
+    {SL_INTF_INTERFACE_STATE_NOT_SUPPORTED ,\
+        " Interface State not supported.  "\
         },\
     {SL_L2_REG_START_OFFSET ,\
         " Offset for Global L2 operation errors.  "\

@@ -25,75 +25,45 @@ namespace ServiceLayer {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "ChJzbF9pbnRlcmZhY2UucHJvdG8SDXNlcnZpY2VfbGF5ZXIaFXNsX2NvbW1v",
-            "bl90eXBlcy5wcm90byJAChhTTEludGVyZmFjZUdsb2JhbHNSZWdNc2cSJAoE",
-            "T3BlchgBIAEoDjIWLnNlcnZpY2VfbGF5ZXIuU0xSZWdPcCJOChtTTEludGVy",
-            "ZmFjZUdsb2JhbHNSZWdNc2dSc3ASLwoJRXJyU3RhdHVzGAEgASgLMhwuc2Vy",
-            "dmljZV9sYXllci5TTEVycm9yU3RhdHVzIhoKGFNMSW50ZXJmYWNlR2xvYmFs",
-            "c0dldE1zZyJtChtTTEludGVyZmFjZUdsb2JhbHNHZXRNc2dSc3ASLwoJRXJy",
-            "U3RhdHVzGAEgASgLMhwuc2VydmljZV9sYXllci5TTEVycm9yU3RhdHVzEh0K",
-            "FU1heEludGVyZmFjZXNQZXJCYXRjaBgCIAEoDSKAAQogU0xJbnRlcmZhY2VH",
-            "bG9iYWxzR2V0U3RhdHNNc2dSc3ASLwoJRXJyU3RhdHVzGAEgASgLMhwuc2Vy",
-            "dmljZV9sYXllci5TTEVycm9yU3RhdHVzEg4KBlNlcU51bRgCIAEoBBIbChNJ",
-            "bnRlcmZhY2VOb3RpZkNvdW50GAMgASgNImMKEVNMSW50ZXJmYWNlR2V0TXNn",
-            "EicKA0tleRgBIAEoCzIaLnNlcnZpY2VfbGF5ZXIuU0xJbnRlcmZhY2USFAoM",
-            "RW50cmllc0NvdW50GAIgASgNEg8KB0dldE5leHQYAyABKAgihAEKElNMSW50",
-            "ZXJmYWNlSW5mb01zZxIsCghTTElmSW5mbxgBIAEoCzIaLnNlcnZpY2VfbGF5",
-            "ZXIuU0xJbnRlcmZhY2USMAoHSWZTdGF0ZRgCIAEoDjIfLnNlcnZpY2VfbGF5",
-            "ZXIuU0xJbnRlcmZhY2VTdGF0ZRIOCgZTZXFOdW0YAyABKAQiiAEKFFNMSW50",
-            "ZXJmYWNlR2V0TXNnUnNwEgsKA0VvZhgBIAEoCBIvCglFcnJTdGF0dXMYAiAB",
-            "KAsyHC5zZXJ2aWNlX2xheWVyLlNMRXJyb3JTdGF0dXMSMgoHRW50cmllcxgD",
-            "IAMoCzIhLnNlcnZpY2VfbGF5ZXIuU0xJbnRlcmZhY2VJbmZvTXNnIhgKFlNM",
-            "SW50ZXJmYWNlR2V0Tm90aWZNc2ciuQEKEFNMSW50ZXJmYWNlTm90aWYSNgoJ",
-            "RXZlbnRUeXBlGAEgASgOMiMuc2VydmljZV9sYXllci5TTEludGVyZmFjZU5v",
-            "dGlmVHlwZRIxCglFcnJTdGF0dXMYAiABKAsyHC5zZXJ2aWNlX2xheWVyLlNM",
-            "RXJyb3JTdGF0dXNIABIxCgRJbmZvGAMgASgLMiEuc2VydmljZV9sYXllci5T",
-            "TEludGVyZmFjZUluZm9Nc2dIAEIHCgVFdmVudCJqChNTTEludGVyZmFjZU5v",
-            "dGlmTXNnEiYKBE9wZXIYASABKA4yGC5zZXJ2aWNlX2xheWVyLlNMTm90aWZP",
-            "cBIrCgdFbnRyaWVzGAIgAygLMhouc2VydmljZV9sYXllci5TTEludGVyZmFj",
-            "ZSJyChZTTEludGVyZmFjZU5vdGlmTXNnUmVzEi8KCUVyclN0YXR1cxgBIAEo",
-            "CzIcLnNlcnZpY2VfbGF5ZXIuU0xFcnJvclN0YXR1cxInCgNLZXkYAiABKAsy",
-            "Gi5zZXJ2aWNlX2xheWVyLlNMSW50ZXJmYWNlIoUBChZTTEludGVyZmFjZU5v",
-            "dGlmTXNnUnNwEjMKDVN0YXR1c1N1bW1hcnkYASABKAsyHC5zZXJ2aWNlX2xh",
-            "eWVyLlNMRXJyb3JTdGF0dXMSNgoHUmVzdWx0cxgCIAMoCzIlLnNlcnZpY2Vf",
-            "bGF5ZXIuU0xJbnRlcmZhY2VOb3RpZk1zZ1JlcypVChBTTEludGVyZmFjZVN0",
-            "YXRlEhcKE1NMX0lGX1NUQVRFX1VOS05PV04QABIUChBTTF9JRl9TVEFURV9E",
-            "T1dOEAESEgoOU0xfSUZfU1RBVEVfVVAQAiqLAQoUU0xJbnRlcmZhY2VOb3Rp",
-            "ZlR5cGUSJAogU0xfSU5URVJGQUNFX0VWRU5UX1RZUEVfUkVTRVJWRUQQABIh",
-            "Ch1TTF9JTlRFUkZBQ0VfRVZFTlRfVFlQRV9FUlJPUhABEioKJlNMX0lOVEVS",
-            "RkFDRV9FVkVOVF9UWVBFX0lOVEVSRkFDRV9JTkZPEAIyiAUKD1NMSW50ZXJm",
-            "YWNlT3BlchJuChdTTEludGVyZmFjZUdsb2JhbHNSZWdPcBInLnNlcnZpY2Vf",
-            "bGF5ZXIuU0xJbnRlcmZhY2VHbG9iYWxzUmVnTXNnGiouc2VydmljZV9sYXll",
-            "ci5TTEludGVyZmFjZUdsb2JhbHNSZWdNc2dSc3ASbAoVU0xJbnRlcmZhY2VH",
-            "bG9iYWxzR2V0Eicuc2VydmljZV9sYXllci5TTEludGVyZmFjZUdsb2JhbHNH",
-            "ZXRNc2caKi5zZXJ2aWNlX2xheWVyLlNMSW50ZXJmYWNlR2xvYmFsc0dldE1z",
-            "Z1JzcBJ2ChpTTEludGVyZmFjZUdsb2JhbHNHZXRTdGF0cxInLnNlcnZpY2Vf",
-            "bGF5ZXIuU0xJbnRlcmZhY2VHbG9iYWxzR2V0TXNnGi8uc2VydmljZV9sYXll",
-            "ci5TTEludGVyZmFjZUdsb2JhbHNHZXRTdGF0c01zZ1JzcBJXCg5TTEludGVy",
-            "ZmFjZUdldBIgLnNlcnZpY2VfbGF5ZXIuU0xJbnRlcmZhY2VHZXRNc2caIy5z",
-            "ZXJ2aWNlX2xheWVyLlNMSW50ZXJmYWNlR2V0TXNnUnNwEmUKGVNMSW50ZXJm",
-            "YWNlR2V0Tm90aWZTdHJlYW0SJS5zZXJ2aWNlX2xheWVyLlNMSW50ZXJmYWNl",
-            "R2V0Tm90aWZNc2caHy5zZXJ2aWNlX2xheWVyLlNMSW50ZXJmYWNlTm90aWYw",
-            "ARJfChJTTEludGVyZmFjZU5vdGlmT3ASIi5zZXJ2aWNlX2xheWVyLlNMSW50",
-            "ZXJmYWNlTm90aWZNc2caJS5zZXJ2aWNlX2xheWVyLlNMSW50ZXJmYWNlTm90",
-            "aWZNc2dSc3BCUVpPZ2l0aHViLmNvbS9DaXNjby1zZXJ2aWNlLWxheWVyL3Nl",
-            "cnZpY2UtbGF5ZXItb2JqbW9kZWwvZ3JwYy9wcm90b3M7c2VydmljZV9sYXll",
-            "cmIGcHJvdG8z"));
+            "bl90eXBlcy5wcm90byJCChRTTEludGVyZmFjZUluZm9Nc2dCdxIUCgxOZXdC",
+            "YW5kd2lkdGgYASABKAQSFAoMT2xkQmFuZHdpZHRoGAIgASgEIscBChJTTElu",
+            "dGVyZmFjZUluZm9Nc2cSLAoIU0xJZkluZm8YASABKAsyGi5zZXJ2aWNlX2xh",
+            "eWVyLlNMSW50ZXJmYWNlEjAKB0lmU3RhdGUYAiABKA4yHy5zZXJ2aWNlX2xh",
+            "eWVyLlNMSW50ZXJmYWNlU3RhdGUSEQoJVGltZXN0YW1wGAMgASgDEjUKBkJ3",
+            "SW5mbxgKIAEoCzIjLnNlcnZpY2VfbGF5ZXIuU0xJbnRlcmZhY2VJbmZvTXNn",
+            "QndIAEIHCgVWYWx1ZSKeAQoYU0xJbnRlcmZhY2VOb3RpZk1zZ0VudHJ5EhMK",
+            "C09wZXJhdGlvbklkGAEgASgEEg0KBVJlZ2V4GAIgASgIEi0KCUludGVyZmFj",
+            "ZRgDIAEoCzIaLnNlcnZpY2VfbGF5ZXIuU0xJbnRlcmZhY2USLwoGU3RhdGVz",
+            "GAQgAygOMh8uc2VydmljZV9sYXllci5TTEludGVyZmFjZVN0YXRlIncKE1NM",
+            "SW50ZXJmYWNlTm90aWZNc2cSJgoET3BlchgBIAEoDjIYLnNlcnZpY2VfbGF5",
+            "ZXIuU0xOb3RpZk9wEjgKB0VudHJpZXMYAiADKAsyJy5zZXJ2aWNlX2xheWVy",
+            "LlNMSW50ZXJmYWNlTm90aWZNc2dFbnRyeSKHAQoWU0xJbnRlcmZhY2VOb3Rp",
+            "Zk1zZ1JlcxITCgtPcGVyYXRpb25JZBgBIAEoBBIvCglFcnJTdGF0dXMYAiAB",
+            "KAsyHC5zZXJ2aWNlX2xheWVyLlNMRXJyb3JTdGF0dXMSJwoDS2V5GAMgASgL",
+            "Mhouc2VydmljZV9sYXllci5TTEludGVyZmFjZSJQChZTTEludGVyZmFjZU5v",
+            "dGlmTXNnRXJyEjYKB0RldGFpbHMYASADKAsyJS5zZXJ2aWNlX2xheWVyLlNM",
+            "SW50ZXJmYWNlTm90aWZNc2dSZXMihgEKEFNMSW50ZXJmYWNlTm90aWYSNgoF",
+            "RXJyb3IYASABKAsyJS5zZXJ2aWNlX2xheWVyLlNMSW50ZXJmYWNlTm90aWZN",
+            "c2dFcnJIABIxCgRJbmZvGAIgASgLMiEuc2VydmljZV9sYXllci5TTEludGVy",
+            "ZmFjZUluZm9Nc2dIAEIHCgVFdmVudCqjAQoQU0xJbnRlcmZhY2VTdGF0ZRIX",
+            "ChNTTF9JRl9TVEFURV9VTktOT1dOEAASFwoTU0xfSUZfU1RBVEVfQ1JFQVRF",
+            "RBABEhQKEFNMX0lGX1NUQVRFX0RPV04QAhISCg5TTF9JRl9TVEFURV9VUBAD",
+            "EhcKE1NMX0lGX1NUQVRFX0RFTEVURUQQBBIaChZTTF9JRl9TVEFURV9CV19D",
+            "SEFOR0VEEAUydAoPU0xJbnRlcmZhY2VPcGVyEmEKFlNMSW50ZXJmYWNlTm90",
+            "aWZTdHJlYW0SIi5zZXJ2aWNlX2xheWVyLlNMSW50ZXJmYWNlTm90aWZNc2ca",
+            "Hy5zZXJ2aWNlX2xheWVyLlNMSW50ZXJmYWNlTm90aWYoATABQlFaT2dpdGh1",
+            "Yi5jb20vQ2lzY28tc2VydmljZS1sYXllci9zZXJ2aWNlLWxheWVyLW9iam1v",
+            "ZGVsL2dycGMvcHJvdG9zO3NlcnZpY2VfbGF5ZXJiBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::ServiceLayer.SlCommonTypesReflection.Descriptor, },
-          new pbr::GeneratedClrTypeInfo(new[] {typeof(global::ServiceLayer.SLInterfaceState), typeof(global::ServiceLayer.SLInterfaceNotifType), }, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLInterfaceGlobalsRegMsg), global::ServiceLayer.SLInterfaceGlobalsRegMsg.Parser, new[]{ "Oper" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLInterfaceGlobalsRegMsgRsp), global::ServiceLayer.SLInterfaceGlobalsRegMsgRsp.Parser, new[]{ "ErrStatus" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLInterfaceGlobalsGetMsg), global::ServiceLayer.SLInterfaceGlobalsGetMsg.Parser, null, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLInterfaceGlobalsGetMsgRsp), global::ServiceLayer.SLInterfaceGlobalsGetMsgRsp.Parser, new[]{ "ErrStatus", "MaxInterfacesPerBatch" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLInterfaceGlobalsGetStatsMsgRsp), global::ServiceLayer.SLInterfaceGlobalsGetStatsMsgRsp.Parser, new[]{ "ErrStatus", "SeqNum", "InterfaceNotifCount" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLInterfaceGetMsg), global::ServiceLayer.SLInterfaceGetMsg.Parser, new[]{ "Key", "EntriesCount", "GetNext" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLInterfaceInfoMsg), global::ServiceLayer.SLInterfaceInfoMsg.Parser, new[]{ "SLIfInfo", "IfState", "SeqNum" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLInterfaceGetMsgRsp), global::ServiceLayer.SLInterfaceGetMsgRsp.Parser, new[]{ "Eof", "ErrStatus", "Entries" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLInterfaceGetNotifMsg), global::ServiceLayer.SLInterfaceGetNotifMsg.Parser, null, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLInterfaceNotif), global::ServiceLayer.SLInterfaceNotif.Parser, new[]{ "EventType", "ErrStatus", "Info" }, new[]{ "Event" }, null, null, null),
+          new pbr::GeneratedClrTypeInfo(new[] {typeof(global::ServiceLayer.SLInterfaceState), }, null, new pbr::GeneratedClrTypeInfo[] {
+            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLInterfaceInfoMsgBw), global::ServiceLayer.SLInterfaceInfoMsgBw.Parser, new[]{ "NewBandwidth", "OldBandwidth" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLInterfaceInfoMsg), global::ServiceLayer.SLInterfaceInfoMsg.Parser, new[]{ "SLIfInfo", "IfState", "Timestamp", "BwInfo" }, new[]{ "Value" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLInterfaceNotifMsgEntry), global::ServiceLayer.SLInterfaceNotifMsgEntry.Parser, new[]{ "OperationId", "Regex", "Interface", "States" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLInterfaceNotifMsg), global::ServiceLayer.SLInterfaceNotifMsg.Parser, new[]{ "Oper", "Entries" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLInterfaceNotifMsgRes), global::ServiceLayer.SLInterfaceNotifMsgRes.Parser, new[]{ "ErrStatus", "Key" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLInterfaceNotifMsgRsp), global::ServiceLayer.SLInterfaceNotifMsgRsp.Parser, new[]{ "StatusSummary", "Results" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLInterfaceNotifMsgRes), global::ServiceLayer.SLInterfaceNotifMsgRes.Parser, new[]{ "OperationId", "ErrStatus", "Key" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLInterfaceNotifMsgErr), global::ServiceLayer.SLInterfaceNotifMsgErr.Parser, new[]{ "Details" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLInterfaceNotif), global::ServiceLayer.SLInterfaceNotif.Parser, new[]{ "Error", "Info" }, new[]{ "Event" }, null, null, null)
           }));
     }
     #endregion
@@ -109,51 +79,40 @@ namespace ServiceLayer {
     /// </summary>
     [pbr::OriginalName("SL_IF_STATE_UNKNOWN")] SlIfStateUnknown = 0,
     /// <summary>
+    /// Interface Created.
+    /// </summary>
+    [pbr::OriginalName("SL_IF_STATE_CREATED")] SlIfStateCreated = 1,
+    /// <summary>
     /// State Operationally down.
     /// </summary>
-    [pbr::OriginalName("SL_IF_STATE_DOWN")] SlIfStateDown = 1,
+    [pbr::OriginalName("SL_IF_STATE_DOWN")] SlIfStateDown = 2,
     /// <summary>
     /// State Operationally up.
     /// </summary>
-    [pbr::OriginalName("SL_IF_STATE_UP")] SlIfStateUp = 2,
-  }
-
-  /// <summary>
-  /// Interface Event Notification types
-  /// </summary>
-  public enum SLInterfaceNotifType {
+    [pbr::OriginalName("SL_IF_STATE_UP")] SlIfStateUp = 3,
     /// <summary>
-    /// Reserved. 0x0
+    /// Interface Deleted.
     /// </summary>
-    [pbr::OriginalName("SL_INTERFACE_EVENT_TYPE_RESERVED")] SlInterfaceEventTypeReserved = 0,
+    [pbr::OriginalName("SL_IF_STATE_DELETED")] SlIfStateDeleted = 4,
     /// <summary>
-    /// Error - ErrStatus field elaborates on the error. 0x1
+    /// Bandwidth Changed.
     /// </summary>
-    [pbr::OriginalName("SL_INTERFACE_EVENT_TYPE_ERROR")] SlInterfaceEventTypeError = 1,
-    /// <summary>
-    /// Interface attributes and state event. 0x2
-    /// </summary>
-    [pbr::OriginalName("SL_INTERFACE_EVENT_TYPE_INTERFACE_INFO")] SlInterfaceEventTypeInterfaceInfo = 2,
+    [pbr::OriginalName("SL_IF_STATE_BW_CHANGED")] SlIfStateBwChanged = 5,
   }
 
   #endregion
 
   #region Messages
-  /// <summary>
-  /// Global Interface Registration Message.
-  /// This message is used for interface global registration.
-  /// Clients must register before using any interface service.
-  /// </summary>
-  public sealed partial class SLInterfaceGlobalsRegMsg : pb::IMessage<SLInterfaceGlobalsRegMsg>
+  public sealed partial class SLInterfaceInfoMsgBw : pb::IMessage<SLInterfaceInfoMsgBw>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
   #endif
   {
-    private static readonly pb::MessageParser<SLInterfaceGlobalsRegMsg> _parser = new pb::MessageParser<SLInterfaceGlobalsRegMsg>(() => new SLInterfaceGlobalsRegMsg());
+    private static readonly pb::MessageParser<SLInterfaceInfoMsgBw> _parser = new pb::MessageParser<SLInterfaceInfoMsgBw>(() => new SLInterfaceInfoMsgBw());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pb::MessageParser<SLInterfaceGlobalsRegMsg> Parser { get { return _parser; } }
+    public static pb::MessageParser<SLInterfaceInfoMsgBw> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -169,7 +128,7 @@ namespace ServiceLayer {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public SLInterfaceGlobalsRegMsg() {
+    public SLInterfaceInfoMsgBw() {
       OnConstruction();
     }
 
@@ -177,48 +136,65 @@ namespace ServiceLayer {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public SLInterfaceGlobalsRegMsg(SLInterfaceGlobalsRegMsg other) : this() {
-      oper_ = other.oper_;
+    public SLInterfaceInfoMsgBw(SLInterfaceInfoMsgBw other) : this() {
+      newBandwidth_ = other.newBandwidth_;
+      oldBandwidth_ = other.oldBandwidth_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public SLInterfaceGlobalsRegMsg Clone() {
-      return new SLInterfaceGlobalsRegMsg(this);
+    public SLInterfaceInfoMsgBw Clone() {
+      return new SLInterfaceInfoMsgBw(this);
     }
 
-    /// <summary>Field number for the "Oper" field.</summary>
-    public const int OperFieldNumber = 1;
-    private global::ServiceLayer.SLRegOp oper_ = global::ServiceLayer.SLRegOp.Reserved;
+    /// <summary>Field number for the "NewBandwidth" field.</summary>
+    public const int NewBandwidthFieldNumber = 1;
+    private ulong newBandwidth_;
     /// <summary>
-    /// Registration Operation.
+    /// The New Bandwidth.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::ServiceLayer.SLRegOp Oper {
-      get { return oper_; }
+    public ulong NewBandwidth {
+      get { return newBandwidth_; }
       set {
-        oper_ = value;
+        newBandwidth_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "OldBandwidth" field.</summary>
+    public const int OldBandwidthFieldNumber = 2;
+    private ulong oldBandwidth_;
+    /// <summary>
+    /// The Old Bandwidth prior to the update.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public ulong OldBandwidth {
+      get { return oldBandwidth_; }
+      set {
+        oldBandwidth_ = value;
       }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
-      return Equals(other as SLInterfaceGlobalsRegMsg);
+      return Equals(other as SLInterfaceInfoMsgBw);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool Equals(SLInterfaceGlobalsRegMsg other) {
+    public bool Equals(SLInterfaceInfoMsgBw other) {
       if (ReferenceEquals(other, null)) {
         return false;
       }
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (Oper != other.Oper) return false;
+      if (NewBandwidth != other.NewBandwidth) return false;
+      if (OldBandwidth != other.OldBandwidth) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -226,7 +202,8 @@ namespace ServiceLayer {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (Oper != global::ServiceLayer.SLRegOp.Reserved) hash ^= Oper.GetHashCode();
+      if (NewBandwidth != 0UL) hash ^= NewBandwidth.GetHashCode();
+      if (OldBandwidth != 0UL) hash ^= OldBandwidth.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -245,9 +222,13 @@ namespace ServiceLayer {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (Oper != global::ServiceLayer.SLRegOp.Reserved) {
+      if (NewBandwidth != 0UL) {
         output.WriteRawTag(8);
-        output.WriteEnum((int) Oper);
+        output.WriteUInt64(NewBandwidth);
+      }
+      if (OldBandwidth != 0UL) {
+        output.WriteRawTag(16);
+        output.WriteUInt64(OldBandwidth);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -259,9 +240,13 @@ namespace ServiceLayer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (Oper != global::ServiceLayer.SLRegOp.Reserved) {
+      if (NewBandwidth != 0UL) {
         output.WriteRawTag(8);
-        output.WriteEnum((int) Oper);
+        output.WriteUInt64(NewBandwidth);
+      }
+      if (OldBandwidth != 0UL) {
+        output.WriteRawTag(16);
+        output.WriteUInt64(OldBandwidth);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -273,8 +258,11 @@ namespace ServiceLayer {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (Oper != global::ServiceLayer.SLRegOp.Reserved) {
-        size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Oper);
+      if (NewBandwidth != 0UL) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(NewBandwidth);
+      }
+      if (OldBandwidth != 0UL) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(OldBandwidth);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -284,12 +272,15 @@ namespace ServiceLayer {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(SLInterfaceGlobalsRegMsg other) {
+    public void MergeFrom(SLInterfaceInfoMsgBw other) {
       if (other == null) {
         return;
       }
-      if (other.Oper != global::ServiceLayer.SLRegOp.Reserved) {
-        Oper = other.Oper;
+      if (other.NewBandwidth != 0UL) {
+        NewBandwidth = other.NewBandwidth;
+      }
+      if (other.OldBandwidth != 0UL) {
+        OldBandwidth = other.OldBandwidth;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -307,7 +298,11 @@ namespace ServiceLayer {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 8: {
-            Oper = (global::ServiceLayer.SLRegOp) input.ReadEnum();
+            NewBandwidth = input.ReadUInt64();
+            break;
+          }
+          case 16: {
+            OldBandwidth = input.ReadUInt64();
             break;
           }
         }
@@ -326,1189 +321,11 @@ namespace ServiceLayer {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
           case 8: {
-            Oper = (global::ServiceLayer.SLRegOp) input.ReadEnum();
-            break;
-          }
-        }
-      }
-    }
-    #endif
-
-  }
-
-  /// <summary>
-  /// interface registration response message.
-  /// This message is used to convey the result of the interface registration.
-  /// </summary>
-  public sealed partial class SLInterfaceGlobalsRegMsgRsp : pb::IMessage<SLInterfaceGlobalsRegMsgRsp>
-  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      , pb::IBufferMessage
-  #endif
-  {
-    private static readonly pb::MessageParser<SLInterfaceGlobalsRegMsgRsp> _parser = new pb::MessageParser<SLInterfaceGlobalsRegMsgRsp>(() => new SLInterfaceGlobalsRegMsgRsp());
-    private pb::UnknownFieldSet _unknownFields;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pb::MessageParser<SLInterfaceGlobalsRegMsgRsp> Parser { get { return _parser; } }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pbr::MessageDescriptor Descriptor {
-      get { return global::ServiceLayer.SlInterfaceReflection.Descriptor.MessageTypes[1]; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    pbr::MessageDescriptor pb::IMessage.Descriptor {
-      get { return Descriptor; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public SLInterfaceGlobalsRegMsgRsp() {
-      OnConstruction();
-    }
-
-    partial void OnConstruction();
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public SLInterfaceGlobalsRegMsgRsp(SLInterfaceGlobalsRegMsgRsp other) : this() {
-      errStatus_ = other.errStatus_ != null ? other.errStatus_.Clone() : null;
-      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public SLInterfaceGlobalsRegMsgRsp Clone() {
-      return new SLInterfaceGlobalsRegMsgRsp(this);
-    }
-
-    /// <summary>Field number for the "ErrStatus" field.</summary>
-    public const int ErrStatusFieldNumber = 1;
-    private global::ServiceLayer.SLErrorStatus errStatus_;
-    /// <summary>
-    /// Error code.
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::ServiceLayer.SLErrorStatus ErrStatus {
-      get { return errStatus_; }
-      set {
-        errStatus_ = value;
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public override bool Equals(object other) {
-      return Equals(other as SLInterfaceGlobalsRegMsgRsp);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool Equals(SLInterfaceGlobalsRegMsgRsp other) {
-      if (ReferenceEquals(other, null)) {
-        return false;
-      }
-      if (ReferenceEquals(other, this)) {
-        return true;
-      }
-      if (!object.Equals(ErrStatus, other.ErrStatus)) return false;
-      return Equals(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public override int GetHashCode() {
-      int hash = 1;
-      if (errStatus_ != null) hash ^= ErrStatus.GetHashCode();
-      if (_unknownFields != null) {
-        hash ^= _unknownFields.GetHashCode();
-      }
-      return hash;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public override string ToString() {
-      return pb::JsonFormatter.ToDiagnosticString(this);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void WriteTo(pb::CodedOutputStream output) {
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      output.WriteRawMessage(this);
-    #else
-      if (errStatus_ != null) {
-        output.WriteRawTag(10);
-        output.WriteMessage(ErrStatus);
-      }
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(output);
-      }
-    #endif
-    }
-
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (errStatus_ != null) {
-        output.WriteRawTag(10);
-        output.WriteMessage(ErrStatus);
-      }
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(ref output);
-      }
-    }
-    #endif
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public int CalculateSize() {
-      int size = 0;
-      if (errStatus_ != null) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(ErrStatus);
-      }
-      if (_unknownFields != null) {
-        size += _unknownFields.CalculateSize();
-      }
-      return size;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(SLInterfaceGlobalsRegMsgRsp other) {
-      if (other == null) {
-        return;
-      }
-      if (other.errStatus_ != null) {
-        if (errStatus_ == null) {
-          ErrStatus = new global::ServiceLayer.SLErrorStatus();
-        }
-        ErrStatus.MergeFrom(other.ErrStatus);
-      }
-      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(pb::CodedInputStream input) {
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      input.ReadRawMessage(this);
-    #else
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
-            break;
-          case 10: {
-            if (errStatus_ == null) {
-              ErrStatus = new global::ServiceLayer.SLErrorStatus();
-            }
-            input.ReadMessage(ErrStatus);
-            break;
-          }
-        }
-      }
-    #endif
-    }
-
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
-            break;
-          case 10: {
-            if (errStatus_ == null) {
-              ErrStatus = new global::ServiceLayer.SLErrorStatus();
-            }
-            input.ReadMessage(ErrStatus);
-            break;
-          }
-        }
-      }
-    }
-    #endif
-
-  }
-
-  /// <summary>
-  /// Global Interface Get message.
-  /// This message is used to query interface global capabilities.
-  /// </summary>
-  public sealed partial class SLInterfaceGlobalsGetMsg : pb::IMessage<SLInterfaceGlobalsGetMsg>
-  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      , pb::IBufferMessage
-  #endif
-  {
-    private static readonly pb::MessageParser<SLInterfaceGlobalsGetMsg> _parser = new pb::MessageParser<SLInterfaceGlobalsGetMsg>(() => new SLInterfaceGlobalsGetMsg());
-    private pb::UnknownFieldSet _unknownFields;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pb::MessageParser<SLInterfaceGlobalsGetMsg> Parser { get { return _parser; } }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pbr::MessageDescriptor Descriptor {
-      get { return global::ServiceLayer.SlInterfaceReflection.Descriptor.MessageTypes[2]; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    pbr::MessageDescriptor pb::IMessage.Descriptor {
-      get { return Descriptor; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public SLInterfaceGlobalsGetMsg() {
-      OnConstruction();
-    }
-
-    partial void OnConstruction();
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public SLInterfaceGlobalsGetMsg(SLInterfaceGlobalsGetMsg other) : this() {
-      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public SLInterfaceGlobalsGetMsg Clone() {
-      return new SLInterfaceGlobalsGetMsg(this);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public override bool Equals(object other) {
-      return Equals(other as SLInterfaceGlobalsGetMsg);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool Equals(SLInterfaceGlobalsGetMsg other) {
-      if (ReferenceEquals(other, null)) {
-        return false;
-      }
-      if (ReferenceEquals(other, this)) {
-        return true;
-      }
-      return Equals(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public override int GetHashCode() {
-      int hash = 1;
-      if (_unknownFields != null) {
-        hash ^= _unknownFields.GetHashCode();
-      }
-      return hash;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public override string ToString() {
-      return pb::JsonFormatter.ToDiagnosticString(this);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void WriteTo(pb::CodedOutputStream output) {
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      output.WriteRawMessage(this);
-    #else
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(output);
-      }
-    #endif
-    }
-
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(ref output);
-      }
-    }
-    #endif
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public int CalculateSize() {
-      int size = 0;
-      if (_unknownFields != null) {
-        size += _unknownFields.CalculateSize();
-      }
-      return size;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(SLInterfaceGlobalsGetMsg other) {
-      if (other == null) {
-        return;
-      }
-      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(pb::CodedInputStream input) {
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      input.ReadRawMessage(this);
-    #else
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
-            break;
-        }
-      }
-    #endif
-    }
-
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
-            break;
-        }
-      }
-    }
-    #endif
-
-  }
-
-  /// <summary>
-  /// Global interface Get response message.
-  /// This message is used to convey the response to the global capabilities query.
-  /// </summary>
-  public sealed partial class SLInterfaceGlobalsGetMsgRsp : pb::IMessage<SLInterfaceGlobalsGetMsgRsp>
-  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      , pb::IBufferMessage
-  #endif
-  {
-    private static readonly pb::MessageParser<SLInterfaceGlobalsGetMsgRsp> _parser = new pb::MessageParser<SLInterfaceGlobalsGetMsgRsp>(() => new SLInterfaceGlobalsGetMsgRsp());
-    private pb::UnknownFieldSet _unknownFields;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pb::MessageParser<SLInterfaceGlobalsGetMsgRsp> Parser { get { return _parser; } }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pbr::MessageDescriptor Descriptor {
-      get { return global::ServiceLayer.SlInterfaceReflection.Descriptor.MessageTypes[3]; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    pbr::MessageDescriptor pb::IMessage.Descriptor {
-      get { return Descriptor; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public SLInterfaceGlobalsGetMsgRsp() {
-      OnConstruction();
-    }
-
-    partial void OnConstruction();
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public SLInterfaceGlobalsGetMsgRsp(SLInterfaceGlobalsGetMsgRsp other) : this() {
-      errStatus_ = other.errStatus_ != null ? other.errStatus_.Clone() : null;
-      maxInterfacesPerBatch_ = other.maxInterfacesPerBatch_;
-      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public SLInterfaceGlobalsGetMsgRsp Clone() {
-      return new SLInterfaceGlobalsGetMsgRsp(this);
-    }
-
-    /// <summary>Field number for the "ErrStatus" field.</summary>
-    public const int ErrStatusFieldNumber = 1;
-    private global::ServiceLayer.SLErrorStatus errStatus_;
-    /// <summary>
-    /// Error code
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::ServiceLayer.SLErrorStatus ErrStatus {
-      get { return errStatus_; }
-      set {
-        errStatus_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "MaxInterfacesPerBatch" field.</summary>
-    public const int MaxInterfacesPerBatchFieldNumber = 2;
-    private uint maxInterfacesPerBatch_;
-    /// <summary>
-    /// Max interface objects within a single batch.
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public uint MaxInterfacesPerBatch {
-      get { return maxInterfacesPerBatch_; }
-      set {
-        maxInterfacesPerBatch_ = value;
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public override bool Equals(object other) {
-      return Equals(other as SLInterfaceGlobalsGetMsgRsp);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool Equals(SLInterfaceGlobalsGetMsgRsp other) {
-      if (ReferenceEquals(other, null)) {
-        return false;
-      }
-      if (ReferenceEquals(other, this)) {
-        return true;
-      }
-      if (!object.Equals(ErrStatus, other.ErrStatus)) return false;
-      if (MaxInterfacesPerBatch != other.MaxInterfacesPerBatch) return false;
-      return Equals(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public override int GetHashCode() {
-      int hash = 1;
-      if (errStatus_ != null) hash ^= ErrStatus.GetHashCode();
-      if (MaxInterfacesPerBatch != 0) hash ^= MaxInterfacesPerBatch.GetHashCode();
-      if (_unknownFields != null) {
-        hash ^= _unknownFields.GetHashCode();
-      }
-      return hash;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public override string ToString() {
-      return pb::JsonFormatter.ToDiagnosticString(this);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void WriteTo(pb::CodedOutputStream output) {
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      output.WriteRawMessage(this);
-    #else
-      if (errStatus_ != null) {
-        output.WriteRawTag(10);
-        output.WriteMessage(ErrStatus);
-      }
-      if (MaxInterfacesPerBatch != 0) {
-        output.WriteRawTag(16);
-        output.WriteUInt32(MaxInterfacesPerBatch);
-      }
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(output);
-      }
-    #endif
-    }
-
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (errStatus_ != null) {
-        output.WriteRawTag(10);
-        output.WriteMessage(ErrStatus);
-      }
-      if (MaxInterfacesPerBatch != 0) {
-        output.WriteRawTag(16);
-        output.WriteUInt32(MaxInterfacesPerBatch);
-      }
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(ref output);
-      }
-    }
-    #endif
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public int CalculateSize() {
-      int size = 0;
-      if (errStatus_ != null) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(ErrStatus);
-      }
-      if (MaxInterfacesPerBatch != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(MaxInterfacesPerBatch);
-      }
-      if (_unknownFields != null) {
-        size += _unknownFields.CalculateSize();
-      }
-      return size;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(SLInterfaceGlobalsGetMsgRsp other) {
-      if (other == null) {
-        return;
-      }
-      if (other.errStatus_ != null) {
-        if (errStatus_ == null) {
-          ErrStatus = new global::ServiceLayer.SLErrorStatus();
-        }
-        ErrStatus.MergeFrom(other.ErrStatus);
-      }
-      if (other.MaxInterfacesPerBatch != 0) {
-        MaxInterfacesPerBatch = other.MaxInterfacesPerBatch;
-      }
-      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(pb::CodedInputStream input) {
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      input.ReadRawMessage(this);
-    #else
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
-            break;
-          case 10: {
-            if (errStatus_ == null) {
-              ErrStatus = new global::ServiceLayer.SLErrorStatus();
-            }
-            input.ReadMessage(ErrStatus);
+            NewBandwidth = input.ReadUInt64();
             break;
           }
           case 16: {
-            MaxInterfacesPerBatch = input.ReadUInt32();
-            break;
-          }
-        }
-      }
-    #endif
-    }
-
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
-            break;
-          case 10: {
-            if (errStatus_ == null) {
-              ErrStatus = new global::ServiceLayer.SLErrorStatus();
-            }
-            input.ReadMessage(ErrStatus);
-            break;
-          }
-          case 16: {
-            MaxInterfacesPerBatch = input.ReadUInt32();
-            break;
-          }
-        }
-      }
-    }
-    #endif
-
-  }
-
-  /// <summary>
-  /// Global Interface Get stats message.
-  /// This message is used to convey the response to the interface statistics 
-  /// query.
-  /// </summary>
-  public sealed partial class SLInterfaceGlobalsGetStatsMsgRsp : pb::IMessage<SLInterfaceGlobalsGetStatsMsgRsp>
-  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      , pb::IBufferMessage
-  #endif
-  {
-    private static readonly pb::MessageParser<SLInterfaceGlobalsGetStatsMsgRsp> _parser = new pb::MessageParser<SLInterfaceGlobalsGetStatsMsgRsp>(() => new SLInterfaceGlobalsGetStatsMsgRsp());
-    private pb::UnknownFieldSet _unknownFields;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pb::MessageParser<SLInterfaceGlobalsGetStatsMsgRsp> Parser { get { return _parser; } }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pbr::MessageDescriptor Descriptor {
-      get { return global::ServiceLayer.SlInterfaceReflection.Descriptor.MessageTypes[4]; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    pbr::MessageDescriptor pb::IMessage.Descriptor {
-      get { return Descriptor; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public SLInterfaceGlobalsGetStatsMsgRsp() {
-      OnConstruction();
-    }
-
-    partial void OnConstruction();
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public SLInterfaceGlobalsGetStatsMsgRsp(SLInterfaceGlobalsGetStatsMsgRsp other) : this() {
-      errStatus_ = other.errStatus_ != null ? other.errStatus_.Clone() : null;
-      seqNum_ = other.seqNum_;
-      interfaceNotifCount_ = other.interfaceNotifCount_;
-      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public SLInterfaceGlobalsGetStatsMsgRsp Clone() {
-      return new SLInterfaceGlobalsGetStatsMsgRsp(this);
-    }
-
-    /// <summary>Field number for the "ErrStatus" field.</summary>
-    public const int ErrStatusFieldNumber = 1;
-    private global::ServiceLayer.SLErrorStatus errStatus_;
-    /// <summary>
-    /// Error code
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::ServiceLayer.SLErrorStatus ErrStatus {
-      get { return errStatus_; }
-      set {
-        errStatus_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "SeqNum" field.</summary>
-    public const int SeqNumFieldNumber = 2;
-    private ulong seqNum_;
-    /// <summary>
-    /// Global Interface event sequence number.
-    /// The sequence number is equivalent to a timestamp
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public ulong SeqNum {
-      get { return seqNum_; }
-      set {
-        seqNum_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "InterfaceNotifCount" field.</summary>
-    public const int InterfaceNotifCountFieldNumber = 3;
-    private uint interfaceNotifCount_;
-    /// <summary>
-    /// Num Interface notification requests added through the service layer.
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public uint InterfaceNotifCount {
-      get { return interfaceNotifCount_; }
-      set {
-        interfaceNotifCount_ = value;
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public override bool Equals(object other) {
-      return Equals(other as SLInterfaceGlobalsGetStatsMsgRsp);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool Equals(SLInterfaceGlobalsGetStatsMsgRsp other) {
-      if (ReferenceEquals(other, null)) {
-        return false;
-      }
-      if (ReferenceEquals(other, this)) {
-        return true;
-      }
-      if (!object.Equals(ErrStatus, other.ErrStatus)) return false;
-      if (SeqNum != other.SeqNum) return false;
-      if (InterfaceNotifCount != other.InterfaceNotifCount) return false;
-      return Equals(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public override int GetHashCode() {
-      int hash = 1;
-      if (errStatus_ != null) hash ^= ErrStatus.GetHashCode();
-      if (SeqNum != 0UL) hash ^= SeqNum.GetHashCode();
-      if (InterfaceNotifCount != 0) hash ^= InterfaceNotifCount.GetHashCode();
-      if (_unknownFields != null) {
-        hash ^= _unknownFields.GetHashCode();
-      }
-      return hash;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public override string ToString() {
-      return pb::JsonFormatter.ToDiagnosticString(this);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void WriteTo(pb::CodedOutputStream output) {
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      output.WriteRawMessage(this);
-    #else
-      if (errStatus_ != null) {
-        output.WriteRawTag(10);
-        output.WriteMessage(ErrStatus);
-      }
-      if (SeqNum != 0UL) {
-        output.WriteRawTag(16);
-        output.WriteUInt64(SeqNum);
-      }
-      if (InterfaceNotifCount != 0) {
-        output.WriteRawTag(24);
-        output.WriteUInt32(InterfaceNotifCount);
-      }
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(output);
-      }
-    #endif
-    }
-
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (errStatus_ != null) {
-        output.WriteRawTag(10);
-        output.WriteMessage(ErrStatus);
-      }
-      if (SeqNum != 0UL) {
-        output.WriteRawTag(16);
-        output.WriteUInt64(SeqNum);
-      }
-      if (InterfaceNotifCount != 0) {
-        output.WriteRawTag(24);
-        output.WriteUInt32(InterfaceNotifCount);
-      }
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(ref output);
-      }
-    }
-    #endif
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public int CalculateSize() {
-      int size = 0;
-      if (errStatus_ != null) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(ErrStatus);
-      }
-      if (SeqNum != 0UL) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(SeqNum);
-      }
-      if (InterfaceNotifCount != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(InterfaceNotifCount);
-      }
-      if (_unknownFields != null) {
-        size += _unknownFields.CalculateSize();
-      }
-      return size;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(SLInterfaceGlobalsGetStatsMsgRsp other) {
-      if (other == null) {
-        return;
-      }
-      if (other.errStatus_ != null) {
-        if (errStatus_ == null) {
-          ErrStatus = new global::ServiceLayer.SLErrorStatus();
-        }
-        ErrStatus.MergeFrom(other.ErrStatus);
-      }
-      if (other.SeqNum != 0UL) {
-        SeqNum = other.SeqNum;
-      }
-      if (other.InterfaceNotifCount != 0) {
-        InterfaceNotifCount = other.InterfaceNotifCount;
-      }
-      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(pb::CodedInputStream input) {
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      input.ReadRawMessage(this);
-    #else
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
-            break;
-          case 10: {
-            if (errStatus_ == null) {
-              ErrStatus = new global::ServiceLayer.SLErrorStatus();
-            }
-            input.ReadMessage(ErrStatus);
-            break;
-          }
-          case 16: {
-            SeqNum = input.ReadUInt64();
-            break;
-          }
-          case 24: {
-            InterfaceNotifCount = input.ReadUInt32();
-            break;
-          }
-        }
-      }
-    #endif
-    }
-
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
-            break;
-          case 10: {
-            if (errStatus_ == null) {
-              ErrStatus = new global::ServiceLayer.SLErrorStatus();
-            }
-            input.ReadMessage(ErrStatus);
-            break;
-          }
-          case 16: {
-            SeqNum = input.ReadUInt64();
-            break;
-          }
-          case 24: {
-            InterfaceNotifCount = input.ReadUInt32();
-            break;
-          }
-        }
-      }
-    }
-    #endif
-
-  }
-
-  /// <summary>
-  /// Interface Get message
-  /// </summary>
-  public sealed partial class SLInterfaceGetMsg : pb::IMessage<SLInterfaceGetMsg>
-  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      , pb::IBufferMessage
-  #endif
-  {
-    private static readonly pb::MessageParser<SLInterfaceGetMsg> _parser = new pb::MessageParser<SLInterfaceGetMsg>(() => new SLInterfaceGetMsg());
-    private pb::UnknownFieldSet _unknownFields;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pb::MessageParser<SLInterfaceGetMsg> Parser { get { return _parser; } }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pbr::MessageDescriptor Descriptor {
-      get { return global::ServiceLayer.SlInterfaceReflection.Descriptor.MessageTypes[5]; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    pbr::MessageDescriptor pb::IMessage.Descriptor {
-      get { return Descriptor; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public SLInterfaceGetMsg() {
-      OnConstruction();
-    }
-
-    partial void OnConstruction();
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public SLInterfaceGetMsg(SLInterfaceGetMsg other) : this() {
-      key_ = other.key_ != null ? other.key_.Clone() : null;
-      entriesCount_ = other.entriesCount_;
-      getNext_ = other.getNext_;
-      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public SLInterfaceGetMsg Clone() {
-      return new SLInterfaceGetMsg(this);
-    }
-
-    /// <summary>Field number for the "Key" field.</summary>
-    public const int KeyFieldNumber = 1;
-    private global::ServiceLayer.SLInterface key_;
-    /// <summary>
-    /// Interface key attributes.
-    /// If the Key is not specified, then request up to the first 
-    /// 'EntriesCount' entries.
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::ServiceLayer.SLInterface Key {
-      get { return key_; }
-      set {
-        key_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "EntriesCount" field.</summary>
-    public const int EntriesCountFieldNumber = 2;
-    private uint entriesCount_;
-    /// <summary>
-    /// Number of entries requested
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public uint EntriesCount {
-      get { return entriesCount_; }
-      set {
-        entriesCount_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "GetNext" field.</summary>
-    public const int GetNextFieldNumber = 3;
-    private bool getNext_;
-    /// <summary>
-    /// if GetNext is FALSE:
-    ///     request up to 'EntriesCount' entries starting from the key
-    /// If GetNext is TRUE, or if the key exact match is not found:
-    ///     request up to 'EntriesCount' entries starting from the key's next
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool GetNext {
-      get { return getNext_; }
-      set {
-        getNext_ = value;
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public override bool Equals(object other) {
-      return Equals(other as SLInterfaceGetMsg);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool Equals(SLInterfaceGetMsg other) {
-      if (ReferenceEquals(other, null)) {
-        return false;
-      }
-      if (ReferenceEquals(other, this)) {
-        return true;
-      }
-      if (!object.Equals(Key, other.Key)) return false;
-      if (EntriesCount != other.EntriesCount) return false;
-      if (GetNext != other.GetNext) return false;
-      return Equals(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public override int GetHashCode() {
-      int hash = 1;
-      if (key_ != null) hash ^= Key.GetHashCode();
-      if (EntriesCount != 0) hash ^= EntriesCount.GetHashCode();
-      if (GetNext != false) hash ^= GetNext.GetHashCode();
-      if (_unknownFields != null) {
-        hash ^= _unknownFields.GetHashCode();
-      }
-      return hash;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public override string ToString() {
-      return pb::JsonFormatter.ToDiagnosticString(this);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void WriteTo(pb::CodedOutputStream output) {
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      output.WriteRawMessage(this);
-    #else
-      if (key_ != null) {
-        output.WriteRawTag(10);
-        output.WriteMessage(Key);
-      }
-      if (EntriesCount != 0) {
-        output.WriteRawTag(16);
-        output.WriteUInt32(EntriesCount);
-      }
-      if (GetNext != false) {
-        output.WriteRawTag(24);
-        output.WriteBool(GetNext);
-      }
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(output);
-      }
-    #endif
-    }
-
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (key_ != null) {
-        output.WriteRawTag(10);
-        output.WriteMessage(Key);
-      }
-      if (EntriesCount != 0) {
-        output.WriteRawTag(16);
-        output.WriteUInt32(EntriesCount);
-      }
-      if (GetNext != false) {
-        output.WriteRawTag(24);
-        output.WriteBool(GetNext);
-      }
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(ref output);
-      }
-    }
-    #endif
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public int CalculateSize() {
-      int size = 0;
-      if (key_ != null) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Key);
-      }
-      if (EntriesCount != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(EntriesCount);
-      }
-      if (GetNext != false) {
-        size += 1 + 1;
-      }
-      if (_unknownFields != null) {
-        size += _unknownFields.CalculateSize();
-      }
-      return size;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(SLInterfaceGetMsg other) {
-      if (other == null) {
-        return;
-      }
-      if (other.key_ != null) {
-        if (key_ == null) {
-          Key = new global::ServiceLayer.SLInterface();
-        }
-        Key.MergeFrom(other.Key);
-      }
-      if (other.EntriesCount != 0) {
-        EntriesCount = other.EntriesCount;
-      }
-      if (other.GetNext != false) {
-        GetNext = other.GetNext;
-      }
-      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(pb::CodedInputStream input) {
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      input.ReadRawMessage(this);
-    #else
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
-            break;
-          case 10: {
-            if (key_ == null) {
-              Key = new global::ServiceLayer.SLInterface();
-            }
-            input.ReadMessage(Key);
-            break;
-          }
-          case 16: {
-            EntriesCount = input.ReadUInt32();
-            break;
-          }
-          case 24: {
-            GetNext = input.ReadBool();
-            break;
-          }
-        }
-      }
-    #endif
-    }
-
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
-            break;
-          case 10: {
-            if (key_ == null) {
-              Key = new global::ServiceLayer.SLInterface();
-            }
-            input.ReadMessage(Key);
-            break;
-          }
-          case 16: {
-            EntriesCount = input.ReadUInt32();
-            break;
-          }
-          case 24: {
-            GetNext = input.ReadBool();
+            OldBandwidth = input.ReadUInt64();
             break;
           }
         }
@@ -1535,7 +352,7 @@ namespace ServiceLayer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::ServiceLayer.SlInterfaceReflection.Descriptor.MessageTypes[6]; }
+      get { return global::ServiceLayer.SlInterfaceReflection.Descriptor.MessageTypes[1]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1557,7 +374,13 @@ namespace ServiceLayer {
     public SLInterfaceInfoMsg(SLInterfaceInfoMsg other) : this() {
       sLIfInfo_ = other.sLIfInfo_ != null ? other.sLIfInfo_.Clone() : null;
       ifState_ = other.ifState_;
-      seqNum_ = other.seqNum_;
+      timestamp_ = other.timestamp_;
+      switch (other.ValueCase) {
+        case ValueOneofCase.BwInfo:
+          BwInfo = other.BwInfo.Clone();
+          break;
+      }
+
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -1571,7 +394,7 @@ namespace ServiceLayer {
     public const int SLIfInfoFieldNumber = 1;
     private global::ServiceLayer.SLInterface sLIfInfo_;
     /// <summary>
-    /// Interface info
+    /// Interface info.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -1586,7 +409,7 @@ namespace ServiceLayer {
     public const int IfStateFieldNumber = 2;
     private global::ServiceLayer.SLInterfaceState ifState_ = global::ServiceLayer.SLInterfaceState.SlIfStateUnknown;
     /// <summary>
-    /// Interface state
+    /// Interface state.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -1597,20 +420,55 @@ namespace ServiceLayer {
       }
     }
 
-    /// <summary>Field number for the "SeqNum" field.</summary>
-    public const int SeqNumFieldNumber = 3;
-    private ulong seqNum_;
+    /// <summary>Field number for the "Timestamp" field.</summary>
+    public const int TimestampFieldNumber = 3;
+    private long timestamp_;
     /// <summary>
-    /// Global Interface event sequence number.
-    /// The sequence number is equivalent to a timestamp
+    /// Timestamp in microseconds since Epoch
+    /// January 1st, 1970 00:00:00 GMT, a.k.a. unix epoch.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public ulong SeqNum {
-      get { return seqNum_; }
+    public long Timestamp {
+      get { return timestamp_; }
       set {
-        seqNum_ = value;
+        timestamp_ = value;
       }
+    }
+
+    /// <summary>Field number for the "BwInfo" field.</summary>
+    public const int BwInfoFieldNumber = 10;
+    /// <summary>
+    /// case IfState SL_IF_STATE_BW_CHANGED is set:
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::ServiceLayer.SLInterfaceInfoMsgBw BwInfo {
+      get { return valueCase_ == ValueOneofCase.BwInfo ? (global::ServiceLayer.SLInterfaceInfoMsgBw) value_ : null; }
+      set {
+        value_ = value;
+        valueCase_ = value == null ? ValueOneofCase.None : ValueOneofCase.BwInfo;
+      }
+    }
+
+    private object value_;
+    /// <summary>Enum of possible cases for the "Value" oneof.</summary>
+    public enum ValueOneofCase {
+      None = 0,
+      BwInfo = 10,
+    }
+    private ValueOneofCase valueCase_ = ValueOneofCase.None;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public ValueOneofCase ValueCase {
+      get { return valueCase_; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearValue() {
+      valueCase_ = ValueOneofCase.None;
+      value_ = null;
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1630,7 +488,9 @@ namespace ServiceLayer {
       }
       if (!object.Equals(SLIfInfo, other.SLIfInfo)) return false;
       if (IfState != other.IfState) return false;
-      if (SeqNum != other.SeqNum) return false;
+      if (Timestamp != other.Timestamp) return false;
+      if (!object.Equals(BwInfo, other.BwInfo)) return false;
+      if (ValueCase != other.ValueCase) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -1640,7 +500,9 @@ namespace ServiceLayer {
       int hash = 1;
       if (sLIfInfo_ != null) hash ^= SLIfInfo.GetHashCode();
       if (IfState != global::ServiceLayer.SLInterfaceState.SlIfStateUnknown) hash ^= IfState.GetHashCode();
-      if (SeqNum != 0UL) hash ^= SeqNum.GetHashCode();
+      if (Timestamp != 0L) hash ^= Timestamp.GetHashCode();
+      if (valueCase_ == ValueOneofCase.BwInfo) hash ^= BwInfo.GetHashCode();
+      hash ^= (int) valueCase_;
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -1667,9 +529,13 @@ namespace ServiceLayer {
         output.WriteRawTag(16);
         output.WriteEnum((int) IfState);
       }
-      if (SeqNum != 0UL) {
+      if (Timestamp != 0L) {
         output.WriteRawTag(24);
-        output.WriteUInt64(SeqNum);
+        output.WriteInt64(Timestamp);
+      }
+      if (valueCase_ == ValueOneofCase.BwInfo) {
+        output.WriteRawTag(82);
+        output.WriteMessage(BwInfo);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -1689,9 +555,13 @@ namespace ServiceLayer {
         output.WriteRawTag(16);
         output.WriteEnum((int) IfState);
       }
-      if (SeqNum != 0UL) {
+      if (Timestamp != 0L) {
         output.WriteRawTag(24);
-        output.WriteUInt64(SeqNum);
+        output.WriteInt64(Timestamp);
+      }
+      if (valueCase_ == ValueOneofCase.BwInfo) {
+        output.WriteRawTag(82);
+        output.WriteMessage(BwInfo);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -1709,8 +579,11 @@ namespace ServiceLayer {
       if (IfState != global::ServiceLayer.SLInterfaceState.SlIfStateUnknown) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) IfState);
       }
-      if (SeqNum != 0UL) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(SeqNum);
+      if (Timestamp != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(Timestamp);
+      }
+      if (valueCase_ == ValueOneofCase.BwInfo) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(BwInfo);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -1733,9 +606,18 @@ namespace ServiceLayer {
       if (other.IfState != global::ServiceLayer.SLInterfaceState.SlIfStateUnknown) {
         IfState = other.IfState;
       }
-      if (other.SeqNum != 0UL) {
-        SeqNum = other.SeqNum;
+      if (other.Timestamp != 0L) {
+        Timestamp = other.Timestamp;
       }
+      switch (other.ValueCase) {
+        case ValueOneofCase.BwInfo:
+          if (BwInfo == null) {
+            BwInfo = new global::ServiceLayer.SLInterfaceInfoMsgBw();
+          }
+          BwInfo.MergeFrom(other.BwInfo);
+          break;
+      }
+
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -1763,7 +645,16 @@ namespace ServiceLayer {
             break;
           }
           case 24: {
-            SeqNum = input.ReadUInt64();
+            Timestamp = input.ReadInt64();
+            break;
+          }
+          case 82: {
+            global::ServiceLayer.SLInterfaceInfoMsgBw subBuilder = new global::ServiceLayer.SLInterfaceInfoMsgBw();
+            if (valueCase_ == ValueOneofCase.BwInfo) {
+              subBuilder.MergeFrom(BwInfo);
+            }
+            input.ReadMessage(subBuilder);
+            BwInfo = subBuilder;
             break;
           }
         }
@@ -1793,7 +684,16 @@ namespace ServiceLayer {
             break;
           }
           case 24: {
-            SeqNum = input.ReadUInt64();
+            Timestamp = input.ReadInt64();
+            break;
+          }
+          case 82: {
+            global::ServiceLayer.SLInterfaceInfoMsgBw subBuilder = new global::ServiceLayer.SLInterfaceInfoMsgBw();
+            if (valueCase_ == ValueOneofCase.BwInfo) {
+              subBuilder.MergeFrom(BwInfo);
+            }
+            input.ReadMessage(subBuilder);
+            BwInfo = subBuilder;
             break;
           }
         }
@@ -1804,23 +704,23 @@ namespace ServiceLayer {
   }
 
   /// <summary>
-  /// Interface Get Message Response.
+  /// Interface Notification Entry.
   /// </summary>
-  public sealed partial class SLInterfaceGetMsgRsp : pb::IMessage<SLInterfaceGetMsgRsp>
+  public sealed partial class SLInterfaceNotifMsgEntry : pb::IMessage<SLInterfaceNotifMsgEntry>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
   #endif
   {
-    private static readonly pb::MessageParser<SLInterfaceGetMsgRsp> _parser = new pb::MessageParser<SLInterfaceGetMsgRsp>(() => new SLInterfaceGetMsgRsp());
+    private static readonly pb::MessageParser<SLInterfaceNotifMsgEntry> _parser = new pb::MessageParser<SLInterfaceNotifMsgEntry>(() => new SLInterfaceNotifMsgEntry());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pb::MessageParser<SLInterfaceGetMsgRsp> Parser { get { return _parser; } }
+    public static pb::MessageParser<SLInterfaceNotifMsgEntry> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::ServiceLayer.SlInterfaceReflection.Descriptor.MessageTypes[7]; }
+      get { return global::ServiceLayer.SlInterfaceReflection.Descriptor.MessageTypes[2]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1831,7 +731,7 @@ namespace ServiceLayer {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public SLInterfaceGetMsgRsp() {
+    public SLInterfaceNotifMsgEntry() {
       OnConstruction();
     }
 
@@ -1839,84 +739,102 @@ namespace ServiceLayer {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public SLInterfaceGetMsgRsp(SLInterfaceGetMsgRsp other) : this() {
-      eof_ = other.eof_;
-      errStatus_ = other.errStatus_ != null ? other.errStatus_.Clone() : null;
-      entries_ = other.entries_.Clone();
+    public SLInterfaceNotifMsgEntry(SLInterfaceNotifMsgEntry other) : this() {
+      operationId_ = other.operationId_;
+      regex_ = other.regex_;
+      interface_ = other.interface_ != null ? other.interface_.Clone() : null;
+      states_ = other.states_.Clone();
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public SLInterfaceGetMsgRsp Clone() {
-      return new SLInterfaceGetMsgRsp(this);
+    public SLInterfaceNotifMsgEntry Clone() {
+      return new SLInterfaceNotifMsgEntry(this);
     }
 
-    /// <summary>Field number for the "Eof" field.</summary>
-    public const int EofFieldNumber = 1;
-    private bool eof_;
+    /// <summary>Field number for the "OperationId" field.</summary>
+    public const int OperationIdFieldNumber = 1;
+    private ulong operationId_;
     /// <summary>
-    /// End Of File.
-    /// When set to True, it indicates that the server has returned M, where 
-    /// M &lt; N, of the original N requested Entries.
+    /// OperationId. This can be used to correlate replies with requests.
+    /// The Server simply reflects this field back in the reply.
+    /// See SLInterfaceNotifMsgRes.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool Eof {
-      get { return eof_; }
+    public ulong OperationId {
+      get { return operationId_; }
       set {
-        eof_ = value;
+        operationId_ = value;
       }
     }
 
-    /// <summary>Field number for the "ErrStatus" field.</summary>
-    public const int ErrStatusFieldNumber = 2;
-    private global::ServiceLayer.SLErrorStatus errStatus_;
+    /// <summary>Field number for the "Regex" field.</summary>
+    public const int RegexFieldNumber = 2;
+    private bool regex_;
     /// <summary>
-    /// Status of the Get operation
+    /// If true, the Name in the Interface field is a regex.
+    /// Else, the Name field is an exact match.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::ServiceLayer.SLErrorStatus ErrStatus {
-      get { return errStatus_; }
+    public bool Regex {
+      get { return regex_; }
       set {
-        errStatus_ = value;
+        regex_ = value;
       }
     }
 
-    /// <summary>Field number for the "Entries" field.</summary>
-    public const int EntriesFieldNumber = 3;
-    private static readonly pb::FieldCodec<global::ServiceLayer.SLInterfaceInfoMsg> _repeated_entries_codec
-        = pb::FieldCodec.ForMessage(26, global::ServiceLayer.SLInterfaceInfoMsg.Parser);
-    private readonly pbc::RepeatedField<global::ServiceLayer.SLInterfaceInfoMsg> entries_ = new pbc::RepeatedField<global::ServiceLayer.SLInterfaceInfoMsg>();
+    /// <summary>Field number for the "Interface" field.</summary>
+    public const int InterfaceFieldNumber = 3;
+    private global::ServiceLayer.SLInterface interface_;
     /// <summary>
-    /// Returned entries as requested in the Get operation.
-    /// if ErrStatus is SL_SUCCESS, Entries contains the info requested
+    /// Interface key attributes.
+    /// Only SLInterface.Name is supported. The Name can be a regular expression.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pbc::RepeatedField<global::ServiceLayer.SLInterfaceInfoMsg> Entries {
-      get { return entries_; }
+    public global::ServiceLayer.SLInterface Interface {
+      get { return interface_; }
+      set {
+        interface_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "States" field.</summary>
+    public const int StatesFieldNumber = 4;
+    private static readonly pb::FieldCodec<global::ServiceLayer.SLInterfaceState> _repeated_states_codec
+        = pb::FieldCodec.ForEnum(34, x => (int) x, x => (global::ServiceLayer.SLInterfaceState) x);
+    private readonly pbc::RepeatedField<global::ServiceLayer.SLInterfaceState> states_ = new pbc::RepeatedField<global::ServiceLayer.SLInterfaceState>();
+    /// <summary>
+    /// Interface states that this notification entry is interested in.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pbc::RepeatedField<global::ServiceLayer.SLInterfaceState> States {
+      get { return states_; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
-      return Equals(other as SLInterfaceGetMsgRsp);
+      return Equals(other as SLInterfaceNotifMsgEntry);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool Equals(SLInterfaceGetMsgRsp other) {
+    public bool Equals(SLInterfaceNotifMsgEntry other) {
       if (ReferenceEquals(other, null)) {
         return false;
       }
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (Eof != other.Eof) return false;
-      if (!object.Equals(ErrStatus, other.ErrStatus)) return false;
-      if(!entries_.Equals(other.entries_)) return false;
+      if (OperationId != other.OperationId) return false;
+      if (Regex != other.Regex) return false;
+      if (!object.Equals(Interface, other.Interface)) return false;
+      if(!states_.Equals(other.states_)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -1924,9 +842,10 @@ namespace ServiceLayer {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (Eof != false) hash ^= Eof.GetHashCode();
-      if (errStatus_ != null) hash ^= ErrStatus.GetHashCode();
-      hash ^= entries_.GetHashCode();
+      if (OperationId != 0UL) hash ^= OperationId.GetHashCode();
+      if (Regex != false) hash ^= Regex.GetHashCode();
+      if (interface_ != null) hash ^= Interface.GetHashCode();
+      hash ^= states_.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -1945,15 +864,19 @@ namespace ServiceLayer {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (Eof != false) {
+      if (OperationId != 0UL) {
         output.WriteRawTag(8);
-        output.WriteBool(Eof);
+        output.WriteUInt64(OperationId);
       }
-      if (errStatus_ != null) {
-        output.WriteRawTag(18);
-        output.WriteMessage(ErrStatus);
+      if (Regex != false) {
+        output.WriteRawTag(16);
+        output.WriteBool(Regex);
       }
-      entries_.WriteTo(output, _repeated_entries_codec);
+      if (interface_ != null) {
+        output.WriteRawTag(26);
+        output.WriteMessage(Interface);
+      }
+      states_.WriteTo(output, _repeated_states_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -1964,15 +887,19 @@ namespace ServiceLayer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (Eof != false) {
+      if (OperationId != 0UL) {
         output.WriteRawTag(8);
-        output.WriteBool(Eof);
+        output.WriteUInt64(OperationId);
       }
-      if (errStatus_ != null) {
-        output.WriteRawTag(18);
-        output.WriteMessage(ErrStatus);
+      if (Regex != false) {
+        output.WriteRawTag(16);
+        output.WriteBool(Regex);
       }
-      entries_.WriteTo(ref output, _repeated_entries_codec);
+      if (interface_ != null) {
+        output.WriteRawTag(26);
+        output.WriteMessage(Interface);
+      }
+      states_.WriteTo(ref output, _repeated_states_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -1983,13 +910,16 @@ namespace ServiceLayer {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (Eof != false) {
+      if (OperationId != 0UL) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(OperationId);
+      }
+      if (Regex != false) {
         size += 1 + 1;
       }
-      if (errStatus_ != null) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(ErrStatus);
+      if (interface_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Interface);
       }
-      size += entries_.CalculateSize(_repeated_entries_codec);
+      size += states_.CalculateSize(_repeated_states_codec);
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -1998,20 +928,23 @@ namespace ServiceLayer {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(SLInterfaceGetMsgRsp other) {
+    public void MergeFrom(SLInterfaceNotifMsgEntry other) {
       if (other == null) {
         return;
       }
-      if (other.Eof != false) {
-        Eof = other.Eof;
+      if (other.OperationId != 0UL) {
+        OperationId = other.OperationId;
       }
-      if (other.errStatus_ != null) {
-        if (errStatus_ == null) {
-          ErrStatus = new global::ServiceLayer.SLErrorStatus();
+      if (other.Regex != false) {
+        Regex = other.Regex;
+      }
+      if (other.interface_ != null) {
+        if (interface_ == null) {
+          Interface = new global::ServiceLayer.SLInterface();
         }
-        ErrStatus.MergeFrom(other.ErrStatus);
+        Interface.MergeFrom(other.Interface);
       }
-      entries_.Add(other.entries_);
+      states_.Add(other.states_);
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -2028,18 +961,23 @@ namespace ServiceLayer {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 8: {
-            Eof = input.ReadBool();
+            OperationId = input.ReadUInt64();
             break;
           }
-          case 18: {
-            if (errStatus_ == null) {
-              ErrStatus = new global::ServiceLayer.SLErrorStatus();
-            }
-            input.ReadMessage(ErrStatus);
+          case 16: {
+            Regex = input.ReadBool();
             break;
           }
           case 26: {
-            entries_.AddEntriesFrom(input, _repeated_entries_codec);
+            if (interface_ == null) {
+              Interface = new global::ServiceLayer.SLInterface();
+            }
+            input.ReadMessage(Interface);
+            break;
+          }
+          case 34:
+          case 32: {
+            states_.AddEntriesFrom(input, _repeated_states_codec);
             break;
           }
         }
@@ -2058,510 +996,23 @@ namespace ServiceLayer {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
           case 8: {
-            Eof = input.ReadBool();
+            OperationId = input.ReadUInt64();
             break;
           }
-          case 18: {
-            if (errStatus_ == null) {
-              ErrStatus = new global::ServiceLayer.SLErrorStatus();
-            }
-            input.ReadMessage(ErrStatus);
+          case 16: {
+            Regex = input.ReadBool();
             break;
           }
           case 26: {
-            entries_.AddEntriesFrom(ref input, _repeated_entries_codec);
-            break;
-          }
-        }
-      }
-    }
-    #endif
-
-  }
-
-  /// <summary>
-  /// Interface Get Notification message.
-  /// </summary>
-  public sealed partial class SLInterfaceGetNotifMsg : pb::IMessage<SLInterfaceGetNotifMsg>
-  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      , pb::IBufferMessage
-  #endif
-  {
-    private static readonly pb::MessageParser<SLInterfaceGetNotifMsg> _parser = new pb::MessageParser<SLInterfaceGetNotifMsg>(() => new SLInterfaceGetNotifMsg());
-    private pb::UnknownFieldSet _unknownFields;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pb::MessageParser<SLInterfaceGetNotifMsg> Parser { get { return _parser; } }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pbr::MessageDescriptor Descriptor {
-      get { return global::ServiceLayer.SlInterfaceReflection.Descriptor.MessageTypes[8]; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    pbr::MessageDescriptor pb::IMessage.Descriptor {
-      get { return Descriptor; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public SLInterfaceGetNotifMsg() {
-      OnConstruction();
-    }
-
-    partial void OnConstruction();
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public SLInterfaceGetNotifMsg(SLInterfaceGetNotifMsg other) : this() {
-      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public SLInterfaceGetNotifMsg Clone() {
-      return new SLInterfaceGetNotifMsg(this);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public override bool Equals(object other) {
-      return Equals(other as SLInterfaceGetNotifMsg);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool Equals(SLInterfaceGetNotifMsg other) {
-      if (ReferenceEquals(other, null)) {
-        return false;
-      }
-      if (ReferenceEquals(other, this)) {
-        return true;
-      }
-      return Equals(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public override int GetHashCode() {
-      int hash = 1;
-      if (_unknownFields != null) {
-        hash ^= _unknownFields.GetHashCode();
-      }
-      return hash;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public override string ToString() {
-      return pb::JsonFormatter.ToDiagnosticString(this);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void WriteTo(pb::CodedOutputStream output) {
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      output.WriteRawMessage(this);
-    #else
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(output);
-      }
-    #endif
-    }
-
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(ref output);
-      }
-    }
-    #endif
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public int CalculateSize() {
-      int size = 0;
-      if (_unknownFields != null) {
-        size += _unknownFields.CalculateSize();
-      }
-      return size;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(SLInterfaceGetNotifMsg other) {
-      if (other == null) {
-        return;
-      }
-      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(pb::CodedInputStream input) {
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      input.ReadRawMessage(this);
-    #else
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
-            break;
-        }
-      }
-    #endif
-    }
-
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
-            break;
-        }
-      }
-    }
-    #endif
-
-  }
-
-  /// <summary>
-  /// Interface Notification Event.
-  /// </summary>
-  public sealed partial class SLInterfaceNotif : pb::IMessage<SLInterfaceNotif>
-  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      , pb::IBufferMessage
-  #endif
-  {
-    private static readonly pb::MessageParser<SLInterfaceNotif> _parser = new pb::MessageParser<SLInterfaceNotif>(() => new SLInterfaceNotif());
-    private pb::UnknownFieldSet _unknownFields;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pb::MessageParser<SLInterfaceNotif> Parser { get { return _parser; } }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pbr::MessageDescriptor Descriptor {
-      get { return global::ServiceLayer.SlInterfaceReflection.Descriptor.MessageTypes[9]; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    pbr::MessageDescriptor pb::IMessage.Descriptor {
-      get { return Descriptor; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public SLInterfaceNotif() {
-      OnConstruction();
-    }
-
-    partial void OnConstruction();
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public SLInterfaceNotif(SLInterfaceNotif other) : this() {
-      eventType_ = other.eventType_;
-      switch (other.EventCase) {
-        case EventOneofCase.ErrStatus:
-          ErrStatus = other.ErrStatus.Clone();
-          break;
-        case EventOneofCase.Info:
-          Info = other.Info.Clone();
-          break;
-      }
-
-      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public SLInterfaceNotif Clone() {
-      return new SLInterfaceNotif(this);
-    }
-
-    /// <summary>Field number for the "EventType" field.</summary>
-    public const int EventTypeFieldNumber = 1;
-    private global::ServiceLayer.SLInterfaceNotifType eventType_ = global::ServiceLayer.SLInterfaceNotifType.SlInterfaceEventTypeReserved;
-    /// <summary>
-    /// Interface Event Notification type
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::ServiceLayer.SLInterfaceNotifType EventType {
-      get { return eventType_; }
-      set {
-        eventType_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "ErrStatus" field.</summary>
-    public const int ErrStatusFieldNumber = 2;
-    /// <summary>
-    /// case EventType == SL_INTERFACE_EVENT_TYPE_ERROR:
-    ///    => This field carries error info, if any error occurs during 
-    ///       notification subscription.
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::ServiceLayer.SLErrorStatus ErrStatus {
-      get { return eventCase_ == EventOneofCase.ErrStatus ? (global::ServiceLayer.SLErrorStatus) event_ : null; }
-      set {
-        event_ = value;
-        eventCase_ = value == null ? EventOneofCase.None : EventOneofCase.ErrStatus;
-      }
-    }
-
-    /// <summary>Field number for the "Info" field.</summary>
-    public const int InfoFieldNumber = 3;
-    /// <summary>
-    /// case EventType == SL_INTERFACE_EVENT_TYPE_INTERFACE_INFO:
-    ///     => this field carries the session state info
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::ServiceLayer.SLInterfaceInfoMsg Info {
-      get { return eventCase_ == EventOneofCase.Info ? (global::ServiceLayer.SLInterfaceInfoMsg) event_ : null; }
-      set {
-        event_ = value;
-        eventCase_ = value == null ? EventOneofCase.None : EventOneofCase.Info;
-      }
-    }
-
-    private object event_;
-    /// <summary>Enum of possible cases for the "Event" oneof.</summary>
-    public enum EventOneofCase {
-      None = 0,
-      ErrStatus = 2,
-      Info = 3,
-    }
-    private EventOneofCase eventCase_ = EventOneofCase.None;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public EventOneofCase EventCase {
-      get { return eventCase_; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void ClearEvent() {
-      eventCase_ = EventOneofCase.None;
-      event_ = null;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public override bool Equals(object other) {
-      return Equals(other as SLInterfaceNotif);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool Equals(SLInterfaceNotif other) {
-      if (ReferenceEquals(other, null)) {
-        return false;
-      }
-      if (ReferenceEquals(other, this)) {
-        return true;
-      }
-      if (EventType != other.EventType) return false;
-      if (!object.Equals(ErrStatus, other.ErrStatus)) return false;
-      if (!object.Equals(Info, other.Info)) return false;
-      if (EventCase != other.EventCase) return false;
-      return Equals(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public override int GetHashCode() {
-      int hash = 1;
-      if (EventType != global::ServiceLayer.SLInterfaceNotifType.SlInterfaceEventTypeReserved) hash ^= EventType.GetHashCode();
-      if (eventCase_ == EventOneofCase.ErrStatus) hash ^= ErrStatus.GetHashCode();
-      if (eventCase_ == EventOneofCase.Info) hash ^= Info.GetHashCode();
-      hash ^= (int) eventCase_;
-      if (_unknownFields != null) {
-        hash ^= _unknownFields.GetHashCode();
-      }
-      return hash;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public override string ToString() {
-      return pb::JsonFormatter.ToDiagnosticString(this);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void WriteTo(pb::CodedOutputStream output) {
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      output.WriteRawMessage(this);
-    #else
-      if (EventType != global::ServiceLayer.SLInterfaceNotifType.SlInterfaceEventTypeReserved) {
-        output.WriteRawTag(8);
-        output.WriteEnum((int) EventType);
-      }
-      if (eventCase_ == EventOneofCase.ErrStatus) {
-        output.WriteRawTag(18);
-        output.WriteMessage(ErrStatus);
-      }
-      if (eventCase_ == EventOneofCase.Info) {
-        output.WriteRawTag(26);
-        output.WriteMessage(Info);
-      }
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(output);
-      }
-    #endif
-    }
-
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (EventType != global::ServiceLayer.SLInterfaceNotifType.SlInterfaceEventTypeReserved) {
-        output.WriteRawTag(8);
-        output.WriteEnum((int) EventType);
-      }
-      if (eventCase_ == EventOneofCase.ErrStatus) {
-        output.WriteRawTag(18);
-        output.WriteMessage(ErrStatus);
-      }
-      if (eventCase_ == EventOneofCase.Info) {
-        output.WriteRawTag(26);
-        output.WriteMessage(Info);
-      }
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(ref output);
-      }
-    }
-    #endif
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public int CalculateSize() {
-      int size = 0;
-      if (EventType != global::ServiceLayer.SLInterfaceNotifType.SlInterfaceEventTypeReserved) {
-        size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) EventType);
-      }
-      if (eventCase_ == EventOneofCase.ErrStatus) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(ErrStatus);
-      }
-      if (eventCase_ == EventOneofCase.Info) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Info);
-      }
-      if (_unknownFields != null) {
-        size += _unknownFields.CalculateSize();
-      }
-      return size;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(SLInterfaceNotif other) {
-      if (other == null) {
-        return;
-      }
-      if (other.EventType != global::ServiceLayer.SLInterfaceNotifType.SlInterfaceEventTypeReserved) {
-        EventType = other.EventType;
-      }
-      switch (other.EventCase) {
-        case EventOneofCase.ErrStatus:
-          if (ErrStatus == null) {
-            ErrStatus = new global::ServiceLayer.SLErrorStatus();
-          }
-          ErrStatus.MergeFrom(other.ErrStatus);
-          break;
-        case EventOneofCase.Info:
-          if (Info == null) {
-            Info = new global::ServiceLayer.SLInterfaceInfoMsg();
-          }
-          Info.MergeFrom(other.Info);
-          break;
-      }
-
-      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(pb::CodedInputStream input) {
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      input.ReadRawMessage(this);
-    #else
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
-            break;
-          case 8: {
-            EventType = (global::ServiceLayer.SLInterfaceNotifType) input.ReadEnum();
-            break;
-          }
-          case 18: {
-            global::ServiceLayer.SLErrorStatus subBuilder = new global::ServiceLayer.SLErrorStatus();
-            if (eventCase_ == EventOneofCase.ErrStatus) {
-              subBuilder.MergeFrom(ErrStatus);
+            if (interface_ == null) {
+              Interface = new global::ServiceLayer.SLInterface();
             }
-            input.ReadMessage(subBuilder);
-            ErrStatus = subBuilder;
+            input.ReadMessage(Interface);
             break;
           }
-          case 26: {
-            global::ServiceLayer.SLInterfaceInfoMsg subBuilder = new global::ServiceLayer.SLInterfaceInfoMsg();
-            if (eventCase_ == EventOneofCase.Info) {
-              subBuilder.MergeFrom(Info);
-            }
-            input.ReadMessage(subBuilder);
-            Info = subBuilder;
-            break;
-          }
-        }
-      }
-    #endif
-    }
-
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
-            break;
-          case 8: {
-            EventType = (global::ServiceLayer.SLInterfaceNotifType) input.ReadEnum();
-            break;
-          }
-          case 18: {
-            global::ServiceLayer.SLErrorStatus subBuilder = new global::ServiceLayer.SLErrorStatus();
-            if (eventCase_ == EventOneofCase.ErrStatus) {
-              subBuilder.MergeFrom(ErrStatus);
-            }
-            input.ReadMessage(subBuilder);
-            ErrStatus = subBuilder;
-            break;
-          }
-          case 26: {
-            global::ServiceLayer.SLInterfaceInfoMsg subBuilder = new global::ServiceLayer.SLInterfaceInfoMsg();
-            if (eventCase_ == EventOneofCase.Info) {
-              subBuilder.MergeFrom(Info);
-            }
-            input.ReadMessage(subBuilder);
-            Info = subBuilder;
+          case 34:
+          case 32: {
+            states_.AddEntriesFrom(ref input, _repeated_states_codec);
             break;
           }
         }
@@ -2588,7 +1039,7 @@ namespace ServiceLayer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::ServiceLayer.SlInterfaceReflection.Descriptor.MessageTypes[10]; }
+      get { return global::ServiceLayer.SlInterfaceReflection.Descriptor.MessageTypes[3]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2636,15 +1087,15 @@ namespace ServiceLayer {
 
     /// <summary>Field number for the "Entries" field.</summary>
     public const int EntriesFieldNumber = 2;
-    private static readonly pb::FieldCodec<global::ServiceLayer.SLInterface> _repeated_entries_codec
-        = pb::FieldCodec.ForMessage(18, global::ServiceLayer.SLInterface.Parser);
-    private readonly pbc::RepeatedField<global::ServiceLayer.SLInterface> entries_ = new pbc::RepeatedField<global::ServiceLayer.SLInterface>();
+    private static readonly pb::FieldCodec<global::ServiceLayer.SLInterfaceNotifMsgEntry> _repeated_entries_codec
+        = pb::FieldCodec.ForMessage(18, global::ServiceLayer.SLInterfaceNotifMsgEntry.Parser);
+    private readonly pbc::RepeatedField<global::ServiceLayer.SLInterfaceNotifMsgEntry> entries_ = new pbc::RepeatedField<global::ServiceLayer.SLInterfaceNotifMsgEntry>();
     /// <summary>
-    /// Interface key attributes.
+    /// Notification Entries.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pbc::RepeatedField<global::ServiceLayer.SLInterface> Entries {
+    public pbc::RepeatedField<global::ServiceLayer.SLInterfaceNotifMsgEntry> Entries {
       get { return entries_; }
     }
 
@@ -2812,7 +1263,7 @@ namespace ServiceLayer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::ServiceLayer.SlInterfaceReflection.Descriptor.MessageTypes[11]; }
+      get { return global::ServiceLayer.SlInterfaceReflection.Descriptor.MessageTypes[4]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2832,6 +1283,7 @@ namespace ServiceLayer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public SLInterfaceNotifMsgRes(SLInterfaceNotifMsgRes other) : this() {
+      operationId_ = other.operationId_;
       errStatus_ = other.errStatus_ != null ? other.errStatus_.Clone() : null;
       key_ = other.key_ != null ? other.key_.Clone() : null;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
@@ -2843,11 +1295,28 @@ namespace ServiceLayer {
       return new SLInterfaceNotifMsgRes(this);
     }
 
+    /// <summary>Field number for the "OperationId" field.</summary>
+    public const int OperationIdFieldNumber = 1;
+    private ulong operationId_;
+    /// <summary>
+    /// OperationId. This can be used to correlate replies with requests.
+    /// The Server simply reflects this field back in the reply.
+    /// See SLInterfaceNotifMsgEntry.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public ulong OperationId {
+      get { return operationId_; }
+      set {
+        operationId_ = value;
+      }
+    }
+
     /// <summary>Field number for the "ErrStatus" field.</summary>
-    public const int ErrStatusFieldNumber = 1;
+    public const int ErrStatusFieldNumber = 2;
     private global::ServiceLayer.SLErrorStatus errStatus_;
     /// <summary>
-    /// Corresponding error code
+    /// Corresponding error code.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -2859,7 +1328,7 @@ namespace ServiceLayer {
     }
 
     /// <summary>Field number for the "Key" field.</summary>
-    public const int KeyFieldNumber = 2;
+    public const int KeyFieldNumber = 3;
     private global::ServiceLayer.SLInterface key_;
     /// <summary>
     /// Interface key attributes.
@@ -2888,6 +1357,7 @@ namespace ServiceLayer {
       if (ReferenceEquals(other, this)) {
         return true;
       }
+      if (OperationId != other.OperationId) return false;
       if (!object.Equals(ErrStatus, other.ErrStatus)) return false;
       if (!object.Equals(Key, other.Key)) return false;
       return Equals(_unknownFields, other._unknownFields);
@@ -2897,6 +1367,7 @@ namespace ServiceLayer {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
+      if (OperationId != 0UL) hash ^= OperationId.GetHashCode();
       if (errStatus_ != null) hash ^= ErrStatus.GetHashCode();
       if (key_ != null) hash ^= Key.GetHashCode();
       if (_unknownFields != null) {
@@ -2917,12 +1388,16 @@ namespace ServiceLayer {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
+      if (OperationId != 0UL) {
+        output.WriteRawTag(8);
+        output.WriteUInt64(OperationId);
+      }
       if (errStatus_ != null) {
-        output.WriteRawTag(10);
+        output.WriteRawTag(18);
         output.WriteMessage(ErrStatus);
       }
       if (key_ != null) {
-        output.WriteRawTag(18);
+        output.WriteRawTag(26);
         output.WriteMessage(Key);
       }
       if (_unknownFields != null) {
@@ -2935,12 +1410,16 @@ namespace ServiceLayer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (OperationId != 0UL) {
+        output.WriteRawTag(8);
+        output.WriteUInt64(OperationId);
+      }
       if (errStatus_ != null) {
-        output.WriteRawTag(10);
+        output.WriteRawTag(18);
         output.WriteMessage(ErrStatus);
       }
       if (key_ != null) {
-        output.WriteRawTag(18);
+        output.WriteRawTag(26);
         output.WriteMessage(Key);
       }
       if (_unknownFields != null) {
@@ -2953,6 +1432,9 @@ namespace ServiceLayer {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
+      if (OperationId != 0UL) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(OperationId);
+      }
       if (errStatus_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(ErrStatus);
       }
@@ -2970,6 +1452,9 @@ namespace ServiceLayer {
     public void MergeFrom(SLInterfaceNotifMsgRes other) {
       if (other == null) {
         return;
+      }
+      if (other.OperationId != 0UL) {
+        OperationId = other.OperationId;
       }
       if (other.errStatus_ != null) {
         if (errStatus_ == null) {
@@ -2998,14 +1483,18 @@ namespace ServiceLayer {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
+          case 8: {
+            OperationId = input.ReadUInt64();
+            break;
+          }
+          case 18: {
             if (errStatus_ == null) {
               ErrStatus = new global::ServiceLayer.SLErrorStatus();
             }
             input.ReadMessage(ErrStatus);
             break;
           }
-          case 18: {
+          case 26: {
             if (key_ == null) {
               Key = new global::ServiceLayer.SLInterface();
             }
@@ -3027,14 +1516,18 @@ namespace ServiceLayer {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
-          case 10: {
+          case 8: {
+            OperationId = input.ReadUInt64();
+            break;
+          }
+          case 18: {
             if (errStatus_ == null) {
               ErrStatus = new global::ServiceLayer.SLErrorStatus();
             }
             input.ReadMessage(ErrStatus);
             break;
           }
-          case 18: {
+          case 26: {
             if (key_ == null) {
               Key = new global::ServiceLayer.SLInterface();
             }
@@ -3049,23 +1542,23 @@ namespace ServiceLayer {
   }
 
   /// <summary>
-  /// Interface Notification message response.
+  /// Interface Notification message error.
   /// </summary>
-  public sealed partial class SLInterfaceNotifMsgRsp : pb::IMessage<SLInterfaceNotifMsgRsp>
+  public sealed partial class SLInterfaceNotifMsgErr : pb::IMessage<SLInterfaceNotifMsgErr>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
   #endif
   {
-    private static readonly pb::MessageParser<SLInterfaceNotifMsgRsp> _parser = new pb::MessageParser<SLInterfaceNotifMsgRsp>(() => new SLInterfaceNotifMsgRsp());
+    private static readonly pb::MessageParser<SLInterfaceNotifMsgErr> _parser = new pb::MessageParser<SLInterfaceNotifMsgErr>(() => new SLInterfaceNotifMsgErr());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pb::MessageParser<SLInterfaceNotifMsgRsp> Parser { get { return _parser; } }
+    public static pb::MessageParser<SLInterfaceNotifMsgErr> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::ServiceLayer.SlInterfaceReflection.Descriptor.MessageTypes[12]; }
+      get { return global::ServiceLayer.SlInterfaceReflection.Descriptor.MessageTypes[5]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3076,7 +1569,7 @@ namespace ServiceLayer {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public SLInterfaceNotifMsgRsp() {
+    public SLInterfaceNotifMsgErr() {
       OnConstruction();
     }
 
@@ -3084,73 +1577,47 @@ namespace ServiceLayer {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public SLInterfaceNotifMsgRsp(SLInterfaceNotifMsgRsp other) : this() {
-      statusSummary_ = other.statusSummary_ != null ? other.statusSummary_.Clone() : null;
-      results_ = other.results_.Clone();
+    public SLInterfaceNotifMsgErr(SLInterfaceNotifMsgErr other) : this() {
+      details_ = other.details_.Clone();
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public SLInterfaceNotifMsgRsp Clone() {
-      return new SLInterfaceNotifMsgRsp(this);
+    public SLInterfaceNotifMsgErr Clone() {
+      return new SLInterfaceNotifMsgErr(this);
     }
 
-    /// <summary>Field number for the "StatusSummary" field.</summary>
-    public const int StatusSummaryFieldNumber = 1;
-    private global::ServiceLayer.SLErrorStatus statusSummary_;
+    /// <summary>Field number for the "Details" field.</summary>
+    public const int DetailsFieldNumber = 1;
+    private static readonly pb::FieldCodec<global::ServiceLayer.SLInterfaceNotifMsgRes> _repeated_details_codec
+        = pb::FieldCodec.ForMessage(10, global::ServiceLayer.SLInterfaceNotifMsgRes.Parser);
+    private readonly pbc::RepeatedField<global::ServiceLayer.SLInterfaceNotifMsgRes> details_ = new pbc::RepeatedField<global::ServiceLayer.SLInterfaceNotifMsgRes>();
     /// <summary>
-    /// Summary result of the bulk operation (refer to enum SLErrorStatus)
-    /// In general, the StatusSummary implies one of 3 things:
-    /// 1. SL_SUCCESS: signifies that the entire bulk operation was successful.
-    ///         In this case, the Results list is empty.
-    /// 2. SL_SOME_ERR: signifies that the operation failed for one or more
-    ///         entries. In this case, Results holds the result for
-    ///         each individual entry in the bulk.
-    /// 3. SL_RPC_XXX: signifies that the entire bulk operation failed.
-    ///         In this case, the Results list is empty.
+    /// Interface key attributes.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::ServiceLayer.SLErrorStatus StatusSummary {
-      get { return statusSummary_; }
-      set {
-        statusSummary_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "Results" field.</summary>
-    public const int ResultsFieldNumber = 2;
-    private static readonly pb::FieldCodec<global::ServiceLayer.SLInterfaceNotifMsgRes> _repeated_results_codec
-        = pb::FieldCodec.ForMessage(18, global::ServiceLayer.SLInterfaceNotifMsgRes.Parser);
-    private readonly pbc::RepeatedField<global::ServiceLayer.SLInterfaceNotifMsgRes> results_ = new pbc::RepeatedField<global::ServiceLayer.SLInterfaceNotifMsgRes>();
-    /// <summary>
-    /// In case of errors, this field indicates which entry in the bulk was
-    /// erroneous.
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pbc::RepeatedField<global::ServiceLayer.SLInterfaceNotifMsgRes> Results {
-      get { return results_; }
+    public pbc::RepeatedField<global::ServiceLayer.SLInterfaceNotifMsgRes> Details {
+      get { return details_; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
-      return Equals(other as SLInterfaceNotifMsgRsp);
+      return Equals(other as SLInterfaceNotifMsgErr);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool Equals(SLInterfaceNotifMsgRsp other) {
+    public bool Equals(SLInterfaceNotifMsgErr other) {
       if (ReferenceEquals(other, null)) {
         return false;
       }
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (!object.Equals(StatusSummary, other.StatusSummary)) return false;
-      if(!results_.Equals(other.results_)) return false;
+      if(!details_.Equals(other.details_)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -3158,8 +1625,7 @@ namespace ServiceLayer {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (statusSummary_ != null) hash ^= StatusSummary.GetHashCode();
-      hash ^= results_.GetHashCode();
+      hash ^= details_.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -3178,11 +1644,7 @@ namespace ServiceLayer {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (statusSummary_ != null) {
-        output.WriteRawTag(10);
-        output.WriteMessage(StatusSummary);
-      }
-      results_.WriteTo(output, _repeated_results_codec);
+      details_.WriteTo(output, _repeated_details_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -3193,11 +1655,7 @@ namespace ServiceLayer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (statusSummary_ != null) {
-        output.WriteRawTag(10);
-        output.WriteMessage(StatusSummary);
-      }
-      results_.WriteTo(ref output, _repeated_results_codec);
+      details_.WriteTo(ref output, _repeated_details_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -3208,10 +1666,7 @@ namespace ServiceLayer {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (statusSummary_ != null) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(StatusSummary);
-      }
-      size += results_.CalculateSize(_repeated_results_codec);
+      size += details_.CalculateSize(_repeated_details_codec);
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -3220,17 +1675,11 @@ namespace ServiceLayer {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(SLInterfaceNotifMsgRsp other) {
+    public void MergeFrom(SLInterfaceNotifMsgErr other) {
       if (other == null) {
         return;
       }
-      if (other.statusSummary_ != null) {
-        if (statusSummary_ == null) {
-          StatusSummary = new global::ServiceLayer.SLErrorStatus();
-        }
-        StatusSummary.MergeFrom(other.StatusSummary);
-      }
-      results_.Add(other.results_);
+      details_.Add(other.details_);
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -3247,14 +1696,7 @@ namespace ServiceLayer {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 10: {
-            if (statusSummary_ == null) {
-              StatusSummary = new global::ServiceLayer.SLErrorStatus();
-            }
-            input.ReadMessage(StatusSummary);
-            break;
-          }
-          case 18: {
-            results_.AddEntriesFrom(input, _repeated_results_codec);
+            details_.AddEntriesFrom(input, _repeated_details_codec);
             break;
           }
         }
@@ -3273,14 +1715,302 @@ namespace ServiceLayer {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
           case 10: {
-            if (statusSummary_ == null) {
-              StatusSummary = new global::ServiceLayer.SLErrorStatus();
+            details_.AddEntriesFrom(ref input, _repeated_details_codec);
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  /// <summary>
+  /// Interface Notification Event.
+  /// </summary>
+  public sealed partial class SLInterfaceNotif : pb::IMessage<SLInterfaceNotif>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<SLInterfaceNotif> _parser = new pb::MessageParser<SLInterfaceNotif>(() => new SLInterfaceNotif());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<SLInterfaceNotif> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::ServiceLayer.SlInterfaceReflection.Descriptor.MessageTypes[6]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SLInterfaceNotif() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SLInterfaceNotif(SLInterfaceNotif other) : this() {
+      switch (other.EventCase) {
+        case EventOneofCase.Error:
+          Error = other.Error.Clone();
+          break;
+        case EventOneofCase.Info:
+          Info = other.Info.Clone();
+          break;
+      }
+
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SLInterfaceNotif Clone() {
+      return new SLInterfaceNotif(this);
+    }
+
+    /// <summary>Field number for the "Error" field.</summary>
+    public const int ErrorFieldNumber = 1;
+    /// <summary>
+    /// This field carries error info, if any error occurs during
+    /// notification subscription.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::ServiceLayer.SLInterfaceNotifMsgErr Error {
+      get { return eventCase_ == EventOneofCase.Error ? (global::ServiceLayer.SLInterfaceNotifMsgErr) event_ : null; }
+      set {
+        event_ = value;
+        eventCase_ = value == null ? EventOneofCase.None : EventOneofCase.Error;
+      }
+    }
+
+    /// <summary>Field number for the "Info" field.</summary>
+    public const int InfoFieldNumber = 2;
+    /// <summary>
+    /// This field carries the notification info.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::ServiceLayer.SLInterfaceInfoMsg Info {
+      get { return eventCase_ == EventOneofCase.Info ? (global::ServiceLayer.SLInterfaceInfoMsg) event_ : null; }
+      set {
+        event_ = value;
+        eventCase_ = value == null ? EventOneofCase.None : EventOneofCase.Info;
+      }
+    }
+
+    private object event_;
+    /// <summary>Enum of possible cases for the "Event" oneof.</summary>
+    public enum EventOneofCase {
+      None = 0,
+      Error = 1,
+      Info = 2,
+    }
+    private EventOneofCase eventCase_ = EventOneofCase.None;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public EventOneofCase EventCase {
+      get { return eventCase_; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearEvent() {
+      eventCase_ = EventOneofCase.None;
+      event_ = null;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as SLInterfaceNotif);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(SLInterfaceNotif other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (!object.Equals(Error, other.Error)) return false;
+      if (!object.Equals(Info, other.Info)) return false;
+      if (EventCase != other.EventCase) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (eventCase_ == EventOneofCase.Error) hash ^= Error.GetHashCode();
+      if (eventCase_ == EventOneofCase.Info) hash ^= Info.GetHashCode();
+      hash ^= (int) eventCase_;
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (eventCase_ == EventOneofCase.Error) {
+        output.WriteRawTag(10);
+        output.WriteMessage(Error);
+      }
+      if (eventCase_ == EventOneofCase.Info) {
+        output.WriteRawTag(18);
+        output.WriteMessage(Info);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (eventCase_ == EventOneofCase.Error) {
+        output.WriteRawTag(10);
+        output.WriteMessage(Error);
+      }
+      if (eventCase_ == EventOneofCase.Info) {
+        output.WriteRawTag(18);
+        output.WriteMessage(Info);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (eventCase_ == EventOneofCase.Error) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Error);
+      }
+      if (eventCase_ == EventOneofCase.Info) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Info);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(SLInterfaceNotif other) {
+      if (other == null) {
+        return;
+      }
+      switch (other.EventCase) {
+        case EventOneofCase.Error:
+          if (Error == null) {
+            Error = new global::ServiceLayer.SLInterfaceNotifMsgErr();
+          }
+          Error.MergeFrom(other.Error);
+          break;
+        case EventOneofCase.Info:
+          if (Info == null) {
+            Info = new global::ServiceLayer.SLInterfaceInfoMsg();
+          }
+          Info.MergeFrom(other.Info);
+          break;
+      }
+
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            global::ServiceLayer.SLInterfaceNotifMsgErr subBuilder = new global::ServiceLayer.SLInterfaceNotifMsgErr();
+            if (eventCase_ == EventOneofCase.Error) {
+              subBuilder.MergeFrom(Error);
             }
-            input.ReadMessage(StatusSummary);
+            input.ReadMessage(subBuilder);
+            Error = subBuilder;
             break;
           }
           case 18: {
-            results_.AddEntriesFrom(ref input, _repeated_results_codec);
+            global::ServiceLayer.SLInterfaceInfoMsg subBuilder = new global::ServiceLayer.SLInterfaceInfoMsg();
+            if (eventCase_ == EventOneofCase.Info) {
+              subBuilder.MergeFrom(Info);
+            }
+            input.ReadMessage(subBuilder);
+            Info = subBuilder;
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            global::ServiceLayer.SLInterfaceNotifMsgErr subBuilder = new global::ServiceLayer.SLInterfaceNotifMsgErr();
+            if (eventCase_ == EventOneofCase.Error) {
+              subBuilder.MergeFrom(Error);
+            }
+            input.ReadMessage(subBuilder);
+            Error = subBuilder;
+            break;
+          }
+          case 18: {
+            global::ServiceLayer.SLInterfaceInfoMsg subBuilder = new global::ServiceLayer.SLInterfaceInfoMsg();
+            if (eventCase_ == EventOneofCase.Info) {
+              subBuilder.MergeFrom(Info);
+            }
+            input.ReadMessage(subBuilder);
+            Info = subBuilder;
             break;
           }
         }
