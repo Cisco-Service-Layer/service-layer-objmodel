@@ -8206,7 +8206,13 @@ namespace ServiceLayer {
     /// <summary>Field number for the "RedistObject" field.</summary>
     public const int RedistObjectFieldNumber = 4;
     /// <summary>
-    /// Route redistribution notification
+    /// Route redistribution notification.
+    /// If the route is programmed with PathList, the redistributed
+    /// route contains the PathList. The PathList contains paths used
+    /// for forwarding. If the route is deleted, or no paths are available
+    /// for forwarding, the PathList is not returned.
+    /// If the route is programmed with PathGroupKey, the redistributed
+    /// route contains PathGroupKey.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]

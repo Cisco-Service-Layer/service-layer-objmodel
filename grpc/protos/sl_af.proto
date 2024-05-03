@@ -743,7 +743,13 @@ message SLAFNotif {
         // sweep all stale notifications.
         SLRedistMarker EndMarker = 3;
 
-        // Route redistribution notification
+        // Route redistribution notification.
+        // If the route is programmed with PathList, the redistributed
+        // route contains the PathList. The PathList contains paths used
+        // for forwarding. If the route is deleted, or no paths are available
+        // for forwarding, the PathList is not returned.
+        // If the route is programmed with PathGroupKey, the redistributed
+        // route contains PathGroupKey.
         SLAFObject RedistObject = 4;
 
         // Next hop change notification
