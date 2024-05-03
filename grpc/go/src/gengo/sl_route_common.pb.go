@@ -1615,8 +1615,9 @@ type SLRoutePath struct {
 	// unequal cost load balancing, all paths must have non-zero value
 	// otherwise system defaults to equal cost load balancing.
 	LoadMetric uint32 `protobuf:"varint,3,opt,name=LoadMetric,proto3" json:"LoadMetric,omitempty"`
-	// Path VRF name. This field is used ONLY if the path is in a different
-	// VRF than the route (e.g. VPN cases).
+	// Path VRF name. This field is optional and if not specified, VRF of
+	// the AF object containing this path is assumed. The client can set a
+	// different VRF name for certain use cases such as VPN or VxLAN encapsulation.
 	VrfName string `protobuf:"bytes,4,opt,name=VrfName,proto3" json:"VrfName,omitempty"`
 	// Route Metric.
 	// The metric is typically based on information like load, hop count,

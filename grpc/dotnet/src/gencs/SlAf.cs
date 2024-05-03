@@ -8206,7 +8206,11 @@ namespace ServiceLayer {
     /// <summary>Field number for the "RedistObject" field.</summary>
     public const int RedistObjectFieldNumber = 4;
     /// <summary>
-    /// Route redistribution notification
+    /// Route redistribution notification.
+    /// For route redistribution, paths used for forwarding is returned.
+    /// If path list is empty, either the route is deleted, or no paths
+    /// available for forwarding.
+    /// For a route referencing path group, the path group is returned.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]

@@ -5473,8 +5473,9 @@ namespace ServiceLayer {
     public const int VrfNameFieldNumber = 4;
     private string vrfName_ = "";
     /// <summary>
-    /// Path VRF name. This field is used ONLY if the path is in a different
-    /// VRF than the route (e.g. VPN cases).
+    /// Path VRF name. This field is optional and if not specified, VRF of
+    /// the AF object containing this path is assumed. The client can set a
+    /// different VRF name for certain use cases such as VPN or VxLAN encapsulation.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]

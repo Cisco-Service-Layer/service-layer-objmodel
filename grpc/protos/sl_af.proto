@@ -743,7 +743,7 @@ message SLAFNotif {
         // sweep all stale notifications.
         SLRedistMarker EndMarker = 3;
 
-        // Route redistribution notification
+        // Route redistribution notification.
         // For route redistribution, paths used for forwarding is returned.
         // If path list is empty, either the route is deleted, or no paths
         // available for forwarding.

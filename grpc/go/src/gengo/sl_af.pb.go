@@ -2090,7 +2090,11 @@ type SLAFNotif_EndMarker struct {
 }
 
 type SLAFNotif_RedistObject struct {
-	// Route redistribution notification
+	// Route redistribution notification.
+	// For route redistribution, paths used for forwarding is returned.
+	// If path list is empty, either the route is deleted, or no paths
+	// available for forwarding.
+	// For a route referencing path group, the path group is returned.
 	RedistObject *SLAFObject `protobuf:"bytes,4,opt,name=RedistObject,proto3,oneof"`
 }
 
