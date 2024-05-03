@@ -457,8 +457,9 @@ message SLRoutePath {
     // otherwise system defaults to equal cost load balancing.
     uint32 LoadMetric = 3;
 
-    // Path VRF name. This field is used ONLY if the path is in a different
-    // VRF than the route (e.g. VPN cases).
+    // Path VRF name. This field is optional and if not specified, VRF of
+    // the AF object containing this path is assumed. The client can set a
+    // different VRF name for certain use cases such as VPN or VxLAN encapsulation.
     string VrfName = 4;
 
     // Route Metric.

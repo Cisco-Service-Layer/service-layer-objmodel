@@ -744,6 +744,10 @@ message SLAFNotif {
         SLRedistMarker EndMarker = 3;
 
         // Route redistribution notification
+        // For route redistribution, paths used for forwarding is returned.
+        // If path list is empty, either the route is deleted, or no paths
+        // available for forwarding.
+        // For a route referencing path group, the path group is returned.
         SLAFObject RedistObject = 4;
 
         // Next hop change notification
