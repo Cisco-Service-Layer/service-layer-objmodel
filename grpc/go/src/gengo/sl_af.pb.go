@@ -2088,11 +2088,17 @@ type SLAFNotif_StartMarker struct {
 }
 
 type SLAFNotif_EndMarker struct {
-	// This field carries the end marker per VRF per Tabletype for
-	// notifications and is an indication from the server that all
-	// notifications corresponding to the outstanding registered requests
-	// have been sent to the client. The client can now reconcile and
-	// sweep all stale notifications.
+	// This field carries the end marker per VRF per Tabletype and is an
+	// indication that all notifications corresponding to the outstanding
+	// registered requests have been sent to the client.
+	// The server send EndMarker under following conditions:
+	// - on redistribution requests from the client when
+	// all routes matching the outstanding redistribution requests
+	// have been sent to the client.
+	// - On RIB restart, after all routes matching the outstanding
+	// registrations on the VRF and table type have been notified to the
+	// client.
+	// The client can now reconcile and sweep any stale notifications.
 	EndMarker *SLAFNotif_SLRedistMarker `protobuf:"bytes,3,opt,name=EndMarker,proto3,oneof"`
 }
 

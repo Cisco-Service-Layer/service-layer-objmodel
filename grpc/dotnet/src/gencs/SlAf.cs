@@ -8194,11 +8194,17 @@ namespace ServiceLayer {
     /// <summary>Field number for the "EndMarker" field.</summary>
     public const int EndMarkerFieldNumber = 3;
     /// <summary>
-    /// This field carries the end marker per VRF per Tabletype for 
-    /// notifications and is an indication from the server that all 
-    /// notifications corresponding to the outstanding registered requests
-    /// have been sent to the client. The client can now reconcile and
-    /// sweep all stale notifications.
+    /// This field carries the end marker per VRF per Tabletype and is an
+    /// indication that all notifications corresponding to the outstanding
+    /// registered requests have been sent to the client.
+    /// The server send EndMarker under following conditions:
+    /// - on redistribution requests from the client when
+    /// all routes matching the outstanding redistribution requests
+    /// have been sent to the client.
+    /// - On RIB restart, after all routes matching the outstanding 
+    /// registrations on the VRF and table type have been notified to the 
+    /// client.
+    /// The client can now reconcile and sweep any stale notifications.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
