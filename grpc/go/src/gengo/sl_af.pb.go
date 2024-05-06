@@ -2076,12 +2076,13 @@ type SLAFNotif_StartMarker struct {
 	// This field carries the start marker per VRF per Tabletype.
 	// Server sends this event before any notifications are sent under
 	// following conditions:
-	// - If there are no previous redistribution requests for the VRF and
-	// table type, and new redistribution requests are registered, then
-	// when the first route matching the redistribution requests is
-	// available.
-	// - On a RIB restart if there are previous redistribution requests
-	// on the VRF and table type.
+	//   - If there are no previous redistribution requests for the VRF and
+	//     table type, and new redistribution requests are registered, then
+	//     when the first route matching the redistribution requests is
+	//     available.
+	//   - On a RIB restart if there are previous redistribution requests
+	//     on the VRF and table type.
+	//
 	// This allows the client to stale any previous notifications in its
 	// database.
 	StartMarker *SLAFNotif_SLRedistMarker `protobuf:"bytes,2,opt,name=StartMarker,proto3,oneof"`
@@ -2092,12 +2093,13 @@ type SLAFNotif_EndMarker struct {
 	// indication that all notifications corresponding to the outstanding
 	// registered requests have been sent to the client.
 	// The server send EndMarker under following conditions:
-	// - on redistribution requests from the client when
-	// all routes matching the outstanding redistribution requests
-	// have been sent to the client.
-	// - On RIB restart, after all routes matching the outstanding
-	// registrations on the VRF and table type have been notified to the
-	// client.
+	//   - On redistribution requests from the client when
+	//     all routes matching the outstanding redistribution requests
+	//     have been sent to the client.
+	//   - On RIB restart, after all routes matching the outstanding
+	//     registrations on the VRF and table type have been notified to the
+	//     client.
+	//
 	// The client can now reconcile and sweep any stale notifications.
 	EndMarker *SLAFNotif_SLRedistMarker `protobuf:"bytes,3,opt,name=EndMarker,proto3,oneof"`
 }
