@@ -8189,8 +8189,8 @@ namespace ServiceLayer {
     /// <summary>
     /// This field carries the end marker per VRF per Tabletype for 
     /// notifications and is an indication from the server that all 
-    /// notifications corresponding to the registered requests have been
-    /// sent to the client. The client can now reconcile and
+    /// notifications corresponding to the outstanding registered requests
+    /// have been sent to the client. The client can now reconcile and
     /// sweep all stale notifications.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
