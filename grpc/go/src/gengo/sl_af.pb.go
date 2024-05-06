@@ -1688,12 +1688,12 @@ type isSLAFNotifRegReq_Request interface {
 }
 
 type SLAFNotifRegReq_RedistReq struct {
-	// Route redistribution request
+	// Route redistribution registration
 	RedistReq *SLAFRedistRegMsg `protobuf:"bytes,1,opt,name=RedistReq,proto3,oneof"`
 }
 
 type SLAFNotifRegReq_NextHopReq struct {
-	// Next hop notification request
+	// Next hop notification registration
 	NextHopReq *SLAFNextHopRegMsg `protobuf:"bytes,2,opt,name=NextHopReq,proto3,oneof"`
 }
 
@@ -2076,11 +2076,11 @@ type SLAFNotif_StartMarker struct {
 	// This field carries the start marker per VRF per Tabletype.
 	// Server sends this event before any notifications are sent under
 	// following conditions:
-	//   - If there are no previous redistribution requests for the VRF and
+	//   - If there are no previous redistribution registrations for the VRF and
 	//     table type, and new redistribution requests are registered, then
-	//     when the first route matching the redistribution requests is
-	//     available.
-	//   - On a RIB restart if there are previous redistribution requests
+	//     when the first route matching any of the redistribution registrations
+	//     is available.
+	//   - On a RIB restart if there are previous redistribution registrations
 	//     on the VRF and table type.
 	//
 	// This allows the client to stale any previous notifications in its
@@ -2091,10 +2091,10 @@ type SLAFNotif_StartMarker struct {
 type SLAFNotif_EndMarker struct {
 	// This field carries the end marker per VRF per Tabletype and is an
 	// indication that all notifications corresponding to the outstanding
-	// registered requests have been sent to the client.
+	// redistribution registrations have been sent to the client.
 	// The server send EndMarker under following conditions:
-	//   - On redistribution requests from the client when
-	//     all routes matching the outstanding redistribution requests
+	//   - On redistribution registrations from the client when
+	//     all routes matching the outstanding redistribution registrations
 	//     have been sent to the client.
 	//   - On RIB restart, after all routes matching the outstanding
 	//     registrations on the VRF and table type have been notified to the

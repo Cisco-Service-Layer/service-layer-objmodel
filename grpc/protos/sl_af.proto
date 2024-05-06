@@ -619,10 +619,10 @@ message SLAFNextHopRegMsg {
 // Notification request message for a single item
 message SLAFNotifRegReq {
     oneof request {
-        // Route redistribution request
+        // Route redistribution registration
         SLAFRedistRegMsg RedistReq = 1;
 
-        // Next hop notification request
+        // Next hop notification registration
         SLAFNextHopRegMsg NextHopReq = 2;
     }
 
@@ -733,11 +733,11 @@ message SLAFNotif {
         // This field carries the start marker per VRF per Tabletype.
         // Server sends this event before any notifications are sent under
         // following conditions:
-        // - If there are no previous redistribution requests for the VRF and
+        // - If there are no previous redistribution registrations for the VRF and
         //   table type, and new redistribution requests are registered, then
-        //   when the first route matching the redistribution requests is
-        //   available.
-        // - On a RIB restart if there are previous redistribution requests
+        //   when the first route matching any of the redistribution registrations
+        //   is available.
+        // - On a RIB restart if there are previous redistribution registrations
         //   on the VRF and table type.
         // This allows the client to stale any previous notifications in its
         // database.
@@ -745,10 +745,10 @@ message SLAFNotif {
 
         // This field carries the end marker per VRF per Tabletype and is an
         // indication that all notifications corresponding to the outstanding
-        // registered requests have been sent to the client.
+        // redistribution registrations have been sent to the client.
         // The server send EndMarker under following conditions:
-        // - On redistribution requests from the client when
-        //   all routes matching the outstanding redistribution requests
+        // - On redistribution registrations from the client when
+        //   all routes matching the outstanding redistribution registrations
         //   have been sent to the client.
         // - On RIB restart, after all routes matching the outstanding 
         //   registrations on the VRF and table type have been notified to the 
