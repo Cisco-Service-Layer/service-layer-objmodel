@@ -2074,7 +2074,14 @@ type SLAFNotif_NotifStatus struct {
 
 type SLAFNotif_StartMarker struct {
 	// This field carries the start marker per VRF per Tabletype.
-	// Server sends this event before any notifications are sent.
+	// Server sends this event before any notifications are sent under
+	// following conditions:
+	// - If there are no previous redistribution requests for the VRF and
+	// table type, and new redistribution requests are registered, then
+	// when the first route matching the redistribution requests is
+	// available.
+	// - On a RIB restart if there are previous redistribution requests
+	// on the VRF and table type.
 	// This allows the client to stale any previous notifications in its
 	// database.
 	StartMarker *SLAFNotif_SLRedistMarker `protobuf:"bytes,2,opt,name=StartMarker,proto3,oneof"`
