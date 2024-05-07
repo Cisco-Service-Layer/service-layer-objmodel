@@ -460,29 +460,34 @@ message SLAFGetMsg {
     repeated SLRouteGetMatch RouteMatch = 4;
 }
 
+//
 message SLAFFibStatus {
-    // Error code associated with hardware programming
-    SLErrorStatus ErrorCode = 1;
-
-    // Operation ID associated with hardware programming
-    uint64 OperationID = 2;
-
     // Version associated with hardware programming. A valid version is
-    // a non-zero positive number.
-    uint64 Version = 3;
+    // a non-zero positive number
+    uint64 Version = 1;
 
-    // Descriptive string describing error if any, on the hardware programming
-    string ErrorString = 4;
-
-    // DepResult is the result of any operation that this operation depends on.
-    // For example: if this OperationID is about programming an ipv4 or ipv6
-    // route that is pointing to a Path Group, then DepResult will carry
-    // the Result of operation that programmed that Path Group.
-    // NOTE: DepResult is not supported on Get Operations.
-    repeated SLAFFibStatus DepResult = 5;
+    // DepResult is the result of any object that this operation's object depends on.
+    // For example: if this operation is about programming an IPv4 or IPv6
+    // route that is pointing to a Path Group, then there will 
+    // be a single DepResult that will carry
+    // the FIB result of the operation that programmed that Path Group.
+    // Note, DepResult is returned on ADD UPDATE operations only. 
+    // DepResult is not returned for DELETE operation and in Get() result. 
+    SLAFDepFibStatus DepResult = 2;
 }
 
-// Object and its programming status returned on Get.
+//
+message SLAFDepFibStatus {
+    //Error code associated with hardware programming
+    SLErrorStatus ErrorCode = 1;
+
+    // Dependent Operation
+    SLAFOp Operation = 2;
+
+    // Version of the dependent object. A valid version is
+    // a non-zero positive number.
+    uint64 Version = 3;
+// Object and its programming status returned on Get
 message SLAFGetMsgRspEntry {
     // Object
     SLAFOp AFOp = 1;
@@ -544,6 +549,9 @@ message SLAFRes {
     // The operation, expected to carry only the part that is considered
     // the key to uniquely identify the object that is programmed
     SLAFOp Operation = 2;
+
+    // Descriptive string describing error if any, on the hardware programming
+    string ErrorString = 4;
 
     // If the operation was programmed with ACK type set to RIB_AND_FIB_ACK,
     // then FIBStatus indicates status of hardware programming of the
