@@ -62,70 +62,72 @@ namespace ServiceLayer {
             "eWVyLlNMUnNwQUNLVHlwZSKTAQoKU0xBRkdldE1zZxIPCgdWcmZOYW1lGAEg",
             "ASgJEikKBVRhYmxlGAIgASgOMhouc2VydmljZV9sYXllci5TTFRhYmxlVHlw",
             "ZRIVCg1HZXRBbGxDbGllbnRzGAMgASgIEjIKClJvdXRlTWF0Y2gYBCADKAsy",
-            "Hi5zZXJ2aWNlX2xheWVyLlNMUm91dGVHZXRNYXRjaCKsAQoNU0xBRkZpYlN0",
-            "YXR1cxIvCglFcnJvckNvZGUYASABKAsyHC5zZXJ2aWNlX2xheWVyLlNMRXJy",
-            "b3JTdGF0dXMSEwoLT3BlcmF0aW9uSUQYAiABKAQSDwoHVmVyc2lvbhgDIAEo",
-            "BBITCgtFcnJvclN0cmluZxgEIAEoCRIvCglEZXBSZXN1bHQYBSADKAsyHC5z",
-            "ZXJ2aWNlX2xheWVyLlNMQUZGaWJTdGF0dXMiagoSU0xBRkdldE1zZ1JzcEVu",
-            "dHJ5EiMKBEFGT3AYASABKAsyFS5zZXJ2aWNlX2xheWVyLlNMQUZPcBIvCglG",
-            "SUJTdGF0dXMYAiABKAsyHC5zZXJ2aWNlX2xheWVyLlNMQUZGaWJTdGF0dXMi",
-            "lgEKDVNMQUZHZXRNc2dSc3ASLwoJRXJyU3RhdHVzGAEgASgLMhwuc2Vydmlj",
-            "ZV9sYXllci5TTEVycm9yU3RhdHVzEg8KB1ZyZk5hbWUYAiABKAkSEAoIQ2xp",
-            "ZW50SUQYAyABKAQSMQoGQUZMaXN0GAQgAygLMiEuc2VydmljZV9sYXllci5T",
-            "TEFGR2V0TXNnUnNwRW50cnkiagoHU0xBRk1zZxInCgRPcGVyGAEgASgOMhku",
-            "c2VydmljZV9sYXllci5TTE9iamVjdE9wEg8KB1ZyZk5hbWUYAiABKAkSJQoG",
-            "T3BMaXN0GAMgAygLMhUuc2VydmljZV9sYXllci5TTEFGT3AilQEKB1NMQUZS",
-            "ZXMSLwoJRXJyU3RhdHVzGAEgASgLMhwuc2VydmljZV9sYXllci5TTEVycm9y",
+            "Hi5zZXJ2aWNlX2xheWVyLlNMUm91dGVHZXRNYXRjaCJUCg1TTEFGRmliU3Rh",
+            "dHVzEg8KB1ZlcnNpb24YASABKAQSMgoJRGVwUmVzdWx0GAIgASgLMh8uc2Vy",
+            "dmljZV9sYXllci5TTEFGRGVwRmliU3RhdHVzIn4KEFNMQUZEZXBGaWJTdGF0",
+            "dXMSLwoJRXJyb3JDb2RlGAEgASgLMhwuc2VydmljZV9sYXllci5TTEVycm9y",
             "U3RhdHVzEigKCU9wZXJhdGlvbhgCIAEoCzIVLnNlcnZpY2VfbGF5ZXIuU0xB",
-            "Rk9wEi8KCUZJQlN0YXR1cxgDIAEoCzIcLnNlcnZpY2VfbGF5ZXIuU0xBRkZp",
-            "YlN0YXR1cyJGCgpTTEFGTXNnUnNwEg8KB1ZyZk5hbWUYASABKAkSJwoHUmVz",
-            "dWx0cxgCIAMoCzIWLnNlcnZpY2VfbGF5ZXIuU0xBRlJlcyJkChBTTEFGUmVk",
-            "aXN0UmVnTXNnEhAKCFNyY1Byb3RvGAEgASgJEhMKC1NyY1Byb3RvVGFnGAIg",
-            "ASgJEikKBVRhYmxlGAMgASgOMhouc2VydmljZV9sYXllci5TTFRhYmxlVHlw",
-            "ZSLwAQoRU0xBRk5leHRIb3BSZWdLZXkSQAoHTmV4dEhvcBgBIAEoCzItLnNl",
-            "cnZpY2VfbGF5ZXIuU0xBRk5leHRIb3BSZWdLZXkuU0xOZXh0SG9wS2V5SAAa",
-            "igEKDFNMTmV4dEhvcEtleRIrCgdOZXh0SG9wGAEgASgLMhouc2VydmljZV9s",
-            "YXllci5TTElwQWRkcmVzcxISCgpOZXh0SG9wTGVuGAIgASgNEhIKCkV4YWN0",
-            "TWF0Y2gYAyABKAgSFAoMQWxsb3dEZWZhdWx0GAQgASgIEg8KB1JlY3Vyc2UY",
-            "BSABKAhCDAoKbmV4dGhvcGtleSJJChFTTEFGTmV4dEhvcFJlZ01zZxI0CgpO",
-            "ZXh0SG9wS2V5GAEgASgLMiAuc2VydmljZV9sYXllci5TTEFGTmV4dEhvcFJl",
-            "Z0tleSKfAQoPU0xBRk5vdGlmUmVnUmVxEjQKCVJlZGlzdFJlcRgBIAEoCzIf",
-            "LnNlcnZpY2VfbGF5ZXIuU0xBRlJlZGlzdFJlZ01zZ0gAEjYKCk5leHRIb3BS",
-            "ZXEYAiABKAsyIC5zZXJ2aWNlX2xheWVyLlNMQUZOZXh0SG9wUmVnTXNnSAAS",
-            "EwoLT3BlcmF0aW9uSUQYAyABKARCCQoHcmVxdWVzdCJ5CgxTTEFGTm90aWZS",
-            "ZXESJgoET3BlchgBIAEoDjIYLnNlcnZpY2VfbGF5ZXIuU0xOb3RpZk9wEg8K",
-            "B1ZyZk5hbWUYAiABKAkSMAoITm90aWZSZXEYAyADKAsyHi5zZXJ2aWNlX2xh",
-            "eWVyLlNMQUZOb3RpZlJlZ1JlcSJzCgxTTEFGTm90aWZSc3ASMAoITm90aWZS",
-            "ZXEYASABKAsyHi5zZXJ2aWNlX2xheWVyLlNMQUZOb3RpZlJlZ1JlcRIxCgtO",
-            "b3RpZlN0YXR1cxgCIAEoCzIcLnNlcnZpY2VfbGF5ZXIuU0xFcnJvclN0YXR1",
-            "cyKJAgoJU0xOZXh0SG9wEjQKCk5leHRIb3BLZXkYASABKAsyIC5zZXJ2aWNl",
-            "X2xheWVyLlNMQUZOZXh0SG9wUmVnS2V5EjIKDlJlc29sdmluZ1JvdXRlGAIg",
-            "ASgLMhouc2VydmljZV9sYXllci5TTElwQWRkcmVzcxIZChFSZXNvbHZpbmdS",
-            "b3V0ZUxlbhgDIAEoDRIQCghTcmNQcm90bxgEIAEoCRITCgtTcmNQcm90b1Rh",
-            "ZxgFIAEoCRIVCg1BZG1pbkRpc3RhbmNlGAYgASgNEg4KBk1ldHJpYxgHIAEo",
-            "DRIpCgVQYXRocxgIIAMoCzIaLnNlcnZpY2VfbGF5ZXIuU0xSb3V0ZVBhdGgi",
-            "4wIKCVNMQUZOb3RpZhIyCgtOb3RpZlN0YXR1cxgBIAEoCzIbLnNlcnZpY2Vf",
-            "bGF5ZXIuU0xBRk5vdGlmUnNwSAASPgoLU3RhcnRNYXJrZXIYAiABKAsyJy5z",
-            "ZXJ2aWNlX2xheWVyLlNMQUZOb3RpZi5TTFJlZGlzdE1hcmtlckgAEjwKCUVu",
-            "ZE1hcmtlchgDIAEoCzInLnNlcnZpY2VfbGF5ZXIuU0xBRk5vdGlmLlNMUmVk",
-            "aXN0TWFya2VySAASMQoMUmVkaXN0T2JqZWN0GAQgASgLMhkuc2VydmljZV9s",
-            "YXllci5TTEFGT2JqZWN0SAASKwoHTmV4dEhvcBgFIAEoCzIYLnNlcnZpY2Vf",
-            "bGF5ZXIuU0xOZXh0SG9wSAAaOwoOU0xSZWRpc3RNYXJrZXISKQoFVGFibGUY",
-            "ASABKA4yGi5zZXJ2aWNlX2xheWVyLlNMVGFibGVUeXBlQgcKBUV2ZW50IksK",
-            "DFNMQUZOb3RpZk1zZxIPCgdWcmZOYW1lGAEgASgJEioKCEFGTm90aWZzGAMg",
-            "AygLMhguc2VydmljZV9sYXllci5TTEFGTm90aWYyyAMKBFNMQUYSTQoMU0xB",
-            "RlZyZlJlZ09wEhwuc2VydmljZV9sYXllci5TTEFGVnJmUmVnTXNnGh8uc2Vy",
-            "dmljZV9sYXllci5TTEFGVnJmUmVnTXNnUnNwElYKDVNMQUZWcmZSZWdHZXQS",
-            "Hy5zZXJ2aWNlX2xheWVyLlNMQUZWcmZSZWdHZXRNc2caIi5zZXJ2aWNlX2xh",
-            "eWVyLlNMQUZWcmZSZWdHZXRNc2dSc3AwARI7CgZTTEFGT3ASFi5zZXJ2aWNl",
-            "X2xheWVyLlNMQUZNc2caGS5zZXJ2aWNlX2xheWVyLlNMQUZNc2dSc3ASRQoM",
-            "U0xBRk9wU3RyZWFtEhYuc2VydmljZV9sYXllci5TTEFGTXNnGhkuc2Vydmlj",
-            "ZV9sYXllci5TTEFGTXNnUnNwKAEwARJECgdTTEFGR2V0Ehkuc2VydmljZV9s",
-            "YXllci5TTEFGR2V0TXNnGhwuc2VydmljZV9sYXllci5TTEFGR2V0TXNnUnNw",
-            "MAESTwoPU0xBRk5vdGlmU3RyZWFtEhsuc2VydmljZV9sYXllci5TTEFGTm90",
-            "aWZSZXEaGy5zZXJ2aWNlX2xheWVyLlNMQUZOb3RpZk1zZygBMAFCUVpPZ2l0",
-            "aHViLmNvbS9DaXNjby1zZXJ2aWNlLWxheWVyL3NlcnZpY2UtbGF5ZXItb2Jq",
-            "bW9kZWwvZ3JwYy9wcm90b3M7c2VydmljZV9sYXllcmIGcHJvdG8z"));
+            "Rk9wEg8KB1ZlcnNpb24YAyABKAQiagoSU0xBRkdldE1zZ1JzcEVudHJ5EiMK",
+            "BEFGT3AYASABKAsyFS5zZXJ2aWNlX2xheWVyLlNMQUZPcBIvCglGSUJTdGF0",
+            "dXMYAiABKAsyHC5zZXJ2aWNlX2xheWVyLlNMQUZGaWJTdGF0dXMilgEKDVNM",
+            "QUZHZXRNc2dSc3ASLwoJRXJyU3RhdHVzGAEgASgLMhwuc2VydmljZV9sYXll",
+            "ci5TTEVycm9yU3RhdHVzEg8KB1ZyZk5hbWUYAiABKAkSEAoIQ2xpZW50SUQY",
+            "AyABKAQSMQoGQUZMaXN0GAQgAygLMiEuc2VydmljZV9sYXllci5TTEFGR2V0",
+            "TXNnUnNwRW50cnkiagoHU0xBRk1zZxInCgRPcGVyGAEgASgOMhkuc2Vydmlj",
+            "ZV9sYXllci5TTE9iamVjdE9wEg8KB1ZyZk5hbWUYAiABKAkSJQoGT3BMaXN0",
+            "GAMgAygLMhUuc2VydmljZV9sYXllci5TTEFGT3AiqgEKB1NMQUZSZXMSLwoJ",
+            "RXJyU3RhdHVzGAEgASgLMhwuc2VydmljZV9sYXllci5TTEVycm9yU3RhdHVz",
+            "EigKCU9wZXJhdGlvbhgCIAEoCzIVLnNlcnZpY2VfbGF5ZXIuU0xBRk9wEhMK",
+            "C0Vycm9yU3RyaW5nGAQgASgJEi8KCUZJQlN0YXR1cxgDIAEoCzIcLnNlcnZp",
+            "Y2VfbGF5ZXIuU0xBRkZpYlN0YXR1cyJGCgpTTEFGTXNnUnNwEg8KB1ZyZk5h",
+            "bWUYASABKAkSJwoHUmVzdWx0cxgCIAMoCzIWLnNlcnZpY2VfbGF5ZXIuU0xB",
+            "RlJlcyJkChBTTEFGUmVkaXN0UmVnTXNnEhAKCFNyY1Byb3RvGAEgASgJEhMK",
+            "C1NyY1Byb3RvVGFnGAIgASgJEikKBVRhYmxlGAMgASgOMhouc2VydmljZV9s",
+            "YXllci5TTFRhYmxlVHlwZSLwAQoRU0xBRk5leHRIb3BSZWdLZXkSQAoHTmV4",
+            "dEhvcBgBIAEoCzItLnNlcnZpY2VfbGF5ZXIuU0xBRk5leHRIb3BSZWdLZXku",
+            "U0xOZXh0SG9wS2V5SAAaigEKDFNMTmV4dEhvcEtleRIrCgdOZXh0SG9wGAEg",
+            "ASgLMhouc2VydmljZV9sYXllci5TTElwQWRkcmVzcxISCgpOZXh0SG9wTGVu",
+            "GAIgASgNEhIKCkV4YWN0TWF0Y2gYAyABKAgSFAoMQWxsb3dEZWZhdWx0GAQg",
+            "ASgIEg8KB1JlY3Vyc2UYBSABKAhCDAoKbmV4dGhvcGtleSJJChFTTEFGTmV4",
+            "dEhvcFJlZ01zZxI0CgpOZXh0SG9wS2V5GAEgASgLMiAuc2VydmljZV9sYXll",
+            "ci5TTEFGTmV4dEhvcFJlZ0tleSKfAQoPU0xBRk5vdGlmUmVnUmVxEjQKCVJl",
+            "ZGlzdFJlcRgBIAEoCzIfLnNlcnZpY2VfbGF5ZXIuU0xBRlJlZGlzdFJlZ01z",
+            "Z0gAEjYKCk5leHRIb3BSZXEYAiABKAsyIC5zZXJ2aWNlX2xheWVyLlNMQUZO",
+            "ZXh0SG9wUmVnTXNnSAASEwoLT3BlcmF0aW9uSUQYAyABKARCCQoHcmVxdWVz",
+            "dCJ5CgxTTEFGTm90aWZSZXESJgoET3BlchgBIAEoDjIYLnNlcnZpY2VfbGF5",
+            "ZXIuU0xOb3RpZk9wEg8KB1ZyZk5hbWUYAiABKAkSMAoITm90aWZSZXEYAyAD",
+            "KAsyHi5zZXJ2aWNlX2xheWVyLlNMQUZOb3RpZlJlZ1JlcSJzCgxTTEFGTm90",
+            "aWZSc3ASMAoITm90aWZSZXEYASABKAsyHi5zZXJ2aWNlX2xheWVyLlNMQUZO",
+            "b3RpZlJlZ1JlcRIxCgtOb3RpZlN0YXR1cxgCIAEoCzIcLnNlcnZpY2VfbGF5",
+            "ZXIuU0xFcnJvclN0YXR1cyKJAgoJU0xOZXh0SG9wEjQKCk5leHRIb3BLZXkY",
+            "ASABKAsyIC5zZXJ2aWNlX2xheWVyLlNMQUZOZXh0SG9wUmVnS2V5EjIKDlJl",
+            "c29sdmluZ1JvdXRlGAIgASgLMhouc2VydmljZV9sYXllci5TTElwQWRkcmVz",
+            "cxIZChFSZXNvbHZpbmdSb3V0ZUxlbhgDIAEoDRIQCghTcmNQcm90bxgEIAEo",
+            "CRITCgtTcmNQcm90b1RhZxgFIAEoCRIVCg1BZG1pbkRpc3RhbmNlGAYgASgN",
+            "Eg4KBk1ldHJpYxgHIAEoDRIpCgVQYXRocxgIIAMoCzIaLnNlcnZpY2VfbGF5",
+            "ZXIuU0xSb3V0ZVBhdGgi4wIKCVNMQUZOb3RpZhIyCgtOb3RpZlN0YXR1cxgB",
+            "IAEoCzIbLnNlcnZpY2VfbGF5ZXIuU0xBRk5vdGlmUnNwSAASPgoLU3RhcnRN",
+            "YXJrZXIYAiABKAsyJy5zZXJ2aWNlX2xheWVyLlNMQUZOb3RpZi5TTFJlZGlz",
+            "dE1hcmtlckgAEjwKCUVuZE1hcmtlchgDIAEoCzInLnNlcnZpY2VfbGF5ZXIu",
+            "U0xBRk5vdGlmLlNMUmVkaXN0TWFya2VySAASMQoMUmVkaXN0T2JqZWN0GAQg",
+            "ASgLMhkuc2VydmljZV9sYXllci5TTEFGT2JqZWN0SAASKwoHTmV4dEhvcBgF",
+            "IAEoCzIYLnNlcnZpY2VfbGF5ZXIuU0xOZXh0SG9wSAAaOwoOU0xSZWRpc3RN",
+            "YXJrZXISKQoFVGFibGUYASABKA4yGi5zZXJ2aWNlX2xheWVyLlNMVGFibGVU",
+            "eXBlQgcKBUV2ZW50IksKDFNMQUZOb3RpZk1zZxIPCgdWcmZOYW1lGAEgASgJ",
+            "EioKCEFGTm90aWZzGAMgAygLMhguc2VydmljZV9sYXllci5TTEFGTm90aWYy",
+            "yAMKBFNMQUYSTQoMU0xBRlZyZlJlZ09wEhwuc2VydmljZV9sYXllci5TTEFG",
+            "VnJmUmVnTXNnGh8uc2VydmljZV9sYXllci5TTEFGVnJmUmVnTXNnUnNwElYK",
+            "DVNMQUZWcmZSZWdHZXQSHy5zZXJ2aWNlX2xheWVyLlNMQUZWcmZSZWdHZXRN",
+            "c2caIi5zZXJ2aWNlX2xheWVyLlNMQUZWcmZSZWdHZXRNc2dSc3AwARI7CgZT",
+            "TEFGT3ASFi5zZXJ2aWNlX2xheWVyLlNMQUZNc2caGS5zZXJ2aWNlX2xheWVy",
+            "LlNMQUZNc2dSc3ASRQoMU0xBRk9wU3RyZWFtEhYuc2VydmljZV9sYXllci5T",
+            "TEFGTXNnGhkuc2VydmljZV9sYXllci5TTEFGTXNnUnNwKAEwARJECgdTTEFG",
+            "R2V0Ehkuc2VydmljZV9sYXllci5TTEFGR2V0TXNnGhwuc2VydmljZV9sYXll",
+            "ci5TTEFGR2V0TXNnUnNwMAESTwoPU0xBRk5vdGlmU3RyZWFtEhsuc2Vydmlj",
+            "ZV9sYXllci5TTEFGTm90aWZSZXEaGy5zZXJ2aWNlX2xheWVyLlNMQUZOb3Rp",
+            "Zk1zZygBMAFCUVpPZ2l0aHViLmNvbS9DaXNjby1zZXJ2aWNlLWxheWVyL3Nl",
+            "cnZpY2UtbGF5ZXItb2JqbW9kZWwvZ3JwYy9wcm90b3M7c2VydmljZV9sYXll",
+            "cmIGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::ServiceLayer.SlCommonTypesReflection.Descriptor, global::ServiceLayer.SlRouteCommonReflection.Descriptor, global::ServiceLayer.SlRouteIpv4Reflection.Descriptor, global::ServiceLayer.SlRouteIpv6Reflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
@@ -141,11 +143,12 @@ namespace ServiceLayer {
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLAFObject), global::ServiceLayer.SLAFObject.Parser, new[]{ "IPv4Route", "IPv6Route", "MplsLabel", "PathGroup" }, new[]{ "Entry" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLAFOp), global::ServiceLayer.SLAFOp.Parser, new[]{ "AFObject", "OperationID", "AckType" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLAFGetMsg), global::ServiceLayer.SLAFGetMsg.Parser, new[]{ "VrfName", "Table", "GetAllClients", "RouteMatch" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLAFFibStatus), global::ServiceLayer.SLAFFibStatus.Parser, new[]{ "ErrorCode", "OperationID", "Version", "ErrorString", "DepResult" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLAFFibStatus), global::ServiceLayer.SLAFFibStatus.Parser, new[]{ "Version", "DepResult" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLAFDepFibStatus), global::ServiceLayer.SLAFDepFibStatus.Parser, new[]{ "ErrorCode", "Operation", "Version" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLAFGetMsgRspEntry), global::ServiceLayer.SLAFGetMsgRspEntry.Parser, new[]{ "AFOp", "FIBStatus" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLAFGetMsgRsp), global::ServiceLayer.SLAFGetMsgRsp.Parser, new[]{ "ErrStatus", "VrfName", "ClientID", "AFList" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLAFMsg), global::ServiceLayer.SLAFMsg.Parser, new[]{ "Oper", "VrfName", "OpList" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLAFRes), global::ServiceLayer.SLAFRes.Parser, new[]{ "ErrStatus", "Operation", "FIBStatus" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLAFRes), global::ServiceLayer.SLAFRes.Parser, new[]{ "ErrStatus", "Operation", "ErrorString", "FIBStatus" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLAFMsgRsp), global::ServiceLayer.SLAFMsgRsp.Parser, new[]{ "VrfName", "Results" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLAFRedistRegMsg), global::ServiceLayer.SLAFRedistRegMsg.Parser, new[]{ "SrcProto", "SrcProtoTag", "Table" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLAFNextHopRegKey), global::ServiceLayer.SLAFNextHopRegKey.Parser, new[]{ "NextHop" }, new[]{ "Nexthopkey" }, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLAFNextHopRegKey.Types.SLNextHopKey), global::ServiceLayer.SLAFNextHopRegKey.Types.SLNextHopKey.Parser, new[]{ "NextHop", "NextHopLen", "ExactMatch", "AllowDefault", "Recurse" }, null, null, null, null)}),
@@ -3887,6 +3890,9 @@ namespace ServiceLayer {
 
   }
 
+  /// <summary>
+  /// Hardware programming status of an object
+  /// </summary>
   public sealed partial class SLAFFibStatus : pb::IMessage<SLAFFibStatus>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -3921,11 +3927,8 @@ namespace ServiceLayer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public SLAFFibStatus(SLAFFibStatus other) : this() {
-      errorCode_ = other.errorCode_ != null ? other.errorCode_.Clone() : null;
-      operationID_ = other.operationID_;
       version_ = other.version_;
-      errorString_ = other.errorString_;
-      depResult_ = other.depResult_.Clone();
+      depResult_ = other.depResult_ != null ? other.depResult_.Clone() : null;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -3935,42 +3938,12 @@ namespace ServiceLayer {
       return new SLAFFibStatus(this);
     }
 
-    /// <summary>Field number for the "ErrorCode" field.</summary>
-    public const int ErrorCodeFieldNumber = 1;
-    private global::ServiceLayer.SLErrorStatus errorCode_;
-    /// <summary>
-    /// Error code associated with hardware programming
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::ServiceLayer.SLErrorStatus ErrorCode {
-      get { return errorCode_; }
-      set {
-        errorCode_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "OperationID" field.</summary>
-    public const int OperationIDFieldNumber = 2;
-    private ulong operationID_;
-    /// <summary>
-    /// Operation ID associated with hardware programming
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public ulong OperationID {
-      get { return operationID_; }
-      set {
-        operationID_ = value;
-      }
-    }
-
     /// <summary>Field number for the "Version" field.</summary>
-    public const int VersionFieldNumber = 3;
+    public const int VersionFieldNumber = 1;
     private ulong version_;
     /// <summary>
-    /// Version associated with hardware programming. A valid version is
-    /// a non-zero positive number.
+    /// Version generated by the device for this operation. A valid version is
+    /// a non-zero positive number
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -3981,37 +3954,24 @@ namespace ServiceLayer {
       }
     }
 
-    /// <summary>Field number for the "ErrorString" field.</summary>
-    public const int ErrorStringFieldNumber = 4;
-    private string errorString_ = "";
-    /// <summary>
-    /// Descriptive string describing error if any, on the hardware programming
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public string ErrorString {
-      get { return errorString_; }
-      set {
-        errorString_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
     /// <summary>Field number for the "DepResult" field.</summary>
-    public const int DepResultFieldNumber = 5;
-    private static readonly pb::FieldCodec<global::ServiceLayer.SLAFFibStatus> _repeated_depResult_codec
-        = pb::FieldCodec.ForMessage(42, global::ServiceLayer.SLAFFibStatus.Parser);
-    private readonly pbc::RepeatedField<global::ServiceLayer.SLAFFibStatus> depResult_ = new pbc::RepeatedField<global::ServiceLayer.SLAFFibStatus>();
+    public const int DepResultFieldNumber = 2;
+    private global::ServiceLayer.SLAFDepFibStatus depResult_;
     /// <summary>
-    /// DepResult is the result of any operation that this operation depends on.
-    /// For example: if this OperationID is about programming an ipv4 or ipv6
-    /// route that is pointing to a Path Group, then DepResult will carry
-    /// the Result of operation that programmed that Path Group.
-    /// NOTE: DepResult is not supported on Get Operations.
+    /// DepResult is the result of any object that this operation's object depends on.
+    /// For example: if this operation is about programming an IPv4 or IPv6
+    /// route that is pointing to a Path Group, then the DepResult that will carry 
+    /// the FIB result of the operation that programmed that Path Group.
+    /// Note, DepResult is returned on ADD UPDATE operations only. 
+    /// DepResult is not returned for DELETE operation and in Get() result. 
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pbc::RepeatedField<global::ServiceLayer.SLAFFibStatus> DepResult {
+    public global::ServiceLayer.SLAFDepFibStatus DepResult {
       get { return depResult_; }
+      set {
+        depResult_ = value;
+      }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -4029,11 +3989,267 @@ namespace ServiceLayer {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (!object.Equals(ErrorCode, other.ErrorCode)) return false;
-      if (OperationID != other.OperationID) return false;
       if (Version != other.Version) return false;
-      if (ErrorString != other.ErrorString) return false;
-      if(!depResult_.Equals(other.depResult_)) return false;
+      if (!object.Equals(DepResult, other.DepResult)) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (Version != 0UL) hash ^= Version.GetHashCode();
+      if (depResult_ != null) hash ^= DepResult.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (Version != 0UL) {
+        output.WriteRawTag(8);
+        output.WriteUInt64(Version);
+      }
+      if (depResult_ != null) {
+        output.WriteRawTag(18);
+        output.WriteMessage(DepResult);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (Version != 0UL) {
+        output.WriteRawTag(8);
+        output.WriteUInt64(Version);
+      }
+      if (depResult_ != null) {
+        output.WriteRawTag(18);
+        output.WriteMessage(DepResult);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (Version != 0UL) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(Version);
+      }
+      if (depResult_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(DepResult);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(SLAFFibStatus other) {
+      if (other == null) {
+        return;
+      }
+      if (other.Version != 0UL) {
+        Version = other.Version;
+      }
+      if (other.depResult_ != null) {
+        if (depResult_ == null) {
+          DepResult = new global::ServiceLayer.SLAFDepFibStatus();
+        }
+        DepResult.MergeFrom(other.DepResult);
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            Version = input.ReadUInt64();
+            break;
+          }
+          case 18: {
+            if (depResult_ == null) {
+              DepResult = new global::ServiceLayer.SLAFDepFibStatus();
+            }
+            input.ReadMessage(DepResult);
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 8: {
+            Version = input.ReadUInt64();
+            break;
+          }
+          case 18: {
+            if (depResult_ == null) {
+              DepResult = new global::ServiceLayer.SLAFDepFibStatus();
+            }
+            input.ReadMessage(DepResult);
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  public sealed partial class SLAFDepFibStatus : pb::IMessage<SLAFDepFibStatus>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<SLAFDepFibStatus> _parser = new pb::MessageParser<SLAFDepFibStatus>(() => new SLAFDepFibStatus());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<SLAFDepFibStatus> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::ServiceLayer.SlAfReflection.Descriptor.MessageTypes[12]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SLAFDepFibStatus() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SLAFDepFibStatus(SLAFDepFibStatus other) : this() {
+      errorCode_ = other.errorCode_ != null ? other.errorCode_.Clone() : null;
+      operation_ = other.operation_ != null ? other.operation_.Clone() : null;
+      version_ = other.version_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SLAFDepFibStatus Clone() {
+      return new SLAFDepFibStatus(this);
+    }
+
+    /// <summary>Field number for the "ErrorCode" field.</summary>
+    public const int ErrorCodeFieldNumber = 1;
+    private global::ServiceLayer.SLErrorStatus errorCode_;
+    /// <summary>
+    /// Error code associated with hardware programming
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::ServiceLayer.SLErrorStatus ErrorCode {
+      get { return errorCode_; }
+      set {
+        errorCode_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "Operation" field.</summary>
+    public const int OperationFieldNumber = 2;
+    private global::ServiceLayer.SLAFOp operation_;
+    /// <summary>
+    /// Dependent Operation
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::ServiceLayer.SLAFOp Operation {
+      get { return operation_; }
+      set {
+        operation_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "Version" field.</summary>
+    public const int VersionFieldNumber = 3;
+    private ulong version_;
+    /// <summary>
+    /// Version of the dependent object. A valid version is
+    /// a non-zero positive number.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public ulong Version {
+      get { return version_; }
+      set {
+        version_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as SLAFDepFibStatus);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(SLAFDepFibStatus other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (!object.Equals(ErrorCode, other.ErrorCode)) return false;
+      if (!object.Equals(Operation, other.Operation)) return false;
+      if (Version != other.Version) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -4042,10 +4258,8 @@ namespace ServiceLayer {
     public override int GetHashCode() {
       int hash = 1;
       if (errorCode_ != null) hash ^= ErrorCode.GetHashCode();
-      if (OperationID != 0UL) hash ^= OperationID.GetHashCode();
+      if (operation_ != null) hash ^= Operation.GetHashCode();
       if (Version != 0UL) hash ^= Version.GetHashCode();
-      if (ErrorString.Length != 0) hash ^= ErrorString.GetHashCode();
-      hash ^= depResult_.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -4068,19 +4282,14 @@ namespace ServiceLayer {
         output.WriteRawTag(10);
         output.WriteMessage(ErrorCode);
       }
-      if (OperationID != 0UL) {
-        output.WriteRawTag(16);
-        output.WriteUInt64(OperationID);
+      if (operation_ != null) {
+        output.WriteRawTag(18);
+        output.WriteMessage(Operation);
       }
       if (Version != 0UL) {
         output.WriteRawTag(24);
         output.WriteUInt64(Version);
       }
-      if (ErrorString.Length != 0) {
-        output.WriteRawTag(34);
-        output.WriteString(ErrorString);
-      }
-      depResult_.WriteTo(output, _repeated_depResult_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -4095,19 +4304,14 @@ namespace ServiceLayer {
         output.WriteRawTag(10);
         output.WriteMessage(ErrorCode);
       }
-      if (OperationID != 0UL) {
-        output.WriteRawTag(16);
-        output.WriteUInt64(OperationID);
+      if (operation_ != null) {
+        output.WriteRawTag(18);
+        output.WriteMessage(Operation);
       }
       if (Version != 0UL) {
         output.WriteRawTag(24);
         output.WriteUInt64(Version);
       }
-      if (ErrorString.Length != 0) {
-        output.WriteRawTag(34);
-        output.WriteString(ErrorString);
-      }
-      depResult_.WriteTo(ref output, _repeated_depResult_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -4121,16 +4325,12 @@ namespace ServiceLayer {
       if (errorCode_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(ErrorCode);
       }
-      if (OperationID != 0UL) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(OperationID);
+      if (operation_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Operation);
       }
       if (Version != 0UL) {
         size += 1 + pb::CodedOutputStream.ComputeUInt64Size(Version);
       }
-      if (ErrorString.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(ErrorString);
-      }
-      size += depResult_.CalculateSize(_repeated_depResult_codec);
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -4139,7 +4339,7 @@ namespace ServiceLayer {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(SLAFFibStatus other) {
+    public void MergeFrom(SLAFDepFibStatus other) {
       if (other == null) {
         return;
       }
@@ -4149,16 +4349,15 @@ namespace ServiceLayer {
         }
         ErrorCode.MergeFrom(other.ErrorCode);
       }
-      if (other.OperationID != 0UL) {
-        OperationID = other.OperationID;
+      if (other.operation_ != null) {
+        if (operation_ == null) {
+          Operation = new global::ServiceLayer.SLAFOp();
+        }
+        Operation.MergeFrom(other.Operation);
       }
       if (other.Version != 0UL) {
         Version = other.Version;
       }
-      if (other.ErrorString.Length != 0) {
-        ErrorString = other.ErrorString;
-      }
-      depResult_.Add(other.depResult_);
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -4181,20 +4380,15 @@ namespace ServiceLayer {
             input.ReadMessage(ErrorCode);
             break;
           }
-          case 16: {
-            OperationID = input.ReadUInt64();
+          case 18: {
+            if (operation_ == null) {
+              Operation = new global::ServiceLayer.SLAFOp();
+            }
+            input.ReadMessage(Operation);
             break;
           }
           case 24: {
             Version = input.ReadUInt64();
-            break;
-          }
-          case 34: {
-            ErrorString = input.ReadString();
-            break;
-          }
-          case 42: {
-            depResult_.AddEntriesFrom(input, _repeated_depResult_codec);
             break;
           }
         }
@@ -4219,20 +4413,15 @@ namespace ServiceLayer {
             input.ReadMessage(ErrorCode);
             break;
           }
-          case 16: {
-            OperationID = input.ReadUInt64();
+          case 18: {
+            if (operation_ == null) {
+              Operation = new global::ServiceLayer.SLAFOp();
+            }
+            input.ReadMessage(Operation);
             break;
           }
           case 24: {
             Version = input.ReadUInt64();
-            break;
-          }
-          case 34: {
-            ErrorString = input.ReadString();
-            break;
-          }
-          case 42: {
-            depResult_.AddEntriesFrom(ref input, _repeated_depResult_codec);
             break;
           }
         }
@@ -4243,7 +4432,7 @@ namespace ServiceLayer {
   }
 
   /// <summary>
-  /// Object and its programming status returned on Get.
+  /// Object and its programming status returned on Get
   /// </summary>
   public sealed partial class SLAFGetMsgRspEntry : pb::IMessage<SLAFGetMsgRspEntry>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
@@ -4259,7 +4448,7 @@ namespace ServiceLayer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::ServiceLayer.SlAfReflection.Descriptor.MessageTypes[12]; }
+      get { return global::ServiceLayer.SlAfReflection.Descriptor.MessageTypes[13]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -4515,7 +4704,7 @@ namespace ServiceLayer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::ServiceLayer.SlAfReflection.Descriptor.MessageTypes[13]; }
+      get { return global::ServiceLayer.SlAfReflection.Descriptor.MessageTypes[14]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -4841,7 +5030,7 @@ namespace ServiceLayer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::ServiceLayer.SlAfReflection.Descriptor.MessageTypes[14]; }
+      get { return global::ServiceLayer.SlAfReflection.Descriptor.MessageTypes[15]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -5105,7 +5294,7 @@ namespace ServiceLayer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::ServiceLayer.SlAfReflection.Descriptor.MessageTypes[15]; }
+      get { return global::ServiceLayer.SlAfReflection.Descriptor.MessageTypes[16]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -5127,6 +5316,7 @@ namespace ServiceLayer {
     public SLAFRes(SLAFRes other) : this() {
       errStatus_ = other.errStatus_ != null ? other.errStatus_.Clone() : null;
       operation_ = other.operation_ != null ? other.operation_.Clone() : null;
+      errorString_ = other.errorString_;
       fIBStatus_ = other.fIBStatus_ != null ? other.fIBStatus_.Clone() : null;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
@@ -5168,6 +5358,21 @@ namespace ServiceLayer {
       }
     }
 
+    /// <summary>Field number for the "ErrorString" field.</summary>
+    public const int ErrorStringFieldNumber = 4;
+    private string errorString_ = "";
+    /// <summary>
+    /// Descriptive string describing error if any, on the hardware programming
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string ErrorString {
+      get { return errorString_; }
+      set {
+        errorString_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
     /// <summary>Field number for the "FIBStatus" field.</summary>
     public const int FIBStatusFieldNumber = 3;
     private global::ServiceLayer.SLAFFibStatus fIBStatus_;
@@ -5202,6 +5407,7 @@ namespace ServiceLayer {
       }
       if (!object.Equals(ErrStatus, other.ErrStatus)) return false;
       if (!object.Equals(Operation, other.Operation)) return false;
+      if (ErrorString != other.ErrorString) return false;
       if (!object.Equals(FIBStatus, other.FIBStatus)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
@@ -5212,6 +5418,7 @@ namespace ServiceLayer {
       int hash = 1;
       if (errStatus_ != null) hash ^= ErrStatus.GetHashCode();
       if (operation_ != null) hash ^= Operation.GetHashCode();
+      if (ErrorString.Length != 0) hash ^= ErrorString.GetHashCode();
       if (fIBStatus_ != null) hash ^= FIBStatus.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
@@ -5243,6 +5450,10 @@ namespace ServiceLayer {
         output.WriteRawTag(26);
         output.WriteMessage(FIBStatus);
       }
+      if (ErrorString.Length != 0) {
+        output.WriteRawTag(34);
+        output.WriteString(ErrorString);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -5265,6 +5476,10 @@ namespace ServiceLayer {
         output.WriteRawTag(26);
         output.WriteMessage(FIBStatus);
       }
+      if (ErrorString.Length != 0) {
+        output.WriteRawTag(34);
+        output.WriteString(ErrorString);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -5280,6 +5495,9 @@ namespace ServiceLayer {
       }
       if (operation_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(Operation);
+      }
+      if (ErrorString.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(ErrorString);
       }
       if (fIBStatus_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(FIBStatus);
@@ -5307,6 +5525,9 @@ namespace ServiceLayer {
           Operation = new global::ServiceLayer.SLAFOp();
         }
         Operation.MergeFrom(other.Operation);
+      }
+      if (other.ErrorString.Length != 0) {
+        ErrorString = other.ErrorString;
       }
       if (other.fIBStatus_ != null) {
         if (fIBStatus_ == null) {
@@ -5350,6 +5571,10 @@ namespace ServiceLayer {
             input.ReadMessage(FIBStatus);
             break;
           }
+          case 34: {
+            ErrorString = input.ReadString();
+            break;
+          }
         }
       }
     #endif
@@ -5386,6 +5611,10 @@ namespace ServiceLayer {
             input.ReadMessage(FIBStatus);
             break;
           }
+          case 34: {
+            ErrorString = input.ReadString();
+            break;
+          }
         }
       }
     }
@@ -5410,7 +5639,7 @@ namespace ServiceLayer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::ServiceLayer.SlAfReflection.Descriptor.MessageTypes[16]; }
+      get { return global::ServiceLayer.SlAfReflection.Descriptor.MessageTypes[17]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -5635,7 +5864,7 @@ namespace ServiceLayer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::ServiceLayer.SlAfReflection.Descriptor.MessageTypes[17]; }
+      get { return global::ServiceLayer.SlAfReflection.Descriptor.MessageTypes[18]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -5917,7 +6146,7 @@ namespace ServiceLayer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::ServiceLayer.SlAfReflection.Descriptor.MessageTypes[18]; }
+      get { return global::ServiceLayer.SlAfReflection.Descriptor.MessageTypes[19]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -6528,7 +6757,7 @@ namespace ServiceLayer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::ServiceLayer.SlAfReflection.Descriptor.MessageTypes[19]; }
+      get { return global::ServiceLayer.SlAfReflection.Descriptor.MessageTypes[20]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -6732,7 +6961,7 @@ namespace ServiceLayer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::ServiceLayer.SlAfReflection.Descriptor.MessageTypes[20]; }
+      get { return global::ServiceLayer.SlAfReflection.Descriptor.MessageTypes[21]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -7085,7 +7314,7 @@ namespace ServiceLayer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::ServiceLayer.SlAfReflection.Descriptor.MessageTypes[21]; }
+      get { return global::ServiceLayer.SlAfReflection.Descriptor.MessageTypes[22]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -7354,7 +7583,7 @@ namespace ServiceLayer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::ServiceLayer.SlAfReflection.Descriptor.MessageTypes[22]; }
+      get { return global::ServiceLayer.SlAfReflection.Descriptor.MessageTypes[23]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -7612,7 +7841,7 @@ namespace ServiceLayer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::ServiceLayer.SlAfReflection.Descriptor.MessageTypes[23]; }
+      get { return global::ServiceLayer.SlAfReflection.Descriptor.MessageTypes[24]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -8104,7 +8333,7 @@ namespace ServiceLayer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::ServiceLayer.SlAfReflection.Descriptor.MessageTypes[24]; }
+      get { return global::ServiceLayer.SlAfReflection.Descriptor.MessageTypes[25]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -8795,7 +9024,7 @@ namespace ServiceLayer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::ServiceLayer.SlAfReflection.Descriptor.MessageTypes[25]; }
+      get { return global::ServiceLayer.SlAfReflection.Descriptor.MessageTypes[26]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
