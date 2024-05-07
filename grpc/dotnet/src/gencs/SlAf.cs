@@ -6774,7 +6774,7 @@ namespace ServiceLayer {
     /// <summary>Field number for the "RedistReq" field.</summary>
     public const int RedistReqFieldNumber = 1;
     /// <summary>
-    /// Route redistribution request
+    /// Route redistribution registration
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -6789,7 +6789,7 @@ namespace ServiceLayer {
     /// <summary>Field number for the "NextHopReq" field.</summary>
     public const int NextHopReqFieldNumber = 2;
     /// <summary>
-    /// Next hop notification request
+    /// Next hop notification registration
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -8170,7 +8170,14 @@ namespace ServiceLayer {
     public const int StartMarkerFieldNumber = 2;
     /// <summary>
     /// This field carries the start marker per VRF per Tabletype.
-    /// Server sends this event before any notifications are sent.
+    /// Server sends this event before any notifications are sent under
+    /// following conditions:
+    /// - If there are no previous redistribution registrations for the VRF and
+    ///   table type, and new redistribution requests are registered, then
+    ///   when the first route matching any of the redistribution registrations
+    ///   is available.
+    /// - On a RIB restart if there are previous redistribution registrations
+    ///   on the VRF and table type.
     /// This allows the client to stale any previous notifications in its
     /// database.
     /// </summary>
@@ -8187,11 +8194,17 @@ namespace ServiceLayer {
     /// <summary>Field number for the "EndMarker" field.</summary>
     public const int EndMarkerFieldNumber = 3;
     /// <summary>
-    /// This field carries the end marker per VRF per Tabletype for 
-    /// notifications and is an indication from the server that all 
-    /// notifications corresponding to the registered requests have been
-    /// sent to the client. The client can now reconcile and
-    /// sweep all stale notifications.
+    /// This field carries the end marker per VRF per Tabletype and is an
+    /// indication that all notifications corresponding to the outstanding
+    /// redistribution registrations have been sent to the client.
+    /// The server send EndMarker under following conditions:
+    /// - On redistribution registrations from the client when
+    ///   all routes matching the outstanding redistribution registrations
+    ///   have been sent to the client.
+    /// - On RIB restart, after all routes matching the outstanding 
+    ///   registrations on the VRF and table type have been notified to the 
+    ///   client.
+    /// The client can now reconcile and sweep any stale notifications.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
