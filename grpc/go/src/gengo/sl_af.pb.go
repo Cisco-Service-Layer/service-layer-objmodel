@@ -1087,7 +1087,6 @@ type SLAFFibStatus struct {
 	// route that is pointing to a Path Group, then the DepResult that will carry
 	// the FIB result of the operation that programmed that Path Group.
 	// Note, DepResult is returned on ADD and UPDATE operations only.
-	// DepResult is not returned for DELETE operation and in Get() result.
 	DepResult *SLAFDepFibStatus `protobuf:"bytes,2,opt,name=DepResult,proto3" json:"DepResult,omitempty"`
 }
 
