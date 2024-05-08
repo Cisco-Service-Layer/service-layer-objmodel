@@ -491,7 +491,7 @@ message SLAFFibStatus {
     // For example: if this operation is about programming an IPv4 or IPv6
     // route that is pointing to a Path Group, then the DepResult that will carry 
     // the FIB result of the operation that programmed that Path Group.
-    // Note, DepResult is returned on ADD UPDATE operations only. 
+    // Note, DepResult is returned on ADD and UPDATE operations only. 
     // DepResult is not returned for DELETE operation and in Get() result. 
     SLAFDepFibStatus DepResult = 2;
 }
@@ -502,9 +502,13 @@ message SLAFGetMsgRspEntry {
     SLAFOp AFOp = 1;
 
     // If the operation was programmed with ACK type set to RIB_AND_FIB_ACK,
-    // then FIBStatus indicates status of hardware programming of the
+    // then ErrorCode indicates result of hardware programming of the
     // operation
-    SLAFFibStatus FIBStatus = 2;
+    SLErrorStatus ErrorCode = 2;
+
+    // If the operation was programmed with ACK type set to RIB_AND_FIB_ACK,
+    // then Version is the last version number assigned by the device.
+    uint64 Version = 3;
 }
 
 // Get AF message response. The objects can be returned in

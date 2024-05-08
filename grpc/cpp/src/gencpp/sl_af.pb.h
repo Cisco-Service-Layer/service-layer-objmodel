@@ -3084,7 +3084,8 @@ class SLAFGetMsgRspEntry final :
 
   enum : int {
     kAFOpFieldNumber = 1,
-    kFIBStatusFieldNumber = 2,
+    kErrorCodeFieldNumber = 2,
+    kVersionFieldNumber = 3,
   };
   // .service_layer.SLAFOp AFOp = 1;
   bool has_afop() const;
@@ -3104,23 +3105,32 @@ class SLAFGetMsgRspEntry final :
       ::service_layer::SLAFOp* afop);
   ::service_layer::SLAFOp* unsafe_arena_release_afop();
 
-  // .service_layer.SLAFFibStatus FIBStatus = 2;
-  bool has_fibstatus() const;
+  // .service_layer.SLErrorStatus ErrorCode = 2;
+  bool has_errorcode() const;
   private:
-  bool _internal_has_fibstatus() const;
+  bool _internal_has_errorcode() const;
   public:
-  void clear_fibstatus();
-  const ::service_layer::SLAFFibStatus& fibstatus() const;
-  PROTOBUF_NODISCARD ::service_layer::SLAFFibStatus* release_fibstatus();
-  ::service_layer::SLAFFibStatus* mutable_fibstatus();
-  void set_allocated_fibstatus(::service_layer::SLAFFibStatus* fibstatus);
+  void clear_errorcode();
+  const ::service_layer::SLErrorStatus& errorcode() const;
+  PROTOBUF_NODISCARD ::service_layer::SLErrorStatus* release_errorcode();
+  ::service_layer::SLErrorStatus* mutable_errorcode();
+  void set_allocated_errorcode(::service_layer::SLErrorStatus* errorcode);
   private:
-  const ::service_layer::SLAFFibStatus& _internal_fibstatus() const;
-  ::service_layer::SLAFFibStatus* _internal_mutable_fibstatus();
+  const ::service_layer::SLErrorStatus& _internal_errorcode() const;
+  ::service_layer::SLErrorStatus* _internal_mutable_errorcode();
   public:
-  void unsafe_arena_set_allocated_fibstatus(
-      ::service_layer::SLAFFibStatus* fibstatus);
-  ::service_layer::SLAFFibStatus* unsafe_arena_release_fibstatus();
+  void unsafe_arena_set_allocated_errorcode(
+      ::service_layer::SLErrorStatus* errorcode);
+  ::service_layer::SLErrorStatus* unsafe_arena_release_errorcode();
+
+  // uint64 Version = 3;
+  void clear_version();
+  uint64_t version() const;
+  void set_version(uint64_t value);
+  private:
+  uint64_t _internal_version() const;
+  void _internal_set_version(uint64_t value);
+  public:
 
   // @@protoc_insertion_point(class_scope:service_layer.SLAFGetMsgRspEntry)
  private:
@@ -3130,7 +3140,8 @@ class SLAFGetMsgRspEntry final :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   ::service_layer::SLAFOp* afop_;
-  ::service_layer::SLAFFibStatus* fibstatus_;
+  ::service_layer::SLErrorStatus* errorcode_;
+  uint64_t version_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_sl_5faf_2eproto;
 };
@@ -8165,45 +8176,39 @@ inline void SLAFGetMsgRspEntry::set_allocated_afop(::service_layer::SLAFOp* afop
   // @@protoc_insertion_point(field_set_allocated:service_layer.SLAFGetMsgRspEntry.AFOp)
 }
 
-// .service_layer.SLAFFibStatus FIBStatus = 2;
-inline bool SLAFGetMsgRspEntry::_internal_has_fibstatus() const {
-  return this != internal_default_instance() && fibstatus_ != nullptr;
+// .service_layer.SLErrorStatus ErrorCode = 2;
+inline bool SLAFGetMsgRspEntry::_internal_has_errorcode() const {
+  return this != internal_default_instance() && errorcode_ != nullptr;
 }
-inline bool SLAFGetMsgRspEntry::has_fibstatus() const {
-  return _internal_has_fibstatus();
+inline bool SLAFGetMsgRspEntry::has_errorcode() const {
+  return _internal_has_errorcode();
 }
-inline void SLAFGetMsgRspEntry::clear_fibstatus() {
-  if (GetArenaForAllocation() == nullptr && fibstatus_ != nullptr) {
-    delete fibstatus_;
-  }
-  fibstatus_ = nullptr;
+inline const ::service_layer::SLErrorStatus& SLAFGetMsgRspEntry::_internal_errorcode() const {
+  const ::service_layer::SLErrorStatus* p = errorcode_;
+  return p != nullptr ? *p : reinterpret_cast<const ::service_layer::SLErrorStatus&>(
+      ::service_layer::_SLErrorStatus_default_instance_);
 }
-inline const ::service_layer::SLAFFibStatus& SLAFGetMsgRspEntry::_internal_fibstatus() const {
-  const ::service_layer::SLAFFibStatus* p = fibstatus_;
-  return p != nullptr ? *p : reinterpret_cast<const ::service_layer::SLAFFibStatus&>(
-      ::service_layer::_SLAFFibStatus_default_instance_);
+inline const ::service_layer::SLErrorStatus& SLAFGetMsgRspEntry::errorcode() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLAFGetMsgRspEntry.ErrorCode)
+  return _internal_errorcode();
 }
-inline const ::service_layer::SLAFFibStatus& SLAFGetMsgRspEntry::fibstatus() const {
-  // @@protoc_insertion_point(field_get:service_layer.SLAFGetMsgRspEntry.FIBStatus)
-  return _internal_fibstatus();
-}
-inline void SLAFGetMsgRspEntry::unsafe_arena_set_allocated_fibstatus(
-    ::service_layer::SLAFFibStatus* fibstatus) {
+inline void SLAFGetMsgRspEntry::unsafe_arena_set_allocated_errorcode(
+    ::service_layer::SLErrorStatus* errorcode) {
   if (GetArenaForAllocation() == nullptr) {
-    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(fibstatus_);
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(errorcode_);
   }
-  fibstatus_ = fibstatus;
-  if (fibstatus) {
+  errorcode_ = errorcode;
+  if (errorcode) {
     
   } else {
     
   }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:service_layer.SLAFGetMsgRspEntry.FIBStatus)
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:service_layer.SLAFGetMsgRspEntry.ErrorCode)
 }
-inline ::service_layer::SLAFFibStatus* SLAFGetMsgRspEntry::release_fibstatus() {
+inline ::service_layer::SLErrorStatus* SLAFGetMsgRspEntry::release_errorcode() {
   
-  ::service_layer::SLAFFibStatus* temp = fibstatus_;
-  fibstatus_ = nullptr;
+  ::service_layer::SLErrorStatus* temp = errorcode_;
+  errorcode_ = nullptr;
 #ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
   auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
   temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
@@ -8215,44 +8220,66 @@ inline ::service_layer::SLAFFibStatus* SLAFGetMsgRspEntry::release_fibstatus() {
 #endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
   return temp;
 }
-inline ::service_layer::SLAFFibStatus* SLAFGetMsgRspEntry::unsafe_arena_release_fibstatus() {
-  // @@protoc_insertion_point(field_release:service_layer.SLAFGetMsgRspEntry.FIBStatus)
+inline ::service_layer::SLErrorStatus* SLAFGetMsgRspEntry::unsafe_arena_release_errorcode() {
+  // @@protoc_insertion_point(field_release:service_layer.SLAFGetMsgRspEntry.ErrorCode)
   
-  ::service_layer::SLAFFibStatus* temp = fibstatus_;
-  fibstatus_ = nullptr;
+  ::service_layer::SLErrorStatus* temp = errorcode_;
+  errorcode_ = nullptr;
   return temp;
 }
-inline ::service_layer::SLAFFibStatus* SLAFGetMsgRspEntry::_internal_mutable_fibstatus() {
+inline ::service_layer::SLErrorStatus* SLAFGetMsgRspEntry::_internal_mutable_errorcode() {
   
-  if (fibstatus_ == nullptr) {
-    auto* p = CreateMaybeMessage<::service_layer::SLAFFibStatus>(GetArenaForAllocation());
-    fibstatus_ = p;
+  if (errorcode_ == nullptr) {
+    auto* p = CreateMaybeMessage<::service_layer::SLErrorStatus>(GetArenaForAllocation());
+    errorcode_ = p;
   }
-  return fibstatus_;
+  return errorcode_;
 }
-inline ::service_layer::SLAFFibStatus* SLAFGetMsgRspEntry::mutable_fibstatus() {
-  ::service_layer::SLAFFibStatus* _msg = _internal_mutable_fibstatus();
-  // @@protoc_insertion_point(field_mutable:service_layer.SLAFGetMsgRspEntry.FIBStatus)
+inline ::service_layer::SLErrorStatus* SLAFGetMsgRspEntry::mutable_errorcode() {
+  ::service_layer::SLErrorStatus* _msg = _internal_mutable_errorcode();
+  // @@protoc_insertion_point(field_mutable:service_layer.SLAFGetMsgRspEntry.ErrorCode)
   return _msg;
 }
-inline void SLAFGetMsgRspEntry::set_allocated_fibstatus(::service_layer::SLAFFibStatus* fibstatus) {
+inline void SLAFGetMsgRspEntry::set_allocated_errorcode(::service_layer::SLErrorStatus* errorcode) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
   if (message_arena == nullptr) {
-    delete fibstatus_;
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(errorcode_);
   }
-  if (fibstatus) {
+  if (errorcode) {
     ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-        ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper<::service_layer::SLAFFibStatus>::GetOwningArena(fibstatus);
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper<
+            ::PROTOBUF_NAMESPACE_ID::MessageLite>::GetOwningArena(
+                reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(errorcode));
     if (message_arena != submessage_arena) {
-      fibstatus = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, fibstatus, submessage_arena);
+      errorcode = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, errorcode, submessage_arena);
     }
     
   } else {
     
   }
-  fibstatus_ = fibstatus;
-  // @@protoc_insertion_point(field_set_allocated:service_layer.SLAFGetMsgRspEntry.FIBStatus)
+  errorcode_ = errorcode;
+  // @@protoc_insertion_point(field_set_allocated:service_layer.SLAFGetMsgRspEntry.ErrorCode)
+}
+
+// uint64 Version = 3;
+inline void SLAFGetMsgRspEntry::clear_version() {
+  version_ = uint64_t{0u};
+}
+inline uint64_t SLAFGetMsgRspEntry::_internal_version() const {
+  return version_;
+}
+inline uint64_t SLAFGetMsgRspEntry::version() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLAFGetMsgRspEntry.Version)
+  return _internal_version();
+}
+inline void SLAFGetMsgRspEntry::_internal_set_version(uint64_t value) {
+  
+  version_ = value;
+}
+inline void SLAFGetMsgRspEntry::set_version(uint64_t value) {
+  _internal_set_version(value);
+  // @@protoc_insertion_point(field_set:service_layer.SLAFGetMsgRspEntry.Version)
 }
 
 // -------------------------------------------------------------------
