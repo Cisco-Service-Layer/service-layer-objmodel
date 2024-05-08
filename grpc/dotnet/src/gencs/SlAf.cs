@@ -8571,7 +8571,7 @@ namespace ServiceLayer {
     /// route contains the PathList. The PathList contains paths used
     /// for forwarding. If the route is deleted, or no paths are available
     /// for forwarding, the PathList is not returned.
-    /// If the route is programmed with PathGroupKey, the redistributed
+    /// If the route is programmed with PathGroupRefKey, the redistributed
     /// route contains PathGroupRefKey. If the route is deleted, or the path group
     /// is unviable, the PathGroupRefKey is not returned.
     /// </summary>
