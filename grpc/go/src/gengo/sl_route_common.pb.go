@@ -1397,8 +1397,9 @@ type SLRouteCommon struct {
 	//     The Network element also automatically updates the route's
 	//     load balance group when path viability changes.
 	//
-	//   - This flag is ignored if the route refers to the PathGroup and the
-	//     corresponding setting on the PathGroup dictates path programming.
+	//   - If the route refers to the PathGroup, then a programming error is
+	//     returned and the corresponding setting on the PathGroup dictates
+	//     path programming.
 	//
 	// SL_ROUTE_FLAG_ACTIVE_ON_VIABLE_PATH - This flag is supported only for
 	// routes that contain the PathList.
@@ -1417,10 +1418,9 @@ type SLRouteCommon struct {
 	//     the route when the first path becomes viable or none of the paths
 	//     are no longer viable.
 	//
-	//   - If the route refers to the PathGroup,
-	//     then this flag on the route is ignored. Instead, the
-	//     corresponding setting on PathGroup dictates whether this
-	//     route should be considered in best route calculations.
+	//   - If the route refers to the PathGroup, then a programming error is
+	//     returned and the corresponding setting on the PathGroup dictates
+	//     whether this route should be considered in best route calculations.
 	//
 	// All others are reserved.
 	Flags uint32 `protobuf:"varint,6,opt,name=Flags,proto3" json:"Flags,omitempty"`

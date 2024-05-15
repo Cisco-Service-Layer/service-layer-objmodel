@@ -599,6 +599,10 @@ type SLMplsEntry struct {
 	//     The Network element also automatically updates the MPLS Entry's
 	//     load balance group when path viability changes.
 	//
+	//   - If the MPLS Entry refers to the PathGroup, then a programming error is
+	//     returned and the corresponding setting on the PathGroup dictates
+	//     path programming.
+	//
 	// SL_ROUTE_FLAG_ACTIVE_ON_VIABLE_PATH - This flag is supported only for
 	// MPLS Entries that contain the PathList.
 	//
@@ -617,9 +621,9 @@ type SLMplsEntry struct {
 	//     are no longer viable.
 	//
 	//   - If the MPLS Entry refers to the PathGroup,
-	//     then this flag on the route is ignored. Instead, the
-	//     corresponding setting on PathGroup dictates whether this
-	//     route should be considered in best route calculations.
+	//     then a programming error is returned and the corresponding setting on
+	//     PathGroup dictates whether this route should be considered in best
+	//     route calculations.
 	//
 	// Others - Reserved.
 	Flags uint32 `protobuf:"varint,5,opt,name=Flags,proto3" json:"Flags,omitempty"`
