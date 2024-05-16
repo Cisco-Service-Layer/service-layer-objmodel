@@ -550,7 +550,7 @@ message SLBgplsTopoSrPolicyNodeId {
     // Router ID.
     // BGP Router-ID. TLV 516.
     // Section 4.2 of [RFC9086]
-    uint32 RouterId = 1;
+    bytes RouterId = 1;
 
     // ASN of the confederation member
     // Member-ASN. TLV 517.
@@ -711,7 +711,7 @@ message SLBgplsTopoLinkAttr {
 
     // The bit mask of administrative groups assigned
     // by the network administrator.
-    // Extended Administrative Group. TLV 1088
+    // Extended Administrative Group. TLV 1173
     // Section 5.3.2 of [RFC9552]
     repeated SLBgplsTopoExtAdminGroup ExtAdminGroup = 7;
 
@@ -894,7 +894,7 @@ message SLBgplsTopoPrefixAttr {
     // Prefix Segment Identifiers (SID) of a prefix.
     // Prefix SID. TLV 1158
     // Section 2.3.1 of [RFC9085]
-    SLBgplsTopoPrefixSid Sid = 8;
+    repeated SLBgplsTopoPrefixSid Sid = 8;
 
     // Range of prefix-to-SID mappings.
     // Prefix Range. TLV 1159
@@ -1258,7 +1258,7 @@ message SLBgplsTopoFadUnsuppTlv {
     bytes Types = 2;
 }
 
-// Administrative Group. TLV 1088
+// Administrative Group. TLV 1173
 // Section 5.3.2 of [RFC9552]
 message SLBgplsTopoExtAdminGroup {
     // Bit mask of administrative groups assigned by the
@@ -1694,7 +1694,7 @@ message SLBgplsTopoL2BundleMemberAttr {
 
     // The bit mask of administrative groups assigned
     // by the network administrator.
-    // Extended Administrative Group. TLV 1088
+    // Extended Administrative Group. TLV 1173
     // Section 5.3.2 of [RFC9552]
     repeated SLBgplsTopoExtAdminGroup ExtAdminGroup = 3;
 
@@ -1802,7 +1802,7 @@ message SLBgplsTopoAslaAttr {
 
     // The bit mask of administrative groups assigned
     // by the network administrator.
-    // Extended Administrative Group. TLV 1088
+    // Extended Administrative Group. TLV 1173
     // Section 5.3.2 of [RFC9552]
     repeated SLBgplsTopoExtAdminGroup ExtAdminGroup = 3;
 

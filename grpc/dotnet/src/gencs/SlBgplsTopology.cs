@@ -114,7 +114,7 @@ namespace ServiceLayer {
             "EAoIU3lzdGVtSWQYASABKAwSDQoFUHNuSWQYAiABKAwiOwoUU0xCZ3Bsc1Rv",
             "cG9CZ3BOb2RlSWQSEAoIUm91dGVySWQYASABKAwSEQoJTWVtYmVyQXNuGAIg",
             "ASgNImwKGVNMQmdwbHNUb3BvU3JQb2xpY3lOb2RlSWQSEAoIUm91dGVySWQY",
-            "ASABKA0SEQoJTWVtYmVyQXNuGAIgASgNEhQKDElwdjRSb3V0ZXJJZBgDIAEo",
+            "ASABKAwSEQoJTWVtYmVyQXNuGAIgASgNEhQKDElwdjRSb3V0ZXJJZBgDIAEo",
             "DBIUCgxJcHY2Um91dGVySWQYBCABKAwiKQoYU0xCZ3Bsc1RvcG9TclBvbGlj",
             "eUZsYWdzEg0KBUZsYWdzGAEgASgMIqMGChNTTEJncGxzVG9wb05vZGVBdHRy",
             "EiwKBE10SWQYASADKAsyHi5zZXJ2aWNlX2xheWVyLlNMQmdwbHNUb3BvTXRJ",
@@ -189,7 +189,7 @@ namespace ServiceLayer {
             "YXllci5TTEJncGxzVG9wb1ByZWZpeE1ldHJpYxJACgtPc3BmRndkQWRkchgG",
             "IAEoCzIrLnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9QcmVmaXhPc3BmRndk",
             "QWRkchI+CgpPcGFxdWVBdHRyGAcgASgLMiouc2VydmljZV9sYXllci5TTEJn",
-            "cGxzVG9wb1ByZWZpeE9wYXF1ZUF0dHISMAoDU2lkGAggASgLMiMuc2Vydmlj",
+            "cGxzVG9wb1ByZWZpeE9wYXF1ZUF0dHISMAoDU2lkGAggAygLMiMuc2Vydmlj",
             "ZV9sYXllci5TTEJncGxzVG9wb1ByZWZpeFNpZBI0CgVSYW5nZRgJIAEoCzIl",
             "LnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9QcmVmaXhSYW5nZRI4CgdTcnY2",
             "TG9jGAogASgLMicuc2VydmljZV9sYXllci5TTEJncGxzVG9wb1ByZWZpeFNy",
@@ -8787,7 +8787,7 @@ namespace ServiceLayer {
 
     /// <summary>Field number for the "RouterId" field.</summary>
     public const int RouterIdFieldNumber = 1;
-    private uint routerId_;
+    private pb::ByteString routerId_ = pb::ByteString.Empty;
     /// <summary>
     /// Router ID.
     /// BGP Router-ID. TLV 516.
@@ -8795,10 +8795,10 @@ namespace ServiceLayer {
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public uint RouterId {
+    public pb::ByteString RouterId {
       get { return routerId_; }
       set {
-        routerId_ = value;
+        routerId_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
     }
 
@@ -8879,7 +8879,7 @@ namespace ServiceLayer {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (RouterId != 0) hash ^= RouterId.GetHashCode();
+      if (RouterId.Length != 0) hash ^= RouterId.GetHashCode();
       if (MemberAsn != 0) hash ^= MemberAsn.GetHashCode();
       if (Ipv4RouterId.Length != 0) hash ^= Ipv4RouterId.GetHashCode();
       if (Ipv6RouterId.Length != 0) hash ^= Ipv6RouterId.GetHashCode();
@@ -8901,9 +8901,9 @@ namespace ServiceLayer {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (RouterId != 0) {
-        output.WriteRawTag(8);
-        output.WriteUInt32(RouterId);
+      if (RouterId.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteBytes(RouterId);
       }
       if (MemberAsn != 0) {
         output.WriteRawTag(16);
@@ -8927,9 +8927,9 @@ namespace ServiceLayer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (RouterId != 0) {
-        output.WriteRawTag(8);
-        output.WriteUInt32(RouterId);
+      if (RouterId.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteBytes(RouterId);
       }
       if (MemberAsn != 0) {
         output.WriteRawTag(16);
@@ -8953,8 +8953,8 @@ namespace ServiceLayer {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (RouterId != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(RouterId);
+      if (RouterId.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeBytesSize(RouterId);
       }
       if (MemberAsn != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(MemberAsn);
@@ -8977,7 +8977,7 @@ namespace ServiceLayer {
       if (other == null) {
         return;
       }
-      if (other.RouterId != 0) {
+      if (other.RouterId.Length != 0) {
         RouterId = other.RouterId;
       }
       if (other.MemberAsn != 0) {
@@ -9004,8 +9004,8 @@ namespace ServiceLayer {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 8: {
-            RouterId = input.ReadUInt32();
+          case 10: {
+            RouterId = input.ReadBytes();
             break;
           }
           case 16: {
@@ -9035,8 +9035,8 @@ namespace ServiceLayer {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
-          case 8: {
-            RouterId = input.ReadUInt32();
+          case 10: {
+            RouterId = input.ReadBytes();
             break;
           }
           case 16: {
@@ -10127,7 +10127,7 @@ namespace ServiceLayer {
     /// <summary>
     /// The bit mask of administrative groups assigned
     /// by the network administrator.
-    /// Extended Administrative Group. TLV 1088
+    /// Extended Administrative Group. TLV 1173
     /// Section 5.3.2 of [RFC9552]
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -11442,7 +11442,7 @@ namespace ServiceLayer {
       metric_ = other.metric_ != null ? other.metric_.Clone() : null;
       ospfFwdAddr_ = other.ospfFwdAddr_ != null ? other.ospfFwdAddr_.Clone() : null;
       opaqueAttr_ = other.opaqueAttr_ != null ? other.opaqueAttr_.Clone() : null;
-      sid_ = other.sid_ != null ? other.sid_.Clone() : null;
+      sid_ = other.sid_.Clone();
       range_ = other.range_ != null ? other.range_.Clone() : null;
       srv6Loc_ = other.srv6Loc_ != null ? other.srv6Loc_.Clone() : null;
       attrFlags_ = other.attrFlags_ != null ? other.attrFlags_.Clone() : null;
@@ -11578,7 +11578,9 @@ namespace ServiceLayer {
 
     /// <summary>Field number for the "Sid" field.</summary>
     public const int SidFieldNumber = 8;
-    private global::ServiceLayer.SLBgplsTopoPrefixSid sid_;
+    private static readonly pb::FieldCodec<global::ServiceLayer.SLBgplsTopoPrefixSid> _repeated_sid_codec
+        = pb::FieldCodec.ForMessage(66, global::ServiceLayer.SLBgplsTopoPrefixSid.Parser);
+    private readonly pbc::RepeatedField<global::ServiceLayer.SLBgplsTopoPrefixSid> sid_ = new pbc::RepeatedField<global::ServiceLayer.SLBgplsTopoPrefixSid>();
     /// <summary>
     /// Prefix Segment Identifiers (SID) of a prefix.
     /// Prefix SID. TLV 1158
@@ -11586,11 +11588,8 @@ namespace ServiceLayer {
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::ServiceLayer.SLBgplsTopoPrefixSid Sid {
+    public pbc::RepeatedField<global::ServiceLayer.SLBgplsTopoPrefixSid> Sid {
       get { return sid_; }
-      set {
-        sid_ = value;
-      }
     }
 
     /// <summary>Field number for the "Range" field.</summary>
@@ -11699,7 +11698,7 @@ namespace ServiceLayer {
       if (!object.Equals(Metric, other.Metric)) return false;
       if (!object.Equals(OspfFwdAddr, other.OspfFwdAddr)) return false;
       if (!object.Equals(OpaqueAttr, other.OpaqueAttr)) return false;
-      if (!object.Equals(Sid, other.Sid)) return false;
+      if(!sid_.Equals(other.sid_)) return false;
       if (!object.Equals(Range, other.Range)) return false;
       if (!object.Equals(Srv6Loc, other.Srv6Loc)) return false;
       if (!object.Equals(AttrFlags, other.AttrFlags)) return false;
@@ -11719,7 +11718,7 @@ namespace ServiceLayer {
       if (metric_ != null) hash ^= Metric.GetHashCode();
       if (ospfFwdAddr_ != null) hash ^= OspfFwdAddr.GetHashCode();
       if (opaqueAttr_ != null) hash ^= OpaqueAttr.GetHashCode();
-      if (sid_ != null) hash ^= Sid.GetHashCode();
+      hash ^= sid_.GetHashCode();
       if (range_ != null) hash ^= Range.GetHashCode();
       if (srv6Loc_ != null) hash ^= Srv6Loc.GetHashCode();
       if (attrFlags_ != null) hash ^= AttrFlags.GetHashCode();
@@ -11765,10 +11764,7 @@ namespace ServiceLayer {
         output.WriteRawTag(58);
         output.WriteMessage(OpaqueAttr);
       }
-      if (sid_ != null) {
-        output.WriteRawTag(66);
-        output.WriteMessage(Sid);
-      }
+      sid_.WriteTo(output, _repeated_sid_codec);
       if (range_ != null) {
         output.WriteRawTag(74);
         output.WriteMessage(Range);
@@ -11818,10 +11814,7 @@ namespace ServiceLayer {
         output.WriteRawTag(58);
         output.WriteMessage(OpaqueAttr);
       }
-      if (sid_ != null) {
-        output.WriteRawTag(66);
-        output.WriteMessage(Sid);
-      }
+      sid_.WriteTo(ref output, _repeated_sid_codec);
       if (range_ != null) {
         output.WriteRawTag(74);
         output.WriteMessage(Range);
@@ -11866,9 +11859,7 @@ namespace ServiceLayer {
       if (opaqueAttr_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(OpaqueAttr);
       }
-      if (sid_ != null) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Sid);
-      }
+      size += sid_.CalculateSize(_repeated_sid_codec);
       if (range_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(Range);
       }
@@ -11926,12 +11917,7 @@ namespace ServiceLayer {
         }
         OpaqueAttr.MergeFrom(other.OpaqueAttr);
       }
-      if (other.sid_ != null) {
-        if (sid_ == null) {
-          Sid = new global::ServiceLayer.SLBgplsTopoPrefixSid();
-        }
-        Sid.MergeFrom(other.Sid);
-      }
+      sid_.Add(other.sid_);
       if (other.range_ != null) {
         if (range_ == null) {
           Range = new global::ServiceLayer.SLBgplsTopoPrefixRange();
@@ -12016,10 +12002,7 @@ namespace ServiceLayer {
             break;
           }
           case 66: {
-            if (sid_ == null) {
-              Sid = new global::ServiceLayer.SLBgplsTopoPrefixSid();
-            }
-            input.ReadMessage(Sid);
+            sid_.AddEntriesFrom(input, _repeated_sid_codec);
             break;
           }
           case 74: {
@@ -12113,10 +12096,7 @@ namespace ServiceLayer {
             break;
           }
           case 66: {
-            if (sid_ == null) {
-              Sid = new global::ServiceLayer.SLBgplsTopoPrefixSid();
-            }
-            input.ReadMessage(Sid);
+            sid_.AddEntriesFrom(ref input, _repeated_sid_codec);
             break;
           }
           case 74: {
@@ -17616,7 +17596,7 @@ namespace ServiceLayer {
   }
 
   /// <summary>
-  /// Administrative Group. TLV 1088
+  /// Administrative Group. TLV 1173
   /// Section 5.3.2 of [RFC9552]
   /// </summary>
   public sealed partial class SLBgplsTopoExtAdminGroup : pb::IMessage<SLBgplsTopoExtAdminGroup>
@@ -25990,7 +25970,7 @@ namespace ServiceLayer {
     /// <summary>
     /// The bit mask of administrative groups assigned
     /// by the network administrator.
-    /// Extended Administrative Group. TLV 1088
+    /// Extended Administrative Group. TLV 1173
     /// Section 5.3.2 of [RFC9552]
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -26956,7 +26936,7 @@ namespace ServiceLayer {
     /// <summary>
     /// The bit mask of administrative groups assigned
     /// by the network administrator.
-    /// Extended Administrative Group. TLV 1088
+    /// Extended Administrative Group. TLV 1173
     /// Section 5.3.2 of [RFC9552]
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]

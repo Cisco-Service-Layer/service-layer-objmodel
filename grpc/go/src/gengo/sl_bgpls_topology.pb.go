@@ -2621,7 +2621,7 @@ type SLBgplsTopoSrPolicyNodeId struct {
 	// Router ID.
 	// BGP Router-ID. TLV 516.
 	// Section 4.2 of [RFC9086]
-	RouterId uint32 `protobuf:"varint,1,opt,name=RouterId,proto3" json:"RouterId,omitempty"`
+	RouterId []byte `protobuf:"bytes,1,opt,name=RouterId,proto3" json:"RouterId,omitempty"`
 	// ASN of the confederation member
 	// Member-ASN. TLV 517.
 	// Section 4.2 of [RFC9086]
@@ -2668,11 +2668,11 @@ func (*SLBgplsTopoSrPolicyNodeId) Descriptor() ([]byte, []int) {
 	return file_sl_bgpls_topology_proto_rawDescGZIP(), []int{27}
 }
 
-func (x *SLBgplsTopoSrPolicyNodeId) GetRouterId() uint32 {
+func (x *SLBgplsTopoSrPolicyNodeId) GetRouterId() []byte {
 	if x != nil {
 		return x.RouterId
 	}
-	return 0
+	return nil
 }
 
 func (x *SLBgplsTopoSrPolicyNodeId) GetMemberAsn() uint32 {
@@ -2974,7 +2974,7 @@ type SLBgplsTopoLinkAttr struct {
 	RemoteIpv6RouterId []*SLBgplsTopoRemoteIpv6RouterId `protobuf:"bytes,6,rep,name=RemoteIpv6RouterId,proto3" json:"RemoteIpv6RouterId,omitempty"`
 	// The bit mask of administrative groups assigned
 	// by the network administrator.
-	// Extended Administrative Group. TLV 1088
+	// Extended Administrative Group. TLV 1173
 	// Section 5.3.2 of [RFC9552]
 	ExtAdminGroup []*SLBgplsTopoExtAdminGroup `protobuf:"bytes,7,rep,name=ExtAdminGroup,proto3" json:"ExtAdminGroup,omitempty"`
 	// The maximum bandwidth that can be used on a link.
@@ -3379,7 +3379,7 @@ type SLBgplsTopoPrefixAttr struct {
 	// Prefix Segment Identifiers (SID) of a prefix.
 	// Prefix SID. TLV 1158
 	// Section 2.3.1 of [RFC9085]
-	Sid *SLBgplsTopoPrefixSid `protobuf:"bytes,8,opt,name=Sid,proto3" json:"Sid,omitempty"`
+	Sid []*SLBgplsTopoPrefixSid `protobuf:"bytes,8,rep,name=Sid,proto3" json:"Sid,omitempty"`
 	// Range of prefix-to-SID mappings.
 	// Prefix Range. TLV 1159
 	// Section 2.3.5 of [RFC9085]
@@ -3483,7 +3483,7 @@ func (x *SLBgplsTopoPrefixAttr) GetOpaqueAttr() *SLBgplsTopoPrefixOpaqueAttr {
 	return nil
 }
 
-func (x *SLBgplsTopoPrefixAttr) GetSid() *SLBgplsTopoPrefixSid {
+func (x *SLBgplsTopoPrefixAttr) GetSid() []*SLBgplsTopoPrefixSid {
 	if x != nil {
 		return x.Sid
 	}
@@ -4950,7 +4950,7 @@ func (x *SLBgplsTopoFadUnsuppTlv) GetTypes() []byte {
 	return nil
 }
 
-// Administrative Group. TLV 1088
+// Administrative Group. TLV 1173
 // Section 5.3.2 of [RFC9552]
 type SLBgplsTopoExtAdminGroup struct {
 	state         protoimpl.MessageState
@@ -7113,7 +7113,7 @@ type SLBgplsTopoL2BundleMemberAttr struct {
 	MemberDesc uint32 `protobuf:"varint,1,opt,name=MemberDesc,proto3" json:"MemberDesc,omitempty"`
 	// The bit mask of administrative groups assigned
 	// by the network administrator.
-	// Extended Administrative Group. TLV 1088
+	// Extended Administrative Group. TLV 1173
 	// Section 5.3.2 of [RFC9552]
 	ExtAdminGroup []*SLBgplsTopoExtAdminGroup `protobuf:"bytes,3,rep,name=ExtAdminGroup,proto3" json:"ExtAdminGroup,omitempty"`
 	// The maximum bandwidth that can be used on a link.
@@ -7365,7 +7365,7 @@ type SLBgplsTopoAslaAttr struct {
 	Udabm []byte `protobuf:"bytes,2,opt,name=Udabm,proto3" json:"Udabm,omitempty"`
 	// The bit mask of administrative groups assigned
 	// by the network administrator.
-	// Extended Administrative Group. TLV 1088
+	// Extended Administrative Group. TLV 1173
 	// Section 5.3.2 of [RFC9552]
 	ExtAdminGroup []*SLBgplsTopoExtAdminGroup `protobuf:"bytes,3,rep,name=ExtAdminGroup,proto3" json:"ExtAdminGroup,omitempty"`
 	// The Traffic Engineering (TE) metric of a link.
@@ -9846,7 +9846,7 @@ var file_sl_bgpls_topology_proto_rawDesc = []byte{
 	0x52, 0x09, 0x4d, 0x65, 0x6d, 0x62, 0x65, 0x72, 0x41, 0x73, 0x6e, 0x22, 0x9d, 0x01, 0x0a, 0x19,
 	0x53, 0x4c, 0x42, 0x67, 0x70, 0x6c, 0x73, 0x54, 0x6f, 0x70, 0x6f, 0x53, 0x72, 0x50, 0x6f, 0x6c,
 	0x69, 0x63, 0x79, 0x4e, 0x6f, 0x64, 0x65, 0x49, 0x64, 0x12, 0x1a, 0x0a, 0x08, 0x52, 0x6f, 0x75,
-	0x74, 0x65, 0x72, 0x49, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0d, 0x52, 0x08, 0x52, 0x6f, 0x75,
+	0x74, 0x65, 0x72, 0x49, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0c, 0x52, 0x08, 0x52, 0x6f, 0x75,
 	0x74, 0x65, 0x72, 0x49, 0x64, 0x12, 0x1c, 0x0a, 0x09, 0x4d, 0x65, 0x6d, 0x62, 0x65, 0x72, 0x41,
 	0x73, 0x6e, 0x18, 0x02, 0x20, 0x01, 0x28, 0x0d, 0x52, 0x09, 0x4d, 0x65, 0x6d, 0x62, 0x65, 0x72,
 	0x41, 0x73, 0x6e, 0x12, 0x22, 0x0a, 0x0c, 0x49, 0x70, 0x76, 0x34, 0x52, 0x6f, 0x75, 0x74, 0x65,
@@ -10105,7 +10105,7 @@ var file_sl_bgpls_topology_proto_rawDesc = []byte{
 	0x4c, 0x42, 0x67, 0x70, 0x6c, 0x73, 0x54, 0x6f, 0x70, 0x6f, 0x50, 0x72, 0x65, 0x66, 0x69, 0x78,
 	0x4f, 0x70, 0x61, 0x71, 0x75, 0x65, 0x41, 0x74, 0x74, 0x72, 0x52, 0x0a, 0x4f, 0x70, 0x61, 0x71,
 	0x75, 0x65, 0x41, 0x74, 0x74, 0x72, 0x12, 0x35, 0x0a, 0x03, 0x53, 0x69, 0x64, 0x18, 0x08, 0x20,
-	0x01, 0x28, 0x0b, 0x32, 0x23, 0x2e, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x5f, 0x6c, 0x61,
+	0x03, 0x28, 0x0b, 0x32, 0x23, 0x2e, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x5f, 0x6c, 0x61,
 	0x79, 0x65, 0x72, 0x2e, 0x53, 0x4c, 0x42, 0x67, 0x70, 0x6c, 0x73, 0x54, 0x6f, 0x70, 0x6f, 0x50,
 	0x72, 0x65, 0x66, 0x69, 0x78, 0x53, 0x69, 0x64, 0x52, 0x03, 0x53, 0x69, 0x64, 0x12, 0x3b, 0x0a,
 	0x05, 0x52, 0x61, 0x6e, 0x67, 0x65, 0x18, 0x09, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x25, 0x2e, 0x73,
