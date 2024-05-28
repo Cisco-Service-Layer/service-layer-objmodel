@@ -1,6 +1,16 @@
 #pragma once
 
+#include <memory>
 #include <string>
+#include <iostream> 
+#include <thread>
+#include <mutex>
+#include <sstream>  
+#include <utility>
+#include <unordered_map>
+#include <deque>
+#include <chrono>
+#include <mutex>
 #include "ServiceLayerAsyncInit.h"
 #include <iosxrsl/sl_route_common.pb.h>
 #include <iosxrsl/sl_route_ipv4.grpc.pb.h>
@@ -10,6 +20,78 @@
 #include <iosxrsl/sl_af.grpc.pb.h>
 #include <iosxrsl/sl_af.pb.h>
 
+class testingData
+{
+public:
+    // table_type is used to determine if we are doing ipv4(value = 0x1) ipv6(value = 0x2), or mpls(value = 0x3)
+    service_layer::SLTableType table_type = service_layer::SL_IPv4_ROUTE_TABLE;
+
+    service_layer::SLObjectOp route_oper = service_layer::SL_OBJOP_RESERVED;
+    service_layer::SLRegOp vrf_reg_oper = service_layer::SL_REGOP_RESERVED;
+
+    unsigned int routes_pushed = 1;
+    bool stream_case = true;
+    unsigned int batch_size = 1024;
+    unsigned int batch_num = 98;
+
+    // For Ipv4
+    std::string first_prefix_ipv4 = "40.0.0.0";
+    unsigned int prefix_len_ipv4 = 24;
+    std::string next_hop_interface_ipv4 = "Bundle-Ether1";
+    std::string next_hop_ip_ipv4 = "14.1.1.10";
+
+    // For Ipv6
+    std::string first_prefix_ipv6 = "2002:aa::0";
+    unsigned int prefix_len_ipv6 = 64;
+    std::string next_hop_interface_ipv6 = "Bundle-Ether1";
+    std::string next_hop_ip_ipv6 = "2002:ae::3";
+
+    // For MPLS
+    std::string first_mpls_path_nhip = "11.0.0.1";
+    std::string next_hop_interface_mpls = "FourHundredGigE0/0/0/0";
+    unsigned int start_label = 20000;
+    unsigned int num_label = 1000;
+    unsigned int num_paths = 1;
+};
+
+// Status Object is for handling the response messages
+class statusObject
+{
+public:
+    // RIB SUCCESS
+    bool rib_success = false;
+    // FIB SUCCESS
+    bool fib_success = false;
+
+    // Requesting FIB
+    bool fib_req = false;
+    // error message
+    std::string error = "";
+};
+
+class dbStructure {
+public:
+    std::unordered_map<uint32_t, std::pair<testingData, statusObject>> db_ipv4;
+    std::unordered_map<std::string, std::pair<testingData, statusObject>> db_ipv6;
+    std::unordered_map<unsigned int, std::pair<testingData, statusObject>> db_mpls;
+
+    int db_count;
+
+    // Start and last index allows us to keep track of where we are when converting db objects into slapi objects
+    uint32_t ipv4_start_index;
+    uint32_t ipv4_last_index;
+    std::string ipv6_start_index;
+    std::string ipv6_last_index;
+    unsigned int mpls_start_index;
+    unsigned int mpls_last_index;
+};
+
+extern dbStructure database;
+extern std::mutex db_mutex;
+
+// Stream case: Queue used between main thread for pushing slapi objects and write thread for popping objects
+extern std::deque<service_layer::SLAFMsg> request_deque;
+extern std::condition_variable deque_cv;
 
 class SLAFRShuttle;
 extern SLAFRShuttle* slaf_route_shuttle;
@@ -39,7 +121,16 @@ public:
     bool routeSLAFOp(service_layer::SLObjectOp routeOp,
                     service_layer::SLTableType addrFamily,
                     unsigned int timeout=10);
-    
+
+    static void readStream(std::shared_ptr<grpc::ClientReaderWriter<service_layer::SLAFMsg, service_layer::SLAFMsgRsp>>& stream,
+                          service_layer::SLTableType addrFamily,
+                          service_layer::SLObjectOp routeOper,
+                          std::string addressFamilyStr);
+    static void writeStream(std::shared_ptr<grpc::ClientReaderWriter<service_layer::SLAFMsg, service_layer::SLAFMsgRsp>>& stream, std::string addressFamilyStr);
+    void stopStream(std::thread* reader, std::thread* writer);
+    void routeSLAFOpStreamHelperEnqueue();
+    unsigned int routeSLAFOpStream(service_layer::SLTableType addrFamily, service_layer::SLObjectOp routeOper, unsigned int timeout=10);
+    void clearDB();
     void clearBatch();
 
     // IPv4 and IPv6 string manipulation methods
@@ -117,6 +208,12 @@ public:
 
     // MPLS methods
 
+    void batchHelperMPLS(unsigned int label,
+                                unsigned int startLabel,
+                                unsigned int numPaths,
+                                uint32_t nextHopAddress,
+                                std::string nextHopInterface);
+
     unsigned int insertAddBatchMPLS(unsigned int startLabel,
                             unsigned int numLabel,
                             unsigned int numPaths,
@@ -150,6 +247,19 @@ public:
     bool registerAfVrf(service_layer::SLTableType addrFamily, service_layer::SLRegOp vrfRegOper);
 
     bool afVrfOpAddFam(service_layer::SLRegOp, service_layer::SLTableType addrFamily);
+
+};
+
+class SLGLOBALSHUTTLE {
+public:
+    explicit SLGLOBALSHUTTLE(std::shared_ptr<grpc::Channel> Channel, std::string Username, std::string Password);
+
+    std::shared_ptr<grpc::Channel> channel;
+    std::string username;
+    std::string password;
+
+    //Sends a GlobalsGet Request and updates parameter the value for max batch size
+    bool getGlobals(unsigned int &batch_size, unsigned int timeout=10);
 
 };
 
