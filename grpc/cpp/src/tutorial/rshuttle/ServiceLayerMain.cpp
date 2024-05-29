@@ -324,7 +324,9 @@ void routepush_slaf(SLAFRShuttle* slaf_route_shuttle,
     LOG(INFO) << "\nTime taken to program "<< totalroutes << " routes\n " 
               << time_taken
               << "\nRoute programming rate\n"
-              << float(totalroutes)/time_taken << " routes/sec\n";
+              << float(totalroutes)/time_taken << " routes/sec\n"
+              << "Number of Batches sent: "
+              << (totalroutes/env_data.batch_size) + 1 << "\n";
 
     // prints any errors in DB
     if(env_data.stream_case == true){
