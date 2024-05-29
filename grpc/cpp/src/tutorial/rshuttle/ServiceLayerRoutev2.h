@@ -20,6 +20,7 @@
 #include <iosxrsl/sl_af.grpc.pb.h>
 #include <iosxrsl/sl_af.pb.h>
 
+// Data used throughout code. Will change dependent on cli options listed by user
 class testingData
 {
 public:
@@ -29,7 +30,7 @@ public:
     service_layer::SLObjectOp route_oper = service_layer::SL_OBJOP_RESERVED;
     service_layer::SLRegOp vrf_reg_oper = service_layer::SL_REGOP_RESERVED;
 
-    unsigned int routes_pushed = 1;
+    unsigned int num_operations = 1;
     bool stream_case = true;
     unsigned int batch_size = 1024;
     unsigned int batch_num = 98;
@@ -71,8 +72,15 @@ public:
 
 class dbStructure {
 public:
+
+    // Stores elements as key value pairs in non-sorted order. Mapping of key(prefix) and value (pair of testingData and statusObject objects)
+    // Provides O(1) lookup
+
+    // Key for ipv4 will be the prefix
     std::unordered_map<uint32_t, std::pair<testingData, statusObject>> db_ipv4;
+    // Key for ipv6 is the prefix
     std::unordered_map<std::string, std::pair<testingData, statusObject>> db_ipv6;
+    // Key for mpls is the label number
     std::unordered_map<unsigned int, std::pair<testingData, statusObject>> db_mpls;
 
     int db_count;
@@ -87,11 +95,15 @@ public:
 };
 
 extern dbStructure database;
+// Mutex used for synchronize access for database
 extern std::mutex db_mutex;
+
+// Mutex used for synchronize the request_deque and condition variable
+extern std::mutex deque_mutex;
+extern std::condition_variable deque_cv;
 
 // Stream case: Queue used between main thread for pushing slapi objects and write thread for popping objects
 extern std::deque<service_layer::SLAFMsg> request_deque;
-extern std::condition_variable deque_cv;
 
 class SLAFRShuttle;
 extern SLAFRShuttle* slaf_route_shuttle;

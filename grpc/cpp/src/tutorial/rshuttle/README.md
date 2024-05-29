@@ -101,8 +101,9 @@ For now, if you already have passed this setup step, follow this example:
 | -v/--slaf                       | Specify if you want to use slaf proto RPCs to program objects or not. If false, no other configuration possible and will only run 100k ipv4 routes (default true) |
 | -t/--table_type                 | Specify whether to do ipv4, ipv6 or mpls operation, PG is currently not supported (default ipv4) |
 | -s/--global_init                | Enable our Async Global Init RPC to handshake the API version number with the server (default false) |
-| -b/--routes_pushed              | Configure the number of ipv4 routes or MPLS entires to be added to a batch (default 1024) |
-| -c/--stream_case                | Want to use the streaming rpc or unary rpc (default true) |
+| -b/--num_operations             | Configure the number of ipv4 routes or MPLS entires to be added to a batch (default 1024) |
+| -c/--batch_size                 | Configure the number of ipv4 routes or ILM entires for MPLS to be added to a batch (default 1024) |
+| -x/--stream_case                | Want to use the streaming rpc or unary rpc (default true) |
 ##### IPv4 Testing
 
 | Argument | Description |
@@ -160,10 +161,10 @@ Version 1 Default Example (This runs ipv4 only):
 IPV4 Examples:
     Adding 500 routes through stream:
     $ ./servicelayermain -u username -p password --table_type ipv4 -a Add -w Register -b 500
-    Delete 20 routes using unary rpc. Assuming vrf registration is handled automatically:
-    $ ./servicelayermain -u username -p password --table_type ipv4 -a Delete -w EOF --routes_pushed 20 --stream_case false
-    Delete 50 routes with streaming rpc:
-    $ ./servicelayermain -u username -p password --table_type ipv4 -a Delete -w Register --routes_pushed 50 --next_hop_ip_ipv4 14.1.1.21
+    Delete 20 routes using unary rpc with batch size at 10. Assuming vrf registration is handled automatically:
+    $ ./servicelayermain -u username -p password --table_type ipv4 -a Delete -w EOF --num_operations 20 --batch_size 10 --stream_case false
+    Delete 50 routes with streaming rpc with batch size at 30:
+    $ ./servicelayermain -u username -p password --table_type ipv4 -a Delete -w Register --num_operations 50 --batch_size 30 --next_hop_ip_ipv4 14.1.1.21
 
 IPV6 Example:
     Adding two routes:
@@ -174,7 +175,7 @@ IPV6 Example:
 MPLS Example:
     Adding 1000 Labels with streaming rpc:
     $ ./servicelayermain -u username -p password -a Add -w Register --table_type mpls -q 1000 --start_label 12000
-    $ ./servicelayermain -u username -p password -a Add -w Register --table_type mpls --num_label 1000 -o 12000 (same as above example)
+    $ ./servicelayermain -u username -p password -a Add -w Register --table_type mpls --num_label 1000 -o 12000 --batch_size 1024 (same as above example)
     Deleting 35 labels with unary rpc:
     $ ./servicelayermain -u username -p password -a Delete -w Register --table_type mpls --num_label 35 --start_label 12010 -c false
 
@@ -186,8 +187,8 @@ The rest of these section is extra information and not required to run the tutor
 
 #### <a name='explain'></a>Streaming rpc vs Unary rpc implementation
 
-The Unary rpc is when the client sends a single request and gets back a single response.
-This self explanatory and the code basically does this. It sends multiple rpc's depending on how many batches are required for the request, Please follow through code for more information.
+Using a unary rpc, the client sends a single request and blocks for response to the request.
+When invoked without --stream option, this program uses unary RPC. It invokes the unary RPC as many times needed to program the data set. Please follow through code for more information.
 
 The streaming rpc implementation is a bit more complex.
 A bi-directional stream is used, in which both the client and server have two independent streams. Both the client and server can read and write messages in any order.

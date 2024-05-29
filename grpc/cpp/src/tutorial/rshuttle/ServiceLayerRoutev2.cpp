@@ -1124,11 +1124,17 @@ bool SLGLOBALSHUTTLE::getGlobals(unsigned int &batch_size, unsigned int timeout)
     LOG(INFO) <<"MaxVrfRegPerMsg:               " << resp_msg.maxvrfregpermsg()  << std::endl;
     LOG(INFO) <<"MaxAFOpsPerMsg:                " << resp_msg.maxafopspermsg()  << std::endl;
     LOG(INFO) <<"MaxNotifReqPerSLAFNotifReq:    " << resp_msg.maxnotifreqperslafnotifreq()  << std::endl;
+    unsigned int temp = resp_msg.maxafopspermsg();
 
-    batch_size = resp_msg.maxafopspermsg();
-
-    if (batch_size == 0) {
-        LOG(INFO) << "WARNING: BATCH SIZE is SET to 0";
+    if (temp <= 0) {
+        LOG(INFO) << "WARNING: MaxAFOpsPerMsg (BATCH SIZE ) is 0. Batch Size will remain at value given: " << batch_size;
+    } else {
+        if (batch_size > temp) {
+            batch_size = resp_msg.maxafopspermsg();
+            LOG(INFO) << "BATCH SIZE is set to " << temp;
+        } else {
+            LOG(INFO) << "BATCH SIZE will remain as " << batch_size;
+        }
     }
 
     return true;
