@@ -130,6 +130,10 @@ public:
     std::map<std::string, int> prefix_map_v4;
     std::map<std::string, int> prefix_map_v6;
 
+    unsigned int pushFromDB(bool streamCase,
+                    service_layer::SLObjectOp routeOper,
+                    service_layer::SLTableType addrFamily);
+
     bool routeSLAFOp(service_layer::SLObjectOp routeOp,
                     service_layer::SLTableType addrFamily,
                     unsigned int timeout=10);
@@ -151,6 +155,7 @@ public:
     uint32_t ipv4ToLong(const char* address);
     std::string ipv6ToByteArrayString(const char* address);
     std::string ByteArrayStringtoIpv6(std::string ipv6ByteArray);
+    std::string incrementIpv6Pfx(std::string ipv6ByteArray, uint32_t prefixLen);
 
     // IPv4 methods
 
@@ -220,19 +225,11 @@ public:
 
     // MPLS methods
 
-    void batchHelperMPLS(unsigned int label,
+    void insertAddBatchMPLS(unsigned int label,
                                 unsigned int startLabel,
                                 unsigned int numPaths,
                                 uint32_t nextHopAddress,
                                 std::string nextHopInterface);
-
-    unsigned int insertAddBatchMPLS(unsigned int startLabel,
-                            unsigned int numLabel,
-                            unsigned int numPaths,
-                            unsigned int batchSize,
-                            uint32_t nextHopAddress,
-                            std::string nextHopInterface,
-                            service_layer::SLObjectOp routeOper);
 
 };
 

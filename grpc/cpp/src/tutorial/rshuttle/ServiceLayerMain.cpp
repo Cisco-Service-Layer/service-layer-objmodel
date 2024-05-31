@@ -211,112 +211,76 @@ void routepush_slaf(SLAFRShuttle* slaf_route_shuttle,
     Timer tmr;
     unsigned int totalroutes = 0;
 
-    // Clears all of the DB's. Only used in streaming case
+    // Clears all of the DB's
     slaf_route_shuttle->clearDB();
 
     // Depending on table type, perform stream or non-stream rpc
     if (addr_family == service_layer::SL_IPv4_ROUTE_TABLE) {
         LOG(INFO) << "Starting IPV4 Route batch";
+
+        // Populate IPV4 DB
         auto prefix = slaf_route_shuttle->ipv4ToLong(env_data.first_prefix_ipv4.c_str());
         uint8_t prefix_len = env_data.prefix_len_ipv4;
-        if (env_data.stream_case == true) {
-            database.ipv4_start_index = prefix;
-            // Push all routes these onto the db based off their prefix
-            for(int i = 1; i <= env_data.num_operations; i++, prefix=incrementIpv4Pfx(prefix,prefix_len)){
-                statusObject dummy;
-                std::pair<testingData, statusObject> temp = std::make_pair(env_data, dummy);
-                database.db_ipv4[prefix] = temp;
-                if (i == env_data.num_operations) {
-                    database.ipv4_last_index = prefix;
-                }
-                database.db_count++;
+        database.ipv4_start_index = prefix;
+        // Push all routes these onto the db based off their prefix
+        for(int i = 1; i <= env_data.num_operations; i++, prefix=incrementIpv4Pfx(prefix,prefix_len)){
+            statusObject dummy;
+            std::pair<testingData, statusObject> temp = std::make_pair(env_data, dummy);
+            database.db_ipv4[prefix] = temp;
+            if (i == env_data.num_operations) {
+                database.ipv4_last_index = prefix;
             }
+            database.db_count++;
+        }
+
+        if (env_data.stream_case == true) {
             totalroutes = slaf_route_shuttle->routeSLAFOpStream(addr_family, env_data.route_oper);
         } else {
-            // set vrf name to default
-            slaf_route_shuttle->setVrfV4("default");
-            for (int route_index = 1; route_index <= env_data.num_operations; route_index++, prefix=incrementIpv4Pfx(prefix,prefix_len)) {
-                // Helper function to set all attributes for SLAFMsg
-                slaf_route_shuttle->insertAddBatchV4(slaf_route_shuttle->longToIpv4(prefix),
-                                                prefix_len,
-                                                99,
-                                                env_data.next_hop_ip_ipv4,
-                                                env_data.next_hop_interface_ipv4,
-                                                env_data.route_oper);
-                totalroutes++;
-                if (route_index % env_data.batch_size == 0 || route_index == env_data.num_operations) {
-                    slaf_route_shuttle->routeSLAFOp(env_data.route_oper, addr_family);
-                    VLOG(1) << "Batch: " << (route_index/env_data.batch_size) << "\n";
-                    VLOG(1) << tmr.elapsed();
-                }
-            }
+            totalroutes = slaf_route_shuttle->pushFromDB(false,env_data.route_oper,addr_family);
         }
 
     } else if (addr_family == service_layer::SL_IPv6_ROUTE_TABLE) {
         LOG(INFO) << "Starting IPV6 Route batch";
+
+        // Populate IPV6 DB
         std::string prefix_str = env_data.first_prefix_ipv6;
         auto prefix = slaf_route_shuttle->ipv6ToByteArrayString(prefix_str.c_str());
         uint8_t prefix_len = env_data.prefix_len_ipv6;
-        if (env_data.stream_case == true) {
+        // Push all routes these onto the db based off their prefix
+        database.ipv6_start_index = prefix;
+        for(int i = 1; i <= env_data.num_operations; i++, prefix=slaf_route_shuttle->incrementIpv6Pfx(prefix,prefix_len)){
             statusObject dummy;
             std::pair<testingData, statusObject> temp = std::make_pair(env_data, dummy);
-            database.ipv6_start_index = prefix;
             database.db_ipv6[prefix] = temp;
+            if (i == env_data.num_operations) {
+                database.ipv6_last_index = prefix;
+            }
             database.db_count++;
-            prefix_str = "2003:aa::0";
-            prefix = slaf_route_shuttle->ipv6ToByteArrayString(prefix_str.c_str());
-            database.ipv6_last_index = prefix;
-            database.db_ipv6[prefix] = temp;
-            database.db_count++;
+        }
+        if (env_data.stream_case == true) {
             totalroutes = slaf_route_shuttle->routeSLAFOpStream(addr_family, env_data.route_oper);
         } else {
-            slaf_route_shuttle->setVrfV6("default");
-            // Helper function to set all attributes for SLAFMsg
-            slaf_route_shuttle->insertAddBatchV6(slaf_route_shuttle->ByteArrayStringtoIpv6(prefix),
-                                            prefix_len,
-                                            99,
-                                            env_data.next_hop_ip_ipv6,
-                                            env_data.next_hop_interface_ipv6,
-                                            env_data.route_oper);
-            totalroutes++;
-
-            prefix_str = "2003:aa::0";
-            prefix = slaf_route_shuttle->ipv6ToByteArrayString(prefix_str.c_str());
-            slaf_route_shuttle->insertAddBatchV6(slaf_route_shuttle->ByteArrayStringtoIpv6(prefix),
-                                            prefix_len,
-                                            99,
-                                            env_data.next_hop_ip_ipv6,
-                                            env_data.next_hop_interface_ipv6,
-                                            env_data.route_oper);
-            totalroutes++;
-            slaf_route_shuttle->routeSLAFOp(env_data.route_oper, addr_family);
-
+            totalroutes = slaf_route_shuttle->pushFromDB(false,env_data.route_oper,addr_family);
         }
 
     } else if (addr_family == service_layer::SL_MPLS_LABEL_TABLE) {
         LOG(INFO) << "Starting MPLS";
-        if (env_data.stream_case == true) {
-            unsigned int start_label = env_data.start_label;
-            database.mpls_start_index = start_label;
 
-            for(int i = 0; i < env_data.num_label; i++){
-                statusObject dummy;
-                std::pair<testingData, statusObject> temp = std::make_pair(env_data, dummy);
-                database.db_mpls[start_label+i] = temp;
-                database.db_count++;
-            }
-            database.mpls_last_index = start_label+env_data.num_label-1;
+        // Populate MPLS DB
+        unsigned int start_label = env_data.start_label;
+        database.mpls_start_index = start_label;
+        for(int i = 0; i < env_data.num_label; i++){
+            statusObject dummy;
+            std::pair<testingData, statusObject> temp = std::make_pair(env_data, dummy);
+            database.db_mpls[start_label+i] = temp;
+            database.db_count++;
+        }
+        database.mpls_last_index = start_label+env_data.num_label-1;
+
+        if (env_data.stream_case == true) {
             totalroutes = slaf_route_shuttle->routeSLAFOpStream(addr_family, env_data.route_oper);
         } else {
-            // setvrf name is optional and not needed for mpls
-            slaf_route_shuttle->setVrfV4("default");
-            auto next_hop_address = slaf_route_shuttle->ipv4ToLong(env_data.first_mpls_path_nhip.c_str());
-            totalroutes = slaf_route_shuttle->insertAddBatchMPLS(env_data.start_label,
-                                                            env_data.num_label,
-                                                            env_data.num_paths, env_data.batch_size,
-                                                            next_hop_address,
-                                                            env_data.next_hop_interface_mpls,
-                                                            env_data.route_oper);
+            totalroutes = slaf_route_shuttle->pushFromDB(false,env_data.route_oper,addr_family);
         }
     }
 
@@ -326,12 +290,10 @@ void routepush_slaf(SLAFRShuttle* slaf_route_shuttle,
               << "\nRoute programming rate\n"
               << float(totalroutes)/time_taken << " routes/sec\n"
               << "Number of Batches sent: "
-              << (totalroutes/env_data.batch_size) + 1 << "\n";
+              << ((totalroutes-1)/env_data.batch_size) + 1 << "\n";
 
     // prints any errors in DB
-    if(env_data.stream_case == true){
-        // printDbErrors(env_data,addr_family);
-    }
+    printDbErrors(env_data,addr_family);
 
 }
 
@@ -533,8 +495,8 @@ int main(int argc, char** argv) {
                 LOG(INFO) << "| -t/--table_type                  | Specify whether to do ipv4, ipv6 or mpls operation, PG is currently not supported (default ipv4) |";
                 LOG(INFO) << "| -v/--slaf                        | Specify if you want to use slaf proto RPCs to program objects or not. If not, no other configuration possible and will only run 100k ipv4 routes (default true) |";
                 LOG(INFO) << "| -s/--global_init                 | Enable our Async Global Init RPC to handshake the API version number with the server (default false) |";
-                LOG(INFO) << "| -b/--num_operations              | Configure the number of ipv4 routes or MPLS entires to be added to a batch (default 1) |";
-                LOG(INFO) << "| -c/--batch_size                  | Configure the number of ipv4 routes or ILM entires for MPLS to be added to a batch (default 1024) |";
+                LOG(INFO) << "| -b/--num_operations              | Configure the number of ipv4 routes, ipv6 routes, or MPLS entires to be added to a batch (default 1) |";
+                LOG(INFO) << "| -c/--batch_size                  | Configure the number of ipv4 routes ipv6 routes, or ILM entires for MPLS to be added to a batch (default 1024) |";
                 LOG(INFO) << "| -x/--stream_case                 | Want to use the streaming rpc or unary rpc (default true) | \n";
                 LOG(INFO) << "IPv4 Testing";
                 LOG(INFO) << "| -d/--first_prefix_ipv4           | Configure the starting address for this test for IPV4 (default 40.0.0.0) |";
