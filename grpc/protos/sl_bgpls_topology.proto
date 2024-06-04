@@ -588,7 +588,7 @@ enum SLBgplsTopoSrPolicyProtocolOrigin {
     SL_BGPLS_TOPO_SR_POLICY_PROTOCOL_ORIGIN_PCEP_VIA_PCE = 10;
     SL_BGPLS_TOPO_SR_POLICY_PROTOCOL_ORIGIN_BGP_SR_POLICY_VIA_PCE = 20;
     SL_BGPLS_TOPO_SR_POLICY_PROTOCOL_ORIGIN_CONFIG_VIA_PCE = 30;
-
+    SL_BGPLS_TOPO_SR_POLICY_PROTOCOL_ORIGIN_CONFIG_VIA_GRPC = 40;
 }
 
 // SR Policy flags
@@ -667,14 +667,19 @@ message SLBgplsTopoNodeAttr {
     // Section 2.1.4 of [RFC9085]
     repeated SLBgplsTopoSrlb Srlb = 12;
 
+    // Segment Routing V6 Capabilities of a node
+    // SRv6 Capabilities. TLV 1038 
+    // Section 3.1 of [RFC9514]
+    SLBgplsTopoSrv6CapFlags Srv6CapFlags = 13;
+
     // Definitions of Flexible Algorithms supported by the node
     // Flexible Algorithm Definition. TLV 1039.
     // Section 3 of [RFC9351]
-    repeated SLBgplsTopoFad Fad = 13;
+    repeated SLBgplsTopoFad Fad = 14;
 
     // Unknown Node Attributes
     // Unknown/unsupported by IOS-XR/BGPLS.
-    repeated SLBgplsTopoUnknownAttr UnknownAttr = 14;
+    repeated SLBgplsTopoUnknownAttr UnknownAttr = 15;
 }
 
 // Link Attributes
@@ -712,7 +717,7 @@ message SLBgplsTopoLinkAttr {
     // The bit mask of administrative groups assigned
     // by the network administrator.
     // Extended Administrative Group. TLV 1173
-    // Section 5.3.2 of [RFC9552]
+    // Section 2 of [RFC9104]
     repeated SLBgplsTopoExtAdminGroup ExtAdminGroup = 7;
 
     // The maximum bandwidth that can be used on a link.
@@ -780,76 +785,91 @@ message SLBgplsTopoLinkAttr {
     // Section 2.2.1 of [RFC9085]
     repeated SLBgplsTopoLanAdjSid LanAdjSid = 19;
 
+    // Peer Node Segment Identifier for BGP Peering Segments
+    // BGP Peer Node SID. TLV 1101
+    // Section 5 of [RFC9086]
+    repeated SLBgplsTopoBgpPeerNodeSid BgpPeerNodeSid = 20;
+
+    // Peer Adjacency Segment Identifier for BGP Peering Segments  
+    // BGP Peer Adjacency SID. TLV 1102
+    // Section 5 of [RFC9086]
+    repeated SLBgplsTopoBgpPeerAdjSid BgpPeerAdjSid = 21;
+
+    // Peer Set Segment Identifier for BGP Peering Segments 
+    // BGP Peer Set SID. TLV 1103
+    // Section 5 of [RFC9086]
+    repeated SLBgplsTopoBgpPeerSetSid BgpPeerSetSid = 22;
+
     // The Segment Routing over IPv6 (SRv6)
     // Segment Identifiers (SIDs) associated with an adjacency.
     // SRv6 End X SID. TLV 1106
     // Section 4.1 of [RFC9514]
-    repeated SLBgplsTopoSrv6EndXSid Srv6EndXSid = 20;
+    repeated SLBgplsTopoSrv6EndXSid Srv6EndXSid = 23;
 
     // The Segment Routing over IPv6 (SRv6)
     // Segment Identifiers (SIDs) of an adjacency to any node in a LAN other
     // than the pseudonode.
     // SRv6 LAN End X SID. TLV 1107/1108
     // Section 4.1 of [RFC9514]
-    repeated SLBgplsTopoSrv6LanEndXSid Srv6LanEndXSid = 21;
+    repeated SLBgplsTopoSrv6LanEndXSid Srv6LanEndXSid = 24;
 
     // The average link delay between two
     // directly connected IGP link-state neighbors.
     // Unidirectional Link Delay. TLV 1114
     // Section 2.1 of [RFC8571]
-    SLBgplsTopoUniLinkDelay UniLinkDelay = 22;
+    SLBgplsTopoUniLinkDelay UniLinkDelay = 25;
 
     // The minimum and maximum link delay between two
     // directly connected IGP link-state neighbors.
     // Min/Max Unidirectional Link Delay. TLV 1115
     // Section 2.2 of [RFC8571]
-    SLBgplsTopoMinMaxUniLinkDelay MinMaxUniLinkDelay = 23;
+    SLBgplsTopoMinMaxUniLinkDelay MinMaxUniLinkDelay = 26;
 
     // The average link delay variation between two
     // directly connected IGP link-state neighbors.
     // Unidirectional Delay Variation. TLV 1116
     // Section 2.3 of [RFC8571]
-    SLBgplsTopoUniDelayVar UniDelayVar = 24;
+    SLBgplsTopoUniDelayVar UniDelayVar = 27;
 
     // The loss (as a packet percentage) between two
     // directly connected IGP link-state neighbors.
     // Unidirectional Link Loss. TLV 1117
     // Section 2.4 of [RFC8571]
-    SLBgplsTopoUniLinkLoss UniLinkLoss = 25;
+    SLBgplsTopoUniLinkLoss UniLinkLoss = 28;
 
     // The residual bandwidth between two
     // directly connected IGP link-state neighbors.
     // Unidirectional Residual Bandwidth. TLV 1118
     // Section 2.5 of [RFC8571]
-    SLBgplsTopoUniResBandwidth UniResBandwidth = 26;
+    SLBgplsTopoUniResBandwidth UniResBandwidth = 29;
 
     // The available bandwidth between two
     // directly connected IGP link-state neighbors.
     // Unidirectional Available Bandwidth. TLV 1119
     // Section 2.6 of [RFC8571]
-    SLBgplsTopoUniAvailBandwidth UniAvailBandwidth = 27;
+    SLBgplsTopoUniAvailBandwidth UniAvailBandwidth = 30;
 
     // The utilized bandwidth between two
     // directly connected IGP link-state neighbors.
     // Unidirectional Utilized Bandwidth. TLV 1120
     // Section 2.7 of [RFC8571]
-    SLBgplsTopoUniUtilBandwidth UniUtilBandwidth = 28;
+    SLBgplsTopoUniUtilBandwidth UniUtilBandwidth = 31;
 
     // The container for certain existing and future
     // link attributes that require application-specific definition.
     // ASLA Attributes. TLV 1122
     // Section 2 of [RFC9294]
-    repeated SLBgplsTopoAslaAttr Asla = 29;
+    repeated SLBgplsTopoAslaAttr Asla = 32;
 
     // A L2 Bundle Member link which in turn is
     // associated with a parent L3 link.
     // L2 Bundle Member Attribute. TLV 1172
     // Section 2.2.3 of [RFC9085]
-    repeated SLBgplsTopoL2BundleMemberAttr L2BundleMemberAttr = 30;
+    repeated SLBgplsTopoL2BundleMemberAttr L2BundleMemberAttr = 33;
 
     // Unknown Link Attributes
     // Unknown/unsupported by IOS-XR/BGPLS.
-    repeated SLBgplsTopoUnknownAttr UnknownAttr = 31;
+    repeated SLBgplsTopoUnknownAttr UnknownAttr = 34;
 }
 
 // Prefix Attributes
@@ -857,7 +877,7 @@ message SLBgplsTopoPrefixAttr {
     // Metric associated with the prefix for a particular Flexible Algorithm (FA).
     // Flexible Algorithm Prefix metric. TLV 1044
     // Section 4 of [RFC9351]
-    SLBgplsTopoPrefixFAPM Fapm = 1;
+    repeated SLBgplsTopoPrefixFAPM Fapm = 1;
 
     // IGP Flags and bits assigned to a prefix.
     // IGP Flags. TLV 1152
@@ -1142,6 +1162,17 @@ message SLBgplsTopoSrlb {
     uint32 RangeSize = 2;
 }
 
+// SRv6 Capabilities. TLV 1038 
+// Section 3.1 of [RFC9514]
+message SLBgplsTopoSrv6CapFlags {
+    // 2-octet field.  The flags are copied from the IS-IS SRv6
+    // Capabilities sub-TLV (Section 2 of [RFC9352]) or from the OSPFv3
+    // SRv6 Capabilities TLV (Section 2 of [RFC9513]) in the case of IS-
+    // IS or OSPFv3, respectively
+    bytes Flags = 1;
+}
+
+
 // Flexible Algorithm Definition. TLV 1039.
 // Section 3 of [RFC9351]
 message SLBgplsTopoFad {
@@ -1258,18 +1289,6 @@ message SLBgplsTopoFadUnsuppTlv {
     bytes Types = 2;
 }
 
-// Administrative Group. TLV 1173
-// Section 5.3.2 of [RFC9552]
-message SLBgplsTopoExtAdminGroup {
-    // Bit mask of administrative groups assigned by the
-    // network administrator. Each set bit corresponds to one
-    // administrative group assigned to the interface. By convention, the
-    // least significant bit is referred to as group 0, and the
-    // most significant bit is referred to as group 31. Each EAG bitmask
-    // is represented in multiple of 4 bytes.
-    uint32 Group = 1;
-}
-
 // Maximum Link Bandwidth. TLV 1089
 // Section 5.3.2 of [RFC9552]
 message SLBgplsTopoLinkMaxBandwidth {
@@ -1349,16 +1368,19 @@ message SLBgplsTopoLinkName {
     string Name = 1;
 }
 
-// BGP-LS Topology Adjacency SID Formats
-enum SLBgplsTopoAdjSidFormat {
+// BGP-LS Topology SID Formats
+enum SLBgplsTopoSidFormat {
     // Reserved SID Type
-    SL_BGPLS_TOPO_ADJ_SID_FORMAT_RESERVED = 0;
+    SL_BGPLS_TOPO_SID_FORMAT_RESERVED = 0;
 
-    // Adjacency SID Type Label
-    SL_BGPLS_TOPO_ADJ_SID_FORMAT_LABEL = 1;
+    // SID Type Label
+    SL_BGPLS_TOPO_SID_FORMAT_LABEL = 1;
 
-    // Adjacency SID Type Index
-    SL_BGPLS_TOPO_ADJ_SID_FORMAT_INDEX = 2;
+    // SID Type Index
+    SL_BGPLS_TOPO_SID_FORMAT_INDEX = 2;
+
+    // SID Type V6 Addr
+    SL_BGPLS_TOPO_SID_FORMAT_V6_ADDR = 3;
 }
 
 // Adjacency SID. TLV 1099
@@ -1368,7 +1390,7 @@ message SLBgplsTopoAdjSid {
     uint32 LabelIndex = 1;
 
     // Specifies whether the adjacency SID is a label or index
-    SLBgplsTopoAdjSidFormat AdjSidFormat = 2;
+    SLBgplsTopoSidFormat AdjSidFormat = 2;
 
     // Flags associated with the SID. IS-IS flags as defined in
     // Section 2.2.1 of [RFC8667]. OSPFv2 flags as defined in
@@ -1390,7 +1412,7 @@ message SLBgplsTopoLanAdjSid {
     uint32 LabelIndex = 2;
 
     // Specifies whether the adjacency SID is a label or index
-    SLBgplsTopoAdjSidFormat AdjSidFormat = 3;
+    SLBgplsTopoSidFormat AdjSidFormat = 3;
 
     // Flags associated with the SID. IS-IS flags as defined in
     // Section 2.2.1 of [RFC8667]. OSPFv2 flags as defined in
@@ -1400,6 +1422,57 @@ message SLBgplsTopoLanAdjSid {
 
     // Weight used for load balancing purposes
     uint32 Weight = 5;
+}
+
+// BGP Peer Node SID. TLV 1101
+// Section 5 of [RFC9086]
+message SLBgplsTopoBgpPeerNodeSid {
+    // Label or index or V6 Addr
+    bytes Sid = 1;
+
+    // Specifies whether the BGP SID is a label or index
+    SLBgplsTopoSidFormat BgpSidFormat = 2;
+
+    // Flags associated with the SID.
+    // Defined in Section 5 of [RFC9086]
+    bytes Flags = 3;
+
+    // Weight used for load balancing purposes
+    uint32 Weight = 4;
+}
+
+// BGP Peer Adjacency SID. TLV 1102
+// Section 5 of [RFC9086]
+message SLBgplsTopoBgpPeerAdjSid {
+    // Label or index or V6 Addr
+    bytes Sid = 1;
+
+    // Specifies whether the BGP SID is a label or index
+    SLBgplsTopoSidFormat BgpSidFormat = 2;
+
+    // Flags associated with the SID.
+    // Defined in Section 5 of [RFC9086]
+    bytes Flags = 3;
+
+    // Weight used for load balancing purposes
+    uint32 Weight = 4;
+}
+
+// BGP Peer Set SID. TLV 1103
+// Section 5 of [RFC9086]
+message SLBgplsTopoBgpPeerSetSid {
+    // Label or index or V6 Addr
+    bytes Sid = 1;
+
+    // Specifies whether the BGP SID is a label or index
+    SLBgplsTopoSidFormat BgpSidFormat = 2;
+
+    // Flags associated with the SID.
+    // Defined in Section 5 of [RFC9086]
+    bytes Flags = 3;
+
+    // Weight used for load balancing purposes
+    uint32 Weight = 4;
 }
 
 // SRv6 End X SID. TLV 1106
@@ -1540,6 +1613,80 @@ message SLBgplsTopoUniUtilBandwidth {
     bytes Bandwidth = 1;
 }
 
+// ASLA Attributes. TLV 1122
+// Section 2 of [RFC9294]
+message SLBgplsTopoAslaAttr {
+    // Standard Application Identifier Bit Mask (SABM). Each bit
+    // represents a single standard application
+    bytes Sabm = 1;
+
+    // User-Defined Application Identifier Bit Mask (UDABM). Each bit
+    // represents a single user-defined application
+    bytes Udabm = 2;
+
+    // The bit mask of administrative groups assigned
+    // by the network administrator.
+    // Extended Administrative Group. TLV 1173
+    // Section 2 of [RFC9104]
+    repeated SLBgplsTopoExtAdminGroup ExtAdminGroup = 3;
+
+    // The Traffic Engineering (TE) metric of a link.
+    // TE Default Metric. TLV 1092
+    // Section  5.3.2.3 of [RFC9552]
+    SLBgplsTopoLinkTeDefaultMetric TeDefMetric = 4;
+
+    // The Shared Link Risk Groups (SRLGs) of a link.
+    // Shared Risk Link Group. TLV 1096
+    // Section 5.3.2.5 of [RFC9552]
+    repeated SLBgplsTopoLinkSrlg Srlg = 5;
+
+    // The average link delay between two
+    // directly connected IGP link-state neighbors.
+    // Unidirectional Link Delay. TLV 1114
+    // Section 2.1 of [RFC8571]
+    SLBgplsTopoUniLinkDelay UniLinkDelay = 6;
+
+    // The minimum and maximum link delay between two
+    // directly connected IGP link-state neighbors.
+    // Min/Max Unidirectional Link Delay. TLV 1115
+    // Section 2.2 of [RFC8571]
+    SLBgplsTopoMinMaxUniLinkDelay MinMaxLinkDelay = 7;
+
+    // The average link delay variation between two
+    // directly connected IGP link-state neighbors.
+    // Unidirectional Delay Variation. TLV 1116
+    // Section 2.3 of [RFC8571]
+    SLBgplsTopoUniDelayVar UniDelayVariation = 8;
+
+    // The loss (as a packet percentage) between two
+    // directly connected IGP link-state neighbors.
+    // Unidirectional Link Loss. TLV 1117
+    // Section 2.4 of [RFC8571]
+    SLBgplsTopoUniLinkLoss UniLinkLoss = 9;
+
+    // The residual bandwidth between two
+    // directly connected IGP link-state neighbors.
+    // Unidirectional Residual Bandwidth. TLV 1118
+    // Section 2.5 of [RFC8571]
+    SLBgplsTopoUniResBandwidth UniResBandwidth = 10;
+
+    // The available bandwidth between two
+    // directly connected IGP link-state neighbors.
+    // Unidirectional Available Bandwidth. TLV 1119
+    // Section 2.6 of [RFC8571]
+    SLBgplsTopoUniAvailBandwidth UniAvailBandwidth = 11;
+
+    // The utilized bandwidth between two
+    // directly connected IGP link-state neighbors.
+    // Unidirectional Utilized Bandwidth. TLV 1120
+    // Section 2.7 of [RFC8571]
+    SLBgplsTopoUniUtilBandwidth UniUtilBandwidth = 12;
+
+    // Unknown ASLA Attributes
+    // Unknown/unsupported by IOS-XR/BGPLS.
+    repeated SLBgplsTopoUnknownAttr UnknownAttr = 13;
+}
+
 // IGP Flags. TLV 1152
 // Section 5.3.3.1 of [RFC9552]
 message SLBgplsTopoPrefixIgpFlags {
@@ -1564,7 +1711,7 @@ message SLBgplsTopoPrefixIgpRouteTag {
 // Section 5.3.3.3 of [RFC9552]
 message SLBgplsTopoPrefixIgpExtRouteTag {
     // IGP extended route tag
-    uint32 Tag = 1;
+    uint64 Tag = 1;
 }
 
 // Prefix Metric. TLV 1155
@@ -1695,7 +1842,7 @@ message SLBgplsTopoL2BundleMemberAttr {
     // The bit mask of administrative groups assigned
     // by the network administrator.
     // Extended Administrative Group. TLV 1173
-    // Section 5.3.2 of [RFC9552]
+    // Section 2 of [RFC9104]
     repeated SLBgplsTopoExtAdminGroup ExtAdminGroup = 3;
 
     // The maximum bandwidth that can be used on a link.
@@ -1789,78 +1936,16 @@ message SLBgplsTopoL2BundleMemberAttr {
     repeated SLBgplsTopoUnknownAttr UnknownAttr = 18;
 }
 
-// ASLA Attributes. TLV 1122
-// Section 2 of [RFC9294]
-message SLBgplsTopoAslaAttr {
-    // Standard Application Identifier Bit Mask (SABM). Each bit
-    // represents a single standard application
-    bytes Sabm = 1;
-
-    // User-Defined Application Identifier Bit Mask (UDABM). Each bit
-    // represents a single user-defined application
-    bytes Udabm = 2;
-
-    // The bit mask of administrative groups assigned
-    // by the network administrator.
-    // Extended Administrative Group. TLV 1173
-    // Section 5.3.2 of [RFC9552]
-    repeated SLBgplsTopoExtAdminGroup ExtAdminGroup = 3;
-
-    // The Traffic Engineering (TE) metric of a link.
-    // TE Default Metric. TLV 1092
-    // Section  5.3.2.3 of [RFC9552]
-    SLBgplsTopoLinkTeDefaultMetric TeDefMetric = 4;
-
-    // The Shared Link Risk Groups (SRLGs) of a link.
-    // Shared Risk Link Group. TLV 1096
-    // Section 5.3.2.5 of [RFC9552]
-    repeated SLBgplsTopoLinkSrlg Srlg = 5;
-
-    // The average link delay between two
-    // directly connected IGP link-state neighbors.
-    // Unidirectional Link Delay. TLV 1114
-    // Section 2.1 of [RFC8571]
-    SLBgplsTopoUniLinkDelay UniLinkDelay = 6;
-
-    // The minimum and maximum link delay between two
-    // directly connected IGP link-state neighbors.
-    // Min/Max Unidirectional Link Delay. TLV 1115
-    // Section 2.2 of [RFC8571]
-    SLBgplsTopoMinMaxUniLinkDelay MinMaxLinkDelay = 7;
-
-    // The average link delay variation between two
-    // directly connected IGP link-state neighbors.
-    // Unidirectional Delay Variation. TLV 1116
-    // Section 2.3 of [RFC8571]
-    SLBgplsTopoUniDelayVar UniDelayVariation = 8;
-
-    // The loss (as a packet percentage) between two
-    // directly connected IGP link-state neighbors.
-    // Unidirectional Link Loss. TLV 1117
-    // Section 2.4 of [RFC8571]
-    SLBgplsTopoUniLinkLoss UniLinkLoss = 9;
-
-    // The residual bandwidth between two
-    // directly connected IGP link-state neighbors.
-    // Unidirectional Residual Bandwidth. TLV 1118
-    // Section 2.5 of [RFC8571]
-    SLBgplsTopoUniResBandwidth UniResBandwidth = 10;
-
-    // The available bandwidth between two
-    // directly connected IGP link-state neighbors.
-    // Unidirectional Available Bandwidth. TLV 1119
-    // Section 2.6 of [RFC8571]
-    SLBgplsTopoUniAvailBandwidth UniAvailBandwidth = 11;
-
-    // The utilized bandwidth between two
-    // directly connected IGP link-state neighbors.
-    // Unidirectional Utilized Bandwidth. TLV 1120
-    // Section 2.7 of [RFC8571]
-    SLBgplsTopoUniUtilBandwidth UniUtilBandwidth = 12;
-
-    // Unknown ASLA Attributes
-    // Unknown/unsupported by IOS-XR/BGPLS.
-    repeated SLBgplsTopoUnknownAttr UnknownAttr = 13;
+// Administrative Group. TLV 1173
+// Section 2 of [RFC9104]
+message SLBgplsTopoExtAdminGroup {
+    // Bit mask of administrative groups assigned by the
+    // network administrator. Each set bit corresponds to one
+    // administrative group assigned to the interface. By convention, the
+    // least significant bit is referred to as group 0, and the
+    // most significant bit is referred to as group 31. Each EAG bitmask
+    // is represented in multiple of 4 bytes.
+    uint32 Group = 1;
 }
 
 // SR Binding SID. TLV 1201
