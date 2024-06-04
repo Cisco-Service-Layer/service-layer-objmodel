@@ -152,7 +152,7 @@ Set SERVER_IP and SERVER_PORT Before Running:
     $ export SERVER_IP=111.111.111.111
     $ export SERVER_PORT=11111
 
-Default Example (This runs ipv4 1):
+Default Example (This runs ipv4 1 route):
     $ ./servicelayermain -u username -p password -a Add -w Register
 
 Version 1 Default Example (This runs ipv4 only):
@@ -191,7 +191,7 @@ The rest of these section is extra information and not required to run the tutor
 
 Using a unary rpc, the client sends a single request and blocks for response to the request.
 Initially, the program takes information given by user and creates a database. Each entry in the database corresponds to the information for one route/label.
-When invoked without --stream option, this program uses unary RPC. It invokes the unary RPC as many times needed to program the data set. Please follow through code for more information.
+When invoked with --stream_case false option, this program uses unary RPC. It invokes the unary RPC as many times needed to program the data set. Please follow through code for more information.
 
 The streaming rpc implementation is a bit more complex.
 A bi-directional stream is used, in which both the client and server have two independent streams. Both the client and server can read and write messages in any order.
