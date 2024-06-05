@@ -3,6 +3,7 @@
 ## Table of Contents
 - [Server Setup](#server)
 - [Running the tutorial](#quick)
+- [Streaming vs Unary rpc implementation](#explain)
 - [Generate gRPC Code](#gen)
 - [Initialize the client server connection](#init)
 - [Optional: Register the VRF](#vrf)
@@ -96,13 +97,13 @@ For now, if you already have passed this setup step, follow this example:
 
 | Environment Variable | Description |
 | --- | --- |
-| -h/--help                                    | Help |
-| -t/--table_type                              | Specify whether to do ipv4, ipv6 or mpls operation, PG is currently not supported (default ipv4). |
-| -v/--slaf                                    | Specify if you want to use slaf proto RPCs to program objects or not. If not, only configurable options are batch_size and batch_num (default true) |
-| -s/--global_init                             | Enable our Async Global Init RPC to handshake the API version number with the server (default false) |
-| -b/--batch_size                              | Configure the number of ipv4 routes or ILM entires for MPLS to be added to a batch (default 1024) |
-| -c/--batch_num                               | Configure the number of batches for ipv4 and MPLS (default 98) |
-
+| -h/--help                       | Help |
+| -v/--slaf                       | Specify if you want to use slaf proto RPCs to program objects or not. If false, no other configuration possible and will only run 100k ipv4 routes (default true) |
+| -t/--table_type                 | Specify whether to do ipv4, ipv6 or mpls operation, PG is currently not supported (default ipv4) |
+| -s/--global_init                | Enable our Async Global Init RPC to handshake the API version number with the server (default false) |
+| -b/--num_operations             | Configure the number of ipv4 routes, ipv6 routes, or MPLS entires to be added to a batch (default 1) |
+| -c/--batch_size                 | Configure the number of ipv4 routes, ipv6 routes, or ILM entires for MPLS to be added to a batch (default 1024) |
+| -x/--stream_case                | Want to use the streaming rpc or unary rpc (default true) |
 ##### IPv4 Testing
 
 | Argument | Description |
@@ -151,38 +152,68 @@ Set SERVER_IP and SERVER_PORT Before Running:
     $ export SERVER_IP=111.111.111.111
     $ export SERVER_PORT=11111
 
-Default Example (This runs ipv4):
+Default Example (This runs ipv4 1 route):
     $ ./servicelayermain -u username -p password -a Add -w Register
 
 Version 1 Default Example (This runs ipv4 only):
     $ ./servicelayermain -u username -p password -v false -a Add -w Register
 
 IPV4 Examples:
-    Adding 500 routes:
-    $ ./servicelayermain -u username -p password --table_type 1 -a Add -w Register -b 100 -c 5
-    Delete 20 routes:
-    $ ./servicelayermain -u username -p password --table_type 1 -a Delete -w EOF --batch_size 10 --batch_num 2
-    Delete 50 routes:
-    $ ./servicelayermain -u username -p password --table_type 1 -a Delete -w Register --batch_size 10 --batch_num 5 --next_hop_ip_ipv4 14.1.1.21
+    Adding 500 routes through stream:
+    $ ./servicelayermain -u username -p password --table_type ipv4 -a Add -w Register -b 500
+    Delete 20 routes using unary rpc with batch size at 10. Assuming vrf registration is handled automatically:
+    $ ./servicelayermain -u username -p password --table_type ipv4 -a Delete -w EOF --num_operations 20 --batch_size 10 --stream_case false
+    Delete 50 routes with streaming rpc with batch size at 30 and with next hop as 14.1.1.21:
+    $ ./servicelayermain -u username -p password --table_type ipv4 -a Delete -w Register --num_operations 50 --batch_size 30 --next_hop_ip_ipv4 14.1.1.21
 
 IPV6 Example:
-    Adding two routes:
-    $ ./servicelayermain -u username -p password --table_type 2  -a Add -w Register
+    Adding 100k routes with stream case:
+    $ ./servicelayermain -u username -p password --table_type ipv6 -a Add -w Register --num_operations 100000
+    Add 25 routes with batch size as 6 and starting address as 2002:::0 with stream case false: 
+    $ ./servicelayermain -u username -p password --table_type ipv6 -a Add -w Register --num_operations 25 --batch_size 5 --first_prefix_ipv6 2001:db8:abcd:0012::0 --stream_case false
     Deleting All Routes and Unregister Vrf:
-    $ ./servicelayermain -u username -p password --table_type 2  -w Unregister
+    $ ./servicelayermain -u username -p password --table_type ipv6 -w Unregister
 
 MPLS Example:
-    Adding 1000 Labels:
-    $ ./servicelayermain -u username -p password  -a Add -w Register --table_type 3 --start_label 12000
-    $ ./servicelayermain -u username -p password  -a Add -w Register --table_type 3 -o 12000 (same as above example)
-    Deleting 35 labels:
-    $ ./servicelayermain -u username -p password -a Delete -w Register --table_type 3 --start_label 12010 --num_label 35
+    Adding 1000 Labels with streaming rpc:
+    $ ./servicelayermain -u username -p password -a Add -w Register --table_type mpls -q 1000 --start_label 12000
+    $ ./servicelayermain -u username -p password -a Add -w Register --table_type mpls --num_label 1000 -o 12000 --batch_size 1024 (same as above example)
+    Deleting 35 labels with unary rpc:
+    $ ./servicelayermain -u username -p password -a Delete -w Register --table_type mpls --num_label 35 --start_label 12010 -c false
 
 Example using auto register (see section [Optional: Register the VRF](#vrf) for information on auto-register):
     $ ./servicelayermain -u username -p password -a Add (Same as above examples, just omit -w option)
 
 The following sections explain the details of the above example tutorial.
 The rest of these section is extra information and not required to run the tutorial above.
+
+#### <a name='explain'></a>Streaming rpc vs Unary rpc implementation
+
+Using a unary rpc, the client sends a single request and blocks for response to the request.
+Initially, the program takes information given by user and creates a database. Each entry in the database corresponds to the information for one route/label.
+When invoked with --stream_case false option, this program uses unary RPC. It invokes the unary RPC as many times needed to program the data set. Please follow through code for more information.
+
+The streaming rpc implementation is a bit more complex.
+A bi-directional stream is used, in which both the client and server have two independent streams. Both the client and server can read and write messages in any order.
+Therefore, this section will explain a high level overview of how this program utilizes the streaming rpc.
+
+Note: For more information on the differences/details of rpcs, refer to https://grpc.io/docs/what-is-grpc/core-concepts/#rpc-life-cycle.
+
+Our code utilizes multithreading and locking to handle bidirectional streaming. The general life cycle looks like this:
+
+    Main thread takes information given by user and creates a database. Each entry in the database corresponds to the information for one route/label.
+    Main thread starts the stream and spawns a request queue, a writer thread and reader thread. At this point all three threads will operate concurrently and somewhat in parallel.
+
+    Main thread acquires the lock for the database, combs through it, and creates service_layer::SLAFMsg objects. These are essentially batched databases route objects. We will refer to them as SLAPI objects. Main thread releases the lock for the database at the end of every batch, and then will reacquire it when trying the next batch. At the end of every batch, main thread will acquire the lock for the request queue, and enqueue these SLAPI object into it, then unlock.  
+    Once done with the database, main thread will wait for a signal from the reader thread, which indicates to the main thread that all responses are received. Then, main thread enqueues poison pill into the request queue, then awaits for reader and writer thread to finish.
+
+    Writer thread's only job is to acquire lock for the request queue, wait for it to be non empty, then pop the SLAPI object from it, and send the SLAPI object through the stream. When the object popped from request queue is the poison pill, writer thread will stops the entire stream and exit.
+
+    Reader thread awaits for a response from the server, tries to obtain the lock for the database, and updates each associated database entry with the response information. It unlocks after every response, so that the main thread also has access to database. After all responses are given, it indicates to main thread that it received all responses through the use of a shared variable.
+
+    After all of this is done, we print out any errors in the database.
+
+We chose this design to allow ease of use and good performance. This design allows reusability for user specific code. The user just needs to hook up their own db and handle a few cases related to database information.
 
 #### <a name='gen'></a>Generate gRPC Code (optional in this example)
 
