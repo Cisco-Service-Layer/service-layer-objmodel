@@ -96,12 +96,14 @@ enum SLInterfaceState : int {
   SL_IF_STATE_UP = 3,
   SL_IF_STATE_DELETED = 4,
   SL_IF_STATE_BW_CHANGED = 5,
+  SL_IF_STATE_L2_UP = 6,
+  SL_IF_STATE_L2_DOWN = 7,
   SLInterfaceState_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::min(),
   SLInterfaceState_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::max()
 };
 bool SLInterfaceState_IsValid(int value);
 constexpr SLInterfaceState SLInterfaceState_MIN = SL_IF_STATE_UNKNOWN;
-constexpr SLInterfaceState SLInterfaceState_MAX = SL_IF_STATE_BW_CHANGED;
+constexpr SLInterfaceState SLInterfaceState_MAX = SL_IF_STATE_L2_DOWN;
 constexpr int SLInterfaceState_ARRAYSIZE = SLInterfaceState_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* SLInterfaceState_descriptor();

@@ -45,15 +45,16 @@ namespace ServiceLayer {
             "SW50ZXJmYWNlTm90aWZNc2dSZXMihgEKEFNMSW50ZXJmYWNlTm90aWYSNgoF",
             "RXJyb3IYASABKAsyJS5zZXJ2aWNlX2xheWVyLlNMSW50ZXJmYWNlTm90aWZN",
             "c2dFcnJIABIxCgRJbmZvGAIgASgLMiEuc2VydmljZV9sYXllci5TTEludGVy",
-            "ZmFjZUluZm9Nc2dIAEIHCgVFdmVudCqjAQoQU0xJbnRlcmZhY2VTdGF0ZRIX",
+            "ZmFjZUluZm9Nc2dIAEIHCgVFdmVudCrTAQoQU0xJbnRlcmZhY2VTdGF0ZRIX",
             "ChNTTF9JRl9TVEFURV9VTktOT1dOEAASFwoTU0xfSUZfU1RBVEVfQ1JFQVRF",
             "RBABEhQKEFNMX0lGX1NUQVRFX0RPV04QAhISCg5TTF9JRl9TVEFURV9VUBAD",
             "EhcKE1NMX0lGX1NUQVRFX0RFTEVURUQQBBIaChZTTF9JRl9TVEFURV9CV19D",
-            "SEFOR0VEEAUydAoPU0xJbnRlcmZhY2VPcGVyEmEKFlNMSW50ZXJmYWNlTm90",
-            "aWZTdHJlYW0SIi5zZXJ2aWNlX2xheWVyLlNMSW50ZXJmYWNlTm90aWZNc2ca",
-            "Hy5zZXJ2aWNlX2xheWVyLlNMSW50ZXJmYWNlTm90aWYoATABQlFaT2dpdGh1",
-            "Yi5jb20vQ2lzY28tc2VydmljZS1sYXllci9zZXJ2aWNlLWxheWVyLW9iam1v",
-            "ZGVsL2dycGMvcHJvdG9zO3NlcnZpY2VfbGF5ZXJiBnByb3RvMw=="));
+            "SEFOR0VEEAUSFQoRU0xfSUZfU1RBVEVfTDJfVVAQBhIXChNTTF9JRl9TVEFU",
+            "RV9MMl9ET1dOEAcydAoPU0xJbnRlcmZhY2VPcGVyEmEKFlNMSW50ZXJmYWNl",
+            "Tm90aWZTdHJlYW0SIi5zZXJ2aWNlX2xheWVyLlNMSW50ZXJmYWNlTm90aWZN",
+            "c2caHy5zZXJ2aWNlX2xheWVyLlNMSW50ZXJmYWNlTm90aWYoATABQlFaT2dp",
+            "dGh1Yi5jb20vQ2lzY28tc2VydmljZS1sYXllci9zZXJ2aWNlLWxheWVyLW9i",
+            "am1vZGVsL2dycGMvcHJvdG9zO3NlcnZpY2VfbGF5ZXJiBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::ServiceLayer.SlCommonTypesReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::ServiceLayer.SLInterfaceState), }, null, new pbr::GeneratedClrTypeInfo[] {
@@ -75,29 +76,37 @@ namespace ServiceLayer {
   /// </summary>
   public enum SLInterfaceState {
     /// <summary>
-    /// State unknown.
+    /// State unknown
     /// </summary>
     [pbr::OriginalName("SL_IF_STATE_UNKNOWN")] SlIfStateUnknown = 0,
     /// <summary>
-    /// Interface Created.
+    /// Interface created
     /// </summary>
     [pbr::OriginalName("SL_IF_STATE_CREATED")] SlIfStateCreated = 1,
     /// <summary>
-    /// State Operationally down.
+    /// Link state operationally down
     /// </summary>
     [pbr::OriginalName("SL_IF_STATE_DOWN")] SlIfStateDown = 2,
     /// <summary>
-    /// State Operationally up.
+    /// Link state operationally up
     /// </summary>
     [pbr::OriginalName("SL_IF_STATE_UP")] SlIfStateUp = 3,
     /// <summary>
-    /// Interface Deleted.
+    /// Interface deleted
     /// </summary>
     [pbr::OriginalName("SL_IF_STATE_DELETED")] SlIfStateDeleted = 4,
     /// <summary>
-    /// Bandwidth Changed.
+    /// Bandwidth changed
     /// </summary>
     [pbr::OriginalName("SL_IF_STATE_BW_CHANGED")] SlIfStateBwChanged = 5,
+    /// <summary>
+    /// L2 state operationally up
+    /// </summary>
+    [pbr::OriginalName("SL_IF_STATE_L2_UP")] SlIfStateL2Up = 6,
+    /// <summary>
+    /// L2 state operationally down
+    /// </summary>
+    [pbr::OriginalName("SL_IF_STATE_L2_DOWN")] SlIfStateL2Down = 7,
   }
 
   #endregion

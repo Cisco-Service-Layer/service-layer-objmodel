@@ -38,23 +38,29 @@ service SLInterfaceOper {
 
 // The current state of the interface.
 enum SLInterfaceState {
-    // State unknown.
+    // State unknown
     SL_IF_STATE_UNKNOWN = 0;
 
-    // Interface Created.
+    // Interface created
     SL_IF_STATE_CREATED = 1;
 
-    // State Operationally down.
+    // Link state operationally down
     SL_IF_STATE_DOWN = 2;
 
-    // State Operationally up.
+    // Link state operationally up
     SL_IF_STATE_UP = 3;
 
-    // Interface Deleted.
+    // Interface deleted
     SL_IF_STATE_DELETED = 4;
 
-    // Bandwidth Changed.
+    // Bandwidth changed
     SL_IF_STATE_BW_CHANGED = 5;
+
+    // L2 state operationally up
+    SL_IF_STATE_L2_UP = 6;
+
+    // L2 state operationally down
+    SL_IF_STATE_L2_DOWN = 7;
 }
 
 message SLInterfaceInfoMsgBw {

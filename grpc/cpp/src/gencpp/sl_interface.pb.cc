@@ -228,23 +228,24 @@ const char descriptor_table_protodef_sl_5finterface_2eproto[] PROTOBUF_SECTION_V
   "erfaceNotif\0226\n\005Error\030\001 \001(\0132%.service_lay"
   "er.SLInterfaceNotifMsgErrH\000\0221\n\004Info\030\002 \001("
   "\0132!.service_layer.SLInterfaceInfoMsgH\000B\007"
-  "\n\005Event*\243\001\n\020SLInterfaceState\022\027\n\023SL_IF_ST"
+  "\n\005Event*\323\001\n\020SLInterfaceState\022\027\n\023SL_IF_ST"
   "ATE_UNKNOWN\020\000\022\027\n\023SL_IF_STATE_CREATED\020\001\022\024"
   "\n\020SL_IF_STATE_DOWN\020\002\022\022\n\016SL_IF_STATE_UP\020\003"
   "\022\027\n\023SL_IF_STATE_DELETED\020\004\022\032\n\026SL_IF_STATE"
-  "_BW_CHANGED\020\0052t\n\017SLInterfaceOper\022a\n\026SLIn"
-  "terfaceNotifStream\022\".service_layer.SLInt"
-  "erfaceNotifMsg\032\037.service_layer.SLInterfa"
-  "ceNotif(\0010\001BQZOgithub.com/Cisco-service-"
-  "layer/service-layer-objmodel/grpc/protos"
-  ";service_layerb\006proto3"
+  "_BW_CHANGED\020\005\022\025\n\021SL_IF_STATE_L2_UP\020\006\022\027\n\023"
+  "SL_IF_STATE_L2_DOWN\020\0072t\n\017SLInterfaceOper"
+  "\022a\n\026SLInterfaceNotifStream\022\".service_lay"
+  "er.SLInterfaceNotifMsg\032\037.service_layer.S"
+  "LInterfaceNotif(\0010\001BQZOgithub.com/Cisco-"
+  "service-layer/service-layer-objmodel/grp"
+  "c/protos;service_layerb\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_sl_5finterface_2eproto_deps[1] = {
   &::descriptor_table_sl_5fcommon_5ftypes_2eproto,
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_sl_5finterface_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_sl_5finterface_2eproto = {
-  false, false, 1342, descriptor_table_protodef_sl_5finterface_2eproto, "sl_interface.proto", 
+  false, false, 1390, descriptor_table_protodef_sl_5finterface_2eproto, "sl_interface.proto", 
   &descriptor_table_sl_5finterface_2eproto_once, descriptor_table_sl_5finterface_2eproto_deps, 1, 7,
   schemas, file_default_instances, TableStruct_sl_5finterface_2eproto::offsets,
   file_level_metadata_sl_5finterface_2eproto, file_level_enum_descriptors_sl_5finterface_2eproto, file_level_service_descriptors_sl_5finterface_2eproto,
@@ -268,6 +269,8 @@ bool SLInterfaceState_IsValid(int value) {
     case 3:
     case 4:
     case 5:
+    case 6:
+    case 7:
       return true;
     default:
       return false;
