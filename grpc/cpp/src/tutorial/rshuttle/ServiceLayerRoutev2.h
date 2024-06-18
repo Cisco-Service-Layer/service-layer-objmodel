@@ -19,6 +19,7 @@
 #include <iosxrsl/sl_route_ipv6.pb.h>
 #include <iosxrsl/sl_af.grpc.pb.h>
 #include <iosxrsl/sl_af.pb.h>
+#include <nlohmann/json.hpp>
 
 // Data used throughout code. Will change dependent on cli options listed by user
 class testingData
@@ -136,7 +137,7 @@ public:
 
     bool routeSLAFOp(service_layer::SLObjectOp routeOp,
                     service_layer::SLTableType addrFamily,
-                    unsigned int timeout=10);
+                    unsigned int timeout=30);
 
     static void readStream(std::shared_ptr<grpc::ClientReaderWriter<service_layer::SLAFMsg, service_layer::SLAFMsgRsp>>& stream,
                           service_layer::SLTableType addrFamily,
@@ -145,7 +146,7 @@ public:
     static void writeStream(std::shared_ptr<grpc::ClientReaderWriter<service_layer::SLAFMsg, service_layer::SLAFMsgRsp>>& stream, std::string addressFamilyStr);
     void stopStream(std::thread* reader, std::thread* writer);
     void routeSLAFOpStreamHelperEnqueue();
-    unsigned int routeSLAFOpStream(service_layer::SLTableType addrFamily, service_layer::SLObjectOp routeOper, unsigned int timeout=10);
+    unsigned int routeSLAFOpStream(service_layer::SLTableType addrFamily, service_layer::SLObjectOp routeOper, unsigned int timeout=30);
     void clearDB();
     void clearBatch();
 
@@ -268,7 +269,7 @@ public:
     std::string password;
 
     //Sends a GlobalsGet Request and updates parameter the value for max batch size
-    bool getGlobals(unsigned int &batch_size, unsigned int timeout=10);
+    bool getGlobals(unsigned int &batch_size, unsigned int timeout=30);
 
 };
 

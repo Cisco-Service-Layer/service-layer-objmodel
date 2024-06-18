@@ -305,6 +305,7 @@ SLAFRShuttle::routeSLAFOp(service_layer::SLObjectOp routeOp,
         }
     } else {
         LOG(ERROR) << "RPC failed, error code is " << status.error_code();
+        throw(status);
         return false; 
     }
 
@@ -320,9 +321,10 @@ SLAFRShuttle::readStream(std::shared_ptr<grpc::ClientReaderWriter<service_layer:
     service_layer::SLAFMsgRsp resp_msg;
 
     int read_count = 0;
+    bool read_successful = true;
 
     // Waits for response until stream closes, timeout occurs, or response is given
-    while (stream->Read(&resp_msg)) {
+    while (read_successful = stream->Read(&resp_msg)) {
 
        // Print Partial failures within the batch if applicable for responses and updated RIB or RIB && FIB ACK
         bool route_error = false;
@@ -342,7 +344,7 @@ SLAFRShuttle::readStream(std::shared_ptr<grpc::ClientReaderWriter<service_layer:
 
             } else if (ack_type == service_layer::RIB_AND_FIB_ACK) {
                 // For Fib Response. Only do this if ackType is fib
-                auto slerr_status = static_cast<int>(resp_msg.results(result).fibstatus().errorcode().status());
+                auto slerr_status = static_cast<int>(resp_msg.results(result).fibstatus().depresult().errorcode().status());
                 if (slerr_status != service_layer::SLErrorStatus_SLErrno_SL_FIB_SUCCESS) {
                     DbHelperError(result,addrFamily,&resp_msg,slerr_status);
                     route_error = true;
@@ -371,48 +373,55 @@ SLAFRShuttle::readStream(std::shared_ptr<grpc::ClientReaderWriter<service_layer:
         }
         db_mutex.unlock();
     }
+    db_mutex.lock();
+    // Signifies we have closed stream due to abort or failure in write rpc. Thus signal main thread to wake up
+    if(read_count != database.db_count){
+        // In this instance poison pill doesn't matter
+        std::unique_lock<std::mutex> lck(finish_m);
+        read_finished = true;
+        finish_read_cv.notify_all();
+    }
+    db_mutex.unlock();
 }
 
 void
 SLAFRShuttle::writeStream(std::shared_ptr<grpc::ClientReaderWriter<service_layer::SLAFMsg, service_layer::SLAFMsgRsp>>& stream, std::string addressFamilyStr)
 {
     bool check_stream_open = true;
-
     // Writer thread listens to the queue indefinitely, until given poison pill by main thread or timeout occurs
     while(check_stream_open) {
         // Need to get a lock for this dequeue. Will unlock when out of scope
         std::unique_lock<std::mutex> lck(deque_mutex);
         // Wait for the lock along with the deque to be non-empty
         deque_cv.wait(lck, []() { return !request_deque.empty(); });
-            service_layer::SLAFMsg message;
-            message = request_deque.front();
-            request_deque.pop_front();
+        service_layer::SLAFMsg message;
+        message = request_deque.front();
+        request_deque.pop_front();
 
-            // vrfname is a const string
-            if(message.vrfname() == "poison_pill") {
-                check_stream_open = false;
-                break;
-            }
+        // vrfname is a const string
+        if(message.vrfname() == "poison_pill") {
+            check_stream_open = false;
+            break;
+        }
 
-            //Issue the RPC
-            std::string s;
+        //Issue the RPC
+        std::string s;
 
-            if (google::protobuf::TextFormat::PrintToString(message, &s)) {
-                VLOG(2) << "###########################" ;
-                VLOG(2) << "Transmitted message: IOSXR-SL " << addressFamilyStr << " " << s;
-                VLOG(2) << "###########################" ;
-            } else {
-                VLOG(2) << "###########################" ;
-                VLOG(2) << "Message not valid (partial content: "
-                        << message.ShortDebugString() << ")";
-                VLOG(2) << "###########################" ;
-            }
-            // Send the write request
-            check_stream_open = stream->Write(message);
-        // }
+        if (google::protobuf::TextFormat::PrintToString(message, &s)) {
+            VLOG(2) << "###########################" ;
+            VLOG(2) << "Transmitted message: IOSXR-SL " << addressFamilyStr << " " << s;
+            VLOG(2) << "###########################" ;
+        } else {
+            VLOG(2) << "###########################" ;
+            VLOG(2) << "Message not valid (partial content: "
+                    << message.ShortDebugString() << ")";
+            VLOG(2) << "###########################" ;
+        }
+        // Send the write request
+        check_stream_open = stream->Write(message);
     }
     // Signifies the stream write is finished and stops stream
-    stream->WritesDone();
+   stream->WritesDone();
 }
 
 void 
@@ -493,6 +502,7 @@ SLAFRShuttle::routeSLAFOpStream(service_layer::SLTableType addrFamily, service_l
     status = stream->Finish();
     if (!status.ok()) {
         LOG(ERROR) << "RPC failed, error code is " << status.error_code();
+        throw(status);
     }
     return total_routes;
 }
@@ -503,6 +513,9 @@ SLAFRShuttle::clearDB()
     database.db_ipv4.clear();
     database.db_ipv6.clear();
     database.db_mpls.clear();
+    database.db_count = 0;
+    // Set read_finished to false for retry attempt
+    read_finished = false;
 }
 void 
 SLAFRShuttle::clearBatch()
@@ -989,7 +1002,7 @@ SLAFVrf::afVrfOpAddFam(service_layer::SLRegOp vrfOp, service_layer::SLTableType 
     // Storage for the status of the RPC upon completion.
     grpc::Status status;
 
-    unsigned int timeout = 10;
+    unsigned int timeout = 30;
         // Set timeout for API
     std::chrono::system_clock::time_point deadline =
         std::chrono::system_clock::now() + std::chrono::seconds(timeout);
@@ -1063,6 +1076,7 @@ SLAFVrf::afVrfOpAddFam(service_layer::SLRegOp vrfOp, service_layer::SLTableType 
         }
     } else {
         LOG(ERROR) << "RPC failed, error code is " << status.error_code();
+        throw(status);
         return false;
     }
 }
@@ -1106,7 +1120,6 @@ bool SLGLOBALSHUTTLE::getGlobals(unsigned int &batch_size, unsigned int timeout)
 
         if (slerr_status != service_layer::SLErrorStatus_SLErrno_SL_SUCCESS) {
             VLOG(1) << " GlobalsGet Operation: Unsuccessful";
-            return false;
         }
     } else {
         LOG(ERROR) << "getGlobals RPC failed, error code is " << status.error_code();

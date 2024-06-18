@@ -11,6 +11,7 @@ using grpc::ClientReaderWriter;
 using grpc::ClientWriter;
 using grpc::CompletionQueue;
 using grpc::Status;
+using grpc::Channel;
 using service_layer::SLInitMsg;
 using service_layer::SLVersion;
 using service_layer::SLGlobal;
@@ -21,6 +22,7 @@ std::string password = "";
 bool version2;
 bool global_init_rpc = false;
 service_layer::SLTableType table_type;
+using json = nlohmann::json;
 
 class Timer
 {
@@ -61,6 +63,9 @@ SLAFVrf* afvrfhandler_signum;
 SLAFRShuttle* slaf_rshuttle_signum;
 AsyncNotifChannel* asynchandler_signum;
 bool sighandle_initiated = false;
+
+// Number of attempts to retry pushing routes, if failure occurs when pushing routes
+int maxAttempts = 5;
 
 void 
 signalHandler(int signum)
@@ -232,7 +237,6 @@ void routepush_slaf(SLAFRShuttle* slaf_route_shuttle,
             }
             database.db_count++;
         }
-
         if (env_data.stream_case == true) {
             totalroutes = slaf_route_shuttle->routeSLAFOpStream(addr_family, env_data.route_oper);
         } else {
@@ -269,13 +273,13 @@ void routepush_slaf(SLAFRShuttle* slaf_route_shuttle,
         // Populate MPLS DB
         unsigned int start_label = env_data.start_label;
         database.mpls_start_index = start_label;
-        for(int i = 0; i < env_data.num_label; i++){
+        for(int i = 0; i < env_data.num_operations; i++){
             statusObject dummy;
             std::pair<testingData, statusObject> temp = std::make_pair(env_data, dummy);
             database.db_mpls[start_label+i] = temp;
             database.db_count++;
         }
-        database.mpls_last_index = start_label+env_data.num_label-1;
+        database.mpls_last_index = start_label+env_data.num_operations-1;
 
         if (env_data.stream_case == true) {
             totalroutes = slaf_route_shuttle->routeSLAFOpStream(addr_family, env_data.route_oper);
@@ -286,15 +290,14 @@ void routepush_slaf(SLAFRShuttle* slaf_route_shuttle,
 
     auto time_taken = tmr.elapsed();
     LOG(INFO) << "\nTime taken to program "<< totalroutes << " routes\n " 
-              << time_taken
-              << "\nRoute programming rate\n"
-              << float(totalroutes)/time_taken << " routes/sec\n"
-              << "Number of Batches sent: "
-              << ((totalroutes-1)/env_data.batch_size) + 1 << "\n";
+            << time_taken
+            << "\nRoute programming rate\n"
+            << float(totalroutes)/time_taken << " routes/sec\n"
+            << "Number of Batches sent: "
+            << ((totalroutes-1)/env_data.batch_size) + 1 << "\n";
 
     // prints any errors in DB
-    printDbErrors(env_data,addr_family);
-
+    // printDbErrors(env_data,addr_family);
 }
 
 // Handles VRF registration
@@ -328,6 +331,128 @@ void run_slaf(SLAFVrf* af_vrf_handler, service_layer::SLTableType addr_family, s
     }
     LOG(INFO) << vrf_oper_str << " VRF Successful";
 
+}
+
+// Version 2: We try to push the routes, but if any rpc error occurs then we retry
+void try_route_push_slaf(std::shared_ptr<grpc::Channel> channel,
+               std::string grpc_server,
+               grpc::ChannelArguments channel_arguments,
+               testingData env_data)
+{
+    bool exception_caught = true;
+    int attempts = 1;
+    bool route_shuttle_object_created = false;
+    while(attempts <= maxAttempts) {
+        try
+        {
+            // After first attempt create another channel
+            if (attempts != 1) {
+                channel = grpc::CreateCustomChannel(grpc_server, grpc::InsecureChannelCredentials(), channel_arguments);
+            }
+            route_shuttle_object_created = false;
+            auto af_vrf_handler = SLAFVrf(channel,username,password);
+            // Need to specify ipv4 (default), ipv6 or mpls
+            table_type = env_data.table_type;
+            // If vrf_rg_oper not set then we do not register vrf
+            if (env_data.vrf_reg_oper != service_layer::SL_REGOP_RESERVED) {
+                run_slaf(&af_vrf_handler,table_type, env_data.vrf_reg_oper);
+            }
+
+            // If we Unregister, then we do not push routes
+            if(env_data.vrf_reg_oper != service_layer::SL_REGOP_UNREGISTER) {
+                slaf_route_shuttle = new SLAFRShuttle(af_vrf_handler.channel, username, password);
+                route_shuttle_object_created = true;
+                routepush_slaf(slaf_route_shuttle, env_data, table_type);
+            }
+            exception_caught = false;
+        }
+        // Error Handling: If any RPC fails, due to any reason we have to attempt to retry
+        catch (grpc::Status status) {
+            if(!status.ok()) {
+                // If we are not below max attempts retry
+                LOG(INFO) << "RETRY ATTEMPT Number: " << attempts;
+                if(route_shuttle_object_created) {
+                    delete slaf_route_shuttle;
+                }
+
+                // Only need for non stream case because while exception is thrown, lock on DB is still there, so if retry attempted while lock is taken, then a deadlock occurs
+                if (env_data.stream_case == false) {
+                    db_mutex.unlock();
+                }
+            }
+        }
+        if (!exception_caught) {
+            delete slaf_route_shuttle;
+            break;
+        }
+        attempts++;
+        // No need to wait after all attempts are tried
+        if (attempts <= maxAttempts) {
+            LOG(INFO) << "Waiting 30 Seconds before retrying";
+            std::this_thread::sleep_for(std::chrono::seconds(30));
+        }
+    }
+}
+
+// Version 1: We try to push the routes, but if any rpc error occurs then we retry
+void try_route_push(std::shared_ptr<grpc::Channel> channel,
+               std::string grpc_server,
+               grpc::ChannelArguments channel_arguments,
+               testingData env_data)
+{
+    bool exception_caught = true;
+    int attempts = 1;
+    bool route_shuttle_object_created = false;
+    while(attempts <= maxAttempts) {
+        try 
+        {
+            // After first attempt create another channel
+            if (attempts != 1) {
+                channel = grpc::CreateCustomChannel(grpc_server, grpc::InsecureChannelCredentials(), channel_arguments);
+            }
+            route_shuttle_object_created = false;
+            auto vrfhandler = SLVrf(channel, username, password);
+            // Create a new SLVrfRegMsg batch
+            vrfhandler.vrfRegMsgAdd("default", 10, 500);
+
+            // If vrf_rg_oper not set then we do not register vrf
+            if (env_data.vrf_reg_oper != service_layer::SL_REGOP_RESERVED) {
+                // Register the SLVrfRegMsg batch for v4
+                vrfhandler.registerVrf(service_layer::SL_IPv4_ROUTE_TABLE, env_data.vrf_reg_oper);
+            }
+
+            // If we Unregister, then we do not push routes
+            if(env_data.vrf_reg_oper != service_layer::SL_REGOP_UNREGISTER) {
+                auto batch_size = env_data.batch_size;
+                auto batch_num = env_data.batch_num;
+                auto route_oper = env_data.route_oper;
+                route_shuttle = new RShuttle(vrfhandler.channel, username, password);
+                route_shuttle_object_created = true;
+                routepush(route_shuttle, batch_size, batch_num, route_oper);
+            }
+            exception_caught = false;
+        }
+        // Error Handling: If any RPC fails, due to any reason we have to attempt to retry
+        catch (grpc::Status status) {
+            if(!status.ok()) {
+                // If we are not below max attempts retry
+                LOG(INFO) << "RETRY ATTEMPT Number: " << attempts;
+                if(route_shuttle_object_created) {
+                    delete route_shuttle;
+                }
+            }
+        }
+        if (!exception_caught) {
+            delete route_shuttle;
+            break;
+        }
+        attempts++;
+        // No need to wait after all attempts are tried
+        if (attempts <= maxAttempts) {
+            LOG(INFO) << "Waiting 30 Seconds before retrying";
+            std::this_thread::sleep_for(std::chrono::seconds(30));
+        }
+    }
 }
 
 int main(int argc, char** argv) {
@@ -374,8 +499,7 @@ int main(int argc, char** argv) {
         {"first_mpls_path_nhip", required_argument, nullptr, 'm'},
         {"next_hop_interface_mpls", required_argument, nullptr, 'n'},
         {"start_label", required_argument, nullptr, 'o'},
-        {"num_label", required_argument, nullptr, 'q'},
-        {"num_paths", required_argument, nullptr, 'r'},
+        {"num_paths", required_argument, nullptr, 'q'},
 
         {"help", no_argument, nullptr, 'h'},
         {"username", required_argument, nullptr, 'u'},
@@ -386,7 +510,7 @@ int main(int argc, char** argv) {
         {nullptr,0,nullptr,0}
     };
 
-    while ((option_long = getopt_long_only(argc, argv, "t:a:w:b:c:x:d:e:f:g:i:j:k:l:m:n:o:q:r:s:hu:p:v:",longopts,nullptr)) != -1) {
+    while ((option_long = getopt_long_only(argc, argv, "t:a:w:b:c:x:d:e:f:g:i:j:k:l:m:n:o:q:s:hu:p:v:",longopts,nullptr)) != -1) {
         switch (option_long) {
             case 't':
                 dummy = optarg;
@@ -471,9 +595,6 @@ int main(int argc, char** argv) {
                 env_data.start_label = std::stoi(optarg);
                 break;
             case 'q':
-                env_data.num_label = std::stoi(optarg);
-                break;
-            case 'r':
                 env_data.num_paths = std::stoi(optarg);
                 break;
             case 's':
@@ -512,8 +633,7 @@ int main(int argc, char** argv) {
                 LOG(INFO) << "| -m/--first_mpls_path_nhip        | Configure the starting address for this test for MPLS (default 11.0.0.1) |";
                 LOG(INFO) << "| -n/--next_hop_interface_mpls     | Configure the next hop interface for MPLS (default FourHundredGigE0/0/0/0) |";
                 LOG(INFO) << "| -o/--start_label                 | Configure the starting label for this test for MPLS (default 20000) |";
-                LOG(INFO) << "| -q/--num_label                   | Configure the number of labels to be allocated for MPLS (default 1000) |";
-                LOG(INFO) << "| -r/--num_paths                   | Configure the number of paths for MPLS labels (default 1)";
+                LOG(INFO) << "| -q/--num_paths                   | Configure the number of paths for MPLS labels (default 1)";
                 return 1;
             case 'u':
                 username = optarg;
@@ -543,9 +663,49 @@ int main(int argc, char** argv) {
 
     std::string grpc_server = server_ip + ":" + server_port;
     LOG(INFO) << "Connecting IOS-XR to gRPC server at " << grpc_server;
+
+    // Retry Policy config information found here: https://github.com/grpc/proposal/blob/master/A6-client-retries.md
+
+    // The initial retry attempt will occur at random(0, initialBackoff). The n-th attempt will occur at random(0, min(initialBackoff*backoffMultiplier**(n-1), maxBackoff))
+    // For retryThrottling: Maxtoken decrements by 1 when rpc retry fails, and increments by tokenRation when successful. If MaxToken < original Maxtoken/2 then we stop the retries for all rpcs using this channel
+    json service_config =
+        {
+            {"methodConfig",
+                json::array({
+                    json {
+                        {"name", json::array()},
+                        {"waitForReady", false},
+                        {"retryPolicy", {
+                            {"maxAttempts", 5},
+                            {"initialBackoff", "5.0s"},
+                            {"maxBackoff", "30s"},
+                            {"backoffMultiplier", 1},
+                            {"retryableStatusCodes", json::array({"UNAVAILABLE"})},
+                        }},
+                        {"retryThrottling", {
+                            {"maxTokens", 10},
+                            {"tokenRatio", 0.1},
+                        }},
+                    }
+                })
+            }
+        };
+
+    json& name = service_config["methodConfig"][0]["name"];
+    json name_info{
+        {"service", ""},
+        {"method", ""},
+    };
+    name.push_back(name_info);
+
+    std::string json_string = service_config.dump(4);
+    // std::cout << json_string << std::endl;
+
+    grpc::ChannelArguments channel_arguments;
+    channel_arguments.SetServiceConfigJSON(json_string);
     // Create a gRPC channel
-    auto channel = grpc::CreateChannel(
-                              grpc_server, grpc::InsecureChannelCredentials());
+    auto channel = grpc::CreateCustomChannel(grpc_server, grpc::InsecureChannelCredentials(), channel_arguments);
+    // auto channel = grpc::CreateChannel(grpc_server, grpc::InsecureChannelCredentials());
 
     AsyncNotifChannel asynchandler(channel);
     std::thread thread_;
@@ -578,56 +738,27 @@ int main(int argc, char** argv) {
         }
     }
 
-    // get the globals data info to record the batch size we need.
+    // get the globals data info to record the batch size we need. 
+    bool retry_success = true;
     SLGLOBALSHUTTLE* sl_global_shuttle = new SLGLOBALSHUTTLE(channel, username, password);
-    sl_global_shuttle->getGlobals(env_data.batch_size);
+    retry_success = sl_global_shuttle->getGlobals(env_data.batch_size);
     delete sl_global_shuttle;
 
+    // If this rpc fails based off the retry policy then we quit the program here. This will serve as inital retry attempt
+    if (!retry_success) {
+        LOG(ERROR) << "Initial rpc failed to connect with multiple retries";
+        return 0;
+    }
 
     if (version2 == true) {
-        auto af_vrf_handler = SLAFVrf(channel,username,password);
-
-        // Need to specify ipv4 (default), ipv6(value = 1) or mpls(value = 2)
-        table_type = env_data.table_type;
-        // If vrf_rg_oper not set then we do not register vrf
-        if (env_data.vrf_reg_oper != service_layer::SL_REGOP_RESERVED) {
-            run_slaf(&af_vrf_handler,table_type, env_data.vrf_reg_oper);
-        }
-
-        // If we Unregister, then we do not push routes
-        if(env_data.vrf_reg_oper != service_layer::SL_REGOP_UNREGISTER) {
-            slaf_route_shuttle = new SLAFRShuttle(af_vrf_handler.channel, username, password);
-            routepush_slaf(slaf_route_shuttle, env_data, table_type);
-            delete slaf_route_shuttle;
-        }
-
+        try_route_push_slaf(channel, grpc_server, channel_arguments, env_data);
         if (global_init_rpc) {
             asynchandler.Shutdown();
             thread_.join();
         }
 
     } else {
-        auto vrfhandler = SLVrf(channel, username, password);
-
-        // Create a new SLVrfRegMsg batch
-        vrfhandler.vrfRegMsgAdd("default", 10, 500);
-
-        // If vrf_rg_oper not set then we do not register vrf
-        if (env_data.vrf_reg_oper != service_layer::SL_REGOP_RESERVED) {
-            // Register the SLVrfRegMsg batch for v4
-            vrfhandler.registerVrf(service_layer::SL_IPv4_ROUTE_TABLE, env_data.vrf_reg_oper);
-        }
-
-        // If we Unregister, then we do not push routes
-        if(env_data.vrf_reg_oper != service_layer::SL_REGOP_UNREGISTER) {
-            route_shuttle = new RShuttle(vrfhandler.channel, username, password);
-            auto batch_size = env_data.batch_size;
-            auto batch_num = env_data.batch_num;
-            auto route_oper = env_data.route_oper;
-            routepush(route_shuttle, batch_size, batch_num, route_oper);
-            delete route_shuttle;
-        }
-
+        try_route_push(channel, grpc_server, channel_arguments, env_data);
         if (global_init_rpc) {
             asynchandler.Shutdown();
             thread_.join();
