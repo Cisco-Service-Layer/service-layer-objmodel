@@ -716,9 +716,9 @@ message SLBgplsTopoLinkAttr {
 
     // The bit mask of administrative groups assigned
     // by the network administrator.
-    // Extended Administrative Group. TLV 1173
-    // Section 2 of [RFC9104]
-    repeated SLBgplsTopoExtAdminGroup ExtAdminGroup = 7;
+    // Administrative Group. TLV 1088
+    // Section 5.3.2 of [RFC9552]
+    SLBgplsTopoAdminGroup AdminGroup = 7;
 
     // The maximum bandwidth that can be used on a link.
     // Maximum Link Bandwidth. TLV 1089
@@ -867,9 +867,15 @@ message SLBgplsTopoLinkAttr {
     // Section 2.2.3 of [RFC9085]
     repeated SLBgplsTopoL2BundleMemberAttr L2BundleMemberAttr = 33;
 
+    // The bit mask of administrative groups assigned
+    // by the network administrator.
+    // Extended Administrative Group. TLV 1173
+    // Section 2 of [RFC9104]
+    repeated SLBgplsTopoExtAdminGroup ExtAdminGroup = 34;
+
     // Unknown Link Attributes
     // Unknown/unsupported by IOS-XR/BGPLS.
-    repeated SLBgplsTopoUnknownAttr UnknownAttr = 34;
+    repeated SLBgplsTopoUnknownAttr UnknownAttr = 35;
 }
 
 // Prefix Attributes
@@ -1289,6 +1295,18 @@ message SLBgplsTopoFadUnsuppTlv {
     bytes Types = 2;
 }
 
+// Administrative Group. TLV 1088
+// Section 5.3.2 of [RFC9552]
+message SLBgplsTopoAdminGroup {
+    // Bit mask of administrative groups assigned by the
+    // network administrator. Each set bit corresponds to one
+    // administrative group assigned to the interface. By convention, the
+    // least significant bit is referred to as group 0, and the
+    // most significant bit is referred to as group 31. Each EAG bitmask
+    // is represented in multiple of 4 bytes.
+    uint32 Group = 1;
+}
+
 // Maximum Link Bandwidth. TLV 1089
 // Section 5.3.2 of [RFC9552]
 message SLBgplsTopoLinkMaxBandwidth {
@@ -1626,9 +1644,9 @@ message SLBgplsTopoAslaAttr {
 
     // The bit mask of administrative groups assigned
     // by the network administrator.
-    // Extended Administrative Group. TLV 1173
-    // Section 2 of [RFC9104]
-    repeated SLBgplsTopoExtAdminGroup ExtAdminGroup = 3;
+    // Extended Administrative Group. TLV 1088
+    // Section 5.3.2 of [RFC9552]
+    SLBgplsTopoAdminGroup AdminGroup = 3;
 
     // The Traffic Engineering (TE) metric of a link.
     // TE Default Metric. TLV 1092
@@ -1682,9 +1700,15 @@ message SLBgplsTopoAslaAttr {
     // Section 2.7 of [RFC8571]
     SLBgplsTopoUniUtilBandwidth UniUtilBandwidth = 12;
 
+    // The bit mask of administrative groups assigned
+    // by the network administrator.
+    // Extended Administrative Group. TLV 1173
+    // Section 2 of [RFC9104]
+    repeated SLBgplsTopoExtAdminGroup ExtAdminGroup = 13;
+
     // Unknown ASLA Attributes
     // Unknown/unsupported by IOS-XR/BGPLS.
-    repeated SLBgplsTopoUnknownAttr UnknownAttr = 13;
+    repeated SLBgplsTopoUnknownAttr UnknownAttr = 14;
 }
 
 // IGP Flags. TLV 1152
@@ -1841,14 +1865,14 @@ message SLBgplsTopoL2BundleMemberAttr {
 
     // The bit mask of administrative groups assigned
     // by the network administrator.
-    // Extended Administrative Group. TLV 1173
-    // Section 2 of [RFC9104]
-    repeated SLBgplsTopoExtAdminGroup ExtAdminGroup = 3;
+    // Extended Administrative Group. TLV 1088
+    // Section 5.3.2 of [RFC9552]
+    SLBgplsTopoAdminGroup AdminGroup = 2;
 
     // The maximum bandwidth that can be used on a link.
     // Maximum Link Bandwidth. TLV 1089
     // Section 5.3.2 of [RFC9552]
-    SLBgplsTopoLinkMaxBandwidth MaxBandwidth = 2;
+    SLBgplsTopoLinkMaxBandwidth MaxBandwidth = 3;
 
     // The maximum bandwidth that can be reserved on a link.
     // Maximum Reservable Link Bandwidth. TLV 1090
@@ -1931,12 +1955,18 @@ message SLBgplsTopoL2BundleMemberAttr {
     // Section 2 of [RFC9294]
     repeated SLBgplsTopoAslaAttr Asla = 17;
 
+    // The bit mask of administrative groups assigned
+    // by the network administrator.
+    // Extended Administrative Group. TLV 1173
+    // Section 2 of [RFC9104]
+    repeated SLBgplsTopoExtAdminGroup ExtAdminGroup = 18;
+
     // Unknown L2 Bundle Member Attributes
     // Unknown/unsupported by IOS-XR/BGPLS.
-    repeated SLBgplsTopoUnknownAttr UnknownAttr = 18;
+    repeated SLBgplsTopoUnknownAttr UnknownAttr = 19;
 }
 
-// Administrative Group. TLV 1173
+// Extended Administrative Group. TLV 1173
 // Section 2 of [RFC9104]
 message SLBgplsTopoExtAdminGroup {
     // Bit mask of administrative groups assigned by the
