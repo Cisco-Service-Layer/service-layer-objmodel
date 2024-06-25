@@ -297,7 +297,7 @@ void routepush_slaf(SLAFRShuttle* slaf_route_shuttle,
             << ((totalroutes-1)/env_data.batch_size) + 1 << "\n";
 
     // prints any errors in DB
-    // printDbErrors(env_data,addr_family);
+    printDbErrors(env_data,addr_family);
 }
 
 // Handles VRF registration
@@ -345,10 +345,6 @@ void try_route_push_slaf(std::shared_ptr<grpc::Channel> channel,
     while(attempts <= maxAttempts) {
         try
         {
-            // After first attempt create another channel
-            if (attempts != 1) {
-                channel = grpc::CreateCustomChannel(grpc_server, grpc::InsecureChannelCredentials(), channel_arguments);
-            }
             route_shuttle_object_created = false;
             auto af_vrf_handler = SLAFVrf(channel,username,password);
             // Need to specify ipv4 (default), ipv6 or mpls
@@ -406,10 +402,6 @@ void try_route_push(std::shared_ptr<grpc::Channel> channel,
     while(attempts <= maxAttempts) {
         try 
         {
-            // After first attempt create another channel
-            if (attempts != 1) {
-                channel = grpc::CreateCustomChannel(grpc_server, grpc::InsecureChannelCredentials(), channel_arguments);
-            }
             route_shuttle_object_created = false;
             auto vrfhandler = SLVrf(channel, username, password);
             // Create a new SLVrfRegMsg batch

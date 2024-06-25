@@ -25,7 +25,7 @@ std::condition_variable finish_read_cv;
 // Mutex used for synchronize the request_deque and condition variable
 std::mutex deque_mutex;
 std::condition_variable deque_cv;
-std::deque<service_layer::SLAFMsg> request_deque;
+std::deque<SLAFQueueMsg> request_deque;
 
 
 SLAFRShuttle* slaf_route_shuttle;
@@ -137,7 +137,7 @@ SLAFRShuttle::pushFromDB(bool streamCase, service_layer::SLObjectOp routeOper, s
                     // Write should just pull from queue and be able to send request
                     route_msg.set_oper(routeOper);
                     db_mutex.unlock();
-                    this->routeSLAFOpStreamHelperEnqueue();
+                    this->routeSLAFOpStreamHelperEnqueue(false);
                     db_mutex.lock();
                 } else {
                     this->routeSLAFOp(routeOper, addrFamily);
@@ -173,7 +173,7 @@ SLAFRShuttle::pushFromDB(bool streamCase, service_layer::SLObjectOp routeOper, s
                     // Write should just pull from queue and be able to send request
                     route_msg.set_oper(routeOper);
                     db_mutex.unlock();
-                    this->routeSLAFOpStreamHelperEnqueue();
+                    this->routeSLAFOpStreamHelperEnqueue(false);
                     db_mutex.lock();
                 } else {
                     this->routeSLAFOp(routeOper, addrFamily);
@@ -207,7 +207,7 @@ SLAFRShuttle::pushFromDB(bool streamCase, service_layer::SLObjectOp routeOper, s
                     // Write thread should just pull from queue and be able to send request, thus set_oper here
                     route_msg.set_oper(routeOper);
                     db_mutex.unlock();
-                    this->routeSLAFOpStreamHelperEnqueue();
+                    this->routeSLAFOpStreamHelperEnqueue(false);
                     db_mutex.lock();
                 } else {
                     this->routeSLAFOp(routeOper, addrFamily);
@@ -304,7 +304,7 @@ SLAFRShuttle::routeSLAFOp(service_layer::SLObjectOp routeOp,
             return false;
         }
     } else {
-        LOG(ERROR) << "RPC failed, error code is " << status.error_code();
+        LOG(ERROR) << "RPC failed, error code is " << status.error_code() << " tid: " << std::this_thread::get_id();
         throw(status);
         return false; 
     }
@@ -366,7 +366,7 @@ SLAFRShuttle::readStream(std::shared_ptr<grpc::ClientReaderWriter<service_layer:
         db_mutex.lock();
         // Signifies we have finished all reads
         if(read_count == database.db_count){
-            // Notifies main thread to send poison pill
+            // Notifies main thread to tell write to terminate stream
             std::unique_lock<std::mutex> lck(finish_m);
             read_finished = true;
             finish_read_cv.notify_all();
@@ -376,7 +376,7 @@ SLAFRShuttle::readStream(std::shared_ptr<grpc::ClientReaderWriter<service_layer:
     db_mutex.lock();
     // Signifies we have closed stream due to abort or failure in write rpc. Thus signal main thread to wake up
     if(read_count != database.db_count){
-        // In this instance poison pill doesn't matter
+        // In this instance telling main thread to tell write thread to end terminate stream doesn't matter
         std::unique_lock<std::mutex> lck(finish_m);
         read_finished = true;
         finish_read_cv.notify_all();
@@ -388,18 +388,18 @@ void
 SLAFRShuttle::writeStream(std::shared_ptr<grpc::ClientReaderWriter<service_layer::SLAFMsg, service_layer::SLAFMsgRsp>>& stream, std::string addressFamilyStr)
 {
     bool check_stream_open = true;
-    // Writer thread listens to the queue indefinitely, until given poison pill by main thread or timeout occurs
+    // Writer thread listens to the queue indefinitely, until given signal by main thread or timeout occurs
     while(check_stream_open) {
         // Need to get a lock for this dequeue. Will unlock when out of scope
         std::unique_lock<std::mutex> lck(deque_mutex);
         // Wait for the lock along with the deque to be non-empty
         deque_cv.wait(lck, []() { return !request_deque.empty(); });
-        service_layer::SLAFMsg message;
-        message = request_deque.front();
+        SLAFQueueMsg queue_message = request_deque.front();
         request_deque.pop_front();
+        service_layer::SLAFMsg message = queue_message.route_msg;
 
         // vrfname is a const string
-        if(message.vrfname() == "poison_pill") {
+        if (queue_message.terminate_slaf_stream) {
             check_stream_open = false;
             break;
         }
@@ -427,21 +427,26 @@ SLAFRShuttle::writeStream(std::shared_ptr<grpc::ClientReaderWriter<service_layer
 void 
 SLAFRShuttle::stopStream(std::thread* reader, std::thread* writer)
 {
-    // Wait for all reads to finish before sending poison pill
+    // Wait for all reads to finish before telling write to terminate
     std::unique_lock<std::mutex> lck(finish_m);
     finish_read_cv.wait(lck, []() { return read_finished; });
 
-    this->setVrfV4("poison_pill");
-    this->routeSLAFOpStreamHelperEnqueue();
+    // this->setVrfV4("poison_pill");
+    this->routeSLAFOpStreamHelperEnqueue(true);
     writer->join();
     reader->join();
 }
 void 
-SLAFRShuttle::routeSLAFOpStreamHelperEnqueue()
+SLAFRShuttle::routeSLAFOpStreamHelperEnqueue(bool terminate_slaf_stream)
 {
+    SLAFQueueMsg queue_msg;
+    queue_msg.route_msg = route_msg;
+    if  (terminate_slaf_stream) {  
+        queue_msg.terminate_slaf_stream = true;
+    }
     // lock the queue before pushing SL-API objects to it
     std::unique_lock<std::mutex> lck(deque_mutex);
-    request_deque.push_back(route_msg);
+    request_deque.push_back(queue_msg);
     deque_cv.notify_one();
     this->clearBatch();
 }
@@ -501,7 +506,7 @@ SLAFRShuttle::routeSLAFOpStream(service_layer::SLTableType addrFamily, service_l
     stopStream(&reader,&writer);
     status = stream->Finish();
     if (!status.ok()) {
-        LOG(ERROR) << "RPC failed, error code is " << status.error_code();
+        LOG(ERROR) << "RPC failed, error code is " << status.error_code() << " tid: " << std::this_thread::get_id();
         throw(status);
     }
     return total_routes;
@@ -530,7 +535,7 @@ SLAFRShuttle::ipv4ToLong(const char* address)
 {
     struct sockaddr_in sa;
     if (inet_pton(AF_INET, address, &(sa.sin_addr)) != 1) {
-        LOG(ERROR) << "Invalid IPv4 address " << address; 
+        LOG(ERROR) << "Invalid IPv4 address " << address << " tid: " << std::this_thread::get_id(); 
         return 0;
     }
 
@@ -551,7 +556,7 @@ SLAFRShuttle::longToIpv4(uint32_t nlprefix)
     if (inet_ntop(AF_INET,  &(sa.sin_addr), str, INET_ADDRSTRLEN)) {
         return std::string(str);
     } else {
-        LOG(ERROR) << "inet_ntop conversion error: "<< strerror(errno);
+        LOG(ERROR) << "inet_ntop conversion error: "<< strerror(errno) << " tid: " << std::this_thread::get_id();
         return std::string("");
     }
 }
@@ -562,7 +567,7 @@ SLAFRShuttle::ipv6ToByteArrayString(const char* address)
 {
     struct in6_addr ipv6data;
     if (inet_pton(AF_INET6, address, &ipv6data) != 1 ) {
-        LOG(ERROR) << "Invalid IPv6 address " << address; 
+        LOG(ERROR) << "Invalid IPv6 address " << address << " tid: " << std::this_thread::get_id(); 
         return std::string("");
     }
 
@@ -585,7 +590,7 @@ SLAFRShuttle::ByteArrayStringtoIpv6(std::string ipv6ByteArray)
     if (inet_ntop(AF_INET6,  &(ipv6data), str, INET6_ADDRSTRLEN)) {
         return std::string(str);
     } else {
-        LOG(ERROR) << "inet_ntop conversion error: "<< strerror(errno);
+        LOG(ERROR) << "inet_ntop conversion error: "<< strerror(errno) << " tid: " << std::this_thread::get_id();
         return std::string("");
     }
 }
@@ -593,7 +598,7 @@ SLAFRShuttle::ByteArrayStringtoIpv6(std::string ipv6ByteArray)
 std::string 
 SLAFRShuttle::incrementIpv6Pfx(std::string ipv6ByteArray, uint32_t prefixLen) {
     if (prefixLen > 128) {
-        LOG(ERROR) << "PrefixLen > 128";
+        LOG(ERROR) << "PrefixLen > 128" << " tid: " << std::this_thread::get_id();
     }
 
     // prefix will always be 16 chars long for ipv6
@@ -634,7 +639,7 @@ SLAFRShuttle::routev4Add()
 {
     if (route_msg.vrfname().empty()) {
         LOG(ERROR) << "vrfname is empty, please set vrf "
-                   << "before manipulating routes";
+                   << "before manipulating routes" << " tid: " << std::this_thread::get_id();
         return 0;
     } else {
         service_layer::SLAFOp* operation = route_msg.add_oplist();
@@ -711,7 +716,7 @@ SLAFRShuttle::insertAddBatchV4(std::string prefix,
         auto routev4_ptr = this->routev4Add();
 
         if (!routev4_ptr) {
-            LOG(ERROR) << "Failed to create new route object";
+            LOG(ERROR) << "Failed to create new route object" << " tid: " << std::this_thread::get_id();
             return false;
         }
 
@@ -760,7 +765,7 @@ SLAFRShuttle::routev6Add()
 {
     if (route_msg.vrfname().empty()) {
         LOG(ERROR) << "vrfname is empty, please set vrf " 
-                   << "before manipulating v6 routes";
+                   << "before manipulating v6 routes" << " tid: " << std::this_thread::get_id();
         return 0;
     } else {
         service_layer::SLAFOp* operation = route_msg.add_oplist();
@@ -837,7 +842,7 @@ SLAFRShuttle::insertAddBatchV6(std::string prefix,
         auto routev6_ptr = this->routev6Add();
 
         if (!routev6_ptr) {
-            LOG(ERROR) << "Failed to create new route object";
+            LOG(ERROR) << "Failed to create new route object" << " tid: " << std::this_thread::get_id();
             return false;
         }
 
@@ -956,7 +961,7 @@ SLAFVrf::registerAfVrf(service_layer::SLTableType addrFamily, service_layer::SLR
         if (afVrfOpAddFam(vrfRegOper, addrFamily)) {
             return true;
         } else {
-            LOG(ERROR) << "Failed to send Register RP";
+            LOG(ERROR) << "Failed to send Register RP" << " tid: " << std::this_thread::get_id();
             return false;
         } 
         break;
@@ -966,7 +971,7 @@ SLAFVrf::registerAfVrf(service_layer::SLTableType addrFamily, service_layer::SLR
         if (afVrfOpAddFam(vrfRegOper, addrFamily)) {
             return true;
         } else {
-            LOG(ERROR) << "Failed to send Register RPC";
+            LOG(ERROR) << "Failed to send Register RPC" << " tid: " << std::this_thread::get_id();
             return false;
         }
         break;
@@ -976,13 +981,13 @@ SLAFVrf::registerAfVrf(service_layer::SLTableType addrFamily, service_layer::SLR
         if (afVrfOpAddFam(vrfRegOper, addrFamily)) {
             return true;
         } else {
-            LOG(ERROR) << "Failed to send Register RPC";
+            LOG(ERROR) << "Failed to send Register RPC" << " tid: " << std::this_thread::get_id();
             return false;
         }
         break;
 
     default:
-        LOG(ERROR) << "Invalid Address family, skipping..";
+        LOG(ERROR) << "Invalid Address family, skipping.." << " tid: " << std::this_thread::get_id();
         return false;
         break;
     }
@@ -1058,7 +1063,8 @@ SLAFVrf::afVrfOpAddFam(service_layer::SLRegOp vrfOp, service_layer::SLTableType 
             LOG(ERROR) << "Error code for VRF Operation:" 
                        << vrfOp 
                        << " is 0x" << std::hex 
-                       << af_vrf_msg_resp.statussummary().status();
+                       << af_vrf_msg_resp.statussummary().status()
+                       << " tid: " << std::this_thread::get_id();
 
             // Print Partial failures within the batch if applicable
             if (af_vrf_msg_resp.statussummary().status() ==
@@ -1069,13 +1075,14 @@ SLAFVrf::afVrfOpAddFam(service_layer::SLRegOp vrfOp, service_layer::SLTableType 
                       LOG(ERROR) << "Error code for vrf " 
                                  << af_vrf_msg_resp.results(result).vrfname() 
                                  << " is 0x" << std::hex 
-                                 << slerr_status;
+                                 << slerr_status
+                                 << " tid: " << std::this_thread::get_id();
                 }
             }
             return false;
         }
     } else {
-        LOG(ERROR) << "RPC failed, error code is " << status.error_code();
+        LOG(ERROR) << "RPC failed, error code is " << status.error_code() << " tid: " << std::this_thread::get_id();
         throw(status);
         return false;
     }
@@ -1122,38 +1129,39 @@ bool SLGLOBALSHUTTLE::getGlobals(unsigned int &batch_size, unsigned int timeout)
             VLOG(1) << " GlobalsGet Operation: Unsuccessful";
         }
     } else {
-        LOG(ERROR) << "getGlobals RPC failed, error code is " << status.error_code();
+        LOG(ERROR) << "getGlobals RPC failed, error code is " << status.error_code() << " tid: " << std::this_thread::get_id();
         return false;
     }
 
-    LOG(INFO) <<"MaxVrfNameLength:              " << resp_msg.maxvrfnamelength()  << std::endl;
-    LOG(INFO) <<"MaxInterfaceNameLength:        " << resp_msg.maxinterfacenamelength()  << std::endl;
-    LOG(INFO) <<"MaxPathsPerEntry:              " << resp_msg.maxpathsperentry()  << std::endl;
-    LOG(INFO) <<"MaxPrimaryPathPerEntry:        " << resp_msg.maxprimarypathperentry()  << std::endl;
-    LOG(INFO) <<"MaxBackupPathPerEntry:         " << resp_msg.maxbackuppathperentry()  << std::endl;
-    LOG(INFO) <<"MaxMplsLabelsPerPath:          " << resp_msg.maxmplslabelsperpath()  << std::endl;
-    LOG(INFO) <<"MinPrimaryPathIdNum:           " << resp_msg.minprimarypathidnum()  << std::endl;
-    LOG(INFO) <<"MaxPrimaryPathIdNum:           " << resp_msg.maxprimarypathidnum()  << std::endl;
-    LOG(INFO) <<"MinBackupPathIdNum:            " << resp_msg.minbackuppathidnum()  << std::endl;
-    LOG(INFO) <<"MaxBackupPathIdNum:            " << resp_msg.maxbackuppathidnum()  << std::endl;
-    LOG(INFO) <<"MaxRemoteAddressNum:           " << resp_msg.maxremoteaddressnum()  << std::endl;
-    LOG(INFO) <<"MaxL2BdNameLength:             " << resp_msg.maxl2bdnamelength()  << std::endl;
-    LOG(INFO) <<"MaxL2PmsiTunnelIdLength:       " << resp_msg.maxl2pmsitunnelidlength()  << std::endl;
-    LOG(INFO) <<"MaxLabelBlockClientNameLength: " << resp_msg.maxlabelblockclientnamelength()  << std::endl;
-    LOG(INFO) <<"MaxPathsInNexthopNotif:        " << resp_msg.maxpathsinnexthopnotif()  << std::endl;
-    LOG(INFO) <<"MaxVrfRegPerMsg:               " << resp_msg.maxvrfregpermsg()  << std::endl;
-    LOG(INFO) <<"MaxAFOpsPerMsg:                " << resp_msg.maxafopspermsg()  << std::endl;
-    LOG(INFO) <<"MaxNotifReqPerSLAFNotifReq:    " << resp_msg.maxnotifreqperslafnotifreq()  << std::endl;
+    LOG(INFO) <<"MaxVrfNameLength:              " << resp_msg.maxvrfnamelength() << std::endl;
+    LOG(INFO) <<"MaxInterfaceNameLength:        " << resp_msg.maxinterfacenamelength() << std::endl;
+    LOG(INFO) <<"MaxPathsPerEntry:              " << resp_msg.maxpathsperentry() << std::endl;
+    LOG(INFO) <<"MaxPrimaryPathPerEntry:        " << resp_msg.maxprimarypathperentry() << std::endl;
+    LOG(INFO) <<"MaxBackupPathPerEntry:         " << resp_msg.maxbackuppathperentry() << std::endl;
+    LOG(INFO) <<"MaxMplsLabelsPerPath:          " << resp_msg.maxmplslabelsperpath() << std::endl;
+    LOG(INFO) <<"MinPrimaryPathIdNum:           " << resp_msg.minprimarypathidnum() << std::endl;
+    LOG(INFO) <<"MaxPrimaryPathIdNum:           " << resp_msg.maxprimarypathidnum() << std::endl;
+    LOG(INFO) <<"MinBackupPathIdNum:            " << resp_msg.minbackuppathidnum() << std::endl;
+    LOG(INFO) <<"MaxBackupPathIdNum:            " << resp_msg.maxbackuppathidnum() << std::endl;
+    LOG(INFO) <<"MaxRemoteAddressNum:           " << resp_msg.maxremoteaddressnum() << std::endl;
+    LOG(INFO) <<"MaxL2BdNameLength:             " << resp_msg.maxl2bdnamelength() << std::endl;
+    LOG(INFO) <<"MaxL2PmsiTunnelIdLength:       " << resp_msg.maxl2pmsitunnelidlength() << std::endl;
+    LOG(INFO) <<"MaxLabelBlockClientNameLength: " << resp_msg.maxlabelblockclientnamelength() << std::endl;
+    LOG(INFO) <<"MaxPathsInNexthopNotif:        " << resp_msg.maxpathsinnexthopnotif() << std::endl;
+    LOG(INFO) <<"MaxVrfRegPerMsg:               " << resp_msg.maxvrfregpermsg() << std::endl;
+    LOG(INFO) <<"MaxAFOpsPerMsg:                " << resp_msg.maxafopspermsg() << std::endl;
+    LOG(INFO) <<"MaxNotifReqPerSLAFNotifReq:    " << resp_msg.maxnotifreqperslafnotifreq() << std::endl;
     unsigned int temp = resp_msg.maxafopspermsg();
 
     if (temp <= 0) {
-        LOG(INFO) << "WARNING: MaxAFOpsPerMsg (BATCH SIZE ) is 0. Batch Size will remain at value given: " << batch_size;
+        LOG(INFO) << "WARNING: MaxAFOpsPerMsg (BATCH SIZE ) is 0. Batch Size will remain at value given: " << batch_size
+                  << " tid: " << std::this_thread::get_id();
     } else {
         if (batch_size > temp) {
             batch_size = resp_msg.maxafopspermsg();
-            LOG(INFO) << "BATCH SIZE is set to " << temp;
+            LOG(INFO) << "BATCH SIZE is set to " << temp << " tid: " << std::this_thread::get_id();
         } else {
-            LOG(INFO) << "BATCH SIZE will remain as " << batch_size;
+            LOG(INFO) << "BATCH SIZE will remain as " << batch_size << " tid: " << std::this_thread::get_id();
         }
     }
 
