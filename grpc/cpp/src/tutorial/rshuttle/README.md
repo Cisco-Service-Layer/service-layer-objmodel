@@ -217,11 +217,7 @@ We chose this design to allow ease of use and good performance. This design allo
 
 #### <a name='retry'></a>Retry Policy and Error Handling
 
-For information on how this code configured the retry policy, please refer to the grpc documentation.
-https://github.com/grpc/proposal/blob/master/A6-client-retries.md
-Note: Retry policy is configured for every rpc request that is sent. In our code, it is mainly used to test the initial connection, or the very first rpc request to the server. If all retries fail for the initial connection the the program will exit.
-
-If the initial connection is successful and an error occurs in one of the rpc request afterwards, then program acts atomically from then on. Meaning, if all requests cannot be pushed and successfully completed due to rpc failure, then everything is retried except for the initial connection. DB is cleared, remade, and all requests are sent again, with a specified wait time between each request and a total number of attempts.
+From the start of the first rpc request to the last response, the program acts atomically. Meaning, if all requests cannot be pushed and successfully completed due to rpc failure, then everything is retried. DB is cleared, remade, and all requests are sent again, with a specified wait time between each request and a total number of attempts.
 
 #### <a name='gen'></a>Generate gRPC Code (optional in this example)
 

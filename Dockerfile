@@ -79,18 +79,6 @@ RUN make -j
 RUN make install
 WORKDIR ${WS}
 
-#Clone the JSON for Modern C++ 
-RUN git clone --recurse-submodules -b v3.11.3 --depth 1 --shallow-submodules https://github.com/nlohmann/json.git
-WORKDIR ${WS}/json
-
-ARG MY_INSTALL_LIB=/usr/local/lib
-RUN mkdir -p cmake/build
-WORKDIR ${WS}/json/cmake/build
-RUN cmake -DJSON_Install=ON -DJSON_BuildTests_INIT=OFF -DCMAKE_INSTALL_DATADIR=${MY_INSTALL_LIB}  ../..
-RUN make -j
-RUN make install
-WORKDIR ${WS}
-
 ############
 
 # Clone glog repo. this is required for the CPP rshuttle application.

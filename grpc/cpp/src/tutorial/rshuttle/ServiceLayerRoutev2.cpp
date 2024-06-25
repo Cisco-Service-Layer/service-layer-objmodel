@@ -109,6 +109,9 @@ SLAFRShuttle::pushFromDB(bool streamCase, service_layer::SLObjectOp routeOper, s
     this->setVrfV4("default");
     unsigned int route_count = 0;
     unsigned int total_routes = 0;
+    if (routeOper == service_layer::SL_OBJOP_ADD) {
+        routeOper = service_layer::SL_OBJOP_UPDATE;
+    }
 
     // Makes batches from db objects and pushes into request queue
     if (addrFamily == service_layer::SL_IPv4_ROUTE_TABLE) {
@@ -224,12 +227,7 @@ SLAFRShuttle::routeSLAFOp(service_layer::SLObjectOp routeOp,
                     service_layer::SLTableType addrFamily,
                     unsigned int timeout)
 {
-
-    service_layer::SLObjectOp route_op = routeOp;
-    if(route_op == service_layer::SL_OBJOP_ADD) {
-        routeOp = service_layer::SL_OBJOP_UPDATE;
-    }
-    route_msg.set_oper(route_op);
+    route_msg.set_oper(routeOp);
     auto stub_ = service_layer::SLAF::NewStub(channel);
     std::string address_family_str = "";
     service_layer::SLTableType addr_family = addrFamily;
@@ -1130,6 +1128,7 @@ bool SLGLOBALSHUTTLE::getGlobals(unsigned int &batch_size, unsigned int timeout)
         }
     } else {
         LOG(ERROR) << "getGlobals RPC failed, error code is " << status.error_code() << " tid: " << std::this_thread::get_id();
+        throw(status);
         return false;
     }
 

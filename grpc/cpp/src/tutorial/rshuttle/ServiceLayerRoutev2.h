@@ -19,7 +19,6 @@
 #include <iosxrsl/sl_route_ipv6.pb.h>
 #include <iosxrsl/sl_af.grpc.pb.h>
 #include <iosxrsl/sl_af.pb.h>
-#include <nlohmann/json.hpp>
 
 // Data used throughout code. Will change dependent on cli options listed by user
 class testingData

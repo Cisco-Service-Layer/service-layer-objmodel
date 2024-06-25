@@ -15,14 +15,13 @@ using grpc::Channel;
 using service_layer::SLInitMsg;
 using service_layer::SLVersion;
 using service_layer::SLGlobal;
-
+using grpc::StatusCode;
 std::string username = "";
 std::string password = "";
 
 bool version2;
 bool global_init_rpc = false;
 service_layer::SLTableType table_type;
-using json = nlohmann::json;
 
 class Timer
 {
@@ -333,19 +332,23 @@ void run_slaf(SLAFVrf* af_vrf_handler, service_layer::SLTableType addr_family, s
 
 }
 
-// Version 2: We try to push the routes, but if any rpc error occurs then we retry
+// Version 2: We try to push the routes, but if any UNAVAILABLE rpc error occurs then we retry
 void try_route_push_slaf(std::shared_ptr<grpc::Channel> channel,
                std::string grpc_server,
-               grpc::ChannelArguments channel_arguments,
                testingData env_data)
 {
     bool exception_caught = true;
     int attempts = 1;
     bool route_shuttle_object_created = false;
+    SLGLOBALSHUTTLE* sl_global_shuttle;
     while(attempts <= maxAttempts) {
         try
         {
             route_shuttle_object_created = false;
+            // get the globals data info to record the batch size we need. 
+            sl_global_shuttle = new SLGLOBALSHUTTLE(channel, username, password);
+            sl_global_shuttle->getGlobals(env_data.batch_size);
+
             auto af_vrf_handler = SLAFVrf(channel,username,password);
             // Need to specify ipv4 (default), ipv6 or mpls
             table_type = env_data.table_type;
@@ -362,9 +365,10 @@ void try_route_push_slaf(std::shared_ptr<grpc::Channel> channel,
             }
             exception_caught = false;
         }
-        // Error Handling: If any RPC fails, due to any reason we have to attempt to retry
+        // Error Handling: If any RPC fails with UNAVAILABLE code we have to attempt to retry
         catch (grpc::Status status) {
             if(!status.ok()) {
+                delete sl_global_shuttle;
                 // If we are not below max attempts retry
                 LOG(INFO) << "RETRY ATTEMPT Number: " << attempts;
                 if(route_shuttle_object_created) {
@@ -376,9 +380,17 @@ void try_route_push_slaf(std::shared_ptr<grpc::Channel> channel,
                     db_mutex.unlock();
                 }
             }
+            if (status.error_code() != grpc::StatusCode::UNAVAILABLE) {
+                LOG(INFO) << "Cannot retry for status code: " << status.error_code();
+                attempts = maxAttempts + 1;
+                break;
+            }
         }
         if (!exception_caught) {
-            delete slaf_route_shuttle;
+            delete sl_global_shuttle;
+            if (route_shuttle_object_created) {
+                delete slaf_route_shuttle;
+            }
             break;
         }
         attempts++;
@@ -390,19 +402,23 @@ void try_route_push_slaf(std::shared_ptr<grpc::Channel> channel,
     }
 }
 
-// Version 1: We try to push the routes, but if any rpc error occurs then we retry
+// Version 1: We try to push the routes, but if UNAVAILABLE rpc error occurs then we retry
 void try_route_push(std::shared_ptr<grpc::Channel> channel,
                std::string grpc_server,
-               grpc::ChannelArguments channel_arguments,
                testingData env_data)
 {
     bool exception_caught = true;
     int attempts = 1;
     bool route_shuttle_object_created = false;
+    SLGLOBALSHUTTLE* sl_global_shuttle;
     while(attempts <= maxAttempts) {
         try 
         {
             route_shuttle_object_created = false;
+            // get the globals data info to record the batch size we need. 
+            sl_global_shuttle = new SLGLOBALSHUTTLE(channel, username, password);
+            sl_global_shuttle->getGlobals(env_data.batch_size);
+
             auto vrfhandler = SLVrf(channel, username, password);
             // Create a new SLVrfRegMsg batch
             vrfhandler.vrfRegMsgAdd("default", 10, 500);
@@ -424,18 +440,27 @@ void try_route_push(std::shared_ptr<grpc::Channel> channel,
             }
             exception_caught = false;
         }
-        // Error Handling: If any RPC fails, due to any reason we have to attempt to retry
+        // Error Handling: If any RPC fails with UNAVAILABLE code we have to attempt to retry
         catch (grpc::Status status) {
             if(!status.ok()) {
                 // If we are not below max attempts retry
                 LOG(INFO) << "RETRY ATTEMPT Number: " << attempts;
+                delete sl_global_shuttle;
                 if(route_shuttle_object_created) {
                     delete route_shuttle;
                 }
             }
+            if (status.error_code() != grpc::StatusCode::UNAVAILABLE) {
+                LOG(INFO) << "Cannot retry for status code: " << status.error_code();
+                attempts = maxAttempts + 1;
+                break;
+            }
         }
         if (!exception_caught) {
-            delete route_shuttle;
+            delete sl_global_shuttle;
+            if (route_shuttle_object_created) {
+                delete route_shuttle;
+            }
             break;
         }
         attempts++;
@@ -655,49 +680,7 @@ int main(int argc, char** argv) {
 
     std::string grpc_server = server_ip + ":" + server_port;
     LOG(INFO) << "Connecting IOS-XR to gRPC server at " << grpc_server;
-
-    // Retry Policy config information found here: https://github.com/grpc/proposal/blob/master/A6-client-retries.md
-
-    // The initial retry attempt will occur at random(0, initialBackoff). The n-th attempt will occur at random(0, min(initialBackoff*backoffMultiplier**(n-1), maxBackoff))
-    // For retryThrottling: Maxtoken decrements by 1 when rpc retry fails, and increments by tokenRation when successful. If MaxToken < original Maxtoken/2 then we stop the retries for all rpcs using this channel
-    json service_config =
-        {
-            {"methodConfig",
-                json::array({
-                    json {
-                        {"name", json::array()},
-                        {"waitForReady", false},
-                        {"retryPolicy", {
-                            {"maxAttempts", 5},
-                            {"initialBackoff", "5.0s"},
-                            {"maxBackoff", "30s"},
-                            {"backoffMultiplier", 1},
-                            {"retryableStatusCodes", json::array({"UNAVAILABLE"})},
-                        }},
-                        {"retryThrottling", {
-                            {"maxTokens", 10},
-                            {"tokenRatio", 0.1},
-                        }},
-                    }
-                })
-            }
-        };
-
-    json& name = service_config["methodConfig"][0]["name"];
-    json name_info{
-        {"service", ""},
-        {"method", ""},
-    };
-    name.push_back(name_info);
-
-    std::string json_string = service_config.dump(4);
-    // std::cout << json_string << std::endl;
-
-    grpc::ChannelArguments channel_arguments;
-    channel_arguments.SetServiceConfigJSON(json_string);
-    // Create a gRPC channel
-    auto channel = grpc::CreateCustomChannel(grpc_server, grpc::InsecureChannelCredentials(), channel_arguments);
-    // auto channel = grpc::CreateChannel(grpc_server, grpc::InsecureChannelCredentials());
+    auto channel = grpc::CreateChannel(grpc_server, grpc::InsecureChannelCredentials());
 
     AsyncNotifChannel asynchandler(channel);
     std::thread thread_;
@@ -730,27 +713,15 @@ int main(int argc, char** argv) {
         }
     }
 
-    // get the globals data info to record the batch size we need. 
-    bool retry_success = true;
-    SLGLOBALSHUTTLE* sl_global_shuttle = new SLGLOBALSHUTTLE(channel, username, password);
-    retry_success = sl_global_shuttle->getGlobals(env_data.batch_size);
-    delete sl_global_shuttle;
-
-    // If this rpc fails based off the retry policy then we quit the program here. This will serve as inital retry attempt
-    if (!retry_success) {
-        LOG(ERROR) << "Initial rpc failed to connect with multiple retries";
-        return 0;
-    }
-
     if (version2 == true) {
-        try_route_push_slaf(channel, grpc_server, channel_arguments, env_data);
+        try_route_push_slaf(channel, grpc_server, env_data);
         if (global_init_rpc) {
             asynchandler.Shutdown();
             thread_.join();
         }
 
     } else {
-        try_route_push(channel, grpc_server, channel_arguments, env_data);
+        try_route_push(channel, grpc_server, env_data);
         if (global_init_rpc) {
             asynchandler.Shutdown();
             thread_.join();
