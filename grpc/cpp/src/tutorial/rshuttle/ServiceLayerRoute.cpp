@@ -237,7 +237,7 @@ RShuttle::routev4Op(service_layer::SLObjectOp routeOp,
         }
     } else {
         LOG(ERROR) << "RPC failed, error code is " << status.error_code();
-        return false; 
+        throw(status);
     }
 
     // Clear route batch before the next operation
@@ -1422,6 +1422,7 @@ SLVrf::vrfOpv4(service_layer::SLRegOp vrfOp)
         }
     } else {
         LOG(ERROR) << "RPC failed, error code is " << status.error_code();
+        throw(status);
         return false;
     }
 }
@@ -1504,6 +1505,7 @@ SLVrf::vrfOpv6(service_layer::SLRegOp vrfOp)
         }
     } else {
         LOG(ERROR) << "RPC failed, error code is " << status.error_code(); 
+        throw(status);
         return false;
     }
 
