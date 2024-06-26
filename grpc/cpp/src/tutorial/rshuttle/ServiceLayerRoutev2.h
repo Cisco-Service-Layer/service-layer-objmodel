@@ -34,6 +34,7 @@ public:
     bool stream_case = true;
     unsigned int batch_size = 1024;
     unsigned int batch_num = 98;
+    unsigned int max_paths = 128;
 
     // For Ipv4
     std::string first_prefix_ipv4 = "40.0.0.0";
@@ -53,6 +54,11 @@ public:
     unsigned int start_label = 20000;
     unsigned int num_label = 1000;
     unsigned int num_paths = 1;
+
+    // For Path Group
+    service_layer::SLTableType create_path_group_for = service_layer::SL_IPv4_ROUTE_TABLE;
+
+    std::string pg_name ="";
 };
 
 // Status Object is for handling the response messages
@@ -82,6 +88,8 @@ public:
     std::unordered_map<std::string, std::pair<testingData, statusObject>> db_ipv6;
     // Key for mpls is the label number
     std::unordered_map<unsigned int, std::pair<testingData, statusObject>> db_mpls;
+    // Key for pg is the pg name
+    std::unordered_map<std::string, std::pair<testingData, statusObject>> db_pg;
 
     int db_count;
 
@@ -92,6 +100,8 @@ public:
     std::string ipv6_last_index;
     unsigned int mpls_start_index;
     unsigned int mpls_last_index;
+
+    std::string pg_name;
 };
 
 extern dbStructure database;
@@ -132,7 +142,8 @@ public:
 
     unsigned int pushFromDB(bool streamCase,
                     service_layer::SLObjectOp routeOper,
-                    service_layer::SLTableType addrFamily);
+                    service_layer::SLTableType addrFamily,
+                    service_layer::SLTableType createPathGroupFor = service_layer::SL_IPv4_ROUTE_TABLE);
 
     bool routeSLAFOp(service_layer::SLObjectOp routeOp,
                     service_layer::SLTableType addrFamily,
@@ -145,7 +156,9 @@ public:
     static void writeStream(std::shared_ptr<grpc::ClientReaderWriter<service_layer::SLAFMsg, service_layer::SLAFMsgRsp>>& stream, std::string addressFamilyStr);
     void stopStream(std::thread* reader, std::thread* writer);
     void routeSLAFOpStreamHelperEnqueue();
-    unsigned int routeSLAFOpStream(service_layer::SLTableType addrFamily, service_layer::SLObjectOp routeOper, unsigned int timeout=10);
+    unsigned int routeSLAFOpStream(service_layer::SLTableType addrFamily, service_layer::SLObjectOp routeOper, 
+                                service_layer::SLTableType createPathGroupFor = service_layer::SL_IPv4_ROUTE_TABLE,
+                                unsigned int timeout=10);
     void clearDB();
     void clearBatch();
 
@@ -181,14 +194,16 @@ public:
 
     void routev4PathAdd(service_layer::SLRoutev4* routev4Ptr,
                         uint32_t nextHopAddress,
-                        std::string nextHopIf);
+                        std::string nextHopIf,
+                        std::string pgName);
 
     bool insertAddBatchV4(std::string prefix,
                           uint8_t prefixLen,
                           uint32_t adminDistance,
                           std::string nextHopAddress,
                           std::string nextHopIf,
-                          service_layer::SLObjectOp routeOper);
+                          service_layer::SLObjectOp routeOper,
+                          std::string pgName);
 
     // IPv6 methods
 
@@ -214,14 +229,16 @@ public:
 
     void routev6PathAdd(service_layer::SLRoutev6* routev6Ptr,
                         std::string nextHopAddress,
-                        std::string nextHopIf);
+                        std::string nextHopIf,
+                        std::string pgName);
 
     bool insertAddBatchV6(std::string prefix,
                           uint8_t prefixLen,
                           uint32_t adminDistance,
                           std::string nextHopAddress,
                           std::string nextHopIf,
-                          service_layer::SLObjectOp routeOper);
+                          service_layer::SLObjectOp routeOper,
+                          std::string pgName);
 
     // MPLS methods
 
@@ -229,7 +246,8 @@ public:
                                 unsigned int startLabel,
                                 unsigned int numPaths,
                                 uint32_t nextHopAddress,
-                                std::string nextHopInterface);
+                                std::string nextHopInterface,
+                                std::string pgName);
 
 };
 
@@ -267,8 +285,8 @@ public:
     std::string username;
     std::string password;
 
-    //Sends a GlobalsGet Request and updates parameter the value for max batch size
-    bool getGlobals(unsigned int &batch_size, unsigned int timeout=10);
+    // Sends a GlobalsGet Request and updates parameter the value for max batch size
+    bool getGlobals(unsigned int &batch_size, unsigned int &max_paths, unsigned int timeout=10);
 
 };
 
