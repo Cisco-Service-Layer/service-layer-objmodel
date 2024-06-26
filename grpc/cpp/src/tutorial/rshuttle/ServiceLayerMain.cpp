@@ -11,10 +11,11 @@ using grpc::ClientReaderWriter;
 using grpc::ClientWriter;
 using grpc::CompletionQueue;
 using grpc::Status;
+using grpc::Channel;
 using service_layer::SLInitMsg;
 using service_layer::SLVersion;
 using service_layer::SLGlobal;
-
+using grpc::StatusCode;
 std::string username = "";
 std::string password = "";
 
@@ -61,6 +62,9 @@ SLAFVrf* afvrfhandler_signum;
 SLAFRShuttle* slaf_rshuttle_signum;
 AsyncNotifChannel* asynchandler_signum;
 bool sighandle_initiated = false;
+
+// Number of attempts to retry pushing routes, if failure occurs when pushing routes
+int maxAttempts = 5;
 
 void 
 signalHandler(int signum)
@@ -246,7 +250,6 @@ void routepush_slaf(SLAFRShuttle* slaf_route_shuttle,
             }
             database.db_count++;
         }
-
         if (env_data.stream_case == true) {
             totalroutes = slaf_route_shuttle->routeSLAFOpStream(addr_family, env_data.route_oper);
         } else {
@@ -283,13 +286,13 @@ void routepush_slaf(SLAFRShuttle* slaf_route_shuttle,
         // Populate MPLS DB
         unsigned int start_label = env_data.start_label;
         database.mpls_start_index = start_label;
-        for(int i = 0; i < env_data.num_label; i++){
+        for(int i = 0; i < env_data.num_operations; i++){
             statusObject dummy;
             std::pair<testingData, statusObject> temp = std::make_pair(env_data, dummy);
             database.db_mpls[start_label+i] = temp;
             database.db_count++;
         }
-        database.mpls_last_index = start_label+env_data.num_label-1;
+        database.mpls_last_index = start_label+env_data.num_operations-1;
 
         if (env_data.stream_case == true) {
             totalroutes = slaf_route_shuttle->routeSLAFOpStream(addr_family, env_data.route_oper);
@@ -353,15 +356,14 @@ void routepush_slaf(SLAFRShuttle* slaf_route_shuttle,
 
     auto time_taken = tmr.elapsed();
     LOG(INFO) << "\nTime taken to program "<< totalroutes << " routes\n " 
-              << time_taken
-              << "\nRoute programming rate\n"
-              << float(totalroutes)/time_taken << " routes/sec\n"
-              << "Number of Batches sent: "
-              << ((totalroutes-1)/env_data.batch_size) + 1 << "\n";
+            << time_taken
+            << "\nRoute programming rate\n"
+            << float(totalroutes)/time_taken << " routes/sec\n"
+            << "Number of Batches sent: "
+            << ((totalroutes-1)/env_data.batch_size) + 1 << "\n";
 
     // prints any errors in DB
     printDbErrors(env_data,addr_family);
-
 }
 
 // Handles VRF registration
@@ -400,6 +402,146 @@ void run_slaf(SLAFVrf* af_vrf_handler, service_layer::SLTableType addr_family, s
     }
     LOG(INFO) << vrf_oper_str << " VRF Successful";
 
+}
+
+// Version 2: We try to push the routes, but if any UNAVAILABLE rpc error occurs then we retry
+void try_route_push_slaf(std::shared_ptr<grpc::Channel> channel,
+               std::string grpc_server,
+               testingData env_data)
+{
+    bool exception_caught = true;
+    int attempts = 1;
+    bool route_shuttle_object_created = false;
+    SLGLOBALSHUTTLE* sl_global_shuttle;
+    while(attempts <= maxAttempts) {
+        try
+        {
+            route_shuttle_object_created = false;
+            // get the globals data info to record the batch size we need. 
+            sl_global_shuttle = new SLGLOBALSHUTTLE(channel, username, password);
+            sl_global_shuttle->getGlobals(env_data.batch_size);
+
+            auto af_vrf_handler = SLAFVrf(channel,username,password);
+            // Need to specify ipv4 (default), ipv6 or mpls
+            table_type = env_data.table_type;
+            // If vrf_rg_oper not set then we do not register vrf
+            if (env_data.vrf_reg_oper != service_layer::SL_REGOP_RESERVED) {
+                run_slaf(&af_vrf_handler,table_type, env_data.vrf_reg_oper);
+            }
+
+            // If we Unregister, then we do not push routes
+            if(env_data.vrf_reg_oper != service_layer::SL_REGOP_UNREGISTER) {
+                slaf_route_shuttle = new SLAFRShuttle(af_vrf_handler.channel, username, password);
+                route_shuttle_object_created = true;
+                routepush_slaf(slaf_route_shuttle, env_data, table_type);
+            }
+            exception_caught = false;
+        }
+        // Error Handling: If any RPC fails with UNAVAILABLE code we have to attempt to retry
+        catch (grpc::Status status) {
+            if(!status.ok()) {
+                delete sl_global_shuttle;
+                // If we are not below max attempts retry
+                LOG(INFO) << "RETRY ATTEMPT Number: " << attempts;
+                if(route_shuttle_object_created) {
+                    delete slaf_route_shuttle;
+                }
+
+                // Only need for non stream case because while exception is thrown, lock on DB is still there, so if retry attempted while lock is taken, then a deadlock occurs
+                if (env_data.stream_case == false) {
+                    db_mutex.unlock();
+                }
+            }
+            if (status.error_code() != grpc::StatusCode::UNAVAILABLE) {
+                LOG(INFO) << "Cannot retry for status code: " << status.error_code();
+                attempts = maxAttempts + 1;
+                break;
+            }
+        }
+        if (!exception_caught) {
+            delete sl_global_shuttle;
+            if (route_shuttle_object_created) {
+                delete slaf_route_shuttle;
+            }
+            break;
+        }
+        attempts++;
+        // No need to wait after all attempts are tried
+        if (attempts <= maxAttempts) {
+            LOG(INFO) << "Waiting 30 Seconds before retrying";
+            std::this_thread::sleep_for(std::chrono::seconds(30));
+        }
+    }
+}
+
+// Version 1: We try to push the routes, but if UNAVAILABLE rpc error occurs then we retry
+void try_route_push(std::shared_ptr<grpc::Channel> channel,
+               std::string grpc_server,
+               testingData env_data)
+{
+    bool exception_caught = true;
+    int attempts = 1;
+    bool route_shuttle_object_created = false;
+    SLGLOBALSHUTTLE* sl_global_shuttle;
+    while(attempts <= maxAttempts) {
+        try 
+        {
+            route_shuttle_object_created = false;
+            // get the globals data info to record the batch size we need. 
+            sl_global_shuttle = new SLGLOBALSHUTTLE(channel, username, password);
+            sl_global_shuttle->getGlobals(env_data.batch_size);
+
+            auto vrfhandler = SLVrf(channel, username, password);
+            // Create a new SLVrfRegMsg batch
+            vrfhandler.vrfRegMsgAdd("default", 10, 500);
+
+            // If vrf_rg_oper not set then we do not register vrf
+            if (env_data.vrf_reg_oper != service_layer::SL_REGOP_RESERVED) {
+                // Register the SLVrfRegMsg batch for v4
+                vrfhandler.registerVrf(service_layer::SL_IPv4_ROUTE_TABLE, env_data.vrf_reg_oper);
+            }
+
+            // If we Unregister, then we do not push routes
+            if(env_data.vrf_reg_oper != service_layer::SL_REGOP_UNREGISTER) {
+                auto batch_size = env_data.batch_size;
+                auto batch_num = env_data.batch_num;
+                auto route_oper = env_data.route_oper;
+                route_shuttle = new RShuttle(vrfhandler.channel, username, password);
+                route_shuttle_object_created = true;
+                routepush(route_shuttle, batch_size, batch_num, route_oper);
+            }
+            exception_caught = false;
+        }
+        // Error Handling: If any RPC fails with UNAVAILABLE code we have to attempt to retry
+        catch (grpc::Status status) {
+            if(!status.ok()) {
+                // If we are not below max attempts retry
+                LOG(INFO) << "RETRY ATTEMPT Number: " << attempts;
+                delete sl_global_shuttle;
+                if(route_shuttle_object_created) {
+                    delete route_shuttle;
+                }
+            }
+            if (status.error_code() != grpc::StatusCode::UNAVAILABLE) {
+                LOG(INFO) << "Cannot retry for status code: " << status.error_code();
+                attempts = maxAttempts + 1;
+                break;
+            }
+        }
+        if (!exception_caught) {
+            delete sl_global_shuttle;
+            if (route_shuttle_object_created) {
+                delete route_shuttle;
+            }
+            break;
+        }
+        attempts++;
+        // No need to wait after all attempts are tried
+        if (attempts <= maxAttempts) {
+            LOG(INFO) << "Waiting 30 Seconds before retrying";
+            std::this_thread::sleep_for(std::chrono::seconds(30));
+        }
+    }
 }
 
 int main(int argc, char** argv) {
@@ -547,9 +689,6 @@ int main(int argc, char** argv) {
                 env_data.start_label = std::stoi(optarg);
                 break;
             case 'q':
-                env_data.num_label = std::stoi(optarg);
-                break;
-            case 'r':
                 env_data.num_paths = std::stoi(optarg);
                 break;
             case 'y':
@@ -635,9 +774,7 @@ int main(int argc, char** argv) {
 
     std::string grpc_server = server_ip + ":" + server_port;
     LOG(INFO) << "Connecting IOS-XR to gRPC server at " << grpc_server;
-    // Create a gRPC channel
-    auto channel = grpc::CreateChannel(
-                              grpc_server, grpc::InsecureChannelCredentials());
+    auto channel = grpc::CreateChannel(grpc_server, grpc::InsecureChannelCredentials());
 
     AsyncNotifChannel asynchandler(channel);
     std::thread thread_;
@@ -670,56 +807,15 @@ int main(int argc, char** argv) {
         }
     }
 
-    // get the globals data info to record the batch size we need.
-    SLGLOBALSHUTTLE* sl_global_shuttle = new SLGLOBALSHUTTLE(channel, username, password);
-    sl_global_shuttle->getGlobals(env_data.batch_size, env_data.max_paths);
-    delete sl_global_shuttle;
-
-
     if (version2 == true) {
-        auto af_vrf_handler = SLAFVrf(channel,username,password);
-
-        // Need to specify ipv4 (default), ipv6(value = 1) or mpls(value = 2)
-        table_type = env_data.table_type;
-        // If vrf_rg_oper not set then we do not register vrf
-        if (env_data.vrf_reg_oper != service_layer::SL_REGOP_RESERVED) {
-            run_slaf(&af_vrf_handler,table_type, env_data.vrf_reg_oper);
-        }
-
-        // If we Unregister, then we do not push routes
-        if(env_data.vrf_reg_oper != service_layer::SL_REGOP_UNREGISTER) {
-            slaf_route_shuttle = new SLAFRShuttle(af_vrf_handler.channel, username, password);
-            routepush_slaf(slaf_route_shuttle, env_data, table_type);
-            delete slaf_route_shuttle;
-        }
-
+        try_route_push_slaf(channel, grpc_server, env_data);
         if (global_init_rpc) {
             asynchandler.Shutdown();
             thread_.join();
         }
 
     } else {
-        auto vrfhandler = SLVrf(channel, username, password);
-
-        // Create a new SLVrfRegMsg batch
-        vrfhandler.vrfRegMsgAdd("default", 10, 500);
-
-        // If vrf_rg_oper not set then we do not register vrf
-        if (env_data.vrf_reg_oper != service_layer::SL_REGOP_RESERVED) {
-            // Register the SLVrfRegMsg batch for v4
-            vrfhandler.registerVrf(service_layer::SL_IPv4_ROUTE_TABLE, env_data.vrf_reg_oper);
-        }
-
-        // If we Unregister, then we do not push routes
-        if(env_data.vrf_reg_oper != service_layer::SL_REGOP_UNREGISTER) {
-            route_shuttle = new RShuttle(vrfhandler.channel, username, password);
-            auto batch_size = env_data.batch_size;
-            auto batch_num = env_data.batch_num;
-            auto route_oper = env_data.route_oper;
-            routepush(route_shuttle, batch_size, batch_num, route_oper);
-            delete route_shuttle;
-        }
-
+        try_route_push(channel, grpc_server, env_data);
         if (global_init_rpc) {
             asynchandler.Shutdown();
             thread_.join();

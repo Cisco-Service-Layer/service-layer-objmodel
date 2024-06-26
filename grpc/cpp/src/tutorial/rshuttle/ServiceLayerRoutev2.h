@@ -104,6 +104,13 @@ public:
     std::string pg_name;
 };
 
+class SLAFQueueMsg {
+public:
+
+    service_layer::SLAFMsg route_msg;
+    bool terminate_slaf_stream = false;
+};
+
 extern dbStructure database;
 // Mutex used for synchronize access for database
 extern std::mutex db_mutex;
@@ -113,7 +120,7 @@ extern std::mutex deque_mutex;
 extern std::condition_variable deque_cv;
 
 // Stream case: Queue used between main thread for pushing slapi objects and write thread for popping objects
-extern std::deque<service_layer::SLAFMsg> request_deque;
+extern std::deque<SLAFQueueMsg> request_deque;
 
 class SLAFRShuttle;
 extern SLAFRShuttle* slaf_route_shuttle;
@@ -147,7 +154,7 @@ public:
 
     bool routeSLAFOp(service_layer::SLObjectOp routeOp,
                     service_layer::SLTableType addrFamily,
-                    unsigned int timeout=10);
+                    unsigned int timeout=30);
 
     static void readStream(std::shared_ptr<grpc::ClientReaderWriter<service_layer::SLAFMsg, service_layer::SLAFMsgRsp>>& stream,
                           service_layer::SLTableType addrFamily,
@@ -155,7 +162,8 @@ public:
                           std::string addressFamilyStr);
     static void writeStream(std::shared_ptr<grpc::ClientReaderWriter<service_layer::SLAFMsg, service_layer::SLAFMsgRsp>>& stream, std::string addressFamilyStr);
     void stopStream(std::thread* reader, std::thread* writer);
-    void routeSLAFOpStreamHelperEnqueue();
+
+    void routeSLAFOpStreamHelperEnqueue(bool terminate_slaf_stream);
     unsigned int routeSLAFOpStream(service_layer::SLTableType addrFamily, service_layer::SLObjectOp routeOper, 
                                 service_layer::SLTableType createPathGroupFor = service_layer::SL_IPv4_ROUTE_TABLE,
                                 unsigned int timeout=10);
@@ -284,9 +292,7 @@ public:
     std::shared_ptr<grpc::Channel> channel;
     std::string username;
     std::string password;
-
     // Sends a GlobalsGet Request and updates parameter the value for max batch size
-    bool getGlobals(unsigned int &batch_size, unsigned int &max_paths, unsigned int timeout=10);
-
+    bool getGlobals(unsigned int &batch_size, unsigned int &max_paths, unsigned int timeout=30);
 };
 
