@@ -419,7 +419,7 @@ void try_route_push_slaf(std::shared_ptr<grpc::Channel> channel,
             route_shuttle_object_created = false;
             // get the globals data info to record the batch size we need. 
             sl_global_shuttle = new SLGLOBALSHUTTLE(channel, username, password);
-            sl_global_shuttle->getGlobals(env_data.batch_size);
+            sl_global_shuttle->getGlobals(env_data.batch_size, env_data.max_paths);
 
             auto af_vrf_handler = SLAFVrf(channel,username,password);
             // Need to specify ipv4 (default), ipv6 or mpls
@@ -489,7 +489,7 @@ void try_route_push(std::shared_ptr<grpc::Channel> channel,
             route_shuttle_object_created = false;
             // get the globals data info to record the batch size we need. 
             sl_global_shuttle = new SLGLOBALSHUTTLE(channel, username, password);
-            sl_global_shuttle->getGlobals(env_data.batch_size);
+            sl_global_shuttle->getGlobals(env_data.batch_size, env_data.max_paths);
 
             auto vrfhandler = SLVrf(channel, username, password);
             // Create a new SLVrfRegMsg batch
@@ -569,6 +569,7 @@ int main(int argc, char** argv) {
     }
 
     testingData env_data;
+    LOG(INFO) << env_data.num_operations;
 
     const struct option longopts[] = {
         {"table_type", required_argument, nullptr, 't'},
@@ -588,10 +589,9 @@ int main(int argc, char** argv) {
         {"first_mpls_path_nhip", required_argument, nullptr, 'm'},
         {"next_hop_interface_mpls", required_argument, nullptr, 'n'},
         {"start_label", required_argument, nullptr, 'o'},
-        {"num_label", required_argument, nullptr, 'q'},
-        {"num_paths", required_argument, nullptr, 'r'},
-        {"create_path_group_for", required_argument, nullptr, 'y'},
-        {"path_group_name", required_argument, nullptr, 'z'},
+        {"num_paths", required_argument, nullptr, 'q'},
+        {"create_path_group_for", required_argument, nullptr, 'r'},
+        {"path_group_name", required_argument, nullptr, 'y'},
 
         {"help", no_argument, nullptr, 'h'},
         {"username", required_argument, nullptr, 'u'},
@@ -602,7 +602,7 @@ int main(int argc, char** argv) {
         {nullptr,0,nullptr,0}
     };
 
-    while ((option_long = getopt_long_only(argc, argv, "t:a:w:b:c:x:d:e:f:g:i:j:k:l:m:n:o:q:r:s:hu:p:v:y:z:",longopts,nullptr)) != -1) {
+    while ((option_long = getopt_long_only(argc, argv, "t:a:w:b:c:x:d:e:f:g:i:j:k:l:m:n:o:q:r:s:hu:p:v:y:",longopts,nullptr)) != -1) {
         switch (option_long) {
             case 't':
                 dummy = optarg;
@@ -691,7 +691,7 @@ int main(int argc, char** argv) {
             case 'q':
                 env_data.num_paths = std::stoi(optarg);
                 break;
-            case 'y':
+            case 'r':
                 dummy = optarg;
                 if(dummy == "ipv6") {
                     env_data.create_path_group_for = service_layer::SL_IPv6_ROUTE_TABLE;
@@ -701,7 +701,7 @@ int main(int argc, char** argv) {
                     env_data.create_path_group_for = service_layer::SL_IPv4_ROUTE_TABLE;
                 }
                 break;
-            case 'z':
+            case 'y':
                 env_data.pg_name = optarg;
                 break;
             case 's':
@@ -725,7 +725,9 @@ int main(int argc, char** argv) {
                 LOG(INFO) << "| -s/--global_init                 | Enable our Async Global Init RPC to handshake the API version number with the server (default false) |";
                 LOG(INFO) << "| -b/--num_operations              | Configure the number of ipv4 routes, ipv6 routes, or MPLS entires to be added to a batch. If table_type is set to pg then 0 < num_operations <= 64 (default 1) |";
                 LOG(INFO) << "| -c/--batch_size                  | Configure the number of ipv4 routes ipv6 routes, or ILM entires for MPLS to be added to a batch (default 1024) |";
-                LOG(INFO) << "| -x/--stream_case                 | Want to use the streaming rpc or unary rpc (default true) | \n";
+                LOG(INFO) << "| -x/--stream_case                 | Want to use the streaming rpc or unary rpc (default true) |";
+                LOG(INFO) << "| -y/--path_group_name             | Configure the name of the path group to use. This is the name for the new path you want to create when when table_type is set to pg."
+                               << "When table_type is any other option then this will specify the existing path group to use for pushing routes. In this case, make sure path group name exist (default "") | \n";
                 LOG(INFO) << "IPv4 Testing";
                 LOG(INFO) << "| -d/--first_prefix_ipv4           | Configure the starting address for this test for IPV4 (default 40.0.0.0) |";
                 LOG(INFO) << "| -e/--prefix_len_ipv4             | Configure the prefix length for this test for IPV4 address (default 24) |";
@@ -740,11 +742,9 @@ int main(int argc, char** argv) {
                 LOG(INFO) << "| -m/--first_mpls_path_nhip        | Configure the starting address for this test for MPLS (default 11.0.0.1) |";
                 LOG(INFO) << "| -n/--next_hop_interface_mpls     | Configure the next hop interface for MPLS (default FourHundredGigE0/0/0/0) |";
                 LOG(INFO) << "| -o/--start_label                 | Configure the starting label for this test for MPLS (default 20000) |";
-                LOG(INFO) << "| -q/--num_label                   | Configure the number of labels to be allocated for MPLS (default 1000) |";
-                LOG(INFO) << "| -r/--num_paths                   | Configure the number of paths for MPLS labels (default 1)";
+                LOG(INFO) << "| -q/--num_paths                   | Configure the number of paths for MPLS labels (default 1)";
                 LOG(INFO) << "PG Testing";
-                LOG(INFO) << "| -y/--create_path_group_for       | Configure the table_type for which path group is being made (default ipv4)";
-                LOG(INFO) << "| -z/--path_group_name             | Configure the name of the path group. Name for creating new path group or name of specific path group for pushing routes (default "")";
+                LOG(INFO) << "| -r/--create_path_group_for       | Configure the table_type for which path group is being made (default ipv4)";
                 return 1;
             case 'u':
                 username = optarg;

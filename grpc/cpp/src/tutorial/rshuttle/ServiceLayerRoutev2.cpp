@@ -266,6 +266,8 @@ SLAFRShuttle::pushFromDB(bool streamCase, service_layer::SLObjectOp routeOper, s
                     route_count++;
                     ipv4_index++;
                 }
+            } else {
+                route_count++;
             }
 
         } else if (createPathGroupFor == service_layer::SL_IPv6_ROUTE_TABLE) {
@@ -282,6 +284,8 @@ SLAFRShuttle::pushFromDB(bool streamCase, service_layer::SLObjectOp routeOper, s
                     route_count++;
                     ipv6_index = this->incrementIpv6Pfx(ipv6_index, 128);
                 }
+            } else {
+                route_count++;
             }
 
         }
@@ -290,7 +294,7 @@ SLAFRShuttle::pushFromDB(bool streamCase, service_layer::SLObjectOp routeOper, s
             // Write should just pull from queue and be able to send request
             route_msg.set_oper(routeOper);
             db_mutex.unlock();
-            this->routeSLAFOpStreamHelperEnqueue();
+            this->routeSLAFOpStreamHelperEnqueue(false);
             db_mutex.lock();
         } else {
             this->routeSLAFOp(routeOper, addrFamily);
@@ -339,7 +343,7 @@ SLAFRShuttle::routeSLAFOp(service_layer::SLObjectOp routeOp,
         // Multi-Client not supported in MPLS
     } else if (addr_family == service_layer::SL_PATH_GROUP_TABLE){
         address_family_str = "PATH GROUP";
-        // Multi-Client not supported in MPLS
+        context.AddMetadata("iosxr-slapi-clientid", client_id);
     }
 
     //Issue the RPC         
@@ -565,6 +569,9 @@ SLAFRShuttle::routeSLAFOpStream(service_layer::SLTableType addrFamily, service_l
     } else if (addrFamily == service_layer::SL_MPLS_LABEL_TABLE){
         address_family_str = "MPLS";
         // Multi-Client not supported in MPLS
+    } else if (addrFamily == service_layer::SL_PATH_GROUP_TABLE){
+        address_family_str = "PATH GROUP";
+        context.AddMetadata("iosxr-slapi-clientid", client_id);
     }
 
     // Send the RPC
@@ -1145,6 +1152,7 @@ SLAFVrf::afVrfOpAddFam(service_layer::SLRegOp vrfOp, service_layer::SLTableType 
         // Multi-Client not supported in MPLS
     } else if (addrFamily == service_layer::SL_PATH_GROUP_TABLE) {
         // Multi-Client not supported in PATHGROUP
+        context.AddMetadata("iosxr-slapi-clientid", client_id);
     }
 
     // Set up afVrfRegMsg Operation

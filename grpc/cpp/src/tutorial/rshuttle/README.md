@@ -102,9 +102,10 @@ For now, if you already have passed this setup step, follow this example:
 | -v/--slaf                       | Specify if you want to use slaf proto RPCs to program objects or not. If false, no other configuration possible and will only run 100k ipv4 routes (default true) |
 | -t/--table_type                 | Specify whether to do ipv4, ipv6 or mpls operation, PG is currently not supported (default ipv4) |
 | -s/--global_init                | Enable our Async Global Init RPC to handshake the API version number with the server (default false) |
-| -b/--num_operations             | Configure the number of ipv4 routes, ipv6 routes, or MPLS entires to be added to a batch (default 1) |
+| -b/--num_operations             | Configure the number of ipv4 routes, ipv6 routes, or MPLS entires to be added to a batch. If table_type is set to pg, then num_operations will dictate how many paths to add to a path group (default 1) |
 | -c/--batch_size                 | Configure the number of ipv4 routes, ipv6 routes, or ILM entires for MPLS to be added to a batch (default 1024) |
 | -x/--stream_case                | Want to use the streaming rpc or unary rpc (default true) |
+| -y/--path_group_name            | Configure the name of the path group to use. This is the name for the new path you want to create when when table_type is set to pg. When table_type is any other option then this will specify the existing path group to use for pushing routes. In this case, make sure path group name exist (default "") |
 ##### IPv4 Testing
 
 | Argument | Description |
@@ -131,6 +132,11 @@ For now, if you already have passed this setup step, follow this example:
 | -n/--next_hop_interface_mpls    | Configure the next hop interface for MPLS (default "FourHundredGigE0/0/0/0") |
 | -o/--start_label                | Configure the starting label for this test for MPLS (default 20000) |
 | -q/--num_paths                  | Configure the number of paths for MPLS labels (default 1) |
+
+##### PG Testing
+| Argument | Description |
+| --- | --- |
+| -r/--create_path_group_for       | Configure the table_type for which path group is being made (default ipv4) |
 
 
 ##### How to Build
@@ -176,10 +182,25 @@ IPV6 Example:
 
 MPLS Example:
     Adding 1000 Labels with streaming rpc:
-    $ ./servicelayermain -u username -p password -a Add -w Register --table_type mpls -q 1000 --start_label 12000
+    $ ./servicelayermain -u username -p password -a Add -w Register --table_type mpls -b 1000 --start_label 12000
     $ ./servicelayermain -u username -p password -a Add -w Register --table_type mpls --num_operations 1000 -o 12000 --batch_size 1024 (same as above example)
     Deleting 35 labels with unary rpc:
     $ ./servicelayermain -u username -p password -a Delete -w Register --table_type mpls --num_operations 35 --start_label 12010 -c false
+
+Path Group Example:
+    Create a path group with the named "temp" with 64 paths for ipv4 routes:
+    $ ./grpc/cpp/src/tutorial/rshuttle/servicelayermain -u cisco -p cisco123 -a Add -w Register --table_type pg --create_path_group_for ipv4 --path_group_name temp --num_operations 64
+    Delete a path group named "temp":
+    $ ./grpc/cpp/src/tutorial/rshuttle/servicelayermain -u cisco -p cisco123 -a Delete -w Register --table_type pg --path_group_name temp
+
+    Add 100k ipv6 routes using path group named "temp":
+    $ ./grpc/cpp/src/tutorial/rshuttle/servicelayermain -u cisco -p cisco123 -a Add -w Register --table_type ipv6 --path_group_name temp --num_operations 100000
+
+    Create a path group for mpls called mpls_temp, with starting address for paths in path group at 12.0.0.1, and with 5 paths
+    ./grpc/cpp/src/tutorial/rshuttle/servicelayermain -u cisco -p cisco123 -a Add -w Register --table_type pg --create_path_group_for mpls --path_group_name temp --num_operations 64 --first_mpls_path_nhip 12.0.0.1
+    Apply path group named "temp" for 1000 mpls labels:
+    ./grpc/cpp/src/tutorial/rshuttle/servicelayermain -u username -p password -a Add -w Register --table_type mpls -b 1000 --path_group_name temp
+
 
 Example using auto register (see section [Optional: Register the VRF](#vrf) for information on auto-register):
     $ ./servicelayermain -u username -p password -a Add (Same as above examples, just omit -w option)
