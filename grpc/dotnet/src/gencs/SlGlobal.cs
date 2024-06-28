@@ -1778,8 +1778,7 @@ namespace ServiceLayer {
     public const int MaxMatchFilterInBgplsTopoNotifFieldNumber = 20;
     private uint maxMatchFilterInBgplsTopoNotif_;
     /// <summary>
-    /// Maximum match filters that can be added to Bgpls Topology Service
-    /// Notification message.
+    /// Max SLBgplsTopoNlriMatch match filters in SLBgplsTopoNotifReqMsg
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]

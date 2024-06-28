@@ -502,8 +502,7 @@ type SLGlobalsGetMsgRsp struct {
 	MaxAFOpsPerMsg uint32 `protobuf:"varint,18,opt,name=MaxAFOpsPerMsg,proto3" json:"MaxAFOpsPerMsg,omitempty"`
 	// Max SLAFNotifRegReq requests in SLAFNotifReq.
 	MaxNotifReqPerSLAFNotifReq uint32 `protobuf:"varint,19,opt,name=MaxNotifReqPerSLAFNotifReq,proto3" json:"MaxNotifReqPerSLAFNotifReq,omitempty"`
-	// Maximum match filters that can be added to Bgpls Topology Service
-	// Notification message.
+	// Max SLBgplsTopoNlriMatch match filters in SLBgplsTopoNotifReqMsg
 	MaxMatchFilterInBgplsTopoNotif uint32 `protobuf:"varint,20,opt,name=MaxMatchFilterInBgplsTopoNotif,proto3" json:"MaxMatchFilterInBgplsTopoNotif,omitempty"`
 }
 

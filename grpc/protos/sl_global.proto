@@ -212,8 +212,7 @@ message SLGlobalsGetMsgRsp {
     // Max SLAFNotifRegReq requests in SLAFNotifReq.
     uint32 MaxNotifReqPerSLAFNotifReq = 19;
 
-    // Maximum match filters that can be added to Bgpls Topology Service
-    // Notification message.
+    // Max SLBgplsTopoNlriMatch match filters in SLBgplsTopoNotifReqMsg
     uint32 MaxMatchFilterInBgplsTopoNotif = 20;
 }
 
