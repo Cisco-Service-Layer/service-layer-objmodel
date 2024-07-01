@@ -9,14 +9,11 @@
 // default route status for a route object.
 //
 // ----------------------------------------------------------------
-//  Copyright (c) 2016, 2023 by Cisco Systems, Inc.
+//  Copyright (c) 2016, 2023, 2024 by Cisco Systems, Inc.
 //  All rights reserved.
 // -----------------------------------------------------------------
 //
 //
-//
-// @defgroup Route
-// @brief Route service definitions.
 //
 #ifndef GRPC_sl_5froute_5fcommon_2eproto__INCLUDED
 #define GRPC_sl_5froute_5fcommon_2eproto__INCLUDED

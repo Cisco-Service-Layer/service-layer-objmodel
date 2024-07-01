@@ -7,17 +7,14 @@ from . import sl_af_pb2 as sl__af__pb2
 
 class SLAFStub(object):
     """@defgroup SLAF
-    @ingroup Common
-    SL-API messages for a address family.
-    Defines SL-API operations service.
-    @{
-    ;
+    @ingroup AF
+    Combined RPCs and messages for programming and notifications of AF objects.
 
     This API supports programming the device by multiple clients.
 
     If there are multiple clients intending to program the network
     element using this API, the clients initiating a programming or get
-    RPC MUST pass a gRPC-context metadata identifying itself.
+    RPC MUST pass a gRPC-context metadata identifying themselves.
     The client application MUST set the gRPC metadata key
     named "iosxr-slapi-clientid" with a numeric string holding a
     number between 0 and 65535.
@@ -43,8 +40,15 @@ class SLAFStub(object):
     MUST remove all its programming from the server before it is disabled
     or removed.
 
+    Objects programmed by this RPC are stored in DBs that are key'ed
+    on Client ID, VRF name and object type. Clients must ensure
+    that only one programming RPC is operating on the DB. System
+    behavior is undefined if simultaneous programming RPC sessions
+    end up modifying the same DB.
+
     The route redistribution and notifications are scoped to the RPC
     and as such do not require a client ID.
+    @{
 
     @addtogroup SLAF
     @{
@@ -91,17 +95,14 @@ class SLAFStub(object):
 
 class SLAFServicer(object):
     """@defgroup SLAF
-    @ingroup Common
-    SL-API messages for a address family.
-    Defines SL-API operations service.
-    @{
-    ;
+    @ingroup AF
+    Combined RPCs and messages for programming and notifications of AF objects.
 
     This API supports programming the device by multiple clients.
 
     If there are multiple clients intending to program the network
     element using this API, the clients initiating a programming or get
-    RPC MUST pass a gRPC-context metadata identifying itself.
+    RPC MUST pass a gRPC-context metadata identifying themselves.
     The client application MUST set the gRPC metadata key
     named "iosxr-slapi-clientid" with a numeric string holding a
     number between 0 and 65535.
@@ -127,8 +128,15 @@ class SLAFServicer(object):
     MUST remove all its programming from the server before it is disabled
     or removed.
 
+    Objects programmed by this RPC are stored in DBs that are key'ed
+    on Client ID, VRF name and object type. Clients must ensure
+    that only one programming RPC is operating on the DB. System
+    behavior is undefined if simultaneous programming RPC sessions
+    end up modifying the same DB.
+
     The route redistribution and notifications are scoped to the RPC
     and as such do not require a client ID.
+    @{
 
     @addtogroup SLAF
     @{
@@ -217,8 +225,8 @@ class SLAFServicer(object):
         attributes are replaced with values from the new message.
 
         SLAFMsg.Oper = SL_OBJOP_DELETE:
-        Object delete. The object's key is enough to delete the object;
-        other attributes if present are ignored.
+        Object delete. The object's key is enough to delete the object.
+        Other attributes if present are ignored.
         Delete of a non-existant object is returned as success.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -254,7 +262,10 @@ class SLAFServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def SLAFNotifStream(self, request_iterator, context):
-        """The notification request registrations and corresponding
+        """The route redistribution and next hop tracking RPC.
+
+
+        The notification request registrations and corresponding
         notifications are scoped to the RPC. On a RPC disconnection,
         the client should re-establish the RPC and re-program
         the notification requests.
@@ -273,7 +284,6 @@ class SLAFServicer(object):
         of the registration operation itself, followed by any redistributed
         routes if requested and present, and any next hops if requested and present.
         From then on, any updates are notified as long as RPC is up.
-
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -321,17 +331,14 @@ def add_SLAFServicer_to_server(servicer, server):
  # This class is part of an EXPERIMENTAL API.
 class SLAF(object):
     """@defgroup SLAF
-    @ingroup Common
-    SL-API messages for a address family.
-    Defines SL-API operations service.
-    @{
-    ;
+    @ingroup AF
+    Combined RPCs and messages for programming and notifications of AF objects.
 
     This API supports programming the device by multiple clients.
 
     If there are multiple clients intending to program the network
     element using this API, the clients initiating a programming or get
-    RPC MUST pass a gRPC-context metadata identifying itself.
+    RPC MUST pass a gRPC-context metadata identifying themselves.
     The client application MUST set the gRPC metadata key
     named "iosxr-slapi-clientid" with a numeric string holding a
     number between 0 and 65535.
@@ -357,8 +364,15 @@ class SLAF(object):
     MUST remove all its programming from the server before it is disabled
     or removed.
 
+    Objects programmed by this RPC are stored in DBs that are key'ed
+    on Client ID, VRF name and object type. Clients must ensure
+    that only one programming RPC is operating on the DB. System
+    behavior is undefined if simultaneous programming RPC sessions
+    end up modifying the same DB.
+
     The route redistribution and notifications are scoped to the RPC
     and as such do not require a client ID.
+    @{
 
     @addtogroup SLAF
     @{

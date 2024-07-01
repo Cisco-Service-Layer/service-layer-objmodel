@@ -4,7 +4,7 @@ In order to generate the doxygen HTML files, please make sure you have doxygen i
 
 In the repository:
 
-	cd grpc/docs/scripts
+	cd grpc/xrdocs/scripts
 	./doc-gen.sh
 
 This will generate HTML pages in ../gen-docs/html directory. 

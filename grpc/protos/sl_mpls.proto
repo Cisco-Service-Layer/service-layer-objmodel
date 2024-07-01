@@ -2,7 +2,7 @@
 // @brief RPC proto file for MPLS types.
 //
 // ----------------------------------------------------------------
-//  Copyright (c) 2019, 2023 by Cisco Systems, Inc.
+//  Copyright (c) 2019, 2023, 2024 by Cisco Systems, Inc.
 //  All rights reserved.
 // -----------------------------------------------------------------
 //
@@ -115,7 +115,7 @@ service SLMplsOper {
     //
     // SLMplsIlmMsg.Oper = SL_OBJOP_DELETE:
     //     Delete incoming label map entry. The entry's key is enough
-    //     to delete the object; other attributes if present are ignored.
+    //     to delete the object. Other attributes if present are ignored.
     //     Delete of a non-existant entry is considered a success.
     rpc SLMplsIlmOp(SLMplsIlmMsg) returns (SLMplsIlmMsgRsp);
 
@@ -482,7 +482,7 @@ message SLMplsPath {
     uint32 SlMplsPathPriority = 11;
 
     // Set the Path set-id,
-    // Integer range [0 .. 7]; default = 0
+    // Integer range [0 .. 7], default = 0
     // Paths of an ILM should be associated with a SetID.
     // SetID is used for grouping paths with the same SlMplsPathPriority value. 
     // Paths with same SetID must have same SlMplsPathPriority value.
@@ -502,8 +502,8 @@ message SLMplsPath {
 message SLMplsIlmKey {
     message IPv4PrefixKey {
         // IPv4 Prefix in host byte order.
-        //     0.0.0.0
-        //     1.0.0.0 - 223.255.255.255
+        // - 0.0.0.0
+        // - 1.0.0.0 - 223.255.255.255
         uint32 Prefix = 1;
     }
     message IPv6PrefixKey {

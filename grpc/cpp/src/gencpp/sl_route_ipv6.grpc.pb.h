@@ -6,7 +6,7 @@
 // @brief Server RPC proto file for IPv6.
 //
 // ----------------------------------------------------------------
-//  Copyright (c) 2016, 2023 by cisco Systems, Inc.
+//  Copyright (c) 2016, 2023, 2024 by cisco Systems, Inc.
 //  All rights reserved.
 // -----------------------------------------------------------------
 //
@@ -39,10 +39,11 @@
 namespace service_layer {
 
 // @defgroup SLRouteIPv6Oper
-// @ingroup Route
+// @ingroup AF
 // Defines RPC calls for IPv6 route changes and VRF registration.
 // This service declares both the Vrf Registration, as well as adding, deleting
 // and getting IPv6 routes.
+// All IPv6 addresses are encoded in network byte order.
 // @{
 class SLRoutev6Oper final {
  public:
@@ -142,8 +143,8 @@ class SLRoutev6Oper final {
     //     attributes are replaced with values from the new message.
     //
     // SLRoutev6Msg.Oper = SL_OBJOP_DELETE:
-    //     Route delete. The route's key is enough to delete the object;
-    //     other attributes, if provided are ignored.
+    //     Route delete. The route's key is enough to delete the object.
+    //     Other attributes, if provided are ignored.
     //     Delete of a non-existant route is returned as success.
     virtual ::grpc::Status SLRoutev6Op(::grpc::ClientContext* context, const ::service_layer::SLRoutev6Msg& request, ::service_layer::SLRoutev6MsgRsp* response) = 0;
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::service_layer::SLRoutev6MsgRsp>> AsyncSLRoutev6Op(::grpc::ClientContext* context, const ::service_layer::SLRoutev6Msg& request, ::grpc::CompletionQueue* cq) {
@@ -175,8 +176,8 @@ class SLRoutev6Oper final {
     //     attributes are replaced with values from the new message.
     //
     // SLRoutev6Msg.Oper = SL_OBJOP_DELETE:
-    //     Route delete. The route's key is enough to delete the object;
-    //     other attributes, if provided are ignored.
+    //     Route delete. The route's key is enough to delete the object.
+    //     Other attributes, if provided are ignored.
     //     Delete of a non-existant route is returned as success.
     std::unique_ptr< ::grpc::ClientReaderWriterInterface< ::service_layer::SLRoutev6Msg, ::service_layer::SLRoutev6MsgRsp>> SLRoutev6OpStream(::grpc::ClientContext* context) {
       return std::unique_ptr< ::grpc::ClientReaderWriterInterface< ::service_layer::SLRoutev6Msg, ::service_layer::SLRoutev6MsgRsp>>(SLRoutev6OpStreamRaw(context));
@@ -291,8 +292,8 @@ class SLRoutev6Oper final {
       //     attributes are replaced with values from the new message.
       //
       // SLRoutev6Msg.Oper = SL_OBJOP_DELETE:
-      //     Route delete. The route's key is enough to delete the object;
-      //     other attributes, if provided are ignored.
+      //     Route delete. The route's key is enough to delete the object.
+      //     Other attributes, if provided are ignored.
       //     Delete of a non-existant route is returned as success.
       virtual void SLRoutev6Op(::grpc::ClientContext* context, const ::service_layer::SLRoutev6Msg* request, ::service_layer::SLRoutev6MsgRsp* response, std::function<void(::grpc::Status)>) = 0;
       virtual void SLRoutev6Op(::grpc::ClientContext* context, const ::service_layer::SLRoutev6Msg* request, ::service_layer::SLRoutev6MsgRsp* response, ::grpc::ClientUnaryReactor* reactor) = 0;
@@ -314,8 +315,8 @@ class SLRoutev6Oper final {
       //     attributes are replaced with values from the new message.
       //
       // SLRoutev6Msg.Oper = SL_OBJOP_DELETE:
-      //     Route delete. The route's key is enough to delete the object;
-      //     other attributes, if provided are ignored.
+      //     Route delete. The route's key is enough to delete the object.
+      //     Other attributes, if provided are ignored.
       //     Delete of a non-existant route is returned as success.
       virtual void SLRoutev6OpStream(::grpc::ClientContext* context, ::grpc::ClientBidiReactor< ::service_layer::SLRoutev6Msg,::service_layer::SLRoutev6MsgRsp>* reactor) = 0;
       // Retrieves route attributes.
@@ -577,8 +578,8 @@ class SLRoutev6Oper final {
     //     attributes are replaced with values from the new message.
     //
     // SLRoutev6Msg.Oper = SL_OBJOP_DELETE:
-    //     Route delete. The route's key is enough to delete the object;
-    //     other attributes, if provided are ignored.
+    //     Route delete. The route's key is enough to delete the object.
+    //     Other attributes, if provided are ignored.
     //     Delete of a non-existant route is returned as success.
     virtual ::grpc::Status SLRoutev6Op(::grpc::ServerContext* context, const ::service_layer::SLRoutev6Msg* request, ::service_layer::SLRoutev6MsgRsp* response);
     // Retrieves route attributes.
@@ -598,8 +599,8 @@ class SLRoutev6Oper final {
     //     attributes are replaced with values from the new message.
     //
     // SLRoutev6Msg.Oper = SL_OBJOP_DELETE:
-    //     Route delete. The route's key is enough to delete the object;
-    //     other attributes, if provided are ignored.
+    //     Route delete. The route's key is enough to delete the object.
+    //     Other attributes, if provided are ignored.
     //     Delete of a non-existant route is returned as success.
     virtual ::grpc::Status SLRoutev6OpStream(::grpc::ServerContext* context, ::grpc::ServerReaderWriter< ::service_layer::SLRoutev6MsgRsp, ::service_layer::SLRoutev6Msg>* stream);
     // Retrieves route attributes.

@@ -6,7 +6,7 @@
 // @brief RPC proto file for MPLS types.
 //
 // ----------------------------------------------------------------
-//  Copyright (c) 2019, 2023 by Cisco Systems, Inc.
+//  Copyright (c) 2019, 2023, 2024 by Cisco Systems, Inc.
 //  All rights reserved.
 // -----------------------------------------------------------------
 //
@@ -167,7 +167,7 @@ class SLMplsOper final {
     //
     // SLMplsIlmMsg.Oper = SL_OBJOP_DELETE:
     //     Delete incoming label map entry. The entry's key is enough
-    //     to delete the object; other attributes if present are ignored.
+    //     to delete the object. Other attributes if present are ignored.
     //     Delete of a non-existant entry is considered a success.
     virtual ::grpc::Status SLMplsIlmOp(::grpc::ClientContext* context, const ::service_layer::SLMplsIlmMsg& request, ::service_layer::SLMplsIlmMsgRsp* response) = 0;
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::service_layer::SLMplsIlmMsgRsp>> AsyncSLMplsIlmOp(::grpc::ClientContext* context, const ::service_layer::SLMplsIlmMsg& request, ::grpc::CompletionQueue* cq) {
@@ -294,7 +294,7 @@ class SLMplsOper final {
       //
       // SLMplsIlmMsg.Oper = SL_OBJOP_DELETE:
       //     Delete incoming label map entry. The entry's key is enough
-      //     to delete the object; other attributes if present are ignored.
+      //     to delete the object. Other attributes if present are ignored.
       //     Delete of a non-existant entry is considered a success.
       virtual void SLMplsIlmOp(::grpc::ClientContext* context, const ::service_layer::SLMplsIlmMsg* request, ::service_layer::SLMplsIlmMsgRsp* response, std::function<void(::grpc::Status)>) = 0;
       virtual void SLMplsIlmOp(::grpc::ClientContext* context, const ::service_layer::SLMplsIlmMsg* request, ::service_layer::SLMplsIlmMsgRsp* response, ::grpc::ClientUnaryReactor* reactor) = 0;
@@ -549,7 +549,7 @@ class SLMplsOper final {
     //
     // SLMplsIlmMsg.Oper = SL_OBJOP_DELETE:
     //     Delete incoming label map entry. The entry's key is enough
-    //     to delete the object; other attributes if present are ignored.
+    //     to delete the object. Other attributes if present are ignored.
     //     Delete of a non-existant entry is considered a success.
     virtual ::grpc::Status SLMplsIlmOp(::grpc::ServerContext* context, const ::service_layer::SLMplsIlmMsg* request, ::service_layer::SLMplsIlmMsgRsp* response);
     // Retrieve MPLS ILM entry attributes.

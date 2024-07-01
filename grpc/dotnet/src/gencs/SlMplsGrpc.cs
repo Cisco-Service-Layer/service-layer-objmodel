@@ -7,7 +7,7 @@
 // @brief RPC proto file for MPLS types.
 //
 // ----------------------------------------------------------------
-//  Copyright (c) 2019, 2023 by Cisco Systems, Inc.
+//  Copyright (c) 2019, 2023, 2024 by Cisco Systems, Inc.
 //  All rights reserved.
 // -----------------------------------------------------------------
 //
@@ -297,7 +297,7 @@ namespace ServiceLayer {
       ///
       /// SLMplsIlmMsg.Oper = SL_OBJOP_DELETE:
       ///     Delete incoming label map entry. The entry's key is enough
-      ///     to delete the object; other attributes if present are ignored.
+      ///     to delete the object. Other attributes if present are ignored.
       ///     Delete of a non-existant entry is considered a success.
       /// </summary>
       /// <param name="request">The request received from the client.</param>
@@ -771,7 +771,7 @@ namespace ServiceLayer {
       ///
       /// SLMplsIlmMsg.Oper = SL_OBJOP_DELETE:
       ///     Delete incoming label map entry. The entry's key is enough
-      ///     to delete the object; other attributes if present are ignored.
+      ///     to delete the object. Other attributes if present are ignored.
       ///     Delete of a non-existant entry is considered a success.
       /// </summary>
       /// <param name="request">The request to send to the server.</param>
@@ -797,7 +797,7 @@ namespace ServiceLayer {
       ///
       /// SLMplsIlmMsg.Oper = SL_OBJOP_DELETE:
       ///     Delete incoming label map entry. The entry's key is enough
-      ///     to delete the object; other attributes if present are ignored.
+      ///     to delete the object. Other attributes if present are ignored.
       ///     Delete of a non-existant entry is considered a success.
       /// </summary>
       /// <param name="request">The request to send to the server.</param>
@@ -821,7 +821,7 @@ namespace ServiceLayer {
       ///
       /// SLMplsIlmMsg.Oper = SL_OBJOP_DELETE:
       ///     Delete incoming label map entry. The entry's key is enough
-      ///     to delete the object; other attributes if present are ignored.
+      ///     to delete the object. Other attributes if present are ignored.
       ///     Delete of a non-existant entry is considered a success.
       /// </summary>
       /// <param name="request">The request to send to the server.</param>
@@ -847,7 +847,7 @@ namespace ServiceLayer {
       ///
       /// SLMplsIlmMsg.Oper = SL_OBJOP_DELETE:
       ///     Delete incoming label map entry. The entry's key is enough
-      ///     to delete the object; other attributes if present are ignored.
+      ///     to delete the object. Other attributes if present are ignored.
       ///     Delete of a non-existant entry is considered a success.
       /// </summary>
       /// <param name="request">The request to send to the server.</param>

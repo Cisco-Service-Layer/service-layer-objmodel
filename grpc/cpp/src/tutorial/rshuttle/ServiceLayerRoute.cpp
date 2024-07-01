@@ -159,9 +159,9 @@ RShuttle::routev4Op(service_layer::SLObjectOp routeOp,
     // Convert ADD to UPDATE automatically, it will solve both the 
     // conditions - add or update.
 
-   // if (routeOp == service_layer::SL_OBJOP_ADD) {
-   //     routeOp = service_layer::SL_OBJOP_UPDATE;
-   // }
+   if (routeOp == service_layer::SL_OBJOP_ADD) {
+       routeOp = service_layer::SL_OBJOP_UPDATE;
+   }
 
     route_op = routeOp;
     routev4_msg.set_oper(route_op);
@@ -237,7 +237,7 @@ RShuttle::routev4Op(service_layer::SLObjectOp routeOp,
         }
     } else {
         LOG(ERROR) << "RPC failed, error code is " << status.error_code();
-        return false; 
+        throw(status);
     }
 
     // Clear route batch before the next operation
@@ -250,7 +250,8 @@ RShuttle::insertAddBatchV4(std::string prefix,
                            uint8_t prefixLen,
                            uint32_t adminDistance,
                            std::string nextHopAddress,
-                           std::string nextHopIf)
+                           std::string nextHopIf,
+                           service_layer::SLObjectOp routeOper)
 {
 
     auto address = prefix + "/" + std::to_string(prefixLen);
@@ -273,15 +274,19 @@ RShuttle::insertAddBatchV4(std::string prefix,
                          adminDistance);
         this->prefix_map_v4[address] = map_index;
     
-        this->routev4PathAdd(routev4_ptr, 
-                             ipv4ToLong(nextHopAddress.c_str()), 
-                             nextHopIf); 
+        if (routeOper !=  service_layer::SL_OBJOP_DELETE) {
+            this->routev4PathAdd(routev4_ptr, 
+                                ipv4ToLong(nextHopAddress.c_str()), 
+                                nextHopIf); 
+        }
 
     } else {
         auto routev4_ptr = this->routev4_msg.mutable_routes(prefix_map_v4[address]);
-        this->routev4PathAdd(routev4_ptr,
-                             ipv4ToLong(nextHopAddress.c_str()),
-                             nextHopIf);  
+        if (routeOper !=  service_layer::SL_OBJOP_DELETE) {
+            this->routev4PathAdd(routev4_ptr,
+                                ipv4ToLong(nextHopAddress.c_str()),
+                                nextHopIf);  
+        }
     }
 
     return true;
@@ -406,7 +411,8 @@ RShuttle::insertUpdateBatchV4(std::string prefix,
                                                        prefixLen,
                                                        adminDistance,
                                                        path_nexthop_ip_str, 
-                                                       path_nexthop_if);
+                                                       path_nexthop_if,
+                                                       service_layer::SL_OBJOP_UPDATE);
 
                 if (!batch_add_resp) {
                     LOG(ERROR) << "Route insertion into ADD batch unsuccessful \n"
@@ -426,7 +432,8 @@ RShuttle::insertUpdateBatchV4(std::string prefix,
                                                            prefixLen,
                                                            adminDistance,
                                                            nextHopAddress,
-                                                           nextHopIf);
+                                                           nextHopIf,
+                                                           service_layer::SL_OBJOP_UPDATE);
 
                     if (!batch_add_resp) {
                         LOG(ERROR) << "Route insertion into ADD batch unsuccessful \n"
@@ -470,7 +477,8 @@ RShuttle::insertUpdateBatchV4(std::string prefix,
                                                            prefixLen,
                                                            adminDistance,
                                                            nextHopAddress,
-                                                           nextHopIf);
+                                                           nextHopIf,
+                                                           service_layer::SL_OBJOP_UPDATE);
                     if (!batch_add_resp) {
                         LOG(ERROR) << "Route insertion into ADD batch unsuccessful \n"
                                    << prefix<< "\n"
@@ -750,9 +758,9 @@ RShuttle::routev6Op(service_layer::SLObjectOp routeOp,
     // Convert ADD to UPDATE automatically, it will solve both the 
     // conditions - add or update.
     
-   // if (routeOp == service_layer::SL_OBJOP_ADD) {
-    //    routeOp = service_layer::SL_OBJOP_UPDATE;
-    //}
+   if (routeOp == service_layer::SL_OBJOP_ADD) {
+       routeOp = service_layer::SL_OBJOP_UPDATE;
+    }
     
     route_op = routeOp;
     routev6_msg.set_oper(route_op);
@@ -843,7 +851,8 @@ RShuttle::insertAddBatchV6(std::string prefix,
                            uint8_t prefixLen,
                            uint32_t adminDistance,
                            std::string nextHopAddress,
-                           std::string nextHopIf)
+                           std::string nextHopIf,
+                           service_layer::SLObjectOp routeOper)
 {
     auto address = prefix + "/" + std::to_string(prefixLen);
     auto map_index = this->routev6_msg.routes_size();
@@ -865,15 +874,19 @@ RShuttle::insertAddBatchV6(std::string prefix,
                          adminDistance);
         this->prefix_map_v6[address] = map_index;
     
-        this->routev6PathAdd(routev6_ptr,
-                             ipv6ToByteArrayString(nextHopAddress.c_str()),
-                             nextHopIf);
+        if (routeOper !=  service_layer::SL_OBJOP_DELETE) {
+            this->routev6PathAdd(routev6_ptr,
+                                ipv6ToByteArrayString(nextHopAddress.c_str()),
+                                nextHopIf);
+        }
 
     } else {
         auto routev6_ptr = this->routev6_msg.mutable_routes(prefix_map_v6[address]);
-        this->routev6PathAdd(routev6_ptr,
-                             ipv6ToByteArrayString(nextHopAddress.c_str()),
-                             nextHopIf);
+        if (routeOper !=  service_layer::SL_OBJOP_DELETE) {
+            this->routev6PathAdd(routev6_ptr,
+                                ipv6ToByteArrayString(nextHopAddress.c_str()),
+                                nextHopIf);
+        }
     }
 
     return true;
@@ -991,7 +1004,8 @@ RShuttle::insertUpdateBatchV6(std::string prefix,
                                                        prefixLen,
                                                        adminDistance,
                                                        path_nexthop_ip_str,
-                                                       path_nexthop_if);
+                                                       path_nexthop_if,
+                                                       service_layer::SL_OBJOP_UPDATE);
 
                 if (!batch_add_resp) {
                     LOG(ERROR) << "Route insertion into ADD batch unsuccessful \n"
@@ -1011,7 +1025,8 @@ RShuttle::insertUpdateBatchV6(std::string prefix,
                                                            prefixLen,
                                                            adminDistance,
                                                            nextHopAddress,
-                                                           nextHopIf);
+                                                           nextHopIf,
+                                                           service_layer::SL_OBJOP_UPDATE);
 
                     if (!batch_add_resp) {
                         LOG(ERROR) << "Route insertion into ADD batch unsuccessful \n"
@@ -1056,7 +1071,8 @@ RShuttle::insertUpdateBatchV6(std::string prefix,
                                                            prefixLen,
                                                            adminDistance,
                                                            nextHopAddress,
-                                                           nextHopIf);
+                                                           nextHopIf,
+                                                           service_layer::SL_OBJOP_UPDATE);
 
                     if (!batch_add_resp) {
                         LOG(ERROR) << "Route insertion into ADD batch unsuccessful \n"
@@ -1294,66 +1310,28 @@ SLVrf::vrfRegMsgAdd(std::string vrfName,
 
 
 bool 
-SLVrf::registerVrf(unsigned int addrFamily)
+SLVrf::registerVrf(service_layer::SLTableType addrFamily, service_layer::SLRegOp vrfRegOper)
 {
     // Send an RPC for VRF registrations
-
     switch(addrFamily) {
-    case AF_INET:
+    case service_layer::SL_IPv4_ROUTE_TABLE:
         // Issue VRF Register RPC 
-        if (vrfOpv4(service_layer::SL_REGOP_REGISTER)) {
-            // RPC EOF to cleanup any previous stale routes
-            if (vrfOpv4(service_layer::SL_REGOP_EOF)) {
-                return true;
-            } else {
-                LOG(ERROR) << "Failed to send EOF RPC";
-                return false;
-            }
+        if (vrfOpv4(vrfRegOper)) {
+            return true;
         } else {
             LOG(ERROR) << "Failed to send Register RP";
             return false;
         } 
         break;
 
-    case AF_INET6:
+    case service_layer::SL_IPv6_ROUTE_TABLE:
         // Issue VRF Register RPC
-        if (vrfOpv6(service_layer::SL_REGOP_REGISTER)) {
-            // RPC EOF to cleanup any previous stale routes
-            if (vrfOpv6(service_layer::SL_REGOP_EOF)) {
-                return true;
-            } else {
-                LOG(ERROR) << "Failed to send EOF RPC";
-                return false;
-            }
+        if (vrfOpv6(vrfRegOper)) {
+            return true;
         } else {
             LOG(ERROR) << "Failed to send Register RPC";
             return false;
         }
-
-
-        break;            
-
-    default:
-        LOG(ERROR) << "Invalid Address family, skipping..";
-        return false;
-        break;
-    }
-
-}
-
-bool 
-SLVrf::unregisterVrf(unsigned int addrFamily)
-{
-
-    //  When done with the VRFs, RPC Delete Registration
-
-    switch(addrFamily) {
-    case AF_INET:
-        return vrfOpv4(service_layer::SL_REGOP_UNREGISTER);
-        break;
-
-    case AF_INET6:
-        return vrfOpv6(service_layer::SL_REGOP_UNREGISTER);
         break;
 
     default:
@@ -1361,6 +1339,7 @@ SLVrf::unregisterVrf(unsigned int addrFamily)
         return false;
         break;
     }
+
 }
 
 bool 
@@ -1443,6 +1422,7 @@ SLVrf::vrfOpv4(service_layer::SLRegOp vrfOp)
         }
     } else {
         LOG(ERROR) << "RPC failed, error code is " << status.error_code();
+        throw(status);
         return false;
     }
 }
@@ -1525,6 +1505,7 @@ SLVrf::vrfOpv6(service_layer::SLRegOp vrfOp)
         }
     } else {
         LOG(ERROR) << "RPC failed, error code is " << status.error_code(); 
+        throw(status);
         return false;
     }
 

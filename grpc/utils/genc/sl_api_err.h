@@ -534,6 +534,8 @@
     SL_INTF_INTERFACE_EXISTS = 0xe006,\
     /* Interface not found. 0xe007 */\
     SL_INTF_INTERFACE_NOT_FOUND = 0xe007,\
+    /* Interface State not supported. 0xe008 */\
+    SL_INTF_INTERFACE_STATE_NOT_SUPPORTED = 0xe008,\
     /* !!! Error codes for Global L2 operations. */\
     /* Offset for Global L2 operation errors. 0xf000 */\
     SL_L2_REG_START_OFFSET = 0xf000,\
@@ -570,7 +572,7 @@
     SL_L2_BD_REGISTRATION_ERR = 0x11001,\
     /* BD cannot be unregistered with Layer-2 RIB. 0x11002 */\
     SL_L2_BD_UNREGISTRATION_ERR = 0x11002,\
-    /* BD EOF Operation error. 0x11003, */\
+    /* BD EOF Operation error. 0x11003 */\
     SL_L2_BD_EOF_ERR = 0x11003,\
     /* Name is too long in BD registration message. 0x11004 */\
     SL_L2_BD_REG_NAME_TOO_LONG = 0x11004,\
@@ -1481,6 +1483,9 @@
     {SL_INTF_INTERFACE_NOT_FOUND ,\
         " Interface not found.  "\
         },\
+    {SL_INTF_INTERFACE_STATE_NOT_SUPPORTED ,\
+        " Interface State not supported.  "\
+        },\
     {SL_L2_REG_START_OFFSET ,\
         " Offset for Global L2 operation errors.  "\
         },\
@@ -1529,7 +1534,9 @@
     {SL_L2_BD_UNREGISTRATION_ERR ,\
         " BD cannot be unregistered with Layer-2 RIB.  "\
         },\
- \
+    {SL_L2_BD_EOF_ERR ,\
+        " BD EOF Operation error.  "\
+        },\
     {SL_L2_BD_REG_NAME_TOO_LONG ,\
         " Name is too long in BD registration message.  "\
         },\

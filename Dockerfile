@@ -86,10 +86,18 @@ RUN git clone https://github.com/google/glog.git -b v0.6.0-rc2 glog
 WORKDIR ${WS}/glog
 
 # Configure build tree
-RUN cmake -S . -B build -G "Unix Makefiles"
+# Installs glog in the install directory so it can be linked
+RUN cmake -S . -B build -G "Unix Makefiles" -DBUILD_SHARED_LIBS=OFF -DCMAKE_INSTALL_PREFIX=${MY_INSTALL_DIR}
 RUN cmake --build build
 RUN cmake --build build --target install
+WORKDIR ${WS}
 
-###########
+############
+
+# Clone doxygen repo to a specific version.
+RUN curl -LO https://sourceforge.net/projects/doxygen/files/rel-1.8.11/doxygen-1.8.11.linux.bin.tar.gz
+RUN tar xvf doxygen-1.8.11.linux.bin.tar.gz
+
+############
 # Adjust PATH so that binding scripts can execute out of the cwd.
 ENV PATH="${PATH}:."

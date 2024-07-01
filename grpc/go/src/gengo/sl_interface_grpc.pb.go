@@ -22,53 +22,13 @@ const _ = grpc.SupportPackageIsVersion7
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type SLInterfaceOperClient interface {
-	// SLInterfaceGlobalsRegMsg.Oper = SL_REGOP_REGISTER:
-	//
-	//	Global Interface registration.
-	//	A client Must Register BEFORE interfaces can be modified/queried.
-	//
-	// SLInterfaceGlobalsRegMsg.Oper = SL_REGOP_UNREGISTER:
-	//
-	//	Global Interface un-registration.
-	//	This call is used to end all interface notifications.
-	//	This call cleans up all interface notifications previously requested.
-	//
-	// SLInterfaceGlobalsRegMsg.Oper = SL_REGOP_EOF:
-	//
-	//	Interface End Of File.
-	//	After Registration, the client is expected to send an EOF
-	//	message to convey the end of replay of the client's known objects.
-	//	This is especially useful under certain restart scenarios when the
-	//	client and the server are trying to synchronize their interfaces.
-	//
-	// The SLInterfaceGlobalsRegMsg operations can be used by the client to synchronize
-	// interface registrations with the server. When the client re-registers with the
-	// server using SL_REGOP_REGISTER, server marks all interface registrations as stale.
-	// Client can then reprogram interface registrations. When the client sends
-	// SL_REGOP_EOF, any interface registrations not reprogrammed by the client are
-	// removed from the device.
-	//
-	// The client must perform all operations (SLInterfaceGlobalsRegMsg,
-	// interface registration operations) from a single execution context.
-	SLInterfaceGlobalsRegOp(ctx context.Context, in *SLInterfaceGlobalsRegMsg, opts ...grpc.CallOption) (*SLInterfaceGlobalsRegMsgRsp, error)
-	// Used to retrieve global Interface info from the server.
-	SLInterfaceGlobalsGet(ctx context.Context, in *SLInterfaceGlobalsGetMsg, opts ...grpc.CallOption) (*SLInterfaceGlobalsGetMsgRsp, error)
-	// Used to retrieve global Interface stats from the server.
-	SLInterfaceGlobalsGetStats(ctx context.Context, in *SLInterfaceGlobalsGetMsg, opts ...grpc.CallOption) (*SLInterfaceGlobalsGetStatsMsgRsp, error)
-	// Retrieve interface attributes and state.
-	// This call can be used to "poll" the current state of interfaces.
-	SLInterfaceGet(ctx context.Context, in *SLInterfaceGetMsg, opts ...grpc.CallOption) (*SLInterfaceGetMsgRsp, error)
 	// This call is used to get a stream of interface notifications.
 	// The caller must maintain the GRPC channel as long as
 	// there is interest in interface notifications.
 	// This call can be used to get "push" notifications for interface info.
 	// It is advised that the caller register for notifications before any
 	// interfaces are used to avoid any loss of notifications.
-	SLInterfaceGetNotifStream(ctx context.Context, in *SLInterfaceGetNotifMsg, opts ...grpc.CallOption) (SLInterfaceOper_SLInterfaceGetNotifStreamClient, error)
-	// Used to enable/disable event notifications for a certain interface.
-	// By default, all interface events are disabled. The user must enable
-	// notifications for the interested interfaces.
-	SLInterfaceNotifOp(ctx context.Context, in *SLInterfaceNotifMsg, opts ...grpc.CallOption) (*SLInterfaceNotifMsgRsp, error)
+	SLInterfaceNotifStream(ctx context.Context, opts ...grpc.CallOption) (SLInterfaceOper_SLInterfaceNotifStreamClient, error)
 }
 
 type sLInterfaceOperClient struct {
@@ -79,67 +39,30 @@ func NewSLInterfaceOperClient(cc grpc.ClientConnInterface) SLInterfaceOperClient
 	return &sLInterfaceOperClient{cc}
 }
 
-func (c *sLInterfaceOperClient) SLInterfaceGlobalsRegOp(ctx context.Context, in *SLInterfaceGlobalsRegMsg, opts ...grpc.CallOption) (*SLInterfaceGlobalsRegMsgRsp, error) {
-	out := new(SLInterfaceGlobalsRegMsgRsp)
-	err := c.cc.Invoke(ctx, "/service_layer.SLInterfaceOper/SLInterfaceGlobalsRegOp", in, out, opts...)
+func (c *sLInterfaceOperClient) SLInterfaceNotifStream(ctx context.Context, opts ...grpc.CallOption) (SLInterfaceOper_SLInterfaceNotifStreamClient, error) {
+	stream, err := c.cc.NewStream(ctx, &SLInterfaceOper_ServiceDesc.Streams[0], "/service_layer.SLInterfaceOper/SLInterfaceNotifStream", opts...)
 	if err != nil {
 		return nil, err
 	}
-	return out, nil
-}
-
-func (c *sLInterfaceOperClient) SLInterfaceGlobalsGet(ctx context.Context, in *SLInterfaceGlobalsGetMsg, opts ...grpc.CallOption) (*SLInterfaceGlobalsGetMsgRsp, error) {
-	out := new(SLInterfaceGlobalsGetMsgRsp)
-	err := c.cc.Invoke(ctx, "/service_layer.SLInterfaceOper/SLInterfaceGlobalsGet", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sLInterfaceOperClient) SLInterfaceGlobalsGetStats(ctx context.Context, in *SLInterfaceGlobalsGetMsg, opts ...grpc.CallOption) (*SLInterfaceGlobalsGetStatsMsgRsp, error) {
-	out := new(SLInterfaceGlobalsGetStatsMsgRsp)
-	err := c.cc.Invoke(ctx, "/service_layer.SLInterfaceOper/SLInterfaceGlobalsGetStats", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sLInterfaceOperClient) SLInterfaceGet(ctx context.Context, in *SLInterfaceGetMsg, opts ...grpc.CallOption) (*SLInterfaceGetMsgRsp, error) {
-	out := new(SLInterfaceGetMsgRsp)
-	err := c.cc.Invoke(ctx, "/service_layer.SLInterfaceOper/SLInterfaceGet", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sLInterfaceOperClient) SLInterfaceGetNotifStream(ctx context.Context, in *SLInterfaceGetNotifMsg, opts ...grpc.CallOption) (SLInterfaceOper_SLInterfaceGetNotifStreamClient, error) {
-	stream, err := c.cc.NewStream(ctx, &SLInterfaceOper_ServiceDesc.Streams[0], "/service_layer.SLInterfaceOper/SLInterfaceGetNotifStream", opts...)
-	if err != nil {
-		return nil, err
-	}
-	x := &sLInterfaceOperSLInterfaceGetNotifStreamClient{stream}
-	if err := x.ClientStream.SendMsg(in); err != nil {
-		return nil, err
-	}
-	if err := x.ClientStream.CloseSend(); err != nil {
-		return nil, err
-	}
+	x := &sLInterfaceOperSLInterfaceNotifStreamClient{stream}
 	return x, nil
 }
 
-type SLInterfaceOper_SLInterfaceGetNotifStreamClient interface {
+type SLInterfaceOper_SLInterfaceNotifStreamClient interface {
+	Send(*SLInterfaceNotifMsg) error
 	Recv() (*SLInterfaceNotif, error)
 	grpc.ClientStream
 }
 
-type sLInterfaceOperSLInterfaceGetNotifStreamClient struct {
+type sLInterfaceOperSLInterfaceNotifStreamClient struct {
 	grpc.ClientStream
 }
 
-func (x *sLInterfaceOperSLInterfaceGetNotifStreamClient) Recv() (*SLInterfaceNotif, error) {
+func (x *sLInterfaceOperSLInterfaceNotifStreamClient) Send(m *SLInterfaceNotifMsg) error {
+	return x.ClientStream.SendMsg(m)
+}
+
+func (x *sLInterfaceOperSLInterfaceNotifStreamClient) Recv() (*SLInterfaceNotif, error) {
 	m := new(SLInterfaceNotif)
 	if err := x.ClientStream.RecvMsg(m); err != nil {
 		return nil, err
@@ -147,66 +70,17 @@ func (x *sLInterfaceOperSLInterfaceGetNotifStreamClient) Recv() (*SLInterfaceNot
 	return m, nil
 }
 
-func (c *sLInterfaceOperClient) SLInterfaceNotifOp(ctx context.Context, in *SLInterfaceNotifMsg, opts ...grpc.CallOption) (*SLInterfaceNotifMsgRsp, error) {
-	out := new(SLInterfaceNotifMsgRsp)
-	err := c.cc.Invoke(ctx, "/service_layer.SLInterfaceOper/SLInterfaceNotifOp", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
 // SLInterfaceOperServer is the server API for SLInterfaceOper service.
 // All implementations must embed UnimplementedSLInterfaceOperServer
 // for forward compatibility
 type SLInterfaceOperServer interface {
-	// SLInterfaceGlobalsRegMsg.Oper = SL_REGOP_REGISTER:
-	//
-	//	Global Interface registration.
-	//	A client Must Register BEFORE interfaces can be modified/queried.
-	//
-	// SLInterfaceGlobalsRegMsg.Oper = SL_REGOP_UNREGISTER:
-	//
-	//	Global Interface un-registration.
-	//	This call is used to end all interface notifications.
-	//	This call cleans up all interface notifications previously requested.
-	//
-	// SLInterfaceGlobalsRegMsg.Oper = SL_REGOP_EOF:
-	//
-	//	Interface End Of File.
-	//	After Registration, the client is expected to send an EOF
-	//	message to convey the end of replay of the client's known objects.
-	//	This is especially useful under certain restart scenarios when the
-	//	client and the server are trying to synchronize their interfaces.
-	//
-	// The SLInterfaceGlobalsRegMsg operations can be used by the client to synchronize
-	// interface registrations with the server. When the client re-registers with the
-	// server using SL_REGOP_REGISTER, server marks all interface registrations as stale.
-	// Client can then reprogram interface registrations. When the client sends
-	// SL_REGOP_EOF, any interface registrations not reprogrammed by the client are
-	// removed from the device.
-	//
-	// The client must perform all operations (SLInterfaceGlobalsRegMsg,
-	// interface registration operations) from a single execution context.
-	SLInterfaceGlobalsRegOp(context.Context, *SLInterfaceGlobalsRegMsg) (*SLInterfaceGlobalsRegMsgRsp, error)
-	// Used to retrieve global Interface info from the server.
-	SLInterfaceGlobalsGet(context.Context, *SLInterfaceGlobalsGetMsg) (*SLInterfaceGlobalsGetMsgRsp, error)
-	// Used to retrieve global Interface stats from the server.
-	SLInterfaceGlobalsGetStats(context.Context, *SLInterfaceGlobalsGetMsg) (*SLInterfaceGlobalsGetStatsMsgRsp, error)
-	// Retrieve interface attributes and state.
-	// This call can be used to "poll" the current state of interfaces.
-	SLInterfaceGet(context.Context, *SLInterfaceGetMsg) (*SLInterfaceGetMsgRsp, error)
 	// This call is used to get a stream of interface notifications.
 	// The caller must maintain the GRPC channel as long as
 	// there is interest in interface notifications.
 	// This call can be used to get "push" notifications for interface info.
 	// It is advised that the caller register for notifications before any
 	// interfaces are used to avoid any loss of notifications.
-	SLInterfaceGetNotifStream(*SLInterfaceGetNotifMsg, SLInterfaceOper_SLInterfaceGetNotifStreamServer) error
-	// Used to enable/disable event notifications for a certain interface.
-	// By default, all interface events are disabled. The user must enable
-	// notifications for the interested interfaces.
-	SLInterfaceNotifOp(context.Context, *SLInterfaceNotifMsg) (*SLInterfaceNotifMsgRsp, error)
+	SLInterfaceNotifStream(SLInterfaceOper_SLInterfaceNotifStreamServer) error
 	mustEmbedUnimplementedSLInterfaceOperServer()
 }
 
@@ -214,23 +88,8 @@ type SLInterfaceOperServer interface {
 type UnimplementedSLInterfaceOperServer struct {
 }
 
-func (UnimplementedSLInterfaceOperServer) SLInterfaceGlobalsRegOp(context.Context, *SLInterfaceGlobalsRegMsg) (*SLInterfaceGlobalsRegMsgRsp, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method SLInterfaceGlobalsRegOp not implemented")
-}
-func (UnimplementedSLInterfaceOperServer) SLInterfaceGlobalsGet(context.Context, *SLInterfaceGlobalsGetMsg) (*SLInterfaceGlobalsGetMsgRsp, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method SLInterfaceGlobalsGet not implemented")
-}
-func (UnimplementedSLInterfaceOperServer) SLInterfaceGlobalsGetStats(context.Context, *SLInterfaceGlobalsGetMsg) (*SLInterfaceGlobalsGetStatsMsgRsp, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method SLInterfaceGlobalsGetStats not implemented")
-}
-func (UnimplementedSLInterfaceOperServer) SLInterfaceGet(context.Context, *SLInterfaceGetMsg) (*SLInterfaceGetMsgRsp, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method SLInterfaceGet not implemented")
-}
-func (UnimplementedSLInterfaceOperServer) SLInterfaceGetNotifStream(*SLInterfaceGetNotifMsg, SLInterfaceOper_SLInterfaceGetNotifStreamServer) error {
-	return status.Errorf(codes.Unimplemented, "method SLInterfaceGetNotifStream not implemented")
-}
-func (UnimplementedSLInterfaceOperServer) SLInterfaceNotifOp(context.Context, *SLInterfaceNotifMsg) (*SLInterfaceNotifMsgRsp, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method SLInterfaceNotifOp not implemented")
+func (UnimplementedSLInterfaceOperServer) SLInterfaceNotifStream(SLInterfaceOper_SLInterfaceNotifStreamServer) error {
+	return status.Errorf(codes.Unimplemented, "method SLInterfaceNotifStream not implemented")
 }
 func (UnimplementedSLInterfaceOperServer) mustEmbedUnimplementedSLInterfaceOperServer() {}
 
@@ -245,115 +104,30 @@ func RegisterSLInterfaceOperServer(s grpc.ServiceRegistrar, srv SLInterfaceOperS
 	s.RegisterService(&SLInterfaceOper_ServiceDesc, srv)
 }
 
-func _SLInterfaceOper_SLInterfaceGlobalsRegOp_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SLInterfaceGlobalsRegMsg)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SLInterfaceOperServer).SLInterfaceGlobalsRegOp(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/service_layer.SLInterfaceOper/SLInterfaceGlobalsRegOp",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SLInterfaceOperServer).SLInterfaceGlobalsRegOp(ctx, req.(*SLInterfaceGlobalsRegMsg))
-	}
-	return interceptor(ctx, in, info, handler)
+func _SLInterfaceOper_SLInterfaceNotifStream_Handler(srv interface{}, stream grpc.ServerStream) error {
+	return srv.(SLInterfaceOperServer).SLInterfaceNotifStream(&sLInterfaceOperSLInterfaceNotifStreamServer{stream})
 }
 
-func _SLInterfaceOper_SLInterfaceGlobalsGet_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SLInterfaceGlobalsGetMsg)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SLInterfaceOperServer).SLInterfaceGlobalsGet(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/service_layer.SLInterfaceOper/SLInterfaceGlobalsGet",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SLInterfaceOperServer).SLInterfaceGlobalsGet(ctx, req.(*SLInterfaceGlobalsGetMsg))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SLInterfaceOper_SLInterfaceGlobalsGetStats_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SLInterfaceGlobalsGetMsg)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SLInterfaceOperServer).SLInterfaceGlobalsGetStats(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/service_layer.SLInterfaceOper/SLInterfaceGlobalsGetStats",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SLInterfaceOperServer).SLInterfaceGlobalsGetStats(ctx, req.(*SLInterfaceGlobalsGetMsg))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SLInterfaceOper_SLInterfaceGet_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SLInterfaceGetMsg)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SLInterfaceOperServer).SLInterfaceGet(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/service_layer.SLInterfaceOper/SLInterfaceGet",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SLInterfaceOperServer).SLInterfaceGet(ctx, req.(*SLInterfaceGetMsg))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SLInterfaceOper_SLInterfaceGetNotifStream_Handler(srv interface{}, stream grpc.ServerStream) error {
-	m := new(SLInterfaceGetNotifMsg)
-	if err := stream.RecvMsg(m); err != nil {
-		return err
-	}
-	return srv.(SLInterfaceOperServer).SLInterfaceGetNotifStream(m, &sLInterfaceOperSLInterfaceGetNotifStreamServer{stream})
-}
-
-type SLInterfaceOper_SLInterfaceGetNotifStreamServer interface {
+type SLInterfaceOper_SLInterfaceNotifStreamServer interface {
 	Send(*SLInterfaceNotif) error
+	Recv() (*SLInterfaceNotifMsg, error)
 	grpc.ServerStream
 }
 
-type sLInterfaceOperSLInterfaceGetNotifStreamServer struct {
+type sLInterfaceOperSLInterfaceNotifStreamServer struct {
 	grpc.ServerStream
 }
 
-func (x *sLInterfaceOperSLInterfaceGetNotifStreamServer) Send(m *SLInterfaceNotif) error {
+func (x *sLInterfaceOperSLInterfaceNotifStreamServer) Send(m *SLInterfaceNotif) error {
 	return x.ServerStream.SendMsg(m)
 }
 
-func _SLInterfaceOper_SLInterfaceNotifOp_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SLInterfaceNotifMsg)
-	if err := dec(in); err != nil {
+func (x *sLInterfaceOperSLInterfaceNotifStreamServer) Recv() (*SLInterfaceNotifMsg, error) {
+	m := new(SLInterfaceNotifMsg)
+	if err := x.ServerStream.RecvMsg(m); err != nil {
 		return nil, err
 	}
-	if interceptor == nil {
-		return srv.(SLInterfaceOperServer).SLInterfaceNotifOp(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/service_layer.SLInterfaceOper/SLInterfaceNotifOp",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SLInterfaceOperServer).SLInterfaceNotifOp(ctx, req.(*SLInterfaceNotifMsg))
-	}
-	return interceptor(ctx, in, info, handler)
+	return m, nil
 }
 
 // SLInterfaceOper_ServiceDesc is the grpc.ServiceDesc for SLInterfaceOper service.
@@ -362,33 +136,13 @@ func _SLInterfaceOper_SLInterfaceNotifOp_Handler(srv interface{}, ctx context.Co
 var SLInterfaceOper_ServiceDesc = grpc.ServiceDesc{
 	ServiceName: "service_layer.SLInterfaceOper",
 	HandlerType: (*SLInterfaceOperServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "SLInterfaceGlobalsRegOp",
-			Handler:    _SLInterfaceOper_SLInterfaceGlobalsRegOp_Handler,
-		},
-		{
-			MethodName: "SLInterfaceGlobalsGet",
-			Handler:    _SLInterfaceOper_SLInterfaceGlobalsGet_Handler,
-		},
-		{
-			MethodName: "SLInterfaceGlobalsGetStats",
-			Handler:    _SLInterfaceOper_SLInterfaceGlobalsGetStats_Handler,
-		},
-		{
-			MethodName: "SLInterfaceGet",
-			Handler:    _SLInterfaceOper_SLInterfaceGet_Handler,
-		},
-		{
-			MethodName: "SLInterfaceNotifOp",
-			Handler:    _SLInterfaceOper_SLInterfaceNotifOp_Handler,
-		},
-	},
+	Methods:     []grpc.MethodDesc{},
 	Streams: []grpc.StreamDesc{
 		{
-			StreamName:    "SLInterfaceGetNotifStream",
-			Handler:       _SLInterfaceOper_SLInterfaceGetNotifStream_Handler,
+			StreamName:    "SLInterfaceNotifStream",
+			Handler:       _SLInterfaceOper_SLInterfaceNotifStream_Handler,
 			ServerStreams: true,
+			ClientStreams: true,
 		},
 	},
 	Metadata: "sl_interface.proto",

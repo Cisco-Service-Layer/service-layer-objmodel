@@ -76,8 +76,8 @@ type SLRoutev6OperClient interface {
 	//
 	// SLRoutev6Msg.Oper = SL_OBJOP_DELETE:
 	//
-	//	Route delete. The route's key is enough to delete the object;
-	//	other attributes, if provided are ignored.
+	//	Route delete. The route's key is enough to delete the object.
+	//	Other attributes, if provided are ignored.
 	//	Delete of a non-existant route is returned as success.
 	SLRoutev6Op(ctx context.Context, in *SLRoutev6Msg, opts ...grpc.CallOption) (*SLRoutev6MsgRsp, error)
 	// Retrieves route attributes.
@@ -96,8 +96,8 @@ type SLRoutev6OperClient interface {
 	//
 	// SLRoutev6Msg.Oper = SL_OBJOP_DELETE:
 	//
-	//	Route delete. The route's key is enough to delete the object;
-	//	other attributes, if provided are ignored.
+	//	Route delete. The route's key is enough to delete the object.
+	//	Other attributes, if provided are ignored.
 	//	Delete of a non-existant route is returned as success.
 	SLRoutev6OpStream(ctx context.Context, opts ...grpc.CallOption) (SLRoutev6Oper_SLRoutev6OpStreamClient, error)
 	// Retrieves route attributes.
@@ -337,8 +337,8 @@ type SLRoutev6OperServer interface {
 	//
 	// SLRoutev6Msg.Oper = SL_OBJOP_DELETE:
 	//
-	//	Route delete. The route's key is enough to delete the object;
-	//	other attributes, if provided are ignored.
+	//	Route delete. The route's key is enough to delete the object.
+	//	Other attributes, if provided are ignored.
 	//	Delete of a non-existant route is returned as success.
 	SLRoutev6Op(context.Context, *SLRoutev6Msg) (*SLRoutev6MsgRsp, error)
 	// Retrieves route attributes.
@@ -357,8 +357,8 @@ type SLRoutev6OperServer interface {
 	//
 	// SLRoutev6Msg.Oper = SL_OBJOP_DELETE:
 	//
-	//	Route delete. The route's key is enough to delete the object;
-	//	other attributes, if provided are ignored.
+	//	Route delete. The route's key is enough to delete the object.
+	//	Other attributes, if provided are ignored.
 	//	Delete of a non-existant route is returned as success.
 	SLRoutev6OpStream(SLRoutev6Oper_SLRoutev6OpStreamServer) error
 	// Retrieves route attributes.

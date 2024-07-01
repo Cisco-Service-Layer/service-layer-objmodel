@@ -4675,18 +4675,19 @@ namespace ServiceLayer {
     /// is applicable only if the route contains the PathList.
     ///
     /// - If the flag is not set, all paths in the PathList are installed in
-    ///   the route’s load balance group, even if paths are unviable. The 
-    ///   Network element does not automatically update the route’s load balance
+    ///   the route's load balance group, even if paths are unviable. The
+    ///   Network element does not automatically update the route's load balance
     ///   group when path viability changes and expects the client to take
     ///   corrective action.
     ///
     /// - If the flag is set, the network element only installs viable
-    ///   paths from the PathList in the route’s load balance group.
-    ///   The Network element also automatically updates the route’s
+    ///   paths from the PathList in the route's load balance group.
+    ///   The Network element also automatically updates the route's
     ///   load balance group when path viability changes.
     ///
-    /// - This flag is ignored if the route refers to the PathGroup and the
-    ///   corresponding setting on the PathGroup dictates path programming.
+    /// - If the route refers to the PathGroup, then a programming error is 
+    ///   returned and the corresponding setting on the PathGroup dictates 
+    ///   path programming.
     ///
     /// SL_ROUTE_FLAG_ACTIVE_ON_VIABLE_PATH - This flag is supported only for
     /// routes that contain the PathList.
@@ -4694,7 +4695,7 @@ namespace ServiceLayer {
     /// - If this flag is not set, the route is active if it is preferred
     ///   based on administrative distance. Viability of the paths in
     ///   the PathList is not used as a criterion to determine
-    ///   route’s activeness.
+    ///   route's activeness.
     ///   If the route is active, the PathList programming is dictated by
     ///   SL_ROUTE_FLAG_VIABLE_PATHS_ONLY.
     ///
@@ -4705,10 +4706,9 @@ namespace ServiceLayer {
     ///   the route when the first path becomes viable or none of the paths
     ///   are no longer viable.
     ///
-    /// - If the route refers to the PathGroup,
-    ///   then this flag on the route is ignored. Instead, the
-    ///   corresponding setting on PathGroup dictates whether this
-    ///   route should be considered in best route calculations.
+    /// - If the route refers to the PathGroup, then a programming error is 
+    ///   returned and the corresponding setting on the PathGroup dictates 
+    ///   whether this route should be considered in best route calculations.
     ///
     /// All others are reserved.
     /// </summary>
@@ -5421,8 +5421,8 @@ namespace ServiceLayer {
     public const int NexthopAddressFieldNumber = 1;
     private global::ServiceLayer.SLIpAddress nexthopAddress_;
     /// <summary>
-    /// One of IPv4 or IPv6 address
-    /// For ENCAP_VXLAN, this field is not supported and will be ignored
+    /// One of IPv4 or IPv6 address.
+    /// For ENCAP_VXLAN, this field is not supported and will be ignored.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -5438,7 +5438,7 @@ namespace ServiceLayer {
     private global::ServiceLayer.SLInterface nexthopInterface_;
     /// <summary>
     /// Outgoing interface name for the path.
-    /// For ENCAP_VXLAN, this field is not supported and will be ignored
+    /// For ENCAP_VXLAN, this field is not supported and will be ignored.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -5473,8 +5473,9 @@ namespace ServiceLayer {
     public const int VrfNameFieldNumber = 4;
     private string vrfName_ = "";
     /// <summary>
-    /// Path VRF name. This field is used ONLY if the path is in a different
-    /// VRF than the route (e.g. VPN cases)
+    /// Path VRF name. This field is optional and if not specified, VRF of
+    /// the AF object containing this path is assumed. The client can set a
+    /// different VRF name for certain use cases such as VPN or VxLAN encapsulation.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -5609,7 +5610,7 @@ namespace ServiceLayer {
     public const int EncapTypeFieldNumber = 10;
     private global::ServiceLayer.SLEncapType encapType_ = global::ServiceLayer.SLEncapType.SlEncapReserved;
     /// <summary>
-    /// For VxLAN, Encapsulation type must be set to SL_ENCAP_VXLAN.
+    /// For VxLAN, Encapsulation type must be set to SL_ENCAP_VXLAN
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -5663,9 +5664,8 @@ namespace ServiceLayer {
     public const int FlagsFieldNumber = 13;
     private uint flags_;
     /// <summary>
-    /// Path Flags.
-    /// Each flag is indicated as a bit field. Supported values are:
-    /// 0x00000001 = SINGLE_PATH_OPT Enables hardware optimization for single path VxLAN tunnels
+    /// Path Flags. Each flag is indicated as a bit field. Supported values are:
+    /// - 0x00000001 = SINGLE_PATH_OPT Enables hardware optimization for single path VxLAN tunnels.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]

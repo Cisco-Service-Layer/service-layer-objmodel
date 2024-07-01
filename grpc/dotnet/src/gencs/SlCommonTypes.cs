@@ -24,9 +24,9 @@ namespace ServiceLayer {
     static SlCommonTypesReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChVzbF9jb21tb25fdHlwZXMucHJvdG8SDXNlcnZpY2VfbGF5ZXIisFUKDVNM",
+            "ChVzbF9jb21tb25fdHlwZXMucHJvdG8SDXNlcnZpY2VfbGF5ZXIi3VUKDVNM",
             "RXJyb3JTdGF0dXMSNAoGU3RhdHVzGAEgASgOMiQuc2VydmljZV9sYXllci5T",
-            "TEVycm9yU3RhdHVzLlNMRXJybm8i6FQKB1NMRXJybm8SDgoKU0xfU1VDQ0VT",
+            "TEVycm9yU3RhdHVzLlNMRXJybm8ilVUKB1NMRXJybm8SDgoKU0xfU1VDQ0VT",
             "UxAAEhQKEFNMX05PVF9DT05ORUNURUQQARINCglTTF9FQUdBSU4QAhINCglT",
             "TF9FTk9NRU0QAxIMCghTTF9FQlVTWRAEEg0KCVNMX0VJTlZBTBAFEhYKElNM",
             "X1VOU1VQUE9SVEVEX1ZFUhAGEhQKEFNMX05PVF9BVkFJTEFCTEUQBxIbChdT",
@@ -196,6 +196,7 @@ namespace ServiceLayer {
             "UlIQg8ADEh8KGVNMX0lOVEZfSU5URVJOQUxfREJfRVJST1IQhMADEhwKFlNM",
             "X0lOVEZfUkVDT1ZFUllfRVJST1IQhcADEh4KGFNMX0lOVEZfSU5URVJGQUNF",
             "X0VYSVNUUxCGwAMSIQobU0xfSU5URl9JTlRFUkZBQ0VfTk9UX0ZPVU5EEIfA",
+            "AxIrCiVTTF9JTlRGX0lOVEVSRkFDRV9TVEFURV9OT1RfU1VQUE9SVEVEEIjA",
             "AxIcChZTTF9MMl9SRUdfU1RBUlRfT0ZGU0VUEIDgAxIcChZTTF9MMl9SRUdJ",
             "U1RSQVRJT05fRVJSEIHgAxIeChhTTF9MMl9VTlJFR0lTVFJBVElPTl9FUlIQ",
             "guADEhMKDVNMX0wyX0VPRl9FUlIQg+ADEiYKIFNMX0wyX1JFR19JTlZBTElE",
@@ -1619,6 +1620,10 @@ namespace ServiceLayer {
         /// </summary>
         [pbr::OriginalName("SL_INTF_INTERFACE_NOT_FOUND")] SlIntfInterfaceNotFound = 57351,
         /// <summary>
+        /// Interface State not supported. 0xe008
+        /// </summary>
+        [pbr::OriginalName("SL_INTF_INTERFACE_STATE_NOT_SUPPORTED")] SlIntfInterfaceStateNotSupported = 57352,
+        /// <summary>
         /// Offset for Global L2 operation errors. 0xf000
         /// </summary>
         [pbr::OriginalName("SL_L2_REG_START_OFFSET")] SlL2RegStartOffset = 61440,
@@ -1682,7 +1687,7 @@ namespace ServiceLayer {
         /// </summary>
         [pbr::OriginalName("SL_L2_BD_UNREGISTRATION_ERR")] SlL2BdUnregistrationErr = 69634,
         /// <summary>
-        /// BD EOF Operation error. 0x11003;
+        /// BD EOF Operation error. 0x11003
         /// </summary>
         [pbr::OriginalName("SL_L2_BD_EOF_ERR")] SlL2BdEofErr = 69635,
         /// <summary>

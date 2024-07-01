@@ -7,7 +7,7 @@
 // @brief Server RPC proto file for IPv6.
 //
 // ----------------------------------------------------------------
-//  Copyright (c) 2016, 2023 by cisco Systems, Inc.
+//  Copyright (c) 2016, 2023, 2024 by cisco Systems, Inc.
 //  All rights reserved.
 // -----------------------------------------------------------------
 //
@@ -21,10 +21,11 @@ using grpc = global::Grpc.Core;
 namespace ServiceLayer {
   /// <summary>
   /// @defgroup SLRouteIPv6Oper
-  /// @ingroup Route
+  /// @ingroup AF
   /// Defines RPC calls for IPv6 route changes and VRF registration.
   /// This service declares both the Vrf Registration, as well as adding, deleting
   /// and getting IPv6 routes.
+  /// All IPv6 addresses are encoded in network byte order.
   /// @{
   /// </summary>
   public static partial class SLRoutev6Oper
@@ -284,8 +285,8 @@ namespace ServiceLayer {
       ///     attributes are replaced with values from the new message.
       ///
       /// SLRoutev6Msg.Oper = SL_OBJOP_DELETE:
-      ///     Route delete. The route's key is enough to delete the object;
-      ///     other attributes, if provided are ignored.
+      ///     Route delete. The route's key is enough to delete the object.
+      ///     Other attributes, if provided are ignored.
       ///     Delete of a non-existant route is returned as success.
       /// </summary>
       /// <param name="request">The request received from the client.</param>
@@ -321,8 +322,8 @@ namespace ServiceLayer {
       ///     attributes are replaced with values from the new message.
       ///
       /// SLRoutev6Msg.Oper = SL_OBJOP_DELETE:
-      ///     Route delete. The route's key is enough to delete the object;
-      ///     other attributes, if provided are ignored.
+      ///     Route delete. The route's key is enough to delete the object.
+      ///     Other attributes, if provided are ignored.
       ///     Delete of a non-existant route is returned as success.
       /// </summary>
       /// <param name="requestStream">Used for reading requests from the client.</param>
@@ -759,8 +760,8 @@ namespace ServiceLayer {
       ///     attributes are replaced with values from the new message.
       ///
       /// SLRoutev6Msg.Oper = SL_OBJOP_DELETE:
-      ///     Route delete. The route's key is enough to delete the object;
-      ///     other attributes, if provided are ignored.
+      ///     Route delete. The route's key is enough to delete the object.
+      ///     Other attributes, if provided are ignored.
       ///     Delete of a non-existant route is returned as success.
       /// </summary>
       /// <param name="request">The request to send to the server.</param>
@@ -785,8 +786,8 @@ namespace ServiceLayer {
       ///     attributes are replaced with values from the new message.
       ///
       /// SLRoutev6Msg.Oper = SL_OBJOP_DELETE:
-      ///     Route delete. The route's key is enough to delete the object;
-      ///     other attributes, if provided are ignored.
+      ///     Route delete. The route's key is enough to delete the object.
+      ///     Other attributes, if provided are ignored.
       ///     Delete of a non-existant route is returned as success.
       /// </summary>
       /// <param name="request">The request to send to the server.</param>
@@ -809,8 +810,8 @@ namespace ServiceLayer {
       ///     attributes are replaced with values from the new message.
       ///
       /// SLRoutev6Msg.Oper = SL_OBJOP_DELETE:
-      ///     Route delete. The route's key is enough to delete the object;
-      ///     other attributes, if provided are ignored.
+      ///     Route delete. The route's key is enough to delete the object.
+      ///     Other attributes, if provided are ignored.
       ///     Delete of a non-existant route is returned as success.
       /// </summary>
       /// <param name="request">The request to send to the server.</param>
@@ -835,8 +836,8 @@ namespace ServiceLayer {
       ///     attributes are replaced with values from the new message.
       ///
       /// SLRoutev6Msg.Oper = SL_OBJOP_DELETE:
-      ///     Route delete. The route's key is enough to delete the object;
-      ///     other attributes, if provided are ignored.
+      ///     Route delete. The route's key is enough to delete the object.
+      ///     Other attributes, if provided are ignored.
       ///     Delete of a non-existant route is returned as success.
       /// </summary>
       /// <param name="request">The request to send to the server.</param>
@@ -907,8 +908,8 @@ namespace ServiceLayer {
       ///     attributes are replaced with values from the new message.
       ///
       /// SLRoutev6Msg.Oper = SL_OBJOP_DELETE:
-      ///     Route delete. The route's key is enough to delete the object;
-      ///     other attributes, if provided are ignored.
+      ///     Route delete. The route's key is enough to delete the object.
+      ///     Other attributes, if provided are ignored.
       ///     Delete of a non-existant route is returned as success.
       /// </summary>
       /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
@@ -932,8 +933,8 @@ namespace ServiceLayer {
       ///     attributes are replaced with values from the new message.
       ///
       /// SLRoutev6Msg.Oper = SL_OBJOP_DELETE:
-      ///     Route delete. The route's key is enough to delete the object;
-      ///     other attributes, if provided are ignored.
+      ///     Route delete. The route's key is enough to delete the object.
+      ///     Other attributes, if provided are ignored.
       ///     Delete of a non-existant route is returned as success.
       /// </summary>
       /// <param name="options">The options for the call.</param>

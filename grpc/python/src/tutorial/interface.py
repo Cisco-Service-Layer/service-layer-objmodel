@@ -15,6 +15,8 @@ To terminate the program, issue a ^C in the running window.
 
 """
 
+# XXX Need to cleanup this file before commit
+
 import pdb
 import ipaddress
 import os

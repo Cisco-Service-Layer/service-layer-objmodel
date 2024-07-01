@@ -8,10 +8,11 @@ from . import sl_route_ipv6_pb2 as sl__route__ipv6__pb2
 
 class SLRoutev6OperStub(object):
     """@defgroup SLRouteIPv6Oper
-    @ingroup Route
+    @ingroup AF
     Defines RPC calls for IPv6 route changes and VRF registration.
     This service declares both the Vrf Registration, as well as adding, deleting
     and getting IPv6 routes.
+    All IPv6 addresses are encoded in network byte order.
     @{
     @addtogroup SLRouteIPv6Oper
     @{
@@ -78,10 +79,11 @@ class SLRoutev6OperStub(object):
 
 class SLRoutev6OperServicer(object):
     """@defgroup SLRouteIPv6Oper
-    @ingroup Route
+    @ingroup AF
     Defines RPC calls for IPv6 route changes and VRF registration.
     This service declares both the Vrf Registration, as well as adding, deleting
     and getting IPv6 routes.
+    All IPv6 addresses are encoded in network byte order.
     @{
     @addtogroup SLRouteIPv6Oper
     @{
@@ -174,8 +176,8 @@ class SLRoutev6OperServicer(object):
         attributes are replaced with values from the new message.
 
         SLRoutev6Msg.Oper = SL_OBJOP_DELETE:
-        Route delete. The route's key is enough to delete the object;
-        other attributes, if provided are ignored.
+        Route delete. The route's key is enough to delete the object.
+        Other attributes, if provided are ignored.
         Delete of a non-existant route is returned as success.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -205,8 +207,8 @@ class SLRoutev6OperServicer(object):
         attributes are replaced with values from the new message.
 
         SLRoutev6Msg.Oper = SL_OBJOP_DELETE:
-        Route delete. The route's key is enough to delete the object;
-        other attributes, if provided are ignored.
+        Route delete. The route's key is enough to delete the object.
+        Other attributes, if provided are ignored.
         Delete of a non-existant route is returned as success.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -305,10 +307,11 @@ def add_SLRoutev6OperServicer_to_server(servicer, server):
  # This class is part of an EXPERIMENTAL API.
 class SLRoutev6Oper(object):
     """@defgroup SLRouteIPv6Oper
-    @ingroup Route
+    @ingroup AF
     Defines RPC calls for IPv6 route changes and VRF registration.
     This service declares both the Vrf Registration, as well as adding, deleting
     and getting IPv6 routes.
+    All IPv6 addresses are encoded in network byte order.
     @{
     @addtogroup SLRouteIPv6Oper
     @{

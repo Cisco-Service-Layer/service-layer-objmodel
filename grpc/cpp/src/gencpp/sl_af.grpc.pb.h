@@ -11,14 +11,14 @@
 // change without notice and such changes can break backwards compatibility.
 //
 // ----------------------------------------------------------------
-//  Copyright (c) 2023 by Cisco Systems, Inc.
+//  Copyright (c) 2023, 2024 by Cisco Systems, Inc.
 //  All rights reserved.
 // -----------------------------------------------------------------
 //
 //
 //
 // @defgroup AF
-// @brief Address family service definitions.
+// @brief Service definitions for programming and notifications of AF objects.
 //
 #ifndef GRPC_sl_5faf_2eproto__INCLUDED
 #define GRPC_sl_5faf_2eproto__INCLUDED
@@ -47,17 +47,14 @@
 namespace service_layer {
 
 // @defgroup SLAF
-// @ingroup Common
-// SL-API messages for a address family.
-// Defines SL-API operations service.
-// @{
-// ;
+// @ingroup AF
+// Combined RPCs and messages for programming and notifications of AF objects.
 //
 // This API supports programming the device by multiple clients.
 //
 // If there are multiple clients intending to program the network
 // element using this API, the clients initiating a programming or get
-// RPC MUST pass a gRPC-context metadata identifying itself.
+// RPC MUST pass a gRPC-context metadata identifying themselves.
 // The client application MUST set the gRPC metadata key
 // named "iosxr-slapi-clientid" with a numeric string holding a
 // number between 0 and 65535.
@@ -83,8 +80,15 @@ namespace service_layer {
 // MUST remove all its programming from the server before it is disabled
 // or removed.
 //
+// Objects programmed by this RPC are stored in DBs that are key'ed
+// on Client ID, VRF name and object type. Clients must ensure
+// that only one programming RPC is operating on the DB. System
+// behavior is undefined if simultaneous programming RPC sessions
+// end up modifying the same DB.
+//
 // The route redistribution and notifications are scoped to the RPC
 // and as such do not require a client ID.
+// @{
 //
 class SLAF final {
  public:
@@ -179,8 +183,8 @@ class SLAF final {
     //     attributes are replaced with values from the new message.
     //
     // SLAFMsg.Oper = SL_OBJOP_DELETE:
-    //     Object delete. The object's key is enough to delete the object;
-    //     other attributes if present are ignored.
+    //     Object delete. The object's key is enough to delete the object.
+    //     Other attributes if present are ignored.
     //     Delete of a non-existant object is returned as success.
     virtual ::grpc::Status SLAFOp(::grpc::ClientContext* context, const ::service_layer::SLAFMsg& request, ::service_layer::SLAFMsgRsp* response) = 0;
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::service_layer::SLAFMsgRsp>> AsyncSLAFOp(::grpc::ClientContext* context, const ::service_layer::SLAFMsg& request, ::grpc::CompletionQueue* cq) {
@@ -223,6 +227,9 @@ class SLAF final {
     std::unique_ptr< ::grpc::ClientAsyncReaderInterface< ::service_layer::SLAFGetMsgRsp>> PrepareAsyncSLAFGet(::grpc::ClientContext* context, const ::service_layer::SLAFGetMsg& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncReaderInterface< ::service_layer::SLAFGetMsgRsp>>(PrepareAsyncSLAFGetRaw(context, request, cq));
     }
+    // The route redistribution and next hop tracking RPC.
+    //
+    //
     // The notification request registrations and corresponding
     // notifications are scoped to the RPC. On a RPC disconnection,
     // the client should re-establish the RPC and re-program
@@ -242,7 +249,6 @@ class SLAF final {
     // of the registration operation itself, followed by any redistributed
     // routes if requested and present, and any next hops if requested and present.
     // From then on, any updates are notified as long as RPC is up.
-    //
     std::unique_ptr< ::grpc::ClientReaderWriterInterface< ::service_layer::SLAFNotifReq, ::service_layer::SLAFNotifMsg>> SLAFNotifStream(::grpc::ClientContext* context) {
       return std::unique_ptr< ::grpc::ClientReaderWriterInterface< ::service_layer::SLAFNotifReq, ::service_layer::SLAFNotifMsg>>(SLAFNotifStreamRaw(context));
     }
@@ -327,8 +333,8 @@ class SLAF final {
       //     attributes are replaced with values from the new message.
       //
       // SLAFMsg.Oper = SL_OBJOP_DELETE:
-      //     Object delete. The object's key is enough to delete the object;
-      //     other attributes if present are ignored.
+      //     Object delete. The object's key is enough to delete the object.
+      //     Other attributes if present are ignored.
       //     Delete of a non-existant object is returned as success.
       virtual void SLAFOp(::grpc::ClientContext* context, const ::service_layer::SLAFMsg* request, ::service_layer::SLAFMsgRsp* response, std::function<void(::grpc::Status)>) = 0;
       virtual void SLAFOp(::grpc::ClientContext* context, const ::service_layer::SLAFMsg* request, ::service_layer::SLAFMsgRsp* response, ::grpc::ClientUnaryReactor* reactor) = 0;
@@ -350,6 +356,9 @@ class SLAF final {
       virtual void SLAFOpStream(::grpc::ClientContext* context, ::grpc::ClientBidiReactor< ::service_layer::SLAFMsg,::service_layer::SLAFMsgRsp>* reactor) = 0;
       // Retrieves object attributes.
       virtual void SLAFGet(::grpc::ClientContext* context, const ::service_layer::SLAFGetMsg* request, ::grpc::ClientReadReactor< ::service_layer::SLAFGetMsgRsp>* reactor) = 0;
+      // The route redistribution and next hop tracking RPC.
+      //
+      //
       // The notification request registrations and corresponding
       // notifications are scoped to the RPC. On a RPC disconnection,
       // the client should re-establish the RPC and re-program
@@ -369,7 +378,6 @@ class SLAF final {
       // of the registration operation itself, followed by any redistributed
       // routes if requested and present, and any next hops if requested and present.
       // From then on, any updates are notified as long as RPC is up.
-      //
       virtual void SLAFNotifStream(::grpc::ClientContext* context, ::grpc::ClientBidiReactor< ::service_layer::SLAFNotifReq,::service_layer::SLAFNotifMsg>* reactor) = 0;
     };
     typedef class async_interface experimental_async_interface;
@@ -568,8 +576,8 @@ class SLAF final {
     //     attributes are replaced with values from the new message.
     //
     // SLAFMsg.Oper = SL_OBJOP_DELETE:
-    //     Object delete. The object's key is enough to delete the object;
-    //     other attributes if present are ignored.
+    //     Object delete. The object's key is enough to delete the object.
+    //     Other attributes if present are ignored.
     //     Delete of a non-existant object is returned as success.
     virtual ::grpc::Status SLAFOp(::grpc::ServerContext* context, const ::service_layer::SLAFMsg* request, ::service_layer::SLAFMsgRsp* response);
     //
@@ -590,6 +598,9 @@ class SLAF final {
     virtual ::grpc::Status SLAFOpStream(::grpc::ServerContext* context, ::grpc::ServerReaderWriter< ::service_layer::SLAFMsgRsp, ::service_layer::SLAFMsg>* stream);
     // Retrieves object attributes.
     virtual ::grpc::Status SLAFGet(::grpc::ServerContext* context, const ::service_layer::SLAFGetMsg* request, ::grpc::ServerWriter< ::service_layer::SLAFGetMsgRsp>* writer);
+    // The route redistribution and next hop tracking RPC.
+    //
+    //
     // The notification request registrations and corresponding
     // notifications are scoped to the RPC. On a RPC disconnection,
     // the client should re-establish the RPC and re-program
@@ -609,7 +620,6 @@ class SLAF final {
     // of the registration operation itself, followed by any redistributed
     // routes if requested and present, and any next hops if requested and present.
     // From then on, any updates are notified as long as RPC is up.
-    //
     virtual ::grpc::Status SLAFNotifStream(::grpc::ServerContext* context, ::grpc::ServerReaderWriter< ::service_layer::SLAFNotifMsg, ::service_layer::SLAFNotifReq>* stream);
   };
   template <class BaseClass>

@@ -12,14 +12,14 @@
 // change without notice and such changes can break backwards compatibility.
 //
 // ----------------------------------------------------------------
-//  Copyright (c) 2023 by Cisco Systems, Inc.
+//  Copyright (c) 2023, 2024 by Cisco Systems, Inc.
 //  All rights reserved.
 // -----------------------------------------------------------------
 //
 //
 //
 // @defgroup AF
-// @brief Address family service definitions.
+// @brief Service definitions for programming and notifications of AF objects.
 //
 #pragma warning disable 0414, 1591
 #region Designer generated code
@@ -214,6 +214,9 @@ namespace ServiceLayer {
       }
 
       /// <summary>
+      ///
+      /// Route, MPLS label and Path operations.
+      ///
       /// SLAFMsg.Oper = SL_OBJOP_ADD:
       ///     Object add. Fails if the object already exists and is not stale.
       ///     First ADD operation on a stale object is treated as implicit update
@@ -225,8 +228,8 @@ namespace ServiceLayer {
       ///     attributes are replaced with values from the new message.
       ///
       /// SLAFMsg.Oper = SL_OBJOP_DELETE:
-      ///     Object delete. The object's key is enough to delete the object;
-      ///     other attributes if present are ignored.
+      ///     Object delete. The object's key is enough to delete the object.
+      ///     Other attributes if present are ignored.
       ///     Delete of a non-existant object is returned as success.
       /// </summary>
       /// <param name="request">The request received from the client.</param>
@@ -239,6 +242,9 @@ namespace ServiceLayer {
       }
 
       /// <summary>
+      ///
+      /// Stream object operations
+      ///
       /// SLAFMsg.Oper = SL_OBJOP_ADD:
       ///     Object add. Fails if the objects already exists and is not stale.
       ///     First ADD operation on a stale object is allowed and the object
@@ -274,6 +280,33 @@ namespace ServiceLayer {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
 
+      /// <summary>
+      /// The route redistribution and next hop tracking RPC.
+      ///
+      /// The notification request registrations and corresponding
+      /// notifications are scoped to the RPC. On a RPC disconnection,
+      /// the client should re-establish the RPC and re-program
+      /// the notification requests.
+      /// The caller MUST keep the RPC up as long as there is
+      /// interest in the notifications.
+      ///
+      /// For route redistribution, this call is used to get a stream
+      /// of route notifications. It can be used to get "push"
+      /// notifications for route adds/updates/deletes.
+      ///
+      /// For next hop change notifications, this call can be used to get
+      /// "push" notifications for nexthop adds/updates/deletes.
+      ///
+      /// The call takes a stream of per-VRF table notification requests.
+      /// Each notification request is first responded to with the result
+      /// of the registration operation itself, followed by any redistributed
+      /// routes if requested and present, and any next hops if requested and present.
+      /// From then on, any updates are notified as long as RPC is up.
+      /// </summary>
+      /// <param name="requestStream">Used for reading requests from the client.</param>
+      /// <param name="responseStream">Used for sending responses back to the client.</param>
+      /// <param name="context">The context of the server-side call handler being invoked.</param>
+      /// <returns>A task indicating completion of the handler.</returns>
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       public virtual global::System.Threading.Tasks.Task SLAFNotifStream(grpc::IAsyncStreamReader<global::ServiceLayer.SLAFNotifReq> requestStream, grpc::IServerStreamWriter<global::ServiceLayer.SLAFNotifMsg> responseStream, grpc::ServerCallContext context)
       {
@@ -542,6 +575,9 @@ namespace ServiceLayer {
         return CallInvoker.AsyncServerStreamingCall(__Method_SLAFVrfRegGet, null, options, request);
       }
       /// <summary>
+      ///
+      /// Route, MPLS label and Path operations.
+      ///
       /// SLAFMsg.Oper = SL_OBJOP_ADD:
       ///     Object add. Fails if the object already exists and is not stale.
       ///     First ADD operation on a stale object is treated as implicit update
@@ -553,8 +589,8 @@ namespace ServiceLayer {
       ///     attributes are replaced with values from the new message.
       ///
       /// SLAFMsg.Oper = SL_OBJOP_DELETE:
-      ///     Object delete. The object's key is enough to delete the object;
-      ///     other attributes if present are ignored.
+      ///     Object delete. The object's key is enough to delete the object.
+      ///     Other attributes if present are ignored.
       ///     Delete of a non-existant object is returned as success.
       /// </summary>
       /// <param name="request">The request to send to the server.</param>
@@ -568,6 +604,9 @@ namespace ServiceLayer {
         return SLAFOp(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
       /// <summary>
+      ///
+      /// Route, MPLS label and Path operations.
+      ///
       /// SLAFMsg.Oper = SL_OBJOP_ADD:
       ///     Object add. Fails if the object already exists and is not stale.
       ///     First ADD operation on a stale object is treated as implicit update
@@ -579,8 +618,8 @@ namespace ServiceLayer {
       ///     attributes are replaced with values from the new message.
       ///
       /// SLAFMsg.Oper = SL_OBJOP_DELETE:
-      ///     Object delete. The object's key is enough to delete the object;
-      ///     other attributes if present are ignored.
+      ///     Object delete. The object's key is enough to delete the object.
+      ///     Other attributes if present are ignored.
       ///     Delete of a non-existant object is returned as success.
       /// </summary>
       /// <param name="request">The request to send to the server.</param>
@@ -592,6 +631,9 @@ namespace ServiceLayer {
         return CallInvoker.BlockingUnaryCall(__Method_SLAFOp, null, options, request);
       }
       /// <summary>
+      ///
+      /// Route, MPLS label and Path operations.
+      ///
       /// SLAFMsg.Oper = SL_OBJOP_ADD:
       ///     Object add. Fails if the object already exists and is not stale.
       ///     First ADD operation on a stale object is treated as implicit update
@@ -603,8 +645,8 @@ namespace ServiceLayer {
       ///     attributes are replaced with values from the new message.
       ///
       /// SLAFMsg.Oper = SL_OBJOP_DELETE:
-      ///     Object delete. The object's key is enough to delete the object;
-      ///     other attributes if present are ignored.
+      ///     Object delete. The object's key is enough to delete the object.
+      ///     Other attributes if present are ignored.
       ///     Delete of a non-existant object is returned as success.
       /// </summary>
       /// <param name="request">The request to send to the server.</param>
@@ -618,6 +660,9 @@ namespace ServiceLayer {
         return SLAFOpAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
       /// <summary>
+      ///
+      /// Route, MPLS label and Path operations.
+      ///
       /// SLAFMsg.Oper = SL_OBJOP_ADD:
       ///     Object add. Fails if the object already exists and is not stale.
       ///     First ADD operation on a stale object is treated as implicit update
@@ -629,8 +674,8 @@ namespace ServiceLayer {
       ///     attributes are replaced with values from the new message.
       ///
       /// SLAFMsg.Oper = SL_OBJOP_DELETE:
-      ///     Object delete. The object's key is enough to delete the object;
-      ///     other attributes if present are ignored.
+      ///     Object delete. The object's key is enough to delete the object.
+      ///     Other attributes if present are ignored.
       ///     Delete of a non-existant object is returned as success.
       /// </summary>
       /// <param name="request">The request to send to the server.</param>
@@ -642,6 +687,9 @@ namespace ServiceLayer {
         return CallInvoker.AsyncUnaryCall(__Method_SLAFOp, null, options, request);
       }
       /// <summary>
+      ///
+      /// Stream object operations
+      ///
       /// SLAFMsg.Oper = SL_OBJOP_ADD:
       ///     Object add. Fails if the objects already exists and is not stale.
       ///     First ADD operation on a stale object is allowed and the object
@@ -664,6 +712,9 @@ namespace ServiceLayer {
         return SLAFOpStream(new grpc::CallOptions(headers, deadline, cancellationToken));
       }
       /// <summary>
+      ///
+      /// Stream object operations
+      ///
       /// SLAFMsg.Oper = SL_OBJOP_ADD:
       ///     Object add. Fails if the objects already exists and is not stale.
       ///     First ADD operation on a stale object is allowed and the object
@@ -707,11 +758,63 @@ namespace ServiceLayer {
       {
         return CallInvoker.AsyncServerStreamingCall(__Method_SLAFGet, null, options, request);
       }
+      /// <summary>
+      /// The route redistribution and next hop tracking RPC.
+      ///
+      /// The notification request registrations and corresponding
+      /// notifications are scoped to the RPC. On a RPC disconnection,
+      /// the client should re-establish the RPC and re-program
+      /// the notification requests.
+      /// The caller MUST keep the RPC up as long as there is
+      /// interest in the notifications.
+      ///
+      /// For route redistribution, this call is used to get a stream
+      /// of route notifications. It can be used to get "push"
+      /// notifications for route adds/updates/deletes.
+      ///
+      /// For next hop change notifications, this call can be used to get
+      /// "push" notifications for nexthop adds/updates/deletes.
+      ///
+      /// The call takes a stream of per-VRF table notification requests.
+      /// Each notification request is first responded to with the result
+      /// of the registration operation itself, followed by any redistributed
+      /// routes if requested and present, and any next hops if requested and present.
+      /// From then on, any updates are notified as long as RPC is up.
+      /// </summary>
+      /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
+      /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
+      /// <param name="cancellationToken">An optional token for canceling the call.</param>
+      /// <returns>The call object.</returns>
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       public virtual grpc::AsyncDuplexStreamingCall<global::ServiceLayer.SLAFNotifReq, global::ServiceLayer.SLAFNotifMsg> SLAFNotifStream(grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return SLAFNotifStream(new grpc::CallOptions(headers, deadline, cancellationToken));
       }
+      /// <summary>
+      /// The route redistribution and next hop tracking RPC.
+      ///
+      /// The notification request registrations and corresponding
+      /// notifications are scoped to the RPC. On a RPC disconnection,
+      /// the client should re-establish the RPC and re-program
+      /// the notification requests.
+      /// The caller MUST keep the RPC up as long as there is
+      /// interest in the notifications.
+      ///
+      /// For route redistribution, this call is used to get a stream
+      /// of route notifications. It can be used to get "push"
+      /// notifications for route adds/updates/deletes.
+      ///
+      /// For next hop change notifications, this call can be used to get
+      /// "push" notifications for nexthop adds/updates/deletes.
+      ///
+      /// The call takes a stream of per-VRF table notification requests.
+      /// Each notification request is first responded to with the result
+      /// of the registration operation itself, followed by any redistributed
+      /// routes if requested and present, and any next hops if requested and present.
+      /// From then on, any updates are notified as long as RPC is up.
+      /// </summary>
+      /// <param name="options">The options for the call.</param>
+      /// <returns>The call object.</returns>
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       public virtual grpc::AsyncDuplexStreamingCall<global::ServiceLayer.SLAFNotifReq, global::ServiceLayer.SLAFNotifMsg> SLAFNotifStream(grpc::CallOptions options)
       {

@@ -22,46 +22,8 @@ service SLInterfaceOper {
     //@addtogroup Interfaces
     //@{
     //;
-    // Interface Registration Operations. This service can be used to
-    // receive interface state change notifications.
+    // This service can be used to receive interface state change notifications.
     //
-
-    // SLInterfaceGlobalsRegMsg.Oper = SL_REGOP_REGISTER:
-    //     Global Interface registration.
-    //     A client Must Register BEFORE interfaces can be modified/queried.
-    //
-    // SLInterfaceGlobalsRegMsg.Oper = SL_REGOP_UNREGISTER:
-    //     Global Interface un-registration.
-    //     This call is used to end all interface notifications.
-    //     This call cleans up all interface notifications previously requested.
-    //
-    // SLInterfaceGlobalsRegMsg.Oper = SL_REGOP_EOF:
-    //     Interface End Of File.
-    //     After Registration, the client is expected to send an EOF
-    //     message to convey the end of replay of the client's known objects.
-    //     This is especially useful under certain restart scenarios when the
-    //     client and the server are trying to synchronize their interfaces.
-    //
-    // The SLInterfaceGlobalsRegMsg operations can be used by the client to synchronize
-    // interface registrations with the server. When the client re-registers with the
-    // server using SL_REGOP_REGISTER, server marks all interface registrations as stale.
-    // Client can then reprogram interface registrations. When the client sends
-    // SL_REGOP_EOF, any interface registrations not reprogrammed by the client are
-    // removed from the device.
-    //
-    // The client must perform all operations (SLInterfaceGlobalsRegMsg,
-    // interface registration operations) from a single execution context.
-    rpc SLInterfaceGlobalsRegOp(SLInterfaceGlobalsRegMsg) returns (SLInterfaceGlobalsRegMsgRsp);
-
-    // Used to retrieve global Interface info from the server.
-    rpc SLInterfaceGlobalsGet(SLInterfaceGlobalsGetMsg) returns (SLInterfaceGlobalsGetMsgRsp);
-
-    // Used to retrieve global Interface stats from the server.
-    rpc SLInterfaceGlobalsGetStats(SLInterfaceGlobalsGetMsg) returns (SLInterfaceGlobalsGetStatsMsgRsp);
-
-    // Retrieve interface attributes and state.
-    // This call can be used to "poll" the current state of interfaces.
-    rpc SLInterfaceGet(SLInterfaceGetMsg) returns (SLInterfaceGetMsgRsp);
 
     // This call is used to get a stream of interface notifications.
     // The caller must maintain the GRPC channel as long as
@@ -69,152 +31,82 @@ service SLInterfaceOper {
     // This call can be used to get "push" notifications for interface info.
     // It is advised that the caller register for notifications before any
     // interfaces are used to avoid any loss of notifications.
-    rpc SLInterfaceGetNotifStream(SLInterfaceGetNotifMsg) returns (stream SLInterfaceNotif);
-
-    // Used to enable/disable event notifications for a certain interface.
-    // By default, all interface events are disabled. The user must enable
-    // notifications for the interested interfaces.
-    rpc SLInterfaceNotifOp(SLInterfaceNotifMsg) returns (SLInterfaceNotifMsgRsp);
+    rpc SLInterfaceNotifStream(stream SLInterfaceNotifMsg) returns (stream SLInterfaceNotif);
 
     //@}
 }
 
-// Global Interface Registration Message.
-// This message is used for interface global registration.
-// Clients must register before using any interface service.
-message SLInterfaceGlobalsRegMsg {
-    // Registration Operation.
-    SLRegOp Oper = 1;
-}
-
-// interface registration response message.
-// This message is used to convey the result of the interface registration.
-message SLInterfaceGlobalsRegMsgRsp {
-    // Error code.
-    SLErrorStatus ErrStatus = 1;
-}
-
-// Global Interface Get message.
-// This message is used to query interface global capabilities.
-message SLInterfaceGlobalsGetMsg {
-
-}
-
-// Global interface Get response message.
-// This message is used to convey the response to the global capabilities query.
-message SLInterfaceGlobalsGetMsgRsp {
-    // Error code
-    SLErrorStatus ErrStatus = 1;
-
-    // Max interface objects within a single batch.
-    uint32 MaxInterfacesPerBatch = 2;
-}
-
-// Global Interface Get stats message.
-// This message is used to convey the response to the interface statistics 
-// query.
-message SLInterfaceGlobalsGetStatsMsgRsp {
-    // Error code
-    SLErrorStatus ErrStatus = 1;
-
-    // Global Interface event sequence number.
-    // The sequence number is equivalent to a timestamp
-    uint64 SeqNum = 2;
-
-    // Num Interface notification requests added through the service layer.
-    uint32 InterfaceNotifCount = 3;
-}
-
-// Interface Get message
-message SLInterfaceGetMsg {
-    // Interface key attributes.
-    // If the Key is not specified, then request up to the first 
-    // 'EntriesCount' entries.
-    SLInterface Key = 1;
-
-    // Number of entries requested
-    uint32 EntriesCount = 2;
-
-    // if GetNext is FALSE:
-    //     request up to 'EntriesCount' entries starting from the key
-    // If GetNext is TRUE, or if the key exact match is not found:
-    //     request up to 'EntriesCount' entries starting from the key's next
-    bool GetNext = 3;
-}
-
 // The current state of the interface.
 enum SLInterfaceState {
-    // State unknown.
+    // State unknown
     SL_IF_STATE_UNKNOWN = 0;
 
-    // State Operationally down.
-    SL_IF_STATE_DOWN = 1;
+    // Interface created
+    SL_IF_STATE_CREATED = 1;
 
-    // State Operationally up.
-    SL_IF_STATE_UP = 2;
+    // Link state operationally down
+    SL_IF_STATE_DOWN = 2;
+
+    // Link state operationally up
+    SL_IF_STATE_UP = 3;
+
+    // Interface deleted
+    SL_IF_STATE_DELETED = 4;
+
+    // Bandwidth changed
+    SL_IF_STATE_BW_CHANGED = 5;
+
+    // L2 state operationally up
+    SL_IF_STATE_L2_UP = 6;
+
+    // L2 state operationally down
+    SL_IF_STATE_L2_DOWN = 7;
+}
+
+message SLInterfaceInfoMsgBw {
+    // The New Bandwidth.
+    uint64 NewBandwidth = 1;
+
+    // The Old Bandwidth prior to the update.
+    uint64 OldBandwidth = 2;
 }
 
 // Interface Get Message result.
 message SLInterfaceInfoMsg {
-    // Interface info
+    // Interface info.
     SLInterface SLIfInfo = 1;
 
-    // Interface state
+    // Interface state.
     SLInterfaceState IfState = 2;
 
-    // Global Interface event sequence number.
-    // The sequence number is equivalent to a timestamp
-    uint64 SeqNum = 3;
-}
+    // Timestamp in microseconds since Epoch
+    // January 1st, 1970 00:00:00 GMT, a.k.a. unix epoch.
+    int64 Timestamp = 3;
 
-// Interface Get Message Response.
-message SLInterfaceGetMsgRsp {
-    // End Of File.
-    // When set to True, it indicates that the server has returned M, where 
-    // M < N, of the original N requested Entries.
-    bool Eof = 1;
-
-    // Status of the Get operation
-    SLErrorStatus ErrStatus = 2;
-
-    // Returned entries as requested in the Get operation.
-    // if ErrStatus is SL_SUCCESS, Entries contains the info requested
-    repeated SLInterfaceInfoMsg Entries = 3;
-}
-
-// Interface Get Notification message.
-message SLInterfaceGetNotifMsg {
-
-}
-
-// Interface Event Notification types
-enum SLInterfaceNotifType {
-    // Reserved. 0x0
-    SL_INTERFACE_EVENT_TYPE_RESERVED = 0x0;
-
-    // Error - ErrStatus field elaborates on the error. 0x1
-    SL_INTERFACE_EVENT_TYPE_ERROR = 0x1;
-
-    // Interface attributes and state event. 0x2
-    SL_INTERFACE_EVENT_TYPE_INTERFACE_INFO = 0x2;
-}
-
-// Interface Notification Event.
-message SLInterfaceNotif {
-    // Interface Event Notification type
-    SLInterfaceNotifType EventType = 1;
-
-    // Further info based on EventType
-    oneof Event {
-        // case EventType == SL_INTERFACE_EVENT_TYPE_ERROR:
-        //    => This field carries error info, if any error occurs during 
-        //       notification subscription.
-        SLErrorStatus ErrStatus = 2;
-
-        // case EventType == SL_INTERFACE_EVENT_TYPE_INTERFACE_INFO:
-        //     => this field carries the session state info
-        SLInterfaceInfoMsg Info = 3;
+    oneof Value {
+        // case IfState SL_IF_STATE_BW_CHANGED is set:
+        SLInterfaceInfoMsgBw BwInfo = 10;
     }
+}
+
+
+// Interface Notification Entry.
+message SLInterfaceNotifMsgEntry {
+    // OperationId. This can be used to correlate replies with requests.
+    // The Server simply reflects this field back in the reply.
+    // See SLInterfaceNotifMsgRes.
+    uint64 OperationId = 1;
+
+    // If true, the Name in the Interface field is a regex.
+    // Else, the Name field is an exact match.
+    bool Regex = 2;
+
+    // Interface key attributes.
+    // Only SLInterface.Name is supported. The Name can be a regular expression.
+    SLInterface Interface = 3;
+
+    // Interface states that this notification entry is interested in.
+    repeated SLInterfaceState States = 4;
 }
 
 // Interface Notification message.
@@ -222,35 +114,40 @@ message SLInterfaceNotifMsg {
     // Notification Operation.
     SLNotifOp Oper = 1;
 
-    // Interface key attributes.
-    repeated SLInterface Entries = 2;
+    // Notification Entries.
+    repeated SLInterfaceNotifMsgEntry Entries = 2;
 }
 
 // Interface Notification message result.
 message SLInterfaceNotifMsgRes {
-    // Corresponding error code
-    SLErrorStatus ErrStatus = 1;
+    // OperationId. This can be used to correlate replies with requests.
+    // The Server simply reflects this field back in the reply.
+    // See SLInterfaceNotifMsgEntry.
+    uint64 OperationId = 1;
+
+    // Corresponding error code.
+    SLErrorStatus ErrStatus = 2;
 
     // Interface key attributes.
-    SLInterface Key = 2;
+    SLInterface Key = 3;
 }
 
-// Interface Notification message response.
-message SLInterfaceNotifMsgRsp {
-    // Summary result of the bulk operation (refer to enum SLErrorStatus)
-    // In general, the StatusSummary implies one of 3 things:
-    // 1. SL_SUCCESS: signifies that the entire bulk operation was successful.
-    //         In this case, the Results list is empty.
-    // 2. SL_SOME_ERR: signifies that the operation failed for one or more
-    //         entries. In this case, Results holds the result for
-    //         each individual entry in the bulk.
-    // 3. SL_RPC_XXX: signifies that the entire bulk operation failed.
-    //         In this case, the Results list is empty.
-    SLErrorStatus StatusSummary = 1;
+// Interface Notification message error.
+message SLInterfaceNotifMsgErr {
+    // Interface key attributes.
+    repeated SLInterfaceNotifMsgRes Details = 1;
+}
 
-    // In case of errors, this field indicates which entry in the bulk was
-    // erroneous.
-    repeated SLInterfaceNotifMsgRes Results = 2;
+// Interface Notification Event.
+message SLInterfaceNotif {
+    oneof Event {
+        // This field carries error info, if any error occurs during
+        // notification subscription.
+        SLInterfaceNotifMsgErr Error = 1;
+
+        // This field carries the notification info.
+        SLInterfaceInfoMsg Info = 2;
+    }
 }
 
 //@}
