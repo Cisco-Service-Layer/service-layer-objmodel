@@ -396,7 +396,7 @@ void run_slaf(SLAFVrf* af_vrf_handler, service_layer::SLTableType addr_family, s
             break;
         case service_layer::SL_PATH_GROUP_TABLE:
             LOG(INFO) << "Performing " << vrf_oper_str << " VRF for SL_PATH_GROUP_TABLE" ;
-            af_vrf_handler->afVrfRegMsgAdd("default", 88, 500, service_layer::SL_PATH_GROUP_TABLE);
+            af_vrf_handler->afVrfRegMsgAdd("default", 10, 500, service_layer::SL_PATH_GROUP_TABLE);
             af_vrf_handler->registerAfVrf(service_layer::SL_PATH_GROUP_TABLE, vrf_reg_oper);
             break;
     }
