@@ -115,6 +115,9 @@ signalHandlerSlaf(int signum)
     } else if(table_type == service_layer::SL_MPLS_LABEL_TABLE){
         afvrfhandler_signum->afVrfRegMsgAdd("default",service_layer::SL_MPLS_LABEL_TABLE);
         afvrfhandler_signum->registerAfVrf(service_layer::SL_MPLS_LABEL_TABLE, service_layer::SL_REGOP_UNREGISTER);
+    } else if(table_type == service_layer::SL_PATH_GROUP_TABLE){
+        afvrfhandler_signum->afVrfRegMsgAdd("default",service_layer::SL_PATH_GROUP_TABLE);
+        afvrfhandler_signum->registerAfVrf(service_layer::SL_PATH_GROUP_TABLE, service_layer::SL_REGOP_UNREGISTER);
     }
 
     delete slaf_rshuttle_signum;
@@ -156,8 +159,7 @@ void printDbErrors(testingData env_data, service_layer::SLTableType addr_family)
                 }
             }
         }
-    }
-    else if (addr_family == service_layer::SL_MPLS_LABEL_TABLE) {
+    } else if (addr_family == service_layer::SL_MPLS_LABEL_TABLE) {
         for (auto mpls_index = database.db_mpls.begin(); mpls_index != database.db_mpls.end(); mpls_index++) {
             if (mpls_index->second.second.fib_req == true) {
                 if (mpls_index->second.second.fib_success == false || mpls_index->second.second.rib_success == false) {
@@ -166,6 +168,18 @@ void printDbErrors(testingData env_data, service_layer::SLTableType addr_family)
             } else {
                 if (mpls_index->second.second.rib_success == false) {
                     LOG(ERROR) << mpls_index->second.second.error;
+                }
+            }
+        }
+    } else if (addr_family == service_layer::SL_PATH_GROUP_TABLE) {
+        for (auto pg_index = database.db_pg.begin(); pg_index != database.db_pg.end(); pg_index++) {
+            if (pg_index->second.second.fib_req == true) {
+                if (pg_index->second.second.fib_success == false || pg_index->second.second.rib_success == false) {
+                    LOG(ERROR) << pg_index->second.second.error;
+                }
+            } else {
+                if (pg_index->second.second.rib_success == false) {
+                    LOG(ERROR) << pg_index->second.second.error;
                 }
             }
         }
@@ -285,6 +299,59 @@ void routepush_slaf(SLAFRShuttle* slaf_route_shuttle,
         } else {
             totalroutes = slaf_route_shuttle->pushFromDB(false,env_data.route_oper,addr_family);
         }
+    } else if (addr_family == service_layer::SL_PATH_GROUP_TABLE) {
+
+        if (env_data.num_operations > env_data.max_paths) {
+            LOG(ERROR) << "FOR PG, MAX operations has to be <= " << env_data.max_paths;
+            return;
+        }
+        if (env_data.pg_name == "") {
+            LOG(ERROR) << "Path Group required name_id";
+            return;
+        }
+
+        LOG(INFO) << "Starting PATH_GROUP";
+        if (env_data.create_path_group_for == service_layer::SL_IPv4_ROUTE_TABLE || env_data.create_path_group_for == service_layer::SL_MPLS_LABEL_TABLE) {
+            // Add ipv4 paths and mpls label if needed
+            uint32_t prefix;
+            // For mpls we use the first_mpls_path_nhip (next hop ip address for mpls)
+            if (env_data.create_path_group_for == service_layer::SL_MPLS_LABEL_TABLE) {
+                prefix = slaf_route_shuttle->ipv4ToLong(env_data.first_mpls_path_nhip.c_str());
+                env_data.next_hop_interface_ipv4 = env_data.next_hop_interface_mpls;
+            } else {
+                prefix = slaf_route_shuttle->ipv4ToLong(env_data.next_hop_ip_ipv4.c_str());
+            }
+            database.ipv4_start_index = prefix;
+            // Push all routes these onto the db based off their prefix
+            for(int i = 1; i <= env_data.num_operations; i++, prefix=incrementIpv4Pfx(prefix,32)){
+                if (i == env_data.num_operations) {
+                    database.ipv4_last_index = prefix;
+                }
+            }
+            database.db_count++;
+        } else if (env_data.create_path_group_for == service_layer::SL_IPv6_ROUTE_TABLE) {
+            // Add ipv6 paths
+            std::string prefix_str = env_data.next_hop_ip_ipv6;
+            auto prefix = slaf_route_shuttle->ipv6ToByteArrayString(prefix_str.c_str());
+            // Push all routes these onto the db based off their prefix
+            database.ipv6_start_index = prefix;
+            for(int i = 1; i <= env_data.num_operations; i++, prefix=slaf_route_shuttle->incrementIpv6Pfx(prefix,128)){
+                if (i == env_data.num_operations) {
+                    database.ipv6_last_index = prefix;
+                }
+            }
+            database.db_count++;
+        }
+        statusObject dummy;
+        std::pair<testingData, statusObject> temp = std::make_pair(env_data, dummy);
+        database.db_pg[env_data.pg_name] = temp;
+        database.pg_name = env_data.pg_name;
+
+         if (env_data.stream_case == true) {
+            totalroutes = slaf_route_shuttle->routeSLAFOpStream(addr_family, env_data.route_oper,env_data.create_path_group_for);
+        } else {
+            totalroutes = slaf_route_shuttle->pushFromDB(false,env_data.route_oper,addr_family,env_data.create_path_group_for);
+        }
     }
 
     auto time_taken = tmr.elapsed();
@@ -327,6 +394,11 @@ void run_slaf(SLAFVrf* af_vrf_handler, service_layer::SLTableType addr_family, s
             af_vrf_handler->afVrfRegMsgAdd("default", 10, 500, service_layer::SL_MPLS_LABEL_TABLE);
             af_vrf_handler->registerAfVrf(service_layer::SL_MPLS_LABEL_TABLE, vrf_reg_oper);
             break;
+        case service_layer::SL_PATH_GROUP_TABLE:
+            LOG(INFO) << "Performing " << vrf_oper_str << " VRF for SL_PATH_GROUP_TABLE" ;
+            af_vrf_handler->afVrfRegMsgAdd("default", 10, 500, service_layer::SL_PATH_GROUP_TABLE);
+            af_vrf_handler->registerAfVrf(service_layer::SL_PATH_GROUP_TABLE, vrf_reg_oper);
+            break;
     }
     LOG(INFO) << vrf_oper_str << " VRF Successful";
 
@@ -347,7 +419,7 @@ void try_route_push_slaf(std::shared_ptr<grpc::Channel> channel,
             route_shuttle_object_created = false;
             // get the globals data info to record the batch size we need. 
             sl_global_shuttle = new SLGLOBALSHUTTLE(channel, username, password);
-            sl_global_shuttle->getGlobals(env_data.batch_size);
+            sl_global_shuttle->getGlobals(env_data.batch_size, env_data.max_paths);
 
             auto af_vrf_handler = SLAFVrf(channel,username,password);
             // Need to specify ipv4 (default), ipv6 or mpls
@@ -417,7 +489,7 @@ void try_route_push(std::shared_ptr<grpc::Channel> channel,
             route_shuttle_object_created = false;
             // get the globals data info to record the batch size we need. 
             sl_global_shuttle = new SLGLOBALSHUTTLE(channel, username, password);
-            sl_global_shuttle->getGlobals(env_data.batch_size);
+            sl_global_shuttle->getGlobals(env_data.batch_size, env_data.max_paths);
 
             auto vrfhandler = SLVrf(channel, username, password);
             // Create a new SLVrfRegMsg batch
@@ -497,6 +569,7 @@ int main(int argc, char** argv) {
     }
 
     testingData env_data;
+    LOG(INFO) << env_data.num_operations;
 
     const struct option longopts[] = {
         {"table_type", required_argument, nullptr, 't'},
@@ -517,6 +590,8 @@ int main(int argc, char** argv) {
         {"next_hop_interface_mpls", required_argument, nullptr, 'n'},
         {"start_label", required_argument, nullptr, 'o'},
         {"num_paths", required_argument, nullptr, 'q'},
+        {"create_path_group_for", required_argument, nullptr, 'r'},
+        {"path_group_name", required_argument, nullptr, 'y'},
 
         {"help", no_argument, nullptr, 'h'},
         {"username", required_argument, nullptr, 'u'},
@@ -527,7 +602,7 @@ int main(int argc, char** argv) {
         {nullptr,0,nullptr,0}
     };
 
-    while ((option_long = getopt_long_only(argc, argv, "t:a:w:b:c:x:d:e:f:g:i:j:k:l:m:n:o:q:s:hu:p:v:",longopts,nullptr)) != -1) {
+    while ((option_long = getopt_long_only(argc, argv, "t:a:w:b:c:x:d:e:f:g:i:j:k:l:m:n:o:q:r:s:hu:p:v:y:",longopts,nullptr)) != -1) {
         switch (option_long) {
             case 't':
                 dummy = optarg;
@@ -535,6 +610,8 @@ int main(int argc, char** argv) {
                     env_data.table_type = service_layer::SL_IPv6_ROUTE_TABLE;
                 } else if (dummy == "mpls") {
                     env_data.table_type = service_layer::SL_MPLS_LABEL_TABLE;
+                } else if (dummy == "pg"){
+                    env_data.table_type = service_layer::SL_PATH_GROUP_TABLE;
                 } else {
                     env_data.table_type = service_layer::SL_IPv4_ROUTE_TABLE;
                 }
@@ -614,6 +691,19 @@ int main(int argc, char** argv) {
             case 'q':
                 env_data.num_paths = std::stoi(optarg);
                 break;
+            case 'r':
+                dummy = optarg;
+                if(dummy == "ipv6") {
+                    env_data.create_path_group_for = service_layer::SL_IPv6_ROUTE_TABLE;
+                } else if (dummy == "mpls") {
+                    env_data.create_path_group_for = service_layer::SL_MPLS_LABEL_TABLE;
+                } else {
+                    env_data.create_path_group_for = service_layer::SL_IPv4_ROUTE_TABLE;
+                }
+                break;
+            case 'y':
+                env_data.pg_name = optarg;
+                break;
             case 's':
                 dummy = optarg;
                 if (dummy == "true") {
@@ -630,12 +720,14 @@ int main(int argc, char** argv) {
                 LOG(INFO) << "| -w/--vrf_reg_oper                | VRF registration Operation: Register, Unregister, EOF. When Unregister, all existing pushed routes will be deleted and route pushing will not be performed. Remember to specific correct table_type when Unregistering (Required argument) |";
                 LOG(INFO) << "Optional arguments you can set in environment:";
                 LOG(INFO) << "| -h/--help                        | Help |";
-                LOG(INFO) << "| -t/--table_type                  | Specify whether to do ipv4, ipv6 or mpls operation, PG is currently not supported (default ipv4) |";
+                LOG(INFO) << "| -t/--table_type                  | Specify whether to do ipv4, ipv6 or mpls operation, PG (default ipv4) |";
                 LOG(INFO) << "| -v/--slaf                        | Specify if you want to use slaf proto RPCs to program objects or not. If not, no other configuration possible and will only run 100k ipv4 routes (default true) |";
                 LOG(INFO) << "| -s/--global_init                 | Enable our Async Global Init RPC to handshake the API version number with the server (default false) |";
-                LOG(INFO) << "| -b/--num_operations              | Configure the number of ipv4 routes, ipv6 routes, or MPLS entires to be added to a batch (default 1) |";
+                LOG(INFO) << "| -b/--num_operations              | Configure the number of ipv4 routes, ipv6 routes, or MPLS entires to be added to a batch. If table_type is set to pg then 0 < num_operations <= 64 (default 1) |";
                 LOG(INFO) << "| -c/--batch_size                  | Configure the number of ipv4 routes ipv6 routes, or ILM entires for MPLS to be added to a batch (default 1024) |";
-                LOG(INFO) << "| -x/--stream_case                 | Want to use the streaming rpc or unary rpc (default true) | \n";
+                LOG(INFO) << "| -x/--stream_case                 | Want to use the streaming rpc or unary rpc (default true) |";
+                LOG(INFO) << "| -y/--path_group_name             | Configure the name of the path group to use. This is the name for the new path you want to create when when table_type is set to pg."
+                               << "When table_type is any other option then this will specify the existing path group to use for pushing routes. In this case, make sure path group name exist (default "") | \n";
                 LOG(INFO) << "IPv4 Testing";
                 LOG(INFO) << "| -d/--first_prefix_ipv4           | Configure the starting address for this test for IPV4 (default 40.0.0.0) |";
                 LOG(INFO) << "| -e/--prefix_len_ipv4             | Configure the prefix length for this test for IPV4 address (default 24) |";
@@ -651,6 +743,8 @@ int main(int argc, char** argv) {
                 LOG(INFO) << "| -n/--next_hop_interface_mpls     | Configure the next hop interface for MPLS (default FourHundredGigE0/0/0/0) |";
                 LOG(INFO) << "| -o/--start_label                 | Configure the starting label for this test for MPLS (default 20000) |";
                 LOG(INFO) << "| -q/--num_paths                   | Configure the number of paths for MPLS labels (default 1)";
+                LOG(INFO) << "PG Testing";
+                LOG(INFO) << "| -r/--create_path_group_for       | Configure the table_type for which path group is being made (default ipv4)";
                 return 1;
             case 'u':
                 username = optarg;

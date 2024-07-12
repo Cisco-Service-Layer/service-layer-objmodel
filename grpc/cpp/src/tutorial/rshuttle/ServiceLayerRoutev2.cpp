@@ -60,6 +60,13 @@ DbHelperUpdate(int result, service_layer::SLTableType addrFamily, service_layer:
         } else {
             database.db_mpls[label_index].second.rib_success = true;
         }
+    } else if (addrFamily == service_layer::SL_PATH_GROUP_TABLE) {
+        auto pg_index = respMsg->results(result).operation().afobject().pathgroup().pathgroupid().name();
+        if (fibAndRib == true) {
+            database.db_pg[pg_index].second.fib_success = true;
+        } else {
+            database.db_pg[pg_index].second.rib_success = true;
+        }
     }
 }
 
@@ -99,12 +106,20 @@ DbHelperError(int result, service_layer::SLTableType addrFamily, service_layer::
 
         auto label_index = respMsg->results(result).operation().afobject().mplslabel().locallabel();
         database.db_mpls[label_index].second.error = error_message;
+    } else if (addrFamily == service_layer::SL_PATH_GROUP_TABLE) {
+        std::stringstream temp;
+        temp << "Error code for label: " 
+            << respMsg->results(result).operation().afobject().pathgroup().pathgroupid().name()
+            <<" is 0x"<< std::hex << errStatus;
+        std::string error_message = temp.str();
+        auto pg_index = respMsg->results(result).operation().afobject().pathgroup().pathgroupid().name();
+        database.db_pg[pg_index].second.error = error_message;
     }
 }
 
 // Puts objects from the DB into requests. Based on steam_case pushes onto request_queue or sends the request for unary
 unsigned int
-SLAFRShuttle::pushFromDB(bool streamCase, service_layer::SLObjectOp routeOper, service_layer::SLTableType addrFamily)
+SLAFRShuttle::pushFromDB(bool streamCase, service_layer::SLObjectOp routeOper, service_layer::SLTableType addrFamily, service_layer::SLTableType createPathGroupFor)
 {
     this->setVrfV4("default");
     unsigned int route_count = 0;
@@ -130,7 +145,8 @@ SLAFRShuttle::pushFromDB(bool streamCase, service_layer::SLObjectOp routeOper, s
                                                 99,
                                                 database.db_ipv4[ipv4_index].first.next_hop_ip_ipv4,
                                                 database.db_ipv4[ipv4_index].first.next_hop_interface_ipv4,
-                                                routeOper);
+                                                routeOper,
+                                                database.db_ipv4[ipv4_index].first.pg_name);
             route_count++;
             // When maximum allowed batch size is reached or no more remaining routes exist, we need to enqueue that object.
             if(route_count == batch_size || ipv4_index == ipv4_last){
@@ -166,7 +182,8 @@ SLAFRShuttle::pushFromDB(bool streamCase, service_layer::SLObjectOp routeOper, s
                                                 99,
                                                 database.db_ipv6[ipv6_index].first.next_hop_ip_ipv6,
                                                 database.db_ipv6[ipv6_index].first.next_hop_interface_ipv6,
-                                                routeOper);
+                                                routeOper,
+                                                database.db_ipv6[ipv6_index].first.pg_name);
             route_count++;
             // When maximum allowed batch size is reached or no more remaining routes exist, we need to enqueue that object.
             if(route_count == batch_size || ipv6_index == ipv6_last){
@@ -199,7 +216,8 @@ SLAFRShuttle::pushFromDB(bool streamCase, service_layer::SLObjectOp routeOper, s
                                 start_label,
                                 database.db_mpls[mpls_index].first.num_paths,
                                 next_hop_address,
-                                database.db_mpls[mpls_index].first.next_hop_interface_mpls);
+                                database.db_mpls[mpls_index].first.next_hop_interface_mpls,
+                                database.db_mpls[mpls_index].first.pg_name);
             route_count++;
 
             // When maximum allowed batch size is reached or no more remaining labels exist, we need to enqueue that object.
@@ -218,6 +236,70 @@ SLAFRShuttle::pushFromDB(bool streamCase, service_layer::SLObjectOp routeOper, s
             }
             mpls_index++;
         }
+        db_mutex.unlock();
+    } else if (addrFamily == service_layer::SL_PATH_GROUP_TABLE) {
+        service_layer::SLAFOp* operation = route_msg.add_oplist();
+        service_layer::SLAFObject* af_object = operation->mutable_afobject();
+        service_layer::SLPathGroup* pg_ptr = af_object->mutable_pathgroup();
+        service_layer::SLObjectId* pg_id = pg_ptr->mutable_pathgroupid();
+        service_layer::SLPathGroup_SLPathList* path_list = pg_ptr->mutable_pathlist();
+        pg_ptr->set_admindistance(98);
+
+        db_mutex.lock();
+        auto pg_name = database.pg_name;
+        pg_id->set_name(pg_name);
+
+        // Set up the new v4 route object
+        if (createPathGroupFor == service_layer::SL_IPv4_ROUTE_TABLE || createPathGroupFor == service_layer::SL_MPLS_LABEL_TABLE) {
+            auto ipv4_index = database.ipv4_start_index;
+            auto ipv4_last = database.ipv4_last_index;
+            if (routeOper !=  service_layer::SL_OBJOP_DELETE) {
+                while (ipv4_index <= ipv4_last) {
+                    auto db_prefix = ipv4_index;
+                    service_layer::SLPathGroup_SLPath* path = path_list->add_paths();
+                    service_layer::SLRoutePath* route_path = path->mutable_path();
+                    route_path->mutable_nexthopaddress()->set_v4address(db_prefix);
+                    route_path->mutable_nexthopinterface()->set_name(database.db_pg[pg_name].first.next_hop_interface_ipv4);
+                    if (createPathGroupFor == service_layer::SL_MPLS_LABEL_TABLE) {
+                        route_path->add_labelstack(database.db_pg[pg_name].first.start_label);
+                    }
+                    route_count++;
+                    ipv4_index++;
+                }
+            } else {
+                route_count++;
+            }
+
+        } else if (createPathGroupFor == service_layer::SL_IPv6_ROUTE_TABLE) {
+            auto ipv6_index = database.ipv6_start_index;
+            auto ipv6_last = database.ipv6_last_index;
+            if (routeOper !=  service_layer::SL_OBJOP_DELETE) {
+                while (ipv6_index <= ipv6_last) {
+                    auto db_prefix = ipv6_index;
+                    service_layer::SLPathGroup_SLPath* path = path_list->add_paths();
+                    service_layer::SLRoutePath* route_path = path->mutable_path();
+                    route_path->mutable_nexthopaddress()->set_v6address(db_prefix);
+                    route_path->mutable_nexthopinterface()->set_name(database.db_pg[pg_name].first.next_hop_interface_ipv6);
+
+                    route_count++;
+                    ipv6_index = this->incrementIpv6Pfx(ipv6_index, 128);
+                }
+            } else {
+                route_count++;
+            }
+
+        }
+        total_routes += route_count;
+        if (streamCase) {
+            // Write should just pull from queue and be able to send request
+            route_msg.set_oper(routeOper);
+            db_mutex.unlock();
+            this->routeSLAFOpStreamHelperEnqueue(false);
+            db_mutex.lock();
+        } else {
+            this->routeSLAFOp(routeOper, addrFamily);
+        }
+
         db_mutex.unlock();
     }
     return total_routes;
@@ -259,6 +341,9 @@ SLAFRShuttle::routeSLAFOp(service_layer::SLObjectOp routeOp,
     } else if (addr_family == service_layer::SL_MPLS_LABEL_TABLE){
         address_family_str = "MPLS";
         // Multi-Client not supported in MPLS
+    } else if (addr_family == service_layer::SL_PATH_GROUP_TABLE){
+        address_family_str = "PATH GROUP";
+        context.AddMetadata("iosxr-slapi-clientid", client_id);
     }
 
     //Issue the RPC         
@@ -449,7 +534,7 @@ SLAFRShuttle::routeSLAFOpStreamHelperEnqueue(bool terminate_slaf_stream)
     this->clearBatch();
 }
 unsigned int 
-SLAFRShuttle::routeSLAFOpStream(service_layer::SLTableType addrFamily, service_layer::SLObjectOp routeOper, unsigned int timeout)
+SLAFRShuttle::routeSLAFOpStream(service_layer::SLTableType addrFamily, service_layer::SLObjectOp routeOper, service_layer::SLTableType createPathGroupFor, unsigned int timeout)
 {
     // Create the channel object first and start the streaming operation
     auto stub_ = service_layer::SLAF::NewStub(channel);
@@ -484,6 +569,9 @@ SLAFRShuttle::routeSLAFOpStream(service_layer::SLTableType addrFamily, service_l
     } else if (addrFamily == service_layer::SL_MPLS_LABEL_TABLE){
         address_family_str = "MPLS";
         // Multi-Client not supported in MPLS
+    } else if (addrFamily == service_layer::SL_PATH_GROUP_TABLE){
+        address_family_str = "PATH GROUP";
+        context.AddMetadata("iosxr-slapi-clientid", client_id);
     }
 
     // Send the RPC
@@ -499,7 +587,7 @@ SLAFRShuttle::routeSLAFOpStream(service_layer::SLTableType addrFamily, service_l
     unsigned int total_routes = 0;
 
     // Makes batches from db objects and pushes into request queue
-    total_routes = this->pushFromDB(true,routeOper,addrFamily);
+    total_routes = this->pushFromDB(true,routeOper,addrFamily,createPathGroupFor);
 
     stopStream(&reader,&writer);
     status = stream->Finish();
@@ -689,12 +777,19 @@ SLAFRShuttle::routev4Set(service_layer::SLRoutev4* routev4Ptr,
 void 
 SLAFRShuttle::routev4PathAdd(service_layer::SLRoutev4* routev4Ptr,
                          uint32_t nextHopAddress,
-                         std::string nextHopIf)
+                         std::string nextHopIf,
+                         std::string pgName)
 {
-    
-    auto routev4PathPtr = routev4Ptr->add_pathlist();
-    routev4PathPtr->mutable_nexthopaddress()->set_v4address(nextHopAddress);
-    routev4PathPtr->mutable_nexthopinterface()->set_name(nextHopIf);
+    if (pgName == "") {
+        auto routev4PathPtr = routev4Ptr->add_pathlist();
+        routev4PathPtr->mutable_nexthopaddress()->set_v4address(nextHopAddress);
+        routev4PathPtr->mutable_nexthopinterface()->set_name(nextHopIf);
+    } else {
+        auto pathGroup = routev4Ptr->mutable_pathgroupkey();
+        pathGroup->set_vrfname("default");
+        service_layer::SLObjectId* pgId = pathGroup->mutable_pathgroupid();
+        pgId->set_name(pgName);
+    }
 }
 
 bool 
@@ -703,7 +798,8 @@ SLAFRShuttle::insertAddBatchV4(std::string prefix,
                            uint32_t adminDistance,
                            std::string nextHopAddress,
                            std::string nextHopIf,
-                           service_layer::SLObjectOp routeOper)
+                           service_layer::SLObjectOp routeOper,
+                           std::string pgName)
 {
 
     auto address = prefix + "/" + std::to_string(prefixLen);
@@ -729,7 +825,8 @@ SLAFRShuttle::insertAddBatchV4(std::string prefix,
         if (routeOper !=  service_layer::SL_OBJOP_DELETE) {
             this->routev4PathAdd(routev4_ptr, 
                              ipv4ToLong(nextHopAddress.c_str()), 
-                             nextHopIf); 
+                             nextHopIf,
+                             pgName); 
         }
 
     } else {
@@ -741,7 +838,8 @@ SLAFRShuttle::insertAddBatchV4(std::string prefix,
         if (routeOper !=  service_layer::SL_OBJOP_DELETE) {
             this->routev4PathAdd(routev4_ptr, 
                              ipv4ToLong(nextHopAddress.c_str()), 
-                             nextHopIf); 
+                             nextHopIf,
+                             pgName); 
         }
     }
 
@@ -815,12 +913,19 @@ SLAFRShuttle::routev6Set(service_layer::SLRoutev6* routev6Ptr,
 void 
 SLAFRShuttle::routev6PathAdd(service_layer::SLRoutev6* routev6Ptr,
                          std::string nextHopAddress,
-                         std::string nextHopIf)
+                         std::string nextHopIf,
+                         std::string pgName)
 {
-
-    auto routev6PathPtr = routev6Ptr->add_pathlist();
-    routev6PathPtr->mutable_nexthopaddress()->set_v6address(nextHopAddress);
-    routev6PathPtr->mutable_nexthopinterface()->set_name(nextHopIf);
+    if (pgName == "") {
+        auto routev6PathPtr = routev6Ptr->add_pathlist();
+        routev6PathPtr->mutable_nexthopaddress()->set_v6address(nextHopAddress);
+        routev6PathPtr->mutable_nexthopinterface()->set_name(nextHopIf);
+    } else {
+        auto pathGroup = routev6Ptr->mutable_pathgroupkey();
+        pathGroup->set_vrfname("default");
+        service_layer::SLObjectId* pgId = pathGroup->mutable_pathgroupid();
+        pgId->set_name(pgName);
+    }
 }
 
 
@@ -830,7 +935,8 @@ SLAFRShuttle::insertAddBatchV6(std::string prefix,
                            uint32_t adminDistance,
                            std::string nextHopAddress,
                            std::string nextHopIf,
-                           service_layer::SLObjectOp routeOper)
+                           service_layer::SLObjectOp routeOper,
+                           std::string pgName)
 {
     auto address = prefix + "/" + std::to_string(prefixLen);
     auto map_index = route_msg.oplist_size();
@@ -855,7 +961,8 @@ SLAFRShuttle::insertAddBatchV6(std::string prefix,
         if (routeOper !=  service_layer::SL_OBJOP_DELETE) {
             this->routev6PathAdd(routev6_ptr,
                              ipv6ToByteArrayString(nextHopAddress.c_str()),
-                             nextHopIf);
+                             nextHopIf,
+                             pgName);
         }
     } else {
         // no need to make a new route object as one already exists within this route batch
@@ -866,7 +973,8 @@ SLAFRShuttle::insertAddBatchV6(std::string prefix,
         if (routeOper !=  service_layer::SL_OBJOP_DELETE) {
             this->routev6PathAdd(routev6_ptr,
                              ipv6ToByteArrayString(nextHopAddress.c_str()),
-                             nextHopIf);
+                             nextHopIf,
+                             pgName);
         }
     }
 
@@ -877,7 +985,8 @@ SLAFRShuttle::insertAddBatchMPLS(unsigned int label,
                             unsigned int startLabel,
                             unsigned int numPaths,
                             uint32_t nextHopAddress,
-                            std::string nextHopInterface) {
+                            std::string nextHopInterface,
+                            std::string pgName) {
 
     /* Create a new ilm entry, and the only way to do that with the current proto file
             is to add a new oplist */
@@ -886,19 +995,26 @@ SLAFRShuttle::insertAddBatchMPLS(unsigned int label,
     service_layer::SLMplsEntry* ilm = af_object->mutable_mplslabel();
     ilm->set_locallabel(label);
 
-    // Multiple path in entry
-    for(int pathIdx = 0; pathIdx < numPaths; pathIdx++){
-        service_layer::SLRoutePath* nhlfe = ilm->add_pathlist();
-        service_layer::SLIpAddress* slip_add = nhlfe->mutable_nexthopaddress();
-        slip_add->set_v4address(nextHopAddress);
-        if (nextHopInterface.length() != 0){
-            service_layer::SLInterface* sli_add = nhlfe->mutable_nexthopinterface();
-            sli_add->set_name(nextHopInterface);
+    if (pgName == "") {
+        // Multiple path in entry
+        for(int pathIdx = 0; pathIdx < numPaths; pathIdx++){
+            service_layer::SLRoutePath* nhlfe = ilm->add_pathlist();
+            service_layer::SLIpAddress* slip_add = nhlfe->mutable_nexthopaddress();
+            slip_add->set_v4address(nextHopAddress);
+            if (nextHopInterface.length() != 0){
+                service_layer::SLInterface* sli_add = nhlfe->mutable_nexthopinterface();
+                sli_add->set_name(nextHopInterface);
+            }
+            if (startLabel > 0) {
+                int out_label = startLabel;
+                nhlfe->add_labelstack(out_label);
+            }
         }
-        if (startLabel > 0) {
-            int out_label = startLabel;
-            nhlfe->add_labelstack(out_label);
-        }
+    } else {
+        auto pathGroup = ilm->mutable_pathgroupkey();
+        pathGroup->set_vrfname("default");
+        service_layer::SLObjectId* pgId = pathGroup->mutable_pathgroupid();
+        pgId->set_name(pgName);
     }
 }
 
@@ -984,6 +1100,16 @@ SLAFVrf::registerAfVrf(service_layer::SLTableType addrFamily, service_layer::SLR
         }
         break;
 
+    case service_layer::SL_PATH_GROUP_TABLE:
+        // Issue VRF Register RPC
+        if (afVrfOpAddFam(vrfRegOper, addrFamily)) {
+            return true;
+        } else {
+            LOG(ERROR) << "Failed to send Register RPC";
+            return false;
+        }
+        break;
+
     default:
         LOG(ERROR) << "Invalid Address family, skipping.." << " tid: " << std::this_thread::get_id();
         return false;
@@ -1024,6 +1150,9 @@ SLAFVrf::afVrfOpAddFam(service_layer::SLRegOp vrfOp, service_layer::SLTableType 
         context.AddMetadata("iosxr-slapi-clientid", client_id);
     } else if (addrFamily == service_layer::SL_MPLS_LABEL_TABLE) {
         // Multi-Client not supported in MPLS
+    } else if (addrFamily == service_layer::SL_PATH_GROUP_TABLE) {
+        // Multi-Client not supported in PATHGROUP
+        context.AddMetadata("iosxr-slapi-clientid", client_id);
     }
 
     // Set up afVrfRegMsg Operation
@@ -1091,7 +1220,7 @@ SLGLOBALSHUTTLE::SLGLOBALSHUTTLE(std::shared_ptr<grpc::Channel> Channel, std::st
                    std::string Password)
     : channel(Channel), username(Username), password(Password) {} 
 
-bool SLGLOBALSHUTTLE::getGlobals(unsigned int &batch_size, unsigned int timeout)
+bool SLGLOBALSHUTTLE::getGlobals(unsigned int &batch_size, unsigned int &max_paths, unsigned int timeout)
 {
     auto stub_ = service_layer::SLGlobal::NewStub(channel);
 
@@ -1162,6 +1291,13 @@ bool SLGLOBALSHUTTLE::getGlobals(unsigned int &batch_size, unsigned int timeout)
         } else {
             LOG(INFO) << "BATCH SIZE will remain as " << batch_size << " tid: " << std::this_thread::get_id();
         }
+    }
+
+    if (max_paths > resp_msg.maxprimarypathidnum()) {
+        max_paths = resp_msg.maxprimarypathidnum();
+        LOG(INFO) << "MAX PATHS is limited to " << resp_msg.maxprimarypathidnum();
+    } else {
+        LOG(INFO) << "MAX PATHS will remain as " << max_paths;
     }
 
     return true;
