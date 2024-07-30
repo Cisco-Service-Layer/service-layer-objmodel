@@ -42,303 +42,460 @@ namespace ServiceLayer {
             "ci5TTEJncGxzVG9wb0VudHJ5IngKEFNMQmdwbHNUb3BvRW50cnkSNgoJT3Bl",
             "cmF0aW9uGAEgASgOMiMuc2VydmljZV9sYXllci5TTEJncGxzVG9wb09wZXJh",
             "dGlvbhIsCgREYXRhGAIgASgLMh4uc2VydmljZV9sYXllci5TTEJncGxzVG9w",
-            "b0RhdGEiqQIKD1NMQmdwbHNUb3BvRGF0YRI4CgpJbnN0YW5jZUlkGAEgASgL",
+            "b0RhdGEinwMKD1NMQmdwbHNUb3BvRGF0YRI4CgpJbnN0YW5jZUlkGAEgASgL",
             "MiQuc2VydmljZV9sYXllci5TTEJncGxzVG9wb0luc3RhbmNlSWQSNAoIUHJv",
             "dG9jb2wYAiABKA4yIi5zZXJ2aWNlX2xheWVyLlNMQmdwbHNUb3BvUHJvdG9j",
             "b2wSMgoETm9kZRgDIAEoCzIiLnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9O",
             "b2RlRGF0YUgAEjIKBExpbmsYBCABKAsyIi5zZXJ2aWNlX2xheWVyLlNMQmdw",
             "bHNUb3BvTGlua0RhdGFIABI2CgZQcmVmaXgYBSABKAsyJC5zZXJ2aWNlX2xh",
-            "eWVyLlNMQmdwbHNUb3BvUHJlZml4RGF0YUgAQgYKBERhdGEiKwoVU0xCZ3Bs",
-            "c1RvcG9JbnN0YW5jZUlkEhIKCklkZW50aWZpZXIYASABKAQieQoTU0xCZ3Bs",
-            "c1RvcG9Ob2RlRGF0YRIsCgROb2RlGAEgASgLMh4uc2VydmljZV9sYXllci5T",
-            "TEJncGxzVG9wb05vZGUSNAoITm9kZUF0dHIYAiABKAsyIi5zZXJ2aWNlX2xh",
-            "eWVyLlNMQmdwbHNUb3BvTm9kZUF0dHIieQoTU0xCZ3Bsc1RvcG9MaW5rRGF0",
-            "YRIsCgRMaW5rGAEgASgLMh4uc2VydmljZV9sYXllci5TTEJncGxzVG9wb0xp",
-            "bmsSNAoITGlua0F0dHIYAiABKAsyIi5zZXJ2aWNlX2xheWVyLlNMQmdwbHNU",
-            "b3BvTGlua0F0dHIigwEKFVNMQmdwbHNUb3BvUHJlZml4RGF0YRIwCgZQcmVm",
-            "aXgYASABKAsyIC5zZXJ2aWNlX2xheWVyLlNMQmdwbHNUb3BvUHJlZml4EjgK",
-            "ClByZWZpeEF0dHIYAiABKAsyJC5zZXJ2aWNlX2xheWVyLlNMQmdwbHNUb3Bv",
-            "UHJlZml4QXR0ciKaAgoPU0xCZ3Bsc1RvcG9Ob2RlEgsKA0FzbhgBIAEoDRI6",
-            "CgpPc3BmTm9kZUlkGAIgASgLMiQuc2VydmljZV9sYXllci5TTEJncGxzVG9w",
-            "b09zcGZOb2RlSWRIABI+CgxPc3BmdjNOb2RlSWQYAyABKAsyJi5zZXJ2aWNl",
-            "X2xheWVyLlNMQmdwbHNUb3BvT3NwZnYzTm9kZUlkSAASOgoKSXNpc05vZGVJ",
-            "ZBgEIAEoCzIkLnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9Jc2lzTm9kZUlk",
-            "SAASOAoJQmdwTm9kZUlkGAUgASgLMiMuc2VydmljZV9sYXllci5TTEJncGxz",
-            "VG9wb0JncE5vZGVJZEgAQggKBk5vZGVJZCK6AQoPU0xCZ3Bsc1RvcG9MaW5r",
-            "EjYKDkxvY2FsTm9kZURlc2NyGAEgASgLMh4uc2VydmljZV9sYXllci5TTEJn",
-            "cGxzVG9wb05vZGUSNwoPUmVtb3RlTm9kZURlc2NyGAIgASgLMh4uc2Vydmlj",
-            "ZV9sYXllci5TTEJncGxzVG9wb05vZGUSNgoJTGlua0Rlc2NyGAMgASgLMiMu",
-            "c2VydmljZV9sYXllci5TTEJncGxzVG9wb0xpbmtEZXNjciKCAQoRU0xCZ3Bs",
-            "c1RvcG9QcmVmaXgSMQoJTm9kZURlc2NyGAEgASgLMh4uc2VydmljZV9sYXll",
-            "ci5TTEJncGxzVG9wb05vZGUSOgoLUHJlZml4RGVzY3IYAiABKAsyJS5zZXJ2",
-            "aWNlX2xheWVyLlNMQmdwbHNUb3BvUHJlZml4RGVzY3IitQEKFFNMQmdwbHNU",
-            "b3BvTGlua0Rlc2NyEg8KB0xvY2FsSWQYASABKA0SEAoIUmVtb3RlSWQYAiAB",
-            "KA0SEQoJTG9jYWxJcHY0GAMgASgMEhIKClJlbW90ZUlwdjQYBCABKAwSEQoJ",
-            "TG9jYWxJcHY2GAUgASgMEhIKClJlbW90ZUlwdjYYBiABKAwSLAoETXRJZBgH",
-            "IAEoCzIeLnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9NdElkIqwBChZTTEJn",
-            "cGxzVG9wb1ByZWZpeERlc2NyEiwKBE10SWQYASABKAsyHi5zZXJ2aWNlX2xh",
-            "eWVyLlNMQmdwbHNUb3BvTXRJZBI+Cg1Pc3BmUm91dGVUeXBlGAIgASgOMicu",
-            "c2VydmljZV9sYXllci5TTEJncGxzVG9wb09zcGZSb3V0ZVR5cGUSFAoMUHJl",
-            "Zml4TGVuZ3RoGAMgASgNEg4KBlByZWZpeBgEIAEoDCJjChVTTEJncGxzVG9w",
-            "b09zcGZOb2RlSWQSDgoGQXJlYUlkGAEgASgNEhIKCklzQXNTY29wZWQYAiAB",
-            "KA0SEAoIUm91dGVySWQYAyABKAwSFAoMRHJJZGVudGlmaWVyGAQgASgMImMK",
-            "F1NMQmdwbHNUb3BvT3NwZnYzTm9kZUlkEg4KBkFyZWFJZBgBIAEoDRIQCghB",
+            "eWVyLlNMQmdwbHNUb3BvUHJlZml4RGF0YUgAEjgKB1NydjZTaWQYBiABKAsy",
+            "JS5zZXJ2aWNlX2xheWVyLlNMQmdwbHNUb3BvU3J2NlNpZERhdGFIABI6CghT",
+            "clBvbGljeRgHIAEoCzImLnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9TclBv",
+            "bGljeURhdGFIAEIGCgREYXRhIisKFVNMQmdwbHNUb3BvSW5zdGFuY2VJZBIS",
+            "CgpJZGVudGlmaWVyGAEgASgEInkKE1NMQmdwbHNUb3BvTm9kZURhdGESLAoE",
+            "Tm9kZRgBIAEoCzIeLnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9Ob2RlEjQK",
+            "CE5vZGVBdHRyGAIgASgLMiIuc2VydmljZV9sYXllci5TTEJncGxzVG9wb05v",
+            "ZGVBdHRyInkKE1NMQmdwbHNUb3BvTGlua0RhdGESLAoETGluaxgBIAEoCzIe",
+            "LnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9MaW5rEjQKCExpbmtBdHRyGAIg",
+            "ASgLMiIuc2VydmljZV9sYXllci5TTEJncGxzVG9wb0xpbmtBdHRyIoMBChVT",
+            "TEJncGxzVG9wb1ByZWZpeERhdGESMAoGUHJlZml4GAEgASgLMiAuc2Vydmlj",
+            "ZV9sYXllci5TTEJncGxzVG9wb1ByZWZpeBI4CgpQcmVmaXhBdHRyGAIgASgL",
+            "MiQuc2VydmljZV9sYXllci5TTEJncGxzVG9wb1ByZWZpeEF0dHIiiAEKFlNM",
+            "QmdwbHNUb3BvU3J2NlNpZERhdGESMgoHU3J2NlNpZBgBIAEoCzIhLnNlcnZp",
+            "Y2VfbGF5ZXIuU0xCZ3Bsc1RvcG9TcnY2U2lkEjoKC1NydjZTaWRBdHRyGAIg",
+            "ASgLMiUuc2VydmljZV9sYXllci5TTEJncGxzVG9wb1NydjZTaWRBdHRyIo0B",
+            "ChdTTEJncGxzVG9wb1NyUG9saWN5RGF0YRI0CghTclBvbGljeRgBIAEoCzIi",
+            "LnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9TclBvbGljeRI8CgxTclBvbGlj",
+            "eUF0dHIYAiABKAsyJi5zZXJ2aWNlX2xheWVyLlNMQmdwbHNUb3BvU3JQb2xp",
+            "Y3lBdHRyIt4CCg9TTEJncGxzVG9wb05vZGUSCwoDQXNuGAEgASgNEjoKCk9z",
+            "cGZOb2RlSWQYAiABKAsyJC5zZXJ2aWNlX2xheWVyLlNMQmdwbHNUb3BvT3Nw",
+            "Zk5vZGVJZEgAEj4KDE9zcGZ2M05vZGVJZBgDIAEoCzImLnNlcnZpY2VfbGF5",
+            "ZXIuU0xCZ3Bsc1RvcG9Pc3BmdjNOb2RlSWRIABI6CgpJc2lzTm9kZUlkGAQg",
+            "ASgLMiQuc2VydmljZV9sYXllci5TTEJncGxzVG9wb0lzaXNOb2RlSWRIABI4",
+            "CglCZ3BOb2RlSWQYBSABKAsyIy5zZXJ2aWNlX2xheWVyLlNMQmdwbHNUb3Bv",
+            "QmdwTm9kZUlkSAASQgoOU3JQb2xpY3lOb2RlSWQYBiABKAsyKC5zZXJ2aWNl",
+            "X2xheWVyLlNMQmdwbHNUb3BvU3JQb2xpY3lOb2RlSWRIAEIICgZOb2RlSWQi",
+            "ugEKD1NMQmdwbHNUb3BvTGluaxI2Cg5Mb2NhbE5vZGVEZXNjchgBIAEoCzIe",
+            "LnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9Ob2RlEjcKD1JlbW90ZU5vZGVE",
+            "ZXNjchgCIAEoCzIeLnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9Ob2RlEjYK",
+            "CUxpbmtEZXNjchgDIAEoCzIjLnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9M",
+            "aW5rRGVzY3IiggEKEVNMQmdwbHNUb3BvUHJlZml4EjEKCU5vZGVEZXNjchgB",
+            "IAEoCzIeLnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9Ob2RlEjoKC1ByZWZp",
+            "eERlc2NyGAIgASgLMiUuc2VydmljZV9sYXllci5TTEJncGxzVG9wb1ByZWZp",
+            "eERlc2NyIoUBChJTTEJncGxzVG9wb1NydjZTaWQSMQoJTm9kZURlc2NyGAEg",
+            "ASgLMh4uc2VydmljZV9sYXllci5TTEJncGxzVG9wb05vZGUSPAoMU3J2NlNp",
+            "ZERlc2NyGAIgASgLMiYuc2VydmljZV9sYXllci5TTEJncGxzVG9wb1NydjZT",
+            "aWREZXNjciKIAQoTU0xCZ3Bsc1RvcG9TclBvbGljeRIxCglOb2RlRGVzY3IY",
+            "ASABKAsyHi5zZXJ2aWNlX2xheWVyLlNMQmdwbHNUb3BvTm9kZRI+Cg1TclBv",
+            "bGljeURlc2NyGAIgASgLMicuc2VydmljZV9sYXllci5TTEJncGxzVG9wb1Ny",
+            "UG9saWN5RGVzY3IitQEKFFNMQmdwbHNUb3BvTGlua0Rlc2NyEg8KB0xvY2Fs",
+            "SWQYASABKA0SEAoIUmVtb3RlSWQYAiABKA0SEQoJTG9jYWxJcHY0GAMgASgM",
+            "EhIKClJlbW90ZUlwdjQYBCABKAwSEQoJTG9jYWxJcHY2GAUgASgMEhIKClJl",
+            "bW90ZUlwdjYYBiABKAwSLAoETXRJZBgHIAEoCzIeLnNlcnZpY2VfbGF5ZXIu",
+            "U0xCZ3Bsc1RvcG9NdElkIqwBChZTTEJncGxzVG9wb1ByZWZpeERlc2NyEiwK",
+            "BE10SWQYASABKAsyHi5zZXJ2aWNlX2xheWVyLlNMQmdwbHNUb3BvTXRJZBI+",
+            "Cg1Pc3BmUm91dGVUeXBlGAIgASgOMicuc2VydmljZV9sYXllci5TTEJncGxz",
+            "VG9wb09zcGZSb3V0ZVR5cGUSFAoMUHJlZml4TGVuZ3RoGAMgASgNEg4KBlBy",
+            "ZWZpeBgEIAEoDCJYChdTTEJncGxzVG9wb1NydjZTaWREZXNjchIsCgRNdElk",
+            "GAEgASgLMh4uc2VydmljZV9sYXllci5TTEJncGxzVG9wb010SWQSDwoHU3J2",
+            "NlNpZBgCIAEoDCLYAgoYU0xCZ3Bsc1RvcG9TclBvbGljeURlc2NyEkUKC1By",
+            "b3RvT3JpZ2luGAEgASgOMjAuc2VydmljZV9sYXllci5TTEJncGxzVG9wb1Ny",
+            "UG9saWN5UHJvdG9jb2xPcmlnaW4SNgoFRmxhZ3MYAiABKAsyJy5zZXJ2aWNl",
+            "X2xheWVyLlNMQmdwbHNUb3BvU3JQb2xpY3lGbGFncxIVCgtJcHY0RW5kQWRk",
+            "chgDIAEoDEgAEhUKC0lwdjZFbmRBZGRyGAQgASgMSAASDQoFQ29sb3IYBSAB",
+            "KA0SEQoJT3JpZ2luQXNuGAYgASgNEhYKDElwdjRPcmlnQWRkchgHIAEoDEgB",
+            "EhYKDElwdjZPcmlnQWRkchgIIAEoDEgBEhUKDURpc2NyaW1pbmF0b3IYCSAB",
+            "KA1CEQoPRW5kcG9pbnRBZGRyZXNzQhMKEU9yaWdpbmF0b3JBZGRyZXNzImMK",
+            "FVNMQmdwbHNUb3BvT3NwZk5vZGVJZBIOCgZBcmVhSWQYASABKA0SEgoKSXNB",
             "c1Njb3BlZBgCIAEoDRIQCghSb3V0ZXJJZBgDIAEoDBIUCgxEcklkZW50aWZp",
-            "ZXIYBCABKA0iOAoVU0xCZ3Bsc1RvcG9Jc2lzTm9kZUlkEhAKCFN5c3RlbUlk",
-            "GAEgASgMEg0KBVBzbklkGAIgASgMIjsKFFNMQmdwbHNUb3BvQmdwTm9kZUlk",
-            "EhAKCFJvdXRlcklkGAEgASgMEhEKCU1lbWJlckFzbhgCIAEoDSKjBgoTU0xC",
-            "Z3Bsc1RvcG9Ob2RlQXR0chIsCgRNdElkGAEgAygLMh4uc2VydmljZV9sYXll",
-            "ci5TTEJncGxzVG9wb010SWQSMgoHTm9kZU1zZBgCIAMoCzIhLnNlcnZpY2Vf",
-            "bGF5ZXIuU0xCZ3Bsc1RvcG9Ob2RlTXNkEjwKDE5vZGVGbGFnQml0cxgDIAEo",
-            "CzImLnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9Ob2RlRmxhZ0JpdHMSQAoO",
-            "T3BhcXVlTm9kZUF0dHIYBCABKAsyKC5zZXJ2aWNlX2xheWVyLlNMQmdwbHNU",
-            "b3BvTm9kZU9wYXF1ZUF0dHISMAoITm9kZU5hbWUYBSABKAsyHi5zZXJ2aWNl",
-            "X2xheWVyLlNMQmdwbHNOb2RlTmFtZRI4CgpJc2lzQXJlYUlkGAYgAygLMiQu",
-            "c2VydmljZV9sYXllci5TTEJncGxzVG9wb0lzaXNBcmVhSWQSPgoJTG9jYWxJ",
-            "cHY0GAcgAygLMisuc2VydmljZV9sYXllci5TTEJncGxzVG9wb0xvY2FsSXB2",
-            "NFJvdXRlcklkEj4KCUxvY2FsSXB2NhgIIAMoCzIrLnNlcnZpY2VfbGF5ZXIu",
-            "U0xCZ3Bsc1RvcG9Mb2NhbElwdjZSb3V0ZXJJZBI+Cg1TcmdiSXNpc0ZsYWdz",
-            "GAkgASgLMicuc2VydmljZV9sYXllci5TTEJncGxzVG9wb1NyZ2JJc2lzRmxh",
-            "Z3MSLAoEU3JnYhgKIAMoCzIeLnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9T",
-            "cmdiEjoKC1NyQWxnb3JpdGhtGAsgASgLMiUuc2VydmljZV9sYXllci5TTEJn",
-            "cGxzVG9wb1NyQWxnb3JpdGhtEiwKBFNybGIYDCADKAsyHi5zZXJ2aWNlX2xh",
-            "eWVyLlNMQmdwbHNUb3BvU3JsYhIqCgNGYWQYDSADKAsyHS5zZXJ2aWNlX2xh",
-            "eWVyLlNMQmdwbHNUb3BvRmFkEjoKC1Vua25vd25BdHRyGA4gAygLMiUuc2Vy",
-            "dmljZV9sYXllci5TTEJncGxzVG9wb1Vua25vd25BdHRyIt4QChNTTEJncGxz",
-            "VG9wb0xpbmtBdHRyEjsKDExpbmtMb2NSZW1JZBgBIAEoCzIlLnNlcnZpY2Vf",
-            "bGF5ZXIuU0xCcGxzVG9wb0xpbmtMb2NSZW1JZBIyCgdMaW5rTXNkGAIgAygL",
-            "MiEuc2VydmljZV9sYXllci5TTEJncGxzVG9wb0xpbmtNc2QSRgoRTG9jYWxJ",
-            "cHY0Um91dGVySWQYAyADKAsyKy5zZXJ2aWNlX2xheWVyLlNMQmdwbHNUb3Bv",
-            "TG9jYWxJcHY0Um91dGVySWQSRgoRTG9jYWxJcHY2Um91dGVySWQYBCADKAsy",
-            "Ky5zZXJ2aWNlX2xheWVyLlNMQmdwbHNUb3BvTG9jYWxJcHY2Um91dGVySWQS",
-            "SAoSUmVtb3RlSXB2NFJvdXRlcklkGAUgAygLMiwuc2VydmljZV9sYXllci5T",
-            "TEJncGxzVG9wb1JlbW90ZUlwdjRSb3V0ZXJJZBJIChJSZW1vdGVJcHY2Um91",
-            "dGVySWQYBiADKAsyLC5zZXJ2aWNlX2xheWVyLlNMQmdwbHNUb3BvUmVtb3Rl",
-            "SXB2NlJvdXRlcklkEjgKCkFkbWluR3JvdXAYByABKAsyJC5zZXJ2aWNlX2xh",
-            "eWVyLlNMQmdwbHNUb3BvQWRtaW5Hcm91cBJACgxNYXhCYW5kd2lkdGgYCCAB",
-            "KAsyKi5zZXJ2aWNlX2xheWVyLlNMQmdwbHNUb3BvTGlua01heEJhbmR3aWR0",
-            "aBJIChBNYXhSZXN2QmFuZHdpZHRoGAkgASgLMi4uc2VydmljZV9sYXllci5T",
-            "TEJncGxzVG9wb0xpbmtNYXhSZXN2QmFuZHdpZHRoEkYKD1VucmVzdkJhbmR3",
-            "aWR0aBgKIAMoCzItLnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9MaW5rVW5y",
-            "ZXN2QmFuZHdpZHRoEkIKC1RlRGVmTWV0cmljGAsgASgLMi0uc2VydmljZV9s",
-            "YXllci5TTEJncGxzVG9wb0xpbmtUZURlZmF1bHRNZXRyaWMSRAoOUHJvdGVj",
-            "dGlvblR5cGUYDCABKAsyLC5zZXJ2aWNlX2xheWVyLlNMQmdwbHNUb3BvTGlu",
-            "a1Byb3RlY3Rpb25UeXBlEkIKDU1wbHNQcm90b01hc2sYDSABKAsyKy5zZXJ2",
-            "aWNlX2xheWVyLlNMQmdwbHNUb3BvTGlua01wbHNQcm90b01hc2sSOgoJSWdw",
-            "TWV0cmljGA4gASgLMicuc2VydmljZV9sYXllci5TTEJncGxzVG9wb0xpbmtJ",
-            "Z3BNZXRyaWMSMAoEU3JsZxgPIAMoCzIiLnNlcnZpY2VfbGF5ZXIuU0xCZ3Bs",
-            "c1RvcG9MaW5rU3JsZxI8CgpPcGFxdWVBdHRyGBAgASgLMiguc2VydmljZV9s",
-            "YXllci5TTEJncGxzVG9wb0xpbmtPcGFxdWVBdHRyEjQKCExpbmtOYW1lGBEg",
-            "ASgLMiIuc2VydmljZV9sYXllci5TTEJncGxzVG9wb0xpbmtOYW1lEjAKBkFk",
-            "alNpZBgSIAMoCzIgLnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9BZGpTaWQS",
-            "NgoJTGFuQWRqU2lkGBMgAygLMiMuc2VydmljZV9sYXllci5TTEJncGxzVG9w",
-            "b0xhbkFkalNpZBJACg5CZ3BQZWVyTm9kZVNpZBgUIAMoCzIoLnNlcnZpY2Vf",
-            "bGF5ZXIuU0xCZ3Bsc1RvcG9CZ3BQZWVyTm9kZVNpZBI+Cg1CZ3BQZWVyQWRq",
-            "U2lkGBUgAygLMicuc2VydmljZV9sYXllci5TTEJncGxzVG9wb0JncFBlZXJB",
-            "ZGpTaWQSPgoNQmdwUGVlclNldFNpZBgWIAMoCzInLnNlcnZpY2VfbGF5ZXIu",
-            "U0xCZ3Bsc1RvcG9CZ3BQZWVyU2V0U2lkEjwKDFVuaUxpbmtEZWxheRgXIAEo",
-            "CzImLnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9VbmlMaW5rRGVsYXkSSAoS",
-            "TWluTWF4VW5pTGlua0RlbGF5GBggASgLMiwuc2VydmljZV9sYXllci5TTEJn",
-            "cGxzVG9wb01pbk1heFVuaUxpbmtEZWxheRI6CgtVbmlEZWxheVZhchgZIAEo",
-            "CzIlLnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9VbmlEZWxheVZhchI6CgtV",
-            "bmlMaW5rTG9zcxgaIAEoCzIlLnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9V",
-            "bmlMaW5rTG9zcxJCCg9VbmlSZXNCYW5kd2lkdGgYGyABKAsyKS5zZXJ2aWNl",
-            "X2xheWVyLlNMQmdwbHNUb3BvVW5pUmVzQmFuZHdpZHRoEkYKEVVuaUF2YWls",
-            "QmFuZHdpZHRoGBwgASgLMisuc2VydmljZV9sYXllci5TTEJncGxzVG9wb1Vu",
-            "aUF2YWlsQmFuZHdpZHRoEkQKEFVuaVV0aWxCYW5kd2lkdGgYHSABKAsyKi5z",
-            "ZXJ2aWNlX2xheWVyLlNMQmdwbHNUb3BvVW5pVXRpbEJhbmR3aWR0aBIwCgRB",
-            "c2xhGB4gAygLMiIuc2VydmljZV9sYXllci5TTEJncGxzVG9wb0FzbGFBdHRy",
-            "EkgKEkwyQnVuZGxlTWVtYmVyQXR0chgfIAMoCzIsLnNlcnZpY2VfbGF5ZXIu",
-            "U0xCZ3Bsc1RvcG9MMkJ1bmRsZU1lbWJlckF0dHISPgoNRXh0QWRtaW5Hcm91",
-            "cBggIAMoCzInLnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9FeHRBZG1pbkdy",
-            "b3VwEjoKC1Vua25vd25BdHRyGCEgAygLMiUuc2VydmljZV9sYXllci5TTEJn",
-            "cGxzVG9wb1Vua25vd25BdHRyIu8FChVTTEJncGxzVG9wb1ByZWZpeEF0dHIS",
-            "MgoERmFwbRgBIAMoCzIkLnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9QcmVm",
-            "aXhGQVBNEjoKCElncEZsYWdzGAIgASgLMiguc2VydmljZV9sYXllci5TTEJn",
-            "cGxzVG9wb1ByZWZpeElncEZsYWdzEkAKC0lncFJvdXRlVGFnGAMgAygLMisu",
-            "c2VydmljZV9sYXllci5TTEJncGxzVG9wb1ByZWZpeElncFJvdXRlVGFnEkYK",
-            "DklncEV4dFJvdXRlVGFnGAQgAygLMi4uc2VydmljZV9sYXllci5TTEJncGxz",
-            "VG9wb1ByZWZpeElncEV4dFJvdXRlVGFnEjYKBk1ldHJpYxgFIAEoCzImLnNl",
-            "cnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9QcmVmaXhNZXRyaWMSQAoLT3NwZkZ3",
-            "ZEFkZHIYBiABKAsyKy5zZXJ2aWNlX2xheWVyLlNMQmdwbHNUb3BvUHJlZml4",
-            "T3NwZkZ3ZEFkZHISPgoKT3BhcXVlQXR0chgHIAEoCzIqLnNlcnZpY2VfbGF5",
-            "ZXIuU0xCZ3Bsc1RvcG9QcmVmaXhPcGFxdWVBdHRyEjAKA1NpZBgIIAMoCzIj",
-            "LnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9QcmVmaXhTaWQSNAoFUmFuZ2UY",
-            "CSABKAsyJS5zZXJ2aWNlX2xheWVyLlNMQmdwbHNUb3BvUHJlZml4UmFuZ2US",
-            "PAoJQXR0ckZsYWdzGAogASgLMikuc2VydmljZV9sYXllci5TTEJncGxzVG9w",
-            "b1ByZWZpeEF0dHJGbGFncxJACgtTcmNSb3V0ZXJJZBgLIAEoCzIrLnNlcnZp",
-            "Y2VfbGF5ZXIuU0xCZ3Bsc1RvcG9QcmVmaXhTcmNSb3V0ZXJJZBI6CgtVbmtu",
-            "b3duQXR0chgMIAMoCzIlLnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9Vbmtu",
-            "b3duQXR0ciI7ChZTTEJwbHNUb3BvTGlua0xvY1JlbUlkEg8KB0xvY2FsSWQY",
-            "ASABKA0SEAoIUmVtb3RlSWQYAiABKA0iHwoPU0xCZ3Bsc1RvcG9NdElkEgwK",
-            "BE10SWQYASABKA0iMQoSU0xCZ3Bsc1RvcG9Ob2RlTXNkEgwKBFR5cGUYASAB",
-            "KA0SDQoFVmFsdWUYAiABKA0iMQoSU0xCZ3Bsc1RvcG9MaW5rTXNkEgwKBFR5",
-            "cGUYASABKA0SDQoFVmFsdWUYAiABKA0iKAoXU0xCZ3Bsc1RvcG9Ob2RlRmxh",
-            "Z0JpdHMSDQoFRmxhZ3MYASABKAwiLwoZU0xCZ3Bsc1RvcG9Ob2RlT3BhcXVl",
-            "QXR0chISCgpPcGFxdWVBdHRyGAEgASgMIh8KD1NMQmdwbHNOb2RlTmFtZRIM",
-            "CgROYW1lGAEgASgJIicKFVNMQmdwbHNUb3BvSXNpc0FyZWFJZBIOCgZBcmVh",
-            "SWQYASABKAwiMAocU0xCZ3Bsc1RvcG9Mb2NhbElwdjRSb3V0ZXJJZBIQCghS",
-            "b3V0ZXJJZBgBIAEoDCIwChxTTEJncGxzVG9wb0xvY2FsSXB2NlJvdXRlcklk",
-            "EhAKCFJvdXRlcklkGAEgASgMIjEKHVNMQmdwbHNUb3BvUmVtb3RlSXB2NFJv",
-            "dXRlcklkEhAKCFJvdXRlcklkGAEgASgMIjEKHVNMQmdwbHNUb3BvUmVtb3Rl",
-            "SXB2NlJvdXRlcklkEhAKCFJvdXRlcklkGAEgASgMIjgKD1NMQmdwbHNUb3Bv",
-            "U3JnYhISCgpTdGFydExhYmVsGAEgASgNEhEKCVJhbmdlU2l6ZRgCIAEoDSIp",
-            "ChhTTEJncGxzVG9wb1NyZ2JJc2lzRmxhZ3MSDQoFRmxhZ3MYASABKAwiLAoW",
-            "U0xCZ3Bsc1RvcG9TckFsZ29yaXRobRISCgpBbGdvcml0aG1zGAEgASgMIjgK",
-            "D1NMQmdwbHNUb3BvU3JsYhISCgpTdGFydExhYmVsGAEgASgNEhEKCVJhbmdl",
-            "U2l6ZRgCIAEoDSLYAgoOU0xCZ3Bsc1RvcG9GYWQSEQoJQWxnb3JpdGhtGAEg",
-            "ASgMEhIKCk1ldHJpY1R5cGUYAiABKAwSEAoIQ2FsY1R5cGUYAyABKAwSEAoI",
-            "UHJpb3JpdHkYBCABKAwSEQoJRXhjQW55QWZmGAUgAygNEhEKCUluY0FueUFm",
-            "ZhgGIAMoDRIRCglJbmNBbGxBZmYYByADKA0SDQoFRmxhZ3MYCCABKAwSDwoH",
-            "RXhjU3JsZxgJIAMoDRI5CglVbnN1cHBUbHYYDyABKAsyJi5zZXJ2aWNlX2xh",
-            "eWVyLlNMQmdwbHNUb3BvRmFkVW5zdXBwVGx2EhAKCEV4Y01pbkJ3GA4gASgM",
-            "EhMKC0V4Y01heERlbGF5GA0gASgNEhQKDEV4Y0FueVJldkFmZhgKIAMoDRIU",
-            "CgxJbmNBbnlSZXZBZmYYCyADKA0SFAoMSW5jQWxsUmV2QWZmGAwgAygNIkgK",
-            "FVNMQmdwbHNUb3BvUHJlZml4RkFQTRIQCghGbGV4QWxnbxgBIAEoDRINCgVG",
-            "bGFncxgCIAEoDBIOCgZNZXRyaWMYAyABKA0iXgoXU0xCZ3Bsc1RvcG9GYWRV",
-            "bnN1cHBUbHYSNAoIUHJvdG9jb2wYASABKA4yIi5zZXJ2aWNlX2xheWVyLlNM",
-            "QmdwbHNUb3BvUHJvdG9jb2wSDQoFVHlwZXMYAiABKAwiJgoVU0xCZ3Bsc1Rv",
-            "cG9BZG1pbkdyb3VwEg0KBUdyb3VwGAEgASgNIjAKG1NMQmdwbHNUb3BvTGlu",
-            "a01heEJhbmR3aWR0aBIRCglCYW5kd2lkdGgYASABKAwiNAofU0xCZ3Bsc1Rv",
-            "cG9MaW5rTWF4UmVzdkJhbmR3aWR0aBIRCglCYW5kd2lkdGgYASABKAwiRQoe",
-            "U0xCZ3Bsc1RvcG9MaW5rVW5yZXN2QmFuZHdpZHRoEhAKCFByaW9yaXR5GAEg",
-            "ASgNEhEKCUJhbmR3aWR0aBgCIAEoDCIwCh5TTEJncGxzVG9wb0xpbmtUZURl",
-            "ZmF1bHRNZXRyaWMSDgoGTWV0cmljGAEgASgNIi0KHVNMQmdwbHNUb3BvTGlu",
-            "a1Byb3RlY3Rpb25UeXBlEgwKBE1hc2sYASABKA0iLAocU0xCZ3Bsc1RvcG9M",
-            "aW5rTXBsc1Byb3RvTWFzaxIMCgRNYXNrGAEgASgMIioKGFNMQmdwbHNUb3Bv",
-            "TGlua0lncE1ldHJpYxIOCgZNZXRyaWMYASABKAwiJgoTU0xCZ3Bsc1RvcG9M",
-            "aW5rU3JsZxIPCgdTcmxnVmFsGAEgASgNIi8KGVNMQmdwbHNUb3BvTGlua09w",
-            "YXF1ZUF0dHISEgoKT3BhcXVlQXR0chgBIAEoDCIjChNTTEJncGxzVG9wb0xp",
-            "bmtOYW1lEgwKBE5hbWUYASABKAkigQEKEVNMQmdwbHNUb3BvQWRqU2lkEhIK",
-            "CkxhYmVsSW5kZXgYASABKA0SOQoMQWRqU2lkRm9ybWF0GAIgASgOMiMuc2Vy",
-            "dmljZV9sYXllci5TTEJncGxzVG9wb1NpZEZvcm1hdBINCgVGbGFncxgDIAEo",
-            "DBIOCgZXZWlnaHQYBCABKA0ivAEKFFNMQmdwbHNUb3BvTGFuQWRqU2lkEjYK",
-            "CE5laWdoYm9yGAEgASgLMiQuc2VydmljZV9sYXllci5TTEJncExzVG9wb05l",
-            "aWdoYm9ySWQSEgoKTGFiZWxJbmRleBgCIAEoDRI5CgxBZGpTaWRGb3JtYXQY",
-            "AyABKA4yIy5zZXJ2aWNlX2xheWVyLlNMQmdwbHNUb3BvU2lkRm9ybWF0Eg0K",
-            "BUZsYWdzGAQgASgMEg4KBldlaWdodBgFIAEoDSKCAQoZU0xCZ3Bsc1RvcG9C",
-            "Z3BQZWVyTm9kZVNpZBILCgNTaWQYASABKAwSOQoMQmdwU2lkRm9ybWF0GAIg",
-            "ASgOMiMuc2VydmljZV9sYXllci5TTEJncGxzVG9wb1NpZEZvcm1hdBINCgVG",
-            "bGFncxgDIAEoDBIOCgZXZWlnaHQYBCABKA0igQEKGFNMQmdwbHNUb3BvQmdw",
-            "UGVlckFkalNpZBILCgNTaWQYASABKAwSOQoMQmdwU2lkRm9ybWF0GAIgASgO",
-            "MiMuc2VydmljZV9sYXllci5TTEJncGxzVG9wb1NpZEZvcm1hdBINCgVGbGFn",
-            "cxgDIAEoDBIOCgZXZWlnaHQYBCABKA0igQEKGFNMQmdwbHNUb3BvQmdwUGVl",
-            "clNldFNpZBILCgNTaWQYASABKAwSOQoMQmdwU2lkRm9ybWF0GAIgASgOMiMu",
-            "c2VydmljZV9sYXllci5TTEJncGxzVG9wb1NpZEZvcm1hdBINCgVGbGFncxgD",
-            "IAEoDBIOCgZXZWlnaHQYBCABKA0iTQoVU0xCZ3BMc1RvcG9OZWlnaGJvcklk",
-            "EhIKCElwdjRBZGRyGAEgASgMSAASEgoIU3lzdGVtSWQYAiABKAxIAEIMCgpO",
-            "ZWlnaGJvcklkIjcKF1NMQmdwbHNUb3BvVW5pTGlua0RlbGF5Eg0KBURlbGF5",
-            "GAEgASgNEg0KBUZsYWdzGAIgASgMIkgKHVNMQmdwbHNUb3BvTWluTWF4VW5p",
-            "TGlua0RlbGF5EgsKA01pbhgBIAEoDRILCgNNYXgYAiABKA0SDQoFRmxhZ3MY",
-            "AyABKAwiOgoWU0xCZ3Bsc1RvcG9VbmlEZWxheVZhchIRCglWYXJpYXRpb24Y",
-            "ASABKA0SDQoFRmxhZ3MYAiABKAwiNQoWU0xCZ3Bsc1RvcG9VbmlMaW5rTG9z",
-            "cxIMCgRMb3NzGAEgASgNEg0KBUZsYWdzGAIgASgMIi8KGlNMQmdwbHNUb3Bv",
-            "VW5pUmVzQmFuZHdpZHRoEhEKCUJhbmR3aWR0aBgBIAEoDCIxChxTTEJncGxz",
-            "VG9wb1VuaUF2YWlsQmFuZHdpZHRoEhEKCUJhbmR3aWR0aBgBIAEoDCIwChtT",
-            "TEJncGxzVG9wb1VuaVV0aWxCYW5kd2lkdGgSEQoJQmFuZHdpZHRoGAEgASgM",
-            "IrMGChNTTEJncGxzVG9wb0FzbGFBdHRyEgwKBFNhYm0YASABKAwSDQoFVWRh",
-            "Ym0YAiABKAwSOAoKQWRtaW5Hcm91cBgDIAEoCzIkLnNlcnZpY2VfbGF5ZXIu",
-            "U0xCZ3Bsc1RvcG9BZG1pbkdyb3VwEkIKC1RlRGVmTWV0cmljGAQgASgLMi0u",
-            "c2VydmljZV9sYXllci5TTEJncGxzVG9wb0xpbmtUZURlZmF1bHRNZXRyaWMS",
-            "MAoEU3JsZxgFIAMoCzIiLnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9MaW5r",
-            "U3JsZxI8CgxVbmlMaW5rRGVsYXkYBiABKAsyJi5zZXJ2aWNlX2xheWVyLlNM",
-            "QmdwbHNUb3BvVW5pTGlua0RlbGF5EkUKD01pbk1heExpbmtEZWxheRgHIAEo",
-            "CzIsLnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9NaW5NYXhVbmlMaW5rRGVs",
-            "YXkSQAoRVW5pRGVsYXlWYXJpYXRpb24YCCABKAsyJS5zZXJ2aWNlX2xheWVy",
-            "LlNMQmdwbHNUb3BvVW5pRGVsYXlWYXISOgoLVW5pTGlua0xvc3MYCSABKAsy",
-            "JS5zZXJ2aWNlX2xheWVyLlNMQmdwbHNUb3BvVW5pTGlua0xvc3MSQgoPVW5p",
-            "UmVzQmFuZHdpZHRoGAogASgLMikuc2VydmljZV9sYXllci5TTEJncGxzVG9w",
-            "b1VuaVJlc0JhbmR3aWR0aBJGChFVbmlBdmFpbEJhbmR3aWR0aBgLIAEoCzIr",
-            "LnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9VbmlBdmFpbEJhbmR3aWR0aBJE",
-            "ChBVbmlVdGlsQmFuZHdpZHRoGAwgASgLMiouc2VydmljZV9sYXllci5TTEJn",
-            "cGxzVG9wb1VuaVV0aWxCYW5kd2lkdGgSPgoNRXh0QWRtaW5Hcm91cBgNIAMo",
+            "ZXIYBCABKAwiYwoXU0xCZ3Bsc1RvcG9Pc3BmdjNOb2RlSWQSDgoGQXJlYUlk",
+            "GAEgASgNEhAKCEFzU2NvcGVkGAIgASgNEhAKCFJvdXRlcklkGAMgASgMEhQK",
+            "DERySWRlbnRpZmllchgEIAEoDSI4ChVTTEJncGxzVG9wb0lzaXNOb2RlSWQS",
+            "EAoIU3lzdGVtSWQYASABKAwSDQoFUHNuSWQYAiABKAwiOwoUU0xCZ3Bsc1Rv",
+            "cG9CZ3BOb2RlSWQSEAoIUm91dGVySWQYASABKAwSEQoJTWVtYmVyQXNuGAIg",
+            "ASgNImwKGVNMQmdwbHNUb3BvU3JQb2xpY3lOb2RlSWQSEAoIUm91dGVySWQY",
+            "ASABKAwSEQoJTWVtYmVyQXNuGAIgASgNEhQKDElwdjRSb3V0ZXJJZBgDIAEo",
+            "DBIUCgxJcHY2Um91dGVySWQYBCABKAwiKQoYU0xCZ3Bsc1RvcG9TclBvbGlj",
+            "eUZsYWdzEg0KBUZsYWdzGAEgASgMIuEGChNTTEJncGxzVG9wb05vZGVBdHRy",
+            "EiwKBE10SWQYASADKAsyHi5zZXJ2aWNlX2xheWVyLlNMQmdwbHNUb3BvTXRJ",
+            "ZBIyCgdOb2RlTXNkGAIgAygLMiEuc2VydmljZV9sYXllci5TTEJncGxzVG9w",
+            "b05vZGVNc2QSPAoMTm9kZUZsYWdCaXRzGAMgASgLMiYuc2VydmljZV9sYXll",
+            "ci5TTEJncGxzVG9wb05vZGVGbGFnQml0cxJACg5PcGFxdWVOb2RlQXR0chgE",
+            "IAEoCzIoLnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9Ob2RlT3BhcXVlQXR0",
+            "chIwCghOb2RlTmFtZRgFIAEoCzIeLnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc05v",
+            "ZGVOYW1lEjgKCklzaXNBcmVhSWQYBiADKAsyJC5zZXJ2aWNlX2xheWVyLlNM",
+            "QmdwbHNUb3BvSXNpc0FyZWFJZBI+CglMb2NhbElwdjQYByADKAsyKy5zZXJ2",
+            "aWNlX2xheWVyLlNMQmdwbHNUb3BvTG9jYWxJcHY0Um91dGVySWQSPgoJTG9j",
+            "YWxJcHY2GAggAygLMisuc2VydmljZV9sYXllci5TTEJncGxzVG9wb0xvY2Fs",
+            "SXB2NlJvdXRlcklkEj4KDVNyZ2JJc2lzRmxhZ3MYCSABKAsyJy5zZXJ2aWNl",
+            "X2xheWVyLlNMQmdwbHNUb3BvU3JnYklzaXNGbGFncxIsCgRTcmdiGAogAygL",
+            "Mh4uc2VydmljZV9sYXllci5TTEJncGxzVG9wb1NyZ2ISOgoLU3JBbGdvcml0",
+            "aG0YCyABKAsyJS5zZXJ2aWNlX2xheWVyLlNMQmdwbHNUb3BvU3JBbGdvcml0",
+            "aG0SLAoEU3JsYhgMIAMoCzIeLnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9T",
+            "cmxiEioKA0ZhZBgNIAMoCzIdLnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9G",
+            "YWQSOgoLVW5rbm93bkF0dHIYDiADKAsyJS5zZXJ2aWNlX2xheWVyLlNMQmdw",
+            "bHNUb3BvVW5rbm93bkF0dHISPAoMU3J2NkNhcEZsYWdzGA8gASgLMiYuc2Vy",
+            "dmljZV9sYXllci5TTEJncGxzVG9wb1NydjZDYXBGbGFncyLcEQoTU0xCZ3Bs",
+            "c1RvcG9MaW5rQXR0chI7CgxMaW5rTG9jUmVtSWQYASABKAsyJS5zZXJ2aWNl",
+            "X2xheWVyLlNMQnBsc1RvcG9MaW5rTG9jUmVtSWQSMgoHTGlua01zZBgCIAMo",
+            "CzIhLnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9MaW5rTXNkEkYKEUxvY2Fs",
+            "SXB2NFJvdXRlcklkGAMgAygLMisuc2VydmljZV9sYXllci5TTEJncGxzVG9w",
+            "b0xvY2FsSXB2NFJvdXRlcklkEkYKEUxvY2FsSXB2NlJvdXRlcklkGAQgAygL",
+            "Misuc2VydmljZV9sYXllci5TTEJncGxzVG9wb0xvY2FsSXB2NlJvdXRlcklk",
+            "EkgKElJlbW90ZUlwdjRSb3V0ZXJJZBgFIAMoCzIsLnNlcnZpY2VfbGF5ZXIu",
+            "U0xCZ3Bsc1RvcG9SZW1vdGVJcHY0Um91dGVySWQSSAoSUmVtb3RlSXB2NlJv",
+            "dXRlcklkGAYgAygLMiwuc2VydmljZV9sYXllci5TTEJncGxzVG9wb1JlbW90",
+            "ZUlwdjZSb3V0ZXJJZBI4CgpBZG1pbkdyb3VwGAcgASgLMiQuc2VydmljZV9s",
+            "YXllci5TTEJncGxzVG9wb0FkbWluR3JvdXASQAoMTWF4QmFuZHdpZHRoGAgg",
+            "ASgLMiouc2VydmljZV9sYXllci5TTEJncGxzVG9wb0xpbmtNYXhCYW5kd2lk",
+            "dGgSSAoQTWF4UmVzdkJhbmR3aWR0aBgJIAEoCzIuLnNlcnZpY2VfbGF5ZXIu",
+            "U0xCZ3Bsc1RvcG9MaW5rTWF4UmVzdkJhbmR3aWR0aBJGCg9VbnJlc3ZCYW5k",
+            "d2lkdGgYCiADKAsyLS5zZXJ2aWNlX2xheWVyLlNMQmdwbHNUb3BvTGlua1Vu",
+            "cmVzdkJhbmR3aWR0aBJCCgtUZURlZk1ldHJpYxgLIAEoCzItLnNlcnZpY2Vf",
+            "bGF5ZXIuU0xCZ3Bsc1RvcG9MaW5rVGVEZWZhdWx0TWV0cmljEkQKDlByb3Rl",
+            "Y3Rpb25UeXBlGAwgASgLMiwuc2VydmljZV9sYXllci5TTEJncGxzVG9wb0xp",
+            "bmtQcm90ZWN0aW9uVHlwZRJCCg1NcGxzUHJvdG9NYXNrGA0gASgLMisuc2Vy",
+            "dmljZV9sYXllci5TTEJncGxzVG9wb0xpbmtNcGxzUHJvdG9NYXNrEjoKCUln",
+            "cE1ldHJpYxgOIAEoCzInLnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9MaW5r",
+            "SWdwTWV0cmljEjAKBFNybGcYDyADKAsyIi5zZXJ2aWNlX2xheWVyLlNMQmdw",
+            "bHNUb3BvTGlua1NybGcSPAoKT3BhcXVlQXR0chgQIAEoCzIoLnNlcnZpY2Vf",
+            "bGF5ZXIuU0xCZ3Bsc1RvcG9MaW5rT3BhcXVlQXR0chI0CghMaW5rTmFtZRgR",
+            "IAEoCzIiLnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9MaW5rTmFtZRIwCgZB",
+            "ZGpTaWQYEiADKAsyIC5zZXJ2aWNlX2xheWVyLlNMQmdwbHNUb3BvQWRqU2lk",
+            "EjYKCUxhbkFkalNpZBgTIAMoCzIjLnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc1Rv",
+            "cG9MYW5BZGpTaWQSQAoOQmdwUGVlck5vZGVTaWQYFCADKAsyKC5zZXJ2aWNl",
+            "X2xheWVyLlNMQmdwbHNUb3BvQmdwUGVlck5vZGVTaWQSPgoNQmdwUGVlckFk",
+            "alNpZBgVIAMoCzInLnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9CZ3BQZWVy",
+            "QWRqU2lkEj4KDUJncFBlZXJTZXRTaWQYFiADKAsyJy5zZXJ2aWNlX2xheWVy",
+            "LlNMQmdwbHNUb3BvQmdwUGVlclNldFNpZBI8CgxVbmlMaW5rRGVsYXkYFyAB",
+            "KAsyJi5zZXJ2aWNlX2xheWVyLlNMQmdwbHNUb3BvVW5pTGlua0RlbGF5EkgK",
+            "Ek1pbk1heFVuaUxpbmtEZWxheRgYIAEoCzIsLnNlcnZpY2VfbGF5ZXIuU0xC",
+            "Z3Bsc1RvcG9NaW5NYXhVbmlMaW5rRGVsYXkSOgoLVW5pRGVsYXlWYXIYGSAB",
+            "KAsyJS5zZXJ2aWNlX2xheWVyLlNMQmdwbHNUb3BvVW5pRGVsYXlWYXISOgoL",
+            "VW5pTGlua0xvc3MYGiABKAsyJS5zZXJ2aWNlX2xheWVyLlNMQmdwbHNUb3Bv",
+            "VW5pTGlua0xvc3MSQgoPVW5pUmVzQmFuZHdpZHRoGBsgASgLMikuc2Vydmlj",
+            "ZV9sYXllci5TTEJncGxzVG9wb1VuaVJlc0JhbmR3aWR0aBJGChFVbmlBdmFp",
+            "bEJhbmR3aWR0aBgcIAEoCzIrLnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9V",
+            "bmlBdmFpbEJhbmR3aWR0aBJEChBVbmlVdGlsQmFuZHdpZHRoGB0gASgLMiou",
+            "c2VydmljZV9sYXllci5TTEJncGxzVG9wb1VuaVV0aWxCYW5kd2lkdGgSMAoE",
+            "QXNsYRgeIAMoCzIiLnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9Bc2xhQXR0",
+            "chJIChJMMkJ1bmRsZU1lbWJlckF0dHIYHyADKAsyLC5zZXJ2aWNlX2xheWVy",
+            "LlNMQmdwbHNUb3BvTDJCdW5kbGVNZW1iZXJBdHRyEj4KDUV4dEFkbWluR3Jv",
+            "dXAYICADKAsyJy5zZXJ2aWNlX2xheWVyLlNMQmdwbHNUb3BvRXh0QWRtaW5H",
+            "cm91cBI6CgtVbmtub3duQXR0chghIAMoCzIlLnNlcnZpY2VfbGF5ZXIuU0xC",
+            "Z3Bsc1RvcG9Vbmtub3duQXR0chI6CgtTcnY2RW5kWFNpZBgiIAMoCzIlLnNl",
+            "cnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9TcnY2RW5kWFNpZBJACg5TcnY2TGFu",
+            "RW5kWFNpZBgjIAMoCzIoLnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9TcnY2",
+            "TGFuRW5kWFNpZCKpBgoVU0xCZ3Bsc1RvcG9QcmVmaXhBdHRyEjIKBEZhcG0Y",
+            "ASADKAsyJC5zZXJ2aWNlX2xheWVyLlNMQmdwbHNUb3BvUHJlZml4RkFQTRI6",
+            "CghJZ3BGbGFncxgCIAEoCzIoLnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9Q",
+            "cmVmaXhJZ3BGbGFncxJACgtJZ3BSb3V0ZVRhZxgDIAMoCzIrLnNlcnZpY2Vf",
+            "bGF5ZXIuU0xCZ3Bsc1RvcG9QcmVmaXhJZ3BSb3V0ZVRhZxJGCg5JZ3BFeHRS",
+            "b3V0ZVRhZxgEIAMoCzIuLnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9QcmVm",
+            "aXhJZ3BFeHRSb3V0ZVRhZxI2CgZNZXRyaWMYBSABKAsyJi5zZXJ2aWNlX2xh",
+            "eWVyLlNMQmdwbHNUb3BvUHJlZml4TWV0cmljEkAKC09zcGZGd2RBZGRyGAYg",
+            "ASgLMisuc2VydmljZV9sYXllci5TTEJncGxzVG9wb1ByZWZpeE9zcGZGd2RB",
+            "ZGRyEj4KCk9wYXF1ZUF0dHIYByABKAsyKi5zZXJ2aWNlX2xheWVyLlNMQmdw",
+            "bHNUb3BvUHJlZml4T3BhcXVlQXR0chIwCgNTaWQYCCADKAsyIy5zZXJ2aWNl",
+            "X2xheWVyLlNMQmdwbHNUb3BvUHJlZml4U2lkEjQKBVJhbmdlGAkgASgLMiUu",
+            "c2VydmljZV9sYXllci5TTEJncGxzVG9wb1ByZWZpeFJhbmdlEjwKCUF0dHJG",
+            "bGFncxgKIAEoCzIpLnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9QcmVmaXhB",
+            "dHRyRmxhZ3MSQAoLU3JjUm91dGVySWQYCyABKAsyKy5zZXJ2aWNlX2xheWVy",
+            "LlNMQmdwbHNUb3BvUHJlZml4U3JjUm91dGVySWQSOgoLVW5rbm93bkF0dHIY",
+            "DCADKAsyJS5zZXJ2aWNlX2xheWVyLlNMQmdwbHNUb3BvVW5rbm93bkF0dHIS",
+            "OAoHU3J2NkxvYxgNIAEoCzInLnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9Q",
+            "cmVmaXhTcnY2TG9jIqACChZTTEJncGxzVG9wb1NydjZTaWRBdHRyEkgKEEVu",
+            "ZFBvaW50QmVoYXZpb3IYASABKAsyLi5zZXJ2aWNlX2xheWVyLlNMQmdwbHNU",
+            "b3BvU3J2NkVuZFBvaW50QmVoYXZpb3ISRAoOQmdwUGVlck5vZGVTaWQYAiAD",
+            "KAsyLC5zZXJ2aWNlX2xheWVyLlNMQmdwbHNUb3BvU3J2NkJncFBlZXJOb2Rl",
+            "U2lkEjoKCVNpZFN0cnVjdBgDIAEoCzInLnNlcnZpY2VfbGF5ZXIuU0xCZ3Bs",
+            "c1RvcG9TcnY2U2lkU3RydWN0EjoKC1Vua25vd25BdHRyGAQgAygLMiUuc2Vy",
+            "dmljZV9sYXllci5TTEJncGxzVG9wb1Vua25vd25BdHRyIuoDChdTTEJncGxz",
+            "VG9wb1NyUG9saWN5QXR0chI2CgZTckJzaWQYASABKAsyJi5zZXJ2aWNlX2xh",
+            "eWVyLlNMQmdwbHNUb3BvU3JCaW5kaW5nU2lkEjQKB0NwU3RhdGUYAiABKAsy",
+            "Iy5zZXJ2aWNlX2xheWVyLlNMQmdwbHNUb3BvU3JDcFN0YXRlEjIKBkNwTmFt",
+            "ZRgDIAEoCzIiLnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9TckNwTmFtZRJA",
+            "Cg1DcENvbnN0cmFpbnRzGAQgASgLMikuc2VydmljZV9sYXllci5TTEJncGxz",
+            "VG9wb1NyQ3BDb25zdHJhaW50cxI1CghTZWdMaXN0cxgFIAMoCzIjLnNlcnZp",
+            "Y2VfbGF5ZXIuU0xCZ3Bsc1RvcG9TclNlZ0xpc3QSOgoIU3J2NkJzaWQYBiAB",
+            "KAsyKC5zZXJ2aWNlX2xheWVyLlNMQmdwbHNUb3BvU3J2NkJpbmRpbmdTaWQS",
+            "PAoMU3JQb2xpY3lOYW1lGAcgASgLMiYuc2VydmljZV9sYXllci5TTEJncGxz",
+            "VG9wb1NyUG9saWN5TmFtZRI6CgtVbmtub3duQXR0chgIIAMoCzIlLnNlcnZp",
+            "Y2VfbGF5ZXIuU0xCZ3Bsc1RvcG9Vbmtub3duQXR0ciI7ChZTTEJwbHNUb3Bv",
+            "TGlua0xvY1JlbUlkEg8KB0xvY2FsSWQYASABKA0SEAoIUmVtb3RlSWQYAiAB",
+            "KA0iHwoPU0xCZ3Bsc1RvcG9NdElkEgwKBE10SWQYASABKA0iMQoSU0xCZ3Bs",
+            "c1RvcG9Ob2RlTXNkEgwKBFR5cGUYASABKA0SDQoFVmFsdWUYAiABKA0iMQoS",
+            "U0xCZ3Bsc1RvcG9MaW5rTXNkEgwKBFR5cGUYASABKA0SDQoFVmFsdWUYAiAB",
+            "KA0iKAoXU0xCZ3Bsc1RvcG9Ob2RlRmxhZ0JpdHMSDQoFRmxhZ3MYASABKAwi",
+            "LwoZU0xCZ3Bsc1RvcG9Ob2RlT3BhcXVlQXR0chISCgpPcGFxdWVBdHRyGAEg",
+            "ASgMIh8KD1NMQmdwbHNOb2RlTmFtZRIMCgROYW1lGAEgASgJIicKFVNMQmdw",
+            "bHNUb3BvSXNpc0FyZWFJZBIOCgZBcmVhSWQYASABKAwiMAocU0xCZ3Bsc1Rv",
+            "cG9Mb2NhbElwdjRSb3V0ZXJJZBIQCghSb3V0ZXJJZBgBIAEoDCIwChxTTEJn",
+            "cGxzVG9wb0xvY2FsSXB2NlJvdXRlcklkEhAKCFJvdXRlcklkGAEgASgMIjEK",
+            "HVNMQmdwbHNUb3BvUmVtb3RlSXB2NFJvdXRlcklkEhAKCFJvdXRlcklkGAEg",
+            "ASgMIjEKHVNMQmdwbHNUb3BvUmVtb3RlSXB2NlJvdXRlcklkEhAKCFJvdXRl",
+            "cklkGAEgASgMIjgKD1NMQmdwbHNUb3BvU3JnYhISCgpTdGFydExhYmVsGAEg",
+            "ASgNEhEKCVJhbmdlU2l6ZRgCIAEoDSIpChhTTEJncGxzVG9wb1NyZ2JJc2lz",
+            "RmxhZ3MSDQoFRmxhZ3MYASABKAwiLAoWU0xCZ3Bsc1RvcG9TckFsZ29yaXRo",
+            "bRISCgpBbGdvcml0aG1zGAEgASgMIjgKD1NMQmdwbHNUb3BvU3JsYhISCgpT",
+            "dGFydExhYmVsGAEgASgNEhEKCVJhbmdlU2l6ZRgCIAEoDSIoChdTTEJncGxz",
+            "VG9wb1NydjZDYXBGbGFncxINCgVGbGFncxgBIAEoDCLYAgoOU0xCZ3Bsc1Rv",
+            "cG9GYWQSEQoJQWxnb3JpdGhtGAEgASgMEhIKCk1ldHJpY1R5cGUYAiABKAwS",
+            "EAoIQ2FsY1R5cGUYAyABKAwSEAoIUHJpb3JpdHkYBCABKAwSEQoJRXhjQW55",
+            "QWZmGAUgAygNEhEKCUluY0FueUFmZhgGIAMoDRIRCglJbmNBbGxBZmYYByAD",
+            "KA0SDQoFRmxhZ3MYCCABKAwSDwoHRXhjU3JsZxgJIAMoDRI5CglVbnN1cHBU",
+            "bHYYDyABKAsyJi5zZXJ2aWNlX2xheWVyLlNMQmdwbHNUb3BvRmFkVW5zdXBw",
+            "VGx2EhAKCEV4Y01pbkJ3GA4gASgMEhMKC0V4Y01heERlbGF5GA0gASgNEhQK",
+            "DEV4Y0FueVJldkFmZhgKIAMoDRIUCgxJbmNBbnlSZXZBZmYYCyADKA0SFAoM",
+            "SW5jQWxsUmV2QWZmGAwgAygNIkgKFVNMQmdwbHNUb3BvUHJlZml4RkFQTRIQ",
+            "CghGbGV4QWxnbxgBIAEoDRINCgVGbGFncxgCIAEoDBIOCgZNZXRyaWMYAyAB",
+            "KA0iXgoXU0xCZ3Bsc1RvcG9GYWRVbnN1cHBUbHYSNAoIUHJvdG9jb2wYASAB",
+            "KA4yIi5zZXJ2aWNlX2xheWVyLlNMQmdwbHNUb3BvUHJvdG9jb2wSDQoFVHlw",
+            "ZXMYAiABKAwiJgoVU0xCZ3Bsc1RvcG9BZG1pbkdyb3VwEg0KBUdyb3VwGAEg",
+            "ASgNIjAKG1NMQmdwbHNUb3BvTGlua01heEJhbmR3aWR0aBIRCglCYW5kd2lk",
+            "dGgYASABKAwiNAofU0xCZ3Bsc1RvcG9MaW5rTWF4UmVzdkJhbmR3aWR0aBIR",
+            "CglCYW5kd2lkdGgYASABKAwiRQoeU0xCZ3Bsc1RvcG9MaW5rVW5yZXN2QmFu",
+            "ZHdpZHRoEhAKCFByaW9yaXR5GAEgASgNEhEKCUJhbmR3aWR0aBgCIAEoDCIw",
+            "Ch5TTEJncGxzVG9wb0xpbmtUZURlZmF1bHRNZXRyaWMSDgoGTWV0cmljGAEg",
+            "ASgNIi0KHVNMQmdwbHNUb3BvTGlua1Byb3RlY3Rpb25UeXBlEgwKBE1hc2sY",
+            "ASABKA0iLAocU0xCZ3Bsc1RvcG9MaW5rTXBsc1Byb3RvTWFzaxIMCgRNYXNr",
+            "GAEgASgMIioKGFNMQmdwbHNUb3BvTGlua0lncE1ldHJpYxIOCgZNZXRyaWMY",
+            "ASABKAwiJgoTU0xCZ3Bsc1RvcG9MaW5rU3JsZxIPCgdTcmxnVmFsGAEgASgN",
+            "Ii8KGVNMQmdwbHNUb3BvTGlua09wYXF1ZUF0dHISEgoKT3BhcXVlQXR0chgB",
+            "IAEoDCIjChNTTEJncGxzVG9wb0xpbmtOYW1lEgwKBE5hbWUYASABKAkigQEK",
+            "EVNMQmdwbHNUb3BvQWRqU2lkEhIKCkxhYmVsSW5kZXgYASABKA0SOQoMQWRq",
+            "U2lkRm9ybWF0GAIgASgOMiMuc2VydmljZV9sYXllci5TTEJncGxzVG9wb1Np",
+            "ZEZvcm1hdBINCgVGbGFncxgDIAEoDBIOCgZXZWlnaHQYBCABKA0ivAEKFFNM",
+            "QmdwbHNUb3BvTGFuQWRqU2lkEjYKCE5laWdoYm9yGAEgASgLMiQuc2Vydmlj",
+            "ZV9sYXllci5TTEJncExzVG9wb05laWdoYm9ySWQSEgoKTGFiZWxJbmRleBgC",
+            "IAEoDRI5CgxBZGpTaWRGb3JtYXQYAyABKA4yIy5zZXJ2aWNlX2xheWVyLlNM",
+            "QmdwbHNUb3BvU2lkRm9ybWF0Eg0KBUZsYWdzGAQgASgMEg4KBldlaWdodBgF",
+            "IAEoDSKCAQoZU0xCZ3Bsc1RvcG9CZ3BQZWVyTm9kZVNpZBILCgNTaWQYASAB",
+            "KAwSOQoMQmdwU2lkRm9ybWF0GAIgASgOMiMuc2VydmljZV9sYXllci5TTEJn",
+            "cGxzVG9wb1NpZEZvcm1hdBINCgVGbGFncxgDIAEoDBIOCgZXZWlnaHQYBCAB",
+            "KA0igQEKGFNMQmdwbHNUb3BvQmdwUGVlckFkalNpZBILCgNTaWQYASABKAwS",
+            "OQoMQmdwU2lkRm9ybWF0GAIgASgOMiMuc2VydmljZV9sYXllci5TTEJncGxz",
+            "VG9wb1NpZEZvcm1hdBINCgVGbGFncxgDIAEoDBIOCgZXZWlnaHQYBCABKA0i",
+            "gQEKGFNMQmdwbHNUb3BvQmdwUGVlclNldFNpZBILCgNTaWQYASABKAwSOQoM",
+            "QmdwU2lkRm9ybWF0GAIgASgOMiMuc2VydmljZV9sYXllci5TTEJncGxzVG9w",
+            "b1NpZEZvcm1hdBINCgVGbGFncxgDIAEoDBIOCgZXZWlnaHQYBCABKA0irQEK",
+            "FlNMQmdwbHNUb3BvU3J2NkVuZFhTaWQSCwoDU2lkGAEgASgMEhEKCUFsZ29y",
+            "aXRobRgCIAEoDRINCgVGbGFncxgDIAEoDBIOCgZXZWlnaHQYBCABKA0SGAoQ",
+            "RW5kUG9pbnRCZWhhdmlvchgFIAEoDRI6CglTaWRTdHJ1Y3QYBiABKAsyJy5z",
+            "ZXJ2aWNlX2xheWVyLlNMQmdwbHNUb3BvU3J2NlNpZFN0cnVjdCJNChVTTEJn",
+            "cExzVG9wb05laWdoYm9ySWQSEgoISXB2NEFkZHIYASABKAxIABISCghTeXN0",
+            "ZW1JZBgCIAEoDEgAQgwKCk5laWdoYm9ySWQi6AEKGVNMQmdwbHNUb3BvU3J2",
+            "NkxhbkVuZFhTaWQSNgoITmVpZ2hib3IYASABKAsyJC5zZXJ2aWNlX2xheWVy",
+            "LlNMQmdwTHNUb3BvTmVpZ2hib3JJZBILCgNTaWQYAiABKAwSEQoJQWxnb3Jp",
+            "dGhtGAMgASgNEg0KBUZsYWdzGAQgASgMEg4KBldlaWdodBgFIAEoDRIYChBF",
+            "bmRQb2ludEJlaGF2aW9yGAYgASgNEjoKCVNpZFN0cnVjdBgHIAEoCzInLnNl",
+            "cnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9TcnY2U2lkU3RydWN0IjcKF1NMQmdw",
+            "bHNUb3BvVW5pTGlua0RlbGF5Eg0KBURlbGF5GAEgASgNEg0KBUZsYWdzGAIg",
+            "ASgMIkgKHVNMQmdwbHNUb3BvTWluTWF4VW5pTGlua0RlbGF5EgsKA01pbhgB",
+            "IAEoDRILCgNNYXgYAiABKA0SDQoFRmxhZ3MYAyABKAwiOgoWU0xCZ3Bsc1Rv",
+            "cG9VbmlEZWxheVZhchIRCglWYXJpYXRpb24YASABKA0SDQoFRmxhZ3MYAiAB",
+            "KAwiNQoWU0xCZ3Bsc1RvcG9VbmlMaW5rTG9zcxIMCgRMb3NzGAEgASgNEg0K",
+            "BUZsYWdzGAIgASgMIi8KGlNMQmdwbHNUb3BvVW5pUmVzQmFuZHdpZHRoEhEK",
+            "CUJhbmR3aWR0aBgBIAEoDCIxChxTTEJncGxzVG9wb1VuaUF2YWlsQmFuZHdp",
+            "ZHRoEhEKCUJhbmR3aWR0aBgBIAEoDCIwChtTTEJncGxzVG9wb1VuaVV0aWxC",
+            "YW5kd2lkdGgSEQoJQmFuZHdpZHRoGAEgASgMIrMGChNTTEJncGxzVG9wb0Fz",
+            "bGFBdHRyEgwKBFNhYm0YASABKAwSDQoFVWRhYm0YAiABKAwSOAoKQWRtaW5H",
+            "cm91cBgDIAEoCzIkLnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9BZG1pbkdy",
+            "b3VwEkIKC1RlRGVmTWV0cmljGAQgASgLMi0uc2VydmljZV9sYXllci5TTEJn",
+            "cGxzVG9wb0xpbmtUZURlZmF1bHRNZXRyaWMSMAoEU3JsZxgFIAMoCzIiLnNl",
+            "cnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9MaW5rU3JsZxI8CgxVbmlMaW5rRGVs",
+            "YXkYBiABKAsyJi5zZXJ2aWNlX2xheWVyLlNMQmdwbHNUb3BvVW5pTGlua0Rl",
+            "bGF5EkUKD01pbk1heExpbmtEZWxheRgHIAEoCzIsLnNlcnZpY2VfbGF5ZXIu",
+            "U0xCZ3Bsc1RvcG9NaW5NYXhVbmlMaW5rRGVsYXkSQAoRVW5pRGVsYXlWYXJp",
+            "YXRpb24YCCABKAsyJS5zZXJ2aWNlX2xheWVyLlNMQmdwbHNUb3BvVW5pRGVs",
+            "YXlWYXISOgoLVW5pTGlua0xvc3MYCSABKAsyJS5zZXJ2aWNlX2xheWVyLlNM",
+            "QmdwbHNUb3BvVW5pTGlua0xvc3MSQgoPVW5pUmVzQmFuZHdpZHRoGAogASgL",
+            "Mikuc2VydmljZV9sYXllci5TTEJncGxzVG9wb1VuaVJlc0JhbmR3aWR0aBJG",
+            "ChFVbmlBdmFpbEJhbmR3aWR0aBgLIAEoCzIrLnNlcnZpY2VfbGF5ZXIuU0xC",
+            "Z3Bsc1RvcG9VbmlBdmFpbEJhbmR3aWR0aBJEChBVbmlVdGlsQmFuZHdpZHRo",
+            "GAwgASgLMiouc2VydmljZV9sYXllci5TTEJncGxzVG9wb1VuaVV0aWxCYW5k",
+            "d2lkdGgSPgoNRXh0QWRtaW5Hcm91cBgNIAMoCzInLnNlcnZpY2VfbGF5ZXIu",
+            "U0xCZ3Bsc1RvcG9FeHRBZG1pbkdyb3VwEjoKC1Vua25vd25BdHRyGA4gAygL",
+            "MiUuc2VydmljZV9sYXllci5TTEJncGxzVG9wb1Vua25vd25BdHRyIioKGVNM",
+            "QmdwbHNUb3BvUHJlZml4SWdwRmxhZ3MSDQoFRmxhZ3MYASABKAwiKwocU0xC",
+            "Z3Bsc1RvcG9QcmVmaXhJZ3BSb3V0ZVRhZxILCgNUYWcYASABKA0iLgofU0xC",
+            "Z3Bsc1RvcG9QcmVmaXhJZ3BFeHRSb3V0ZVRhZxILCgNUYWcYASABKAQiKQoX",
+            "U0xCZ3Bsc1RvcG9QcmVmaXhNZXRyaWMSDgoGTWV0cmljGAEgASgNIlUKHFNM",
+            "QmdwbHNUb3BvUHJlZml4T3NwZkZ3ZEFkZHISEgoISXB2NEFkZHIYASABKAxI",
+            "ABISCghJcHY2QWRkchgCIAEoDEgAQg0KC09zcGZGd2RBZGRyIjEKG1NMQmdw",
+            "bHNUb3BvUHJlZml4T3BhcXVlQXR0chISCgpPcGFxdWVBdHRyGAEgASgMIpAB",
+            "ChRTTEJncGxzVG9wb1ByZWZpeFNpZBINCgVGbGFncxgBIAEoDBIRCglBbGdv",
+            "cml0aG0YAiABKA0SEgoKTGFiZWxJbmRleBgDIAEoDRJCCg9QcmVmaXhTaWRG",
+            "b3JtYXQYBCABKA4yKS5zZXJ2aWNlX2xheWVyLlNMQmdwbHNUb3BvUHJlZml4",
+            "U2lkRm9ybWF0Im4KFlNMQmdwbHNUb3BvUHJlZml4UmFuZ2USDQoFRmxhZ3MY",
+            "ASABKAwSEQoJUmFuZ2VTaXplGAIgASgNEhEKCUFsZ29yaXRobRgDIAEoDRIN",
+            "CgVJbmRleBgEIAEoDRIQCghTaWRGbGFncxgFIAEoDCJMChhTTEJncGxzVG9w",
+            "b1ByZWZpeFNydjZMb2MSDQoFRmxhZ3MYASABKAwSEQoJQWxnb3JpdGhtGAIg",
+            "ASgNEg4KBk1ldHJpYxgDIAEoDSIrChpTTEJncGxzVG9wb1ByZWZpeEF0dHJG",
+            "bGFncxINCgVGbGFncxgBIAEoDCJVChxTTEJncGxzVG9wb1ByZWZpeFNyY1Jv",
+            "dXRlcklkEhIKCElwdjRBZGRyGAEgASgMSAASEgoISXB2NkFkZHIYAiABKAxI",
+            "AEINCgtTcmNSb3V0ZXJJZCK4CQodU0xCZ3Bsc1RvcG9MMkJ1bmRsZU1lbWJl",
+            "ckF0dHISEgoKTWVtYmVyRGVzYxgBIAEoDRI4CgpBZG1pbkdyb3VwGAIgASgL",
+            "MiQuc2VydmljZV9sYXllci5TTEJncGxzVG9wb0FkbWluR3JvdXASQAoMTWF4",
+            "QmFuZHdpZHRoGAMgASgLMiouc2VydmljZV9sYXllci5TTEJncGxzVG9wb0xp",
+            "bmtNYXhCYW5kd2lkdGgSSAoQTWF4UmVzdkJhbmR3aWR0aBgEIAEoCzIuLnNl",
+            "cnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9MaW5rTWF4UmVzdkJhbmR3aWR0aBJG",
+            "Cg9VbnJlc3ZCYW5kd2lkdGgYBSADKAsyLS5zZXJ2aWNlX2xheWVyLlNMQmdw",
+            "bHNUb3BvTGlua1VucmVzdkJhbmR3aWR0aBJCCgtUZURlZk1ldHJpYxgGIAEo",
+            "CzItLnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9MaW5rVGVEZWZhdWx0TWV0",
+            "cmljEkQKDlByb3RlY3Rpb25UeXBlGAcgASgLMiwuc2VydmljZV9sYXllci5T",
+            "TEJncGxzVG9wb0xpbmtQcm90ZWN0aW9uVHlwZRIwCgZBZGpTaWQYCCADKAsy",
+            "IC5zZXJ2aWNlX2xheWVyLlNMQmdwbHNUb3BvQWRqU2lkEjYKCUxhbkFkalNp",
+            "ZBgJIAMoCzIjLnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9MYW5BZGpTaWQS",
+            "PAoMVW5pTGlua0RlbGF5GAogASgLMiYuc2VydmljZV9sYXllci5TTEJncGxz",
+            "VG9wb1VuaUxpbmtEZWxheRJFCg9NaW5NYXhMaW5rRGVsYXkYCyABKAsyLC5z",
+            "ZXJ2aWNlX2xheWVyLlNMQmdwbHNUb3BvTWluTWF4VW5pTGlua0RlbGF5EkAK",
+            "EVVuaURlbGF5VmFyaWF0aW9uGAwgASgLMiUuc2VydmljZV9sYXllci5TTEJn",
+            "cGxzVG9wb1VuaURlbGF5VmFyEjoKC1VuaUxpbmtMb3NzGA0gASgLMiUuc2Vy",
+            "dmljZV9sYXllci5TTEJncGxzVG9wb1VuaUxpbmtMb3NzEkIKD1VuaVJlc0Jh",
+            "bmR3aWR0aBgOIAEoCzIpLnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9VbmlS",
+            "ZXNCYW5kd2lkdGgSRgoRVW5pQXZhaWxCYW5kd2lkdGgYDyABKAsyKy5zZXJ2",
+            "aWNlX2xheWVyLlNMQmdwbHNUb3BvVW5pQXZhaWxCYW5kd2lkdGgSRAoQVW5p",
+            "VXRpbEJhbmR3aWR0aBgQIAEoCzIqLnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc1Rv",
+            "cG9VbmlVdGlsQmFuZHdpZHRoEjAKBEFzbGEYESADKAsyIi5zZXJ2aWNlX2xh",
+            "eWVyLlNMQmdwbHNUb3BvQXNsYUF0dHISPgoNRXh0QWRtaW5Hcm91cBgSIAMo",
             "CzInLnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9FeHRBZG1pbkdyb3VwEjoK",
-            "C1Vua25vd25BdHRyGA4gAygLMiUuc2VydmljZV9sYXllci5TTEJncGxzVG9w",
-            "b1Vua25vd25BdHRyIioKGVNMQmdwbHNUb3BvUHJlZml4SWdwRmxhZ3MSDQoF",
-            "RmxhZ3MYASABKAwiKwocU0xCZ3Bsc1RvcG9QcmVmaXhJZ3BSb3V0ZVRhZxIL",
-            "CgNUYWcYASABKA0iLgofU0xCZ3Bsc1RvcG9QcmVmaXhJZ3BFeHRSb3V0ZVRh",
-            "ZxILCgNUYWcYASABKAQiKQoXU0xCZ3Bsc1RvcG9QcmVmaXhNZXRyaWMSDgoG",
-            "TWV0cmljGAEgASgNIlUKHFNMQmdwbHNUb3BvUHJlZml4T3NwZkZ3ZEFkZHIS",
-            "EgoISXB2NEFkZHIYASABKAxIABISCghJcHY2QWRkchgCIAEoDEgAQg0KC09z",
-            "cGZGd2RBZGRyIjEKG1NMQmdwbHNUb3BvUHJlZml4T3BhcXVlQXR0chISCgpP",
-            "cGFxdWVBdHRyGAEgASgMIpABChRTTEJncGxzVG9wb1ByZWZpeFNpZBINCgVG",
-            "bGFncxgBIAEoDBIRCglBbGdvcml0aG0YAiABKA0SEgoKTGFiZWxJbmRleBgD",
-            "IAEoDRJCCg9QcmVmaXhTaWRGb3JtYXQYBCABKA4yKS5zZXJ2aWNlX2xheWVy",
-            "LlNMQmdwbHNUb3BvUHJlZml4U2lkRm9ybWF0Im4KFlNMQmdwbHNUb3BvUHJl",
-            "Zml4UmFuZ2USDQoFRmxhZ3MYASABKAwSEQoJUmFuZ2VTaXplGAIgASgNEhEK",
-            "CUFsZ29yaXRobRgDIAEoDRINCgVJbmRleBgEIAEoDRIQCghTaWRGbGFncxgF",
-            "IAEoDCIrChpTTEJncGxzVG9wb1ByZWZpeEF0dHJGbGFncxINCgVGbGFncxgB",
-            "IAEoDCJVChxTTEJncGxzVG9wb1ByZWZpeFNyY1JvdXRlcklkEhIKCElwdjRB",
-            "ZGRyGAEgASgMSAASEgoISXB2NkFkZHIYAiABKAxIAEINCgtTcmNSb3V0ZXJJ",
-            "ZCK4CQodU0xCZ3Bsc1RvcG9MMkJ1bmRsZU1lbWJlckF0dHISEgoKTWVtYmVy",
-            "RGVzYxgBIAEoDRI4CgpBZG1pbkdyb3VwGAIgASgLMiQuc2VydmljZV9sYXll",
-            "ci5TTEJncGxzVG9wb0FkbWluR3JvdXASQAoMTWF4QmFuZHdpZHRoGAMgASgL",
-            "Miouc2VydmljZV9sYXllci5TTEJncGxzVG9wb0xpbmtNYXhCYW5kd2lkdGgS",
-            "SAoQTWF4UmVzdkJhbmR3aWR0aBgEIAEoCzIuLnNlcnZpY2VfbGF5ZXIuU0xC",
-            "Z3Bsc1RvcG9MaW5rTWF4UmVzdkJhbmR3aWR0aBJGCg9VbnJlc3ZCYW5kd2lk",
-            "dGgYBSADKAsyLS5zZXJ2aWNlX2xheWVyLlNMQmdwbHNUb3BvTGlua1VucmVz",
-            "dkJhbmR3aWR0aBJCCgtUZURlZk1ldHJpYxgGIAEoCzItLnNlcnZpY2VfbGF5",
-            "ZXIuU0xCZ3Bsc1RvcG9MaW5rVGVEZWZhdWx0TWV0cmljEkQKDlByb3RlY3Rp",
-            "b25UeXBlGAcgASgLMiwuc2VydmljZV9sYXllci5TTEJncGxzVG9wb0xpbmtQ",
-            "cm90ZWN0aW9uVHlwZRIwCgZBZGpTaWQYCCADKAsyIC5zZXJ2aWNlX2xheWVy",
-            "LlNMQmdwbHNUb3BvQWRqU2lkEjYKCUxhbkFkalNpZBgJIAMoCzIjLnNlcnZp",
-            "Y2VfbGF5ZXIuU0xCZ3Bsc1RvcG9MYW5BZGpTaWQSPAoMVW5pTGlua0RlbGF5",
-            "GAogASgLMiYuc2VydmljZV9sYXllci5TTEJncGxzVG9wb1VuaUxpbmtEZWxh",
-            "eRJFCg9NaW5NYXhMaW5rRGVsYXkYCyABKAsyLC5zZXJ2aWNlX2xheWVyLlNM",
-            "QmdwbHNUb3BvTWluTWF4VW5pTGlua0RlbGF5EkAKEVVuaURlbGF5VmFyaWF0",
-            "aW9uGAwgASgLMiUuc2VydmljZV9sYXllci5TTEJncGxzVG9wb1VuaURlbGF5",
-            "VmFyEjoKC1VuaUxpbmtMb3NzGA0gASgLMiUuc2VydmljZV9sYXllci5TTEJn",
-            "cGxzVG9wb1VuaUxpbmtMb3NzEkIKD1VuaVJlc0JhbmR3aWR0aBgOIAEoCzIp",
-            "LnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9VbmlSZXNCYW5kd2lkdGgSRgoR",
-            "VW5pQXZhaWxCYW5kd2lkdGgYDyABKAsyKy5zZXJ2aWNlX2xheWVyLlNMQmdw",
-            "bHNUb3BvVW5pQXZhaWxCYW5kd2lkdGgSRAoQVW5pVXRpbEJhbmR3aWR0aBgQ",
-            "IAEoCzIqLnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9VbmlVdGlsQmFuZHdp",
-            "ZHRoEjAKBEFzbGEYESADKAsyIi5zZXJ2aWNlX2xheWVyLlNMQmdwbHNUb3Bv",
-            "QXNsYUF0dHISPgoNRXh0QWRtaW5Hcm91cBgSIAMoCzInLnNlcnZpY2VfbGF5",
-            "ZXIuU0xCZ3Bsc1RvcG9FeHRBZG1pbkdyb3VwEjoKC1Vua25vd25BdHRyGBMg",
-            "AygLMiUuc2VydmljZV9sYXllci5TTEJncGxzVG9wb1Vua25vd25BdHRyIikK",
-            "GFNMQmdwbHNUb3BvRXh0QWRtaW5Hcm91cBINCgVHcm91cBgBIAEoDSJJChZT",
-            "TEJncGxzVG9wb1Vua25vd25BdHRyEg8KB1RsdlR5cGUYASABKA0SDgoGVGx2",
-            "TGVuGAIgASgNEg4KBlJhd1RsdhgDIAEoDCqEAQoUU0xCZ3Bsc1RvcG9PcGVy",
-            "YXRpb24SJAogU0xfQkdQTFNfVE9QT19PUEVSQVRJT05fUkVTRVJWRUQQABIi",
-            "Ch5TTF9CR1BMU19UT1BPX09QRVJBVElPTl9VUERBVEUQARIiCh5TTF9CR1BM",
-            "U19UT1BPX09QRVJBVElPTl9ERUxFVEUQAirRAQoTU0xCZ3Bsc1RvcG9ObHJp",
-            "VHlwZRIkCiBTTF9CR1BMU19UT1BPX05MUklfVFlQRV9SRVNFUlZFRBAAEiAK",
-            "HFNMX0JHUExTX1RPUE9fTkxSSV9UWVBFX05PREUQARIgChxTTF9CR1BMU19U",
-            "T1BPX05MUklfVFlQRV9MSU5LEAISJwojU0xfQkdQTFNfVE9QT19OTFJJX1RZ",
-            "UEVfSVBWNF9QUkVGSVgQAxInCiNTTF9CR1BMU19UT1BPX05MUklfVFlQRV9J",
-            "UFY2X1BSRUZJWBAEKvECChNTTEJncGxzVG9wb1Byb3RvY29sEiMKH1NMX0JH",
-            "UExTX1RPUE9fUFJPVE9DT0xfUkVTRVJWRUQQABIiCh5TTF9CR1BMU19UT1BP",
-            "X1BST1RPQ09MX0lTSVNfTDEQARIiCh5TTF9CR1BMU19UT1BPX1BST1RPQ09M",
-            "X0lTSVNfTDIQAhIhCh1TTF9CR1BMU19UT1BPX1BST1RPQ09MX09TUEZ2MhAD",
-            "EiEKHVNMX0JHUExTX1RPUE9fUFJPVE9DT0xfRElSRUNUEAQSIQodU0xfQkdQ",
-            "TFNfVE9QT19QUk9UT0NPTF9TVEFUSUMQBRIhCh1TTF9CR1BMU19UT1BPX1BS",
-            "T1RPQ09MX09TUEZ2MxAGEh4KGlNMX0JHUExTX1RPUE9fUFJPVE9DT0xfQkdQ",
-            "EAcSIgoeU0xfQkdQTFNfVE9QT19QUk9UT0NPTF9SU1ZQX1RFEAgSHQoZU0xf",
-            "QkdQTFNfVE9QT19QUk9UT0NPTF9TUhAJKs4CChhTTEJncGxzVG9wb09zcGZS",
-            "b3V0ZVR5cGUSKgomU0xfQkdQTFNfVE9QT19PU1BGX1JPVVRFX1RZUEVfUkVT",
-            "RVJWRUQQABIsCihTTF9CR1BMU19UT1BPX09TUEZfUk9VVEVfVFlQRV9JTlRS",
-            "QV9BUkVBEAESLAooU0xfQkdQTFNfVE9QT19PU1BGX1JPVVRFX1RZUEVfSU5U",
-            "RVJfQVJFQRACEioKJlNMX0JHUExTX1RPUE9fT1NQRl9ST1VURV9UWVBFX0VY",
-            "VEVSTl8xEAMSKgomU0xfQkdQTFNfVE9QT19PU1BGX1JPVVRFX1RZUEVfRVhU",
-            "RVJOXzIQBBIoCiRTTF9CR1BMU19UT1BPX09TUEZfUk9VVEVfVFlQRV9OU1NB",
-            "XzEQBRIoCiRTTF9CR1BMU19UT1BPX09TUEZfUk9VVEVfVFlQRV9OU1NBXzIQ",
-            "BiqrAQoUU0xCZ3Bsc1RvcG9TaWRGb3JtYXQSJQohU0xfQkdQTFNfVE9QT19T",
-            "SURfRk9STUFUX1JFU0VSVkVEEAASIgoeU0xfQkdQTFNfVE9QT19TSURfRk9S",
-            "TUFUX0xBQkVMEAESIgoeU0xfQkdQTFNfVE9QT19TSURfRk9STUFUX0lOREVY",
-            "EAISJAogU0xfQkdQTFNfVE9QT19TSURfRk9STUFUX1Y2X0FERFIQAyqgAQoa",
-            "U0xCZ3Bsc1RvcG9QcmVmaXhTaWRGb3JtYXQSLAooU0xfQkdQTFNfVE9QT19Q",
-            "UkVGSVhfU0lEX0ZPUk1BVF9SRVNFUlZFRBAAEikKJVNMX0JHUExTX1RPUE9f",
-            "UFJFRklYX1NJRF9GT1JNQVRfTEFCRUwQARIpCiVTTF9CR1BMU19UT1BPX1BS",
-            "RUZJWF9TSURfRk9STUFUX0lOREVYEAIydAoLU0xCZ3Bsc1RvcG8SZQoWU0xC",
-            "Z3Bsc1RvcG9Ob3RpZlN0cmVhbRIlLnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc1Rv",
-            "cG9Ob3RpZlJlcU1zZxoiLnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9Ob3Rp",
-            "Zk1zZzABQlFaT2dpdGh1Yi5jb20vQ2lzY28tc2VydmljZS1sYXllci9zZXJ2",
-            "aWNlLWxheWVyLW9iam1vZGVsL2dycGMvcHJvdG9zO3NlcnZpY2VfbGF5ZXJi",
-            "BnByb3RvMw=="));
+            "C1Vua25vd25BdHRyGBMgAygLMiUuc2VydmljZV9sYXllci5TTEJncGxzVG9w",
+            "b1Vua25vd25BdHRyIikKGFNMQmdwbHNUb3BvRXh0QWRtaW5Hcm91cBINCgVH",
+            "cm91cBgBIAEoDSJJChFTbEJncGxzVG9wb1NyQnNpZBISCghNcGxzQnNpZBgB",
+            "IAEoDUgAEhIKCFNydjZCc2lkGAIgASgMSABCDAoKQmluZGluZ1NpZCKVAQoX",
+            "U0xCZ3Bsc1RvcG9TckJpbmRpbmdTaWQSEQoJQnNpZEZsYWdzGAEgASgMEi4K",
+            "BEJzaWQYAiABKAsyIC5zZXJ2aWNlX2xheWVyLlNsQmdwbHNUb3BvU3JCc2lk",
+            "EjcKDVNwZWNpZmllZEJzaWQYAyABKAsyIC5zZXJ2aWNlX2xheWVyLlNsQmdw",
+            "bHNUb3BvU3JCc2lkIksKFFNMQmdwbHNUb3BvU3JDcFN0YXRlEhAKCFByaW9y",
+            "aXR5GAEgASgNEg0KBUZsYWdzGAIgASgMEhIKClByZWZlcmVuY2UYAyABKA0i",
+            "IwoTU0xCZ3Bsc1RvcG9TckNwTmFtZRIMCgROYW1lGAEgASgJItkDChpTTEJn",
+            "cGxzVG9wb1NyQ3BDb25zdHJhaW50cxINCgVGbGFncxgBIAEoDBIMCgRNdGlk",
+            "GAIgASgNEhEKCUFsZ29yaXRobRgDIAEoDRJBCghBZmZpbml0eRgFIAEoCzIv",
+            "LnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9TckFmZmluaXR5Q29uc3RyYWlu",
+            "dHMSOQoEU3JsZxgGIAEoCzIrLnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9T",
+            "clNybGdDb25zdHJhaW50cxJCCglCYW5kd2lkdGgYBCABKAsyLy5zZXJ2aWNl",
+            "X2xheWVyLlNMQmdwbHNUb3BvU3JCYW5kd2lkdGhDb25zdHJhaW50EkUKCERp",
+            "c2pvaW50GAcgASgLMjMuc2VydmljZV9sYXllci5TTEJncGxzVG9wb1NyRGlz",
+            "am9pbnRHcm91cENvbnN0cmFpbnQSRAoKQmlkaXJHcm91cBgIIAEoCzIwLnNl",
+            "cnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9TckJpZGlyR3JvdXBDb25zdHJhaW50",
+            "EjwKBk1ldHJpYxgJIAMoCzIsLnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9T",
+            "ck1ldHJpY0NvbnN0cmFpbnQijQEKFFNMQmdwbHNUb3BvU3JTZWdMaXN0Eg0K",
+            "BUZsYWdzGAEgASgMEgwKBE10aWQYAiABKA0SEQoJQWxnb3JpdGhtGAMgASgN",
+            "Eg4KBldlaWdodBgEIAEoDRI1CghTZWdtZW50cxgFIAMoCzIjLnNlcnZpY2Vf",
+            "bGF5ZXIuU0xCZ3Bsc1RvcG9TclNlZ21lbnQiogIKGFNMQmdwbHNUb3BvU3JT",
+            "ZWdtZW50RGVzYxIRCglBbGdvcml0aG0YASABKA0SFQoLSXB2NExvY0FkZHIY",
+            "AiABKAxIABIVCgtJcHY2TG9jQWRkchgDIAEoDEgAEhUKC0lwdjRSZW1BZGRy",
+            "GAQgASgMSAESFQoLSXB2NlJlbUFkZHIYBSABKAxIARIfChdJcHY2TG9jYWxO",
+            "b2RlR2xvYmFsQWRkchgGIAEoDBIgChhJcHY2UmVtb3RlTm9kZUdsb2JhbEFk",
+            "ZHIYByABKAwSFwoPTG9jYWxOb2RlSW50ZklkGAggASgNEhgKEFJlbW90ZU5v",
+            "ZGVJbnRmSWQYCSABKA1CDwoNTG9jYWxOb2RlQWRkckIQCg5SZW1vdGVOb2Rl",
+            "QWRkciLQAgoUU0xCZ3Bsc1RvcG9TclNlZ21lbnQSNQoEVHlwZRgBIAEoDjIn",
+            "LnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9TclNlZ21lbnRUeXBlEg0KBUZs",
+            "YWdzGAIgASgMEhMKCU1wbHNMYWJlbBgDIAEoDUgAEhEKB1NydjZTaWQYBCAB",
+            "KAxIABI8CgtTZWdtZW50RGVzYxgFIAEoCzInLnNlcnZpY2VfbGF5ZXIuU0xC",
+            "Z3Bsc1RvcG9TclNlZ21lbnREZXNjEkkKEUVuZFBvaW50QmVoYXZpb3VyGAYg",
+            "ASgLMi4uc2VydmljZV9sYXllci5TTEJncGxzVG9wb1NydjZFbmRQb2ludEJl",
+            "aGF2aW9yEjoKCVNpZFN0cnVjdBgHIAEoCzInLnNlcnZpY2VfbGF5ZXIuU0xC",
+            "Z3Bsc1RvcG9TcnY2U2lkU3RydWN0QgUKA1NpZCJjChZTTEJncGxzU3JTZWdM",
+            "aXN0TWV0cmljEgwKBFR5cGUYASABKA0SDQoFRmxhZ3MYAiABKAwSDgoGTWFy",
+            "Z2luGAMgASgNEg0KBUJvdW5kGAQgASgNEg0KBVZhbHVlGAUgASgNIl4KIFNM",
+            "QmdwbHNUb3BvU3JBZmZpbml0eUNvbnN0cmFpbnRzEhIKCkV4Y2xBbnlFYWcY",
+            "ASADKA0SEgoKSW5jbEFueUVhZxgCIAMoDRISCgpJbmNsQWxsRWFnGAMgAygN",
+            "IjIKHFNMQmdwbHNUb3BvU3JTcmxnQ29uc3RyYWludHMSEgoKU3JsZ1ZhbHVl",
+            "cxgBIAMoDSI1CiBTTEJncGxzVG9wb1NyQmFuZHdpZHRoQ29uc3RyYWludBIR",
+            "CglCYW5kd2lkdGgYASABKAwiYgokU0xCZ3Bsc1RvcG9TckRpc2pvaW50R3Jv",
+            "dXBDb25zdHJhaW50EhQKDFJlcXVlc3RGbGFncxgBIAEoDBITCgtTdGF0dXNG",
+            "bGFncxgCIAEoDBIPCgdHcm91cElkGAMgASgNIpoCChlTTEJncGxzVG9wb1Ny",
+            "djZCaW5kaW5nU2lkEg0KBUZsYWdzGAEgASgMEi4KBEJzaWQYAiABKAsyIC5z",
+            "ZXJ2aWNlX2xheWVyLlNsQmdwbHNUb3BvU3JCc2lkEjcKDVNwZWNpZmllZEJz",
+            "aWQYAyABKAsyIC5zZXJ2aWNlX2xheWVyLlNsQmdwbHNUb3BvU3JCc2lkEkkK",
+            "EUVuZFBvaW50QmVoYXZpb3VyGAQgASgLMi4uc2VydmljZV9sYXllci5TTEJn",
+            "cGxzVG9wb1NydjZFbmRQb2ludEJlaGF2aW9yEjoKCVNpZFN0cnVjdBgFIAEo",
+            "CzInLnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9TcnY2U2lkU3RydWN0IicK",
+            "F1NMQmdwbHNUb3BvU3JQb2xpY3lOYW1lEgwKBE5hbWUYASABKAkiQwohU0xC",
+            "Z3Bsc1RvcG9TckJpZGlyR3JvdXBDb25zdHJhaW50Eg0KBUZsYWdzGAEgASgM",
+            "Eg8KB0dyb3VwSWQYAiABKA0iWwodU0xCZ3Bsc1RvcG9Tck1ldHJpY0NvbnN0",
+            "cmFpbnQSDAoEVHlwZRgBIAEoDRINCgVGbGFncxgCIAEoDBIOCgZNYXJnaW4Y",
+            "AyABKA0SDQoFQm91bmQYBCABKA0iOQokU0xCZ3Bsc1RvcG9TckNwU2VnTGlz",
+            "dEJhbmR3aWR0aFN0YXRlEhEKCUJhbmR3aWR0aBgBIAEoDCIrChZTTEJncGxz",
+            "VG9wb1NyU2VnTGlzdElkEhEKCVNlZ0xpc3RJZBgBIAEoDSJdCh9TTEJncGxz",
+            "VG9wb1NydjZFbmRQb2ludEJlaGF2aW9yEhgKEEVuZFBvaW50QmVoYXZpb3IY",
+            "ASABKA0SDQoFRmxhZ3MYAiABKAwSEQoJQWxnb3JpdGhtGAMgASgNImEKHVNM",
+            "QmdwbHNUb3BvU3J2NkJncFBlZXJOb2RlU2lkEg0KBUZsYWdzGAEgASgMEg4K",
+            "BldlaWdodBgCIAEoDRIOCgZQZWVyQVMYAyABKA0SEQoJUGVlckJncElkGAQg",
+            "ASgMInAKGFNMQmdwbHNUb3BvU3J2NlNpZFN0cnVjdBIXCg9Mb2NhdG9yQmxv",
+            "Y2tMZW4YASABKA0SFgoOTG9jYXRvck5vZGVMZW4YAiABKA0SEwoLRnVuY3Rp",
+            "b25MZW4YAyABKA0SDgoGQXJnTGVuGAQgASgNIkkKFlNMQmdwbHNUb3BvVW5r",
+            "bm93bkF0dHISDwoHVGx2VHlwZRgBIAEoDRIOCgZUbHZMZW4YAiABKA0SDgoG",
+            "UmF3VGx2GAMgASgMKoQBChRTTEJncGxzVG9wb09wZXJhdGlvbhIkCiBTTF9C",
+            "R1BMU19UT1BPX09QRVJBVElPTl9SRVNFUlZFRBAAEiIKHlNMX0JHUExTX1RP",
+            "UE9fT1BFUkFUSU9OX1VQREFURRABEiIKHlNMX0JHUExTX1RPUE9fT1BFUkFU",
+            "SU9OX0RFTEVURRACKq0CChNTTEJncGxzVG9wb05scmlUeXBlEiQKIFNMX0JH",
+            "UExTX1RPUE9fTkxSSV9UWVBFX1JFU0VSVkVEEAASIAocU0xfQkdQTFNfVE9Q",
+            "T19OTFJJX1RZUEVfTk9ERRABEiAKHFNMX0JHUExTX1RPUE9fTkxSSV9UWVBF",
+            "X0xJTksQAhInCiNTTF9CR1BMU19UT1BPX05MUklfVFlQRV9JUFY0X1BSRUZJ",
+            "WBADEicKI1NMX0JHUExTX1RPUE9fTkxSSV9UWVBFX0lQVjZfUFJFRklYEAQS",
+            "NAowU0xfQkdQTFNfVE9QT19OTFJJX1RZUEVfU1JfUE9MSUNZX0NBTkRJREFU",
+            "RV9QQVRIEAUSJAogU0xfQkdQTFNfVE9QT19OTFJJX1RZUEVfU1JWNl9TSUQQ",
+            "BirxAgoTU0xCZ3Bsc1RvcG9Qcm90b2NvbBIjCh9TTF9CR1BMU19UT1BPX1BS",
+            "T1RPQ09MX1JFU0VSVkVEEAASIgoeU0xfQkdQTFNfVE9QT19QUk9UT0NPTF9J",
+            "U0lTX0wxEAESIgoeU0xfQkdQTFNfVE9QT19QUk9UT0NPTF9JU0lTX0wyEAIS",
+            "IQodU0xfQkdQTFNfVE9QT19QUk9UT0NPTF9PU1BGdjIQAxIhCh1TTF9CR1BM",
+            "U19UT1BPX1BST1RPQ09MX0RJUkVDVBAEEiEKHVNMX0JHUExTX1RPUE9fUFJP",
+            "VE9DT0xfU1RBVElDEAUSIQodU0xfQkdQTFNfVE9QT19QUk9UT0NPTF9PU1BG",
+            "djMQBhIeChpTTF9CR1BMU19UT1BPX1BST1RPQ09MX0JHUBAHEiIKHlNMX0JH",
+            "UExTX1RPUE9fUFJPVE9DT0xfUlNWUF9URRAIEh0KGVNMX0JHUExTX1RPUE9f",
+            "UFJPVE9DT0xfU1IQCSrOAgoYU0xCZ3Bsc1RvcG9Pc3BmUm91dGVUeXBlEioK",
+            "JlNMX0JHUExTX1RPUE9fT1NQRl9ST1VURV9UWVBFX1JFU0VSVkVEEAASLAoo",
+            "U0xfQkdQTFNfVE9QT19PU1BGX1JPVVRFX1RZUEVfSU5UUkFfQVJFQRABEiwK",
+            "KFNMX0JHUExTX1RPUE9fT1NQRl9ST1VURV9UWVBFX0lOVEVSX0FSRUEQAhIq",
+            "CiZTTF9CR1BMU19UT1BPX09TUEZfUk9VVEVfVFlQRV9FWFRFUk5fMRADEioK",
+            "JlNMX0JHUExTX1RPUE9fT1NQRl9ST1VURV9UWVBFX0VYVEVSTl8yEAQSKAok",
+            "U0xfQkdQTFNfVE9QT19PU1BGX1JPVVRFX1RZUEVfTlNTQV8xEAUSKAokU0xf",
+            "QkdQTFNfVE9QT19PU1BGX1JPVVRFX1RZUEVfTlNTQV8yEAYq8AMKIVNMQmdw",
+            "bHNUb3BvU3JQb2xpY3lQcm90b2NvbE9yaWdpbhI0CjBTTF9CR1BMU19UT1BP",
+            "X1NSX1BPTElDWV9QUk9UT0NPTF9PUklHSU5fUkVTRVJWRUQQABIwCixTTF9C",
+            "R1BMU19UT1BPX1NSX1BPTElDWV9QUk9UT0NPTF9PUklHSU5fUENFUBABEjkK",
+            "NVNMX0JHUExTX1RPUE9fU1JfUE9MSUNZX1BST1RPQ09MX09SSUdJTl9CR1Bf",
+            "U1JfUE9MSUNZEAISMgouU0xfQkdQTFNfVE9QT19TUl9QT0xJQ1lfUFJPVE9D",
+            "T0xfT1JJR0lOX0NPTkZJRxADEjgKNFNMX0JHUExTX1RPUE9fU1JfUE9MSUNZ",
+            "X1BST1RPQ09MX09SSUdJTl9QQ0VQX1ZJQV9QQ0UQChJBCj1TTF9CR1BMU19U",
+            "T1BPX1NSX1BPTElDWV9QUk9UT0NPTF9PUklHSU5fQkdQX1NSX1BPTElDWV9W",
+            "SUFfUENFEBQSOgo2U0xfQkdQTFNfVE9QT19TUl9QT0xJQ1lfUFJPVE9DT0xf",
+            "T1JJR0lOX0NPTkZJR19WSUFfUENFEB4SOwo3U0xfQkdQTFNfVE9QT19TUl9Q",
+            "T0xJQ1lfUFJPVE9DT0xfT1JJR0lOX0NPTkZJR19WSUFfR1JQQxAoKqsBChRT",
+            "TEJncGxzVG9wb1NpZEZvcm1hdBIlCiFTTF9CR1BMU19UT1BPX1NJRF9GT1JN",
+            "QVRfUkVTRVJWRUQQABIiCh5TTF9CR1BMU19UT1BPX1NJRF9GT1JNQVRfTEFC",
+            "RUwQARIiCh5TTF9CR1BMU19UT1BPX1NJRF9GT1JNQVRfSU5ERVgQAhIkCiBT",
+            "TF9CR1BMU19UT1BPX1NJRF9GT1JNQVRfVjZfQUREUhADKqABChpTTEJncGxz",
+            "VG9wb1ByZWZpeFNpZEZvcm1hdBIsCihTTF9CR1BMU19UT1BPX1BSRUZJWF9T",
+            "SURfRk9STUFUX1JFU0VSVkVEEAASKQolU0xfQkdQTFNfVE9QT19QUkVGSVhf",
+            "U0lEX0ZPUk1BVF9MQUJFTBABEikKJVNMX0JHUExTX1RPUE9fUFJFRklYX1NJ",
+            "RF9GT1JNQVRfSU5ERVgQAiqoBQoYU0xCZ3Bsc1RvcG9TclNlZ21lbnRUeXBl",
+            "EiYKIlNMX0JHUExTX1RPUE9fU1JfU0VHX1RZUEVfUkVTRVJWRUQQABIoCiRT",
+            "TF9CR1BMU19UT1BPX1NSX1NFR19UWVBFX01QTFNfTEFCRUwQARIpCiVTTF9C",
+            "R1BMU19UT1BPX1NSX1NFR19UWVBFX1NSVjZfU0lEX1Y2EAISLQopU0xfQkdQ",
+            "TFNfVE9QT19TUl9TRUdfVFlQRV9NUExTX1BGWF9TSURfVjQQAxItCilTTF9C",
+            "R1BMU19UT1BPX1NSX1NFR19UWVBFX01QTFNfUEZYX1NJRF9WNhAEEj4KOlNM",
+            "X0JHUExTX1RPUE9fU1JfU0VHX1RZUEVfTVBMU19BREpfU0lEX1Y0X05PREVf",
+            "QUREUl9MT0NfSUQQBRI6CjZTTF9CR1BMU19UT1BPX1NSX1NFR19UWVBFX01Q",
+            "TFNfQURKX1NJRF9WNF9MT0NfUkVNX0FERFIQBhJBCj1TTF9CR1BMU19UT1BP",
+            "X1NSX1NFR19UWVBFX01QTFNfQURKX1NJRF9WNl9MT0NfUkVNX0FERFJfQU5E",
+            "X0lEEAcSOgo2U0xfQkdQTFNfVE9QT19TUl9TRUdfVFlQRV9NUExTX0FESl9T",
+            "SURfVjZfTE9DX1JFTV9BRERSEAgSNwozU0xfQkdQTFNfVE9QT19TUl9TRUdf",
+            "VFlQRV9TUlY2X0VORF9TSURfVjZfTk9ERV9BRERSEAkSQQo9U0xfQkdQTFNf",
+            "VE9QT19TUl9TRUdfVFlQRV9TUlY2X0VORF9TSURfVjZfTE9DX1JFTV9BRERS",
+            "X0FORF9JRBAKEjoKNlNMX0JHUExTX1RPUE9fU1JfU0VHX1RZUEVfU1JWNl9F",
+            "TkRfU0lEX1Y2X0xPQ19SRU1fQUREUhALMnQKC1NMQmdwbHNUb3BvEmUKFlNM",
+            "QmdwbHNUb3BvTm90aWZTdHJlYW0SJS5zZXJ2aWNlX2xheWVyLlNMQmdwbHNU",
+            "b3BvTm90aWZSZXFNc2caIi5zZXJ2aWNlX2xheWVyLlNMQmdwbHNUb3BvTm90",
+            "aWZNc2cwAUJRWk9naXRodWIuY29tL0Npc2NvLXNlcnZpY2UtbGF5ZXIvc2Vy",
+            "dmljZS1sYXllci1vYmptb2RlbC9ncnBjL3Byb3RvcztzZXJ2aWNlX2xheWVy",
+            "YgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::ServiceLayer.SlCommonTypesReflection.Descriptor, },
-          new pbr::GeneratedClrTypeInfo(new[] {typeof(global::ServiceLayer.SLBgplsTopoOperation), typeof(global::ServiceLayer.SLBgplsTopoNlriType), typeof(global::ServiceLayer.SLBgplsTopoProtocol), typeof(global::ServiceLayer.SLBgplsTopoOspfRouteType), typeof(global::ServiceLayer.SLBgplsTopoSidFormat), typeof(global::ServiceLayer.SLBgplsTopoPrefixSidFormat), }, null, new pbr::GeneratedClrTypeInfo[] {
+          new pbr::GeneratedClrTypeInfo(new[] {typeof(global::ServiceLayer.SLBgplsTopoOperation), typeof(global::ServiceLayer.SLBgplsTopoNlriType), typeof(global::ServiceLayer.SLBgplsTopoProtocol), typeof(global::ServiceLayer.SLBgplsTopoOspfRouteType), typeof(global::ServiceLayer.SLBgplsTopoSrPolicyProtocolOrigin), typeof(global::ServiceLayer.SLBgplsTopoSidFormat), typeof(global::ServiceLayer.SLBgplsTopoPrefixSidFormat), typeof(global::ServiceLayer.SLBgplsTopoSrSegmentType), }, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgplsTopoNotifReqMsg), global::ServiceLayer.SLBgplsTopoNotifReqMsg.Parser, new[]{ "Match" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgplsTopoNlriMatch), global::ServiceLayer.SLBgplsTopoNlriMatch.Parser, new[]{ "InstanceId", "Protocol", "NlriType" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgplsTopoNotifMsg), global::ServiceLayer.SLBgplsTopoNotifMsg.Parser, new[]{ "ErrStatus", "Data", "Start", "End" }, new[]{ "Event" }, null, null, null),
@@ -346,23 +503,33 @@ namespace ServiceLayer {
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgplsTopoEndMarker), global::ServiceLayer.SLBgplsTopoEndMarker.Parser, null, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgplsTopoNotif), global::ServiceLayer.SLBgplsTopoNotif.Parser, new[]{ "Entries" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgplsTopoEntry), global::ServiceLayer.SLBgplsTopoEntry.Parser, new[]{ "Operation", "Data" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgplsTopoData), global::ServiceLayer.SLBgplsTopoData.Parser, new[]{ "InstanceId", "Protocol", "Node", "Link", "Prefix" }, new[]{ "Data" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgplsTopoData), global::ServiceLayer.SLBgplsTopoData.Parser, new[]{ "InstanceId", "Protocol", "Node", "Link", "Prefix", "Srv6Sid", "SrPolicy" }, new[]{ "Data" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgplsTopoInstanceId), global::ServiceLayer.SLBgplsTopoInstanceId.Parser, new[]{ "Identifier" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgplsTopoNodeData), global::ServiceLayer.SLBgplsTopoNodeData.Parser, new[]{ "Node", "NodeAttr" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgplsTopoLinkData), global::ServiceLayer.SLBgplsTopoLinkData.Parser, new[]{ "Link", "LinkAttr" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgplsTopoPrefixData), global::ServiceLayer.SLBgplsTopoPrefixData.Parser, new[]{ "Prefix", "PrefixAttr" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgplsTopoNode), global::ServiceLayer.SLBgplsTopoNode.Parser, new[]{ "Asn", "OspfNodeId", "Ospfv3NodeId", "IsisNodeId", "BgpNodeId" }, new[]{ "NodeId" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgplsTopoSrv6SidData), global::ServiceLayer.SLBgplsTopoSrv6SidData.Parser, new[]{ "Srv6Sid", "Srv6SidAttr" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgplsTopoSrPolicyData), global::ServiceLayer.SLBgplsTopoSrPolicyData.Parser, new[]{ "SrPolicy", "SrPolicyAttr" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgplsTopoNode), global::ServiceLayer.SLBgplsTopoNode.Parser, new[]{ "Asn", "OspfNodeId", "Ospfv3NodeId", "IsisNodeId", "BgpNodeId", "SrPolicyNodeId" }, new[]{ "NodeId" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgplsTopoLink), global::ServiceLayer.SLBgplsTopoLink.Parser, new[]{ "LocalNodeDescr", "RemoteNodeDescr", "LinkDescr" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgplsTopoPrefix), global::ServiceLayer.SLBgplsTopoPrefix.Parser, new[]{ "NodeDescr", "PrefixDescr" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgplsTopoSrv6Sid), global::ServiceLayer.SLBgplsTopoSrv6Sid.Parser, new[]{ "NodeDescr", "Srv6SidDescr" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgplsTopoSrPolicy), global::ServiceLayer.SLBgplsTopoSrPolicy.Parser, new[]{ "NodeDescr", "SrPolicyDescr" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgplsTopoLinkDescr), global::ServiceLayer.SLBgplsTopoLinkDescr.Parser, new[]{ "LocalId", "RemoteId", "LocalIpv4", "RemoteIpv4", "LocalIpv6", "RemoteIpv6", "MtId" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgplsTopoPrefixDescr), global::ServiceLayer.SLBgplsTopoPrefixDescr.Parser, new[]{ "MtId", "OspfRouteType", "PrefixLength", "Prefix" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgplsTopoSrv6SidDescr), global::ServiceLayer.SLBgplsTopoSrv6SidDescr.Parser, new[]{ "MtId", "Srv6Sid" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgplsTopoSrPolicyDescr), global::ServiceLayer.SLBgplsTopoSrPolicyDescr.Parser, new[]{ "ProtoOrigin", "Flags", "Ipv4EndAddr", "Ipv6EndAddr", "Color", "OriginAsn", "Ipv4OrigAddr", "Ipv6OrigAddr", "Discriminator" }, new[]{ "EndpointAddress", "OriginatorAddress" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgplsTopoOspfNodeId), global::ServiceLayer.SLBgplsTopoOspfNodeId.Parser, new[]{ "AreaId", "IsAsScoped", "RouterId", "DrIdentifier" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgplsTopoOspfv3NodeId), global::ServiceLayer.SLBgplsTopoOspfv3NodeId.Parser, new[]{ "AreaId", "AsScoped", "RouterId", "DrIdentifier" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgplsTopoIsisNodeId), global::ServiceLayer.SLBgplsTopoIsisNodeId.Parser, new[]{ "SystemId", "PsnId" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgplsTopoBgpNodeId), global::ServiceLayer.SLBgplsTopoBgpNodeId.Parser, new[]{ "RouterId", "MemberAsn" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgplsTopoNodeAttr), global::ServiceLayer.SLBgplsTopoNodeAttr.Parser, new[]{ "MtId", "NodeMsd", "NodeFlagBits", "OpaqueNodeAttr", "NodeName", "IsisAreaId", "LocalIpv4", "LocalIpv6", "SrgbIsisFlags", "Srgb", "SrAlgorithm", "Srlb", "Fad", "UnknownAttr" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgplsTopoLinkAttr), global::ServiceLayer.SLBgplsTopoLinkAttr.Parser, new[]{ "LinkLocRemId", "LinkMsd", "LocalIpv4RouterId", "LocalIpv6RouterId", "RemoteIpv4RouterId", "RemoteIpv6RouterId", "AdminGroup", "MaxBandwidth", "MaxResvBandwidth", "UnresvBandwidth", "TeDefMetric", "ProtectionType", "MplsProtoMask", "IgpMetric", "Srlg", "OpaqueAttr", "LinkName", "AdjSid", "LanAdjSid", "BgpPeerNodeSid", "BgpPeerAdjSid", "BgpPeerSetSid", "UniLinkDelay", "MinMaxUniLinkDelay", "UniDelayVar", "UniLinkLoss", "UniResBandwidth", "UniAvailBandwidth", "UniUtilBandwidth", "Asla", "L2BundleMemberAttr", "ExtAdminGroup", "UnknownAttr" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgplsTopoPrefixAttr), global::ServiceLayer.SLBgplsTopoPrefixAttr.Parser, new[]{ "Fapm", "IgpFlags", "IgpRouteTag", "IgpExtRouteTag", "Metric", "OspfFwdAddr", "OpaqueAttr", "Sid", "Range", "AttrFlags", "SrcRouterId", "UnknownAttr" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgplsTopoSrPolicyNodeId), global::ServiceLayer.SLBgplsTopoSrPolicyNodeId.Parser, new[]{ "RouterId", "MemberAsn", "Ipv4RouterId", "Ipv6RouterId" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgplsTopoSrPolicyFlags), global::ServiceLayer.SLBgplsTopoSrPolicyFlags.Parser, new[]{ "Flags" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgplsTopoNodeAttr), global::ServiceLayer.SLBgplsTopoNodeAttr.Parser, new[]{ "MtId", "NodeMsd", "NodeFlagBits", "OpaqueNodeAttr", "NodeName", "IsisAreaId", "LocalIpv4", "LocalIpv6", "SrgbIsisFlags", "Srgb", "SrAlgorithm", "Srlb", "Fad", "UnknownAttr", "Srv6CapFlags" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgplsTopoLinkAttr), global::ServiceLayer.SLBgplsTopoLinkAttr.Parser, new[]{ "LinkLocRemId", "LinkMsd", "LocalIpv4RouterId", "LocalIpv6RouterId", "RemoteIpv4RouterId", "RemoteIpv6RouterId", "AdminGroup", "MaxBandwidth", "MaxResvBandwidth", "UnresvBandwidth", "TeDefMetric", "ProtectionType", "MplsProtoMask", "IgpMetric", "Srlg", "OpaqueAttr", "LinkName", "AdjSid", "LanAdjSid", "BgpPeerNodeSid", "BgpPeerAdjSid", "BgpPeerSetSid", "UniLinkDelay", "MinMaxUniLinkDelay", "UniDelayVar", "UniLinkLoss", "UniResBandwidth", "UniAvailBandwidth", "UniUtilBandwidth", "Asla", "L2BundleMemberAttr", "ExtAdminGroup", "UnknownAttr", "Srv6EndXSid", "Srv6LanEndXSid" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgplsTopoPrefixAttr), global::ServiceLayer.SLBgplsTopoPrefixAttr.Parser, new[]{ "Fapm", "IgpFlags", "IgpRouteTag", "IgpExtRouteTag", "Metric", "OspfFwdAddr", "OpaqueAttr", "Sid", "Range", "AttrFlags", "SrcRouterId", "UnknownAttr", "Srv6Loc" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgplsTopoSrv6SidAttr), global::ServiceLayer.SLBgplsTopoSrv6SidAttr.Parser, new[]{ "EndPointBehavior", "BgpPeerNodeSid", "SidStruct", "UnknownAttr" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgplsTopoSrPolicyAttr), global::ServiceLayer.SLBgplsTopoSrPolicyAttr.Parser, new[]{ "SrBsid", "CpState", "CpName", "CpConstraints", "SegLists", "Srv6Bsid", "SrPolicyName", "UnknownAttr" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBplsTopoLinkLocRemId), global::ServiceLayer.SLBplsTopoLinkLocRemId.Parser, new[]{ "LocalId", "RemoteId" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgplsTopoMtId), global::ServiceLayer.SLBgplsTopoMtId.Parser, new[]{ "MtId" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgplsTopoNodeMsd), global::ServiceLayer.SLBgplsTopoNodeMsd.Parser, new[]{ "Type", "Value" }, null, null, null, null),
@@ -379,6 +546,7 @@ namespace ServiceLayer {
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgplsTopoSrgbIsisFlags), global::ServiceLayer.SLBgplsTopoSrgbIsisFlags.Parser, new[]{ "Flags" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgplsTopoSrAlgorithm), global::ServiceLayer.SLBgplsTopoSrAlgorithm.Parser, new[]{ "Algorithms" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgplsTopoSrlb), global::ServiceLayer.SLBgplsTopoSrlb.Parser, new[]{ "StartLabel", "RangeSize" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgplsTopoSrv6CapFlags), global::ServiceLayer.SLBgplsTopoSrv6CapFlags.Parser, new[]{ "Flags" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgplsTopoFad), global::ServiceLayer.SLBgplsTopoFad.Parser, new[]{ "Algorithm", "MetricType", "CalcType", "Priority", "ExcAnyAff", "IncAnyAff", "IncAllAff", "Flags", "ExcSrlg", "UnsuppTlv", "ExcMinBw", "ExcMaxDelay", "ExcAnyRevAff", "IncAnyRevAff", "IncAllRevAff" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgplsTopoPrefixFAPM), global::ServiceLayer.SLBgplsTopoPrefixFAPM.Parser, new[]{ "FlexAlgo", "Flags", "Metric" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgplsTopoFadUnsuppTlv), global::ServiceLayer.SLBgplsTopoFadUnsuppTlv.Parser, new[]{ "Protocol", "Types_" }, null, null, null, null),
@@ -398,7 +566,9 @@ namespace ServiceLayer {
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgplsTopoBgpPeerNodeSid), global::ServiceLayer.SLBgplsTopoBgpPeerNodeSid.Parser, new[]{ "Sid", "BgpSidFormat", "Flags", "Weight" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgplsTopoBgpPeerAdjSid), global::ServiceLayer.SLBgplsTopoBgpPeerAdjSid.Parser, new[]{ "Sid", "BgpSidFormat", "Flags", "Weight" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgplsTopoBgpPeerSetSid), global::ServiceLayer.SLBgplsTopoBgpPeerSetSid.Parser, new[]{ "Sid", "BgpSidFormat", "Flags", "Weight" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgplsTopoSrv6EndXSid), global::ServiceLayer.SLBgplsTopoSrv6EndXSid.Parser, new[]{ "Sid", "Algorithm", "Flags", "Weight", "EndPointBehavior", "SidStruct" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgpLsTopoNeighborId), global::ServiceLayer.SLBgpLsTopoNeighborId.Parser, new[]{ "Ipv4Addr", "SystemId" }, new[]{ "NeighborId" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgplsTopoSrv6LanEndXSid), global::ServiceLayer.SLBgplsTopoSrv6LanEndXSid.Parser, new[]{ "Neighbor", "Sid", "Algorithm", "Flags", "Weight", "EndPointBehavior", "SidStruct" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgplsTopoUniLinkDelay), global::ServiceLayer.SLBgplsTopoUniLinkDelay.Parser, new[]{ "Delay", "Flags" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgplsTopoMinMaxUniLinkDelay), global::ServiceLayer.SLBgplsTopoMinMaxUniLinkDelay.Parser, new[]{ "Min", "Max", "Flags" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgplsTopoUniDelayVar), global::ServiceLayer.SLBgplsTopoUniDelayVar.Parser, new[]{ "Variation", "Flags" }, null, null, null, null),
@@ -415,10 +585,33 @@ namespace ServiceLayer {
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgplsTopoPrefixOpaqueAttr), global::ServiceLayer.SLBgplsTopoPrefixOpaqueAttr.Parser, new[]{ "OpaqueAttr" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgplsTopoPrefixSid), global::ServiceLayer.SLBgplsTopoPrefixSid.Parser, new[]{ "Flags", "Algorithm", "LabelIndex", "PrefixSidFormat" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgplsTopoPrefixRange), global::ServiceLayer.SLBgplsTopoPrefixRange.Parser, new[]{ "Flags", "RangeSize", "Algorithm", "Index", "SidFlags" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgplsTopoPrefixSrv6Loc), global::ServiceLayer.SLBgplsTopoPrefixSrv6Loc.Parser, new[]{ "Flags", "Algorithm", "Metric" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgplsTopoPrefixAttrFlags), global::ServiceLayer.SLBgplsTopoPrefixAttrFlags.Parser, new[]{ "Flags" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgplsTopoPrefixSrcRouterId), global::ServiceLayer.SLBgplsTopoPrefixSrcRouterId.Parser, new[]{ "Ipv4Addr", "Ipv6Addr" }, new[]{ "SrcRouterId" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgplsTopoL2BundleMemberAttr), global::ServiceLayer.SLBgplsTopoL2BundleMemberAttr.Parser, new[]{ "MemberDesc", "AdminGroup", "MaxBandwidth", "MaxResvBandwidth", "UnresvBandwidth", "TeDefMetric", "ProtectionType", "AdjSid", "LanAdjSid", "UniLinkDelay", "MinMaxLinkDelay", "UniDelayVariation", "UniLinkLoss", "UniResBandwidth", "UniAvailBandwidth", "UniUtilBandwidth", "Asla", "ExtAdminGroup", "UnknownAttr" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgplsTopoExtAdminGroup), global::ServiceLayer.SLBgplsTopoExtAdminGroup.Parser, new[]{ "Group" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SlBgplsTopoSrBsid), global::ServiceLayer.SlBgplsTopoSrBsid.Parser, new[]{ "MplsBsid", "Srv6Bsid" }, new[]{ "BindingSid" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgplsTopoSrBindingSid), global::ServiceLayer.SLBgplsTopoSrBindingSid.Parser, new[]{ "BsidFlags", "Bsid", "SpecifiedBsid" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgplsTopoSrCpState), global::ServiceLayer.SLBgplsTopoSrCpState.Parser, new[]{ "Priority", "Flags", "Preference" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgplsTopoSrCpName), global::ServiceLayer.SLBgplsTopoSrCpName.Parser, new[]{ "Name" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgplsTopoSrCpConstraints), global::ServiceLayer.SLBgplsTopoSrCpConstraints.Parser, new[]{ "Flags", "Mtid", "Algorithm", "Affinity", "Srlg", "Bandwidth", "Disjoint", "BidirGroup", "Metric" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgplsTopoSrSegList), global::ServiceLayer.SLBgplsTopoSrSegList.Parser, new[]{ "Flags", "Mtid", "Algorithm", "Weight", "Segments" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgplsTopoSrSegmentDesc), global::ServiceLayer.SLBgplsTopoSrSegmentDesc.Parser, new[]{ "Algorithm", "Ipv4LocAddr", "Ipv6LocAddr", "Ipv4RemAddr", "Ipv6RemAddr", "Ipv6LocalNodeGlobalAddr", "Ipv6RemoteNodeGlobalAddr", "LocalNodeIntfId", "RemoteNodeIntfId" }, new[]{ "LocalNodeAddr", "RemoteNodeAddr" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgplsTopoSrSegment), global::ServiceLayer.SLBgplsTopoSrSegment.Parser, new[]{ "Type", "Flags", "MplsLabel", "Srv6Sid", "SegmentDesc", "EndPointBehaviour", "SidStruct" }, new[]{ "Sid" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgplsSrSegListMetric), global::ServiceLayer.SLBgplsSrSegListMetric.Parser, new[]{ "Type", "Flags", "Margin", "Bound", "Value" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgplsTopoSrAffinityConstraints), global::ServiceLayer.SLBgplsTopoSrAffinityConstraints.Parser, new[]{ "ExclAnyEag", "InclAnyEag", "InclAllEag" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgplsTopoSrSrlgConstraints), global::ServiceLayer.SLBgplsTopoSrSrlgConstraints.Parser, new[]{ "SrlgValues" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgplsTopoSrBandwidthConstraint), global::ServiceLayer.SLBgplsTopoSrBandwidthConstraint.Parser, new[]{ "Bandwidth" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgplsTopoSrDisjointGroupConstraint), global::ServiceLayer.SLBgplsTopoSrDisjointGroupConstraint.Parser, new[]{ "RequestFlags", "StatusFlags", "GroupId" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgplsTopoSrv6BindingSid), global::ServiceLayer.SLBgplsTopoSrv6BindingSid.Parser, new[]{ "Flags", "Bsid", "SpecifiedBsid", "EndPointBehaviour", "SidStruct" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgplsTopoSrPolicyName), global::ServiceLayer.SLBgplsTopoSrPolicyName.Parser, new[]{ "Name" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgplsTopoSrBidirGroupConstraint), global::ServiceLayer.SLBgplsTopoSrBidirGroupConstraint.Parser, new[]{ "Flags", "GroupId" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgplsTopoSrMetricConstraint), global::ServiceLayer.SLBgplsTopoSrMetricConstraint.Parser, new[]{ "Type", "Flags", "Margin", "Bound" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgplsTopoSrCpSegListBandwidthState), global::ServiceLayer.SLBgplsTopoSrCpSegListBandwidthState.Parser, new[]{ "Bandwidth" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgplsTopoSrSegListId), global::ServiceLayer.SLBgplsTopoSrSegListId.Parser, new[]{ "SegListId" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgplsTopoSrv6EndPointBehavior), global::ServiceLayer.SLBgplsTopoSrv6EndPointBehavior.Parser, new[]{ "EndPointBehavior", "Flags", "Algorithm" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgplsTopoSrv6BgpPeerNodeSid), global::ServiceLayer.SLBgplsTopoSrv6BgpPeerNodeSid.Parser, new[]{ "Flags", "Weight", "PeerAS", "PeerBgpId" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgplsTopoSrv6SidStruct), global::ServiceLayer.SLBgplsTopoSrv6SidStruct.Parser, new[]{ "LocatorBlockLen", "LocatorNodeLen", "FunctionLen", "ArgLen" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgplsTopoUnknownAttr), global::ServiceLayer.SLBgplsTopoUnknownAttr.Parser, new[]{ "TlvType", "TlvLen", "RawTlv" }, null, null, null, null)
           }));
     }
@@ -444,6 +637,8 @@ namespace ServiceLayer {
     [pbr::OriginalName("SL_BGPLS_TOPO_NLRI_TYPE_LINK")] Link = 2,
     [pbr::OriginalName("SL_BGPLS_TOPO_NLRI_TYPE_IPV4_PREFIX")] Ipv4Prefix = 3,
     [pbr::OriginalName("SL_BGPLS_TOPO_NLRI_TYPE_IPV6_PREFIX")] Ipv6Prefix = 4,
+    [pbr::OriginalName("SL_BGPLS_TOPO_NLRI_TYPE_SR_POLICY_CANDIDATE_PATH")] SrPolicyCandidatePath = 5,
+    [pbr::OriginalName("SL_BGPLS_TOPO_NLRI_TYPE_SRV6_SID")] Srv6Sid = 6,
   }
 
   /// <summary>
@@ -473,6 +668,20 @@ namespace ServiceLayer {
     [pbr::OriginalName("SL_BGPLS_TOPO_OSPF_ROUTE_TYPE_EXTERN_2")] Extern2 = 4,
     [pbr::OriginalName("SL_BGPLS_TOPO_OSPF_ROUTE_TYPE_NSSA_1")] Nssa1 = 5,
     [pbr::OriginalName("SL_BGPLS_TOPO_OSPF_ROUTE_TYPE_NSSA_2")] Nssa2 = 6,
+  }
+
+  /// <summary>
+  /// Protocol Originating SR Policy
+  /// </summary>
+  public enum SLBgplsTopoSrPolicyProtocolOrigin {
+    [pbr::OriginalName("SL_BGPLS_TOPO_SR_POLICY_PROTOCOL_ORIGIN_RESERVED")] Reserved = 0,
+    [pbr::OriginalName("SL_BGPLS_TOPO_SR_POLICY_PROTOCOL_ORIGIN_PCEP")] Pcep = 1,
+    [pbr::OriginalName("SL_BGPLS_TOPO_SR_POLICY_PROTOCOL_ORIGIN_BGP_SR_POLICY")] BgpSrPolicy = 2,
+    [pbr::OriginalName("SL_BGPLS_TOPO_SR_POLICY_PROTOCOL_ORIGIN_CONFIG")] Config = 3,
+    [pbr::OriginalName("SL_BGPLS_TOPO_SR_POLICY_PROTOCOL_ORIGIN_PCEP_VIA_PCE")] PcepViaPce = 10,
+    [pbr::OriginalName("SL_BGPLS_TOPO_SR_POLICY_PROTOCOL_ORIGIN_BGP_SR_POLICY_VIA_PCE")] BgpSrPolicyViaPce = 20,
+    [pbr::OriginalName("SL_BGPLS_TOPO_SR_POLICY_PROTOCOL_ORIGIN_CONFIG_VIA_PCE")] ConfigViaPce = 30,
+    [pbr::OriginalName("SL_BGPLS_TOPO_SR_POLICY_PROTOCOL_ORIGIN_CONFIG_VIA_GRPC")] ConfigViaGrpc = 40,
   }
 
   /// <summary>
@@ -513,6 +722,66 @@ namespace ServiceLayer {
     /// Prefix SID Type Index
     /// </summary>
     [pbr::OriginalName("SL_BGPLS_TOPO_PREFIX_SID_FORMAT_INDEX")] Index = 2,
+  }
+
+  /// <summary>
+  /// SR Segment Type
+  /// </summary>
+  public enum SLBgplsTopoSrSegmentType {
+    /// <summary>
+    /// Reserved. 0
+    /// </summary>
+    [pbr::OriginalName("SL_BGPLS_TOPO_SR_SEG_TYPE_RESERVED")] SlBgplsTopoSrSegTypeReserved = 0,
+    /// <summary>
+    /// (Type A) SR-MPLS Label. 1
+    /// </summary>
+    [pbr::OriginalName("SL_BGPLS_TOPO_SR_SEG_TYPE_MPLS_LABEL")] SlBgplsTopoSrSegTypeMplsLabel = 1,
+    /// <summary>
+    /// (Type B) SRv6 SID as IPv6 address. 2
+    /// </summary>
+    [pbr::OriginalName("SL_BGPLS_TOPO_SR_SEG_TYPE_SRV6_SID_V6")] SlBgplsTopoSrSegTypeSrv6SidV6 = 2,
+    /// <summary>
+    /// (Type C) SR-MPLS Prefix SID as IPv4 Node Address. 3
+    /// </summary>
+    [pbr::OriginalName("SL_BGPLS_TOPO_SR_SEG_TYPE_MPLS_PFX_SID_V4")] SlBgplsTopoSrSegTypeMplsPfxSidV4 = 3,
+    /// <summary>
+    /// (Type D) SR-MPLS Prefix SID as IPv6 Node Global Address. 4
+    /// </summary>
+    [pbr::OriginalName("SL_BGPLS_TOPO_SR_SEG_TYPE_MPLS_PFX_SID_V6")] SlBgplsTopoSrSegTypeMplsPfxSidV6 = 4,
+    /// <summary>
+    /// (Type E) SR-MPLS Adjacency SID as IPv4 Node Address
+    /// &amp; Local Interface ID. 5
+    /// </summary>
+    [pbr::OriginalName("SL_BGPLS_TOPO_SR_SEG_TYPE_MPLS_ADJ_SID_V4_NODE_ADDR_LOC_ID")] SlBgplsTopoSrSegTypeMplsAdjSidV4NodeAddrLocId = 5,
+    /// <summary>
+    /// (Type F) SR-MPLS Adjacency SID as IPv4 Local
+    /// &amp; Remote Interface Addresses. 6
+    /// </summary>
+    [pbr::OriginalName("SL_BGPLS_TOPO_SR_SEG_TYPE_MPLS_ADJ_SID_V4_LOC_REM_ADDR")] SlBgplsTopoSrSegTypeMplsAdjSidV4LocRemAddr = 6,
+    /// <summary>
+    /// (Type G) SR-MPLS Adjacency SID as pair of IPv6 Global Address
+    /// &amp; Interface ID for Local &amp; Remote nodes. 7
+    /// </summary>
+    [pbr::OriginalName("SL_BGPLS_TOPO_SR_SEG_TYPE_MPLS_ADJ_SID_V6_LOC_REM_ADDR_AND_ID")] SlBgplsTopoSrSegTypeMplsAdjSidV6LocRemAddrAndId = 7,
+    /// <summary>
+    /// (Type H) SR-MPLS Adjacency SID as pair of IPv6 Global Addresses
+    /// for the Local &amp; Remote Interface. 8
+    /// </summary>
+    [pbr::OriginalName("SL_BGPLS_TOPO_SR_SEG_TYPE_MPLS_ADJ_SID_V6_LOC_REM_ADDR")] SlBgplsTopoSrSegTypeMplsAdjSidV6LocRemAddr = 8,
+    /// <summary>
+    /// (Type I) SRv6 END SID as IPv6 Node Global Address. 9
+    /// </summary>
+    [pbr::OriginalName("SL_BGPLS_TOPO_SR_SEG_TYPE_SRV6_END_SID_V6_NODE_ADDR")] SlBgplsTopoSrSegTypeSrv6EndSidV6NodeAddr = 9,
+    /// <summary>
+    /// (Type J) SRv6 END.X SID as pair of IPv6 Global Address
+    /// &amp; Interface ID for Local &amp; Remote nodes. 10
+    /// </summary>
+    [pbr::OriginalName("SL_BGPLS_TOPO_SR_SEG_TYPE_SRV6_END_SID_V6_LOC_REM_ADDR_AND_ID")] SlBgplsTopoSrSegTypeSrv6EndSidV6LocRemAddrAndId = 10,
+    /// <summary>
+    /// (Type K) SRv6 END.X SID as pair of IPv6 Global Addresses for
+    /// the Local &amp; Remote Interface. 11
+    /// </summary>
+    [pbr::OriginalName("SL_BGPLS_TOPO_SR_SEG_TYPE_SRV6_END_SID_V6_LOC_REM_ADDR")] SlBgplsTopoSrSegTypeSrv6EndSidV6LocRemAddr = 11,
   }
 
   #endregion
@@ -2196,6 +2465,12 @@ namespace ServiceLayer {
         case DataOneofCase.Prefix:
           Prefix = other.Prefix.Clone();
           break;
+        case DataOneofCase.Srv6Sid:
+          Srv6Sid = other.Srv6Sid.Clone();
+          break;
+        case DataOneofCase.SrPolicy:
+          SrPolicy = other.SrPolicy.Clone();
+          break;
       }
 
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
@@ -2286,6 +2561,36 @@ namespace ServiceLayer {
       }
     }
 
+    /// <summary>Field number for the "Srv6Sid" field.</summary>
+    public const int Srv6SidFieldNumber = 6;
+    /// <summary>
+    /// This field carries info about a SRv6 SID data.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::ServiceLayer.SLBgplsTopoSrv6SidData Srv6Sid {
+      get { return dataCase_ == DataOneofCase.Srv6Sid ? (global::ServiceLayer.SLBgplsTopoSrv6SidData) data_ : null; }
+      set {
+        data_ = value;
+        dataCase_ = value == null ? DataOneofCase.None : DataOneofCase.Srv6Sid;
+      }
+    }
+
+    /// <summary>Field number for the "SrPolicy" field.</summary>
+    public const int SrPolicyFieldNumber = 7;
+    /// <summary>
+    /// This field carries info about a SR policy data.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::ServiceLayer.SLBgplsTopoSrPolicyData SrPolicy {
+      get { return dataCase_ == DataOneofCase.SrPolicy ? (global::ServiceLayer.SLBgplsTopoSrPolicyData) data_ : null; }
+      set {
+        data_ = value;
+        dataCase_ = value == null ? DataOneofCase.None : DataOneofCase.SrPolicy;
+      }
+    }
+
     private object data_;
     /// <summary>Enum of possible cases for the "Data" oneof.</summary>
     public enum DataOneofCase {
@@ -2293,6 +2598,8 @@ namespace ServiceLayer {
       Node = 3,
       Link = 4,
       Prefix = 5,
+      Srv6Sid = 6,
+      SrPolicy = 7,
     }
     private DataOneofCase dataCase_ = DataOneofCase.None;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2328,6 +2635,8 @@ namespace ServiceLayer {
       if (!object.Equals(Node, other.Node)) return false;
       if (!object.Equals(Link, other.Link)) return false;
       if (!object.Equals(Prefix, other.Prefix)) return false;
+      if (!object.Equals(Srv6Sid, other.Srv6Sid)) return false;
+      if (!object.Equals(SrPolicy, other.SrPolicy)) return false;
       if (DataCase != other.DataCase) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
@@ -2341,6 +2650,8 @@ namespace ServiceLayer {
       if (dataCase_ == DataOneofCase.Node) hash ^= Node.GetHashCode();
       if (dataCase_ == DataOneofCase.Link) hash ^= Link.GetHashCode();
       if (dataCase_ == DataOneofCase.Prefix) hash ^= Prefix.GetHashCode();
+      if (dataCase_ == DataOneofCase.Srv6Sid) hash ^= Srv6Sid.GetHashCode();
+      if (dataCase_ == DataOneofCase.SrPolicy) hash ^= SrPolicy.GetHashCode();
       hash ^= (int) dataCase_;
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
@@ -2380,6 +2691,14 @@ namespace ServiceLayer {
         output.WriteRawTag(42);
         output.WriteMessage(Prefix);
       }
+      if (dataCase_ == DataOneofCase.Srv6Sid) {
+        output.WriteRawTag(50);
+        output.WriteMessage(Srv6Sid);
+      }
+      if (dataCase_ == DataOneofCase.SrPolicy) {
+        output.WriteRawTag(58);
+        output.WriteMessage(SrPolicy);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -2410,6 +2729,14 @@ namespace ServiceLayer {
         output.WriteRawTag(42);
         output.WriteMessage(Prefix);
       }
+      if (dataCase_ == DataOneofCase.Srv6Sid) {
+        output.WriteRawTag(50);
+        output.WriteMessage(Srv6Sid);
+      }
+      if (dataCase_ == DataOneofCase.SrPolicy) {
+        output.WriteRawTag(58);
+        output.WriteMessage(SrPolicy);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -2434,6 +2761,12 @@ namespace ServiceLayer {
       }
       if (dataCase_ == DataOneofCase.Prefix) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(Prefix);
+      }
+      if (dataCase_ == DataOneofCase.Srv6Sid) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Srv6Sid);
+      }
+      if (dataCase_ == DataOneofCase.SrPolicy) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(SrPolicy);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -2474,6 +2807,18 @@ namespace ServiceLayer {
             Prefix = new global::ServiceLayer.SLBgplsTopoPrefixData();
           }
           Prefix.MergeFrom(other.Prefix);
+          break;
+        case DataOneofCase.Srv6Sid:
+          if (Srv6Sid == null) {
+            Srv6Sid = new global::ServiceLayer.SLBgplsTopoSrv6SidData();
+          }
+          Srv6Sid.MergeFrom(other.Srv6Sid);
+          break;
+        case DataOneofCase.SrPolicy:
+          if (SrPolicy == null) {
+            SrPolicy = new global::ServiceLayer.SLBgplsTopoSrPolicyData();
+          }
+          SrPolicy.MergeFrom(other.SrPolicy);
           break;
       }
 
@@ -2530,6 +2875,24 @@ namespace ServiceLayer {
             Prefix = subBuilder;
             break;
           }
+          case 50: {
+            global::ServiceLayer.SLBgplsTopoSrv6SidData subBuilder = new global::ServiceLayer.SLBgplsTopoSrv6SidData();
+            if (dataCase_ == DataOneofCase.Srv6Sid) {
+              subBuilder.MergeFrom(Srv6Sid);
+            }
+            input.ReadMessage(subBuilder);
+            Srv6Sid = subBuilder;
+            break;
+          }
+          case 58: {
+            global::ServiceLayer.SLBgplsTopoSrPolicyData subBuilder = new global::ServiceLayer.SLBgplsTopoSrPolicyData();
+            if (dataCase_ == DataOneofCase.SrPolicy) {
+              subBuilder.MergeFrom(SrPolicy);
+            }
+            input.ReadMessage(subBuilder);
+            SrPolicy = subBuilder;
+            break;
+          }
         }
       }
     #endif
@@ -2581,6 +2944,24 @@ namespace ServiceLayer {
             }
             input.ReadMessage(subBuilder);
             Prefix = subBuilder;
+            break;
+          }
+          case 50: {
+            global::ServiceLayer.SLBgplsTopoSrv6SidData subBuilder = new global::ServiceLayer.SLBgplsTopoSrv6SidData();
+            if (dataCase_ == DataOneofCase.Srv6Sid) {
+              subBuilder.MergeFrom(Srv6Sid);
+            }
+            input.ReadMessage(subBuilder);
+            Srv6Sid = subBuilder;
+            break;
+          }
+          case 58: {
+            global::ServiceLayer.SLBgplsTopoSrPolicyData subBuilder = new global::ServiceLayer.SLBgplsTopoSrPolicyData();
+            if (dataCase_ == DataOneofCase.SrPolicy) {
+              subBuilder.MergeFrom(SrPolicy);
+            }
+            input.ReadMessage(subBuilder);
+            SrPolicy = subBuilder;
             break;
           }
         }
@@ -3544,6 +3925,512 @@ namespace ServiceLayer {
   }
 
   /// <summary>
+  /// SRv6 SID Data
+  /// </summary>
+  public sealed partial class SLBgplsTopoSrv6SidData : pb::IMessage<SLBgplsTopoSrv6SidData>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<SLBgplsTopoSrv6SidData> _parser = new pb::MessageParser<SLBgplsTopoSrv6SidData>(() => new SLBgplsTopoSrv6SidData());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<SLBgplsTopoSrv6SidData> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[12]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SLBgplsTopoSrv6SidData() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SLBgplsTopoSrv6SidData(SLBgplsTopoSrv6SidData other) : this() {
+      srv6Sid_ = other.srv6Sid_ != null ? other.srv6Sid_.Clone() : null;
+      srv6SidAttr_ = other.srv6SidAttr_ != null ? other.srv6SidAttr_.Clone() : null;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SLBgplsTopoSrv6SidData Clone() {
+      return new SLBgplsTopoSrv6SidData(this);
+    }
+
+    /// <summary>Field number for the "Srv6Sid" field.</summary>
+    public const int Srv6SidFieldNumber = 1;
+    private global::ServiceLayer.SLBgplsTopoSrv6Sid srv6Sid_;
+    /// <summary>
+    /// This field carries info about a SRv6 SID NLRI.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::ServiceLayer.SLBgplsTopoSrv6Sid Srv6Sid {
+      get { return srv6Sid_; }
+      set {
+        srv6Sid_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "Srv6SidAttr" field.</summary>
+    public const int Srv6SidAttrFieldNumber = 2;
+    private global::ServiceLayer.SLBgplsTopoSrv6SidAttr srv6SidAttr_;
+    /// <summary>
+    /// This field carries info about SRv6 SID attributes.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::ServiceLayer.SLBgplsTopoSrv6SidAttr Srv6SidAttr {
+      get { return srv6SidAttr_; }
+      set {
+        srv6SidAttr_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as SLBgplsTopoSrv6SidData);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(SLBgplsTopoSrv6SidData other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (!object.Equals(Srv6Sid, other.Srv6Sid)) return false;
+      if (!object.Equals(Srv6SidAttr, other.Srv6SidAttr)) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (srv6Sid_ != null) hash ^= Srv6Sid.GetHashCode();
+      if (srv6SidAttr_ != null) hash ^= Srv6SidAttr.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (srv6Sid_ != null) {
+        output.WriteRawTag(10);
+        output.WriteMessage(Srv6Sid);
+      }
+      if (srv6SidAttr_ != null) {
+        output.WriteRawTag(18);
+        output.WriteMessage(Srv6SidAttr);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (srv6Sid_ != null) {
+        output.WriteRawTag(10);
+        output.WriteMessage(Srv6Sid);
+      }
+      if (srv6SidAttr_ != null) {
+        output.WriteRawTag(18);
+        output.WriteMessage(Srv6SidAttr);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (srv6Sid_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Srv6Sid);
+      }
+      if (srv6SidAttr_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Srv6SidAttr);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(SLBgplsTopoSrv6SidData other) {
+      if (other == null) {
+        return;
+      }
+      if (other.srv6Sid_ != null) {
+        if (srv6Sid_ == null) {
+          Srv6Sid = new global::ServiceLayer.SLBgplsTopoSrv6Sid();
+        }
+        Srv6Sid.MergeFrom(other.Srv6Sid);
+      }
+      if (other.srv6SidAttr_ != null) {
+        if (srv6SidAttr_ == null) {
+          Srv6SidAttr = new global::ServiceLayer.SLBgplsTopoSrv6SidAttr();
+        }
+        Srv6SidAttr.MergeFrom(other.Srv6SidAttr);
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            if (srv6Sid_ == null) {
+              Srv6Sid = new global::ServiceLayer.SLBgplsTopoSrv6Sid();
+            }
+            input.ReadMessage(Srv6Sid);
+            break;
+          }
+          case 18: {
+            if (srv6SidAttr_ == null) {
+              Srv6SidAttr = new global::ServiceLayer.SLBgplsTopoSrv6SidAttr();
+            }
+            input.ReadMessage(Srv6SidAttr);
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            if (srv6Sid_ == null) {
+              Srv6Sid = new global::ServiceLayer.SLBgplsTopoSrv6Sid();
+            }
+            input.ReadMessage(Srv6Sid);
+            break;
+          }
+          case 18: {
+            if (srv6SidAttr_ == null) {
+              Srv6SidAttr = new global::ServiceLayer.SLBgplsTopoSrv6SidAttr();
+            }
+            input.ReadMessage(Srv6SidAttr);
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  /// <summary>
+  /// SR Policy Data
+  /// </summary>
+  public sealed partial class SLBgplsTopoSrPolicyData : pb::IMessage<SLBgplsTopoSrPolicyData>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<SLBgplsTopoSrPolicyData> _parser = new pb::MessageParser<SLBgplsTopoSrPolicyData>(() => new SLBgplsTopoSrPolicyData());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<SLBgplsTopoSrPolicyData> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[13]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SLBgplsTopoSrPolicyData() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SLBgplsTopoSrPolicyData(SLBgplsTopoSrPolicyData other) : this() {
+      srPolicy_ = other.srPolicy_ != null ? other.srPolicy_.Clone() : null;
+      srPolicyAttr_ = other.srPolicyAttr_ != null ? other.srPolicyAttr_.Clone() : null;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SLBgplsTopoSrPolicyData Clone() {
+      return new SLBgplsTopoSrPolicyData(this);
+    }
+
+    /// <summary>Field number for the "SrPolicy" field.</summary>
+    public const int SrPolicyFieldNumber = 1;
+    private global::ServiceLayer.SLBgplsTopoSrPolicy srPolicy_;
+    /// <summary>
+    /// This field carries info about a SR policy NLRI.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::ServiceLayer.SLBgplsTopoSrPolicy SrPolicy {
+      get { return srPolicy_; }
+      set {
+        srPolicy_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "SrPolicyAttr" field.</summary>
+    public const int SrPolicyAttrFieldNumber = 2;
+    private global::ServiceLayer.SLBgplsTopoSrPolicyAttr srPolicyAttr_;
+    /// <summary>
+    /// This field carries info about SR policy attributes.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::ServiceLayer.SLBgplsTopoSrPolicyAttr SrPolicyAttr {
+      get { return srPolicyAttr_; }
+      set {
+        srPolicyAttr_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as SLBgplsTopoSrPolicyData);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(SLBgplsTopoSrPolicyData other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (!object.Equals(SrPolicy, other.SrPolicy)) return false;
+      if (!object.Equals(SrPolicyAttr, other.SrPolicyAttr)) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (srPolicy_ != null) hash ^= SrPolicy.GetHashCode();
+      if (srPolicyAttr_ != null) hash ^= SrPolicyAttr.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (srPolicy_ != null) {
+        output.WriteRawTag(10);
+        output.WriteMessage(SrPolicy);
+      }
+      if (srPolicyAttr_ != null) {
+        output.WriteRawTag(18);
+        output.WriteMessage(SrPolicyAttr);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (srPolicy_ != null) {
+        output.WriteRawTag(10);
+        output.WriteMessage(SrPolicy);
+      }
+      if (srPolicyAttr_ != null) {
+        output.WriteRawTag(18);
+        output.WriteMessage(SrPolicyAttr);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (srPolicy_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(SrPolicy);
+      }
+      if (srPolicyAttr_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(SrPolicyAttr);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(SLBgplsTopoSrPolicyData other) {
+      if (other == null) {
+        return;
+      }
+      if (other.srPolicy_ != null) {
+        if (srPolicy_ == null) {
+          SrPolicy = new global::ServiceLayer.SLBgplsTopoSrPolicy();
+        }
+        SrPolicy.MergeFrom(other.SrPolicy);
+      }
+      if (other.srPolicyAttr_ != null) {
+        if (srPolicyAttr_ == null) {
+          SrPolicyAttr = new global::ServiceLayer.SLBgplsTopoSrPolicyAttr();
+        }
+        SrPolicyAttr.MergeFrom(other.SrPolicyAttr);
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            if (srPolicy_ == null) {
+              SrPolicy = new global::ServiceLayer.SLBgplsTopoSrPolicy();
+            }
+            input.ReadMessage(SrPolicy);
+            break;
+          }
+          case 18: {
+            if (srPolicyAttr_ == null) {
+              SrPolicyAttr = new global::ServiceLayer.SLBgplsTopoSrPolicyAttr();
+            }
+            input.ReadMessage(SrPolicyAttr);
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            if (srPolicy_ == null) {
+              SrPolicy = new global::ServiceLayer.SLBgplsTopoSrPolicy();
+            }
+            input.ReadMessage(SrPolicy);
+            break;
+          }
+          case 18: {
+            if (srPolicyAttr_ == null) {
+              SrPolicyAttr = new global::ServiceLayer.SLBgplsTopoSrPolicyAttr();
+            }
+            input.ReadMessage(SrPolicyAttr);
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  /// <summary>
   /// Node
   /// </summary>
   public sealed partial class SLBgplsTopoNode : pb::IMessage<SLBgplsTopoNode>
@@ -3560,7 +4447,7 @@ namespace ServiceLayer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[12]; }
+      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[14]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3593,6 +4480,9 @@ namespace ServiceLayer {
           break;
         case NodeIdOneofCase.BgpNodeId:
           BgpNodeId = other.BgpNodeId.Clone();
+          break;
+        case NodeIdOneofCase.SrPolicyNodeId:
+          SrPolicyNodeId = other.SrPolicyNodeId.Clone();
           break;
       }
 
@@ -3682,6 +4572,21 @@ namespace ServiceLayer {
       }
     }
 
+    /// <summary>Field number for the "SrPolicyNodeId" field.</summary>
+    public const int SrPolicyNodeIdFieldNumber = 6;
+    /// <summary>
+    /// This field carries info about an SR policy node ID.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::ServiceLayer.SLBgplsTopoSrPolicyNodeId SrPolicyNodeId {
+      get { return nodeIdCase_ == NodeIdOneofCase.SrPolicyNodeId ? (global::ServiceLayer.SLBgplsTopoSrPolicyNodeId) nodeId_ : null; }
+      set {
+        nodeId_ = value;
+        nodeIdCase_ = value == null ? NodeIdOneofCase.None : NodeIdOneofCase.SrPolicyNodeId;
+      }
+    }
+
     private object nodeId_;
     /// <summary>Enum of possible cases for the "NodeId" oneof.</summary>
     public enum NodeIdOneofCase {
@@ -3690,6 +4595,7 @@ namespace ServiceLayer {
       Ospfv3NodeId = 3,
       IsisNodeId = 4,
       BgpNodeId = 5,
+      SrPolicyNodeId = 6,
     }
     private NodeIdOneofCase nodeIdCase_ = NodeIdOneofCase.None;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3725,6 +4631,7 @@ namespace ServiceLayer {
       if (!object.Equals(Ospfv3NodeId, other.Ospfv3NodeId)) return false;
       if (!object.Equals(IsisNodeId, other.IsisNodeId)) return false;
       if (!object.Equals(BgpNodeId, other.BgpNodeId)) return false;
+      if (!object.Equals(SrPolicyNodeId, other.SrPolicyNodeId)) return false;
       if (NodeIdCase != other.NodeIdCase) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
@@ -3738,6 +4645,7 @@ namespace ServiceLayer {
       if (nodeIdCase_ == NodeIdOneofCase.Ospfv3NodeId) hash ^= Ospfv3NodeId.GetHashCode();
       if (nodeIdCase_ == NodeIdOneofCase.IsisNodeId) hash ^= IsisNodeId.GetHashCode();
       if (nodeIdCase_ == NodeIdOneofCase.BgpNodeId) hash ^= BgpNodeId.GetHashCode();
+      if (nodeIdCase_ == NodeIdOneofCase.SrPolicyNodeId) hash ^= SrPolicyNodeId.GetHashCode();
       hash ^= (int) nodeIdCase_;
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
@@ -3777,6 +4685,10 @@ namespace ServiceLayer {
         output.WriteRawTag(42);
         output.WriteMessage(BgpNodeId);
       }
+      if (nodeIdCase_ == NodeIdOneofCase.SrPolicyNodeId) {
+        output.WriteRawTag(50);
+        output.WriteMessage(SrPolicyNodeId);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -3807,6 +4719,10 @@ namespace ServiceLayer {
         output.WriteRawTag(42);
         output.WriteMessage(BgpNodeId);
       }
+      if (nodeIdCase_ == NodeIdOneofCase.SrPolicyNodeId) {
+        output.WriteRawTag(50);
+        output.WriteMessage(SrPolicyNodeId);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -3831,6 +4747,9 @@ namespace ServiceLayer {
       }
       if (nodeIdCase_ == NodeIdOneofCase.BgpNodeId) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(BgpNodeId);
+      }
+      if (nodeIdCase_ == NodeIdOneofCase.SrPolicyNodeId) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(SrPolicyNodeId);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -3871,6 +4790,12 @@ namespace ServiceLayer {
             BgpNodeId = new global::ServiceLayer.SLBgplsTopoBgpNodeId();
           }
           BgpNodeId.MergeFrom(other.BgpNodeId);
+          break;
+        case NodeIdOneofCase.SrPolicyNodeId:
+          if (SrPolicyNodeId == null) {
+            SrPolicyNodeId = new global::ServiceLayer.SLBgplsTopoSrPolicyNodeId();
+          }
+          SrPolicyNodeId.MergeFrom(other.SrPolicyNodeId);
           break;
       }
 
@@ -3929,6 +4854,15 @@ namespace ServiceLayer {
             BgpNodeId = subBuilder;
             break;
           }
+          case 50: {
+            global::ServiceLayer.SLBgplsTopoSrPolicyNodeId subBuilder = new global::ServiceLayer.SLBgplsTopoSrPolicyNodeId();
+            if (nodeIdCase_ == NodeIdOneofCase.SrPolicyNodeId) {
+              subBuilder.MergeFrom(SrPolicyNodeId);
+            }
+            input.ReadMessage(subBuilder);
+            SrPolicyNodeId = subBuilder;
+            break;
+          }
         }
       }
     #endif
@@ -3984,6 +4918,15 @@ namespace ServiceLayer {
             BgpNodeId = subBuilder;
             break;
           }
+          case 50: {
+            global::ServiceLayer.SLBgplsTopoSrPolicyNodeId subBuilder = new global::ServiceLayer.SLBgplsTopoSrPolicyNodeId();
+            if (nodeIdCase_ == NodeIdOneofCase.SrPolicyNodeId) {
+              subBuilder.MergeFrom(SrPolicyNodeId);
+            }
+            input.ReadMessage(subBuilder);
+            SrPolicyNodeId = subBuilder;
+            break;
+          }
         }
       }
     }
@@ -4008,7 +4951,7 @@ namespace ServiceLayer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[13]; }
+      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[15]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -4316,7 +5259,7 @@ namespace ServiceLayer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[14]; }
+      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[16]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -4557,6 +5500,515 @@ namespace ServiceLayer {
   }
 
   /// <summary>
+  /// SRv6 SID
+  /// </summary>
+  public sealed partial class SLBgplsTopoSrv6Sid : pb::IMessage<SLBgplsTopoSrv6Sid>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<SLBgplsTopoSrv6Sid> _parser = new pb::MessageParser<SLBgplsTopoSrv6Sid>(() => new SLBgplsTopoSrv6Sid());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<SLBgplsTopoSrv6Sid> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[17]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SLBgplsTopoSrv6Sid() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SLBgplsTopoSrv6Sid(SLBgplsTopoSrv6Sid other) : this() {
+      nodeDescr_ = other.nodeDescr_ != null ? other.nodeDescr_.Clone() : null;
+      srv6SidDescr_ = other.srv6SidDescr_ != null ? other.srv6SidDescr_.Clone() : null;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SLBgplsTopoSrv6Sid Clone() {
+      return new SLBgplsTopoSrv6Sid(this);
+    }
+
+    /// <summary>Field number for the "NodeDescr" field.</summary>
+    public const int NodeDescrFieldNumber = 1;
+    private global::ServiceLayer.SLBgplsTopoNode nodeDescr_;
+    /// <summary>
+    /// Node Descriptors for the node originating the SRv6 SID.
+    /// Local Node Descriptors. TLV 256.
+    /// Section 5.2.1.2 of [RFC9552]
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::ServiceLayer.SLBgplsTopoNode NodeDescr {
+      get { return nodeDescr_; }
+      set {
+        nodeDescr_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "Srv6SidDescr" field.</summary>
+    public const int Srv6SidDescrFieldNumber = 2;
+    private global::ServiceLayer.SLBgplsTopoSrv6SidDescr srv6SidDescr_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::ServiceLayer.SLBgplsTopoSrv6SidDescr Srv6SidDescr {
+      get { return srv6SidDescr_; }
+      set {
+        srv6SidDescr_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as SLBgplsTopoSrv6Sid);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(SLBgplsTopoSrv6Sid other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (!object.Equals(NodeDescr, other.NodeDescr)) return false;
+      if (!object.Equals(Srv6SidDescr, other.Srv6SidDescr)) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (nodeDescr_ != null) hash ^= NodeDescr.GetHashCode();
+      if (srv6SidDescr_ != null) hash ^= Srv6SidDescr.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (nodeDescr_ != null) {
+        output.WriteRawTag(10);
+        output.WriteMessage(NodeDescr);
+      }
+      if (srv6SidDescr_ != null) {
+        output.WriteRawTag(18);
+        output.WriteMessage(Srv6SidDescr);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (nodeDescr_ != null) {
+        output.WriteRawTag(10);
+        output.WriteMessage(NodeDescr);
+      }
+      if (srv6SidDescr_ != null) {
+        output.WriteRawTag(18);
+        output.WriteMessage(Srv6SidDescr);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (nodeDescr_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(NodeDescr);
+      }
+      if (srv6SidDescr_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Srv6SidDescr);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(SLBgplsTopoSrv6Sid other) {
+      if (other == null) {
+        return;
+      }
+      if (other.nodeDescr_ != null) {
+        if (nodeDescr_ == null) {
+          NodeDescr = new global::ServiceLayer.SLBgplsTopoNode();
+        }
+        NodeDescr.MergeFrom(other.NodeDescr);
+      }
+      if (other.srv6SidDescr_ != null) {
+        if (srv6SidDescr_ == null) {
+          Srv6SidDescr = new global::ServiceLayer.SLBgplsTopoSrv6SidDescr();
+        }
+        Srv6SidDescr.MergeFrom(other.Srv6SidDescr);
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            if (nodeDescr_ == null) {
+              NodeDescr = new global::ServiceLayer.SLBgplsTopoNode();
+            }
+            input.ReadMessage(NodeDescr);
+            break;
+          }
+          case 18: {
+            if (srv6SidDescr_ == null) {
+              Srv6SidDescr = new global::ServiceLayer.SLBgplsTopoSrv6SidDescr();
+            }
+            input.ReadMessage(Srv6SidDescr);
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            if (nodeDescr_ == null) {
+              NodeDescr = new global::ServiceLayer.SLBgplsTopoNode();
+            }
+            input.ReadMessage(NodeDescr);
+            break;
+          }
+          case 18: {
+            if (srv6SidDescr_ == null) {
+              Srv6SidDescr = new global::ServiceLayer.SLBgplsTopoSrv6SidDescr();
+            }
+            input.ReadMessage(Srv6SidDescr);
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  /// <summary>
+  /// SR Policy
+  /// </summary>
+  public sealed partial class SLBgplsTopoSrPolicy : pb::IMessage<SLBgplsTopoSrPolicy>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<SLBgplsTopoSrPolicy> _parser = new pb::MessageParser<SLBgplsTopoSrPolicy>(() => new SLBgplsTopoSrPolicy());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<SLBgplsTopoSrPolicy> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[18]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SLBgplsTopoSrPolicy() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SLBgplsTopoSrPolicy(SLBgplsTopoSrPolicy other) : this() {
+      nodeDescr_ = other.nodeDescr_ != null ? other.nodeDescr_.Clone() : null;
+      srPolicyDescr_ = other.srPolicyDescr_ != null ? other.srPolicyDescr_.Clone() : null;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SLBgplsTopoSrPolicy Clone() {
+      return new SLBgplsTopoSrPolicy(this);
+    }
+
+    /// <summary>Field number for the "NodeDescr" field.</summary>
+    public const int NodeDescrFieldNumber = 1;
+    private global::ServiceLayer.SLBgplsTopoNode nodeDescr_;
+    /// <summary>
+    /// Node Descriptors for the node originating the SR policy.
+    /// Local Node Descriptors. TLV 256.
+    /// Section 5.2.1.2 of [RFC9552]
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::ServiceLayer.SLBgplsTopoNode NodeDescr {
+      get { return nodeDescr_; }
+      set {
+        nodeDescr_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "SrPolicyDescr" field.</summary>
+    public const int SrPolicyDescrFieldNumber = 2;
+    private global::ServiceLayer.SLBgplsTopoSrPolicyDescr srPolicyDescr_;
+    /// <summary>
+    /// A Segment Routing Policy Candidate Path.
+    /// SR Policy Candidate Path Descriptor. TLV 554.
+    /// Section 4 of [draft-ietf-idr-bgp-ls-sr-policy]
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::ServiceLayer.SLBgplsTopoSrPolicyDescr SrPolicyDescr {
+      get { return srPolicyDescr_; }
+      set {
+        srPolicyDescr_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as SLBgplsTopoSrPolicy);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(SLBgplsTopoSrPolicy other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (!object.Equals(NodeDescr, other.NodeDescr)) return false;
+      if (!object.Equals(SrPolicyDescr, other.SrPolicyDescr)) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (nodeDescr_ != null) hash ^= NodeDescr.GetHashCode();
+      if (srPolicyDescr_ != null) hash ^= SrPolicyDescr.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (nodeDescr_ != null) {
+        output.WriteRawTag(10);
+        output.WriteMessage(NodeDescr);
+      }
+      if (srPolicyDescr_ != null) {
+        output.WriteRawTag(18);
+        output.WriteMessage(SrPolicyDescr);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (nodeDescr_ != null) {
+        output.WriteRawTag(10);
+        output.WriteMessage(NodeDescr);
+      }
+      if (srPolicyDescr_ != null) {
+        output.WriteRawTag(18);
+        output.WriteMessage(SrPolicyDescr);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (nodeDescr_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(NodeDescr);
+      }
+      if (srPolicyDescr_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(SrPolicyDescr);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(SLBgplsTopoSrPolicy other) {
+      if (other == null) {
+        return;
+      }
+      if (other.nodeDescr_ != null) {
+        if (nodeDescr_ == null) {
+          NodeDescr = new global::ServiceLayer.SLBgplsTopoNode();
+        }
+        NodeDescr.MergeFrom(other.NodeDescr);
+      }
+      if (other.srPolicyDescr_ != null) {
+        if (srPolicyDescr_ == null) {
+          SrPolicyDescr = new global::ServiceLayer.SLBgplsTopoSrPolicyDescr();
+        }
+        SrPolicyDescr.MergeFrom(other.SrPolicyDescr);
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            if (nodeDescr_ == null) {
+              NodeDescr = new global::ServiceLayer.SLBgplsTopoNode();
+            }
+            input.ReadMessage(NodeDescr);
+            break;
+          }
+          case 18: {
+            if (srPolicyDescr_ == null) {
+              SrPolicyDescr = new global::ServiceLayer.SLBgplsTopoSrPolicyDescr();
+            }
+            input.ReadMessage(SrPolicyDescr);
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            if (nodeDescr_ == null) {
+              NodeDescr = new global::ServiceLayer.SLBgplsTopoNode();
+            }
+            input.ReadMessage(NodeDescr);
+            break;
+          }
+          case 18: {
+            if (srPolicyDescr_ == null) {
+              SrPolicyDescr = new global::ServiceLayer.SLBgplsTopoSrPolicyDescr();
+            }
+            input.ReadMessage(SrPolicyDescr);
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  /// <summary>
   /// Link descriptor
   /// </summary>
   public sealed partial class SLBgplsTopoLinkDescr : pb::IMessage<SLBgplsTopoLinkDescr>
@@ -4573,7 +6025,7 @@ namespace ServiceLayer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[15]; }
+      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[19]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -5031,7 +6483,7 @@ namespace ServiceLayer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[16]; }
+      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[20]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -5347,6 +6799,853 @@ namespace ServiceLayer {
   }
 
   /// <summary>
+  /// SRv6 SID descriptor
+  /// </summary>
+  public sealed partial class SLBgplsTopoSrv6SidDescr : pb::IMessage<SLBgplsTopoSrv6SidDescr>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<SLBgplsTopoSrv6SidDescr> _parser = new pb::MessageParser<SLBgplsTopoSrv6SidDescr>(() => new SLBgplsTopoSrv6SidDescr());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<SLBgplsTopoSrv6SidDescr> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[21]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SLBgplsTopoSrv6SidDescr() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SLBgplsTopoSrv6SidDescr(SLBgplsTopoSrv6SidDescr other) : this() {
+      mtId_ = other.mtId_ != null ? other.mtId_.Clone() : null;
+      srv6Sid_ = other.srv6Sid_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SLBgplsTopoSrv6SidDescr Clone() {
+      return new SLBgplsTopoSrv6SidDescr(this);
+    }
+
+    /// <summary>Field number for the "MtId" field.</summary>
+    public const int MtIdFieldNumber = 1;
+    private global::ServiceLayer.SLBgplsTopoMtId mtId_;
+    /// <summary>
+    /// Multi Topology Identifier (MTID) of an SRv6 SID.
+    /// Multi-Topology Identifier. TLV 263.
+    /// Section 5.2.2.1 of [RFC9552]
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::ServiceLayer.SLBgplsTopoMtId MtId {
+      get { return mtId_; }
+      set {
+        mtId_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "Srv6Sid" field.</summary>
+    public const int Srv6SidFieldNumber = 2;
+    private pb::ByteString srv6Sid_ = pb::ByteString.Empty;
+    /// <summary>
+    /// An SRv6 SID that is associated with the node.
+    /// SRv6 SID Information. TLV 518. Section 6.1 of [RFC9514]
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pb::ByteString Srv6Sid {
+      get { return srv6Sid_; }
+      set {
+        srv6Sid_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as SLBgplsTopoSrv6SidDescr);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(SLBgplsTopoSrv6SidDescr other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (!object.Equals(MtId, other.MtId)) return false;
+      if (Srv6Sid != other.Srv6Sid) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (mtId_ != null) hash ^= MtId.GetHashCode();
+      if (Srv6Sid.Length != 0) hash ^= Srv6Sid.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (mtId_ != null) {
+        output.WriteRawTag(10);
+        output.WriteMessage(MtId);
+      }
+      if (Srv6Sid.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteBytes(Srv6Sid);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (mtId_ != null) {
+        output.WriteRawTag(10);
+        output.WriteMessage(MtId);
+      }
+      if (Srv6Sid.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteBytes(Srv6Sid);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (mtId_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(MtId);
+      }
+      if (Srv6Sid.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeBytesSize(Srv6Sid);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(SLBgplsTopoSrv6SidDescr other) {
+      if (other == null) {
+        return;
+      }
+      if (other.mtId_ != null) {
+        if (mtId_ == null) {
+          MtId = new global::ServiceLayer.SLBgplsTopoMtId();
+        }
+        MtId.MergeFrom(other.MtId);
+      }
+      if (other.Srv6Sid.Length != 0) {
+        Srv6Sid = other.Srv6Sid;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            if (mtId_ == null) {
+              MtId = new global::ServiceLayer.SLBgplsTopoMtId();
+            }
+            input.ReadMessage(MtId);
+            break;
+          }
+          case 18: {
+            Srv6Sid = input.ReadBytes();
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            if (mtId_ == null) {
+              MtId = new global::ServiceLayer.SLBgplsTopoMtId();
+            }
+            input.ReadMessage(MtId);
+            break;
+          }
+          case 18: {
+            Srv6Sid = input.ReadBytes();
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  /// <summary>
+  /// SR Policy descriptor
+  /// </summary>
+  public sealed partial class SLBgplsTopoSrPolicyDescr : pb::IMessage<SLBgplsTopoSrPolicyDescr>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<SLBgplsTopoSrPolicyDescr> _parser = new pb::MessageParser<SLBgplsTopoSrPolicyDescr>(() => new SLBgplsTopoSrPolicyDescr());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<SLBgplsTopoSrPolicyDescr> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[22]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SLBgplsTopoSrPolicyDescr() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SLBgplsTopoSrPolicyDescr(SLBgplsTopoSrPolicyDescr other) : this() {
+      protoOrigin_ = other.protoOrigin_;
+      flags_ = other.flags_ != null ? other.flags_.Clone() : null;
+      color_ = other.color_;
+      originAsn_ = other.originAsn_;
+      discriminator_ = other.discriminator_;
+      switch (other.EndpointAddressCase) {
+        case EndpointAddressOneofCase.Ipv4EndAddr:
+          Ipv4EndAddr = other.Ipv4EndAddr;
+          break;
+        case EndpointAddressOneofCase.Ipv6EndAddr:
+          Ipv6EndAddr = other.Ipv6EndAddr;
+          break;
+      }
+
+      switch (other.OriginatorAddressCase) {
+        case OriginatorAddressOneofCase.Ipv4OrigAddr:
+          Ipv4OrigAddr = other.Ipv4OrigAddr;
+          break;
+        case OriginatorAddressOneofCase.Ipv6OrigAddr:
+          Ipv6OrigAddr = other.Ipv6OrigAddr;
+          break;
+      }
+
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SLBgplsTopoSrPolicyDescr Clone() {
+      return new SLBgplsTopoSrPolicyDescr(this);
+    }
+
+    /// <summary>Field number for the "ProtoOrigin" field.</summary>
+    public const int ProtoOriginFieldNumber = 1;
+    private global::ServiceLayer.SLBgplsTopoSrPolicyProtocolOrigin protoOrigin_ = global::ServiceLayer.SLBgplsTopoSrPolicyProtocolOrigin.Reserved;
+    /// <summary>
+    /// Protocol instantiating the SR policy.
+    /// Protocol-origin. TLV 554.
+    /// Section 4 of [draft-ietf-idr-bgp-ls-sr-policy]
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::ServiceLayer.SLBgplsTopoSrPolicyProtocolOrigin ProtoOrigin {
+      get { return protoOrigin_; }
+      set {
+        protoOrigin_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "Flags" field.</summary>
+    public const int FlagsFieldNumber = 2;
+    private global::ServiceLayer.SLBgplsTopoSrPolicyFlags flags_;
+    /// <summary>
+    /// Flags associated with the SR policy.
+    /// Flags. TLV 554.
+    /// Section 4 of [draft-ietf-idr-bgp-ls-sr-policy]
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::ServiceLayer.SLBgplsTopoSrPolicyFlags Flags {
+      get { return flags_; }
+      set {
+        flags_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "Ipv4EndAddr" field.</summary>
+    public const int Ipv4EndAddrFieldNumber = 3;
+    /// <summary>
+    /// This field carries info about an IPv4 endpoint address.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pb::ByteString Ipv4EndAddr {
+      get { return endpointAddressCase_ == EndpointAddressOneofCase.Ipv4EndAddr ? (pb::ByteString) endpointAddress_ : pb::ByteString.Empty; }
+      set {
+        endpointAddress_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        endpointAddressCase_ = EndpointAddressOneofCase.Ipv4EndAddr;
+      }
+    }
+
+    /// <summary>Field number for the "Ipv6EndAddr" field.</summary>
+    public const int Ipv6EndAddrFieldNumber = 4;
+    /// <summary>
+    /// This field carries info about an IPv6 endpoint address.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pb::ByteString Ipv6EndAddr {
+      get { return endpointAddressCase_ == EndpointAddressOneofCase.Ipv6EndAddr ? (pb::ByteString) endpointAddress_ : pb::ByteString.Empty; }
+      set {
+        endpointAddress_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        endpointAddressCase_ = EndpointAddressOneofCase.Ipv6EndAddr;
+      }
+    }
+
+    /// <summary>Field number for the "Color" field.</summary>
+    public const int ColorFieldNumber = 5;
+    private uint color_;
+    /// <summary>
+    /// Color of the SR Policy.
+    /// Policy Color. TLV 554.
+    /// Section 4 of [draft-ietf-idr-bgp-ls-sr-policy]
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint Color {
+      get { return color_; }
+      set {
+        color_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "OriginAsn" field.</summary>
+    public const int OriginAsnFieldNumber = 6;
+    private uint originAsn_;
+    /// <summary>
+    /// 4-byte encoding of the ASN of the originator.
+    /// Originator AS Number. TLV 554.
+    /// Section 4 of [draft-ietf-idr-bgp-ls-sr-policy]
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint OriginAsn {
+      get { return originAsn_; }
+      set {
+        originAsn_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "Ipv4OrigAddr" field.</summary>
+    public const int Ipv4OrigAddrFieldNumber = 7;
+    /// <summary>
+    /// This field carries info about an IPv4 originator address.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pb::ByteString Ipv4OrigAddr {
+      get { return originatorAddressCase_ == OriginatorAddressOneofCase.Ipv4OrigAddr ? (pb::ByteString) originatorAddress_ : pb::ByteString.Empty; }
+      set {
+        originatorAddress_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        originatorAddressCase_ = OriginatorAddressOneofCase.Ipv4OrigAddr;
+      }
+    }
+
+    /// <summary>Field number for the "Ipv6OrigAddr" field.</summary>
+    public const int Ipv6OrigAddrFieldNumber = 8;
+    /// <summary>
+    /// This field carries info about an IPv6 originator address.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pb::ByteString Ipv6OrigAddr {
+      get { return originatorAddressCase_ == OriginatorAddressOneofCase.Ipv6OrigAddr ? (pb::ByteString) originatorAddress_ : pb::ByteString.Empty; }
+      set {
+        originatorAddress_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        originatorAddressCase_ = OriginatorAddressOneofCase.Ipv6OrigAddr;
+      }
+    }
+
+    /// <summary>Field number for the "Discriminator" field.</summary>
+    public const int DiscriminatorFieldNumber = 9;
+    private uint discriminator_;
+    /// <summary>
+    /// Discriminator of the path.
+    /// Discriminator. TLV 554.
+    /// Section 4 of [draft-ietf-idr-bgp-ls-sr-policy]
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint Discriminator {
+      get { return discriminator_; }
+      set {
+        discriminator_ = value;
+      }
+    }
+
+    private object endpointAddress_;
+    /// <summary>Enum of possible cases for the "EndpointAddress" oneof.</summary>
+    public enum EndpointAddressOneofCase {
+      None = 0,
+      Ipv4EndAddr = 3,
+      Ipv6EndAddr = 4,
+    }
+    private EndpointAddressOneofCase endpointAddressCase_ = EndpointAddressOneofCase.None;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public EndpointAddressOneofCase EndpointAddressCase {
+      get { return endpointAddressCase_; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearEndpointAddress() {
+      endpointAddressCase_ = EndpointAddressOneofCase.None;
+      endpointAddress_ = null;
+    }
+
+    private object originatorAddress_;
+    /// <summary>Enum of possible cases for the "OriginatorAddress" oneof.</summary>
+    public enum OriginatorAddressOneofCase {
+      None = 0,
+      Ipv4OrigAddr = 7,
+      Ipv6OrigAddr = 8,
+    }
+    private OriginatorAddressOneofCase originatorAddressCase_ = OriginatorAddressOneofCase.None;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public OriginatorAddressOneofCase OriginatorAddressCase {
+      get { return originatorAddressCase_; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearOriginatorAddress() {
+      originatorAddressCase_ = OriginatorAddressOneofCase.None;
+      originatorAddress_ = null;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as SLBgplsTopoSrPolicyDescr);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(SLBgplsTopoSrPolicyDescr other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (ProtoOrigin != other.ProtoOrigin) return false;
+      if (!object.Equals(Flags, other.Flags)) return false;
+      if (Ipv4EndAddr != other.Ipv4EndAddr) return false;
+      if (Ipv6EndAddr != other.Ipv6EndAddr) return false;
+      if (Color != other.Color) return false;
+      if (OriginAsn != other.OriginAsn) return false;
+      if (Ipv4OrigAddr != other.Ipv4OrigAddr) return false;
+      if (Ipv6OrigAddr != other.Ipv6OrigAddr) return false;
+      if (Discriminator != other.Discriminator) return false;
+      if (EndpointAddressCase != other.EndpointAddressCase) return false;
+      if (OriginatorAddressCase != other.OriginatorAddressCase) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (ProtoOrigin != global::ServiceLayer.SLBgplsTopoSrPolicyProtocolOrigin.Reserved) hash ^= ProtoOrigin.GetHashCode();
+      if (flags_ != null) hash ^= Flags.GetHashCode();
+      if (endpointAddressCase_ == EndpointAddressOneofCase.Ipv4EndAddr) hash ^= Ipv4EndAddr.GetHashCode();
+      if (endpointAddressCase_ == EndpointAddressOneofCase.Ipv6EndAddr) hash ^= Ipv6EndAddr.GetHashCode();
+      if (Color != 0) hash ^= Color.GetHashCode();
+      if (OriginAsn != 0) hash ^= OriginAsn.GetHashCode();
+      if (originatorAddressCase_ == OriginatorAddressOneofCase.Ipv4OrigAddr) hash ^= Ipv4OrigAddr.GetHashCode();
+      if (originatorAddressCase_ == OriginatorAddressOneofCase.Ipv6OrigAddr) hash ^= Ipv6OrigAddr.GetHashCode();
+      if (Discriminator != 0) hash ^= Discriminator.GetHashCode();
+      hash ^= (int) endpointAddressCase_;
+      hash ^= (int) originatorAddressCase_;
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (ProtoOrigin != global::ServiceLayer.SLBgplsTopoSrPolicyProtocolOrigin.Reserved) {
+        output.WriteRawTag(8);
+        output.WriteEnum((int) ProtoOrigin);
+      }
+      if (flags_ != null) {
+        output.WriteRawTag(18);
+        output.WriteMessage(Flags);
+      }
+      if (endpointAddressCase_ == EndpointAddressOneofCase.Ipv4EndAddr) {
+        output.WriteRawTag(26);
+        output.WriteBytes(Ipv4EndAddr);
+      }
+      if (endpointAddressCase_ == EndpointAddressOneofCase.Ipv6EndAddr) {
+        output.WriteRawTag(34);
+        output.WriteBytes(Ipv6EndAddr);
+      }
+      if (Color != 0) {
+        output.WriteRawTag(40);
+        output.WriteUInt32(Color);
+      }
+      if (OriginAsn != 0) {
+        output.WriteRawTag(48);
+        output.WriteUInt32(OriginAsn);
+      }
+      if (originatorAddressCase_ == OriginatorAddressOneofCase.Ipv4OrigAddr) {
+        output.WriteRawTag(58);
+        output.WriteBytes(Ipv4OrigAddr);
+      }
+      if (originatorAddressCase_ == OriginatorAddressOneofCase.Ipv6OrigAddr) {
+        output.WriteRawTag(66);
+        output.WriteBytes(Ipv6OrigAddr);
+      }
+      if (Discriminator != 0) {
+        output.WriteRawTag(72);
+        output.WriteUInt32(Discriminator);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (ProtoOrigin != global::ServiceLayer.SLBgplsTopoSrPolicyProtocolOrigin.Reserved) {
+        output.WriteRawTag(8);
+        output.WriteEnum((int) ProtoOrigin);
+      }
+      if (flags_ != null) {
+        output.WriteRawTag(18);
+        output.WriteMessage(Flags);
+      }
+      if (endpointAddressCase_ == EndpointAddressOneofCase.Ipv4EndAddr) {
+        output.WriteRawTag(26);
+        output.WriteBytes(Ipv4EndAddr);
+      }
+      if (endpointAddressCase_ == EndpointAddressOneofCase.Ipv6EndAddr) {
+        output.WriteRawTag(34);
+        output.WriteBytes(Ipv6EndAddr);
+      }
+      if (Color != 0) {
+        output.WriteRawTag(40);
+        output.WriteUInt32(Color);
+      }
+      if (OriginAsn != 0) {
+        output.WriteRawTag(48);
+        output.WriteUInt32(OriginAsn);
+      }
+      if (originatorAddressCase_ == OriginatorAddressOneofCase.Ipv4OrigAddr) {
+        output.WriteRawTag(58);
+        output.WriteBytes(Ipv4OrigAddr);
+      }
+      if (originatorAddressCase_ == OriginatorAddressOneofCase.Ipv6OrigAddr) {
+        output.WriteRawTag(66);
+        output.WriteBytes(Ipv6OrigAddr);
+      }
+      if (Discriminator != 0) {
+        output.WriteRawTag(72);
+        output.WriteUInt32(Discriminator);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (ProtoOrigin != global::ServiceLayer.SLBgplsTopoSrPolicyProtocolOrigin.Reserved) {
+        size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) ProtoOrigin);
+      }
+      if (flags_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Flags);
+      }
+      if (endpointAddressCase_ == EndpointAddressOneofCase.Ipv4EndAddr) {
+        size += 1 + pb::CodedOutputStream.ComputeBytesSize(Ipv4EndAddr);
+      }
+      if (endpointAddressCase_ == EndpointAddressOneofCase.Ipv6EndAddr) {
+        size += 1 + pb::CodedOutputStream.ComputeBytesSize(Ipv6EndAddr);
+      }
+      if (Color != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Color);
+      }
+      if (OriginAsn != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(OriginAsn);
+      }
+      if (originatorAddressCase_ == OriginatorAddressOneofCase.Ipv4OrigAddr) {
+        size += 1 + pb::CodedOutputStream.ComputeBytesSize(Ipv4OrigAddr);
+      }
+      if (originatorAddressCase_ == OriginatorAddressOneofCase.Ipv6OrigAddr) {
+        size += 1 + pb::CodedOutputStream.ComputeBytesSize(Ipv6OrigAddr);
+      }
+      if (Discriminator != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Discriminator);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(SLBgplsTopoSrPolicyDescr other) {
+      if (other == null) {
+        return;
+      }
+      if (other.ProtoOrigin != global::ServiceLayer.SLBgplsTopoSrPolicyProtocolOrigin.Reserved) {
+        ProtoOrigin = other.ProtoOrigin;
+      }
+      if (other.flags_ != null) {
+        if (flags_ == null) {
+          Flags = new global::ServiceLayer.SLBgplsTopoSrPolicyFlags();
+        }
+        Flags.MergeFrom(other.Flags);
+      }
+      if (other.Color != 0) {
+        Color = other.Color;
+      }
+      if (other.OriginAsn != 0) {
+        OriginAsn = other.OriginAsn;
+      }
+      if (other.Discriminator != 0) {
+        Discriminator = other.Discriminator;
+      }
+      switch (other.EndpointAddressCase) {
+        case EndpointAddressOneofCase.Ipv4EndAddr:
+          Ipv4EndAddr = other.Ipv4EndAddr;
+          break;
+        case EndpointAddressOneofCase.Ipv6EndAddr:
+          Ipv6EndAddr = other.Ipv6EndAddr;
+          break;
+      }
+
+      switch (other.OriginatorAddressCase) {
+        case OriginatorAddressOneofCase.Ipv4OrigAddr:
+          Ipv4OrigAddr = other.Ipv4OrigAddr;
+          break;
+        case OriginatorAddressOneofCase.Ipv6OrigAddr:
+          Ipv6OrigAddr = other.Ipv6OrigAddr;
+          break;
+      }
+
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            ProtoOrigin = (global::ServiceLayer.SLBgplsTopoSrPolicyProtocolOrigin) input.ReadEnum();
+            break;
+          }
+          case 18: {
+            if (flags_ == null) {
+              Flags = new global::ServiceLayer.SLBgplsTopoSrPolicyFlags();
+            }
+            input.ReadMessage(Flags);
+            break;
+          }
+          case 26: {
+            Ipv4EndAddr = input.ReadBytes();
+            break;
+          }
+          case 34: {
+            Ipv6EndAddr = input.ReadBytes();
+            break;
+          }
+          case 40: {
+            Color = input.ReadUInt32();
+            break;
+          }
+          case 48: {
+            OriginAsn = input.ReadUInt32();
+            break;
+          }
+          case 58: {
+            Ipv4OrigAddr = input.ReadBytes();
+            break;
+          }
+          case 66: {
+            Ipv6OrigAddr = input.ReadBytes();
+            break;
+          }
+          case 72: {
+            Discriminator = input.ReadUInt32();
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 8: {
+            ProtoOrigin = (global::ServiceLayer.SLBgplsTopoSrPolicyProtocolOrigin) input.ReadEnum();
+            break;
+          }
+          case 18: {
+            if (flags_ == null) {
+              Flags = new global::ServiceLayer.SLBgplsTopoSrPolicyFlags();
+            }
+            input.ReadMessage(Flags);
+            break;
+          }
+          case 26: {
+            Ipv4EndAddr = input.ReadBytes();
+            break;
+          }
+          case 34: {
+            Ipv6EndAddr = input.ReadBytes();
+            break;
+          }
+          case 40: {
+            Color = input.ReadUInt32();
+            break;
+          }
+          case 48: {
+            OriginAsn = input.ReadUInt32();
+            break;
+          }
+          case 58: {
+            Ipv4OrigAddr = input.ReadBytes();
+            break;
+          }
+          case 66: {
+            Ipv6OrigAddr = input.ReadBytes();
+            break;
+          }
+          case 72: {
+            Discriminator = input.ReadUInt32();
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  /// <summary>
   /// OSPF Node ID
   /// </summary>
   public sealed partial class SLBgplsTopoOspfNodeId : pb::IMessage<SLBgplsTopoOspfNodeId>
@@ -5363,7 +7662,7 @@ namespace ServiceLayer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[17]; }
+      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[23]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -5685,7 +7984,7 @@ namespace ServiceLayer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[18]; }
+      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[24]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -6007,7 +8306,7 @@ namespace ServiceLayer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[19]; }
+      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[25]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -6246,7 +8545,7 @@ namespace ServiceLayer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[20]; }
+      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[26]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -6469,6 +8768,528 @@ namespace ServiceLayer {
   }
 
   /// <summary>
+  /// SR Policy Node ID
+  /// </summary>
+  public sealed partial class SLBgplsTopoSrPolicyNodeId : pb::IMessage<SLBgplsTopoSrPolicyNodeId>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<SLBgplsTopoSrPolicyNodeId> _parser = new pb::MessageParser<SLBgplsTopoSrPolicyNodeId>(() => new SLBgplsTopoSrPolicyNodeId());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<SLBgplsTopoSrPolicyNodeId> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[27]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SLBgplsTopoSrPolicyNodeId() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SLBgplsTopoSrPolicyNodeId(SLBgplsTopoSrPolicyNodeId other) : this() {
+      routerId_ = other.routerId_;
+      memberAsn_ = other.memberAsn_;
+      ipv4RouterId_ = other.ipv4RouterId_;
+      ipv6RouterId_ = other.ipv6RouterId_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SLBgplsTopoSrPolicyNodeId Clone() {
+      return new SLBgplsTopoSrPolicyNodeId(this);
+    }
+
+    /// <summary>Field number for the "RouterId" field.</summary>
+    public const int RouterIdFieldNumber = 1;
+    private pb::ByteString routerId_ = pb::ByteString.Empty;
+    /// <summary>
+    /// Router ID.
+    /// BGP Router-ID. TLV 516.
+    /// Section 4.2 of [RFC9086]
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pb::ByteString RouterId {
+      get { return routerId_; }
+      set {
+        routerId_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "MemberAsn" field.</summary>
+    public const int MemberAsnFieldNumber = 2;
+    private uint memberAsn_;
+    /// <summary>
+    /// ASN of the confederation member
+    /// Member-ASN. TLV 517.
+    /// Section 4.2 of [RFC9086]
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint MemberAsn {
+      get { return memberAsn_; }
+      set {
+        memberAsn_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "Ipv4RouterId" field.</summary>
+    public const int Ipv4RouterIdFieldNumber = 3;
+    private pb::ByteString ipv4RouterId_ = pb::ByteString.Empty;
+    /// <summary>
+    /// Auxiliary TE Router-ID.
+    /// IPv4 Router-ID. TLV 1028.
+    /// Section 3 of [draft-ietf-idr-bgp-ls-sr-policy]
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pb::ByteString Ipv4RouterId {
+      get { return ipv4RouterId_; }
+      set {
+        ipv4RouterId_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "Ipv6RouterId" field.</summary>
+    public const int Ipv6RouterIdFieldNumber = 4;
+    private pb::ByteString ipv6RouterId_ = pb::ByteString.Empty;
+    /// <summary>
+    /// Auxiliary TE Router-ID.
+    /// IPv6 Router-ID. TLV 1029.
+    /// Section 3 of [draft-ietf-idr-bgp-ls-sr-policy]
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pb::ByteString Ipv6RouterId {
+      get { return ipv6RouterId_; }
+      set {
+        ipv6RouterId_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as SLBgplsTopoSrPolicyNodeId);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(SLBgplsTopoSrPolicyNodeId other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (RouterId != other.RouterId) return false;
+      if (MemberAsn != other.MemberAsn) return false;
+      if (Ipv4RouterId != other.Ipv4RouterId) return false;
+      if (Ipv6RouterId != other.Ipv6RouterId) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (RouterId.Length != 0) hash ^= RouterId.GetHashCode();
+      if (MemberAsn != 0) hash ^= MemberAsn.GetHashCode();
+      if (Ipv4RouterId.Length != 0) hash ^= Ipv4RouterId.GetHashCode();
+      if (Ipv6RouterId.Length != 0) hash ^= Ipv6RouterId.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (RouterId.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteBytes(RouterId);
+      }
+      if (MemberAsn != 0) {
+        output.WriteRawTag(16);
+        output.WriteUInt32(MemberAsn);
+      }
+      if (Ipv4RouterId.Length != 0) {
+        output.WriteRawTag(26);
+        output.WriteBytes(Ipv4RouterId);
+      }
+      if (Ipv6RouterId.Length != 0) {
+        output.WriteRawTag(34);
+        output.WriteBytes(Ipv6RouterId);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (RouterId.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteBytes(RouterId);
+      }
+      if (MemberAsn != 0) {
+        output.WriteRawTag(16);
+        output.WriteUInt32(MemberAsn);
+      }
+      if (Ipv4RouterId.Length != 0) {
+        output.WriteRawTag(26);
+        output.WriteBytes(Ipv4RouterId);
+      }
+      if (Ipv6RouterId.Length != 0) {
+        output.WriteRawTag(34);
+        output.WriteBytes(Ipv6RouterId);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (RouterId.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeBytesSize(RouterId);
+      }
+      if (MemberAsn != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(MemberAsn);
+      }
+      if (Ipv4RouterId.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeBytesSize(Ipv4RouterId);
+      }
+      if (Ipv6RouterId.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeBytesSize(Ipv6RouterId);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(SLBgplsTopoSrPolicyNodeId other) {
+      if (other == null) {
+        return;
+      }
+      if (other.RouterId.Length != 0) {
+        RouterId = other.RouterId;
+      }
+      if (other.MemberAsn != 0) {
+        MemberAsn = other.MemberAsn;
+      }
+      if (other.Ipv4RouterId.Length != 0) {
+        Ipv4RouterId = other.Ipv4RouterId;
+      }
+      if (other.Ipv6RouterId.Length != 0) {
+        Ipv6RouterId = other.Ipv6RouterId;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            RouterId = input.ReadBytes();
+            break;
+          }
+          case 16: {
+            MemberAsn = input.ReadUInt32();
+            break;
+          }
+          case 26: {
+            Ipv4RouterId = input.ReadBytes();
+            break;
+          }
+          case 34: {
+            Ipv6RouterId = input.ReadBytes();
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            RouterId = input.ReadBytes();
+            break;
+          }
+          case 16: {
+            MemberAsn = input.ReadUInt32();
+            break;
+          }
+          case 26: {
+            Ipv4RouterId = input.ReadBytes();
+            break;
+          }
+          case 34: {
+            Ipv6RouterId = input.ReadBytes();
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  /// <summary>
+  /// SR Policy flags
+  /// </summary>
+  public sealed partial class SLBgplsTopoSrPolicyFlags : pb::IMessage<SLBgplsTopoSrPolicyFlags>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<SLBgplsTopoSrPolicyFlags> _parser = new pb::MessageParser<SLBgplsTopoSrPolicyFlags>(() => new SLBgplsTopoSrPolicyFlags());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<SLBgplsTopoSrPolicyFlags> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[28]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SLBgplsTopoSrPolicyFlags() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SLBgplsTopoSrPolicyFlags(SLBgplsTopoSrPolicyFlags other) : this() {
+      flags_ = other.flags_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SLBgplsTopoSrPolicyFlags Clone() {
+      return new SLBgplsTopoSrPolicyFlags(this);
+    }
+
+    /// <summary>Field number for the "Flags" field.</summary>
+    public const int FlagsFieldNumber = 1;
+    private pb::ByteString flags_ = pb::ByteString.Empty;
+    /// <summary>
+    /// Bit-0: E-Flag: Indicates the encoding of endpoint as IPv6 address when
+    /// set and IPv4 address when clear
+    ///
+    /// Bit-1: O-Flag: Indicates the encoding of originator address as IPv6
+    /// address when set and IPv4 address when clear
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pb::ByteString Flags {
+      get { return flags_; }
+      set {
+        flags_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as SLBgplsTopoSrPolicyFlags);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(SLBgplsTopoSrPolicyFlags other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (Flags != other.Flags) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (Flags.Length != 0) hash ^= Flags.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (Flags.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteBytes(Flags);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (Flags.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteBytes(Flags);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (Flags.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeBytesSize(Flags);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(SLBgplsTopoSrPolicyFlags other) {
+      if (other == null) {
+        return;
+      }
+      if (other.Flags.Length != 0) {
+        Flags = other.Flags;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            Flags = input.ReadBytes();
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            Flags = input.ReadBytes();
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  /// <summary>
   /// Node Attributes
   /// </summary>
   public sealed partial class SLBgplsTopoNodeAttr : pb::IMessage<SLBgplsTopoNodeAttr>
@@ -6485,7 +9306,7 @@ namespace ServiceLayer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[21]; }
+      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[29]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -6519,6 +9340,7 @@ namespace ServiceLayer {
       srlb_ = other.srlb_.Clone();
       fad_ = other.fad_.Clone();
       unknownAttr_ = other.unknownAttr_.Clone();
+      srv6CapFlags_ = other.srv6CapFlags_ != null ? other.srv6CapFlags_.Clone() : null;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -6756,6 +9578,23 @@ namespace ServiceLayer {
       get { return unknownAttr_; }
     }
 
+    /// <summary>Field number for the "Srv6CapFlags" field.</summary>
+    public const int Srv6CapFlagsFieldNumber = 15;
+    private global::ServiceLayer.SLBgplsTopoSrv6CapFlags srv6CapFlags_;
+    /// <summary>
+    /// Segment Routing V6 Capabilities of a node
+    /// SRv6 Capabilities. TLV 1038 
+    /// Section 3.1 of [RFC9514]
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::ServiceLayer.SLBgplsTopoSrv6CapFlags Srv6CapFlags {
+      get { return srv6CapFlags_; }
+      set {
+        srv6CapFlags_ = value;
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -6785,6 +9624,7 @@ namespace ServiceLayer {
       if(!srlb_.Equals(other.srlb_)) return false;
       if(!fad_.Equals(other.fad_)) return false;
       if(!unknownAttr_.Equals(other.unknownAttr_)) return false;
+      if (!object.Equals(Srv6CapFlags, other.Srv6CapFlags)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -6806,6 +9646,7 @@ namespace ServiceLayer {
       hash ^= srlb_.GetHashCode();
       hash ^= fad_.GetHashCode();
       hash ^= unknownAttr_.GetHashCode();
+      if (srv6CapFlags_ != null) hash ^= Srv6CapFlags.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -6853,6 +9694,10 @@ namespace ServiceLayer {
       srlb_.WriteTo(output, _repeated_srlb_codec);
       fad_.WriteTo(output, _repeated_fad_codec);
       unknownAttr_.WriteTo(output, _repeated_unknownAttr_codec);
+      if (srv6CapFlags_ != null) {
+        output.WriteRawTag(122);
+        output.WriteMessage(Srv6CapFlags);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -6892,6 +9737,10 @@ namespace ServiceLayer {
       srlb_.WriteTo(ref output, _repeated_srlb_codec);
       fad_.WriteTo(ref output, _repeated_fad_codec);
       unknownAttr_.WriteTo(ref output, _repeated_unknownAttr_codec);
+      if (srv6CapFlags_ != null) {
+        output.WriteRawTag(122);
+        output.WriteMessage(Srv6CapFlags);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -6926,6 +9775,9 @@ namespace ServiceLayer {
       size += srlb_.CalculateSize(_repeated_srlb_codec);
       size += fad_.CalculateSize(_repeated_fad_codec);
       size += unknownAttr_.CalculateSize(_repeated_unknownAttr_codec);
+      if (srv6CapFlags_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Srv6CapFlags);
+      }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -6977,6 +9829,12 @@ namespace ServiceLayer {
       srlb_.Add(other.srlb_);
       fad_.Add(other.fad_);
       unknownAttr_.Add(other.unknownAttr_);
+      if (other.srv6CapFlags_ != null) {
+        if (srv6CapFlags_ == null) {
+          Srv6CapFlags = new global::ServiceLayer.SLBgplsTopoSrv6CapFlags();
+        }
+        Srv6CapFlags.MergeFrom(other.Srv6CapFlags);
+      }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -7061,6 +9919,13 @@ namespace ServiceLayer {
           }
           case 114: {
             unknownAttr_.AddEntriesFrom(input, _repeated_unknownAttr_codec);
+            break;
+          }
+          case 122: {
+            if (srv6CapFlags_ == null) {
+              Srv6CapFlags = new global::ServiceLayer.SLBgplsTopoSrv6CapFlags();
+            }
+            input.ReadMessage(Srv6CapFlags);
             break;
           }
         }
@@ -7149,6 +10014,13 @@ namespace ServiceLayer {
             unknownAttr_.AddEntriesFrom(ref input, _repeated_unknownAttr_codec);
             break;
           }
+          case 122: {
+            if (srv6CapFlags_ == null) {
+              Srv6CapFlags = new global::ServiceLayer.SLBgplsTopoSrv6CapFlags();
+            }
+            input.ReadMessage(Srv6CapFlags);
+            break;
+          }
         }
       }
     }
@@ -7173,7 +10045,7 @@ namespace ServiceLayer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[22]; }
+      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[30]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -7226,6 +10098,8 @@ namespace ServiceLayer {
       l2BundleMemberAttr_ = other.l2BundleMemberAttr_.Clone();
       extAdminGroup_ = other.extAdminGroup_.Clone();
       unknownAttr_ = other.unknownAttr_.Clone();
+      srv6EndXSid_ = other.srv6EndXSid_.Clone();
+      srv6LanEndXSid_ = other.srv6LanEndXSid_.Clone();
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -7795,6 +10669,41 @@ namespace ServiceLayer {
       get { return unknownAttr_; }
     }
 
+    /// <summary>Field number for the "Srv6EndXSid" field.</summary>
+    public const int Srv6EndXSidFieldNumber = 34;
+    private static readonly pb::FieldCodec<global::ServiceLayer.SLBgplsTopoSrv6EndXSid> _repeated_srv6EndXSid_codec
+        = pb::FieldCodec.ForMessage(274, global::ServiceLayer.SLBgplsTopoSrv6EndXSid.Parser);
+    private readonly pbc::RepeatedField<global::ServiceLayer.SLBgplsTopoSrv6EndXSid> srv6EndXSid_ = new pbc::RepeatedField<global::ServiceLayer.SLBgplsTopoSrv6EndXSid>();
+    /// <summary>
+    /// The Segment Routing over IPv6 (SRv6)
+    /// Segment Identifiers (SIDs) associated with an adjacency.
+    /// SRv6 End X SID. TLV 1106
+    /// Section 4.1 of [RFC9514]
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pbc::RepeatedField<global::ServiceLayer.SLBgplsTopoSrv6EndXSid> Srv6EndXSid {
+      get { return srv6EndXSid_; }
+    }
+
+    /// <summary>Field number for the "Srv6LanEndXSid" field.</summary>
+    public const int Srv6LanEndXSidFieldNumber = 35;
+    private static readonly pb::FieldCodec<global::ServiceLayer.SLBgplsTopoSrv6LanEndXSid> _repeated_srv6LanEndXSid_codec
+        = pb::FieldCodec.ForMessage(282, global::ServiceLayer.SLBgplsTopoSrv6LanEndXSid.Parser);
+    private readonly pbc::RepeatedField<global::ServiceLayer.SLBgplsTopoSrv6LanEndXSid> srv6LanEndXSid_ = new pbc::RepeatedField<global::ServiceLayer.SLBgplsTopoSrv6LanEndXSid>();
+    /// <summary>
+    /// The Segment Routing over IPv6 (SRv6)
+    /// Segment Identifiers (SIDs) of an adjacency to any node in a LAN other
+    /// than the pseudonode.
+    /// SRv6 LAN End X SID. TLV 1107/1108
+    /// Section 4.1 of [RFC9514]
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pbc::RepeatedField<global::ServiceLayer.SLBgplsTopoSrv6LanEndXSid> Srv6LanEndXSid {
+      get { return srv6LanEndXSid_; }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -7843,6 +10752,8 @@ namespace ServiceLayer {
       if(!l2BundleMemberAttr_.Equals(other.l2BundleMemberAttr_)) return false;
       if(!extAdminGroup_.Equals(other.extAdminGroup_)) return false;
       if(!unknownAttr_.Equals(other.unknownAttr_)) return false;
+      if(!srv6EndXSid_.Equals(other.srv6EndXSid_)) return false;
+      if(!srv6LanEndXSid_.Equals(other.srv6LanEndXSid_)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -7883,6 +10794,8 @@ namespace ServiceLayer {
       hash ^= l2BundleMemberAttr_.GetHashCode();
       hash ^= extAdminGroup_.GetHashCode();
       hash ^= unknownAttr_.GetHashCode();
+      hash ^= srv6EndXSid_.GetHashCode();
+      hash ^= srv6LanEndXSid_.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -7985,6 +10898,8 @@ namespace ServiceLayer {
       l2BundleMemberAttr_.WriteTo(output, _repeated_l2BundleMemberAttr_codec);
       extAdminGroup_.WriteTo(output, _repeated_extAdminGroup_codec);
       unknownAttr_.WriteTo(output, _repeated_unknownAttr_codec);
+      srv6EndXSid_.WriteTo(output, _repeated_srv6EndXSid_codec);
+      srv6LanEndXSid_.WriteTo(output, _repeated_srv6LanEndXSid_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -8079,6 +10994,8 @@ namespace ServiceLayer {
       l2BundleMemberAttr_.WriteTo(ref output, _repeated_l2BundleMemberAttr_codec);
       extAdminGroup_.WriteTo(ref output, _repeated_extAdminGroup_codec);
       unknownAttr_.WriteTo(ref output, _repeated_unknownAttr_codec);
+      srv6EndXSid_.WriteTo(ref output, _repeated_srv6EndXSid_codec);
+      srv6LanEndXSid_.WriteTo(ref output, _repeated_srv6LanEndXSid_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -8156,6 +11073,8 @@ namespace ServiceLayer {
       size += l2BundleMemberAttr_.CalculateSize(_repeated_l2BundleMemberAttr_codec);
       size += extAdminGroup_.CalculateSize(_repeated_extAdminGroup_codec);
       size += unknownAttr_.CalculateSize(_repeated_unknownAttr_codec);
+      size += srv6EndXSid_.CalculateSize(_repeated_srv6EndXSid_codec);
+      size += srv6LanEndXSid_.CalculateSize(_repeated_srv6LanEndXSid_codec);
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -8286,6 +11205,8 @@ namespace ServiceLayer {
       l2BundleMemberAttr_.Add(other.l2BundleMemberAttr_);
       extAdminGroup_.Add(other.extAdminGroup_);
       unknownAttr_.Add(other.unknownAttr_);
+      srv6EndXSid_.Add(other.srv6EndXSid_);
+      srv6LanEndXSid_.Add(other.srv6LanEndXSid_);
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -8482,6 +11403,14 @@ namespace ServiceLayer {
           }
           case 266: {
             unknownAttr_.AddEntriesFrom(input, _repeated_unknownAttr_codec);
+            break;
+          }
+          case 274: {
+            srv6EndXSid_.AddEntriesFrom(input, _repeated_srv6EndXSid_codec);
+            break;
+          }
+          case 282: {
+            srv6LanEndXSid_.AddEntriesFrom(input, _repeated_srv6LanEndXSid_codec);
             break;
           }
         }
@@ -8682,6 +11611,14 @@ namespace ServiceLayer {
             unknownAttr_.AddEntriesFrom(ref input, _repeated_unknownAttr_codec);
             break;
           }
+          case 274: {
+            srv6EndXSid_.AddEntriesFrom(ref input, _repeated_srv6EndXSid_codec);
+            break;
+          }
+          case 282: {
+            srv6LanEndXSid_.AddEntriesFrom(ref input, _repeated_srv6LanEndXSid_codec);
+            break;
+          }
         }
       }
     }
@@ -8706,7 +11643,7 @@ namespace ServiceLayer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[23]; }
+      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[31]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -8738,6 +11675,7 @@ namespace ServiceLayer {
       attrFlags_ = other.attrFlags_ != null ? other.attrFlags_.Clone() : null;
       srcRouterId_ = other.srcRouterId_ != null ? other.srcRouterId_.Clone() : null;
       unknownAttr_ = other.unknownAttr_.Clone();
+      srv6Loc_ = other.srv6Loc_ != null ? other.srv6Loc_.Clone() : null;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -8947,6 +11885,24 @@ namespace ServiceLayer {
       get { return unknownAttr_; }
     }
 
+    /// <summary>Field number for the "Srv6Loc" field.</summary>
+    public const int Srv6LocFieldNumber = 13;
+    private global::ServiceLayer.SLBgplsTopoPrefixSrv6Loc srv6Loc_;
+    /// <summary>
+    /// Segment Routing over IPv6 (SRv6) locator information associated with a
+    /// prefix.
+    /// SRv6 Locator. TLV 1162
+    /// Section 5.1 of [RFC9514]
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::ServiceLayer.SLBgplsTopoPrefixSrv6Loc Srv6Loc {
+      get { return srv6Loc_; }
+      set {
+        srv6Loc_ = value;
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -8974,6 +11930,7 @@ namespace ServiceLayer {
       if (!object.Equals(AttrFlags, other.AttrFlags)) return false;
       if (!object.Equals(SrcRouterId, other.SrcRouterId)) return false;
       if(!unknownAttr_.Equals(other.unknownAttr_)) return false;
+      if (!object.Equals(Srv6Loc, other.Srv6Loc)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -8993,6 +11950,7 @@ namespace ServiceLayer {
       if (attrFlags_ != null) hash ^= AttrFlags.GetHashCode();
       if (srcRouterId_ != null) hash ^= SrcRouterId.GetHashCode();
       hash ^= unknownAttr_.GetHashCode();
+      if (srv6Loc_ != null) hash ^= Srv6Loc.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -9044,6 +12002,10 @@ namespace ServiceLayer {
         output.WriteMessage(SrcRouterId);
       }
       unknownAttr_.WriteTo(output, _repeated_unknownAttr_codec);
+      if (srv6Loc_ != null) {
+        output.WriteRawTag(106);
+        output.WriteMessage(Srv6Loc);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -9087,6 +12049,10 @@ namespace ServiceLayer {
         output.WriteMessage(SrcRouterId);
       }
       unknownAttr_.WriteTo(ref output, _repeated_unknownAttr_codec);
+      if (srv6Loc_ != null) {
+        output.WriteRawTag(106);
+        output.WriteMessage(Srv6Loc);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -9123,6 +12089,9 @@ namespace ServiceLayer {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(SrcRouterId);
       }
       size += unknownAttr_.CalculateSize(_repeated_unknownAttr_codec);
+      if (srv6Loc_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Srv6Loc);
+      }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -9182,6 +12151,12 @@ namespace ServiceLayer {
         SrcRouterId.MergeFrom(other.SrcRouterId);
       }
       unknownAttr_.Add(other.unknownAttr_);
+      if (other.srv6Loc_ != null) {
+        if (srv6Loc_ == null) {
+          Srv6Loc = new global::ServiceLayer.SLBgplsTopoPrefixSrv6Loc();
+        }
+        Srv6Loc.MergeFrom(other.Srv6Loc);
+      }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -9264,6 +12239,13 @@ namespace ServiceLayer {
           }
           case 98: {
             unknownAttr_.AddEntriesFrom(input, _repeated_unknownAttr_codec);
+            break;
+          }
+          case 106: {
+            if (srv6Loc_ == null) {
+              Srv6Loc = new global::ServiceLayer.SLBgplsTopoPrefixSrv6Loc();
+            }
+            input.ReadMessage(Srv6Loc);
             break;
           }
         }
@@ -9350,6 +12332,863 @@ namespace ServiceLayer {
             unknownAttr_.AddEntriesFrom(ref input, _repeated_unknownAttr_codec);
             break;
           }
+          case 106: {
+            if (srv6Loc_ == null) {
+              Srv6Loc = new global::ServiceLayer.SLBgplsTopoPrefixSrv6Loc();
+            }
+            input.ReadMessage(Srv6Loc);
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  /// <summary>
+  /// SRv6 SID Attributes
+  /// </summary>
+  public sealed partial class SLBgplsTopoSrv6SidAttr : pb::IMessage<SLBgplsTopoSrv6SidAttr>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<SLBgplsTopoSrv6SidAttr> _parser = new pb::MessageParser<SLBgplsTopoSrv6SidAttr>(() => new SLBgplsTopoSrv6SidAttr());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<SLBgplsTopoSrv6SidAttr> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[32]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SLBgplsTopoSrv6SidAttr() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SLBgplsTopoSrv6SidAttr(SLBgplsTopoSrv6SidAttr other) : this() {
+      endPointBehavior_ = other.endPointBehavior_ != null ? other.endPointBehavior_.Clone() : null;
+      bgpPeerNodeSid_ = other.bgpPeerNodeSid_.Clone();
+      sidStruct_ = other.sidStruct_ != null ? other.sidStruct_.Clone() : null;
+      unknownAttr_ = other.unknownAttr_.Clone();
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SLBgplsTopoSrv6SidAttr Clone() {
+      return new SLBgplsTopoSrv6SidAttr(this);
+    }
+
+    /// <summary>Field number for the "EndPointBehavior" field.</summary>
+    public const int EndPointBehaviorFieldNumber = 1;
+    private global::ServiceLayer.SLBgplsTopoSrv6EndPointBehavior endPointBehavior_;
+    /// <summary>
+    /// The Segment Routing over IPv6 (SRv6) endpoint behavior bound to a
+    /// SRv6 SID.
+    /// SRv6 End Point Behavior. TLV 1250
+    /// Section 7.1 of [RFC9514]
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::ServiceLayer.SLBgplsTopoSrv6EndPointBehavior EndPointBehavior {
+      get { return endPointBehavior_; }
+      set {
+        endPointBehavior_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "BgpPeerNodeSid" field.</summary>
+    public const int BgpPeerNodeSidFieldNumber = 2;
+    private static readonly pb::FieldCodec<global::ServiceLayer.SLBgplsTopoSrv6BgpPeerNodeSid> _repeated_bgpPeerNodeSid_codec
+        = pb::FieldCodec.ForMessage(18, global::ServiceLayer.SLBgplsTopoSrv6BgpPeerNodeSid.Parser);
+    private readonly pbc::RepeatedField<global::ServiceLayer.SLBgplsTopoSrv6BgpPeerNodeSid> bgpPeerNodeSid_ = new pbc::RepeatedField<global::ServiceLayer.SLBgplsTopoSrv6BgpPeerNodeSid>();
+    /// <summary>
+    /// The Segment Routing over IPv6 (SRv6) SRv6 SID associated with
+    /// BGP peer node or peer set.
+    /// SRv6 BGP Peer Node SID. TLV 1251
+    /// Section 7.2 of [RFC9514]
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pbc::RepeatedField<global::ServiceLayer.SLBgplsTopoSrv6BgpPeerNodeSid> BgpPeerNodeSid {
+      get { return bgpPeerNodeSid_; }
+    }
+
+    /// <summary>Field number for the "SidStruct" field.</summary>
+    public const int SidStructFieldNumber = 3;
+    private global::ServiceLayer.SLBgplsTopoSrv6SidStruct sidStruct_;
+    /// <summary>
+    /// The Segment Routing over IPv6 (SRv6) Segment Identifier (SID)
+    /// structure information associated with a SRv6 SID.
+    /// SRv6 SID Structure Attribute. TLV 1252
+    /// Section 8 of [RFC9514]
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::ServiceLayer.SLBgplsTopoSrv6SidStruct SidStruct {
+      get { return sidStruct_; }
+      set {
+        sidStruct_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "UnknownAttr" field.</summary>
+    public const int UnknownAttrFieldNumber = 4;
+    private static readonly pb::FieldCodec<global::ServiceLayer.SLBgplsTopoUnknownAttr> _repeated_unknownAttr_codec
+        = pb::FieldCodec.ForMessage(34, global::ServiceLayer.SLBgplsTopoUnknownAttr.Parser);
+    private readonly pbc::RepeatedField<global::ServiceLayer.SLBgplsTopoUnknownAttr> unknownAttr_ = new pbc::RepeatedField<global::ServiceLayer.SLBgplsTopoUnknownAttr>();
+    /// <summary>
+    /// Unknown SRv6 SID Attributes
+    /// Unknown/unsupported by IOS-XR/BGPLS.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pbc::RepeatedField<global::ServiceLayer.SLBgplsTopoUnknownAttr> UnknownAttr {
+      get { return unknownAttr_; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as SLBgplsTopoSrv6SidAttr);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(SLBgplsTopoSrv6SidAttr other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (!object.Equals(EndPointBehavior, other.EndPointBehavior)) return false;
+      if(!bgpPeerNodeSid_.Equals(other.bgpPeerNodeSid_)) return false;
+      if (!object.Equals(SidStruct, other.SidStruct)) return false;
+      if(!unknownAttr_.Equals(other.unknownAttr_)) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (endPointBehavior_ != null) hash ^= EndPointBehavior.GetHashCode();
+      hash ^= bgpPeerNodeSid_.GetHashCode();
+      if (sidStruct_ != null) hash ^= SidStruct.GetHashCode();
+      hash ^= unknownAttr_.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (endPointBehavior_ != null) {
+        output.WriteRawTag(10);
+        output.WriteMessage(EndPointBehavior);
+      }
+      bgpPeerNodeSid_.WriteTo(output, _repeated_bgpPeerNodeSid_codec);
+      if (sidStruct_ != null) {
+        output.WriteRawTag(26);
+        output.WriteMessage(SidStruct);
+      }
+      unknownAttr_.WriteTo(output, _repeated_unknownAttr_codec);
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (endPointBehavior_ != null) {
+        output.WriteRawTag(10);
+        output.WriteMessage(EndPointBehavior);
+      }
+      bgpPeerNodeSid_.WriteTo(ref output, _repeated_bgpPeerNodeSid_codec);
+      if (sidStruct_ != null) {
+        output.WriteRawTag(26);
+        output.WriteMessage(SidStruct);
+      }
+      unknownAttr_.WriteTo(ref output, _repeated_unknownAttr_codec);
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (endPointBehavior_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(EndPointBehavior);
+      }
+      size += bgpPeerNodeSid_.CalculateSize(_repeated_bgpPeerNodeSid_codec);
+      if (sidStruct_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(SidStruct);
+      }
+      size += unknownAttr_.CalculateSize(_repeated_unknownAttr_codec);
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(SLBgplsTopoSrv6SidAttr other) {
+      if (other == null) {
+        return;
+      }
+      if (other.endPointBehavior_ != null) {
+        if (endPointBehavior_ == null) {
+          EndPointBehavior = new global::ServiceLayer.SLBgplsTopoSrv6EndPointBehavior();
+        }
+        EndPointBehavior.MergeFrom(other.EndPointBehavior);
+      }
+      bgpPeerNodeSid_.Add(other.bgpPeerNodeSid_);
+      if (other.sidStruct_ != null) {
+        if (sidStruct_ == null) {
+          SidStruct = new global::ServiceLayer.SLBgplsTopoSrv6SidStruct();
+        }
+        SidStruct.MergeFrom(other.SidStruct);
+      }
+      unknownAttr_.Add(other.unknownAttr_);
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            if (endPointBehavior_ == null) {
+              EndPointBehavior = new global::ServiceLayer.SLBgplsTopoSrv6EndPointBehavior();
+            }
+            input.ReadMessage(EndPointBehavior);
+            break;
+          }
+          case 18: {
+            bgpPeerNodeSid_.AddEntriesFrom(input, _repeated_bgpPeerNodeSid_codec);
+            break;
+          }
+          case 26: {
+            if (sidStruct_ == null) {
+              SidStruct = new global::ServiceLayer.SLBgplsTopoSrv6SidStruct();
+            }
+            input.ReadMessage(SidStruct);
+            break;
+          }
+          case 34: {
+            unknownAttr_.AddEntriesFrom(input, _repeated_unknownAttr_codec);
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            if (endPointBehavior_ == null) {
+              EndPointBehavior = new global::ServiceLayer.SLBgplsTopoSrv6EndPointBehavior();
+            }
+            input.ReadMessage(EndPointBehavior);
+            break;
+          }
+          case 18: {
+            bgpPeerNodeSid_.AddEntriesFrom(ref input, _repeated_bgpPeerNodeSid_codec);
+            break;
+          }
+          case 26: {
+            if (sidStruct_ == null) {
+              SidStruct = new global::ServiceLayer.SLBgplsTopoSrv6SidStruct();
+            }
+            input.ReadMessage(SidStruct);
+            break;
+          }
+          case 34: {
+            unknownAttr_.AddEntriesFrom(ref input, _repeated_unknownAttr_codec);
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  /// <summary>
+  /// SR Policy Attributes
+  /// </summary>
+  public sealed partial class SLBgplsTopoSrPolicyAttr : pb::IMessage<SLBgplsTopoSrPolicyAttr>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<SLBgplsTopoSrPolicyAttr> _parser = new pb::MessageParser<SLBgplsTopoSrPolicyAttr>(() => new SLBgplsTopoSrPolicyAttr());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<SLBgplsTopoSrPolicyAttr> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[33]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SLBgplsTopoSrPolicyAttr() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SLBgplsTopoSrPolicyAttr(SLBgplsTopoSrPolicyAttr other) : this() {
+      srBsid_ = other.srBsid_ != null ? other.srBsid_.Clone() : null;
+      cpState_ = other.cpState_ != null ? other.cpState_.Clone() : null;
+      cpName_ = other.cpName_ != null ? other.cpName_.Clone() : null;
+      cpConstraints_ = other.cpConstraints_ != null ? other.cpConstraints_.Clone() : null;
+      segLists_ = other.segLists_.Clone();
+      srv6Bsid_ = other.srv6Bsid_ != null ? other.srv6Bsid_.Clone() : null;
+      srPolicyName_ = other.srPolicyName_ != null ? other.srPolicyName_.Clone() : null;
+      unknownAttr_ = other.unknownAttr_.Clone();
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SLBgplsTopoSrPolicyAttr Clone() {
+      return new SLBgplsTopoSrPolicyAttr(this);
+    }
+
+    /// <summary>Field number for the "SrBsid" field.</summary>
+    public const int SrBsidFieldNumber = 1;
+    private global::ServiceLayer.SLBgplsTopoSrBindingSid srBsid_;
+    /// <summary>
+    /// SR Binding SID (BSID) is used to report the BSID and its attributes
+    /// for the SR Policy CP.
+    /// SR Binding SID. TLV 1201
+    /// Section 5.1 of [draft-ietf-idr-bgp-ls-sr-policy]
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::ServiceLayer.SLBgplsTopoSrBindingSid SrBsid {
+      get { return srBsid_; }
+      set {
+        srBsid_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "CpState" field.</summary>
+    public const int CpStateFieldNumber = 2;
+    private global::ServiceLayer.SLBgplsTopoSrCpState cpState_;
+    /// <summary>
+    /// SR Candidate Path (CP) State TLV provides the operational status
+    /// and attributes of the SR Policy at the CP level.
+    /// SR Candidate Path State. TLV 1202
+    /// Section 5.3 of [draft-ietf-idr-bgp-ls-sr-policy]
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::ServiceLayer.SLBgplsTopoSrCpState CpState {
+      get { return cpState_; }
+      set {
+        cpState_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "CpName" field.</summary>
+    public const int CpNameFieldNumber = 3;
+    private global::ServiceLayer.SLBgplsTopoSrCpName cpName_;
+    /// <summary>
+    /// SR Candidate Path Name carries the symbolic name associated with
+    /// the candidate path.
+    /// SR Candidate Path Name. TLV 1203
+    /// Section 5.5 of [draft-ietf-idr-bgp-ls-sr-policy]
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::ServiceLayer.SLBgplsTopoSrCpName CpName {
+      get { return cpName_; }
+      set {
+        cpName_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "CpConstraints" field.</summary>
+    public const int CpConstraintsFieldNumber = 4;
+    private global::ServiceLayer.SLBgplsTopoSrCpConstraints cpConstraints_;
+    /// <summary>
+    /// SR Candidate Path Constraints is used
+    /// to report the constraints associated with the candidate path.
+    /// SR Candidate Path Constraints. TLV 1204
+    /// Section 5.6 of [draft-ietf-idr-bgp-ls-sr-policy]
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::ServiceLayer.SLBgplsTopoSrCpConstraints CpConstraints {
+      get { return cpConstraints_; }
+      set {
+        cpConstraints_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "SegLists" field.</summary>
+    public const int SegListsFieldNumber = 5;
+    private static readonly pb::FieldCodec<global::ServiceLayer.SLBgplsTopoSrSegList> _repeated_segLists_codec
+        = pb::FieldCodec.ForMessage(42, global::ServiceLayer.SLBgplsTopoSrSegList.Parser);
+    private readonly pbc::RepeatedField<global::ServiceLayer.SLBgplsTopoSrSegList> segLists_ = new pbc::RepeatedField<global::ServiceLayer.SLBgplsTopoSrSegList>();
+    /// <summary>
+    /// SR Segment List TLV is used to report a single SID-List of a CP.
+    /// Multiple instances of this TLV may be used to report multiple
+    /// SID-Lists of a CP.
+    /// SR Segment List. TLV 1205
+    /// Section 5.7 of [draft-ietf-idr-bgp-ls-sr-policy]
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pbc::RepeatedField<global::ServiceLayer.SLBgplsTopoSrSegList> SegLists {
+      get { return segLists_; }
+    }
+
+    /// <summary>Field number for the "Srv6Bsid" field.</summary>
+    public const int Srv6BsidFieldNumber = 6;
+    private global::ServiceLayer.SLBgplsTopoSrv6BindingSid srv6Bsid_;
+    /// <summary>
+    /// SRv6 Binding SID (BSID) is used to report
+    /// the SRv6 BSID and its attributes for the SR Policy CP.
+    /// SRv6 Binding SID. TLV 1212
+    /// Section 5.2 of [draft-ietf-idr-bgp-ls-sr-policy]
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::ServiceLayer.SLBgplsTopoSrv6BindingSid Srv6Bsid {
+      get { return srv6Bsid_; }
+      set {
+        srv6Bsid_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "SrPolicyName" field.</summary>
+    public const int SrPolicyNameFieldNumber = 7;
+    private global::ServiceLayer.SLBgplsTopoSrPolicyName srPolicyName_;
+    /// <summary>
+    /// SR Policy Name carries symbolic name associated with the SR Policy.
+    /// SR Policy Name. TLV 1213
+    /// Section 5.4 of [draft-ietf-idr-bgp-ls-sr-policy]
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::ServiceLayer.SLBgplsTopoSrPolicyName SrPolicyName {
+      get { return srPolicyName_; }
+      set {
+        srPolicyName_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "UnknownAttr" field.</summary>
+    public const int UnknownAttrFieldNumber = 8;
+    private static readonly pb::FieldCodec<global::ServiceLayer.SLBgplsTopoUnknownAttr> _repeated_unknownAttr_codec
+        = pb::FieldCodec.ForMessage(66, global::ServiceLayer.SLBgplsTopoUnknownAttr.Parser);
+    private readonly pbc::RepeatedField<global::ServiceLayer.SLBgplsTopoUnknownAttr> unknownAttr_ = new pbc::RepeatedField<global::ServiceLayer.SLBgplsTopoUnknownAttr>();
+    /// <summary>
+    /// Unknown SR Policy Attributes
+    /// Unknown/unsupported by IOS-XR/BGPLS.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pbc::RepeatedField<global::ServiceLayer.SLBgplsTopoUnknownAttr> UnknownAttr {
+      get { return unknownAttr_; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as SLBgplsTopoSrPolicyAttr);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(SLBgplsTopoSrPolicyAttr other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (!object.Equals(SrBsid, other.SrBsid)) return false;
+      if (!object.Equals(CpState, other.CpState)) return false;
+      if (!object.Equals(CpName, other.CpName)) return false;
+      if (!object.Equals(CpConstraints, other.CpConstraints)) return false;
+      if(!segLists_.Equals(other.segLists_)) return false;
+      if (!object.Equals(Srv6Bsid, other.Srv6Bsid)) return false;
+      if (!object.Equals(SrPolicyName, other.SrPolicyName)) return false;
+      if(!unknownAttr_.Equals(other.unknownAttr_)) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (srBsid_ != null) hash ^= SrBsid.GetHashCode();
+      if (cpState_ != null) hash ^= CpState.GetHashCode();
+      if (cpName_ != null) hash ^= CpName.GetHashCode();
+      if (cpConstraints_ != null) hash ^= CpConstraints.GetHashCode();
+      hash ^= segLists_.GetHashCode();
+      if (srv6Bsid_ != null) hash ^= Srv6Bsid.GetHashCode();
+      if (srPolicyName_ != null) hash ^= SrPolicyName.GetHashCode();
+      hash ^= unknownAttr_.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (srBsid_ != null) {
+        output.WriteRawTag(10);
+        output.WriteMessage(SrBsid);
+      }
+      if (cpState_ != null) {
+        output.WriteRawTag(18);
+        output.WriteMessage(CpState);
+      }
+      if (cpName_ != null) {
+        output.WriteRawTag(26);
+        output.WriteMessage(CpName);
+      }
+      if (cpConstraints_ != null) {
+        output.WriteRawTag(34);
+        output.WriteMessage(CpConstraints);
+      }
+      segLists_.WriteTo(output, _repeated_segLists_codec);
+      if (srv6Bsid_ != null) {
+        output.WriteRawTag(50);
+        output.WriteMessage(Srv6Bsid);
+      }
+      if (srPolicyName_ != null) {
+        output.WriteRawTag(58);
+        output.WriteMessage(SrPolicyName);
+      }
+      unknownAttr_.WriteTo(output, _repeated_unknownAttr_codec);
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (srBsid_ != null) {
+        output.WriteRawTag(10);
+        output.WriteMessage(SrBsid);
+      }
+      if (cpState_ != null) {
+        output.WriteRawTag(18);
+        output.WriteMessage(CpState);
+      }
+      if (cpName_ != null) {
+        output.WriteRawTag(26);
+        output.WriteMessage(CpName);
+      }
+      if (cpConstraints_ != null) {
+        output.WriteRawTag(34);
+        output.WriteMessage(CpConstraints);
+      }
+      segLists_.WriteTo(ref output, _repeated_segLists_codec);
+      if (srv6Bsid_ != null) {
+        output.WriteRawTag(50);
+        output.WriteMessage(Srv6Bsid);
+      }
+      if (srPolicyName_ != null) {
+        output.WriteRawTag(58);
+        output.WriteMessage(SrPolicyName);
+      }
+      unknownAttr_.WriteTo(ref output, _repeated_unknownAttr_codec);
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (srBsid_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(SrBsid);
+      }
+      if (cpState_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(CpState);
+      }
+      if (cpName_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(CpName);
+      }
+      if (cpConstraints_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(CpConstraints);
+      }
+      size += segLists_.CalculateSize(_repeated_segLists_codec);
+      if (srv6Bsid_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Srv6Bsid);
+      }
+      if (srPolicyName_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(SrPolicyName);
+      }
+      size += unknownAttr_.CalculateSize(_repeated_unknownAttr_codec);
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(SLBgplsTopoSrPolicyAttr other) {
+      if (other == null) {
+        return;
+      }
+      if (other.srBsid_ != null) {
+        if (srBsid_ == null) {
+          SrBsid = new global::ServiceLayer.SLBgplsTopoSrBindingSid();
+        }
+        SrBsid.MergeFrom(other.SrBsid);
+      }
+      if (other.cpState_ != null) {
+        if (cpState_ == null) {
+          CpState = new global::ServiceLayer.SLBgplsTopoSrCpState();
+        }
+        CpState.MergeFrom(other.CpState);
+      }
+      if (other.cpName_ != null) {
+        if (cpName_ == null) {
+          CpName = new global::ServiceLayer.SLBgplsTopoSrCpName();
+        }
+        CpName.MergeFrom(other.CpName);
+      }
+      if (other.cpConstraints_ != null) {
+        if (cpConstraints_ == null) {
+          CpConstraints = new global::ServiceLayer.SLBgplsTopoSrCpConstraints();
+        }
+        CpConstraints.MergeFrom(other.CpConstraints);
+      }
+      segLists_.Add(other.segLists_);
+      if (other.srv6Bsid_ != null) {
+        if (srv6Bsid_ == null) {
+          Srv6Bsid = new global::ServiceLayer.SLBgplsTopoSrv6BindingSid();
+        }
+        Srv6Bsid.MergeFrom(other.Srv6Bsid);
+      }
+      if (other.srPolicyName_ != null) {
+        if (srPolicyName_ == null) {
+          SrPolicyName = new global::ServiceLayer.SLBgplsTopoSrPolicyName();
+        }
+        SrPolicyName.MergeFrom(other.SrPolicyName);
+      }
+      unknownAttr_.Add(other.unknownAttr_);
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            if (srBsid_ == null) {
+              SrBsid = new global::ServiceLayer.SLBgplsTopoSrBindingSid();
+            }
+            input.ReadMessage(SrBsid);
+            break;
+          }
+          case 18: {
+            if (cpState_ == null) {
+              CpState = new global::ServiceLayer.SLBgplsTopoSrCpState();
+            }
+            input.ReadMessage(CpState);
+            break;
+          }
+          case 26: {
+            if (cpName_ == null) {
+              CpName = new global::ServiceLayer.SLBgplsTopoSrCpName();
+            }
+            input.ReadMessage(CpName);
+            break;
+          }
+          case 34: {
+            if (cpConstraints_ == null) {
+              CpConstraints = new global::ServiceLayer.SLBgplsTopoSrCpConstraints();
+            }
+            input.ReadMessage(CpConstraints);
+            break;
+          }
+          case 42: {
+            segLists_.AddEntriesFrom(input, _repeated_segLists_codec);
+            break;
+          }
+          case 50: {
+            if (srv6Bsid_ == null) {
+              Srv6Bsid = new global::ServiceLayer.SLBgplsTopoSrv6BindingSid();
+            }
+            input.ReadMessage(Srv6Bsid);
+            break;
+          }
+          case 58: {
+            if (srPolicyName_ == null) {
+              SrPolicyName = new global::ServiceLayer.SLBgplsTopoSrPolicyName();
+            }
+            input.ReadMessage(SrPolicyName);
+            break;
+          }
+          case 66: {
+            unknownAttr_.AddEntriesFrom(input, _repeated_unknownAttr_codec);
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            if (srBsid_ == null) {
+              SrBsid = new global::ServiceLayer.SLBgplsTopoSrBindingSid();
+            }
+            input.ReadMessage(SrBsid);
+            break;
+          }
+          case 18: {
+            if (cpState_ == null) {
+              CpState = new global::ServiceLayer.SLBgplsTopoSrCpState();
+            }
+            input.ReadMessage(CpState);
+            break;
+          }
+          case 26: {
+            if (cpName_ == null) {
+              CpName = new global::ServiceLayer.SLBgplsTopoSrCpName();
+            }
+            input.ReadMessage(CpName);
+            break;
+          }
+          case 34: {
+            if (cpConstraints_ == null) {
+              CpConstraints = new global::ServiceLayer.SLBgplsTopoSrCpConstraints();
+            }
+            input.ReadMessage(CpConstraints);
+            break;
+          }
+          case 42: {
+            segLists_.AddEntriesFrom(ref input, _repeated_segLists_codec);
+            break;
+          }
+          case 50: {
+            if (srv6Bsid_ == null) {
+              Srv6Bsid = new global::ServiceLayer.SLBgplsTopoSrv6BindingSid();
+            }
+            input.ReadMessage(Srv6Bsid);
+            break;
+          }
+          case 58: {
+            if (srPolicyName_ == null) {
+              SrPolicyName = new global::ServiceLayer.SLBgplsTopoSrPolicyName();
+            }
+            input.ReadMessage(SrPolicyName);
+            break;
+          }
+          case 66: {
+            unknownAttr_.AddEntriesFrom(ref input, _repeated_unknownAttr_codec);
+            break;
+          }
         }
       }
     }
@@ -9375,7 +13214,7 @@ namespace ServiceLayer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[24]; }
+      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[34]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -9612,7 +13451,7 @@ namespace ServiceLayer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[25]; }
+      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[35]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -9808,7 +13647,7 @@ namespace ServiceLayer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[26]; }
+      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[36]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -10045,7 +13884,7 @@ namespace ServiceLayer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[27]; }
+      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[37]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -10282,7 +14121,7 @@ namespace ServiceLayer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[28]; }
+      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[38]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -10488,7 +14327,7 @@ namespace ServiceLayer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[29]; }
+      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[39]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -10684,7 +14523,7 @@ namespace ServiceLayer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[30]; }
+      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[40]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -10882,7 +14721,7 @@ namespace ServiceLayer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[31]; }
+      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[41]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -11078,7 +14917,7 @@ namespace ServiceLayer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[32]; }
+      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[42]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -11274,7 +15113,7 @@ namespace ServiceLayer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[33]; }
+      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[43]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -11470,7 +15309,7 @@ namespace ServiceLayer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[34]; }
+      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[44]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -11666,7 +15505,7 @@ namespace ServiceLayer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[35]; }
+      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[45]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -11861,7 +15700,7 @@ namespace ServiceLayer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[36]; }
+      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[46]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -12096,7 +15935,7 @@ namespace ServiceLayer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[37]; }
+      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[47]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -12292,7 +16131,7 @@ namespace ServiceLayer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[38]; }
+      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[48]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -12488,7 +16327,7 @@ namespace ServiceLayer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[39]; }
+      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[49]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -12707,6 +16546,205 @@ namespace ServiceLayer {
   }
 
   /// <summary>
+  /// SRv6 Capabilities. TLV 1038 
+  /// Section 3.1 of [RFC9514]
+  /// </summary>
+  public sealed partial class SLBgplsTopoSrv6CapFlags : pb::IMessage<SLBgplsTopoSrv6CapFlags>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<SLBgplsTopoSrv6CapFlags> _parser = new pb::MessageParser<SLBgplsTopoSrv6CapFlags>(() => new SLBgplsTopoSrv6CapFlags());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<SLBgplsTopoSrv6CapFlags> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[50]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SLBgplsTopoSrv6CapFlags() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SLBgplsTopoSrv6CapFlags(SLBgplsTopoSrv6CapFlags other) : this() {
+      flags_ = other.flags_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SLBgplsTopoSrv6CapFlags Clone() {
+      return new SLBgplsTopoSrv6CapFlags(this);
+    }
+
+    /// <summary>Field number for the "Flags" field.</summary>
+    public const int FlagsFieldNumber = 1;
+    private pb::ByteString flags_ = pb::ByteString.Empty;
+    /// <summary>
+    /// 2-octet field.  The flags are copied from the IS-IS SRv6
+    /// Capabilities sub-TLV (Section 2 of [RFC9352]) or from the OSPFv3
+    /// SRv6 Capabilities TLV (Section 2 of [RFC9513]) in the case of IS-
+    /// IS or OSPFv3, respectively
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pb::ByteString Flags {
+      get { return flags_; }
+      set {
+        flags_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as SLBgplsTopoSrv6CapFlags);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(SLBgplsTopoSrv6CapFlags other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (Flags != other.Flags) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (Flags.Length != 0) hash ^= Flags.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (Flags.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteBytes(Flags);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (Flags.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteBytes(Flags);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (Flags.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeBytesSize(Flags);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(SLBgplsTopoSrv6CapFlags other) {
+      if (other == null) {
+        return;
+      }
+      if (other.Flags.Length != 0) {
+        Flags = other.Flags;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            Flags = input.ReadBytes();
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            Flags = input.ReadBytes();
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  /// <summary>
   /// Flexible Algorithm Definition. TLV 1039.
   /// Section 3 of [RFC9351]
   /// </summary>
@@ -12724,7 +16762,7 @@ namespace ServiceLayer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[40]; }
+      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[51]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -13470,7 +17508,7 @@ namespace ServiceLayer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[41]; }
+      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[52]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -13746,7 +17784,7 @@ namespace ServiceLayer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[42]; }
+      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[53]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -13982,7 +18020,7 @@ namespace ServiceLayer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[43]; }
+      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[54]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -14183,7 +18221,7 @@ namespace ServiceLayer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[44]; }
+      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[55]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -14379,7 +18417,7 @@ namespace ServiceLayer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[45]; }
+      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[56]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -14575,7 +18613,7 @@ namespace ServiceLayer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[46]; }
+      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[57]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -14811,7 +18849,7 @@ namespace ServiceLayer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[47]; }
+      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[58]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -15007,7 +19045,7 @@ namespace ServiceLayer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[48]; }
+      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[59]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -15203,7 +19241,7 @@ namespace ServiceLayer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[49]; }
+      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[60]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -15401,7 +19439,7 @@ namespace ServiceLayer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[50]; }
+      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[61]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -15599,7 +19637,7 @@ namespace ServiceLayer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[51]; }
+      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[62]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -15792,7 +19830,7 @@ namespace ServiceLayer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[52]; }
+      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[63]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -15988,7 +20026,7 @@ namespace ServiceLayer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[53]; }
+      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[64]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -16186,7 +20224,7 @@ namespace ServiceLayer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[54]; }
+      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[65]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -16505,7 +20543,7 @@ namespace ServiceLayer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[55]; }
+      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[66]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -16873,7 +20911,7 @@ namespace ServiceLayer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[56]; }
+      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[67]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -17190,7 +21228,7 @@ namespace ServiceLayer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[57]; }
+      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[68]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -17507,7 +21545,7 @@ namespace ServiceLayer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[58]; }
+      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[69]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -17807,6 +21845,418 @@ namespace ServiceLayer {
   }
 
   /// <summary>
+  /// SRv6 End X SID. TLV 1106
+  /// Section 4.1 of [RFC9514]
+  /// </summary>
+  public sealed partial class SLBgplsTopoSrv6EndXSid : pb::IMessage<SLBgplsTopoSrv6EndXSid>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<SLBgplsTopoSrv6EndXSid> _parser = new pb::MessageParser<SLBgplsTopoSrv6EndXSid>(() => new SLBgplsTopoSrv6EndXSid());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<SLBgplsTopoSrv6EndXSid> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[70]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SLBgplsTopoSrv6EndXSid() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SLBgplsTopoSrv6EndXSid(SLBgplsTopoSrv6EndXSid other) : this() {
+      sid_ = other.sid_;
+      algorithm_ = other.algorithm_;
+      flags_ = other.flags_;
+      weight_ = other.weight_;
+      endPointBehavior_ = other.endPointBehavior_;
+      sidStruct_ = other.sidStruct_ != null ? other.sidStruct_.Clone() : null;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SLBgplsTopoSrv6EndXSid Clone() {
+      return new SLBgplsTopoSrv6EndXSid(this);
+    }
+
+    /// <summary>Field number for the "Sid" field.</summary>
+    public const int SidFieldNumber = 1;
+    private pb::ByteString sid_ = pb::ByteString.Empty;
+    /// <summary>
+    /// SRv6 SID as 128 bit value
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pb::ByteString Sid {
+      get { return sid_; }
+      set {
+        sid_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "Algorithm" field.</summary>
+    public const int AlgorithmFieldNumber = 2;
+    private uint algorithm_;
+    /// <summary>
+    /// Algorithm associated with the SID
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint Algorithm {
+      get { return algorithm_; }
+      set {
+        algorithm_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "Flags" field.</summary>
+    public const int FlagsFieldNumber = 3;
+    private pb::ByteString flags_ = pb::ByteString.Empty;
+    /// <summary>
+    /// Flags associated with the SID. The flags are copied from the IS-IS SRv6
+    /// End.X SID sub-TLV (Section 8.1 of [RFC9352]) or the OSPFv3 SRv6
+    /// End.X SID sub-TLV (Section 9.1 of [RFC9513]) in the case of IS-IS
+    /// or OSPFv3, respectively.  In the case of the BGP EPE Peer
+    /// Adjacency SID, the flags are as defined in Section 7.2 of [RFC9514]
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pb::ByteString Flags {
+      get { return flags_; }
+      set {
+        flags_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "Weight" field.</summary>
+    public const int WeightFieldNumber = 4;
+    private uint weight_;
+    /// <summary>
+    /// Weight associated with the SID for load balancing purpose
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint Weight {
+      get { return weight_; }
+      set {
+        weight_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "EndPointBehavior" field.</summary>
+    public const int EndPointBehaviorFieldNumber = 5;
+    private uint endPointBehavior_;
+    /// <summary>
+    /// Endpoint behavior of the SID
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint EndPointBehavior {
+      get { return endPointBehavior_; }
+      set {
+        endPointBehavior_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "SidStruct" field.</summary>
+    public const int SidStructFieldNumber = 6;
+    private global::ServiceLayer.SLBgplsTopoSrv6SidStruct sidStruct_;
+    /// <summary>
+    /// The Segment Routing over IPv6 (SRv6) Segment Identifier (SID)
+    /// structure information associated with a SRv6 SID.
+    /// SRv6 SID Structure Attribute. TLV 1252
+    /// Section 8 of [RFC9514]
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::ServiceLayer.SLBgplsTopoSrv6SidStruct SidStruct {
+      get { return sidStruct_; }
+      set {
+        sidStruct_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as SLBgplsTopoSrv6EndXSid);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(SLBgplsTopoSrv6EndXSid other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (Sid != other.Sid) return false;
+      if (Algorithm != other.Algorithm) return false;
+      if (Flags != other.Flags) return false;
+      if (Weight != other.Weight) return false;
+      if (EndPointBehavior != other.EndPointBehavior) return false;
+      if (!object.Equals(SidStruct, other.SidStruct)) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (Sid.Length != 0) hash ^= Sid.GetHashCode();
+      if (Algorithm != 0) hash ^= Algorithm.GetHashCode();
+      if (Flags.Length != 0) hash ^= Flags.GetHashCode();
+      if (Weight != 0) hash ^= Weight.GetHashCode();
+      if (EndPointBehavior != 0) hash ^= EndPointBehavior.GetHashCode();
+      if (sidStruct_ != null) hash ^= SidStruct.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (Sid.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteBytes(Sid);
+      }
+      if (Algorithm != 0) {
+        output.WriteRawTag(16);
+        output.WriteUInt32(Algorithm);
+      }
+      if (Flags.Length != 0) {
+        output.WriteRawTag(26);
+        output.WriteBytes(Flags);
+      }
+      if (Weight != 0) {
+        output.WriteRawTag(32);
+        output.WriteUInt32(Weight);
+      }
+      if (EndPointBehavior != 0) {
+        output.WriteRawTag(40);
+        output.WriteUInt32(EndPointBehavior);
+      }
+      if (sidStruct_ != null) {
+        output.WriteRawTag(50);
+        output.WriteMessage(SidStruct);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (Sid.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteBytes(Sid);
+      }
+      if (Algorithm != 0) {
+        output.WriteRawTag(16);
+        output.WriteUInt32(Algorithm);
+      }
+      if (Flags.Length != 0) {
+        output.WriteRawTag(26);
+        output.WriteBytes(Flags);
+      }
+      if (Weight != 0) {
+        output.WriteRawTag(32);
+        output.WriteUInt32(Weight);
+      }
+      if (EndPointBehavior != 0) {
+        output.WriteRawTag(40);
+        output.WriteUInt32(EndPointBehavior);
+      }
+      if (sidStruct_ != null) {
+        output.WriteRawTag(50);
+        output.WriteMessage(SidStruct);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (Sid.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeBytesSize(Sid);
+      }
+      if (Algorithm != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Algorithm);
+      }
+      if (Flags.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeBytesSize(Flags);
+      }
+      if (Weight != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Weight);
+      }
+      if (EndPointBehavior != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(EndPointBehavior);
+      }
+      if (sidStruct_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(SidStruct);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(SLBgplsTopoSrv6EndXSid other) {
+      if (other == null) {
+        return;
+      }
+      if (other.Sid.Length != 0) {
+        Sid = other.Sid;
+      }
+      if (other.Algorithm != 0) {
+        Algorithm = other.Algorithm;
+      }
+      if (other.Flags.Length != 0) {
+        Flags = other.Flags;
+      }
+      if (other.Weight != 0) {
+        Weight = other.Weight;
+      }
+      if (other.EndPointBehavior != 0) {
+        EndPointBehavior = other.EndPointBehavior;
+      }
+      if (other.sidStruct_ != null) {
+        if (sidStruct_ == null) {
+          SidStruct = new global::ServiceLayer.SLBgplsTopoSrv6SidStruct();
+        }
+        SidStruct.MergeFrom(other.SidStruct);
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            Sid = input.ReadBytes();
+            break;
+          }
+          case 16: {
+            Algorithm = input.ReadUInt32();
+            break;
+          }
+          case 26: {
+            Flags = input.ReadBytes();
+            break;
+          }
+          case 32: {
+            Weight = input.ReadUInt32();
+            break;
+          }
+          case 40: {
+            EndPointBehavior = input.ReadUInt32();
+            break;
+          }
+          case 50: {
+            if (sidStruct_ == null) {
+              SidStruct = new global::ServiceLayer.SLBgplsTopoSrv6SidStruct();
+            }
+            input.ReadMessage(SidStruct);
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            Sid = input.ReadBytes();
+            break;
+          }
+          case 16: {
+            Algorithm = input.ReadUInt32();
+            break;
+          }
+          case 26: {
+            Flags = input.ReadBytes();
+            break;
+          }
+          case 32: {
+            Weight = input.ReadUInt32();
+            break;
+          }
+          case 40: {
+            EndPointBehavior = input.ReadUInt32();
+            break;
+          }
+          case 50: {
+            if (sidStruct_ == null) {
+              SidStruct = new global::ServiceLayer.SLBgplsTopoSrv6SidStruct();
+            }
+            input.ReadMessage(SidStruct);
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  /// <summary>
   /// Neighbor ID used in Adjacency SID and SRv6 EndX SID
   /// </summary>
   public sealed partial class SLBgpLsTopoNeighborId : pb::IMessage<SLBgpLsTopoNeighborId>
@@ -17823,7 +22273,7 @@ namespace ServiceLayer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[59]; }
+      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[71]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -18075,6 +22525,467 @@ namespace ServiceLayer {
   }
 
   /// <summary>
+  /// SRv6 LAN End X SID. TLV 1107/1108
+  /// Section 4.1 of [RFC9514]
+  /// </summary>
+  public sealed partial class SLBgplsTopoSrv6LanEndXSid : pb::IMessage<SLBgplsTopoSrv6LanEndXSid>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<SLBgplsTopoSrv6LanEndXSid> _parser = new pb::MessageParser<SLBgplsTopoSrv6LanEndXSid>(() => new SLBgplsTopoSrv6LanEndXSid());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<SLBgplsTopoSrv6LanEndXSid> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[72]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SLBgplsTopoSrv6LanEndXSid() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SLBgplsTopoSrv6LanEndXSid(SLBgplsTopoSrv6LanEndXSid other) : this() {
+      neighbor_ = other.neighbor_ != null ? other.neighbor_.Clone() : null;
+      sid_ = other.sid_;
+      algorithm_ = other.algorithm_;
+      flags_ = other.flags_;
+      weight_ = other.weight_;
+      endPointBehavior_ = other.endPointBehavior_;
+      sidStruct_ = other.sidStruct_ != null ? other.sidStruct_.Clone() : null;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SLBgplsTopoSrv6LanEndXSid Clone() {
+      return new SLBgplsTopoSrv6LanEndXSid(this);
+    }
+
+    /// <summary>Field number for the "Neighbor" field.</summary>
+    public const int NeighborFieldNumber = 1;
+    private global::ServiceLayer.SLBgpLsTopoNeighborId neighbor_;
+    /// <summary>
+    /// Neighbor ID
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::ServiceLayer.SLBgpLsTopoNeighborId Neighbor {
+      get { return neighbor_; }
+      set {
+        neighbor_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "Sid" field.</summary>
+    public const int SidFieldNumber = 2;
+    private pb::ByteString sid_ = pb::ByteString.Empty;
+    /// <summary>
+    /// SRv6 SID as 128 bit value
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pb::ByteString Sid {
+      get { return sid_; }
+      set {
+        sid_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "Algorithm" field.</summary>
+    public const int AlgorithmFieldNumber = 3;
+    private uint algorithm_;
+    /// <summary>
+    /// Algorithm associated with the SID
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint Algorithm {
+      get { return algorithm_; }
+      set {
+        algorithm_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "Flags" field.</summary>
+    public const int FlagsFieldNumber = 4;
+    private pb::ByteString flags_ = pb::ByteString.Empty;
+    /// <summary>
+    /// Flags associated with the SID. The flags are copied from the IS-IS SRv6
+    /// End.X SID sub-TLV (Section 8.1 of [RFC9352]) or the OSPFv3 SRv6
+    /// End.X SID sub-TLV (Section 9.1 of [RFC9513]) in the case of IS-IS
+    /// or OSPFv3, respectively.  In the case of the BGP EPE Peer
+    /// Adjacency SID, the flags are as defined in Section 7.2 of [RFC9514]
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pb::ByteString Flags {
+      get { return flags_; }
+      set {
+        flags_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "Weight" field.</summary>
+    public const int WeightFieldNumber = 5;
+    private uint weight_;
+    /// <summary>
+    /// Weight associated with the SID for load balancing purpose
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint Weight {
+      get { return weight_; }
+      set {
+        weight_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "EndPointBehavior" field.</summary>
+    public const int EndPointBehaviorFieldNumber = 6;
+    private uint endPointBehavior_;
+    /// <summary>
+    /// Endpoint behavior of the SID
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint EndPointBehavior {
+      get { return endPointBehavior_; }
+      set {
+        endPointBehavior_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "SidStruct" field.</summary>
+    public const int SidStructFieldNumber = 7;
+    private global::ServiceLayer.SLBgplsTopoSrv6SidStruct sidStruct_;
+    /// <summary>
+    /// The Segment Routing over IPv6 (SRv6) Segment Identifier (SID)
+    /// structure information associated with a SRv6 SID.
+    /// SRv6 SID Structure Attribute. TLV 1252
+    /// Section 8 of [RFC9514]
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::ServiceLayer.SLBgplsTopoSrv6SidStruct SidStruct {
+      get { return sidStruct_; }
+      set {
+        sidStruct_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as SLBgplsTopoSrv6LanEndXSid);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(SLBgplsTopoSrv6LanEndXSid other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (!object.Equals(Neighbor, other.Neighbor)) return false;
+      if (Sid != other.Sid) return false;
+      if (Algorithm != other.Algorithm) return false;
+      if (Flags != other.Flags) return false;
+      if (Weight != other.Weight) return false;
+      if (EndPointBehavior != other.EndPointBehavior) return false;
+      if (!object.Equals(SidStruct, other.SidStruct)) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (neighbor_ != null) hash ^= Neighbor.GetHashCode();
+      if (Sid.Length != 0) hash ^= Sid.GetHashCode();
+      if (Algorithm != 0) hash ^= Algorithm.GetHashCode();
+      if (Flags.Length != 0) hash ^= Flags.GetHashCode();
+      if (Weight != 0) hash ^= Weight.GetHashCode();
+      if (EndPointBehavior != 0) hash ^= EndPointBehavior.GetHashCode();
+      if (sidStruct_ != null) hash ^= SidStruct.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (neighbor_ != null) {
+        output.WriteRawTag(10);
+        output.WriteMessage(Neighbor);
+      }
+      if (Sid.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteBytes(Sid);
+      }
+      if (Algorithm != 0) {
+        output.WriteRawTag(24);
+        output.WriteUInt32(Algorithm);
+      }
+      if (Flags.Length != 0) {
+        output.WriteRawTag(34);
+        output.WriteBytes(Flags);
+      }
+      if (Weight != 0) {
+        output.WriteRawTag(40);
+        output.WriteUInt32(Weight);
+      }
+      if (EndPointBehavior != 0) {
+        output.WriteRawTag(48);
+        output.WriteUInt32(EndPointBehavior);
+      }
+      if (sidStruct_ != null) {
+        output.WriteRawTag(58);
+        output.WriteMessage(SidStruct);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (neighbor_ != null) {
+        output.WriteRawTag(10);
+        output.WriteMessage(Neighbor);
+      }
+      if (Sid.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteBytes(Sid);
+      }
+      if (Algorithm != 0) {
+        output.WriteRawTag(24);
+        output.WriteUInt32(Algorithm);
+      }
+      if (Flags.Length != 0) {
+        output.WriteRawTag(34);
+        output.WriteBytes(Flags);
+      }
+      if (Weight != 0) {
+        output.WriteRawTag(40);
+        output.WriteUInt32(Weight);
+      }
+      if (EndPointBehavior != 0) {
+        output.WriteRawTag(48);
+        output.WriteUInt32(EndPointBehavior);
+      }
+      if (sidStruct_ != null) {
+        output.WriteRawTag(58);
+        output.WriteMessage(SidStruct);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (neighbor_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Neighbor);
+      }
+      if (Sid.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeBytesSize(Sid);
+      }
+      if (Algorithm != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Algorithm);
+      }
+      if (Flags.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeBytesSize(Flags);
+      }
+      if (Weight != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Weight);
+      }
+      if (EndPointBehavior != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(EndPointBehavior);
+      }
+      if (sidStruct_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(SidStruct);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(SLBgplsTopoSrv6LanEndXSid other) {
+      if (other == null) {
+        return;
+      }
+      if (other.neighbor_ != null) {
+        if (neighbor_ == null) {
+          Neighbor = new global::ServiceLayer.SLBgpLsTopoNeighborId();
+        }
+        Neighbor.MergeFrom(other.Neighbor);
+      }
+      if (other.Sid.Length != 0) {
+        Sid = other.Sid;
+      }
+      if (other.Algorithm != 0) {
+        Algorithm = other.Algorithm;
+      }
+      if (other.Flags.Length != 0) {
+        Flags = other.Flags;
+      }
+      if (other.Weight != 0) {
+        Weight = other.Weight;
+      }
+      if (other.EndPointBehavior != 0) {
+        EndPointBehavior = other.EndPointBehavior;
+      }
+      if (other.sidStruct_ != null) {
+        if (sidStruct_ == null) {
+          SidStruct = new global::ServiceLayer.SLBgplsTopoSrv6SidStruct();
+        }
+        SidStruct.MergeFrom(other.SidStruct);
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            if (neighbor_ == null) {
+              Neighbor = new global::ServiceLayer.SLBgpLsTopoNeighborId();
+            }
+            input.ReadMessage(Neighbor);
+            break;
+          }
+          case 18: {
+            Sid = input.ReadBytes();
+            break;
+          }
+          case 24: {
+            Algorithm = input.ReadUInt32();
+            break;
+          }
+          case 34: {
+            Flags = input.ReadBytes();
+            break;
+          }
+          case 40: {
+            Weight = input.ReadUInt32();
+            break;
+          }
+          case 48: {
+            EndPointBehavior = input.ReadUInt32();
+            break;
+          }
+          case 58: {
+            if (sidStruct_ == null) {
+              SidStruct = new global::ServiceLayer.SLBgplsTopoSrv6SidStruct();
+            }
+            input.ReadMessage(SidStruct);
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            if (neighbor_ == null) {
+              Neighbor = new global::ServiceLayer.SLBgpLsTopoNeighborId();
+            }
+            input.ReadMessage(Neighbor);
+            break;
+          }
+          case 18: {
+            Sid = input.ReadBytes();
+            break;
+          }
+          case 24: {
+            Algorithm = input.ReadUInt32();
+            break;
+          }
+          case 34: {
+            Flags = input.ReadBytes();
+            break;
+          }
+          case 40: {
+            Weight = input.ReadUInt32();
+            break;
+          }
+          case 48: {
+            EndPointBehavior = input.ReadUInt32();
+            break;
+          }
+          case 58: {
+            if (sidStruct_ == null) {
+              SidStruct = new global::ServiceLayer.SLBgplsTopoSrv6SidStruct();
+            }
+            input.ReadMessage(SidStruct);
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  /// <summary>
   /// Unidirectional Link Delay. TLV 1114
   /// Section 2.1 of [RFC8571]
   /// </summary>
@@ -18092,7 +23003,7 @@ namespace ServiceLayer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[60]; }
+      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[73]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -18328,7 +23239,7 @@ namespace ServiceLayer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[61]; }
+      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[74]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -18604,7 +23515,7 @@ namespace ServiceLayer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[62]; }
+      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[75]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -18840,7 +23751,7 @@ namespace ServiceLayer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[63]; }
+      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[76]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -19078,7 +23989,7 @@ namespace ServiceLayer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[64]; }
+      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[77]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -19274,7 +24185,7 @@ namespace ServiceLayer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[65]; }
+      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[78]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -19470,7 +24381,7 @@ namespace ServiceLayer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[66]; }
+      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[79]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -19666,7 +24577,7 @@ namespace ServiceLayer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[67]; }
+      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[80]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -20464,7 +25375,7 @@ namespace ServiceLayer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[68]; }
+      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[81]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -20666,7 +25577,7 @@ namespace ServiceLayer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[69]; }
+      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[82]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -20862,7 +25773,7 @@ namespace ServiceLayer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[70]; }
+      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[83]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -21058,7 +25969,7 @@ namespace ServiceLayer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[71]; }
+      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[84]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -21254,7 +26165,7 @@ namespace ServiceLayer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[72]; }
+      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[85]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -21523,7 +26434,7 @@ namespace ServiceLayer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[73]; }
+      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[86]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -21719,7 +26630,7 @@ namespace ServiceLayer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[74]; }
+      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[87]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -22037,7 +26948,7 @@ namespace ServiceLayer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[75]; }
+      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[88]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -22383,6 +27294,284 @@ namespace ServiceLayer {
   }
 
   /// <summary>
+  /// SRv6 Locator. TLV 1162
+  /// Section 5.1 of [RFC9514]
+  /// </summary>
+  public sealed partial class SLBgplsTopoPrefixSrv6Loc : pb::IMessage<SLBgplsTopoPrefixSrv6Loc>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<SLBgplsTopoPrefixSrv6Loc> _parser = new pb::MessageParser<SLBgplsTopoPrefixSrv6Loc>(() => new SLBgplsTopoPrefixSrv6Loc());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<SLBgplsTopoPrefixSrv6Loc> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[89]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SLBgplsTopoPrefixSrv6Loc() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SLBgplsTopoPrefixSrv6Loc(SLBgplsTopoPrefixSrv6Loc other) : this() {
+      flags_ = other.flags_;
+      algorithm_ = other.algorithm_;
+      metric_ = other.metric_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SLBgplsTopoPrefixSrv6Loc Clone() {
+      return new SLBgplsTopoPrefixSrv6Loc(this);
+    }
+
+    /// <summary>Field number for the "Flags" field.</summary>
+    public const int FlagsFieldNumber = 1;
+    private pb::ByteString flags_ = pb::ByteString.Empty;
+    /// <summary>
+    /// Flags associated with the locator, copied from the
+    /// IS-IS SRv6 Locator TLV (Section 7.1 of [RFC9352]) for ISIS or the
+    /// OSPFv3 SRv6 Locator TLV (Section 7.1 of [RFC9513]) for OSPFv3
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pb::ByteString Flags {
+      get { return flags_; }
+      set {
+        flags_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "Algorithm" field.</summary>
+    public const int AlgorithmFieldNumber = 2;
+    private uint algorithm_;
+    /// <summary>
+    /// Algorithm associated with the locator
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint Algorithm {
+      get { return algorithm_; }
+      set {
+        algorithm_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "Metric" field.</summary>
+    public const int MetricFieldNumber = 3;
+    private uint metric_;
+    /// <summary>
+    /// Flex algo prefix metric
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint Metric {
+      get { return metric_; }
+      set {
+        metric_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as SLBgplsTopoPrefixSrv6Loc);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(SLBgplsTopoPrefixSrv6Loc other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (Flags != other.Flags) return false;
+      if (Algorithm != other.Algorithm) return false;
+      if (Metric != other.Metric) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (Flags.Length != 0) hash ^= Flags.GetHashCode();
+      if (Algorithm != 0) hash ^= Algorithm.GetHashCode();
+      if (Metric != 0) hash ^= Metric.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (Flags.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteBytes(Flags);
+      }
+      if (Algorithm != 0) {
+        output.WriteRawTag(16);
+        output.WriteUInt32(Algorithm);
+      }
+      if (Metric != 0) {
+        output.WriteRawTag(24);
+        output.WriteUInt32(Metric);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (Flags.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteBytes(Flags);
+      }
+      if (Algorithm != 0) {
+        output.WriteRawTag(16);
+        output.WriteUInt32(Algorithm);
+      }
+      if (Metric != 0) {
+        output.WriteRawTag(24);
+        output.WriteUInt32(Metric);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (Flags.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeBytesSize(Flags);
+      }
+      if (Algorithm != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Algorithm);
+      }
+      if (Metric != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Metric);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(SLBgplsTopoPrefixSrv6Loc other) {
+      if (other == null) {
+        return;
+      }
+      if (other.Flags.Length != 0) {
+        Flags = other.Flags;
+      }
+      if (other.Algorithm != 0) {
+        Algorithm = other.Algorithm;
+      }
+      if (other.Metric != 0) {
+        Metric = other.Metric;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            Flags = input.ReadBytes();
+            break;
+          }
+          case 16: {
+            Algorithm = input.ReadUInt32();
+            break;
+          }
+          case 24: {
+            Metric = input.ReadUInt32();
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            Flags = input.ReadBytes();
+            break;
+          }
+          case 16: {
+            Algorithm = input.ReadUInt32();
+            break;
+          }
+          case 24: {
+            Metric = input.ReadUInt32();
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  /// <summary>
   /// Prefix Attribute Flags. TLV 1170
   /// Section 2.3.2 of [RFC9085]
   /// </summary>
@@ -22400,7 +27589,7 @@ namespace ServiceLayer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[76]; }
+      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[90]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -22598,7 +27787,7 @@ namespace ServiceLayer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[77]; }
+      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[91]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -22867,7 +28056,7 @@ namespace ServiceLayer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[78]; }
+      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[92]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -23873,7 +29062,7 @@ namespace ServiceLayer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[79]; }
+      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[93]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -24057,6 +29246,6947 @@ namespace ServiceLayer {
   }
 
   /// <summary>
+  /// SR Binding SID. TLV 1201
+  /// Section 5.1 of [draft-ietf-idr-bgp-ls-sr-policy]
+  /// </summary>
+  public sealed partial class SlBgplsTopoSrBsid : pb::IMessage<SlBgplsTopoSrBsid>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<SlBgplsTopoSrBsid> _parser = new pb::MessageParser<SlBgplsTopoSrBsid>(() => new SlBgplsTopoSrBsid());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<SlBgplsTopoSrBsid> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[94]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SlBgplsTopoSrBsid() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SlBgplsTopoSrBsid(SlBgplsTopoSrBsid other) : this() {
+      switch (other.BindingSidCase) {
+        case BindingSidOneofCase.MplsBsid:
+          MplsBsid = other.MplsBsid;
+          break;
+        case BindingSidOneofCase.Srv6Bsid:
+          Srv6Bsid = other.Srv6Bsid;
+          break;
+      }
+
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SlBgplsTopoSrBsid Clone() {
+      return new SlBgplsTopoSrBsid(this);
+    }
+
+    /// <summary>Field number for the "MplsBsid" field.</summary>
+    public const int MplsBsidFieldNumber = 1;
+    /// <summary>
+    /// This field carries info about an MPLS binding SID.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint MplsBsid {
+      get { return bindingSidCase_ == BindingSidOneofCase.MplsBsid ? (uint) bindingSid_ : 0; }
+      set {
+        bindingSid_ = value;
+        bindingSidCase_ = BindingSidOneofCase.MplsBsid;
+      }
+    }
+
+    /// <summary>Field number for the "Srv6Bsid" field.</summary>
+    public const int Srv6BsidFieldNumber = 2;
+    /// <summary>
+    /// This field carries info about an SRv6 binding SID.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pb::ByteString Srv6Bsid {
+      get { return bindingSidCase_ == BindingSidOneofCase.Srv6Bsid ? (pb::ByteString) bindingSid_ : pb::ByteString.Empty; }
+      set {
+        bindingSid_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        bindingSidCase_ = BindingSidOneofCase.Srv6Bsid;
+      }
+    }
+
+    private object bindingSid_;
+    /// <summary>Enum of possible cases for the "BindingSid" oneof.</summary>
+    public enum BindingSidOneofCase {
+      None = 0,
+      MplsBsid = 1,
+      Srv6Bsid = 2,
+    }
+    private BindingSidOneofCase bindingSidCase_ = BindingSidOneofCase.None;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public BindingSidOneofCase BindingSidCase {
+      get { return bindingSidCase_; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearBindingSid() {
+      bindingSidCase_ = BindingSidOneofCase.None;
+      bindingSid_ = null;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as SlBgplsTopoSrBsid);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(SlBgplsTopoSrBsid other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (MplsBsid != other.MplsBsid) return false;
+      if (Srv6Bsid != other.Srv6Bsid) return false;
+      if (BindingSidCase != other.BindingSidCase) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (bindingSidCase_ == BindingSidOneofCase.MplsBsid) hash ^= MplsBsid.GetHashCode();
+      if (bindingSidCase_ == BindingSidOneofCase.Srv6Bsid) hash ^= Srv6Bsid.GetHashCode();
+      hash ^= (int) bindingSidCase_;
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (bindingSidCase_ == BindingSidOneofCase.MplsBsid) {
+        output.WriteRawTag(8);
+        output.WriteUInt32(MplsBsid);
+      }
+      if (bindingSidCase_ == BindingSidOneofCase.Srv6Bsid) {
+        output.WriteRawTag(18);
+        output.WriteBytes(Srv6Bsid);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (bindingSidCase_ == BindingSidOneofCase.MplsBsid) {
+        output.WriteRawTag(8);
+        output.WriteUInt32(MplsBsid);
+      }
+      if (bindingSidCase_ == BindingSidOneofCase.Srv6Bsid) {
+        output.WriteRawTag(18);
+        output.WriteBytes(Srv6Bsid);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (bindingSidCase_ == BindingSidOneofCase.MplsBsid) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(MplsBsid);
+      }
+      if (bindingSidCase_ == BindingSidOneofCase.Srv6Bsid) {
+        size += 1 + pb::CodedOutputStream.ComputeBytesSize(Srv6Bsid);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(SlBgplsTopoSrBsid other) {
+      if (other == null) {
+        return;
+      }
+      switch (other.BindingSidCase) {
+        case BindingSidOneofCase.MplsBsid:
+          MplsBsid = other.MplsBsid;
+          break;
+        case BindingSidOneofCase.Srv6Bsid:
+          Srv6Bsid = other.Srv6Bsid;
+          break;
+      }
+
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            MplsBsid = input.ReadUInt32();
+            break;
+          }
+          case 18: {
+            Srv6Bsid = input.ReadBytes();
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 8: {
+            MplsBsid = input.ReadUInt32();
+            break;
+          }
+          case 18: {
+            Srv6Bsid = input.ReadBytes();
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  public sealed partial class SLBgplsTopoSrBindingSid : pb::IMessage<SLBgplsTopoSrBindingSid>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<SLBgplsTopoSrBindingSid> _parser = new pb::MessageParser<SLBgplsTopoSrBindingSid>(() => new SLBgplsTopoSrBindingSid());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<SLBgplsTopoSrBindingSid> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[95]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SLBgplsTopoSrBindingSid() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SLBgplsTopoSrBindingSid(SLBgplsTopoSrBindingSid other) : this() {
+      bsidFlags_ = other.bsidFlags_;
+      bsid_ = other.bsid_ != null ? other.bsid_.Clone() : null;
+      specifiedBsid_ = other.specifiedBsid_ != null ? other.specifiedBsid_.Clone() : null;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SLBgplsTopoSrBindingSid Clone() {
+      return new SLBgplsTopoSrBindingSid(this);
+    }
+
+    /// <summary>Field number for the "BsidFlags" field.</summary>
+    public const int BsidFlagsFieldNumber = 1;
+    private pb::ByteString bsidFlags_ = pb::ByteString.Empty;
+    /// <summary>
+    /// Bit-0: D-Flag: Indicates the dataplane for the BSIDs and if they are
+    /// 16 octet SRv6 SID when set and are 4 octet SR/MPLS label value
+    /// when clear.
+    ///
+    /// Bit-1: B-Flag: Indicates the allocation of the value in the BSID field
+    /// when set and indicates that BSID is not allocated when clear.
+    ///
+    /// Bit-2: U-Flag: Indicates the specified BSID value is unavailable when set.
+    ///
+    /// Bit-3: L-Flag: Indicates the BSID value is from the Segment Routing
+    /// Local Block (SRLB) of the headend node when set and is from the
+    /// local dynamic label pool when clear.
+    ///
+    /// Bit-4: F-Flag: Indicates the BSID value is one allocated from dynamic
+    /// label pool due to fallback (e.g. when specified BSID is
+    /// unavailable) when set.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pb::ByteString BsidFlags {
+      get { return bsidFlags_; }
+      set {
+        bsidFlags_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "Bsid" field.</summary>
+    public const int BsidFieldNumber = 2;
+    private global::ServiceLayer.SlBgplsTopoSrBsid bsid_;
+    /// <summary>
+    /// The operational or allocated BSID value based on the status flags.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::ServiceLayer.SlBgplsTopoSrBsid Bsid {
+      get { return bsid_; }
+      set {
+        bsid_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "SpecifiedBsid" field.</summary>
+    public const int SpecifiedBsidFieldNumber = 3;
+    private global::ServiceLayer.SlBgplsTopoSrBsid specifiedBsid_;
+    /// <summary>
+    /// The explicitly specified BSID whether it is allotted or not.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::ServiceLayer.SlBgplsTopoSrBsid SpecifiedBsid {
+      get { return specifiedBsid_; }
+      set {
+        specifiedBsid_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as SLBgplsTopoSrBindingSid);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(SLBgplsTopoSrBindingSid other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (BsidFlags != other.BsidFlags) return false;
+      if (!object.Equals(Bsid, other.Bsid)) return false;
+      if (!object.Equals(SpecifiedBsid, other.SpecifiedBsid)) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (BsidFlags.Length != 0) hash ^= BsidFlags.GetHashCode();
+      if (bsid_ != null) hash ^= Bsid.GetHashCode();
+      if (specifiedBsid_ != null) hash ^= SpecifiedBsid.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (BsidFlags.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteBytes(BsidFlags);
+      }
+      if (bsid_ != null) {
+        output.WriteRawTag(18);
+        output.WriteMessage(Bsid);
+      }
+      if (specifiedBsid_ != null) {
+        output.WriteRawTag(26);
+        output.WriteMessage(SpecifiedBsid);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (BsidFlags.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteBytes(BsidFlags);
+      }
+      if (bsid_ != null) {
+        output.WriteRawTag(18);
+        output.WriteMessage(Bsid);
+      }
+      if (specifiedBsid_ != null) {
+        output.WriteRawTag(26);
+        output.WriteMessage(SpecifiedBsid);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (BsidFlags.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeBytesSize(BsidFlags);
+      }
+      if (bsid_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Bsid);
+      }
+      if (specifiedBsid_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(SpecifiedBsid);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(SLBgplsTopoSrBindingSid other) {
+      if (other == null) {
+        return;
+      }
+      if (other.BsidFlags.Length != 0) {
+        BsidFlags = other.BsidFlags;
+      }
+      if (other.bsid_ != null) {
+        if (bsid_ == null) {
+          Bsid = new global::ServiceLayer.SlBgplsTopoSrBsid();
+        }
+        Bsid.MergeFrom(other.Bsid);
+      }
+      if (other.specifiedBsid_ != null) {
+        if (specifiedBsid_ == null) {
+          SpecifiedBsid = new global::ServiceLayer.SlBgplsTopoSrBsid();
+        }
+        SpecifiedBsid.MergeFrom(other.SpecifiedBsid);
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            BsidFlags = input.ReadBytes();
+            break;
+          }
+          case 18: {
+            if (bsid_ == null) {
+              Bsid = new global::ServiceLayer.SlBgplsTopoSrBsid();
+            }
+            input.ReadMessage(Bsid);
+            break;
+          }
+          case 26: {
+            if (specifiedBsid_ == null) {
+              SpecifiedBsid = new global::ServiceLayer.SlBgplsTopoSrBsid();
+            }
+            input.ReadMessage(SpecifiedBsid);
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            BsidFlags = input.ReadBytes();
+            break;
+          }
+          case 18: {
+            if (bsid_ == null) {
+              Bsid = new global::ServiceLayer.SlBgplsTopoSrBsid();
+            }
+            input.ReadMessage(Bsid);
+            break;
+          }
+          case 26: {
+            if (specifiedBsid_ == null) {
+              SpecifiedBsid = new global::ServiceLayer.SlBgplsTopoSrBsid();
+            }
+            input.ReadMessage(SpecifiedBsid);
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  /// <summary>
+  /// SR Candidate Path State. TLV 1202
+  /// Section 5.3 of [draft-ietf-idr-bgp-ls-sr-policy]
+  /// </summary>
+  public sealed partial class SLBgplsTopoSrCpState : pb::IMessage<SLBgplsTopoSrCpState>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<SLBgplsTopoSrCpState> _parser = new pb::MessageParser<SLBgplsTopoSrCpState>(() => new SLBgplsTopoSrCpState());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<SLBgplsTopoSrCpState> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[96]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SLBgplsTopoSrCpState() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SLBgplsTopoSrCpState(SLBgplsTopoSrCpState other) : this() {
+      priority_ = other.priority_;
+      flags_ = other.flags_;
+      preference_ = other.preference_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SLBgplsTopoSrCpState Clone() {
+      return new SLBgplsTopoSrCpState(this);
+    }
+
+    /// <summary>Field number for the "Priority" field.</summary>
+    public const int PriorityFieldNumber = 1;
+    private uint priority_;
+    /// <summary>
+    /// The priority of the candiate path.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint Priority {
+      get { return priority_; }
+      set {
+        priority_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "Flags" field.</summary>
+    public const int FlagsFieldNumber = 2;
+    private pb::ByteString flags_ = pb::ByteString.Empty;
+    /// <summary>
+    /// Bit-0: S-Flag: Indicates the CP is in an administrative shut state when set.
+    ///
+    /// Bit-1: A-Flag: Indicates the CP is the active path (i.e. one
+    /// provisioned in the forwarding plane) for the SR Policy when set.
+    ///
+    /// Bit-2: B-Flag: Indicates the CP is the backup path (i.e. one
+    /// identified for path protection of the active path) for the SR
+    /// Policy when set.
+    ///
+    /// Bit-3: E-Flag: Indicates that the CP has been evaluated for validity
+    /// (e.g. headend may evaluate CPs based on their preferences) when set.
+    ///
+    /// Bit-4: V-Flag: Indicates the CP has at least one valid SID-List when
+    /// set.  When the E-Flag is clear (i.e. the CP has not been
+    /// evaluated), then this flag MUST be set to 0 by the originator
+    /// and ignored by the receiver.
+    ///
+    /// Bit-5: O-Flag: Indicates the CP was instantiated by the headend due to
+    /// an on-demand nexthop trigger based on a local template when
+    /// set.  Refer to section 8.5 of [RFC9256] for details.
+    ///
+    /// Bit-6: D-Flag: Indicates the CP was delegated for computation to a
+    /// PCE/controller when set.
+    ///
+    /// Bit-7: C-Flag: Indicates the CP was provisioned by a PCE/controller when set.
+    ///
+    /// Bit-8: I-Flag: Indicates the CP is to perform the "drop upon invalid"
+    /// behavior when no other valid CP is available for this SR
+    /// Policy.  Refer to section 8.2 of [RFC9256] for details.
+    ///
+    /// Bit-9: T-Flag: Indicates the CP has been marked as eligible for use as
+    /// Transit Policy on the headend when set.  Refer to section 8.3
+    /// of [RFC9256].
+    ///
+    /// Bit-10: U-Flag: Indicates that this CP is reported as active and is
+    /// dropping traffic as a result of the "drop upon invalid"
+    /// behavior being activated for the SR Policy.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pb::ByteString Flags {
+      get { return flags_; }
+      set {
+        flags_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "Preference" field.</summary>
+    public const int PreferenceFieldNumber = 3;
+    private uint preference_;
+    /// <summary>
+    /// Indicates the preference of the candidate path.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint Preference {
+      get { return preference_; }
+      set {
+        preference_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as SLBgplsTopoSrCpState);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(SLBgplsTopoSrCpState other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (Priority != other.Priority) return false;
+      if (Flags != other.Flags) return false;
+      if (Preference != other.Preference) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (Priority != 0) hash ^= Priority.GetHashCode();
+      if (Flags.Length != 0) hash ^= Flags.GetHashCode();
+      if (Preference != 0) hash ^= Preference.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (Priority != 0) {
+        output.WriteRawTag(8);
+        output.WriteUInt32(Priority);
+      }
+      if (Flags.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteBytes(Flags);
+      }
+      if (Preference != 0) {
+        output.WriteRawTag(24);
+        output.WriteUInt32(Preference);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (Priority != 0) {
+        output.WriteRawTag(8);
+        output.WriteUInt32(Priority);
+      }
+      if (Flags.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteBytes(Flags);
+      }
+      if (Preference != 0) {
+        output.WriteRawTag(24);
+        output.WriteUInt32(Preference);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (Priority != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Priority);
+      }
+      if (Flags.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeBytesSize(Flags);
+      }
+      if (Preference != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Preference);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(SLBgplsTopoSrCpState other) {
+      if (other == null) {
+        return;
+      }
+      if (other.Priority != 0) {
+        Priority = other.Priority;
+      }
+      if (other.Flags.Length != 0) {
+        Flags = other.Flags;
+      }
+      if (other.Preference != 0) {
+        Preference = other.Preference;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            Priority = input.ReadUInt32();
+            break;
+          }
+          case 18: {
+            Flags = input.ReadBytes();
+            break;
+          }
+          case 24: {
+            Preference = input.ReadUInt32();
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 8: {
+            Priority = input.ReadUInt32();
+            break;
+          }
+          case 18: {
+            Flags = input.ReadBytes();
+            break;
+          }
+          case 24: {
+            Preference = input.ReadUInt32();
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  /// <summary>
+  /// SR Candidate Path Name. TLV 1203
+  /// Section 5.5 of [draft-ietf-idr-bgp-ls-sr-policy]
+  /// </summary>
+  public sealed partial class SLBgplsTopoSrCpName : pb::IMessage<SLBgplsTopoSrCpName>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<SLBgplsTopoSrCpName> _parser = new pb::MessageParser<SLBgplsTopoSrCpName>(() => new SLBgplsTopoSrCpName());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<SLBgplsTopoSrCpName> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[97]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SLBgplsTopoSrCpName() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SLBgplsTopoSrCpName(SLBgplsTopoSrCpName other) : this() {
+      name_ = other.name_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SLBgplsTopoSrCpName Clone() {
+      return new SLBgplsTopoSrCpName(this);
+    }
+
+    /// <summary>Field number for the "Name" field.</summary>
+    public const int NameFieldNumber = 1;
+    private string name_ = "";
+    /// <summary>
+    /// Symbolic name for the SR Policy candidate path without a NULL
+    /// terminator. It is RECOMMENDED that the size of the symbolic name
+    /// be limited to 255 characters.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string Name {
+      get { return name_; }
+      set {
+        name_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as SLBgplsTopoSrCpName);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(SLBgplsTopoSrCpName other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (Name != other.Name) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (Name.Length != 0) hash ^= Name.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (Name.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(Name);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (Name.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(Name);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (Name.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Name);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(SLBgplsTopoSrCpName other) {
+      if (other == null) {
+        return;
+      }
+      if (other.Name.Length != 0) {
+        Name = other.Name;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            Name = input.ReadString();
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            Name = input.ReadString();
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  /// <summary>
+  /// SR Candidate Path Constraints. TLV 1204
+  /// Section 5.6 of [draft-ietf-idr-bgp-ls-sr-policy]
+  /// </summary>
+  public sealed partial class SLBgplsTopoSrCpConstraints : pb::IMessage<SLBgplsTopoSrCpConstraints>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<SLBgplsTopoSrCpConstraints> _parser = new pb::MessageParser<SLBgplsTopoSrCpConstraints>(() => new SLBgplsTopoSrCpConstraints());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<SLBgplsTopoSrCpConstraints> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[98]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SLBgplsTopoSrCpConstraints() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SLBgplsTopoSrCpConstraints(SLBgplsTopoSrCpConstraints other) : this() {
+      flags_ = other.flags_;
+      mtid_ = other.mtid_;
+      algorithm_ = other.algorithm_;
+      affinity_ = other.affinity_ != null ? other.affinity_.Clone() : null;
+      srlg_ = other.srlg_ != null ? other.srlg_.Clone() : null;
+      bandwidth_ = other.bandwidth_ != null ? other.bandwidth_.Clone() : null;
+      disjoint_ = other.disjoint_ != null ? other.disjoint_.Clone() : null;
+      bidirGroup_ = other.bidirGroup_ != null ? other.bidirGroup_.Clone() : null;
+      metric_ = other.metric_.Clone();
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SLBgplsTopoSrCpConstraints Clone() {
+      return new SLBgplsTopoSrCpConstraints(this);
+    }
+
+    /// <summary>Field number for the "Flags" field.</summary>
+    public const int FlagsFieldNumber = 1;
+    private pb::ByteString flags_ = pb::ByteString.Empty;
+    /// <summary>
+    /// Bit-0: D-Flag: Indicates that the CP uses SRv6 dataplane when set and
+    /// SR/MPLS dataplane when clear.
+    ///
+    /// Bit-1: P-Flag: Indicates that the CP prefers the use of only protected
+    /// SIDs when set.  This flag is mutually exclusive with the
+    /// Bit-2.
+    ///
+    /// Bit-2: U-Flag: Indicates that the CP prefers the use of only
+    /// unprotected SIDs when set.  This flag is mutually exclusive
+    /// with the Bit-1.
+    ///
+    /// Bit-3: A-Flag: Indicates that the CP uses only the SIDs belonging to
+    /// the specified SR Algorithm when set.
+    ///
+    /// Bit-4: T-Flag: Indicates that the CP uses only the SIDs belonging to
+    /// the specified topology when set.
+    ///
+    /// Bit-5: S-Flag: Indicates that the use of protected (P-Flag) or
+    /// unprotected (U-Flag) SIDs becomes a strict constraint instead
+    /// of a preference when set.
+    ///
+    /// Bit-6: F-Flag: Indicates that the CP is fixed once computed and not
+    /// modified except on operator intervention.
+    ///
+    /// Bit-7: H-Flag: Indicates that the CP uses only adjacency SIDs and
+    /// traverses hop-by-hop over the links corresponding to those
+    /// adjacency SIDs when set.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pb::ByteString Flags {
+      get { return flags_; }
+      set {
+        flags_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "Mtid" field.</summary>
+    public const int MtidFieldNumber = 2;
+    private uint mtid_;
+    /// <summary>
+    /// Indicates the multi-topology identifier of the IGP topology
+    /// that is preferred to be used when the path is set up.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint Mtid {
+      get { return mtid_; }
+      set {
+        mtid_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "Algorithm" field.</summary>
+    public const int AlgorithmFieldNumber = 3;
+    private uint algorithm_;
+    /// <summary>
+    /// Indicates the algorithm that is preferred to be used
+    /// when the path is set up.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint Algorithm {
+      get { return algorithm_; }
+      set {
+        algorithm_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "Affinity" field.</summary>
+    public const int AffinityFieldNumber = 5;
+    private global::ServiceLayer.SLBgplsTopoSrAffinityConstraints affinity_;
+    /// <summary>
+    /// SR Affinity constraint is used to carry the affinity constraints
+    /// associated with the candidate path.
+    /// SR Affinity Constraints. TLV 1208
+    /// Section 5.6.1 of [draft-ietf-idr-bgp-ls-sr-policy]
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::ServiceLayer.SLBgplsTopoSrAffinityConstraints Affinity {
+      get { return affinity_; }
+      set {
+        affinity_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "Srlg" field.</summary>
+    public const int SrlgFieldNumber = 6;
+    private global::ServiceLayer.SLBgplsTopoSrSrlgConstraints srlg_;
+    /// <summary>
+    /// SR SRLG constraint is used to carry the Shared Risk Link Group (SRLG)
+    /// values that have been excluded from the candidate path.
+    /// SR SRLG Constraints. TLV 1209
+    /// Section 5.6.2 of [draft-ietf-idr-bgp-ls-sr-policy]
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::ServiceLayer.SLBgplsTopoSrSrlgConstraints Srlg {
+      get { return srlg_; }
+      set {
+        srlg_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "Bandwidth" field.</summary>
+    public const int BandwidthFieldNumber = 4;
+    private global::ServiceLayer.SLBgplsTopoSrBandwidthConstraint bandwidth_;
+    /// <summary>
+    /// SR Bandwidth constraint is used to indicate the bandwidth that has
+    /// been requested for the candidate path.
+    /// SR Bandwidth Constraint. TLV 1210
+    /// Section 5.6.3 of [draft-ietf-idr-bgp-ls-sr-policy]
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::ServiceLayer.SLBgplsTopoSrBandwidthConstraint Bandwidth {
+      get { return bandwidth_; }
+      set {
+        bandwidth_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "Disjoint" field.</summary>
+    public const int DisjointFieldNumber = 7;
+    private global::ServiceLayer.SLBgplsTopoSrDisjointGroupConstraint disjoint_;
+    /// <summary>
+    /// SR Disjoint constraint is used to carry the disjointness
+    /// constraint associated with the candidate path.
+    /// SR Disjoint Group Constraint. TLV 1211
+    /// Section 5.6.4 of [draft-ietf-idr-bgp-ls-sr-policy]
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::ServiceLayer.SLBgplsTopoSrDisjointGroupConstraint Disjoint {
+      get { return disjoint_; }
+      set {
+        disjoint_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "BidirGroup" field.</summary>
+    public const int BidirGroupFieldNumber = 8;
+    private global::ServiceLayer.SLBgplsTopoSrBidirGroupConstraint bidirGroup_;
+    /// <summary>
+    /// SR Bidirectional Group constraint is used to carry the bidirectional
+    /// constraint associated with the candidate path.
+    /// SR Bidirectional Group Contraint. TLV 1214
+    /// Section 5.6.5 of [draft-ietf-idr-bgp-ls-sr-policy]
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::ServiceLayer.SLBgplsTopoSrBidirGroupConstraint BidirGroup {
+      get { return bidirGroup_; }
+      set {
+        bidirGroup_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "Metric" field.</summary>
+    public const int MetricFieldNumber = 9;
+    private static readonly pb::FieldCodec<global::ServiceLayer.SLBgplsTopoSrMetricConstraint> _repeated_metric_codec
+        = pb::FieldCodec.ForMessage(74, global::ServiceLayer.SLBgplsTopoSrMetricConstraint.Parser);
+    private readonly pbc::RepeatedField<global::ServiceLayer.SLBgplsTopoSrMetricConstraint> metric_ = new pbc::RepeatedField<global::ServiceLayer.SLBgplsTopoSrMetricConstraint>();
+    /// <summary>
+    /// SR Metric constraint is used to report the optimization metric of the
+    /// candidate path.
+    /// SR Metric Contraint. TLV 1215
+    /// Section 5.6.6 of [draft-ietf-idr-bgp-ls-sr-policy]
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pbc::RepeatedField<global::ServiceLayer.SLBgplsTopoSrMetricConstraint> Metric {
+      get { return metric_; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as SLBgplsTopoSrCpConstraints);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(SLBgplsTopoSrCpConstraints other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (Flags != other.Flags) return false;
+      if (Mtid != other.Mtid) return false;
+      if (Algorithm != other.Algorithm) return false;
+      if (!object.Equals(Affinity, other.Affinity)) return false;
+      if (!object.Equals(Srlg, other.Srlg)) return false;
+      if (!object.Equals(Bandwidth, other.Bandwidth)) return false;
+      if (!object.Equals(Disjoint, other.Disjoint)) return false;
+      if (!object.Equals(BidirGroup, other.BidirGroup)) return false;
+      if(!metric_.Equals(other.metric_)) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (Flags.Length != 0) hash ^= Flags.GetHashCode();
+      if (Mtid != 0) hash ^= Mtid.GetHashCode();
+      if (Algorithm != 0) hash ^= Algorithm.GetHashCode();
+      if (affinity_ != null) hash ^= Affinity.GetHashCode();
+      if (srlg_ != null) hash ^= Srlg.GetHashCode();
+      if (bandwidth_ != null) hash ^= Bandwidth.GetHashCode();
+      if (disjoint_ != null) hash ^= Disjoint.GetHashCode();
+      if (bidirGroup_ != null) hash ^= BidirGroup.GetHashCode();
+      hash ^= metric_.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (Flags.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteBytes(Flags);
+      }
+      if (Mtid != 0) {
+        output.WriteRawTag(16);
+        output.WriteUInt32(Mtid);
+      }
+      if (Algorithm != 0) {
+        output.WriteRawTag(24);
+        output.WriteUInt32(Algorithm);
+      }
+      if (bandwidth_ != null) {
+        output.WriteRawTag(34);
+        output.WriteMessage(Bandwidth);
+      }
+      if (affinity_ != null) {
+        output.WriteRawTag(42);
+        output.WriteMessage(Affinity);
+      }
+      if (srlg_ != null) {
+        output.WriteRawTag(50);
+        output.WriteMessage(Srlg);
+      }
+      if (disjoint_ != null) {
+        output.WriteRawTag(58);
+        output.WriteMessage(Disjoint);
+      }
+      if (bidirGroup_ != null) {
+        output.WriteRawTag(66);
+        output.WriteMessage(BidirGroup);
+      }
+      metric_.WriteTo(output, _repeated_metric_codec);
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (Flags.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteBytes(Flags);
+      }
+      if (Mtid != 0) {
+        output.WriteRawTag(16);
+        output.WriteUInt32(Mtid);
+      }
+      if (Algorithm != 0) {
+        output.WriteRawTag(24);
+        output.WriteUInt32(Algorithm);
+      }
+      if (bandwidth_ != null) {
+        output.WriteRawTag(34);
+        output.WriteMessage(Bandwidth);
+      }
+      if (affinity_ != null) {
+        output.WriteRawTag(42);
+        output.WriteMessage(Affinity);
+      }
+      if (srlg_ != null) {
+        output.WriteRawTag(50);
+        output.WriteMessage(Srlg);
+      }
+      if (disjoint_ != null) {
+        output.WriteRawTag(58);
+        output.WriteMessage(Disjoint);
+      }
+      if (bidirGroup_ != null) {
+        output.WriteRawTag(66);
+        output.WriteMessage(BidirGroup);
+      }
+      metric_.WriteTo(ref output, _repeated_metric_codec);
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (Flags.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeBytesSize(Flags);
+      }
+      if (Mtid != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Mtid);
+      }
+      if (Algorithm != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Algorithm);
+      }
+      if (affinity_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Affinity);
+      }
+      if (srlg_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Srlg);
+      }
+      if (bandwidth_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Bandwidth);
+      }
+      if (disjoint_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Disjoint);
+      }
+      if (bidirGroup_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(BidirGroup);
+      }
+      size += metric_.CalculateSize(_repeated_metric_codec);
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(SLBgplsTopoSrCpConstraints other) {
+      if (other == null) {
+        return;
+      }
+      if (other.Flags.Length != 0) {
+        Flags = other.Flags;
+      }
+      if (other.Mtid != 0) {
+        Mtid = other.Mtid;
+      }
+      if (other.Algorithm != 0) {
+        Algorithm = other.Algorithm;
+      }
+      if (other.affinity_ != null) {
+        if (affinity_ == null) {
+          Affinity = new global::ServiceLayer.SLBgplsTopoSrAffinityConstraints();
+        }
+        Affinity.MergeFrom(other.Affinity);
+      }
+      if (other.srlg_ != null) {
+        if (srlg_ == null) {
+          Srlg = new global::ServiceLayer.SLBgplsTopoSrSrlgConstraints();
+        }
+        Srlg.MergeFrom(other.Srlg);
+      }
+      if (other.bandwidth_ != null) {
+        if (bandwidth_ == null) {
+          Bandwidth = new global::ServiceLayer.SLBgplsTopoSrBandwidthConstraint();
+        }
+        Bandwidth.MergeFrom(other.Bandwidth);
+      }
+      if (other.disjoint_ != null) {
+        if (disjoint_ == null) {
+          Disjoint = new global::ServiceLayer.SLBgplsTopoSrDisjointGroupConstraint();
+        }
+        Disjoint.MergeFrom(other.Disjoint);
+      }
+      if (other.bidirGroup_ != null) {
+        if (bidirGroup_ == null) {
+          BidirGroup = new global::ServiceLayer.SLBgplsTopoSrBidirGroupConstraint();
+        }
+        BidirGroup.MergeFrom(other.BidirGroup);
+      }
+      metric_.Add(other.metric_);
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            Flags = input.ReadBytes();
+            break;
+          }
+          case 16: {
+            Mtid = input.ReadUInt32();
+            break;
+          }
+          case 24: {
+            Algorithm = input.ReadUInt32();
+            break;
+          }
+          case 34: {
+            if (bandwidth_ == null) {
+              Bandwidth = new global::ServiceLayer.SLBgplsTopoSrBandwidthConstraint();
+            }
+            input.ReadMessage(Bandwidth);
+            break;
+          }
+          case 42: {
+            if (affinity_ == null) {
+              Affinity = new global::ServiceLayer.SLBgplsTopoSrAffinityConstraints();
+            }
+            input.ReadMessage(Affinity);
+            break;
+          }
+          case 50: {
+            if (srlg_ == null) {
+              Srlg = new global::ServiceLayer.SLBgplsTopoSrSrlgConstraints();
+            }
+            input.ReadMessage(Srlg);
+            break;
+          }
+          case 58: {
+            if (disjoint_ == null) {
+              Disjoint = new global::ServiceLayer.SLBgplsTopoSrDisjointGroupConstraint();
+            }
+            input.ReadMessage(Disjoint);
+            break;
+          }
+          case 66: {
+            if (bidirGroup_ == null) {
+              BidirGroup = new global::ServiceLayer.SLBgplsTopoSrBidirGroupConstraint();
+            }
+            input.ReadMessage(BidirGroup);
+            break;
+          }
+          case 74: {
+            metric_.AddEntriesFrom(input, _repeated_metric_codec);
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            Flags = input.ReadBytes();
+            break;
+          }
+          case 16: {
+            Mtid = input.ReadUInt32();
+            break;
+          }
+          case 24: {
+            Algorithm = input.ReadUInt32();
+            break;
+          }
+          case 34: {
+            if (bandwidth_ == null) {
+              Bandwidth = new global::ServiceLayer.SLBgplsTopoSrBandwidthConstraint();
+            }
+            input.ReadMessage(Bandwidth);
+            break;
+          }
+          case 42: {
+            if (affinity_ == null) {
+              Affinity = new global::ServiceLayer.SLBgplsTopoSrAffinityConstraints();
+            }
+            input.ReadMessage(Affinity);
+            break;
+          }
+          case 50: {
+            if (srlg_ == null) {
+              Srlg = new global::ServiceLayer.SLBgplsTopoSrSrlgConstraints();
+            }
+            input.ReadMessage(Srlg);
+            break;
+          }
+          case 58: {
+            if (disjoint_ == null) {
+              Disjoint = new global::ServiceLayer.SLBgplsTopoSrDisjointGroupConstraint();
+            }
+            input.ReadMessage(Disjoint);
+            break;
+          }
+          case 66: {
+            if (bidirGroup_ == null) {
+              BidirGroup = new global::ServiceLayer.SLBgplsTopoSrBidirGroupConstraint();
+            }
+            input.ReadMessage(BidirGroup);
+            break;
+          }
+          case 74: {
+            metric_.AddEntriesFrom(ref input, _repeated_metric_codec);
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  /// <summary>
+  /// SR Segment List. TLV 1205
+  /// Section 5.7 of [draft-ietf-idr-bgp-ls-sr-policy]
+  /// </summary>
+  public sealed partial class SLBgplsTopoSrSegList : pb::IMessage<SLBgplsTopoSrSegList>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<SLBgplsTopoSrSegList> _parser = new pb::MessageParser<SLBgplsTopoSrSegList>(() => new SLBgplsTopoSrSegList());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<SLBgplsTopoSrSegList> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[99]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SLBgplsTopoSrSegList() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SLBgplsTopoSrSegList(SLBgplsTopoSrSegList other) : this() {
+      flags_ = other.flags_;
+      mtid_ = other.mtid_;
+      algorithm_ = other.algorithm_;
+      weight_ = other.weight_;
+      segments_ = other.segments_.Clone();
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SLBgplsTopoSrSegList Clone() {
+      return new SLBgplsTopoSrSegList(this);
+    }
+
+    /// <summary>Field number for the "Flags" field.</summary>
+    public const int FlagsFieldNumber = 1;
+    private pb::ByteString flags_ = pb::ByteString.Empty;
+    /// <summary>
+    /// Bit-0: D-Flag: Indicates the SID-List is comprised of SRv6 SIDs when
+    /// set and indicates it is comprised of SR/MPLS labels when clear.
+    ///
+    /// Bit-1: E-Flag: Indicates that SID-List is associated with an explicit
+    /// candidate path when set and with a dynamic candidate path when
+    /// clear.  All segment lists of a given candidate path MUST be
+    /// either explicit or dynamic and in case of inconsistency, the
+    /// receiver MAY consider them all to be dynamic.
+    ///
+    /// Bit-2: C-Flag: Indicates that SID-List has been computed for a dynamic
+    /// path when set.  It is always reported as set for explicit
+    /// paths.
+    ///
+    /// Bit-3: V-Flag: Indicates the SID-List has passed verification or its
+    /// verification was not required when set and failed verification
+    /// when clear.
+    ///
+    /// Bit-4: R-Flag: Indicates that the first Segment has been resolved when
+    /// set and failed resolution when clear.
+    ///
+    /// Bit-5: F-Flag: Indicates that the computation for the dynamic path
+    /// failed when set and succeeded (or not required in case of
+    /// explicit path) when clear.
+    ///
+    /// Bit-6: A-Flag: Indicates that all the SIDs in the SID-List belong to
+    /// the specified algorithm when set.
+    ///
+    /// Bit-7: T-Flag: Indicates that all the SIDs in the SID-List belong to
+    /// the specified topology (identified by the multi-topology ID)
+    /// when set.
+    ///
+    /// Bit-8: M-Flag: Indicates that the SID-list has been removed from the
+    /// forwarding plane due to fault detection by a monitoring
+    /// mechanism (e.g.  BFD) when set and indicates no fault detected
+    /// or monitoring is not being done when clear.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pb::ByteString Flags {
+      get { return flags_; }
+      set {
+        flags_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "Mtid" field.</summary>
+    public const int MtidFieldNumber = 2;
+    private uint mtid_;
+    /// <summary>
+    /// The multi-topology identifier of the
+    /// IGP topology that is to be used when the Bit-7 is set.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint Mtid {
+      get { return mtid_; }
+      set {
+        mtid_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "Algorithm" field.</summary>
+    public const int AlgorithmFieldNumber = 3;
+    private uint algorithm_;
+    /// <summary>
+    /// Indicates the algorithm of the SIDs used
+    /// in the SID-List when the Bit-6 is set.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint Algorithm {
+      get { return algorithm_; }
+      set {
+        algorithm_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "Weight" field.</summary>
+    public const int WeightFieldNumber = 4;
+    private uint weight_;
+    /// <summary>
+    /// Indicates the weight associated with
+    /// the SID-List for weighted load-balancing.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint Weight {
+      get { return weight_; }
+      set {
+        weight_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "Segments" field.</summary>
+    public const int SegmentsFieldNumber = 5;
+    private static readonly pb::FieldCodec<global::ServiceLayer.SLBgplsTopoSrSegment> _repeated_segments_codec
+        = pb::FieldCodec.ForMessage(42, global::ServiceLayer.SLBgplsTopoSrSegment.Parser);
+    private readonly pbc::RepeatedField<global::ServiceLayer.SLBgplsTopoSrSegment> segments_ = new pbc::RepeatedField<global::ServiceLayer.SLBgplsTopoSrSegment>();
+    /// <summary>
+    /// SR Segment. TLV 1206
+    /// Section 5.8 of [draft-ietf-idr-bgp-ls-sr-policy]
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pbc::RepeatedField<global::ServiceLayer.SLBgplsTopoSrSegment> Segments {
+      get { return segments_; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as SLBgplsTopoSrSegList);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(SLBgplsTopoSrSegList other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (Flags != other.Flags) return false;
+      if (Mtid != other.Mtid) return false;
+      if (Algorithm != other.Algorithm) return false;
+      if (Weight != other.Weight) return false;
+      if(!segments_.Equals(other.segments_)) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (Flags.Length != 0) hash ^= Flags.GetHashCode();
+      if (Mtid != 0) hash ^= Mtid.GetHashCode();
+      if (Algorithm != 0) hash ^= Algorithm.GetHashCode();
+      if (Weight != 0) hash ^= Weight.GetHashCode();
+      hash ^= segments_.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (Flags.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteBytes(Flags);
+      }
+      if (Mtid != 0) {
+        output.WriteRawTag(16);
+        output.WriteUInt32(Mtid);
+      }
+      if (Algorithm != 0) {
+        output.WriteRawTag(24);
+        output.WriteUInt32(Algorithm);
+      }
+      if (Weight != 0) {
+        output.WriteRawTag(32);
+        output.WriteUInt32(Weight);
+      }
+      segments_.WriteTo(output, _repeated_segments_codec);
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (Flags.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteBytes(Flags);
+      }
+      if (Mtid != 0) {
+        output.WriteRawTag(16);
+        output.WriteUInt32(Mtid);
+      }
+      if (Algorithm != 0) {
+        output.WriteRawTag(24);
+        output.WriteUInt32(Algorithm);
+      }
+      if (Weight != 0) {
+        output.WriteRawTag(32);
+        output.WriteUInt32(Weight);
+      }
+      segments_.WriteTo(ref output, _repeated_segments_codec);
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (Flags.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeBytesSize(Flags);
+      }
+      if (Mtid != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Mtid);
+      }
+      if (Algorithm != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Algorithm);
+      }
+      if (Weight != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Weight);
+      }
+      size += segments_.CalculateSize(_repeated_segments_codec);
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(SLBgplsTopoSrSegList other) {
+      if (other == null) {
+        return;
+      }
+      if (other.Flags.Length != 0) {
+        Flags = other.Flags;
+      }
+      if (other.Mtid != 0) {
+        Mtid = other.Mtid;
+      }
+      if (other.Algorithm != 0) {
+        Algorithm = other.Algorithm;
+      }
+      if (other.Weight != 0) {
+        Weight = other.Weight;
+      }
+      segments_.Add(other.segments_);
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            Flags = input.ReadBytes();
+            break;
+          }
+          case 16: {
+            Mtid = input.ReadUInt32();
+            break;
+          }
+          case 24: {
+            Algorithm = input.ReadUInt32();
+            break;
+          }
+          case 32: {
+            Weight = input.ReadUInt32();
+            break;
+          }
+          case 42: {
+            segments_.AddEntriesFrom(input, _repeated_segments_codec);
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            Flags = input.ReadBytes();
+            break;
+          }
+          case 16: {
+            Mtid = input.ReadUInt32();
+            break;
+          }
+          case 24: {
+            Algorithm = input.ReadUInt32();
+            break;
+          }
+          case 32: {
+            Weight = input.ReadUInt32();
+            break;
+          }
+          case 42: {
+            segments_.AddEntriesFrom(ref input, _repeated_segments_codec);
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  /// <summary>
+  /// SR Segment Descriptors
+  /// </summary>
+  public sealed partial class SLBgplsTopoSrSegmentDesc : pb::IMessage<SLBgplsTopoSrSegmentDesc>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<SLBgplsTopoSrSegmentDesc> _parser = new pb::MessageParser<SLBgplsTopoSrSegmentDesc>(() => new SLBgplsTopoSrSegmentDesc());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<SLBgplsTopoSrSegmentDesc> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[100]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SLBgplsTopoSrSegmentDesc() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SLBgplsTopoSrSegmentDesc(SLBgplsTopoSrSegmentDesc other) : this() {
+      algorithm_ = other.algorithm_;
+      ipv6LocalNodeGlobalAddr_ = other.ipv6LocalNodeGlobalAddr_;
+      ipv6RemoteNodeGlobalAddr_ = other.ipv6RemoteNodeGlobalAddr_;
+      localNodeIntfId_ = other.localNodeIntfId_;
+      remoteNodeIntfId_ = other.remoteNodeIntfId_;
+      switch (other.LocalNodeAddrCase) {
+        case LocalNodeAddrOneofCase.Ipv4LocAddr:
+          Ipv4LocAddr = other.Ipv4LocAddr;
+          break;
+        case LocalNodeAddrOneofCase.Ipv6LocAddr:
+          Ipv6LocAddr = other.Ipv6LocAddr;
+          break;
+      }
+
+      switch (other.RemoteNodeAddrCase) {
+        case RemoteNodeAddrOneofCase.Ipv4RemAddr:
+          Ipv4RemAddr = other.Ipv4RemAddr;
+          break;
+        case RemoteNodeAddrOneofCase.Ipv6RemAddr:
+          Ipv6RemAddr = other.Ipv6RemAddr;
+          break;
+      }
+
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SLBgplsTopoSrSegmentDesc Clone() {
+      return new SLBgplsTopoSrSegmentDesc(this);
+    }
+
+    /// <summary>Field number for the "Algorithm" field.</summary>
+    public const int AlgorithmFieldNumber = 1;
+    private uint algorithm_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint Algorithm {
+      get { return algorithm_; }
+      set {
+        algorithm_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "Ipv4LocAddr" field.</summary>
+    public const int Ipv4LocAddrFieldNumber = 2;
+    /// <summary>
+    /// This field carries info about an IPv4 local node address.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pb::ByteString Ipv4LocAddr {
+      get { return localNodeAddrCase_ == LocalNodeAddrOneofCase.Ipv4LocAddr ? (pb::ByteString) localNodeAddr_ : pb::ByteString.Empty; }
+      set {
+        localNodeAddr_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        localNodeAddrCase_ = LocalNodeAddrOneofCase.Ipv4LocAddr;
+      }
+    }
+
+    /// <summary>Field number for the "Ipv6LocAddr" field.</summary>
+    public const int Ipv6LocAddrFieldNumber = 3;
+    /// <summary>
+    /// This field carries info about an IPv6 local node address.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pb::ByteString Ipv6LocAddr {
+      get { return localNodeAddrCase_ == LocalNodeAddrOneofCase.Ipv6LocAddr ? (pb::ByteString) localNodeAddr_ : pb::ByteString.Empty; }
+      set {
+        localNodeAddr_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        localNodeAddrCase_ = LocalNodeAddrOneofCase.Ipv6LocAddr;
+      }
+    }
+
+    /// <summary>Field number for the "Ipv4RemAddr" field.</summary>
+    public const int Ipv4RemAddrFieldNumber = 4;
+    /// <summary>
+    /// This field carries info about an IPv4 remote node address.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pb::ByteString Ipv4RemAddr {
+      get { return remoteNodeAddrCase_ == RemoteNodeAddrOneofCase.Ipv4RemAddr ? (pb::ByteString) remoteNodeAddr_ : pb::ByteString.Empty; }
+      set {
+        remoteNodeAddr_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        remoteNodeAddrCase_ = RemoteNodeAddrOneofCase.Ipv4RemAddr;
+      }
+    }
+
+    /// <summary>Field number for the "Ipv6RemAddr" field.</summary>
+    public const int Ipv6RemAddrFieldNumber = 5;
+    /// <summary>
+    /// This field carries info about an IPv6 remote node address.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pb::ByteString Ipv6RemAddr {
+      get { return remoteNodeAddrCase_ == RemoteNodeAddrOneofCase.Ipv6RemAddr ? (pb::ByteString) remoteNodeAddr_ : pb::ByteString.Empty; }
+      set {
+        remoteNodeAddr_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        remoteNodeAddrCase_ = RemoteNodeAddrOneofCase.Ipv6RemAddr;
+      }
+    }
+
+    /// <summary>Field number for the "Ipv6LocalNodeGlobalAddr" field.</summary>
+    public const int Ipv6LocalNodeGlobalAddrFieldNumber = 6;
+    private pb::ByteString ipv6LocalNodeGlobalAddr_ = pb::ByteString.Empty;
+    /// <summary>
+    /// Carries info about IPv6 local node global address.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pb::ByteString Ipv6LocalNodeGlobalAddr {
+      get { return ipv6LocalNodeGlobalAddr_; }
+      set {
+        ipv6LocalNodeGlobalAddr_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "Ipv6RemoteNodeGlobalAddr" field.</summary>
+    public const int Ipv6RemoteNodeGlobalAddrFieldNumber = 7;
+    private pb::ByteString ipv6RemoteNodeGlobalAddr_ = pb::ByteString.Empty;
+    /// <summary>
+    /// Carries info about IPv6 remote node global address.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pb::ByteString Ipv6RemoteNodeGlobalAddr {
+      get { return ipv6RemoteNodeGlobalAddr_; }
+      set {
+        ipv6RemoteNodeGlobalAddr_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "LocalNodeIntfId" field.</summary>
+    public const int LocalNodeIntfIdFieldNumber = 8;
+    private uint localNodeIntfId_;
+    /// <summary>
+    /// Carries the interface ID of the local node identified by the local node
+    /// address.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint LocalNodeIntfId {
+      get { return localNodeIntfId_; }
+      set {
+        localNodeIntfId_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "RemoteNodeIntfId" field.</summary>
+    public const int RemoteNodeIntfIdFieldNumber = 9;
+    private uint remoteNodeIntfId_;
+    /// <summary>
+    /// Carries the interface ID of the remote node identified by the remote
+    /// node address.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint RemoteNodeIntfId {
+      get { return remoteNodeIntfId_; }
+      set {
+        remoteNodeIntfId_ = value;
+      }
+    }
+
+    private object localNodeAddr_;
+    /// <summary>Enum of possible cases for the "LocalNodeAddr" oneof.</summary>
+    public enum LocalNodeAddrOneofCase {
+      None = 0,
+      Ipv4LocAddr = 2,
+      Ipv6LocAddr = 3,
+    }
+    private LocalNodeAddrOneofCase localNodeAddrCase_ = LocalNodeAddrOneofCase.None;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public LocalNodeAddrOneofCase LocalNodeAddrCase {
+      get { return localNodeAddrCase_; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearLocalNodeAddr() {
+      localNodeAddrCase_ = LocalNodeAddrOneofCase.None;
+      localNodeAddr_ = null;
+    }
+
+    private object remoteNodeAddr_;
+    /// <summary>Enum of possible cases for the "RemoteNodeAddr" oneof.</summary>
+    public enum RemoteNodeAddrOneofCase {
+      None = 0,
+      Ipv4RemAddr = 4,
+      Ipv6RemAddr = 5,
+    }
+    private RemoteNodeAddrOneofCase remoteNodeAddrCase_ = RemoteNodeAddrOneofCase.None;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public RemoteNodeAddrOneofCase RemoteNodeAddrCase {
+      get { return remoteNodeAddrCase_; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearRemoteNodeAddr() {
+      remoteNodeAddrCase_ = RemoteNodeAddrOneofCase.None;
+      remoteNodeAddr_ = null;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as SLBgplsTopoSrSegmentDesc);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(SLBgplsTopoSrSegmentDesc other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (Algorithm != other.Algorithm) return false;
+      if (Ipv4LocAddr != other.Ipv4LocAddr) return false;
+      if (Ipv6LocAddr != other.Ipv6LocAddr) return false;
+      if (Ipv4RemAddr != other.Ipv4RemAddr) return false;
+      if (Ipv6RemAddr != other.Ipv6RemAddr) return false;
+      if (Ipv6LocalNodeGlobalAddr != other.Ipv6LocalNodeGlobalAddr) return false;
+      if (Ipv6RemoteNodeGlobalAddr != other.Ipv6RemoteNodeGlobalAddr) return false;
+      if (LocalNodeIntfId != other.LocalNodeIntfId) return false;
+      if (RemoteNodeIntfId != other.RemoteNodeIntfId) return false;
+      if (LocalNodeAddrCase != other.LocalNodeAddrCase) return false;
+      if (RemoteNodeAddrCase != other.RemoteNodeAddrCase) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (Algorithm != 0) hash ^= Algorithm.GetHashCode();
+      if (localNodeAddrCase_ == LocalNodeAddrOneofCase.Ipv4LocAddr) hash ^= Ipv4LocAddr.GetHashCode();
+      if (localNodeAddrCase_ == LocalNodeAddrOneofCase.Ipv6LocAddr) hash ^= Ipv6LocAddr.GetHashCode();
+      if (remoteNodeAddrCase_ == RemoteNodeAddrOneofCase.Ipv4RemAddr) hash ^= Ipv4RemAddr.GetHashCode();
+      if (remoteNodeAddrCase_ == RemoteNodeAddrOneofCase.Ipv6RemAddr) hash ^= Ipv6RemAddr.GetHashCode();
+      if (Ipv6LocalNodeGlobalAddr.Length != 0) hash ^= Ipv6LocalNodeGlobalAddr.GetHashCode();
+      if (Ipv6RemoteNodeGlobalAddr.Length != 0) hash ^= Ipv6RemoteNodeGlobalAddr.GetHashCode();
+      if (LocalNodeIntfId != 0) hash ^= LocalNodeIntfId.GetHashCode();
+      if (RemoteNodeIntfId != 0) hash ^= RemoteNodeIntfId.GetHashCode();
+      hash ^= (int) localNodeAddrCase_;
+      hash ^= (int) remoteNodeAddrCase_;
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (Algorithm != 0) {
+        output.WriteRawTag(8);
+        output.WriteUInt32(Algorithm);
+      }
+      if (localNodeAddrCase_ == LocalNodeAddrOneofCase.Ipv4LocAddr) {
+        output.WriteRawTag(18);
+        output.WriteBytes(Ipv4LocAddr);
+      }
+      if (localNodeAddrCase_ == LocalNodeAddrOneofCase.Ipv6LocAddr) {
+        output.WriteRawTag(26);
+        output.WriteBytes(Ipv6LocAddr);
+      }
+      if (remoteNodeAddrCase_ == RemoteNodeAddrOneofCase.Ipv4RemAddr) {
+        output.WriteRawTag(34);
+        output.WriteBytes(Ipv4RemAddr);
+      }
+      if (remoteNodeAddrCase_ == RemoteNodeAddrOneofCase.Ipv6RemAddr) {
+        output.WriteRawTag(42);
+        output.WriteBytes(Ipv6RemAddr);
+      }
+      if (Ipv6LocalNodeGlobalAddr.Length != 0) {
+        output.WriteRawTag(50);
+        output.WriteBytes(Ipv6LocalNodeGlobalAddr);
+      }
+      if (Ipv6RemoteNodeGlobalAddr.Length != 0) {
+        output.WriteRawTag(58);
+        output.WriteBytes(Ipv6RemoteNodeGlobalAddr);
+      }
+      if (LocalNodeIntfId != 0) {
+        output.WriteRawTag(64);
+        output.WriteUInt32(LocalNodeIntfId);
+      }
+      if (RemoteNodeIntfId != 0) {
+        output.WriteRawTag(72);
+        output.WriteUInt32(RemoteNodeIntfId);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (Algorithm != 0) {
+        output.WriteRawTag(8);
+        output.WriteUInt32(Algorithm);
+      }
+      if (localNodeAddrCase_ == LocalNodeAddrOneofCase.Ipv4LocAddr) {
+        output.WriteRawTag(18);
+        output.WriteBytes(Ipv4LocAddr);
+      }
+      if (localNodeAddrCase_ == LocalNodeAddrOneofCase.Ipv6LocAddr) {
+        output.WriteRawTag(26);
+        output.WriteBytes(Ipv6LocAddr);
+      }
+      if (remoteNodeAddrCase_ == RemoteNodeAddrOneofCase.Ipv4RemAddr) {
+        output.WriteRawTag(34);
+        output.WriteBytes(Ipv4RemAddr);
+      }
+      if (remoteNodeAddrCase_ == RemoteNodeAddrOneofCase.Ipv6RemAddr) {
+        output.WriteRawTag(42);
+        output.WriteBytes(Ipv6RemAddr);
+      }
+      if (Ipv6LocalNodeGlobalAddr.Length != 0) {
+        output.WriteRawTag(50);
+        output.WriteBytes(Ipv6LocalNodeGlobalAddr);
+      }
+      if (Ipv6RemoteNodeGlobalAddr.Length != 0) {
+        output.WriteRawTag(58);
+        output.WriteBytes(Ipv6RemoteNodeGlobalAddr);
+      }
+      if (LocalNodeIntfId != 0) {
+        output.WriteRawTag(64);
+        output.WriteUInt32(LocalNodeIntfId);
+      }
+      if (RemoteNodeIntfId != 0) {
+        output.WriteRawTag(72);
+        output.WriteUInt32(RemoteNodeIntfId);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (Algorithm != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Algorithm);
+      }
+      if (localNodeAddrCase_ == LocalNodeAddrOneofCase.Ipv4LocAddr) {
+        size += 1 + pb::CodedOutputStream.ComputeBytesSize(Ipv4LocAddr);
+      }
+      if (localNodeAddrCase_ == LocalNodeAddrOneofCase.Ipv6LocAddr) {
+        size += 1 + pb::CodedOutputStream.ComputeBytesSize(Ipv6LocAddr);
+      }
+      if (remoteNodeAddrCase_ == RemoteNodeAddrOneofCase.Ipv4RemAddr) {
+        size += 1 + pb::CodedOutputStream.ComputeBytesSize(Ipv4RemAddr);
+      }
+      if (remoteNodeAddrCase_ == RemoteNodeAddrOneofCase.Ipv6RemAddr) {
+        size += 1 + pb::CodedOutputStream.ComputeBytesSize(Ipv6RemAddr);
+      }
+      if (Ipv6LocalNodeGlobalAddr.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeBytesSize(Ipv6LocalNodeGlobalAddr);
+      }
+      if (Ipv6RemoteNodeGlobalAddr.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeBytesSize(Ipv6RemoteNodeGlobalAddr);
+      }
+      if (LocalNodeIntfId != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(LocalNodeIntfId);
+      }
+      if (RemoteNodeIntfId != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(RemoteNodeIntfId);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(SLBgplsTopoSrSegmentDesc other) {
+      if (other == null) {
+        return;
+      }
+      if (other.Algorithm != 0) {
+        Algorithm = other.Algorithm;
+      }
+      if (other.Ipv6LocalNodeGlobalAddr.Length != 0) {
+        Ipv6LocalNodeGlobalAddr = other.Ipv6LocalNodeGlobalAddr;
+      }
+      if (other.Ipv6RemoteNodeGlobalAddr.Length != 0) {
+        Ipv6RemoteNodeGlobalAddr = other.Ipv6RemoteNodeGlobalAddr;
+      }
+      if (other.LocalNodeIntfId != 0) {
+        LocalNodeIntfId = other.LocalNodeIntfId;
+      }
+      if (other.RemoteNodeIntfId != 0) {
+        RemoteNodeIntfId = other.RemoteNodeIntfId;
+      }
+      switch (other.LocalNodeAddrCase) {
+        case LocalNodeAddrOneofCase.Ipv4LocAddr:
+          Ipv4LocAddr = other.Ipv4LocAddr;
+          break;
+        case LocalNodeAddrOneofCase.Ipv6LocAddr:
+          Ipv6LocAddr = other.Ipv6LocAddr;
+          break;
+      }
+
+      switch (other.RemoteNodeAddrCase) {
+        case RemoteNodeAddrOneofCase.Ipv4RemAddr:
+          Ipv4RemAddr = other.Ipv4RemAddr;
+          break;
+        case RemoteNodeAddrOneofCase.Ipv6RemAddr:
+          Ipv6RemAddr = other.Ipv6RemAddr;
+          break;
+      }
+
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            Algorithm = input.ReadUInt32();
+            break;
+          }
+          case 18: {
+            Ipv4LocAddr = input.ReadBytes();
+            break;
+          }
+          case 26: {
+            Ipv6LocAddr = input.ReadBytes();
+            break;
+          }
+          case 34: {
+            Ipv4RemAddr = input.ReadBytes();
+            break;
+          }
+          case 42: {
+            Ipv6RemAddr = input.ReadBytes();
+            break;
+          }
+          case 50: {
+            Ipv6LocalNodeGlobalAddr = input.ReadBytes();
+            break;
+          }
+          case 58: {
+            Ipv6RemoteNodeGlobalAddr = input.ReadBytes();
+            break;
+          }
+          case 64: {
+            LocalNodeIntfId = input.ReadUInt32();
+            break;
+          }
+          case 72: {
+            RemoteNodeIntfId = input.ReadUInt32();
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 8: {
+            Algorithm = input.ReadUInt32();
+            break;
+          }
+          case 18: {
+            Ipv4LocAddr = input.ReadBytes();
+            break;
+          }
+          case 26: {
+            Ipv6LocAddr = input.ReadBytes();
+            break;
+          }
+          case 34: {
+            Ipv4RemAddr = input.ReadBytes();
+            break;
+          }
+          case 42: {
+            Ipv6RemAddr = input.ReadBytes();
+            break;
+          }
+          case 50: {
+            Ipv6LocalNodeGlobalAddr = input.ReadBytes();
+            break;
+          }
+          case 58: {
+            Ipv6RemoteNodeGlobalAddr = input.ReadBytes();
+            break;
+          }
+          case 64: {
+            LocalNodeIntfId = input.ReadUInt32();
+            break;
+          }
+          case 72: {
+            RemoteNodeIntfId = input.ReadUInt32();
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  /// <summary>
+  /// SR Segment. TLV 1206
+  /// Section 5.8 of [draft-ietf-idr-bgp-ls-sr-policy]
+  /// </summary>
+  public sealed partial class SLBgplsTopoSrSegment : pb::IMessage<SLBgplsTopoSrSegment>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<SLBgplsTopoSrSegment> _parser = new pb::MessageParser<SLBgplsTopoSrSegment>(() => new SLBgplsTopoSrSegment());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<SLBgplsTopoSrSegment> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[101]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SLBgplsTopoSrSegment() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SLBgplsTopoSrSegment(SLBgplsTopoSrSegment other) : this() {
+      type_ = other.type_;
+      flags_ = other.flags_;
+      segmentDesc_ = other.segmentDesc_ != null ? other.segmentDesc_.Clone() : null;
+      endPointBehaviour_ = other.endPointBehaviour_ != null ? other.endPointBehaviour_.Clone() : null;
+      sidStruct_ = other.sidStruct_ != null ? other.sidStruct_.Clone() : null;
+      switch (other.SidCase) {
+        case SidOneofCase.MplsLabel:
+          MplsLabel = other.MplsLabel;
+          break;
+        case SidOneofCase.Srv6Sid:
+          Srv6Sid = other.Srv6Sid;
+          break;
+      }
+
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SLBgplsTopoSrSegment Clone() {
+      return new SLBgplsTopoSrSegment(this);
+    }
+
+    /// <summary>Field number for the "Type" field.</summary>
+    public const int TypeFieldNumber = 1;
+    private global::ServiceLayer.SLBgplsTopoSrSegmentType type_ = global::ServiceLayer.SLBgplsTopoSrSegmentType.SlBgplsTopoSrSegTypeReserved;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::ServiceLayer.SLBgplsTopoSrSegmentType Type {
+      get { return type_; }
+      set {
+        type_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "Flags" field.</summary>
+    public const int FlagsFieldNumber = 2;
+    private pb::ByteString flags_ = pb::ByteString.Empty;
+    /// <summary>
+    /// Bit-0: S-Flag: Indicates the presence of SID value in the SID field
+    /// when set and that no value is indicated when clear.
+    ///
+    /// Bit-1: E-Flag: Indicates the SID value is explicitly provisioned value
+    /// (locally on headend or via controller/PCE) when set and is a
+    /// dynamically resolved value by headend when clear.
+    ///
+    /// Bit-2: V-Flag: Indicates the SID has passed verification or did not
+    /// require verification when set and failed verification when
+    /// clear.
+    ///
+    /// Bit-3: R-Flag: Indicates the SID has been resolved or did not require
+    /// resolution (e.g. because it is not the first SID) when set and
+    /// failed resolution when clear.
+    ///
+    /// Bit-4: A-Flag: Indicates that the Algorithm indicated in the Segment
+    /// descriptor is valid when set.  When clear, it indicates that
+    /// the headend is unable to determine the algorithm of the SID.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pb::ByteString Flags {
+      get { return flags_; }
+      set {
+        flags_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "MplsLabel" field.</summary>
+    public const int MplsLabelFieldNumber = 3;
+    /// <summary>
+    /// This field carries info about an MPLS SID.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint MplsLabel {
+      get { return sidCase_ == SidOneofCase.MplsLabel ? (uint) sid_ : 0; }
+      set {
+        sid_ = value;
+        sidCase_ = SidOneofCase.MplsLabel;
+      }
+    }
+
+    /// <summary>Field number for the "Srv6Sid" field.</summary>
+    public const int Srv6SidFieldNumber = 4;
+    /// <summary>
+    /// This field carries info about an SRv6 SID.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pb::ByteString Srv6Sid {
+      get { return sidCase_ == SidOneofCase.Srv6Sid ? (pb::ByteString) sid_ : pb::ByteString.Empty; }
+      set {
+        sid_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        sidCase_ = SidOneofCase.Srv6Sid;
+      }
+    }
+
+    /// <summary>Field number for the "SegmentDesc" field.</summary>
+    public const int SegmentDescFieldNumber = 5;
+    private global::ServiceLayer.SLBgplsTopoSrSegmentDesc segmentDesc_;
+    /// <summary>
+    /// Variable size Segment descriptor based on the type of segment
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::ServiceLayer.SLBgplsTopoSrSegmentDesc SegmentDesc {
+      get { return segmentDesc_; }
+      set {
+        segmentDesc_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "EndPointBehaviour" field.</summary>
+    public const int EndPointBehaviourFieldNumber = 6;
+    private global::ServiceLayer.SLBgplsTopoSrv6EndPointBehavior endPointBehaviour_;
+    /// <summary>
+    /// SRv6 End Point Behavior. TLV 1250
+    /// Section 7.1 of [RFC9514]
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::ServiceLayer.SLBgplsTopoSrv6EndPointBehavior EndPointBehaviour {
+      get { return endPointBehaviour_; }
+      set {
+        endPointBehaviour_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "SidStruct" field.</summary>
+    public const int SidStructFieldNumber = 7;
+    private global::ServiceLayer.SLBgplsTopoSrv6SidStruct sidStruct_;
+    /// <summary>
+    /// SRv6 SID Structure Attribute. TLV 1252
+    /// Section 8 of [RFC9514]
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::ServiceLayer.SLBgplsTopoSrv6SidStruct SidStruct {
+      get { return sidStruct_; }
+      set {
+        sidStruct_ = value;
+      }
+    }
+
+    private object sid_;
+    /// <summary>Enum of possible cases for the "Sid" oneof.</summary>
+    public enum SidOneofCase {
+      None = 0,
+      MplsLabel = 3,
+      Srv6Sid = 4,
+    }
+    private SidOneofCase sidCase_ = SidOneofCase.None;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SidOneofCase SidCase {
+      get { return sidCase_; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearSid() {
+      sidCase_ = SidOneofCase.None;
+      sid_ = null;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as SLBgplsTopoSrSegment);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(SLBgplsTopoSrSegment other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (Type != other.Type) return false;
+      if (Flags != other.Flags) return false;
+      if (MplsLabel != other.MplsLabel) return false;
+      if (Srv6Sid != other.Srv6Sid) return false;
+      if (!object.Equals(SegmentDesc, other.SegmentDesc)) return false;
+      if (!object.Equals(EndPointBehaviour, other.EndPointBehaviour)) return false;
+      if (!object.Equals(SidStruct, other.SidStruct)) return false;
+      if (SidCase != other.SidCase) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (Type != global::ServiceLayer.SLBgplsTopoSrSegmentType.SlBgplsTopoSrSegTypeReserved) hash ^= Type.GetHashCode();
+      if (Flags.Length != 0) hash ^= Flags.GetHashCode();
+      if (sidCase_ == SidOneofCase.MplsLabel) hash ^= MplsLabel.GetHashCode();
+      if (sidCase_ == SidOneofCase.Srv6Sid) hash ^= Srv6Sid.GetHashCode();
+      if (segmentDesc_ != null) hash ^= SegmentDesc.GetHashCode();
+      if (endPointBehaviour_ != null) hash ^= EndPointBehaviour.GetHashCode();
+      if (sidStruct_ != null) hash ^= SidStruct.GetHashCode();
+      hash ^= (int) sidCase_;
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (Type != global::ServiceLayer.SLBgplsTopoSrSegmentType.SlBgplsTopoSrSegTypeReserved) {
+        output.WriteRawTag(8);
+        output.WriteEnum((int) Type);
+      }
+      if (Flags.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteBytes(Flags);
+      }
+      if (sidCase_ == SidOneofCase.MplsLabel) {
+        output.WriteRawTag(24);
+        output.WriteUInt32(MplsLabel);
+      }
+      if (sidCase_ == SidOneofCase.Srv6Sid) {
+        output.WriteRawTag(34);
+        output.WriteBytes(Srv6Sid);
+      }
+      if (segmentDesc_ != null) {
+        output.WriteRawTag(42);
+        output.WriteMessage(SegmentDesc);
+      }
+      if (endPointBehaviour_ != null) {
+        output.WriteRawTag(50);
+        output.WriteMessage(EndPointBehaviour);
+      }
+      if (sidStruct_ != null) {
+        output.WriteRawTag(58);
+        output.WriteMessage(SidStruct);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (Type != global::ServiceLayer.SLBgplsTopoSrSegmentType.SlBgplsTopoSrSegTypeReserved) {
+        output.WriteRawTag(8);
+        output.WriteEnum((int) Type);
+      }
+      if (Flags.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteBytes(Flags);
+      }
+      if (sidCase_ == SidOneofCase.MplsLabel) {
+        output.WriteRawTag(24);
+        output.WriteUInt32(MplsLabel);
+      }
+      if (sidCase_ == SidOneofCase.Srv6Sid) {
+        output.WriteRawTag(34);
+        output.WriteBytes(Srv6Sid);
+      }
+      if (segmentDesc_ != null) {
+        output.WriteRawTag(42);
+        output.WriteMessage(SegmentDesc);
+      }
+      if (endPointBehaviour_ != null) {
+        output.WriteRawTag(50);
+        output.WriteMessage(EndPointBehaviour);
+      }
+      if (sidStruct_ != null) {
+        output.WriteRawTag(58);
+        output.WriteMessage(SidStruct);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (Type != global::ServiceLayer.SLBgplsTopoSrSegmentType.SlBgplsTopoSrSegTypeReserved) {
+        size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Type);
+      }
+      if (Flags.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeBytesSize(Flags);
+      }
+      if (sidCase_ == SidOneofCase.MplsLabel) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(MplsLabel);
+      }
+      if (sidCase_ == SidOneofCase.Srv6Sid) {
+        size += 1 + pb::CodedOutputStream.ComputeBytesSize(Srv6Sid);
+      }
+      if (segmentDesc_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(SegmentDesc);
+      }
+      if (endPointBehaviour_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(EndPointBehaviour);
+      }
+      if (sidStruct_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(SidStruct);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(SLBgplsTopoSrSegment other) {
+      if (other == null) {
+        return;
+      }
+      if (other.Type != global::ServiceLayer.SLBgplsTopoSrSegmentType.SlBgplsTopoSrSegTypeReserved) {
+        Type = other.Type;
+      }
+      if (other.Flags.Length != 0) {
+        Flags = other.Flags;
+      }
+      if (other.segmentDesc_ != null) {
+        if (segmentDesc_ == null) {
+          SegmentDesc = new global::ServiceLayer.SLBgplsTopoSrSegmentDesc();
+        }
+        SegmentDesc.MergeFrom(other.SegmentDesc);
+      }
+      if (other.endPointBehaviour_ != null) {
+        if (endPointBehaviour_ == null) {
+          EndPointBehaviour = new global::ServiceLayer.SLBgplsTopoSrv6EndPointBehavior();
+        }
+        EndPointBehaviour.MergeFrom(other.EndPointBehaviour);
+      }
+      if (other.sidStruct_ != null) {
+        if (sidStruct_ == null) {
+          SidStruct = new global::ServiceLayer.SLBgplsTopoSrv6SidStruct();
+        }
+        SidStruct.MergeFrom(other.SidStruct);
+      }
+      switch (other.SidCase) {
+        case SidOneofCase.MplsLabel:
+          MplsLabel = other.MplsLabel;
+          break;
+        case SidOneofCase.Srv6Sid:
+          Srv6Sid = other.Srv6Sid;
+          break;
+      }
+
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            Type = (global::ServiceLayer.SLBgplsTopoSrSegmentType) input.ReadEnum();
+            break;
+          }
+          case 18: {
+            Flags = input.ReadBytes();
+            break;
+          }
+          case 24: {
+            MplsLabel = input.ReadUInt32();
+            break;
+          }
+          case 34: {
+            Srv6Sid = input.ReadBytes();
+            break;
+          }
+          case 42: {
+            if (segmentDesc_ == null) {
+              SegmentDesc = new global::ServiceLayer.SLBgplsTopoSrSegmentDesc();
+            }
+            input.ReadMessage(SegmentDesc);
+            break;
+          }
+          case 50: {
+            if (endPointBehaviour_ == null) {
+              EndPointBehaviour = new global::ServiceLayer.SLBgplsTopoSrv6EndPointBehavior();
+            }
+            input.ReadMessage(EndPointBehaviour);
+            break;
+          }
+          case 58: {
+            if (sidStruct_ == null) {
+              SidStruct = new global::ServiceLayer.SLBgplsTopoSrv6SidStruct();
+            }
+            input.ReadMessage(SidStruct);
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 8: {
+            Type = (global::ServiceLayer.SLBgplsTopoSrSegmentType) input.ReadEnum();
+            break;
+          }
+          case 18: {
+            Flags = input.ReadBytes();
+            break;
+          }
+          case 24: {
+            MplsLabel = input.ReadUInt32();
+            break;
+          }
+          case 34: {
+            Srv6Sid = input.ReadBytes();
+            break;
+          }
+          case 42: {
+            if (segmentDesc_ == null) {
+              SegmentDesc = new global::ServiceLayer.SLBgplsTopoSrSegmentDesc();
+            }
+            input.ReadMessage(SegmentDesc);
+            break;
+          }
+          case 50: {
+            if (endPointBehaviour_ == null) {
+              EndPointBehaviour = new global::ServiceLayer.SLBgplsTopoSrv6EndPointBehavior();
+            }
+            input.ReadMessage(EndPointBehaviour);
+            break;
+          }
+          case 58: {
+            if (sidStruct_ == null) {
+              SidStruct = new global::ServiceLayer.SLBgplsTopoSrv6SidStruct();
+            }
+            input.ReadMessage(SidStruct);
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  /// <summary>
+  /// SR Segment List Metric. TLV 1207
+  /// Section 5.9 of [draft-ietf-idr-bgp-ls-sr-policy]
+  /// </summary>
+  public sealed partial class SLBgplsSrSegListMetric : pb::IMessage<SLBgplsSrSegListMetric>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<SLBgplsSrSegListMetric> _parser = new pb::MessageParser<SLBgplsSrSegListMetric>(() => new SLBgplsSrSegListMetric());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<SLBgplsSrSegListMetric> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[102]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SLBgplsSrSegListMetric() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SLBgplsSrSegListMetric(SLBgplsSrSegListMetric other) : this() {
+      type_ = other.type_;
+      flags_ = other.flags_;
+      margin_ = other.margin_;
+      bound_ = other.bound_;
+      value_ = other.value_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SLBgplsSrSegListMetric Clone() {
+      return new SLBgplsSrSegListMetric(this);
+    }
+
+    /// <summary>Field number for the "Type" field.</summary>
+    public const int TypeFieldNumber = 1;
+    private uint type_;
+    /// <summary>
+    /// Identifies the type of metric.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint Type {
+      get { return type_; }
+      set {
+        type_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "Flags" field.</summary>
+    public const int FlagsFieldNumber = 2;
+    private pb::ByteString flags_ = pb::ByteString.Empty;
+    /// <summary>
+    /// Bit-0: M-Flag: The metric margin allowed for this path
+    /// computation is specified when set.
+    ///
+    /// Bit-1: A-Flag: The metric margin is specified as an
+    /// absolute value when set and is expressed as a percentage of the
+    /// minimum metric when clear.
+    ///
+    /// Bit-2: B-Flag: The metric bound allowed for the path is specified when set.
+    ///
+    /// Bit-3: V-Flag: The metric value computed is being reported when set.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pb::ByteString Flags {
+      get { return flags_; }
+      set {
+        flags_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "Margin" field.</summary>
+    public const int MarginFieldNumber = 3;
+    private uint margin_;
+    /// <summary>
+    /// Indicates the metric margin value when the Bit-0 is set.
+    /// The metric margin is specified as either an absolute value or as a
+    /// percentage of the minimum computed path metric based on the Bit-1.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint Margin {
+      get { return margin_; }
+      set {
+        margin_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "Bound" field.</summary>
+    public const int BoundFieldNumber = 4;
+    private uint bound_;
+    /// <summary>
+    /// Indicates the maximum metric value that is allowed when the Bit-2
+    /// is set.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint Bound {
+      get { return bound_; }
+      set {
+        bound_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "Value" field.</summary>
+    public const int ValueFieldNumber = 5;
+    private uint value_;
+    /// <summary>
+    /// Indicates the metric of the computed path when the Bit-3 is set.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint Value {
+      get { return value_; }
+      set {
+        value_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as SLBgplsSrSegListMetric);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(SLBgplsSrSegListMetric other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (Type != other.Type) return false;
+      if (Flags != other.Flags) return false;
+      if (Margin != other.Margin) return false;
+      if (Bound != other.Bound) return false;
+      if (Value != other.Value) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (Type != 0) hash ^= Type.GetHashCode();
+      if (Flags.Length != 0) hash ^= Flags.GetHashCode();
+      if (Margin != 0) hash ^= Margin.GetHashCode();
+      if (Bound != 0) hash ^= Bound.GetHashCode();
+      if (Value != 0) hash ^= Value.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (Type != 0) {
+        output.WriteRawTag(8);
+        output.WriteUInt32(Type);
+      }
+      if (Flags.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteBytes(Flags);
+      }
+      if (Margin != 0) {
+        output.WriteRawTag(24);
+        output.WriteUInt32(Margin);
+      }
+      if (Bound != 0) {
+        output.WriteRawTag(32);
+        output.WriteUInt32(Bound);
+      }
+      if (Value != 0) {
+        output.WriteRawTag(40);
+        output.WriteUInt32(Value);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (Type != 0) {
+        output.WriteRawTag(8);
+        output.WriteUInt32(Type);
+      }
+      if (Flags.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteBytes(Flags);
+      }
+      if (Margin != 0) {
+        output.WriteRawTag(24);
+        output.WriteUInt32(Margin);
+      }
+      if (Bound != 0) {
+        output.WriteRawTag(32);
+        output.WriteUInt32(Bound);
+      }
+      if (Value != 0) {
+        output.WriteRawTag(40);
+        output.WriteUInt32(Value);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (Type != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Type);
+      }
+      if (Flags.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeBytesSize(Flags);
+      }
+      if (Margin != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Margin);
+      }
+      if (Bound != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Bound);
+      }
+      if (Value != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Value);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(SLBgplsSrSegListMetric other) {
+      if (other == null) {
+        return;
+      }
+      if (other.Type != 0) {
+        Type = other.Type;
+      }
+      if (other.Flags.Length != 0) {
+        Flags = other.Flags;
+      }
+      if (other.Margin != 0) {
+        Margin = other.Margin;
+      }
+      if (other.Bound != 0) {
+        Bound = other.Bound;
+      }
+      if (other.Value != 0) {
+        Value = other.Value;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            Type = input.ReadUInt32();
+            break;
+          }
+          case 18: {
+            Flags = input.ReadBytes();
+            break;
+          }
+          case 24: {
+            Margin = input.ReadUInt32();
+            break;
+          }
+          case 32: {
+            Bound = input.ReadUInt32();
+            break;
+          }
+          case 40: {
+            Value = input.ReadUInt32();
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 8: {
+            Type = input.ReadUInt32();
+            break;
+          }
+          case 18: {
+            Flags = input.ReadBytes();
+            break;
+          }
+          case 24: {
+            Margin = input.ReadUInt32();
+            break;
+          }
+          case 32: {
+            Bound = input.ReadUInt32();
+            break;
+          }
+          case 40: {
+            Value = input.ReadUInt32();
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  /// <summary>
+  /// SR Affinity Constraints. TLV 1208
+  /// Section 5.6.1 of [draft-ietf-idr-bgp-ls-sr-policy]
+  /// </summary>
+  public sealed partial class SLBgplsTopoSrAffinityConstraints : pb::IMessage<SLBgplsTopoSrAffinityConstraints>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<SLBgplsTopoSrAffinityConstraints> _parser = new pb::MessageParser<SLBgplsTopoSrAffinityConstraints>(() => new SLBgplsTopoSrAffinityConstraints());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<SLBgplsTopoSrAffinityConstraints> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[103]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SLBgplsTopoSrAffinityConstraints() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SLBgplsTopoSrAffinityConstraints(SLBgplsTopoSrAffinityConstraints other) : this() {
+      exclAnyEag_ = other.exclAnyEag_.Clone();
+      inclAnyEag_ = other.inclAnyEag_.Clone();
+      inclAllEag_ = other.inclAllEag_.Clone();
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SLBgplsTopoSrAffinityConstraints Clone() {
+      return new SLBgplsTopoSrAffinityConstraints(this);
+    }
+
+    /// <summary>Field number for the "ExclAnyEag" field.</summary>
+    public const int ExclAnyEagFieldNumber = 1;
+    private static readonly pb::FieldCodec<uint> _repeated_exclAnyEag_codec
+        = pb::FieldCodec.ForUInt32(10);
+    private readonly pbc::RepeatedField<uint> exclAnyEag_ = new pbc::RepeatedField<uint>();
+    /// <summary>
+    /// The bitmask used to represent the affinities that
+    /// have been excluded from the path. Each EAG bitmask
+    /// is represented in multiple of 4 bytes.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pbc::RepeatedField<uint> ExclAnyEag {
+      get { return exclAnyEag_; }
+    }
+
+    /// <summary>Field number for the "InclAnyEag" field.</summary>
+    public const int InclAnyEagFieldNumber = 2;
+    private static readonly pb::FieldCodec<uint> _repeated_inclAnyEag_codec
+        = pb::FieldCodec.ForUInt32(18);
+    private readonly pbc::RepeatedField<uint> inclAnyEag_ = new pbc::RepeatedField<uint>();
+    /// <summary>
+    /// The bitmask used to represent the affinities that
+    /// have been included in the path. Each EAG bitmask
+    /// is represented in multiple of 4 bytes.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pbc::RepeatedField<uint> InclAnyEag {
+      get { return inclAnyEag_; }
+    }
+
+    /// <summary>Field number for the "InclAllEag" field.</summary>
+    public const int InclAllEagFieldNumber = 3;
+    private static readonly pb::FieldCodec<uint> _repeated_inclAllEag_codec
+        = pb::FieldCodec.ForUInt32(26);
+    private readonly pbc::RepeatedField<uint> inclAllEag_ = new pbc::RepeatedField<uint>();
+    /// <summary>
+    /// The bitmask used to represent all the affinities
+    /// that have been included in the path. Each EAG bitmask
+    /// is represented in multiple of 4 bytes.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pbc::RepeatedField<uint> InclAllEag {
+      get { return inclAllEag_; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as SLBgplsTopoSrAffinityConstraints);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(SLBgplsTopoSrAffinityConstraints other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if(!exclAnyEag_.Equals(other.exclAnyEag_)) return false;
+      if(!inclAnyEag_.Equals(other.inclAnyEag_)) return false;
+      if(!inclAllEag_.Equals(other.inclAllEag_)) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      hash ^= exclAnyEag_.GetHashCode();
+      hash ^= inclAnyEag_.GetHashCode();
+      hash ^= inclAllEag_.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      exclAnyEag_.WriteTo(output, _repeated_exclAnyEag_codec);
+      inclAnyEag_.WriteTo(output, _repeated_inclAnyEag_codec);
+      inclAllEag_.WriteTo(output, _repeated_inclAllEag_codec);
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      exclAnyEag_.WriteTo(ref output, _repeated_exclAnyEag_codec);
+      inclAnyEag_.WriteTo(ref output, _repeated_inclAnyEag_codec);
+      inclAllEag_.WriteTo(ref output, _repeated_inclAllEag_codec);
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      size += exclAnyEag_.CalculateSize(_repeated_exclAnyEag_codec);
+      size += inclAnyEag_.CalculateSize(_repeated_inclAnyEag_codec);
+      size += inclAllEag_.CalculateSize(_repeated_inclAllEag_codec);
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(SLBgplsTopoSrAffinityConstraints other) {
+      if (other == null) {
+        return;
+      }
+      exclAnyEag_.Add(other.exclAnyEag_);
+      inclAnyEag_.Add(other.inclAnyEag_);
+      inclAllEag_.Add(other.inclAllEag_);
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10:
+          case 8: {
+            exclAnyEag_.AddEntriesFrom(input, _repeated_exclAnyEag_codec);
+            break;
+          }
+          case 18:
+          case 16: {
+            inclAnyEag_.AddEntriesFrom(input, _repeated_inclAnyEag_codec);
+            break;
+          }
+          case 26:
+          case 24: {
+            inclAllEag_.AddEntriesFrom(input, _repeated_inclAllEag_codec);
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10:
+          case 8: {
+            exclAnyEag_.AddEntriesFrom(ref input, _repeated_exclAnyEag_codec);
+            break;
+          }
+          case 18:
+          case 16: {
+            inclAnyEag_.AddEntriesFrom(ref input, _repeated_inclAnyEag_codec);
+            break;
+          }
+          case 26:
+          case 24: {
+            inclAllEag_.AddEntriesFrom(ref input, _repeated_inclAllEag_codec);
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  /// <summary>
+  /// SR SRLG Constraints. TLV 1209
+  /// Section 5.6.2 of [draft-ietf-idr-bgp-ls-sr-policy]
+  /// </summary>
+  public sealed partial class SLBgplsTopoSrSrlgConstraints : pb::IMessage<SLBgplsTopoSrSrlgConstraints>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<SLBgplsTopoSrSrlgConstraints> _parser = new pb::MessageParser<SLBgplsTopoSrSrlgConstraints>(() => new SLBgplsTopoSrSrlgConstraints());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<SLBgplsTopoSrSrlgConstraints> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[104]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SLBgplsTopoSrSrlgConstraints() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SLBgplsTopoSrSrlgConstraints(SLBgplsTopoSrSrlgConstraints other) : this() {
+      srlgValues_ = other.srlgValues_.Clone();
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SLBgplsTopoSrSrlgConstraints Clone() {
+      return new SLBgplsTopoSrSrlgConstraints(this);
+    }
+
+    /// <summary>Field number for the "SrlgValues" field.</summary>
+    public const int SrlgValuesFieldNumber = 1;
+    private static readonly pb::FieldCodec<uint> _repeated_srlgValues_codec
+        = pb::FieldCodec.ForUInt32(10);
+    private readonly pbc::RepeatedField<uint> srlgValues_ = new pbc::RepeatedField<uint>();
+    /// <summary>
+    /// SRLG Values.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pbc::RepeatedField<uint> SrlgValues {
+      get { return srlgValues_; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as SLBgplsTopoSrSrlgConstraints);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(SLBgplsTopoSrSrlgConstraints other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if(!srlgValues_.Equals(other.srlgValues_)) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      hash ^= srlgValues_.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      srlgValues_.WriteTo(output, _repeated_srlgValues_codec);
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      srlgValues_.WriteTo(ref output, _repeated_srlgValues_codec);
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      size += srlgValues_.CalculateSize(_repeated_srlgValues_codec);
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(SLBgplsTopoSrSrlgConstraints other) {
+      if (other == null) {
+        return;
+      }
+      srlgValues_.Add(other.srlgValues_);
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10:
+          case 8: {
+            srlgValues_.AddEntriesFrom(input, _repeated_srlgValues_codec);
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10:
+          case 8: {
+            srlgValues_.AddEntriesFrom(ref input, _repeated_srlgValues_codec);
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  /// <summary>
+  /// SR Bandwidth Constraint. TLV 1210
+  /// Section 5.6.3 of [draft-ietf-idr-bgp-ls-sr-policy]
+  /// </summary>
+  public sealed partial class SLBgplsTopoSrBandwidthConstraint : pb::IMessage<SLBgplsTopoSrBandwidthConstraint>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<SLBgplsTopoSrBandwidthConstraint> _parser = new pb::MessageParser<SLBgplsTopoSrBandwidthConstraint>(() => new SLBgplsTopoSrBandwidthConstraint());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<SLBgplsTopoSrBandwidthConstraint> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[105]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SLBgplsTopoSrBandwidthConstraint() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SLBgplsTopoSrBandwidthConstraint(SLBgplsTopoSrBandwidthConstraint other) : this() {
+      bandwidth_ = other.bandwidth_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SLBgplsTopoSrBandwidthConstraint Clone() {
+      return new SLBgplsTopoSrBandwidthConstraint(this);
+    }
+
+    /// <summary>Field number for the "Bandwidth" field.</summary>
+    public const int BandwidthFieldNumber = 1;
+    private pb::ByteString bandwidth_ = pb::ByteString.Empty;
+    /// <summary>
+    /// Specify the desired bandwidth in unit of
+    ///  bytes per second in IEEE floating point format.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pb::ByteString Bandwidth {
+      get { return bandwidth_; }
+      set {
+        bandwidth_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as SLBgplsTopoSrBandwidthConstraint);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(SLBgplsTopoSrBandwidthConstraint other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (Bandwidth != other.Bandwidth) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (Bandwidth.Length != 0) hash ^= Bandwidth.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (Bandwidth.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteBytes(Bandwidth);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (Bandwidth.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteBytes(Bandwidth);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (Bandwidth.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeBytesSize(Bandwidth);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(SLBgplsTopoSrBandwidthConstraint other) {
+      if (other == null) {
+        return;
+      }
+      if (other.Bandwidth.Length != 0) {
+        Bandwidth = other.Bandwidth;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            Bandwidth = input.ReadBytes();
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            Bandwidth = input.ReadBytes();
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  /// <summary>
+  /// SR Disjoint Group Constraint. TLV 1211
+  /// Section 5.6.4 of [draft-ietf-idr-bgp-ls-sr-policy]
+  /// </summary>
+  public sealed partial class SLBgplsTopoSrDisjointGroupConstraint : pb::IMessage<SLBgplsTopoSrDisjointGroupConstraint>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<SLBgplsTopoSrDisjointGroupConstraint> _parser = new pb::MessageParser<SLBgplsTopoSrDisjointGroupConstraint>(() => new SLBgplsTopoSrDisjointGroupConstraint());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<SLBgplsTopoSrDisjointGroupConstraint> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[106]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SLBgplsTopoSrDisjointGroupConstraint() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SLBgplsTopoSrDisjointGroupConstraint(SLBgplsTopoSrDisjointGroupConstraint other) : this() {
+      requestFlags_ = other.requestFlags_;
+      statusFlags_ = other.statusFlags_;
+      groupId_ = other.groupId_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SLBgplsTopoSrDisjointGroupConstraint Clone() {
+      return new SLBgplsTopoSrDisjointGroupConstraint(this);
+    }
+
+    /// <summary>Field number for the "RequestFlags" field.</summary>
+    public const int RequestFlagsFieldNumber = 1;
+    private pb::ByteString requestFlags_ = pb::ByteString.Empty;
+    /// <summary>
+    /// Bit-0: S-Flag: SRLG disjointness is requested when set.
+    ///
+    /// Bit-1: N-Flag: Node disjointness is requested when set.
+    ///
+    /// Bit-2: L-Flag: Link disjointness is requested when set.
+    ///
+    /// Bit-3: F-Flag: The computation may fallback to a lower
+    /// level of disjointness amongst the ones requested when all
+    /// cannot be achieved when set.
+    ///
+    /// Bit-4: I-Flag: The computation may fallback to the
+    /// default best path (e.g.  IGP path) in case of none of the
+    /// desired disjointness can be achieved when set.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pb::ByteString RequestFlags {
+      get { return requestFlags_; }
+      set {
+        requestFlags_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "StatusFlags" field.</summary>
+    public const int StatusFlagsFieldNumber = 2;
+    private pb::ByteString statusFlags_ = pb::ByteString.Empty;
+    /// <summary>
+    /// Bit-0: S-Flag: SRLG disjointness is achieved when set.
+    ///
+    /// Bit-1: N-Flag: Node disjointness is achieved when set.
+    ///
+    /// Bit-2: L-Flag: Link disjointness is achieved when set.
+    ///
+    /// Bit-3: F-Flag: The computation has fallen back to a
+    /// lower level of disjointness than requested when set.
+    ///
+    /// Bit-4: I-Flag: The computation has fallen back to the
+    /// best path (e.g.  IGP path) and disjointness has not been
+    /// achieved when set.
+    ///
+    /// Bit-5: X-Flag: The disjointness constraint could not
+    /// be achieved and hence path has been invalidated when set.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pb::ByteString StatusFlags {
+      get { return statusFlags_; }
+      set {
+        statusFlags_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "GroupId" field.</summary>
+    public const int GroupIdFieldNumber = 3;
+    private uint groupId_;
+    /// <summary>
+    /// The group identifier for a set of disjoint paths.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint GroupId {
+      get { return groupId_; }
+      set {
+        groupId_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as SLBgplsTopoSrDisjointGroupConstraint);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(SLBgplsTopoSrDisjointGroupConstraint other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (RequestFlags != other.RequestFlags) return false;
+      if (StatusFlags != other.StatusFlags) return false;
+      if (GroupId != other.GroupId) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (RequestFlags.Length != 0) hash ^= RequestFlags.GetHashCode();
+      if (StatusFlags.Length != 0) hash ^= StatusFlags.GetHashCode();
+      if (GroupId != 0) hash ^= GroupId.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (RequestFlags.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteBytes(RequestFlags);
+      }
+      if (StatusFlags.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteBytes(StatusFlags);
+      }
+      if (GroupId != 0) {
+        output.WriteRawTag(24);
+        output.WriteUInt32(GroupId);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (RequestFlags.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteBytes(RequestFlags);
+      }
+      if (StatusFlags.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteBytes(StatusFlags);
+      }
+      if (GroupId != 0) {
+        output.WriteRawTag(24);
+        output.WriteUInt32(GroupId);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (RequestFlags.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeBytesSize(RequestFlags);
+      }
+      if (StatusFlags.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeBytesSize(StatusFlags);
+      }
+      if (GroupId != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(GroupId);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(SLBgplsTopoSrDisjointGroupConstraint other) {
+      if (other == null) {
+        return;
+      }
+      if (other.RequestFlags.Length != 0) {
+        RequestFlags = other.RequestFlags;
+      }
+      if (other.StatusFlags.Length != 0) {
+        StatusFlags = other.StatusFlags;
+      }
+      if (other.GroupId != 0) {
+        GroupId = other.GroupId;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            RequestFlags = input.ReadBytes();
+            break;
+          }
+          case 18: {
+            StatusFlags = input.ReadBytes();
+            break;
+          }
+          case 24: {
+            GroupId = input.ReadUInt32();
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            RequestFlags = input.ReadBytes();
+            break;
+          }
+          case 18: {
+            StatusFlags = input.ReadBytes();
+            break;
+          }
+          case 24: {
+            GroupId = input.ReadUInt32();
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  /// <summary>
+  /// SRv6 Binding SID. TLV 1212
+  /// Section 5.2 of [draft-ietf-idr-bgp-ls-sr-policy]
+  /// </summary>
+  public sealed partial class SLBgplsTopoSrv6BindingSid : pb::IMessage<SLBgplsTopoSrv6BindingSid>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<SLBgplsTopoSrv6BindingSid> _parser = new pb::MessageParser<SLBgplsTopoSrv6BindingSid>(() => new SLBgplsTopoSrv6BindingSid());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<SLBgplsTopoSrv6BindingSid> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[107]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SLBgplsTopoSrv6BindingSid() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SLBgplsTopoSrv6BindingSid(SLBgplsTopoSrv6BindingSid other) : this() {
+      flags_ = other.flags_;
+      bsid_ = other.bsid_ != null ? other.bsid_.Clone() : null;
+      specifiedBsid_ = other.specifiedBsid_ != null ? other.specifiedBsid_.Clone() : null;
+      endPointBehaviour_ = other.endPointBehaviour_ != null ? other.endPointBehaviour_.Clone() : null;
+      sidStruct_ = other.sidStruct_ != null ? other.sidStruct_.Clone() : null;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SLBgplsTopoSrv6BindingSid Clone() {
+      return new SLBgplsTopoSrv6BindingSid(this);
+    }
+
+    /// <summary>Field number for the "Flags" field.</summary>
+    public const int FlagsFieldNumber = 1;
+    private pb::ByteString flags_ = pb::ByteString.Empty;
+    /// <summary>
+    /// Bit-0: B-Flag: Indicates the allocation of the value in the BSID field
+    /// when set and indicates that BSID is not allocated when clear.
+    ///
+    /// Bit-1: U-Flag: Indicates the specified BSID value is unavailable when set.
+    ///
+    /// Bit-2: F-Flag: Indicates the BSID value is one allocated from dynamic
+    /// label pool due to fallback (e.g. when specified BSID is
+    /// unavailable) when set.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pb::ByteString Flags {
+      get { return flags_; }
+      set {
+        flags_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "Bsid" field.</summary>
+    public const int BsidFieldNumber = 2;
+    private global::ServiceLayer.SlBgplsTopoSrBsid bsid_;
+    /// <summary>
+    /// The operational or allocated BSID value based on the status flags.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::ServiceLayer.SlBgplsTopoSrBsid Bsid {
+      get { return bsid_; }
+      set {
+        bsid_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "SpecifiedBsid" field.</summary>
+    public const int SpecifiedBsidFieldNumber = 3;
+    private global::ServiceLayer.SlBgplsTopoSrBsid specifiedBsid_;
+    /// <summary>
+    /// The explicitly specified BSID whether it is allotted or not.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::ServiceLayer.SlBgplsTopoSrBsid SpecifiedBsid {
+      get { return specifiedBsid_; }
+      set {
+        specifiedBsid_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "EndPointBehaviour" field.</summary>
+    public const int EndPointBehaviourFieldNumber = 4;
+    private global::ServiceLayer.SLBgplsTopoSrv6EndPointBehavior endPointBehaviour_;
+    /// <summary>
+    /// SRv6 End Point Behavior. TLV 1250
+    /// Section 7.1 of [RFC9514]
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::ServiceLayer.SLBgplsTopoSrv6EndPointBehavior EndPointBehaviour {
+      get { return endPointBehaviour_; }
+      set {
+        endPointBehaviour_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "SidStruct" field.</summary>
+    public const int SidStructFieldNumber = 5;
+    private global::ServiceLayer.SLBgplsTopoSrv6SidStruct sidStruct_;
+    /// <summary>
+    /// SRv6 SID Structure Attribute. TLV 1252
+    /// Section 8 of [RFC9514]
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::ServiceLayer.SLBgplsTopoSrv6SidStruct SidStruct {
+      get { return sidStruct_; }
+      set {
+        sidStruct_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as SLBgplsTopoSrv6BindingSid);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(SLBgplsTopoSrv6BindingSid other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (Flags != other.Flags) return false;
+      if (!object.Equals(Bsid, other.Bsid)) return false;
+      if (!object.Equals(SpecifiedBsid, other.SpecifiedBsid)) return false;
+      if (!object.Equals(EndPointBehaviour, other.EndPointBehaviour)) return false;
+      if (!object.Equals(SidStruct, other.SidStruct)) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (Flags.Length != 0) hash ^= Flags.GetHashCode();
+      if (bsid_ != null) hash ^= Bsid.GetHashCode();
+      if (specifiedBsid_ != null) hash ^= SpecifiedBsid.GetHashCode();
+      if (endPointBehaviour_ != null) hash ^= EndPointBehaviour.GetHashCode();
+      if (sidStruct_ != null) hash ^= SidStruct.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (Flags.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteBytes(Flags);
+      }
+      if (bsid_ != null) {
+        output.WriteRawTag(18);
+        output.WriteMessage(Bsid);
+      }
+      if (specifiedBsid_ != null) {
+        output.WriteRawTag(26);
+        output.WriteMessage(SpecifiedBsid);
+      }
+      if (endPointBehaviour_ != null) {
+        output.WriteRawTag(34);
+        output.WriteMessage(EndPointBehaviour);
+      }
+      if (sidStruct_ != null) {
+        output.WriteRawTag(42);
+        output.WriteMessage(SidStruct);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (Flags.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteBytes(Flags);
+      }
+      if (bsid_ != null) {
+        output.WriteRawTag(18);
+        output.WriteMessage(Bsid);
+      }
+      if (specifiedBsid_ != null) {
+        output.WriteRawTag(26);
+        output.WriteMessage(SpecifiedBsid);
+      }
+      if (endPointBehaviour_ != null) {
+        output.WriteRawTag(34);
+        output.WriteMessage(EndPointBehaviour);
+      }
+      if (sidStruct_ != null) {
+        output.WriteRawTag(42);
+        output.WriteMessage(SidStruct);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (Flags.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeBytesSize(Flags);
+      }
+      if (bsid_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Bsid);
+      }
+      if (specifiedBsid_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(SpecifiedBsid);
+      }
+      if (endPointBehaviour_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(EndPointBehaviour);
+      }
+      if (sidStruct_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(SidStruct);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(SLBgplsTopoSrv6BindingSid other) {
+      if (other == null) {
+        return;
+      }
+      if (other.Flags.Length != 0) {
+        Flags = other.Flags;
+      }
+      if (other.bsid_ != null) {
+        if (bsid_ == null) {
+          Bsid = new global::ServiceLayer.SlBgplsTopoSrBsid();
+        }
+        Bsid.MergeFrom(other.Bsid);
+      }
+      if (other.specifiedBsid_ != null) {
+        if (specifiedBsid_ == null) {
+          SpecifiedBsid = new global::ServiceLayer.SlBgplsTopoSrBsid();
+        }
+        SpecifiedBsid.MergeFrom(other.SpecifiedBsid);
+      }
+      if (other.endPointBehaviour_ != null) {
+        if (endPointBehaviour_ == null) {
+          EndPointBehaviour = new global::ServiceLayer.SLBgplsTopoSrv6EndPointBehavior();
+        }
+        EndPointBehaviour.MergeFrom(other.EndPointBehaviour);
+      }
+      if (other.sidStruct_ != null) {
+        if (sidStruct_ == null) {
+          SidStruct = new global::ServiceLayer.SLBgplsTopoSrv6SidStruct();
+        }
+        SidStruct.MergeFrom(other.SidStruct);
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            Flags = input.ReadBytes();
+            break;
+          }
+          case 18: {
+            if (bsid_ == null) {
+              Bsid = new global::ServiceLayer.SlBgplsTopoSrBsid();
+            }
+            input.ReadMessage(Bsid);
+            break;
+          }
+          case 26: {
+            if (specifiedBsid_ == null) {
+              SpecifiedBsid = new global::ServiceLayer.SlBgplsTopoSrBsid();
+            }
+            input.ReadMessage(SpecifiedBsid);
+            break;
+          }
+          case 34: {
+            if (endPointBehaviour_ == null) {
+              EndPointBehaviour = new global::ServiceLayer.SLBgplsTopoSrv6EndPointBehavior();
+            }
+            input.ReadMessage(EndPointBehaviour);
+            break;
+          }
+          case 42: {
+            if (sidStruct_ == null) {
+              SidStruct = new global::ServiceLayer.SLBgplsTopoSrv6SidStruct();
+            }
+            input.ReadMessage(SidStruct);
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            Flags = input.ReadBytes();
+            break;
+          }
+          case 18: {
+            if (bsid_ == null) {
+              Bsid = new global::ServiceLayer.SlBgplsTopoSrBsid();
+            }
+            input.ReadMessage(Bsid);
+            break;
+          }
+          case 26: {
+            if (specifiedBsid_ == null) {
+              SpecifiedBsid = new global::ServiceLayer.SlBgplsTopoSrBsid();
+            }
+            input.ReadMessage(SpecifiedBsid);
+            break;
+          }
+          case 34: {
+            if (endPointBehaviour_ == null) {
+              EndPointBehaviour = new global::ServiceLayer.SLBgplsTopoSrv6EndPointBehavior();
+            }
+            input.ReadMessage(EndPointBehaviour);
+            break;
+          }
+          case 42: {
+            if (sidStruct_ == null) {
+              SidStruct = new global::ServiceLayer.SLBgplsTopoSrv6SidStruct();
+            }
+            input.ReadMessage(SidStruct);
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  /// <summary>
+  /// SR Policy Name. TLV 1213
+  /// Section 5.4 of [draft-ietf-idr-bgp-ls-sr-policy]
+  /// </summary>
+  public sealed partial class SLBgplsTopoSrPolicyName : pb::IMessage<SLBgplsTopoSrPolicyName>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<SLBgplsTopoSrPolicyName> _parser = new pb::MessageParser<SLBgplsTopoSrPolicyName>(() => new SLBgplsTopoSrPolicyName());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<SLBgplsTopoSrPolicyName> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[108]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SLBgplsTopoSrPolicyName() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SLBgplsTopoSrPolicyName(SLBgplsTopoSrPolicyName other) : this() {
+      name_ = other.name_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SLBgplsTopoSrPolicyName Clone() {
+      return new SLBgplsTopoSrPolicyName(this);
+    }
+
+    /// <summary>Field number for the "Name" field.</summary>
+    public const int NameFieldNumber = 1;
+    private string name_ = "";
+    /// <summary>
+    /// Symbolic name for the SR Policy without a NULL terminator. It is
+    /// RECOMMENDED that the size of the symbolic name be limited to
+    /// 255 characters.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string Name {
+      get { return name_; }
+      set {
+        name_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as SLBgplsTopoSrPolicyName);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(SLBgplsTopoSrPolicyName other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (Name != other.Name) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (Name.Length != 0) hash ^= Name.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (Name.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(Name);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (Name.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(Name);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (Name.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Name);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(SLBgplsTopoSrPolicyName other) {
+      if (other == null) {
+        return;
+      }
+      if (other.Name.Length != 0) {
+        Name = other.Name;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            Name = input.ReadString();
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            Name = input.ReadString();
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  /// <summary>
+  /// SR Bidirectional Group Contraint. TLV 1214
+  /// Section 5.6.5 of [draft-ietf-idr-bgp-ls-sr-policy]
+  /// </summary>
+  public sealed partial class SLBgplsTopoSrBidirGroupConstraint : pb::IMessage<SLBgplsTopoSrBidirGroupConstraint>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<SLBgplsTopoSrBidirGroupConstraint> _parser = new pb::MessageParser<SLBgplsTopoSrBidirGroupConstraint>(() => new SLBgplsTopoSrBidirGroupConstraint());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<SLBgplsTopoSrBidirGroupConstraint> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[109]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SLBgplsTopoSrBidirGroupConstraint() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SLBgplsTopoSrBidirGroupConstraint(SLBgplsTopoSrBidirGroupConstraint other) : this() {
+      flags_ = other.flags_;
+      groupId_ = other.groupId_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SLBgplsTopoSrBidirGroupConstraint Clone() {
+      return new SLBgplsTopoSrBidirGroupConstraint(this);
+    }
+
+    /// <summary>Field number for the "Flags" field.</summary>
+    public const int FlagsFieldNumber = 1;
+    private pb::ByteString flags_ = pb::ByteString.Empty;
+    /// <summary>
+    /// Bit-0: R-Flag: This CP of the SR Policy forms the
+    /// reverse path when set and otherwise it is the forward path when clear.
+    ///
+    /// Bit-1: C-Flag: The bidirectional path is co-routed when set.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pb::ByteString Flags {
+      get { return flags_; }
+      set {
+        flags_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "GroupId" field.</summary>
+    public const int GroupIdFieldNumber = 2;
+    private uint groupId_;
+    /// <summary>
+    /// The group identifier for a set of bidirectional paths.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint GroupId {
+      get { return groupId_; }
+      set {
+        groupId_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as SLBgplsTopoSrBidirGroupConstraint);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(SLBgplsTopoSrBidirGroupConstraint other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (Flags != other.Flags) return false;
+      if (GroupId != other.GroupId) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (Flags.Length != 0) hash ^= Flags.GetHashCode();
+      if (GroupId != 0) hash ^= GroupId.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (Flags.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteBytes(Flags);
+      }
+      if (GroupId != 0) {
+        output.WriteRawTag(16);
+        output.WriteUInt32(GroupId);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (Flags.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteBytes(Flags);
+      }
+      if (GroupId != 0) {
+        output.WriteRawTag(16);
+        output.WriteUInt32(GroupId);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (Flags.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeBytesSize(Flags);
+      }
+      if (GroupId != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(GroupId);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(SLBgplsTopoSrBidirGroupConstraint other) {
+      if (other == null) {
+        return;
+      }
+      if (other.Flags.Length != 0) {
+        Flags = other.Flags;
+      }
+      if (other.GroupId != 0) {
+        GroupId = other.GroupId;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            Flags = input.ReadBytes();
+            break;
+          }
+          case 16: {
+            GroupId = input.ReadUInt32();
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            Flags = input.ReadBytes();
+            break;
+          }
+          case 16: {
+            GroupId = input.ReadUInt32();
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  /// <summary>
+  /// SR Metric Contraint. TLV 1215
+  /// Section 5.6.6 of [draft-ietf-idr-bgp-ls-sr-policy]
+  /// </summary>
+  public sealed partial class SLBgplsTopoSrMetricConstraint : pb::IMessage<SLBgplsTopoSrMetricConstraint>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<SLBgplsTopoSrMetricConstraint> _parser = new pb::MessageParser<SLBgplsTopoSrMetricConstraint>(() => new SLBgplsTopoSrMetricConstraint());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<SLBgplsTopoSrMetricConstraint> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[110]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SLBgplsTopoSrMetricConstraint() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SLBgplsTopoSrMetricConstraint(SLBgplsTopoSrMetricConstraint other) : this() {
+      type_ = other.type_;
+      flags_ = other.flags_;
+      margin_ = other.margin_;
+      bound_ = other.bound_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SLBgplsTopoSrMetricConstraint Clone() {
+      return new SLBgplsTopoSrMetricConstraint(this);
+    }
+
+    /// <summary>Field number for the "Type" field.</summary>
+    public const int TypeFieldNumber = 1;
+    private uint type_;
+    /// <summary>
+    /// Identifies the type of the metric being used.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint Type {
+      get { return type_; }
+      set {
+        type_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "Flags" field.</summary>
+    public const int FlagsFieldNumber = 2;
+    private pb::ByteString flags_ = pb::ByteString.Empty;
+    /// <summary>
+    /// Bit-0: O-Flag: The optimization metric being
+    /// reported for a dynamic CP when set.  This bit MUST NOT be set
+    /// in more than one instance of this TLV for a given CP
+    /// advertisement.
+    ///
+    /// Bit-1: M-Flag: The metric margin allowed is specified when set.
+    ///
+    /// Bit-2: A-Flag: The metric margin is specified as an
+    /// absolute value when set and is expressed as a percentage of the
+    /// minimum metric when clear.
+    ///
+    /// Bit-3: B-Flag: The metric bound allowed for the path is
+    /// specified when set.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pb::ByteString Flags {
+      get { return flags_; }
+      set {
+        flags_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "Margin" field.</summary>
+    public const int MarginFieldNumber = 3;
+    private uint margin_;
+    /// <summary>
+    /// Indicates the metric margin when the Bit-1 is set.
+    /// The metric margin is specified as either
+    /// an absolute value or as a percentage of the minimum computed path
+    /// metric based on the Bit-2.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint Margin {
+      get { return margin_; }
+      set {
+        margin_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "Bound" field.</summary>
+    public const int BoundFieldNumber = 4;
+    private uint bound_;
+    /// <summary>
+    /// Indicates the maximum metric that is allowed when the Bit-3 is set.
+    /// If the computed path metric crosses the specified bound value then
+    /// the path is considered invalid.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint Bound {
+      get { return bound_; }
+      set {
+        bound_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as SLBgplsTopoSrMetricConstraint);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(SLBgplsTopoSrMetricConstraint other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (Type != other.Type) return false;
+      if (Flags != other.Flags) return false;
+      if (Margin != other.Margin) return false;
+      if (Bound != other.Bound) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (Type != 0) hash ^= Type.GetHashCode();
+      if (Flags.Length != 0) hash ^= Flags.GetHashCode();
+      if (Margin != 0) hash ^= Margin.GetHashCode();
+      if (Bound != 0) hash ^= Bound.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (Type != 0) {
+        output.WriteRawTag(8);
+        output.WriteUInt32(Type);
+      }
+      if (Flags.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteBytes(Flags);
+      }
+      if (Margin != 0) {
+        output.WriteRawTag(24);
+        output.WriteUInt32(Margin);
+      }
+      if (Bound != 0) {
+        output.WriteRawTag(32);
+        output.WriteUInt32(Bound);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (Type != 0) {
+        output.WriteRawTag(8);
+        output.WriteUInt32(Type);
+      }
+      if (Flags.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteBytes(Flags);
+      }
+      if (Margin != 0) {
+        output.WriteRawTag(24);
+        output.WriteUInt32(Margin);
+      }
+      if (Bound != 0) {
+        output.WriteRawTag(32);
+        output.WriteUInt32(Bound);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (Type != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Type);
+      }
+      if (Flags.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeBytesSize(Flags);
+      }
+      if (Margin != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Margin);
+      }
+      if (Bound != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Bound);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(SLBgplsTopoSrMetricConstraint other) {
+      if (other == null) {
+        return;
+      }
+      if (other.Type != 0) {
+        Type = other.Type;
+      }
+      if (other.Flags.Length != 0) {
+        Flags = other.Flags;
+      }
+      if (other.Margin != 0) {
+        Margin = other.Margin;
+      }
+      if (other.Bound != 0) {
+        Bound = other.Bound;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            Type = input.ReadUInt32();
+            break;
+          }
+          case 18: {
+            Flags = input.ReadBytes();
+            break;
+          }
+          case 24: {
+            Margin = input.ReadUInt32();
+            break;
+          }
+          case 32: {
+            Bound = input.ReadUInt32();
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 8: {
+            Type = input.ReadUInt32();
+            break;
+          }
+          case 18: {
+            Flags = input.ReadBytes();
+            break;
+          }
+          case 24: {
+            Margin = input.ReadUInt32();
+            break;
+          }
+          case 32: {
+            Bound = input.ReadUInt32();
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  /// <summary>
+  /// SR Segment List Bandwidth. TLV 1216
+  /// Section 5.10 of [draft-ietf-idr-bgp-ls-sr-policy]
+  /// </summary>
+  public sealed partial class SLBgplsTopoSrCpSegListBandwidthState : pb::IMessage<SLBgplsTopoSrCpSegListBandwidthState>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<SLBgplsTopoSrCpSegListBandwidthState> _parser = new pb::MessageParser<SLBgplsTopoSrCpSegListBandwidthState>(() => new SLBgplsTopoSrCpSegListBandwidthState());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<SLBgplsTopoSrCpSegListBandwidthState> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[111]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SLBgplsTopoSrCpSegListBandwidthState() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SLBgplsTopoSrCpSegListBandwidthState(SLBgplsTopoSrCpSegListBandwidthState other) : this() {
+      bandwidth_ = other.bandwidth_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SLBgplsTopoSrCpSegListBandwidthState Clone() {
+      return new SLBgplsTopoSrCpSegListBandwidthState(this);
+    }
+
+    /// <summary>Field number for the "Bandwidth" field.</summary>
+    public const int BandwidthFieldNumber = 1;
+    private pb::ByteString bandwidth_ = pb::ByteString.Empty;
+    /// <summary>
+    /// The allocated bandwidth in unit
+    /// of bytes per second in IEEE floating point format.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pb::ByteString Bandwidth {
+      get { return bandwidth_; }
+      set {
+        bandwidth_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as SLBgplsTopoSrCpSegListBandwidthState);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(SLBgplsTopoSrCpSegListBandwidthState other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (Bandwidth != other.Bandwidth) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (Bandwidth.Length != 0) hash ^= Bandwidth.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (Bandwidth.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteBytes(Bandwidth);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (Bandwidth.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteBytes(Bandwidth);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (Bandwidth.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeBytesSize(Bandwidth);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(SLBgplsTopoSrCpSegListBandwidthState other) {
+      if (other == null) {
+        return;
+      }
+      if (other.Bandwidth.Length != 0) {
+        Bandwidth = other.Bandwidth;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            Bandwidth = input.ReadBytes();
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            Bandwidth = input.ReadBytes();
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  /// <summary>
+  /// SR Segment List Identifier. TLV 1217
+  /// Section 5.11 of [draft-ietf-idr-bgp-ls-sr-policy]
+  /// </summary>
+  public sealed partial class SLBgplsTopoSrSegListId : pb::IMessage<SLBgplsTopoSrSegListId>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<SLBgplsTopoSrSegListId> _parser = new pb::MessageParser<SLBgplsTopoSrSegListId>(() => new SLBgplsTopoSrSegListId());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<SLBgplsTopoSrSegListId> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[112]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SLBgplsTopoSrSegListId() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SLBgplsTopoSrSegListId(SLBgplsTopoSrSegListId other) : this() {
+      segListId_ = other.segListId_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SLBgplsTopoSrSegListId Clone() {
+      return new SLBgplsTopoSrSegListId(this);
+    }
+
+    /// <summary>Field number for the "SegListId" field.</summary>
+    public const int SegListIdFieldNumber = 1;
+    private uint segListId_;
+    /// <summary>
+    /// The identifier associated with the segment list.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint SegListId {
+      get { return segListId_; }
+      set {
+        segListId_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as SLBgplsTopoSrSegListId);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(SLBgplsTopoSrSegListId other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (SegListId != other.SegListId) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (SegListId != 0) hash ^= SegListId.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (SegListId != 0) {
+        output.WriteRawTag(8);
+        output.WriteUInt32(SegListId);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (SegListId != 0) {
+        output.WriteRawTag(8);
+        output.WriteUInt32(SegListId);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (SegListId != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(SegListId);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(SLBgplsTopoSrSegListId other) {
+      if (other == null) {
+        return;
+      }
+      if (other.SegListId != 0) {
+        SegListId = other.SegListId;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            SegListId = input.ReadUInt32();
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 8: {
+            SegListId = input.ReadUInt32();
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  /// <summary>
+  /// SRv6 End Point Behavior. TLV 1250
+  /// Section 7.1 of [RFC9514]
+  /// </summary>
+  public sealed partial class SLBgplsTopoSrv6EndPointBehavior : pb::IMessage<SLBgplsTopoSrv6EndPointBehavior>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<SLBgplsTopoSrv6EndPointBehavior> _parser = new pb::MessageParser<SLBgplsTopoSrv6EndPointBehavior>(() => new SLBgplsTopoSrv6EndPointBehavior());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<SLBgplsTopoSrv6EndPointBehavior> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[113]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SLBgplsTopoSrv6EndPointBehavior() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SLBgplsTopoSrv6EndPointBehavior(SLBgplsTopoSrv6EndPointBehavior other) : this() {
+      endPointBehavior_ = other.endPointBehavior_;
+      flags_ = other.flags_;
+      algorithm_ = other.algorithm_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SLBgplsTopoSrv6EndPointBehavior Clone() {
+      return new SLBgplsTopoSrv6EndPointBehavior(this);
+    }
+
+    /// <summary>Field number for the "EndPointBehavior" field.</summary>
+    public const int EndPointBehaviorFieldNumber = 1;
+    private uint endPointBehavior_;
+    /// <summary>
+    /// Endpoint behavior of the SID
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint EndPointBehavior {
+      get { return endPointBehavior_; }
+      set {
+        endPointBehavior_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "Flags" field.</summary>
+    public const int FlagsFieldNumber = 2;
+    private pb::ByteString flags_ = pb::ByteString.Empty;
+    /// <summary>
+    /// Flags associated with the SID. Section 8 of [RFC9513]
+    /// for OSPFv3, and Section 7.2 of [RFC9352] for IS-IS.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pb::ByteString Flags {
+      get { return flags_; }
+      set {
+        flags_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "Algorithm" field.</summary>
+    public const int AlgorithmFieldNumber = 3;
+    private uint algorithm_;
+    /// <summary>
+    /// Algorithm associated with the SID
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint Algorithm {
+      get { return algorithm_; }
+      set {
+        algorithm_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as SLBgplsTopoSrv6EndPointBehavior);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(SLBgplsTopoSrv6EndPointBehavior other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (EndPointBehavior != other.EndPointBehavior) return false;
+      if (Flags != other.Flags) return false;
+      if (Algorithm != other.Algorithm) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (EndPointBehavior != 0) hash ^= EndPointBehavior.GetHashCode();
+      if (Flags.Length != 0) hash ^= Flags.GetHashCode();
+      if (Algorithm != 0) hash ^= Algorithm.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (EndPointBehavior != 0) {
+        output.WriteRawTag(8);
+        output.WriteUInt32(EndPointBehavior);
+      }
+      if (Flags.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteBytes(Flags);
+      }
+      if (Algorithm != 0) {
+        output.WriteRawTag(24);
+        output.WriteUInt32(Algorithm);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (EndPointBehavior != 0) {
+        output.WriteRawTag(8);
+        output.WriteUInt32(EndPointBehavior);
+      }
+      if (Flags.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteBytes(Flags);
+      }
+      if (Algorithm != 0) {
+        output.WriteRawTag(24);
+        output.WriteUInt32(Algorithm);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (EndPointBehavior != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(EndPointBehavior);
+      }
+      if (Flags.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeBytesSize(Flags);
+      }
+      if (Algorithm != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Algorithm);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(SLBgplsTopoSrv6EndPointBehavior other) {
+      if (other == null) {
+        return;
+      }
+      if (other.EndPointBehavior != 0) {
+        EndPointBehavior = other.EndPointBehavior;
+      }
+      if (other.Flags.Length != 0) {
+        Flags = other.Flags;
+      }
+      if (other.Algorithm != 0) {
+        Algorithm = other.Algorithm;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            EndPointBehavior = input.ReadUInt32();
+            break;
+          }
+          case 18: {
+            Flags = input.ReadBytes();
+            break;
+          }
+          case 24: {
+            Algorithm = input.ReadUInt32();
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 8: {
+            EndPointBehavior = input.ReadUInt32();
+            break;
+          }
+          case 18: {
+            Flags = input.ReadBytes();
+            break;
+          }
+          case 24: {
+            Algorithm = input.ReadUInt32();
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  /// <summary>
+  /// SRv6 BGP Peer Node SID. TLV 1251
+  /// Section 7.2 of [RFC9514]
+  /// </summary>
+  public sealed partial class SLBgplsTopoSrv6BgpPeerNodeSid : pb::IMessage<SLBgplsTopoSrv6BgpPeerNodeSid>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<SLBgplsTopoSrv6BgpPeerNodeSid> _parser = new pb::MessageParser<SLBgplsTopoSrv6BgpPeerNodeSid>(() => new SLBgplsTopoSrv6BgpPeerNodeSid());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<SLBgplsTopoSrv6BgpPeerNodeSid> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[114]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SLBgplsTopoSrv6BgpPeerNodeSid() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SLBgplsTopoSrv6BgpPeerNodeSid(SLBgplsTopoSrv6BgpPeerNodeSid other) : this() {
+      flags_ = other.flags_;
+      weight_ = other.weight_;
+      peerAS_ = other.peerAS_;
+      peerBgpId_ = other.peerBgpId_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SLBgplsTopoSrv6BgpPeerNodeSid Clone() {
+      return new SLBgplsTopoSrv6BgpPeerNodeSid(this);
+    }
+
+    /// <summary>Field number for the "Flags" field.</summary>
+    public const int FlagsFieldNumber = 1;
+    private pb::ByteString flags_ = pb::ByteString.Empty;
+    /// <summary>
+    /// Bit-0: B-Flag: Backup Flag associated with the SID.
+    ///
+    /// Bit-1: S-Flag: Set Flag associated with the SID.
+    ///
+    /// Bit-2: P-Flag: Persistent Flag associated with the SID.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pb::ByteString Flags {
+      get { return flags_; }
+      set {
+        flags_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "Weight" field.</summary>
+    public const int WeightFieldNumber = 2;
+    private uint weight_;
+    /// <summary>
+    /// Weight used for load balancing purposes
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint Weight {
+      get { return weight_; }
+      set {
+        weight_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "PeerAS" field.</summary>
+    public const int PeerASFieldNumber = 3;
+    private uint peerAS_;
+    /// <summary>
+    /// Autonomous system of peer
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint PeerAS {
+      get { return peerAS_; }
+      set {
+        peerAS_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "PeerBgpId" field.</summary>
+    public const int PeerBgpIdFieldNumber = 4;
+    private pb::ByteString peerBgpId_ = pb::ByteString.Empty;
+    /// <summary>
+    /// BGP Router ID of peer
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pb::ByteString PeerBgpId {
+      get { return peerBgpId_; }
+      set {
+        peerBgpId_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as SLBgplsTopoSrv6BgpPeerNodeSid);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(SLBgplsTopoSrv6BgpPeerNodeSid other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (Flags != other.Flags) return false;
+      if (Weight != other.Weight) return false;
+      if (PeerAS != other.PeerAS) return false;
+      if (PeerBgpId != other.PeerBgpId) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (Flags.Length != 0) hash ^= Flags.GetHashCode();
+      if (Weight != 0) hash ^= Weight.GetHashCode();
+      if (PeerAS != 0) hash ^= PeerAS.GetHashCode();
+      if (PeerBgpId.Length != 0) hash ^= PeerBgpId.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (Flags.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteBytes(Flags);
+      }
+      if (Weight != 0) {
+        output.WriteRawTag(16);
+        output.WriteUInt32(Weight);
+      }
+      if (PeerAS != 0) {
+        output.WriteRawTag(24);
+        output.WriteUInt32(PeerAS);
+      }
+      if (PeerBgpId.Length != 0) {
+        output.WriteRawTag(34);
+        output.WriteBytes(PeerBgpId);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (Flags.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteBytes(Flags);
+      }
+      if (Weight != 0) {
+        output.WriteRawTag(16);
+        output.WriteUInt32(Weight);
+      }
+      if (PeerAS != 0) {
+        output.WriteRawTag(24);
+        output.WriteUInt32(PeerAS);
+      }
+      if (PeerBgpId.Length != 0) {
+        output.WriteRawTag(34);
+        output.WriteBytes(PeerBgpId);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (Flags.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeBytesSize(Flags);
+      }
+      if (Weight != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Weight);
+      }
+      if (PeerAS != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(PeerAS);
+      }
+      if (PeerBgpId.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeBytesSize(PeerBgpId);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(SLBgplsTopoSrv6BgpPeerNodeSid other) {
+      if (other == null) {
+        return;
+      }
+      if (other.Flags.Length != 0) {
+        Flags = other.Flags;
+      }
+      if (other.Weight != 0) {
+        Weight = other.Weight;
+      }
+      if (other.PeerAS != 0) {
+        PeerAS = other.PeerAS;
+      }
+      if (other.PeerBgpId.Length != 0) {
+        PeerBgpId = other.PeerBgpId;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            Flags = input.ReadBytes();
+            break;
+          }
+          case 16: {
+            Weight = input.ReadUInt32();
+            break;
+          }
+          case 24: {
+            PeerAS = input.ReadUInt32();
+            break;
+          }
+          case 34: {
+            PeerBgpId = input.ReadBytes();
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            Flags = input.ReadBytes();
+            break;
+          }
+          case 16: {
+            Weight = input.ReadUInt32();
+            break;
+          }
+          case 24: {
+            PeerAS = input.ReadUInt32();
+            break;
+          }
+          case 34: {
+            PeerBgpId = input.ReadBytes();
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  /// <summary>
+  /// SRv6 SID Structure Attribute. TLV 1252
+  /// Section 8 of [RFC9514]
+  /// </summary>
+  public sealed partial class SLBgplsTopoSrv6SidStruct : pb::IMessage<SLBgplsTopoSrv6SidStruct>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<SLBgplsTopoSrv6SidStruct> _parser = new pb::MessageParser<SLBgplsTopoSrv6SidStruct>(() => new SLBgplsTopoSrv6SidStruct());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<SLBgplsTopoSrv6SidStruct> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[115]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SLBgplsTopoSrv6SidStruct() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SLBgplsTopoSrv6SidStruct(SLBgplsTopoSrv6SidStruct other) : this() {
+      locatorBlockLen_ = other.locatorBlockLen_;
+      locatorNodeLen_ = other.locatorNodeLen_;
+      functionLen_ = other.functionLen_;
+      argLen_ = other.argLen_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SLBgplsTopoSrv6SidStruct Clone() {
+      return new SLBgplsTopoSrv6SidStruct(this);
+    }
+
+    /// <summary>Field number for the "LocatorBlockLen" field.</summary>
+    public const int LocatorBlockLenFieldNumber = 1;
+    private uint locatorBlockLen_;
+    /// <summary>
+    /// Locator block length in bits
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint LocatorBlockLen {
+      get { return locatorBlockLen_; }
+      set {
+        locatorBlockLen_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "LocatorNodeLen" field.</summary>
+    public const int LocatorNodeLenFieldNumber = 2;
+    private uint locatorNodeLen_;
+    /// <summary>
+    /// Locator node length in bits
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint LocatorNodeLen {
+      get { return locatorNodeLen_; }
+      set {
+        locatorNodeLen_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "FunctionLen" field.</summary>
+    public const int FunctionLenFieldNumber = 3;
+    private uint functionLen_;
+    /// <summary>
+    /// Function length in bits
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint FunctionLen {
+      get { return functionLen_; }
+      set {
+        functionLen_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "ArgLen" field.</summary>
+    public const int ArgLenFieldNumber = 4;
+    private uint argLen_;
+    /// <summary>
+    /// Argument length in bits
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint ArgLen {
+      get { return argLen_; }
+      set {
+        argLen_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as SLBgplsTopoSrv6SidStruct);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(SLBgplsTopoSrv6SidStruct other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (LocatorBlockLen != other.LocatorBlockLen) return false;
+      if (LocatorNodeLen != other.LocatorNodeLen) return false;
+      if (FunctionLen != other.FunctionLen) return false;
+      if (ArgLen != other.ArgLen) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (LocatorBlockLen != 0) hash ^= LocatorBlockLen.GetHashCode();
+      if (LocatorNodeLen != 0) hash ^= LocatorNodeLen.GetHashCode();
+      if (FunctionLen != 0) hash ^= FunctionLen.GetHashCode();
+      if (ArgLen != 0) hash ^= ArgLen.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (LocatorBlockLen != 0) {
+        output.WriteRawTag(8);
+        output.WriteUInt32(LocatorBlockLen);
+      }
+      if (LocatorNodeLen != 0) {
+        output.WriteRawTag(16);
+        output.WriteUInt32(LocatorNodeLen);
+      }
+      if (FunctionLen != 0) {
+        output.WriteRawTag(24);
+        output.WriteUInt32(FunctionLen);
+      }
+      if (ArgLen != 0) {
+        output.WriteRawTag(32);
+        output.WriteUInt32(ArgLen);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (LocatorBlockLen != 0) {
+        output.WriteRawTag(8);
+        output.WriteUInt32(LocatorBlockLen);
+      }
+      if (LocatorNodeLen != 0) {
+        output.WriteRawTag(16);
+        output.WriteUInt32(LocatorNodeLen);
+      }
+      if (FunctionLen != 0) {
+        output.WriteRawTag(24);
+        output.WriteUInt32(FunctionLen);
+      }
+      if (ArgLen != 0) {
+        output.WriteRawTag(32);
+        output.WriteUInt32(ArgLen);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (LocatorBlockLen != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(LocatorBlockLen);
+      }
+      if (LocatorNodeLen != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(LocatorNodeLen);
+      }
+      if (FunctionLen != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(FunctionLen);
+      }
+      if (ArgLen != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(ArgLen);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(SLBgplsTopoSrv6SidStruct other) {
+      if (other == null) {
+        return;
+      }
+      if (other.LocatorBlockLen != 0) {
+        LocatorBlockLen = other.LocatorBlockLen;
+      }
+      if (other.LocatorNodeLen != 0) {
+        LocatorNodeLen = other.LocatorNodeLen;
+      }
+      if (other.FunctionLen != 0) {
+        FunctionLen = other.FunctionLen;
+      }
+      if (other.ArgLen != 0) {
+        ArgLen = other.ArgLen;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            LocatorBlockLen = input.ReadUInt32();
+            break;
+          }
+          case 16: {
+            LocatorNodeLen = input.ReadUInt32();
+            break;
+          }
+          case 24: {
+            FunctionLen = input.ReadUInt32();
+            break;
+          }
+          case 32: {
+            ArgLen = input.ReadUInt32();
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 8: {
+            LocatorBlockLen = input.ReadUInt32();
+            break;
+          }
+          case 16: {
+            LocatorNodeLen = input.ReadUInt32();
+            break;
+          }
+          case 24: {
+            FunctionLen = input.ReadUInt32();
+            break;
+          }
+          case 32: {
+            ArgLen = input.ReadUInt32();
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  /// <summary>
   /// Unknown Attribute.
   /// Added to hold any unknown/unsupported TLV by IOS-XR/BGPLS.
   /// </summary>
@@ -24074,7 +36204,7 @@ namespace ServiceLayer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[80]; }
+      get { return global::ServiceLayer.SlBgplsTopologyReflection.Descriptor.MessageTypes[116]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
