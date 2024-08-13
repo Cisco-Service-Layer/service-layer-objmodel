@@ -1010,7 +1010,7 @@ message SLBgplsTopoSrPolicyAttr {
     // the SRv6 BSID and its attributes for the SR Policy CP.
     // SRv6 Binding SID. TLV 1212
     // Section 5.2 of [draft-ietf-idr-bgp-ls-sr-policy]
-    SLBgplsTopoSrv6BindingSid Srv6Bsid = 6;
+    repeated SLBgplsTopoSrv6BindingSid Srv6Bsid = 6;
 
     // SR Policy Name carries symbolic name associated with the SR Policy.
     // SR Policy Name. TLV 1213
@@ -1028,7 +1028,6 @@ message SLBgplsTopoSrPolicyAttr {
 // Link Local Remote Identifiers. TLV 258.
 // Section 5.2.2 of [RFC9552]
 message SLBplsTopoLinkLocRemId {
-    // TODO: Add description for each field in attributes
     // Link Local Identifier
     uint32 LocalId = 1;
 
@@ -1500,7 +1499,7 @@ message SLBgplsTopoSrv6EndXSid {
     bytes Sid = 1;
 
     // Algorithm associated with the SID
-    uint32 Algorithm = 2;
+    bytes Algorithm = 2;
 
     // Flags associated with the SID. The flags are copied from the IS-IS SRv6
     // End.X SID sub-TLV (Section 8.1 of [RFC9352]) or the OSPFv3 SRv6
@@ -1543,7 +1542,7 @@ message SLBgplsTopoSrv6LanEndXSid {
     bytes Sid = 2;
 
     // Algorithm associated with the SID
-    uint32 Algorithm = 3;
+    bytes Algorithm = 3;
 
     // Flags associated with the SID. The flags are copied from the IS-IS SRv6
     // End.X SID sub-TLV (Section 8.1 of [RFC9352]) or the OSPFv3 SRv6
@@ -1786,7 +1785,7 @@ message SLBgplsTopoPrefixSid {
     bytes Flags = 1;
 
     // Algorithm
-    uint32 Algorithm = 2;
+    bytes Algorithm = 2;
 
     // Label or index
     uint32 LabelIndex = 3;
@@ -1809,7 +1808,7 @@ message SLBgplsTopoPrefixRange {
     uint32 RangeSize = 2;
 
     // Algorithm
-    uint32 Algorithm = 3;
+    bytes Algorithm = 3;
 
     // Starting index of the range
     uint32 Index = 4;
@@ -1830,7 +1829,7 @@ message SLBgplsTopoPrefixSrv6Loc {
     bytes Flags = 1;
 
     // Algorithm associated with the locator
-    uint32 Algorithm = 2;
+    bytes Algorithm = 2;
 
     // Flex algo prefix metric
     uint32 Metric = 3;
@@ -2012,7 +2011,7 @@ message SLBgplsTopoSrBindingSid {
     // The operational or allocated BSID value based on the status flags.
     SlBgplsTopoSrBsid Bsid = 2;
 
-    // The explicitly specified BSID whether it is allotted or not.
+    // The explicitly specified BSID whether it is allocated or not.
     SlBgplsTopoSrBsid SpecifiedBsid = 3;
 }
 
@@ -2112,7 +2111,7 @@ message SLBgplsTopoSrCpConstraints {
 
     // Indicates the algorithm that is preferred to be used
     // when the path is set up.
-    uint32 Algorithm = 3;
+    bytes Algorithm = 3;
 
     // SR Affinity constraint is used to carry the affinity constraints
     // associated with the candidate path.
@@ -2197,7 +2196,7 @@ message SLBgplsTopoSrSegList {
 
     // Indicates the algorithm of the SIDs used
     // in the SID-List when the Bit-6 is set.
-    uint32 Algorithm = 3;
+    bytes Algorithm = 3;
 
     // Indicates the weight associated with
     // the SID-List for weighted load-balancing.
@@ -2255,7 +2254,7 @@ enum SLBgplsTopoSrSegmentType {
 
 // SR Segment Descriptors
 message SLBgplsTopoSrSegmentDesc {
-    uint32 Algorithm = 1;
+    bytes Algorithm = 1;
 
     oneof LocalNodeAddr {
         // This field carries info about an IPv4 local node address.
@@ -2337,7 +2336,7 @@ message SLBgplsTopoSrSegment {
 // Section 5.9 of [draft-ietf-idr-bgp-ls-sr-policy]
 message SLBgplsSrSegListMetric {
     // Identifies the type of metric.
-    uint32 Type = 1;
+    bytes Type = 1;
 
     // Bit-0: M-Flag: The metric margin allowed for this path
     // computation is specified when set.
@@ -2451,10 +2450,10 @@ message SLBgplsTopoSrv6BindingSid {
     bytes Flags = 1;
 
     // The operational or allocated BSID value based on the status flags.
-    SlBgplsTopoSrBsid Bsid = 2;
+    bytes Bsid = 2;
 
-    // The explicitly specified BSID whether it is allotted or not.
-    SlBgplsTopoSrBsid SpecifiedBsid = 3;
+    // The explicitly specified BSID whether it is allocated or not.
+    bytes SpecifiedBsid = 3;
 
     // SRv6 End Point Behavior. TLV 1250
     // Section 7.1 of [RFC9514]
@@ -2546,7 +2545,7 @@ message SLBgplsTopoSrv6EndPointBehavior {
     bytes Flags = 2;
 
     // Algorithm associated with the SID
-    uint32 Algorithm = 3;
+    bytes Algorithm = 3;
 }
 
 // SRv6 BGP Peer Node SID. TLV 1251

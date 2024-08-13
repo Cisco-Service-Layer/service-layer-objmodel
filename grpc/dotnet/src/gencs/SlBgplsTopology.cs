@@ -217,7 +217,7 @@ namespace ServiceLayer {
             "ZRgDIAEoCzIiLnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9TckNwTmFtZRJA",
             "Cg1DcENvbnN0cmFpbnRzGAQgASgLMikuc2VydmljZV9sYXllci5TTEJncGxz",
             "VG9wb1NyQ3BDb25zdHJhaW50cxI1CghTZWdMaXN0cxgFIAMoCzIjLnNlcnZp",
-            "Y2VfbGF5ZXIuU0xCZ3Bsc1RvcG9TclNlZ0xpc3QSOgoIU3J2NkJzaWQYBiAB",
+            "Y2VfbGF5ZXIuU0xCZ3Bsc1RvcG9TclNlZ0xpc3QSOgoIU3J2NkJzaWQYBiAD",
             "KAsyKC5zZXJ2aWNlX2xheWVyLlNMQmdwbHNUb3BvU3J2NkJpbmRpbmdTaWQS",
             "PAoMU3JQb2xpY3lOYW1lGAcgASgLMiYuc2VydmljZV9sYXllci5TTEJncGxz",
             "VG9wb1NyUG9saWN5TmFtZRI6CgtVbmtub3duQXR0chgIIAMoCzIlLnNlcnZp",
@@ -280,14 +280,14 @@ namespace ServiceLayer {
             "QmdwU2lkRm9ybWF0GAIgASgOMiMuc2VydmljZV9sYXllci5TTEJncGxzVG9w",
             "b1NpZEZvcm1hdBINCgVGbGFncxgDIAEoDBIOCgZXZWlnaHQYBCABKA0irQEK",
             "FlNMQmdwbHNUb3BvU3J2NkVuZFhTaWQSCwoDU2lkGAEgASgMEhEKCUFsZ29y",
-            "aXRobRgCIAEoDRINCgVGbGFncxgDIAEoDBIOCgZXZWlnaHQYBCABKA0SGAoQ",
+            "aXRobRgCIAEoDBINCgVGbGFncxgDIAEoDBIOCgZXZWlnaHQYBCABKA0SGAoQ",
             "RW5kUG9pbnRCZWhhdmlvchgFIAEoDRI6CglTaWRTdHJ1Y3QYBiABKAsyJy5z",
             "ZXJ2aWNlX2xheWVyLlNMQmdwbHNUb3BvU3J2NlNpZFN0cnVjdCJNChVTTEJn",
             "cExzVG9wb05laWdoYm9ySWQSEgoISXB2NEFkZHIYASABKAxIABISCghTeXN0",
             "ZW1JZBgCIAEoDEgAQgwKCk5laWdoYm9ySWQi6AEKGVNMQmdwbHNUb3BvU3J2",
             "NkxhbkVuZFhTaWQSNgoITmVpZ2hib3IYASABKAsyJC5zZXJ2aWNlX2xheWVy",
             "LlNMQmdwTHNUb3BvTmVpZ2hib3JJZBILCgNTaWQYAiABKAwSEQoJQWxnb3Jp",
-            "dGhtGAMgASgNEg0KBUZsYWdzGAQgASgMEg4KBldlaWdodBgFIAEoDRIYChBF",
+            "dGhtGAMgASgMEg0KBUZsYWdzGAQgASgMEg4KBldlaWdodBgFIAEoDRIYChBF",
             "bmRQb2ludEJlaGF2aW9yGAYgASgNEjoKCVNpZFN0cnVjdBgHIAEoCzInLnNl",
             "cnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9TcnY2U2lkU3RydWN0IjcKF1NMQmdw",
             "bHNUb3BvVW5pTGlua0RlbGF5Eg0KBURlbGF5GAEgASgNEg0KBUZsYWdzGAIg",
@@ -325,13 +325,13 @@ namespace ServiceLayer {
             "ABISCghJcHY2QWRkchgCIAEoDEgAQg0KC09zcGZGd2RBZGRyIjEKG1NMQmdw",
             "bHNUb3BvUHJlZml4T3BhcXVlQXR0chISCgpPcGFxdWVBdHRyGAEgASgMIpAB",
             "ChRTTEJncGxzVG9wb1ByZWZpeFNpZBINCgVGbGFncxgBIAEoDBIRCglBbGdv",
-            "cml0aG0YAiABKA0SEgoKTGFiZWxJbmRleBgDIAEoDRJCCg9QcmVmaXhTaWRG",
+            "cml0aG0YAiABKAwSEgoKTGFiZWxJbmRleBgDIAEoDRJCCg9QcmVmaXhTaWRG",
             "b3JtYXQYBCABKA4yKS5zZXJ2aWNlX2xheWVyLlNMQmdwbHNUb3BvUHJlZml4",
             "U2lkRm9ybWF0Im4KFlNMQmdwbHNUb3BvUHJlZml4UmFuZ2USDQoFRmxhZ3MY",
-            "ASABKAwSEQoJUmFuZ2VTaXplGAIgASgNEhEKCUFsZ29yaXRobRgDIAEoDRIN",
+            "ASABKAwSEQoJUmFuZ2VTaXplGAIgASgNEhEKCUFsZ29yaXRobRgDIAEoDBIN",
             "CgVJbmRleBgEIAEoDRIQCghTaWRGbGFncxgFIAEoDCJMChhTTEJncGxzVG9w",
             "b1ByZWZpeFNydjZMb2MSDQoFRmxhZ3MYASABKAwSEQoJQWxnb3JpdGhtGAIg",
-            "ASgNEg4KBk1ldHJpYxgDIAEoDSIrChpTTEJncGxzVG9wb1ByZWZpeEF0dHJG",
+            "ASgMEg4KBk1ldHJpYxgDIAEoDSIrChpTTEJncGxzVG9wb1ByZWZpeEF0dHJG",
             "bGFncxINCgVGbGFncxgBIAEoDCJVChxTTEJncGxzVG9wb1ByZWZpeFNyY1Jv",
             "dXRlcklkEhIKCElwdjRBZGRyGAEgASgMSAASEgoISXB2NkFkZHIYAiABKAxI",
             "AEINCgtTcmNSb3V0ZXJJZCK4CQodU0xCZ3Bsc1RvcG9MMkJ1bmRsZU1lbWJl",
@@ -371,7 +371,7 @@ namespace ServiceLayer {
             "aXR5GAEgASgNEg0KBUZsYWdzGAIgASgMEhIKClByZWZlcmVuY2UYAyABKA0i",
             "IwoTU0xCZ3Bsc1RvcG9TckNwTmFtZRIMCgROYW1lGAEgASgJItkDChpTTEJn",
             "cGxzVG9wb1NyQ3BDb25zdHJhaW50cxINCgVGbGFncxgBIAEoDBIMCgRNdGlk",
-            "GAIgASgNEhEKCUFsZ29yaXRobRgDIAEoDRJBCghBZmZpbml0eRgFIAEoCzIv",
+            "GAIgASgNEhEKCUFsZ29yaXRobRgDIAEoDBJBCghBZmZpbml0eRgFIAEoCzIv",
             "LnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9TckFmZmluaXR5Q29uc3RyYWlu",
             "dHMSOQoEU3JsZxgGIAEoCzIrLnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9T",
             "clNybGdDb25zdHJhaW50cxJCCglCYW5kd2lkdGgYBCABKAsyLy5zZXJ2aWNl",
@@ -381,10 +381,10 @@ namespace ServiceLayer {
             "cnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9TckJpZGlyR3JvdXBDb25zdHJhaW50",
             "EjwKBk1ldHJpYxgJIAMoCzIsLnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9T",
             "ck1ldHJpY0NvbnN0cmFpbnQijQEKFFNMQmdwbHNUb3BvU3JTZWdMaXN0Eg0K",
-            "BUZsYWdzGAEgASgMEgwKBE10aWQYAiABKA0SEQoJQWxnb3JpdGhtGAMgASgN",
+            "BUZsYWdzGAEgASgMEgwKBE10aWQYAiABKA0SEQoJQWxnb3JpdGhtGAMgASgM",
             "Eg4KBldlaWdodBgEIAEoDRI1CghTZWdtZW50cxgFIAMoCzIjLnNlcnZpY2Vf",
             "bGF5ZXIuU0xCZ3Bsc1RvcG9TclNlZ21lbnQiogIKGFNMQmdwbHNUb3BvU3JT",
-            "ZWdtZW50RGVzYxIRCglBbGdvcml0aG0YASABKA0SFQoLSXB2NExvY0FkZHIY",
+            "ZWdtZW50RGVzYxIRCglBbGdvcml0aG0YASABKAwSFQoLSXB2NExvY0FkZHIY",
             "AiABKAxIABIVCgtJcHY2TG9jQWRkchgDIAEoDEgAEhUKC0lwdjRSZW1BZGRy",
             "GAQgASgMSAESFQoLSXB2NlJlbUFkZHIYBSABKAxIARIfChdJcHY2TG9jYWxO",
             "b2RlR2xvYmFsQWRkchgGIAEoDBIgChhJcHY2UmVtb3RlTm9kZUdsb2JhbEFk",
@@ -398,7 +398,7 @@ namespace ServiceLayer {
             "ASgLMi4uc2VydmljZV9sYXllci5TTEJncGxzVG9wb1NydjZFbmRQb2ludEJl",
             "aGF2aW9yEjoKCVNpZFN0cnVjdBgHIAEoCzInLnNlcnZpY2VfbGF5ZXIuU0xC",
             "Z3Bsc1RvcG9TcnY2U2lkU3RydWN0QgUKA1NpZCJjChZTTEJncGxzU3JTZWdM",
-            "aXN0TWV0cmljEgwKBFR5cGUYASABKA0SDQoFRmxhZ3MYAiABKAwSDgoGTWFy",
+            "aXN0TWV0cmljEgwKBFR5cGUYASABKAwSDQoFRmxhZ3MYAiABKAwSDgoGTWFy",
             "Z2luGAMgASgNEg0KBUJvdW5kGAQgASgNEg0KBVZhbHVlGAUgASgNIl4KIFNM",
             "QmdwbHNUb3BvU3JBZmZpbml0eUNvbnN0cmFpbnRzEhIKCkV4Y2xBbnlFYWcY",
             "ASADKA0SEgoKSW5jbEFueUVhZxgCIAMoDRISCgpJbmNsQWxsRWFnGAMgAygN",
@@ -406,93 +406,91 @@ namespace ServiceLayer {
             "cxgBIAMoDSI1CiBTTEJncGxzVG9wb1NyQmFuZHdpZHRoQ29uc3RyYWludBIR",
             "CglCYW5kd2lkdGgYASABKAwiYgokU0xCZ3Bsc1RvcG9TckRpc2pvaW50R3Jv",
             "dXBDb25zdHJhaW50EhQKDFJlcXVlc3RGbGFncxgBIAEoDBITCgtTdGF0dXNG",
-            "bGFncxgCIAEoDBIPCgdHcm91cElkGAMgASgNIpoCChlTTEJncGxzVG9wb1Ny",
-            "djZCaW5kaW5nU2lkEg0KBUZsYWdzGAEgASgMEi4KBEJzaWQYAiABKAsyIC5z",
-            "ZXJ2aWNlX2xheWVyLlNsQmdwbHNUb3BvU3JCc2lkEjcKDVNwZWNpZmllZEJz",
-            "aWQYAyABKAsyIC5zZXJ2aWNlX2xheWVyLlNsQmdwbHNUb3BvU3JCc2lkEkkK",
-            "EUVuZFBvaW50QmVoYXZpb3VyGAQgASgLMi4uc2VydmljZV9sYXllci5TTEJn",
-            "cGxzVG9wb1NydjZFbmRQb2ludEJlaGF2aW9yEjoKCVNpZFN0cnVjdBgFIAEo",
-            "CzInLnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9TcnY2U2lkU3RydWN0IicK",
-            "F1NMQmdwbHNUb3BvU3JQb2xpY3lOYW1lEgwKBE5hbWUYASABKAkiQwohU0xC",
-            "Z3Bsc1RvcG9TckJpZGlyR3JvdXBDb25zdHJhaW50Eg0KBUZsYWdzGAEgASgM",
-            "Eg8KB0dyb3VwSWQYAiABKA0iWwodU0xCZ3Bsc1RvcG9Tck1ldHJpY0NvbnN0",
-            "cmFpbnQSDAoEVHlwZRgBIAEoDRINCgVGbGFncxgCIAEoDBIOCgZNYXJnaW4Y",
-            "AyABKA0SDQoFQm91bmQYBCABKA0iOQokU0xCZ3Bsc1RvcG9TckNwU2VnTGlz",
-            "dEJhbmR3aWR0aFN0YXRlEhEKCUJhbmR3aWR0aBgBIAEoDCIrChZTTEJncGxz",
-            "VG9wb1NyU2VnTGlzdElkEhEKCVNlZ0xpc3RJZBgBIAEoDSJdCh9TTEJncGxz",
-            "VG9wb1NydjZFbmRQb2ludEJlaGF2aW9yEhgKEEVuZFBvaW50QmVoYXZpb3IY",
-            "ASABKA0SDQoFRmxhZ3MYAiABKAwSEQoJQWxnb3JpdGhtGAMgASgNImEKHVNM",
-            "QmdwbHNUb3BvU3J2NkJncFBlZXJOb2RlU2lkEg0KBUZsYWdzGAEgASgMEg4K",
-            "BldlaWdodBgCIAEoDRIOCgZQZWVyQVMYAyABKA0SEQoJUGVlckJncElkGAQg",
-            "ASgMInAKGFNMQmdwbHNUb3BvU3J2NlNpZFN0cnVjdBIXCg9Mb2NhdG9yQmxv",
-            "Y2tMZW4YASABKA0SFgoOTG9jYXRvck5vZGVMZW4YAiABKA0SEwoLRnVuY3Rp",
-            "b25MZW4YAyABKA0SDgoGQXJnTGVuGAQgASgNIkkKFlNMQmdwbHNUb3BvVW5r",
-            "bm93bkF0dHISDwoHVGx2VHlwZRgBIAEoDRIOCgZUbHZMZW4YAiABKA0SDgoG",
-            "UmF3VGx2GAMgASgMKoQBChRTTEJncGxzVG9wb09wZXJhdGlvbhIkCiBTTF9C",
-            "R1BMU19UT1BPX09QRVJBVElPTl9SRVNFUlZFRBAAEiIKHlNMX0JHUExTX1RP",
-            "UE9fT1BFUkFUSU9OX1VQREFURRABEiIKHlNMX0JHUExTX1RPUE9fT1BFUkFU",
-            "SU9OX0RFTEVURRACKq0CChNTTEJncGxzVG9wb05scmlUeXBlEiQKIFNMX0JH",
-            "UExTX1RPUE9fTkxSSV9UWVBFX1JFU0VSVkVEEAASIAocU0xfQkdQTFNfVE9Q",
-            "T19OTFJJX1RZUEVfTk9ERRABEiAKHFNMX0JHUExTX1RPUE9fTkxSSV9UWVBF",
-            "X0xJTksQAhInCiNTTF9CR1BMU19UT1BPX05MUklfVFlQRV9JUFY0X1BSRUZJ",
-            "WBADEicKI1NMX0JHUExTX1RPUE9fTkxSSV9UWVBFX0lQVjZfUFJFRklYEAQS",
-            "NAowU0xfQkdQTFNfVE9QT19OTFJJX1RZUEVfU1JfUE9MSUNZX0NBTkRJREFU",
-            "RV9QQVRIEAUSJAogU0xfQkdQTFNfVE9QT19OTFJJX1RZUEVfU1JWNl9TSUQQ",
-            "BirxAgoTU0xCZ3Bsc1RvcG9Qcm90b2NvbBIjCh9TTF9CR1BMU19UT1BPX1BS",
-            "T1RPQ09MX1JFU0VSVkVEEAASIgoeU0xfQkdQTFNfVE9QT19QUk9UT0NPTF9J",
-            "U0lTX0wxEAESIgoeU0xfQkdQTFNfVE9QT19QUk9UT0NPTF9JU0lTX0wyEAIS",
-            "IQodU0xfQkdQTFNfVE9QT19QUk9UT0NPTF9PU1BGdjIQAxIhCh1TTF9CR1BM",
-            "U19UT1BPX1BST1RPQ09MX0RJUkVDVBAEEiEKHVNMX0JHUExTX1RPUE9fUFJP",
-            "VE9DT0xfU1RBVElDEAUSIQodU0xfQkdQTFNfVE9QT19QUk9UT0NPTF9PU1BG",
-            "djMQBhIeChpTTF9CR1BMU19UT1BPX1BST1RPQ09MX0JHUBAHEiIKHlNMX0JH",
-            "UExTX1RPUE9fUFJPVE9DT0xfUlNWUF9URRAIEh0KGVNMX0JHUExTX1RPUE9f",
-            "UFJPVE9DT0xfU1IQCSrOAgoYU0xCZ3Bsc1RvcG9Pc3BmUm91dGVUeXBlEioK",
-            "JlNMX0JHUExTX1RPUE9fT1NQRl9ST1VURV9UWVBFX1JFU0VSVkVEEAASLAoo",
-            "U0xfQkdQTFNfVE9QT19PU1BGX1JPVVRFX1RZUEVfSU5UUkFfQVJFQRABEiwK",
-            "KFNMX0JHUExTX1RPUE9fT1NQRl9ST1VURV9UWVBFX0lOVEVSX0FSRUEQAhIq",
-            "CiZTTF9CR1BMU19UT1BPX09TUEZfUk9VVEVfVFlQRV9FWFRFUk5fMRADEioK",
-            "JlNMX0JHUExTX1RPUE9fT1NQRl9ST1VURV9UWVBFX0VYVEVSTl8yEAQSKAok",
-            "U0xfQkdQTFNfVE9QT19PU1BGX1JPVVRFX1RZUEVfTlNTQV8xEAUSKAokU0xf",
-            "QkdQTFNfVE9QT19PU1BGX1JPVVRFX1RZUEVfTlNTQV8yEAYq8AMKIVNMQmdw",
-            "bHNUb3BvU3JQb2xpY3lQcm90b2NvbE9yaWdpbhI0CjBTTF9CR1BMU19UT1BP",
-            "X1NSX1BPTElDWV9QUk9UT0NPTF9PUklHSU5fUkVTRVJWRUQQABIwCixTTF9C",
-            "R1BMU19UT1BPX1NSX1BPTElDWV9QUk9UT0NPTF9PUklHSU5fUENFUBABEjkK",
-            "NVNMX0JHUExTX1RPUE9fU1JfUE9MSUNZX1BST1RPQ09MX09SSUdJTl9CR1Bf",
-            "U1JfUE9MSUNZEAISMgouU0xfQkdQTFNfVE9QT19TUl9QT0xJQ1lfUFJPVE9D",
-            "T0xfT1JJR0lOX0NPTkZJRxADEjgKNFNMX0JHUExTX1RPUE9fU1JfUE9MSUNZ",
-            "X1BST1RPQ09MX09SSUdJTl9QQ0VQX1ZJQV9QQ0UQChJBCj1TTF9CR1BMU19U",
-            "T1BPX1NSX1BPTElDWV9QUk9UT0NPTF9PUklHSU5fQkdQX1NSX1BPTElDWV9W",
-            "SUFfUENFEBQSOgo2U0xfQkdQTFNfVE9QT19TUl9QT0xJQ1lfUFJPVE9DT0xf",
-            "T1JJR0lOX0NPTkZJR19WSUFfUENFEB4SOwo3U0xfQkdQTFNfVE9QT19TUl9Q",
-            "T0xJQ1lfUFJPVE9DT0xfT1JJR0lOX0NPTkZJR19WSUFfR1JQQxAoKqsBChRT",
-            "TEJncGxzVG9wb1NpZEZvcm1hdBIlCiFTTF9CR1BMU19UT1BPX1NJRF9GT1JN",
-            "QVRfUkVTRVJWRUQQABIiCh5TTF9CR1BMU19UT1BPX1NJRF9GT1JNQVRfTEFC",
-            "RUwQARIiCh5TTF9CR1BMU19UT1BPX1NJRF9GT1JNQVRfSU5ERVgQAhIkCiBT",
-            "TF9CR1BMU19UT1BPX1NJRF9GT1JNQVRfVjZfQUREUhADKqABChpTTEJncGxz",
-            "VG9wb1ByZWZpeFNpZEZvcm1hdBIsCihTTF9CR1BMU19UT1BPX1BSRUZJWF9T",
-            "SURfRk9STUFUX1JFU0VSVkVEEAASKQolU0xfQkdQTFNfVE9QT19QUkVGSVhf",
-            "U0lEX0ZPUk1BVF9MQUJFTBABEikKJVNMX0JHUExTX1RPUE9fUFJFRklYX1NJ",
-            "RF9GT1JNQVRfSU5ERVgQAiqoBQoYU0xCZ3Bsc1RvcG9TclNlZ21lbnRUeXBl",
-            "EiYKIlNMX0JHUExTX1RPUE9fU1JfU0VHX1RZUEVfUkVTRVJWRUQQABIoCiRT",
-            "TF9CR1BMU19UT1BPX1NSX1NFR19UWVBFX01QTFNfTEFCRUwQARIpCiVTTF9C",
-            "R1BMU19UT1BPX1NSX1NFR19UWVBFX1NSVjZfU0lEX1Y2EAISLQopU0xfQkdQ",
-            "TFNfVE9QT19TUl9TRUdfVFlQRV9NUExTX1BGWF9TSURfVjQQAxItCilTTF9C",
-            "R1BMU19UT1BPX1NSX1NFR19UWVBFX01QTFNfUEZYX1NJRF9WNhAEEj4KOlNM",
-            "X0JHUExTX1RPUE9fU1JfU0VHX1RZUEVfTVBMU19BREpfU0lEX1Y0X05PREVf",
-            "QUREUl9MT0NfSUQQBRI6CjZTTF9CR1BMU19UT1BPX1NSX1NFR19UWVBFX01Q",
-            "TFNfQURKX1NJRF9WNF9MT0NfUkVNX0FERFIQBhJBCj1TTF9CR1BMU19UT1BP",
-            "X1NSX1NFR19UWVBFX01QTFNfQURKX1NJRF9WNl9MT0NfUkVNX0FERFJfQU5E",
-            "X0lEEAcSOgo2U0xfQkdQTFNfVE9QT19TUl9TRUdfVFlQRV9NUExTX0FESl9T",
-            "SURfVjZfTE9DX1JFTV9BRERSEAgSNwozU0xfQkdQTFNfVE9QT19TUl9TRUdf",
-            "VFlQRV9TUlY2X0VORF9TSURfVjZfTk9ERV9BRERSEAkSQQo9U0xfQkdQTFNf",
-            "VE9QT19TUl9TRUdfVFlQRV9TUlY2X0VORF9TSURfVjZfTE9DX1JFTV9BRERS",
-            "X0FORF9JRBAKEjoKNlNMX0JHUExTX1RPUE9fU1JfU0VHX1RZUEVfU1JWNl9F",
-            "TkRfU0lEX1Y2X0xPQ19SRU1fQUREUhALMnQKC1NMQmdwbHNUb3BvEmUKFlNM",
-            "QmdwbHNUb3BvTm90aWZTdHJlYW0SJS5zZXJ2aWNlX2xheWVyLlNMQmdwbHNU",
-            "b3BvTm90aWZSZXFNc2caIi5zZXJ2aWNlX2xheWVyLlNMQmdwbHNUb3BvTm90",
-            "aWZNc2cwAUJRWk9naXRodWIuY29tL0Npc2NvLXNlcnZpY2UtbGF5ZXIvc2Vy",
-            "dmljZS1sYXllci1vYmptb2RlbC9ncnBjL3Byb3RvcztzZXJ2aWNlX2xheWVy",
-            "YgZwcm90bzM="));
+            "bGFncxgCIAEoDBIPCgdHcm91cElkGAMgASgNItYBChlTTEJncGxzVG9wb1Ny",
+            "djZCaW5kaW5nU2lkEg0KBUZsYWdzGAEgASgMEgwKBEJzaWQYAiABKAwSFQoN",
+            "U3BlY2lmaWVkQnNpZBgDIAEoDBJJChFFbmRQb2ludEJlaGF2aW91chgEIAEo",
+            "CzIuLnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9TcnY2RW5kUG9pbnRCZWhh",
+            "dmlvchI6CglTaWRTdHJ1Y3QYBSABKAsyJy5zZXJ2aWNlX2xheWVyLlNMQmdw",
+            "bHNUb3BvU3J2NlNpZFN0cnVjdCInChdTTEJncGxzVG9wb1NyUG9saWN5TmFt",
+            "ZRIMCgROYW1lGAEgASgJIkMKIVNMQmdwbHNUb3BvU3JCaWRpckdyb3VwQ29u",
+            "c3RyYWludBINCgVGbGFncxgBIAEoDBIPCgdHcm91cElkGAIgASgNIlsKHVNM",
+            "QmdwbHNUb3BvU3JNZXRyaWNDb25zdHJhaW50EgwKBFR5cGUYASABKA0SDQoF",
+            "RmxhZ3MYAiABKAwSDgoGTWFyZ2luGAMgASgNEg0KBUJvdW5kGAQgASgNIjkK",
+            "JFNMQmdwbHNUb3BvU3JDcFNlZ0xpc3RCYW5kd2lkdGhTdGF0ZRIRCglCYW5k",
+            "d2lkdGgYASABKAwiKwoWU0xCZ3Bsc1RvcG9TclNlZ0xpc3RJZBIRCglTZWdM",
+            "aXN0SWQYASABKA0iXQofU0xCZ3Bsc1RvcG9TcnY2RW5kUG9pbnRCZWhhdmlv",
+            "chIYChBFbmRQb2ludEJlaGF2aW9yGAEgASgNEg0KBUZsYWdzGAIgASgMEhEK",
+            "CUFsZ29yaXRobRgDIAEoDCJhCh1TTEJncGxzVG9wb1NydjZCZ3BQZWVyTm9k",
+            "ZVNpZBINCgVGbGFncxgBIAEoDBIOCgZXZWlnaHQYAiABKA0SDgoGUGVlckFT",
+            "GAMgASgNEhEKCVBlZXJCZ3BJZBgEIAEoDCJwChhTTEJncGxzVG9wb1NydjZT",
+            "aWRTdHJ1Y3QSFwoPTG9jYXRvckJsb2NrTGVuGAEgASgNEhYKDkxvY2F0b3JO",
+            "b2RlTGVuGAIgASgNEhMKC0Z1bmN0aW9uTGVuGAMgASgNEg4KBkFyZ0xlbhgE",
+            "IAEoDSJJChZTTEJncGxzVG9wb1Vua25vd25BdHRyEg8KB1RsdlR5cGUYASAB",
+            "KA0SDgoGVGx2TGVuGAIgASgNEg4KBlJhd1RsdhgDIAEoDCqEAQoUU0xCZ3Bs",
+            "c1RvcG9PcGVyYXRpb24SJAogU0xfQkdQTFNfVE9QT19PUEVSQVRJT05fUkVT",
+            "RVJWRUQQABIiCh5TTF9CR1BMU19UT1BPX09QRVJBVElPTl9VUERBVEUQARIi",
+            "Ch5TTF9CR1BMU19UT1BPX09QRVJBVElPTl9ERUxFVEUQAiqtAgoTU0xCZ3Bs",
+            "c1RvcG9ObHJpVHlwZRIkCiBTTF9CR1BMU19UT1BPX05MUklfVFlQRV9SRVNF",
+            "UlZFRBAAEiAKHFNMX0JHUExTX1RPUE9fTkxSSV9UWVBFX05PREUQARIgChxT",
+            "TF9CR1BMU19UT1BPX05MUklfVFlQRV9MSU5LEAISJwojU0xfQkdQTFNfVE9Q",
+            "T19OTFJJX1RZUEVfSVBWNF9QUkVGSVgQAxInCiNTTF9CR1BMU19UT1BPX05M",
+            "UklfVFlQRV9JUFY2X1BSRUZJWBAEEjQKMFNMX0JHUExTX1RPUE9fTkxSSV9U",
+            "WVBFX1NSX1BPTElDWV9DQU5ESURBVEVfUEFUSBAFEiQKIFNMX0JHUExTX1RP",
+            "UE9fTkxSSV9UWVBFX1NSVjZfU0lEEAYq8QIKE1NMQmdwbHNUb3BvUHJvdG9j",
+            "b2wSIwofU0xfQkdQTFNfVE9QT19QUk9UT0NPTF9SRVNFUlZFRBAAEiIKHlNM",
+            "X0JHUExTX1RPUE9fUFJPVE9DT0xfSVNJU19MMRABEiIKHlNMX0JHUExTX1RP",
+            "UE9fUFJPVE9DT0xfSVNJU19MMhACEiEKHVNMX0JHUExTX1RPUE9fUFJPVE9D",
+            "T0xfT1NQRnYyEAMSIQodU0xfQkdQTFNfVE9QT19QUk9UT0NPTF9ESVJFQ1QQ",
+            "BBIhCh1TTF9CR1BMU19UT1BPX1BST1RPQ09MX1NUQVRJQxAFEiEKHVNMX0JH",
+            "UExTX1RPUE9fUFJPVE9DT0xfT1NQRnYzEAYSHgoaU0xfQkdQTFNfVE9QT19Q",
+            "Uk9UT0NPTF9CR1AQBxIiCh5TTF9CR1BMU19UT1BPX1BST1RPQ09MX1JTVlBf",
+            "VEUQCBIdChlTTF9CR1BMU19UT1BPX1BST1RPQ09MX1NSEAkqzgIKGFNMQmdw",
+            "bHNUb3BvT3NwZlJvdXRlVHlwZRIqCiZTTF9CR1BMU19UT1BPX09TUEZfUk9V",
+            "VEVfVFlQRV9SRVNFUlZFRBAAEiwKKFNMX0JHUExTX1RPUE9fT1NQRl9ST1VU",
+            "RV9UWVBFX0lOVFJBX0FSRUEQARIsCihTTF9CR1BMU19UT1BPX09TUEZfUk9V",
+            "VEVfVFlQRV9JTlRFUl9BUkVBEAISKgomU0xfQkdQTFNfVE9QT19PU1BGX1JP",
+            "VVRFX1RZUEVfRVhURVJOXzEQAxIqCiZTTF9CR1BMU19UT1BPX09TUEZfUk9V",
+            "VEVfVFlQRV9FWFRFUk5fMhAEEigKJFNMX0JHUExTX1RPUE9fT1NQRl9ST1VU",
+            "RV9UWVBFX05TU0FfMRAFEigKJFNMX0JHUExTX1RPUE9fT1NQRl9ST1VURV9U",
+            "WVBFX05TU0FfMhAGKvADCiFTTEJncGxzVG9wb1NyUG9saWN5UHJvdG9jb2xP",
+            "cmlnaW4SNAowU0xfQkdQTFNfVE9QT19TUl9QT0xJQ1lfUFJPVE9DT0xfT1JJ",
+            "R0lOX1JFU0VSVkVEEAASMAosU0xfQkdQTFNfVE9QT19TUl9QT0xJQ1lfUFJP",
+            "VE9DT0xfT1JJR0lOX1BDRVAQARI5CjVTTF9CR1BMU19UT1BPX1NSX1BPTElD",
+            "WV9QUk9UT0NPTF9PUklHSU5fQkdQX1NSX1BPTElDWRACEjIKLlNMX0JHUExT",
+            "X1RPUE9fU1JfUE9MSUNZX1BST1RPQ09MX09SSUdJTl9DT05GSUcQAxI4CjRT",
+            "TF9CR1BMU19UT1BPX1NSX1BPTElDWV9QUk9UT0NPTF9PUklHSU5fUENFUF9W",
+            "SUFfUENFEAoSQQo9U0xfQkdQTFNfVE9QT19TUl9QT0xJQ1lfUFJPVE9DT0xf",
+            "T1JJR0lOX0JHUF9TUl9QT0xJQ1lfVklBX1BDRRAUEjoKNlNMX0JHUExTX1RP",
+            "UE9fU1JfUE9MSUNZX1BST1RPQ09MX09SSUdJTl9DT05GSUdfVklBX1BDRRAe",
+            "EjsKN1NMX0JHUExTX1RPUE9fU1JfUE9MSUNZX1BST1RPQ09MX09SSUdJTl9D",
+            "T05GSUdfVklBX0dSUEMQKCqrAQoUU0xCZ3Bsc1RvcG9TaWRGb3JtYXQSJQoh",
+            "U0xfQkdQTFNfVE9QT19TSURfRk9STUFUX1JFU0VSVkVEEAASIgoeU0xfQkdQ",
+            "TFNfVE9QT19TSURfRk9STUFUX0xBQkVMEAESIgoeU0xfQkdQTFNfVE9QT19T",
+            "SURfRk9STUFUX0lOREVYEAISJAogU0xfQkdQTFNfVE9QT19TSURfRk9STUFU",
+            "X1Y2X0FERFIQAyqgAQoaU0xCZ3Bsc1RvcG9QcmVmaXhTaWRGb3JtYXQSLAoo",
+            "U0xfQkdQTFNfVE9QT19QUkVGSVhfU0lEX0ZPUk1BVF9SRVNFUlZFRBAAEikK",
+            "JVNMX0JHUExTX1RPUE9fUFJFRklYX1NJRF9GT1JNQVRfTEFCRUwQARIpCiVT",
+            "TF9CR1BMU19UT1BPX1BSRUZJWF9TSURfRk9STUFUX0lOREVYEAIqqAUKGFNM",
+            "QmdwbHNUb3BvU3JTZWdtZW50VHlwZRImCiJTTF9CR1BMU19UT1BPX1NSX1NF",
+            "R19UWVBFX1JFU0VSVkVEEAASKAokU0xfQkdQTFNfVE9QT19TUl9TRUdfVFlQ",
+            "RV9NUExTX0xBQkVMEAESKQolU0xfQkdQTFNfVE9QT19TUl9TRUdfVFlQRV9T",
+            "UlY2X1NJRF9WNhACEi0KKVNMX0JHUExTX1RPUE9fU1JfU0VHX1RZUEVfTVBM",
+            "U19QRlhfU0lEX1Y0EAMSLQopU0xfQkdQTFNfVE9QT19TUl9TRUdfVFlQRV9N",
+            "UExTX1BGWF9TSURfVjYQBBI+CjpTTF9CR1BMU19UT1BPX1NSX1NFR19UWVBF",
+            "X01QTFNfQURKX1NJRF9WNF9OT0RFX0FERFJfTE9DX0lEEAUSOgo2U0xfQkdQ",
+            "TFNfVE9QT19TUl9TRUdfVFlQRV9NUExTX0FESl9TSURfVjRfTE9DX1JFTV9B",
+            "RERSEAYSQQo9U0xfQkdQTFNfVE9QT19TUl9TRUdfVFlQRV9NUExTX0FESl9T",
+            "SURfVjZfTE9DX1JFTV9BRERSX0FORF9JRBAHEjoKNlNMX0JHUExTX1RPUE9f",
+            "U1JfU0VHX1RZUEVfTVBMU19BREpfU0lEX1Y2X0xPQ19SRU1fQUREUhAIEjcK",
+            "M1NMX0JHUExTX1RPUE9fU1JfU0VHX1RZUEVfU1JWNl9FTkRfU0lEX1Y2X05P",
+            "REVfQUREUhAJEkEKPVNMX0JHUExTX1RPUE9fU1JfU0VHX1RZUEVfU1JWNl9F",
+            "TkRfU0lEX1Y2X0xPQ19SRU1fQUREUl9BTkRfSUQQChI6CjZTTF9CR1BMU19U",
+            "T1BPX1NSX1NFR19UWVBFX1NSVjZfRU5EX1NJRF9WNl9MT0NfUkVNX0FERFIQ",
+            "CzJ0CgtTTEJncGxzVG9wbxJlChZTTEJncGxzVG9wb05vdGlmU3RyZWFtEiUu",
+            "c2VydmljZV9sYXllci5TTEJncGxzVG9wb05vdGlmUmVxTXNnGiIuc2Vydmlj",
+            "ZV9sYXllci5TTEJncGxzVG9wb05vdGlmTXNnMAFCUVpPZ2l0aHViLmNvbS9D",
+            "aXNjby1zZXJ2aWNlLWxheWVyL3NlcnZpY2UtbGF5ZXItb2JqbW9kZWwvZ3Jw",
+            "Yy9wcm90b3M7c2VydmljZV9sYXllcmIGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::ServiceLayer.SlCommonTypesReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::ServiceLayer.SLBgplsTopoOperation), typeof(global::ServiceLayer.SLBgplsTopoNlriType), typeof(global::ServiceLayer.SLBgplsTopoProtocol), typeof(global::ServiceLayer.SLBgplsTopoOspfRouteType), typeof(global::ServiceLayer.SLBgplsTopoSrPolicyProtocolOrigin), typeof(global::ServiceLayer.SLBgplsTopoSidFormat), typeof(global::ServiceLayer.SLBgplsTopoPrefixSidFormat), typeof(global::ServiceLayer.SLBgplsTopoSrSegmentType), }, null, new pbr::GeneratedClrTypeInfo[] {
@@ -12709,7 +12707,7 @@ namespace ServiceLayer {
       cpName_ = other.cpName_ != null ? other.cpName_.Clone() : null;
       cpConstraints_ = other.cpConstraints_ != null ? other.cpConstraints_.Clone() : null;
       segLists_ = other.segLists_.Clone();
-      srv6Bsid_ = other.srv6Bsid_ != null ? other.srv6Bsid_.Clone() : null;
+      srv6Bsid_ = other.srv6Bsid_.Clone();
       srPolicyName_ = other.srPolicyName_ != null ? other.srPolicyName_.Clone() : null;
       unknownAttr_ = other.unknownAttr_.Clone();
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
@@ -12813,7 +12811,9 @@ namespace ServiceLayer {
 
     /// <summary>Field number for the "Srv6Bsid" field.</summary>
     public const int Srv6BsidFieldNumber = 6;
-    private global::ServiceLayer.SLBgplsTopoSrv6BindingSid srv6Bsid_;
+    private static readonly pb::FieldCodec<global::ServiceLayer.SLBgplsTopoSrv6BindingSid> _repeated_srv6Bsid_codec
+        = pb::FieldCodec.ForMessage(50, global::ServiceLayer.SLBgplsTopoSrv6BindingSid.Parser);
+    private readonly pbc::RepeatedField<global::ServiceLayer.SLBgplsTopoSrv6BindingSid> srv6Bsid_ = new pbc::RepeatedField<global::ServiceLayer.SLBgplsTopoSrv6BindingSid>();
     /// <summary>
     /// SRv6 Binding SID (BSID) is used to report
     /// the SRv6 BSID and its attributes for the SR Policy CP.
@@ -12822,11 +12822,8 @@ namespace ServiceLayer {
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::ServiceLayer.SLBgplsTopoSrv6BindingSid Srv6Bsid {
+    public pbc::RepeatedField<global::ServiceLayer.SLBgplsTopoSrv6BindingSid> Srv6Bsid {
       get { return srv6Bsid_; }
-      set {
-        srv6Bsid_ = value;
-      }
     }
 
     /// <summary>Field number for the "SrPolicyName" field.</summary>
@@ -12881,7 +12878,7 @@ namespace ServiceLayer {
       if (!object.Equals(CpName, other.CpName)) return false;
       if (!object.Equals(CpConstraints, other.CpConstraints)) return false;
       if(!segLists_.Equals(other.segLists_)) return false;
-      if (!object.Equals(Srv6Bsid, other.Srv6Bsid)) return false;
+      if(!srv6Bsid_.Equals(other.srv6Bsid_)) return false;
       if (!object.Equals(SrPolicyName, other.SrPolicyName)) return false;
       if(!unknownAttr_.Equals(other.unknownAttr_)) return false;
       return Equals(_unknownFields, other._unknownFields);
@@ -12896,7 +12893,7 @@ namespace ServiceLayer {
       if (cpName_ != null) hash ^= CpName.GetHashCode();
       if (cpConstraints_ != null) hash ^= CpConstraints.GetHashCode();
       hash ^= segLists_.GetHashCode();
-      if (srv6Bsid_ != null) hash ^= Srv6Bsid.GetHashCode();
+      hash ^= srv6Bsid_.GetHashCode();
       if (srPolicyName_ != null) hash ^= SrPolicyName.GetHashCode();
       hash ^= unknownAttr_.GetHashCode();
       if (_unknownFields != null) {
@@ -12934,10 +12931,7 @@ namespace ServiceLayer {
         output.WriteMessage(CpConstraints);
       }
       segLists_.WriteTo(output, _repeated_segLists_codec);
-      if (srv6Bsid_ != null) {
-        output.WriteRawTag(50);
-        output.WriteMessage(Srv6Bsid);
-      }
+      srv6Bsid_.WriteTo(output, _repeated_srv6Bsid_codec);
       if (srPolicyName_ != null) {
         output.WriteRawTag(58);
         output.WriteMessage(SrPolicyName);
@@ -12970,10 +12964,7 @@ namespace ServiceLayer {
         output.WriteMessage(CpConstraints);
       }
       segLists_.WriteTo(ref output, _repeated_segLists_codec);
-      if (srv6Bsid_ != null) {
-        output.WriteRawTag(50);
-        output.WriteMessage(Srv6Bsid);
-      }
+      srv6Bsid_.WriteTo(ref output, _repeated_srv6Bsid_codec);
       if (srPolicyName_ != null) {
         output.WriteRawTag(58);
         output.WriteMessage(SrPolicyName);
@@ -13002,9 +12993,7 @@ namespace ServiceLayer {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(CpConstraints);
       }
       size += segLists_.CalculateSize(_repeated_segLists_codec);
-      if (srv6Bsid_ != null) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Srv6Bsid);
-      }
+      size += srv6Bsid_.CalculateSize(_repeated_srv6Bsid_codec);
       if (srPolicyName_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(SrPolicyName);
       }
@@ -13046,12 +13035,7 @@ namespace ServiceLayer {
         CpConstraints.MergeFrom(other.CpConstraints);
       }
       segLists_.Add(other.segLists_);
-      if (other.srv6Bsid_ != null) {
-        if (srv6Bsid_ == null) {
-          Srv6Bsid = new global::ServiceLayer.SLBgplsTopoSrv6BindingSid();
-        }
-        Srv6Bsid.MergeFrom(other.Srv6Bsid);
-      }
+      srv6Bsid_.Add(other.srv6Bsid_);
       if (other.srPolicyName_ != null) {
         if (srPolicyName_ == null) {
           SrPolicyName = new global::ServiceLayer.SLBgplsTopoSrPolicyName();
@@ -13107,10 +13091,7 @@ namespace ServiceLayer {
             break;
           }
           case 50: {
-            if (srv6Bsid_ == null) {
-              Srv6Bsid = new global::ServiceLayer.SLBgplsTopoSrv6BindingSid();
-            }
-            input.ReadMessage(Srv6Bsid);
+            srv6Bsid_.AddEntriesFrom(input, _repeated_srv6Bsid_codec);
             break;
           }
           case 58: {
@@ -13172,10 +13153,7 @@ namespace ServiceLayer {
             break;
           }
           case 50: {
-            if (srv6Bsid_ == null) {
-              Srv6Bsid = new global::ServiceLayer.SLBgplsTopoSrv6BindingSid();
-            }
-            input.ReadMessage(Srv6Bsid);
+            srv6Bsid_.AddEntriesFrom(ref input, _repeated_srv6Bsid_codec);
             break;
           }
           case 58: {
@@ -13249,7 +13227,6 @@ namespace ServiceLayer {
     public const int LocalIdFieldNumber = 1;
     private uint localId_;
     /// <summary>
-    /// TODO: Add description for each field in attributes
     /// Link Local Identifier
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -21914,16 +21891,16 @@ namespace ServiceLayer {
 
     /// <summary>Field number for the "Algorithm" field.</summary>
     public const int AlgorithmFieldNumber = 2;
-    private uint algorithm_;
+    private pb::ByteString algorithm_ = pb::ByteString.Empty;
     /// <summary>
     /// Algorithm associated with the SID
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public uint Algorithm {
+    public pb::ByteString Algorithm {
       get { return algorithm_; }
       set {
-        algorithm_ = value;
+        algorithm_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
     }
 
@@ -22023,7 +22000,7 @@ namespace ServiceLayer {
     public override int GetHashCode() {
       int hash = 1;
       if (Sid.Length != 0) hash ^= Sid.GetHashCode();
-      if (Algorithm != 0) hash ^= Algorithm.GetHashCode();
+      if (Algorithm.Length != 0) hash ^= Algorithm.GetHashCode();
       if (Flags.Length != 0) hash ^= Flags.GetHashCode();
       if (Weight != 0) hash ^= Weight.GetHashCode();
       if (EndPointBehavior != 0) hash ^= EndPointBehavior.GetHashCode();
@@ -22050,9 +22027,9 @@ namespace ServiceLayer {
         output.WriteRawTag(10);
         output.WriteBytes(Sid);
       }
-      if (Algorithm != 0) {
-        output.WriteRawTag(16);
-        output.WriteUInt32(Algorithm);
+      if (Algorithm.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteBytes(Algorithm);
       }
       if (Flags.Length != 0) {
         output.WriteRawTag(26);
@@ -22084,9 +22061,9 @@ namespace ServiceLayer {
         output.WriteRawTag(10);
         output.WriteBytes(Sid);
       }
-      if (Algorithm != 0) {
-        output.WriteRawTag(16);
-        output.WriteUInt32(Algorithm);
+      if (Algorithm.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteBytes(Algorithm);
       }
       if (Flags.Length != 0) {
         output.WriteRawTag(26);
@@ -22117,8 +22094,8 @@ namespace ServiceLayer {
       if (Sid.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeBytesSize(Sid);
       }
-      if (Algorithm != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Algorithm);
+      if (Algorithm.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeBytesSize(Algorithm);
       }
       if (Flags.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeBytesSize(Flags);
@@ -22147,7 +22124,7 @@ namespace ServiceLayer {
       if (other.Sid.Length != 0) {
         Sid = other.Sid;
       }
-      if (other.Algorithm != 0) {
+      if (other.Algorithm.Length != 0) {
         Algorithm = other.Algorithm;
       }
       if (other.Flags.Length != 0) {
@@ -22184,8 +22161,8 @@ namespace ServiceLayer {
             Sid = input.ReadBytes();
             break;
           }
-          case 16: {
-            Algorithm = input.ReadUInt32();
+          case 18: {
+            Algorithm = input.ReadBytes();
             break;
           }
           case 26: {
@@ -22226,8 +22203,8 @@ namespace ServiceLayer {
             Sid = input.ReadBytes();
             break;
           }
-          case 16: {
-            Algorithm = input.ReadUInt32();
+          case 18: {
+            Algorithm = input.ReadBytes();
             break;
           }
           case 26: {
@@ -22610,16 +22587,16 @@ namespace ServiceLayer {
 
     /// <summary>Field number for the "Algorithm" field.</summary>
     public const int AlgorithmFieldNumber = 3;
-    private uint algorithm_;
+    private pb::ByteString algorithm_ = pb::ByteString.Empty;
     /// <summary>
     /// Algorithm associated with the SID
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public uint Algorithm {
+    public pb::ByteString Algorithm {
       get { return algorithm_; }
       set {
-        algorithm_ = value;
+        algorithm_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
     }
 
@@ -22721,7 +22698,7 @@ namespace ServiceLayer {
       int hash = 1;
       if (neighbor_ != null) hash ^= Neighbor.GetHashCode();
       if (Sid.Length != 0) hash ^= Sid.GetHashCode();
-      if (Algorithm != 0) hash ^= Algorithm.GetHashCode();
+      if (Algorithm.Length != 0) hash ^= Algorithm.GetHashCode();
       if (Flags.Length != 0) hash ^= Flags.GetHashCode();
       if (Weight != 0) hash ^= Weight.GetHashCode();
       if (EndPointBehavior != 0) hash ^= EndPointBehavior.GetHashCode();
@@ -22752,9 +22729,9 @@ namespace ServiceLayer {
         output.WriteRawTag(18);
         output.WriteBytes(Sid);
       }
-      if (Algorithm != 0) {
-        output.WriteRawTag(24);
-        output.WriteUInt32(Algorithm);
+      if (Algorithm.Length != 0) {
+        output.WriteRawTag(26);
+        output.WriteBytes(Algorithm);
       }
       if (Flags.Length != 0) {
         output.WriteRawTag(34);
@@ -22790,9 +22767,9 @@ namespace ServiceLayer {
         output.WriteRawTag(18);
         output.WriteBytes(Sid);
       }
-      if (Algorithm != 0) {
-        output.WriteRawTag(24);
-        output.WriteUInt32(Algorithm);
+      if (Algorithm.Length != 0) {
+        output.WriteRawTag(26);
+        output.WriteBytes(Algorithm);
       }
       if (Flags.Length != 0) {
         output.WriteRawTag(34);
@@ -22826,8 +22803,8 @@ namespace ServiceLayer {
       if (Sid.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeBytesSize(Sid);
       }
-      if (Algorithm != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Algorithm);
+      if (Algorithm.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeBytesSize(Algorithm);
       }
       if (Flags.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeBytesSize(Flags);
@@ -22862,7 +22839,7 @@ namespace ServiceLayer {
       if (other.Sid.Length != 0) {
         Sid = other.Sid;
       }
-      if (other.Algorithm != 0) {
+      if (other.Algorithm.Length != 0) {
         Algorithm = other.Algorithm;
       }
       if (other.Flags.Length != 0) {
@@ -22906,8 +22883,8 @@ namespace ServiceLayer {
             Sid = input.ReadBytes();
             break;
           }
-          case 24: {
-            Algorithm = input.ReadUInt32();
+          case 26: {
+            Algorithm = input.ReadBytes();
             break;
           }
           case 34: {
@@ -22955,8 +22932,8 @@ namespace ServiceLayer {
             Sid = input.ReadBytes();
             break;
           }
-          case 24: {
-            Algorithm = input.ReadUInt32();
+          case 26: {
+            Algorithm = input.ReadBytes();
             break;
           }
           case 34: {
@@ -26682,16 +26659,16 @@ namespace ServiceLayer {
 
     /// <summary>Field number for the "Algorithm" field.</summary>
     public const int AlgorithmFieldNumber = 2;
-    private uint algorithm_;
+    private pb::ByteString algorithm_ = pb::ByteString.Empty;
     /// <summary>
     /// Algorithm
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public uint Algorithm {
+    public pb::ByteString Algorithm {
       get { return algorithm_; }
       set {
-        algorithm_ = value;
+        algorithm_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
     }
 
@@ -26752,7 +26729,7 @@ namespace ServiceLayer {
     public override int GetHashCode() {
       int hash = 1;
       if (Flags.Length != 0) hash ^= Flags.GetHashCode();
-      if (Algorithm != 0) hash ^= Algorithm.GetHashCode();
+      if (Algorithm.Length != 0) hash ^= Algorithm.GetHashCode();
       if (LabelIndex != 0) hash ^= LabelIndex.GetHashCode();
       if (PrefixSidFormat != global::ServiceLayer.SLBgplsTopoPrefixSidFormat.Reserved) hash ^= PrefixSidFormat.GetHashCode();
       if (_unknownFields != null) {
@@ -26777,9 +26754,9 @@ namespace ServiceLayer {
         output.WriteRawTag(10);
         output.WriteBytes(Flags);
       }
-      if (Algorithm != 0) {
-        output.WriteRawTag(16);
-        output.WriteUInt32(Algorithm);
+      if (Algorithm.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteBytes(Algorithm);
       }
       if (LabelIndex != 0) {
         output.WriteRawTag(24);
@@ -26803,9 +26780,9 @@ namespace ServiceLayer {
         output.WriteRawTag(10);
         output.WriteBytes(Flags);
       }
-      if (Algorithm != 0) {
-        output.WriteRawTag(16);
-        output.WriteUInt32(Algorithm);
+      if (Algorithm.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteBytes(Algorithm);
       }
       if (LabelIndex != 0) {
         output.WriteRawTag(24);
@@ -26828,8 +26805,8 @@ namespace ServiceLayer {
       if (Flags.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeBytesSize(Flags);
       }
-      if (Algorithm != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Algorithm);
+      if (Algorithm.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeBytesSize(Algorithm);
       }
       if (LabelIndex != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(LabelIndex);
@@ -26852,7 +26829,7 @@ namespace ServiceLayer {
       if (other.Flags.Length != 0) {
         Flags = other.Flags;
       }
-      if (other.Algorithm != 0) {
+      if (other.Algorithm.Length != 0) {
         Algorithm = other.Algorithm;
       }
       if (other.LabelIndex != 0) {
@@ -26880,8 +26857,8 @@ namespace ServiceLayer {
             Flags = input.ReadBytes();
             break;
           }
-          case 16: {
-            Algorithm = input.ReadUInt32();
+          case 18: {
+            Algorithm = input.ReadBytes();
             break;
           }
           case 24: {
@@ -26911,8 +26888,8 @@ namespace ServiceLayer {
             Flags = input.ReadBytes();
             break;
           }
-          case 16: {
-            Algorithm = input.ReadUInt32();
+          case 18: {
+            Algorithm = input.ReadBytes();
             break;
           }
           case 24: {
@@ -27018,16 +26995,16 @@ namespace ServiceLayer {
 
     /// <summary>Field number for the "Algorithm" field.</summary>
     public const int AlgorithmFieldNumber = 3;
-    private uint algorithm_;
+    private pb::ByteString algorithm_ = pb::ByteString.Empty;
     /// <summary>
     /// Algorithm
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public uint Algorithm {
+    public pb::ByteString Algorithm {
       get { return algorithm_; }
       set {
-        algorithm_ = value;
+        algorithm_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
     }
 
@@ -27093,7 +27070,7 @@ namespace ServiceLayer {
       int hash = 1;
       if (Flags.Length != 0) hash ^= Flags.GetHashCode();
       if (RangeSize != 0) hash ^= RangeSize.GetHashCode();
-      if (Algorithm != 0) hash ^= Algorithm.GetHashCode();
+      if (Algorithm.Length != 0) hash ^= Algorithm.GetHashCode();
       if (Index != 0) hash ^= Index.GetHashCode();
       if (SidFlags.Length != 0) hash ^= SidFlags.GetHashCode();
       if (_unknownFields != null) {
@@ -27122,9 +27099,9 @@ namespace ServiceLayer {
         output.WriteRawTag(16);
         output.WriteUInt32(RangeSize);
       }
-      if (Algorithm != 0) {
-        output.WriteRawTag(24);
-        output.WriteUInt32(Algorithm);
+      if (Algorithm.Length != 0) {
+        output.WriteRawTag(26);
+        output.WriteBytes(Algorithm);
       }
       if (Index != 0) {
         output.WriteRawTag(32);
@@ -27152,9 +27129,9 @@ namespace ServiceLayer {
         output.WriteRawTag(16);
         output.WriteUInt32(RangeSize);
       }
-      if (Algorithm != 0) {
-        output.WriteRawTag(24);
-        output.WriteUInt32(Algorithm);
+      if (Algorithm.Length != 0) {
+        output.WriteRawTag(26);
+        output.WriteBytes(Algorithm);
       }
       if (Index != 0) {
         output.WriteRawTag(32);
@@ -27180,8 +27157,8 @@ namespace ServiceLayer {
       if (RangeSize != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(RangeSize);
       }
-      if (Algorithm != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Algorithm);
+      if (Algorithm.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeBytesSize(Algorithm);
       }
       if (Index != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Index);
@@ -27207,7 +27184,7 @@ namespace ServiceLayer {
       if (other.RangeSize != 0) {
         RangeSize = other.RangeSize;
       }
-      if (other.Algorithm != 0) {
+      if (other.Algorithm.Length != 0) {
         Algorithm = other.Algorithm;
       }
       if (other.Index != 0) {
@@ -27239,8 +27216,8 @@ namespace ServiceLayer {
             RangeSize = input.ReadUInt32();
             break;
           }
-          case 24: {
-            Algorithm = input.ReadUInt32();
+          case 26: {
+            Algorithm = input.ReadBytes();
             break;
           }
           case 32: {
@@ -27274,8 +27251,8 @@ namespace ServiceLayer {
             RangeSize = input.ReadUInt32();
             break;
           }
-          case 24: {
-            Algorithm = input.ReadUInt32();
+          case 26: {
+            Algorithm = input.ReadBytes();
             break;
           }
           case 32: {
@@ -27362,16 +27339,16 @@ namespace ServiceLayer {
 
     /// <summary>Field number for the "Algorithm" field.</summary>
     public const int AlgorithmFieldNumber = 2;
-    private uint algorithm_;
+    private pb::ByteString algorithm_ = pb::ByteString.Empty;
     /// <summary>
     /// Algorithm associated with the locator
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public uint Algorithm {
+    public pb::ByteString Algorithm {
       get { return algorithm_; }
       set {
-        algorithm_ = value;
+        algorithm_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
     }
 
@@ -27416,7 +27393,7 @@ namespace ServiceLayer {
     public override int GetHashCode() {
       int hash = 1;
       if (Flags.Length != 0) hash ^= Flags.GetHashCode();
-      if (Algorithm != 0) hash ^= Algorithm.GetHashCode();
+      if (Algorithm.Length != 0) hash ^= Algorithm.GetHashCode();
       if (Metric != 0) hash ^= Metric.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
@@ -27440,9 +27417,9 @@ namespace ServiceLayer {
         output.WriteRawTag(10);
         output.WriteBytes(Flags);
       }
-      if (Algorithm != 0) {
-        output.WriteRawTag(16);
-        output.WriteUInt32(Algorithm);
+      if (Algorithm.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteBytes(Algorithm);
       }
       if (Metric != 0) {
         output.WriteRawTag(24);
@@ -27462,9 +27439,9 @@ namespace ServiceLayer {
         output.WriteRawTag(10);
         output.WriteBytes(Flags);
       }
-      if (Algorithm != 0) {
-        output.WriteRawTag(16);
-        output.WriteUInt32(Algorithm);
+      if (Algorithm.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteBytes(Algorithm);
       }
       if (Metric != 0) {
         output.WriteRawTag(24);
@@ -27483,8 +27460,8 @@ namespace ServiceLayer {
       if (Flags.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeBytesSize(Flags);
       }
-      if (Algorithm != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Algorithm);
+      if (Algorithm.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeBytesSize(Algorithm);
       }
       if (Metric != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Metric);
@@ -27504,7 +27481,7 @@ namespace ServiceLayer {
       if (other.Flags.Length != 0) {
         Flags = other.Flags;
       }
-      if (other.Algorithm != 0) {
+      if (other.Algorithm.Length != 0) {
         Algorithm = other.Algorithm;
       }
       if (other.Metric != 0) {
@@ -27529,8 +27506,8 @@ namespace ServiceLayer {
             Flags = input.ReadBytes();
             break;
           }
-          case 16: {
-            Algorithm = input.ReadUInt32();
+          case 18: {
+            Algorithm = input.ReadBytes();
             break;
           }
           case 24: {
@@ -27556,8 +27533,8 @@ namespace ServiceLayer {
             Flags = input.ReadBytes();
             break;
           }
-          case 16: {
-            Algorithm = input.ReadUInt32();
+          case 18: {
+            Algorithm = input.ReadBytes();
             break;
           }
           case 24: {
@@ -29609,7 +29586,7 @@ namespace ServiceLayer {
     public const int SpecifiedBsidFieldNumber = 3;
     private global::ServiceLayer.SlBgplsTopoSrBsid specifiedBsid_;
     /// <summary>
-    /// The explicitly specified BSID whether it is allotted or not.
+    /// The explicitly specified BSID whether it is allocated or not.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -30444,17 +30421,17 @@ namespace ServiceLayer {
 
     /// <summary>Field number for the "Algorithm" field.</summary>
     public const int AlgorithmFieldNumber = 3;
-    private uint algorithm_;
+    private pb::ByteString algorithm_ = pb::ByteString.Empty;
     /// <summary>
     /// Indicates the algorithm that is preferred to be used
     /// when the path is set up.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public uint Algorithm {
+    public pb::ByteString Algorithm {
       get { return algorithm_; }
       set {
-        algorithm_ = value;
+        algorithm_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
     }
 
@@ -30598,7 +30575,7 @@ namespace ServiceLayer {
       int hash = 1;
       if (Flags.Length != 0) hash ^= Flags.GetHashCode();
       if (Mtid != 0) hash ^= Mtid.GetHashCode();
-      if (Algorithm != 0) hash ^= Algorithm.GetHashCode();
+      if (Algorithm.Length != 0) hash ^= Algorithm.GetHashCode();
       if (affinity_ != null) hash ^= Affinity.GetHashCode();
       if (srlg_ != null) hash ^= Srlg.GetHashCode();
       if (bandwidth_ != null) hash ^= Bandwidth.GetHashCode();
@@ -30631,9 +30608,9 @@ namespace ServiceLayer {
         output.WriteRawTag(16);
         output.WriteUInt32(Mtid);
       }
-      if (Algorithm != 0) {
-        output.WriteRawTag(24);
-        output.WriteUInt32(Algorithm);
+      if (Algorithm.Length != 0) {
+        output.WriteRawTag(26);
+        output.WriteBytes(Algorithm);
       }
       if (bandwidth_ != null) {
         output.WriteRawTag(34);
@@ -30674,9 +30651,9 @@ namespace ServiceLayer {
         output.WriteRawTag(16);
         output.WriteUInt32(Mtid);
       }
-      if (Algorithm != 0) {
-        output.WriteRawTag(24);
-        output.WriteUInt32(Algorithm);
+      if (Algorithm.Length != 0) {
+        output.WriteRawTag(26);
+        output.WriteBytes(Algorithm);
       }
       if (bandwidth_ != null) {
         output.WriteRawTag(34);
@@ -30715,8 +30692,8 @@ namespace ServiceLayer {
       if (Mtid != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Mtid);
       }
-      if (Algorithm != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Algorithm);
+      if (Algorithm.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeBytesSize(Algorithm);
       }
       if (affinity_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(Affinity);
@@ -30752,7 +30729,7 @@ namespace ServiceLayer {
       if (other.Mtid != 0) {
         Mtid = other.Mtid;
       }
-      if (other.Algorithm != 0) {
+      if (other.Algorithm.Length != 0) {
         Algorithm = other.Algorithm;
       }
       if (other.affinity_ != null) {
@@ -30809,8 +30786,8 @@ namespace ServiceLayer {
             Mtid = input.ReadUInt32();
             break;
           }
-          case 24: {
-            Algorithm = input.ReadUInt32();
+          case 26: {
+            Algorithm = input.ReadBytes();
             break;
           }
           case 34: {
@@ -30875,8 +30852,8 @@ namespace ServiceLayer {
             Mtid = input.ReadUInt32();
             break;
           }
-          case 24: {
-            Algorithm = input.ReadUInt32();
+          case 26: {
+            Algorithm = input.ReadBytes();
             break;
           }
           case 34: {
@@ -31044,17 +31021,17 @@ namespace ServiceLayer {
 
     /// <summary>Field number for the "Algorithm" field.</summary>
     public const int AlgorithmFieldNumber = 3;
-    private uint algorithm_;
+    private pb::ByteString algorithm_ = pb::ByteString.Empty;
     /// <summary>
     /// Indicates the algorithm of the SIDs used
     /// in the SID-List when the Bit-6 is set.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public uint Algorithm {
+    public pb::ByteString Algorithm {
       get { return algorithm_; }
       set {
-        algorithm_ = value;
+        algorithm_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
     }
 
@@ -31118,7 +31095,7 @@ namespace ServiceLayer {
       int hash = 1;
       if (Flags.Length != 0) hash ^= Flags.GetHashCode();
       if (Mtid != 0) hash ^= Mtid.GetHashCode();
-      if (Algorithm != 0) hash ^= Algorithm.GetHashCode();
+      if (Algorithm.Length != 0) hash ^= Algorithm.GetHashCode();
       if (Weight != 0) hash ^= Weight.GetHashCode();
       hash ^= segments_.GetHashCode();
       if (_unknownFields != null) {
@@ -31147,9 +31124,9 @@ namespace ServiceLayer {
         output.WriteRawTag(16);
         output.WriteUInt32(Mtid);
       }
-      if (Algorithm != 0) {
-        output.WriteRawTag(24);
-        output.WriteUInt32(Algorithm);
+      if (Algorithm.Length != 0) {
+        output.WriteRawTag(26);
+        output.WriteBytes(Algorithm);
       }
       if (Weight != 0) {
         output.WriteRawTag(32);
@@ -31174,9 +31151,9 @@ namespace ServiceLayer {
         output.WriteRawTag(16);
         output.WriteUInt32(Mtid);
       }
-      if (Algorithm != 0) {
-        output.WriteRawTag(24);
-        output.WriteUInt32(Algorithm);
+      if (Algorithm.Length != 0) {
+        output.WriteRawTag(26);
+        output.WriteBytes(Algorithm);
       }
       if (Weight != 0) {
         output.WriteRawTag(32);
@@ -31199,8 +31176,8 @@ namespace ServiceLayer {
       if (Mtid != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Mtid);
       }
-      if (Algorithm != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Algorithm);
+      if (Algorithm.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeBytesSize(Algorithm);
       }
       if (Weight != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Weight);
@@ -31224,7 +31201,7 @@ namespace ServiceLayer {
       if (other.Mtid != 0) {
         Mtid = other.Mtid;
       }
-      if (other.Algorithm != 0) {
+      if (other.Algorithm.Length != 0) {
         Algorithm = other.Algorithm;
       }
       if (other.Weight != 0) {
@@ -31254,8 +31231,8 @@ namespace ServiceLayer {
             Mtid = input.ReadUInt32();
             break;
           }
-          case 24: {
-            Algorithm = input.ReadUInt32();
+          case 26: {
+            Algorithm = input.ReadBytes();
             break;
           }
           case 32: {
@@ -31289,8 +31266,8 @@ namespace ServiceLayer {
             Mtid = input.ReadUInt32();
             break;
           }
-          case 24: {
-            Algorithm = input.ReadUInt32();
+          case 26: {
+            Algorithm = input.ReadBytes();
             break;
           }
           case 32: {
@@ -31379,13 +31356,13 @@ namespace ServiceLayer {
 
     /// <summary>Field number for the "Algorithm" field.</summary>
     public const int AlgorithmFieldNumber = 1;
-    private uint algorithm_;
+    private pb::ByteString algorithm_ = pb::ByteString.Empty;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public uint Algorithm {
+    public pb::ByteString Algorithm {
       get { return algorithm_; }
       set {
-        algorithm_ = value;
+        algorithm_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
     }
 
@@ -31586,7 +31563,7 @@ namespace ServiceLayer {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (Algorithm != 0) hash ^= Algorithm.GetHashCode();
+      if (Algorithm.Length != 0) hash ^= Algorithm.GetHashCode();
       if (localNodeAddrCase_ == LocalNodeAddrOneofCase.Ipv4LocAddr) hash ^= Ipv4LocAddr.GetHashCode();
       if (localNodeAddrCase_ == LocalNodeAddrOneofCase.Ipv6LocAddr) hash ^= Ipv6LocAddr.GetHashCode();
       if (remoteNodeAddrCase_ == RemoteNodeAddrOneofCase.Ipv4RemAddr) hash ^= Ipv4RemAddr.GetHashCode();
@@ -31615,9 +31592,9 @@ namespace ServiceLayer {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (Algorithm != 0) {
-        output.WriteRawTag(8);
-        output.WriteUInt32(Algorithm);
+      if (Algorithm.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteBytes(Algorithm);
       }
       if (localNodeAddrCase_ == LocalNodeAddrOneofCase.Ipv4LocAddr) {
         output.WriteRawTag(18);
@@ -31661,9 +31638,9 @@ namespace ServiceLayer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (Algorithm != 0) {
-        output.WriteRawTag(8);
-        output.WriteUInt32(Algorithm);
+      if (Algorithm.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteBytes(Algorithm);
       }
       if (localNodeAddrCase_ == LocalNodeAddrOneofCase.Ipv4LocAddr) {
         output.WriteRawTag(18);
@@ -31707,8 +31684,8 @@ namespace ServiceLayer {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (Algorithm != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Algorithm);
+      if (Algorithm.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeBytesSize(Algorithm);
       }
       if (localNodeAddrCase_ == LocalNodeAddrOneofCase.Ipv4LocAddr) {
         size += 1 + pb::CodedOutputStream.ComputeBytesSize(Ipv4LocAddr);
@@ -31746,7 +31723,7 @@ namespace ServiceLayer {
       if (other == null) {
         return;
       }
-      if (other.Algorithm != 0) {
+      if (other.Algorithm.Length != 0) {
         Algorithm = other.Algorithm;
       }
       if (other.Ipv6LocalNodeGlobalAddr.Length != 0) {
@@ -31794,8 +31771,8 @@ namespace ServiceLayer {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 8: {
-            Algorithm = input.ReadUInt32();
+          case 10: {
+            Algorithm = input.ReadBytes();
             break;
           }
           case 18: {
@@ -31845,8 +31822,8 @@ namespace ServiceLayer {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
-          case 8: {
-            Algorithm = input.ReadUInt32();
+          case 10: {
+            Algorithm = input.ReadBytes();
             break;
           }
           case 18: {
@@ -32454,16 +32431,16 @@ namespace ServiceLayer {
 
     /// <summary>Field number for the "Type" field.</summary>
     public const int TypeFieldNumber = 1;
-    private uint type_;
+    private pb::ByteString type_ = pb::ByteString.Empty;
     /// <summary>
     /// Identifies the type of metric.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public uint Type {
+    public pb::ByteString Type {
       get { return type_; }
       set {
-        type_ = value;
+        type_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
     }
 
@@ -32566,7 +32543,7 @@ namespace ServiceLayer {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (Type != 0) hash ^= Type.GetHashCode();
+      if (Type.Length != 0) hash ^= Type.GetHashCode();
       if (Flags.Length != 0) hash ^= Flags.GetHashCode();
       if (Margin != 0) hash ^= Margin.GetHashCode();
       if (Bound != 0) hash ^= Bound.GetHashCode();
@@ -32589,9 +32566,9 @@ namespace ServiceLayer {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (Type != 0) {
-        output.WriteRawTag(8);
-        output.WriteUInt32(Type);
+      if (Type.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteBytes(Type);
       }
       if (Flags.Length != 0) {
         output.WriteRawTag(18);
@@ -32619,9 +32596,9 @@ namespace ServiceLayer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (Type != 0) {
-        output.WriteRawTag(8);
-        output.WriteUInt32(Type);
+      if (Type.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteBytes(Type);
       }
       if (Flags.Length != 0) {
         output.WriteRawTag(18);
@@ -32649,8 +32626,8 @@ namespace ServiceLayer {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (Type != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Type);
+      if (Type.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeBytesSize(Type);
       }
       if (Flags.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeBytesSize(Flags);
@@ -32676,7 +32653,7 @@ namespace ServiceLayer {
       if (other == null) {
         return;
       }
-      if (other.Type != 0) {
+      if (other.Type.Length != 0) {
         Type = other.Type;
       }
       if (other.Flags.Length != 0) {
@@ -32706,8 +32683,8 @@ namespace ServiceLayer {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 8: {
-            Type = input.ReadUInt32();
+          case 10: {
+            Type = input.ReadBytes();
             break;
           }
           case 18: {
@@ -32741,8 +32718,8 @@ namespace ServiceLayer {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
-          case 8: {
-            Type = input.ReadUInt32();
+          case 10: {
+            Type = input.ReadBytes();
             break;
           }
           case 18: {
@@ -33748,8 +33725,8 @@ namespace ServiceLayer {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public SLBgplsTopoSrv6BindingSid(SLBgplsTopoSrv6BindingSid other) : this() {
       flags_ = other.flags_;
-      bsid_ = other.bsid_ != null ? other.bsid_.Clone() : null;
-      specifiedBsid_ = other.specifiedBsid_ != null ? other.specifiedBsid_.Clone() : null;
+      bsid_ = other.bsid_;
+      specifiedBsid_ = other.specifiedBsid_;
       endPointBehaviour_ = other.endPointBehaviour_ != null ? other.endPointBehaviour_.Clone() : null;
       sidStruct_ = other.sidStruct_ != null ? other.sidStruct_.Clone() : null;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
@@ -33785,31 +33762,31 @@ namespace ServiceLayer {
 
     /// <summary>Field number for the "Bsid" field.</summary>
     public const int BsidFieldNumber = 2;
-    private global::ServiceLayer.SlBgplsTopoSrBsid bsid_;
+    private pb::ByteString bsid_ = pb::ByteString.Empty;
     /// <summary>
     /// The operational or allocated BSID value based on the status flags.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::ServiceLayer.SlBgplsTopoSrBsid Bsid {
+    public pb::ByteString Bsid {
       get { return bsid_; }
       set {
-        bsid_ = value;
+        bsid_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
     }
 
     /// <summary>Field number for the "SpecifiedBsid" field.</summary>
     public const int SpecifiedBsidFieldNumber = 3;
-    private global::ServiceLayer.SlBgplsTopoSrBsid specifiedBsid_;
+    private pb::ByteString specifiedBsid_ = pb::ByteString.Empty;
     /// <summary>
-    /// The explicitly specified BSID whether it is allotted or not.
+    /// The explicitly specified BSID whether it is allocated or not.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::ServiceLayer.SlBgplsTopoSrBsid SpecifiedBsid {
+    public pb::ByteString SpecifiedBsid {
       get { return specifiedBsid_; }
       set {
-        specifiedBsid_ = value;
+        specifiedBsid_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
     }
 
@@ -33861,8 +33838,8 @@ namespace ServiceLayer {
         return true;
       }
       if (Flags != other.Flags) return false;
-      if (!object.Equals(Bsid, other.Bsid)) return false;
-      if (!object.Equals(SpecifiedBsid, other.SpecifiedBsid)) return false;
+      if (Bsid != other.Bsid) return false;
+      if (SpecifiedBsid != other.SpecifiedBsid) return false;
       if (!object.Equals(EndPointBehaviour, other.EndPointBehaviour)) return false;
       if (!object.Equals(SidStruct, other.SidStruct)) return false;
       return Equals(_unknownFields, other._unknownFields);
@@ -33873,8 +33850,8 @@ namespace ServiceLayer {
     public override int GetHashCode() {
       int hash = 1;
       if (Flags.Length != 0) hash ^= Flags.GetHashCode();
-      if (bsid_ != null) hash ^= Bsid.GetHashCode();
-      if (specifiedBsid_ != null) hash ^= SpecifiedBsid.GetHashCode();
+      if (Bsid.Length != 0) hash ^= Bsid.GetHashCode();
+      if (SpecifiedBsid.Length != 0) hash ^= SpecifiedBsid.GetHashCode();
       if (endPointBehaviour_ != null) hash ^= EndPointBehaviour.GetHashCode();
       if (sidStruct_ != null) hash ^= SidStruct.GetHashCode();
       if (_unknownFields != null) {
@@ -33899,13 +33876,13 @@ namespace ServiceLayer {
         output.WriteRawTag(10);
         output.WriteBytes(Flags);
       }
-      if (bsid_ != null) {
+      if (Bsid.Length != 0) {
         output.WriteRawTag(18);
-        output.WriteMessage(Bsid);
+        output.WriteBytes(Bsid);
       }
-      if (specifiedBsid_ != null) {
+      if (SpecifiedBsid.Length != 0) {
         output.WriteRawTag(26);
-        output.WriteMessage(SpecifiedBsid);
+        output.WriteBytes(SpecifiedBsid);
       }
       if (endPointBehaviour_ != null) {
         output.WriteRawTag(34);
@@ -33929,13 +33906,13 @@ namespace ServiceLayer {
         output.WriteRawTag(10);
         output.WriteBytes(Flags);
       }
-      if (bsid_ != null) {
+      if (Bsid.Length != 0) {
         output.WriteRawTag(18);
-        output.WriteMessage(Bsid);
+        output.WriteBytes(Bsid);
       }
-      if (specifiedBsid_ != null) {
+      if (SpecifiedBsid.Length != 0) {
         output.WriteRawTag(26);
-        output.WriteMessage(SpecifiedBsid);
+        output.WriteBytes(SpecifiedBsid);
       }
       if (endPointBehaviour_ != null) {
         output.WriteRawTag(34);
@@ -33958,11 +33935,11 @@ namespace ServiceLayer {
       if (Flags.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeBytesSize(Flags);
       }
-      if (bsid_ != null) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Bsid);
+      if (Bsid.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeBytesSize(Bsid);
       }
-      if (specifiedBsid_ != null) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(SpecifiedBsid);
+      if (SpecifiedBsid.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeBytesSize(SpecifiedBsid);
       }
       if (endPointBehaviour_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(EndPointBehaviour);
@@ -33985,17 +33962,11 @@ namespace ServiceLayer {
       if (other.Flags.Length != 0) {
         Flags = other.Flags;
       }
-      if (other.bsid_ != null) {
-        if (bsid_ == null) {
-          Bsid = new global::ServiceLayer.SlBgplsTopoSrBsid();
-        }
-        Bsid.MergeFrom(other.Bsid);
+      if (other.Bsid.Length != 0) {
+        Bsid = other.Bsid;
       }
-      if (other.specifiedBsid_ != null) {
-        if (specifiedBsid_ == null) {
-          SpecifiedBsid = new global::ServiceLayer.SlBgplsTopoSrBsid();
-        }
-        SpecifiedBsid.MergeFrom(other.SpecifiedBsid);
+      if (other.SpecifiedBsid.Length != 0) {
+        SpecifiedBsid = other.SpecifiedBsid;
       }
       if (other.endPointBehaviour_ != null) {
         if (endPointBehaviour_ == null) {
@@ -34029,17 +34000,11 @@ namespace ServiceLayer {
             break;
           }
           case 18: {
-            if (bsid_ == null) {
-              Bsid = new global::ServiceLayer.SlBgplsTopoSrBsid();
-            }
-            input.ReadMessage(Bsid);
+            Bsid = input.ReadBytes();
             break;
           }
           case 26: {
-            if (specifiedBsid_ == null) {
-              SpecifiedBsid = new global::ServiceLayer.SlBgplsTopoSrBsid();
-            }
-            input.ReadMessage(SpecifiedBsid);
+            SpecifiedBsid = input.ReadBytes();
             break;
           }
           case 34: {
@@ -34076,17 +34041,11 @@ namespace ServiceLayer {
             break;
           }
           case 18: {
-            if (bsid_ == null) {
-              Bsid = new global::ServiceLayer.SlBgplsTopoSrBsid();
-            }
-            input.ReadMessage(Bsid);
+            Bsid = input.ReadBytes();
             break;
           }
           case 26: {
-            if (specifiedBsid_ == null) {
-              SpecifiedBsid = new global::ServiceLayer.SlBgplsTopoSrBsid();
-            }
-            input.ReadMessage(SpecifiedBsid);
+            SpecifiedBsid = input.ReadBytes();
             break;
           }
           case 34: {
@@ -35356,16 +35315,16 @@ namespace ServiceLayer {
 
     /// <summary>Field number for the "Algorithm" field.</summary>
     public const int AlgorithmFieldNumber = 3;
-    private uint algorithm_;
+    private pb::ByteString algorithm_ = pb::ByteString.Empty;
     /// <summary>
     /// Algorithm associated with the SID
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public uint Algorithm {
+    public pb::ByteString Algorithm {
       get { return algorithm_; }
       set {
-        algorithm_ = value;
+        algorithm_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
     }
 
@@ -35396,7 +35355,7 @@ namespace ServiceLayer {
       int hash = 1;
       if (EndPointBehavior != 0) hash ^= EndPointBehavior.GetHashCode();
       if (Flags.Length != 0) hash ^= Flags.GetHashCode();
-      if (Algorithm != 0) hash ^= Algorithm.GetHashCode();
+      if (Algorithm.Length != 0) hash ^= Algorithm.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -35423,9 +35382,9 @@ namespace ServiceLayer {
         output.WriteRawTag(18);
         output.WriteBytes(Flags);
       }
-      if (Algorithm != 0) {
-        output.WriteRawTag(24);
-        output.WriteUInt32(Algorithm);
+      if (Algorithm.Length != 0) {
+        output.WriteRawTag(26);
+        output.WriteBytes(Algorithm);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -35445,9 +35404,9 @@ namespace ServiceLayer {
         output.WriteRawTag(18);
         output.WriteBytes(Flags);
       }
-      if (Algorithm != 0) {
-        output.WriteRawTag(24);
-        output.WriteUInt32(Algorithm);
+      if (Algorithm.Length != 0) {
+        output.WriteRawTag(26);
+        output.WriteBytes(Algorithm);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -35465,8 +35424,8 @@ namespace ServiceLayer {
       if (Flags.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeBytesSize(Flags);
       }
-      if (Algorithm != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Algorithm);
+      if (Algorithm.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeBytesSize(Algorithm);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -35486,7 +35445,7 @@ namespace ServiceLayer {
       if (other.Flags.Length != 0) {
         Flags = other.Flags;
       }
-      if (other.Algorithm != 0) {
+      if (other.Algorithm.Length != 0) {
         Algorithm = other.Algorithm;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
@@ -35512,8 +35471,8 @@ namespace ServiceLayer {
             Flags = input.ReadBytes();
             break;
           }
-          case 24: {
-            Algorithm = input.ReadUInt32();
+          case 26: {
+            Algorithm = input.ReadBytes();
             break;
           }
         }
@@ -35539,8 +35498,8 @@ namespace ServiceLayer {
             Flags = input.ReadBytes();
             break;
           }
-          case 24: {
-            Algorithm = input.ReadUInt32();
+          case 26: {
+            Algorithm = input.ReadBytes();
             break;
           }
         }
