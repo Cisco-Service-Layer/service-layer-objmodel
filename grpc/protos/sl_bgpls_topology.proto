@@ -18,6 +18,7 @@ syntax = "proto3";
 package service_layer;
 
 import "sl_common_types.proto";
+import "sl_sr_common.proto";
 
 option go_package="github.com/Cisco-service-layer/service-layer-objmodel/grpc/protos;service_layer";
 
@@ -426,12 +427,12 @@ message SLBgplsTopoSrPolicyDescr {
     // Protocol instantiating the SR policy.
     // Protocol-origin. TLV 554.
     // Section 4 of [draft-ietf-idr-bgp-ls-sr-policy]
-    SLBgplsTopoSrPolicyProtocolOrigin ProtoOrigin = 1;
+    SLSrPolicyProtocolOrigin ProtoOrigin = 1;
 
     // Flags associated with the SR policy.
     // Flags. TLV 554.
     // Section 4 of [draft-ietf-idr-bgp-ls-sr-policy]
-    SLBgplsTopoSrPolicyFlags Flags = 2;
+    SLSrPolicyFlags Flags = 2;
 
     // Address of the endpoint of the SR Policy.
     // Endpoint. TLV 554.
@@ -577,28 +578,6 @@ enum SLBgplsTopoOspfRouteType {
     SL_BGPLS_TOPO_OSPF_ROUTE_TYPE_EXTERN_2 = 4;
     SL_BGPLS_TOPO_OSPF_ROUTE_TYPE_NSSA_1 = 5;
     SL_BGPLS_TOPO_OSPF_ROUTE_TYPE_NSSA_2 = 6;
-}
-
-// Protocol Originating SR Policy
-enum SLBgplsTopoSrPolicyProtocolOrigin {
-    SL_BGPLS_TOPO_SR_POLICY_PROTOCOL_ORIGIN_RESERVED = 0;
-    SL_BGPLS_TOPO_SR_POLICY_PROTOCOL_ORIGIN_PCEP = 1;
-    SL_BGPLS_TOPO_SR_POLICY_PROTOCOL_ORIGIN_BGP_SR_POLICY = 2;
-    SL_BGPLS_TOPO_SR_POLICY_PROTOCOL_ORIGIN_CONFIG = 3;
-    SL_BGPLS_TOPO_SR_POLICY_PROTOCOL_ORIGIN_PCEP_VIA_PCE = 10;
-    SL_BGPLS_TOPO_SR_POLICY_PROTOCOL_ORIGIN_BGP_SR_POLICY_VIA_PCE = 20;
-    SL_BGPLS_TOPO_SR_POLICY_PROTOCOL_ORIGIN_CONFIG_VIA_PCE = 30;
-    SL_BGPLS_TOPO_SR_POLICY_PROTOCOL_ORIGIN_CONFIG_VIA_GRPC = 40;
-}
-
-// SR Policy flags
-message SLBgplsTopoSrPolicyFlags {
-    // Bit-0: E-Flag: Indicates the encoding of endpoint as IPv6 address when
-    // set and IPv4 address when clear
-    //
-    // Bit-1: O-Flag: Indicates the encoding of originator address as IPv6
-    // address when set and IPv4 address when clear
-    bytes Flags = 1;
 }
 
 //
@@ -954,7 +933,7 @@ message SLBgplsTopoSrv6SidAttr {
     // SRv6 SID.
     // SRv6 End Point Behavior. TLV 1250
     // Section 7.1 of [RFC9514]
-    SLBgplsTopoSrv6EndPointBehavior EndPointBehavior = 1;
+    SLSrv6EndPointBehavior EndPointBehavior = 1;
 
     // The Segment Routing over IPv6 (SRv6) SRv6 SID associated with
     // BGP peer node or peer set.
@@ -966,7 +945,7 @@ message SLBgplsTopoSrv6SidAttr {
     // structure information associated with a SRv6 SID.
     // SRv6 SID Structure Attribute. TLV 1252
     // Section 8 of [RFC9514]
-    SLBgplsTopoSrv6SidStruct SidStruct = 3;
+    SLSrv6SidStruct SidStruct = 3;
 
     // Unknown SRv6 SID Attributes
     // Unknown/unsupported by IOS-XR/BGPLS.
@@ -991,7 +970,7 @@ message SLBgplsTopoSrPolicyAttr {
     // the candidate path.
     // SR Candidate Path Name. TLV 1203
     // Section 5.5 of [draft-ietf-idr-bgp-ls-sr-policy]
-    SLBgplsTopoSrCpName CpName = 3;
+    SLSrCpName CpName = 3;
 
     // SR Candidate Path Constraints is used
     // to report the constraints associated with the candidate path.
@@ -1010,7 +989,7 @@ message SLBgplsTopoSrPolicyAttr {
     // the SRv6 BSID and its attributes for the SR Policy CP.
     // SRv6 Binding SID. TLV 1212
     // Section 5.2 of [draft-ietf-idr-bgp-ls-sr-policy]
-    repeated SLBgplsTopoSrv6BindingSid Srv6Bsid = 6;
+    repeated SLSrv6BindingSid Srv6Bsid = 6;
 
     // SR Policy Name carries symbolic name associated with the SR Policy.
     // SR Policy Name. TLV 1213
@@ -1518,7 +1497,7 @@ message SLBgplsTopoSrv6EndXSid {
     // structure information associated with a SRv6 SID.
     // SRv6 SID Structure Attribute. TLV 1252
     // Section 8 of [RFC9514]
-    SLBgplsTopoSrv6SidStruct SidStruct = 6;
+    SLSrv6SidStruct SidStruct = 6;
 }
 
 // Neighbor ID used in Adjacency SID and SRv6 EndX SID
@@ -1561,7 +1540,7 @@ message SLBgplsTopoSrv6LanEndXSid {
     // structure information associated with a SRv6 SID.
     // SRv6 SID Structure Attribute. TLV 1252
     // Section 8 of [RFC9514]
-    SLBgplsTopoSrv6SidStruct SidStruct = 7;
+    SLSrv6SidStruct SidStruct = 7;
 }
 
 // Unidirectional Link Delay. TLV 1114
@@ -1977,18 +1956,6 @@ message SLBgplsTopoExtAdminGroup {
     uint32 Group = 1;
 }
 
-// SR Binding SID. TLV 1201
-// Section 5.1 of [draft-ietf-idr-bgp-ls-sr-policy]
-message SlBgplsTopoSrBsid {
-    oneof BindingSid {
-        // This field carries info about an MPLS binding SID.
-        uint32 MplsBsid = 1;
-
-        // This field carries info about an SRv6 binding SID.
-        bytes Srv6Bsid = 2;
-    }
-}
-
 message SLBgplsTopoSrBindingSid {
     // Bit-0: D-Flag: Indicates the dataplane for the BSIDs and if they are
     // 16 octet SRv6 SID when set and are 4 octet SR/MPLS label value
@@ -2009,10 +1976,10 @@ message SLBgplsTopoSrBindingSid {
     bytes BsidFlags = 1;
 
     // The operational or allocated BSID value based on the status flags.
-    SlBgplsTopoSrBsid Bsid = 2;
+    SlSrBsid Bsid = 2;
 
     // The explicitly specified BSID whether it is allocated or not.
-    SlBgplsTopoSrBsid SpecifiedBsid = 3;
+    SlSrBsid SpecifiedBsid = 3;
 }
 
 // SR Candidate Path State. TLV 1202
@@ -2062,15 +2029,6 @@ message SLBgplsTopoSrCpState {
 
     // Indicates the preference of the candidate path.
     uint32 Preference = 3;
-}
-
-// SR Candidate Path Name. TLV 1203
-// Section 5.5 of [draft-ietf-idr-bgp-ls-sr-policy]
-message SLBgplsTopoSrCpName {
-    // Symbolic name for the SR Policy candidate path without a NULL
-    // terminator. It is RECOMMENDED that the size of the symbolic name
-    // be limited to 255 characters.
-    string Name = 1;
 }
 
 // SR Candidate Path Constraints. TLV 1204
@@ -2204,132 +2162,7 @@ message SLBgplsTopoSrSegList {
 
     // SR Segment. TLV 1206
     // Section 5.8 of [draft-ietf-idr-bgp-ls-sr-policy]
-    repeated SLBgplsTopoSrSegment Segments = 5;
-}
-
-// SR Segment Type
-enum SLBgplsTopoSrSegmentType {
-    // Reserved. 0
-    SL_BGPLS_TOPO_SR_SEG_TYPE_RESERVED = 0;
-
-    // (Type A) SR-MPLS Label. 1
-    SL_BGPLS_TOPO_SR_SEG_TYPE_MPLS_LABEL = 1;
-
-    // (Type B) SRv6 SID as IPv6 address. 2
-    SL_BGPLS_TOPO_SR_SEG_TYPE_SRV6_SID_V6 = 2;
-
-    // (Type C) SR-MPLS Prefix SID as IPv4 Node Address. 3
-    SL_BGPLS_TOPO_SR_SEG_TYPE_MPLS_PFX_SID_V4 = 3;
-
-    // (Type D) SR-MPLS Prefix SID as IPv6 Node Global Address. 4
-    SL_BGPLS_TOPO_SR_SEG_TYPE_MPLS_PFX_SID_V6 = 4;
-
-    // (Type E) SR-MPLS Adjacency SID as IPv4 Node Address
-    // & Local Interface ID. 5
-    SL_BGPLS_TOPO_SR_SEG_TYPE_MPLS_ADJ_SID_V4_NODE_ADDR_LOC_ID = 5;
-
-    // (Type F) SR-MPLS Adjacency SID as IPv4 Local
-    // & Remote Interface Addresses. 6
-    SL_BGPLS_TOPO_SR_SEG_TYPE_MPLS_ADJ_SID_V4_LOC_REM_ADDR = 6;
-
-    // (Type G) SR-MPLS Adjacency SID as pair of IPv6 Global Address
-    // & Interface ID for Local & Remote nodes. 7
-    SL_BGPLS_TOPO_SR_SEG_TYPE_MPLS_ADJ_SID_V6_LOC_REM_ADDR_AND_ID = 7;
-
-    // (Type H) SR-MPLS Adjacency SID as pair of IPv6 Global Addresses
-    // for the Local & Remote Interface. 8
-    SL_BGPLS_TOPO_SR_SEG_TYPE_MPLS_ADJ_SID_V6_LOC_REM_ADDR = 8;
-
-    // (Type I) SRv6 END SID as IPv6 Node Global Address. 9
-    SL_BGPLS_TOPO_SR_SEG_TYPE_SRV6_END_SID_V6_NODE_ADDR = 9;
-
-    // (Type J) SRv6 END.X SID as pair of IPv6 Global Address
-    // & Interface ID for Local & Remote nodes. 10
-    SL_BGPLS_TOPO_SR_SEG_TYPE_SRV6_END_SID_V6_LOC_REM_ADDR_AND_ID = 10;
-
-    // (Type K) SRv6 END.X SID as pair of IPv6 Global Addresses for
-    // the Local & Remote Interface. 11
-    SL_BGPLS_TOPO_SR_SEG_TYPE_SRV6_END_SID_V6_LOC_REM_ADDR = 11;
-}
-
-// SR Segment Descriptors
-message SLBgplsTopoSrSegmentDesc {
-    bytes Algorithm = 1;
-
-    oneof LocalNodeAddr {
-        // This field carries info about an IPv4 local node address.
-        bytes Ipv4LocAddr = 2;
-
-        // This field carries info about an IPv6 local node address.
-        bytes Ipv6LocAddr = 3;
-    }
-
-    oneof RemoteNodeAddr {
-        // This field carries info about an IPv4 remote node address.
-        bytes Ipv4RemAddr = 4;
-
-        // This field carries info about an IPv6 remote node address.
-        bytes Ipv6RemAddr = 5;
-    }
-
-    // Carries info about IPv6 local node global address.
-    bytes Ipv6LocalNodeGlobalAddr = 6;
-
-    // Carries info about IPv6 remote node global address.
-    bytes Ipv6RemoteNodeGlobalAddr = 7;
-
-    // Carries the interface ID of the local node identified by the local node
-    // address.
-    uint32 LocalNodeIntfId = 8;
-
-    // Carries the interface ID of the remote node identified by the remote
-    // node address.
-    uint32 RemoteNodeIntfId = 9;
-}
-
-// SR Segment. TLV 1206
-// Section 5.8 of [draft-ietf-idr-bgp-ls-sr-policy]
-message SLBgplsTopoSrSegment {
-    SLBgplsTopoSrSegmentType Type = 1;
-
-    // Bit-0: S-Flag: Indicates the presence of SID value in the SID field
-    // when set and that no value is indicated when clear.
-    //
-    // Bit-1: E-Flag: Indicates the SID value is explicitly provisioned value
-    // (locally on headend or via controller/PCE) when set and is a
-    // dynamically resolved value by headend when clear.
-    //
-    // Bit-2: V-Flag: Indicates the SID has passed verification or did not
-    // require verification when set and failed verification when
-    // clear.
-    //
-    // Bit-3: R-Flag: Indicates the SID has been resolved or did not require
-    // resolution (e.g. because it is not the first SID) when set and
-    // failed resolution when clear.
-    //
-    // Bit-4: A-Flag: Indicates that the Algorithm indicated in the Segment
-    // descriptor is valid when set.  When clear, it indicates that
-    // the headend is unable to determine the algorithm of the SID.
-    bytes Flags = 2;
-
-    oneof Sid {
-        // This field carries info about an MPLS SID.
-        uint32 MplsLabel = 3;
-
-        // This field carries info about an SRv6 SID.
-        bytes Srv6Sid = 4;
-    }
-
-    // Variable size Segment descriptor based on the type of segment
-    SLBgplsTopoSrSegmentDesc SegmentDesc = 5;
-
-    // SRv6 End Point Behavior. TLV 1250
-    // Section 7.1 of [RFC9514]
-    SLBgplsTopoSrv6EndPointBehavior EndPointBehaviour = 6;
-
-    // SRv6 SID Structure Attribute. TLV 1252
-    // Section 8 of [RFC9514]
-    SLBgplsTopoSrv6SidStruct SidStruct = 7;
+    repeated SLSrSegment Segments = 5;
 }
 
 // SR Segment List Metric. TLV 1207
@@ -2436,34 +2269,6 @@ message SLBgplsTopoSrDisjointGroupConstraint {
     uint32 GroupId = 3;
 }
 
-// SRv6 Binding SID. TLV 1212
-// Section 5.2 of [draft-ietf-idr-bgp-ls-sr-policy]
-message SLBgplsTopoSrv6BindingSid {
-    // Bit-0: B-Flag: Indicates the allocation of the value in the BSID field
-    // when set and indicates that BSID is not allocated when clear.
-    //
-    // Bit-1: U-Flag: Indicates the specified BSID value is unavailable when set.
-    //
-    // Bit-2: F-Flag: Indicates the BSID value is one allocated from dynamic
-    // label pool due to fallback (e.g. when specified BSID is
-    // unavailable) when set.
-    bytes Flags = 1;
-
-    // The operational or allocated BSID value based on the status flags.
-    bytes Bsid = 2;
-
-    // The explicitly specified BSID whether it is allocated or not.
-    bytes SpecifiedBsid = 3;
-
-    // SRv6 End Point Behavior. TLV 1250
-    // Section 7.1 of [RFC9514]
-    SLBgplsTopoSrv6EndPointBehavior EndPointBehaviour = 4;
-
-    // SRv6 SID Structure Attribute. TLV 1252
-    // Section 8 of [RFC9514]
-    SLBgplsTopoSrv6SidStruct SidStruct = 5;
-}
-
 // SR Policy Name. TLV 1213
 // Section 5.4 of [draft-ietf-idr-bgp-ls-sr-policy]
 message SLBgplsTopoSrPolicyName {
@@ -2534,20 +2339,6 @@ message SLBgplsTopoSrSegListId {
     uint32 SegListId = 1;
 }
 
-// SRv6 End Point Behavior. TLV 1250
-// Section 7.1 of [RFC9514]
-message SLBgplsTopoSrv6EndPointBehavior {
-    // Endpoint behavior of the SID
-    uint32 EndPointBehavior = 1;
-
-    // Flags associated with the SID. Section 8 of [RFC9513]
-    // for OSPFv3, and Section 7.2 of [RFC9352] for IS-IS.
-    bytes Flags = 2;
-
-    // Algorithm associated with the SID
-    bytes Algorithm = 3;
-}
-
 // SRv6 BGP Peer Node SID. TLV 1251
 // Section 7.2 of [RFC9514]
 message SLBgplsTopoSrv6BgpPeerNodeSid {
@@ -2568,21 +2359,6 @@ message SLBgplsTopoSrv6BgpPeerNodeSid {
     bytes PeerBgpId = 4;
 }
 
-// SRv6 SID Structure Attribute. TLV 1252
-// Section 8 of [RFC9514]
-message SLBgplsTopoSrv6SidStruct {
-    // Locator block length in bits
-    uint32 LocatorBlockLen = 1;
-
-    // Locator node length in bits
-    uint32 LocatorNodeLen = 2;
-
-    // Function length in bits
-    uint32 FunctionLen = 3;
-
-    // Argument length in bits
-    uint32 ArgLen = 4;
-}
 
 // Unknown Attribute.
 // Added to hold any unknown/unsupported TLV by IOS-XR/BGPLS.
