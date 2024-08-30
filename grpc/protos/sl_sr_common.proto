@@ -1,5 +1,5 @@
 // @file
-// @brief SR Common definitions for all of the service layer proto files. 
+// @brief SR Common definitions for all of the service layer proto files.
 //
 //---------------------------------------------------------------------
 // Copyright (c) 2019, 2024 by Cisco Systems, Inc.
@@ -13,6 +13,9 @@
 
 syntax = "proto3";
 package service_layer;
+
+import "sl_common_types.proto";
+
 option go_package="github.com/Cisco-service-layer/service-layer-objmodel/grpc/protos;service_layer";
 
 // @defgroup SLSrCommonTypes
@@ -22,6 +25,7 @@ option go_package="github.com/Cisco-service-layer/service-layer-objmodel/grpc/pr
 // @{
 
 // Protocol Originating SR Policy
+// Section 8.4 of [draft-ietf-idr-bgp-ls-sr-policy]
 enum SLSrPolicyProtocolOrigin {
     SL_SR_POLICY_PROTOCOL_ORIGIN_RESERVED = 0;
     SL_SR_POLICY_PROTOCOL_ORIGIN_PCEP = 1;
@@ -33,14 +37,44 @@ enum SLSrPolicyProtocolOrigin {
     SL_SR_POLICY_PROTOCOL_ORIGIN_CONFIG_VIA_GRPC = 40;
 }
 
-// SR Policy flags
-message SLSrPolicyFlags {
+enum SLSrPolicyFlagsDef {
+    // Flags associated with the SR policy
+    // Section 4 of [draft-ietf-idr-bgp-ls-sr-policy]
+    // Each flag is indicated as a bit field. Supported values are:
+
+    // Reserved.
+    SL_SR_POLICY_FLAG_RESERVED = 0x0;
+
     // Bit-0: E-Flag: Indicates the encoding of endpoint as IPv6 address when
     // set and IPv4 address when clear
-    //
+    SL_SR_POLICY_FLAG_ENDPOINT_V6 = 0x80;
+
     // Bit-1: O-Flag: Indicates the encoding of originator address as IPv6
     // address when set and IPv4 address when clear
-    bytes Flags = 1;
+    SL_SR_POLICY_FLAG_ORIGINATOR_V6 = 0x40;
+
+    // All others are reserved.
+}
+
+// SR Policy flags
+message SLSrPolicyFlags {
+    // SL Policy Flags
+    // Flags associated with the SR policy
+    // Section 4 of [draft-ietf-idr-bgp-ls-sr-policy]
+    // Each flag is indicated as a bit field.
+    // See SLSrPolicyFlagsDef for flag enumerations.
+    // Supported values are:
+    //
+    // SL_SR_POLICY_FLAG_ENDPOINT_V6
+    // E-Flag: Indicates the encoding of endpoint as IPv6 address when
+    // set and IPv4 address when clear
+    //
+    // SL_SR_POLICY_FLAG_ORIGINATOR_V6
+    // O-Flag: Indicates the encoding of originator address as IPv6
+    // address when set and IPv4 address when clear
+    //
+    // All others are reserved.
+    uint32 Flags = 1;
 }
 
 // SR Binding SID. TLV 1201
@@ -51,6 +85,8 @@ message SlSrBsid {
         uint32 MplsBsid = 1;
 
         // This field carries info about an SRv6 binding SID.
+        // SRv6 binding SID takes an IPv6 Address and must be
+        // enforced for 16 bytes.
         bytes Srv6Bsid = 2;
     }
 }
@@ -59,12 +95,13 @@ message SlSrBsid {
 // Section 5.5 of [draft-ietf-idr-bgp-ls-sr-policy]
 message SLSrCpName {
     // Symbolic name for the SR Policy candidate path without a NULL
-    // terminator. It is RECOMMENDED that the size of the symbolic name
+    // terminator. It must be enforced that the size of the symbolic name
     // be limited to 255 characters.
     string Name = 1;
 }
 
 // SR Segment Type
+// Section 8.5 of [draft-ietf-idr-bgp-ls-sr-policy]
 enum SLSrSegmentType {
     // Reserved. 0
     SL_SR_SEG_TYPE_RESERVED = 0;
@@ -111,37 +148,64 @@ enum SLSrSegmentType {
 
 // SR Segment Descriptors
 message SLSrSegmentDesc {
-    bytes Algorithm = 1;
+    uint32 Algorithm = 1;
 
-    oneof LocalNodeAddr {
-        // This field carries info about an IPv4 local node address.
-        bytes Ipv4LocAddr = 2;
+    // Carries info about local node address.
+    SLIpAddress LocalNode = 2;
 
-        // This field carries info about an IPv6 local node address.
-        bytes Ipv6LocAddr = 3;
-    }
-
-    oneof RemoteNodeAddr {
-        // This field carries info about an IPv4 remote node address.
-        bytes Ipv4RemAddr = 4;
-
-        // This field carries info about an IPv6 remote node address.
-        bytes Ipv6RemAddr = 5;
-    }
+    // Carries info about remote node address.
+    SLIpAddress RemoteNode = 3;
 
     // Carries info about IPv6 local node global address.
-    bytes Ipv6LocalNodeGlobalAddr = 6;
+    bytes Ipv6LocalNodeGlobalAddr = 4;
 
     // Carries info about IPv6 remote node global address.
-    bytes Ipv6RemoteNodeGlobalAddr = 7;
+    bytes Ipv6RemoteNodeGlobalAddr = 5;
 
-    // Carries the interface ID of the local node identified by the local node
-    // address.
-    uint32 LocalNodeIntfId = 8;
+    // Carries the interface ID of the local node identified by the
+    // local node address.
+    // Section 5.8.1 of [draft-ietf-idr-bgp-ls-sr-policy]
+    uint32 LocalNodeIntfId = 6;
 
-    // Carries the interface ID of the remote node identified by the remote
-    // node address.
-    uint32 RemoteNodeIntfId = 9;
+    // Carries the interface ID of the remote node identified by
+    // the remote node address.
+    // Section 5.8.1 of [draft-ietf-idr-bgp-ls-sr-policy]
+    uint32 RemoteNodeIntfId = 7;
+}
+
+enum SLSrSegmentFlags {
+    // Flags associated with the SR Segment
+    // Section 5.8 of [draft-ietf-idr-bgp-ls-sr-policy]
+    // Each flag is indicated as a bit field. Supported values are:
+
+    // Reserved.
+    SL_SR_SEGMENT_FLAG_RESERVED = 0x0;
+
+    // Bit-0: S-Flag: Indicates the presence of SID value in the SID field
+    // when set and that no value is indicated when clear.
+    SL_SR_SEGMENT_FLAG_SID_PRESENT = 0x8000;
+
+    // Bit-1: E-Flag: Indicates the SID value is explicitly provisioned value
+    // (locally on headend or via controller/PCE) when set and is a
+    // dynamically resolved value by headend when clear.
+    SL_SR_SEGMENT_FLAG_SID_EXPLICIT_PROVISIONED = 0x4000;
+
+    // Bit-2: V-Flag: Indicates the SID has passed verification or did not
+    // require verification when set and failed verification when
+    // clear.
+    SL_SR_SEGMENT_FLAG_SID_VERIFIED = 0x2000;
+
+    // Bit-3: R-Flag: Indicates the SID has been resolved or did not require
+    // resolution (e.g. because it is not the first SID) when set and
+    // failed resolution when clear.
+    SL_SR_SEGMENT_FLAG_SID_RESOLVED = 0x1000;
+
+    // Bit-4: A-Flag: Indicates that the Algorithm indicated in the Segment
+    // descriptor is valid when set.  When clear, it indicates that
+    // the headend is unable to determine the algorithm of the SID.
+    SL_SR_SEGMENT_FLAG_SID_ALGO_VALID = 0x0800;
+
+    // All others are reserved.
 }
 
 // SR Segment. TLV 1206
@@ -149,31 +213,45 @@ message SLSrSegmentDesc {
 message SLSrSegment {
     SLSrSegmentType Type = 1;
 
+    // SR Segment Flags
+    // Flags associated with the SR Segment
+    // Section 5.8 of [draft-ietf-idr-bgp-ls-sr-policy]
+    // Each flag is indicated as a bit field. Supported values are:
+    //
+    // SL_SR_SEGMENT_FLAG_SID_PRESENT
     // Bit-0: S-Flag: Indicates the presence of SID value in the SID field
     // when set and that no value is indicated when clear.
     //
+    // SL_SR_SEGMENT_FLAG_SID_EXPLICIT_PROVISIONED
     // Bit-1: E-Flag: Indicates the SID value is explicitly provisioned value
     // (locally on headend or via controller/PCE) when set and is a
     // dynamically resolved value by headend when clear.
     //
+    // SL_SR_SEGMENT_FLAG_SID_VERIFIED
     // Bit-2: V-Flag: Indicates the SID has passed verification or did not
     // require verification when set and failed verification when
     // clear.
     //
+    // SL_SR_SEGMENT_FLAG_SID_RESOLVED
     // Bit-3: R-Flag: Indicates the SID has been resolved or did not require
     // resolution (e.g. because it is not the first SID) when set and
     // failed resolution when clear.
     //
+    // SL_SR_SEGMENT_FLAG_SID_ALGO_VALID
     // Bit-4: A-Flag: Indicates that the Algorithm indicated in the Segment
     // descriptor is valid when set.  When clear, it indicates that
     // the headend is unable to determine the algorithm of the SID.
-    bytes Flags = 2;
+    //
+    // All others are reserved.
+    uint32 Flags = 2;
 
     oneof Sid {
         // This field carries info about an MPLS SID.
         uint32 MplsLabel = 3;
 
         // This field carries info about an SRv6 SID.
+        // SRv6 SID takes an IPv6 Address and must be
+        // enforced for 16 bytes.
         bytes Srv6Sid = 4;
     }
 
@@ -189,23 +267,60 @@ message SLSrSegment {
     SLSrv6SidStruct SidStruct = 7;
 }
 
-// SRv6 Binding SID. TLV 1212
-// Section 5.2 of [draft-ietf-idr-bgp-ls-sr-policy]
-message SLSrv6BindingSid {
+enum SLSrv6BindingSidFlags {
+    // Flags associated with the SRv6 Binding SID
+    // Section 5.2 of [draft-ietf-idr-bgp-ls-sr-policy]
+    // Each flag is indicated as a bit field. Supported values are:
+
+    // Reserved.
+    SL_SRV6_BSID_FLAG_RESERVED = 0x0;
+
     // Bit-0: B-Flag: Indicates the allocation of the value in the BSID field
     // when set and indicates that BSID is not allocated when clear.
-    //
+    SL_SRV6_BSID_FLAG_ALLOCATED = 0x8000;
+
     // Bit-1: U-Flag: Indicates the specified BSID value is unavailable when set.
-    //
+    SL_SRV6_BSID_FLAG_UNAVAIL = 0x4000;
+
     // Bit-2: F-Flag: Indicates the BSID value is one allocated from dynamic
     // label pool due to fallback (e.g. when specified BSID is
     // unavailable) when set.
-    bytes Flags = 1;
+    SL_SRV6_BSID_FLAG_DYNAMIC = 0x2000;
+
+    // All others are reserved.
+}
+
+// SRv6 Binding SID. TLV 1212
+// Section 5.2 of [draft-ietf-idr-bgp-ls-sr-policy]
+message SLSrv6BindingSid {
+    // SRv6 Binding SID Flags
+    // Flags associated with the SRv6 Binding SID
+    // Section 5.2 of [draft-ietf-idr-bgp-ls-sr-policy]
+    // Each flag is indicated as a bit field. Supported values are:
+    //
+    // SL_SRV6_BSID_FLAG_ALLOCATED
+    // Bit-0: B-Flag: Indicates the allocation of the value in the BSID field
+    // when set and indicates that BSID is not allocated when clear.
+    //
+    // SL_SRV6_BSID_FLAG_UNAVAIL
+    // Bit-1: U-Flag: Indicates the specified BSID value is unavailable when set.
+    //
+    // SL_SRV6_BSID_FLAG_DYNAMIC
+    // Bit-2: F-Flag: Indicates the BSID value is one allocated from dynamic
+    // label pool due to fallback (e.g. when specified BSID is
+    // unavailable) when set.
+    //
+    // All others are reserved.
+    uint32 Flags = 1;
 
     // The operational or allocated BSID value based on the status flags.
+    // SRv6 binding SID takes an IPv6 Address and must be
+    // enforced for 16 bytes.
     bytes Bsid = 2;
 
     // The explicitly specified BSID whether it is allocated or not.
+    // SRv6 binding SID takes an IPv6 Address and must be
+    // enforced for 16 bytes.
     bytes SpecifiedBsid = 3;
 
     // SRv6 End Point Behavior. TLV 1250
@@ -225,10 +340,10 @@ message SLSrv6EndPointBehavior {
 
     // Flags associated with the SID. Section 8 of [RFC9513]
     // for OSPFv3, and Section 7.2 of [RFC9352] for IS-IS.
-    bytes Flags = 2;
+    uint32 Flags = 2;
 
     // Algorithm associated with the SID
-    bytes Algorithm = 3;
+    uint32 Algorithm = 3;
 }
 
 // SRv6 SID Structure Attribute. TLV 1252
