@@ -98,347 +98,422 @@ namespace ServiceLayer {
             "ZXJ2aWNlX2xheWVyLlNMQmdwbHNUb3BvT3NwZlJvdXRlVHlwZRIUCgxQcmVm",
             "aXhMZW5ndGgYAyABKA0SDgoGUHJlZml4GAQgASgMIlgKF1NMQmdwbHNUb3Bv",
             "U3J2NlNpZERlc2NyEiwKBE10SWQYASABKAsyHi5zZXJ2aWNlX2xheWVyLlNM",
-            "QmdwbHNUb3BvTXRJZBIPCgdTcnY2U2lkGAIgASgMIsYCChhTTEJncGxzVG9w",
+            "QmdwbHNUb3BvTXRJZBIPCgdTcnY2U2lkGAIgASgMIp4CChhTTEJncGxzVG9w",
             "b1NyUG9saWN5RGVzY3ISPAoLUHJvdG9PcmlnaW4YASABKA4yJy5zZXJ2aWNl",
             "X2xheWVyLlNMU3JQb2xpY3lQcm90b2NvbE9yaWdpbhItCgVGbGFncxgCIAEo",
-            "CzIeLnNlcnZpY2VfbGF5ZXIuU0xTclBvbGljeUZsYWdzEhUKC0lwdjRFbmRB",
-            "ZGRyGAMgASgMSAASFQoLSXB2NkVuZEFkZHIYBCABKAxIABINCgVDb2xvchgF",
-            "IAEoDRIRCglPcmlnaW5Bc24YBiABKA0SFgoMSXB2NE9yaWdBZGRyGAcgASgM",
-            "SAESFgoMSXB2Nk9yaWdBZGRyGAggASgMSAESFQoNRGlzY3JpbWluYXRvchgJ",
-            "IAEoDUIRCg9FbmRwb2ludEFkZHJlc3NCEwoRT3JpZ2luYXRvckFkZHJlc3Mi",
-            "YwoVU0xCZ3Bsc1RvcG9Pc3BmTm9kZUlkEg4KBkFyZWFJZBgBIAEoDRISCgpJ",
-            "c0FzU2NvcGVkGAIgASgNEhAKCFJvdXRlcklkGAMgASgMEhQKDERySWRlbnRp",
-            "ZmllchgEIAEoDCJjChdTTEJncGxzVG9wb09zcGZ2M05vZGVJZBIOCgZBcmVh",
-            "SWQYASABKA0SEAoIQXNTY29wZWQYAiABKA0SEAoIUm91dGVySWQYAyABKAwS",
-            "FAoMRHJJZGVudGlmaWVyGAQgASgNIjgKFVNMQmdwbHNUb3BvSXNpc05vZGVJ",
-            "ZBIQCghTeXN0ZW1JZBgBIAEoDBINCgVQc25JZBgCIAEoDCI7ChRTTEJncGxz",
-            "VG9wb0JncE5vZGVJZBIQCghSb3V0ZXJJZBgBIAEoDBIRCglNZW1iZXJBc24Y",
-            "AiABKA0ibAoZU0xCZ3Bsc1RvcG9TclBvbGljeU5vZGVJZBIQCghSb3V0ZXJJ",
-            "ZBgBIAEoDBIRCglNZW1iZXJBc24YAiABKA0SFAoMSXB2NFJvdXRlcklkGAMg",
-            "ASgMEhQKDElwdjZSb3V0ZXJJZBgEIAEoDCLhBgoTU0xCZ3Bsc1RvcG9Ob2Rl",
-            "QXR0chIsCgRNdElkGAEgAygLMh4uc2VydmljZV9sYXllci5TTEJncGxzVG9w",
-            "b010SWQSMgoHTm9kZU1zZBgCIAMoCzIhLnNlcnZpY2VfbGF5ZXIuU0xCZ3Bs",
-            "c1RvcG9Ob2RlTXNkEjwKDE5vZGVGbGFnQml0cxgDIAEoCzImLnNlcnZpY2Vf",
-            "bGF5ZXIuU0xCZ3Bsc1RvcG9Ob2RlRmxhZ0JpdHMSQAoOT3BhcXVlTm9kZUF0",
-            "dHIYBCABKAsyKC5zZXJ2aWNlX2xheWVyLlNMQmdwbHNUb3BvTm9kZU9wYXF1",
-            "ZUF0dHISMAoITm9kZU5hbWUYBSABKAsyHi5zZXJ2aWNlX2xheWVyLlNMQmdw",
-            "bHNOb2RlTmFtZRI4CgpJc2lzQXJlYUlkGAYgAygLMiQuc2VydmljZV9sYXll",
-            "ci5TTEJncGxzVG9wb0lzaXNBcmVhSWQSPgoJTG9jYWxJcHY0GAcgAygLMisu",
-            "c2VydmljZV9sYXllci5TTEJncGxzVG9wb0xvY2FsSXB2NFJvdXRlcklkEj4K",
-            "CUxvY2FsSXB2NhgIIAMoCzIrLnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9M",
-            "b2NhbElwdjZSb3V0ZXJJZBI+Cg1TcmdiSXNpc0ZsYWdzGAkgASgLMicuc2Vy",
-            "dmljZV9sYXllci5TTEJncGxzVG9wb1NyZ2JJc2lzRmxhZ3MSLAoEU3JnYhgK",
-            "IAMoCzIeLnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9TcmdiEjoKC1NyQWxn",
-            "b3JpdGhtGAsgASgLMiUuc2VydmljZV9sYXllci5TTEJncGxzVG9wb1NyQWxn",
-            "b3JpdGhtEiwKBFNybGIYDCADKAsyHi5zZXJ2aWNlX2xheWVyLlNMQmdwbHNU",
-            "b3BvU3JsYhIqCgNGYWQYDSADKAsyHS5zZXJ2aWNlX2xheWVyLlNMQmdwbHNU",
-            "b3BvRmFkEjoKC1Vua25vd25BdHRyGA4gAygLMiUuc2VydmljZV9sYXllci5T",
-            "TEJncGxzVG9wb1Vua25vd25BdHRyEjwKDFNydjZDYXBGbGFncxgPIAEoCzIm",
-            "LnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9TcnY2Q2FwRmxhZ3Mi3BEKE1NM",
-            "QmdwbHNUb3BvTGlua0F0dHISOwoMTGlua0xvY1JlbUlkGAEgASgLMiUuc2Vy",
-            "dmljZV9sYXllci5TTEJwbHNUb3BvTGlua0xvY1JlbUlkEjIKB0xpbmtNc2QY",
-            "AiADKAsyIS5zZXJ2aWNlX2xheWVyLlNMQmdwbHNUb3BvTGlua01zZBJGChFM",
-            "b2NhbElwdjRSb3V0ZXJJZBgDIAMoCzIrLnNlcnZpY2VfbGF5ZXIuU0xCZ3Bs",
-            "c1RvcG9Mb2NhbElwdjRSb3V0ZXJJZBJGChFMb2NhbElwdjZSb3V0ZXJJZBgE",
-            "IAMoCzIrLnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9Mb2NhbElwdjZSb3V0",
-            "ZXJJZBJIChJSZW1vdGVJcHY0Um91dGVySWQYBSADKAsyLC5zZXJ2aWNlX2xh",
-            "eWVyLlNMQmdwbHNUb3BvUmVtb3RlSXB2NFJvdXRlcklkEkgKElJlbW90ZUlw",
-            "djZSb3V0ZXJJZBgGIAMoCzIsLnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9S",
-            "ZW1vdGVJcHY2Um91dGVySWQSOAoKQWRtaW5Hcm91cBgHIAEoCzIkLnNlcnZp",
-            "Y2VfbGF5ZXIuU0xCZ3Bsc1RvcG9BZG1pbkdyb3VwEkAKDE1heEJhbmR3aWR0",
-            "aBgIIAEoCzIqLnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9MaW5rTWF4QmFu",
-            "ZHdpZHRoEkgKEE1heFJlc3ZCYW5kd2lkdGgYCSABKAsyLi5zZXJ2aWNlX2xh",
-            "eWVyLlNMQmdwbHNUb3BvTGlua01heFJlc3ZCYW5kd2lkdGgSRgoPVW5yZXN2",
-            "QmFuZHdpZHRoGAogAygLMi0uc2VydmljZV9sYXllci5TTEJncGxzVG9wb0xp",
-            "bmtVbnJlc3ZCYW5kd2lkdGgSQgoLVGVEZWZNZXRyaWMYCyABKAsyLS5zZXJ2",
-            "aWNlX2xheWVyLlNMQmdwbHNUb3BvTGlua1RlRGVmYXVsdE1ldHJpYxJECg5Q",
-            "cm90ZWN0aW9uVHlwZRgMIAEoCzIsLnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc1Rv",
-            "cG9MaW5rUHJvdGVjdGlvblR5cGUSQgoNTXBsc1Byb3RvTWFzaxgNIAEoCzIr",
-            "LnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9MaW5rTXBsc1Byb3RvTWFzaxI6",
-            "CglJZ3BNZXRyaWMYDiABKAsyJy5zZXJ2aWNlX2xheWVyLlNMQmdwbHNUb3Bv",
-            "TGlua0lncE1ldHJpYxIwCgRTcmxnGA8gAygLMiIuc2VydmljZV9sYXllci5T",
-            "TEJncGxzVG9wb0xpbmtTcmxnEjwKCk9wYXF1ZUF0dHIYECABKAsyKC5zZXJ2",
-            "aWNlX2xheWVyLlNMQmdwbHNUb3BvTGlua09wYXF1ZUF0dHISNAoITGlua05h",
-            "bWUYESABKAsyIi5zZXJ2aWNlX2xheWVyLlNMQmdwbHNUb3BvTGlua05hbWUS",
-            "MAoGQWRqU2lkGBIgAygLMiAuc2VydmljZV9sYXllci5TTEJncGxzVG9wb0Fk",
-            "alNpZBI2CglMYW5BZGpTaWQYEyADKAsyIy5zZXJ2aWNlX2xheWVyLlNMQmdw",
-            "bHNUb3BvTGFuQWRqU2lkEkAKDkJncFBlZXJOb2RlU2lkGBQgAygLMiguc2Vy",
-            "dmljZV9sYXllci5TTEJncGxzVG9wb0JncFBlZXJOb2RlU2lkEj4KDUJncFBl",
-            "ZXJBZGpTaWQYFSADKAsyJy5zZXJ2aWNlX2xheWVyLlNMQmdwbHNUb3BvQmdw",
-            "UGVlckFkalNpZBI+Cg1CZ3BQZWVyU2V0U2lkGBYgAygLMicuc2VydmljZV9s",
-            "YXllci5TTEJncGxzVG9wb0JncFBlZXJTZXRTaWQSPAoMVW5pTGlua0RlbGF5",
-            "GBcgASgLMiYuc2VydmljZV9sYXllci5TTEJncGxzVG9wb1VuaUxpbmtEZWxh",
-            "eRJIChJNaW5NYXhVbmlMaW5rRGVsYXkYGCABKAsyLC5zZXJ2aWNlX2xheWVy",
-            "LlNMQmdwbHNUb3BvTWluTWF4VW5pTGlua0RlbGF5EjoKC1VuaURlbGF5VmFy",
-            "GBkgASgLMiUuc2VydmljZV9sYXllci5TTEJncGxzVG9wb1VuaURlbGF5VmFy",
-            "EjoKC1VuaUxpbmtMb3NzGBogASgLMiUuc2VydmljZV9sYXllci5TTEJncGxz",
-            "VG9wb1VuaUxpbmtMb3NzEkIKD1VuaVJlc0JhbmR3aWR0aBgbIAEoCzIpLnNl",
-            "cnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9VbmlSZXNCYW5kd2lkdGgSRgoRVW5p",
-            "QXZhaWxCYW5kd2lkdGgYHCABKAsyKy5zZXJ2aWNlX2xheWVyLlNMQmdwbHNU",
-            "b3BvVW5pQXZhaWxCYW5kd2lkdGgSRAoQVW5pVXRpbEJhbmR3aWR0aBgdIAEo",
-            "CzIqLnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9VbmlVdGlsQmFuZHdpZHRo",
-            "EjAKBEFzbGEYHiADKAsyIi5zZXJ2aWNlX2xheWVyLlNMQmdwbHNUb3BvQXNs",
-            "YUF0dHISSAoSTDJCdW5kbGVNZW1iZXJBdHRyGB8gAygLMiwuc2VydmljZV9s",
-            "YXllci5TTEJncGxzVG9wb0wyQnVuZGxlTWVtYmVyQXR0chI+Cg1FeHRBZG1p",
-            "bkdyb3VwGCAgAygLMicuc2VydmljZV9sYXllci5TTEJncGxzVG9wb0V4dEFk",
-            "bWluR3JvdXASOgoLVW5rbm93bkF0dHIYISADKAsyJS5zZXJ2aWNlX2xheWVy",
-            "LlNMQmdwbHNUb3BvVW5rbm93bkF0dHISOgoLU3J2NkVuZFhTaWQYIiADKAsy",
-            "JS5zZXJ2aWNlX2xheWVyLlNMQmdwbHNUb3BvU3J2NkVuZFhTaWQSQAoOU3J2",
-            "NkxhbkVuZFhTaWQYIyADKAsyKC5zZXJ2aWNlX2xheWVyLlNMQmdwbHNUb3Bv",
-            "U3J2NkxhbkVuZFhTaWQiqQYKFVNMQmdwbHNUb3BvUHJlZml4QXR0chIyCgRG",
-            "YXBtGAEgAygLMiQuc2VydmljZV9sYXllci5TTEJncGxzVG9wb1ByZWZpeEZB",
-            "UE0SOgoISWdwRmxhZ3MYAiABKAsyKC5zZXJ2aWNlX2xheWVyLlNMQmdwbHNU",
-            "b3BvUHJlZml4SWdwRmxhZ3MSQAoLSWdwUm91dGVUYWcYAyADKAsyKy5zZXJ2",
-            "aWNlX2xheWVyLlNMQmdwbHNUb3BvUHJlZml4SWdwUm91dGVUYWcSRgoOSWdw",
-            "RXh0Um91dGVUYWcYBCADKAsyLi5zZXJ2aWNlX2xheWVyLlNMQmdwbHNUb3Bv",
-            "UHJlZml4SWdwRXh0Um91dGVUYWcSNgoGTWV0cmljGAUgASgLMiYuc2Vydmlj",
-            "ZV9sYXllci5TTEJncGxzVG9wb1ByZWZpeE1ldHJpYxJACgtPc3BmRndkQWRk",
-            "chgGIAEoCzIrLnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9QcmVmaXhPc3Bm",
-            "RndkQWRkchI+CgpPcGFxdWVBdHRyGAcgASgLMiouc2VydmljZV9sYXllci5T",
-            "TEJncGxzVG9wb1ByZWZpeE9wYXF1ZUF0dHISMAoDU2lkGAggAygLMiMuc2Vy",
-            "dmljZV9sYXllci5TTEJncGxzVG9wb1ByZWZpeFNpZBI0CgVSYW5nZRgJIAEo",
-            "CzIlLnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9QcmVmaXhSYW5nZRI8CglB",
-            "dHRyRmxhZ3MYCiABKAsyKS5zZXJ2aWNlX2xheWVyLlNMQmdwbHNUb3BvUHJl",
-            "Zml4QXR0ckZsYWdzEkAKC1NyY1JvdXRlcklkGAsgASgLMisuc2VydmljZV9s",
-            "YXllci5TTEJncGxzVG9wb1ByZWZpeFNyY1JvdXRlcklkEjoKC1Vua25vd25B",
-            "dHRyGAwgAygLMiUuc2VydmljZV9sYXllci5TTEJncGxzVG9wb1Vua25vd25B",
-            "dHRyEjgKB1NydjZMb2MYDSABKAsyJy5zZXJ2aWNlX2xheWVyLlNMQmdwbHNU",
-            "b3BvUHJlZml4U3J2NkxvYyKOAgoWU0xCZ3Bsc1RvcG9TcnY2U2lkQXR0chI/",
-            "ChBFbmRQb2ludEJlaGF2aW9yGAEgASgLMiUuc2VydmljZV9sYXllci5TTFNy",
-            "djZFbmRQb2ludEJlaGF2aW9yEkQKDkJncFBlZXJOb2RlU2lkGAIgAygLMiwu",
-            "c2VydmljZV9sYXllci5TTEJncGxzVG9wb1NydjZCZ3BQZWVyTm9kZVNpZBIx",
-            "CglTaWRTdHJ1Y3QYAyABKAsyHi5zZXJ2aWNlX2xheWVyLlNMU3J2NlNpZFN0",
-            "cnVjdBI6CgtVbmtub3duQXR0chgEIAMoCzIlLnNlcnZpY2VfbGF5ZXIuU0xC",
-            "Z3Bsc1RvcG9Vbmtub3duQXR0ciLYAwoXU0xCZ3Bsc1RvcG9TclBvbGljeUF0",
-            "dHISNgoGU3JCc2lkGAEgASgLMiYuc2VydmljZV9sYXllci5TTEJncGxzVG9w",
-            "b1NyQmluZGluZ1NpZBI0CgdDcFN0YXRlGAIgASgLMiMuc2VydmljZV9sYXll",
-            "ci5TTEJncGxzVG9wb1NyQ3BTdGF0ZRIpCgZDcE5hbWUYAyABKAsyGS5zZXJ2",
-            "aWNlX2xheWVyLlNMU3JDcE5hbWUSQAoNQ3BDb25zdHJhaW50cxgEIAEoCzIp",
-            "LnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9TckNwQ29uc3RyYWludHMSNQoI",
-            "U2VnTGlzdHMYBSADKAsyIy5zZXJ2aWNlX2xheWVyLlNMQmdwbHNUb3BvU3JT",
-            "ZWdMaXN0EjEKCFNydjZCc2lkGAYgAygLMh8uc2VydmljZV9sYXllci5TTFNy",
-            "djZCaW5kaW5nU2lkEjwKDFNyUG9saWN5TmFtZRgHIAEoCzImLnNlcnZpY2Vf",
-            "bGF5ZXIuU0xCZ3Bsc1RvcG9TclBvbGljeU5hbWUSOgoLVW5rbm93bkF0dHIY",
-            "CCADKAsyJS5zZXJ2aWNlX2xheWVyLlNMQmdwbHNUb3BvVW5rbm93bkF0dHIi",
-            "OwoWU0xCcGxzVG9wb0xpbmtMb2NSZW1JZBIPCgdMb2NhbElkGAEgASgNEhAK",
-            "CFJlbW90ZUlkGAIgASgNIh8KD1NMQmdwbHNUb3BvTXRJZBIMCgRNdElkGAEg",
-            "ASgNIjEKElNMQmdwbHNUb3BvTm9kZU1zZBIMCgRUeXBlGAEgASgNEg0KBVZh",
-            "bHVlGAIgASgNIjEKElNMQmdwbHNUb3BvTGlua01zZBIMCgRUeXBlGAEgASgN",
-            "Eg0KBVZhbHVlGAIgASgNIigKF1NMQmdwbHNUb3BvTm9kZUZsYWdCaXRzEg0K",
-            "BUZsYWdzGAEgASgMIi8KGVNMQmdwbHNUb3BvTm9kZU9wYXF1ZUF0dHISEgoK",
-            "T3BhcXVlQXR0chgBIAEoDCIfCg9TTEJncGxzTm9kZU5hbWUSDAoETmFtZRgB",
-            "IAEoCSInChVTTEJncGxzVG9wb0lzaXNBcmVhSWQSDgoGQXJlYUlkGAEgASgM",
-            "IjAKHFNMQmdwbHNUb3BvTG9jYWxJcHY0Um91dGVySWQSEAoIUm91dGVySWQY",
-            "ASABKAwiMAocU0xCZ3Bsc1RvcG9Mb2NhbElwdjZSb3V0ZXJJZBIQCghSb3V0",
-            "ZXJJZBgBIAEoDCIxCh1TTEJncGxzVG9wb1JlbW90ZUlwdjRSb3V0ZXJJZBIQ",
-            "CghSb3V0ZXJJZBgBIAEoDCIxCh1TTEJncGxzVG9wb1JlbW90ZUlwdjZSb3V0",
-            "ZXJJZBIQCghSb3V0ZXJJZBgBIAEoDCI4Cg9TTEJncGxzVG9wb1NyZ2ISEgoK",
-            "U3RhcnRMYWJlbBgBIAEoDRIRCglSYW5nZVNpemUYAiABKA0iKQoYU0xCZ3Bs",
-            "c1RvcG9TcmdiSXNpc0ZsYWdzEg0KBUZsYWdzGAEgASgMIiwKFlNMQmdwbHNU",
-            "b3BvU3JBbGdvcml0aG0SEgoKQWxnb3JpdGhtcxgBIAEoDCI4Cg9TTEJncGxz",
-            "VG9wb1NybGISEgoKU3RhcnRMYWJlbBgBIAEoDRIRCglSYW5nZVNpemUYAiAB",
-            "KA0iKAoXU0xCZ3Bsc1RvcG9TcnY2Q2FwRmxhZ3MSDQoFRmxhZ3MYASABKAwi",
-            "2AIKDlNMQmdwbHNUb3BvRmFkEhEKCUFsZ29yaXRobRgBIAEoDBISCgpNZXRy",
-            "aWNUeXBlGAIgASgMEhAKCENhbGNUeXBlGAMgASgMEhAKCFByaW9yaXR5GAQg",
-            "ASgMEhEKCUV4Y0FueUFmZhgFIAMoDRIRCglJbmNBbnlBZmYYBiADKA0SEQoJ",
-            "SW5jQWxsQWZmGAcgAygNEg0KBUZsYWdzGAggASgMEg8KB0V4Y1NybGcYCSAD",
-            "KA0SOQoJVW5zdXBwVGx2GA8gASgLMiYuc2VydmljZV9sYXllci5TTEJncGxz",
-            "VG9wb0ZhZFVuc3VwcFRsdhIQCghFeGNNaW5CdxgOIAEoDBITCgtFeGNNYXhE",
-            "ZWxheRgNIAEoDRIUCgxFeGNBbnlSZXZBZmYYCiADKA0SFAoMSW5jQW55UmV2",
-            "QWZmGAsgAygNEhQKDEluY0FsbFJldkFmZhgMIAMoDSJIChVTTEJncGxzVG9w",
-            "b1ByZWZpeEZBUE0SEAoIRmxleEFsZ28YASABKA0SDQoFRmxhZ3MYAiABKAwS",
-            "DgoGTWV0cmljGAMgASgNIl4KF1NMQmdwbHNUb3BvRmFkVW5zdXBwVGx2EjQK",
-            "CFByb3RvY29sGAEgASgOMiIuc2VydmljZV9sYXllci5TTEJncGxzVG9wb1By",
-            "b3RvY29sEg0KBVR5cGVzGAIgASgMIiYKFVNMQmdwbHNUb3BvQWRtaW5Hcm91",
-            "cBINCgVHcm91cBgBIAEoDSIwChtTTEJncGxzVG9wb0xpbmtNYXhCYW5kd2lk",
-            "dGgSEQoJQmFuZHdpZHRoGAEgASgMIjQKH1NMQmdwbHNUb3BvTGlua01heFJl",
-            "c3ZCYW5kd2lkdGgSEQoJQmFuZHdpZHRoGAEgASgMIkUKHlNMQmdwbHNUb3Bv",
-            "TGlua1VucmVzdkJhbmR3aWR0aBIQCghQcmlvcml0eRgBIAEoDRIRCglCYW5k",
-            "d2lkdGgYAiABKAwiMAoeU0xCZ3Bsc1RvcG9MaW5rVGVEZWZhdWx0TWV0cmlj",
-            "Eg4KBk1ldHJpYxgBIAEoDSItCh1TTEJncGxzVG9wb0xpbmtQcm90ZWN0aW9u",
-            "VHlwZRIMCgRNYXNrGAEgASgNIiwKHFNMQmdwbHNUb3BvTGlua01wbHNQcm90",
-            "b01hc2sSDAoETWFzaxgBIAEoDCIqChhTTEJncGxzVG9wb0xpbmtJZ3BNZXRy",
-            "aWMSDgoGTWV0cmljGAEgASgMIiYKE1NMQmdwbHNUb3BvTGlua1NybGcSDwoH",
-            "U3JsZ1ZhbBgBIAEoDSIvChlTTEJncGxzVG9wb0xpbmtPcGFxdWVBdHRyEhIK",
-            "Ck9wYXF1ZUF0dHIYASABKAwiIwoTU0xCZ3Bsc1RvcG9MaW5rTmFtZRIMCgRO",
-            "YW1lGAEgASgJIoEBChFTTEJncGxzVG9wb0FkalNpZBISCgpMYWJlbEluZGV4",
-            "GAEgASgNEjkKDEFkalNpZEZvcm1hdBgCIAEoDjIjLnNlcnZpY2VfbGF5ZXIu",
-            "U0xCZ3Bsc1RvcG9TaWRGb3JtYXQSDQoFRmxhZ3MYAyABKAwSDgoGV2VpZ2h0",
-            "GAQgASgNIrwBChRTTEJncGxzVG9wb0xhbkFkalNpZBI2CghOZWlnaGJvchgB",
-            "IAEoCzIkLnNlcnZpY2VfbGF5ZXIuU0xCZ3BMc1RvcG9OZWlnaGJvcklkEhIK",
-            "CkxhYmVsSW5kZXgYAiABKA0SOQoMQWRqU2lkRm9ybWF0GAMgASgOMiMuc2Vy",
-            "dmljZV9sYXllci5TTEJncGxzVG9wb1NpZEZvcm1hdBINCgVGbGFncxgEIAEo",
-            "DBIOCgZXZWlnaHQYBSABKA0iggEKGVNMQmdwbHNUb3BvQmdwUGVlck5vZGVT",
-            "aWQSCwoDU2lkGAEgASgMEjkKDEJncFNpZEZvcm1hdBgCIAEoDjIjLnNlcnZp",
-            "Y2VfbGF5ZXIuU0xCZ3Bsc1RvcG9TaWRGb3JtYXQSDQoFRmxhZ3MYAyABKAwS",
-            "DgoGV2VpZ2h0GAQgASgNIoEBChhTTEJncGxzVG9wb0JncFBlZXJBZGpTaWQS",
-            "CwoDU2lkGAEgASgMEjkKDEJncFNpZEZvcm1hdBgCIAEoDjIjLnNlcnZpY2Vf",
-            "bGF5ZXIuU0xCZ3Bsc1RvcG9TaWRGb3JtYXQSDQoFRmxhZ3MYAyABKAwSDgoG",
-            "V2VpZ2h0GAQgASgNIoEBChhTTEJncGxzVG9wb0JncFBlZXJTZXRTaWQSCwoD",
-            "U2lkGAEgASgMEjkKDEJncFNpZEZvcm1hdBgCIAEoDjIjLnNlcnZpY2VfbGF5",
-            "ZXIuU0xCZ3Bsc1RvcG9TaWRGb3JtYXQSDQoFRmxhZ3MYAyABKAwSDgoGV2Vp",
-            "Z2h0GAQgASgNIqQBChZTTEJncGxzVG9wb1NydjZFbmRYU2lkEgsKA1NpZBgB",
-            "IAEoDBIRCglBbGdvcml0aG0YAiABKAwSDQoFRmxhZ3MYAyABKAwSDgoGV2Vp",
-            "Z2h0GAQgASgNEhgKEEVuZFBvaW50QmVoYXZpb3IYBSABKA0SMQoJU2lkU3Ry",
-            "dWN0GAYgASgLMh4uc2VydmljZV9sYXllci5TTFNydjZTaWRTdHJ1Y3QiTQoV",
-            "U0xCZ3BMc1RvcG9OZWlnaGJvcklkEhIKCElwdjRBZGRyGAEgASgMSAASEgoI",
-            "U3lzdGVtSWQYAiABKAxIAEIMCgpOZWlnaGJvcklkIt8BChlTTEJncGxzVG9w",
-            "b1NydjZMYW5FbmRYU2lkEjYKCE5laWdoYm9yGAEgASgLMiQuc2VydmljZV9s",
-            "YXllci5TTEJncExzVG9wb05laWdoYm9ySWQSCwoDU2lkGAIgASgMEhEKCUFs",
-            "Z29yaXRobRgDIAEoDBINCgVGbGFncxgEIAEoDBIOCgZXZWlnaHQYBSABKA0S",
-            "GAoQRW5kUG9pbnRCZWhhdmlvchgGIAEoDRIxCglTaWRTdHJ1Y3QYByABKAsy",
-            "Hi5zZXJ2aWNlX2xheWVyLlNMU3J2NlNpZFN0cnVjdCI3ChdTTEJncGxzVG9w",
-            "b1VuaUxpbmtEZWxheRINCgVEZWxheRgBIAEoDRINCgVGbGFncxgCIAEoDCJI",
-            "Ch1TTEJncGxzVG9wb01pbk1heFVuaUxpbmtEZWxheRILCgNNaW4YASABKA0S",
-            "CwoDTWF4GAIgASgNEg0KBUZsYWdzGAMgASgMIjoKFlNMQmdwbHNUb3BvVW5p",
-            "RGVsYXlWYXISEQoJVmFyaWF0aW9uGAEgASgNEg0KBUZsYWdzGAIgASgMIjUK",
-            "FlNMQmdwbHNUb3BvVW5pTGlua0xvc3MSDAoETG9zcxgBIAEoDRINCgVGbGFn",
-            "cxgCIAEoDCIvChpTTEJncGxzVG9wb1VuaVJlc0JhbmR3aWR0aBIRCglCYW5k",
-            "d2lkdGgYASABKAwiMQocU0xCZ3Bsc1RvcG9VbmlBdmFpbEJhbmR3aWR0aBIR",
-            "CglCYW5kd2lkdGgYASABKAwiMAobU0xCZ3Bsc1RvcG9VbmlVdGlsQmFuZHdp",
-            "ZHRoEhEKCUJhbmR3aWR0aBgBIAEoDCKzBgoTU0xCZ3Bsc1RvcG9Bc2xhQXR0",
-            "chIMCgRTYWJtGAEgASgMEg0KBVVkYWJtGAIgASgMEjgKCkFkbWluR3JvdXAY",
-            "AyABKAsyJC5zZXJ2aWNlX2xheWVyLlNMQmdwbHNUb3BvQWRtaW5Hcm91cBJC",
-            "CgtUZURlZk1ldHJpYxgEIAEoCzItLnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc1Rv",
-            "cG9MaW5rVGVEZWZhdWx0TWV0cmljEjAKBFNybGcYBSADKAsyIi5zZXJ2aWNl",
-            "X2xheWVyLlNMQmdwbHNUb3BvTGlua1NybGcSPAoMVW5pTGlua0RlbGF5GAYg",
-            "ASgLMiYuc2VydmljZV9sYXllci5TTEJncGxzVG9wb1VuaUxpbmtEZWxheRJF",
-            "Cg9NaW5NYXhMaW5rRGVsYXkYByABKAsyLC5zZXJ2aWNlX2xheWVyLlNMQmdw",
-            "bHNUb3BvTWluTWF4VW5pTGlua0RlbGF5EkAKEVVuaURlbGF5VmFyaWF0aW9u",
-            "GAggASgLMiUuc2VydmljZV9sYXllci5TTEJncGxzVG9wb1VuaURlbGF5VmFy",
-            "EjoKC1VuaUxpbmtMb3NzGAkgASgLMiUuc2VydmljZV9sYXllci5TTEJncGxz",
-            "VG9wb1VuaUxpbmtMb3NzEkIKD1VuaVJlc0JhbmR3aWR0aBgKIAEoCzIpLnNl",
-            "cnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9VbmlSZXNCYW5kd2lkdGgSRgoRVW5p",
-            "QXZhaWxCYW5kd2lkdGgYCyABKAsyKy5zZXJ2aWNlX2xheWVyLlNMQmdwbHNU",
-            "b3BvVW5pQXZhaWxCYW5kd2lkdGgSRAoQVW5pVXRpbEJhbmR3aWR0aBgMIAEo",
-            "CzIqLnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9VbmlVdGlsQmFuZHdpZHRo",
-            "Ej4KDUV4dEFkbWluR3JvdXAYDSADKAsyJy5zZXJ2aWNlX2xheWVyLlNMQmdw",
-            "bHNUb3BvRXh0QWRtaW5Hcm91cBI6CgtVbmtub3duQXR0chgOIAMoCzIlLnNl",
-            "cnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9Vbmtub3duQXR0ciIqChlTTEJncGxz",
-            "VG9wb1ByZWZpeElncEZsYWdzEg0KBUZsYWdzGAEgASgMIisKHFNMQmdwbHNU",
-            "b3BvUHJlZml4SWdwUm91dGVUYWcSCwoDVGFnGAEgASgNIi4KH1NMQmdwbHNU",
-            "b3BvUHJlZml4SWdwRXh0Um91dGVUYWcSCwoDVGFnGAEgASgEIikKF1NMQmdw",
-            "bHNUb3BvUHJlZml4TWV0cmljEg4KBk1ldHJpYxgBIAEoDSJVChxTTEJncGxz",
-            "VG9wb1ByZWZpeE9zcGZGd2RBZGRyEhIKCElwdjRBZGRyGAEgASgMSAASEgoI",
-            "SXB2NkFkZHIYAiABKAxIAEINCgtPc3BmRndkQWRkciIxChtTTEJncGxzVG9w",
-            "b1ByZWZpeE9wYXF1ZUF0dHISEgoKT3BhcXVlQXR0chgBIAEoDCKQAQoUU0xC",
-            "Z3Bsc1RvcG9QcmVmaXhTaWQSDQoFRmxhZ3MYASABKAwSEQoJQWxnb3JpdGht",
-            "GAIgASgMEhIKCkxhYmVsSW5kZXgYAyABKA0SQgoPUHJlZml4U2lkRm9ybWF0",
-            "GAQgASgOMikuc2VydmljZV9sYXllci5TTEJncGxzVG9wb1ByZWZpeFNpZEZv",
-            "cm1hdCJuChZTTEJncGxzVG9wb1ByZWZpeFJhbmdlEg0KBUZsYWdzGAEgASgM",
-            "EhEKCVJhbmdlU2l6ZRgCIAEoDRIRCglBbGdvcml0aG0YAyABKAwSDQoFSW5k",
-            "ZXgYBCABKA0SEAoIU2lkRmxhZ3MYBSABKAwiTAoYU0xCZ3Bsc1RvcG9QcmVm",
-            "aXhTcnY2TG9jEg0KBUZsYWdzGAEgASgMEhEKCUFsZ29yaXRobRgCIAEoDBIO",
-            "CgZNZXRyaWMYAyABKA0iKwoaU0xCZ3Bsc1RvcG9QcmVmaXhBdHRyRmxhZ3MS",
-            "DQoFRmxhZ3MYASABKAwiVQocU0xCZ3Bsc1RvcG9QcmVmaXhTcmNSb3V0ZXJJ",
-            "ZBISCghJcHY0QWRkchgBIAEoDEgAEhIKCElwdjZBZGRyGAIgASgMSABCDQoL",
-            "U3JjUm91dGVySWQiuAkKHVNMQmdwbHNUb3BvTDJCdW5kbGVNZW1iZXJBdHRy",
-            "EhIKCk1lbWJlckRlc2MYASABKA0SOAoKQWRtaW5Hcm91cBgCIAEoCzIkLnNl",
-            "cnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9BZG1pbkdyb3VwEkAKDE1heEJhbmR3",
-            "aWR0aBgDIAEoCzIqLnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9MaW5rTWF4",
-            "QmFuZHdpZHRoEkgKEE1heFJlc3ZCYW5kd2lkdGgYBCABKAsyLi5zZXJ2aWNl",
-            "X2xheWVyLlNMQmdwbHNUb3BvTGlua01heFJlc3ZCYW5kd2lkdGgSRgoPVW5y",
-            "ZXN2QmFuZHdpZHRoGAUgAygLMi0uc2VydmljZV9sYXllci5TTEJncGxzVG9w",
-            "b0xpbmtVbnJlc3ZCYW5kd2lkdGgSQgoLVGVEZWZNZXRyaWMYBiABKAsyLS5z",
-            "ZXJ2aWNlX2xheWVyLlNMQmdwbHNUb3BvTGlua1RlRGVmYXVsdE1ldHJpYxJE",
-            "Cg5Qcm90ZWN0aW9uVHlwZRgHIAEoCzIsLnNlcnZpY2VfbGF5ZXIuU0xCZ3Bs",
-            "c1RvcG9MaW5rUHJvdGVjdGlvblR5cGUSMAoGQWRqU2lkGAggAygLMiAuc2Vy",
-            "dmljZV9sYXllci5TTEJncGxzVG9wb0FkalNpZBI2CglMYW5BZGpTaWQYCSAD",
-            "KAsyIy5zZXJ2aWNlX2xheWVyLlNMQmdwbHNUb3BvTGFuQWRqU2lkEjwKDFVu",
-            "aUxpbmtEZWxheRgKIAEoCzImLnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9V",
-            "bmlMaW5rRGVsYXkSRQoPTWluTWF4TGlua0RlbGF5GAsgASgLMiwuc2Vydmlj",
-            "ZV9sYXllci5TTEJncGxzVG9wb01pbk1heFVuaUxpbmtEZWxheRJAChFVbmlE",
-            "ZWxheVZhcmlhdGlvbhgMIAEoCzIlLnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc1Rv",
-            "cG9VbmlEZWxheVZhchI6CgtVbmlMaW5rTG9zcxgNIAEoCzIlLnNlcnZpY2Vf",
-            "bGF5ZXIuU0xCZ3Bsc1RvcG9VbmlMaW5rTG9zcxJCCg9VbmlSZXNCYW5kd2lk",
-            "dGgYDiABKAsyKS5zZXJ2aWNlX2xheWVyLlNMQmdwbHNUb3BvVW5pUmVzQmFu",
-            "ZHdpZHRoEkYKEVVuaUF2YWlsQmFuZHdpZHRoGA8gASgLMisuc2VydmljZV9s",
-            "YXllci5TTEJncGxzVG9wb1VuaUF2YWlsQmFuZHdpZHRoEkQKEFVuaVV0aWxC",
-            "YW5kd2lkdGgYECABKAsyKi5zZXJ2aWNlX2xheWVyLlNMQmdwbHNUb3BvVW5p",
-            "VXRpbEJhbmR3aWR0aBIwCgRBc2xhGBEgAygLMiIuc2VydmljZV9sYXllci5T",
-            "TEJncGxzVG9wb0FzbGFBdHRyEj4KDUV4dEFkbWluR3JvdXAYEiADKAsyJy5z",
-            "ZXJ2aWNlX2xheWVyLlNMQmdwbHNUb3BvRXh0QWRtaW5Hcm91cBI6CgtVbmtu",
-            "b3duQXR0chgTIAMoCzIlLnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9Vbmtu",
-            "b3duQXR0ciIpChhTTEJncGxzVG9wb0V4dEFkbWluR3JvdXASDQoFR3JvdXAY",
-            "ASABKA0igwEKF1NMQmdwbHNUb3BvU3JCaW5kaW5nU2lkEhEKCUJzaWRGbGFn",
-            "cxgBIAEoDBIlCgRCc2lkGAIgASgLMhcuc2VydmljZV9sYXllci5TbFNyQnNp",
-            "ZBIuCg1TcGVjaWZpZWRCc2lkGAMgASgLMhcuc2VydmljZV9sYXllci5TbFNy",
-            "QnNpZCJLChRTTEJncGxzVG9wb1NyQ3BTdGF0ZRIQCghQcmlvcml0eRgBIAEo",
-            "DRINCgVGbGFncxgCIAEoDBISCgpQcmVmZXJlbmNlGAMgASgNItkDChpTTEJn",
-            "cGxzVG9wb1NyQ3BDb25zdHJhaW50cxINCgVGbGFncxgBIAEoDBIMCgRNdGlk",
-            "GAIgASgNEhEKCUFsZ29yaXRobRgDIAEoDBJBCghBZmZpbml0eRgFIAEoCzIv",
-            "LnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9TckFmZmluaXR5Q29uc3RyYWlu",
-            "dHMSOQoEU3JsZxgGIAEoCzIrLnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9T",
-            "clNybGdDb25zdHJhaW50cxJCCglCYW5kd2lkdGgYBCABKAsyLy5zZXJ2aWNl",
-            "X2xheWVyLlNMQmdwbHNUb3BvU3JCYW5kd2lkdGhDb25zdHJhaW50EkUKCERp",
-            "c2pvaW50GAcgASgLMjMuc2VydmljZV9sYXllci5TTEJncGxzVG9wb1NyRGlz",
-            "am9pbnRHcm91cENvbnN0cmFpbnQSRAoKQmlkaXJHcm91cBgIIAEoCzIwLnNl",
-            "cnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9TckJpZGlyR3JvdXBDb25zdHJhaW50",
-            "EjwKBk1ldHJpYxgJIAMoCzIsLnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9T",
-            "ck1ldHJpY0NvbnN0cmFpbnQihAEKFFNMQmdwbHNUb3BvU3JTZWdMaXN0Eg0K",
-            "BUZsYWdzGAEgASgMEgwKBE10aWQYAiABKA0SEQoJQWxnb3JpdGhtGAMgASgM",
-            "Eg4KBldlaWdodBgEIAEoDRIsCghTZWdtZW50cxgFIAMoCzIaLnNlcnZpY2Vf",
-            "bGF5ZXIuU0xTclNlZ21lbnQiYwoWU0xCZ3Bsc1NyU2VnTGlzdE1ldHJpYxIM",
-            "CgRUeXBlGAEgASgMEg0KBUZsYWdzGAIgASgMEg4KBk1hcmdpbhgDIAEoDRIN",
-            "CgVCb3VuZBgEIAEoDRINCgVWYWx1ZRgFIAEoDSJeCiBTTEJncGxzVG9wb1Ny",
-            "QWZmaW5pdHlDb25zdHJhaW50cxISCgpFeGNsQW55RWFnGAEgAygNEhIKCklu",
-            "Y2xBbnlFYWcYAiADKA0SEgoKSW5jbEFsbEVhZxgDIAMoDSIyChxTTEJncGxz",
-            "VG9wb1NyU3JsZ0NvbnN0cmFpbnRzEhIKClNybGdWYWx1ZXMYASADKA0iNQog",
-            "U0xCZ3Bsc1RvcG9TckJhbmR3aWR0aENvbnN0cmFpbnQSEQoJQmFuZHdpZHRo",
-            "GAEgASgMImIKJFNMQmdwbHNUb3BvU3JEaXNqb2ludEdyb3VwQ29uc3RyYWlu",
-            "dBIUCgxSZXF1ZXN0RmxhZ3MYASABKAwSEwoLU3RhdHVzRmxhZ3MYAiABKAwS",
-            "DwoHR3JvdXBJZBgDIAEoDSInChdTTEJncGxzVG9wb1NyUG9saWN5TmFtZRIM",
-            "CgROYW1lGAEgASgJIkMKIVNMQmdwbHNUb3BvU3JCaWRpckdyb3VwQ29uc3Ry",
-            "YWludBINCgVGbGFncxgBIAEoDBIPCgdHcm91cElkGAIgASgNIlsKHVNMQmdw",
-            "bHNUb3BvU3JNZXRyaWNDb25zdHJhaW50EgwKBFR5cGUYASABKA0SDQoFRmxh",
-            "Z3MYAiABKAwSDgoGTWFyZ2luGAMgASgNEg0KBUJvdW5kGAQgASgNIjkKJFNM",
-            "QmdwbHNUb3BvU3JDcFNlZ0xpc3RCYW5kd2lkdGhTdGF0ZRIRCglCYW5kd2lk",
-            "dGgYASABKAwiKwoWU0xCZ3Bsc1RvcG9TclNlZ0xpc3RJZBIRCglTZWdMaXN0",
-            "SWQYASABKA0iYQodU0xCZ3Bsc1RvcG9TcnY2QmdwUGVlck5vZGVTaWQSDQoF",
-            "RmxhZ3MYASABKAwSDgoGV2VpZ2h0GAIgASgNEg4KBlBlZXJBUxgDIAEoDRIR",
-            "CglQZWVyQmdwSWQYBCABKAwiSQoWU0xCZ3Bsc1RvcG9Vbmtub3duQXR0chIP",
-            "CgdUbHZUeXBlGAEgASgNEg4KBlRsdkxlbhgCIAEoDRIOCgZSYXdUbHYYAyAB",
-            "KAwqhAEKFFNMQmdwbHNUb3BvT3BlcmF0aW9uEiQKIFNMX0JHUExTX1RPUE9f",
-            "T1BFUkFUSU9OX1JFU0VSVkVEEAASIgoeU0xfQkdQTFNfVE9QT19PUEVSQVRJ",
-            "T05fVVBEQVRFEAESIgoeU0xfQkdQTFNfVE9QT19PUEVSQVRJT05fREVMRVRF",
-            "EAIqrQIKE1NMQmdwbHNUb3BvTmxyaVR5cGUSJAogU0xfQkdQTFNfVE9QT19O",
-            "TFJJX1RZUEVfUkVTRVJWRUQQABIgChxTTF9CR1BMU19UT1BPX05MUklfVFlQ",
-            "RV9OT0RFEAESIAocU0xfQkdQTFNfVE9QT19OTFJJX1RZUEVfTElOSxACEicK",
-            "I1NMX0JHUExTX1RPUE9fTkxSSV9UWVBFX0lQVjRfUFJFRklYEAMSJwojU0xf",
-            "QkdQTFNfVE9QT19OTFJJX1RZUEVfSVBWNl9QUkVGSVgQBBI0CjBTTF9CR1BM",
-            "U19UT1BPX05MUklfVFlQRV9TUl9QT0xJQ1lfQ0FORElEQVRFX1BBVEgQBRIk",
-            "CiBTTF9CR1BMU19UT1BPX05MUklfVFlQRV9TUlY2X1NJRBAGKvECChNTTEJn",
-            "cGxzVG9wb1Byb3RvY29sEiMKH1NMX0JHUExTX1RPUE9fUFJPVE9DT0xfUkVT",
-            "RVJWRUQQABIiCh5TTF9CR1BMU19UT1BPX1BST1RPQ09MX0lTSVNfTDEQARIi",
-            "Ch5TTF9CR1BMU19UT1BPX1BST1RPQ09MX0lTSVNfTDIQAhIhCh1TTF9CR1BM",
-            "U19UT1BPX1BST1RPQ09MX09TUEZ2MhADEiEKHVNMX0JHUExTX1RPUE9fUFJP",
-            "VE9DT0xfRElSRUNUEAQSIQodU0xfQkdQTFNfVE9QT19QUk9UT0NPTF9TVEFU",
-            "SUMQBRIhCh1TTF9CR1BMU19UT1BPX1BST1RPQ09MX09TUEZ2MxAGEh4KGlNM",
-            "X0JHUExTX1RPUE9fUFJPVE9DT0xfQkdQEAcSIgoeU0xfQkdQTFNfVE9QT19Q",
-            "Uk9UT0NPTF9SU1ZQX1RFEAgSHQoZU0xfQkdQTFNfVE9QT19QUk9UT0NPTF9T",
-            "UhAJKs4CChhTTEJncGxzVG9wb09zcGZSb3V0ZVR5cGUSKgomU0xfQkdQTFNf",
-            "VE9QT19PU1BGX1JPVVRFX1RZUEVfUkVTRVJWRUQQABIsCihTTF9CR1BMU19U",
-            "T1BPX09TUEZfUk9VVEVfVFlQRV9JTlRSQV9BUkVBEAESLAooU0xfQkdQTFNf",
-            "VE9QT19PU1BGX1JPVVRFX1RZUEVfSU5URVJfQVJFQRACEioKJlNMX0JHUExT",
-            "X1RPUE9fT1NQRl9ST1VURV9UWVBFX0VYVEVSTl8xEAMSKgomU0xfQkdQTFNf",
-            "VE9QT19PU1BGX1JPVVRFX1RZUEVfRVhURVJOXzIQBBIoCiRTTF9CR1BMU19U",
-            "T1BPX09TUEZfUk9VVEVfVFlQRV9OU1NBXzEQBRIoCiRTTF9CR1BMU19UT1BP",
-            "X09TUEZfUk9VVEVfVFlQRV9OU1NBXzIQBiqrAQoUU0xCZ3Bsc1RvcG9TaWRG",
-            "b3JtYXQSJQohU0xfQkdQTFNfVE9QT19TSURfRk9STUFUX1JFU0VSVkVEEAAS",
-            "IgoeU0xfQkdQTFNfVE9QT19TSURfRk9STUFUX0xBQkVMEAESIgoeU0xfQkdQ",
-            "TFNfVE9QT19TSURfRk9STUFUX0lOREVYEAISJAogU0xfQkdQTFNfVE9QT19T",
-            "SURfRk9STUFUX1Y2X0FERFIQAyqgAQoaU0xCZ3Bsc1RvcG9QcmVmaXhTaWRG",
-            "b3JtYXQSLAooU0xfQkdQTFNfVE9QT19QUkVGSVhfU0lEX0ZPUk1BVF9SRVNF",
-            "UlZFRBAAEikKJVNMX0JHUExTX1RPUE9fUFJFRklYX1NJRF9GT1JNQVRfTEFC",
-            "RUwQARIpCiVTTF9CR1BMU19UT1BPX1BSRUZJWF9TSURfRk9STUFUX0lOREVY",
-            "EAIydAoLU0xCZ3Bsc1RvcG8SZQoWU0xCZ3Bsc1RvcG9Ob3RpZlN0cmVhbRIl",
-            "LnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9Ob3RpZlJlcU1zZxoiLnNlcnZp",
-            "Y2VfbGF5ZXIuU0xCZ3Bsc1RvcG9Ob3RpZk1zZzABQlFaT2dpdGh1Yi5jb20v",
-            "Q2lzY28tc2VydmljZS1sYXllci9zZXJ2aWNlLWxheWVyLW9iam1vZGVsL2dy",
-            "cGMvcHJvdG9zO3NlcnZpY2VfbGF5ZXJiBnByb3RvMw=="));
+            "CzIeLnNlcnZpY2VfbGF5ZXIuU0xTclBvbGljeUZsYWdzEiwKCEVuZHBvaW50",
+            "GAMgASgLMhouc2VydmljZV9sYXllci5TTElwQWRkcmVzcxINCgVDb2xvchgE",
+            "IAEoDRIRCglPcmlnaW5Bc24YBSABKA0SLgoKT3JpZ2luYXRvchgGIAEoCzIa",
+            "LnNlcnZpY2VfbGF5ZXIuU0xJcEFkZHJlc3MSFQoNRGlzY3JpbWluYXRvchgH",
+            "IAEoDSJjChVTTEJncGxzVG9wb09zcGZOb2RlSWQSDgoGQXJlYUlkGAEgASgN",
+            "EhIKCklzQXNTY29wZWQYAiABKA0SEAoIUm91dGVySWQYAyABKAwSFAoMRHJJ",
+            "ZGVudGlmaWVyGAQgASgMImMKF1NMQmdwbHNUb3BvT3NwZnYzTm9kZUlkEg4K",
+            "BkFyZWFJZBgBIAEoDRIQCghBc1Njb3BlZBgCIAEoDRIQCghSb3V0ZXJJZBgD",
+            "IAEoDBIUCgxEcklkZW50aWZpZXIYBCABKA0iOAoVU0xCZ3Bsc1RvcG9Jc2lz",
+            "Tm9kZUlkEhAKCFN5c3RlbUlkGAEgASgMEg0KBVBzbklkGAIgASgMIjsKFFNM",
+            "QmdwbHNUb3BvQmdwTm9kZUlkEhAKCFJvdXRlcklkGAEgASgMEhEKCU1lbWJl",
+            "ckFzbhgCIAEoDSJsChlTTEJncGxzVG9wb1NyUG9saWN5Tm9kZUlkEhAKCFJv",
+            "dXRlcklkGAEgASgMEhEKCU1lbWJlckFzbhgCIAEoDRIUCgxJcHY0Um91dGVy",
+            "SWQYAyABKAwSFAoMSXB2NlJvdXRlcklkGAQgASgMIuEGChNTTEJncGxzVG9w",
+            "b05vZGVBdHRyEiwKBE10SWQYASADKAsyHi5zZXJ2aWNlX2xheWVyLlNMQmdw",
+            "bHNUb3BvTXRJZBIyCgdOb2RlTXNkGAIgAygLMiEuc2VydmljZV9sYXllci5T",
+            "TEJncGxzVG9wb05vZGVNc2QSPAoMTm9kZUZsYWdCaXRzGAMgASgLMiYuc2Vy",
+            "dmljZV9sYXllci5TTEJncGxzVG9wb05vZGVGbGFnQml0cxJACg5PcGFxdWVO",
+            "b2RlQXR0chgEIAEoCzIoLnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9Ob2Rl",
+            "T3BhcXVlQXR0chIwCghOb2RlTmFtZRgFIAEoCzIeLnNlcnZpY2VfbGF5ZXIu",
+            "U0xCZ3Bsc05vZGVOYW1lEjgKCklzaXNBcmVhSWQYBiADKAsyJC5zZXJ2aWNl",
+            "X2xheWVyLlNMQmdwbHNUb3BvSXNpc0FyZWFJZBI+CglMb2NhbElwdjQYByAD",
+            "KAsyKy5zZXJ2aWNlX2xheWVyLlNMQmdwbHNUb3BvTG9jYWxJcHY0Um91dGVy",
+            "SWQSPgoJTG9jYWxJcHY2GAggAygLMisuc2VydmljZV9sYXllci5TTEJncGxz",
+            "VG9wb0xvY2FsSXB2NlJvdXRlcklkEj4KDVNyZ2JJc2lzRmxhZ3MYCSABKAsy",
+            "Jy5zZXJ2aWNlX2xheWVyLlNMQmdwbHNUb3BvU3JnYklzaXNGbGFncxIsCgRT",
+            "cmdiGAogAygLMh4uc2VydmljZV9sYXllci5TTEJncGxzVG9wb1NyZ2ISOgoL",
+            "U3JBbGdvcml0aG0YCyABKAsyJS5zZXJ2aWNlX2xheWVyLlNMQmdwbHNUb3Bv",
+            "U3JBbGdvcml0aG0SLAoEU3JsYhgMIAMoCzIeLnNlcnZpY2VfbGF5ZXIuU0xC",
+            "Z3Bsc1RvcG9TcmxiEioKA0ZhZBgNIAMoCzIdLnNlcnZpY2VfbGF5ZXIuU0xC",
+            "Z3Bsc1RvcG9GYWQSOgoLVW5rbm93bkF0dHIYDiADKAsyJS5zZXJ2aWNlX2xh",
+            "eWVyLlNMQmdwbHNUb3BvVW5rbm93bkF0dHISPAoMU3J2NkNhcEZsYWdzGA8g",
+            "ASgLMiYuc2VydmljZV9sYXllci5TTEJncGxzVG9wb1NydjZDYXBGbGFncyLc",
+            "EQoTU0xCZ3Bsc1RvcG9MaW5rQXR0chI7CgxMaW5rTG9jUmVtSWQYASABKAsy",
+            "JS5zZXJ2aWNlX2xheWVyLlNMQnBsc1RvcG9MaW5rTG9jUmVtSWQSMgoHTGlu",
+            "a01zZBgCIAMoCzIhLnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9MaW5rTXNk",
+            "EkYKEUxvY2FsSXB2NFJvdXRlcklkGAMgAygLMisuc2VydmljZV9sYXllci5T",
+            "TEJncGxzVG9wb0xvY2FsSXB2NFJvdXRlcklkEkYKEUxvY2FsSXB2NlJvdXRl",
+            "cklkGAQgAygLMisuc2VydmljZV9sYXllci5TTEJncGxzVG9wb0xvY2FsSXB2",
+            "NlJvdXRlcklkEkgKElJlbW90ZUlwdjRSb3V0ZXJJZBgFIAMoCzIsLnNlcnZp",
+            "Y2VfbGF5ZXIuU0xCZ3Bsc1RvcG9SZW1vdGVJcHY0Um91dGVySWQSSAoSUmVt",
+            "b3RlSXB2NlJvdXRlcklkGAYgAygLMiwuc2VydmljZV9sYXllci5TTEJncGxz",
+            "VG9wb1JlbW90ZUlwdjZSb3V0ZXJJZBI4CgpBZG1pbkdyb3VwGAcgASgLMiQu",
+            "c2VydmljZV9sYXllci5TTEJncGxzVG9wb0FkbWluR3JvdXASQAoMTWF4QmFu",
+            "ZHdpZHRoGAggASgLMiouc2VydmljZV9sYXllci5TTEJncGxzVG9wb0xpbmtN",
+            "YXhCYW5kd2lkdGgSSAoQTWF4UmVzdkJhbmR3aWR0aBgJIAEoCzIuLnNlcnZp",
+            "Y2VfbGF5ZXIuU0xCZ3Bsc1RvcG9MaW5rTWF4UmVzdkJhbmR3aWR0aBJGCg9V",
+            "bnJlc3ZCYW5kd2lkdGgYCiADKAsyLS5zZXJ2aWNlX2xheWVyLlNMQmdwbHNU",
+            "b3BvTGlua1VucmVzdkJhbmR3aWR0aBJCCgtUZURlZk1ldHJpYxgLIAEoCzIt",
+            "LnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9MaW5rVGVEZWZhdWx0TWV0cmlj",
+            "EkQKDlByb3RlY3Rpb25UeXBlGAwgASgLMiwuc2VydmljZV9sYXllci5TTEJn",
+            "cGxzVG9wb0xpbmtQcm90ZWN0aW9uVHlwZRJCCg1NcGxzUHJvdG9NYXNrGA0g",
+            "ASgLMisuc2VydmljZV9sYXllci5TTEJncGxzVG9wb0xpbmtNcGxzUHJvdG9N",
+            "YXNrEjoKCUlncE1ldHJpYxgOIAEoCzInLnNlcnZpY2VfbGF5ZXIuU0xCZ3Bs",
+            "c1RvcG9MaW5rSWdwTWV0cmljEjAKBFNybGcYDyADKAsyIi5zZXJ2aWNlX2xh",
+            "eWVyLlNMQmdwbHNUb3BvTGlua1NybGcSPAoKT3BhcXVlQXR0chgQIAEoCzIo",
+            "LnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9MaW5rT3BhcXVlQXR0chI0CghM",
+            "aW5rTmFtZRgRIAEoCzIiLnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9MaW5r",
+            "TmFtZRIwCgZBZGpTaWQYEiADKAsyIC5zZXJ2aWNlX2xheWVyLlNMQmdwbHNU",
+            "b3BvQWRqU2lkEjYKCUxhbkFkalNpZBgTIAMoCzIjLnNlcnZpY2VfbGF5ZXIu",
+            "U0xCZ3Bsc1RvcG9MYW5BZGpTaWQSQAoOQmdwUGVlck5vZGVTaWQYFCADKAsy",
+            "KC5zZXJ2aWNlX2xheWVyLlNMQmdwbHNUb3BvQmdwUGVlck5vZGVTaWQSPgoN",
+            "QmdwUGVlckFkalNpZBgVIAMoCzInLnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc1Rv",
+            "cG9CZ3BQZWVyQWRqU2lkEj4KDUJncFBlZXJTZXRTaWQYFiADKAsyJy5zZXJ2",
+            "aWNlX2xheWVyLlNMQmdwbHNUb3BvQmdwUGVlclNldFNpZBI8CgxVbmlMaW5r",
+            "RGVsYXkYFyABKAsyJi5zZXJ2aWNlX2xheWVyLlNMQmdwbHNUb3BvVW5pTGlu",
+            "a0RlbGF5EkgKEk1pbk1heFVuaUxpbmtEZWxheRgYIAEoCzIsLnNlcnZpY2Vf",
+            "bGF5ZXIuU0xCZ3Bsc1RvcG9NaW5NYXhVbmlMaW5rRGVsYXkSOgoLVW5pRGVs",
+            "YXlWYXIYGSABKAsyJS5zZXJ2aWNlX2xheWVyLlNMQmdwbHNUb3BvVW5pRGVs",
+            "YXlWYXISOgoLVW5pTGlua0xvc3MYGiABKAsyJS5zZXJ2aWNlX2xheWVyLlNM",
+            "QmdwbHNUb3BvVW5pTGlua0xvc3MSQgoPVW5pUmVzQmFuZHdpZHRoGBsgASgL",
+            "Mikuc2VydmljZV9sYXllci5TTEJncGxzVG9wb1VuaVJlc0JhbmR3aWR0aBJG",
+            "ChFVbmlBdmFpbEJhbmR3aWR0aBgcIAEoCzIrLnNlcnZpY2VfbGF5ZXIuU0xC",
+            "Z3Bsc1RvcG9VbmlBdmFpbEJhbmR3aWR0aBJEChBVbmlVdGlsQmFuZHdpZHRo",
+            "GB0gASgLMiouc2VydmljZV9sYXllci5TTEJncGxzVG9wb1VuaVV0aWxCYW5k",
+            "d2lkdGgSMAoEQXNsYRgeIAMoCzIiLnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc1Rv",
+            "cG9Bc2xhQXR0chJIChJMMkJ1bmRsZU1lbWJlckF0dHIYHyADKAsyLC5zZXJ2",
+            "aWNlX2xheWVyLlNMQmdwbHNUb3BvTDJCdW5kbGVNZW1iZXJBdHRyEj4KDUV4",
+            "dEFkbWluR3JvdXAYICADKAsyJy5zZXJ2aWNlX2xheWVyLlNMQmdwbHNUb3Bv",
+            "RXh0QWRtaW5Hcm91cBI6CgtVbmtub3duQXR0chghIAMoCzIlLnNlcnZpY2Vf",
+            "bGF5ZXIuU0xCZ3Bsc1RvcG9Vbmtub3duQXR0chI6CgtTcnY2RW5kWFNpZBgi",
+            "IAMoCzIlLnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9TcnY2RW5kWFNpZBJA",
+            "Cg5TcnY2TGFuRW5kWFNpZBgjIAMoCzIoLnNlcnZpY2VfbGF5ZXIuU0xCZ3Bs",
+            "c1RvcG9TcnY2TGFuRW5kWFNpZCKpBgoVU0xCZ3Bsc1RvcG9QcmVmaXhBdHRy",
+            "EjIKBEZhcG0YASADKAsyJC5zZXJ2aWNlX2xheWVyLlNMQmdwbHNUb3BvUHJl",
+            "Zml4RkFQTRI6CghJZ3BGbGFncxgCIAEoCzIoLnNlcnZpY2VfbGF5ZXIuU0xC",
+            "Z3Bsc1RvcG9QcmVmaXhJZ3BGbGFncxJACgtJZ3BSb3V0ZVRhZxgDIAMoCzIr",
+            "LnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9QcmVmaXhJZ3BSb3V0ZVRhZxJG",
+            "Cg5JZ3BFeHRSb3V0ZVRhZxgEIAMoCzIuLnNlcnZpY2VfbGF5ZXIuU0xCZ3Bs",
+            "c1RvcG9QcmVmaXhJZ3BFeHRSb3V0ZVRhZxI2CgZNZXRyaWMYBSABKAsyJi5z",
+            "ZXJ2aWNlX2xheWVyLlNMQmdwbHNUb3BvUHJlZml4TWV0cmljEkAKC09zcGZG",
+            "d2RBZGRyGAYgASgLMisuc2VydmljZV9sYXllci5TTEJncGxzVG9wb1ByZWZp",
+            "eE9zcGZGd2RBZGRyEj4KCk9wYXF1ZUF0dHIYByABKAsyKi5zZXJ2aWNlX2xh",
+            "eWVyLlNMQmdwbHNUb3BvUHJlZml4T3BhcXVlQXR0chIwCgNTaWQYCCADKAsy",
+            "Iy5zZXJ2aWNlX2xheWVyLlNMQmdwbHNUb3BvUHJlZml4U2lkEjQKBVJhbmdl",
+            "GAkgASgLMiUuc2VydmljZV9sYXllci5TTEJncGxzVG9wb1ByZWZpeFJhbmdl",
+            "EjwKCUF0dHJGbGFncxgKIAEoCzIpLnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc1Rv",
+            "cG9QcmVmaXhBdHRyRmxhZ3MSQAoLU3JjUm91dGVySWQYCyABKAsyKy5zZXJ2",
+            "aWNlX2xheWVyLlNMQmdwbHNUb3BvUHJlZml4U3JjUm91dGVySWQSOgoLVW5r",
+            "bm93bkF0dHIYDCADKAsyJS5zZXJ2aWNlX2xheWVyLlNMQmdwbHNUb3BvVW5r",
+            "bm93bkF0dHISOAoHU3J2NkxvYxgNIAEoCzInLnNlcnZpY2VfbGF5ZXIuU0xC",
+            "Z3Bsc1RvcG9QcmVmaXhTcnY2TG9jIo4CChZTTEJncGxzVG9wb1NydjZTaWRB",
+            "dHRyEj8KEEVuZFBvaW50QmVoYXZpb3IYASABKAsyJS5zZXJ2aWNlX2xheWVy",
+            "LlNMU3J2NkVuZFBvaW50QmVoYXZpb3ISRAoOQmdwUGVlck5vZGVTaWQYAiAD",
+            "KAsyLC5zZXJ2aWNlX2xheWVyLlNMQmdwbHNUb3BvU3J2NkJncFBlZXJOb2Rl",
+            "U2lkEjEKCVNpZFN0cnVjdBgDIAEoCzIeLnNlcnZpY2VfbGF5ZXIuU0xTcnY2",
+            "U2lkU3RydWN0EjoKC1Vua25vd25BdHRyGAQgAygLMiUuc2VydmljZV9sYXll",
+            "ci5TTEJncGxzVG9wb1Vua25vd25BdHRyItgDChdTTEJncGxzVG9wb1NyUG9s",
+            "aWN5QXR0chI2CgZTckJzaWQYASABKAsyJi5zZXJ2aWNlX2xheWVyLlNMQmdw",
+            "bHNUb3BvU3JCaW5kaW5nU2lkEjQKB0NwU3RhdGUYAiABKAsyIy5zZXJ2aWNl",
+            "X2xheWVyLlNMQmdwbHNUb3BvU3JDcFN0YXRlEikKBkNwTmFtZRgDIAEoCzIZ",
+            "LnNlcnZpY2VfbGF5ZXIuU0xTckNwTmFtZRJACg1DcENvbnN0cmFpbnRzGAQg",
+            "ASgLMikuc2VydmljZV9sYXllci5TTEJncGxzVG9wb1NyQ3BDb25zdHJhaW50",
+            "cxI1CghTZWdMaXN0cxgFIAMoCzIjLnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc1Rv",
+            "cG9TclNlZ0xpc3QSMQoIU3J2NkJzaWQYBiADKAsyHy5zZXJ2aWNlX2xheWVy",
+            "LlNMU3J2NkJpbmRpbmdTaWQSPAoMU3JQb2xpY3lOYW1lGAcgASgLMiYuc2Vy",
+            "dmljZV9sYXllci5TTEJncGxzVG9wb1NyUG9saWN5TmFtZRI6CgtVbmtub3du",
+            "QXR0chgIIAMoCzIlLnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9Vbmtub3du",
+            "QXR0ciI7ChZTTEJwbHNUb3BvTGlua0xvY1JlbUlkEg8KB0xvY2FsSWQYASAB",
+            "KA0SEAoIUmVtb3RlSWQYAiABKA0iHwoPU0xCZ3Bsc1RvcG9NdElkEgwKBE10",
+            "SWQYASABKA0iMQoSU0xCZ3Bsc1RvcG9Ob2RlTXNkEgwKBFR5cGUYASABKA0S",
+            "DQoFVmFsdWUYAiABKA0iMQoSU0xCZ3Bsc1RvcG9MaW5rTXNkEgwKBFR5cGUY",
+            "ASABKA0SDQoFVmFsdWUYAiABKA0iKAoXU0xCZ3Bsc1RvcG9Ob2RlRmxhZ0Jp",
+            "dHMSDQoFRmxhZ3MYASABKAwiLwoZU0xCZ3Bsc1RvcG9Ob2RlT3BhcXVlQXR0",
+            "chISCgpPcGFxdWVBdHRyGAEgASgMIh8KD1NMQmdwbHNOb2RlTmFtZRIMCgRO",
+            "YW1lGAEgASgJIicKFVNMQmdwbHNUb3BvSXNpc0FyZWFJZBIOCgZBcmVhSWQY",
+            "ASABKAwiMAocU0xCZ3Bsc1RvcG9Mb2NhbElwdjRSb3V0ZXJJZBIQCghSb3V0",
+            "ZXJJZBgBIAEoDCIwChxTTEJncGxzVG9wb0xvY2FsSXB2NlJvdXRlcklkEhAK",
+            "CFJvdXRlcklkGAEgASgMIjEKHVNMQmdwbHNUb3BvUmVtb3RlSXB2NFJvdXRl",
+            "cklkEhAKCFJvdXRlcklkGAEgASgMIjEKHVNMQmdwbHNUb3BvUmVtb3RlSXB2",
+            "NlJvdXRlcklkEhAKCFJvdXRlcklkGAEgASgMIjgKD1NMQmdwbHNUb3BvU3Jn",
+            "YhISCgpTdGFydExhYmVsGAEgASgNEhEKCVJhbmdlU2l6ZRgCIAEoDSIpChhT",
+            "TEJncGxzVG9wb1NyZ2JJc2lzRmxhZ3MSDQoFRmxhZ3MYASABKAwiLAoWU0xC",
+            "Z3Bsc1RvcG9TckFsZ29yaXRobRISCgpBbGdvcml0aG1zGAEgASgMIjgKD1NM",
+            "QmdwbHNUb3BvU3JsYhISCgpTdGFydExhYmVsGAEgASgNEhEKCVJhbmdlU2l6",
+            "ZRgCIAEoDSIoChdTTEJncGxzVG9wb1NydjZDYXBGbGFncxINCgVGbGFncxgB",
+            "IAEoDCLYAgoOU0xCZ3Bsc1RvcG9GYWQSEQoJQWxnb3JpdGhtGAEgASgMEhIK",
+            "Ck1ldHJpY1R5cGUYAiABKAwSEAoIQ2FsY1R5cGUYAyABKAwSEAoIUHJpb3Jp",
+            "dHkYBCABKAwSEQoJRXhjQW55QWZmGAUgAygNEhEKCUluY0FueUFmZhgGIAMo",
+            "DRIRCglJbmNBbGxBZmYYByADKA0SDQoFRmxhZ3MYCCABKAwSDwoHRXhjU3Js",
+            "ZxgJIAMoDRI5CglVbnN1cHBUbHYYDyABKAsyJi5zZXJ2aWNlX2xheWVyLlNM",
+            "QmdwbHNUb3BvRmFkVW5zdXBwVGx2EhAKCEV4Y01pbkJ3GA4gASgMEhMKC0V4",
+            "Y01heERlbGF5GA0gASgNEhQKDEV4Y0FueVJldkFmZhgKIAMoDRIUCgxJbmNB",
+            "bnlSZXZBZmYYCyADKA0SFAoMSW5jQWxsUmV2QWZmGAwgAygNIkgKFVNMQmdw",
+            "bHNUb3BvUHJlZml4RkFQTRIQCghGbGV4QWxnbxgBIAEoDRINCgVGbGFncxgC",
+            "IAEoDBIOCgZNZXRyaWMYAyABKA0iXgoXU0xCZ3Bsc1RvcG9GYWRVbnN1cHBU",
+            "bHYSNAoIUHJvdG9jb2wYASABKA4yIi5zZXJ2aWNlX2xheWVyLlNMQmdwbHNU",
+            "b3BvUHJvdG9jb2wSDQoFVHlwZXMYAiABKAwiJgoVU0xCZ3Bsc1RvcG9BZG1p",
+            "bkdyb3VwEg0KBUdyb3VwGAEgASgNIjAKG1NMQmdwbHNUb3BvTGlua01heEJh",
+            "bmR3aWR0aBIRCglCYW5kd2lkdGgYASABKAwiNAofU0xCZ3Bsc1RvcG9MaW5r",
+            "TWF4UmVzdkJhbmR3aWR0aBIRCglCYW5kd2lkdGgYASABKAwiRQoeU0xCZ3Bs",
+            "c1RvcG9MaW5rVW5yZXN2QmFuZHdpZHRoEhAKCFByaW9yaXR5GAEgASgNEhEK",
+            "CUJhbmR3aWR0aBgCIAEoDCIwCh5TTEJncGxzVG9wb0xpbmtUZURlZmF1bHRN",
+            "ZXRyaWMSDgoGTWV0cmljGAEgASgNIi0KHVNMQmdwbHNUb3BvTGlua1Byb3Rl",
+            "Y3Rpb25UeXBlEgwKBE1hc2sYASABKA0iLAocU0xCZ3Bsc1RvcG9MaW5rTXBs",
+            "c1Byb3RvTWFzaxIMCgRNYXNrGAEgASgMIioKGFNMQmdwbHNUb3BvTGlua0ln",
+            "cE1ldHJpYxIOCgZNZXRyaWMYASABKAwiJgoTU0xCZ3Bsc1RvcG9MaW5rU3Js",
+            "ZxIPCgdTcmxnVmFsGAEgASgNIi8KGVNMQmdwbHNUb3BvTGlua09wYXF1ZUF0",
+            "dHISEgoKT3BhcXVlQXR0chgBIAEoDCIjChNTTEJncGxzVG9wb0xpbmtOYW1l",
+            "EgwKBE5hbWUYASABKAkigQEKEVNMQmdwbHNUb3BvQWRqU2lkEhIKCkxhYmVs",
+            "SW5kZXgYASABKA0SOQoMQWRqU2lkRm9ybWF0GAIgASgOMiMuc2VydmljZV9s",
+            "YXllci5TTEJncGxzVG9wb1NpZEZvcm1hdBINCgVGbGFncxgDIAEoDBIOCgZX",
+            "ZWlnaHQYBCABKA0ivAEKFFNMQmdwbHNUb3BvTGFuQWRqU2lkEjYKCE5laWdo",
+            "Ym9yGAEgASgLMiQuc2VydmljZV9sYXllci5TTEJncExzVG9wb05laWdoYm9y",
+            "SWQSEgoKTGFiZWxJbmRleBgCIAEoDRI5CgxBZGpTaWRGb3JtYXQYAyABKA4y",
+            "Iy5zZXJ2aWNlX2xheWVyLlNMQmdwbHNUb3BvU2lkRm9ybWF0Eg0KBUZsYWdz",
+            "GAQgASgMEg4KBldlaWdodBgFIAEoDSKCAQoZU0xCZ3Bsc1RvcG9CZ3BQZWVy",
+            "Tm9kZVNpZBILCgNTaWQYASABKAwSOQoMQmdwU2lkRm9ybWF0GAIgASgOMiMu",
+            "c2VydmljZV9sYXllci5TTEJncGxzVG9wb1NpZEZvcm1hdBINCgVGbGFncxgD",
+            "IAEoDBIOCgZXZWlnaHQYBCABKA0igQEKGFNMQmdwbHNUb3BvQmdwUGVlckFk",
+            "alNpZBILCgNTaWQYASABKAwSOQoMQmdwU2lkRm9ybWF0GAIgASgOMiMuc2Vy",
+            "dmljZV9sYXllci5TTEJncGxzVG9wb1NpZEZvcm1hdBINCgVGbGFncxgDIAEo",
+            "DBIOCgZXZWlnaHQYBCABKA0igQEKGFNMQmdwbHNUb3BvQmdwUGVlclNldFNp",
+            "ZBILCgNTaWQYASABKAwSOQoMQmdwU2lkRm9ybWF0GAIgASgOMiMuc2Vydmlj",
+            "ZV9sYXllci5TTEJncGxzVG9wb1NpZEZvcm1hdBINCgVGbGFncxgDIAEoDBIO",
+            "CgZXZWlnaHQYBCABKA0ipAEKFlNMQmdwbHNUb3BvU3J2NkVuZFhTaWQSCwoD",
+            "U2lkGAEgASgMEhEKCUFsZ29yaXRobRgCIAEoDRINCgVGbGFncxgDIAEoDRIO",
+            "CgZXZWlnaHQYBCABKA0SGAoQRW5kUG9pbnRCZWhhdmlvchgFIAEoDRIxCglT",
+            "aWRTdHJ1Y3QYBiABKAsyHi5zZXJ2aWNlX2xheWVyLlNMU3J2NlNpZFN0cnVj",
+            "dCJNChVTTEJncExzVG9wb05laWdoYm9ySWQSEgoISXB2NEFkZHIYASABKAxI",
+            "ABISCghTeXN0ZW1JZBgCIAEoDEgAQgwKCk5laWdoYm9ySWQi3wEKGVNMQmdw",
+            "bHNUb3BvU3J2NkxhbkVuZFhTaWQSNgoITmVpZ2hib3IYASABKAsyJC5zZXJ2",
+            "aWNlX2xheWVyLlNMQmdwTHNUb3BvTmVpZ2hib3JJZBILCgNTaWQYAiABKAwS",
+            "EQoJQWxnb3JpdGhtGAMgASgNEg0KBUZsYWdzGAQgASgNEg4KBldlaWdodBgF",
+            "IAEoDRIYChBFbmRQb2ludEJlaGF2aW9yGAYgASgNEjEKCVNpZFN0cnVjdBgH",
+            "IAEoCzIeLnNlcnZpY2VfbGF5ZXIuU0xTcnY2U2lkU3RydWN0IjcKF1NMQmdw",
+            "bHNUb3BvVW5pTGlua0RlbGF5Eg0KBURlbGF5GAEgASgNEg0KBUZsYWdzGAIg",
+            "ASgMIkgKHVNMQmdwbHNUb3BvTWluTWF4VW5pTGlua0RlbGF5EgsKA01pbhgB",
+            "IAEoDRILCgNNYXgYAiABKA0SDQoFRmxhZ3MYAyABKAwiOgoWU0xCZ3Bsc1Rv",
+            "cG9VbmlEZWxheVZhchIRCglWYXJpYXRpb24YASABKA0SDQoFRmxhZ3MYAiAB",
+            "KAwiNQoWU0xCZ3Bsc1RvcG9VbmlMaW5rTG9zcxIMCgRMb3NzGAEgASgNEg0K",
+            "BUZsYWdzGAIgASgMIi8KGlNMQmdwbHNUb3BvVW5pUmVzQmFuZHdpZHRoEhEK",
+            "CUJhbmR3aWR0aBgBIAEoDCIxChxTTEJncGxzVG9wb1VuaUF2YWlsQmFuZHdp",
+            "ZHRoEhEKCUJhbmR3aWR0aBgBIAEoDCIwChtTTEJncGxzVG9wb1VuaVV0aWxC",
+            "YW5kd2lkdGgSEQoJQmFuZHdpZHRoGAEgASgMIrMGChNTTEJncGxzVG9wb0Fz",
+            "bGFBdHRyEgwKBFNhYm0YASABKAwSDQoFVWRhYm0YAiABKAwSOAoKQWRtaW5H",
+            "cm91cBgDIAEoCzIkLnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9BZG1pbkdy",
+            "b3VwEkIKC1RlRGVmTWV0cmljGAQgASgLMi0uc2VydmljZV9sYXllci5TTEJn",
+            "cGxzVG9wb0xpbmtUZURlZmF1bHRNZXRyaWMSMAoEU3JsZxgFIAMoCzIiLnNl",
+            "cnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9MaW5rU3JsZxI8CgxVbmlMaW5rRGVs",
+            "YXkYBiABKAsyJi5zZXJ2aWNlX2xheWVyLlNMQmdwbHNUb3BvVW5pTGlua0Rl",
+            "bGF5EkUKD01pbk1heExpbmtEZWxheRgHIAEoCzIsLnNlcnZpY2VfbGF5ZXIu",
+            "U0xCZ3Bsc1RvcG9NaW5NYXhVbmlMaW5rRGVsYXkSQAoRVW5pRGVsYXlWYXJp",
+            "YXRpb24YCCABKAsyJS5zZXJ2aWNlX2xheWVyLlNMQmdwbHNUb3BvVW5pRGVs",
+            "YXlWYXISOgoLVW5pTGlua0xvc3MYCSABKAsyJS5zZXJ2aWNlX2xheWVyLlNM",
+            "QmdwbHNUb3BvVW5pTGlua0xvc3MSQgoPVW5pUmVzQmFuZHdpZHRoGAogASgL",
+            "Mikuc2VydmljZV9sYXllci5TTEJncGxzVG9wb1VuaVJlc0JhbmR3aWR0aBJG",
+            "ChFVbmlBdmFpbEJhbmR3aWR0aBgLIAEoCzIrLnNlcnZpY2VfbGF5ZXIuU0xC",
+            "Z3Bsc1RvcG9VbmlBdmFpbEJhbmR3aWR0aBJEChBVbmlVdGlsQmFuZHdpZHRo",
+            "GAwgASgLMiouc2VydmljZV9sYXllci5TTEJncGxzVG9wb1VuaVV0aWxCYW5k",
+            "d2lkdGgSPgoNRXh0QWRtaW5Hcm91cBgNIAMoCzInLnNlcnZpY2VfbGF5ZXIu",
+            "U0xCZ3Bsc1RvcG9FeHRBZG1pbkdyb3VwEjoKC1Vua25vd25BdHRyGA4gAygL",
+            "MiUuc2VydmljZV9sYXllci5TTEJncGxzVG9wb1Vua25vd25BdHRyIioKGVNM",
+            "QmdwbHNUb3BvUHJlZml4SWdwRmxhZ3MSDQoFRmxhZ3MYASABKAwiKwocU0xC",
+            "Z3Bsc1RvcG9QcmVmaXhJZ3BSb3V0ZVRhZxILCgNUYWcYASABKA0iLgofU0xC",
+            "Z3Bsc1RvcG9QcmVmaXhJZ3BFeHRSb3V0ZVRhZxILCgNUYWcYASABKAQiKQoX",
+            "U0xCZ3Bsc1RvcG9QcmVmaXhNZXRyaWMSDgoGTWV0cmljGAEgASgNIlUKHFNM",
+            "QmdwbHNUb3BvUHJlZml4T3NwZkZ3ZEFkZHISEgoISXB2NEFkZHIYASABKAxI",
+            "ABISCghJcHY2QWRkchgCIAEoDEgAQg0KC09zcGZGd2RBZGRyIjEKG1NMQmdw",
+            "bHNUb3BvUHJlZml4T3BhcXVlQXR0chISCgpPcGFxdWVBdHRyGAEgASgMIpAB",
+            "ChRTTEJncGxzVG9wb1ByZWZpeFNpZBINCgVGbGFncxgBIAEoDBIRCglBbGdv",
+            "cml0aG0YAiABKA0SEgoKTGFiZWxJbmRleBgDIAEoDRJCCg9QcmVmaXhTaWRG",
+            "b3JtYXQYBCABKA4yKS5zZXJ2aWNlX2xheWVyLlNMQmdwbHNUb3BvUHJlZml4",
+            "U2lkRm9ybWF0Im4KFlNMQmdwbHNUb3BvUHJlZml4UmFuZ2USDQoFRmxhZ3MY",
+            "ASABKAwSEQoJUmFuZ2VTaXplGAIgASgNEhEKCUFsZ29yaXRobRgDIAEoDRIN",
+            "CgVJbmRleBgEIAEoDRIQCghTaWRGbGFncxgFIAEoDCJMChhTTEJncGxzVG9w",
+            "b1ByZWZpeFNydjZMb2MSDQoFRmxhZ3MYASABKA0SEQoJQWxnb3JpdGhtGAIg",
+            "ASgNEg4KBk1ldHJpYxgDIAEoDSIrChpTTEJncGxzVG9wb1ByZWZpeEF0dHJG",
+            "bGFncxINCgVGbGFncxgBIAEoDCJVChxTTEJncGxzVG9wb1ByZWZpeFNyY1Jv",
+            "dXRlcklkEhIKCElwdjRBZGRyGAEgASgMSAASEgoISXB2NkFkZHIYAiABKAxI",
+            "AEINCgtTcmNSb3V0ZXJJZCK4CQodU0xCZ3Bsc1RvcG9MMkJ1bmRsZU1lbWJl",
+            "ckF0dHISEgoKTWVtYmVyRGVzYxgBIAEoDRI4CgpBZG1pbkdyb3VwGAIgASgL",
+            "MiQuc2VydmljZV9sYXllci5TTEJncGxzVG9wb0FkbWluR3JvdXASQAoMTWF4",
+            "QmFuZHdpZHRoGAMgASgLMiouc2VydmljZV9sYXllci5TTEJncGxzVG9wb0xp",
+            "bmtNYXhCYW5kd2lkdGgSSAoQTWF4UmVzdkJhbmR3aWR0aBgEIAEoCzIuLnNl",
+            "cnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9MaW5rTWF4UmVzdkJhbmR3aWR0aBJG",
+            "Cg9VbnJlc3ZCYW5kd2lkdGgYBSADKAsyLS5zZXJ2aWNlX2xheWVyLlNMQmdw",
+            "bHNUb3BvTGlua1VucmVzdkJhbmR3aWR0aBJCCgtUZURlZk1ldHJpYxgGIAEo",
+            "CzItLnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9MaW5rVGVEZWZhdWx0TWV0",
+            "cmljEkQKDlByb3RlY3Rpb25UeXBlGAcgASgLMiwuc2VydmljZV9sYXllci5T",
+            "TEJncGxzVG9wb0xpbmtQcm90ZWN0aW9uVHlwZRIwCgZBZGpTaWQYCCADKAsy",
+            "IC5zZXJ2aWNlX2xheWVyLlNMQmdwbHNUb3BvQWRqU2lkEjYKCUxhbkFkalNp",
+            "ZBgJIAMoCzIjLnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9MYW5BZGpTaWQS",
+            "PAoMVW5pTGlua0RlbGF5GAogASgLMiYuc2VydmljZV9sYXllci5TTEJncGxz",
+            "VG9wb1VuaUxpbmtEZWxheRJFCg9NaW5NYXhMaW5rRGVsYXkYCyABKAsyLC5z",
+            "ZXJ2aWNlX2xheWVyLlNMQmdwbHNUb3BvTWluTWF4VW5pTGlua0RlbGF5EkAK",
+            "EVVuaURlbGF5VmFyaWF0aW9uGAwgASgLMiUuc2VydmljZV9sYXllci5TTEJn",
+            "cGxzVG9wb1VuaURlbGF5VmFyEjoKC1VuaUxpbmtMb3NzGA0gASgLMiUuc2Vy",
+            "dmljZV9sYXllci5TTEJncGxzVG9wb1VuaUxpbmtMb3NzEkIKD1VuaVJlc0Jh",
+            "bmR3aWR0aBgOIAEoCzIpLnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9VbmlS",
+            "ZXNCYW5kd2lkdGgSRgoRVW5pQXZhaWxCYW5kd2lkdGgYDyABKAsyKy5zZXJ2",
+            "aWNlX2xheWVyLlNMQmdwbHNUb3BvVW5pQXZhaWxCYW5kd2lkdGgSRAoQVW5p",
+            "VXRpbEJhbmR3aWR0aBgQIAEoCzIqLnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc1Rv",
+            "cG9VbmlVdGlsQmFuZHdpZHRoEjAKBEFzbGEYESADKAsyIi5zZXJ2aWNlX2xh",
+            "eWVyLlNMQmdwbHNUb3BvQXNsYUF0dHISPgoNRXh0QWRtaW5Hcm91cBgSIAMo",
+            "CzInLnNlcnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9FeHRBZG1pbkdyb3VwEjoK",
+            "C1Vua25vd25BdHRyGBMgAygLMiUuc2VydmljZV9sYXllci5TTEJncGxzVG9w",
+            "b1Vua25vd25BdHRyIikKGFNMQmdwbHNUb3BvRXh0QWRtaW5Hcm91cBINCgVH",
+            "cm91cBgBIAEoDSKDAQoXU0xCZ3Bsc1RvcG9TckJpbmRpbmdTaWQSEQoJQnNp",
+            "ZEZsYWdzGAEgASgNEiUKBEJzaWQYAiABKAsyFy5zZXJ2aWNlX2xheWVyLlNs",
+            "U3JCc2lkEi4KDVNwZWNpZmllZEJzaWQYAyABKAsyFy5zZXJ2aWNlX2xheWVy",
+            "LlNsU3JCc2lkIksKFFNMQmdwbHNUb3BvU3JDcFN0YXRlEhAKCFByaW9yaXR5",
+            "GAEgASgNEg0KBUZsYWdzGAIgASgNEhIKClByZWZlcmVuY2UYAyABKA0i2QMK",
+            "GlNMQmdwbHNUb3BvU3JDcENvbnN0cmFpbnRzEg0KBUZsYWdzGAEgASgNEgwK",
+            "BE10aWQYAiABKA0SEQoJQWxnb3JpdGhtGAMgASgNEkEKCEFmZmluaXR5GAUg",
+            "ASgLMi8uc2VydmljZV9sYXllci5TTEJncGxzVG9wb1NyQWZmaW5pdHlDb25z",
+            "dHJhaW50cxI5CgRTcmxnGAYgASgLMisuc2VydmljZV9sYXllci5TTEJncGxz",
+            "VG9wb1NyU3JsZ0NvbnN0cmFpbnRzEkIKCUJhbmR3aWR0aBgEIAEoCzIvLnNl",
+            "cnZpY2VfbGF5ZXIuU0xCZ3Bsc1RvcG9TckJhbmR3aWR0aENvbnN0cmFpbnQS",
+            "RQoIRGlzam9pbnQYByABKAsyMy5zZXJ2aWNlX2xheWVyLlNMQmdwbHNUb3Bv",
+            "U3JEaXNqb2ludEdyb3VwQ29uc3RyYWludBJECgpCaWRpckdyb3VwGAggASgL",
+            "MjAuc2VydmljZV9sYXllci5TTEJncGxzVG9wb1NyQmlkaXJHcm91cENvbnN0",
+            "cmFpbnQSPAoGTWV0cmljGAkgAygLMiwuc2VydmljZV9sYXllci5TTEJncGxz",
+            "VG9wb1NyTWV0cmljQ29uc3RyYWludCKEAQoUU0xCZ3Bsc1RvcG9TclNlZ0xp",
+            "c3QSDQoFRmxhZ3MYASABKA0SDAoETXRpZBgCIAEoDRIRCglBbGdvcml0aG0Y",
+            "AyABKA0SDgoGV2VpZ2h0GAQgASgNEiwKCFNlZ21lbnRzGAUgAygLMhouc2Vy",
+            "dmljZV9sYXllci5TTFNyU2VnbWVudCJjChZTTEJncGxzU3JTZWdMaXN0TWV0",
+            "cmljEgwKBFR5cGUYASABKA0SDQoFRmxhZ3MYAiABKA0SDgoGTWFyZ2luGAMg",
+            "ASgNEg0KBUJvdW5kGAQgASgNEg0KBVZhbHVlGAUgASgNIl4KIFNMQmdwbHNU",
+            "b3BvU3JBZmZpbml0eUNvbnN0cmFpbnRzEhIKCkV4Y2xBbnlFYWcYASADKA0S",
+            "EgoKSW5jbEFueUVhZxgCIAMoDRISCgpJbmNsQWxsRWFnGAMgAygNIjIKHFNM",
+            "QmdwbHNUb3BvU3JTcmxnQ29uc3RyYWludHMSEgoKU3JsZ1ZhbHVlcxgBIAMo",
+            "DSI1CiBTTEJncGxzVG9wb1NyQmFuZHdpZHRoQ29uc3RyYWludBIRCglCYW5k",
+            "d2lkdGgYASABKAwiYgokU0xCZ3Bsc1RvcG9TckRpc2pvaW50R3JvdXBDb25z",
+            "dHJhaW50EhQKDFJlcXVlc3RGbGFncxgBIAEoDRITCgtTdGF0dXNGbGFncxgC",
+            "IAEoDRIPCgdHcm91cElkGAMgASgNIicKF1NMQmdwbHNUb3BvU3JQb2xpY3lO",
+            "YW1lEgwKBE5hbWUYASABKAkiQwohU0xCZ3Bsc1RvcG9TckJpZGlyR3JvdXBD",
+            "b25zdHJhaW50Eg0KBUZsYWdzGAEgASgNEg8KB0dyb3VwSWQYAiABKA0iWwod",
+            "U0xCZ3Bsc1RvcG9Tck1ldHJpY0NvbnN0cmFpbnQSDAoEVHlwZRgBIAEoDRIN",
+            "CgVGbGFncxgCIAEoDRIOCgZNYXJnaW4YAyABKA0SDQoFQm91bmQYBCABKA0i",
+            "OQokU0xCZ3Bsc1RvcG9TckNwU2VnTGlzdEJhbmR3aWR0aFN0YXRlEhEKCUJh",
+            "bmR3aWR0aBgBIAEoDCIrChZTTEJncGxzVG9wb1NyU2VnTGlzdElkEhEKCVNl",
+            "Z0xpc3RJZBgBIAEoDSJhCh1TTEJncGxzVG9wb1NydjZCZ3BQZWVyTm9kZVNp",
+            "ZBINCgVGbGFncxgBIAEoDRIOCgZXZWlnaHQYAiABKA0SDgoGUGVlckFTGAMg",
+            "ASgNEhEKCVBlZXJCZ3BJZBgEIAEoDCJJChZTTEJncGxzVG9wb1Vua25vd25B",
+            "dHRyEg8KB1RsdlR5cGUYASABKA0SDgoGVGx2TGVuGAIgASgNEg4KBlJhd1Rs",
+            "dhgDIAEoDCqEAQoUU0xCZ3Bsc1RvcG9PcGVyYXRpb24SJAogU0xfQkdQTFNf",
+            "VE9QT19PUEVSQVRJT05fUkVTRVJWRUQQABIiCh5TTF9CR1BMU19UT1BPX09Q",
+            "RVJBVElPTl9VUERBVEUQARIiCh5TTF9CR1BMU19UT1BPX09QRVJBVElPTl9E",
+            "RUxFVEUQAiqtAgoTU0xCZ3Bsc1RvcG9ObHJpVHlwZRIkCiBTTF9CR1BMU19U",
+            "T1BPX05MUklfVFlQRV9SRVNFUlZFRBAAEiAKHFNMX0JHUExTX1RPUE9fTkxS",
+            "SV9UWVBFX05PREUQARIgChxTTF9CR1BMU19UT1BPX05MUklfVFlQRV9MSU5L",
+            "EAISJwojU0xfQkdQTFNfVE9QT19OTFJJX1RZUEVfSVBWNF9QUkVGSVgQAxIn",
+            "CiNTTF9CR1BMU19UT1BPX05MUklfVFlQRV9JUFY2X1BSRUZJWBAEEjQKMFNM",
+            "X0JHUExTX1RPUE9fTkxSSV9UWVBFX1NSX1BPTElDWV9DQU5ESURBVEVfUEFU",
+            "SBAFEiQKIFNMX0JHUExTX1RPUE9fTkxSSV9UWVBFX1NSVjZfU0lEEAYq8QIK",
+            "E1NMQmdwbHNUb3BvUHJvdG9jb2wSIwofU0xfQkdQTFNfVE9QT19QUk9UT0NP",
+            "TF9SRVNFUlZFRBAAEiIKHlNMX0JHUExTX1RPUE9fUFJPVE9DT0xfSVNJU19M",
+            "MRABEiIKHlNMX0JHUExTX1RPUE9fUFJPVE9DT0xfSVNJU19MMhACEiEKHVNM",
+            "X0JHUExTX1RPUE9fUFJPVE9DT0xfT1NQRnYyEAMSIQodU0xfQkdQTFNfVE9Q",
+            "T19QUk9UT0NPTF9ESVJFQ1QQBBIhCh1TTF9CR1BMU19UT1BPX1BST1RPQ09M",
+            "X1NUQVRJQxAFEiEKHVNMX0JHUExTX1RPUE9fUFJPVE9DT0xfT1NQRnYzEAYS",
+            "HgoaU0xfQkdQTFNfVE9QT19QUk9UT0NPTF9CR1AQBxIiCh5TTF9CR1BMU19U",
+            "T1BPX1BST1RPQ09MX1JTVlBfVEUQCBIdChlTTF9CR1BMU19UT1BPX1BST1RP",
+            "Q09MX1NSEAkqzgIKGFNMQmdwbHNUb3BvT3NwZlJvdXRlVHlwZRIqCiZTTF9C",
+            "R1BMU19UT1BPX09TUEZfUk9VVEVfVFlQRV9SRVNFUlZFRBAAEiwKKFNMX0JH",
+            "UExTX1RPUE9fT1NQRl9ST1VURV9UWVBFX0lOVFJBX0FSRUEQARIsCihTTF9C",
+            "R1BMU19UT1BPX09TUEZfUk9VVEVfVFlQRV9JTlRFUl9BUkVBEAISKgomU0xf",
+            "QkdQTFNfVE9QT19PU1BGX1JPVVRFX1RZUEVfRVhURVJOXzEQAxIqCiZTTF9C",
+            "R1BMU19UT1BPX09TUEZfUk9VVEVfVFlQRV9FWFRFUk5fMhAEEigKJFNMX0JH",
+            "UExTX1RPUE9fT1NQRl9ST1VURV9UWVBFX05TU0FfMRAFEigKJFNMX0JHUExT",
+            "X1RPUE9fT1NQRl9ST1VURV9UWVBFX05TU0FfMhAGKqsBChRTTEJncGxzVG9w",
+            "b1NpZEZvcm1hdBIlCiFTTF9CR1BMU19UT1BPX1NJRF9GT1JNQVRfUkVTRVJW",
+            "RUQQABIiCh5TTF9CR1BMU19UT1BPX1NJRF9GT1JNQVRfTEFCRUwQARIiCh5T",
+            "TF9CR1BMU19UT1BPX1NJRF9GT1JNQVRfSU5ERVgQAhIkCiBTTF9CR1BMU19U",
+            "T1BPX1NJRF9GT1JNQVRfVjZfQUREUhADKqABChpTTEJncGxzVG9wb1ByZWZp",
+            "eFNpZEZvcm1hdBIsCihTTF9CR1BMU19UT1BPX1BSRUZJWF9TSURfRk9STUFU",
+            "X1JFU0VSVkVEEAASKQolU0xfQkdQTFNfVE9QT19QUkVGSVhfU0lEX0ZPUk1B",
+            "VF9MQUJFTBABEikKJVNMX0JHUExTX1RPUE9fUFJFRklYX1NJRF9GT1JNQVRf",
+            "SU5ERVgQAiqaAgocU0xCZ3Bsc1RvcG9TckJpbmRpbmdTaWRGbGFncxInCiNT",
+            "TF9CR1BMU19UT1BPX1NSX0JTSURfRkxBR19SRVNFUlZFRBAAEi0KJ1NMX0JH",
+            "UExTX1RPUE9fU1JfQlNJRF9GTEFHX0RBVEFQTEFORV9WNhCAgAISKgokU0xf",
+            "QkdQTFNfVE9QT19TUl9CU0lEX0ZMQUdfQUxMT0NBVEVEEICAARInCiJTTF9C",
+            "R1BMU19UT1BPX1NSX0JTSURfRkxBR19VTkFWQUlMEIBAEiQKH1NMX0JHUExT",
+            "X1RPUE9fU1JfQlNJRF9GTEFHX1NSTEIQgCASJwoiU0xfQkdQTFNfVE9QT19T",
+            "Ul9CU0lEX0ZMQUdfRFlOQU1JQxCAECrOBAoZU0xCZ3Bsc1RvcG9TckNwU3Rh",
+            "dGVGbGFncxIrCidTTF9CR1BMU19UT1BPX1NSX0NQX1NUQVRFX0ZMQUdfUkVT",
+            "RVJWRUQQABIvCilTTF9CR1BMU19UT1BPX1NSX0NQX1NUQVRFX0ZMQUdfQURN",
+            "SU5fU0hVVBCAgAISKwolU0xfQkdQTFNfVE9QT19TUl9DUF9TVEFURV9GTEFH",
+            "X0FDVElWRRCAgAESKgolU0xfQkdQTFNfVE9QT19TUl9DUF9TVEFURV9GTEFH",
+            "X0JBQ0tVUBCAQBItCihTTF9CR1BMU19UT1BPX1NSX0NQX1NUQVRFX0ZMQUdf",
+            "RVZBTFVBVEVEEIAgEikKJFNMX0JHUExTX1RPUE9fU1JfQ1BfU1RBVEVfRkxB",
+            "R19WQUxJRBCAEBIwCitTTF9CR1BMU19UT1BPX1NSX0NQX1NUQVRFX0ZMQUdf",
+            "T05fREVNQU5EX05IEIAIEi0KKFNMX0JHUExTX1RPUE9fU1JfQ1BfU1RBVEVf",
+            "RkxBR19ERUxFR0FURUQQgAQSLwoqU0xfQkdQTFNfVE9QT19TUl9DUF9TVEFU",
+            "RV9GTEFHX1BST1ZJU0lPTkVEEIACEjUKMFNMX0JHUExTX1RPUE9fU1JfQ1Bf",
+            "U1RBVEVfRkxBR19EUk9QX1VQT05fSU5WQUxJRBCAARIqCiZTTF9CR1BMU19U",
+            "T1BPX1NSX0NQX1NUQVRFX0ZMQUdfVFJBTlNJVBBAEisKJ1NMX0JHUExTX1RP",
+            "UE9fU1JfQ1BfU1RBVEVfRkxBR19EUk9QUElORxAgKo4ECh9TTEJncGxzVG9w",
+            "b1NyQ3BDb25zdHJhaW50c0ZsYWdzEjEKLVNMX0JHUExTX1RPUE9fU1JfQ1Bf",
+            "Q09OU1RSQUlOVFNfRkxBR19SRVNFUlZFRBAAEjcKMVNMX0JHUExTX1RPUE9f",
+            "U1JfQ1BfQ09OU1RSQUlOVFNfRkxBR19EQVRBUExBTkVfVjYQgIACEjQKLlNM",
+            "X0JHUExTX1RPUE9fU1JfQ1BfQ09OU1RSQUlOVFNfRkxBR19QUk9URUNURUQQ",
+            "gIABEjUKMFNMX0JHUExTX1RPUE9fU1JfQ1BfQ09OU1RSQUlOVFNfRkxBR19V",
+            "TlBST1RFQ1RFRBCAQBI4CjNTTF9CR1BMU19UT1BPX1NSX0NQX0NPTlNUUkFJ",
+            "TlRTX0ZMQUdfU1BFQ0lGSUVEX0FMR08QgCASOAozU0xfQkdQTFNfVE9QT19T",
+            "Ul9DUF9DT05TVFJBSU5UU19GTEFHX1NQRUNJRklFRF9UT1BPEIAQEjQKL1NM",
+            "X0JHUExTX1RPUE9fU1JfQ1BfQ09OU1RSQUlOVFNfRkxBR19VU0VfU1RSSUNU",
+            "EIAIEjIKLVNMX0JHUExTX1RPUE9fU1JfQ1BfQ09OU1RSQUlOVFNfRkxBR19G",
+            "SVhFRF9DUBCABBI0Ci9TTF9CR1BMU19UT1BPX1NSX0NQX0NPTlNUUkFJTlRT",
+            "X0ZMQUdfSE9QX0JZX0hPUBCAAiqNBAoZU0xCZ3Bsc1RvcG9TclNlZ0xpc3RG",
+            "bGFncxIrCidTTF9CR1BMU19UT1BPX1NSX1NFR19MSVNUX0ZMQUdfUkVTRVJW",
+            "RUQQABIxCitTTF9CR1BMU19UT1BPX1NSX1NFR19MSVNUX0ZMQUdfREFUQVBM",
+            "QU5FX1Y2EICAAhIyCixTTF9CR1BMU19UT1BPX1NSX1NFR19MSVNUX0ZMQUdf",
+            "RVhQTElDSVRfUEFUSBCAgAESMQosU0xfQkdQTFNfVE9QT19TUl9TRUdfTElT",
+            "VF9GTEFHX0NPTVBVVEVEX1BBVEgQgEASLAonU0xfQkdQTFNfVE9QT19TUl9T",
+            "RUdfTElTVF9GTEFHX1ZFUklGSUVEEIAgEiwKJ1NMX0JHUExTX1RPUE9fU1Jf",
+            "U0VHX0xJU1RfRkxBR19SRVNPTFZFRBCAEBIyCi1TTF9CR1BMU19UT1BPX1NS",
+            "X1NFR19MSVNUX0ZMQUdfQ09NUFVURV9GQUlMRUQQgAgSMgotU0xfQkdQTFNf",
+            "VE9QT19TUl9TRUdfTElTVF9GTEFHX1NQRUNJRklFRF9BTEdPEIAEEjIKLVNM",
+            "X0JHUExTX1RPUE9fU1JfU0VHX0xJU1RfRkxBR19TUEVDSUZJRURfVE9QTxCA",
+            "AhIxCixTTF9CR1BMU19UT1BPX1NSX1NFR19MSVNUX0ZMQUdfRkFVTFRfTU9O",
+            "SVRPUhCAASq5AgofU0xCZ3Bsc1RvcG9TclNlZ0xpc3RNZXRyaWNGbGFncxIy",
+            "Ci5TTF9CR1BMU19UT1BPX1NSX1NFR19MSVNUX01FVFJJQ19GTEFHX1JFU0VS",
+            "VkVEEAASOQo0U0xfQkdQTFNfVE9QT19TUl9TRUdfTElTVF9NRVRSSUNfRkxB",
+            "R19NQVJHSU5fQUxMT1dFRBCAARI2CjJTTF9CR1BMU19UT1BPX1NSX1NFR19M",
+            "SVNUX01FVFJJQ19GTEFHX0FCU09MVVRFX1ZBTBBAEjcKM1NMX0JHUExTX1RP",
+            "UE9fU1JfU0VHX0xJU1RfTUVUUklDX0ZMQUdfQk9VTkRfQUxMT1dFRBAgEjYK",
+            "MlNMX0JHUExTX1RPUE9fU1JfU0VHX0xJU1RfTUVUUklDX0ZMQUdfVkFMX1JF",
+            "UE9SVEVEEBAq9QIKH1NMQmdwbHNUb3BvU3JEaXNqb2ludEdyb3VwRmxhZ3MS",
+            "MQotU0xfQkdQTFNfVE9QT19TUl9ESVNKT0lOVF9HUk9VUF9GTEFHX1JFU0VS",
+            "VkVEEAASLgopU0xfQkdQTFNfVE9QT19TUl9ESVNKT0lOVF9HUk9VUF9GTEFH",
+            "X1NSTEcQgAESLQopU0xfQkdQTFNfVE9QT19TUl9ESVNKT0lOVF9HUk9VUF9G",
+            "TEFHX05PREUQQBItCilTTF9CR1BMU19UT1BPX1NSX0RJU0pPSU5UX0dST1VQ",
+            "X0ZMQUdfTElOSxAgEjEKLVNMX0JHUExTX1RPUE9fU1JfRElTSk9JTlRfR1JP",
+            "VVBfRkxBR19GQUxMQkFDSxAQEiwKKFNMX0JHUExTX1RPUE9fU1JfRElTSk9J",
+            "TlRfR1JPVVBfRkxBR19JR1AQCBIwCixTTF9CR1BMU19UT1BPX1NSX0RJU0pP",
+            "SU5UX0dST1VQX0ZMQUdfSU5WQUxJRBAEKrIBChxTTEJncGxzVG9wb1NyQmlk",
+            "aXJHcm91cEZsYWdzEi4KKlNMX0JHUExTX1RPUE9fU1JfQklESVJfR1JPVVBf",
+            "RkxBR19SRVNFUlZFRBAAEi8KKVNMX0JHUExTX1RPUE9fU1JfQklESVJfR1JP",
+            "VVBfRkxBR19SRVZFUlNFEICAAhIxCitTTF9CR1BMU19UT1BPX1NSX0JJRElS",
+            "X0dST1VQX0ZMQUdfQ09fUk9VVEVEEICAASq/AgoiU0xCZ3Bsc1RvcG9Tck1l",
+            "dHJpY0NvbnN0cmFpbnRGbGFncxI0CjBTTF9CR1BMU19UT1BPX1NSX01FVFJJ",
+            "Q19DT05TVFJBSU5UX0ZMQUdfUkVTRVJWRUQQABI2CjFTTF9CR1BMU19UT1BP",
+            "X1NSX01FVFJJQ19DT05TVFJBSU5UX0ZMQUdfT1BUSU1JWkVEEIABEjoKNlNM",
+            "X0JHUExTX1RPUE9fU1JfTUVUUklDX0NPTlNUUkFJTlRfRkxBR19NQVJHSU5f",
+            "QUxMT1dFRBBAEjQKMFNMX0JHUExTX1RPUE9fU1JfTUVUUklDX0NPTlNUUkFJ",
+            "TlRfRkxBR19BQlNPTFVURRAgEjkKNVNMX0JHUExTX1RPUE9fU1JfTUVUUklD",
+            "X0NPTlNUUkFJTlRfRkxBR19CT1VORF9BTExPV0VEEBAqgAIKIlNMQmdwbHNU",
+            "b3BvU3J2NkJncFBlZXJOb2RlU2lkRmxhZ3MSNgoyU0xfQkdQTFNfVE9QT19T",
+            "UlY2X0JHUF9QRUVSX05PREVfU0lEX0ZMQUdfUkVTRVJWRUQQABI1CjBTTF9C",
+            "R1BMU19UT1BPX1NSVjZfQkdQX1BFRVJfTk9ERV9TSURfRkxBR19CQUNLVVAQ",
+            "gAESMQotU0xfQkdQTFNfVE9QT19TUlY2X0JHUF9QRUVSX05PREVfU0lEX0ZM",
+            "QUdfU0VUEEASOAo0U0xfQkdQTFNfVE9QT19TUlY2X0JHUF9QRUVSX05PREVf",
+            "U0lEX0ZMQUdfUEVSU0lTVEVOVBAgMnQKC1NMQmdwbHNUb3BvEmUKFlNMQmdw",
+            "bHNUb3BvTm90aWZTdHJlYW0SJS5zZXJ2aWNlX2xheWVyLlNMQmdwbHNUb3Bv",
+            "Tm90aWZSZXFNc2caIi5zZXJ2aWNlX2xheWVyLlNMQmdwbHNUb3BvTm90aWZN",
+            "c2cwAUJRWk9naXRodWIuY29tL0Npc2NvLXNlcnZpY2UtbGF5ZXIvc2Vydmlj",
+            "ZS1sYXllci1vYmptb2RlbC9ncnBjL3Byb3RvcztzZXJ2aWNlX2xheWVyYgZw",
+            "cm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::ServiceLayer.SlCommonTypesReflection.Descriptor, global::ServiceLayer.SlSrCommonReflection.Descriptor, },
-          new pbr::GeneratedClrTypeInfo(new[] {typeof(global::ServiceLayer.SLBgplsTopoOperation), typeof(global::ServiceLayer.SLBgplsTopoNlriType), typeof(global::ServiceLayer.SLBgplsTopoProtocol), typeof(global::ServiceLayer.SLBgplsTopoOspfRouteType), typeof(global::ServiceLayer.SLBgplsTopoSidFormat), typeof(global::ServiceLayer.SLBgplsTopoPrefixSidFormat), }, null, new pbr::GeneratedClrTypeInfo[] {
+          new pbr::GeneratedClrTypeInfo(new[] {typeof(global::ServiceLayer.SLBgplsTopoOperation), typeof(global::ServiceLayer.SLBgplsTopoNlriType), typeof(global::ServiceLayer.SLBgplsTopoProtocol), typeof(global::ServiceLayer.SLBgplsTopoOspfRouteType), typeof(global::ServiceLayer.SLBgplsTopoSidFormat), typeof(global::ServiceLayer.SLBgplsTopoPrefixSidFormat), typeof(global::ServiceLayer.SLBgplsTopoSrBindingSidFlags), typeof(global::ServiceLayer.SLBgplsTopoSrCpStateFlags), typeof(global::ServiceLayer.SLBgplsTopoSrCpConstraintsFlags), typeof(global::ServiceLayer.SLBgplsTopoSrSegListFlags), typeof(global::ServiceLayer.SLBgplsTopoSrSegListMetricFlags), typeof(global::ServiceLayer.SLBgplsTopoSrDisjointGroupFlags), typeof(global::ServiceLayer.SLBgplsTopoSrBidirGroupFlags), typeof(global::ServiceLayer.SLBgplsTopoSrMetricConstraintFlags), typeof(global::ServiceLayer.SLBgplsTopoSrv6BgpPeerNodeSidFlags), }, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgplsTopoNotifReqMsg), global::ServiceLayer.SLBgplsTopoNotifReqMsg.Parser, new[]{ "Match" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgplsTopoNlriMatch), global::ServiceLayer.SLBgplsTopoNlriMatch.Parser, new[]{ "InstanceId", "Protocol", "NlriType" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgplsTopoNotifMsg), global::ServiceLayer.SLBgplsTopoNotifMsg.Parser, new[]{ "ErrStatus", "Data", "Start", "End" }, new[]{ "Event" }, null, null, null),
@@ -461,7 +536,7 @@ namespace ServiceLayer {
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgplsTopoLinkDescr), global::ServiceLayer.SLBgplsTopoLinkDescr.Parser, new[]{ "LocalId", "RemoteId", "LocalIpv4", "RemoteIpv4", "LocalIpv6", "RemoteIpv6", "MtId" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgplsTopoPrefixDescr), global::ServiceLayer.SLBgplsTopoPrefixDescr.Parser, new[]{ "MtId", "OspfRouteType", "PrefixLength", "Prefix" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgplsTopoSrv6SidDescr), global::ServiceLayer.SLBgplsTopoSrv6SidDescr.Parser, new[]{ "MtId", "Srv6Sid" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgplsTopoSrPolicyDescr), global::ServiceLayer.SLBgplsTopoSrPolicyDescr.Parser, new[]{ "ProtoOrigin", "Flags", "Ipv4EndAddr", "Ipv6EndAddr", "Color", "OriginAsn", "Ipv4OrigAddr", "Ipv6OrigAddr", "Discriminator" }, new[]{ "EndpointAddress", "OriginatorAddress" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgplsTopoSrPolicyDescr), global::ServiceLayer.SLBgplsTopoSrPolicyDescr.Parser, new[]{ "ProtoOrigin", "Flags", "Endpoint", "Color", "OriginAsn", "Originator", "Discriminator" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgplsTopoOspfNodeId), global::ServiceLayer.SLBgplsTopoOspfNodeId.Parser, new[]{ "AreaId", "IsAsScoped", "RouterId", "DrIdentifier" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgplsTopoOspfv3NodeId), global::ServiceLayer.SLBgplsTopoOspfv3NodeId.Parser, new[]{ "AreaId", "AsScoped", "RouterId", "DrIdentifier" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLBgplsTopoIsisNodeId), global::ServiceLayer.SLBgplsTopoIsisNodeId.Parser, new[]{ "SystemId", "PsnId" }, null, null, null, null),
@@ -643,6 +718,389 @@ namespace ServiceLayer {
     /// Prefix SID Type Index
     /// </summary>
     [pbr::OriginalName("SL_BGPLS_TOPO_PREFIX_SID_FORMAT_INDEX")] Index = 2,
+  }
+
+  /// <summary>
+  /// Flags associated with the SR Binding SID
+  /// Section 5.1 of [draft-ietf-idr-bgp-ls-sr-policy]
+  /// Each flag is indicated as a bit field. Supported values are:
+  /// </summary>
+  public enum SLBgplsTopoSrBindingSidFlags {
+    /// <summary>
+    /// Reserved.
+    /// </summary>
+    [pbr::OriginalName("SL_BGPLS_TOPO_SR_BSID_FLAG_RESERVED")] SlBgplsTopoSrBsidFlagReserved = 0,
+    /// <summary>
+    /// Bit-0: D-Flag: Indicates the dataplane for the BSIDs and if they are
+    /// 16 octet SRv6 SID when set and are 4 octet SR/MPLS label value
+    /// when clear.
+    /// </summary>
+    [pbr::OriginalName("SL_BGPLS_TOPO_SR_BSID_FLAG_DATAPLANE_V6")] SlBgplsTopoSrBsidFlagDataplaneV6 = 32768,
+    /// <summary>
+    /// Bit-1: B-Flag: Indicates the allocation of the value in the BSID field
+    /// when set and indicates that BSID is not allocated when clear.
+    /// </summary>
+    [pbr::OriginalName("SL_BGPLS_TOPO_SR_BSID_FLAG_ALLOCATED")] SlBgplsTopoSrBsidFlagAllocated = 16384,
+    /// <summary>
+    /// Bit-2: U-Flag: Indicates the specified BSID value is unavailable when set.
+    /// </summary>
+    [pbr::OriginalName("SL_BGPLS_TOPO_SR_BSID_FLAG_UNAVAIL")] SlBgplsTopoSrBsidFlagUnavail = 8192,
+    /// <summary>
+    /// Bit-3: L-Flag: Indicates the BSID value is from the Segment Routing
+    /// Local Block (SRLB) of the headend node when set and is from the
+    /// local dynamic label pool when clear.
+    /// </summary>
+    [pbr::OriginalName("SL_BGPLS_TOPO_SR_BSID_FLAG_SRLB")] SlBgplsTopoSrBsidFlagSrlb = 4096,
+    /// <summary>
+    /// Bit-4: F-Flag: Indicates the BSID value is one allocated from dynamic
+    /// label pool due to fallback (e.g. when specified BSID is
+    /// unavailable) when set.
+    /// </summary>
+    [pbr::OriginalName("SL_BGPLS_TOPO_SR_BSID_FLAG_DYNAMIC")] SlBgplsTopoSrBsidFlagDynamic = 2048,
+  }
+
+  /// <summary>
+  /// Flags associated with the SR Candidate Path State Flags
+  /// Section 5.3 of [draft-ietf-idr-bgp-ls-sr-policy]
+  /// Each flag is indicated as a bit field. Supported values are:
+  /// </summary>
+  public enum SLBgplsTopoSrCpStateFlags {
+    /// <summary>
+    /// Reserved.
+    /// </summary>
+    [pbr::OriginalName("SL_BGPLS_TOPO_SR_CP_STATE_FLAG_RESERVED")] SlBgplsTopoSrCpStateFlagReserved = 0,
+    /// <summary>
+    /// Bit-0: S-Flag: Indicates the CP is in an administrative shut state when set.
+    /// </summary>
+    [pbr::OriginalName("SL_BGPLS_TOPO_SR_CP_STATE_FLAG_ADMIN_SHUT")] SlBgplsTopoSrCpStateFlagAdminShut = 32768,
+    /// <summary>
+    /// Bit-1: A-Flag: Indicates the CP is the active path (i.e. one
+    /// provisioned in the forwarding plane) for the SR Policy when set.
+    /// </summary>
+    [pbr::OriginalName("SL_BGPLS_TOPO_SR_CP_STATE_FLAG_ACTIVE")] SlBgplsTopoSrCpStateFlagActive = 16384,
+    /// <summary>
+    /// Bit-2: B-Flag: Indicates the CP is the backup path (i.e. one
+    /// identified for path protection of the active path) for the SR
+    /// Policy when set.
+    /// </summary>
+    [pbr::OriginalName("SL_BGPLS_TOPO_SR_CP_STATE_FLAG_BACKUP")] SlBgplsTopoSrCpStateFlagBackup = 8192,
+    /// <summary>
+    /// Bit-3: E-Flag: Indicates that the CP has been evaluated for validity
+    /// (e.g. headend may evaluate CPs based on their preferences) when set.
+    /// </summary>
+    [pbr::OriginalName("SL_BGPLS_TOPO_SR_CP_STATE_FLAG_EVALUATED")] SlBgplsTopoSrCpStateFlagEvaluated = 4096,
+    /// <summary>
+    /// Bit-4: V-Flag: Indicates the CP has at least one valid SID-List when
+    /// set.  When the E-Flag is clear (i.e. the CP has not been
+    /// evaluated), then this flag MUST be set to 0 by the originator
+    /// and ignored by the receiver.
+    /// </summary>
+    [pbr::OriginalName("SL_BGPLS_TOPO_SR_CP_STATE_FLAG_VALID")] SlBgplsTopoSrCpStateFlagValid = 2048,
+    /// <summary>
+    /// Bit-5: O-Flag: Indicates the CP was instantiated by the headend due to
+    /// an on-demand nexthop trigger based on a local template when
+    /// set.  Refer to section 8.5 of [RFC9256] for details.
+    /// </summary>
+    [pbr::OriginalName("SL_BGPLS_TOPO_SR_CP_STATE_FLAG_ON_DEMAND_NH")] SlBgplsTopoSrCpStateFlagOnDemandNh = 1024,
+    /// <summary>
+    /// Bit-6: D-Flag: Indicates the CP was delegated for computation to a
+    /// PCE/controller when set.
+    /// </summary>
+    [pbr::OriginalName("SL_BGPLS_TOPO_SR_CP_STATE_FLAG_DELEGATED")] SlBgplsTopoSrCpStateFlagDelegated = 512,
+    /// <summary>
+    /// Bit-7: C-Flag: Indicates the CP was provisioned by a PCE/controller when set.
+    /// </summary>
+    [pbr::OriginalName("SL_BGPLS_TOPO_SR_CP_STATE_FLAG_PROVISIONED")] SlBgplsTopoSrCpStateFlagProvisioned = 256,
+    /// <summary>
+    /// Bit-8: I-Flag: Indicates the CP is to perform the "drop upon invalid"
+    /// behavior when no other valid CP is available for this SR
+    /// Policy.  Refer to section 8.2 of [RFC9256] for details.
+    /// </summary>
+    [pbr::OriginalName("SL_BGPLS_TOPO_SR_CP_STATE_FLAG_DROP_UPON_INVALID")] SlBgplsTopoSrCpStateFlagDropUponInvalid = 128,
+    /// <summary>
+    /// Bit-9: T-Flag: Indicates the CP has been marked as eligible for use as
+    /// Transit Policy on the headend when set.  Refer to section 8.3
+    /// of [RFC9256].
+    /// </summary>
+    [pbr::OriginalName("SL_BGPLS_TOPO_SR_CP_STATE_FLAG_TRANSIT")] SlBgplsTopoSrCpStateFlagTransit = 64,
+    /// <summary>
+    /// Bit-10: U-Flag: Indicates that this CP is reported as active and is
+    /// dropping traffic as a result of the "drop upon invalid"
+    /// behavior being activated for the SR Policy.
+    /// </summary>
+    [pbr::OriginalName("SL_BGPLS_TOPO_SR_CP_STATE_FLAG_DROPPING")] SlBgplsTopoSrCpStateFlagDropping = 32,
+  }
+
+  /// <summary>
+  /// Flags associated with the SR Candidate Path Constraints Flags
+  /// Section 5.6 of [draft-ietf-idr-bgp-ls-sr-policy]
+  /// Each flag is indicated as a bit field. Supported values are:
+  /// </summary>
+  public enum SLBgplsTopoSrCpConstraintsFlags {
+    /// <summary>
+    /// Reserved.
+    /// </summary>
+    [pbr::OriginalName("SL_BGPLS_TOPO_SR_CP_CONSTRAINTS_FLAG_RESERVED")] SlBgplsTopoSrCpConstraintsFlagReserved = 0,
+    /// <summary>
+    /// Bit-0: D-Flag: Indicates that the CP uses SRv6 dataplane when set and
+    /// SR/MPLS dataplane when clear.
+    /// </summary>
+    [pbr::OriginalName("SL_BGPLS_TOPO_SR_CP_CONSTRAINTS_FLAG_DATAPLANE_V6")] SlBgplsTopoSrCpConstraintsFlagDataplaneV6 = 32768,
+    /// <summary>
+    /// Bit-1: P-Flag: Indicates that the CP prefers the use of only protected
+    /// SIDs when set.  This flag is mutually exclusive with the
+    /// Bit-2.
+    /// </summary>
+    [pbr::OriginalName("SL_BGPLS_TOPO_SR_CP_CONSTRAINTS_FLAG_PROTECTED")] SlBgplsTopoSrCpConstraintsFlagProtected = 16384,
+    /// <summary>
+    /// Bit-2: U-Flag: Indicates that the CP prefers the use of only
+    /// unprotected SIDs when set.  This flag is mutually exclusive
+    /// with the Bit-1.
+    /// </summary>
+    [pbr::OriginalName("SL_BGPLS_TOPO_SR_CP_CONSTRAINTS_FLAG_UNPROTECTED")] SlBgplsTopoSrCpConstraintsFlagUnprotected = 8192,
+    /// <summary>
+    /// Bit-3: A-Flag: Indicates that the CP uses only the SIDs belonging to
+    /// the specified SR Algorithm when set.
+    /// </summary>
+    [pbr::OriginalName("SL_BGPLS_TOPO_SR_CP_CONSTRAINTS_FLAG_SPECIFIED_ALGO")] PecifiedAlgo = 4096,
+    /// <summary>
+    /// Bit-4: T-Flag: Indicates that the CP uses only the SIDs belonging to
+    /// the specified topology when set.
+    /// </summary>
+    [pbr::OriginalName("SL_BGPLS_TOPO_SR_CP_CONSTRAINTS_FLAG_SPECIFIED_TOPO")] PecifiedTopo = 2048,
+    /// <summary>
+    /// Bit-5: S-Flag: Indicates that the use of protected (P-Flag) or
+    /// unprotected (U-Flag) SIDs becomes a strict constraint instead
+    /// of a preference when set.
+    /// </summary>
+    [pbr::OriginalName("SL_BGPLS_TOPO_SR_CP_CONSTRAINTS_FLAG_USE_STRICT")] SlBgplsTopoSrCpConstraintsFlagUseStrict = 1024,
+    /// <summary>
+    /// Bit-6: F-Flag: Indicates that the CP is fixed once computed and not
+    /// modified except on operator intervention.
+    /// </summary>
+    [pbr::OriginalName("SL_BGPLS_TOPO_SR_CP_CONSTRAINTS_FLAG_FIXED_CP")] SlBgplsTopoSrCpConstraintsFlagFixedCp = 512,
+    /// <summary>
+    /// Bit-7: H-Flag: Indicates that the CP uses only adjacency SIDs and
+    /// traverses hop-by-hop over the links corresponding to those
+    /// adjacency SIDs when set.
+    /// </summary>
+    [pbr::OriginalName("SL_BGPLS_TOPO_SR_CP_CONSTRAINTS_FLAG_HOP_BY_HOP")] SlBgplsTopoSrCpConstraintsFlagHopByHop = 256,
+  }
+
+  /// <summary>
+  /// Flags associated with the SR Segment List Flags
+  /// Section 5.7 of [draft-ietf-idr-bgp-ls-sr-policy]
+  /// Each flag is indicated as a bit field. Supported values are:
+  /// </summary>
+  public enum SLBgplsTopoSrSegListFlags {
+    /// <summary>
+    /// Reserved.
+    /// </summary>
+    [pbr::OriginalName("SL_BGPLS_TOPO_SR_SEG_LIST_FLAG_RESERVED")] SlBgplsTopoSrSegListFlagReserved = 0,
+    /// <summary>
+    /// Bit-0: D-Flag: Indicates the SID-List is comprised of SRv6 SIDs when
+    /// set and indicates it is comprised of SR/MPLS labels when clear.
+    /// </summary>
+    [pbr::OriginalName("SL_BGPLS_TOPO_SR_SEG_LIST_FLAG_DATAPLANE_V6")] SlBgplsTopoSrSegListFlagDataplaneV6 = 32768,
+    /// <summary>
+    /// Bit-1: E-Flag: Indicates that SID-List is associated with an explicit
+    /// candidate path when set and with a dynamic candidate path when
+    /// clear.  All segment lists of a given candidate path MUST be
+    /// either explicit or dynamic and in case of inconsistency, the
+    /// receiver MAY consider them all to be dynamic.
+    /// </summary>
+    [pbr::OriginalName("SL_BGPLS_TOPO_SR_SEG_LIST_FLAG_EXPLICIT_PATH")] SlBgplsTopoSrSegListFlagExplicitPath = 16384,
+    /// <summary>
+    /// Bit-2: C-Flag: Indicates that SID-List has been computed for a dynamic
+    /// path when set.  It is always reported as set for explicit
+    /// paths.
+    /// </summary>
+    [pbr::OriginalName("SL_BGPLS_TOPO_SR_SEG_LIST_FLAG_COMPUTED_PATH")] SlBgplsTopoSrSegListFlagComputedPath = 8192,
+    /// <summary>
+    /// Bit-3: V-Flag: Indicates the SID-List has passed verification or its
+    /// verification was not required when set and failed verification
+    /// when clear.
+    /// </summary>
+    [pbr::OriginalName("SL_BGPLS_TOPO_SR_SEG_LIST_FLAG_VERIFIED")] SlBgplsTopoSrSegListFlagVerified = 4096,
+    /// <summary>
+    /// Bit-4: R-Flag: Indicates that the first Segment has been resolved when
+    /// set and failed resolution when clear.
+    /// </summary>
+    [pbr::OriginalName("SL_BGPLS_TOPO_SR_SEG_LIST_FLAG_RESOLVED")] SlBgplsTopoSrSegListFlagResolved = 2048,
+    /// <summary>
+    /// Bit-5: F-Flag: Indicates that the computation for the dynamic path
+    /// failed when set and succeeded (or not required in case of
+    /// explicit path) when clear.
+    /// </summary>
+    [pbr::OriginalName("SL_BGPLS_TOPO_SR_SEG_LIST_FLAG_COMPUTE_FAILED")] SlBgplsTopoSrSegListFlagComputeFailed = 1024,
+    /// <summary>
+    /// Bit-6: A-Flag: Indicates that all the SIDs in the SID-List belong to
+    /// the specified algorithm when set.
+    /// </summary>
+    [pbr::OriginalName("SL_BGPLS_TOPO_SR_SEG_LIST_FLAG_SPECIFIED_ALGO")] PecifiedAlgo = 512,
+    /// <summary>
+    /// Bit-7: T-Flag: Indicates that all the SIDs in the SID-List belong to
+    /// the specified topology (identified by the multi-topology ID)
+    /// when set.
+    /// </summary>
+    [pbr::OriginalName("SL_BGPLS_TOPO_SR_SEG_LIST_FLAG_SPECIFIED_TOPO")] PecifiedTopo = 256,
+    /// <summary>
+    /// Bit-8: M-Flag: Indicates that the SID-list has been removed from the
+    /// forwarding plane due to fault detection by a monitoring
+    /// mechanism (e.g.  BFD) when set and indicates no fault detected
+    /// or monitoring is not being done when clear.
+    /// </summary>
+    [pbr::OriginalName("SL_BGPLS_TOPO_SR_SEG_LIST_FLAG_FAULT_MONITOR")] SlBgplsTopoSrSegListFlagFaultMonitor = 128,
+  }
+
+  /// <summary>
+  /// Flags associated with the SR Segment List Metric Flags
+  /// Section 5.9 of [draft-ietf-idr-bgp-ls-sr-policy]
+  /// Each flag is indicated as a bit field. Supported values are:
+  /// </summary>
+  public enum SLBgplsTopoSrSegListMetricFlags {
+    /// <summary>
+    /// Reserved.
+    /// </summary>
+    [pbr::OriginalName("SL_BGPLS_TOPO_SR_SEG_LIST_METRIC_FLAG_RESERVED")] SlBgplsTopoSrSegListMetricFlagReserved = 0,
+    /// <summary>
+    /// Bit-0: M-Flag: The metric margin allowed for this path
+    /// computation is specified when set.
+    /// </summary>
+    [pbr::OriginalName("SL_BGPLS_TOPO_SR_SEG_LIST_METRIC_FLAG_MARGIN_ALLOWED")] SlBgplsTopoSrSegListMetricFlagMarginAllowed = 128,
+    /// <summary>
+    /// Bit-1: A-Flag: The metric margin is specified as an
+    /// absolute value when set and is expressed as a percentage of the
+    /// minimum metric when clear.
+    /// </summary>
+    [pbr::OriginalName("SL_BGPLS_TOPO_SR_SEG_LIST_METRIC_FLAG_ABSOLUTE_VAL")] SlBgplsTopoSrSegListMetricFlagAbsoluteVal = 64,
+    /// <summary>
+    /// Bit-2: B-Flag: The metric bound allowed for the path is specified when set.
+    /// </summary>
+    [pbr::OriginalName("SL_BGPLS_TOPO_SR_SEG_LIST_METRIC_FLAG_BOUND_ALLOWED")] SlBgplsTopoSrSegListMetricFlagBoundAllowed = 32,
+    /// <summary>
+    /// Bit-3: V-Flag: The metric value computed is being reported when set.
+    /// </summary>
+    [pbr::OriginalName("SL_BGPLS_TOPO_SR_SEG_LIST_METRIC_FLAG_VAL_REPORTED")] SlBgplsTopoSrSegListMetricFlagValReported = 16,
+  }
+
+  /// <summary>
+  /// Flags associated with the SR Disjoint Group Constraints Flags
+  /// Section 5.6.4 of [draft-ietf-idr-bgp-ls-sr-policy]
+  /// Each flag is indicated as a bit field. Supported values are:
+  /// </summary>
+  public enum SLBgplsTopoSrDisjointGroupFlags {
+    /// <summary>
+    /// Reserved.
+    /// </summary>
+    [pbr::OriginalName("SL_BGPLS_TOPO_SR_DISJOINT_GROUP_FLAG_RESERVED")] SlBgplsTopoSrDisjointGroupFlagReserved = 0,
+    /// <summary>
+    /// Bit-0: S-Flag: SRLG disjointness is achieved when set.
+    /// </summary>
+    [pbr::OriginalName("SL_BGPLS_TOPO_SR_DISJOINT_GROUP_FLAG_SRLG")] Rlg = 128,
+    /// <summary>
+    /// Bit-1: N-Flag: Node disjointness is achieved when set.
+    /// </summary>
+    [pbr::OriginalName("SL_BGPLS_TOPO_SR_DISJOINT_GROUP_FLAG_NODE")] SlBgplsTopoSrDisjointGroupFlagNode = 64,
+    /// <summary>
+    /// Bit-2: L-Flag: Link disjointness is achieved when set.
+    /// </summary>
+    [pbr::OriginalName("SL_BGPLS_TOPO_SR_DISJOINT_GROUP_FLAG_LINK")] SlBgplsTopoSrDisjointGroupFlagLink = 32,
+    /// <summary>
+    /// Bit-3: F-Flag: The computation has fallen back to a
+    /// lower level of disjointness than requested when set.
+    /// </summary>
+    [pbr::OriginalName("SL_BGPLS_TOPO_SR_DISJOINT_GROUP_FLAG_FALLBACK")] SlBgplsTopoSrDisjointGroupFlagFallback = 16,
+    /// <summary>
+    /// Bit-4: I-Flag: The computation has fallen back to the
+    /// best path (e.g.  IGP path) and disjointness has not been
+    /// achieved when set.
+    /// </summary>
+    [pbr::OriginalName("SL_BGPLS_TOPO_SR_DISJOINT_GROUP_FLAG_IGP")] SlBgplsTopoSrDisjointGroupFlagIgp = 8,
+    /// <summary>
+    /// Bit-5: X-Flag: The disjointness constraint could not
+    /// be achieved and hence path has been invalidated when set.
+    /// </summary>
+    [pbr::OriginalName("SL_BGPLS_TOPO_SR_DISJOINT_GROUP_FLAG_INVALID")] SlBgplsTopoSrDisjointGroupFlagInvalid = 4,
+  }
+
+  /// <summary>
+  /// Flags associated with the SR Bidirectional Group Constraints Flags
+  /// Section 5.6.5 of [draft-ietf-idr-bgp-ls-sr-policy]
+  /// Each flag is indicated as a bit field. Supported values are:
+  /// </summary>
+  public enum SLBgplsTopoSrBidirGroupFlags {
+    /// <summary>
+    /// Reserved.
+    /// </summary>
+    [pbr::OriginalName("SL_BGPLS_TOPO_SR_BIDIR_GROUP_FLAG_RESERVED")] SlBgplsTopoSrBidirGroupFlagReserved = 0,
+    /// <summary>
+    /// Bit-0: R-Flag: This CP of the SR Policy forms the
+    /// reverse path when set and otherwise it is the forward path when clear.
+    /// </summary>
+    [pbr::OriginalName("SL_BGPLS_TOPO_SR_BIDIR_GROUP_FLAG_REVERSE")] SlBgplsTopoSrBidirGroupFlagReverse = 32768,
+    /// <summary>
+    /// Bit-1: C-Flag: The bidirectional path is co-routed when set.
+    /// </summary>
+    [pbr::OriginalName("SL_BGPLS_TOPO_SR_BIDIR_GROUP_FLAG_CO_ROUTED")] SlBgplsTopoSrBidirGroupFlagCoRouted = 16384,
+  }
+
+  /// <summary>
+  /// Flags associated with the SR Metric Constraints Flags
+  /// Section 5.6.6 of [draft-ietf-idr-bgp-ls-sr-policy]
+  /// Each flag is indicated as a bit field. Supported values are:
+  /// </summary>
+  public enum SLBgplsTopoSrMetricConstraintFlags {
+    /// <summary>
+    /// Reserved.
+    /// </summary>
+    [pbr::OriginalName("SL_BGPLS_TOPO_SR_METRIC_CONSTRAINT_FLAG_RESERVED")] SlBgplsTopoSrMetricConstraintFlagReserved = 0,
+    /// <summary>
+    /// Bit-0: O-Flag: The optimization metric being
+    /// reported for a dynamic CP when set.  This bit MUST NOT be set
+    /// in more than one instance of this TLV for a given CP
+    /// advertisement.
+    /// </summary>
+    [pbr::OriginalName("SL_BGPLS_TOPO_SR_METRIC_CONSTRAINT_FLAG_OPTIMIZED")] SlBgplsTopoSrMetricConstraintFlagOptimized = 128,
+    /// <summary>
+    /// Bit-1: M-Flag: The metric margin allowed is specified when set.
+    /// </summary>
+    [pbr::OriginalName("SL_BGPLS_TOPO_SR_METRIC_CONSTRAINT_FLAG_MARGIN_ALLOWED")] SlBgplsTopoSrMetricConstraintFlagMarginAllowed = 64,
+    /// <summary>
+    /// Bit-2: A-Flag: The metric margin is specified as an
+    /// absolute value when set and is expressed as a percentage of the
+    /// minimum metric when clear.
+    /// </summary>
+    [pbr::OriginalName("SL_BGPLS_TOPO_SR_METRIC_CONSTRAINT_FLAG_ABSOLUTE")] SlBgplsTopoSrMetricConstraintFlagAbsolute = 32,
+    /// <summary>
+    /// Bit-3: B-Flag: The metric bound allowed for the path is
+    /// specified when set.
+    /// </summary>
+    [pbr::OriginalName("SL_BGPLS_TOPO_SR_METRIC_CONSTRAINT_FLAG_BOUND_ALLOWED")] SlBgplsTopoSrMetricConstraintFlagBoundAllowed = 16,
+  }
+
+  /// <summary>
+  /// Flags associated with the SRv6 BGP Peer Node SID Flags
+  /// Section 7.2 of [RFC9514]
+  /// Each flag is indicated as a bit field. Supported values are:
+  /// </summary>
+  public enum SLBgplsTopoSrv6BgpPeerNodeSidFlags {
+    /// <summary>
+    /// Reserved.
+    /// </summary>
+    [pbr::OriginalName("SL_BGPLS_TOPO_SRV6_BGP_PEER_NODE_SID_FLAG_RESERVED")] SlBgplsTopoSrv6BgpPeerNodeSidFlagReserved = 0,
+    /// <summary>
+    /// Bit-0: B-Flag: Backup Flag associated with the SID.
+    /// </summary>
+    [pbr::OriginalName("SL_BGPLS_TOPO_SRV6_BGP_PEER_NODE_SID_FLAG_BACKUP")] SlBgplsTopoSrv6BgpPeerNodeSidFlagBackup = 128,
+    /// <summary>
+    /// Bit-1: S-Flag: Set Flag associated with the SID.
+    /// </summary>
+    [pbr::OriginalName("SL_BGPLS_TOPO_SRV6_BGP_PEER_NODE_SID_FLAG_SET")] Et = 64,
+    /// <summary>
+    /// Bit-2: P-Flag: Persistent Flag associated with the SID.
+    /// </summary>
+    [pbr::OriginalName("SL_BGPLS_TOPO_SRV6_BGP_PEER_NODE_SID_FLAG_PERSISTENT")] SlBgplsTopoSrv6BgpPeerNodeSidFlagPersistent = 32,
   }
 
   #endregion
@@ -6730,6 +7188,8 @@ namespace ServiceLayer {
     /// <summary>
     /// An SRv6 SID that is associated with the node.
     /// SRv6 SID Information. TLV 518. Section 6.1 of [RFC9514]
+    /// SRv6 SID takes an IPv6 Address and must be
+    /// enforced for 16 bytes.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -6945,27 +7405,11 @@ namespace ServiceLayer {
     public SLBgplsTopoSrPolicyDescr(SLBgplsTopoSrPolicyDescr other) : this() {
       protoOrigin_ = other.protoOrigin_;
       flags_ = other.flags_ != null ? other.flags_.Clone() : null;
+      endpoint_ = other.endpoint_ != null ? other.endpoint_.Clone() : null;
       color_ = other.color_;
       originAsn_ = other.originAsn_;
+      originator_ = other.originator_ != null ? other.originator_.Clone() : null;
       discriminator_ = other.discriminator_;
-      switch (other.EndpointAddressCase) {
-        case EndpointAddressOneofCase.Ipv4EndAddr:
-          Ipv4EndAddr = other.Ipv4EndAddr;
-          break;
-        case EndpointAddressOneofCase.Ipv6EndAddr:
-          Ipv6EndAddr = other.Ipv6EndAddr;
-          break;
-      }
-
-      switch (other.OriginatorAddressCase) {
-        case OriginatorAddressOneofCase.Ipv4OrigAddr:
-          Ipv4OrigAddr = other.Ipv4OrigAddr;
-          break;
-        case OriginatorAddressOneofCase.Ipv6OrigAddr:
-          Ipv6OrigAddr = other.Ipv6OrigAddr;
-          break;
-      }
-
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -7009,38 +7453,25 @@ namespace ServiceLayer {
       }
     }
 
-    /// <summary>Field number for the "Ipv4EndAddr" field.</summary>
-    public const int Ipv4EndAddrFieldNumber = 3;
+    /// <summary>Field number for the "Endpoint" field.</summary>
+    public const int EndpointFieldNumber = 3;
+    private global::ServiceLayer.SLIpAddress endpoint_;
     /// <summary>
-    /// This field carries info about an IPv4 endpoint address.
+    /// Address of the endpoint of the SR Policy.
+    /// Endpoint. TLV 554.
+    /// Section 4 of [draft-ietf-idr-bgp-ls-sr-policy]
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pb::ByteString Ipv4EndAddr {
-      get { return endpointAddressCase_ == EndpointAddressOneofCase.Ipv4EndAddr ? (pb::ByteString) endpointAddress_ : pb::ByteString.Empty; }
+    public global::ServiceLayer.SLIpAddress Endpoint {
+      get { return endpoint_; }
       set {
-        endpointAddress_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-        endpointAddressCase_ = EndpointAddressOneofCase.Ipv4EndAddr;
-      }
-    }
-
-    /// <summary>Field number for the "Ipv6EndAddr" field.</summary>
-    public const int Ipv6EndAddrFieldNumber = 4;
-    /// <summary>
-    /// This field carries info about an IPv6 endpoint address.
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pb::ByteString Ipv6EndAddr {
-      get { return endpointAddressCase_ == EndpointAddressOneofCase.Ipv6EndAddr ? (pb::ByteString) endpointAddress_ : pb::ByteString.Empty; }
-      set {
-        endpointAddress_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-        endpointAddressCase_ = EndpointAddressOneofCase.Ipv6EndAddr;
+        endpoint_ = value;
       }
     }
 
     /// <summary>Field number for the "Color" field.</summary>
-    public const int ColorFieldNumber = 5;
+    public const int ColorFieldNumber = 4;
     private uint color_;
     /// <summary>
     /// Color of the SR Policy.
@@ -7057,7 +7488,7 @@ namespace ServiceLayer {
     }
 
     /// <summary>Field number for the "OriginAsn" field.</summary>
-    public const int OriginAsnFieldNumber = 6;
+    public const int OriginAsnFieldNumber = 5;
     private uint originAsn_;
     /// <summary>
     /// 4-byte encoding of the ASN of the originator.
@@ -7073,38 +7504,25 @@ namespace ServiceLayer {
       }
     }
 
-    /// <summary>Field number for the "Ipv4OrigAddr" field.</summary>
-    public const int Ipv4OrigAddrFieldNumber = 7;
+    /// <summary>Field number for the "Originator" field.</summary>
+    public const int OriginatorFieldNumber = 6;
+    private global::ServiceLayer.SLIpAddress originator_;
     /// <summary>
-    /// This field carries info about an IPv4 originator address.
+    /// Address of the originator.
+    /// Originator Address. TLV 554.
+    /// Section 4 of [draft-ietf-idr-bgp-ls-sr-policy]
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pb::ByteString Ipv4OrigAddr {
-      get { return originatorAddressCase_ == OriginatorAddressOneofCase.Ipv4OrigAddr ? (pb::ByteString) originatorAddress_ : pb::ByteString.Empty; }
+    public global::ServiceLayer.SLIpAddress Originator {
+      get { return originator_; }
       set {
-        originatorAddress_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-        originatorAddressCase_ = OriginatorAddressOneofCase.Ipv4OrigAddr;
-      }
-    }
-
-    /// <summary>Field number for the "Ipv6OrigAddr" field.</summary>
-    public const int Ipv6OrigAddrFieldNumber = 8;
-    /// <summary>
-    /// This field carries info about an IPv6 originator address.
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pb::ByteString Ipv6OrigAddr {
-      get { return originatorAddressCase_ == OriginatorAddressOneofCase.Ipv6OrigAddr ? (pb::ByteString) originatorAddress_ : pb::ByteString.Empty; }
-      set {
-        originatorAddress_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-        originatorAddressCase_ = OriginatorAddressOneofCase.Ipv6OrigAddr;
+        originator_ = value;
       }
     }
 
     /// <summary>Field number for the "Discriminator" field.</summary>
-    public const int DiscriminatorFieldNumber = 9;
+    public const int DiscriminatorFieldNumber = 7;
     private uint discriminator_;
     /// <summary>
     /// Discriminator of the path.
@@ -7118,48 +7536,6 @@ namespace ServiceLayer {
       set {
         discriminator_ = value;
       }
-    }
-
-    private object endpointAddress_;
-    /// <summary>Enum of possible cases for the "EndpointAddress" oneof.</summary>
-    public enum EndpointAddressOneofCase {
-      None = 0,
-      Ipv4EndAddr = 3,
-      Ipv6EndAddr = 4,
-    }
-    private EndpointAddressOneofCase endpointAddressCase_ = EndpointAddressOneofCase.None;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public EndpointAddressOneofCase EndpointAddressCase {
-      get { return endpointAddressCase_; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void ClearEndpointAddress() {
-      endpointAddressCase_ = EndpointAddressOneofCase.None;
-      endpointAddress_ = null;
-    }
-
-    private object originatorAddress_;
-    /// <summary>Enum of possible cases for the "OriginatorAddress" oneof.</summary>
-    public enum OriginatorAddressOneofCase {
-      None = 0,
-      Ipv4OrigAddr = 7,
-      Ipv6OrigAddr = 8,
-    }
-    private OriginatorAddressOneofCase originatorAddressCase_ = OriginatorAddressOneofCase.None;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public OriginatorAddressOneofCase OriginatorAddressCase {
-      get { return originatorAddressCase_; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void ClearOriginatorAddress() {
-      originatorAddressCase_ = OriginatorAddressOneofCase.None;
-      originatorAddress_ = null;
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -7179,15 +7555,11 @@ namespace ServiceLayer {
       }
       if (ProtoOrigin != other.ProtoOrigin) return false;
       if (!object.Equals(Flags, other.Flags)) return false;
-      if (Ipv4EndAddr != other.Ipv4EndAddr) return false;
-      if (Ipv6EndAddr != other.Ipv6EndAddr) return false;
+      if (!object.Equals(Endpoint, other.Endpoint)) return false;
       if (Color != other.Color) return false;
       if (OriginAsn != other.OriginAsn) return false;
-      if (Ipv4OrigAddr != other.Ipv4OrigAddr) return false;
-      if (Ipv6OrigAddr != other.Ipv6OrigAddr) return false;
+      if (!object.Equals(Originator, other.Originator)) return false;
       if (Discriminator != other.Discriminator) return false;
-      if (EndpointAddressCase != other.EndpointAddressCase) return false;
-      if (OriginatorAddressCase != other.OriginatorAddressCase) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -7197,15 +7569,11 @@ namespace ServiceLayer {
       int hash = 1;
       if (ProtoOrigin != global::ServiceLayer.SLSrPolicyProtocolOrigin.Reserved) hash ^= ProtoOrigin.GetHashCode();
       if (flags_ != null) hash ^= Flags.GetHashCode();
-      if (endpointAddressCase_ == EndpointAddressOneofCase.Ipv4EndAddr) hash ^= Ipv4EndAddr.GetHashCode();
-      if (endpointAddressCase_ == EndpointAddressOneofCase.Ipv6EndAddr) hash ^= Ipv6EndAddr.GetHashCode();
+      if (endpoint_ != null) hash ^= Endpoint.GetHashCode();
       if (Color != 0) hash ^= Color.GetHashCode();
       if (OriginAsn != 0) hash ^= OriginAsn.GetHashCode();
-      if (originatorAddressCase_ == OriginatorAddressOneofCase.Ipv4OrigAddr) hash ^= Ipv4OrigAddr.GetHashCode();
-      if (originatorAddressCase_ == OriginatorAddressOneofCase.Ipv6OrigAddr) hash ^= Ipv6OrigAddr.GetHashCode();
+      if (originator_ != null) hash ^= Originator.GetHashCode();
       if (Discriminator != 0) hash ^= Discriminator.GetHashCode();
-      hash ^= (int) endpointAddressCase_;
-      hash ^= (int) originatorAddressCase_;
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -7232,32 +7600,24 @@ namespace ServiceLayer {
         output.WriteRawTag(18);
         output.WriteMessage(Flags);
       }
-      if (endpointAddressCase_ == EndpointAddressOneofCase.Ipv4EndAddr) {
+      if (endpoint_ != null) {
         output.WriteRawTag(26);
-        output.WriteBytes(Ipv4EndAddr);
-      }
-      if (endpointAddressCase_ == EndpointAddressOneofCase.Ipv6EndAddr) {
-        output.WriteRawTag(34);
-        output.WriteBytes(Ipv6EndAddr);
+        output.WriteMessage(Endpoint);
       }
       if (Color != 0) {
-        output.WriteRawTag(40);
+        output.WriteRawTag(32);
         output.WriteUInt32(Color);
       }
       if (OriginAsn != 0) {
-        output.WriteRawTag(48);
+        output.WriteRawTag(40);
         output.WriteUInt32(OriginAsn);
       }
-      if (originatorAddressCase_ == OriginatorAddressOneofCase.Ipv4OrigAddr) {
-        output.WriteRawTag(58);
-        output.WriteBytes(Ipv4OrigAddr);
-      }
-      if (originatorAddressCase_ == OriginatorAddressOneofCase.Ipv6OrigAddr) {
-        output.WriteRawTag(66);
-        output.WriteBytes(Ipv6OrigAddr);
+      if (originator_ != null) {
+        output.WriteRawTag(50);
+        output.WriteMessage(Originator);
       }
       if (Discriminator != 0) {
-        output.WriteRawTag(72);
+        output.WriteRawTag(56);
         output.WriteUInt32(Discriminator);
       }
       if (_unknownFields != null) {
@@ -7278,32 +7638,24 @@ namespace ServiceLayer {
         output.WriteRawTag(18);
         output.WriteMessage(Flags);
       }
-      if (endpointAddressCase_ == EndpointAddressOneofCase.Ipv4EndAddr) {
+      if (endpoint_ != null) {
         output.WriteRawTag(26);
-        output.WriteBytes(Ipv4EndAddr);
-      }
-      if (endpointAddressCase_ == EndpointAddressOneofCase.Ipv6EndAddr) {
-        output.WriteRawTag(34);
-        output.WriteBytes(Ipv6EndAddr);
+        output.WriteMessage(Endpoint);
       }
       if (Color != 0) {
-        output.WriteRawTag(40);
+        output.WriteRawTag(32);
         output.WriteUInt32(Color);
       }
       if (OriginAsn != 0) {
-        output.WriteRawTag(48);
+        output.WriteRawTag(40);
         output.WriteUInt32(OriginAsn);
       }
-      if (originatorAddressCase_ == OriginatorAddressOneofCase.Ipv4OrigAddr) {
-        output.WriteRawTag(58);
-        output.WriteBytes(Ipv4OrigAddr);
-      }
-      if (originatorAddressCase_ == OriginatorAddressOneofCase.Ipv6OrigAddr) {
-        output.WriteRawTag(66);
-        output.WriteBytes(Ipv6OrigAddr);
+      if (originator_ != null) {
+        output.WriteRawTag(50);
+        output.WriteMessage(Originator);
       }
       if (Discriminator != 0) {
-        output.WriteRawTag(72);
+        output.WriteRawTag(56);
         output.WriteUInt32(Discriminator);
       }
       if (_unknownFields != null) {
@@ -7322,11 +7674,8 @@ namespace ServiceLayer {
       if (flags_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(Flags);
       }
-      if (endpointAddressCase_ == EndpointAddressOneofCase.Ipv4EndAddr) {
-        size += 1 + pb::CodedOutputStream.ComputeBytesSize(Ipv4EndAddr);
-      }
-      if (endpointAddressCase_ == EndpointAddressOneofCase.Ipv6EndAddr) {
-        size += 1 + pb::CodedOutputStream.ComputeBytesSize(Ipv6EndAddr);
+      if (endpoint_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Endpoint);
       }
       if (Color != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Color);
@@ -7334,11 +7683,8 @@ namespace ServiceLayer {
       if (OriginAsn != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(OriginAsn);
       }
-      if (originatorAddressCase_ == OriginatorAddressOneofCase.Ipv4OrigAddr) {
-        size += 1 + pb::CodedOutputStream.ComputeBytesSize(Ipv4OrigAddr);
-      }
-      if (originatorAddressCase_ == OriginatorAddressOneofCase.Ipv6OrigAddr) {
-        size += 1 + pb::CodedOutputStream.ComputeBytesSize(Ipv6OrigAddr);
+      if (originator_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Originator);
       }
       if (Discriminator != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Discriminator);
@@ -7364,33 +7710,27 @@ namespace ServiceLayer {
         }
         Flags.MergeFrom(other.Flags);
       }
+      if (other.endpoint_ != null) {
+        if (endpoint_ == null) {
+          Endpoint = new global::ServiceLayer.SLIpAddress();
+        }
+        Endpoint.MergeFrom(other.Endpoint);
+      }
       if (other.Color != 0) {
         Color = other.Color;
       }
       if (other.OriginAsn != 0) {
         OriginAsn = other.OriginAsn;
       }
+      if (other.originator_ != null) {
+        if (originator_ == null) {
+          Originator = new global::ServiceLayer.SLIpAddress();
+        }
+        Originator.MergeFrom(other.Originator);
+      }
       if (other.Discriminator != 0) {
         Discriminator = other.Discriminator;
       }
-      switch (other.EndpointAddressCase) {
-        case EndpointAddressOneofCase.Ipv4EndAddr:
-          Ipv4EndAddr = other.Ipv4EndAddr;
-          break;
-        case EndpointAddressOneofCase.Ipv6EndAddr:
-          Ipv6EndAddr = other.Ipv6EndAddr;
-          break;
-      }
-
-      switch (other.OriginatorAddressCase) {
-        case OriginatorAddressOneofCase.Ipv4OrigAddr:
-          Ipv4OrigAddr = other.Ipv4OrigAddr;
-          break;
-        case OriginatorAddressOneofCase.Ipv6OrigAddr:
-          Ipv6OrigAddr = other.Ipv6OrigAddr;
-          break;
-      }
-
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -7418,30 +7758,28 @@ namespace ServiceLayer {
             break;
           }
           case 26: {
-            Ipv4EndAddr = input.ReadBytes();
+            if (endpoint_ == null) {
+              Endpoint = new global::ServiceLayer.SLIpAddress();
+            }
+            input.ReadMessage(Endpoint);
             break;
           }
-          case 34: {
-            Ipv6EndAddr = input.ReadBytes();
-            break;
-          }
-          case 40: {
+          case 32: {
             Color = input.ReadUInt32();
             break;
           }
-          case 48: {
+          case 40: {
             OriginAsn = input.ReadUInt32();
             break;
           }
-          case 58: {
-            Ipv4OrigAddr = input.ReadBytes();
+          case 50: {
+            if (originator_ == null) {
+              Originator = new global::ServiceLayer.SLIpAddress();
+            }
+            input.ReadMessage(Originator);
             break;
           }
-          case 66: {
-            Ipv6OrigAddr = input.ReadBytes();
-            break;
-          }
-          case 72: {
+          case 56: {
             Discriminator = input.ReadUInt32();
             break;
           }
@@ -7472,30 +7810,28 @@ namespace ServiceLayer {
             break;
           }
           case 26: {
-            Ipv4EndAddr = input.ReadBytes();
+            if (endpoint_ == null) {
+              Endpoint = new global::ServiceLayer.SLIpAddress();
+            }
+            input.ReadMessage(Endpoint);
             break;
           }
-          case 34: {
-            Ipv6EndAddr = input.ReadBytes();
-            break;
-          }
-          case 40: {
+          case 32: {
             Color = input.ReadUInt32();
             break;
           }
-          case 48: {
+          case 40: {
             OriginAsn = input.ReadUInt32();
             break;
           }
-          case 58: {
-            Ipv4OrigAddr = input.ReadBytes();
+          case 50: {
+            if (originator_ == null) {
+              Originator = new global::ServiceLayer.SLIpAddress();
+            }
+            input.ReadMessage(Originator);
             break;
           }
-          case 66: {
-            Ipv6OrigAddr = input.ReadBytes();
-            break;
-          }
-          case 72: {
+          case 56: {
             Discriminator = input.ReadUInt32();
             break;
           }
@@ -9245,7 +9581,7 @@ namespace ServiceLayer {
     private global::ServiceLayer.SLBgplsTopoSrv6CapFlags srv6CapFlags_;
     /// <summary>
     /// Segment Routing V6 Capabilities of a node
-    /// SRv6 Capabilities. TLV 1038 
+    /// SRv6 Capabilities. TLV 1038
     /// Section 3.1 of [RFC9514]
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -10113,7 +10449,7 @@ namespace ServiceLayer {
         = pb::FieldCodec.ForMessage(170, global::ServiceLayer.SLBgplsTopoBgpPeerAdjSid.Parser);
     private readonly pbc::RepeatedField<global::ServiceLayer.SLBgplsTopoBgpPeerAdjSid> bgpPeerAdjSid_ = new pbc::RepeatedField<global::ServiceLayer.SLBgplsTopoBgpPeerAdjSid>();
     /// <summary>
-    /// Peer Adjacency Segment Identifier for BGP Peering Segments  
+    /// Peer Adjacency Segment Identifier for BGP Peering Segments
     /// BGP Peer Adjacency SID. TLV 1102
     /// Section 5 of [RFC9086]
     /// </summary>
@@ -10129,7 +10465,7 @@ namespace ServiceLayer {
         = pb::FieldCodec.ForMessage(178, global::ServiceLayer.SLBgplsTopoBgpPeerSetSid.Parser);
     private readonly pbc::RepeatedField<global::ServiceLayer.SLBgplsTopoBgpPeerSetSid> bgpPeerSetSid_ = new pbc::RepeatedField<global::ServiceLayer.SLBgplsTopoBgpPeerSetSid>();
     /// <summary>
-    /// Peer Set Segment Identifier for BGP Peering Segments 
+    /// Peer Set Segment Identifier for BGP Peering Segments
     /// BGP Peer Set SID. TLV 1103
     /// Section 5 of [RFC9086]
     /// </summary>
@@ -16187,7 +16523,7 @@ namespace ServiceLayer {
   }
 
   /// <summary>
-  /// SRv6 Capabilities. TLV 1038 
+  /// SRv6 Capabilities. TLV 1038
   /// Section 3.1 of [RFC9514]
   /// </summary>
   public sealed partial class SLBgplsTopoSrv6CapFlags : pb::IMessage<SLBgplsTopoSrv6CapFlags>
@@ -21555,22 +21891,22 @@ namespace ServiceLayer {
 
     /// <summary>Field number for the "Algorithm" field.</summary>
     public const int AlgorithmFieldNumber = 2;
-    private pb::ByteString algorithm_ = pb::ByteString.Empty;
+    private uint algorithm_;
     /// <summary>
     /// Algorithm associated with the SID
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pb::ByteString Algorithm {
+    public uint Algorithm {
       get { return algorithm_; }
       set {
-        algorithm_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        algorithm_ = value;
       }
     }
 
     /// <summary>Field number for the "Flags" field.</summary>
     public const int FlagsFieldNumber = 3;
-    private pb::ByteString flags_ = pb::ByteString.Empty;
+    private uint flags_;
     /// <summary>
     /// Flags associated with the SID. The flags are copied from the IS-IS SRv6
     /// End.X SID sub-TLV (Section 8.1 of [RFC9352]) or the OSPFv3 SRv6
@@ -21580,10 +21916,10 @@ namespace ServiceLayer {
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pb::ByteString Flags {
+    public uint Flags {
       get { return flags_; }
       set {
-        flags_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        flags_ = value;
       }
     }
 
@@ -21664,8 +22000,8 @@ namespace ServiceLayer {
     public override int GetHashCode() {
       int hash = 1;
       if (Sid.Length != 0) hash ^= Sid.GetHashCode();
-      if (Algorithm.Length != 0) hash ^= Algorithm.GetHashCode();
-      if (Flags.Length != 0) hash ^= Flags.GetHashCode();
+      if (Algorithm != 0) hash ^= Algorithm.GetHashCode();
+      if (Flags != 0) hash ^= Flags.GetHashCode();
       if (Weight != 0) hash ^= Weight.GetHashCode();
       if (EndPointBehavior != 0) hash ^= EndPointBehavior.GetHashCode();
       if (sidStruct_ != null) hash ^= SidStruct.GetHashCode();
@@ -21691,13 +22027,13 @@ namespace ServiceLayer {
         output.WriteRawTag(10);
         output.WriteBytes(Sid);
       }
-      if (Algorithm.Length != 0) {
-        output.WriteRawTag(18);
-        output.WriteBytes(Algorithm);
+      if (Algorithm != 0) {
+        output.WriteRawTag(16);
+        output.WriteUInt32(Algorithm);
       }
-      if (Flags.Length != 0) {
-        output.WriteRawTag(26);
-        output.WriteBytes(Flags);
+      if (Flags != 0) {
+        output.WriteRawTag(24);
+        output.WriteUInt32(Flags);
       }
       if (Weight != 0) {
         output.WriteRawTag(32);
@@ -21725,13 +22061,13 @@ namespace ServiceLayer {
         output.WriteRawTag(10);
         output.WriteBytes(Sid);
       }
-      if (Algorithm.Length != 0) {
-        output.WriteRawTag(18);
-        output.WriteBytes(Algorithm);
+      if (Algorithm != 0) {
+        output.WriteRawTag(16);
+        output.WriteUInt32(Algorithm);
       }
-      if (Flags.Length != 0) {
-        output.WriteRawTag(26);
-        output.WriteBytes(Flags);
+      if (Flags != 0) {
+        output.WriteRawTag(24);
+        output.WriteUInt32(Flags);
       }
       if (Weight != 0) {
         output.WriteRawTag(32);
@@ -21758,11 +22094,11 @@ namespace ServiceLayer {
       if (Sid.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeBytesSize(Sid);
       }
-      if (Algorithm.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeBytesSize(Algorithm);
+      if (Algorithm != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Algorithm);
       }
-      if (Flags.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeBytesSize(Flags);
+      if (Flags != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Flags);
       }
       if (Weight != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Weight);
@@ -21788,10 +22124,10 @@ namespace ServiceLayer {
       if (other.Sid.Length != 0) {
         Sid = other.Sid;
       }
-      if (other.Algorithm.Length != 0) {
+      if (other.Algorithm != 0) {
         Algorithm = other.Algorithm;
       }
-      if (other.Flags.Length != 0) {
+      if (other.Flags != 0) {
         Flags = other.Flags;
       }
       if (other.Weight != 0) {
@@ -21825,12 +22161,12 @@ namespace ServiceLayer {
             Sid = input.ReadBytes();
             break;
           }
-          case 18: {
-            Algorithm = input.ReadBytes();
+          case 16: {
+            Algorithm = input.ReadUInt32();
             break;
           }
-          case 26: {
-            Flags = input.ReadBytes();
+          case 24: {
+            Flags = input.ReadUInt32();
             break;
           }
           case 32: {
@@ -21867,12 +22203,12 @@ namespace ServiceLayer {
             Sid = input.ReadBytes();
             break;
           }
-          case 18: {
-            Algorithm = input.ReadBytes();
+          case 16: {
+            Algorithm = input.ReadUInt32();
             break;
           }
-          case 26: {
-            Flags = input.ReadBytes();
+          case 24: {
+            Flags = input.ReadUInt32();
             break;
           }
           case 32: {
@@ -22251,22 +22587,22 @@ namespace ServiceLayer {
 
     /// <summary>Field number for the "Algorithm" field.</summary>
     public const int AlgorithmFieldNumber = 3;
-    private pb::ByteString algorithm_ = pb::ByteString.Empty;
+    private uint algorithm_;
     /// <summary>
     /// Algorithm associated with the SID
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pb::ByteString Algorithm {
+    public uint Algorithm {
       get { return algorithm_; }
       set {
-        algorithm_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        algorithm_ = value;
       }
     }
 
     /// <summary>Field number for the "Flags" field.</summary>
     public const int FlagsFieldNumber = 4;
-    private pb::ByteString flags_ = pb::ByteString.Empty;
+    private uint flags_;
     /// <summary>
     /// Flags associated with the SID. The flags are copied from the IS-IS SRv6
     /// End.X SID sub-TLV (Section 8.1 of [RFC9352]) or the OSPFv3 SRv6
@@ -22276,10 +22612,10 @@ namespace ServiceLayer {
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pb::ByteString Flags {
+    public uint Flags {
       get { return flags_; }
       set {
-        flags_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        flags_ = value;
       }
     }
 
@@ -22362,8 +22698,8 @@ namespace ServiceLayer {
       int hash = 1;
       if (neighbor_ != null) hash ^= Neighbor.GetHashCode();
       if (Sid.Length != 0) hash ^= Sid.GetHashCode();
-      if (Algorithm.Length != 0) hash ^= Algorithm.GetHashCode();
-      if (Flags.Length != 0) hash ^= Flags.GetHashCode();
+      if (Algorithm != 0) hash ^= Algorithm.GetHashCode();
+      if (Flags != 0) hash ^= Flags.GetHashCode();
       if (Weight != 0) hash ^= Weight.GetHashCode();
       if (EndPointBehavior != 0) hash ^= EndPointBehavior.GetHashCode();
       if (sidStruct_ != null) hash ^= SidStruct.GetHashCode();
@@ -22393,13 +22729,13 @@ namespace ServiceLayer {
         output.WriteRawTag(18);
         output.WriteBytes(Sid);
       }
-      if (Algorithm.Length != 0) {
-        output.WriteRawTag(26);
-        output.WriteBytes(Algorithm);
+      if (Algorithm != 0) {
+        output.WriteRawTag(24);
+        output.WriteUInt32(Algorithm);
       }
-      if (Flags.Length != 0) {
-        output.WriteRawTag(34);
-        output.WriteBytes(Flags);
+      if (Flags != 0) {
+        output.WriteRawTag(32);
+        output.WriteUInt32(Flags);
       }
       if (Weight != 0) {
         output.WriteRawTag(40);
@@ -22431,13 +22767,13 @@ namespace ServiceLayer {
         output.WriteRawTag(18);
         output.WriteBytes(Sid);
       }
-      if (Algorithm.Length != 0) {
-        output.WriteRawTag(26);
-        output.WriteBytes(Algorithm);
+      if (Algorithm != 0) {
+        output.WriteRawTag(24);
+        output.WriteUInt32(Algorithm);
       }
-      if (Flags.Length != 0) {
-        output.WriteRawTag(34);
-        output.WriteBytes(Flags);
+      if (Flags != 0) {
+        output.WriteRawTag(32);
+        output.WriteUInt32(Flags);
       }
       if (Weight != 0) {
         output.WriteRawTag(40);
@@ -22467,11 +22803,11 @@ namespace ServiceLayer {
       if (Sid.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeBytesSize(Sid);
       }
-      if (Algorithm.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeBytesSize(Algorithm);
+      if (Algorithm != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Algorithm);
       }
-      if (Flags.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeBytesSize(Flags);
+      if (Flags != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Flags);
       }
       if (Weight != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Weight);
@@ -22503,10 +22839,10 @@ namespace ServiceLayer {
       if (other.Sid.Length != 0) {
         Sid = other.Sid;
       }
-      if (other.Algorithm.Length != 0) {
+      if (other.Algorithm != 0) {
         Algorithm = other.Algorithm;
       }
-      if (other.Flags.Length != 0) {
+      if (other.Flags != 0) {
         Flags = other.Flags;
       }
       if (other.Weight != 0) {
@@ -22547,12 +22883,12 @@ namespace ServiceLayer {
             Sid = input.ReadBytes();
             break;
           }
-          case 26: {
-            Algorithm = input.ReadBytes();
+          case 24: {
+            Algorithm = input.ReadUInt32();
             break;
           }
-          case 34: {
-            Flags = input.ReadBytes();
+          case 32: {
+            Flags = input.ReadUInt32();
             break;
           }
           case 40: {
@@ -22596,12 +22932,12 @@ namespace ServiceLayer {
             Sid = input.ReadBytes();
             break;
           }
-          case 26: {
-            Algorithm = input.ReadBytes();
+          case 24: {
+            Algorithm = input.ReadUInt32();
             break;
           }
-          case 34: {
-            Flags = input.ReadBytes();
+          case 32: {
+            Flags = input.ReadUInt32();
             break;
           }
           case 40: {
@@ -26323,16 +26659,16 @@ namespace ServiceLayer {
 
     /// <summary>Field number for the "Algorithm" field.</summary>
     public const int AlgorithmFieldNumber = 2;
-    private pb::ByteString algorithm_ = pb::ByteString.Empty;
+    private uint algorithm_;
     /// <summary>
     /// Algorithm
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pb::ByteString Algorithm {
+    public uint Algorithm {
       get { return algorithm_; }
       set {
-        algorithm_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        algorithm_ = value;
       }
     }
 
@@ -26393,7 +26729,7 @@ namespace ServiceLayer {
     public override int GetHashCode() {
       int hash = 1;
       if (Flags.Length != 0) hash ^= Flags.GetHashCode();
-      if (Algorithm.Length != 0) hash ^= Algorithm.GetHashCode();
+      if (Algorithm != 0) hash ^= Algorithm.GetHashCode();
       if (LabelIndex != 0) hash ^= LabelIndex.GetHashCode();
       if (PrefixSidFormat != global::ServiceLayer.SLBgplsTopoPrefixSidFormat.Reserved) hash ^= PrefixSidFormat.GetHashCode();
       if (_unknownFields != null) {
@@ -26418,9 +26754,9 @@ namespace ServiceLayer {
         output.WriteRawTag(10);
         output.WriteBytes(Flags);
       }
-      if (Algorithm.Length != 0) {
-        output.WriteRawTag(18);
-        output.WriteBytes(Algorithm);
+      if (Algorithm != 0) {
+        output.WriteRawTag(16);
+        output.WriteUInt32(Algorithm);
       }
       if (LabelIndex != 0) {
         output.WriteRawTag(24);
@@ -26444,9 +26780,9 @@ namespace ServiceLayer {
         output.WriteRawTag(10);
         output.WriteBytes(Flags);
       }
-      if (Algorithm.Length != 0) {
-        output.WriteRawTag(18);
-        output.WriteBytes(Algorithm);
+      if (Algorithm != 0) {
+        output.WriteRawTag(16);
+        output.WriteUInt32(Algorithm);
       }
       if (LabelIndex != 0) {
         output.WriteRawTag(24);
@@ -26469,8 +26805,8 @@ namespace ServiceLayer {
       if (Flags.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeBytesSize(Flags);
       }
-      if (Algorithm.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeBytesSize(Algorithm);
+      if (Algorithm != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Algorithm);
       }
       if (LabelIndex != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(LabelIndex);
@@ -26493,7 +26829,7 @@ namespace ServiceLayer {
       if (other.Flags.Length != 0) {
         Flags = other.Flags;
       }
-      if (other.Algorithm.Length != 0) {
+      if (other.Algorithm != 0) {
         Algorithm = other.Algorithm;
       }
       if (other.LabelIndex != 0) {
@@ -26521,8 +26857,8 @@ namespace ServiceLayer {
             Flags = input.ReadBytes();
             break;
           }
-          case 18: {
-            Algorithm = input.ReadBytes();
+          case 16: {
+            Algorithm = input.ReadUInt32();
             break;
           }
           case 24: {
@@ -26552,8 +26888,8 @@ namespace ServiceLayer {
             Flags = input.ReadBytes();
             break;
           }
-          case 18: {
-            Algorithm = input.ReadBytes();
+          case 16: {
+            Algorithm = input.ReadUInt32();
             break;
           }
           case 24: {
@@ -26659,16 +26995,16 @@ namespace ServiceLayer {
 
     /// <summary>Field number for the "Algorithm" field.</summary>
     public const int AlgorithmFieldNumber = 3;
-    private pb::ByteString algorithm_ = pb::ByteString.Empty;
+    private uint algorithm_;
     /// <summary>
     /// Algorithm
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pb::ByteString Algorithm {
+    public uint Algorithm {
       get { return algorithm_; }
       set {
-        algorithm_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        algorithm_ = value;
       }
     }
 
@@ -26734,7 +27070,7 @@ namespace ServiceLayer {
       int hash = 1;
       if (Flags.Length != 0) hash ^= Flags.GetHashCode();
       if (RangeSize != 0) hash ^= RangeSize.GetHashCode();
-      if (Algorithm.Length != 0) hash ^= Algorithm.GetHashCode();
+      if (Algorithm != 0) hash ^= Algorithm.GetHashCode();
       if (Index != 0) hash ^= Index.GetHashCode();
       if (SidFlags.Length != 0) hash ^= SidFlags.GetHashCode();
       if (_unknownFields != null) {
@@ -26763,9 +27099,9 @@ namespace ServiceLayer {
         output.WriteRawTag(16);
         output.WriteUInt32(RangeSize);
       }
-      if (Algorithm.Length != 0) {
-        output.WriteRawTag(26);
-        output.WriteBytes(Algorithm);
+      if (Algorithm != 0) {
+        output.WriteRawTag(24);
+        output.WriteUInt32(Algorithm);
       }
       if (Index != 0) {
         output.WriteRawTag(32);
@@ -26793,9 +27129,9 @@ namespace ServiceLayer {
         output.WriteRawTag(16);
         output.WriteUInt32(RangeSize);
       }
-      if (Algorithm.Length != 0) {
-        output.WriteRawTag(26);
-        output.WriteBytes(Algorithm);
+      if (Algorithm != 0) {
+        output.WriteRawTag(24);
+        output.WriteUInt32(Algorithm);
       }
       if (Index != 0) {
         output.WriteRawTag(32);
@@ -26821,8 +27157,8 @@ namespace ServiceLayer {
       if (RangeSize != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(RangeSize);
       }
-      if (Algorithm.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeBytesSize(Algorithm);
+      if (Algorithm != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Algorithm);
       }
       if (Index != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Index);
@@ -26848,7 +27184,7 @@ namespace ServiceLayer {
       if (other.RangeSize != 0) {
         RangeSize = other.RangeSize;
       }
-      if (other.Algorithm.Length != 0) {
+      if (other.Algorithm != 0) {
         Algorithm = other.Algorithm;
       }
       if (other.Index != 0) {
@@ -26880,8 +27216,8 @@ namespace ServiceLayer {
             RangeSize = input.ReadUInt32();
             break;
           }
-          case 26: {
-            Algorithm = input.ReadBytes();
+          case 24: {
+            Algorithm = input.ReadUInt32();
             break;
           }
           case 32: {
@@ -26915,8 +27251,8 @@ namespace ServiceLayer {
             RangeSize = input.ReadUInt32();
             break;
           }
-          case 26: {
-            Algorithm = input.ReadBytes();
+          case 24: {
+            Algorithm = input.ReadUInt32();
             break;
           }
           case 32: {
@@ -26986,7 +27322,7 @@ namespace ServiceLayer {
 
     /// <summary>Field number for the "Flags" field.</summary>
     public const int FlagsFieldNumber = 1;
-    private pb::ByteString flags_ = pb::ByteString.Empty;
+    private uint flags_;
     /// <summary>
     /// Flags associated with the locator, copied from the
     /// IS-IS SRv6 Locator TLV (Section 7.1 of [RFC9352]) for ISIS or the
@@ -26994,25 +27330,25 @@ namespace ServiceLayer {
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pb::ByteString Flags {
+    public uint Flags {
       get { return flags_; }
       set {
-        flags_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        flags_ = value;
       }
     }
 
     /// <summary>Field number for the "Algorithm" field.</summary>
     public const int AlgorithmFieldNumber = 2;
-    private pb::ByteString algorithm_ = pb::ByteString.Empty;
+    private uint algorithm_;
     /// <summary>
     /// Algorithm associated with the locator
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pb::ByteString Algorithm {
+    public uint Algorithm {
       get { return algorithm_; }
       set {
-        algorithm_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        algorithm_ = value;
       }
     }
 
@@ -27056,8 +27392,8 @@ namespace ServiceLayer {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (Flags.Length != 0) hash ^= Flags.GetHashCode();
-      if (Algorithm.Length != 0) hash ^= Algorithm.GetHashCode();
+      if (Flags != 0) hash ^= Flags.GetHashCode();
+      if (Algorithm != 0) hash ^= Algorithm.GetHashCode();
       if (Metric != 0) hash ^= Metric.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
@@ -27077,13 +27413,13 @@ namespace ServiceLayer {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (Flags.Length != 0) {
-        output.WriteRawTag(10);
-        output.WriteBytes(Flags);
+      if (Flags != 0) {
+        output.WriteRawTag(8);
+        output.WriteUInt32(Flags);
       }
-      if (Algorithm.Length != 0) {
-        output.WriteRawTag(18);
-        output.WriteBytes(Algorithm);
+      if (Algorithm != 0) {
+        output.WriteRawTag(16);
+        output.WriteUInt32(Algorithm);
       }
       if (Metric != 0) {
         output.WriteRawTag(24);
@@ -27099,13 +27435,13 @@ namespace ServiceLayer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (Flags.Length != 0) {
-        output.WriteRawTag(10);
-        output.WriteBytes(Flags);
+      if (Flags != 0) {
+        output.WriteRawTag(8);
+        output.WriteUInt32(Flags);
       }
-      if (Algorithm.Length != 0) {
-        output.WriteRawTag(18);
-        output.WriteBytes(Algorithm);
+      if (Algorithm != 0) {
+        output.WriteRawTag(16);
+        output.WriteUInt32(Algorithm);
       }
       if (Metric != 0) {
         output.WriteRawTag(24);
@@ -27121,11 +27457,11 @@ namespace ServiceLayer {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (Flags.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeBytesSize(Flags);
+      if (Flags != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Flags);
       }
-      if (Algorithm.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeBytesSize(Algorithm);
+      if (Algorithm != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Algorithm);
       }
       if (Metric != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Metric);
@@ -27142,10 +27478,10 @@ namespace ServiceLayer {
       if (other == null) {
         return;
       }
-      if (other.Flags.Length != 0) {
+      if (other.Flags != 0) {
         Flags = other.Flags;
       }
-      if (other.Algorithm.Length != 0) {
+      if (other.Algorithm != 0) {
         Algorithm = other.Algorithm;
       }
       if (other.Metric != 0) {
@@ -27166,12 +27502,12 @@ namespace ServiceLayer {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
-            Flags = input.ReadBytes();
+          case 8: {
+            Flags = input.ReadUInt32();
             break;
           }
-          case 18: {
-            Algorithm = input.ReadBytes();
+          case 16: {
+            Algorithm = input.ReadUInt32();
             break;
           }
           case 24: {
@@ -27193,12 +27529,12 @@ namespace ServiceLayer {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
-          case 10: {
-            Flags = input.ReadBytes();
+          case 8: {
+            Flags = input.ReadUInt32();
             break;
           }
-          case 18: {
-            Algorithm = input.ReadBytes();
+          case 16: {
+            Algorithm = input.ReadUInt32();
             break;
           }
           case 24: {
@@ -28934,31 +29270,43 @@ namespace ServiceLayer {
 
     /// <summary>Field number for the "BsidFlags" field.</summary>
     public const int BsidFlagsFieldNumber = 1;
-    private pb::ByteString bsidFlags_ = pb::ByteString.Empty;
+    private uint bsidFlags_;
     /// <summary>
+    /// SR Binding SID Flags
+    /// Flags associated with the SR Binding SID
+    /// Section 5.1 of [draft-ietf-idr-bgp-ls-sr-policy]
+    /// Each flag is indicated as a bit field. Supported values are:
+    ///
+    /// SL_BGPLS_TOPO_SR_BSID_FLAG_DATAPLANE_V6
     /// Bit-0: D-Flag: Indicates the dataplane for the BSIDs and if they are
     /// 16 octet SRv6 SID when set and are 4 octet SR/MPLS label value
     /// when clear.
     ///
+    /// SL_BGPLS_TOPO_SR_BSID_FLAG_ALLOCATED
     /// Bit-1: B-Flag: Indicates the allocation of the value in the BSID field
     /// when set and indicates that BSID is not allocated when clear.
     ///
+    /// SL_BGPLS_TOPO_SR_BSID_FLAG_UNAVAIL
     /// Bit-2: U-Flag: Indicates the specified BSID value is unavailable when set.
     ///
+    /// SL_BGPLS_TOPO_SR_BSID_FLAG_SRLB
     /// Bit-3: L-Flag: Indicates the BSID value is from the Segment Routing
     /// Local Block (SRLB) of the headend node when set and is from the
     /// local dynamic label pool when clear.
     ///
+    /// SL_BGPLS_TOPO_SR_BSID_FLAG_DYNAMIC
     /// Bit-4: F-Flag: Indicates the BSID value is one allocated from dynamic
     /// label pool due to fallback (e.g. when specified BSID is
     /// unavailable) when set.
+    ///
+    /// All others are reserved.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pb::ByteString BsidFlags {
+    public uint BsidFlags {
       get { return bsidFlags_; }
       set {
-        bsidFlags_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        bsidFlags_ = value;
       }
     }
 
@@ -29017,7 +29365,7 @@ namespace ServiceLayer {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (BsidFlags.Length != 0) hash ^= BsidFlags.GetHashCode();
+      if (BsidFlags != 0) hash ^= BsidFlags.GetHashCode();
       if (bsid_ != null) hash ^= Bsid.GetHashCode();
       if (specifiedBsid_ != null) hash ^= SpecifiedBsid.GetHashCode();
       if (_unknownFields != null) {
@@ -29038,9 +29386,9 @@ namespace ServiceLayer {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (BsidFlags.Length != 0) {
-        output.WriteRawTag(10);
-        output.WriteBytes(BsidFlags);
+      if (BsidFlags != 0) {
+        output.WriteRawTag(8);
+        output.WriteUInt32(BsidFlags);
       }
       if (bsid_ != null) {
         output.WriteRawTag(18);
@@ -29060,9 +29408,9 @@ namespace ServiceLayer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (BsidFlags.Length != 0) {
-        output.WriteRawTag(10);
-        output.WriteBytes(BsidFlags);
+      if (BsidFlags != 0) {
+        output.WriteRawTag(8);
+        output.WriteUInt32(BsidFlags);
       }
       if (bsid_ != null) {
         output.WriteRawTag(18);
@@ -29082,8 +29430,8 @@ namespace ServiceLayer {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (BsidFlags.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeBytesSize(BsidFlags);
+      if (BsidFlags != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(BsidFlags);
       }
       if (bsid_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(Bsid);
@@ -29103,7 +29451,7 @@ namespace ServiceLayer {
       if (other == null) {
         return;
       }
-      if (other.BsidFlags.Length != 0) {
+      if (other.BsidFlags != 0) {
         BsidFlags = other.BsidFlags;
       }
       if (other.bsid_ != null) {
@@ -29133,8 +29481,8 @@ namespace ServiceLayer {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
-            BsidFlags = input.ReadBytes();
+          case 8: {
+            BsidFlags = input.ReadUInt32();
             break;
           }
           case 18: {
@@ -29166,8 +29514,8 @@ namespace ServiceLayer {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
-          case 10: {
-            BsidFlags = input.ReadBytes();
+          case 8: {
+            BsidFlags = input.ReadUInt32();
             break;
           }
           case 18: {
@@ -29258,52 +29606,70 @@ namespace ServiceLayer {
 
     /// <summary>Field number for the "Flags" field.</summary>
     public const int FlagsFieldNumber = 2;
-    private pb::ByteString flags_ = pb::ByteString.Empty;
+    private uint flags_;
     /// <summary>
+    /// SR Candidate Path State Flags
+    /// Flags associated with the SR Candidate Path State Flags
+    /// Section 5.3 of [draft-ietf-idr-bgp-ls-sr-policy]
+    /// Each flag is indicated as a bit field. Supported values are:
+    ///
+    /// SL_BGPLS_TOPO_SR_CP_STATE_FLAG_ADMIN_SHUT
     /// Bit-0: S-Flag: Indicates the CP is in an administrative shut state when set.
     ///
+    /// SL_BGPLS_TOPO_SR_CP_STATE_FLAG_ACTIVE
     /// Bit-1: A-Flag: Indicates the CP is the active path (i.e. one
     /// provisioned in the forwarding plane) for the SR Policy when set.
     ///
+    /// SL_BGPLS_TOPO_SR_CP_STATE_FLAG_BACKUP
     /// Bit-2: B-Flag: Indicates the CP is the backup path (i.e. one
     /// identified for path protection of the active path) for the SR
     /// Policy when set.
     ///
+    /// SL_BGPLS_TOPO_SR_CP_STATE_FLAG_EVALUATED
     /// Bit-3: E-Flag: Indicates that the CP has been evaluated for validity
     /// (e.g. headend may evaluate CPs based on their preferences) when set.
     ///
+    /// SL_BGPLS_TOPO_SR_CP_STATE_FLAG_VALID
     /// Bit-4: V-Flag: Indicates the CP has at least one valid SID-List when
     /// set.  When the E-Flag is clear (i.e. the CP has not been
     /// evaluated), then this flag MUST be set to 0 by the originator
     /// and ignored by the receiver.
     ///
+    /// SL_BGPLS_TOPO_SR_CP_STATE_FLAG_ON_DEMAND_NH
     /// Bit-5: O-Flag: Indicates the CP was instantiated by the headend due to
     /// an on-demand nexthop trigger based on a local template when
     /// set.  Refer to section 8.5 of [RFC9256] for details.
     ///
+    /// SL_BGPLS_TOPO_SR_CP_STATE_FLAG_DELEGATED
     /// Bit-6: D-Flag: Indicates the CP was delegated for computation to a
     /// PCE/controller when set.
     ///
+    /// SL_BGPLS_TOPO_SR_CP_STATE_FLAG_PROVISIONED
     /// Bit-7: C-Flag: Indicates the CP was provisioned by a PCE/controller when set.
     ///
+    /// SL_BGPLS_TOPO_SR_CP_STATE_FLAG_DROP_UPON_INVALID
     /// Bit-8: I-Flag: Indicates the CP is to perform the "drop upon invalid"
     /// behavior when no other valid CP is available for this SR
     /// Policy.  Refer to section 8.2 of [RFC9256] for details.
     ///
+    /// SL_BGPLS_TOPO_SR_CP_STATE_FLAG_TRANSIT
     /// Bit-9: T-Flag: Indicates the CP has been marked as eligible for use as
     /// Transit Policy on the headend when set.  Refer to section 8.3
     /// of [RFC9256].
     ///
+    /// SL_BGPLS_TOPO_SR_CP_STATE_FLAG_DROPPING
     /// Bit-10: U-Flag: Indicates that this CP is reported as active and is
     /// dropping traffic as a result of the "drop upon invalid"
     /// behavior being activated for the SR Policy.
+    ///
+    /// All others are reserved.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pb::ByteString Flags {
+    public uint Flags {
       get { return flags_; }
       set {
-        flags_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        flags_ = value;
       }
     }
 
@@ -29348,7 +29714,7 @@ namespace ServiceLayer {
     public override int GetHashCode() {
       int hash = 1;
       if (Priority != 0) hash ^= Priority.GetHashCode();
-      if (Flags.Length != 0) hash ^= Flags.GetHashCode();
+      if (Flags != 0) hash ^= Flags.GetHashCode();
       if (Preference != 0) hash ^= Preference.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
@@ -29372,9 +29738,9 @@ namespace ServiceLayer {
         output.WriteRawTag(8);
         output.WriteUInt32(Priority);
       }
-      if (Flags.Length != 0) {
-        output.WriteRawTag(18);
-        output.WriteBytes(Flags);
+      if (Flags != 0) {
+        output.WriteRawTag(16);
+        output.WriteUInt32(Flags);
       }
       if (Preference != 0) {
         output.WriteRawTag(24);
@@ -29394,9 +29760,9 @@ namespace ServiceLayer {
         output.WriteRawTag(8);
         output.WriteUInt32(Priority);
       }
-      if (Flags.Length != 0) {
-        output.WriteRawTag(18);
-        output.WriteBytes(Flags);
+      if (Flags != 0) {
+        output.WriteRawTag(16);
+        output.WriteUInt32(Flags);
       }
       if (Preference != 0) {
         output.WriteRawTag(24);
@@ -29415,8 +29781,8 @@ namespace ServiceLayer {
       if (Priority != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Priority);
       }
-      if (Flags.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeBytesSize(Flags);
+      if (Flags != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Flags);
       }
       if (Preference != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Preference);
@@ -29436,7 +29802,7 @@ namespace ServiceLayer {
       if (other.Priority != 0) {
         Priority = other.Priority;
       }
-      if (other.Flags.Length != 0) {
+      if (other.Flags != 0) {
         Flags = other.Flags;
       }
       if (other.Preference != 0) {
@@ -29461,8 +29827,8 @@ namespace ServiceLayer {
             Priority = input.ReadUInt32();
             break;
           }
-          case 18: {
-            Flags = input.ReadBytes();
+          case 16: {
+            Flags = input.ReadUInt32();
             break;
           }
           case 24: {
@@ -29488,8 +29854,8 @@ namespace ServiceLayer {
             Priority = input.ReadUInt32();
             break;
           }
-          case 18: {
-            Flags = input.ReadBytes();
+          case 16: {
+            Flags = input.ReadUInt32();
             break;
           }
           case 24: {
@@ -29561,42 +29927,57 @@ namespace ServiceLayer {
 
     /// <summary>Field number for the "Flags" field.</summary>
     public const int FlagsFieldNumber = 1;
-    private pb::ByteString flags_ = pb::ByteString.Empty;
+    private uint flags_;
     /// <summary>
+    /// SR Candidate Path Constraints Flags
+    /// Flags associated with the SR Candidate Path Constraints Flags
+    /// Section 5.6 of [draft-ietf-idr-bgp-ls-sr-policy]
+    /// Each flag is indicated as a bit field. Supported values are:
+    ///
+    /// SL_BGPLS_TOPO_SR_CP_CONSTRAINTS_FLAG_DATAPLANE_V6
     /// Bit-0: D-Flag: Indicates that the CP uses SRv6 dataplane when set and
     /// SR/MPLS dataplane when clear.
     ///
+    /// SL_BGPLS_TOPO_SR_CP_CONSTRAINTS_FLAG_PROTECTED
     /// Bit-1: P-Flag: Indicates that the CP prefers the use of only protected
     /// SIDs when set.  This flag is mutually exclusive with the
     /// Bit-2.
     ///
+    /// SL_BGPLS_TOPO_SR_CP_CONSTRAINTS_FLAG_UNPROTECTED
     /// Bit-2: U-Flag: Indicates that the CP prefers the use of only
     /// unprotected SIDs when set.  This flag is mutually exclusive
     /// with the Bit-1.
     ///
+    /// SL_BGPLS_TOPO_SR_CP_CONSTRAINTS_FLAG_SPECIFIED_ALGO
     /// Bit-3: A-Flag: Indicates that the CP uses only the SIDs belonging to
     /// the specified SR Algorithm when set.
     ///
+    /// SL_BGPLS_TOPO_SR_CP_CONSTRAINTS_FLAG_SPECIFIED_TOPO
     /// Bit-4: T-Flag: Indicates that the CP uses only the SIDs belonging to
     /// the specified topology when set.
     ///
+    /// SL_BGPLS_TOPO_SR_CP_CONSTRAINTS_FLAG_USE_STRICT
     /// Bit-5: S-Flag: Indicates that the use of protected (P-Flag) or
     /// unprotected (U-Flag) SIDs becomes a strict constraint instead
     /// of a preference when set.
     ///
+    /// SL_BGPLS_TOPO_SR_CP_CONSTRAINTS_FLAG_FIXED_CP
     /// Bit-6: F-Flag: Indicates that the CP is fixed once computed and not
     /// modified except on operator intervention.
     ///
+    /// SL_BGPLS_TOPO_SR_CP_CONSTRAINTS_FLAG_HOP_BY_HOP
     /// Bit-7: H-Flag: Indicates that the CP uses only adjacency SIDs and
     /// traverses hop-by-hop over the links corresponding to those
     /// adjacency SIDs when set.
+    ///
+    /// All others are reserved.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pb::ByteString Flags {
+    public uint Flags {
       get { return flags_; }
       set {
-        flags_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        flags_ = value;
       }
     }
 
@@ -29618,17 +29999,17 @@ namespace ServiceLayer {
 
     /// <summary>Field number for the "Algorithm" field.</summary>
     public const int AlgorithmFieldNumber = 3;
-    private pb::ByteString algorithm_ = pb::ByteString.Empty;
+    private uint algorithm_;
     /// <summary>
     /// Indicates the algorithm that is preferred to be used
     /// when the path is set up.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pb::ByteString Algorithm {
+    public uint Algorithm {
       get { return algorithm_; }
       set {
-        algorithm_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        algorithm_ = value;
       }
     }
 
@@ -29770,9 +30151,9 @@ namespace ServiceLayer {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (Flags.Length != 0) hash ^= Flags.GetHashCode();
+      if (Flags != 0) hash ^= Flags.GetHashCode();
       if (Mtid != 0) hash ^= Mtid.GetHashCode();
-      if (Algorithm.Length != 0) hash ^= Algorithm.GetHashCode();
+      if (Algorithm != 0) hash ^= Algorithm.GetHashCode();
       if (affinity_ != null) hash ^= Affinity.GetHashCode();
       if (srlg_ != null) hash ^= Srlg.GetHashCode();
       if (bandwidth_ != null) hash ^= Bandwidth.GetHashCode();
@@ -29797,17 +30178,17 @@ namespace ServiceLayer {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (Flags.Length != 0) {
-        output.WriteRawTag(10);
-        output.WriteBytes(Flags);
+      if (Flags != 0) {
+        output.WriteRawTag(8);
+        output.WriteUInt32(Flags);
       }
       if (Mtid != 0) {
         output.WriteRawTag(16);
         output.WriteUInt32(Mtid);
       }
-      if (Algorithm.Length != 0) {
-        output.WriteRawTag(26);
-        output.WriteBytes(Algorithm);
+      if (Algorithm != 0) {
+        output.WriteRawTag(24);
+        output.WriteUInt32(Algorithm);
       }
       if (bandwidth_ != null) {
         output.WriteRawTag(34);
@@ -29840,17 +30221,17 @@ namespace ServiceLayer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (Flags.Length != 0) {
-        output.WriteRawTag(10);
-        output.WriteBytes(Flags);
+      if (Flags != 0) {
+        output.WriteRawTag(8);
+        output.WriteUInt32(Flags);
       }
       if (Mtid != 0) {
         output.WriteRawTag(16);
         output.WriteUInt32(Mtid);
       }
-      if (Algorithm.Length != 0) {
-        output.WriteRawTag(26);
-        output.WriteBytes(Algorithm);
+      if (Algorithm != 0) {
+        output.WriteRawTag(24);
+        output.WriteUInt32(Algorithm);
       }
       if (bandwidth_ != null) {
         output.WriteRawTag(34);
@@ -29883,14 +30264,14 @@ namespace ServiceLayer {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (Flags.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeBytesSize(Flags);
+      if (Flags != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Flags);
       }
       if (Mtid != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Mtid);
       }
-      if (Algorithm.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeBytesSize(Algorithm);
+      if (Algorithm != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Algorithm);
       }
       if (affinity_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(Affinity);
@@ -29920,13 +30301,13 @@ namespace ServiceLayer {
       if (other == null) {
         return;
       }
-      if (other.Flags.Length != 0) {
+      if (other.Flags != 0) {
         Flags = other.Flags;
       }
       if (other.Mtid != 0) {
         Mtid = other.Mtid;
       }
-      if (other.Algorithm.Length != 0) {
+      if (other.Algorithm != 0) {
         Algorithm = other.Algorithm;
       }
       if (other.affinity_ != null) {
@@ -29975,16 +30356,16 @@ namespace ServiceLayer {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
-            Flags = input.ReadBytes();
+          case 8: {
+            Flags = input.ReadUInt32();
             break;
           }
           case 16: {
             Mtid = input.ReadUInt32();
             break;
           }
-          case 26: {
-            Algorithm = input.ReadBytes();
+          case 24: {
+            Algorithm = input.ReadUInt32();
             break;
           }
           case 34: {
@@ -30041,16 +30422,16 @@ namespace ServiceLayer {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
-          case 10: {
-            Flags = input.ReadBytes();
+          case 8: {
+            Flags = input.ReadUInt32();
             break;
           }
           case 16: {
             Mtid = input.ReadUInt32();
             break;
           }
-          case 26: {
-            Algorithm = input.ReadBytes();
+          case 24: {
+            Algorithm = input.ReadUInt32();
             break;
           }
           case 34: {
@@ -30153,50 +30534,66 @@ namespace ServiceLayer {
 
     /// <summary>Field number for the "Flags" field.</summary>
     public const int FlagsFieldNumber = 1;
-    private pb::ByteString flags_ = pb::ByteString.Empty;
+    private uint flags_;
     /// <summary>
+    /// SR Segment List Flags
+    /// Flags associated with the SR Segment List Flags
+    /// Section 5.7 of [draft-ietf-idr-bgp-ls-sr-policy]
+    /// Each flag is indicated as a bit field. Supported values are:
+    ///
+    /// SL_BGPLS_TOPO_SR_SEG_LIST_FLAG_DATAPLANE_V6
     /// Bit-0: D-Flag: Indicates the SID-List is comprised of SRv6 SIDs when
     /// set and indicates it is comprised of SR/MPLS labels when clear.
     ///
+    /// SL_BGPLS_TOPO_SR_SEG_LIST_FLAG_EXPLICIT_PATH
     /// Bit-1: E-Flag: Indicates that SID-List is associated with an explicit
     /// candidate path when set and with a dynamic candidate path when
     /// clear.  All segment lists of a given candidate path MUST be
     /// either explicit or dynamic and in case of inconsistency, the
     /// receiver MAY consider them all to be dynamic.
     ///
+    /// SL_BGPLS_TOPO_SR_SEG_LIST_FLAG_COMPUTED_PATH
     /// Bit-2: C-Flag: Indicates that SID-List has been computed for a dynamic
     /// path when set.  It is always reported as set for explicit
     /// paths.
     ///
+    /// SL_BGPLS_TOPO_SR_SEG_LIST_FLAG_VERIFIED
     /// Bit-3: V-Flag: Indicates the SID-List has passed verification or its
     /// verification was not required when set and failed verification
     /// when clear.
     ///
+    /// SL_BGPLS_TOPO_SR_SEG_LIST_FLAG_RESOLVED
     /// Bit-4: R-Flag: Indicates that the first Segment has been resolved when
     /// set and failed resolution when clear.
     ///
+    /// SL_BGPLS_TOPO_SR_SEG_LIST_FLAG_COMPUTE_FAILED
     /// Bit-5: F-Flag: Indicates that the computation for the dynamic path
     /// failed when set and succeeded (or not required in case of
     /// explicit path) when clear.
     ///
+    /// SL_BGPLS_TOPO_SR_SEG_LIST_FLAG_SPECIFIED_ALGO
     /// Bit-6: A-Flag: Indicates that all the SIDs in the SID-List belong to
     /// the specified algorithm when set.
     ///
+    /// SL_BGPLS_TOPO_SR_SEG_LIST_FLAG_SPECIFIED_TOPO
     /// Bit-7: T-Flag: Indicates that all the SIDs in the SID-List belong to
     /// the specified topology (identified by the multi-topology ID)
     /// when set.
     ///
+    /// SL_BGPLS_TOPO_SR_SEG_LIST_FLAG_FAULT_MONITOR
     /// Bit-8: M-Flag: Indicates that the SID-list has been removed from the
     /// forwarding plane due to fault detection by a monitoring
     /// mechanism (e.g.  BFD) when set and indicates no fault detected
     /// or monitoring is not being done when clear.
+    ///
+    /// All others are reserved.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pb::ByteString Flags {
+    public uint Flags {
       get { return flags_; }
       set {
-        flags_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        flags_ = value;
       }
     }
 
@@ -30218,17 +30615,17 @@ namespace ServiceLayer {
 
     /// <summary>Field number for the "Algorithm" field.</summary>
     public const int AlgorithmFieldNumber = 3;
-    private pb::ByteString algorithm_ = pb::ByteString.Empty;
+    private uint algorithm_;
     /// <summary>
     /// Indicates the algorithm of the SIDs used
     /// in the SID-List when the Bit-6 is set.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pb::ByteString Algorithm {
+    public uint Algorithm {
       get { return algorithm_; }
       set {
-        algorithm_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        algorithm_ = value;
       }
     }
 
@@ -30290,9 +30687,9 @@ namespace ServiceLayer {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (Flags.Length != 0) hash ^= Flags.GetHashCode();
+      if (Flags != 0) hash ^= Flags.GetHashCode();
       if (Mtid != 0) hash ^= Mtid.GetHashCode();
-      if (Algorithm.Length != 0) hash ^= Algorithm.GetHashCode();
+      if (Algorithm != 0) hash ^= Algorithm.GetHashCode();
       if (Weight != 0) hash ^= Weight.GetHashCode();
       hash ^= segments_.GetHashCode();
       if (_unknownFields != null) {
@@ -30313,17 +30710,17 @@ namespace ServiceLayer {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (Flags.Length != 0) {
-        output.WriteRawTag(10);
-        output.WriteBytes(Flags);
+      if (Flags != 0) {
+        output.WriteRawTag(8);
+        output.WriteUInt32(Flags);
       }
       if (Mtid != 0) {
         output.WriteRawTag(16);
         output.WriteUInt32(Mtid);
       }
-      if (Algorithm.Length != 0) {
-        output.WriteRawTag(26);
-        output.WriteBytes(Algorithm);
+      if (Algorithm != 0) {
+        output.WriteRawTag(24);
+        output.WriteUInt32(Algorithm);
       }
       if (Weight != 0) {
         output.WriteRawTag(32);
@@ -30340,17 +30737,17 @@ namespace ServiceLayer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (Flags.Length != 0) {
-        output.WriteRawTag(10);
-        output.WriteBytes(Flags);
+      if (Flags != 0) {
+        output.WriteRawTag(8);
+        output.WriteUInt32(Flags);
       }
       if (Mtid != 0) {
         output.WriteRawTag(16);
         output.WriteUInt32(Mtid);
       }
-      if (Algorithm.Length != 0) {
-        output.WriteRawTag(26);
-        output.WriteBytes(Algorithm);
+      if (Algorithm != 0) {
+        output.WriteRawTag(24);
+        output.WriteUInt32(Algorithm);
       }
       if (Weight != 0) {
         output.WriteRawTag(32);
@@ -30367,14 +30764,14 @@ namespace ServiceLayer {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (Flags.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeBytesSize(Flags);
+      if (Flags != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Flags);
       }
       if (Mtid != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Mtid);
       }
-      if (Algorithm.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeBytesSize(Algorithm);
+      if (Algorithm != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Algorithm);
       }
       if (Weight != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Weight);
@@ -30392,13 +30789,13 @@ namespace ServiceLayer {
       if (other == null) {
         return;
       }
-      if (other.Flags.Length != 0) {
+      if (other.Flags != 0) {
         Flags = other.Flags;
       }
       if (other.Mtid != 0) {
         Mtid = other.Mtid;
       }
-      if (other.Algorithm.Length != 0) {
+      if (other.Algorithm != 0) {
         Algorithm = other.Algorithm;
       }
       if (other.Weight != 0) {
@@ -30420,16 +30817,16 @@ namespace ServiceLayer {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
-            Flags = input.ReadBytes();
+          case 8: {
+            Flags = input.ReadUInt32();
             break;
           }
           case 16: {
             Mtid = input.ReadUInt32();
             break;
           }
-          case 26: {
-            Algorithm = input.ReadBytes();
+          case 24: {
+            Algorithm = input.ReadUInt32();
             break;
           }
           case 32: {
@@ -30455,16 +30852,16 @@ namespace ServiceLayer {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
-          case 10: {
-            Flags = input.ReadBytes();
+          case 8: {
+            Flags = input.ReadUInt32();
             break;
           }
           case 16: {
             Mtid = input.ReadUInt32();
             break;
           }
-          case 26: {
-            Algorithm = input.ReadBytes();
+          case 24: {
+            Algorithm = input.ReadUInt32();
             break;
           }
           case 32: {
@@ -30536,40 +30933,51 @@ namespace ServiceLayer {
 
     /// <summary>Field number for the "Type" field.</summary>
     public const int TypeFieldNumber = 1;
-    private pb::ByteString type_ = pb::ByteString.Empty;
+    private uint type_;
     /// <summary>
     /// Identifies the type of metric.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pb::ByteString Type {
+    public uint Type {
       get { return type_; }
       set {
-        type_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        type_ = value;
       }
     }
 
     /// <summary>Field number for the "Flags" field.</summary>
     public const int FlagsFieldNumber = 2;
-    private pb::ByteString flags_ = pb::ByteString.Empty;
+    private uint flags_;
     /// <summary>
+    /// SR Segment List Metric Flags
+    /// Flags associated with the SR Segment List Metric Flags
+    /// Section 5.9 of [draft-ietf-idr-bgp-ls-sr-policy]
+    /// Each flag is indicated as a bit field. Supported values are:
+    ///
+    /// SL_BGPLS_TOPO_SR_SEG_LIST_METRIC_FLAG_MARGIN_ALLOWED
     /// Bit-0: M-Flag: The metric margin allowed for this path
     /// computation is specified when set.
     ///
+    /// SL_BGPLS_TOPO_SR_SEG_LIST_METRIC_FLAG_ABSOLUTE_VAL
     /// Bit-1: A-Flag: The metric margin is specified as an
     /// absolute value when set and is expressed as a percentage of the
     /// minimum metric when clear.
     ///
+    /// SL_BGPLS_TOPO_SR_SEG_LIST_METRIC_FLAG_BOUND_ALLOWED
     /// Bit-2: B-Flag: The metric bound allowed for the path is specified when set.
     ///
+    /// SL_BGPLS_TOPO_SR_SEG_LIST_METRIC_FLAG_VAL_REPORTED
     /// Bit-3: V-Flag: The metric value computed is being reported when set.
+    ///
+    /// All others are reserved.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pb::ByteString Flags {
+    public uint Flags {
       get { return flags_; }
       set {
-        flags_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        flags_ = value;
       }
     }
 
@@ -30648,8 +31056,8 @@ namespace ServiceLayer {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (Type.Length != 0) hash ^= Type.GetHashCode();
-      if (Flags.Length != 0) hash ^= Flags.GetHashCode();
+      if (Type != 0) hash ^= Type.GetHashCode();
+      if (Flags != 0) hash ^= Flags.GetHashCode();
       if (Margin != 0) hash ^= Margin.GetHashCode();
       if (Bound != 0) hash ^= Bound.GetHashCode();
       if (Value != 0) hash ^= Value.GetHashCode();
@@ -30671,13 +31079,13 @@ namespace ServiceLayer {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (Type.Length != 0) {
-        output.WriteRawTag(10);
-        output.WriteBytes(Type);
+      if (Type != 0) {
+        output.WriteRawTag(8);
+        output.WriteUInt32(Type);
       }
-      if (Flags.Length != 0) {
-        output.WriteRawTag(18);
-        output.WriteBytes(Flags);
+      if (Flags != 0) {
+        output.WriteRawTag(16);
+        output.WriteUInt32(Flags);
       }
       if (Margin != 0) {
         output.WriteRawTag(24);
@@ -30701,13 +31109,13 @@ namespace ServiceLayer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (Type.Length != 0) {
-        output.WriteRawTag(10);
-        output.WriteBytes(Type);
+      if (Type != 0) {
+        output.WriteRawTag(8);
+        output.WriteUInt32(Type);
       }
-      if (Flags.Length != 0) {
-        output.WriteRawTag(18);
-        output.WriteBytes(Flags);
+      if (Flags != 0) {
+        output.WriteRawTag(16);
+        output.WriteUInt32(Flags);
       }
       if (Margin != 0) {
         output.WriteRawTag(24);
@@ -30731,11 +31139,11 @@ namespace ServiceLayer {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (Type.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeBytesSize(Type);
+      if (Type != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Type);
       }
-      if (Flags.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeBytesSize(Flags);
+      if (Flags != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Flags);
       }
       if (Margin != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Margin);
@@ -30758,10 +31166,10 @@ namespace ServiceLayer {
       if (other == null) {
         return;
       }
-      if (other.Type.Length != 0) {
+      if (other.Type != 0) {
         Type = other.Type;
       }
-      if (other.Flags.Length != 0) {
+      if (other.Flags != 0) {
         Flags = other.Flags;
       }
       if (other.Margin != 0) {
@@ -30788,12 +31196,12 @@ namespace ServiceLayer {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
-            Type = input.ReadBytes();
+          case 8: {
+            Type = input.ReadUInt32();
             break;
           }
-          case 18: {
-            Flags = input.ReadBytes();
+          case 16: {
+            Flags = input.ReadUInt32();
             break;
           }
           case 24: {
@@ -30823,12 +31231,12 @@ namespace ServiceLayer {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
-          case 10: {
-            Type = input.ReadBytes();
+          case 8: {
+            Type = input.ReadUInt32();
             break;
           }
-          case 18: {
-            Flags = input.ReadBytes();
+          case 16: {
+            Flags = input.ReadUInt32();
             break;
           }
           case 24: {
@@ -31541,57 +31949,82 @@ namespace ServiceLayer {
 
     /// <summary>Field number for the "RequestFlags" field.</summary>
     public const int RequestFlagsFieldNumber = 1;
-    private pb::ByteString requestFlags_ = pb::ByteString.Empty;
+    private uint requestFlags_;
     /// <summary>
+    /// SR Disjoint Group Constraints Request Flags
+    /// Flags associated with the SR Disjoint Group Constraints Flags
+    /// Section 5.6.4 of [draft-ietf-idr-bgp-ls-sr-policy]
+    /// Each flag is indicated as a bit field. Supported values are:
+    ///
+    /// SL_BGPLS_TOPO_SR_DISJOINT_GROUP_FLAG_SRLG
     /// Bit-0: S-Flag: SRLG disjointness is requested when set.
     ///
+    /// SL_BGPLS_TOPO_SR_DISJOINT_GROUP_FLAG_NODE
     /// Bit-1: N-Flag: Node disjointness is requested when set.
     ///
+    /// SL_BGPLS_TOPO_SR_DISJOINT_GROUP_FLAG_LINK
     /// Bit-2: L-Flag: Link disjointness is requested when set.
     ///
+    /// SL_BGPLS_TOPO_SR_DISJOINT_GROUP_FLAG_FALLBACK
     /// Bit-3: F-Flag: The computation may fallback to a lower
     /// level of disjointness amongst the ones requested when all
     /// cannot be achieved when set.
     ///
+    /// SL_BGPLS_TOPO_SR_DISJOINT_GROUP_FLAG_IGP
     /// Bit-4: I-Flag: The computation may fallback to the
     /// default best path (e.g.  IGP path) in case of none of the
     /// desired disjointness can be achieved when set.
+    ///
+    /// All others are reserved.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pb::ByteString RequestFlags {
+    public uint RequestFlags {
       get { return requestFlags_; }
       set {
-        requestFlags_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        requestFlags_ = value;
       }
     }
 
     /// <summary>Field number for the "StatusFlags" field.</summary>
     public const int StatusFlagsFieldNumber = 2;
-    private pb::ByteString statusFlags_ = pb::ByteString.Empty;
+    private uint statusFlags_;
     /// <summary>
+    /// SR Disjoint Group Constraints Status Flags
+    /// Flags associated with the SR Disjoint Group Constraints Flags
+    /// Section 5.6.4 of [draft-ietf-idr-bgp-ls-sr-policy]
+    /// Each flag is indicated as a bit field. Supported values are:
+    ///
+    /// SL_BGPLS_TOPO_SR_DISJOINT_GROUP_FLAG_SRLG
     /// Bit-0: S-Flag: SRLG disjointness is achieved when set.
     ///
+    /// SL_BGPLS_TOPO_SR_DISJOINT_GROUP_FLAG_NODE
     /// Bit-1: N-Flag: Node disjointness is achieved when set.
     ///
+    /// SL_BGPLS_TOPO_SR_DISJOINT_GROUP_FLAG_LINK
     /// Bit-2: L-Flag: Link disjointness is achieved when set.
     ///
+    /// SL_BGPLS_TOPO_SR_DISJOINT_GROUP_FLAG_FALLBACK
     /// Bit-3: F-Flag: The computation has fallen back to a
     /// lower level of disjointness than requested when set.
     ///
+    /// SL_BGPLS_TOPO_SR_DISJOINT_GROUP_FLAG_IGP
     /// Bit-4: I-Flag: The computation has fallen back to the
     /// best path (e.g.  IGP path) and disjointness has not been
     /// achieved when set.
     ///
+    /// SL_BGPLS_TOPO_SR_DISJOINT_GROUP_FLAG_INVALID
     /// Bit-5: X-Flag: The disjointness constraint could not
     /// be achieved and hence path has been invalidated when set.
+    ///
+    /// All others are reserved.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pb::ByteString StatusFlags {
+    public uint StatusFlags {
       get { return statusFlags_; }
       set {
-        statusFlags_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        statusFlags_ = value;
       }
     }
 
@@ -31635,8 +32068,8 @@ namespace ServiceLayer {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (RequestFlags.Length != 0) hash ^= RequestFlags.GetHashCode();
-      if (StatusFlags.Length != 0) hash ^= StatusFlags.GetHashCode();
+      if (RequestFlags != 0) hash ^= RequestFlags.GetHashCode();
+      if (StatusFlags != 0) hash ^= StatusFlags.GetHashCode();
       if (GroupId != 0) hash ^= GroupId.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
@@ -31656,13 +32089,13 @@ namespace ServiceLayer {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (RequestFlags.Length != 0) {
-        output.WriteRawTag(10);
-        output.WriteBytes(RequestFlags);
+      if (RequestFlags != 0) {
+        output.WriteRawTag(8);
+        output.WriteUInt32(RequestFlags);
       }
-      if (StatusFlags.Length != 0) {
-        output.WriteRawTag(18);
-        output.WriteBytes(StatusFlags);
+      if (StatusFlags != 0) {
+        output.WriteRawTag(16);
+        output.WriteUInt32(StatusFlags);
       }
       if (GroupId != 0) {
         output.WriteRawTag(24);
@@ -31678,13 +32111,13 @@ namespace ServiceLayer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (RequestFlags.Length != 0) {
-        output.WriteRawTag(10);
-        output.WriteBytes(RequestFlags);
+      if (RequestFlags != 0) {
+        output.WriteRawTag(8);
+        output.WriteUInt32(RequestFlags);
       }
-      if (StatusFlags.Length != 0) {
-        output.WriteRawTag(18);
-        output.WriteBytes(StatusFlags);
+      if (StatusFlags != 0) {
+        output.WriteRawTag(16);
+        output.WriteUInt32(StatusFlags);
       }
       if (GroupId != 0) {
         output.WriteRawTag(24);
@@ -31700,11 +32133,11 @@ namespace ServiceLayer {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (RequestFlags.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeBytesSize(RequestFlags);
+      if (RequestFlags != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(RequestFlags);
       }
-      if (StatusFlags.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeBytesSize(StatusFlags);
+      if (StatusFlags != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(StatusFlags);
       }
       if (GroupId != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(GroupId);
@@ -31721,10 +32154,10 @@ namespace ServiceLayer {
       if (other == null) {
         return;
       }
-      if (other.RequestFlags.Length != 0) {
+      if (other.RequestFlags != 0) {
         RequestFlags = other.RequestFlags;
       }
-      if (other.StatusFlags.Length != 0) {
+      if (other.StatusFlags != 0) {
         StatusFlags = other.StatusFlags;
       }
       if (other.GroupId != 0) {
@@ -31745,12 +32178,12 @@ namespace ServiceLayer {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
-            RequestFlags = input.ReadBytes();
+          case 8: {
+            RequestFlags = input.ReadUInt32();
             break;
           }
-          case 18: {
-            StatusFlags = input.ReadBytes();
+          case 16: {
+            StatusFlags = input.ReadUInt32();
             break;
           }
           case 24: {
@@ -31772,12 +32205,12 @@ namespace ServiceLayer {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
-          case 10: {
-            RequestFlags = input.ReadBytes();
+          case 8: {
+            RequestFlags = input.ReadUInt32();
             break;
           }
-          case 18: {
-            StatusFlags = input.ReadBytes();
+          case 16: {
+            StatusFlags = input.ReadUInt32();
             break;
           }
           case 24: {
@@ -31844,7 +32277,7 @@ namespace ServiceLayer {
     private string name_ = "";
     /// <summary>
     /// Symbolic name for the SR Policy without a NULL terminator. It is
-    /// RECOMMENDED that the size of the symbolic name be limited to
+    /// enforced that the size of the symbolic name be limited to
     /// 255 characters.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -32040,19 +32473,28 @@ namespace ServiceLayer {
 
     /// <summary>Field number for the "Flags" field.</summary>
     public const int FlagsFieldNumber = 1;
-    private pb::ByteString flags_ = pb::ByteString.Empty;
+    private uint flags_;
     /// <summary>
+    /// SR Bidirectional Group Constraints Flags
+    /// Flags associated with the SR Bidirectional Group Constraints Flags
+    /// Section 5.6.5 of [draft-ietf-idr-bgp-ls-sr-policy]
+    /// Each flag is indicated as a bit field. Supported values are:
+    ///
+    /// SL_BGPLS_TOPO_SR_BIDIR_GROUP_FLAG_REVERSE
     /// Bit-0: R-Flag: This CP of the SR Policy forms the
     /// reverse path when set and otherwise it is the forward path when clear.
     ///
+    /// SL_BGPLS_TOPO_SR_BIDIR_GROUP_FLAG_CO_ROUTED
     /// Bit-1: C-Flag: The bidirectional path is co-routed when set.
+    ///
+    /// All others are reserved.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pb::ByteString Flags {
+    public uint Flags {
       get { return flags_; }
       set {
-        flags_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        flags_ = value;
       }
     }
 
@@ -32095,7 +32537,7 @@ namespace ServiceLayer {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (Flags.Length != 0) hash ^= Flags.GetHashCode();
+      if (Flags != 0) hash ^= Flags.GetHashCode();
       if (GroupId != 0) hash ^= GroupId.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
@@ -32115,9 +32557,9 @@ namespace ServiceLayer {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (Flags.Length != 0) {
-        output.WriteRawTag(10);
-        output.WriteBytes(Flags);
+      if (Flags != 0) {
+        output.WriteRawTag(8);
+        output.WriteUInt32(Flags);
       }
       if (GroupId != 0) {
         output.WriteRawTag(16);
@@ -32133,9 +32575,9 @@ namespace ServiceLayer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (Flags.Length != 0) {
-        output.WriteRawTag(10);
-        output.WriteBytes(Flags);
+      if (Flags != 0) {
+        output.WriteRawTag(8);
+        output.WriteUInt32(Flags);
       }
       if (GroupId != 0) {
         output.WriteRawTag(16);
@@ -32151,8 +32593,8 @@ namespace ServiceLayer {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (Flags.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeBytesSize(Flags);
+      if (Flags != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Flags);
       }
       if (GroupId != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(GroupId);
@@ -32169,7 +32611,7 @@ namespace ServiceLayer {
       if (other == null) {
         return;
       }
-      if (other.Flags.Length != 0) {
+      if (other.Flags != 0) {
         Flags = other.Flags;
       }
       if (other.GroupId != 0) {
@@ -32190,8 +32632,8 @@ namespace ServiceLayer {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
-            Flags = input.ReadBytes();
+          case 8: {
+            Flags = input.ReadUInt32();
             break;
           }
           case 16: {
@@ -32213,8 +32655,8 @@ namespace ServiceLayer {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
-          case 10: {
-            Flags = input.ReadBytes();
+          case 8: {
+            Flags = input.ReadUInt32();
             break;
           }
           case 16: {
@@ -32296,28 +32738,39 @@ namespace ServiceLayer {
 
     /// <summary>Field number for the "Flags" field.</summary>
     public const int FlagsFieldNumber = 2;
-    private pb::ByteString flags_ = pb::ByteString.Empty;
+    private uint flags_;
     /// <summary>
+    /// SR Metric Constraints Flags
+    /// Flags associated with the SR Metric Constraints Flags
+    /// Section 5.6.6 of [draft-ietf-idr-bgp-ls-sr-policy]
+    /// Each flag is indicated as a bit field. Supported values are:
+    ///
+    /// SL_BGPLS_TOPO_SR_METRIC_CONSTRAINT_FLAG_OPTIMIZED
     /// Bit-0: O-Flag: The optimization metric being
     /// reported for a dynamic CP when set.  This bit MUST NOT be set
     /// in more than one instance of this TLV for a given CP
     /// advertisement.
     ///
+    /// SL_BGPLS_TOPO_SR_METRIC_CONSTRAINT_FLAG_MARGIN_ALLOWED
     /// Bit-1: M-Flag: The metric margin allowed is specified when set.
     ///
+    /// SL_BGPLS_TOPO_SR_METRIC_CONSTRAINT_FLAG_ABSOLUTE
     /// Bit-2: A-Flag: The metric margin is specified as an
     /// absolute value when set and is expressed as a percentage of the
     /// minimum metric when clear.
     ///
+    /// SL_BGPLS_TOPO_SR_METRIC_CONSTRAINT_FLAG_BOUND_ALLOWED
     /// Bit-3: B-Flag: The metric bound allowed for the path is
     /// specified when set.
+    ///
+    /// All others are reserved.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pb::ByteString Flags {
+    public uint Flags {
       get { return flags_; }
       set {
-        flags_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        flags_ = value;
       }
     }
 
@@ -32383,7 +32836,7 @@ namespace ServiceLayer {
     public override int GetHashCode() {
       int hash = 1;
       if (Type != 0) hash ^= Type.GetHashCode();
-      if (Flags.Length != 0) hash ^= Flags.GetHashCode();
+      if (Flags != 0) hash ^= Flags.GetHashCode();
       if (Margin != 0) hash ^= Margin.GetHashCode();
       if (Bound != 0) hash ^= Bound.GetHashCode();
       if (_unknownFields != null) {
@@ -32408,9 +32861,9 @@ namespace ServiceLayer {
         output.WriteRawTag(8);
         output.WriteUInt32(Type);
       }
-      if (Flags.Length != 0) {
-        output.WriteRawTag(18);
-        output.WriteBytes(Flags);
+      if (Flags != 0) {
+        output.WriteRawTag(16);
+        output.WriteUInt32(Flags);
       }
       if (Margin != 0) {
         output.WriteRawTag(24);
@@ -32434,9 +32887,9 @@ namespace ServiceLayer {
         output.WriteRawTag(8);
         output.WriteUInt32(Type);
       }
-      if (Flags.Length != 0) {
-        output.WriteRawTag(18);
-        output.WriteBytes(Flags);
+      if (Flags != 0) {
+        output.WriteRawTag(16);
+        output.WriteUInt32(Flags);
       }
       if (Margin != 0) {
         output.WriteRawTag(24);
@@ -32459,8 +32912,8 @@ namespace ServiceLayer {
       if (Type != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Type);
       }
-      if (Flags.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeBytesSize(Flags);
+      if (Flags != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Flags);
       }
       if (Margin != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Margin);
@@ -32483,7 +32936,7 @@ namespace ServiceLayer {
       if (other.Type != 0) {
         Type = other.Type;
       }
-      if (other.Flags.Length != 0) {
+      if (other.Flags != 0) {
         Flags = other.Flags;
       }
       if (other.Margin != 0) {
@@ -32511,8 +32964,8 @@ namespace ServiceLayer {
             Type = input.ReadUInt32();
             break;
           }
-          case 18: {
-            Flags = input.ReadBytes();
+          case 16: {
+            Flags = input.ReadUInt32();
             break;
           }
           case 24: {
@@ -32542,8 +32995,8 @@ namespace ServiceLayer {
             Type = input.ReadUInt32();
             break;
           }
-          case 18: {
-            Flags = input.ReadBytes();
+          case 16: {
+            Flags = input.ReadUInt32();
             break;
           }
           case 24: {
@@ -33007,20 +33460,30 @@ namespace ServiceLayer {
 
     /// <summary>Field number for the "Flags" field.</summary>
     public const int FlagsFieldNumber = 1;
-    private pb::ByteString flags_ = pb::ByteString.Empty;
+    private uint flags_;
     /// <summary>
+    /// SRv6 BGP Peer Node SID Flags
+    /// Flags associated with the SRv6 BGP Peer Node SID Flags
+    /// Section 7.2 of [RFC9514]
+    /// Each flag is indicated as a bit field. Supported values are:
+    ///
+    /// SL_BGPLS_TOPO_SRV6_BGP_PEER_NODE_SID_FLAG_BACKUP
     /// Bit-0: B-Flag: Backup Flag associated with the SID.
     ///
+    /// SL_BGPLS_TOPO_SRV6_BGP_PEER_NODE_SID_FLAG_SET
     /// Bit-1: S-Flag: Set Flag associated with the SID.
     ///
+    /// SL_BGPLS_TOPO_SRV6_BGP_PEER_NODE_SID_FLAG_PERSISTENT
     /// Bit-2: P-Flag: Persistent Flag associated with the SID.
+    ///
+    /// All others are reserved.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pb::ByteString Flags {
+    public uint Flags {
       get { return flags_; }
       set {
-        flags_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        flags_ = value;
       }
     }
 
@@ -33095,7 +33558,7 @@ namespace ServiceLayer {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (Flags.Length != 0) hash ^= Flags.GetHashCode();
+      if (Flags != 0) hash ^= Flags.GetHashCode();
       if (Weight != 0) hash ^= Weight.GetHashCode();
       if (PeerAS != 0) hash ^= PeerAS.GetHashCode();
       if (PeerBgpId.Length != 0) hash ^= PeerBgpId.GetHashCode();
@@ -33117,9 +33580,9 @@ namespace ServiceLayer {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (Flags.Length != 0) {
-        output.WriteRawTag(10);
-        output.WriteBytes(Flags);
+      if (Flags != 0) {
+        output.WriteRawTag(8);
+        output.WriteUInt32(Flags);
       }
       if (Weight != 0) {
         output.WriteRawTag(16);
@@ -33143,9 +33606,9 @@ namespace ServiceLayer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (Flags.Length != 0) {
-        output.WriteRawTag(10);
-        output.WriteBytes(Flags);
+      if (Flags != 0) {
+        output.WriteRawTag(8);
+        output.WriteUInt32(Flags);
       }
       if (Weight != 0) {
         output.WriteRawTag(16);
@@ -33169,8 +33632,8 @@ namespace ServiceLayer {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (Flags.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeBytesSize(Flags);
+      if (Flags != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Flags);
       }
       if (Weight != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Weight);
@@ -33193,7 +33656,7 @@ namespace ServiceLayer {
       if (other == null) {
         return;
       }
-      if (other.Flags.Length != 0) {
+      if (other.Flags != 0) {
         Flags = other.Flags;
       }
       if (other.Weight != 0) {
@@ -33220,8 +33683,8 @@ namespace ServiceLayer {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
-            Flags = input.ReadBytes();
+          case 8: {
+            Flags = input.ReadUInt32();
             break;
           }
           case 16: {
@@ -33251,8 +33714,8 @@ namespace ServiceLayer {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
-          case 10: {
-            Flags = input.ReadBytes();
+          case 8: {
+            Flags = input.ReadUInt32();
             break;
           }
           case 16: {

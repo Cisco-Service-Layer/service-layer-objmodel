@@ -24,61 +24,73 @@ namespace ServiceLayer {
     static SlSrCommonReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChJzbF9zcl9jb21tb24ucHJvdG8SDXNlcnZpY2VfbGF5ZXIiIAoPU0xTclBv",
-            "bGljeUZsYWdzEg0KBUZsYWdzGAEgASgMIkAKCFNsU3JCc2lkEhIKCE1wbHNC",
-            "c2lkGAEgASgNSAASEgoIU3J2NkJzaWQYAiABKAxIAEIMCgpCaW5kaW5nU2lk",
-            "IhoKClNMU3JDcE5hbWUSDAoETmFtZRgBIAEoCSKZAgoPU0xTclNlZ21lbnRE",
-            "ZXNjEhEKCUFsZ29yaXRobRgBIAEoDBIVCgtJcHY0TG9jQWRkchgCIAEoDEgA",
-            "EhUKC0lwdjZMb2NBZGRyGAMgASgMSAASFQoLSXB2NFJlbUFkZHIYBCABKAxI",
-            "ARIVCgtJcHY2UmVtQWRkchgFIAEoDEgBEh8KF0lwdjZMb2NhbE5vZGVHbG9i",
-            "YWxBZGRyGAYgASgMEiAKGElwdjZSZW1vdGVOb2RlR2xvYmFsQWRkchgHIAEo",
-            "DBIXCg9Mb2NhbE5vZGVJbnRmSWQYCCABKA0SGAoQUmVtb3RlTm9kZUludGZJ",
-            "ZBgJIAEoDUIPCg1Mb2NhbE5vZGVBZGRyQhAKDlJlbW90ZU5vZGVBZGRyIqMC",
-            "CgtTTFNyU2VnbWVudBIsCgRUeXBlGAEgASgOMh4uc2VydmljZV9sYXllci5T",
-            "TFNyU2VnbWVudFR5cGUSDQoFRmxhZ3MYAiABKAwSEwoJTXBsc0xhYmVsGAMg",
-            "ASgNSAASEQoHU3J2NlNpZBgEIAEoDEgAEjMKC1NlZ21lbnREZXNjGAUgASgL",
-            "Mh4uc2VydmljZV9sYXllci5TTFNyU2VnbWVudERlc2MSQAoRRW5kUG9pbnRC",
-            "ZWhhdmlvdXIYBiABKAsyJS5zZXJ2aWNlX2xheWVyLlNMU3J2NkVuZFBvaW50",
-            "QmVoYXZpb3ISMQoJU2lkU3RydWN0GAcgASgLMh4uc2VydmljZV9sYXllci5T",
-            "TFNydjZTaWRTdHJ1Y3RCBQoDU2lkIrsBChBTTFNydjZCaW5kaW5nU2lkEg0K",
-            "BUZsYWdzGAEgASgMEgwKBEJzaWQYAiABKAwSFQoNU3BlY2lmaWVkQnNpZBgD",
-            "IAEoDBJAChFFbmRQb2ludEJlaGF2aW91chgEIAEoCzIlLnNlcnZpY2VfbGF5",
-            "ZXIuU0xTcnY2RW5kUG9pbnRCZWhhdmlvchIxCglTaWRTdHJ1Y3QYBSABKAsy",
-            "Hi5zZXJ2aWNlX2xheWVyLlNMU3J2NlNpZFN0cnVjdCJUChZTTFNydjZFbmRQ",
-            "b2ludEJlaGF2aW9yEhgKEEVuZFBvaW50QmVoYXZpb3IYASABKA0SDQoFRmxh",
-            "Z3MYAiABKAwSEQoJQWxnb3JpdGhtGAMgASgMImcKD1NMU3J2NlNpZFN0cnVj",
-            "dBIXCg9Mb2NhdG9yQmxvY2tMZW4YASABKA0SFgoOTG9jYXRvck5vZGVMZW4Y",
-            "AiABKA0SEwoLRnVuY3Rpb25MZW4YAyABKA0SDgoGQXJnTGVuGAQgASgNKo8D",
-            "ChhTTFNyUG9saWN5UHJvdG9jb2xPcmlnaW4SKQolU0xfU1JfUE9MSUNZX1BS",
-            "T1RPQ09MX09SSUdJTl9SRVNFUlZFRBAAEiUKIVNMX1NSX1BPTElDWV9QUk9U",
-            "T0NPTF9PUklHSU5fUENFUBABEi4KKlNMX1NSX1BPTElDWV9QUk9UT0NPTF9P",
-            "UklHSU5fQkdQX1NSX1BPTElDWRACEicKI1NMX1NSX1BPTElDWV9QUk9UT0NP",
-            "TF9PUklHSU5fQ09ORklHEAMSLQopU0xfU1JfUE9MSUNZX1BST1RPQ09MX09S",
-            "SUdJTl9QQ0VQX1ZJQV9QQ0UQChI2CjJTTF9TUl9QT0xJQ1lfUFJPVE9DT0xf",
-            "T1JJR0lOX0JHUF9TUl9QT0xJQ1lfVklBX1BDRRAUEi8KK1NMX1NSX1BPTElD",
-            "WV9QUk9UT0NPTF9PUklHSU5fQ09ORklHX1ZJQV9QQ0UQHhIwCixTTF9TUl9Q",
-            "T0xJQ1lfUFJPVE9DT0xfT1JJR0lOX0NPTkZJR19WSUFfR1JQQxAoKpsECg9T",
-            "TFNyU2VnbWVudFR5cGUSGwoXU0xfU1JfU0VHX1RZUEVfUkVTRVJWRUQQABId",
-            "ChlTTF9TUl9TRUdfVFlQRV9NUExTX0xBQkVMEAESHgoaU0xfU1JfU0VHX1RZ",
-            "UEVfU1JWNl9TSURfVjYQAhIiCh5TTF9TUl9TRUdfVFlQRV9NUExTX1BGWF9T",
-            "SURfVjQQAxIiCh5TTF9TUl9TRUdfVFlQRV9NUExTX1BGWF9TSURfVjYQBBIz",
-            "Ci9TTF9TUl9TRUdfVFlQRV9NUExTX0FESl9TSURfVjRfTk9ERV9BRERSX0xP",
-            "Q19JRBAFEi8KK1NMX1NSX1NFR19UWVBFX01QTFNfQURKX1NJRF9WNF9MT0Nf",
-            "UkVNX0FERFIQBhI2CjJTTF9TUl9TRUdfVFlQRV9NUExTX0FESl9TSURfVjZf",
-            "TE9DX1JFTV9BRERSX0FORF9JRBAHEi8KK1NMX1NSX1NFR19UWVBFX01QTFNf",
-            "QURKX1NJRF9WNl9MT0NfUkVNX0FERFIQCBIsCihTTF9TUl9TRUdfVFlQRV9T",
-            "UlY2X0VORF9TSURfVjZfTk9ERV9BRERSEAkSNgoyU0xfU1JfU0VHX1RZUEVf",
-            "U1JWNl9FTkRfU0lEX1Y2X0xPQ19SRU1fQUREUl9BTkRfSUQQChIvCitTTF9T",
-            "Ul9TRUdfVFlQRV9TUlY2X0VORF9TSURfVjZfTE9DX1JFTV9BRERSEAtCUVpP",
-            "Z2l0aHViLmNvbS9DaXNjby1zZXJ2aWNlLWxheWVyL3NlcnZpY2UtbGF5ZXIt",
-            "b2JqbW9kZWwvZ3JwYy9wcm90b3M7c2VydmljZV9sYXllcmIGcHJvdG8z"));
+            "ChJzbF9zcl9jb21tb24ucHJvdG8SDXNlcnZpY2VfbGF5ZXIaFXNsX2NvbW1v",
+            "bl90eXBlcy5wcm90byIgCg9TTFNyUG9saWN5RmxhZ3MSDQoFRmxhZ3MYASAB",
+            "KA0iQAoIU2xTckJzaWQSEgoITXBsc0JzaWQYASABKA1IABISCghTcnY2QnNp",
+            "ZBgCIAEoDEgAQgwKCkJpbmRpbmdTaWQiGgoKU0xTckNwTmFtZRIMCgROYW1l",
+            "GAEgASgJIvkBCg9TTFNyU2VnbWVudERlc2MSEQoJQWxnb3JpdGhtGAEgASgN",
+            "Ei0KCUxvY2FsTm9kZRgCIAEoCzIaLnNlcnZpY2VfbGF5ZXIuU0xJcEFkZHJl",
+            "c3MSLgoKUmVtb3RlTm9kZRgDIAEoCzIaLnNlcnZpY2VfbGF5ZXIuU0xJcEFk",
+            "ZHJlc3MSHwoXSXB2NkxvY2FsTm9kZUdsb2JhbEFkZHIYBCABKAwSIAoYSXB2",
+            "NlJlbW90ZU5vZGVHbG9iYWxBZGRyGAUgASgMEhcKD0xvY2FsTm9kZUludGZJ",
+            "ZBgGIAEoDRIYChBSZW1vdGVOb2RlSW50ZklkGAcgASgNIqMCCgtTTFNyU2Vn",
+            "bWVudBIsCgRUeXBlGAEgASgOMh4uc2VydmljZV9sYXllci5TTFNyU2VnbWVu",
+            "dFR5cGUSDQoFRmxhZ3MYAiABKA0SEwoJTXBsc0xhYmVsGAMgASgNSAASEQoH",
+            "U3J2NlNpZBgEIAEoDEgAEjMKC1NlZ21lbnREZXNjGAUgASgLMh4uc2Vydmlj",
+            "ZV9sYXllci5TTFNyU2VnbWVudERlc2MSQAoRRW5kUG9pbnRCZWhhdmlvdXIY",
+            "BiABKAsyJS5zZXJ2aWNlX2xheWVyLlNMU3J2NkVuZFBvaW50QmVoYXZpb3IS",
+            "MQoJU2lkU3RydWN0GAcgASgLMh4uc2VydmljZV9sYXllci5TTFNydjZTaWRT",
+            "dHJ1Y3RCBQoDU2lkIrsBChBTTFNydjZCaW5kaW5nU2lkEg0KBUZsYWdzGAEg",
+            "ASgNEgwKBEJzaWQYAiABKAwSFQoNU3BlY2lmaWVkQnNpZBgDIAEoDBJAChFF",
+            "bmRQb2ludEJlaGF2aW91chgEIAEoCzIlLnNlcnZpY2VfbGF5ZXIuU0xTcnY2",
+            "RW5kUG9pbnRCZWhhdmlvchIxCglTaWRTdHJ1Y3QYBSABKAsyHi5zZXJ2aWNl",
+            "X2xheWVyLlNMU3J2NlNpZFN0cnVjdCJUChZTTFNydjZFbmRQb2ludEJlaGF2",
+            "aW9yEhgKEEVuZFBvaW50QmVoYXZpb3IYASABKA0SDQoFRmxhZ3MYAiABKA0S",
+            "EQoJQWxnb3JpdGhtGAMgASgNImcKD1NMU3J2NlNpZFN0cnVjdBIXCg9Mb2Nh",
+            "dG9yQmxvY2tMZW4YASABKA0SFgoOTG9jYXRvck5vZGVMZW4YAiABKA0SEwoL",
+            "RnVuY3Rpb25MZW4YAyABKA0SDgoGQXJnTGVuGAQgASgNKo8DChhTTFNyUG9s",
+            "aWN5UHJvdG9jb2xPcmlnaW4SKQolU0xfU1JfUE9MSUNZX1BST1RPQ09MX09S",
+            "SUdJTl9SRVNFUlZFRBAAEiUKIVNMX1NSX1BPTElDWV9QUk9UT0NPTF9PUklH",
+            "SU5fUENFUBABEi4KKlNMX1NSX1BPTElDWV9QUk9UT0NPTF9PUklHSU5fQkdQ",
+            "X1NSX1BPTElDWRACEicKI1NMX1NSX1BPTElDWV9QUk9UT0NPTF9PUklHSU5f",
+            "Q09ORklHEAMSLQopU0xfU1JfUE9MSUNZX1BST1RPQ09MX09SSUdJTl9QQ0VQ",
+            "X1ZJQV9QQ0UQChI2CjJTTF9TUl9QT0xJQ1lfUFJPVE9DT0xfT1JJR0lOX0JH",
+            "UF9TUl9QT0xJQ1lfVklBX1BDRRAUEi8KK1NMX1NSX1BPTElDWV9QUk9UT0NP",
+            "TF9PUklHSU5fQ09ORklHX1ZJQV9QQ0UQHhIwCixTTF9TUl9QT0xJQ1lfUFJP",
+            "VE9DT0xfT1JJR0lOX0NPTkZJR19WSUFfR1JQQxAoKn0KElNMU3JQb2xpY3lG",
+            "bGFnc0RlZhIeChpTTF9TUl9QT0xJQ1lfRkxBR19SRVNFUlZFRBAAEiIKHVNM",
+            "X1NSX1BPTElDWV9GTEFHX0VORFBPSU5UX1Y2EIABEiMKH1NMX1NSX1BPTElD",
+            "WV9GTEFHX09SSUdJTkFUT1JfVjYQQCqbBAoPU0xTclNlZ21lbnRUeXBlEhsK",
+            "F1NMX1NSX1NFR19UWVBFX1JFU0VSVkVEEAASHQoZU0xfU1JfU0VHX1RZUEVf",
+            "TVBMU19MQUJFTBABEh4KGlNMX1NSX1NFR19UWVBFX1NSVjZfU0lEX1Y2EAIS",
+            "IgoeU0xfU1JfU0VHX1RZUEVfTVBMU19QRlhfU0lEX1Y0EAMSIgoeU0xfU1Jf",
+            "U0VHX1RZUEVfTVBMU19QRlhfU0lEX1Y2EAQSMwovU0xfU1JfU0VHX1RZUEVf",
+            "TVBMU19BREpfU0lEX1Y0X05PREVfQUREUl9MT0NfSUQQBRIvCitTTF9TUl9T",
+            "RUdfVFlQRV9NUExTX0FESl9TSURfVjRfTE9DX1JFTV9BRERSEAYSNgoyU0xf",
+            "U1JfU0VHX1RZUEVfTVBMU19BREpfU0lEX1Y2X0xPQ19SRU1fQUREUl9BTkRf",
+            "SUQQBxIvCitTTF9TUl9TRUdfVFlQRV9NUExTX0FESl9TSURfVjZfTE9DX1JF",
+            "TV9BRERSEAgSLAooU0xfU1JfU0VHX1RZUEVfU1JWNl9FTkRfU0lEX1Y2X05P",
+            "REVfQUREUhAJEjYKMlNMX1NSX1NFR19UWVBFX1NSVjZfRU5EX1NJRF9WNl9M",
+            "T0NfUkVNX0FERFJfQU5EX0lEEAoSLworU0xfU1JfU0VHX1RZUEVfU1JWNl9F",
+            "TkRfU0lEX1Y2X0xPQ19SRU1fQUREUhALKoACChBTTFNyU2VnbWVudEZsYWdz",
+            "Eh8KG1NMX1NSX1NFR01FTlRfRkxBR19SRVNFUlZFRBAAEiQKHlNMX1NSX1NF",
+            "R01FTlRfRkxBR19TSURfUFJFU0VOVBCAgAISMQorU0xfU1JfU0VHTUVOVF9G",
+            "TEFHX1NJRF9FWFBMSUNJVF9QUk9WSVNJT05FRBCAgAESJAofU0xfU1JfU0VH",
+            "TUVOVF9GTEFHX1NJRF9WRVJJRklFRBCAQBIkCh9TTF9TUl9TRUdNRU5UX0ZM",
+            "QUdfU0lEX1JFU09MVkVEEIAgEiYKIVNMX1NSX1NFR01FTlRfRkxBR19TSURf",
+            "QUxHT19WQUxJRBCAECqbAQoVU0xTcnY2QmluZGluZ1NpZEZsYWdzEh4KGlNM",
+            "X1NSVjZfQlNJRF9GTEFHX1JFU0VSVkVEEAASIQobU0xfU1JWNl9CU0lEX0ZM",
+            "QUdfQUxMT0NBVEVEEICAAhIfChlTTF9TUlY2X0JTSURfRkxBR19VTkFWQUlM",
+            "EICAARIeChlTTF9TUlY2X0JTSURfRkxBR19EWU5BTUlDEIBAQlFaT2dpdGh1",
+            "Yi5jb20vQ2lzY28tc2VydmljZS1sYXllci9zZXJ2aWNlLWxheWVyLW9iam1v",
+            "ZGVsL2dycGMvcHJvdG9zO3NlcnZpY2VfbGF5ZXJiBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { },
-          new pbr::GeneratedClrTypeInfo(new[] {typeof(global::ServiceLayer.SLSrPolicyProtocolOrigin), typeof(global::ServiceLayer.SLSrSegmentType), }, null, new pbr::GeneratedClrTypeInfo[] {
+          new pbr::FileDescriptor[] { global::ServiceLayer.SlCommonTypesReflection.Descriptor, },
+          new pbr::GeneratedClrTypeInfo(new[] {typeof(global::ServiceLayer.SLSrPolicyProtocolOrigin), typeof(global::ServiceLayer.SLSrPolicyFlagsDef), typeof(global::ServiceLayer.SLSrSegmentType), typeof(global::ServiceLayer.SLSrSegmentFlags), typeof(global::ServiceLayer.SLSrv6BindingSidFlags), }, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLSrPolicyFlags), global::ServiceLayer.SLSrPolicyFlags.Parser, new[]{ "Flags" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SlSrBsid), global::ServiceLayer.SlSrBsid.Parser, new[]{ "MplsBsid", "Srv6Bsid" }, new[]{ "BindingSid" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLSrCpName), global::ServiceLayer.SLSrCpName.Parser, new[]{ "Name" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLSrSegmentDesc), global::ServiceLayer.SLSrSegmentDesc.Parser, new[]{ "Algorithm", "Ipv4LocAddr", "Ipv6LocAddr", "Ipv4RemAddr", "Ipv6RemAddr", "Ipv6LocalNodeGlobalAddr", "Ipv6RemoteNodeGlobalAddr", "LocalNodeIntfId", "RemoteNodeIntfId" }, new[]{ "LocalNodeAddr", "RemoteNodeAddr" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLSrSegmentDesc), global::ServiceLayer.SLSrSegmentDesc.Parser, new[]{ "Algorithm", "LocalNode", "RemoteNode", "Ipv6LocalNodeGlobalAddr", "Ipv6RemoteNodeGlobalAddr", "LocalNodeIntfId", "RemoteNodeIntfId" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLSrSegment), global::ServiceLayer.SLSrSegment.Parser, new[]{ "Type", "Flags", "MplsLabel", "Srv6Sid", "SegmentDesc", "EndPointBehaviour", "SidStruct" }, new[]{ "Sid" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLSrv6BindingSid), global::ServiceLayer.SLSrv6BindingSid.Parser, new[]{ "Flags", "Bsid", "SpecifiedBsid", "EndPointBehaviour", "SidStruct" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLSrv6EndPointBehavior), global::ServiceLayer.SLSrv6EndPointBehavior.Parser, new[]{ "EndPointBehavior", "Flags", "Algorithm" }, null, null, null, null),
@@ -91,6 +103,7 @@ namespace ServiceLayer {
   #region Enums
   /// <summary>
   /// Protocol Originating SR Policy
+  /// Section 8.4 of [draft-ietf-idr-bgp-ls-sr-policy]
   /// </summary>
   public enum SLSrPolicyProtocolOrigin {
     [pbr::OriginalName("SL_SR_POLICY_PROTOCOL_ORIGIN_RESERVED")] Reserved = 0,
@@ -104,7 +117,30 @@ namespace ServiceLayer {
   }
 
   /// <summary>
+  /// Flags associated with the SR policy
+  /// Section 4 of [draft-ietf-idr-bgp-ls-sr-policy]
+  /// Each flag is indicated as a bit field. Supported values are:
+  /// </summary>
+  public enum SLSrPolicyFlagsDef {
+    /// <summary>
+    /// Reserved.
+    /// </summary>
+    [pbr::OriginalName("SL_SR_POLICY_FLAG_RESERVED")] SlSrPolicyFlagReserved = 0,
+    /// <summary>
+    /// Bit-0: E-Flag: Indicates the encoding of endpoint as IPv6 address when
+    /// set and IPv4 address when clear
+    /// </summary>
+    [pbr::OriginalName("SL_SR_POLICY_FLAG_ENDPOINT_V6")] SlSrPolicyFlagEndpointV6 = 128,
+    /// <summary>
+    /// Bit-1: O-Flag: Indicates the encoding of originator address as IPv6
+    /// address when set and IPv4 address when clear
+    /// </summary>
+    [pbr::OriginalName("SL_SR_POLICY_FLAG_ORIGINATOR_V6")] SlSrPolicyFlagOriginatorV6 = 64,
+  }
+
+  /// <summary>
   /// SR Segment Type
+  /// Section 8.5 of [draft-ietf-idr-bgp-ls-sr-policy]
   /// </summary>
   public enum SLSrSegmentType {
     /// <summary>
@@ -163,6 +199,74 @@ namespace ServiceLayer {
     [pbr::OriginalName("SL_SR_SEG_TYPE_SRV6_END_SID_V6_LOC_REM_ADDR")] SlSrSegTypeSrv6EndSidV6LocRemAddr = 11,
   }
 
+  /// <summary>
+  /// Flags associated with the SR Segment
+  /// Section 5.8 of [draft-ietf-idr-bgp-ls-sr-policy]
+  /// Each flag is indicated as a bit field. Supported values are:
+  /// </summary>
+  public enum SLSrSegmentFlags {
+    /// <summary>
+    /// Reserved.
+    /// </summary>
+    [pbr::OriginalName("SL_SR_SEGMENT_FLAG_RESERVED")] SlSrSegmentFlagReserved = 0,
+    /// <summary>
+    /// Bit-0: S-Flag: Indicates the presence of SID value in the SID field
+    /// when set and that no value is indicated when clear.
+    /// </summary>
+    [pbr::OriginalName("SL_SR_SEGMENT_FLAG_SID_PRESENT")] IdPresent = 32768,
+    /// <summary>
+    /// Bit-1: E-Flag: Indicates the SID value is explicitly provisioned value
+    /// (locally on headend or via controller/PCE) when set and is a
+    /// dynamically resolved value by headend when clear.
+    /// </summary>
+    [pbr::OriginalName("SL_SR_SEGMENT_FLAG_SID_EXPLICIT_PROVISIONED")] IdExplicitProvisioned = 16384,
+    /// <summary>
+    /// Bit-2: V-Flag: Indicates the SID has passed verification or did not
+    /// require verification when set and failed verification when
+    /// clear.
+    /// </summary>
+    [pbr::OriginalName("SL_SR_SEGMENT_FLAG_SID_VERIFIED")] IdVerified = 8192,
+    /// <summary>
+    /// Bit-3: R-Flag: Indicates the SID has been resolved or did not require
+    /// resolution (e.g. because it is not the first SID) when set and
+    /// failed resolution when clear.
+    /// </summary>
+    [pbr::OriginalName("SL_SR_SEGMENT_FLAG_SID_RESOLVED")] IdResolved = 4096,
+    /// <summary>
+    /// Bit-4: A-Flag: Indicates that the Algorithm indicated in the Segment
+    /// descriptor is valid when set.  When clear, it indicates that
+    /// the headend is unable to determine the algorithm of the SID.
+    /// </summary>
+    [pbr::OriginalName("SL_SR_SEGMENT_FLAG_SID_ALGO_VALID")] IdAlgoValid = 2048,
+  }
+
+  /// <summary>
+  /// Flags associated with the SRv6 Binding SID
+  /// Section 5.2 of [draft-ietf-idr-bgp-ls-sr-policy]
+  /// Each flag is indicated as a bit field. Supported values are:
+  /// </summary>
+  public enum SLSrv6BindingSidFlags {
+    /// <summary>
+    /// Reserved.
+    /// </summary>
+    [pbr::OriginalName("SL_SRV6_BSID_FLAG_RESERVED")] SlSrv6BsidFlagReserved = 0,
+    /// <summary>
+    /// Bit-0: B-Flag: Indicates the allocation of the value in the BSID field
+    /// when set and indicates that BSID is not allocated when clear.
+    /// </summary>
+    [pbr::OriginalName("SL_SRV6_BSID_FLAG_ALLOCATED")] SlSrv6BsidFlagAllocated = 32768,
+    /// <summary>
+    /// Bit-1: U-Flag: Indicates the specified BSID value is unavailable when set.
+    /// </summary>
+    [pbr::OriginalName("SL_SRV6_BSID_FLAG_UNAVAIL")] SlSrv6BsidFlagUnavail = 16384,
+    /// <summary>
+    /// Bit-2: F-Flag: Indicates the BSID value is one allocated from dynamic
+    /// label pool due to fallback (e.g. when specified BSID is
+    /// unavailable) when set.
+    /// </summary>
+    [pbr::OriginalName("SL_SRV6_BSID_FLAG_DYNAMIC")] SlSrv6BsidFlagDynamic = 8192,
+  }
+
   #endregion
 
   #region Messages
@@ -215,20 +319,31 @@ namespace ServiceLayer {
 
     /// <summary>Field number for the "Flags" field.</summary>
     public const int FlagsFieldNumber = 1;
-    private pb::ByteString flags_ = pb::ByteString.Empty;
+    private uint flags_;
     /// <summary>
-    /// Bit-0: E-Flag: Indicates the encoding of endpoint as IPv6 address when
+    /// SL Policy Flags
+    /// Flags associated with the SR policy
+    /// Section 4 of [draft-ietf-idr-bgp-ls-sr-policy]
+    /// Each flag is indicated as a bit field.
+    /// See SLSrPolicyFlagsDef for flag enumerations.
+    /// Supported values are:
+    ///
+    /// SL_SR_POLICY_FLAG_ENDPOINT_V6
+    /// E-Flag: Indicates the encoding of endpoint as IPv6 address when
     /// set and IPv4 address when clear
     ///
-    /// Bit-1: O-Flag: Indicates the encoding of originator address as IPv6
+    /// SL_SR_POLICY_FLAG_ORIGINATOR_V6
+    /// O-Flag: Indicates the encoding of originator address as IPv6
     /// address when set and IPv4 address when clear
+    ///
+    /// All others are reserved.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pb::ByteString Flags {
+    public uint Flags {
       get { return flags_; }
       set {
-        flags_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        flags_ = value;
       }
     }
 
@@ -255,7 +370,7 @@ namespace ServiceLayer {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (Flags.Length != 0) hash ^= Flags.GetHashCode();
+      if (Flags != 0) hash ^= Flags.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -274,9 +389,9 @@ namespace ServiceLayer {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (Flags.Length != 0) {
-        output.WriteRawTag(10);
-        output.WriteBytes(Flags);
+      if (Flags != 0) {
+        output.WriteRawTag(8);
+        output.WriteUInt32(Flags);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -288,9 +403,9 @@ namespace ServiceLayer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (Flags.Length != 0) {
-        output.WriteRawTag(10);
-        output.WriteBytes(Flags);
+      if (Flags != 0) {
+        output.WriteRawTag(8);
+        output.WriteUInt32(Flags);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -302,8 +417,8 @@ namespace ServiceLayer {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (Flags.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeBytesSize(Flags);
+      if (Flags != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Flags);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -317,7 +432,7 @@ namespace ServiceLayer {
       if (other == null) {
         return;
       }
-      if (other.Flags.Length != 0) {
+      if (other.Flags != 0) {
         Flags = other.Flags;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
@@ -335,8 +450,8 @@ namespace ServiceLayer {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
-            Flags = input.ReadBytes();
+          case 8: {
+            Flags = input.ReadUInt32();
             break;
           }
         }
@@ -354,8 +469,8 @@ namespace ServiceLayer {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
-          case 10: {
-            Flags = input.ReadBytes();
+          case 8: {
+            Flags = input.ReadUInt32();
             break;
           }
         }
@@ -440,6 +555,8 @@ namespace ServiceLayer {
     public const int Srv6BsidFieldNumber = 2;
     /// <summary>
     /// This field carries info about an SRv6 binding SID.
+    /// SRv6 binding SID takes an IPv6 Address and must be
+    /// enforced for 16 bytes.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -687,7 +804,7 @@ namespace ServiceLayer {
     private string name_ = "";
     /// <summary>
     /// Symbolic name for the SR Policy candidate path without a NULL
-    /// terminator. It is RECOMMENDED that the size of the symbolic name
+    /// terminator. It must be enforced that the size of the symbolic name
     /// be limited to 255 characters.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -870,28 +987,12 @@ namespace ServiceLayer {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public SLSrSegmentDesc(SLSrSegmentDesc other) : this() {
       algorithm_ = other.algorithm_;
+      localNode_ = other.localNode_ != null ? other.localNode_.Clone() : null;
+      remoteNode_ = other.remoteNode_ != null ? other.remoteNode_.Clone() : null;
       ipv6LocalNodeGlobalAddr_ = other.ipv6LocalNodeGlobalAddr_;
       ipv6RemoteNodeGlobalAddr_ = other.ipv6RemoteNodeGlobalAddr_;
       localNodeIntfId_ = other.localNodeIntfId_;
       remoteNodeIntfId_ = other.remoteNodeIntfId_;
-      switch (other.LocalNodeAddrCase) {
-        case LocalNodeAddrOneofCase.Ipv4LocAddr:
-          Ipv4LocAddr = other.Ipv4LocAddr;
-          break;
-        case LocalNodeAddrOneofCase.Ipv6LocAddr:
-          Ipv6LocAddr = other.Ipv6LocAddr;
-          break;
-      }
-
-      switch (other.RemoteNodeAddrCase) {
-        case RemoteNodeAddrOneofCase.Ipv4RemAddr:
-          Ipv4RemAddr = other.Ipv4RemAddr;
-          break;
-        case RemoteNodeAddrOneofCase.Ipv6RemAddr:
-          Ipv6RemAddr = other.Ipv6RemAddr;
-          break;
-      }
-
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -903,78 +1004,48 @@ namespace ServiceLayer {
 
     /// <summary>Field number for the "Algorithm" field.</summary>
     public const int AlgorithmFieldNumber = 1;
-    private pb::ByteString algorithm_ = pb::ByteString.Empty;
+    private uint algorithm_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pb::ByteString Algorithm {
+    public uint Algorithm {
       get { return algorithm_; }
       set {
-        algorithm_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        algorithm_ = value;
       }
     }
 
-    /// <summary>Field number for the "Ipv4LocAddr" field.</summary>
-    public const int Ipv4LocAddrFieldNumber = 2;
+    /// <summary>Field number for the "LocalNode" field.</summary>
+    public const int LocalNodeFieldNumber = 2;
+    private global::ServiceLayer.SLIpAddress localNode_;
     /// <summary>
-    /// This field carries info about an IPv4 local node address.
+    /// Carries info about local node address.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pb::ByteString Ipv4LocAddr {
-      get { return localNodeAddrCase_ == LocalNodeAddrOneofCase.Ipv4LocAddr ? (pb::ByteString) localNodeAddr_ : pb::ByteString.Empty; }
+    public global::ServiceLayer.SLIpAddress LocalNode {
+      get { return localNode_; }
       set {
-        localNodeAddr_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-        localNodeAddrCase_ = LocalNodeAddrOneofCase.Ipv4LocAddr;
+        localNode_ = value;
       }
     }
 
-    /// <summary>Field number for the "Ipv6LocAddr" field.</summary>
-    public const int Ipv6LocAddrFieldNumber = 3;
+    /// <summary>Field number for the "RemoteNode" field.</summary>
+    public const int RemoteNodeFieldNumber = 3;
+    private global::ServiceLayer.SLIpAddress remoteNode_;
     /// <summary>
-    /// This field carries info about an IPv6 local node address.
+    /// Carries info about remote node address.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pb::ByteString Ipv6LocAddr {
-      get { return localNodeAddrCase_ == LocalNodeAddrOneofCase.Ipv6LocAddr ? (pb::ByteString) localNodeAddr_ : pb::ByteString.Empty; }
+    public global::ServiceLayer.SLIpAddress RemoteNode {
+      get { return remoteNode_; }
       set {
-        localNodeAddr_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-        localNodeAddrCase_ = LocalNodeAddrOneofCase.Ipv6LocAddr;
-      }
-    }
-
-    /// <summary>Field number for the "Ipv4RemAddr" field.</summary>
-    public const int Ipv4RemAddrFieldNumber = 4;
-    /// <summary>
-    /// This field carries info about an IPv4 remote node address.
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pb::ByteString Ipv4RemAddr {
-      get { return remoteNodeAddrCase_ == RemoteNodeAddrOneofCase.Ipv4RemAddr ? (pb::ByteString) remoteNodeAddr_ : pb::ByteString.Empty; }
-      set {
-        remoteNodeAddr_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-        remoteNodeAddrCase_ = RemoteNodeAddrOneofCase.Ipv4RemAddr;
-      }
-    }
-
-    /// <summary>Field number for the "Ipv6RemAddr" field.</summary>
-    public const int Ipv6RemAddrFieldNumber = 5;
-    /// <summary>
-    /// This field carries info about an IPv6 remote node address.
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pb::ByteString Ipv6RemAddr {
-      get { return remoteNodeAddrCase_ == RemoteNodeAddrOneofCase.Ipv6RemAddr ? (pb::ByteString) remoteNodeAddr_ : pb::ByteString.Empty; }
-      set {
-        remoteNodeAddr_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-        remoteNodeAddrCase_ = RemoteNodeAddrOneofCase.Ipv6RemAddr;
+        remoteNode_ = value;
       }
     }
 
     /// <summary>Field number for the "Ipv6LocalNodeGlobalAddr" field.</summary>
-    public const int Ipv6LocalNodeGlobalAddrFieldNumber = 6;
+    public const int Ipv6LocalNodeGlobalAddrFieldNumber = 4;
     private pb::ByteString ipv6LocalNodeGlobalAddr_ = pb::ByteString.Empty;
     /// <summary>
     /// Carries info about IPv6 local node global address.
@@ -989,7 +1060,7 @@ namespace ServiceLayer {
     }
 
     /// <summary>Field number for the "Ipv6RemoteNodeGlobalAddr" field.</summary>
-    public const int Ipv6RemoteNodeGlobalAddrFieldNumber = 7;
+    public const int Ipv6RemoteNodeGlobalAddrFieldNumber = 5;
     private pb::ByteString ipv6RemoteNodeGlobalAddr_ = pb::ByteString.Empty;
     /// <summary>
     /// Carries info about IPv6 remote node global address.
@@ -1004,11 +1075,12 @@ namespace ServiceLayer {
     }
 
     /// <summary>Field number for the "LocalNodeIntfId" field.</summary>
-    public const int LocalNodeIntfIdFieldNumber = 8;
+    public const int LocalNodeIntfIdFieldNumber = 6;
     private uint localNodeIntfId_;
     /// <summary>
-    /// Carries the interface ID of the local node identified by the local node
-    /// address.
+    /// Carries the interface ID of the local node identified by the
+    /// local node address.
+    /// Section 5.8.1 of [draft-ietf-idr-bgp-ls-sr-policy]
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -1020,11 +1092,12 @@ namespace ServiceLayer {
     }
 
     /// <summary>Field number for the "RemoteNodeIntfId" field.</summary>
-    public const int RemoteNodeIntfIdFieldNumber = 9;
+    public const int RemoteNodeIntfIdFieldNumber = 7;
     private uint remoteNodeIntfId_;
     /// <summary>
-    /// Carries the interface ID of the remote node identified by the remote
-    /// node address.
+    /// Carries the interface ID of the remote node identified by
+    /// the remote node address.
+    /// Section 5.8.1 of [draft-ietf-idr-bgp-ls-sr-policy]
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -1033,48 +1106,6 @@ namespace ServiceLayer {
       set {
         remoteNodeIntfId_ = value;
       }
-    }
-
-    private object localNodeAddr_;
-    /// <summary>Enum of possible cases for the "LocalNodeAddr" oneof.</summary>
-    public enum LocalNodeAddrOneofCase {
-      None = 0,
-      Ipv4LocAddr = 2,
-      Ipv6LocAddr = 3,
-    }
-    private LocalNodeAddrOneofCase localNodeAddrCase_ = LocalNodeAddrOneofCase.None;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public LocalNodeAddrOneofCase LocalNodeAddrCase {
-      get { return localNodeAddrCase_; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void ClearLocalNodeAddr() {
-      localNodeAddrCase_ = LocalNodeAddrOneofCase.None;
-      localNodeAddr_ = null;
-    }
-
-    private object remoteNodeAddr_;
-    /// <summary>Enum of possible cases for the "RemoteNodeAddr" oneof.</summary>
-    public enum RemoteNodeAddrOneofCase {
-      None = 0,
-      Ipv4RemAddr = 4,
-      Ipv6RemAddr = 5,
-    }
-    private RemoteNodeAddrOneofCase remoteNodeAddrCase_ = RemoteNodeAddrOneofCase.None;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public RemoteNodeAddrOneofCase RemoteNodeAddrCase {
-      get { return remoteNodeAddrCase_; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void ClearRemoteNodeAddr() {
-      remoteNodeAddrCase_ = RemoteNodeAddrOneofCase.None;
-      remoteNodeAddr_ = null;
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1093,16 +1124,12 @@ namespace ServiceLayer {
         return true;
       }
       if (Algorithm != other.Algorithm) return false;
-      if (Ipv4LocAddr != other.Ipv4LocAddr) return false;
-      if (Ipv6LocAddr != other.Ipv6LocAddr) return false;
-      if (Ipv4RemAddr != other.Ipv4RemAddr) return false;
-      if (Ipv6RemAddr != other.Ipv6RemAddr) return false;
+      if (!object.Equals(LocalNode, other.LocalNode)) return false;
+      if (!object.Equals(RemoteNode, other.RemoteNode)) return false;
       if (Ipv6LocalNodeGlobalAddr != other.Ipv6LocalNodeGlobalAddr) return false;
       if (Ipv6RemoteNodeGlobalAddr != other.Ipv6RemoteNodeGlobalAddr) return false;
       if (LocalNodeIntfId != other.LocalNodeIntfId) return false;
       if (RemoteNodeIntfId != other.RemoteNodeIntfId) return false;
-      if (LocalNodeAddrCase != other.LocalNodeAddrCase) return false;
-      if (RemoteNodeAddrCase != other.RemoteNodeAddrCase) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -1110,17 +1137,13 @@ namespace ServiceLayer {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (Algorithm.Length != 0) hash ^= Algorithm.GetHashCode();
-      if (localNodeAddrCase_ == LocalNodeAddrOneofCase.Ipv4LocAddr) hash ^= Ipv4LocAddr.GetHashCode();
-      if (localNodeAddrCase_ == LocalNodeAddrOneofCase.Ipv6LocAddr) hash ^= Ipv6LocAddr.GetHashCode();
-      if (remoteNodeAddrCase_ == RemoteNodeAddrOneofCase.Ipv4RemAddr) hash ^= Ipv4RemAddr.GetHashCode();
-      if (remoteNodeAddrCase_ == RemoteNodeAddrOneofCase.Ipv6RemAddr) hash ^= Ipv6RemAddr.GetHashCode();
+      if (Algorithm != 0) hash ^= Algorithm.GetHashCode();
+      if (localNode_ != null) hash ^= LocalNode.GetHashCode();
+      if (remoteNode_ != null) hash ^= RemoteNode.GetHashCode();
       if (Ipv6LocalNodeGlobalAddr.Length != 0) hash ^= Ipv6LocalNodeGlobalAddr.GetHashCode();
       if (Ipv6RemoteNodeGlobalAddr.Length != 0) hash ^= Ipv6RemoteNodeGlobalAddr.GetHashCode();
       if (LocalNodeIntfId != 0) hash ^= LocalNodeIntfId.GetHashCode();
       if (RemoteNodeIntfId != 0) hash ^= RemoteNodeIntfId.GetHashCode();
-      hash ^= (int) localNodeAddrCase_;
-      hash ^= (int) remoteNodeAddrCase_;
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -1139,40 +1162,32 @@ namespace ServiceLayer {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (Algorithm.Length != 0) {
-        output.WriteRawTag(10);
-        output.WriteBytes(Algorithm);
+      if (Algorithm != 0) {
+        output.WriteRawTag(8);
+        output.WriteUInt32(Algorithm);
       }
-      if (localNodeAddrCase_ == LocalNodeAddrOneofCase.Ipv4LocAddr) {
+      if (localNode_ != null) {
         output.WriteRawTag(18);
-        output.WriteBytes(Ipv4LocAddr);
+        output.WriteMessage(LocalNode);
       }
-      if (localNodeAddrCase_ == LocalNodeAddrOneofCase.Ipv6LocAddr) {
+      if (remoteNode_ != null) {
         output.WriteRawTag(26);
-        output.WriteBytes(Ipv6LocAddr);
-      }
-      if (remoteNodeAddrCase_ == RemoteNodeAddrOneofCase.Ipv4RemAddr) {
-        output.WriteRawTag(34);
-        output.WriteBytes(Ipv4RemAddr);
-      }
-      if (remoteNodeAddrCase_ == RemoteNodeAddrOneofCase.Ipv6RemAddr) {
-        output.WriteRawTag(42);
-        output.WriteBytes(Ipv6RemAddr);
+        output.WriteMessage(RemoteNode);
       }
       if (Ipv6LocalNodeGlobalAddr.Length != 0) {
-        output.WriteRawTag(50);
+        output.WriteRawTag(34);
         output.WriteBytes(Ipv6LocalNodeGlobalAddr);
       }
       if (Ipv6RemoteNodeGlobalAddr.Length != 0) {
-        output.WriteRawTag(58);
+        output.WriteRawTag(42);
         output.WriteBytes(Ipv6RemoteNodeGlobalAddr);
       }
       if (LocalNodeIntfId != 0) {
-        output.WriteRawTag(64);
+        output.WriteRawTag(48);
         output.WriteUInt32(LocalNodeIntfId);
       }
       if (RemoteNodeIntfId != 0) {
-        output.WriteRawTag(72);
+        output.WriteRawTag(56);
         output.WriteUInt32(RemoteNodeIntfId);
       }
       if (_unknownFields != null) {
@@ -1185,40 +1200,32 @@ namespace ServiceLayer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (Algorithm.Length != 0) {
-        output.WriteRawTag(10);
-        output.WriteBytes(Algorithm);
+      if (Algorithm != 0) {
+        output.WriteRawTag(8);
+        output.WriteUInt32(Algorithm);
       }
-      if (localNodeAddrCase_ == LocalNodeAddrOneofCase.Ipv4LocAddr) {
+      if (localNode_ != null) {
         output.WriteRawTag(18);
-        output.WriteBytes(Ipv4LocAddr);
+        output.WriteMessage(LocalNode);
       }
-      if (localNodeAddrCase_ == LocalNodeAddrOneofCase.Ipv6LocAddr) {
+      if (remoteNode_ != null) {
         output.WriteRawTag(26);
-        output.WriteBytes(Ipv6LocAddr);
-      }
-      if (remoteNodeAddrCase_ == RemoteNodeAddrOneofCase.Ipv4RemAddr) {
-        output.WriteRawTag(34);
-        output.WriteBytes(Ipv4RemAddr);
-      }
-      if (remoteNodeAddrCase_ == RemoteNodeAddrOneofCase.Ipv6RemAddr) {
-        output.WriteRawTag(42);
-        output.WriteBytes(Ipv6RemAddr);
+        output.WriteMessage(RemoteNode);
       }
       if (Ipv6LocalNodeGlobalAddr.Length != 0) {
-        output.WriteRawTag(50);
+        output.WriteRawTag(34);
         output.WriteBytes(Ipv6LocalNodeGlobalAddr);
       }
       if (Ipv6RemoteNodeGlobalAddr.Length != 0) {
-        output.WriteRawTag(58);
+        output.WriteRawTag(42);
         output.WriteBytes(Ipv6RemoteNodeGlobalAddr);
       }
       if (LocalNodeIntfId != 0) {
-        output.WriteRawTag(64);
+        output.WriteRawTag(48);
         output.WriteUInt32(LocalNodeIntfId);
       }
       if (RemoteNodeIntfId != 0) {
-        output.WriteRawTag(72);
+        output.WriteRawTag(56);
         output.WriteUInt32(RemoteNodeIntfId);
       }
       if (_unknownFields != null) {
@@ -1231,20 +1238,14 @@ namespace ServiceLayer {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (Algorithm.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeBytesSize(Algorithm);
+      if (Algorithm != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Algorithm);
       }
-      if (localNodeAddrCase_ == LocalNodeAddrOneofCase.Ipv4LocAddr) {
-        size += 1 + pb::CodedOutputStream.ComputeBytesSize(Ipv4LocAddr);
+      if (localNode_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(LocalNode);
       }
-      if (localNodeAddrCase_ == LocalNodeAddrOneofCase.Ipv6LocAddr) {
-        size += 1 + pb::CodedOutputStream.ComputeBytesSize(Ipv6LocAddr);
-      }
-      if (remoteNodeAddrCase_ == RemoteNodeAddrOneofCase.Ipv4RemAddr) {
-        size += 1 + pb::CodedOutputStream.ComputeBytesSize(Ipv4RemAddr);
-      }
-      if (remoteNodeAddrCase_ == RemoteNodeAddrOneofCase.Ipv6RemAddr) {
-        size += 1 + pb::CodedOutputStream.ComputeBytesSize(Ipv6RemAddr);
+      if (remoteNode_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(RemoteNode);
       }
       if (Ipv6LocalNodeGlobalAddr.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeBytesSize(Ipv6LocalNodeGlobalAddr);
@@ -1270,8 +1271,20 @@ namespace ServiceLayer {
       if (other == null) {
         return;
       }
-      if (other.Algorithm.Length != 0) {
+      if (other.Algorithm != 0) {
         Algorithm = other.Algorithm;
+      }
+      if (other.localNode_ != null) {
+        if (localNode_ == null) {
+          LocalNode = new global::ServiceLayer.SLIpAddress();
+        }
+        LocalNode.MergeFrom(other.LocalNode);
+      }
+      if (other.remoteNode_ != null) {
+        if (remoteNode_ == null) {
+          RemoteNode = new global::ServiceLayer.SLIpAddress();
+        }
+        RemoteNode.MergeFrom(other.RemoteNode);
       }
       if (other.Ipv6LocalNodeGlobalAddr.Length != 0) {
         Ipv6LocalNodeGlobalAddr = other.Ipv6LocalNodeGlobalAddr;
@@ -1285,24 +1298,6 @@ namespace ServiceLayer {
       if (other.RemoteNodeIntfId != 0) {
         RemoteNodeIntfId = other.RemoteNodeIntfId;
       }
-      switch (other.LocalNodeAddrCase) {
-        case LocalNodeAddrOneofCase.Ipv4LocAddr:
-          Ipv4LocAddr = other.Ipv4LocAddr;
-          break;
-        case LocalNodeAddrOneofCase.Ipv6LocAddr:
-          Ipv6LocAddr = other.Ipv6LocAddr;
-          break;
-      }
-
-      switch (other.RemoteNodeAddrCase) {
-        case RemoteNodeAddrOneofCase.Ipv4RemAddr:
-          Ipv4RemAddr = other.Ipv4RemAddr;
-          break;
-        case RemoteNodeAddrOneofCase.Ipv6RemAddr:
-          Ipv6RemAddr = other.Ipv6RemAddr;
-          break;
-      }
-
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -1318,39 +1313,37 @@ namespace ServiceLayer {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
-            Algorithm = input.ReadBytes();
+          case 8: {
+            Algorithm = input.ReadUInt32();
             break;
           }
           case 18: {
-            Ipv4LocAddr = input.ReadBytes();
+            if (localNode_ == null) {
+              LocalNode = new global::ServiceLayer.SLIpAddress();
+            }
+            input.ReadMessage(LocalNode);
             break;
           }
           case 26: {
-            Ipv6LocAddr = input.ReadBytes();
+            if (remoteNode_ == null) {
+              RemoteNode = new global::ServiceLayer.SLIpAddress();
+            }
+            input.ReadMessage(RemoteNode);
             break;
           }
           case 34: {
-            Ipv4RemAddr = input.ReadBytes();
-            break;
-          }
-          case 42: {
-            Ipv6RemAddr = input.ReadBytes();
-            break;
-          }
-          case 50: {
             Ipv6LocalNodeGlobalAddr = input.ReadBytes();
             break;
           }
-          case 58: {
+          case 42: {
             Ipv6RemoteNodeGlobalAddr = input.ReadBytes();
             break;
           }
-          case 64: {
+          case 48: {
             LocalNodeIntfId = input.ReadUInt32();
             break;
           }
-          case 72: {
+          case 56: {
             RemoteNodeIntfId = input.ReadUInt32();
             break;
           }
@@ -1369,39 +1362,37 @@ namespace ServiceLayer {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
-          case 10: {
-            Algorithm = input.ReadBytes();
+          case 8: {
+            Algorithm = input.ReadUInt32();
             break;
           }
           case 18: {
-            Ipv4LocAddr = input.ReadBytes();
+            if (localNode_ == null) {
+              LocalNode = new global::ServiceLayer.SLIpAddress();
+            }
+            input.ReadMessage(LocalNode);
             break;
           }
           case 26: {
-            Ipv6LocAddr = input.ReadBytes();
+            if (remoteNode_ == null) {
+              RemoteNode = new global::ServiceLayer.SLIpAddress();
+            }
+            input.ReadMessage(RemoteNode);
             break;
           }
           case 34: {
-            Ipv4RemAddr = input.ReadBytes();
-            break;
-          }
-          case 42: {
-            Ipv6RemAddr = input.ReadBytes();
-            break;
-          }
-          case 50: {
             Ipv6LocalNodeGlobalAddr = input.ReadBytes();
             break;
           }
-          case 58: {
+          case 42: {
             Ipv6RemoteNodeGlobalAddr = input.ReadBytes();
             break;
           }
-          case 64: {
+          case 48: {
             LocalNodeIntfId = input.ReadUInt32();
             break;
           }
-          case 72: {
+          case 56: {
             RemoteNodeIntfId = input.ReadUInt32();
             break;
           }
@@ -1487,33 +1478,45 @@ namespace ServiceLayer {
 
     /// <summary>Field number for the "Flags" field.</summary>
     public const int FlagsFieldNumber = 2;
-    private pb::ByteString flags_ = pb::ByteString.Empty;
+    private uint flags_;
     /// <summary>
+    /// SR Segment Flags
+    /// Flags associated with the SR Segment
+    /// Section 5.8 of [draft-ietf-idr-bgp-ls-sr-policy]
+    /// Each flag is indicated as a bit field. Supported values are:
+    ///
+    /// SL_SR_SEGMENT_FLAG_SID_PRESENT
     /// Bit-0: S-Flag: Indicates the presence of SID value in the SID field
     /// when set and that no value is indicated when clear.
     ///
+    /// SL_SR_SEGMENT_FLAG_SID_EXPLICIT_PROVISIONED
     /// Bit-1: E-Flag: Indicates the SID value is explicitly provisioned value
     /// (locally on headend or via controller/PCE) when set and is a
     /// dynamically resolved value by headend when clear.
     ///
+    /// SL_SR_SEGMENT_FLAG_SID_VERIFIED
     /// Bit-2: V-Flag: Indicates the SID has passed verification or did not
     /// require verification when set and failed verification when
     /// clear.
     ///
+    /// SL_SR_SEGMENT_FLAG_SID_RESOLVED
     /// Bit-3: R-Flag: Indicates the SID has been resolved or did not require
     /// resolution (e.g. because it is not the first SID) when set and
     /// failed resolution when clear.
     ///
+    /// SL_SR_SEGMENT_FLAG_SID_ALGO_VALID
     /// Bit-4: A-Flag: Indicates that the Algorithm indicated in the Segment
     /// descriptor is valid when set.  When clear, it indicates that
     /// the headend is unable to determine the algorithm of the SID.
+    ///
+    /// All others are reserved.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pb::ByteString Flags {
+    public uint Flags {
       get { return flags_; }
       set {
-        flags_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        flags_ = value;
       }
     }
 
@@ -1536,6 +1539,8 @@ namespace ServiceLayer {
     public const int Srv6SidFieldNumber = 4;
     /// <summary>
     /// This field carries info about an SRv6 SID.
+    /// SRv6 SID takes an IPv6 Address and must be
+    /// enforced for 16 bytes.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -1646,7 +1651,7 @@ namespace ServiceLayer {
     public override int GetHashCode() {
       int hash = 1;
       if (Type != global::ServiceLayer.SLSrSegmentType.SlSrSegTypeReserved) hash ^= Type.GetHashCode();
-      if (Flags.Length != 0) hash ^= Flags.GetHashCode();
+      if (Flags != 0) hash ^= Flags.GetHashCode();
       if (sidCase_ == SidOneofCase.MplsLabel) hash ^= MplsLabel.GetHashCode();
       if (sidCase_ == SidOneofCase.Srv6Sid) hash ^= Srv6Sid.GetHashCode();
       if (segmentDesc_ != null) hash ^= SegmentDesc.GetHashCode();
@@ -1675,9 +1680,9 @@ namespace ServiceLayer {
         output.WriteRawTag(8);
         output.WriteEnum((int) Type);
       }
-      if (Flags.Length != 0) {
-        output.WriteRawTag(18);
-        output.WriteBytes(Flags);
+      if (Flags != 0) {
+        output.WriteRawTag(16);
+        output.WriteUInt32(Flags);
       }
       if (sidCase_ == SidOneofCase.MplsLabel) {
         output.WriteRawTag(24);
@@ -1713,9 +1718,9 @@ namespace ServiceLayer {
         output.WriteRawTag(8);
         output.WriteEnum((int) Type);
       }
-      if (Flags.Length != 0) {
-        output.WriteRawTag(18);
-        output.WriteBytes(Flags);
+      if (Flags != 0) {
+        output.WriteRawTag(16);
+        output.WriteUInt32(Flags);
       }
       if (sidCase_ == SidOneofCase.MplsLabel) {
         output.WriteRawTag(24);
@@ -1750,8 +1755,8 @@ namespace ServiceLayer {
       if (Type != global::ServiceLayer.SLSrSegmentType.SlSrSegTypeReserved) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Type);
       }
-      if (Flags.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeBytesSize(Flags);
+      if (Flags != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Flags);
       }
       if (sidCase_ == SidOneofCase.MplsLabel) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(MplsLabel);
@@ -1783,7 +1788,7 @@ namespace ServiceLayer {
       if (other.Type != global::ServiceLayer.SLSrSegmentType.SlSrSegTypeReserved) {
         Type = other.Type;
       }
-      if (other.Flags.Length != 0) {
+      if (other.Flags != 0) {
         Flags = other.Flags;
       }
       if (other.segmentDesc_ != null) {
@@ -1832,8 +1837,8 @@ namespace ServiceLayer {
             Type = (global::ServiceLayer.SLSrSegmentType) input.ReadEnum();
             break;
           }
-          case 18: {
-            Flags = input.ReadBytes();
+          case 16: {
+            Flags = input.ReadUInt32();
             break;
           }
           case 24: {
@@ -1884,8 +1889,8 @@ namespace ServiceLayer {
             Type = (global::ServiceLayer.SLSrSegmentType) input.ReadEnum();
             break;
           }
-          case 18: {
-            Flags = input.ReadBytes();
+          case 16: {
+            Flags = input.ReadUInt32();
             break;
           }
           case 24: {
@@ -1978,23 +1983,33 @@ namespace ServiceLayer {
 
     /// <summary>Field number for the "Flags" field.</summary>
     public const int FlagsFieldNumber = 1;
-    private pb::ByteString flags_ = pb::ByteString.Empty;
+    private uint flags_;
     /// <summary>
+    /// SRv6 Binding SID Flags
+    /// Flags associated with the SRv6 Binding SID
+    /// Section 5.2 of [draft-ietf-idr-bgp-ls-sr-policy]
+    /// Each flag is indicated as a bit field. Supported values are:
+    ///
+    /// SL_SRV6_BSID_FLAG_ALLOCATED
     /// Bit-0: B-Flag: Indicates the allocation of the value in the BSID field
     /// when set and indicates that BSID is not allocated when clear.
     ///
+    /// SL_SRV6_BSID_FLAG_UNAVAIL
     /// Bit-1: U-Flag: Indicates the specified BSID value is unavailable when set.
     ///
+    /// SL_SRV6_BSID_FLAG_DYNAMIC
     /// Bit-2: F-Flag: Indicates the BSID value is one allocated from dynamic
     /// label pool due to fallback (e.g. when specified BSID is
     /// unavailable) when set.
+    ///
+    /// All others are reserved.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pb::ByteString Flags {
+    public uint Flags {
       get { return flags_; }
       set {
-        flags_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        flags_ = value;
       }
     }
 
@@ -2003,6 +2018,8 @@ namespace ServiceLayer {
     private pb::ByteString bsid_ = pb::ByteString.Empty;
     /// <summary>
     /// The operational or allocated BSID value based on the status flags.
+    /// SRv6 binding SID takes an IPv6 Address and must be
+    /// enforced for 16 bytes.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -2018,6 +2035,8 @@ namespace ServiceLayer {
     private pb::ByteString specifiedBsid_ = pb::ByteString.Empty;
     /// <summary>
     /// The explicitly specified BSID whether it is allocated or not.
+    /// SRv6 binding SID takes an IPv6 Address and must be
+    /// enforced for 16 bytes.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -2087,7 +2106,7 @@ namespace ServiceLayer {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (Flags.Length != 0) hash ^= Flags.GetHashCode();
+      if (Flags != 0) hash ^= Flags.GetHashCode();
       if (Bsid.Length != 0) hash ^= Bsid.GetHashCode();
       if (SpecifiedBsid.Length != 0) hash ^= SpecifiedBsid.GetHashCode();
       if (endPointBehaviour_ != null) hash ^= EndPointBehaviour.GetHashCode();
@@ -2110,9 +2129,9 @@ namespace ServiceLayer {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (Flags.Length != 0) {
-        output.WriteRawTag(10);
-        output.WriteBytes(Flags);
+      if (Flags != 0) {
+        output.WriteRawTag(8);
+        output.WriteUInt32(Flags);
       }
       if (Bsid.Length != 0) {
         output.WriteRawTag(18);
@@ -2140,9 +2159,9 @@ namespace ServiceLayer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (Flags.Length != 0) {
-        output.WriteRawTag(10);
-        output.WriteBytes(Flags);
+      if (Flags != 0) {
+        output.WriteRawTag(8);
+        output.WriteUInt32(Flags);
       }
       if (Bsid.Length != 0) {
         output.WriteRawTag(18);
@@ -2170,8 +2189,8 @@ namespace ServiceLayer {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (Flags.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeBytesSize(Flags);
+      if (Flags != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Flags);
       }
       if (Bsid.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeBytesSize(Bsid);
@@ -2197,7 +2216,7 @@ namespace ServiceLayer {
       if (other == null) {
         return;
       }
-      if (other.Flags.Length != 0) {
+      if (other.Flags != 0) {
         Flags = other.Flags;
       }
       if (other.Bsid.Length != 0) {
@@ -2233,8 +2252,8 @@ namespace ServiceLayer {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
-            Flags = input.ReadBytes();
+          case 8: {
+            Flags = input.ReadUInt32();
             break;
           }
           case 18: {
@@ -2274,8 +2293,8 @@ namespace ServiceLayer {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
-          case 10: {
-            Flags = input.ReadBytes();
+          case 8: {
+            Flags = input.ReadUInt32();
             break;
           }
           case 18: {
@@ -2374,32 +2393,32 @@ namespace ServiceLayer {
 
     /// <summary>Field number for the "Flags" field.</summary>
     public const int FlagsFieldNumber = 2;
-    private pb::ByteString flags_ = pb::ByteString.Empty;
+    private uint flags_;
     /// <summary>
     /// Flags associated with the SID. Section 8 of [RFC9513]
     /// for OSPFv3, and Section 7.2 of [RFC9352] for IS-IS.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pb::ByteString Flags {
+    public uint Flags {
       get { return flags_; }
       set {
-        flags_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        flags_ = value;
       }
     }
 
     /// <summary>Field number for the "Algorithm" field.</summary>
     public const int AlgorithmFieldNumber = 3;
-    private pb::ByteString algorithm_ = pb::ByteString.Empty;
+    private uint algorithm_;
     /// <summary>
     /// Algorithm associated with the SID
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pb::ByteString Algorithm {
+    public uint Algorithm {
       get { return algorithm_; }
       set {
-        algorithm_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        algorithm_ = value;
       }
     }
 
@@ -2429,8 +2448,8 @@ namespace ServiceLayer {
     public override int GetHashCode() {
       int hash = 1;
       if (EndPointBehavior != 0) hash ^= EndPointBehavior.GetHashCode();
-      if (Flags.Length != 0) hash ^= Flags.GetHashCode();
-      if (Algorithm.Length != 0) hash ^= Algorithm.GetHashCode();
+      if (Flags != 0) hash ^= Flags.GetHashCode();
+      if (Algorithm != 0) hash ^= Algorithm.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -2453,13 +2472,13 @@ namespace ServiceLayer {
         output.WriteRawTag(8);
         output.WriteUInt32(EndPointBehavior);
       }
-      if (Flags.Length != 0) {
-        output.WriteRawTag(18);
-        output.WriteBytes(Flags);
+      if (Flags != 0) {
+        output.WriteRawTag(16);
+        output.WriteUInt32(Flags);
       }
-      if (Algorithm.Length != 0) {
-        output.WriteRawTag(26);
-        output.WriteBytes(Algorithm);
+      if (Algorithm != 0) {
+        output.WriteRawTag(24);
+        output.WriteUInt32(Algorithm);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -2475,13 +2494,13 @@ namespace ServiceLayer {
         output.WriteRawTag(8);
         output.WriteUInt32(EndPointBehavior);
       }
-      if (Flags.Length != 0) {
-        output.WriteRawTag(18);
-        output.WriteBytes(Flags);
+      if (Flags != 0) {
+        output.WriteRawTag(16);
+        output.WriteUInt32(Flags);
       }
-      if (Algorithm.Length != 0) {
-        output.WriteRawTag(26);
-        output.WriteBytes(Algorithm);
+      if (Algorithm != 0) {
+        output.WriteRawTag(24);
+        output.WriteUInt32(Algorithm);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -2496,11 +2515,11 @@ namespace ServiceLayer {
       if (EndPointBehavior != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(EndPointBehavior);
       }
-      if (Flags.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeBytesSize(Flags);
+      if (Flags != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Flags);
       }
-      if (Algorithm.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeBytesSize(Algorithm);
+      if (Algorithm != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Algorithm);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -2517,10 +2536,10 @@ namespace ServiceLayer {
       if (other.EndPointBehavior != 0) {
         EndPointBehavior = other.EndPointBehavior;
       }
-      if (other.Flags.Length != 0) {
+      if (other.Flags != 0) {
         Flags = other.Flags;
       }
-      if (other.Algorithm.Length != 0) {
+      if (other.Algorithm != 0) {
         Algorithm = other.Algorithm;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
@@ -2542,12 +2561,12 @@ namespace ServiceLayer {
             EndPointBehavior = input.ReadUInt32();
             break;
           }
-          case 18: {
-            Flags = input.ReadBytes();
+          case 16: {
+            Flags = input.ReadUInt32();
             break;
           }
-          case 26: {
-            Algorithm = input.ReadBytes();
+          case 24: {
+            Algorithm = input.ReadUInt32();
             break;
           }
         }
@@ -2569,12 +2588,12 @@ namespace ServiceLayer {
             EndPointBehavior = input.ReadUInt32();
             break;
           }
-          case 18: {
-            Flags = input.ReadBytes();
+          case 16: {
+            Flags = input.ReadUInt32();
             break;
           }
-          case 26: {
-            Algorithm = input.ReadBytes();
+          case 24: {
+            Algorithm = input.ReadUInt32();
             break;
           }
         }

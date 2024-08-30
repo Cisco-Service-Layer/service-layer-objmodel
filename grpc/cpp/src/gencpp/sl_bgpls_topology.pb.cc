@@ -313,12 +313,13 @@ PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT SLBgplsTopoSrv6SidDescrDefaultT
 constexpr SLBgplsTopoSrPolicyDescr::SLBgplsTopoSrPolicyDescr(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
   : flags_(nullptr)
+  , endpoint_(nullptr)
+  , originator_(nullptr)
   , protoorigin_(0)
 
   , color_(0u)
   , originasn_(0u)
-  , discriminator_(0u)
-  , _oneof_case_{}{}
+  , discriminator_(0u){}
 struct SLBgplsTopoSrPolicyDescrDefaultTypeInternal {
   constexpr SLBgplsTopoSrPolicyDescrDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
@@ -1016,9 +1017,9 @@ PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT SLBgplsTopoBgpPeerSetSidDefault
 constexpr SLBgplsTopoSrv6EndXSid::SLBgplsTopoSrv6EndXSid(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
   : sid_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
-  , algorithm_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
-  , flags_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
   , sidstruct_(nullptr)
+  , algorithm_(0u)
+  , flags_(0u)
   , weight_(0u)
   , endpointbehavior_(0u){}
 struct SLBgplsTopoSrv6EndXSidDefaultTypeInternal {
@@ -1045,10 +1046,10 @@ PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT SLBgpLsTopoNeighborIdDefaultTyp
 constexpr SLBgplsTopoSrv6LanEndXSid::SLBgplsTopoSrv6LanEndXSid(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
   : sid_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
-  , algorithm_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
-  , flags_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
   , neighbor_(nullptr)
   , sidstruct_(nullptr)
+  , algorithm_(0u)
+  , flags_(0u)
   , weight_(0u)
   , endpointbehavior_(0u){}
 struct SLBgplsTopoSrv6LanEndXSidDefaultTypeInternal {
@@ -1249,7 +1250,7 @@ PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT SLBgplsTopoPrefixOpaqueAttrDefa
 constexpr SLBgplsTopoPrefixSid::SLBgplsTopoPrefixSid(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
   : flags_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
-  , algorithm_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
+  , algorithm_(0u)
   , labelindex_(0u)
   , prefixsidformat_(0)
 {}
@@ -1265,9 +1266,9 @@ PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT SLBgplsTopoPrefixSidDefaultType
 constexpr SLBgplsTopoPrefixRange::SLBgplsTopoPrefixRange(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
   : flags_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
-  , algorithm_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
   , sidflags_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
   , rangesize_(0u)
+  , algorithm_(0u)
   , index_(0u){}
 struct SLBgplsTopoPrefixRangeDefaultTypeInternal {
   constexpr SLBgplsTopoPrefixRangeDefaultTypeInternal()
@@ -1280,8 +1281,8 @@ struct SLBgplsTopoPrefixRangeDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT SLBgplsTopoPrefixRangeDefaultTypeInternal _SLBgplsTopoPrefixRange_default_instance_;
 constexpr SLBgplsTopoPrefixSrv6Loc::SLBgplsTopoPrefixSrv6Loc(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : flags_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
-  , algorithm_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
+  : flags_(0u)
+  , algorithm_(0u)
   , metric_(0u){}
 struct SLBgplsTopoPrefixSrv6LocDefaultTypeInternal {
   constexpr SLBgplsTopoPrefixSrv6LocDefaultTypeInternal()
@@ -1360,9 +1361,9 @@ struct SLBgplsTopoExtAdminGroupDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT SLBgplsTopoExtAdminGroupDefaultTypeInternal _SLBgplsTopoExtAdminGroup_default_instance_;
 constexpr SLBgplsTopoSrBindingSid::SLBgplsTopoSrBindingSid(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : bsidflags_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
-  , bsid_(nullptr)
-  , specifiedbsid_(nullptr){}
+  : bsid_(nullptr)
+  , specifiedbsid_(nullptr)
+  , bsidflags_(0u){}
 struct SLBgplsTopoSrBindingSidDefaultTypeInternal {
   constexpr SLBgplsTopoSrBindingSidDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
@@ -1374,8 +1375,8 @@ struct SLBgplsTopoSrBindingSidDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT SLBgplsTopoSrBindingSidDefaultTypeInternal _SLBgplsTopoSrBindingSid_default_instance_;
 constexpr SLBgplsTopoSrCpState::SLBgplsTopoSrCpState(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : flags_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
-  , priority_(0u)
+  : priority_(0u)
+  , flags_(0u)
   , preference_(0u){}
 struct SLBgplsTopoSrCpStateDefaultTypeInternal {
   constexpr SLBgplsTopoSrCpStateDefaultTypeInternal()
@@ -1389,14 +1390,14 @@ PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT SLBgplsTopoSrCpStateDefaultType
 constexpr SLBgplsTopoSrCpConstraints::SLBgplsTopoSrCpConstraints(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
   : metric_()
-  , flags_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
-  , algorithm_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
   , bandwidth_(nullptr)
   , affinity_(nullptr)
   , srlg_(nullptr)
   , disjoint_(nullptr)
   , bidirgroup_(nullptr)
-  , mtid_(0u){}
+  , flags_(0u)
+  , mtid_(0u)
+  , algorithm_(0u){}
 struct SLBgplsTopoSrCpConstraintsDefaultTypeInternal {
   constexpr SLBgplsTopoSrCpConstraintsDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
@@ -1409,9 +1410,9 @@ PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT SLBgplsTopoSrCpConstraintsDefau
 constexpr SLBgplsTopoSrSegList::SLBgplsTopoSrSegList(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
   : segments_()
-  , flags_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
-  , algorithm_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
+  , flags_(0u)
   , mtid_(0u)
+  , algorithm_(0u)
   , weight_(0u){}
 struct SLBgplsTopoSrSegListDefaultTypeInternal {
   constexpr SLBgplsTopoSrSegListDefaultTypeInternal()
@@ -1424,8 +1425,8 @@ struct SLBgplsTopoSrSegListDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT SLBgplsTopoSrSegListDefaultTypeInternal _SLBgplsTopoSrSegList_default_instance_;
 constexpr SLBgplsSrSegListMetric::SLBgplsSrSegListMetric(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : type_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
-  , flags_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
+  : type_(0u)
+  , flags_(0u)
   , margin_(0u)
   , bound_(0u)
   , value_(0u){}
@@ -1482,8 +1483,8 @@ struct SLBgplsTopoSrBandwidthConstraintDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT SLBgplsTopoSrBandwidthConstraintDefaultTypeInternal _SLBgplsTopoSrBandwidthConstraint_default_instance_;
 constexpr SLBgplsTopoSrDisjointGroupConstraint::SLBgplsTopoSrDisjointGroupConstraint(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : requestflags_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
-  , statusflags_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
+  : requestflags_(0u)
+  , statusflags_(0u)
   , groupid_(0u){}
 struct SLBgplsTopoSrDisjointGroupConstraintDefaultTypeInternal {
   constexpr SLBgplsTopoSrDisjointGroupConstraintDefaultTypeInternal()
@@ -1508,7 +1509,7 @@ struct SLBgplsTopoSrPolicyNameDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT SLBgplsTopoSrPolicyNameDefaultTypeInternal _SLBgplsTopoSrPolicyName_default_instance_;
 constexpr SLBgplsTopoSrBidirGroupConstraint::SLBgplsTopoSrBidirGroupConstraint(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : flags_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
+  : flags_(0u)
   , groupid_(0u){}
 struct SLBgplsTopoSrBidirGroupConstraintDefaultTypeInternal {
   constexpr SLBgplsTopoSrBidirGroupConstraintDefaultTypeInternal()
@@ -1521,8 +1522,8 @@ struct SLBgplsTopoSrBidirGroupConstraintDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT SLBgplsTopoSrBidirGroupConstraintDefaultTypeInternal _SLBgplsTopoSrBidirGroupConstraint_default_instance_;
 constexpr SLBgplsTopoSrMetricConstraint::SLBgplsTopoSrMetricConstraint(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : flags_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
-  , type_(0u)
+  : type_(0u)
+  , flags_(0u)
   , margin_(0u)
   , bound_(0u){}
 struct SLBgplsTopoSrMetricConstraintDefaultTypeInternal {
@@ -1560,8 +1561,8 @@ struct SLBgplsTopoSrSegListIdDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT SLBgplsTopoSrSegListIdDefaultTypeInternal _SLBgplsTopoSrSegListId_default_instance_;
 constexpr SLBgplsTopoSrv6BgpPeerNodeSid::SLBgplsTopoSrv6BgpPeerNodeSid(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : flags_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
-  , peerbgpid_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
+  : peerbgpid_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
+  , flags_(0u)
   , weight_(0u)
   , peeras_(0u){}
 struct SLBgplsTopoSrv6BgpPeerNodeSidDefaultTypeInternal {
@@ -1589,7 +1590,7 @@ struct SLBgplsTopoUnknownAttrDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT SLBgplsTopoUnknownAttrDefaultTypeInternal _SLBgplsTopoUnknownAttr_default_instance_;
 }  // namespace service_layer
 static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_sl_5fbgpls_5ftopology_2eproto[109];
-static const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* file_level_enum_descriptors_sl_5fbgpls_5ftopology_2eproto[6];
+static const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* file_level_enum_descriptors_sl_5fbgpls_5ftopology_2eproto[15];
 static constexpr ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor const** file_level_service_descriptors_sl_5fbgpls_5ftopology_2eproto = nullptr;
 
 const uint32_t TableStruct_sl_5fbgpls_5ftopology_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
@@ -1788,20 +1789,16 @@ const uint32_t TableStruct_sl_5fbgpls_5ftopology_2eproto::offsets[] PROTOBUF_SEC
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::service_layer::SLBgplsTopoSrPolicyDescr, _internal_metadata_),
   ~0u,  // no _extensions_
-  PROTOBUF_FIELD_OFFSET(::service_layer::SLBgplsTopoSrPolicyDescr, _oneof_case_[0]),
+  ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::service_layer::SLBgplsTopoSrPolicyDescr, protoorigin_),
   PROTOBUF_FIELD_OFFSET(::service_layer::SLBgplsTopoSrPolicyDescr, flags_),
-  ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
-  ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
+  PROTOBUF_FIELD_OFFSET(::service_layer::SLBgplsTopoSrPolicyDescr, endpoint_),
   PROTOBUF_FIELD_OFFSET(::service_layer::SLBgplsTopoSrPolicyDescr, color_),
   PROTOBUF_FIELD_OFFSET(::service_layer::SLBgplsTopoSrPolicyDescr, originasn_),
-  ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
-  ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
+  PROTOBUF_FIELD_OFFSET(::service_layer::SLBgplsTopoSrPolicyDescr, originator_),
   PROTOBUF_FIELD_OFFSET(::service_layer::SLBgplsTopoSrPolicyDescr, discriminator_),
-  PROTOBUF_FIELD_OFFSET(::service_layer::SLBgplsTopoSrPolicyDescr, EndpointAddress_),
-  PROTOBUF_FIELD_OFFSET(::service_layer::SLBgplsTopoSrPolicyDescr, OriginatorAddress_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::service_layer::SLBgplsTopoOspfNodeId, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -2644,92 +2641,92 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOB
   { 174, -1, -1, sizeof(::service_layer::SLBgplsTopoPrefixDescr)},
   { 184, -1, -1, sizeof(::service_layer::SLBgplsTopoSrv6SidDescr)},
   { 192, -1, -1, sizeof(::service_layer::SLBgplsTopoSrPolicyDescr)},
-  { 209, -1, -1, sizeof(::service_layer::SLBgplsTopoOspfNodeId)},
-  { 219, -1, -1, sizeof(::service_layer::SLBgplsTopoOspfv3NodeId)},
-  { 229, -1, -1, sizeof(::service_layer::SLBgplsTopoIsisNodeId)},
-  { 237, -1, -1, sizeof(::service_layer::SLBgplsTopoBgpNodeId)},
-  { 245, -1, -1, sizeof(::service_layer::SLBgplsTopoSrPolicyNodeId)},
-  { 255, -1, -1, sizeof(::service_layer::SLBgplsTopoNodeAttr)},
-  { 276, -1, -1, sizeof(::service_layer::SLBgplsTopoLinkAttr)},
-  { 317, -1, -1, sizeof(::service_layer::SLBgplsTopoPrefixAttr)},
-  { 336, -1, -1, sizeof(::service_layer::SLBgplsTopoSrv6SidAttr)},
-  { 346, -1, -1, sizeof(::service_layer::SLBgplsTopoSrPolicyAttr)},
-  { 360, -1, -1, sizeof(::service_layer::SLBplsTopoLinkLocRemId)},
-  { 368, -1, -1, sizeof(::service_layer::SLBgplsTopoMtId)},
-  { 375, -1, -1, sizeof(::service_layer::SLBgplsTopoNodeMsd)},
-  { 383, -1, -1, sizeof(::service_layer::SLBgplsTopoLinkMsd)},
-  { 391, -1, -1, sizeof(::service_layer::SLBgplsTopoNodeFlagBits)},
-  { 398, -1, -1, sizeof(::service_layer::SLBgplsTopoNodeOpaqueAttr)},
-  { 405, -1, -1, sizeof(::service_layer::SLBgplsNodeName)},
-  { 412, -1, -1, sizeof(::service_layer::SLBgplsTopoIsisAreaId)},
-  { 419, -1, -1, sizeof(::service_layer::SLBgplsTopoLocalIpv4RouterId)},
-  { 426, -1, -1, sizeof(::service_layer::SLBgplsTopoLocalIpv6RouterId)},
-  { 433, -1, -1, sizeof(::service_layer::SLBgplsTopoRemoteIpv4RouterId)},
-  { 440, -1, -1, sizeof(::service_layer::SLBgplsTopoRemoteIpv6RouterId)},
-  { 447, -1, -1, sizeof(::service_layer::SLBgplsTopoSrgb)},
-  { 455, -1, -1, sizeof(::service_layer::SLBgplsTopoSrgbIsisFlags)},
-  { 462, -1, -1, sizeof(::service_layer::SLBgplsTopoSrAlgorithm)},
-  { 469, -1, -1, sizeof(::service_layer::SLBgplsTopoSrlb)},
-  { 477, -1, -1, sizeof(::service_layer::SLBgplsTopoSrv6CapFlags)},
-  { 484, -1, -1, sizeof(::service_layer::SLBgplsTopoFad)},
-  { 505, -1, -1, sizeof(::service_layer::SLBgplsTopoPrefixFAPM)},
-  { 514, -1, -1, sizeof(::service_layer::SLBgplsTopoFadUnsuppTlv)},
-  { 522, -1, -1, sizeof(::service_layer::SLBgplsTopoAdminGroup)},
-  { 529, -1, -1, sizeof(::service_layer::SLBgplsTopoLinkMaxBandwidth)},
-  { 536, -1, -1, sizeof(::service_layer::SLBgplsTopoLinkMaxResvBandwidth)},
-  { 543, -1, -1, sizeof(::service_layer::SLBgplsTopoLinkUnresvBandwidth)},
-  { 551, -1, -1, sizeof(::service_layer::SLBgplsTopoLinkTeDefaultMetric)},
-  { 558, -1, -1, sizeof(::service_layer::SLBgplsTopoLinkProtectionType)},
-  { 565, -1, -1, sizeof(::service_layer::SLBgplsTopoLinkMplsProtoMask)},
-  { 572, -1, -1, sizeof(::service_layer::SLBgplsTopoLinkIgpMetric)},
-  { 579, -1, -1, sizeof(::service_layer::SLBgplsTopoLinkSrlg)},
-  { 586, -1, -1, sizeof(::service_layer::SLBgplsTopoLinkOpaqueAttr)},
-  { 593, -1, -1, sizeof(::service_layer::SLBgplsTopoLinkName)},
-  { 600, -1, -1, sizeof(::service_layer::SLBgplsTopoAdjSid)},
-  { 610, -1, -1, sizeof(::service_layer::SLBgplsTopoLanAdjSid)},
-  { 621, -1, -1, sizeof(::service_layer::SLBgplsTopoBgpPeerNodeSid)},
-  { 631, -1, -1, sizeof(::service_layer::SLBgplsTopoBgpPeerAdjSid)},
-  { 641, -1, -1, sizeof(::service_layer::SLBgplsTopoBgpPeerSetSid)},
-  { 651, -1, -1, sizeof(::service_layer::SLBgplsTopoSrv6EndXSid)},
-  { 663, -1, -1, sizeof(::service_layer::SLBgpLsTopoNeighborId)},
-  { 672, -1, -1, sizeof(::service_layer::SLBgplsTopoSrv6LanEndXSid)},
-  { 685, -1, -1, sizeof(::service_layer::SLBgplsTopoUniLinkDelay)},
-  { 693, -1, -1, sizeof(::service_layer::SLBgplsTopoMinMaxUniLinkDelay)},
-  { 702, -1, -1, sizeof(::service_layer::SLBgplsTopoUniDelayVar)},
-  { 710, -1, -1, sizeof(::service_layer::SLBgplsTopoUniLinkLoss)},
-  { 718, -1, -1, sizeof(::service_layer::SLBgplsTopoUniResBandwidth)},
-  { 725, -1, -1, sizeof(::service_layer::SLBgplsTopoUniAvailBandwidth)},
-  { 732, -1, -1, sizeof(::service_layer::SLBgplsTopoUniUtilBandwidth)},
-  { 739, -1, -1, sizeof(::service_layer::SLBgplsTopoAslaAttr)},
-  { 759, -1, -1, sizeof(::service_layer::SLBgplsTopoPrefixIgpFlags)},
-  { 766, -1, -1, sizeof(::service_layer::SLBgplsTopoPrefixIgpRouteTag)},
-  { 773, -1, -1, sizeof(::service_layer::SLBgplsTopoPrefixIgpExtRouteTag)},
-  { 780, -1, -1, sizeof(::service_layer::SLBgplsTopoPrefixMetric)},
-  { 787, -1, -1, sizeof(::service_layer::SLBgplsTopoPrefixOspfFwdAddr)},
-  { 796, -1, -1, sizeof(::service_layer::SLBgplsTopoPrefixOpaqueAttr)},
-  { 803, -1, -1, sizeof(::service_layer::SLBgplsTopoPrefixSid)},
-  { 813, -1, -1, sizeof(::service_layer::SLBgplsTopoPrefixRange)},
-  { 824, -1, -1, sizeof(::service_layer::SLBgplsTopoPrefixSrv6Loc)},
-  { 833, -1, -1, sizeof(::service_layer::SLBgplsTopoPrefixAttrFlags)},
-  { 840, -1, -1, sizeof(::service_layer::SLBgplsTopoPrefixSrcRouterId)},
-  { 849, -1, -1, sizeof(::service_layer::SLBgplsTopoL2BundleMemberAttr)},
-  { 874, -1, -1, sizeof(::service_layer::SLBgplsTopoExtAdminGroup)},
-  { 881, -1, -1, sizeof(::service_layer::SLBgplsTopoSrBindingSid)},
-  { 890, -1, -1, sizeof(::service_layer::SLBgplsTopoSrCpState)},
-  { 899, -1, -1, sizeof(::service_layer::SLBgplsTopoSrCpConstraints)},
-  { 914, -1, -1, sizeof(::service_layer::SLBgplsTopoSrSegList)},
-  { 925, -1, -1, sizeof(::service_layer::SLBgplsSrSegListMetric)},
-  { 936, -1, -1, sizeof(::service_layer::SLBgplsTopoSrAffinityConstraints)},
-  { 945, -1, -1, sizeof(::service_layer::SLBgplsTopoSrSrlgConstraints)},
-  { 952, -1, -1, sizeof(::service_layer::SLBgplsTopoSrBandwidthConstraint)},
-  { 959, -1, -1, sizeof(::service_layer::SLBgplsTopoSrDisjointGroupConstraint)},
-  { 968, -1, -1, sizeof(::service_layer::SLBgplsTopoSrPolicyName)},
-  { 975, -1, -1, sizeof(::service_layer::SLBgplsTopoSrBidirGroupConstraint)},
-  { 983, -1, -1, sizeof(::service_layer::SLBgplsTopoSrMetricConstraint)},
-  { 993, -1, -1, sizeof(::service_layer::SLBgplsTopoSrCpSegListBandwidthState)},
-  { 1000, -1, -1, sizeof(::service_layer::SLBgplsTopoSrSegListId)},
-  { 1007, -1, -1, sizeof(::service_layer::SLBgplsTopoSrv6BgpPeerNodeSid)},
-  { 1017, -1, -1, sizeof(::service_layer::SLBgplsTopoUnknownAttr)},
+  { 205, -1, -1, sizeof(::service_layer::SLBgplsTopoOspfNodeId)},
+  { 215, -1, -1, sizeof(::service_layer::SLBgplsTopoOspfv3NodeId)},
+  { 225, -1, -1, sizeof(::service_layer::SLBgplsTopoIsisNodeId)},
+  { 233, -1, -1, sizeof(::service_layer::SLBgplsTopoBgpNodeId)},
+  { 241, -1, -1, sizeof(::service_layer::SLBgplsTopoSrPolicyNodeId)},
+  { 251, -1, -1, sizeof(::service_layer::SLBgplsTopoNodeAttr)},
+  { 272, -1, -1, sizeof(::service_layer::SLBgplsTopoLinkAttr)},
+  { 313, -1, -1, sizeof(::service_layer::SLBgplsTopoPrefixAttr)},
+  { 332, -1, -1, sizeof(::service_layer::SLBgplsTopoSrv6SidAttr)},
+  { 342, -1, -1, sizeof(::service_layer::SLBgplsTopoSrPolicyAttr)},
+  { 356, -1, -1, sizeof(::service_layer::SLBplsTopoLinkLocRemId)},
+  { 364, -1, -1, sizeof(::service_layer::SLBgplsTopoMtId)},
+  { 371, -1, -1, sizeof(::service_layer::SLBgplsTopoNodeMsd)},
+  { 379, -1, -1, sizeof(::service_layer::SLBgplsTopoLinkMsd)},
+  { 387, -1, -1, sizeof(::service_layer::SLBgplsTopoNodeFlagBits)},
+  { 394, -1, -1, sizeof(::service_layer::SLBgplsTopoNodeOpaqueAttr)},
+  { 401, -1, -1, sizeof(::service_layer::SLBgplsNodeName)},
+  { 408, -1, -1, sizeof(::service_layer::SLBgplsTopoIsisAreaId)},
+  { 415, -1, -1, sizeof(::service_layer::SLBgplsTopoLocalIpv4RouterId)},
+  { 422, -1, -1, sizeof(::service_layer::SLBgplsTopoLocalIpv6RouterId)},
+  { 429, -1, -1, sizeof(::service_layer::SLBgplsTopoRemoteIpv4RouterId)},
+  { 436, -1, -1, sizeof(::service_layer::SLBgplsTopoRemoteIpv6RouterId)},
+  { 443, -1, -1, sizeof(::service_layer::SLBgplsTopoSrgb)},
+  { 451, -1, -1, sizeof(::service_layer::SLBgplsTopoSrgbIsisFlags)},
+  { 458, -1, -1, sizeof(::service_layer::SLBgplsTopoSrAlgorithm)},
+  { 465, -1, -1, sizeof(::service_layer::SLBgplsTopoSrlb)},
+  { 473, -1, -1, sizeof(::service_layer::SLBgplsTopoSrv6CapFlags)},
+  { 480, -1, -1, sizeof(::service_layer::SLBgplsTopoFad)},
+  { 501, -1, -1, sizeof(::service_layer::SLBgplsTopoPrefixFAPM)},
+  { 510, -1, -1, sizeof(::service_layer::SLBgplsTopoFadUnsuppTlv)},
+  { 518, -1, -1, sizeof(::service_layer::SLBgplsTopoAdminGroup)},
+  { 525, -1, -1, sizeof(::service_layer::SLBgplsTopoLinkMaxBandwidth)},
+  { 532, -1, -1, sizeof(::service_layer::SLBgplsTopoLinkMaxResvBandwidth)},
+  { 539, -1, -1, sizeof(::service_layer::SLBgplsTopoLinkUnresvBandwidth)},
+  { 547, -1, -1, sizeof(::service_layer::SLBgplsTopoLinkTeDefaultMetric)},
+  { 554, -1, -1, sizeof(::service_layer::SLBgplsTopoLinkProtectionType)},
+  { 561, -1, -1, sizeof(::service_layer::SLBgplsTopoLinkMplsProtoMask)},
+  { 568, -1, -1, sizeof(::service_layer::SLBgplsTopoLinkIgpMetric)},
+  { 575, -1, -1, sizeof(::service_layer::SLBgplsTopoLinkSrlg)},
+  { 582, -1, -1, sizeof(::service_layer::SLBgplsTopoLinkOpaqueAttr)},
+  { 589, -1, -1, sizeof(::service_layer::SLBgplsTopoLinkName)},
+  { 596, -1, -1, sizeof(::service_layer::SLBgplsTopoAdjSid)},
+  { 606, -1, -1, sizeof(::service_layer::SLBgplsTopoLanAdjSid)},
+  { 617, -1, -1, sizeof(::service_layer::SLBgplsTopoBgpPeerNodeSid)},
+  { 627, -1, -1, sizeof(::service_layer::SLBgplsTopoBgpPeerAdjSid)},
+  { 637, -1, -1, sizeof(::service_layer::SLBgplsTopoBgpPeerSetSid)},
+  { 647, -1, -1, sizeof(::service_layer::SLBgplsTopoSrv6EndXSid)},
+  { 659, -1, -1, sizeof(::service_layer::SLBgpLsTopoNeighborId)},
+  { 668, -1, -1, sizeof(::service_layer::SLBgplsTopoSrv6LanEndXSid)},
+  { 681, -1, -1, sizeof(::service_layer::SLBgplsTopoUniLinkDelay)},
+  { 689, -1, -1, sizeof(::service_layer::SLBgplsTopoMinMaxUniLinkDelay)},
+  { 698, -1, -1, sizeof(::service_layer::SLBgplsTopoUniDelayVar)},
+  { 706, -1, -1, sizeof(::service_layer::SLBgplsTopoUniLinkLoss)},
+  { 714, -1, -1, sizeof(::service_layer::SLBgplsTopoUniResBandwidth)},
+  { 721, -1, -1, sizeof(::service_layer::SLBgplsTopoUniAvailBandwidth)},
+  { 728, -1, -1, sizeof(::service_layer::SLBgplsTopoUniUtilBandwidth)},
+  { 735, -1, -1, sizeof(::service_layer::SLBgplsTopoAslaAttr)},
+  { 755, -1, -1, sizeof(::service_layer::SLBgplsTopoPrefixIgpFlags)},
+  { 762, -1, -1, sizeof(::service_layer::SLBgplsTopoPrefixIgpRouteTag)},
+  { 769, -1, -1, sizeof(::service_layer::SLBgplsTopoPrefixIgpExtRouteTag)},
+  { 776, -1, -1, sizeof(::service_layer::SLBgplsTopoPrefixMetric)},
+  { 783, -1, -1, sizeof(::service_layer::SLBgplsTopoPrefixOspfFwdAddr)},
+  { 792, -1, -1, sizeof(::service_layer::SLBgplsTopoPrefixOpaqueAttr)},
+  { 799, -1, -1, sizeof(::service_layer::SLBgplsTopoPrefixSid)},
+  { 809, -1, -1, sizeof(::service_layer::SLBgplsTopoPrefixRange)},
+  { 820, -1, -1, sizeof(::service_layer::SLBgplsTopoPrefixSrv6Loc)},
+  { 829, -1, -1, sizeof(::service_layer::SLBgplsTopoPrefixAttrFlags)},
+  { 836, -1, -1, sizeof(::service_layer::SLBgplsTopoPrefixSrcRouterId)},
+  { 845, -1, -1, sizeof(::service_layer::SLBgplsTopoL2BundleMemberAttr)},
+  { 870, -1, -1, sizeof(::service_layer::SLBgplsTopoExtAdminGroup)},
+  { 877, -1, -1, sizeof(::service_layer::SLBgplsTopoSrBindingSid)},
+  { 886, -1, -1, sizeof(::service_layer::SLBgplsTopoSrCpState)},
+  { 895, -1, -1, sizeof(::service_layer::SLBgplsTopoSrCpConstraints)},
+  { 910, -1, -1, sizeof(::service_layer::SLBgplsTopoSrSegList)},
+  { 921, -1, -1, sizeof(::service_layer::SLBgplsSrSegListMetric)},
+  { 932, -1, -1, sizeof(::service_layer::SLBgplsTopoSrAffinityConstraints)},
+  { 941, -1, -1, sizeof(::service_layer::SLBgplsTopoSrSrlgConstraints)},
+  { 948, -1, -1, sizeof(::service_layer::SLBgplsTopoSrBandwidthConstraint)},
+  { 955, -1, -1, sizeof(::service_layer::SLBgplsTopoSrDisjointGroupConstraint)},
+  { 964, -1, -1, sizeof(::service_layer::SLBgplsTopoSrPolicyName)},
+  { 971, -1, -1, sizeof(::service_layer::SLBgplsTopoSrBidirGroupConstraint)},
+  { 979, -1, -1, sizeof(::service_layer::SLBgplsTopoSrMetricConstraint)},
+  { 989, -1, -1, sizeof(::service_layer::SLBgplsTopoSrCpSegListBandwidthState)},
+  { 996, -1, -1, sizeof(::service_layer::SLBgplsTopoSrSegListId)},
+  { 1003, -1, -1, sizeof(::service_layer::SLBgplsTopoSrv6BgpPeerNodeSid)},
+  { 1013, -1, -1, sizeof(::service_layer::SLBgplsTopoUnknownAttr)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -2929,15 +2926,14 @@ const char descriptor_table_protodef_sl_5fbgpls_5ftopology_2eproto[] PROTOBUF_SE
   "ixLength\030\003 \001(\r\022\016\n\006Prefix\030\004 \001(\014\"X\n\027SLBgpl"
   "sTopoSrv6SidDescr\022,\n\004MtId\030\001 \001(\0132\036.servic"
   "e_layer.SLBgplsTopoMtId\022\017\n\007Srv6Sid\030\002 \001(\014"
-  "\"\306\002\n\030SLBgplsTopoSrPolicyDescr\022<\n\013ProtoOr"
+  "\"\236\002\n\030SLBgplsTopoSrPolicyDescr\022<\n\013ProtoOr"
   "igin\030\001 \001(\0162\'.service_layer.SLSrPolicyPro"
   "tocolOrigin\022-\n\005Flags\030\002 \001(\0132\036.service_lay"
-  "er.SLSrPolicyFlags\022\025\n\013Ipv4EndAddr\030\003 \001(\014H"
-  "\000\022\025\n\013Ipv6EndAddr\030\004 \001(\014H\000\022\r\n\005Color\030\005 \001(\r\022"
-  "\021\n\tOriginAsn\030\006 \001(\r\022\026\n\014Ipv4OrigAddr\030\007 \001(\014"
-  "H\001\022\026\n\014Ipv6OrigAddr\030\010 \001(\014H\001\022\025\n\rDiscrimina"
-  "tor\030\t \001(\rB\021\n\017EndpointAddressB\023\n\021Originat"
-  "orAddress\"c\n\025SLBgplsTopoOspfNodeId\022\016\n\006Ar"
+  "er.SLSrPolicyFlags\022,\n\010Endpoint\030\003 \001(\0132\032.s"
+  "ervice_layer.SLIpAddress\022\r\n\005Color\030\004 \001(\r\022"
+  "\021\n\tOriginAsn\030\005 \001(\r\022.\n\nOriginator\030\006 \001(\0132\032"
+  ".service_layer.SLIpAddress\022\025\n\rDiscrimina"
+  "tor\030\007 \001(\r\"c\n\025SLBgplsTopoOspfNodeId\022\016\n\006Ar"
   "eaId\030\001 \001(\r\022\022\n\nIsAsScoped\030\002 \001(\r\022\020\n\010Router"
   "Id\030\003 \001(\014\022\024\n\014DrIdentifier\030\004 \001(\014\"c\n\027SLBgpl"
   "sTopoOspfv3NodeId\022\016\n\006AreaId\030\001 \001(\r\022\020\n\010AsS"
@@ -3131,15 +3127,15 @@ const char descriptor_table_protodef_sl_5fbgpls_5ftopology_2eproto[] PROTOBUF_SE
   "\030\002 \001(\0162#.service_layer.SLBgplsTopoSidFor"
   "mat\022\r\n\005Flags\030\003 \001(\014\022\016\n\006Weight\030\004 \001(\r\"\244\001\n\026S"
   "LBgplsTopoSrv6EndXSid\022\013\n\003Sid\030\001 \001(\014\022\021\n\tAl"
-  "gorithm\030\002 \001(\014\022\r\n\005Flags\030\003 \001(\014\022\016\n\006Weight\030\004"
+  "gorithm\030\002 \001(\r\022\r\n\005Flags\030\003 \001(\r\022\016\n\006Weight\030\004"
   " \001(\r\022\030\n\020EndPointBehavior\030\005 \001(\r\0221\n\tSidStr"
   "uct\030\006 \001(\0132\036.service_layer.SLSrv6SidStruc"
   "t\"M\n\025SLBgpLsTopoNeighborId\022\022\n\010Ipv4Addr\030\001"
   " \001(\014H\000\022\022\n\010SystemId\030\002 \001(\014H\000B\014\n\nNeighborId"
   "\"\337\001\n\031SLBgplsTopoSrv6LanEndXSid\0226\n\010Neighb"
   "or\030\001 \001(\0132$.service_layer.SLBgpLsTopoNeig"
-  "hborId\022\013\n\003Sid\030\002 \001(\014\022\021\n\tAlgorithm\030\003 \001(\014\022\r"
-  "\n\005Flags\030\004 \001(\014\022\016\n\006Weight\030\005 \001(\r\022\030\n\020EndPoin"
+  "hborId\022\013\n\003Sid\030\002 \001(\014\022\021\n\tAlgorithm\030\003 \001(\r\022\r"
+  "\n\005Flags\030\004 \001(\r\022\016\n\006Weight\030\005 \001(\r\022\030\n\020EndPoin"
   "tBehavior\030\006 \001(\r\0221\n\tSidStruct\030\007 \001(\0132\036.ser"
   "vice_layer.SLSrv6SidStruct\"7\n\027SLBgplsTop"
   "oUniLinkDelay\022\r\n\005Delay\030\001 \001(\r\022\r\n\005Flags\030\002 "
@@ -3181,14 +3177,14 @@ const char descriptor_table_protodef_sl_5fbgpls_5ftopology_2eproto[] PROTOBUF_SE
   "Ipv6Addr\030\002 \001(\014H\000B\r\n\013OspfFwdAddr\"1\n\033SLBgp"
   "lsTopoPrefixOpaqueAttr\022\022\n\nOpaqueAttr\030\001 \001"
   "(\014\"\220\001\n\024SLBgplsTopoPrefixSid\022\r\n\005Flags\030\001 \001"
-  "(\014\022\021\n\tAlgorithm\030\002 \001(\014\022\022\n\nLabelIndex\030\003 \001("
+  "(\014\022\021\n\tAlgorithm\030\002 \001(\r\022\022\n\nLabelIndex\030\003 \001("
   "\r\022B\n\017PrefixSidFormat\030\004 \001(\0162).service_lay"
   "er.SLBgplsTopoPrefixSidFormat\"n\n\026SLBgpls"
   "TopoPrefixRange\022\r\n\005Flags\030\001 \001(\014\022\021\n\tRangeS"
-  "ize\030\002 \001(\r\022\021\n\tAlgorithm\030\003 \001(\014\022\r\n\005Index\030\004 "
+  "ize\030\002 \001(\r\022\021\n\tAlgorithm\030\003 \001(\r\022\r\n\005Index\030\004 "
   "\001(\r\022\020\n\010SidFlags\030\005 \001(\014\"L\n\030SLBgplsTopoPref"
-  "ixSrv6Loc\022\r\n\005Flags\030\001 \001(\014\022\021\n\tAlgorithm\030\002 "
-  "\001(\014\022\016\n\006Metric\030\003 \001(\r\"+\n\032SLBgplsTopoPrefix"
+  "ixSrv6Loc\022\r\n\005Flags\030\001 \001(\r\022\021\n\tAlgorithm\030\002 "
+  "\001(\r\022\016\n\006Metric\030\003 \001(\r\"+\n\032SLBgplsTopoPrefix"
   "AttrFlags\022\r\n\005Flags\030\001 \001(\014\"U\n\034SLBgplsTopoP"
   "refixSrcRouterId\022\022\n\010Ipv4Addr\030\001 \001(\014H\000\022\022\n\010"
   "Ipv6Addr\030\002 \001(\014H\000B\r\n\013SrcRouterId\"\270\t\n\035SLBg"
@@ -3224,13 +3220,13 @@ const char descriptor_table_protodef_sl_5fbgpls_5ftopology_2eproto[] PROTOBUF_SE
   "\003(\0132%.service_layer.SLBgplsTopoUnknownAt"
   "tr\")\n\030SLBgplsTopoExtAdminGroup\022\r\n\005Group\030"
   "\001 \001(\r\"\203\001\n\027SLBgplsTopoSrBindingSid\022\021\n\tBsi"
-  "dFlags\030\001 \001(\014\022%\n\004Bsid\030\002 \001(\0132\027.service_lay"
+  "dFlags\030\001 \001(\r\022%\n\004Bsid\030\002 \001(\0132\027.service_lay"
   "er.SlSrBsid\022.\n\rSpecifiedBsid\030\003 \001(\0132\027.ser"
   "vice_layer.SlSrBsid\"K\n\024SLBgplsTopoSrCpSt"
-  "ate\022\020\n\010Priority\030\001 \001(\r\022\r\n\005Flags\030\002 \001(\014\022\022\n\n"
+  "ate\022\020\n\010Priority\030\001 \001(\r\022\r\n\005Flags\030\002 \001(\r\022\022\n\n"
   "Preference\030\003 \001(\r\"\331\003\n\032SLBgplsTopoSrCpCons"
-  "traints\022\r\n\005Flags\030\001 \001(\014\022\014\n\004Mtid\030\002 \001(\r\022\021\n\t"
-  "Algorithm\030\003 \001(\014\022A\n\010Affinity\030\005 \001(\0132/.serv"
+  "traints\022\r\n\005Flags\030\001 \001(\r\022\014\n\004Mtid\030\002 \001(\r\022\021\n\t"
+  "Algorithm\030\003 \001(\r\022A\n\010Affinity\030\005 \001(\0132/.serv"
   "ice_layer.SLBgplsTopoSrAffinityConstrain"
   "ts\0229\n\004Srlg\030\006 \001(\0132+.service_layer.SLBgpls"
   "TopoSrSrlgConstraints\022B\n\tBandwidth\030\004 \001(\013"
@@ -3241,28 +3237,28 @@ const char descriptor_table_protodef_sl_5fbgpls_5ftopology_2eproto[] PROTOBUF_SE
   "gplsTopoSrBidirGroupConstraint\022<\n\006Metric"
   "\030\t \003(\0132,.service_layer.SLBgplsTopoSrMetr"
   "icConstraint\"\204\001\n\024SLBgplsTopoSrSegList\022\r\n"
-  "\005Flags\030\001 \001(\014\022\014\n\004Mtid\030\002 \001(\r\022\021\n\tAlgorithm\030"
-  "\003 \001(\014\022\016\n\006Weight\030\004 \001(\r\022,\n\010Segments\030\005 \003(\0132"
+  "\005Flags\030\001 \001(\r\022\014\n\004Mtid\030\002 \001(\r\022\021\n\tAlgorithm\030"
+  "\003 \001(\r\022\016\n\006Weight\030\004 \001(\r\022,\n\010Segments\030\005 \003(\0132"
   "\032.service_layer.SLSrSegment\"c\n\026SLBgplsSr"
-  "SegListMetric\022\014\n\004Type\030\001 \001(\014\022\r\n\005Flags\030\002 \001"
-  "(\014\022\016\n\006Margin\030\003 \001(\r\022\r\n\005Bound\030\004 \001(\r\022\r\n\005Val"
+  "SegListMetric\022\014\n\004Type\030\001 \001(\r\022\r\n\005Flags\030\002 \001"
+  "(\r\022\016\n\006Margin\030\003 \001(\r\022\r\n\005Bound\030\004 \001(\r\022\r\n\005Val"
   "ue\030\005 \001(\r\"^\n SLBgplsTopoSrAffinityConstra"
   "ints\022\022\n\nExclAnyEag\030\001 \003(\r\022\022\n\nInclAnyEag\030\002"
   " \003(\r\022\022\n\nInclAllEag\030\003 \003(\r\"2\n\034SLBgplsTopoS"
   "rSrlgConstraints\022\022\n\nSrlgValues\030\001 \003(\r\"5\n "
   "SLBgplsTopoSrBandwidthConstraint\022\021\n\tBand"
   "width\030\001 \001(\014\"b\n$SLBgplsTopoSrDisjointGrou"
-  "pConstraint\022\024\n\014RequestFlags\030\001 \001(\014\022\023\n\013Sta"
-  "tusFlags\030\002 \001(\014\022\017\n\007GroupId\030\003 \001(\r\"\'\n\027SLBgp"
+  "pConstraint\022\024\n\014RequestFlags\030\001 \001(\r\022\023\n\013Sta"
+  "tusFlags\030\002 \001(\r\022\017\n\007GroupId\030\003 \001(\r\"\'\n\027SLBgp"
   "lsTopoSrPolicyName\022\014\n\004Name\030\001 \001(\t\"C\n!SLBg"
   "plsTopoSrBidirGroupConstraint\022\r\n\005Flags\030\001"
-  " \001(\014\022\017\n\007GroupId\030\002 \001(\r\"[\n\035SLBgplsTopoSrMe"
+  " \001(\r\022\017\n\007GroupId\030\002 \001(\r\"[\n\035SLBgplsTopoSrMe"
   "tricConstraint\022\014\n\004Type\030\001 \001(\r\022\r\n\005Flags\030\002 "
-  "\001(\014\022\016\n\006Margin\030\003 \001(\r\022\r\n\005Bound\030\004 \001(\r\"9\n$SL"
+  "\001(\r\022\016\n\006Margin\030\003 \001(\r\022\r\n\005Bound\030\004 \001(\r\"9\n$SL"
   "BgplsTopoSrCpSegListBandwidthState\022\021\n\tBa"
   "ndwidth\030\001 \001(\014\"+\n\026SLBgplsTopoSrSegListId\022"
   "\021\n\tSegListId\030\001 \001(\r\"a\n\035SLBgplsTopoSrv6Bgp"
-  "PeerNodeSid\022\r\n\005Flags\030\001 \001(\014\022\016\n\006Weight\030\002 \001"
+  "PeerNodeSid\022\r\n\005Flags\030\001 \001(\r\022\016\n\006Weight\030\002 \001"
   "(\r\022\016\n\006PeerAS\030\003 \001(\r\022\021\n\tPeerBgpId\030\004 \001(\014\"I\n"
   "\026SLBgplsTopoUnknownAttr\022\017\n\007TlvType\030\001 \001(\r"
   "\022\016\n\006TlvLen\030\002 \001(\r\022\016\n\006RawTlv\030\003 \001(\014*\204\001\n\024SLB"
@@ -3302,13 +3298,97 @@ const char descriptor_table_protodef_sl_5fbgpls_5ftopology_2eproto[] PROTOBUF_SE
   "LBgplsTopoPrefixSidFormat\022,\n(SL_BGPLS_TO"
   "PO_PREFIX_SID_FORMAT_RESERVED\020\000\022)\n%SL_BG"
   "PLS_TOPO_PREFIX_SID_FORMAT_LABEL\020\001\022)\n%SL"
-  "_BGPLS_TOPO_PREFIX_SID_FORMAT_INDEX\020\0022t\n"
-  "\013SLBgplsTopo\022e\n\026SLBgplsTopoNotifStream\022%"
-  ".service_layer.SLBgplsTopoNotifReqMsg\032\"."
-  "service_layer.SLBgplsTopoNotifMsg0\001BQZOg"
-  "ithub.com/Cisco-service-layer/service-la"
-  "yer-objmodel/grpc/protos;service_layerb\006"
-  "proto3"
+  "_BGPLS_TOPO_PREFIX_SID_FORMAT_INDEX\020\002*\232\002"
+  "\n\034SLBgplsTopoSrBindingSidFlags\022\'\n#SL_BGP"
+  "LS_TOPO_SR_BSID_FLAG_RESERVED\020\000\022-\n\'SL_BG"
+  "PLS_TOPO_SR_BSID_FLAG_DATAPLANE_V6\020\200\200\002\022*"
+  "\n$SL_BGPLS_TOPO_SR_BSID_FLAG_ALLOCATED\020\200"
+  "\200\001\022\'\n\"SL_BGPLS_TOPO_SR_BSID_FLAG_UNAVAIL"
+  "\020\200@\022$\n\037SL_BGPLS_TOPO_SR_BSID_FLAG_SRLB\020\200"
+  " \022\'\n\"SL_BGPLS_TOPO_SR_BSID_FLAG_DYNAMIC\020"
+  "\200\020*\316\004\n\031SLBgplsTopoSrCpStateFlags\022+\n\'SL_B"
+  "GPLS_TOPO_SR_CP_STATE_FLAG_RESERVED\020\000\022/\n"
+  ")SL_BGPLS_TOPO_SR_CP_STATE_FLAG_ADMIN_SH"
+  "UT\020\200\200\002\022+\n%SL_BGPLS_TOPO_SR_CP_STATE_FLAG"
+  "_ACTIVE\020\200\200\001\022*\n%SL_BGPLS_TOPO_SR_CP_STATE"
+  "_FLAG_BACKUP\020\200@\022-\n(SL_BGPLS_TOPO_SR_CP_S"
+  "TATE_FLAG_EVALUATED\020\200 \022)\n$SL_BGPLS_TOPO_"
+  "SR_CP_STATE_FLAG_VALID\020\200\020\0220\n+SL_BGPLS_TO"
+  "PO_SR_CP_STATE_FLAG_ON_DEMAND_NH\020\200\010\022-\n(S"
+  "L_BGPLS_TOPO_SR_CP_STATE_FLAG_DELEGATED\020"
+  "\200\004\022/\n*SL_BGPLS_TOPO_SR_CP_STATE_FLAG_PRO"
+  "VISIONED\020\200\002\0225\n0SL_BGPLS_TOPO_SR_CP_STATE"
+  "_FLAG_DROP_UPON_INVALID\020\200\001\022*\n&SL_BGPLS_T"
+  "OPO_SR_CP_STATE_FLAG_TRANSIT\020@\022+\n\'SL_BGP"
+  "LS_TOPO_SR_CP_STATE_FLAG_DROPPING\020 *\216\004\n\037"
+  "SLBgplsTopoSrCpConstraintsFlags\0221\n-SL_BG"
+  "PLS_TOPO_SR_CP_CONSTRAINTS_FLAG_RESERVED"
+  "\020\000\0227\n1SL_BGPLS_TOPO_SR_CP_CONSTRAINTS_FL"
+  "AG_DATAPLANE_V6\020\200\200\002\0224\n.SL_BGPLS_TOPO_SR_"
+  "CP_CONSTRAINTS_FLAG_PROTECTED\020\200\200\001\0225\n0SL_"
+  "BGPLS_TOPO_SR_CP_CONSTRAINTS_FLAG_UNPROT"
+  "ECTED\020\200@\0228\n3SL_BGPLS_TOPO_SR_CP_CONSTRAI"
+  "NTS_FLAG_SPECIFIED_ALGO\020\200 \0228\n3SL_BGPLS_T"
+  "OPO_SR_CP_CONSTRAINTS_FLAG_SPECIFIED_TOP"
+  "O\020\200\020\0224\n/SL_BGPLS_TOPO_SR_CP_CONSTRAINTS_"
+  "FLAG_USE_STRICT\020\200\010\0222\n-SL_BGPLS_TOPO_SR_C"
+  "P_CONSTRAINTS_FLAG_FIXED_CP\020\200\004\0224\n/SL_BGP"
+  "LS_TOPO_SR_CP_CONSTRAINTS_FLAG_HOP_BY_HO"
+  "P\020\200\002*\215\004\n\031SLBgplsTopoSrSegListFlags\022+\n\'SL"
+  "_BGPLS_TOPO_SR_SEG_LIST_FLAG_RESERVED\020\000\022"
+  "1\n+SL_BGPLS_TOPO_SR_SEG_LIST_FLAG_DATAPL"
+  "ANE_V6\020\200\200\002\0222\n,SL_BGPLS_TOPO_SR_SEG_LIST_"
+  "FLAG_EXPLICIT_PATH\020\200\200\001\0221\n,SL_BGPLS_TOPO_"
+  "SR_SEG_LIST_FLAG_COMPUTED_PATH\020\200@\022,\n\'SL_"
+  "BGPLS_TOPO_SR_SEG_LIST_FLAG_VERIFIED\020\200 \022"
+  ",\n\'SL_BGPLS_TOPO_SR_SEG_LIST_FLAG_RESOLV"
+  "ED\020\200\020\0222\n-SL_BGPLS_TOPO_SR_SEG_LIST_FLAG_"
+  "COMPUTE_FAILED\020\200\010\0222\n-SL_BGPLS_TOPO_SR_SE"
+  "G_LIST_FLAG_SPECIFIED_ALGO\020\200\004\0222\n-SL_BGPL"
+  "S_TOPO_SR_SEG_LIST_FLAG_SPECIFIED_TOPO\020\200"
+  "\002\0221\n,SL_BGPLS_TOPO_SR_SEG_LIST_FLAG_FAUL"
+  "T_MONITOR\020\200\001*\271\002\n\037SLBgplsTopoSrSegListMet"
+  "ricFlags\0222\n.SL_BGPLS_TOPO_SR_SEG_LIST_ME"
+  "TRIC_FLAG_RESERVED\020\000\0229\n4SL_BGPLS_TOPO_SR"
+  "_SEG_LIST_METRIC_FLAG_MARGIN_ALLOWED\020\200\001\022"
+  "6\n2SL_BGPLS_TOPO_SR_SEG_LIST_METRIC_FLAG"
+  "_ABSOLUTE_VAL\020@\0227\n3SL_BGPLS_TOPO_SR_SEG_"
+  "LIST_METRIC_FLAG_BOUND_ALLOWED\020 \0226\n2SL_B"
+  "GPLS_TOPO_SR_SEG_LIST_METRIC_FLAG_VAL_RE"
+  "PORTED\020\020*\365\002\n\037SLBgplsTopoSrDisjointGroupF"
+  "lags\0221\n-SL_BGPLS_TOPO_SR_DISJOINT_GROUP_"
+  "FLAG_RESERVED\020\000\022.\n)SL_BGPLS_TOPO_SR_DISJ"
+  "OINT_GROUP_FLAG_SRLG\020\200\001\022-\n)SL_BGPLS_TOPO"
+  "_SR_DISJOINT_GROUP_FLAG_NODE\020@\022-\n)SL_BGP"
+  "LS_TOPO_SR_DISJOINT_GROUP_FLAG_LINK\020 \0221\n"
+  "-SL_BGPLS_TOPO_SR_DISJOINT_GROUP_FLAG_FA"
+  "LLBACK\020\020\022,\n(SL_BGPLS_TOPO_SR_DISJOINT_GR"
+  "OUP_FLAG_IGP\020\010\0220\n,SL_BGPLS_TOPO_SR_DISJO"
+  "INT_GROUP_FLAG_INVALID\020\004*\262\001\n\034SLBgplsTopo"
+  "SrBidirGroupFlags\022.\n*SL_BGPLS_TOPO_SR_BI"
+  "DIR_GROUP_FLAG_RESERVED\020\000\022/\n)SL_BGPLS_TO"
+  "PO_SR_BIDIR_GROUP_FLAG_REVERSE\020\200\200\002\0221\n+SL"
+  "_BGPLS_TOPO_SR_BIDIR_GROUP_FLAG_CO_ROUTE"
+  "D\020\200\200\001*\277\002\n\"SLBgplsTopoSrMetricConstraintF"
+  "lags\0224\n0SL_BGPLS_TOPO_SR_METRIC_CONSTRAI"
+  "NT_FLAG_RESERVED\020\000\0226\n1SL_BGPLS_TOPO_SR_M"
+  "ETRIC_CONSTRAINT_FLAG_OPTIMIZED\020\200\001\022:\n6SL"
+  "_BGPLS_TOPO_SR_METRIC_CONSTRAINT_FLAG_MA"
+  "RGIN_ALLOWED\020@\0224\n0SL_BGPLS_TOPO_SR_METRI"
+  "C_CONSTRAINT_FLAG_ABSOLUTE\020 \0229\n5SL_BGPLS"
+  "_TOPO_SR_METRIC_CONSTRAINT_FLAG_BOUND_AL"
+  "LOWED\020\020*\200\002\n\"SLBgplsTopoSrv6BgpPeerNodeSi"
+  "dFlags\0226\n2SL_BGPLS_TOPO_SRV6_BGP_PEER_NO"
+  "DE_SID_FLAG_RESERVED\020\000\0225\n0SL_BGPLS_TOPO_"
+  "SRV6_BGP_PEER_NODE_SID_FLAG_BACKUP\020\200\001\0221\n"
+  "-SL_BGPLS_TOPO_SRV6_BGP_PEER_NODE_SID_FL"
+  "AG_SET\020@\0228\n4SL_BGPLS_TOPO_SRV6_BGP_PEER_"
+  "NODE_SID_FLAG_PERSISTENT\020 2t\n\013SLBgplsTop"
+  "o\022e\n\026SLBgplsTopoNotifStream\022%.service_la"
+  "yer.SLBgplsTopoNotifReqMsg\032\".service_lay"
+  "er.SLBgplsTopoNotifMsg0\001BQZOgithub.com/C"
+  "isco-service-layer/service-layer-objmode"
+  "l/grpc/protos;service_layerb\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_sl_5fbgpls_5ftopology_2eproto_deps[2] = {
   &::descriptor_table_sl_5fcommon_5ftypes_2eproto,
@@ -3316,7 +3396,7 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_sl_5fbgpls_5ftopology_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_sl_5fbgpls_5ftopology_2eproto = {
-  false, false, 18526, descriptor_table_protodef_sl_5fbgpls_5ftopology_2eproto, "sl_bgpls_topology.proto", 
+  false, false, 21875, descriptor_table_protodef_sl_5fbgpls_5ftopology_2eproto, "sl_bgpls_topology.proto", 
   &descriptor_table_sl_5fbgpls_5ftopology_2eproto_once, descriptor_table_sl_5fbgpls_5ftopology_2eproto_deps, 2, 109,
   schemas, file_default_instances, TableStruct_sl_5fbgpls_5ftopology_2eproto::offsets,
   file_level_metadata_sl_5fbgpls_5ftopology_2eproto, file_level_enum_descriptors_sl_5fbgpls_5ftopology_2eproto, file_level_service_descriptors_sl_5fbgpls_5ftopology_2eproto,
@@ -3428,6 +3508,175 @@ bool SLBgplsTopoPrefixSidFormat_IsValid(int value) {
     case 0:
     case 1:
     case 2:
+      return true;
+    default:
+      return false;
+  }
+}
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* SLBgplsTopoSrBindingSidFlags_descriptor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_sl_5fbgpls_5ftopology_2eproto);
+  return file_level_enum_descriptors_sl_5fbgpls_5ftopology_2eproto[6];
+}
+bool SLBgplsTopoSrBindingSidFlags_IsValid(int value) {
+  switch (value) {
+    case 0:
+    case 2048:
+    case 4096:
+    case 8192:
+    case 16384:
+    case 32768:
+      return true;
+    default:
+      return false;
+  }
+}
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* SLBgplsTopoSrCpStateFlags_descriptor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_sl_5fbgpls_5ftopology_2eproto);
+  return file_level_enum_descriptors_sl_5fbgpls_5ftopology_2eproto[7];
+}
+bool SLBgplsTopoSrCpStateFlags_IsValid(int value) {
+  switch (value) {
+    case 0:
+    case 32:
+    case 64:
+    case 128:
+    case 256:
+    case 512:
+    case 1024:
+    case 2048:
+    case 4096:
+    case 8192:
+    case 16384:
+    case 32768:
+      return true;
+    default:
+      return false;
+  }
+}
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* SLBgplsTopoSrCpConstraintsFlags_descriptor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_sl_5fbgpls_5ftopology_2eproto);
+  return file_level_enum_descriptors_sl_5fbgpls_5ftopology_2eproto[8];
+}
+bool SLBgplsTopoSrCpConstraintsFlags_IsValid(int value) {
+  switch (value) {
+    case 0:
+    case 256:
+    case 512:
+    case 1024:
+    case 2048:
+    case 4096:
+    case 8192:
+    case 16384:
+    case 32768:
+      return true;
+    default:
+      return false;
+  }
+}
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* SLBgplsTopoSrSegListFlags_descriptor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_sl_5fbgpls_5ftopology_2eproto);
+  return file_level_enum_descriptors_sl_5fbgpls_5ftopology_2eproto[9];
+}
+bool SLBgplsTopoSrSegListFlags_IsValid(int value) {
+  switch (value) {
+    case 0:
+    case 128:
+    case 256:
+    case 512:
+    case 1024:
+    case 2048:
+    case 4096:
+    case 8192:
+    case 16384:
+    case 32768:
+      return true;
+    default:
+      return false;
+  }
+}
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* SLBgplsTopoSrSegListMetricFlags_descriptor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_sl_5fbgpls_5ftopology_2eproto);
+  return file_level_enum_descriptors_sl_5fbgpls_5ftopology_2eproto[10];
+}
+bool SLBgplsTopoSrSegListMetricFlags_IsValid(int value) {
+  switch (value) {
+    case 0:
+    case 16:
+    case 32:
+    case 64:
+    case 128:
+      return true;
+    default:
+      return false;
+  }
+}
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* SLBgplsTopoSrDisjointGroupFlags_descriptor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_sl_5fbgpls_5ftopology_2eproto);
+  return file_level_enum_descriptors_sl_5fbgpls_5ftopology_2eproto[11];
+}
+bool SLBgplsTopoSrDisjointGroupFlags_IsValid(int value) {
+  switch (value) {
+    case 0:
+    case 4:
+    case 8:
+    case 16:
+    case 32:
+    case 64:
+    case 128:
+      return true;
+    default:
+      return false;
+  }
+}
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* SLBgplsTopoSrBidirGroupFlags_descriptor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_sl_5fbgpls_5ftopology_2eproto);
+  return file_level_enum_descriptors_sl_5fbgpls_5ftopology_2eproto[12];
+}
+bool SLBgplsTopoSrBidirGroupFlags_IsValid(int value) {
+  switch (value) {
+    case 0:
+    case 16384:
+    case 32768:
+      return true;
+    default:
+      return false;
+  }
+}
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* SLBgplsTopoSrMetricConstraintFlags_descriptor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_sl_5fbgpls_5ftopology_2eproto);
+  return file_level_enum_descriptors_sl_5fbgpls_5ftopology_2eproto[13];
+}
+bool SLBgplsTopoSrMetricConstraintFlags_IsValid(int value) {
+  switch (value) {
+    case 0:
+    case 16:
+    case 32:
+    case 64:
+    case 128:
+      return true;
+    default:
+      return false;
+  }
+}
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* SLBgplsTopoSrv6BgpPeerNodeSidFlags_descriptor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_sl_5fbgpls_5ftopology_2eproto);
+  return file_level_enum_descriptors_sl_5fbgpls_5ftopology_2eproto[14];
+}
+bool SLBgplsTopoSrv6BgpPeerNodeSidFlags_IsValid(int value) {
+  switch (value) {
+    case 0:
+    case 32:
+    case 64:
+    case 128:
       return true;
     default:
       return false;
@@ -9236,17 +9485,39 @@ void SLBgplsTopoSrv6SidDescr::InternalSwap(SLBgplsTopoSrv6SidDescr* other) {
 class SLBgplsTopoSrPolicyDescr::_Internal {
  public:
   static const ::service_layer::SLSrPolicyFlags& flags(const SLBgplsTopoSrPolicyDescr* msg);
+  static const ::service_layer::SLIpAddress& endpoint(const SLBgplsTopoSrPolicyDescr* msg);
+  static const ::service_layer::SLIpAddress& originator(const SLBgplsTopoSrPolicyDescr* msg);
 };
 
 const ::service_layer::SLSrPolicyFlags&
 SLBgplsTopoSrPolicyDescr::_Internal::flags(const SLBgplsTopoSrPolicyDescr* msg) {
   return *msg->flags_;
 }
+const ::service_layer::SLIpAddress&
+SLBgplsTopoSrPolicyDescr::_Internal::endpoint(const SLBgplsTopoSrPolicyDescr* msg) {
+  return *msg->endpoint_;
+}
+const ::service_layer::SLIpAddress&
+SLBgplsTopoSrPolicyDescr::_Internal::originator(const SLBgplsTopoSrPolicyDescr* msg) {
+  return *msg->originator_;
+}
 void SLBgplsTopoSrPolicyDescr::clear_flags() {
   if (GetArenaForAllocation() == nullptr && flags_ != nullptr) {
     delete flags_;
   }
   flags_ = nullptr;
+}
+void SLBgplsTopoSrPolicyDescr::clear_endpoint() {
+  if (GetArenaForAllocation() == nullptr && endpoint_ != nullptr) {
+    delete endpoint_;
+  }
+  endpoint_ = nullptr;
+}
+void SLBgplsTopoSrPolicyDescr::clear_originator() {
+  if (GetArenaForAllocation() == nullptr && originator_ != nullptr) {
+    delete originator_;
+  }
+  originator_ = nullptr;
 }
 SLBgplsTopoSrPolicyDescr::SLBgplsTopoSrPolicyDescr(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
@@ -9265,37 +9536,19 @@ SLBgplsTopoSrPolicyDescr::SLBgplsTopoSrPolicyDescr(const SLBgplsTopoSrPolicyDesc
   } else {
     flags_ = nullptr;
   }
+  if (from._internal_has_endpoint()) {
+    endpoint_ = new ::service_layer::SLIpAddress(*from.endpoint_);
+  } else {
+    endpoint_ = nullptr;
+  }
+  if (from._internal_has_originator()) {
+    originator_ = new ::service_layer::SLIpAddress(*from.originator_);
+  } else {
+    originator_ = nullptr;
+  }
   ::memcpy(&protoorigin_, &from.protoorigin_,
     static_cast<size_t>(reinterpret_cast<char*>(&discriminator_) -
     reinterpret_cast<char*>(&protoorigin_)) + sizeof(discriminator_));
-  clear_has_EndpointAddress();
-  switch (from.EndpointAddress_case()) {
-    case kIpv4EndAddr: {
-      _internal_set_ipv4endaddr(from._internal_ipv4endaddr());
-      break;
-    }
-    case kIpv6EndAddr: {
-      _internal_set_ipv6endaddr(from._internal_ipv6endaddr());
-      break;
-    }
-    case ENDPOINTADDRESS_NOT_SET: {
-      break;
-    }
-  }
-  clear_has_OriginatorAddress();
-  switch (from.OriginatorAddress_case()) {
-    case kIpv4OrigAddr: {
-      _internal_set_ipv4origaddr(from._internal_ipv4origaddr());
-      break;
-    }
-    case kIpv6OrigAddr: {
-      _internal_set_ipv6origaddr(from._internal_ipv6origaddr());
-      break;
-    }
-    case ORIGINATORADDRESS_NOT_SET: {
-      break;
-    }
-  }
   // @@protoc_insertion_point(copy_constructor:service_layer.SLBgplsTopoSrPolicyDescr)
 }
 
@@ -9304,8 +9557,6 @@ inline void SLBgplsTopoSrPolicyDescr::SharedCtor() {
     reinterpret_cast<char*>(&flags_) - reinterpret_cast<char*>(this)),
     0, static_cast<size_t>(reinterpret_cast<char*>(&discriminator_) -
     reinterpret_cast<char*>(&flags_)) + sizeof(discriminator_));
-clear_has_EndpointAddress();
-clear_has_OriginatorAddress();
 }
 
 SLBgplsTopoSrPolicyDescr::~SLBgplsTopoSrPolicyDescr() {
@@ -9318,12 +9569,8 @@ SLBgplsTopoSrPolicyDescr::~SLBgplsTopoSrPolicyDescr() {
 inline void SLBgplsTopoSrPolicyDescr::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
   if (this != internal_default_instance()) delete flags_;
-  if (has_EndpointAddress()) {
-    clear_EndpointAddress();
-  }
-  if (has_OriginatorAddress()) {
-    clear_OriginatorAddress();
-  }
+  if (this != internal_default_instance()) delete endpoint_;
+  if (this != internal_default_instance()) delete originator_;
 }
 
 void SLBgplsTopoSrPolicyDescr::ArenaDtor(void* object) {
@@ -9336,43 +9583,6 @@ void SLBgplsTopoSrPolicyDescr::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
 
-void SLBgplsTopoSrPolicyDescr::clear_EndpointAddress() {
-// @@protoc_insertion_point(one_of_clear_start:service_layer.SLBgplsTopoSrPolicyDescr)
-  switch (EndpointAddress_case()) {
-    case kIpv4EndAddr: {
-      EndpointAddress_.ipv4endaddr_.Destroy(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
-      break;
-    }
-    case kIpv6EndAddr: {
-      EndpointAddress_.ipv6endaddr_.Destroy(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
-      break;
-    }
-    case ENDPOINTADDRESS_NOT_SET: {
-      break;
-    }
-  }
-  _oneof_case_[0] = ENDPOINTADDRESS_NOT_SET;
-}
-
-void SLBgplsTopoSrPolicyDescr::clear_OriginatorAddress() {
-// @@protoc_insertion_point(one_of_clear_start:service_layer.SLBgplsTopoSrPolicyDescr)
-  switch (OriginatorAddress_case()) {
-    case kIpv4OrigAddr: {
-      OriginatorAddress_.ipv4origaddr_.Destroy(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
-      break;
-    }
-    case kIpv6OrigAddr: {
-      OriginatorAddress_.ipv6origaddr_.Destroy(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
-      break;
-    }
-    case ORIGINATORADDRESS_NOT_SET: {
-      break;
-    }
-  }
-  _oneof_case_[1] = ORIGINATORADDRESS_NOT_SET;
-}
-
-
 void SLBgplsTopoSrPolicyDescr::Clear() {
 // @@protoc_insertion_point(message_clear_start:service_layer.SLBgplsTopoSrPolicyDescr)
   uint32_t cached_has_bits = 0;
@@ -9383,11 +9593,17 @@ void SLBgplsTopoSrPolicyDescr::Clear() {
     delete flags_;
   }
   flags_ = nullptr;
+  if (GetArenaForAllocation() == nullptr && endpoint_ != nullptr) {
+    delete endpoint_;
+  }
+  endpoint_ = nullptr;
+  if (GetArenaForAllocation() == nullptr && originator_ != nullptr) {
+    delete originator_;
+  }
+  originator_ = nullptr;
   ::memset(&protoorigin_, 0, static_cast<size_t>(
       reinterpret_cast<char*>(&discriminator_) -
       reinterpret_cast<char*>(&protoorigin_)) + sizeof(discriminator_));
-  clear_EndpointAddress();
-  clear_OriginatorAddress();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -9414,61 +9630,41 @@ const char* SLBgplsTopoSrPolicyDescr::_InternalParse(const char* ptr, ::PROTOBUF
         } else
           goto handle_unusual;
         continue;
-      // bytes Ipv4EndAddr = 3;
+      // .service_layer.SLIpAddress Endpoint = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 26)) {
-          auto str = _internal_mutable_ipv4endaddr();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          ptr = ctx->ParseMessage(_internal_mutable_endpoint(), ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
         continue;
-      // bytes Ipv6EndAddr = 4;
+      // uint32 Color = 4;
       case 4:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 34)) {
-          auto str = _internal_mutable_ipv6endaddr();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(ptr);
-        } else
-          goto handle_unusual;
-        continue;
-      // uint32 Color = 5;
-      case 5:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 40)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 32)) {
           color_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
         continue;
-      // uint32 OriginAsn = 6;
-      case 6:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 48)) {
+      // uint32 OriginAsn = 5;
+      case 5:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 40)) {
           originasn_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
         continue;
-      // bytes Ipv4OrigAddr = 7;
+      // .service_layer.SLIpAddress Originator = 6;
+      case 6:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 50)) {
+          ptr = ctx->ParseMessage(_internal_mutable_originator(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // uint32 Discriminator = 7;
       case 7:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 58)) {
-          auto str = _internal_mutable_ipv4origaddr();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(ptr);
-        } else
-          goto handle_unusual;
-        continue;
-      // bytes Ipv6OrigAddr = 8;
-      case 8:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 66)) {
-          auto str = _internal_mutable_ipv6origaddr();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(ptr);
-        } else
-          goto handle_unusual;
-        continue;
-      // uint32 Discriminator = 9;
-      case 9:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 72)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 56)) {
           discriminator_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
         } else
@@ -9518,46 +9714,38 @@ uint8_t* SLBgplsTopoSrPolicyDescr::_InternalSerialize(
         2, _Internal::flags(this), target, stream);
   }
 
-  // bytes Ipv4EndAddr = 3;
-  if (_internal_has_ipv4endaddr()) {
-    target = stream->WriteBytesMaybeAliased(
-        3, this->_internal_ipv4endaddr(), target);
+  // .service_layer.SLIpAddress Endpoint = 3;
+  if (this->_internal_has_endpoint()) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        3, _Internal::endpoint(this), target, stream);
   }
 
-  // bytes Ipv6EndAddr = 4;
-  if (_internal_has_ipv6endaddr()) {
-    target = stream->WriteBytesMaybeAliased(
-        4, this->_internal_ipv6endaddr(), target);
-  }
-
-  // uint32 Color = 5;
+  // uint32 Color = 4;
   if (this->_internal_color() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(5, this->_internal_color(), target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(4, this->_internal_color(), target);
   }
 
-  // uint32 OriginAsn = 6;
+  // uint32 OriginAsn = 5;
   if (this->_internal_originasn() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(6, this->_internal_originasn(), target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(5, this->_internal_originasn(), target);
   }
 
-  // bytes Ipv4OrigAddr = 7;
-  if (_internal_has_ipv4origaddr()) {
-    target = stream->WriteBytesMaybeAliased(
-        7, this->_internal_ipv4origaddr(), target);
+  // .service_layer.SLIpAddress Originator = 6;
+  if (this->_internal_has_originator()) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        6, _Internal::originator(this), target, stream);
   }
 
-  // bytes Ipv6OrigAddr = 8;
-  if (_internal_has_ipv6origaddr()) {
-    target = stream->WriteBytesMaybeAliased(
-        8, this->_internal_ipv6origaddr(), target);
-  }
-
-  // uint32 Discriminator = 9;
+  // uint32 Discriminator = 7;
   if (this->_internal_discriminator() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(9, this->_internal_discriminator(), target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(7, this->_internal_discriminator(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -9583,65 +9771,41 @@ size_t SLBgplsTopoSrPolicyDescr::ByteSizeLong() const {
         *flags_);
   }
 
+  // .service_layer.SLIpAddress Endpoint = 3;
+  if (this->_internal_has_endpoint()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *endpoint_);
+  }
+
+  // .service_layer.SLIpAddress Originator = 6;
+  if (this->_internal_has_originator()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *originator_);
+  }
+
   // .service_layer.SLSrPolicyProtocolOrigin ProtoOrigin = 1;
   if (this->_internal_protoorigin() != 0) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_protoorigin());
   }
 
-  // uint32 Color = 5;
+  // uint32 Color = 4;
   if (this->_internal_color() != 0) {
     total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_color());
   }
 
-  // uint32 OriginAsn = 6;
+  // uint32 OriginAsn = 5;
   if (this->_internal_originasn() != 0) {
     total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_originasn());
   }
 
-  // uint32 Discriminator = 9;
+  // uint32 Discriminator = 7;
   if (this->_internal_discriminator() != 0) {
     total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_discriminator());
   }
 
-  switch (EndpointAddress_case()) {
-    // bytes Ipv4EndAddr = 3;
-    case kIpv4EndAddr: {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
-          this->_internal_ipv4endaddr());
-      break;
-    }
-    // bytes Ipv6EndAddr = 4;
-    case kIpv6EndAddr: {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
-          this->_internal_ipv6endaddr());
-      break;
-    }
-    case ENDPOINTADDRESS_NOT_SET: {
-      break;
-    }
-  }
-  switch (OriginatorAddress_case()) {
-    // bytes Ipv4OrigAddr = 7;
-    case kIpv4OrigAddr: {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
-          this->_internal_ipv4origaddr());
-      break;
-    }
-    // bytes Ipv6OrigAddr = 8;
-    case kIpv6OrigAddr: {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
-          this->_internal_ipv6origaddr());
-      break;
-    }
-    case ORIGINATORADDRESS_NOT_SET: {
-      break;
-    }
-  }
   return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
 }
 
@@ -9667,6 +9831,12 @@ void SLBgplsTopoSrPolicyDescr::MergeFrom(const SLBgplsTopoSrPolicyDescr& from) {
   if (from._internal_has_flags()) {
     _internal_mutable_flags()->::service_layer::SLSrPolicyFlags::MergeFrom(from._internal_flags());
   }
+  if (from._internal_has_endpoint()) {
+    _internal_mutable_endpoint()->::service_layer::SLIpAddress::MergeFrom(from._internal_endpoint());
+  }
+  if (from._internal_has_originator()) {
+    _internal_mutable_originator()->::service_layer::SLIpAddress::MergeFrom(from._internal_originator());
+  }
   if (from._internal_protoorigin() != 0) {
     _internal_set_protoorigin(from._internal_protoorigin());
   }
@@ -9678,32 +9848,6 @@ void SLBgplsTopoSrPolicyDescr::MergeFrom(const SLBgplsTopoSrPolicyDescr& from) {
   }
   if (from._internal_discriminator() != 0) {
     _internal_set_discriminator(from._internal_discriminator());
-  }
-  switch (from.EndpointAddress_case()) {
-    case kIpv4EndAddr: {
-      _internal_set_ipv4endaddr(from._internal_ipv4endaddr());
-      break;
-    }
-    case kIpv6EndAddr: {
-      _internal_set_ipv6endaddr(from._internal_ipv6endaddr());
-      break;
-    }
-    case ENDPOINTADDRESS_NOT_SET: {
-      break;
-    }
-  }
-  switch (from.OriginatorAddress_case()) {
-    case kIpv4OrigAddr: {
-      _internal_set_ipv4origaddr(from._internal_ipv4origaddr());
-      break;
-    }
-    case kIpv6OrigAddr: {
-      _internal_set_ipv6origaddr(from._internal_ipv6origaddr());
-      break;
-    }
-    case ORIGINATORADDRESS_NOT_SET: {
-      break;
-    }
   }
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
@@ -9728,10 +9872,6 @@ void SLBgplsTopoSrPolicyDescr::InternalSwap(SLBgplsTopoSrPolicyDescr* other) {
       - PROTOBUF_FIELD_OFFSET(SLBgplsTopoSrPolicyDescr, flags_)>(
           reinterpret_cast<char*>(&flags_),
           reinterpret_cast<char*>(&other->flags_));
-  swap(EndpointAddress_, other->EndpointAddress_);
-  swap(OriginatorAddress_, other->OriginatorAddress_);
-  swap(_oneof_case_[0], other->_oneof_case_[0]);
-  swap(_oneof_case_[1], other->_oneof_case_[1]);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata SLBgplsTopoSrPolicyDescr::GetMetadata() const {
@@ -23077,30 +23217,14 @@ SLBgplsTopoSrv6EndXSid::SLBgplsTopoSrv6EndXSid(const SLBgplsTopoSrv6EndXSid& fro
     sid_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_sid(), 
       GetArenaForAllocation());
   }
-  algorithm_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-    algorithm_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
-  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (!from._internal_algorithm().empty()) {
-    algorithm_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_algorithm(), 
-      GetArenaForAllocation());
-  }
-  flags_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-    flags_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
-  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (!from._internal_flags().empty()) {
-    flags_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_flags(), 
-      GetArenaForAllocation());
-  }
   if (from._internal_has_sidstruct()) {
     sidstruct_ = new ::service_layer::SLSrv6SidStruct(*from.sidstruct_);
   } else {
     sidstruct_ = nullptr;
   }
-  ::memcpy(&weight_, &from.weight_,
+  ::memcpy(&algorithm_, &from.algorithm_,
     static_cast<size_t>(reinterpret_cast<char*>(&endpointbehavior_) -
-    reinterpret_cast<char*>(&weight_)) + sizeof(endpointbehavior_));
+    reinterpret_cast<char*>(&algorithm_)) + sizeof(endpointbehavior_));
   // @@protoc_insertion_point(copy_constructor:service_layer.SLBgplsTopoSrv6EndXSid)
 }
 
@@ -23108,14 +23232,6 @@ inline void SLBgplsTopoSrv6EndXSid::SharedCtor() {
 sid_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
   sid_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-algorithm_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  algorithm_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-flags_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  flags_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
 #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
 ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
     reinterpret_cast<char*>(&sidstruct_) - reinterpret_cast<char*>(this)),
@@ -23133,8 +23249,6 @@ SLBgplsTopoSrv6EndXSid::~SLBgplsTopoSrv6EndXSid() {
 inline void SLBgplsTopoSrv6EndXSid::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
   sid_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  algorithm_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  flags_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (this != internal_default_instance()) delete sidstruct_;
 }
 
@@ -23155,15 +23269,13 @@ void SLBgplsTopoSrv6EndXSid::Clear() {
   (void) cached_has_bits;
 
   sid_.ClearToEmpty();
-  algorithm_.ClearToEmpty();
-  flags_.ClearToEmpty();
   if (GetArenaForAllocation() == nullptr && sidstruct_ != nullptr) {
     delete sidstruct_;
   }
   sidstruct_ = nullptr;
-  ::memset(&weight_, 0, static_cast<size_t>(
+  ::memset(&algorithm_, 0, static_cast<size_t>(
       reinterpret_cast<char*>(&endpointbehavior_) -
-      reinterpret_cast<char*>(&weight_)) + sizeof(endpointbehavior_));
+      reinterpret_cast<char*>(&algorithm_)) + sizeof(endpointbehavior_));
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -23182,20 +23294,18 @@ const char* SLBgplsTopoSrv6EndXSid::_InternalParse(const char* ptr, ::PROTOBUF_N
         } else
           goto handle_unusual;
         continue;
-      // bytes Algorithm = 2;
+      // uint32 Algorithm = 2;
       case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
-          auto str = _internal_mutable_algorithm();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
+          algorithm_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
         continue;
-      // bytes Flags = 3;
+      // uint32 Flags = 3;
       case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 26)) {
-          auto str = _internal_mutable_flags();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
+          flags_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -23259,16 +23369,16 @@ uint8_t* SLBgplsTopoSrv6EndXSid::_InternalSerialize(
         1, this->_internal_sid(), target);
   }
 
-  // bytes Algorithm = 2;
-  if (!this->_internal_algorithm().empty()) {
-    target = stream->WriteBytesMaybeAliased(
-        2, this->_internal_algorithm(), target);
+  // uint32 Algorithm = 2;
+  if (this->_internal_algorithm() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_algorithm(), target);
   }
 
-  // bytes Flags = 3;
-  if (!this->_internal_flags().empty()) {
-    target = stream->WriteBytesMaybeAliased(
-        3, this->_internal_flags(), target);
+  // uint32 Flags = 3;
+  if (this->_internal_flags() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(3, this->_internal_flags(), target);
   }
 
   // uint32 Weight = 4;
@@ -23314,25 +23424,21 @@ size_t SLBgplsTopoSrv6EndXSid::ByteSizeLong() const {
         this->_internal_sid());
   }
 
-  // bytes Algorithm = 2;
-  if (!this->_internal_algorithm().empty()) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
-        this->_internal_algorithm());
-  }
-
-  // bytes Flags = 3;
-  if (!this->_internal_flags().empty()) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
-        this->_internal_flags());
-  }
-
   // .service_layer.SLSrv6SidStruct SidStruct = 6;
   if (this->_internal_has_sidstruct()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
         *sidstruct_);
+  }
+
+  // uint32 Algorithm = 2;
+  if (this->_internal_algorithm() != 0) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_algorithm());
+  }
+
+  // uint32 Flags = 3;
+  if (this->_internal_flags() != 0) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_flags());
   }
 
   // uint32 Weight = 4;
@@ -23370,14 +23476,14 @@ void SLBgplsTopoSrv6EndXSid::MergeFrom(const SLBgplsTopoSrv6EndXSid& from) {
   if (!from._internal_sid().empty()) {
     _internal_set_sid(from._internal_sid());
   }
-  if (!from._internal_algorithm().empty()) {
-    _internal_set_algorithm(from._internal_algorithm());
-  }
-  if (!from._internal_flags().empty()) {
-    _internal_set_flags(from._internal_flags());
-  }
   if (from._internal_has_sidstruct()) {
     _internal_mutable_sidstruct()->::service_layer::SLSrv6SidStruct::MergeFrom(from._internal_sidstruct());
+  }
+  if (from._internal_algorithm() != 0) {
+    _internal_set_algorithm(from._internal_algorithm());
+  }
+  if (from._internal_flags() != 0) {
+    _internal_set_flags(from._internal_flags());
   }
   if (from._internal_weight() != 0) {
     _internal_set_weight(from._internal_weight());
@@ -23408,16 +23514,6 @@ void SLBgplsTopoSrv6EndXSid::InternalSwap(SLBgplsTopoSrv6EndXSid* other) {
       &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
       &sid_, lhs_arena,
       &other->sid_, rhs_arena
-  );
-  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
-      &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
-      &algorithm_, lhs_arena,
-      &other->algorithm_, rhs_arena
-  );
-  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
-      &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
-      &flags_, lhs_arena,
-      &other->flags_, rhs_arena
   );
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
       PROTOBUF_FIELD_OFFSET(SLBgplsTopoSrv6EndXSid, endpointbehavior_)
@@ -23729,22 +23825,6 @@ SLBgplsTopoSrv6LanEndXSid::SLBgplsTopoSrv6LanEndXSid(const SLBgplsTopoSrv6LanEnd
     sid_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_sid(), 
       GetArenaForAllocation());
   }
-  algorithm_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-    algorithm_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
-  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (!from._internal_algorithm().empty()) {
-    algorithm_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_algorithm(), 
-      GetArenaForAllocation());
-  }
-  flags_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-    flags_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
-  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (!from._internal_flags().empty()) {
-    flags_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_flags(), 
-      GetArenaForAllocation());
-  }
   if (from._internal_has_neighbor()) {
     neighbor_ = new ::service_layer::SLBgpLsTopoNeighborId(*from.neighbor_);
   } else {
@@ -23755,9 +23835,9 @@ SLBgplsTopoSrv6LanEndXSid::SLBgplsTopoSrv6LanEndXSid(const SLBgplsTopoSrv6LanEnd
   } else {
     sidstruct_ = nullptr;
   }
-  ::memcpy(&weight_, &from.weight_,
+  ::memcpy(&algorithm_, &from.algorithm_,
     static_cast<size_t>(reinterpret_cast<char*>(&endpointbehavior_) -
-    reinterpret_cast<char*>(&weight_)) + sizeof(endpointbehavior_));
+    reinterpret_cast<char*>(&algorithm_)) + sizeof(endpointbehavior_));
   // @@protoc_insertion_point(copy_constructor:service_layer.SLBgplsTopoSrv6LanEndXSid)
 }
 
@@ -23765,14 +23845,6 @@ inline void SLBgplsTopoSrv6LanEndXSid::SharedCtor() {
 sid_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
   sid_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-algorithm_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  algorithm_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-flags_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  flags_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
 #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
 ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
     reinterpret_cast<char*>(&neighbor_) - reinterpret_cast<char*>(this)),
@@ -23790,8 +23862,6 @@ SLBgplsTopoSrv6LanEndXSid::~SLBgplsTopoSrv6LanEndXSid() {
 inline void SLBgplsTopoSrv6LanEndXSid::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
   sid_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  algorithm_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  flags_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (this != internal_default_instance()) delete neighbor_;
   if (this != internal_default_instance()) delete sidstruct_;
 }
@@ -23813,8 +23883,6 @@ void SLBgplsTopoSrv6LanEndXSid::Clear() {
   (void) cached_has_bits;
 
   sid_.ClearToEmpty();
-  algorithm_.ClearToEmpty();
-  flags_.ClearToEmpty();
   if (GetArenaForAllocation() == nullptr && neighbor_ != nullptr) {
     delete neighbor_;
   }
@@ -23823,9 +23891,9 @@ void SLBgplsTopoSrv6LanEndXSid::Clear() {
     delete sidstruct_;
   }
   sidstruct_ = nullptr;
-  ::memset(&weight_, 0, static_cast<size_t>(
+  ::memset(&algorithm_, 0, static_cast<size_t>(
       reinterpret_cast<char*>(&endpointbehavior_) -
-      reinterpret_cast<char*>(&weight_)) + sizeof(endpointbehavior_));
+      reinterpret_cast<char*>(&algorithm_)) + sizeof(endpointbehavior_));
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -23852,20 +23920,18 @@ const char* SLBgplsTopoSrv6LanEndXSid::_InternalParse(const char* ptr, ::PROTOBU
         } else
           goto handle_unusual;
         continue;
-      // bytes Algorithm = 3;
+      // uint32 Algorithm = 3;
       case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 26)) {
-          auto str = _internal_mutable_algorithm();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
+          algorithm_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
         continue;
-      // bytes Flags = 4;
+      // uint32 Flags = 4;
       case 4:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 34)) {
-          auto str = _internal_mutable_flags();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 32)) {
+          flags_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -23937,16 +24003,16 @@ uint8_t* SLBgplsTopoSrv6LanEndXSid::_InternalSerialize(
         2, this->_internal_sid(), target);
   }
 
-  // bytes Algorithm = 3;
-  if (!this->_internal_algorithm().empty()) {
-    target = stream->WriteBytesMaybeAliased(
-        3, this->_internal_algorithm(), target);
+  // uint32 Algorithm = 3;
+  if (this->_internal_algorithm() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(3, this->_internal_algorithm(), target);
   }
 
-  // bytes Flags = 4;
-  if (!this->_internal_flags().empty()) {
-    target = stream->WriteBytesMaybeAliased(
-        4, this->_internal_flags(), target);
+  // uint32 Flags = 4;
+  if (this->_internal_flags() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(4, this->_internal_flags(), target);
   }
 
   // uint32 Weight = 5;
@@ -23992,20 +24058,6 @@ size_t SLBgplsTopoSrv6LanEndXSid::ByteSizeLong() const {
         this->_internal_sid());
   }
 
-  // bytes Algorithm = 3;
-  if (!this->_internal_algorithm().empty()) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
-        this->_internal_algorithm());
-  }
-
-  // bytes Flags = 4;
-  if (!this->_internal_flags().empty()) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
-        this->_internal_flags());
-  }
-
   // .service_layer.SLBgpLsTopoNeighborId Neighbor = 1;
   if (this->_internal_has_neighbor()) {
     total_size += 1 +
@@ -24018,6 +24070,16 @@ size_t SLBgplsTopoSrv6LanEndXSid::ByteSizeLong() const {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
         *sidstruct_);
+  }
+
+  // uint32 Algorithm = 3;
+  if (this->_internal_algorithm() != 0) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_algorithm());
+  }
+
+  // uint32 Flags = 4;
+  if (this->_internal_flags() != 0) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_flags());
   }
 
   // uint32 Weight = 5;
@@ -24055,17 +24117,17 @@ void SLBgplsTopoSrv6LanEndXSid::MergeFrom(const SLBgplsTopoSrv6LanEndXSid& from)
   if (!from._internal_sid().empty()) {
     _internal_set_sid(from._internal_sid());
   }
-  if (!from._internal_algorithm().empty()) {
-    _internal_set_algorithm(from._internal_algorithm());
-  }
-  if (!from._internal_flags().empty()) {
-    _internal_set_flags(from._internal_flags());
-  }
   if (from._internal_has_neighbor()) {
     _internal_mutable_neighbor()->::service_layer::SLBgpLsTopoNeighborId::MergeFrom(from._internal_neighbor());
   }
   if (from._internal_has_sidstruct()) {
     _internal_mutable_sidstruct()->::service_layer::SLSrv6SidStruct::MergeFrom(from._internal_sidstruct());
+  }
+  if (from._internal_algorithm() != 0) {
+    _internal_set_algorithm(from._internal_algorithm());
+  }
+  if (from._internal_flags() != 0) {
+    _internal_set_flags(from._internal_flags());
   }
   if (from._internal_weight() != 0) {
     _internal_set_weight(from._internal_weight());
@@ -24096,16 +24158,6 @@ void SLBgplsTopoSrv6LanEndXSid::InternalSwap(SLBgplsTopoSrv6LanEndXSid* other) {
       &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
       &sid_, lhs_arena,
       &other->sid_, rhs_arena
-  );
-  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
-      &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
-      &algorithm_, lhs_arena,
-      &other->algorithm_, rhs_arena
-  );
-  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
-      &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
-      &flags_, lhs_arena,
-      &other->flags_, rhs_arena
   );
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
       PROTOBUF_FIELD_OFFSET(SLBgplsTopoSrv6LanEndXSid, endpointbehavior_)
@@ -27575,17 +27627,9 @@ SLBgplsTopoPrefixSid::SLBgplsTopoPrefixSid(const SLBgplsTopoPrefixSid& from)
     flags_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_flags(), 
       GetArenaForAllocation());
   }
-  algorithm_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-    algorithm_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
-  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (!from._internal_algorithm().empty()) {
-    algorithm_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_algorithm(), 
-      GetArenaForAllocation());
-  }
-  ::memcpy(&labelindex_, &from.labelindex_,
+  ::memcpy(&algorithm_, &from.algorithm_,
     static_cast<size_t>(reinterpret_cast<char*>(&prefixsidformat_) -
-    reinterpret_cast<char*>(&labelindex_)) + sizeof(prefixsidformat_));
+    reinterpret_cast<char*>(&algorithm_)) + sizeof(prefixsidformat_));
   // @@protoc_insertion_point(copy_constructor:service_layer.SLBgplsTopoPrefixSid)
 }
 
@@ -27594,14 +27638,10 @@ flags_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlread
 #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
   flags_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
 #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-algorithm_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  algorithm_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
 ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
-    reinterpret_cast<char*>(&labelindex_) - reinterpret_cast<char*>(this)),
+    reinterpret_cast<char*>(&algorithm_) - reinterpret_cast<char*>(this)),
     0, static_cast<size_t>(reinterpret_cast<char*>(&prefixsidformat_) -
-    reinterpret_cast<char*>(&labelindex_)) + sizeof(prefixsidformat_));
+    reinterpret_cast<char*>(&algorithm_)) + sizeof(prefixsidformat_));
 }
 
 SLBgplsTopoPrefixSid::~SLBgplsTopoPrefixSid() {
@@ -27614,7 +27654,6 @@ SLBgplsTopoPrefixSid::~SLBgplsTopoPrefixSid() {
 inline void SLBgplsTopoPrefixSid::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
   flags_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  algorithm_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
 
 void SLBgplsTopoPrefixSid::ArenaDtor(void* object) {
@@ -27634,10 +27673,9 @@ void SLBgplsTopoPrefixSid::Clear() {
   (void) cached_has_bits;
 
   flags_.ClearToEmpty();
-  algorithm_.ClearToEmpty();
-  ::memset(&labelindex_, 0, static_cast<size_t>(
+  ::memset(&algorithm_, 0, static_cast<size_t>(
       reinterpret_cast<char*>(&prefixsidformat_) -
-      reinterpret_cast<char*>(&labelindex_)) + sizeof(prefixsidformat_));
+      reinterpret_cast<char*>(&algorithm_)) + sizeof(prefixsidformat_));
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -27656,11 +27694,10 @@ const char* SLBgplsTopoPrefixSid::_InternalParse(const char* ptr, ::PROTOBUF_NAM
         } else
           goto handle_unusual;
         continue;
-      // bytes Algorithm = 2;
+      // uint32 Algorithm = 2;
       case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
-          auto str = _internal_mutable_algorithm();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
+          algorithm_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -27717,10 +27754,10 @@ uint8_t* SLBgplsTopoPrefixSid::_InternalSerialize(
         1, this->_internal_flags(), target);
   }
 
-  // bytes Algorithm = 2;
-  if (!this->_internal_algorithm().empty()) {
-    target = stream->WriteBytesMaybeAliased(
-        2, this->_internal_algorithm(), target);
+  // uint32 Algorithm = 2;
+  if (this->_internal_algorithm() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_algorithm(), target);
   }
 
   // uint32 LabelIndex = 3;
@@ -27759,11 +27796,9 @@ size_t SLBgplsTopoPrefixSid::ByteSizeLong() const {
         this->_internal_flags());
   }
 
-  // bytes Algorithm = 2;
-  if (!this->_internal_algorithm().empty()) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
-        this->_internal_algorithm());
+  // uint32 Algorithm = 2;
+  if (this->_internal_algorithm() != 0) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_algorithm());
   }
 
   // uint32 LabelIndex = 3;
@@ -27802,7 +27837,7 @@ void SLBgplsTopoPrefixSid::MergeFrom(const SLBgplsTopoPrefixSid& from) {
   if (!from._internal_flags().empty()) {
     _internal_set_flags(from._internal_flags());
   }
-  if (!from._internal_algorithm().empty()) {
+  if (from._internal_algorithm() != 0) {
     _internal_set_algorithm(from._internal_algorithm());
   }
   if (from._internal_labelindex() != 0) {
@@ -27835,17 +27870,12 @@ void SLBgplsTopoPrefixSid::InternalSwap(SLBgplsTopoPrefixSid* other) {
       &flags_, lhs_arena,
       &other->flags_, rhs_arena
   );
-  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
-      &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
-      &algorithm_, lhs_arena,
-      &other->algorithm_, rhs_arena
-  );
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
       PROTOBUF_FIELD_OFFSET(SLBgplsTopoPrefixSid, prefixsidformat_)
       + sizeof(SLBgplsTopoPrefixSid::prefixsidformat_)
-      - PROTOBUF_FIELD_OFFSET(SLBgplsTopoPrefixSid, labelindex_)>(
-          reinterpret_cast<char*>(&labelindex_),
-          reinterpret_cast<char*>(&other->labelindex_));
+      - PROTOBUF_FIELD_OFFSET(SLBgplsTopoPrefixSid, algorithm_)>(
+          reinterpret_cast<char*>(&algorithm_),
+          reinterpret_cast<char*>(&other->algorithm_));
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata SLBgplsTopoPrefixSid::GetMetadata() const {
@@ -27880,14 +27910,6 @@ SLBgplsTopoPrefixRange::SLBgplsTopoPrefixRange(const SLBgplsTopoPrefixRange& fro
     flags_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_flags(), 
       GetArenaForAllocation());
   }
-  algorithm_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-    algorithm_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
-  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (!from._internal_algorithm().empty()) {
-    algorithm_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_algorithm(), 
-      GetArenaForAllocation());
-  }
   sidflags_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
     sidflags_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
@@ -27906,10 +27928,6 @@ inline void SLBgplsTopoPrefixRange::SharedCtor() {
 flags_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
   flags_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-algorithm_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  algorithm_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
 #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
 sidflags_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
@@ -27931,7 +27949,6 @@ SLBgplsTopoPrefixRange::~SLBgplsTopoPrefixRange() {
 inline void SLBgplsTopoPrefixRange::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
   flags_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  algorithm_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   sidflags_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
 
@@ -27952,7 +27969,6 @@ void SLBgplsTopoPrefixRange::Clear() {
   (void) cached_has_bits;
 
   flags_.ClearToEmpty();
-  algorithm_.ClearToEmpty();
   sidflags_.ClearToEmpty();
   ::memset(&rangesize_, 0, static_cast<size_t>(
       reinterpret_cast<char*>(&index_) -
@@ -27983,11 +27999,10 @@ const char* SLBgplsTopoPrefixRange::_InternalParse(const char* ptr, ::PROTOBUF_N
         } else
           goto handle_unusual;
         continue;
-      // bytes Algorithm = 3;
+      // uint32 Algorithm = 3;
       case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 26)) {
-          auto str = _internal_mutable_algorithm();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
+          algorithm_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -28050,10 +28065,10 @@ uint8_t* SLBgplsTopoPrefixRange::_InternalSerialize(
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_rangesize(), target);
   }
 
-  // bytes Algorithm = 3;
-  if (!this->_internal_algorithm().empty()) {
-    target = stream->WriteBytesMaybeAliased(
-        3, this->_internal_algorithm(), target);
+  // uint32 Algorithm = 3;
+  if (this->_internal_algorithm() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(3, this->_internal_algorithm(), target);
   }
 
   // uint32 Index = 4;
@@ -28091,13 +28106,6 @@ size_t SLBgplsTopoPrefixRange::ByteSizeLong() const {
         this->_internal_flags());
   }
 
-  // bytes Algorithm = 3;
-  if (!this->_internal_algorithm().empty()) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
-        this->_internal_algorithm());
-  }
-
   // bytes SidFlags = 5;
   if (!this->_internal_sidflags().empty()) {
     total_size += 1 +
@@ -28108,6 +28116,11 @@ size_t SLBgplsTopoPrefixRange::ByteSizeLong() const {
   // uint32 RangeSize = 2;
   if (this->_internal_rangesize() != 0) {
     total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_rangesize());
+  }
+
+  // uint32 Algorithm = 3;
+  if (this->_internal_algorithm() != 0) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_algorithm());
   }
 
   // uint32 Index = 4;
@@ -28140,14 +28153,14 @@ void SLBgplsTopoPrefixRange::MergeFrom(const SLBgplsTopoPrefixRange& from) {
   if (!from._internal_flags().empty()) {
     _internal_set_flags(from._internal_flags());
   }
-  if (!from._internal_algorithm().empty()) {
-    _internal_set_algorithm(from._internal_algorithm());
-  }
   if (!from._internal_sidflags().empty()) {
     _internal_set_sidflags(from._internal_sidflags());
   }
   if (from._internal_rangesize() != 0) {
     _internal_set_rangesize(from._internal_rangesize());
+  }
+  if (from._internal_algorithm() != 0) {
+    _internal_set_algorithm(from._internal_algorithm());
   }
   if (from._internal_index() != 0) {
     _internal_set_index(from._internal_index());
@@ -28175,11 +28188,6 @@ void SLBgplsTopoPrefixRange::InternalSwap(SLBgplsTopoPrefixRange* other) {
       &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
       &flags_, lhs_arena,
       &other->flags_, rhs_arena
-  );
-  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
-      &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
-      &algorithm_, lhs_arena,
-      &other->algorithm_, rhs_arena
   );
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
       &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
@@ -28218,36 +28226,17 @@ SLBgplsTopoPrefixSrv6Loc::SLBgplsTopoPrefixSrv6Loc(::PROTOBUF_NAMESPACE_ID::Aren
 SLBgplsTopoPrefixSrv6Loc::SLBgplsTopoPrefixSrv6Loc(const SLBgplsTopoPrefixSrv6Loc& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  flags_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-    flags_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
-  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (!from._internal_flags().empty()) {
-    flags_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_flags(), 
-      GetArenaForAllocation());
-  }
-  algorithm_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-    algorithm_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
-  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (!from._internal_algorithm().empty()) {
-    algorithm_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_algorithm(), 
-      GetArenaForAllocation());
-  }
-  metric_ = from.metric_;
+  ::memcpy(&flags_, &from.flags_,
+    static_cast<size_t>(reinterpret_cast<char*>(&metric_) -
+    reinterpret_cast<char*>(&flags_)) + sizeof(metric_));
   // @@protoc_insertion_point(copy_constructor:service_layer.SLBgplsTopoPrefixSrv6Loc)
 }
 
 inline void SLBgplsTopoPrefixSrv6Loc::SharedCtor() {
-flags_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  flags_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-algorithm_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  algorithm_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-metric_ = 0u;
+::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+    reinterpret_cast<char*>(&flags_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&metric_) -
+    reinterpret_cast<char*>(&flags_)) + sizeof(metric_));
 }
 
 SLBgplsTopoPrefixSrv6Loc::~SLBgplsTopoPrefixSrv6Loc() {
@@ -28259,8 +28248,6 @@ SLBgplsTopoPrefixSrv6Loc::~SLBgplsTopoPrefixSrv6Loc() {
 
 inline void SLBgplsTopoPrefixSrv6Loc::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
-  flags_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  algorithm_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
 
 void SLBgplsTopoPrefixSrv6Loc::ArenaDtor(void* object) {
@@ -28279,9 +28266,9 @@ void SLBgplsTopoPrefixSrv6Loc::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  flags_.ClearToEmpty();
-  algorithm_.ClearToEmpty();
-  metric_ = 0u;
+  ::memset(&flags_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&metric_) -
+      reinterpret_cast<char*>(&flags_)) + sizeof(metric_));
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -28291,20 +28278,18 @@ const char* SLBgplsTopoPrefixSrv6Loc::_InternalParse(const char* ptr, ::PROTOBUF
     uint32_t tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // bytes Flags = 1;
+      // uint32 Flags = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
-          auto str = _internal_mutable_flags();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
+          flags_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
         continue;
-      // bytes Algorithm = 2;
+      // uint32 Algorithm = 2;
       case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
-          auto str = _internal_mutable_algorithm();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
+          algorithm_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -28346,16 +28331,16 @@ uint8_t* SLBgplsTopoPrefixSrv6Loc::_InternalSerialize(
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // bytes Flags = 1;
-  if (!this->_internal_flags().empty()) {
-    target = stream->WriteBytesMaybeAliased(
-        1, this->_internal_flags(), target);
+  // uint32 Flags = 1;
+  if (this->_internal_flags() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_flags(), target);
   }
 
-  // bytes Algorithm = 2;
-  if (!this->_internal_algorithm().empty()) {
-    target = stream->WriteBytesMaybeAliased(
-        2, this->_internal_algorithm(), target);
+  // uint32 Algorithm = 2;
+  if (this->_internal_algorithm() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_algorithm(), target);
   }
 
   // uint32 Metric = 3;
@@ -28380,18 +28365,14 @@ size_t SLBgplsTopoPrefixSrv6Loc::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // bytes Flags = 1;
-  if (!this->_internal_flags().empty()) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
-        this->_internal_flags());
+  // uint32 Flags = 1;
+  if (this->_internal_flags() != 0) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_flags());
   }
 
-  // bytes Algorithm = 2;
-  if (!this->_internal_algorithm().empty()) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
-        this->_internal_algorithm());
+  // uint32 Algorithm = 2;
+  if (this->_internal_algorithm() != 0) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_algorithm());
   }
 
   // uint32 Metric = 3;
@@ -28421,10 +28402,10 @@ void SLBgplsTopoPrefixSrv6Loc::MergeFrom(const SLBgplsTopoPrefixSrv6Loc& from) {
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (!from._internal_flags().empty()) {
+  if (from._internal_flags() != 0) {
     _internal_set_flags(from._internal_flags());
   }
-  if (!from._internal_algorithm().empty()) {
+  if (from._internal_algorithm() != 0) {
     _internal_set_algorithm(from._internal_algorithm());
   }
   if (from._internal_metric() != 0) {
@@ -28446,20 +28427,13 @@ bool SLBgplsTopoPrefixSrv6Loc::IsInitialized() const {
 
 void SLBgplsTopoPrefixSrv6Loc::InternalSwap(SLBgplsTopoPrefixSrv6Loc* other) {
   using std::swap;
-  auto* lhs_arena = GetArenaForAllocation();
-  auto* rhs_arena = other->GetArenaForAllocation();
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
-      &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
-      &flags_, lhs_arena,
-      &other->flags_, rhs_arena
-  );
-  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
-      &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
-      &algorithm_, lhs_arena,
-      &other->algorithm_, rhs_arena
-  );
-  swap(metric_, other->metric_);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(SLBgplsTopoPrefixSrv6Loc, metric_)
+      + sizeof(SLBgplsTopoPrefixSrv6Loc::metric_)
+      - PROTOBUF_FIELD_OFFSET(SLBgplsTopoPrefixSrv6Loc, flags_)>(
+          reinterpret_cast<char*>(&flags_),
+          reinterpret_cast<char*>(&other->flags_));
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata SLBgplsTopoPrefixSrv6Loc::GetMetadata() const {
@@ -30014,14 +29988,6 @@ SLBgplsTopoSrBindingSid::SLBgplsTopoSrBindingSid(::PROTOBUF_NAMESPACE_ID::Arena*
 SLBgplsTopoSrBindingSid::SLBgplsTopoSrBindingSid(const SLBgplsTopoSrBindingSid& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  bsidflags_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-    bsidflags_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
-  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (!from._internal_bsidflags().empty()) {
-    bsidflags_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_bsidflags(), 
-      GetArenaForAllocation());
-  }
   if (from._internal_has_bsid()) {
     bsid_ = new ::service_layer::SlSrBsid(*from.bsid_);
   } else {
@@ -30032,18 +29998,15 @@ SLBgplsTopoSrBindingSid::SLBgplsTopoSrBindingSid(const SLBgplsTopoSrBindingSid& 
   } else {
     specifiedbsid_ = nullptr;
   }
+  bsidflags_ = from.bsidflags_;
   // @@protoc_insertion_point(copy_constructor:service_layer.SLBgplsTopoSrBindingSid)
 }
 
 inline void SLBgplsTopoSrBindingSid::SharedCtor() {
-bsidflags_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  bsidflags_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
 ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
     reinterpret_cast<char*>(&bsid_) - reinterpret_cast<char*>(this)),
-    0, static_cast<size_t>(reinterpret_cast<char*>(&specifiedbsid_) -
-    reinterpret_cast<char*>(&bsid_)) + sizeof(specifiedbsid_));
+    0, static_cast<size_t>(reinterpret_cast<char*>(&bsidflags_) -
+    reinterpret_cast<char*>(&bsid_)) + sizeof(bsidflags_));
 }
 
 SLBgplsTopoSrBindingSid::~SLBgplsTopoSrBindingSid() {
@@ -30055,7 +30018,6 @@ SLBgplsTopoSrBindingSid::~SLBgplsTopoSrBindingSid() {
 
 inline void SLBgplsTopoSrBindingSid::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
-  bsidflags_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (this != internal_default_instance()) delete bsid_;
   if (this != internal_default_instance()) delete specifiedbsid_;
 }
@@ -30076,7 +30038,6 @@ void SLBgplsTopoSrBindingSid::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  bsidflags_.ClearToEmpty();
   if (GetArenaForAllocation() == nullptr && bsid_ != nullptr) {
     delete bsid_;
   }
@@ -30085,6 +30046,7 @@ void SLBgplsTopoSrBindingSid::Clear() {
     delete specifiedbsid_;
   }
   specifiedbsid_ = nullptr;
+  bsidflags_ = 0u;
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -30094,11 +30056,10 @@ const char* SLBgplsTopoSrBindingSid::_InternalParse(const char* ptr, ::PROTOBUF_
     uint32_t tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // bytes BsidFlags = 1;
+      // uint32 BsidFlags = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
-          auto str = _internal_mutable_bsidflags();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
+          bsidflags_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -30148,10 +30109,10 @@ uint8_t* SLBgplsTopoSrBindingSid::_InternalSerialize(
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // bytes BsidFlags = 1;
-  if (!this->_internal_bsidflags().empty()) {
-    target = stream->WriteBytesMaybeAliased(
-        1, this->_internal_bsidflags(), target);
+  // uint32 BsidFlags = 1;
+  if (this->_internal_bsidflags() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_bsidflags(), target);
   }
 
   // .service_layer.SlSrBsid Bsid = 2;
@@ -30186,13 +30147,6 @@ size_t SLBgplsTopoSrBindingSid::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // bytes BsidFlags = 1;
-  if (!this->_internal_bsidflags().empty()) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
-        this->_internal_bsidflags());
-  }
-
   // .service_layer.SlSrBsid Bsid = 2;
   if (this->_internal_has_bsid()) {
     total_size += 1 +
@@ -30205,6 +30159,11 @@ size_t SLBgplsTopoSrBindingSid::ByteSizeLong() const {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
         *specifiedbsid_);
+  }
+
+  // uint32 BsidFlags = 1;
+  if (this->_internal_bsidflags() != 0) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_bsidflags());
   }
 
   return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
@@ -30229,14 +30188,14 @@ void SLBgplsTopoSrBindingSid::MergeFrom(const SLBgplsTopoSrBindingSid& from) {
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (!from._internal_bsidflags().empty()) {
-    _internal_set_bsidflags(from._internal_bsidflags());
-  }
   if (from._internal_has_bsid()) {
     _internal_mutable_bsid()->::service_layer::SlSrBsid::MergeFrom(from._internal_bsid());
   }
   if (from._internal_has_specifiedbsid()) {
     _internal_mutable_specifiedbsid()->::service_layer::SlSrBsid::MergeFrom(from._internal_specifiedbsid());
+  }
+  if (from._internal_bsidflags() != 0) {
+    _internal_set_bsidflags(from._internal_bsidflags());
   }
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
@@ -30254,17 +30213,10 @@ bool SLBgplsTopoSrBindingSid::IsInitialized() const {
 
 void SLBgplsTopoSrBindingSid::InternalSwap(SLBgplsTopoSrBindingSid* other) {
   using std::swap;
-  auto* lhs_arena = GetArenaForAllocation();
-  auto* rhs_arena = other->GetArenaForAllocation();
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
-      &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
-      &bsidflags_, lhs_arena,
-      &other->bsidflags_, rhs_arena
-  );
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(SLBgplsTopoSrBindingSid, specifiedbsid_)
-      + sizeof(SLBgplsTopoSrBindingSid::specifiedbsid_)
+      PROTOBUF_FIELD_OFFSET(SLBgplsTopoSrBindingSid, bsidflags_)
+      + sizeof(SLBgplsTopoSrBindingSid::bsidflags_)
       - PROTOBUF_FIELD_OFFSET(SLBgplsTopoSrBindingSid, bsid_)>(
           reinterpret_cast<char*>(&bsid_),
           reinterpret_cast<char*>(&other->bsid_));
@@ -30294,14 +30246,6 @@ SLBgplsTopoSrCpState::SLBgplsTopoSrCpState(::PROTOBUF_NAMESPACE_ID::Arena* arena
 SLBgplsTopoSrCpState::SLBgplsTopoSrCpState(const SLBgplsTopoSrCpState& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  flags_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-    flags_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
-  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (!from._internal_flags().empty()) {
-    flags_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_flags(), 
-      GetArenaForAllocation());
-  }
   ::memcpy(&priority_, &from.priority_,
     static_cast<size_t>(reinterpret_cast<char*>(&preference_) -
     reinterpret_cast<char*>(&priority_)) + sizeof(preference_));
@@ -30309,10 +30253,6 @@ SLBgplsTopoSrCpState::SLBgplsTopoSrCpState(const SLBgplsTopoSrCpState& from)
 }
 
 inline void SLBgplsTopoSrCpState::SharedCtor() {
-flags_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  flags_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
 ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
     reinterpret_cast<char*>(&priority_) - reinterpret_cast<char*>(this)),
     0, static_cast<size_t>(reinterpret_cast<char*>(&preference_) -
@@ -30328,7 +30268,6 @@ SLBgplsTopoSrCpState::~SLBgplsTopoSrCpState() {
 
 inline void SLBgplsTopoSrCpState::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
-  flags_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
 
 void SLBgplsTopoSrCpState::ArenaDtor(void* object) {
@@ -30347,7 +30286,6 @@ void SLBgplsTopoSrCpState::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  flags_.ClearToEmpty();
   ::memset(&priority_, 0, static_cast<size_t>(
       reinterpret_cast<char*>(&preference_) -
       reinterpret_cast<char*>(&priority_)) + sizeof(preference_));
@@ -30368,11 +30306,10 @@ const char* SLBgplsTopoSrCpState::_InternalParse(const char* ptr, ::PROTOBUF_NAM
         } else
           goto handle_unusual;
         continue;
-      // bytes Flags = 2;
+      // uint32 Flags = 2;
       case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
-          auto str = _internal_mutable_flags();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
+          flags_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -30420,10 +30357,10 @@ uint8_t* SLBgplsTopoSrCpState::_InternalSerialize(
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_priority(), target);
   }
 
-  // bytes Flags = 2;
-  if (!this->_internal_flags().empty()) {
-    target = stream->WriteBytesMaybeAliased(
-        2, this->_internal_flags(), target);
+  // uint32 Flags = 2;
+  if (this->_internal_flags() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_flags(), target);
   }
 
   // uint32 Preference = 3;
@@ -30448,16 +30385,14 @@ size_t SLBgplsTopoSrCpState::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // bytes Flags = 2;
-  if (!this->_internal_flags().empty()) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
-        this->_internal_flags());
-  }
-
   // uint32 Priority = 1;
   if (this->_internal_priority() != 0) {
     total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_priority());
+  }
+
+  // uint32 Flags = 2;
+  if (this->_internal_flags() != 0) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_flags());
   }
 
   // uint32 Preference = 3;
@@ -30487,11 +30422,11 @@ void SLBgplsTopoSrCpState::MergeFrom(const SLBgplsTopoSrCpState& from) {
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (!from._internal_flags().empty()) {
-    _internal_set_flags(from._internal_flags());
-  }
   if (from._internal_priority() != 0) {
     _internal_set_priority(from._internal_priority());
+  }
+  if (from._internal_flags() != 0) {
+    _internal_set_flags(from._internal_flags());
   }
   if (from._internal_preference() != 0) {
     _internal_set_preference(from._internal_preference());
@@ -30512,14 +30447,7 @@ bool SLBgplsTopoSrCpState::IsInitialized() const {
 
 void SLBgplsTopoSrCpState::InternalSwap(SLBgplsTopoSrCpState* other) {
   using std::swap;
-  auto* lhs_arena = GetArenaForAllocation();
-  auto* rhs_arena = other->GetArenaForAllocation();
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
-      &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
-      &flags_, lhs_arena,
-      &other->flags_, rhs_arena
-  );
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
       PROTOBUF_FIELD_OFFSET(SLBgplsTopoSrCpState, preference_)
       + sizeof(SLBgplsTopoSrCpState::preference_)
@@ -30579,22 +30507,6 @@ SLBgplsTopoSrCpConstraints::SLBgplsTopoSrCpConstraints(const SLBgplsTopoSrCpCons
   : ::PROTOBUF_NAMESPACE_ID::Message(),
       metric_(from.metric_) {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  flags_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-    flags_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
-  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (!from._internal_flags().empty()) {
-    flags_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_flags(), 
-      GetArenaForAllocation());
-  }
-  algorithm_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-    algorithm_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
-  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (!from._internal_algorithm().empty()) {
-    algorithm_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_algorithm(), 
-      GetArenaForAllocation());
-  }
   if (from._internal_has_bandwidth()) {
     bandwidth_ = new ::service_layer::SLBgplsTopoSrBandwidthConstraint(*from.bandwidth_);
   } else {
@@ -30620,23 +30532,17 @@ SLBgplsTopoSrCpConstraints::SLBgplsTopoSrCpConstraints(const SLBgplsTopoSrCpCons
   } else {
     bidirgroup_ = nullptr;
   }
-  mtid_ = from.mtid_;
+  ::memcpy(&flags_, &from.flags_,
+    static_cast<size_t>(reinterpret_cast<char*>(&algorithm_) -
+    reinterpret_cast<char*>(&flags_)) + sizeof(algorithm_));
   // @@protoc_insertion_point(copy_constructor:service_layer.SLBgplsTopoSrCpConstraints)
 }
 
 inline void SLBgplsTopoSrCpConstraints::SharedCtor() {
-flags_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  flags_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-algorithm_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  algorithm_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
 ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
     reinterpret_cast<char*>(&bandwidth_) - reinterpret_cast<char*>(this)),
-    0, static_cast<size_t>(reinterpret_cast<char*>(&mtid_) -
-    reinterpret_cast<char*>(&bandwidth_)) + sizeof(mtid_));
+    0, static_cast<size_t>(reinterpret_cast<char*>(&algorithm_) -
+    reinterpret_cast<char*>(&bandwidth_)) + sizeof(algorithm_));
 }
 
 SLBgplsTopoSrCpConstraints::~SLBgplsTopoSrCpConstraints() {
@@ -30648,8 +30554,6 @@ SLBgplsTopoSrCpConstraints::~SLBgplsTopoSrCpConstraints() {
 
 inline void SLBgplsTopoSrCpConstraints::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
-  flags_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  algorithm_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (this != internal_default_instance()) delete bandwidth_;
   if (this != internal_default_instance()) delete affinity_;
   if (this != internal_default_instance()) delete srlg_;
@@ -30674,8 +30578,6 @@ void SLBgplsTopoSrCpConstraints::Clear() {
   (void) cached_has_bits;
 
   metric_.Clear();
-  flags_.ClearToEmpty();
-  algorithm_.ClearToEmpty();
   if (GetArenaForAllocation() == nullptr && bandwidth_ != nullptr) {
     delete bandwidth_;
   }
@@ -30696,7 +30598,9 @@ void SLBgplsTopoSrCpConstraints::Clear() {
     delete bidirgroup_;
   }
   bidirgroup_ = nullptr;
-  mtid_ = 0u;
+  ::memset(&flags_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&algorithm_) -
+      reinterpret_cast<char*>(&flags_)) + sizeof(algorithm_));
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -30706,11 +30610,10 @@ const char* SLBgplsTopoSrCpConstraints::_InternalParse(const char* ptr, ::PROTOB
     uint32_t tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // bytes Flags = 1;
+      // uint32 Flags = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
-          auto str = _internal_mutable_flags();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
+          flags_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -30723,11 +30626,10 @@ const char* SLBgplsTopoSrCpConstraints::_InternalParse(const char* ptr, ::PROTOB
         } else
           goto handle_unusual;
         continue;
-      // bytes Algorithm = 3;
+      // uint32 Algorithm = 3;
       case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 26)) {
-          auto str = _internal_mutable_algorithm();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
+          algorithm_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -30814,10 +30716,10 @@ uint8_t* SLBgplsTopoSrCpConstraints::_InternalSerialize(
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // bytes Flags = 1;
-  if (!this->_internal_flags().empty()) {
-    target = stream->WriteBytesMaybeAliased(
-        1, this->_internal_flags(), target);
+  // uint32 Flags = 1;
+  if (this->_internal_flags() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_flags(), target);
   }
 
   // uint32 Mtid = 2;
@@ -30826,10 +30728,10 @@ uint8_t* SLBgplsTopoSrCpConstraints::_InternalSerialize(
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_mtid(), target);
   }
 
-  // bytes Algorithm = 3;
-  if (!this->_internal_algorithm().empty()) {
-    target = stream->WriteBytesMaybeAliased(
-        3, this->_internal_algorithm(), target);
+  // uint32 Algorithm = 3;
+  if (this->_internal_algorithm() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(3, this->_internal_algorithm(), target);
   }
 
   // .service_layer.SLBgplsTopoSrBandwidthConstraint Bandwidth = 4;
@@ -30903,20 +30805,6 @@ size_t SLBgplsTopoSrCpConstraints::ByteSizeLong() const {
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
   }
 
-  // bytes Flags = 1;
-  if (!this->_internal_flags().empty()) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
-        this->_internal_flags());
-  }
-
-  // bytes Algorithm = 3;
-  if (!this->_internal_algorithm().empty()) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
-        this->_internal_algorithm());
-  }
-
   // .service_layer.SLBgplsTopoSrBandwidthConstraint Bandwidth = 4;
   if (this->_internal_has_bandwidth()) {
     total_size += 1 +
@@ -30952,9 +30840,19 @@ size_t SLBgplsTopoSrCpConstraints::ByteSizeLong() const {
         *bidirgroup_);
   }
 
+  // uint32 Flags = 1;
+  if (this->_internal_flags() != 0) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_flags());
+  }
+
   // uint32 Mtid = 2;
   if (this->_internal_mtid() != 0) {
     total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_mtid());
+  }
+
+  // uint32 Algorithm = 3;
+  if (this->_internal_algorithm() != 0) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_algorithm());
   }
 
   return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
@@ -30980,12 +30878,6 @@ void SLBgplsTopoSrCpConstraints::MergeFrom(const SLBgplsTopoSrCpConstraints& fro
   (void) cached_has_bits;
 
   metric_.MergeFrom(from.metric_);
-  if (!from._internal_flags().empty()) {
-    _internal_set_flags(from._internal_flags());
-  }
-  if (!from._internal_algorithm().empty()) {
-    _internal_set_algorithm(from._internal_algorithm());
-  }
   if (from._internal_has_bandwidth()) {
     _internal_mutable_bandwidth()->::service_layer::SLBgplsTopoSrBandwidthConstraint::MergeFrom(from._internal_bandwidth());
   }
@@ -31001,8 +30893,14 @@ void SLBgplsTopoSrCpConstraints::MergeFrom(const SLBgplsTopoSrCpConstraints& fro
   if (from._internal_has_bidirgroup()) {
     _internal_mutable_bidirgroup()->::service_layer::SLBgplsTopoSrBidirGroupConstraint::MergeFrom(from._internal_bidirgroup());
   }
+  if (from._internal_flags() != 0) {
+    _internal_set_flags(from._internal_flags());
+  }
   if (from._internal_mtid() != 0) {
     _internal_set_mtid(from._internal_mtid());
+  }
+  if (from._internal_algorithm() != 0) {
+    _internal_set_algorithm(from._internal_algorithm());
   }
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
@@ -31020,23 +30918,11 @@ bool SLBgplsTopoSrCpConstraints::IsInitialized() const {
 
 void SLBgplsTopoSrCpConstraints::InternalSwap(SLBgplsTopoSrCpConstraints* other) {
   using std::swap;
-  auto* lhs_arena = GetArenaForAllocation();
-  auto* rhs_arena = other->GetArenaForAllocation();
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   metric_.InternalSwap(&other->metric_);
-  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
-      &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
-      &flags_, lhs_arena,
-      &other->flags_, rhs_arena
-  );
-  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
-      &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
-      &algorithm_, lhs_arena,
-      &other->algorithm_, rhs_arena
-  );
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(SLBgplsTopoSrCpConstraints, mtid_)
-      + sizeof(SLBgplsTopoSrCpConstraints::mtid_)
+      PROTOBUF_FIELD_OFFSET(SLBgplsTopoSrCpConstraints, algorithm_)
+      + sizeof(SLBgplsTopoSrCpConstraints::algorithm_)
       - PROTOBUF_FIELD_OFFSET(SLBgplsTopoSrCpConstraints, bandwidth_)>(
           reinterpret_cast<char*>(&bandwidth_),
           reinterpret_cast<char*>(&other->bandwidth_));
@@ -31071,41 +30957,17 @@ SLBgplsTopoSrSegList::SLBgplsTopoSrSegList(const SLBgplsTopoSrSegList& from)
   : ::PROTOBUF_NAMESPACE_ID::Message(),
       segments_(from.segments_) {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  flags_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-    flags_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
-  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (!from._internal_flags().empty()) {
-    flags_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_flags(), 
-      GetArenaForAllocation());
-  }
-  algorithm_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-    algorithm_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
-  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (!from._internal_algorithm().empty()) {
-    algorithm_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_algorithm(), 
-      GetArenaForAllocation());
-  }
-  ::memcpy(&mtid_, &from.mtid_,
+  ::memcpy(&flags_, &from.flags_,
     static_cast<size_t>(reinterpret_cast<char*>(&weight_) -
-    reinterpret_cast<char*>(&mtid_)) + sizeof(weight_));
+    reinterpret_cast<char*>(&flags_)) + sizeof(weight_));
   // @@protoc_insertion_point(copy_constructor:service_layer.SLBgplsTopoSrSegList)
 }
 
 inline void SLBgplsTopoSrSegList::SharedCtor() {
-flags_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  flags_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-algorithm_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  algorithm_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
 ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
-    reinterpret_cast<char*>(&mtid_) - reinterpret_cast<char*>(this)),
+    reinterpret_cast<char*>(&flags_) - reinterpret_cast<char*>(this)),
     0, static_cast<size_t>(reinterpret_cast<char*>(&weight_) -
-    reinterpret_cast<char*>(&mtid_)) + sizeof(weight_));
+    reinterpret_cast<char*>(&flags_)) + sizeof(weight_));
 }
 
 SLBgplsTopoSrSegList::~SLBgplsTopoSrSegList() {
@@ -31117,8 +30979,6 @@ SLBgplsTopoSrSegList::~SLBgplsTopoSrSegList() {
 
 inline void SLBgplsTopoSrSegList::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
-  flags_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  algorithm_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
 
 void SLBgplsTopoSrSegList::ArenaDtor(void* object) {
@@ -31138,11 +30998,9 @@ void SLBgplsTopoSrSegList::Clear() {
   (void) cached_has_bits;
 
   segments_.Clear();
-  flags_.ClearToEmpty();
-  algorithm_.ClearToEmpty();
-  ::memset(&mtid_, 0, static_cast<size_t>(
+  ::memset(&flags_, 0, static_cast<size_t>(
       reinterpret_cast<char*>(&weight_) -
-      reinterpret_cast<char*>(&mtid_)) + sizeof(weight_));
+      reinterpret_cast<char*>(&flags_)) + sizeof(weight_));
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -31152,11 +31010,10 @@ const char* SLBgplsTopoSrSegList::_InternalParse(const char* ptr, ::PROTOBUF_NAM
     uint32_t tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // bytes Flags = 1;
+      // uint32 Flags = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
-          auto str = _internal_mutable_flags();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
+          flags_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -31169,11 +31026,10 @@ const char* SLBgplsTopoSrSegList::_InternalParse(const char* ptr, ::PROTOBUF_NAM
         } else
           goto handle_unusual;
         continue;
-      // bytes Algorithm = 3;
+      // uint32 Algorithm = 3;
       case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 26)) {
-          auto str = _internal_mutable_algorithm();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
+          algorithm_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -31228,10 +31084,10 @@ uint8_t* SLBgplsTopoSrSegList::_InternalSerialize(
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // bytes Flags = 1;
-  if (!this->_internal_flags().empty()) {
-    target = stream->WriteBytesMaybeAliased(
-        1, this->_internal_flags(), target);
+  // uint32 Flags = 1;
+  if (this->_internal_flags() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_flags(), target);
   }
 
   // uint32 Mtid = 2;
@@ -31240,10 +31096,10 @@ uint8_t* SLBgplsTopoSrSegList::_InternalSerialize(
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_mtid(), target);
   }
 
-  // bytes Algorithm = 3;
-  if (!this->_internal_algorithm().empty()) {
-    target = stream->WriteBytesMaybeAliased(
-        3, this->_internal_algorithm(), target);
+  // uint32 Algorithm = 3;
+  if (this->_internal_algorithm() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(3, this->_internal_algorithm(), target);
   }
 
   // uint32 Weight = 4;
@@ -31283,23 +31139,19 @@ size_t SLBgplsTopoSrSegList::ByteSizeLong() const {
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
   }
 
-  // bytes Flags = 1;
-  if (!this->_internal_flags().empty()) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
-        this->_internal_flags());
-  }
-
-  // bytes Algorithm = 3;
-  if (!this->_internal_algorithm().empty()) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
-        this->_internal_algorithm());
+  // uint32 Flags = 1;
+  if (this->_internal_flags() != 0) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_flags());
   }
 
   // uint32 Mtid = 2;
   if (this->_internal_mtid() != 0) {
     total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_mtid());
+  }
+
+  // uint32 Algorithm = 3;
+  if (this->_internal_algorithm() != 0) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_algorithm());
   }
 
   // uint32 Weight = 4;
@@ -31330,14 +31182,14 @@ void SLBgplsTopoSrSegList::MergeFrom(const SLBgplsTopoSrSegList& from) {
   (void) cached_has_bits;
 
   segments_.MergeFrom(from.segments_);
-  if (!from._internal_flags().empty()) {
+  if (from._internal_flags() != 0) {
     _internal_set_flags(from._internal_flags());
-  }
-  if (!from._internal_algorithm().empty()) {
-    _internal_set_algorithm(from._internal_algorithm());
   }
   if (from._internal_mtid() != 0) {
     _internal_set_mtid(from._internal_mtid());
+  }
+  if (from._internal_algorithm() != 0) {
+    _internal_set_algorithm(from._internal_algorithm());
   }
   if (from._internal_weight() != 0) {
     _internal_set_weight(from._internal_weight());
@@ -31358,26 +31210,14 @@ bool SLBgplsTopoSrSegList::IsInitialized() const {
 
 void SLBgplsTopoSrSegList::InternalSwap(SLBgplsTopoSrSegList* other) {
   using std::swap;
-  auto* lhs_arena = GetArenaForAllocation();
-  auto* rhs_arena = other->GetArenaForAllocation();
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   segments_.InternalSwap(&other->segments_);
-  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
-      &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
-      &flags_, lhs_arena,
-      &other->flags_, rhs_arena
-  );
-  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
-      &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
-      &algorithm_, lhs_arena,
-      &other->algorithm_, rhs_arena
-  );
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
       PROTOBUF_FIELD_OFFSET(SLBgplsTopoSrSegList, weight_)
       + sizeof(SLBgplsTopoSrSegList::weight_)
-      - PROTOBUF_FIELD_OFFSET(SLBgplsTopoSrSegList, mtid_)>(
-          reinterpret_cast<char*>(&mtid_),
-          reinterpret_cast<char*>(&other->mtid_));
+      - PROTOBUF_FIELD_OFFSET(SLBgplsTopoSrSegList, flags_)>(
+          reinterpret_cast<char*>(&flags_),
+          reinterpret_cast<char*>(&other->flags_));
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata SLBgplsTopoSrSegList::GetMetadata() const {
@@ -31404,41 +31244,17 @@ SLBgplsSrSegListMetric::SLBgplsSrSegListMetric(::PROTOBUF_NAMESPACE_ID::Arena* a
 SLBgplsSrSegListMetric::SLBgplsSrSegListMetric(const SLBgplsSrSegListMetric& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  type_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-    type_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
-  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (!from._internal_type().empty()) {
-    type_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_type(), 
-      GetArenaForAllocation());
-  }
-  flags_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-    flags_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
-  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (!from._internal_flags().empty()) {
-    flags_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_flags(), 
-      GetArenaForAllocation());
-  }
-  ::memcpy(&margin_, &from.margin_,
+  ::memcpy(&type_, &from.type_,
     static_cast<size_t>(reinterpret_cast<char*>(&value_) -
-    reinterpret_cast<char*>(&margin_)) + sizeof(value_));
+    reinterpret_cast<char*>(&type_)) + sizeof(value_));
   // @@protoc_insertion_point(copy_constructor:service_layer.SLBgplsSrSegListMetric)
 }
 
 inline void SLBgplsSrSegListMetric::SharedCtor() {
-type_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  type_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-flags_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  flags_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
 ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
-    reinterpret_cast<char*>(&margin_) - reinterpret_cast<char*>(this)),
+    reinterpret_cast<char*>(&type_) - reinterpret_cast<char*>(this)),
     0, static_cast<size_t>(reinterpret_cast<char*>(&value_) -
-    reinterpret_cast<char*>(&margin_)) + sizeof(value_));
+    reinterpret_cast<char*>(&type_)) + sizeof(value_));
 }
 
 SLBgplsSrSegListMetric::~SLBgplsSrSegListMetric() {
@@ -31450,8 +31266,6 @@ SLBgplsSrSegListMetric::~SLBgplsSrSegListMetric() {
 
 inline void SLBgplsSrSegListMetric::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
-  type_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  flags_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
 
 void SLBgplsSrSegListMetric::ArenaDtor(void* object) {
@@ -31470,11 +31284,9 @@ void SLBgplsSrSegListMetric::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  type_.ClearToEmpty();
-  flags_.ClearToEmpty();
-  ::memset(&margin_, 0, static_cast<size_t>(
+  ::memset(&type_, 0, static_cast<size_t>(
       reinterpret_cast<char*>(&value_) -
-      reinterpret_cast<char*>(&margin_)) + sizeof(value_));
+      reinterpret_cast<char*>(&type_)) + sizeof(value_));
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -31484,20 +31296,18 @@ const char* SLBgplsSrSegListMetric::_InternalParse(const char* ptr, ::PROTOBUF_N
     uint32_t tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // bytes Type = 1;
+      // uint32 Type = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
-          auto str = _internal_mutable_type();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
+          type_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
         continue;
-      // bytes Flags = 2;
+      // uint32 Flags = 2;
       case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
-          auto str = _internal_mutable_flags();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
+          flags_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -31555,16 +31365,16 @@ uint8_t* SLBgplsSrSegListMetric::_InternalSerialize(
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // bytes Type = 1;
-  if (!this->_internal_type().empty()) {
-    target = stream->WriteBytesMaybeAliased(
-        1, this->_internal_type(), target);
+  // uint32 Type = 1;
+  if (this->_internal_type() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_type(), target);
   }
 
-  // bytes Flags = 2;
-  if (!this->_internal_flags().empty()) {
-    target = stream->WriteBytesMaybeAliased(
-        2, this->_internal_flags(), target);
+  // uint32 Flags = 2;
+  if (this->_internal_flags() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_flags(), target);
   }
 
   // uint32 Margin = 3;
@@ -31601,18 +31411,14 @@ size_t SLBgplsSrSegListMetric::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // bytes Type = 1;
-  if (!this->_internal_type().empty()) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
-        this->_internal_type());
+  // uint32 Type = 1;
+  if (this->_internal_type() != 0) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_type());
   }
 
-  // bytes Flags = 2;
-  if (!this->_internal_flags().empty()) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
-        this->_internal_flags());
+  // uint32 Flags = 2;
+  if (this->_internal_flags() != 0) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_flags());
   }
 
   // uint32 Margin = 3;
@@ -31652,10 +31458,10 @@ void SLBgplsSrSegListMetric::MergeFrom(const SLBgplsSrSegListMetric& from) {
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (!from._internal_type().empty()) {
+  if (from._internal_type() != 0) {
     _internal_set_type(from._internal_type());
   }
-  if (!from._internal_flags().empty()) {
+  if (from._internal_flags() != 0) {
     _internal_set_flags(from._internal_flags());
   }
   if (from._internal_margin() != 0) {
@@ -31683,25 +31489,13 @@ bool SLBgplsSrSegListMetric::IsInitialized() const {
 
 void SLBgplsSrSegListMetric::InternalSwap(SLBgplsSrSegListMetric* other) {
   using std::swap;
-  auto* lhs_arena = GetArenaForAllocation();
-  auto* rhs_arena = other->GetArenaForAllocation();
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
-      &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
-      &type_, lhs_arena,
-      &other->type_, rhs_arena
-  );
-  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
-      &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
-      &flags_, lhs_arena,
-      &other->flags_, rhs_arena
-  );
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
       PROTOBUF_FIELD_OFFSET(SLBgplsSrSegListMetric, value_)
       + sizeof(SLBgplsSrSegListMetric::value_)
-      - PROTOBUF_FIELD_OFFSET(SLBgplsSrSegListMetric, margin_)>(
-          reinterpret_cast<char*>(&margin_),
-          reinterpret_cast<char*>(&other->margin_));
+      - PROTOBUF_FIELD_OFFSET(SLBgplsSrSegListMetric, type_)>(
+          reinterpret_cast<char*>(&type_),
+          reinterpret_cast<char*>(&other->type_));
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata SLBgplsSrSegListMetric::GetMetadata() const {
@@ -32390,36 +32184,17 @@ SLBgplsTopoSrDisjointGroupConstraint::SLBgplsTopoSrDisjointGroupConstraint(::PRO
 SLBgplsTopoSrDisjointGroupConstraint::SLBgplsTopoSrDisjointGroupConstraint(const SLBgplsTopoSrDisjointGroupConstraint& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  requestflags_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-    requestflags_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
-  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (!from._internal_requestflags().empty()) {
-    requestflags_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_requestflags(), 
-      GetArenaForAllocation());
-  }
-  statusflags_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-    statusflags_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
-  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (!from._internal_statusflags().empty()) {
-    statusflags_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_statusflags(), 
-      GetArenaForAllocation());
-  }
-  groupid_ = from.groupid_;
+  ::memcpy(&requestflags_, &from.requestflags_,
+    static_cast<size_t>(reinterpret_cast<char*>(&groupid_) -
+    reinterpret_cast<char*>(&requestflags_)) + sizeof(groupid_));
   // @@protoc_insertion_point(copy_constructor:service_layer.SLBgplsTopoSrDisjointGroupConstraint)
 }
 
 inline void SLBgplsTopoSrDisjointGroupConstraint::SharedCtor() {
-requestflags_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  requestflags_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-statusflags_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  statusflags_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-groupid_ = 0u;
+::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+    reinterpret_cast<char*>(&requestflags_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&groupid_) -
+    reinterpret_cast<char*>(&requestflags_)) + sizeof(groupid_));
 }
 
 SLBgplsTopoSrDisjointGroupConstraint::~SLBgplsTopoSrDisjointGroupConstraint() {
@@ -32431,8 +32206,6 @@ SLBgplsTopoSrDisjointGroupConstraint::~SLBgplsTopoSrDisjointGroupConstraint() {
 
 inline void SLBgplsTopoSrDisjointGroupConstraint::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
-  requestflags_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  statusflags_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
 
 void SLBgplsTopoSrDisjointGroupConstraint::ArenaDtor(void* object) {
@@ -32451,9 +32224,9 @@ void SLBgplsTopoSrDisjointGroupConstraint::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  requestflags_.ClearToEmpty();
-  statusflags_.ClearToEmpty();
-  groupid_ = 0u;
+  ::memset(&requestflags_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&groupid_) -
+      reinterpret_cast<char*>(&requestflags_)) + sizeof(groupid_));
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -32463,20 +32236,18 @@ const char* SLBgplsTopoSrDisjointGroupConstraint::_InternalParse(const char* ptr
     uint32_t tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // bytes RequestFlags = 1;
+      // uint32 RequestFlags = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
-          auto str = _internal_mutable_requestflags();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
+          requestflags_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
         continue;
-      // bytes StatusFlags = 2;
+      // uint32 StatusFlags = 2;
       case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
-          auto str = _internal_mutable_statusflags();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
+          statusflags_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -32518,16 +32289,16 @@ uint8_t* SLBgplsTopoSrDisjointGroupConstraint::_InternalSerialize(
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // bytes RequestFlags = 1;
-  if (!this->_internal_requestflags().empty()) {
-    target = stream->WriteBytesMaybeAliased(
-        1, this->_internal_requestflags(), target);
+  // uint32 RequestFlags = 1;
+  if (this->_internal_requestflags() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_requestflags(), target);
   }
 
-  // bytes StatusFlags = 2;
-  if (!this->_internal_statusflags().empty()) {
-    target = stream->WriteBytesMaybeAliased(
-        2, this->_internal_statusflags(), target);
+  // uint32 StatusFlags = 2;
+  if (this->_internal_statusflags() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_statusflags(), target);
   }
 
   // uint32 GroupId = 3;
@@ -32552,18 +32323,14 @@ size_t SLBgplsTopoSrDisjointGroupConstraint::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // bytes RequestFlags = 1;
-  if (!this->_internal_requestflags().empty()) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
-        this->_internal_requestflags());
+  // uint32 RequestFlags = 1;
+  if (this->_internal_requestflags() != 0) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_requestflags());
   }
 
-  // bytes StatusFlags = 2;
-  if (!this->_internal_statusflags().empty()) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
-        this->_internal_statusflags());
+  // uint32 StatusFlags = 2;
+  if (this->_internal_statusflags() != 0) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_statusflags());
   }
 
   // uint32 GroupId = 3;
@@ -32593,10 +32360,10 @@ void SLBgplsTopoSrDisjointGroupConstraint::MergeFrom(const SLBgplsTopoSrDisjoint
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (!from._internal_requestflags().empty()) {
+  if (from._internal_requestflags() != 0) {
     _internal_set_requestflags(from._internal_requestflags());
   }
-  if (!from._internal_statusflags().empty()) {
+  if (from._internal_statusflags() != 0) {
     _internal_set_statusflags(from._internal_statusflags());
   }
   if (from._internal_groupid() != 0) {
@@ -32618,20 +32385,13 @@ bool SLBgplsTopoSrDisjointGroupConstraint::IsInitialized() const {
 
 void SLBgplsTopoSrDisjointGroupConstraint::InternalSwap(SLBgplsTopoSrDisjointGroupConstraint* other) {
   using std::swap;
-  auto* lhs_arena = GetArenaForAllocation();
-  auto* rhs_arena = other->GetArenaForAllocation();
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
-      &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
-      &requestflags_, lhs_arena,
-      &other->requestflags_, rhs_arena
-  );
-  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
-      &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
-      &statusflags_, lhs_arena,
-      &other->statusflags_, rhs_arena
-  );
-  swap(groupid_, other->groupid_);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(SLBgplsTopoSrDisjointGroupConstraint, groupid_)
+      + sizeof(SLBgplsTopoSrDisjointGroupConstraint::groupid_)
+      - PROTOBUF_FIELD_OFFSET(SLBgplsTopoSrDisjointGroupConstraint, requestflags_)>(
+          reinterpret_cast<char*>(&requestflags_),
+          reinterpret_cast<char*>(&other->requestflags_));
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata SLBgplsTopoSrDisjointGroupConstraint::GetMetadata() const {
@@ -32861,24 +32621,17 @@ SLBgplsTopoSrBidirGroupConstraint::SLBgplsTopoSrBidirGroupConstraint(::PROTOBUF_
 SLBgplsTopoSrBidirGroupConstraint::SLBgplsTopoSrBidirGroupConstraint(const SLBgplsTopoSrBidirGroupConstraint& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  flags_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-    flags_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
-  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (!from._internal_flags().empty()) {
-    flags_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_flags(), 
-      GetArenaForAllocation());
-  }
-  groupid_ = from.groupid_;
+  ::memcpy(&flags_, &from.flags_,
+    static_cast<size_t>(reinterpret_cast<char*>(&groupid_) -
+    reinterpret_cast<char*>(&flags_)) + sizeof(groupid_));
   // @@protoc_insertion_point(copy_constructor:service_layer.SLBgplsTopoSrBidirGroupConstraint)
 }
 
 inline void SLBgplsTopoSrBidirGroupConstraint::SharedCtor() {
-flags_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  flags_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-groupid_ = 0u;
+::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+    reinterpret_cast<char*>(&flags_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&groupid_) -
+    reinterpret_cast<char*>(&flags_)) + sizeof(groupid_));
 }
 
 SLBgplsTopoSrBidirGroupConstraint::~SLBgplsTopoSrBidirGroupConstraint() {
@@ -32890,7 +32643,6 @@ SLBgplsTopoSrBidirGroupConstraint::~SLBgplsTopoSrBidirGroupConstraint() {
 
 inline void SLBgplsTopoSrBidirGroupConstraint::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
-  flags_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
 
 void SLBgplsTopoSrBidirGroupConstraint::ArenaDtor(void* object) {
@@ -32909,8 +32661,9 @@ void SLBgplsTopoSrBidirGroupConstraint::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  flags_.ClearToEmpty();
-  groupid_ = 0u;
+  ::memset(&flags_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&groupid_) -
+      reinterpret_cast<char*>(&flags_)) + sizeof(groupid_));
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -32920,11 +32673,10 @@ const char* SLBgplsTopoSrBidirGroupConstraint::_InternalParse(const char* ptr, :
     uint32_t tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // bytes Flags = 1;
+      // uint32 Flags = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
-          auto str = _internal_mutable_flags();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
+          flags_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -32966,10 +32718,10 @@ uint8_t* SLBgplsTopoSrBidirGroupConstraint::_InternalSerialize(
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // bytes Flags = 1;
-  if (!this->_internal_flags().empty()) {
-    target = stream->WriteBytesMaybeAliased(
-        1, this->_internal_flags(), target);
+  // uint32 Flags = 1;
+  if (this->_internal_flags() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_flags(), target);
   }
 
   // uint32 GroupId = 2;
@@ -32994,11 +32746,9 @@ size_t SLBgplsTopoSrBidirGroupConstraint::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // bytes Flags = 1;
-  if (!this->_internal_flags().empty()) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
-        this->_internal_flags());
+  // uint32 Flags = 1;
+  if (this->_internal_flags() != 0) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_flags());
   }
 
   // uint32 GroupId = 2;
@@ -33028,7 +32778,7 @@ void SLBgplsTopoSrBidirGroupConstraint::MergeFrom(const SLBgplsTopoSrBidirGroupC
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (!from._internal_flags().empty()) {
+  if (from._internal_flags() != 0) {
     _internal_set_flags(from._internal_flags());
   }
   if (from._internal_groupid() != 0) {
@@ -33050,15 +32800,13 @@ bool SLBgplsTopoSrBidirGroupConstraint::IsInitialized() const {
 
 void SLBgplsTopoSrBidirGroupConstraint::InternalSwap(SLBgplsTopoSrBidirGroupConstraint* other) {
   using std::swap;
-  auto* lhs_arena = GetArenaForAllocation();
-  auto* rhs_arena = other->GetArenaForAllocation();
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
-      &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
-      &flags_, lhs_arena,
-      &other->flags_, rhs_arena
-  );
-  swap(groupid_, other->groupid_);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(SLBgplsTopoSrBidirGroupConstraint, groupid_)
+      + sizeof(SLBgplsTopoSrBidirGroupConstraint::groupid_)
+      - PROTOBUF_FIELD_OFFSET(SLBgplsTopoSrBidirGroupConstraint, flags_)>(
+          reinterpret_cast<char*>(&flags_),
+          reinterpret_cast<char*>(&other->flags_));
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata SLBgplsTopoSrBidirGroupConstraint::GetMetadata() const {
@@ -33085,14 +32833,6 @@ SLBgplsTopoSrMetricConstraint::SLBgplsTopoSrMetricConstraint(::PROTOBUF_NAMESPAC
 SLBgplsTopoSrMetricConstraint::SLBgplsTopoSrMetricConstraint(const SLBgplsTopoSrMetricConstraint& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  flags_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-    flags_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
-  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (!from._internal_flags().empty()) {
-    flags_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_flags(), 
-      GetArenaForAllocation());
-  }
   ::memcpy(&type_, &from.type_,
     static_cast<size_t>(reinterpret_cast<char*>(&bound_) -
     reinterpret_cast<char*>(&type_)) + sizeof(bound_));
@@ -33100,10 +32840,6 @@ SLBgplsTopoSrMetricConstraint::SLBgplsTopoSrMetricConstraint(const SLBgplsTopoSr
 }
 
 inline void SLBgplsTopoSrMetricConstraint::SharedCtor() {
-flags_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  flags_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
 ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
     reinterpret_cast<char*>(&type_) - reinterpret_cast<char*>(this)),
     0, static_cast<size_t>(reinterpret_cast<char*>(&bound_) -
@@ -33119,7 +32855,6 @@ SLBgplsTopoSrMetricConstraint::~SLBgplsTopoSrMetricConstraint() {
 
 inline void SLBgplsTopoSrMetricConstraint::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
-  flags_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
 
 void SLBgplsTopoSrMetricConstraint::ArenaDtor(void* object) {
@@ -33138,7 +32873,6 @@ void SLBgplsTopoSrMetricConstraint::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  flags_.ClearToEmpty();
   ::memset(&type_, 0, static_cast<size_t>(
       reinterpret_cast<char*>(&bound_) -
       reinterpret_cast<char*>(&type_)) + sizeof(bound_));
@@ -33159,11 +32893,10 @@ const char* SLBgplsTopoSrMetricConstraint::_InternalParse(const char* ptr, ::PRO
         } else
           goto handle_unusual;
         continue;
-      // bytes Flags = 2;
+      // uint32 Flags = 2;
       case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
-          auto str = _internal_mutable_flags();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
+          flags_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -33219,10 +32952,10 @@ uint8_t* SLBgplsTopoSrMetricConstraint::_InternalSerialize(
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_type(), target);
   }
 
-  // bytes Flags = 2;
-  if (!this->_internal_flags().empty()) {
-    target = stream->WriteBytesMaybeAliased(
-        2, this->_internal_flags(), target);
+  // uint32 Flags = 2;
+  if (this->_internal_flags() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_flags(), target);
   }
 
   // uint32 Margin = 3;
@@ -33253,16 +32986,14 @@ size_t SLBgplsTopoSrMetricConstraint::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // bytes Flags = 2;
-  if (!this->_internal_flags().empty()) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
-        this->_internal_flags());
-  }
-
   // uint32 Type = 1;
   if (this->_internal_type() != 0) {
     total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_type());
+  }
+
+  // uint32 Flags = 2;
+  if (this->_internal_flags() != 0) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_flags());
   }
 
   // uint32 Margin = 3;
@@ -33297,11 +33028,11 @@ void SLBgplsTopoSrMetricConstraint::MergeFrom(const SLBgplsTopoSrMetricConstrain
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (!from._internal_flags().empty()) {
-    _internal_set_flags(from._internal_flags());
-  }
   if (from._internal_type() != 0) {
     _internal_set_type(from._internal_type());
+  }
+  if (from._internal_flags() != 0) {
+    _internal_set_flags(from._internal_flags());
   }
   if (from._internal_margin() != 0) {
     _internal_set_margin(from._internal_margin());
@@ -33325,14 +33056,7 @@ bool SLBgplsTopoSrMetricConstraint::IsInitialized() const {
 
 void SLBgplsTopoSrMetricConstraint::InternalSwap(SLBgplsTopoSrMetricConstraint* other) {
   using std::swap;
-  auto* lhs_arena = GetArenaForAllocation();
-  auto* rhs_arena = other->GetArenaForAllocation();
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
-      &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
-      &flags_, lhs_arena,
-      &other->flags_, rhs_arena
-  );
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
       PROTOBUF_FIELD_OFFSET(SLBgplsTopoSrMetricConstraint, bound_)
       + sizeof(SLBgplsTopoSrMetricConstraint::bound_)
@@ -33741,14 +33465,6 @@ SLBgplsTopoSrv6BgpPeerNodeSid::SLBgplsTopoSrv6BgpPeerNodeSid(::PROTOBUF_NAMESPAC
 SLBgplsTopoSrv6BgpPeerNodeSid::SLBgplsTopoSrv6BgpPeerNodeSid(const SLBgplsTopoSrv6BgpPeerNodeSid& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  flags_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-    flags_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
-  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (!from._internal_flags().empty()) {
-    flags_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_flags(), 
-      GetArenaForAllocation());
-  }
   peerbgpid_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
     peerbgpid_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
@@ -33757,25 +33473,21 @@ SLBgplsTopoSrv6BgpPeerNodeSid::SLBgplsTopoSrv6BgpPeerNodeSid(const SLBgplsTopoSr
     peerbgpid_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_peerbgpid(), 
       GetArenaForAllocation());
   }
-  ::memcpy(&weight_, &from.weight_,
+  ::memcpy(&flags_, &from.flags_,
     static_cast<size_t>(reinterpret_cast<char*>(&peeras_) -
-    reinterpret_cast<char*>(&weight_)) + sizeof(peeras_));
+    reinterpret_cast<char*>(&flags_)) + sizeof(peeras_));
   // @@protoc_insertion_point(copy_constructor:service_layer.SLBgplsTopoSrv6BgpPeerNodeSid)
 }
 
 inline void SLBgplsTopoSrv6BgpPeerNodeSid::SharedCtor() {
-flags_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  flags_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
 peerbgpid_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
   peerbgpid_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
 #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
 ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
-    reinterpret_cast<char*>(&weight_) - reinterpret_cast<char*>(this)),
+    reinterpret_cast<char*>(&flags_) - reinterpret_cast<char*>(this)),
     0, static_cast<size_t>(reinterpret_cast<char*>(&peeras_) -
-    reinterpret_cast<char*>(&weight_)) + sizeof(peeras_));
+    reinterpret_cast<char*>(&flags_)) + sizeof(peeras_));
 }
 
 SLBgplsTopoSrv6BgpPeerNodeSid::~SLBgplsTopoSrv6BgpPeerNodeSid() {
@@ -33787,7 +33499,6 @@ SLBgplsTopoSrv6BgpPeerNodeSid::~SLBgplsTopoSrv6BgpPeerNodeSid() {
 
 inline void SLBgplsTopoSrv6BgpPeerNodeSid::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
-  flags_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   peerbgpid_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
 
@@ -33807,11 +33518,10 @@ void SLBgplsTopoSrv6BgpPeerNodeSid::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  flags_.ClearToEmpty();
   peerbgpid_.ClearToEmpty();
-  ::memset(&weight_, 0, static_cast<size_t>(
+  ::memset(&flags_, 0, static_cast<size_t>(
       reinterpret_cast<char*>(&peeras_) -
-      reinterpret_cast<char*>(&weight_)) + sizeof(peeras_));
+      reinterpret_cast<char*>(&flags_)) + sizeof(peeras_));
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -33821,11 +33531,10 @@ const char* SLBgplsTopoSrv6BgpPeerNodeSid::_InternalParse(const char* ptr, ::PRO
     uint32_t tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // bytes Flags = 1;
+      // uint32 Flags = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
-          auto str = _internal_mutable_flags();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
+          flags_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -33884,10 +33593,10 @@ uint8_t* SLBgplsTopoSrv6BgpPeerNodeSid::_InternalSerialize(
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // bytes Flags = 1;
-  if (!this->_internal_flags().empty()) {
-    target = stream->WriteBytesMaybeAliased(
-        1, this->_internal_flags(), target);
+  // uint32 Flags = 1;
+  if (this->_internal_flags() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_flags(), target);
   }
 
   // uint32 Weight = 2;
@@ -33924,18 +33633,16 @@ size_t SLBgplsTopoSrv6BgpPeerNodeSid::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // bytes Flags = 1;
-  if (!this->_internal_flags().empty()) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
-        this->_internal_flags());
-  }
-
   // bytes PeerBgpId = 4;
   if (!this->_internal_peerbgpid().empty()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
         this->_internal_peerbgpid());
+  }
+
+  // uint32 Flags = 1;
+  if (this->_internal_flags() != 0) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_flags());
   }
 
   // uint32 Weight = 2;
@@ -33970,11 +33677,11 @@ void SLBgplsTopoSrv6BgpPeerNodeSid::MergeFrom(const SLBgplsTopoSrv6BgpPeerNodeSi
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (!from._internal_flags().empty()) {
-    _internal_set_flags(from._internal_flags());
-  }
   if (!from._internal_peerbgpid().empty()) {
     _internal_set_peerbgpid(from._internal_peerbgpid());
+  }
+  if (from._internal_flags() != 0) {
+    _internal_set_flags(from._internal_flags());
   }
   if (from._internal_weight() != 0) {
     _internal_set_weight(from._internal_weight());
@@ -34003,20 +33710,15 @@ void SLBgplsTopoSrv6BgpPeerNodeSid::InternalSwap(SLBgplsTopoSrv6BgpPeerNodeSid* 
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
       &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
-      &flags_, lhs_arena,
-      &other->flags_, rhs_arena
-  );
-  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
-      &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
       &peerbgpid_, lhs_arena,
       &other->peerbgpid_, rhs_arena
   );
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
       PROTOBUF_FIELD_OFFSET(SLBgplsTopoSrv6BgpPeerNodeSid, peeras_)
       + sizeof(SLBgplsTopoSrv6BgpPeerNodeSid::peeras_)
-      - PROTOBUF_FIELD_OFFSET(SLBgplsTopoSrv6BgpPeerNodeSid, weight_)>(
-          reinterpret_cast<char*>(&weight_),
-          reinterpret_cast<char*>(&other->weight_));
+      - PROTOBUF_FIELD_OFFSET(SLBgplsTopoSrv6BgpPeerNodeSid, flags_)>(
+          reinterpret_cast<char*>(&flags_),
+          reinterpret_cast<char*>(&other->flags_));
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata SLBgplsTopoSrv6BgpPeerNodeSid::GetMetadata() const {

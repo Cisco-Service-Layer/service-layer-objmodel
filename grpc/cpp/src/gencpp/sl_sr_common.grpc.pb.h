@@ -3,7 +3,7 @@
 // source: sl_sr_common.proto
 // Original file comments:
 // @file
-// @brief SR Common definitions for all of the service layer proto files. 
+// @brief SR Common definitions for all of the service layer proto files.
 //
 // ---------------------------------------------------------------------
 // Copyright (c) 2019, 2024 by Cisco Systems, Inc.

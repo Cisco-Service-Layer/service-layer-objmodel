@@ -32,6 +32,7 @@
 #include <google/protobuf/extension_set.h>  // IWYU pragma: export
 #include <google/protobuf/generated_enum_reflection.h>
 #include <google/protobuf/unknown_field_set.h>
+#include "sl_common_types.pb.h"
 // @@protoc_insertion_point(includes)
 #include <google/protobuf/port_def.inc>
 #define PROTOBUF_INTERNAL_EXPORT_sl_5fsr_5fcommon_2eproto
@@ -123,6 +124,32 @@ inline bool SLSrPolicyProtocolOrigin_Parse(
   return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<SLSrPolicyProtocolOrigin>(
     SLSrPolicyProtocolOrigin_descriptor(), name, value);
 }
+enum SLSrPolicyFlagsDef : int {
+  SL_SR_POLICY_FLAG_RESERVED = 0,
+  SL_SR_POLICY_FLAG_ENDPOINT_V6 = 128,
+  SL_SR_POLICY_FLAG_ORIGINATOR_V6 = 64,
+  SLSrPolicyFlagsDef_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::min(),
+  SLSrPolicyFlagsDef_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::max()
+};
+bool SLSrPolicyFlagsDef_IsValid(int value);
+constexpr SLSrPolicyFlagsDef SLSrPolicyFlagsDef_MIN = SL_SR_POLICY_FLAG_RESERVED;
+constexpr SLSrPolicyFlagsDef SLSrPolicyFlagsDef_MAX = SL_SR_POLICY_FLAG_ENDPOINT_V6;
+constexpr int SLSrPolicyFlagsDef_ARRAYSIZE = SLSrPolicyFlagsDef_MAX + 1;
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* SLSrPolicyFlagsDef_descriptor();
+template<typename T>
+inline const std::string& SLSrPolicyFlagsDef_Name(T enum_t_value) {
+  static_assert(::std::is_same<T, SLSrPolicyFlagsDef>::value ||
+    ::std::is_integral<T>::value,
+    "Incorrect type passed to function SLSrPolicyFlagsDef_Name.");
+  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
+    SLSrPolicyFlagsDef_descriptor(), enum_t_value);
+}
+inline bool SLSrPolicyFlagsDef_Parse(
+    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, SLSrPolicyFlagsDef* value) {
+  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<SLSrPolicyFlagsDef>(
+    SLSrPolicyFlagsDef_descriptor(), name, value);
+}
 enum SLSrSegmentType : int {
   SL_SR_SEG_TYPE_RESERVED = 0,
   SL_SR_SEG_TYPE_MPLS_LABEL = 1,
@@ -157,6 +184,62 @@ inline bool SLSrSegmentType_Parse(
     ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, SLSrSegmentType* value) {
   return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<SLSrSegmentType>(
     SLSrSegmentType_descriptor(), name, value);
+}
+enum SLSrSegmentFlags : int {
+  SL_SR_SEGMENT_FLAG_RESERVED = 0,
+  SL_SR_SEGMENT_FLAG_SID_PRESENT = 32768,
+  SL_SR_SEGMENT_FLAG_SID_EXPLICIT_PROVISIONED = 16384,
+  SL_SR_SEGMENT_FLAG_SID_VERIFIED = 8192,
+  SL_SR_SEGMENT_FLAG_SID_RESOLVED = 4096,
+  SL_SR_SEGMENT_FLAG_SID_ALGO_VALID = 2048,
+  SLSrSegmentFlags_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::min(),
+  SLSrSegmentFlags_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::max()
+};
+bool SLSrSegmentFlags_IsValid(int value);
+constexpr SLSrSegmentFlags SLSrSegmentFlags_MIN = SL_SR_SEGMENT_FLAG_RESERVED;
+constexpr SLSrSegmentFlags SLSrSegmentFlags_MAX = SL_SR_SEGMENT_FLAG_SID_PRESENT;
+constexpr int SLSrSegmentFlags_ARRAYSIZE = SLSrSegmentFlags_MAX + 1;
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* SLSrSegmentFlags_descriptor();
+template<typename T>
+inline const std::string& SLSrSegmentFlags_Name(T enum_t_value) {
+  static_assert(::std::is_same<T, SLSrSegmentFlags>::value ||
+    ::std::is_integral<T>::value,
+    "Incorrect type passed to function SLSrSegmentFlags_Name.");
+  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
+    SLSrSegmentFlags_descriptor(), enum_t_value);
+}
+inline bool SLSrSegmentFlags_Parse(
+    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, SLSrSegmentFlags* value) {
+  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<SLSrSegmentFlags>(
+    SLSrSegmentFlags_descriptor(), name, value);
+}
+enum SLSrv6BindingSidFlags : int {
+  SL_SRV6_BSID_FLAG_RESERVED = 0,
+  SL_SRV6_BSID_FLAG_ALLOCATED = 32768,
+  SL_SRV6_BSID_FLAG_UNAVAIL = 16384,
+  SL_SRV6_BSID_FLAG_DYNAMIC = 8192,
+  SLSrv6BindingSidFlags_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::min(),
+  SLSrv6BindingSidFlags_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::max()
+};
+bool SLSrv6BindingSidFlags_IsValid(int value);
+constexpr SLSrv6BindingSidFlags SLSrv6BindingSidFlags_MIN = SL_SRV6_BSID_FLAG_RESERVED;
+constexpr SLSrv6BindingSidFlags SLSrv6BindingSidFlags_MAX = SL_SRV6_BSID_FLAG_ALLOCATED;
+constexpr int SLSrv6BindingSidFlags_ARRAYSIZE = SLSrv6BindingSidFlags_MAX + 1;
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* SLSrv6BindingSidFlags_descriptor();
+template<typename T>
+inline const std::string& SLSrv6BindingSidFlags_Name(T enum_t_value) {
+  static_assert(::std::is_same<T, SLSrv6BindingSidFlags>::value ||
+    ::std::is_integral<T>::value,
+    "Incorrect type passed to function SLSrv6BindingSidFlags_Name.");
+  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
+    SLSrv6BindingSidFlags_descriptor(), enum_t_value);
+}
+inline bool SLSrv6BindingSidFlags_Parse(
+    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, SLSrv6BindingSidFlags* value) {
+  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<SLSrv6BindingSidFlags>(
+    SLSrv6BindingSidFlags_descriptor(), name, value);
 }
 // ===================================================================
 
@@ -284,18 +367,13 @@ class SLSrPolicyFlags final :
   enum : int {
     kFlagsFieldNumber = 1,
   };
-  // bytes Flags = 1;
+  // uint32 Flags = 1;
   void clear_flags();
-  const std::string& flags() const;
-  template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_flags(ArgT0&& arg0, ArgT... args);
-  std::string* mutable_flags();
-  PROTOBUF_NODISCARD std::string* release_flags();
-  void set_allocated_flags(std::string* flags);
+  uint32_t flags() const;
+  void set_flags(uint32_t value);
   private:
-  const std::string& _internal_flags() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_flags(const std::string& value);
-  std::string* _internal_mutable_flags();
+  uint32_t _internal_flags() const;
+  void _internal_set_flags(uint32_t value);
   public:
 
   // @@protoc_insertion_point(class_scope:service_layer.SLSrPolicyFlags)
@@ -305,7 +383,7 @@ class SLSrPolicyFlags final :
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr flags_;
+  uint32_t flags_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_sl_5fsr_5fcommon_2eproto;
 };
@@ -694,18 +772,6 @@ class SLSrSegmentDesc final :
   static const SLSrSegmentDesc& default_instance() {
     return *internal_default_instance();
   }
-  enum LocalNodeAddrCase {
-    kIpv4LocAddr = 2,
-    kIpv6LocAddr = 3,
-    LOCALNODEADDR_NOT_SET = 0,
-  };
-
-  enum RemoteNodeAddrCase {
-    kIpv4RemAddr = 4,
-    kIpv6RemAddr = 5,
-    REMOTENODEADDR_NOT_SET = 0,
-  };
-
   static inline const SLSrSegmentDesc* internal_default_instance() {
     return reinterpret_cast<const SLSrSegmentDesc*>(
                &_SLSrSegmentDesc_default_instance_);
@@ -785,31 +851,15 @@ class SLSrSegmentDesc final :
   // accessors -------------------------------------------------------
 
   enum : int {
+    kIpv6LocalNodeGlobalAddrFieldNumber = 4,
+    kIpv6RemoteNodeGlobalAddrFieldNumber = 5,
+    kLocalNodeFieldNumber = 2,
+    kRemoteNodeFieldNumber = 3,
     kAlgorithmFieldNumber = 1,
-    kIpv6LocalNodeGlobalAddrFieldNumber = 6,
-    kIpv6RemoteNodeGlobalAddrFieldNumber = 7,
-    kLocalNodeIntfIdFieldNumber = 8,
-    kRemoteNodeIntfIdFieldNumber = 9,
-    kIpv4LocAddrFieldNumber = 2,
-    kIpv6LocAddrFieldNumber = 3,
-    kIpv4RemAddrFieldNumber = 4,
-    kIpv6RemAddrFieldNumber = 5,
+    kLocalNodeIntfIdFieldNumber = 6,
+    kRemoteNodeIntfIdFieldNumber = 7,
   };
-  // bytes Algorithm = 1;
-  void clear_algorithm();
-  const std::string& algorithm() const;
-  template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_algorithm(ArgT0&& arg0, ArgT... args);
-  std::string* mutable_algorithm();
-  PROTOBUF_NODISCARD std::string* release_algorithm();
-  void set_allocated_algorithm(std::string* algorithm);
-  private:
-  const std::string& _internal_algorithm() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_algorithm(const std::string& value);
-  std::string* _internal_mutable_algorithm();
-  public:
-
-  // bytes Ipv6LocalNodeGlobalAddr = 6;
+  // bytes Ipv6LocalNodeGlobalAddr = 4;
   void clear_ipv6localnodeglobaladdr();
   const std::string& ipv6localnodeglobaladdr() const;
   template <typename ArgT0 = const std::string&, typename... ArgT>
@@ -823,7 +873,7 @@ class SLSrSegmentDesc final :
   std::string* _internal_mutable_ipv6localnodeglobaladdr();
   public:
 
-  // bytes Ipv6RemoteNodeGlobalAddr = 7;
+  // bytes Ipv6RemoteNodeGlobalAddr = 5;
   void clear_ipv6remotenodeglobaladdr();
   const std::string& ipv6remotenodeglobaladdr() const;
   template <typename ArgT0 = const std::string&, typename... ArgT>
@@ -837,7 +887,52 @@ class SLSrSegmentDesc final :
   std::string* _internal_mutable_ipv6remotenodeglobaladdr();
   public:
 
-  // uint32 LocalNodeIntfId = 8;
+  // .service_layer.SLIpAddress LocalNode = 2;
+  bool has_localnode() const;
+  private:
+  bool _internal_has_localnode() const;
+  public:
+  void clear_localnode();
+  const ::service_layer::SLIpAddress& localnode() const;
+  PROTOBUF_NODISCARD ::service_layer::SLIpAddress* release_localnode();
+  ::service_layer::SLIpAddress* mutable_localnode();
+  void set_allocated_localnode(::service_layer::SLIpAddress* localnode);
+  private:
+  const ::service_layer::SLIpAddress& _internal_localnode() const;
+  ::service_layer::SLIpAddress* _internal_mutable_localnode();
+  public:
+  void unsafe_arena_set_allocated_localnode(
+      ::service_layer::SLIpAddress* localnode);
+  ::service_layer::SLIpAddress* unsafe_arena_release_localnode();
+
+  // .service_layer.SLIpAddress RemoteNode = 3;
+  bool has_remotenode() const;
+  private:
+  bool _internal_has_remotenode() const;
+  public:
+  void clear_remotenode();
+  const ::service_layer::SLIpAddress& remotenode() const;
+  PROTOBUF_NODISCARD ::service_layer::SLIpAddress* release_remotenode();
+  ::service_layer::SLIpAddress* mutable_remotenode();
+  void set_allocated_remotenode(::service_layer::SLIpAddress* remotenode);
+  private:
+  const ::service_layer::SLIpAddress& _internal_remotenode() const;
+  ::service_layer::SLIpAddress* _internal_mutable_remotenode();
+  public:
+  void unsafe_arena_set_allocated_remotenode(
+      ::service_layer::SLIpAddress* remotenode);
+  ::service_layer::SLIpAddress* unsafe_arena_release_remotenode();
+
+  // uint32 Algorithm = 1;
+  void clear_algorithm();
+  uint32_t algorithm() const;
+  void set_algorithm(uint32_t value);
+  private:
+  uint32_t _internal_algorithm() const;
+  void _internal_set_algorithm(uint32_t value);
+  public:
+
+  // uint32 LocalNodeIntfId = 6;
   void clear_localnodeintfid();
   uint32_t localnodeintfid() const;
   void set_localnodeintfid(uint32_t value);
@@ -846,7 +941,7 @@ class SLSrSegmentDesc final :
   void _internal_set_localnodeintfid(uint32_t value);
   public:
 
-  // uint32 RemoteNodeIntfId = 9;
+  // uint32 RemoteNodeIntfId = 7;
   void clear_remotenodeintfid();
   uint32_t remotenodeintfid() const;
   void set_remotenodeintfid(uint32_t value);
@@ -855,119 +950,21 @@ class SLSrSegmentDesc final :
   void _internal_set_remotenodeintfid(uint32_t value);
   public:
 
-  // bytes Ipv4LocAddr = 2;
-  bool has_ipv4locaddr() const;
-  private:
-  bool _internal_has_ipv4locaddr() const;
-  public:
-  void clear_ipv4locaddr();
-  const std::string& ipv4locaddr() const;
-  template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_ipv4locaddr(ArgT0&& arg0, ArgT... args);
-  std::string* mutable_ipv4locaddr();
-  PROTOBUF_NODISCARD std::string* release_ipv4locaddr();
-  void set_allocated_ipv4locaddr(std::string* ipv4locaddr);
-  private:
-  const std::string& _internal_ipv4locaddr() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_ipv4locaddr(const std::string& value);
-  std::string* _internal_mutable_ipv4locaddr();
-  public:
-
-  // bytes Ipv6LocAddr = 3;
-  bool has_ipv6locaddr() const;
-  private:
-  bool _internal_has_ipv6locaddr() const;
-  public:
-  void clear_ipv6locaddr();
-  const std::string& ipv6locaddr() const;
-  template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_ipv6locaddr(ArgT0&& arg0, ArgT... args);
-  std::string* mutable_ipv6locaddr();
-  PROTOBUF_NODISCARD std::string* release_ipv6locaddr();
-  void set_allocated_ipv6locaddr(std::string* ipv6locaddr);
-  private:
-  const std::string& _internal_ipv6locaddr() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_ipv6locaddr(const std::string& value);
-  std::string* _internal_mutable_ipv6locaddr();
-  public:
-
-  // bytes Ipv4RemAddr = 4;
-  bool has_ipv4remaddr() const;
-  private:
-  bool _internal_has_ipv4remaddr() const;
-  public:
-  void clear_ipv4remaddr();
-  const std::string& ipv4remaddr() const;
-  template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_ipv4remaddr(ArgT0&& arg0, ArgT... args);
-  std::string* mutable_ipv4remaddr();
-  PROTOBUF_NODISCARD std::string* release_ipv4remaddr();
-  void set_allocated_ipv4remaddr(std::string* ipv4remaddr);
-  private:
-  const std::string& _internal_ipv4remaddr() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_ipv4remaddr(const std::string& value);
-  std::string* _internal_mutable_ipv4remaddr();
-  public:
-
-  // bytes Ipv6RemAddr = 5;
-  bool has_ipv6remaddr() const;
-  private:
-  bool _internal_has_ipv6remaddr() const;
-  public:
-  void clear_ipv6remaddr();
-  const std::string& ipv6remaddr() const;
-  template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_ipv6remaddr(ArgT0&& arg0, ArgT... args);
-  std::string* mutable_ipv6remaddr();
-  PROTOBUF_NODISCARD std::string* release_ipv6remaddr();
-  void set_allocated_ipv6remaddr(std::string* ipv6remaddr);
-  private:
-  const std::string& _internal_ipv6remaddr() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_ipv6remaddr(const std::string& value);
-  std::string* _internal_mutable_ipv6remaddr();
-  public:
-
-  void clear_LocalNodeAddr();
-  LocalNodeAddrCase LocalNodeAddr_case() const;
-  void clear_RemoteNodeAddr();
-  RemoteNodeAddrCase RemoteNodeAddr_case() const;
   // @@protoc_insertion_point(class_scope:service_layer.SLSrSegmentDesc)
  private:
   class _Internal;
-  void set_has_ipv4locaddr();
-  void set_has_ipv6locaddr();
-  void set_has_ipv4remaddr();
-  void set_has_ipv6remaddr();
-
-  inline bool has_LocalNodeAddr() const;
-  inline void clear_has_LocalNodeAddr();
-
-  inline bool has_RemoteNodeAddr() const;
-  inline void clear_has_RemoteNodeAddr();
 
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr algorithm_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr ipv6localnodeglobaladdr_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr ipv6remotenodeglobaladdr_;
+  ::service_layer::SLIpAddress* localnode_;
+  ::service_layer::SLIpAddress* remotenode_;
+  uint32_t algorithm_;
   uint32_t localnodeintfid_;
   uint32_t remotenodeintfid_;
-  union LocalNodeAddrUnion {
-    constexpr LocalNodeAddrUnion() : _constinit_{} {}
-      ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized _constinit_;
-    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr ipv4locaddr_;
-    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr ipv6locaddr_;
-  } LocalNodeAddr_;
-  union RemoteNodeAddrUnion {
-    constexpr RemoteNodeAddrUnion() : _constinit_{} {}
-      ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized _constinit_;
-    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr ipv4remaddr_;
-    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr ipv6remaddr_;
-  } RemoteNodeAddr_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-  uint32_t _oneof_case_[2];
-
   friend struct ::TableStruct_sl_5fsr_5fcommon_2eproto;
 };
 // -------------------------------------------------------------------
@@ -1100,28 +1097,14 @@ class SLSrSegment final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kFlagsFieldNumber = 2,
     kSegmentDescFieldNumber = 5,
     kEndPointBehaviourFieldNumber = 6,
     kSidStructFieldNumber = 7,
     kTypeFieldNumber = 1,
+    kFlagsFieldNumber = 2,
     kMplsLabelFieldNumber = 3,
     kSrv6SidFieldNumber = 4,
   };
-  // bytes Flags = 2;
-  void clear_flags();
-  const std::string& flags() const;
-  template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_flags(ArgT0&& arg0, ArgT... args);
-  std::string* mutable_flags();
-  PROTOBUF_NODISCARD std::string* release_flags();
-  void set_allocated_flags(std::string* flags);
-  private:
-  const std::string& _internal_flags() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_flags(const std::string& value);
-  std::string* _internal_mutable_flags();
-  public:
-
   // .service_layer.SLSrSegmentDesc SegmentDesc = 5;
   bool has_segmentdesc() const;
   private:
@@ -1185,6 +1168,15 @@ class SLSrSegment final :
   void _internal_set_type(::service_layer::SLSrSegmentType value);
   public:
 
+  // uint32 Flags = 2;
+  void clear_flags();
+  uint32_t flags() const;
+  void set_flags(uint32_t value);
+  private:
+  uint32_t _internal_flags() const;
+  void _internal_set_flags(uint32_t value);
+  public:
+
   // uint32 MplsLabel = 3;
   bool has_mplslabel() const;
   private:
@@ -1230,11 +1222,11 @@ class SLSrSegment final :
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr flags_;
   ::service_layer::SLSrSegmentDesc* segmentdesc_;
   ::service_layer::SLSrv6EndPointBehavior* endpointbehaviour_;
   ::service_layer::SLSrv6SidStruct* sidstruct_;
   int type_;
+  uint32_t flags_;
   union SidUnion {
     constexpr SidUnion() : _constinit_{} {}
       ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized _constinit_;
@@ -1370,26 +1362,12 @@ class SLSrv6BindingSid final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kFlagsFieldNumber = 1,
     kBsidFieldNumber = 2,
     kSpecifiedBsidFieldNumber = 3,
     kEndPointBehaviourFieldNumber = 4,
     kSidStructFieldNumber = 5,
+    kFlagsFieldNumber = 1,
   };
-  // bytes Flags = 1;
-  void clear_flags();
-  const std::string& flags() const;
-  template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_flags(ArgT0&& arg0, ArgT... args);
-  std::string* mutable_flags();
-  PROTOBUF_NODISCARD std::string* release_flags();
-  void set_allocated_flags(std::string* flags);
-  private:
-  const std::string& _internal_flags() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_flags(const std::string& value);
-  std::string* _internal_mutable_flags();
-  public:
-
   // bytes Bsid = 2;
   void clear_bsid();
   const std::string& bsid() const;
@@ -1454,6 +1432,15 @@ class SLSrv6BindingSid final :
       ::service_layer::SLSrv6SidStruct* sidstruct);
   ::service_layer::SLSrv6SidStruct* unsafe_arena_release_sidstruct();
 
+  // uint32 Flags = 1;
+  void clear_flags();
+  uint32_t flags() const;
+  void set_flags(uint32_t value);
+  private:
+  uint32_t _internal_flags() const;
+  void _internal_set_flags(uint32_t value);
+  public:
+
   // @@protoc_insertion_point(class_scope:service_layer.SLSrv6BindingSid)
  private:
   class _Internal;
@@ -1461,11 +1448,11 @@ class SLSrv6BindingSid final :
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr flags_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr bsid_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr specifiedbsid_;
   ::service_layer::SLSrv6EndPointBehavior* endpointbehaviour_;
   ::service_layer::SLSrv6SidStruct* sidstruct_;
+  uint32_t flags_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_sl_5fsr_5fcommon_2eproto;
 };
@@ -1593,38 +1580,10 @@ class SLSrv6EndPointBehavior final :
   // accessors -------------------------------------------------------
 
   enum : int {
+    kEndPointBehaviorFieldNumber = 1,
     kFlagsFieldNumber = 2,
     kAlgorithmFieldNumber = 3,
-    kEndPointBehaviorFieldNumber = 1,
   };
-  // bytes Flags = 2;
-  void clear_flags();
-  const std::string& flags() const;
-  template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_flags(ArgT0&& arg0, ArgT... args);
-  std::string* mutable_flags();
-  PROTOBUF_NODISCARD std::string* release_flags();
-  void set_allocated_flags(std::string* flags);
-  private:
-  const std::string& _internal_flags() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_flags(const std::string& value);
-  std::string* _internal_mutable_flags();
-  public:
-
-  // bytes Algorithm = 3;
-  void clear_algorithm();
-  const std::string& algorithm() const;
-  template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_algorithm(ArgT0&& arg0, ArgT... args);
-  std::string* mutable_algorithm();
-  PROTOBUF_NODISCARD std::string* release_algorithm();
-  void set_allocated_algorithm(std::string* algorithm);
-  private:
-  const std::string& _internal_algorithm() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_algorithm(const std::string& value);
-  std::string* _internal_mutable_algorithm();
-  public:
-
   // uint32 EndPointBehavior = 1;
   void clear_endpointbehavior();
   uint32_t endpointbehavior() const;
@@ -1634,6 +1593,24 @@ class SLSrv6EndPointBehavior final :
   void _internal_set_endpointbehavior(uint32_t value);
   public:
 
+  // uint32 Flags = 2;
+  void clear_flags();
+  uint32_t flags() const;
+  void set_flags(uint32_t value);
+  private:
+  uint32_t _internal_flags() const;
+  void _internal_set_flags(uint32_t value);
+  public:
+
+  // uint32 Algorithm = 3;
+  void clear_algorithm();
+  uint32_t algorithm() const;
+  void set_algorithm(uint32_t value);
+  private:
+  uint32_t _internal_algorithm() const;
+  void _internal_set_algorithm(uint32_t value);
+  public:
+
   // @@protoc_insertion_point(class_scope:service_layer.SLSrv6EndPointBehavior)
  private:
   class _Internal;
@@ -1641,9 +1618,9 @@ class SLSrv6EndPointBehavior final :
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr flags_;
-  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr algorithm_;
   uint32_t endpointbehavior_;
+  uint32_t flags_;
+  uint32_t algorithm_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_sl_5fsr_5fcommon_2eproto;
 };
@@ -1837,55 +1814,24 @@ class SLSrv6SidStruct final :
 #endif  // __GNUC__
 // SLSrPolicyFlags
 
-// bytes Flags = 1;
+// uint32 Flags = 1;
 inline void SLSrPolicyFlags::clear_flags() {
-  flags_.ClearToEmpty();
+  flags_ = 0u;
 }
-inline const std::string& SLSrPolicyFlags::flags() const {
+inline uint32_t SLSrPolicyFlags::_internal_flags() const {
+  return flags_;
+}
+inline uint32_t SLSrPolicyFlags::flags() const {
   // @@protoc_insertion_point(field_get:service_layer.SLSrPolicyFlags.Flags)
   return _internal_flags();
 }
-template <typename ArgT0, typename... ArgT>
-inline PROTOBUF_ALWAYS_INLINE
-void SLSrPolicyFlags::set_flags(ArgT0&& arg0, ArgT... args) {
- 
- flags_.SetBytes(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+inline void SLSrPolicyFlags::_internal_set_flags(uint32_t value) {
+  
+  flags_ = value;
+}
+inline void SLSrPolicyFlags::set_flags(uint32_t value) {
+  _internal_set_flags(value);
   // @@protoc_insertion_point(field_set:service_layer.SLSrPolicyFlags.Flags)
-}
-inline std::string* SLSrPolicyFlags::mutable_flags() {
-  std::string* _s = _internal_mutable_flags();
-  // @@protoc_insertion_point(field_mutable:service_layer.SLSrPolicyFlags.Flags)
-  return _s;
-}
-inline const std::string& SLSrPolicyFlags::_internal_flags() const {
-  return flags_.Get();
-}
-inline void SLSrPolicyFlags::_internal_set_flags(const std::string& value) {
-  
-  flags_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArenaForAllocation());
-}
-inline std::string* SLSrPolicyFlags::_internal_mutable_flags() {
-  
-  return flags_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
-}
-inline std::string* SLSrPolicyFlags::release_flags() {
-  // @@protoc_insertion_point(field_release:service_layer.SLSrPolicyFlags.Flags)
-  return flags_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArenaForAllocation());
-}
-inline void SLSrPolicyFlags::set_allocated_flags(std::string* flags) {
-  if (flags != nullptr) {
-    
-  } else {
-    
-  }
-  flags_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), flags,
-      GetArenaForAllocation());
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (flags_.IsDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited())) {
-    flags_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
-  }
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  // @@protoc_insertion_point(field_set_allocated:service_layer.SLSrPolicyFlags.Flags)
 }
 
 // -------------------------------------------------------------------
@@ -2080,386 +2026,199 @@ inline void SLSrCpName::set_allocated_name(std::string* name) {
 
 // SLSrSegmentDesc
 
-// bytes Algorithm = 1;
+// uint32 Algorithm = 1;
 inline void SLSrSegmentDesc::clear_algorithm() {
-  algorithm_.ClearToEmpty();
+  algorithm_ = 0u;
 }
-inline const std::string& SLSrSegmentDesc::algorithm() const {
+inline uint32_t SLSrSegmentDesc::_internal_algorithm() const {
+  return algorithm_;
+}
+inline uint32_t SLSrSegmentDesc::algorithm() const {
   // @@protoc_insertion_point(field_get:service_layer.SLSrSegmentDesc.Algorithm)
   return _internal_algorithm();
 }
-template <typename ArgT0, typename... ArgT>
-inline PROTOBUF_ALWAYS_INLINE
-void SLSrSegmentDesc::set_algorithm(ArgT0&& arg0, ArgT... args) {
- 
- algorithm_.SetBytes(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+inline void SLSrSegmentDesc::_internal_set_algorithm(uint32_t value) {
+  
+  algorithm_ = value;
+}
+inline void SLSrSegmentDesc::set_algorithm(uint32_t value) {
+  _internal_set_algorithm(value);
   // @@protoc_insertion_point(field_set:service_layer.SLSrSegmentDesc.Algorithm)
 }
-inline std::string* SLSrSegmentDesc::mutable_algorithm() {
-  std::string* _s = _internal_mutable_algorithm();
-  // @@protoc_insertion_point(field_mutable:service_layer.SLSrSegmentDesc.Algorithm)
-  return _s;
+
+// .service_layer.SLIpAddress LocalNode = 2;
+inline bool SLSrSegmentDesc::_internal_has_localnode() const {
+  return this != internal_default_instance() && localnode_ != nullptr;
 }
-inline const std::string& SLSrSegmentDesc::_internal_algorithm() const {
-  return algorithm_.Get();
+inline bool SLSrSegmentDesc::has_localnode() const {
+  return _internal_has_localnode();
 }
-inline void SLSrSegmentDesc::_internal_set_algorithm(const std::string& value) {
-  
-  algorithm_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArenaForAllocation());
+inline const ::service_layer::SLIpAddress& SLSrSegmentDesc::_internal_localnode() const {
+  const ::service_layer::SLIpAddress* p = localnode_;
+  return p != nullptr ? *p : reinterpret_cast<const ::service_layer::SLIpAddress&>(
+      ::service_layer::_SLIpAddress_default_instance_);
 }
-inline std::string* SLSrSegmentDesc::_internal_mutable_algorithm() {
-  
-  return algorithm_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
+inline const ::service_layer::SLIpAddress& SLSrSegmentDesc::localnode() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLSrSegmentDesc.LocalNode)
+  return _internal_localnode();
 }
-inline std::string* SLSrSegmentDesc::release_algorithm() {
-  // @@protoc_insertion_point(field_release:service_layer.SLSrSegmentDesc.Algorithm)
-  return algorithm_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArenaForAllocation());
-}
-inline void SLSrSegmentDesc::set_allocated_algorithm(std::string* algorithm) {
-  if (algorithm != nullptr) {
+inline void SLSrSegmentDesc::unsafe_arena_set_allocated_localnode(
+    ::service_layer::SLIpAddress* localnode) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(localnode_);
+  }
+  localnode_ = localnode;
+  if (localnode) {
     
   } else {
     
   }
-  algorithm_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), algorithm,
-      GetArenaForAllocation());
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (algorithm_.IsDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited())) {
-    algorithm_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:service_layer.SLSrSegmentDesc.LocalNode)
+}
+inline ::service_layer::SLIpAddress* SLSrSegmentDesc::release_localnode() {
+  
+  ::service_layer::SLIpAddress* temp = localnode_;
+  localnode_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
   }
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  // @@protoc_insertion_point(field_set_allocated:service_layer.SLSrSegmentDesc.Algorithm)
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
 }
-
-// bytes Ipv4LocAddr = 2;
-inline bool SLSrSegmentDesc::_internal_has_ipv4locaddr() const {
-  return LocalNodeAddr_case() == kIpv4LocAddr;
+inline ::service_layer::SLIpAddress* SLSrSegmentDesc::unsafe_arena_release_localnode() {
+  // @@protoc_insertion_point(field_release:service_layer.SLSrSegmentDesc.LocalNode)
+  
+  ::service_layer::SLIpAddress* temp = localnode_;
+  localnode_ = nullptr;
+  return temp;
 }
-inline bool SLSrSegmentDesc::has_ipv4locaddr() const {
-  return _internal_has_ipv4locaddr();
-}
-inline void SLSrSegmentDesc::set_has_ipv4locaddr() {
-  _oneof_case_[0] = kIpv4LocAddr;
-}
-inline void SLSrSegmentDesc::clear_ipv4locaddr() {
-  if (_internal_has_ipv4locaddr()) {
-    LocalNodeAddr_.ipv4locaddr_.Destroy(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
-    clear_has_LocalNodeAddr();
+inline ::service_layer::SLIpAddress* SLSrSegmentDesc::_internal_mutable_localnode() {
+  
+  if (localnode_ == nullptr) {
+    auto* p = CreateMaybeMessage<::service_layer::SLIpAddress>(GetArenaForAllocation());
+    localnode_ = p;
   }
+  return localnode_;
 }
-inline const std::string& SLSrSegmentDesc::ipv4locaddr() const {
-  // @@protoc_insertion_point(field_get:service_layer.SLSrSegmentDesc.Ipv4LocAddr)
-  return _internal_ipv4locaddr();
+inline ::service_layer::SLIpAddress* SLSrSegmentDesc::mutable_localnode() {
+  ::service_layer::SLIpAddress* _msg = _internal_mutable_localnode();
+  // @@protoc_insertion_point(field_mutable:service_layer.SLSrSegmentDesc.LocalNode)
+  return _msg;
 }
-template <typename ArgT0, typename... ArgT>
-inline void SLSrSegmentDesc::set_ipv4locaddr(ArgT0&& arg0, ArgT... args) {
-  if (!_internal_has_ipv4locaddr()) {
-    clear_LocalNodeAddr();
-    set_has_ipv4locaddr();
-    LocalNodeAddr_.ipv4locaddr_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+inline void SLSrSegmentDesc::set_allocated_localnode(::service_layer::SLIpAddress* localnode) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(localnode_);
   }
-  LocalNodeAddr_.ipv4locaddr_.SetBytes(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
-  // @@protoc_insertion_point(field_set:service_layer.SLSrSegmentDesc.Ipv4LocAddr)
-}
-inline std::string* SLSrSegmentDesc::mutable_ipv4locaddr() {
-  std::string* _s = _internal_mutable_ipv4locaddr();
-  // @@protoc_insertion_point(field_mutable:service_layer.SLSrSegmentDesc.Ipv4LocAddr)
-  return _s;
-}
-inline const std::string& SLSrSegmentDesc::_internal_ipv4locaddr() const {
-  if (_internal_has_ipv4locaddr()) {
-    return LocalNodeAddr_.ipv4locaddr_.Get();
-  }
-  return ::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited();
-}
-inline void SLSrSegmentDesc::_internal_set_ipv4locaddr(const std::string& value) {
-  if (!_internal_has_ipv4locaddr()) {
-    clear_LocalNodeAddr();
-    set_has_ipv4locaddr();
-    LocalNodeAddr_.ipv4locaddr_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  }
-  LocalNodeAddr_.ipv4locaddr_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArenaForAllocation());
-}
-inline std::string* SLSrSegmentDesc::_internal_mutable_ipv4locaddr() {
-  if (!_internal_has_ipv4locaddr()) {
-    clear_LocalNodeAddr();
-    set_has_ipv4locaddr();
-    LocalNodeAddr_.ipv4locaddr_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  }
-  return LocalNodeAddr_.ipv4locaddr_.Mutable(
-      ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
-}
-inline std::string* SLSrSegmentDesc::release_ipv4locaddr() {
-  // @@protoc_insertion_point(field_release:service_layer.SLSrSegmentDesc.Ipv4LocAddr)
-  if (_internal_has_ipv4locaddr()) {
-    clear_has_LocalNodeAddr();
-    return LocalNodeAddr_.ipv4locaddr_.ReleaseNonDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArenaForAllocation());
-  } else {
-    return nullptr;
-  }
-}
-inline void SLSrSegmentDesc::set_allocated_ipv4locaddr(std::string* ipv4locaddr) {
-  if (has_LocalNodeAddr()) {
-    clear_LocalNodeAddr();
-  }
-  if (ipv4locaddr != nullptr) {
-    set_has_ipv4locaddr();
-    LocalNodeAddr_.ipv4locaddr_.UnsafeSetDefault(ipv4locaddr);
-    ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArenaForAllocation();
-    if (arena != nullptr) {
-      arena->Own(ipv4locaddr);
+  if (localnode) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper<
+            ::PROTOBUF_NAMESPACE_ID::MessageLite>::GetOwningArena(
+                reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(localnode));
+    if (message_arena != submessage_arena) {
+      localnode = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, localnode, submessage_arena);
     }
-  }
-  // @@protoc_insertion_point(field_set_allocated:service_layer.SLSrSegmentDesc.Ipv4LocAddr)
-}
-
-// bytes Ipv6LocAddr = 3;
-inline bool SLSrSegmentDesc::_internal_has_ipv6locaddr() const {
-  return LocalNodeAddr_case() == kIpv6LocAddr;
-}
-inline bool SLSrSegmentDesc::has_ipv6locaddr() const {
-  return _internal_has_ipv6locaddr();
-}
-inline void SLSrSegmentDesc::set_has_ipv6locaddr() {
-  _oneof_case_[0] = kIpv6LocAddr;
-}
-inline void SLSrSegmentDesc::clear_ipv6locaddr() {
-  if (_internal_has_ipv6locaddr()) {
-    LocalNodeAddr_.ipv6locaddr_.Destroy(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
-    clear_has_LocalNodeAddr();
-  }
-}
-inline const std::string& SLSrSegmentDesc::ipv6locaddr() const {
-  // @@protoc_insertion_point(field_get:service_layer.SLSrSegmentDesc.Ipv6LocAddr)
-  return _internal_ipv6locaddr();
-}
-template <typename ArgT0, typename... ArgT>
-inline void SLSrSegmentDesc::set_ipv6locaddr(ArgT0&& arg0, ArgT... args) {
-  if (!_internal_has_ipv6locaddr()) {
-    clear_LocalNodeAddr();
-    set_has_ipv6locaddr();
-    LocalNodeAddr_.ipv6locaddr_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  }
-  LocalNodeAddr_.ipv6locaddr_.SetBytes(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
-  // @@protoc_insertion_point(field_set:service_layer.SLSrSegmentDesc.Ipv6LocAddr)
-}
-inline std::string* SLSrSegmentDesc::mutable_ipv6locaddr() {
-  std::string* _s = _internal_mutable_ipv6locaddr();
-  // @@protoc_insertion_point(field_mutable:service_layer.SLSrSegmentDesc.Ipv6LocAddr)
-  return _s;
-}
-inline const std::string& SLSrSegmentDesc::_internal_ipv6locaddr() const {
-  if (_internal_has_ipv6locaddr()) {
-    return LocalNodeAddr_.ipv6locaddr_.Get();
-  }
-  return ::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited();
-}
-inline void SLSrSegmentDesc::_internal_set_ipv6locaddr(const std::string& value) {
-  if (!_internal_has_ipv6locaddr()) {
-    clear_LocalNodeAddr();
-    set_has_ipv6locaddr();
-    LocalNodeAddr_.ipv6locaddr_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  }
-  LocalNodeAddr_.ipv6locaddr_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArenaForAllocation());
-}
-inline std::string* SLSrSegmentDesc::_internal_mutable_ipv6locaddr() {
-  if (!_internal_has_ipv6locaddr()) {
-    clear_LocalNodeAddr();
-    set_has_ipv6locaddr();
-    LocalNodeAddr_.ipv6locaddr_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  }
-  return LocalNodeAddr_.ipv6locaddr_.Mutable(
-      ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
-}
-inline std::string* SLSrSegmentDesc::release_ipv6locaddr() {
-  // @@protoc_insertion_point(field_release:service_layer.SLSrSegmentDesc.Ipv6LocAddr)
-  if (_internal_has_ipv6locaddr()) {
-    clear_has_LocalNodeAddr();
-    return LocalNodeAddr_.ipv6locaddr_.ReleaseNonDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArenaForAllocation());
+    
   } else {
-    return nullptr;
+    
   }
-}
-inline void SLSrSegmentDesc::set_allocated_ipv6locaddr(std::string* ipv6locaddr) {
-  if (has_LocalNodeAddr()) {
-    clear_LocalNodeAddr();
-  }
-  if (ipv6locaddr != nullptr) {
-    set_has_ipv6locaddr();
-    LocalNodeAddr_.ipv6locaddr_.UnsafeSetDefault(ipv6locaddr);
-    ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArenaForAllocation();
-    if (arena != nullptr) {
-      arena->Own(ipv6locaddr);
-    }
-  }
-  // @@protoc_insertion_point(field_set_allocated:service_layer.SLSrSegmentDesc.Ipv6LocAddr)
+  localnode_ = localnode;
+  // @@protoc_insertion_point(field_set_allocated:service_layer.SLSrSegmentDesc.LocalNode)
 }
 
-// bytes Ipv4RemAddr = 4;
-inline bool SLSrSegmentDesc::_internal_has_ipv4remaddr() const {
-  return RemoteNodeAddr_case() == kIpv4RemAddr;
+// .service_layer.SLIpAddress RemoteNode = 3;
+inline bool SLSrSegmentDesc::_internal_has_remotenode() const {
+  return this != internal_default_instance() && remotenode_ != nullptr;
 }
-inline bool SLSrSegmentDesc::has_ipv4remaddr() const {
-  return _internal_has_ipv4remaddr();
+inline bool SLSrSegmentDesc::has_remotenode() const {
+  return _internal_has_remotenode();
 }
-inline void SLSrSegmentDesc::set_has_ipv4remaddr() {
-  _oneof_case_[1] = kIpv4RemAddr;
+inline const ::service_layer::SLIpAddress& SLSrSegmentDesc::_internal_remotenode() const {
+  const ::service_layer::SLIpAddress* p = remotenode_;
+  return p != nullptr ? *p : reinterpret_cast<const ::service_layer::SLIpAddress&>(
+      ::service_layer::_SLIpAddress_default_instance_);
 }
-inline void SLSrSegmentDesc::clear_ipv4remaddr() {
-  if (_internal_has_ipv4remaddr()) {
-    RemoteNodeAddr_.ipv4remaddr_.Destroy(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
-    clear_has_RemoteNodeAddr();
+inline const ::service_layer::SLIpAddress& SLSrSegmentDesc::remotenode() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLSrSegmentDesc.RemoteNode)
+  return _internal_remotenode();
+}
+inline void SLSrSegmentDesc::unsafe_arena_set_allocated_remotenode(
+    ::service_layer::SLIpAddress* remotenode) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(remotenode_);
   }
-}
-inline const std::string& SLSrSegmentDesc::ipv4remaddr() const {
-  // @@protoc_insertion_point(field_get:service_layer.SLSrSegmentDesc.Ipv4RemAddr)
-  return _internal_ipv4remaddr();
-}
-template <typename ArgT0, typename... ArgT>
-inline void SLSrSegmentDesc::set_ipv4remaddr(ArgT0&& arg0, ArgT... args) {
-  if (!_internal_has_ipv4remaddr()) {
-    clear_RemoteNodeAddr();
-    set_has_ipv4remaddr();
-    RemoteNodeAddr_.ipv4remaddr_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  }
-  RemoteNodeAddr_.ipv4remaddr_.SetBytes(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
-  // @@protoc_insertion_point(field_set:service_layer.SLSrSegmentDesc.Ipv4RemAddr)
-}
-inline std::string* SLSrSegmentDesc::mutable_ipv4remaddr() {
-  std::string* _s = _internal_mutable_ipv4remaddr();
-  // @@protoc_insertion_point(field_mutable:service_layer.SLSrSegmentDesc.Ipv4RemAddr)
-  return _s;
-}
-inline const std::string& SLSrSegmentDesc::_internal_ipv4remaddr() const {
-  if (_internal_has_ipv4remaddr()) {
-    return RemoteNodeAddr_.ipv4remaddr_.Get();
-  }
-  return ::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited();
-}
-inline void SLSrSegmentDesc::_internal_set_ipv4remaddr(const std::string& value) {
-  if (!_internal_has_ipv4remaddr()) {
-    clear_RemoteNodeAddr();
-    set_has_ipv4remaddr();
-    RemoteNodeAddr_.ipv4remaddr_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  }
-  RemoteNodeAddr_.ipv4remaddr_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArenaForAllocation());
-}
-inline std::string* SLSrSegmentDesc::_internal_mutable_ipv4remaddr() {
-  if (!_internal_has_ipv4remaddr()) {
-    clear_RemoteNodeAddr();
-    set_has_ipv4remaddr();
-    RemoteNodeAddr_.ipv4remaddr_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  }
-  return RemoteNodeAddr_.ipv4remaddr_.Mutable(
-      ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
-}
-inline std::string* SLSrSegmentDesc::release_ipv4remaddr() {
-  // @@protoc_insertion_point(field_release:service_layer.SLSrSegmentDesc.Ipv4RemAddr)
-  if (_internal_has_ipv4remaddr()) {
-    clear_has_RemoteNodeAddr();
-    return RemoteNodeAddr_.ipv4remaddr_.ReleaseNonDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArenaForAllocation());
+  remotenode_ = remotenode;
+  if (remotenode) {
+    
   } else {
-    return nullptr;
+    
   }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:service_layer.SLSrSegmentDesc.RemoteNode)
 }
-inline void SLSrSegmentDesc::set_allocated_ipv4remaddr(std::string* ipv4remaddr) {
-  if (has_RemoteNodeAddr()) {
-    clear_RemoteNodeAddr();
+inline ::service_layer::SLIpAddress* SLSrSegmentDesc::release_remotenode() {
+  
+  ::service_layer::SLIpAddress* temp = remotenode_;
+  remotenode_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
   }
-  if (ipv4remaddr != nullptr) {
-    set_has_ipv4remaddr();
-    RemoteNodeAddr_.ipv4remaddr_.UnsafeSetDefault(ipv4remaddr);
-    ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArenaForAllocation();
-    if (arena != nullptr) {
-      arena->Own(ipv4remaddr);
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::service_layer::SLIpAddress* SLSrSegmentDesc::unsafe_arena_release_remotenode() {
+  // @@protoc_insertion_point(field_release:service_layer.SLSrSegmentDesc.RemoteNode)
+  
+  ::service_layer::SLIpAddress* temp = remotenode_;
+  remotenode_ = nullptr;
+  return temp;
+}
+inline ::service_layer::SLIpAddress* SLSrSegmentDesc::_internal_mutable_remotenode() {
+  
+  if (remotenode_ == nullptr) {
+    auto* p = CreateMaybeMessage<::service_layer::SLIpAddress>(GetArenaForAllocation());
+    remotenode_ = p;
+  }
+  return remotenode_;
+}
+inline ::service_layer::SLIpAddress* SLSrSegmentDesc::mutable_remotenode() {
+  ::service_layer::SLIpAddress* _msg = _internal_mutable_remotenode();
+  // @@protoc_insertion_point(field_mutable:service_layer.SLSrSegmentDesc.RemoteNode)
+  return _msg;
+}
+inline void SLSrSegmentDesc::set_allocated_remotenode(::service_layer::SLIpAddress* remotenode) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(remotenode_);
+  }
+  if (remotenode) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper<
+            ::PROTOBUF_NAMESPACE_ID::MessageLite>::GetOwningArena(
+                reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(remotenode));
+    if (message_arena != submessage_arena) {
+      remotenode = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, remotenode, submessage_arena);
     }
-  }
-  // @@protoc_insertion_point(field_set_allocated:service_layer.SLSrSegmentDesc.Ipv4RemAddr)
-}
-
-// bytes Ipv6RemAddr = 5;
-inline bool SLSrSegmentDesc::_internal_has_ipv6remaddr() const {
-  return RemoteNodeAddr_case() == kIpv6RemAddr;
-}
-inline bool SLSrSegmentDesc::has_ipv6remaddr() const {
-  return _internal_has_ipv6remaddr();
-}
-inline void SLSrSegmentDesc::set_has_ipv6remaddr() {
-  _oneof_case_[1] = kIpv6RemAddr;
-}
-inline void SLSrSegmentDesc::clear_ipv6remaddr() {
-  if (_internal_has_ipv6remaddr()) {
-    RemoteNodeAddr_.ipv6remaddr_.Destroy(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
-    clear_has_RemoteNodeAddr();
-  }
-}
-inline const std::string& SLSrSegmentDesc::ipv6remaddr() const {
-  // @@protoc_insertion_point(field_get:service_layer.SLSrSegmentDesc.Ipv6RemAddr)
-  return _internal_ipv6remaddr();
-}
-template <typename ArgT0, typename... ArgT>
-inline void SLSrSegmentDesc::set_ipv6remaddr(ArgT0&& arg0, ArgT... args) {
-  if (!_internal_has_ipv6remaddr()) {
-    clear_RemoteNodeAddr();
-    set_has_ipv6remaddr();
-    RemoteNodeAddr_.ipv6remaddr_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  }
-  RemoteNodeAddr_.ipv6remaddr_.SetBytes(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
-  // @@protoc_insertion_point(field_set:service_layer.SLSrSegmentDesc.Ipv6RemAddr)
-}
-inline std::string* SLSrSegmentDesc::mutable_ipv6remaddr() {
-  std::string* _s = _internal_mutable_ipv6remaddr();
-  // @@protoc_insertion_point(field_mutable:service_layer.SLSrSegmentDesc.Ipv6RemAddr)
-  return _s;
-}
-inline const std::string& SLSrSegmentDesc::_internal_ipv6remaddr() const {
-  if (_internal_has_ipv6remaddr()) {
-    return RemoteNodeAddr_.ipv6remaddr_.Get();
-  }
-  return ::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited();
-}
-inline void SLSrSegmentDesc::_internal_set_ipv6remaddr(const std::string& value) {
-  if (!_internal_has_ipv6remaddr()) {
-    clear_RemoteNodeAddr();
-    set_has_ipv6remaddr();
-    RemoteNodeAddr_.ipv6remaddr_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  }
-  RemoteNodeAddr_.ipv6remaddr_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArenaForAllocation());
-}
-inline std::string* SLSrSegmentDesc::_internal_mutable_ipv6remaddr() {
-  if (!_internal_has_ipv6remaddr()) {
-    clear_RemoteNodeAddr();
-    set_has_ipv6remaddr();
-    RemoteNodeAddr_.ipv6remaddr_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  }
-  return RemoteNodeAddr_.ipv6remaddr_.Mutable(
-      ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
-}
-inline std::string* SLSrSegmentDesc::release_ipv6remaddr() {
-  // @@protoc_insertion_point(field_release:service_layer.SLSrSegmentDesc.Ipv6RemAddr)
-  if (_internal_has_ipv6remaddr()) {
-    clear_has_RemoteNodeAddr();
-    return RemoteNodeAddr_.ipv6remaddr_.ReleaseNonDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArenaForAllocation());
+    
   } else {
-    return nullptr;
+    
   }
-}
-inline void SLSrSegmentDesc::set_allocated_ipv6remaddr(std::string* ipv6remaddr) {
-  if (has_RemoteNodeAddr()) {
-    clear_RemoteNodeAddr();
-  }
-  if (ipv6remaddr != nullptr) {
-    set_has_ipv6remaddr();
-    RemoteNodeAddr_.ipv6remaddr_.UnsafeSetDefault(ipv6remaddr);
-    ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArenaForAllocation();
-    if (arena != nullptr) {
-      arena->Own(ipv6remaddr);
-    }
-  }
-  // @@protoc_insertion_point(field_set_allocated:service_layer.SLSrSegmentDesc.Ipv6RemAddr)
+  remotenode_ = remotenode;
+  // @@protoc_insertion_point(field_set_allocated:service_layer.SLSrSegmentDesc.RemoteNode)
 }
 
-// bytes Ipv6LocalNodeGlobalAddr = 6;
+// bytes Ipv6LocalNodeGlobalAddr = 4;
 inline void SLSrSegmentDesc::clear_ipv6localnodeglobaladdr() {
   ipv6localnodeglobaladdr_.ClearToEmpty();
 }
@@ -2510,7 +2269,7 @@ inline void SLSrSegmentDesc::set_allocated_ipv6localnodeglobaladdr(std::string* 
   // @@protoc_insertion_point(field_set_allocated:service_layer.SLSrSegmentDesc.Ipv6LocalNodeGlobalAddr)
 }
 
-// bytes Ipv6RemoteNodeGlobalAddr = 7;
+// bytes Ipv6RemoteNodeGlobalAddr = 5;
 inline void SLSrSegmentDesc::clear_ipv6remotenodeglobaladdr() {
   ipv6remotenodeglobaladdr_.ClearToEmpty();
 }
@@ -2561,7 +2320,7 @@ inline void SLSrSegmentDesc::set_allocated_ipv6remotenodeglobaladdr(std::string*
   // @@protoc_insertion_point(field_set_allocated:service_layer.SLSrSegmentDesc.Ipv6RemoteNodeGlobalAddr)
 }
 
-// uint32 LocalNodeIntfId = 8;
+// uint32 LocalNodeIntfId = 6;
 inline void SLSrSegmentDesc::clear_localnodeintfid() {
   localnodeintfid_ = 0u;
 }
@@ -2581,7 +2340,7 @@ inline void SLSrSegmentDesc::set_localnodeintfid(uint32_t value) {
   // @@protoc_insertion_point(field_set:service_layer.SLSrSegmentDesc.LocalNodeIntfId)
 }
 
-// uint32 RemoteNodeIntfId = 9;
+// uint32 RemoteNodeIntfId = 7;
 inline void SLSrSegmentDesc::clear_remotenodeintfid() {
   remotenodeintfid_ = 0u;
 }
@@ -2601,24 +2360,6 @@ inline void SLSrSegmentDesc::set_remotenodeintfid(uint32_t value) {
   // @@protoc_insertion_point(field_set:service_layer.SLSrSegmentDesc.RemoteNodeIntfId)
 }
 
-inline bool SLSrSegmentDesc::has_LocalNodeAddr() const {
-  return LocalNodeAddr_case() != LOCALNODEADDR_NOT_SET;
-}
-inline void SLSrSegmentDesc::clear_has_LocalNodeAddr() {
-  _oneof_case_[0] = LOCALNODEADDR_NOT_SET;
-}
-inline bool SLSrSegmentDesc::has_RemoteNodeAddr() const {
-  return RemoteNodeAddr_case() != REMOTENODEADDR_NOT_SET;
-}
-inline void SLSrSegmentDesc::clear_has_RemoteNodeAddr() {
-  _oneof_case_[1] = REMOTENODEADDR_NOT_SET;
-}
-inline SLSrSegmentDesc::LocalNodeAddrCase SLSrSegmentDesc::LocalNodeAddr_case() const {
-  return SLSrSegmentDesc::LocalNodeAddrCase(_oneof_case_[0]);
-}
-inline SLSrSegmentDesc::RemoteNodeAddrCase SLSrSegmentDesc::RemoteNodeAddr_case() const {
-  return SLSrSegmentDesc::RemoteNodeAddrCase(_oneof_case_[1]);
-}
 // -------------------------------------------------------------------
 
 // SLSrSegment
@@ -2643,55 +2384,24 @@ inline void SLSrSegment::set_type(::service_layer::SLSrSegmentType value) {
   // @@protoc_insertion_point(field_set:service_layer.SLSrSegment.Type)
 }
 
-// bytes Flags = 2;
+// uint32 Flags = 2;
 inline void SLSrSegment::clear_flags() {
-  flags_.ClearToEmpty();
+  flags_ = 0u;
 }
-inline const std::string& SLSrSegment::flags() const {
+inline uint32_t SLSrSegment::_internal_flags() const {
+  return flags_;
+}
+inline uint32_t SLSrSegment::flags() const {
   // @@protoc_insertion_point(field_get:service_layer.SLSrSegment.Flags)
   return _internal_flags();
 }
-template <typename ArgT0, typename... ArgT>
-inline PROTOBUF_ALWAYS_INLINE
-void SLSrSegment::set_flags(ArgT0&& arg0, ArgT... args) {
- 
- flags_.SetBytes(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+inline void SLSrSegment::_internal_set_flags(uint32_t value) {
+  
+  flags_ = value;
+}
+inline void SLSrSegment::set_flags(uint32_t value) {
+  _internal_set_flags(value);
   // @@protoc_insertion_point(field_set:service_layer.SLSrSegment.Flags)
-}
-inline std::string* SLSrSegment::mutable_flags() {
-  std::string* _s = _internal_mutable_flags();
-  // @@protoc_insertion_point(field_mutable:service_layer.SLSrSegment.Flags)
-  return _s;
-}
-inline const std::string& SLSrSegment::_internal_flags() const {
-  return flags_.Get();
-}
-inline void SLSrSegment::_internal_set_flags(const std::string& value) {
-  
-  flags_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArenaForAllocation());
-}
-inline std::string* SLSrSegment::_internal_mutable_flags() {
-  
-  return flags_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
-}
-inline std::string* SLSrSegment::release_flags() {
-  // @@protoc_insertion_point(field_release:service_layer.SLSrSegment.Flags)
-  return flags_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArenaForAllocation());
-}
-inline void SLSrSegment::set_allocated_flags(std::string* flags) {
-  if (flags != nullptr) {
-    
-  } else {
-    
-  }
-  flags_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), flags,
-      GetArenaForAllocation());
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (flags_.IsDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited())) {
-    flags_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
-  }
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  // @@protoc_insertion_point(field_set_allocated:service_layer.SLSrSegment.Flags)
 }
 
 // uint32 MplsLabel = 3;
@@ -3097,55 +2807,24 @@ inline SLSrSegment::SidCase SLSrSegment::Sid_case() const {
 
 // SLSrv6BindingSid
 
-// bytes Flags = 1;
+// uint32 Flags = 1;
 inline void SLSrv6BindingSid::clear_flags() {
-  flags_.ClearToEmpty();
+  flags_ = 0u;
 }
-inline const std::string& SLSrv6BindingSid::flags() const {
+inline uint32_t SLSrv6BindingSid::_internal_flags() const {
+  return flags_;
+}
+inline uint32_t SLSrv6BindingSid::flags() const {
   // @@protoc_insertion_point(field_get:service_layer.SLSrv6BindingSid.Flags)
   return _internal_flags();
 }
-template <typename ArgT0, typename... ArgT>
-inline PROTOBUF_ALWAYS_INLINE
-void SLSrv6BindingSid::set_flags(ArgT0&& arg0, ArgT... args) {
- 
- flags_.SetBytes(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+inline void SLSrv6BindingSid::_internal_set_flags(uint32_t value) {
+  
+  flags_ = value;
+}
+inline void SLSrv6BindingSid::set_flags(uint32_t value) {
+  _internal_set_flags(value);
   // @@protoc_insertion_point(field_set:service_layer.SLSrv6BindingSid.Flags)
-}
-inline std::string* SLSrv6BindingSid::mutable_flags() {
-  std::string* _s = _internal_mutable_flags();
-  // @@protoc_insertion_point(field_mutable:service_layer.SLSrv6BindingSid.Flags)
-  return _s;
-}
-inline const std::string& SLSrv6BindingSid::_internal_flags() const {
-  return flags_.Get();
-}
-inline void SLSrv6BindingSid::_internal_set_flags(const std::string& value) {
-  
-  flags_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArenaForAllocation());
-}
-inline std::string* SLSrv6BindingSid::_internal_mutable_flags() {
-  
-  return flags_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
-}
-inline std::string* SLSrv6BindingSid::release_flags() {
-  // @@protoc_insertion_point(field_release:service_layer.SLSrv6BindingSid.Flags)
-  return flags_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArenaForAllocation());
-}
-inline void SLSrv6BindingSid::set_allocated_flags(std::string* flags) {
-  if (flags != nullptr) {
-    
-  } else {
-    
-  }
-  flags_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), flags,
-      GetArenaForAllocation());
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (flags_.IsDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited())) {
-    flags_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
-  }
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  // @@protoc_insertion_point(field_set_allocated:service_layer.SLSrv6BindingSid.Flags)
 }
 
 // bytes Bsid = 2;
@@ -3454,106 +3133,44 @@ inline void SLSrv6EndPointBehavior::set_endpointbehavior(uint32_t value) {
   // @@protoc_insertion_point(field_set:service_layer.SLSrv6EndPointBehavior.EndPointBehavior)
 }
 
-// bytes Flags = 2;
+// uint32 Flags = 2;
 inline void SLSrv6EndPointBehavior::clear_flags() {
-  flags_.ClearToEmpty();
+  flags_ = 0u;
 }
-inline const std::string& SLSrv6EndPointBehavior::flags() const {
+inline uint32_t SLSrv6EndPointBehavior::_internal_flags() const {
+  return flags_;
+}
+inline uint32_t SLSrv6EndPointBehavior::flags() const {
   // @@protoc_insertion_point(field_get:service_layer.SLSrv6EndPointBehavior.Flags)
   return _internal_flags();
 }
-template <typename ArgT0, typename... ArgT>
-inline PROTOBUF_ALWAYS_INLINE
-void SLSrv6EndPointBehavior::set_flags(ArgT0&& arg0, ArgT... args) {
- 
- flags_.SetBytes(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+inline void SLSrv6EndPointBehavior::_internal_set_flags(uint32_t value) {
+  
+  flags_ = value;
+}
+inline void SLSrv6EndPointBehavior::set_flags(uint32_t value) {
+  _internal_set_flags(value);
   // @@protoc_insertion_point(field_set:service_layer.SLSrv6EndPointBehavior.Flags)
 }
-inline std::string* SLSrv6EndPointBehavior::mutable_flags() {
-  std::string* _s = _internal_mutable_flags();
-  // @@protoc_insertion_point(field_mutable:service_layer.SLSrv6EndPointBehavior.Flags)
-  return _s;
-}
-inline const std::string& SLSrv6EndPointBehavior::_internal_flags() const {
-  return flags_.Get();
-}
-inline void SLSrv6EndPointBehavior::_internal_set_flags(const std::string& value) {
-  
-  flags_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArenaForAllocation());
-}
-inline std::string* SLSrv6EndPointBehavior::_internal_mutable_flags() {
-  
-  return flags_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
-}
-inline std::string* SLSrv6EndPointBehavior::release_flags() {
-  // @@protoc_insertion_point(field_release:service_layer.SLSrv6EndPointBehavior.Flags)
-  return flags_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArenaForAllocation());
-}
-inline void SLSrv6EndPointBehavior::set_allocated_flags(std::string* flags) {
-  if (flags != nullptr) {
-    
-  } else {
-    
-  }
-  flags_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), flags,
-      GetArenaForAllocation());
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (flags_.IsDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited())) {
-    flags_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
-  }
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  // @@protoc_insertion_point(field_set_allocated:service_layer.SLSrv6EndPointBehavior.Flags)
-}
 
-// bytes Algorithm = 3;
+// uint32 Algorithm = 3;
 inline void SLSrv6EndPointBehavior::clear_algorithm() {
-  algorithm_.ClearToEmpty();
+  algorithm_ = 0u;
 }
-inline const std::string& SLSrv6EndPointBehavior::algorithm() const {
+inline uint32_t SLSrv6EndPointBehavior::_internal_algorithm() const {
+  return algorithm_;
+}
+inline uint32_t SLSrv6EndPointBehavior::algorithm() const {
   // @@protoc_insertion_point(field_get:service_layer.SLSrv6EndPointBehavior.Algorithm)
   return _internal_algorithm();
 }
-template <typename ArgT0, typename... ArgT>
-inline PROTOBUF_ALWAYS_INLINE
-void SLSrv6EndPointBehavior::set_algorithm(ArgT0&& arg0, ArgT... args) {
- 
- algorithm_.SetBytes(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+inline void SLSrv6EndPointBehavior::_internal_set_algorithm(uint32_t value) {
+  
+  algorithm_ = value;
+}
+inline void SLSrv6EndPointBehavior::set_algorithm(uint32_t value) {
+  _internal_set_algorithm(value);
   // @@protoc_insertion_point(field_set:service_layer.SLSrv6EndPointBehavior.Algorithm)
-}
-inline std::string* SLSrv6EndPointBehavior::mutable_algorithm() {
-  std::string* _s = _internal_mutable_algorithm();
-  // @@protoc_insertion_point(field_mutable:service_layer.SLSrv6EndPointBehavior.Algorithm)
-  return _s;
-}
-inline const std::string& SLSrv6EndPointBehavior::_internal_algorithm() const {
-  return algorithm_.Get();
-}
-inline void SLSrv6EndPointBehavior::_internal_set_algorithm(const std::string& value) {
-  
-  algorithm_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArenaForAllocation());
-}
-inline std::string* SLSrv6EndPointBehavior::_internal_mutable_algorithm() {
-  
-  return algorithm_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
-}
-inline std::string* SLSrv6EndPointBehavior::release_algorithm() {
-  // @@protoc_insertion_point(field_release:service_layer.SLSrv6EndPointBehavior.Algorithm)
-  return algorithm_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArenaForAllocation());
-}
-inline void SLSrv6EndPointBehavior::set_allocated_algorithm(std::string* algorithm) {
-  if (algorithm != nullptr) {
-    
-  } else {
-    
-  }
-  algorithm_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), algorithm,
-      GetArenaForAllocation());
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (algorithm_.IsDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited())) {
-    algorithm_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
-  }
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  // @@protoc_insertion_point(field_set_allocated:service_layer.SLSrv6EndPointBehavior.Algorithm)
 }
 
 // -------------------------------------------------------------------
@@ -3669,10 +3286,25 @@ template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::service_layer::SLSrPolicyProtocolOrigin>() {
   return ::service_layer::SLSrPolicyProtocolOrigin_descriptor();
 }
+template <> struct is_proto_enum< ::service_layer::SLSrPolicyFlagsDef> : ::std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::service_layer::SLSrPolicyFlagsDef>() {
+  return ::service_layer::SLSrPolicyFlagsDef_descriptor();
+}
 template <> struct is_proto_enum< ::service_layer::SLSrSegmentType> : ::std::true_type {};
 template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::service_layer::SLSrSegmentType>() {
   return ::service_layer::SLSrSegmentType_descriptor();
+}
+template <> struct is_proto_enum< ::service_layer::SLSrSegmentFlags> : ::std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::service_layer::SLSrSegmentFlags>() {
+  return ::service_layer::SLSrSegmentFlags_descriptor();
+}
+template <> struct is_proto_enum< ::service_layer::SLSrv6BindingSidFlags> : ::std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::service_layer::SLSrv6BindingSidFlags>() {
+  return ::service_layer::SLSrv6BindingSidFlags_descriptor();
 }
 
 PROTOBUF_NAMESPACE_CLOSE
