@@ -447,20 +447,20 @@ func (x *SLSrPolicyFlags) GetFlags() uint32 {
 
 // SR Binding SID. TLV 1201
 // Section 5.1 of [draft-ietf-idr-bgp-ls-sr-policy]
-type SlSrBsid struct {
+type SLSrBsid struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
 	// Types that are assignable to BindingSid:
 	//
-	//	*SlSrBsid_MplsBsid
-	//	*SlSrBsid_Srv6Bsid
-	BindingSid isSlSrBsid_BindingSid `protobuf_oneof:"BindingSid"`
+	//	*SLSrBsid_MplsBsid
+	//	*SLSrBsid_Srv6Bsid
+	BindingSid isSLSrBsid_BindingSid `protobuf_oneof:"BindingSid"`
 }
 
-func (x *SlSrBsid) Reset() {
-	*x = SlSrBsid{}
+func (x *SLSrBsid) Reset() {
+	*x = SLSrBsid{}
 	if protoimpl.UnsafeEnabled {
 		mi := &file_sl_sr_common_proto_msgTypes[1]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -468,13 +468,13 @@ func (x *SlSrBsid) Reset() {
 	}
 }
 
-func (x *SlSrBsid) String() string {
+func (x *SLSrBsid) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*SlSrBsid) ProtoMessage() {}
+func (*SLSrBsid) ProtoMessage() {}
 
-func (x *SlSrBsid) ProtoReflect() protoreflect.Message {
+func (x *SLSrBsid) ProtoReflect() protoreflect.Message {
 	mi := &file_sl_sr_common_proto_msgTypes[1]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -486,51 +486,51 @@ func (x *SlSrBsid) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use SlSrBsid.ProtoReflect.Descriptor instead.
-func (*SlSrBsid) Descriptor() ([]byte, []int) {
+// Deprecated: Use SLSrBsid.ProtoReflect.Descriptor instead.
+func (*SLSrBsid) Descriptor() ([]byte, []int) {
 	return file_sl_sr_common_proto_rawDescGZIP(), []int{1}
 }
 
-func (m *SlSrBsid) GetBindingSid() isSlSrBsid_BindingSid {
+func (m *SLSrBsid) GetBindingSid() isSLSrBsid_BindingSid {
 	if m != nil {
 		return m.BindingSid
 	}
 	return nil
 }
 
-func (x *SlSrBsid) GetMplsBsid() uint32 {
-	if x, ok := x.GetBindingSid().(*SlSrBsid_MplsBsid); ok {
+func (x *SLSrBsid) GetMplsBsid() uint32 {
+	if x, ok := x.GetBindingSid().(*SLSrBsid_MplsBsid); ok {
 		return x.MplsBsid
 	}
 	return 0
 }
 
-func (x *SlSrBsid) GetSrv6Bsid() []byte {
-	if x, ok := x.GetBindingSid().(*SlSrBsid_Srv6Bsid); ok {
+func (x *SLSrBsid) GetSrv6Bsid() []byte {
+	if x, ok := x.GetBindingSid().(*SLSrBsid_Srv6Bsid); ok {
 		return x.Srv6Bsid
 	}
 	return nil
 }
 
-type isSlSrBsid_BindingSid interface {
-	isSlSrBsid_BindingSid()
+type isSLSrBsid_BindingSid interface {
+	isSLSrBsid_BindingSid()
 }
 
-type SlSrBsid_MplsBsid struct {
+type SLSrBsid_MplsBsid struct {
 	// This field carries info about an MPLS binding SID.
 	MplsBsid uint32 `protobuf:"varint,1,opt,name=MplsBsid,proto3,oneof"`
 }
 
-type SlSrBsid_Srv6Bsid struct {
+type SLSrBsid_Srv6Bsid struct {
 	// This field carries info about an SRv6 binding SID.
 	// SRv6 binding SID takes an IPv6 Address and must be
 	// enforced for 16 bytes.
 	Srv6Bsid []byte `protobuf:"bytes,2,opt,name=Srv6Bsid,proto3,oneof"`
 }
 
-func (*SlSrBsid_MplsBsid) isSlSrBsid_BindingSid() {}
+func (*SLSrBsid_MplsBsid) isSLSrBsid_BindingSid() {}
 
-func (*SlSrBsid_Srv6Bsid) isSlSrBsid_BindingSid() {}
+func (*SLSrBsid_Srv6Bsid) isSLSrBsid_BindingSid() {}
 
 // SR Candidate Path Name. TLV 1203
 // Section 5.5 of [draft-ietf-idr-bgp-ls-sr-policy]
@@ -1116,7 +1116,7 @@ var file_sl_sr_common_proto_rawDesc = []byte{
 	0x79, 0x70, 0x65, 0x73, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x22, 0x27, 0x0a, 0x0f, 0x53, 0x4c,
 	0x53, 0x72, 0x50, 0x6f, 0x6c, 0x69, 0x63, 0x79, 0x46, 0x6c, 0x61, 0x67, 0x73, 0x12, 0x14, 0x0a,
 	0x05, 0x46, 0x6c, 0x61, 0x67, 0x73, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0d, 0x52, 0x05, 0x46, 0x6c,
-	0x61, 0x67, 0x73, 0x22, 0x54, 0x0a, 0x08, 0x53, 0x6c, 0x53, 0x72, 0x42, 0x73, 0x69, 0x64, 0x12,
+	0x61, 0x67, 0x73, 0x22, 0x54, 0x0a, 0x08, 0x53, 0x4c, 0x53, 0x72, 0x42, 0x73, 0x69, 0x64, 0x12,
 	0x1c, 0x0a, 0x08, 0x4d, 0x70, 0x6c, 0x73, 0x42, 0x73, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28,
 	0x0d, 0x48, 0x00, 0x52, 0x08, 0x4d, 0x70, 0x6c, 0x73, 0x42, 0x73, 0x69, 0x64, 0x12, 0x1c, 0x0a,
 	0x08, 0x53, 0x72, 0x76, 0x36, 0x42, 0x73, 0x69, 0x64, 0x18, 0x02, 0x20, 0x01, 0x28, 0x0c, 0x48,
@@ -1325,7 +1325,7 @@ var file_sl_sr_common_proto_goTypes = []interface{}{
 	(SLSrSegmentFlags)(0),          // 3: service_layer.SLSrSegmentFlags
 	(SLSrv6BindingSidFlags)(0),     // 4: service_layer.SLSrv6BindingSidFlags
 	(*SLSrPolicyFlags)(nil),        // 5: service_layer.SLSrPolicyFlags
-	(*SlSrBsid)(nil),               // 6: service_layer.SlSrBsid
+	(*SLSrBsid)(nil),               // 6: service_layer.SLSrBsid
 	(*SLSrCpName)(nil),             // 7: service_layer.SLSrCpName
 	(*SLSrSegmentDesc)(nil),        // 8: service_layer.SLSrSegmentDesc
 	(*SLSrSegment)(nil),            // 9: service_layer.SLSrSegment
@@ -1370,7 +1370,7 @@ func file_sl_sr_common_proto_init() {
 			}
 		}
 		file_sl_sr_common_proto_msgTypes[1].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*SlSrBsid); i {
+			switch v := v.(*SLSrBsid); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -1455,8 +1455,8 @@ func file_sl_sr_common_proto_init() {
 		}
 	}
 	file_sl_sr_common_proto_msgTypes[1].OneofWrappers = []interface{}{
-		(*SlSrBsid_MplsBsid)(nil),
-		(*SlSrBsid_Srv6Bsid)(nil),
+		(*SLSrBsid_MplsBsid)(nil),
+		(*SLSrBsid_Srv6Bsid)(nil),
 	}
 	file_sl_sr_common_proto_msgTypes[4].OneofWrappers = []interface{}{
 		(*SLSrSegment_MplsLabel)(nil),

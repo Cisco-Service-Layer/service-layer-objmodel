@@ -56,6 +56,9 @@ struct TableStruct_sl_5fsr_5fcommon_2eproto {
 };
 extern const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_sl_5fsr_5fcommon_2eproto;
 namespace service_layer {
+class SLSrBsid;
+struct SLSrBsidDefaultTypeInternal;
+extern SLSrBsidDefaultTypeInternal _SLSrBsid_default_instance_;
 class SLSrCpName;
 struct SLSrCpNameDefaultTypeInternal;
 extern SLSrCpNameDefaultTypeInternal _SLSrCpName_default_instance_;
@@ -77,11 +80,9 @@ extern SLSrv6EndPointBehaviorDefaultTypeInternal _SLSrv6EndPointBehavior_default
 class SLSrv6SidStruct;
 struct SLSrv6SidStructDefaultTypeInternal;
 extern SLSrv6SidStructDefaultTypeInternal _SLSrv6SidStruct_default_instance_;
-class SlSrBsid;
-struct SlSrBsidDefaultTypeInternal;
-extern SlSrBsidDefaultTypeInternal _SlSrBsid_default_instance_;
 }  // namespace service_layer
 PROTOBUF_NAMESPACE_OPEN
+template<> ::service_layer::SLSrBsid* Arena::CreateMaybeMessage<::service_layer::SLSrBsid>(Arena*);
 template<> ::service_layer::SLSrCpName* Arena::CreateMaybeMessage<::service_layer::SLSrCpName>(Arena*);
 template<> ::service_layer::SLSrPolicyFlags* Arena::CreateMaybeMessage<::service_layer::SLSrPolicyFlags>(Arena*);
 template<> ::service_layer::SLSrSegment* Arena::CreateMaybeMessage<::service_layer::SLSrSegment>(Arena*);
@@ -89,7 +90,6 @@ template<> ::service_layer::SLSrSegmentDesc* Arena::CreateMaybeMessage<::service
 template<> ::service_layer::SLSrv6BindingSid* Arena::CreateMaybeMessage<::service_layer::SLSrv6BindingSid>(Arena*);
 template<> ::service_layer::SLSrv6EndPointBehavior* Arena::CreateMaybeMessage<::service_layer::SLSrv6EndPointBehavior>(Arena*);
 template<> ::service_layer::SLSrv6SidStruct* Arena::CreateMaybeMessage<::service_layer::SLSrv6SidStruct>(Arena*);
-template<> ::service_layer::SlSrBsid* Arena::CreateMaybeMessage<::service_layer::SlSrBsid>(Arena*);
 PROTOBUF_NAMESPACE_CLOSE
 namespace service_layer {
 
@@ -389,24 +389,24 @@ class SLSrPolicyFlags final :
 };
 // -------------------------------------------------------------------
 
-class SlSrBsid final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:service_layer.SlSrBsid) */ {
+class SLSrBsid final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:service_layer.SLSrBsid) */ {
  public:
-  inline SlSrBsid() : SlSrBsid(nullptr) {}
-  ~SlSrBsid() override;
-  explicit constexpr SlSrBsid(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+  inline SLSrBsid() : SLSrBsid(nullptr) {}
+  ~SLSrBsid() override;
+  explicit constexpr SLSrBsid(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
 
-  SlSrBsid(const SlSrBsid& from);
-  SlSrBsid(SlSrBsid&& from) noexcept
-    : SlSrBsid() {
+  SLSrBsid(const SLSrBsid& from);
+  SLSrBsid(SLSrBsid&& from) noexcept
+    : SLSrBsid() {
     *this = ::std::move(from);
   }
 
-  inline SlSrBsid& operator=(const SlSrBsid& from) {
+  inline SLSrBsid& operator=(const SLSrBsid& from) {
     CopyFrom(from);
     return *this;
   }
-  inline SlSrBsid& operator=(SlSrBsid&& from) noexcept {
+  inline SLSrBsid& operator=(SLSrBsid&& from) noexcept {
     if (this == &from) return *this;
     if (GetOwningArena() == from.GetOwningArena()
   #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
@@ -429,7 +429,7 @@ class SlSrBsid final :
   static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
-  static const SlSrBsid& default_instance() {
+  static const SLSrBsid& default_instance() {
     return *internal_default_instance();
   }
   enum BindingSidCase {
@@ -438,17 +438,17 @@ class SlSrBsid final :
     BINDINGSID_NOT_SET = 0,
   };
 
-  static inline const SlSrBsid* internal_default_instance() {
-    return reinterpret_cast<const SlSrBsid*>(
-               &_SlSrBsid_default_instance_);
+  static inline const SLSrBsid* internal_default_instance() {
+    return reinterpret_cast<const SLSrBsid*>(
+               &_SLSrBsid_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
     1;
 
-  friend void swap(SlSrBsid& a, SlSrBsid& b) {
+  friend void swap(SLSrBsid& a, SLSrBsid& b) {
     a.Swap(&b);
   }
-  inline void Swap(SlSrBsid* other) {
+  inline void Swap(SLSrBsid* other) {
     if (other == this) return;
   #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
     if (GetOwningArena() != nullptr &&
@@ -461,7 +461,7 @@ class SlSrBsid final :
       ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
     }
   }
-  void UnsafeArenaSwap(SlSrBsid* other) {
+  void UnsafeArenaSwap(SLSrBsid* other) {
     if (other == this) return;
     GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
     InternalSwap(other);
@@ -469,13 +469,13 @@ class SlSrBsid final :
 
   // implements Message ----------------------------------------------
 
-  SlSrBsid* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
-    return CreateMaybeMessage<SlSrBsid>(arena);
+  SLSrBsid* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<SLSrBsid>(arena);
   }
   using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const SlSrBsid& from);
+  void CopyFrom(const SLSrBsid& from);
   using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom(const SlSrBsid& from);
+  void MergeFrom(const SLSrBsid& from);
   private:
   static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to, const ::PROTOBUF_NAMESPACE_ID::Message& from);
   public:
@@ -492,15 +492,15 @@ class SlSrBsid final :
   void SharedCtor();
   void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(SlSrBsid* other);
+  void InternalSwap(SLSrBsid* other);
 
   private:
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "service_layer.SlSrBsid";
+    return "service_layer.SLSrBsid";
   }
   protected:
-  explicit SlSrBsid(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+  explicit SLSrBsid(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                        bool is_message_owned = false);
   private:
   static void ArenaDtor(void* object);
@@ -553,7 +553,7 @@ class SlSrBsid final :
 
   void clear_BindingSid();
   BindingSidCase BindingSid_case() const;
-  // @@protoc_insertion_point(class_scope:service_layer.SlSrBsid)
+  // @@protoc_insertion_point(class_scope:service_layer.SLSrBsid)
  private:
   class _Internal;
   void set_has_mplsbsid();
@@ -1836,88 +1836,88 @@ inline void SLSrPolicyFlags::set_flags(uint32_t value) {
 
 // -------------------------------------------------------------------
 
-// SlSrBsid
+// SLSrBsid
 
 // uint32 MplsBsid = 1;
-inline bool SlSrBsid::_internal_has_mplsbsid() const {
+inline bool SLSrBsid::_internal_has_mplsbsid() const {
   return BindingSid_case() == kMplsBsid;
 }
-inline bool SlSrBsid::has_mplsbsid() const {
+inline bool SLSrBsid::has_mplsbsid() const {
   return _internal_has_mplsbsid();
 }
-inline void SlSrBsid::set_has_mplsbsid() {
+inline void SLSrBsid::set_has_mplsbsid() {
   _oneof_case_[0] = kMplsBsid;
 }
-inline void SlSrBsid::clear_mplsbsid() {
+inline void SLSrBsid::clear_mplsbsid() {
   if (_internal_has_mplsbsid()) {
     BindingSid_.mplsbsid_ = 0u;
     clear_has_BindingSid();
   }
 }
-inline uint32_t SlSrBsid::_internal_mplsbsid() const {
+inline uint32_t SLSrBsid::_internal_mplsbsid() const {
   if (_internal_has_mplsbsid()) {
     return BindingSid_.mplsbsid_;
   }
   return 0u;
 }
-inline void SlSrBsid::_internal_set_mplsbsid(uint32_t value) {
+inline void SLSrBsid::_internal_set_mplsbsid(uint32_t value) {
   if (!_internal_has_mplsbsid()) {
     clear_BindingSid();
     set_has_mplsbsid();
   }
   BindingSid_.mplsbsid_ = value;
 }
-inline uint32_t SlSrBsid::mplsbsid() const {
-  // @@protoc_insertion_point(field_get:service_layer.SlSrBsid.MplsBsid)
+inline uint32_t SLSrBsid::mplsbsid() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLSrBsid.MplsBsid)
   return _internal_mplsbsid();
 }
-inline void SlSrBsid::set_mplsbsid(uint32_t value) {
+inline void SLSrBsid::set_mplsbsid(uint32_t value) {
   _internal_set_mplsbsid(value);
-  // @@protoc_insertion_point(field_set:service_layer.SlSrBsid.MplsBsid)
+  // @@protoc_insertion_point(field_set:service_layer.SLSrBsid.MplsBsid)
 }
 
 // bytes Srv6Bsid = 2;
-inline bool SlSrBsid::_internal_has_srv6bsid() const {
+inline bool SLSrBsid::_internal_has_srv6bsid() const {
   return BindingSid_case() == kSrv6Bsid;
 }
-inline bool SlSrBsid::has_srv6bsid() const {
+inline bool SLSrBsid::has_srv6bsid() const {
   return _internal_has_srv6bsid();
 }
-inline void SlSrBsid::set_has_srv6bsid() {
+inline void SLSrBsid::set_has_srv6bsid() {
   _oneof_case_[0] = kSrv6Bsid;
 }
-inline void SlSrBsid::clear_srv6bsid() {
+inline void SLSrBsid::clear_srv6bsid() {
   if (_internal_has_srv6bsid()) {
     BindingSid_.srv6bsid_.Destroy(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
     clear_has_BindingSid();
   }
 }
-inline const std::string& SlSrBsid::srv6bsid() const {
-  // @@protoc_insertion_point(field_get:service_layer.SlSrBsid.Srv6Bsid)
+inline const std::string& SLSrBsid::srv6bsid() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLSrBsid.Srv6Bsid)
   return _internal_srv6bsid();
 }
 template <typename ArgT0, typename... ArgT>
-inline void SlSrBsid::set_srv6bsid(ArgT0&& arg0, ArgT... args) {
+inline void SLSrBsid::set_srv6bsid(ArgT0&& arg0, ArgT... args) {
   if (!_internal_has_srv6bsid()) {
     clear_BindingSid();
     set_has_srv6bsid();
     BindingSid_.srv6bsid_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   }
   BindingSid_.srv6bsid_.SetBytes(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
-  // @@protoc_insertion_point(field_set:service_layer.SlSrBsid.Srv6Bsid)
+  // @@protoc_insertion_point(field_set:service_layer.SLSrBsid.Srv6Bsid)
 }
-inline std::string* SlSrBsid::mutable_srv6bsid() {
+inline std::string* SLSrBsid::mutable_srv6bsid() {
   std::string* _s = _internal_mutable_srv6bsid();
-  // @@protoc_insertion_point(field_mutable:service_layer.SlSrBsid.Srv6Bsid)
+  // @@protoc_insertion_point(field_mutable:service_layer.SLSrBsid.Srv6Bsid)
   return _s;
 }
-inline const std::string& SlSrBsid::_internal_srv6bsid() const {
+inline const std::string& SLSrBsid::_internal_srv6bsid() const {
   if (_internal_has_srv6bsid()) {
     return BindingSid_.srv6bsid_.Get();
   }
   return ::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited();
 }
-inline void SlSrBsid::_internal_set_srv6bsid(const std::string& value) {
+inline void SLSrBsid::_internal_set_srv6bsid(const std::string& value) {
   if (!_internal_has_srv6bsid()) {
     clear_BindingSid();
     set_has_srv6bsid();
@@ -1925,7 +1925,7 @@ inline void SlSrBsid::_internal_set_srv6bsid(const std::string& value) {
   }
   BindingSid_.srv6bsid_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArenaForAllocation());
 }
-inline std::string* SlSrBsid::_internal_mutable_srv6bsid() {
+inline std::string* SLSrBsid::_internal_mutable_srv6bsid() {
   if (!_internal_has_srv6bsid()) {
     clear_BindingSid();
     set_has_srv6bsid();
@@ -1934,8 +1934,8 @@ inline std::string* SlSrBsid::_internal_mutable_srv6bsid() {
   return BindingSid_.srv6bsid_.Mutable(
       ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
 }
-inline std::string* SlSrBsid::release_srv6bsid() {
-  // @@protoc_insertion_point(field_release:service_layer.SlSrBsid.Srv6Bsid)
+inline std::string* SLSrBsid::release_srv6bsid() {
+  // @@protoc_insertion_point(field_release:service_layer.SLSrBsid.Srv6Bsid)
   if (_internal_has_srv6bsid()) {
     clear_has_BindingSid();
     return BindingSid_.srv6bsid_.ReleaseNonDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArenaForAllocation());
@@ -1943,7 +1943,7 @@ inline std::string* SlSrBsid::release_srv6bsid() {
     return nullptr;
   }
 }
-inline void SlSrBsid::set_allocated_srv6bsid(std::string* srv6bsid) {
+inline void SLSrBsid::set_allocated_srv6bsid(std::string* srv6bsid) {
   if (has_BindingSid()) {
     clear_BindingSid();
   }
@@ -1955,17 +1955,17 @@ inline void SlSrBsid::set_allocated_srv6bsid(std::string* srv6bsid) {
       arena->Own(srv6bsid);
     }
   }
-  // @@protoc_insertion_point(field_set_allocated:service_layer.SlSrBsid.Srv6Bsid)
+  // @@protoc_insertion_point(field_set_allocated:service_layer.SLSrBsid.Srv6Bsid)
 }
 
-inline bool SlSrBsid::has_BindingSid() const {
+inline bool SLSrBsid::has_BindingSid() const {
   return BindingSid_case() != BINDINGSID_NOT_SET;
 }
-inline void SlSrBsid::clear_has_BindingSid() {
+inline void SLSrBsid::clear_has_BindingSid() {
   _oneof_case_[0] = BINDINGSID_NOT_SET;
 }
-inline SlSrBsid::BindingSidCase SlSrBsid::BindingSid_case() const {
-  return SlSrBsid::BindingSidCase(_oneof_case_[0]);
+inline SLSrBsid::BindingSidCase SLSrBsid::BindingSid_case() const {
+  return SLSrBsid::BindingSidCase(_oneof_case_[0]);
 }
 // -------------------------------------------------------------------
 
