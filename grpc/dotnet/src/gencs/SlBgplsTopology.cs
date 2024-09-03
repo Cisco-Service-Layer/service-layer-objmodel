@@ -360,9 +360,9 @@ namespace ServiceLayer {
             "C1Vua25vd25BdHRyGBMgAygLMiUuc2VydmljZV9sYXllci5TTEJncGxzVG9w",
             "b1Vua25vd25BdHRyIikKGFNMQmdwbHNUb3BvRXh0QWRtaW5Hcm91cBINCgVH",
             "cm91cBgBIAEoDSKDAQoXU0xCZ3Bsc1RvcG9TckJpbmRpbmdTaWQSEQoJQnNp",
-            "ZEZsYWdzGAEgASgNEiUKBEJzaWQYAiABKAsyFy5zZXJ2aWNlX2xheWVyLlNs",
+            "ZEZsYWdzGAEgASgNEiUKBEJzaWQYAiABKAsyFy5zZXJ2aWNlX2xheWVyLlNM",
             "U3JCc2lkEi4KDVNwZWNpZmllZEJzaWQYAyABKAsyFy5zZXJ2aWNlX2xheWVy",
-            "LlNsU3JCc2lkIksKFFNMQmdwbHNUb3BvU3JDcFN0YXRlEhAKCFByaW9yaXR5",
+            "LlNMU3JCc2lkIksKFFNMQmdwbHNUb3BvU3JDcFN0YXRlEhAKCFByaW9yaXR5",
             "GAEgASgNEg0KBUZsYWdzGAIgASgNEhIKClByZWZlcmVuY2UYAyABKA0i2QMK",
             "GlNMQmdwbHNUb3BvU3JDcENvbnN0cmFpbnRzEg0KBUZsYWdzGAEgASgNEgwK",
             "BE10aWQYAiABKA0SEQoJQWxnb3JpdGhtGAMgASgNEkEKCEFmZmluaXR5GAUg",
@@ -29312,13 +29312,13 @@ namespace ServiceLayer {
 
     /// <summary>Field number for the "Bsid" field.</summary>
     public const int BsidFieldNumber = 2;
-    private global::ServiceLayer.SlSrBsid bsid_;
+    private global::ServiceLayer.SLSrBsid bsid_;
     /// <summary>
     /// The operational or allocated BSID value based on the status flags.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::ServiceLayer.SlSrBsid Bsid {
+    public global::ServiceLayer.SLSrBsid Bsid {
       get { return bsid_; }
       set {
         bsid_ = value;
@@ -29327,13 +29327,13 @@ namespace ServiceLayer {
 
     /// <summary>Field number for the "SpecifiedBsid" field.</summary>
     public const int SpecifiedBsidFieldNumber = 3;
-    private global::ServiceLayer.SlSrBsid specifiedBsid_;
+    private global::ServiceLayer.SLSrBsid specifiedBsid_;
     /// <summary>
     /// The explicitly specified BSID whether it is allocated or not.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::ServiceLayer.SlSrBsid SpecifiedBsid {
+    public global::ServiceLayer.SLSrBsid SpecifiedBsid {
       get { return specifiedBsid_; }
       set {
         specifiedBsid_ = value;
@@ -29456,13 +29456,13 @@ namespace ServiceLayer {
       }
       if (other.bsid_ != null) {
         if (bsid_ == null) {
-          Bsid = new global::ServiceLayer.SlSrBsid();
+          Bsid = new global::ServiceLayer.SLSrBsid();
         }
         Bsid.MergeFrom(other.Bsid);
       }
       if (other.specifiedBsid_ != null) {
         if (specifiedBsid_ == null) {
-          SpecifiedBsid = new global::ServiceLayer.SlSrBsid();
+          SpecifiedBsid = new global::ServiceLayer.SLSrBsid();
         }
         SpecifiedBsid.MergeFrom(other.SpecifiedBsid);
       }
@@ -29487,14 +29487,14 @@ namespace ServiceLayer {
           }
           case 18: {
             if (bsid_ == null) {
-              Bsid = new global::ServiceLayer.SlSrBsid();
+              Bsid = new global::ServiceLayer.SLSrBsid();
             }
             input.ReadMessage(Bsid);
             break;
           }
           case 26: {
             if (specifiedBsid_ == null) {
-              SpecifiedBsid = new global::ServiceLayer.SlSrBsid();
+              SpecifiedBsid = new global::ServiceLayer.SLSrBsid();
             }
             input.ReadMessage(SpecifiedBsid);
             break;
@@ -29520,14 +29520,14 @@ namespace ServiceLayer {
           }
           case 18: {
             if (bsid_ == null) {
-              Bsid = new global::ServiceLayer.SlSrBsid();
+              Bsid = new global::ServiceLayer.SLSrBsid();
             }
             input.ReadMessage(Bsid);
             break;
           }
           case 26: {
             if (specifiedBsid_ == null) {
-              SpecifiedBsid = new global::ServiceLayer.SlSrBsid();
+              SpecifiedBsid = new global::ServiceLayer.SLSrBsid();
             }
             input.ReadMessage(SpecifiedBsid);
             break;

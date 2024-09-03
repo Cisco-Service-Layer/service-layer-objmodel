@@ -19029,41 +19029,41 @@ class SLBgplsTopoSrBindingSid final :
     kSpecifiedBsidFieldNumber = 3,
     kBsidFlagsFieldNumber = 1,
   };
-  // .service_layer.SlSrBsid Bsid = 2;
+  // .service_layer.SLSrBsid Bsid = 2;
   bool has_bsid() const;
   private:
   bool _internal_has_bsid() const;
   public:
   void clear_bsid();
-  const ::service_layer::SlSrBsid& bsid() const;
-  PROTOBUF_NODISCARD ::service_layer::SlSrBsid* release_bsid();
-  ::service_layer::SlSrBsid* mutable_bsid();
-  void set_allocated_bsid(::service_layer::SlSrBsid* bsid);
+  const ::service_layer::SLSrBsid& bsid() const;
+  PROTOBUF_NODISCARD ::service_layer::SLSrBsid* release_bsid();
+  ::service_layer::SLSrBsid* mutable_bsid();
+  void set_allocated_bsid(::service_layer::SLSrBsid* bsid);
   private:
-  const ::service_layer::SlSrBsid& _internal_bsid() const;
-  ::service_layer::SlSrBsid* _internal_mutable_bsid();
+  const ::service_layer::SLSrBsid& _internal_bsid() const;
+  ::service_layer::SLSrBsid* _internal_mutable_bsid();
   public:
   void unsafe_arena_set_allocated_bsid(
-      ::service_layer::SlSrBsid* bsid);
-  ::service_layer::SlSrBsid* unsafe_arena_release_bsid();
+      ::service_layer::SLSrBsid* bsid);
+  ::service_layer::SLSrBsid* unsafe_arena_release_bsid();
 
-  // .service_layer.SlSrBsid SpecifiedBsid = 3;
+  // .service_layer.SLSrBsid SpecifiedBsid = 3;
   bool has_specifiedbsid() const;
   private:
   bool _internal_has_specifiedbsid() const;
   public:
   void clear_specifiedbsid();
-  const ::service_layer::SlSrBsid& specifiedbsid() const;
-  PROTOBUF_NODISCARD ::service_layer::SlSrBsid* release_specifiedbsid();
-  ::service_layer::SlSrBsid* mutable_specifiedbsid();
-  void set_allocated_specifiedbsid(::service_layer::SlSrBsid* specifiedbsid);
+  const ::service_layer::SLSrBsid& specifiedbsid() const;
+  PROTOBUF_NODISCARD ::service_layer::SLSrBsid* release_specifiedbsid();
+  ::service_layer::SLSrBsid* mutable_specifiedbsid();
+  void set_allocated_specifiedbsid(::service_layer::SLSrBsid* specifiedbsid);
   private:
-  const ::service_layer::SlSrBsid& _internal_specifiedbsid() const;
-  ::service_layer::SlSrBsid* _internal_mutable_specifiedbsid();
+  const ::service_layer::SLSrBsid& _internal_specifiedbsid() const;
+  ::service_layer::SLSrBsid* _internal_mutable_specifiedbsid();
   public:
   void unsafe_arena_set_allocated_specifiedbsid(
-      ::service_layer::SlSrBsid* specifiedbsid);
-  ::service_layer::SlSrBsid* unsafe_arena_release_specifiedbsid();
+      ::service_layer::SLSrBsid* specifiedbsid);
+  ::service_layer::SLSrBsid* unsafe_arena_release_specifiedbsid();
 
   // uint32 BsidFlags = 1;
   void clear_bsidflags();
@@ -19081,8 +19081,8 @@ class SLBgplsTopoSrBindingSid final :
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  ::service_layer::SlSrBsid* bsid_;
-  ::service_layer::SlSrBsid* specifiedbsid_;
+  ::service_layer::SLSrBsid* bsid_;
+  ::service_layer::SLSrBsid* specifiedbsid_;
   uint32_t bsidflags_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_sl_5fbgpls_5ftopology_2eproto;
@@ -39199,24 +39199,24 @@ inline void SLBgplsTopoSrBindingSid::set_bsidflags(uint32_t value) {
   // @@protoc_insertion_point(field_set:service_layer.SLBgplsTopoSrBindingSid.BsidFlags)
 }
 
-// .service_layer.SlSrBsid Bsid = 2;
+// .service_layer.SLSrBsid Bsid = 2;
 inline bool SLBgplsTopoSrBindingSid::_internal_has_bsid() const {
   return this != internal_default_instance() && bsid_ != nullptr;
 }
 inline bool SLBgplsTopoSrBindingSid::has_bsid() const {
   return _internal_has_bsid();
 }
-inline const ::service_layer::SlSrBsid& SLBgplsTopoSrBindingSid::_internal_bsid() const {
-  const ::service_layer::SlSrBsid* p = bsid_;
-  return p != nullptr ? *p : reinterpret_cast<const ::service_layer::SlSrBsid&>(
-      ::service_layer::_SlSrBsid_default_instance_);
+inline const ::service_layer::SLSrBsid& SLBgplsTopoSrBindingSid::_internal_bsid() const {
+  const ::service_layer::SLSrBsid* p = bsid_;
+  return p != nullptr ? *p : reinterpret_cast<const ::service_layer::SLSrBsid&>(
+      ::service_layer::_SLSrBsid_default_instance_);
 }
-inline const ::service_layer::SlSrBsid& SLBgplsTopoSrBindingSid::bsid() const {
+inline const ::service_layer::SLSrBsid& SLBgplsTopoSrBindingSid::bsid() const {
   // @@protoc_insertion_point(field_get:service_layer.SLBgplsTopoSrBindingSid.Bsid)
   return _internal_bsid();
 }
 inline void SLBgplsTopoSrBindingSid::unsafe_arena_set_allocated_bsid(
-    ::service_layer::SlSrBsid* bsid) {
+    ::service_layer::SLSrBsid* bsid) {
   if (GetArenaForAllocation() == nullptr) {
     delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(bsid_);
   }
@@ -39228,9 +39228,9 @@ inline void SLBgplsTopoSrBindingSid::unsafe_arena_set_allocated_bsid(
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:service_layer.SLBgplsTopoSrBindingSid.Bsid)
 }
-inline ::service_layer::SlSrBsid* SLBgplsTopoSrBindingSid::release_bsid() {
+inline ::service_layer::SLSrBsid* SLBgplsTopoSrBindingSid::release_bsid() {
   
-  ::service_layer::SlSrBsid* temp = bsid_;
+  ::service_layer::SLSrBsid* temp = bsid_;
   bsid_ = nullptr;
 #ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
   auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
@@ -39243,27 +39243,27 @@ inline ::service_layer::SlSrBsid* SLBgplsTopoSrBindingSid::release_bsid() {
 #endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
   return temp;
 }
-inline ::service_layer::SlSrBsid* SLBgplsTopoSrBindingSid::unsafe_arena_release_bsid() {
+inline ::service_layer::SLSrBsid* SLBgplsTopoSrBindingSid::unsafe_arena_release_bsid() {
   // @@protoc_insertion_point(field_release:service_layer.SLBgplsTopoSrBindingSid.Bsid)
   
-  ::service_layer::SlSrBsid* temp = bsid_;
+  ::service_layer::SLSrBsid* temp = bsid_;
   bsid_ = nullptr;
   return temp;
 }
-inline ::service_layer::SlSrBsid* SLBgplsTopoSrBindingSid::_internal_mutable_bsid() {
+inline ::service_layer::SLSrBsid* SLBgplsTopoSrBindingSid::_internal_mutable_bsid() {
   
   if (bsid_ == nullptr) {
-    auto* p = CreateMaybeMessage<::service_layer::SlSrBsid>(GetArenaForAllocation());
+    auto* p = CreateMaybeMessage<::service_layer::SLSrBsid>(GetArenaForAllocation());
     bsid_ = p;
   }
   return bsid_;
 }
-inline ::service_layer::SlSrBsid* SLBgplsTopoSrBindingSid::mutable_bsid() {
-  ::service_layer::SlSrBsid* _msg = _internal_mutable_bsid();
+inline ::service_layer::SLSrBsid* SLBgplsTopoSrBindingSid::mutable_bsid() {
+  ::service_layer::SLSrBsid* _msg = _internal_mutable_bsid();
   // @@protoc_insertion_point(field_mutable:service_layer.SLBgplsTopoSrBindingSid.Bsid)
   return _msg;
 }
-inline void SLBgplsTopoSrBindingSid::set_allocated_bsid(::service_layer::SlSrBsid* bsid) {
+inline void SLBgplsTopoSrBindingSid::set_allocated_bsid(::service_layer::SLSrBsid* bsid) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
   if (message_arena == nullptr) {
     delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(bsid_);
@@ -39285,24 +39285,24 @@ inline void SLBgplsTopoSrBindingSid::set_allocated_bsid(::service_layer::SlSrBsi
   // @@protoc_insertion_point(field_set_allocated:service_layer.SLBgplsTopoSrBindingSid.Bsid)
 }
 
-// .service_layer.SlSrBsid SpecifiedBsid = 3;
+// .service_layer.SLSrBsid SpecifiedBsid = 3;
 inline bool SLBgplsTopoSrBindingSid::_internal_has_specifiedbsid() const {
   return this != internal_default_instance() && specifiedbsid_ != nullptr;
 }
 inline bool SLBgplsTopoSrBindingSid::has_specifiedbsid() const {
   return _internal_has_specifiedbsid();
 }
-inline const ::service_layer::SlSrBsid& SLBgplsTopoSrBindingSid::_internal_specifiedbsid() const {
-  const ::service_layer::SlSrBsid* p = specifiedbsid_;
-  return p != nullptr ? *p : reinterpret_cast<const ::service_layer::SlSrBsid&>(
-      ::service_layer::_SlSrBsid_default_instance_);
+inline const ::service_layer::SLSrBsid& SLBgplsTopoSrBindingSid::_internal_specifiedbsid() const {
+  const ::service_layer::SLSrBsid* p = specifiedbsid_;
+  return p != nullptr ? *p : reinterpret_cast<const ::service_layer::SLSrBsid&>(
+      ::service_layer::_SLSrBsid_default_instance_);
 }
-inline const ::service_layer::SlSrBsid& SLBgplsTopoSrBindingSid::specifiedbsid() const {
+inline const ::service_layer::SLSrBsid& SLBgplsTopoSrBindingSid::specifiedbsid() const {
   // @@protoc_insertion_point(field_get:service_layer.SLBgplsTopoSrBindingSid.SpecifiedBsid)
   return _internal_specifiedbsid();
 }
 inline void SLBgplsTopoSrBindingSid::unsafe_arena_set_allocated_specifiedbsid(
-    ::service_layer::SlSrBsid* specifiedbsid) {
+    ::service_layer::SLSrBsid* specifiedbsid) {
   if (GetArenaForAllocation() == nullptr) {
     delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(specifiedbsid_);
   }
@@ -39314,9 +39314,9 @@ inline void SLBgplsTopoSrBindingSid::unsafe_arena_set_allocated_specifiedbsid(
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:service_layer.SLBgplsTopoSrBindingSid.SpecifiedBsid)
 }
-inline ::service_layer::SlSrBsid* SLBgplsTopoSrBindingSid::release_specifiedbsid() {
+inline ::service_layer::SLSrBsid* SLBgplsTopoSrBindingSid::release_specifiedbsid() {
   
-  ::service_layer::SlSrBsid* temp = specifiedbsid_;
+  ::service_layer::SLSrBsid* temp = specifiedbsid_;
   specifiedbsid_ = nullptr;
 #ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
   auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
@@ -39329,27 +39329,27 @@ inline ::service_layer::SlSrBsid* SLBgplsTopoSrBindingSid::release_specifiedbsid
 #endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
   return temp;
 }
-inline ::service_layer::SlSrBsid* SLBgplsTopoSrBindingSid::unsafe_arena_release_specifiedbsid() {
+inline ::service_layer::SLSrBsid* SLBgplsTopoSrBindingSid::unsafe_arena_release_specifiedbsid() {
   // @@protoc_insertion_point(field_release:service_layer.SLBgplsTopoSrBindingSid.SpecifiedBsid)
   
-  ::service_layer::SlSrBsid* temp = specifiedbsid_;
+  ::service_layer::SLSrBsid* temp = specifiedbsid_;
   specifiedbsid_ = nullptr;
   return temp;
 }
-inline ::service_layer::SlSrBsid* SLBgplsTopoSrBindingSid::_internal_mutable_specifiedbsid() {
+inline ::service_layer::SLSrBsid* SLBgplsTopoSrBindingSid::_internal_mutable_specifiedbsid() {
   
   if (specifiedbsid_ == nullptr) {
-    auto* p = CreateMaybeMessage<::service_layer::SlSrBsid>(GetArenaForAllocation());
+    auto* p = CreateMaybeMessage<::service_layer::SLSrBsid>(GetArenaForAllocation());
     specifiedbsid_ = p;
   }
   return specifiedbsid_;
 }
-inline ::service_layer::SlSrBsid* SLBgplsTopoSrBindingSid::mutable_specifiedbsid() {
-  ::service_layer::SlSrBsid* _msg = _internal_mutable_specifiedbsid();
+inline ::service_layer::SLSrBsid* SLBgplsTopoSrBindingSid::mutable_specifiedbsid() {
+  ::service_layer::SLSrBsid* _msg = _internal_mutable_specifiedbsid();
   // @@protoc_insertion_point(field_mutable:service_layer.SLBgplsTopoSrBindingSid.SpecifiedBsid)
   return _msg;
 }
-inline void SLBgplsTopoSrBindingSid::set_allocated_specifiedbsid(::service_layer::SlSrBsid* specifiedbsid) {
+inline void SLBgplsTopoSrBindingSid::set_allocated_specifiedbsid(::service_layer::SLSrBsid* specifiedbsid) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
   if (message_arena == nullptr) {
     delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(specifiedbsid_);

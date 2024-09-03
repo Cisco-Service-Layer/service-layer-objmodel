@@ -2011,10 +2011,10 @@ message SLBgplsTopoSrBindingSid {
     uint32 BsidFlags = 1;
 
     // The operational or allocated BSID value based on the status flags.
-    SlSrBsid Bsid = 2;
+    SLSrBsid Bsid = 2;
 
     // The explicitly specified BSID whether it is allocated or not.
-    SlSrBsid SpecifiedBsid = 3;
+    SLSrBsid SpecifiedBsid = 3;
 }
 
 enum SLBgplsTopoSrCpStateFlags {

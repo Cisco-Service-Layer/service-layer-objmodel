@@ -3221,8 +3221,8 @@ const char descriptor_table_protodef_sl_5fbgpls_5ftopology_2eproto[] PROTOBUF_SE
   "tr\")\n\030SLBgplsTopoExtAdminGroup\022\r\n\005Group\030"
   "\001 \001(\r\"\203\001\n\027SLBgplsTopoSrBindingSid\022\021\n\tBsi"
   "dFlags\030\001 \001(\r\022%\n\004Bsid\030\002 \001(\0132\027.service_lay"
-  "er.SlSrBsid\022.\n\rSpecifiedBsid\030\003 \001(\0132\027.ser"
-  "vice_layer.SlSrBsid\"K\n\024SLBgplsTopoSrCpSt"
+  "er.SLSrBsid\022.\n\rSpecifiedBsid\030\003 \001(\0132\027.ser"
+  "vice_layer.SLSrBsid\"K\n\024SLBgplsTopoSrCpSt"
   "ate\022\020\n\010Priority\030\001 \001(\r\022\r\n\005Flags\030\002 \001(\r\022\022\n\n"
   "Preference\030\003 \001(\r\"\331\003\n\032SLBgplsTopoSrCpCons"
   "traints\022\r\n\005Flags\030\001 \001(\r\022\014\n\004Mtid\030\002 \001(\r\022\021\n\t"
@@ -29952,15 +29952,15 @@ void SLBgplsTopoExtAdminGroup::InternalSwap(SLBgplsTopoExtAdminGroup* other) {
 
 class SLBgplsTopoSrBindingSid::_Internal {
  public:
-  static const ::service_layer::SlSrBsid& bsid(const SLBgplsTopoSrBindingSid* msg);
-  static const ::service_layer::SlSrBsid& specifiedbsid(const SLBgplsTopoSrBindingSid* msg);
+  static const ::service_layer::SLSrBsid& bsid(const SLBgplsTopoSrBindingSid* msg);
+  static const ::service_layer::SLSrBsid& specifiedbsid(const SLBgplsTopoSrBindingSid* msg);
 };
 
-const ::service_layer::SlSrBsid&
+const ::service_layer::SLSrBsid&
 SLBgplsTopoSrBindingSid::_Internal::bsid(const SLBgplsTopoSrBindingSid* msg) {
   return *msg->bsid_;
 }
-const ::service_layer::SlSrBsid&
+const ::service_layer::SLSrBsid&
 SLBgplsTopoSrBindingSid::_Internal::specifiedbsid(const SLBgplsTopoSrBindingSid* msg) {
   return *msg->specifiedbsid_;
 }
@@ -29989,12 +29989,12 @@ SLBgplsTopoSrBindingSid::SLBgplsTopoSrBindingSid(const SLBgplsTopoSrBindingSid& 
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   if (from._internal_has_bsid()) {
-    bsid_ = new ::service_layer::SlSrBsid(*from.bsid_);
+    bsid_ = new ::service_layer::SLSrBsid(*from.bsid_);
   } else {
     bsid_ = nullptr;
   }
   if (from._internal_has_specifiedbsid()) {
-    specifiedbsid_ = new ::service_layer::SlSrBsid(*from.specifiedbsid_);
+    specifiedbsid_ = new ::service_layer::SLSrBsid(*from.specifiedbsid_);
   } else {
     specifiedbsid_ = nullptr;
   }
@@ -30064,7 +30064,7 @@ const char* SLBgplsTopoSrBindingSid::_InternalParse(const char* ptr, ::PROTOBUF_
         } else
           goto handle_unusual;
         continue;
-      // .service_layer.SlSrBsid Bsid = 2;
+      // .service_layer.SLSrBsid Bsid = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
           ptr = ctx->ParseMessage(_internal_mutable_bsid(), ptr);
@@ -30072,7 +30072,7 @@ const char* SLBgplsTopoSrBindingSid::_InternalParse(const char* ptr, ::PROTOBUF_
         } else
           goto handle_unusual;
         continue;
-      // .service_layer.SlSrBsid SpecifiedBsid = 3;
+      // .service_layer.SLSrBsid SpecifiedBsid = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 26)) {
           ptr = ctx->ParseMessage(_internal_mutable_specifiedbsid(), ptr);
@@ -30115,7 +30115,7 @@ uint8_t* SLBgplsTopoSrBindingSid::_InternalSerialize(
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_bsidflags(), target);
   }
 
-  // .service_layer.SlSrBsid Bsid = 2;
+  // .service_layer.SLSrBsid Bsid = 2;
   if (this->_internal_has_bsid()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
@@ -30123,7 +30123,7 @@ uint8_t* SLBgplsTopoSrBindingSid::_InternalSerialize(
         2, _Internal::bsid(this), target, stream);
   }
 
-  // .service_layer.SlSrBsid SpecifiedBsid = 3;
+  // .service_layer.SLSrBsid SpecifiedBsid = 3;
   if (this->_internal_has_specifiedbsid()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
@@ -30147,14 +30147,14 @@ size_t SLBgplsTopoSrBindingSid::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // .service_layer.SlSrBsid Bsid = 2;
+  // .service_layer.SLSrBsid Bsid = 2;
   if (this->_internal_has_bsid()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
         *bsid_);
   }
 
-  // .service_layer.SlSrBsid SpecifiedBsid = 3;
+  // .service_layer.SLSrBsid SpecifiedBsid = 3;
   if (this->_internal_has_specifiedbsid()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
@@ -30189,10 +30189,10 @@ void SLBgplsTopoSrBindingSid::MergeFrom(const SLBgplsTopoSrBindingSid& from) {
   (void) cached_has_bits;
 
   if (from._internal_has_bsid()) {
-    _internal_mutable_bsid()->::service_layer::SlSrBsid::MergeFrom(from._internal_bsid());
+    _internal_mutable_bsid()->::service_layer::SLSrBsid::MergeFrom(from._internal_bsid());
   }
   if (from._internal_has_specifiedbsid()) {
-    _internal_mutable_specifiedbsid()->::service_layer::SlSrBsid::MergeFrom(from._internal_specifiedbsid());
+    _internal_mutable_specifiedbsid()->::service_layer::SLSrBsid::MergeFrom(from._internal_specifiedbsid());
   }
   if (from._internal_bsidflags() != 0) {
     _internal_set_bsidflags(from._internal_bsidflags());

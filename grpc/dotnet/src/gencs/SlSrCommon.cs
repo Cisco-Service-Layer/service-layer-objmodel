@@ -26,7 +26,7 @@ namespace ServiceLayer {
           string.Concat(
             "ChJzbF9zcl9jb21tb24ucHJvdG8SDXNlcnZpY2VfbGF5ZXIaFXNsX2NvbW1v",
             "bl90eXBlcy5wcm90byIgCg9TTFNyUG9saWN5RmxhZ3MSDQoFRmxhZ3MYASAB",
-            "KA0iQAoIU2xTckJzaWQSEgoITXBsc0JzaWQYASABKA1IABISCghTcnY2QnNp",
+            "KA0iQAoIU0xTckJzaWQSEgoITXBsc0JzaWQYASABKA1IABISCghTcnY2QnNp",
             "ZBgCIAEoDEgAQgwKCkJpbmRpbmdTaWQiGgoKU0xTckNwTmFtZRIMCgROYW1l",
             "GAEgASgJIvkBCg9TTFNyU2VnbWVudERlc2MSEQoJQWxnb3JpdGhtGAEgASgN",
             "Ei0KCUxvY2FsTm9kZRgCIAEoCzIaLnNlcnZpY2VfbGF5ZXIuU0xJcEFkZHJl",
@@ -88,7 +88,7 @@ namespace ServiceLayer {
           new pbr::FileDescriptor[] { global::ServiceLayer.SlCommonTypesReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::ServiceLayer.SLSrPolicyProtocolOrigin), typeof(global::ServiceLayer.SLSrPolicyFlagsDef), typeof(global::ServiceLayer.SLSrSegmentType), typeof(global::ServiceLayer.SLSrSegmentFlags), typeof(global::ServiceLayer.SLSrv6BindingSidFlags), }, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLSrPolicyFlags), global::ServiceLayer.SLSrPolicyFlags.Parser, new[]{ "Flags" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SlSrBsid), global::ServiceLayer.SlSrBsid.Parser, new[]{ "MplsBsid", "Srv6Bsid" }, new[]{ "BindingSid" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLSrBsid), global::ServiceLayer.SLSrBsid.Parser, new[]{ "MplsBsid", "Srv6Bsid" }, new[]{ "BindingSid" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLSrCpName), global::ServiceLayer.SLSrCpName.Parser, new[]{ "Name" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLSrSegmentDesc), global::ServiceLayer.SLSrSegmentDesc.Parser, new[]{ "Algorithm", "LocalNode", "RemoteNode", "Ipv6LocalNodeGlobalAddr", "Ipv6RemoteNodeGlobalAddr", "LocalNodeIntfId", "RemoteNodeIntfId" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLSrSegment), global::ServiceLayer.SLSrSegment.Parser, new[]{ "Type", "Flags", "MplsLabel", "Srv6Sid", "SegmentDesc", "EndPointBehaviour", "SidStruct" }, new[]{ "Sid" }, null, null, null),
@@ -484,16 +484,16 @@ namespace ServiceLayer {
   /// SR Binding SID. TLV 1201
   /// Section 5.1 of [draft-ietf-idr-bgp-ls-sr-policy]
   /// </summary>
-  public sealed partial class SlSrBsid : pb::IMessage<SlSrBsid>
+  public sealed partial class SLSrBsid : pb::IMessage<SLSrBsid>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
   #endif
   {
-    private static readonly pb::MessageParser<SlSrBsid> _parser = new pb::MessageParser<SlSrBsid>(() => new SlSrBsid());
+    private static readonly pb::MessageParser<SLSrBsid> _parser = new pb::MessageParser<SLSrBsid>(() => new SLSrBsid());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pb::MessageParser<SlSrBsid> Parser { get { return _parser; } }
+    public static pb::MessageParser<SLSrBsid> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -509,7 +509,7 @@ namespace ServiceLayer {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public SlSrBsid() {
+    public SLSrBsid() {
       OnConstruction();
     }
 
@@ -517,7 +517,7 @@ namespace ServiceLayer {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public SlSrBsid(SlSrBsid other) : this() {
+    public SLSrBsid(SLSrBsid other) : this() {
       switch (other.BindingSidCase) {
         case BindingSidOneofCase.MplsBsid:
           MplsBsid = other.MplsBsid;
@@ -532,8 +532,8 @@ namespace ServiceLayer {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public SlSrBsid Clone() {
-      return new SlSrBsid(this);
+    public SLSrBsid Clone() {
+      return new SLSrBsid(this);
     }
 
     /// <summary>Field number for the "MplsBsid" field.</summary>
@@ -592,12 +592,12 @@ namespace ServiceLayer {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
-      return Equals(other as SlSrBsid);
+      return Equals(other as SLSrBsid);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool Equals(SlSrBsid other) {
+    public bool Equals(SLSrBsid other) {
       if (ReferenceEquals(other, null)) {
         return false;
       }
@@ -685,7 +685,7 @@ namespace ServiceLayer {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(SlSrBsid other) {
+    public void MergeFrom(SLSrBsid other) {
       if (other == null) {
         return;
       }

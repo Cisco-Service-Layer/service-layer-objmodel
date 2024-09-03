@@ -8388,9 +8388,9 @@ type SLBgplsTopoSrBindingSid struct {
 	// All others are reserved.
 	BsidFlags uint32 `protobuf:"varint,1,opt,name=BsidFlags,proto3" json:"BsidFlags,omitempty"`
 	// The operational or allocated BSID value based on the status flags.
-	Bsid *SlSrBsid `protobuf:"bytes,2,opt,name=Bsid,proto3" json:"Bsid,omitempty"`
+	Bsid *SLSrBsid `protobuf:"bytes,2,opt,name=Bsid,proto3" json:"Bsid,omitempty"`
 	// The explicitly specified BSID whether it is allocated or not.
-	SpecifiedBsid *SlSrBsid `protobuf:"bytes,3,opt,name=SpecifiedBsid,proto3" json:"SpecifiedBsid,omitempty"`
+	SpecifiedBsid *SLSrBsid `protobuf:"bytes,3,opt,name=SpecifiedBsid,proto3" json:"SpecifiedBsid,omitempty"`
 }
 
 func (x *SLBgplsTopoSrBindingSid) Reset() {
@@ -8432,14 +8432,14 @@ func (x *SLBgplsTopoSrBindingSid) GetBsidFlags() uint32 {
 	return 0
 }
 
-func (x *SLBgplsTopoSrBindingSid) GetBsid() *SlSrBsid {
+func (x *SLBgplsTopoSrBindingSid) GetBsid() *SLSrBsid {
 	if x != nil {
 		return x.Bsid
 	}
 	return nil
 }
 
-func (x *SLBgplsTopoSrBindingSid) GetSpecifiedBsid() *SlSrBsid {
+func (x *SLBgplsTopoSrBindingSid) GetSpecifiedBsid() *SLSrBsid {
 	if x != nil {
 		return x.SpecifiedBsid
 	}
@@ -10944,10 +10944,10 @@ var file_sl_bgpls_topology_proto_rawDesc = []byte{
 	0x64, 0x46, 0x6c, 0x61, 0x67, 0x73, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0d, 0x52, 0x09, 0x42, 0x73,
 	0x69, 0x64, 0x46, 0x6c, 0x61, 0x67, 0x73, 0x12, 0x2b, 0x0a, 0x04, 0x42, 0x73, 0x69, 0x64, 0x18,
 	0x02, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x17, 0x2e, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x5f,
-	0x6c, 0x61, 0x79, 0x65, 0x72, 0x2e, 0x53, 0x6c, 0x53, 0x72, 0x42, 0x73, 0x69, 0x64, 0x52, 0x04,
+	0x6c, 0x61, 0x79, 0x65, 0x72, 0x2e, 0x53, 0x4c, 0x53, 0x72, 0x42, 0x73, 0x69, 0x64, 0x52, 0x04,
 	0x42, 0x73, 0x69, 0x64, 0x12, 0x3d, 0x0a, 0x0d, 0x53, 0x70, 0x65, 0x63, 0x69, 0x66, 0x69, 0x65,
 	0x64, 0x42, 0x73, 0x69, 0x64, 0x18, 0x03, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x17, 0x2e, 0x73, 0x65,
-	0x72, 0x76, 0x69, 0x63, 0x65, 0x5f, 0x6c, 0x61, 0x79, 0x65, 0x72, 0x2e, 0x53, 0x6c, 0x53, 0x72,
+	0x72, 0x76, 0x69, 0x63, 0x65, 0x5f, 0x6c, 0x61, 0x79, 0x65, 0x72, 0x2e, 0x53, 0x4c, 0x53, 0x72,
 	0x42, 0x73, 0x69, 0x64, 0x52, 0x0d, 0x53, 0x70, 0x65, 0x63, 0x69, 0x66, 0x69, 0x65, 0x64, 0x42,
 	0x73, 0x69, 0x64, 0x22, 0x68, 0x0a, 0x14, 0x53, 0x4c, 0x42, 0x67, 0x70, 0x6c, 0x73, 0x54, 0x6f,
 	0x70, 0x6f, 0x53, 0x72, 0x43, 0x70, 0x53, 0x74, 0x61, 0x74, 0x65, 0x12, 0x1a, 0x0a, 0x08, 0x50,
@@ -11541,7 +11541,7 @@ var file_sl_bgpls_topology_proto_goTypes = []interface{}{
 	(*SLSrv6SidStruct)(nil),                      // 129: service_layer.SLSrv6SidStruct
 	(*SLSrCpName)(nil),                           // 130: service_layer.SLSrCpName
 	(*SLSrv6BindingSid)(nil),                     // 131: service_layer.SLSrv6BindingSid
-	(*SlSrBsid)(nil),                             // 132: service_layer.SlSrBsid
+	(*SLSrBsid)(nil),                             // 132: service_layer.SLSrBsid
 	(*SLSrSegment)(nil),                          // 133: service_layer.SLSrSegment
 }
 var file_sl_bgpls_topology_proto_depIdxs = []int32{
@@ -11712,8 +11712,8 @@ var file_sl_bgpls_topology_proto_depIdxs = []int32{
 	94,  // 164: service_layer.SLBgplsTopoL2BundleMemberAttr.Asla:type_name -> service_layer.SLBgplsTopoAslaAttr
 	107, // 165: service_layer.SLBgplsTopoL2BundleMemberAttr.ExtAdminGroup:type_name -> service_layer.SLBgplsTopoExtAdminGroup
 	123, // 166: service_layer.SLBgplsTopoL2BundleMemberAttr.UnknownAttr:type_name -> service_layer.SLBgplsTopoUnknownAttr
-	132, // 167: service_layer.SLBgplsTopoSrBindingSid.Bsid:type_name -> service_layer.SlSrBsid
-	132, // 168: service_layer.SLBgplsTopoSrBindingSid.SpecifiedBsid:type_name -> service_layer.SlSrBsid
+	132, // 167: service_layer.SLBgplsTopoSrBindingSid.Bsid:type_name -> service_layer.SLSrBsid
+	132, // 168: service_layer.SLBgplsTopoSrBindingSid.SpecifiedBsid:type_name -> service_layer.SLSrBsid
 	113, // 169: service_layer.SLBgplsTopoSrCpConstraints.Affinity:type_name -> service_layer.SLBgplsTopoSrAffinityConstraints
 	114, // 170: service_layer.SLBgplsTopoSrCpConstraints.Srlg:type_name -> service_layer.SLBgplsTopoSrSrlgConstraints
 	115, // 171: service_layer.SLBgplsTopoSrCpConstraints.Bandwidth:type_name -> service_layer.SLBgplsTopoSrBandwidthConstraint

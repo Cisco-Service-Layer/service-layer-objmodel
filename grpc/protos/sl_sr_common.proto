@@ -79,7 +79,7 @@ message SLSrPolicyFlags {
 
 // SR Binding SID. TLV 1201
 // Section 5.1 of [draft-ietf-idr-bgp-ls-sr-policy]
-message SlSrBsid {
+message SLSrBsid {
     oneof BindingSid {
         // This field carries info about an MPLS binding SID.
         uint32 MplsBsid = 1;
