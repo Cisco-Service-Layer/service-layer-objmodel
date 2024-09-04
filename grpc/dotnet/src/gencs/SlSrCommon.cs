@@ -40,50 +40,50 @@ namespace ServiceLayer {
             "ZV9sYXllci5TTFNyU2VnbWVudERlc2MSQAoRRW5kUG9pbnRCZWhhdmlvdXIY",
             "BiABKAsyJS5zZXJ2aWNlX2xheWVyLlNMU3J2NkVuZFBvaW50QmVoYXZpb3IS",
             "MQoJU2lkU3RydWN0GAcgASgLMh4uc2VydmljZV9sYXllci5TTFNydjZTaWRT",
-            "dHJ1Y3RCBQoDU2lkIrsBChBTTFNydjZCaW5kaW5nU2lkEg0KBUZsYWdzGAEg",
-            "ASgNEgwKBEJzaWQYAiABKAwSFQoNU3BlY2lmaWVkQnNpZBgDIAEoDBJAChFF",
-            "bmRQb2ludEJlaGF2aW91chgEIAEoCzIlLnNlcnZpY2VfbGF5ZXIuU0xTcnY2",
-            "RW5kUG9pbnRCZWhhdmlvchIxCglTaWRTdHJ1Y3QYBSABKAsyHi5zZXJ2aWNl",
-            "X2xheWVyLlNMU3J2NlNpZFN0cnVjdCJUChZTTFNydjZFbmRQb2ludEJlaGF2",
-            "aW9yEhgKEEVuZFBvaW50QmVoYXZpb3IYASABKA0SDQoFRmxhZ3MYAiABKA0S",
-            "EQoJQWxnb3JpdGhtGAMgASgNImcKD1NMU3J2NlNpZFN0cnVjdBIXCg9Mb2Nh",
-            "dG9yQmxvY2tMZW4YASABKA0SFgoOTG9jYXRvck5vZGVMZW4YAiABKA0SEwoL",
-            "RnVuY3Rpb25MZW4YAyABKA0SDgoGQXJnTGVuGAQgASgNKo8DChhTTFNyUG9s",
-            "aWN5UHJvdG9jb2xPcmlnaW4SKQolU0xfU1JfUE9MSUNZX1BST1RPQ09MX09S",
-            "SUdJTl9SRVNFUlZFRBAAEiUKIVNMX1NSX1BPTElDWV9QUk9UT0NPTF9PUklH",
-            "SU5fUENFUBABEi4KKlNMX1NSX1BPTElDWV9QUk9UT0NPTF9PUklHSU5fQkdQ",
-            "X1NSX1BPTElDWRACEicKI1NMX1NSX1BPTElDWV9QUk9UT0NPTF9PUklHSU5f",
-            "Q09ORklHEAMSLQopU0xfU1JfUE9MSUNZX1BST1RPQ09MX09SSUdJTl9QQ0VQ",
-            "X1ZJQV9QQ0UQChI2CjJTTF9TUl9QT0xJQ1lfUFJPVE9DT0xfT1JJR0lOX0JH",
-            "UF9TUl9QT0xJQ1lfVklBX1BDRRAUEi8KK1NMX1NSX1BPTElDWV9QUk9UT0NP",
-            "TF9PUklHSU5fQ09ORklHX1ZJQV9QQ0UQHhIwCixTTF9TUl9QT0xJQ1lfUFJP",
-            "VE9DT0xfT1JJR0lOX0NPTkZJR19WSUFfR1JQQxAoKn0KElNMU3JQb2xpY3lG",
-            "bGFnc0RlZhIeChpTTF9TUl9QT0xJQ1lfRkxBR19SRVNFUlZFRBAAEiIKHVNM",
-            "X1NSX1BPTElDWV9GTEFHX0VORFBPSU5UX1Y2EIABEiMKH1NMX1NSX1BPTElD",
-            "WV9GTEFHX09SSUdJTkFUT1JfVjYQQCqbBAoPU0xTclNlZ21lbnRUeXBlEhsK",
-            "F1NMX1NSX1NFR19UWVBFX1JFU0VSVkVEEAASHQoZU0xfU1JfU0VHX1RZUEVf",
-            "TVBMU19MQUJFTBABEh4KGlNMX1NSX1NFR19UWVBFX1NSVjZfU0lEX1Y2EAIS",
-            "IgoeU0xfU1JfU0VHX1RZUEVfTVBMU19QRlhfU0lEX1Y0EAMSIgoeU0xfU1Jf",
-            "U0VHX1RZUEVfTVBMU19QRlhfU0lEX1Y2EAQSMwovU0xfU1JfU0VHX1RZUEVf",
-            "TVBMU19BREpfU0lEX1Y0X05PREVfQUREUl9MT0NfSUQQBRIvCitTTF9TUl9T",
-            "RUdfVFlQRV9NUExTX0FESl9TSURfVjRfTE9DX1JFTV9BRERSEAYSNgoyU0xf",
-            "U1JfU0VHX1RZUEVfTVBMU19BREpfU0lEX1Y2X0xPQ19SRU1fQUREUl9BTkRf",
-            "SUQQBxIvCitTTF9TUl9TRUdfVFlQRV9NUExTX0FESl9TSURfVjZfTE9DX1JF",
-            "TV9BRERSEAgSLAooU0xfU1JfU0VHX1RZUEVfU1JWNl9FTkRfU0lEX1Y2X05P",
-            "REVfQUREUhAJEjYKMlNMX1NSX1NFR19UWVBFX1NSVjZfRU5EX1NJRF9WNl9M",
-            "T0NfUkVNX0FERFJfQU5EX0lEEAoSLworU0xfU1JfU0VHX1RZUEVfU1JWNl9F",
-            "TkRfU0lEX1Y2X0xPQ19SRU1fQUREUhALKoACChBTTFNyU2VnbWVudEZsYWdz",
-            "Eh8KG1NMX1NSX1NFR01FTlRfRkxBR19SRVNFUlZFRBAAEiQKHlNMX1NSX1NF",
-            "R01FTlRfRkxBR19TSURfUFJFU0VOVBCAgAISMQorU0xfU1JfU0VHTUVOVF9G",
-            "TEFHX1NJRF9FWFBMSUNJVF9QUk9WSVNJT05FRBCAgAESJAofU0xfU1JfU0VH",
-            "TUVOVF9GTEFHX1NJRF9WRVJJRklFRBCAQBIkCh9TTF9TUl9TRUdNRU5UX0ZM",
-            "QUdfU0lEX1JFU09MVkVEEIAgEiYKIVNMX1NSX1NFR01FTlRfRkxBR19TSURf",
-            "QUxHT19WQUxJRBCAECqbAQoVU0xTcnY2QmluZGluZ1NpZEZsYWdzEh4KGlNM",
-            "X1NSVjZfQlNJRF9GTEFHX1JFU0VSVkVEEAASIQobU0xfU1JWNl9CU0lEX0ZM",
-            "QUdfQUxMT0NBVEVEEICAAhIfChlTTF9TUlY2X0JTSURfRkxBR19VTkFWQUlM",
-            "EICAARIeChlTTF9TUlY2X0JTSURfRkxBR19EWU5BTUlDEIBAQlFaT2dpdGh1",
-            "Yi5jb20vQ2lzY28tc2VydmljZS1sYXllci9zZXJ2aWNlLWxheWVyLW9iam1v",
-            "ZGVsL2dycGMvcHJvdG9zO3NlcnZpY2VfbGF5ZXJiBnByb3RvMw=="));
+            "dHJ1Y3RCBQoDU2lkIroBChBTTFNydjZCaW5kaW5nU2lkEg0KBUZsYWdzGAEg",
+            "ASgNEgwKBEJzaWQYAiABKAwSFQoNU3BlY2lmaWVkQnNpZBgDIAEoDBI/ChBF",
+            "bmRQb2ludEJlaGF2aW9yGAQgASgLMiUuc2VydmljZV9sYXllci5TTFNydjZF",
+            "bmRQb2ludEJlaGF2aW9yEjEKCVNpZFN0cnVjdBgFIAEoCzIeLnNlcnZpY2Vf",
+            "bGF5ZXIuU0xTcnY2U2lkU3RydWN0IlQKFlNMU3J2NkVuZFBvaW50QmVoYXZp",
+            "b3ISGAoQRW5kUG9pbnRCZWhhdmlvchgBIAEoDRINCgVGbGFncxgCIAEoDRIR",
+            "CglBbGdvcml0aG0YAyABKA0iZwoPU0xTcnY2U2lkU3RydWN0EhcKD0xvY2F0",
+            "b3JCbG9ja0xlbhgBIAEoDRIWCg5Mb2NhdG9yTm9kZUxlbhgCIAEoDRITCgtG",
+            "dW5jdGlvbkxlbhgDIAEoDRIOCgZBcmdMZW4YBCABKA0qjwMKGFNMU3JQb2xp",
+            "Y3lQcm90b2NvbE9yaWdpbhIpCiVTTF9TUl9QT0xJQ1lfUFJPVE9DT0xfT1JJ",
+            "R0lOX1JFU0VSVkVEEAASJQohU0xfU1JfUE9MSUNZX1BST1RPQ09MX09SSUdJ",
+            "Tl9QQ0VQEAESLgoqU0xfU1JfUE9MSUNZX1BST1RPQ09MX09SSUdJTl9CR1Bf",
+            "U1JfUE9MSUNZEAISJwojU0xfU1JfUE9MSUNZX1BST1RPQ09MX09SSUdJTl9D",
+            "T05GSUcQAxItCilTTF9TUl9QT0xJQ1lfUFJPVE9DT0xfT1JJR0lOX1BDRVBf",
+            "VklBX1BDRRAKEjYKMlNMX1NSX1BPTElDWV9QUk9UT0NPTF9PUklHSU5fQkdQ",
+            "X1NSX1BPTElDWV9WSUFfUENFEBQSLworU0xfU1JfUE9MSUNZX1BST1RPQ09M",
+            "X09SSUdJTl9DT05GSUdfVklBX1BDRRAeEjAKLFNMX1NSX1BPTElDWV9QUk9U",
+            "T0NPTF9PUklHSU5fQ09ORklHX1ZJQV9HUlBDECgqfQoSU0xTclBvbGljeUZs",
+            "YWdzRGVmEh4KGlNMX1NSX1BPTElDWV9GTEFHX1JFU0VSVkVEEAASIgodU0xf",
+            "U1JfUE9MSUNZX0ZMQUdfRU5EUE9JTlRfVjYQgAESIwofU0xfU1JfUE9MSUNZ",
+            "X0ZMQUdfT1JJR0lOQVRPUl9WNhBAKpsECg9TTFNyU2VnbWVudFR5cGUSGwoX",
+            "U0xfU1JfU0VHX1RZUEVfUkVTRVJWRUQQABIdChlTTF9TUl9TRUdfVFlQRV9N",
+            "UExTX0xBQkVMEAESHgoaU0xfU1JfU0VHX1RZUEVfU1JWNl9TSURfVjYQAhIi",
+            "Ch5TTF9TUl9TRUdfVFlQRV9NUExTX1BGWF9TSURfVjQQAxIiCh5TTF9TUl9T",
+            "RUdfVFlQRV9NUExTX1BGWF9TSURfVjYQBBIzCi9TTF9TUl9TRUdfVFlQRV9N",
+            "UExTX0FESl9TSURfVjRfTk9ERV9BRERSX0xPQ19JRBAFEi8KK1NMX1NSX1NF",
+            "R19UWVBFX01QTFNfQURKX1NJRF9WNF9MT0NfUkVNX0FERFIQBhI2CjJTTF9T",
+            "Ul9TRUdfVFlQRV9NUExTX0FESl9TSURfVjZfTE9DX1JFTV9BRERSX0FORF9J",
+            "RBAHEi8KK1NMX1NSX1NFR19UWVBFX01QTFNfQURKX1NJRF9WNl9MT0NfUkVN",
+            "X0FERFIQCBIsCihTTF9TUl9TRUdfVFlQRV9TUlY2X0VORF9TSURfVjZfTk9E",
+            "RV9BRERSEAkSNgoyU0xfU1JfU0VHX1RZUEVfU1JWNl9FTkRfU0lEX1Y2X0xP",
+            "Q19SRU1fQUREUl9BTkRfSUQQChIvCitTTF9TUl9TRUdfVFlQRV9TUlY2X0VO",
+            "RF9TSURfVjZfTE9DX1JFTV9BRERSEAsqgAIKEFNMU3JTZWdtZW50RmxhZ3MS",
+            "HwobU0xfU1JfU0VHTUVOVF9GTEFHX1JFU0VSVkVEEAASJAoeU0xfU1JfU0VH",
+            "TUVOVF9GTEFHX1NJRF9QUkVTRU5UEICAAhIxCitTTF9TUl9TRUdNRU5UX0ZM",
+            "QUdfU0lEX0VYUExJQ0lUX1BST1ZJU0lPTkVEEICAARIkCh9TTF9TUl9TRUdN",
+            "RU5UX0ZMQUdfU0lEX1ZFUklGSUVEEIBAEiQKH1NMX1NSX1NFR01FTlRfRkxB",
+            "R19TSURfUkVTT0xWRUQQgCASJgohU0xfU1JfU0VHTUVOVF9GTEFHX1NJRF9B",
+            "TEdPX1ZBTElEEIAQKpsBChVTTFNydjZCaW5kaW5nU2lkRmxhZ3MSHgoaU0xf",
+            "U1JWNl9CU0lEX0ZMQUdfUkVTRVJWRUQQABIhChtTTF9TUlY2X0JTSURfRkxB",
+            "R19BTExPQ0FURUQQgIACEh8KGVNMX1NSVjZfQlNJRF9GTEFHX1VOQVZBSUwQ",
+            "gIABEh4KGVNMX1NSVjZfQlNJRF9GTEFHX0RZTkFNSUMQgEBCUVpPZ2l0aHVi",
+            "LmNvbS9DaXNjby1zZXJ2aWNlLWxheWVyL3NlcnZpY2UtbGF5ZXItb2JqbW9k",
+            "ZWwvZ3JwYy9wcm90b3M7c2VydmljZV9sYXllcmIGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::ServiceLayer.SlCommonTypesReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::ServiceLayer.SLSrPolicyProtocolOrigin), typeof(global::ServiceLayer.SLSrPolicyFlagsDef), typeof(global::ServiceLayer.SLSrSegmentType), typeof(global::ServiceLayer.SLSrSegmentFlags), typeof(global::ServiceLayer.SLSrv6BindingSidFlags), }, null, new pbr::GeneratedClrTypeInfo[] {
@@ -92,7 +92,7 @@ namespace ServiceLayer {
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLSrCpName), global::ServiceLayer.SLSrCpName.Parser, new[]{ "Name" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLSrSegmentDesc), global::ServiceLayer.SLSrSegmentDesc.Parser, new[]{ "Algorithm", "LocalNode", "RemoteNode", "Ipv6LocalNodeGlobalAddr", "Ipv6RemoteNodeGlobalAddr", "LocalNodeIntfId", "RemoteNodeIntfId" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLSrSegment), global::ServiceLayer.SLSrSegment.Parser, new[]{ "Type", "Flags", "MplsLabel", "Srv6Sid", "SegmentDesc", "EndPointBehaviour", "SidStruct" }, new[]{ "Sid" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLSrv6BindingSid), global::ServiceLayer.SLSrv6BindingSid.Parser, new[]{ "Flags", "Bsid", "SpecifiedBsid", "EndPointBehaviour", "SidStruct" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLSrv6BindingSid), global::ServiceLayer.SLSrv6BindingSid.Parser, new[]{ "Flags", "Bsid", "SpecifiedBsid", "EndPointBehavior", "SidStruct" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLSrv6EndPointBehavior), global::ServiceLayer.SLSrv6EndPointBehavior.Parser, new[]{ "EndPointBehavior", "Flags", "Algorithm" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLSrv6SidStruct), global::ServiceLayer.SLSrv6SidStruct.Parser, new[]{ "LocatorBlockLen", "LocatorNodeLen", "FunctionLen", "ArgLen" }, null, null, null, null)
           }));
@@ -1970,7 +1970,7 @@ namespace ServiceLayer {
       flags_ = other.flags_;
       bsid_ = other.bsid_;
       specifiedBsid_ = other.specifiedBsid_;
-      endPointBehaviour_ = other.endPointBehaviour_ != null ? other.endPointBehaviour_.Clone() : null;
+      endPointBehavior_ = other.endPointBehavior_ != null ? other.endPointBehavior_.Clone() : null;
       sidStruct_ = other.sidStruct_ != null ? other.sidStruct_.Clone() : null;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
@@ -2047,19 +2047,19 @@ namespace ServiceLayer {
       }
     }
 
-    /// <summary>Field number for the "EndPointBehaviour" field.</summary>
-    public const int EndPointBehaviourFieldNumber = 4;
-    private global::ServiceLayer.SLSrv6EndPointBehavior endPointBehaviour_;
+    /// <summary>Field number for the "EndPointBehavior" field.</summary>
+    public const int EndPointBehaviorFieldNumber = 4;
+    private global::ServiceLayer.SLSrv6EndPointBehavior endPointBehavior_;
     /// <summary>
     /// SRv6 End Point Behavior. TLV 1250
     /// Section 7.1 of [RFC9514]
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::ServiceLayer.SLSrv6EndPointBehavior EndPointBehaviour {
-      get { return endPointBehaviour_; }
+    public global::ServiceLayer.SLSrv6EndPointBehavior EndPointBehavior {
+      get { return endPointBehavior_; }
       set {
-        endPointBehaviour_ = value;
+        endPointBehavior_ = value;
       }
     }
 
@@ -2097,7 +2097,7 @@ namespace ServiceLayer {
       if (Flags != other.Flags) return false;
       if (Bsid != other.Bsid) return false;
       if (SpecifiedBsid != other.SpecifiedBsid) return false;
-      if (!object.Equals(EndPointBehaviour, other.EndPointBehaviour)) return false;
+      if (!object.Equals(EndPointBehavior, other.EndPointBehavior)) return false;
       if (!object.Equals(SidStruct, other.SidStruct)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
@@ -2109,7 +2109,7 @@ namespace ServiceLayer {
       if (Flags != 0) hash ^= Flags.GetHashCode();
       if (Bsid.Length != 0) hash ^= Bsid.GetHashCode();
       if (SpecifiedBsid.Length != 0) hash ^= SpecifiedBsid.GetHashCode();
-      if (endPointBehaviour_ != null) hash ^= EndPointBehaviour.GetHashCode();
+      if (endPointBehavior_ != null) hash ^= EndPointBehavior.GetHashCode();
       if (sidStruct_ != null) hash ^= SidStruct.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
@@ -2141,9 +2141,9 @@ namespace ServiceLayer {
         output.WriteRawTag(26);
         output.WriteBytes(SpecifiedBsid);
       }
-      if (endPointBehaviour_ != null) {
+      if (endPointBehavior_ != null) {
         output.WriteRawTag(34);
-        output.WriteMessage(EndPointBehaviour);
+        output.WriteMessage(EndPointBehavior);
       }
       if (sidStruct_ != null) {
         output.WriteRawTag(42);
@@ -2171,9 +2171,9 @@ namespace ServiceLayer {
         output.WriteRawTag(26);
         output.WriteBytes(SpecifiedBsid);
       }
-      if (endPointBehaviour_ != null) {
+      if (endPointBehavior_ != null) {
         output.WriteRawTag(34);
-        output.WriteMessage(EndPointBehaviour);
+        output.WriteMessage(EndPointBehavior);
       }
       if (sidStruct_ != null) {
         output.WriteRawTag(42);
@@ -2198,8 +2198,8 @@ namespace ServiceLayer {
       if (SpecifiedBsid.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeBytesSize(SpecifiedBsid);
       }
-      if (endPointBehaviour_ != null) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(EndPointBehaviour);
+      if (endPointBehavior_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(EndPointBehavior);
       }
       if (sidStruct_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(SidStruct);
@@ -2225,11 +2225,11 @@ namespace ServiceLayer {
       if (other.SpecifiedBsid.Length != 0) {
         SpecifiedBsid = other.SpecifiedBsid;
       }
-      if (other.endPointBehaviour_ != null) {
-        if (endPointBehaviour_ == null) {
-          EndPointBehaviour = new global::ServiceLayer.SLSrv6EndPointBehavior();
+      if (other.endPointBehavior_ != null) {
+        if (endPointBehavior_ == null) {
+          EndPointBehavior = new global::ServiceLayer.SLSrv6EndPointBehavior();
         }
-        EndPointBehaviour.MergeFrom(other.EndPointBehaviour);
+        EndPointBehavior.MergeFrom(other.EndPointBehavior);
       }
       if (other.sidStruct_ != null) {
         if (sidStruct_ == null) {
@@ -2265,10 +2265,10 @@ namespace ServiceLayer {
             break;
           }
           case 34: {
-            if (endPointBehaviour_ == null) {
-              EndPointBehaviour = new global::ServiceLayer.SLSrv6EndPointBehavior();
+            if (endPointBehavior_ == null) {
+              EndPointBehavior = new global::ServiceLayer.SLSrv6EndPointBehavior();
             }
-            input.ReadMessage(EndPointBehaviour);
+            input.ReadMessage(EndPointBehavior);
             break;
           }
           case 42: {
@@ -2306,10 +2306,10 @@ namespace ServiceLayer {
             break;
           }
           case 34: {
-            if (endPointBehaviour_ == null) {
-              EndPointBehaviour = new global::ServiceLayer.SLSrv6EndPointBehavior();
+            if (endPointBehavior_ == null) {
+              EndPointBehavior = new global::ServiceLayer.SLSrv6EndPointBehavior();
             }
-            input.ReadMessage(EndPointBehaviour);
+            input.ReadMessage(EndPointBehavior);
             break;
           }
           case 42: {

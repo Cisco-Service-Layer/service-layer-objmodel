@@ -1364,7 +1364,7 @@ class SLSrv6BindingSid final :
   enum : int {
     kBsidFieldNumber = 2,
     kSpecifiedBsidFieldNumber = 3,
-    kEndPointBehaviourFieldNumber = 4,
+    kEndPointBehaviorFieldNumber = 4,
     kSidStructFieldNumber = 5,
     kFlagsFieldNumber = 1,
   };
@@ -1396,23 +1396,23 @@ class SLSrv6BindingSid final :
   std::string* _internal_mutable_specifiedbsid();
   public:
 
-  // .service_layer.SLSrv6EndPointBehavior EndPointBehaviour = 4;
-  bool has_endpointbehaviour() const;
+  // .service_layer.SLSrv6EndPointBehavior EndPointBehavior = 4;
+  bool has_endpointbehavior() const;
   private:
-  bool _internal_has_endpointbehaviour() const;
+  bool _internal_has_endpointbehavior() const;
   public:
-  void clear_endpointbehaviour();
-  const ::service_layer::SLSrv6EndPointBehavior& endpointbehaviour() const;
-  PROTOBUF_NODISCARD ::service_layer::SLSrv6EndPointBehavior* release_endpointbehaviour();
-  ::service_layer::SLSrv6EndPointBehavior* mutable_endpointbehaviour();
-  void set_allocated_endpointbehaviour(::service_layer::SLSrv6EndPointBehavior* endpointbehaviour);
+  void clear_endpointbehavior();
+  const ::service_layer::SLSrv6EndPointBehavior& endpointbehavior() const;
+  PROTOBUF_NODISCARD ::service_layer::SLSrv6EndPointBehavior* release_endpointbehavior();
+  ::service_layer::SLSrv6EndPointBehavior* mutable_endpointbehavior();
+  void set_allocated_endpointbehavior(::service_layer::SLSrv6EndPointBehavior* endpointbehavior);
   private:
-  const ::service_layer::SLSrv6EndPointBehavior& _internal_endpointbehaviour() const;
-  ::service_layer::SLSrv6EndPointBehavior* _internal_mutable_endpointbehaviour();
+  const ::service_layer::SLSrv6EndPointBehavior& _internal_endpointbehavior() const;
+  ::service_layer::SLSrv6EndPointBehavior* _internal_mutable_endpointbehavior();
   public:
-  void unsafe_arena_set_allocated_endpointbehaviour(
-      ::service_layer::SLSrv6EndPointBehavior* endpointbehaviour);
-  ::service_layer::SLSrv6EndPointBehavior* unsafe_arena_release_endpointbehaviour();
+  void unsafe_arena_set_allocated_endpointbehavior(
+      ::service_layer::SLSrv6EndPointBehavior* endpointbehavior);
+  ::service_layer::SLSrv6EndPointBehavior* unsafe_arena_release_endpointbehavior();
 
   // .service_layer.SLSrv6SidStruct SidStruct = 5;
   bool has_sidstruct() const;
@@ -1450,7 +1450,7 @@ class SLSrv6BindingSid final :
   typedef void DestructorSkippable_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr bsid_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr specifiedbsid_;
-  ::service_layer::SLSrv6EndPointBehavior* endpointbehaviour_;
+  ::service_layer::SLSrv6EndPointBehavior* endpointbehavior_;
   ::service_layer::SLSrv6SidStruct* sidstruct_;
   uint32_t flags_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
@@ -2929,45 +2929,45 @@ inline void SLSrv6BindingSid::set_allocated_specifiedbsid(std::string* specified
   // @@protoc_insertion_point(field_set_allocated:service_layer.SLSrv6BindingSid.SpecifiedBsid)
 }
 
-// .service_layer.SLSrv6EndPointBehavior EndPointBehaviour = 4;
-inline bool SLSrv6BindingSid::_internal_has_endpointbehaviour() const {
-  return this != internal_default_instance() && endpointbehaviour_ != nullptr;
+// .service_layer.SLSrv6EndPointBehavior EndPointBehavior = 4;
+inline bool SLSrv6BindingSid::_internal_has_endpointbehavior() const {
+  return this != internal_default_instance() && endpointbehavior_ != nullptr;
 }
-inline bool SLSrv6BindingSid::has_endpointbehaviour() const {
-  return _internal_has_endpointbehaviour();
+inline bool SLSrv6BindingSid::has_endpointbehavior() const {
+  return _internal_has_endpointbehavior();
 }
-inline void SLSrv6BindingSid::clear_endpointbehaviour() {
-  if (GetArenaForAllocation() == nullptr && endpointbehaviour_ != nullptr) {
-    delete endpointbehaviour_;
+inline void SLSrv6BindingSid::clear_endpointbehavior() {
+  if (GetArenaForAllocation() == nullptr && endpointbehavior_ != nullptr) {
+    delete endpointbehavior_;
   }
-  endpointbehaviour_ = nullptr;
+  endpointbehavior_ = nullptr;
 }
-inline const ::service_layer::SLSrv6EndPointBehavior& SLSrv6BindingSid::_internal_endpointbehaviour() const {
-  const ::service_layer::SLSrv6EndPointBehavior* p = endpointbehaviour_;
+inline const ::service_layer::SLSrv6EndPointBehavior& SLSrv6BindingSid::_internal_endpointbehavior() const {
+  const ::service_layer::SLSrv6EndPointBehavior* p = endpointbehavior_;
   return p != nullptr ? *p : reinterpret_cast<const ::service_layer::SLSrv6EndPointBehavior&>(
       ::service_layer::_SLSrv6EndPointBehavior_default_instance_);
 }
-inline const ::service_layer::SLSrv6EndPointBehavior& SLSrv6BindingSid::endpointbehaviour() const {
-  // @@protoc_insertion_point(field_get:service_layer.SLSrv6BindingSid.EndPointBehaviour)
-  return _internal_endpointbehaviour();
+inline const ::service_layer::SLSrv6EndPointBehavior& SLSrv6BindingSid::endpointbehavior() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLSrv6BindingSid.EndPointBehavior)
+  return _internal_endpointbehavior();
 }
-inline void SLSrv6BindingSid::unsafe_arena_set_allocated_endpointbehaviour(
-    ::service_layer::SLSrv6EndPointBehavior* endpointbehaviour) {
+inline void SLSrv6BindingSid::unsafe_arena_set_allocated_endpointbehavior(
+    ::service_layer::SLSrv6EndPointBehavior* endpointbehavior) {
   if (GetArenaForAllocation() == nullptr) {
-    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(endpointbehaviour_);
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(endpointbehavior_);
   }
-  endpointbehaviour_ = endpointbehaviour;
-  if (endpointbehaviour) {
+  endpointbehavior_ = endpointbehavior;
+  if (endpointbehavior) {
     
   } else {
     
   }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:service_layer.SLSrv6BindingSid.EndPointBehaviour)
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:service_layer.SLSrv6BindingSid.EndPointBehavior)
 }
-inline ::service_layer::SLSrv6EndPointBehavior* SLSrv6BindingSid::release_endpointbehaviour() {
+inline ::service_layer::SLSrv6EndPointBehavior* SLSrv6BindingSid::release_endpointbehavior() {
   
-  ::service_layer::SLSrv6EndPointBehavior* temp = endpointbehaviour_;
-  endpointbehaviour_ = nullptr;
+  ::service_layer::SLSrv6EndPointBehavior* temp = endpointbehavior_;
+  endpointbehavior_ = nullptr;
 #ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
   auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
   temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
@@ -2979,44 +2979,44 @@ inline ::service_layer::SLSrv6EndPointBehavior* SLSrv6BindingSid::release_endpoi
 #endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
   return temp;
 }
-inline ::service_layer::SLSrv6EndPointBehavior* SLSrv6BindingSid::unsafe_arena_release_endpointbehaviour() {
-  // @@protoc_insertion_point(field_release:service_layer.SLSrv6BindingSid.EndPointBehaviour)
+inline ::service_layer::SLSrv6EndPointBehavior* SLSrv6BindingSid::unsafe_arena_release_endpointbehavior() {
+  // @@protoc_insertion_point(field_release:service_layer.SLSrv6BindingSid.EndPointBehavior)
   
-  ::service_layer::SLSrv6EndPointBehavior* temp = endpointbehaviour_;
-  endpointbehaviour_ = nullptr;
+  ::service_layer::SLSrv6EndPointBehavior* temp = endpointbehavior_;
+  endpointbehavior_ = nullptr;
   return temp;
 }
-inline ::service_layer::SLSrv6EndPointBehavior* SLSrv6BindingSid::_internal_mutable_endpointbehaviour() {
+inline ::service_layer::SLSrv6EndPointBehavior* SLSrv6BindingSid::_internal_mutable_endpointbehavior() {
   
-  if (endpointbehaviour_ == nullptr) {
+  if (endpointbehavior_ == nullptr) {
     auto* p = CreateMaybeMessage<::service_layer::SLSrv6EndPointBehavior>(GetArenaForAllocation());
-    endpointbehaviour_ = p;
+    endpointbehavior_ = p;
   }
-  return endpointbehaviour_;
+  return endpointbehavior_;
 }
-inline ::service_layer::SLSrv6EndPointBehavior* SLSrv6BindingSid::mutable_endpointbehaviour() {
-  ::service_layer::SLSrv6EndPointBehavior* _msg = _internal_mutable_endpointbehaviour();
-  // @@protoc_insertion_point(field_mutable:service_layer.SLSrv6BindingSid.EndPointBehaviour)
+inline ::service_layer::SLSrv6EndPointBehavior* SLSrv6BindingSid::mutable_endpointbehavior() {
+  ::service_layer::SLSrv6EndPointBehavior* _msg = _internal_mutable_endpointbehavior();
+  // @@protoc_insertion_point(field_mutable:service_layer.SLSrv6BindingSid.EndPointBehavior)
   return _msg;
 }
-inline void SLSrv6BindingSid::set_allocated_endpointbehaviour(::service_layer::SLSrv6EndPointBehavior* endpointbehaviour) {
+inline void SLSrv6BindingSid::set_allocated_endpointbehavior(::service_layer::SLSrv6EndPointBehavior* endpointbehavior) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
   if (message_arena == nullptr) {
-    delete endpointbehaviour_;
+    delete endpointbehavior_;
   }
-  if (endpointbehaviour) {
+  if (endpointbehavior) {
     ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-        ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper<::service_layer::SLSrv6EndPointBehavior>::GetOwningArena(endpointbehaviour);
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper<::service_layer::SLSrv6EndPointBehavior>::GetOwningArena(endpointbehavior);
     if (message_arena != submessage_arena) {
-      endpointbehaviour = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, endpointbehaviour, submessage_arena);
+      endpointbehavior = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, endpointbehavior, submessage_arena);
     }
     
   } else {
     
   }
-  endpointbehaviour_ = endpointbehaviour;
-  // @@protoc_insertion_point(field_set_allocated:service_layer.SLSrv6BindingSid.EndPointBehaviour)
+  endpointbehavior_ = endpointbehavior;
+  // @@protoc_insertion_point(field_set_allocated:service_layer.SLSrv6BindingSid.EndPointBehavior)
 }
 
 // .service_layer.SLSrv6SidStruct SidStruct = 5;
