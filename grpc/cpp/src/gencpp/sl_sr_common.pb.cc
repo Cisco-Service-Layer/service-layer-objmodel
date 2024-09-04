@@ -93,7 +93,7 @@ constexpr SLSrv6BindingSid::SLSrv6BindingSid(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
   : bsid_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
   , specifiedbsid_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
-  , endpointbehaviour_(nullptr)
+  , endpointbehavior_(nullptr)
   , sidstruct_(nullptr)
   , flags_(0u){}
 struct SLSrv6BindingSidDefaultTypeInternal {
@@ -199,7 +199,7 @@ const uint32_t TableStruct_sl_5fsr_5fcommon_2eproto::offsets[] PROTOBUF_SECTION_
   PROTOBUF_FIELD_OFFSET(::service_layer::SLSrv6BindingSid, flags_),
   PROTOBUF_FIELD_OFFSET(::service_layer::SLSrv6BindingSid, bsid_),
   PROTOBUF_FIELD_OFFSET(::service_layer::SLSrv6BindingSid, specifiedbsid_),
-  PROTOBUF_FIELD_OFFSET(::service_layer::SLSrv6BindingSid, endpointbehaviour_),
+  PROTOBUF_FIELD_OFFSET(::service_layer::SLSrv6BindingSid, endpointbehavior_),
   PROTOBUF_FIELD_OFFSET(::service_layer::SLSrv6BindingSid, sidstruct_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::service_layer::SLSrv6EndPointBehavior, _internal_metadata_),
@@ -262,63 +262,63 @@ const char descriptor_table_protodef_sl_5fsr_5fcommon_2eproto[] PROTOBUF_SECTION
   "mentDesc\022@\n\021EndPointBehaviour\030\006 \001(\0132%.se"
   "rvice_layer.SLSrv6EndPointBehavior\0221\n\tSi"
   "dStruct\030\007 \001(\0132\036.service_layer.SLSrv6SidS"
-  "tructB\005\n\003Sid\"\273\001\n\020SLSrv6BindingSid\022\r\n\005Fla"
+  "tructB\005\n\003Sid\"\272\001\n\020SLSrv6BindingSid\022\r\n\005Fla"
   "gs\030\001 \001(\r\022\014\n\004Bsid\030\002 \001(\014\022\025\n\rSpecifiedBsid\030"
-  "\003 \001(\014\022@\n\021EndPointBehaviour\030\004 \001(\0132%.servi"
-  "ce_layer.SLSrv6EndPointBehavior\0221\n\tSidSt"
-  "ruct\030\005 \001(\0132\036.service_layer.SLSrv6SidStru"
-  "ct\"T\n\026SLSrv6EndPointBehavior\022\030\n\020EndPoint"
-  "Behavior\030\001 \001(\r\022\r\n\005Flags\030\002 \001(\r\022\021\n\tAlgorit"
-  "hm\030\003 \001(\r\"g\n\017SLSrv6SidStruct\022\027\n\017LocatorBl"
-  "ockLen\030\001 \001(\r\022\026\n\016LocatorNodeLen\030\002 \001(\r\022\023\n\013"
-  "FunctionLen\030\003 \001(\r\022\016\n\006ArgLen\030\004 \001(\r*\217\003\n\030SL"
-  "SrPolicyProtocolOrigin\022)\n%SL_SR_POLICY_P"
-  "ROTOCOL_ORIGIN_RESERVED\020\000\022%\n!SL_SR_POLIC"
-  "Y_PROTOCOL_ORIGIN_PCEP\020\001\022.\n*SL_SR_POLICY"
-  "_PROTOCOL_ORIGIN_BGP_SR_POLICY\020\002\022\'\n#SL_S"
-  "R_POLICY_PROTOCOL_ORIGIN_CONFIG\020\003\022-\n)SL_"
-  "SR_POLICY_PROTOCOL_ORIGIN_PCEP_VIA_PCE\020\n"
-  "\0226\n2SL_SR_POLICY_PROTOCOL_ORIGIN_BGP_SR_"
-  "POLICY_VIA_PCE\020\024\022/\n+SL_SR_POLICY_PROTOCO"
-  "L_ORIGIN_CONFIG_VIA_PCE\020\036\0220\n,SL_SR_POLIC"
-  "Y_PROTOCOL_ORIGIN_CONFIG_VIA_GRPC\020(*}\n\022S"
-  "LSrPolicyFlagsDef\022\036\n\032SL_SR_POLICY_FLAG_R"
-  "ESERVED\020\000\022\"\n\035SL_SR_POLICY_FLAG_ENDPOINT_"
-  "V6\020\200\001\022#\n\037SL_SR_POLICY_FLAG_ORIGINATOR_V6"
-  "\020@*\233\004\n\017SLSrSegmentType\022\033\n\027SL_SR_SEG_TYPE"
-  "_RESERVED\020\000\022\035\n\031SL_SR_SEG_TYPE_MPLS_LABEL"
-  "\020\001\022\036\n\032SL_SR_SEG_TYPE_SRV6_SID_V6\020\002\022\"\n\036SL"
-  "_SR_SEG_TYPE_MPLS_PFX_SID_V4\020\003\022\"\n\036SL_SR_"
-  "SEG_TYPE_MPLS_PFX_SID_V6\020\004\0223\n/SL_SR_SEG_"
-  "TYPE_MPLS_ADJ_SID_V4_NODE_ADDR_LOC_ID\020\005\022"
-  "/\n+SL_SR_SEG_TYPE_MPLS_ADJ_SID_V4_LOC_RE"
-  "M_ADDR\020\006\0226\n2SL_SR_SEG_TYPE_MPLS_ADJ_SID_"
-  "V6_LOC_REM_ADDR_AND_ID\020\007\022/\n+SL_SR_SEG_TY"
-  "PE_MPLS_ADJ_SID_V6_LOC_REM_ADDR\020\010\022,\n(SL_"
-  "SR_SEG_TYPE_SRV6_END_SID_V6_NODE_ADDR\020\t\022"
-  "6\n2SL_SR_SEG_TYPE_SRV6_END_SID_V6_LOC_RE"
-  "M_ADDR_AND_ID\020\n\022/\n+SL_SR_SEG_TYPE_SRV6_E"
-  "ND_SID_V6_LOC_REM_ADDR\020\013*\200\002\n\020SLSrSegment"
-  "Flags\022\037\n\033SL_SR_SEGMENT_FLAG_RESERVED\020\000\022$"
-  "\n\036SL_SR_SEGMENT_FLAG_SID_PRESENT\020\200\200\002\0221\n+"
-  "SL_SR_SEGMENT_FLAG_SID_EXPLICIT_PROVISIO"
-  "NED\020\200\200\001\022$\n\037SL_SR_SEGMENT_FLAG_SID_VERIFI"
-  "ED\020\200@\022$\n\037SL_SR_SEGMENT_FLAG_SID_RESOLVED"
-  "\020\200 \022&\n!SL_SR_SEGMENT_FLAG_SID_ALGO_VALID"
-  "\020\200\020*\233\001\n\025SLSrv6BindingSidFlags\022\036\n\032SL_SRV6"
-  "_BSID_FLAG_RESERVED\020\000\022!\n\033SL_SRV6_BSID_FL"
-  "AG_ALLOCATED\020\200\200\002\022\037\n\031SL_SRV6_BSID_FLAG_UN"
-  "AVAIL\020\200\200\001\022\036\n\031SL_SRV6_BSID_FLAG_DYNAMIC\020\200"
-  "@BQZOgithub.com/Cisco-service-layer/serv"
-  "ice-layer-objmodel/grpc/protos;service_l"
-  "ayerb\006proto3"
+  "\003 \001(\014\022\?\n\020EndPointBehavior\030\004 \001(\0132%.servic"
+  "e_layer.SLSrv6EndPointBehavior\0221\n\tSidStr"
+  "uct\030\005 \001(\0132\036.service_layer.SLSrv6SidStruc"
+  "t\"T\n\026SLSrv6EndPointBehavior\022\030\n\020EndPointB"
+  "ehavior\030\001 \001(\r\022\r\n\005Flags\030\002 \001(\r\022\021\n\tAlgorith"
+  "m\030\003 \001(\r\"g\n\017SLSrv6SidStruct\022\027\n\017LocatorBlo"
+  "ckLen\030\001 \001(\r\022\026\n\016LocatorNodeLen\030\002 \001(\r\022\023\n\013F"
+  "unctionLen\030\003 \001(\r\022\016\n\006ArgLen\030\004 \001(\r*\217\003\n\030SLS"
+  "rPolicyProtocolOrigin\022)\n%SL_SR_POLICY_PR"
+  "OTOCOL_ORIGIN_RESERVED\020\000\022%\n!SL_SR_POLICY"
+  "_PROTOCOL_ORIGIN_PCEP\020\001\022.\n*SL_SR_POLICY_"
+  "PROTOCOL_ORIGIN_BGP_SR_POLICY\020\002\022\'\n#SL_SR"
+  "_POLICY_PROTOCOL_ORIGIN_CONFIG\020\003\022-\n)SL_S"
+  "R_POLICY_PROTOCOL_ORIGIN_PCEP_VIA_PCE\020\n\022"
+  "6\n2SL_SR_POLICY_PROTOCOL_ORIGIN_BGP_SR_P"
+  "OLICY_VIA_PCE\020\024\022/\n+SL_SR_POLICY_PROTOCOL"
+  "_ORIGIN_CONFIG_VIA_PCE\020\036\0220\n,SL_SR_POLICY"
+  "_PROTOCOL_ORIGIN_CONFIG_VIA_GRPC\020(*}\n\022SL"
+  "SrPolicyFlagsDef\022\036\n\032SL_SR_POLICY_FLAG_RE"
+  "SERVED\020\000\022\"\n\035SL_SR_POLICY_FLAG_ENDPOINT_V"
+  "6\020\200\001\022#\n\037SL_SR_POLICY_FLAG_ORIGINATOR_V6\020"
+  "@*\233\004\n\017SLSrSegmentType\022\033\n\027SL_SR_SEG_TYPE_"
+  "RESERVED\020\000\022\035\n\031SL_SR_SEG_TYPE_MPLS_LABEL\020"
+  "\001\022\036\n\032SL_SR_SEG_TYPE_SRV6_SID_V6\020\002\022\"\n\036SL_"
+  "SR_SEG_TYPE_MPLS_PFX_SID_V4\020\003\022\"\n\036SL_SR_S"
+  "EG_TYPE_MPLS_PFX_SID_V6\020\004\0223\n/SL_SR_SEG_T"
+  "YPE_MPLS_ADJ_SID_V4_NODE_ADDR_LOC_ID\020\005\022/"
+  "\n+SL_SR_SEG_TYPE_MPLS_ADJ_SID_V4_LOC_REM"
+  "_ADDR\020\006\0226\n2SL_SR_SEG_TYPE_MPLS_ADJ_SID_V"
+  "6_LOC_REM_ADDR_AND_ID\020\007\022/\n+SL_SR_SEG_TYP"
+  "E_MPLS_ADJ_SID_V6_LOC_REM_ADDR\020\010\022,\n(SL_S"
+  "R_SEG_TYPE_SRV6_END_SID_V6_NODE_ADDR\020\t\0226"
+  "\n2SL_SR_SEG_TYPE_SRV6_END_SID_V6_LOC_REM"
+  "_ADDR_AND_ID\020\n\022/\n+SL_SR_SEG_TYPE_SRV6_EN"
+  "D_SID_V6_LOC_REM_ADDR\020\013*\200\002\n\020SLSrSegmentF"
+  "lags\022\037\n\033SL_SR_SEGMENT_FLAG_RESERVED\020\000\022$\n"
+  "\036SL_SR_SEGMENT_FLAG_SID_PRESENT\020\200\200\002\0221\n+S"
+  "L_SR_SEGMENT_FLAG_SID_EXPLICIT_PROVISION"
+  "ED\020\200\200\001\022$\n\037SL_SR_SEGMENT_FLAG_SID_VERIFIE"
+  "D\020\200@\022$\n\037SL_SR_SEGMENT_FLAG_SID_RESOLVED\020"
+  "\200 \022&\n!SL_SR_SEGMENT_FLAG_SID_ALGO_VALID\020"
+  "\200\020*\233\001\n\025SLSrv6BindingSidFlags\022\036\n\032SL_SRV6_"
+  "BSID_FLAG_RESERVED\020\000\022!\n\033SL_SRV6_BSID_FLA"
+  "G_ALLOCATED\020\200\200\002\022\037\n\031SL_SRV6_BSID_FLAG_UNA"
+  "VAIL\020\200\200\001\022\036\n\031SL_SRV6_BSID_FLAG_DYNAMIC\020\200@"
+  "BQZOgithub.com/Cisco-service-layer/servi"
+  "ce-layer-objmodel/grpc/protos;service_la"
+  "yerb\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_sl_5fsr_5fcommon_2eproto_deps[1] = {
   &::descriptor_table_sl_5fcommon_5ftypes_2eproto,
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_sl_5fsr_5fcommon_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_sl_5fsr_5fcommon_2eproto = {
-  false, false, 2692, descriptor_table_protodef_sl_5fsr_5fcommon_2eproto, "sl_sr_common.proto", 
+  false, false, 2691, descriptor_table_protodef_sl_5fsr_5fcommon_2eproto, "sl_sr_common.proto", 
   &descriptor_table_sl_5fsr_5fcommon_2eproto_once, descriptor_table_sl_5fsr_5fcommon_2eproto_deps, 1, 8,
   schemas, file_default_instances, TableStruct_sl_5fsr_5fcommon_2eproto::offsets,
   file_level_metadata_sl_5fsr_5fcommon_2eproto, file_level_enum_descriptors_sl_5fsr_5fcommon_2eproto, file_level_service_descriptors_sl_5fsr_5fcommon_2eproto,
@@ -1915,13 +1915,13 @@ void SLSrSegment::InternalSwap(SLSrSegment* other) {
 
 class SLSrv6BindingSid::_Internal {
  public:
-  static const ::service_layer::SLSrv6EndPointBehavior& endpointbehaviour(const SLSrv6BindingSid* msg);
+  static const ::service_layer::SLSrv6EndPointBehavior& endpointbehavior(const SLSrv6BindingSid* msg);
   static const ::service_layer::SLSrv6SidStruct& sidstruct(const SLSrv6BindingSid* msg);
 };
 
 const ::service_layer::SLSrv6EndPointBehavior&
-SLSrv6BindingSid::_Internal::endpointbehaviour(const SLSrv6BindingSid* msg) {
-  return *msg->endpointbehaviour_;
+SLSrv6BindingSid::_Internal::endpointbehavior(const SLSrv6BindingSid* msg) {
+  return *msg->endpointbehavior_;
 }
 const ::service_layer::SLSrv6SidStruct&
 SLSrv6BindingSid::_Internal::sidstruct(const SLSrv6BindingSid* msg) {
@@ -1955,10 +1955,10 @@ SLSrv6BindingSid::SLSrv6BindingSid(const SLSrv6BindingSid& from)
     specifiedbsid_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_specifiedbsid(), 
       GetArenaForAllocation());
   }
-  if (from._internal_has_endpointbehaviour()) {
-    endpointbehaviour_ = new ::service_layer::SLSrv6EndPointBehavior(*from.endpointbehaviour_);
+  if (from._internal_has_endpointbehavior()) {
+    endpointbehavior_ = new ::service_layer::SLSrv6EndPointBehavior(*from.endpointbehavior_);
   } else {
-    endpointbehaviour_ = nullptr;
+    endpointbehavior_ = nullptr;
   }
   if (from._internal_has_sidstruct()) {
     sidstruct_ = new ::service_layer::SLSrv6SidStruct(*from.sidstruct_);
@@ -1979,9 +1979,9 @@ specifiedbsid_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStri
   specifiedbsid_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
 #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
 ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
-    reinterpret_cast<char*>(&endpointbehaviour_) - reinterpret_cast<char*>(this)),
+    reinterpret_cast<char*>(&endpointbehavior_) - reinterpret_cast<char*>(this)),
     0, static_cast<size_t>(reinterpret_cast<char*>(&flags_) -
-    reinterpret_cast<char*>(&endpointbehaviour_)) + sizeof(flags_));
+    reinterpret_cast<char*>(&endpointbehavior_)) + sizeof(flags_));
 }
 
 SLSrv6BindingSid::~SLSrv6BindingSid() {
@@ -1995,7 +1995,7 @@ inline void SLSrv6BindingSid::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
   bsid_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   specifiedbsid_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  if (this != internal_default_instance()) delete endpointbehaviour_;
+  if (this != internal_default_instance()) delete endpointbehavior_;
   if (this != internal_default_instance()) delete sidstruct_;
 }
 
@@ -2017,10 +2017,10 @@ void SLSrv6BindingSid::Clear() {
 
   bsid_.ClearToEmpty();
   specifiedbsid_.ClearToEmpty();
-  if (GetArenaForAllocation() == nullptr && endpointbehaviour_ != nullptr) {
-    delete endpointbehaviour_;
+  if (GetArenaForAllocation() == nullptr && endpointbehavior_ != nullptr) {
+    delete endpointbehavior_;
   }
-  endpointbehaviour_ = nullptr;
+  endpointbehavior_ = nullptr;
   if (GetArenaForAllocation() == nullptr && sidstruct_ != nullptr) {
     delete sidstruct_;
   }
@@ -2061,10 +2061,10 @@ const char* SLSrv6BindingSid::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPA
         } else
           goto handle_unusual;
         continue;
-      // .service_layer.SLSrv6EndPointBehavior EndPointBehaviour = 4;
+      // .service_layer.SLSrv6EndPointBehavior EndPointBehavior = 4;
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 34)) {
-          ptr = ctx->ParseMessage(_internal_mutable_endpointbehaviour(), ptr);
+          ptr = ctx->ParseMessage(_internal_mutable_endpointbehavior(), ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -2124,12 +2124,12 @@ uint8_t* SLSrv6BindingSid::_InternalSerialize(
         3, this->_internal_specifiedbsid(), target);
   }
 
-  // .service_layer.SLSrv6EndPointBehavior EndPointBehaviour = 4;
-  if (this->_internal_has_endpointbehaviour()) {
+  // .service_layer.SLSrv6EndPointBehavior EndPointBehavior = 4;
+  if (this->_internal_has_endpointbehavior()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
       InternalWriteMessage(
-        4, _Internal::endpointbehaviour(this), target, stream);
+        4, _Internal::endpointbehavior(this), target, stream);
   }
 
   // .service_layer.SLSrv6SidStruct SidStruct = 5;
@@ -2170,11 +2170,11 @@ size_t SLSrv6BindingSid::ByteSizeLong() const {
         this->_internal_specifiedbsid());
   }
 
-  // .service_layer.SLSrv6EndPointBehavior EndPointBehaviour = 4;
-  if (this->_internal_has_endpointbehaviour()) {
+  // .service_layer.SLSrv6EndPointBehavior EndPointBehavior = 4;
+  if (this->_internal_has_endpointbehavior()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-        *endpointbehaviour_);
+        *endpointbehavior_);
   }
 
   // .service_layer.SLSrv6SidStruct SidStruct = 5;
@@ -2217,8 +2217,8 @@ void SLSrv6BindingSid::MergeFrom(const SLSrv6BindingSid& from) {
   if (!from._internal_specifiedbsid().empty()) {
     _internal_set_specifiedbsid(from._internal_specifiedbsid());
   }
-  if (from._internal_has_endpointbehaviour()) {
-    _internal_mutable_endpointbehaviour()->::service_layer::SLSrv6EndPointBehavior::MergeFrom(from._internal_endpointbehaviour());
+  if (from._internal_has_endpointbehavior()) {
+    _internal_mutable_endpointbehavior()->::service_layer::SLSrv6EndPointBehavior::MergeFrom(from._internal_endpointbehavior());
   }
   if (from._internal_has_sidstruct()) {
     _internal_mutable_sidstruct()->::service_layer::SLSrv6SidStruct::MergeFrom(from._internal_sidstruct());
@@ -2258,9 +2258,9 @@ void SLSrv6BindingSid::InternalSwap(SLSrv6BindingSid* other) {
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
       PROTOBUF_FIELD_OFFSET(SLSrv6BindingSid, flags_)
       + sizeof(SLSrv6BindingSid::flags_)
-      - PROTOBUF_FIELD_OFFSET(SLSrv6BindingSid, endpointbehaviour_)>(
-          reinterpret_cast<char*>(&endpointbehaviour_),
-          reinterpret_cast<char*>(&other->endpointbehaviour_));
+      - PROTOBUF_FIELD_OFFSET(SLSrv6BindingSid, endpointbehavior_)>(
+          reinterpret_cast<char*>(&endpointbehavior_),
+          reinterpret_cast<char*>(&other->endpointbehavior_));
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata SLSrv6BindingSid::GetMetadata() const {
