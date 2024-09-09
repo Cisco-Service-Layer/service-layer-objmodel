@@ -18,7 +18,6 @@ syntax = "proto3";
 package service_layer;
 
 import "sl_common_types.proto";
-import "sl_sr_common.proto";
 
 option go_package="github.com/Cisco-service-layer/service-layer-objmodel/grpc/protos;service_layer";
 
@@ -174,12 +173,6 @@ message SLBgplsTopoData {
 
         // This field carries info about a prefix data.
         SLBgplsTopoPrefixData Prefix = 5;
-
-        // This field carries info about a SRv6 SID data.
-        SLBgplsTopoSrv6SidData Srv6Sid = 6;
-
-        // This field carries info about a SR policy data.
-        SLBgplsTopoSrPolicyData SrPolicy = 7;
     }
 }
 
@@ -197,8 +190,6 @@ enum SLBgplsTopoNlriType {
     SL_BGPLS_TOPO_NLRI_TYPE_LINK = 2;
     SL_BGPLS_TOPO_NLRI_TYPE_IPV4_PREFIX = 3;
     SL_BGPLS_TOPO_NLRI_TYPE_IPV6_PREFIX = 4;
-    SL_BGPLS_TOPO_NLRI_TYPE_SR_POLICY_CANDIDATE_PATH = 5;
-    SL_BGPLS_TOPO_NLRI_TYPE_SRV6_SID = 6;
 }
 
 // Protocols
@@ -242,24 +233,6 @@ message SLBgplsTopoPrefixData {
     SLBgplsTopoPrefixAttr PrefixAttr = 2;
 }
 
-// SRv6 SID Data
-message SLBgplsTopoSrv6SidData {
-    // This field carries info about a SRv6 SID NLRI.
-    SLBgplsTopoSrv6Sid Srv6Sid = 1;
-
-    // This field carries info about SRv6 SID attributes.
-    SLBgplsTopoSrv6SidAttr Srv6SidAttr = 2;
-}
-
-// SR Policy Data
-message SLBgplsTopoSrPolicyData {
-    // This field carries info about a SR policy NLRI.
-    SLBgplsTopoSrPolicy SrPolicy = 1;
-
-    // This field carries info about SR policy attributes.
-    SLBgplsTopoSrPolicyAttr SrPolicyAttr = 2;
-}
-
 //
 // Messages for NLRI Objects
 //
@@ -285,9 +258,6 @@ message SLBgplsTopoNode {
 
         // This field carries info about a BGP node ID.
         SLBgplsTopoBgpNodeId BgpNodeId = 5;
-
-        // This field carries info about an SR policy node ID.
-        SLBgplsTopoSrPolicyNodeId SrPolicyNodeId = 6;
     }
 }
 
@@ -320,29 +290,6 @@ message SLBgplsTopoPrefix {
     // originated by a node.
     // Section 5.2.3 of [RFC9552]
     SLBgplsTopoPrefixDescr PrefixDescr = 2;
-}
-
-// SRv6 SID
-message SLBgplsTopoSrv6Sid {
-    // Node Descriptors for the node originating the SRv6 SID.
-    // Local Node Descriptors. TLV 256.
-    // Section 5.2.1.2 of [RFC9552]
-    SLBgplsTopoNode NodeDescr = 1;
-
-    SLBgplsTopoSrv6SidDescr Srv6SidDescr = 2;
-}
-
-// SR Policy
-message SLBgplsTopoSrPolicy {
-    // Node Descriptors for the node originating the SR policy.
-    // Local Node Descriptors. TLV 256.
-    // Section 5.2.1.2 of [RFC9552]
-    SLBgplsTopoNode NodeDescr = 1;
-
-    // A Segment Routing Policy Candidate Path.
-    // SR Policy Candidate Path Descriptor. TLV 554.
-    // Section 4 of [draft-ietf-idr-bgp-ls-sr-policy]
-    SLBgplsTopoSrPolicyDescr SrPolicyDescr = 2;
 }
 
 //
@@ -408,58 +355,6 @@ message SLBgplsTopoPrefixDescr {
     // IP Reachability Information. TLV 265.
     // Section 5.2.3.2 of [RFC9552]
     bytes Prefix = 4;
-}
-
-// SRv6 SID descriptor
-message SLBgplsTopoSrv6SidDescr {
-    // Multi Topology Identifier (MTID) of an SRv6 SID.
-    // Multi-Topology Identifier. TLV 263.
-    // Section 5.2.2.1 of [RFC9552]
-    SLBgplsTopoMtId MtId = 1;
-
-    // An SRv6 SID that is associated with the node.
-    // SRv6 SID Information. TLV 518. Section 6.1 of [RFC9514]
-    // SRv6 SID takes an IPv6 Address and must be
-    // enforced for 16 bytes.
-    bytes Srv6Sid = 2;
-}
-
-// SR Policy descriptor
-message SLBgplsTopoSrPolicyDescr {
-    // Protocol instantiating the SR policy.
-    // Protocol-origin. TLV 554.
-    // Section 4 of [draft-ietf-idr-bgp-ls-sr-policy]
-    SLSrPolicyProtocolOrigin ProtoOrigin = 1;
-
-    // Flags associated with the SR policy.
-    // Flags. TLV 554.
-    // Section 4 of [draft-ietf-idr-bgp-ls-sr-policy]
-    SLSrPolicyFlags Flags = 2;
-
-    // Address of the endpoint of the SR Policy.
-    // Endpoint. TLV 554.
-    // Section 4 of [draft-ietf-idr-bgp-ls-sr-policy]
-    SLIpAddress Endpoint = 3;
-
-    // Color of the SR Policy.
-    // Policy Color. TLV 554.
-    // Section 4 of [draft-ietf-idr-bgp-ls-sr-policy]
-    uint32 Color = 4;
-
-    // 4-byte encoding of the ASN of the originator.
-    // Originator AS Number. TLV 554.
-    // Section 4 of [draft-ietf-idr-bgp-ls-sr-policy]
-    uint32 OriginAsn = 5;
-
-    // Address of the originator.
-    // Originator Address. TLV 554.
-    // Section 4 of [draft-ietf-idr-bgp-ls-sr-policy]
-    SLIpAddress Originator = 6;
-
-    // Discriminator of the path.
-    // Discriminator. TLV 554.
-    // Section 4 of [draft-ietf-idr-bgp-ls-sr-policy]
-    uint32 Discriminator = 7;
 }
 
 //
@@ -534,29 +429,6 @@ message SLBgplsTopoBgpNodeId {
     // Member-ASN. TLV 517.
     // Section 4.2 of [RFC9086]
     uint32 MemberAsn = 2;
-}
-
-// SR Policy Node ID
-message SLBgplsTopoSrPolicyNodeId {
-    // Router ID.
-    // BGP Router-ID. TLV 516.
-    // Section 4.2 of [RFC9086]
-    bytes RouterId = 1;
-
-    // ASN of the confederation member
-    // Member-ASN. TLV 517.
-    // Section 4.2 of [RFC9086]
-    uint32 MemberAsn = 2;
-
-    // Auxiliary TE Router-ID.
-    // IPv4 Router-ID. TLV 1028.
-    // Section 3 of [draft-ietf-idr-bgp-ls-sr-policy]
-    bytes Ipv4RouterId = 3;
-
-    // Auxiliary TE Router-ID.
-    // IPv6 Router-ID. TLV 1029.
-    // Section 3 of [draft-ietf-idr-bgp-ls-sr-policy]
-    bytes Ipv6RouterId = 4;
 }
 
 // OSPF Route types
@@ -644,11 +516,6 @@ message SLBgplsTopoNodeAttr {
     // Unknown Node Attributes
     // Unknown/unsupported by IOS-XR/BGPLS.
     repeated SLBgplsTopoUnknownAttr UnknownAttr = 14;
-
-    // Segment Routing V6 Capabilities of a node
-    // SRv6 Capabilities. TLV 1038
-    // Section 3.1 of [RFC9514]
-    SLBgplsTopoSrv6CapFlags Srv6CapFlags = 15;
 }
 
 // Link Attributes
@@ -759,12 +626,12 @@ message SLBgplsTopoLinkAttr {
     // Section 5 of [RFC9086]
     repeated SLBgplsTopoBgpPeerNodeSid BgpPeerNodeSid = 20;
 
-    // Peer Adjacency Segment Identifier for BGP Peering Segments
+    // Peer Adjacency Segment Identifier for BGP Peering Segments  
     // BGP Peer Adjacency SID. TLV 1102
     // Section 5 of [RFC9086]
     repeated SLBgplsTopoBgpPeerAdjSid BgpPeerAdjSid = 21;
 
-    // Peer Set Segment Identifier for BGP Peering Segments
+    // Peer Set Segment Identifier for BGP Peering Segments 
     // BGP Peer Set SID. TLV 1103
     // Section 5 of [RFC9086]
     repeated SLBgplsTopoBgpPeerSetSid BgpPeerSetSid = 22;
@@ -832,19 +699,6 @@ message SLBgplsTopoLinkAttr {
     // Unknown Link Attributes
     // Unknown/unsupported by IOS-XR/BGPLS.
     repeated SLBgplsTopoUnknownAttr UnknownAttr = 33;
-
-    // The Segment Routing over IPv6 (SRv6)
-    // Segment Identifiers (SIDs) associated with an adjacency.
-    // SRv6 End X SID. TLV 1106
-    // Section 4.1 of [RFC9514]
-    repeated SLBgplsTopoSrv6EndXSid Srv6EndXSid = 34;
-
-    // The Segment Routing over IPv6 (SRv6)
-    // Segment Identifiers (SIDs) of an adjacency to any node in a LAN other
-    // than the pseudonode.
-    // SRv6 LAN End X SID. TLV 1107/1108
-    // Section 4.1 of [RFC9514]
-    repeated SLBgplsTopoSrv6LanEndXSid Srv6LanEndXSid = 35;
 }
 
 // Prefix Attributes
@@ -909,86 +763,6 @@ message SLBgplsTopoPrefixAttr {
     // Unknown Prefix Attributes
     // Unknown/unsupported by IOS-XR/BGPLS.
     repeated SLBgplsTopoUnknownAttr UnknownAttr = 12;
-
-    // Segment Routing over IPv6 (SRv6) locator information associated with a
-    // prefix.
-    // SRv6 Locator. TLV 1162
-    // Section 5.1 of [RFC9514]
-    SLBgplsTopoPrefixSrv6Loc Srv6Loc = 13;
-}
-
-// SRv6 SID Attributes
-message SLBgplsTopoSrv6SidAttr {
-    // The Segment Routing over IPv6 (SRv6) endpoint behavior bound to a
-    // SRv6 SID.
-    // SRv6 End Point Behavior. TLV 1250
-    // Section 7.1 of [RFC9514]
-    SLSrv6EndPointBehavior EndPointBehavior = 1;
-
-    // The Segment Routing over IPv6 (SRv6) SRv6 SID associated with
-    // BGP peer node or peer set.
-    // SRv6 BGP Peer Node SID. TLV 1251
-    // Section 7.2 of [RFC9514]
-    repeated SLBgplsTopoSrv6BgpPeerNodeSid BgpPeerNodeSid = 2;
-
-    // The Segment Routing over IPv6 (SRv6) Segment Identifier (SID)
-    // structure information associated with a SRv6 SID.
-    // SRv6 SID Structure Attribute. TLV 1252
-    // Section 8 of [RFC9514]
-    SLSrv6SidStruct SidStruct = 3;
-
-    // Unknown SRv6 SID Attributes
-    // Unknown/unsupported by IOS-XR/BGPLS.
-    repeated SLBgplsTopoUnknownAttr UnknownAttr = 4;
-}
-
-// SR Policy Attributes
-message SLBgplsTopoSrPolicyAttr {
-    // SR Binding SID (BSID) is used to report the BSID and its attributes
-    // for the SR Policy CP.
-    // SR Binding SID. TLV 1201
-    // Section 5.1 of [draft-ietf-idr-bgp-ls-sr-policy]
-    SLBgplsTopoSrBindingSid SrBsid = 1;
-
-    // SR Candidate Path (CP) State TLV provides the operational status
-    // and attributes of the SR Policy at the CP level.
-    // SR Candidate Path State. TLV 1202
-    // Section 5.3 of [draft-ietf-idr-bgp-ls-sr-policy]
-    SLBgplsTopoSrCpState CpState = 2;
-
-    // SR Candidate Path Name carries the symbolic name associated with
-    // the candidate path.
-    // SR Candidate Path Name. TLV 1203
-    // Section 5.5 of [draft-ietf-idr-bgp-ls-sr-policy]
-    SLSrCpName CpName = 3;
-
-    // SR Candidate Path Constraints is used
-    // to report the constraints associated with the candidate path.
-    // SR Candidate Path Constraints. TLV 1204
-    // Section 5.6 of [draft-ietf-idr-bgp-ls-sr-policy]
-    SLBgplsTopoSrCpConstraints CpConstraints = 4;
-
-    // SR Segment List TLV is used to report a single SID-List of a CP.
-    // Multiple instances of this TLV may be used to report multiple
-    // SID-Lists of a CP.
-    // SR Segment List. TLV 1205
-    // Section 5.7 of [draft-ietf-idr-bgp-ls-sr-policy]
-    repeated SLBgplsTopoSrSegList SegLists = 5;
-
-    // SRv6 Binding SID (BSID) is used to report
-    // the SRv6 BSID and its attributes for the SR Policy CP.
-    // SRv6 Binding SID. TLV 1212
-    // Section 5.2 of [draft-ietf-idr-bgp-ls-sr-policy]
-    repeated SLSrv6BindingSid Srv6Bsid = 6;
-
-    // SR Policy Name carries symbolic name associated with the SR Policy.
-    // SR Policy Name. TLV 1213
-    // Section 5.4 of [draft-ietf-idr-bgp-ls-sr-policy]
-    SLBgplsTopoSrPolicyName SrPolicyName = 7;
-
-    // Unknown SR Policy Attributes
-    // Unknown/unsupported by IOS-XR/BGPLS.
-    repeated SLBgplsTopoUnknownAttr UnknownAttr = 8;
 }
 
 // Messages for Attribute definitions sorted by TLV code point
@@ -997,6 +771,7 @@ message SLBgplsTopoSrPolicyAttr {
 // Link Local Remote Identifiers. TLV 258.
 // Section 5.2.2 of [RFC9552]
 message SLBplsTopoLinkLocRemId {
+    // TODO: Add description for each field in attributes
     // Link Local Identifier
     uint32 LocalId = 1;
 
@@ -1135,17 +910,6 @@ message SLBgplsTopoSrlb {
     //  Number of labels in the range
     uint32 RangeSize = 2;
 }
-
-// SRv6 Capabilities. TLV 1038
-// Section 3.1 of [RFC9514]
-message SLBgplsTopoSrv6CapFlags {
-    // 2-octet field.  The flags are copied from the IS-IS SRv6
-    // Capabilities sub-TLV (Section 2 of [RFC9352]) or from the OSPFv3
-    // SRv6 Capabilities TLV (Section 2 of [RFC9513]) in the case of IS-
-    // IS or OSPFv3, respectively
-    bytes Flags = 1;
-}
-
 
 // Flexible Algorithm Definition. TLV 1039.
 // Section 3 of [RFC9351]
@@ -1461,35 +1225,6 @@ message SLBgplsTopoBgpPeerSetSid {
     uint32 Weight = 4;
 }
 
-// SRv6 End X SID. TLV 1106
-// Section 4.1 of [RFC9514]
-message SLBgplsTopoSrv6EndXSid {
-    // SRv6 SID as 128 bit value
-    bytes Sid = 1;
-
-    // Algorithm associated with the SID
-    uint32 Algorithm = 2;
-
-    // Flags associated with the SID. The flags are copied from the IS-IS SRv6
-    // End.X SID sub-TLV (Section 8.1 of [RFC9352]) or the OSPFv3 SRv6
-    // End.X SID sub-TLV (Section 9.1 of [RFC9513]) in the case of IS-IS
-    // or OSPFv3, respectively.  In the case of the BGP EPE Peer
-    // Adjacency SID, the flags are as defined in Section 7.2 of [RFC9514]
-    uint32 Flags = 3;
-
-    // Weight associated with the SID for load balancing purpose
-    uint32 Weight = 4;
-
-    // Endpoint behavior of the SID
-    uint32 EndPointBehavior = 5;
-
-    // The Segment Routing over IPv6 (SRv6) Segment Identifier (SID)
-    // structure information associated with a SRv6 SID.
-    // SRv6 SID Structure Attribute. TLV 1252
-    // Section 8 of [RFC9514]
-    SLSrv6SidStruct SidStruct = 6;
-}
-
 // Neighbor ID used in Adjacency SID and SRv6 EndX SID
 message SLBgpLsTopoNeighborId {
     oneof NeighborId {
@@ -1499,38 +1234,6 @@ message SLBgpLsTopoNeighborId {
         // This field carries info about an system ID neighbor ID.
         bytes SystemId = 2;
     }
-}
-
-// SRv6 LAN End X SID. TLV 1107/1108
-// Section 4.1 of [RFC9514]
-message SLBgplsTopoSrv6LanEndXSid {
-    // Neighbor ID
-    SLBgpLsTopoNeighborId Neighbor = 1;
-
-    // SRv6 SID as 128 bit value
-    bytes Sid = 2;
-
-    // Algorithm associated with the SID
-    uint32 Algorithm = 3;
-
-    // Flags associated with the SID. The flags are copied from the IS-IS SRv6
-    // End.X SID sub-TLV (Section 8.1 of [RFC9352]) or the OSPFv3 SRv6
-    // End.X SID sub-TLV (Section 9.1 of [RFC9513]) in the case of IS-IS
-    // or OSPFv3, respectively.  In the case of the BGP EPE Peer
-    // Adjacency SID, the flags are as defined in Section 7.2 of [RFC9514]
-    uint32 Flags = 4;
-
-    // Weight associated with the SID for load balancing purpose
-    uint32 Weight = 5;
-
-    // Endpoint behavior of the SID
-    uint32 EndPointBehavior = 6;
-
-    // The Segment Routing over IPv6 (SRv6) Segment Identifier (SID)
-    // structure information associated with a SRv6 SID.
-    // SRv6 SID Structure Attribute. TLV 1252
-    // Section 8 of [RFC9514]
-    SLSrv6SidStruct SidStruct = 7;
 }
 
 // Unidirectional Link Delay. TLV 1114
@@ -1789,21 +1492,6 @@ message SLBgplsTopoPrefixRange {
     bytes SidFlags = 5;
 }
 
-// SRv6 Locator. TLV 1162
-// Section 5.1 of [RFC9514]
-message SLBgplsTopoPrefixSrv6Loc {
-    // Flags associated with the locator, copied from the
-    // IS-IS SRv6 Locator TLV (Section 7.1 of [RFC9352]) for ISIS or the
-    // OSPFv3 SRv6 Locator TLV (Section 7.1 of [RFC9513]) for OSPFv3
-    uint32 Flags = 1;
-
-    // Algorithm associated with the locator
-    uint32 Algorithm = 2;
-
-    // Flex algo prefix metric
-    uint32 Metric = 3;
-}
-
 // Prefix Attribute Flags. TLV 1170
 // Section 2.3.2 of [RFC9085]
 message SLBgplsTopoPrefixAttrFlags {
@@ -1944,858 +1632,6 @@ message SLBgplsTopoExtAdminGroup {
     // most significant bit is referred to as group 31. Each EAG bitmask
     // is represented in multiple of 4 bytes.
     uint32 Group = 1;
-}
-
-enum SLBgplsTopoSrBindingSidFlags {
-    // Flags associated with the SR Binding SID
-    // Section 5.1 of [draft-ietf-idr-bgp-ls-sr-policy]
-    // Each flag is indicated as a bit field. Supported values are:
-
-    // Reserved.
-    SL_BGPLS_TOPO_SR_BSID_FLAG_RESERVED = 0x0;
-
-    // Bit-0: D-Flag: Indicates the dataplane for the BSIDs and if they are
-    // 16 octet SRv6 SID when set and are 4 octet SR/MPLS label value
-    // when clear.
-    SL_BGPLS_TOPO_SR_BSID_FLAG_DATAPLANE_V6 = 0x8000;
-
-    // Bit-1: B-Flag: Indicates the allocation of the value in the BSID field
-    // when set and indicates that BSID is not allocated when clear.
-    SL_BGPLS_TOPO_SR_BSID_FLAG_ALLOCATED = 0x4000;
-
-    // Bit-2: U-Flag: Indicates the specified BSID value is unavailable when set.
-    SL_BGPLS_TOPO_SR_BSID_FLAG_UNAVAIL = 0x2000;
-
-    // Bit-3: L-Flag: Indicates the BSID value is from the Segment Routing
-    // Local Block (SRLB) of the headend node when set and is from the
-    // local dynamic label pool when clear.
-    SL_BGPLS_TOPO_SR_BSID_FLAG_SRLB = 0x1000;
-
-    // Bit-4: F-Flag: Indicates the BSID value is one allocated from dynamic
-    // label pool due to fallback (e.g. when specified BSID is
-    // unavailable) when set.
-    SL_BGPLS_TOPO_SR_BSID_FLAG_DYNAMIC = 0x0800;
-
-    // All others are reserved.
-}
-
-message SLBgplsTopoSrBindingSid {
-    // SR Binding SID Flags
-    // Flags associated with the SR Binding SID
-    // Section 5.1 of [draft-ietf-idr-bgp-ls-sr-policy]
-    // Each flag is indicated as a bit field. Supported values are:
-    //
-    // SL_BGPLS_TOPO_SR_BSID_FLAG_DATAPLANE_V6
-    // Bit-0: D-Flag: Indicates the dataplane for the BSIDs and if they are
-    // 16 octet SRv6 SID when set and are 4 octet SR/MPLS label value
-    // when clear.
-    //
-    // SL_BGPLS_TOPO_SR_BSID_FLAG_ALLOCATED
-    // Bit-1: B-Flag: Indicates the allocation of the value in the BSID field
-    // when set and indicates that BSID is not allocated when clear.
-    //
-    // SL_BGPLS_TOPO_SR_BSID_FLAG_UNAVAIL
-    // Bit-2: U-Flag: Indicates the specified BSID value is unavailable when set.
-    //
-    // SL_BGPLS_TOPO_SR_BSID_FLAG_SRLB
-    // Bit-3: L-Flag: Indicates the BSID value is from the Segment Routing
-    // Local Block (SRLB) of the headend node when set and is from the
-    // local dynamic label pool when clear.
-    //
-    // SL_BGPLS_TOPO_SR_BSID_FLAG_DYNAMIC
-    // Bit-4: F-Flag: Indicates the BSID value is one allocated from dynamic
-    // label pool due to fallback (e.g. when specified BSID is
-    // unavailable) when set.
-    //
-    // All others are reserved.
-    uint32 BsidFlags = 1;
-
-    // The operational or allocated BSID value based on the status flags.
-    SLSrBsid Bsid = 2;
-
-    // The explicitly specified BSID whether it is allocated or not.
-    SLSrBsid SpecifiedBsid = 3;
-}
-
-enum SLBgplsTopoSrCpStateFlags {
-    // Flags associated with the SR Candidate Path State Flags
-    // Section 5.3 of [draft-ietf-idr-bgp-ls-sr-policy]
-    // Each flag is indicated as a bit field. Supported values are:
-
-    // Reserved.
-    SL_BGPLS_TOPO_SR_CP_STATE_FLAG_RESERVED = 0x0;
-
-    // Bit-0: S-Flag: Indicates the CP is in an administrative shut state when set.
-    SL_BGPLS_TOPO_SR_CP_STATE_FLAG_ADMIN_SHUT = 0x8000;
-
-    // Bit-1: A-Flag: Indicates the CP is the active path (i.e. one
-    // provisioned in the forwarding plane) for the SR Policy when set.
-    SL_BGPLS_TOPO_SR_CP_STATE_FLAG_ACTIVE = 0x4000;
-
-    // Bit-2: B-Flag: Indicates the CP is the backup path (i.e. one
-    // identified for path protection of the active path) for the SR
-    // Policy when set.
-    SL_BGPLS_TOPO_SR_CP_STATE_FLAG_BACKUP = 0x2000;
-
-    // Bit-3: E-Flag: Indicates that the CP has been evaluated for validity
-    // (e.g. headend may evaluate CPs based on their preferences) when set.
-    SL_BGPLS_TOPO_SR_CP_STATE_FLAG_EVALUATED = 0x1000;
-
-    // Bit-4: V-Flag: Indicates the CP has at least one valid SID-List when
-    // set.  When the E-Flag is clear (i.e. the CP has not been
-    // evaluated), then this flag MUST be set to 0 by the originator
-    // and ignored by the receiver.
-    SL_BGPLS_TOPO_SR_CP_STATE_FLAG_VALID = 0x0800;
-
-    // Bit-5: O-Flag: Indicates the CP was instantiated by the headend due to
-    // an on-demand nexthop trigger based on a local template when
-    // set.  Refer to section 8.5 of [RFC9256] for details.
-    SL_BGPLS_TOPO_SR_CP_STATE_FLAG_ON_DEMAND_NH = 0x0400;
-
-    // Bit-6: D-Flag: Indicates the CP was delegated for computation to a
-    // PCE/controller when set.
-    SL_BGPLS_TOPO_SR_CP_STATE_FLAG_DELEGATED = 0x0200;
-
-    // Bit-7: C-Flag: Indicates the CP was provisioned by a PCE/controller when set.
-    SL_BGPLS_TOPO_SR_CP_STATE_FLAG_PROVISIONED = 0x0100;
-
-    // Bit-8: I-Flag: Indicates the CP is to perform the "drop upon invalid"
-    // behavior when no other valid CP is available for this SR
-    // Policy.  Refer to section 8.2 of [RFC9256] for details.
-    SL_BGPLS_TOPO_SR_CP_STATE_FLAG_DROP_UPON_INVALID = 0x0080;
-
-    // Bit-9: T-Flag: Indicates the CP has been marked as eligible for use as
-    // Transit Policy on the headend when set.  Refer to section 8.3
-    // of [RFC9256].
-    SL_BGPLS_TOPO_SR_CP_STATE_FLAG_TRANSIT = 0x0040;
-
-    // Bit-10: U-Flag: Indicates that this CP is reported as active and is
-    // dropping traffic as a result of the "drop upon invalid"
-    // behavior being activated for the SR Policy.
-    SL_BGPLS_TOPO_SR_CP_STATE_FLAG_DROPPING = 0x0020;
-
-    // All others are reserved.
-}
-
-// SR Candidate Path State. TLV 1202
-// Section 5.3 of [draft-ietf-idr-bgp-ls-sr-policy]
-message SLBgplsTopoSrCpState {
-    // The priority of the candiate path.
-    uint32 Priority = 1;
-
-    // SR Candidate Path State Flags
-    // Flags associated with the SR Candidate Path State Flags
-    // Section 5.3 of [draft-ietf-idr-bgp-ls-sr-policy]
-    // Each flag is indicated as a bit field. Supported values are:
-    //
-    // SL_BGPLS_TOPO_SR_CP_STATE_FLAG_ADMIN_SHUT
-    // Bit-0: S-Flag: Indicates the CP is in an administrative shut state when set.
-    //
-    // SL_BGPLS_TOPO_SR_CP_STATE_FLAG_ACTIVE
-    // Bit-1: A-Flag: Indicates the CP is the active path (i.e. one
-    // provisioned in the forwarding plane) for the SR Policy when set.
-    //
-    // SL_BGPLS_TOPO_SR_CP_STATE_FLAG_BACKUP
-    // Bit-2: B-Flag: Indicates the CP is the backup path (i.e. one
-    // identified for path protection of the active path) for the SR
-    // Policy when set.
-    //
-    // SL_BGPLS_TOPO_SR_CP_STATE_FLAG_EVALUATED
-    // Bit-3: E-Flag: Indicates that the CP has been evaluated for validity
-    // (e.g. headend may evaluate CPs based on their preferences) when set.
-    //
-    // SL_BGPLS_TOPO_SR_CP_STATE_FLAG_VALID
-    // Bit-4: V-Flag: Indicates the CP has at least one valid SID-List when
-    // set.  When the E-Flag is clear (i.e. the CP has not been
-    // evaluated), then this flag MUST be set to 0 by the originator
-    // and ignored by the receiver.
-    //
-    // SL_BGPLS_TOPO_SR_CP_STATE_FLAG_ON_DEMAND_NH
-    // Bit-5: O-Flag: Indicates the CP was instantiated by the headend due to
-    // an on-demand nexthop trigger based on a local template when
-    // set.  Refer to section 8.5 of [RFC9256] for details.
-    //
-    // SL_BGPLS_TOPO_SR_CP_STATE_FLAG_DELEGATED
-    // Bit-6: D-Flag: Indicates the CP was delegated for computation to a
-    // PCE/controller when set.
-    //
-    // SL_BGPLS_TOPO_SR_CP_STATE_FLAG_PROVISIONED
-    // Bit-7: C-Flag: Indicates the CP was provisioned by a PCE/controller when set.
-    //
-    // SL_BGPLS_TOPO_SR_CP_STATE_FLAG_DROP_UPON_INVALID
-    // Bit-8: I-Flag: Indicates the CP is to perform the "drop upon invalid"
-    // behavior when no other valid CP is available for this SR
-    // Policy.  Refer to section 8.2 of [RFC9256] for details.
-    //
-    // SL_BGPLS_TOPO_SR_CP_STATE_FLAG_TRANSIT
-    // Bit-9: T-Flag: Indicates the CP has been marked as eligible for use as
-    // Transit Policy on the headend when set.  Refer to section 8.3
-    // of [RFC9256].
-    //
-    // SL_BGPLS_TOPO_SR_CP_STATE_FLAG_DROPPING
-    // Bit-10: U-Flag: Indicates that this CP is reported as active and is
-    // dropping traffic as a result of the "drop upon invalid"
-    // behavior being activated for the SR Policy.
-    //
-    // All others are reserved.
-    uint32 Flags = 2;
-
-    // Indicates the preference of the candidate path.
-    uint32 Preference = 3;
-}
-
-enum SLBgplsTopoSrCpConstraintsFlags {
-    // Flags associated with the SR Candidate Path Constraints Flags
-    // Section 5.6 of [draft-ietf-idr-bgp-ls-sr-policy]
-    // Each flag is indicated as a bit field. Supported values are:
-
-    // Reserved.
-    SL_BGPLS_TOPO_SR_CP_CONSTRAINTS_FLAG_RESERVED = 0x0;
-
-    // Bit-0: D-Flag: Indicates that the CP uses SRv6 dataplane when set and
-    // SR/MPLS dataplane when clear.
-    SL_BGPLS_TOPO_SR_CP_CONSTRAINTS_FLAG_DATAPLANE_V6 = 0x8000;
-
-    // Bit-1: P-Flag: Indicates that the CP prefers the use of only protected
-    // SIDs when set.  This flag is mutually exclusive with the
-    // Bit-2.
-    SL_BGPLS_TOPO_SR_CP_CONSTRAINTS_FLAG_PROTECTED = 0x4000;
-
-    // Bit-2: U-Flag: Indicates that the CP prefers the use of only
-    // unprotected SIDs when set.  This flag is mutually exclusive
-    // with the Bit-1.
-    SL_BGPLS_TOPO_SR_CP_CONSTRAINTS_FLAG_UNPROTECTED = 0x2000;
-
-    // Bit-3: A-Flag: Indicates that the CP uses only the SIDs belonging to
-    // the specified SR Algorithm when set.
-    SL_BGPLS_TOPO_SR_CP_CONSTRAINTS_FLAG_SPECIFIED_ALGO = 0x1000;
-
-    // Bit-4: T-Flag: Indicates that the CP uses only the SIDs belonging to
-    // the specified topology when set.
-    SL_BGPLS_TOPO_SR_CP_CONSTRAINTS_FLAG_SPECIFIED_TOPO = 0x0800;
-
-    // Bit-5: S-Flag: Indicates that the use of protected (P-Flag) or
-    // unprotected (U-Flag) SIDs becomes a strict constraint instead
-    // of a preference when set.
-    SL_BGPLS_TOPO_SR_CP_CONSTRAINTS_FLAG_USE_STRICT = 0x0400;
-
-    // Bit-6: F-Flag: Indicates that the CP is fixed once computed and not
-    // modified except on operator intervention.
-    SL_BGPLS_TOPO_SR_CP_CONSTRAINTS_FLAG_FIXED_CP = 0x0200;
-
-    // Bit-7: H-Flag: Indicates that the CP uses only adjacency SIDs and
-    // traverses hop-by-hop over the links corresponding to those
-    // adjacency SIDs when set.
-    SL_BGPLS_TOPO_SR_CP_CONSTRAINTS_FLAG_HOP_BY_HOP = 0x0100;
-
-    // All others are reserved.
-}
-
-// SR Candidate Path Constraints. TLV 1204
-// Section 5.6 of [draft-ietf-idr-bgp-ls-sr-policy]
-message SLBgplsTopoSrCpConstraints {
-    // SR Candidate Path Constraints Flags
-    // Flags associated with the SR Candidate Path Constraints Flags
-    // Section 5.6 of [draft-ietf-idr-bgp-ls-sr-policy]
-    // Each flag is indicated as a bit field. Supported values are:
-    //
-    // SL_BGPLS_TOPO_SR_CP_CONSTRAINTS_FLAG_DATAPLANE_V6
-    // Bit-0: D-Flag: Indicates that the CP uses SRv6 dataplane when set and
-    // SR/MPLS dataplane when clear.
-    //
-    // SL_BGPLS_TOPO_SR_CP_CONSTRAINTS_FLAG_PROTECTED
-    // Bit-1: P-Flag: Indicates that the CP prefers the use of only protected
-    // SIDs when set.  This flag is mutually exclusive with the
-    // Bit-2.
-    //
-    // SL_BGPLS_TOPO_SR_CP_CONSTRAINTS_FLAG_UNPROTECTED
-    // Bit-2: U-Flag: Indicates that the CP prefers the use of only
-    // unprotected SIDs when set.  This flag is mutually exclusive
-    // with the Bit-1.
-    //
-    // SL_BGPLS_TOPO_SR_CP_CONSTRAINTS_FLAG_SPECIFIED_ALGO
-    // Bit-3: A-Flag: Indicates that the CP uses only the SIDs belonging to
-    // the specified SR Algorithm when set.
-    //
-    // SL_BGPLS_TOPO_SR_CP_CONSTRAINTS_FLAG_SPECIFIED_TOPO
-    // Bit-4: T-Flag: Indicates that the CP uses only the SIDs belonging to
-    // the specified topology when set.
-    //
-    // SL_BGPLS_TOPO_SR_CP_CONSTRAINTS_FLAG_USE_STRICT
-    // Bit-5: S-Flag: Indicates that the use of protected (P-Flag) or
-    // unprotected (U-Flag) SIDs becomes a strict constraint instead
-    // of a preference when set.
-    //
-    // SL_BGPLS_TOPO_SR_CP_CONSTRAINTS_FLAG_FIXED_CP
-    // Bit-6: F-Flag: Indicates that the CP is fixed once computed and not
-    // modified except on operator intervention.
-    //
-    // SL_BGPLS_TOPO_SR_CP_CONSTRAINTS_FLAG_HOP_BY_HOP
-    // Bit-7: H-Flag: Indicates that the CP uses only adjacency SIDs and
-    // traverses hop-by-hop over the links corresponding to those
-    // adjacency SIDs when set.
-    //
-    // All others are reserved.
-    uint32 Flags = 1;
-
-    // Indicates the multi-topology identifier of the IGP topology
-    // that is preferred to be used when the path is set up.
-    uint32 Mtid = 2;
-
-    // Indicates the algorithm that is preferred to be used
-    // when the path is set up.
-    uint32 Algorithm = 3;
-
-    // SR Affinity constraint is used to carry the affinity constraints
-    // associated with the candidate path.
-    // SR Affinity Constraints. TLV 1208
-    // Section 5.6.1 of [draft-ietf-idr-bgp-ls-sr-policy]
-    SLBgplsTopoSrAffinityConstraints Affinity = 5;
-
-    // SR SRLG constraint is used to carry the Shared Risk Link Group (SRLG)
-    // values that have been excluded from the candidate path.
-    // SR SRLG Constraints. TLV 1209
-    // Section 5.6.2 of [draft-ietf-idr-bgp-ls-sr-policy]
-    SLBgplsTopoSrSrlgConstraints Srlg = 6;
-
-    // SR Bandwidth constraint is used to indicate the bandwidth that has
-    // been requested for the candidate path.
-    // SR Bandwidth Constraint. TLV 1210
-    // Section 5.6.3 of [draft-ietf-idr-bgp-ls-sr-policy]
-    SLBgplsTopoSrBandwidthConstraint Bandwidth = 4;
-
-    // SR Disjoint constraint is used to carry the disjointness
-    // constraint associated with the candidate path.
-    // SR Disjoint Group Constraint. TLV 1211
-    // Section 5.6.4 of [draft-ietf-idr-bgp-ls-sr-policy]
-    SLBgplsTopoSrDisjointGroupConstraint Disjoint = 7;
-
-    // SR Bidirectional Group constraint is used to carry the bidirectional
-    // constraint associated with the candidate path.
-    // SR Bidirectional Group Contraint. TLV 1214
-    // Section 5.6.5 of [draft-ietf-idr-bgp-ls-sr-policy]
-    SLBgplsTopoSrBidirGroupConstraint BidirGroup = 8;
-
-    // SR Metric constraint is used to report the optimization metric of the
-    // candidate path.
-    // SR Metric Contraint. TLV 1215
-    // Section 5.6.6 of [draft-ietf-idr-bgp-ls-sr-policy]
-    repeated SLBgplsTopoSrMetricConstraint Metric = 9;
-}
-
-enum SLBgplsTopoSrSegListFlags {
-    // Flags associated with the SR Segment List Flags
-    // Section 5.7 of [draft-ietf-idr-bgp-ls-sr-policy]
-    // Each flag is indicated as a bit field. Supported values are:
-
-    // Reserved.
-    SL_BGPLS_TOPO_SR_SEG_LIST_FLAG_RESERVED = 0x0;
-
-    // Bit-0: D-Flag: Indicates the SID-List is comprised of SRv6 SIDs when
-    // set and indicates it is comprised of SR/MPLS labels when clear.
-    SL_BGPLS_TOPO_SR_SEG_LIST_FLAG_DATAPLANE_V6 = 0x8000;
-
-    // Bit-1: E-Flag: Indicates that SID-List is associated with an explicit
-    // candidate path when set and with a dynamic candidate path when
-    // clear.  All segment lists of a given candidate path MUST be
-    // either explicit or dynamic and in case of inconsistency, the
-    // receiver MAY consider them all to be dynamic.
-    SL_BGPLS_TOPO_SR_SEG_LIST_FLAG_EXPLICIT_PATH = 0x4000;
-
-    // Bit-2: C-Flag: Indicates that SID-List has been computed for a dynamic
-    // path when set.  It is always reported as set for explicit
-    // paths.
-    SL_BGPLS_TOPO_SR_SEG_LIST_FLAG_COMPUTED_PATH = 0x2000;
-
-    // Bit-3: V-Flag: Indicates the SID-List has passed verification or its
-    // verification was not required when set and failed verification
-    // when clear.
-    SL_BGPLS_TOPO_SR_SEG_LIST_FLAG_VERIFIED = 0x1000;
-
-    // Bit-4: R-Flag: Indicates that the first Segment has been resolved when
-    // set and failed resolution when clear.
-    SL_BGPLS_TOPO_SR_SEG_LIST_FLAG_RESOLVED = 0x0800;
-
-    // Bit-5: F-Flag: Indicates that the computation for the dynamic path
-    // failed when set and succeeded (or not required in case of
-    // explicit path) when clear.
-    SL_BGPLS_TOPO_SR_SEG_LIST_FLAG_COMPUTE_FAILED = 0x0400;
-
-    // Bit-6: A-Flag: Indicates that all the SIDs in the SID-List belong to
-    // the specified algorithm when set.
-    SL_BGPLS_TOPO_SR_SEG_LIST_FLAG_SPECIFIED_ALGO = 0x0200;
-
-    // Bit-7: T-Flag: Indicates that all the SIDs in the SID-List belong to
-    // the specified topology (identified by the multi-topology ID)
-    // when set.
-    SL_BGPLS_TOPO_SR_SEG_LIST_FLAG_SPECIFIED_TOPO = 0x0100;
-
-    // Bit-8: M-Flag: Indicates that the SID-list has been removed from the
-    // forwarding plane due to fault detection by a monitoring
-    // mechanism (e.g.  BFD) when set and indicates no fault detected
-    // or monitoring is not being done when clear.
-    SL_BGPLS_TOPO_SR_SEG_LIST_FLAG_FAULT_MONITOR = 0x0080;
-
-    // All others are reserved.
-}
-
-// SR Segment List. TLV 1205
-// Section 5.7 of [draft-ietf-idr-bgp-ls-sr-policy]
-message SLBgplsTopoSrSegList {
-    // SR Segment List Flags
-    // Flags associated with the SR Segment List Flags
-    // Section 5.7 of [draft-ietf-idr-bgp-ls-sr-policy]
-    // Each flag is indicated as a bit field. Supported values are:
-    //
-    // SL_BGPLS_TOPO_SR_SEG_LIST_FLAG_DATAPLANE_V6
-    // Bit-0: D-Flag: Indicates the SID-List is comprised of SRv6 SIDs when
-    // set and indicates it is comprised of SR/MPLS labels when clear.
-    //
-    // SL_BGPLS_TOPO_SR_SEG_LIST_FLAG_EXPLICIT_PATH
-    // Bit-1: E-Flag: Indicates that SID-List is associated with an explicit
-    // candidate path when set and with a dynamic candidate path when
-    // clear.  All segment lists of a given candidate path MUST be
-    // either explicit or dynamic and in case of inconsistency, the
-    // receiver MAY consider them all to be dynamic.
-    //
-    // SL_BGPLS_TOPO_SR_SEG_LIST_FLAG_COMPUTED_PATH
-    // Bit-2: C-Flag: Indicates that SID-List has been computed for a dynamic
-    // path when set.  It is always reported as set for explicit
-    // paths.
-    //
-    // SL_BGPLS_TOPO_SR_SEG_LIST_FLAG_VERIFIED
-    // Bit-3: V-Flag: Indicates the SID-List has passed verification or its
-    // verification was not required when set and failed verification
-    // when clear.
-    //
-    // SL_BGPLS_TOPO_SR_SEG_LIST_FLAG_RESOLVED
-    // Bit-4: R-Flag: Indicates that the first Segment has been resolved when
-    // set and failed resolution when clear.
-    //
-    // SL_BGPLS_TOPO_SR_SEG_LIST_FLAG_COMPUTE_FAILED
-    // Bit-5: F-Flag: Indicates that the computation for the dynamic path
-    // failed when set and succeeded (or not required in case of
-    // explicit path) when clear.
-    //
-    // SL_BGPLS_TOPO_SR_SEG_LIST_FLAG_SPECIFIED_ALGO
-    // Bit-6: A-Flag: Indicates that all the SIDs in the SID-List belong to
-    // the specified algorithm when set.
-    //
-    // SL_BGPLS_TOPO_SR_SEG_LIST_FLAG_SPECIFIED_TOPO
-    // Bit-7: T-Flag: Indicates that all the SIDs in the SID-List belong to
-    // the specified topology (identified by the multi-topology ID)
-    // when set.
-    //
-    // SL_BGPLS_TOPO_SR_SEG_LIST_FLAG_FAULT_MONITOR
-    // Bit-8: M-Flag: Indicates that the SID-list has been removed from the
-    // forwarding plane due to fault detection by a monitoring
-    // mechanism (e.g.  BFD) when set and indicates no fault detected
-    // or monitoring is not being done when clear.
-    //
-    // All others are reserved.
-    uint32 Flags = 1;
-
-    // The multi-topology identifier of the
-    // IGP topology that is to be used when the Bit-7 is set.
-    uint32 Mtid = 2;
-
-    // Indicates the algorithm of the SIDs used
-    // in the SID-List when the Bit-6 is set.
-    uint32 Algorithm = 3;
-
-    // Indicates the weight associated with
-    // the SID-List for weighted load-balancing.
-    uint32 Weight = 4;
-
-    // SR Segment. TLV 1206
-    // Section 5.8 of [draft-ietf-idr-bgp-ls-sr-policy]
-    repeated SLSrSegment Segments = 5;
-}
-
-enum SLBgplsTopoSrSegListMetricFlags {
-    // Flags associated with the SR Segment List Metric Flags
-    // Section 5.9 of [draft-ietf-idr-bgp-ls-sr-policy]
-    // Each flag is indicated as a bit field. Supported values are:
-
-    // Reserved.
-    SL_BGPLS_TOPO_SR_SEG_LIST_METRIC_FLAG_RESERVED = 0x0;
-
-    // Bit-0: M-Flag: The metric margin allowed for this path
-    // computation is specified when set.
-    SL_BGPLS_TOPO_SR_SEG_LIST_METRIC_FLAG_MARGIN_ALLOWED = 0x80;
-
-    // Bit-1: A-Flag: The metric margin is specified as an
-    // absolute value when set and is expressed as a percentage of the
-    // minimum metric when clear.
-    SL_BGPLS_TOPO_SR_SEG_LIST_METRIC_FLAG_ABSOLUTE_VAL = 0x40;
-
-    // Bit-2: B-Flag: The metric bound allowed for the path is specified when set.
-    SL_BGPLS_TOPO_SR_SEG_LIST_METRIC_FLAG_BOUND_ALLOWED = 0x20;
-
-    // Bit-3: V-Flag: The metric value computed is being reported when set.
-    SL_BGPLS_TOPO_SR_SEG_LIST_METRIC_FLAG_VAL_REPORTED = 0x10;
-
-    // All others are reserved.
-}
-
-// SR Segment List Metric. TLV 1207
-// Section 5.9 of [draft-ietf-idr-bgp-ls-sr-policy]
-message SLBgplsSrSegListMetric {
-    // Identifies the type of metric.
-    uint32 Type = 1;
-
-    // SR Segment List Metric Flags
-    // Flags associated with the SR Segment List Metric Flags
-    // Section 5.9 of [draft-ietf-idr-bgp-ls-sr-policy]
-    // Each flag is indicated as a bit field. Supported values are:
-    //
-    // SL_BGPLS_TOPO_SR_SEG_LIST_METRIC_FLAG_MARGIN_ALLOWED
-    // Bit-0: M-Flag: The metric margin allowed for this path
-    // computation is specified when set.
-    //
-    // SL_BGPLS_TOPO_SR_SEG_LIST_METRIC_FLAG_ABSOLUTE_VAL
-    // Bit-1: A-Flag: The metric margin is specified as an
-    // absolute value when set and is expressed as a percentage of the
-    // minimum metric when clear.
-    //
-    // SL_BGPLS_TOPO_SR_SEG_LIST_METRIC_FLAG_BOUND_ALLOWED
-    // Bit-2: B-Flag: The metric bound allowed for the path is specified when set.
-    //
-    // SL_BGPLS_TOPO_SR_SEG_LIST_METRIC_FLAG_VAL_REPORTED
-    // Bit-3: V-Flag: The metric value computed is being reported when set.
-    //
-    // All others are reserved.
-    uint32 Flags = 2;
-
-    // Indicates the metric margin value when the Bit-0 is set.
-    // The metric margin is specified as either an absolute value or as a
-    // percentage of the minimum computed path metric based on the Bit-1.
-    uint32 Margin = 3;
-
-    // Indicates the maximum metric value that is allowed when the Bit-2
-    // is set.
-    uint32 Bound = 4;
-
-    // Indicates the metric of the computed path when the Bit-3 is set.
-    uint32 Value = 5;
-}
-
-// SR Affinity Constraints. TLV 1208
-// Section 5.6.1 of [draft-ietf-idr-bgp-ls-sr-policy]
-message SLBgplsTopoSrAffinityConstraints {
-    // The bitmask used to represent the affinities that
-    // have been excluded from the path. Each EAG bitmask
-    // is represented in multiple of 4 bytes.
-    repeated uint32 ExclAnyEag = 1;
-
-    // The bitmask used to represent the affinities that
-    // have been included in the path. Each EAG bitmask
-    // is represented in multiple of 4 bytes.
-    repeated uint32 InclAnyEag = 2;
-
-    // The bitmask used to represent all the affinities
-    // that have been included in the path. Each EAG bitmask
-    // is represented in multiple of 4 bytes.
-    repeated uint32 InclAllEag = 3;
-}
-
-// SR SRLG Constraints. TLV 1209
-// Section 5.6.2 of [draft-ietf-idr-bgp-ls-sr-policy]
-message SLBgplsTopoSrSrlgConstraints {
-    // SRLG Values.
-    repeated uint32 SrlgValues = 1;
-}
-
-// SR Bandwidth Constraint. TLV 1210
-// Section 5.6.3 of [draft-ietf-idr-bgp-ls-sr-policy]
-message SLBgplsTopoSrBandwidthConstraint {
-    // Specify the desired bandwidth in unit of
-    //  bytes per second in IEEE floating point format.
-    bytes Bandwidth = 1;
-}
-
-enum SLBgplsTopoSrDisjointGroupFlags {
-    // Flags associated with the SR Disjoint Group Constraints Flags
-    // Section 5.6.4 of [draft-ietf-idr-bgp-ls-sr-policy]
-    // Each flag is indicated as a bit field. Supported values are:
-
-    // Reserved.
-    SL_BGPLS_TOPO_SR_DISJOINT_GROUP_FLAG_RESERVED = 0x0;
-
-    // Bit-0: S-Flag: SRLG disjointness is achieved when set.
-    SL_BGPLS_TOPO_SR_DISJOINT_GROUP_FLAG_SRLG = 0x80;
-
-    // Bit-1: N-Flag: Node disjointness is achieved when set.
-    SL_BGPLS_TOPO_SR_DISJOINT_GROUP_FLAG_NODE = 0x40;
-
-    // Bit-2: L-Flag: Link disjointness is achieved when set.
-    SL_BGPLS_TOPO_SR_DISJOINT_GROUP_FLAG_LINK = 0x20;
-
-    // Bit-3: F-Flag: The computation has fallen back to a
-    // lower level of disjointness than requested when set.
-    SL_BGPLS_TOPO_SR_DISJOINT_GROUP_FLAG_FALLBACK = 0x10;
-
-    // Bit-4: I-Flag: The computation has fallen back to the
-    // best path (e.g.  IGP path) and disjointness has not been
-    // achieved when set.
-    SL_BGPLS_TOPO_SR_DISJOINT_GROUP_FLAG_IGP = 0x08;
-
-    // Bit-5: X-Flag: The disjointness constraint could not
-    // be achieved and hence path has been invalidated when set.
-    SL_BGPLS_TOPO_SR_DISJOINT_GROUP_FLAG_INVALID = 0x04;
-
-    // All others are reserved.
-}
-
-// SR Disjoint Group Constraint. TLV 1211
-// Section 5.6.4 of [draft-ietf-idr-bgp-ls-sr-policy]
-message SLBgplsTopoSrDisjointGroupConstraint {
-    // SR Disjoint Group Constraints Request Flags
-    // Flags associated with the SR Disjoint Group Constraints Flags
-    // Section 5.6.4 of [draft-ietf-idr-bgp-ls-sr-policy]
-    // Each flag is indicated as a bit field. Supported values are:
-    //
-    // SL_BGPLS_TOPO_SR_DISJOINT_GROUP_FLAG_SRLG
-    // Bit-0: S-Flag: SRLG disjointness is requested when set.
-    //
-    // SL_BGPLS_TOPO_SR_DISJOINT_GROUP_FLAG_NODE
-    // Bit-1: N-Flag: Node disjointness is requested when set.
-    //
-    // SL_BGPLS_TOPO_SR_DISJOINT_GROUP_FLAG_LINK
-    // Bit-2: L-Flag: Link disjointness is requested when set.
-    //
-    // SL_BGPLS_TOPO_SR_DISJOINT_GROUP_FLAG_FALLBACK
-    // Bit-3: F-Flag: The computation may fallback to a lower
-    // level of disjointness amongst the ones requested when all
-    // cannot be achieved when set.
-    //
-    // SL_BGPLS_TOPO_SR_DISJOINT_GROUP_FLAG_IGP
-    // Bit-4: I-Flag: The computation may fallback to the
-    // default best path (e.g.  IGP path) in case of none of the
-    // desired disjointness can be achieved when set.
-    //
-    // All others are reserved.
-    uint32 RequestFlags = 1;
-
-    // SR Disjoint Group Constraints Status Flags
-    // Flags associated with the SR Disjoint Group Constraints Flags
-    // Section 5.6.4 of [draft-ietf-idr-bgp-ls-sr-policy]
-    // Each flag is indicated as a bit field. Supported values are:
-    //
-    // SL_BGPLS_TOPO_SR_DISJOINT_GROUP_FLAG_SRLG
-    // Bit-0: S-Flag: SRLG disjointness is achieved when set.
-    //
-    // SL_BGPLS_TOPO_SR_DISJOINT_GROUP_FLAG_NODE
-    // Bit-1: N-Flag: Node disjointness is achieved when set.
-    //
-    // SL_BGPLS_TOPO_SR_DISJOINT_GROUP_FLAG_LINK
-    // Bit-2: L-Flag: Link disjointness is achieved when set.
-    //
-    // SL_BGPLS_TOPO_SR_DISJOINT_GROUP_FLAG_FALLBACK
-    // Bit-3: F-Flag: The computation has fallen back to a
-    // lower level of disjointness than requested when set.
-    //
-    // SL_BGPLS_TOPO_SR_DISJOINT_GROUP_FLAG_IGP
-    // Bit-4: I-Flag: The computation has fallen back to the
-    // best path (e.g.  IGP path) and disjointness has not been
-    // achieved when set.
-    //
-    // SL_BGPLS_TOPO_SR_DISJOINT_GROUP_FLAG_INVALID
-    // Bit-5: X-Flag: The disjointness constraint could not
-    // be achieved and hence path has been invalidated when set.
-    //
-    // All others are reserved.
-    uint32 StatusFlags = 2;
-
-    // The group identifier for a set of disjoint paths.
-    uint32 GroupId = 3;
-}
-
-// SR Policy Name. TLV 1213
-// Section 5.4 of [draft-ietf-idr-bgp-ls-sr-policy]
-message SLBgplsTopoSrPolicyName {
-    // Symbolic name for the SR Policy without a NULL terminator. It is
-    // enforced that the size of the symbolic name be limited to
-    // 255 characters.
-    string Name = 1;
-}
-
-enum SLBgplsTopoSrBidirGroupFlags {
-    // Flags associated with the SR Bidirectional Group Constraints Flags
-    // Section 5.6.5 of [draft-ietf-idr-bgp-ls-sr-policy]
-    // Each flag is indicated as a bit field. Supported values are:
-
-    // Reserved.
-    SL_BGPLS_TOPO_SR_BIDIR_GROUP_FLAG_RESERVED = 0x0;
-
-    // Bit-0: R-Flag: This CP of the SR Policy forms the
-    // reverse path when set and otherwise it is the forward path when clear.
-    SL_BGPLS_TOPO_SR_BIDIR_GROUP_FLAG_REVERSE = 0x8000;
-
-    // Bit-1: C-Flag: The bidirectional path is co-routed when set.
-    SL_BGPLS_TOPO_SR_BIDIR_GROUP_FLAG_CO_ROUTED = 0x4000;
-
-    // All others are reserved.
-}
-
-// SR Bidirectional Group Contraint. TLV 1214
-// Section 5.6.5 of [draft-ietf-idr-bgp-ls-sr-policy]
-message SLBgplsTopoSrBidirGroupConstraint {
-    // SR Bidirectional Group Constraints Flags
-    // Flags associated with the SR Bidirectional Group Constraints Flags
-    // Section 5.6.5 of [draft-ietf-idr-bgp-ls-sr-policy]
-    // Each flag is indicated as a bit field. Supported values are:
-    //
-    // SL_BGPLS_TOPO_SR_BIDIR_GROUP_FLAG_REVERSE
-    // Bit-0: R-Flag: This CP of the SR Policy forms the
-    // reverse path when set and otherwise it is the forward path when clear.
-    //
-    // SL_BGPLS_TOPO_SR_BIDIR_GROUP_FLAG_CO_ROUTED
-    // Bit-1: C-Flag: The bidirectional path is co-routed when set.
-    //
-    // All others are reserved.
-    uint32 Flags = 1;
-
-    // The group identifier for a set of bidirectional paths.
-    uint32 GroupId = 2;
-}
-
-enum SLBgplsTopoSrMetricConstraintFlags {
-    // Flags associated with the SR Metric Constraints Flags
-    // Section 5.6.6 of [draft-ietf-idr-bgp-ls-sr-policy]
-    // Each flag is indicated as a bit field. Supported values are:
-
-    // Reserved.
-    SL_BGPLS_TOPO_SR_METRIC_CONSTRAINT_FLAG_RESERVED = 0x0;
-
-    // Bit-0: O-Flag: The optimization metric being
-    // reported for a dynamic CP when set.  This bit MUST NOT be set
-    // in more than one instance of this TLV for a given CP
-    // advertisement.
-    SL_BGPLS_TOPO_SR_METRIC_CONSTRAINT_FLAG_OPTIMIZED = 0x80;
-
-    // Bit-1: M-Flag: The metric margin allowed is specified when set.
-    SL_BGPLS_TOPO_SR_METRIC_CONSTRAINT_FLAG_MARGIN_ALLOWED = 0x40;
-
-    // Bit-2: A-Flag: The metric margin is specified as an
-    // absolute value when set and is expressed as a percentage of the
-    // minimum metric when clear.
-    SL_BGPLS_TOPO_SR_METRIC_CONSTRAINT_FLAG_ABSOLUTE = 0x20;
-
-    // Bit-3: B-Flag: The metric bound allowed for the path is
-    // specified when set.
-    SL_BGPLS_TOPO_SR_METRIC_CONSTRAINT_FLAG_BOUND_ALLOWED = 0x10;
-
-    // All others are reserved.
-}
-
-// SR Metric Contraint. TLV 1215
-// Section 5.6.6 of [draft-ietf-idr-bgp-ls-sr-policy]
-message SLBgplsTopoSrMetricConstraint {
-    // Identifies the type of the metric being used.
-    uint32 Type = 1;
-
-    // SR Metric Constraints Flags
-    // Flags associated with the SR Metric Constraints Flags
-    // Section 5.6.6 of [draft-ietf-idr-bgp-ls-sr-policy]
-    // Each flag is indicated as a bit field. Supported values are:
-    //
-    // SL_BGPLS_TOPO_SR_METRIC_CONSTRAINT_FLAG_OPTIMIZED
-    // Bit-0: O-Flag: The optimization metric being
-    // reported for a dynamic CP when set.  This bit MUST NOT be set
-    // in more than one instance of this TLV for a given CP
-    // advertisement.
-    //
-    // SL_BGPLS_TOPO_SR_METRIC_CONSTRAINT_FLAG_MARGIN_ALLOWED
-    // Bit-1: M-Flag: The metric margin allowed is specified when set.
-    //
-    // SL_BGPLS_TOPO_SR_METRIC_CONSTRAINT_FLAG_ABSOLUTE
-    // Bit-2: A-Flag: The metric margin is specified as an
-    // absolute value when set and is expressed as a percentage of the
-    // minimum metric when clear.
-    //
-    // SL_BGPLS_TOPO_SR_METRIC_CONSTRAINT_FLAG_BOUND_ALLOWED
-    // Bit-3: B-Flag: The metric bound allowed for the path is
-    // specified when set.
-    //
-    // All others are reserved.
-    uint32 Flags = 2;
-
-    // Indicates the metric margin when the Bit-1 is set.
-    // The metric margin is specified as either
-    // an absolute value or as a percentage of the minimum computed path
-    // metric based on the Bit-2.
-    uint32 Margin = 3;
-
-    // Indicates the maximum metric that is allowed when the Bit-3 is set.
-    // If the computed path metric crosses the specified bound value then
-    // the path is considered invalid.
-    uint32 Bound = 4;
-}
-
-// SR Segment List Bandwidth. TLV 1216
-// Section 5.10 of [draft-ietf-idr-bgp-ls-sr-policy]
-message SLBgplsTopoSrCpSegListBandwidthState {
-    // The allocated bandwidth in unit
-    // of bytes per second in IEEE floating point format.
-    bytes Bandwidth = 1;
-}
-
-// SR Segment List Identifier. TLV 1217
-// Section 5.11 of [draft-ietf-idr-bgp-ls-sr-policy]
-message SLBgplsTopoSrSegListId {
-    // The identifier associated with the segment list.
-    uint32 SegListId = 1;
-}
-
-enum SLBgplsTopoSrv6BgpPeerNodeSidFlags {
-    // Flags associated with the SRv6 BGP Peer Node SID Flags
-    // Section 7.2 of [RFC9514]
-    // Each flag is indicated as a bit field. Supported values are:
-
-    // Reserved.
-    SL_BGPLS_TOPO_SRV6_BGP_PEER_NODE_SID_FLAG_RESERVED = 0x0;
-
-    // Bit-0: B-Flag: Backup Flag associated with the SID.
-    SL_BGPLS_TOPO_SRV6_BGP_PEER_NODE_SID_FLAG_BACKUP = 0x80;
-
-    // Bit-1: S-Flag: Set Flag associated with the SID.
-    SL_BGPLS_TOPO_SRV6_BGP_PEER_NODE_SID_FLAG_SET = 0x40;
-
-    // Bit-2: P-Flag: Persistent Flag associated with the SID.
-    SL_BGPLS_TOPO_SRV6_BGP_PEER_NODE_SID_FLAG_PERSISTENT = 0x20;
-
-    // All others are reserved.
-}
-
-// SRv6 BGP Peer Node SID. TLV 1251
-// Section 7.2 of [RFC9514]
-message SLBgplsTopoSrv6BgpPeerNodeSid {
-    // SRv6 BGP Peer Node SID Flags
-    // Flags associated with the SRv6 BGP Peer Node SID Flags
-    // Section 7.2 of [RFC9514]
-    // Each flag is indicated as a bit field. Supported values are:
-    //
-    // SL_BGPLS_TOPO_SRV6_BGP_PEER_NODE_SID_FLAG_BACKUP
-    // Bit-0: B-Flag: Backup Flag associated with the SID.
-    //
-    // SL_BGPLS_TOPO_SRV6_BGP_PEER_NODE_SID_FLAG_SET
-    // Bit-1: S-Flag: Set Flag associated with the SID.
-    //
-    // SL_BGPLS_TOPO_SRV6_BGP_PEER_NODE_SID_FLAG_PERSISTENT
-    // Bit-2: P-Flag: Persistent Flag associated with the SID.
-    //
-    // All others are reserved.
-    uint32 Flags = 1;
-
-    // Weight used for load balancing purposes
-    uint32 Weight = 2;
-
-    // Autonomous system of peer
-    uint32 PeerAS = 3;
-
-    // BGP Router ID of peer
-    bytes PeerBgpId = 4;
 }
 
 // Unknown Attribute.
