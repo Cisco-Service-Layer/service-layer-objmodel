@@ -14,8 +14,6 @@
 syntax = "proto3";
 package service_layer;
 
-import "sl_common_types.proto";
-
 option go_package="github.com/Cisco-service-layer/service-layer-objmodel/grpc/protos;service_layer";
 
 // @defgroup SLSrCommonTypes
@@ -151,26 +149,38 @@ message SLSrSegmentDesc {
     uint32 Algorithm = 1;
 
     // Carries info about local node address.
-    SLIpAddress LocalNode = 2;
+    oneof LocalNode {
+        // This field carries info about an IPv4 local node address.
+        bytes Ipv4LocalAddr = 2;
+
+        // This field carries info about an IPv6 local node address.
+        bytes Ipv6LocalAddr = 3;
+    }
 
     // Carries info about remote node address.
-    SLIpAddress RemoteNode = 3;
+    oneof RemoteNode {
+        // This field carries info about an IPv4 remote node address.
+        bytes Ipv4RemoteAddr = 4;
+
+        // This field carries info about an IPv6 remote node address.
+        bytes Ipv6RemoteAddr = 5;
+    }
 
     // Carries info about IPv6 local node global address.
-    bytes Ipv6LocalNodeGlobalAddr = 4;
+    bytes Ipv6LocalNodeGlobalAddr = 6;
 
     // Carries info about IPv6 remote node global address.
-    bytes Ipv6RemoteNodeGlobalAddr = 5;
+    bytes Ipv6RemoteNodeGlobalAddr = 7;
 
     // Carries the interface ID of the local node identified by the
     // local node address.
     // Section 5.8.1 of [draft-ietf-idr-bgp-ls-sr-policy]
-    uint32 LocalNodeIntfId = 6;
+    uint32 LocalNodeIntfId = 8;
 
     // Carries the interface ID of the remote node identified by
     // the remote node address.
     // Section 5.8.1 of [draft-ietf-idr-bgp-ls-sr-policy]
-    uint32 RemoteNodeIntfId = 7;
+    uint32 RemoteNodeIntfId = 9;
 }
 
 enum SLSrSegmentFlags {

@@ -439,27 +439,39 @@ message SLBgplsTopoSrPolicyDescr {
     // Address of the endpoint of the SR Policy.
     // Endpoint. TLV 554.
     // Section 4 of [draft-ietf-idr-bgp-ls-sr-policy]
-    SLIpAddress Endpoint = 3;
+    oneof EndpointAddress {
+        // This field carries info about an IPv4 endpoint address.
+        bytes Ipv4EndAddr = 3;
+
+        // This field carries info about an IPv6 endpoint address.
+        bytes Ipv6EndAddr = 4;
+    }
 
     // Color of the SR Policy.
     // Policy Color. TLV 554.
     // Section 4 of [draft-ietf-idr-bgp-ls-sr-policy]
-    uint32 Color = 4;
+    uint32 Color = 5;
 
     // 4-byte encoding of the ASN of the originator.
     // Originator AS Number. TLV 554.
     // Section 4 of [draft-ietf-idr-bgp-ls-sr-policy]
-    uint32 OriginAsn = 5;
+    uint32 OriginAsn = 6;
 
     // Address of the originator.
     // Originator Address. TLV 554.
     // Section 4 of [draft-ietf-idr-bgp-ls-sr-policy]
-    SLIpAddress Originator = 6;
+    oneof OriginatorAddress {
+        // This field carries info about an IPv4 originator address.
+        bytes Ipv4OrigAddr = 7;
+
+        // This field carries info about an IPv6 originator address.
+        bytes Ipv6OrigAddr = 8;
+    }
 
     // Discriminator of the path.
     // Discriminator. TLV 554.
     // Section 4 of [draft-ietf-idr-bgp-ls-sr-policy]
-    uint32 Discriminator = 7;
+    uint32 Discriminator = 9;
 }
 
 //
@@ -2410,6 +2422,10 @@ message SLBgplsTopoSrSegList {
     // SR Segment. TLV 1206
     // Section 5.8 of [draft-ietf-idr-bgp-ls-sr-policy]
     repeated SLSrSegment Segments = 5;
+
+    // SR Segment List Metric. TLV 1207
+    // Section 5.9 of [draft-ietf-idr-bgp-ls-sr-policy]
+    repeated SLBgplsSrSegListMetric Metrics = 6; 
 }
 
 enum SLBgplsTopoSrSegListMetricFlags {
