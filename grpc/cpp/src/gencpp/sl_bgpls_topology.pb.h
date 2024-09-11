@@ -64,9 +64,6 @@ extern SLBgpLsTopoNeighborIdDefaultTypeInternal _SLBgpLsTopoNeighborId_default_i
 class SLBgplsNodeName;
 struct SLBgplsNodeNameDefaultTypeInternal;
 extern SLBgplsNodeNameDefaultTypeInternal _SLBgplsNodeName_default_instance_;
-class SLBgplsSrSegListMetric;
-struct SLBgplsSrSegListMetricDefaultTypeInternal;
-extern SLBgplsSrSegListMetricDefaultTypeInternal _SLBgplsSrSegListMetric_default_instance_;
 class SLBgplsTopoAdjSid;
 struct SLBgplsTopoAdjSidDefaultTypeInternal;
 extern SLBgplsTopoAdjSidDefaultTypeInternal _SLBgplsTopoAdjSid_default_instance_;
@@ -322,6 +319,9 @@ extern SLBgplsTopoSrSegListDefaultTypeInternal _SLBgplsTopoSrSegList_default_ins
 class SLBgplsTopoSrSegListId;
 struct SLBgplsTopoSrSegListIdDefaultTypeInternal;
 extern SLBgplsTopoSrSegListIdDefaultTypeInternal _SLBgplsTopoSrSegListId_default_instance_;
+class SLBgplsTopoSrSegListMetric;
+struct SLBgplsTopoSrSegListMetricDefaultTypeInternal;
+extern SLBgplsTopoSrSegListMetricDefaultTypeInternal _SLBgplsTopoSrSegListMetric_default_instance_;
 class SLBgplsTopoSrSrlgConstraints;
 struct SLBgplsTopoSrSrlgConstraintsDefaultTypeInternal;
 extern SLBgplsTopoSrSrlgConstraintsDefaultTypeInternal _SLBgplsTopoSrSrlgConstraints_default_instance_;
@@ -389,7 +389,6 @@ extern SLBplsTopoLinkLocRemIdDefaultTypeInternal _SLBplsTopoLinkLocRemId_default
 PROTOBUF_NAMESPACE_OPEN
 template<> ::service_layer::SLBgpLsTopoNeighborId* Arena::CreateMaybeMessage<::service_layer::SLBgpLsTopoNeighborId>(Arena*);
 template<> ::service_layer::SLBgplsNodeName* Arena::CreateMaybeMessage<::service_layer::SLBgplsNodeName>(Arena*);
-template<> ::service_layer::SLBgplsSrSegListMetric* Arena::CreateMaybeMessage<::service_layer::SLBgplsSrSegListMetric>(Arena*);
 template<> ::service_layer::SLBgplsTopoAdjSid* Arena::CreateMaybeMessage<::service_layer::SLBgplsTopoAdjSid>(Arena*);
 template<> ::service_layer::SLBgplsTopoAdminGroup* Arena::CreateMaybeMessage<::service_layer::SLBgplsTopoAdminGroup>(Arena*);
 template<> ::service_layer::SLBgplsTopoAslaAttr* Arena::CreateMaybeMessage<::service_layer::SLBgplsTopoAslaAttr>(Arena*);
@@ -475,6 +474,7 @@ template<> ::service_layer::SLBgplsTopoSrPolicyName* Arena::CreateMaybeMessage<:
 template<> ::service_layer::SLBgplsTopoSrPolicyNodeId* Arena::CreateMaybeMessage<::service_layer::SLBgplsTopoSrPolicyNodeId>(Arena*);
 template<> ::service_layer::SLBgplsTopoSrSegList* Arena::CreateMaybeMessage<::service_layer::SLBgplsTopoSrSegList>(Arena*);
 template<> ::service_layer::SLBgplsTopoSrSegListId* Arena::CreateMaybeMessage<::service_layer::SLBgplsTopoSrSegListId>(Arena*);
+template<> ::service_layer::SLBgplsTopoSrSegListMetric* Arena::CreateMaybeMessage<::service_layer::SLBgplsTopoSrSegListMetric>(Arena*);
 template<> ::service_layer::SLBgplsTopoSrSrlgConstraints* Arena::CreateMaybeMessage<::service_layer::SLBgplsTopoSrSrlgConstraints>(Arena*);
 template<> ::service_layer::SLBgplsTopoSrgb* Arena::CreateMaybeMessage<::service_layer::SLBgplsTopoSrgb>(Arena*);
 template<> ::service_layer::SLBgplsTopoSrgbIsisFlags* Arena::CreateMaybeMessage<::service_layer::SLBgplsTopoSrgbIsisFlags>(Arena*);
@@ -19768,22 +19768,22 @@ class SLBgplsTopoSrSegList final :
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::service_layer::SLSrSegment >&
       segments() const;
 
-  // repeated .service_layer.SLBgplsSrSegListMetric Metrics = 6;
+  // repeated .service_layer.SLBgplsTopoSrSegListMetric Metrics = 6;
   int metrics_size() const;
   private:
   int _internal_metrics_size() const;
   public:
   void clear_metrics();
-  ::service_layer::SLBgplsSrSegListMetric* mutable_metrics(int index);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::service_layer::SLBgplsSrSegListMetric >*
+  ::service_layer::SLBgplsTopoSrSegListMetric* mutable_metrics(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::service_layer::SLBgplsTopoSrSegListMetric >*
       mutable_metrics();
   private:
-  const ::service_layer::SLBgplsSrSegListMetric& _internal_metrics(int index) const;
-  ::service_layer::SLBgplsSrSegListMetric* _internal_add_metrics();
+  const ::service_layer::SLBgplsTopoSrSegListMetric& _internal_metrics(int index) const;
+  ::service_layer::SLBgplsTopoSrSegListMetric* _internal_add_metrics();
   public:
-  const ::service_layer::SLBgplsSrSegListMetric& metrics(int index) const;
-  ::service_layer::SLBgplsSrSegListMetric* add_metrics();
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::service_layer::SLBgplsSrSegListMetric >&
+  const ::service_layer::SLBgplsTopoSrSegListMetric& metrics(int index) const;
+  ::service_layer::SLBgplsTopoSrSegListMetric* add_metrics();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::service_layer::SLBgplsTopoSrSegListMetric >&
       metrics() const;
 
   // uint32 Flags = 1;
@@ -19830,7 +19830,7 @@ class SLBgplsTopoSrSegList final :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::service_layer::SLSrSegment > segments_;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::service_layer::SLBgplsSrSegListMetric > metrics_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::service_layer::SLBgplsTopoSrSegListMetric > metrics_;
   uint32_t flags_;
   uint32_t mtid_;
   uint32_t algorithm_;
@@ -19840,24 +19840,24 @@ class SLBgplsTopoSrSegList final :
 };
 // -------------------------------------------------------------------
 
-class SLBgplsSrSegListMetric final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:service_layer.SLBgplsSrSegListMetric) */ {
+class SLBgplsTopoSrSegListMetric final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:service_layer.SLBgplsTopoSrSegListMetric) */ {
  public:
-  inline SLBgplsSrSegListMetric() : SLBgplsSrSegListMetric(nullptr) {}
-  ~SLBgplsSrSegListMetric() override;
-  explicit constexpr SLBgplsSrSegListMetric(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+  inline SLBgplsTopoSrSegListMetric() : SLBgplsTopoSrSegListMetric(nullptr) {}
+  ~SLBgplsTopoSrSegListMetric() override;
+  explicit constexpr SLBgplsTopoSrSegListMetric(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
 
-  SLBgplsSrSegListMetric(const SLBgplsSrSegListMetric& from);
-  SLBgplsSrSegListMetric(SLBgplsSrSegListMetric&& from) noexcept
-    : SLBgplsSrSegListMetric() {
+  SLBgplsTopoSrSegListMetric(const SLBgplsTopoSrSegListMetric& from);
+  SLBgplsTopoSrSegListMetric(SLBgplsTopoSrSegListMetric&& from) noexcept
+    : SLBgplsTopoSrSegListMetric() {
     *this = ::std::move(from);
   }
 
-  inline SLBgplsSrSegListMetric& operator=(const SLBgplsSrSegListMetric& from) {
+  inline SLBgplsTopoSrSegListMetric& operator=(const SLBgplsTopoSrSegListMetric& from) {
     CopyFrom(from);
     return *this;
   }
-  inline SLBgplsSrSegListMetric& operator=(SLBgplsSrSegListMetric&& from) noexcept {
+  inline SLBgplsTopoSrSegListMetric& operator=(SLBgplsTopoSrSegListMetric&& from) noexcept {
     if (this == &from) return *this;
     if (GetOwningArena() == from.GetOwningArena()
   #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
@@ -19880,20 +19880,20 @@ class SLBgplsSrSegListMetric final :
   static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
-  static const SLBgplsSrSegListMetric& default_instance() {
+  static const SLBgplsTopoSrSegListMetric& default_instance() {
     return *internal_default_instance();
   }
-  static inline const SLBgplsSrSegListMetric* internal_default_instance() {
-    return reinterpret_cast<const SLBgplsSrSegListMetric*>(
-               &_SLBgplsSrSegListMetric_default_instance_);
+  static inline const SLBgplsTopoSrSegListMetric* internal_default_instance() {
+    return reinterpret_cast<const SLBgplsTopoSrSegListMetric*>(
+               &_SLBgplsTopoSrSegListMetric_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
     97;
 
-  friend void swap(SLBgplsSrSegListMetric& a, SLBgplsSrSegListMetric& b) {
+  friend void swap(SLBgplsTopoSrSegListMetric& a, SLBgplsTopoSrSegListMetric& b) {
     a.Swap(&b);
   }
-  inline void Swap(SLBgplsSrSegListMetric* other) {
+  inline void Swap(SLBgplsTopoSrSegListMetric* other) {
     if (other == this) return;
   #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
     if (GetOwningArena() != nullptr &&
@@ -19906,7 +19906,7 @@ class SLBgplsSrSegListMetric final :
       ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
     }
   }
-  void UnsafeArenaSwap(SLBgplsSrSegListMetric* other) {
+  void UnsafeArenaSwap(SLBgplsTopoSrSegListMetric* other) {
     if (other == this) return;
     GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
     InternalSwap(other);
@@ -19914,13 +19914,13 @@ class SLBgplsSrSegListMetric final :
 
   // implements Message ----------------------------------------------
 
-  SLBgplsSrSegListMetric* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
-    return CreateMaybeMessage<SLBgplsSrSegListMetric>(arena);
+  SLBgplsTopoSrSegListMetric* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<SLBgplsTopoSrSegListMetric>(arena);
   }
   using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const SLBgplsSrSegListMetric& from);
+  void CopyFrom(const SLBgplsTopoSrSegListMetric& from);
   using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom(const SLBgplsSrSegListMetric& from);
+  void MergeFrom(const SLBgplsTopoSrSegListMetric& from);
   private:
   static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to, const ::PROTOBUF_NAMESPACE_ID::Message& from);
   public:
@@ -19937,15 +19937,15 @@ class SLBgplsSrSegListMetric final :
   void SharedCtor();
   void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(SLBgplsSrSegListMetric* other);
+  void InternalSwap(SLBgplsTopoSrSegListMetric* other);
 
   private:
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "service_layer.SLBgplsSrSegListMetric";
+    return "service_layer.SLBgplsTopoSrSegListMetric";
   }
   protected:
-  explicit SLBgplsSrSegListMetric(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+  explicit SLBgplsTopoSrSegListMetric(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                        bool is_message_owned = false);
   private:
   static void ArenaDtor(void* object);
@@ -20013,7 +20013,7 @@ class SLBgplsSrSegListMetric final :
   void _internal_set_value(uint32_t value);
   public:
 
-  // @@protoc_insertion_point(class_scope:service_layer.SLBgplsSrSegListMetric)
+  // @@protoc_insertion_point(class_scope:service_layer.SLBgplsTopoSrSegListMetric)
  private:
   class _Internal;
 
@@ -40380,7 +40380,7 @@ SLBgplsTopoSrSegList::segments() const {
   return segments_;
 }
 
-// repeated .service_layer.SLBgplsSrSegListMetric Metrics = 6;
+// repeated .service_layer.SLBgplsTopoSrSegListMetric Metrics = 6;
 inline int SLBgplsTopoSrSegList::_internal_metrics_size() const {
   return metrics_.size();
 }
@@ -40390,31 +40390,31 @@ inline int SLBgplsTopoSrSegList::metrics_size() const {
 inline void SLBgplsTopoSrSegList::clear_metrics() {
   metrics_.Clear();
 }
-inline ::service_layer::SLBgplsSrSegListMetric* SLBgplsTopoSrSegList::mutable_metrics(int index) {
+inline ::service_layer::SLBgplsTopoSrSegListMetric* SLBgplsTopoSrSegList::mutable_metrics(int index) {
   // @@protoc_insertion_point(field_mutable:service_layer.SLBgplsTopoSrSegList.Metrics)
   return metrics_.Mutable(index);
 }
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::service_layer::SLBgplsSrSegListMetric >*
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::service_layer::SLBgplsTopoSrSegListMetric >*
 SLBgplsTopoSrSegList::mutable_metrics() {
   // @@protoc_insertion_point(field_mutable_list:service_layer.SLBgplsTopoSrSegList.Metrics)
   return &metrics_;
 }
-inline const ::service_layer::SLBgplsSrSegListMetric& SLBgplsTopoSrSegList::_internal_metrics(int index) const {
+inline const ::service_layer::SLBgplsTopoSrSegListMetric& SLBgplsTopoSrSegList::_internal_metrics(int index) const {
   return metrics_.Get(index);
 }
-inline const ::service_layer::SLBgplsSrSegListMetric& SLBgplsTopoSrSegList::metrics(int index) const {
+inline const ::service_layer::SLBgplsTopoSrSegListMetric& SLBgplsTopoSrSegList::metrics(int index) const {
   // @@protoc_insertion_point(field_get:service_layer.SLBgplsTopoSrSegList.Metrics)
   return _internal_metrics(index);
 }
-inline ::service_layer::SLBgplsSrSegListMetric* SLBgplsTopoSrSegList::_internal_add_metrics() {
+inline ::service_layer::SLBgplsTopoSrSegListMetric* SLBgplsTopoSrSegList::_internal_add_metrics() {
   return metrics_.Add();
 }
-inline ::service_layer::SLBgplsSrSegListMetric* SLBgplsTopoSrSegList::add_metrics() {
-  ::service_layer::SLBgplsSrSegListMetric* _add = _internal_add_metrics();
+inline ::service_layer::SLBgplsTopoSrSegListMetric* SLBgplsTopoSrSegList::add_metrics() {
+  ::service_layer::SLBgplsTopoSrSegListMetric* _add = _internal_add_metrics();
   // @@protoc_insertion_point(field_add:service_layer.SLBgplsTopoSrSegList.Metrics)
   return _add;
 }
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::service_layer::SLBgplsSrSegListMetric >&
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::service_layer::SLBgplsTopoSrSegListMetric >&
 SLBgplsTopoSrSegList::metrics() const {
   // @@protoc_insertion_point(field_list:service_layer.SLBgplsTopoSrSegList.Metrics)
   return metrics_;
@@ -40422,106 +40422,106 @@ SLBgplsTopoSrSegList::metrics() const {
 
 // -------------------------------------------------------------------
 
-// SLBgplsSrSegListMetric
+// SLBgplsTopoSrSegListMetric
 
 // uint32 Type = 1;
-inline void SLBgplsSrSegListMetric::clear_type() {
+inline void SLBgplsTopoSrSegListMetric::clear_type() {
   type_ = 0u;
 }
-inline uint32_t SLBgplsSrSegListMetric::_internal_type() const {
+inline uint32_t SLBgplsTopoSrSegListMetric::_internal_type() const {
   return type_;
 }
-inline uint32_t SLBgplsSrSegListMetric::type() const {
-  // @@protoc_insertion_point(field_get:service_layer.SLBgplsSrSegListMetric.Type)
+inline uint32_t SLBgplsTopoSrSegListMetric::type() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLBgplsTopoSrSegListMetric.Type)
   return _internal_type();
 }
-inline void SLBgplsSrSegListMetric::_internal_set_type(uint32_t value) {
+inline void SLBgplsTopoSrSegListMetric::_internal_set_type(uint32_t value) {
   
   type_ = value;
 }
-inline void SLBgplsSrSegListMetric::set_type(uint32_t value) {
+inline void SLBgplsTopoSrSegListMetric::set_type(uint32_t value) {
   _internal_set_type(value);
-  // @@protoc_insertion_point(field_set:service_layer.SLBgplsSrSegListMetric.Type)
+  // @@protoc_insertion_point(field_set:service_layer.SLBgplsTopoSrSegListMetric.Type)
 }
 
 // uint32 Flags = 2;
-inline void SLBgplsSrSegListMetric::clear_flags() {
+inline void SLBgplsTopoSrSegListMetric::clear_flags() {
   flags_ = 0u;
 }
-inline uint32_t SLBgplsSrSegListMetric::_internal_flags() const {
+inline uint32_t SLBgplsTopoSrSegListMetric::_internal_flags() const {
   return flags_;
 }
-inline uint32_t SLBgplsSrSegListMetric::flags() const {
-  // @@protoc_insertion_point(field_get:service_layer.SLBgplsSrSegListMetric.Flags)
+inline uint32_t SLBgplsTopoSrSegListMetric::flags() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLBgplsTopoSrSegListMetric.Flags)
   return _internal_flags();
 }
-inline void SLBgplsSrSegListMetric::_internal_set_flags(uint32_t value) {
+inline void SLBgplsTopoSrSegListMetric::_internal_set_flags(uint32_t value) {
   
   flags_ = value;
 }
-inline void SLBgplsSrSegListMetric::set_flags(uint32_t value) {
+inline void SLBgplsTopoSrSegListMetric::set_flags(uint32_t value) {
   _internal_set_flags(value);
-  // @@protoc_insertion_point(field_set:service_layer.SLBgplsSrSegListMetric.Flags)
+  // @@protoc_insertion_point(field_set:service_layer.SLBgplsTopoSrSegListMetric.Flags)
 }
 
 // uint32 Margin = 3;
-inline void SLBgplsSrSegListMetric::clear_margin() {
+inline void SLBgplsTopoSrSegListMetric::clear_margin() {
   margin_ = 0u;
 }
-inline uint32_t SLBgplsSrSegListMetric::_internal_margin() const {
+inline uint32_t SLBgplsTopoSrSegListMetric::_internal_margin() const {
   return margin_;
 }
-inline uint32_t SLBgplsSrSegListMetric::margin() const {
-  // @@protoc_insertion_point(field_get:service_layer.SLBgplsSrSegListMetric.Margin)
+inline uint32_t SLBgplsTopoSrSegListMetric::margin() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLBgplsTopoSrSegListMetric.Margin)
   return _internal_margin();
 }
-inline void SLBgplsSrSegListMetric::_internal_set_margin(uint32_t value) {
+inline void SLBgplsTopoSrSegListMetric::_internal_set_margin(uint32_t value) {
   
   margin_ = value;
 }
-inline void SLBgplsSrSegListMetric::set_margin(uint32_t value) {
+inline void SLBgplsTopoSrSegListMetric::set_margin(uint32_t value) {
   _internal_set_margin(value);
-  // @@protoc_insertion_point(field_set:service_layer.SLBgplsSrSegListMetric.Margin)
+  // @@protoc_insertion_point(field_set:service_layer.SLBgplsTopoSrSegListMetric.Margin)
 }
 
 // uint32 Bound = 4;
-inline void SLBgplsSrSegListMetric::clear_bound() {
+inline void SLBgplsTopoSrSegListMetric::clear_bound() {
   bound_ = 0u;
 }
-inline uint32_t SLBgplsSrSegListMetric::_internal_bound() const {
+inline uint32_t SLBgplsTopoSrSegListMetric::_internal_bound() const {
   return bound_;
 }
-inline uint32_t SLBgplsSrSegListMetric::bound() const {
-  // @@protoc_insertion_point(field_get:service_layer.SLBgplsSrSegListMetric.Bound)
+inline uint32_t SLBgplsTopoSrSegListMetric::bound() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLBgplsTopoSrSegListMetric.Bound)
   return _internal_bound();
 }
-inline void SLBgplsSrSegListMetric::_internal_set_bound(uint32_t value) {
+inline void SLBgplsTopoSrSegListMetric::_internal_set_bound(uint32_t value) {
   
   bound_ = value;
 }
-inline void SLBgplsSrSegListMetric::set_bound(uint32_t value) {
+inline void SLBgplsTopoSrSegListMetric::set_bound(uint32_t value) {
   _internal_set_bound(value);
-  // @@protoc_insertion_point(field_set:service_layer.SLBgplsSrSegListMetric.Bound)
+  // @@protoc_insertion_point(field_set:service_layer.SLBgplsTopoSrSegListMetric.Bound)
 }
 
 // uint32 Value = 5;
-inline void SLBgplsSrSegListMetric::clear_value() {
+inline void SLBgplsTopoSrSegListMetric::clear_value() {
   value_ = 0u;
 }
-inline uint32_t SLBgplsSrSegListMetric::_internal_value() const {
+inline uint32_t SLBgplsTopoSrSegListMetric::_internal_value() const {
   return value_;
 }
-inline uint32_t SLBgplsSrSegListMetric::value() const {
-  // @@protoc_insertion_point(field_get:service_layer.SLBgplsSrSegListMetric.Value)
+inline uint32_t SLBgplsTopoSrSegListMetric::value() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLBgplsTopoSrSegListMetric.Value)
   return _internal_value();
 }
-inline void SLBgplsSrSegListMetric::_internal_set_value(uint32_t value) {
+inline void SLBgplsTopoSrSegListMetric::_internal_set_value(uint32_t value) {
   
   value_ = value;
 }
-inline void SLBgplsSrSegListMetric::set_value(uint32_t value) {
+inline void SLBgplsTopoSrSegListMetric::set_value(uint32_t value) {
   _internal_set_value(value);
-  // @@protoc_insertion_point(field_set:service_layer.SLBgplsSrSegListMetric.Value)
+  // @@protoc_insertion_point(field_set:service_layer.SLBgplsTopoSrSegListMetric.Value)
 }
 
 // -------------------------------------------------------------------

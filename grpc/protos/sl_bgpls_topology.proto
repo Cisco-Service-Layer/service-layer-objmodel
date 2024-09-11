@@ -2425,7 +2425,7 @@ message SLBgplsTopoSrSegList {
 
     // SR Segment List Metric. TLV 1207
     // Section 5.9 of [draft-ietf-idr-bgp-ls-sr-policy]
-    repeated SLBgplsSrSegListMetric Metrics = 6; 
+    repeated SLBgplsTopoSrSegListMetric Metrics = 6; 
 }
 
 enum SLBgplsTopoSrSegListMetricFlags {
@@ -2456,7 +2456,7 @@ enum SLBgplsTopoSrSegListMetricFlags {
 
 // SR Segment List Metric. TLV 1207
 // Section 5.9 of [draft-ietf-idr-bgp-ls-sr-policy]
-message SLBgplsSrSegListMetric {
+message SLBgplsTopoSrSegListMetric {
     // Identifies the type of metric.
     uint32 Type = 1;
 
