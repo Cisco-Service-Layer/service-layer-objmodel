@@ -27,71 +27,69 @@ namespace ServiceLayer {
             "ChJzbF9zcl9jb21tb24ucHJvdG8SDXNlcnZpY2VfbGF5ZXIiIAoPU0xTclBv",
             "bGljeUZsYWdzEg0KBUZsYWdzGAEgASgNIkAKCFNMU3JCc2lkEhIKCE1wbHNC",
             "c2lkGAEgASgNSAASEgoIU3J2NkJzaWQYAiABKAxIAEIMCgpCaW5kaW5nU2lk",
-            "IhoKClNMU3JDcE5hbWUSDAoETmFtZRgBIAEoCSKbAgoPU0xTclNlZ21lbnRE",
+            "IhoKClNMU3JDcE5hbWUSDAoETmFtZRgBIAEoCSLYAQoPU0xTclNlZ21lbnRE",
             "ZXNjEhEKCUFsZ29yaXRobRgBIAEoDRIXCg1JcHY0TG9jYWxBZGRyGAIgASgM",
             "SAASFwoNSXB2NkxvY2FsQWRkchgDIAEoDEgAEhgKDklwdjRSZW1vdGVBZGRy",
-            "GAQgASgMSAESGAoOSXB2NlJlbW90ZUFkZHIYBSABKAxIARIfChdJcHY2TG9j",
-            "YWxOb2RlR2xvYmFsQWRkchgGIAEoDBIgChhJcHY2UmVtb3RlTm9kZUdsb2Jh",
-            "bEFkZHIYByABKAwSFwoPTG9jYWxOb2RlSW50ZklkGAggASgNEhgKEFJlbW90",
-            "ZU5vZGVJbnRmSWQYCSABKA1CCwoJTG9jYWxOb2RlQgwKClJlbW90ZU5vZGUi",
-            "owIKC1NMU3JTZWdtZW50EiwKBFR5cGUYASABKA4yHi5zZXJ2aWNlX2xheWVy",
-            "LlNMU3JTZWdtZW50VHlwZRINCgVGbGFncxgCIAEoDRITCglNcGxzTGFiZWwY",
-            "AyABKA1IABIRCgdTcnY2U2lkGAQgASgMSAASMwoLU2VnbWVudERlc2MYBSAB",
-            "KAsyHi5zZXJ2aWNlX2xheWVyLlNMU3JTZWdtZW50RGVzYxJAChFFbmRQb2lu",
-            "dEJlaGF2aW91chgGIAEoCzIlLnNlcnZpY2VfbGF5ZXIuU0xTcnY2RW5kUG9p",
-            "bnRCZWhhdmlvchIxCglTaWRTdHJ1Y3QYByABKAsyHi5zZXJ2aWNlX2xheWVy",
-            "LlNMU3J2NlNpZFN0cnVjdEIFCgNTaWQiugEKEFNMU3J2NkJpbmRpbmdTaWQS",
-            "DQoFRmxhZ3MYASABKA0SDAoEQnNpZBgCIAEoDBIVCg1TcGVjaWZpZWRCc2lk",
-            "GAMgASgMEj8KEEVuZFBvaW50QmVoYXZpb3IYBCABKAsyJS5zZXJ2aWNlX2xh",
-            "eWVyLlNMU3J2NkVuZFBvaW50QmVoYXZpb3ISMQoJU2lkU3RydWN0GAUgASgL",
-            "Mh4uc2VydmljZV9sYXllci5TTFNydjZTaWRTdHJ1Y3QiVAoWU0xTcnY2RW5k",
-            "UG9pbnRCZWhhdmlvchIYChBFbmRQb2ludEJlaGF2aW9yGAEgASgNEg0KBUZs",
-            "YWdzGAIgASgNEhEKCUFsZ29yaXRobRgDIAEoDSJnCg9TTFNydjZTaWRTdHJ1",
-            "Y3QSFwoPTG9jYXRvckJsb2NrTGVuGAEgASgNEhYKDkxvY2F0b3JOb2RlTGVu",
-            "GAIgASgNEhMKC0Z1bmN0aW9uTGVuGAMgASgNEg4KBkFyZ0xlbhgEIAEoDSqP",
-            "AwoYU0xTclBvbGljeVByb3RvY29sT3JpZ2luEikKJVNMX1NSX1BPTElDWV9Q",
-            "Uk9UT0NPTF9PUklHSU5fUkVTRVJWRUQQABIlCiFTTF9TUl9QT0xJQ1lfUFJP",
-            "VE9DT0xfT1JJR0lOX1BDRVAQARIuCipTTF9TUl9QT0xJQ1lfUFJPVE9DT0xf",
-            "T1JJR0lOX0JHUF9TUl9QT0xJQ1kQAhInCiNTTF9TUl9QT0xJQ1lfUFJPVE9D",
-            "T0xfT1JJR0lOX0NPTkZJRxADEi0KKVNMX1NSX1BPTElDWV9QUk9UT0NPTF9P",
-            "UklHSU5fUENFUF9WSUFfUENFEAoSNgoyU0xfU1JfUE9MSUNZX1BST1RPQ09M",
-            "X09SSUdJTl9CR1BfU1JfUE9MSUNZX1ZJQV9QQ0UQFBIvCitTTF9TUl9QT0xJ",
-            "Q1lfUFJPVE9DT0xfT1JJR0lOX0NPTkZJR19WSUFfUENFEB4SMAosU0xfU1Jf",
-            "UE9MSUNZX1BST1RPQ09MX09SSUdJTl9DT05GSUdfVklBX0dSUEMQKCp9ChJT",
-            "TFNyUG9saWN5RmxhZ3NEZWYSHgoaU0xfU1JfUE9MSUNZX0ZMQUdfUkVTRVJW",
-            "RUQQABIiCh1TTF9TUl9QT0xJQ1lfRkxBR19FTkRQT0lOVF9WNhCAARIjCh9T",
-            "TF9TUl9QT0xJQ1lfRkxBR19PUklHSU5BVE9SX1Y2EEAqmwQKD1NMU3JTZWdt",
-            "ZW50VHlwZRIbChdTTF9TUl9TRUdfVFlQRV9SRVNFUlZFRBAAEh0KGVNMX1NS",
-            "X1NFR19UWVBFX01QTFNfTEFCRUwQARIeChpTTF9TUl9TRUdfVFlQRV9TUlY2",
-            "X1NJRF9WNhACEiIKHlNMX1NSX1NFR19UWVBFX01QTFNfUEZYX1NJRF9WNBAD",
-            "EiIKHlNMX1NSX1NFR19UWVBFX01QTFNfUEZYX1NJRF9WNhAEEjMKL1NMX1NS",
-            "X1NFR19UWVBFX01QTFNfQURKX1NJRF9WNF9OT0RFX0FERFJfTE9DX0lEEAUS",
-            "LworU0xfU1JfU0VHX1RZUEVfTVBMU19BREpfU0lEX1Y0X0xPQ19SRU1fQURE",
-            "UhAGEjYKMlNMX1NSX1NFR19UWVBFX01QTFNfQURKX1NJRF9WNl9MT0NfUkVN",
-            "X0FERFJfQU5EX0lEEAcSLworU0xfU1JfU0VHX1RZUEVfTVBMU19BREpfU0lE",
-            "X1Y2X0xPQ19SRU1fQUREUhAIEiwKKFNMX1NSX1NFR19UWVBFX1NSVjZfRU5E",
-            "X1NJRF9WNl9OT0RFX0FERFIQCRI2CjJTTF9TUl9TRUdfVFlQRV9TUlY2X0VO",
-            "RF9TSURfVjZfTE9DX1JFTV9BRERSX0FORF9JRBAKEi8KK1NMX1NSX1NFR19U",
-            "WVBFX1NSVjZfRU5EX1NJRF9WNl9MT0NfUkVNX0FERFIQCyqAAgoQU0xTclNl",
-            "Z21lbnRGbGFncxIfChtTTF9TUl9TRUdNRU5UX0ZMQUdfUkVTRVJWRUQQABIk",
-            "Ch5TTF9TUl9TRUdNRU5UX0ZMQUdfU0lEX1BSRVNFTlQQgIACEjEKK1NMX1NS",
-            "X1NFR01FTlRfRkxBR19TSURfRVhQTElDSVRfUFJPVklTSU9ORUQQgIABEiQK",
-            "H1NMX1NSX1NFR01FTlRfRkxBR19TSURfVkVSSUZJRUQQgEASJAofU0xfU1Jf",
-            "U0VHTUVOVF9GTEFHX1NJRF9SRVNPTFZFRBCAIBImCiFTTF9TUl9TRUdNRU5U",
-            "X0ZMQUdfU0lEX0FMR09fVkFMSUQQgBAqmwEKFVNMU3J2NkJpbmRpbmdTaWRG",
-            "bGFncxIeChpTTF9TUlY2X0JTSURfRkxBR19SRVNFUlZFRBAAEiEKG1NMX1NS",
-            "VjZfQlNJRF9GTEFHX0FMTE9DQVRFRBCAgAISHwoZU0xfU1JWNl9CU0lEX0ZM",
-            "QUdfVU5BVkFJTBCAgAESHgoZU0xfU1JWNl9CU0lEX0ZMQUdfRFlOQU1JQxCA",
-            "QEJRWk9naXRodWIuY29tL0Npc2NvLXNlcnZpY2UtbGF5ZXIvc2VydmljZS1s",
-            "YXllci1vYmptb2RlbC9ncnBjL3Byb3RvcztzZXJ2aWNlX2xheWVyYgZwcm90",
-            "bzM="));
+            "GAQgASgMSAESGAoOSXB2NlJlbW90ZUFkZHIYBSABKAxIARIXCg9Mb2NhbE5v",
+            "ZGVJbnRmSWQYBiABKA0SGAoQUmVtb3RlTm9kZUludGZJZBgHIAEoDUILCglM",
+            "b2NhbE5vZGVCDAoKUmVtb3RlTm9kZSKjAgoLU0xTclNlZ21lbnQSLAoEVHlw",
+            "ZRgBIAEoDjIeLnNlcnZpY2VfbGF5ZXIuU0xTclNlZ21lbnRUeXBlEg0KBUZs",
+            "YWdzGAIgASgNEhMKCU1wbHNMYWJlbBgDIAEoDUgAEhEKB1NydjZTaWQYBCAB",
+            "KAxIABIzCgtTZWdtZW50RGVzYxgFIAEoCzIeLnNlcnZpY2VfbGF5ZXIuU0xT",
+            "clNlZ21lbnREZXNjEkAKEUVuZFBvaW50QmVoYXZpb3VyGAYgASgLMiUuc2Vy",
+            "dmljZV9sYXllci5TTFNydjZFbmRQb2ludEJlaGF2aW9yEjEKCVNpZFN0cnVj",
+            "dBgHIAEoCzIeLnNlcnZpY2VfbGF5ZXIuU0xTcnY2U2lkU3RydWN0QgUKA1Np",
+            "ZCK6AQoQU0xTcnY2QmluZGluZ1NpZBINCgVGbGFncxgBIAEoDRIMCgRCc2lk",
+            "GAIgASgMEhUKDVNwZWNpZmllZEJzaWQYAyABKAwSPwoQRW5kUG9pbnRCZWhh",
+            "dmlvchgEIAEoCzIlLnNlcnZpY2VfbGF5ZXIuU0xTcnY2RW5kUG9pbnRCZWhh",
+            "dmlvchIxCglTaWRTdHJ1Y3QYBSABKAsyHi5zZXJ2aWNlX2xheWVyLlNMU3J2",
+            "NlNpZFN0cnVjdCJUChZTTFNydjZFbmRQb2ludEJlaGF2aW9yEhgKEEVuZFBv",
+            "aW50QmVoYXZpb3IYASABKA0SDQoFRmxhZ3MYAiABKA0SEQoJQWxnb3JpdGht",
+            "GAMgASgNImcKD1NMU3J2NlNpZFN0cnVjdBIXCg9Mb2NhdG9yQmxvY2tMZW4Y",
+            "ASABKA0SFgoOTG9jYXRvck5vZGVMZW4YAiABKA0SEwoLRnVuY3Rpb25MZW4Y",
+            "AyABKA0SDgoGQXJnTGVuGAQgASgNKo8DChhTTFNyUG9saWN5UHJvdG9jb2xP",
+            "cmlnaW4SKQolU0xfU1JfUE9MSUNZX1BST1RPQ09MX09SSUdJTl9SRVNFUlZF",
+            "RBAAEiUKIVNMX1NSX1BPTElDWV9QUk9UT0NPTF9PUklHSU5fUENFUBABEi4K",
+            "KlNMX1NSX1BPTElDWV9QUk9UT0NPTF9PUklHSU5fQkdQX1NSX1BPTElDWRAC",
+            "EicKI1NMX1NSX1BPTElDWV9QUk9UT0NPTF9PUklHSU5fQ09ORklHEAMSLQop",
+            "U0xfU1JfUE9MSUNZX1BST1RPQ09MX09SSUdJTl9QQ0VQX1ZJQV9QQ0UQChI2",
+            "CjJTTF9TUl9QT0xJQ1lfUFJPVE9DT0xfT1JJR0lOX0JHUF9TUl9QT0xJQ1lf",
+            "VklBX1BDRRAUEi8KK1NMX1NSX1BPTElDWV9QUk9UT0NPTF9PUklHSU5fQ09O",
+            "RklHX1ZJQV9QQ0UQHhIwCixTTF9TUl9QT0xJQ1lfUFJPVE9DT0xfT1JJR0lO",
+            "X0NPTkZJR19WSUFfR1JQQxAoKn0KElNMU3JQb2xpY3lGbGFnc0RlZhIeChpT",
+            "TF9TUl9QT0xJQ1lfRkxBR19SRVNFUlZFRBAAEiIKHVNMX1NSX1BPTElDWV9G",
+            "TEFHX0VORFBPSU5UX1Y2EIABEiMKH1NMX1NSX1BPTElDWV9GTEFHX09SSUdJ",
+            "TkFUT1JfVjYQQCqbBAoPU0xTclNlZ21lbnRUeXBlEhsKF1NMX1NSX1NFR19U",
+            "WVBFX1JFU0VSVkVEEAASHQoZU0xfU1JfU0VHX1RZUEVfTVBMU19MQUJFTBAB",
+            "Eh4KGlNMX1NSX1NFR19UWVBFX1NSVjZfU0lEX1Y2EAISIgoeU0xfU1JfU0VH",
+            "X1RZUEVfTVBMU19QRlhfU0lEX1Y0EAMSIgoeU0xfU1JfU0VHX1RZUEVfTVBM",
+            "U19QRlhfU0lEX1Y2EAQSMwovU0xfU1JfU0VHX1RZUEVfTVBMU19BREpfU0lE",
+            "X1Y0X05PREVfQUREUl9MT0NfSUQQBRIvCitTTF9TUl9TRUdfVFlQRV9NUExT",
+            "X0FESl9TSURfVjRfTE9DX1JFTV9BRERSEAYSNgoyU0xfU1JfU0VHX1RZUEVf",
+            "TVBMU19BREpfU0lEX1Y2X0xPQ19SRU1fQUREUl9BTkRfSUQQBxIvCitTTF9T",
+            "Ul9TRUdfVFlQRV9NUExTX0FESl9TSURfVjZfTE9DX1JFTV9BRERSEAgSLAoo",
+            "U0xfU1JfU0VHX1RZUEVfU1JWNl9FTkRfU0lEX1Y2X05PREVfQUREUhAJEjYK",
+            "MlNMX1NSX1NFR19UWVBFX1NSVjZfRU5EX1NJRF9WNl9MT0NfUkVNX0FERFJf",
+            "QU5EX0lEEAoSLworU0xfU1JfU0VHX1RZUEVfU1JWNl9FTkRfU0lEX1Y2X0xP",
+            "Q19SRU1fQUREUhALKoACChBTTFNyU2VnbWVudEZsYWdzEh8KG1NMX1NSX1NF",
+            "R01FTlRfRkxBR19SRVNFUlZFRBAAEiQKHlNMX1NSX1NFR01FTlRfRkxBR19T",
+            "SURfUFJFU0VOVBCAgAISMQorU0xfU1JfU0VHTUVOVF9GTEFHX1NJRF9FWFBM",
+            "SUNJVF9QUk9WSVNJT05FRBCAgAESJAofU0xfU1JfU0VHTUVOVF9GTEFHX1NJ",
+            "RF9WRVJJRklFRBCAQBIkCh9TTF9TUl9TRUdNRU5UX0ZMQUdfU0lEX1JFU09M",
+            "VkVEEIAgEiYKIVNMX1NSX1NFR01FTlRfRkxBR19TSURfQUxHT19WQUxJRBCA",
+            "ECqbAQoVU0xTcnY2QmluZGluZ1NpZEZsYWdzEh4KGlNMX1NSVjZfQlNJRF9G",
+            "TEFHX1JFU0VSVkVEEAASIQobU0xfU1JWNl9CU0lEX0ZMQUdfQUxMT0NBVEVE",
+            "EICAAhIfChlTTF9TUlY2X0JTSURfRkxBR19VTkFWQUlMEICAARIeChlTTF9T",
+            "UlY2X0JTSURfRkxBR19EWU5BTUlDEIBAQlFaT2dpdGh1Yi5jb20vQ2lzY28t",
+            "c2VydmljZS1sYXllci9zZXJ2aWNlLWxheWVyLW9iam1vZGVsL2dycGMvcHJv",
+            "dG9zO3NlcnZpY2VfbGF5ZXJiBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::ServiceLayer.SLSrPolicyProtocolOrigin), typeof(global::ServiceLayer.SLSrPolicyFlagsDef), typeof(global::ServiceLayer.SLSrSegmentType), typeof(global::ServiceLayer.SLSrSegmentFlags), typeof(global::ServiceLayer.SLSrv6BindingSidFlags), }, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLSrPolicyFlags), global::ServiceLayer.SLSrPolicyFlags.Parser, new[]{ "Flags" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLSrBsid), global::ServiceLayer.SLSrBsid.Parser, new[]{ "MplsBsid", "Srv6Bsid" }, new[]{ "BindingSid" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLSrCpName), global::ServiceLayer.SLSrCpName.Parser, new[]{ "Name" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLSrSegmentDesc), global::ServiceLayer.SLSrSegmentDesc.Parser, new[]{ "Algorithm", "Ipv4LocalAddr", "Ipv6LocalAddr", "Ipv4RemoteAddr", "Ipv6RemoteAddr", "Ipv6LocalNodeGlobalAddr", "Ipv6RemoteNodeGlobalAddr", "LocalNodeIntfId", "RemoteNodeIntfId" }, new[]{ "LocalNode", "RemoteNode" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLSrSegmentDesc), global::ServiceLayer.SLSrSegmentDesc.Parser, new[]{ "Algorithm", "Ipv4LocalAddr", "Ipv6LocalAddr", "Ipv4RemoteAddr", "Ipv6RemoteAddr", "LocalNodeIntfId", "RemoteNodeIntfId" }, new[]{ "LocalNode", "RemoteNode" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLSrSegment), global::ServiceLayer.SLSrSegment.Parser, new[]{ "Type", "Flags", "MplsLabel", "Srv6Sid", "SegmentDesc", "EndPointBehaviour", "SidStruct" }, new[]{ "Sid" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLSrv6BindingSid), global::ServiceLayer.SLSrv6BindingSid.Parser, new[]{ "Flags", "Bsid", "SpecifiedBsid", "EndPointBehavior", "SidStruct" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLSrv6EndPointBehavior), global::ServiceLayer.SLSrv6EndPointBehavior.Parser, new[]{ "EndPointBehavior", "Flags", "Algorithm" }, null, null, null, null),
@@ -988,8 +986,6 @@ namespace ServiceLayer {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public SLSrSegmentDesc(SLSrSegmentDesc other) : this() {
       algorithm_ = other.algorithm_;
-      ipv6LocalNodeGlobalAddr_ = other.ipv6LocalNodeGlobalAddr_;
-      ipv6RemoteNodeGlobalAddr_ = other.ipv6RemoteNodeGlobalAddr_;
       localNodeIntfId_ = other.localNodeIntfId_;
       remoteNodeIntfId_ = other.remoteNodeIntfId_;
       switch (other.LocalNodeCase) {
@@ -1091,38 +1087,8 @@ namespace ServiceLayer {
       }
     }
 
-    /// <summary>Field number for the "Ipv6LocalNodeGlobalAddr" field.</summary>
-    public const int Ipv6LocalNodeGlobalAddrFieldNumber = 6;
-    private pb::ByteString ipv6LocalNodeGlobalAddr_ = pb::ByteString.Empty;
-    /// <summary>
-    /// Carries info about IPv6 local node global address.
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pb::ByteString Ipv6LocalNodeGlobalAddr {
-      get { return ipv6LocalNodeGlobalAddr_; }
-      set {
-        ipv6LocalNodeGlobalAddr_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
-    /// <summary>Field number for the "Ipv6RemoteNodeGlobalAddr" field.</summary>
-    public const int Ipv6RemoteNodeGlobalAddrFieldNumber = 7;
-    private pb::ByteString ipv6RemoteNodeGlobalAddr_ = pb::ByteString.Empty;
-    /// <summary>
-    /// Carries info about IPv6 remote node global address.
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pb::ByteString Ipv6RemoteNodeGlobalAddr {
-      get { return ipv6RemoteNodeGlobalAddr_; }
-      set {
-        ipv6RemoteNodeGlobalAddr_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
     /// <summary>Field number for the "LocalNodeIntfId" field.</summary>
-    public const int LocalNodeIntfIdFieldNumber = 8;
+    public const int LocalNodeIntfIdFieldNumber = 6;
     private uint localNodeIntfId_;
     /// <summary>
     /// Carries the interface ID of the local node identified by the
@@ -1139,7 +1105,7 @@ namespace ServiceLayer {
     }
 
     /// <summary>Field number for the "RemoteNodeIntfId" field.</summary>
-    public const int RemoteNodeIntfIdFieldNumber = 9;
+    public const int RemoteNodeIntfIdFieldNumber = 7;
     private uint remoteNodeIntfId_;
     /// <summary>
     /// Carries the interface ID of the remote node identified by
@@ -1217,8 +1183,6 @@ namespace ServiceLayer {
       if (Ipv6LocalAddr != other.Ipv6LocalAddr) return false;
       if (Ipv4RemoteAddr != other.Ipv4RemoteAddr) return false;
       if (Ipv6RemoteAddr != other.Ipv6RemoteAddr) return false;
-      if (Ipv6LocalNodeGlobalAddr != other.Ipv6LocalNodeGlobalAddr) return false;
-      if (Ipv6RemoteNodeGlobalAddr != other.Ipv6RemoteNodeGlobalAddr) return false;
       if (LocalNodeIntfId != other.LocalNodeIntfId) return false;
       if (RemoteNodeIntfId != other.RemoteNodeIntfId) return false;
       if (LocalNodeCase != other.LocalNodeCase) return false;
@@ -1235,8 +1199,6 @@ namespace ServiceLayer {
       if (localNodeCase_ == LocalNodeOneofCase.Ipv6LocalAddr) hash ^= Ipv6LocalAddr.GetHashCode();
       if (remoteNodeCase_ == RemoteNodeOneofCase.Ipv4RemoteAddr) hash ^= Ipv4RemoteAddr.GetHashCode();
       if (remoteNodeCase_ == RemoteNodeOneofCase.Ipv6RemoteAddr) hash ^= Ipv6RemoteAddr.GetHashCode();
-      if (Ipv6LocalNodeGlobalAddr.Length != 0) hash ^= Ipv6LocalNodeGlobalAddr.GetHashCode();
-      if (Ipv6RemoteNodeGlobalAddr.Length != 0) hash ^= Ipv6RemoteNodeGlobalAddr.GetHashCode();
       if (LocalNodeIntfId != 0) hash ^= LocalNodeIntfId.GetHashCode();
       if (RemoteNodeIntfId != 0) hash ^= RemoteNodeIntfId.GetHashCode();
       hash ^= (int) localNodeCase_;
@@ -1279,20 +1241,12 @@ namespace ServiceLayer {
         output.WriteRawTag(42);
         output.WriteBytes(Ipv6RemoteAddr);
       }
-      if (Ipv6LocalNodeGlobalAddr.Length != 0) {
-        output.WriteRawTag(50);
-        output.WriteBytes(Ipv6LocalNodeGlobalAddr);
-      }
-      if (Ipv6RemoteNodeGlobalAddr.Length != 0) {
-        output.WriteRawTag(58);
-        output.WriteBytes(Ipv6RemoteNodeGlobalAddr);
-      }
       if (LocalNodeIntfId != 0) {
-        output.WriteRawTag(64);
+        output.WriteRawTag(48);
         output.WriteUInt32(LocalNodeIntfId);
       }
       if (RemoteNodeIntfId != 0) {
-        output.WriteRawTag(72);
+        output.WriteRawTag(56);
         output.WriteUInt32(RemoteNodeIntfId);
       }
       if (_unknownFields != null) {
@@ -1325,20 +1279,12 @@ namespace ServiceLayer {
         output.WriteRawTag(42);
         output.WriteBytes(Ipv6RemoteAddr);
       }
-      if (Ipv6LocalNodeGlobalAddr.Length != 0) {
-        output.WriteRawTag(50);
-        output.WriteBytes(Ipv6LocalNodeGlobalAddr);
-      }
-      if (Ipv6RemoteNodeGlobalAddr.Length != 0) {
-        output.WriteRawTag(58);
-        output.WriteBytes(Ipv6RemoteNodeGlobalAddr);
-      }
       if (LocalNodeIntfId != 0) {
-        output.WriteRawTag(64);
+        output.WriteRawTag(48);
         output.WriteUInt32(LocalNodeIntfId);
       }
       if (RemoteNodeIntfId != 0) {
-        output.WriteRawTag(72);
+        output.WriteRawTag(56);
         output.WriteUInt32(RemoteNodeIntfId);
       }
       if (_unknownFields != null) {
@@ -1366,12 +1312,6 @@ namespace ServiceLayer {
       if (remoteNodeCase_ == RemoteNodeOneofCase.Ipv6RemoteAddr) {
         size += 1 + pb::CodedOutputStream.ComputeBytesSize(Ipv6RemoteAddr);
       }
-      if (Ipv6LocalNodeGlobalAddr.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeBytesSize(Ipv6LocalNodeGlobalAddr);
-      }
-      if (Ipv6RemoteNodeGlobalAddr.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeBytesSize(Ipv6RemoteNodeGlobalAddr);
-      }
       if (LocalNodeIntfId != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(LocalNodeIntfId);
       }
@@ -1392,12 +1332,6 @@ namespace ServiceLayer {
       }
       if (other.Algorithm != 0) {
         Algorithm = other.Algorithm;
-      }
-      if (other.Ipv6LocalNodeGlobalAddr.Length != 0) {
-        Ipv6LocalNodeGlobalAddr = other.Ipv6LocalNodeGlobalAddr;
-      }
-      if (other.Ipv6RemoteNodeGlobalAddr.Length != 0) {
-        Ipv6RemoteNodeGlobalAddr = other.Ipv6RemoteNodeGlobalAddr;
       }
       if (other.LocalNodeIntfId != 0) {
         LocalNodeIntfId = other.LocalNodeIntfId;
@@ -1458,19 +1392,11 @@ namespace ServiceLayer {
             Ipv6RemoteAddr = input.ReadBytes();
             break;
           }
-          case 50: {
-            Ipv6LocalNodeGlobalAddr = input.ReadBytes();
-            break;
-          }
-          case 58: {
-            Ipv6RemoteNodeGlobalAddr = input.ReadBytes();
-            break;
-          }
-          case 64: {
+          case 48: {
             LocalNodeIntfId = input.ReadUInt32();
             break;
           }
-          case 72: {
+          case 56: {
             RemoteNodeIntfId = input.ReadUInt32();
             break;
           }
@@ -1509,19 +1435,11 @@ namespace ServiceLayer {
             Ipv6RemoteAddr = input.ReadBytes();
             break;
           }
-          case 50: {
-            Ipv6LocalNodeGlobalAddr = input.ReadBytes();
-            break;
-          }
-          case 58: {
-            Ipv6RemoteNodeGlobalAddr = input.ReadBytes();
-            break;
-          }
-          case 64: {
+          case 48: {
             LocalNodeIntfId = input.ReadUInt32();
             break;
           }
-          case 72: {
+          case 56: {
             RemoteNodeIntfId = input.ReadUInt32();
             break;
           }

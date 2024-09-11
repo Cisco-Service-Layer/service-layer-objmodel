@@ -166,21 +166,15 @@ message SLSrSegmentDesc {
         bytes Ipv6RemoteAddr = 5;
     }
 
-    // Carries info about IPv6 local node global address.
-    bytes Ipv6LocalNodeGlobalAddr = 6;
-
-    // Carries info about IPv6 remote node global address.
-    bytes Ipv6RemoteNodeGlobalAddr = 7;
-
     // Carries the interface ID of the local node identified by the
     // local node address.
     // Section 5.8.1 of [draft-ietf-idr-bgp-ls-sr-policy]
-    uint32 LocalNodeIntfId = 8;
+    uint32 LocalNodeIntfId = 6;
 
     // Carries the interface ID of the remote node identified by
     // the remote node address.
     // Section 5.8.1 of [draft-ietf-idr-bgp-ls-sr-policy]
-    uint32 RemoteNodeIntfId = 9;
+    uint32 RemoteNodeIntfId = 7;
 }
 
 enum SLSrSegmentFlags {
