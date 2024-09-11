@@ -264,7 +264,7 @@ message SLSrSegment {
 
     // SRv6 End Point Behavior. TLV 1250
     // Section 7.1 of [RFC9514]
-    SLSrv6EndPointBehavior EndPointBehaviour = 6;
+    SLSrv6EndPointBehavior EndPointBehavior = 6;
 
     // SRv6 SID Structure Attribute. TLV 1252
     // Section 8 of [RFC9514]

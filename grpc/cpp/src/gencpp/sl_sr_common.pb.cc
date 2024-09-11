@@ -71,7 +71,7 @@ PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT SLSrSegmentDescDefaultTypeInter
 constexpr SLSrSegment::SLSrSegment(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
   : segmentdesc_(nullptr)
-  , endpointbehaviour_(nullptr)
+  , endpointbehavior_(nullptr)
   , sidstruct_(nullptr)
   , type_(0)
 
@@ -186,7 +186,7 @@ const uint32_t TableStruct_sl_5fsr_5fcommon_2eproto::offsets[] PROTOBUF_SECTION_
   ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
   ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
   PROTOBUF_FIELD_OFFSET(::service_layer::SLSrSegment, segmentdesc_),
-  PROTOBUF_FIELD_OFFSET(::service_layer::SLSrSegment, endpointbehaviour_),
+  PROTOBUF_FIELD_OFFSET(::service_layer::SLSrSegment, endpointbehavior_),
   PROTOBUF_FIELD_OFFSET(::service_layer::SLSrSegment, sidstruct_),
   PROTOBUF_FIELD_OFFSET(::service_layer::SLSrSegment, Sid_),
   ~0u,  // no _has_bits_
@@ -252,67 +252,67 @@ const char descriptor_table_protodef_sl_5fsr_5fcommon_2eproto[] PROTOBUF_SECTION
   "Addr\030\003 \001(\014H\000\022\030\n\016Ipv4RemoteAddr\030\004 \001(\014H\001\022\030"
   "\n\016Ipv6RemoteAddr\030\005 \001(\014H\001\022\027\n\017LocalNodeInt"
   "fId\030\006 \001(\r\022\030\n\020RemoteNodeIntfId\030\007 \001(\rB\013\n\tL"
-  "ocalNodeB\014\n\nRemoteNode\"\243\002\n\013SLSrSegment\022,"
+  "ocalNodeB\014\n\nRemoteNode\"\242\002\n\013SLSrSegment\022,"
   "\n\004Type\030\001 \001(\0162\036.service_layer.SLSrSegment"
   "Type\022\r\n\005Flags\030\002 \001(\r\022\023\n\tMplsLabel\030\003 \001(\rH\000"
   "\022\021\n\007Srv6Sid\030\004 \001(\014H\000\0223\n\013SegmentDesc\030\005 \001(\013"
-  "2\036.service_layer.SLSrSegmentDesc\022@\n\021EndP"
-  "ointBehaviour\030\006 \001(\0132%.service_layer.SLSr"
-  "v6EndPointBehavior\0221\n\tSidStruct\030\007 \001(\0132\036."
-  "service_layer.SLSrv6SidStructB\005\n\003Sid\"\272\001\n"
-  "\020SLSrv6BindingSid\022\r\n\005Flags\030\001 \001(\r\022\014\n\004Bsid"
-  "\030\002 \001(\014\022\025\n\rSpecifiedBsid\030\003 \001(\014\022\?\n\020EndPoin"
-  "tBehavior\030\004 \001(\0132%.service_layer.SLSrv6En"
-  "dPointBehavior\0221\n\tSidStruct\030\005 \001(\0132\036.serv"
-  "ice_layer.SLSrv6SidStruct\"T\n\026SLSrv6EndPo"
-  "intBehavior\022\030\n\020EndPointBehavior\030\001 \001(\r\022\r\n"
-  "\005Flags\030\002 \001(\r\022\021\n\tAlgorithm\030\003 \001(\r\"g\n\017SLSrv"
-  "6SidStruct\022\027\n\017LocatorBlockLen\030\001 \001(\r\022\026\n\016L"
-  "ocatorNodeLen\030\002 \001(\r\022\023\n\013FunctionLen\030\003 \001(\r"
-  "\022\016\n\006ArgLen\030\004 \001(\r*\217\003\n\030SLSrPolicyProtocolO"
-  "rigin\022)\n%SL_SR_POLICY_PROTOCOL_ORIGIN_RE"
-  "SERVED\020\000\022%\n!SL_SR_POLICY_PROTOCOL_ORIGIN"
-  "_PCEP\020\001\022.\n*SL_SR_POLICY_PROTOCOL_ORIGIN_"
-  "BGP_SR_POLICY\020\002\022\'\n#SL_SR_POLICY_PROTOCOL"
-  "_ORIGIN_CONFIG\020\003\022-\n)SL_SR_POLICY_PROTOCO"
-  "L_ORIGIN_PCEP_VIA_PCE\020\n\0226\n2SL_SR_POLICY_"
-  "PROTOCOL_ORIGIN_BGP_SR_POLICY_VIA_PCE\020\024\022"
-  "/\n+SL_SR_POLICY_PROTOCOL_ORIGIN_CONFIG_V"
-  "IA_PCE\020\036\0220\n,SL_SR_POLICY_PROTOCOL_ORIGIN"
-  "_CONFIG_VIA_GRPC\020(*}\n\022SLSrPolicyFlagsDef"
-  "\022\036\n\032SL_SR_POLICY_FLAG_RESERVED\020\000\022\"\n\035SL_S"
-  "R_POLICY_FLAG_ENDPOINT_V6\020\200\001\022#\n\037SL_SR_PO"
-  "LICY_FLAG_ORIGINATOR_V6\020@*\233\004\n\017SLSrSegmen"
-  "tType\022\033\n\027SL_SR_SEG_TYPE_RESERVED\020\000\022\035\n\031SL"
-  "_SR_SEG_TYPE_MPLS_LABEL\020\001\022\036\n\032SL_SR_SEG_T"
-  "YPE_SRV6_SID_V6\020\002\022\"\n\036SL_SR_SEG_TYPE_MPLS"
-  "_PFX_SID_V4\020\003\022\"\n\036SL_SR_SEG_TYPE_MPLS_PFX"
-  "_SID_V6\020\004\0223\n/SL_SR_SEG_TYPE_MPLS_ADJ_SID"
-  "_V4_NODE_ADDR_LOC_ID\020\005\022/\n+SL_SR_SEG_TYPE"
-  "_MPLS_ADJ_SID_V4_LOC_REM_ADDR\020\006\0226\n2SL_SR"
-  "_SEG_TYPE_MPLS_ADJ_SID_V6_LOC_REM_ADDR_A"
-  "ND_ID\020\007\022/\n+SL_SR_SEG_TYPE_MPLS_ADJ_SID_V"
-  "6_LOC_REM_ADDR\020\010\022,\n(SL_SR_SEG_TYPE_SRV6_"
-  "END_SID_V6_NODE_ADDR\020\t\0226\n2SL_SR_SEG_TYPE"
-  "_SRV6_END_SID_V6_LOC_REM_ADDR_AND_ID\020\n\022/"
-  "\n+SL_SR_SEG_TYPE_SRV6_END_SID_V6_LOC_REM"
-  "_ADDR\020\013*\200\002\n\020SLSrSegmentFlags\022\037\n\033SL_SR_SE"
-  "GMENT_FLAG_RESERVED\020\000\022$\n\036SL_SR_SEGMENT_F"
-  "LAG_SID_PRESENT\020\200\200\002\0221\n+SL_SR_SEGMENT_FLA"
-  "G_SID_EXPLICIT_PROVISIONED\020\200\200\001\022$\n\037SL_SR_"
-  "SEGMENT_FLAG_SID_VERIFIED\020\200@\022$\n\037SL_SR_SE"
-  "GMENT_FLAG_SID_RESOLVED\020\200 \022&\n!SL_SR_SEGM"
-  "ENT_FLAG_SID_ALGO_VALID\020\200\020*\233\001\n\025SLSrv6Bin"
-  "dingSidFlags\022\036\n\032SL_SRV6_BSID_FLAG_RESERV"
-  "ED\020\000\022!\n\033SL_SRV6_BSID_FLAG_ALLOCATED\020\200\200\002\022"
-  "\037\n\031SL_SRV6_BSID_FLAG_UNAVAIL\020\200\200\001\022\036\n\031SL_S"
-  "RV6_BSID_FLAG_DYNAMIC\020\200@BQZOgithub.com/C"
-  "isco-service-layer/service-layer-objmode"
-  "l/grpc/protos;service_layerb\006proto3"
+  "2\036.service_layer.SLSrSegmentDesc\022\?\n\020EndP"
+  "ointBehavior\030\006 \001(\0132%.service_layer.SLSrv"
+  "6EndPointBehavior\0221\n\tSidStruct\030\007 \001(\0132\036.s"
+  "ervice_layer.SLSrv6SidStructB\005\n\003Sid\"\272\001\n\020"
+  "SLSrv6BindingSid\022\r\n\005Flags\030\001 \001(\r\022\014\n\004Bsid\030"
+  "\002 \001(\014\022\025\n\rSpecifiedBsid\030\003 \001(\014\022\?\n\020EndPoint"
+  "Behavior\030\004 \001(\0132%.service_layer.SLSrv6End"
+  "PointBehavior\0221\n\tSidStruct\030\005 \001(\0132\036.servi"
+  "ce_layer.SLSrv6SidStruct\"T\n\026SLSrv6EndPoi"
+  "ntBehavior\022\030\n\020EndPointBehavior\030\001 \001(\r\022\r\n\005"
+  "Flags\030\002 \001(\r\022\021\n\tAlgorithm\030\003 \001(\r\"g\n\017SLSrv6"
+  "SidStruct\022\027\n\017LocatorBlockLen\030\001 \001(\r\022\026\n\016Lo"
+  "catorNodeLen\030\002 \001(\r\022\023\n\013FunctionLen\030\003 \001(\r\022"
+  "\016\n\006ArgLen\030\004 \001(\r*\217\003\n\030SLSrPolicyProtocolOr"
+  "igin\022)\n%SL_SR_POLICY_PROTOCOL_ORIGIN_RES"
+  "ERVED\020\000\022%\n!SL_SR_POLICY_PROTOCOL_ORIGIN_"
+  "PCEP\020\001\022.\n*SL_SR_POLICY_PROTOCOL_ORIGIN_B"
+  "GP_SR_POLICY\020\002\022\'\n#SL_SR_POLICY_PROTOCOL_"
+  "ORIGIN_CONFIG\020\003\022-\n)SL_SR_POLICY_PROTOCOL"
+  "_ORIGIN_PCEP_VIA_PCE\020\n\0226\n2SL_SR_POLICY_P"
+  "ROTOCOL_ORIGIN_BGP_SR_POLICY_VIA_PCE\020\024\022/"
+  "\n+SL_SR_POLICY_PROTOCOL_ORIGIN_CONFIG_VI"
+  "A_PCE\020\036\0220\n,SL_SR_POLICY_PROTOCOL_ORIGIN_"
+  "CONFIG_VIA_GRPC\020(*}\n\022SLSrPolicyFlagsDef\022"
+  "\036\n\032SL_SR_POLICY_FLAG_RESERVED\020\000\022\"\n\035SL_SR"
+  "_POLICY_FLAG_ENDPOINT_V6\020\200\001\022#\n\037SL_SR_POL"
+  "ICY_FLAG_ORIGINATOR_V6\020@*\233\004\n\017SLSrSegment"
+  "Type\022\033\n\027SL_SR_SEG_TYPE_RESERVED\020\000\022\035\n\031SL_"
+  "SR_SEG_TYPE_MPLS_LABEL\020\001\022\036\n\032SL_SR_SEG_TY"
+  "PE_SRV6_SID_V6\020\002\022\"\n\036SL_SR_SEG_TYPE_MPLS_"
+  "PFX_SID_V4\020\003\022\"\n\036SL_SR_SEG_TYPE_MPLS_PFX_"
+  "SID_V6\020\004\0223\n/SL_SR_SEG_TYPE_MPLS_ADJ_SID_"
+  "V4_NODE_ADDR_LOC_ID\020\005\022/\n+SL_SR_SEG_TYPE_"
+  "MPLS_ADJ_SID_V4_LOC_REM_ADDR\020\006\0226\n2SL_SR_"
+  "SEG_TYPE_MPLS_ADJ_SID_V6_LOC_REM_ADDR_AN"
+  "D_ID\020\007\022/\n+SL_SR_SEG_TYPE_MPLS_ADJ_SID_V6"
+  "_LOC_REM_ADDR\020\010\022,\n(SL_SR_SEG_TYPE_SRV6_E"
+  "ND_SID_V6_NODE_ADDR\020\t\0226\n2SL_SR_SEG_TYPE_"
+  "SRV6_END_SID_V6_LOC_REM_ADDR_AND_ID\020\n\022/\n"
+  "+SL_SR_SEG_TYPE_SRV6_END_SID_V6_LOC_REM_"
+  "ADDR\020\013*\200\002\n\020SLSrSegmentFlags\022\037\n\033SL_SR_SEG"
+  "MENT_FLAG_RESERVED\020\000\022$\n\036SL_SR_SEGMENT_FL"
+  "AG_SID_PRESENT\020\200\200\002\0221\n+SL_SR_SEGMENT_FLAG"
+  "_SID_EXPLICIT_PROVISIONED\020\200\200\001\022$\n\037SL_SR_S"
+  "EGMENT_FLAG_SID_VERIFIED\020\200@\022$\n\037SL_SR_SEG"
+  "MENT_FLAG_SID_RESOLVED\020\200 \022&\n!SL_SR_SEGME"
+  "NT_FLAG_SID_ALGO_VALID\020\200\020*\233\001\n\025SLSrv6Bind"
+  "ingSidFlags\022\036\n\032SL_SRV6_BSID_FLAG_RESERVE"
+  "D\020\000\022!\n\033SL_SRV6_BSID_FLAG_ALLOCATED\020\200\200\002\022\037"
+  "\n\031SL_SRV6_BSID_FLAG_UNAVAIL\020\200\200\001\022\036\n\031SL_SR"
+  "V6_BSID_FLAG_DYNAMIC\020\200@BQZOgithub.com/Ci"
+  "sco-service-layer/service-layer-objmodel"
+  "/grpc/protos;service_layerb\006proto3"
   ;
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_sl_5fsr_5fcommon_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_sl_5fsr_5fcommon_2eproto = {
-  false, false, 2635, descriptor_table_protodef_sl_5fsr_5fcommon_2eproto, "sl_sr_common.proto", 
+  false, false, 2634, descriptor_table_protodef_sl_5fsr_5fcommon_2eproto, "sl_sr_common.proto", 
   &descriptor_table_sl_5fsr_5fcommon_2eproto_once, nullptr, 0, 8,
   schemas, file_default_instances, TableStruct_sl_5fsr_5fcommon_2eproto::offsets,
   file_level_metadata_sl_5fsr_5fcommon_2eproto, file_level_enum_descriptors_sl_5fsr_5fcommon_2eproto, file_level_service_descriptors_sl_5fsr_5fcommon_2eproto,
@@ -1492,7 +1492,7 @@ void SLSrSegmentDesc::InternalSwap(SLSrSegmentDesc* other) {
 class SLSrSegment::_Internal {
  public:
   static const ::service_layer::SLSrSegmentDesc& segmentdesc(const SLSrSegment* msg);
-  static const ::service_layer::SLSrv6EndPointBehavior& endpointbehaviour(const SLSrSegment* msg);
+  static const ::service_layer::SLSrv6EndPointBehavior& endpointbehavior(const SLSrSegment* msg);
   static const ::service_layer::SLSrv6SidStruct& sidstruct(const SLSrSegment* msg);
 };
 
@@ -1501,8 +1501,8 @@ SLSrSegment::_Internal::segmentdesc(const SLSrSegment* msg) {
   return *msg->segmentdesc_;
 }
 const ::service_layer::SLSrv6EndPointBehavior&
-SLSrSegment::_Internal::endpointbehaviour(const SLSrSegment* msg) {
-  return *msg->endpointbehaviour_;
+SLSrSegment::_Internal::endpointbehavior(const SLSrSegment* msg) {
+  return *msg->endpointbehavior_;
 }
 const ::service_layer::SLSrv6SidStruct&
 SLSrSegment::_Internal::sidstruct(const SLSrSegment* msg) {
@@ -1525,10 +1525,10 @@ SLSrSegment::SLSrSegment(const SLSrSegment& from)
   } else {
     segmentdesc_ = nullptr;
   }
-  if (from._internal_has_endpointbehaviour()) {
-    endpointbehaviour_ = new ::service_layer::SLSrv6EndPointBehavior(*from.endpointbehaviour_);
+  if (from._internal_has_endpointbehavior()) {
+    endpointbehavior_ = new ::service_layer::SLSrv6EndPointBehavior(*from.endpointbehavior_);
   } else {
-    endpointbehaviour_ = nullptr;
+    endpointbehavior_ = nullptr;
   }
   if (from._internal_has_sidstruct()) {
     sidstruct_ = new ::service_layer::SLSrv6SidStruct(*from.sidstruct_);
@@ -1573,7 +1573,7 @@ SLSrSegment::~SLSrSegment() {
 inline void SLSrSegment::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
   if (this != internal_default_instance()) delete segmentdesc_;
-  if (this != internal_default_instance()) delete endpointbehaviour_;
+  if (this != internal_default_instance()) delete endpointbehavior_;
   if (this != internal_default_instance()) delete sidstruct_;
   if (has_Sid()) {
     clear_Sid();
@@ -1619,10 +1619,10 @@ void SLSrSegment::Clear() {
     delete segmentdesc_;
   }
   segmentdesc_ = nullptr;
-  if (GetArenaForAllocation() == nullptr && endpointbehaviour_ != nullptr) {
-    delete endpointbehaviour_;
+  if (GetArenaForAllocation() == nullptr && endpointbehavior_ != nullptr) {
+    delete endpointbehavior_;
   }
-  endpointbehaviour_ = nullptr;
+  endpointbehavior_ = nullptr;
   if (GetArenaForAllocation() == nullptr && sidstruct_ != nullptr) {
     delete sidstruct_;
   }
@@ -1682,10 +1682,10 @@ const char* SLSrSegment::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID
         } else
           goto handle_unusual;
         continue;
-      // .service_layer.SLSrv6EndPointBehavior EndPointBehaviour = 6;
+      // .service_layer.SLSrv6EndPointBehavior EndPointBehavior = 6;
       case 6:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 50)) {
-          ptr = ctx->ParseMessage(_internal_mutable_endpointbehaviour(), ptr);
+          ptr = ctx->ParseMessage(_internal_mutable_endpointbehavior(), ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -1760,12 +1760,12 @@ uint8_t* SLSrSegment::_InternalSerialize(
         5, _Internal::segmentdesc(this), target, stream);
   }
 
-  // .service_layer.SLSrv6EndPointBehavior EndPointBehaviour = 6;
-  if (this->_internal_has_endpointbehaviour()) {
+  // .service_layer.SLSrv6EndPointBehavior EndPointBehavior = 6;
+  if (this->_internal_has_endpointbehavior()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
       InternalWriteMessage(
-        6, _Internal::endpointbehaviour(this), target, stream);
+        6, _Internal::endpointbehavior(this), target, stream);
   }
 
   // .service_layer.SLSrv6SidStruct SidStruct = 7;
@@ -1799,11 +1799,11 @@ size_t SLSrSegment::ByteSizeLong() const {
         *segmentdesc_);
   }
 
-  // .service_layer.SLSrv6EndPointBehavior EndPointBehaviour = 6;
-  if (this->_internal_has_endpointbehaviour()) {
+  // .service_layer.SLSrv6EndPointBehavior EndPointBehavior = 6;
+  if (this->_internal_has_endpointbehavior()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-        *endpointbehaviour_);
+        *endpointbehavior_);
   }
 
   // .service_layer.SLSrv6SidStruct SidStruct = 7;
@@ -1866,8 +1866,8 @@ void SLSrSegment::MergeFrom(const SLSrSegment& from) {
   if (from._internal_has_segmentdesc()) {
     _internal_mutable_segmentdesc()->::service_layer::SLSrSegmentDesc::MergeFrom(from._internal_segmentdesc());
   }
-  if (from._internal_has_endpointbehaviour()) {
-    _internal_mutable_endpointbehaviour()->::service_layer::SLSrv6EndPointBehavior::MergeFrom(from._internal_endpointbehaviour());
+  if (from._internal_has_endpointbehavior()) {
+    _internal_mutable_endpointbehavior()->::service_layer::SLSrv6EndPointBehavior::MergeFrom(from._internal_endpointbehavior());
   }
   if (from._internal_has_sidstruct()) {
     _internal_mutable_sidstruct()->::service_layer::SLSrv6SidStruct::MergeFrom(from._internal_sidstruct());
