@@ -283,9 +283,6 @@ extern SLBgplsTopoSrBindingSidDefaultTypeInternal _SLBgplsTopoSrBindingSid_defau
 class SLBgplsTopoSrCpConstraints;
 struct SLBgplsTopoSrCpConstraintsDefaultTypeInternal;
 extern SLBgplsTopoSrCpConstraintsDefaultTypeInternal _SLBgplsTopoSrCpConstraints_default_instance_;
-class SLBgplsTopoSrCpSegListBandwidth;
-struct SLBgplsTopoSrCpSegListBandwidthDefaultTypeInternal;
-extern SLBgplsTopoSrCpSegListBandwidthDefaultTypeInternal _SLBgplsTopoSrCpSegListBandwidth_default_instance_;
 class SLBgplsTopoSrCpState;
 struct SLBgplsTopoSrCpStateDefaultTypeInternal;
 extern SLBgplsTopoSrCpStateDefaultTypeInternal _SLBgplsTopoSrCpState_default_instance_;
@@ -316,6 +313,9 @@ extern SLBgplsTopoSrPolicyNodeIdDefaultTypeInternal _SLBgplsTopoSrPolicyNodeId_d
 class SLBgplsTopoSrSegList;
 struct SLBgplsTopoSrSegListDefaultTypeInternal;
 extern SLBgplsTopoSrSegListDefaultTypeInternal _SLBgplsTopoSrSegList_default_instance_;
+class SLBgplsTopoSrSegListBandwidth;
+struct SLBgplsTopoSrSegListBandwidthDefaultTypeInternal;
+extern SLBgplsTopoSrSegListBandwidthDefaultTypeInternal _SLBgplsTopoSrSegListBandwidth_default_instance_;
 class SLBgplsTopoSrSegListId;
 struct SLBgplsTopoSrSegListIdDefaultTypeInternal;
 extern SLBgplsTopoSrSegListIdDefaultTypeInternal _SLBgplsTopoSrSegListId_default_instance_;
@@ -462,7 +462,6 @@ template<> ::service_layer::SLBgplsTopoSrBandwidthConstraint* Arena::CreateMaybe
 template<> ::service_layer::SLBgplsTopoSrBidirGroupConstraint* Arena::CreateMaybeMessage<::service_layer::SLBgplsTopoSrBidirGroupConstraint>(Arena*);
 template<> ::service_layer::SLBgplsTopoSrBindingSid* Arena::CreateMaybeMessage<::service_layer::SLBgplsTopoSrBindingSid>(Arena*);
 template<> ::service_layer::SLBgplsTopoSrCpConstraints* Arena::CreateMaybeMessage<::service_layer::SLBgplsTopoSrCpConstraints>(Arena*);
-template<> ::service_layer::SLBgplsTopoSrCpSegListBandwidth* Arena::CreateMaybeMessage<::service_layer::SLBgplsTopoSrCpSegListBandwidth>(Arena*);
 template<> ::service_layer::SLBgplsTopoSrCpState* Arena::CreateMaybeMessage<::service_layer::SLBgplsTopoSrCpState>(Arena*);
 template<> ::service_layer::SLBgplsTopoSrDisjointGroupConstraint* Arena::CreateMaybeMessage<::service_layer::SLBgplsTopoSrDisjointGroupConstraint>(Arena*);
 template<> ::service_layer::SLBgplsTopoSrMetricConstraint* Arena::CreateMaybeMessage<::service_layer::SLBgplsTopoSrMetricConstraint>(Arena*);
@@ -473,6 +472,7 @@ template<> ::service_layer::SLBgplsTopoSrPolicyDescr* Arena::CreateMaybeMessage<
 template<> ::service_layer::SLBgplsTopoSrPolicyName* Arena::CreateMaybeMessage<::service_layer::SLBgplsTopoSrPolicyName>(Arena*);
 template<> ::service_layer::SLBgplsTopoSrPolicyNodeId* Arena::CreateMaybeMessage<::service_layer::SLBgplsTopoSrPolicyNodeId>(Arena*);
 template<> ::service_layer::SLBgplsTopoSrSegList* Arena::CreateMaybeMessage<::service_layer::SLBgplsTopoSrSegList>(Arena*);
+template<> ::service_layer::SLBgplsTopoSrSegListBandwidth* Arena::CreateMaybeMessage<::service_layer::SLBgplsTopoSrSegListBandwidth>(Arena*);
 template<> ::service_layer::SLBgplsTopoSrSegListId* Arena::CreateMaybeMessage<::service_layer::SLBgplsTopoSrSegListId>(Arena*);
 template<> ::service_layer::SLBgplsTopoSrSegListMetric* Arena::CreateMaybeMessage<::service_layer::SLBgplsTopoSrSegListMetric>(Arena*);
 template<> ::service_layer::SLBgplsTopoSrSrlgConstraints* Arena::CreateMaybeMessage<::service_layer::SLBgplsTopoSrSrlgConstraints>(Arena*);
@@ -19787,23 +19787,23 @@ class SLBgplsTopoSrSegList final :
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::service_layer::SLBgplsTopoSrSegListMetric >&
       metrics() const;
 
-  // .service_layer.SLBgplsTopoSrCpSegListBandwidth Bandwidth = 7;
+  // .service_layer.SLBgplsTopoSrSegListBandwidth Bandwidth = 7;
   bool has_bandwidth() const;
   private:
   bool _internal_has_bandwidth() const;
   public:
   void clear_bandwidth();
-  const ::service_layer::SLBgplsTopoSrCpSegListBandwidth& bandwidth() const;
-  PROTOBUF_NODISCARD ::service_layer::SLBgplsTopoSrCpSegListBandwidth* release_bandwidth();
-  ::service_layer::SLBgplsTopoSrCpSegListBandwidth* mutable_bandwidth();
-  void set_allocated_bandwidth(::service_layer::SLBgplsTopoSrCpSegListBandwidth* bandwidth);
+  const ::service_layer::SLBgplsTopoSrSegListBandwidth& bandwidth() const;
+  PROTOBUF_NODISCARD ::service_layer::SLBgplsTopoSrSegListBandwidth* release_bandwidth();
+  ::service_layer::SLBgplsTopoSrSegListBandwidth* mutable_bandwidth();
+  void set_allocated_bandwidth(::service_layer::SLBgplsTopoSrSegListBandwidth* bandwidth);
   private:
-  const ::service_layer::SLBgplsTopoSrCpSegListBandwidth& _internal_bandwidth() const;
-  ::service_layer::SLBgplsTopoSrCpSegListBandwidth* _internal_mutable_bandwidth();
+  const ::service_layer::SLBgplsTopoSrSegListBandwidth& _internal_bandwidth() const;
+  ::service_layer::SLBgplsTopoSrSegListBandwidth* _internal_mutable_bandwidth();
   public:
   void unsafe_arena_set_allocated_bandwidth(
-      ::service_layer::SLBgplsTopoSrCpSegListBandwidth* bandwidth);
-  ::service_layer::SLBgplsTopoSrCpSegListBandwidth* unsafe_arena_release_bandwidth();
+      ::service_layer::SLBgplsTopoSrSegListBandwidth* bandwidth);
+  ::service_layer::SLBgplsTopoSrSegListBandwidth* unsafe_arena_release_bandwidth();
 
   // uint32 Flags = 1;
   void clear_flags();
@@ -19850,7 +19850,7 @@ class SLBgplsTopoSrSegList final :
   typedef void DestructorSkippable_;
   ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::service_layer::SLSrSegment > segments_;
   ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::service_layer::SLBgplsTopoSrSegListMetric > metrics_;
-  ::service_layer::SLBgplsTopoSrCpSegListBandwidth* bandwidth_;
+  ::service_layer::SLBgplsTopoSrSegListBandwidth* bandwidth_;
   uint32_t flags_;
   uint32_t mtid_;
   uint32_t algorithm_;
@@ -21226,24 +21226,24 @@ class SLBgplsTopoSrMetricConstraint final :
 };
 // -------------------------------------------------------------------
 
-class SLBgplsTopoSrCpSegListBandwidth final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:service_layer.SLBgplsTopoSrCpSegListBandwidth) */ {
+class SLBgplsTopoSrSegListBandwidth final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:service_layer.SLBgplsTopoSrSegListBandwidth) */ {
  public:
-  inline SLBgplsTopoSrCpSegListBandwidth() : SLBgplsTopoSrCpSegListBandwidth(nullptr) {}
-  ~SLBgplsTopoSrCpSegListBandwidth() override;
-  explicit constexpr SLBgplsTopoSrCpSegListBandwidth(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+  inline SLBgplsTopoSrSegListBandwidth() : SLBgplsTopoSrSegListBandwidth(nullptr) {}
+  ~SLBgplsTopoSrSegListBandwidth() override;
+  explicit constexpr SLBgplsTopoSrSegListBandwidth(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
 
-  SLBgplsTopoSrCpSegListBandwidth(const SLBgplsTopoSrCpSegListBandwidth& from);
-  SLBgplsTopoSrCpSegListBandwidth(SLBgplsTopoSrCpSegListBandwidth&& from) noexcept
-    : SLBgplsTopoSrCpSegListBandwidth() {
+  SLBgplsTopoSrSegListBandwidth(const SLBgplsTopoSrSegListBandwidth& from);
+  SLBgplsTopoSrSegListBandwidth(SLBgplsTopoSrSegListBandwidth&& from) noexcept
+    : SLBgplsTopoSrSegListBandwidth() {
     *this = ::std::move(from);
   }
 
-  inline SLBgplsTopoSrCpSegListBandwidth& operator=(const SLBgplsTopoSrCpSegListBandwidth& from) {
+  inline SLBgplsTopoSrSegListBandwidth& operator=(const SLBgplsTopoSrSegListBandwidth& from) {
     CopyFrom(from);
     return *this;
   }
-  inline SLBgplsTopoSrCpSegListBandwidth& operator=(SLBgplsTopoSrCpSegListBandwidth&& from) noexcept {
+  inline SLBgplsTopoSrSegListBandwidth& operator=(SLBgplsTopoSrSegListBandwidth&& from) noexcept {
     if (this == &from) return *this;
     if (GetOwningArena() == from.GetOwningArena()
   #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
@@ -21266,20 +21266,20 @@ class SLBgplsTopoSrCpSegListBandwidth final :
   static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
-  static const SLBgplsTopoSrCpSegListBandwidth& default_instance() {
+  static const SLBgplsTopoSrSegListBandwidth& default_instance() {
     return *internal_default_instance();
   }
-  static inline const SLBgplsTopoSrCpSegListBandwidth* internal_default_instance() {
-    return reinterpret_cast<const SLBgplsTopoSrCpSegListBandwidth*>(
-               &_SLBgplsTopoSrCpSegListBandwidth_default_instance_);
+  static inline const SLBgplsTopoSrSegListBandwidth* internal_default_instance() {
+    return reinterpret_cast<const SLBgplsTopoSrSegListBandwidth*>(
+               &_SLBgplsTopoSrSegListBandwidth_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
     105;
 
-  friend void swap(SLBgplsTopoSrCpSegListBandwidth& a, SLBgplsTopoSrCpSegListBandwidth& b) {
+  friend void swap(SLBgplsTopoSrSegListBandwidth& a, SLBgplsTopoSrSegListBandwidth& b) {
     a.Swap(&b);
   }
-  inline void Swap(SLBgplsTopoSrCpSegListBandwidth* other) {
+  inline void Swap(SLBgplsTopoSrSegListBandwidth* other) {
     if (other == this) return;
   #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
     if (GetOwningArena() != nullptr &&
@@ -21292,7 +21292,7 @@ class SLBgplsTopoSrCpSegListBandwidth final :
       ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
     }
   }
-  void UnsafeArenaSwap(SLBgplsTopoSrCpSegListBandwidth* other) {
+  void UnsafeArenaSwap(SLBgplsTopoSrSegListBandwidth* other) {
     if (other == this) return;
     GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
     InternalSwap(other);
@@ -21300,13 +21300,13 @@ class SLBgplsTopoSrCpSegListBandwidth final :
 
   // implements Message ----------------------------------------------
 
-  SLBgplsTopoSrCpSegListBandwidth* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
-    return CreateMaybeMessage<SLBgplsTopoSrCpSegListBandwidth>(arena);
+  SLBgplsTopoSrSegListBandwidth* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<SLBgplsTopoSrSegListBandwidth>(arena);
   }
   using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const SLBgplsTopoSrCpSegListBandwidth& from);
+  void CopyFrom(const SLBgplsTopoSrSegListBandwidth& from);
   using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom(const SLBgplsTopoSrCpSegListBandwidth& from);
+  void MergeFrom(const SLBgplsTopoSrSegListBandwidth& from);
   private:
   static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to, const ::PROTOBUF_NAMESPACE_ID::Message& from);
   public:
@@ -21323,15 +21323,15 @@ class SLBgplsTopoSrCpSegListBandwidth final :
   void SharedCtor();
   void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(SLBgplsTopoSrCpSegListBandwidth* other);
+  void InternalSwap(SLBgplsTopoSrSegListBandwidth* other);
 
   private:
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "service_layer.SLBgplsTopoSrCpSegListBandwidth";
+    return "service_layer.SLBgplsTopoSrSegListBandwidth";
   }
   protected:
-  explicit SLBgplsTopoSrCpSegListBandwidth(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+  explicit SLBgplsTopoSrSegListBandwidth(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                        bool is_message_owned = false);
   private:
   static void ArenaDtor(void* object);
@@ -21364,7 +21364,7 @@ class SLBgplsTopoSrCpSegListBandwidth final :
   std::string* _internal_mutable_bandwidth();
   public:
 
-  // @@protoc_insertion_point(class_scope:service_layer.SLBgplsTopoSrCpSegListBandwidth)
+  // @@protoc_insertion_point(class_scope:service_layer.SLBgplsTopoSrSegListBandwidth)
  private:
   class _Internal;
 
@@ -40440,7 +40440,7 @@ SLBgplsTopoSrSegList::metrics() const {
   return metrics_;
 }
 
-// .service_layer.SLBgplsTopoSrCpSegListBandwidth Bandwidth = 7;
+// .service_layer.SLBgplsTopoSrSegListBandwidth Bandwidth = 7;
 inline bool SLBgplsTopoSrSegList::_internal_has_bandwidth() const {
   return this != internal_default_instance() && bandwidth_ != nullptr;
 }
@@ -40453,17 +40453,17 @@ inline void SLBgplsTopoSrSegList::clear_bandwidth() {
   }
   bandwidth_ = nullptr;
 }
-inline const ::service_layer::SLBgplsTopoSrCpSegListBandwidth& SLBgplsTopoSrSegList::_internal_bandwidth() const {
-  const ::service_layer::SLBgplsTopoSrCpSegListBandwidth* p = bandwidth_;
-  return p != nullptr ? *p : reinterpret_cast<const ::service_layer::SLBgplsTopoSrCpSegListBandwidth&>(
-      ::service_layer::_SLBgplsTopoSrCpSegListBandwidth_default_instance_);
+inline const ::service_layer::SLBgplsTopoSrSegListBandwidth& SLBgplsTopoSrSegList::_internal_bandwidth() const {
+  const ::service_layer::SLBgplsTopoSrSegListBandwidth* p = bandwidth_;
+  return p != nullptr ? *p : reinterpret_cast<const ::service_layer::SLBgplsTopoSrSegListBandwidth&>(
+      ::service_layer::_SLBgplsTopoSrSegListBandwidth_default_instance_);
 }
-inline const ::service_layer::SLBgplsTopoSrCpSegListBandwidth& SLBgplsTopoSrSegList::bandwidth() const {
+inline const ::service_layer::SLBgplsTopoSrSegListBandwidth& SLBgplsTopoSrSegList::bandwidth() const {
   // @@protoc_insertion_point(field_get:service_layer.SLBgplsTopoSrSegList.Bandwidth)
   return _internal_bandwidth();
 }
 inline void SLBgplsTopoSrSegList::unsafe_arena_set_allocated_bandwidth(
-    ::service_layer::SLBgplsTopoSrCpSegListBandwidth* bandwidth) {
+    ::service_layer::SLBgplsTopoSrSegListBandwidth* bandwidth) {
   if (GetArenaForAllocation() == nullptr) {
     delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(bandwidth_);
   }
@@ -40475,9 +40475,9 @@ inline void SLBgplsTopoSrSegList::unsafe_arena_set_allocated_bandwidth(
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:service_layer.SLBgplsTopoSrSegList.Bandwidth)
 }
-inline ::service_layer::SLBgplsTopoSrCpSegListBandwidth* SLBgplsTopoSrSegList::release_bandwidth() {
+inline ::service_layer::SLBgplsTopoSrSegListBandwidth* SLBgplsTopoSrSegList::release_bandwidth() {
   
-  ::service_layer::SLBgplsTopoSrCpSegListBandwidth* temp = bandwidth_;
+  ::service_layer::SLBgplsTopoSrSegListBandwidth* temp = bandwidth_;
   bandwidth_ = nullptr;
 #ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
   auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
@@ -40490,34 +40490,34 @@ inline ::service_layer::SLBgplsTopoSrCpSegListBandwidth* SLBgplsTopoSrSegList::r
 #endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
   return temp;
 }
-inline ::service_layer::SLBgplsTopoSrCpSegListBandwidth* SLBgplsTopoSrSegList::unsafe_arena_release_bandwidth() {
+inline ::service_layer::SLBgplsTopoSrSegListBandwidth* SLBgplsTopoSrSegList::unsafe_arena_release_bandwidth() {
   // @@protoc_insertion_point(field_release:service_layer.SLBgplsTopoSrSegList.Bandwidth)
   
-  ::service_layer::SLBgplsTopoSrCpSegListBandwidth* temp = bandwidth_;
+  ::service_layer::SLBgplsTopoSrSegListBandwidth* temp = bandwidth_;
   bandwidth_ = nullptr;
   return temp;
 }
-inline ::service_layer::SLBgplsTopoSrCpSegListBandwidth* SLBgplsTopoSrSegList::_internal_mutable_bandwidth() {
+inline ::service_layer::SLBgplsTopoSrSegListBandwidth* SLBgplsTopoSrSegList::_internal_mutable_bandwidth() {
   
   if (bandwidth_ == nullptr) {
-    auto* p = CreateMaybeMessage<::service_layer::SLBgplsTopoSrCpSegListBandwidth>(GetArenaForAllocation());
+    auto* p = CreateMaybeMessage<::service_layer::SLBgplsTopoSrSegListBandwidth>(GetArenaForAllocation());
     bandwidth_ = p;
   }
   return bandwidth_;
 }
-inline ::service_layer::SLBgplsTopoSrCpSegListBandwidth* SLBgplsTopoSrSegList::mutable_bandwidth() {
-  ::service_layer::SLBgplsTopoSrCpSegListBandwidth* _msg = _internal_mutable_bandwidth();
+inline ::service_layer::SLBgplsTopoSrSegListBandwidth* SLBgplsTopoSrSegList::mutable_bandwidth() {
+  ::service_layer::SLBgplsTopoSrSegListBandwidth* _msg = _internal_mutable_bandwidth();
   // @@protoc_insertion_point(field_mutable:service_layer.SLBgplsTopoSrSegList.Bandwidth)
   return _msg;
 }
-inline void SLBgplsTopoSrSegList::set_allocated_bandwidth(::service_layer::SLBgplsTopoSrCpSegListBandwidth* bandwidth) {
+inline void SLBgplsTopoSrSegList::set_allocated_bandwidth(::service_layer::SLBgplsTopoSrSegListBandwidth* bandwidth) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
   if (message_arena == nullptr) {
     delete bandwidth_;
   }
   if (bandwidth) {
     ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-        ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper<::service_layer::SLBgplsTopoSrCpSegListBandwidth>::GetOwningArena(bandwidth);
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper<::service_layer::SLBgplsTopoSrSegListBandwidth>::GetOwningArena(bandwidth);
     if (message_arena != submessage_arena) {
       bandwidth = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
           message_arena, bandwidth, submessage_arena);
@@ -41134,44 +41134,44 @@ inline void SLBgplsTopoSrMetricConstraint::set_bound(uint32_t value) {
 
 // -------------------------------------------------------------------
 
-// SLBgplsTopoSrCpSegListBandwidth
+// SLBgplsTopoSrSegListBandwidth
 
 // bytes Bandwidth = 1;
-inline void SLBgplsTopoSrCpSegListBandwidth::clear_bandwidth() {
+inline void SLBgplsTopoSrSegListBandwidth::clear_bandwidth() {
   bandwidth_.ClearToEmpty();
 }
-inline const std::string& SLBgplsTopoSrCpSegListBandwidth::bandwidth() const {
-  // @@protoc_insertion_point(field_get:service_layer.SLBgplsTopoSrCpSegListBandwidth.Bandwidth)
+inline const std::string& SLBgplsTopoSrSegListBandwidth::bandwidth() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLBgplsTopoSrSegListBandwidth.Bandwidth)
   return _internal_bandwidth();
 }
 template <typename ArgT0, typename... ArgT>
 inline PROTOBUF_ALWAYS_INLINE
-void SLBgplsTopoSrCpSegListBandwidth::set_bandwidth(ArgT0&& arg0, ArgT... args) {
+void SLBgplsTopoSrSegListBandwidth::set_bandwidth(ArgT0&& arg0, ArgT... args) {
  
  bandwidth_.SetBytes(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
-  // @@protoc_insertion_point(field_set:service_layer.SLBgplsTopoSrCpSegListBandwidth.Bandwidth)
+  // @@protoc_insertion_point(field_set:service_layer.SLBgplsTopoSrSegListBandwidth.Bandwidth)
 }
-inline std::string* SLBgplsTopoSrCpSegListBandwidth::mutable_bandwidth() {
+inline std::string* SLBgplsTopoSrSegListBandwidth::mutable_bandwidth() {
   std::string* _s = _internal_mutable_bandwidth();
-  // @@protoc_insertion_point(field_mutable:service_layer.SLBgplsTopoSrCpSegListBandwidth.Bandwidth)
+  // @@protoc_insertion_point(field_mutable:service_layer.SLBgplsTopoSrSegListBandwidth.Bandwidth)
   return _s;
 }
-inline const std::string& SLBgplsTopoSrCpSegListBandwidth::_internal_bandwidth() const {
+inline const std::string& SLBgplsTopoSrSegListBandwidth::_internal_bandwidth() const {
   return bandwidth_.Get();
 }
-inline void SLBgplsTopoSrCpSegListBandwidth::_internal_set_bandwidth(const std::string& value) {
+inline void SLBgplsTopoSrSegListBandwidth::_internal_set_bandwidth(const std::string& value) {
   
   bandwidth_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArenaForAllocation());
 }
-inline std::string* SLBgplsTopoSrCpSegListBandwidth::_internal_mutable_bandwidth() {
+inline std::string* SLBgplsTopoSrSegListBandwidth::_internal_mutable_bandwidth() {
   
   return bandwidth_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
 }
-inline std::string* SLBgplsTopoSrCpSegListBandwidth::release_bandwidth() {
-  // @@protoc_insertion_point(field_release:service_layer.SLBgplsTopoSrCpSegListBandwidth.Bandwidth)
+inline std::string* SLBgplsTopoSrSegListBandwidth::release_bandwidth() {
+  // @@protoc_insertion_point(field_release:service_layer.SLBgplsTopoSrSegListBandwidth.Bandwidth)
   return bandwidth_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArenaForAllocation());
 }
-inline void SLBgplsTopoSrCpSegListBandwidth::set_allocated_bandwidth(std::string* bandwidth) {
+inline void SLBgplsTopoSrSegListBandwidth::set_allocated_bandwidth(std::string* bandwidth) {
   if (bandwidth != nullptr) {
     
   } else {
@@ -41184,7 +41184,7 @@ inline void SLBgplsTopoSrCpSegListBandwidth::set_allocated_bandwidth(std::string
     bandwidth_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
   }
 #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  // @@protoc_insertion_point(field_set_allocated:service_layer.SLBgplsTopoSrCpSegListBandwidth.Bandwidth)
+  // @@protoc_insertion_point(field_set_allocated:service_layer.SLBgplsTopoSrSegListBandwidth.Bandwidth)
 }
 
 // -------------------------------------------------------------------
