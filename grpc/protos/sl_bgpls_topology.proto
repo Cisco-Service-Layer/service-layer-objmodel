@@ -2426,6 +2426,10 @@ message SLBgplsTopoSrSegList {
     // SR Segment List Metric. TLV 1207
     // Section 5.9 of [draft-ietf-idr-bgp-ls-sr-policy]
     repeated SLBgplsTopoSrSegListMetric Metrics = 6; 
+
+    // SR Segment List Bandwidth. TLV 1216
+    // Section 5.10 of [draft-ietf-idr-bgp-ls-sr-policy] 
+    SLBgplsTopoSrCpSegListBandwidth Bandwidth = 7;
 }
 
 enum SLBgplsTopoSrSegListMetricFlags {
@@ -2751,7 +2755,7 @@ message SLBgplsTopoSrMetricConstraint {
 
 // SR Segment List Bandwidth. TLV 1216
 // Section 5.10 of [draft-ietf-idr-bgp-ls-sr-policy]
-message SLBgplsTopoSrCpSegListBandwidthState {
+message SLBgplsTopoSrCpSegListBandwidth {
     // The allocated bandwidth in unit
     // of bytes per second in IEEE floating point format.
     bytes Bandwidth = 1;
