@@ -914,14 +914,26 @@ enum SLTableType {
 // The type of response that the client expects from the
 // network element for any object programming operation.
 //
+// The network element can operate in two modes - whether the
+// response from is required from device's RIB or both from
+// RIB and FIB.
+//
+// Unary RPC does not support RIB_AND_FIB_ACK.
 //
 // On a hardware programming failure, client is expected to retry or
 // delete the object. The device does not perform any retries or
 // take any other recovery action.
 // Client is expected to handle out of order responses using the OperationID.
+//
+// Operation results for different keys can be out of order
+// when compared to the programming sequence.
+
 enum SLRspACKType {
-  // Network element shall respond with SL_SUCCESS
-  // on a successful update of the object to the RIB database.
+  // When the operating mode is RIB_ACK,
+  // once the object in the operation is successfully applied to
+  // the network element's RIB, SL_SUCCESS is returned for that operation.
+  // On an error, the object is not updated in the network element's RIB
+  // and error is returned to the client.
   //
   // The operation is considered complete once result of RIB programming
   // is sent back to the client.
@@ -929,10 +941,34 @@ enum SLRspACKType {
   // By default, ACK type is assumed to be RIB_ACK.
   RIB_ACK = 0;
 
-  // If ACK type requested is RIB_AND_FIB_ACK, then along with RIB ack
-  // the network element will also return one or more FIB acks which is
-  // the status of hardware programming of the operation.
-  // *NOTE*: RIB_AND_FIB_ACK is supported only in streaming service
+  // When the operating mode is RIB_AND_FIB_ACK,
+  // the first result returned for the operation is RIB's result.
+  // If the object in the operation is successfully applied
+  // to RIB, SL_SUCCESS is returned.
+  //
+  // If the object in the operation is not active and
+  // cannot be programmed to FIB, SL_FIB_INELIGIBLE is returned and
+  // the operation is considered complete. If in this state of the object,
+  // client sends more updates, and the object still not active,
+  // the operations are responded with SL_FIB_INELIGIBLE and are
+  // considered complete.
+  //
+  // Eventually, when the object becomes active,
+  // the object is sent to FIB and result of the operation
+  // is returned asynchronously to the client. The result is sent using
+  // the last Operation ID that RIB is aware of.
+  //
+  // A result from FIB includes hardware programming result.
+  //
+  // It must be noted that while the object is waiting for
+  // FIB programming, a client can send another update
+  // on the object and the object remains active.
+  // The network element may coalesce such back to back
+  // operations. However to the client, all operations are
+  // responded with either SL_FIB_SUCCESS or SL_FIB_FAILED
+  // by reflecting the result of the last operation in all previously
+  // pending operations that have not been responded to so far.
+
   RIB_AND_FIB_ACK = 1;
 }
 
