@@ -964,10 +964,8 @@ enum SLRspACKType {
   // FIB programming, a client can send another update
   // on the object and the object remains active.
   // The network element may coalesce such back to back
-  // operations. However to the client, all operations are
-  // responded with either SL_FIB_SUCCESS or SL_FIB_FAILED
-  // by reflecting the result of the last operation in all previously
-  // pending operations that have not been responded to so far.
+  // operations. In this scenario, only the last operation on the
+  // network element is responded with either SL_FIB_SUCCESS or SL_FIB_FAILED
 
   RIB_AND_FIB_ACK = 1;
 }
