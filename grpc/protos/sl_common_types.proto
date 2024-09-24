@@ -952,6 +952,10 @@ enum SLRspACKType {
   // client sends more updates, and the object still not active,
   // the operations are responded with SL_FIB_INELIGIBLE and are
   // considered complete.
+  // As a result of an operation on an object, if another
+  // previously programmed object becomes ineligible to remain
+  // programmed in FIB, a SL_FIB_INELIGIBLE will be returned for 
+  // that object with the last known operation-id for that object.
   //
   // Eventually, when the object becomes active,
   // the object is sent to FIB and result of the operation
@@ -965,13 +969,8 @@ enum SLRspACKType {
   // on the object and the object remains active.
   // The network element may coalesce such back to back
   // operations. In this scenario, only the last operation
-  // on the network element is responded with either SL_FIB_SUCCESS 
+  // on the object is responded with either SL_FIB_SUCCESS
   // or SL_FIB_FAILED.
-  // As a result of the operation if another programmed object 
-  // becomes ineligible to be programmed in FIB, a SL_FIB_INELIGIBLE
-  // will be returned for that object with the last known operation-id
-  // for that object.
-
   RIB_AND_FIB_ACK = 1;
 }
 

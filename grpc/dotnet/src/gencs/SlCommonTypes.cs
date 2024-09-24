@@ -441,6 +441,38 @@ namespace ServiceLayer {
     /// By default, ACK type is assumed to be RIB_ACK.
     /// </summary>
     [pbr::OriginalName("RIB_ACK")] RibAck = 0,
+    /// <summary>
+    /// When the operating mode is RIB_AND_FIB_ACK,
+    /// the first result returned for the operation is RIB's result.
+    /// If the object in the operation is successfully applied
+    /// to RIB, SL_SUCCESS is returned.
+    ///
+    /// If the object in the operation is not active and
+    /// cannot be programmed to FIB, SL_FIB_INELIGIBLE is returned and
+    /// the operation is considered complete. If in this state of the object,
+    /// client sends more updates, and the object still not active,
+    /// the operations are responded with SL_FIB_INELIGIBLE and are
+    /// considered complete.
+    /// As a result of an operation on an object, if another
+    /// previously programmed object becomes ineligible to remain
+    /// programmed in FIB, a SL_FIB_INELIGIBLE will be returned for 
+    /// that object with the last known operation-id for that object.
+    ///
+    /// Eventually, when the object becomes active,
+    /// the object is sent to FIB and result of the operation
+    /// is returned asynchronously to the client. The result is sent using
+    /// the last Operation ID that RIB is aware of.
+    ///
+    /// A result from FIB includes hardware programming result.
+    ///
+    /// It must be noted that while the object is waiting for
+    /// FIB programming, a client can send another update
+    /// on the object and the object remains active.
+    /// The network element may coalesce such back to back
+    /// operations. In this scenario, only the last operation
+    /// on the object is responded with either SL_FIB_SUCCESS
+    /// or SL_FIB_FAILED.
+    /// </summary>
     [pbr::OriginalName("RIB_AND_FIB_ACK")] RibAndFibAck = 1,
   }
 
