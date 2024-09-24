@@ -372,28 +372,20 @@ func (SLTableType) EnumDescriptor() ([]byte, []int) {
 	return file_sl_common_types_proto_rawDescGZIP(), []int{5}
 }
 
-// The type of response that the client expects from the
-// network element for any object programming operation.
-//
-// On a hardware programming failure, client is expected to retry or
-// delete the object. The device does not perform any retries or
-// take any other recovery action.
-// Client is expected to handle out of order responses using the OperationID.
 type SLRspACKType int32
 
 const (
-	// Network element shall respond with SL_SUCCESS
-	// on a successful update of the object to the RIB database.
+	// When the operating mode is RIB_ACK,
+	// once the object in the operation is successfully applied to
+	// the network element's RIB, SL_SUCCESS is returned for that operation.
+	// On an error, the object is not updated in the network element's RIB
+	// and error is returned to the client.
 	//
 	// The operation is considered complete once result of RIB programming
 	// is sent back to the client.
 	//
 	// By default, ACK type is assumed to be RIB_ACK.
-	SLRspACKType_RIB_ACK SLRspACKType = 0
-	// If ACK type requested is RIB_AND_FIB_ACK, then along with RIB ack
-	// the network element will also return one or more FIB acks which is
-	// the status of hardware programming of the operation.
-	// *NOTE*: RIB_AND_FIB_ACK is supported only in streaming service
+	SLRspACKType_RIB_ACK         SLRspACKType = 0
 	SLRspACKType_RIB_AND_FIB_ACK SLRspACKType = 1
 )
 
@@ -1062,7 +1054,7 @@ const (
 	SLErrorStatus_SL_ROUTE_REDIST_RIB_ADD_FAILED SLErrorStatus_SLErrno = 90120
 	// Offset for Hardware Ack errors. 0x17000
 	SLErrorStatus_SL_FIB_START_OFFSET SLErrorStatus_SLErrno = 94208
-	// The operation is successfully program in hardware. 0x17001
+	// The operation is successfully programmed in hardware. 0x17001
 	SLErrorStatus_SL_FIB_SUCCESS SLErrorStatus_SLErrno = 94209
 	// FIB programming failure. 0x17002
 	SLErrorStatus_SL_FIB_FAILED SLErrorStatus_SLErrno = 94210

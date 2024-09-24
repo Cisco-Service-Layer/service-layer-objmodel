@@ -427,19 +427,13 @@ namespace ServiceLayer {
     [pbr::OriginalName("SL_PATH_GROUP_TABLE")] SlPathGroupTable = 4,
   }
 
-  /// <summary>
-  /// The type of response that the client expects from the
-  /// network element for any object programming operation.
-  ///
-  /// On a hardware programming failure, client is expected to retry or
-  /// delete the object. The device does not perform any retries or
-  /// take any other recovery action.
-  /// Client is expected to handle out of order responses using the OperationID.
-  /// </summary>
   public enum SLRspACKType {
     /// <summary>
-    /// Network element shall respond with SL_SUCCESS
-    /// on a successful update of the object to the RIB database.
+    /// When the operating mode is RIB_ACK,
+    /// once the object in the operation is successfully applied to
+    /// the network element's RIB, SL_SUCCESS is returned for that operation.
+    /// On an error, the object is not updated in the network element's RIB
+    /// and error is returned to the client.
     ///
     /// The operation is considered complete once result of RIB programming
     /// is sent back to the client.
@@ -447,12 +441,6 @@ namespace ServiceLayer {
     /// By default, ACK type is assumed to be RIB_ACK.
     /// </summary>
     [pbr::OriginalName("RIB_ACK")] RibAck = 0,
-    /// <summary>
-    /// If ACK type requested is RIB_AND_FIB_ACK, then along with RIB ack
-    /// the network element will also return one or more FIB acks which is
-    /// the status of hardware programming of the operation.
-    /// *NOTE*: RIB_AND_FIB_ACK is supported only in streaming service
-    /// </summary>
     [pbr::OriginalName("RIB_AND_FIB_ACK")] RibAndFibAck = 1,
   }
 
@@ -1842,7 +1830,7 @@ namespace ServiceLayer {
         /// </summary>
         [pbr::OriginalName("SL_FIB_START_OFFSET")] SlFibStartOffset = 94208,
         /// <summary>
-        /// The operation is successfully program in hardware. 0x17001
+        /// The operation is successfully programmed in hardware. 0x17001
         /// </summary>
         [pbr::OriginalName("SL_FIB_SUCCESS")] SlFibSuccess = 94209,
         /// <summary>

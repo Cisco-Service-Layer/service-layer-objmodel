@@ -914,9 +914,9 @@ enum SLTableType {
 // The type of response that the client expects from the
 // network element for any object programming operation.
 //
-// The network element can operate in two modes - whether the
-// response from is required from device's RIB or both from
-// RIB and FIB.
+// For the object in operation, the network element can operate
+// in two modes - whether the response from is required from 
+// device's RIB or both from RIB and FIB.
 //
 // Unary RPC does not support RIB_AND_FIB_ACK.
 //
@@ -964,8 +964,13 @@ enum SLRspACKType {
   // FIB programming, a client can send another update
   // on the object and the object remains active.
   // The network element may coalesce such back to back
-  // operations. In this scenario, only the last operation on the
-  // network element is responded with either SL_FIB_SUCCESS or SL_FIB_FAILED
+  // operations. In this scenario, only the last operation
+  // on the network element is responded with either SL_FIB_SUCCESS 
+  // or SL_FIB_FAILED.
+  // As a result of the operation if another programmed object 
+  // becomes ineligible to be programmed in FIB, a SL_FIB_INELIGIBLE
+  // will be returned for that object with the last known operation-id
+  // for that object.
 
   RIB_AND_FIB_ACK = 1;
 }
