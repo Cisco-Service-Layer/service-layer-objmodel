@@ -5439,6 +5439,8 @@ namespace ServiceLayer {
     /// <summary>
     /// Outgoing interface name for the path.
     /// For ENCAP_VXLAN, this field is not supported and will be ignored.
+    /// The client should listen to interface state change API for create/delete 
+    /// and reprogram the route or PG.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]

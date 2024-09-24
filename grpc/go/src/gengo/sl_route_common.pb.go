@@ -1607,6 +1607,8 @@ type SLRoutePath struct {
 	NexthopAddress *SLIpAddress `protobuf:"bytes,1,opt,name=NexthopAddress,proto3" json:"NexthopAddress,omitempty"`
 	// Outgoing interface name for the path.
 	// For ENCAP_VXLAN, this field is not supported and will be ignored.
+	// The client should listen to interface state change API for create/delete
+	// and reprogram the route or PG.
 	NexthopInterface *SLInterface `protobuf:"bytes,2,opt,name=NexthopInterface,proto3" json:"NexthopInterface,omitempty"`
 	// Load metric for this path.
 	// Used for equal/unequal cost load balancing of traffic distribution.
