@@ -450,7 +450,7 @@ namespace ServiceLayer {
     /// If the object in the operation is not active and
     /// cannot be programmed to FIB, SL_FIB_INELIGIBLE is returned and
     /// the operation is considered complete. If in this state of the object,
-    /// client sends more updates, and the object still not active,
+    /// client sends more updates, and the object is still not active,
     /// the operations are responded with SL_FIB_INELIGIBLE and are
     /// considered complete.
     /// As a result of an operation on an object, if another
