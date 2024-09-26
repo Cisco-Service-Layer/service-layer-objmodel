@@ -946,7 +946,7 @@ enum SLRspACKScope {
 
     // Only the very first response from hardware programming attempt
     // will be relayed to the grpc client, there will be no hardware ack response
-    // generated for any susequent churn in the hard programming result.
+    // generated for any subsequent change in the hardware programming result.
     // However, the client can do a get operation to know the latest state
     // of hardware programming of any object, provided the ack-type was set
     // as RIB_AND_FIB_ACK at the time of programming the object.
