@@ -936,6 +936,37 @@ enum SLRspACKType {
   RIB_AND_FIB_ACK = 1;
 }
 
+// Flags to control scope of hwardware programming responses 
+// Each flag is indicated as a bit-field. Supported values are given below
+// For more information and behavior matrix please refer to protos/README.md
+enum SLRspACKScope {
+
+    // Reserved
+    SL_ACK_SCOPE_RESERVED = 0x0;
+
+    // only the very first response from hardware programming attempt
+    // will be relayed to the grpc client, there will be no hardware ack response
+    // generated for any susequent churn in the hard programming result.
+    // However, the client can do a get operation to know the latest state
+    // of hardware programming of any object, provided the ack-type was set
+    // as RIB_AND_FIB_ACK at the time of programming the object.
+    SL_ACK_SCOPE_ONCE = 0x1;
+
+    //A hardware ack response will be generated for hardware programming that was
+    //triggerred by promotion of route that was previously not-viable.
+    SL_ACK_SCOPE_PROMO = 0x2;
+
+    //A hardware ack response  will be generated for any hardware programming event
+    // (including those specified by flags defined above)
+    // Notifications may include programming/re-programming of hardware
+    // due to internal events including but not limited to
+    // a) New LC insertion or removal
+    // b) Interface being removed/added
+    // c) Driver process restarts
+    // d) Redundancy switchover from active-rp to standy-rp
+    SL_ACK_SCOPE_ALL = -1; // translates to 0xFFFFFFFF
+}
+
 // Common Object Identifier.
 message SLObjectId {
     // One of Object name or handle

@@ -441,6 +441,9 @@ message SLAFOp {
     // The type of Acknowledgment that the controller or agent expects from
     // the network element
     SLRspACKType AckType = 3;
+    // SLRspACKScope defines bitfields to control and filter async responses
+    // for hardware programming events.
+    uint32 AckScope = 4;
 }
 
 // Used to retrieve objects in a VRF table.
