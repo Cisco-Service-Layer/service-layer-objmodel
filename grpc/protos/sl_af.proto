@@ -443,14 +443,18 @@ message SLAFOp {
     SLRspACKType AckType = 3;
 
     // AckScope and AckCadence are parameters that can be used to control
-    // and filter the response types and cadence of hardware programming responses
-    // sent from SL-API server to SL-API client based on the response type carried
-    // by SLAFRes.ErrStatus. These parameters are valid only for objects
-    // programmed with AckType as RIB_AND_FIB_ACK.  These parameters only
-    // affect the response sent to the SL-API client. The server will keep
-    // record of the latest hardware programming response for each object
-    // programmed with AckType as RIB_AND_FIB_ACK. The SL-API client can do a
-    // Get() rpc to retrieve the latest hardware programming response.
+    // and filter hardware programming responses sent from SL-API server
+    // to SL-API client based on the response type carried by SLAFRes.ErrStatus.
+
+    // These parameters are valid only for objects programmed with AckType as
+    // RIB_AND_FIB_ACK.
+
+    // These parameters only affect the responses sent to the SL-API client.
+    // SL-API server will keep record of the latest hardware programming
+    // response for each object programmed with AckType as RIB_AND_FIB_ACK.
+    // SL-API client can do a Get() rpc to retrieve the latest hardware
+    // programming response regardless of what is defined in AckScope and
+    // AckCadence.
 
     // AckScope field is expected to be a bit-field resulting from ORing one
     // or more values from SLRspACKScope.
