@@ -458,13 +458,13 @@ message SLAFOp {
 
     // SLRspACKScope controls the scope of response types that are sent from
     // SL-API server in response to hardware programming events.
-    // SLRspACKScope is a bit-mask  resulting from ORing one or  more bits
-    // enumerated in SLRspACKMask.
+    // SLRspACKScope is a bit-field  resulting from ORing one or  more bits
+    // enumerated in SLRspACKPermit.
     // For example, `SLRspACKScope = SL_FIB_SUCCESS | SL_FIB_FAILED` would mean
     // the SL-API client is only interested in these two types of responses.
     // When SLRspACKScope is NOT defined by the SL-API client, the SL-API server
     // will send all response types including but not limited to types enumerated
-    // in SLRspACKMask
+    // in SLRspACKPermit
     uint32 SLRspACKScope = 4;
 
     // SLRspAckCadence field controls the cadence of hardware programming responses.

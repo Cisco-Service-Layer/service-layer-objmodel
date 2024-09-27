@@ -954,7 +954,7 @@ enum SLRspACKType {
   // considered complete.
   // As a result of an operation on an object, if another
   // previously programmed object becomes ineligible to remain
-  // programmed in FIB, a SL_FIB_INELIGIBLE will be returned for 
+  // programmed in FIB, a SL_FIB_INELIGIBLE will be returned for
   // that object with the last known operation-id for that object.
   //
   // Eventually, when the object becomes active,
@@ -974,20 +974,19 @@ enum SLRspACKType {
   RIB_AND_FIB_ACK = 1;
 }
 
-// SLRspACKMask defines bit-mask that control the type of hardware programming responses.
+// SLRspACKPermit defines bit-field that control the type of hardware programming responses.
 // A set bit in the mask indicates PERMIT/ALLOW the corresponding response type.
 // If the SL-API client is interested in only a subset of possible responses
 // for hardware programming, then the corresponding bits are turned ON in the
-// bit-mask. The meaning of each of the response types defined in SLRspACKMask
+// bit-field. The meaning of each of the response types defined in SLRspACKPermit
 // are same as in SLErrorStatus.
-enum SLRspACKMask {
+enum SLRspACKPermit {
     // Reserved
     SL_RESERVED = 0x0;
-    SL_SUCCESS = 0x1;
-    SL_FIB_INELIGIBLE = 0x2;
-    SL_FIB_SUCCESS = 0x4;
-    SL_FIB_FAILED = 0x8;
-    SL_FIB_PARTIAL = 0x10;
+    SL_FIB_INELIGIBLE = 0x1;
+    SL_FIB_SUCCESS = 0x2;
+    SL_FIB_FAILED = 0x4;
+    SL_FIB_PARTIAL = 0x8;
 }
 
 // Common Object Identifier.
