@@ -30,12 +30,6 @@ message SLIpv6Address {
     bytes  V6Address = 1;
 }
 
-// @defgroup SLSrCommonTypes
-// @ingroup SrCommon
-// Service Layer SR common types.
-// The following messages are used as SR Common Service Layer types.
-// @{
-
 // Protocol Originating SR Policy
 // Section 8.4 of [draft-ietf-idr-bgp-ls-sr-policy]
 enum SLSrPolicyProtocolOrigin {
