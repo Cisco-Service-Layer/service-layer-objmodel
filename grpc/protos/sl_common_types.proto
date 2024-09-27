@@ -936,35 +936,20 @@ enum SLRspACKType {
   RIB_AND_FIB_ACK = 1;
 }
 
-// Flags to control scope of hwardware programming responses
-// Each flag is indicated as a bit-field. Supported values are given below
-// For more information and behavior matrix please refer to protos/README.md
+// Flags to control scope of hardware programming responses
+// Each flag is indicated as a bit-field.
+// If the client is interested in only a subset of possible responses for
+// hardware programming, then the corresponding bit-fields can be used to mark
+// the response types of interest. The meaning of each of the types are same
+// as defined in SLErrorStatus.
 enum SLRspACKScope {
-
     // Reserved
-    SL_ACK_SCOPE_RESERVED = 0x0;
-
-    // Only the very first response from hardware programming attempt
-    // will be relayed to the grpc client, there will be no hardware ack response
-    // generated for any subsequent change in the hardware programming result.
-    // However, the client can do a get operation to know the latest state
-    // of hardware programming of any object, provided the ack-type was set
-    // as RIB_AND_FIB_ACK at the time of programming the object.
-    SL_ACK_SCOPE_ONCE = 0x1;
-
-    // A hardware ack response will be generated for hardware programming that was
-    // triggerred by promotion of route that was previously not-viable.
-    SL_ACK_SCOPE_PROMO = 0x2;
-
-    // A hardware ack response  will be generated for all hardware programming events
-    // including those specified by flags defined above.  Responses  may include 
-    // programming/re-programming of hardware due to internal events including
-    // but not limited to
-    // a) Line card  insertion or removal
-    // b) Interface addition or removal
-    // c) Driver process restarts
-    // d) Redundancy switchover from active-rp to standy-rp
-    SL_ACK_SCOPE_ALL = -1; // translates to 0xFFFFFFFF
+    SL_RESERVED = 0x0;
+    SL_SUCCESS = 0x1;
+    SL_FIB_INELIGIBLE = 0x2;
+    SL_FIB_PARTIAL = 0x4;
+    SL_FIB_SUCCESS = 0x8;
+    SL_FIB_FAILED = 0x10;
 }
 
 // Common Object Identifier.

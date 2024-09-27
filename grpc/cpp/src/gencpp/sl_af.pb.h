@@ -2336,6 +2336,7 @@ class SLAFOp final :
     kAFObjectFieldNumber = 1,
     kOperationIDFieldNumber = 2,
     kAckTypeFieldNumber = 3,
+    kAckScopeFieldNumber = 4,
   };
   // .service_layer.SLAFObject AFObject = 1;
   bool has_afobject() const;
@@ -2373,6 +2374,15 @@ class SLAFOp final :
   void _internal_set_acktype(::service_layer::SLRspACKType value);
   public:
 
+  // uint32 AckScope = 4;
+  void clear_ackscope();
+  uint32_t ackscope() const;
+  void set_ackscope(uint32_t value);
+  private:
+  uint32_t _internal_ackscope() const;
+  void _internal_set_ackscope(uint32_t value);
+  public:
+
   // @@protoc_insertion_point(class_scope:service_layer.SLAFOp)
  private:
   class _Internal;
@@ -2383,6 +2393,7 @@ class SLAFOp final :
   ::service_layer::SLAFObject* afobject_;
   uint64_t operationid_;
   int acktype_;
+  uint32_t ackscope_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_sl_5faf_2eproto;
 };
@@ -7629,6 +7640,26 @@ inline void SLAFOp::_internal_set_acktype(::service_layer::SLRspACKType value) {
 inline void SLAFOp::set_acktype(::service_layer::SLRspACKType value) {
   _internal_set_acktype(value);
   // @@protoc_insertion_point(field_set:service_layer.SLAFOp.AckType)
+}
+
+// uint32 AckScope = 4;
+inline void SLAFOp::clear_ackscope() {
+  ackscope_ = 0u;
+}
+inline uint32_t SLAFOp::_internal_ackscope() const {
+  return ackscope_;
+}
+inline uint32_t SLAFOp::ackscope() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLAFOp.AckScope)
+  return _internal_ackscope();
+}
+inline void SLAFOp::_internal_set_ackscope(uint32_t value) {
+  
+  ackscope_ = value;
+}
+inline void SLAFOp::set_ackscope(uint32_t value) {
+  _internal_set_ackscope(value);
+  // @@protoc_insertion_point(field_set:service_layer.SLAFOp.AckScope)
 }
 
 // -------------------------------------------------------------------

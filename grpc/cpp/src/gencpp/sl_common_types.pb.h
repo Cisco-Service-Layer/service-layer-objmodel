@@ -613,6 +613,33 @@ inline bool SLRspACKType_Parse(
   return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<SLRspACKType>(
     SLRspACKType_descriptor(), name, value);
 }
+enum SLRspACKScope : int {
+  SL_ACK_SCOPE_RESERVED = 0,
+  SL_ACK_SCOPE_ONCE = 1,
+  SL_ACK_SCOPE_PROMO = 2,
+  SL_ACK_SCOPE_ALL = -1,
+  SLRspACKScope_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::min(),
+  SLRspACKScope_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::max()
+};
+bool SLRspACKScope_IsValid(int value);
+constexpr SLRspACKScope SLRspACKScope_MIN = SL_ACK_SCOPE_ALL;
+constexpr SLRspACKScope SLRspACKScope_MAX = SL_ACK_SCOPE_PROMO;
+constexpr int SLRspACKScope_ARRAYSIZE = SLRspACKScope_MAX + 1;
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* SLRspACKScope_descriptor();
+template<typename T>
+inline const std::string& SLRspACKScope_Name(T enum_t_value) {
+  static_assert(::std::is_same<T, SLRspACKScope>::value ||
+    ::std::is_integral<T>::value,
+    "Incorrect type passed to function SLRspACKScope_Name.");
+  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
+    SLRspACKScope_descriptor(), enum_t_value);
+}
+inline bool SLRspACKScope_Parse(
+    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, SLRspACKScope* value) {
+  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<SLRspACKScope>(
+    SLRspACKScope_descriptor(), name, value);
+}
 // ===================================================================
 
 class SLErrorStatus final :
@@ -2746,6 +2773,11 @@ template <> struct is_proto_enum< ::service_layer::SLRspACKType> : ::std::true_t
 template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::service_layer::SLRspACKType>() {
   return ::service_layer::SLRspACKType_descriptor();
+}
+template <> struct is_proto_enum< ::service_layer::SLRspACKScope> : ::std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::service_layer::SLRspACKScope>() {
+  return ::service_layer::SLRspACKScope_descriptor();
 }
 
 PROTOBUF_NAMESPACE_CLOSE

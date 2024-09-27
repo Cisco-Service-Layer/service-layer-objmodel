@@ -81,7 +81,7 @@ struct SLPathGroupRefKeyDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT SLPathGroupRefKeyDefaultTypeInternal _SLPathGroupRefKey_default_instance_;
 }  // namespace service_layer
 static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_sl_5fcommon_5ftypes_2eproto[5];
-static const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* file_level_enum_descriptors_sl_5fcommon_5ftypes_2eproto[8];
+static const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* file_level_enum_descriptors_sl_5fcommon_5ftypes_2eproto[9];
 static constexpr ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor const** file_level_service_descriptors_sl_5fcommon_5ftypes_2eproto = nullptr;
 
 const uint32_t TableStruct_sl_5fcommon_5ftypes_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
@@ -443,13 +443,16 @@ const char descriptor_table_protodef_sl_5fcommon_5ftypes_2eproto[] PROTOBUF_SECT
   "\023SL_IPv6_ROUTE_TABLE\020\002\022\027\n\023SL_MPLS_LABEL_"
   "TABLE\020\003\022\027\n\023SL_PATH_GROUP_TABLE\020\004*0\n\014SLRs"
   "pACKType\022\013\n\007RIB_ACK\020\000\022\023\n\017RIB_AND_FIB_ACK"
-  "\020\001BQZOgithub.com/Cisco-service-layer/ser"
-  "vice-layer-objmodel/grpc/protos;service_"
-  "layerb\006proto3"
+  "\020\001*x\n\rSLRspACKScope\022\031\n\025SL_ACK_SCOPE_RESE"
+  "RVED\020\000\022\025\n\021SL_ACK_SCOPE_ONCE\020\001\022\026\n\022SL_ACK_"
+  "SCOPE_PROMO\020\002\022\035\n\020SL_ACK_SCOPE_ALL\020\377\377\377\377\377\377"
+  "\377\377\377\001BQZOgithub.com/Cisco-service-layer/s"
+  "ervice-layer-objmodel/grpc/protos;servic"
+  "e_layerb\006proto3"
   ;
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_sl_5fcommon_5ftypes_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_sl_5fcommon_5ftypes_2eproto = {
-  false, false, 12053, descriptor_table_protodef_sl_5fcommon_5ftypes_2eproto, "sl_common_types.proto", 
+  false, false, 12175, descriptor_table_protodef_sl_5fcommon_5ftypes_2eproto, "sl_common_types.proto", 
   &descriptor_table_sl_5fcommon_5ftypes_2eproto_once, nullptr, 0, 5,
   schemas, file_default_instances, TableStruct_sl_5fcommon_5ftypes_2eproto::offsets,
   file_level_metadata_sl_5fcommon_5ftypes_2eproto, file_level_enum_descriptors_sl_5fcommon_5ftypes_2eproto, file_level_service_descriptors_sl_5fcommon_5ftypes_2eproto,
@@ -1228,6 +1231,22 @@ bool SLRspACKType_IsValid(int value) {
   switch (value) {
     case 0:
     case 1:
+      return true;
+    default:
+      return false;
+  }
+}
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* SLRspACKScope_descriptor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_sl_5fcommon_5ftypes_2eproto);
+  return file_level_enum_descriptors_sl_5fcommon_5ftypes_2eproto[8];
+}
+bool SLRspACKScope_IsValid(int value) {
+  switch (value) {
+    case -1:
+    case 0:
+    case 1:
+    case 2:
       return true;
     default:
       return false;
