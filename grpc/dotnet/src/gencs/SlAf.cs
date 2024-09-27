@@ -56,80 +56,81 @@ namespace ServiceLayer {
             "TFJvdXRldjRIABItCglJUHY2Um91dGUYAiABKAsyGC5zZXJ2aWNlX2xheWVy",
             "LlNMUm91dGV2NkgAEi8KCU1wbHNMYWJlbBgDIAEoCzIaLnNlcnZpY2VfbGF5",
             "ZXIuU0xNcGxzRW50cnlIABIvCglQYXRoR3JvdXAYBCABKAsyGi5zZXJ2aWNl",
-            "X2xheWVyLlNMUGF0aEdyb3VwSABCBwoFZW50cnkiigEKBlNMQUZPcBIrCghB",
+            "X2xheWVyLlNMUGF0aEdyb3VwSABCBwoFZW50cnki1AEKBlNMQUZPcBIrCghB",
             "Rk9iamVjdBgBIAEoCzIZLnNlcnZpY2VfbGF5ZXIuU0xBRk9iamVjdBITCgtP",
             "cGVyYXRpb25JRBgCIAEoBBIsCgdBY2tUeXBlGAMgASgOMhsuc2VydmljZV9s",
-            "YXllci5TTFJzcEFDS1R5cGUSEAoIQWNrU2NvcGUYBCABKA0ikwEKClNMQUZH",
-            "ZXRNc2cSDwoHVnJmTmFtZRgBIAEoCRIpCgVUYWJsZRgCIAEoDjIaLnNlcnZp",
-            "Y2VfbGF5ZXIuU0xUYWJsZVR5cGUSFQoNR2V0QWxsQ2xpZW50cxgDIAEoCBIy",
-            "CgpSb3V0ZU1hdGNoGAQgAygLMh4uc2VydmljZV9sYXllci5TTFJvdXRlR2V0",
-            "TWF0Y2girAEKEFNMQUZEZXBGaWJTdGF0dXMSLwoJRXJyb3JDb2RlGAEgASgL",
-            "Mhwuc2VydmljZV9sYXllci5TTEVycm9yU3RhdHVzEhMKC09wZXJhdGlvbklE",
-            "GAIgASgEEg8KB1ZlcnNpb24YAyABKAQSOAoMUGF0aEdyb3VwS2V5GAQgASgL",
-            "MiAuc2VydmljZV9sYXllci5TTFBhdGhHcm91cFJlZktleUgAQgcKBWVudHJ5",
-            "IlQKDVNMQUZGaWJTdGF0dXMSDwoHVmVyc2lvbhgBIAEoBBIyCglEZXBSZXN1",
-            "bHQYAiABKAsyHy5zZXJ2aWNlX2xheWVyLlNMQUZEZXBGaWJTdGF0dXMiewoS",
-            "U0xBRkdldE1zZ1JzcEVudHJ5EiMKBEFGT3AYASABKAsyFS5zZXJ2aWNlX2xh",
-            "eWVyLlNMQUZPcBIvCglFcnJvckNvZGUYAiABKAsyHC5zZXJ2aWNlX2xheWVy",
-            "LlNMRXJyb3JTdGF0dXMSDwoHVmVyc2lvbhgDIAEoBCKWAQoNU0xBRkdldE1z",
-            "Z1JzcBIvCglFcnJTdGF0dXMYASABKAsyHC5zZXJ2aWNlX2xheWVyLlNMRXJy",
-            "b3JTdGF0dXMSDwoHVnJmTmFtZRgCIAEoCRIQCghDbGllbnRJRBgDIAEoBBIx",
-            "CgZBRkxpc3QYBCADKAsyIS5zZXJ2aWNlX2xheWVyLlNMQUZHZXRNc2dSc3BF",
-            "bnRyeSJqCgdTTEFGTXNnEicKBE9wZXIYASABKA4yGS5zZXJ2aWNlX2xheWVy",
-            "LlNMT2JqZWN0T3ASDwoHVnJmTmFtZRgCIAEoCRIlCgZPcExpc3QYAyADKAsy",
-            "FS5zZXJ2aWNlX2xheWVyLlNMQUZPcCKqAQoHU0xBRlJlcxIvCglFcnJTdGF0",
-            "dXMYASABKAsyHC5zZXJ2aWNlX2xheWVyLlNMRXJyb3JTdGF0dXMSKAoJT3Bl",
-            "cmF0aW9uGAIgASgLMhUuc2VydmljZV9sYXllci5TTEFGT3ASEwoLRXJyb3JT",
-            "dHJpbmcYAyABKAkSLwoJRklCU3RhdHVzGAQgASgLMhwuc2VydmljZV9sYXll",
-            "ci5TTEFGRmliU3RhdHVzIkYKClNMQUZNc2dSc3ASDwoHVnJmTmFtZRgBIAEo",
-            "CRInCgdSZXN1bHRzGAIgAygLMhYuc2VydmljZV9sYXllci5TTEFGUmVzImQK",
-            "EFNMQUZSZWRpc3RSZWdNc2cSEAoIU3JjUHJvdG8YASABKAkSEwoLU3JjUHJv",
-            "dG9UYWcYAiABKAkSKQoFVGFibGUYAyABKA4yGi5zZXJ2aWNlX2xheWVyLlNM",
-            "VGFibGVUeXBlIvABChFTTEFGTmV4dEhvcFJlZ0tleRJACgdOZXh0SG9wGAEg",
-            "ASgLMi0uc2VydmljZV9sYXllci5TTEFGTmV4dEhvcFJlZ0tleS5TTE5leHRI",
-            "b3BLZXlIABqKAQoMU0xOZXh0SG9wS2V5EisKB05leHRIb3AYASABKAsyGi5z",
-            "ZXJ2aWNlX2xheWVyLlNMSXBBZGRyZXNzEhIKCk5leHRIb3BMZW4YAiABKA0S",
-            "EgoKRXhhY3RNYXRjaBgDIAEoCBIUCgxBbGxvd0RlZmF1bHQYBCABKAgSDwoH",
-            "UmVjdXJzZRgFIAEoCEIMCgpuZXh0aG9wa2V5IkkKEVNMQUZOZXh0SG9wUmVn",
-            "TXNnEjQKCk5leHRIb3BLZXkYASABKAsyIC5zZXJ2aWNlX2xheWVyLlNMQUZO",
-            "ZXh0SG9wUmVnS2V5Ip8BCg9TTEFGTm90aWZSZWdSZXESNAoJUmVkaXN0UmVx",
-            "GAEgASgLMh8uc2VydmljZV9sYXllci5TTEFGUmVkaXN0UmVnTXNnSAASNgoK",
-            "TmV4dEhvcFJlcRgCIAEoCzIgLnNlcnZpY2VfbGF5ZXIuU0xBRk5leHRIb3BS",
-            "ZWdNc2dIABITCgtPcGVyYXRpb25JRBgDIAEoBEIJCgdyZXF1ZXN0InkKDFNM",
-            "QUZOb3RpZlJlcRImCgRPcGVyGAEgASgOMhguc2VydmljZV9sYXllci5TTE5v",
-            "dGlmT3ASDwoHVnJmTmFtZRgCIAEoCRIwCghOb3RpZlJlcRgDIAMoCzIeLnNl",
-            "cnZpY2VfbGF5ZXIuU0xBRk5vdGlmUmVnUmVxInMKDFNMQUZOb3RpZlJzcBIw",
-            "CghOb3RpZlJlcRgBIAEoCzIeLnNlcnZpY2VfbGF5ZXIuU0xBRk5vdGlmUmVn",
-            "UmVxEjEKC05vdGlmU3RhdHVzGAIgASgLMhwuc2VydmljZV9sYXllci5TTEVy",
-            "cm9yU3RhdHVzIokCCglTTE5leHRIb3ASNAoKTmV4dEhvcEtleRgBIAEoCzIg",
-            "LnNlcnZpY2VfbGF5ZXIuU0xBRk5leHRIb3BSZWdLZXkSMgoOUmVzb2x2aW5n",
-            "Um91dGUYAiABKAsyGi5zZXJ2aWNlX2xheWVyLlNMSXBBZGRyZXNzEhkKEVJl",
-            "c29sdmluZ1JvdXRlTGVuGAMgASgNEhAKCFNyY1Byb3RvGAQgASgJEhMKC1Ny",
-            "Y1Byb3RvVGFnGAUgASgJEhUKDUFkbWluRGlzdGFuY2UYBiABKA0SDgoGTWV0",
-            "cmljGAcgASgNEikKBVBhdGhzGAggAygLMhouc2VydmljZV9sYXllci5TTFJv",
-            "dXRlUGF0aCLjAgoJU0xBRk5vdGlmEjIKC05vdGlmU3RhdHVzGAEgASgLMhsu",
-            "c2VydmljZV9sYXllci5TTEFGTm90aWZSc3BIABI+CgtTdGFydE1hcmtlchgC",
-            "IAEoCzInLnNlcnZpY2VfbGF5ZXIuU0xBRk5vdGlmLlNMUmVkaXN0TWFya2Vy",
-            "SAASPAoJRW5kTWFya2VyGAMgASgLMicuc2VydmljZV9sYXllci5TTEFGTm90",
-            "aWYuU0xSZWRpc3RNYXJrZXJIABIxCgxSZWRpc3RPYmplY3QYBCABKAsyGS5z",
-            "ZXJ2aWNlX2xheWVyLlNMQUZPYmplY3RIABIrCgdOZXh0SG9wGAUgASgLMhgu",
-            "c2VydmljZV9sYXllci5TTE5leHRIb3BIABo7Cg5TTFJlZGlzdE1hcmtlchIp",
-            "CgVUYWJsZRgBIAEoDjIaLnNlcnZpY2VfbGF5ZXIuU0xUYWJsZVR5cGVCBwoF",
-            "RXZlbnQiSwoMU0xBRk5vdGlmTXNnEg8KB1ZyZk5hbWUYASABKAkSKgoIQUZO",
-            "b3RpZnMYAyADKAsyGC5zZXJ2aWNlX2xheWVyLlNMQUZOb3RpZjLIAwoEU0xB",
-            "RhJNCgxTTEFGVnJmUmVnT3ASHC5zZXJ2aWNlX2xheWVyLlNMQUZWcmZSZWdN",
-            "c2caHy5zZXJ2aWNlX2xheWVyLlNMQUZWcmZSZWdNc2dSc3ASVgoNU0xBRlZy",
-            "ZlJlZ0dldBIfLnNlcnZpY2VfbGF5ZXIuU0xBRlZyZlJlZ0dldE1zZxoiLnNl",
-            "cnZpY2VfbGF5ZXIuU0xBRlZyZlJlZ0dldE1zZ1JzcDABEjsKBlNMQUZPcBIW",
-            "LnNlcnZpY2VfbGF5ZXIuU0xBRk1zZxoZLnNlcnZpY2VfbGF5ZXIuU0xBRk1z",
-            "Z1JzcBJFCgxTTEFGT3BTdHJlYW0SFi5zZXJ2aWNlX2xheWVyLlNMQUZNc2ca",
-            "GS5zZXJ2aWNlX2xheWVyLlNMQUZNc2dSc3AoATABEkQKB1NMQUZHZXQSGS5z",
-            "ZXJ2aWNlX2xheWVyLlNMQUZHZXRNc2caHC5zZXJ2aWNlX2xheWVyLlNMQUZH",
-            "ZXRNc2dSc3AwARJPCg9TTEFGTm90aWZTdHJlYW0SGy5zZXJ2aWNlX2xheWVy",
-            "LlNMQUZOb3RpZlJlcRobLnNlcnZpY2VfbGF5ZXIuU0xBRk5vdGlmTXNnKAEw",
-            "AUJRWk9naXRodWIuY29tL0Npc2NvLXNlcnZpY2UtbGF5ZXIvc2VydmljZS1s",
-            "YXllci1vYmptb2RlbC9ncnBjL3Byb3RvcztzZXJ2aWNlX2xheWVyYgZwcm90",
-            "bzM="));
+            "YXllci5TTFJzcEFDS1R5cGUSEAoIQWNrU2NvcGUYBCABKA0SHAoSSlVTVF9P",
+            "TkNFX0lOX1NDT1BFGAUgASgISAASHAoST05DRV9FQUNIX0lOX1NDT1BFGAYg",
+            "ASgISABCDAoKQWNrQ2FkZW5jZSKTAQoKU0xBRkdldE1zZxIPCgdWcmZOYW1l",
+            "GAEgASgJEikKBVRhYmxlGAIgASgOMhouc2VydmljZV9sYXllci5TTFRhYmxl",
+            "VHlwZRIVCg1HZXRBbGxDbGllbnRzGAMgASgIEjIKClJvdXRlTWF0Y2gYBCAD",
+            "KAsyHi5zZXJ2aWNlX2xheWVyLlNMUm91dGVHZXRNYXRjaCKsAQoQU0xBRkRl",
+            "cEZpYlN0YXR1cxIvCglFcnJvckNvZGUYASABKAsyHC5zZXJ2aWNlX2xheWVy",
+            "LlNMRXJyb3JTdGF0dXMSEwoLT3BlcmF0aW9uSUQYAiABKAQSDwoHVmVyc2lv",
+            "bhgDIAEoBBI4CgxQYXRoR3JvdXBLZXkYBCABKAsyIC5zZXJ2aWNlX2xheWVy",
+            "LlNMUGF0aEdyb3VwUmVmS2V5SABCBwoFZW50cnkiVAoNU0xBRkZpYlN0YXR1",
+            "cxIPCgdWZXJzaW9uGAEgASgEEjIKCURlcFJlc3VsdBgCIAEoCzIfLnNlcnZp",
+            "Y2VfbGF5ZXIuU0xBRkRlcEZpYlN0YXR1cyJ7ChJTTEFGR2V0TXNnUnNwRW50",
+            "cnkSIwoEQUZPcBgBIAEoCzIVLnNlcnZpY2VfbGF5ZXIuU0xBRk9wEi8KCUVy",
+            "cm9yQ29kZRgCIAEoCzIcLnNlcnZpY2VfbGF5ZXIuU0xFcnJvclN0YXR1cxIP",
+            "CgdWZXJzaW9uGAMgASgEIpYBCg1TTEFGR2V0TXNnUnNwEi8KCUVyclN0YXR1",
+            "cxgBIAEoCzIcLnNlcnZpY2VfbGF5ZXIuU0xFcnJvclN0YXR1cxIPCgdWcmZO",
+            "YW1lGAIgASgJEhAKCENsaWVudElEGAMgASgEEjEKBkFGTGlzdBgEIAMoCzIh",
+            "LnNlcnZpY2VfbGF5ZXIuU0xBRkdldE1zZ1JzcEVudHJ5ImoKB1NMQUZNc2cS",
+            "JwoET3BlchgBIAEoDjIZLnNlcnZpY2VfbGF5ZXIuU0xPYmplY3RPcBIPCgdW",
+            "cmZOYW1lGAIgASgJEiUKBk9wTGlzdBgDIAMoCzIVLnNlcnZpY2VfbGF5ZXIu",
+            "U0xBRk9wIqoBCgdTTEFGUmVzEi8KCUVyclN0YXR1cxgBIAEoCzIcLnNlcnZp",
+            "Y2VfbGF5ZXIuU0xFcnJvclN0YXR1cxIoCglPcGVyYXRpb24YAiABKAsyFS5z",
+            "ZXJ2aWNlX2xheWVyLlNMQUZPcBITCgtFcnJvclN0cmluZxgDIAEoCRIvCglG",
+            "SUJTdGF0dXMYBCABKAsyHC5zZXJ2aWNlX2xheWVyLlNMQUZGaWJTdGF0dXMi",
+            "RgoKU0xBRk1zZ1JzcBIPCgdWcmZOYW1lGAEgASgJEicKB1Jlc3VsdHMYAiAD",
+            "KAsyFi5zZXJ2aWNlX2xheWVyLlNMQUZSZXMiZAoQU0xBRlJlZGlzdFJlZ01z",
+            "ZxIQCghTcmNQcm90bxgBIAEoCRITCgtTcmNQcm90b1RhZxgCIAEoCRIpCgVU",
+            "YWJsZRgDIAEoDjIaLnNlcnZpY2VfbGF5ZXIuU0xUYWJsZVR5cGUi8AEKEVNM",
+            "QUZOZXh0SG9wUmVnS2V5EkAKB05leHRIb3AYASABKAsyLS5zZXJ2aWNlX2xh",
+            "eWVyLlNMQUZOZXh0SG9wUmVnS2V5LlNMTmV4dEhvcEtleUgAGooBCgxTTE5l",
+            "eHRIb3BLZXkSKwoHTmV4dEhvcBgBIAEoCzIaLnNlcnZpY2VfbGF5ZXIuU0xJ",
+            "cEFkZHJlc3MSEgoKTmV4dEhvcExlbhgCIAEoDRISCgpFeGFjdE1hdGNoGAMg",
+            "ASgIEhQKDEFsbG93RGVmYXVsdBgEIAEoCBIPCgdSZWN1cnNlGAUgASgIQgwK",
+            "Cm5leHRob3BrZXkiSQoRU0xBRk5leHRIb3BSZWdNc2cSNAoKTmV4dEhvcEtl",
+            "eRgBIAEoCzIgLnNlcnZpY2VfbGF5ZXIuU0xBRk5leHRIb3BSZWdLZXkinwEK",
+            "D1NMQUZOb3RpZlJlZ1JlcRI0CglSZWRpc3RSZXEYASABKAsyHy5zZXJ2aWNl",
+            "X2xheWVyLlNMQUZSZWRpc3RSZWdNc2dIABI2CgpOZXh0SG9wUmVxGAIgASgL",
+            "MiAuc2VydmljZV9sYXllci5TTEFGTmV4dEhvcFJlZ01zZ0gAEhMKC09wZXJh",
+            "dGlvbklEGAMgASgEQgkKB3JlcXVlc3QieQoMU0xBRk5vdGlmUmVxEiYKBE9w",
+            "ZXIYASABKA4yGC5zZXJ2aWNlX2xheWVyLlNMTm90aWZPcBIPCgdWcmZOYW1l",
+            "GAIgASgJEjAKCE5vdGlmUmVxGAMgAygLMh4uc2VydmljZV9sYXllci5TTEFG",
+            "Tm90aWZSZWdSZXEicwoMU0xBRk5vdGlmUnNwEjAKCE5vdGlmUmVxGAEgASgL",
+            "Mh4uc2VydmljZV9sYXllci5TTEFGTm90aWZSZWdSZXESMQoLTm90aWZTdGF0",
+            "dXMYAiABKAsyHC5zZXJ2aWNlX2xheWVyLlNMRXJyb3JTdGF0dXMiiQIKCVNM",
+            "TmV4dEhvcBI0CgpOZXh0SG9wS2V5GAEgASgLMiAuc2VydmljZV9sYXllci5T",
+            "TEFGTmV4dEhvcFJlZ0tleRIyCg5SZXNvbHZpbmdSb3V0ZRgCIAEoCzIaLnNl",
+            "cnZpY2VfbGF5ZXIuU0xJcEFkZHJlc3MSGQoRUmVzb2x2aW5nUm91dGVMZW4Y",
+            "AyABKA0SEAoIU3JjUHJvdG8YBCABKAkSEwoLU3JjUHJvdG9UYWcYBSABKAkS",
+            "FQoNQWRtaW5EaXN0YW5jZRgGIAEoDRIOCgZNZXRyaWMYByABKA0SKQoFUGF0",
+            "aHMYCCADKAsyGi5zZXJ2aWNlX2xheWVyLlNMUm91dGVQYXRoIuMCCglTTEFG",
+            "Tm90aWYSMgoLTm90aWZTdGF0dXMYASABKAsyGy5zZXJ2aWNlX2xheWVyLlNM",
+            "QUZOb3RpZlJzcEgAEj4KC1N0YXJ0TWFya2VyGAIgASgLMicuc2VydmljZV9s",
+            "YXllci5TTEFGTm90aWYuU0xSZWRpc3RNYXJrZXJIABI8CglFbmRNYXJrZXIY",
+            "AyABKAsyJy5zZXJ2aWNlX2xheWVyLlNMQUZOb3RpZi5TTFJlZGlzdE1hcmtl",
+            "ckgAEjEKDFJlZGlzdE9iamVjdBgEIAEoCzIZLnNlcnZpY2VfbGF5ZXIuU0xB",
+            "Rk9iamVjdEgAEisKB05leHRIb3AYBSABKAsyGC5zZXJ2aWNlX2xheWVyLlNM",
+            "TmV4dEhvcEgAGjsKDlNMUmVkaXN0TWFya2VyEikKBVRhYmxlGAEgASgOMhou",
+            "c2VydmljZV9sYXllci5TTFRhYmxlVHlwZUIHCgVFdmVudCJLCgxTTEFGTm90",
+            "aWZNc2cSDwoHVnJmTmFtZRgBIAEoCRIqCghBRk5vdGlmcxgDIAMoCzIYLnNl",
+            "cnZpY2VfbGF5ZXIuU0xBRk5vdGlmMsgDCgRTTEFGEk0KDFNMQUZWcmZSZWdP",
+            "cBIcLnNlcnZpY2VfbGF5ZXIuU0xBRlZyZlJlZ01zZxofLnNlcnZpY2VfbGF5",
+            "ZXIuU0xBRlZyZlJlZ01zZ1JzcBJWCg1TTEFGVnJmUmVnR2V0Eh8uc2Vydmlj",
+            "ZV9sYXllci5TTEFGVnJmUmVnR2V0TXNnGiIuc2VydmljZV9sYXllci5TTEFG",
+            "VnJmUmVnR2V0TXNnUnNwMAESOwoGU0xBRk9wEhYuc2VydmljZV9sYXllci5T",
+            "TEFGTXNnGhkuc2VydmljZV9sYXllci5TTEFGTXNnUnNwEkUKDFNMQUZPcFN0",
+            "cmVhbRIWLnNlcnZpY2VfbGF5ZXIuU0xBRk1zZxoZLnNlcnZpY2VfbGF5ZXIu",
+            "U0xBRk1zZ1JzcCgBMAESRAoHU0xBRkdldBIZLnNlcnZpY2VfbGF5ZXIuU0xB",
+            "RkdldE1zZxocLnNlcnZpY2VfbGF5ZXIuU0xBRkdldE1zZ1JzcDABEk8KD1NM",
+            "QUZOb3RpZlN0cmVhbRIbLnNlcnZpY2VfbGF5ZXIuU0xBRk5vdGlmUmVxGhsu",
+            "c2VydmljZV9sYXllci5TTEFGTm90aWZNc2coATABQlFaT2dpdGh1Yi5jb20v",
+            "Q2lzY28tc2VydmljZS1sYXllci9zZXJ2aWNlLWxheWVyLW9iam1vZGVsL2dy",
+            "cGMvcHJvdG9zO3NlcnZpY2VfbGF5ZXJiBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::ServiceLayer.SlCommonTypesReflection.Descriptor, global::ServiceLayer.SlRouteCommonReflection.Descriptor, global::ServiceLayer.SlRouteIpv4Reflection.Descriptor, global::ServiceLayer.SlRouteIpv6Reflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
@@ -143,7 +144,7 @@ namespace ServiceLayer {
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLPathGroup.Types.SLPathList), global::ServiceLayer.SLPathGroup.Types.SLPathList.Parser, new[]{ "Paths" }, null, null, null, null)}),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLMplsEntry), global::ServiceLayer.SLMplsEntry.Parser, new[]{ "LocalLabel", "AdminDistance", "PathList", "PathGroupKey", "Flags" }, new[]{ "Entry" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLAFObject), global::ServiceLayer.SLAFObject.Parser, new[]{ "IPv4Route", "IPv6Route", "MplsLabel", "PathGroup" }, new[]{ "Entry" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLAFOp), global::ServiceLayer.SLAFOp.Parser, new[]{ "AFObject", "OperationID", "AckType", "AckScope" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLAFOp), global::ServiceLayer.SLAFOp.Parser, new[]{ "AFObject", "OperationID", "AckType", "AckScope", "JUSTONCEINSCOPE", "ONCEEACHINSCOPE" }, new[]{ "AckCadence" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLAFGetMsg), global::ServiceLayer.SLAFGetMsg.Parser, new[]{ "VrfName", "Table", "GetAllClients", "RouteMatch" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLAFDepFibStatus), global::ServiceLayer.SLAFDepFibStatus.Parser, new[]{ "ErrorCode", "OperationID", "Version", "PathGroupKey" }, new[]{ "Entry" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLAFFibStatus), global::ServiceLayer.SLAFFibStatus.Parser, new[]{ "Version", "DepResult" }, null, null, null, null),
@@ -3342,6 +3343,15 @@ namespace ServiceLayer {
       operationID_ = other.operationID_;
       ackType_ = other.ackType_;
       ackScope_ = other.ackScope_;
+      switch (other.AckCadenceCase) {
+        case AckCadenceOneofCase.JUSTONCEINSCOPE:
+          JUSTONCEINSCOPE = other.JUSTONCEINSCOPE;
+          break;
+        case AckCadenceOneofCase.ONCEEACHINSCOPE:
+          ONCEEACHINSCOPE = other.ONCEEACHINSCOPE;
+          break;
+      }
+
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -3401,8 +3411,13 @@ namespace ServiceLayer {
     public const int AckScopeFieldNumber = 4;
     private uint ackScope_;
     /// <summary>
-    /// SLRspACKScope defines bitfields to control and filter async responses
-    /// for hardware programming events.
+    /// AckScope field is expected to be a bit-field resulting from ORing one
+    /// or more values from SLRspACKScope.
+    /// For example, `AckScope = SL_FIB_SUCCESS | SL_FIB_FAILED` would mean
+    /// SL-API client is only interested in these two types of responses.
+    /// When AckScope is not defined by SL-API client, the server will send
+    /// all response types including but not limited to types defined
+    /// in SLRspACKScope
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -3411,6 +3426,59 @@ namespace ServiceLayer {
       set {
         ackScope_ = value;
       }
+    }
+
+    /// <summary>Field number for the "JUST_ONCE_IN_SCOPE" field.</summary>
+    public const int JUSTONCEINSCOPEFieldNumber = 5;
+    /// <summary>
+    /// JUST_ONCE_IN_SCOPE cadence will allow only the first response for hardware
+    /// programming among the response types defined by AckScope
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool JUSTONCEINSCOPE {
+      get { return ackCadenceCase_ == AckCadenceOneofCase.JUSTONCEINSCOPE ? (bool) ackCadence_ : false; }
+      set {
+        ackCadence_ = value;
+        ackCadenceCase_ = AckCadenceOneofCase.JUSTONCEINSCOPE;
+      }
+    }
+
+    /// <summary>Field number for the "ONCE_EACH_IN_SCOPE" field.</summary>
+    public const int ONCEEACHINSCOPEFieldNumber = 6;
+    /// <summary>
+    /// ONCE_EACH_IN_SCOPE cadence will allow only the first response for hardware
+    /// programming per response types defined by AckScope
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool ONCEEACHINSCOPE {
+      get { return ackCadenceCase_ == AckCadenceOneofCase.ONCEEACHINSCOPE ? (bool) ackCadence_ : false; }
+      set {
+        ackCadence_ = value;
+        ackCadenceCase_ = AckCadenceOneofCase.ONCEEACHINSCOPE;
+      }
+    }
+
+    private object ackCadence_;
+    /// <summary>Enum of possible cases for the "AckCadence" oneof.</summary>
+    public enum AckCadenceOneofCase {
+      None = 0,
+      JUSTONCEINSCOPE = 5,
+      ONCEEACHINSCOPE = 6,
+    }
+    private AckCadenceOneofCase ackCadenceCase_ = AckCadenceOneofCase.None;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public AckCadenceOneofCase AckCadenceCase {
+      get { return ackCadenceCase_; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearAckCadence() {
+      ackCadenceCase_ = AckCadenceOneofCase.None;
+      ackCadence_ = null;
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3432,6 +3500,9 @@ namespace ServiceLayer {
       if (OperationID != other.OperationID) return false;
       if (AckType != other.AckType) return false;
       if (AckScope != other.AckScope) return false;
+      if (JUSTONCEINSCOPE != other.JUSTONCEINSCOPE) return false;
+      if (ONCEEACHINSCOPE != other.ONCEEACHINSCOPE) return false;
+      if (AckCadenceCase != other.AckCadenceCase) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -3443,6 +3514,9 @@ namespace ServiceLayer {
       if (OperationID != 0UL) hash ^= OperationID.GetHashCode();
       if (AckType != global::ServiceLayer.SLRspACKType.RibAck) hash ^= AckType.GetHashCode();
       if (AckScope != 0) hash ^= AckScope.GetHashCode();
+      if (ackCadenceCase_ == AckCadenceOneofCase.JUSTONCEINSCOPE) hash ^= JUSTONCEINSCOPE.GetHashCode();
+      if (ackCadenceCase_ == AckCadenceOneofCase.ONCEEACHINSCOPE) hash ^= ONCEEACHINSCOPE.GetHashCode();
+      hash ^= (int) ackCadenceCase_;
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -3477,6 +3551,14 @@ namespace ServiceLayer {
         output.WriteRawTag(32);
         output.WriteUInt32(AckScope);
       }
+      if (ackCadenceCase_ == AckCadenceOneofCase.JUSTONCEINSCOPE) {
+        output.WriteRawTag(40);
+        output.WriteBool(JUSTONCEINSCOPE);
+      }
+      if (ackCadenceCase_ == AckCadenceOneofCase.ONCEEACHINSCOPE) {
+        output.WriteRawTag(48);
+        output.WriteBool(ONCEEACHINSCOPE);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -3503,6 +3585,14 @@ namespace ServiceLayer {
         output.WriteRawTag(32);
         output.WriteUInt32(AckScope);
       }
+      if (ackCadenceCase_ == AckCadenceOneofCase.JUSTONCEINSCOPE) {
+        output.WriteRawTag(40);
+        output.WriteBool(JUSTONCEINSCOPE);
+      }
+      if (ackCadenceCase_ == AckCadenceOneofCase.ONCEEACHINSCOPE) {
+        output.WriteRawTag(48);
+        output.WriteBool(ONCEEACHINSCOPE);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -3524,6 +3614,12 @@ namespace ServiceLayer {
       }
       if (AckScope != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(AckScope);
+      }
+      if (ackCadenceCase_ == AckCadenceOneofCase.JUSTONCEINSCOPE) {
+        size += 1 + 1;
+      }
+      if (ackCadenceCase_ == AckCadenceOneofCase.ONCEEACHINSCOPE) {
+        size += 1 + 1;
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -3552,6 +3648,15 @@ namespace ServiceLayer {
       if (other.AckScope != 0) {
         AckScope = other.AckScope;
       }
+      switch (other.AckCadenceCase) {
+        case AckCadenceOneofCase.JUSTONCEINSCOPE:
+          JUSTONCEINSCOPE = other.JUSTONCEINSCOPE;
+          break;
+        case AckCadenceOneofCase.ONCEEACHINSCOPE:
+          ONCEEACHINSCOPE = other.ONCEEACHINSCOPE;
+          break;
+      }
+
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -3586,6 +3691,14 @@ namespace ServiceLayer {
             AckScope = input.ReadUInt32();
             break;
           }
+          case 40: {
+            JUSTONCEINSCOPE = input.ReadBool();
+            break;
+          }
+          case 48: {
+            ONCEEACHINSCOPE = input.ReadBool();
+            break;
+          }
         }
       }
     #endif
@@ -3618,6 +3731,14 @@ namespace ServiceLayer {
           }
           case 32: {
             AckScope = input.ReadUInt32();
+            break;
+          }
+          case 40: {
+            JUSTONCEINSCOPE = input.ReadBool();
+            break;
+          }
+          case 48: {
+            ONCEEACHINSCOPE = input.ReadBool();
             break;
           }
         }

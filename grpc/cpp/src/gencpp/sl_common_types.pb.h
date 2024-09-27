@@ -614,16 +614,18 @@ inline bool SLRspACKType_Parse(
     SLRspACKType_descriptor(), name, value);
 }
 enum SLRspACKScope : int {
-  SL_ACK_SCOPE_RESERVED = 0,
-  SL_ACK_SCOPE_ONCE = 1,
-  SL_ACK_SCOPE_PROMO = 2,
-  SL_ACK_SCOPE_ALL = -1,
+  SL_RESERVED = 0,
+  SL_SUCCESS = 1,
+  SL_FIB_INELIGIBLE = 2,
+  SL_FIB_PARTIAL = 4,
+  SL_FIB_SUCCESS = 8,
+  SL_FIB_FAILED = 16,
   SLRspACKScope_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::min(),
   SLRspACKScope_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::max()
 };
 bool SLRspACKScope_IsValid(int value);
-constexpr SLRspACKScope SLRspACKScope_MIN = SL_ACK_SCOPE_ALL;
-constexpr SLRspACKScope SLRspACKScope_MAX = SL_ACK_SCOPE_PROMO;
+constexpr SLRspACKScope SLRspACKScope_MIN = SL_RESERVED;
+constexpr SLRspACKScope SLRspACKScope_MAX = SL_FIB_FAILED;
 constexpr int SLRspACKScope_ARRAYSIZE = SLRspACKScope_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* SLRspACKScope_descriptor();

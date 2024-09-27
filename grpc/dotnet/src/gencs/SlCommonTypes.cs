@@ -289,12 +289,12 @@ namespace ServiceLayer {
             "X1RBQkxFX1RZUEVfUkVTRVJWRUQQABIXChNTTF9JUHY0X1JPVVRFX1RBQkxF",
             "EAESFwoTU0xfSVB2Nl9ST1VURV9UQUJMRRACEhcKE1NMX01QTFNfTEFCRUxf",
             "VEFCTEUQAxIXChNTTF9QQVRIX0dST1VQX1RBQkxFEAQqMAoMU0xSc3BBQ0tU",
-            "eXBlEgsKB1JJQl9BQ0sQABITCg9SSUJfQU5EX0ZJQl9BQ0sQASp4Cg1TTFJz",
-            "cEFDS1Njb3BlEhkKFVNMX0FDS19TQ09QRV9SRVNFUlZFRBAAEhUKEVNMX0FD",
-            "S19TQ09QRV9PTkNFEAESFgoSU0xfQUNLX1NDT1BFX1BST01PEAISHQoQU0xf",
-            "QUNLX1NDT1BFX0FMTBD///////////8BQlFaT2dpdGh1Yi5jb20vQ2lzY28t",
-            "c2VydmljZS1sYXllci9zZXJ2aWNlLWxheWVyLW9iam1vZGVsL2dycGMvcHJv",
-            "dG9zO3NlcnZpY2VfbGF5ZXJiBnByb3RvMw=="));
+            "eXBlEgsKB1JJQl9BQ0sQABITCg9SSUJfQU5EX0ZJQl9BQ0sQASqCAQoNU0xS",
+            "c3BBQ0tTY29wZRIPCgtTTF9SRVNFUlZFRBAAEg4KClNMX1NVQ0NFU1MQARIV",
+            "ChFTTF9GSUJfSU5FTElHSUJMRRACEhIKDlNMX0ZJQl9QQVJUSUFMEAQSEgoO",
+            "U0xfRklCX1NVQ0NFU1MQCBIRCg1TTF9GSUJfRkFJTEVEEBBCUVpPZ2l0aHVi",
+            "LmNvbS9DaXNjby1zZXJ2aWNlLWxheWVyL3NlcnZpY2UtbGF5ZXItb2JqbW9k",
+            "ZWwvZ3JwYy9wcm90b3M7c2VydmljZV9sYXllcmIGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::ServiceLayer.SLRegOp), typeof(global::ServiceLayer.SLObjectOp), typeof(global::ServiceLayer.SLNotifOp), typeof(global::ServiceLayer.SLUpdatePriority), typeof(global::ServiceLayer.SLEncapType), typeof(global::ServiceLayer.SLTableType), typeof(global::ServiceLayer.SLRspACKType), typeof(global::ServiceLayer.SLRspACKScope), }, null, new pbr::GeneratedClrTypeInfo[] {
@@ -460,40 +460,23 @@ namespace ServiceLayer {
   }
 
   /// <summary>
-  /// Flags to control scope of hwardware programming responses 
-  /// Each flag is indicated as a bit-field. Supported values are given below
-  /// For more information and behavior matrix please refer to protos/README.md
+  /// Flags to control scope of hardware programming responses
+  /// Each flag is indicated as a bit-field.
+  /// If the client is interested in only a subset of possible responses for
+  /// hardware programming, then the corresponding bit-fields can be used to mark
+  /// the response types of interest. The meaning of each of the types are same
+  /// as defined in SLErrorStatus.
   /// </summary>
   public enum SLRspACKScope {
     /// <summary>
     /// Reserved
     /// </summary>
-    [pbr::OriginalName("SL_ACK_SCOPE_RESERVED")] SlAckScopeReserved = 0,
-    /// <summary>
-    /// only the very first response from hardware programming attempt
-    /// will be relayed to the grpc client, there will be no hardware ack response
-    /// generated for any susequent churn in the hard programming result.
-    /// However, the client can do a get operation to know the latest state
-    /// of hardware programming of any object, provided the ack-type was set
-    /// as RIB_AND_FIB_ACK at the time of programming the object.
-    /// </summary>
-    [pbr::OriginalName("SL_ACK_SCOPE_ONCE")] SlAckScopeOnce = 1,
-    /// <summary>
-    ///A hardware ack response will be generated for hardware programming that was
-    ///triggerred by promotion of route that was previously not-viable.
-    /// </summary>
-    [pbr::OriginalName("SL_ACK_SCOPE_PROMO")] SlAckScopePromo = 2,
-    /// <summary>
-    ///A hardware ack response  will be generated for any hardware programming event
-    /// (including those specified by flags defined above)
-    /// Notifications may include programming/re-programming of hardware
-    /// due to internal events including but not limited to
-    /// a) New LC insertion or removal
-    /// b) Interface being removed/added
-    /// c) Driver process restarts
-    /// d) Redundancy switchover from active-rp to standy-rp
-    /// </summary>
-    [pbr::OriginalName("SL_ACK_SCOPE_ALL")] SlAckScopeAll = -1,
+    [pbr::OriginalName("SL_RESERVED")] SlReserved = 0,
+    [pbr::OriginalName("SL_SUCCESS")] SlSuccess = 1,
+    [pbr::OriginalName("SL_FIB_INELIGIBLE")] SlFibIneligible = 2,
+    [pbr::OriginalName("SL_FIB_PARTIAL")] SlFibPartial = 4,
+    [pbr::OriginalName("SL_FIB_SUCCESS")] SlFibSuccess = 8,
+    [pbr::OriginalName("SL_FIB_FAILED")] SlFibFailed = 16,
   }
 
   #endregion

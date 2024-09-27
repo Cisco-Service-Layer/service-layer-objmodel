@@ -443,16 +443,16 @@ const char descriptor_table_protodef_sl_5fcommon_5ftypes_2eproto[] PROTOBUF_SECT
   "\023SL_IPv6_ROUTE_TABLE\020\002\022\027\n\023SL_MPLS_LABEL_"
   "TABLE\020\003\022\027\n\023SL_PATH_GROUP_TABLE\020\004*0\n\014SLRs"
   "pACKType\022\013\n\007RIB_ACK\020\000\022\023\n\017RIB_AND_FIB_ACK"
-  "\020\001*x\n\rSLRspACKScope\022\031\n\025SL_ACK_SCOPE_RESE"
-  "RVED\020\000\022\025\n\021SL_ACK_SCOPE_ONCE\020\001\022\026\n\022SL_ACK_"
-  "SCOPE_PROMO\020\002\022\035\n\020SL_ACK_SCOPE_ALL\020\377\377\377\377\377\377"
-  "\377\377\377\001BQZOgithub.com/Cisco-service-layer/s"
-  "ervice-layer-objmodel/grpc/protos;servic"
-  "e_layerb\006proto3"
+  "\020\001*\202\001\n\rSLRspACKScope\022\017\n\013SL_RESERVED\020\000\022\016\n"
+  "\nSL_SUCCESS\020\001\022\025\n\021SL_FIB_INELIGIBLE\020\002\022\022\n\016"
+  "SL_FIB_PARTIAL\020\004\022\022\n\016SL_FIB_SUCCESS\020\010\022\021\n\r"
+  "SL_FIB_FAILED\020\020BQZOgithub.com/Cisco-serv"
+  "ice-layer/service-layer-objmodel/grpc/pr"
+  "otos;service_layerb\006proto3"
   ;
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_sl_5fcommon_5ftypes_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_sl_5fcommon_5ftypes_2eproto = {
-  false, false, 12175, descriptor_table_protodef_sl_5fcommon_5ftypes_2eproto, "sl_common_types.proto", 
+  false, false, 12186, descriptor_table_protodef_sl_5fcommon_5ftypes_2eproto, "sl_common_types.proto", 
   &descriptor_table_sl_5fcommon_5ftypes_2eproto_once, nullptr, 0, 5,
   schemas, file_default_instances, TableStruct_sl_5fcommon_5ftypes_2eproto::offsets,
   file_level_metadata_sl_5fcommon_5ftypes_2eproto, file_level_enum_descriptors_sl_5fcommon_5ftypes_2eproto, file_level_service_descriptors_sl_5fcommon_5ftypes_2eproto,
@@ -1243,10 +1243,12 @@ const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* SLRspACKScope_descriptor() {
 }
 bool SLRspACKScope_IsValid(int value) {
   switch (value) {
-    case -1:
     case 0:
     case 1:
     case 2:
+    case 4:
+    case 8:
+    case 16:
       return true;
     default:
       return false;

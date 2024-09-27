@@ -2254,6 +2254,12 @@ class SLAFOp final :
   static const SLAFOp& default_instance() {
     return *internal_default_instance();
   }
+  enum AckCadenceCase {
+    kJUSTONCEINSCOPE = 5,
+    kONCEEACHINSCOPE = 6,
+    ACKCADENCE_NOT_SET = 0,
+  };
+
   static inline const SLAFOp* internal_default_instance() {
     return reinterpret_cast<const SLAFOp*>(
                &_SLAFOp_default_instance_);
@@ -2337,6 +2343,8 @@ class SLAFOp final :
     kOperationIDFieldNumber = 2,
     kAckTypeFieldNumber = 3,
     kAckScopeFieldNumber = 4,
+    kJUSTONCEINSCOPEFieldNumber = 5,
+    kONCEEACHINSCOPEFieldNumber = 6,
   };
   // .service_layer.SLAFObject AFObject = 1;
   bool has_afobject() const;
@@ -2383,9 +2391,42 @@ class SLAFOp final :
   void _internal_set_ackscope(uint32_t value);
   public:
 
+  // bool JUST_ONCE_IN_SCOPE = 5;
+  bool has_just_once_in_scope() const;
+  private:
+  bool _internal_has_just_once_in_scope() const;
+  public:
+  void clear_just_once_in_scope();
+  bool just_once_in_scope() const;
+  void set_just_once_in_scope(bool value);
+  private:
+  bool _internal_just_once_in_scope() const;
+  void _internal_set_just_once_in_scope(bool value);
+  public:
+
+  // bool ONCE_EACH_IN_SCOPE = 6;
+  bool has_once_each_in_scope() const;
+  private:
+  bool _internal_has_once_each_in_scope() const;
+  public:
+  void clear_once_each_in_scope();
+  bool once_each_in_scope() const;
+  void set_once_each_in_scope(bool value);
+  private:
+  bool _internal_once_each_in_scope() const;
+  void _internal_set_once_each_in_scope(bool value);
+  public:
+
+  void clear_AckCadence();
+  AckCadenceCase AckCadence_case() const;
   // @@protoc_insertion_point(class_scope:service_layer.SLAFOp)
  private:
   class _Internal;
+  void set_has_just_once_in_scope();
+  void set_has_once_each_in_scope();
+
+  inline bool has_AckCadence() const;
+  inline void clear_has_AckCadence();
 
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
@@ -2394,7 +2435,15 @@ class SLAFOp final :
   uint64_t operationid_;
   int acktype_;
   uint32_t ackscope_;
+  union AckCadenceUnion {
+    constexpr AckCadenceUnion() : _constinit_{} {}
+      ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized _constinit_;
+    bool just_once_in_scope_;
+    bool once_each_in_scope_;
+  } AckCadence_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  uint32_t _oneof_case_[1];
+
   friend struct ::TableStruct_sl_5faf_2eproto;
 };
 // -------------------------------------------------------------------
@@ -7662,6 +7711,91 @@ inline void SLAFOp::set_ackscope(uint32_t value) {
   // @@protoc_insertion_point(field_set:service_layer.SLAFOp.AckScope)
 }
 
+// bool JUST_ONCE_IN_SCOPE = 5;
+inline bool SLAFOp::_internal_has_just_once_in_scope() const {
+  return AckCadence_case() == kJUSTONCEINSCOPE;
+}
+inline bool SLAFOp::has_just_once_in_scope() const {
+  return _internal_has_just_once_in_scope();
+}
+inline void SLAFOp::set_has_just_once_in_scope() {
+  _oneof_case_[0] = kJUSTONCEINSCOPE;
+}
+inline void SLAFOp::clear_just_once_in_scope() {
+  if (_internal_has_just_once_in_scope()) {
+    AckCadence_.just_once_in_scope_ = false;
+    clear_has_AckCadence();
+  }
+}
+inline bool SLAFOp::_internal_just_once_in_scope() const {
+  if (_internal_has_just_once_in_scope()) {
+    return AckCadence_.just_once_in_scope_;
+  }
+  return false;
+}
+inline void SLAFOp::_internal_set_just_once_in_scope(bool value) {
+  if (!_internal_has_just_once_in_scope()) {
+    clear_AckCadence();
+    set_has_just_once_in_scope();
+  }
+  AckCadence_.just_once_in_scope_ = value;
+}
+inline bool SLAFOp::just_once_in_scope() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLAFOp.JUST_ONCE_IN_SCOPE)
+  return _internal_just_once_in_scope();
+}
+inline void SLAFOp::set_just_once_in_scope(bool value) {
+  _internal_set_just_once_in_scope(value);
+  // @@protoc_insertion_point(field_set:service_layer.SLAFOp.JUST_ONCE_IN_SCOPE)
+}
+
+// bool ONCE_EACH_IN_SCOPE = 6;
+inline bool SLAFOp::_internal_has_once_each_in_scope() const {
+  return AckCadence_case() == kONCEEACHINSCOPE;
+}
+inline bool SLAFOp::has_once_each_in_scope() const {
+  return _internal_has_once_each_in_scope();
+}
+inline void SLAFOp::set_has_once_each_in_scope() {
+  _oneof_case_[0] = kONCEEACHINSCOPE;
+}
+inline void SLAFOp::clear_once_each_in_scope() {
+  if (_internal_has_once_each_in_scope()) {
+    AckCadence_.once_each_in_scope_ = false;
+    clear_has_AckCadence();
+  }
+}
+inline bool SLAFOp::_internal_once_each_in_scope() const {
+  if (_internal_has_once_each_in_scope()) {
+    return AckCadence_.once_each_in_scope_;
+  }
+  return false;
+}
+inline void SLAFOp::_internal_set_once_each_in_scope(bool value) {
+  if (!_internal_has_once_each_in_scope()) {
+    clear_AckCadence();
+    set_has_once_each_in_scope();
+  }
+  AckCadence_.once_each_in_scope_ = value;
+}
+inline bool SLAFOp::once_each_in_scope() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLAFOp.ONCE_EACH_IN_SCOPE)
+  return _internal_once_each_in_scope();
+}
+inline void SLAFOp::set_once_each_in_scope(bool value) {
+  _internal_set_once_each_in_scope(value);
+  // @@protoc_insertion_point(field_set:service_layer.SLAFOp.ONCE_EACH_IN_SCOPE)
+}
+
+inline bool SLAFOp::has_AckCadence() const {
+  return AckCadence_case() != ACKCADENCE_NOT_SET;
+}
+inline void SLAFOp::clear_has_AckCadence() {
+  _oneof_case_[0] = ACKCADENCE_NOT_SET;
+}
+inline SLAFOp::AckCadenceCase SLAFOp::AckCadence_case() const {
+  return SLAFOp::AckCadenceCase(_oneof_case_[0]);
+}
 // -------------------------------------------------------------------
 
 // SLAFGetMsg
