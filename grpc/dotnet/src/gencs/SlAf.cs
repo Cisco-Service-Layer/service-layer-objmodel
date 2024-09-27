@@ -3415,7 +3415,7 @@ namespace ServiceLayer {
     /// or more values from SLRspACKScope.
     /// For example, `AckScope = SL_FIB_SUCCESS | SL_FIB_FAILED` would mean
     /// SL-API client is only interested in these two types of responses.
-    /// When AckScope is not defined by SL-API client, the server will send
+    /// When AckScope is NOT defined by SL-API client, the server will send
     /// all response types including but not limited to types defined
     /// in SLRspACKScope
     /// </summary>

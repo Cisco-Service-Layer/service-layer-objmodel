@@ -843,12 +843,12 @@ type SLAFOp struct {
 	// or more values from SLRspACKScope.
 	// For example, `AckScope = SL_FIB_SUCCESS | SL_FIB_FAILED` would mean
 	// SL-API client is only interested in these two types of responses.
-	// When AckScope is not defined by SL-API client, the server will send
+	// When AckScope is NOT defined by SL-API client, the server will send
 	// all response types including but not limited to types defined
 	// in SLRspACKScope
 	AckScope uint32 `protobuf:"varint,4,opt,name=AckScope,proto3" json:"AckScope,omitempty"`
 	// AckCadence field controls the cadence of hardware programming responses.
-	// When AckCadence is not defined by SL-API client, the server will send
+	// When AckCadence is NOT defined by SL-API client, the server will send
 	// responses limited to response types defined by AckScope, for all
 	// hardware programming events including events that are internal to the
 	// router such as insertion or removal of line cards.
