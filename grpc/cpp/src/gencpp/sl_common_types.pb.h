@@ -613,34 +613,34 @@ inline bool SLRspACKType_Parse(
   return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<SLRspACKType>(
     SLRspACKType_descriptor(), name, value);
 }
-enum SLRspACKScope : int {
+enum SLRspACKMask : int {
   SL_RESERVED = 0,
   SL_SUCCESS = 1,
   SL_FIB_INELIGIBLE = 2,
-  SL_FIB_PARTIAL = 4,
-  SL_FIB_SUCCESS = 8,
-  SL_FIB_FAILED = 16,
-  SLRspACKScope_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::min(),
-  SLRspACKScope_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::max()
+  SL_FIB_SUCCESS = 4,
+  SL_FIB_FAILED = 8,
+  SL_FIB_PARTIAL = 16,
+  SLRspACKMask_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::min(),
+  SLRspACKMask_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::max()
 };
-bool SLRspACKScope_IsValid(int value);
-constexpr SLRspACKScope SLRspACKScope_MIN = SL_RESERVED;
-constexpr SLRspACKScope SLRspACKScope_MAX = SL_FIB_FAILED;
-constexpr int SLRspACKScope_ARRAYSIZE = SLRspACKScope_MAX + 1;
+bool SLRspACKMask_IsValid(int value);
+constexpr SLRspACKMask SLRspACKMask_MIN = SL_RESERVED;
+constexpr SLRspACKMask SLRspACKMask_MAX = SL_FIB_PARTIAL;
+constexpr int SLRspACKMask_ARRAYSIZE = SLRspACKMask_MAX + 1;
 
-const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* SLRspACKScope_descriptor();
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* SLRspACKMask_descriptor();
 template<typename T>
-inline const std::string& SLRspACKScope_Name(T enum_t_value) {
-  static_assert(::std::is_same<T, SLRspACKScope>::value ||
+inline const std::string& SLRspACKMask_Name(T enum_t_value) {
+  static_assert(::std::is_same<T, SLRspACKMask>::value ||
     ::std::is_integral<T>::value,
-    "Incorrect type passed to function SLRspACKScope_Name.");
+    "Incorrect type passed to function SLRspACKMask_Name.");
   return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
-    SLRspACKScope_descriptor(), enum_t_value);
+    SLRspACKMask_descriptor(), enum_t_value);
 }
-inline bool SLRspACKScope_Parse(
-    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, SLRspACKScope* value) {
-  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<SLRspACKScope>(
-    SLRspACKScope_descriptor(), name, value);
+inline bool SLRspACKMask_Parse(
+    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, SLRspACKMask* value) {
+  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<SLRspACKMask>(
+    SLRspACKMask_descriptor(), name, value);
 }
 // ===================================================================
 
@@ -2776,10 +2776,10 @@ template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::service_layer::SLRspACKType>() {
   return ::service_layer::SLRspACKType_descriptor();
 }
-template <> struct is_proto_enum< ::service_layer::SLRspACKScope> : ::std::true_type {};
+template <> struct is_proto_enum< ::service_layer::SLRspACKMask> : ::std::true_type {};
 template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::service_layer::SLRspACKScope>() {
-  return ::service_layer::SLRspACKScope_descriptor();
+inline const EnumDescriptor* GetEnumDescriptor< ::service_layer::SLRspACKMask>() {
+  return ::service_layer::SLRspACKMask_descriptor();
 }
 
 PROTOBUF_NAMESPACE_CLOSE
