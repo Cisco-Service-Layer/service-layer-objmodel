@@ -444,7 +444,7 @@ message SLAFOp {
 
     // SLRspACKScope and SLRspAckCadence are parameters that can be used to control
     // and filter hardware programming responses sent from SL-API server
-    // to SL-API client based on the response type carried by SLAFRes.ErrStatus.
+    // to the SL-API client based on the response type carried by SLAFRes.ErrStatus.
 
     // These parameters are valid only for objects programmed with AckType as
     // RIB_AND_FIB_ACK.
