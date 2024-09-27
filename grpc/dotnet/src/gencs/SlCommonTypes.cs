@@ -430,19 +430,13 @@ namespace ServiceLayer {
     [pbr::OriginalName("SL_PATH_GROUP_TABLE")] SlPathGroupTable = 4,
   }
 
-  /// <summary>
-  /// The type of response that the client expects from the
-  /// network element for any object programming operation.
-  ///
-  /// On a hardware programming failure, client is expected to retry or
-  /// delete the object. The device does not perform any retries or
-  /// take any other recovery action.
-  /// Client is expected to handle out of order responses using the OperationID.
-  /// </summary>
   public enum SLRspACKType {
     /// <summary>
-    /// Network element shall respond with SL_SUCCESS
-    /// on a successful update of the object to the RIB database.
+    /// When the operating mode is RIB_ACK,
+    /// once the object in the operation is successfully applied to
+    /// the network element's RIB, SL_SUCCESS is returned for that operation.
+    /// On an error, the object is not updated in the network element's RIB
+    /// and error is returned to the client.
     ///
     /// The operation is considered complete once result of RIB programming
     /// is sent back to the client.
@@ -451,10 +445,36 @@ namespace ServiceLayer {
     /// </summary>
     [pbr::OriginalName("RIB_ACK")] RibAck = 0,
     /// <summary>
-    /// If ACK type requested is RIB_AND_FIB_ACK, then along with RIB ack
-    /// the network element will also return one or more FIB acks which is
-    /// the status of hardware programming of the operation.
-    /// *NOTE*: RIB_AND_FIB_ACK is supported only in streaming service
+    /// When the operating mode is RIB_AND_FIB_ACK,
+    /// the first result returned for the operation is RIB's result.
+    /// If the object in the operation is successfully applied
+    /// to RIB, SL_SUCCESS is returned.
+    ///
+    /// If the object in the operation is not active and
+    /// cannot be programmed to FIB, SL_FIB_INELIGIBLE is returned and
+    /// the operation is considered complete. If in this state of the object,
+    /// client sends more updates, and the object is still not active,
+    /// the operations are responded with SL_FIB_INELIGIBLE and are
+    /// considered complete.
+    /// As a result of an operation on an object, if another
+    /// previously programmed object becomes ineligible to remain
+    /// programmed in FIB, a SL_FIB_INELIGIBLE will be returned for 
+    /// that object with the last known operation-id for that object.
+    ///
+    /// Eventually, when the object becomes active,
+    /// the object is sent to FIB and result of the operation
+    /// is returned asynchronously to the client. The result is sent using
+    /// the last Operation ID that RIB is aware of.
+    ///
+    /// A result from FIB includes hardware programming result.
+    ///
+    /// It must be noted that while the object is waiting for
+    /// FIB programming, a client can send another update
+    /// on the object and the object remains active.
+    /// The network element may coalesce such back to back
+    /// operations. In this scenario, only the last operation
+    /// on the object is responded with either SL_FIB_SUCCESS
+    /// or SL_FIB_FAILED.
     /// </summary>
     [pbr::OriginalName("RIB_AND_FIB_ACK")] RibAndFibAck = 1,
   }
@@ -1865,7 +1885,7 @@ namespace ServiceLayer {
         /// </summary>
         [pbr::OriginalName("SL_FIB_START_OFFSET")] SlFibStartOffset = 94208,
         /// <summary>
-        /// The operation is successfully program in hardware. 0x17001
+        /// The operation is successfully programmed in hardware. 0x17001
         /// </summary>
         [pbr::OriginalName("SL_FIB_SUCCESS")] SlFibSuccess = 94209,
         /// <summary>
