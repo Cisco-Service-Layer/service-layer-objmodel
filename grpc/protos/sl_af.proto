@@ -473,15 +473,16 @@ message SLAFOp {
     // hardware programming events including events that are internal to the
     // router such as insertion or removal of line cards.
     // Note: Defining SLRspACKScope is a pre-requisite for defining SLRspAckCadence.
-    oneof SLRspAckCadence {
+    enum SLRspAckCadence {
+      RESERVED = 0;
       // JUST_ONCE_IN_SCOPE cadence will allow only the first response for hardware
       // programming among the response types defined by SLRspACKScope
-      bool JUST_ONCE_IN_SCOPE = 5;
-
+      JUST_ONCE_IN_SCOPE = 1;
       // ONCE_EACH_IN_SCOPE cadence will allow only the first response for hardware
       // programming per response types defined by SLRspACKScope
-      bool ONCE_EACH_IN_SCOPE = 6;
+      ONCE_EACH_IN_SCOPE = 2;
     }
+    SLRspAckCadence AckCadence = 5;
 }
 
 // Used to retrieve objects in a VRF table.

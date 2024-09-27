@@ -30,6 +30,7 @@
 #include <google/protobuf/message.h>
 #include <google/protobuf/repeated_field.h>  // IWYU pragma: export
 #include <google/protobuf/extension_set.h>  // IWYU pragma: export
+#include <google/protobuf/generated_enum_reflection.h>
 #include <google/protobuf/unknown_field_set.h>
 #include "sl_common_types.pb.h"
 #include "sl_route_common.pb.h"
@@ -187,6 +188,32 @@ template<> ::service_layer::SLPathGroup_SLPathList* Arena::CreateMaybeMessage<::
 PROTOBUF_NAMESPACE_CLOSE
 namespace service_layer {
 
+enum SLAFOp_SLRspAckCadence : int {
+  SLAFOp_SLRspAckCadence_RESERVED = 0,
+  SLAFOp_SLRspAckCadence_JUST_ONCE_IN_SCOPE = 1,
+  SLAFOp_SLRspAckCadence_ONCE_EACH_IN_SCOPE = 2,
+  SLAFOp_SLRspAckCadence_SLAFOp_SLRspAckCadence_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::min(),
+  SLAFOp_SLRspAckCadence_SLAFOp_SLRspAckCadence_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::max()
+};
+bool SLAFOp_SLRspAckCadence_IsValid(int value);
+constexpr SLAFOp_SLRspAckCadence SLAFOp_SLRspAckCadence_SLRspAckCadence_MIN = SLAFOp_SLRspAckCadence_RESERVED;
+constexpr SLAFOp_SLRspAckCadence SLAFOp_SLRspAckCadence_SLRspAckCadence_MAX = SLAFOp_SLRspAckCadence_ONCE_EACH_IN_SCOPE;
+constexpr int SLAFOp_SLRspAckCadence_SLRspAckCadence_ARRAYSIZE = SLAFOp_SLRspAckCadence_SLRspAckCadence_MAX + 1;
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* SLAFOp_SLRspAckCadence_descriptor();
+template<typename T>
+inline const std::string& SLAFOp_SLRspAckCadence_Name(T enum_t_value) {
+  static_assert(::std::is_same<T, SLAFOp_SLRspAckCadence>::value ||
+    ::std::is_integral<T>::value,
+    "Incorrect type passed to function SLAFOp_SLRspAckCadence_Name.");
+  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
+    SLAFOp_SLRspAckCadence_descriptor(), enum_t_value);
+}
+inline bool SLAFOp_SLRspAckCadence_Parse(
+    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, SLAFOp_SLRspAckCadence* value) {
+  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<SLAFOp_SLRspAckCadence>(
+    SLAFOp_SLRspAckCadence_descriptor(), name, value);
+}
 // ===================================================================
 
 class SLAFVrfReg final :
@@ -2254,12 +2281,6 @@ class SLAFOp final :
   static const SLAFOp& default_instance() {
     return *internal_default_instance();
   }
-  enum SLRspAckCadenceCase {
-    kJUSTONCEINSCOPE = 5,
-    kONCEEACHINSCOPE = 6,
-    SLRSPACKCADENCE_NOT_SET = 0,
-  };
-
   static inline const SLAFOp* internal_default_instance() {
     return reinterpret_cast<const SLAFOp*>(
                &_SLAFOp_default_instance_);
@@ -2336,6 +2357,38 @@ class SLAFOp final :
 
   // nested types ----------------------------------------------------
 
+  typedef SLAFOp_SLRspAckCadence SLRspAckCadence;
+  static constexpr SLRspAckCadence RESERVED =
+    SLAFOp_SLRspAckCadence_RESERVED;
+  static constexpr SLRspAckCadence JUST_ONCE_IN_SCOPE =
+    SLAFOp_SLRspAckCadence_JUST_ONCE_IN_SCOPE;
+  static constexpr SLRspAckCadence ONCE_EACH_IN_SCOPE =
+    SLAFOp_SLRspAckCadence_ONCE_EACH_IN_SCOPE;
+  static inline bool SLRspAckCadence_IsValid(int value) {
+    return SLAFOp_SLRspAckCadence_IsValid(value);
+  }
+  static constexpr SLRspAckCadence SLRspAckCadence_MIN =
+    SLAFOp_SLRspAckCadence_SLRspAckCadence_MIN;
+  static constexpr SLRspAckCadence SLRspAckCadence_MAX =
+    SLAFOp_SLRspAckCadence_SLRspAckCadence_MAX;
+  static constexpr int SLRspAckCadence_ARRAYSIZE =
+    SLAFOp_SLRspAckCadence_SLRspAckCadence_ARRAYSIZE;
+  static inline const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor*
+  SLRspAckCadence_descriptor() {
+    return SLAFOp_SLRspAckCadence_descriptor();
+  }
+  template<typename T>
+  static inline const std::string& SLRspAckCadence_Name(T enum_t_value) {
+    static_assert(::std::is_same<T, SLRspAckCadence>::value ||
+      ::std::is_integral<T>::value,
+      "Incorrect type passed to function SLRspAckCadence_Name.");
+    return SLAFOp_SLRspAckCadence_Name(enum_t_value);
+  }
+  static inline bool SLRspAckCadence_Parse(::PROTOBUF_NAMESPACE_ID::ConstStringParam name,
+      SLRspAckCadence* value) {
+    return SLAFOp_SLRspAckCadence_Parse(name, value);
+  }
+
   // accessors -------------------------------------------------------
 
   enum : int {
@@ -2343,8 +2396,7 @@ class SLAFOp final :
     kOperationIDFieldNumber = 2,
     kAckTypeFieldNumber = 3,
     kSLRspACKScopeFieldNumber = 4,
-    kJUSTONCEINSCOPEFieldNumber = 5,
-    kONCEEACHINSCOPEFieldNumber = 6,
+    kAckCadenceFieldNumber = 5,
   };
   // .service_layer.SLAFObject AFObject = 1;
   bool has_afobject() const;
@@ -2391,42 +2443,18 @@ class SLAFOp final :
   void _internal_set_slrspackscope(uint32_t value);
   public:
 
-  // bool JUST_ONCE_IN_SCOPE = 5;
-  bool has_just_once_in_scope() const;
+  // .service_layer.SLAFOp.SLRspAckCadence AckCadence = 5;
+  void clear_ackcadence();
+  ::service_layer::SLAFOp_SLRspAckCadence ackcadence() const;
+  void set_ackcadence(::service_layer::SLAFOp_SLRspAckCadence value);
   private:
-  bool _internal_has_just_once_in_scope() const;
-  public:
-  void clear_just_once_in_scope();
-  bool just_once_in_scope() const;
-  void set_just_once_in_scope(bool value);
-  private:
-  bool _internal_just_once_in_scope() const;
-  void _internal_set_just_once_in_scope(bool value);
+  ::service_layer::SLAFOp_SLRspAckCadence _internal_ackcadence() const;
+  void _internal_set_ackcadence(::service_layer::SLAFOp_SLRspAckCadence value);
   public:
 
-  // bool ONCE_EACH_IN_SCOPE = 6;
-  bool has_once_each_in_scope() const;
-  private:
-  bool _internal_has_once_each_in_scope() const;
-  public:
-  void clear_once_each_in_scope();
-  bool once_each_in_scope() const;
-  void set_once_each_in_scope(bool value);
-  private:
-  bool _internal_once_each_in_scope() const;
-  void _internal_set_once_each_in_scope(bool value);
-  public:
-
-  void clear_SLRspAckCadence();
-  SLRspAckCadenceCase SLRspAckCadence_case() const;
   // @@protoc_insertion_point(class_scope:service_layer.SLAFOp)
  private:
   class _Internal;
-  void set_has_just_once_in_scope();
-  void set_has_once_each_in_scope();
-
-  inline bool has_SLRspAckCadence() const;
-  inline void clear_has_SLRspAckCadence();
 
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
@@ -2435,15 +2463,8 @@ class SLAFOp final :
   uint64_t operationid_;
   int acktype_;
   uint32_t slrspackscope_;
-  union SLRspAckCadenceUnion {
-    constexpr SLRspAckCadenceUnion() : _constinit_{} {}
-      ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized _constinit_;
-    bool just_once_in_scope_;
-    bool once_each_in_scope_;
-  } SLRspAckCadence_;
+  int ackcadence_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-  uint32_t _oneof_case_[1];
-
   friend struct ::TableStruct_sl_5faf_2eproto;
 };
 // -------------------------------------------------------------------
@@ -7711,91 +7732,26 @@ inline void SLAFOp::set_slrspackscope(uint32_t value) {
   // @@protoc_insertion_point(field_set:service_layer.SLAFOp.SLRspACKScope)
 }
 
-// bool JUST_ONCE_IN_SCOPE = 5;
-inline bool SLAFOp::_internal_has_just_once_in_scope() const {
-  return SLRspAckCadence_case() == kJUSTONCEINSCOPE;
+// .service_layer.SLAFOp.SLRspAckCadence AckCadence = 5;
+inline void SLAFOp::clear_ackcadence() {
+  ackcadence_ = 0;
 }
-inline bool SLAFOp::has_just_once_in_scope() const {
-  return _internal_has_just_once_in_scope();
+inline ::service_layer::SLAFOp_SLRspAckCadence SLAFOp::_internal_ackcadence() const {
+  return static_cast< ::service_layer::SLAFOp_SLRspAckCadence >(ackcadence_);
 }
-inline void SLAFOp::set_has_just_once_in_scope() {
-  _oneof_case_[0] = kJUSTONCEINSCOPE;
+inline ::service_layer::SLAFOp_SLRspAckCadence SLAFOp::ackcadence() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLAFOp.AckCadence)
+  return _internal_ackcadence();
 }
-inline void SLAFOp::clear_just_once_in_scope() {
-  if (_internal_has_just_once_in_scope()) {
-    SLRspAckCadence_.just_once_in_scope_ = false;
-    clear_has_SLRspAckCadence();
-  }
+inline void SLAFOp::_internal_set_ackcadence(::service_layer::SLAFOp_SLRspAckCadence value) {
+  
+  ackcadence_ = value;
 }
-inline bool SLAFOp::_internal_just_once_in_scope() const {
-  if (_internal_has_just_once_in_scope()) {
-    return SLRspAckCadence_.just_once_in_scope_;
-  }
-  return false;
-}
-inline void SLAFOp::_internal_set_just_once_in_scope(bool value) {
-  if (!_internal_has_just_once_in_scope()) {
-    clear_SLRspAckCadence();
-    set_has_just_once_in_scope();
-  }
-  SLRspAckCadence_.just_once_in_scope_ = value;
-}
-inline bool SLAFOp::just_once_in_scope() const {
-  // @@protoc_insertion_point(field_get:service_layer.SLAFOp.JUST_ONCE_IN_SCOPE)
-  return _internal_just_once_in_scope();
-}
-inline void SLAFOp::set_just_once_in_scope(bool value) {
-  _internal_set_just_once_in_scope(value);
-  // @@protoc_insertion_point(field_set:service_layer.SLAFOp.JUST_ONCE_IN_SCOPE)
+inline void SLAFOp::set_ackcadence(::service_layer::SLAFOp_SLRspAckCadence value) {
+  _internal_set_ackcadence(value);
+  // @@protoc_insertion_point(field_set:service_layer.SLAFOp.AckCadence)
 }
 
-// bool ONCE_EACH_IN_SCOPE = 6;
-inline bool SLAFOp::_internal_has_once_each_in_scope() const {
-  return SLRspAckCadence_case() == kONCEEACHINSCOPE;
-}
-inline bool SLAFOp::has_once_each_in_scope() const {
-  return _internal_has_once_each_in_scope();
-}
-inline void SLAFOp::set_has_once_each_in_scope() {
-  _oneof_case_[0] = kONCEEACHINSCOPE;
-}
-inline void SLAFOp::clear_once_each_in_scope() {
-  if (_internal_has_once_each_in_scope()) {
-    SLRspAckCadence_.once_each_in_scope_ = false;
-    clear_has_SLRspAckCadence();
-  }
-}
-inline bool SLAFOp::_internal_once_each_in_scope() const {
-  if (_internal_has_once_each_in_scope()) {
-    return SLRspAckCadence_.once_each_in_scope_;
-  }
-  return false;
-}
-inline void SLAFOp::_internal_set_once_each_in_scope(bool value) {
-  if (!_internal_has_once_each_in_scope()) {
-    clear_SLRspAckCadence();
-    set_has_once_each_in_scope();
-  }
-  SLRspAckCadence_.once_each_in_scope_ = value;
-}
-inline bool SLAFOp::once_each_in_scope() const {
-  // @@protoc_insertion_point(field_get:service_layer.SLAFOp.ONCE_EACH_IN_SCOPE)
-  return _internal_once_each_in_scope();
-}
-inline void SLAFOp::set_once_each_in_scope(bool value) {
-  _internal_set_once_each_in_scope(value);
-  // @@protoc_insertion_point(field_set:service_layer.SLAFOp.ONCE_EACH_IN_SCOPE)
-}
-
-inline bool SLAFOp::has_SLRspAckCadence() const {
-  return SLRspAckCadence_case() != SLRSPACKCADENCE_NOT_SET;
-}
-inline void SLAFOp::clear_has_SLRspAckCadence() {
-  _oneof_case_[0] = SLRSPACKCADENCE_NOT_SET;
-}
-inline SLAFOp::SLRspAckCadenceCase SLAFOp::SLRspAckCadence_case() const {
-  return SLAFOp::SLRspAckCadenceCase(_oneof_case_[0]);
-}
 // -------------------------------------------------------------------
 
 // SLAFGetMsg
@@ -11080,6 +11036,16 @@ SLAFNotifMsg::afnotifs() const {
 // @@protoc_insertion_point(namespace_scope)
 
 }  // namespace service_layer
+
+PROTOBUF_NAMESPACE_OPEN
+
+template <> struct is_proto_enum< ::service_layer::SLAFOp_SLRspAckCadence> : ::std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::service_layer::SLAFOp_SLRspAckCadence>() {
+  return ::service_layer::SLAFOp_SLRspAckCadence_descriptor();
+}
+
+PROTOBUF_NAMESPACE_CLOSE
 
 // @@protoc_insertion_point(global_scope)
 

@@ -175,7 +175,8 @@ constexpr SLAFOp::SLAFOp(
   , acktype_(0)
 
   , slrspackscope_(0u)
-  , _oneof_case_{}{}
+  , ackcadence_(0)
+{}
 struct SLAFOpDefaultTypeInternal {
   constexpr SLAFOpDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
@@ -456,7 +457,7 @@ struct SLAFNotifMsgDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT SLAFNotifMsgDefaultTypeInternal _SLAFNotifMsg_default_instance_;
 }  // namespace service_layer
 static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_sl_5faf_2eproto[31];
-static constexpr ::PROTOBUF_NAMESPACE_ID::EnumDescriptor const** file_level_enum_descriptors_sl_5faf_2eproto = nullptr;
+static const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* file_level_enum_descriptors_sl_5faf_2eproto[1];
 static constexpr ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor const** file_level_service_descriptors_sl_5faf_2eproto = nullptr;
 
 const uint32_t TableStruct_sl_5faf_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
@@ -561,16 +562,14 @@ const uint32_t TableStruct_sl_5faf_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::service_layer::SLAFOp, _internal_metadata_),
   ~0u,  // no _extensions_
-  PROTOBUF_FIELD_OFFSET(::service_layer::SLAFOp, _oneof_case_[0]),
+  ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::service_layer::SLAFOp, afobject_),
   PROTOBUF_FIELD_OFFSET(::service_layer::SLAFOp, operationid_),
   PROTOBUF_FIELD_OFFSET(::service_layer::SLAFOp, acktype_),
   PROTOBUF_FIELD_OFFSET(::service_layer::SLAFOp, slrspackscope_),
-  ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
-  ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
-  PROTOBUF_FIELD_OFFSET(::service_layer::SLAFOp, SLRspAckCadence_),
+  PROTOBUF_FIELD_OFFSET(::service_layer::SLAFOp, ackcadence_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::service_layer::SLAFGetMsg, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -763,25 +762,25 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOB
   { 75, -1, -1, sizeof(::service_layer::SLMplsEntry)},
   { 87, -1, -1, sizeof(::service_layer::SLAFObject)},
   { 98, -1, -1, sizeof(::service_layer::SLAFOp)},
-  { 111, -1, -1, sizeof(::service_layer::SLAFGetMsg)},
-  { 121, -1, -1, sizeof(::service_layer::SLAFDepFibStatus)},
-  { 132, -1, -1, sizeof(::service_layer::SLAFFibStatus)},
-  { 140, -1, -1, sizeof(::service_layer::SLAFGetMsgRspEntry)},
-  { 149, -1, -1, sizeof(::service_layer::SLAFGetMsgRsp)},
-  { 159, -1, -1, sizeof(::service_layer::SLAFMsg)},
-  { 168, -1, -1, sizeof(::service_layer::SLAFRes)},
-  { 178, -1, -1, sizeof(::service_layer::SLAFMsgRsp)},
-  { 186, -1, -1, sizeof(::service_layer::SLAFRedistRegMsg)},
-  { 195, -1, -1, sizeof(::service_layer::SLAFNextHopRegKey_SLNextHopKey)},
-  { 206, -1, -1, sizeof(::service_layer::SLAFNextHopRegKey)},
-  { 214, -1, -1, sizeof(::service_layer::SLAFNextHopRegMsg)},
-  { 221, -1, -1, sizeof(::service_layer::SLAFNotifRegReq)},
-  { 231, -1, -1, sizeof(::service_layer::SLAFNotifReq)},
-  { 240, -1, -1, sizeof(::service_layer::SLAFNotifRsp)},
-  { 248, -1, -1, sizeof(::service_layer::SLNextHop)},
-  { 262, -1, -1, sizeof(::service_layer::SLAFNotif_SLRedistMarker)},
-  { 269, -1, -1, sizeof(::service_layer::SLAFNotif)},
-  { 281, -1, -1, sizeof(::service_layer::SLAFNotifMsg)},
+  { 109, -1, -1, sizeof(::service_layer::SLAFGetMsg)},
+  { 119, -1, -1, sizeof(::service_layer::SLAFDepFibStatus)},
+  { 130, -1, -1, sizeof(::service_layer::SLAFFibStatus)},
+  { 138, -1, -1, sizeof(::service_layer::SLAFGetMsgRspEntry)},
+  { 147, -1, -1, sizeof(::service_layer::SLAFGetMsgRsp)},
+  { 157, -1, -1, sizeof(::service_layer::SLAFMsg)},
+  { 166, -1, -1, sizeof(::service_layer::SLAFRes)},
+  { 176, -1, -1, sizeof(::service_layer::SLAFMsgRsp)},
+  { 184, -1, -1, sizeof(::service_layer::SLAFRedistRegMsg)},
+  { 193, -1, -1, sizeof(::service_layer::SLAFNextHopRegKey_SLNextHopKey)},
+  { 204, -1, -1, sizeof(::service_layer::SLAFNextHopRegKey)},
+  { 212, -1, -1, sizeof(::service_layer::SLAFNextHopRegMsg)},
+  { 219, -1, -1, sizeof(::service_layer::SLAFNotifRegReq)},
+  { 229, -1, -1, sizeof(::service_layer::SLAFNotifReq)},
+  { 238, -1, -1, sizeof(::service_layer::SLAFNotifRsp)},
+  { 246, -1, -1, sizeof(::service_layer::SLNextHop)},
+  { 260, -1, -1, sizeof(::service_layer::SLAFNotif_SLRedistMarker)},
+  { 267, -1, -1, sizeof(::service_layer::SLAFNotif)},
+  { 279, -1, -1, sizeof(::service_layer::SLAFNotifMsg)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -855,91 +854,92 @@ const char descriptor_table_protodef_sl_5faf_2eproto[] PROTOBUF_SECTION_VARIABLE
   "Pv6Route\030\002 \001(\0132\030.service_layer.SLRoutev6"
   "H\000\022/\n\tMplsLabel\030\003 \001(\0132\032.service_layer.SL"
   "MplsEntryH\000\022/\n\tPathGroup\030\004 \001(\0132\032.service"
-  "_layer.SLPathGroupH\000B\007\n\005entry\"\336\001\n\006SLAFOp"
+  "_layer.SLPathGroupH\000B\007\n\005entry\"\233\002\n\006SLAFOp"
   "\022+\n\010AFObject\030\001 \001(\0132\031.service_layer.SLAFO"
   "bject\022\023\n\013OperationID\030\002 \001(\004\022,\n\007AckType\030\003 "
   "\001(\0162\033.service_layer.SLRspACKType\022\025\n\rSLRs"
-  "pACKScope\030\004 \001(\r\022\034\n\022JUST_ONCE_IN_SCOPE\030\005 "
-  "\001(\010H\000\022\034\n\022ONCE_EACH_IN_SCOPE\030\006 \001(\010H\000B\021\n\017S"
-  "LRspAckCadence\"\223\001\n\nSLAFGetMsg\022\017\n\007VrfName"
-  "\030\001 \001(\t\022)\n\005Table\030\002 \001(\0162\032.service_layer.SL"
-  "TableType\022\025\n\rGetAllClients\030\003 \001(\010\0222\n\nRout"
-  "eMatch\030\004 \003(\0132\036.service_layer.SLRouteGetM"
-  "atch\"\254\001\n\020SLAFDepFibStatus\022/\n\tErrorCode\030\001"
-  " \001(\0132\034.service_layer.SLErrorStatus\022\023\n\013Op"
-  "erationID\030\002 \001(\004\022\017\n\007Version\030\003 \001(\004\0228\n\014Path"
-  "GroupKey\030\004 \001(\0132 .service_layer.SLPathGro"
-  "upRefKeyH\000B\007\n\005entry\"T\n\rSLAFFibStatus\022\017\n\007"
-  "Version\030\001 \001(\004\0222\n\tDepResult\030\002 \001(\0132\037.servi"
-  "ce_layer.SLAFDepFibStatus\"{\n\022SLAFGetMsgR"
-  "spEntry\022#\n\004AFOp\030\001 \001(\0132\025.service_layer.SL"
-  "AFOp\022/\n\tErrorCode\030\002 \001(\0132\034.service_layer."
-  "SLErrorStatus\022\017\n\007Version\030\003 \001(\004\"\226\001\n\rSLAFG"
-  "etMsgRsp\022/\n\tErrStatus\030\001 \001(\0132\034.service_la"
-  "yer.SLErrorStatus\022\017\n\007VrfName\030\002 \001(\t\022\020\n\010Cl"
-  "ientID\030\003 \001(\004\0221\n\006AFList\030\004 \003(\0132!.service_l"
-  "ayer.SLAFGetMsgRspEntry\"j\n\007SLAFMsg\022\'\n\004Op"
-  "er\030\001 \001(\0162\031.service_layer.SLObjectOp\022\017\n\007V"
-  "rfName\030\002 \001(\t\022%\n\006OpList\030\003 \003(\0132\025.service_l"
-  "ayer.SLAFOp\"\252\001\n\007SLAFRes\022/\n\tErrStatus\030\001 \001"
-  "(\0132\034.service_layer.SLErrorStatus\022(\n\tOper"
-  "ation\030\002 \001(\0132\025.service_layer.SLAFOp\022\023\n\013Er"
-  "rorString\030\003 \001(\t\022/\n\tFIBStatus\030\004 \001(\0132\034.ser"
-  "vice_layer.SLAFFibStatus\"F\n\nSLAFMsgRsp\022\017"
-  "\n\007VrfName\030\001 \001(\t\022\'\n\007Results\030\002 \003(\0132\026.servi"
-  "ce_layer.SLAFRes\"d\n\020SLAFRedistRegMsg\022\020\n\010"
-  "SrcProto\030\001 \001(\t\022\023\n\013SrcProtoTag\030\002 \001(\t\022)\n\005T"
-  "able\030\003 \001(\0162\032.service_layer.SLTableType\"\360"
-  "\001\n\021SLAFNextHopRegKey\022@\n\007NextHop\030\001 \001(\0132-."
-  "service_layer.SLAFNextHopRegKey.SLNextHo"
-  "pKeyH\000\032\212\001\n\014SLNextHopKey\022+\n\007NextHop\030\001 \001(\013"
-  "2\032.service_layer.SLIpAddress\022\022\n\nNextHopL"
-  "en\030\002 \001(\r\022\022\n\nExactMatch\030\003 \001(\010\022\024\n\014AllowDef"
-  "ault\030\004 \001(\010\022\017\n\007Recurse\030\005 \001(\010B\014\n\nnexthopke"
-  "y\"I\n\021SLAFNextHopRegMsg\0224\n\nNextHopKey\030\001 \001"
-  "(\0132 .service_layer.SLAFNextHopRegKey\"\237\001\n"
-  "\017SLAFNotifRegReq\0224\n\tRedistReq\030\001 \001(\0132\037.se"
-  "rvice_layer.SLAFRedistRegMsgH\000\0226\n\nNextHo"
-  "pReq\030\002 \001(\0132 .service_layer.SLAFNextHopRe"
-  "gMsgH\000\022\023\n\013OperationID\030\003 \001(\004B\t\n\007request\"y"
-  "\n\014SLAFNotifReq\022&\n\004Oper\030\001 \001(\0162\030.service_l"
-  "ayer.SLNotifOp\022\017\n\007VrfName\030\002 \001(\t\0220\n\010Notif"
-  "Req\030\003 \003(\0132\036.service_layer.SLAFNotifRegRe"
-  "q\"s\n\014SLAFNotifRsp\0220\n\010NotifReq\030\001 \001(\0132\036.se"
-  "rvice_layer.SLAFNotifRegReq\0221\n\013NotifStat"
-  "us\030\002 \001(\0132\034.service_layer.SLErrorStatus\"\211"
-  "\002\n\tSLNextHop\0224\n\nNextHopKey\030\001 \001(\0132 .servi"
-  "ce_layer.SLAFNextHopRegKey\0222\n\016ResolvingR"
-  "oute\030\002 \001(\0132\032.service_layer.SLIpAddress\022\031"
-  "\n\021ResolvingRouteLen\030\003 \001(\r\022\020\n\010SrcProto\030\004 "
-  "\001(\t\022\023\n\013SrcProtoTag\030\005 \001(\t\022\025\n\rAdminDistanc"
-  "e\030\006 \001(\r\022\016\n\006Metric\030\007 \001(\r\022)\n\005Paths\030\010 \003(\0132\032"
-  ".service_layer.SLRoutePath\"\343\002\n\tSLAFNotif"
-  "\0222\n\013NotifStatus\030\001 \001(\0132\033.service_layer.SL"
-  "AFNotifRspH\000\022>\n\013StartMarker\030\002 \001(\0132\'.serv"
-  "ice_layer.SLAFNotif.SLRedistMarkerH\000\022<\n\t"
-  "EndMarker\030\003 \001(\0132\'.service_layer.SLAFNoti"
-  "f.SLRedistMarkerH\000\0221\n\014RedistObject\030\004 \001(\013"
-  "2\031.service_layer.SLAFObjectH\000\022+\n\007NextHop"
-  "\030\005 \001(\0132\030.service_layer.SLNextHopH\000\032;\n\016SL"
-  "RedistMarker\022)\n\005Table\030\001 \001(\0162\032.service_la"
-  "yer.SLTableTypeB\007\n\005Event\"K\n\014SLAFNotifMsg"
-  "\022\017\n\007VrfName\030\001 \001(\t\022*\n\010AFNotifs\030\003 \003(\0132\030.se"
-  "rvice_layer.SLAFNotif2\310\003\n\004SLAF\022M\n\014SLAFVr"
-  "fRegOp\022\034.service_layer.SLAFVrfRegMsg\032\037.s"
-  "ervice_layer.SLAFVrfRegMsgRsp\022V\n\rSLAFVrf"
-  "RegGet\022\037.service_layer.SLAFVrfRegGetMsg\032"
-  "\".service_layer.SLAFVrfRegGetMsgRsp0\001\022;\n"
-  "\006SLAFOp\022\026.service_layer.SLAFMsg\032\031.servic"
-  "e_layer.SLAFMsgRsp\022E\n\014SLAFOpStream\022\026.ser"
-  "vice_layer.SLAFMsg\032\031.service_layer.SLAFM"
-  "sgRsp(\0010\001\022D\n\007SLAFGet\022\031.service_layer.SLA"
-  "FGetMsg\032\034.service_layer.SLAFGetMsgRsp0\001\022"
-  "O\n\017SLAFNotifStream\022\033.service_layer.SLAFN"
-  "otifReq\032\033.service_layer.SLAFNotifMsg(\0010\001"
-  "BQZOgithub.com/Cisco-service-layer/servi"
-  "ce-layer-objmodel/grpc/protos;service_la"
-  "yerb\006proto3"
+  "pACKScope\030\004 \001(\r\0229\n\nAckCadence\030\005 \001(\0162%.se"
+  "rvice_layer.SLAFOp.SLRspAckCadence\"O\n\017SL"
+  "RspAckCadence\022\014\n\010RESERVED\020\000\022\026\n\022JUST_ONCE"
+  "_IN_SCOPE\020\001\022\026\n\022ONCE_EACH_IN_SCOPE\020\002\"\223\001\n\n"
+  "SLAFGetMsg\022\017\n\007VrfName\030\001 \001(\t\022)\n\005Table\030\002 \001"
+  "(\0162\032.service_layer.SLTableType\022\025\n\rGetAll"
+  "Clients\030\003 \001(\010\0222\n\nRouteMatch\030\004 \003(\0132\036.serv"
+  "ice_layer.SLRouteGetMatch\"\254\001\n\020SLAFDepFib"
+  "Status\022/\n\tErrorCode\030\001 \001(\0132\034.service_laye"
+  "r.SLErrorStatus\022\023\n\013OperationID\030\002 \001(\004\022\017\n\007"
+  "Version\030\003 \001(\004\0228\n\014PathGroupKey\030\004 \001(\0132 .se"
+  "rvice_layer.SLPathGroupRefKeyH\000B\007\n\005entry"
+  "\"T\n\rSLAFFibStatus\022\017\n\007Version\030\001 \001(\004\0222\n\tDe"
+  "pResult\030\002 \001(\0132\037.service_layer.SLAFDepFib"
+  "Status\"{\n\022SLAFGetMsgRspEntry\022#\n\004AFOp\030\001 \001"
+  "(\0132\025.service_layer.SLAFOp\022/\n\tErrorCode\030\002"
+  " \001(\0132\034.service_layer.SLErrorStatus\022\017\n\007Ve"
+  "rsion\030\003 \001(\004\"\226\001\n\rSLAFGetMsgRsp\022/\n\tErrStat"
+  "us\030\001 \001(\0132\034.service_layer.SLErrorStatus\022\017"
+  "\n\007VrfName\030\002 \001(\t\022\020\n\010ClientID\030\003 \001(\004\0221\n\006AFL"
+  "ist\030\004 \003(\0132!.service_layer.SLAFGetMsgRspE"
+  "ntry\"j\n\007SLAFMsg\022\'\n\004Oper\030\001 \001(\0162\031.service_"
+  "layer.SLObjectOp\022\017\n\007VrfName\030\002 \001(\t\022%\n\006OpL"
+  "ist\030\003 \003(\0132\025.service_layer.SLAFOp\"\252\001\n\007SLA"
+  "FRes\022/\n\tErrStatus\030\001 \001(\0132\034.service_layer."
+  "SLErrorStatus\022(\n\tOperation\030\002 \001(\0132\025.servi"
+  "ce_layer.SLAFOp\022\023\n\013ErrorString\030\003 \001(\t\022/\n\t"
+  "FIBStatus\030\004 \001(\0132\034.service_layer.SLAFFibS"
+  "tatus\"F\n\nSLAFMsgRsp\022\017\n\007VrfName\030\001 \001(\t\022\'\n\007"
+  "Results\030\002 \003(\0132\026.service_layer.SLAFRes\"d\n"
+  "\020SLAFRedistRegMsg\022\020\n\010SrcProto\030\001 \001(\t\022\023\n\013S"
+  "rcProtoTag\030\002 \001(\t\022)\n\005Table\030\003 \001(\0162\032.servic"
+  "e_layer.SLTableType\"\360\001\n\021SLAFNextHopRegKe"
+  "y\022@\n\007NextHop\030\001 \001(\0132-.service_layer.SLAFN"
+  "extHopRegKey.SLNextHopKeyH\000\032\212\001\n\014SLNextHo"
+  "pKey\022+\n\007NextHop\030\001 \001(\0132\032.service_layer.SL"
+  "IpAddress\022\022\n\nNextHopLen\030\002 \001(\r\022\022\n\nExactMa"
+  "tch\030\003 \001(\010\022\024\n\014AllowDefault\030\004 \001(\010\022\017\n\007Recur"
+  "se\030\005 \001(\010B\014\n\nnexthopkey\"I\n\021SLAFNextHopReg"
+  "Msg\0224\n\nNextHopKey\030\001 \001(\0132 .service_layer."
+  "SLAFNextHopRegKey\"\237\001\n\017SLAFNotifRegReq\0224\n"
+  "\tRedistReq\030\001 \001(\0132\037.service_layer.SLAFRed"
+  "istRegMsgH\000\0226\n\nNextHopReq\030\002 \001(\0132 .servic"
+  "e_layer.SLAFNextHopRegMsgH\000\022\023\n\013Operation"
+  "ID\030\003 \001(\004B\t\n\007request\"y\n\014SLAFNotifReq\022&\n\004O"
+  "per\030\001 \001(\0162\030.service_layer.SLNotifOp\022\017\n\007V"
+  "rfName\030\002 \001(\t\0220\n\010NotifReq\030\003 \003(\0132\036.service"
+  "_layer.SLAFNotifRegReq\"s\n\014SLAFNotifRsp\0220"
+  "\n\010NotifReq\030\001 \001(\0132\036.service_layer.SLAFNot"
+  "ifRegReq\0221\n\013NotifStatus\030\002 \001(\0132\034.service_"
+  "layer.SLErrorStatus\"\211\002\n\tSLNextHop\0224\n\nNex"
+  "tHopKey\030\001 \001(\0132 .service_layer.SLAFNextHo"
+  "pRegKey\0222\n\016ResolvingRoute\030\002 \001(\0132\032.servic"
+  "e_layer.SLIpAddress\022\031\n\021ResolvingRouteLen"
+  "\030\003 \001(\r\022\020\n\010SrcProto\030\004 \001(\t\022\023\n\013SrcProtoTag\030"
+  "\005 \001(\t\022\025\n\rAdminDistance\030\006 \001(\r\022\016\n\006Metric\030\007"
+  " \001(\r\022)\n\005Paths\030\010 \003(\0132\032.service_layer.SLRo"
+  "utePath\"\343\002\n\tSLAFNotif\0222\n\013NotifStatus\030\001 \001"
+  "(\0132\033.service_layer.SLAFNotifRspH\000\022>\n\013Sta"
+  "rtMarker\030\002 \001(\0132\'.service_layer.SLAFNotif"
+  ".SLRedistMarkerH\000\022<\n\tEndMarker\030\003 \001(\0132\'.s"
+  "ervice_layer.SLAFNotif.SLRedistMarkerH\000\022"
+  "1\n\014RedistObject\030\004 \001(\0132\031.service_layer.SL"
+  "AFObjectH\000\022+\n\007NextHop\030\005 \001(\0132\030.service_la"
+  "yer.SLNextHopH\000\032;\n\016SLRedistMarker\022)\n\005Tab"
+  "le\030\001 \001(\0162\032.service_layer.SLTableTypeB\007\n\005"
+  "Event\"K\n\014SLAFNotifMsg\022\017\n\007VrfName\030\001 \001(\t\022*"
+  "\n\010AFNotifs\030\003 \003(\0132\030.service_layer.SLAFNot"
+  "if2\310\003\n\004SLAF\022M\n\014SLAFVrfRegOp\022\034.service_la"
+  "yer.SLAFVrfRegMsg\032\037.service_layer.SLAFVr"
+  "fRegMsgRsp\022V\n\rSLAFVrfRegGet\022\037.service_la"
+  "yer.SLAFVrfRegGetMsg\032\".service_layer.SLA"
+  "FVrfRegGetMsgRsp0\001\022;\n\006SLAFOp\022\026.service_l"
+  "ayer.SLAFMsg\032\031.service_layer.SLAFMsgRsp\022"
+  "E\n\014SLAFOpStream\022\026.service_layer.SLAFMsg\032"
+  "\031.service_layer.SLAFMsgRsp(\0010\001\022D\n\007SLAFGe"
+  "t\022\031.service_layer.SLAFGetMsg\032\034.service_l"
+  "ayer.SLAFGetMsgRsp0\001\022O\n\017SLAFNotifStream\022"
+  "\033.service_layer.SLAFNotifReq\032\033.service_l"
+  "ayer.SLAFNotifMsg(\0010\001BQZOgithub.com/Cisc"
+  "o-service-layer/service-layer-objmodel/g"
+  "rpc/protos;service_layerb\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_sl_5faf_2eproto_deps[4] = {
   &::descriptor_table_sl_5fcommon_5ftypes_2eproto,
@@ -949,7 +949,7 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_sl_5faf_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_sl_5faf_2eproto = {
-  false, false, 4811, descriptor_table_protodef_sl_5faf_2eproto, "sl_af.proto", 
+  false, false, 4872, descriptor_table_protodef_sl_5faf_2eproto, "sl_af.proto", 
   &descriptor_table_sl_5faf_2eproto_once, descriptor_table_sl_5faf_2eproto_deps, 4, 31,
   schemas, file_default_instances, TableStruct_sl_5faf_2eproto::offsets,
   file_level_metadata_sl_5faf_2eproto, file_level_enum_descriptors_sl_5faf_2eproto, file_level_service_descriptors_sl_5faf_2eproto,
@@ -961,6 +961,29 @@ PROTOBUF_ATTRIBUTE_WEAK const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable
 // Force running AddDescriptors() at dynamic initialization time.
 PROTOBUF_ATTRIBUTE_INIT_PRIORITY static ::PROTOBUF_NAMESPACE_ID::internal::AddDescriptorsRunner dynamic_init_dummy_sl_5faf_2eproto(&descriptor_table_sl_5faf_2eproto);
 namespace service_layer {
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* SLAFOp_SLRspAckCadence_descriptor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_sl_5faf_2eproto);
+  return file_level_enum_descriptors_sl_5faf_2eproto[0];
+}
+bool SLAFOp_SLRspAckCadence_IsValid(int value) {
+  switch (value) {
+    case 0:
+    case 1:
+    case 2:
+      return true;
+    default:
+      return false;
+  }
+}
+
+#if (__cplusplus < 201703) && (!defined(_MSC_VER) || (_MSC_VER >= 1900 && _MSC_VER < 1912))
+constexpr SLAFOp_SLRspAckCadence SLAFOp::RESERVED;
+constexpr SLAFOp_SLRspAckCadence SLAFOp::JUST_ONCE_IN_SCOPE;
+constexpr SLAFOp_SLRspAckCadence SLAFOp::ONCE_EACH_IN_SCOPE;
+constexpr SLAFOp_SLRspAckCadence SLAFOp::SLRspAckCadence_MIN;
+constexpr SLAFOp_SLRspAckCadence SLAFOp::SLRspAckCadence_MAX;
+constexpr int SLAFOp::SLRspAckCadence_ARRAYSIZE;
+#endif  // (__cplusplus < 201703) && (!defined(_MSC_VER) || (_MSC_VER >= 1900 && _MSC_VER < 1912))
 
 // ===================================================================
 
@@ -3979,31 +4002,16 @@ SLAFOp::SLAFOp(const SLAFOp& from)
     afobject_ = nullptr;
   }
   ::memcpy(&operationid_, &from.operationid_,
-    static_cast<size_t>(reinterpret_cast<char*>(&slrspackscope_) -
-    reinterpret_cast<char*>(&operationid_)) + sizeof(slrspackscope_));
-  clear_has_SLRspAckCadence();
-  switch (from.SLRspAckCadence_case()) {
-    case kJUSTONCEINSCOPE: {
-      _internal_set_just_once_in_scope(from._internal_just_once_in_scope());
-      break;
-    }
-    case kONCEEACHINSCOPE: {
-      _internal_set_once_each_in_scope(from._internal_once_each_in_scope());
-      break;
-    }
-    case SLRSPACKCADENCE_NOT_SET: {
-      break;
-    }
-  }
+    static_cast<size_t>(reinterpret_cast<char*>(&ackcadence_) -
+    reinterpret_cast<char*>(&operationid_)) + sizeof(ackcadence_));
   // @@protoc_insertion_point(copy_constructor:service_layer.SLAFOp)
 }
 
 inline void SLAFOp::SharedCtor() {
 ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
     reinterpret_cast<char*>(&afobject_) - reinterpret_cast<char*>(this)),
-    0, static_cast<size_t>(reinterpret_cast<char*>(&slrspackscope_) -
-    reinterpret_cast<char*>(&afobject_)) + sizeof(slrspackscope_));
-clear_has_SLRspAckCadence();
+    0, static_cast<size_t>(reinterpret_cast<char*>(&ackcadence_) -
+    reinterpret_cast<char*>(&afobject_)) + sizeof(ackcadence_));
 }
 
 SLAFOp::~SLAFOp() {
@@ -4016,9 +4024,6 @@ SLAFOp::~SLAFOp() {
 inline void SLAFOp::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
   if (this != internal_default_instance()) delete afobject_;
-  if (has_SLRspAckCadence()) {
-    clear_SLRspAckCadence();
-  }
 }
 
 void SLAFOp::ArenaDtor(void* object) {
@@ -4031,25 +4036,6 @@ void SLAFOp::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
 
-void SLAFOp::clear_SLRspAckCadence() {
-// @@protoc_insertion_point(one_of_clear_start:service_layer.SLAFOp)
-  switch (SLRspAckCadence_case()) {
-    case kJUSTONCEINSCOPE: {
-      // No need to clear
-      break;
-    }
-    case kONCEEACHINSCOPE: {
-      // No need to clear
-      break;
-    }
-    case SLRSPACKCADENCE_NOT_SET: {
-      break;
-    }
-  }
-  _oneof_case_[0] = SLRSPACKCADENCE_NOT_SET;
-}
-
-
 void SLAFOp::Clear() {
 // @@protoc_insertion_point(message_clear_start:service_layer.SLAFOp)
   uint32_t cached_has_bits = 0;
@@ -4061,9 +4047,8 @@ void SLAFOp::Clear() {
   }
   afobject_ = nullptr;
   ::memset(&operationid_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&slrspackscope_) -
-      reinterpret_cast<char*>(&operationid_)) + sizeof(slrspackscope_));
-  clear_SLRspAckCadence();
+      reinterpret_cast<char*>(&ackcadence_) -
+      reinterpret_cast<char*>(&operationid_)) + sizeof(ackcadence_));
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -4106,19 +4091,12 @@ const char* SLAFOp::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::int
         } else
           goto handle_unusual;
         continue;
-      // bool JUST_ONCE_IN_SCOPE = 5;
+      // .service_layer.SLAFOp.SLRspAckCadence AckCadence = 5;
       case 5:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 40)) {
-          _internal_set_just_once_in_scope(::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr));
+          uint64_t val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
-        } else
-          goto handle_unusual;
-        continue;
-      // bool ONCE_EACH_IN_SCOPE = 6;
-      case 6:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 48)) {
-          _internal_set_once_each_in_scope(::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr));
-          CHK_(ptr);
+          _internal_set_ackcadence(static_cast<::service_layer::SLAFOp_SLRspAckCadence>(val));
         } else
           goto handle_unusual;
         continue;
@@ -4178,16 +4156,11 @@ uint8_t* SLAFOp::_InternalSerialize(
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(4, this->_internal_slrspackscope(), target);
   }
 
-  // bool JUST_ONCE_IN_SCOPE = 5;
-  if (_internal_has_just_once_in_scope()) {
+  // .service_layer.SLAFOp.SLRspAckCadence AckCadence = 5;
+  if (this->_internal_ackcadence() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(5, this->_internal_just_once_in_scope(), target);
-  }
-
-  // bool ONCE_EACH_IN_SCOPE = 6;
-  if (_internal_has_once_each_in_scope()) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(6, this->_internal_once_each_in_scope(), target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
+      5, this->_internal_ackcadence(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -4229,21 +4202,12 @@ size_t SLAFOp::ByteSizeLong() const {
     total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_slrspackscope());
   }
 
-  switch (SLRspAckCadence_case()) {
-    // bool JUST_ONCE_IN_SCOPE = 5;
-    case kJUSTONCEINSCOPE: {
-      total_size += 1 + 1;
-      break;
-    }
-    // bool ONCE_EACH_IN_SCOPE = 6;
-    case kONCEEACHINSCOPE: {
-      total_size += 1 + 1;
-      break;
-    }
-    case SLRSPACKCADENCE_NOT_SET: {
-      break;
-    }
+  // .service_layer.SLAFOp.SLRspAckCadence AckCadence = 5;
+  if (this->_internal_ackcadence() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_ackcadence());
   }
+
   return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
 }
 
@@ -4278,18 +4242,8 @@ void SLAFOp::MergeFrom(const SLAFOp& from) {
   if (from._internal_slrspackscope() != 0) {
     _internal_set_slrspackscope(from._internal_slrspackscope());
   }
-  switch (from.SLRspAckCadence_case()) {
-    case kJUSTONCEINSCOPE: {
-      _internal_set_just_once_in_scope(from._internal_just_once_in_scope());
-      break;
-    }
-    case kONCEEACHINSCOPE: {
-      _internal_set_once_each_in_scope(from._internal_once_each_in_scope());
-      break;
-    }
-    case SLRSPACKCADENCE_NOT_SET: {
-      break;
-    }
+  if (from._internal_ackcadence() != 0) {
+    _internal_set_ackcadence(from._internal_ackcadence());
   }
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
@@ -4309,13 +4263,11 @@ void SLAFOp::InternalSwap(SLAFOp* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(SLAFOp, slrspackscope_)
-      + sizeof(SLAFOp::slrspackscope_)
+      PROTOBUF_FIELD_OFFSET(SLAFOp, ackcadence_)
+      + sizeof(SLAFOp::ackcadence_)
       - PROTOBUF_FIELD_OFFSET(SLAFOp, afobject_)>(
           reinterpret_cast<char*>(&afobject_),
           reinterpret_cast<char*>(&other->afobject_));
-  swap(SLRspAckCadence_, other->SLRspAckCadence_);
-  swap(_oneof_case_[0], other->_oneof_case_[0]);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata SLAFOp::GetMetadata() const {
