@@ -1,0 +1,220 @@
+// @file 
+// @brief Proto file for Segment-routing traffic-eng (SRTE) Policy RPCs.
+// Declares calls for adding, deleting, updating the SRTE policies.
+// The GPB data model should reflect the model from the SRTE policy
+// RFC https://datatracker.ietf.org/doc/rfc9256/.
+// 
+// ----------------------------------------------------------------
+//  Copyright (c) 2024 by Cisco Systems, Inc.
+//  All rights reserved.
+// -----------------------------------------------------------------
+//
+//
+
+syntax = "proto3";
+package service_layer;
+
+import "sl_common_types.proto";
+import "sl_sr_common.proto";
+
+option go_package="github.com/Cisco-service-layer/service-layer-objmodel/grpc/protos;service_layer";
+
+// @defgroup SLSrtePolicy
+// Used to programmatically create/update/delete SR-TE and SRv6TE policies.
+// The real-time monitoring of these policies is done via BGP-LS or telemetry.
+// Defines the RPC for operations on SRTE policy.
+//
+// @{ 
+service SLSrtePolicy {
+    //@addtogroup SLSrtePolicy
+    //@{
+    //;
+
+    //    
+    // SRTE Policy operations
+    //
+
+    // The SLSrPolicyAdd RPC is used to create/update a policy based on the
+    // passed parameters.
+    rpc SLSrPolicyAdd(SLSrPolicyMsg) returns (SLSrPolicyOpRsp);
+
+    // The SLSrPolicyDelete RPC is used to delete a policy/candidate-paths.
+    // If the message only contains the key of the policy, then all the CPs with gRPC
+    // originator-protocol are deleted. The policy is also deleted if it has no more CPs.
+    // If the message contains the keys of one or more CPs, then only these CPs are
+    // deleted and they have to be gRPC CPs.
+    // There is no requirement/enforcement for the client to delete the policy/CPs
+    // it created.
+    rpc SLSrPolicyDelete(SLSrPolicyMsg) returns (SLSrPolicyOpRsp);
+    //@} 
+}
+
+// Candidate path with explicitly defined set/s of segment-lists
+message SLSrExplicitCP {
+    // The set of weighted segment lists in the explicit candidate path.
+    repeated SLSrSegmentList segmentList = 1;
+}
+
+// A set of constraints for an SR path.
+message SLSrConstraints {
+    // Topological Constraints
+    // =======================
+    //
+    // Constraints that must be satisfied by every node or link along the path.
+    // These constraints determine the input topology to the path calculation.
+
+    // Extended Administrative Groups.
+    SLSrAffinities affinities = 1;
+
+    // ============================ Path Constraints ============================
+    // Constraints that must be satisfied by the complete path and cannot be
+    // verified on a node-by-node or link-by-link basis.
+
+    // Maximum metric that is allowed for given metric type
+    SLSrMetricBounds metricBounds = 2;
+
+    // ======================== Segment-List Constraints ========================
+    // Constraints that determine the set of segments available to enforce the
+    // path.
+    message SegmentConstraints {
+        enum ProtectionType {
+            // Protected segments are preferred over unprotected ones.
+            PROTECTED_PREFERRED = 0;
+
+            // Segment list is made only of protected (i.e., FRR-protected) segments
+            PROTECTED_ONLY = 1;
+
+            // Unprotected segments are preferred over protected ones.
+            UNPROTECTED_PREFERRED = 2;
+
+            // Segment list is made only of unprotected (i.e., non FRR-protected) segments
+            UNPROTECTED_ONLY = 3;
+        }
+        ProtectionType protection = 1;
+        uint32 sidalgo = 2;
+
+        // Maximum number of segments in any of the candidate path segment lists.
+        //
+        // When set to a non-zero value, this attribute replaces the headend MSD
+        // obtained from the link-state topology. When set to the default value (0),
+        // this attribute is ignored.
+        //
+        // Note: If the first segment in the segment list can be enforced by setting
+        // the outgoing interface on the headend node, it does not count towards this
+        // limit.
+        uint32 MSD = 3;
+    }
+    SegmentConstraints segmentConstraints = 3;
+}
+
+// The specific attributes for instantiating a dynamic path request.
+message SLSrDynamicCP {
+    // The optimization metric of the dynamic candidate path.
+    //
+    // The objective function of the optimization problem is to minimize the
+    // accumulated value of this additive link metric along the path.
+    SLSrMetricType ometric = 1;
+
+    // The set of constraints that the candidate path must satisfy.
+    SLSrConstraints constraints = 2;
+
+    // The margin by which two paths with similar metric-type
+    // would be considered equal
+    SLSrMetricMargin metricMargin = 3;
+
+    // This flag is to turn on path computation delegation.
+    // When this flag is set, the router delegates to whatever
+    // path computer that is configured/used by the router.
+    bool delegate = 4;
+}
+
+// SR Candidate Path in the context of an SR Policy, as
+// defined in [section 2.2 of RFC 9256]
+// (https://www.rfc-editor.org/rfc/rfc9256.html#section-2.2).
+message SLSrCandidatePath {
+    // Unique candidate path identifier in the context of an SR policy.
+    //
+    // The tuple (`policy_key`, `candidate_path_key`) is a globally unique
+    // identifier of the candidate path.
+    SLSrCandidatePathKey key = 1;
+
+    // Candidate path name
+    string name = 2;
+
+    // The Preference of the candidate path is used to select the
+    // best candidate path for an SR Policy
+    uint32 preference = 3;
+
+    // The segment routing dataplane.
+    SLSrDataplane dataplane = 4;
+    oneof CP {
+        // (https://www.rfc-editor.org/rfc/rfc9256.html#section-5.2).
+        SLSrDynamicCP dynamic = 5;
+        // (https://www.rfc-editor.org/rfc/rfc9256.html#section-5.1).
+        SLSrExplicitCP explicit = 6;
+    }
+}
+
+// SRv6 Binding SID properties
+message SLSrv6BindingSID {
+    // Locator name used to allocate SRv6 binding SID
+    string locatorName = 1;
+    uint32 behavior = 2;
+    // Binding segment ID
+    SLIpv6Address SID = 3;
+}
+
+// Binding SID allocation mode
+enum SLSrBindingSIDAllocationMode {
+    // Explicitly specified BSID
+    BSID_EXPLICIT = 0;
+    // Dynamically allocated BSID
+    BSID_DYNAMIC  = 1;
+}
+
+// (https://www.rfc-editor.org/rfc/rfc9256.html#section-6.1).
+message SLSrBindingSID {
+    // Binding SID allocation mode, explicit or dynamic
+    SLSrBindingSIDAllocationMode bindingSIDAllocation = 1;
+
+    // Expected to be filled when mode is explicit and dataplane is MPLS
+    uint32 mplsBindingSID = 2;
+
+    // SRv6 binding SID, expected when dataplane is SRv6
+    SLSrv6BindingSID srv6BindingSID = 3;
+}
+
+// (https://www.rfc-editor.org/rfc/rfc9256.html#section-2).
+message SLSrPolicy {
+    // Globally unique SR policy identifier.
+    SLSrPolicyKey key = 1;
+
+    bool transitEligible = 2;
+
+    repeated SLSrCandidatePath CPs = 3;
+
+    SLSrBindingSID bsid = 4;
+
+    uint32 profileID = 5;
+}
+
+// Set of Policies to acted on
+message SLSrPolicyMsg {
+    repeated SLSrPolicy policies = 1;
+}
+
+// RPC response
+// Indicates receipt of the request successfully on the server. To check the state of
+// the instantiated policy, controller is expected to subscribe to SLBgplsTopo service.
+message SLSrPolicyOpRsp {
+    message PolicyRsp {
+        // return code for the request.
+        SLErrorStatus returnCode = 1;
+        // SR policy identifier from the request.
+        SLSrPolicyKey key = 2;
+    }
+    // Set of responses corresponding to the policies in the request
+    repeated PolicyRsp responses = 1;
+}
+
+//@}
