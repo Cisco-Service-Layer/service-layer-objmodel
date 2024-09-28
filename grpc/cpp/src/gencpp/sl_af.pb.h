@@ -190,14 +190,14 @@ namespace service_layer {
 
 enum SLAFOp_SLRspAckCadence : int {
   SLAFOp_SLRspAckCadence_RESERVED = 0,
-  SLAFOp_SLRspAckCadence_JUST_ONCE_IN_SCOPE = 1,
-  SLAFOp_SLRspAckCadence_ONCE_EACH_IN_SCOPE = 2,
+  SLAFOp_SLRspAckCadence_SL_RSP_JUST_ONCE = 1,
+  SLAFOp_SLRspAckCadence_SL_RSP_ONCE_EACH = 2,
   SLAFOp_SLRspAckCadence_SLAFOp_SLRspAckCadence_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::min(),
   SLAFOp_SLRspAckCadence_SLAFOp_SLRspAckCadence_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::max()
 };
 bool SLAFOp_SLRspAckCadence_IsValid(int value);
 constexpr SLAFOp_SLRspAckCadence SLAFOp_SLRspAckCadence_SLRspAckCadence_MIN = SLAFOp_SLRspAckCadence_RESERVED;
-constexpr SLAFOp_SLRspAckCadence SLAFOp_SLRspAckCadence_SLRspAckCadence_MAX = SLAFOp_SLRspAckCadence_ONCE_EACH_IN_SCOPE;
+constexpr SLAFOp_SLRspAckCadence SLAFOp_SLRspAckCadence_SLRspAckCadence_MAX = SLAFOp_SLRspAckCadence_SL_RSP_ONCE_EACH;
 constexpr int SLAFOp_SLRspAckCadence_SLRspAckCadence_ARRAYSIZE = SLAFOp_SLRspAckCadence_SLRspAckCadence_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* SLAFOp_SLRspAckCadence_descriptor();
@@ -2360,10 +2360,10 @@ class SLAFOp final :
   typedef SLAFOp_SLRspAckCadence SLRspAckCadence;
   static constexpr SLRspAckCadence RESERVED =
     SLAFOp_SLRspAckCadence_RESERVED;
-  static constexpr SLRspAckCadence JUST_ONCE_IN_SCOPE =
-    SLAFOp_SLRspAckCadence_JUST_ONCE_IN_SCOPE;
-  static constexpr SLRspAckCadence ONCE_EACH_IN_SCOPE =
-    SLAFOp_SLRspAckCadence_ONCE_EACH_IN_SCOPE;
+  static constexpr SLRspAckCadence SL_RSP_JUST_ONCE =
+    SLAFOp_SLRspAckCadence_SL_RSP_JUST_ONCE;
+  static constexpr SLRspAckCadence SL_RSP_ONCE_EACH =
+    SLAFOp_SLRspAckCadence_SL_RSP_ONCE_EACH;
   static inline bool SLRspAckCadence_IsValid(int value) {
     return SLAFOp_SLRspAckCadence_IsValid(value);
   }

@@ -56,83 +56,83 @@ namespace ServiceLayer {
             "TFJvdXRldjRIABItCglJUHY2Um91dGUYAiABKAsyGC5zZXJ2aWNlX2xheWVy",
             "LlNMUm91dGV2NkgAEi8KCU1wbHNMYWJlbBgDIAEoCzIaLnNlcnZpY2VfbGF5",
             "ZXIuU0xNcGxzRW50cnlIABIvCglQYXRoR3JvdXAYBCABKAsyGi5zZXJ2aWNl",
-            "X2xheWVyLlNMUGF0aEdyb3VwSABCBwoFZW50cnkimwIKBlNMQUZPcBIrCghB",
+            "X2xheWVyLlNMUGF0aEdyb3VwSABCBwoFZW50cnkilwIKBlNMQUZPcBIrCghB",
             "Rk9iamVjdBgBIAEoCzIZLnNlcnZpY2VfbGF5ZXIuU0xBRk9iamVjdBITCgtP",
             "cGVyYXRpb25JRBgCIAEoBBIsCgdBY2tUeXBlGAMgASgOMhsuc2VydmljZV9s",
             "YXllci5TTFJzcEFDS1R5cGUSFQoNU0xSc3BBQ0tTY29wZRgEIAEoDRI5CgpB",
             "Y2tDYWRlbmNlGAUgASgOMiUuc2VydmljZV9sYXllci5TTEFGT3AuU0xSc3BB",
-            "Y2tDYWRlbmNlIk8KD1NMUnNwQWNrQ2FkZW5jZRIMCghSRVNFUlZFRBAAEhYK",
-            "EkpVU1RfT05DRV9JTl9TQ09QRRABEhYKEk9OQ0VfRUFDSF9JTl9TQ09QRRAC",
-            "IpMBCgpTTEFGR2V0TXNnEg8KB1ZyZk5hbWUYASABKAkSKQoFVGFibGUYAiAB",
-            "KA4yGi5zZXJ2aWNlX2xheWVyLlNMVGFibGVUeXBlEhUKDUdldEFsbENsaWVu",
-            "dHMYAyABKAgSMgoKUm91dGVNYXRjaBgEIAMoCzIeLnNlcnZpY2VfbGF5ZXIu",
-            "U0xSb3V0ZUdldE1hdGNoIqwBChBTTEFGRGVwRmliU3RhdHVzEi8KCUVycm9y",
-            "Q29kZRgBIAEoCzIcLnNlcnZpY2VfbGF5ZXIuU0xFcnJvclN0YXR1cxITCgtP",
-            "cGVyYXRpb25JRBgCIAEoBBIPCgdWZXJzaW9uGAMgASgEEjgKDFBhdGhHcm91",
-            "cEtleRgEIAEoCzIgLnNlcnZpY2VfbGF5ZXIuU0xQYXRoR3JvdXBSZWZLZXlI",
-            "AEIHCgVlbnRyeSJUCg1TTEFGRmliU3RhdHVzEg8KB1ZlcnNpb24YASABKAQS",
-            "MgoJRGVwUmVzdWx0GAIgASgLMh8uc2VydmljZV9sYXllci5TTEFGRGVwRmli",
-            "U3RhdHVzInsKElNMQUZHZXRNc2dSc3BFbnRyeRIjCgRBRk9wGAEgASgLMhUu",
-            "c2VydmljZV9sYXllci5TTEFGT3ASLwoJRXJyb3JDb2RlGAIgASgLMhwuc2Vy",
-            "dmljZV9sYXllci5TTEVycm9yU3RhdHVzEg8KB1ZlcnNpb24YAyABKAQilgEK",
-            "DVNMQUZHZXRNc2dSc3ASLwoJRXJyU3RhdHVzGAEgASgLMhwuc2VydmljZV9s",
-            "YXllci5TTEVycm9yU3RhdHVzEg8KB1ZyZk5hbWUYAiABKAkSEAoIQ2xpZW50",
-            "SUQYAyABKAQSMQoGQUZMaXN0GAQgAygLMiEuc2VydmljZV9sYXllci5TTEFG",
-            "R2V0TXNnUnNwRW50cnkiagoHU0xBRk1zZxInCgRPcGVyGAEgASgOMhkuc2Vy",
-            "dmljZV9sYXllci5TTE9iamVjdE9wEg8KB1ZyZk5hbWUYAiABKAkSJQoGT3BM",
-            "aXN0GAMgAygLMhUuc2VydmljZV9sYXllci5TTEFGT3AiqgEKB1NMQUZSZXMS",
-            "LwoJRXJyU3RhdHVzGAEgASgLMhwuc2VydmljZV9sYXllci5TTEVycm9yU3Rh",
-            "dHVzEigKCU9wZXJhdGlvbhgCIAEoCzIVLnNlcnZpY2VfbGF5ZXIuU0xBRk9w",
-            "EhMKC0Vycm9yU3RyaW5nGAMgASgJEi8KCUZJQlN0YXR1cxgEIAEoCzIcLnNl",
-            "cnZpY2VfbGF5ZXIuU0xBRkZpYlN0YXR1cyJGCgpTTEFGTXNnUnNwEg8KB1Zy",
-            "Zk5hbWUYASABKAkSJwoHUmVzdWx0cxgCIAMoCzIWLnNlcnZpY2VfbGF5ZXIu",
-            "U0xBRlJlcyJkChBTTEFGUmVkaXN0UmVnTXNnEhAKCFNyY1Byb3RvGAEgASgJ",
-            "EhMKC1NyY1Byb3RvVGFnGAIgASgJEikKBVRhYmxlGAMgASgOMhouc2Vydmlj",
-            "ZV9sYXllci5TTFRhYmxlVHlwZSLwAQoRU0xBRk5leHRIb3BSZWdLZXkSQAoH",
-            "TmV4dEhvcBgBIAEoCzItLnNlcnZpY2VfbGF5ZXIuU0xBRk5leHRIb3BSZWdL",
-            "ZXkuU0xOZXh0SG9wS2V5SAAaigEKDFNMTmV4dEhvcEtleRIrCgdOZXh0SG9w",
-            "GAEgASgLMhouc2VydmljZV9sYXllci5TTElwQWRkcmVzcxISCgpOZXh0SG9w",
-            "TGVuGAIgASgNEhIKCkV4YWN0TWF0Y2gYAyABKAgSFAoMQWxsb3dEZWZhdWx0",
-            "GAQgASgIEg8KB1JlY3Vyc2UYBSABKAhCDAoKbmV4dGhvcGtleSJJChFTTEFG",
-            "TmV4dEhvcFJlZ01zZxI0CgpOZXh0SG9wS2V5GAEgASgLMiAuc2VydmljZV9s",
-            "YXllci5TTEFGTmV4dEhvcFJlZ0tleSKfAQoPU0xBRk5vdGlmUmVnUmVxEjQK",
-            "CVJlZGlzdFJlcRgBIAEoCzIfLnNlcnZpY2VfbGF5ZXIuU0xBRlJlZGlzdFJl",
-            "Z01zZ0gAEjYKCk5leHRIb3BSZXEYAiABKAsyIC5zZXJ2aWNlX2xheWVyLlNM",
-            "QUZOZXh0SG9wUmVnTXNnSAASEwoLT3BlcmF0aW9uSUQYAyABKARCCQoHcmVx",
-            "dWVzdCJ5CgxTTEFGTm90aWZSZXESJgoET3BlchgBIAEoDjIYLnNlcnZpY2Vf",
-            "bGF5ZXIuU0xOb3RpZk9wEg8KB1ZyZk5hbWUYAiABKAkSMAoITm90aWZSZXEY",
-            "AyADKAsyHi5zZXJ2aWNlX2xheWVyLlNMQUZOb3RpZlJlZ1JlcSJzCgxTTEFG",
-            "Tm90aWZSc3ASMAoITm90aWZSZXEYASABKAsyHi5zZXJ2aWNlX2xheWVyLlNM",
-            "QUZOb3RpZlJlZ1JlcRIxCgtOb3RpZlN0YXR1cxgCIAEoCzIcLnNlcnZpY2Vf",
-            "bGF5ZXIuU0xFcnJvclN0YXR1cyKJAgoJU0xOZXh0SG9wEjQKCk5leHRIb3BL",
-            "ZXkYASABKAsyIC5zZXJ2aWNlX2xheWVyLlNMQUZOZXh0SG9wUmVnS2V5EjIK",
-            "DlJlc29sdmluZ1JvdXRlGAIgASgLMhouc2VydmljZV9sYXllci5TTElwQWRk",
-            "cmVzcxIZChFSZXNvbHZpbmdSb3V0ZUxlbhgDIAEoDRIQCghTcmNQcm90bxgE",
-            "IAEoCRITCgtTcmNQcm90b1RhZxgFIAEoCRIVCg1BZG1pbkRpc3RhbmNlGAYg",
-            "ASgNEg4KBk1ldHJpYxgHIAEoDRIpCgVQYXRocxgIIAMoCzIaLnNlcnZpY2Vf",
-            "bGF5ZXIuU0xSb3V0ZVBhdGgi4wIKCVNMQUZOb3RpZhIyCgtOb3RpZlN0YXR1",
-            "cxgBIAEoCzIbLnNlcnZpY2VfbGF5ZXIuU0xBRk5vdGlmUnNwSAASPgoLU3Rh",
-            "cnRNYXJrZXIYAiABKAsyJy5zZXJ2aWNlX2xheWVyLlNMQUZOb3RpZi5TTFJl",
-            "ZGlzdE1hcmtlckgAEjwKCUVuZE1hcmtlchgDIAEoCzInLnNlcnZpY2VfbGF5",
-            "ZXIuU0xBRk5vdGlmLlNMUmVkaXN0TWFya2VySAASMQoMUmVkaXN0T2JqZWN0",
-            "GAQgASgLMhkuc2VydmljZV9sYXllci5TTEFGT2JqZWN0SAASKwoHTmV4dEhv",
-            "cBgFIAEoCzIYLnNlcnZpY2VfbGF5ZXIuU0xOZXh0SG9wSAAaOwoOU0xSZWRp",
-            "c3RNYXJrZXISKQoFVGFibGUYASABKA4yGi5zZXJ2aWNlX2xheWVyLlNMVGFi",
-            "bGVUeXBlQgcKBUV2ZW50IksKDFNMQUZOb3RpZk1zZxIPCgdWcmZOYW1lGAEg",
-            "ASgJEioKCEFGTm90aWZzGAMgAygLMhguc2VydmljZV9sYXllci5TTEFGTm90",
-            "aWYyyAMKBFNMQUYSTQoMU0xBRlZyZlJlZ09wEhwuc2VydmljZV9sYXllci5T",
-            "TEFGVnJmUmVnTXNnGh8uc2VydmljZV9sYXllci5TTEFGVnJmUmVnTXNnUnNw",
-            "ElYKDVNMQUZWcmZSZWdHZXQSHy5zZXJ2aWNlX2xheWVyLlNMQUZWcmZSZWdH",
-            "ZXRNc2caIi5zZXJ2aWNlX2xheWVyLlNMQUZWcmZSZWdHZXRNc2dSc3AwARI7",
-            "CgZTTEFGT3ASFi5zZXJ2aWNlX2xheWVyLlNMQUZNc2caGS5zZXJ2aWNlX2xh",
-            "eWVyLlNMQUZNc2dSc3ASRQoMU0xBRk9wU3RyZWFtEhYuc2VydmljZV9sYXll",
-            "ci5TTEFGTXNnGhkuc2VydmljZV9sYXllci5TTEFGTXNnUnNwKAEwARJECgdT",
-            "TEFGR2V0Ehkuc2VydmljZV9sYXllci5TTEFGR2V0TXNnGhwuc2VydmljZV9s",
-            "YXllci5TTEFGR2V0TXNnUnNwMAESTwoPU0xBRk5vdGlmU3RyZWFtEhsuc2Vy",
-            "dmljZV9sYXllci5TTEFGTm90aWZSZXEaGy5zZXJ2aWNlX2xheWVyLlNMQUZO",
-            "b3RpZk1zZygBMAFCUVpPZ2l0aHViLmNvbS9DaXNjby1zZXJ2aWNlLWxheWVy",
-            "L3NlcnZpY2UtbGF5ZXItb2JqbW9kZWwvZ3JwYy9wcm90b3M7c2VydmljZV9s",
-            "YXllcmIGcHJvdG8z"));
+            "Y2tDYWRlbmNlIksKD1NMUnNwQWNrQ2FkZW5jZRIMCghSRVNFUlZFRBAAEhQK",
+            "EFNMX1JTUF9KVVNUX09OQ0UQARIUChBTTF9SU1BfT05DRV9FQUNIEAIikwEK",
+            "ClNMQUZHZXRNc2cSDwoHVnJmTmFtZRgBIAEoCRIpCgVUYWJsZRgCIAEoDjIa",
+            "LnNlcnZpY2VfbGF5ZXIuU0xUYWJsZVR5cGUSFQoNR2V0QWxsQ2xpZW50cxgD",
+            "IAEoCBIyCgpSb3V0ZU1hdGNoGAQgAygLMh4uc2VydmljZV9sYXllci5TTFJv",
+            "dXRlR2V0TWF0Y2girAEKEFNMQUZEZXBGaWJTdGF0dXMSLwoJRXJyb3JDb2Rl",
+            "GAEgASgLMhwuc2VydmljZV9sYXllci5TTEVycm9yU3RhdHVzEhMKC09wZXJh",
+            "dGlvbklEGAIgASgEEg8KB1ZlcnNpb24YAyABKAQSOAoMUGF0aEdyb3VwS2V5",
+            "GAQgASgLMiAuc2VydmljZV9sYXllci5TTFBhdGhHcm91cFJlZktleUgAQgcK",
+            "BWVudHJ5IlQKDVNMQUZGaWJTdGF0dXMSDwoHVmVyc2lvbhgBIAEoBBIyCglE",
+            "ZXBSZXN1bHQYAiABKAsyHy5zZXJ2aWNlX2xheWVyLlNMQUZEZXBGaWJTdGF0",
+            "dXMiewoSU0xBRkdldE1zZ1JzcEVudHJ5EiMKBEFGT3AYASABKAsyFS5zZXJ2",
+            "aWNlX2xheWVyLlNMQUZPcBIvCglFcnJvckNvZGUYAiABKAsyHC5zZXJ2aWNl",
+            "X2xheWVyLlNMRXJyb3JTdGF0dXMSDwoHVmVyc2lvbhgDIAEoBCKWAQoNU0xB",
+            "RkdldE1zZ1JzcBIvCglFcnJTdGF0dXMYASABKAsyHC5zZXJ2aWNlX2xheWVy",
+            "LlNMRXJyb3JTdGF0dXMSDwoHVnJmTmFtZRgCIAEoCRIQCghDbGllbnRJRBgD",
+            "IAEoBBIxCgZBRkxpc3QYBCADKAsyIS5zZXJ2aWNlX2xheWVyLlNMQUZHZXRN",
+            "c2dSc3BFbnRyeSJqCgdTTEFGTXNnEicKBE9wZXIYASABKA4yGS5zZXJ2aWNl",
+            "X2xheWVyLlNMT2JqZWN0T3ASDwoHVnJmTmFtZRgCIAEoCRIlCgZPcExpc3QY",
+            "AyADKAsyFS5zZXJ2aWNlX2xheWVyLlNMQUZPcCKqAQoHU0xBRlJlcxIvCglF",
+            "cnJTdGF0dXMYASABKAsyHC5zZXJ2aWNlX2xheWVyLlNMRXJyb3JTdGF0dXMS",
+            "KAoJT3BlcmF0aW9uGAIgASgLMhUuc2VydmljZV9sYXllci5TTEFGT3ASEwoL",
+            "RXJyb3JTdHJpbmcYAyABKAkSLwoJRklCU3RhdHVzGAQgASgLMhwuc2Vydmlj",
+            "ZV9sYXllci5TTEFGRmliU3RhdHVzIkYKClNMQUZNc2dSc3ASDwoHVnJmTmFt",
+            "ZRgBIAEoCRInCgdSZXN1bHRzGAIgAygLMhYuc2VydmljZV9sYXllci5TTEFG",
+            "UmVzImQKEFNMQUZSZWRpc3RSZWdNc2cSEAoIU3JjUHJvdG8YASABKAkSEwoL",
+            "U3JjUHJvdG9UYWcYAiABKAkSKQoFVGFibGUYAyABKA4yGi5zZXJ2aWNlX2xh",
+            "eWVyLlNMVGFibGVUeXBlIvABChFTTEFGTmV4dEhvcFJlZ0tleRJACgdOZXh0",
+            "SG9wGAEgASgLMi0uc2VydmljZV9sYXllci5TTEFGTmV4dEhvcFJlZ0tleS5T",
+            "TE5leHRIb3BLZXlIABqKAQoMU0xOZXh0SG9wS2V5EisKB05leHRIb3AYASAB",
+            "KAsyGi5zZXJ2aWNlX2xheWVyLlNMSXBBZGRyZXNzEhIKCk5leHRIb3BMZW4Y",
+            "AiABKA0SEgoKRXhhY3RNYXRjaBgDIAEoCBIUCgxBbGxvd0RlZmF1bHQYBCAB",
+            "KAgSDwoHUmVjdXJzZRgFIAEoCEIMCgpuZXh0aG9wa2V5IkkKEVNMQUZOZXh0",
+            "SG9wUmVnTXNnEjQKCk5leHRIb3BLZXkYASABKAsyIC5zZXJ2aWNlX2xheWVy",
+            "LlNMQUZOZXh0SG9wUmVnS2V5Ip8BCg9TTEFGTm90aWZSZWdSZXESNAoJUmVk",
+            "aXN0UmVxGAEgASgLMh8uc2VydmljZV9sYXllci5TTEFGUmVkaXN0UmVnTXNn",
+            "SAASNgoKTmV4dEhvcFJlcRgCIAEoCzIgLnNlcnZpY2VfbGF5ZXIuU0xBRk5l",
+            "eHRIb3BSZWdNc2dIABITCgtPcGVyYXRpb25JRBgDIAEoBEIJCgdyZXF1ZXN0",
+            "InkKDFNMQUZOb3RpZlJlcRImCgRPcGVyGAEgASgOMhguc2VydmljZV9sYXll",
+            "ci5TTE5vdGlmT3ASDwoHVnJmTmFtZRgCIAEoCRIwCghOb3RpZlJlcRgDIAMo",
+            "CzIeLnNlcnZpY2VfbGF5ZXIuU0xBRk5vdGlmUmVnUmVxInMKDFNMQUZOb3Rp",
+            "ZlJzcBIwCghOb3RpZlJlcRgBIAEoCzIeLnNlcnZpY2VfbGF5ZXIuU0xBRk5v",
+            "dGlmUmVnUmVxEjEKC05vdGlmU3RhdHVzGAIgASgLMhwuc2VydmljZV9sYXll",
+            "ci5TTEVycm9yU3RhdHVzIokCCglTTE5leHRIb3ASNAoKTmV4dEhvcEtleRgB",
+            "IAEoCzIgLnNlcnZpY2VfbGF5ZXIuU0xBRk5leHRIb3BSZWdLZXkSMgoOUmVz",
+            "b2x2aW5nUm91dGUYAiABKAsyGi5zZXJ2aWNlX2xheWVyLlNMSXBBZGRyZXNz",
+            "EhkKEVJlc29sdmluZ1JvdXRlTGVuGAMgASgNEhAKCFNyY1Byb3RvGAQgASgJ",
+            "EhMKC1NyY1Byb3RvVGFnGAUgASgJEhUKDUFkbWluRGlzdGFuY2UYBiABKA0S",
+            "DgoGTWV0cmljGAcgASgNEikKBVBhdGhzGAggAygLMhouc2VydmljZV9sYXll",
+            "ci5TTFJvdXRlUGF0aCLjAgoJU0xBRk5vdGlmEjIKC05vdGlmU3RhdHVzGAEg",
+            "ASgLMhsuc2VydmljZV9sYXllci5TTEFGTm90aWZSc3BIABI+CgtTdGFydE1h",
+            "cmtlchgCIAEoCzInLnNlcnZpY2VfbGF5ZXIuU0xBRk5vdGlmLlNMUmVkaXN0",
+            "TWFya2VySAASPAoJRW5kTWFya2VyGAMgASgLMicuc2VydmljZV9sYXllci5T",
+            "TEFGTm90aWYuU0xSZWRpc3RNYXJrZXJIABIxCgxSZWRpc3RPYmplY3QYBCAB",
+            "KAsyGS5zZXJ2aWNlX2xheWVyLlNMQUZPYmplY3RIABIrCgdOZXh0SG9wGAUg",
+            "ASgLMhguc2VydmljZV9sYXllci5TTE5leHRIb3BIABo7Cg5TTFJlZGlzdE1h",
+            "cmtlchIpCgVUYWJsZRgBIAEoDjIaLnNlcnZpY2VfbGF5ZXIuU0xUYWJsZVR5",
+            "cGVCBwoFRXZlbnQiSwoMU0xBRk5vdGlmTXNnEg8KB1ZyZk5hbWUYASABKAkS",
+            "KgoIQUZOb3RpZnMYAyADKAsyGC5zZXJ2aWNlX2xheWVyLlNMQUZOb3RpZjLI",
+            "AwoEU0xBRhJNCgxTTEFGVnJmUmVnT3ASHC5zZXJ2aWNlX2xheWVyLlNMQUZW",
+            "cmZSZWdNc2caHy5zZXJ2aWNlX2xheWVyLlNMQUZWcmZSZWdNc2dSc3ASVgoN",
+            "U0xBRlZyZlJlZ0dldBIfLnNlcnZpY2VfbGF5ZXIuU0xBRlZyZlJlZ0dldE1z",
+            "ZxoiLnNlcnZpY2VfbGF5ZXIuU0xBRlZyZlJlZ0dldE1zZ1JzcDABEjsKBlNM",
+            "QUZPcBIWLnNlcnZpY2VfbGF5ZXIuU0xBRk1zZxoZLnNlcnZpY2VfbGF5ZXIu",
+            "U0xBRk1zZ1JzcBJFCgxTTEFGT3BTdHJlYW0SFi5zZXJ2aWNlX2xheWVyLlNM",
+            "QUZNc2caGS5zZXJ2aWNlX2xheWVyLlNMQUZNc2dSc3AoATABEkQKB1NMQUZH",
+            "ZXQSGS5zZXJ2aWNlX2xheWVyLlNMQUZHZXRNc2caHC5zZXJ2aWNlX2xheWVy",
+            "LlNMQUZHZXRNc2dSc3AwARJPCg9TTEFGTm90aWZTdHJlYW0SGy5zZXJ2aWNl",
+            "X2xheWVyLlNMQUZOb3RpZlJlcRobLnNlcnZpY2VfbGF5ZXIuU0xBRk5vdGlm",
+            "TXNnKAEwAUJRWk9naXRodWIuY29tL0Npc2NvLXNlcnZpY2UtbGF5ZXIvc2Vy",
+            "dmljZS1sYXllci1vYmptb2RlbC9ncnBjL3Byb3RvcztzZXJ2aWNlX2xheWVy",
+            "YgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::ServiceLayer.SlCommonTypesReflection.Descriptor, global::ServiceLayer.SlRouteCommonReflection.Descriptor, global::ServiceLayer.SlRouteIpv4Reflection.Descriptor, global::ServiceLayer.SlRouteIpv6Reflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
@@ -3407,13 +3407,13 @@ namespace ServiceLayer {
     /// <summary>
     /// SLRspACKScope controls the scope of response types that are sent from
     /// SL-API server in response to hardware programming events.
-    /// SLRspACKScope is a bit-mask  resulting from ORing one or  more bits
-    /// enumerated in SLRspACKMask.
+    /// SLRspACKScope is a bit-field  resulting from ORing one or  more bits
+    /// enumerated in SLRspACKPermit.
     /// For example, `SLRspACKScope = SL_FIB_SUCCESS | SL_FIB_FAILED` would mean
     /// the SL-API client is only interested in these two types of responses.
     /// When SLRspACKScope is NOT defined by the SL-API client, the SL-API server
     /// will send all response types including but not limited to types enumerated
-    /// in SLRspACKMask
+    /// in SLRspACKPermit
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -3679,24 +3679,24 @@ namespace ServiceLayer {
     public static partial class Types {
       /// <summary>
       /// SLRspAckCadence field controls the cadence of hardware programming responses.
-      /// When SLRspAckCadence is NOT defined by SL-API client, the server will send
-      /// responses limited to response types defined by SLRspACKScope, for all
-      /// hardware programming events including events that are internal to the
-      /// router such as insertion or removal of line cards.
+      /// When SLRspAckCadence is NOT defined by the SL-API client, the SL-API server
+      /// will send responses limited to response types defined by SLRspACKScope,
+      /// for all hardware programming events including events that are internal
+      /// to the router such as insertion or removal of line cards.
       /// Note: Defining SLRspACKScope is a pre-requisite for defining SLRspAckCadence.
       /// </summary>
       public enum SLRspAckCadence {
         [pbr::OriginalName("RESERVED")] Reserved = 0,
         /// <summary>
-        /// JUST_ONCE_IN_SCOPE cadence will allow only the first response for hardware
+        /// SL_RSP_JUST_ONCE cadence will allow only the first response for hardware
         /// programming among the response types defined by SLRspACKScope
         /// </summary>
-        [pbr::OriginalName("JUST_ONCE_IN_SCOPE")] JustOnceInScope = 1,
+        [pbr::OriginalName("SL_RSP_JUST_ONCE")] SlRspJustOnce = 1,
         /// <summary>
-        /// ONCE_EACH_IN_SCOPE cadence will allow only the first response for hardware
-        /// programming per response types defined by SLRspACKScope
+        /// SL_RSP_ONCE_EACH cadence will allow only the first response for hardware
+        /// programming per response type defined by SLRspACKScope
         /// </summary>
-        [pbr::OriginalName("ONCE_EACH_IN_SCOPE")] OnceEachInScope = 2,
+        [pbr::OriginalName("SL_RSP_ONCE_EACH")] SlRspOnceEach = 2,
       }
 
     }

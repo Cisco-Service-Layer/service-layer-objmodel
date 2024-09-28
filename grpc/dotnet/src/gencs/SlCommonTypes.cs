@@ -289,15 +289,15 @@ namespace ServiceLayer {
             "X1RBQkxFX1RZUEVfUkVTRVJWRUQQABIXChNTTF9JUHY0X1JPVVRFX1RBQkxF",
             "EAESFwoTU0xfSVB2Nl9ST1VURV9UQUJMRRACEhcKE1NMX01QTFNfTEFCRUxf",
             "VEFCTEUQAxIXChNTTF9QQVRIX0dST1VQX1RBQkxFEAQqMAoMU0xSc3BBQ0tU",
-            "eXBlEgsKB1JJQl9BQ0sQABITCg9SSUJfQU5EX0ZJQl9BQ0sQASqBAQoMU0xS",
-            "c3BBQ0tNYXNrEg8KC1NMX1JFU0VSVkVEEAASDgoKU0xfU1VDQ0VTUxABEhUK",
-            "EVNMX0ZJQl9JTkVMSUdJQkxFEAISEgoOU0xfRklCX1NVQ0NFU1MQBBIRCg1T",
-            "TF9GSUJfRkFJTEVEEAgSEgoOU0xfRklCX1BBUlRJQUwQEEJRWk9naXRodWIu",
-            "Y29tL0Npc2NvLXNlcnZpY2UtbGF5ZXIvc2VydmljZS1sYXllci1vYmptb2Rl",
-            "bC9ncnBjL3Byb3RvcztzZXJ2aWNlX2xheWVyYgZwcm90bzM="));
+            "eXBlEgsKB1JJQl9BQ0sQABITCg9SSUJfQU5EX0ZJQl9BQ0sQASpzCg5TTFJz",
+            "cEFDS1Blcm1pdBIPCgtTTF9SRVNFUlZFRBAAEhUKEVNMX0ZJQl9JTkVMSUdJ",
+            "QkxFEAESEgoOU0xfRklCX1NVQ0NFU1MQAhIRCg1TTF9GSUJfRkFJTEVEEAQS",
+            "EgoOU0xfRklCX1BBUlRJQUwQCEJRWk9naXRodWIuY29tL0Npc2NvLXNlcnZp",
+            "Y2UtbGF5ZXIvc2VydmljZS1sYXllci1vYmptb2RlbC9ncnBjL3Byb3Rvcztz",
+            "ZXJ2aWNlX2xheWVyYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
-          new pbr::GeneratedClrTypeInfo(new[] {typeof(global::ServiceLayer.SLRegOp), typeof(global::ServiceLayer.SLObjectOp), typeof(global::ServiceLayer.SLNotifOp), typeof(global::ServiceLayer.SLUpdatePriority), typeof(global::ServiceLayer.SLEncapType), typeof(global::ServiceLayer.SLTableType), typeof(global::ServiceLayer.SLRspACKType), typeof(global::ServiceLayer.SLRspACKMask), }, null, new pbr::GeneratedClrTypeInfo[] {
+          new pbr::GeneratedClrTypeInfo(new[] {typeof(global::ServiceLayer.SLRegOp), typeof(global::ServiceLayer.SLObjectOp), typeof(global::ServiceLayer.SLNotifOp), typeof(global::ServiceLayer.SLUpdatePriority), typeof(global::ServiceLayer.SLEncapType), typeof(global::ServiceLayer.SLTableType), typeof(global::ServiceLayer.SLRspACKType), typeof(global::ServiceLayer.SLRspACKPermit), }, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLErrorStatus), global::ServiceLayer.SLErrorStatus.Parser, new[]{ "Status" }, null, new[]{ typeof(global::ServiceLayer.SLErrorStatus.Types.SLErrno) }, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLInterface), global::ServiceLayer.SLInterface.Parser, new[]{ "Name", "Handle" }, new[]{ "Interface" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLIpAddress), global::ServiceLayer.SLIpAddress.Parser, new[]{ "V4Address", "V6Address" }, new[]{ "Address" }, null, null, null),
@@ -458,7 +458,7 @@ namespace ServiceLayer {
     /// considered complete.
     /// As a result of an operation on an object, if another
     /// previously programmed object becomes ineligible to remain
-    /// programmed in FIB, a SL_FIB_INELIGIBLE will be returned for 
+    /// programmed in FIB, a SL_FIB_INELIGIBLE will be returned for
     /// that object with the last known operation-id for that object.
     ///
     /// Eventually, when the object becomes active,
@@ -480,23 +480,22 @@ namespace ServiceLayer {
   }
 
   /// <summary>
-  /// SLRspACKMask defines bit-mask that control the type of hardware programming responses.
+  /// SLRspACKPermit defines bit-field that control the type of hardware programming responses.
   /// A set bit in the mask indicates PERMIT/ALLOW the corresponding response type.
   /// If the SL-API client is interested in only a subset of possible responses
   /// for hardware programming, then the corresponding bits are turned ON in the
-  /// bit-mask. The meaning of each of the response types defined in SLRspACKMask
+  /// bit-field. The meaning of each of the response types defined in SLRspACKPermit
   /// are same as in SLErrorStatus.
   /// </summary>
-  public enum SLRspACKMask {
+  public enum SLRspACKPermit {
     /// <summary>
     /// Reserved
     /// </summary>
     [pbr::OriginalName("SL_RESERVED")] SlReserved = 0,
-    [pbr::OriginalName("SL_SUCCESS")] SlSuccess = 1,
-    [pbr::OriginalName("SL_FIB_INELIGIBLE")] SlFibIneligible = 2,
-    [pbr::OriginalName("SL_FIB_SUCCESS")] SlFibSuccess = 4,
-    [pbr::OriginalName("SL_FIB_FAILED")] SlFibFailed = 8,
-    [pbr::OriginalName("SL_FIB_PARTIAL")] SlFibPartial = 16,
+    [pbr::OriginalName("SL_FIB_INELIGIBLE")] SlFibIneligible = 1,
+    [pbr::OriginalName("SL_FIB_SUCCESS")] SlFibSuccess = 2,
+    [pbr::OriginalName("SL_FIB_FAILED")] SlFibFailed = 4,
+    [pbr::OriginalName("SL_FIB_PARTIAL")] SlFibPartial = 8,
   }
 
   #endregion

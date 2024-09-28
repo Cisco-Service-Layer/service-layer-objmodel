@@ -443,16 +443,16 @@ const char descriptor_table_protodef_sl_5fcommon_5ftypes_2eproto[] PROTOBUF_SECT
   "\023SL_IPv6_ROUTE_TABLE\020\002\022\027\n\023SL_MPLS_LABEL_"
   "TABLE\020\003\022\027\n\023SL_PATH_GROUP_TABLE\020\004*0\n\014SLRs"
   "pACKType\022\013\n\007RIB_ACK\020\000\022\023\n\017RIB_AND_FIB_ACK"
-  "\020\001*\201\001\n\014SLRspACKMask\022\017\n\013SL_RESERVED\020\000\022\016\n\n"
-  "SL_SUCCESS\020\001\022\025\n\021SL_FIB_INELIGIBLE\020\002\022\022\n\016S"
-  "L_FIB_SUCCESS\020\004\022\021\n\rSL_FIB_FAILED\020\010\022\022\n\016SL"
-  "_FIB_PARTIAL\020\020BQZOgithub.com/Cisco-servi"
-  "ce-layer/service-layer-objmodel/grpc/pro"
-  "tos;service_layerb\006proto3"
+  "\020\001*s\n\016SLRspACKPermit\022\017\n\013SL_RESERVED\020\000\022\025\n"
+  "\021SL_FIB_INELIGIBLE\020\001\022\022\n\016SL_FIB_SUCCESS\020\002"
+  "\022\021\n\rSL_FIB_FAILED\020\004\022\022\n\016SL_FIB_PARTIAL\020\010B"
+  "QZOgithub.com/Cisco-service-layer/servic"
+  "e-layer-objmodel/grpc/protos;service_lay"
+  "erb\006proto3"
   ;
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_sl_5fcommon_5ftypes_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_sl_5fcommon_5ftypes_2eproto = {
-  false, false, 12185, descriptor_table_protodef_sl_5fcommon_5ftypes_2eproto, "sl_common_types.proto", 
+  false, false, 12170, descriptor_table_protodef_sl_5fcommon_5ftypes_2eproto, "sl_common_types.proto", 
   &descriptor_table_sl_5fcommon_5ftypes_2eproto_once, nullptr, 0, 5,
   schemas, file_default_instances, TableStruct_sl_5fcommon_5ftypes_2eproto::offsets,
   file_level_metadata_sl_5fcommon_5ftypes_2eproto, file_level_enum_descriptors_sl_5fcommon_5ftypes_2eproto, file_level_service_descriptors_sl_5fcommon_5ftypes_2eproto,
@@ -1237,18 +1237,17 @@ bool SLRspACKType_IsValid(int value) {
   }
 }
 
-const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* SLRspACKMask_descriptor() {
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* SLRspACKPermit_descriptor() {
   ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_sl_5fcommon_5ftypes_2eproto);
   return file_level_enum_descriptors_sl_5fcommon_5ftypes_2eproto[8];
 }
-bool SLRspACKMask_IsValid(int value) {
+bool SLRspACKPermit_IsValid(int value) {
   switch (value) {
     case 0:
     case 1:
     case 2:
     case 4:
     case 8:
-    case 16:
       return true;
     default:
       return false;

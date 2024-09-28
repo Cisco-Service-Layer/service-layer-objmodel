@@ -468,19 +468,19 @@ message SLAFOp {
     uint32 SLRspACKScope = 4;
 
     // SLRspAckCadence field controls the cadence of hardware programming responses.
-    // When SLRspAckCadence is NOT defined by SL-API client, the server will send
-    // responses limited to response types defined by SLRspACKScope, for all
-    // hardware programming events including events that are internal to the
-    // router such as insertion or removal of line cards.
+    // When SLRspAckCadence is NOT defined by the SL-API client, the SL-API server
+    // will send responses limited to response types defined by SLRspACKScope,
+    // for all hardware programming events including events that are internal
+    // to the router such as insertion or removal of line cards.
     // Note: Defining SLRspACKScope is a pre-requisite for defining SLRspAckCadence.
     enum SLRspAckCadence {
       RESERVED = 0;
-      // JUST_ONCE_IN_SCOPE cadence will allow only the first response for hardware
+      // SL_RSP_JUST_ONCE cadence will allow only the first response for hardware
       // programming among the response types defined by SLRspACKScope
-      JUST_ONCE_IN_SCOPE = 1;
-      // ONCE_EACH_IN_SCOPE cadence will allow only the first response for hardware
-      // programming per response types defined by SLRspACKScope
-      ONCE_EACH_IN_SCOPE = 2;
+      SL_RSP_JUST_ONCE = 1;
+      // SL_RSP_ONCE_EACH cadence will allow only the first response for hardware
+      // programming per response type defined by SLRspACKScope
+      SL_RSP_ONCE_EACH = 2;
     }
     SLRspAckCadence AckCadence = 5;
 }
