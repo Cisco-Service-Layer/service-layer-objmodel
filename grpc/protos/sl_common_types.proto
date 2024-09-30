@@ -955,8 +955,8 @@ enum SLRspACKType {
   // the operations are responded with SL_FIB_INELIGIBLE and are
   // considered complete.
   // As a result of an operation on an object, if another
-  // previously programmed object becomes ineligible to remain
-  // programmed in FIB, a SL_FIB_INELIGIBLE will be returned for
+  // previously programmed object becomes ineligible it will remain
+  // programmed in RIB, a SL_FIB_INELIGIBLE will be returned for
   // that object with the last known operation-id for that object.
   //
   // Eventually, when the object becomes active,
@@ -998,9 +998,11 @@ enum SLRspACKPermit {
 // to the router such as insertion or removal of line cards.
 enum SLRspAckCadence {
   SL_RSP_UNDEFINED = 0;
+
   // SL_RSP_JUST_ONCE cadence will allow only the first response for hardware
   // programming among the response types defined by SLRspACKScope
   SL_RSP_JUST_ONCE = 1;
+
   // SL_RSP_ONCE_EACH cadence will allow only the first response for hardware
   // programming per response type defined by SLRspACKScope
   // For Example:
