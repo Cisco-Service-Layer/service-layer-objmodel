@@ -617,7 +617,7 @@ const (
 	SLErrorStatus_SL_AUTH_FAIL SLErrorStatus_SLErrno = 13
 	// Ack type not supported error. 0xe
 	SLErrorStatus_SL_ACK_TYPE_NOT_SUPPORTED SLErrorStatus_SLErrno = 14
-	// Ack cadence not supported when scope is not defined. 0xf
+	// Ack cadence not supported when ack permits are not defined. 0xf
 	SLErrorStatus_SL_ACK_CADENCE_NOT_SUPPORTED SLErrorStatus_SLErrno = 15
 	// Offset for INIT errors. 0x500
 	SLErrorStatus_SL_INIT_START_OFFSET SLErrorStatus_SLErrno = 1280

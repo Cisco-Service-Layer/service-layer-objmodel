@@ -789,7 +789,7 @@ namespace ServiceLayer {
         /// </summary>
         [pbr::OriginalName("SL_ACK_TYPE_NOT_SUPPORTED")] SlAckTypeNotSupported = 14,
         /// <summary>
-        /// Ack cadence not supported when scope is not defined. 0xf
+        /// Ack cadence not supported when ack permits are not defined. 0xf
         /// </summary>
         [pbr::OriginalName("SL_ACK_CADENCE_NOT_SUPPORTED")] SlAckCadenceNotSupported = 15,
         /// <summary>

@@ -48,7 +48,7 @@
     SL_AUTH_FAIL = 0xd,\
     /* Ack type not supported error. 0xe */\
     SL_ACK_TYPE_NOT_SUPPORTED = 0xe,\
-    /* Ack cadence not supported when scope is not defined. 0xf */\
+    /* Ack cadence not supported when ack permits are not defined. 0xf */\
     SL_ACK_CADENCE_NOT_SUPPORTED = 0xf,\
     /* !!! Error codes for Client INIT operations. */\
     /* Offset for INIT errors. 0x500 */\
@@ -802,7 +802,7 @@
         " Ack type not supported error.  "\
         },\
     {SL_ACK_CADENCE_NOT_SUPPORTED ,\
-        " Ack cadence not supported when scope is not defined.  "\
+        " Ack cadence not supported when ack permits are not defined.  "\
         },\
     {SL_INIT_START_OFFSET ,\
         " Offset for INIT errors.  "\
