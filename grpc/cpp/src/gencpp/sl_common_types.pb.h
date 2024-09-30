@@ -96,6 +96,7 @@ enum SLErrorStatus_SLErrno : int {
   SLErrorStatus_SLErrno_SL_NOTIF_TERM = 12,
   SLErrorStatus_SLErrno_SL_AUTH_FAIL = 13,
   SLErrorStatus_SLErrno_SL_ACK_TYPE_NOT_SUPPORTED = 14,
+  SLErrorStatus_SLErrno_SL_ACK_CADENCE_NOT_SUPPORTED = 15,
   SLErrorStatus_SLErrno_SL_INIT_START_OFFSET = 1280,
   SLErrorStatus_SLErrno_SL_INIT_STATE_CLEAR = 1281,
   SLErrorStatus_SLErrno_SL_INIT_STATE_READY = 1282,
@@ -641,6 +642,32 @@ inline bool SLRspACKPermit_Parse(
   return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<SLRspACKPermit>(
     SLRspACKPermit_descriptor(), name, value);
 }
+enum SLRspAckCadence : int {
+  SL_RSP_UNDEFINED = 0,
+  SL_RSP_JUST_ONCE = 1,
+  SL_RSP_ONCE_EACH = 2,
+  SLRspAckCadence_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::min(),
+  SLRspAckCadence_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::max()
+};
+bool SLRspAckCadence_IsValid(int value);
+constexpr SLRspAckCadence SLRspAckCadence_MIN = SL_RSP_UNDEFINED;
+constexpr SLRspAckCadence SLRspAckCadence_MAX = SL_RSP_ONCE_EACH;
+constexpr int SLRspAckCadence_ARRAYSIZE = SLRspAckCadence_MAX + 1;
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* SLRspAckCadence_descriptor();
+template<typename T>
+inline const std::string& SLRspAckCadence_Name(T enum_t_value) {
+  static_assert(::std::is_same<T, SLRspAckCadence>::value ||
+    ::std::is_integral<T>::value,
+    "Incorrect type passed to function SLRspAckCadence_Name.");
+  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
+    SLRspAckCadence_descriptor(), enum_t_value);
+}
+inline bool SLRspAckCadence_Parse(
+    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, SLRspAckCadence* value) {
+  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<SLRspAckCadence>(
+    SLRspAckCadence_descriptor(), name, value);
+}
 // ===================================================================
 
 class SLErrorStatus final :
@@ -793,6 +820,8 @@ class SLErrorStatus final :
     SLErrorStatus_SLErrno_SL_AUTH_FAIL;
   static constexpr SLErrno SL_ACK_TYPE_NOT_SUPPORTED =
     SLErrorStatus_SLErrno_SL_ACK_TYPE_NOT_SUPPORTED;
+  static constexpr SLErrno SL_ACK_CADENCE_NOT_SUPPORTED =
+    SLErrorStatus_SLErrno_SL_ACK_CADENCE_NOT_SUPPORTED;
   static constexpr SLErrno SL_INIT_START_OFFSET =
     SLErrorStatus_SLErrno_SL_INIT_START_OFFSET;
   static constexpr SLErrno SL_INIT_STATE_CLEAR =
@@ -2779,6 +2808,11 @@ template <> struct is_proto_enum< ::service_layer::SLRspACKPermit> : ::std::true
 template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::service_layer::SLRspACKPermit>() {
   return ::service_layer::SLRspACKPermit_descriptor();
+}
+template <> struct is_proto_enum< ::service_layer::SLRspAckCadence> : ::std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::service_layer::SLRspAckCadence>() {
+  return ::service_layer::SLRspAckCadence_descriptor();
 }
 
 PROTOBUF_NAMESPACE_CLOSE

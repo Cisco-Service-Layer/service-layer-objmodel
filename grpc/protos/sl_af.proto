@@ -456,32 +456,23 @@ message SLAFOp {
     // programming response regardless of what is defined in SLRspACKScope and
     // SLRspAckCadence.
 
-    // SLRspACKScope controls the scope of response types that are sent from
+    // AckPermit controls the scope of response types that are sent from
     // SL-API server in response to hardware programming events.
     // SLRspACKScope is a bit-field  resulting from ORing one or  more bits
     // enumerated in SLRspACKPermit.
-    // For example, `SLRspACKScope = SL_FIB_SUCCESS | SL_FIB_FAILED` would mean
+    // For example, `AckPermit = SL_FIB_SUCCESS | SL_FIB_FAILED` would mean
     // the SL-API client is only interested in these two types of responses.
     // When SLRspACKScope is NOT defined by the SL-API client, the SL-API server
     // will send all response types including but not limited to types enumerated
     // in SLRspACKPermit
-    uint32 SLRspACKScope = 4;
+    uint32 AckPermit = 4;
 
-    // SLRspAckCadence field controls the cadence of hardware programming responses.
+    // AckCadence field controls the cadence of hardware programming responses.
     // When SLRspAckCadence is NOT defined by the SL-API client, the SL-API server
     // will send responses limited to response types defined by SLRspACKScope,
     // for all hardware programming events including events that are internal
     // to the router such as insertion or removal of line cards.
-    // Note: Defining SLRspACKScope is a pre-requisite for defining SLRspAckCadence.
-    enum SLRspAckCadence {
-      RESERVED = 0;
-      // SL_RSP_JUST_ONCE cadence will allow only the first response for hardware
-      // programming among the response types defined by SLRspACKScope
-      SL_RSP_JUST_ONCE = 1;
-      // SL_RSP_ONCE_EACH cadence will allow only the first response for hardware
-      // programming per response type defined by SLRspACKScope
-      SL_RSP_ONCE_EACH = 2;
-    }
+    // Note: Defining AckPermit is a pre-requisite for defining AckCadence.
     SLRspAckCadence AckCadence = 5;
 }
 
