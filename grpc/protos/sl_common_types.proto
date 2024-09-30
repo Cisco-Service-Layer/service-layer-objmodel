@@ -1003,6 +1003,15 @@ enum SLRspAckCadence {
   SL_RSP_JUST_ONCE = 1;
   // SL_RSP_ONCE_EACH cadence will allow only the first response for hardware
   // programming per response type defined by SLRspACKScope
+  // For Example:
+  // In the case where at the time of programming if the object was not viable
+  // to be programmed in hardware, then the first response would be SL_FIB_INELIGIBLE.
+  // If the cadence was chosen as JUST_ONCE, then that's all the client is going to get
+  // and whenever the route becomes viable and gets programmed in the FIB there will
+  // no ack sent to client. However, if the cadence was chosen as ONCE_EACH, then
+  // the SL_FIB_SUCCESS will be also be notified. This  will be particularly useful
+  // in the case of out of order programming where the prefix will ineligible until
+  // via path is programmed.
   SL_RSP_ONCE_EACH = 2;
 }
 
