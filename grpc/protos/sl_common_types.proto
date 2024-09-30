@@ -1012,7 +1012,7 @@ enum SLRspAckCadence {
   // and whenever the route becomes viable and gets programmed in the FIB there will
   // no ack sent to client. However, if the cadence was chosen as ONCE_EACH, then
   // the SL_FIB_SUCCESS will be also be notified. This  will be particularly useful
-  // in the case of out of order programming where the prefix will ineligible until
+  // in the case of out of order programming where the prefix is ineligible until
   // via path is programmed.
   SL_RSP_ONCE_EACH = 2;
 }
