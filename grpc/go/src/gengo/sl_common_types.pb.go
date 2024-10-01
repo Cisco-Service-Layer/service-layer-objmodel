@@ -392,9 +392,9 @@ const (
 	// to RIB, SL_SUCCESS is returned.
 	//
 	// If the object in the operation is not active and
-	// cannot be programmed to FIB, SL_FIB_INELIGIBLE is returned and
-	// the operation is considered complete. If in this state of the object,
-	// client sends more updates, and the object is still not active,
+	// cannot be programmed to FIB, SL_FIB_INELIGIBLE is returned instead of
+	// SL_SUCCESS and the operation is considered complete. If in this state of
+	// the object, client sends more updates, and the object is still not active,
 	// the operations are responded with SL_FIB_INELIGIBLE and are
 	// considered complete.
 	//
@@ -2007,6 +2007,9 @@ func (SLErrorStatus_SLErrno) EnumDescriptor() ([]byte, []int) {
 
 // Status codes, including errors and success codes.
 // All service layer errors are defined below.
+// Note: the following defintion SL_SUCCESS doesn't apply for operation that
+// carries SLRspACKType, in such case the semantics of SL_SUCCESS is
+// documented along with definition of SLRspACKType
 type SLErrorStatus struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
