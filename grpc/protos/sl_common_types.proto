@@ -963,7 +963,7 @@ enum SLRspACKType {
   // As a result of an operation on an object, if another previously
   // programmed object becomes ineligible, previously programmed object will be
   // removed from FIB and SL_FIB_INELIGIBLE will be returned for that object with
-  // the last known operation-id for that object. However, the object will
+  // the last known OperationID for that object. However, the object will
   // continue to remain in RIB.
   //
   // Eventually, when the object becomes active, the object is sent to FIB
