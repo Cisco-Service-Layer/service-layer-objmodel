@@ -48,8 +48,6 @@
     SL_AUTH_FAIL = 0xd,\
     /* Ack type not supported error. 0xe */\
     SL_ACK_TYPE_NOT_SUPPORTED = 0xe,\
-    /* Ack cadence not supported when ack permits are not defined. 0xf */\
-    SL_ACK_CADENCE_NOT_SUPPORTED = 0xf,\
     /* !!! Error codes for Client INIT operations. */\
     /* Offset for INIT errors. 0x500 */\
     SL_INIT_START_OFFSET = 0x500,\
@@ -666,6 +664,10 @@
     SL_FIB_FAILED = 0x17002,\
     /* The operation is not viable to be programmed in hardware at this time. 0x17003 */\
     SL_FIB_INELIGIBLE = 0x17003,\
+    /* Ack permit is not supported when ack type is not RIB_AND_FIB_ACK. 0x17004 */\
+    SL_ACK_PERMIT_NOT_SUPPORTED = 0x17004,\
+    /* Ack cadence is not supported when ack permits are not defined. 0x17005 */\
+    SL_ACK_CADENCE_NOT_SUPPORTED = 0x17005,\
     /* !!! Error codes for operations on policy objects. */\
     /* Offset for policy object operations. 0x18000 */\
     SL_POLICY_START_OFFSET = 0x18000,\
@@ -800,9 +802,6 @@
         },\
     {SL_ACK_TYPE_NOT_SUPPORTED ,\
         " Ack type not supported error.  "\
-        },\
-    {SL_ACK_CADENCE_NOT_SUPPORTED ,\
-        " Ack cadence not supported when ack permits are not defined.  "\
         },\
     {SL_INIT_START_OFFSET ,\
         " Offset for INIT errors.  "\
@@ -1665,6 +1664,12 @@
         },\
     {SL_FIB_INELIGIBLE ,\
         " The operation is not viable to be programmed in hardware at this time.  "\
+        },\
+    {SL_ACK_PERMIT_NOT_SUPPORTED ,\
+        " Ack permit is not supported when ack type is not RIB_AND_FIB_ACK.  "\
+        },\
+    {SL_ACK_CADENCE_NOT_SUPPORTED ,\
+        " Ack cadence is not supported when ack permits are not defined.  "\
         },\
     {SL_POLICY_START_OFFSET ,\
         " Offset for policy object operations.  "\

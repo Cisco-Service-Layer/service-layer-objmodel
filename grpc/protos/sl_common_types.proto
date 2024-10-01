@@ -65,8 +65,6 @@ message SLErrorStatus {
         SL_AUTH_FAIL = 0xd;
         // Ack type not supported error. 0xe
         SL_ACK_TYPE_NOT_SUPPORTED = 0xe;
-        // Ack cadence not supported when ack permits are not defined. 0xf
-        SL_ACK_CADENCE_NOT_SUPPORTED = 0xf;
 
         // !!! Error codes for Client INIT operations.
 
@@ -730,6 +728,10 @@ message SLErrorStatus {
         SL_FIB_FAILED = 0x17002;
         // The operation is not viable to be programmed in hardware at this time. 0x17003
         SL_FIB_INELIGIBLE = 0x17003;
+        // Ack permit is not supported when ack type is not RIB_AND_FIB_ACK. 0x17004
+        SL_ACK_PERMIT_NOT_SUPPORTED = 0x17004;
+        // Ack cadence is not supported when ack permits are not defined. 0x17005
+        SL_ACK_CADENCE_NOT_SUPPORTED = 0x17005;
 
         // !!! Error codes for operations on policy objects.
 

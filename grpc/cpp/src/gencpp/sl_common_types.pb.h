@@ -96,7 +96,6 @@ enum SLErrorStatus_SLErrno : int {
   SLErrorStatus_SLErrno_SL_NOTIF_TERM = 12,
   SLErrorStatus_SLErrno_SL_AUTH_FAIL = 13,
   SLErrorStatus_SLErrno_SL_ACK_TYPE_NOT_SUPPORTED = 14,
-  SLErrorStatus_SLErrno_SL_ACK_CADENCE_NOT_SUPPORTED = 15,
   SLErrorStatus_SLErrno_SL_INIT_START_OFFSET = 1280,
   SLErrorStatus_SLErrno_SL_INIT_STATE_CLEAR = 1281,
   SLErrorStatus_SLErrno_SL_INIT_STATE_READY = 1282,
@@ -366,6 +365,8 @@ enum SLErrorStatus_SLErrno : int {
   SLErrorStatus_SLErrno_SL_FIB_SUCCESS = 94209,
   SLErrorStatus_SLErrno_SL_FIB_FAILED = 94210,
   SLErrorStatus_SLErrno_SL_FIB_INELIGIBLE = 94211,
+  SLErrorStatus_SLErrno_SL_ACK_PERMIT_NOT_SUPPORTED = 94212,
+  SLErrorStatus_SLErrno_SL_ACK_CADENCE_NOT_SUPPORTED = 94213,
   SLErrorStatus_SLErrno_SL_POLICY_START_OFFSET = 98304,
   SLErrorStatus_SLErrno_SL_POLICY_ADD_ERR = 98305,
   SLErrorStatus_SLErrno_SL_POLICY_EXISTS_ERR = 98306,
@@ -820,8 +821,6 @@ class SLErrorStatus final :
     SLErrorStatus_SLErrno_SL_AUTH_FAIL;
   static constexpr SLErrno SL_ACK_TYPE_NOT_SUPPORTED =
     SLErrorStatus_SLErrno_SL_ACK_TYPE_NOT_SUPPORTED;
-  static constexpr SLErrno SL_ACK_CADENCE_NOT_SUPPORTED =
-    SLErrorStatus_SLErrno_SL_ACK_CADENCE_NOT_SUPPORTED;
   static constexpr SLErrno SL_INIT_START_OFFSET =
     SLErrorStatus_SLErrno_SL_INIT_START_OFFSET;
   static constexpr SLErrno SL_INIT_STATE_CLEAR =
@@ -1360,6 +1359,10 @@ class SLErrorStatus final :
     SLErrorStatus_SLErrno_SL_FIB_FAILED;
   static constexpr SLErrno SL_FIB_INELIGIBLE =
     SLErrorStatus_SLErrno_SL_FIB_INELIGIBLE;
+  static constexpr SLErrno SL_ACK_PERMIT_NOT_SUPPORTED =
+    SLErrorStatus_SLErrno_SL_ACK_PERMIT_NOT_SUPPORTED;
+  static constexpr SLErrno SL_ACK_CADENCE_NOT_SUPPORTED =
+    SLErrorStatus_SLErrno_SL_ACK_CADENCE_NOT_SUPPORTED;
   static constexpr SLErrno SL_POLICY_START_OFFSET =
     SLErrorStatus_SLErrno_SL_POLICY_START_OFFSET;
   static constexpr SLErrno SL_POLICY_ADD_ERR =
