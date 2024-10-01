@@ -991,10 +991,11 @@ enum SLRspACKType {
 // Currently, the control of response type is supported only when ACK type is
 // RIB_AND_FIB_ACK and is NOT supported when ACK type is RIB_ACK
 // Errorcodes not listed in SLRspACKPermit such as parsing errors are
-// always permitted and will be relayed to the client.
+// always permitted and will be relayed to the client even when SLRspACKPermit
+// is defined.
 enum SLRspACKPermit {
     // An undefined permit allows all SLErrorStatus to be relayed to client
-    SL_PERMIT_SL_ALL = 0x0;
+    SL_PERMIT_ALL = 0x0;
     // Marks the resp type SL_FIB_INELIGIBLE to be relayed to client
     SL_PERMIT_SL_FIB_INELIGIBLE = 0x1;
     // Marks the resp type SL_FIB_SUCCESS to be relayed to client
@@ -1041,6 +1042,20 @@ enum SLRspAckCadence {
   // where the prefix is ineligible until via path is programmed.
   SL_RSP_ONCE_EACH = 2;
 }
+
+// The following table illustrates the behavior for combination of the
+// SLRspACKPermit and SLRspAckCadence
+// A field not defined will take the value of 0, So
+// SLRspACKPermit will default to SL_PERMIT_ALL
+// SLRspAckCadence will default to SL_RSP_CONTINOUS
+// +-------------+-------------+--------------------------------------------------------+
+// |    Permit   | Cadence     | Behavior                                               |
+// |-------------+-------------+--------------------------------------------------------+
+// | Not Defined | Not Defined | Stream all responses (default)                         |
+// | Defined     | Not Defined | Stream only the permitted response types continuously. |
+// | Not Defined | Defined     | Not supported.                                         |
+// | Defined     | Defined     | Permitted responses will be sent according to cadence  |
+// +-------------+-------------+--------------------------------------------------------+
 
 // Common Object Identifier.
 message SLObjectId {

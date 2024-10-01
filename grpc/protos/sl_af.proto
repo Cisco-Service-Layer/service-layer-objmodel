@@ -475,16 +475,6 @@ message SLAFOp {
     // Note: Defining AckPermit is a pre-requisite for defining AckCadence.
     SLRspAckCadence AckCadence = 5;
 
-    //The following table illustrates the behavior for combination of the
-    //  AckPermit and AckCadence
-    // +-------------+-------------+--------------------------------------------------------+
-    // | Ack Permit  | Ack Cadence | Behavior                                               |
-    // |-------------+-------------+--------------------------------------------------------+
-    // | Not Defined | Not Defined | Stream all responses (default)                         |
-    // | Defined     | Not Defined | Stream only the permitted response types continuously. |
-    // | Not Defined | Defined     | Not supported.                                         |
-    // | Defined     | Defined     | Permitted responses will be sent according to cadence  |
-    // +-------------+-------------+--------------------------------------------------------+
 }
 
 // Used to retrieve objects in a VRF table.
