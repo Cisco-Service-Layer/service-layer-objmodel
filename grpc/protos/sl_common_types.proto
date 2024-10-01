@@ -1000,6 +1000,7 @@ enum SLRspACKPermit {
     // Marks the resp type SL_FIB_FAILED to be relayed to client
     SL_PERMIT_SL_FIB_FAILED = 0x4;
     // Marks the resp type SL_SUCCESS to be relayed to client
+    // Note SL_SUCCESS cannot be suppressed if ACK type is RIB_ACK
     SL_PERMIT_SL_SUCCESS = 0x8;
 }
 
