@@ -615,17 +615,17 @@ inline bool SLRspACKType_Parse(
     SLRspACKType_descriptor(), name, value);
 }
 enum SLRspACKPermit : int {
-  SL_RESERVED = 0,
-  SL_FIB_INELIGIBLE = 1,
-  SL_FIB_SUCCESS = 2,
-  SL_FIB_FAILED = 4,
-  SL_FIB_PARTIAL = 8,
+  SL_PERMIT_SL_UNDEFINED = 0,
+  SL_PERMIT_SL_FIB_INELIGIBLE = 1,
+  SL_PERMIT_SL_FIB_SUCCESS = 2,
+  SL_PERMIT_SL_FIB_FAILED = 4,
+  SL_PERMIT_SL_SUCCESS = 8,
   SLRspACKPermit_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::min(),
   SLRspACKPermit_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::max()
 };
 bool SLRspACKPermit_IsValid(int value);
-constexpr SLRspACKPermit SLRspACKPermit_MIN = SL_RESERVED;
-constexpr SLRspACKPermit SLRspACKPermit_MAX = SL_FIB_PARTIAL;
+constexpr SLRspACKPermit SLRspACKPermit_MIN = SL_PERMIT_SL_UNDEFINED;
+constexpr SLRspACKPermit SLRspACKPermit_MAX = SL_PERMIT_SL_SUCCESS;
 constexpr int SLRspACKPermit_ARRAYSIZE = SLRspACKPermit_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* SLRspACKPermit_descriptor();

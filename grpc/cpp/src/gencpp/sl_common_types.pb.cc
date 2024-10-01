@@ -443,19 +443,20 @@ const char descriptor_table_protodef_sl_5fcommon_5ftypes_2eproto[] PROTOBUF_SECT
   "RVED\020\000\022\027\n\023SL_IPv4_ROUTE_TABLE\020\001\022\027\n\023SL_IP"
   "v6_ROUTE_TABLE\020\002\022\027\n\023SL_MPLS_LABEL_TABLE\020"
   "\003\022\027\n\023SL_PATH_GROUP_TABLE\020\004*0\n\014SLRspACKTy"
-  "pe\022\013\n\007RIB_ACK\020\000\022\023\n\017RIB_AND_FIB_ACK\020\001*s\n\016"
-  "SLRspACKPermit\022\017\n\013SL_RESERVED\020\000\022\025\n\021SL_FI"
-  "B_INELIGIBLE\020\001\022\022\n\016SL_FIB_SUCCESS\020\002\022\021\n\rSL"
-  "_FIB_FAILED\020\004\022\022\n\016SL_FIB_PARTIAL\020\010*S\n\017SLR"
-  "spAckCadence\022\024\n\020SL_RSP_UNDEFINED\020\000\022\024\n\020SL"
-  "_RSP_JUST_ONCE\020\001\022\024\n\020SL_RSP_ONCE_EACH\020\002BQ"
-  "ZOgithub.com/Cisco-service-layer/service"
-  "-layer-objmodel/grpc/protos;service_laye"
-  "rb\006proto3"
+  "pe\022\013\n\007RIB_ACK\020\000\022\023\n\017RIB_AND_FIB_ACK\020\001*\242\001\n"
+  "\016SLRspACKPermit\022\032\n\026SL_PERMIT_SL_UNDEFINE"
+  "D\020\000\022\037\n\033SL_PERMIT_SL_FIB_INELIGIBLE\020\001\022\034\n\030"
+  "SL_PERMIT_SL_FIB_SUCCESS\020\002\022\033\n\027SL_PERMIT_"
+  "SL_FIB_FAILED\020\004\022\030\n\024SL_PERMIT_SL_SUCCESS\020"
+  "\010*S\n\017SLRspAckCadence\022\024\n\020SL_RSP_UNDEFINED"
+  "\020\000\022\024\n\020SL_RSP_JUST_ONCE\020\001\022\024\n\020SL_RSP_ONCE_"
+  "EACH\020\002BQZOgithub.com/Cisco-service-layer"
+  "/service-layer-objmodel/grpc/protos;serv"
+  "ice_layerb\006proto3"
   ;
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_sl_5fcommon_5ftypes_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_sl_5fcommon_5ftypes_2eproto = {
-  false, false, 12289, descriptor_table_protodef_sl_5fcommon_5ftypes_2eproto, "sl_common_types.proto", 
+  false, false, 12337, descriptor_table_protodef_sl_5fcommon_5ftypes_2eproto, "sl_common_types.proto", 
   &descriptor_table_sl_5fcommon_5ftypes_2eproto_once, nullptr, 0, 5,
   schemas, file_default_instances, TableStruct_sl_5fcommon_5ftypes_2eproto::offsets,
   file_level_metadata_sl_5fcommon_5ftypes_2eproto, file_level_enum_descriptors_sl_5fcommon_5ftypes_2eproto, file_level_service_descriptors_sl_5fcommon_5ftypes_2eproto,

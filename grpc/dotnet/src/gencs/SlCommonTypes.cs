@@ -290,14 +290,15 @@ namespace ServiceLayer {
             "X1JFU0VSVkVEEAASFwoTU0xfSVB2NF9ST1VURV9UQUJMRRABEhcKE1NMX0lQ",
             "djZfUk9VVEVfVEFCTEUQAhIXChNTTF9NUExTX0xBQkVMX1RBQkxFEAMSFwoT",
             "U0xfUEFUSF9HUk9VUF9UQUJMRRAEKjAKDFNMUnNwQUNLVHlwZRILCgdSSUJf",
-            "QUNLEAASEwoPUklCX0FORF9GSUJfQUNLEAEqcwoOU0xSc3BBQ0tQZXJtaXQS",
-            "DwoLU0xfUkVTRVJWRUQQABIVChFTTF9GSUJfSU5FTElHSUJMRRABEhIKDlNM",
-            "X0ZJQl9TVUNDRVNTEAISEQoNU0xfRklCX0ZBSUxFRBAEEhIKDlNMX0ZJQl9Q",
-            "QVJUSUFMEAgqUwoPU0xSc3BBY2tDYWRlbmNlEhQKEFNMX1JTUF9VTkRFRklO",
-            "RUQQABIUChBTTF9SU1BfSlVTVF9PTkNFEAESFAoQU0xfUlNQX09OQ0VfRUFD",
-            "SBACQlFaT2dpdGh1Yi5jb20vQ2lzY28tc2VydmljZS1sYXllci9zZXJ2aWNl",
-            "LWxheWVyLW9iam1vZGVsL2dycGMvcHJvdG9zO3NlcnZpY2VfbGF5ZXJiBnBy",
-            "b3RvMw=="));
+            "QUNLEAASEwoPUklCX0FORF9GSUJfQUNLEAEqogEKDlNMUnNwQUNLUGVybWl0",
+            "EhoKFlNMX1BFUk1JVF9TTF9VTkRFRklORUQQABIfChtTTF9QRVJNSVRfU0xf",
+            "RklCX0lORUxJR0lCTEUQARIcChhTTF9QRVJNSVRfU0xfRklCX1NVQ0NFU1MQ",
+            "AhIbChdTTF9QRVJNSVRfU0xfRklCX0ZBSUxFRBAEEhgKFFNMX1BFUk1JVF9T",
+            "TF9TVUNDRVNTEAgqUwoPU0xSc3BBY2tDYWRlbmNlEhQKEFNMX1JTUF9VTkRF",
+            "RklORUQQABIUChBTTF9SU1BfSlVTVF9PTkNFEAESFAoQU0xfUlNQX09OQ0Vf",
+            "RUFDSBACQlFaT2dpdGh1Yi5jb20vQ2lzY28tc2VydmljZS1sYXllci9zZXJ2",
+            "aWNlLWxheWVyLW9iam1vZGVsL2dycGMvcHJvdG9zO3NlcnZpY2VfbGF5ZXJi",
+            "BnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::ServiceLayer.SLRegOp), typeof(global::ServiceLayer.SLObjectOp), typeof(global::ServiceLayer.SLNotifOp), typeof(global::ServiceLayer.SLUpdatePriority), typeof(global::ServiceLayer.SLEncapType), typeof(global::ServiceLayer.SLTableType), typeof(global::ServiceLayer.SLRspACKType), typeof(global::ServiceLayer.SLRspACKPermit), typeof(global::ServiceLayer.SLRspAckCadence), }, null, new pbr::GeneratedClrTypeInfo[] {
@@ -459,25 +460,25 @@ namespace ServiceLayer {
     /// client sends more updates, and the object is still not active,
     /// the operations are responded with SL_FIB_INELIGIBLE and are
     /// considered complete.
-    /// As a result of an operation on an object, if another
-    /// previously programmed object becomes ineligible to remain
-    /// programmed in FIB, a SL_FIB_INELIGIBLE will be returned for
-    /// that object with the last known operation-id for that object.
     ///
-    /// Eventually, when the object becomes active,
-    /// the object is sent to FIB and result of the operation
-    /// is returned asynchronously to the client. The result is sent using
-    /// the last Operation ID that RIB is aware of.
+    /// As a result of an operation on an object, if another previously
+    /// programmed object becomes ineligible, previously programmed object will be
+    /// removed from FIB and SL_FIB_INELIGIBLE will be returned for that object with
+    /// the last known operation-id for that object. However, the object will
+    /// continue to remain in RIB.
+    ///
+    /// Eventually, when the object becomes active, the object is sent to FIB
+    /// and result of the operation is returned asynchronously to the client.
+    /// The result is sent using the last Operation ID that RIB is aware of.
     ///
     /// A result from FIB includes hardware programming result.
     ///
     /// It must be noted that while the object is waiting for
     /// FIB programming, a client can send another update
     /// on the object and the object remains active.
-    /// The network element may coalesce such back to back
-    /// operations. In this scenario, only the last operation
-    /// on the object is responded with either SL_FIB_SUCCESS
-    /// or SL_FIB_FAILED.
+    /// The network element may coalesce such back to back operations.
+    /// In this scenario, only the last operation on the object is responded to
+    /// with corresponding hardware programming result
     /// </summary>
     [pbr::OriginalName("RIB_AND_FIB_ACK")] RibAndFibAck = 1,
   }
@@ -489,16 +490,30 @@ namespace ServiceLayer {
   /// for hardware programming, then the corresponding bits are turned ON in the
   /// bit-field. The meaning of each of the response types defined in SLRspACKPermit
   /// are same as in SLErrorStatus.
+  /// Currently, the control of response type is supported only when ACK type is
+  /// RIB_AND_FIB_ACK and is NOT supported when ACK type is RIB_ACK
   /// </summary>
   public enum SLRspACKPermit {
     /// <summary>
-    /// Reserved
+    /// An undefined permit allows all SLErrorStatus to be relayed to client
     /// </summary>
-    [pbr::OriginalName("SL_RESERVED")] SlReserved = 0,
-    [pbr::OriginalName("SL_FIB_INELIGIBLE")] SlFibIneligible = 1,
-    [pbr::OriginalName("SL_FIB_SUCCESS")] SlFibSuccess = 2,
-    [pbr::OriginalName("SL_FIB_FAILED")] SlFibFailed = 4,
-    [pbr::OriginalName("SL_FIB_PARTIAL")] SlFibPartial = 8,
+    [pbr::OriginalName("SL_PERMIT_SL_UNDEFINED")] SlPermitSlUndefined = 0,
+    /// <summary>
+    /// Marks the resp type SL_FIB_INELIGIBLE to be relayed to client
+    /// </summary>
+    [pbr::OriginalName("SL_PERMIT_SL_FIB_INELIGIBLE")] SlPermitSlFibIneligible = 1,
+    /// <summary>
+    /// Marks the resp type SL_FIB_SUCCESS to be relayed to client
+    /// </summary>
+    [pbr::OriginalName("SL_PERMIT_SL_FIB_SUCCESS")] SlPermitSlFibSuccess = 2,
+    /// <summary>
+    /// Marks the resp type SL_FIB_FAILED to be relayed to client
+    /// </summary>
+    [pbr::OriginalName("SL_PERMIT_SL_FIB_FAILED")] SlPermitSlFibFailed = 4,
+    /// <summary>
+    /// Marks the resp type SL_SUCCESS to be relayed to client
+    /// </summary>
+    [pbr::OriginalName("SL_PERMIT_SL_SUCCESS")] SlPermitSlSuccess = 8,
   }
 
   /// <summary>
@@ -507,17 +522,37 @@ namespace ServiceLayer {
   /// will send responses limited to response types defined by SLRspACKScope,
   /// for all hardware programming events including events that are internal
   /// to the router such as insertion or removal of line cards.
+  /// Currently, the control of cadence is supported only when ACK type is
+  /// RIB_AND_FIB_ACK and SLRspACKPermit is NOT SL_PERMIT_SL_UNDEFINED
   /// </summary>
   public enum SLRspAckCadence {
     [pbr::OriginalName("SL_RSP_UNDEFINED")] SlRspUndefined = 0,
     /// <summary>
     /// SL_RSP_JUST_ONCE cadence will allow only the first response for hardware
     /// programming among the response types defined by SLRspACKScope
+    ///
+    /// For Example:
+    /// In the case where client sends
+    /// Permit == SL_PERMIT_SL_FIB_INELIGIBLE | SL_PERMIT_SL_FIB_SUCCESS | SL_PERMIT_SL_FIB_FAILED
+    /// Cadence == SL_RSP_JUST_ONCE and at the time of programming if the object was not viable
+    /// to be programmed in hardware, then the first response would be SL_FIB_INELIGIBLE.
+    /// And that's all the client is going to get. There will no further notification
+    /// when the object becomes viable and programmed in FIB.
     /// </summary>
     [pbr::OriginalName("SL_RSP_JUST_ONCE")] SlRspJustOnce = 1,
     /// <summary>
     /// SL_RSP_ONCE_EACH cadence will allow only the first response for hardware
     /// programming per response type defined by SLRspACKScope
+    ///
+    /// For Example:
+    /// In the case where client sends
+    /// Permit == SL_PERMIT_SL_FIB_INELIGIBLE | SL_PERMIT_SL_FIB_SUCCESS | SL_PERMIT_SL_FIB_FAILED
+    /// and Cadence == SL_RSP_ONCE_EACH and at the time of programming if the object was not viable
+    /// to be programmed in hardware, then the first response would be SL_FIB_INELIGIBLE.
+    /// Later, whenever the route becomes viable and gets programmed in the FIB the 
+    /// corresponding result SL_FIB_SUCCESS/SL_FIB_FAILED will be also be notified.
+    /// This  will be particularly useful in the case of out of order programming
+    /// where the prefix is ineligible until via path is programmed.
     /// </summary>
     [pbr::OriginalName("SL_RSP_ONCE_EACH")] SlRspOnceEach = 2,
   }
@@ -526,7 +561,7 @@ namespace ServiceLayer {
 
   #region Messages
   /// <summary>
-  /// Status codes, including errors and success codes.  
+  /// Status codes, including errors and success codes.
   /// All service layer errors are defined below.
   /// </summary>
   public sealed partial class SLErrorStatus : pb::IMessage<SLErrorStatus>

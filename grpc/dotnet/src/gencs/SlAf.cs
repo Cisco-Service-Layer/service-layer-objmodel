@@ -3409,7 +3409,7 @@ namespace ServiceLayer {
     /// enumerated in SLRspACKPermit.
     /// For example, `AckPermit = SL_FIB_SUCCESS | SL_FIB_FAILED` would mean
     /// the SL-API client is only interested in these two types of responses.
-    /// When SLRspACKScope is NOT defined by the SL-API client, the SL-API server
+    /// When AckPermit is NOT defined by the SL-API client, the SL-API server
     /// will send all response types including but not limited to types enumerated
     /// in SLRspACKPermit
     /// </summary>

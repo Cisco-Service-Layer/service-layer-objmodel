@@ -446,7 +446,7 @@ message SLAFOp {
     // and filter hardware programming responses sent from SL-API server
     // to the SL-API client based on the response type carried by SLAFRes.ErrStatus.
 
-    // These parameters are valid only for objects programmed with AckType as
+    // These parameters are supported only for objects programmed with AckType as
     // RIB_AND_FIB_ACK.
 
     // These parameters only affect the responses sent to the SL-API client.
@@ -462,7 +462,7 @@ message SLAFOp {
     // enumerated in SLRspACKPermit.
     // For example, `AckPermit = SL_FIB_SUCCESS | SL_FIB_FAILED` would mean
     // the SL-API client is only interested in these two types of responses.
-    // When SLRspACKScope is NOT defined by the SL-API client, the SL-API server
+    // When AckPermit is NOT defined by the SL-API client, the SL-API server
     // will send all response types including but not limited to types enumerated
     // in SLRspACKPermit
     uint32 AckPermit = 4;

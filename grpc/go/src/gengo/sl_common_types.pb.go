@@ -397,25 +397,25 @@ const (
 	// client sends more updates, and the object is still not active,
 	// the operations are responded with SL_FIB_INELIGIBLE and are
 	// considered complete.
-	// As a result of an operation on an object, if another
-	// previously programmed object becomes ineligible to remain
-	// programmed in FIB, a SL_FIB_INELIGIBLE will be returned for
-	// that object with the last known operation-id for that object.
 	//
-	// Eventually, when the object becomes active,
-	// the object is sent to FIB and result of the operation
-	// is returned asynchronously to the client. The result is sent using
-	// the last Operation ID that RIB is aware of.
+	// As a result of an operation on an object, if another previously
+	// programmed object becomes ineligible, previously programmed object will be
+	// removed from FIB and SL_FIB_INELIGIBLE will be returned for that object with
+	// the last known operation-id for that object. However, the object will
+	// continue to remain in RIB.
+	//
+	// Eventually, when the object becomes active, the object is sent to FIB
+	// and result of the operation is returned asynchronously to the client.
+	// The result is sent using the last Operation ID that RIB is aware of.
 	//
 	// A result from FIB includes hardware programming result.
 	//
 	// It must be noted that while the object is waiting for
 	// FIB programming, a client can send another update
 	// on the object and the object remains active.
-	// The network element may coalesce such back to back
-	// operations. In this scenario, only the last operation
-	// on the object is responded with either SL_FIB_SUCCESS
-	// or SL_FIB_FAILED.
+	// The network element may coalesce such back to back operations.
+	// In this scenario, only the last operation on the object is responded to
+	// with corresponding hardware programming result
 	SLRspACKType_RIB_AND_FIB_ACK SLRspACKType = 1
 )
 
@@ -464,32 +464,38 @@ func (SLRspACKType) EnumDescriptor() ([]byte, []int) {
 // for hardware programming, then the corresponding bits are turned ON in the
 // bit-field. The meaning of each of the response types defined in SLRspACKPermit
 // are same as in SLErrorStatus.
+// Currently, the control of response type is supported only when ACK type is
+// RIB_AND_FIB_ACK and is NOT supported when ACK type is RIB_ACK
 type SLRspACKPermit int32
 
 const (
-	// Reserved
-	SLRspACKPermit_SL_RESERVED       SLRspACKPermit = 0
-	SLRspACKPermit_SL_FIB_INELIGIBLE SLRspACKPermit = 1
-	SLRspACKPermit_SL_FIB_SUCCESS    SLRspACKPermit = 2
-	SLRspACKPermit_SL_FIB_FAILED     SLRspACKPermit = 4
-	SLRspACKPermit_SL_FIB_PARTIAL    SLRspACKPermit = 8
+	// An undefined permit allows all SLErrorStatus to be relayed to client
+	SLRspACKPermit_SL_PERMIT_SL_UNDEFINED SLRspACKPermit = 0
+	// Marks the resp type SL_FIB_INELIGIBLE to be relayed to client
+	SLRspACKPermit_SL_PERMIT_SL_FIB_INELIGIBLE SLRspACKPermit = 1
+	// Marks the resp type SL_FIB_SUCCESS to be relayed to client
+	SLRspACKPermit_SL_PERMIT_SL_FIB_SUCCESS SLRspACKPermit = 2
+	// Marks the resp type SL_FIB_FAILED to be relayed to client
+	SLRspACKPermit_SL_PERMIT_SL_FIB_FAILED SLRspACKPermit = 4
+	// Marks the resp type SL_SUCCESS to be relayed to client
+	SLRspACKPermit_SL_PERMIT_SL_SUCCESS SLRspACKPermit = 8
 )
 
 // Enum value maps for SLRspACKPermit.
 var (
 	SLRspACKPermit_name = map[int32]string{
-		0: "SL_RESERVED",
-		1: "SL_FIB_INELIGIBLE",
-		2: "SL_FIB_SUCCESS",
-		4: "SL_FIB_FAILED",
-		8: "SL_FIB_PARTIAL",
+		0: "SL_PERMIT_SL_UNDEFINED",
+		1: "SL_PERMIT_SL_FIB_INELIGIBLE",
+		2: "SL_PERMIT_SL_FIB_SUCCESS",
+		4: "SL_PERMIT_SL_FIB_FAILED",
+		8: "SL_PERMIT_SL_SUCCESS",
 	}
 	SLRspACKPermit_value = map[string]int32{
-		"SL_RESERVED":       0,
-		"SL_FIB_INELIGIBLE": 1,
-		"SL_FIB_SUCCESS":    2,
-		"SL_FIB_FAILED":     4,
-		"SL_FIB_PARTIAL":    8,
+		"SL_PERMIT_SL_UNDEFINED":      0,
+		"SL_PERMIT_SL_FIB_INELIGIBLE": 1,
+		"SL_PERMIT_SL_FIB_SUCCESS":    2,
+		"SL_PERMIT_SL_FIB_FAILED":     4,
+		"SL_PERMIT_SL_SUCCESS":        8,
 	}
 )
 
@@ -525,15 +531,35 @@ func (SLRspACKPermit) EnumDescriptor() ([]byte, []int) {
 // will send responses limited to response types defined by SLRspACKScope,
 // for all hardware programming events including events that are internal
 // to the router such as insertion or removal of line cards.
+// Currently, the control of cadence is supported only when ACK type is
+// RIB_AND_FIB_ACK and SLRspACKPermit is NOT SL_PERMIT_SL_UNDEFINED
 type SLRspAckCadence int32
 
 const (
 	SLRspAckCadence_SL_RSP_UNDEFINED SLRspAckCadence = 0
 	// SL_RSP_JUST_ONCE cadence will allow only the first response for hardware
 	// programming among the response types defined by SLRspACKScope
+	//
+	// For Example:
+	// In the case where client sends
+	// Permit == SL_PERMIT_SL_FIB_INELIGIBLE | SL_PERMIT_SL_FIB_SUCCESS | SL_PERMIT_SL_FIB_FAILED
+	// Cadence == SL_RSP_JUST_ONCE and at the time of programming if the object was not viable
+	// to be programmed in hardware, then the first response would be SL_FIB_INELIGIBLE.
+	// And that's all the client is going to get. There will no further notification
+	// when the object becomes viable and programmed in FIB.
 	SLRspAckCadence_SL_RSP_JUST_ONCE SLRspAckCadence = 1
 	// SL_RSP_ONCE_EACH cadence will allow only the first response for hardware
 	// programming per response type defined by SLRspACKScope
+	//
+	// For Example:
+	// In the case where client sends
+	// Permit == SL_PERMIT_SL_FIB_INELIGIBLE | SL_PERMIT_SL_FIB_SUCCESS | SL_PERMIT_SL_FIB_FAILED
+	// and Cadence == SL_RSP_ONCE_EACH and at the time of programming if the object was not viable
+	// to be programmed in hardware, then the first response would be SL_FIB_INELIGIBLE.
+	// Later, whenever the route becomes viable and gets programmed in the FIB the
+	// corresponding result SL_FIB_SUCCESS/SL_FIB_FAILED will be also be notified.
+	// This  will be particularly useful in the case of out of order programming
+	// where the prefix is ineligible until via path is programmed.
 	SLRspAckCadence_SL_RSP_ONCE_EACH SLRspAckCadence = 2
 )
 
@@ -3082,14 +3108,17 @@ var file_sl_common_types_proto_rawDesc = []byte{
 	0x10, 0x04, 0x2a, 0x30, 0x0a, 0x0c, 0x53, 0x4c, 0x52, 0x73, 0x70, 0x41, 0x43, 0x4b, 0x54, 0x79,
 	0x70, 0x65, 0x12, 0x0b, 0x0a, 0x07, 0x52, 0x49, 0x42, 0x5f, 0x41, 0x43, 0x4b, 0x10, 0x00, 0x12,
 	0x13, 0x0a, 0x0f, 0x52, 0x49, 0x42, 0x5f, 0x41, 0x4e, 0x44, 0x5f, 0x46, 0x49, 0x42, 0x5f, 0x41,
-	0x43, 0x4b, 0x10, 0x01, 0x2a, 0x73, 0x0a, 0x0e, 0x53, 0x4c, 0x52, 0x73, 0x70, 0x41, 0x43, 0x4b,
-	0x50, 0x65, 0x72, 0x6d, 0x69, 0x74, 0x12, 0x0f, 0x0a, 0x0b, 0x53, 0x4c, 0x5f, 0x52, 0x45, 0x53,
-	0x45, 0x52, 0x56, 0x45, 0x44, 0x10, 0x00, 0x12, 0x15, 0x0a, 0x11, 0x53, 0x4c, 0x5f, 0x46, 0x49,
-	0x42, 0x5f, 0x49, 0x4e, 0x45, 0x4c, 0x49, 0x47, 0x49, 0x42, 0x4c, 0x45, 0x10, 0x01, 0x12, 0x12,
-	0x0a, 0x0e, 0x53, 0x4c, 0x5f, 0x46, 0x49, 0x42, 0x5f, 0x53, 0x55, 0x43, 0x43, 0x45, 0x53, 0x53,
-	0x10, 0x02, 0x12, 0x11, 0x0a, 0x0d, 0x53, 0x4c, 0x5f, 0x46, 0x49, 0x42, 0x5f, 0x46, 0x41, 0x49,
-	0x4c, 0x45, 0x44, 0x10, 0x04, 0x12, 0x12, 0x0a, 0x0e, 0x53, 0x4c, 0x5f, 0x46, 0x49, 0x42, 0x5f,
-	0x50, 0x41, 0x52, 0x54, 0x49, 0x41, 0x4c, 0x10, 0x08, 0x2a, 0x53, 0x0a, 0x0f, 0x53, 0x4c, 0x52,
+	0x43, 0x4b, 0x10, 0x01, 0x2a, 0xa2, 0x01, 0x0a, 0x0e, 0x53, 0x4c, 0x52, 0x73, 0x70, 0x41, 0x43,
+	0x4b, 0x50, 0x65, 0x72, 0x6d, 0x69, 0x74, 0x12, 0x1a, 0x0a, 0x16, 0x53, 0x4c, 0x5f, 0x50, 0x45,
+	0x52, 0x4d, 0x49, 0x54, 0x5f, 0x53, 0x4c, 0x5f, 0x55, 0x4e, 0x44, 0x45, 0x46, 0x49, 0x4e, 0x45,
+	0x44, 0x10, 0x00, 0x12, 0x1f, 0x0a, 0x1b, 0x53, 0x4c, 0x5f, 0x50, 0x45, 0x52, 0x4d, 0x49, 0x54,
+	0x5f, 0x53, 0x4c, 0x5f, 0x46, 0x49, 0x42, 0x5f, 0x49, 0x4e, 0x45, 0x4c, 0x49, 0x47, 0x49, 0x42,
+	0x4c, 0x45, 0x10, 0x01, 0x12, 0x1c, 0x0a, 0x18, 0x53, 0x4c, 0x5f, 0x50, 0x45, 0x52, 0x4d, 0x49,
+	0x54, 0x5f, 0x53, 0x4c, 0x5f, 0x46, 0x49, 0x42, 0x5f, 0x53, 0x55, 0x43, 0x43, 0x45, 0x53, 0x53,
+	0x10, 0x02, 0x12, 0x1b, 0x0a, 0x17, 0x53, 0x4c, 0x5f, 0x50, 0x45, 0x52, 0x4d, 0x49, 0x54, 0x5f,
+	0x53, 0x4c, 0x5f, 0x46, 0x49, 0x42, 0x5f, 0x46, 0x41, 0x49, 0x4c, 0x45, 0x44, 0x10, 0x04, 0x12,
+	0x18, 0x0a, 0x14, 0x53, 0x4c, 0x5f, 0x50, 0x45, 0x52, 0x4d, 0x49, 0x54, 0x5f, 0x53, 0x4c, 0x5f,
+	0x53, 0x55, 0x43, 0x43, 0x45, 0x53, 0x53, 0x10, 0x08, 0x2a, 0x53, 0x0a, 0x0f, 0x53, 0x4c, 0x52,
 	0x73, 0x70, 0x41, 0x63, 0x6b, 0x43, 0x61, 0x64, 0x65, 0x6e, 0x63, 0x65, 0x12, 0x14, 0x0a, 0x10,
 	0x53, 0x4c, 0x5f, 0x52, 0x53, 0x50, 0x5f, 0x55, 0x4e, 0x44, 0x45, 0x46, 0x49, 0x4e, 0x45, 0x44,
 	0x10, 0x00, 0x12, 0x14, 0x0a, 0x10, 0x53, 0x4c, 0x5f, 0x52, 0x53, 0x50, 0x5f, 0x4a, 0x55, 0x53,
