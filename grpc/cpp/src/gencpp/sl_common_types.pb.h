@@ -616,7 +616,7 @@ inline bool SLRspACKType_Parse(
     SLRspACKType_descriptor(), name, value);
 }
 enum SLRspACKPermit : int {
-  SL_PERMIT_SL_UNDEFINED = 0,
+  SL_PERMIT_ALL = 0,
   SL_PERMIT_SL_FIB_INELIGIBLE = 1,
   SL_PERMIT_SL_FIB_SUCCESS = 2,
   SL_PERMIT_SL_FIB_FAILED = 4,
@@ -625,7 +625,7 @@ enum SLRspACKPermit : int {
   SLRspACKPermit_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::max()
 };
 bool SLRspACKPermit_IsValid(int value);
-constexpr SLRspACKPermit SLRspACKPermit_MIN = SL_PERMIT_SL_UNDEFINED;
+constexpr SLRspACKPermit SLRspACKPermit_MIN = SL_PERMIT_ALL;
 constexpr SLRspACKPermit SLRspACKPermit_MAX = SL_PERMIT_SL_SUCCESS;
 constexpr int SLRspACKPermit_ARRAYSIZE = SLRspACKPermit_MAX + 1;
 
@@ -644,14 +644,14 @@ inline bool SLRspACKPermit_Parse(
     SLRspACKPermit_descriptor(), name, value);
 }
 enum SLRspAckCadence : int {
-  SL_RSP_UNDEFINED = 0,
+  SL_RSP_CONTINUOUS = 0,
   SL_RSP_JUST_ONCE = 1,
   SL_RSP_ONCE_EACH = 2,
   SLRspAckCadence_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::min(),
   SLRspAckCadence_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::max()
 };
 bool SLRspAckCadence_IsValid(int value);
-constexpr SLRspAckCadence SLRspAckCadence_MIN = SL_RSP_UNDEFINED;
+constexpr SLRspAckCadence SLRspAckCadence_MIN = SL_RSP_CONTINUOUS;
 constexpr SLRspAckCadence SLRspAckCadence_MAX = SL_RSP_ONCE_EACH;
 constexpr int SLRspAckCadence_ARRAYSIZE = SLRspAckCadence_MAX + 1;
 

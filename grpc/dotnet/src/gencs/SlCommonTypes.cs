@@ -291,14 +291,14 @@ namespace ServiceLayer {
             "RBAAEhcKE1NMX0lQdjRfUk9VVEVfVEFCTEUQARIXChNTTF9JUHY2X1JPVVRF",
             "X1RBQkxFEAISFwoTU0xfTVBMU19MQUJFTF9UQUJMRRADEhcKE1NMX1BBVEhf",
             "R1JPVVBfVEFCTEUQBCowCgxTTFJzcEFDS1R5cGUSCwoHUklCX0FDSxAAEhMK",
-            "D1JJQl9BTkRfRklCX0FDSxABKqIBCg5TTFJzcEFDS1Blcm1pdBIaChZTTF9Q",
-            "RVJNSVRfU0xfVU5ERUZJTkVEEAASHwobU0xfUEVSTUlUX1NMX0ZJQl9JTkVM",
-            "SUdJQkxFEAESHAoYU0xfUEVSTUlUX1NMX0ZJQl9TVUNDRVNTEAISGwoXU0xf",
-            "UEVSTUlUX1NMX0ZJQl9GQUlMRUQQBBIYChRTTF9QRVJNSVRfU0xfU1VDQ0VT",
-            "UxAIKlMKD1NMUnNwQWNrQ2FkZW5jZRIUChBTTF9SU1BfVU5ERUZJTkVEEAAS",
-            "FAoQU0xfUlNQX0pVU1RfT05DRRABEhQKEFNMX1JTUF9PTkNFX0VBQ0gQAkJR",
-            "Wk9naXRodWIuY29tL0Npc2NvLXNlcnZpY2UtbGF5ZXIvc2VydmljZS1sYXll",
-            "ci1vYmptb2RlbC9ncnBjL3Byb3RvcztzZXJ2aWNlX2xheWVyYgZwcm90bzM="));
+            "D1JJQl9BTkRfRklCX0FDSxABKpkBCg5TTFJzcEFDS1Blcm1pdBIRCg1TTF9Q",
+            "RVJNSVRfQUxMEAASHwobU0xfUEVSTUlUX1NMX0ZJQl9JTkVMSUdJQkxFEAES",
+            "HAoYU0xfUEVSTUlUX1NMX0ZJQl9TVUNDRVNTEAISGwoXU0xfUEVSTUlUX1NM",
+            "X0ZJQl9GQUlMRUQQBBIYChRTTF9QRVJNSVRfU0xfU1VDQ0VTUxAIKlQKD1NM",
+            "UnNwQWNrQ2FkZW5jZRIVChFTTF9SU1BfQ09OVElOVU9VUxAAEhQKEFNMX1JT",
+            "UF9KVVNUX09OQ0UQARIUChBTTF9SU1BfT05DRV9FQUNIEAJCUVpPZ2l0aHVi",
+            "LmNvbS9DaXNjby1zZXJ2aWNlLWxheWVyL3NlcnZpY2UtbGF5ZXItb2JqbW9k",
+            "ZWwvZ3JwYy9wcm90b3M7c2VydmljZV9sYXllcmIGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::ServiceLayer.SLRegOp), typeof(global::ServiceLayer.SLObjectOp), typeof(global::ServiceLayer.SLNotifOp), typeof(global::ServiceLayer.SLUpdatePriority), typeof(global::ServiceLayer.SLEncapType), typeof(global::ServiceLayer.SLTableType), typeof(global::ServiceLayer.SLRspACKType), typeof(global::ServiceLayer.SLRspACKPermit), typeof(global::ServiceLayer.SLRspAckCadence), }, null, new pbr::GeneratedClrTypeInfo[] {
@@ -451,31 +451,25 @@ namespace ServiceLayer {
     /// <summary>
     /// When the operating mode is RIB_AND_FIB_ACK,
     /// the first result returned for the operation is RIB's result.
-    /// If the object in the operation is successfully applied
-    /// to RIB, SL_SUCCESS is returned.
+    /// If the object in the operation is successfully applied to RIB,
+    /// SL_SUCCESS is returned.
     ///
-    /// If the object in the operation is not active and
-    /// cannot be programmed to FIB, SL_FIB_INELIGIBLE is returned instead of
-    /// SL_SUCCESS and the operation is considered complete. If in this state of
-    /// the object, client sends more updates, and the object is still not active,
-    /// the operations are responded with SL_FIB_INELIGIBLE and are
+    /// If the object in the operation is not active and cannot be programmed to FIB,
+    /// SL_FIB_INELIGIBLE is returned as a second response and the operation is
     /// considered complete.
     ///
     /// As a result of an operation on an object, if another previously
     /// programmed object becomes ineligible, previously programmed object will be
-    /// removed from FIB and SL_FIB_INELIGIBLE will be returned for that object with
-    /// the last known operation-id for that object. However, the object will
+    /// removed from FIB and SL_FIB_INELIGIBLE will be sent asynchronously with
+    /// the last known OperationID for that object. However, the object will
     /// continue to remain in RIB.
     ///
     /// Eventually, when the object becomes active, the object is sent to FIB
-    /// and result of the operation is returned asynchronously to the client.
-    /// The result is sent using the last Operation ID that RIB is aware of.
+    /// and result of the hardware programming is returned asynchronously with the last
+    /// known OperationID for that object.
     ///
-    /// A result from FIB includes hardware programming result.
-    ///
-    /// It must be noted that while the object is waiting for
-    /// FIB programming, a client can send another update
-    /// on the object and the object remains active.
+    /// It must be noted that while the object is waiting for FIB programming,
+    /// client can send another update on the object and the object remains in-active.
     /// The network element may coalesce such back to back operations.
     /// In this scenario, only the last operation on the object is responded to
     /// with corresponding hardware programming result
@@ -484,20 +478,25 @@ namespace ServiceLayer {
   }
 
   /// <summary>
-  /// SLRspACKPermit defines bit-field that control the type of hardware programming responses.
+  /// SLRspACKPermit defines bit-field that control the types of hardware programming
+  /// responses that the client is interested in.
   /// A set bit in the mask indicates PERMIT/ALLOW the corresponding response type.
   /// If the SL-API client is interested in only a subset of possible responses
   /// for hardware programming, then the corresponding bits are turned ON in the
-  /// bit-field. The meaning of each of the response types defined in SLRspACKPermit
-  /// are same as in SLErrorStatus.
-  /// Currently, the control of response type is supported only when ACK type is
-  /// RIB_AND_FIB_ACK and is NOT supported when ACK type is RIB_ACK
+  /// bit-field.
+  /// Control of response type is supported ONLY when ACK type is
+  /// RIB_AND_FIB_ACK and is NOT supported when ACK type is RIB_ACK.
+  /// Errorcodes not listed in SLRspACKPermit such as parsing errors are
+  /// always permitted and will be relayed to the client even when SLRspACKPermit
+  /// is set to values other than SL_PERMIT_ALL.
+  /// When AckPermit is not set by the SL-API client, the SL-API server
+  /// will default to SL_PERMIT_ALL
   /// </summary>
   public enum SLRspACKPermit {
     /// <summary>
     /// An undefined permit allows all SLErrorStatus to be relayed to client
     /// </summary>
-    [pbr::OriginalName("SL_PERMIT_SL_UNDEFINED")] SlPermitSlUndefined = 0,
+    [pbr::OriginalName("SL_PERMIT_ALL")] SlPermitAll = 0,
     /// <summary>
     /// Marks the resp type SL_FIB_INELIGIBLE to be relayed to client
     /// </summary>
@@ -512,37 +511,43 @@ namespace ServiceLayer {
     [pbr::OriginalName("SL_PERMIT_SL_FIB_FAILED")] SlPermitSlFibFailed = 4,
     /// <summary>
     /// Marks the resp type SL_SUCCESS to be relayed to client
+    /// Note: SL_SUCCESS cannot be suppressed if ACK type is RIB_ACK
     /// </summary>
     [pbr::OriginalName("SL_PERMIT_SL_SUCCESS")] SlPermitSlSuccess = 8,
   }
 
   /// <summary>
   /// SLRspAckCadence controls the cadence of hardware programming responses.
-  /// When SLRspAckCadence is NOT defined by the SL-API client, the SL-API server
-  /// will send responses limited to response types defined by SLRspACKScope,
+  /// When AckPermit is not set by the SL-API client, the SL-API server
+  /// will default to SL_PERMIT_ALL
+  /// When SLRspAckCadence is NOT set by the SL-API client, the SL-API server
+  /// will default to SL_RSP_CONTINOUS and send responses defined by SLRspACKPermit,
   /// for all hardware programming events including events that are internal
   /// to the router such as insertion or removal of line cards.
-  /// Currently, the control of cadence is supported only when ACK type is
-  /// RIB_AND_FIB_ACK and SLRspACKPermit is NOT SL_PERMIT_SL_UNDEFINED
+  /// Control of cadence is supported only when ACK type is RIB_AND_FIB_ACK and
+  /// SLRspACKPermit MUST be defined with value other than SL_PERMIT_ALL.
   /// </summary>
   public enum SLRspAckCadence {
-    [pbr::OriginalName("SL_RSP_UNDEFINED")] SlRspUndefined = 0,
+    /// <summary>
+    /// An undefined cadence allows continuous relay of hardware programming/re-programming
+    /// responses
+    /// </summary>
+    [pbr::OriginalName("SL_RSP_CONTINUOUS")] SlRspContinuous = 0,
     /// <summary>
     /// SL_RSP_JUST_ONCE cadence will allow only the first response for hardware
-    /// programming among the response types defined by SLRspACKScope
+    /// programming among the response types defined by SLRspACKPermit
     ///
     /// For Example:
     /// In the case where client sends
     /// Permit == SL_PERMIT_SL_FIB_INELIGIBLE | SL_PERMIT_SL_FIB_SUCCESS | SL_PERMIT_SL_FIB_FAILED
     /// Cadence == SL_RSP_JUST_ONCE and at the time of programming if the object was not viable
     /// to be programmed in hardware, then the first response would be SL_FIB_INELIGIBLE.
-    /// And that's all the client is going to get. There will no further notification
-    /// when the object becomes viable and programmed in FIB.
+    /// There will no further notification when the object becomes viable and programmed in FIB.
     /// </summary>
     [pbr::OriginalName("SL_RSP_JUST_ONCE")] SlRspJustOnce = 1,
     /// <summary>
     /// SL_RSP_ONCE_EACH cadence will allow only the first response for hardware
-    /// programming per response type defined by SLRspACKScope
+    /// programming per response type defined by SLRspACKPermit
     ///
     /// For Example:
     /// In the case where client sends
@@ -563,9 +568,6 @@ namespace ServiceLayer {
   /// <summary>
   /// Status codes, including errors and success codes.
   /// All service layer errors are defined below.
-  /// Note: the following defintion SL_SUCCESS doesn't apply for operation that
-  /// carries SLRspACKType, in such case the semantics of SL_SUCCESS is
-  /// documented along with definition of SLRspACKType
   /// </summary>
   public sealed partial class SLErrorStatus : pb::IMessage<SLErrorStatus>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
@@ -1962,7 +1964,7 @@ namespace ServiceLayer {
         /// </summary>
         [pbr::OriginalName("SL_ACK_PERMIT_NOT_SUPPORTED")] SlAckPermitNotSupported = 94212,
         /// <summary>
-        /// Ack cadence is not supported when ack permits are not defined. 0x17005
+        /// Ack cadence is not supported when ack permits are not set. 0x17005
         /// </summary>
         [pbr::OriginalName("SL_ACK_CADENCE_NOT_SUPPORTED")] SlAckCadenceNotSupported = 94213,
         /// <summary>

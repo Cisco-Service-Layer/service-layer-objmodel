@@ -444,20 +444,20 @@ const char descriptor_table_protodef_sl_5fcommon_5ftypes_2eproto[] PROTOBUF_SECT
   "D\020\000\022\027\n\023SL_IPv4_ROUTE_TABLE\020\001\022\027\n\023SL_IPv6_"
   "ROUTE_TABLE\020\002\022\027\n\023SL_MPLS_LABEL_TABLE\020\003\022\027"
   "\n\023SL_PATH_GROUP_TABLE\020\004*0\n\014SLRspACKType\022"
-  "\013\n\007RIB_ACK\020\000\022\023\n\017RIB_AND_FIB_ACK\020\001*\242\001\n\016SL"
-  "RspACKPermit\022\032\n\026SL_PERMIT_SL_UNDEFINED\020\000"
-  "\022\037\n\033SL_PERMIT_SL_FIB_INELIGIBLE\020\001\022\034\n\030SL_"
-  "PERMIT_SL_FIB_SUCCESS\020\002\022\033\n\027SL_PERMIT_SL_"
-  "FIB_FAILED\020\004\022\030\n\024SL_PERMIT_SL_SUCCESS\020\010*S"
-  "\n\017SLRspAckCadence\022\024\n\020SL_RSP_UNDEFINED\020\000\022"
-  "\024\n\020SL_RSP_JUST_ONCE\020\001\022\024\n\020SL_RSP_ONCE_EAC"
-  "H\020\002BQZOgithub.com/Cisco-service-layer/se"
-  "rvice-layer-objmodel/grpc/protos;service"
-  "_layerb\006proto3"
+  "\013\n\007RIB_ACK\020\000\022\023\n\017RIB_AND_FIB_ACK\020\001*\231\001\n\016SL"
+  "RspACKPermit\022\021\n\rSL_PERMIT_ALL\020\000\022\037\n\033SL_PE"
+  "RMIT_SL_FIB_INELIGIBLE\020\001\022\034\n\030SL_PERMIT_SL"
+  "_FIB_SUCCESS\020\002\022\033\n\027SL_PERMIT_SL_FIB_FAILE"
+  "D\020\004\022\030\n\024SL_PERMIT_SL_SUCCESS\020\010*T\n\017SLRspAc"
+  "kCadence\022\025\n\021SL_RSP_CONTINUOUS\020\000\022\024\n\020SL_RS"
+  "P_JUST_ONCE\020\001\022\024\n\020SL_RSP_ONCE_EACH\020\002BQZOg"
+  "ithub.com/Cisco-service-layer/service-la"
+  "yer-objmodel/grpc/protos;service_layerb\006"
+  "proto3"
   ;
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_sl_5fcommon_5ftypes_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_sl_5fcommon_5ftypes_2eproto = {
-  false, false, 12374, descriptor_table_protodef_sl_5fcommon_5ftypes_2eproto, "sl_common_types.proto", 
+  false, false, 12366, descriptor_table_protodef_sl_5fcommon_5ftypes_2eproto, "sl_common_types.proto", 
   &descriptor_table_sl_5fcommon_5ftypes_2eproto_once, nullptr, 0, 5,
   schemas, file_default_instances, TableStruct_sl_5fcommon_5ftypes_2eproto::offsets,
   file_level_metadata_sl_5fcommon_5ftypes_2eproto, file_level_enum_descriptors_sl_5fcommon_5ftypes_2eproto, file_level_service_descriptors_sl_5fcommon_5ftypes_2eproto,

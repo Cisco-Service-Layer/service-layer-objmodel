@@ -666,7 +666,7 @@
     SL_FIB_INELIGIBLE = 0x17003,\
     /* Ack permit is not supported when ack type is not RIB_AND_FIB_ACK. 0x17004 */\
     SL_ACK_PERMIT_NOT_SUPPORTED = 0x17004,\
-    /* Ack cadence is not supported when ack permits are not defined. 0x17005 */\
+    /* Ack cadence is not supported when ack permits are not set. 0x17005 */\
     SL_ACK_CADENCE_NOT_SUPPORTED = 0x17005,\
     /* !!! Error codes for operations on policy objects. */\
     /* Offset for policy object operations. 0x18000 */\
@@ -1669,7 +1669,7 @@
         " Ack permit is not supported when ack type is not RIB_AND_FIB_ACK.  "\
         },\
     {SL_ACK_CADENCE_NOT_SUPPORTED ,\
-        " Ack cadence is not supported when ack permits are not defined.  "\
+        " Ack cadence is not supported when ack permits are not set.  "\
         },\
     {SL_POLICY_START_OFFSET ,\
         " Offset for policy object operations.  "\

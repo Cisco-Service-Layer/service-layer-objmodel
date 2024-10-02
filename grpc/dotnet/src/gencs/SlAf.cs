@@ -3405,13 +3405,8 @@ namespace ServiceLayer {
     /// <summary>
     /// AckPermit controls the scope of response types that are sent from
     /// SL-API server in response to hardware programming events.
-    /// SLRspACKScope is a bit-field  resulting from ORing one or  more bits
+    /// AckPermit is a bit-field  resulting from ORing one or more bits
     /// enumerated in SLRspACKPermit.
-    /// For example, `AckPermit = SL_FIB_SUCCESS | SL_FIB_FAILED` would mean
-    /// the SL-API client is only interested in these two types of responses.
-    /// When AckPermit is NOT defined by the SL-API client, the SL-API server
-    /// will send all response types including but not limited to types enumerated
-    /// in SLRspACKPermit
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -3424,14 +3419,11 @@ namespace ServiceLayer {
 
     /// <summary>Field number for the "AckCadence" field.</summary>
     public const int AckCadenceFieldNumber = 5;
-    private global::ServiceLayer.SLRspAckCadence ackCadence_ = global::ServiceLayer.SLRspAckCadence.SlRspUndefined;
+    private global::ServiceLayer.SLRspAckCadence ackCadence_ = global::ServiceLayer.SLRspAckCadence.SlRspContinuous;
     /// <summary>
-    /// AckCadence field controls the cadence of hardware programming responses.
-    /// When SLRspAckCadence is NOT defined by the SL-API client, the SL-API server
-    /// will send responses limited to response types defined by SLRspACKScope,
-    /// for all hardware programming events including events that are internal
-    /// to the router such as insertion or removal of line cards.
-    /// Note: Defining AckPermit is a pre-requisite for defining AckCadence.
+    /// AckCadence controls the cadence of hardware programming responses.
+    /// Defining AckPermit to a value other than SL_PERMIT_ALL is a pre-requisite
+    /// for setting AckCadence.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -3473,7 +3465,7 @@ namespace ServiceLayer {
       if (OperationID != 0UL) hash ^= OperationID.GetHashCode();
       if (AckType != global::ServiceLayer.SLRspACKType.RibAck) hash ^= AckType.GetHashCode();
       if (AckPermit != 0) hash ^= AckPermit.GetHashCode();
-      if (AckCadence != global::ServiceLayer.SLRspAckCadence.SlRspUndefined) hash ^= AckCadence.GetHashCode();
+      if (AckCadence != global::ServiceLayer.SLRspAckCadence.SlRspContinuous) hash ^= AckCadence.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -3508,7 +3500,7 @@ namespace ServiceLayer {
         output.WriteRawTag(32);
         output.WriteUInt32(AckPermit);
       }
-      if (AckCadence != global::ServiceLayer.SLRspAckCadence.SlRspUndefined) {
+      if (AckCadence != global::ServiceLayer.SLRspAckCadence.SlRspContinuous) {
         output.WriteRawTag(40);
         output.WriteEnum((int) AckCadence);
       }
@@ -3538,7 +3530,7 @@ namespace ServiceLayer {
         output.WriteRawTag(32);
         output.WriteUInt32(AckPermit);
       }
-      if (AckCadence != global::ServiceLayer.SLRspAckCadence.SlRspUndefined) {
+      if (AckCadence != global::ServiceLayer.SLRspAckCadence.SlRspContinuous) {
         output.WriteRawTag(40);
         output.WriteEnum((int) AckCadence);
       }
@@ -3564,7 +3556,7 @@ namespace ServiceLayer {
       if (AckPermit != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(AckPermit);
       }
-      if (AckCadence != global::ServiceLayer.SLRspAckCadence.SlRspUndefined) {
+      if (AckCadence != global::ServiceLayer.SLRspAckCadence.SlRspContinuous) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) AckCadence);
       }
       if (_unknownFields != null) {
@@ -3594,7 +3586,7 @@ namespace ServiceLayer {
       if (other.AckPermit != 0) {
         AckPermit = other.AckPermit;
       }
-      if (other.AckCadence != global::ServiceLayer.SLRspAckCadence.SlRspUndefined) {
+      if (other.AckCadence != global::ServiceLayer.SLRspAckCadence.SlRspContinuous) {
         AckCadence = other.AckCadence;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);

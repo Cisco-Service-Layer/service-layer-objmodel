@@ -841,20 +841,12 @@ type SLAFOp struct {
 	AckType SLRspACKType `protobuf:"varint,3,opt,name=AckType,proto3,enum=service_layer.SLRspACKType" json:"AckType,omitempty"`
 	// AckPermit controls the scope of response types that are sent from
 	// SL-API server in response to hardware programming events.
-	// SLRspACKScope is a bit-field  resulting from ORing one or  more bits
+	// AckPermit is a bit-field  resulting from ORing one or more bits
 	// enumerated in SLRspACKPermit.
-	// For example, `AckPermit = SL_FIB_SUCCESS | SL_FIB_FAILED` would mean
-	// the SL-API client is only interested in these two types of responses.
-	// When AckPermit is NOT defined by the SL-API client, the SL-API server
-	// will send all response types including but not limited to types enumerated
-	// in SLRspACKPermit
 	AckPermit uint32 `protobuf:"varint,4,opt,name=AckPermit,proto3" json:"AckPermit,omitempty"`
-	// AckCadence field controls the cadence of hardware programming responses.
-	// When SLRspAckCadence is NOT defined by the SL-API client, the SL-API server
-	// will send responses limited to response types defined by SLRspACKScope,
-	// for all hardware programming events including events that are internal
-	// to the router such as insertion or removal of line cards.
-	// Note: Defining AckPermit is a pre-requisite for defining AckCadence.
+	// AckCadence controls the cadence of hardware programming responses.
+	// Defining AckPermit to a value other than SL_PERMIT_ALL is a pre-requisite
+	// for setting AckCadence.
 	AckCadence SLRspAckCadence `protobuf:"varint,5,opt,name=AckCadence,proto3,enum=service_layer.SLRspAckCadence" json:"AckCadence,omitempty"`
 }
 
@@ -922,7 +914,7 @@ func (x *SLAFOp) GetAckCadence() SLRspAckCadence {
 	if x != nil {
 		return x.AckCadence
 	}
-	return SLRspAckCadence_SL_RSP_UNDEFINED
+	return SLRspAckCadence_SL_RSP_CONTINUOUS
 }
 
 // Used to retrieve objects in a VRF table.
