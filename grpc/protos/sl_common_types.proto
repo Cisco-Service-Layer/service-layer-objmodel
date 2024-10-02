@@ -1044,8 +1044,8 @@ enum SLRspAckCadence {
   SL_RSP_ONCE_EACH = 2;
 }
 
-// The following table illustrates the behavior for combination of the
-// SLRspACKPermit and SLRspAckCadence
+// The following table illustrates the behavior for combination of
+// SLRspACKPermit and SLRspAckCadence being set or not set
 // A field not set or not defined  will take the value of 0, So
 // SLRspACKPermit will default to SL_PERMIT_ALL
 // SLRspAckCadence will default to SL_RSP_CONTINUOUS
