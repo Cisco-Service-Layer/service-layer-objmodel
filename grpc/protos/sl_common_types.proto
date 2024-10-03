@@ -987,35 +987,33 @@ enum SLRspACKType {
 // When AckPermit is not set by the SL-API client, the SL-API server
 // will default to SL_PERMIT_ALL
 enum SLRspACKPermit {
-    // An undefined permit allows all SLErrorStatus to be relayed to client
+    // An undefined or 0 value Permits all SLErrorStatus to be relayed to client
     SL_PERMIT_ALL = 0x0;
 
-    // Marks the resp type SL_FIB_INELIGIBLE to be relayed to client
-    SL_PERMIT_SL_FIB_INELIGIBLE = 0x1;
+    // Permits SL_SUCCESS to be relayed to client
+    // Note: SL_SUCCESS cannot be suppressed if ACK type is RIB_ACK
+    SL_PERMIT_SL_SUCCESS = 0x1;
 
-    // Marks the resp type SL_FIB_SUCCESS to be relayed to client
+    // Permits SL_FIB_SUCCESS to be relayed to client
     SL_PERMIT_SL_FIB_SUCCESS = 0x2;
 
-    // Marks the resp type SL_FIB_FAILED to be relayed to client
+    // Permits SL_FIB_FAILED to be relayed to client
     SL_PERMIT_SL_FIB_FAILED = 0x4;
 
-    // Marks the resp type SL_SUCCESS to be relayed to client
-    // Note: SL_SUCCESS cannot be suppressed if ACK type is RIB_ACK
-    SL_PERMIT_SL_SUCCESS = 0x8;
+    // Permits SL_FIB_INELIGIBLE to be relayed to client
+    SL_PERMIT_SL_FIB_INELIGIBLE = 0x8;
+
 }
 
 // SLRspAckCadence controls the cadence of hardware programming responses.
-// When AckPermit is not set by the SL-API client, the SL-API server
-// will default to SL_PERMIT_ALL
 // When SLRspAckCadence is NOT set by the SL-API client, the SL-API server
 // will default to SL_RSP_CONTINOUS and send responses defined by SLRspACKPermit,
 // for all hardware programming events including events that are internal
 // to the router such as insertion or removal of line cards.
 // Control of cadence is supported only when ACK type is RIB_AND_FIB_ACK and
-// SLRspACKPermit MUST be defined with value other than SL_PERMIT_ALL.
+// SLRspACKPermit MUST be set with value other than SL_PERMIT_ALL.
 enum SLRspAckCadence {
-  // An undefined cadence allows continuous relay of hardware programming/re-programming
-  // responses
+  // Continuous relay of hardware programming/re-programming responses
   SL_RSP_CONTINUOUS = 0;
 
   // SL_RSP_JUST_ONCE cadence will allow only the first response for hardware
@@ -1040,7 +1038,7 @@ enum SLRspAckCadence {
   // Later, whenever the route becomes viable and gets programmed in the FIB the 
   // corresponding result SL_FIB_SUCCESS/SL_FIB_FAILED will be also be notified.
   // This  will be particularly useful in the case of out of order programming
-  // where the prefix is ineligible until via path is programmed.
+  // where the prefix is ineligible until referenced PathGroup is programmed.
   SL_RSP_ONCE_EACH = 2;
 }
 

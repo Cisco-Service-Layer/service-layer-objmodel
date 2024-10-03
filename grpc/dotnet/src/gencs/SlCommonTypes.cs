@@ -292,9 +292,9 @@ namespace ServiceLayer {
             "X1RBQkxFEAISFwoTU0xfTVBMU19MQUJFTF9UQUJMRRADEhcKE1NMX1BBVEhf",
             "R1JPVVBfVEFCTEUQBCowCgxTTFJzcEFDS1R5cGUSCwoHUklCX0FDSxAAEhMK",
             "D1JJQl9BTkRfRklCX0FDSxABKpkBCg5TTFJzcEFDS1Blcm1pdBIRCg1TTF9Q",
-            "RVJNSVRfQUxMEAASHwobU0xfUEVSTUlUX1NMX0ZJQl9JTkVMSUdJQkxFEAES",
-            "HAoYU0xfUEVSTUlUX1NMX0ZJQl9TVUNDRVNTEAISGwoXU0xfUEVSTUlUX1NM",
-            "X0ZJQl9GQUlMRUQQBBIYChRTTF9QRVJNSVRfU0xfU1VDQ0VTUxAIKlQKD1NM",
+            "RVJNSVRfQUxMEAASGAoUU0xfUEVSTUlUX1NMX1NVQ0NFU1MQARIcChhTTF9Q",
+            "RVJNSVRfU0xfRklCX1NVQ0NFU1MQAhIbChdTTF9QRVJNSVRfU0xfRklCX0ZB",
+            "SUxFRBAEEh8KG1NMX1BFUk1JVF9TTF9GSUJfSU5FTElHSUJMRRAIKlQKD1NM",
             "UnNwQWNrQ2FkZW5jZRIVChFTTF9SU1BfQ09OVElOVU9VUxAAEhQKEFNMX1JT",
             "UF9KVVNUX09OQ0UQARIUChBTTF9SU1BfT05DRV9FQUNIEAJCUVpPZ2l0aHVi",
             "LmNvbS9DaXNjby1zZXJ2aWNlLWxheWVyL3NlcnZpY2UtbGF5ZXItb2JqbW9k",
@@ -494,43 +494,40 @@ namespace ServiceLayer {
   /// </summary>
   public enum SLRspACKPermit {
     /// <summary>
-    /// An undefined permit allows all SLErrorStatus to be relayed to client
+    /// An undefined or 0 value Permits all SLErrorStatus to be relayed to client
     /// </summary>
     [pbr::OriginalName("SL_PERMIT_ALL")] SlPermitAll = 0,
     /// <summary>
-    /// Marks the resp type SL_FIB_INELIGIBLE to be relayed to client
+    /// Permits SL_SUCCESS to be relayed to client
+    /// Note: SL_SUCCESS cannot be suppressed if ACK type is RIB_ACK
     /// </summary>
-    [pbr::OriginalName("SL_PERMIT_SL_FIB_INELIGIBLE")] SlPermitSlFibIneligible = 1,
+    [pbr::OriginalName("SL_PERMIT_SL_SUCCESS")] SlPermitSlSuccess = 1,
     /// <summary>
-    /// Marks the resp type SL_FIB_SUCCESS to be relayed to client
+    /// Permits SL_FIB_SUCCESS to be relayed to client
     /// </summary>
     [pbr::OriginalName("SL_PERMIT_SL_FIB_SUCCESS")] SlPermitSlFibSuccess = 2,
     /// <summary>
-    /// Marks the resp type SL_FIB_FAILED to be relayed to client
+    /// Permits SL_FIB_FAILED to be relayed to client
     /// </summary>
     [pbr::OriginalName("SL_PERMIT_SL_FIB_FAILED")] SlPermitSlFibFailed = 4,
     /// <summary>
-    /// Marks the resp type SL_SUCCESS to be relayed to client
-    /// Note: SL_SUCCESS cannot be suppressed if ACK type is RIB_ACK
+    /// Permits SL_FIB_INELIGIBLE to be relayed to client
     /// </summary>
-    [pbr::OriginalName("SL_PERMIT_SL_SUCCESS")] SlPermitSlSuccess = 8,
+    [pbr::OriginalName("SL_PERMIT_SL_FIB_INELIGIBLE")] SlPermitSlFibIneligible = 8,
   }
 
   /// <summary>
   /// SLRspAckCadence controls the cadence of hardware programming responses.
-  /// When AckPermit is not set by the SL-API client, the SL-API server
-  /// will default to SL_PERMIT_ALL
   /// When SLRspAckCadence is NOT set by the SL-API client, the SL-API server
   /// will default to SL_RSP_CONTINOUS and send responses defined by SLRspACKPermit,
   /// for all hardware programming events including events that are internal
   /// to the router such as insertion or removal of line cards.
   /// Control of cadence is supported only when ACK type is RIB_AND_FIB_ACK and
-  /// SLRspACKPermit MUST be defined with value other than SL_PERMIT_ALL.
+  /// SLRspACKPermit MUST be set with value other than SL_PERMIT_ALL.
   /// </summary>
   public enum SLRspAckCadence {
     /// <summary>
-    /// An undefined cadence allows continuous relay of hardware programming/re-programming
-    /// responses
+    /// Continuous relay of hardware programming/re-programming responses
     /// </summary>
     [pbr::OriginalName("SL_RSP_CONTINUOUS")] SlRspContinuous = 0,
     /// <summary>
@@ -557,7 +554,7 @@ namespace ServiceLayer {
     /// Later, whenever the route becomes viable and gets programmed in the FIB the 
     /// corresponding result SL_FIB_SUCCESS/SL_FIB_FAILED will be also be notified.
     /// This  will be particularly useful in the case of out of order programming
-    /// where the prefix is ineligible until via path is programmed.
+    /// where the prefix is ineligible until referenced PathGroup is programmed.
     /// </summary>
     [pbr::OriginalName("SL_RSP_ONCE_EACH")] SlRspOnceEach = 2,
   }
