@@ -658,7 +658,7 @@
     SL_ROUTE_REDIST_RIB_ADD_FAILED = 0x16008,\
     /* Offset for Hardware Ack errors. 0x17000 */\
     SL_FIB_START_OFFSET = 0x17000,\
-    /* The operation is successfully program in hardware. 0x17001 */\
+    /* The operation is successfully programmed in hardware. 0x17001 */\
     SL_FIB_SUCCESS = 0x17001,\
     /* FIB programming failure. 0x17002 */\
     SL_FIB_FAILED = 0x17002,\
@@ -1662,7 +1662,7 @@
         " Offset for Hardware Ack errors.  "\
         },\
     {SL_FIB_SUCCESS ,\
-        " The operation is successfully program in hardware.  "\
+        " The operation is successfully programmed in hardware.  "\
         },\
     {SL_FIB_FAILED ,\
         " FIB programming failure.  "\
