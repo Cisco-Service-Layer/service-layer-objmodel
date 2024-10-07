@@ -102,9 +102,9 @@ message SLSrConstraints {
         // Note: If the first segment in the segment list can be enforced by setting
         // the outgoing interface on the headend node, it does not count towards this
         // limit.
-        uint32 MSD = 3;
+        uint32 maximum_sid_depth = 3;
     }
-    SegmentConstraints segmentConstraints = 3;
+    SegmentConstraints segment_constraints = 3;
 }
 
 // The specific attributes for instantiating a dynamic path request.
@@ -160,8 +160,8 @@ message SLSrv6BindingSID {
     // Locator name used to allocate SRv6 binding SID
     string locatorName = 1;
     uint32 behavior = 2;
-    // Binding segment ID
-    SLIpv6Address SID = 3;
+    // Binding segment ID, for Explicit BSID mode
+    // SLIpv6Address SID = 3;
 }
 
 // Binding SID allocation mode
@@ -195,6 +195,8 @@ message SLSrPolicy {
 
     SLSrBindingSID bsid = 4;
 
+    // ID of the profile with which policy can be assiciated with,
+    // a non-zero value.
     uint32 profileID = 5;
 }
 

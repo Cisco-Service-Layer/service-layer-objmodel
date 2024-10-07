@@ -388,24 +388,30 @@ enum SLSrDataplane {
 
 // Metric type.
 //
-// Mapped from the [IANA IGP Metric-Type registry](
-// https://www.iana.org/assignments/igp-parameters/igp-parameters.xhtml#igp-metric-type).
+// Mapped from the [IANA IGP Metric-Type registry]
+// (https://www.ietf.org/archive/id/draft-ietf-idr-bgp-ls-sr-policy-05.html#name-bgp-ls-sr-policy-metric-typ).
 enum SLSrMetricType {
-  option allow_alias = true;
-  // Unspecified metric type, defaults to IGP metric.
-  METRIC_TYPE_UNSPECIFIED = 0;
+    option allow_alias = true;
+    // Unspecified metric type, defaults to IGP metric.
+    METRIC_TYPE_UNSPECIFIED = 0;
 
-  // IGP metric type.
-  METRIC_TYPE_IGP = 0;
+    // IGP metric type.
+    METRIC_TYPE_IGP = 0;
 
-  // Minimum unidirectional link delay metric type.
-  METRIC_TYPE_DELAY = 1;
+    // Minimum unidirectional link delay metric type [RFC7471].
+    METRIC_TYPE_DELAY = 1;
 
-  // Traffic engineering default metric type.
-  METRIC_TYPE_TE = 2;
+    // Traffic engineering default metric type [RFC3630].
+    METRIC_TYPE_TE = 2;
 
-  // Hop count metric type (custom type, not in the IGP Metric-Type registry).
-  METRIC_TYPE_HOP = 255;
+    // Hop count metric type [RFC5440].
+    METRIC_TYPE_HOP = 3;
+
+    // SID List Length
+    METRIC_TYPE_SID_LIST_LENGTH = 4;
+
+    // Bandwidth Metric [I-D.ietf-lsr-flex-algo-bw-con]
+    METRIC_TYPE_BANDWIDTH = 5;
 }
 
 // Maximum metric that is allowed for given metric type
@@ -430,7 +436,6 @@ message SLSrMetricMargin {
 // Diversity level.
 enum SLSrteDiversityLevel {
     option allow_alias = true;
-    DIVERSITY_LEVEL_UNSPECIFIED = 0;
     DIVERSITY_LEVEL_NONE = 0;
     DIVERSITY_LEVEL_LINK = 1;
     DIVERSITY_LEVEL_NODE = 2;
@@ -513,7 +518,7 @@ message SLSrPolicyKey {
     // (https://datatracker.ietf.org/doc/html/draft-ietf-idr-rfc7752bis-16#section-5.3.1))
     SLIpAddress headend = 1;
 
-    // SR policy color
+    // Color is an unsigned non-zero 32-bit integer value.
     uint32 color = 2;
 
     // IPv4 or IPv6 address of the policy endpoint.
@@ -536,11 +541,6 @@ message SLSrCandidatePathKey {
         SLIpAddress nodeID = 2;
     }
     Originator originator = 1;
-
-    // Protocol-Origin of the candidate path (really just a uint8), as defined in
-    // [section 2.3 of RFC
-    // 9256](https://www.rfc-editor.org/rfc/rfc9256.html#section-2.3).
-    SLSrPolicyProtocolOrigin protocol_origin = 2;
 
     // Discriminator of the candidate path, as defined in [section 2.5 of RFC
     // 9256](https://www.rfc-editor.org/rfc/rfc9256.html#section-2.5).

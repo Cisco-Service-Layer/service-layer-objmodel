@@ -196,9 +196,6 @@ message SLSrtePathComputeResponse {
         // The result of a dynamic candidate path calculation.
         SLSrteDynamicPathResult path_result = 4;
 
-        // The status of an explicit candidate path validation.
-        //ExplicitPathStatus path_status = 5;
-
         // An error message.
         SLSrtePathError error = 6;
     }
@@ -221,15 +218,6 @@ message SLSrtePathComputeResponse {
         // `diversity_level`.
         optional SLSrteDiversityLevel effective_diversity_level = 3;
     }
-
-    // The status of an explicit candidate path validation.
-    //message ExplicitPathStatus {
-        // The validity of each segment list.
-        //
-        // The values in this list **must** be in the same order as the segment
-        // lists in the related request message.
-        //repeated bool status = 1;
-    //}
 
     // An error message.
     message SLSrtePathError {
@@ -344,7 +332,7 @@ message ConstraintSet {
     // Note: If the first segment in the segment list can be enforced by setting
     // the outgoing interface on the headend node, it does not count towards this
     // limit.
-    uint32 max_segments = 204;
+    uint32 maximum_sid_depth = 204;
 
 }
 
