@@ -66,9 +66,6 @@ extern SLBgplsNodeNameDefaultTypeInternal _SLBgplsNodeName_default_instance_;
 class SLBgplsTopoAdjSid;
 struct SLBgplsTopoAdjSidDefaultTypeInternal;
 extern SLBgplsTopoAdjSidDefaultTypeInternal _SLBgplsTopoAdjSid_default_instance_;
-class SLBgplsTopoAdminGroup;
-struct SLBgplsTopoAdminGroupDefaultTypeInternal;
-extern SLBgplsTopoAdminGroupDefaultTypeInternal _SLBgplsTopoAdminGroup_default_instance_;
 class SLBgplsTopoAslaAttr;
 struct SLBgplsTopoAslaAttrDefaultTypeInternal;
 extern SLBgplsTopoAslaAttrDefaultTypeInternal _SLBgplsTopoAslaAttr_default_instance_;
@@ -99,6 +96,9 @@ extern SLBgplsTopoExtAdminGroupDefaultTypeInternal _SLBgplsTopoExtAdminGroup_def
 class SLBgplsTopoFad;
 struct SLBgplsTopoFadDefaultTypeInternal;
 extern SLBgplsTopoFadDefaultTypeInternal _SLBgplsTopoFad_default_instance_;
+class SLBgplsTopoFadExcMaxDelay;
+struct SLBgplsTopoFadExcMaxDelayDefaultTypeInternal;
+extern SLBgplsTopoFadExcMaxDelayDefaultTypeInternal _SLBgplsTopoFadExcMaxDelay_default_instance_;
 class SLBgplsTopoFadUnsuppTlv;
 struct SLBgplsTopoFadUnsuppTlvDefaultTypeInternal;
 extern SLBgplsTopoFadUnsuppTlvDefaultTypeInternal _SLBgplsTopoFadUnsuppTlv_default_instance_;
@@ -305,7 +305,6 @@ PROTOBUF_NAMESPACE_OPEN
 template<> ::service_layer::SLBgpLsTopoNeighborId* Arena::CreateMaybeMessage<::service_layer::SLBgpLsTopoNeighborId>(Arena*);
 template<> ::service_layer::SLBgplsNodeName* Arena::CreateMaybeMessage<::service_layer::SLBgplsNodeName>(Arena*);
 template<> ::service_layer::SLBgplsTopoAdjSid* Arena::CreateMaybeMessage<::service_layer::SLBgplsTopoAdjSid>(Arena*);
-template<> ::service_layer::SLBgplsTopoAdminGroup* Arena::CreateMaybeMessage<::service_layer::SLBgplsTopoAdminGroup>(Arena*);
 template<> ::service_layer::SLBgplsTopoAslaAttr* Arena::CreateMaybeMessage<::service_layer::SLBgplsTopoAslaAttr>(Arena*);
 template<> ::service_layer::SLBgplsTopoBgpNodeId* Arena::CreateMaybeMessage<::service_layer::SLBgplsTopoBgpNodeId>(Arena*);
 template<> ::service_layer::SLBgplsTopoBgpPeerAdjSid* Arena::CreateMaybeMessage<::service_layer::SLBgplsTopoBgpPeerAdjSid>(Arena*);
@@ -316,6 +315,7 @@ template<> ::service_layer::SLBgplsTopoEndMarker* Arena::CreateMaybeMessage<::se
 template<> ::service_layer::SLBgplsTopoEntry* Arena::CreateMaybeMessage<::service_layer::SLBgplsTopoEntry>(Arena*);
 template<> ::service_layer::SLBgplsTopoExtAdminGroup* Arena::CreateMaybeMessage<::service_layer::SLBgplsTopoExtAdminGroup>(Arena*);
 template<> ::service_layer::SLBgplsTopoFad* Arena::CreateMaybeMessage<::service_layer::SLBgplsTopoFad>(Arena*);
+template<> ::service_layer::SLBgplsTopoFadExcMaxDelay* Arena::CreateMaybeMessage<::service_layer::SLBgplsTopoFadExcMaxDelay>(Arena*);
 template<> ::service_layer::SLBgplsTopoFadUnsuppTlv* Arena::CreateMaybeMessage<::service_layer::SLBgplsTopoFadUnsuppTlv>(Arena*);
 template<> ::service_layer::SLBgplsTopoInstanceId* Arena::CreateMaybeMessage<::service_layer::SLBgplsTopoInstanceId>(Arena*);
 template<> ::service_layer::SLBgplsTopoIsisAreaId* Arena::CreateMaybeMessage<::service_layer::SLBgplsTopoIsisAreaId>(Arena*);
@@ -4901,7 +4901,6 @@ class SLBgplsTopoLinkAttr final :
     kRemoteIpv4RouterIdFieldNumber = 5,
     kRemoteIpv6RouterIdFieldNumber = 6,
     kUnresvBandwidthFieldNumber = 10,
-    kSrlgFieldNumber = 15,
     kAdjSidFieldNumber = 18,
     kLanAdjSidFieldNumber = 19,
     kBgpPeerNodeSidFieldNumber = 20,
@@ -4909,16 +4908,15 @@ class SLBgplsTopoLinkAttr final :
     kBgpPeerSetSidFieldNumber = 22,
     kAslaFieldNumber = 30,
     kL2BundleMemberAttrFieldNumber = 31,
-    kExtAdminGroupFieldNumber = 32,
     kUnknownAttrFieldNumber = 33,
     kLinkLocRemIdFieldNumber = 1,
-    kAdminGroupFieldNumber = 7,
     kMaxBandwidthFieldNumber = 8,
     kMaxResvBandwidthFieldNumber = 9,
     kTeDefMetricFieldNumber = 11,
     kProtectionTypeFieldNumber = 12,
     kMplsProtoMaskFieldNumber = 13,
     kIgpMetricFieldNumber = 14,
+    kSrlgFieldNumber = 15,
     kOpaqueAttrFieldNumber = 16,
     kLinkNameFieldNumber = 17,
     kUniLinkDelayFieldNumber = 23,
@@ -4928,6 +4926,7 @@ class SLBgplsTopoLinkAttr final :
     kUniResBandwidthFieldNumber = 27,
     kUniAvailBandwidthFieldNumber = 28,
     kUniUtilBandwidthFieldNumber = 29,
+    kExtAdminGroupFieldNumber = 32,
   };
   // repeated .service_layer.SLBgplsTopoLinkMsd LinkMsd = 2;
   int linkmsd_size() const;
@@ -5036,24 +5035,6 @@ class SLBgplsTopoLinkAttr final :
   ::service_layer::SLBgplsTopoLinkUnresvBandwidth* add_unresvbandwidth();
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::service_layer::SLBgplsTopoLinkUnresvBandwidth >&
       unresvbandwidth() const;
-
-  // repeated .service_layer.SLBgplsTopoLinkSrlg Srlg = 15;
-  int srlg_size() const;
-  private:
-  int _internal_srlg_size() const;
-  public:
-  void clear_srlg();
-  ::service_layer::SLBgplsTopoLinkSrlg* mutable_srlg(int index);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::service_layer::SLBgplsTopoLinkSrlg >*
-      mutable_srlg();
-  private:
-  const ::service_layer::SLBgplsTopoLinkSrlg& _internal_srlg(int index) const;
-  ::service_layer::SLBgplsTopoLinkSrlg* _internal_add_srlg();
-  public:
-  const ::service_layer::SLBgplsTopoLinkSrlg& srlg(int index) const;
-  ::service_layer::SLBgplsTopoLinkSrlg* add_srlg();
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::service_layer::SLBgplsTopoLinkSrlg >&
-      srlg() const;
 
   // repeated .service_layer.SLBgplsTopoAdjSid AdjSid = 18;
   int adjsid_size() const;
@@ -5181,24 +5162,6 @@ class SLBgplsTopoLinkAttr final :
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::service_layer::SLBgplsTopoL2BundleMemberAttr >&
       l2bundlememberattr() const;
 
-  // repeated .service_layer.SLBgplsTopoExtAdminGroup ExtAdminGroup = 32;
-  int extadmingroup_size() const;
-  private:
-  int _internal_extadmingroup_size() const;
-  public:
-  void clear_extadmingroup();
-  ::service_layer::SLBgplsTopoExtAdminGroup* mutable_extadmingroup(int index);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::service_layer::SLBgplsTopoExtAdminGroup >*
-      mutable_extadmingroup();
-  private:
-  const ::service_layer::SLBgplsTopoExtAdminGroup& _internal_extadmingroup(int index) const;
-  ::service_layer::SLBgplsTopoExtAdminGroup* _internal_add_extadmingroup();
-  public:
-  const ::service_layer::SLBgplsTopoExtAdminGroup& extadmingroup(int index) const;
-  ::service_layer::SLBgplsTopoExtAdminGroup* add_extadmingroup();
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::service_layer::SLBgplsTopoExtAdminGroup >&
-      extadmingroup() const;
-
   // repeated .service_layer.SLBgplsTopoUnknownAttr UnknownAttr = 33;
   int unknownattr_size() const;
   private:
@@ -5234,24 +5197,6 @@ class SLBgplsTopoLinkAttr final :
   void unsafe_arena_set_allocated_linklocremid(
       ::service_layer::SLBplsTopoLinkLocRemId* linklocremid);
   ::service_layer::SLBplsTopoLinkLocRemId* unsafe_arena_release_linklocremid();
-
-  // .service_layer.SLBgplsTopoAdminGroup AdminGroup = 7;
-  bool has_admingroup() const;
-  private:
-  bool _internal_has_admingroup() const;
-  public:
-  void clear_admingroup();
-  const ::service_layer::SLBgplsTopoAdminGroup& admingroup() const;
-  PROTOBUF_NODISCARD ::service_layer::SLBgplsTopoAdminGroup* release_admingroup();
-  ::service_layer::SLBgplsTopoAdminGroup* mutable_admingroup();
-  void set_allocated_admingroup(::service_layer::SLBgplsTopoAdminGroup* admingroup);
-  private:
-  const ::service_layer::SLBgplsTopoAdminGroup& _internal_admingroup() const;
-  ::service_layer::SLBgplsTopoAdminGroup* _internal_mutable_admingroup();
-  public:
-  void unsafe_arena_set_allocated_admingroup(
-      ::service_layer::SLBgplsTopoAdminGroup* admingroup);
-  ::service_layer::SLBgplsTopoAdminGroup* unsafe_arena_release_admingroup();
 
   // .service_layer.SLBgplsTopoLinkMaxBandwidth MaxBandwidth = 8;
   bool has_maxbandwidth() const;
@@ -5360,6 +5305,24 @@ class SLBgplsTopoLinkAttr final :
   void unsafe_arena_set_allocated_igpmetric(
       ::service_layer::SLBgplsTopoLinkIgpMetric* igpmetric);
   ::service_layer::SLBgplsTopoLinkIgpMetric* unsafe_arena_release_igpmetric();
+
+  // .service_layer.SLBgplsTopoLinkSrlg Srlg = 15;
+  bool has_srlg() const;
+  private:
+  bool _internal_has_srlg() const;
+  public:
+  void clear_srlg();
+  const ::service_layer::SLBgplsTopoLinkSrlg& srlg() const;
+  PROTOBUF_NODISCARD ::service_layer::SLBgplsTopoLinkSrlg* release_srlg();
+  ::service_layer::SLBgplsTopoLinkSrlg* mutable_srlg();
+  void set_allocated_srlg(::service_layer::SLBgplsTopoLinkSrlg* srlg);
+  private:
+  const ::service_layer::SLBgplsTopoLinkSrlg& _internal_srlg() const;
+  ::service_layer::SLBgplsTopoLinkSrlg* _internal_mutable_srlg();
+  public:
+  void unsafe_arena_set_allocated_srlg(
+      ::service_layer::SLBgplsTopoLinkSrlg* srlg);
+  ::service_layer::SLBgplsTopoLinkSrlg* unsafe_arena_release_srlg();
 
   // .service_layer.SLBgplsTopoLinkOpaqueAttr OpaqueAttr = 16;
   bool has_opaqueattr() const;
@@ -5523,6 +5486,24 @@ class SLBgplsTopoLinkAttr final :
       ::service_layer::SLBgplsTopoUniUtilBandwidth* uniutilbandwidth);
   ::service_layer::SLBgplsTopoUniUtilBandwidth* unsafe_arena_release_uniutilbandwidth();
 
+  // .service_layer.SLBgplsTopoExtAdminGroup ExtAdminGroup = 32;
+  bool has_extadmingroup() const;
+  private:
+  bool _internal_has_extadmingroup() const;
+  public:
+  void clear_extadmingroup();
+  const ::service_layer::SLBgplsTopoExtAdminGroup& extadmingroup() const;
+  PROTOBUF_NODISCARD ::service_layer::SLBgplsTopoExtAdminGroup* release_extadmingroup();
+  ::service_layer::SLBgplsTopoExtAdminGroup* mutable_extadmingroup();
+  void set_allocated_extadmingroup(::service_layer::SLBgplsTopoExtAdminGroup* extadmingroup);
+  private:
+  const ::service_layer::SLBgplsTopoExtAdminGroup& _internal_extadmingroup() const;
+  ::service_layer::SLBgplsTopoExtAdminGroup* _internal_mutable_extadmingroup();
+  public:
+  void unsafe_arena_set_allocated_extadmingroup(
+      ::service_layer::SLBgplsTopoExtAdminGroup* extadmingroup);
+  ::service_layer::SLBgplsTopoExtAdminGroup* unsafe_arena_release_extadmingroup();
+
   // @@protoc_insertion_point(class_scope:service_layer.SLBgplsTopoLinkAttr)
  private:
   class _Internal;
@@ -5536,7 +5517,6 @@ class SLBgplsTopoLinkAttr final :
   ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::service_layer::SLBgplsTopoRemoteIpv4RouterId > remoteipv4routerid_;
   ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::service_layer::SLBgplsTopoRemoteIpv6RouterId > remoteipv6routerid_;
   ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::service_layer::SLBgplsTopoLinkUnresvBandwidth > unresvbandwidth_;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::service_layer::SLBgplsTopoLinkSrlg > srlg_;
   ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::service_layer::SLBgplsTopoAdjSid > adjsid_;
   ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::service_layer::SLBgplsTopoLanAdjSid > lanadjsid_;
   ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::service_layer::SLBgplsTopoBgpPeerNodeSid > bgppeernodesid_;
@@ -5544,16 +5524,15 @@ class SLBgplsTopoLinkAttr final :
   ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::service_layer::SLBgplsTopoBgpPeerSetSid > bgppeersetsid_;
   ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::service_layer::SLBgplsTopoAslaAttr > asla_;
   ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::service_layer::SLBgplsTopoL2BundleMemberAttr > l2bundlememberattr_;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::service_layer::SLBgplsTopoExtAdminGroup > extadmingroup_;
   ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::service_layer::SLBgplsTopoUnknownAttr > unknownattr_;
   ::service_layer::SLBplsTopoLinkLocRemId* linklocremid_;
-  ::service_layer::SLBgplsTopoAdminGroup* admingroup_;
   ::service_layer::SLBgplsTopoLinkMaxBandwidth* maxbandwidth_;
   ::service_layer::SLBgplsTopoLinkMaxResvBandwidth* maxresvbandwidth_;
   ::service_layer::SLBgplsTopoLinkTeDefaultMetric* tedefmetric_;
   ::service_layer::SLBgplsTopoLinkProtectionType* protectiontype_;
   ::service_layer::SLBgplsTopoLinkMplsProtoMask* mplsprotomask_;
   ::service_layer::SLBgplsTopoLinkIgpMetric* igpmetric_;
+  ::service_layer::SLBgplsTopoLinkSrlg* srlg_;
   ::service_layer::SLBgplsTopoLinkOpaqueAttr* opaqueattr_;
   ::service_layer::SLBgplsTopoLinkName* linkname_;
   ::service_layer::SLBgplsTopoUniLinkDelay* unilinkdelay_;
@@ -5563,6 +5542,7 @@ class SLBgplsTopoLinkAttr final :
   ::service_layer::SLBgplsTopoUniResBandwidth* uniresbandwidth_;
   ::service_layer::SLBgplsTopoUniAvailBandwidth* uniavailbandwidth_;
   ::service_layer::SLBgplsTopoUniUtilBandwidth* uniutilbandwidth_;
+  ::service_layer::SLBgplsTopoExtAdminGroup* extadmingroup_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_sl_5fbgpls_5ftopology_2eproto;
 };
@@ -8519,8 +8499,8 @@ class SLBgplsTopoFad final :
     kPriorityFieldNumber = 4,
     kFlagsFieldNumber = 8,
     kExcMinBwFieldNumber = 14,
-    kUnsuppTlvFieldNumber = 15,
     kExcMaxDelayFieldNumber = 13,
+    kUnsuppTlvFieldNumber = 15,
   };
   // repeated uint32 ExcAnyAff = 5;
   int excanyaff_size() const;
@@ -8760,6 +8740,24 @@ class SLBgplsTopoFad final :
   std::string* _internal_mutable_excminbw();
   public:
 
+  // .service_layer.SLBgplsTopoFadExcMaxDelay ExcMaxDelay = 13;
+  bool has_excmaxdelay() const;
+  private:
+  bool _internal_has_excmaxdelay() const;
+  public:
+  void clear_excmaxdelay();
+  const ::service_layer::SLBgplsTopoFadExcMaxDelay& excmaxdelay() const;
+  PROTOBUF_NODISCARD ::service_layer::SLBgplsTopoFadExcMaxDelay* release_excmaxdelay();
+  ::service_layer::SLBgplsTopoFadExcMaxDelay* mutable_excmaxdelay();
+  void set_allocated_excmaxdelay(::service_layer::SLBgplsTopoFadExcMaxDelay* excmaxdelay);
+  private:
+  const ::service_layer::SLBgplsTopoFadExcMaxDelay& _internal_excmaxdelay() const;
+  ::service_layer::SLBgplsTopoFadExcMaxDelay* _internal_mutable_excmaxdelay();
+  public:
+  void unsafe_arena_set_allocated_excmaxdelay(
+      ::service_layer::SLBgplsTopoFadExcMaxDelay* excmaxdelay);
+  ::service_layer::SLBgplsTopoFadExcMaxDelay* unsafe_arena_release_excmaxdelay();
+
   // .service_layer.SLBgplsTopoFadUnsuppTlv UnsuppTlv = 15;
   bool has_unsupptlv() const;
   private:
@@ -8777,15 +8775,6 @@ class SLBgplsTopoFad final :
   void unsafe_arena_set_allocated_unsupptlv(
       ::service_layer::SLBgplsTopoFadUnsuppTlv* unsupptlv);
   ::service_layer::SLBgplsTopoFadUnsuppTlv* unsafe_arena_release_unsupptlv();
-
-  // uint32 ExcMaxDelay = 13;
-  void clear_excmaxdelay();
-  uint32_t excmaxdelay() const;
-  void set_excmaxdelay(uint32_t value);
-  private:
-  uint32_t _internal_excmaxdelay() const;
-  void _internal_set_excmaxdelay(uint32_t value);
-  public:
 
   // @@protoc_insertion_point(class_scope:service_layer.SLBgplsTopoFad)
  private:
@@ -8814,8 +8803,8 @@ class SLBgplsTopoFad final :
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr priority_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr flags_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr excminbw_;
+  ::service_layer::SLBgplsTopoFadExcMaxDelay* excmaxdelay_;
   ::service_layer::SLBgplsTopoFadUnsuppTlv* unsupptlv_;
-  uint32_t excmaxdelay_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_sl_5fbgpls_5ftopology_2eproto;
 };
@@ -9156,24 +9145,24 @@ class SLBgplsTopoFadUnsuppTlv final :
 };
 // -------------------------------------------------------------------
 
-class SLBgplsTopoAdminGroup final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:service_layer.SLBgplsTopoAdminGroup) */ {
+class SLBgplsTopoFadExcMaxDelay final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:service_layer.SLBgplsTopoFadExcMaxDelay) */ {
  public:
-  inline SLBgplsTopoAdminGroup() : SLBgplsTopoAdminGroup(nullptr) {}
-  ~SLBgplsTopoAdminGroup() override;
-  explicit constexpr SLBgplsTopoAdminGroup(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+  inline SLBgplsTopoFadExcMaxDelay() : SLBgplsTopoFadExcMaxDelay(nullptr) {}
+  ~SLBgplsTopoFadExcMaxDelay() override;
+  explicit constexpr SLBgplsTopoFadExcMaxDelay(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
 
-  SLBgplsTopoAdminGroup(const SLBgplsTopoAdminGroup& from);
-  SLBgplsTopoAdminGroup(SLBgplsTopoAdminGroup&& from) noexcept
-    : SLBgplsTopoAdminGroup() {
+  SLBgplsTopoFadExcMaxDelay(const SLBgplsTopoFadExcMaxDelay& from);
+  SLBgplsTopoFadExcMaxDelay(SLBgplsTopoFadExcMaxDelay&& from) noexcept
+    : SLBgplsTopoFadExcMaxDelay() {
     *this = ::std::move(from);
   }
 
-  inline SLBgplsTopoAdminGroup& operator=(const SLBgplsTopoAdminGroup& from) {
+  inline SLBgplsTopoFadExcMaxDelay& operator=(const SLBgplsTopoFadExcMaxDelay& from) {
     CopyFrom(from);
     return *this;
   }
-  inline SLBgplsTopoAdminGroup& operator=(SLBgplsTopoAdminGroup&& from) noexcept {
+  inline SLBgplsTopoFadExcMaxDelay& operator=(SLBgplsTopoFadExcMaxDelay&& from) noexcept {
     if (this == &from) return *this;
     if (GetOwningArena() == from.GetOwningArena()
   #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
@@ -9196,20 +9185,20 @@ class SLBgplsTopoAdminGroup final :
   static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
-  static const SLBgplsTopoAdminGroup& default_instance() {
+  static const SLBgplsTopoFadExcMaxDelay& default_instance() {
     return *internal_default_instance();
   }
-  static inline const SLBgplsTopoAdminGroup* internal_default_instance() {
-    return reinterpret_cast<const SLBgplsTopoAdminGroup*>(
-               &_SLBgplsTopoAdminGroup_default_instance_);
+  static inline const SLBgplsTopoFadExcMaxDelay* internal_default_instance() {
+    return reinterpret_cast<const SLBgplsTopoFadExcMaxDelay*>(
+               &_SLBgplsTopoFadExcMaxDelay_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
     43;
 
-  friend void swap(SLBgplsTopoAdminGroup& a, SLBgplsTopoAdminGroup& b) {
+  friend void swap(SLBgplsTopoFadExcMaxDelay& a, SLBgplsTopoFadExcMaxDelay& b) {
     a.Swap(&b);
   }
-  inline void Swap(SLBgplsTopoAdminGroup* other) {
+  inline void Swap(SLBgplsTopoFadExcMaxDelay* other) {
     if (other == this) return;
   #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
     if (GetOwningArena() != nullptr &&
@@ -9222,7 +9211,7 @@ class SLBgplsTopoAdminGroup final :
       ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
     }
   }
-  void UnsafeArenaSwap(SLBgplsTopoAdminGroup* other) {
+  void UnsafeArenaSwap(SLBgplsTopoFadExcMaxDelay* other) {
     if (other == this) return;
     GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
     InternalSwap(other);
@@ -9230,13 +9219,13 @@ class SLBgplsTopoAdminGroup final :
 
   // implements Message ----------------------------------------------
 
-  SLBgplsTopoAdminGroup* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
-    return CreateMaybeMessage<SLBgplsTopoAdminGroup>(arena);
+  SLBgplsTopoFadExcMaxDelay* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<SLBgplsTopoFadExcMaxDelay>(arena);
   }
   using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const SLBgplsTopoAdminGroup& from);
+  void CopyFrom(const SLBgplsTopoFadExcMaxDelay& from);
   using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom(const SLBgplsTopoAdminGroup& from);
+  void MergeFrom(const SLBgplsTopoFadExcMaxDelay& from);
   private:
   static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to, const ::PROTOBUF_NAMESPACE_ID::Message& from);
   public:
@@ -9253,15 +9242,15 @@ class SLBgplsTopoAdminGroup final :
   void SharedCtor();
   void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(SLBgplsTopoAdminGroup* other);
+  void InternalSwap(SLBgplsTopoFadExcMaxDelay* other);
 
   private:
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "service_layer.SLBgplsTopoAdminGroup";
+    return "service_layer.SLBgplsTopoFadExcMaxDelay";
   }
   protected:
-  explicit SLBgplsTopoAdminGroup(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+  explicit SLBgplsTopoFadExcMaxDelay(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                        bool is_message_owned = false);
   private:
   static void ArenaDtor(void* object);
@@ -9278,25 +9267,25 @@ class SLBgplsTopoAdminGroup final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kGroupFieldNumber = 1,
+    kDelayFieldNumber = 1,
   };
-  // uint32 Group = 1;
-  void clear_group();
-  uint32_t group() const;
-  void set_group(uint32_t value);
+  // uint32 Delay = 1;
+  void clear_delay();
+  uint32_t delay() const;
+  void set_delay(uint32_t value);
   private:
-  uint32_t _internal_group() const;
-  void _internal_set_group(uint32_t value);
+  uint32_t _internal_delay() const;
+  void _internal_set_delay(uint32_t value);
   public:
 
-  // @@protoc_insertion_point(class_scope:service_layer.SLBgplsTopoAdminGroup)
+  // @@protoc_insertion_point(class_scope:service_layer.SLBgplsTopoFadExcMaxDelay)
  private:
   class _Internal;
 
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  uint32_t group_;
+  uint32_t delay_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_sl_5fbgpls_5ftopology_2eproto;
 };
@@ -10484,14 +10473,27 @@ class SLBgplsTopoLinkSrlg final :
   enum : int {
     kSrlgValFieldNumber = 1,
   };
-  // uint32 SrlgVal = 1;
-  void clear_srlgval();
-  uint32_t srlgval() const;
-  void set_srlgval(uint32_t value);
+  // repeated uint32 SrlgVal = 1;
+  int srlgval_size() const;
   private:
-  uint32_t _internal_srlgval() const;
-  void _internal_set_srlgval(uint32_t value);
+  int _internal_srlgval_size() const;
   public:
+  void clear_srlgval();
+  private:
+  uint32_t _internal_srlgval(int index) const;
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+      _internal_srlgval() const;
+  void _internal_add_srlgval(uint32_t value);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+      _internal_mutable_srlgval();
+  public:
+  uint32_t srlgval(int index) const;
+  void set_srlgval(int index, uint32_t value);
+  void add_srlgval(uint32_t value);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+      srlgval() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+      mutable_srlgval();
 
   // @@protoc_insertion_point(class_scope:service_layer.SLBgplsTopoLinkSrlg)
  private:
@@ -10500,7 +10502,8 @@ class SLBgplsTopoLinkSrlg final :
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  uint32_t srlgval_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t > srlgval_;
+  mutable std::atomic<int> _srlgval_cached_byte_size_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_sl_5fbgpls_5ftopology_2eproto;
 };
@@ -13191,13 +13194,11 @@ class SLBgplsTopoAslaAttr final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kSrlgFieldNumber = 5,
-    kExtAdminGroupFieldNumber = 13,
     kUnknownAttrFieldNumber = 14,
     kSabmFieldNumber = 1,
     kUdabmFieldNumber = 2,
-    kAdminGroupFieldNumber = 3,
     kTeDefMetricFieldNumber = 4,
+    kSrlgFieldNumber = 5,
     kUniLinkDelayFieldNumber = 6,
     kMinMaxLinkDelayFieldNumber = 7,
     kUniDelayVariationFieldNumber = 8,
@@ -13205,43 +13206,8 @@ class SLBgplsTopoAslaAttr final :
     kUniResBandwidthFieldNumber = 10,
     kUniAvailBandwidthFieldNumber = 11,
     kUniUtilBandwidthFieldNumber = 12,
+    kExtAdminGroupFieldNumber = 13,
   };
-  // repeated .service_layer.SLBgplsTopoLinkSrlg Srlg = 5;
-  int srlg_size() const;
-  private:
-  int _internal_srlg_size() const;
-  public:
-  void clear_srlg();
-  ::service_layer::SLBgplsTopoLinkSrlg* mutable_srlg(int index);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::service_layer::SLBgplsTopoLinkSrlg >*
-      mutable_srlg();
-  private:
-  const ::service_layer::SLBgplsTopoLinkSrlg& _internal_srlg(int index) const;
-  ::service_layer::SLBgplsTopoLinkSrlg* _internal_add_srlg();
-  public:
-  const ::service_layer::SLBgplsTopoLinkSrlg& srlg(int index) const;
-  ::service_layer::SLBgplsTopoLinkSrlg* add_srlg();
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::service_layer::SLBgplsTopoLinkSrlg >&
-      srlg() const;
-
-  // repeated .service_layer.SLBgplsTopoExtAdminGroup ExtAdminGroup = 13;
-  int extadmingroup_size() const;
-  private:
-  int _internal_extadmingroup_size() const;
-  public:
-  void clear_extadmingroup();
-  ::service_layer::SLBgplsTopoExtAdminGroup* mutable_extadmingroup(int index);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::service_layer::SLBgplsTopoExtAdminGroup >*
-      mutable_extadmingroup();
-  private:
-  const ::service_layer::SLBgplsTopoExtAdminGroup& _internal_extadmingroup(int index) const;
-  ::service_layer::SLBgplsTopoExtAdminGroup* _internal_add_extadmingroup();
-  public:
-  const ::service_layer::SLBgplsTopoExtAdminGroup& extadmingroup(int index) const;
-  ::service_layer::SLBgplsTopoExtAdminGroup* add_extadmingroup();
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::service_layer::SLBgplsTopoExtAdminGroup >&
-      extadmingroup() const;
-
   // repeated .service_layer.SLBgplsTopoUnknownAttr UnknownAttr = 14;
   int unknownattr_size() const;
   private:
@@ -13288,24 +13254,6 @@ class SLBgplsTopoAslaAttr final :
   std::string* _internal_mutable_udabm();
   public:
 
-  // .service_layer.SLBgplsTopoAdminGroup AdminGroup = 3;
-  bool has_admingroup() const;
-  private:
-  bool _internal_has_admingroup() const;
-  public:
-  void clear_admingroup();
-  const ::service_layer::SLBgplsTopoAdminGroup& admingroup() const;
-  PROTOBUF_NODISCARD ::service_layer::SLBgplsTopoAdminGroup* release_admingroup();
-  ::service_layer::SLBgplsTopoAdminGroup* mutable_admingroup();
-  void set_allocated_admingroup(::service_layer::SLBgplsTopoAdminGroup* admingroup);
-  private:
-  const ::service_layer::SLBgplsTopoAdminGroup& _internal_admingroup() const;
-  ::service_layer::SLBgplsTopoAdminGroup* _internal_mutable_admingroup();
-  public:
-  void unsafe_arena_set_allocated_admingroup(
-      ::service_layer::SLBgplsTopoAdminGroup* admingroup);
-  ::service_layer::SLBgplsTopoAdminGroup* unsafe_arena_release_admingroup();
-
   // .service_layer.SLBgplsTopoLinkTeDefaultMetric TeDefMetric = 4;
   bool has_tedefmetric() const;
   private:
@@ -13323,6 +13271,24 @@ class SLBgplsTopoAslaAttr final :
   void unsafe_arena_set_allocated_tedefmetric(
       ::service_layer::SLBgplsTopoLinkTeDefaultMetric* tedefmetric);
   ::service_layer::SLBgplsTopoLinkTeDefaultMetric* unsafe_arena_release_tedefmetric();
+
+  // .service_layer.SLBgplsTopoLinkSrlg Srlg = 5;
+  bool has_srlg() const;
+  private:
+  bool _internal_has_srlg() const;
+  public:
+  void clear_srlg();
+  const ::service_layer::SLBgplsTopoLinkSrlg& srlg() const;
+  PROTOBUF_NODISCARD ::service_layer::SLBgplsTopoLinkSrlg* release_srlg();
+  ::service_layer::SLBgplsTopoLinkSrlg* mutable_srlg();
+  void set_allocated_srlg(::service_layer::SLBgplsTopoLinkSrlg* srlg);
+  private:
+  const ::service_layer::SLBgplsTopoLinkSrlg& _internal_srlg() const;
+  ::service_layer::SLBgplsTopoLinkSrlg* _internal_mutable_srlg();
+  public:
+  void unsafe_arena_set_allocated_srlg(
+      ::service_layer::SLBgplsTopoLinkSrlg* srlg);
+  ::service_layer::SLBgplsTopoLinkSrlg* unsafe_arena_release_srlg();
 
   // .service_layer.SLBgplsTopoUniLinkDelay UniLinkDelay = 6;
   bool has_unilinkdelay() const;
@@ -13450,6 +13416,24 @@ class SLBgplsTopoAslaAttr final :
       ::service_layer::SLBgplsTopoUniUtilBandwidth* uniutilbandwidth);
   ::service_layer::SLBgplsTopoUniUtilBandwidth* unsafe_arena_release_uniutilbandwidth();
 
+  // .service_layer.SLBgplsTopoExtAdminGroup ExtAdminGroup = 13;
+  bool has_extadmingroup() const;
+  private:
+  bool _internal_has_extadmingroup() const;
+  public:
+  void clear_extadmingroup();
+  const ::service_layer::SLBgplsTopoExtAdminGroup& extadmingroup() const;
+  PROTOBUF_NODISCARD ::service_layer::SLBgplsTopoExtAdminGroup* release_extadmingroup();
+  ::service_layer::SLBgplsTopoExtAdminGroup* mutable_extadmingroup();
+  void set_allocated_extadmingroup(::service_layer::SLBgplsTopoExtAdminGroup* extadmingroup);
+  private:
+  const ::service_layer::SLBgplsTopoExtAdminGroup& _internal_extadmingroup() const;
+  ::service_layer::SLBgplsTopoExtAdminGroup* _internal_mutable_extadmingroup();
+  public:
+  void unsafe_arena_set_allocated_extadmingroup(
+      ::service_layer::SLBgplsTopoExtAdminGroup* extadmingroup);
+  ::service_layer::SLBgplsTopoExtAdminGroup* unsafe_arena_release_extadmingroup();
+
   // @@protoc_insertion_point(class_scope:service_layer.SLBgplsTopoAslaAttr)
  private:
   class _Internal;
@@ -13457,13 +13441,11 @@ class SLBgplsTopoAslaAttr final :
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::service_layer::SLBgplsTopoLinkSrlg > srlg_;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::service_layer::SLBgplsTopoExtAdminGroup > extadmingroup_;
   ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::service_layer::SLBgplsTopoUnknownAttr > unknownattr_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr sabm_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr udabm_;
-  ::service_layer::SLBgplsTopoAdminGroup* admingroup_;
   ::service_layer::SLBgplsTopoLinkTeDefaultMetric* tedefmetric_;
+  ::service_layer::SLBgplsTopoLinkSrlg* srlg_;
   ::service_layer::SLBgplsTopoUniLinkDelay* unilinkdelay_;
   ::service_layer::SLBgplsTopoMinMaxUniLinkDelay* minmaxlinkdelay_;
   ::service_layer::SLBgplsTopoUniDelayVar* unidelayvariation_;
@@ -13471,6 +13453,7 @@ class SLBgplsTopoAslaAttr final :
   ::service_layer::SLBgplsTopoUniResBandwidth* uniresbandwidth_;
   ::service_layer::SLBgplsTopoUniAvailBandwidth* uniavailbandwidth_;
   ::service_layer::SLBgplsTopoUniUtilBandwidth* uniutilbandwidth_;
+  ::service_layer::SLBgplsTopoExtAdminGroup* extadmingroup_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_sl_5fbgpls_5ftopology_2eproto;
 };
@@ -15265,9 +15248,7 @@ class SLBgplsTopoL2BundleMemberAttr final :
     kAdjSidFieldNumber = 8,
     kLanAdjSidFieldNumber = 9,
     kAslaFieldNumber = 17,
-    kExtAdminGroupFieldNumber = 18,
     kUnknownAttrFieldNumber = 19,
-    kAdminGroupFieldNumber = 2,
     kMaxBandwidthFieldNumber = 3,
     kMaxResvBandwidthFieldNumber = 4,
     kTeDefMetricFieldNumber = 6,
@@ -15279,6 +15260,7 @@ class SLBgplsTopoL2BundleMemberAttr final :
     kUniResBandwidthFieldNumber = 14,
     kUniAvailBandwidthFieldNumber = 15,
     kUniUtilBandwidthFieldNumber = 16,
+    kExtAdminGroupFieldNumber = 18,
     kMemberDescFieldNumber = 1,
   };
   // repeated .service_layer.SLBgplsTopoLinkUnresvBandwidth UnresvBandwidth = 5;
@@ -15353,24 +15335,6 @@ class SLBgplsTopoL2BundleMemberAttr final :
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::service_layer::SLBgplsTopoAslaAttr >&
       asla() const;
 
-  // repeated .service_layer.SLBgplsTopoExtAdminGroup ExtAdminGroup = 18;
-  int extadmingroup_size() const;
-  private:
-  int _internal_extadmingroup_size() const;
-  public:
-  void clear_extadmingroup();
-  ::service_layer::SLBgplsTopoExtAdminGroup* mutable_extadmingroup(int index);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::service_layer::SLBgplsTopoExtAdminGroup >*
-      mutable_extadmingroup();
-  private:
-  const ::service_layer::SLBgplsTopoExtAdminGroup& _internal_extadmingroup(int index) const;
-  ::service_layer::SLBgplsTopoExtAdminGroup* _internal_add_extadmingroup();
-  public:
-  const ::service_layer::SLBgplsTopoExtAdminGroup& extadmingroup(int index) const;
-  ::service_layer::SLBgplsTopoExtAdminGroup* add_extadmingroup();
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::service_layer::SLBgplsTopoExtAdminGroup >&
-      extadmingroup() const;
-
   // repeated .service_layer.SLBgplsTopoUnknownAttr UnknownAttr = 19;
   int unknownattr_size() const;
   private:
@@ -15388,24 +15352,6 @@ class SLBgplsTopoL2BundleMemberAttr final :
   ::service_layer::SLBgplsTopoUnknownAttr* add_unknownattr();
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::service_layer::SLBgplsTopoUnknownAttr >&
       unknownattr() const;
-
-  // .service_layer.SLBgplsTopoAdminGroup AdminGroup = 2;
-  bool has_admingroup() const;
-  private:
-  bool _internal_has_admingroup() const;
-  public:
-  void clear_admingroup();
-  const ::service_layer::SLBgplsTopoAdminGroup& admingroup() const;
-  PROTOBUF_NODISCARD ::service_layer::SLBgplsTopoAdminGroup* release_admingroup();
-  ::service_layer::SLBgplsTopoAdminGroup* mutable_admingroup();
-  void set_allocated_admingroup(::service_layer::SLBgplsTopoAdminGroup* admingroup);
-  private:
-  const ::service_layer::SLBgplsTopoAdminGroup& _internal_admingroup() const;
-  ::service_layer::SLBgplsTopoAdminGroup* _internal_mutable_admingroup();
-  public:
-  void unsafe_arena_set_allocated_admingroup(
-      ::service_layer::SLBgplsTopoAdminGroup* admingroup);
-  ::service_layer::SLBgplsTopoAdminGroup* unsafe_arena_release_admingroup();
 
   // .service_layer.SLBgplsTopoLinkMaxBandwidth MaxBandwidth = 3;
   bool has_maxbandwidth() const;
@@ -15605,6 +15551,24 @@ class SLBgplsTopoL2BundleMemberAttr final :
       ::service_layer::SLBgplsTopoUniUtilBandwidth* uniutilbandwidth);
   ::service_layer::SLBgplsTopoUniUtilBandwidth* unsafe_arena_release_uniutilbandwidth();
 
+  // .service_layer.SLBgplsTopoExtAdminGroup ExtAdminGroup = 18;
+  bool has_extadmingroup() const;
+  private:
+  bool _internal_has_extadmingroup() const;
+  public:
+  void clear_extadmingroup();
+  const ::service_layer::SLBgplsTopoExtAdminGroup& extadmingroup() const;
+  PROTOBUF_NODISCARD ::service_layer::SLBgplsTopoExtAdminGroup* release_extadmingroup();
+  ::service_layer::SLBgplsTopoExtAdminGroup* mutable_extadmingroup();
+  void set_allocated_extadmingroup(::service_layer::SLBgplsTopoExtAdminGroup* extadmingroup);
+  private:
+  const ::service_layer::SLBgplsTopoExtAdminGroup& _internal_extadmingroup() const;
+  ::service_layer::SLBgplsTopoExtAdminGroup* _internal_mutable_extadmingroup();
+  public:
+  void unsafe_arena_set_allocated_extadmingroup(
+      ::service_layer::SLBgplsTopoExtAdminGroup* extadmingroup);
+  ::service_layer::SLBgplsTopoExtAdminGroup* unsafe_arena_release_extadmingroup();
+
   // uint32 MemberDesc = 1;
   void clear_memberdesc();
   uint32_t memberdesc() const;
@@ -15625,9 +15589,7 @@ class SLBgplsTopoL2BundleMemberAttr final :
   ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::service_layer::SLBgplsTopoAdjSid > adjsid_;
   ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::service_layer::SLBgplsTopoLanAdjSid > lanadjsid_;
   ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::service_layer::SLBgplsTopoAslaAttr > asla_;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::service_layer::SLBgplsTopoExtAdminGroup > extadmingroup_;
   ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::service_layer::SLBgplsTopoUnknownAttr > unknownattr_;
-  ::service_layer::SLBgplsTopoAdminGroup* admingroup_;
   ::service_layer::SLBgplsTopoLinkMaxBandwidth* maxbandwidth_;
   ::service_layer::SLBgplsTopoLinkMaxResvBandwidth* maxresvbandwidth_;
   ::service_layer::SLBgplsTopoLinkTeDefaultMetric* tedefmetric_;
@@ -15639,6 +15601,7 @@ class SLBgplsTopoL2BundleMemberAttr final :
   ::service_layer::SLBgplsTopoUniResBandwidth* uniresbandwidth_;
   ::service_layer::SLBgplsTopoUniAvailBandwidth* uniavailbandwidth_;
   ::service_layer::SLBgplsTopoUniUtilBandwidth* uniutilbandwidth_;
+  ::service_layer::SLBgplsTopoExtAdminGroup* extadmingroup_;
   uint32_t memberdesc_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_sl_5fbgpls_5ftopology_2eproto;
@@ -15769,14 +15732,27 @@ class SLBgplsTopoExtAdminGroup final :
   enum : int {
     kGroupFieldNumber = 1,
   };
-  // uint32 Group = 1;
-  void clear_group();
-  uint32_t group() const;
-  void set_group(uint32_t value);
+  // repeated uint32 Group = 1;
+  int group_size() const;
   private:
-  uint32_t _internal_group() const;
-  void _internal_set_group(uint32_t value);
+  int _internal_group_size() const;
   public:
+  void clear_group();
+  private:
+  uint32_t _internal_group(int index) const;
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+      _internal_group() const;
+  void _internal_add_group(uint32_t value);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+      _internal_mutable_group();
+  public:
+  uint32_t group(int index) const;
+  void set_group(int index, uint32_t value);
+  void add_group(uint32_t value);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+      group() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+      mutable_group();
 
   // @@protoc_insertion_point(class_scope:service_layer.SLBgplsTopoExtAdminGroup)
  private:
@@ -15785,7 +15761,8 @@ class SLBgplsTopoExtAdminGroup final :
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  uint32_t group_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t > group_;
+  mutable std::atomic<int> _group_cached_byte_size_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_sl_5fbgpls_5ftopology_2eproto;
 };
@@ -20395,96 +20372,6 @@ SLBgplsTopoLinkAttr::remoteipv6routerid() const {
   return remoteipv6routerid_;
 }
 
-// .service_layer.SLBgplsTopoAdminGroup AdminGroup = 7;
-inline bool SLBgplsTopoLinkAttr::_internal_has_admingroup() const {
-  return this != internal_default_instance() && admingroup_ != nullptr;
-}
-inline bool SLBgplsTopoLinkAttr::has_admingroup() const {
-  return _internal_has_admingroup();
-}
-inline void SLBgplsTopoLinkAttr::clear_admingroup() {
-  if (GetArenaForAllocation() == nullptr && admingroup_ != nullptr) {
-    delete admingroup_;
-  }
-  admingroup_ = nullptr;
-}
-inline const ::service_layer::SLBgplsTopoAdminGroup& SLBgplsTopoLinkAttr::_internal_admingroup() const {
-  const ::service_layer::SLBgplsTopoAdminGroup* p = admingroup_;
-  return p != nullptr ? *p : reinterpret_cast<const ::service_layer::SLBgplsTopoAdminGroup&>(
-      ::service_layer::_SLBgplsTopoAdminGroup_default_instance_);
-}
-inline const ::service_layer::SLBgplsTopoAdminGroup& SLBgplsTopoLinkAttr::admingroup() const {
-  // @@protoc_insertion_point(field_get:service_layer.SLBgplsTopoLinkAttr.AdminGroup)
-  return _internal_admingroup();
-}
-inline void SLBgplsTopoLinkAttr::unsafe_arena_set_allocated_admingroup(
-    ::service_layer::SLBgplsTopoAdminGroup* admingroup) {
-  if (GetArenaForAllocation() == nullptr) {
-    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(admingroup_);
-  }
-  admingroup_ = admingroup;
-  if (admingroup) {
-    
-  } else {
-    
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:service_layer.SLBgplsTopoLinkAttr.AdminGroup)
-}
-inline ::service_layer::SLBgplsTopoAdminGroup* SLBgplsTopoLinkAttr::release_admingroup() {
-  
-  ::service_layer::SLBgplsTopoAdminGroup* temp = admingroup_;
-  admingroup_ = nullptr;
-#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
-  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
-  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-  if (GetArenaForAllocation() == nullptr) { delete old; }
-#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
-  if (GetArenaForAllocation() != nullptr) {
-    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-  }
-#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
-  return temp;
-}
-inline ::service_layer::SLBgplsTopoAdminGroup* SLBgplsTopoLinkAttr::unsafe_arena_release_admingroup() {
-  // @@protoc_insertion_point(field_release:service_layer.SLBgplsTopoLinkAttr.AdminGroup)
-  
-  ::service_layer::SLBgplsTopoAdminGroup* temp = admingroup_;
-  admingroup_ = nullptr;
-  return temp;
-}
-inline ::service_layer::SLBgplsTopoAdminGroup* SLBgplsTopoLinkAttr::_internal_mutable_admingroup() {
-  
-  if (admingroup_ == nullptr) {
-    auto* p = CreateMaybeMessage<::service_layer::SLBgplsTopoAdminGroup>(GetArenaForAllocation());
-    admingroup_ = p;
-  }
-  return admingroup_;
-}
-inline ::service_layer::SLBgplsTopoAdminGroup* SLBgplsTopoLinkAttr::mutable_admingroup() {
-  ::service_layer::SLBgplsTopoAdminGroup* _msg = _internal_mutable_admingroup();
-  // @@protoc_insertion_point(field_mutable:service_layer.SLBgplsTopoLinkAttr.AdminGroup)
-  return _msg;
-}
-inline void SLBgplsTopoLinkAttr::set_allocated_admingroup(::service_layer::SLBgplsTopoAdminGroup* admingroup) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
-  if (message_arena == nullptr) {
-    delete admingroup_;
-  }
-  if (admingroup) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-        ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper<::service_layer::SLBgplsTopoAdminGroup>::GetOwningArena(admingroup);
-    if (message_arena != submessage_arena) {
-      admingroup = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, admingroup, submessage_arena);
-    }
-    
-  } else {
-    
-  }
-  admingroup_ = admingroup;
-  // @@protoc_insertion_point(field_set_allocated:service_layer.SLBgplsTopoLinkAttr.AdminGroup)
-}
-
 // .service_layer.SLBgplsTopoLinkMaxBandwidth MaxBandwidth = 8;
 inline bool SLBgplsTopoLinkAttr::_internal_has_maxbandwidth() const {
   return this != internal_default_instance() && maxbandwidth_ != nullptr;
@@ -21065,44 +20952,94 @@ inline void SLBgplsTopoLinkAttr::set_allocated_igpmetric(::service_layer::SLBgpl
   // @@protoc_insertion_point(field_set_allocated:service_layer.SLBgplsTopoLinkAttr.IgpMetric)
 }
 
-// repeated .service_layer.SLBgplsTopoLinkSrlg Srlg = 15;
-inline int SLBgplsTopoLinkAttr::_internal_srlg_size() const {
-  return srlg_.size();
+// .service_layer.SLBgplsTopoLinkSrlg Srlg = 15;
+inline bool SLBgplsTopoLinkAttr::_internal_has_srlg() const {
+  return this != internal_default_instance() && srlg_ != nullptr;
 }
-inline int SLBgplsTopoLinkAttr::srlg_size() const {
-  return _internal_srlg_size();
+inline bool SLBgplsTopoLinkAttr::has_srlg() const {
+  return _internal_has_srlg();
 }
 inline void SLBgplsTopoLinkAttr::clear_srlg() {
-  srlg_.Clear();
+  if (GetArenaForAllocation() == nullptr && srlg_ != nullptr) {
+    delete srlg_;
+  }
+  srlg_ = nullptr;
 }
-inline ::service_layer::SLBgplsTopoLinkSrlg* SLBgplsTopoLinkAttr::mutable_srlg(int index) {
-  // @@protoc_insertion_point(field_mutable:service_layer.SLBgplsTopoLinkAttr.Srlg)
-  return srlg_.Mutable(index);
+inline const ::service_layer::SLBgplsTopoLinkSrlg& SLBgplsTopoLinkAttr::_internal_srlg() const {
+  const ::service_layer::SLBgplsTopoLinkSrlg* p = srlg_;
+  return p != nullptr ? *p : reinterpret_cast<const ::service_layer::SLBgplsTopoLinkSrlg&>(
+      ::service_layer::_SLBgplsTopoLinkSrlg_default_instance_);
 }
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::service_layer::SLBgplsTopoLinkSrlg >*
-SLBgplsTopoLinkAttr::mutable_srlg() {
-  // @@protoc_insertion_point(field_mutable_list:service_layer.SLBgplsTopoLinkAttr.Srlg)
-  return &srlg_;
-}
-inline const ::service_layer::SLBgplsTopoLinkSrlg& SLBgplsTopoLinkAttr::_internal_srlg(int index) const {
-  return srlg_.Get(index);
-}
-inline const ::service_layer::SLBgplsTopoLinkSrlg& SLBgplsTopoLinkAttr::srlg(int index) const {
+inline const ::service_layer::SLBgplsTopoLinkSrlg& SLBgplsTopoLinkAttr::srlg() const {
   // @@protoc_insertion_point(field_get:service_layer.SLBgplsTopoLinkAttr.Srlg)
-  return _internal_srlg(index);
+  return _internal_srlg();
 }
-inline ::service_layer::SLBgplsTopoLinkSrlg* SLBgplsTopoLinkAttr::_internal_add_srlg() {
-  return srlg_.Add();
+inline void SLBgplsTopoLinkAttr::unsafe_arena_set_allocated_srlg(
+    ::service_layer::SLBgplsTopoLinkSrlg* srlg) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(srlg_);
+  }
+  srlg_ = srlg;
+  if (srlg) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:service_layer.SLBgplsTopoLinkAttr.Srlg)
 }
-inline ::service_layer::SLBgplsTopoLinkSrlg* SLBgplsTopoLinkAttr::add_srlg() {
-  ::service_layer::SLBgplsTopoLinkSrlg* _add = _internal_add_srlg();
-  // @@protoc_insertion_point(field_add:service_layer.SLBgplsTopoLinkAttr.Srlg)
-  return _add;
+inline ::service_layer::SLBgplsTopoLinkSrlg* SLBgplsTopoLinkAttr::release_srlg() {
+  
+  ::service_layer::SLBgplsTopoLinkSrlg* temp = srlg_;
+  srlg_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
 }
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::service_layer::SLBgplsTopoLinkSrlg >&
-SLBgplsTopoLinkAttr::srlg() const {
-  // @@protoc_insertion_point(field_list:service_layer.SLBgplsTopoLinkAttr.Srlg)
+inline ::service_layer::SLBgplsTopoLinkSrlg* SLBgplsTopoLinkAttr::unsafe_arena_release_srlg() {
+  // @@protoc_insertion_point(field_release:service_layer.SLBgplsTopoLinkAttr.Srlg)
+  
+  ::service_layer::SLBgplsTopoLinkSrlg* temp = srlg_;
+  srlg_ = nullptr;
+  return temp;
+}
+inline ::service_layer::SLBgplsTopoLinkSrlg* SLBgplsTopoLinkAttr::_internal_mutable_srlg() {
+  
+  if (srlg_ == nullptr) {
+    auto* p = CreateMaybeMessage<::service_layer::SLBgplsTopoLinkSrlg>(GetArenaForAllocation());
+    srlg_ = p;
+  }
   return srlg_;
+}
+inline ::service_layer::SLBgplsTopoLinkSrlg* SLBgplsTopoLinkAttr::mutable_srlg() {
+  ::service_layer::SLBgplsTopoLinkSrlg* _msg = _internal_mutable_srlg();
+  // @@protoc_insertion_point(field_mutable:service_layer.SLBgplsTopoLinkAttr.Srlg)
+  return _msg;
+}
+inline void SLBgplsTopoLinkAttr::set_allocated_srlg(::service_layer::SLBgplsTopoLinkSrlg* srlg) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete srlg_;
+  }
+  if (srlg) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper<::service_layer::SLBgplsTopoLinkSrlg>::GetOwningArena(srlg);
+    if (message_arena != submessage_arena) {
+      srlg = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, srlg, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  srlg_ = srlg;
+  // @@protoc_insertion_point(field_set_allocated:service_layer.SLBgplsTopoLinkAttr.Srlg)
 }
 
 // .service_layer.SLBgplsTopoLinkOpaqueAttr OpaqueAttr = 16;
@@ -22195,44 +22132,94 @@ SLBgplsTopoLinkAttr::l2bundlememberattr() const {
   return l2bundlememberattr_;
 }
 
-// repeated .service_layer.SLBgplsTopoExtAdminGroup ExtAdminGroup = 32;
-inline int SLBgplsTopoLinkAttr::_internal_extadmingroup_size() const {
-  return extadmingroup_.size();
+// .service_layer.SLBgplsTopoExtAdminGroup ExtAdminGroup = 32;
+inline bool SLBgplsTopoLinkAttr::_internal_has_extadmingroup() const {
+  return this != internal_default_instance() && extadmingroup_ != nullptr;
 }
-inline int SLBgplsTopoLinkAttr::extadmingroup_size() const {
-  return _internal_extadmingroup_size();
+inline bool SLBgplsTopoLinkAttr::has_extadmingroup() const {
+  return _internal_has_extadmingroup();
 }
 inline void SLBgplsTopoLinkAttr::clear_extadmingroup() {
-  extadmingroup_.Clear();
+  if (GetArenaForAllocation() == nullptr && extadmingroup_ != nullptr) {
+    delete extadmingroup_;
+  }
+  extadmingroup_ = nullptr;
 }
-inline ::service_layer::SLBgplsTopoExtAdminGroup* SLBgplsTopoLinkAttr::mutable_extadmingroup(int index) {
-  // @@protoc_insertion_point(field_mutable:service_layer.SLBgplsTopoLinkAttr.ExtAdminGroup)
-  return extadmingroup_.Mutable(index);
+inline const ::service_layer::SLBgplsTopoExtAdminGroup& SLBgplsTopoLinkAttr::_internal_extadmingroup() const {
+  const ::service_layer::SLBgplsTopoExtAdminGroup* p = extadmingroup_;
+  return p != nullptr ? *p : reinterpret_cast<const ::service_layer::SLBgplsTopoExtAdminGroup&>(
+      ::service_layer::_SLBgplsTopoExtAdminGroup_default_instance_);
 }
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::service_layer::SLBgplsTopoExtAdminGroup >*
-SLBgplsTopoLinkAttr::mutable_extadmingroup() {
-  // @@protoc_insertion_point(field_mutable_list:service_layer.SLBgplsTopoLinkAttr.ExtAdminGroup)
-  return &extadmingroup_;
-}
-inline const ::service_layer::SLBgplsTopoExtAdminGroup& SLBgplsTopoLinkAttr::_internal_extadmingroup(int index) const {
-  return extadmingroup_.Get(index);
-}
-inline const ::service_layer::SLBgplsTopoExtAdminGroup& SLBgplsTopoLinkAttr::extadmingroup(int index) const {
+inline const ::service_layer::SLBgplsTopoExtAdminGroup& SLBgplsTopoLinkAttr::extadmingroup() const {
   // @@protoc_insertion_point(field_get:service_layer.SLBgplsTopoLinkAttr.ExtAdminGroup)
-  return _internal_extadmingroup(index);
+  return _internal_extadmingroup();
 }
-inline ::service_layer::SLBgplsTopoExtAdminGroup* SLBgplsTopoLinkAttr::_internal_add_extadmingroup() {
-  return extadmingroup_.Add();
+inline void SLBgplsTopoLinkAttr::unsafe_arena_set_allocated_extadmingroup(
+    ::service_layer::SLBgplsTopoExtAdminGroup* extadmingroup) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(extadmingroup_);
+  }
+  extadmingroup_ = extadmingroup;
+  if (extadmingroup) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:service_layer.SLBgplsTopoLinkAttr.ExtAdminGroup)
 }
-inline ::service_layer::SLBgplsTopoExtAdminGroup* SLBgplsTopoLinkAttr::add_extadmingroup() {
-  ::service_layer::SLBgplsTopoExtAdminGroup* _add = _internal_add_extadmingroup();
-  // @@protoc_insertion_point(field_add:service_layer.SLBgplsTopoLinkAttr.ExtAdminGroup)
-  return _add;
+inline ::service_layer::SLBgplsTopoExtAdminGroup* SLBgplsTopoLinkAttr::release_extadmingroup() {
+  
+  ::service_layer::SLBgplsTopoExtAdminGroup* temp = extadmingroup_;
+  extadmingroup_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
 }
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::service_layer::SLBgplsTopoExtAdminGroup >&
-SLBgplsTopoLinkAttr::extadmingroup() const {
-  // @@protoc_insertion_point(field_list:service_layer.SLBgplsTopoLinkAttr.ExtAdminGroup)
+inline ::service_layer::SLBgplsTopoExtAdminGroup* SLBgplsTopoLinkAttr::unsafe_arena_release_extadmingroup() {
+  // @@protoc_insertion_point(field_release:service_layer.SLBgplsTopoLinkAttr.ExtAdminGroup)
+  
+  ::service_layer::SLBgplsTopoExtAdminGroup* temp = extadmingroup_;
+  extadmingroup_ = nullptr;
+  return temp;
+}
+inline ::service_layer::SLBgplsTopoExtAdminGroup* SLBgplsTopoLinkAttr::_internal_mutable_extadmingroup() {
+  
+  if (extadmingroup_ == nullptr) {
+    auto* p = CreateMaybeMessage<::service_layer::SLBgplsTopoExtAdminGroup>(GetArenaForAllocation());
+    extadmingroup_ = p;
+  }
   return extadmingroup_;
+}
+inline ::service_layer::SLBgplsTopoExtAdminGroup* SLBgplsTopoLinkAttr::mutable_extadmingroup() {
+  ::service_layer::SLBgplsTopoExtAdminGroup* _msg = _internal_mutable_extadmingroup();
+  // @@protoc_insertion_point(field_mutable:service_layer.SLBgplsTopoLinkAttr.ExtAdminGroup)
+  return _msg;
+}
+inline void SLBgplsTopoLinkAttr::set_allocated_extadmingroup(::service_layer::SLBgplsTopoExtAdminGroup* extadmingroup) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete extadmingroup_;
+  }
+  if (extadmingroup) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper<::service_layer::SLBgplsTopoExtAdminGroup>::GetOwningArena(extadmingroup);
+    if (message_arena != submessage_arena) {
+      extadmingroup = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, extadmingroup, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  extadmingroup_ = extadmingroup;
+  // @@protoc_insertion_point(field_set_allocated:service_layer.SLBgplsTopoLinkAttr.ExtAdminGroup)
 }
 
 // repeated .service_layer.SLBgplsTopoUnknownAttr UnknownAttr = 33;
@@ -24491,24 +24478,94 @@ inline void SLBgplsTopoFad::set_allocated_excminbw(std::string* excminbw) {
   // @@protoc_insertion_point(field_set_allocated:service_layer.SLBgplsTopoFad.ExcMinBw)
 }
 
-// uint32 ExcMaxDelay = 13;
+// .service_layer.SLBgplsTopoFadExcMaxDelay ExcMaxDelay = 13;
+inline bool SLBgplsTopoFad::_internal_has_excmaxdelay() const {
+  return this != internal_default_instance() && excmaxdelay_ != nullptr;
+}
+inline bool SLBgplsTopoFad::has_excmaxdelay() const {
+  return _internal_has_excmaxdelay();
+}
 inline void SLBgplsTopoFad::clear_excmaxdelay() {
-  excmaxdelay_ = 0u;
+  if (GetArenaForAllocation() == nullptr && excmaxdelay_ != nullptr) {
+    delete excmaxdelay_;
+  }
+  excmaxdelay_ = nullptr;
 }
-inline uint32_t SLBgplsTopoFad::_internal_excmaxdelay() const {
-  return excmaxdelay_;
+inline const ::service_layer::SLBgplsTopoFadExcMaxDelay& SLBgplsTopoFad::_internal_excmaxdelay() const {
+  const ::service_layer::SLBgplsTopoFadExcMaxDelay* p = excmaxdelay_;
+  return p != nullptr ? *p : reinterpret_cast<const ::service_layer::SLBgplsTopoFadExcMaxDelay&>(
+      ::service_layer::_SLBgplsTopoFadExcMaxDelay_default_instance_);
 }
-inline uint32_t SLBgplsTopoFad::excmaxdelay() const {
+inline const ::service_layer::SLBgplsTopoFadExcMaxDelay& SLBgplsTopoFad::excmaxdelay() const {
   // @@protoc_insertion_point(field_get:service_layer.SLBgplsTopoFad.ExcMaxDelay)
   return _internal_excmaxdelay();
 }
-inline void SLBgplsTopoFad::_internal_set_excmaxdelay(uint32_t value) {
-  
-  excmaxdelay_ = value;
+inline void SLBgplsTopoFad::unsafe_arena_set_allocated_excmaxdelay(
+    ::service_layer::SLBgplsTopoFadExcMaxDelay* excmaxdelay) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(excmaxdelay_);
+  }
+  excmaxdelay_ = excmaxdelay;
+  if (excmaxdelay) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:service_layer.SLBgplsTopoFad.ExcMaxDelay)
 }
-inline void SLBgplsTopoFad::set_excmaxdelay(uint32_t value) {
-  _internal_set_excmaxdelay(value);
-  // @@protoc_insertion_point(field_set:service_layer.SLBgplsTopoFad.ExcMaxDelay)
+inline ::service_layer::SLBgplsTopoFadExcMaxDelay* SLBgplsTopoFad::release_excmaxdelay() {
+  
+  ::service_layer::SLBgplsTopoFadExcMaxDelay* temp = excmaxdelay_;
+  excmaxdelay_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::service_layer::SLBgplsTopoFadExcMaxDelay* SLBgplsTopoFad::unsafe_arena_release_excmaxdelay() {
+  // @@protoc_insertion_point(field_release:service_layer.SLBgplsTopoFad.ExcMaxDelay)
+  
+  ::service_layer::SLBgplsTopoFadExcMaxDelay* temp = excmaxdelay_;
+  excmaxdelay_ = nullptr;
+  return temp;
+}
+inline ::service_layer::SLBgplsTopoFadExcMaxDelay* SLBgplsTopoFad::_internal_mutable_excmaxdelay() {
+  
+  if (excmaxdelay_ == nullptr) {
+    auto* p = CreateMaybeMessage<::service_layer::SLBgplsTopoFadExcMaxDelay>(GetArenaForAllocation());
+    excmaxdelay_ = p;
+  }
+  return excmaxdelay_;
+}
+inline ::service_layer::SLBgplsTopoFadExcMaxDelay* SLBgplsTopoFad::mutable_excmaxdelay() {
+  ::service_layer::SLBgplsTopoFadExcMaxDelay* _msg = _internal_mutable_excmaxdelay();
+  // @@protoc_insertion_point(field_mutable:service_layer.SLBgplsTopoFad.ExcMaxDelay)
+  return _msg;
+}
+inline void SLBgplsTopoFad::set_allocated_excmaxdelay(::service_layer::SLBgplsTopoFadExcMaxDelay* excmaxdelay) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete excmaxdelay_;
+  }
+  if (excmaxdelay) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper<::service_layer::SLBgplsTopoFadExcMaxDelay>::GetOwningArena(excmaxdelay);
+    if (message_arena != submessage_arena) {
+      excmaxdelay = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, excmaxdelay, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  excmaxdelay_ = excmaxdelay;
+  // @@protoc_insertion_point(field_set_allocated:service_layer.SLBgplsTopoFad.ExcMaxDelay)
 }
 
 // repeated uint32 ExcAnyRevAff = 10;
@@ -24824,26 +24881,26 @@ inline void SLBgplsTopoFadUnsuppTlv::set_allocated_types(std::string* types) {
 
 // -------------------------------------------------------------------
 
-// SLBgplsTopoAdminGroup
+// SLBgplsTopoFadExcMaxDelay
 
-// uint32 Group = 1;
-inline void SLBgplsTopoAdminGroup::clear_group() {
-  group_ = 0u;
+// uint32 Delay = 1;
+inline void SLBgplsTopoFadExcMaxDelay::clear_delay() {
+  delay_ = 0u;
 }
-inline uint32_t SLBgplsTopoAdminGroup::_internal_group() const {
-  return group_;
+inline uint32_t SLBgplsTopoFadExcMaxDelay::_internal_delay() const {
+  return delay_;
 }
-inline uint32_t SLBgplsTopoAdminGroup::group() const {
-  // @@protoc_insertion_point(field_get:service_layer.SLBgplsTopoAdminGroup.Group)
-  return _internal_group();
+inline uint32_t SLBgplsTopoFadExcMaxDelay::delay() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLBgplsTopoFadExcMaxDelay.Delay)
+  return _internal_delay();
 }
-inline void SLBgplsTopoAdminGroup::_internal_set_group(uint32_t value) {
+inline void SLBgplsTopoFadExcMaxDelay::_internal_set_delay(uint32_t value) {
   
-  group_ = value;
+  delay_ = value;
 }
-inline void SLBgplsTopoAdminGroup::set_group(uint32_t value) {
-  _internal_set_group(value);
-  // @@protoc_insertion_point(field_set:service_layer.SLBgplsTopoAdminGroup.Group)
+inline void SLBgplsTopoFadExcMaxDelay::set_delay(uint32_t value) {
+  _internal_set_delay(value);
+  // @@protoc_insertion_point(field_set:service_layer.SLBgplsTopoFadExcMaxDelay.Delay)
 }
 
 // -------------------------------------------------------------------
@@ -25193,24 +25250,51 @@ inline void SLBgplsTopoLinkIgpMetric::set_allocated_metric(std::string* metric) 
 
 // SLBgplsTopoLinkSrlg
 
-// uint32 SrlgVal = 1;
-inline void SLBgplsTopoLinkSrlg::clear_srlgval() {
-  srlgval_ = 0u;
+// repeated uint32 SrlgVal = 1;
+inline int SLBgplsTopoLinkSrlg::_internal_srlgval_size() const {
+  return srlgval_.size();
 }
-inline uint32_t SLBgplsTopoLinkSrlg::_internal_srlgval() const {
+inline int SLBgplsTopoLinkSrlg::srlgval_size() const {
+  return _internal_srlgval_size();
+}
+inline void SLBgplsTopoLinkSrlg::clear_srlgval() {
+  srlgval_.Clear();
+}
+inline uint32_t SLBgplsTopoLinkSrlg::_internal_srlgval(int index) const {
+  return srlgval_.Get(index);
+}
+inline uint32_t SLBgplsTopoLinkSrlg::srlgval(int index) const {
+  // @@protoc_insertion_point(field_get:service_layer.SLBgplsTopoLinkSrlg.SrlgVal)
+  return _internal_srlgval(index);
+}
+inline void SLBgplsTopoLinkSrlg::set_srlgval(int index, uint32_t value) {
+  srlgval_.Set(index, value);
+  // @@protoc_insertion_point(field_set:service_layer.SLBgplsTopoLinkSrlg.SrlgVal)
+}
+inline void SLBgplsTopoLinkSrlg::_internal_add_srlgval(uint32_t value) {
+  srlgval_.Add(value);
+}
+inline void SLBgplsTopoLinkSrlg::add_srlgval(uint32_t value) {
+  _internal_add_srlgval(value);
+  // @@protoc_insertion_point(field_add:service_layer.SLBgplsTopoLinkSrlg.SrlgVal)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+SLBgplsTopoLinkSrlg::_internal_srlgval() const {
   return srlgval_;
 }
-inline uint32_t SLBgplsTopoLinkSrlg::srlgval() const {
-  // @@protoc_insertion_point(field_get:service_layer.SLBgplsTopoLinkSrlg.SrlgVal)
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+SLBgplsTopoLinkSrlg::srlgval() const {
+  // @@protoc_insertion_point(field_list:service_layer.SLBgplsTopoLinkSrlg.SrlgVal)
   return _internal_srlgval();
 }
-inline void SLBgplsTopoLinkSrlg::_internal_set_srlgval(uint32_t value) {
-  
-  srlgval_ = value;
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+SLBgplsTopoLinkSrlg::_internal_mutable_srlgval() {
+  return &srlgval_;
 }
-inline void SLBgplsTopoLinkSrlg::set_srlgval(uint32_t value) {
-  _internal_set_srlgval(value);
-  // @@protoc_insertion_point(field_set:service_layer.SLBgplsTopoLinkSrlg.SrlgVal)
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+SLBgplsTopoLinkSrlg::mutable_srlgval() {
+  // @@protoc_insertion_point(field_mutable_list:service_layer.SLBgplsTopoLinkSrlg.SrlgVal)
+  return _internal_mutable_srlgval();
 }
 
 // -------------------------------------------------------------------
@@ -26849,96 +26933,6 @@ inline void SLBgplsTopoAslaAttr::set_allocated_udabm(std::string* udabm) {
   // @@protoc_insertion_point(field_set_allocated:service_layer.SLBgplsTopoAslaAttr.Udabm)
 }
 
-// .service_layer.SLBgplsTopoAdminGroup AdminGroup = 3;
-inline bool SLBgplsTopoAslaAttr::_internal_has_admingroup() const {
-  return this != internal_default_instance() && admingroup_ != nullptr;
-}
-inline bool SLBgplsTopoAslaAttr::has_admingroup() const {
-  return _internal_has_admingroup();
-}
-inline void SLBgplsTopoAslaAttr::clear_admingroup() {
-  if (GetArenaForAllocation() == nullptr && admingroup_ != nullptr) {
-    delete admingroup_;
-  }
-  admingroup_ = nullptr;
-}
-inline const ::service_layer::SLBgplsTopoAdminGroup& SLBgplsTopoAslaAttr::_internal_admingroup() const {
-  const ::service_layer::SLBgplsTopoAdminGroup* p = admingroup_;
-  return p != nullptr ? *p : reinterpret_cast<const ::service_layer::SLBgplsTopoAdminGroup&>(
-      ::service_layer::_SLBgplsTopoAdminGroup_default_instance_);
-}
-inline const ::service_layer::SLBgplsTopoAdminGroup& SLBgplsTopoAslaAttr::admingroup() const {
-  // @@protoc_insertion_point(field_get:service_layer.SLBgplsTopoAslaAttr.AdminGroup)
-  return _internal_admingroup();
-}
-inline void SLBgplsTopoAslaAttr::unsafe_arena_set_allocated_admingroup(
-    ::service_layer::SLBgplsTopoAdminGroup* admingroup) {
-  if (GetArenaForAllocation() == nullptr) {
-    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(admingroup_);
-  }
-  admingroup_ = admingroup;
-  if (admingroup) {
-    
-  } else {
-    
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:service_layer.SLBgplsTopoAslaAttr.AdminGroup)
-}
-inline ::service_layer::SLBgplsTopoAdminGroup* SLBgplsTopoAslaAttr::release_admingroup() {
-  
-  ::service_layer::SLBgplsTopoAdminGroup* temp = admingroup_;
-  admingroup_ = nullptr;
-#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
-  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
-  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-  if (GetArenaForAllocation() == nullptr) { delete old; }
-#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
-  if (GetArenaForAllocation() != nullptr) {
-    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-  }
-#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
-  return temp;
-}
-inline ::service_layer::SLBgplsTopoAdminGroup* SLBgplsTopoAslaAttr::unsafe_arena_release_admingroup() {
-  // @@protoc_insertion_point(field_release:service_layer.SLBgplsTopoAslaAttr.AdminGroup)
-  
-  ::service_layer::SLBgplsTopoAdminGroup* temp = admingroup_;
-  admingroup_ = nullptr;
-  return temp;
-}
-inline ::service_layer::SLBgplsTopoAdminGroup* SLBgplsTopoAslaAttr::_internal_mutable_admingroup() {
-  
-  if (admingroup_ == nullptr) {
-    auto* p = CreateMaybeMessage<::service_layer::SLBgplsTopoAdminGroup>(GetArenaForAllocation());
-    admingroup_ = p;
-  }
-  return admingroup_;
-}
-inline ::service_layer::SLBgplsTopoAdminGroup* SLBgplsTopoAslaAttr::mutable_admingroup() {
-  ::service_layer::SLBgplsTopoAdminGroup* _msg = _internal_mutable_admingroup();
-  // @@protoc_insertion_point(field_mutable:service_layer.SLBgplsTopoAslaAttr.AdminGroup)
-  return _msg;
-}
-inline void SLBgplsTopoAslaAttr::set_allocated_admingroup(::service_layer::SLBgplsTopoAdminGroup* admingroup) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
-  if (message_arena == nullptr) {
-    delete admingroup_;
-  }
-  if (admingroup) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-        ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper<::service_layer::SLBgplsTopoAdminGroup>::GetOwningArena(admingroup);
-    if (message_arena != submessage_arena) {
-      admingroup = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, admingroup, submessage_arena);
-    }
-    
-  } else {
-    
-  }
-  admingroup_ = admingroup;
-  // @@protoc_insertion_point(field_set_allocated:service_layer.SLBgplsTopoAslaAttr.AdminGroup)
-}
-
 // .service_layer.SLBgplsTopoLinkTeDefaultMetric TeDefMetric = 4;
 inline bool SLBgplsTopoAslaAttr::_internal_has_tedefmetric() const {
   return this != internal_default_instance() && tedefmetric_ != nullptr;
@@ -27029,44 +27023,94 @@ inline void SLBgplsTopoAslaAttr::set_allocated_tedefmetric(::service_layer::SLBg
   // @@protoc_insertion_point(field_set_allocated:service_layer.SLBgplsTopoAslaAttr.TeDefMetric)
 }
 
-// repeated .service_layer.SLBgplsTopoLinkSrlg Srlg = 5;
-inline int SLBgplsTopoAslaAttr::_internal_srlg_size() const {
-  return srlg_.size();
+// .service_layer.SLBgplsTopoLinkSrlg Srlg = 5;
+inline bool SLBgplsTopoAslaAttr::_internal_has_srlg() const {
+  return this != internal_default_instance() && srlg_ != nullptr;
 }
-inline int SLBgplsTopoAslaAttr::srlg_size() const {
-  return _internal_srlg_size();
+inline bool SLBgplsTopoAslaAttr::has_srlg() const {
+  return _internal_has_srlg();
 }
 inline void SLBgplsTopoAslaAttr::clear_srlg() {
-  srlg_.Clear();
+  if (GetArenaForAllocation() == nullptr && srlg_ != nullptr) {
+    delete srlg_;
+  }
+  srlg_ = nullptr;
 }
-inline ::service_layer::SLBgplsTopoLinkSrlg* SLBgplsTopoAslaAttr::mutable_srlg(int index) {
-  // @@protoc_insertion_point(field_mutable:service_layer.SLBgplsTopoAslaAttr.Srlg)
-  return srlg_.Mutable(index);
+inline const ::service_layer::SLBgplsTopoLinkSrlg& SLBgplsTopoAslaAttr::_internal_srlg() const {
+  const ::service_layer::SLBgplsTopoLinkSrlg* p = srlg_;
+  return p != nullptr ? *p : reinterpret_cast<const ::service_layer::SLBgplsTopoLinkSrlg&>(
+      ::service_layer::_SLBgplsTopoLinkSrlg_default_instance_);
 }
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::service_layer::SLBgplsTopoLinkSrlg >*
-SLBgplsTopoAslaAttr::mutable_srlg() {
-  // @@protoc_insertion_point(field_mutable_list:service_layer.SLBgplsTopoAslaAttr.Srlg)
-  return &srlg_;
-}
-inline const ::service_layer::SLBgplsTopoLinkSrlg& SLBgplsTopoAslaAttr::_internal_srlg(int index) const {
-  return srlg_.Get(index);
-}
-inline const ::service_layer::SLBgplsTopoLinkSrlg& SLBgplsTopoAslaAttr::srlg(int index) const {
+inline const ::service_layer::SLBgplsTopoLinkSrlg& SLBgplsTopoAslaAttr::srlg() const {
   // @@protoc_insertion_point(field_get:service_layer.SLBgplsTopoAslaAttr.Srlg)
-  return _internal_srlg(index);
+  return _internal_srlg();
 }
-inline ::service_layer::SLBgplsTopoLinkSrlg* SLBgplsTopoAslaAttr::_internal_add_srlg() {
-  return srlg_.Add();
+inline void SLBgplsTopoAslaAttr::unsafe_arena_set_allocated_srlg(
+    ::service_layer::SLBgplsTopoLinkSrlg* srlg) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(srlg_);
+  }
+  srlg_ = srlg;
+  if (srlg) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:service_layer.SLBgplsTopoAslaAttr.Srlg)
 }
-inline ::service_layer::SLBgplsTopoLinkSrlg* SLBgplsTopoAslaAttr::add_srlg() {
-  ::service_layer::SLBgplsTopoLinkSrlg* _add = _internal_add_srlg();
-  // @@protoc_insertion_point(field_add:service_layer.SLBgplsTopoAslaAttr.Srlg)
-  return _add;
+inline ::service_layer::SLBgplsTopoLinkSrlg* SLBgplsTopoAslaAttr::release_srlg() {
+  
+  ::service_layer::SLBgplsTopoLinkSrlg* temp = srlg_;
+  srlg_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
 }
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::service_layer::SLBgplsTopoLinkSrlg >&
-SLBgplsTopoAslaAttr::srlg() const {
-  // @@protoc_insertion_point(field_list:service_layer.SLBgplsTopoAslaAttr.Srlg)
+inline ::service_layer::SLBgplsTopoLinkSrlg* SLBgplsTopoAslaAttr::unsafe_arena_release_srlg() {
+  // @@protoc_insertion_point(field_release:service_layer.SLBgplsTopoAslaAttr.Srlg)
+  
+  ::service_layer::SLBgplsTopoLinkSrlg* temp = srlg_;
+  srlg_ = nullptr;
+  return temp;
+}
+inline ::service_layer::SLBgplsTopoLinkSrlg* SLBgplsTopoAslaAttr::_internal_mutable_srlg() {
+  
+  if (srlg_ == nullptr) {
+    auto* p = CreateMaybeMessage<::service_layer::SLBgplsTopoLinkSrlg>(GetArenaForAllocation());
+    srlg_ = p;
+  }
   return srlg_;
+}
+inline ::service_layer::SLBgplsTopoLinkSrlg* SLBgplsTopoAslaAttr::mutable_srlg() {
+  ::service_layer::SLBgplsTopoLinkSrlg* _msg = _internal_mutable_srlg();
+  // @@protoc_insertion_point(field_mutable:service_layer.SLBgplsTopoAslaAttr.Srlg)
+  return _msg;
+}
+inline void SLBgplsTopoAslaAttr::set_allocated_srlg(::service_layer::SLBgplsTopoLinkSrlg* srlg) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete srlg_;
+  }
+  if (srlg) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper<::service_layer::SLBgplsTopoLinkSrlg>::GetOwningArena(srlg);
+    if (message_arena != submessage_arena) {
+      srlg = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, srlg, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  srlg_ = srlg;
+  // @@protoc_insertion_point(field_set_allocated:service_layer.SLBgplsTopoAslaAttr.Srlg)
 }
 
 // .service_layer.SLBgplsTopoUniLinkDelay UniLinkDelay = 6;
@@ -27699,44 +27743,94 @@ inline void SLBgplsTopoAslaAttr::set_allocated_uniutilbandwidth(::service_layer:
   // @@protoc_insertion_point(field_set_allocated:service_layer.SLBgplsTopoAslaAttr.UniUtilBandwidth)
 }
 
-// repeated .service_layer.SLBgplsTopoExtAdminGroup ExtAdminGroup = 13;
-inline int SLBgplsTopoAslaAttr::_internal_extadmingroup_size() const {
-  return extadmingroup_.size();
+// .service_layer.SLBgplsTopoExtAdminGroup ExtAdminGroup = 13;
+inline bool SLBgplsTopoAslaAttr::_internal_has_extadmingroup() const {
+  return this != internal_default_instance() && extadmingroup_ != nullptr;
 }
-inline int SLBgplsTopoAslaAttr::extadmingroup_size() const {
-  return _internal_extadmingroup_size();
+inline bool SLBgplsTopoAslaAttr::has_extadmingroup() const {
+  return _internal_has_extadmingroup();
 }
 inline void SLBgplsTopoAslaAttr::clear_extadmingroup() {
-  extadmingroup_.Clear();
+  if (GetArenaForAllocation() == nullptr && extadmingroup_ != nullptr) {
+    delete extadmingroup_;
+  }
+  extadmingroup_ = nullptr;
 }
-inline ::service_layer::SLBgplsTopoExtAdminGroup* SLBgplsTopoAslaAttr::mutable_extadmingroup(int index) {
-  // @@protoc_insertion_point(field_mutable:service_layer.SLBgplsTopoAslaAttr.ExtAdminGroup)
-  return extadmingroup_.Mutable(index);
+inline const ::service_layer::SLBgplsTopoExtAdminGroup& SLBgplsTopoAslaAttr::_internal_extadmingroup() const {
+  const ::service_layer::SLBgplsTopoExtAdminGroup* p = extadmingroup_;
+  return p != nullptr ? *p : reinterpret_cast<const ::service_layer::SLBgplsTopoExtAdminGroup&>(
+      ::service_layer::_SLBgplsTopoExtAdminGroup_default_instance_);
 }
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::service_layer::SLBgplsTopoExtAdminGroup >*
-SLBgplsTopoAslaAttr::mutable_extadmingroup() {
-  // @@protoc_insertion_point(field_mutable_list:service_layer.SLBgplsTopoAslaAttr.ExtAdminGroup)
-  return &extadmingroup_;
-}
-inline const ::service_layer::SLBgplsTopoExtAdminGroup& SLBgplsTopoAslaAttr::_internal_extadmingroup(int index) const {
-  return extadmingroup_.Get(index);
-}
-inline const ::service_layer::SLBgplsTopoExtAdminGroup& SLBgplsTopoAslaAttr::extadmingroup(int index) const {
+inline const ::service_layer::SLBgplsTopoExtAdminGroup& SLBgplsTopoAslaAttr::extadmingroup() const {
   // @@protoc_insertion_point(field_get:service_layer.SLBgplsTopoAslaAttr.ExtAdminGroup)
-  return _internal_extadmingroup(index);
+  return _internal_extadmingroup();
 }
-inline ::service_layer::SLBgplsTopoExtAdminGroup* SLBgplsTopoAslaAttr::_internal_add_extadmingroup() {
-  return extadmingroup_.Add();
+inline void SLBgplsTopoAslaAttr::unsafe_arena_set_allocated_extadmingroup(
+    ::service_layer::SLBgplsTopoExtAdminGroup* extadmingroup) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(extadmingroup_);
+  }
+  extadmingroup_ = extadmingroup;
+  if (extadmingroup) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:service_layer.SLBgplsTopoAslaAttr.ExtAdminGroup)
 }
-inline ::service_layer::SLBgplsTopoExtAdminGroup* SLBgplsTopoAslaAttr::add_extadmingroup() {
-  ::service_layer::SLBgplsTopoExtAdminGroup* _add = _internal_add_extadmingroup();
-  // @@protoc_insertion_point(field_add:service_layer.SLBgplsTopoAslaAttr.ExtAdminGroup)
-  return _add;
+inline ::service_layer::SLBgplsTopoExtAdminGroup* SLBgplsTopoAslaAttr::release_extadmingroup() {
+  
+  ::service_layer::SLBgplsTopoExtAdminGroup* temp = extadmingroup_;
+  extadmingroup_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
 }
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::service_layer::SLBgplsTopoExtAdminGroup >&
-SLBgplsTopoAslaAttr::extadmingroup() const {
-  // @@protoc_insertion_point(field_list:service_layer.SLBgplsTopoAslaAttr.ExtAdminGroup)
+inline ::service_layer::SLBgplsTopoExtAdminGroup* SLBgplsTopoAslaAttr::unsafe_arena_release_extadmingroup() {
+  // @@protoc_insertion_point(field_release:service_layer.SLBgplsTopoAslaAttr.ExtAdminGroup)
+  
+  ::service_layer::SLBgplsTopoExtAdminGroup* temp = extadmingroup_;
+  extadmingroup_ = nullptr;
+  return temp;
+}
+inline ::service_layer::SLBgplsTopoExtAdminGroup* SLBgplsTopoAslaAttr::_internal_mutable_extadmingroup() {
+  
+  if (extadmingroup_ == nullptr) {
+    auto* p = CreateMaybeMessage<::service_layer::SLBgplsTopoExtAdminGroup>(GetArenaForAllocation());
+    extadmingroup_ = p;
+  }
   return extadmingroup_;
+}
+inline ::service_layer::SLBgplsTopoExtAdminGroup* SLBgplsTopoAslaAttr::mutable_extadmingroup() {
+  ::service_layer::SLBgplsTopoExtAdminGroup* _msg = _internal_mutable_extadmingroup();
+  // @@protoc_insertion_point(field_mutable:service_layer.SLBgplsTopoAslaAttr.ExtAdminGroup)
+  return _msg;
+}
+inline void SLBgplsTopoAslaAttr::set_allocated_extadmingroup(::service_layer::SLBgplsTopoExtAdminGroup* extadmingroup) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete extadmingroup_;
+  }
+  if (extadmingroup) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper<::service_layer::SLBgplsTopoExtAdminGroup>::GetOwningArena(extadmingroup);
+    if (message_arena != submessage_arena) {
+      extadmingroup = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, extadmingroup, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  extadmingroup_ = extadmingroup;
+  // @@protoc_insertion_point(field_set_allocated:service_layer.SLBgplsTopoAslaAttr.ExtAdminGroup)
 }
 
 // repeated .service_layer.SLBgplsTopoUnknownAttr UnknownAttr = 14;
@@ -28673,96 +28767,6 @@ inline void SLBgplsTopoL2BundleMemberAttr::_internal_set_memberdesc(uint32_t val
 inline void SLBgplsTopoL2BundleMemberAttr::set_memberdesc(uint32_t value) {
   _internal_set_memberdesc(value);
   // @@protoc_insertion_point(field_set:service_layer.SLBgplsTopoL2BundleMemberAttr.MemberDesc)
-}
-
-// .service_layer.SLBgplsTopoAdminGroup AdminGroup = 2;
-inline bool SLBgplsTopoL2BundleMemberAttr::_internal_has_admingroup() const {
-  return this != internal_default_instance() && admingroup_ != nullptr;
-}
-inline bool SLBgplsTopoL2BundleMemberAttr::has_admingroup() const {
-  return _internal_has_admingroup();
-}
-inline void SLBgplsTopoL2BundleMemberAttr::clear_admingroup() {
-  if (GetArenaForAllocation() == nullptr && admingroup_ != nullptr) {
-    delete admingroup_;
-  }
-  admingroup_ = nullptr;
-}
-inline const ::service_layer::SLBgplsTopoAdminGroup& SLBgplsTopoL2BundleMemberAttr::_internal_admingroup() const {
-  const ::service_layer::SLBgplsTopoAdminGroup* p = admingroup_;
-  return p != nullptr ? *p : reinterpret_cast<const ::service_layer::SLBgplsTopoAdminGroup&>(
-      ::service_layer::_SLBgplsTopoAdminGroup_default_instance_);
-}
-inline const ::service_layer::SLBgplsTopoAdminGroup& SLBgplsTopoL2BundleMemberAttr::admingroup() const {
-  // @@protoc_insertion_point(field_get:service_layer.SLBgplsTopoL2BundleMemberAttr.AdminGroup)
-  return _internal_admingroup();
-}
-inline void SLBgplsTopoL2BundleMemberAttr::unsafe_arena_set_allocated_admingroup(
-    ::service_layer::SLBgplsTopoAdminGroup* admingroup) {
-  if (GetArenaForAllocation() == nullptr) {
-    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(admingroup_);
-  }
-  admingroup_ = admingroup;
-  if (admingroup) {
-    
-  } else {
-    
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:service_layer.SLBgplsTopoL2BundleMemberAttr.AdminGroup)
-}
-inline ::service_layer::SLBgplsTopoAdminGroup* SLBgplsTopoL2BundleMemberAttr::release_admingroup() {
-  
-  ::service_layer::SLBgplsTopoAdminGroup* temp = admingroup_;
-  admingroup_ = nullptr;
-#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
-  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
-  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-  if (GetArenaForAllocation() == nullptr) { delete old; }
-#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
-  if (GetArenaForAllocation() != nullptr) {
-    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-  }
-#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
-  return temp;
-}
-inline ::service_layer::SLBgplsTopoAdminGroup* SLBgplsTopoL2BundleMemberAttr::unsafe_arena_release_admingroup() {
-  // @@protoc_insertion_point(field_release:service_layer.SLBgplsTopoL2BundleMemberAttr.AdminGroup)
-  
-  ::service_layer::SLBgplsTopoAdminGroup* temp = admingroup_;
-  admingroup_ = nullptr;
-  return temp;
-}
-inline ::service_layer::SLBgplsTopoAdminGroup* SLBgplsTopoL2BundleMemberAttr::_internal_mutable_admingroup() {
-  
-  if (admingroup_ == nullptr) {
-    auto* p = CreateMaybeMessage<::service_layer::SLBgplsTopoAdminGroup>(GetArenaForAllocation());
-    admingroup_ = p;
-  }
-  return admingroup_;
-}
-inline ::service_layer::SLBgplsTopoAdminGroup* SLBgplsTopoL2BundleMemberAttr::mutable_admingroup() {
-  ::service_layer::SLBgplsTopoAdminGroup* _msg = _internal_mutable_admingroup();
-  // @@protoc_insertion_point(field_mutable:service_layer.SLBgplsTopoL2BundleMemberAttr.AdminGroup)
-  return _msg;
-}
-inline void SLBgplsTopoL2BundleMemberAttr::set_allocated_admingroup(::service_layer::SLBgplsTopoAdminGroup* admingroup) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
-  if (message_arena == nullptr) {
-    delete admingroup_;
-  }
-  if (admingroup) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-        ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper<::service_layer::SLBgplsTopoAdminGroup>::GetOwningArena(admingroup);
-    if (message_arena != submessage_arena) {
-      admingroup = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, admingroup, submessage_arena);
-    }
-    
-  } else {
-    
-  }
-  admingroup_ = admingroup;
-  // @@protoc_insertion_point(field_set_allocated:service_layer.SLBgplsTopoL2BundleMemberAttr.AdminGroup)
 }
 
 // .service_layer.SLBgplsTopoLinkMaxBandwidth MaxBandwidth = 3;
@@ -29915,44 +29919,94 @@ SLBgplsTopoL2BundleMemberAttr::asla() const {
   return asla_;
 }
 
-// repeated .service_layer.SLBgplsTopoExtAdminGroup ExtAdminGroup = 18;
-inline int SLBgplsTopoL2BundleMemberAttr::_internal_extadmingroup_size() const {
-  return extadmingroup_.size();
+// .service_layer.SLBgplsTopoExtAdminGroup ExtAdminGroup = 18;
+inline bool SLBgplsTopoL2BundleMemberAttr::_internal_has_extadmingroup() const {
+  return this != internal_default_instance() && extadmingroup_ != nullptr;
 }
-inline int SLBgplsTopoL2BundleMemberAttr::extadmingroup_size() const {
-  return _internal_extadmingroup_size();
+inline bool SLBgplsTopoL2BundleMemberAttr::has_extadmingroup() const {
+  return _internal_has_extadmingroup();
 }
 inline void SLBgplsTopoL2BundleMemberAttr::clear_extadmingroup() {
-  extadmingroup_.Clear();
+  if (GetArenaForAllocation() == nullptr && extadmingroup_ != nullptr) {
+    delete extadmingroup_;
+  }
+  extadmingroup_ = nullptr;
 }
-inline ::service_layer::SLBgplsTopoExtAdminGroup* SLBgplsTopoL2BundleMemberAttr::mutable_extadmingroup(int index) {
-  // @@protoc_insertion_point(field_mutable:service_layer.SLBgplsTopoL2BundleMemberAttr.ExtAdminGroup)
-  return extadmingroup_.Mutable(index);
+inline const ::service_layer::SLBgplsTopoExtAdminGroup& SLBgplsTopoL2BundleMemberAttr::_internal_extadmingroup() const {
+  const ::service_layer::SLBgplsTopoExtAdminGroup* p = extadmingroup_;
+  return p != nullptr ? *p : reinterpret_cast<const ::service_layer::SLBgplsTopoExtAdminGroup&>(
+      ::service_layer::_SLBgplsTopoExtAdminGroup_default_instance_);
 }
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::service_layer::SLBgplsTopoExtAdminGroup >*
-SLBgplsTopoL2BundleMemberAttr::mutable_extadmingroup() {
-  // @@protoc_insertion_point(field_mutable_list:service_layer.SLBgplsTopoL2BundleMemberAttr.ExtAdminGroup)
-  return &extadmingroup_;
-}
-inline const ::service_layer::SLBgplsTopoExtAdminGroup& SLBgplsTopoL2BundleMemberAttr::_internal_extadmingroup(int index) const {
-  return extadmingroup_.Get(index);
-}
-inline const ::service_layer::SLBgplsTopoExtAdminGroup& SLBgplsTopoL2BundleMemberAttr::extadmingroup(int index) const {
+inline const ::service_layer::SLBgplsTopoExtAdminGroup& SLBgplsTopoL2BundleMemberAttr::extadmingroup() const {
   // @@protoc_insertion_point(field_get:service_layer.SLBgplsTopoL2BundleMemberAttr.ExtAdminGroup)
-  return _internal_extadmingroup(index);
+  return _internal_extadmingroup();
 }
-inline ::service_layer::SLBgplsTopoExtAdminGroup* SLBgplsTopoL2BundleMemberAttr::_internal_add_extadmingroup() {
-  return extadmingroup_.Add();
+inline void SLBgplsTopoL2BundleMemberAttr::unsafe_arena_set_allocated_extadmingroup(
+    ::service_layer::SLBgplsTopoExtAdminGroup* extadmingroup) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(extadmingroup_);
+  }
+  extadmingroup_ = extadmingroup;
+  if (extadmingroup) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:service_layer.SLBgplsTopoL2BundleMemberAttr.ExtAdminGroup)
 }
-inline ::service_layer::SLBgplsTopoExtAdminGroup* SLBgplsTopoL2BundleMemberAttr::add_extadmingroup() {
-  ::service_layer::SLBgplsTopoExtAdminGroup* _add = _internal_add_extadmingroup();
-  // @@protoc_insertion_point(field_add:service_layer.SLBgplsTopoL2BundleMemberAttr.ExtAdminGroup)
-  return _add;
+inline ::service_layer::SLBgplsTopoExtAdminGroup* SLBgplsTopoL2BundleMemberAttr::release_extadmingroup() {
+  
+  ::service_layer::SLBgplsTopoExtAdminGroup* temp = extadmingroup_;
+  extadmingroup_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
 }
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::service_layer::SLBgplsTopoExtAdminGroup >&
-SLBgplsTopoL2BundleMemberAttr::extadmingroup() const {
-  // @@protoc_insertion_point(field_list:service_layer.SLBgplsTopoL2BundleMemberAttr.ExtAdminGroup)
+inline ::service_layer::SLBgplsTopoExtAdminGroup* SLBgplsTopoL2BundleMemberAttr::unsafe_arena_release_extadmingroup() {
+  // @@protoc_insertion_point(field_release:service_layer.SLBgplsTopoL2BundleMemberAttr.ExtAdminGroup)
+  
+  ::service_layer::SLBgplsTopoExtAdminGroup* temp = extadmingroup_;
+  extadmingroup_ = nullptr;
+  return temp;
+}
+inline ::service_layer::SLBgplsTopoExtAdminGroup* SLBgplsTopoL2BundleMemberAttr::_internal_mutable_extadmingroup() {
+  
+  if (extadmingroup_ == nullptr) {
+    auto* p = CreateMaybeMessage<::service_layer::SLBgplsTopoExtAdminGroup>(GetArenaForAllocation());
+    extadmingroup_ = p;
+  }
   return extadmingroup_;
+}
+inline ::service_layer::SLBgplsTopoExtAdminGroup* SLBgplsTopoL2BundleMemberAttr::mutable_extadmingroup() {
+  ::service_layer::SLBgplsTopoExtAdminGroup* _msg = _internal_mutable_extadmingroup();
+  // @@protoc_insertion_point(field_mutable:service_layer.SLBgplsTopoL2BundleMemberAttr.ExtAdminGroup)
+  return _msg;
+}
+inline void SLBgplsTopoL2BundleMemberAttr::set_allocated_extadmingroup(::service_layer::SLBgplsTopoExtAdminGroup* extadmingroup) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete extadmingroup_;
+  }
+  if (extadmingroup) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper<::service_layer::SLBgplsTopoExtAdminGroup>::GetOwningArena(extadmingroup);
+    if (message_arena != submessage_arena) {
+      extadmingroup = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, extadmingroup, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  extadmingroup_ = extadmingroup;
+  // @@protoc_insertion_point(field_set_allocated:service_layer.SLBgplsTopoL2BundleMemberAttr.ExtAdminGroup)
 }
 
 // repeated .service_layer.SLBgplsTopoUnknownAttr UnknownAttr = 19;
@@ -29999,24 +30053,51 @@ SLBgplsTopoL2BundleMemberAttr::unknownattr() const {
 
 // SLBgplsTopoExtAdminGroup
 
-// uint32 Group = 1;
-inline void SLBgplsTopoExtAdminGroup::clear_group() {
-  group_ = 0u;
+// repeated uint32 Group = 1;
+inline int SLBgplsTopoExtAdminGroup::_internal_group_size() const {
+  return group_.size();
 }
-inline uint32_t SLBgplsTopoExtAdminGroup::_internal_group() const {
+inline int SLBgplsTopoExtAdminGroup::group_size() const {
+  return _internal_group_size();
+}
+inline void SLBgplsTopoExtAdminGroup::clear_group() {
+  group_.Clear();
+}
+inline uint32_t SLBgplsTopoExtAdminGroup::_internal_group(int index) const {
+  return group_.Get(index);
+}
+inline uint32_t SLBgplsTopoExtAdminGroup::group(int index) const {
+  // @@protoc_insertion_point(field_get:service_layer.SLBgplsTopoExtAdminGroup.Group)
+  return _internal_group(index);
+}
+inline void SLBgplsTopoExtAdminGroup::set_group(int index, uint32_t value) {
+  group_.Set(index, value);
+  // @@protoc_insertion_point(field_set:service_layer.SLBgplsTopoExtAdminGroup.Group)
+}
+inline void SLBgplsTopoExtAdminGroup::_internal_add_group(uint32_t value) {
+  group_.Add(value);
+}
+inline void SLBgplsTopoExtAdminGroup::add_group(uint32_t value) {
+  _internal_add_group(value);
+  // @@protoc_insertion_point(field_add:service_layer.SLBgplsTopoExtAdminGroup.Group)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+SLBgplsTopoExtAdminGroup::_internal_group() const {
   return group_;
 }
-inline uint32_t SLBgplsTopoExtAdminGroup::group() const {
-  // @@protoc_insertion_point(field_get:service_layer.SLBgplsTopoExtAdminGroup.Group)
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+SLBgplsTopoExtAdminGroup::group() const {
+  // @@protoc_insertion_point(field_list:service_layer.SLBgplsTopoExtAdminGroup.Group)
   return _internal_group();
 }
-inline void SLBgplsTopoExtAdminGroup::_internal_set_group(uint32_t value) {
-  
-  group_ = value;
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+SLBgplsTopoExtAdminGroup::_internal_mutable_group() {
+  return &group_;
 }
-inline void SLBgplsTopoExtAdminGroup::set_group(uint32_t value) {
-  _internal_set_group(value);
-  // @@protoc_insertion_point(field_set:service_layer.SLBgplsTopoExtAdminGroup.Group)
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+SLBgplsTopoExtAdminGroup::mutable_group() {
+  // @@protoc_insertion_point(field_mutable_list:service_layer.SLBgplsTopoExtAdminGroup.Group)
+  return _internal_mutable_group();
 }
 
 // -------------------------------------------------------------------
