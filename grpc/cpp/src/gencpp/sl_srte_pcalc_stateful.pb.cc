@@ -215,7 +215,7 @@ constexpr ConstraintSet::ConstraintSet(
   , affinities_(nullptr)
   , path_diversity_(nullptr)
   , corouted_association_(nullptr)
-  , max_segments_(0u)
+  , maximum_sid_depth_(0u)
   , guaranteed_bandwidth_(0u)
   , strict_path_segments_(false)
   , unprotected_segments_(false)
@@ -392,7 +392,7 @@ const uint32_t TableStruct_sl_5fsrte_5fpcalc_5fstateful_2eproto::offsets[] PROTO
   PROTOBUF_FIELD_OFFSET(::service_layer::ConstraintSet, strict_path_segments_),
   PROTOBUF_FIELD_OFFSET(::service_layer::ConstraintSet, unprotected_segments_),
   PROTOBUF_FIELD_OFFSET(::service_layer::ConstraintSet, persistent_segments_),
-  PROTOBUF_FIELD_OFFSET(::service_layer::ConstraintSet, max_segments_),
+  PROTOBUF_FIELD_OFFSET(::service_layer::ConstraintSet, maximum_sid_depth_),
   ~0u,
   ~0u,
   ~0u,
@@ -509,7 +509,7 @@ const char descriptor_table_protodef_sl_5fsrte_5fpcalc_5fstateful_2eproto[] PROT
   "LevelH\000\210\001\001B\034\n\032_effective_diversity_level"
   "\032R\n\017SLSrtePathError\022*\n\004type\030\001 \001(\0132\034.serv"
   "ice_layer.SLErrorStatus\022\023\n\013description\030\002"
-  " \001(\tB\017\n\rresponse_type\"\316\005\n\rConstraintSet\022"
+  " \001(\tB\017\n\rresponse_type\"\323\005\n\rConstraintSet\022"
   "1\n\naffinities\030\001 \001(\0132\035.service_layer.SLSr"
   "Affinities\022\024\n\014srlg_exclude\030\004 \003(\r\022.\n\nip_e"
   "xclude\030\005 \003(\0132\032.service_layer.SLIpAddress"
@@ -519,22 +519,22 @@ const char descriptor_table_protodef_sl_5fsrte_5fpcalc_5fstateful_2eproto[] PROT
   "AssociationGroupH\001\210\001\001\022\034\n\024guaranteed_band"
   "width\030g \001(\r\022\035\n\024strict_path_segments\030\311\001 \001"
   "(\010\022\035\n\024unprotected_segments\030\312\001 \001(\010\022\034\n\023per"
-  "sistent_segments\030\313\001 \001(\010\022\025\n\014max_segments\030"
-  "\314\001 \001(\r\032\371\001\n\rPathDiversity\0224\n\013association\030"
-  "\001 \001(\0132\037.service_layer.AssociationGroup\022<"
-  "\n\017diversity_level\030\002 \001(\0162#.service_layer."
-  "SLSrteDiversityLevel\022E\n\023min_diversity_le"
-  "vel\030\003 \001(\0162#.service_layer.SLSrteDiversit"
-  "yLevelH\000\210\001\001\022\025\n\rshortest_path\030\004 \001(\010B\026\n\024_m"
-  "in_diversity_levelB\021\n\017_path_diversityB\027\n"
-  "\025_corouted_association\"*\n\020AssociationGro"
-  "up\022\026\n\016association_id\030\001 \001(\r2\202\001\n\022SLSrteCal"
-  "cStateful\022l\n\021SLSrtePathCompute\022(.service"
-  "_layer.SLSrtePathComputeRequests\032).servi"
-  "ce_layer.SLSrtePathComputeResponses(\0010\001B"
-  "QZOgithub.com/Cisco-service-layer/servic"
-  "e-layer-objmodel/grpc/protos;service_lay"
-  "erb\006proto3"
+  "sistent_segments\030\313\001 \001(\010\022\032\n\021maximum_sid_d"
+  "epth\030\314\001 \001(\r\032\371\001\n\rPathDiversity\0224\n\013associa"
+  "tion\030\001 \001(\0132\037.service_layer.AssociationGr"
+  "oup\022<\n\017diversity_level\030\002 \001(\0162#.service_l"
+  "ayer.SLSrteDiversityLevel\022E\n\023min_diversi"
+  "ty_level\030\003 \001(\0162#.service_layer.SLSrteDiv"
+  "ersityLevelH\000\210\001\001\022\025\n\rshortest_path\030\004 \001(\010B"
+  "\026\n\024_min_diversity_levelB\021\n\017_path_diversi"
+  "tyB\027\n\025_corouted_association\"*\n\020Associati"
+  "onGroup\022\026\n\016association_id\030\001 \001(\r2\202\001\n\022SLSr"
+  "teCalcStateful\022l\n\021SLSrtePathCompute\022(.se"
+  "rvice_layer.SLSrtePathComputeRequests\032)."
+  "service_layer.SLSrtePathComputeResponses"
+  "(\0010\001BQZOgithub.com/Cisco-service-layer/s"
+  "ervice-layer-objmodel/grpc/protos;servic"
+  "e_layerb\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_sl_5fsrte_5fpcalc_5fstateful_2eproto_deps[2] = {
   &::descriptor_table_sl_5fcommon_5ftypes_2eproto,
@@ -542,7 +542,7 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_sl_5fsrte_5fpcalc_5fstateful_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_sl_5fsrte_5fpcalc_5fstateful_2eproto = {
-  false, false, 3370, descriptor_table_protodef_sl_5fsrte_5fpcalc_5fstateful_2eproto, "sl_srte_pcalc_stateful.proto", 
+  false, false, 3375, descriptor_table_protodef_sl_5fsrte_5fpcalc_5fstateful_2eproto, "sl_srte_pcalc_stateful.proto", 
   &descriptor_table_sl_5fsrte_5fpcalc_5fstateful_2eproto_once, descriptor_table_sl_5fsrte_5fpcalc_5fstateful_2eproto_deps, 2, 16,
   schemas, file_default_instances, TableStruct_sl_5fsrte_5fpcalc_5fstateful_2eproto::offsets,
   file_level_metadata_sl_5fsrte_5fpcalc_5fstateful_2eproto, file_level_enum_descriptors_sl_5fsrte_5fpcalc_5fstateful_2eproto, file_level_service_descriptors_sl_5fsrte_5fpcalc_5fstateful_2eproto,
@@ -4300,9 +4300,9 @@ ConstraintSet::ConstraintSet(const ConstraintSet& from)
   } else {
     corouted_association_ = nullptr;
   }
-  ::memcpy(&max_segments_, &from.max_segments_,
+  ::memcpy(&maximum_sid_depth_, &from.maximum_sid_depth_,
     static_cast<size_t>(reinterpret_cast<char*>(&persistent_segments_) -
-    reinterpret_cast<char*>(&max_segments_)) + sizeof(persistent_segments_));
+    reinterpret_cast<char*>(&maximum_sid_depth_)) + sizeof(persistent_segments_));
   // @@protoc_insertion_point(copy_constructor:service_layer.ConstraintSet)
 }
 
@@ -4360,9 +4360,9 @@ void ConstraintSet::Clear() {
       corouted_association_->Clear();
     }
   }
-  ::memset(&max_segments_, 0, static_cast<size_t>(
+  ::memset(&maximum_sid_depth_, 0, static_cast<size_t>(
       reinterpret_cast<char*>(&persistent_segments_) -
-      reinterpret_cast<char*>(&max_segments_)) + sizeof(persistent_segments_));
+      reinterpret_cast<char*>(&maximum_sid_depth_)) + sizeof(persistent_segments_));
   _has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
@@ -4454,10 +4454,10 @@ const char* ConstraintSet::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_
         } else
           goto handle_unusual;
         continue;
-      // uint32 max_segments = 204;
+      // uint32 maximum_sid_depth = 204;
       case 204:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 96)) {
-          max_segments_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          maximum_sid_depth_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -4557,10 +4557,10 @@ uint8_t* ConstraintSet::_InternalSerialize(
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(203, this->_internal_persistent_segments(), target);
   }
 
-  // uint32 max_segments = 204;
-  if (this->_internal_max_segments() != 0) {
+  // uint32 maximum_sid_depth = 204;
+  if (this->_internal_maximum_sid_depth() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(204, this->_internal_max_segments(), target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(204, this->_internal_maximum_sid_depth(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -4625,11 +4625,11 @@ size_t ConstraintSet::ByteSizeLong() const {
     }
 
   }
-  // uint32 max_segments = 204;
-  if (this->_internal_max_segments() != 0) {
+  // uint32 maximum_sid_depth = 204;
+  if (this->_internal_maximum_sid_depth() != 0) {
     total_size += 2 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
-        this->_internal_max_segments());
+        this->_internal_maximum_sid_depth());
   }
 
   // uint32 guaranteed_bandwidth = 103;
@@ -4690,8 +4690,8 @@ void ConstraintSet::MergeFrom(const ConstraintSet& from) {
       _internal_mutable_corouted_association()->::service_layer::AssociationGroup::MergeFrom(from._internal_corouted_association());
     }
   }
-  if (from._internal_max_segments() != 0) {
-    _internal_set_max_segments(from._internal_max_segments());
+  if (from._internal_maximum_sid_depth() != 0) {
+    _internal_set_maximum_sid_depth(from._internal_maximum_sid_depth());
   }
   if (from._internal_guaranteed_bandwidth() != 0) {
     _internal_set_guaranteed_bandwidth(from._internal_guaranteed_bandwidth());

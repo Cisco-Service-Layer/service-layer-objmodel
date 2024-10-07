@@ -27,59 +27,58 @@ namespace ServiceLayer {
             "ChRzbF9zcnRlX3BvbGljeS5wcm90bxINc2VydmljZV9sYXllchoVc2xfY29t",
             "bW9uX3R5cGVzLnByb3RvGhJzbF9zcl9jb21tb24ucHJvdG8iRQoOU0xTckV4",
             "cGxpY2l0Q1ASMwoLc2VnbWVudExpc3QYASADKAsyHi5zZXJ2aWNlX2xheWVy",
-            "LlNMU3JTZWdtZW50TGlzdCLFAwoPU0xTckNvbnN0cmFpbnRzEjEKCmFmZmlu",
+            "LlNMU3JTZWdtZW50TGlzdCLUAwoPU0xTckNvbnN0cmFpbnRzEjEKCmFmZmlu",
             "aXRpZXMYASABKAsyHS5zZXJ2aWNlX2xheWVyLlNMU3JBZmZpbml0aWVzEjUK",
             "DG1ldHJpY0JvdW5kcxgCIAEoCzIfLnNlcnZpY2VfbGF5ZXIuU0xTck1ldHJp",
-            "Y0JvdW5kcxJNChJzZWdtZW50Q29uc3RyYWludHMYAyABKAsyMS5zZXJ2aWNl",
-            "X2xheWVyLlNMU3JDb25zdHJhaW50cy5TZWdtZW50Q29uc3RyYWludHMa+AEK",
-            "ElNlZ21lbnRDb25zdHJhaW50cxJUCgpwcm90ZWN0aW9uGAEgASgOMkAuc2Vy",
-            "dmljZV9sYXllci5TTFNyQ29uc3RyYWludHMuU2VnbWVudENvbnN0cmFpbnRz",
-            "LlByb3RlY3Rpb25UeXBlEg8KB3NpZGFsZ28YAiABKA0SCwoDTVNEGAMgASgN",
-            "Im4KDlByb3RlY3Rpb25UeXBlEhcKE1BST1RFQ1RFRF9QUkVGRVJSRUQQABIS",
-            "Cg5QUk9URUNURURfT05MWRABEhkKFVVOUFJPVEVDVEVEX1BSRUZFUlJFRBAC",
-            "EhQKEFVOUFJPVEVDVEVEX09OTFkQAyK9AQoNU0xTckR5bmFtaWNDUBIuCgdv",
-            "bWV0cmljGAEgASgOMh0uc2VydmljZV9sYXllci5TTFNyTWV0cmljVHlwZRIz",
-            "Cgtjb25zdHJhaW50cxgCIAEoCzIeLnNlcnZpY2VfbGF5ZXIuU0xTckNvbnN0",
-            "cmFpbnRzEjUKDG1ldHJpY01hcmdpbhgDIAEoCzIfLnNlcnZpY2VfbGF5ZXIu",
-            "U0xTck1ldHJpY01hcmdpbhIQCghkZWxlZ2F0ZRgEIAEoCCKCAgoRU0xTckNh",
-            "bmRpZGF0ZVBhdGgSMAoDa2V5GAEgASgLMiMuc2VydmljZV9sYXllci5TTFNy",
-            "Q2FuZGlkYXRlUGF0aEtleRIMCgRuYW1lGAIgASgJEhIKCnByZWZlcmVuY2UY",
-            "AyABKA0SLwoJZGF0YXBsYW5lGAQgASgOMhwuc2VydmljZV9sYXllci5TTFNy",
-            "RGF0YXBsYW5lEi8KB2R5bmFtaWMYBSABKAsyHC5zZXJ2aWNlX2xheWVyLlNM",
-            "U3JEeW5hbWljQ1BIABIxCghleHBsaWNpdBgGIAEoCzIdLnNlcnZpY2VfbGF5",
-            "ZXIuU0xTckV4cGxpY2l0Q1BIAEIECgJDUCJkChBTTFNydjZCaW5kaW5nU0lE",
-            "EhMKC2xvY2F0b3JOYW1lGAEgASgJEhAKCGJlaGF2aW9yGAIgASgNEikKA1NJ",
-            "RBgDIAEoCzIcLnNlcnZpY2VfbGF5ZXIuU0xJcHY2QWRkcmVzcyKsAQoOU0xT",
-            "ckJpbmRpbmdTSUQSSQoUYmluZGluZ1NJREFsbG9jYXRpb24YASABKA4yKy5z",
-            "ZXJ2aWNlX2xheWVyLlNMU3JCaW5kaW5nU0lEQWxsb2NhdGlvbk1vZGUSFgoO",
-            "bXBsc0JpbmRpbmdTSUQYAiABKA0SNwoOc3J2NkJpbmRpbmdTSUQYAyABKAsy",
-            "Hy5zZXJ2aWNlX2xheWVyLlNMU3J2NkJpbmRpbmdTSUQivwEKClNMU3JQb2xp",
-            "Y3kSKQoDa2V5GAEgASgLMhwuc2VydmljZV9sYXllci5TTFNyUG9saWN5S2V5",
-            "EhcKD3RyYW5zaXRFbGlnaWJsZRgCIAEoCBItCgNDUHMYAyADKAsyIC5zZXJ2",
-            "aWNlX2xheWVyLlNMU3JDYW5kaWRhdGVQYXRoEisKBGJzaWQYBCABKAsyHS5z",
-            "ZXJ2aWNlX2xheWVyLlNMU3JCaW5kaW5nU0lEEhEKCXByb2ZpbGVJRBgFIAEo",
-            "DSI8Cg1TTFNyUG9saWN5TXNnEisKCHBvbGljaWVzGAEgAygLMhkuc2Vydmlj",
-            "ZV9sYXllci5TTFNyUG9saWN5IrgBCg9TTFNyUG9saWN5T3BSc3ASOwoJcmVz",
-            "cG9uc2VzGAEgAygLMiguc2VydmljZV9sYXllci5TTFNyUG9saWN5T3BSc3Au",
-            "UG9saWN5UnNwGmgKCVBvbGljeVJzcBIwCgpyZXR1cm5Db2RlGAEgASgLMhwu",
-            "c2VydmljZV9sYXllci5TTEVycm9yU3RhdHVzEikKA2tleRgCIAEoCzIcLnNl",
-            "cnZpY2VfbGF5ZXIuU0xTclBvbGljeUtleSpDChxTTFNyQmluZGluZ1NJREFs",
-            "bG9jYXRpb25Nb2RlEhEKDUJTSURfRVhQTElDSVQQABIQCgxCU0lEX0RZTkFN",
-            "SUMQATKvAQoMU0xTcnRlUG9saWN5Ek0KDVNMU3JQb2xpY3lBZGQSHC5zZXJ2",
-            "aWNlX2xheWVyLlNMU3JQb2xpY3lNc2caHi5zZXJ2aWNlX2xheWVyLlNMU3JQ",
-            "b2xpY3lPcFJzcBJQChBTTFNyUG9saWN5RGVsZXRlEhwuc2VydmljZV9sYXll",
-            "ci5TTFNyUG9saWN5TXNnGh4uc2VydmljZV9sYXllci5TTFNyUG9saWN5T3BS",
-            "c3BCUVpPZ2l0aHViLmNvbS9DaXNjby1zZXJ2aWNlLWxheWVyL3NlcnZpY2Ut",
-            "bGF5ZXItb2JqbW9kZWwvZ3JwYy9wcm90b3M7c2VydmljZV9sYXllcmIGcHJv",
-            "dG8z"));
+            "Y0JvdW5kcxJOChNzZWdtZW50X2NvbnN0cmFpbnRzGAMgASgLMjEuc2Vydmlj",
+            "ZV9sYXllci5TTFNyQ29uc3RyYWludHMuU2VnbWVudENvbnN0cmFpbnRzGoYC",
+            "ChJTZWdtZW50Q29uc3RyYWludHMSVAoKcHJvdGVjdGlvbhgBIAEoDjJALnNl",
+            "cnZpY2VfbGF5ZXIuU0xTckNvbnN0cmFpbnRzLlNlZ21lbnRDb25zdHJhaW50",
+            "cy5Qcm90ZWN0aW9uVHlwZRIPCgdzaWRhbGdvGAIgASgNEhkKEW1heGltdW1f",
+            "c2lkX2RlcHRoGAMgASgNIm4KDlByb3RlY3Rpb25UeXBlEhcKE1BST1RFQ1RF",
+            "RF9QUkVGRVJSRUQQABISCg5QUk9URUNURURfT05MWRABEhkKFVVOUFJPVEVD",
+            "VEVEX1BSRUZFUlJFRBACEhQKEFVOUFJPVEVDVEVEX09OTFkQAyK9AQoNU0xT",
+            "ckR5bmFtaWNDUBIuCgdvbWV0cmljGAEgASgOMh0uc2VydmljZV9sYXllci5T",
+            "TFNyTWV0cmljVHlwZRIzCgtjb25zdHJhaW50cxgCIAEoCzIeLnNlcnZpY2Vf",
+            "bGF5ZXIuU0xTckNvbnN0cmFpbnRzEjUKDG1ldHJpY01hcmdpbhgDIAEoCzIf",
+            "LnNlcnZpY2VfbGF5ZXIuU0xTck1ldHJpY01hcmdpbhIQCghkZWxlZ2F0ZRgE",
+            "IAEoCCKCAgoRU0xTckNhbmRpZGF0ZVBhdGgSMAoDa2V5GAEgASgLMiMuc2Vy",
+            "dmljZV9sYXllci5TTFNyQ2FuZGlkYXRlUGF0aEtleRIMCgRuYW1lGAIgASgJ",
+            "EhIKCnByZWZlcmVuY2UYAyABKA0SLwoJZGF0YXBsYW5lGAQgASgOMhwuc2Vy",
+            "dmljZV9sYXllci5TTFNyRGF0YXBsYW5lEi8KB2R5bmFtaWMYBSABKAsyHC5z",
+            "ZXJ2aWNlX2xheWVyLlNMU3JEeW5hbWljQ1BIABIxCghleHBsaWNpdBgGIAEo",
+            "CzIdLnNlcnZpY2VfbGF5ZXIuU0xTckV4cGxpY2l0Q1BIAEIECgJDUCI5ChBT",
+            "TFNydjZCaW5kaW5nU0lEEhMKC2xvY2F0b3JOYW1lGAEgASgJEhAKCGJlaGF2",
+            "aW9yGAIgASgNIqwBCg5TTFNyQmluZGluZ1NJRBJJChRiaW5kaW5nU0lEQWxs",
+            "b2NhdGlvbhgBIAEoDjIrLnNlcnZpY2VfbGF5ZXIuU0xTckJpbmRpbmdTSURB",
+            "bGxvY2F0aW9uTW9kZRIWCg5tcGxzQmluZGluZ1NJRBgCIAEoDRI3Cg5zcnY2",
+            "QmluZGluZ1NJRBgDIAEoCzIfLnNlcnZpY2VfbGF5ZXIuU0xTcnY2QmluZGlu",
+            "Z1NJRCK/AQoKU0xTclBvbGljeRIpCgNrZXkYASABKAsyHC5zZXJ2aWNlX2xh",
+            "eWVyLlNMU3JQb2xpY3lLZXkSFwoPdHJhbnNpdEVsaWdpYmxlGAIgASgIEi0K",
+            "A0NQcxgDIAMoCzIgLnNlcnZpY2VfbGF5ZXIuU0xTckNhbmRpZGF0ZVBhdGgS",
+            "KwoEYnNpZBgEIAEoCzIdLnNlcnZpY2VfbGF5ZXIuU0xTckJpbmRpbmdTSUQS",
+            "EQoJcHJvZmlsZUlEGAUgASgNIjwKDVNMU3JQb2xpY3lNc2cSKwoIcG9saWNp",
+            "ZXMYASADKAsyGS5zZXJ2aWNlX2xheWVyLlNMU3JQb2xpY3kiuAEKD1NMU3JQ",
+            "b2xpY3lPcFJzcBI7CglyZXNwb25zZXMYASADKAsyKC5zZXJ2aWNlX2xheWVy",
+            "LlNMU3JQb2xpY3lPcFJzcC5Qb2xpY3lSc3AaaAoJUG9saWN5UnNwEjAKCnJl",
+            "dHVybkNvZGUYASABKAsyHC5zZXJ2aWNlX2xheWVyLlNMRXJyb3JTdGF0dXMS",
+            "KQoDa2V5GAIgASgLMhwuc2VydmljZV9sYXllci5TTFNyUG9saWN5S2V5KkMK",
+            "HFNMU3JCaW5kaW5nU0lEQWxsb2NhdGlvbk1vZGUSEQoNQlNJRF9FWFBMSUNJ",
+            "VBAAEhAKDEJTSURfRFlOQU1JQxABMq8BCgxTTFNydGVQb2xpY3kSTQoNU0xT",
+            "clBvbGljeUFkZBIcLnNlcnZpY2VfbGF5ZXIuU0xTclBvbGljeU1zZxoeLnNl",
+            "cnZpY2VfbGF5ZXIuU0xTclBvbGljeU9wUnNwElAKEFNMU3JQb2xpY3lEZWxl",
+            "dGUSHC5zZXJ2aWNlX2xheWVyLlNMU3JQb2xpY3lNc2caHi5zZXJ2aWNlX2xh",
+            "eWVyLlNMU3JQb2xpY3lPcFJzcEJRWk9naXRodWIuY29tL0Npc2NvLXNlcnZp",
+            "Y2UtbGF5ZXIvc2VydmljZS1sYXllci1vYmptb2RlbC9ncnBjL3Byb3Rvcztz",
+            "ZXJ2aWNlX2xheWVyYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::ServiceLayer.SlCommonTypesReflection.Descriptor, global::ServiceLayer.SlSrCommonReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::ServiceLayer.SLSrBindingSIDAllocationMode), }, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLSrExplicitCP), global::ServiceLayer.SLSrExplicitCP.Parser, new[]{ "SegmentList" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLSrConstraints), global::ServiceLayer.SLSrConstraints.Parser, new[]{ "Affinities", "MetricBounds", "SegmentConstraints" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLSrConstraints.Types.SegmentConstraints), global::ServiceLayer.SLSrConstraints.Types.SegmentConstraints.Parser, new[]{ "Protection", "Sidalgo", "MSD" }, null, new[]{ typeof(global::ServiceLayer.SLSrConstraints.Types.SegmentConstraints.Types.ProtectionType) }, null, null)}),
+            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLSrConstraints), global::ServiceLayer.SLSrConstraints.Parser, new[]{ "Affinities", "MetricBounds", "SegmentConstraints" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLSrConstraints.Types.SegmentConstraints), global::ServiceLayer.SLSrConstraints.Types.SegmentConstraints.Parser, new[]{ "Protection", "Sidalgo", "MaximumSidDepth" }, null, new[]{ typeof(global::ServiceLayer.SLSrConstraints.Types.SegmentConstraints.Types.ProtectionType) }, null, null)}),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLSrDynamicCP), global::ServiceLayer.SLSrDynamicCP.Parser, new[]{ "Ometric", "Constraints", "MetricMargin", "Delegate" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLSrCandidatePath), global::ServiceLayer.SLSrCandidatePath.Parser, new[]{ "Key", "Name", "Preference", "Dataplane", "Dynamic", "Explicit" }, new[]{ "CP" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLSrv6BindingSID), global::ServiceLayer.SLSrv6BindingSID.Parser, new[]{ "LocatorName", "Behavior", "SID" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLSrv6BindingSID), global::ServiceLayer.SLSrv6BindingSID.Parser, new[]{ "LocatorName", "Behavior" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLSrBindingSID), global::ServiceLayer.SLSrBindingSID.Parser, new[]{ "BindingSIDAllocation", "MplsBindingSID", "Srv6BindingSID" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLSrPolicy), global::ServiceLayer.SLSrPolicy.Parser, new[]{ "Key", "TransitEligible", "CPs", "Bsid", "ProfileID" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLSrPolicyMsg), global::ServiceLayer.SLSrPolicyMsg.Parser, new[]{ "Policies" }, null, null, null, null),
@@ -370,7 +369,7 @@ namespace ServiceLayer {
       }
     }
 
-    /// <summary>Field number for the "segmentConstraints" field.</summary>
+    /// <summary>Field number for the "segment_constraints" field.</summary>
     public const int SegmentConstraintsFieldNumber = 3;
     private global::ServiceLayer.SLSrConstraints.Types.SegmentConstraints segmentConstraints_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -634,7 +633,7 @@ namespace ServiceLayer {
         public SegmentConstraints(SegmentConstraints other) : this() {
           protection_ = other.protection_;
           sidalgo_ = other.sidalgo_;
-          mSD_ = other.mSD_;
+          maximumSidDepth_ = other.maximumSidDepth_;
           _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
         }
 
@@ -668,9 +667,9 @@ namespace ServiceLayer {
           }
         }
 
-        /// <summary>Field number for the "MSD" field.</summary>
-        public const int MSDFieldNumber = 3;
-        private uint mSD_;
+        /// <summary>Field number for the "maximum_sid_depth" field.</summary>
+        public const int MaximumSidDepthFieldNumber = 3;
+        private uint maximumSidDepth_;
         /// <summary>
         /// Maximum number of segments in any of the candidate path segment lists.
         ///
@@ -684,10 +683,10 @@ namespace ServiceLayer {
         /// </summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-        public uint MSD {
-          get { return mSD_; }
+        public uint MaximumSidDepth {
+          get { return maximumSidDepth_; }
           set {
-            mSD_ = value;
+            maximumSidDepth_ = value;
           }
         }
 
@@ -708,7 +707,7 @@ namespace ServiceLayer {
           }
           if (Protection != other.Protection) return false;
           if (Sidalgo != other.Sidalgo) return false;
-          if (MSD != other.MSD) return false;
+          if (MaximumSidDepth != other.MaximumSidDepth) return false;
           return Equals(_unknownFields, other._unknownFields);
         }
 
@@ -718,7 +717,7 @@ namespace ServiceLayer {
           int hash = 1;
           if (Protection != global::ServiceLayer.SLSrConstraints.Types.SegmentConstraints.Types.ProtectionType.ProtectedPreferred) hash ^= Protection.GetHashCode();
           if (Sidalgo != 0) hash ^= Sidalgo.GetHashCode();
-          if (MSD != 0) hash ^= MSD.GetHashCode();
+          if (MaximumSidDepth != 0) hash ^= MaximumSidDepth.GetHashCode();
           if (_unknownFields != null) {
             hash ^= _unknownFields.GetHashCode();
           }
@@ -745,9 +744,9 @@ namespace ServiceLayer {
             output.WriteRawTag(16);
             output.WriteUInt32(Sidalgo);
           }
-          if (MSD != 0) {
+          if (MaximumSidDepth != 0) {
             output.WriteRawTag(24);
-            output.WriteUInt32(MSD);
+            output.WriteUInt32(MaximumSidDepth);
           }
           if (_unknownFields != null) {
             _unknownFields.WriteTo(output);
@@ -767,9 +766,9 @@ namespace ServiceLayer {
             output.WriteRawTag(16);
             output.WriteUInt32(Sidalgo);
           }
-          if (MSD != 0) {
+          if (MaximumSidDepth != 0) {
             output.WriteRawTag(24);
-            output.WriteUInt32(MSD);
+            output.WriteUInt32(MaximumSidDepth);
           }
           if (_unknownFields != null) {
             _unknownFields.WriteTo(ref output);
@@ -787,8 +786,8 @@ namespace ServiceLayer {
           if (Sidalgo != 0) {
             size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Sidalgo);
           }
-          if (MSD != 0) {
-            size += 1 + pb::CodedOutputStream.ComputeUInt32Size(MSD);
+          if (MaximumSidDepth != 0) {
+            size += 1 + pb::CodedOutputStream.ComputeUInt32Size(MaximumSidDepth);
           }
           if (_unknownFields != null) {
             size += _unknownFields.CalculateSize();
@@ -808,8 +807,8 @@ namespace ServiceLayer {
           if (other.Sidalgo != 0) {
             Sidalgo = other.Sidalgo;
           }
-          if (other.MSD != 0) {
-            MSD = other.MSD;
+          if (other.MaximumSidDepth != 0) {
+            MaximumSidDepth = other.MaximumSidDepth;
           }
           _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
         }
@@ -835,7 +834,7 @@ namespace ServiceLayer {
                 break;
               }
               case 24: {
-                MSD = input.ReadUInt32();
+                MaximumSidDepth = input.ReadUInt32();
                 break;
               }
             }
@@ -862,7 +861,7 @@ namespace ServiceLayer {
                 break;
               }
               case 24: {
-                MSD = input.ReadUInt32();
+                MaximumSidDepth = input.ReadUInt32();
                 break;
               }
             }
@@ -1751,7 +1750,6 @@ namespace ServiceLayer {
     public SLSrv6BindingSID(SLSrv6BindingSID other) : this() {
       locatorName_ = other.locatorName_;
       behavior_ = other.behavior_;
-      sID_ = other.sID_ != null ? other.sID_.Clone() : null;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -1779,27 +1777,16 @@ namespace ServiceLayer {
     /// <summary>Field number for the "behavior" field.</summary>
     public const int BehaviorFieldNumber = 2;
     private uint behavior_;
+    /// <summary>
+    /// Binding segment ID, for Explicit BSID mode
+    /// SLIpv6Address SID = 3;
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public uint Behavior {
       get { return behavior_; }
       set {
         behavior_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "SID" field.</summary>
-    public const int SIDFieldNumber = 3;
-    private global::ServiceLayer.SLIpv6Address sID_;
-    /// <summary>
-    /// Binding segment ID
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::ServiceLayer.SLIpv6Address SID {
-      get { return sID_; }
-      set {
-        sID_ = value;
       }
     }
 
@@ -1820,7 +1807,6 @@ namespace ServiceLayer {
       }
       if (LocatorName != other.LocatorName) return false;
       if (Behavior != other.Behavior) return false;
-      if (!object.Equals(SID, other.SID)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -1830,7 +1816,6 @@ namespace ServiceLayer {
       int hash = 1;
       if (LocatorName.Length != 0) hash ^= LocatorName.GetHashCode();
       if (Behavior != 0) hash ^= Behavior.GetHashCode();
-      if (sID_ != null) hash ^= SID.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -1857,10 +1842,6 @@ namespace ServiceLayer {
         output.WriteRawTag(16);
         output.WriteUInt32(Behavior);
       }
-      if (sID_ != null) {
-        output.WriteRawTag(26);
-        output.WriteMessage(SID);
-      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -1879,10 +1860,6 @@ namespace ServiceLayer {
         output.WriteRawTag(16);
         output.WriteUInt32(Behavior);
       }
-      if (sID_ != null) {
-        output.WriteRawTag(26);
-        output.WriteMessage(SID);
-      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -1898,9 +1875,6 @@ namespace ServiceLayer {
       }
       if (Behavior != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Behavior);
-      }
-      if (sID_ != null) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(SID);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -1919,12 +1893,6 @@ namespace ServiceLayer {
       }
       if (other.Behavior != 0) {
         Behavior = other.Behavior;
-      }
-      if (other.sID_ != null) {
-        if (sID_ == null) {
-          SID = new global::ServiceLayer.SLIpv6Address();
-        }
-        SID.MergeFrom(other.SID);
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -1949,13 +1917,6 @@ namespace ServiceLayer {
             Behavior = input.ReadUInt32();
             break;
           }
-          case 26: {
-            if (sID_ == null) {
-              SID = new global::ServiceLayer.SLIpv6Address();
-            }
-            input.ReadMessage(SID);
-            break;
-          }
         }
       }
     #endif
@@ -1977,13 +1938,6 @@ namespace ServiceLayer {
           }
           case 16: {
             Behavior = input.ReadUInt32();
-            break;
-          }
-          case 26: {
-            if (sID_ == null) {
-              SID = new global::ServiceLayer.SLIpv6Address();
-            }
-            input.ReadMessage(SID);
             break;
           }
         }
@@ -2381,6 +2335,10 @@ namespace ServiceLayer {
     /// <summary>Field number for the "profileID" field.</summary>
     public const int ProfileIDFieldNumber = 5;
     private uint profileID_;
+    /// <summary>
+    /// ID of the profile with which policy can be assiciated with,
+    /// a non-zero value.
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public uint ProfileID {

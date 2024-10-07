@@ -473,7 +473,7 @@ class SLSrConstraints_SegmentConstraints final :
   enum : int {
     kProtectionFieldNumber = 1,
     kSidalgoFieldNumber = 2,
-    kMSDFieldNumber = 3,
+    kMaximumSidDepthFieldNumber = 3,
   };
   // .service_layer.SLSrConstraints.SegmentConstraints.ProtectionType protection = 1;
   void clear_protection();
@@ -493,13 +493,13 @@ class SLSrConstraints_SegmentConstraints final :
   void _internal_set_sidalgo(uint32_t value);
   public:
 
-  // uint32 MSD = 3;
-  void clear_msd();
-  uint32_t msd() const;
-  void set_msd(uint32_t value);
+  // uint32 maximum_sid_depth = 3;
+  void clear_maximum_sid_depth();
+  uint32_t maximum_sid_depth() const;
+  void set_maximum_sid_depth(uint32_t value);
   private:
-  uint32_t _internal_msd() const;
-  void _internal_set_msd(uint32_t value);
+  uint32_t _internal_maximum_sid_depth() const;
+  void _internal_set_maximum_sid_depth(uint32_t value);
   public:
 
   // @@protoc_insertion_point(class_scope:service_layer.SLSrConstraints.SegmentConstraints)
@@ -511,7 +511,7 @@ class SLSrConstraints_SegmentConstraints final :
   typedef void DestructorSkippable_;
   int protection_;
   uint32_t sidalgo_;
-  uint32_t msd_;
+  uint32_t maximum_sid_depth_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_sl_5fsrte_5fpolicy_2eproto;
 };
@@ -681,23 +681,23 @@ class SLSrConstraints final :
       ::service_layer::SLSrMetricBounds* metricbounds);
   ::service_layer::SLSrMetricBounds* unsafe_arena_release_metricbounds();
 
-  // .service_layer.SLSrConstraints.SegmentConstraints segmentConstraints = 3;
-  bool has_segmentconstraints() const;
+  // .service_layer.SLSrConstraints.SegmentConstraints segment_constraints = 3;
+  bool has_segment_constraints() const;
   private:
-  bool _internal_has_segmentconstraints() const;
+  bool _internal_has_segment_constraints() const;
   public:
-  void clear_segmentconstraints();
-  const ::service_layer::SLSrConstraints_SegmentConstraints& segmentconstraints() const;
-  PROTOBUF_NODISCARD ::service_layer::SLSrConstraints_SegmentConstraints* release_segmentconstraints();
-  ::service_layer::SLSrConstraints_SegmentConstraints* mutable_segmentconstraints();
-  void set_allocated_segmentconstraints(::service_layer::SLSrConstraints_SegmentConstraints* segmentconstraints);
+  void clear_segment_constraints();
+  const ::service_layer::SLSrConstraints_SegmentConstraints& segment_constraints() const;
+  PROTOBUF_NODISCARD ::service_layer::SLSrConstraints_SegmentConstraints* release_segment_constraints();
+  ::service_layer::SLSrConstraints_SegmentConstraints* mutable_segment_constraints();
+  void set_allocated_segment_constraints(::service_layer::SLSrConstraints_SegmentConstraints* segment_constraints);
   private:
-  const ::service_layer::SLSrConstraints_SegmentConstraints& _internal_segmentconstraints() const;
-  ::service_layer::SLSrConstraints_SegmentConstraints* _internal_mutable_segmentconstraints();
+  const ::service_layer::SLSrConstraints_SegmentConstraints& _internal_segment_constraints() const;
+  ::service_layer::SLSrConstraints_SegmentConstraints* _internal_mutable_segment_constraints();
   public:
-  void unsafe_arena_set_allocated_segmentconstraints(
-      ::service_layer::SLSrConstraints_SegmentConstraints* segmentconstraints);
-  ::service_layer::SLSrConstraints_SegmentConstraints* unsafe_arena_release_segmentconstraints();
+  void unsafe_arena_set_allocated_segment_constraints(
+      ::service_layer::SLSrConstraints_SegmentConstraints* segment_constraints);
+  ::service_layer::SLSrConstraints_SegmentConstraints* unsafe_arena_release_segment_constraints();
 
   // @@protoc_insertion_point(class_scope:service_layer.SLSrConstraints)
  private:
@@ -708,7 +708,7 @@ class SLSrConstraints final :
   typedef void DestructorSkippable_;
   ::service_layer::SLSrAffinities* affinities_;
   ::service_layer::SLSrMetricBounds* metricbounds_;
-  ::service_layer::SLSrConstraints_SegmentConstraints* segmentconstraints_;
+  ::service_layer::SLSrConstraints_SegmentConstraints* segment_constraints_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_sl_5fsrte_5fpolicy_2eproto;
 };
@@ -1286,7 +1286,6 @@ class SLSrv6BindingSID final :
 
   enum : int {
     kLocatorNameFieldNumber = 1,
-    kSIDFieldNumber = 3,
     kBehaviorFieldNumber = 2,
   };
   // string locatorName = 1;
@@ -1302,24 +1301,6 @@ class SLSrv6BindingSID final :
   inline PROTOBUF_ALWAYS_INLINE void _internal_set_locatorname(const std::string& value);
   std::string* _internal_mutable_locatorname();
   public:
-
-  // .service_layer.SLIpv6Address SID = 3;
-  bool has_sid() const;
-  private:
-  bool _internal_has_sid() const;
-  public:
-  void clear_sid();
-  const ::service_layer::SLIpv6Address& sid() const;
-  PROTOBUF_NODISCARD ::service_layer::SLIpv6Address* release_sid();
-  ::service_layer::SLIpv6Address* mutable_sid();
-  void set_allocated_sid(::service_layer::SLIpv6Address* sid);
-  private:
-  const ::service_layer::SLIpv6Address& _internal_sid() const;
-  ::service_layer::SLIpv6Address* _internal_mutable_sid();
-  public:
-  void unsafe_arena_set_allocated_sid(
-      ::service_layer::SLIpv6Address* sid);
-  ::service_layer::SLIpv6Address* unsafe_arena_release_sid();
 
   // uint32 behavior = 2;
   void clear_behavior();
@@ -1338,7 +1319,6 @@ class SLSrv6BindingSID final :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr locatorname_;
-  ::service_layer::SLIpv6Address* sid_;
   uint32_t behavior_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_sl_5fsrte_5fpolicy_2eproto;
@@ -2316,24 +2296,24 @@ inline void SLSrConstraints_SegmentConstraints::set_sidalgo(uint32_t value) {
   // @@protoc_insertion_point(field_set:service_layer.SLSrConstraints.SegmentConstraints.sidalgo)
 }
 
-// uint32 MSD = 3;
-inline void SLSrConstraints_SegmentConstraints::clear_msd() {
-  msd_ = 0u;
+// uint32 maximum_sid_depth = 3;
+inline void SLSrConstraints_SegmentConstraints::clear_maximum_sid_depth() {
+  maximum_sid_depth_ = 0u;
 }
-inline uint32_t SLSrConstraints_SegmentConstraints::_internal_msd() const {
-  return msd_;
+inline uint32_t SLSrConstraints_SegmentConstraints::_internal_maximum_sid_depth() const {
+  return maximum_sid_depth_;
 }
-inline uint32_t SLSrConstraints_SegmentConstraints::msd() const {
-  // @@protoc_insertion_point(field_get:service_layer.SLSrConstraints.SegmentConstraints.MSD)
-  return _internal_msd();
+inline uint32_t SLSrConstraints_SegmentConstraints::maximum_sid_depth() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLSrConstraints.SegmentConstraints.maximum_sid_depth)
+  return _internal_maximum_sid_depth();
 }
-inline void SLSrConstraints_SegmentConstraints::_internal_set_msd(uint32_t value) {
+inline void SLSrConstraints_SegmentConstraints::_internal_set_maximum_sid_depth(uint32_t value) {
   
-  msd_ = value;
+  maximum_sid_depth_ = value;
 }
-inline void SLSrConstraints_SegmentConstraints::set_msd(uint32_t value) {
-  _internal_set_msd(value);
-  // @@protoc_insertion_point(field_set:service_layer.SLSrConstraints.SegmentConstraints.MSD)
+inline void SLSrConstraints_SegmentConstraints::set_maximum_sid_depth(uint32_t value) {
+  _internal_set_maximum_sid_depth(value);
+  // @@protoc_insertion_point(field_set:service_layer.SLSrConstraints.SegmentConstraints.maximum_sid_depth)
 }
 
 // -------------------------------------------------------------------
@@ -2512,45 +2492,45 @@ inline void SLSrConstraints::set_allocated_metricbounds(::service_layer::SLSrMet
   // @@protoc_insertion_point(field_set_allocated:service_layer.SLSrConstraints.metricBounds)
 }
 
-// .service_layer.SLSrConstraints.SegmentConstraints segmentConstraints = 3;
-inline bool SLSrConstraints::_internal_has_segmentconstraints() const {
-  return this != internal_default_instance() && segmentconstraints_ != nullptr;
+// .service_layer.SLSrConstraints.SegmentConstraints segment_constraints = 3;
+inline bool SLSrConstraints::_internal_has_segment_constraints() const {
+  return this != internal_default_instance() && segment_constraints_ != nullptr;
 }
-inline bool SLSrConstraints::has_segmentconstraints() const {
-  return _internal_has_segmentconstraints();
+inline bool SLSrConstraints::has_segment_constraints() const {
+  return _internal_has_segment_constraints();
 }
-inline void SLSrConstraints::clear_segmentconstraints() {
-  if (GetArenaForAllocation() == nullptr && segmentconstraints_ != nullptr) {
-    delete segmentconstraints_;
+inline void SLSrConstraints::clear_segment_constraints() {
+  if (GetArenaForAllocation() == nullptr && segment_constraints_ != nullptr) {
+    delete segment_constraints_;
   }
-  segmentconstraints_ = nullptr;
+  segment_constraints_ = nullptr;
 }
-inline const ::service_layer::SLSrConstraints_SegmentConstraints& SLSrConstraints::_internal_segmentconstraints() const {
-  const ::service_layer::SLSrConstraints_SegmentConstraints* p = segmentconstraints_;
+inline const ::service_layer::SLSrConstraints_SegmentConstraints& SLSrConstraints::_internal_segment_constraints() const {
+  const ::service_layer::SLSrConstraints_SegmentConstraints* p = segment_constraints_;
   return p != nullptr ? *p : reinterpret_cast<const ::service_layer::SLSrConstraints_SegmentConstraints&>(
       ::service_layer::_SLSrConstraints_SegmentConstraints_default_instance_);
 }
-inline const ::service_layer::SLSrConstraints_SegmentConstraints& SLSrConstraints::segmentconstraints() const {
-  // @@protoc_insertion_point(field_get:service_layer.SLSrConstraints.segmentConstraints)
-  return _internal_segmentconstraints();
+inline const ::service_layer::SLSrConstraints_SegmentConstraints& SLSrConstraints::segment_constraints() const {
+  // @@protoc_insertion_point(field_get:service_layer.SLSrConstraints.segment_constraints)
+  return _internal_segment_constraints();
 }
-inline void SLSrConstraints::unsafe_arena_set_allocated_segmentconstraints(
-    ::service_layer::SLSrConstraints_SegmentConstraints* segmentconstraints) {
+inline void SLSrConstraints::unsafe_arena_set_allocated_segment_constraints(
+    ::service_layer::SLSrConstraints_SegmentConstraints* segment_constraints) {
   if (GetArenaForAllocation() == nullptr) {
-    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(segmentconstraints_);
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(segment_constraints_);
   }
-  segmentconstraints_ = segmentconstraints;
-  if (segmentconstraints) {
+  segment_constraints_ = segment_constraints;
+  if (segment_constraints) {
     
   } else {
     
   }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:service_layer.SLSrConstraints.segmentConstraints)
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:service_layer.SLSrConstraints.segment_constraints)
 }
-inline ::service_layer::SLSrConstraints_SegmentConstraints* SLSrConstraints::release_segmentconstraints() {
+inline ::service_layer::SLSrConstraints_SegmentConstraints* SLSrConstraints::release_segment_constraints() {
   
-  ::service_layer::SLSrConstraints_SegmentConstraints* temp = segmentconstraints_;
-  segmentconstraints_ = nullptr;
+  ::service_layer::SLSrConstraints_SegmentConstraints* temp = segment_constraints_;
+  segment_constraints_ = nullptr;
 #ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
   auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
   temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
@@ -2562,44 +2542,44 @@ inline ::service_layer::SLSrConstraints_SegmentConstraints* SLSrConstraints::rel
 #endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
   return temp;
 }
-inline ::service_layer::SLSrConstraints_SegmentConstraints* SLSrConstraints::unsafe_arena_release_segmentconstraints() {
-  // @@protoc_insertion_point(field_release:service_layer.SLSrConstraints.segmentConstraints)
+inline ::service_layer::SLSrConstraints_SegmentConstraints* SLSrConstraints::unsafe_arena_release_segment_constraints() {
+  // @@protoc_insertion_point(field_release:service_layer.SLSrConstraints.segment_constraints)
   
-  ::service_layer::SLSrConstraints_SegmentConstraints* temp = segmentconstraints_;
-  segmentconstraints_ = nullptr;
+  ::service_layer::SLSrConstraints_SegmentConstraints* temp = segment_constraints_;
+  segment_constraints_ = nullptr;
   return temp;
 }
-inline ::service_layer::SLSrConstraints_SegmentConstraints* SLSrConstraints::_internal_mutable_segmentconstraints() {
+inline ::service_layer::SLSrConstraints_SegmentConstraints* SLSrConstraints::_internal_mutable_segment_constraints() {
   
-  if (segmentconstraints_ == nullptr) {
+  if (segment_constraints_ == nullptr) {
     auto* p = CreateMaybeMessage<::service_layer::SLSrConstraints_SegmentConstraints>(GetArenaForAllocation());
-    segmentconstraints_ = p;
+    segment_constraints_ = p;
   }
-  return segmentconstraints_;
+  return segment_constraints_;
 }
-inline ::service_layer::SLSrConstraints_SegmentConstraints* SLSrConstraints::mutable_segmentconstraints() {
-  ::service_layer::SLSrConstraints_SegmentConstraints* _msg = _internal_mutable_segmentconstraints();
-  // @@protoc_insertion_point(field_mutable:service_layer.SLSrConstraints.segmentConstraints)
+inline ::service_layer::SLSrConstraints_SegmentConstraints* SLSrConstraints::mutable_segment_constraints() {
+  ::service_layer::SLSrConstraints_SegmentConstraints* _msg = _internal_mutable_segment_constraints();
+  // @@protoc_insertion_point(field_mutable:service_layer.SLSrConstraints.segment_constraints)
   return _msg;
 }
-inline void SLSrConstraints::set_allocated_segmentconstraints(::service_layer::SLSrConstraints_SegmentConstraints* segmentconstraints) {
+inline void SLSrConstraints::set_allocated_segment_constraints(::service_layer::SLSrConstraints_SegmentConstraints* segment_constraints) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
   if (message_arena == nullptr) {
-    delete segmentconstraints_;
+    delete segment_constraints_;
   }
-  if (segmentconstraints) {
+  if (segment_constraints) {
     ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-        ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper<::service_layer::SLSrConstraints_SegmentConstraints>::GetOwningArena(segmentconstraints);
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper<::service_layer::SLSrConstraints_SegmentConstraints>::GetOwningArena(segment_constraints);
     if (message_arena != submessage_arena) {
-      segmentconstraints = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, segmentconstraints, submessage_arena);
+      segment_constraints = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, segment_constraints, submessage_arena);
     }
     
   } else {
     
   }
-  segmentconstraints_ = segmentconstraints;
-  // @@protoc_insertion_point(field_set_allocated:service_layer.SLSrConstraints.segmentConstraints)
+  segment_constraints_ = segment_constraints;
+  // @@protoc_insertion_point(field_set_allocated:service_layer.SLSrConstraints.segment_constraints)
 }
 
 // -------------------------------------------------------------------
@@ -3233,92 +3213,6 @@ inline void SLSrv6BindingSID::_internal_set_behavior(uint32_t value) {
 inline void SLSrv6BindingSID::set_behavior(uint32_t value) {
   _internal_set_behavior(value);
   // @@protoc_insertion_point(field_set:service_layer.SLSrv6BindingSID.behavior)
-}
-
-// .service_layer.SLIpv6Address SID = 3;
-inline bool SLSrv6BindingSID::_internal_has_sid() const {
-  return this != internal_default_instance() && sid_ != nullptr;
-}
-inline bool SLSrv6BindingSID::has_sid() const {
-  return _internal_has_sid();
-}
-inline const ::service_layer::SLIpv6Address& SLSrv6BindingSID::_internal_sid() const {
-  const ::service_layer::SLIpv6Address* p = sid_;
-  return p != nullptr ? *p : reinterpret_cast<const ::service_layer::SLIpv6Address&>(
-      ::service_layer::_SLIpv6Address_default_instance_);
-}
-inline const ::service_layer::SLIpv6Address& SLSrv6BindingSID::sid() const {
-  // @@protoc_insertion_point(field_get:service_layer.SLSrv6BindingSID.SID)
-  return _internal_sid();
-}
-inline void SLSrv6BindingSID::unsafe_arena_set_allocated_sid(
-    ::service_layer::SLIpv6Address* sid) {
-  if (GetArenaForAllocation() == nullptr) {
-    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(sid_);
-  }
-  sid_ = sid;
-  if (sid) {
-    
-  } else {
-    
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:service_layer.SLSrv6BindingSID.SID)
-}
-inline ::service_layer::SLIpv6Address* SLSrv6BindingSID::release_sid() {
-  
-  ::service_layer::SLIpv6Address* temp = sid_;
-  sid_ = nullptr;
-#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
-  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
-  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-  if (GetArenaForAllocation() == nullptr) { delete old; }
-#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
-  if (GetArenaForAllocation() != nullptr) {
-    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-  }
-#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
-  return temp;
-}
-inline ::service_layer::SLIpv6Address* SLSrv6BindingSID::unsafe_arena_release_sid() {
-  // @@protoc_insertion_point(field_release:service_layer.SLSrv6BindingSID.SID)
-  
-  ::service_layer::SLIpv6Address* temp = sid_;
-  sid_ = nullptr;
-  return temp;
-}
-inline ::service_layer::SLIpv6Address* SLSrv6BindingSID::_internal_mutable_sid() {
-  
-  if (sid_ == nullptr) {
-    auto* p = CreateMaybeMessage<::service_layer::SLIpv6Address>(GetArenaForAllocation());
-    sid_ = p;
-  }
-  return sid_;
-}
-inline ::service_layer::SLIpv6Address* SLSrv6BindingSID::mutable_sid() {
-  ::service_layer::SLIpv6Address* _msg = _internal_mutable_sid();
-  // @@protoc_insertion_point(field_mutable:service_layer.SLSrv6BindingSID.SID)
-  return _msg;
-}
-inline void SLSrv6BindingSID::set_allocated_sid(::service_layer::SLIpv6Address* sid) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
-  if (message_arena == nullptr) {
-    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(sid_);
-  }
-  if (sid) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-        ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper<
-            ::PROTOBUF_NAMESPACE_ID::MessageLite>::GetOwningArena(
-                reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(sid));
-    if (message_arena != submessage_arena) {
-      sid = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, sid, submessage_arena);
-    }
-    
-  } else {
-    
-  }
-  sid_ = sid;
-  // @@protoc_insertion_point(field_set_allocated:service_layer.SLSrv6BindingSID.SID)
 }
 
 // -------------------------------------------------------------------

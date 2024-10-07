@@ -341,13 +341,15 @@ enum SLSrMetricType : int {
   METRIC_TYPE_IGP = 0,
   METRIC_TYPE_DELAY = 1,
   METRIC_TYPE_TE = 2,
-  METRIC_TYPE_HOP = 255,
+  METRIC_TYPE_HOP = 3,
+  METRIC_TYPE_SID_LIST_LENGTH = 4,
+  METRIC_TYPE_BANDWIDTH = 5,
   SLSrMetricType_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::min(),
   SLSrMetricType_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::max()
 };
 bool SLSrMetricType_IsValid(int value);
 constexpr SLSrMetricType SLSrMetricType_MIN = METRIC_TYPE_UNSPECIFIED;
-constexpr SLSrMetricType SLSrMetricType_MAX = METRIC_TYPE_HOP;
+constexpr SLSrMetricType SLSrMetricType_MAX = METRIC_TYPE_BANDWIDTH;
 constexpr int SLSrMetricType_ARRAYSIZE = SLSrMetricType_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* SLSrMetricType_descriptor();
@@ -365,7 +367,6 @@ inline bool SLSrMetricType_Parse(
     SLSrMetricType_descriptor(), name, value);
 }
 enum SLSrteDiversityLevel : int {
-  DIVERSITY_LEVEL_UNSPECIFIED = 0,
   DIVERSITY_LEVEL_NONE = 0,
   DIVERSITY_LEVEL_LINK = 1,
   DIVERSITY_LEVEL_NODE = 2,
@@ -375,7 +376,7 @@ enum SLSrteDiversityLevel : int {
   SLSrteDiversityLevel_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::max()
 };
 bool SLSrteDiversityLevel_IsValid(int value);
-constexpr SLSrteDiversityLevel SLSrteDiversityLevel_MIN = DIVERSITY_LEVEL_UNSPECIFIED;
+constexpr SLSrteDiversityLevel SLSrteDiversityLevel_MIN = DIVERSITY_LEVEL_NONE;
 constexpr SLSrteDiversityLevel SLSrteDiversityLevel_MAX = DIVERSITY_LEVEL_SRLG_NODE;
 constexpr int SLSrteDiversityLevel_ARRAYSIZE = SLSrteDiversityLevel_MAX + 1;
 
@@ -3894,7 +3895,6 @@ class SLSrCandidatePathKey final :
 
   enum : int {
     kOriginatorFieldNumber = 1,
-    kProtocolOriginFieldNumber = 2,
     kDiscriminatorFieldNumber = 3,
   };
   // .service_layer.SLSrCandidatePathKey.Originator originator = 1;
@@ -3915,15 +3915,6 @@ class SLSrCandidatePathKey final :
       ::service_layer::SLSrCandidatePathKey_Originator* originator);
   ::service_layer::SLSrCandidatePathKey_Originator* unsafe_arena_release_originator();
 
-  // .service_layer.SLSrPolicyProtocolOrigin protocol_origin = 2;
-  void clear_protocol_origin();
-  ::service_layer::SLSrPolicyProtocolOrigin protocol_origin() const;
-  void set_protocol_origin(::service_layer::SLSrPolicyProtocolOrigin value);
-  private:
-  ::service_layer::SLSrPolicyProtocolOrigin _internal_protocol_origin() const;
-  void _internal_set_protocol_origin(::service_layer::SLSrPolicyProtocolOrigin value);
-  public:
-
   // uint32 discriminator = 3;
   void clear_discriminator();
   uint32_t discriminator() const;
@@ -3941,7 +3932,6 @@ class SLSrCandidatePathKey final :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   ::service_layer::SLSrCandidatePathKey_Originator* originator_;
-  int protocol_origin_;
   uint32_t discriminator_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_sl_5fsr_5fcommon_2eproto;
@@ -6639,26 +6629,6 @@ inline void SLSrCandidatePathKey::set_allocated_originator(::service_layer::SLSr
   }
   originator_ = originator;
   // @@protoc_insertion_point(field_set_allocated:service_layer.SLSrCandidatePathKey.originator)
-}
-
-// .service_layer.SLSrPolicyProtocolOrigin protocol_origin = 2;
-inline void SLSrCandidatePathKey::clear_protocol_origin() {
-  protocol_origin_ = 0;
-}
-inline ::service_layer::SLSrPolicyProtocolOrigin SLSrCandidatePathKey::_internal_protocol_origin() const {
-  return static_cast< ::service_layer::SLSrPolicyProtocolOrigin >(protocol_origin_);
-}
-inline ::service_layer::SLSrPolicyProtocolOrigin SLSrCandidatePathKey::protocol_origin() const {
-  // @@protoc_insertion_point(field_get:service_layer.SLSrCandidatePathKey.protocol_origin)
-  return _internal_protocol_origin();
-}
-inline void SLSrCandidatePathKey::_internal_set_protocol_origin(::service_layer::SLSrPolicyProtocolOrigin value) {
-  
-  protocol_origin_ = value;
-}
-inline void SLSrCandidatePathKey::set_protocol_origin(::service_layer::SLSrPolicyProtocolOrigin value) {
-  _internal_set_protocol_origin(value);
-  // @@protoc_insertion_point(field_set:service_layer.SLSrCandidatePathKey.protocol_origin)
 }
 
 // uint32 discriminator = 3;

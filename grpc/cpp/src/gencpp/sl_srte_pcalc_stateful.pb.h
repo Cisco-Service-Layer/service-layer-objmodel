@@ -2837,7 +2837,7 @@ class ConstraintSet final :
     kAffinitiesFieldNumber = 1,
     kPathDiversityFieldNumber = 101,
     kCoroutedAssociationFieldNumber = 102,
-    kMaxSegmentsFieldNumber = 204,
+    kMaximumSidDepthFieldNumber = 204,
     kGuaranteedBandwidthFieldNumber = 103,
     kStrictPathSegmentsFieldNumber = 201,
     kUnprotectedSegmentsFieldNumber = 202,
@@ -2937,13 +2937,13 @@ class ConstraintSet final :
       ::service_layer::AssociationGroup* corouted_association);
   ::service_layer::AssociationGroup* unsafe_arena_release_corouted_association();
 
-  // uint32 max_segments = 204;
-  void clear_max_segments();
-  uint32_t max_segments() const;
-  void set_max_segments(uint32_t value);
+  // uint32 maximum_sid_depth = 204;
+  void clear_maximum_sid_depth();
+  uint32_t maximum_sid_depth() const;
+  void set_maximum_sid_depth(uint32_t value);
   private:
-  uint32_t _internal_max_segments() const;
-  void _internal_set_max_segments(uint32_t value);
+  uint32_t _internal_maximum_sid_depth() const;
+  void _internal_set_maximum_sid_depth(uint32_t value);
   public:
 
   // uint32 guaranteed_bandwidth = 103;
@@ -2997,7 +2997,7 @@ class ConstraintSet final :
   ::service_layer::SLSrAffinities* affinities_;
   ::service_layer::ConstraintSet_PathDiversity* path_diversity_;
   ::service_layer::AssociationGroup* corouted_association_;
-  uint32_t max_segments_;
+  uint32_t maximum_sid_depth_;
   uint32_t guaranteed_bandwidth_;
   bool strict_path_segments_;
   bool unprotected_segments_;
@@ -5687,24 +5687,24 @@ inline void ConstraintSet::set_persistent_segments(bool value) {
   // @@protoc_insertion_point(field_set:service_layer.ConstraintSet.persistent_segments)
 }
 
-// uint32 max_segments = 204;
-inline void ConstraintSet::clear_max_segments() {
-  max_segments_ = 0u;
+// uint32 maximum_sid_depth = 204;
+inline void ConstraintSet::clear_maximum_sid_depth() {
+  maximum_sid_depth_ = 0u;
 }
-inline uint32_t ConstraintSet::_internal_max_segments() const {
-  return max_segments_;
+inline uint32_t ConstraintSet::_internal_maximum_sid_depth() const {
+  return maximum_sid_depth_;
 }
-inline uint32_t ConstraintSet::max_segments() const {
-  // @@protoc_insertion_point(field_get:service_layer.ConstraintSet.max_segments)
-  return _internal_max_segments();
+inline uint32_t ConstraintSet::maximum_sid_depth() const {
+  // @@protoc_insertion_point(field_get:service_layer.ConstraintSet.maximum_sid_depth)
+  return _internal_maximum_sid_depth();
 }
-inline void ConstraintSet::_internal_set_max_segments(uint32_t value) {
+inline void ConstraintSet::_internal_set_maximum_sid_depth(uint32_t value) {
   
-  max_segments_ = value;
+  maximum_sid_depth_ = value;
 }
-inline void ConstraintSet::set_max_segments(uint32_t value) {
-  _internal_set_max_segments(value);
-  // @@protoc_insertion_point(field_set:service_layer.ConstraintSet.max_segments)
+inline void ConstraintSet::set_maximum_sid_depth(uint32_t value) {
+  _internal_set_maximum_sid_depth(value);
+  // @@protoc_insertion_point(field_set:service_layer.ConstraintSet.maximum_sid_depth)
 }
 
 // -------------------------------------------------------------------

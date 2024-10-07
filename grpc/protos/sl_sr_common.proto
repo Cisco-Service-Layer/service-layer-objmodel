@@ -435,7 +435,6 @@ message SLSrMetricMargin {
 
 // Diversity level.
 enum SLSrteDiversityLevel {
-    option allow_alias = true;
     DIVERSITY_LEVEL_NONE = 0;
     DIVERSITY_LEVEL_LINK = 1;
     DIVERSITY_LEVEL_NODE = 2;

@@ -76,7 +76,7 @@ namespace ServiceLayer {
             "ASgOMiMuc2VydmljZV9sYXllci5TTFNydGVEaXZlcnNpdHlMZXZlbEgAiAEB",
             "QhwKGl9lZmZlY3RpdmVfZGl2ZXJzaXR5X2xldmVsGlIKD1NMU3J0ZVBhdGhF",
             "cnJvchIqCgR0eXBlGAEgASgLMhwuc2VydmljZV9sYXllci5TTEVycm9yU3Rh",
-            "dHVzEhMKC2Rlc2NyaXB0aW9uGAIgASgJQg8KDXJlc3BvbnNlX3R5cGUizgUK",
+            "dHVzEhMKC2Rlc2NyaXB0aW9uGAIgASgJQg8KDXJlc3BvbnNlX3R5cGUi0wUK",
             "DUNvbnN0cmFpbnRTZXQSMQoKYWZmaW5pdGllcxgBIAEoCzIdLnNlcnZpY2Vf",
             "bGF5ZXIuU0xTckFmZmluaXRpZXMSFAoMc3JsZ19leGNsdWRlGAQgAygNEi4K",
             "CmlwX2V4Y2x1ZGUYBSADKAsyGi5zZXJ2aWNlX2xheWVyLlNMSXBBZGRyZXNz",
@@ -85,20 +85,20 @@ namespace ServiceLayer {
             "Y2lhdGlvbhhmIAEoCzIfLnNlcnZpY2VfbGF5ZXIuQXNzb2NpYXRpb25Hcm91",
             "cEgBiAEBEhwKFGd1YXJhbnRlZWRfYmFuZHdpZHRoGGcgASgNEh0KFHN0cmlj",
             "dF9wYXRoX3NlZ21lbnRzGMkBIAEoCBIdChR1bnByb3RlY3RlZF9zZWdtZW50",
-            "cxjKASABKAgSHAoTcGVyc2lzdGVudF9zZWdtZW50cxjLASABKAgSFQoMbWF4",
-            "X3NlZ21lbnRzGMwBIAEoDRr5AQoNUGF0aERpdmVyc2l0eRI0Cgthc3NvY2lh",
-            "dGlvbhgBIAEoCzIfLnNlcnZpY2VfbGF5ZXIuQXNzb2NpYXRpb25Hcm91cBI8",
-            "Cg9kaXZlcnNpdHlfbGV2ZWwYAiABKA4yIy5zZXJ2aWNlX2xheWVyLlNMU3J0",
-            "ZURpdmVyc2l0eUxldmVsEkUKE21pbl9kaXZlcnNpdHlfbGV2ZWwYAyABKA4y",
-            "Iy5zZXJ2aWNlX2xheWVyLlNMU3J0ZURpdmVyc2l0eUxldmVsSACIAQESFQoN",
-            "c2hvcnRlc3RfcGF0aBgEIAEoCEIWChRfbWluX2RpdmVyc2l0eV9sZXZlbEIR",
-            "Cg9fcGF0aF9kaXZlcnNpdHlCFwoVX2Nvcm91dGVkX2Fzc29jaWF0aW9uIioK",
-            "EEFzc29jaWF0aW9uR3JvdXASFgoOYXNzb2NpYXRpb25faWQYASABKA0yggEK",
-            "ElNMU3J0ZUNhbGNTdGF0ZWZ1bBJsChFTTFNydGVQYXRoQ29tcHV0ZRIoLnNl",
-            "cnZpY2VfbGF5ZXIuU0xTcnRlUGF0aENvbXB1dGVSZXF1ZXN0cxopLnNlcnZp",
-            "Y2VfbGF5ZXIuU0xTcnRlUGF0aENvbXB1dGVSZXNwb25zZXMoATABQlFaT2dp",
-            "dGh1Yi5jb20vQ2lzY28tc2VydmljZS1sYXllci9zZXJ2aWNlLWxheWVyLW9i",
-            "am1vZGVsL2dycGMvcHJvdG9zO3NlcnZpY2VfbGF5ZXJiBnByb3RvMw=="));
+            "cxjKASABKAgSHAoTcGVyc2lzdGVudF9zZWdtZW50cxjLASABKAgSGgoRbWF4",
+            "aW11bV9zaWRfZGVwdGgYzAEgASgNGvkBCg1QYXRoRGl2ZXJzaXR5EjQKC2Fz",
+            "c29jaWF0aW9uGAEgASgLMh8uc2VydmljZV9sYXllci5Bc3NvY2lhdGlvbkdy",
+            "b3VwEjwKD2RpdmVyc2l0eV9sZXZlbBgCIAEoDjIjLnNlcnZpY2VfbGF5ZXIu",
+            "U0xTcnRlRGl2ZXJzaXR5TGV2ZWwSRQoTbWluX2RpdmVyc2l0eV9sZXZlbBgD",
+            "IAEoDjIjLnNlcnZpY2VfbGF5ZXIuU0xTcnRlRGl2ZXJzaXR5TGV2ZWxIAIgB",
+            "ARIVCg1zaG9ydGVzdF9wYXRoGAQgASgIQhYKFF9taW5fZGl2ZXJzaXR5X2xl",
+            "dmVsQhEKD19wYXRoX2RpdmVyc2l0eUIXChVfY29yb3V0ZWRfYXNzb2NpYXRp",
+            "b24iKgoQQXNzb2NpYXRpb25Hcm91cBIWCg5hc3NvY2lhdGlvbl9pZBgBIAEo",
+            "DTKCAQoSU0xTcnRlQ2FsY1N0YXRlZnVsEmwKEVNMU3J0ZVBhdGhDb21wdXRl",
+            "Eiguc2VydmljZV9sYXllci5TTFNydGVQYXRoQ29tcHV0ZVJlcXVlc3RzGiku",
+            "c2VydmljZV9sYXllci5TTFNydGVQYXRoQ29tcHV0ZVJlc3BvbnNlcygBMAFC",
+            "UVpPZ2l0aHViLmNvbS9DaXNjby1zZXJ2aWNlLWxheWVyL3NlcnZpY2UtbGF5",
+            "ZXItb2JqbW9kZWwvZ3JwYy9wcm90b3M7c2VydmljZV9sYXllcmIGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::ServiceLayer.SlCommonTypesReflection.Descriptor, global::ServiceLayer.SlSrCommonReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
@@ -111,7 +111,7 @@ namespace ServiceLayer {
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLSrtePathComputeRequest.Types.SLSrtePathWithdraw), global::ServiceLayer.SLSrtePathComputeRequest.Types.SLSrtePathWithdraw.Parser, null, null, null, null, null)}),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLSrtePathComputeResponse), global::ServiceLayer.SLSrtePathComputeResponse.Parser, new[]{ "PolicyKey", "CandidatePathKey", "ReqSeqNum", "PathResult", "Error" }, new[]{ "ResponseType" }, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLSrtePathComputeResponse.Types.SLSrteDynamicPathResult), global::ServiceLayer.SLSrtePathComputeResponse.Types.SLSrteDynamicPathResult.Parser, new[]{ "SegmentLists", "PathCost", "EffectiveDiversityLevel" }, new[]{ "EffectiveDiversityLevel" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.SLSrtePathComputeResponse.Types.SLSrtePathError), global::ServiceLayer.SLSrtePathComputeResponse.Types.SLSrtePathError.Parser, new[]{ "Type", "Description" }, null, null, null, null)}),
-            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.ConstraintSet), global::ServiceLayer.ConstraintSet.Parser, new[]{ "Affinities", "SrlgExclude", "IpExclude", "PathDiversity", "CoroutedAssociation", "GuaranteedBandwidth", "StrictPathSegments", "UnprotectedSegments", "PersistentSegments", "MaxSegments" }, new[]{ "PathDiversity", "CoroutedAssociation" }, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.ConstraintSet.Types.PathDiversity), global::ServiceLayer.ConstraintSet.Types.PathDiversity.Parser, new[]{ "Association", "DiversityLevel", "MinDiversityLevel", "ShortestPath" }, new[]{ "MinDiversityLevel" }, null, null, null)}),
+            new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.ConstraintSet), global::ServiceLayer.ConstraintSet.Parser, new[]{ "Affinities", "SrlgExclude", "IpExclude", "PathDiversity", "CoroutedAssociation", "GuaranteedBandwidth", "StrictPathSegments", "UnprotectedSegments", "PersistentSegments", "MaximumSidDepth" }, new[]{ "PathDiversity", "CoroutedAssociation" }, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.ConstraintSet.Types.PathDiversity), global::ServiceLayer.ConstraintSet.Types.PathDiversity.Parser, new[]{ "Association", "DiversityLevel", "MinDiversityLevel", "ShortestPath" }, new[]{ "MinDiversityLevel" }, null, null, null)}),
             new pbr::GeneratedClrTypeInfo(typeof(global::ServiceLayer.AssociationGroup), global::ServiceLayer.AssociationGroup.Parser, new[]{ "AssociationId" }, null, null, null, null)
           }));
     }
@@ -3279,7 +3279,7 @@ namespace ServiceLayer {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
         public global::ServiceLayer.SLSrteDiversityLevel EffectiveDiversityLevel {
-          get { if ((_hasBits0 & 1) != 0) { return effectiveDiversityLevel_; } else { return global::ServiceLayer.SLSrteDiversityLevel.DiversityLevelUnspecified; } }
+          get { if ((_hasBits0 & 1) != 0) { return effectiveDiversityLevel_; } else { return global::ServiceLayer.SLSrteDiversityLevel.DiversityLevelNone; } }
           set {
             _hasBits0 |= 1;
             effectiveDiversityLevel_ = value;
@@ -3764,7 +3764,7 @@ namespace ServiceLayer {
       strictPathSegments_ = other.strictPathSegments_;
       unprotectedSegments_ = other.unprotectedSegments_;
       persistentSegments_ = other.persistentSegments_;
-      maxSegments_ = other.maxSegments_;
+      maximumSidDepth_ = other.maximumSidDepth_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -3927,9 +3927,9 @@ namespace ServiceLayer {
       }
     }
 
-    /// <summary>Field number for the "max_segments" field.</summary>
-    public const int MaxSegmentsFieldNumber = 204;
-    private uint maxSegments_;
+    /// <summary>Field number for the "maximum_sid_depth" field.</summary>
+    public const int MaximumSidDepthFieldNumber = 204;
+    private uint maximumSidDepth_;
     /// <summary>
     /// Maximum number of segments in any of the candidate path segment lists.
     ///
@@ -3943,10 +3943,10 @@ namespace ServiceLayer {
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public uint MaxSegments {
-      get { return maxSegments_; }
+    public uint MaximumSidDepth {
+      get { return maximumSidDepth_; }
       set {
-        maxSegments_ = value;
+        maximumSidDepth_ = value;
       }
     }
 
@@ -3974,7 +3974,7 @@ namespace ServiceLayer {
       if (StrictPathSegments != other.StrictPathSegments) return false;
       if (UnprotectedSegments != other.UnprotectedSegments) return false;
       if (PersistentSegments != other.PersistentSegments) return false;
-      if (MaxSegments != other.MaxSegments) return false;
+      if (MaximumSidDepth != other.MaximumSidDepth) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -3991,7 +3991,7 @@ namespace ServiceLayer {
       if (StrictPathSegments != false) hash ^= StrictPathSegments.GetHashCode();
       if (UnprotectedSegments != false) hash ^= UnprotectedSegments.GetHashCode();
       if (PersistentSegments != false) hash ^= PersistentSegments.GetHashCode();
-      if (MaxSegments != 0) hash ^= MaxSegments.GetHashCode();
+      if (MaximumSidDepth != 0) hash ^= MaximumSidDepth.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -4040,9 +4040,9 @@ namespace ServiceLayer {
         output.WriteRawTag(216, 12);
         output.WriteBool(PersistentSegments);
       }
-      if (MaxSegments != 0) {
+      if (MaximumSidDepth != 0) {
         output.WriteRawTag(224, 12);
-        output.WriteUInt32(MaxSegments);
+        output.WriteUInt32(MaximumSidDepth);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -4084,9 +4084,9 @@ namespace ServiceLayer {
         output.WriteRawTag(216, 12);
         output.WriteBool(PersistentSegments);
       }
-      if (MaxSegments != 0) {
+      if (MaximumSidDepth != 0) {
         output.WriteRawTag(224, 12);
-        output.WriteUInt32(MaxSegments);
+        output.WriteUInt32(MaximumSidDepth);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -4121,8 +4121,8 @@ namespace ServiceLayer {
       if (PersistentSegments != false) {
         size += 2 + 1;
       }
-      if (MaxSegments != 0) {
-        size += 2 + pb::CodedOutputStream.ComputeUInt32Size(MaxSegments);
+      if (MaximumSidDepth != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeUInt32Size(MaximumSidDepth);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -4168,8 +4168,8 @@ namespace ServiceLayer {
       if (other.PersistentSegments != false) {
         PersistentSegments = other.PersistentSegments;
       }
-      if (other.MaxSegments != 0) {
-        MaxSegments = other.MaxSegments;
+      if (other.MaximumSidDepth != 0) {
+        MaximumSidDepth = other.MaximumSidDepth;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -4233,7 +4233,7 @@ namespace ServiceLayer {
             break;
           }
           case 1632: {
-            MaxSegments = input.ReadUInt32();
+            MaximumSidDepth = input.ReadUInt32();
             break;
           }
         }
@@ -4298,7 +4298,7 @@ namespace ServiceLayer {
             break;
           }
           case 1632: {
-            MaxSegments = input.ReadUInt32();
+            MaximumSidDepth = input.ReadUInt32();
             break;
           }
         }
@@ -4377,7 +4377,7 @@ namespace ServiceLayer {
 
         /// <summary>Field number for the "diversity_level" field.</summary>
         public const int DiversityLevelFieldNumber = 2;
-        private global::ServiceLayer.SLSrteDiversityLevel diversityLevel_ = global::ServiceLayer.SLSrteDiversityLevel.DiversityLevelUnspecified;
+        private global::ServiceLayer.SLSrteDiversityLevel diversityLevel_ = global::ServiceLayer.SLSrteDiversityLevel.DiversityLevelNone;
         /// <summary>
         /// Required level of diversity for the disjoint paths (e.g., link- or
         /// node-disjoint)
@@ -4419,7 +4419,7 @@ namespace ServiceLayer {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
         public global::ServiceLayer.SLSrteDiversityLevel MinDiversityLevel {
-          get { if ((_hasBits0 & 1) != 0) { return minDiversityLevel_; } else { return global::ServiceLayer.SLSrteDiversityLevel.DiversityLevelUnspecified; } }
+          get { if ((_hasBits0 & 1) != 0) { return minDiversityLevel_; } else { return global::ServiceLayer.SLSrteDiversityLevel.DiversityLevelNone; } }
           set {
             _hasBits0 |= 1;
             minDiversityLevel_ = value;
@@ -4480,7 +4480,7 @@ namespace ServiceLayer {
         public override int GetHashCode() {
           int hash = 1;
           if (association_ != null) hash ^= Association.GetHashCode();
-          if (DiversityLevel != global::ServiceLayer.SLSrteDiversityLevel.DiversityLevelUnspecified) hash ^= DiversityLevel.GetHashCode();
+          if (DiversityLevel != global::ServiceLayer.SLSrteDiversityLevel.DiversityLevelNone) hash ^= DiversityLevel.GetHashCode();
           if (HasMinDiversityLevel) hash ^= MinDiversityLevel.GetHashCode();
           if (ShortestPath != false) hash ^= ShortestPath.GetHashCode();
           if (_unknownFields != null) {
@@ -4505,7 +4505,7 @@ namespace ServiceLayer {
             output.WriteRawTag(10);
             output.WriteMessage(Association);
           }
-          if (DiversityLevel != global::ServiceLayer.SLSrteDiversityLevel.DiversityLevelUnspecified) {
+          if (DiversityLevel != global::ServiceLayer.SLSrteDiversityLevel.DiversityLevelNone) {
             output.WriteRawTag(16);
             output.WriteEnum((int) DiversityLevel);
           }
@@ -4531,7 +4531,7 @@ namespace ServiceLayer {
             output.WriteRawTag(10);
             output.WriteMessage(Association);
           }
-          if (DiversityLevel != global::ServiceLayer.SLSrteDiversityLevel.DiversityLevelUnspecified) {
+          if (DiversityLevel != global::ServiceLayer.SLSrteDiversityLevel.DiversityLevelNone) {
             output.WriteRawTag(16);
             output.WriteEnum((int) DiversityLevel);
           }
@@ -4556,7 +4556,7 @@ namespace ServiceLayer {
           if (association_ != null) {
             size += 1 + pb::CodedOutputStream.ComputeMessageSize(Association);
           }
-          if (DiversityLevel != global::ServiceLayer.SLSrteDiversityLevel.DiversityLevelUnspecified) {
+          if (DiversityLevel != global::ServiceLayer.SLSrteDiversityLevel.DiversityLevelNone) {
             size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) DiversityLevel);
           }
           if (HasMinDiversityLevel) {
@@ -4583,7 +4583,7 @@ namespace ServiceLayer {
             }
             Association.MergeFrom(other.Association);
           }
-          if (other.DiversityLevel != global::ServiceLayer.SLSrteDiversityLevel.DiversityLevelUnspecified) {
+          if (other.DiversityLevel != global::ServiceLayer.SLSrteDiversityLevel.DiversityLevelNone) {
             DiversityLevel = other.DiversityLevel;
           }
           if (other.HasMinDiversityLevel) {
