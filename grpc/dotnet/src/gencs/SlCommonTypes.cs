@@ -24,9 +24,9 @@ namespace ServiceLayer {
     static SlCommonTypesReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChVzbF9jb21tb25fdHlwZXMucHJvdG8SDXNlcnZpY2VfbGF5ZXIilFkKDVNM",
+            "ChVzbF9jb21tb25fdHlwZXMucHJvdG8SDXNlcnZpY2VfbGF5ZXIiqloKDVNM",
             "RXJyb3JTdGF0dXMSNAoGU3RhdHVzGAEgASgOMiQuc2VydmljZV9sYXllci5T",
-            "TEVycm9yU3RhdHVzLlNMRXJybm8izFgKB1NMRXJybm8SDgoKU0xfU1VDQ0VT",
+            "TEVycm9yU3RhdHVzLlNMRXJybm8i4lkKB1NMRXJybm8SDgoKU0xfU1VDQ0VT",
             "UxAAEhQKEFNMX05PVF9DT05ORUNURUQQARINCglTTF9FQUdBSU4QAhINCglT",
             "TF9FTk9NRU0QAxIMCghTTF9FQlVTWRAEEg0KCVNMX0VJTlZBTBAFEhYKElNM",
             "X1VOU1VQUE9SVEVEX1ZFUhAGEhQKEFNMX05PVF9BVkFJTEFCTEUQBxIbChdT",
@@ -268,41 +268,44 @@ namespace ServiceLayer {
             "UE9MSUNZX01BWF9JTlRGX0xJTUlUX1JFQUNIRUQQooAGEiQKHlNMX1BPTElD",
             "WV9SVUxFX0RFTEVURV9OT19SVUxFUxCjgAYSHgoYU0xfUE9MSUNZX0FQUExZ",
             "X05PX0lOVEZTEKSABhIgChpTTF9QT0xJQ1lfVU5BUFBMWV9OT19JTlRGUxCl",
-            "gAYSIQobU0xfU1JURV9QT0xJQ1lfU1RBUlRfT0ZGU0VUEICgBhIkCh5TTF9T",
-            "UlRFX1BPTElDWV9JTlZBTElEX1JFUVVFU1QQgaAGEiYKIFNMX1NSVEVfUE9M",
-            "SUNZX1BPTElDWUtFWV9NSVNTSU5HEIKgBhIsCiZTTF9TUlRFX1BPTElDWV9Q",
-            "T0xJQ1lLRVlfQ09MT1JfTUlTU0lORxCDoAYSKQojU0xfU1JURV9QT0xJQ1lf",
-            "UE9MSUNZS0VZX0VQX01JU1NJTkcQhKAGEioKJFNMX1NSVEVfUE9MSUNZX1BP",
-            "TElDWUtFWV9TUkNfTUlTU0lORxCFoAYSJAoeU0xfU1JURV9QT0xJQ1lfQ1Bf",
-            "UFJFRl9NSVNTSU5HEIagBhIiChxTTF9TUlRFX1BPTElDWV9DUEtFWV9NSVNT",
-            "SU5HEIegBhItCidTTF9TUlRFX1BPTElDWV9DUEtFWV9PUklHSU5BVE9SX01J",
-            "U1NJTkcQiKAGEiMKHVNMX1NSVEVfUENBTENfSU5WQUxJRF9SRVFVRVNUEIGi",
-            "BhIhChtTTF9TUlRFX1BDQUxDX05PX1BBVEhfRk9VTkQQgqIGEh4KGFNMX0lO",
-            "VEVSTkFMX1NUQVJUX09GRlNFVBCAgEAiPAoLU0xJbnRlcmZhY2USDgoETmFt",
-            "ZRgBIAEoCUgAEhAKBkhhbmRsZRgCIAEoDUgAQgsKCUludGVyZmFjZSJCCgtT",
-            "TElwQWRkcmVzcxITCglWNEFkZHJlc3MYASABKA1IABITCglWNkFkZHJlc3MY",
-            "AiABKAxIAEIJCgdBZGRyZXNzIiIKDVNMSXB2NkFkZHJlc3MSEQoJVjZBZGRy",
-            "ZXNzGAEgASgMIiUKClNMT2JqZWN0SWQSDgoETmFtZRgBIAEoCUgAQgcKBWVu",
-            "dHJ5IlQKEVNMUGF0aEdyb3VwUmVmS2V5Eg8KB1ZyZk5hbWUYASABKAkSLgoL",
-            "UGF0aEdyb3VwSWQYAiABKAsyGS5zZXJ2aWNlX2xheWVyLlNMT2JqZWN0SWQq",
-            "YgoHU0xSZWdPcBIVChFTTF9SRUdPUF9SRVNFUlZFRBAAEhUKEVNMX1JFR09Q",
-            "X1JFR0lTVEVSEAESFwoTU0xfUkVHT1BfVU5SRUdJU1RFUhACEhAKDFNMX1JF",
-            "R09QX0VPRhADKl8KClNMT2JqZWN0T3ASFQoRU0xfT0JKT1BfUkVTRVJWRUQQ",
-            "ABIQCgxTTF9PQkpPUF9BREQQARITCg9TTF9PQkpPUF9VUERBVEUQAhITCg9T",
-            "TF9PQkpPUF9ERUxFVEUQAypTCglTTE5vdGlmT3ASFwoTU0xfTk9USUZPUF9S",
-            "RVNFUlZFRBAAEhUKEVNMX05PVElGT1BfRU5BQkxFEAESFgoSU0xfTk9USUZP",
-            "UF9ESVNBQkxFEAIqiQEKEFNMVXBkYXRlUHJpb3JpdHkSGAoUU0xfUFJJT1JJ",
-            "VFlfUkVTRVJWRUQQABIYChRTTF9QUklPUklUWV9DUklUSUNBTBAEEhQKEFNM",
-            "X1BSSU9SSVRZX0hJR0gQCBIWChJTTF9QUklPUklUWV9NRURJVU0QDBITCg9T",
-            "TF9QUklPUklUWV9MT1cQECpLCgtTTEVuY2FwVHlwZRIVChFTTF9FTkNBUF9S",
-            "RVNFUlZFRBAAEhIKDlNMX0VOQ0FQX1ZYTEFOEAESEQoNU0xfRU5DQVBfTVBM",
-            "UxACKo0BCgtTTFRhYmxlVHlwZRIaChZTTF9UQUJMRV9UWVBFX1JFU0VSVkVE",
-            "EAASFwoTU0xfSVB2NF9ST1VURV9UQUJMRRABEhcKE1NMX0lQdjZfUk9VVEVf",
-            "VEFCTEUQAhIXChNTTF9NUExTX0xBQkVMX1RBQkxFEAMSFwoTU0xfUEFUSF9H",
-            "Uk9VUF9UQUJMRRAEKjAKDFNMUnNwQUNLVHlwZRILCgdSSUJfQUNLEAASEwoP",
-            "UklCX0FORF9GSUJfQUNLEAFCUVpPZ2l0aHViLmNvbS9DaXNjby1zZXJ2aWNl",
-            "LWxheWVyL3NlcnZpY2UtbGF5ZXItb2JqbW9kZWwvZ3JwYy9wcm90b3M7c2Vy",
-            "dmljZV9sYXllcmIGcHJvdG8z"));
+            "gAYSIAoaU0xfQkdQTFNfVE9QT19TVEFSVF9PRkZTRVQQgKAGEiMKHVNMX0JH",
+            "UExTX1NFUlZFUl9OT1RfQVZBSUxBQkxFEIGgBhIoCiJTTF9CR1BMU19NQVhf",
+            "TUFUQ0hfRklMVEVSX0VYQ0VFREVEEIKgBhIjCh1TTF9CR1BMU19NQVhfU1RS",
+            "RUFNU19FWENFRURFRBCDoAYSIQobU0xfU1JURV9QT0xJQ1lfU1RBUlRfT0ZG",
+            "U0VUEIDABhIkCh5TTF9TUlRFX1BPTElDWV9JTlZBTElEX1JFUVVFU1QQgcAG",
+            "EiYKIFNMX1NSVEVfUE9MSUNZX1BPTElDWUtFWV9NSVNTSU5HEILABhIsCiZT",
+            "TF9TUlRFX1BPTElDWV9QT0xJQ1lLRVlfQ09MT1JfTUlTU0lORxCDwAYSKQoj",
+            "U0xfU1JURV9QT0xJQ1lfUE9MSUNZS0VZX0VQX01JU1NJTkcQhMAGEioKJFNM",
+            "X1NSVEVfUE9MSUNZX1BPTElDWUtFWV9TUkNfTUlTU0lORxCFwAYSJAoeU0xf",
+            "U1JURV9QT0xJQ1lfQ1BfUFJFRl9NSVNTSU5HEIbABhIiChxTTF9TUlRFX1BP",
+            "TElDWV9DUEtFWV9NSVNTSU5HEIfABhItCidTTF9TUlRFX1BPTElDWV9DUEtF",
+            "WV9PUklHSU5BVE9SX01JU1NJTkcQiMAGEiMKHVNMX1NSVEVfUENBTENfSU5W",
+            "QUxJRF9SRVFVRVNUEIHCBhIhChtTTF9TUlRFX1BDQUxDX05PX1BBVEhfRk9V",
+            "TkQQgsIGEh4KGFNMX0lOVEVSTkFMX1NUQVJUX09GRlNFVBCAgEAiPAoLU0xJ",
+            "bnRlcmZhY2USDgoETmFtZRgBIAEoCUgAEhAKBkhhbmRsZRgCIAEoDUgAQgsK",
+            "CUludGVyZmFjZSJCCgtTTElwQWRkcmVzcxITCglWNEFkZHJlc3MYASABKA1I",
+            "ABITCglWNkFkZHJlc3MYAiABKAxIAEIJCgdBZGRyZXNzIiIKDVNMSXB2NkFk",
+            "ZHJlc3MSEQoJVjZBZGRyZXNzGAEgASgMIiUKClNMT2JqZWN0SWQSDgoETmFt",
+            "ZRgBIAEoCUgAQgcKBWVudHJ5IlQKEVNMUGF0aEdyb3VwUmVmS2V5Eg8KB1Zy",
+            "Zk5hbWUYASABKAkSLgoLUGF0aEdyb3VwSWQYAiABKAsyGS5zZXJ2aWNlX2xh",
+            "eWVyLlNMT2JqZWN0SWQqYgoHU0xSZWdPcBIVChFTTF9SRUdPUF9SRVNFUlZF",
+            "RBAAEhUKEVNMX1JFR09QX1JFR0lTVEVSEAESFwoTU0xfUkVHT1BfVU5SRUdJ",
+            "U1RFUhACEhAKDFNMX1JFR09QX0VPRhADKl8KClNMT2JqZWN0T3ASFQoRU0xf",
+            "T0JKT1BfUkVTRVJWRUQQABIQCgxTTF9PQkpPUF9BREQQARITCg9TTF9PQkpP",
+            "UF9VUERBVEUQAhITCg9TTF9PQkpPUF9ERUxFVEUQAypTCglTTE5vdGlmT3AS",
+            "FwoTU0xfTk9USUZPUF9SRVNFUlZFRBAAEhUKEVNMX05PVElGT1BfRU5BQkxF",
+            "EAESFgoSU0xfTk9USUZPUF9ESVNBQkxFEAIqiQEKEFNMVXBkYXRlUHJpb3Jp",
+            "dHkSGAoUU0xfUFJJT1JJVFlfUkVTRVJWRUQQABIYChRTTF9QUklPUklUWV9D",
+            "UklUSUNBTBAEEhQKEFNMX1BSSU9SSVRZX0hJR0gQCBIWChJTTF9QUklPUklU",
+            "WV9NRURJVU0QDBITCg9TTF9QUklPUklUWV9MT1cQECpLCgtTTEVuY2FwVHlw",
+            "ZRIVChFTTF9FTkNBUF9SRVNFUlZFRBAAEhIKDlNMX0VOQ0FQX1ZYTEFOEAES",
+            "EQoNU0xfRU5DQVBfTVBMUxACKo0BCgtTTFRhYmxlVHlwZRIaChZTTF9UQUJM",
+            "RV9UWVBFX1JFU0VSVkVEEAASFwoTU0xfSVB2NF9ST1VURV9UQUJMRRABEhcK",
+            "E1NMX0lQdjZfUk9VVEVfVEFCTEUQAhIXChNTTF9NUExTX0xBQkVMX1RBQkxF",
+            "EAMSFwoTU0xfUEFUSF9HUk9VUF9UQUJMRRAEKjAKDFNMUnNwQUNLVHlwZRIL",
+            "CgdSSUJfQUNLEAASEwoPUklCX0FORF9GSUJfQUNLEAFCUVpPZ2l0aHViLmNv",
+            "bS9DaXNjby1zZXJ2aWNlLWxheWVyL3NlcnZpY2UtbGF5ZXItb2JqbW9kZWwv",
+            "Z3JwYy9wcm90b3M7c2VydmljZV9sYXllcmIGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::ServiceLayer.SLRegOp), typeof(global::ServiceLayer.SLObjectOp), typeof(global::ServiceLayer.SLNotifOp), typeof(global::ServiceLayer.SLUpdatePriority), typeof(global::ServiceLayer.SLEncapType), typeof(global::ServiceLayer.SLTableType), typeof(global::ServiceLayer.SLRspACKType), }, null, new pbr::GeneratedClrTypeInfo[] {
@@ -2038,49 +2041,66 @@ namespace ServiceLayer {
         /// </summary>
         [pbr::OriginalName("SL_POLICY_UNAPPLY_NO_INTFS")] SlPolicyUnapplyNoIntfs = 98341,
         /// <summary>
-        /// Offset for policy object operations. 0x19000
+        /// Offset for Bgpls Topology errors. 0x19000
         /// </summary>
-        [pbr::OriginalName("SL_SRTE_POLICY_START_OFFSET")] SlSrtePolicyStartOffset = 102400,
+        [pbr::OriginalName("SL_BGPLS_TOPO_START_OFFSET")] SlBgplsTopoStartOffset = 102400,
         /// <summary>
-        /// Policy request message is not valid. 0x19001
+        /// LSLIB Server which is required for BGPLS Topology Service
+        /// is not available. 0x19001
         /// </summary>
-        [pbr::OriginalName("SL_SRTE_POLICY_INVALID_REQUEST")] SlSrtePolicyInvalidRequest = 102401,
+        [pbr::OriginalName("SL_BGPLS_SERVER_NOT_AVAILABLE")] SlBgplsServerNotAvailable = 102401,
         /// <summary>
-        /// PolicyKey missing from request message. 0x19002
+        /// Maximum match filters in SLBgplsTopoNotifReqMsg exceeded. 0x19002
         /// </summary>
-        [pbr::OriginalName("SL_SRTE_POLICY_POLICYKEY_MISSING")] SlSrtePolicyPolicykeyMissing = 102402,
+        [pbr::OriginalName("SL_BGPLS_MAX_MATCH_FILTER_EXCEEDED")] SlBgplsMaxMatchFilterExceeded = 102402,
         /// <summary>
-        /// PolicyKey Color missing or invalid. 0x19003
+        /// Maximum SLBgplsTopoNotifStream exceeded. 0x19003
         /// </summary>
-        [pbr::OriginalName("SL_SRTE_POLICY_POLICYKEY_COLOR_MISSING")] SlSrtePolicyPolicykeyColorMissing = 102403,
+        [pbr::OriginalName("SL_BGPLS_MAX_STREAMS_EXCEEDED")] SlBgplsMaxStreamsExceeded = 102403,
         /// <summary>
-        /// PolicyKey Endpoint missing or invalid. 0x19004
+        /// Offset for policy object operations. 0x1a000
         /// </summary>
-        [pbr::OriginalName("SL_SRTE_POLICY_POLICYKEY_EP_MISSING")] SlSrtePolicyPolicykeyEpMissing = 102404,
+        [pbr::OriginalName("SL_SRTE_POLICY_START_OFFSET")] SlSrtePolicyStartOffset = 106496,
         /// <summary>
-        /// PolicyKey Headend/Source address missing or invalid. 0x19005
+        /// Policy request message is not valid. 0x1a001
         /// </summary>
-        [pbr::OriginalName("SL_SRTE_POLICY_POLICYKEY_SRC_MISSING")] SlSrtePolicyPolicykeySrcMissing = 102405,
+        [pbr::OriginalName("SL_SRTE_POLICY_INVALID_REQUEST")] SlSrtePolicyInvalidRequest = 106497,
         /// <summary>
-        /// CandidatePath preference missing. 0x19006
+        /// PolicyKey missing from request message. 0x1a002
         /// </summary>
-        [pbr::OriginalName("SL_SRTE_POLICY_CP_PREF_MISSING")] SlSrtePolicyCpPrefMissing = 102406,
+        [pbr::OriginalName("SL_SRTE_POLICY_POLICYKEY_MISSING")] SlSrtePolicyPolicykeyMissing = 106498,
         /// <summary>
-        /// CPKey missing from request. 0x19007
+        /// PolicyKey Color missing or invalid. 0x1a003
         /// </summary>
-        [pbr::OriginalName("SL_SRTE_POLICY_CPKEY_MISSING")] SlSrtePolicyCpkeyMissing = 102407,
+        [pbr::OriginalName("SL_SRTE_POLICY_POLICYKEY_COLOR_MISSING")] SlSrtePolicyPolicykeyColorMissing = 106499,
         /// <summary>
-        /// CPKey Originator missing from request. 0x19008
+        /// PolicyKey Endpoint missing or invalid. 0x1a004
         /// </summary>
-        [pbr::OriginalName("SL_SRTE_POLICY_CPKEY_ORIGINATOR_MISSING")] SlSrtePolicyCpkeyOriginatorMissing = 102408,
+        [pbr::OriginalName("SL_SRTE_POLICY_POLICYKEY_EP_MISSING")] SlSrtePolicyPolicykeyEpMissing = 106500,
         /// <summary>
-        /// Invalid PathCompute request. 0x19101
+        /// PolicyKey Headend/Source address missing or invalid. 0x1a005
         /// </summary>
-        [pbr::OriginalName("SL_SRTE_PCALC_INVALID_REQUEST")] SlSrtePcalcInvalidRequest = 102657,
+        [pbr::OriginalName("SL_SRTE_POLICY_POLICYKEY_SRC_MISSING")] SlSrtePolicyPolicykeySrcMissing = 106501,
         /// <summary>
-        /// No path available for the requested end-point and constraints. 0x19102
+        /// CandidatePath preference missing. 0x1a006
         /// </summary>
-        [pbr::OriginalName("SL_SRTE_PCALC_NO_PATH_FOUND")] SlSrtePcalcNoPathFound = 102658,
+        [pbr::OriginalName("SL_SRTE_POLICY_CP_PREF_MISSING")] SlSrtePolicyCpPrefMissing = 106502,
+        /// <summary>
+        /// CPKey missing from request. 0x1a007
+        /// </summary>
+        [pbr::OriginalName("SL_SRTE_POLICY_CPKEY_MISSING")] SlSrtePolicyCpkeyMissing = 106503,
+        /// <summary>
+        /// CPKey Originator missing from request. 0x1a008
+        /// </summary>
+        [pbr::OriginalName("SL_SRTE_POLICY_CPKEY_ORIGINATOR_MISSING")] SlSrtePolicyCpkeyOriginatorMissing = 106504,
+        /// <summary>
+        /// Invalid PathCompute request. 0x1a101
+        /// </summary>
+        [pbr::OriginalName("SL_SRTE_PCALC_INVALID_REQUEST")] SlSrtePcalcInvalidRequest = 106753,
+        /// <summary>
+        /// No path available for the requested end-point and constraints. 0x1a102
+        /// </summary>
+        [pbr::OriginalName("SL_SRTE_PCALC_NO_PATH_FOUND")] SlSrtePcalcNoPathFound = 106754,
         /// <summary>
         /// Offset for Internal errors. 0x100000
         /// </summary>

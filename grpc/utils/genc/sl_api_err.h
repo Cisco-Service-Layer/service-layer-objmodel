@@ -741,29 +741,39 @@
     SL_POLICY_APPLY_NO_INTFS = 0x18024,\
     /* Policy unapply requested but no interfaces were provided. 0x18025 */\
     SL_POLICY_UNAPPLY_NO_INTFS = 0x18025,\
+    /* !!! Error codes for Bgpls Topology objects. */\
+    /* Offset for Bgpls Topology errors. 0x19000 */\
+    SL_BGPLS_TOPO_START_OFFSET = 0x19000,        \
+    /* LSLIB Server which is required for BGPLS Topology Service */\
+    /* is not available. 0x19001 */\
+    SL_BGPLS_SERVER_NOT_AVAILABLE = 0x19001,\
+    /* Maximum match filters in SLBgplsTopoNotifReqMsg exceeded. 0x19002 */\
+    SL_BGPLS_MAX_MATCH_FILTER_EXCEEDED = 0x19002,\
+    /* Maximum SLBgplsTopoNotifStream exceeded. 0x19003 */\
+    SL_BGPLS_MAX_STREAMS_EXCEEDED = 0x19003,\
     /* !!! Error codes for operations on Segment-routing Traffic-eng policy objects. */\
-    /* Offset for policy object operations. 0x19000 */\
-    SL_SRTE_POLICY_START_OFFSET = 0x19000,\
-    /* Policy request message is not valid. 0x19001 */\
-    SL_SRTE_POLICY_INVALID_REQUEST = 0x19001,\
-    /* PolicyKey missing from request message. 0x19002 */\
-    SL_SRTE_POLICY_POLICYKEY_MISSING = 0x19002,\
-    /* PolicyKey Color missing or invalid. 0x19003 */\
-    SL_SRTE_POLICY_POLICYKEY_COLOR_MISSING = 0x19003,\
-    /* PolicyKey Endpoint missing or invalid. 0x19004 */\
-    SL_SRTE_POLICY_POLICYKEY_EP_MISSING = 0x19004,\
-    /* PolicyKey Headend/Source address missing or invalid. 0x19005 */\
-    SL_SRTE_POLICY_POLICYKEY_SRC_MISSING = 0x19005,\
-    /* CandidatePath preference missing. 0x19006 */\
-    SL_SRTE_POLICY_CP_PREF_MISSING = 0x19006,\
-    /* CPKey missing from request. 0x19007 */\
-    SL_SRTE_POLICY_CPKEY_MISSING = 0x19007,\
-    /* CPKey Originator missing from request. 0x19008 */\
-    SL_SRTE_POLICY_CPKEY_ORIGINATOR_MISSING = 0x19008,\
-    /* Invalid PathCompute request. 0x19101 */\
-    SL_SRTE_PCALC_INVALID_REQUEST = 0x19101,\
-    /* No path available for the requested end-point and constraints. 0x19102 */\
-    SL_SRTE_PCALC_NO_PATH_FOUND = 0x19102,\
+    /* Offset for policy object operations. 0x1a000 */\
+    SL_SRTE_POLICY_START_OFFSET = 0x1a000,\
+    /* Policy request message is not valid. 0x1a001 */\
+    SL_SRTE_POLICY_INVALID_REQUEST = 0x1a001,\
+    /* PolicyKey missing from request message. 0x1a002 */\
+    SL_SRTE_POLICY_POLICYKEY_MISSING = 0x1a002,\
+    /* PolicyKey Color missing or invalid. 0x1a003 */\
+    SL_SRTE_POLICY_POLICYKEY_COLOR_MISSING = 0x1a003,\
+    /* PolicyKey Endpoint missing or invalid. 0x1a004 */\
+    SL_SRTE_POLICY_POLICYKEY_EP_MISSING = 0x1a004,\
+    /* PolicyKey Headend/Source address missing or invalid. 0x1a005 */\
+    SL_SRTE_POLICY_POLICYKEY_SRC_MISSING = 0x1a005,\
+    /* CandidatePath preference missing. 0x1a006 */\
+    SL_SRTE_POLICY_CP_PREF_MISSING = 0x1a006,\
+    /* CPKey missing from request. 0x1a007 */\
+    SL_SRTE_POLICY_CPKEY_MISSING = 0x1a007,\
+    /* CPKey Originator missing from request. 0x1a008 */\
+    SL_SRTE_POLICY_CPKEY_ORIGINATOR_MISSING = 0x1a008,\
+    /* Invalid PathCompute request. 0x1a101 */\
+    SL_SRTE_PCALC_INVALID_REQUEST = 0x1a101,\
+    /* No path available for the requested end-point and constraints. 0x1a102 */\
+    SL_SRTE_PCALC_NO_PATH_FOUND = 0x1a102,\
     /* !!! Error codes Reserved for internal errors. */\
     /* Offset for Internal errors. 0x100000 */\
     SL_INTERNAL_START_OFFSET = 0x100000,\
@@ -1797,6 +1807,19 @@
         },\
     {SL_POLICY_UNAPPLY_NO_INTFS ,\
         " Policy unapply requested but no interfaces were provided.  "\
+        },\
+    {SL_BGPLS_TOPO_START_OFFSET ,\
+        " Offset for Bgpls Topology errors.  "\
+        },\
+    {SL_BGPLS_SERVER_NOT_AVAILABLE ,\
+        " LSLIB Server which is required for BGPLS Topology Service "\
+        " is not available.  "\
+        },\
+    {SL_BGPLS_MAX_MATCH_FILTER_EXCEEDED ,\
+        " Maximum match filters in SLBgplsTopoNotifReqMsg exceeded.  "\
+        },\
+    {SL_BGPLS_MAX_STREAMS_EXCEEDED ,\
+        " Maximum SLBgplsTopoNotifStream exceeded.  "\
         },\
     {SL_SRTE_POLICY_START_OFFSET ,\
         " Offset for policy object operations.  "\
