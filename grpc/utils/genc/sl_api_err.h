@@ -744,7 +744,8 @@
     /* !!! Error codes for Bgpls Topology objects. */\
     /* Offset for Bgpls Topology errors. 0x19000 */\
     SL_BGPLS_TOPO_START_OFFSET = 0x19000,        \
-    /* LSLIB Server not available */\
+    /* LSLIB Server which is required for BGPLS Topology Service */\
+    /* is not available. 0x19001 */\
     SL_BGPLS_SERVER_NOT_AVAILABLE = 0x19001,\
     /* Maximum match filters in SLBgplsTopoNotifReqMsg exceeded. 0x19002 */\
     SL_BGPLS_MAX_MATCH_FILTER_EXCEEDED = 0x19002,\
@@ -1788,7 +1789,8 @@
         " Offset for Bgpls Topology errors.  "\
         },\
     {SL_BGPLS_SERVER_NOT_AVAILABLE ,\
-        " LSLIB Server not available "\
+        " LSLIB Server which is required for BGPLS Topology Service "\
+        " is not available.  "\
         },\
     {SL_BGPLS_MAX_MATCH_FILTER_EXCEEDED ,\
         " Maximum match filters in SLBgplsTopoNotifReqMsg exceeded.  "\

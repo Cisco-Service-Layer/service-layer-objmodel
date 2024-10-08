@@ -2034,7 +2034,8 @@ namespace ServiceLayer {
         /// </summary>
         [pbr::OriginalName("SL_BGPLS_TOPO_START_OFFSET")] SlBgplsTopoStartOffset = 102400,
         /// <summary>
-        /// LSLIB Server not available
+        /// LSLIB Server which is required for BGPLS Topology Service
+        /// is not available. 0x19001
         /// </summary>
         [pbr::OriginalName("SL_BGPLS_SERVER_NOT_AVAILABLE")] SlBgplsServerNotAvailable = 102401,
         /// <summary>

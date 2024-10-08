@@ -1168,7 +1168,8 @@ const (
 	SLErrorStatus_SL_POLICY_UNAPPLY_NO_INTFS SLErrorStatus_SLErrno = 98341
 	// Offset for Bgpls Topology errors. 0x19000
 	SLErrorStatus_SL_BGPLS_TOPO_START_OFFSET SLErrorStatus_SLErrno = 102400
-	// LSLIB Server not available
+	// LSLIB Server which is required for BGPLS Topology Service
+	// is not available. 0x19001
 	SLErrorStatus_SL_BGPLS_SERVER_NOT_AVAILABLE SLErrorStatus_SLErrno = 102401
 	// Maximum match filters in SLBgplsTopoNotifReqMsg exceeded. 0x19002
 	SLErrorStatus_SL_BGPLS_MAX_MATCH_FILTER_EXCEEDED SLErrorStatus_SLErrno = 102402
