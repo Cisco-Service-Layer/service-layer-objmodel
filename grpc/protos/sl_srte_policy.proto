@@ -161,6 +161,7 @@ message SLSrv6BindingSID {
     string locatorName = 1;
     uint32 behavior = 2;
     // Binding segment ID, for Explicit BSID mode
+    // Explicit SRv6 BSID is not supported in this version
     // SLIpv6Address SID = 3;
 }
 

@@ -1779,6 +1779,7 @@ namespace ServiceLayer {
     private uint behavior_;
     /// <summary>
     /// Binding segment ID, for Explicit BSID mode
+    /// Explicit SRv6 BSID is not supported in this version
     /// SLIpv6Address SID = 3;
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]

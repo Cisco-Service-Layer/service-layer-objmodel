@@ -741,6 +741,29 @@
     SL_POLICY_APPLY_NO_INTFS = 0x18024,\
     /* Policy unapply requested but no interfaces were provided. 0x18025 */\
     SL_POLICY_UNAPPLY_NO_INTFS = 0x18025,\
+    /* !!! Error codes for operations on Segment-routing Traffic-eng policy objects. */\
+    /* Offset for policy object operations. 0x19000 */\
+    SL_SRTE_POLICY_START_OFFSET = 0x19000,\
+    /* Policy request message is not valid. 0x19001 */\
+    SL_SRTE_POLICY_INVALID_REQUEST = 0x19001,\
+    /* PolicyKey missing from request message. 0x19002 */\
+    SL_SRTE_POLICY_POLICYKEY_MISSING = 0x19002,\
+    /* PolicyKey Color missing or invalid. 0x19003 */\
+    SL_SRTE_POLICY_POLICYKEY_COLOR_MISSING = 0x19003,\
+    /* PolicyKey Endpoint missing or invalid. 0x19004 */\
+    SL_SRTE_POLICY_POLICYKEY_EP_MISSING = 0x19004,\
+    /* PolicyKey Headend/Source address missing or invalid. 0x19005 */\
+    SL_SRTE_POLICY_POLICYKEY_SRC_MISSING = 0x19005,\
+    /* CandidatePath preference missing. 0x19006 */\
+    SL_SRTE_POLICY_CP_PREF_MISSING = 0x19006,\
+    /* CPKey missing from request. 0x19007 */\
+    SL_SRTE_POLICY_CPKEY_MISSING = 0x19007,\
+    /* CPKey Originator missing from request. 0x19008 */\
+    SL_SRTE_POLICY_CPKEY_ORIGINATOR_MISSING = 0x19008,\
+    /* Invalid PathCompute request. 0x19101 */\
+    SL_SRTE_PCALC_INVALID_REQUEST = 0x19101,\
+    /* No path available for the requested end-point and constraints. 0x19102 */\
+    SL_SRTE_PCALC_NO_PATH_FOUND = 0x19102,\
     /* !!! Error codes Reserved for internal errors. */\
     /* Offset for Internal errors. 0x100000 */\
     SL_INTERNAL_START_OFFSET = 0x100000,\
@@ -1774,6 +1797,39 @@
         },\
     {SL_POLICY_UNAPPLY_NO_INTFS ,\
         " Policy unapply requested but no interfaces were provided.  "\
+        },\
+    {SL_SRTE_POLICY_START_OFFSET ,\
+        " Offset for policy object operations.  "\
+        },\
+    {SL_SRTE_POLICY_INVALID_REQUEST ,\
+        " Policy request message is not valid.  "\
+        },\
+    {SL_SRTE_POLICY_POLICYKEY_MISSING ,\
+        " PolicyKey missing from request message.  "\
+        },\
+    {SL_SRTE_POLICY_POLICYKEY_COLOR_MISSING ,\
+        " PolicyKey Color missing or invalid.  "\
+        },\
+    {SL_SRTE_POLICY_POLICYKEY_EP_MISSING ,\
+        " PolicyKey Endpoint missing or invalid.  "\
+        },\
+    {SL_SRTE_POLICY_POLICYKEY_SRC_MISSING ,\
+        " PolicyKey Headend/Source address missing or invalid.  "\
+        },\
+    {SL_SRTE_POLICY_CP_PREF_MISSING ,\
+        " CandidatePath preference missing.  "\
+        },\
+    {SL_SRTE_POLICY_CPKEY_MISSING ,\
+        " CPKey missing from request.  "\
+        },\
+    {SL_SRTE_POLICY_CPKEY_ORIGINATOR_MISSING ,\
+        " CPKey Originator missing from request.  "\
+        },\
+    {SL_SRTE_PCALC_INVALID_REQUEST ,\
+        " Invalid PathCompute request.  "\
+        },\
+    {SL_SRTE_PCALC_NO_PATH_FOUND ,\
+        " No path available for the requested end-point and constraints.  "\
         },\
     {SL_INTERNAL_START_OFFSET ,\
         " Offset for Internal errors.  "\

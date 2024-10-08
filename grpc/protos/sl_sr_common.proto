@@ -24,12 +24,6 @@ option go_package="github.com/Cisco-service-layer/service-layer-objmodel/grpc/pr
 // The following messages are used as SR Common Service Layer types.
 // @{
 
-// IPv6 addresses.
-message SLIpv6Address {
-    // IPv6 address.
-    bytes  V6Address = 1;
-}
-
 // Protocol Originating SR Policy
 // Section 8.4 of [draft-ietf-idr-bgp-ls-sr-policy]
 enum SLSrPolicyProtocolOrigin {

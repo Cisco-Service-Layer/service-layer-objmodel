@@ -17,18 +17,6 @@
 
 PROTOBUF_PRAGMA_INIT_SEG
 namespace service_layer {
-constexpr SLIpv6Address::SLIpv6Address(
-  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : v6address_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string){}
-struct SLIpv6AddressDefaultTypeInternal {
-  constexpr SLIpv6AddressDefaultTypeInternal()
-    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
-  ~SLIpv6AddressDefaultTypeInternal() {}
-  union {
-    SLIpv6Address _instance;
-  };
-};
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT SLIpv6AddressDefaultTypeInternal _SLIpv6Address_default_instance_;
 constexpr SLSrPolicyFlags::SLSrPolicyFlags(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
   : flags_(0u){}
@@ -280,18 +268,11 @@ struct SLSrCandidatePathKeyDefaultTypeInternal {
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT SLSrCandidatePathKeyDefaultTypeInternal _SLSrCandidatePathKey_default_instance_;
 }  // namespace service_layer
-static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_sl_5fsr_5fcommon_2eproto[19];
+static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_sl_5fsr_5fcommon_2eproto[18];
 static const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* file_level_enum_descriptors_sl_5fsr_5fcommon_2eproto[9];
 static constexpr ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor const** file_level_service_descriptors_sl_5fsr_5fcommon_2eproto = nullptr;
 
 const uint32_t TableStruct_sl_5fsr_5fcommon_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
-  ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::service_layer::SLIpv6Address, _internal_metadata_),
-  ~0u,  // no _extensions_
-  ~0u,  // no _oneof_case_
-  ~0u,  // no _weak_field_map_
-  ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::service_layer::SLIpv6Address, v6address_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::service_layer::SLSrPolicyFlags, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -462,29 +443,27 @@ const uint32_t TableStruct_sl_5fsr_5fcommon_2eproto::offsets[] PROTOBUF_SECTION_
   PROTOBUF_FIELD_OFFSET(::service_layer::SLSrCandidatePathKey, discriminator_),
 };
 static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
-  { 0, -1, -1, sizeof(::service_layer::SLIpv6Address)},
-  { 7, -1, -1, sizeof(::service_layer::SLSrPolicyFlags)},
-  { 14, -1, -1, sizeof(::service_layer::SLSrBsid)},
-  { 23, -1, -1, sizeof(::service_layer::SLSrCpName)},
-  { 30, -1, -1, sizeof(::service_layer::SLSrSegmentDesc)},
-  { 45, -1, -1, sizeof(::service_layer::SLSrSegment)},
-  { 59, -1, -1, sizeof(::service_layer::SLSrv6BindingSid)},
-  { 70, -1, -1, sizeof(::service_layer::SLSrv6EndPointBehavior)},
-  { 79, -1, -1, sizeof(::service_layer::SLSrv6SidStruct)},
-  { 89, -1, -1, sizeof(::service_layer::SLSrMetricBounds)},
-  { 98, -1, -1, sizeof(::service_layer::SLSrMetricMargin)},
-  { 106, -1, -1, sizeof(::service_layer::SLSrAffinities)},
-  { 115, -1, -1, sizeof(::service_layer::SLSrteSegment_TypeA)},
-  { 122, -1, -1, sizeof(::service_layer::SLSrteSegment_TypeB)},
-  { 131, -1, -1, sizeof(::service_layer::SLSrteSegment)},
-  { 140, 148, -1, sizeof(::service_layer::SLSrSegmentList)},
-  { 150, -1, -1, sizeof(::service_layer::SLSrPolicyKey)},
-  { 159, -1, -1, sizeof(::service_layer::SLSrCandidatePathKey_Originator)},
-  { 167, -1, -1, sizeof(::service_layer::SLSrCandidatePathKey)},
+  { 0, -1, -1, sizeof(::service_layer::SLSrPolicyFlags)},
+  { 7, -1, -1, sizeof(::service_layer::SLSrBsid)},
+  { 16, -1, -1, sizeof(::service_layer::SLSrCpName)},
+  { 23, -1, -1, sizeof(::service_layer::SLSrSegmentDesc)},
+  { 38, -1, -1, sizeof(::service_layer::SLSrSegment)},
+  { 52, -1, -1, sizeof(::service_layer::SLSrv6BindingSid)},
+  { 63, -1, -1, sizeof(::service_layer::SLSrv6EndPointBehavior)},
+  { 72, -1, -1, sizeof(::service_layer::SLSrv6SidStruct)},
+  { 82, -1, -1, sizeof(::service_layer::SLSrMetricBounds)},
+  { 91, -1, -1, sizeof(::service_layer::SLSrMetricMargin)},
+  { 99, -1, -1, sizeof(::service_layer::SLSrAffinities)},
+  { 108, -1, -1, sizeof(::service_layer::SLSrteSegment_TypeA)},
+  { 115, -1, -1, sizeof(::service_layer::SLSrteSegment_TypeB)},
+  { 124, -1, -1, sizeof(::service_layer::SLSrteSegment)},
+  { 133, 141, -1, sizeof(::service_layer::SLSrSegmentList)},
+  { 143, -1, -1, sizeof(::service_layer::SLSrPolicyKey)},
+  { 152, -1, -1, sizeof(::service_layer::SLSrCandidatePathKey_Originator)},
+  { 160, -1, -1, sizeof(::service_layer::SLSrCandidatePathKey)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::service_layer::_SLIpv6Address_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::service_layer::_SLSrPolicyFlags_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::service_layer::_SLSrBsid_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::service_layer::_SLSrCpName_default_instance_),
@@ -507,117 +486,116 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
 
 const char descriptor_table_protodef_sl_5fsr_5fcommon_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
   "\n\022sl_sr_common.proto\022\rservice_layer\032\025sl_"
-  "common_types.proto\"\"\n\rSLIpv6Address\022\021\n\tV"
-  "6Address\030\001 \001(\014\" \n\017SLSrPolicyFlags\022\r\n\005Fla"
-  "gs\030\001 \001(\r\"@\n\010SLSrBsid\022\022\n\010MplsBsid\030\001 \001(\rH\000"
-  "\022\022\n\010Srv6Bsid\030\002 \001(\014H\000B\014\n\nBindingSid\"\032\n\nSL"
-  "SrCpName\022\014\n\004Name\030\001 \001(\t\"\330\001\n\017SLSrSegmentDe"
-  "sc\022\021\n\tAlgorithm\030\001 \001(\r\022\027\n\rIpv4LocalAddr\030\002"
-  " \001(\014H\000\022\027\n\rIpv6LocalAddr\030\003 \001(\014H\000\022\030\n\016Ipv4R"
-  "emoteAddr\030\004 \001(\014H\001\022\030\n\016Ipv6RemoteAddr\030\005 \001("
-  "\014H\001\022\027\n\017LocalNodeIntfId\030\006 \001(\r\022\030\n\020RemoteNo"
-  "deIntfId\030\007 \001(\rB\013\n\tLocalNodeB\014\n\nRemoteNod"
-  "e\"\242\002\n\013SLSrSegment\022,\n\004Type\030\001 \001(\0162\036.servic"
-  "e_layer.SLSrSegmentType\022\r\n\005Flags\030\002 \001(\r\022\023"
-  "\n\tMplsLabel\030\003 \001(\rH\000\022\021\n\007Srv6Sid\030\004 \001(\014H\000\0223"
-  "\n\013SegmentDesc\030\005 \001(\0132\036.service_layer.SLSr"
-  "SegmentDesc\022\?\n\020EndPointBehavior\030\006 \001(\0132%."
+  "common_types.proto\" \n\017SLSrPolicyFlags\022\r\n"
+  "\005Flags\030\001 \001(\r\"@\n\010SLSrBsid\022\022\n\010MplsBsid\030\001 \001"
+  "(\rH\000\022\022\n\010Srv6Bsid\030\002 \001(\014H\000B\014\n\nBindingSid\"\032"
+  "\n\nSLSrCpName\022\014\n\004Name\030\001 \001(\t\"\330\001\n\017SLSrSegme"
+  "ntDesc\022\021\n\tAlgorithm\030\001 \001(\r\022\027\n\rIpv4LocalAd"
+  "dr\030\002 \001(\014H\000\022\027\n\rIpv6LocalAddr\030\003 \001(\014H\000\022\030\n\016I"
+  "pv4RemoteAddr\030\004 \001(\014H\001\022\030\n\016Ipv6RemoteAddr\030"
+  "\005 \001(\014H\001\022\027\n\017LocalNodeIntfId\030\006 \001(\r\022\030\n\020Remo"
+  "teNodeIntfId\030\007 \001(\rB\013\n\tLocalNodeB\014\n\nRemot"
+  "eNode\"\242\002\n\013SLSrSegment\022,\n\004Type\030\001 \001(\0162\036.se"
+  "rvice_layer.SLSrSegmentType\022\r\n\005Flags\030\002 \001"
+  "(\r\022\023\n\tMplsLabel\030\003 \001(\rH\000\022\021\n\007Srv6Sid\030\004 \001(\014"
+  "H\000\0223\n\013SegmentDesc\030\005 \001(\0132\036.service_layer."
+  "SLSrSegmentDesc\022\?\n\020EndPointBehavior\030\006 \001("
+  "\0132%.service_layer.SLSrv6EndPointBehavior"
+  "\0221\n\tSidStruct\030\007 \001(\0132\036.service_layer.SLSr"
+  "v6SidStructB\005\n\003Sid\"\272\001\n\020SLSrv6BindingSid\022"
+  "\r\n\005Flags\030\001 \001(\r\022\014\n\004Bsid\030\002 \001(\014\022\025\n\rSpecifie"
+  "dBsid\030\003 \001(\014\022\?\n\020EndPointBehavior\030\004 \001(\0132%."
   "service_layer.SLSrv6EndPointBehavior\0221\n\t"
-  "SidStruct\030\007 \001(\0132\036.service_layer.SLSrv6Si"
-  "dStructB\005\n\003Sid\"\272\001\n\020SLSrv6BindingSid\022\r\n\005F"
-  "lags\030\001 \001(\r\022\014\n\004Bsid\030\002 \001(\014\022\025\n\rSpecifiedBsi"
-  "d\030\003 \001(\014\022\?\n\020EndPointBehavior\030\004 \001(\0132%.serv"
-  "ice_layer.SLSrv6EndPointBehavior\0221\n\tSidS"
-  "truct\030\005 \001(\0132\036.service_layer.SLSrv6SidStr"
-  "uct\"T\n\026SLSrv6EndPointBehavior\022\030\n\020EndPoin"
-  "tBehavior\030\001 \001(\r\022\r\n\005Flags\030\002 \001(\r\022\021\n\tAlgori"
-  "thm\030\003 \001(\r\"g\n\017SLSrv6SidStruct\022\027\n\017LocatorB"
-  "lockLen\030\001 \001(\r\022\026\n\016LocatorNodeLen\030\002 \001(\r\022\023\n"
-  "\013FunctionLen\030\003 \001(\r\022\016\n\006ArgLen\030\004 \001(\r\"<\n\020SL"
-  "SrMetricBounds\022\013\n\003igp\030\001 \001(\r\022\n\n\002te\030\002 \001(\r\022"
-  "\017\n\007latency\030\003 \001(\r\"\205\001\n\020SLSrMetricMargin\0228\n"
-  "\004type\030\001 \001(\0162*.service_layer.SLSrMetricMa"
-  "rgin.MarginType\022\r\n\005value\030\002 \001(\r\"(\n\nMargin"
-  "Type\022\014\n\010RELATIVE\020\000\022\014\n\010ABSOLUTE\020\001\"L\n\016SLSr"
-  "Affinities\022\022\n\nincludeAny\030\001 \003(\r\022\022\n\ninclud"
-  "eAll\030\002 \003(\r\022\022\n\nexcludeAny\030\003 \003(\r\"\245\002\n\rSLSrt"
-  "eSegment\0224\n\006type_a\030\001 \001(\0132\".service_layer"
-  ".SLSrteSegment.TypeAH\000\0224\n\006type_b\030\002 \001(\0132\""
-  ".service_layer.SLSrteSegment.TypeBH\000\032\026\n\005"
-  "TypeA\022\r\n\005label\030\001 \001(\r\032\204\001\n\005TypeB\0226\n\020ipv6_s"
-  "id_address\030\001 \001(\0132\034.service_layer.SLIpv6A"
-  "ddress\022\020\n\010behavior\030\002 \001(\r\0221\n\tstructure\030\003 "
-  "\001(\0132\036.service_layer.SLSrv6SidStructB\t\n\007s"
-  "egment\"a\n\017SLSrSegmentList\022.\n\010segments\030\001 "
-  "\003(\0132\034.service_layer.SLSrteSegment\022\023\n\006wei"
-  "ght\030\002 \001(\rH\000\210\001\001B\t\n\007_weight\"y\n\rSLSrPolicyK"
-  "ey\022+\n\007headend\030\001 \001(\0132\032.service_layer.SLIp"
-  "Address\022\r\n\005color\030\002 \001(\r\022,\n\010endpoint\030\003 \001(\013"
-  "2\032.service_layer.SLIpAddress\"\270\001\n\024SLSrCan"
-  "didatePathKey\022B\n\noriginator\030\001 \001(\0132..serv"
-  "ice_layer.SLSrCandidatePathKey.Originato"
-  "r\022\025\n\rdiscriminator\030\003 \001(\r\032E\n\nOriginator\022\013"
-  "\n\003ASN\030\001 \001(\r\022*\n\006nodeID\030\002 \001(\0132\032.service_la"
-  "yer.SLIpAddress*\220\003\n\030SLSrPolicyProtocolOr"
-  "igin\022)\n%SL_SR_POLICY_PROTOCOL_ORIGIN_RES"
-  "ERVED\020\000\022%\n!SL_SR_POLICY_PROTOCOL_ORIGIN_"
-  "PCEP\020\001\022.\n*SL_SR_POLICY_PROTOCOL_ORIGIN_B"
-  "GP_SR_POLICY\020\002\022\'\n#SL_SR_POLICY_PROTOCOL_"
-  "ORIGIN_CONFIG\020\003\022-\n)SL_SR_POLICY_PROTOCOL"
-  "_ORIGIN_PCEP_VIA_PCE\020\n\0226\n2SL_SR_POLICY_P"
-  "ROTOCOL_ORIGIN_BGP_SR_POLICY_VIA_PCE\020\024\022/"
-  "\n+SL_SR_POLICY_PROTOCOL_ORIGIN_CONFIG_VI"
-  "A_PCE\020\036\0221\n,SL_SR_POLICY_PROTOCOL_ORIGIN_"
-  "CONFIG_VIA_GRPC\020\373\001*}\n\022SLSrPolicyFlagsDef"
-  "\022\036\n\032SL_SR_POLICY_FLAG_RESERVED\020\000\022\"\n\035SL_S"
-  "R_POLICY_FLAG_ENDPOINT_V6\020\200\001\022#\n\037SL_SR_PO"
-  "LICY_FLAG_ORIGINATOR_V6\020@*\233\004\n\017SLSrSegmen"
-  "tType\022\033\n\027SL_SR_SEG_TYPE_RESERVED\020\000\022\035\n\031SL"
-  "_SR_SEG_TYPE_MPLS_LABEL\020\001\022\036\n\032SL_SR_SEG_T"
-  "YPE_SRV6_SID_V6\020\002\022\"\n\036SL_SR_SEG_TYPE_MPLS"
-  "_PFX_SID_V4\020\003\022\"\n\036SL_SR_SEG_TYPE_MPLS_PFX"
-  "_SID_V6\020\004\0223\n/SL_SR_SEG_TYPE_MPLS_ADJ_SID"
-  "_V4_NODE_ADDR_LOC_ID\020\005\022/\n+SL_SR_SEG_TYPE"
-  "_MPLS_ADJ_SID_V4_LOC_REM_ADDR\020\006\0226\n2SL_SR"
-  "_SEG_TYPE_MPLS_ADJ_SID_V6_LOC_REM_ADDR_A"
-  "ND_ID\020\007\022/\n+SL_SR_SEG_TYPE_MPLS_ADJ_SID_V"
-  "6_LOC_REM_ADDR\020\010\022,\n(SL_SR_SEG_TYPE_SRV6_"
-  "END_SID_V6_NODE_ADDR\020\t\0226\n2SL_SR_SEG_TYPE"
-  "_SRV6_END_SID_V6_LOC_REM_ADDR_AND_ID\020\n\022/"
-  "\n+SL_SR_SEG_TYPE_SRV6_END_SID_V6_LOC_REM"
-  "_ADDR\020\013*\200\002\n\020SLSrSegmentFlags\022\037\n\033SL_SR_SE"
-  "GMENT_FLAG_RESERVED\020\000\022$\n\036SL_SR_SEGMENT_F"
-  "LAG_SID_PRESENT\020\200\200\002\0221\n+SL_SR_SEGMENT_FLA"
-  "G_SID_EXPLICIT_PROVISIONED\020\200\200\001\022$\n\037SL_SR_"
-  "SEGMENT_FLAG_SID_VERIFIED\020\200@\022$\n\037SL_SR_SE"
-  "GMENT_FLAG_SID_RESOLVED\020\200 \022&\n!SL_SR_SEGM"
-  "ENT_FLAG_SID_ALGO_VALID\020\200\020*\233\001\n\025SLSrv6Bin"
-  "dingSidFlags\022\036\n\032SL_SRV6_BSID_FLAG_RESERV"
-  "ED\020\000\022!\n\033SL_SRV6_BSID_FLAG_ALLOCATED\020\200\200\002\022"
-  "\037\n\031SL_SRV6_BSID_FLAG_UNAVAIL\020\200\200\001\022\036\n\031SL_S"
-  "RV6_BSID_FLAG_DYNAMIC\020\200@*[\n\rSLSrDataplan"
-  "e\022\034\n\030SR_DATAPLANE_UNSPECIFIED\020\000\022\025\n\021SR_DA"
-  "TAPLANE_MPLS\020\001\022\025\n\021SR_DATAPLANE_SRV6\020\002*\302\001"
-  "\n\016SLSrMetricType\022\033\n\027METRIC_TYPE_UNSPECIF"
-  "IED\020\000\022\023\n\017METRIC_TYPE_IGP\020\000\022\025\n\021METRIC_TYP"
-  "E_DELAY\020\001\022\022\n\016METRIC_TYPE_TE\020\002\022\023\n\017METRIC_"
-  "TYPE_HOP\020\003\022\037\n\033METRIC_TYPE_SID_LIST_LENGT"
-  "H\020\004\022\031\n\025METRIC_TYPE_BANDWIDTH\020\005\032\002\020\001*\235\001\n\024S"
-  "LSrteDiversityLevel\022\030\n\024DIVERSITY_LEVEL_N"
-  "ONE\020\000\022\030\n\024DIVERSITY_LEVEL_LINK\020\001\022\030\n\024DIVER"
-  "SITY_LEVEL_NODE\020\002\022\030\n\024DIVERSITY_LEVEL_SRL"
-  "G\020\003\022\035\n\031DIVERSITY_LEVEL_SRLG_NODE\020\004BQZOgi"
-  "thub.com/Cisco-service-layer/service-lay"
-  "er-objmodel/grpc/protos;service_layerb\006p"
-  "roto3"
+  "SidStruct\030\005 \001(\0132\036.service_layer.SLSrv6Si"
+  "dStruct\"T\n\026SLSrv6EndPointBehavior\022\030\n\020End"
+  "PointBehavior\030\001 \001(\r\022\r\n\005Flags\030\002 \001(\r\022\021\n\tAl"
+  "gorithm\030\003 \001(\r\"g\n\017SLSrv6SidStruct\022\027\n\017Loca"
+  "torBlockLen\030\001 \001(\r\022\026\n\016LocatorNodeLen\030\002 \001("
+  "\r\022\023\n\013FunctionLen\030\003 \001(\r\022\016\n\006ArgLen\030\004 \001(\r\"<"
+  "\n\020SLSrMetricBounds\022\013\n\003igp\030\001 \001(\r\022\n\n\002te\030\002 "
+  "\001(\r\022\017\n\007latency\030\003 \001(\r\"\205\001\n\020SLSrMetricMargi"
+  "n\0228\n\004type\030\001 \001(\0162*.service_layer.SLSrMetr"
+  "icMargin.MarginType\022\r\n\005value\030\002 \001(\r\"(\n\nMa"
+  "rginType\022\014\n\010RELATIVE\020\000\022\014\n\010ABSOLUTE\020\001\"L\n\016"
+  "SLSrAffinities\022\022\n\nincludeAny\030\001 \003(\r\022\022\n\nin"
+  "cludeAll\030\002 \003(\r\022\022\n\nexcludeAny\030\003 \003(\r\"\245\002\n\rS"
+  "LSrteSegment\0224\n\006type_a\030\001 \001(\0132\".service_l"
+  "ayer.SLSrteSegment.TypeAH\000\0224\n\006type_b\030\002 \001"
+  "(\0132\".service_layer.SLSrteSegment.TypeBH\000"
+  "\032\026\n\005TypeA\022\r\n\005label\030\001 \001(\r\032\204\001\n\005TypeB\0226\n\020ip"
+  "v6_sid_address\030\001 \001(\0132\034.service_layer.SLI"
+  "pv6Address\022\020\n\010behavior\030\002 \001(\r\0221\n\tstructur"
+  "e\030\003 \001(\0132\036.service_layer.SLSrv6SidStructB"
+  "\t\n\007segment\"a\n\017SLSrSegmentList\022.\n\010segment"
+  "s\030\001 \003(\0132\034.service_layer.SLSrteSegment\022\023\n"
+  "\006weight\030\002 \001(\rH\000\210\001\001B\t\n\007_weight\"y\n\rSLSrPol"
+  "icyKey\022+\n\007headend\030\001 \001(\0132\032.service_layer."
+  "SLIpAddress\022\r\n\005color\030\002 \001(\r\022,\n\010endpoint\030\003"
+  " \001(\0132\032.service_layer.SLIpAddress\"\270\001\n\024SLS"
+  "rCandidatePathKey\022B\n\noriginator\030\001 \001(\0132.."
+  "service_layer.SLSrCandidatePathKey.Origi"
+  "nator\022\025\n\rdiscriminator\030\003 \001(\r\032E\n\nOriginat"
+  "or\022\013\n\003ASN\030\001 \001(\r\022*\n\006nodeID\030\002 \001(\0132\032.servic"
+  "e_layer.SLIpAddress*\220\003\n\030SLSrPolicyProtoc"
+  "olOrigin\022)\n%SL_SR_POLICY_PROTOCOL_ORIGIN"
+  "_RESERVED\020\000\022%\n!SL_SR_POLICY_PROTOCOL_ORI"
+  "GIN_PCEP\020\001\022.\n*SL_SR_POLICY_PROTOCOL_ORIG"
+  "IN_BGP_SR_POLICY\020\002\022\'\n#SL_SR_POLICY_PROTO"
+  "COL_ORIGIN_CONFIG\020\003\022-\n)SL_SR_POLICY_PROT"
+  "OCOL_ORIGIN_PCEP_VIA_PCE\020\n\0226\n2SL_SR_POLI"
+  "CY_PROTOCOL_ORIGIN_BGP_SR_POLICY_VIA_PCE"
+  "\020\024\022/\n+SL_SR_POLICY_PROTOCOL_ORIGIN_CONFI"
+  "G_VIA_PCE\020\036\0221\n,SL_SR_POLICY_PROTOCOL_ORI"
+  "GIN_CONFIG_VIA_GRPC\020\373\001*}\n\022SLSrPolicyFlag"
+  "sDef\022\036\n\032SL_SR_POLICY_FLAG_RESERVED\020\000\022\"\n\035"
+  "SL_SR_POLICY_FLAG_ENDPOINT_V6\020\200\001\022#\n\037SL_S"
+  "R_POLICY_FLAG_ORIGINATOR_V6\020@*\233\004\n\017SLSrSe"
+  "gmentType\022\033\n\027SL_SR_SEG_TYPE_RESERVED\020\000\022\035"
+  "\n\031SL_SR_SEG_TYPE_MPLS_LABEL\020\001\022\036\n\032SL_SR_S"
+  "EG_TYPE_SRV6_SID_V6\020\002\022\"\n\036SL_SR_SEG_TYPE_"
+  "MPLS_PFX_SID_V4\020\003\022\"\n\036SL_SR_SEG_TYPE_MPLS"
+  "_PFX_SID_V6\020\004\0223\n/SL_SR_SEG_TYPE_MPLS_ADJ"
+  "_SID_V4_NODE_ADDR_LOC_ID\020\005\022/\n+SL_SR_SEG_"
+  "TYPE_MPLS_ADJ_SID_V4_LOC_REM_ADDR\020\006\0226\n2S"
+  "L_SR_SEG_TYPE_MPLS_ADJ_SID_V6_LOC_REM_AD"
+  "DR_AND_ID\020\007\022/\n+SL_SR_SEG_TYPE_MPLS_ADJ_S"
+  "ID_V6_LOC_REM_ADDR\020\010\022,\n(SL_SR_SEG_TYPE_S"
+  "RV6_END_SID_V6_NODE_ADDR\020\t\0226\n2SL_SR_SEG_"
+  "TYPE_SRV6_END_SID_V6_LOC_REM_ADDR_AND_ID"
+  "\020\n\022/\n+SL_SR_SEG_TYPE_SRV6_END_SID_V6_LOC"
+  "_REM_ADDR\020\013*\200\002\n\020SLSrSegmentFlags\022\037\n\033SL_S"
+  "R_SEGMENT_FLAG_RESERVED\020\000\022$\n\036SL_SR_SEGME"
+  "NT_FLAG_SID_PRESENT\020\200\200\002\0221\n+SL_SR_SEGMENT"
+  "_FLAG_SID_EXPLICIT_PROVISIONED\020\200\200\001\022$\n\037SL"
+  "_SR_SEGMENT_FLAG_SID_VERIFIED\020\200@\022$\n\037SL_S"
+  "R_SEGMENT_FLAG_SID_RESOLVED\020\200 \022&\n!SL_SR_"
+  "SEGMENT_FLAG_SID_ALGO_VALID\020\200\020*\233\001\n\025SLSrv"
+  "6BindingSidFlags\022\036\n\032SL_SRV6_BSID_FLAG_RE"
+  "SERVED\020\000\022!\n\033SL_SRV6_BSID_FLAG_ALLOCATED\020"
+  "\200\200\002\022\037\n\031SL_SRV6_BSID_FLAG_UNAVAIL\020\200\200\001\022\036\n\031"
+  "SL_SRV6_BSID_FLAG_DYNAMIC\020\200@*[\n\rSLSrData"
+  "plane\022\034\n\030SR_DATAPLANE_UNSPECIFIED\020\000\022\025\n\021S"
+  "R_DATAPLANE_MPLS\020\001\022\025\n\021SR_DATAPLANE_SRV6\020"
+  "\002*\302\001\n\016SLSrMetricType\022\033\n\027METRIC_TYPE_UNSP"
+  "ECIFIED\020\000\022\023\n\017METRIC_TYPE_IGP\020\000\022\025\n\021METRIC"
+  "_TYPE_DELAY\020\001\022\022\n\016METRIC_TYPE_TE\020\002\022\023\n\017MET"
+  "RIC_TYPE_HOP\020\003\022\037\n\033METRIC_TYPE_SID_LIST_L"
+  "ENGTH\020\004\022\031\n\025METRIC_TYPE_BANDWIDTH\020\005\032\002\020\001*\235"
+  "\001\n\024SLSrteDiversityLevel\022\030\n\024DIVERSITY_LEV"
+  "EL_NONE\020\000\022\030\n\024DIVERSITY_LEVEL_LINK\020\001\022\030\n\024D"
+  "IVERSITY_LEVEL_NODE\020\002\022\030\n\024DIVERSITY_LEVEL"
+  "_SRLG\020\003\022\035\n\031DIVERSITY_LEVEL_SRLG_NODE\020\004BQ"
+  "ZOgithub.com/Cisco-service-layer/service"
+  "-layer-objmodel/grpc/protos;service_laye"
+  "rb\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_sl_5fsr_5fcommon_2eproto_deps[1] = {
   &::descriptor_table_sl_5fcommon_5ftypes_2eproto,
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_sl_5fsr_5fcommon_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_sl_5fsr_5fcommon_2eproto = {
-  false, false, 4125, descriptor_table_protodef_sl_5fsr_5fcommon_2eproto, "sl_sr_common.proto", 
-  &descriptor_table_sl_5fsr_5fcommon_2eproto_once, descriptor_table_sl_5fsr_5fcommon_2eproto_deps, 1, 19,
+  false, false, 4089, descriptor_table_protodef_sl_5fsr_5fcommon_2eproto, "sl_sr_common.proto", 
+  &descriptor_table_sl_5fsr_5fcommon_2eproto_once, descriptor_table_sl_5fsr_5fcommon_2eproto_deps, 1, 18,
   schemas, file_default_instances, TableStruct_sl_5fsr_5fcommon_2eproto::offsets,
   file_level_metadata_sl_5fsr_5fcommon_2eproto, file_level_enum_descriptors_sl_5fsr_5fcommon_2eproto, file_level_service_descriptors_sl_5fsr_5fcommon_2eproto,
 };
@@ -795,204 +773,6 @@ bool SLSrteDiversityLevel_IsValid(int value) {
 
 // ===================================================================
 
-class SLIpv6Address::_Internal {
- public:
-};
-
-SLIpv6Address::SLIpv6Address(::PROTOBUF_NAMESPACE_ID::Arena* arena,
-                         bool is_message_owned)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
-  SharedCtor();
-  if (!is_message_owned) {
-    RegisterArenaDtor(arena);
-  }
-  // @@protoc_insertion_point(arena_constructor:service_layer.SLIpv6Address)
-}
-SLIpv6Address::SLIpv6Address(const SLIpv6Address& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message() {
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  v6address_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-    v6address_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
-  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (!from._internal_v6address().empty()) {
-    v6address_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_v6address(), 
-      GetArenaForAllocation());
-  }
-  // @@protoc_insertion_point(copy_constructor:service_layer.SLIpv6Address)
-}
-
-inline void SLIpv6Address::SharedCtor() {
-v6address_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  v6address_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-}
-
-SLIpv6Address::~SLIpv6Address() {
-  // @@protoc_insertion_point(destructor:service_layer.SLIpv6Address)
-  if (GetArenaForAllocation() != nullptr) return;
-  SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
-
-inline void SLIpv6Address::SharedDtor() {
-  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
-  v6address_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-}
-
-void SLIpv6Address::ArenaDtor(void* object) {
-  SLIpv6Address* _this = reinterpret_cast< SLIpv6Address* >(object);
-  (void)_this;
-}
-void SLIpv6Address::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
-void SLIpv6Address::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
-}
-
-void SLIpv6Address::Clear() {
-// @@protoc_insertion_point(message_clear_start:service_layer.SLIpv6Address)
-  uint32_t cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  v6address_.ClearToEmpty();
-  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
-
-const char* SLIpv6Address::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
-#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  while (!ctx->Done(&ptr)) {
-    uint32_t tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    switch (tag >> 3) {
-      // bytes V6Address = 1;
-      case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
-          auto str = _internal_mutable_v6address();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(ptr);
-        } else
-          goto handle_unusual;
-        continue;
-      default:
-        goto handle_unusual;
-    }  // switch
-  handle_unusual:
-    if ((tag == 0) || ((tag & 7) == 4)) {
-      CHK_(ptr);
-      ctx->SetLastTag(tag);
-      goto message_done;
-    }
-    ptr = UnknownFieldParse(
-        tag,
-        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-        ptr, ctx);
-    CHK_(ptr != nullptr);
-  }  // while
-message_done:
-  return ptr;
-failure:
-  ptr = nullptr;
-  goto message_done;
-#undef CHK_
-}
-
-uint8_t* SLIpv6Address::_InternalSerialize(
-    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:service_layer.SLIpv6Address)
-  uint32_t cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  // bytes V6Address = 1;
-  if (!this->_internal_v6address().empty()) {
-    target = stream->WriteBytesMaybeAliased(
-        1, this->_internal_v6address(), target);
-  }
-
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
-        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
-  }
-  // @@protoc_insertion_point(serialize_to_array_end:service_layer.SLIpv6Address)
-  return target;
-}
-
-size_t SLIpv6Address::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:service_layer.SLIpv6Address)
-  size_t total_size = 0;
-
-  uint32_t cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  // bytes V6Address = 1;
-  if (!this->_internal_v6address().empty()) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
-        this->_internal_v6address());
-  }
-
-  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
-}
-
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData SLIpv6Address::_class_data_ = {
-    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
-    SLIpv6Address::MergeImpl
-};
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*SLIpv6Address::GetClassData() const { return &_class_data_; }
-
-void SLIpv6Address::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
-                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-  static_cast<SLIpv6Address *>(to)->MergeFrom(
-      static_cast<const SLIpv6Address &>(from));
-}
-
-
-void SLIpv6Address::MergeFrom(const SLIpv6Address& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:service_layer.SLIpv6Address)
-  GOOGLE_DCHECK_NE(&from, this);
-  uint32_t cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  if (!from._internal_v6address().empty()) {
-    _internal_set_v6address(from._internal_v6address());
-  }
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-}
-
-void SLIpv6Address::CopyFrom(const SLIpv6Address& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:service_layer.SLIpv6Address)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool SLIpv6Address::IsInitialized() const {
-  return true;
-}
-
-void SLIpv6Address::InternalSwap(SLIpv6Address* other) {
-  using std::swap;
-  auto* lhs_arena = GetArenaForAllocation();
-  auto* rhs_arena = other->GetArenaForAllocation();
-  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
-      &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
-      &v6address_, lhs_arena,
-      &other->v6address_, rhs_arena
-  );
-}
-
-::PROTOBUF_NAMESPACE_ID::Metadata SLIpv6Address::GetMetadata() const {
-  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
-      &descriptor_table_sl_5fsr_5fcommon_2eproto_getter, &descriptor_table_sl_5fsr_5fcommon_2eproto_once,
-      file_level_metadata_sl_5fsr_5fcommon_2eproto[0]);
-}
-
-// ===================================================================
-
 class SLSrPolicyFlags::_Internal {
  public:
 };
@@ -1166,7 +946,7 @@ void SLSrPolicyFlags::InternalSwap(SLSrPolicyFlags* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata SLSrPolicyFlags::GetMetadata() const {
   return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_sl_5fsr_5fcommon_2eproto_getter, &descriptor_table_sl_5fsr_5fcommon_2eproto_once,
-      file_level_metadata_sl_5fsr_5fcommon_2eproto[1]);
+      file_level_metadata_sl_5fsr_5fcommon_2eproto[0]);
 }
 
 // ===================================================================
@@ -1417,7 +1197,7 @@ void SLSrBsid::InternalSwap(SLSrBsid* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata SLSrBsid::GetMetadata() const {
   return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_sl_5fsr_5fcommon_2eproto_getter, &descriptor_table_sl_5fsr_5fcommon_2eproto_once,
-      file_level_metadata_sl_5fsr_5fcommon_2eproto[2]);
+      file_level_metadata_sl_5fsr_5fcommon_2eproto[1]);
 }
 
 // ===================================================================
@@ -1620,7 +1400,7 @@ void SLSrCpName::InternalSwap(SLSrCpName* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata SLSrCpName::GetMetadata() const {
   return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_sl_5fsr_5fcommon_2eproto_getter, &descriptor_table_sl_5fsr_5fcommon_2eproto_once,
-      file_level_metadata_sl_5fsr_5fcommon_2eproto[3]);
+      file_level_metadata_sl_5fsr_5fcommon_2eproto[2]);
 }
 
 // ===================================================================
@@ -2057,7 +1837,7 @@ void SLSrSegmentDesc::InternalSwap(SLSrSegmentDesc* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata SLSrSegmentDesc::GetMetadata() const {
   return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_sl_5fsr_5fcommon_2eproto_getter, &descriptor_table_sl_5fsr_5fcommon_2eproto_once,
-      file_level_metadata_sl_5fsr_5fcommon_2eproto[4]);
+      file_level_metadata_sl_5fsr_5fcommon_2eproto[3]);
 }
 
 // ===================================================================
@@ -2494,7 +2274,7 @@ void SLSrSegment::InternalSwap(SLSrSegment* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata SLSrSegment::GetMetadata() const {
   return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_sl_5fsr_5fcommon_2eproto_getter, &descriptor_table_sl_5fsr_5fcommon_2eproto_once,
-      file_level_metadata_sl_5fsr_5fcommon_2eproto[5]);
+      file_level_metadata_sl_5fsr_5fcommon_2eproto[4]);
 }
 
 // ===================================================================
@@ -2852,7 +2632,7 @@ void SLSrv6BindingSid::InternalSwap(SLSrv6BindingSid* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata SLSrv6BindingSid::GetMetadata() const {
   return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_sl_5fsr_5fcommon_2eproto_getter, &descriptor_table_sl_5fsr_5fcommon_2eproto_once,
-      file_level_metadata_sl_5fsr_5fcommon_2eproto[6]);
+      file_level_metadata_sl_5fsr_5fcommon_2eproto[5]);
 }
 
 // ===================================================================
@@ -3086,7 +2866,7 @@ void SLSrv6EndPointBehavior::InternalSwap(SLSrv6EndPointBehavior* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata SLSrv6EndPointBehavior::GetMetadata() const {
   return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_sl_5fsr_5fcommon_2eproto_getter, &descriptor_table_sl_5fsr_5fcommon_2eproto_once,
-      file_level_metadata_sl_5fsr_5fcommon_2eproto[7]);
+      file_level_metadata_sl_5fsr_5fcommon_2eproto[6]);
 }
 
 // ===================================================================
@@ -3342,7 +3122,7 @@ void SLSrv6SidStruct::InternalSwap(SLSrv6SidStruct* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata SLSrv6SidStruct::GetMetadata() const {
   return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_sl_5fsr_5fcommon_2eproto_getter, &descriptor_table_sl_5fsr_5fcommon_2eproto_once,
-      file_level_metadata_sl_5fsr_5fcommon_2eproto[8]);
+      file_level_metadata_sl_5fsr_5fcommon_2eproto[7]);
 }
 
 // ===================================================================
@@ -3576,7 +3356,7 @@ void SLSrMetricBounds::InternalSwap(SLSrMetricBounds* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata SLSrMetricBounds::GetMetadata() const {
   return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_sl_5fsr_5fcommon_2eproto_getter, &descriptor_table_sl_5fsr_5fcommon_2eproto_once,
-      file_level_metadata_sl_5fsr_5fcommon_2eproto[9]);
+      file_level_metadata_sl_5fsr_5fcommon_2eproto[8]);
 }
 
 // ===================================================================
@@ -3791,7 +3571,7 @@ void SLSrMetricMargin::InternalSwap(SLSrMetricMargin* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata SLSrMetricMargin::GetMetadata() const {
   return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_sl_5fsr_5fcommon_2eproto_getter, &descriptor_table_sl_5fsr_5fcommon_2eproto_once,
-      file_level_metadata_sl_5fsr_5fcommon_2eproto[10]);
+      file_level_metadata_sl_5fsr_5fcommon_2eproto[9]);
 }
 
 // ===================================================================
@@ -4063,7 +3843,7 @@ void SLSrAffinities::InternalSwap(SLSrAffinities* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata SLSrAffinities::GetMetadata() const {
   return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_sl_5fsr_5fcommon_2eproto_getter, &descriptor_table_sl_5fsr_5fcommon_2eproto_once,
-      file_level_metadata_sl_5fsr_5fcommon_2eproto[11]);
+      file_level_metadata_sl_5fsr_5fcommon_2eproto[10]);
 }
 
 // ===================================================================
@@ -4241,7 +4021,7 @@ void SLSrteSegment_TypeA::InternalSwap(SLSrteSegment_TypeA* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata SLSrteSegment_TypeA::GetMetadata() const {
   return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_sl_5fsr_5fcommon_2eproto_getter, &descriptor_table_sl_5fsr_5fcommon_2eproto_once,
-      file_level_metadata_sl_5fsr_5fcommon_2eproto[12]);
+      file_level_metadata_sl_5fsr_5fcommon_2eproto[11]);
 }
 
 // ===================================================================
@@ -4259,6 +4039,12 @@ SLSrteSegment_TypeB::_Internal::ipv6_sid_address(const SLSrteSegment_TypeB* msg)
 const ::service_layer::SLSrv6SidStruct&
 SLSrteSegment_TypeB::_Internal::structure(const SLSrteSegment_TypeB* msg) {
   return *msg->structure_;
+}
+void SLSrteSegment_TypeB::clear_ipv6_sid_address() {
+  if (GetArenaForAllocation() == nullptr && ipv6_sid_address_ != nullptr) {
+    delete ipv6_sid_address_;
+  }
+  ipv6_sid_address_ = nullptr;
 }
 SLSrteSegment_TypeB::SLSrteSegment_TypeB(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
@@ -4509,7 +4295,7 @@ void SLSrteSegment_TypeB::InternalSwap(SLSrteSegment_TypeB* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata SLSrteSegment_TypeB::GetMetadata() const {
   return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_sl_5fsr_5fcommon_2eproto_getter, &descriptor_table_sl_5fsr_5fcommon_2eproto_once,
-      file_level_metadata_sl_5fsr_5fcommon_2eproto[13]);
+      file_level_metadata_sl_5fsr_5fcommon_2eproto[12]);
 }
 
 // ===================================================================
@@ -4809,7 +4595,7 @@ void SLSrteSegment::InternalSwap(SLSrteSegment* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata SLSrteSegment::GetMetadata() const {
   return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_sl_5fsr_5fcommon_2eproto_getter, &descriptor_table_sl_5fsr_5fcommon_2eproto_once,
-      file_level_metadata_sl_5fsr_5fcommon_2eproto[14]);
+      file_level_metadata_sl_5fsr_5fcommon_2eproto[13]);
 }
 
 // ===================================================================
@@ -5031,7 +4817,7 @@ void SLSrSegmentList::InternalSwap(SLSrSegmentList* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata SLSrSegmentList::GetMetadata() const {
   return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_sl_5fsr_5fcommon_2eproto_getter, &descriptor_table_sl_5fsr_5fcommon_2eproto_once,
-      file_level_metadata_sl_5fsr_5fcommon_2eproto[15]);
+      file_level_metadata_sl_5fsr_5fcommon_2eproto[14]);
 }
 
 // ===================================================================
@@ -5311,7 +5097,7 @@ void SLSrPolicyKey::InternalSwap(SLSrPolicyKey* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata SLSrPolicyKey::GetMetadata() const {
   return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_sl_5fsr_5fcommon_2eproto_getter, &descriptor_table_sl_5fsr_5fcommon_2eproto_once,
-      file_level_metadata_sl_5fsr_5fcommon_2eproto[16]);
+      file_level_metadata_sl_5fsr_5fcommon_2eproto[15]);
 }
 
 // ===================================================================
@@ -5544,7 +5330,7 @@ void SLSrCandidatePathKey_Originator::InternalSwap(SLSrCandidatePathKey_Originat
 ::PROTOBUF_NAMESPACE_ID::Metadata SLSrCandidatePathKey_Originator::GetMetadata() const {
   return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_sl_5fsr_5fcommon_2eproto_getter, &descriptor_table_sl_5fsr_5fcommon_2eproto_once,
-      file_level_metadata_sl_5fsr_5fcommon_2eproto[17]);
+      file_level_metadata_sl_5fsr_5fcommon_2eproto[16]);
 }
 
 // ===================================================================
@@ -5771,15 +5557,12 @@ void SLSrCandidatePathKey::InternalSwap(SLSrCandidatePathKey* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata SLSrCandidatePathKey::GetMetadata() const {
   return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_sl_5fsr_5fcommon_2eproto_getter, &descriptor_table_sl_5fsr_5fcommon_2eproto_once,
-      file_level_metadata_sl_5fsr_5fcommon_2eproto[18]);
+      file_level_metadata_sl_5fsr_5fcommon_2eproto[17]);
 }
 
 // @@protoc_insertion_point(namespace_scope)
 }  // namespace service_layer
 PROTOBUF_NAMESPACE_OPEN
-template<> PROTOBUF_NOINLINE ::service_layer::SLIpv6Address* Arena::CreateMaybeMessage< ::service_layer::SLIpv6Address >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::service_layer::SLIpv6Address >(arena);
-}
 template<> PROTOBUF_NOINLINE ::service_layer::SLSrPolicyFlags* Arena::CreateMaybeMessage< ::service_layer::SLSrPolicyFlags >(Arena* arena) {
   return Arena::CreateMessageInternal< ::service_layer::SLSrPolicyFlags >(arena);
 }

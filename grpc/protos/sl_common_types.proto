@@ -808,7 +808,31 @@ message SLErrorStatus {
         // Policy unapply requested but no interfaces were provided. 0x18025
         SL_POLICY_UNAPPLY_NO_INTFS = 0x18025;
 
- 
+        // !!! Error codes for operations on Segment-routing Traffic-eng policy objects.
+
+        // Offset for policy object operations. 0x19000
+        SL_SRTE_POLICY_START_OFFSET = 0x19000;
+        // Policy request message is not valid. 0x19001
+        SL_SRTE_POLICY_INVALID_REQUEST = 0x19001;
+        // PolicyKey missing from request message. 0x19002
+        SL_SRTE_POLICY_POLICYKEY_MISSING = 0x19002;
+        // PolicyKey Color missing or invalid. 0x19003
+        SL_SRTE_POLICY_POLICYKEY_COLOR_MISSING = 0x19003;
+        // PolicyKey Endpoint missing or invalid. 0x19004
+        SL_SRTE_POLICY_POLICYKEY_EP_MISSING = 0x19004;
+        // PolicyKey Headend/Source address missing or invalid. 0x19005
+        SL_SRTE_POLICY_POLICYKEY_SRC_MISSING = 0x19005;
+        // CandidatePath preference missing. 0x19006
+        SL_SRTE_POLICY_CP_PREF_MISSING = 0x19006;
+        // CPKey missing from request. 0x19007
+        SL_SRTE_POLICY_CPKEY_MISSING = 0x19007;
+        // CPKey Originator missing from request. 0x19008
+        SL_SRTE_POLICY_CPKEY_ORIGINATOR_MISSING = 0x19008;
+        // Invalid PathCompute request. 0x19101
+        SL_SRTE_PCALC_INVALID_REQUEST = 0x19101;
+        // No path available for the requested end-point and constraints. 0x19102
+        SL_SRTE_PCALC_NO_PATH_FOUND = 0x19102;
+
         // !!! Error codes Reserved for internal errors.
 
         // Offset for Internal errors. 0x100000
@@ -880,6 +904,12 @@ message SLIpAddress {
         uint32  V4Address = 1;
         bytes  V6Address = 2;
     }
+}
+
+// IPv6 addresses.
+message SLIpv6Address {
+    // IPv6 address.
+    bytes  V6Address = 1;
 }
 
 // Encapsulation Types.

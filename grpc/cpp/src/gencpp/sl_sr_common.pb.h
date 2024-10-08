@@ -48,7 +48,7 @@ struct TableStruct_sl_5fsr_5fcommon_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::AuxiliaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[19]
+  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[18]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::FieldMetadata field_metadata[];
   static const ::PROTOBUF_NAMESPACE_ID::internal::SerializationTable serialization_table[];
@@ -56,9 +56,6 @@ struct TableStruct_sl_5fsr_5fcommon_2eproto {
 };
 extern const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_sl_5fsr_5fcommon_2eproto;
 namespace service_layer {
-class SLIpv6Address;
-struct SLIpv6AddressDefaultTypeInternal;
-extern SLIpv6AddressDefaultTypeInternal _SLIpv6Address_default_instance_;
 class SLSrAffinities;
 struct SLSrAffinitiesDefaultTypeInternal;
 extern SLSrAffinitiesDefaultTypeInternal _SLSrAffinities_default_instance_;
@@ -115,7 +112,6 @@ struct SLSrv6SidStructDefaultTypeInternal;
 extern SLSrv6SidStructDefaultTypeInternal _SLSrv6SidStruct_default_instance_;
 }  // namespace service_layer
 PROTOBUF_NAMESPACE_OPEN
-template<> ::service_layer::SLIpv6Address* Arena::CreateMaybeMessage<::service_layer::SLIpv6Address>(Arena*);
 template<> ::service_layer::SLSrAffinities* Arena::CreateMaybeMessage<::service_layer::SLSrAffinities>(Arena*);
 template<> ::service_layer::SLSrBsid* Arena::CreateMaybeMessage<::service_layer::SLSrBsid>(Arena*);
 template<> ::service_layer::SLSrCandidatePathKey* Arena::CreateMaybeMessage<::service_layer::SLSrCandidatePathKey>(Arena*);
@@ -396,157 +392,6 @@ inline bool SLSrteDiversityLevel_Parse(
 }
 // ===================================================================
 
-class SLIpv6Address final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:service_layer.SLIpv6Address) */ {
- public:
-  inline SLIpv6Address() : SLIpv6Address(nullptr) {}
-  ~SLIpv6Address() override;
-  explicit constexpr SLIpv6Address(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
-
-  SLIpv6Address(const SLIpv6Address& from);
-  SLIpv6Address(SLIpv6Address&& from) noexcept
-    : SLIpv6Address() {
-    *this = ::std::move(from);
-  }
-
-  inline SLIpv6Address& operator=(const SLIpv6Address& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline SLIpv6Address& operator=(SLIpv6Address&& from) noexcept {
-    if (this == &from) return *this;
-    if (GetOwningArena() == from.GetOwningArena()
-  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
-        && GetOwningArena() != nullptr
-  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
-    ) {
-      InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
-    return default_instance().GetMetadata().descriptor;
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
-    return default_instance().GetMetadata().reflection;
-  }
-  static const SLIpv6Address& default_instance() {
-    return *internal_default_instance();
-  }
-  static inline const SLIpv6Address* internal_default_instance() {
-    return reinterpret_cast<const SLIpv6Address*>(
-               &_SLIpv6Address_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    0;
-
-  friend void swap(SLIpv6Address& a, SLIpv6Address& b) {
-    a.Swap(&b);
-  }
-  inline void Swap(SLIpv6Address* other) {
-    if (other == this) return;
-  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetOwningArena() != nullptr &&
-        GetOwningArena() == other->GetOwningArena()) {
-   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetOwningArena() == other->GetOwningArena()) {
-  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
-      InternalSwap(other);
-    } else {
-      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
-    }
-  }
-  void UnsafeArenaSwap(SLIpv6Address* other) {
-    if (other == this) return;
-    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  SLIpv6Address* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
-    return CreateMaybeMessage<SLIpv6Address>(arena);
-  }
-  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const SLIpv6Address& from);
-  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom(const SLIpv6Address& from);
-  private:
-  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to, const ::PROTOBUF_NAMESPACE_ID::Message& from);
-  public:
-  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
-  bool IsInitialized() const final;
-
-  size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  uint8_t* _InternalSerialize(
-      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
-  int GetCachedSize() const final { return _cached_size_.Get(); }
-
-  private:
-  void SharedCtor();
-  void SharedDtor();
-  void SetCachedSize(int size) const final;
-  void InternalSwap(SLIpv6Address* other);
-
-  private:
-  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
-  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "service_layer.SLIpv6Address";
-  }
-  protected:
-  explicit SLIpv6Address(::PROTOBUF_NAMESPACE_ID::Arena* arena,
-                       bool is_message_owned = false);
-  private:
-  static void ArenaDtor(void* object);
-  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
-  public:
-
-  static const ClassData _class_data_;
-  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
-
-  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  enum : int {
-    kV6AddressFieldNumber = 1,
-  };
-  // bytes V6Address = 1;
-  void clear_v6address();
-  const std::string& v6address() const;
-  template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_v6address(ArgT0&& arg0, ArgT... args);
-  std::string* mutable_v6address();
-  PROTOBUF_NODISCARD std::string* release_v6address();
-  void set_allocated_v6address(std::string* v6address);
-  private:
-  const std::string& _internal_v6address() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_v6address(const std::string& value);
-  std::string* _internal_mutable_v6address();
-  public:
-
-  // @@protoc_insertion_point(class_scope:service_layer.SLIpv6Address)
- private:
-  class _Internal;
-
-  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
-  typedef void InternalArenaConstructable_;
-  typedef void DestructorSkippable_;
-  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr v6address_;
-  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-  friend struct ::TableStruct_sl_5fsr_5fcommon_2eproto;
-};
-// -------------------------------------------------------------------
-
 class SLSrPolicyFlags final :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:service_layer.SLSrPolicyFlags) */ {
  public:
@@ -595,7 +440,7 @@ class SLSrPolicyFlags final :
                &_SLSrPolicyFlags_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    1;
+    0;
 
   friend void swap(SLSrPolicyFlags& a, SLSrPolicyFlags& b) {
     a.Swap(&b);
@@ -747,7 +592,7 @@ class SLSrBsid final :
                &_SLSrBsid_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    2;
+    1;
 
   friend void swap(SLSrBsid& a, SLSrBsid& b) {
     a.Swap(&b);
@@ -930,7 +775,7 @@ class SLSrCpName final :
                &_SLSrCpName_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    3;
+    2;
 
   friend void swap(SLSrCpName& a, SLSrCpName& b) {
     a.Swap(&b);
@@ -1093,7 +938,7 @@ class SLSrSegmentDesc final :
                &_SLSrSegmentDesc_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    4;
+    3;
 
   friend void swap(SLSrSegmentDesc& a, SLSrSegmentDesc& b) {
     a.Swap(&b);
@@ -1371,7 +1216,7 @@ class SLSrSegment final :
                &_SLSrSegment_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    5;
+    4;
 
   friend void swap(SLSrSegment& a, SLSrSegment& b) {
     a.Swap(&b);
@@ -1636,7 +1481,7 @@ class SLSrv6BindingSid final :
                &_SLSrv6BindingSid_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    6;
+    5;
 
   friend void swap(SLSrv6BindingSid& a, SLSrv6BindingSid& b) {
     a.Swap(&b);
@@ -1854,7 +1699,7 @@ class SLSrv6EndPointBehavior final :
                &_SLSrv6EndPointBehavior_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    7;
+    6;
 
   friend void swap(SLSrv6EndPointBehavior& a, SLSrv6EndPointBehavior& b) {
     a.Swap(&b);
@@ -2022,7 +1867,7 @@ class SLSrv6SidStruct final :
                &_SLSrv6SidStruct_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    8;
+    7;
 
   friend void swap(SLSrv6SidStruct& a, SLSrv6SidStruct& b) {
     a.Swap(&b);
@@ -2201,7 +2046,7 @@ class SLSrMetricBounds final :
                &_SLSrMetricBounds_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    9;
+    8;
 
   friend void swap(SLSrMetricBounds& a, SLSrMetricBounds& b) {
     a.Swap(&b);
@@ -2369,7 +2214,7 @@ class SLSrMetricMargin final :
                &_SLSrMetricMargin_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    10;
+    9;
 
   friend void swap(SLSrMetricMargin& a, SLSrMetricMargin& b) {
     a.Swap(&b);
@@ -2556,7 +2401,7 @@ class SLSrAffinities final :
                &_SLSrAffinities_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    11;
+    10;
 
   friend void swap(SLSrAffinities& a, SLSrAffinities& b) {
     a.Swap(&b);
@@ -2766,7 +2611,7 @@ class SLSrteSegment_TypeA final :
                &_SLSrteSegment_TypeA_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    12;
+    11;
 
   friend void swap(SLSrteSegment_TypeA& a, SLSrteSegment_TypeA& b) {
     a.Swap(&b);
@@ -2912,7 +2757,7 @@ class SLSrteSegment_TypeB final :
                &_SLSrteSegment_TypeB_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    13;
+    12;
 
   friend void swap(SLSrteSegment_TypeB& a, SLSrteSegment_TypeB& b) {
     a.Swap(&b);
@@ -3104,7 +2949,7 @@ class SLSrteSegment final :
                &_SLSrteSegment_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    14;
+    13;
 
   friend void swap(SLSrteSegment& a, SLSrteSegment& b) {
     a.Swap(&b);
@@ -3295,7 +3140,7 @@ class SLSrSegmentList final :
                &_SLSrSegmentList_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    15;
+    14;
 
   friend void swap(SLSrSegmentList& a, SLSrSegmentList& b) {
     a.Swap(&b);
@@ -3466,7 +3311,7 @@ class SLSrPolicyKey final :
                &_SLSrPolicyKey_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    16;
+    15;
 
   friend void swap(SLSrPolicyKey& a, SLSrPolicyKey& b) {
     a.Swap(&b);
@@ -3652,7 +3497,7 @@ class SLSrCandidatePathKey_Originator final :
                &_SLSrCandidatePathKey_Originator_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    17;
+    16;
 
   friend void swap(SLSrCandidatePathKey_Originator& a, SLSrCandidatePathKey_Originator& b) {
     a.Swap(&b);
@@ -3818,7 +3663,7 @@ class SLSrCandidatePathKey final :
                &_SLSrCandidatePathKey_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    18;
+    17;
 
   friend void swap(SLSrCandidatePathKey& a, SLSrCandidatePathKey& b) {
     a.Swap(&b);
@@ -3945,61 +3790,6 @@ class SLSrCandidatePathKey final :
   #pragma GCC diagnostic push
   #pragma GCC diagnostic ignored "-Wstrict-aliasing"
 #endif  // __GNUC__
-// SLIpv6Address
-
-// bytes V6Address = 1;
-inline void SLIpv6Address::clear_v6address() {
-  v6address_.ClearToEmpty();
-}
-inline const std::string& SLIpv6Address::v6address() const {
-  // @@protoc_insertion_point(field_get:service_layer.SLIpv6Address.V6Address)
-  return _internal_v6address();
-}
-template <typename ArgT0, typename... ArgT>
-inline PROTOBUF_ALWAYS_INLINE
-void SLIpv6Address::set_v6address(ArgT0&& arg0, ArgT... args) {
- 
- v6address_.SetBytes(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
-  // @@protoc_insertion_point(field_set:service_layer.SLIpv6Address.V6Address)
-}
-inline std::string* SLIpv6Address::mutable_v6address() {
-  std::string* _s = _internal_mutable_v6address();
-  // @@protoc_insertion_point(field_mutable:service_layer.SLIpv6Address.V6Address)
-  return _s;
-}
-inline const std::string& SLIpv6Address::_internal_v6address() const {
-  return v6address_.Get();
-}
-inline void SLIpv6Address::_internal_set_v6address(const std::string& value) {
-  
-  v6address_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArenaForAllocation());
-}
-inline std::string* SLIpv6Address::_internal_mutable_v6address() {
-  
-  return v6address_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
-}
-inline std::string* SLIpv6Address::release_v6address() {
-  // @@protoc_insertion_point(field_release:service_layer.SLIpv6Address.V6Address)
-  return v6address_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArenaForAllocation());
-}
-inline void SLIpv6Address::set_allocated_v6address(std::string* v6address) {
-  if (v6address != nullptr) {
-    
-  } else {
-    
-  }
-  v6address_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), v6address,
-      GetArenaForAllocation());
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (v6address_.IsDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited())) {
-    v6address_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
-  }
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  // @@protoc_insertion_point(field_set_allocated:service_layer.SLIpv6Address.V6Address)
-}
-
-// -------------------------------------------------------------------
-
 // SLSrPolicyFlags
 
 // uint32 Flags = 1;
@@ -5805,12 +5595,6 @@ inline bool SLSrteSegment_TypeB::_internal_has_ipv6_sid_address() const {
 inline bool SLSrteSegment_TypeB::has_ipv6_sid_address() const {
   return _internal_has_ipv6_sid_address();
 }
-inline void SLSrteSegment_TypeB::clear_ipv6_sid_address() {
-  if (GetArenaForAllocation() == nullptr && ipv6_sid_address_ != nullptr) {
-    delete ipv6_sid_address_;
-  }
-  ipv6_sid_address_ = nullptr;
-}
 inline const ::service_layer::SLIpv6Address& SLSrteSegment_TypeB::_internal_ipv6_sid_address() const {
   const ::service_layer::SLIpv6Address* p = ipv6_sid_address_;
   return p != nullptr ? *p : reinterpret_cast<const ::service_layer::SLIpv6Address&>(
@@ -5871,11 +5655,13 @@ inline ::service_layer::SLIpv6Address* SLSrteSegment_TypeB::mutable_ipv6_sid_add
 inline void SLSrteSegment_TypeB::set_allocated_ipv6_sid_address(::service_layer::SLIpv6Address* ipv6_sid_address) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
   if (message_arena == nullptr) {
-    delete ipv6_sid_address_;
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(ipv6_sid_address_);
   }
   if (ipv6_sid_address) {
     ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-        ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper<::service_layer::SLIpv6Address>::GetOwningArena(ipv6_sid_address);
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper<
+            ::PROTOBUF_NAMESPACE_ID::MessageLite>::GetOwningArena(
+                reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(ipv6_sid_address));
     if (message_arena != submessage_arena) {
       ipv6_sid_address = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
           message_arena, ipv6_sid_address, submessage_arena);
@@ -6654,8 +6440,6 @@ inline void SLSrCandidatePathKey::set_discriminator(uint32_t value) {
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
-// -------------------------------------------------------------------
-
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------
