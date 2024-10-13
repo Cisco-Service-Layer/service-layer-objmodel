@@ -405,6 +405,10 @@ enum SLErrorStatus_SLErrno : int {
   SLErrorStatus_SLErrno_SL_POLICY_RULE_DELETE_NO_RULES = 98339,
   SLErrorStatus_SLErrno_SL_POLICY_APPLY_NO_INTFS = 98340,
   SLErrorStatus_SLErrno_SL_POLICY_UNAPPLY_NO_INTFS = 98341,
+  SLErrorStatus_SLErrno_SL_BGPLS_TOPO_START_OFFSET = 102400,
+  SLErrorStatus_SLErrno_SL_BGPLS_SERVER_NOT_AVAILABLE = 102401,
+  SLErrorStatus_SLErrno_SL_BGPLS_MAX_MATCH_FILTER_EXCEEDED = 102402,
+  SLErrorStatus_SLErrno_SL_BGPLS_MAX_STREAMS_EXCEEDED = 102403,
   SLErrorStatus_SLErrno_SL_INTERNAL_START_OFFSET = 1048576,
   SLErrorStatus_SLErrno_SLErrorStatus_SLErrno_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::min(),
   SLErrorStatus_SLErrno_SLErrorStatus_SLErrno_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::max()
@@ -1439,6 +1443,14 @@ class SLErrorStatus final :
     SLErrorStatus_SLErrno_SL_POLICY_APPLY_NO_INTFS;
   static constexpr SLErrno SL_POLICY_UNAPPLY_NO_INTFS =
     SLErrorStatus_SLErrno_SL_POLICY_UNAPPLY_NO_INTFS;
+  static constexpr SLErrno SL_BGPLS_TOPO_START_OFFSET =
+    SLErrorStatus_SLErrno_SL_BGPLS_TOPO_START_OFFSET;
+  static constexpr SLErrno SL_BGPLS_SERVER_NOT_AVAILABLE =
+    SLErrorStatus_SLErrno_SL_BGPLS_SERVER_NOT_AVAILABLE;
+  static constexpr SLErrno SL_BGPLS_MAX_MATCH_FILTER_EXCEEDED =
+    SLErrorStatus_SLErrno_SL_BGPLS_MAX_MATCH_FILTER_EXCEEDED;
+  static constexpr SLErrno SL_BGPLS_MAX_STREAMS_EXCEEDED =
+    SLErrorStatus_SLErrno_SL_BGPLS_MAX_STREAMS_EXCEEDED;
   static constexpr SLErrno SL_INTERNAL_START_OFFSET =
     SLErrorStatus_SLErrno_SL_INTERNAL_START_OFFSET;
   static inline bool SLErrno_IsValid(int value) {

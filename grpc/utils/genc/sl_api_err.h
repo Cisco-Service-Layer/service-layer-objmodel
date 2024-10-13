@@ -745,6 +745,16 @@
     SL_POLICY_APPLY_NO_INTFS = 0x18024,\
     /* Policy unapply requested but no interfaces were provided. 0x18025 */\
     SL_POLICY_UNAPPLY_NO_INTFS = 0x18025,\
+    /* !!! Error codes for Bgpls Topology objects. */\
+    /* Offset for Bgpls Topology errors. 0x19000 */\
+    SL_BGPLS_TOPO_START_OFFSET = 0x19000,        \
+    /* LSLIB Server which is required for BGPLS Topology Service */\
+    /* is not available. 0x19001 */\
+    SL_BGPLS_SERVER_NOT_AVAILABLE = 0x19001,\
+    /* Maximum match filters in SLBgplsTopoNotifReqMsg exceeded. 0x19002 */\
+    SL_BGPLS_MAX_MATCH_FILTER_EXCEEDED = 0x19002,\
+    /* Maximum SLBgplsTopoNotifStream exceeded. 0x19003 */\
+    SL_BGPLS_MAX_STREAMS_EXCEEDED = 0x19003,\
     /* !!! Error codes Reserved for internal errors. */\
     /* Offset for Internal errors. 0x100000 */\
     SL_INTERNAL_START_OFFSET = 0x100000,\
@@ -1784,6 +1794,19 @@
         },\
     {SL_POLICY_UNAPPLY_NO_INTFS ,\
         " Policy unapply requested but no interfaces were provided.  "\
+        },\
+    {SL_BGPLS_TOPO_START_OFFSET ,\
+        " Offset for Bgpls Topology errors.  "\
+        },\
+    {SL_BGPLS_SERVER_NOT_AVAILABLE ,\
+        " LSLIB Server which is required for BGPLS Topology Service "\
+        " is not available.  "\
+        },\
+    {SL_BGPLS_MAX_MATCH_FILTER_EXCEEDED ,\
+        " Maximum match filters in SLBgplsTopoNotifReqMsg exceeded.  "\
+        },\
+    {SL_BGPLS_MAX_STREAMS_EXCEEDED ,\
+        " Maximum SLBgplsTopoNotifStream exceeded.  "\
         },\
     {SL_INTERNAL_START_OFFSET ,\
         " Offset for Internal errors.  "\

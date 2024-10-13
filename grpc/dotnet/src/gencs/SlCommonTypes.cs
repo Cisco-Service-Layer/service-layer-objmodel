@@ -24,9 +24,9 @@ namespace ServiceLayer {
     static SlCommonTypesReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChVzbF9jb21tb25fdHlwZXMucHJvdG8SDXNlcnZpY2VfbGF5ZXIipFYKDVNM",
+            "ChVzbF9jb21tb25fdHlwZXMucHJvdG8SDXNlcnZpY2VfbGF5ZXIiulcKDVNM",
             "RXJyb3JTdGF0dXMSNAoGU3RhdHVzGAEgASgOMiQuc2VydmljZV9sYXllci5T",
-            "TEVycm9yU3RhdHVzLlNMRXJybm8i3FUKB1NMRXJybm8SDgoKU0xfU1VDQ0VT",
+            "TEVycm9yU3RhdHVzLlNMRXJybm8i8lYKB1NMRXJybm8SDgoKU0xfU1VDQ0VT",
             "UxAAEhQKEFNMX05PVF9DT05ORUNURUQQARINCglTTF9FQUdBSU4QAhINCglT",
             "TF9FTk9NRU0QAxIMCghTTF9FQlVTWRAEEg0KCVNMX0VJTlZBTBAFEhYKElNM",
             "X1VOU1VQUE9SVEVEX1ZFUhAGEhQKEFNMX05PVF9BVkFJTEFCTEUQBxIbChdT",
@@ -269,36 +269,40 @@ namespace ServiceLayer {
             "VFlfU1RSX1RPT19MT05HEKGABhImCiBTTF9QT0xJQ1lfTUFYX0lOVEZfTElN",
             "SVRfUkVBQ0hFRBCigAYSJAoeU0xfUE9MSUNZX1JVTEVfREVMRVRFX05PX1JV",
             "TEVTEKOABhIeChhTTF9QT0xJQ1lfQVBQTFlfTk9fSU5URlMQpIAGEiAKGlNM",
-            "X1BPTElDWV9VTkFQUExZX05PX0lOVEZTEKWABhIeChhTTF9JTlRFUk5BTF9T",
-            "VEFSVF9PRkZTRVQQgIBAIjwKC1NMSW50ZXJmYWNlEg4KBE5hbWUYASABKAlI",
-            "ABIQCgZIYW5kbGUYAiABKA1IAEILCglJbnRlcmZhY2UiQgoLU0xJcEFkZHJl",
-            "c3MSEwoJVjRBZGRyZXNzGAEgASgNSAASEwoJVjZBZGRyZXNzGAIgASgMSABC",
-            "CQoHQWRkcmVzcyIlCgpTTE9iamVjdElkEg4KBE5hbWUYASABKAlIAEIHCgVl",
-            "bnRyeSJUChFTTFBhdGhHcm91cFJlZktleRIPCgdWcmZOYW1lGAEgASgJEi4K",
-            "C1BhdGhHcm91cElkGAIgASgLMhkuc2VydmljZV9sYXllci5TTE9iamVjdElk",
-            "KmIKB1NMUmVnT3ASFQoRU0xfUkVHT1BfUkVTRVJWRUQQABIVChFTTF9SRUdP",
-            "UF9SRUdJU1RFUhABEhcKE1NMX1JFR09QX1VOUkVHSVNURVIQAhIQCgxTTF9S",
-            "RUdPUF9FT0YQAypfCgpTTE9iamVjdE9wEhUKEVNMX09CSk9QX1JFU0VSVkVE",
-            "EAASEAoMU0xfT0JKT1BfQUREEAESEwoPU0xfT0JKT1BfVVBEQVRFEAISEwoP",
-            "U0xfT0JKT1BfREVMRVRFEAMqUwoJU0xOb3RpZk9wEhcKE1NMX05PVElGT1Bf",
-            "UkVTRVJWRUQQABIVChFTTF9OT1RJRk9QX0VOQUJMRRABEhYKElNMX05PVElG",
-            "T1BfRElTQUJMRRACKokBChBTTFVwZGF0ZVByaW9yaXR5EhgKFFNMX1BSSU9S",
-            "SVRZX1JFU0VSVkVEEAASGAoUU0xfUFJJT1JJVFlfQ1JJVElDQUwQBBIUChBT",
-            "TF9QUklPUklUWV9ISUdIEAgSFgoSU0xfUFJJT1JJVFlfTUVESVVNEAwSEwoP",
-            "U0xfUFJJT1JJVFlfTE9XEBAqSwoLU0xFbmNhcFR5cGUSFQoRU0xfRU5DQVBf",
-            "UkVTRVJWRUQQABISCg5TTF9FTkNBUF9WWExBThABEhEKDVNMX0VOQ0FQX01Q",
-            "TFMQAiqNAQoLU0xUYWJsZVR5cGUSGgoWU0xfVEFCTEVfVFlQRV9SRVNFUlZF",
-            "RBAAEhcKE1NMX0lQdjRfUk9VVEVfVEFCTEUQARIXChNTTF9JUHY2X1JPVVRF",
-            "X1RBQkxFEAISFwoTU0xfTVBMU19MQUJFTF9UQUJMRRADEhcKE1NMX1BBVEhf",
-            "R1JPVVBfVEFCTEUQBCowCgxTTFJzcEFDS1R5cGUSCwoHUklCX0FDSxAAEhMK",
-            "D1JJQl9BTkRfRklCX0FDSxABKpkBCg5TTFJzcEFDS1Blcm1pdBIRCg1TTF9Q",
-            "RVJNSVRfQUxMEAASGAoUU0xfUEVSTUlUX1NMX1NVQ0NFU1MQARIcChhTTF9Q",
-            "RVJNSVRfU0xfRklCX1NVQ0NFU1MQAhIbChdTTF9QRVJNSVRfU0xfRklCX0ZB",
-            "SUxFRBAEEh8KG1NMX1BFUk1JVF9TTF9GSUJfSU5FTElHSUJMRRAIKlQKD1NM",
-            "UnNwQWNrQ2FkZW5jZRIVChFTTF9SU1BfQ09OVElOVU9VUxAAEhQKEFNMX1JT",
-            "UF9KVVNUX09OQ0UQARIUChBTTF9SU1BfT05DRV9FQUNIEAJCUVpPZ2l0aHVi",
-            "LmNvbS9DaXNjby1zZXJ2aWNlLWxheWVyL3NlcnZpY2UtbGF5ZXItb2JqbW9k",
-            "ZWwvZ3JwYy9wcm90b3M7c2VydmljZV9sYXllcmIGcHJvdG8z"));
+            "X1BPTElDWV9VTkFQUExZX05PX0lOVEZTEKWABhIgChpTTF9CR1BMU19UT1BP",
+            "X1NUQVJUX09GRlNFVBCAoAYSIwodU0xfQkdQTFNfU0VSVkVSX05PVF9BVkFJ",
+            "TEFCTEUQgaAGEigKIlNMX0JHUExTX01BWF9NQVRDSF9GSUxURVJfRVhDRUVE",
+            "RUQQgqAGEiMKHVNMX0JHUExTX01BWF9TVFJFQU1TX0VYQ0VFREVEEIOgBhIe",
+            "ChhTTF9JTlRFUk5BTF9TVEFSVF9PRkZTRVQQgIBAIjwKC1NMSW50ZXJmYWNl",
+            "Eg4KBE5hbWUYASABKAlIABIQCgZIYW5kbGUYAiABKA1IAEILCglJbnRlcmZh",
+            "Y2UiQgoLU0xJcEFkZHJlc3MSEwoJVjRBZGRyZXNzGAEgASgNSAASEwoJVjZB",
+            "ZGRyZXNzGAIgASgMSABCCQoHQWRkcmVzcyIlCgpTTE9iamVjdElkEg4KBE5h",
+            "bWUYASABKAlIAEIHCgVlbnRyeSJUChFTTFBhdGhHcm91cFJlZktleRIPCgdW",
+            "cmZOYW1lGAEgASgJEi4KC1BhdGhHcm91cElkGAIgASgLMhkuc2VydmljZV9s",
+            "YXllci5TTE9iamVjdElkKmIKB1NMUmVnT3ASFQoRU0xfUkVHT1BfUkVTRVJW",
+            "RUQQABIVChFTTF9SRUdPUF9SRUdJU1RFUhABEhcKE1NMX1JFR09QX1VOUkVH",
+            "SVNURVIQAhIQCgxTTF9SRUdPUF9FT0YQAypfCgpTTE9iamVjdE9wEhUKEVNM",
+            "X09CSk9QX1JFU0VSVkVEEAASEAoMU0xfT0JKT1BfQUREEAESEwoPU0xfT0JK",
+            "T1BfVVBEQVRFEAISEwoPU0xfT0JKT1BfREVMRVRFEAMqUwoJU0xOb3RpZk9w",
+            "EhcKE1NMX05PVElGT1BfUkVTRVJWRUQQABIVChFTTF9OT1RJRk9QX0VOQUJM",
+            "RRABEhYKElNMX05PVElGT1BfRElTQUJMRRACKokBChBTTFVwZGF0ZVByaW9y",
+            "aXR5EhgKFFNMX1BSSU9SSVRZX1JFU0VSVkVEEAASGAoUU0xfUFJJT1JJVFlf",
+            "Q1JJVElDQUwQBBIUChBTTF9QUklPUklUWV9ISUdIEAgSFgoSU0xfUFJJT1JJ",
+            "VFlfTUVESVVNEAwSEwoPU0xfUFJJT1JJVFlfTE9XEBAqSwoLU0xFbmNhcFR5",
+            "cGUSFQoRU0xfRU5DQVBfUkVTRVJWRUQQABISCg5TTF9FTkNBUF9WWExBThAB",
+            "EhEKDVNMX0VOQ0FQX01QTFMQAiqNAQoLU0xUYWJsZVR5cGUSGgoWU0xfVEFC",
+            "TEVfVFlQRV9SRVNFUlZFRBAAEhcKE1NMX0lQdjRfUk9VVEVfVEFCTEUQARIX",
+            "ChNTTF9JUHY2X1JPVVRFX1RBQkxFEAISFwoTU0xfTVBMU19MQUJFTF9UQUJM",
+            "RRADEhcKE1NMX1BBVEhfR1JPVVBfVEFCTEUQBCowCgxTTFJzcEFDS1R5cGUS",
+            "CwoHUklCX0FDSxAAEhMKD1JJQl9BTkRfRklCX0FDSxABKpkBCg5TTFJzcEFD",
+            "S1Blcm1pdBIRCg1TTF9QRVJNSVRfQUxMEAASGAoUU0xfUEVSTUlUX1NMX1NV",
+            "Q0NFU1MQARIcChhTTF9QRVJNSVRfU0xfRklCX1NVQ0NFU1MQAhIbChdTTF9Q",
+            "RVJNSVRfU0xfRklCX0ZBSUxFRBAEEh8KG1NMX1BFUk1JVF9TTF9GSUJfSU5F",
+            "TElHSUJMRRAIKlQKD1NMUnNwQWNrQ2FkZW5jZRIVChFTTF9SU1BfQ09OVElO",
+            "VU9VUxAAEhQKEFNMX1JTUF9KVVNUX09OQ0UQARIUChBTTF9SU1BfT05DRV9F",
+            "QUNIEAJCUVpPZ2l0aHViLmNvbS9DaXNjby1zZXJ2aWNlLWxheWVyL3NlcnZp",
+            "Y2UtbGF5ZXItb2JqbW9kZWwvZ3JwYy9wcm90b3M7c2VydmljZV9sYXllcmIG",
+            "cHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::ServiceLayer.SLRegOp), typeof(global::ServiceLayer.SLObjectOp), typeof(global::ServiceLayer.SLNotifOp), typeof(global::ServiceLayer.SLUpdatePriority), typeof(global::ServiceLayer.SLEncapType), typeof(global::ServiceLayer.SLTableType), typeof(global::ServiceLayer.SLRspACKType), typeof(global::ServiceLayer.SLRspACKPermit), typeof(global::ServiceLayer.SLRspAckCadence), }, null, new pbr::GeneratedClrTypeInfo[] {
@@ -2116,6 +2120,23 @@ namespace ServiceLayer {
         /// Policy unapply requested but no interfaces were provided. 0x18025
         /// </summary>
         [pbr::OriginalName("SL_POLICY_UNAPPLY_NO_INTFS")] SlPolicyUnapplyNoIntfs = 98341,
+        /// <summary>
+        /// Offset for Bgpls Topology errors. 0x19000
+        /// </summary>
+        [pbr::OriginalName("SL_BGPLS_TOPO_START_OFFSET")] SlBgplsTopoStartOffset = 102400,
+        /// <summary>
+        /// LSLIB Server which is required for BGPLS Topology Service
+        /// is not available. 0x19001
+        /// </summary>
+        [pbr::OriginalName("SL_BGPLS_SERVER_NOT_AVAILABLE")] SlBgplsServerNotAvailable = 102401,
+        /// <summary>
+        /// Maximum match filters in SLBgplsTopoNotifReqMsg exceeded. 0x19002
+        /// </summary>
+        [pbr::OriginalName("SL_BGPLS_MAX_MATCH_FILTER_EXCEEDED")] SlBgplsMaxMatchFilterExceeded = 102402,
+        /// <summary>
+        /// Maximum SLBgplsTopoNotifStream exceeded. 0x19003
+        /// </summary>
+        [pbr::OriginalName("SL_BGPLS_MAX_STREAMS_EXCEEDED")] SlBgplsMaxStreamsExceeded = 102403,
         /// <summary>
         /// Offset for Internal errors. 0x100000
         /// </summary>
